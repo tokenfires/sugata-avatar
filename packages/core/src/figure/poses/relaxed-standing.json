@@ -1,0 +1,100 @@
+{
+    "name": "relaxed-standing",
+    "description": "The default posture: quiet two-footed stance, arms hanging, hands relaxed.",
+
+    "notes": [
+        "Every angle here is a correction measured off figure_g050.glb's bind pose, not a number chosen to look right in isolation. The bind pose facts it is written against: upper arms 41.8 degrees out from vertical in the frontal plane; elbows carrying 43.1 degrees of flexion with the forearms swung forward so the wrists sit at z = +0.183 m, 17 cm clear of the hip joints; fingers all but flat, 15-21 degrees of curl at the knuckle and 7-12 at the middle joint.",
+
+        "ARMS. The humerus lands 10 degrees out from vertical in the frontal plane, which is 28.5 degrees of adduction off the bind pose. Not zero: a perfectly vertical arm reads as standing to attention, and it flattens the deltoid. Fore and aft, the arm hangs about 4 degrees BEHIND vertical, which is where a relaxed glenohumeral joint sits once the scapula has protracted — and it is what puts the elbow level with the side seam and the wrist 5 cm in front of the hip joint instead of 14 cm.",
+
+        "ELBOWS. Never straight. A locked elbow is a held position, and the eye reads held as rigid inside a second. 13 degrees of residual flexion is the resting carrying position, so the bind pose's 43.1 is reduced by 30 rather than removed. The rotation is about the measured elbow hinge — the cross product of the bind pose's upper-arm and forearm directions — so it stays a hinge after the shoulder has swung the whole arm 28 degrees inboard.",
+
+        "The 7 degrees of forearm adduction that follows the extension is the carrying angle. With the arm pronated at the side the forearm converges back toward the midline, so the wrist ends up over the greater trochanter rather than 5 cm outside the thigh. It is also what gives the arm its slightly bowed silhouette; a straight line from shoulder to wrist reads as a broom handle.",
+
+        "FINGERS. The detail that most separates a hand from a glove. A relaxed hand sits in the position of rest: every joint partly flexed, and the flexion INCREASES from index to little finger, so the fingertips describe a curve rather than a line. That gradient is a real consequence of the flexor arrangement and the eye knows it without being able to name it. Totals land near index 20/34, middle 25/40, ring 31/46, little 37/52 degrees at knuckle and middle joint. Curl is written about the knuckle axis — index MCP to little MCP, measured on the bind pose — so one axis serves all twelve joints of the four fingers. The thumb gets its own, because its plane is oblique to theirs.",
+
+        "TRUNK. Slight thoracic rounding, slight forward head, shoulders protracted and depressed a few degrees off the squared-up bind pose. All of it under 4 degrees; past that it reads as slumped rather than relaxed.",
+
+        "ASYMMETRY. A degree or two of difference between the sides everywhere it is cheap — arms, hands, hips, feet. Nobody stands square, and exact bilateral symmetry is one of the tells that a figure was posed by a machine. It is deliberately kept below the threshold at which it reads as a lean."
+    ],
+
+    "hipsOffsetMetres": [ 0.002, 0, 0 ],
+
+    "axes": {
+        "elbowExtendLeft": [ 0.7449, 0.6647, -0.0514 ],
+        "elbowExtendRight": [ 0.7449, -0.6647, 0.0514 ],
+
+        "fingerCurlLeft": [ 0.386, -0.415, -0.826 ],
+        "fingerCurlRight": [ 0.386, 0.415, 0.826 ],
+
+        "thumbCurlLeft": [ 0.058, 0.896, 0.426 ],
+        "thumbCurlRight": [ 0.058, -0.896, -0.426 ]
+    },
+
+    "bones": {
+
+        "hips": { "euler": [ 0, 1.2, -0.6 ], "why": "A degree of transverse rotation and half a degree of obliquity. Below the threshold at which it reads as a pose; above the threshold at which the figure reads as machined." },
+        "spine": { "euler": [ 0.5, -0.5, 0.5 ], "why": "Takes back most of the pelvis's asymmetry so the shoulders stay over the feet. The residue is what makes the trunk look settled rather than stacked." },
+        "chest": { "euler": [ 0.8, -0.3, 0.1 ], "why": "Start of the thoracic rounding. Quiet standing is not a flat back." },
+        "upperChest": { "euler": [ 1.2, 0.3, -0.1 ], "why": "The rest of the rounding: 2 degrees of upper-trunk flexion in total, which is the difference between standing and standing to attention." },
+        "neck": { "euler": [ 2.2, -0.6, 0.3 ], "why": "Slight forward head. Real necks carry 2-4 degrees of it, and a perfectly stacked one reads as a bust on a plinth." },
+        "head": { "euler": [ -1.6, 0.5, -0.5 ], "why": "Levels the gaze back up after the neck's forward carry, leaving half a degree of tilt. Gaze composes on top of this, so it has to hand over a horizontal eye line." },
+
+        "leftShoulder": { "euler": [ 0, -4, -3 ], "why": "Protraction (y, tip forward) and depression (z, tip down). The bind pose squares the shoulders and holds them up; relaxed shoulders sit forward of the coronal plane and hang." },
+        "leftUpperArm": { "euler": [ 4, -6, -28.5 ], "why": "z: 28.5 of adduction lands the humerus 10 degrees out from vertical. x: +4 hangs it slightly behind vertical, which is what brings the wrist back beside the hip. y: -6 is mild internal rotation — it is what turns the palm toward the thigh." },
+        "leftLowerArm": [
+            { "axis": "elbowExtendLeft", "degrees": 30, "why": "Bind pose's 43.1 degrees of elbow flexion down to 13.1. Not to zero: a locked elbow reads rigid." },
+            { "euler": [ 0, 0, -7 ], "why": "Carrying angle. Converges the forearm back toward the midline so the wrist lands over the greater trochanter." }
+        ],
+        "leftHand": { "euler": [ 0, 0, 0 ], "why": "Neutral wrist. The forearm already lands the hand where a relaxed one sits, and a wrist angle here would only fight the finger curl." },
+
+        "rightShoulder": { "euler": [ 0, 4, 3 ], "why": "Mirror of the left. Rotations mirror across the sagittal plane as (x, -y, -z)." },
+        "rightUpperArm": { "euler": [ 4, 6, 27.0 ], "why": "A degree and a half shy of the left's mirror, so the two arms do not hang at identical angles: 11.7 degrees out against the left's 10.1." },
+        "rightLowerArm": [
+            { "axis": "elbowExtendRight", "degrees": 29, "why": "A degree less extension than the left, for the same reason." },
+            { "euler": [ 0, 0, 6 ] }
+        ],
+        "rightHand": { "euler": [ 0, 0, 0 ] },
+
+        "leftIndexProximal": { "axis": "fingerCurlLeft", "degrees": 8, "why": "Index leads the cascade with the least curl." },
+        "leftIndexIntermediate": { "axis": "fingerCurlLeft", "degrees": 24 },
+        "leftIndexDistal": { "axis": "fingerCurlLeft", "degrees": 10 },
+        "leftMiddleProximal": { "axis": "fingerCurlLeft", "degrees": 5, "why": "Small because the bind pose already gives the middle knuckle 21 degrees, six more than the index. Added angles are corrections, not totals." },
+        "leftMiddleIntermediate": { "axis": "fingerCurlLeft", "degrees": 34 },
+        "leftMiddleDistal": { "axis": "fingerCurlLeft", "degrees": 13 },
+        "leftRingProximal": { "axis": "fingerCurlLeft", "degrees": 12 },
+        "leftRingIntermediate": { "axis": "fingerCurlLeft", "degrees": 38 },
+        "leftRingDistal": { "axis": "fingerCurlLeft", "degrees": 16 },
+        "leftLittleProximal": { "axis": "fingerCurlLeft", "degrees": 18, "why": "Little finger closes the cascade with the most curl — near double the index at every joint." },
+        "leftLittleIntermediate": { "axis": "fingerCurlLeft", "degrees": 45 },
+        "leftLittleDistal": { "axis": "fingerCurlLeft", "degrees": 18 },
+        "leftThumbMetacarpal": { "axis": "thumbCurlLeft", "degrees": 6, "why": "The thumb rests toward the index rather than sticking out. Its own curl axis, measured off the bind pose's thumb chain." },
+        "leftThumbProximal": { "axis": "thumbCurlLeft", "degrees": 12 },
+        "leftThumbDistal": { "axis": "thumbCurlLeft", "degrees": 8 },
+
+        "rightIndexProximal": { "axis": "fingerCurlRight", "degrees": 9, "why": "The same cascade, a degree or two adrift of the left throughout." },
+        "rightIndexIntermediate": { "axis": "fingerCurlRight", "degrees": 26 },
+        "rightIndexDistal": { "axis": "fingerCurlRight", "degrees": 11 },
+        "rightMiddleProximal": { "axis": "fingerCurlRight", "degrees": 6 },
+        "rightMiddleIntermediate": { "axis": "fingerCurlRight", "degrees": 36 },
+        "rightMiddleDistal": { "axis": "fingerCurlRight", "degrees": 14 },
+        "rightRingProximal": { "axis": "fingerCurlRight", "degrees": 13 },
+        "rightRingIntermediate": { "axis": "fingerCurlRight", "degrees": 40 },
+        "rightRingDistal": { "axis": "fingerCurlRight", "degrees": 17 },
+        "rightLittleProximal": { "axis": "fingerCurlRight", "degrees": 19 },
+        "rightLittleIntermediate": { "axis": "fingerCurlRight", "degrees": 47 },
+        "rightLittleDistal": { "axis": "fingerCurlRight", "degrees": 19 },
+        "rightThumbMetacarpal": { "axis": "thumbCurlRight", "degrees": 7 },
+        "rightThumbProximal": { "axis": "thumbCurlRight", "degrees": 13 },
+        "rightThumbDistal": { "axis": "thumbCurlRight", "degrees": 9 },
+
+        "leftUpperLeg": { "euler": [ 0, 3.5, 0 ], "why": "Toe-out comes from the hip, not the ankle: external rotation of the femur swings the knee out with the foot, which is what a real stance does. Ankle-only toe-out leaves the knee pointing straight ahead and reads as a dance position." },
+        "leftLowerLeg": { "euler": [ 0, 0, 0 ], "why": "The bind pose already carries the knee 6.8 degrees forward of the hip-ankle line. Nothing to add; flexing further would sink the figure through the floor, since there is no foot IK here to catch it." },
+        "leftFoot": { "euler": [ 0, 0, 0 ] },
+
+        "rightUpperLeg": { "euler": [ 0, -3.0, 0 ], "why": "Half a degree less toe-out than the left." },
+        "rightLowerLeg": { "euler": [ 0, 0, 0 ] },
+        "rightFoot": { "euler": [ 0, 0, 0 ] }
+
+    }
+}

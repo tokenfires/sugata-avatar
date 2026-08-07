@@ -1,0 +1,334 @@
+{
+    "name": "weight-right",
+    "description": "Contrapposto with the weight over the right leg. The mirror of weight-left.",
+    "notes": [
+        "The sagittal mirror of weight-left, generated rather than retyped. Every angle, every comment and every reason lives in weight-left.json — read that file, then read left for right.",
+        "The mirror rule, for anyone editing this by hand: a rotation reflected across the sagittal plane keeps its x component and negates y and z. So an Euler triple (x, y, z) becomes (x, -y, -z), a measured axis (ax, ay, az) becomes (ax, -ay, -az) at the same angle, and the hips offset negates in x only.",
+        "Weight on the right leg therefore raises the RIGHT hip and drops the RIGHT shoulder."
+    ],
+    "hipsOffsetMetres": [
+        -0.04,
+        -0.005,
+        0
+    ],
+    "axes": {
+        "elbowExtendLeft": [
+            0.7449,
+            0.6647,
+            -0.0514
+        ],
+        "elbowExtendRight": [
+            0.7449,
+            -0.6647,
+            0.0514
+        ],
+        "fingerCurlLeft": [
+            0.386,
+            -0.415,
+            -0.826
+        ],
+        "fingerCurlRight": [
+            0.386,
+            0.415,
+            0.826
+        ],
+        "thumbCurlLeft": [
+            0.058,
+            0.896,
+            0.426
+        ],
+        "thumbCurlRight": [
+            0.058,
+            -0.896,
+            -0.426
+        ]
+    },
+    "bones": {
+        "hips": {
+            "euler": [
+                0,
+                2.5,
+                -5.5
+            ],
+            "why": "z: +5.5 raises the left (stance) crest — a positive roll about the forward axis lifts everything on the +X side. y: -2 takes the stance side very slightly back, which is the transverse component of a real weight shift."
+        },
+        "spine": {
+            "euler": [
+                0.5,
+                -1.5,
+                7.5
+            ],
+            "why": "The lumbar counter-bend, and the largest single number in the pose. It over-corrects the pelvis's 5.5 degrees so the net trunk lean ends up toward the stance side rather than away from it."
+        },
+        "chest": {
+            "euler": [
+                0.8,
+                -0.8,
+                3
+            ],
+            "why": "Carries the bend up. Sharing it across three spine bones is what makes a curve rather than a hinge."
+        },
+        "upperChest": {
+            "euler": [
+                1.2,
+                0.8,
+                -2
+            ],
+            "why": "Turns the curve back — the top of the S. Accumulated roll at the chest lands near -3 degrees, which is what tips the shoulder line opposite to the hip line."
+        },
+        "neck": {
+            "euler": [
+                2.2,
+                -0.8,
+                -2
+            ],
+            "why": "Brings the head back toward vertical."
+        },
+        "head": {
+            "euler": [
+                -1.6,
+                0.7,
+                -1.2
+            ],
+            "why": "Levels the eyes. A contrapposto with a tilted horizon reads as a stumble."
+        },
+        "rightShoulder": {
+            "euler": [
+                0,
+                4,
+                3.4
+            ],
+            "why": "As relaxed-standing. The shoulder drop on this side comes from the spine, not from the clavicle."
+        },
+        "rightUpperArm": {
+            "euler": [
+                4,
+                6,
+                26.5
+            ],
+            "why": "Two degrees less adduction than relaxed-standing: the stance hip juts out under this arm and the arm has to clear it."
+        },
+        "rightLowerArm": [
+            {
+                "axis": "elbowExtendRight",
+                "degrees": 30
+            },
+            {
+                "euler": [
+                    0,
+                    0,
+                    7
+                ]
+            }
+        ],
+        "rightHand": {
+            "euler": [
+                0,
+                0,
+                0
+            ]
+        },
+        "leftShoulder": {
+            "euler": [
+                0,
+                -4,
+                -2.6
+            ]
+        },
+        "leftUpperArm": {
+            "euler": [
+                4,
+                -6,
+                -29
+            ],
+            "why": "Two degrees more adduction: nothing under this arm to clear, and the free-side flank is the long one."
+        },
+        "leftLowerArm": [
+            {
+                "axis": "elbowExtendLeft",
+                "degrees": 29
+            },
+            {
+                "euler": [
+                    0,
+                    0,
+                    -6
+                ]
+            }
+        ],
+        "leftHand": {
+            "euler": [
+                0,
+                0,
+                0
+            ]
+        },
+        "rightIndexProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 8
+        },
+        "rightIndexIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 24
+        },
+        "rightIndexDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 10
+        },
+        "rightMiddleProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 5
+        },
+        "rightMiddleIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 34
+        },
+        "rightMiddleDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 13
+        },
+        "rightRingProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 12
+        },
+        "rightRingIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 38
+        },
+        "rightRingDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 16
+        },
+        "rightLittleProximal": {
+            "axis": "fingerCurlRight",
+            "degrees": 18
+        },
+        "rightLittleIntermediate": {
+            "axis": "fingerCurlRight",
+            "degrees": 45
+        },
+        "rightLittleDistal": {
+            "axis": "fingerCurlRight",
+            "degrees": 18
+        },
+        "rightThumbMetacarpal": {
+            "axis": "thumbCurlRight",
+            "degrees": 6
+        },
+        "rightThumbProximal": {
+            "axis": "thumbCurlRight",
+            "degrees": 12
+        },
+        "rightThumbDistal": {
+            "axis": "thumbCurlRight",
+            "degrees": 8
+        },
+        "leftIndexProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 9
+        },
+        "leftIndexIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 26
+        },
+        "leftIndexDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 11
+        },
+        "leftMiddleProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 6
+        },
+        "leftMiddleIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 36
+        },
+        "leftMiddleDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 14
+        },
+        "leftRingProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 13
+        },
+        "leftRingIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 40
+        },
+        "leftRingDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 17
+        },
+        "leftLittleProximal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 19
+        },
+        "leftLittleIntermediate": {
+            "axis": "fingerCurlLeft",
+            "degrees": 47
+        },
+        "leftLittleDistal": {
+            "axis": "fingerCurlLeft",
+            "degrees": 19
+        },
+        "leftThumbMetacarpal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 7
+        },
+        "leftThumbProximal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 13
+        },
+        "leftThumbDistal": {
+            "axis": "thumbCurlLeft",
+            "degrees": 9
+        },
+        "rightUpperLeg": {
+            "euler": [
+                0,
+                -5.5,
+                8.5
+            ],
+            "why": "Stance leg. z: -8.5 undoes the pelvis's +5.5 roll and adds three degrees of adduction on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it."
+        },
+        "rightLowerLeg": {
+            "euler": [
+                0,
+                0,
+                0
+            ],
+            "why": "The stance knee stays where the bind pose has it. A knee carrying the load is close to straight."
+        },
+        "rightFoot": {
+            "euler": [
+                0,
+                0,
+                0
+            ]
+        },
+        "leftUpperLeg": {
+            "euler": [
+                -4,
+                1,
+                9
+            ],
+            "why": "Free leg. z: -9 undoes the pelvis roll and abducts the leg so the free foot ends up slightly wider than the stance foot. x: -4 flexes the hip, sending the knee forward — note that a bone pointing DOWN moves backward under a positive x rotation, which is the sign trap in this whole file."
+        },
+        "leftLowerLeg": {
+            "euler": [
+                8,
+                0,
+                0
+            ],
+            "why": "Free knee softly flexed to 14.8 degrees total. Positive x carries the shank back, which is where the heel goes when the knee bends and the foot stays put."
+        },
+        "leftFoot": {
+            "euler": [
+                -6,
+                2,
+                0
+            ],
+            "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider."
+        }
+    }
+}

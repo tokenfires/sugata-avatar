@@ -13,3 +13,6 @@ dist/
 __pycache__/
 tools/figure-pipeline/.cache/
 assets/figures/*.glb
+
+# Capture output — regenerable, large. Keep the tool, not the artifacts.
+/captures/

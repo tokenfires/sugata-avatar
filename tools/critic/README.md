@@ -1,16 +1,21 @@
 # tools/critic — the objective critic harness
 
-Two tools that between them stop "does this look right?" from being purely a matter of taste.
+Three tools that between them stop "does this look right?" from being purely a matter of taste.
 
 - **`measure.mjs`** — reads a PNG and a region spec, returns the six objective gates from
   [`docs/research/stellar-blade-look-spec.md`](../../docs/research/stellar-blade-look-spec.md) §6
   with a PASS/FAIL each.
 - **`blind_ab.mjs`** — shuffles our render against a reference, strips provenance, and hides the
   mapping until after a verdict is recorded, so a critic agent genuinely cannot tell which is ours.
+- **`capture.mjs`** — drives a live page one fixed simulation step at a time and assembles the
+  frames into an mp4, a gif and a contact sheet. The other two judge a still; this one is the
+  only way to judge *motion*, which is where aliveness actually lives.
 
-No dependencies. The PNG codec is ours (`png.mjs`, ~250 lines over `node:zlib`), which is a
-smaller cost than a supply chain sitting underneath the numbers that steer the project's art
-direction. Node 18+.
+`measure.mjs`, `blind_ab.mjs` and the codec have no dependencies, and the PNG codec is ours
+(`png.mjs`, ~250 lines over `node:zlib`) — a smaller cost than a supply chain sitting underneath
+the numbers that steer the project's art direction. `capture.mjs` is the exception and needs
+Playwright and ffmpeg; it drives a browser, so there was never a version of it that did not.
+Node 18+.
 
 ---
 
@@ -20,6 +25,7 @@ direction. Node 18+.
 node tools/critic/selftest.mjs                       # prove the tool measures what it claims
 node tools/critic/measure.mjs shot.png regions.json  # JSON on stdout
 node tools/critic/measure.mjs shot.png regions.json --human
+node tools/critic/capture.mjs --seconds 20 --out captures/idle   # 20 s of video to judge motion
 ```
 
 Exit codes are distinct so a calling script can tell a bad render from a broken tool:
@@ -268,6 +274,130 @@ Default root is `<tmpdir>/sugata-blind-ab`; override with `--root`.
 
 ---
 
+## capture.mjs — deterministic video capture
+
+The other tools in here judge a still frame. **Aliveness is not in a still frame.** Two review
+passes in a row stalled on exactly this and one of them said so plainly: *"I have zero perceptual
+evidence about whether the motion reads as alive in continuous time. That is the single biggest
+gap and no amount of stills closes it."* This tool closes it.
+
+```bash
+# needs a dev server; with no --url it starts vite itself
+node tools/critic/capture.mjs --url http://localhost:5173/alive.html \
+     --seconds 20 --fps 30 --width 1080 --height 1350 --seed 1 --out captures/idle
+
+node tools/critic/capture.mjs --help
+```
+
+Four files land in `--out`:
+
+| file | what it is for |
+|---|---|
+| `capture.mp4` | h264 / yuv420p. Scrub it, step it frame by frame, loop it. |
+| `capture.gif` | palettegen + paletteuse. Drops into a comment or a chat window. |
+| `contact-sheet.png` | evenly-spaced frames, tiled and time-stamped. **A reviewer that cannot play video can still read this.** |
+| `capture.json` | the manifest: seed, backend, adapter, every frame's SHA-256, reproducibility result. |
+
+### It does not record in real time, and that is the point
+
+The page is loaded with `?capture`, which stops its frame loop; this process then becomes the
+clock: `step(1/fps)` → screenshot → repeat. Simulation time is completely decoupled from
+wall-clock time, which buys three things a screen recording cannot:
+
+- **Exact.** 20.000 s at 30 fps is 600 frames. Not 597, not 611 — regardless of how slow the
+  machine is or how long a screenshot takes. Expect roughly 4× real time to capture, and stop
+  caring, because the output is identical either way.
+- **Immune to rAF throttling**, background tabs and thermal state.
+- **Byte-reproducible.** Same seed, same frames.
+
+> 🚩 For the record, since it motivated this tool: rAF was **measured at 120 Hz** in Playwright's
+> headless Chromium, not the ~1.5 Hz that made stills the only option for earlier passes. Whatever
+> throttled those, it was not this harness. Fixed-step is still the right design — for exactness
+> and reproducibility, not to dodge a throttle.
+
+### Reproducibility is measured, never claimed
+
+Every run reloads the page and replays its opening frames (`--verify-frames`, default 20; pass
+`--verify-frames 600` to replay everything, or `--skip-verify`). The digest line says which:
+
+```
+digest    d076aaca8c91fda5   (byte-reproducible: verified over 600 frames)
+```
+
+Verified on a clean plate at seed 1: **600/600 identical** across a fresh page load, and identical
+again from a **separate browser process**.
+
+That check is not ceremony. It has caught, in order:
+
+1. a **compositor race** — the screenshot beat presentation and returned the *previous* frame.
+   Invisible in the video (idle motion is millimetres) but it made every capture temporally
+   wrong, and it inflated the mp4 3× and the gif 10× because consecutive frames no longer
+   predicted each other.
+2. **three's node clock** reading `performance.now()`, so wall-clock time re-entered through
+   the renderer even with the frame loop stopped.
+3. a **frozen-skinning bug** where stopping the frame loop also stopped the update that refreshes
+   skinning. The figure rendered a still pose while the eyes blinked and the strip chart animated
+   — deeply convincing, and it scored *perfectly* reproducible, because a still image always does.
+
+Number 3 is the reason this section exists. **A reproducibility number on its own can be a lie;
+look at the contact sheet too.**
+
+> ⚠️ The **instrumented** page (no `?bare`) is not byte-reproducible and never will be — the HUD
+> prints `stats.frameMs`, a wall-clock number that lives in the pixels. The figure underneath is
+> identical. Capture with `?bare` when the digest has to mean something.
+
+### Which page to capture
+
+Both are worth having, and they answer different questions:
+
+| URL | use it for |
+|---|---|
+| `alive.html` | judging aliveness. The HUD and strip chart are *evidence* — blink counts, breath phase, head yaw — that a bare render cannot give you. |
+| `alive.html?bare` | a clean plate: pixels only, no instrumentation. Feed this to `measure.mjs` or `blind_ab.mjs`, and use it when the digest matters. |
+
+Everything else in the URL is preserved, so `?gender=0.75`, `?height=0.18` and `?webgl` all work;
+capture only adds `capture=1` plus `--seed` / `--preroll`.
+
+### Backend, stated not assumed
+
+The tool reads the backend back off the renderer and re-requests the adapter, then prints it:
+
+```
+backend   webgpu   (apple metal-3)
+```
+
+If the page silently falls back to WebGL2 it says so loudly rather than presenting fallback-tier
+pixels as a WebGPU capture, and it flags a software rasteriser masquerading as a GPU. Launch flags
+are inherited from `tools/spikes/run.mjs`, whose measured findings still hold — `channel:
+'chromium'` matters (plain headless is `headless_shell`, which has no GPU), and
+`--enable-features=Vulkan` **removes** WebGPU on macOS, so it is deliberately absent.
+
+### Contact sheet
+
+`--sheet-cells` (12) and `--sheet-columns` (4). Cells run in reading order and each is stamped
+`f<frame> <time>s`, so a cell can be found in the mp4 by scrubbing to that timestamp. The stamps
+are drawn by `capture.mjs` with a small bitmap font over `png.mjs`, because this ffmpeg build has
+no `drawtext` (no libfreetype) — an unlabelled sheet makes a reviewer guess which cell is which,
+and guessing is what this harness exists to remove.
+
+### Known limits
+
+- **Playwright is not a dependency of this repo.** It is found via `--playwright`,
+  `PLAYWRIGHT_MODULE`, a plain import, or npx's cache. `npx playwright install chromium` first.
+- **ffmpeg is expected at `/opt/homebrew/bin/ffmpeg`**; override with `FFMPEG=<path>`.
+- **GIFs of a 20 s 1080-wide portrait are large** (~25 MB). `--gif-fps` and `--gif-width` are the
+  knobs; the mp4 is the artefact to prefer when a player is available.
+- **`--out` is not in `.gitignore`.** Add `/captures/` before committing, or write outside the repo.
+- **Frames are deleted after encoding** unless `--keep-frames`. 600 PNGs at 1080×1350 is ~600 MB.
+- Exit codes match the rest of the harness: `0` fine, `1` every frame identical (the stepping hook
+  did nothing, so the capture is not evidence), `2` tool error.
+- **`?capture` reaches into two private three.js internals** (`renderer._animation` and
+  `renderer._nodes.nodeFrame`) — see `takeOverFrameLoop()` in `packages/testbed/src/alive.js`. If a
+  three upgrade renames either, capture falls back to leaving rAF running: correct pictures, no
+  bit-exactness, and a console warning saying so. It will never silently return to the frozen pose.
+
+---
+
 ## Trusting the numbers: `selftest.mjs`
 
 A measurement tool nobody tested is worse than no tool — it produces confident numbers that
@@ -303,6 +433,7 @@ when ImageMagick is absent; the tool itself must stay runnable on a bare machine
 |---|---|
 | `measure.mjs` | the six gates, plus the CLI |
 | `blind_ab.mjs` | blind A/B pairing and reveal |
+| `capture.mjs` | fixed-step video capture — mp4, gif, contact sheet, manifest |
 | `color.mjs` | sRGB transfer functions, both lumas, HSV — read the header comment |
 | `png.mjs` | dependency-free PNG decode/encode and chunk surgery |
 | `selftest.mjs` | 79 checks; run it after touching anything here |

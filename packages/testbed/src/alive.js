@@ -15,9 +15,15 @@
  *     axis. That framing is not decoration. Blink and gaze are only readable when the eyes are
  *     large in frame, and breath is a 2–3 mm chest excursion, so the chest has to be in frame too.
  *
- *   - The full idle stack runs: breath, sway, idle micro-motion, gaze (eyes and head), blink,
- *     pupil. Every one of them is a contributor to a MotionStack, which is the only thing that
- *     writes to the figure.
+ *   - The figure stands in a REST POSE before anything animates it. The bind pose is not a
+ *     posture — on this asset the upper arms stand 41.8° out from vertical with the forearms
+ *     swung forward — and no amount of micro-motion rescues a mannequin silhouette. The pose is
+ *     applied before the stack binds, so every layer's delta is a deviation from a person
+ *     standing rather than from a T-pose.
+ *
+ *   - The full idle stack runs: breath, sway, body idle (arms, hands, fingers, trunk), head idle,
+ *     gaze (eyes and head), blink, pupil. Every one of them is a contributor to a MotionStack,
+ *     which is the only thing that writes to the figure.
  *
  *   - A strip chart plots what is moving. Millimetre-scale motion looks identical to no motion in
  *     a still frame, so a screenshot without the trace cannot distinguish "breathing" from
@@ -38,7 +44,14 @@
  *   ?trace=0        hide the strip chart
  *   ?bare           hide every overlay — controls, HUD, strip chart — for a clean plate. A critic
  *                   comparing this against a reference still wants pixels, not instrumentation.
+ *   ?frame=body     frame the whole figure instead of a head-and-shoulders portrait
  *   ?height=0.18    override the framed height in metres. 0.18 is an eyes-only crop.
+ *   ?pose=weight-left   which RestPose to stand in. `?pose=bind` shows the untouched bind pose,
+ *                   which is the A side of the comparison the rest pose exists to win.
+ *   ?arousal=0.8    starting value of a dial, so a capture can ask for a state rather than
+ *                   needing a human to drag a slider. Same for ?load and ?attention.
+ *   ?capture        stop the frame loop and hand the clock to `window.__SUGATA_STEP__`, so
+ *                   tools/critic/capture.mjs can drive the page one fixed step at a time.
  */
 
 import {
@@ -56,8 +69,11 @@ import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTextu
 import { Stage } from '../../core/src/render/Stage.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
+import { RestPose } from '../../core/src/figure/RestPose.js';
+import { Skeleton } from '../../core/src/figure/Skeleton.js';
 import { MotionStack, createMotionTarget } from '../../core/src/motion/MotionStack.js';
 import { Blink } from '../../core/src/motion/Blink.js';
+import { BodyIdle } from '../../core/src/motion/BodyIdle.js';
 import { Breath } from '../../core/src/motion/Breath.js';
 import { Gaze } from '../../core/src/motion/Gaze.js';
 import { IdleMotion } from '../../core/src/motion/IdleMotion.js';
@@ -86,6 +102,14 @@ const CAMERA_AZIMUTH_DEGREES = 12;
 
 // The mesh the eye line is read off. GLTFLoader strips the dot from 'Human.low-poly'.
 const EYEBALL_MESH_NAME = 'Humanlow-poly';
+
+// How much air to leave around the figure in the full-body frame, as a fraction of its height.
+// A body cropped hard at crown and heel reads as a passport photo of a corpse; a little headroom
+// is what lets the eye see the silhouette, which is the whole point of looking at a rest pose.
+const BODY_FRAME_MARGIN = 1.10;
+
+// The posture the figure stands in when no URL says otherwise.
+const DEFAULT_REST_POSE = 'relaxed-standing';
 
 // --- the lighting rig ------------------------------------------------------------------------
 
@@ -185,14 +209,22 @@ async function boot() {
     const lights = buildLightingRig( stage );
     const backdrop = buildBackdrop( stage );
 
+    const poseName = query.get( 'pose' ) ?? DEFAULT_REST_POSE;
+
     // Everything that changes when the gender dial moves lives in one place, so the reload path
     // has exactly one object to swap and the frame loop has exactly one thing to null-check.
     const session = {
         identity: new Identity( { gender: Number( query.get( 'gender' ) ?? 0.5 ) } ),
         figure: null,
+        skeleton: null,
         target: null,
         loadToken: 0,
-        framedHeightMetres: Number( query.get( 'height' ) ?? PORTRAIT_HEIGHT_METRES )
+        // 'bind' is not a pose file, it is the absence of one: the untouched asset, which is the
+        // A side of the comparison RestPose exists to win.
+        restPose: poseName === 'bind' ? null : RestPose.load( poseName ),
+        frameMode: query.get( 'frame' ) === 'body' ? 'body' : 'portrait',
+        heightOverride: query.has( 'height' ) ? Number( query.get( 'height' ) ) : null,
+        framedHeightMetres: PORTRAIT_HEIGHT_METRES
     };
 
     const stack = new MotionStack( { seed: Number( query.get( 'seed' ) ?? 20260807 ) } );
@@ -200,14 +232,23 @@ async function boot() {
     const breath = new Breath();
     const sway = new Sway();
     const idle = new IdleMotion();
+    const bodyIdle = new BodyIdle();
     const gaze = new Gaze( { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES } );
     const blink = new Blink();
     const pupil = new Pupil();
 
+    // IdleMotion declares the six arm bones as well as the head, and so does BodyIdle. Bone
+    // contributions SUM, so running both as shipped is not an error the stack can catch — it is a
+    // silent doubling of every arm joint that nobody asked for, and both files say so in their
+    // headers. The intended split is IdleMotion on the head, BodyIdle on everything below the
+    // neck. Emptying the arm joints here is the integration-side half of that; the library-side
+    // half is an `armsEnabled` option on IdleMotion, which it does not have yet.
+    idle.joints.length = 0;
+
     // The eye layer and the head layer are two members of one pair, added separately because they
     // sit in different slots — HEAD runs before GAZE so the eyes can counter-rotate against the
     // head position this frame actually landed on.
-    const layers = { breath, sway, idle, gazeHead: gaze.head, gaze, blink, pupil };
+    const layers = { breath, sway, idle, bodyIdle, gazeHead: gaze.head, gaze, blink, pupil };
 
     await swapFigure( session, stack, stage, lights, backdrop );
 
@@ -221,10 +262,33 @@ async function boot() {
     const trace = createTrace( document.getElementById( 'trace' ) );
     if ( bare || query.get( 'trace' ) === '0' ) trace.setVisible( false );
 
+    // A capture has to be able to ask for a state — "the same twenty seconds, but aroused" — and
+    // a slider only a human can drag makes that impossible. Written to the input rather than to
+    // the layer so the control and the figure cannot disagree about what the value is.
+    for ( const id of [ 'arousal', 'load', 'attention' ] ) {
+
+        if ( query.has( id ) ) document.getElementById( id ).value = query.get( id );
+
+    }
+
     bindControls( { session, stack, stage, lights, backdrop, layers } );
     bindKeyboard( { blink, trace } );
 
-    const sampleHeadDisplacement = createHeadSampler( session );
+    const relayWeightShifts = createWeightShiftRelay( sway, bodyIdle );
+    const samplers = { head: createHeadSampler( session ), hand: createHandSampler( session ) };
+
+    /**
+     * One simulated frame: advance the stack, hand Sway's events on to the arms, and record what
+     * moved. Every clock the page has — pre-roll, rAF, the capture hook — comes through here, so
+     * a capture and a live run cannot drift into being different simulations.
+     */
+    const advanceSimulation = ( deltaSeconds ) => {
+
+        stack.update( deltaSeconds );
+        relayWeightShifts();
+        trace.push( deltaSeconds, sampleSignals( stack, layers, samplers ) );
+
+    };
 
     // A pre-roll is the difference between a screenshot that means something and one that does
     // not: it puts the stack at a known motion time, and it fills the strip chart, so a single
@@ -234,8 +298,7 @@ async function boot() {
 
     for ( let step = 0; step < Math.round( prerollSeconds / FIXED_STEP_SECONDS ); step ++ ) {
 
-        stack.update( FIXED_STEP_SECONDS );
-        trace.push( FIXED_STEP_SECONDS, sampleSignals( stack, layers, sampleHeadDisplacement ) );
+        advanceSimulation( FIXED_STEP_SECONDS );
 
     }
 
@@ -243,12 +306,7 @@ async function boot() {
 
         if ( session.figure === null ) return;   // a bake is being swapped in
 
-        if ( frozen === false ) {
-
-            stack.update( deltaSeconds );
-            trace.push( deltaSeconds, sampleSignals( stack, layers, sampleHeadDisplacement ) );
-
-        }
+        if ( frozen === false ) advanceSimulation( deltaSeconds );
 
         if ( bare ) return;
 
@@ -257,16 +315,159 @@ async function boot() {
 
     } );
 
+    // --- the deterministic capture hook -------------------------------------------------------
+    //
+    // Aliveness is a temporal property, and a still frame cannot carry it. Under ?capture the
+    // renderer's own frame loop is stopped and tools/critic/capture.mjs becomes the clock: it
+    // calls __SUGATA_STEP__(1/fps), reads the pixels back, and repeats. Simulation time stops
+    // depending on wall-clock time altogether, so a capture is exactly as long as it claims and
+    // a seeded run reproduces frame for frame regardless of machine, load or thermal state.
+    const advanceRendererFrame = query.has( 'capture' ) ? takeOverFrameLoop( stage.renderer ) : null;
+
+    /**
+     * Advances the motion stack by exactly `deltaSeconds`, draws one frame, and resolves once
+     * the GPU has finished it — so the caller may read the canvas back immediately.
+     *
+     * The await is the whole point of the return value being a promise. `render()` only submits
+     * work; the screenshot that follows is a separate process asking the compositor for the
+     * canvas, and without a barrier it sometimes wins that race and gets the PREVIOUS frame.
+     * On millimetre-scale idle motion that mis-capture is invisible — a fraction of a percent of
+     * pixels along lash and lid edges — which is exactly why it has to be closed here rather
+     * than eyeballed later.
+     *
+     * @param {number} deltaSeconds - fixed simulation step, e.g. 1/30.
+     * @returns {Promise<boolean>} false while a bake is still loading, so the caller can retry.
+     */
+    window.__SUGATA_STEP__ = async ( deltaSeconds ) => {
+
+        if ( session.figure === null ) return false;
+
+        advanceSimulation( deltaSeconds );
+
+        if ( bare === false ) {
+
+            trace.draw();
+            hud.textContent = describeState( stage, stack, layers, session, pupilScale );
+
+        }
+
+        // The renderer's per-frame internal tick, which normally rides on rAF. Skinning is
+        // updated here, so skipping it renders a live simulation onto a frozen pose — see
+        // takeOverFrameLoop() for what that looked like when it was missed.
+        advanceRendererFrame?.( deltaSeconds );
+
+        stage.renderer.render( stage.scene, stage.camera );
+
+        // Barrier one: the GPU has finished the frame. WebGL2 has no equivalent, so the fallback
+        // tier keeps the race — capture.mjs reports the backend, and a WebGL2 capture is a
+        // degraded artefact for other reasons anyway.
+        await stage.renderer.backend?.device?.queue?.onSubmittedWorkDone();
+
+        // Barrier two: the compositor has painted it. The screenshot arrives out of band, from
+        // another process asking the compositor for the canvas — so GPU-done is not enough on
+        // its own, and two paints are what make "the pixels the caller reads" the frame we just
+        // drew rather than the one before it.
+        await nextPaint();
+
+        return true;
+
+    };
+
     // Handy for poking at any of it from the console. `frame( 0.16 )` pushes in until the frame is
-    // 160 mm tall, which is the only way to inspect an eyelid roll closely without a second page.
+    // 160 mm tall, which is the only way to inspect an eyelid roll closely without a second page;
+    // `frame( 1.9, 'body' )` pulls back to the whole figure.
     window.sugata = {
         stage,
         stack,
         layers,
         session,
         lights,
-        frame: ( heightMetres ) => aimLightingRig( lights, framePortrait( stage, session.figure, heightMetres ) )
+        frame: ( heightMetres, mode = session.frameMode ) => {
+
+            const framed = frameFigure( stage, session.figure, { mode, heightMetres } );
+            aimLightingRig( lights, framed.focus, framed.distanceMetres / portraitDistanceMetres() );
+
+        }
     };
+
+}
+
+/**
+ * Resolves after the browser has painted, which takes two animation frames: the first callback
+ * runs *before* the paint it was scheduled for, the second only after that paint has happened.
+ *
+ * This is the one place capture still depends on rAF, and it is a barrier rather than a clock —
+ * so a throttled tab makes a capture slow, never wrong. Measured in Playwright's headless
+ * Chromium, rAF runs at 120 Hz and this costs about 16 ms a frame against the ~50 ms a
+ * screenshot already takes.
+ */
+function nextPaint() {
+
+    return new Promise( ( resolve ) => {
+
+        requestAnimationFrame( () => requestAnimationFrame( resolve ) );
+
+    } );
+
+}
+
+/**
+ * Takes the renderer's per-frame tick away from requestAnimationFrame so a capture can drive it.
+ *
+ * Two things have to happen together, and doing either one alone is a trap:
+ *
+ *   1. STOP the rAF chain. `setAnimationLoop( null )` is the public way and it is not enough —
+ *      it only clears the user callback, while three's internal Animation keeps requesting
+ *      frames and keeps calling `nodeFrame.update()` on each one. Whether one of those lands
+ *      between two capture steps depends on how many ticks the browser fitted in, which is
+ *      wall-clock time leaking back in through the side door. Measured: two runs of the same
+ *      seed diverged at frame 54 of 600, along lash and lid edges.
+ *
+ *   2. DRIVE that tick yourself, once per captured frame. `nodeFrame.update()` is where skinning
+ *      is refreshed. Stopping the chain without replacing it renders a live simulation onto a
+ *      pose frozen near rest — and the failure is quiet and deeply convincing: the eyes still
+ *      blink (morphs update elsewhere), the strip chart still moves, the head just never turns.
+ *      It measured as *perfectly* reproducible, because a still image always is.
+ *
+ * Both `_animation` and `_nodes` are private, so this reaches into the renderer and says so. If
+ * an upgrade renames either, capture falls back to leaving rAF running: correct pictures, no
+ * bit-exactness, and a console line saying which — never the frozen-pose failure, which is the
+ * one that would look fine and be worthless.
+ *
+ * @returns {?Function} call once per frame before rendering, or null if rAF was left running.
+ */
+function takeOverFrameLoop( renderer ) {
+
+    const nodeFrame = renderer._nodes?.nodeFrame;
+
+    if ( typeof renderer._animation?.stop === 'function' && typeof nodeFrame?.update === 'function' ) {
+
+        renderer._animation.stop();
+
+        let elapsedSeconds = 0;
+
+        return ( deltaSeconds ) => {
+
+            nodeFrame.update();
+
+            // ...and then overwrite the clock it just read. `NodeFrame.update()` derives its own
+            // time and deltaTime from `performance.now()`, which is the last place wall-clock
+            // time hides: any node that animates from them would drift with machine load. Pin
+            // both to the simulation's fixed step so the renderer shares the capture's clock.
+            elapsedSeconds += deltaSeconds;
+            nodeFrame.deltaTime = deltaSeconds;
+            nodeFrame.time = elapsedSeconds;
+
+        };
+
+    }
+
+    console.warn(
+        'capture: could not reach renderer._animation / _nodes.nodeFrame, so the rAF chain is ' +
+        'still running. Frames are correct but not bit-reproducible — see takeOverFrameLoop().'
+    );
+
+    return null;
 
 }
 
@@ -294,20 +495,44 @@ function buildLightingRig( stage ) {
 
 }
 
-/** Points every light at the focus point the camera is framing. */
-function aimLightingRig( lights, focus ) {
+/**
+ * Points every light at the focus point the camera is framing, and scales the rig to the subject.
+ *
+ * The offsets in LIGHTING_RIG are authored for a head half a metre across. Aimed at a whole body
+ * from the same half-metre standoff, the key panel is inside the figure's own silhouette: the
+ * chest blows out and the legs fall into black. So the rig grows with the camera's distance.
+ *
+ * Panel SIZE scales with the offsets and intensity does not, which is the physically right pairing
+ * and worth stating because the instinct is to brighten. A RectAreaLight's intensity is a
+ * radiance; the irradiance it delivers goes as the solid angle it subtends, which is area over
+ * distance squared. Scale both by the same factor and that ratio is unchanged — the subject keeps
+ * its exposure and, more importantly, keeps the same shadow softness relative to its own size.
+ *
+ * @param {number} scale - camera distance over the portrait distance the offsets were authored at.
+ */
+function aimLightingRig( lights, focus, scale = 1 ) {
 
     for ( const { light, placement } of lights ) {
 
         light.position.set(
-            focus.x + placement.offsetMetres[ 0 ],
-            focus.y + placement.offsetMetres[ 1 ],
-            focus.z + placement.offsetMetres[ 2 ]
+            focus.x + placement.offsetMetres[ 0 ] * scale,
+            focus.y + placement.offsetMetres[ 1 ] * scale,
+            focus.z + placement.offsetMetres[ 2 ] * scale
         );
+
+        light.width = placement.sizeMetres[ 0 ] * scale;
+        light.height = placement.sizeMetres[ 1 ] * scale;
 
         light.lookAt( focus.x, focus.y, focus.z );
 
     }
+
+}
+
+/** The camera distance LIGHTING_RIG's offsets were authored against — the portrait standoff. */
+function portraitDistanceMetres() {
+
+    return ( PORTRAIT_HEIGHT_METRES / 2 ) / Math.tan( ( PORTRAIT_FIELD_OF_VIEW_DEGREES / 2 ) * Math.PI / 180 );
 
 }
 
@@ -361,14 +586,40 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
     stage.add( figure.root );
     figure.root.updateMatrixWorld( true );
 
+    // The rest pose goes on BEFORE the stack binds, and the order is the whole trick. MotionStack
+    // snapshots rest from whatever pose the bones are in at bind time, and every layer composes
+    // its delta onto that snapshot. Pose first and the arms micro-move about a body standing at
+    // ease; pose after and they micro-move about a T-pose while the figure visibly snaps.
+    const skeleton = new Skeleton( figure.root );
+
+    if ( session.restPose !== null ) {
+
+        const absent = session.restPose.applyTo( skeleton );
+        if ( absent.length > 0 ) console.warn( `rest pose '${ session.restPose.name }': this figure has no ${ absent.join( ', ' ) }` );
+
+        skeleton.update();
+        figure.root.updateMatrixWorld( true );
+
+    }
+
     session.figure = figure;
+    session.skeleton = skeleton;
     session.target = createMotionTarget( figure.root );
 
     stack.bind( session.target );
 
-    const focus = framePortrait( stage, figure, session.framedHeightMetres );
-    aimLightingRig( lights, focus );
+    // Measured after posing, because the pose changes the figure's height by centimetres.
+    session.framedHeightMetres = framedHeightFor( figure, session.frameMode, session.heightOverride );
 
+    const { focus, distanceMetres } = frameFigure( stage, figure, {
+        mode: session.frameMode,
+        heightMetres: session.framedHeightMetres
+    } );
+
+    aimLightingRig( lights, focus, distanceMetres / portraitDistanceMetres() );
+
+    // The card does not move with the rig. It is emissive, so distance costs it nothing, and at
+    // 8 x 6 m it still fills a full-body frame from 1.9 m behind the subject.
     backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
 
 }
@@ -413,19 +664,32 @@ function describeAsset( figure ) {
 }
 
 /**
- * Puts the camera on a head-and-shoulders portrait and returns the point it is looking at, which
- * is also what the lights aim at.
+ * Puts the camera on the figure and reports where it is looking and how far away it stands.
  *
- * The frame is anchored on the EYE LINE, read off the eyeball mesh rather than guessed from a
+ * Two framings, because the Phase 2 gate asks two different questions of the same figure. A
+ * PORTRAIT is the only frame in which a blink or a saccade is legible — an eyelid has to be dozens
+ * of pixels tall before the roll of it means anything. A BODY frame is the only one in which a
+ * rest pose, an arm that hangs, and a weight shift are legible at all. Neither answers for the
+ * other, so the page does both rather than compromising on one.
+ *
+ * The portrait is anchored on the EYE LINE, read off the eyeball mesh rather than guessed from a
  * bone: the five bakes differ in height by centimetres, and the `head` joint sits at the base of
  * the skull, well below the eyes. Anchoring on the eyes means the same rule produces a correct
  * head-and-shoulders at 0.42 m and a correct eyes-only crop at 0.17 m.
+ *
+ * The body frame is anchored on the figure's own bounding box instead, because "the whole person"
+ * is a statement about the mesh, not about the face.
+ *
+ * @returns {{ focus: Vector3, distanceMetres: number }} the point the lights should aim at, and
+ *   the camera's distance, which is what the lighting rig scales itself against.
  */
-function framePortrait( stage, figure, heightMetres = PORTRAIT_HEIGHT_METRES ) {
+function frameFigure( stage, figure, { mode, heightMetres } ) {
 
     figure.root.updateMatrixWorld( true );
 
-    const focus = new Vector3( 0, eyeLineHeight( figure ) + heightMetres * ( EYE_LINE_FROM_TOP - 0.5 ), 0 );
+    const focus = mode === 'body'
+        ? bodyFocus( figure, heightMetres )
+        : new Vector3( 0, eyeLineHeight( figure ) + heightMetres * ( EYE_LINE_FROM_TOP - 0.5 ), 0 );
 
     const halfFieldOfView = ( PORTRAIT_FIELD_OF_VIEW_DEGREES / 2 ) * Math.PI / 180;
     const distance = ( heightMetres / 2 ) / Math.tan( halfFieldOfView );
@@ -439,7 +703,35 @@ function framePortrait( stage, figure, heightMetres = PORTRAIT_HEIGHT_METRES ) {
 
     stage.camera.lookAt( focus );
 
-    return focus;
+    return { focus, distanceMetres: distance };
+
+}
+
+/** Vertical centre of the figure's bounding box, on the figure's own axis rather than the box's. */
+function bodyFocus( figure ) {
+
+    const bounds = new Box3().setFromObject( figure.root );
+
+    return new Vector3( 0, ( bounds.min.y + bounds.max.y ) / 2, 0 );
+
+}
+
+/**
+ * The framed height the requested mode wants, in metres — a portrait crop, or the figure's own
+ * measured height plus a margin.
+ *
+ * Measured rather than assumed because the five bakes differ by centimetres and because a rest
+ * pose changes the number: the relaxed pose drops the arms and settles the pelvis, so the same
+ * figure is not the same height posed as it is in bind.
+ */
+function framedHeightFor( figure, mode, override ) {
+
+    if ( Number.isFinite( override ) ) return override;
+    if ( mode !== 'body' ) return PORTRAIT_HEIGHT_METRES;
+
+    const bounds = new Box3().setFromObject( figure.root );
+
+    return ( bounds.max.y - bounds.min.y ) * BODY_FRAME_MARGIN;
 
 }
 
@@ -502,23 +794,90 @@ function createHeadSampler( session ) {
 
 }
 
-function sampleSignals( stack, layers, sampleHeadDisplacement ) {
+/**
+ * Measures how far each hand has travelled from where it rested at bind, in millimetres.
+ *
+ * The two hands are plotted as two traces rather than one, because the question BodyIdle exists
+ * to answer is not "do the arms move" but "do they move independently". Two lines that wander
+ * apart are the evidence; one line, or two that mirror, is the tell that a rig is driving both
+ * from the same stream.
+ */
+function createHandSampler( session ) {
 
-    const head = sampleHeadDisplacement();
+    const rest = new Map();     // Bone -> its position at first sight
+    const current = new Vector3();
+
+    const displacementOf = ( boneName ) => {
+
+        const hand = session.figure?.root.getObjectByName( boneName );
+        if ( hand === undefined || hand === null ) return 0;
+
+        current.setFromMatrixPosition( hand.matrixWorld );
+
+        if ( rest.has( hand ) === false ) rest.set( hand, current.clone() );
+
+        return current.distanceTo( rest.get( hand ) ) * 1000;
+
+    };
+
+    return () => {
+
+        // World matrices are refreshed by the head sampler on the same frame; refreshing again
+        // here would be a second full traverse for the same answer.
+        return { left: displacementOf( 'hand_l' ), right: displacementOf( 'hand_r' ) };
+
+    };
+
+}
+
+function sampleSignals( stack, layers, samplers ) {
+
+    const head = samplers.head();
+    const hand = samplers.hand();
 
     return {
         blinkClosure: stack.morphChannels.get( 'eyeBlinkLeft' )?.committed ?? 0,
         breathLevel: layers.breath.level,
         eyeYawDegrees: layers.gaze.currentEyeYawDegrees,
         headYawDegrees: layers.gaze.headYawDegrees,
-        headMedioLateralMm: head.medioLateral
+        headMedioLateralMm: head.medioLateral,
+        leftHandMm: hand.left,
+        rightHandMm: hand.right
+    };
+
+}
+
+/**
+ * Sway measures weight shifts and BodyIdle wants to hear about them, so the arms answer a shift
+ * with one small decaying swing instead of drifting on obliviously while the pelvis moves.
+ *
+ * The event is OBSERVED from Sway's counters rather than pushed by Sway, because `Sway.beginShift`
+ * carries no callback yet. That costs one frame of latency — 16 ms, an order of magnitude under
+ * anything a viewer resolves — and it costs the magnitude: the drawn shift amplitude lives inside
+ * `beginShift` and is not readable from out here, so every shift is relayed at the nominal 1.
+ * The real fix is one line in Sway; this is the integration standing in for it, visibly.
+ */
+function createWeightShiftRelay( sway, bodyIdle ) {
+
+    const totalShifts = () => sway.eventCounts.shift + sway.eventCounts.discourseShift;
+
+    let seen = totalShifts();
+
+    return () => {
+
+        const now = totalShifts();
+        if ( now === seen ) return;
+
+        seen = now;
+        bodyIdle.onWeightShift();
+
     };
 
 }
 
 function describeState( stage, stack, layers, session, pupilScale ) {
 
-    const { breath, sway, gaze, blink } = layers;
+    const { breath, sway, bodyIdle, gaze, blink } = layers;
     const stats = stage.stats;
 
     return [
@@ -527,9 +886,13 @@ function describeState( stage, stack, layers, session, pupilScale ) {
         `motion time ${ stack.time.toFixed( 1 ) } s   conflicts ${ stack.conflicts.length }`,
         '',
         `figure   gender ${ session.identity.gender.toFixed( 2 ) }   asset ${ describeAsset( session.figure ) }`,
+        `pose     ${ session.restPose === null ? 'BIND (no rest pose)' : session.restPose.name }` +
+            `   frame ${ session.frameMode } ${ session.framedHeightMetres.toFixed( 2 ) } m`,
         `breath   ${ breath.breathsPerMinute.toFixed( 1 ) } brpm   level ${ breath.level.toFixed( 2 ) }   ×${ breath.exaggeration }`,
         `sway     ML ${ ( sway.displacement.x * 1000 ).toFixed( 1 ) } mm   AP ${ ( sway.displacement.z * 1000 ).toFixed( 1 ) } mm` +
             `   shifts ${ sway.eventCounts.shift + sway.eventCounts.discourseShift }`,
+        `body     arousal ${ bodyIdle.arousal.toFixed( 2 ) }   settles ${ bodyIdle.eventCounts.shoulderSettle }` +
+            `   arm swings ${ bodyIdle.eventCounts.weightShiftSwing }`,
         `gaze     ${ gaze.conversationState } / ${ gaze.region }   eye ${ gaze.currentEyeYawDegrees.toFixed( 1 ) }°` +
             ` head ${ gaze.headYawDegrees.toFixed( 1 ) }°   ${ gaze.saccadeCount } saccades`,
         `blink    ${ blink.blinkCount } blinks   ${ blink.effectiveRatePerMinute().toFixed( 1 ) }/min asked` +
@@ -544,12 +907,13 @@ function describeState( stage, stack, layers, session, pupilScale ) {
 
 function bindControls( { session, stack, stage, lights, backdrop, layers } ) {
 
-    const { breath, sway, gaze, blink, pupil } = layers;
+    const { breath, sway, bodyIdle, gaze, blink, pupil } = layers;
 
     bindDial( 'arousal', ( value ) => {
 
         breath.setArousal( value );
         pupil.setArousal( value );
+        bodyIdle.setArousal( value );
 
     } );
 
@@ -685,7 +1049,11 @@ function createTrace( canvas ) {
         { key: 'breathLevel', colour: '#7fd1a0', label: 'breath level 0..1', min: 0, max: 1 },
         { key: 'eyeYawDegrees', colour: '#8ab4f8', label: 'eye yaw ±15°', min: -15, max: 15 },
         { key: 'headYawDegrees', colour: '#c58af9', label: 'head yaw ±15°', min: -15, max: 15 },
-        { key: 'headMedioLateralMm', colour: '#e57bb0', label: 'head ML ±12 mm', min: -12, max: 12 }
+        { key: 'headMedioLateralMm', colour: '#e57bb0', label: 'head ML ±12 mm', min: -12, max: 12 },
+        // Two hands, two lines. Whether the arms are alive is answered by either line moving;
+        // whether they are a rig is answered by the two moving together.
+        { key: 'leftHandMm', colour: '#f4e07a', label: 'left hand 0..14 mm', min: 0, max: 14 },
+        { key: 'rightHandMm', colour: '#79e0d8', label: 'right hand 0..14 mm', min: 0, max: 14 }
     ];
 
     const samples = [];

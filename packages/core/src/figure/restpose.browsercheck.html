@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RestPose browser check</title>
+<style>
+    html, body { margin: 0; height: 100%; background: #14151a; color: #d8dbe2;
+                 font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    #hud { position: fixed; top: 12px; left: 12px; white-space: pre; pointer-events: none;
+           text-shadow: 0 1px 2px #000; }
+    .caption { position: fixed; bottom: 18px; text-align: center; font-size: 15px;
+               letter-spacing: 0.08em; text-transform: uppercase; pointer-events: none;
+               text-shadow: 0 1px 3px #000; }
+    body.bare #hud, body.bare .caption { display: none; }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<div id="hud">booting…</div>
+
+<!--
+     Browser-side gate for RestPose.
+
+     The numeric side is settled elsewhere — every angle in poses/*.json was derived from measured
+     bind-pose geometry and checked back against measured joint angles. What a number cannot
+     answer is the only question that matters here: does the figure read as a person standing, or
+     as a mannequin? So this page puts the bind pose and the posed figure side by side at full
+     body and lets the eye decide.
+
+     Two figures, not two screenshots, deliberately. A rest pose is a small change measured in
+     degrees and a large change measured in impression, and A/B across a page reload loses the
+     comparison the moment the first image leaves the screen.
+
+     Served from the repo root, since the figures live outside the testbed's vite root. The root is
+     the positional argument — `--root` was dropped from the CLI and errors out on the vite in this
+     repo:
+         npx vite "$PWD" --port 5199
+         http://localhost:5199/packages/core/src/figure/restpose.browsercheck.html
+
+     The numeric half of the same gate:
+         node packages/core/src/figure/restpose.selftest.mjs
+
+     URL parameters:
+         ?pose=weight-left     which pose to show on the right-hand figure
+         ?view=front           front | three-quarter | profile | rear
+         ?blend=0.4            show the right-hand figure blended from relaxed-standing toward
+                               ?pose by this fraction, exercising RestPose.blendTo
+         ?single               one figure only, posed, centred
+         ?bind                 with ?single, show the untouched bind pose instead
+         ?height=0.9           framed height in metres; default frames the whole body
+         ?bare                 hide the HUD and captions for a clean plate
+         ?webgl                force the WebGL2 fallback tier
+-->
+<script type="module">
+
+import { Color, Mesh, MeshStandardNodeMaterial, PlaneGeometry, RectAreaLight, RectAreaLightNode, Vector3 } from 'three/webgpu';
+import { Box3 } from 'three';
+import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
+
+import { Stage } from '../render/Stage.js';
+import { Figure } from './Figure.js';
+import { Skeleton } from './Skeleton.js';
+import { RestPose } from './RestPose.js';
+
+const GLB_URL = '/assets/figures/figure_g050.glb';
+
+const query = new URLSearchParams( location.search );
+
+const POSE_NAME = query.get( 'pose' ) ?? 'relaxed-standing';
+const VIEW = query.get( 'view' ) ?? 'front';
+const SINGLE = query.has( 'single' );
+const BLEND = query.has( 'blend' ) ? Number( query.get( 'blend' ) ) : null;
+
+// Where each figure stands, in metres. Far enough apart that the silhouettes do not touch at a
+// three-quarter view, close enough that both are large in a 16:9 frame.
+const PAIR_SEPARATION = 0.95;
+
+// Camera azimuth per view, in degrees off the figure's facing direction.
+const VIEW_AZIMUTH_DEGREES = { front: 0, 'three-quarter': 35, profile: 82, rear: 180 };
+
+async function boot() {
+
+    const hud = document.getElementById( 'hud' );
+
+    if ( query.has( 'bare' ) ) document.body.classList.add( 'bare' );
+
+    const stage = new Stage();
+    await stage.create( document.getElementById( 'stage' ),
+        { fieldOfView: 30, near: 0.01, far: 50, forceWebGL: query.has( 'webgl' ) } );
+
+    stage.scene.background = new Color( 0x14151a );
+
+    // RectAreaLight needs its linearly-transformed-cosine tables installed before first use, and
+    // `init()` is what builds them. Without the call the lights contribute nothing and the figure
+    // renders black — which looks exactly like a framing bug and is not one.
+    RectAreaLightNode.setLTC( RectAreaLightTexturesLib.init() );
+
+    addLightingRig( stage );
+    addGroundPlane( stage );
+    addBackdrop( stage );
+
+    const posed = await Figure.load( GLB_URL );
+    const skeleton = new Skeleton( posed.root );
+
+    const pose = RestPose.load( POSE_NAME );
+
+    if ( query.has( 'bind' ) ) {
+
+        // Deliberately posed with nothing, so ?single&bind gives the untouched asset in the same
+        // frame as ?single — the only honest way to compare a single figure against its baseline.
+        skeleton.reset();
+
+    } else if ( BLEND === null ) {
+
+        pose.applyTo( skeleton );
+
+    } else {
+
+        RestPose.load( 'relaxed-standing' ).blendTo( skeleton, pose, BLEND );
+
+    }
+
+    skeleton.update();
+    posed.root.updateMatrixWorld( true );
+
+    stage.add( posed.root );
+
+    let reference = null;
+
+    if ( SINGLE === false ) {
+
+        // Left figure: untouched, so it is the bind pose the asset ships in.
+        reference = await Figure.load( GLB_URL );
+        stage.add( reference.root );
+
+        reference.root.position.x = -PAIR_SEPARATION / 2;
+        posed.root.position.x = PAIR_SEPARATION / 2;
+
+        // Past a quarter turn the camera is behind the pair and the two swap sides on screen, so
+        // the captions have to swap with them. A mislabelled comparison is worse than none.
+        const posedOnRight = Math.abs( VIEW_AZIMUTH_DEGREES[ VIEW ] ?? 0 ) < 90;
+
+        addCaption( 'BIND POSE', posedOnRight ? 0.25 : 0.75 );
+        addCaption( BLEND === null ? POSE_NAME : `${ POSE_NAME } @ ${ BLEND }`, posedOnRight ? 0.75 : 0.25 );
+
+    }
+
+    frameFigures( stage, SINGLE ? [ posed ] : [ reference, posed ] );
+
+    hud.textContent =
+        `${ stage.backendName }   pose ${ POSE_NAME }   view ${ VIEW }` +
+        ( BLEND === null ? '' : `   blend ${ BLEND }` ) +
+        `\nbones posed ${ pose.rotations.size }   hips offset ${ pose.hipsOffset.toArray().map( ( n ) => n.toFixed( 3 ) ).join( ', ' ) }`;
+
+    // Nothing animates. A rest pose is a still, and a still is what it has to survive.
+    window.check = { stage, posed, reference, skeleton, pose };
+    document.body.dataset.ready = 'true';
+
+}
+
+/**
+ * The testbed's four-light portrait rig — key and fill around 1.5:1, rim and kicker hue-opposed
+ * to the key — pushed back and brightened for a full-body subject rather than a head.
+ *
+ * The same rig on purpose, not a convenient one. A pose is judged by the shape of the shadow
+ * under the deltoid and the separation between the forearm and the thigh, and both of those are
+ * a function of the light. Judging a pose under a flat studio dome would flatter it.
+ *
+ * Offsets are 1.7x the testbed's and intensities near 3x, which is what the inverse square costs
+ * for moving the panels from half a metre off a face to a metre and a half off a body.
+ */
+function addLightingRig( stage ) {
+
+    const focus = new Vector3( 0, 0.95, 0 );
+
+    const rig = [
+        { colour: 0xfff0dc, intensity: 16, size: [ 1.45, 2.05 ], offset: [ 1.53, 0.77, 1.62 ] },
+        { colour: 0xbcd4ff, intensity: 5.5, size: [ 2.70, 2.70 ], offset: [ -1.79, 0.17, 1.45 ] },
+        { colour: 0x8fb6ff, intensity: 46, size: [ 0.77, 1.87 ], offset: [ -1.28, 0.94, -1.53 ] },
+        { colour: 0xffbe8c, intensity: 29, size: [ 0.60, 1.70 ], offset: [ 1.62, -0.17, -1.36 ] }
+    ];
+
+    for ( const spec of rig ) {
+
+        const light = new RectAreaLight( spec.colour, spec.intensity, spec.size[ 0 ], spec.size[ 1 ] );
+
+        light.position.set( focus.x + spec.offset[ 0 ], focus.y + spec.offset[ 1 ], focus.z + spec.offset[ 2 ] );
+        light.lookAt( focus.x, focus.y, focus.z );
+
+        stage.add( light );
+
+    }
+
+}
+
+/** A floor, so a foot that drifts through it is visible rather than merely measurable. */
+function addGroundPlane( stage ) {
+
+    const ground = new Mesh(
+        new PlaneGeometry( 8, 8 ),
+        new MeshStandardNodeMaterial( { color: 0x23252d, roughness: 0.92 } ) );
+
+    ground.rotation.x = -Math.PI / 2;
+
+    stage.add( ground );
+
+}
+
+/**
+ * An emissive card behind the figures. Emissive rather than lit for the reason the testbed gives:
+ * a RectAreaLight is single-sided, so the two lights behind the figure throw forward and leave
+ * anything further back unlit. A black void behind a dark silhouette is the one background that
+ * makes a pose impossible to read.
+ */
+function addBackdrop( stage ) {
+
+    const card = new Mesh(
+        new PlaneGeometry( 9, 6 ),
+        new MeshStandardNodeMaterial( { color: 0x000000, emissive: new Color( 0x2b3040 ), roughness: 1 } ) );
+
+    card.position.set( 0, 1.4, -2.2 );
+
+    stage.add( card );
+
+}
+
+/**
+ * Frames every figure at once: the union of their bounding boxes, viewed from `VIEW`.
+ *
+ * Fitting to the union rather than to a fixed distance is what keeps the pair centred when the
+ * separation or the view changes, and it is why a contrapposto figure — which is wider than a
+ * square one — does not walk out of frame.
+ */
+function frameFigures( stage, figures ) {
+
+    const bounds = new Box3();
+
+    for ( const figure of figures ) {
+        figure.root.updateMatrixWorld( true );
+        bounds.union( new Box3().setFromObject( figure.root ) );
+    }
+
+    const centre = bounds.getCenter( new Vector3() );
+
+    // ?focus=hand_l re-centres on one bone, which is how the finger cascade gets looked at
+    // without hand-editing the camera. Falls back to the bounds centre if the bone is not there.
+    if ( query.has( 'focus' ) ) {
+
+        const bone = figures[ figures.length - 1 ].root.getObjectByName( query.get( 'focus' ) );
+
+        if ( bone !== undefined ) centre.setFromMatrixPosition( bone.matrixWorld );
+
+    }
+
+    const verticalFieldOfView = ( stage.camera.fov * Math.PI ) / 180;
+    const horizontalFieldOfView = 2 * Math.atan( Math.tan( verticalFieldOfView / 2 ) * stage.camera.aspect );
+
+    // Fit the bounding SPHERE, not the box. The camera orbits, so a box fit has to be redone for
+    // every azimuth and gets it wrong in between — which is how the near figure's feet ended up
+    // clipped at three-quarter while the front view looked fine. A sphere is the same size from
+    // every angle, so one distance is correct for all of them.
+    const radius = query.has( 'height' )
+        ? Number( query.get( 'height' ) ) / 2
+        : ( bounds.getSize( new Vector3() ).length() / 2 ) * 1.04;
+
+    const distance = radius / Math.sin( Math.min( verticalFieldOfView, horizontalFieldOfView ) / 2 );
+
+    const azimuth = ( ( VIEW_AZIMUTH_DEGREES[ VIEW ] ?? 0 ) * Math.PI ) / 180;
+
+    stage.camera.position.set(
+        centre.x + Math.sin( azimuth ) * distance,
+        centre.y,
+        centre.z + Math.cos( azimuth ) * distance );
+
+    stage.camera.lookAt( centre );
+
+}
+
+/** A label under a figure, positioned as a fraction across the viewport. */
+function addCaption( text, fractionAcross ) {
+
+    const element = document.createElement( 'div' );
+    element.className = 'caption';
+    element.textContent = text;
+    element.style.left = `${ fractionAcross * 100 }%`;
+    element.style.transform = 'translateX(-50%)';
+    document.body.appendChild( element );
+
+}
+
+boot().catch( ( error ) => {
+    document.getElementById( 'hud' ).textContent = `FAILED\n${ error.stack ?? error }`;
+    document.body.dataset.ready = 'failed';
+} );
+
+</script>
+</body>
+</html>
