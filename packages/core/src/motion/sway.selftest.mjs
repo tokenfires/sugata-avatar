@@ -210,6 +210,13 @@ function reportRigGeometry() {
 
     }
 
+    // The head's own figure is below 1 because the ankle rotation is not the whole of its
+    // excursion — the spine's 15% share and the neck's give-back make up the rest, and the total
+    // is 1 by construction because the layer solves for it. Every ratio in the table below is
+    // stated against that total, so the prediction to compare each segment against is the raw
+    // figure printed here, not the figure divided by the head's.
+    note( 'head total, by construction', '1.0000', 'ankle + spine - neck, solved to the authored amplitude' );
+
     stack.dispose();
 
 }

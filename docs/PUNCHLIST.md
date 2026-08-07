@@ -31,36 +31,36 @@ measured there.**
 
 ## Phase 1 — Body and identity
 
-- [ ] **1.1** `figure/Figure.js` — GLB load, morph registry, named accessors.
-- [ ] **1.2** `figure/Identity.js` — continuous `{gender, age, build, height}`; discrete baked GLB
+- [x] **1.1** `figure/Figure.js` — GLB load, morph registry, named accessors.
+- [x] **1.2** `figure/Identity.js` — continuous `{gender, age, build, height}`; discrete baked GLB
       selection + clamped live morph. Gate: **CRITIC** — androgynous midpoint reads as a real body,
       not a blend artifact.
-- [ ] **1.3** `figure/ExpressionBank.js` — ARKit 52 + visemes + custom `mouthTighten` (ARKit lacks
+- [x] **1.3** `figure/ExpressionBank.js` — ARKit 52 + visemes + custom `mouthTighten` (ARKit lacks
       AU23, one of anger's most discriminative units).
-- [ ] **1.4** Region segmentation: brow / eye / mid-face / mouth-jaw blend independently.
-- [ ] **1.5** Skeleton normalisation (VRM-style identity-rest rig) so procedural motion is
+- [x] **1.4** Region segmentation: brow / eye / mid-face / mouth-jaw blend independently.
+- [x] **1.5** Skeleton normalisation (VRM-style identity-rest rig) so procedural motion is
       model-independent.
 
 ## Phase 2 — Ocular + idle ← highest perceptual return per unit effort
 
-- [ ] **2.1** `motion/Blink.js` — closing 50–100 ms, opening 150–300 ms, downphase ≈2× upphase,
+- [x] **2.1** `motion/Blink.js` — closing 50–100 ms, opening 150–300 ms, downphase ≈2× upphase,
       **full closure**, Poisson at 10.5–32.5/min, co-occurring with saccades > 30°.
       Gate: **CRITIC** vs Live2D's 0.1/0.15 (which is backwards).
-- [ ] **2.2** `motion/Gaze.js` saccades — main sequence (10° ≈ 300°/s, 30° ≈ 500°/s), 5–10° typical
+- [x] **2.2** `motion/Gaze.js` saccades — main sequence (10° ≈ 300°/s, 30° ≈ 500°/s), 5–10° typical
       at 30–40 ms, ≥150 ms intersaccadic, exponential fixations, microsaccades 1–2/s at 30 arcmin.
       Skip drift and tremor.
-- [ ] **2.3** VOR counter-rotation (7–15 ms, gain 1.0); head recruitment at 15–20°;
+- [x] **2.3** VOR counter-rotation (7–15 ms, gain 1.0); head recruitment at 15–20°;
       **head leads eye by ~100 ms on predicted targets**.
-- [ ] **2.4** Conversational gaze policy — BEAT's THEME away 70% / RHEME toward 73%; mutual-break at
+- [x] **2.4** Conversational gaze policy — BEAT's THEME away 70% / RHEME toward 73%; mutual-break at
       turn boundaries; aversion during filled pauses.
-- [ ] **2.5** `motion/Breath.js` — 15–16 brpm resting, ribcage ~2–3 mm AP, belly ~5 mm, I:E ≈ 1:1.7,
+- [x] **2.5** `motion/Breath.js` — 15–16 brpm resting, ribcage ~2–3 mm AP, belly ~5 mm, I:E ≈ 1:1.7,
       arousal scales rate +4…+9 brpm and amplitude. Gate: **MEASURED** — displacement in range.
-- [ ] **2.6** Postural sway — dominant mode 0.25–0.33 Hz, 95% power < 1.3 Hz, nothing above 2 Hz;
+- [x] **2.6** Postural sway — dominant mode 0.25–0.33 Hz, 95% power < 1.3 Hz, nothing above 2 Hz;
       RMS 3–5 mm ML / 5–7 mm AP; AP 1.5–2× ML.
-- [ ] **2.7** Idle micro-motion on co-prime cycles (Perlin 1 Hz shoulder / 2 Hz elbow / 4 Hz wrist).
-- [ ] **2.8** Pupil dilation from arousal, exaggerated past physiology.
-- [ ] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
-- [ ] **2.10** Gate: **CRITIC** blind emote comparison vs Live2D/VTuber reference clips, silent idle.
+- [x] **2.7** Idle micro-motion on co-prime cycles (Perlin 1 Hz shoulder / 2 Hz elbow / 4 Hz wrist).
+- [x] **2.8** Pupil dilation from arousal, exaggerated past physiology.
+- [~] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
+- [~] **2.10** Gate: **CRITIC** blind emote comparison vs Live2D/VTuber reference clips, silent idle.
 
 ## Phase 3 — Rendering
 

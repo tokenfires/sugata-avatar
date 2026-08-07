@@ -22,8 +22,8 @@
  *     standing rather than from a T-pose.
  *
  *   - The full idle stack runs: breath, sway, body idle (arms, hands, fingers, trunk), head idle,
- *     gaze (eyes and head), blink, pupil. Every one of them is a contributor to a MotionStack,
- *     which is the only thing that writes to the figure.
+ *     gaze (eyes and head), blink, facial idle (brow, lids, cheeks, mouth, jaw), pupil. Every one
+ *     of them is a contributor to a MotionStack, which is the only thing that writes to the figure.
  *
  *   - A strip chart plots what is moving. Millimetre-scale motion looks identical to no motion in
  *     a still frame, so a screenshot without the trace cannot distinguish "breathing" from
@@ -75,6 +75,7 @@ import { MotionStack, createMotionTarget } from '../../core/src/motion/MotionSta
 import { Blink } from '../../core/src/motion/Blink.js';
 import { BodyIdle } from '../../core/src/motion/BodyIdle.js';
 import { Breath } from '../../core/src/motion/Breath.js';
+import { FacialIdle } from '../../core/src/motion/FacialIdle.js';
 import { Gaze } from '../../core/src/motion/Gaze.js';
 import { IdleMotion } from '../../core/src/motion/IdleMotion.js';
 import { Pupil } from '../../core/src/motion/Pupil.js';
@@ -230,25 +231,28 @@ async function boot() {
     const stack = new MotionStack( { seed: Number( query.get( 'seed' ) ?? 20260807 ) } );
 
     const breath = new Breath();
-    const sway = new Sway();
-    const idle = new IdleMotion();
     const bodyIdle = new BodyIdle();
+
+    // Sway measures the weight shift; the arms answer it with one small decaying swing instead of
+    // drifting on obliviously while the pelvis moves. The callback carries the drawn amplitude, so
+    // a big shift gets a big swing — which is the whole reason the arms are worth coupling.
+    const sway = new Sway( { onWeightShift: ( shift ) => bodyIdle.onWeightShift( shift ) } );
+
+    // 'auto' is IdleMotion's own answer to the arm-doubling problem: it declares the six arm bones
+    // and so does BodyIdle, and bone contributions SUM. With a layer named 'bodyIdle' in the stack
+    // it stands down to the head alone, which is the split this page wants.
+    const idle = new IdleMotion( { armsEnabled: 'auto' } );
+
     const gaze = new Gaze( { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES } );
     const blink = new Blink();
+    const facialIdle = new FacialIdle();
     const pupil = new Pupil();
-
-    // IdleMotion declares the six arm bones as well as the head, and so does BodyIdle. Bone
-    // contributions SUM, so running both as shipped is not an error the stack can catch — it is a
-    // silent doubling of every arm joint that nobody asked for, and both files say so in their
-    // headers. The intended split is IdleMotion on the head, BodyIdle on everything below the
-    // neck. Emptying the arm joints here is the integration-side half of that; the library-side
-    // half is an `armsEnabled` option on IdleMotion, which it does not have yet.
-    idle.joints.length = 0;
 
     // The eye layer and the head layer are two members of one pair, added separately because they
     // sit in different slots — HEAD runs before GAZE so the eyes can counter-rotate against the
-    // head position this frame actually landed on.
-    const layers = { breath, sway, idle, bodyIdle, gazeHead: gaze.head, gaze, blink, pupil };
+    // head position this frame actually landed on. FacialIdle comes after Blink for the same kind
+    // of reason: it reads this frame's lid closure to know how much lid-follow is left to give.
+    const layers = { breath, sway, idle, bodyIdle, gazeHead: gaze.head, gaze, blink, facialIdle, pupil };
 
     await swapFigure( session, stack, stage, lights, backdrop );
 
@@ -274,18 +278,16 @@ async function boot() {
     bindControls( { session, stack, stage, lights, backdrop, layers } );
     bindKeyboard( { blink, trace } );
 
-    const relayWeightShifts = createWeightShiftRelay( sway, bodyIdle );
     const samplers = { head: createHeadSampler( session ), hand: createHandSampler( session ) };
 
     /**
-     * One simulated frame: advance the stack, hand Sway's events on to the arms, and record what
-     * moved. Every clock the page has — pre-roll, rAF, the capture hook — comes through here, so
-     * a capture and a live run cannot drift into being different simulations.
+     * One simulated frame: advance the stack and record what moved. Every clock the page has —
+     * pre-roll, rAF, the capture hook — comes through here, so a capture and a live run cannot
+     * drift into being different simulations.
      */
     const advanceSimulation = ( deltaSeconds ) => {
 
         stack.update( deltaSeconds );
-        relayWeightShifts();
         trace.push( deltaSeconds, sampleSignals( stack, layers, samplers ) );
 
     };
@@ -847,38 +849,11 @@ function sampleSignals( stack, layers, samplers ) {
 
 }
 
-/**
- * Sway measures weight shifts and BodyIdle wants to hear about them, so the arms answer a shift
- * with one small decaying swing instead of drifting on obliviously while the pelvis moves.
- *
- * The event is OBSERVED from Sway's counters rather than pushed by Sway, because `Sway.beginShift`
- * carries no callback yet. That costs one frame of latency — 16 ms, an order of magnitude under
- * anything a viewer resolves — and it costs the magnitude: the drawn shift amplitude lives inside
- * `beginShift` and is not readable from out here, so every shift is relayed at the nominal 1.
- * The real fix is one line in Sway; this is the integration standing in for it, visibly.
- */
-function createWeightShiftRelay( sway, bodyIdle ) {
-
-    const totalShifts = () => sway.eventCounts.shift + sway.eventCounts.discourseShift;
-
-    let seen = totalShifts();
-
-    return () => {
-
-        const now = totalShifts();
-        if ( now === seen ) return;
-
-        seen = now;
-        bodyIdle.onWeightShift();
-
-    };
-
-}
-
 function describeState( stage, stack, layers, session, pupilScale ) {
 
-    const { breath, sway, bodyIdle, gaze, blink } = layers;
+    const { breath, sway, bodyIdle, gaze, blink, facialIdle } = layers;
     const stats = stage.stats;
+    const faceEvents = facialIdle.eventCounts;
 
     return [
         `${ stats.backend }   ${ stats.fps.toFixed( 0 ) } fps   ${ stats.frameMs.toFixed( 2 ) } ms cpu   ` +
@@ -897,6 +872,8 @@ function describeState( stage, stack, layers, session, pupilScale ) {
             ` head ${ gaze.headYawDegrees.toFixed( 1 ) }°   ${ gaze.saccadeCount } saccades`,
         `blink    ${ blink.blinkCount } blinks   ${ blink.effectiveRatePerMinute().toFixed( 1 ) }/min asked` +
             `   down ${ ( blink.closingDuration * 1000 ).toFixed( 0 ) } ms  up ${ ( blink.openingDuration * 1000 ).toFixed( 0 ) } ms`,
+        `face     brow ${ faceEvents.browRaise }/${ faceEvents.browFurrow }` +
+            `   lip press ${ faceEvents.lipPress }   swallow ${ faceEvents.swallow }`,
         `pupil    scale ${ pupilScale.toFixed( 3 ) }   ${ layers.pupil.physiologicalDiameterMillimetres.toFixed( 2 ) } mm` +
             `   (no pupil morph on this asset)`
     ].join( '\n' );

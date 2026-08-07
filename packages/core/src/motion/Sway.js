@@ -847,7 +847,7 @@ export class Sway extends Layer {
 
         const neck = this.jointsByHumanoid.get( 'neck' );
 
-        if ( neck.bone !== null && neck.bone !== undefined ) {
+        if ( isPresent( neck.bone ) ) {
 
             lever -= this.headStabilisation * ( referenceHeight - neck.restPosition.y );
 
