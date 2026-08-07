@@ -10,3 +10,6 @@ dist/
 /reference/
 *.reference.jpg
 *.reference.png
+__pycache__/
+tools/figure-pipeline/.cache/
+assets/figures/*.glb

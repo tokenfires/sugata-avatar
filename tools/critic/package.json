@@ -1,0 +1,18 @@
+{
+  "name": "sugata-critic",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Objective image gates and blind A/B harness for the Sugata render critic loop.",
+  "_dependencies_note": "Deliberately none, and it should stay that way. The PNG codec in png.mjs is ~250 lines on top of node:zlib, which is a smaller cost than a supply chain nobody audits sitting underneath the numbers that steer the whole project's art direction. This file exists to record that choice and to keep the tool's scripts out of the root package.json.",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node selftest.mjs",
+    "measure": "node measure.mjs",
+    "blind": "node blind_ab.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

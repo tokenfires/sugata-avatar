@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <title>Sugata spike 0.10 — RectAreaLight cost curve</title>
+  <link rel="stylesheet" href="./spike-page.css">
+</head>
+<body>
+  <h1>Spike 0.10 — RectAreaLight cost curve on a 100k-triangle physical mesh</h1>
+  <p class="lede">
+    RectAreaLight is the single biggest driver of the portrait look and it has no cheap path:
+    it casts no shadows, and three.js's clustered lighting filters to
+    <code>isPointLight &amp;&amp; !castShadow</code>, so area lights are never clustered. Every
+    light is an LTC evaluation in every lit fragment. That makes the cost linear in lights
+    &times; covered pixels and unavoidable. This page finds where the classic key/fill/rim/kicker
+    rig starts to hurt.
+  </p>
+  <div id="status">starting…</div>
+
+  <h2>Environment</h2>
+  <div id="environment"></div>
+
+  <h2>Results</h2>
+  <div id="results"></div>
+  <p class="caveat">
+    <strong>Read the GPU column, not the wall column.</strong> Wall-frame time is vsync-locked.
+    <em>&Delta; vs 0</em> subtracts the cost of the same scene lit only by ambient plus one
+    directional light, so it isolates what the area lights themselves add. The mesh is framed to
+    fill the viewport because LTC cost is per lit fragment — a small object on screen would
+    understate it.
+  </p>
+
+  <canvas id="viewport"></canvas>
+
+  <script type="module">
+    import * as THREE from 'three/webgpu';
+    import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
+    import {
+      createSpikeRenderer,
+      probeTimestampSupport,
+      runSweep,
+      formatMs,
+      publishResults,
+      publishFailure,
+      setStatus,
+      renderTable,
+      renderEnvironment,
+      readNumberParam,
+      readFlagParam,
+      looksLikeSoftwareRenderer
+    } from './spike-harness.js';
+
+    // TorusKnot at 400 x 128 segments = 102,400 triangles, and its self-occluding shape gives
+    // realistic depth complexity rather than a single flat surface.
+    const KNOT_TUBULAR_SEGMENTS = 400;
+    const KNOT_RADIAL_SEGMENTS = 128;
+
+    // 0 is the baseline: same material, same pixels, no area lights.
+    const LIGHT_COUNT_SWEEP = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
+
+    const canvasWidth = readNumberParam( 'width', 1280 );
+    const canvasHeight = readNumberParam( 'height', 720 );
+    const warmupFrames = readNumberParam( 'warmup', 60 );
+    const sampleFrames = readNumberParam( 'frames', 200 );
+    const repeats = readNumberParam( 'repeats', 3 );
+    // Unlike the morph sweep, this workload is already milliseconds per pass, so one render
+    // per frame is well clear of the timer's noise floor.
+    const passesPerFrame = readNumberParam( 'passes', 1 );
+    const forceWebGL = readFlagParam( 'forceWebGL' );
+
+    main().catch( ( error ) => {
+      setStatus( 'FAILED: ' + error.message );
+      publishFailure( 'rectarea-cost', error );
+    } );
+
+    async function main() {
+      // RectAreaLight needs its linearly-transformed-cosine tables installed before first use.
+      // The WebGPU path takes them through RectAreaLightNode; without this the light contributes
+      // nothing and the whole sweep would read as free.
+      THREE.RectAreaLightNode.setLTC( RectAreaLightTexturesLib.init() );
+
+      const canvas = document.getElementById( 'viewport' );
+      const { renderer, environment } = await createSpikeRenderer( {
+        canvas,
+        width: canvasWidth,
+        height: canvasHeight,
+        forceWebGL
+      } );
+
+      renderEnvironment( 'environment', environment );
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera( 45, canvasWidth / canvasHeight, 0.5, 200 );
+      camera.position.set( 0, 0, 15 );
+      camera.lookAt( 0, 0, 0 );
+
+      // Baseline illumination present in every configuration, so the delta attributable to
+      // the area lights is not contaminated by "the material had no light at all".
+      scene.add( new THREE.AmbientLight( 0x223044, 0.6 ) );
+      const keyDirectional = new THREE.DirectionalLight( 0xffffff, 1.2 );
+      keyDirectional.position.set( 4, 6, 8 );
+      scene.add( keyDirectional );
+
+      const mesh = buildPhysicalKnot();
+      scene.add( mesh );
+
+      setStatus( 'probing GPU timestamp support…' );
+      const timestampsAvailable = await probeTimestampSupport( renderer, scene, camera, environment );
+      renderEnvironment( 'environment', environment );
+
+      const areaLights = buildPortraitRig();
+
+      const results = await runSweep( {
+        renderer,
+        scene,
+        camera,
+        variants: LIGHT_COUNT_SWEEP,
+        repeats,
+        warmupFrames,
+        sampleFrames,
+        passesPerFrame,
+        collectGpuTimestamps: timestampsAvailable,
+        onProgress: setStatus,
+        prepareVariant: async ( lightCount ) => setActiveLightCount( scene, areaLights, lightCount ),
+        onBeforeFrame: ( frameIndex ) => { mesh.rotation.y = frameIndex * 0.004; }
+      } );
+
+      const baselineGpuMs = results[ 0 ].gpu.median;
+
+      const measurements = results.map( ( result ) => {
+        const deltaGpuMs = ( result.gpu.median !== null && baselineGpuMs !== null )
+          ? result.gpu.median - baselineGpuMs
+          : null;
+
+        return {
+          rectAreaLights: result.variant,
+          gpuMedianMs: result.gpu.median,
+          gpuP95Ms: result.gpu.p95,
+          gpuSampleCount: result.gpu.count,
+          gpuDeltaVsZeroMs: deltaGpuMs,
+          cpuSubmitMedianMs: result.cpuSubmit.median,
+          wallFrameMedianMs: result.wallFrame.median,
+          framesRendered: result.framesRendered
+        };
+      } );
+
+      renderTable( 'results', RESULT_COLUMNS, measurements.map( toTableRow ) );
+      setStatus( 'done' );
+
+      publishResults( {
+        spike: 'rectarea-cost',
+        punchlistItem: '0.10',
+        generatedAt: new Date().toISOString(),
+        environment,
+        softwareRendererSuspected: looksLikeSoftwareRenderer( environment.adapter ),
+        configuration: {
+          knotSegments: [ KNOT_TUBULAR_SEGMENTS, KNOT_RADIAL_SEGMENTS ],
+          triangles: KNOT_TUBULAR_SEGMENTS * KNOT_RADIAL_SEGMENTS * 2,
+          material: 'MeshPhysicalNodeMaterial',
+          baselineLights: 'AmbientLight + DirectionalLight (present in every configuration)',
+          warmupFrames,
+          sampleFrames,
+          repeats,
+          passesPerFrame
+        },
+        measurements
+      } );
+    }
+
+    const RESULT_COLUMNS = [
+      { key: 'lights', label: 'rect area lights' },
+      { key: 'gpuMedian', label: 'GPU median ms' },
+      { key: 'gpuP95', label: 'GPU p95 ms' },
+      { key: 'gpuDelta', label: 'Δ vs 0 ms' },
+      { key: 'perLight', label: 'ms / light' },
+      { key: 'cpuSubmit', label: 'CPU submit ms' },
+      { key: 'wallFrame', label: 'wall frame ms' },
+      { key: 'samples', label: 'GPU samples' }
+    ];
+
+    function toTableRow( measurement ) {
+      const delta = measurement.gpuDeltaVsZeroMs;
+      return {
+        lights: String( measurement.rectAreaLights ),
+        gpuMedian: formatMs( measurement.gpuMedianMs ),
+        gpuP95: formatMs( measurement.gpuP95Ms ),
+        gpuDelta: formatMs( delta ),
+        perLight: delta === null || measurement.rectAreaLights === 0
+          ? '—'
+          : ( delta / measurement.rectAreaLights ).toFixed( 3 ),
+        cpuSubmit: formatMs( measurement.cpuSubmitMedianMs ),
+        wallFrame: formatMs( measurement.wallFrameMedianMs ),
+        samples: String( measurement.gpuSampleCount )
+      };
+    }
+
+    /** The subject: 100k triangles under the material we intend to ship skin on. */
+    function buildPhysicalKnot() {
+      const geometry = new THREE.TorusKnotGeometry(
+        4.2, 1.5, KNOT_TUBULAR_SEGMENTS, KNOT_RADIAL_SEGMENTS
+      );
+
+      const material = new THREE.MeshPhysicalNodeMaterial( {
+        color: 0xd8c4b6,
+        roughness: 0.35,
+        metalness: 0.0
+      } );
+
+      return new THREE.Mesh( geometry, material );
+    }
+
+    /**
+     * Eight lights arranged as a portrait rig that keeps extending: key, fill, rim, kicker,
+     * then four supplementary sources. All of them face the subject and all of them cover the
+     * frame, so light N costs about the same as light 1 — the sweep measures scaling, not falloff.
+     */
+    function buildPortraitRig() {
+      const placements = [
+        { position: [   7,  5,  9 ], intensity: 6, size: [ 6, 9 ], color: 0xfff2e0 }, // key
+        { position: [  -8,  1,  7 ], intensity: 3, size: [ 9, 9 ], color: 0xdce8ff }, // fill
+        { position: [  -5,  4, -8 ], intensity: 5, size: [ 4, 8 ], color: 0xffffff }, // rim
+        { position: [   6,  0, -7 ], intensity: 4, size: [ 3, 7 ], color: 0xffd9b3 }, // kicker
+        { position: [   0,  9,  3 ], intensity: 3, size: [ 8, 4 ], color: 0xffffff }, // top
+        { position: [   0, -8,  4 ], intensity: 2, size: [ 8, 4 ], color: 0xb9d4ff }, // bounce
+        { position: [  10,  0,  0 ], intensity: 3, size: [ 5, 8 ], color: 0xffe8d0 }, // side
+        { position: [ -10,  0,  0 ], intensity: 3, size: [ 5, 8 ], color: 0xd0e0ff }  // side
+      ];
+
+      return placements.map( ( placement ) => {
+        const light = new THREE.RectAreaLight(
+          placement.color, placement.intensity, placement.size[ 0 ], placement.size[ 1 ]
+        );
+        light.position.set( ...placement.position );
+        light.lookAt( 0, 0, 0 );
+        return light;
+      } );
+    }
+
+    /**
+     * Adds or removes lights from the scene rather than toggling `visible`, because a light
+     * left in the scene still occupies a slot in the generated lighting loop.
+     */
+    function setActiveLightCount( scene, lights, count ) {
+      for ( let index = 0; index < lights.length; index ++ ) {
+        const shouldBeActive = index < count;
+        const isActive = lights[ index ].parent === scene;
+
+        if ( shouldBeActive && ! isActive ) scene.add( lights[ index ] );
+        if ( ! shouldBeActive && isActive ) scene.remove( lights[ index ] );
+      }
+    }
+  </script>
+</body>
+</html>

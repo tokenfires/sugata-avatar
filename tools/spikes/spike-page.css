@@ -1,0 +1,106 @@
+/* Deliberately plain. These pages are instruments, not product. */
+
+:root {
+  color-scheme: dark;
+  --ink: #e8e8ea;
+  --dim: #8b8b95;
+  --rule: #2c2c33;
+  --accent: #7fd1c1;
+  --warn: #e8a33d;
+}
+
+body {
+  margin: 0;
+  padding: 24px 28px 64px;
+  background: #131317;
+  color: var(--ink);
+  font: 14px/1.55 ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  margin: 32px 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--dim);
+}
+
+p.lede {
+  margin: 0 0 20px;
+  max-width: 78ch;
+  color: var(--dim);
+}
+
+#status {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+#environment div {
+  display: flex;
+  gap: 12px;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+#environment .k {
+  flex: 0 0 170px;
+  color: var(--dim);
+}
+
+#environment .v {
+  flex: 1 1 auto;
+  overflow-wrap: anywhere;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+}
+
+th,
+td {
+  padding: 5px 12px 5px 0;
+  text-align: right;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+th {
+  color: var(--dim);
+  font-weight: 600;
+}
+
+canvas {
+  display: block;
+  margin-top: 24px;
+  border: 1px solid var(--rule);
+  max-width: 100%;
+}
+
+.caveat {
+  max-width: 78ch;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: #1b1a16;
+  color: var(--dim);
+}

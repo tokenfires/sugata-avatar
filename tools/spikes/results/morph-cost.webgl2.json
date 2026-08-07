@@ -1,0 +1,100 @@
+{
+  "spike": "morph-cost",
+  "punchlistItem": "0.8",
+  "generatedAt": "2026-08-07T14:29:32.279Z",
+  "environment": {
+    "backend": "webgl2",
+    "threeRevision": "185",
+    "canvasWidth": 512,
+    "canvasHeight": 512,
+    "pixelRatio": 1,
+    "devicePixelRatio": 1,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "adapter": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+    "compatibilityMode": null,
+    "timestampsAvailable": true,
+    "timestampNote": "GPU timestamp queries active."
+  },
+  "softwareRendererSuspected": false,
+  "configuration": {
+    "sphereSegments": [
+      164,
+      82
+    ],
+    "vertexCount": 13695,
+    "includeMorphNormals": false,
+    "allInfluencesNonZero": true,
+    "warmupFrames": 60,
+    "sampleFrames": 200,
+    "repeats": 3,
+    "passesPerFrame": 8
+  },
+  "measurements": [
+    {
+      "morphTargets": 0,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.122160375,
+      "gpuP95Ms": 0.123837625,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0,
+      "cpuSubmitMedianMs": 0.04999999701976776,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    },
+    {
+      "morphTargets": 8,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.15048350000000002,
+      "gpuP95Ms": 0.15224362500000002,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0.02832312500000002,
+      "cpuSubmitMedianMs": 0.04999999701976776,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    },
+    {
+      "morphTargets": 16,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.17471224999999999,
+      "gpuP95Ms": 0.176649875,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0.052551874999999984,
+      "cpuSubmitMedianMs": 0.04999999701976776,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    },
+    {
+      "morphTargets": 32,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.21906675,
+      "gpuP95Ms": 0.22218125,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0.096906375,
+      "cpuSubmitMedianMs": 0.03750000149011612,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    },
+    {
+      "morphTargets": 52,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.283327375,
+      "gpuP95Ms": 0.287415625,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0.161167,
+      "cpuSubmitMedianMs": 0.05000000447034836,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    },
+    {
+      "morphTargets": 69,
+      "vertexCount": 13695,
+      "gpuMedianMs": 0.3371342499999999,
+      "gpuP95Ms": 0.34138962500000003,
+      "gpuSampleCount": 597,
+      "gpuDeltaVsZeroMs": 0.21497387499999993,
+      "cpuSubmitMedianMs": 0.05000000447034836,
+      "wallFrameMedianMs": 8.300000011920929,
+      "framesRendered": 780
+    }
+  ]
+}

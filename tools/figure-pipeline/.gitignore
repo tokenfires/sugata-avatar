@@ -1,0 +1,5 @@
+# Downloaded MPFB2 build and MakeHuman asset packs. ~330 MB, reproducible from install_deps.sh.
+.cache/
+
+# Blender byte-compiles mpfb_bridge.py when a pipeline script imports it.
+__pycache__/

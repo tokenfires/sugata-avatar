@@ -1,0 +1,52 @@
+{
+  "_about": "Region spec for measure.mjs. Every gate reads named regions out of this file; a gate whose regions are missing reports SKIP rather than failing, so a partial spec is a legitimate thing to hand in. JSON has no comments, so documentation lives in the keys beginning with an underscore (which measure.mjs ignores) and in each region's 'note'.",
+
+  "_units": "'normalized' means x/y/w/h are fractions of image width and height, which is what you want when the same spec has to work at 1080p during iteration and 4K for the final gate run. Use 'pixels' instead if you picked coordinates with an eyedropper on one specific capture — and then also set imageWidth so measure.mjs can warn you when the capture resolution drifts.",
+  "units": "normalized",
+
+  "_imageWidth": "Optional. Only used to warn when the capture is not the resolution these coordinates were authored against. Gate G4's sigma band was measured at 3840 px wide; capture there for a comparable number.",
+  "imageWidth": 3840,
+
+  "_regions": "Each region is one or more rectangles; multiple rects are unioned, which is how you sample a cheek without accidentally including a nostril. Shorthand form is a bare array of rects. The long form below adds a note, which is worth writing because six months from now nobody remembers why the sclera patch was four pixels tall.",
+
+  "_no_overlap": "Regions may legally overlap, but they should not. Two gates sampling the same pixels means one measurement is standing in for two independent claims, and a fix that moves one will silently move the other. The coordinates below are deliberately disjoint. The values are a plausible starting point for a head-and-shoulders portrait with the key coming from frame-left — treat them as a template to re-aim at your actual capture, not as constants.",
+
+  "regions": {
+    "sclera": {
+      "note": "G2. White of the eye, between the iris and the inner or outer canthus. Keep it clear of the catchlight, the limbal ring and the lash shadow — all three will drag the number. Small is fine; this is the one region where a few hundred pixels is the honest sample size.",
+      "rects": [{ "x": 0.4585, "y": 0.3975, "w": 0.0070, "h": 0.0045 }]
+    },
+
+    "cheek": {
+      "note": "G2. Reference skin for the sclera comparison. Take it close to the eye and under the SAME light as the sclera, otherwise the 0.98 ratio is comparing two different lighting conditions rather than two materials.",
+      "rects": [{ "x": 0.4520, "y": 0.4200, "w": 0.0240, "h": 0.0200 }]
+    },
+
+    "faceKey": {
+      "note": "G1. Lit side of the face, mid-cheek. Avoid the specular T-zone and any rim/kicker light — this must be diffuse key-lit skin only, or the ratio measures the highlight instead of the key.",
+      "rects": [{ "x": 0.4280, "y": 0.4600, "w": 0.0300, "h": 0.0300 }]
+    },
+
+    "faceShadow": {
+      "note": "G1. Shadow side of the SAME face, roughly mirrored across the nose. Must be core shadow: not the terminator gradient, and not a cast shadow from hair, which measures the hair's occlusion rather than the fill level.",
+      "rects": [{ "x": 0.5350, "y": 0.4600, "w": 0.0300, "h": 0.0300 }]
+    },
+
+    "flatCheek": {
+      "note": "G4. Exactly one rect, at least 16x16 px, on the flattest and most evenly lit patch of skin in frame — here, just outboard of the faceKey patch on the same lit cheek. Any real gradient, pore cluster, mole or stray hair strand inside this patch inflates sigma and the gate lies to you. 0.03 of a 3840 px capture is 115 px, which is plenty.",
+      "rects": [{ "x": 0.4650, "y": 0.4600, "w": 0.0300, "h": 0.0300 }]
+    },
+
+    "litSkin": {
+      "note": "G3. Fully lit skin, lower on the cheek than faceKey so the two gates stay independent. Must be lit by the same key as shadowTerminator below — sampling a warm-key lit patch against a cool-key shadow makes the hue test nonsense.",
+      "rects": [{ "x": 0.4280, "y": 0.5100, "w": 0.0280, "h": 0.0280 }]
+    },
+
+    "shadowTerminator": {
+      "note": "G3. The terminator itself: the band where the surface turns away from the key, NOT the deep core shadow. This is where a pre-integrated skin profile puts its red shift. The cheekbone-to-jaw edge or the shaded side of the nose ala both work; a backlit ear is the strongest signal of all.",
+      "rects": [{ "x": 0.5120, "y": 0.5100, "w": 0.0280, "h": 0.0280 }]
+    },
+
+    "_frame_is_optional": "G5 and G6 measure the whole image by default, which is what you want for a grade check. Add a 'frame' region only if you deliberately need to exclude something — a UI overlay, a letterbox bar — and say so in its note, because a hand-cropped frame region is an easy place to accidentally launder a failing grade."
+  }
+}

@@ -97,6 +97,41 @@ All eight passes are in [`research/`](research/). Read in this order when resumi
 
 ---
 
+## Measured budgets (2026-08-07, this hardware)
+
+Real GPU-timestamp measurements from `tools/spikes`, independently reproduced by a second agent.
+**Use these; do not re-estimate.** Full detail and the fitted cost model in `tools/spikes/README.md`.
+
+### Morph targets are essentially free
+
+| Targets (13.7k verts, all weights animated every frame) | WebGPU Δ | WebGL2 Δ |
+|---|---|---|
+| 52 | 0.164 ms | — |
+| **69** (52 ARKit + 15 OVR + 2 gender) | **0.219 ms** | 0.215 ms |
+| 69 **with morph normals** | **0.504 ms** | 0.505 ms |
+
+≈ 0.0032 ms per target, ~3% of a 16.6 ms frame at our full rig. **The blendshape budget is a
+non-constraint** — a genuine surprise, since three.js iterates a `DataArrayTexture` layer per
+target. Morph normals cost 2.3×; enable them only if the shading visibly needs it.
+
+WebGPU and WebGL2 are within noise of each other here.
+
+### RectAreaLights are the expensive part
+
+Fitted cost model, WebGPU: **0.265 ms + 0.618 ms per Mpx lit, per light.**
+(WebGL2: 0.539 + 0.682.)
+
+| Lights @1080p | WebGPU Δ |
+|---|---|
+| **4** (key + fill + rim + kicker) | **3.604 ms — 22% of frame** |
+| 8 | 7.421 ms — 45% of frame |
+
+**The classic portrait rig costs about a fifth of the frame.** Affordable, and it confirms the
+3–4 light budget. Eight is not viable alongside skin, hair and the post chain.
+
+⚠️ Measured caveat: at 7–8 lights the WebGL2 tier goes non-monotonic under sustained load
+(thermal drift across a suite run). The 4-light figure was stable in every run.
+
 ## Session log
 
 ### 2026-08-06 — design phase

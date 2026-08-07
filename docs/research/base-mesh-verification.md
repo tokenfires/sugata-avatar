@@ -58,7 +58,7 @@ Measured facial coverage (affected vertices per target):
 
 | Target | Verts moved | Note |
 |---|---|---|
-| `jawOpen` | 2,543 | includes lower-teeth and tongue helpers |
+| `jawOpen` | 2,543 | ⚠️ **pre-helper-removal.** Includes lower-teeth and tongue helper geometry that our pipeline deliberately deletes. **Post-bake the real figure is 2,239** — measured 2026-08-07. Do not cite 2,543 as a post-export constant. |
 | `mouthClose` | 1,972 | **lip seal present** |
 | `mouthPucker` | 1,729 | |
 | `eyeBlinkLeft` | 783 | **eyelids present** |
