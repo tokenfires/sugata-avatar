@@ -34,6 +34,16 @@
  * tremor rather than life.
  *
  *
+ * WHO OWNS THE ARMS
+ *
+ * BodyIdle declares the same six arm bones this layer does, and the stack SUMS bone contributions
+ * — so a stack running both as shipped silently doubles every arm joint, and nothing can catch it
+ * because two layers writing a bone is the normal case the stack exists to serve. The intended
+ * split is BodyIdle from the neck down and this layer on the head, and `armsEnabled` defaults to
+ * 'auto' so that is what a consumer gets without having to know any of the above. Pass
+ * `armsEnabled: true` for a stack with no BodyIdle in it that still wants Improv on the arms.
+ *
+ *
  * 🚩 AMPLITUDES ARE NOT MEASURED. Improv's own intervals — R_UP_ARM swinging over 25°–55° — are
  * for a stylised, gesturing character, and are one to two orders of magnitude too large for a
  * photoreal figure standing quietly. Nothing in the research doc gives an idle micro-motion
@@ -100,6 +110,9 @@ export class IdleMotion extends Layer {
      *   The per-joint degrees stay readable as the statement of intent they are.
      * @param {boolean} [options.headEnabled=true] - Turn off when a gaze or head layer is driving
      *   the neck and you do not want the two summing.
+     * @param {boolean|'auto'} [options.armsEnabled='auto'] - Whether this layer drives the six arm
+     *   bones. See `resolveArmsEnabled()`; 'auto' yields them to BodyIdle when one is in the stack.
+     * @param {string} [options.armOwnerLayerName='bodyIdle'] - The layer 'auto' looks for.
      * @param {Object} [options.bones] - Overrides for the humanoid names this drives.
      */
     constructor( options = {} ) {
@@ -127,14 +140,25 @@ export class IdleMotion extends Layer {
         this.amplitude = options.amplitude ?? 1;
         this.headEnabled = options.headEnabled ?? true;
 
+        // 'auto' until onBind() can see what else is in the stack. Read `armsEnabled` for the
+        // resolved answer; this is the request.
+        this.requestedArmsEnabled = options.armsEnabled ?? 'auto';
+        this.armOwnerLayerName = options.armOwnerLayerName ?? 'bodyIdle';
+        this.armsEnabled = this.requestedArmsEnabled !== false;
+        this.armOwnershipResolved = false;
+
         this.elapsedSeconds = 0;
 
         /**
-         * One entry per driven joint. Each holds its bone name, its noise rate, its two peak
-         * angles, and — filled in at bind — its own noise streams and rest frame.
+         * The six arm joints. Each holds its bone name, its noise rate, its two peak angles, and
+         * — filled in at bind — its own noise streams and rest frame.
          *
          * Every joint gets its OWN streams. Sharing one would mirror the left arm onto the right,
          * which is the single most recognisable "it's a rig" tell in an idle pose.
+         *
+         * Do not empty this to silence the arms; that was the integration hack `armsEnabled`
+         * exists to replace, and it leaves the layer's declared channels lying about what it
+         * drives. The head joint is held separately because it is switched separately.
          */
         this.joints = [
             createJoint( bones.leftUpperArm, SHOULDER_FREQUENCY_HZ, SHOULDER_SWING_DEGREES ),
@@ -157,6 +181,14 @@ export class IdleMotion extends Layer {
 
     onBind( context ) {
 
+        // Deferred to the first frame rather than settled here, because 'auto' has to look at the
+        // rest of the stack and `onBind()` runs as each layer is ADDED — so a stack that adds this
+        // layer before BodyIdle would resolve it against a stack that does not have one yet.
+        this.armOwnershipResolved = false;
+
+        // The streams are drawn whether or not the arms are switched on, so that turning them off
+        // does not shift every other joint's seed and change a run this layer is supposed to
+        // reproduce. Costs six unused noise tables.
         for ( const joint of this.joints ) this.prepareJoint( joint, context.target, 2 );
 
         this.prepareJoint( this.headJoint, context.target, 3 );
@@ -165,11 +197,13 @@ export class IdleMotion extends Layer {
 
     update( deltaSeconds, context ) { // eslint-disable-line no-unused-vars
 
+        if ( this.armOwnershipResolved === false ) this.claimArms();
+
         this.elapsedSeconds += deltaSeconds;
 
-        for ( const joint of this.joints ) {
+        if ( this.armsEnabled ) {
 
-            this.writeArmJoint( joint );
+            for ( const joint of this.joints ) this.writeArmJoint( joint );
 
         }
 
@@ -186,6 +220,32 @@ export class IdleMotion extends Layer {
     }
 
     // --- helpers ------------------------------------------------------------------------------
+
+    /**
+     * Who owns the arms.
+     *
+     * BodyIdle declares the same six arm bones this layer does, and bone contributions SUM — so
+     * running both as shipped is not an error the stack can catch, it is a silent doubling of
+     * every arm joint that nobody asked for. The intended split is BodyIdle below the neck and
+     * this layer on the head, and 'auto' makes that the behaviour you get by default instead of
+     * something every consumer has to remember. Say `armsEnabled: true` to take them back.
+     */
+    claimArms() {
+
+        this.armOwnershipResolved = true;
+        this.armsEnabled = this.requestedArmsEnabled === 'auto'
+            ? this.stack?.findLayer( this.armOwnerLayerName ) === null
+            : this.requestedArmsEnabled === true;
+
+        // Keeps the declared channel list honest about what this layer actually drives. The
+        // declaration is not decoration — it is how the stack masks bones and how it names both
+        // sides of a channel conflict. A layer that declares the arms and then writes identity
+        // into them is a layer whose conflict report says it is fighting BodyIdle when it is not.
+        this.declareChannels( {
+            boneChannels: this.armsEnabled ? Object.values( this.bones ) : [ this.bones.head ]
+        } );
+
+    }
 
     /**
      * Gives a joint its noise streams and its rest frame. Seeds come from the layer's own random

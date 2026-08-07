@@ -21,11 +21,16 @@
  *                     always at least 2x the closing — enforced when the pair is sampled, not
  *                     just true on average.
  *   2. Full closure.  Trutoiu found partial-closure blinks are consistently rated as wrong.
- *                     The lids reach exactly full closure and the frame that crosses into it is
- *                     snapped so a 60 Hz sampler can never skip over it. "Full closure" is a
- *                     statement about the LID, not about the morph slider: on this asset the eye
- *                     is sealed at weight 0.735 and everything above that drives the lid through
- *                     the lower one. See FULL_CLOSURE_MORPH_WEIGHT.
+ *                     A complete blink therefore reaches exactly full closure, and the frame that
+ *                     crosses into it is snapped so a 60 Hz sampler can never skip over it. "Full
+ *                     closure" is a statement about the LID, not about the morph slider: on this
+ *                     asset the eye is sealed at weight 0.735 and everything above that drives the
+ *                     lid through the lower one. See FULL_CLOSURE_MORPH_WEIGHT.
+ *   2b. Varying amplitude. Blinks are not all the same size, and a run of identical ones is the
+ *                     loudest tell this layer can produce — a 20-second capture once held eleven
+ *                     blinks with a single peak value between them. Amplitude is a MIXTURE: most
+ *                     blinks complete, a minority are genuinely partial. See
+ *                     PARTIAL_BLINK_PROBABILITY, and note that the ceiling never moves.
  *   3. Non-uniform velocity WITHIN each phase, and differently shaped between the two:
  *                     the downphase is near-ballistic (trapezoidal velocity — a fast onset, a
  *                     long constant-speed fall, a short deceleration as the lids meet); the
@@ -77,8 +82,40 @@ const OPENING_DURATION_RANGE_SECONDS = [ 0.150, 0.300 ];
 const OPENING_TO_CLOSING_RATIO_RANGE = [ 2.0, 3.5 ];
 
 // The lids rest together for a moment at the bottom of a spontaneous blink. Kept short, and kept
-// for a second reason: it widens the window in which a frame can sample full closure.
+// for a second reason: it widens the window in which a frame can sample full closure. A partial
+// blink has no such moment, because nothing has met anything — see beginBlink().
 const CLOSED_HOLD_RANGE_SECONDS = [ 0.010, 0.030 ];
+
+// --- amplitude ---------------------------------------------------------------------------------
+//
+// 🎯 EVERY BLINK BEING THE SAME SIZE IS VISIBLE, and it was: a 20-second capture held 11 blinks
+// with exactly ONE peak value between them. Nothing in the timing distribution can hide that,
+// because the eye is the first thing a viewer looks at and a repeated identical event is the
+// single strongest cue that something is on a loop.
+//
+// Real spontaneous blinking is a mixture of two populations, not a spread around one mean. Most
+// blinks close completely; a substantial minority are incomplete, the lid coming most of the way
+// down and returning without the margins meeting. So this is modelled as a mixture rather than as
+// jitter on a single amplitude, and the full population is an ATOM at exactly 1.0 rather than a
+// band just below it. Trutoiu et al. found blinks that fail to close read as wrong, and on this
+// asset the difference between "sealed" and "0.96 of sealed" is a third of a millimetre of visible
+// eye — a real error, bought for no visible variety. The variety comes from the partial
+// population, where it is legible.
+//
+// 🚩 The proportion and the range are TUNING. The research doc records that incomplete blinks
+// happen and that they read as wrong when they are the ONLY kind; it gives no incidence rate and
+// no amplitude distribution. Do not cite these back as measured.
+const PARTIAL_BLINK_PROBABILITY = 0.3;
+const PARTIAL_CLOSURE_RANGE = [ 0.6, 0.95 ];
+
+// 🚩 Amplitude and duration are deliberately NOT coupled, and that is a judgement call worth
+// stating. A partial blink drawn from the range above travels 60-95% as far in the same time, so
+// its lid runs 60-95% as fast — while the sampled closing duration already spans a factor of two
+// (50-100 ms) all by itself. The amplitude's effect on lid speed is therefore smaller than the
+// spread the timing model already has, and the two candidate couplings in the literature (constant
+// duration with velocity scaling, versus constant velocity with duration scaling) disagree about
+// which direction to correct in. Inventing one to move a number by less than its own noise is not
+// worth the line of code.
 
 // --- velocity shaping --------------------------------------------------------------------------
 //
@@ -177,6 +214,11 @@ export class Blink extends Layer {
      * @param {number} [options.unilateralProbability=0.02]
      * @param {number} [options.fullClosureMorphWeight=0.735] - The morph weight at which THIS
      *   asset's lid is fully shut. Measure it before changing it; see FULL_CLOSURE_MORPH_WEIGHT.
+     * @param {number} [options.partialBlinkProbability=0.3] - Share of blinks that do not close
+     *   fully. Raise it for a drowsy or distracted character; zero it for a stylised one.
+     * @param {number[]} [options.partialClosureRange=[0.6, 0.95]] - How far those close, as a
+     *   fraction of full closure. Never above 1: past full closure the lash cards punch through
+     *   the lower lid, which is what fullClosureMorphWeight exists to stop.
      */
     constructor( options = {} ) {
 
@@ -195,6 +237,8 @@ export class Blink extends Layer {
         this.saccadeCoupling = { ...SACCADE_COUPLING_DEFAULTS, ...( options.saccadeCoupling ?? {} ) };
         this.unilateralProbability = options.unilateralProbability ?? UNILATERAL_BLINK_PROBABILITY;
         this.fullClosureMorphWeight = options.fullClosureMorphWeight ?? FULL_CLOSURE_MORPH_WEIGHT;
+        this.partialBlinkProbability = options.partialBlinkProbability ?? PARTIAL_BLINK_PROBABILITY;
+        this.partialClosureRange = [ ...( options.partialClosureRange ?? PARTIAL_CLOSURE_RANGE ) ];
 
         // Drive signals, 0..1, written by the affect/attention system in Phase 5.
         this.cognitiveLoad = 0;
@@ -205,8 +249,15 @@ export class Blink extends Layer {
         this.closingDuration = 0;
         this.closedHold = 0;
         this.openingDuration = 0;
-        this.leftAmplitude = 1;
-        this.rightAmplitude = 1;
+
+        // How far this blink closes, 0..1 of full closure. 1 for a complete blink.
+        this.closureAmplitude = 1;
+
+        // Whether each lid takes part at all, 0 or 1. This is what makes the rare unilateral
+        // blink unilateral, and it is a different thing from the amplitude above: one says which
+        // eyes blink, the other says how far.
+        this.leftLidParticipation = 1;
+        this.rightLidParticipation = 1;
 
         this.secondsUntilNextBlink = 0;
 
@@ -254,8 +305,8 @@ export class Blink extends Layer {
         // Between blinks the lids belong to whatever expression is running, so say nothing.
         if ( this.closure === 0 ) return null;
 
-        this.contribution.setMorph( LEFT_EYELID_MORPH, this.morphWeightFor( this.leftAmplitude ) );
-        this.contribution.setMorph( RIGHT_EYELID_MORPH, this.morphWeightFor( this.rightAmplitude ) );
+        this.contribution.setMorph( LEFT_EYELID_MORPH, this.morphWeightFor( this.leftLidParticipation ) );
+        this.contribution.setMorph( RIGHT_EYELID_MORPH, this.morphWeightFor( this.rightLidParticipation ) );
 
         return this.contribution;
 
@@ -347,12 +398,13 @@ export class Blink extends Layer {
      *
      * @param {Object} [options]
      * @param {boolean} [options.unilateral] - Force or forbid the single-eye case.
+     * @param {number} [options.closureAmplitude] - Force how far it closes, 0..1 of full closure.
      */
     blinkNow( options = {} ) {
 
         if ( this.elapsed >= 0 ) return false;
 
-        this.beginBlink( options.unilateral );
+        this.beginBlink( options.unilateral, options.closureAmplitude );
         return true;
 
     }
@@ -369,19 +421,23 @@ export class Blink extends Layer {
 
         if ( seconds < 0 ) return 0;
 
+        // The two velocity profiles describe the SHAPE of a blink; the amplitude scales it. A
+        // partial blink is the same movement stopped short, not a different movement.
+        const amplitude = this.closureAmplitude;
+
         if ( seconds < this.closingDuration ) {
 
-            return closureDuringDownphase( seconds / this.closingDuration );
+            return amplitude * closureDuringDownphase( seconds / this.closingDuration );
 
         }
 
         const closedUntil = this.closingDuration + this.closedHold;
-        if ( seconds <= closedUntil ) return 1;
+        if ( seconds <= closedUntil ) return amplitude;
 
         const openingProgress = ( seconds - closedUntil ) / this.openingDuration;
         if ( openingProgress >= 1 ) return 0;
 
-        return 1 - reopeningDuringUpphase( openingProgress );
+        return amplitude * ( 1 - reopeningDuringUpphase( openingProgress ) );
 
     }
 
@@ -395,11 +451,14 @@ export class Blink extends Layer {
      * apart and the mapping happens once, here, at the boundary. Linear, because the morph is a
      * linear vertex displacement: half the perceptual closure is the lid margin half way down.
      *
-     * `amplitude` is the per-eye 0 or 1 that makes a unilateral blink unilateral.
+     * `participation` is the per-eye 0 or 1 that makes a unilateral blink unilateral. This eye's
+     * own amplitude is already in `closure`, which is why the ceiling holds for every blink: the
+     * measured seal weight is reached when closure is 1 and never exceeded, because closure is a
+     * fraction of full closure and full closure is what that weight means.
      */
-    morphWeightFor( amplitude ) {
+    morphWeightFor( participation ) {
 
-        return this.closure * amplitude * this.fullClosureMorphWeight;
+        return this.closure * participation * this.fullClosureMorphWeight;
 
     }
 
@@ -416,8 +475,9 @@ export class Blink extends Layer {
 
         this.elapsed = -1;
         this.closure = 0;
-        this.leftAmplitude = 1;
-        this.rightAmplitude = 1;
+        this.closureAmplitude = 1;
+        this.leftLidParticipation = 1;
+        this.rightLidParticipation = 1;
         this.cognitiveLoad = 0;
         this.attention = 0;
         this.blinkCount = 0;
@@ -474,8 +534,12 @@ export class Blink extends Layer {
     /**
      * Samples one blink's shape and starts it. Sampling here rather than at schedule time means a
      * blink recruited by a saccade is drawn from the same distribution as a spontaneous one.
+     *
+     * @param {boolean} [forceUnilateral] - Force or forbid the single-eye case.
+     * @param {number} [forceAmplitude] - Force the closure amplitude, for scripted beats and for
+     *   the selftest. Omit for the mixture this layer samples.
      */
-    beginBlink( forceUnilateral ) {
+    beginBlink( forceUnilateral, forceAmplitude ) {
 
         this.closingDuration = this.random.range( ...CLOSING_DURATION_RANGE_SECONDS );
 
@@ -488,17 +552,25 @@ export class Blink extends Layer {
         const openingMaximum = Math.min( OPENING_DURATION_RANGE_SECONDS[ 1 ], ratioCeiling );
 
         this.openingDuration = this.random.range( openingMinimum, Math.max( openingMaximum, openingMinimum ) );
-        this.closedHold = this.random.range( ...CLOSED_HOLD_RANGE_SECONDS );
+
+        this.closureAmplitude = forceAmplitude ?? this.drawClosureAmplitude();
+
+        // Only a complete blink has a moment with the lids resting together, because only a
+        // complete blink has anything resting on anything. A partial blink turns straight round
+        // at the bottom of its travel — and the closure snap in advanceBlinkInFlight() still
+        // guarantees a frame lands exactly on that instant, so the peak is never skipped.
+        this.closedHold = this.closureAmplitude < 1
+            ? 0 : this.random.range( ...CLOSED_HOLD_RANGE_SECONDS );
 
         const unilateral = forceUnilateral ?? this.random.chance( this.unilateralProbability );
 
-        this.leftAmplitude = 1;
-        this.rightAmplitude = 1;
+        this.leftLidParticipation = 1;
+        this.rightLidParticipation = 1;
 
         if ( unilateral === true ) {
 
-            if ( this.random.chance( 0.5 ) ) this.leftAmplitude = 0;
-            else this.rightAmplitude = 0;
+            if ( this.random.chance( 0.5 ) ) this.leftLidParticipation = 0;
+            else this.rightLidParticipation = 0;
 
         }
 
@@ -507,6 +579,19 @@ export class Blink extends Layer {
         this.blinkCount ++;
 
         this.scheduleNextBlink();
+
+    }
+
+    /**
+     * How far this blink closes. A mixture of two populations rather than a spread around one
+     * value — see the note on PARTIAL_BLINK_PROBABILITY for why the complete population is an
+     * exact 1.0 and all the variety lives in the partial one.
+     */
+    drawClosureAmplitude() {
+
+        if ( this.random.chance( this.partialBlinkProbability ) === false ) return 1;
+
+        return this.random.range( ...this.partialClosureRange );
 
     }
 
@@ -604,6 +689,8 @@ export const BLINK_CONSTANTS = {
     OPENING_DURATION_RANGE_SECONDS,
     OPENING_TO_CLOSING_RATIO_RANGE,
     CLOSED_HOLD_RANGE_SECONDS,
+    PARTIAL_BLINK_PROBABILITY,
+    PARTIAL_CLOSURE_RANGE,
     BASELINE_RATE_PER_MINUTE,
     CONVERSATION_RATE_RANGE_PER_MINUTE,
     COGNITIVE_LOAD_GAIN,

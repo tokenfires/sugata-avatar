@@ -259,7 +259,9 @@ function runBlinkTrace( { frameSeconds, seconds, jitterRandom = null, configure 
     let previousCount = blink.blinkCount;
 
     let peakThisBlink = 0;
+    let amplitudeThisBlink = blink.closureAmplitude;
     const peaks = [];
+    const amplitudes = [];
     const onsets = [];
 
     while ( elapsed < seconds ) {
@@ -273,9 +275,16 @@ function runBlinkTrace( { frameSeconds, seconds, jitterRandom = null, configure 
 
         if ( blink.blinkCount !== previousCount ) {
 
-            if ( previousCount > 0 ) peaks.push( peakThisBlink );
+            if ( previousCount > 0 ) {
+
+                peaks.push( peakThisBlink );
+                amplitudes.push( amplitudeThisBlink );
+
+            }
+
             onsets.push( elapsed );
             peakThisBlink = 0;
+            amplitudeThisBlink = blink.closureAmplitude;
             previousCount = blink.blinkCount;
 
         }
@@ -286,34 +295,127 @@ function runBlinkTrace( { frameSeconds, seconds, jitterRandom = null, configure 
     }
 
     peaks.push( peakThisBlink );
+    amplitudes.push( amplitudeThisBlink );
     stack.dispose();
 
-    return { blink, trace, peaks, onsets, elapsed };
+    return { blink, trace, peaks, amplitudes, onsets, elapsed };
+
+}
+
+/**
+ * The largest gap between what a blink sampled and what the frames actually rendered.
+ *
+ * This is the claim the closure snap makes, and since amplitude became a mixture it covers every
+ * blink rather than only the complete ones: a partial blink's peak is skippable in exactly the
+ * same way a complete one's is, and the snap has to catch both.
+ */
+function worstRenderedShortfall( peaks, amplitudes ) {
+
+    let worst = 0;
+
+    for ( let index = 0; index < peaks.length; index ++ ) {
+
+        worst = Math.max( worst, Math.abs( peaks[ index ] - amplitudes[ index ] ) );
+
+    }
+
+    return worst;
 
 }
 
 for ( const [ label, frameSeconds ] of [ [ '120 fps', 1 / 120 ], [ '60 fps', 1 / 60 ], [ '30 fps', 1 / 30 ] ] ) {
 
-    const { peaks } = runBlinkTrace( { frameSeconds, seconds: 600 } );
-    const worst = Math.min( ...peaks );
+    const { peaks, amplitudes } = runBlinkTrace( { frameSeconds, seconds: 600 } );
+
+    const complete = peaks.filter( ( peak, index ) => amplitudes[ index ] === 1 );
+    const worstComplete = Math.min( ...complete );
 
     check(
-        `blink: full closure (exactly 1.0) is reached on every blink at ${ label }`,
-        worst === 1,
-        `${ peaks.length } blinks, worst rendered peak ${ worst.toFixed( 6 ) }`
+        `blink: full closure (exactly 1.0) is reached on every complete blink at ${ label }`,
+        worstComplete === 1,
+        `${ complete.length } complete of ${ peaks.length } blinks, worst rendered peak ${ worstComplete.toFixed( 6 ) }`
+    );
+
+    check(
+        `blink: every blink renders exactly the amplitude it sampled at ${ label }`,
+        worstRenderedShortfall( peaks, amplitudes ) === 0,
+        `worst shortfall ${ worstRenderedShortfall( peaks, amplitudes ).toExponential( 2 ) } over ${ peaks.length } blinks`
     );
 
 }
 
 {
     const jitter = new MotionRandom( 99 );
-    const { peaks } = runBlinkTrace( { frameSeconds: 1 / 30, seconds: 900, jitterRandom: jitter } );
-    const worst = Math.min( ...peaks );
+    const { peaks, amplitudes } = runBlinkTrace( { frameSeconds: 1 / 30, seconds: 900, jitterRandom: jitter } );
+
+    const complete = peaks.filter( ( peak, index ) => amplitudes[ index ] === 1 );
 
     check(
         'blink: full closure survives jittered 30 fps frame times (20-46 ms steps)',
-        worst === 1,
-        `${ peaks.length } blinks, worst rendered peak ${ worst.toFixed( 6 ) }`
+        Math.min( ...complete ) === 1,
+        `${ complete.length } complete blinks, worst rendered peak ${ Math.min( ...complete ).toFixed( 6 ) }`
+    );
+
+    check(
+        'blink: a partial blink survives them too, at exactly its own amplitude',
+        worstRenderedShortfall( peaks, amplitudes ) === 0,
+        `worst shortfall ${ worstRenderedShortfall( peaks, amplitudes ).toExponential( 2 ) } over ${ peaks.length } blinks`
+    );
+}
+
+// --- (b2) amplitude is a mixture, and the ceiling never moves --------------------------------------
+//
+// The defect this section exists for: eleven blinks in a 20-second capture, ONE peak value between
+// them. What is checked is that the variety is real (many distinct peaks, both populations
+// present), that it is variety in the right DIRECTION (never above the seal, which is where the
+// lash cards start punching through the lid), and that complete blinks still complete.
+
+{
+    const { peaks, amplitudes } = runBlinkTrace( { frameSeconds: 1 / 60, seconds: 600 } );
+
+    const distinct = new Set( peaks.map( ( peak ) => peak.toFixed( 4 ) ) );
+    const partials = amplitudes.filter( ( amplitude ) => amplitude < 1 );
+    const partialShare = partials.length / amplitudes.length;
+
+    process.stdout.write(
+        `\nBLINK AMPLITUDE over ${ peaks.length } blinks: ${ distinct.size } distinct peaks, ` +
+        `${ ( partialShare * 100 ).toFixed( 1 ) }% partial, ` +
+        `range ${ Math.min( ...peaks ).toFixed( 3 ) }..${ Math.max( ...peaks ).toFixed( 3 ) }\n` );
+
+    check(
+        'blink: blink amplitude actually varies — not one value repeated',
+        distinct.size > peaks.length * 0.2,
+        `${ distinct.size } distinct peaks over ${ peaks.length } blinks (was 1 over 11)`
+    );
+
+    check(
+        'blink: genuine partial blinks happen, and completing ones still dominate',
+        partialShare > 0.15 && partialShare < 0.5,
+        `${ ( partialShare * 100 ).toFixed( 1 ) }% partial against a configured ${ ( BLINK_CONSTANTS.PARTIAL_BLINK_PROBABILITY * 100 ).toFixed( 0 ) }%`
+    );
+
+    check(
+        'blink: no blink ever closes PAST full closure',
+        Math.max( ...peaks ) <= 1,
+        `largest rendered peak ${ Math.max( ...peaks ).toFixed( 6 ) }; past 1.0 the lash cards punch through the lower lid`
+    );
+
+    check(
+        'blink: the partial population stays inside its configured band',
+        partials.every( ( amplitude ) =>
+            amplitude >= BLINK_CONSTANTS.PARTIAL_CLOSURE_RANGE[ 0 ] &&
+            amplitude <= BLINK_CONSTANTS.PARTIAL_CLOSURE_RANGE[ 1 ] ),
+        `${ partials.length } partials in ${ BLINK_CONSTANTS.PARTIAL_CLOSURE_RANGE.join( '..' ) }`
+    );
+
+    // The morph is the thing that can actually break the asset, so the ceiling is checked in morph
+    // units as well as in aperture units.
+    const worstMorphWeight = Math.max( ...peaks ) * BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT;
+
+    check(
+        'blink: and the morph weight never passes the measured seal',
+        worstMorphWeight <= BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT + 1e-12,
+        `worst ${ worstMorphWeight.toFixed( 6 ) } against a seal of ${ BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT }`
     );
 }
 

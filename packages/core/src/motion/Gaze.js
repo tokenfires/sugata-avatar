@@ -21,7 +21,10 @@
  *      angle is whatever is left after the head has moved: `eye = gaze − head`. That one line is
  *      the VOR — counter-rotation with gain 1.0 — and it falls out of the formulation rather
  *      than being bolted on, so it compensates for breath and sway and nods as well as for the
- *      head motion gaze itself asked for.
+ *      head motion gaze itself asked for. It happens in two stages, because that is what a gaze
+ *      shift is: the eyes GO, then the head comes along and the eyes settle back toward the
+ *      middle of the orbit. See `advanceHeadRecentring()` — without it the figure holds long
+ *      sideways glances, which reads as sullen rather than as attentive.
  *
  *   3. CONVERSATIONAL GAZE POLICY, from BEAT (Cassell, Vilhjálmsson & Bickmore, SIGGRAPH 2001):
  *      gaze away at THEME 70%, toward at RHEME 73%. Note that TalkingHead ships 0.2 listening /
@@ -204,6 +207,43 @@ const HEAD_RECRUITMENT_THRESHOLD_DEGREES = 12;
  * "a shift under 12° is eyes-only" stops being true. `Gaze.selftest.mjs` checks that directly.
  */
 const EYE_COMFORT_FRACTION = 0.85;
+
+/**
+ * TUNABLE. How far off head-centre an eye is allowed to sit INDEFINITELY, as a fraction of that
+ * axis' own excursion — about 5° sideways and 3.4° up on this asset.
+ *
+ * EYE_COMFORT_FRACTION above is about a single shift: it says how much of its range the eye may
+ * use to GET somewhere. This one is about staying there, and the two are different numbers
+ * because sustained eccentric fixation is a different act from a saccade. A person asked to look
+ * at something 12° off their body axis does not hold their head straight and their eyes over —
+ * they turn to face it, and their eyes come back to the middle of the orbit. Holding the
+ * eccentricity is effortful, and it is exactly what the critic pass read as "sullen": a figure
+ * with its head square to the room and its eyes parked in the corner, under heavy lids.
+ *
+ * 0.35 keeps the mean eye deflection at the low end of the range measured for natural eye-in-head
+ * position during everyday tasks, and it is what the saturation gate in `Gaze.selftest.mjs`
+ * measures against.
+ */
+const SUSTAINED_EYE_ECCENTRICITY_FRACTION = 0.35;
+
+/**
+ * TUNABLE. How long an eye must hold an eccentricity before the head starts taking it over.
+ *
+ * This is the whole difference between a glance and a look. A quick check to the side and back
+ * inside a third of a second is eyes-only and always was; anything that outlives the transit
+ * recruits the head. Long enough to clear a saccade plus the head's own 180 ms settle, short
+ * enough that no gaze is HELD off-centre for a length of time a viewer can notice.
+ */
+const HEAD_RECENTRING_LATENCY_SECONDS = 0.3;
+
+/**
+ * TUNABLE. How fast the head takes that load over, in degrees per second.
+ *
+ * Deliberately an order of magnitude below the ~100°/s of a head turn that belongs to a gaze
+ * shift, because this is not one — it is the slow settle afterwards. Fast enough to clear a
+ * typical 7° hand-over inside a second; slow enough that it never reads as a second movement.
+ */
+const HEAD_RECENTRING_RATE_DEGREES_PER_SECOND = 12;
 
 /** REACTIVE shift: the head starts this long after the eyes. Research gives 20–50 ms. */
 const HEAD_FOLLOW_MINIMUM_SECONDS = 0.02;
@@ -426,6 +466,8 @@ export class Gaze extends Layer {
      * @param {Object3D} [options.rigRoot] - The frame gaze angles are expressed in. See
      *   `resolveRigRoot()`; the default is right for a character whose own node does not rotate.
      * @param {string} [options.blinkLayerName='blink'] - Layer asked to blink on a large shift.
+     * @param {boolean} [options.blinkCoupling=true] - See `setBlinkCoupling()`.
+     * @param {boolean} [options.headRecentring=true] - See `setHeadRecentring()`.
      * @param {boolean} [options.enabled=true]
      */
     constructor( options = {} ) {
@@ -549,6 +591,32 @@ export class Gaze extends Layer {
     }
 
     /**
+     * Whether a large gaze shift asks the blink layer to blink with it. On by default, because
+     * the co-occurrence is physiology rather than product design; turn it off when the
+     * application is driving blinks from its own script and does not want a second author.
+     */
+    setBlinkCoupling( enabled ) {
+
+        this.blinkCoupling = enabled !== false;
+
+        return this;
+
+    }
+
+    /**
+     * Whether the head takes over an eccentricity the eyes have been holding. On by default. Off
+     * gives a head that only ever moves for the shift itself — which is what a rig with no neck
+     * authority, or a talking-head crop where the neck is out of frame, actually wants.
+     */
+    setHeadRecentring( enabled ) {
+
+        this.headRecentring = enabled !== false;
+
+        return this;
+
+    }
+
+    /**
      * "Um." Gaze aversion during a filled pause is a speech-planning signal, not decoration —
      * it tells the listener the floor is still held while the next clause is assembled.
      */
@@ -646,6 +714,11 @@ export class Gaze extends Layer {
 
         this.readHeadRotation();
         this.applyVestibuloOcularReflex();
+
+        // After the reflex, because it is this frame's EYE angle — not the gaze target — that
+        // says whether the eyes are being left to hold an eccentricity on their own.
+        this.advanceHeadRecentring( deltaSeconds );
+
         this.writeEyeMorphs();
 
         this.publishSharedState( context );
@@ -962,9 +1035,21 @@ export class Gaze extends Layer {
 
     }
 
-    /** Blinks co-occur with gaze-shift onset, especially for shifts past 30°. */
+    /**
+     * Blinks co-occur with gaze-shift onset, especially for shifts past 30°.
+     *
+     * Wired here rather than left to the application, because the co-occurrence is a fact about
+     * the eyes and not about any one product: an app that adds a Gaze layer and a Blink layer has
+     * already said everything needed to know that the two are coupled. `setBlinkCoupling( false )`
+     * is the way out for a caller that wants to drive blinks itself.
+     *
+     * The threshold here is Blink's own SATURATION amplitude, so a shift that gets this far is one
+     * Blink treats as certain-enough to be worth its maximum probability. Blink owns whether the
+     * blink actually happens; this layer only reports what the eyes just did.
+     */
     requestBlinkForLargeShift( amplitudeDegrees ) {
 
+        if ( this.blinkCoupling === false ) return;
         if ( amplitudeDegrees < BLINK_CO_OCCURRENCE_THRESHOLD_DEGREES ) return;
         if ( this.stack === null ) return;
 
@@ -1060,10 +1145,114 @@ export class Gaze extends Layer {
      */
     commandHead( yawDegrees, pitchDegrees ) {
 
+        this.commandedHeadYawDegrees =
+            this.headShareDegrees( yawDegrees, this.horizontalEyeRangeDegrees() );
+        this.commandedHeadPitchDegrees = this.headShareDegrees( pitchDegrees,
+            pitchDegrees >= 0 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down );
+
+        this.aimHead();
+
+    }
+
+    /**
+     * The second half of a gaze shift: the head comes along and the eyes come back to centre.
+     *
+     * The share above is what the head takes AT the shift, and on its own it leaves the eye
+     * wherever the arithmetic put it — 12° out for a partner 12° off-axis, held for as long as
+     * the figure keeps looking at them, because 12° is under the recruitment threshold and inside
+     * the comfort margin so neither rule ever fires. That is the defect this method exists to
+     * fix. Nothing in the arithmetic was wrong; what was missing is that real eye–head
+     * coordination has a slow second stage, and the whole point of it is to give the eyes their
+     * range back.
+     *
+     * The load is handed over slowly and given back instantly, and the asymmetry is deliberate.
+     * Taking MORE head is the settle — it has to be slow or it reads as a second, unmotivated
+     * movement. Needing LESS head means gaze has moved on, and the head must be free to swing
+     * straight to wherever the new shift wants it; a head that had to unwind at the settle rate
+     * would leave the eyes pinned on the far side of their range for the whole return.
+     */
+    advanceHeadRecentring( deltaSeconds ) {
+
+        if ( this.headRecentring === false ) return;
+
+        this.advanceAxisRecentring( this.recentringYaw, {
+            eyeDegrees: this.currentEyeYawDegrees,
+            gazeDegrees: this.currentGazeYawDegrees,
+            eyeRangeDegrees: this.horizontalEyeRangeDegrees(),
+            commandedHeadDegrees: this.commandedHeadYawDegrees,
+            deltaSeconds
+        } );
+
+        this.advanceAxisRecentring( this.recentringPitch, {
+            eyeDegrees: this.currentEyePitchDegrees,
+            gazeDegrees: this.currentGazePitchDegrees,
+            eyeRangeDegrees: this.currentGazePitchDegrees >= 0
+                ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down,
+            commandedHeadDegrees: this.commandedHeadPitchDegrees,
+            deltaSeconds
+        } );
+
+        this.aimHead();
+
+    }
+
+    /**
+     * One axis of the hand-over. `axis` carries the unsigned head angle recentring has claimed so
+     * far and how long the eye has been off-centre; the sign comes from the gaze direction at the
+     * moment the head is aimed, so a gaze that crosses the midline carries the head across with it
+     * rather than stranding it on the old side.
+     */
+    advanceAxisRecentring( axis, options ) {
+
+        const { eyeDegrees, gazeDegrees, eyeRangeDegrees, commandedHeadDegrees, deltaSeconds } = options;
+
+        const comfortDegrees = eyeRangeDegrees * SUSTAINED_EYE_ECCENTRICITY_FRACTION;
+        const wantedDegrees = Math.max( 0, Math.abs( gazeDegrees ) - comfortDegrees );
+
+        if ( Math.abs( eyeDegrees ) > comfortDegrees ) axis.eccentricSeconds += deltaSeconds;
+        else axis.eccentricSeconds = 0;
+
+        if ( wantedDegrees <= axis.headDegrees ) {
+
+            axis.headDegrees = wantedDegrees;
+            return;
+
+        }
+
+        // A shift that has ALREADY recruited the head gets its final angle at once, because the
+        // head is travelling anyway and a person makes one movement where this would otherwise
+        // make two: a turn, a stop, and a creep on for the last few degrees. The slow hand-over
+        // below is for the other case — a gaze the head was never recruited for at all, which is
+        // where a held eccentricity comes from and is the only place a settle has to be visible.
+        if ( commandedHeadDegrees !== 0 &&
+            Math.sign( commandedHeadDegrees ) === Math.sign( gazeDegrees ) ) {
+
+            axis.headDegrees = wantedDegrees;
+            return;
+
+        }
+
+        if ( axis.eccentricSeconds < HEAD_RECENTRING_LATENCY_SECONDS ) return;
+
+        axis.headDegrees = Math.min( wantedDegrees,
+            axis.headDegrees + HEAD_RECENTRING_RATE_DEGREES_PER_SECOND * deltaSeconds );
+
+    }
+
+    /**
+     * Where the head is being asked to point, from the two things that ask for it: the share of
+     * the shift it was commanded to take, and the eccentricity it has since agreed to carry.
+     *
+     * Whichever is larger wins rather than the two summing, because they are two statements about
+     * the SAME angle — how far round the head has to be — not two movements to add together.
+     */
+    aimHead() {
+
         this.head.setTarget(
-            this.headShareDegrees( yawDegrees, this.horizontalEyeRangeDegrees() ),
-            this.headShareDegrees( pitchDegrees,
-                pitchDegrees >= 0 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down )
+            largerMagnitude( this.commandedHeadYawDegrees,
+                Math.sign( this.currentGazeYawDegrees ) * this.recentringYaw.headDegrees ),
+            largerMagnitude( this.commandedHeadPitchDegrees,
+                Math.sign( this.currentGazePitchDegrees ) * this.recentringPitch.headDegrees )
         );
 
     }
@@ -1151,9 +1340,22 @@ export class Gaze extends Layer {
      * the eyes counter-rotate exactly enough to keep the gaze point where it was; that is what
      * gain 1.0 means.
      *
-     * The clamp afterwards is the oculomotor range, and on this figure it is the morph range —
-     * about ±14° horizontally. When it bites, gaze falls short of its target until the head
-     * catches up, which is also what happens in a real eye–head shift.
+     * The clamp afterwards is the eye's REACH, not the morph's end stop, and the difference is
+     * the whole of defect 1.
+     *
+     * `headShareDegrees()` already promises that a settled eye never needs more than
+     * EYE_COMFORT_FRACTION of its range. That promise used to hold only once the head had
+     * ARRIVED — for the ~300 ms it takes to get there the eye carried the entire shift, ran off
+     * the end of the morph, and sat against the stop. Measured, that was a quarter of all frames
+     * within 1.3° of the mechanical limit, which is what the critic pass saw as a long sideways
+     * glance under heavy lids.
+     *
+     * Clamping to the reach instead makes the promise true on every frame. Physiologically it is
+     * also the better model: an eye making a gaze shift larger than its orbit does not slam into
+     * the stop and wait — the saccade lands where the orbit allows, the head brings the rest, and
+     * gaze arrives late. Gaze falling short of its target until the head catches up is exactly
+     * what a real eye–head shift does; gaze arriving on time with the eyeball jammed against bone
+     * is not.
      */
     applyVestibuloOcularReflex() {
 
@@ -1162,11 +1364,12 @@ export class Gaze extends Layer {
         const pitch = this.currentGazePitchDegrees + this.microsaccadePitchDegrees -
             this.vestibuloOcularGain * this.headPitchDegrees;
 
-        const yawLimit = this.horizontalEyeRangeDegrees();
-        const pitchLimit = pitch >= 0 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down;
+        const yawReach = this.horizontalEyeRangeDegrees() * EYE_COMFORT_FRACTION;
+        const pitchReach = EYE_COMFORT_FRACTION *
+            ( pitch >= 0 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down );
 
-        this.currentEyeYawDegrees = clamp( yaw, -yawLimit, yawLimit );
-        this.currentEyePitchDegrees = clamp( pitch, -pitchLimit, pitchLimit );
+        this.currentEyeYawDegrees = clamp( yaw, -yawReach, yawReach );
+        this.currentEyePitchDegrees = clamp( pitch, -pitchReach, pitchReach );
 
     }
 
@@ -1301,6 +1504,16 @@ export class Gaze extends Layer {
 
         this.headYawDegrees = 0;
         this.headPitchDegrees = 0;
+
+        // The two things that aim the head: the share of a shift it was commanded to take, and
+        // the sustained eccentricity it has agreed to carry. See aimHead().
+        this.commandedHeadYawDegrees = 0;
+        this.commandedHeadPitchDegrees = 0;
+        this.headRecentring = options.headRecentring ?? true;
+        this.recentringYaw = { headDegrees: 0, eccentricSeconds: 0 };
+        this.recentringPitch = { headDegrees: 0, eccentricSeconds: 0 };
+
+        this.blinkCoupling = options.blinkCoupling ?? true;
 
         this.pendingShift = null;
         this.headRelease = null;
@@ -1578,5 +1791,12 @@ function assertOneOf( value, allowed, label ) {
 function clamp( value, minimum, maximum ) {
 
     return Math.min( Math.max( value, minimum ), maximum );
+
+}
+
+/** Whichever of two signed angles is the larger demand, sign and all. */
+function largerMagnitude( first, second ) {
+
+    return Math.abs( first ) >= Math.abs( second ) ? first : second;
 
 }

@@ -57,6 +57,7 @@ const { MotionRandom } = await import( './Signals.js' );
 const { Breath } = await import( './Breath.js' );
 const { Sway } = await import( './Sway.js' );
 const { IdleMotion } = await import( './IdleMotion.js' );
+const { BodyIdle } = await import( './BodyIdle.js' );
 
 const SAMPLE_RATE_HZ = 60;
 const FRAME_SECONDS = 1 / SAMPLE_RATE_HZ;
@@ -128,6 +129,7 @@ measureDiscourseCoupling();
 // --- 2.7 idle micro-motion --------------------------------------------------------------------
 
 measureIdleMotion();
+measureArmOwnership();
 
 // --- robustness -------------------------------------------------------------------------------
 
@@ -999,6 +1001,111 @@ function fastFourierPower( real ) {
     for ( let k = 0; k < half; k ++ ) power[ k ] = re[ k ] * re[ k ] + im[ k ] * im[ k ];
 
     return power;
+
+}
+
+/**
+ * Who drives the arms when IdleMotion and BodyIdle are in the same stack.
+ *
+ * Both declare the same six arm bones and the stack SUMS bone contributions, so running the pair
+ * as shipped doubles every arm joint — silently, because two layers writing one bone is the normal
+ * case the stack exists to serve. The testbed used to work around it by emptying IdleMotion's
+ * joint array from the outside. These gates are the replacement contract.
+ *
+ * Note the add order: BodyIdle goes in AFTER IdleMotion, which is the order the application uses
+ * and the order that breaks any resolution done at bind time.
+ */
+function measureArmOwnership() {
+
+    section( 'ARM OWNERSHIP — IdleMotion yields the arms to BodyIdle' );
+
+    const alone = runOnce( ( stack ) => stack.add( new IdleMotion() ) );
+
+    gate( 'alone: drives the arms', alone.drivesArms ? 1 : 0, 1, 1,
+        'no BodyIdle in the stack, so Improv on the arms is what this layer is for' );
+
+    const shared = runOnce( ( stack ) => {
+
+        const idle = stack.add( new IdleMotion() );
+        stack.add( new BodyIdle() );
+
+        return idle;
+
+    } );
+
+    gate( 'with BodyIdle: yields the arms', shared.drivesArms ? 0 : 1, 1, 1,
+        'auto — bone contributions sum, so both driving the arms is a silent doubling' );
+
+    gate( 'with BodyIdle: still drives the head', shared.drivesHead ? 1 : 0, 1, 1,
+        'the intended split is BodyIdle below the neck, IdleMotion on the head' );
+
+    gate( 'with BodyIdle: no longer DECLARES the arms', shared.declaresArms ? 0 : 1, 1, 1,
+        'declaration is how the stack masks bones and names a conflict; it must not lie' );
+
+    const forced = runOnce( ( stack ) => {
+
+        const idle = stack.add( new IdleMotion( { armsEnabled: true } ) );
+        stack.add( new BodyIdle() );
+
+        return idle;
+
+    } );
+
+    gate( 'armsEnabled: true overrides the yield', forced.drivesArms ? 1 : 0, 1, 1,
+        'an explicit request beats the automatic one' );
+
+    const silenced = runOnce( ( stack ) => stack.add( new IdleMotion( { armsEnabled: false } ) ) );
+
+    gate( 'armsEnabled: false silences them alone too', silenced.drivesArms ? 0 : 1, 1, 1,
+        'no consumer should have to reach into the layer to do this' );
+
+    /** Builds a stack, runs a second of it, and reports what IdleMotion ended up writing. */
+    function runOnce( addLayers ) {
+
+        restoreRestPose();
+
+        const stack = new MotionStack( { seed: SEED } );
+        stack.bind( createMotionTarget( figure.root ) );
+
+        const idle = addLayers( stack );
+
+        // Peak over a second rather than the value on one frame: coherent noise is exactly zero
+        // at its lattice points, and a whole number of seconds lands the 1 Hz shoulder stream on
+        // one. A single sample there reads as "not driven" for a layer that is driving fine.
+        let armPeak = 0;
+        let headPeak = 0;
+
+        for ( let frame = 0; frame < 60; frame ++ ) {
+
+            stack.update( FRAME_SECONDS );
+
+            const rotations = idle.contribution.boneRotations;
+
+            armPeak = Math.max( armPeak, rotationSize( rotations.get( idle.bones.leftUpperArm ) ) );
+            headPeak = Math.max( headPeak, rotationSize( rotations.get( idle.bones.head ) ) );
+
+        }
+
+        const result = {
+            declaresArms: idle.contribution.boneRotations.has( idle.bones.leftUpperArm ),
+            drivesArms: armPeak > 0,
+            drivesHead: headPeak > 0
+        };
+
+        stack.dispose();
+
+        return result;
+
+    }
+
+    /** How far off identity a contributed rotation is; 0 for a channel that was never written. */
+    function rotationSize( quaternion ) {
+
+        if ( quaternion === undefined ) return 0;
+
+        return 1 - Math.abs( quaternion.w );
+
+    }
 
 }
 

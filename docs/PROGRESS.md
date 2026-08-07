@@ -1,10 +1,18 @@
 # Sugata 姿 — progress and resume state
 
-**Read this file first when resuming.** It is the single source of truth for where the
-work stands. Update it at the end of every working session and whenever a phase changes
-state. It is written to survive a total context loss.
+**Read on resume, in this order:**
 
-Last updated: 2026-08-06 — design phase.
+1. **[`BRIEF.md`](BRIEF.md) — the original request, verbatim.** Everything else is
+   interpretation. When interpretation and the brief disagree, the brief wins.
+2. **[`LEARNINGS.md`](LEARNINGS.md)** — verification lessons, technical traps, and every command
+   known to work. Read Part 1 before writing any gate; it is the accumulated cost of getting
+   this wrong repeatedly.
+3. **This file** — where the work stands.
+4. **[`PUNCHLIST.md`](PUNCHLIST.md)** — the next item and its acceptance gate.
+
+Update this file whenever a phase changes state. It is written to survive total context loss.
+
+Last updated: 2026-08-07 — Phases 0–2 built, aliveness gate iterating.
 
 ---
 
@@ -63,15 +71,36 @@ the emote critic loop run in parallel with renderer work.
 
 | # | Phase | Status |
 |---|---|---|
-| 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | not started |
-| 1 | Body and identity — gender morph pair, ARKit bank, rig | not started |
-| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | not started |
+| 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
+| 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
+| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; gate failing, iterating** |
 | 3 | Rendering — skin, eyes, hair, cloth, lighting, post | not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started |
+
+### Where Phase 2 actually stands
+
+The gate is **"reads as alive when silent and unshaded."** It has failed twice, both times with a
+precise, useful diagnosis. What works and what does not:
+
+**Works, measured:** blink asymmetry (33–67 ms closing, 167–267 ms opening — a 3–4× ratio, the
+snap-shut/roll-open that Live2D ships backwards); Poisson blink timing at 25.8/min with sd ≈ mean;
+45 saccades/min with a real fixation-duration distribution; arms decorrelated left-to-right at
+r = −0.05; **no loop** — image self-similarity is minimal at the shortest lag and rises
+monotonically to 15 s; no drift, jitter or accumulation over 20 s; arousal visibly changes the
+*character* of motion (hand path ×2.16 vs excursion ×1.68 — faster, not just bigger, which is the
+correct signature).
+
+**Fails:** the lower body had **exactly 0.0000 mm** of motion (Sway modelled as a spine bend rather
+than an ankle-rooted inverted pendulum); the face below the eyes never moved once in 20 s
+(`ExpressionBank` exists, was never in the stack); the 20 s clip could not contain any postural
+event; eyes sit pinned near their mechanical limit because the head does not share the load.
+
+A workflow addressing all four was in flight at the pause point. **Check `git log` — if a commit
+after `Deterministic capture, natural rest pose, body idle` exists, it landed.**
 
 Detailed per-item punch list lives in [`PUNCHLIST.md`](PUNCHLIST.md) once the design is
 approved.

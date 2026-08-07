@@ -39,6 +39,7 @@ import {
     saccadeDurationSeconds,
     saccadeProgress
 } from './Gaze.js';
+import { Blink } from './Blink.js';
 
 // three's GLTFLoader assumes a browser when it decodes embedded textures. Nothing here looks at a
 // pixel, so the two smallest possible stubs get the loader as far as the morph and skin data.
@@ -52,6 +53,21 @@ const FIGURE_PATH = path.resolve( HERE, '../../../../assets/figures/figure_g050.
 
 const MINIMUM_INTERSACCADIC_SECONDS = 0.15;
 const FIXATION_MEAN_SECONDS = 0.35;
+
+// Mirrors of the layer's own constants, restated here so a change to either side has to be made
+// deliberately in two places rather than silently agreeing with itself.
+const HEAD_RECRUITMENT_THRESHOLD_DEGREES = 12;
+const EYE_COMFORT_FRACTION = 0.85;
+const SUSTAINED_EYE_ECCENTRICITY_FRACTION = 0.35;
+
+const EYE_RANGE_DEGREES = Math.min(
+    EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
+
+/** How far the eye is allowed to go on a transit, and where the layer stops it. */
+const EYE_REACH_DEGREES = EYE_RANGE_DEGREES * EYE_COMFORT_FRACTION;
+
+/** The camera in the testbed sits here, so this is the eccentricity a square head has to carry. */
+const CAMERA_AZIMUTH_DEGREES = 12;
 
 const checks = [];
 
@@ -444,19 +460,20 @@ lines.push( '' );
             sample.gazeYaw === turned[ frame ].gazeYaw && sample.gazePitch === turned[ frame ].gazePitch ),
         'if this fails, the difference measured below is not the reflex' );
 
-    // The ocular range is small on this asset, so some frames legitimately have the eye pinned at
-    // its limit and unable to compensate. Those are excluded and counted, not silently averaged in.
-    // BOTH runs have to be checked: a frame where the still run is pinned and the turned run is
+    // The ocular range is small on this asset, so some frames legitimately have the eye at the end
+    // of its REACH and unable to compensate. Those are excluded and counted, not silently averaged
+    // in. BOTH runs have to be checked: a frame where the still run is pinned and the turned run is
     // not has a perfectly valid difference that is nevertheless not the head angle.
-    const yawLimit = Math.min( EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
-
+    //
+    // The bound is the reach — EYE_COMFORT_FRACTION of the morph range — and not the morph range
+    // itself, because that is where the layer now stops the eye. See applyVestibuloOcularReflex().
     const isPinned = ( sample ) => {
 
-        const pitchLimit = sample.eyePitch >= 0
-            ? EYE_MORPH_EXCURSION_DEGREES.up : EYE_MORPH_EXCURSION_DEGREES.down;
+        const pitchReach = EYE_COMFORT_FRACTION * ( sample.eyePitch >= 0
+            ? EYE_MORPH_EXCURSION_DEGREES.up : EYE_MORPH_EXCURSION_DEGREES.down );
 
-        return Math.abs( sample.eyeYaw ) >= yawLimit - 1e-6 ||
-            Math.abs( sample.eyePitch ) >= pitchLimit - 1e-6;
+        return Math.abs( sample.eyeYaw ) >= EYE_REACH_DEGREES - 1e-6 ||
+            Math.abs( sample.eyePitch ) >= pitchReach - 1e-6;
 
     };
 
@@ -573,9 +590,9 @@ lines.push( '' );
 
 {
     const HEAD_ALIGNMENT = 0.7;     // the layer's default
-    const THRESHOLD = 12;           // HEAD_RECRUITMENT_THRESHOLD_DEGREES, horizontal
-    const COMFORT = 0.85;           // EYE_COMFORT_FRACTION
-    const EYE_RANGE = Math.min( EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
+    const THRESHOLD = HEAD_RECRUITMENT_THRESHOLD_DEGREES;
+    const COMFORT = EYE_COMFORT_FRACTION;
+    const EYE_RANGE = EYE_RANGE_DEGREES;
 
     check( 'head recruitment: the comfort fraction leaves the literature threshold intact',
         COMFORT * EYE_RANGE >= THRESHOLD,
@@ -595,7 +612,10 @@ lines.push( '' );
         // onset at 200 ms = 450 ms = frame 27) can change the head's target.
         for ( let frame = 0; frame < 25; frame ++ ) stack.update( 1 / 60 );
 
-        const commanded = gaze.head.targetYawDegrees;
+        // The SHARE, not the head's aim. They differ once recentring has taken a hand — see the
+        // separate check below, which is about where the head ends up rather than about how much
+        // of the shift itself it took.
+        const commanded = gaze.commandedHeadYawDegrees;
 
         for ( let frame = 0; frame < 45; frame ++ ) stack.update( 1 / 60 );
 
@@ -644,6 +664,111 @@ lines.push( '' );
 
     for ( const row of formatTable( rows ) ) lines.push( `  ${ row }` );
     lines.push( '' );
+}
+
+// --- 6a. the head takes over an eccentricity the eyes have been holding ------------------------------
+//
+// The defect this section exists for. The camera sits 12° off-axis, so a figure looking at whoever
+// is behind it has to carry 12° somewhere — and 12° is exactly ON the recruitment threshold and
+// inside the comfort margin, so the two rules above BOTH decline to move the head and the eyes hold
+// the whole of it for as long as the figure keeps looking. Measured over a five-minute run that was
+// 26% of frames within 1.3° of the mechanical limit, and the critic pass read the result as sullen.
+//
+// What real gaze does instead is settle: the eyes go, the head comes round, and the eyes come back
+// toward the middle of the orbit. That is what is checked here — that the head arrives, that the
+// eye is left near centre rather than in the corner, and that a glance too brief to be worth
+// turning for is still eyes-only.
+
+lines.push( 'HEAD RECENTRING — a held eccentricity is handed to the head' );
+lines.push( '' );
+
+{
+    const SUSTAINED_EYE_DEGREES = EYE_RANGE_DEGREES * SUSTAINED_EYE_ECCENTRICITY_FRACTION;
+
+    // Listening, so the policy is on the partner 90% of the time and the eccentricity is the
+    // sustained one this section is about rather than a run of aversions.
+    const { stack, gaze } = buildRig( {
+        withHead: true,
+        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES }
+    } );
+
+    gaze.setConversationState( 'listening' );
+    gaze.lookAt( { yawDegrees: CAMERA_AZIMUTH_DEGREES, pitchDegrees: 0 } );
+
+    const eyeYawTrace = [];
+
+    for ( let frame = 0; frame < 180; frame ++ ) {
+
+        stack.update( 1 / 60 );
+        eyeYawTrace.push( gaze.eyeYawDegrees );
+
+    }
+
+    // Frame 30 is 0.5 s: the saccade has landed and the head's share (zero, at 12°) has been
+    // commanded, but the recentring hold-off has only just expired.
+    const eyeAtLanding = Math.abs( eyeYawTrace[ 29 ] );
+    const eyeAfterSettle = Math.abs( eyeYawTrace[ 179 ] );
+
+    lines.push( `  partner ${ CAMERA_AZIMUTH_DEGREES }° off-axis, listening` );
+    lines.push( `  eye yaw at landing (0.5 s)   ${ eyeAtLanding.toFixed( 2 ) }°` );
+    lines.push( `  eye yaw after settle (3 s)   ${ eyeAfterSettle.toFixed( 2 ) }°` );
+    lines.push( `  head yaw after settle        ${ gaze.head.yawDegrees.toFixed( 2 ) }°` );
+    lines.push( '' );
+
+    check( 'recentring: the eyes carry the whole eccentricity at first, as they should',
+        eyeAtLanding > SUSTAINED_EYE_DEGREES,
+        `${ eyeAtLanding.toFixed( 2 ) }° at 0.5 s — the eyes lead, the head has not been asked yet` );
+
+    check( 'recentring: the head then comes round and the eyes return toward centre',
+        eyeAfterSettle <= SUSTAINED_EYE_DEGREES + 1.5,
+        `eye ${ eyeAfterSettle.toFixed( 2 ) }° against a sustained comfort of ` +
+        `${ SUSTAINED_EYE_DEGREES.toFixed( 2 ) }°, head ${ gaze.head.yawDegrees.toFixed( 2 ) }°` );
+
+    check( 'recentring: the head is no longer left square to the room',
+        gaze.head.yawDegrees > CAMERA_AZIMUTH_DEGREES - SUSTAINED_EYE_DEGREES - 1.5,
+        `head ${ gaze.head.yawDegrees.toFixed( 2 ) }° of the ${ CAMERA_AZIMUTH_DEGREES }° it is looking at` );
+
+    stack.dispose();
+}
+
+{
+    // A dart out and back inside the hold-off must NOT drag the head along. This is the whole
+    // reason recentring waits before acting: a glance is eyes-only and always was.
+    const { stack, gaze } = buildRig( { withHead: true } );
+
+    gaze.setHeadRecentring( true );
+    gaze.lookAt( { yawDegrees: 10, pitchDegrees: 0 } );
+
+    for ( let frame = 0; frame < 24; frame ++ ) stack.update( 1 / 60 );
+
+    gaze.lookAt( { yawDegrees: 0, pitchDegrees: 0 } );
+
+    for ( let frame = 0; frame < 60; frame ++ ) stack.update( 1 / 60 );
+
+    check( 'recentring: a glance shorter than the hold-off stays eyes-only',
+        Math.abs( gaze.head.targetYawDegrees ) < 0.5,
+        `head asked for ${ gaze.head.targetYawDegrees.toFixed( 3 ) }° after a 10° dart out and back` );
+
+    stack.dispose();
+}
+
+{
+    // The opt-out, so an application driving its own neck can have the old behaviour back.
+    const { stack, gaze } = buildRig( {
+        withHead: true,
+        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES, headRecentring: false }
+    } );
+
+    gaze.setConversationState( 'listening' );
+    gaze.lookAt( { yawDegrees: CAMERA_AZIMUTH_DEGREES, pitchDegrees: 0 } );
+
+    for ( let frame = 0; frame < 180; frame ++ ) stack.update( 1 / 60 );
+
+    check( 'recentring: setHeadRecentring( false ) leaves the head where the shift put it',
+        Math.abs( gaze.head.targetYawDegrees ) < 1e-9,
+        `head asked for ${ gaze.head.targetYawDegrees.toFixed( 3 ) }° with recentring off` );
+
+    stack.dispose();
 }
 
 {
@@ -710,16 +835,22 @@ function measureOnsets( { predicted } ) {
 // frames where the head has already reached its target, so an eye still at its limit there is
 // PARKED, and parked is the thing that reads as broken.
 
-lines.push( 'OCULAR SATURATION — fraction of frames with an eye pinned at the morph limit' );
+lines.push( 'OCULAR SATURATION — fraction of frames with an eye pinned at the morph limit,' );
+lines.push( 'and how eccentric the eye sits on average. Partner at the testbed camera azimuth.' );
 lines.push( '' );
 
 {
     const SECONDS = 300;
-    const rows = [ [ 'state', 'seed', 'up', 'down', 'vertical', 'horizontal', 'settled vert', 'settled horiz' ] ];
+    const rows = [ [
+        'state', 'seed', 'up', 'down', 'vertical', 'horizontal', 'near limit', 'mean |eye yaw|',
+        'settled frames'
+    ] ];
 
     let worstVertical = 0;
     let worstSettledVertical = 0;
     let worstSettledHorizontal = 0;
+    let worstNearLimit = 0;
+    let worstMeanYaw = 0;
 
     for ( const state of [ 'idle', 'listening', 'speaking' ] ) {
 
@@ -734,13 +865,16 @@ lines.push( '' );
                 percent( measured.down ),
                 percent( measured.vertical ),
                 percent( measured.horizontal ),
-                percent( measured.settledVertical ),
-                percent( measured.settledHorizontal )
+                percent( measured.nearYawLimit ),
+                `${ measured.meanAbsoluteYaw.toFixed( 2 ) }°`,
+                String( measured.settledFrames )
             ] );
 
             worstVertical = Math.max( worstVertical, measured.vertical );
             worstSettledVertical = Math.max( worstSettledVertical, measured.settledVertical );
             worstSettledHorizontal = Math.max( worstSettledHorizontal, measured.settledHorizontal );
+            worstNearLimit = Math.max( worstNearLimit, measured.nearYawLimit );
+            worstMeanYaw = Math.max( worstMeanYaw, measured.meanAbsoluteYaw );
 
         }
 
@@ -751,7 +885,7 @@ lines.push( '' );
 
     check( 'saturation: vertical eye deflection is at the morph limit on under 2% of frames',
         worstVertical < 0.02,
-        `worst of 12 five-minute runs: ${ percent( worstVertical ) } (was 15.6% before the fix)` );
+        `worst of 12 five-minute runs: ${ percent( worstVertical ) } (was 15.6% before the vertical fix)` );
 
     check( 'saturation: no eye is ever PARKED at its vertical limit once the head has settled',
         worstSettledVertical < 0.005,
@@ -760,6 +894,17 @@ lines.push( '' );
     check( 'saturation: no eye is ever PARKED at its horizontal limit once the head has settled',
         worstSettledHorizontal < 0.005,
         `worst settled horizontal ${ percent( worstSettledHorizontal ) }` );
+
+    // The two numbers the critic pass actually named. Both are about the picture rather than about
+    // any single mechanism, which is why they are gated on the finished layer over five minutes
+    // instead of on a commanded shift.
+    check( 'saturation: under 5% of frames sit within 2° of the horizontal ocular limit',
+        worstNearLimit < 0.05,
+        `worst of 12 five-minute runs: ${ percent( worstNearLimit ) } (was 25.9% within 1.3° before recentring)` );
+
+    check( 'saturation: the eye sits under 7° off head-centre on average, not 12',
+        worstMeanYaw < 7,
+        `worst of 12 five-minute runs: ${ worstMeanYaw.toFixed( 2 ) }° (was 11.3° before recentring)` );
 }
 
 function percent( fraction ) {
@@ -776,15 +921,24 @@ function percent( fraction ) {
  */
 function measureSaturation( { state, seed, seconds } ) {
 
-    const { stack, gaze } = buildRig( { seed, withHead: true } );
+    // The partner sits where the testbed camera sits, because that 12° is the eccentricity the
+    // whole defect is about — a figure looking at whoever is behind the lens.
+    const { stack, gaze } = buildRig( {
+        seed,
+        withHead: true,
+        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES }
+    } );
 
     gaze.setConversationState( state );
 
-    const yawLimit = Math.min( EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
+    const yawLimit = EYE_RANGE_DEGREES;
     const frames = Math.round( seconds * 60 );
 
-    const counts = { up: 0, down: 0, horizontal: 0, settledVertical: 0, settledHorizontal: 0 };
+    const counts = {
+        up: 0, down: 0, horizontal: 0, nearYawLimit: 0, settledVertical: 0, settledHorizontal: 0
+    };
     let settledFrames = 0;
+    let absoluteYawTotal = 0;
 
     for ( let frame = 0; frame < frames; frame ++ ) {
 
@@ -800,6 +954,9 @@ function measureSaturation( { state, seed, seconds } ) {
         if ( atTop ) counts.up ++;
         if ( atBottom ) counts.down ++;
         if ( atSide ) counts.horizontal ++;
+        if ( Math.abs( yaw ) >= yawLimit - 2 ) counts.nearYawLimit ++;
+
+        absoluteYawTotal += Math.abs( yaw );
 
         const headSettled =
             Math.abs( gaze.head.yawDegrees - gaze.head.targetYawDegrees ) < 0.1 &&
@@ -820,6 +977,11 @@ function measureSaturation( { state, seed, seconds } ) {
         down: counts.down / frames,
         vertical: ( counts.up + counts.down ) / frames,
         horizontal: counts.horizontal / frames,
+        nearYawLimit: counts.nearYawLimit / frames,
+        meanAbsoluteYaw: absoluteYawTotal / frames,
+        // Printed so the two "settled" rates below can be read as the sample sizes they are: the
+        // head is in motion most of the time, so settled frames are a minority of the run.
+        settledFrames,
         settledVertical: counts.settledVertical / Math.max( settledFrames, 1 ),
         settledHorizontal: counts.settledHorizontal / Math.max( settledFrames, 1 )
     };
@@ -1011,8 +1173,9 @@ function measureGazeProportions( apply, wantedDecisions ) {
 
     const requested = [];
 
-    // A stand-in for motion/Blink.js, which does not exist yet. The contract under test is the
-    // duck-typed lookup, not the blink itself: gaze must not care whether a blink layer is there.
+    // A stand-in rather than the real Blink, because the contract under test here is the
+    // duck-typed lookup: gaze must not care what a blink layer is, only that it can be asked.
+    // The real layer is driven in the section below this one.
     stack.add( {
         name: 'blink',
         order: 900,
@@ -1057,6 +1220,86 @@ function measureGazeProportions( apply, wantedDecisions ) {
     }
 
     if ( survived ) check( 'blink co-occurrence: absent blink layer is not an error', true );
+}
+
+// The same claim against the REAL Blink layer, over a long unattended run. A mock proves the call
+// is made; only the real layer proves the wiring survives contact with a stack that has its own
+// Poisson clock, its own refractory rule and its own opinion about whether to fire at all. This is
+// the check that would have caught the coupling being present in the source and dead in the app.
+{
+    const measured = measureBlinkCoOccurrence( { coupled: true } );
+    const uncoupled = measureBlinkCoOccurrence( { coupled: false } );
+
+    lines.push( 'BLINK CO-OCCURRENCE — the real Blink layer, five minutes unattended' );
+    lines.push( '' );
+    lines.push( `  large gaze shifts (>=30°)         ${ measured.largeShifts }` );
+    lines.push( `  of those, blinked with the shift  ${ measured.coupledBlinks } (${ percent( measured.coupledBlinks / measured.largeShifts ) })` );
+    lines.push( `  same run, coupling turned off     ${ uncoupled.coupledBlinks }` );
+    lines.push( `  blink rate, coupled / uncoupled   ${ measured.ratePerMinute.toFixed( 1 ) } / ${ uncoupled.ratePerMinute.toFixed( 1 ) } per minute` );
+    lines.push( '' );
+
+    check( 'blink co-occurrence: a real Blink layer actually blinks on large gaze shifts',
+        measured.coupledBlinks > 0.25 * measured.largeShifts,
+        `${ measured.coupledBlinks } of ${ measured.largeShifts } large shifts, against a configured 0.5 probability` );
+
+    check( 'blink co-occurrence: setBlinkCoupling( false ) turns it off',
+        uncoupled.coupledBlinks === 0,
+        `${ uncoupled.coupledBlinks } coupled blinks with the coupling off` );
+
+    check( 'blink co-occurrence: coupling does not run the blink rate out of its band',
+        measured.ratePerMinute <= 32.5,
+        `${ measured.ratePerMinute.toFixed( 2 ) }/min against Doughty's 32.5 conversational ceiling` );
+}
+
+/**
+ * Runs gaze and blink together and counts how often a blink starts on the same frame as a large
+ * saccade. Same frame, not "near": the trigger is synchronous with saccade launch, so anything
+ * looser would also count the spontaneous blinks that happen to land nearby.
+ */
+function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
+
+    const { stack, gaze } = buildRig( {
+        seed,
+        withHead: true,
+        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES }
+    } );
+
+    const blink = stack.add( new Blink() );
+    gaze.setBlinkCoupling( coupled );
+
+    let largeShifts = 0;
+    let coupledBlinks = 0;
+    let previousSaccadeCount = gaze.saccadeCount;
+    let previousBlinkCount = blink.blinkCount;
+
+    for ( let frame = 0; frame < seconds * 60; frame ++ ) {
+
+        stack.update( 1 / 60 );
+
+        const saccaded = gaze.saccadeCount !== previousSaccadeCount;
+        const blinked = blink.blinkCount !== previousBlinkCount;
+
+        previousSaccadeCount = gaze.saccadeCount;
+        previousBlinkCount = blink.blinkCount;
+
+        if ( saccaded === false ) continue;
+        if ( gaze.lastSaccadeAmplitudeDegrees < 30 ) continue;
+
+        largeShifts ++;
+        if ( blinked ) coupledBlinks ++;
+
+    }
+
+    const result = {
+        largeShifts,
+        coupledBlinks,
+        ratePerMinute: blink.blinkCount / ( seconds / 60 )
+    };
+
+    stack.dispose();
+
+    return result;
+
 }
 
 // --- 8. determinism ------------------------------------------------------------------------------------

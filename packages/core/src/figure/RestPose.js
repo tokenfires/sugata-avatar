@@ -75,9 +75,9 @@
  *
  *     standing.blendTo( skeleton, weightLeft, shift );
  *     skeleton.update();
- *     stack.snapshotRestPose();          // deltas now compose onto the new posture
+ *     stack.captureRestPose();           // deltas now compose onto the new posture
  *
- * `snapshotRestPose()` is a copy loop over the declared channels, so this is cheap enough to run
+ * `captureRestPose()` is a copy loop over the declared channels, so this is cheap enough to run
  * every frame of a shift.
  */
 
