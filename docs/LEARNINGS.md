@@ -115,6 +115,25 @@ distribution whose *shifts* should average 1.0, and nobody read it as a defect b
 `....` note rather than a gate. (The pooled relay stream now averages 0.60, because fidgets relay
 too and carry half amplitude — so the gate had to be stated per pattern to mean anything.)
 
+### 1.7d Two axes can need two mechanisms — and a citation can answer a question it was not asked
+
+`Sway` modelled BOTH axes as an inverted pendulum about the ankles. That is right fore-and-aft and
+wrong side to side: medio-laterally, with the feet apart, the ankle has almost no lateral authority
+and the body uses **hip load/unload**. Winter et al. 1996 says so in its title — *"Unified theory
+regarding A/P and M/L balance in quiet stance"* — and every measured gate in the repo passed anyway,
+because they all gated *amplitude* and the defect was in *distribution with height*.
+
+A visual judge named it in one sentence and proved it in three numbers: left-leg tilt against
+right-leg tilt r = 0.94, hip against neck r = 0.95, lateral displacement proportional to height
+above the ankle. **Nothing in the repo was measuring a correlation between two body parts.** Consider
+adding one wherever a layer claims a body is articulated rather than rigid.
+
+🚩 And the part worth wincing at: the adversarial verifier had cited Winter 1996 to me earlier in
+the same session — as a supporting mechanism note under a *different* claim, about how the centre
+of pressure moves between the feet. It was read as corroboration and moved past. **A source
+delivered in support of one claim can be the answer to a different one; when a verifier hands you a
+paper, read what it is about, not only the sentence it was quoted for.**
+
 ### 1.8 Conceptual model errors look like missing features
 
 The lower body had **exactly 0.0000 mm** of motion over 600 frames. `Sway` declared only spine,
@@ -193,6 +212,22 @@ pivot to the ankle joint took it to 0.16 mm. **A sub-millimetre truth is not wor
 
 When an amplitude changes by an order of magnitude, re-audit every constant whose cost was
 previously argued as negligible. The argument was about the old amplitude.
+
+### 1.11c Ask whether the ASSET can support the technique before writing the technique
+
+Punch-list 3.3 was "the best effort-to-impact ratio in the whole project: ~40 lines of TSL". A spike
+against the actual eyeball mesh found **6 of 8 geometry clauses failing**, one of them fatally:
+there is no corneal dome to refract through. Front-versus-equator bulge 0.051 mm against 0.158 mm
+of tessellation noise, and the apex is a flat octagonal facet recessed 0.131 mm *inside* the
+sphere — a dimple exactly where the pupil is.
+
+The 40 lines would have run. They would have produced roughly half the corneal power (power scales
+as 1/R, and a 15.4 mm globe against a real 7.8 mm cornea) and an octagonal catchlight. **A shader
+that runs is not a shader that delivers**, and an item chosen for its effort-to-impact ratio is
+exactly the one where a silently halved impact goes unnoticed.
+
+The spike cost a fraction of the shader and produced a scoped asset fix instead of a disappointment.
+Do this for every technique whose research doc states a geometry contract.
 
 ### 1.12 Two practical traps that cost real time
 
