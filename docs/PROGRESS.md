@@ -12,7 +12,7 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: 2026-08-07 — Phases 0–2 built, aliveness gate iterating.
+Last updated: 2026-08-07 — Phase 2 measured gates all green; POSTURE_HEAD_TRANSFER resolved.
 
 ---
 
@@ -73,7 +73,7 @@ the emote critic loop run in parallel with renderer work.
 |---|---|---|
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
-| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; gate failing, iterating** |
+| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding** |
 | 3 | Rendering — skin, eyes, hair, cloth, lighting, post | not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
@@ -101,11 +101,12 @@ where the literature says, and **head excursion is an output**. Measured on figu
 
 | quantity | measured | was |
 |---|---|---|
-| head travel per unit centre-of-mass travel | **1.653** | assumed 0.20 |
+| head travel per unit centre-of-mass travel | **1.676** | assumed 0.20 |
 | contrapposto response per unit blend | COM 38.0 / −40.7 mm, head 57.1 / −63.3 mm | head only |
-| lateral postural events per minute | **1.575** | 0.28 |
-| balance band, centre-of-pressure RMS | ML 2.91–3.21, AP 4.53–5.14 mm | applied as head excursion |
-| composite centre-of-pressure RMS, 900 s | ML median 12.30, AP median 8.27 mm | — |
+| lateral postural events per minute | **1.51** | 0.28 |
+| balance band, centre-of-pressure RMS | ML 3.05, AP 4.87 mm (medians, 900 s) | applied as head excursion |
+| composite centre-of-pressure RMS, 900 s | ML median 11.63, AP median 8.22 mm | — |
+| worst sole slide over 900 s | **0.17 mm** | 0.54 mm, then 2.49 before the pivot fix |
 
 Four further defects were found in the same pass, each independently confirmed:
 
@@ -130,19 +131,42 @@ was found to substitute, so the correction taken is to author at the force-plate
 (3.0 / 4.9 mm) rather than at the gate-band midpoint — the low end, which is the side the age bias
 says to err on.
 
-**Measured on screen**, same seed, same framing, same 90 s window, before and after — lateral
-silhouette-centroid travel in pixels (SD / peak-to-peak):
+**Two more defects, found by the rewritten gates rather than by the code's author** — both the
+same lesson, both now in LEARNINGS §1.11a/b: *when an amplitude changes by an order of magnitude,
+re-audit every constant whose cost was argued as negligible.*
 
-| band | before | after |
-|---|---|---|
-| head | 4.92 / 26.6 | **5.52 / 31.5** |
-| shoulder | 1.99 / 13.0 | **2.85 / 18.1** |
-| hip | 1.45 / 9.5 | **2.03 / 13.0** |
-| knee | 0.75 / 5.1 | **1.08 / 7.1** |
-| ankle | 0.27 / 2.2 | **0.40 / 2.8** |
+- **Foot planting broke by 40×.** `STANCE_RESPONSE_PROBE_BLEND` measured the contrapposto once
+  and scaled linearly, justified by a genuine measurement — the *centre-of-mass* response varies
+  0.3% across the range. True, and it does not cover the **ankle**, which rides an arc. At blend
+  1.0 the linearisation left 2 mm of vertical: a foot off the floor. It is a table now.
+- **`PIVOT_HEIGHT_FRACTION_OF_ANKLE = 0.5`** was a well-argued idealisation costing a tenth of a
+  millimetre — until the lean grew six-fold and the sole, 29 mm below that pivot, slid **2.49 mm**.
+  At the joint it is 0.16 mm and the sole is planted for free.
 
-⚠️ **That window measures the balance band almost alone** — at 0.30 shifts/min, 90 s cannot contain
-a weight shift (LEARNINGS §1.4, again). A 300–600 s capture is the outstanding piece of evidence.
+**Measured on screen** — lateral silhouette-centroid travel in pixels, `tools/critic/travel.mjs`:
+
+| band | before, 90 s | after, 90 s | after, **420 s** |
+|---|---|---|---|
+| head | 4.92 / 26.6 | 5.55 / 31.7 | **9.91 / 69.5** |
+| shoulder | 1.99 / 13.0 | 2.87 / 18.2 | **7.82 / 45.5** |
+| hip | 1.45 / 9.5 | 2.02 / 12.9 | **6.00 / 36.6** |
+| knee | 0.75 / 5.1 | 1.04 / 6.8 | **3.11 / 18.1** |
+| ankle | 0.27 / 2.2 | 0.31 / 2.6 | **0.85 / 4.6** |
+
+The 90 s columns measure the balance band almost alone — at 0.30 shifts/min a 90 s window cannot
+contain a weight shift (§1.4, again), which is why the 420 s column exists. Against the failing
+diagnosis's **1.6 pixels**, the hip now travels **36.6 px peak-to-peak**.
+
+### The one shortfall, recorded rather than tuned away
+
+The fore-and-aft composite sits at **8.22 mm** against Bates' lower quartile of 10.34. Two
+calibration attempts are written up in `Sway.js`; the second is the informative one, because
+widening the clamp moved it 0.05 mm and proved the clamp was never what held it down. Worked the
+other way: Duarte's fore-and-aft processes carry 6.7 mm of the 8.22 where Bates would need 15.6 —
+**2.3× his shift amplitude or five times his rate, both of which contradict the paper this layer
+implements event by event.** Duarte is the process; Bates is a composite from another task. Where
+they conflict the process wins, and the shortfall is asserted in both selftests as a known state
+that goes red the day it closes. The lateral axis — the visible one — sits inside Bates' IQR.
 
 ### Where Phase 2 actually stands
 
@@ -162,11 +186,15 @@ than an ankle-rooted inverted pendulum); the face below the eyes never moved onc
 (`ExpressionBank` exists, was never in the stack); the 20 s clip could not contain any postural
 event; eyes sit pinned near their mechanical limit because the head does not share the load.
 
-**All four were fixed (commit `Sway becomes an ankle-rooted pendulum`).** Current gate result:
+**All four were fixed (commit `Sway becomes an ankle-rooted pendulum`).** Gate result at that
+point:
 
 **PORTRAIT: PASS. FULL BODY: FAIL.**
 
-The remaining failure is precise and is *not* a bug — it is a modelling disagreement:
+⚠️ **The diagnosis below is superseded** — see the 2026-08-07 entry above. It was recorded as a
+modelling disagreement to be settled by choosing between two budgets. It was neither: it was a
+frame-of-reference error, and the coefficient was out by 8.3× rather than 2.7×. Kept verbatim
+because how a wrong diagnosis was written down is worth as much as the right one.
 
 - Weight shifts fire at **0.28/min**, so **7 of 12** ninety-second windows contain none at all.
 - When one does fire it moves the body ~4.5 mm ML — **1.6 pixels** at full-body framing.
@@ -193,10 +221,19 @@ The remaining failure is precise and is *not* a bug — it is a modelling disagr
 
 ### Known open leads, recorded so they are not rediscovered
 
-- **Sway mean resultant velocity measures 22.0 mm/s** against Quijoux's 11–20 eyes-open. Found
-  while adding the measurement; deliberately left as a note rather than a gate, because it is a
-  property of the pre-existing balance-band spectrum, not of the pendulum change that exposed it.
-  Closing it means slowing the upper noise band and re-running the f95 gates.
+- **The fore-and-aft composite shortfall** — 8.22 mm against Bates' Q1 of 10.34. Analysed above;
+  closing it requires contradicting Duarte. Asserted as a known state in both selftests.
+- **Sway mean resultant velocity measures 18.2 mm/s** against Quijoux's 11–20 eyes-open — inside
+  the band, but at the *Wii-board* end while every amplitude is now authored at the *force-plate*
+  end (11.0). Reported, not gated. It is the strongest remaining lead on the balance-band spectrum
+  and closing it means slowing the upper noise band and re-running the f95 gates.
+- **The anthropometry is Dempster (1955), eight elderly male cadavers.** de Leva's 1996 adjustment
+  of Zatsiorsky–Seluyanov is the modern standard and is re-referenced to joint centres, which is
+  exactly what `BodyMass` needs. It would move the head/centre-of-mass lever by perhaps 10% — a
+  second-order correction to a defect that was 8×, but worth half an hour with the paper before
+  anyone quotes the lever to three digits.
+- **Quijoux's cohorts are elderly** (mean 71 and 79) and no young-adult COP RMS in millimetres was
+  found. Mitigated by authoring at the low end of the band; not resolved.
 - **Swallows render as lip compression only** — the asset has no throat articulation.
 - Full-body lighting is a scaled portrait rig; rim and kicker stop reading at body scale.
 
