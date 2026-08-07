@@ -99,8 +99,40 @@ than an ankle-rooted inverted pendulum); the face below the eyes never moved onc
 (`ExpressionBank` exists, was never in the stack); the 20 s clip could not contain any postural
 event; eyes sit pinned near their mechanical limit because the head does not share the load.
 
-A workflow addressing all four was in flight at the pause point. **Check `git log` — if a commit
-after `Deterministic capture, natural rest pose, body idle` exists, it landed.**
+**All four were fixed (commit `Sway becomes an ankle-rooted pendulum`).** Current gate result:
+
+**PORTRAIT: PASS. FULL BODY: FAIL.**
+
+The remaining failure is precise and is *not* a bug — it is a modelling disagreement:
+
+- Weight shifts fire at **0.28/min**, so **7 of 12** ninety-second windows contain none at all.
+- When one does fire it moves the body ~4.5 mm ML — **1.6 pixels** at full-body framing.
+  Side-by-side plates before and after a shift are indistinguishable.
+- Cause: `POSTURE_HEAD_TRANSFER = 0.20` bounds the contrapposto blend to 0.077 of the pose, so a
+  shift buys articulation (hip roll, lumbar counter-bend, free-knee flexion) but almost no travel.
+  Duarte's 22 mm ML COP shift is ~a fifth of a full weight transfer; the two budgets disagree by
+  ~2.7×. Raising the coefficient would move the validated head-RMS gates, so it was documented
+  rather than changed.
+
+### 🔜 Next actions, in order
+
+1. **Resolve the `POSTURE_HEAD_TRANSFER` disagreement** (Phase 2 full-body gate). Either raise it
+   and re-validate the head gates, or accept that weight shifts are articulation-only and raise
+   the *event rate* instead. This is the last thing between here and the Phase 2 gate.
+2. **Phase 3 rendering** — the eyes and skin will read as dead until the eye and skin shaders
+   exist. That is expected and was correctly excluded from the motion gate. `3.3` (eyes) has the
+   best effort-to-impact ratio in the whole project: ~40 lines of TSL.
+3. Open Phase 0 items: `0.4`/`0.5` (Anny morph pair + vertex-order diff), `0.9` (hair perf spike),
+   `0.11` (faceunit visual check at gender extremes).
+
+### Known open leads, recorded so they are not rediscovered
+
+- **Sway mean resultant velocity measures 22.0 mm/s** against Quijoux's 11–20 eyes-open. Found
+  while adding the measurement; deliberately left as a note rather than a gate, because it is a
+  property of the pre-existing balance-band spectrum, not of the pendulum change that exposed it.
+  Closing it means slowing the upper noise band and re-running the f95 gates.
+- **Swallows render as lip compression only** — the asset has no throat articulation.
+- Full-body lighting is a scaled portrait rig; rim and kicker stop reading at body scale.
 
 Detailed per-item punch list lives in [`PUNCHLIST.md`](PUNCHLIST.md) once the design is
 approved.
@@ -195,3 +227,17 @@ Fitted cost model, WebGPU: **0.265 ms + 0.618 ms per Mpx lit, per light.**
 3. `git log --oneline -20` for what actually landed.
 4. Find the first punch-list item not marked done and continue there.
 5. Update the session log and the phase table before stopping.
+
+### 2026-08-07 — Phases 0–2 built; paused for an OS update
+
+Four workflows, ~4.4M subagent tokens. Phase 0 and 1 complete, Phase 2 built with the portrait
+gate passing and the full-body gate failing on one documented coefficient.
+
+Shipped: deterministic byte-reproducible video capture; MPFB2 pipeline producing five figures
+with 52 named ARKit morphs + 15 visemes across the gender sweep; Figure/ExpressionBank/Identity/
+Skeleton; MotionStack; Blink, Gaze, Breath, Sway, IdleMotion, BodyIdle, FacialIdle, Pupil;
+RestPose with contrapposto variants; the six objective critic gates.
+
+Every defect this session was found by adversarial verification or visual judgement, never by
+the agent that wrote the code. That pattern is documented in LEARNINGS.md Part 4 and should
+continue.
