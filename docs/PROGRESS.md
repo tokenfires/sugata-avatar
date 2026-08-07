@@ -168,6 +168,80 @@ implements event by event.** Duarte is the process; Bates is a composite from an
 they conflict the process wins, and the shortfall is asserted in both selftests as a known state
 that goes red the day it closes. The lateral axis — the visible one — sits inside Bates' IQR.
 
+### 2026-08-07, later still — the visual judge, and the error the numbers could not see
+
+**Verdict: "a well-animated head bolted to a rigid mannequin being tilted on an ankle hinge."**
+Every measured gate was green and the judge was still right, which is §1.2 in its purest form.
+
+🎯 **THE FINDING: LATERAL BALANCE IS NOT AN ANKLE STRATEGY.** The inverted pendulum governs
+antero-posterior balance. Medio-laterally, with the feet apart, the ankle has almost no lateral
+authority and the body uses a **hip load/unload** mechanism — pelvis over the loaded foot,
+abductors hiking that side, lumbar spine counter-bending, head parked over the base of support.
+That is the title of Winter, Prince, Frank, Powell & Zabjek 1996: *"Unified theory regarding A/P
+and M/L balance in quiet stance."* **Two axes, two mechanisms.**
+
+🚩 The adversarial verifier cited that paper to me earlier in the session, as a mechanism note
+under a different claim. I read it and moved on. It was the central modelling fact for the lateral
+axis. *A citation delivered in support of one claim can be the answer to a different one.*
+
+The judge's evidence, which no gate in the repo was looking for: left-leg tilt against right-leg
+tilt **r = 0.94**, hip against neck **r = 0.95**, and lateral displacement **proportional to height
+above the ankle** — so the head travelled 2.5× as far as the pelvis. A real weight shift is the
+other way round.
+
+**Two fixes, both measured:**
+
+| | before | after |
+|---|---|---|
+| ankle path over 900 s | 550 mm | **60 mm** (legs stop swinging as a plank) |
+| contrapposto head / centre-of-mass | 1.50 | **1.00** |
+| head ML RMS, 900 s | 18.4 mm | **12.9 mm** |
+| on-screen head / hip travel | 1.89 | **1.34** |
+| on-screen hip peak-to-peak | 36.7 px | **43.9 px** |
+
+1. **The whole lateral signal now goes through the hip mechanism**, not just the weight shifts —
+   `solveStanceBlend` reads `displacement.x`, not `postureDisplacement.x`. One line; it fixed the
+   articulation but *not* the displacement profile, because —
+2. **the authored contrapposto carries the same head-over-pelvis ratio the pendulum did.** Its
+   prose says "the lumbar spine bends back the other way to bring the head over the support"; its
+   measured angles move the head 1.5× the pelvis. `STANCE_TRUNK_RIGHTING` adds a lumbar
+   counter-bend sized at bind from the pose's own measured overshoot — 2.89° per unit blend — and
+   leaves the authored pose alone, because a deliberate contrapposto and an involuntary balance
+   correction are different behaviours that happen to share a shape.
+
+**Still open from the judge, in its priority order:**
+
+- Head travel is still 1.34× the hip. The direction is right; the target is pelvis-leads.
+- **The hands never move** — identical finger curl at every sample across 7 minutes.
+- **One arm is 2.5× livelier than the other**, consistently. Looks like a bug, not a choice.
+- **The stance is ~480 mm outer-to-outer**, which is wide enough to suppress lateral sway.
+- **Head-on-neck motion adds to the trunk lean instead of cancelling it** (r = +0.10 with neck
+  displacement, when the vestibulo-collic reflex should make it negative).
+- **Only 3 postural events read in 7 minutes** against a relay rate of 1.5/min — the events fire,
+  but most are 1–3 px and below the threshold at which a viewer registers anything.
+- The feet are pixel-for-pixel identical for 6300 frames: planted, but with no toe or ankle
+  deformation, which reads as welded.
+
+### Phase 3.3 is blocked on an asset change, and the spike says exactly which
+
+`tools/spikes/eye-geometry.mjs` measured the eyeball mesh against the technique in
+`research/eyes-and-lighting.md` §1. **6 of 8 clauses fail, and one of them is not shader-fixable:**
+there is no corneal dome. Front-versus-equator bulge is **0.051 mm against 0.158 mm of tessellation
+noise**, and the apex is a *flat octagonal facet recessed 0.131 mm inside the sphere* — a dimple
+exactly where the pupil is. 48 vertices per eye, 8 to a ring.
+
+The fix is small and the geometry is already on this machine: `makehuman_system_assets` ships
+`eyes/high-poly/high-poly.mhclo` beside the `low-poly` one the pipeline picks — **532 verts per
+eye, two shells, and a +7.7% corneal dome** measured directly off the source `.obj`. It needs a
+one-line proxy swap in `build_figure.py`, a Blender-side material split so the cornea shell is
+transmissive (its UV island in `brown_eye.png` is fully opaque, so importing it as one material
+gives an opaque grey dome over the eye), and six hardcoded `low-poly` matchers widened — one of
+which, `alive.js:105`, is a bare string literal that will fail silently.
+
+⚠️ Not verified: nobody has built a figure with the high-poly proxy. MPFB's fitting deforms the
+source, and whether the ARKit `eyeLook*` keys transfer through a proxy swap is the single most
+likely thing to go wrong.
+
 ### Where Phase 2 actually stands
 
 The gate is **"reads as alive when silent and unshaded."** It has failed twice, both times with a

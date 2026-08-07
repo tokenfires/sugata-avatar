@@ -17,9 +17,26 @@
  * line while the arm a centimetre away glowed. Measured pelvis, calf and foot world path over
  * 20 s: exactly 0.0000 mm. A living torso bolted to a statue's legs.
  *
- * Quiet-stance balance is an ANKLE STRATEGY. The body rotates about the ankles as a near-rigid
- * inverted pendulum; the trunk barely participates. So the rotation is authored at the bottom of
- * the chain and everything above it — pelvis, knees, spine, head — TRANSLATES as a consequence.
+ * 🚩 THAT IS TRUE FORE-AND-AFT, AND FALSE SIDE TO SIDE. Read the title of the paper: Winter,
+ * Prince, Frank, Powell & Zabjek 1996, *"Unified theory regarding A/P and M/L balance in quiet
+ * stance"* — two axes, two mechanisms. Antero-posteriorly the body really is an inverted pendulum
+ * turning about the ankles. Medio-laterally, with the feet apart, the ankle has almost no lateral
+ * authority: the body uses a HIP LOAD/UNLOAD strategy, moving the centre of pressure between the
+ * feet by redistributing vertical load. The pelvis travels over the loaded foot, the abductors
+ * hike that side, the lumbar spine counter-bends, and the head stays roughly where it was.
+ *
+ * Running the lateral axis through the pendulum instead produces exactly the wrong shape, and a
+ * visual judge named it before anyone looked at the code: "a well-animated head bolted to a rigid
+ * mannequin being tilted on an ankle hinge." Measured on that clip — left-leg tilt against
+ * right-leg tilt r = 0.94, hip against neck r = 0.95, and lateral displacement proportional to
+ * height above the ankle, so the head travelled 2.5x as far as the pelvis. A real weight shift is
+ * the other way round. So the lateral axis is delivered by the contrapposto, which already has
+ * the right shape, and the pendulum keeps the axis it is right about.
+ *
+ * Quiet-stance balance fore-and-aft is an ANKLE STRATEGY. The body rotates about the ankles as a
+ * near-rigid inverted pendulum; the trunk barely participates. So the rotation is authored at the
+ * bottom of the chain and everything above it — pelvis, knees, spine, head — TRANSLATES as a
+ * consequence.
  * The head excursion the literature reports is then an OUTPUT of the pendulum rather than the
  * thing this file authors, which is what makes the lower body move without changing a single one
  * of the validated head numbers: the wanted head displacement is still stated in millimetres, and
@@ -469,6 +486,31 @@ const STANCE_RESPONSE_PROBE_BLEND = 0.50;
 const STANCE_ANKLE_PROBE_COUNT = 8;
 
 /**
+ * 🎯 How much of the contrapposto's head overshoot is taken back by an extra lumbar counter-bend.
+ *
+ * The authored contrapposto moves the pelvis 38 mm and the head 57 mm per unit blend — the head
+ * travels 1.5x as far. That is a defensible shape for a POSED stance and the wrong one for a
+ * BALANCE-DRIVEN shift, and a visual judge caught it on a 7-minute clip before anyone looked at
+ * the code: the head listed 127 mm peak-to-peak against a pelvis moving 50 mm, which reads as
+ * someone going slightly at the knees rather than as someone shifting their weight.
+ *
+ * A real lateral weight shift is the other way round. The pelvis stacks over the loaded foot and
+ * travels furthest; the lumbar spine counter-bends; the righting reflex parks the head near where
+ * it already was, over the base of support. That is the long S every life class teaches, and the
+ * pose file describes it correctly in prose — "the lumbar spine bends back the other way to bring
+ * the head over the support" — while its measured angles do not deliver it.
+ *
+ * 🚩 TUNING, with no published coefficient, in the same class as HEAD_STABILISATION. It is
+ * expressed as a FRACTION of the measured overshoot rather than as an angle, so it stays right if
+ * the poses are re-authored: 0 leaves the pose exactly as drawn, 1.0 lands the head where the
+ * centre of mass lands, and above 1.0 the head travels less than the centre of mass, which is what
+ * a strong righting reflex does. The pose is left alone deliberately — a deliberate contrapposto
+ * and an involuntary balance correction are different behaviours that happen to share a shape, and
+ * only the second one wants its head parked.
+ */
+const STANCE_TRUNK_RIGHTING = 1.35;
+
+/**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
  * left-right axis, +Y is up, +Z is forward — the nose sits at z = +0.144 and the toes at
  * z = +0.139, against a heel at z = +0.022.
@@ -687,6 +729,9 @@ export class Sway extends Layer {
             left: createStanceResponse(),
             right: createStanceResponse()
         };
+
+        // Sized at bind from the pose's own measured overshoot. See STANCE_TRUNK_RIGHTING.
+        this.trunkRightingRadians = 0;
 
         this.ankleRotation = new Quaternion();
         this.scratchRigRotation = new Quaternion();
@@ -1007,9 +1052,12 @@ export class Sway extends Layer {
      */
     solveStanceBlend() {
 
-        if ( this.stanceBlendEnabled === false || this.weightShiftsEnabled === false ) return 0;
+        if ( this.stanceBlendEnabled === false ) return 0;
 
-        const wantedMedioLateral = this.postureDisplacement.x;
+        // 🎯 THE WHOLE lateral signal, balance band included — not just the weight shifts. See
+        // the file header: medio-lateral balance is a hip mechanism, not an ankle one, so every
+        // millimetre of it belongs here rather than in the pendulum.
+        const wantedMedioLateral = this.displacement.x;
         const response = wantedMedioLateral >= 0 ? this.stanceResponse.left : this.stanceResponse.right;
 
         if ( response.usable === false ) return 0;
@@ -1070,7 +1118,12 @@ export class Sway extends Layer {
 
         this.spineJoints().forEach( ( joint, index ) => {
 
+            // Two different shares, and conflating them would silently shrink the righting by the
+            // ankle share: `share` is this joint's slice of the PENDULUM lean, which sums to the
+            // spine's 15% participation; `spineFraction` is its slice of any angle spread over the
+            // spine alone, and sums to 1.
             joint.share = spineParticipation * this.spineShare[ index ];
+            joint.spineFraction = this.spineShare[ index ];
 
         } );
 
@@ -1288,6 +1341,14 @@ export class Sway extends Layer {
         const restCentreOfMass = this.bodyMass.centreOfMass( new Vector3() );
         const restHead = isPresent( head ) ? worldPositionOf( head, new Vector3() ) : null;
 
+        // Pass one measures the pose as authored, so pass two can be told how far the head
+        // overshoots the centre of mass. Sizing the righting term needs a number that the righting
+        // term itself would otherwise change, so the circle is broken by measuring twice — and
+        // everything downstream reads pass two, which is the pose the runtime actually plays.
+        for ( const pass of [ 'as-authored', 'with-righting' ] ) {
+
+        if ( pass === 'with-righting' ) this.resolveTrunkRighting( head, restHead );
+
         for ( const side of [ 'left', 'right' ] ) {
 
             const response = this.stanceResponse[ side ];
@@ -1340,7 +1401,42 @@ export class Sway extends Layer {
 
         }
 
+        }
+
         root.updateMatrixWorld( true );
+
+    }
+
+    /**
+     * Sizes the lumbar counter-bend that parks the head, from the overshoot just measured.
+     *
+     * The overshoot is how much further the pose carries the head than it carries the centre of
+     * mass, per unit blend, averaged over the two sides because the poses are deliberately
+     * asymmetric. The angle that cancels a chosen fraction of it is that distance over the lever
+     * from the lumbar spine to the head — first order, which at four degrees is exact to four
+     * decimal places.
+     */
+    resolveTrunkRighting( head, restHead ) {
+
+        this.trunkRightingRadians = 0;
+
+        const spine = this.spineJoints()[ 0 ];
+
+        if ( restHead === null || spine === undefined || isPresent( spine.bone ) === false ) return;
+
+        const lever = restHead.y - spine.restPosition.y;
+
+        if ( Math.abs( lever ) < 0.05 ) return;
+
+        const overshoot = [ 'left', 'right' ].reduce( ( total, side ) => {
+
+            const response = this.stanceResponse[ side ];
+
+            return total + Math.abs( response.head.x ) - Math.abs( response.centreOfMass.x );
+
+        }, 0 ) / 2;
+
+        this.trunkRightingRadians = STANCE_TRUNK_RIGHTING * overshoot / lever;
 
     }
 
@@ -1590,6 +1686,10 @@ export class Sway extends Layer {
 
         const pose = this.stancePoses[ side ];
 
+        // The extra lumbar counter-bend that parks the head. Signed so it always opposes the
+        // direction the pose is carrying the head; see STANCE_TRUNK_RIGHTING.
+        const righting = ( side === 'left' ? 1 : -1 ) * this.trunkRightingRadians * blend;
+
         for ( const joint of this.joints ) {
 
             const parent = joint.parent === null ? null : this.jointsByHumanoid.get( joint.parent );
@@ -1598,6 +1698,13 @@ export class Sway extends Layer {
             const to = pose.rotationFor( joint.humanoid ) ?? IDENTITY;
 
             this.scratchRigRotation.copy( from ).slerp( to, blend );
+
+            if ( joint.pendulum === 'spine' && righting !== 0 ) {
+
+                this.scratchAxisRotation.setFromAxisAngle( RIG_FORWARD_AXIS, righting * joint.spineFraction );
+                this.scratchRigRotation.multiply( this.scratchAxisRotation );
+
+            }
 
             if ( parent === null ) {
 
@@ -1848,7 +1955,8 @@ function createJointState( entry, boneName ) {
         pendulum: entry.pendulum,
         boneName,
         bone: null,
-        share: 0,
+        share: 0,          // this joint's slice of the pendulum lean
+        spineFraction: 0,  // this joint's slice of an angle spread over the spine alone
 
         restFrame: new Quaternion(),
         restPosition: new Vector3(),
