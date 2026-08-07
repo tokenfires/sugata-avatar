@@ -1,6 +1,6 @@
 # tools/critic — the objective critic harness
 
-Three tools that between them stop "does this look right?" from being purely a matter of taste.
+Four tools that between them stop "does this look right?" from being purely a matter of taste.
 
 - **`measure.mjs`** — reads a PNG and a region spec, returns the six objective gates from
   [`docs/research/stellar-blade-look-spec.md`](../../docs/research/stellar-blade-look-spec.md) §6
@@ -8,13 +8,17 @@ Three tools that between them stop "does this look right?" from being purely a m
 - **`blind_ab.mjs`** — shuffles our render against a reference, strips provenance, and hides the
   mapping until after a verdict is recorded, so a critic agent genuinely cannot tell which is ours.
 - **`capture.mjs`** — drives a live page one fixed simulation step at a time and assembles the
-  frames into an mp4, a gif and a contact sheet. The other two judge a still; this one is the
+  frames into an mp4, a gif and a contact sheet. The first two judge a still; this one is the
   only way to judge *motion*, which is where aliveness actually lives.
+- **`heatmap.mjs`** — reduces a captured clip to one image: the per-pixel temporal standard
+  deviation of the picture, so you can see **where** it moved and **by how much**. Answers the
+  question a video cannot, because a reviewer will forgive a motionless thigh for ninety seconds
+  and a σ map draws it as a black slab.
 
-`measure.mjs`, `blind_ab.mjs` and the codec have no dependencies, and the PNG codec is ours
-(`png.mjs`, ~250 lines over `node:zlib`) — a smaller cost than a supply chain sitting underneath
-the numbers that steer the project's art direction. `capture.mjs` is the exception and needs
-Playwright and ffmpeg; it drives a browser, so there was never a version of it that did not.
+`measure.mjs`, `blind_ab.mjs`, `heatmap.mjs` and the codec have no dependencies, and the PNG codec
+is ours (`png.mjs`, ~250 lines over `node:zlib`) — a smaller cost than a supply chain sitting
+underneath the numbers that steer the project's art direction. `capture.mjs` is the exception and
+needs Playwright and ffmpeg; it drives a browser, so there was never a version of it that did not.
 Node 18+.
 
 ---
@@ -23,9 +27,13 @@ Node 18+.
 
 ```bash
 node tools/critic/selftest.mjs                       # prove the tool measures what it claims
+node tools/critic/heatmap.selftest.mjs               # ditto, for the heat map
 node tools/critic/measure.mjs shot.png regions.json  # JSON on stdout
 node tools/critic/measure.mjs shot.png regions.json --human
-node tools/critic/capture.mjs --seconds 20 --out captures/idle   # 20 s of video to judge motion
+
+# 20 s of video to judge motion; --keep-frames because heatmap.mjs needs the PNG sequence
+node tools/critic/capture.mjs --seconds 20 --keep-frames --out captures/idle
+node tools/critic/heatmap.mjs captures/idle         # where did it move, and by how much
 ```
 
 Exit codes are distinct so a calling script can tell a bad render from a broken tool:
@@ -389,6 +397,7 @@ and guessing is what this harness exists to remove.
   knobs; the mp4 is the artefact to prefer when a player is available.
 - **`--out` is not in `.gitignore`.** Add `/captures/` before committing, or write outside the repo.
 - **Frames are deleted after encoding** unless `--keep-frames`. 600 PNGs at 1080×1350 is ~600 MB.
+  `heatmap.mjs` reads that sequence, so a capture you intend to heat-map must keep it.
 - Exit codes match the rest of the harness: `0` fine, `1` every frame identical (the stepping hook
   did nothing, so the capture is not evidence), `2` tool error.
 - **`?capture` reaches into two private three.js internals** (`renderer._animation` and
@@ -398,7 +407,128 @@ and guessing is what this harness exists to remove.
 
 ---
 
-## Trusting the numbers: `selftest.mjs`
+## heatmap.mjs — per-pixel temporal-σ heat map
+
+`capture.mjs` gives you motion you can watch. **Watching is not the same as seeing.**
+[`docs/LEARNINGS.md`](../../docs/LEARNINGS.md) §1.10 is the reason this tool exists: a **dead lower
+body showed as a hard horizontal cut at the hip line, unmissable, in one image** — after no still
+had revealed it and no amount of playing the clip had either. A reviewer watching ninety seconds
+will forgive a motionless thigh for all ninety of them. That diagnostic had only ever been done by
+hand; this is the tool.
+
+```bash
+node tools/critic/heatmap.mjs captures/idle-body
+node tools/critic/heatmap.mjs captures/idle-body --normalise 8.42 --bands 12 --dead 0.5
+node tools/critic/heatmap.mjs captures/idle-body --json captures/idle-body/heatmap.json
+node tools/critic/heatmap.mjs --help
+```
+
+Point it at a capture directory — it descends into `frames/` automatically — or at any directory of
+numbered PNGs. **`capture.mjs` only keeps its frame sequence with `--keep-frames`**, so pass that
+at capture time or there will be nothing here to read.
+
+It writes `<capture-dir>/heatmap.png` (override with `--out`) and prints the scale and a per-band
+table to stdout.
+
+### What it measures
+
+**The temporal population standard deviation of encoded Rec.709 luma at each pixel, in 8-bit code
+values** — so σ = 1.0 means one code value, and the number is directly comparable to G4's
+"1.5–2.1 / 255" above. Encoded rather than linear for the reason in the luma-domain section: this
+is a perceptual *"did it visibly change?"* question, not a ratio of light. Population σ, not
+sample σ, because the clip **is** the population.
+
+Accumulated with **Welford's online update**, one streaming pass, one frame in memory at a time —
+so a 2700-frame capture is tractable. That is not fastidiousness: the signal is a variance of order
+one code value riding on a mean of order a hundred, and a naive Σx² accumulator ends by subtracting
+two nearly-equal large numbers, cancelling away exactly the low bits that are the answer. The
+self-test measures the gap — Welford's error on the same data is 3.1e-15 against a float32 Σx²
+accumulator's 3.3e-2.
+
+### The band table
+
+The frame is split into horizontal bands — horizontal because the failure this exists to catch is
+anatomical and stacked vertically: head, chest, hips, thighs, feet. A hard cut at the hip line
+falls on a band boundary and shows up as a step in one column of numbers.
+
+| column | meaning |
+|---|---|
+| `moving` | fraction of the band that changed at all (σ > 0 exactly) |
+| `mean σ` / `p99 σ` / `max σ` | over *moving* pixels only |
+| `dead%` | fraction below `--dead` (0.5), over **all** pixels in the band |
+
+Static pixels are left out of the means and kept in the dead fraction, deliberately: a bit-identical
+pixel is either the flat backdrop of a `?bare` capture or a limb that never moved, and luminance
+alone cannot tell those apart. Averaging them in would drag every band toward zero and make bands
+incomparable; dropping them from `dead%` would hide the frozen limb, which is the entire point.
+
+The `--dead` default of **0.5 code values is derived, not tuned**: a pixel that moves by a single
+code value on *k* of *N* frames has σ ≈ √(k/N), so σ < 0.5 means it failed to move one quantisation
+step in more than a quarter of the clip. It also sits well under G4's flat-skin σ of 1.5–2.1, so
+ordinary render grain never reads as motion.
+
+A band at least `--dead-band-fraction` (0.9) dead gets a loud `*** DEAD BANDS:` callout. Not 1.0,
+because a dead limb still has a lit edge and a contact shadow that flicker, and demanding literal
+totality would let a statue with a twitching hem pass unremarked.
+
+### ⚠️ `--normalise auto` is for looking, a pinned scale is for reading
+
+Auto puts **p99.9 of the moving pixels** at the top of the ramp (the true maximum is printed
+alongside). Two consequences worth knowing before you trust a map:
+
+- **Silhouette edges dominate.** An antialiased body edge against a dark backdrop swings nearly the
+  full code range as it sweeps, so p99.9 is set by the outline, not by the body. To read *interior*
+  motion — a chest rising, a thigh that should be shifting — **pin the scale** with
+  `--normalise <σ>` at something the interior actually reaches. The report prints a
+  `pin with --normalise <σ>` line for exactly this.
+- **Two clips are only comparable on the same scale.** Under auto, a clip with half the motion of
+  another renders identically, because each is normalised to its own maximum. Pin both.
+
+The ramp is black → dark red → orange → amber → white, and it is 🚩 **deliberately not a rainbow**:
+a rainbow is not monotonic in luminance, so a mid value looks hotter than a high one and the
+reader's eye reverses the ordering the data has. These stops rise strictly in encoded luma
+(0.000 → 0.176 → 0.383 → 0.725 → 1.000), and `heatmap.selftest.mjs` asserts that rather than
+trusting it to stay true if someone edits them.
+
+### Exit codes
+
+| code | meaning |
+|---|---|
+| 0 | heat map written, the picture moved |
+| 1 | the clip is not evidence — σ is 0 everywhere, or `--fail-on-dead-bands` and a band is dead |
+| 2 | tool error — no frames, mismatched frame sizes, unreadable PNG |
+
+`--fail-on-dead-bands` is what turns a diagnostic into a gate. Without it a dead band is reported
+loudly and still exits 0, because a heat map is usually something you read rather than something
+that blocks you.
+
+A frozen clip gets its own banner ahead of the dead-band list, because **a σ map of a frozen clip
+is a perfectly plausible-looking black rectangle** and a reader who meets "DEAD BANDS: 1..10" first
+will start reasoning about anatomy instead of about the capture. That is §1.3 again — the same
+failure that once let `capture.mjs` score perfectly byte-reproducible while rendering a still pose.
+
+### Options
+
+| flag | default | what it does |
+|---|---|---|
+| `--out <path>` | `<capture-dir>/heatmap.png` | where the heat map goes |
+| `--json <path>` | — | the same numbers, machine-readable, for a gate script |
+| `--normalise auto\|<σ>` | `auto` | σ at the top of the ramp |
+| `--bands <n>` | 10 | horizontal bands |
+| `--dead <σ>` | 0.5 | dead-pixel threshold, code values |
+| `--dead-band-fraction <f>` | 0.9 | dead% at which a band gets the callout |
+| `--stride <n>` | 1 | use every *n*th frame — for a fast first look at a long capture |
+| `--fail-on-dead-bands` | off | exit 1 if any band is dead |
+
+The JSON deliberately omits the σ field itself: it is tens of megabytes of Float64 and the renderer
+is its only consumer. Everything a gate script needs is in the summary.
+
+Same frames in, byte-identical PNG out — every value is a pure function of the σ field and the
+scale, and `png.mjs` encodes with a fixed filter and deflate level.
+
+---
+
+## Trusting the numbers: `selftest.mjs` and `heatmap.selftest.mjs`
 
 A measurement tool nobody tested is worse than no tool — it produces confident numbers that
 quietly steer the whole project wrong. `node tools/critic/selftest.mjs` runs **79 checks** against
@@ -425,6 +555,15 @@ own raw pixel dump. All eight agree to the code value. Interlaced PNGs are refus
 message rather than half-decoded into plausible nonsense. That section **skips** rather than fails
 when ImageMagick is absent; the tool itself must stay runnable on a bare machine.
 
+`node tools/critic/heatmap.selftest.mjs` runs **57 checks** on the same principle, over synthetic
+clips built with a known σ. A six-band noise ladder injected at σ 1.5 / 2.5 / 4 / 6 / 9 / 13 comes
+back at 1.52 / 2.51 / 4.00 / 5.98 / 8.98 / 12.96; Welford is checked against a two-pass float64 σ to
+machine precision, and against a naive float32 Σx² accumulator that is **thirteen orders of
+magnitude** worse on the same data (3.3e-2 against 3.1e-15). §1.1 is honoured throughout — the
+ramp's monotonicity check is run against
+a **rainbow ramp as known-bad input** and correctly reports 102 reversals, and a clip with a
+synthetic dead lower half is confirmed to put the cut on exactly the row it was injected at.
+
 ---
 
 ## Files
@@ -434,9 +573,11 @@ when ImageMagick is absent; the tool itself must stay runnable on a bare machine
 | `measure.mjs` | the six gates, plus the CLI |
 | `blind_ab.mjs` | blind A/B pairing and reveal |
 | `capture.mjs` | fixed-step video capture — mp4, gif, contact sheet, manifest |
+| `heatmap.mjs` | per-pixel temporal-σ heat map of a captured clip, plus the band table |
 | `color.mjs` | sRGB transfer functions, both lumas, HSV — read the header comment |
 | `png.mjs` | dependency-free PNG decode/encode and chunk surgery |
-| `selftest.mjs` | 79 checks; run it after touching anything here |
+| `selftest.mjs` | 79 checks over the gates and the codec; run it after touching anything here |
+| `heatmap.selftest.mjs` | 57 checks over `heatmap.mjs`; run it after touching that |
 | `regions.example.json` | documented region spec template |
 
 ## Known limits
@@ -444,6 +585,10 @@ when ImageMagick is absent; the tool itself must stay runnable on a bare machine
 - **Non-interlaced PNG only.** Adam7 is refused, not supported.
 - **G4 is not comparable across resolutions.** Capture at 3840 wide for a gate run.
 - **G6 works at the 8-bit quantisation floor.** The 0.004 band edge is code value 1.
+- **`heatmap.mjs` needs the frame sequence**, which `capture.mjs` only keeps with `--keep-frames`;
+  and its `--normalise auto` is set by silhouette edges, so **pin the scale to read interior
+  motion**. It also cannot distinguish a static backdrop from a frozen limb — luminance alone does
+  not carry that difference, which is why the band table reports `moving` and `dead%` separately.
 - **The gates are necessary, not sufficient.** Six numbers cannot tell you the face reads as the
   right character. That is what `blind_ab.mjs` and a human are for. Passing all six is the price
   of entry to the subjective comparison, not a substitute for it.

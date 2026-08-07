@@ -81,6 +81,69 @@ the emote critic loop run in parallel with renderer work.
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started |
 
+### 2026-08-07, later — the POSTURE_HEAD_TRANSFER disagreement is resolved
+
+**It was not a tuning disagreement. It was a frame-of-reference error, and the coefficient was out
+by 8.3×.** The section below is kept as the record of how it was diagnosed; what follows supersedes
+its conclusion.
+
+Static equilibrium decides the coefficient rather than leaving it to be tuned: a body that is not
+accelerating has no net moment, so the ground reaction force acts along a line through the centre
+of mass, and its point of application on the floor — the centre of pressure — sits under it.
+Duarte's "shifting" is, in his own words, *"a fast displacement of the average position of COP from
+one region to another"*: a change in the **sustained mean**, so the identity applies. A 22 mm
+centre-of-pressure shift IS a 22 mm centre-of-mass shift.
+
+So the model is re-rooted the same way the pendulum was: every amplitude is now stated in
+centre-of-pressure metres, the new `figure/BodyMass.js` says where the centre of mass is for a
+given pose, both the lean and the contrapposto blend are **solved** so the centre of mass lands
+where the literature says, and **head excursion is an output**. Measured on figure_g050:
+
+| quantity | measured | was |
+|---|---|---|
+| head travel per unit centre-of-mass travel | **1.653** | assumed 0.20 |
+| contrapposto response per unit blend | COM 38.0 / −40.7 mm, head 57.1 / −63.3 mm | head only |
+| lateral postural events per minute | **1.575** | 0.28 |
+| balance band, centre-of-pressure RMS | ML 2.91–3.21, AP 4.53–5.14 mm | applied as head excursion |
+| composite centre-of-pressure RMS, 900 s | ML median 12.30, AP median 8.27 mm | — |
+
+Four further defects were found in the same pass, each independently confirmed:
+
+- **The amplitude draw.** `|N(22, 38)|` has a mean of 35 mm, not Duarte's 22 — the layer drew
+  shifts 60% too large. A reported SD exceeding its mean on a positive quantity means the
+  distribution is *skewed*; it is now lognormal matched on both moments.
+- **Fidgets are weight shifts too.** Duarte separates fidget from shift on whether the body
+  *returns*, not on whether it loaded a leg. Only shifts relayed, at 0.30/min, which is why 7 of
+  12 ninety-second windows contained no postural event. Counting both gives 1.575/min — punch-list
+  2.9's 1–1.5 and Cassell's independently measured 1.4–1.6.
+- **A shift that springs back in 30 s is a fidget.** `SHIFT_RETURN_SECONDS = 30` against a 199 s
+  inter-shift interval contradicted the paper being implemented, and cost most of the composite
+  amplitude. It now holds for one interval.
+- **Fidget direction was never drawn** — every fidget in the layer's history pushed the body toward
+  the character's left.
+
+**The elderly-cohort correction, applied in the same pass.** Quijoux's two sets are aged 71.3 and
+78.7, and sway rises from about age 60 — so those are elderly reference values driving a young
+avatar. That is the *same class* of error as the frame one and it points the other way; fixing one
+and not the other would have made the result uninterpretable. No young-adult COP RMS in millimetres
+was found to substitute, so the correction taken is to author at the force-plate column itself
+(3.0 / 4.9 mm) rather than at the gate-band midpoint — the low end, which is the side the age bias
+says to err on.
+
+**Measured on screen**, same seed, same framing, same 90 s window, before and after — lateral
+silhouette-centroid travel in pixels (SD / peak-to-peak):
+
+| band | before | after |
+|---|---|---|
+| head | 4.92 / 26.6 | **5.52 / 31.5** |
+| shoulder | 1.99 / 13.0 | **2.85 / 18.1** |
+| hip | 1.45 / 9.5 | **2.03 / 13.0** |
+| knee | 0.75 / 5.1 | **1.08 / 7.1** |
+| ankle | 0.27 / 2.2 | **0.40 / 2.8** |
+
+⚠️ **That window measures the balance band almost alone** — at 0.30 shifts/min, 90 s cannot contain
+a weight shift (LEARNINGS §1.4, again). A 300–600 s capture is the outstanding piece of evidence.
+
 ### Where Phase 2 actually stands
 
 The gate is **"reads as alive when silent and unshaded."** It has failed twice, both times with a
@@ -116,9 +179,12 @@ The remaining failure is precise and is *not* a bug — it is a modelling disagr
 
 ### 🔜 Next actions, in order
 
-1. **Resolve the `POSTURE_HEAD_TRANSFER` disagreement** (Phase 2 full-body gate). Either raise it
-   and re-validate the head gates, or accept that weight shifts are articulation-only and raise
-   the *event rate* instead. This is the last thing between here and the Phase 2 gate.
+1. **Close out the Phase 2 full-body gate.** The modelling disagreement is resolved (see above);
+   what remains is evidence, not design:
+   - a **300–600 s** full-body capture — long enough to contain weight shifts, which 90 s cannot;
+   - the portrait gate re-checked, because head excursion grew 1.65× and the portrait gate was
+     passing before this change;
+   - a blind visual judge on the long clip.
 2. **Phase 3 rendering** — the eyes and skin will read as dead until the eye and skin shaders
    exist. That is expected and was correctly excluded from the motion gate. `3.3` (eyes) has the
    best effort-to-impact ratio in the whole project: ~40 lines of TSL.

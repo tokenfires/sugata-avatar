@@ -234,6 +234,10 @@ length**, cites **13–17 brpm** as average. Breath-space sweep spans 0.5 s/brea
 
 ### Frequency content — Quijoux et al. (2021), *Physiological Reports* 9:e15067
 
+**Protocol, force-plate column:** N = 76, **60 s** per trial, three recordings averaged,
+instruction *"stand as still as possible"*, arms at sides, eyes fixating a target, feet at 20°
+with heels 10 cm apart. Wii-board column: N = 133, 25 s.
+
 | Measure | WBB ML | WBB AP | Plate ML | Plate AP |
 |---|---|---|---|---|
 | **Frequency mode (Hz)** | 0.32 | **0.25** | 0.33 | 0.27 |
@@ -254,6 +258,23 @@ length**, cites **13–17 brpm** as average. Breath-space sweep spans 0.5 s/brea
 ⚠️ Note the ~2× discrepancy between the 25 s Wii-board and 60 s force-plate protocols — recording
 duration and hardware matter. Prefer the force-plate column.
 
+⚠️ **Frame-of-reference trap, in the same spirit: both Quijoux cohorts are ELDERLY.** Force-plate
+set mean age **71.3 ± 6.5** (N = 76); Wii-board set mean age **78.7 ± 6.7** (N = 133). Read that
+together with the last line of this subsection — *sway increases systematically from around age
+60* — and the two connect: these numbers **already sit on the far side of that increase**. This
+section has been read as young-adult reference values and it is not. The 3–5 mm ML / 5–7 mm AP
+figures are an elderly-cohort measurement, not a healthy-young-adult baseline.
+
+🚩 **No young-adult COP RMS in millimetres was found** to substitute. Nothing here is an estimate
+of one, and none should be invented — see "Could not obtain" for why Prieto's normative tables,
+which would have answered this, are unreachable.
+
+**Design consequence: do not tune a young-adult figure's sway amplitude *up* toward these
+numbers.** Treat them as a soft ceiling. *Inference, not cited:* the **frequency** content is
+probably far less age-sensitive than the amplitude — the two cohorts are seven years apart in mean
+age and agree on the dominant mode to within 0.02 Hz while disagreeing ~2× on RMS distance. So the
+0.25–0.33 Hz band is the part of this table to lean on hardest.
+
 Eyes closed (Abrahámová & Hlavačka): SD_AP ≈ **7.3 mm men, 6.0 mm women**; AP velocity 17.6 vs
 14.2 mm/s. Vision removal has a large main effect (F = 392.86). Sway increases systematically
 **from around age 60**.
@@ -268,6 +289,65 @@ Eyes closed (Abrahámová & Hlavačka): SD_AP ≈ **7.3 mm men, 6.0 mm women**; 
 
 Derived rates: **fidget ≈ 1.0/min AP, 1.2/min ML; shift ≈ 0.19/min AP, 0.30/min ML; drift ≈ 0.19
 and 0.11/min.**
+
+**The paper's own definitions, verbatim — these are load-bearing and were misread once already:**
+- **fidgeting** — *"a fast and large displacement and returning of COP to approximately the same position"*
+- **shifting** — *"a fast displacement of the average position of COP from one region to another"*
+
+🎯 **A shift is a change in the SUSTAINED MEAN centre-of-pressure position**, not a transient
+excursion. That is exactly what licenses treating a shift as a change in **centre-of-mass**
+position, and it is what separates a shift from a fidget — a fidget returns to where it started,
+so it moves no mean at all.
+
+⚠️ **The ML shift amplitude is right-skewed, not gaussian: its standard deviation (38 mm) exceeds
+its mean (22 mm).** A positive quantity whose SD is nearly twice its mean is not describing a
+symmetric spread, it is describing a skew — most shifts small, a few large. Drawing
+`abs( gaussian( 22, 38 ) )` returns a mean of **35 mm, 60% too large**, because a third of the
+gaussian's mass sits below zero and folding it piles up on the wrong side. The implementation
+therefore draws from a **lognormal matched on both reported moments** (`Sway.js drawAmplitude`).
+*Inference from the same reasoning, not from the paper:* AP (17 ± 15 mm) is skewed too, though
+only mildly, since its SD merely equals its mean.
+
+🚩 **Limits of this entry.** Duarte & Zatsiorsky's full text is paywalled; both quoted definitions
+are taken from the **PubMed abstract**. In particular the pattern-detection window over which
+"average position" is computed could not be checked, so the boundary between a long fidget and a
+short shift is not pinned down here.
+
+### Long unconstrained standing — Bates, McGregor & Alexander (2021)
+
+"Prolonged standing behaviour in people with joint hypermobility syndrome", *BMC Musculoskelet
+Disord* 22:1005 (PMC8638551). **Normal-flexibility control group, N = 22**, **15 minutes** standing
+on two Kistler plates, **explicitly told they could change position as they wished**, watching a
+documentary. Outcome measures are defined as the **standard deviation of COP**, with ±1.5 s around
+each detected fidget excised.
+
+| Measure (NF controls) | Median (IQR) |
+|---|---|
+| **AP sway** (SD of COP) | **16.32 mm** (10.34–28.75) |
+| **ML sway** (SD of COP) | **16.87 mm** (9.58–66.5) |
+| Sway area (95% ellipse) | 48.31 cm² |
+| Fidgets > 50% bodyweight | 0.26 /min |
+| Fidgets 25–50% BW | 0.7 /min |
+| Fidgets 10–25% BW | 2.39 /min |
+
+🎯 **The anisotropy INVERTS.** Over a long unconstrained window ML (16.87) ≥ AP (16.32) — a ratio
+of **~1.03** — where quiet stance is emphatically **AP 1.5–2× ML**. That is Duarte's larger and
+more frequent *lateral* weight-shift process asserting itself once the window is long enough to
+contain it.
+
+**Design consequence: the AP > ML anisotropy is a claim about the balance band alone, and must
+never be gated on a composite trace.** A composite ratio that wanders below 1.0 over a long window
+is the model being right, not wrong. Gate the anisotropy on the balance component in isolation.
+
+⚠️ **The near-parity is a median, and the ML spread is enormous** — IQR 9.58–66.5 mm against AP's
+10.34–28.75, so the ML upper quartile is more than twice the AP one. Read off the IQRs this is not
+a tight result: some subjects barely moved laterally at all and some ranged over centimetres.
+Treat ~1.0 as *"the anisotropy is gone"*, not as a target ratio to hit.
+
+✅ **Independent corroboration of Duarte's fidget rate:** 2.39 small fidgets/min here against
+Duarte's ~1.2/min ML — the same order, with a looser 10%-bodyweight threshold catching more events,
+from a different lab two decades later. Together with Cassell's 1.4–1.6/min below, three unrelated
+methods land on roughly one postural event per minute.
 
 ### Posture shifts at discourse boundaries — Cassell et al. (2001)
 

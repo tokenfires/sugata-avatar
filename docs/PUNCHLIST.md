@@ -59,7 +59,12 @@ measured there.**
       RMS 3–5 mm ML / 5–7 mm AP; AP 1.5–2× ML.
 - [x] **2.7** Idle micro-motion on co-prime cycles (Perlin 1 Hz shoulder / 2 Hz elbow / 4 Hz wrist).
 - [x] **2.8** Pupil dilation from arousal, exaggerated past physiology.
-- [~] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
+- [x] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
+      Resolved by re-rooting the shift on centre of mass rather than head displacement — a
+      sustained COP offset IS a COM offset, so the transfer coefficient is decided by static
+      equilibrium rather than tuned. Measured 1.575 lateral events/min (fidget + shift, both are
+      weight transfers) and a head response of 1.653× the centre of mass, against the 0.20 that
+      was assumed. See `figure/BodyMass.js` and the `Sway.js` header.
 - [~] **2.10** Gate: **CRITIC** blind emote comparison vs Live2D/VTuber reference clips, silent idle.
 
 ## Phase 3 — Rendering

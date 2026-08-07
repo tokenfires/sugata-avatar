@@ -83,12 +83,36 @@ have found either:
 ### 1.7 Check the frame of reference before tuning
 
 Sway's anisotropy inverted as the window grew. It was not a tuning error: Duarte's weight-shift
-amplitudes are **centre-of-pressure**, and the layer realised them 1:1 as **head excursion**. A
-weight shift is a pelvis event with a trunk counter-lean; the head follows a fraction (~0.20).
-Because Duarte's ML shifts are the *larger* ones while the sway literature's ML is the *smaller*
-one, the error compounded until the ratio flipped.
+amplitudes are **centre-of-pressure**, and the layer realised them 1:1 as **head excursion**.
 
 **A published number carries a frame of reference. Ask what it was measured on.**
+
+Three sharper corollaries, each of which cost a round:
+
+**1.7a — Identifying the right inequality and then applying it backwards.** The fix for the above
+was a coefficient, `POSTURE_HEAD_TRANSFER = 0.20`, justified by "a body swaying as a near-rigid
+inverted pendulum moves its head *at least as far as* its centre of pressure." That inequality is
+true. The file then set head excursion **equal** to the published COP figure — which under-moves
+the head by exactly the lever ratio the sentence had just identified. Measured on this rig: 1.65.
+Writing the reasoning down was not enough to stop the code contradicting it.
+
+**1.7b — Two literatures measured under different protocols must not share one gate.** Quijoux's
+3.0/4.9 mm is a **60 s quiet-standing trial** with the instruction "stand as still as possible."
+Duarte's weight shifts have a 199 s interval — longer than that whole trial, so they are absent
+from Quijoux's data *by construction*. Gating a trace containing both processes against the
+quiet-standing RMS is a category error, and it was silently "fixed" by scaling the shift process
+down 8× until it fitted. The right shape is one gate per regime, on separable signals. Bates et
+al. 2021 supplies the composite number (15 min unconstrained: 16.87 mm ML, 16.32 mm AP) — and
+independently confirms the anisotropy **inverts** in that regime, which is the very symptom the
+8× fudge had been suppressing.
+
+**1.7c — A distribution is a frame of reference too.** Duarte reports the ML shift as 22 ± 38 mm.
+Read as a gaussian and folded to keep it positive, that draws a **mean of 35 mm** — 60% larger
+than the paper says. When a reported SD exceeds its mean on a strictly positive quantity, the
+distribution is *skewed*, not merely wide; a lognormal matched on both moments is the honest
+reading. The layer's own selftest had been printing `relayed |magnitude| mean 1.59` against a
+distribution that should average 1.0, and nobody read it as a defect because it was in a `....`
+note rather than a gate.
 
 ### 1.8 Conceptual model errors look like missing features
 
@@ -111,6 +135,51 @@ it."* That honesty is what let the next round fix the **instrument** rather than
 
 Accumulate per-pixel variance across a clip and render it. The dead lower body showed as a hard
 horizontal cut at the hip line, unmissable, in one image. Generate one for every motion gate.
+
+It is now a tool — `tools/critic/heatmap.mjs`, with band statistics that turn "the lower body is
+dead" into a number. Two cautions from its own selftest: use a **monotonic** ramp (a rainbow
+reverses apparent ordering — the selftest asserts this by failing a rainbow), and pin
+`--normalise` when comparing two clips, because `auto` picks p99.9 of moving pixels and silhouette
+edges against a dark backdrop swing nearly the full code range.
+
+### 1.10a Temporal σ says WHETHER a region moves. It does not say HOW FAR.
+
+The heat map saturates. Its σ is dominated by silhouette-edge pixels that already swing nearly the
+full 8-bit code range, so more motion cannot raise them. Measured on two captures of the same seed
+and framing, before and after a change that moved the lower body ~40% further: the head band's mean
+σ rose **1.5%** while the head's actual on-screen travel rose **12%**, and the lower bands rose
+34–38% in σ against 40–48% in travel. Use σ to find dead regions; use `tools/critic/travel.mjs` —
+the horizontal centroid of the silhouette, in pixels — to answer "would a viewer see this."
+
+That distinction is what PROGRESS's failing diagnosis was actually about: "1.6 pixels at full-body
+framing" is a travel measurement, and no amount of variance analysis produces it.
+
+### 1.11 A single scalar check may be structurally unable to catch the error you built it for
+
+`BodyMass`'s whole-body centre of mass was checked against Winter's 0.553 of stature. Resolving
+the trunk's distal landmark to a chest bone instead of the shoulder joint moves the centre of mass
+**60 mm** — and moves it from 0.015 *above* Winter's figure to 0.021 *below* it. Any tolerance wide
+enough to admit the correct answer admits the wrong one. No amount of tightening fixes that; the
+two answers straddle the target.
+
+What fixes it is a check of a **different kind**: segment *length*. Winter puts the shoulder at
+0.818 of stature and the hip at 0.530, so the trunk spans 0.288 — and a chest bone halves it. The
+right response to "my gate cannot catch this" is a structurally different assertion, not a tuned
+threshold. Record in the gate, as a gate, that the first check does **not** catch it; otherwise
+someone later assumes it does.
+
+### 1.12 Two practical traps that cost real time
+
+**A scratch vector passed as an output target aliases itself.** `selfCheckFractionOfStature` called
+`centreOfMass( this.scratch )`, and `centreOfMass` used `this.scratch` as its own per-segment temp.
+The result was garbage that *looked* like a plausible small number (0.0239). It was caught only
+because the gate ran on known-bad input in the same pass and both directions returned the same
+wrong value. Give measurement methods their own result vector.
+
+**A concurrent agent's file edit will kill a long browser capture.** Vite's watcher fired HMR while
+`capture.mjs` was 211 frames into a 3600-frame run; Playwright reported "Execution context was
+destroyed, most likely because of a navigation." Long captures and fan-out edits do not mix — run
+captures either before the fan-out or after it lands.
 
 ---
 
@@ -182,15 +251,29 @@ node tools/critic/blind_ab.mjs <a.png> <b.png>
 node tools/critic/blind_ab.mjs reveal
 
 # Deterministic video capture — THE observation instrument. Byte-reproducible.
-node tools/critic/capture.mjs --url http://localhost:5173/alive.html?bare \
-     --seconds 90 --fps 30 --width 1080 --height 1350 --seed 1 --out captures/idle
+# --keep-frames is NOT optional if you intend to heat-map the result; without it the
+# PNG sequence is deleted and only the mp4/gif survive.
+node tools/critic/capture.mjs --url "http://localhost:5173/alive.html?bare&frame=body" \
+     --seconds 90 --fps 30 --width 700 --height 1200 --seed 1 --keep-frames --out captures/idle
+
+# Per-pixel temporal-σ heat map — see §1.10. PIN --normalise to compare two clips.
+node tools/critic/heatmap.mjs <capture-dir> --stride 5 --normalise 12 --bands 12
+node tools/critic/heatmap.selftest.mjs           # 57 checks
+
+# The dev server the captures drive. Start it through the harness (.claude/launch.json,
+# name `sugata-testbed`), NOT with bash — and note that ANY file edit while a capture is
+# running fires HMR and kills it. See §1.12.
 
 # Motion-layer selftests
+node packages/core/src/figure/bodymass.selftest.mjs
 node packages/core/src/figure/figure.selftest.mjs
 node packages/core/src/motion/MotionStack.selftest.mjs
 node packages/core/src/motion/ocular.selftest.mjs
 node packages/core/src/motion/Gaze.selftest.mjs
 node packages/core/src/motion/idle-motion.selftest.mjs
+node packages/core/src/motion/sway.selftest.mjs
+node packages/core/src/motion/BodyIdle.selftest.mjs
+node packages/core/src/motion/FacialIdle.selftest.mjs
 node packages/core/src/figure/restpose.selftest.mjs
 
 # Blender (5.2.0 LTS)

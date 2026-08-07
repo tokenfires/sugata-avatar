@@ -51,21 +51,48 @@
  * AP is consistently 1.5–2× ML in amplitude, in velocity AND in high-frequency content. Sway is
  * not isotropic and making it isotropic is visible: an isotropic wobble reads as floating.
  *
- * 🎯 THE ANISOTROPY IS THE CLAIM, SO IT IS WHAT THE DEFAULTS ARE CENTRED ON. The punch-list gate
- * widens the RMS to 3–5 mm ML and 5–7 mm AP, spanning the Wii-board and force-plate protocols.
- * Sitting on both midpoints — 4.0 and 6.0 mm — would mean a design ratio of exactly 1.50, the
- * BOTTOM EDGE of the measured 1.5–2.0 anisotropy, and the sampling scatter of an RMS estimate
- * then puts half of all runs below 1.5, i.e. outside the finding. So AP takes its gate midpoint
- * and ML is derived from the anisotropy MIDPOINT of 1.75 instead: 6.04 mm AP, 3.45 mm ML.
+ * 🎯 THE ANISOTROPY IS A CLAIM ABOUT THE BALANCE BAND, AND ONLY ABOUT THE BALANCE BAND. Quiet
+ * stance is anisotropic; UNCONSTRAINED standing is not. Bates et al. 2021, fifteen minutes with
+ * subjects told they could move as they wished, measures centre-of-pressure SD at 16.87 mm ML
+ * against 16.32 mm AP — a ratio of 1.03, inverted from quiet stance, because Duarte's larger and
+ * more frequent lateral weight shifts have had time to assert themselves. So the anisotropy gate
+ * belongs on `balanceDisplacement` and NOT on the composite, and a composite trace whose ratio
+ * wanders below 1.0 over a long window is the model being right rather than wrong.
  *
- * 🚩 One honest approximation. The literature figure is centre-of-pressure RMS at the floor;
- * this layer applies the same amplitude as the horizontal excursion of the HEAD, because that is
- * the part of the sway a viewer actually sees and because a body swaying as a near-rigid
- * inverted pendulum moves its head at least as far as its centre of pressure. The gate measures
- * head excursion, so the two agree by construction — but they are not the same quantity, and a
- * future critic comparing against a force plate needs to know that.
  *
- * ⚠️ That approximation does NOT carry over to the weight shifts below. See POSTURE_HEAD_TRANSFER.
+ * 🎯 EVERY AMPLITUDE IN THIS FILE IS A CENTRE-OF-PRESSURE AMPLITUDE, AND THE HEAD IS AN OUTPUT
+ *
+ * This is the second re-rooting this layer has had, and it is the same lesson as the first. The
+ * version before it authored these amplitudes as HEAD excursion, on the reasoning that a body
+ * swaying as a near-rigid inverted pendulum moves its head at least as far as its centre of
+ * pressure. That inequality is true, and the file then used it backwards: setting head excursion
+ * EQUAL to the published centre-of-pressure figure under-moves the head by exactly the lever
+ * ratio it had just identified. Measured on this rig at bind, the effective levers are 1.298 m of
+ * head travel and 0.785 m of centre-of-mass travel per radian of lean — a ratio of 1.653.
+ *
+ * The weight shifts had the same error, larger and in the other direction. They carried a
+ * hand-set coefficient, POSTURE_HEAD_TRANSFER = 0.20, for "the fraction of a weight shift that
+ * reaches the head" — a number with no support in the record, and one that turns out to be
+ * decidable rather than tunable. Static equilibrium fixes it: a body that is not accelerating has
+ * no net moment, so the ground reaction force must act along a line through the centre of mass,
+ * and its point of application on the floor — which is what a force plate calls the centre of
+ * pressure — sits directly beneath it. A SUSTAINED 22 mm change of centre-of-pressure region is
+ * therefore a 22 mm change of centre of mass, full stop. Measured on this rig's own contrapposto,
+ * that lands the head 33 mm across. The coefficient should have been about 1.5. It was 0.20, and
+ * the shifts were consequently invisible: 1.6 pixels at full-body framing, which is what failed
+ * the Phase 2 gate.
+ *
+ * So the model is rooted where the measurements were taken. Every amplitude below is stated in
+ * centre-of-pressure metres, `figure/BodyMass.js` says where the centre of mass is for a given
+ * pose, and both the pendulum lean and the contrapposto blend are SOLVED so the centre of mass
+ * lands where the literature says it should. Where the head ends up is then a fact about the
+ * body's geometry rather than a number this file gets to choose — which is exactly what made the
+ * lower body start moving when the pendulum was re-rooted, and for the same reason.
+ *
+ * ⚠️ The identity holds for SUSTAINED posture. During a transient the centre of pressure leads
+ * the centre of mass — that is how balance is corrected at all — and the two separate by a few
+ * millimetres over a sway cycle. The separation is zero-mean, so it does not bias anything here,
+ * but a critic comparing a single frame against a force plate needs to know it is there.
  *
  *
  * HOW THE SPECTRUM IS BUILT
@@ -89,9 +116,18 @@
  * A weight shift is not a lean. It is the pelvis travelling over the stance foot with the lumbar
  * spine counter-bending above it — contrapposto — and the figure package already has that pose
  * authored and reasoned about in `figure/poses/weight-left.json` and `weight-right.json`. The
- * medio-lateral half of the shift process therefore drives a blend toward those poses rather
- * than more pendulum lean; see STANCE_BLEND_LIMIT for how it is scaled so the head still lands
- * POSTURE_HEAD_TRANSFER says it should.
+ * medio-lateral half of the shift process therefore drives a blend toward those poses rather than
+ * more pendulum lean, and the blend is the one that puts the centre of mass where the amplitude
+ * above says it went. Measured on this rig at bind: a unit blend moves the centre of mass 38.7 mm
+ * to the left or 41.3 mm to the right, so Duarte's mean 22 mm asks for about 0.57 of the pose.
+ *
+ * 🚩 FIDGETS ARE WEIGHT SHIFTS TOO, and treating them as anything else was half of why the idle
+ * looked static. Duarte's three patterns differ in whether the body RETURNS to the region it came
+ * from, not in whether it loaded a leg: a fidget is a shift that comes back. The version this
+ * replaced relayed only the `shifting` process, at 0.30/min — so 7 of 12 ninety-second windows
+ * contained no postural event at all. Counting the fidget process as well gives 1.5 medio-lateral
+ * events per minute, which is both what punch-list item 2.9 asks for and where Cassell's
+ * independently-measured conversational rate of 1.4–1.6/min lands.
  *
  *
  * 🎯 WHY markDiscourseBoundary() EXISTS, AND WHY IT IS NOT A TIMER
@@ -119,6 +155,7 @@ import { CoherentNoise1D } from './Signals.js';
 import { restRotationRelativeToRig, toBoneDeltaFrame } from './Breath.js';
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
 import { RestPose } from '../figure/RestPose.js';
+import { BodyMass } from '../figure/BodyMass.js';
 
 // --- measured constants ------------------------------------------------------------------
 
@@ -152,14 +189,36 @@ const BALANCE_BANDS_ANTERO_POSTERIOR = [
 const BALANCE_BAND_UNIT_RMS = 0.314;
 
 /**
- * AP sits at the midpoint of its gate range (5–7 mm); ML is AP divided by 1.75, the midpoint of
- * the measured 1.5–2.0 anisotropy, rather than at its own gate midpoint. See the file header for
- * why centring the RATIO matters more than centring both amplitudes. Metres.
+ * 🎯 Quijoux's force-plate column, VERBATIM, in CENTRE-OF-PRESSURE metres — which is the quantity
+ * that paper measured and the quantity this layer now solves the centre of mass to.
+ *
+ * The version this replaced sat at 3.45 / 6.04 mm and called them HEAD excursion. Two things
+ * changed and they pull in opposite directions, which is why both are done in one pass:
+ *
+ *   THE FRAME. Naming them centre of pressure is what makes the head an output. It comes out
+ *   1.65x larger, because that is where the head sits relative to the centre of mass on this rig.
+ *
+ *   ⚠️ THE COHORT. Quijoux's two sets are aged 71.3 ± 6.5 (plate) and 78.7 ± 6.7 (board), and
+ *   `research/body-motion-numbers.md` records that sway rises systematically from about age 60.
+ *   These are elderly reference values being used for a young avatar, which is the SAME class of
+ *   error as the frame one and points the other way. No young-adult centre-of-pressure RMS in
+ *   millimetres was found to substitute — the closest is an ellipse-area study whose convention
+ *   may not match — so the correction taken here is to author at the force-plate column itself
+ *   rather than at the midpoint of the gate band, which is the low end of the 3–5 / 5–7 mm range
+ *   and the side the age bias says to err on. The research doc already says to prefer that column.
+ *
+ * The design anisotropy that falls out is 4.9 / 3.0 = 1.633, comfortably inside the measured
+ * 1.5–2.0 rather than on its edge, so nothing has to be derived from the ratio any more.
  */
-const BALANCE_RMS_ANTERO_POSTERIOR_METRES = 0.00604;
+const BALANCE_RMS_MEDIO_LATERAL_METRES = 0.0030;
+const BALANCE_RMS_ANTERO_POSTERIOR_METRES = 0.0049;
+
+/**
+ * The measured 1.5–2.0 anisotropy, at its midpoint. No longer used to derive an amplitude — see
+ * above — but the drift amplitudes still carry it so a slow wander cannot quietly undo the
+ * anisotropy the balance band is gated on.
+ */
 const BALANCE_ANISOTROPY_ANTERO_POSTERIOR_OVER_MEDIO_LATERAL = 1.75;
-const BALANCE_RMS_MEDIO_LATERAL_METRES =
-    BALANCE_RMS_ANTERO_POSTERIOR_METRES / BALANCE_ANISOTROPY_ANTERO_POSTERIOR_OVER_MEDIO_LATERAL;
 
 /** Duarte & Zatsiorsky 1999, derived rates, events per second. */
 const FIDGET_RATE_MEDIO_LATERAL = 1.2 / 60;
@@ -167,7 +226,12 @@ const FIDGET_RATE_ANTERO_POSTERIOR = 1.0 / 60;
 const SHIFT_RATE_MEDIO_LATERAL = 0.30 / 60;
 const SHIFT_RATE_ANTERO_POSTERIOR = 0.19 / 60;
 
-/** Duarte & Zatsiorsky 1999, shift amplitudes, metres. Mean and SD, both reported. */
+/**
+ * Duarte & Zatsiorsky 1999, shift amplitudes, metres. Mean and SD, both reported. Note that the
+ * standard deviation exceeds the mean on the medio-lateral axis; see `drawAmplitude` for why that
+ * makes the distribution skewed rather than merely wide, and what goes wrong if it is read as a
+ * gaussian.
+ */
 const SHIFT_AMPLITUDE_MEDIO_LATERAL_METRES = 0.022;
 const SHIFT_AMPLITUDE_MEDIO_LATERAL_SD_METRES = 0.038;
 const SHIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES = 0.017;
@@ -197,60 +261,66 @@ const FIDGET_DURATION_SECONDS = 1.4;
 const SHIFT_SETTLE_SECONDS = 0.8;
 
 /**
- * 🚩 TUNING, and the single most consequential number in the weight-shift half of this file.
+ * 🎯 How long a shifted stance holds before leaking back toward centre — ONE INTER-SHIFT
+ * INTERVAL, per axis, which is Duarte's own number rather than a tuning constant.
  *
- * Everything in the block above is a CENTRE-OF-PRESSURE amplitude at the floor. For the balance
- * band, treating COP excursion as head excursion is a fair approximation (see the file header):
- * quiet sway really is a near-rigid inverted pendulum, so the head travels at least as far as
- * the COP. A WEIGHT SHIFT is not that motion at all. Loading one leg drives the pelvis sideways
- * over the loaded foot and the trunk counter-leans above it; the COP moves 22 mm and the head,
- * which is what the counter-lean exists to keep still, moves a fraction of that — and not
- * necessarily in the same direction.
+ * The version this replaced held for 30 s against a medio-lateral shift interval of 199 s, and
+ * that contradicted the paper it was implementing. Duarte's taxonomy separates the two fast
+ * patterns precisely on this: FIDGETING is "a fast and large displacement and returning of COP to
+ * approximately the same position"; SHIFTING is "a fast displacement of the average position of
+ * COP from one region to another". A shift that springs back inside half a minute is a fidget.
  *
- * No coefficient for that transfer is in the record, so this is the assumption, and it is the
- * one to attack first if the idle stance looks wrong. It is chosen so that the weight shifts are
- * a PERTURBATION on the balance band rather than a replacement for it. The version this replaced
- * had no transfer at all, and measured over 8 seeds × 60/300/900 s windows the shift process on
- * its own then contributed 6–14 mm RMS of head excursion against a 4–6 mm balance band: it
- * swamped the measured sway, inverted its anisotropy (Duarte's ML shifts are the larger ones,
- * and the literature's ML sway is the smaller one) and put the default layer outside its own
- * gate on 18 of those 24 combinations. Measured, not assumed — `sway.selftest.mjs` prints the
- * matrix on every run.
- *
- * Duarte's amplitudes stay literal above and `axis.displacement` stays in COP millimetres, so a
- * critic can still compare the event process against the paper. The transfer is applied once,
- * where posture becomes head displacement.
+ * The cost of getting it wrong was not visible as a wrong pose — it was visible as a missing
+ * amplitude. For jumps arriving at rate λ and decaying over τ the stationary variance is
+ * λ·τ·E[A²]/2, so a stance that leaks away in 30 s of every 199 spends most of its life near
+ * centre and the whole shift process contributed about 7 mm of centre-of-pressure SD over a
+ * quarter of an hour. Bates et al. 2021, measuring exactly that quantity over exactly that
+ * window, report 16.87 mm. Holding for an interval instead puts the process where the measurement
+ * says it should be, and the leak still guarantees the random walk cannot wander off.
  */
-const POSTURE_HEAD_TRANSFER = 0.20;
+const SHIFT_RETURN_INTERVALS = 1.0;
 
 /**
- * TUNING. How fast a shifted stance leaks back toward centre. Without this the random walk
- * eventually walks the avatar out of frame; with it, a stance holds for something like half a
- * minute — long enough to read as a decision rather than a spring.
+ * Hard limit on the accumulated posture offset, as a fraction of the distance from the midline to
+ * the edge of the base of support. Duarte's ML shift amplitude has an SD of 38 mm on a mean of
+ * 22 mm, so without a clamp a single draw from the tail puts the stance somewhere no standing
+ * human goes, and the random walk eventually wanders the avatar out of frame.
  *
- * It is also the term that sets how much shift variance accumulates, which is why it is one of
- * the three constants the sway retune touched: for jumps arriving at rate λ and decaying over τ,
- * the stationary variance is λ·τ·E[A²]/2, so the accumulated stance grows as the square root of
- * this number. The previous 45 s gave a stance 22% wider than 30 s does, for no gain that a
- * viewer could name.
+ * 🎯 It is a FRACTION rather than a number of millimetres because the base of support is a fact
+ * about the rig and can be read off it: medio-laterally, the distance from the midline to the
+ * stance foot; antero-posteriorly, the distance from the ankle to the ball. A figure with a wider
+ * stance can shift further, which is true of people, and a scaled or reproportioned character
+ * gets the right clamp without anyone remembering to retune it.
+ *
+ * A quarter is anchored on Duarte rather than picked: a FULL weight transfer puts the centre of
+ * pressure over the stance foot, so his mean 22 mm shift on this rig's 181 mm half-stance is 12%
+ * of one. A quarter therefore admits about two mean shifts accumulating in the same direction and
+ * never approaches a genuine one-legged stance. On figure_g050 it works out at 45 mm ML and 29 mm
+ * AP, against the 30/22 mm this replaced.
  */
-const SHIFT_RETURN_SECONDS = 30;
+const POSTURE_OFFSET_FRACTION_OF_BASE = 0.25;
 
 /**
- * TUNING. Hard limit on the accumulated posture offset, in COP metres. Well inside a real limit
- * of stability; the point is that an idle avatar should not wander, not that it cannot. Duarte's
- * ML shift amplitude has an SD of 38 mm on a mean of 22 mm, so without this clamp a single draw
- * from the tail can put the stance somewhere no standing human goes.
- */
-const POSTURE_OFFSET_LIMIT_MEDIO_LATERAL_METRES = 0.030;
-const POSTURE_OFFSET_LIMIT_ANTERO_POSTERIOR_METRES = 0.022;
-
-/**
- * TUNING. Drift amplitude, in COP metres. Duarte reports drift intervals but no amplitude.
+ * 🎯 Drift amplitude, in COP metres — the one free parameter in the weight-shift half of this
+ * file, and the one thing a composite gate can be calibrated against.
  *
- * The first version had ML larger than AP, which is backwards: the one thing the sway literature
- * is emphatic about is that AP exceeds ML on every measure it reports. These carry the same 1.75
- * anisotropy the balance band does, so the slow drift cannot quietly undo it over a long run.
+ * Duarte reports drift INTERVALS (529 s ML, 319 s AP) and no amplitude at all, so this cannot be
+ * read off his table. What it can be calibrated against is the total: Bates et al. 2021 stood 22
+ * normal-flexibility controls for fifteen minutes, told them they could move as they wished, and
+ * measured centre-of-pressure SD at 16.87 mm ML and 16.32 mm AP (IQR 9.58–66.5 and 10.34–28.75).
+ * That is a composite of everything this layer models, measured under this layer's own conditions,
+ * and the drift term is what closes the gap between the processes that ARE pinned and that total.
+ *
+ * 🚩 Calibrating THIS against Bates was tried first and was the wrong lever: raising it 2.2x
+ * moved the antero-posterior composite from 6.2 mm to 7.6 mm against a target of 16.3, because a
+ * process whose lattice turns over every 319 s has barely three degrees of freedom in a fifteen
+ * minute window. Chasing the target here would have meant a drift amplitude wider than the base
+ * of support. The gap was in SHIFT_RETURN_INTERVALS instead, and this went back to where it was.
+ * The number below is therefore still unpinned — it is the honest state of the record.
+ *
+ * They carry the same 1.75 anisotropy the balance band's own literature reports, so a slow wander
+ * cannot quietly undo the anisotropy the balance band is gated on. Note this is the only place
+ * that ratio is still used — see BALANCE_RMS_MEDIO_LATERAL_METRES.
  */
 const DRIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES = 0.007;
 const DRIFT_AMPLITUDE_MEDIO_LATERAL_METRES =
@@ -303,30 +373,39 @@ const SPINE_SHARE = [ 0.5, 0.3, 0.2 ];
 const PIVOT_HEIGHT_FRACTION_OF_ANKLE = 0.5;
 
 /**
- * 🎯 TUNING. The upper bound on how far toward full contrapposto a weight shift may blend.
+ * The upper bound on how far toward full contrapposto a weight shift may blend.
  *
- * The blend is normally solved for, not clamped: the medio-lateral half of the shift process
- * asks for a head displacement (POSTURE_HEAD_TRANSFER × the COP offset) and the blend that
- * delivers exactly that displacement is what gets used, measured against the pose on the actual
- * rig at bind. At the ML posture cap of 30 mm that solve lands near 0.10 — a tenth of the way to
- * a full life-class contrapposto, which moves the pelvis about 4 mm and the head about 6 mm.
+ * The blend is solved, not tuned: the medio-lateral half of the shift process states where the
+ * centre of pressure went, the pose's own centre-of-mass response per unit blend is measured on
+ * the actual rig at bind, and the blend is the ratio. At the ML posture clamp that solve lands
+ * near 1.15 on this rig — the clamp, not this limit, is what normally bounds it.
  *
- * This limit only bites if a future rig makes the pose's head response much smaller than the one
- * it was authored on, and it exists so that a bad measurement produces a stiff avatar rather
- * than one that throws itself into a full contrapposto every three minutes.
+ * 🚩 So this is a safety rail rather than a design parameter, and it is set to 1.0 because a
+ * blend past 1.0 extrapolates BEYOND the authored pose: the poses were drawn by eye at blend 1
+ * and nothing about them stays sensible past it. Before this file was re-rooted the limit was
+ * 0.20 and it was load-bearing, which was a sign the solve was being asked for the wrong thing.
  */
-const STANCE_BLEND_LIMIT = 0.20;
+const STANCE_BLEND_LIMIT = 1.0;
+
+/**
+ * The lean the pendulum response is measured at during bind, in radians.
+ *
+ * A rigid rotation is exactly linear in the angle to first order and the runtime never exceeds
+ * about 0.01 rad — a centimetre of centre-of-mass travel on a metre of lever — so the probe sits
+ * at the top of the range the layer actually uses. Probing much larger would start to measure the
+ * cosine term; probing much smaller would start to measure float32 bone positions.
+ */
+const PENDULUM_PROBE_RADIANS = 0.01;
 
 /**
  * The blend the pose response is measured at during bind.
  *
- * A pose response is not quite linear in the blend, so the probe is placed where the runtime
- * peaks rather than at a round number: measured over twelve seeds the shift process reaches
- * 0.104 and no further. Probing there rather than at 0.25 halved the worst-case planting
- * residue — the selftest's foot-lift figure went from 0.057 mm to 0.026 mm on that change alone,
- * and what is left is second-order pendulum terms rather than anything the pose did.
+ * The response is very nearly linear in the blend — measured across 0.05 to 1.0 the per-unit
+ * centre-of-mass response varies by 0.3% — so this is not a sensitive choice. It sits at half
+ * blend rather than at a small probe because the runtime now reaches most of the range, and a
+ * probe in the middle of the range keeps the worst-case linearisation error symmetric.
  */
-const STANCE_RESPONSE_PROBE_BLEND = 0.10;
+const STANCE_RESPONSE_PROBE_BLEND = 0.50;
 
 /**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
@@ -383,7 +462,6 @@ const MEDIO_LATERAL_SETTINGS = {
     shiftAmplitudeSd: SHIFT_AMPLITUDE_MEDIO_LATERAL_SD_METRES,
     driftFrequencyHz: DRIFT_FREQUENCY_MEDIO_LATERAL_HZ,
     driftAmplitude: DRIFT_AMPLITUDE_MEDIO_LATERAL_METRES,
-    limit: POSTURE_OFFSET_LIMIT_MEDIO_LATERAL_METRES,
 
     // A weight shift is a LATERAL load transfer, so only this axis relays one. An antero-
     // posterior shift is a lean into or away from the conversation, and the arm swing a
@@ -400,9 +478,15 @@ const ANTERO_POSTERIOR_SETTINGS = {
     shiftAmplitudeSd: SHIFT_AMPLITUDE_ANTERO_POSTERIOR_SD_METRES,
     driftFrequencyHz: DRIFT_FREQUENCY_ANTERO_POSTERIOR_HZ,
     driftAmplitude: DRIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES,
-    limit: POSTURE_OFFSET_LIMIT_ANTERO_POSTERIOR_METRES,
     relaysWeightShift: false
 };
+
+/**
+ * The clamp used when the rig has no feet to read a base of support from. Metres, and the same
+ * two numbers the hand-set version of this file used, so a footless rig behaves as it used to.
+ */
+const FALLBACK_POSTURE_LIMIT_MEDIO_LATERAL_METRES = 0.030;
+const FALLBACK_POSTURE_LIMIT_ANTERO_POSTERIOR_METRES = 0.022;
 
 export class Sway extends Layer {
 
@@ -420,13 +504,14 @@ export class Sway extends Layer {
      *   on its own. The gates are stated against the layer AS CONSTRUCTED, not against this.
      * @param {boolean} [options.stanceBlendEnabled=true] - Turn off to keep the weight shifts as
      *   pure pendulum lean, without the contrapposto pose blend.
-     * @param {number} [options.postureHeadTransfer=0.20] - Fraction of a centre-of-pressure
-     *   weight shift that reaches the head. See POSTURE_HEAD_TRANSFER before changing it.
-     * @param {Function} [options.onWeightShift] - Called as `({ magnitude, axis })` at the
-     *   instant a shift begins. `magnitude` is the drawn amplitude over the measured mean,
-     *   signed by direction, which is exactly what BodyIdle.onWeightShift() wants.
-     * @param {string} [options.referenceBone='head'] - The marker the stated balance amplitude
-     *   is realised at.
+     * @param {number} [options.driftScale=1] - Scales the slow drift. Set to 0 to isolate the
+     *   processes that are pinned to published amplitudes; see DRIFT_AMPLITUDE_*.
+     * @param {Function} [options.onWeightShift] - Called as `({ magnitude, axis, pattern })` at
+     *   the instant a lateral postural event begins. `magnitude` is the drawn amplitude over
+     *   Duarte's measured mean, signed by direction, which is what BodyIdle.onWeightShift()
+     *   wants; `pattern` is 'shift' or 'fidget'.
+     * @param {string} [options.referenceBone='head'] - The marker whose excursion is REPORTED.
+     *   It is an output, not an input: nothing is solved to land it anywhere.
      * @param {Object} [options.bones] - Overrides for the figure bone behind any humanoid name
      *   in SWAY_CHAIN, e.g. `{ hips: 'root_hips' }`. Everything not named keeps the standard
      *   mapping.
@@ -451,20 +536,29 @@ export class Sway extends Layer {
         this.balanceRmsMedioLateral = options.balanceRmsMedioLateralMetres ?? BALANCE_RMS_MEDIO_LATERAL_METRES;
         this.balanceRmsAnteroPosterior = options.balanceRmsAnteroPosteriorMetres ?? BALANCE_RMS_ANTERO_POSTERIOR_METRES;
 
+        // Overridable so a gate can isolate one process at a time. The drift amplitude is the
+        // only unpinned number in the weight-shift half of this file; see its constant.
+        this.driftScale = options.driftScale ?? 1;
+
         this.weightShiftsEnabled = options.weightShiftsEnabled ?? true;
         this.stanceBlendEnabled = options.stanceBlendEnabled ?? true;
-        this.postureHeadTransfer = options.postureHeadTransfer ?? POSTURE_HEAD_TRANSFER;
+
+        // Where the centre of mass is, for whatever pose the rig is in. This is what makes every
+        // published centre-of-pressure amplitude in this file mean something on this figure.
+        this.bodyMass = new BodyMass( { bones: options.bones } );
 
         /** Called at the instant a lateral shift begins. See the constructor options. */
         this.onWeightShift = options.onWeightShift ?? null;
 
         this.elapsedSeconds = 0;
 
-        // The three signals, all in metres, all horizontal displacement of the reference marker.
-        // Kept apart because the gates are stated against `balance` alone and because a critic
-        // reading "the avatar drifted 30 mm" needs to know which process did it.
-        this.balanceDisplacement = new Vector3();  // continuous, the measured spectrum
-        this.postureDisplacement = new Vector3();  // fidget + shift + drift, after the transfer
+        // The three signals, all in CENTRE-OF-PRESSURE metres — where this body's centre of mass
+        // is being asked to stand, which is the quantity every paper behind this file measured.
+        // Kept apart because the two processes are gated against different papers measured under
+        // different protocols, and because a critic reading "the avatar drifted 30 mm" needs to
+        // know which process did it.
+        this.balanceDisplacement = new Vector3();  // continuous, Quijoux's quiet-standing spectrum
+        this.postureDisplacement = new Vector3();  // fidget + shift + drift, Duarte's processes
         this.displacement = new Vector3();         // the sum, which is what gets posed
 
         // What is left for the pendulum once the contrapposto blend has delivered its share.
@@ -477,8 +571,8 @@ export class Sway extends Layer {
         // one, because AP and ML are independent processes with different measured rates. Each
         // carries its own settings so the shared advance/shift code never has to ask which axis
         // it is running.
-        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS );
-        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS );
+        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS, FALLBACK_POSTURE_LIMIT_MEDIO_LATERAL_METRES );
+        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS, FALLBACK_POSTURE_LIMIT_ANTERO_POSTERIOR_METRES );
 
         this.eventCounts = { fidget: 0, shift: 0, discourseShift: 0 };
 
@@ -511,8 +605,20 @@ export class Sway extends Layer {
         this.pivot = new Vector3();               // where the pendulum turns, in rig space
         this.pelvisArm = new Vector3();           // pelvis rest position relative to the pivot
         this.pelvisParentFrameInverse = new Quaternion();
-        this.effectiveLeverMetres = 1;            // reference displacement per radian of lean
         this.pendulumPlanted = false;             // false on a rig with no feet to pivot about
+
+        // 🎯 The lever the lean is SOLVED against: centre-of-mass displacement per radian, per
+        // axis. It is the centre of mass and not the head because the amplitudes this layer is
+        // given are centre-of-pressure amplitudes, and a sustained centre of pressure IS the
+        // centre of mass. Measured on the rig at bind rather than derived — see
+        // measurePendulumResponse.
+        this.centreOfMassLever = { anteroPosterior: 1, medioLateral: 1 };
+
+        // Reported, never solved against: how far the head goes per radian, and per unit of
+        // centre-of-mass travel. The second is the number the old POSTURE_HEAD_TRANSFER was
+        // guessing at, and having it measured is the whole point of the re-rooting.
+        this.headLever = { anteroPosterior: 1, medioLateral: 1 };
+        this.headPerCentreOfMass = 1;
 
         // Per-unit-blend response of the contrapposto, measured on this rig at bind.
         this.stanceResponse = {
@@ -528,6 +634,7 @@ export class Sway extends Layer {
         this.scratchOffset = new Vector3();
         this.scratchStance = new Vector3();
         this.scratchPelvisTravel = new Vector3();
+        this.scratchCentreOfMass = new Vector3();
 
     }
 
@@ -568,7 +675,9 @@ export class Sway extends Layer {
     onBind( context ) {
 
         this.buildNoise();
+        this.bodyMass.bind( context.target );
         this.resolveRigGeometry( context.target );
+        this.measurePendulumResponse( context.target );
         this.measureStanceResponse( context.target );
 
     }
@@ -590,14 +699,12 @@ export class Sway extends Layer {
 
         }
 
-        // The per-axis state is in centre-of-pressure metres, because that is the unit Duarte
-        // measured in; this is the one place it becomes head displacement.
-        const transfer = this.weightShiftsEnabled ? this.postureHeadTransfer : 0;
-
+        // Both processes are already in centre-of-pressure metres, so there is nothing to
+        // convert. That is the point of the re-rooting: there used to be a coefficient here.
         this.postureDisplacement.set(
-            transfer * this.medioLateral.displacement,
+            this.weightShiftsEnabled ? this.medioLateral.displacement : 0,
             0,
-            transfer * this.anteroPosterior.displacement
+            this.weightShiftsEnabled ? this.anteroPosterior.displacement : 0
         );
 
         this.displacement.copy( this.balanceDisplacement ).add( this.postureDisplacement );
@@ -605,7 +712,7 @@ export class Sway extends Layer {
         // The contrapposto delivers the lateral part of the weight shift as an articulated
         // pose; whatever it does not deliver — all of the balance band, and the fore-and-aft
         // posture — is left for the pendulum. Splitting it here rather than adding the two is
-        // what keeps the head landing exactly where `displacement` says it should.
+        // what keeps the centre of mass landing exactly where `displacement` says it should.
         this.stanceBlend = this.solveStanceBlend();
         this.resolvePendulumDisplacement();
 
@@ -626,8 +733,11 @@ export class Sway extends Layer {
 
         this.stanceBlend = 0;
 
-        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS );
-        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS );
+        // The clamp is a fact about the rig's base of support, read at bind, so it survives a
+        // reset — rebuilding it from the fallback here would silently narrow the stance on
+        // every reset and only show up as a slow drift in the gate matrix.
+        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS, this.medioLateral.limit );
+        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS, this.anteroPosterior.limit );
 
         this.eventCounts = { fidget: 0, shift: 0, discourseShift: 0 };
 
@@ -679,9 +789,7 @@ export class Sway extends Layer {
         // New events. Poisson, because these are memoryless arrivals at a measured mean rate.
         if ( this.random.poissonEventOccurs( settings.fidgetRate, deltaSeconds ) ) {
 
-            axis.fidgetRemaining = FIDGET_DURATION_SECONDS;
-            axis.fidgetAmplitude = this.drawAmplitude( settings ) * FIDGET_AMPLITUDE_FRACTION_OF_SHIFT;
-            this.eventCounts.fidget ++;
+            this.beginFidget( axis );
 
         }
 
@@ -704,21 +812,21 @@ export class Sway extends Layer {
         }
 
         // A shift settles toward its new region, then that region leaks slowly back to centre.
-        axis.shiftTarget *= Math.exp( -deltaSeconds / SHIFT_RETURN_SECONDS );
+        axis.shiftTarget *= Math.exp( -deltaSeconds * settings.shiftRate / SHIFT_RETURN_INTERVALS );
         axis.shiftCurrent += ( axis.shiftTarget - axis.shiftCurrent )
             * ( 1 - Math.exp( -deltaSeconds / SHIFT_SETTLE_SECONDS ) );
 
-        const drift = settings.driftAmplitude
+        const drift = this.driftScale * settings.driftAmplitude
             * this.driftNoise[ settings.key ].at( this.elapsedSeconds * settings.driftFrequencyHz );
 
         const total = axis.shiftCurrent + fidget + drift;
 
-        axis.displacement = Math.min( Math.max( total, -settings.limit ), settings.limit );
+        axis.displacement = Math.min( Math.max( total, -axis.limit ), axis.limit );
 
     }
 
     /**
-     * Starts a shift on one axis, and tells anyone listening the instant it happens.
+     * Starts a shift on one axis: the body loads a leg and STAYS there.
      *
      * The callback carries the DRAWN amplitude rather than a bare "a shift occurred", because a
      * consumer scaling an arm swing to the shift needs to know whether this was a 5 mm settle or
@@ -727,34 +835,103 @@ export class Sway extends Layer {
      */
     beginShift( axis ) {
 
-        const settings = axis.settings;
-        const direction = this.random.chance( 0.5 ) ? 1 : -1;
-        const amplitude = this.drawAmplitude( settings ) * direction;
+        const amplitude = this.drawAmplitude( axis.settings ) * this.drawDirection();
 
         // A shift moves to a NEW region, so it is drawn as a signed displacement away from where
         // the stance already is rather than as an absolute position.
         axis.shiftTarget += amplitude;
-        axis.shiftTarget = Math.min( Math.max( axis.shiftTarget, -settings.limit ), settings.limit );
+        axis.shiftTarget = Math.min( Math.max( axis.shiftTarget, -axis.limit ), axis.limit );
 
         this.eventCounts.shift ++;
 
-        if ( this.onWeightShift !== null && settings.relaysWeightShift ) {
-
-            this.onWeightShift( {
-                magnitude: amplitude / settings.shiftAmplitude,
-                axis: settings.key
-            } );
-
-        }
+        this.relayWeightShift( axis, amplitude, 'shift' );
 
     }
 
-    /** Duarte reports mean ± SD, so amplitudes are gaussian, floored at a tenth of the mean. */
+    /**
+     * Starts a fidget on one axis: the body loads a leg and COMES BACK.
+     *
+     * 🎯 That is the ONLY thing distinguishing it from a shift in Duarte's coding, and treating
+     * it as a lesser kind of event was half of why the idle read as static. It relays like a
+     * shift because it is one — a consumer swinging an arm to a weight transfer wants to know
+     * about the transfer that returns as much as the one that does not — and at 1.2/min medio-
+     * laterally it is the process that actually populates a ninety-second window.
+     *
+     * 🚩 The direction is drawn. The version this replaced took the absolute amplitude and never
+     * signed it, so every fidget in the layer's history pushed the body toward the character's
+     * left, and the medio-lateral posture signal carried a standing bias no gate was looking for.
+     */
+    beginFidget( axis ) {
+
+        const amplitude = this.drawAmplitude( axis.settings )
+            * FIDGET_AMPLITUDE_FRACTION_OF_SHIFT * this.drawDirection();
+
+        axis.fidgetRemaining = FIDGET_DURATION_SECONDS;
+        axis.fidgetAmplitude = amplitude;
+
+        this.eventCounts.fidget ++;
+
+        this.relayWeightShift( axis, amplitude, 'fidget' );
+
+    }
+
+    /**
+     * Tells anyone listening that the body just transferred load, at the instant it happens.
+     *
+     * Only the lateral axis relays. A fore-and-aft shift is a lean into or away from the
+     * conversation, and the arm swing a consumer plays on the relay is a lateral motion that
+     * would read as a flinch if a fore-and-aft shift triggered it.
+     */
+    relayWeightShift( axis, amplitude, pattern ) {
+
+        if ( this.onWeightShift === null || axis.settings.relaysWeightShift === false ) return;
+
+        this.onWeightShift( {
+            magnitude: amplitude / axis.settings.shiftAmplitude,
+            axis: axis.settings.key,
+            pattern
+        } );
+
+    }
+
+    /** A weight transfer goes either way, and the coin is fair. */
+    drawDirection() {
+
+        return this.random.chance( 0.5 ) ? 1 : -1;
+
+    }
+
+    /**
+     * 🎯 Draws one shift amplitude, LOGNORMAL on Duarte's reported mean and standard deviation.
+     *
+     * The obvious reading of "22 ± 38 mm" is a gaussian, and that is what this used to be —
+     * `Math.abs( gaussian( 22, 38 ) )`, floored. It is wrong, and measurably so: a gaussian whose
+     * standard deviation is nearly twice its mean spends a third of its mass below zero, so
+     * folding it produces a mean of 35 mm rather than 22. The layer was drawing shifts 60% larger
+     * than the paper reports, and the relay's own selftest saw it — mean relayed magnitude 1.59
+     * against a distribution that should average 1.0 — without anyone reading it as a defect.
+     *
+     * An amplitude is a positive quantity, so a standard deviation larger than the mean does not
+     * describe a symmetric spread; it describes a SKEW. Most weight shifts are small and a few
+     * are large. A lognormal is the standard two-parameter positive distribution and reproduces
+     * both reported moments exactly:
+     *
+     *     sigma^2 = ln( 1 + (sd/mean)^2 )      mu = ln( mean ) - sigma^2 / 2
+     *
+     * For the medio-lateral shift that is mu = 2.400, sigma = 1.176, and the fraction of draws
+     * past the postural clamp falls from 40% to 15% — which is the difference between a figure
+     * that is usually pinned at the edge of its stance and one that occasionally reaches it.
+     *
+     * 🚩 No floor and no clamp here. The old version floored at a tenth of the mean to keep the
+     * folded gaussian off zero; a lognormal cannot reach zero, so a floor would only distort the
+     * small end. The postural clamp still bounds the large end, where it belongs.
+     */
     drawAmplitude( settings ) {
 
-        const drawn = this.random.gaussian( settings.shiftAmplitude, settings.shiftAmplitudeSd );
+        const variance = Math.log( 1 + ( settings.shiftAmplitudeSd / settings.shiftAmplitude ) ** 2 );
+        const median = Math.log( settings.shiftAmplitude ) - variance / 2;
 
-        return Math.max( Math.abs( drawn ), settings.shiftAmplitude * 0.1 );
+        return Math.exp( this.random.gaussian( median, Math.sqrt( variance ) ) );
 
     }
 
@@ -775,7 +952,7 @@ export class Sway extends Layer {
 
         if ( response.usable === false ) return 0;
 
-        const blend = wantedMedioLateral / response.head.x;
+        const blend = wantedMedioLateral / response.centreOfMass.x;
 
         return Math.min( Math.max( blend, 0 ), STANCE_BLEND_LIMIT ) * Math.sign( wantedMedioLateral );
 
@@ -790,8 +967,8 @@ export class Sway extends Layer {
 
         const response = this.stanceBlend > 0 ? this.stanceResponse.left : this.stanceResponse.right;
 
-        this.pendulumDisplacement.x -= Math.abs( this.stanceBlend ) * response.head.x;
-        this.pendulumDisplacement.z -= Math.abs( this.stanceBlend ) * response.head.z;
+        this.pendulumDisplacement.x -= Math.abs( this.stanceBlend ) * response.centreOfMass.x;
+        this.pendulumDisplacement.z -= Math.abs( this.stanceBlend ) * response.centreOfMass.z;
 
     }
 
@@ -799,18 +976,16 @@ export class Sway extends Layer {
 
     /**
      * Reads the rig facts the pendulum needs: every driven joint's rest frame and rest world
-     * position, where the pendulum pivots, and how far the reference marker moves per radian.
+     * position, where the pendulum pivots, how far each joint shares the lean, and how much of
+     * the base of support the weight shifts are allowed to use.
      *
      * The pivot is the midpoint of the two ankle joints, dropped toward the sole by
-     * PIVOT_HEIGHT_FRACTION_OF_ANKLE. The effective lever is then the share-weighted sum of each
-     * contributing joint's height below the marker — the ankle share acting from the pivot, the
-     * spine shares from their own joints, and the neck's counter-rotation folded in with a
-     * negative share — to first order in the angle, which at a quarter of a degree is exact to
-     * five decimal places.
+     * PIVOT_HEIGHT_FRACTION_OF_ANKLE. The LEVER — how far the body travels per radian of lean —
+     * is not derived here; it is measured, by `measurePendulumResponse`. See that method for why.
      *
      * Note that the heights are read from the pose the figure is in when this runs. On the first
      * bind that is the rest pose. On a `MotionStack.reset()` mid-run it is a leaned pose, which
-     * shifts the lever by well under a tenth of a millimetre at these angles — worth knowing
+     * shifts the geometry by well under a tenth of a millimetre at these angles — worth knowing
      * about, not worth correcting.
      */
     resolveRigGeometry( target ) {
@@ -824,14 +999,7 @@ export class Sway extends Layer {
 
         }
 
-        const referenceBone = target.getBone( this.referenceBoneName );
-        const referenceHeight = worldPositionOf( referenceBone, this.scratchDisplacement ).y;
-
         this.resolvePivot();
-
-        let lever = this.pendulumPlanted
-            ? this.anklePendulumShare * ( referenceHeight - this.pivot.y )
-            : 0;
 
         // A rig with no feet cannot pivot about them, so the whole lean falls back to the spine
         // and the layer behaves as its predecessor did. The stack's missing-channel report names
@@ -841,21 +1009,8 @@ export class Sway extends Layer {
         this.spineJoints().forEach( ( joint, index ) => {
 
             joint.share = spineParticipation * this.spineShare[ index ];
-            lever += joint.share * ( referenceHeight - joint.restPosition.y );
 
         } );
-
-        const neck = this.jointsByHumanoid.get( 'neck' );
-
-        if ( isPresent( neck.bone ) ) {
-
-            lever -= this.headStabilisation * ( referenceHeight - neck.restPosition.y );
-
-        }
-
-        // A degenerate rig — no reference bone, or every driven joint at the marker's height —
-        // would divide by zero and fling the figure. One metre keeps the layer harmless.
-        this.effectiveLeverMetres = Math.abs( lever ) > 1e-4 ? lever : 1;
 
         const pelvis = this.jointsByHumanoid.get( 'hips' );
 
@@ -867,6 +1022,128 @@ export class Sway extends Layer {
             foot.pendulumArm.copy( foot.joint.restPosition ).sub( this.pivot );
 
         }
+
+        this.resolvePostureLimits();
+
+    }
+
+    /**
+     * How far the accumulated weight-shift offset may travel, read off the rig's base of support.
+     *
+     * Medio-laterally the base runs from the midline out to the stance foot; antero-posteriorly it
+     * runs from the ankle forward to the ball. Both are things the rig knows about itself, which
+     * is why POSTURE_OFFSET_FRACTION_OF_BASE is a fraction — see it for why a quarter.
+     */
+    resolvePostureLimits() {
+
+        if ( this.pendulumPlanted === false ) return;
+
+        const [ left, right ] = this.feet;
+
+        const halfStance = Math.abs( left.joint.restPosition.x - right.joint.restPosition.x ) / 2;
+
+        const footLength = STANCE_FEET.reduce( ( total, entry ) => {
+
+            const foot = this.jointsByHumanoid.get( entry.foot );
+            const toe = foot.bone?.children.find( ( child ) => child.isBone === true ) ?? null;
+
+            if ( toe === null ) return total;
+
+            return total + Math.abs( worldPositionOf( toe, this.scratchDisplacement ).z - foot.restPosition.z );
+
+        }, 0 ) / STANCE_FEET.length;
+
+        // A rig with its feet together, or with no toes, keeps the fallback rather than clamping
+        // the stance to nothing. Half a centimetre of base is not a stance, it is a bad read.
+        if ( halfStance > 0.005 ) this.medioLateral.limit = POSTURE_OFFSET_FRACTION_OF_BASE * halfStance;
+        if ( footLength > 0.005 ) this.anteroPosterior.limit = POSTURE_OFFSET_FRACTION_OF_BASE * footLength;
+
+    }
+
+    /**
+     * 🎯 Measures how far the centre of mass — and, for the record, the head — travels per radian
+     * of lean, by leaning this rig and looking.
+     *
+     * The centre of mass is what the lean is solved against, because every amplitude this layer
+     * is given is a centre-of-pressure amplitude and a sustained centre of pressure sits under
+     * the centre of mass. So this is the number that turns "3 mm of medio-lateral sway" into an
+     * angle.
+     *
+     * It is measured rather than derived because the closed form is worse reading than the
+     * measurement and easier to get subtly wrong. The rigid ankle share moves the whole body, so
+     * its contribution really is the centre of mass's height above the pivot — but a spine joint
+     * rotates only the mass ABOVE it, and the neck's give-back only the head, so each of those
+     * contributes its own share times its own height times its own mass fraction. Leaning the rig
+     * and reading the result gets all of that for free, and stays right if the chain changes.
+     *
+     * Both axes are probed even though a symmetric figure's levers are equal, because a figure
+     * that stands with its weight slightly forward has a centre of mass that is not on the frontal
+     * plane and the two are then genuinely different by a hair.
+     */
+    measurePendulumResponse( target ) {
+
+        const head = target.getBone( this.referenceBoneName );
+        const snapshot = this.snapshotJoints();
+
+        if ( snapshot.length === 0 ) return;
+
+        const root = rootOf( snapshot[ 0 ].joint.bone );
+
+        root.updateMatrixWorld( true );
+
+        const restCentreOfMass = this.bodyMass.centreOfMass( new Vector3() );
+        const restHead = isPresent( head ) ? worldPositionOf( head, new Vector3() ) : null;
+
+        // Same order as the runtime lean, so a probe cannot measure something the frame loop
+        // will not reproduce.
+        const probes = [
+            { key: 'anteroPosterior', component: 'z', anteroPosterior: PENDULUM_PROBE_RADIANS, medioLateral: 0 },
+            { key: 'medioLateral', component: 'x', anteroPosterior: 0, medioLateral: PENDULUM_PROBE_RADIANS }
+        ];
+
+        for ( const probe of probes ) {
+
+            this.buildPendulumRotations( probe.anteroPosterior, probe.medioLateral );
+            this.applyPendulumToBones( snapshot );
+
+            root.updateMatrixWorld( true );
+
+            const centreOfMass = this.bodyMass.centreOfMass( this.scratchCentreOfMass );
+
+            // A positive rotation about the medio-lateral axis carries the body toward +Z, and a
+            // lateral lean moves it toward -X — the same sign convention writePose() states. The
+            // lever is taken as a magnitude and the sign lives in writePose() alone, so there is
+            // exactly one place to get it wrong.
+            this.centreOfMassLever[ probe.key ] = Math.abs(
+                ( centreOfMass[ probe.component ] - restCentreOfMass[ probe.component ] ) / PENDULUM_PROBE_RADIANS );
+
+            if ( restHead !== null ) {
+
+                const posedHead = worldPositionOf( head, this.scratchDisplacement );
+
+                this.headLever[ probe.key ] = Math.abs(
+                    ( posedHead[ probe.component ] - restHead[ probe.component ] ) / PENDULUM_PROBE_RADIANS );
+
+            }
+
+            this.restoreJoints( snapshot );
+
+        }
+
+        root.updateMatrixWorld( true );
+
+        // A degenerate rig — no reference bone, or a body whose mass all sits at the pivot —
+        // would divide by zero and fling the figure. One metre keeps the layer harmless.
+        for ( const key of [ 'anteroPosterior', 'medioLateral' ] ) {
+
+            if ( this.centreOfMassLever[ key ] < 1e-4 ) this.centreOfMassLever[ key ] = 1;
+            if ( this.headLever[ key ] < 1e-4 ) this.headLever[ key ] = 1;
+
+        }
+
+        // Reported, not used: the coefficient POSTURE_HEAD_TRANSFER used to guess at. On
+        // figure_g050 it reads about 1.62, against the 0.20 that was assumed.
+        this.headPerCentreOfMass = this.headLever.medioLateral / this.centreOfMassLever.medioLateral;
 
     }
 
@@ -926,23 +1203,23 @@ export class Sway extends Layer {
             const response = this.stanceResponse[ side ];
 
             response.usable = false;
+            response.centreOfMass.set( 0, 0, 0 );
             response.head.set( 0, 0, 0 );
             response.ankle.left.set( 0, 0, 0 );
             response.ankle.right.set( 0, 0, 0 );
 
         }
 
-        if ( isPresent( head ) === false ) return;
+        const snapshot = this.snapshotJoints();
 
-        const snapshot = this.joints
-            .filter( ( joint ) => isPresent( joint.bone ) )
-            .map( ( joint ) => ( {
-                joint,
-                quaternion: joint.bone.quaternion.clone(),
-                position: joint.bone.position.clone()
-            } ) );
+        if ( snapshot.length === 0 ) return;
 
-        const restHead = worldPositionOf( head, new Vector3() );
+        const root = rootOf( snapshot[ 0 ].joint.bone );
+
+        root.updateMatrixWorld( true );
+
+        const restCentreOfMass = this.bodyMass.centreOfMass( new Vector3() );
+        const restHead = isPresent( head ) ? worldPositionOf( head, new Vector3() ) : null;
 
         for ( const side of [ 'left', 'right' ] ) {
 
@@ -951,8 +1228,19 @@ export class Sway extends Layer {
             this.buildStanceRotations( STANCE_RESPONSE_PROBE_BLEND, side );
             this.applyStanceToBones( STANCE_RESPONSE_PROBE_BLEND, side, snapshot );
 
-            response.head.copy( worldPositionOf( head, this.scratchDisplacement ) ).sub( restHead )
-                .divideScalar( STANCE_RESPONSE_PROBE_BLEND );
+            // The whole rig, not just the driven chain: the centre of mass reads the hands and
+            // the feet, which ride the pose without being posed by it.
+            root.updateMatrixWorld( true );
+
+            response.centreOfMass.copy( this.bodyMass.centreOfMass( this.scratchCentreOfMass ) )
+                .sub( restCentreOfMass ).divideScalar( STANCE_RESPONSE_PROBE_BLEND );
+
+            if ( restHead !== null ) {
+
+                response.head.copy( worldPositionOf( head, this.scratchDisplacement ) ).sub( restHead )
+                    .divideScalar( STANCE_RESPONSE_PROBE_BLEND );
+
+            }
 
             for ( const foot of feet ) {
 
@@ -963,23 +1251,104 @@ export class Sway extends Layer {
 
             }
 
-            for ( const entry of snapshot ) {
+            this.restoreJoints( snapshot );
 
-                entry.joint.bone.quaternion.copy( entry.quaternion );
-                entry.joint.bone.position.copy( entry.position );
-
-            }
-
-            // A pose that barely moves the head sideways cannot be solved for a blend without
-            // dividing by something close to zero, so the blend is simply not used on that rig.
-            // 5 mm per unit blend is two orders below what the shipped poses produce.
-            response.usable = Math.abs( response.head.x ) > 0.005;
+            // A pose that barely moves the centre of mass sideways cannot be solved for a blend
+            // without dividing by something close to zero, so the blend is simply not used on
+            // that rig. 5 mm per unit blend is two orders below what the shipped poses produce.
+            response.usable = Math.abs( response.centreOfMass.x ) > 0.005;
 
         }
 
+        root.updateMatrixWorld( true );
+
+    }
+
+    /**
+     * Every driven bone's current rotation and position, so a measurement can drive the real rig
+     * and put it back exactly as it found it.
+     *
+     * The stack captured its rest pose before onBind ran, so a perfect restore is invisible to
+     * it; an imperfect one would silently bias every absolute measurement in the stack. That is
+     * why the snapshot is taken from the bones themselves rather than reconstructed from a pose.
+     */
+    snapshotJoints() {
+
+        return this.joints
+            .filter( ( joint ) => isPresent( joint.bone ) )
+            .map( ( joint ) => ( {
+                joint,
+                quaternion: joint.bone.quaternion.clone(),
+                position: joint.bone.position.clone()
+            } ) );
+
+    }
+
+    restoreJoints( snapshot ) {
+
         for ( const entry of snapshot ) {
 
-            entry.joint.bone.updateWorldMatrix( true, false );
+            entry.joint.bone.quaternion.copy( entry.quaternion );
+            entry.joint.bone.position.copy( entry.position );
+
+        }
+
+    }
+
+    /**
+     * Drives the real bones into a pure pendulum lean, for the response measurement.
+     *
+     * Mirrors `writePose` with the stance blend at zero — feet held at their rest orientation,
+     * pelvis carried around the pivot arc — so the lever that comes out is the lever the frame
+     * loop will reproduce rather than an independent derivation that might drift from it.
+     */
+    applyPendulumToBones( snapshot ) {
+
+        for ( const entry of snapshot ) {
+
+            const joint = entry.joint;
+
+            if ( joint.pendulum === 'plant' ) joint.cumulative.identity();
+            else joint.cumulative.copy( joint.pendulumCumulative );
+
+        }
+
+        this.writeCumulativeToBones( snapshot );
+
+        const pelvis = this.jointsByHumanoid.get( 'hips' );
+        const pelvisEntry = snapshot.find( ( entry ) => entry.joint === pelvis );
+
+        if ( pelvisEntry === undefined ) return;
+
+        this.scratchOffset.copy( this.pelvisArm ).applyQuaternion( this.ankleRotation ).sub( this.pelvisArm );
+        this.scratchOffset.applyQuaternion( this.pelvisParentFrameInverse );
+
+        pelvis.bone.position.copy( pelvisEntry.position ).add( this.scratchOffset );
+
+    }
+
+    /**
+     * Turns each joint's cumulative rig-space rotation into a bone rotation, on top of whatever
+     * the snapshot found there. The shared half of the two bind-time probes.
+     */
+    writeCumulativeToBones( snapshot ) {
+
+        for ( const entry of snapshot ) {
+
+            const joint = entry.joint;
+            const parent = joint.parent === null ? null : this.jointsByHumanoid.get( joint.parent );
+
+            joint.rigRotation.copy( joint.cumulative );
+
+            if ( parent !== null ) {
+
+                this.scratchRigRotation.copy( parent.cumulative ).invert();
+                joint.rigRotation.premultiply( this.scratchRigRotation );
+
+            }
+
+            toBoneDeltaFrame( joint.rigRotation, joint.restFrame, this.scratchBoneDelta );
+            joint.bone.quaternion.copy( entry.quaternion ).multiply( this.scratchBoneDelta );
 
         }
 
@@ -994,24 +1363,9 @@ export class Sway extends Layer {
      */
     applyStanceToBones( blend, side, snapshot ) {
 
-        for ( const entry of snapshot ) {
+        for ( const entry of snapshot ) entry.joint.cumulative.copy( entry.joint.stanceCumulative );
 
-            const joint = entry.joint;
-            const parent = joint.parent === null ? null : this.jointsByHumanoid.get( joint.parent );
-
-            joint.rigRotation.copy( joint.stanceCumulative );
-
-            if ( parent !== null ) {
-
-                this.scratchRigRotation.copy( parent.stanceCumulative ).invert();
-                joint.rigRotation.premultiply( this.scratchRigRotation );
-
-            }
-
-            toBoneDeltaFrame( joint.rigRotation, joint.restFrame, this.scratchBoneDelta );
-            joint.bone.quaternion.copy( entry.quaternion ).multiply( this.scratchBoneDelta );
-
-        }
+        this.writeCumulativeToBones( snapshot );
 
         const pelvis = this.jointsByHumanoid.get( 'hips' );
         const pelvisEntry = snapshot.find( ( entry ) => entry.joint === pelvis );
@@ -1035,8 +1389,8 @@ export class Sway extends Layer {
      */
     writePose() {
 
-        const leanAnteroPosterior = this.pendulumDisplacement.z / this.effectiveLeverMetres;
-        const leanMedioLateral = -this.pendulumDisplacement.x / this.effectiveLeverMetres;
+        const leanAnteroPosterior = this.pendulumDisplacement.z / this.centreOfMassLever.anteroPosterior;
+        const leanMedioLateral = -this.pendulumDisplacement.x / this.centreOfMassLever.medioLateral;
 
         this.buildPendulumRotations( leanAnteroPosterior, leanMedioLateral );
         this.buildStanceRotations( Math.abs( this.stanceBlend ), this.stanceBlend >= 0 ? 'left' : 'right' );
@@ -1364,10 +1718,11 @@ export class Sway extends Layer {
 
 const IDENTITY = new Quaternion();
 
-function createAxisState( settings ) {
+function createAxisState( settings, limit ) {
 
     return {
         settings,
+        limit,             // metres, read off the rig's base of support at bind
         displacement: 0,   // metres, this frame
         shiftTarget: 0,    // where the stance is heading
         shiftCurrent: 0,   // where the stance is now
@@ -1410,9 +1765,28 @@ function createStanceResponse() {
 
     return {
         usable: false,
-        head: new Vector3(),
+        centreOfMass: new Vector3(),   // what the blend is SOLVED against
+        head: new Vector3(),           // reported only; an output of the pose, never an input
         ankle: { left: new Vector3(), right: new Vector3() }
     };
+
+}
+
+/**
+ * The topmost ancestor of a bone — the loaded figure's scene root.
+ *
+ * The bind-time probes need `updateMatrixWorld` over the WHOLE rig, not just the driven chain:
+ * the centre of mass reads hands and feet that ride the pose without being posed by it, and
+ * `Object3D.updateWorldMatrix( true, false )` walks up, not down. The motion target does not
+ * expose a root, so it is found by walking.
+ */
+function rootOf( bone ) {
+
+    let node = bone;
+
+    while ( node.parent !== null ) node = node.parent;
+
+    return node;
 
 }
 

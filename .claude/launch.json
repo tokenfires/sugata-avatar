@@ -4,8 +4,27 @@
     {
       "name": "sugata-root",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["vite", ".", "--port", "5199", "--strictPort"],
+      "runtimeArgs": [
+        "vite",
+        ".",
+        "--port",
+        "5199",
+        "--strictPort"
+      ],
       "port": 5199
+    },
+    {
+      "name": "sugata-testbed",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
+      "port": 5173
     }
   ]
 }
