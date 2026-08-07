@@ -111,8 +111,9 @@ Read as a gaussian and folded to keep it positive, that draws a **mean of 35 mm*
 than the paper says. When a reported SD exceeds its mean on a strictly positive quantity, the
 distribution is *skewed*, not merely wide; a lognormal matched on both moments is the honest
 reading. The layer's own selftest had been printing `relayed |magnitude| mean 1.59` against a
-distribution that should average 1.0, and nobody read it as a defect because it was in a `....`
-note rather than a gate.
+distribution whose *shifts* should average 1.0, and nobody read it as a defect because it was in a
+`....` note rather than a gate. (The pooled relay stream now averages 0.60, because fidgets relay
+too and carry half amplitude — so the gate had to be stated per pattern to mean anything.)
 
 ### 1.8 Conceptual model errors look like missing features
 
@@ -167,6 +168,31 @@ What fixes it is a check of a **different kind**: segment *length*. Winter puts 
 right response to "my gate cannot catch this" is a structurally different assertion, not a tuned
 threshold. Record in the gate, as a gate, that the first check does **not** catch it; otherwise
 someone later assumes it does.
+
+### 1.11a A justification can be correct about the wrong quantity
+
+`STANCE_RESPONSE_PROBE_BLEND` measured the contrapposto once and scaled it linearly. Its comment
+justified that with a real measurement — the *centre-of-mass* response varies 0.3% across the whole
+blend range, and a later loop-closure gate confirmed it at 0.996–1.016. Both true. Neither covers
+the **ankle**, which rides an arc because the poses differ at the hip by tens of degrees and are
+combined by slerp. When the blend cap went from 0.20 to 1.0 the ankle linearisation error reached
+2 mm of vertical — a foot leaving the floor, failing the planting gate by 40×.
+
+**A cited measurement in a comment is not automatically a measurement of the thing the comment is
+about.** Check which quantity the evidence covers, not just that evidence exists.
+
+### 1.11b A constant that was cheap can stop being cheap when a scale changes
+
+`PIVOT_HEIGHT_FRACTION_OF_ANKLE = 0.5` was a deliberate, well-argued idealisation: the true centre
+of rotation sits a little below the malleolus because the heel pad compresses, and the honest
+midpoint cost the sole a tenth of a millimetre of slide. Correct, and invisible.
+
+Then the re-rooting multiplied the lean by six. The sole sits 29 mm below a half-way pivot, so it
+slides by 29 mm × the lean — measured worst case **2.49 mm**, a foot visibly skating. Moving the
+pivot to the ankle joint took it to 0.16 mm. **A sub-millimetre truth is not worth a 2.5 mm lie.**
+
+When an amplitude changes by an order of magnitude, re-audit every constant whose cost was
+previously argued as negligible. The argument was about the old amplitude.
 
 ### 1.12 Two practical traps that cost real time
 

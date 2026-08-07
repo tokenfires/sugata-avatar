@@ -281,24 +281,37 @@ const SHIFT_SETTLE_SECONDS = 0.8;
 const SHIFT_RETURN_INTERVALS = 1.0;
 
 /**
- * Hard limit on the accumulated posture offset, as a fraction of the distance from the midline to
- * the edge of the base of support. Duarte's ML shift amplitude has an SD of 38 mm on a mean of
- * 22 mm, so without a clamp a single draw from the tail puts the stance somewhere no standing
- * human goes, and the random walk eventually wanders the avatar out of frame.
+ * 🎯 Hard limit on the accumulated posture offset, stated as a number of MEAN WEIGHT SHIFTS.
  *
- * 🎯 It is a FRACTION rather than a number of millimetres because the base of support is a fact
- * about the rig and can be read off it: medio-laterally, the distance from the midline to the
- * stance foot; antero-posteriorly, the distance from the ankle to the ball. A figure with a wider
- * stance can shift further, which is true of people, and a scaled or reproportioned character
- * gets the right clamp without anyone remembering to retune it.
+ * Duarte's medio-lateral shift amplitude has a standard deviation of 38 mm on a mean of 22 mm, so
+ * without a clamp a single draw from the tail puts the stance somewhere no standing human goes,
+ * and the random walk eventually wanders the avatar out of frame. The clamp is what stops both.
  *
- * A quarter is anchored on Duarte rather than picked: a FULL weight transfer puts the centre of
- * pressure over the stance foot, so his mean 22 mm shift on this rig's 181 mm half-stance is 12%
- * of one. A quarter therefore admits about two mean shifts accumulating in the same direction and
- * never approaches a genuine one-legged stance. On figure_g050 it works out at 45 mm ML and 29 mm
- * AP, against the 30/22 mm this replaced.
+ * It is anchored on the shift amplitude rather than on the base of support, and that is the second
+ * try. The first read a quarter of the base off the rig — the half-stance medio-laterally, the
+ * ankle-to-ball distance fore-and-aft — which is defensible on the lateral axis and simply the
+ * wrong quantity on the other one. The rig has no heel joint, so ankle-to-ball is neither the
+ * forward base nor the rear one. Measured off this figure's own footprint (every mesh vertex below
+ * ankle height): the foot is 232 mm long, running 183 mm forward of the ankle joint and 50 mm
+ * behind it, against the 117 mm that was being used. The **rear** extent is the one that limits a
+ * standing person — people fall backwards long before they fall forwards — and 117 mm is more than
+ * twice it.
+ *
+ * Anchoring on the shift amplitude instead makes the two axes mean the same thing: the stance may
+ * accumulate about two average weight shifts in one direction before it is held. On figure_g050
+ * that is 44 mm laterally and 34 mm fore-and-aft, and the fore-and-aft figure sits comfortably
+ * inside the 50 mm rear footprint measured above.
  */
-const POSTURE_OFFSET_FRACTION_OF_BASE = 0.25;
+const POSTURE_OFFSET_MEAN_SHIFTS = 2.0;
+
+/**
+ * A ceiling on the lateral clamp, as a fraction of the half-stance, in case a figure is posed with
+ * its feet unusually close together. A full weight transfer puts the centre of pressure over the
+ * stance foot, so a quarter of that distance is nowhere near a one-legged stance. It does not bind
+ * on the shipped figure — 45.4 mm against the 44 mm the shift rule asks for — and there is no
+ * fore-and-aft equivalent because the rig has no heel landmark to read one from.
+ */
+const POSTURE_OFFSET_CEILING_FRACTION_OF_HALF_STANCE = 0.25;
 
 /**
  * 🎯 Drift amplitude, in COP metres — the one free parameter in the weight-shift half of this
@@ -311,12 +324,26 @@ const POSTURE_OFFSET_FRACTION_OF_BASE = 0.25;
  * That is a composite of everything this layer models, measured under this layer's own conditions,
  * and the drift term is what closes the gap between the processes that ARE pinned and that total.
  *
- * 🚩 Calibrating THIS against Bates was tried first and was the wrong lever: raising it 2.2x
- * moved the antero-posterior composite from 6.2 mm to 7.6 mm against a target of 16.3, because a
- * process whose lattice turns over every 319 s has barely three degrees of freedom in a fifteen
- * minute window. Chasing the target here would have meant a drift amplitude wider than the base
- * of support. The gap was in SHIFT_RETURN_INTERVALS instead, and this went back to where it was.
- * The number below is therefore still unpinned — it is the honest state of the record.
+ * 🚩 AND IT IS STILL UNPINNED, BECAUSE THE TWO PAPERS DISAGREE ON THE FORE-AND-AFT AXIS.
+ *
+ * Calibrating this against Bates was tried and abandoned twice, and the second attempt is the
+ * interesting one. Raising the amplitude 2.2x moved the antero-posterior composite from 6.2 mm to
+ * only 7.6 mm, because a process whose lattice turns over every 319 s has barely three degrees of
+ * freedom in a fifteen-minute window; and widening the postural clamp from 29 mm to 34 mm moved it
+ * by 0.05 mm, which proves the clamp was never what was holding it down.
+ *
+ * Work it the other way and the reason is structural. Measured, the balance band contributes
+ * 4.87 mm of the 8.27 mm composite, so Duarte's fore-and-aft processes are carrying 6.7 mm.
+ * Reaching Bates' 16.32 mm would need them to carry 15.6 mm — 2.3x more — which means either
+ * 2.3x his 17 mm shift amplitude or roughly five times his 316 s shift rate. **Both contradict the
+ * paper this layer implements.** Duarte's antero-posterior processes, implemented faithfully,
+ * cannot produce Bates' antero-posterior composite.
+ *
+ * So the shortfall is recorded rather than tuned away. Duarte is the paper whose PROCESS this file
+ * models, event by event; Bates is a composite from a different task — fifteen minutes of watching
+ * a documentary, free to move, with only fidgets excised — and where the two conflict, the
+ * process wins and the composite is reported. The lateral axis, which is the visible one, sits
+ * inside Bates' interquartile range without any of this.
  *
  * They carry the same 1.75 anisotropy the balance band's own literature reports, so a slow wander
  * cannot quietly undo the anisotropy the balance band is gated on. Note this is the only place
@@ -356,21 +383,33 @@ const PENDULUM_ANKLE_SHARE = 0.85;
 const SPINE_SHARE = [ 0.5, 0.3, 0.2 ];
 
 /**
- * 🚩 TUNING. Where the pendulum actually pivots, as a fraction of the way from the sole to the
- * ankle joint. 1.0 is the talocrural joint itself; 0.0 is the floor.
+ * 🎯 Where the pendulum pivots, as a fraction of the way from the sole to the ankle joint. 1.0 is
+ * the talocrural joint itself; 0.0 is the floor.
  *
- * The anatomical pivot is the ankle joint, and a pivot exactly there is geometrically tidy: the
- * ankle then does not move at all, so the foot is planted for free. That is also slightly false.
- * A real foot is not a rigid link welded to the ground — the heel pad compresses as the centre
- * of pressure travels under it, and the shank's instantaneous centre of rotation sits a little
- * below the malleolus. The midpoint between the two defensible extremes is the assumption here.
+ * The anatomical pivot is the ankle joint, and a pivot exactly there is also geometrically tidy:
+ * the ankle does not move, the foot is held at its rest orientation, so the SOLE IS PLANTED FOR
+ * FREE. That is what 1.0 buys, and it is why the value is 1.0.
  *
- * What it buys: the ankle joint gets a real, non-zero path — of the order of a tenth of a
- * millimetre — instead of a mathematical zero, and the sole slides by the same tenth of a
- * millimetre, which is comfortably inside skin-and-heel-pad compliance. Nothing a viewer can see
- * depends on this number; it exists so the model is honest about which idealisation it made.
+ * 🚩 It used to be 0.5, and the reasoning for that is worth keeping because it was good reasoning
+ * that stopped being true. A real foot is not a rigid link welded to the ground: the heel pad
+ * compresses as the centre of pressure travels under it, and the shank's instantaneous centre of
+ * rotation sits a little below the malleolus. The midpoint of the two defensible extremes was
+ * chosen to be honest about that, and it cost the ankle a tenth of a millimetre of path — well
+ * inside skin compliance, invisible, a fair price for a more truthful model.
+ *
+ * Then the re-rooting multiplied the lean by about six, and the price went with it. The sole sits
+ * 29 mm below a half-way pivot, so it slides by 29 mm times the lean; measured over 900 s the
+ * worst sole slide went from 0.54 mm to **2.49 mm**, which is a foot visibly skating on the floor.
+ * A 2.5 mm lie about where the foot is, is a worse lie than a sub-millimetre one about where the
+ * heel pad compresses. Moving the pivot to the joint takes the default configuration's worst
+ * slide to 0.16 mm.
+ *
+ * What is left is second order and unavoidable for a rigid rotation: the two ankles are 181 mm
+ * apart, so a frontal-plane lean of θ moves each of them 181 mm × (1 − cos θ) horizontally. At
+ * the largest lean this layer produces that is 0.29 mm, and no choice of pivot height removes it —
+ * only foot IK would.
  */
-const PIVOT_HEIGHT_FRACTION_OF_ANKLE = 0.5;
+const PIVOT_HEIGHT_FRACTION_OF_ANKLE = 1.0;
 
 /**
  * The upper bound on how far toward full contrapposto a weight shift may blend.
@@ -398,14 +437,36 @@ const STANCE_BLEND_LIMIT = 1.0;
 const PENDULUM_PROBE_RADIANS = 0.01;
 
 /**
- * The blend the pose response is measured at during bind.
+ * The blend the pose's CENTRE-OF-MASS and HEAD response is measured at during bind.
  *
- * The response is very nearly linear in the blend — measured across 0.05 to 1.0 the per-unit
- * centre-of-mass response varies by 0.3% — so this is not a sensitive choice. It sits at half
- * blend rather than at a small probe because the runtime now reaches most of the range, and a
- * probe in the middle of the range keeps the worst-case linearisation error symmetric.
+ * Those two really are almost linear in the blend — measured across 0.05 to 1.0 the per-unit
+ * centre-of-mass response varies by 0.3%, and the selftest's loop-closure section confirms the
+ * realised centre of mass lands within 0.4–1.6% of where it was commanded — so a single probe is
+ * enough for them, and it sits at half blend to keep the worst case symmetric.
  */
 const STANCE_RESPONSE_PROBE_BLEND = 0.50;
+
+/**
+ * 🚩 The blends the pose's ANKLE response is measured at, which is a different question and was
+ * got wrong once.
+ *
+ * The ankle is NOT linear in the blend, and the reason is structural rather than incidental: the
+ * contrapposto poses differ at the hip by tens of degrees and are combined by slerp, so a foot on
+ * the end of that chain rides an arc. A single probe scaled linearly is fine while the runtime
+ * stays near it — the version this replaced probed at 0.10 and capped the blend at 0.20 — but the
+ * re-rooting raised the cap to 1.0 and the runtime now saturates there, extrapolating 2x past a
+ * 0.5 probe. Measured error at blend 1.0: **+1.5 to +2.0 mm of vertical**, which is a foot leaving
+ * the floor, and it failed the planting gate by 40x.
+ *
+ * The fix is a table rather than a bigger single probe, because the curvature does not go away —
+ * it only gets averaged differently. Piecewise-linear error falls with the SQUARE of the spacing,
+ * so eight intervals cut the 2 mm to about 0.008 mm, comfortably inside the gate's 0.05 mm, and
+ * eight extra probes cost nothing: this runs once, at bind.
+ *
+ * The pelvis needs no table. `stanceHipsOffset` is a straight lerp between two authored offsets,
+ * so it is exactly linear by construction.
+ */
+const STANCE_ANKLE_PROBE_COUNT = 8;
 
 /**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
@@ -492,9 +553,10 @@ export class Sway extends Layer {
 
     /**
      * @param {Object} [options]
-     * @param {number} [options.balanceRmsMedioLateralMetres=0.00345] - Wanted RMS excursion of
-     *   the reference marker. The pendulum angle that produces it is solved for at bind.
-     * @param {number} [options.balanceRmsAnteroPosteriorMetres=0.00604]
+     * @param {number} [options.balanceRmsMedioLateralMetres=0.0030] - Wanted CENTRE-OF-PRESSURE
+     *   RMS. The lean that puts the centre of mass there is solved for at bind; where the head
+     *   ends up is an output. Quijoux's force-plate column.
+     * @param {number} [options.balanceRmsAnteroPosteriorMetres=0.0049]
      * @param {number} [options.headStabilisation=0.3]
      * @param {number} [options.anklePendulumShare=0.85] - Fraction of the lean carried as a
      *   rigid rotation about the ankles. See PENDULUM_ANKLE_SHARE.
@@ -1036,27 +1098,25 @@ export class Sway extends Layer {
      */
     resolvePostureLimits() {
 
+        for ( const axis of [ this.medioLateral, this.anteroPosterior ] ) {
+
+            axis.limit = POSTURE_OFFSET_MEAN_SHIFTS * axis.settings.shiftAmplitude;
+
+        }
+
         if ( this.pendulumPlanted === false ) return;
 
         const [ left, right ] = this.feet;
-
         const halfStance = Math.abs( left.joint.restPosition.x - right.joint.restPosition.x ) / 2;
 
-        const footLength = STANCE_FEET.reduce( ( total, entry ) => {
+        // A figure standing with its ankles touching keeps the shift-anchored clamp rather than
+        // being pinned to nothing: half a centimetre of stance is a bad read, not a narrow stance.
+        if ( halfStance <= 0.005 ) return;
 
-            const foot = this.jointsByHumanoid.get( entry.foot );
-            const toe = foot.bone?.children.find( ( child ) => child.isBone === true ) ?? null;
-
-            if ( toe === null ) return total;
-
-            return total + Math.abs( worldPositionOf( toe, this.scratchDisplacement ).z - foot.restPosition.z );
-
-        }, 0 ) / STANCE_FEET.length;
-
-        // A rig with its feet together, or with no toes, keeps the fallback rather than clamping
-        // the stance to nothing. Half a centimetre of base is not a stance, it is a bad read.
-        if ( halfStance > 0.005 ) this.medioLateral.limit = POSTURE_OFFSET_FRACTION_OF_BASE * halfStance;
-        if ( footLength > 0.005 ) this.anteroPosterior.limit = POSTURE_OFFSET_FRACTION_OF_BASE * footLength;
+        this.medioLateral.limit = Math.min(
+            this.medioLateral.limit,
+            POSTURE_OFFSET_CEILING_FRACTION_OF_HALF_STANCE * halfStance
+        );
 
     }
 
@@ -1142,7 +1202,10 @@ export class Sway extends Layer {
         }
 
         // Reported, not used: the coefficient POSTURE_HEAD_TRANSFER used to guess at. On
-        // figure_g050 it reads about 1.62, against the 0.20 that was assumed.
+        // figure_g050 posed into relaxed-standing it reads 1.676, against the 0.20 assumed —
+        // and it is a MEASUREMENT, so do not expect the digits to survive a change to the rig,
+        // the pivot height or the rest pose. The selftest gates it against the raw height ratio
+        // rather than against a literal, for exactly that reason.
         this.headPerCentreOfMass = this.headLever.medioLateral / this.centreOfMassLever.medioLateral;
 
     }
@@ -1205,8 +1268,12 @@ export class Sway extends Layer {
             response.usable = false;
             response.centreOfMass.set( 0, 0, 0 );
             response.head.set( 0, 0, 0 );
-            response.ankle.left.set( 0, 0, 0 );
-            response.ankle.right.set( 0, 0, 0 );
+
+            for ( const key of [ 'left', 'right' ] ) {
+
+                for ( const sample of response.ankle[ key ] ) sample.set( 0, 0, 0 );
+
+            }
 
         }
 
@@ -1242,16 +1309,29 @@ export class Sway extends Layer {
 
             }
 
-            for ( const foot of feet ) {
+            this.restoreJoints( snapshot );
 
-                response.ankle[ foot.key ]
-                    .copy( worldPositionOf( foot.joint.bone, this.scratchDisplacement ) )
-                    .sub( foot.joint.restPosition )
-                    .divideScalar( STANCE_RESPONSE_PROBE_BLEND );
+            // The ankle needs the whole curve, not a rate. See STANCE_ANKLE_PROBE_COUNT.
+            for ( let step = 0; step < STANCE_ANKLE_PROBE_COUNT; step ++ ) {
+
+                const blend = ( step + 1 ) / STANCE_ANKLE_PROBE_COUNT;
+
+                this.buildStanceRotations( blend, side );
+                this.applyStanceToBones( blend, side, snapshot );
+
+                root.updateMatrixWorld( true );
+
+                for ( const foot of feet ) {
+
+                    response.ankle[ foot.key ][ step ]
+                        .copy( worldPositionOf( foot.joint.bone, this.scratchDisplacement ) )
+                        .sub( foot.joint.restPosition );
+
+                }
+
+                this.restoreJoints( snapshot );
 
             }
-
-            this.restoreJoints( snapshot );
 
             // A pose that barely moves the centre of mass sideways cannot be solved for a blend
             // without dividing by something close to zero, so the blend is simply not used on
@@ -1683,12 +1763,35 @@ export class Sway extends Layer {
 
         this.stanceHipsOffset( blend, side, this.scratchPelvisTravel );
 
-        return target
-            .copy( this.stanceResponse[ side ].ankle[ foot.key ] )
-            .multiplyScalar( blend )
+        return this.sampleStanceAnkle( this.stanceResponse[ side ].ankle[ foot.key ], blend, target )
             .sub( this.scratchPelvisTravel )
             .applyQuaternion( this.ankleRotation )
             .add( this.scratchPelvisTravel );
+
+    }
+
+    /**
+     * Reads the ankle's travel off the bind-time table, interpolating between the two probes the
+     * requested blend falls between.
+     *
+     * Piecewise-linear rather than a fitted curve because the table is dense enough that the
+     * residual is a hundredth of a millimetre, and because a reader can check a table against the
+     * rig by hand. Below the first probe it interpolates from the origin, which is exact: a blend
+     * of zero is the rest pose by definition.
+     */
+    sampleStanceAnkle( table, blend, target ) {
+
+        const scaled = Math.min( Math.max( blend, 0 ), 1 ) * STANCE_ANKLE_PROBE_COUNT;
+        const upper = Math.min( Math.ceil( scaled ), STANCE_ANKLE_PROBE_COUNT );
+
+        if ( upper <= 0 ) return target.set( 0, 0, 0 );
+
+        const mix = scaled - ( upper - 1 );
+
+        // The entry below the first probe is the origin, not table[-1].
+        if ( upper === 1 ) return target.copy( table[ 0 ] ).multiplyScalar( mix );
+
+        return target.copy( table[ upper - 2 ] ).lerp( table[ upper - 1 ], mix );
 
     }
 
@@ -1767,7 +1870,15 @@ function createStanceResponse() {
         usable: false,
         centreOfMass: new Vector3(),   // what the blend is SOLVED against
         head: new Vector3(),           // reported only; an output of the pose, never an input
-        ankle: { left: new Vector3(), right: new Vector3() }
+
+        // Where each ankle sits at blend (index + 1) / STANCE_ANKLE_PROBE_COUNT, as an absolute
+        // displacement from rest rather than a per-unit rate — the whole point is that dividing
+        // by the blend does not give a constant. Index 0 is the smallest non-zero blend; blend 0
+        // is the origin and needs no entry. See STANCE_ANKLE_PROBE_COUNT.
+        ankle: {
+            left: Array.from( { length: STANCE_ANKLE_PROBE_COUNT }, () => new Vector3() ),
+            right: Array.from( { length: STANCE_ANKLE_PROBE_COUNT }, () => new Vector3() )
+        }
     };
 
 }

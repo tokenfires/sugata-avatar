@@ -1,6 +1,6 @@
 # tools/critic — the objective critic harness
 
-Four tools that between them stop "does this look right?" from being purely a matter of taste.
+Five tools that between them stop "does this look right?" from being purely a matter of taste.
 
 - **`measure.mjs`** — reads a PNG and a region spec, returns the six objective gates from
   [`docs/research/stellar-blade-look-spec.md`](../../docs/research/stellar-blade-look-spec.md) §6
@@ -28,6 +28,8 @@ Node 18+.
 ```bash
 node tools/critic/selftest.mjs                       # prove the tool measures what it claims
 node tools/critic/heatmap.selftest.mjs               # ditto, for the heat map
+node tools/critic/travel.mjs captures/idle --threshold 0.1979   # how far did the body MOVE, in px
+node tools/critic/travel.selftest.mjs                # ditto, for the travel measurement
 node tools/critic/measure.mjs shot.png regions.json  # JSON on stdout
 node tools/critic/measure.mjs shot.png regions.json --human
 
@@ -574,6 +576,8 @@ synthetic dead lower half is confirmed to put the cut on exactly the row it was 
 | `blind_ab.mjs` | blind A/B pairing and reveal |
 | `capture.mjs` | fixed-step video capture — mp4, gif, contact sheet, manifest |
 | `heatmap.mjs` | per-pixel temporal-σ heat map of a captured clip, plus the band table |
+| `travel.mjs` | horizontal centroid of the silhouette per frame — how far the body moved, in pixels |
+| `travel.selftest.mjs` | 111 checks: analytic oracles for known translations, plus degenerate inputs |
 | `color.mjs` | sRGB transfer functions, both lumas, HSV — read the header comment |
 | `png.mjs` | dependency-free PNG decode/encode and chunk surgery |
 | `selftest.mjs` | 79 checks over the gates and the codec; run it after touching anything here |
