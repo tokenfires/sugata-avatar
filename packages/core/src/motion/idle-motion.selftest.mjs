@@ -15,9 +15,15 @@
  *
  *   SWAY     RMS of the head's horizontal excursion, separately for medio-lateral and
  *            antero-posterior, plus a Welch-averaged FFT giving the spectral mode, f50, f95 and
- *            the fraction of power above 2 Hz. Weight shifts are switched off for this run: the
- *            literature figures are quiet-standing balance, and a 22 mm weight shift inside a
- *            60 s window would swamp a 4 mm sway.
+ *            the fraction of power above 2 Hz.
+ *
+ *            🎯 Measured on `new Sway()` AS CONSTRUCTED, over a seed × window matrix. This used
+ *            to be measured on `new Sway( { weightShiftsEnabled: false } )` — a configuration no
+ *            consumer builds — and the default was outside its own gate on 18 of 24 seed ×
+ *            window combinations, with the AP/ML anisotropy INVERTED on several seeds. A gate
+ *            that only fires against a configuration nobody ships is not a gate. One seed is not
+ *            a measurement either: the RMS of a 0.3 Hz stochastic signal over a 60 s window
+ *            scatters by well over 10%, so every figure below is a matrix, not a number.
  *
  *   SHIFTS   event rates over a long run, against Duarte & Zatsiorsky's intervals, and the
  *            discourse-boundary shift probability against Cassell's 26% / 8%.
@@ -60,6 +66,23 @@ const EVENT_DURATION_SECONDS = 7200;   // two hours, for rates measured in event
 
 const SEED = 20260807;
 
+/**
+ * The seed × window matrix the sway gates run over. Twelve seeds because the sway statistics are
+ * estimates with real sampling error and one draw of any of them proves nothing; three windows
+ * because the failure the matrix exists to catch — the slow weight-shift process quietly growing
+ * until it dominates the balance band — only appears as the window gets long.
+ */
+const SWAY_SEEDS = [ 1, 7, 42, 101, 777, 1234, 4242, 9999, 31337, 65537, 20260807, 99999989 ];
+const SWAY_WINDOWS_SECONDS = [ 60, 300, 900 ];
+
+/**
+ * Everything below 0.15 Hz is excluded from the spectral statistics. That is not a convenience:
+ * the literature figures come from 25–60 s quiet-standing recordings, which cannot resolve a
+ * weight-shift process whose intervals are 200–500 s, so the postural band the papers describe
+ * excludes it by construction. Duarte measures that process separately, and so does this file.
+ */
+const POSTURAL_BAND_FLOOR_HZ = 0.15;
+
 const results = [];
 
 // --- the figure -------------------------------------------------------------------------------
@@ -97,6 +120,7 @@ measureBreath();
 
 // --- 2.6 postural sway ------------------------------------------------------------------------
 
+measureSwayAmplitudeMatrix();
 measureSwaySpectrum();
 measureWeightShifts();
 measureDiscourseCoupling();
@@ -208,63 +232,179 @@ function measureBreath() {
 
 }
 
-function measureSwaySpectrum() {
+/**
+ * The headline sway claim: how far the head actually moves, for the layer a consumer constructs,
+ * across every seed and every window.
+ *
+ * Every cell is gated. The matrix is printed whether it passes or not, because the shape of the
+ * failure is the diagnosis: an ML column that grows with the window is the weight-shift process
+ * escaping, and a ratio column that falls below 1 is the anisotropy inverting — which the
+ * research says is the single most visible way to get sway wrong.
+ */
+function measureSwayAmplitudeMatrix() {
 
-    section( '2.6  POSTURAL SWAY — balance band (weight shifts off)' );
+    section( '2.6  POSTURAL SWAY — head excursion of `new Sway()`, as constructed' );
 
-    for ( const seconds of [ GATE_DURATION_SECONDS, SPECTRUM_DURATION_SECONDS ] ) {
+    const rows = [];
+    const byWindow = new Map();
 
-        const { stack, root } = buildStack( ( options ) =>
-            new Sway( { ...options, weightShiftsEnabled: false } ) );
+    for ( const seconds of SWAY_WINDOWS_SECONDS ) {
 
-        const head = root.getObjectByName( 'head' );
-        const track = [];
+        const window = { medioLateral: [], anteroPosterior: [], ratio: [] };
+        byWindow.set( seconds, window );
 
-        for ( let frame = 0; frame < seconds * SAMPLE_RATE_HZ; frame ++ ) {
+        for ( const seed of SWAY_SEEDS ) {
 
-            stack.update( FRAME_SECONDS );
-            root.updateMatrixWorld( true );
-            track.push( new Vector3().setFromMatrixPosition( head.matrixWorld ) );
+            const track = traceSwayHead( seed, seconds );
+
+            const mlRms = rootMeanSquare( track.medioLateral ) * 1000;
+            const apRms = rootMeanSquare( track.anteroPosterior ) * 1000;
+            const ratio = apRms / mlRms;
+
+            window.medioLateral.push( mlRms );
+            window.anteroPosterior.push( apRms );
+            window.ratio.push( ratio );
+
+            const inBand = mlRms >= 3 && mlRms <= 5 && apRms >= 5 && apRms <= 7
+                && ratio >= 1.25 && ratio <= 2.20;
+
+            rows.push( `  ${ String( seconds ).padStart( 5 ) }s ${ String( seed ).padStart( 10 ) }   ` +
+                `${ mlRms.toFixed( 2 ).padStart( 6 ) }  ${ apRms.toFixed( 2 ).padStart( 6 ) }  ` +
+                `${ ratio.toFixed( 2 ).padStart( 5 ) }   ${ inBand ? 'ok' : 'OUT OF BAND' }` );
 
         }
 
-        const medioLateral = track.map( ( p ) => p.x );
-        const anteroPosterior = track.map( ( p ) => p.z );
+    }
 
-        const mlRms = rootMeanSquare( medioLateral ) * 1000;
-        const apRms = rootMeanSquare( anteroPosterior ) * 1000;
+    console.log( '  window       seed   ML_RMS  AP_RMS  ratio' );
+    for ( const row of rows ) console.log( row );
+    console.log( '' );
 
-        const segment = seconds >= SPECTRUM_DURATION_SECONDS ? 2048 : 1024;
-        const mlSpectrum = welchSpectrum( medioLateral, segment );
-        const apSpectrum = welchSpectrum( anteroPosterior, segment );
+    // Gated as min and max over the seed set rather than as 108 separate lines. A range that sits
+    // inside the band means every cell did; the extremes are also the only two numbers worth
+    // reading, because they are where the next regression will show up first.
+    for ( const seconds of SWAY_WINDOWS_SECONDS ) {
 
+        const window = byWindow.get( seconds );
         const label = `${ seconds }s`;
-        console.log( `  --- ${ label } window, ${ ( SAMPLE_RATE_HZ / segment ).toFixed( 4 ) } Hz FFT bins ---` );
 
-        gate( `[${ label }] ML RMS (mm)`, mlRms, 3.0, 5.0, 'gate 3-5 mm; plate 3.0, board 4.0' );
-        gate( `[${ label }] AP RMS (mm)`, apRms, 5.0, 7.0, 'gate 5-7 mm; plate 4.9, board 6.6' );
-        // The layer is configured for a 1.50 ratio (6.0 / 4.0 mm). The band here is that design
-        // ratio carried through the sampling error of an RMS estimate on a 0.3 Hz signal: a 60 s
-        // window holds ~18 cycles, so each axis' RMS scatters by roughly 1/sqrt(2n) ~ 12%, and the
-        // ratio of two independent estimates by ~17%. Anything inside 1.25-2.20 is consistent with
-        // a 1.50 design; anything outside it is a real defect.
-        gate( `[${ label }] AP/ML ratio`, apRms / mlRms, 1.25, 2.20,
-            'design 1.50; AP is 1.5-2x ML and must never be isotropic' );
+        gate( `[${ label }] ML RMS lowest (mm)`, Math.min( ...window.medioLateral ), 3.0, 5.0,
+            'gate 3-5 mm; plate 3.0, board 4.0' );
+        gate( `[${ label }] ML RMS highest (mm)`, Math.max( ...window.medioLateral ), 3.0, 5.0, '' );
+        gate( `[${ label }] AP RMS lowest (mm)`, Math.min( ...window.anteroPosterior ), 5.0, 7.0,
+            'gate 5-7 mm; plate 4.9, board 6.6' );
+        gate( `[${ label }] AP RMS highest (mm)`, Math.max( ...window.anteroPosterior ), 5.0, 7.0, '' );
 
-        gate( `[${ label }] ML mode (Hz)`, mlSpectrum.mode, 0.25, 0.36, 'plate ML 0.33' );
-        gate( `[${ label }] AP mode (Hz)`, apSpectrum.mode, 0.22, 0.36, 'plate AP 0.27' );
-        gate( `[${ label }] ML f50 (Hz)`, mlSpectrum.f50, 0.34, 0.46, 'plate ML 0.43' );
-        gate( `[${ label }] AP f50 (Hz)`, apSpectrum.f50, 0.34, 0.46, 'plate AP 0.42' );
-        gate( `[${ label }] ML f95 (Hz)`, mlSpectrum.f95, 0.95, 1.30, 'plate ML 1.09' );
-        gate( `[${ label }] AP f95 (Hz)`, apSpectrum.f95, 1.05, 1.50, 'plate AP 1.23' );
-        gate( `[${ label }] ML power > 2 Hz (%)`, mlSpectrum.powerAbove2HzPercent, 0, 2,
-            'essentially nothing above 2 Hz — faster reads as tremor' );
-        gate( `[${ label }] AP power > 2 Hz (%)`, apSpectrum.powerAbove2HzPercent, 0, 2,
-            'essentially nothing above 2 Hz — faster reads as tremor' );
+        // The band is the research's 1.5-2.0 anisotropy carried through the sampling error of an
+        // RMS estimate on a 0.3 Hz signal: a 60 s window holds ~18 cycles, so each axis' RMS
+        // scatters by roughly 1/sqrt(2n) ~ 12% and the ratio of two estimates by ~17%.
+        gate( `[${ label }] AP/ML ratio lowest`, Math.min( ...window.ratio ), 1.25, 2.20,
+            'AP is 1.5-2x ML and must never be isotropic' );
+        gate( `[${ label }] AP/ML ratio highest`, Math.max( ...window.ratio ), 1.25, 2.20, '' );
 
-        stack.dispose();
+        // The design ratio is 1.75 — the MIDPOINT of the measured anisotropy, not its bottom
+        // edge. Gated on the median across seeds against the research band itself, undilated,
+        // because a design centred on 1.50 puts half of all runs below the measured minimum.
+        gate( `[${ label }] AP/ML ratio median`, median( window.ratio ), 1.5, 2.0,
+            'design 1.75; the median must sit inside the measured band, not on its edge' );
 
     }
+
+    // Honest note on what the matrix can and cannot prove, because a future maintainer who widens
+    // the seed set will meet this and should know it is arithmetic rather than a regression.
+    const shortest = byWindow.get( SWAY_WINDOWS_SECONDS[ 0 ] ).anteroPosterior;
+    note( `AP RMS spread at ${ SWAY_WINDOWS_SECONDS[ 0 ] }s`,
+        `x${ ( Math.max( ...shortest ) / Math.min( ...shortest ) ).toFixed( 2 ) }`,
+        'the 5-7 mm gate spans x1.40; over ~40 seeds this window spreads x1.6, so a 60 s cell ' +
+        'can fall out on sampling error alone. The 300 s and 900 s rows are the load-bearing ones.' );
+
+}
+
+/**
+ * The spectral claim, made seed-robust.
+ *
+ * The frequency mode is the max bin of a Welch periodogram, which has enormous variance even
+ * after averaging — 2 of 8 seeds used to land outside the AP band on a layer that was otherwise
+ * correct. Two changes fix that without softening anything: the statistic is taken as the MEDIAN
+ * across seeds, which is how Quijoux's figure was produced in the first place (a median across
+ * subjects, not a single recording), and the power-weighted centroid of the postural band is
+ * reported alongside as a second, much better-behaved estimator of the same thing.
+ */
+function measureSwaySpectrum() {
+
+    section( '2.6  POSTURAL SWAY — spectrum of `new Sway()`, median over seeds' );
+
+    const segment = 2048;
+    const medioLateral = [];
+    const anteroPosterior = [];
+
+    for ( const seed of SWAY_SEEDS ) {
+
+        const track = traceSwayHead( seed, SPECTRUM_DURATION_SECONDS );
+
+        medioLateral.push( welchSpectrum( track.medioLateral, segment ) );
+        anteroPosterior.push( welchSpectrum( track.anteroPosterior, segment ) );
+
+    }
+
+    console.log( `  ${ SWAY_SEEDS.length } seeds x ${ SPECTRUM_DURATION_SECONDS } s, ` +
+        `${ ( SAMPLE_RATE_HZ / segment ).toFixed( 4 ) } Hz FFT bins, ` +
+        `statistics taken over the postural band above ${ POSTURAL_BAND_FLOOR_HZ } Hz` );
+
+    for ( const [ axis, spectra, modeLow, modeHigh, source ] of [
+        [ 'ML', medioLateral, 0.25, 0.36, 'plate ML 0.33' ],
+        [ 'AP', anteroPosterior, 0.22, 0.36, 'plate AP 0.27' ]
+    ] ) {
+
+        const modes = spectra.map( ( spectrum ) => spectrum.mode );
+
+        gate( `${ axis } mode, median (Hz)`, median( modes ), modeLow, modeHigh, source );
+        note( `${ axis } mode, per-seed spread (Hz)`,
+            `${ Math.min( ...modes ).toFixed( 3 ) }-${ Math.max( ...modes ).toFixed( 3 ) }`,
+            'a max-bin estimate; this spread is why the gate is on the median' );
+
+        gate( `${ axis } band centroid, median (Hz)`,
+            median( spectra.map( ( spectrum ) => spectrum.bandCentroid ) ), 0.35, 0.60,
+            'power-weighted centroid, the robust twin of the mode; plate centroidal 0.61-0.66' );
+
+    }
+
+    gate( 'ML f50, median (Hz)', median( medioLateral.map( ( s ) => s.f50 ) ), 0.34, 0.46, 'plate ML 0.43' );
+    gate( 'AP f50, median (Hz)', median( anteroPosterior.map( ( s ) => s.f50 ) ), 0.34, 0.46, 'plate AP 0.42' );
+    gate( 'ML f95, median (Hz)', median( medioLateral.map( ( s ) => s.f95 ) ), 0.95, 1.30, 'plate ML 1.09' );
+    gate( 'AP f95, median (Hz)', median( anteroPosterior.map( ( s ) => s.f95 ) ), 1.05, 1.50, 'plate AP 1.23' );
+
+    // This one is a tail fraction rather than a peak, so it needs no median: it is stable seed to
+    // seed and the worst case is the number that matters.
+    gate( 'ML power > 2 Hz, worst (%)', Math.max( ...medioLateral.map( ( s ) => s.powerAbove2HzPercent ) ), 0, 2,
+        'essentially nothing above 2 Hz — faster reads as tremor' );
+    gate( 'AP power > 2 Hz, worst (%)', Math.max( ...anteroPosterior.map( ( s ) => s.powerAbove2HzPercent ) ), 0, 2,
+        'essentially nothing above 2 Hz — faster reads as tremor' );
+
+}
+
+/** One run of the default layer, returning the head's horizontal excursion in metres. */
+function traceSwayHead( seed, seconds ) {
+
+    const { stack, root } = buildStack( ( options ) => new Sway( options ), seed );
+
+    const head = root.getObjectByName( 'head' );
+    const medioLateral = [];
+    const anteroPosterior = [];
+
+    for ( let frame = 0; frame < seconds * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+        root.updateMatrixWorld( true );
+
+        medioLateral.push( head.matrixWorld.elements[ 12 ] );
+        anteroPosterior.push( head.matrixWorld.elements[ 14 ] );
+
+    }
+
+    stack.dispose();
+
+    return { medioLateral, anteroPosterior };
 
 }
 
@@ -301,12 +441,13 @@ function measureWeightShifts() {
     gate( 'shifts per minute (both axes)', layer.eventCounts.shift / minutes, 0.38, 0.62,
         'ML 0.30/min + AP 0.19/min' );
 
-    // The cap applies to the posture component alone, so the head's total excursion is that cap
-    // plus the balance band and the slow drift riding on top of it.
+    // The posture cap is stated in centre-of-pressure millimetres — 30 ML, 22 AP — and only
+    // POSTURE_HEAD_TRANSFER of it reaches the head, so the peaks below are dominated by the
+    // balance band rather than by the shifts. That is the intended balance of the two processes.
     note( 'peak head ML offset (mm)', ( extreme( track, 'x' ) * 1000 ).toFixed( 1 ),
-        'shift amplitude 22 +- 38 mm ML; posture capped at 35 mm, plus balance and drift' );
+        'COP shift 22 +- 38 mm ML, capped at 30 mm, x0.20 to the head, plus balance and drift' );
     note( 'peak head AP offset (mm)', ( extreme( track, 'z' ) * 1000 ).toFixed( 1 ),
-        'shift amplitude 17 +- 15 mm AP; posture capped at 25 mm, plus balance and drift' );
+        'COP shift 17 +- 15 mm AP, capped at 22 mm, x0.20 to the head, plus balance and drift' );
 
     stack.dispose();
 
@@ -427,8 +568,7 @@ function measureVariableFrameTime() {
 
     section( 'VARIABLE FRAME TIME — a jittering 30-120 fps loop, plus one stall' );
 
-    const { stack, root } = buildStack( ( options ) =>
-        new Sway( { ...options, weightShiftsEnabled: false } ) );
+    const { stack, root } = buildStack( ( options ) => new Sway( options ) );
 
     const head = root.getObjectByName( 'head' );
     const jitter = new MotionRandom( 99 );
@@ -511,12 +651,12 @@ function measureDeterminism() {
  * previous one has already driven captures a DISPLACED rest and every absolute measurement below
  * would be off by the last frame of the previous run.
  */
-function buildStack( createLayer ) {
+function buildStack( createLayer, seed = SEED ) {
 
     restoreRestPose();
 
     const root = figure.root;
-    const stack = new MotionStack( { seed: SEED } );
+    const stack = new MotionStack( { seed } );
 
     stack.bind( createMotionTarget( root ) );
 
@@ -667,6 +807,17 @@ function extreme( points, axis ) {
 
 }
 
+function median( values ) {
+
+    const sorted = [ ...values ].sort( ( a, b ) => a - b );
+    const middle = sorted.length >> 1;
+
+    if ( sorted.length % 2 === 1 ) return sorted[ middle ];
+
+    return ( sorted[ middle - 1 ] + sorted[ middle ] ) / 2;
+
+}
+
 function rootMeanSquare( samples ) {
 
     let mean = 0;
@@ -738,17 +889,25 @@ function welchSpectrum( samples, segmentLength ) {
 
     const frequencyOf = ( k ) => k * SAMPLE_RATE_HZ / segmentLength;
 
+    // Bins below the postural band are dropped from every statistic below. See the note on
+    // POSTURAL_BAND_FLOOR_HZ: the weight-shift process lives down there and the papers these
+    // targets come from could not see it.
+    const firstBin = Math.max( 1, Math.ceil( POSTURAL_BAND_FLOOR_HZ * segmentLength / SAMPLE_RATE_HZ ) );
+
     let total = 0;
     let above2Hz = 0;
     let tremorBand = 0;
     let mode = 0;
     let modePower = -1;
+    let weightedFrequency = 0;
 
-    for ( let k = 1; k < half; k ++ ) {
+    for ( let k = firstBin; k < half; k ++ ) {
 
         const frequency = frequencyOf( k );
 
         total += power[ k ];
+        weightedFrequency += power[ k ] * frequency;
+
         if ( frequency > 2 ) above2Hz += power[ k ];
         if ( frequency >= 8 && frequency <= 12 ) tremorBand += power[ k ];
         if ( smoothed[ k ] > modePower ) { modePower = smoothed[ k ]; mode = frequency; }
@@ -759,7 +918,7 @@ function welchSpectrum( samples, segmentLength ) {
     let f50 = 0;
     let f95 = 0;
 
-    for ( let k = 1; k < half; k ++ ) {
+    for ( let k = firstBin; k < half; k ++ ) {
 
         cumulative += power[ k ];
         if ( f50 === 0 && cumulative >= 0.5 * total ) f50 = frequencyOf( k );
@@ -769,6 +928,10 @@ function welchSpectrum( samples, segmentLength ) {
 
     return {
         mode,
+        // The power-weighted centroid of the same band. A max-bin estimate reads one bin of a
+        // stochastic spectrum and inherits its full variance; the centroid reads all of them, so
+        // it moves when the SHAPE moves and not when a single bin happens to spike.
+        bandCentroid: weightedFrequency / total,
         f50,
         f95,
         powerAbove2HzPercent: 100 * above2Hz / total,

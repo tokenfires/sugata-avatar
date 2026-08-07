@@ -114,8 +114,32 @@ function summariseMeshes(gltfJson) {
   return meshes;
 }
 
-/** Loads the same buffer through three.js and returns each mesh's morphTargetDictionary keys. */
-async function readMorphNamesViaThree(fileBuffer) {
+/** Vertices whose bone weights all sum to zero — present in the skin, but pinned to the bind pose.
+ *
+ * A mesh can carry a full JOINTS_0/WEIGHTS_0 pair and still have vertices nothing drives, which
+ * is the quiet half of the unskinned-face bug: the part travels with the head except for the
+ * strip that stays behind, tearing it open.
+ */
+function countUnweightedVertices(geometry) {
+  const weights = geometry.attributes.skinWeight;
+  if (!weights) {
+    return 0;
+  }
+
+  let unweighted = 0;
+  for (let index = 0; index < weights.count; index += 1) {
+    const total = weights.getX(index) + weights.getY(index) +
+                  weights.getZ(index) + weights.getW(index);
+    if (total <= 0) {
+      unweighted += 1;
+    }
+  }
+
+  return unweighted;
+}
+
+/** Loads the buffer through three.js and reports what the runtime will actually get per mesh. */
+async function readMeshesViaThree(fileBuffer) {
   const loader = new GLTFLoader();
   const arrayBuffer = fileBuffer.buffer.slice(
     fileBuffer.byteOffset, fileBuffer.byteOffset + fileBuffer.byteLength);
@@ -126,9 +150,21 @@ async function readMorphNamesViaThree(fileBuffer) {
 
   const perMesh = [];
   gltf.scene.traverse((object) => {
-    if (object.isMesh && object.morphTargetDictionary) {
-      perMesh.push({ name: object.name, morphNames: Object.keys(object.morphTargetDictionary) });
+    if (!object.isMesh) {
+      return;
     }
+    const material = Array.isArray(object.material) ? object.material[0] : object.material;
+    perMesh.push({
+      name: object.name,
+      morphNames: Object.keys(object.morphTargetDictionary ?? {}),
+      isSkinnedMesh: object.isSkinnedMesh === true,
+      hasSkeleton: Boolean(object.skeleton),
+      unweightedVertexCount: countUnweightedVertices(object.geometry),
+      transparent: material.transparent,
+      depthWrite: material.depthWrite,
+      alphaTest: material.alphaTest,
+      side: material.side,
+    });
   });
 
   return perMesh;
@@ -195,7 +231,7 @@ async function verifyFigure(glbPath) {
 
   console.log("");
   console.log("--- assertions after three.js GLTFLoader.parse() ---");
-  const threeMeshes = await readMorphNamesViaThree(fileBuffer);
+  const threeMeshes = await readMeshesViaThree(fileBuffer);
   const threeBody = threeMeshes.find((mesh) => mesh.morphNames.includes("jawOpen"));
 
   if (!threeBody) {
@@ -215,6 +251,8 @@ async function verifyFigure(glbPath) {
   }
 
   failures.push(...reportFaceParts(meshes));
+  failures.push(...reportSkinning(json, threeMeshes));
+  failures.push(...reportMaterials(json, threeMeshes));
 
   return failures;
 }
@@ -263,6 +301,165 @@ function reportFaceParts(meshes) {
 
     console.log(`  ok   ${part.label.padEnd(10)} ${mesh.name.padEnd(22)} ` +
                 `${String(mesh.morphTargetCount).padStart(3)} morphs, '${part.mustCarry}' present`);
+  }
+
+  return failures;
+}
+
+// Every mesh in the figure lives on the head or the body and must deform with the skeleton. The
+// face parts once exported as plain child nodes of the skinned body: POSITION/NORMAL/TEXCOORD_0
+// and nothing else, inheriting the body's identity object transform and none of its deformation.
+// The body mesh alone stayed perfect throughout, so every body-only assertion above stayed green
+// while the eyebrows floated over the temple at a 14 degree head yaw.
+function reportSkinning(gltfJson, threeMeshes) {
+  const failures = [];
+
+  console.log("");
+  console.log("--- assertions on skinning ---");
+
+  for (const node of gltfJson.nodes ?? []) {
+    if (node.mesh === undefined) {
+      continue;
+    }
+
+    const mesh = gltfJson.meshes[node.mesh];
+    const problems = [];
+
+    if (node.skin === undefined) {
+      problems.push("node references no skin");
+    }
+    for (const primitive of mesh.primitives ?? []) {
+      if (primitive.attributes.JOINTS_0 === undefined) {
+        problems.push("primitive has no JOINTS_0");
+      }
+      if (primitive.attributes.WEIGHTS_0 === undefined) {
+        problems.push("primitive has no WEIGHTS_0");
+      }
+    }
+
+    if (problems.length > 0) {
+      console.log(`  FAIL ${node.name} (mesh '${mesh.name}'): ${problems.join(", ")}`);
+      failures.push(`${node.name} is not skinned`);
+      continue;
+    }
+
+    console.log(`  ok   ${node.name.padEnd(24)} JOINTS_0 + WEIGHTS_0, skin ${node.skin}`);
+  }
+
+  // The container can be correct and three.js still build a plain Mesh, which silently ignores
+  // the skin data. SkinnedMesh with a live skeleton is the thing the runtime needs.
+  for (const mesh of threeMeshes) {
+    if (!mesh.isSkinnedMesh || !mesh.hasSkeleton) {
+      console.log(`  FAIL ${mesh.name}: three.js built ` +
+                  `${mesh.isSkinnedMesh ? "a SkinnedMesh with no skeleton" : "a plain Mesh"}`);
+      failures.push(`${mesh.name} is not a SkinnedMesh in three.js`);
+      continue;
+    }
+    if (mesh.unweightedVertexCount > 0) {
+      console.log(`  FAIL ${mesh.name}: ${mesh.unweightedVertexCount} vertices have no bone ` +
+                  "weight at all and would stay at the bind pose");
+      failures.push(`${mesh.name} has unweighted vertices`);
+    }
+  }
+
+  return failures;
+}
+
+// MakeHuman puts an alpha channel on every skin texture and Blender used to take it literally,
+// exporting alphaMode BLEND on all six materials — including the solid body. A blended material
+// does not write depth, so the teeth and tongue drew straight through closed lips and the
+// eyeballs drew over the lids. Only the flat brow and lash cards are genuinely cutouts.
+const OPAQUE_MATERIAL_PARTS = [/body/i, /low-poly|eyeball/i, /teeth/i, /tongue/i];
+const MASK_MATERIAL_PARTS = [/brow/i, /lash/i];
+const EXPECTED_ALPHA_CUTOFF = 0.5;
+const THREE_FRONT_SIDE = 0;
+const THREE_DOUBLE_SIDE = 2;
+
+function reportMaterials(gltfJson, threeMeshes) {
+  const failures = [];
+
+  console.log("");
+  console.log("--- assertions on materials ---");
+
+  for (const material of gltfJson.materials ?? []) {
+    // glTF omits alphaMode when it is the default, so an absent field means OPAQUE.
+    const alphaMode = material.alphaMode ?? "OPAQUE";
+    const doubleSided = material.doubleSided === true;
+    const isCutout = MASK_MATERIAL_PARTS.some((pattern) => pattern.test(material.name));
+    const isSolid = OPAQUE_MATERIAL_PARTS.some((pattern) => pattern.test(material.name));
+
+    if (!isCutout && !isSolid) {
+      console.log(`  FAIL ${material.name}: unrecognised material, no expected alpha mode`);
+      failures.push(`${material.name} is not covered by the material expectations`);
+      continue;
+    }
+
+    const expectedMode = isCutout ? "MASK" : "OPAQUE";
+    const problems = [];
+
+    if (alphaMode !== expectedMode) {
+      problems.push(`alphaMode ${alphaMode}, expected ${expectedMode}`);
+    }
+    if (isCutout && (material.alphaCutoff ?? EXPECTED_ALPHA_CUTOFF) !== EXPECTED_ALPHA_CUTOFF) {
+      problems.push(`alphaCutoff ${material.alphaCutoff}, expected ${EXPECTED_ALPHA_CUTOFF}`);
+    }
+    // Closed geometry seen from inside is a rendering artefact; a lash card seen from behind is
+    // still a lash.
+    if (isSolid && doubleSided) {
+      problems.push("doubleSided, expected backface culled");
+    }
+    if (isCutout && !doubleSided) {
+      problems.push("single sided, expected doubleSided");
+    }
+
+    if (problems.length > 0) {
+      console.log(`  FAIL ${material.name}: ${problems.join("; ")}`);
+      failures.push(`${material.name} has the wrong alpha settings`);
+      continue;
+    }
+
+    console.log(`  ok   ${material.name.padEnd(24)} ${alphaMode.padEnd(6)} ` +
+                `${doubleSided ? "doubleSided" : "backface culled"}`);
+  }
+
+  failures.push(...reportRuntimeMaterials(threeMeshes));
+
+  return failures;
+}
+
+// alphaMode is only the file's half of the story. What actually decides whether the teeth draw
+// through the lips is three.js writing depth, so assert the loaded material directly.
+function reportRuntimeMaterials(threeMeshes) {
+  const failures = [];
+
+  for (const mesh of threeMeshes) {
+    const isCutout = MASK_MATERIAL_PARTS.some((pattern) => pattern.test(mesh.name));
+    const problems = [];
+
+    if (mesh.transparent) {
+      problems.push("transparent");
+    }
+    if (!mesh.depthWrite) {
+      problems.push("depthWrite off");
+    }
+    if (isCutout && mesh.alphaTest !== EXPECTED_ALPHA_CUTOFF) {
+      problems.push(`alphaTest ${mesh.alphaTest}, expected ${EXPECTED_ALPHA_CUTOFF}`);
+    }
+    if (!isCutout && mesh.side !== THREE_FRONT_SIDE) {
+      problems.push(`side ${mesh.side}, expected FrontSide`);
+    }
+    if (isCutout && mesh.side !== THREE_DOUBLE_SIDE) {
+      problems.push(`side ${mesh.side}, expected DoubleSide`);
+    }
+
+    if (problems.length > 0) {
+      console.log(`  FAIL ${mesh.name} in three.js: ${problems.join("; ")}`);
+      failures.push(`${mesh.name} renders wrong in three.js`);
+      continue;
+    }
+
+    console.log(`  ok   ${mesh.name.padEnd(24)} three.js: opaque, depth-writing` +
+                `${isCutout ? `, alphaTest ${mesh.alphaTest}` : ""}`);
   }
 
   return failures;

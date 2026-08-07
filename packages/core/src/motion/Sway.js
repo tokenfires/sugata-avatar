@@ -23,9 +23,12 @@
  * AP is consistently 1.5–2× ML in amplitude, in velocity AND in high-frequency content. Sway is
  * not isotropic and making it isotropic is visible: an isotropic wobble reads as floating.
  *
- * The punch-list gate widens the RMS to 3–5 mm ML and 5–7 mm AP, spanning the Wii-board and
- * force-plate protocols, so the defaults here are the midpoints: 4.0 mm ML, 6.0 mm AP. Ratio
- * 1.5, at the bottom of the measured anisotropy range.
+ * 🎯 THE ANISOTROPY IS THE CLAIM, SO IT IS WHAT THE DEFAULTS ARE CENTRED ON. The punch-list gate
+ * widens the RMS to 3–5 mm ML and 5–7 mm AP, spanning the Wii-board and force-plate protocols.
+ * Sitting on both midpoints — 4.0 and 6.0 mm — would mean a design ratio of exactly 1.50, the
+ * BOTTOM EDGE of the measured 1.5–2.0 anisotropy, and the sampling scatter of an RMS estimate
+ * then puts half of all runs below 1.5, i.e. outside the finding. So AP takes its gate midpoint
+ * and ML is derived from the anisotropy MIDPOINT of 1.75 instead: 6.04 mm AP, 3.45 mm ML.
  *
  * 🚩 One honest approximation. The literature figure is centre-of-pressure RMS at the floor;
  * this layer applies the same amplitude as the horizontal excursion of the HEAD, because that is
@@ -33,6 +36,8 @@
  * inverted pendulum moves its head at least as far as its centre of pressure. The gate measures
  * head excursion, so the two agree by construction — but they are not the same quantity, and a
  * future critic comparing against a force plate needs to know that.
+ *
+ * ⚠️ That approximation does NOT carry over to the weight shifts below. See POSTURE_HEAD_TRANSFER.
  *
  *
  * HOW THE SPECTRUM IS BUILT
@@ -110,9 +115,15 @@ const BALANCE_BANDS_ANTERO_POSTERIOR = [
  */
 const BALANCE_BAND_UNIT_RMS = 0.314;
 
-/** Midpoints of the punch-list gate ranges (3–5 mm ML, 5–7 mm AP). Metres. */
-const BALANCE_RMS_MEDIO_LATERAL_METRES = 0.0040;
-const BALANCE_RMS_ANTERO_POSTERIOR_METRES = 0.0060;
+/**
+ * AP sits at the midpoint of its gate range (5–7 mm); ML is AP divided by 1.75, the midpoint of
+ * the measured 1.5–2.0 anisotropy, rather than at its own gate midpoint. See the file header for
+ * why centring the RATIO matters more than centring both amplitudes. Metres.
+ */
+const BALANCE_RMS_ANTERO_POSTERIOR_METRES = 0.00604;
+const BALANCE_ANISOTROPY_ANTERO_POSTERIOR_OVER_MEDIO_LATERAL = 1.75;
+const BALANCE_RMS_MEDIO_LATERAL_METRES =
+    BALANCE_RMS_ANTERO_POSTERIOR_METRES / BALANCE_ANISOTROPY_ANTERO_POSTERIOR_OVER_MEDIO_LATERAL;
 
 /** Duarte & Zatsiorsky 1999, derived rates, events per second. */
 const FIDGET_RATE_MEDIO_LATERAL = 1.2 / 60;
@@ -150,22 +161,64 @@ const FIDGET_DURATION_SECONDS = 1.4;
 const SHIFT_SETTLE_SECONDS = 0.8;
 
 /**
- * TUNING. How fast a shifted stance leaks back toward centre. Without this the random walk
- * eventually walks the avatar out of frame; with it, a stance holds for the better part of a
- * minute — long enough to read as a decision rather than a spring.
+ * 🚩 TUNING, and the single most consequential number in the weight-shift half of this file.
+ *
+ * Everything in the block above is a CENTRE-OF-PRESSURE amplitude at the floor. For the balance
+ * band, treating COP excursion as head excursion is a fair approximation (see the file header):
+ * quiet sway really is a near-rigid inverted pendulum, so the head travels at least as far as
+ * the COP. A WEIGHT SHIFT is not that motion at all. Loading one leg drives the pelvis sideways
+ * over the loaded foot and the trunk counter-leans above it; the COP moves 22 mm and the head,
+ * which is what the counter-lean exists to keep still, moves a fraction of that — and not
+ * necessarily in the same direction.
+ *
+ * No coefficient for that transfer is in the record, so this is the assumption, and it is the
+ * one to attack first if the idle stance looks wrong. It is chosen so that the weight shifts are
+ * a PERTURBATION on the balance band rather than a replacement for it. The version this replaced
+ * had no transfer at all, and measured over 8 seeds × 60/300/900 s windows the shift process on
+ * its own then contributed 6–14 mm RMS of head excursion against a 4–6 mm balance band: it
+ * swamped the measured sway, inverted its anisotropy (Duarte's ML shifts are the larger ones,
+ * and the literature's ML sway is the smaller one) and put the default layer outside its own
+ * gate on 18 of those 24 combinations. Measured, not assumed — `idle-motion.selftest.mjs`
+ * prints the matrix on every run.
+ *
+ * Duarte's amplitudes stay literal above and `axis.displacement` stays in COP millimetres, so a
+ * critic can still compare the event process against the paper. The transfer is applied once,
+ * where posture becomes head displacement.
  */
-const SHIFT_RETURN_SECONDS = 45;
+const POSTURE_HEAD_TRANSFER = 0.20;
 
 /**
- * TUNING. Hard limit on the accumulated posture offset, metres. Well inside a real limit of
- * stability; the point is that an idle avatar should not wander, not that it cannot.
+ * TUNING. How fast a shifted stance leaks back toward centre. Without this the random walk
+ * eventually walks the avatar out of frame; with it, a stance holds for something like half a
+ * minute — long enough to read as a decision rather than a spring.
+ *
+ * It is also the term that sets how much shift variance accumulates, which is why it is one of
+ * the three constants the sway retune touched: for jumps arriving at rate λ and decaying over τ,
+ * the stationary variance is λ·τ·E[A²]/2, so the accumulated stance grows as the square root of
+ * this number. The previous 45 s gave a stance 22% wider than 30 s does, for no gain that a
+ * viewer could name.
  */
-const POSTURE_OFFSET_LIMIT_MEDIO_LATERAL_METRES = 0.035;
-const POSTURE_OFFSET_LIMIT_ANTERO_POSTERIOR_METRES = 0.025;
+const SHIFT_RETURN_SECONDS = 30;
 
-/** TUNING. Drift amplitude, metres. Duarte reports drift intervals but no amplitude. */
-const DRIFT_AMPLITUDE_MEDIO_LATERAL_METRES = 0.006;
-const DRIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES = 0.005;
+/**
+ * TUNING. Hard limit on the accumulated posture offset, in COP metres. Well inside a real limit
+ * of stability; the point is that an idle avatar should not wander, not that it cannot. Duarte's
+ * ML shift amplitude has an SD of 38 mm on a mean of 22 mm, so without this clamp a single draw
+ * from the tail can put the stance somewhere no standing human goes.
+ */
+const POSTURE_OFFSET_LIMIT_MEDIO_LATERAL_METRES = 0.030;
+const POSTURE_OFFSET_LIMIT_ANTERO_POSTERIOR_METRES = 0.022;
+
+/**
+ * TUNING. Drift amplitude, in COP metres. Duarte reports drift intervals but no amplitude.
+ *
+ * The first version had ML larger than AP, which is backwards: the one thing the sway literature
+ * is emphatic about is that AP exceeds ML on every measure it reports. These carry the same 1.75
+ * anisotropy the balance band does, so the slow drift cannot quietly undo it over a long run.
+ */
+const DRIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES = 0.007;
+const DRIFT_AMPLITUDE_MEDIO_LATERAL_METRES =
+    DRIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES / BALANCE_ANISOTROPY_ANTERO_POSTERIOR_OVER_MEDIO_LATERAL;
 
 /**
  * TUNING. How much of the trunk's lean the neck takes back, so the head stays nearer vertical
@@ -228,7 +281,9 @@ export class Sway extends Layer {
      * @param {number} [options.headStabilisation=0.3]
      * @param {number[]} [options.leanShare=[0.5,0.3,0.2]] - Must sum to 1 and match `bones.lean`.
      * @param {boolean} [options.weightShiftsEnabled=true] - Turn off to measure the balance band
-     *   on its own, which is what the punch-list RMS and spectrum gates are stated against.
+     *   on its own. The gates are stated against the layer AS CONSTRUCTED, not against this.
+     * @param {number} [options.postureHeadTransfer=0.20] - Fraction of a centre-of-pressure
+     *   weight shift that reaches the head. See POSTURE_HEAD_TRANSFER before changing it.
      * @param {Object} [options.bones] - `{ lean: string[], neck, reference }`. `reference` is the
      *   marker the stated amplitude is realised at, and defaults to the head.
      */
@@ -268,6 +323,7 @@ export class Sway extends Layer {
         this.balanceRmsAnteroPosterior = options.balanceRmsAnteroPosteriorMetres ?? BALANCE_RMS_ANTERO_POSTERIOR_METRES;
 
         this.weightShiftsEnabled = options.weightShiftsEnabled ?? true;
+        this.postureHeadTransfer = options.postureHeadTransfer ?? POSTURE_HEAD_TRANSFER;
 
         this.elapsedSeconds = 0;
 
@@ -275,7 +331,7 @@ export class Sway extends Layer {
         // Kept apart because the gates are stated against `balance` alone and because a critic
         // reading "the avatar drifted 30 mm" needs to know which process did it.
         this.balanceDisplacement = new Vector3();  // continuous, the measured spectrum
-        this.postureDisplacement = new Vector3();  // fidget + shift + drift
+        this.postureDisplacement = new Vector3();  // fidget + shift + drift, after the transfer
         this.displacement = new Vector3();         // the sum, which is what gets posed
 
         // Per-axis weight-shift state. Two identical structures rather than one interleaved
@@ -360,10 +416,14 @@ export class Sway extends Layer {
 
         }
 
+        // The per-axis state is in centre-of-pressure metres, because that is the unit Duarte
+        // measured in; this is the one place it becomes head displacement.
+        const transfer = this.weightShiftsEnabled ? this.postureHeadTransfer : 0;
+
         this.postureDisplacement.set(
-            this.weightShiftsEnabled ? this.medioLateral.displacement : 0,
+            transfer * this.medioLateral.displacement,
             0,
-            this.weightShiftsEnabled ? this.anteroPosterior.displacement : 0
+            transfer * this.anteroPosterior.displacement
         );
 
         this.displacement.copy( this.balanceDisplacement ).add( this.postureDisplacement );

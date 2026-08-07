@@ -21,8 +21,11 @@
  *                     always at least 2x the closing — enforced when the pair is sampled, not
  *                     just true on average.
  *   2. Full closure.  Trutoiu found partial-closure blinks are consistently rated as wrong.
- *                     The lids reach exactly 1.0 and the frame that crosses into closure is
- *                     snapped so a 60 Hz sampler can never skip over it.
+ *                     The lids reach exactly full closure and the frame that crosses into it is
+ *                     snapped so a 60 Hz sampler can never skip over it. "Full closure" is a
+ *                     statement about the LID, not about the morph slider: on this asset the eye
+ *                     is sealed at weight 0.735 and everything above that drives the lid through
+ *                     the lower one. See FULL_CLOSURE_MORPH_WEIGHT.
  *   3. Non-uniform velocity WITHIN each phase, and differently shaped between the two:
  *                     the downphase is near-ballistic (trapezoidal velocity — a fast onset, a
  *                     long constant-speed fall, a short deceleration as the lids meet); the
@@ -120,6 +123,41 @@ const SACCADE_COUPLING_DEFAULTS = {
 
 const UNILATERAL_BLINK_PROBABILITY = 0.02;
 
+// --- the asset's real useful range, measured -----------------------------------------------------
+//
+// 🎯 THE MORPH IS NOT A 0..1 APERTURE, AND ASSUMING IT IS COSTS TWO THIRDS OF THE ANIMATION.
+//
+// `eyeBlink{Left,Right}` is a linear vertex displacement, so the lid keeps travelling for as long
+// as the weight keeps rising — including well past the point where it has already met the lower
+// lid. Measured on all five figures of the gender sweep by rasterising the eye-region skin and
+// the eyeball into a frontal depth map and finding the weight at which no eyeball is visible at
+// all (`ocular.selftest.mjs` re-measures this against the GLB on every run, so the number below
+// cannot silently drift away from the asset):
+//
+//     figure   eye sealed at   lashes clear the aperture at
+//     g000        0.733            0.683
+//     g025        0.722            0.677
+//     g050        0.697            0.603
+//     g075        0.679            0.630
+//     g100        0.658            0.552
+//
+// Driving to 1.0 therefore did two things, both visible. Past the seal the lid margin carries on
+// down through the lower lid — 0.30 of a weight, about 3.8 mm of travel on g050 — which is what
+// pushes the lash cards and a sliver of sclera through the skin.
+//
+// And the timing curve stopped meaning what it says. With the aperture written straight onto the
+// morph, the g050 lid is already shut 62.7% of the way down the fall and stays looking shut for
+// the first 19.1% of the rise, so 30% of a curve whose whole point is its shape was spent
+// against the stop. The blink read as "shut, HOLD, roll open" — a hold three times longer than
+// the 10–30 ms the layer actually schedules — which is the asymmetry this file exists to get
+// right, undone at the output boundary.
+//
+// The default is the LARGEST of the five, so every figure in the sweep reaches full closure. The
+// cost is that g100 overshoots by 0.077 of a weight — under a millimetre of lid travel, against
+// the 3.8 mm it had before — and Trutoiu is explicit that a blink which fails to close fully is
+// the worse error of the two.
+const FULL_CLOSURE_MORPH_WEIGHT = 0.735;
+
 const LEFT_EYELID_MORPH = 'eyeBlinkLeft';
 const RIGHT_EYELID_MORPH = 'eyeBlinkRight';
 
@@ -137,6 +175,8 @@ export class Blink extends Layer {
      *   reading figure is 1.4–14.4/min, primary gaze 8.0–21.0/min.
      * @param {Object} [options.saccadeCoupling] - See SACCADE_COUPLING_DEFAULTS.
      * @param {number} [options.unilateralProbability=0.02]
+     * @param {number} [options.fullClosureMorphWeight=0.735] - The morph weight at which THIS
+     *   asset's lid is fully shut. Measure it before changing it; see FULL_CLOSURE_MORPH_WEIGHT.
      */
     constructor( options = {} ) {
 
@@ -154,6 +194,7 @@ export class Blink extends Layer {
         this.rateBoundsPerMinute = [ ...( options.rateBoundsPerMinute ?? CONVERSATION_RATE_RANGE_PER_MINUTE ) ];
         this.saccadeCoupling = { ...SACCADE_COUPLING_DEFAULTS, ...( options.saccadeCoupling ?? {} ) };
         this.unilateralProbability = options.unilateralProbability ?? UNILATERAL_BLINK_PROBABILITY;
+        this.fullClosureMorphWeight = options.fullClosureMorphWeight ?? FULL_CLOSURE_MORPH_WEIGHT;
 
         // Drive signals, 0..1, written by the affect/attention system in Phase 5.
         this.cognitiveLoad = 0;
@@ -168,6 +209,10 @@ export class Blink extends Layer {
         this.rightAmplitude = 1;
 
         this.secondsUntilNextBlink = 0;
+
+        // Aperture, not morph weight: 0 open, 1 shut. Published to the rest of the stack in these
+        // units too, because "how shut are the eyes" is an answer about the eye, not about this
+        // asset's blendshape range. See morphWeightFor().
         this.closure = 0;
 
         // Diagnostics. The selftest reads these; so does the critic harness.
@@ -209,8 +254,8 @@ export class Blink extends Layer {
         // Between blinks the lids belong to whatever expression is running, so say nothing.
         if ( this.closure === 0 ) return null;
 
-        this.contribution.setMorph( LEFT_EYELID_MORPH, this.closure * this.leftAmplitude );
-        this.contribution.setMorph( RIGHT_EYELID_MORPH, this.closure * this.rightAmplitude );
+        this.contribution.setMorph( LEFT_EYELID_MORPH, this.morphWeightFor( this.leftAmplitude ) );
+        this.contribution.setMorph( RIGHT_EYELID_MORPH, this.morphWeightFor( this.rightAmplitude ) );
 
         return this.contribution;
 
@@ -337,6 +382,24 @@ export class Blink extends Layer {
         if ( openingProgress >= 1 ) return 0;
 
         return 1 - reopeningDuringUpphase( openingProgress );
+
+    }
+
+    /**
+     * The one place perceptual closure becomes an asset weight.
+     *
+     * Everything above this line — the phase durations, the two velocity profiles, the closed
+     * hold, the snap that guarantees a rendered 1.0 — is in APERTURE units: 0 is a fully open
+     * eye and 1 is a fully shut one, which is what the literature's numbers are about and what
+     * makes the timing constants readable. The morph is not that scale, so the two are kept
+     * apart and the mapping happens once, here, at the boundary. Linear, because the morph is a
+     * linear vertex displacement: half the perceptual closure is the lid margin half way down.
+     *
+     * `amplitude` is the per-eye 0 or 1 that makes a unilateral blink unilateral.
+     */
+    morphWeightFor( amplitude ) {
+
+        return this.closure * amplitude * this.fullClosureMorphWeight;
 
     }
 
@@ -536,6 +599,7 @@ export function peakPhaseVelocities( closingDuration, openingDuration ) {
 }
 
 export const BLINK_CONSTANTS = {
+    FULL_CLOSURE_MORPH_WEIGHT,
     CLOSING_DURATION_RANGE_SECONDS,
     OPENING_DURATION_RANGE_SECONDS,
     OPENING_TO_CLOSING_RATIO_RANGE,

@@ -7,11 +7,17 @@
 // Punch-list 2.1 and 2.8. The claims under test are the ones the perceptual result hangs on:
 //
 //   BLINK
+//     (a0) the morph weight at which the lid actually seals, measured off all five GLBs of the
+//         gender sweep rather than assumed, and checked against the constant Blink drives to.
+//         The morph is linear and keeps going past the seal, so "1.0" is not "shut" — it is
+//         shut plus 3.8 mm of lid pushed through the lower lid.
 //     (a) the downphase is measurably shorter — and faster — than the upphase, for EVERY blink,
 //         not merely on average. This is the whole reason the file exists; Live2D ships it the
 //         other way round.
 //     (b) full eyelid closure is reached, at 30, 60 and 120 fps and under jittered frame times.
-//         Trutoiu et al. found partial-closure blinks read as wrong.
+//         Trutoiu et al. found partial-closure blinks read as wrong. Measured on the perceptual
+//         aperture, which is what the snap logic works in; the mapping onto the morph is linear
+//         and exact and is checked separately.
 //     (c) inter-blink intervals are exponentially distributed with the requested mean, which is
 //         what "Poisson process" has to mean in practice.
 //     (d) the rate moves the right way for cognitive load and for visual attention, and stays
@@ -31,6 +37,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
+import { Box3, Vector3 } from 'three';
+
 import { Layer } from './Layer.js';
 import { MotionStack, MOTION_ORDER, createMotionTarget } from './MotionStack.js';
 import { MotionRandom } from './Signals.js';
@@ -45,7 +53,12 @@ globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {}
 const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
 
 const HERE = path.dirname( fileURLToPath( import.meta.url ) );
-const FIGURE_PATH = path.resolve( HERE, '../../../../assets/figures/figure_g050.glb' );
+const FIGURES = path.resolve( HERE, '../../../../assets/figures' );
+const FIGURE_PATH = path.join( FIGURES, 'figure_g050.glb' );
+const GENDER_SWEEP = [ 'g000', 'g025', 'g050', 'g075', 'g100' ];
+
+/** Cells across the eyeball in the lid-seal probe. 160 puts a grid cell at about 0.2 mm. */
+const SEAL_PROBE_GRID = 160;
 
 const checks = [];
 
@@ -69,6 +82,55 @@ async function loadFigureTarget() {
 }
 
 const { target } = await loadFigureTarget();
+
+// --- (a0) where the lid actually shuts, measured off the GLB --------------------------------------
+//
+// Blink's output constant claims the eye is sealed at a particular morph weight. That is a claim
+// about the ASSET, so it is re-derived from the asset here rather than trusted: the eye-region
+// skin and the eyeball are rasterised into a frontal depth map and the weight is bisected for
+// until no eyeball is visible from straight ahead. No assumption is made about which vertices are
+// "the lid" — the eye is open exactly where the eyeball is in front of the skin.
+//
+// This is the check that stops the constant drifting away from the figure when the figure is
+// rebuilt, which is the failure mode a hand-tuned magic number always eventually has.
+
+{
+    const rows = [];
+    let worstUnderClosure = 0;
+    let worstOvershoot = 0;
+
+    for ( const name of GENDER_SWEEP ) {
+
+        const measured = await measureLidSeal( path.join( FIGURES, `figure_${ name }.glb` ) );
+
+        rows.push( `  ${ name }  seals at ${ measured.seal.toFixed( 3 ) }   ` +
+            `lashes clear at ${ measured.sealWithLashes.toFixed( 3 ) }   ` +
+            `open aperture ${ ( measured.openArea * 1e6 ).toFixed( 1 ) } mm2` );
+
+        worstUnderClosure = Math.max( worstUnderClosure, measured.seal - BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT );
+        worstOvershoot = Math.max( worstOvershoot, BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT - measured.seal );
+
+    }
+
+    process.stdout.write( `\nLID SEAL, measured off each GLB (Blink drives to ${ BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT })\n` );
+    for ( const row of rows ) process.stdout.write( `${ row }\n` );
+    process.stdout.write( '\n' );
+
+    check(
+        'blink: the configured full-closure weight actually shuts the eye on every figure in the sweep',
+        worstUnderClosure <= 0,
+        `worst shortfall ${ worstUnderClosure.toFixed( 4 ) } of a weight; Trutoiu found partial-closure blinks read as wrong`
+    );
+
+    // The other side of the same trade: sealing every figure means over-driving the ones that seal
+    // early. Held to a tenth of a weight, which on this lid is under a millimetre of travel —
+    // against the 0.30 of a weight, ~3.8 mm, the layer used to push through the lower lid.
+    check(
+        'blink: and does not drive any of them far past the seal',
+        worstOvershoot < 0.1,
+        `worst overshoot ${ worstOvershoot.toFixed( 4 ) } of a weight past the seal`
+    );
+}
 
 // --- (a) the asymmetry, sampled over many blinks -------------------------------------------------
 //
@@ -486,10 +548,37 @@ check(
 // --- the eyelids actually reach the figure ----------------------------------------------------------
 
 {
+    // Blink alone: the committed morph must reach the seal and stop there. A peak of 1.0 here is
+    // the defect, not the goal — it means the lid has been driven a third of a range past shut.
+    const solo = new MotionStack( { seed: 3 } ).bind( target );
+    const soloBlink = solo.add( new Blink() );
+
+    soloBlink.blinkNow();
+
+    let soloPeak = 0;
+
+    for ( let frame = 0; frame < 40; frame ++ ) {
+
+        solo.update( 1 / 60 );
+        soloPeak = Math.max( soloPeak, solo.morphChannels.get( 'eyeBlinkLeft' ).committed );
+
+    }
+
+    check(
+        'blink: eyeBlinkLeft commits exactly the measured full-closure weight, and not 1.0',
+        Math.abs( soloPeak - BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT ) < 1e-9,
+        `committed peak ${ soloPeak.toFixed( 6 ) } against a seal at ${ BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT }`
+    );
+
+    solo.dispose();
+}
+
+{
     const stack = new MotionStack( { seed: 3 } ).bind( target );
     const blink = stack.add( new Blink() );
 
-    // A stand-in for the expression layer, so the sum-and-clamp path is exercised too.
+    // A stand-in for the expression layer, so the sum-and-clamp path is exercised too. The squint
+    // is deep enough that the sum overshoots 1.0, because the clamp is the thing under test.
     class SquintLayer extends Layer {
 
         constructor() {
@@ -500,8 +589,8 @@ check(
 
         update() {
 
-            this.contribution.setMorph( 'eyeBlinkLeft', 0.2 );
-            this.contribution.setMorph( 'eyeBlinkRight', 0.2 );
+            this.contribution.setMorph( 'eyeBlinkLeft', 0.4 );
+            this.contribution.setMorph( 'eyeBlinkRight', 0.4 );
             return this.contribution;
 
         }
@@ -810,6 +899,223 @@ function writeLabel( cells, start, text ) {
         cells[ start + index ] = text[ index ];
 
     }
+
+}
+
+// --- the lid-seal probe -------------------------------------------------------------------------
+//
+// An orthographic depth test, done by hand rather than with a renderer so it runs in node and is
+// deterministic to the last bit. The eye is "open" wherever the eyeball's frontmost surface is in
+// front of the skin's, seen from straight ahead — which is the definition a viewer uses.
+
+async function measureLidSeal( figurePath ) {
+
+    const buffer = fs.readFileSync( figurePath );
+    const gltf = await new GLTFLoader().parseAsync(
+        buffer.buffer.slice( buffer.byteOffset, buffer.byteOffset + buffer.byteLength ), '' );
+
+    gltf.scene.updateMatrixWorld( true );
+
+    const meshes = {};
+    gltf.scene.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+        if ( object.name === 'Human' ) meshes.skin = object;
+        if ( object.name === 'Humaneyelashes01' ) meshes.lashes = object;
+        if ( object.name === 'Humanlow-poly' ) meshes.eyeball = object;
+
+    } );
+
+    // The character's own left eye. The two are mirror images and measure identically, so one is
+    // the measurement and the other would be a second copy of it.
+    const box = eyeballBox( meshes.eyeball, 1 );
+    const view = frontalGrid( box );
+
+    const eyeballDepth = depthMap( eyePatch( meshes.eyeball, box, 'eyeBlinkLeft' ), view, 0 );
+    const skin = eyePatch( meshes.skin, box, 'eyeBlinkLeft' );
+    const lashes = eyePatch( meshes.lashes, box, 'eyeBlinkLeft' );
+
+    return {
+        openArea: visibleArea( eyeballDepth, depthMap( skin, view, 0 ), view ),
+        seal: bisectSealWeight( eyeballDepth, skin, view ),
+        sealWithLashes: bisectSealWeight( eyeballDepth, [ ...skin, ...lashes ], view )
+    };
+
+}
+
+function eyeballBox( mesh, side ) {
+
+    const position = mesh.geometry.attributes.position;
+    const point = new Vector3();
+    const box = new Box3();
+
+    for ( let index = 0; index < position.count; index ++ ) {
+
+        point.fromBufferAttribute( position, index ).applyMatrix4( mesh.matrixWorld );
+        if ( Math.sign( point.x ) === side ) box.expandByPoint( point );
+
+    }
+
+    return box;
+
+}
+
+/** A square frontal grid a little larger than the eyeball, in world units. */
+function frontalGrid( box ) {
+
+    const size = box.getSize( new Vector3() );
+    const extent = Math.max( size.x, size.y );
+
+    return {
+        originX: box.min.x - extent * 0.1,
+        originY: box.min.y - extent * 0.1,
+        step: extent * 1.2 / SEAL_PROBE_GRID
+    };
+
+}
+
+/** Triangles of one mesh near the eye, each with the morph displacement that applies to it. */
+function eyePatch( mesh, box, morphName ) {
+
+    if ( mesh === undefined ) return [];
+
+    const geometry = mesh.geometry;
+    const index = geometry.index;
+    const position = geometry.attributes.position;
+    const morphIndex = mesh.morphTargetDictionary?.[ morphName ];
+    const displacement = morphIndex === undefined ? null : geometry.morphAttributes.position[ morphIndex ];
+
+    const meshScale = new Vector3().setFromMatrixScale( mesh.matrixWorld );
+    const centre = box.getCenter( new Vector3() );
+    const reach = box.getSize( new Vector3() ).length();
+
+    const triangles = [];
+    const count = index !== null ? index.count / 3 : position.count / 3;
+
+    for ( let triangle = 0; triangle < count; triangle ++ ) {
+
+        const base = [];
+        const move = [];
+        let near = false;
+
+        for ( let corner = 0; corner < 3; corner ++ ) {
+
+            const vertex = index !== null ? index.getX( triangle * 3 + corner ) : triangle * 3 + corner;
+
+            const point = new Vector3().fromBufferAttribute( position, vertex ).applyMatrix4( mesh.matrixWorld );
+
+            base.push( point );
+            move.push( displacement === null
+                ? new Vector3()
+                : new Vector3( displacement.getX( vertex ), displacement.getY( vertex ), displacement.getZ( vertex ) )
+                    .multiply( meshScale ) );
+
+            if ( point.distanceTo( centre ) < reach ) near = true;
+
+        }
+
+        if ( near ) triangles.push( { base, move } );
+
+    }
+
+    return triangles;
+
+}
+
+/** Frontmost z of these triangles per grid cell, with the morph applied at `weight`. */
+function depthMap( triangles, view, weight ) {
+
+    const depth = new Float64Array( SEAL_PROBE_GRID * SEAL_PROBE_GRID ).fill( -Infinity );
+
+    const a = new Vector3();
+    const b = new Vector3();
+    const c = new Vector3();
+
+    for ( const triangle of triangles ) {
+
+        a.copy( triangle.base[ 0 ] ).addScaledVector( triangle.move[ 0 ], weight );
+        b.copy( triangle.base[ 1 ] ).addScaledVector( triangle.move[ 1 ], weight );
+        c.copy( triangle.base[ 2 ] ).addScaledVector( triangle.move[ 2 ], weight );
+
+        // Twice the signed screen-space area. Zero means the triangle is edge-on and covers
+        // nothing; the barycentric signs below stay consistent whichever way it winds.
+        const area = ( b.x - a.x ) * ( c.y - a.y ) - ( c.x - a.x ) * ( b.y - a.y );
+        if ( Math.abs( area ) < 1e-15 ) continue;
+
+        const fromColumn = gridIndex( Math.min( a.x, b.x, c.x ) - view.originX, view.step );
+        const toColumn = gridIndex( Math.max( a.x, b.x, c.x ) - view.originX, view.step );
+        const fromRow = gridIndex( Math.min( a.y, b.y, c.y ) - view.originY, view.step );
+        const toRow = gridIndex( Math.max( a.y, b.y, c.y ) - view.originY, view.step );
+
+        for ( let row = fromRow; row <= toRow; row ++ ) {
+
+            const y = view.originY + ( row + 0.5 ) * view.step;
+
+            for ( let column = fromColumn; column <= toColumn; column ++ ) {
+
+                const x = view.originX + ( column + 0.5 ) * view.step;
+
+                const alpha = ( ( b.x - x ) * ( c.y - y ) - ( c.x - x ) * ( b.y - y ) ) / area;
+                const beta = ( ( c.x - x ) * ( a.y - y ) - ( a.x - x ) * ( c.y - y ) ) / area;
+                const gamma = 1 - alpha - beta;
+
+                if ( alpha < 0 || beta < 0 || gamma < 0 ) continue;
+
+                const z = alpha * a.z + beta * b.z + gamma * c.z;
+                const cell = row * SEAL_PROBE_GRID + column;
+
+                if ( z > depth[ cell ] ) depth[ cell ] = z;
+
+            }
+
+        }
+
+    }
+
+    return depth;
+
+}
+
+function gridIndex( offset, step ) {
+
+    return Math.min( SEAL_PROBE_GRID - 1, Math.max( 0, Math.round( offset / step ) ) );
+
+}
+
+/** Square metres of eyeball still in front of the skin. */
+function visibleArea( eyeballDepth, skinDepth, view ) {
+
+    let cells = 0;
+
+    for ( let cell = 0; cell < eyeballDepth.length; cell ++ ) {
+
+        if ( eyeballDepth[ cell ] === -Infinity ) continue;
+        if ( eyeballDepth[ cell ] > skinDepth[ cell ] ) cells ++;
+
+    }
+
+    return cells * view.step * view.step;
+
+}
+
+/** Smallest morph weight at which not one grid cell of eyeball is left showing. */
+function bisectSealWeight( eyeballDepth, occluders, view ) {
+
+    if ( visibleArea( eyeballDepth, depthMap( occluders, view, 1 ), view ) > 0 ) return Number.POSITIVE_INFINITY;
+
+    let open = 0;
+    let sealed = 1;
+
+    for ( let step = 0; step < 20; step ++ ) {
+
+        const middle = ( open + sealed ) / 2;
+
+        if ( visibleArea( eyeballDepth, depthMap( occluders, view, middle ), view ) > 0 ) open = middle;
+        else sealed = middle;
+
+    }
+
+    return sealed;
 
 }
 

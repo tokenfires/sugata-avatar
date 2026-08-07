@@ -573,8 +573,14 @@ lines.push( '' );
 
 {
     const HEAD_ALIGNMENT = 0.7;     // the layer's default
-    const THRESHOLD = 12;           // HEAD_RECRUITMENT_THRESHOLD_DEGREES
+    const THRESHOLD = 12;           // HEAD_RECRUITMENT_THRESHOLD_DEGREES, horizontal
+    const COMFORT = 0.85;           // EYE_COMFORT_FRACTION
     const EYE_RANGE = Math.min( EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
+
+    check( 'head recruitment: the comfort fraction leaves the literature threshold intact',
+        COMFORT * EYE_RANGE >= THRESHOLD,
+        `comfort limit ${ ( COMFORT * EYE_RANGE ).toFixed( 2 ) }° must not fall below the ${ THRESHOLD }° ` +
+        'recruitment threshold, or shifts under the threshold stop being eyes-only' );
 
     const rows = [ [ 'gaze shift', 'expected head', 'commanded head', 'settled head', 'settled eye', 'note' ] ];
 
@@ -598,7 +604,7 @@ lines.push( '' );
 
         const expected = Math.max(
             HEAD_ALIGNMENT * Math.max( 0, amplitude - THRESHOLD ),
-            Math.max( 0, amplitude - EYE_RANGE ) );
+            Math.max( 0, amplitude - EYE_RANGE * COMFORT ) );
 
         rows.push( [
             `${ amplitude }°`,
@@ -619,15 +625,21 @@ lines.push( '' );
 
         }
 
-        check( `head recruitment: ${ amplitude }° eye angle stays inside the measured ocular range`,
-            Math.abs( settledEye ) <= EYE_RANGE + 1e-6,
-            `eye at ${ settledEye.toFixed( 2 ) }°, range ±${ EYE_RANGE }°` );
+        // Checked on the COMMANDED share rather than on the settled column: by the time the head
+        // has arrived the policy has already chosen its next target, so the settled numbers in
+        // the table are a live layer being live and are printed rather than gated. What the rule
+        // promises is that the eye's share of the shift never needs the top of its range.
+        check( `head recruitment: ${ amplitude }° leaves the eye inside its comfort margin`,
+            amplitude - commanded <= EYE_RANGE * COMFORT + 1e-6,
+            `eye asked for ${ ( amplitude - commanded ).toFixed( 2 ) }°, comfort limit ` +
+            `±${ ( EYE_RANGE * COMFORT ).toFixed( 2 ) }° of a ±${ EYE_RANGE }° range` );
 
     }
 
     lines.push( '  Note that at the default alignment of 0.7 the binding constraint above ~20° is' );
     lines.push( '  not the social register at all — it is that the eyes stop at 14.27° on this asset,' );
-    lines.push( '  so the head has to take the rest or the gaze never arrives.' );
+    lines.push( '  so the head has to take the rest or the gaze never arrives. The head now takes' );
+    lines.push( '  enough to leave the eye at 85% of its range rather than exactly ON the limit.' );
     lines.push( '' );
 
     for ( const row of formatTable( rows ) ) lines.push( `  ${ row }` );
@@ -681,6 +693,136 @@ function measureOnsets( { predicted } ) {
     }
 
     return { eyeOnset, headOnset };
+
+}
+
+// --- 6b. how long the eyes spend jammed against the morph limit ---------------------------------------
+//
+// The one number in this file that is about a PICTURE rather than about a statistic. An eye held
+// at the end of eyeLookUp* has its iris tucked under the upper lid with a band of sclera showing
+// beneath it — the "rolled back eyes" look — and it is seen instantly because users fixate the
+// eyes first. Before the vertical fix this layer spent 15.6% of frames there (8.2% up, 7.4%
+// down) with the eyes-only-clamp doing all the work the head should have been doing.
+//
+// Two measures, because they mean different things. TOTAL counts every frame at the limit,
+// including the fifth of a second in which the eyes have arrived and the head is still swinging
+// — which is what a real eye does on a large shift and is not a defect. SETTLED counts only
+// frames where the head has already reached its target, so an eye still at its limit there is
+// PARKED, and parked is the thing that reads as broken.
+
+lines.push( 'OCULAR SATURATION — fraction of frames with an eye pinned at the morph limit' );
+lines.push( '' );
+
+{
+    const SECONDS = 300;
+    const rows = [ [ 'state', 'seed', 'up', 'down', 'vertical', 'horizontal', 'settled vert', 'settled horiz' ] ];
+
+    let worstVertical = 0;
+    let worstSettledVertical = 0;
+    let worstSettledHorizontal = 0;
+
+    for ( const state of [ 'idle', 'listening', 'speaking' ] ) {
+
+        for ( const seed of [ 11, 555, 2027, 8123 ] ) {
+
+            const measured = measureSaturation( { state, seed, seconds: SECONDS } );
+
+            rows.push( [
+                state,
+                String( seed ),
+                percent( measured.up ),
+                percent( measured.down ),
+                percent( measured.vertical ),
+                percent( measured.horizontal ),
+                percent( measured.settledVertical ),
+                percent( measured.settledHorizontal )
+            ] );
+
+            worstVertical = Math.max( worstVertical, measured.vertical );
+            worstSettledVertical = Math.max( worstSettledVertical, measured.settledVertical );
+            worstSettledHorizontal = Math.max( worstSettledHorizontal, measured.settledHorizontal );
+
+        }
+
+    }
+
+    for ( const row of formatTable( rows ) ) lines.push( `  ${ row }` );
+    lines.push( '' );
+
+    check( 'saturation: vertical eye deflection is at the morph limit on under 2% of frames',
+        worstVertical < 0.02,
+        `worst of 12 five-minute runs: ${ percent( worstVertical ) } (was 15.6% before the fix)` );
+
+    check( 'saturation: no eye is ever PARKED at its vertical limit once the head has settled',
+        worstSettledVertical < 0.005,
+        `worst settled vertical ${ percent( worstSettledVertical ) }` );
+
+    check( 'saturation: no eye is ever PARKED at its horizontal limit once the head has settled',
+        worstSettledHorizontal < 0.005,
+        `worst settled horizontal ${ percent( worstSettledHorizontal ) }` );
+}
+
+function percent( fraction ) {
+
+    return `${ ( fraction * 100 ).toFixed( 2 ) }%`;
+
+}
+
+/**
+ * One unattended run, counting the frames on which an eye sits on the edge of its morph range.
+ *
+ * "Settled" means the head has arrived: within a tenth of a degree of the target Gaze gave it.
+ * Anything at the limit before that is the eyes leading a shift the head has not finished.
+ */
+function measureSaturation( { state, seed, seconds } ) {
+
+    const { stack, gaze } = buildRig( { seed, withHead: true } );
+
+    gaze.setConversationState( state );
+
+    const yawLimit = Math.min( EYE_MORPH_EXCURSION_DEGREES.in, EYE_MORPH_EXCURSION_DEGREES.out );
+    const frames = Math.round( seconds * 60 );
+
+    const counts = { up: 0, down: 0, horizontal: 0, settledVertical: 0, settledHorizontal: 0 };
+    let settledFrames = 0;
+
+    for ( let frame = 0; frame < frames; frame ++ ) {
+
+        stack.update( 1 / 60 );
+
+        const pitch = gaze.eyePitchDegrees;
+        const yaw = gaze.eyeYawDegrees;
+
+        const atTop = pitch >= EYE_MORPH_EXCURSION_DEGREES.up - 1e-6;
+        const atBottom = pitch <= -EYE_MORPH_EXCURSION_DEGREES.down + 1e-6;
+        const atSide = Math.abs( yaw ) >= yawLimit - 1e-6;
+
+        if ( atTop ) counts.up ++;
+        if ( atBottom ) counts.down ++;
+        if ( atSide ) counts.horizontal ++;
+
+        const headSettled =
+            Math.abs( gaze.head.yawDegrees - gaze.head.targetYawDegrees ) < 0.1 &&
+            Math.abs( gaze.head.pitchDegrees - gaze.head.targetPitchDegrees ) < 0.1;
+
+        if ( headSettled === false ) continue;
+
+        settledFrames ++;
+        if ( atTop || atBottom ) counts.settledVertical ++;
+        if ( atSide ) counts.settledHorizontal ++;
+
+    }
+
+    stack.dispose();
+
+    return {
+        up: counts.up / frames,
+        down: counts.down / frames,
+        vertical: ( counts.up + counts.down ) / frames,
+        horizontal: counts.horizontal / frames,
+        settledVertical: counts.settledVertical / Math.max( settledFrames, 1 ),
+        settledHorizontal: counts.settledHorizontal / Math.max( settledFrames, 1 )
+    };
 
 }
 

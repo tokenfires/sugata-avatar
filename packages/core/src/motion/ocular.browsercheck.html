@@ -51,6 +51,11 @@
          ?arousal=0.9  start the pupil at this arousal instead of resting 0.33
          ?exaggeration=1   turn the exaggeration off, to see how little physiology gives you
          ?unilateral=1 make every blink a single-eye blink, so the rare case is inspectable
+         ?hold=0.735   pin eyeBlinkLeft/Right at a fixed MORPH WEIGHT — not a blink, not the
+                       layer's perceptual closure — and hold it. This is how the lid's real
+                       useful range was looked at: 1.0 pushes the lash cards and a sliver of
+                       sclera through the lid, 0.735 is where it actually seals. The number is
+                       measured in ocular.selftest.mjs; this is the picture of it.
 -->
 <script type="module">
 
@@ -174,6 +179,12 @@ async function boot() {
 
     }
 
+    // Raw morph inspection, bypassing the layer entirely: written AFTER the stack has committed,
+    // so whatever the blink said this frame is overwritten by the held weight.
+    const heldMorphWeight = options.has( 'hold' ) ? Number( options.get( 'hold' ) ) : null;
+
+    if ( heldMorphWeight !== null ) blink.enabled = false;
+
     stage.onFrame( ( deltaSeconds ) => {
 
         if ( frozen === false ) {
@@ -184,7 +195,14 @@ async function boot() {
 
         }
 
-        const committed = stack.morphChannels.get( 'eyeBlinkLeft' ).committed;
+        if ( heldMorphWeight !== null ) {
+
+            target.setMorph( 'eyeBlinkLeft', heldMorphWeight );
+            target.setMorph( 'eyeBlinkRight', heldMorphWeight );
+
+        }
+
+        const committed = heldMorphWeight ?? stack.morphChannels.get( 'eyeBlinkLeft' ).committed;
         trace.draw();
 
         hud.textContent = [

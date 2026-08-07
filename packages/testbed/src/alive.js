@@ -36,7 +36,6 @@
  *   ?freeze         stop advancing after the pre-roll — a still pose at a known motion time
  *   ?seed=20260807  the motion stack's root seed
  *   ?trace=0        hide the strip chart
- *   ?rawface        turn OFF the unskinned-head-mesh workaround, to look at the asset defect
  *   ?bare           hide every overlay — controls, HUD, strip chart — for a clean plate. A critic
  *                   comparing this against a reference still wants pixels, not instrumentation.
  *   ?height=0.18    override the framed height in metres. 0.18 is an eyes-only crop.
@@ -51,7 +50,7 @@ import {
     RectAreaLightNode,
     Vector3
 } from 'three/webgpu';
-import { Box3, Matrix4 } from 'three';
+import { Box3 } from 'three';
 import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
@@ -193,8 +192,6 @@ async function boot() {
         figure: null,
         target: null,
         loadToken: 0,
-        repairUnskinnedHead: query.has( 'rawface' ) === false,
-        rescuedMeshes: [],
         framedHeightMetres: Number( query.get( 'height' ) ?? PORTRAIT_HEIGHT_METRES )
     };
 
@@ -364,9 +361,6 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
     stage.add( figure.root );
     figure.root.updateMatrixWorld( true );
 
-    forceOpaqueMaterials( figure );
-    session.rescuedMeshes = session.repairUnskinnedHead ? reattachUnskinnedHeadMeshes( figure ) : [];
-
     session.figure = figure;
     session.target = createMotionTarget( figure.root );
 
@@ -380,93 +374,41 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
 }
 
 /**
- * ⚠️ WORKAROUND FOR AN ASSET DEFECT. This does not belong here; it belongs in the figure pipeline.
+ * Reads back what the loaded asset actually is, so the page can say it rather than assume it.
  *
- * In the shipped GLBs only the body carries JOINTS_0/WEIGHTS_0 and a `skin`. The five head meshes
- * — eyebrows, eyelashes, eyeballs, teeth, tongue — are exported as *plain, unskinned* meshes
- * parented under the skinned body node, with no node transform of their own. Verified by parsing
- * the glTF JSON of figure_g050.glb directly:
+ * This page used to carry two workarounds here — one reparenting the unskinned face meshes onto
+ * the head bone, one forcing every BLEND material opaque. Both are gone, because the figure
+ * pipeline now exports all six meshes skinned and only the brow and lash cards non-opaque. A
+ * check replaces them: if a regressed bake is ever dropped in, the HUD says so in words instead
+ * of the page quietly gluing the face back on and hiding it.
  *
- *     Human.eyebrow001 / eyelashes01 / low-poly / teeth_base / tongue01
- *         attributes: POSITION, NORMAL, TEXCOORD_0        no skin, no TRS
- *     Human (base.001)
- *         attributes: POSITION, NORMAL, TEXCOORD_0, JOINTS_0, WEIGHTS_0   skin 0
- *
- * A child of a SkinnedMesh inherits that mesh's OBJECT transform, which is identity, and not one
- * bit of its skin deformation. So the moment any bone moves — a nod, a sway, a breath — the face
- * comes apart: the skull turns and the eyes, brows, lashes, teeth and tongue stay behind in the
- * bind pose, sitting off the cheek. At a 14° head yaw they are visibly detached from the head.
- *
- * The real fix is in tools/figure-pipeline/build_figure.py: export those five with the armature
- * modifier applied, exactly as the body is.
- *
- * Until then, this reparents each one onto the `head` bone with the matrix that puts it back
- * where it rested, so they ride the skull rigidly. That is the right approximation for all five —
- * eyeballs, teeth and tongue really are rigid bodies inside the head, and lashes and brows carry
- * their own blink and brow morphs, so nothing here needs skin deformation to animate correctly.
- * It only covers the head; a shoulder-region unskinned mesh would need the real fix.
- *
- * @returns {string[]} the meshes that had to be rescued — empty once the pipeline is fixed.
+ * @returns {string} one HUD line — the asset's own account of itself.
  */
-function reattachUnskinnedHeadMeshes( figure ) {
+function describeAsset( figure ) {
 
-    const headBone = figure.bone( 'head' );
-    if ( headBone === null || headBone === undefined ) return [];
-
-    figure.root.updateMatrixWorld( true );
-
-    const headRestWorldInverse = new Matrix4().copy( headBone.matrixWorld ).invert();
-    const rescued = [];
+    const unskinned = [];
+    const blended = [];
 
     for ( const mesh of figure.meshes ) {
 
-        if ( mesh.isSkinnedMesh === true ) continue;
+        if ( mesh.isSkinnedMesh !== true ) unskinned.push( mesh.name );
 
-        const restWorld = mesh.matrixWorld.clone();
-
-        headBone.add( mesh );
-        mesh.matrix.multiplyMatrices( headRestWorldInverse, restWorld );
-        mesh.matrix.decompose( mesh.position, mesh.quaternion, mesh.scale );
-
-        rescued.push( mesh.name );
-
-    }
-
-    return rescued;
-
-}
-
-/**
- * Known asset defect: every material in the shipped GLBs is exported with alphaMode BLEND, so the
- * six meshes sort against each other and the figure renders as a translucent mess — teeth through
- * lips, eyeballs through eyelids. Nothing here is actually transparent, so the fix is to say so.
- * Belongs in the figure pipeline; until it is fixed there, every consumer has to do this.
- */
-function forceOpaqueMaterials( figure ) {
-
-    let corrected = 0;
-
-    figure.root.traverse( ( object ) => {
-
-        if ( object.isMesh !== true ) return;
-
-        const materials = Array.isArray( object.material ) ? object.material : [ object.material ];
-
+        const materials = Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ];
         for ( const material of materials ) {
 
-            if ( material.transparent !== true ) continue;
-
-            material.transparent = false;
-            material.opacity = 1;
-            material.depthWrite = true;
-            material.needsUpdate = true;
-            corrected ++;
+            if ( material.transparent === true ) blended.push( `${ mesh.name }/${ material.name }` );
 
         }
 
-    } );
+    }
 
-    return corrected;
+    if ( unskinned.length === 0 && blended.length === 0 ) {
+
+        return `${ figure.meshes.length }/${ figure.meshes.length } meshes skinned, none blended`;
+
+    }
+
+    return `⚠ unskinned [${ unskinned.join( ' ' ) }]  blended [${ blended.join( ' ' ) }]`;
 
 }
 
@@ -584,8 +526,7 @@ function describeState( stage, stack, layers, session, pupilScale ) {
             `${ stats.drawCalls } draws   ${ ( stats.triangles / 1000 ).toFixed( 0 ) }k tris   dpr ${ stats.dpr }`,
         `motion time ${ stack.time.toFixed( 1 ) } s   conflicts ${ stack.conflicts.length }`,
         '',
-        `figure   gender ${ session.identity.gender.toFixed( 2 ) }   ` +
-            `unskinned-head workaround ${ session.repairUnskinnedHead ? `ON (${ session.rescuedMeshes.length } meshes)` : 'OFF — asset defect visible' }`,
+        `figure   gender ${ session.identity.gender.toFixed( 2 ) }   asset ${ describeAsset( session.figure ) }`,
         `breath   ${ breath.breathsPerMinute.toFixed( 1 ) } brpm   level ${ breath.level.toFixed( 2 ) }   ×${ breath.exaggeration }`,
         `sway     ML ${ ( sway.displacement.x * 1000 ).toFixed( 1 ) } mm   AP ${ ( sway.displacement.z * 1000 ).toFixed( 1 ) } mm` +
             `   shifts ${ sway.eventCounts.shift + sway.eventCounts.discourseShift }`,

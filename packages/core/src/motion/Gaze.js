@@ -46,8 +46,19 @@
  * ⚠️ That is the whole ocular range this figure has: about ±14.5° horizontal and +9.6/−11.1°
  * vertical at morph weight 1.0. It is roughly a third of the human oculomotor range, and it is
  * the reason head recruitment is not optional here — a 25° gaze shift is unreachable by eyes
- * alone. Conveniently, the 15–20° physiological head-recruitment threshold sits just above it,
- * so the asset's limit and the literature's threshold do not fight.
+ * alone. Horizontally the numbers are kind: the 15–20° physiological head-recruitment threshold
+ * sits just above the 14.5° the morphs give, so the asset's limit and the literature's threshold
+ * do not fight.
+ *
+ * 🚩 VERTICALLY THEY DO, AND THAT IS WORTH SAYING OUT LOUD. 9.6° of upward travel is well BELOW
+ * any head-recruitment threshold in the literature, so a policy that treats the two axes alike
+ * asks the eye for vertical angles it does not have, gets them clipped, and parks the irises
+ * under the upper lids with a band of sclera showing beneath. Three things keep that from
+ * happening, and all three are needed: the recruitment threshold scales with each axis' own
+ * excursion (`headRecruitmentThresholdDegrees`), the head is obliged to carry anything past a
+ * comfortable fraction of it (EYE_COMFORT_FRACTION), and the policy's own vertical targets are
+ * held inside what the eye can reach unaided (POLICY_VERTICAL_BUDGET_FRACTION). Gated in
+ * `Gaze.selftest.mjs`, which measures the fraction of frames spent at the vertical limit.
  *
  *
  * RIG CONVENTIONS, MEASURED NOT ASSUMED
@@ -165,10 +176,34 @@ const MICROSACCADE_OFFSET_CAP_DEGREES = 1;
 // --- eye–head coordination --------------------------------------------------------------------
 
 /**
- * Below this, a gaze shift is eyes-only. Physiology puts the threshold at 15–20°; graphics
- * implementations use 10–15° and this asset's eyes saturate at 14.3°, so 12° is the choice.
+ * Below this, a HORIZONTAL gaze shift is eyes-only. Physiology puts the threshold at 15–20°;
+ * graphics implementations use 10–15° and this asset's eyes saturate at 14.3°, so 12° is the
+ * choice.
+ *
+ * ⚠️ The vertical threshold is NOT this number. It is this number scaled by how much less
+ * vertical range the asset has — see `headRecruitmentThresholdDegrees()`. A single threshold is
+ * the defect this used to have: 12° is 84% of the horizontal excursion but 124% of the upward
+ * one, so a 12° upward gaze recruited no head at all and drove the eye a fifth of the way past
+ * the top of its range. The irises then jam under the lids with a band of sclera below them,
+ * which is the single ugliest thing this layer can do and it was doing it on 15.6% of frames.
  */
 const HEAD_RECRUITMENT_THRESHOLD_DEGREES = 12;
+
+/**
+ * TUNABLE. How much of its own range an eye is allowed to settle at before the head is obliged
+ * to carry the remainder.
+ *
+ * The old rule recruited exactly enough head to leave the eye AT its limit, which is arithmetic
+ * that satisfies the geometry and fails the picture: an eye parked on the last degree of its
+ * morph is a stuck eye, and any further motion from any other source — breath, sway, a nod —
+ * cannot be compensated because the reflex has nowhere left to go. Leaving a sixth of the range
+ * in hand costs a couple of degrees of extra head and buys the VOR somewhere to work.
+ *
+ * ⚠️ This must stay ABOVE the recruitment threshold's own fraction of the range — 12 / 14.27 =
+ * 0.841 on this asset — or the head starts being recruited below the literature's threshold and
+ * "a shift under 12° is eyes-only" stops being true. `Gaze.selftest.mjs` checks that directly.
+ */
+const EYE_COMFORT_FRACTION = 0.85;
 
 /** REACTIVE shift: the head starts this long after the eyes. Research gives 20–50 ms. */
 const HEAD_FOLLOW_MINIMUM_SECONDS = 0.02;
@@ -254,13 +289,49 @@ const EXPLORATORY_SACCADE_MINIMUM_DEGREES = 3;
 const EXPLORATORY_SACCADE_MAXIMUM_DEGREES = 9;
 
 /**
- * TUNABLE. Where "away" is. The offsets start beyond the exploratory range so that an aversion
- * cannot be mistaken for a scan of the partner's face, and stay inside a comfortable head turn.
+ * TUNABLE. A scan of a face is a flattened ellipse, not a circle: the informative things to look
+ * at in conversation are laid out sideways — the other eye, the mouth corner, the person next to
+ * them — and almost nothing worth fixating is directly above. Squashing the vertical component
+ * of the exploratory saccade is therefore both what people do and what this asset can afford,
+ * since its eyes have two thirds the vertical range they have horizontal.
+ *
+ * A purely vertical exploratory saccade is correspondingly smaller than a purely horizontal one.
+ * That is the intent, not a rounding error.
+ */
+const EXPLORATORY_VERTICAL_FRACTION = 0.45;
+
+/**
+ * TUNABLE. Where "away" is. The yaw offsets start beyond the exploratory range so that an
+ * aversion cannot be mistaken for a scan of the partner's face, and stay inside a comfortable
+ * head turn.
  */
 const AVERSION_YAW_MINIMUM_DEGREES = 15;
 const AVERSION_YAW_MAXIMUM_DEGREES = 40;
-const AVERSION_PITCH_MINIMUM_DEGREES = -15;
-const AVERSION_PITCH_MAXIMUM_DEGREES = 20;
+
+/**
+ * TUNABLE. The vertical half of an aversion, as a fraction of the asset's own vertical eye
+ * range rather than as a fixed angle. Written this way because the number that matters is how
+ * much of the eye's travel an aversion spends, and that is a property of the asset: the same
+ * ±20° that is comfortable on a rig with a full ±30° oculomotor range is off the end of the
+ * morph on this one.
+ */
+const AVERSION_PITCH_FRACTION_OF_EYE_RANGE = 0.6;
+
+/**
+ * TUNABLE. Ceiling on the vertical gaze angle the POLICY may ask for, again as a fraction of the
+ * asset's vertical eye range.
+ *
+ * This is the backstop that makes the saturation gate hold. Head recruitment alone does not: the
+ * head takes ~180 ms to arrive and the eyes get there in ~50 ms, so for the difference the eye
+ * carries the WHOLE shift, and a target the eye cannot reach on its own is a target that pins
+ * the eye for a fifth of a second every time it is chosen. Keeping the policy's own targets
+ * inside what the eye can reach unaided means the transit is never at the limit either.
+ *
+ * `lookAt()` is deliberately NOT clamped by this. An external caller aiming at something real
+ * must be able to ask for 30° up, and an eye that hits its limit while the head catches up on a
+ * shift that large is what a real eye does.
+ */
+const POLICY_VERTICAL_BUDGET_FRACTION = 0.8;
 
 /**
  * TUNABLE durations for the two discourse events. The research establishes that both happen and
@@ -676,7 +747,7 @@ export class Gaze extends Layer {
         if ( region === 'toward' ) {
 
             this.regionCentreYawDegrees = this.partnerYawDegrees;
-            this.regionCentrePitchDegrees = this.partnerPitchDegrees;
+            this.regionCentrePitchDegrees = this.clampPolicyPitch( this.partnerPitchDegrees );
 
         } else {
 
@@ -685,8 +756,10 @@ export class Gaze extends Layer {
             this.regionCentreYawDegrees = this.partnerYawDegrees + side *
                 this.random.range( AVERSION_YAW_MINIMUM_DEGREES, AVERSION_YAW_MAXIMUM_DEGREES );
 
-            this.regionCentrePitchDegrees = this.partnerPitchDegrees +
-                this.random.range( AVERSION_PITCH_MINIMUM_DEGREES, AVERSION_PITCH_MAXIMUM_DEGREES );
+            const spread = AVERSION_PITCH_FRACTION_OF_EYE_RANGE;
+
+            this.regionCentrePitchDegrees = this.clampPolicyPitch( this.partnerPitchDegrees +
+                this.random.range( -spread * this.eyeExcursionDegrees.down, spread * this.eyeExcursionDegrees.up ) );
 
         }
 
@@ -703,9 +776,25 @@ export class Gaze extends Layer {
 
         this.scheduleGazeShift(
             this.regionCentreYawDegrees + amplitude * Math.cos( direction ),
-            this.regionCentrePitchDegrees + amplitude * Math.sin( direction ),
+            this.clampPolicyPitch( this.regionCentrePitchDegrees
+                + amplitude * Math.sin( direction ) * EXPLORATORY_VERTICAL_FRACTION ),
             true
         );
+
+    }
+
+    /**
+     * Holds a policy-generated vertical target inside what the eyes can reach on their own.
+     *
+     * Applied to the policy's targets and to nothing else — see POLICY_VERTICAL_BUDGET_FRACTION
+     * for why `lookAt()` is exempt.
+     */
+    clampPolicyPitch( pitchDegrees ) {
+
+        const budget = POLICY_VERTICAL_BUDGET_FRACTION;
+
+        return clamp( pitchDegrees,
+            -budget * this.eyeExcursionDegrees.down, budget * this.eyeExcursionDegrees.up );
 
     }
 
@@ -962,20 +1051,53 @@ export class Gaze extends Layer {
     // --- eye–head coordination --------------------------------------------------------------
 
     /**
-     * How much of this shift the head takes.
+     * How much of this shift the head takes, per axis.
      *
      * Two conditions, and the second is not optional on this asset. The first is Andrist's
      * register: a share of everything past the recruitment threshold. The second is arithmetic:
-     * the eyes stop at ~14° so anything past that MUST come from the head or the gaze simply
-     * does not arrive. The head takes whichever is larger.
+     * the eyes stop at ~14° sideways and ~10° up, so anything past that MUST come from the head
+     * or the gaze simply does not arrive. The head takes whichever is larger.
      */
     commandHead( yawDegrees, pitchDegrees ) {
 
         this.head.setTarget(
-            headShare( yawDegrees, this.headAlignment, this.horizontalEyeRangeDegrees() ),
-            headShare( pitchDegrees, this.headAlignment,
+            this.headShareDegrees( yawDegrees, this.horizontalEyeRangeDegrees() ),
+            this.headShareDegrees( pitchDegrees,
                 pitchDegrees >= 0 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down )
         );
+
+    }
+
+    /**
+     * Andrist's alignment fraction of everything past this axis' recruitment threshold, or the
+     * part the eye cannot reach comfortably, whichever is larger.
+     */
+    headShareDegrees( gazeDegrees, eyeRangeDegrees ) {
+
+        const magnitude = Math.abs( gazeDegrees );
+
+        const alignmentShare = this.headAlignment *
+            Math.max( 0, magnitude - this.headRecruitmentThresholdDegrees( eyeRangeDegrees ) );
+        const beyondComfort = Math.max( 0, magnitude - eyeRangeDegrees * EYE_COMFORT_FRACTION );
+
+        return Math.sign( gazeDegrees ) * Math.max( alignmentShare, beyondComfort );
+
+    }
+
+    /**
+     * Where head recruitment starts on one axis.
+     *
+     * The literature's threshold is a horizontal one, and it is quoted for a human eye with
+     * roughly the same range up as sideways. This asset does not have that: 14.3° out against
+     * 9.6° up. Holding the threshold at a fixed 12° would therefore mean the vertical axis never
+     * recruits the head until the eye is already 25% past its own limit. Expressing it as the
+     * same PROPORTION of each axis' excursion — 84% — keeps the literature's number exactly
+     * where it was horizontally and starts the head 4° earlier for a look upward, which is the
+     * whole of the vertical-saturation fix that is not a target-selection change.
+     */
+    headRecruitmentThresholdDegrees( eyeRangeDegrees ) {
+
+        return HEAD_RECRUITMENT_THRESHOLD_DEGREES * eyeRangeDegrees / this.horizontalEyeRangeDegrees();
 
     }
 
@@ -1393,23 +1515,6 @@ class CriticallyDampedAngle {
         return this.value;
 
     }
-
-}
-
-/**
- * The head's share of a gaze shift along one axis: Andrist's alignment fraction of everything
- * past the recruitment threshold, or the part the eyes physically cannot reach, whichever is
- * larger. See the note on `Gaze.commandHead`.
- */
-function headShare( gazeDegrees, headAlignment, eyeRangeDegrees ) {
-
-    const magnitude = Math.abs( gazeDegrees );
-
-    const alignmentShare = headAlignment *
-        Math.max( 0, magnitude - HEAD_RECRUITMENT_THRESHOLD_DEGREES );
-    const beyondEyeRange = Math.max( 0, magnitude - eyeRangeDegrees );
-
-    return Math.sign( gazeDegrees ) * Math.max( alignmentShare, beyondEyeRange );
 
 }
 
