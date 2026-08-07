@@ -21,7 +21,7 @@ emotion, face and body.
 
 | Decision | Choice |
 |---|---|
-| Character source | **Asset-agnostic engine, parametric primary.** Engine consumes any rigged glTF/VRM; ships a parametric permissively-licensed body as default, so the male↔androgynous↔female axis is a continuous blend parameter the agent dials. |
+| Character source | **Asset-agnostic engine, parametric primary.** Verified: **MPFB2** (CC0 assets, build-time only — code is GPLv3). It ships canonical **ARKit-52 as CC0** in the `faceunits01` pack, plus 22 MS and 15 OVR visemes. Gender axis is **exactly linear**, so identity ships as one morph pair around an androgynous base. See [`research/base-mesh-verification.md`](research/base-mesh-verification.md) — authoritative, supersedes the two earlier asset docs. |
 | Completion gate | **Same-tier, not better.** Harsh blind critics must place renders in the same visual family as real-time AAA character work, *and* the emote comparison must decisively beat Live2D/VTuber. Explicitly NOT "critics prefer ours over Stellar Blade" — that gate does not terminate. |
 | Audio | **Full duplex.** TTS out drives visemes and prosody; live mic in drives listening behavior, gaze, and backchannel. |
 | Consumer | **Portable library.** Clean runtime API any agent embeds, shipped with a demo harness. |
@@ -57,19 +57,43 @@ physics beyond hair springs.
 
 ## Phase status
 
+**Order revised after research** — the ocular/idle layer has the highest perceptual return per unit
+of effort and needs neither shaders nor the affect pipeline, so it moves ahead of rendering and lets
+the emote critic loop run in parallel with renderer work.
+
 | # | Phase | Status |
 |---|---|---|
-| 0 | Foundation — scaffold, asset pipeline, judge harness | not started |
-| 1 | Rendering — skin, eyes, hair, cloth, lighting, post | not started |
-| 2 | Body and identity — parametric morphs, blendshapes, rig | not started |
-| 3 | Motion — gaze, blink, breath, gesture, posture, IK | not started |
-| 4 | Physics — spring bones, cloth, soft tissue | not started |
-| 5 | Affect and speech — PAD state, AU mapping, TTS, mic-in | not started |
-| 6 | Runtime API and testbed | not started |
-| 7 | Blind critic loops until same-tier | not started |
+| 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | not started |
+| 1 | Body and identity — gender morph pair, ARKit bank, rig | not started |
+| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | not started |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | not started |
+| 4 | Speech — viseme timeline, TTS, coarticulation | not started |
+| 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
+| 6 | Body motion — gesture, posture, IK, physics | not started |
+| 7 | Runtime API and testbed | not started |
+| 8 | Blind critic loops until same-tier | not started |
 
 Detailed per-item punch list lives in [`PUNCHLIST.md`](PUNCHLIST.md) once the design is
 approved.
+
+## Research — complete
+
+All eight passes are in [`research/`](research/). Read in this order when resuming:
+
+1. [`base-mesh-verification.md`](research/base-mesh-verification.md) — **authoritative on the
+   character source**, supersedes the two earlier asset docs.
+2. [`stellar-blade-look-spec.md`](research/stellar-blade-look-spec.md) — measured render parameters
+   and the **six objective critic gates**.
+3. [`affect-and-animation.md`](research/affect-and-animation.md) — PAD tables, WASABI activation,
+   lipsync, gaze, physics. Contains a **licensing landmine** (NRC-VAD is non-commercial).
+4. [`rendering-stack.md`](research/rendering-stack.md) and
+   [`eyes-and-lighting.md`](research/eyes-and-lighting.md) — three.js reality, verified at r185.
+5. [`body-motion-numbers.md`](research/body-motion-numbers.md) — implementable constants.
+6. [`lm-studio-integration.md`](research/lm-studio-integration.md) — **read before any LLM client code.**
+7. [`character-assets.md`](research/character-assets.md),
+   [`generative-3d-and-template-bases.md`](research/generative-3d-and-template-bases.md) —
+   superseded on the character choice, still useful for licensing landscape and the
+   "six services died in eight months" record.
 
 ---
 
@@ -83,12 +107,20 @@ approved.
   `qwen3.6-35b-a3b` over `trinity-mini` and `gemma-4-26b` by measurement. Established that
   affect inference must be two-tier (reflex + appraisal) because the LLM pass costs ~0.7 s.
   Full write-up in `research/lm-studio-integration.md`.
-- Launched four design-research agents: browser AAA character rendering; avatar asset
-  sources and licensing; emotion/animation state of the art; Stellar Blade art-direction
-  decomposition.
-- **Next:** fold research into a design doc at
-  `docs/superpowers/specs/2026-08-06-sugata-avatar-design.md`, get user approval, then
-  write the implementation plan and punch list.
+- Ran eight design-research passes (see above). Key outcomes:
+  - **WebGPU/TSL is forced as the primary path** — TAA, SSGI, SSR and temporal upscaling exist
+    only there, and no velocity buffer exists in WebGL at all.
+  - **MPFB2 confirmed as the character source**, and it ships ARKit-52 as CC0 — reversing the
+    earlier "no blendshapes" finding. **The highest-risk assumption (headless operation) is
+    resolved**: first-class supported path.
+  - **The gender axis is exactly linear**, so identity is one morph pair around an androgynous base.
+  - **Dominance is not readable from a static face** — it must be carried by posture, gaze policy
+    and gesture amplitude. Structural argument for full-body.
+  - **Animate early**: every timing constraint agrees, and AV-sync tolerance is asymmetric.
+  - Stellar Blade decomposed into measured parameters, yielding **six objective critic gates**.
+- Design spec updated with all of the above; phase order revised.
+- **Next:** user approval on the spec, then write the implementation plan and punch list, then
+  Phase 0.
 
 ---
 
