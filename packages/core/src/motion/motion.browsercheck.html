@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Breath / Sway / IdleMotion browser check</title>
+<style>
+    html, body { margin: 0; height: 100%; background: #0b0b0d; color: #d8dbe2;
+                 font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    #hud { position: fixed; top: 12px; left: 12px; white-space: pre; pointer-events: none;
+           text-shadow: 0 1px 2px #000; }
+    #keys { position: fixed; bottom: 12px; left: 12px; white-space: pre; pointer-events: none;
+            text-shadow: 0 1px 2px #000; color: #8d93a1; }
+    #trace { position: fixed; top: 12px; right: 12px; background: #0b0b0d;
+             border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<canvas id="trace" width="420" height="220"></canvas>
+<div id="hud">booting…</div>
+<div id="keys"></div>
+
+<!--
+     Browser-side gate for punch-list 2.5 / 2.6 / 2.7.
+
+     idle-motion.selftest.mjs proves the arithmetic in node against the real GLB. This page proves
+     the same layers survive a real GPU and a real render loop with variable dt — and, because the
+     motion is measured in MILLIMETRES and a still frame of a 2.4 mm chest excursion looks exactly
+     like a still frame of a dead one, it draws a rolling trace of what is actually moving. The
+     trace is the evidence; the figure is the sanity check.
+
+     Served from the repo root, since the figures live outside the testbed's vite root:
+         npx vite --root "$PWD" --port 5199
+         http://localhost:5199/packages/core/src/motion/motion.browsercheck.html
+-->
+<script type="module">
+
+import { Color, PMREMGenerator, Quaternion, Vector3 } from 'three/webgpu';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+import { Stage } from '../render/Stage.js';
+import { Figure } from '../figure/Figure.js';
+import { MotionStack, createMotionTarget } from './MotionStack.js';
+import { Breath } from './Breath.js';
+import { Sway } from './Sway.js';
+import { IdleMotion } from './IdleMotion.js';
+
+const GLB_URL = '/assets/figures/figure_g050.glb';
+const TRACE_SECONDS = 12;
+
+/**
+ * Query controls, for driving this page from a script rather than a keyboard.
+ *
+ *   ?t=1.39        prime the stack to that many seconds of motion time in fixed 1/60 s steps
+ *   ?freeze=1      stop updating after priming, so the frame on screen is exactly t
+ *   ?x=8           breath exaggeration
+ *   ?layers=breath comma-separated subset of breath,sway,idle
+ *
+ * Priming exists because a headless or backgrounded tab throttles requestAnimationFrame to
+ * almost nothing, and because comparing two frames of a 2.4 mm motion is only meaningful if you
+ * know which phase each one is. `?t=1.39&freeze=1` is peak inspiration; `?t=3.79&freeze=1` is
+ * end expiration. The first breath is exactly 60 / 15.8 = 3.797 s, before any jitter is drawn.
+ */
+const query = new URLSearchParams( window.location.search );
+const primeSeconds = Number( query.get( 't' ) ?? 0 );
+const freezeAfterPriming = query.has( 'freeze' );
+const startingExaggeration = Number( query.get( 'x' ) ?? 1 );
+const enabledLayers = query.has( 'layers' ) ? query.get( 'layers' ).split( ',' ) : null;
+
+const hud = document.getElementById( 'hud' );
+const traceCanvas = document.getElementById( 'trace' );
+
+document.getElementById( 'keys' ).textContent = [
+    '1 breath   2 sway   3 idle      (toggle)',
+    'a / z      arousal up / down',
+    'd          markDiscourseBoundary({ speakerChanged: true })',
+    'x          exaggerate breath x8, so millimetres become visible',
+    'c          print the stack conflict report to the console'
+].join( '\n' );
+
+async function boot() {
+
+    const stage = new Stage();
+    await stage.create( document.getElementById( 'stage' ), { fieldOfView: 30, near: 0.01, far: 50 } );
+
+    stage.scene.background = new Color( 0x0b0b0d );
+    stage.scene.environment = buildRoomEnvironment( stage.renderer );
+
+    const figure = await Figure.load( GLB_URL );
+    stage.add( figure.root );
+    figure.root.updateMatrixWorld( true );
+
+    const stack = new MotionStack( { seed: 20260807 } );
+    stack.bind( createMotionTarget( figure.root ) );
+
+    const breath = stack.add( new Breath() );
+    const sway = stack.add( new Sway() );
+    const idle = stack.add( new IdleMotion() );
+
+    breath.exaggeration = startingExaggeration;
+
+    if ( enabledLayers !== null ) {
+
+        breath.enabled = enabledLayers.includes( 'breath' );
+        sway.enabled = enabledLayers.includes( 'sway' );
+        idle.enabled = enabledLayers.includes( 'idle' );
+
+    }
+
+
+    // Framed head-and-shoulders from three-quarters: breath shows at the sternum, sway shows as
+    // the head travelling against the background, and both are largest in this view.
+    stage.camera.position.set( 1.55, 1.55, 1.75 );
+    stage.camera.lookAt( 0, 1.15, 0 );
+
+    const head = figure.root.getObjectByName( 'head' );
+    const headRest = new Vector3().setFromMatrixPosition( head.matrixWorld );
+
+    const trace = createTrace( traceCanvas, TRACE_SECONDS );
+
+    const sampleHeadDisplacement = () => {
+
+        figure.root.updateMatrixWorld( true );
+
+        return {
+            breath: breath.level,
+            medioLateral: ( head.matrixWorld.elements[ 12 ] - headRest.x ) * 1000,
+            anteroPosterior: ( head.matrixWorld.elements[ 14 ] - headRest.z ) * 1000
+        };
+
+    };
+
+    // Fixed 1/60 s steps, so the pose on screen is reproducible from the URL alone — and fed to
+    // the strip chart as it goes, so a single screenshot of a frozen page still carries the whole
+    // history rather than one meaningless instant.
+    for ( let step = 0; step < Math.round( primeSeconds * 60 ); step ++ ) {
+
+        stack.update( 1 / 60 );
+        trace.push( 1 / 60, sampleHeadDisplacement() );
+
+    }
+
+    let arousal = 0;
+
+    window.addEventListener( 'keydown', ( event ) => {
+
+        if ( event.key === '1' ) breath.enabled = ! breath.enabled;
+        if ( event.key === '2' ) sway.enabled = ! sway.enabled;
+        if ( event.key === '3' ) idle.enabled = ! idle.enabled;
+        if ( event.key === 'a' ) arousal = Math.min( arousal + 0.25, 1 );
+        if ( event.key === 'z' ) arousal = Math.max( arousal - 0.25, 0 );
+        if ( event.key === 'd' ) sway.markDiscourseBoundary( { speakerChanged: true } );
+        if ( event.key === 'x' ) breath.exaggeration = breath.exaggeration > 1 ? 1 : 8;
+        if ( event.key === 'c' ) console.log( stack.describeConflicts() );
+
+        breath.setArousal( arousal );
+
+    } );
+
+    stage.onFrame( ( deltaSeconds ) => {
+
+        if ( freezeAfterPriming === false ) {
+
+            stack.update( deltaSeconds );
+            trace.push( deltaSeconds, sampleHeadDisplacement() );
+
+        }
+
+        figure.root.updateMatrixWorld( true );
+        trace.draw();
+
+        const headNow = new Vector3().setFromMatrixPosition( head.matrixWorld );
+
+        hud.textContent = [
+            `backend    ${ stage.stats.backend }`,
+            `fps        ${ stage.stats.fps.toFixed( 1 ) }`,
+            '',
+            `breath     ${ breath.enabled ? 'on ' : 'off' }  ${ breath.breathsPerMinute.toFixed( 1 ) } brpm` +
+                `  level ${ breath.level.toFixed( 2 ) }  x${ breath.exaggeration }`,
+            `             ribcage ${ ( breath.ribcageDisplacement.z * 1000 ).toFixed( 2 ) } mm` +
+                `  belly ${ ( breath.abdomenDisplacement.z * 1000 ).toFixed( 2 ) } mm  (authored, AP)`,
+            `sway       ${ sway.enabled ? 'on ' : 'off' }  balance ML ${ ( sway.balanceDisplacement.x * 1000 ).toFixed( 2 ) }` +
+                `  AP ${ ( sway.balanceDisplacement.z * 1000 ).toFixed( 2 ) } mm`,
+            `             posture ML ${ ( sway.postureDisplacement.x * 1000 ).toFixed( 1 ) }` +
+                `  AP ${ ( sway.postureDisplacement.z * 1000 ).toFixed( 1 ) } mm` +
+                `   fidgets ${ sway.eventCounts.fidget }  shifts ${ sway.eventCounts.shift }`,
+            `idle       ${ idle.enabled ? 'on ' : 'off' }`,
+            `arousal    ${ arousal.toFixed( 2 ) }`,
+            '',
+            `head now   ML ${ ( ( headNow.x - headRest.x ) * 1000 ).toFixed( 2 ) } mm` +
+                `  AP ${ ( ( headNow.z - headRest.z ) * 1000 ).toFixed( 2 ) } mm`,
+            `conflicts  ${ stack.conflicts.length }`
+        ].join( '\n' );
+
+    } );
+
+    window.stack = stack;
+    window.figure = figure;
+
+    /**
+     * Steps the stack in fixed 1/60 s frames and reports how far the deformed skin actually
+     * travelled, in millimetres, at the anterior midline.
+     *
+     * This is the browser half of the punch-list 2.5 gate. idle-motion.selftest.mjs measures the
+     * same quantity in node; running it here proves the numbers survive the real render path and
+     * the real GLTFLoader, which is the only thing node cannot tell us. Exposed on `window` so it
+     * can be driven from the console or from a script.
+     */
+    window.measureSurfaceTravel = ( seconds, heights = [ 1.01, 1.24 ] ) => {
+
+        const mesh = figure.body;
+        const attribute = mesh.geometry.attributes.position;
+        const scratch = new Vector3();
+
+        const markers = heights.map( ( height ) => ( { height, index: -1, bestZ: -Infinity } ) );
+
+        for ( let index = 0; index < attribute.count; index ++ ) {
+
+            scratch.fromBufferAttribute( attribute, index );
+            mesh.applyBoneTransform( index, scratch );
+            scratch.applyMatrix4( mesh.matrixWorld );
+
+            if ( Math.abs( scratch.x ) > 0.015 ) continue;
+
+            for ( const marker of markers ) {
+
+                if ( Math.abs( scratch.y - marker.height ) > 0.012 ) continue;
+                if ( scratch.z <= marker.bestZ ) continue;
+
+                marker.bestZ = scratch.z;
+                marker.index = index;
+
+            }
+
+        }
+
+        for ( const marker of markers ) { marker.min = Infinity; marker.max = -Infinity; }
+
+        for ( let step = 0; step < Math.round( seconds * 60 ); step ++ ) {
+
+            stack.update( 1 / 60 );
+            figure.root.updateMatrixWorld( true );
+
+            for ( const marker of markers ) {
+
+                if ( marker.index < 0 ) continue;
+
+                scratch.fromBufferAttribute( attribute, marker.index );
+                mesh.applyBoneTransform( marker.index, scratch );
+                scratch.applyMatrix4( mesh.matrixWorld );
+
+                marker.min = Math.min( marker.min, scratch.z );
+                marker.max = Math.max( marker.max, scratch.z );
+
+            }
+
+        }
+
+        return markers.map( ( marker ) => ( {
+            height: marker.height,
+            antereoPosteriorMillimetres: Number( ( ( marker.max - marker.min ) * 1000 ).toFixed( 3 ) )
+        } ) );
+
+    };
+
+}
+
+/**
+ * A rolling strip chart of the three signals that matter. Without it a screenshot of this page is
+ * indistinguishable from a screenshot of a frozen figure, which is the whole problem with
+ * verifying millimetre-scale motion by eye.
+ */
+function createTrace( canvas, seconds ) {
+
+    const context = canvas.getContext( '2d' );
+
+    const channels = [
+        { key: 'breath', colour: '#7fd1a0', label: 'breath level 0..1', min: 0, max: 1 },
+        { key: 'medioLateral', colour: '#8ab4f8', label: 'head ML mm', min: -12, max: 12 },
+        { key: 'anteroPosterior', colour: '#f2a65a', label: 'head AP mm', min: -12, max: 12 }
+    ];
+
+    const samples = [];
+    let elapsed = 0;
+
+    return {
+
+        push( deltaSeconds, values ) {
+
+            elapsed += deltaSeconds;
+            samples.push( { time: elapsed, values } );
+
+            while ( samples.length > 0 && samples[ 0 ].time < elapsed - seconds ) samples.shift();
+
+        },
+
+        draw() {
+
+            const rowHeight = canvas.height / channels.length;
+
+            context.clearRect( 0, 0, canvas.width, canvas.height );
+
+            channels.forEach( ( channel, row ) => {
+
+                const top = row * rowHeight;
+
+                context.strokeStyle = 'rgba(255,255,255,0.10)';
+                context.beginPath();
+                context.moveTo( 0, top + rowHeight * 0.5 );
+                context.lineTo( canvas.width, top + rowHeight * 0.5 );
+                context.stroke();
+
+                context.fillStyle = channel.colour;
+                context.font = '10px ui-monospace, monospace';
+                context.fillText( channel.label, 6, top + 12 );
+
+                context.strokeStyle = channel.colour;
+                context.beginPath();
+
+                samples.forEach( ( sample, index ) => {
+
+                    const x = canvas.width * ( 1 - ( elapsed - sample.time ) / seconds );
+                    const normalised = ( sample.values[ channel.key ] - channel.min ) / ( channel.max - channel.min );
+                    const y = top + rowHeight - normalised * rowHeight;
+
+                    if ( index === 0 ) context.moveTo( x, y );
+                    else context.lineTo( x, y );
+
+                } );
+
+                context.stroke();
+
+            } );
+
+        }
+
+    };
+
+}
+
+function buildRoomEnvironment( renderer ) {
+
+    const pmrem = new PMREMGenerator( renderer );
+    const room = new RoomEnvironment();
+    const target = pmrem.fromScene( room, 0.04 );
+
+    room.dispose();
+    pmrem.dispose();
+
+    return target.texture;
+
+}
+
+// The one catch-all: the boundary where a failure has to become something a human can read.
+boot().catch( ( error ) => {
+
+    hud.textContent = `boot failed\n${ error.message }`;
+    console.error( error );
+
+} );
+
+</script>
+</body>
+</html>

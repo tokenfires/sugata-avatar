@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Figure / ExpressionBank browser check</title>
+<style>
+    html, body { margin: 0; height: 100%; background: #0b0b0d; color: #d8dbe2;
+                 font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    #hud { position: fixed; top: 12px; left: 12px; white-space: pre; pointer-events: none;
+           text-shadow: 0 1px 2px #000; }
+    #pose { position: fixed; bottom: 12px; left: 12px; white-space: pre; pointer-events: none;
+            text-shadow: 0 1px 2px #000; font-size: 14px; color: #7fd1a0; }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<div id="hud">booting…</div>
+<div id="pose"></div>
+
+<!--
+     Browser-side gate for punch-list 1.1 / 1.3 / 1.4.
+
+     figure.selftest.mjs proves the registry arithmetic in node. This page proves the same code
+     survives a real GPU and that the writes are actually visible: `setPose('jawOpen')` must move
+     the lips AND the teeth AND the tongue together, which is the failure the registry exists to
+     prevent and the one thing a numeric assertion cannot show.
+
+     Served from the repo root, since the figures live outside the testbed's vite root:
+         npx vite --root "$PWD" --port 5199
+         http://localhost:5199/packages/core/src/figure/figure.browsercheck.html
+-->
+<script type="module">
+
+import { Color, PMREMGenerator, Vector3 } from 'three/webgpu';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+import { Stage } from '../render/Stage.js';
+import { Figure } from './Figure.js';
+import {
+    ARKIT_REGIONS, REGION_NAMES, OVR_VISEMES,
+    applyRegion, applyVisemes, addMouthCornerOffset, applyCustomShape, missingArkitShapes
+} from './ExpressionBank.js';
+
+const GLB_URL = '/assets/figures/figure_g050.glb';
+
+// Each pose is a function of the frame accumulator, so they compose exactly the way the real
+// motion layers will: region writes are absolute, the emotional smile is additive.
+const POSES = {
+
+    neutral: () => {},
+
+    jawOpen: ( figure ) => applyRegion( figure, 'jaw', { jawOpen: 1 } ),
+
+    blink: ( figure ) => applyRegion( figure, 'eye', { eyeBlinkLeft: 1, eyeBlinkRight: 1 } ),
+
+    gazeUpLeft: ( figure ) => applyRegion( figure, 'eye', {
+        eyeLookUpLeft: 1, eyeLookUpRight: 1, eyeLookOutLeft: 0.8, eyeLookInRight: 0.8
+    } ),
+
+    // Emotion regions only, plus the additive corner offset. No absolute mouth target anywhere.
+    anger: ( figure ) => {
+        applyRegion( figure, 'brow', { browDownLeft: 0.9, browDownRight: 0.9 } );
+        applyRegion( figure, 'eye', { eyeSquintLeft: 0.5, eyeSquintRight: 0.5, eyeWideLeft: 0.3, eyeWideRight: 0.3 } );
+        applyRegion( figure, 'nose', { noseSneerLeft: 0.4, noseSneerRight: 0.4 } );
+        addMouthCornerOffset( figure, { frown: 1 } );
+        applyCustomShape( figure, 'mouthTighten', 1 );
+    },
+
+    // The interference case: speech and emotion on the same frame. The viseme owns the mouth
+    // and jaw absolutely; joy only adds corners and works the upper face.
+    joyfulSpeech: ( figure ) => {
+        applyVisemes( figure, { viseme_aa: 1 } );
+        applyRegion( figure, 'jaw', { jawOpen: 0.55 } );
+        applyRegion( figure, 'brow', { browInnerUp: 0.35, browOuterUpLeft: 0.4, browOuterUpRight: 0.4 } );
+        applyRegion( figure, 'cheek', { cheekSquintLeft: 0.7, cheekSquintRight: 0.7 } );
+        addMouthCornerOffset( figure, { smile: 1 } );
+    },
+
+    tongueOut: ( figure ) => {
+        applyRegion( figure, 'jaw', { jawOpen: 0.6 } );
+        applyRegion( figure, 'tongue', { tongueOut: 1 } );
+    },
+
+    // Everything at once. Not a face — a proof that the whole morph set can be driven every
+    // frame without the frame budget noticing. Spike 0.8 measured 69 morphs at 0.219 ms.
+    allMorphs: ( figure ) => {
+        for ( const name of figure.morphNames ) figure.weights[ name ] = 0.35;
+    }
+
+};
+
+async function boot() {
+
+    const hud = document.getElementById( 'hud' );
+    const poseLabel = document.getElementById( 'pose' );
+
+    const stage = new Stage();
+    await stage.create( document.getElementById( 'stage' ),
+        { fieldOfView: 30, near: 0.01, far: 50, forceWebGL: new URLSearchParams( location.search ).has( 'webgl' ) } );
+
+    stage.scene.background = new Color( 0x0b0b0d );
+
+    const pmrem = new PMREMGenerator( stage.renderer );
+    const room = new RoomEnvironment();
+    stage.scene.environment = pmrem.fromScene( room, 0.04 ).texture;
+    room.dispose();
+    pmrem.dispose();
+
+    const figure = await Figure.load( GLB_URL );
+    stage.add( figure.root );
+
+    const forcedOpaque = forceOpaqueForInspection( figure );
+
+    frameOnHead( stage, figure );
+
+    let currentPose = 'neutral';
+
+    // The per-frame apply model, exactly as the motion layers will use it.
+    stage.onFrame( () => {
+
+        figure.beginFrame();
+        POSES[ currentPose ]( figure );
+        figure.commit();
+
+    } );
+
+    stage.onFrame( () => {
+
+        hud.textContent = [
+            `backend    ${ stage.stats.backend }`,
+            `fps        ${ stage.stats.fps.toFixed( 1 ) }`,
+            `frame cpu  ${ stage.stats.frameMs.toFixed( 2 ) } ms`,
+            `draws      ${ stage.stats.drawCalls }   tris ${ stage.stats.triangles }`,
+            '',
+            `meshes     ${ figure.meshes.length }  (${ figure.meshes.map( ( m ) => m.name ).join( ', ' ) })`,
+            `morphs     ${ figure.morphNames.length }`,
+            `jawOpen    ${ figure.morphLocationCount( 'jawOpen' ) } mesh locations`,
+            `missing 52 ${ missingArkitShapes( figure ).length }`,
+            `regions    ${ REGION_NAMES.map( ( r ) => `${ r }:${ ARKIT_REGIONS[ r ].length }` ).join( ' ' ) }`,
+            `visemes    ${ OVR_VISEMES.length }`,
+            `bones      ${ figure.boneNames.length }  absent: ${ figure.missingHumanoidBones.join( ', ' ) || 'none' }`,
+            '',
+            `ASSET BUG  ${ forcedOpaque } of ${ figure.meshes.length } materials exported alphaMode BLEND;`,
+            '           forced opaque here so the morphs can be seen. Belongs to the pipeline.'
+        ].join( '\n' );
+
+    } );
+
+    poseLabel.textContent = `pose: ${ currentPose }   [1-${ Object.keys( POSES ).length } to switch]`;
+
+    // Driven from the console (and from the verifying agent) rather than from UI chrome.
+    window.setPose = ( name ) => {
+
+        if ( POSES[ name ] === undefined ) throw new Error( `no pose '${ name }'` );
+        currentPose = name;
+        poseLabel.textContent = `pose: ${ name }`;
+        return name;
+
+    };
+
+    window.poseNames = Object.keys( POSES );
+    window.figure = figure;
+    window.stage = stage;
+
+    document.addEventListener( 'keydown', ( event ) => {
+
+        const index = Number( event.key ) - 1;
+        const names = Object.keys( POSES );
+        if ( index >= 0 && index < names.length ) window.setPose( names[ index ] );
+
+    } );
+
+}
+
+/**
+ * NOT A FIX — a diagnostic override, and it belongs here rather than in Figure.js.
+ *
+ * Every material in the shipped GLBs comes out of the Blender exporter with alphaMode BLEND:
+ * `transparent: true, depthWrite: false, side: DoubleSide`. With no depth writes, the teeth and
+ * tongue draw straight through closed lips and the eyeballs draw over the lids, so a morph that
+ * works perfectly still looks broken. That is a figure-pipeline defect (the MakeHuman materials
+ * carry an alpha channel the exporter takes literally), not a Figure.js one, and fixing it in
+ * Figure.js would hide it from whoever owns the pipeline.
+ *
+ * Forced opaque here only so this page can show what the morphs actually do.
+ *
+ * @returns {number} How many materials had to be corrected — 0 once the pipeline is fixed.
+ */
+function forceOpaqueForInspection( figure ) {
+
+    let corrected = 0;
+
+    for ( const mesh of figure.meshes ) {
+
+        const materials = Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ];
+
+        for ( const material of materials ) {
+
+            if ( material.transparent !== true ) continue;
+
+            // alphaTest is the glTF alphaMode MASK equivalent: the lashes and brows are cutout
+            // cards and go solid black without it, which is its own kind of wrong.
+            material.transparent = false;
+            material.depthWrite = true;
+            material.alphaTest = 0.5;
+            material.needsUpdate = true;
+            corrected ++;
+
+        }
+
+    }
+
+    return corrected;
+
+}
+
+/** Puts the camera in a portrait framing on the head bone, so the face fills the frame. */
+function frameOnHead( stage, figure ) {
+
+    figure.root.updateMatrixWorld( true );
+
+    const head = figure.bone( 'head' );
+    const target = head.getWorldPosition( new Vector3() );
+
+    // The head bone sits around eye level on this rig, so the framing is dropped to put the
+    // brow-to-chin span in frame — the mouth is half of what these poses have to show.
+    stage.camera.position.set( target.x, target.y - 0.03, target.z + 0.52 );
+    stage.camera.lookAt( target.x, target.y - 0.03, target.z );
+
+}
+
+boot().catch( ( error ) => {
+
+    document.getElementById( 'hud' ).textContent = `boot failed\n${ error.message }`;
+    console.error( error );
+
+} );
+
+</script>
+</body>
+</html>

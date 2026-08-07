@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — alive</title>
+    <style>
+        :root {
+            --panel: rgba(12, 12, 15, 0.78);
+            --edge: rgba(255, 255, 255, 0.12);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: #08080a;
+            color: var(--ink);
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+            overscroll-behavior: none;
+        }
+
+        /* CSS owns canvas layout; Stage only sizes the drawing buffer to match. */
+        #stage {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #hud {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+            white-space: pre;
+            pointer-events: none;
+        }
+
+        #trace {
+            position: fixed;
+            bottom: 12px;
+            left: 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #controls {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            width: 268px;
+            padding: 10px 12px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #controls h2 {
+            margin: 14px 0 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        #controls h2:first-child { margin-top: 0; }
+
+        .dial {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: baseline;
+            margin-top: 8px;
+        }
+
+        .dial label { color: var(--ink); }
+        .dial output { color: var(--dim); font-variant-numeric: tabular-nums; }
+        .dial input { grid-column: 1 / -1; width: 100%; margin: 2px 0 0; accent-color: #7fd1a0; }
+
+        .row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+        button, select {
+            font: inherit;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--edge);
+            border-radius: 4px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+
+        button:hover, select:hover { background: rgba(255, 255, 255, 0.12); }
+        button[aria-pressed="true"] { background: #2c4a3a; border-color: #7fd1a0; }
+
+        select { width: 100%; }
+
+        #note { margin-top: 12px; color: var(--dim); }
+        kbd { color: var(--ink); }
+    </style>
+</head>
+<body>
+    <canvas id="stage"></canvas>
+    <div id="hud">booting…</div>
+    <canvas id="trace" width="440" height="150"></canvas>
+
+    <div id="controls">
+        <h2>Affect</h2>
+        <div class="dial">
+            <label for="arousal">arousal</label><output id="arousal-value"></output>
+            <input id="arousal" type="range" min="0" max="1" step="0.01" value="0.2">
+        </div>
+        <div class="dial">
+            <label for="load">cognitive load</label><output id="load-value"></output>
+            <input id="load" type="range" min="0" max="1" step="0.01" value="0">
+        </div>
+        <div class="dial">
+            <label for="attention">visual attention</label><output id="attention-value"></output>
+            <input id="attention" type="range" min="0" max="1" step="0.01" value="0">
+        </div>
+
+        <h2>Conversation</h2>
+        <select id="conversation">
+            <option value="idle">idle — nobody is talking</option>
+            <option value="listening">listening</option>
+            <option value="speaking">speaking</option>
+        </select>
+        <select id="discourse">
+            <option value="">discourse — none</option>
+            <option value="theme">theme (look away 70%)</option>
+            <option value="rheme">toward 73%</option>
+        </select>
+        <div class="row">
+            <button id="filled-pause" type="button">filled pause</button>
+            <button id="turn-end" type="button">turn end</button>
+            <button id="boundary" type="button">discourse boundary</button>
+        </div>
+
+        <h2>Identity</h2>
+        <div class="dial">
+            <label for="gender">gender — 0 fem / 1 masc</label><output id="gender-value"></output>
+            <input id="gender" type="range" min="0" max="1" step="0.05" value="0.5">
+        </div>
+
+        <h2>Layers</h2>
+        <div class="row" id="layer-toggles"></div>
+        <div class="row">
+            <button id="exaggerate" type="button" aria-pressed="false">breath ×8</button>
+            <button id="conflicts" type="button">log conflicts</button>
+        </div>
+
+        <div id="note">
+            <kbd>B</kbd> blink now · <kbd>S</kbd> 35° saccade · <kbd>T</kbd> trace on/off
+        </div>
+    </div>
+
+    <script type="module" src="./src/alive.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Blink / Pupil browser check</title>
+<style>
+    html, body { margin: 0; height: 100%; background: #0b0b0d; color: #d8dbe2;
+                 font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    #hud { position: fixed; top: 12px; left: 12px; white-space: pre; pointer-events: none;
+           text-shadow: 0 1px 2px #000; }
+    #keys { position: fixed; bottom: 200px; right: 12px; white-space: pre; pointer-events: none;
+            text-align: right; color: #7a8090; text-shadow: 0 1px 2px #000; }
+    #trace { position: fixed; bottom: 0; left: 0; width: 100%; height: 190px; display: block;
+             background: rgba(8,8,10,0.82); border-top: 1px solid #23262e; }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<canvas id="trace" width="1600" height="380"></canvas>
+<div id="hud">booting…</div>
+<div id="keys"></div>
+
+<!--
+     Browser-side gate for punch-list 2.1 (Blink) and 2.8 (Pupil).
+
+     ocular.selftest.mjs proves the arithmetic in node. This page proves two things node cannot:
+     that the layer drives the REAL figure's eyelids through a real GPU frame loop at real frame
+     times, and — the part that matters — that the closure trace is visibly asymmetric. The strip
+     along the bottom plots committed eyeBlinkLeft against wall time, so one screenshot carries
+     the whole claim: a cliff down, a ramp back up. The dashed ghost is Live2D's 0.1 s / 0.15 s
+     default drawn over the top of ours for comparison.
+
+     Served from the repo root, since the figures live outside the testbed's vite root. Note the
+     POSITIONAL root — vite 8's CLI has no --root flag, and the older instruction that circulates
+     in this repo (`npx vite --root "$PWD"`) now dies with "Unknown option `--root`":
+         npx vite "$PWD" --port 5199
+         http://localhost:5199/packages/core/src/motion/ocular.browsercheck.html
+
+     Query params:
+         ?webgl        force the WebGL2 backend
+         ?fast         blink at 90/min, so a screenshot always catches several
+         ?preroll=8    before the first drawn frame, advance the stack 8 seconds at a fixed
+                       1/60 step and fill the trace from it. Two reasons this exists: it makes a
+                       screenshot reproducible frame-for-frame from the seed, and an automated
+                       browser throttles requestAnimationFrame to about 1 Hz, which is too slow
+                       to catch a 240 ms blink live. With preroll the picture is the same one a
+                       human at 60 fps would see, just captured deterministically.
+         ?stop=1       freeze the stack after the pre-roll, so the strip holds still
+         ?window=1.2   seconds of history in the strip. Narrow it to read one blink's shape.
+         ?arousal=0.9  start the pupil at this arousal instead of resting 0.33
+         ?exaggeration=1   turn the exaggeration off, to see how little physiology gives you
+         ?unilateral=1 make every blink a single-eye blink, so the rare case is inspectable
+-->
+<script type="module">
+
+import { Color, PMREMGenerator, Vector3 } from 'three/webgpu';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+import { Stage } from '../render/Stage.js';
+import { MotionStack, createMotionTarget } from './MotionStack.js';
+import { Blink } from './Blink.js';
+import { Pupil, PUPIL_CONSTANTS } from './Pupil.js';
+
+const GLB_URL = '/assets/figures/figure_g050.glb';
+const options = new URLSearchParams( location.search );
+const TRACE_WINDOW_SECONDS = Number( options.get( 'window' ) ?? 8 );
+
+async function boot() {
+
+    const hud = document.getElementById( 'hud' );
+    const keys = document.getElementById( 'keys' );
+
+    const stage = new Stage();
+    await stage.create( document.getElementById( 'stage' ),
+        { fieldOfView: 26, near: 0.01, far: 50, forceWebGL: options.has( 'webgl' ) } );
+
+    stage.scene.background = new Color( 0x0b0b0d );
+
+    const pmrem = new PMREMGenerator( stage.renderer );
+    const room = new RoomEnvironment();
+    stage.scene.environment = pmrem.fromScene( room, 0.04 ).texture;
+    room.dispose();
+    pmrem.dispose();
+
+    const gltf = await new GLTFLoader().loadAsync( GLB_URL );
+    stage.add( gltf.scene );
+
+    // The stack's own bridge over the loaded scene. Deliberately NOT figure/Figure.js: the motion
+    // target contract is setMorph / hasMorph / getBone, and Figure currently exposes its bone
+    // accessor as `bone()`, so `MotionStack.bind( figure )` throws. Flagged in the handover.
+    const target = createMotionTarget( gltf.scene );
+
+    const stack = new MotionStack( { seed: 42 } ).bind( target );
+    const blink = stack.add( new Blink() );
+    const pupil = stack.add( new Pupil() );
+
+    if ( options.has( 'stop' ) ) keys.style.display = 'none';
+
+    // Forces the rare single-eye case on every blink, so it can actually be looked at.
+    if ( options.has( 'unilateral' ) ) blink.unilateralProbability = 1;
+
+    if ( options.has( 'fast' ) ) {
+
+        blink.setBaselineRate( 90 );
+        blink.setRateBounds( 1, 200 );
+
+    }
+
+    // No eye shader yet (Phase 3.3), so the pupil scale is read here through the same sink a
+    // material would use. Seeing it move in the HUD is the proof the hook works end to end.
+    let pupilScale = 1;
+    pupil.addSink( ( scale ) => { pupilScale = scale; } );
+
+    frameOnEyes( stage, gltf.scene );
+    forceOpaqueForInspection( gltf.scene );
+
+    const trace = new ClosureTrace( document.getElementById( 'trace' ), TRACE_WINDOW_SECONDS );
+
+    keys.textContent = [
+        'B  blink now',
+        'S  saccade 35 deg (may recruit a blink)',
+        'U  unilateral blink',
+        '1  cognitive load 0 / attention 0',
+        '2  cognitive load 1  (rate up)',
+        '3  attention 1       (rate down)',
+        'up / down  arousal +/- 0.1',
+        'E  exaggeration 1x <-> 3x',
+    ].join( '\n' );
+
+    let arousal = Number( options.get( 'arousal' ) ?? 0.33 );
+    let exaggerated = true;
+
+    pupil.snapToArousal( arousal );
+    if ( options.has( 'exaggeration' ) ) pupil.setExaggeration( Number( options.get( 'exaggeration' ) ) );
+
+    window.addEventListener( 'keydown', ( event ) => {
+
+        const key = event.key.toLowerCase();
+
+        if ( key === 'b' ) blink.blinkNow();
+        if ( key === 's' ) blink.triggerWithSaccade( 35 );
+        if ( key === 'u' ) blink.blinkNow( { unilateral: true } );
+        if ( key === '1' ) { blink.setCognitiveLoad( 0 ); blink.setAttention( 0 ); }
+        if ( key === '2' ) { blink.setCognitiveLoad( 1 ); blink.setAttention( 0 ); }
+        if ( key === '3' ) { blink.setCognitiveLoad( 0 ); blink.setAttention( 1 ); }
+
+        if ( event.key === 'ArrowUp' ) arousal = Math.min( arousal + 0.1, 1 );
+        if ( event.key === 'ArrowDown' ) arousal = Math.max( arousal - 0.1, 0 );
+
+        if ( key === 'e' ) {
+
+            exaggerated = ! exaggerated;
+            pupil.setExaggeration( exaggerated ? PUPIL_CONSTANTS.DEFAULT_EXAGGERATION : 1 );
+
+        }
+
+        pupil.setArousal( arousal );
+
+    } );
+
+    let elapsed = 0;
+
+    const FIXED_STEP_SECONDS = 1 / 60;
+    const prerollSeconds = Number( options.get( 'preroll' ) ?? 0 );
+    const frozen = options.has( 'stop' );
+
+    for ( let step = 0; step < prerollSeconds / FIXED_STEP_SECONDS; step ++ ) {
+
+        elapsed += FIXED_STEP_SECONDS;
+        stack.update( FIXED_STEP_SECONDS );
+        trace.push( elapsed, stack.morphChannels.get( 'eyeBlinkLeft' ).committed );
+
+    }
+
+    stage.onFrame( ( deltaSeconds ) => {
+
+        if ( frozen === false ) {
+
+            elapsed += deltaSeconds;
+            stack.update( deltaSeconds );
+            trace.push( elapsed, stack.morphChannels.get( 'eyeBlinkLeft' ).committed );
+
+        }
+
+        const committed = stack.morphChannels.get( 'eyeBlinkLeft' ).committed;
+        trace.draw();
+
+        hud.textContent = [
+            `${ stage.backendName }   ${ stage.fps.toFixed( 0 ) } fps   ${ stage.frameMs.toFixed( 2 ) } ms cpu`,
+            '',
+            `blink   closure ${ committed.toFixed( 3 ) }   ${ blink.blinkCount } blinks   ${ ( blink.blinkCount / Math.max( elapsed / 60, 1e-6 ) ).toFixed( 1 ) }/min observed`,
+            `        rate ${ blink.effectiveRatePerMinute().toFixed( 1 ) }/min   load ${ blink.cognitiveLoad.toFixed( 1 ) }   attention ${ blink.attention.toFixed( 1 ) }`,
+            `        this blink: down ${ ( blink.closingDuration * 1000 ).toFixed( 0 ) } ms  hold ${ ( blink.closedHold * 1000 ).toFixed( 0 ) } ms  up ${ ( blink.openingDuration * 1000 ).toFixed( 0 ) } ms  (${ ( blink.openingDuration / blink.closingDuration ).toFixed( 2 ) }x)`,
+            '',
+            `pupil   arousal ${ pupil.smoothedArousal.toFixed( 3 ) } -> ${ pupil.physiologicalDiameterMillimetres.toFixed( 2 ) } mm`,
+            `        pupilScale ${ pupilScale.toFixed( 4 ) }   exaggeration ${ pupil.exaggeration }x`,
+            `        (no pupil morph on this asset: ${ PUPIL_CONSTANTS.PUPIL_MORPH_CANDIDATES.map( ( name ) => `${ name }=${ target.hasMorph( name ) }` ).join( ' ' ) })`,
+        ].join( '\n' );
+
+    } );
+
+}
+
+/**
+ * The rolling closure strip. This is the deliverable of the page: the asymmetry is a shape, and
+ * a shape has to be looked at.
+ */
+class ClosureTrace {
+
+    constructor( canvas, windowSeconds ) {
+
+        this.canvas = canvas;
+        this.context = canvas.getContext( '2d' );
+        this.windowSeconds = windowSeconds;
+        this.samples = [];
+
+    }
+
+    push( seconds, closure ) {
+
+        this.samples.push( { seconds, closure } );
+
+        while ( this.samples.length > 0 && this.samples[ 0 ].seconds < seconds - this.windowSeconds ) {
+
+            this.samples.shift();
+
+        }
+
+    }
+
+    draw() {
+
+        const { context, canvas } = this;
+        const width = canvas.width;
+        const height = canvas.height;
+
+        context.clearRect( 0, 0, width, height );
+
+        if ( this.samples.length < 2 ) return;
+
+        const newest = this.samples[ this.samples.length - 1 ].seconds;
+        const oldest = newest - this.windowSeconds;
+
+        const x = ( seconds ) => ( ( seconds - oldest ) / this.windowSeconds ) * width;
+        const y = ( closure ) => 30 + ( 1 - closure ) * ( height - 70 );
+
+        // Grid: fully shut at the top, so the plot reads the way an eyelid moves.
+        context.strokeStyle = '#23262e';
+        context.lineWidth = 1;
+
+        for ( const level of [ 0, 0.5, 1 ] ) {
+
+            context.beginPath();
+            context.moveTo( 0, y( level ) );
+            context.lineTo( width, y( level ) );
+            context.stroke();
+
+        }
+
+        context.fillStyle = '#5a6070';
+        context.font = '20px ui-monospace, Menlo, monospace';
+        context.fillText( 'shut', 8, y( 1 ) - 8 );
+        context.fillText( 'open', 8, y( 0 ) + 24 );
+        context.fillText( `eyeBlinkLeft, last ${ this.windowSeconds } s`, width - 340, 24 );
+
+        // Live2D's default, drawn as a ghost over the most recent blink onset for comparison.
+        this.drawLive2dGhost( x, y );
+
+        context.strokeStyle = '#7fd1a0';
+        context.lineWidth = 3;
+        context.beginPath();
+
+        for ( let index = 0; index < this.samples.length; index ++ ) {
+
+            const sample = this.samples[ index ];
+            const point = [ x( sample.seconds ), y( sample.closure ) ];
+
+            if ( index === 0 ) context.moveTo( point[ 0 ], point[ 1 ] );
+            else context.lineTo( point[ 0 ], point[ 1 ] );
+
+        }
+
+        context.stroke();
+
+    }
+
+    /**
+     * A symmetric 0.1 s down / 0.15 s up triangle, anchored at the last blink onset in view.
+     * Not a straw man — it is the shipping Cubism default, and the point of the page is that the
+     * two curves are obviously different animals.
+     */
+    drawLive2dGhost( x, y ) {
+
+        const onset = this.findLastOnset();
+        if ( onset === null ) return;
+
+        const { context } = this;
+
+        context.save();
+        context.strokeStyle = '#8a6a9a';
+        context.lineWidth = 2;
+        context.setLineDash( [ 6, 6 ] );
+
+        context.beginPath();
+        context.moveTo( x( onset ), y( 0 ) );
+        context.lineTo( x( onset + 0.10 ), y( 1 ) );
+        context.lineTo( x( onset + 0.25 ), y( 0 ) );
+        context.stroke();
+
+        context.setLineDash( [] );
+        context.fillStyle = '#8a6a9a';
+        context.font = '18px ui-monospace, Menlo, monospace';
+        context.fillText( 'Live2D 0.1 / 0.15', x( onset ) + 6, y( 1 ) - 10 );
+        context.restore();
+
+    }
+
+    findLastOnset() {
+
+        for ( let index = this.samples.length - 1; index > 0; index -- ) {
+
+            if ( this.samples[ index ].closure > 0 && this.samples[ index - 1 ].closure === 0 ) {
+
+                return this.samples[ index - 1 ].seconds;
+
+            }
+
+        }
+
+        return null;
+
+    }
+
+}
+
+/** Puts the camera on the eyes, which is the only region this page is about. */
+function frameOnEyes( stage, root ) {
+
+    root.updateMatrixWorld( true );
+
+    const head = root.getObjectByName( 'head' );
+    const focus = head !== undefined
+        ? head.getWorldPosition( new Vector3() )
+        : new Vector3( 0, 1.6, 0 );
+
+    stage.camera.position.set( focus.x, focus.y + 0.035, focus.z + 0.26 );
+    stage.camera.lookAt( focus.x, focus.y + 0.035, focus.z );
+
+}
+
+/**
+ * The shipped GLB carries no textures, and the default material can read as translucent under an
+ * IBL, which makes it hard to tell a closed lid from an open one. Inspection-only.
+ */
+function forceOpaqueForInspection( root ) {
+
+    root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+
+        const materials = Array.isArray( object.material ) ? object.material : [ object.material ];
+
+        for ( const material of materials ) {
+
+            material.transparent = false;
+            material.opacity = 1;
+            material.depthWrite = true;
+
+        }
+
+    } );
+
+}
+
+boot().catch( ( error ) => {
+
+    document.getElementById( 'hud' ).textContent = `boot failed\n${ error.message }`;
+    console.error( error );
+
+} );
+
+</script>
+</body>
+</html>
