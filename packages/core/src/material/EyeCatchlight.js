@@ -18,11 +18,15 @@
  *
  * WHAT IS GENERATED
  * -----------------
- * A small cube texture, built at runtime with no asset and no fetch, holding a dark field and one
- * or two SOFTBOXES — rectangular emitters with soft edges. Rectangular matters: a round catchlight
- * reads as a point light and is the single most common tell of a real-time character. Every AAA
- * portrait reference in `research/stellar-blade-look-spec.md` has an elongated rectangular
- * highlight in the eye, because the source is a panel.
+ * A small cube texture, built at runtime with no asset and no fetch, holding a black field and ONE
+ * SOFTBOX — a rectangular emitter with soft edges. Rectangular matters: a round catchlight reads as
+ * a point light and is the single most common tell of a real-time character. Every AAA portrait
+ * reference in `research/stellar-blade-look-spec.md` has an elongated rectangular highlight in the
+ * eye, because the source is a panel.
+ *
+ * The spec's "soft ambient wash" is NOT in the texture. It has no edge, no shape and no direction,
+ * so it is a constant the shader adds — and keeping it out of the texture is what keeps it out of
+ * the peak multiplier that gives the highlight its HDR headroom. See `rig.wash` below.
  *
  * Each emitter is specified in angles rather than pixels, so face resolution is a quality dial and
  * nothing else:
@@ -39,7 +43,7 @@
  * dot" this exists to avoid.
  */
 
-import { CubeTexture, LinearFilter, LinearMipmapLinearFilter, SRGBColorSpace } from 'three/webgpu';
+import { CubeTexture, LinearFilter, SRGBColorSpace } from 'three/webgpu';
 import { cubeTexture } from 'three/tsl';
 
 // Face order three.js expects for a CubeTexture, and the axes each face looks down. The u and v
@@ -54,57 +58,108 @@ const CUBE_FACES = [
     { forward: [ 0, 0, -1 ], right: [ -1, 0, 0 ], down: [ 0, -1, 0 ] }   // -Z
 ];
 
-// 128 is chosen from the size the highlight actually occupies. A softbox 14° across, sampled by a
-// face that spans 90°, lands on about 20 texels — enough that the panel's straight edge reads as
-// straight and its corners as corners. Doubling it costs 4x the fill for a highlight that is a few
-// dozen pixels on screen at portrait framing.
-const FACE_SIZE = 128;
+// Chosen from the size the highlight actually occupies, and raised from 128 when the emitter
+// shrank. The spec-sized softbox spans 2 x 0.042 rad = 4.8° on g050; a face covering 90° at 128
+// texels gives that highlight 6.8 texels and its 1.0° edge falloff barely one, which aliases into
+// a staircase. At 256 the same highlight is 13.6 texels across with a 2.7-texel edge. The cost is
+// one-off: six 256x256 faces are 393k texel evaluations at construction, and nothing per frame.
+const FACE_SIZE = 256;
+
+/**
+ * HOW BIG A CATCHLIGHT IS, AND WHY IT IS NOT A TUNED NUMBER
+ * --------------------------------------------------------
+ * `docs/research/stellar-blade-look-spec.md` § Eyes states the highlight as a fraction of the
+ * IRIS, not as an angle: *"Single dominant catchlight, small (2-4% of iris diameter), upper-outer,
+ * plus soft ambient wash — not a multi-light array."* So the angular size is derived rather than
+ * chosen, and it is derived per figure from geometry this project has already measured.
+ *
+ * On a mirror sphere of radius R the reflected direction turns at TWICE the rate of the surface
+ * normal, so an emitter spanning a full angle 2θ paints an arc of only R·θ on the surface. With
+ * the highlight width `w` written as a fraction `f` of the iris diameter 2·r:
+ *
+ *     w = R · θ  and  w = f · 2r      ⇒      θ = 2 · r · f / R
+ *
+ * R here is the CORNEAL anterior radius (6.91-7.64 mm across the gender sweep, LEARNINGS § figure
+ * asset), not the globe radius — the highlight lives on the corneal cap and that cap is a separate,
+ * much tighter sphere. Getting those two confused makes the catchlight twice the size it should be.
+ *
+ * ⚠️ This model is checked against a render, not trusted. `angularHalfSize()` is exercised by
+ * `EyeCatchlight.selftest.mjs` against the measured geometry, and the delivered on-screen span is
+ * measured on `eye.html` — see PROGRESS for the numbers.
+ */
+export function angularHalfSize( fractionOfIrisDiameter, irisRadius, corneaRadius ) {
+
+    return 2 * irisRadius * fractionOfIrisDiameter / corneaRadius;
+
+}
+
+/**
+ * The spec's own numbers, as the only place a catchlight's size or count is stated.
+ *
+ * `width`/`height` are fractions of iris diameter and sit inside the spec's 2-4% band — 2.0% across
+ * and 3.0% tall, because a softbox is taller than it is wide and the spec's single figure has to
+ * bound the larger dimension.
+ *
+ * ⚠️ The AUTHORED fraction is not the DELIVERED one. Sampling and the peak multiplier together add
+ * a fixed skirt: measured on eye.html at 2160x2700 across authored sizes 1.8%, 3.6% and 7.2%, the
+ * delivered span came out authored + 2.3 px with mipmaps on and authored + 1.0 px with them off,
+ * against an iris 85 px wide. These values are chosen so the DELIVERED span lands inside the band;
+ * the sweep is in PROGRESS.
+ */
+export const CATCHLIGHT_SIZE = Object.freeze( {
+    widthFraction: 0.020,
+    heightFraction: 0.030
+} );
 
 /**
  * Ready-made rigs. `softbox` matches the portrait key in `packages/testbed/src/alive.js` — offset
- * (+0.90, +0.45, +0.95) from the focus point, i.e. up, forward and to the character's left — with
- * a dim fill panel opposite it at the fill's own offset (-1.05, +0.10, +0.85).
+ * (+0.90, +0.45, +0.95) from the focus point, i.e. up, forward and to the character's left.
  *
- * The intensities are ratios, not photometry: the key panel reads as a hard white highlight and the
- * fill as a faint second one, which is what a two-source portrait rig puts in an eye.
+ * 🎯 ONE DOMINANT EMITTER. The previous form of this file carried two hard-edged panels of nearly
+ * equal size, and they rendered as two rectangles of comparable brightness on the iris — measured
+ * at 15-17% of iris diameter each on a 2160x2700 `eye.html` portrait. The spec calls that out by
+ * name: a *single* dominant catchlight "plus soft ambient wash — not a multi-light array". So the
+ * fill is no longer an emitter at all: it is `rig.wash`, a constant with no shape.
+ *
+ * The RADIANCE lives in `EyeMaterial.CATCHLIGHT_PEAK` rather than here. The cube texture is an
+ * 8-bit sRGB image and clamps at 1.0, so on its own the brightest catchlight this file can express
+ * tonemaps to about 0.73 encoded — DARKER than the cheek beside it, which is the exact failure this
+ * rewrite exists to remove. The texture carries the SHAPE; the shader carries the radiance.
  */
 export const CATCHLIGHT_PRESETS = {
 
     softbox: {
-        ambient: [ 0.004, 0.005, 0.007 ],
+        // The wash. It is a CONSTANT, not an emitter, and that is a deliberate simplification:
+        // "soft ambient wash" has no edge, no shape and no position, so it needs no cubemap. It is
+        // added in the shader at unit scale, which is also what keeps it OUT of the peak multiplier
+        // — the first attempt at this fix put the wash in the texture and multiplied everything by
+        // the peak together, and a 0.018 wash times a peak of 26 is a 0.47 veil over the whole
+        // iris. It was measured by looking: the eye went uniformly grey-blue.
+        wash: { colour: [ 0.74, 0.83, 1.0 ], intensity: 0.020 },
+
         emitters: [
             {
                 direction: [ 0.90, 0.45, 0.95 ],
                 up: [ 0, 1, 0 ],
-                halfWidth: 0.115,
-                halfHeight: 0.160,
-                softness: 0.045,
-                colour: [ 1.0, 0.95, 0.88 ],
+                sizeFraction: [ CATCHLIGHT_SIZE.widthFraction, CATCHLIGHT_SIZE.heightFraction ],
+                softnessFraction: 0.003,
+                colour: [ 1.0, 0.97, 0.93 ],
                 intensity: 1.0
-            },
-            {
-                direction: [ -1.05, 0.10, 0.85 ],
-                up: [ 0, 1, 0 ],
-                halfWidth: 0.210,
-                halfHeight: 0.210,
-                softness: 0.090,
-                colour: [ 0.74, 0.83, 1.0 ],
-                intensity: 0.16
             }
         ]
     },
 
-    // One panel, no fill. Useful as a control: with a single emitter the catchlight's position on
-    // the eye is a pure readout of the corneal normal, so a wrong frame is obvious.
+    // One panel, no wash at all. The control: the only thing in the picture is the dominant
+    // highlight, so its position is a pure readout of the corneal normal and its count is known to
+    // be one — which is what makes it the A side of the "how many catchlights" question.
     single: {
-        ambient: [ 0.002, 0.002, 0.003 ],
+        wash: { colour: [ 1, 1, 1 ], intensity: 0.0 },
         emitters: [
             {
                 direction: [ 0.90, 0.45, 0.95 ],
                 up: [ 0, 1, 0 ],
-                halfWidth: 0.115,
-                halfHeight: 0.160,
-                softness: 0.040,
+                sizeFraction: [ CATCHLIGHT_SIZE.widthFraction, CATCHLIGHT_SIZE.heightFraction ],
+                softnessFraction: 0.003,
                 colour: [ 1, 1, 1 ],
                 intensity: 1.0
             }
@@ -112,6 +167,40 @@ export const CATCHLIGHT_PRESETS = {
     }
 
 };
+
+/**
+ * Resolves any `sizeFraction` emitters against one eye's measured geometry, leaving explicit
+ * `halfWidth`/`halfHeight` emitters alone.
+ *
+ * Kept separate from `buildCatchlightCubeTexture` so the conversion can be tested without a canvas,
+ * and so a caller can print what it resolved to — a size stated as "2.4% of iris diameter" is
+ * meaningless to a reviewer until it is also stated in radians and in millimetres on the cornea.
+ *
+ * @param {Object} rig       - one of CATCHLIGHT_PRESETS.
+ * @param {Object} geometry  - { irisRadius, corneaRadius } in metres, from `measureEye`.
+ */
+export function resolveCatchlightRig( rig, geometry, sizeScale = 1 ) {
+
+    const emitters = rig.emitters.map( ( emitter ) => {
+
+        if ( emitter.sizeFraction === undefined ) return emitter;
+
+        const [ widthFraction, heightFraction ] = emitter.sizeFraction;
+        const half = ( fraction ) =>
+            angularHalfSize( fraction * sizeScale, geometry.irisRadius, geometry.corneaRadius );
+
+        return {
+            ...emitter,
+            halfWidth: half( widthFraction ),
+            halfHeight: half( heightFraction ),
+            softness: Math.max( half( emitter.softnessFraction ?? 0.01 ), 1e-4 )
+        };
+
+    } );
+
+    return { ...rig, emitters };
+
+}
 
 /**
  * Builds the cube texture and the TSL node that samples it.
@@ -128,14 +217,28 @@ export function buildCatchlightCubeTexture( rig ) {
     if ( typeof document === 'undefined' ) return null;
 
     const emitters = rig.emitters.map( prepareEmitter );
-    const images = CUBE_FACES.map( ( face ) => renderFace( face, emitters, rig.ambient ) );
+    const images = CUBE_FACES.map( ( face ) => renderFace( face, emitters ) );
 
     const texture = new CubeTexture( images );
     texture.name = 'sugata.eye.catchlight';
     texture.colorSpace = SRGBColorSpace;
     texture.magFilter = LinearFilter;
-    texture.minFilter = LinearMipmapLinearFilter;
-    texture.generateMipmaps = true;
+
+    // 🎯 NO MIPMAPS, and this is a measured decision rather than a default.
+    //
+    // The reflected direction sweeps roughly 240° across an iris that is 85 px wide at 2160x2700
+    // portrait framing, so a mipmapped lookup lands three or four levels down the chain and the
+    // highlight arrives pre-blurred. That blur then gets multiplied by CATCHLIGHT_PEAK, which
+    // pushes the whole blurred skirt over the tonemapper's shoulder — so the delivered highlight is
+    // the skirt, not the panel. Measured on eye.html at three authored sizes, the delivered span
+    // was authored + 2.3 px regardless of what was authored, which is the signature of a fixed blur
+    // rather than of a size error. See PROGRESS for the sweep.
+    //
+    // The cost of turning them off is aliasing when the reflection minifies, and the reason it is
+    // affordable here is that the emitter is the ONLY content in the texture and its edge is a
+    // smoothstep rather than a step.
+    texture.minFilter = LinearFilter;
+    texture.generateMipmaps = false;
     texture.needsUpdate = true;
 
     return {
@@ -154,13 +257,21 @@ export function buildCatchlightCubeTexture( rig ) {
 export function evaluateCatchlight( rig, direction ) {
 
     const emitters = rig.emitters.map( prepareEmitter );
-    return accumulate( normalise( direction ), emitters, rig.ambient );
+    return accumulate( normalise( direction ), emitters );
 
 }
 
 // --- internals -----------------------------------------------------------------------------------
 
 function prepareEmitter( emitter ) {
+
+    if ( emitter.halfWidth === undefined || emitter.halfHeight === undefined ) {
+
+        throw new Error( 'EyeCatchlight: emitter has a sizeFraction and no angles. ' +
+            'Pass the rig through resolveCatchlightRig( rig, eyeGeometry ) first — the angular ' +
+            'size of a catchlight is derived from the corneal radius, not chosen.' );
+
+    }
 
     const forward = normalise( emitter.direction );
 
@@ -192,9 +303,9 @@ function prepareEmitter( emitter ) {
  * Multiplying the two falloffs rounds the corners slightly, exactly as a real softbox's diffuser
  * does at its frame.
  */
-function accumulate( direction, emitters, ambient ) {
+function accumulate( direction, emitters ) {
 
-    const colour = [ ambient[ 0 ], ambient[ 1 ], ambient[ 2 ] ];
+    const colour = [ 0, 0, 0 ];
 
     for ( const emitter of emitters ) {
 
@@ -232,7 +343,7 @@ function falloff( angle, half, softness ) {
 
 }
 
-function renderFace( face, emitters, ambient ) {
+function renderFace( face, emitters ) {
 
     const canvas = document.createElement( 'canvas' );
     canvas.width = FACE_SIZE;
@@ -256,7 +367,7 @@ function renderFace( face, emitters, ambient ) {
                 face.forward[ 2 ] + face.right[ 2 ] * a + face.down[ 2 ] * b
             ] );
 
-            const colour = accumulate( direction, emitters, ambient );
+            const colour = accumulate( direction, emitters );
             const offset = ( y * FACE_SIZE + x ) * 4;
 
             // The texture is tagged sRGB, so the byte written has to be the sRGB encoding of the

@@ -204,10 +204,192 @@ async function readMeshesViaThree(fileBuffer) {
       // Only the eye parts, because this is the one place the gate measures shape rather than
       // metadata and there is no reason to copy 13,380 body vertices to do it.
       positions: isEyePart ? positionsOf(object.geometry) : null,
+      // The lip seal needs the BODY and the TEETH, and it needs the jawOpen delta as well as the
+      // rest positions. Kept behind a name test for the same reason as above.
+      mouthGeometry: LIP_SEAL_MESHES.some((pattern) => pattern.test(object.name))
+        ? { positions: positionsOf(object.geometry), jawOpen: jawOpenDeltasOf(object) }
+        : null,
     });
   });
 
   return perMesh;
+}
+
+// --- the lip seal ---------------------------------------------------------------------------
+//
+// docs/LEARNINGS.md §1.1 records teeth drawing through closed lips once already, from alphaMode
+// BLEND. That cause is fixed and gated below (reportMaterials / reportRuntimeMaterials). The band
+// came back anyway in round 7, and it is a DIFFERENT defect with the same appearance: the mouth is
+// genuinely open. Measured on a 2160x2700 alive.html portrait — a hard row of upper teeth across
+// the whole lip line, with the dark oral cavity visible above it — while the SAME GLB on eye.html,
+// which applies no pose and no morphs, renders a sealed mouth. So the asset seals and something
+// opens it.
+//
+// What this gate can assert, and the only thing it should, is the asset's half of that: the mouth
+// must be SHUT with all morphs at zero, and the upper teeth must be tucked behind the lip by a
+// real margin rather than sitting flush with it. Two numbers, both measured off the mesh:
+//
+//   aperture       the vertical gap at the midline lip seam, morphs at zero. 0.02 mm on all five
+//                  shipping figures — the lips are in contact.
+//   seal margin    how far the upper arch's front biting edge sits ABOVE that seam. 0.98 mm (g100)
+//                  to 1.53 mm (g000). It is the depth of cover the lips have over the teeth, and
+//                  it is what an animation layer is spending when it opens the jaw.
+//
+// The margin is also the number a motion layer needs: jawOpen drops the lower lip 32.9-34.8 mm per
+// unit weight, so the weight at which the teeth become visible is margin / that — 0.028 (g100) to
+// 0.045 (g000). Any idle layer writing jawOpen above ~0.02 will show teeth on this asset. That
+// belongs in the layer, not here; this gate exists so a future asset cannot ship with the margin
+// already spent.
+//
+// ⚠️ WHAT THIS GATE DOES NOT COVER, measured and stated rather than left to be discovered. It reads
+// the MIDLINE column only. Rendered at a 60 mm frame with every morph at zero, the shipped figure
+// already shows 364 desaturated pixels above luma 0.80 in a 670x80 strip on the lip line — a
+// hairline of enamel, invisible at portrait framing but real. The midline aperture at that same
+// moment reads 0.022 mm. So the leak is OFF-CENTRE and this gate cannot see it. A slice-wise
+// version was written and withdrawn in the same round: at ~5 mm a slice the columns are too sparse
+// for the delta-split seam finder and it reported 1-4 mm apertures on four of five figures, which
+// is measurably wrong against the render. Fixing it needs the seam found from the mesh's edge
+// topology rather than from a sorted column. Until then this gate covers the midline, and it says
+// so in its own output.
+const LIP_SEAL_MESHES = [/^Human$/i, /body/i, /base/i, /teeth/i];
+
+const MIDLINE_HALF_WIDTH_M = 0.006;
+const MOUTH_FRONT_MIN_Z_M = 0.090;
+const ARCH_FRONT_MIN_Z_M = 0.125;
+const ARCH_HALF_WIDTH_M = 0.020;
+
+// Bands. The aperture ceiling is 20x the measured 0.02 mm, so a real gap fails and float noise
+// does not. The margin floor is 0.5 mm against a measured 0.98-1.53 mm — half the tightest
+// shipping figure, so it rejects a flush or protruding arch without pinning the art.
+const MAX_NEUTRAL_APERTURE_MM = 0.4;
+const MIN_SEAL_MARGIN_MM = 0.5;
+
+/** The jawOpen morph's per-vertex Y displacement, or null if this mesh does not carry it. */
+function jawOpenDeltasOf(mesh) {
+  const index = mesh.morphTargetDictionary?.jawOpen;
+  if (index === undefined) {
+    return null;
+  }
+  const attribute = mesh.geometry.morphAttributes.position?.[index];
+  if (!attribute) {
+    return null;
+  }
+  const out = new Float64Array(attribute.count);
+  for (let vertex = 0; vertex < attribute.count; vertex += 1) {
+    out[vertex] = attribute.getY(vertex);
+  }
+  return out;
+}
+
+/**
+ * The two lip-seal numbers for one figure.
+ *
+ * The SEAM is found from the jawOpen field rather than from the shape, and that is the load-bearing
+ * choice: on a closed mouth the upper and lower lip vertices are geometrically coincident, so there
+ * is no gap to look for. What separates them is that the upper lip barely moves when the jaw opens
+ * and the lower lip follows it — so the seam is the adjacent pair, top to bottom down the midline,
+ * whose jawOpen deltas differ most. That works on a sealed mouth precisely because it does not use
+ * the seal.
+ */
+function measureLipSeal(body, teeth) {
+  if (!body?.jawOpen || !teeth?.positions) {
+    return { measured: false };
+  }
+
+  const teethY = teeth.positions.map((point) => point[1]);
+  const bandLow = Math.min(...teethY) - 0.010;
+  const bandHigh = Math.max(...teethY) + 0.010;
+
+  const column = [];
+  for (let vertex = 0; vertex < body.positions.length; vertex += 1) {
+    const [x, y, z] = body.positions[vertex];
+    if (Math.abs(x) > MIDLINE_HALF_WIDTH_M) continue;
+    if (y < bandLow || y > bandHigh) continue;
+    if (z < MOUTH_FRONT_MIN_Z_M) continue;
+    column.push({ y, delta: body.jawOpen[vertex] });
+  }
+
+  if (column.length < 8) {
+    return { measured: false, columnCount: column.length };
+  }
+
+  column.sort((a, b) => b.y - a.y);
+
+  let seam = null;
+  for (let i = 0; i + 1 < column.length; i += 1) {
+    const split = Math.abs(column[i + 1].delta - column[i].delta);
+    if (!seam || split > seam.split) {
+      seam = { split, upper: column[i], lower: column[i + 1] };
+    }
+  }
+
+  // The upper arch is the tooth geometry jawOpen does not move.
+  let archEdge = Infinity;
+  for (let vertex = 0; vertex < teeth.positions.length; vertex += 1) {
+    const [x, y, z] = teeth.positions[vertex];
+    if (Math.abs(x) > ARCH_HALF_WIDTH_M) continue;
+    if (z < ARCH_FRONT_MIN_Z_M) continue;
+    if (teeth.jawOpen && Math.abs(teeth.jawOpen[vertex]) >= 0.002) continue;
+    if (y < archEdge) archEdge = y;
+  }
+
+  return {
+    measured: Number.isFinite(archEdge),
+    apertureMm: (seam.upper.y - seam.lower.y) * 1000,
+    sealMarginMm: (archEdge - seam.upper.y) * 1000,
+    dropPerUnitWeightMm: seam.split * 1000,
+    seamY: seam.upper.y,
+  };
+}
+
+function reportLipSeal(threeMeshes) {
+  const failures = [];
+  console.log("");
+  console.log("--- assertions on the lip seal ---");
+
+  const body = threeMeshes.find((mesh) => mesh.mouthGeometry && /teeth/i.test(mesh.name) === false);
+  const teeth = threeMeshes.find((mesh) => mesh.mouthGeometry && /teeth/i.test(mesh.name));
+
+  if (!body?.mouthGeometry || !teeth?.mouthGeometry) {
+    console.log("  FAIL cannot measure the lip seal: " +
+                `${body ? "" : "no body mesh"}${!body && !teeth ? " and " : ""}${teeth ? "" : "no teeth mesh"}`);
+    failures.push("lip seal not measurable");
+    return failures;
+  }
+
+  const seal = measureLipSeal(body.mouthGeometry, teeth.mouthGeometry);
+
+  if (!seal.measured) {
+    console.log(`  FAIL the mouth region has too little geometry to measure ` +
+                `(${seal.columnCount ?? 0} midline vertices)`);
+    failures.push("lip seal not measurable");
+    return failures;
+  }
+
+  const shut = seal.apertureMm <= MAX_NEUTRAL_APERTURE_MM;
+  console.log(`  ${shut ? "ok  " : "FAIL"} neutral mouth is shut at the midline: lip aperture ` +
+              `${seal.apertureMm.toFixed(3)} mm with every morph at zero, needs ` +
+              `<= ${MAX_NEUTRAL_APERTURE_MM} mm`);
+  if (!shut) {
+    failures.push("the neutral mouth is open");
+  }
+
+  const covered = seal.sealMarginMm >= MIN_SEAL_MARGIN_MM;
+  console.log(`  ${covered ? "ok  " : "FAIL"} upper teeth are covered: the front biting edge sits ` +
+              `${seal.sealMarginMm.toFixed(3)} mm above the lip seam, needs ` +
+              `>= ${MIN_SEAL_MARGIN_MM} mm — below that the teeth are flush with the lip line and ` +
+              "any jaw motion at all exposes them");
+  if (!covered) {
+    failures.push("the upper teeth are not covered by the lip");
+  }
+
+  // Not an assertion, a published constant: the jawOpen weight at which this figure starts to show
+  // teeth. A motion layer has no other way to know it, and getting it wrong is the round-7 defect.
+  const threshold = seal.sealMarginMm / seal.dropPerUnitWeightMm;
+  console.log(`  note jawOpen drops the lower lip ${seal.dropPerUnitWeightMm.toFixed(1)} mm per ` +
+              `unit weight, so teeth first show at jawOpen ≈ ${threshold.toFixed(4)}`);
+
+  return failures;
 }
 
 function reportMissing(label, required, present) {
@@ -294,6 +476,7 @@ async function verifyFigure(glbPath) {
   failures.push(...reportSkinning(json, threeMeshes));
   failures.push(...reportMaterials(json, threeMeshes));
   failures.push(...reportEyeGeometry(threeMeshes));
+  failures.push(...reportLipSeal(threeMeshes));
 
   return failures;
 }
@@ -600,10 +783,99 @@ function reportRuntimeMaterials(threeMeshes) {
   return failures;
 }
 
+/**
+ * 🚩 THE OTHER WAY, for the lip seal (docs/LEARNINGS.md §1.1).
+ *
+ * The seal check passes on all five shipping figures, which by itself proves nothing — the whole
+ * point of §1.1 is that a gate which has never failed is not known to work. So this builds three
+ * synthetic mouths with known answers and requires the measurement to sort them correctly:
+ *
+ *   sealed     lips in contact, arch 1.3 mm above the seam        must PASS both clauses
+ *   parted     lips 2 mm apart with every morph at zero           must FAIL the aperture clause
+ *   flush      lips in contact, arch level with the seam          must FAIL the margin clause
+ *
+ * `node tools/figure-pipeline/verify_glb.mjs --selftest` runs it. It is a separate mode rather than
+ * part of every run because it measures the instrument, not the asset.
+ */
+function runLipSealSelftest() {
+  console.log("");
+  console.log("--- lip seal: the gate against known-bad input ---");
+
+  // A midline column of body vertices around a seam, plus a front tooth arch. Y in metres, at the
+  // real figure's height so the band filter behaves exactly as it does on an asset.
+  const buildMouth = ({ apertureMm, marginMm }) => {
+    const seamY = 1.4859;
+    const upperY = seamY;
+    const lowerY = seamY - apertureMm / 1000;
+
+    const positions = [];
+    const jawOpen = [];
+    // Upper lip block: stationary under jawOpen. Lower lip block: drops 33 mm at weight 1.
+    for (let i = 0; i < 12; i += 1) {
+      positions.push([0.0, upperY + i * 0.0006, 0.100]);
+      jawOpen.push(0);
+    }
+    for (let i = 0; i < 12; i += 1) {
+      positions.push([0.0, lowerY - i * 0.0006, 0.100]);
+      jawOpen.push(-0.033);
+    }
+
+    // The upper arch, `marginMm` above the seam, and a lower arch below it that follows the jaw.
+    const teethPositions = [];
+    const teethJaw = [];
+    for (let i = 0; i < 20; i += 1) {
+      teethPositions.push([(i - 10) * 0.001, seamY + marginMm / 1000 + i * 0.0002, 0.130]);
+      teethJaw.push(0);
+      teethPositions.push([(i - 10) * 0.001, seamY - 0.004 - i * 0.0002, 0.130]);
+      teethJaw.push(-0.033);
+    }
+
+    return {
+      body: { positions, jawOpen },
+      teeth: { positions: teethPositions, jawOpen: teethJaw },
+    };
+  };
+
+  const cases = [
+    { label: "sealed  ", mouth: buildMouth({ apertureMm: 0.02, marginMm: 1.3 }), aperture: true, margin: true },
+    { label: "parted  ", mouth: buildMouth({ apertureMm: 2.00, marginMm: 1.3 }), aperture: false, margin: true },
+    { label: "flush   ", mouth: buildMouth({ apertureMm: 0.02, marginMm: 0.0 }), aperture: true, margin: false },
+  ];
+
+  const failures = [];
+  for (const testCase of cases) {
+    const seal = measureLipSeal(testCase.mouth.body, testCase.mouth.teeth);
+    const apertureOk = seal.measured && seal.apertureMm <= MAX_NEUTRAL_APERTURE_MM;
+    const marginOk = seal.measured && seal.sealMarginMm >= MIN_SEAL_MARGIN_MM;
+    const correct = apertureOk === testCase.aperture && marginOk === testCase.margin;
+
+    console.log(`  ${correct ? "ok  " : "FAIL"} ${testCase.label} aperture ` +
+                `${seal.measured ? seal.apertureMm.toFixed(3) : "?"} mm (${apertureOk ? "pass" : "REJECT"}, ` +
+                `expected ${testCase.aperture ? "pass" : "REJECT"}), margin ` +
+                `${seal.measured ? seal.sealMarginMm.toFixed(3) : "?"} mm (${marginOk ? "pass" : "REJECT"}, ` +
+                `expected ${testCase.margin ? "pass" : "REJECT"})`);
+
+    if (!correct) {
+      failures.push(`lip seal selftest: ${testCase.label.trim()} sorted wrongly`);
+    }
+  }
+
+  return failures;
+}
+
 async function main() {
   const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(pipelineDir, "..", "..");
   const figuresDir = path.join(repoRoot, "assets", "figures");
+
+  if (process.argv.includes("--selftest")) {
+    const failures = runLipSealSelftest();
+    console.log("");
+    console.log(failures.length === 0
+      ? "PASS — the lip-seal gate rejects known-bad mouths and accepts a sealed one."
+      : `FAIL — ${failures.length} problem(s): ${failures.join("; ")}`);
+    process.exit(failures.length === 0 ? 0 : 1);
+  }
 
   let targets = process.argv.slice(2);
   if (targets.length === 0) {

@@ -28,7 +28,19 @@
  *   ?refraction=0    pin the iris to its own UV. The A side of the parallax comparison.
  *   ?shader=0        put the shipped GLB materials back. The A side of everything else.
  *   ?occlusion=0     no occlusion sheet, no tearline.
- *   ?catchlight=0    no per-eye catchlight cubemap.
+ *   ?catchlight=0    no per-eye catchlight cubemap. `?catchlight=single` drops the wash panel,
+ *                    which is how the dominant highlight is isolated from everything else.
+ *   ?clIntensity=1   scale the catchlight's radiance. `0` is the same as ?catchlight=0 and
+ *                    `?shell=0` removes the whole corneal mesh — three separate A sides, so a
+ *                    highlight can be attributed to the cubemap, to the scene specular, or to the
+ *                    shell, rather than argued about.
+ *   ?scleraChroma=   0 keeps the map's own near-grey sclera; 1 is the full spec chromaticity.
+ *   ?clSize=1        scale the catchlight's authored angular size. The sweep that solves
+ *                    CATCHLIGHT_SIZE against the DELIVERED on-screen span runs through this.
+ *   ?morph=a:0.05,b:1  drive arbitrary morph weights across every mesh that carries them. This is
+ *                    how the lip seal is measured: `?morph=jawOpen:0.04` and look at the mouth.
+ *   ?dy=-0.045       move the framed point down from the eye midpoint, in metres. -0.045 puts the
+ *                    mouth in the middle of the frame at a 0.075 m crop.
  *   ?gender=0.5      which bake.
  *   ?bare            hide the HUD and the controls, for a clean plate.
  *   ?webgl           force the WebGL2 tier.
@@ -152,10 +164,15 @@ async function boot() {
     // The skeleton has to be current before EyeMaterial reads the head bone's world matrix.
     figure.root.updateMatrixWorld( true );
 
+    const catchlightRig = query.get( 'catchlight' );
+
     const eyes = new EyeMaterial( {
         figure,
         refraction: query.get( 'refraction' ) !== '0',
-        catchlight: query.get( 'catchlight' ) === '0' ? null : 'softbox'
+        catchlight: catchlightRig === '0' ? null : ( catchlightRig ?? 'softbox' ),
+        catchlightIntensity: query.has( 'clIntensity' ) ? Number( query.get( 'clIntensity' ) ) : undefined,
+        scleraChroma: query.has( 'scleraChroma' ) ? Number( query.get( 'scleraChroma' ) ) : undefined,
+        catchlightSizeScale: Number( query.get( 'clSize' ) ?? 1 )
     } );
 
     const occlusion = buildEyeOcclusion( { figure, geometry: eyes.geometry } );
@@ -188,12 +205,17 @@ async function boot() {
     const focusEye = query.get( 'focus' ) ?? 'centre';
     const focus = new Vector3(
         focusEye === 'centre' ? 0 : eyes.geometry[ focusEye ].centre[ 0 ],
-        ( eyes.geometry.left.centre[ 1 ] + eyes.geometry.right.centre[ 1 ] ) / 2,
+        ( eyes.geometry.left.centre[ 1 ] + eyes.geometry.right.centre[ 1 ] ) / 2
+            + Number( query.get( 'dy' ) ?? 0 ),
         ( eyes.geometry.left.centre[ 2 ] + eyes.geometry.right.centre[ 2 ] ) / 2 );
+
+    // Arbitrary morph weights, held every frame. `applyGaze` calls `figure.beginFrame()`, which
+    // clears the weight table, so these have to be re-written inside it rather than set once.
+    const heldMorphs = parseMorphs( query.get( 'morph' ) );
 
     const applyState = () => {
 
-        applyGaze( figure, state );
+        applyGaze( figure, state, heldMorphs );
         eyes.pupilScaleUniform.value = state.pupil;
         eyes.update();
         frameCamera( stage, focus, state );
@@ -338,7 +360,7 @@ async function boot() {
  * and `Out` on the other — which is exactly the fan-out `Figure.setMorph` exists to hide, except
  * that here the two eyes need different morphs rather than the same morph on several meshes.
  */
-function applyGaze( figure, state ) {
+function applyGaze( figure, state, heldMorphs = [] ) {
 
     const yaw = state.yaw / DEGREES_PER_GAZE_MORPH;
     const pitch = state.pitch / DEGREES_PER_GAZE_MORPH;
@@ -350,7 +372,23 @@ function applyGaze( figure, state ) {
     for ( const name of GAZE_MORPHS.up ) figure.weights[ name ] = Math.max( 0, pitch );
     for ( const name of GAZE_MORPHS.down ) figure.weights[ name ] = Math.max( 0, -pitch );
 
+    for ( const { name, weight } of heldMorphs ) figure.weights[ name ] = weight;
+
     figure.commit();
+
+}
+
+/** `?morph=jawOpen:0.04,mouthClose:0.2` -> [ { name, weight } ]. */
+function parseMorphs( text ) {
+
+    if ( text === null || text === '' ) return [];
+
+    return text.split( ',' ).map( ( entry ) => {
+
+        const [ name, weight ] = entry.split( ':' );
+        return { name, weight: Number( weight ?? 1 ) };
+
+    } );
 
 }
 
@@ -467,7 +505,7 @@ function bindControls( state, { applyState, eyes, occlusionVisible } ) {
     toggle( 'shell', ( on ) => { eyes.corneaMesh.visible = on; } );
     toggle( 'catchlight', ( on ) => {
 
-        eyes.catchlightIntensityUniform.value = on ? 1 : 0;
+        eyes.catchlightIntensityUniform.value = on ? eyes.catchlightPeak : 0;
 
     } );
     toggle( 'shader', ( on ) => {

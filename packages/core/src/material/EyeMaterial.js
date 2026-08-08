@@ -127,7 +127,11 @@ import {
 // least-squares sphere fit is exactly how two answers to one question get born.
 import { fitSphere } from '../../../../tools/figure-pipeline/cornea_geometry.mjs';
 
-import { buildCatchlightCubeTexture, CATCHLIGHT_PRESETS } from './EyeCatchlight.js';
+import {
+    buildCatchlightCubeTexture,
+    CATCHLIGHT_PRESETS,
+    resolveCatchlightRig
+} from './EyeCatchlight.js';
 
 // --- what the meshes are called ----------------------------------------------------------------
 //
@@ -206,6 +210,37 @@ const IRIS_PLANE_FIT_FRACTION = 0.78;
 // around it. Matching the cheek IS the constraint; 1.0 was under it, not safely inside it.
 const SCLERA_BRIGHTNESS = 1.26;
 
+/**
+ * 🎯 The sclera's CHROMA, which is the half of the look spec no gate was measuring.
+ *
+ * The spec's eye table gives the sclera as `#9D7274` and states the rule in words as well:
+ * *"The sclera is NOT white. It measures the same luminance as the surrounding cheek and is MORE
+ * saturated than skin (0.275 vs 0.215), pink-tinted."* Two clauses, and only the first has ever
+ * been gated. G2 measures sclera:cheek LUMA and passes; measured on a 2160x2700 portrait the
+ * sclera came out `#c2b8b2` at HSV saturation 0.0822 against a cheek at 0.2152 — a sclera:cheek
+ * saturation ratio of 0.38 where the reference is 0.275/0.215 = 1.28. Out by 3.4x, entirely
+ * inside the gate's blind spot, and it is why the eye reads as a grey glass bead.
+ *
+ * The cause is the asset, not the shader: `brown_eye.png`'s sclera is RGB 160,153,145, a warm
+ * NEUTRAL grey at saturation 0.094, and `SCLERA_BRIGHTNESS` only scales it. Scaling a grey gives
+ * a grey.
+ *
+ * The fix is a per-channel gain whose LINEAR luma is exactly 1, so it rotates the sclera's
+ * chromaticity toward `#9D7274` without moving the quantity G2 gates on. `SCLERA_CHROMA` blends
+ * between the map's own colour (0) and the spec chromaticity (1); it is a blend rather than a
+ * hard set because the sclera also carries the map's vein detail, and a full replacement flattens
+ * it. The shipped value is solved against a measurement, not chosen — see PROGRESS.
+ */
+export const SCLERA_SPEC_SRGB = [ 0x9D / 255, 0x72 / 255, 0x74 / 255 ];
+
+// Solved, not chosen. At full gain the tint OVERSHOOTS: the map's sclera is not perfectly neutral
+// (saturation 0.0938, warm) so the pink gain compounds with what is already there and lands at
+// 0.327 against the spec's 0.274. The albedo blend that lands exactly on the spec chromaticity is
+// 0.71, and that is the starting point; the SHIPPED value is then solved against the RENDER,
+// because what the spec actually constrains is a ratio — "MORE saturated than skin, 0.275 vs
+// 0.215" — and our skin is not the reference's skin. Both numbers are asserted in the self-test.
+export const SCLERA_CHROMA = 1.0;
+
 // research §6: sclera Roughness 0.0-0.1. The wet film is on the globe outside the corneal cap,
 // where the corneal shell no longer contributes.
 const SCLERA_ROUGHNESS = 0.24;
@@ -240,6 +275,28 @@ const CORNEA_ROUGHNESS = 0.08;
  * constructor for that reason.
  */
 const CORNEA_SCENE_SPECULAR = 0.05;
+
+/**
+ * 🎯 The catchlight's LINEAR radiance, and why it has to be far above 1.
+ *
+ * `EyeCatchlight.js` writes an 8-bit sRGB cube texture, so the brightest value it can hold is
+ * exactly 1.0 in linear light. Fed straight into `emissiveNode` that produced a plateau at
+ * **0.7305-0.7321 encoded luma against a cheek at 0.7541** — measured on a 4K portrait, a
+ * catchlight 0.97x as bright as the skin beside it. The look spec wants **1.32x** (`§ Eyes`,
+ * catchlight p99 0.651 against a cheek 0.492). A highlight darker than the face is the single
+ * most reliable way to make an eye look dead, and no amount of reshaping the cubemap fixes it,
+ * because the ceiling is the texture format.
+ *
+ * So the texture carries the SHAPE and this constant carries the radiance. The value is solved
+ * against the tone curve rather than picked: the page is rendered at a sweep of intensities and
+ * the one whose measured peak lands on 1.32x cheek is taken. ACES has a long shoulder, which is
+ * why the number is this large — a real softbox IS many stops above the skin it lights, and that
+ * is exactly the headroom `CORNEA_SCENE_SPECULAR` records the rig as not having.
+ *
+ * Re-solve it if the tonemapper, the exposure calibration or the key's intensity changes. The
+ * sweep that produced it is one command; it is in PROGRESS beside the number.
+ */
+const CATCHLIGHT_PEAK = 26.0;
 
 // How far out from the eye axis the corneal shell keeps contributing, as a multiple of the iris
 // radius. Measured clearance between the two shells (from the cornea's own band centre): +2.96 mm
@@ -416,9 +473,12 @@ export class EyeMaterial {
      * @param {Object} [options.globeMesh]   - or pass the two meshes directly.
      * @param {Object} [options.corneaMesh]
      * @param {number} [options.corneaIor=1.3333]
-     * @param {number} [options.scleraBrightness=1.0]
+     * @param {number} [options.scleraBrightness=1.26]
+     * @param {number} [options.scleraChroma=0.85] - 0 keeps the map's near-grey sclera, 1 is the
+     *   look spec's full chromaticity. See SCLERA_SPEC_SRGB.
      * @param {number} [options.catchlight='softbox'] - a key of CATCHLIGHT_PRESETS, or null for none.
-     * @param {number} [options.catchlightIntensity=1.0]
+     * @param {number} [options.catchlightIntensity=26] - linear radiance of the highlight's core.
+     *   The default is solved against the tone curve; see CATCHLIGHT_PEAK.
      * @param {boolean} [options.refraction=true] - false pins the iris to its own UV, which is the
      *   A side of the parallax comparison. Nothing else changes, so the difference between the two
      *   renders is exactly the refraction.
@@ -457,8 +517,9 @@ export class EyeMaterial {
         // can never reach zero.
         this.pupilScaleUniform = uniform( 1 );
         this.scleraBrightnessUniform = uniform( options.scleraBrightness ?? SCLERA_BRIGHTNESS );
+        this.scleraChromaUniform = uniform( options.scleraChroma ?? SCLERA_CHROMA );
         this.limbalRingUniform = uniform( LIMBAL_RING_DARKNESS );
-        this.catchlightIntensityUniform = uniform( options.catchlightIntensity ?? 1 );
+        this.catchlightIntensityUniform = uniform( options.catchlightIntensity ?? CATCHLIGHT_PEAK );
         this.causticScaleUniform = uniform( IRIS_CAUSTIC_SCALE );
 
         // The key light direction the analytic caustic is computed against, world space, pointing
@@ -478,9 +539,24 @@ export class EyeMaterial {
             right: this.createEyeFrame( this.geometry.right )
         };
 
-        this.catchlight = options.catchlight === null
+        // The rig's emitter sizes are stated as a fraction of IRIS DIAMETER, which only becomes an
+        // angle once this figure's own cornea has been measured — so the resolve happens here,
+        // after `measureEyeGeometry`, and against the mean of the two eyes. The two differ by about
+        // 1% in iris radius, and one shared cubemap serves both.
+        this.catchlightPeak = options.catchlightIntensity ?? CATCHLIGHT_PEAK;
+        this.catchlightRig = options.catchlight === null
             ? null
-            : buildCatchlightCubeTexture( CATCHLIGHT_PRESETS[ options.catchlight ?? 'softbox' ] );
+            : resolveCatchlightRig(
+                CATCHLIGHT_PRESETS[ options.catchlight ?? 'softbox' ],
+                {
+                    irisRadius: ( this.geometry.left.irisRadius + this.geometry.right.irisRadius ) / 2,
+                    corneaRadius: ( this.geometry.left.corneaRadius + this.geometry.right.corneaRadius ) / 2
+                },
+                options.catchlightSizeScale ?? 1 );
+
+        this.catchlight = this.catchlightRig === null
+            ? null
+            : buildCatchlightCubeTexture( this.catchlightRig );
 
         this.globeMaterial = this.buildGlobeMaterial();
         this.corneaMaterial = this.buildCorneaMaterial();
@@ -854,7 +930,14 @@ export class EyeMaterial {
             .mul( irisMask );
 
         // --- albedo -------------------------------------------------------------------------------
-        const sclera = scleraSample.rgb.mul( this.scleraBrightnessUniform );
+        //
+        // The sclera is brightened (G2's luma ratio) and then TINTED (the spec's chroma clause).
+        // The tint is a per-channel gain whose Rec.709 linear luma is exactly 1, so it rotates the
+        // colour without touching the brightness the gate reads. See SCLERA_SPEC_SRGB.
+        const scleraTint = lumaNeutralGain( SCLERA_SPEC_SRGB );
+        const tinted = scleraSample.rgb.mul( vec3( ...scleraTint ) );
+        const sclera = mix( scleraSample.rgb, tinted, this.scleraChromaUniform )
+            .mul( this.scleraBrightnessUniform );
         const iris = irisSample.rgb.mul( float( 1 ).add( caustic ) );
         const albedo = mix( sclera, iris, irisMask ).mul( ring.mul( this.limbalRingUniform ).oneMinus() );
 
@@ -972,8 +1055,21 @@ export class EyeMaterial {
 
             if ( this.catchlight !== null ) {
 
+                // Two terms with two different scales, and keeping them apart is the whole point.
+                // The DOMINANT highlight comes out of the cube texture, which is 8-bit sRGB and
+                // therefore clamps at linear 1.0, and is multiplied by CATCHLIGHT_PEAK to give it
+                // the headroom a real softbox has. The WASH is a constant at unit scale. Adding
+                // the wash to the texture and scaling both together produces a veil over the whole
+                // iris at 0.02 x 26 = 0.5 linear — measured, by looking at it.
+                const wash = this.catchlightRig.wash ?? { colour: [ 0, 0, 0 ], intensity: 0 };
+                const washColour = vec3(
+                    wash.colour[ 0 ] * wash.intensity,
+                    wash.colour[ 1 ] * wash.intensity,
+                    wash.colour[ 2 ] * wash.intensity );
+
                 material.emissiveNode = this.catchlight.node( reflectWorld )
                     .mul( this.catchlightIntensityUniform )
+                    .add( washColour )
                     .mul( fresnel )
                     .mul( coverage );
 
@@ -1051,6 +1147,35 @@ export class EyeMaterial {
 }
 
 // --- small maths ------------------------------------------------------------------------------------
+
+/**
+ * A per-channel gain that gives a NEUTRAL linear colour the chromaticity of `srgbTarget` while
+ * leaving its Rec.709 linear luma exactly where it was.
+ *
+ * Neutral is the case that matters and it is the case this is exact for: the shipped map's sclera
+ * is RGB 160,153,145, saturation 0.094, so the input is grey to within a rounding error and the
+ * gain moves chroma without moving the quantity G2 reads. On a strongly coloured input the gain is
+ * only approximately luma-neutral, which is why it is applied to the sclera and not to the iris.
+ *
+ * Exported because it is the one line of the tint that can be wrong in a way nothing looks like:
+ * get the transfer function backwards and the gain is luma-neutral in the wrong space, so the
+ * sclera brightens or darkens and G2 moves for a reason that has nothing to do with G2.
+ * `EyeMaterial.selftest.mjs` asserts both properties.
+ */
+export function lumaNeutralGain( srgbTarget ) {
+
+    const linear = srgbTarget.map( srgbToLinearScalar );
+    const luma = 0.2126 * linear[ 0 ] + 0.7152 * linear[ 1 ] + 0.0722 * linear[ 2 ];
+
+    return linear.map( ( channel ) => channel / luma );
+
+}
+
+function srgbToLinearScalar( encoded ) {
+
+    return encoded <= 0.04045 ? encoded / 12.92 : Math.pow( ( encoded + 0.055 ) / 1.055, 2.4 );
+
+}
 
 /** The mean outward direction of a point cloud about a centre — the axis of an open cap. */
 function meanDirection( points, centre ) {

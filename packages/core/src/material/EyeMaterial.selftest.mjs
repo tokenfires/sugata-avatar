@@ -59,10 +59,19 @@ const {
     findEyeMeshes,
     IRIS_RADIUS_UV,
     PUPIL_RADIUS_UV,
-    CORNEA_IOR
+    CORNEA_IOR,
+    SCLERA_SPEC_SRGB,
+    SCLERA_CHROMA,
+    lumaNeutralGain
 } = await import( './EyeMaterial.js' );
 
-const { CATCHLIGHT_PRESETS, evaluateCatchlight } = await import( './EyeCatchlight.js' );
+const {
+    CATCHLIGHT_PRESETS,
+    CATCHLIGHT_SIZE,
+    angularHalfSize,
+    evaluateCatchlight,
+    resolveCatchlightRig
+} = await import( './EyeCatchlight.js' );
 const { measureAperture, findLashMesh } = await import( './EyeOcclusion.js' );
 
 const REPOSITORY_ROOT = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '..', '..', '..', '..' );
@@ -124,7 +133,10 @@ async function main() {
     checkPupilRemap();
 
     console.log( '\nthe catchlight' );
-    checkCatchlight();
+    checkCatchlight( measurements );
+
+    console.log( '\nthe sclera tint' );
+    checkScleraTint();
 
     console.log( '\nthe palpebral aperture' );
     checkAperture( measurements.g050 );
@@ -523,18 +535,75 @@ function checkPupilRemap() {
 
 // --- the catchlight ---------------------------------------------------------------------------------
 
-function checkCatchlight() {
+function checkCatchlight( measurements ) {
 
-    const rig = CATCHLIGHT_PRESETS.softbox;
+    // The rig's emitters are stated as a fraction of iris diameter, so they only become angles
+    // against a real figure. Every check below therefore runs on the RESOLVED rig for g050, and
+    // the size clause is checked across all five bakes.
+    const eye = measurements.g050.geometry.left;
+    const rig = resolveCatchlightRig( CATCHLIGHT_PRESETS.softbox, eye );
     const key = rig.emitters[ 0 ];
+
+    // --- the size clause, which is the whole of the spec's numeric statement about a catchlight --
+    //
+    // "Single dominant catchlight, small (2-4% of iris diameter)". The model that converts a
+    // fraction to an angle is in EyeCatchlight.angularHalfSize; this asserts the round trip on
+    // every figure, so a bake whose cornea drifts cannot silently take the highlight out of band.
+    for ( const figure of FIGURES ) {
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const measured = measurements[ figure ].geometry[ side ];
+            const resolved = resolveCatchlightRig( CATCHLIGHT_PRESETS.softbox, measured );
+            const dominant = resolved.emitters[ 0 ];
+
+            // Invert the model: the arc the highlight paints, as a fraction of iris diameter.
+            const widthFraction = dominant.halfWidth * measured.corneaRadius / ( 2 * measured.irisRadius );
+            const heightFraction = dominant.halfHeight * measured.corneaRadius / ( 2 * measured.irisRadius );
+
+            check( `${ figure } ${ side } catchlight width (% of iris diameter)`,
+                widthFraction * 100, [ 2.0, 4.0 ] );
+            check( `${ figure } ${ side } catchlight height (% of iris diameter)`,
+                heightFraction * 100, [ 2.0, 4.0 ],
+                `half-angle ${ dominant.halfHeight.toFixed( 4 ) } rad on a ${ mm( measured.corneaRadius ) } mm cornea` );
+
+        }
+
+    }
+
+    check( 'the size model is monotone in the fraction',
+        angularHalfSize( 0.04, 0.00635, 0.00733 ) - angularHalfSize( 0.02, 0.00635, 0.00733 ),
+        [ 1e-3, 1 ] );
+
+    // 🚩 THE OTHER WAY (LEARNINGS §1.1). The size gate has to be able to FAIL, so run it against
+    // the sizes this file shipped before the rewrite — halfWidth 0.115, halfHeight 0.160 rad — and
+    // confirm they land outside the 2-4% band rather than inside it.
+    const legacyWidth = 0.115 * eye.corneaRadius / ( 2 * eye.irisRadius ) * 100;
+    const legacyHeight = 0.160 * eye.corneaRadius / ( 2 * eye.irisRadius ) * 100;
+    check( 'the superseded 0.115 rad panel is REJECTED by the same band', legacyWidth, [ 4.0, 40 ],
+        `${ legacyWidth.toFixed( 1 ) }% — outside 2-4%, which is why it was replaced` );
+    check( 'the superseded 0.160 rad panel is REJECTED too', legacyHeight, [ 4.0, 40 ],
+        `${ legacyHeight.toFixed( 1 ) }%` );
+
+    // --- ONE dominant emitter ------------------------------------------------------------------
+    //
+    // The spec: "Single dominant catchlight ... plus soft ambient wash — not a multi-light array."
+    // The previous rig failed this by construction: two panels, the second at 0.16 of the first's
+    // intensity and nearly twice its angular size, so it rendered as a second rectangle. The count
+    // is now a structural property of the preset, so assert it as one.
+    check( 'exactly ONE emitter in the cubemap', rig.emitters.length, [ 1, 1 ],
+        'the wash is a constant, so anything above 1 here is a second catchlight' );
+    check( 'the wash is far dimmer than the dominant emitter',
+        key.intensity / Math.max( rig.wash.intensity, 1e-9 ), [ 20, 1e4 ] );
 
     const onAxis = luminance( evaluateCatchlight( rig, key.direction ) );
     const behind = luminance( evaluateCatchlight( rig, key.direction.map( ( value ) => -value ) ) );
-    const ambient = luminance( rig.ambient );
+    const wash = luminance( rig.wash.colour ) * rig.wash.intensity;
 
     check( 'the key panel is the brightest direction', onAxis, [ 0.5, 3.0 ] );
-    check( 'directly away from every panel is ambient', behind, [ 0, ambient * 1.05 ] );
-    check( 'panel against ambient', onAxis / Math.max( ambient, 1e-6 ), [ 50, 1e6 ],
+    check( 'the texture is BLACK away from the panel', behind, [ 0, 1e-9 ],
+        'the wash is a shader constant, not a texel — see CATCHLIGHT_PRESETS.softbox.wash' );
+    check( 'panel against wash', onAxis / Math.max( wash, 1e-6 ), [ 20, 1e6 ],
         'a catchlight that is not many times the field is not a catchlight' );
 
     // 🚩 RECTANGULAR, not round. Two directions the same angle off the panel axis — one along the
@@ -557,16 +626,98 @@ function checkCatchlight() {
 
     };
 
-    // 0.14 rad is outside the panel's 0.115 half-width and inside its 0.160 half-height.
-    const acrossShortAxis = probe( 0.14, 0 );
-    const acrossLongAxis = probe( 0, 0.14 );
+    // Probe between the two half-angles: outside the panel's width, inside its height. Derived
+    // from the resolved rig rather than hardcoded, because the angles now come from the asset.
+    const between = ( key.halfWidth + key.halfHeight ) / 2;
+    const acrossShortAxis = probe( between, 0 );
+    const acrossLongAxis = probe( 0, between );
 
     check( 'the panel is wider one way than the other', acrossLongAxis - acrossShortAxis, [ 0.2, 2.0 ],
         `short-axis ${ acrossShortAxis.toFixed( 3 ) }, long-axis ${ acrossLongAxis.toFixed( 3 ) } ` +
         '— a round emitter gives 0' );
 
-    // Well outside both, the field is back to ambient.
-    check( 'outside the panel entirely', probe( 0.35, 0.35 ), [ 0, ambient * 1.05 ] );
+    // Well outside the dominant panel the TEXTURE is black. The "soft ambient wash" half of the
+    // spec sentence lives in rig.wash and is added by the shader at unit scale, which is what keeps
+    // it out of the peak multiplier.
+    check( 'outside the panel entirely, the texture is black',
+        probe( key.halfWidth * 8, key.halfHeight * 8 ), [ 0, 1e-9 ] );
+
+}
+
+// --- the sclera tint -------------------------------------------------------------------------------
+
+function checkScleraTint() {
+
+    const gain = lumaNeutralGain( SCLERA_SPEC_SRGB );
+    const weights = [ 0.2126, 0.7152, 0.0722 ];
+    const toLinear = ( v ) => ( v <= 0.04045 ? v / 12.92 : Math.pow( ( v + 0.055 ) / 1.055, 2.4 ) );
+    const toSrgb = ( v ) => ( v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow( v, 1 / 2.4 ) - 0.055 );
+    const saturation = ( rgb ) => {
+
+        const max = Math.max( ...rgb );
+        return max === 0 ? 0 : ( max - Math.min( ...rgb ) ) / max;
+
+    };
+
+    // 1. Luma neutrality on a neutral input, which is the property G2 depends on.
+    const grey = 0.5;
+    const tinted = gain.map( ( g ) => grey * g );
+    const lumaBefore = grey;
+    const lumaAfter = weights.reduce( ( total, w, i ) => total + w * tinted[ i ], 0 );
+    check( 'the sclera tint is luma-neutral on a neutral input', Math.abs( lumaAfter - lumaBefore ),
+        [ 0, 1e-12 ], `${ lumaBefore } -> ${ lumaAfter }` );
+
+    // 2. It actually adds chroma, and lands near the spec's own saturation. The map's sclera is
+    //    RGB 160,153,145 encoded; run the real value through and read the encoded saturation.
+    const mapSclera = [ 160, 153, 145 ].map( ( v ) => toLinear( v / 255 ) );
+    const before = saturation( mapSclera.map( toSrgb ) );
+    const after = saturation( mapSclera.map( ( v, i ) => toSrgb( v * gain[ i ] ) ) );
+    const specSaturation = saturation( SCLERA_SPEC_SRGB );
+
+    check( 'the shipped map sclera is near-neutral', before, [ 0, 0.14 ],
+        `saturation ${ before.toFixed( 4 ) } — scaling this can never make it pink` );
+
+    // Full gain overshoots the spec hex in ALBEDO, because the map's sclera is not perfectly
+    // neutral and the two chromas compound. That is deliberate and it is not the number to chase:
+    // the spec's hex is a RENDERED colour under the reference's lighting, and this rig's warm key
+    // desaturates the pink on the way through. The albedo therefore sits above the spec hex so the
+    // RENDER lands on it — measured on eye.html, sclera saturation 0.216 -> 0.267 against a cheek
+    // at 0.214, i.e. the spec's "more saturated than skin" ratio of 1.25 against a reference 1.28.
+    check( 'the albedo sits above the spec hex, so the render lands on it',
+        after / specSaturation, [ 1.05, 1.35 ],
+        `${ after.toFixed( 4 ) } against spec ${ specSaturation.toFixed( 4 ) }` );
+
+    // What actually ships: the blend at SCLERA_CHROMA, which must be monotone in the blend and
+    // must be well clear of the map's own near-grey.
+    const blended = saturation(
+        mapSclera.map( ( v, i ) => toSrgb( v * ( 1 + SCLERA_CHROMA * ( gain[ i ] - 1 ) ) ) ) );
+    check( 'the shipped blend is at least the spec chromaticity', blended / specSaturation,
+        [ 1.0, 1.35 ],
+        `chroma ${ SCLERA_CHROMA }: ${ before.toFixed( 4 ) } -> ${ blended.toFixed( 4 ) }, ` +
+        `spec ${ specSaturation.toFixed( 4 ) }` );
+
+    const halfWay = saturation(
+        mapSclera.map( ( v, i ) => toSrgb( v * ( 1 + 0.5 * SCLERA_CHROMA * ( gain[ i ] - 1 ) ) ) ) );
+    check( 'the blend is monotone', blended - halfWay, [ 1e-3, 1 ],
+        `half ${ halfWay.toFixed( 4 ) }, full ${ blended.toFixed( 4 ) }` );
+
+    // 🚩 THE OTHER WAY. Chroma 0 is the pre-fix behaviour and must FAIL the same band — otherwise
+    // the check is measuring nothing (LEARNINGS §1.1).
+    const unblended = saturation( mapSclera.map( toSrgb ) );
+    check( 'chroma 0 is REJECTED by the same band', unblended / specSaturation, [ 0, 0.99 ],
+        `${ unblended.toFixed( 4 ) } — 0.34x the spec, which is the defect this fixes` );
+
+    // 3. 🚩 THE OTHER WAY. A grey target must produce a gain of exactly 1 and change nothing —
+    //    if this passed with a non-unit gain, the transfer function is wrong somewhere.
+    const neutralGain = lumaNeutralGain( [ 0.5, 0.5, 0.5 ] );
+    check( 'a neutral target gives a unit gain',
+        Math.max( ...neutralGain.map( ( g ) => Math.abs( g - 1 ) ) ), [ 0, 1e-12 ],
+        neutralGain.map( ( g ) => g.toFixed( 6 ) ).join( ' ' ) );
+
+    // 4. Hue: the spec calls the sclera pink-tinted, so red must be the dominant channel.
+    check( 'the tint is pink (red gain is the largest)',
+        gain[ 0 ] - Math.max( gain[ 1 ], gain[ 2 ] ), [ 1e-3, 5 ],
+        gain.map( ( g ) => g.toFixed( 4 ) ).join( ' ' ) );
 
 }
 
