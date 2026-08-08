@@ -27,9 +27,11 @@
  * ## Four kinds of check, and why no three of them are enough
  *
  * 1. **R — REPRODUCIBILITY.** Two independent page loads of the same URL, stepped the same number
- *    of times, must produce byte-identical pixels. This is the direct instrument and it is the
- *    only one that needs no bookkeeping: it does not care which counter was unpinned, or whether
- *    the mechanism is one this file's author thought of.
+ *    of times, must produce the same pixels. This is the direct instrument and it is the only one
+ *    that needs no bookkeeping: it does not care which counter was unpinned, or whether the
+ *    mechanism is one this file's author thought of. It is a TOLERANCE rather than a digest
+ *    comparison, for the reason `capture.mjs` gives about its own — see RESIDUE_SAMPLE_SHARE,
+ *    which carries the measured residue and the margin against the smallest defect here.
  *
  * 2. **O — ORACLE ON THE COUNTERS.** After N steps `frameId` must read exactly N, `time` exactly
  *    N/fps, and the resolve's jitter phase exactly N mod 31 — values derived from the step count,
@@ -42,7 +44,7 @@
  *    grain, so this asserts the pinned counter still advances. §1.3 — a metric a frozen image
  *    passes trivially is measuring nothing, and "pin every counter to zero" passes R and O-on-time
  *    perfectly. The control beside it is the same pair of step counts under `?aa=msaa&grade=0`,
- *    which has neither grain nor a temporal resolve and must therefore be byte-IDENTICAL. Without
+ *    which has neither grain nor a temporal resolve and must therefore be IDENTICAL. Without
  *    that control, L would also go green if `?freeze` stopped freezing and the figure moved
  *    between the two plates — which is exactly the bug that was live on this page last round
  *    (LEARNINGS §1.19a).
@@ -248,6 +250,38 @@ const CONTROL_QUERY = `${ BASE_QUERY }&aa=msaa&grade=0`;
  * edge-only difference could reach.
  */
 const GRAIN_COVERAGE_FLOOR = 0.20;
+
+/**
+ * 🚩 R IS A TOLERANCE, NOT A BOOLEAN, and it has to be — the render carries a small residual
+ * nondeterminism that predates this fix and has nothing to do with the frame epoch.
+ *
+ * `tools/critic/capture.mjs`'s header records the same thing and the same conclusion one level up:
+ * it used to compare SHA-256 digests, called a clean plate "NOT byte-reproducible" on 8 of 10 runs
+ * of the same seed, and was changed to compare decoded pixels against a stated tolerance. §1.14 is
+ * the general form — "are these the same bytes" was never the same KIND of question as "is this
+ * render deterministic".
+ *
+ * Measured here, 2026-08-08, after the epoch fix, `?bare&freeze&seed=1&capture` at 900x1200 dpr 1,
+ * 24 steps, undelayed load against a 400 ms-delayed one:
+ *
+ *   - default (taau + grade): 8 of 8 pairs bit-identical, 1 distinct plate over 16 loads
+ *   - `?aa=traa`:             8 of 8 pairs bit-identical, 1 distinct plate over 16 loads
+ *   - `?aa=traa&cards=0`:     8 of 8 pairs bit-identical
+ *   - and across roughly thirty `?aa=traa` pairs taken while this file was being written, TWO
+ *     came back with dust: **4 of 4,320,000 samples at worst 1/255**, and **54 samples at worst
+ *     8/255**. Unattributed — `?cards=0` was clean in eight pairs, but so was `?cards=1` in the
+ *     same session, so that control attributes nothing and is recorded as inconclusive.
+ *
+ * The thresholds sit between that and the smallest defect signal any rejection in this file
+ * produces, which is `unpinned-resolve` on the default at **9.11–12.57% of samples, worst
+ * 101–111/255**. So the margin is about 7,000x on the share and 12x on the worst code value, and
+ * the run output always prints the measured pair whether it passes or fails.
+ *
+ * ⚠️ A defect too small for these thresholds is not thereby safe — it is out of R's reach, and
+ * that is exactly the case check H exists for.
+ */
+const RESIDUE_SAMPLE_SHARE = 0.0001;
+const RESIDUE_WORST_CODES = 12;
 
 /**
  * The recipes. Between them they cover both AA families and both sides of the grade, which are the
@@ -520,6 +554,16 @@ function comparePlates( first, second ) {
 
 }
 
+/**
+ * Whether two plates count as the same render. See RESIDUE_SAMPLE_SHARE for why this is a
+ * tolerance and what the margin against a real defect is.
+ */
+function withinResidue( difference ) {
+
+    return difference.share <= RESIDUE_SAMPLE_SHARE && difference.worstCodes <= RESIDUE_WORST_CODES;
+
+}
+
 function describe( difference ) {
 
     return `${ difference.differing } of ${ difference.total } samples differ ` +
@@ -650,7 +694,7 @@ try {
 
         report(
             `R  ${ recipe.name } — the two plates are byte-identical anyway`,
-            difference.differing === 0,
+            withinResidue( difference ),
             describe( difference )
         );
 
@@ -686,7 +730,7 @@ try {
 
         report(
             `R${ SHORT_STEPS } ${ recipe.name } — identical at ${ SHORT_STEPS } steps too, before the resolve converges`,
-            shortDifference.differing === 0,
+            withinResidue( shortDifference ),
             `${ describe( shortDifference ) } — boot epochs ${ shortFirst.clock.bootFrameId } vs ` +
                 `${ shortSecond.clock.bootFrameId }`
         );
@@ -764,7 +808,7 @@ try {
                 const a = await takePlate( browser, server.baseUrl, query, STEPS );
                 const b = await takePlate( browser, server.baseUrl, query, STEPS, BOOT_DELAY_MS );
                 const difference = comparePlates( a.pixels, b.pixels );
-                const reproducible = difference.differing === 0;
+                const reproducible = withinResidue( difference );
 
                 report(
                     `  R  ${ rejection.defect }${ target.query === '' ? '' : ' + ' + target.query } is ` +
@@ -850,7 +894,7 @@ try {
         report(
             'X  drifting-epoch + aa=msaa — two loads that booted differently but were FORCED to the ' +
                 'same frame index render the same plate',
-            forced.differing === 0 && forcedA.clock.bootFrameId !== forcedB.clock.bootFrameId,
+            withinResidue( forced ) && forcedA.clock.bootFrameId !== forcedB.clock.bootFrameId,
             `boot epochs ${ forcedA.clock.bootFrameId } vs ${ forcedB.clock.bootFrameId }, both then ` +
                 `pinned to ${ forcedEpoch }: ${ describe( forced ) }. Together with the R rejection ` +
                 'above — same recipe, epochs left alone, plates differ — this says the epoch is why.'
