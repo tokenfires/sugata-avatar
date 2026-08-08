@@ -114,6 +114,13 @@
  *   ?ground=0       no ground plane, no contact occlusion — the attribution plate for 3.8's
  *                   floating-figure blocker. With the term on, the floor darkens toward a sole by
  *                   +0.0307 of luma over 128 px; with it off, -0.0012.
+ *                   ⚠️ THAT IS A BODY-FRAMING NUMBER AND THE FLAG IS INERT AT PORTRAIT. Measured
+ *                   2026-08-08 on `?bare&freeze&seed=1&aa=msaa&grade=0`, the deterministic forward
+ *                   path: adding `&ground=0` renders BYTE-IDENTICAL to the base plate, because a
+ *                   head-and-shoulders frame contains no floor. Add `&frame=body` and the two
+ *                   plates differ. Nothing said so, and a portrait A/B of this flag therefore
+ *                   attributes zero to it and looks like a working control while being none.
+ *                   Both halves are gated by `alive-toggles.selftest.mjs`.
  *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
  *   ?ov=rim.irradiance:0,kicker.irradiance:0
  *                   override LightingRig placement fields, same syntax as lighting.html. One
@@ -224,17 +231,72 @@ const BACKDROP_DISTANCE_METRES = 1.9;
 
 const FIXED_STEP_SECONDS = 1 / 60;
 
+/**
+ * A `URLSearchParams` that REMEMBERS WHICH KEYS IT WAS ASKED FOR.
+ *
+ * 🎯 This exists so the toggle surface of this page is a MEASUREMENT rather than a list somebody
+ * maintains. `alive-toggles.selftest.mjs` gates the claim "one toggle switches one subsystem", and
+ * it can only gate the toggles it has been told about — so for two rounds it gated eight of them
+ * while this file quietly read thirty-odd keys, and a confound planted on any of the other
+ * twenty-something passed it 24/24. A hand-written inventory of a thing the code is free to change
+ * is not an inventory; it is a hope.
+ *
+ * Recording the reads makes the page state its own surface, and the gate then FAILS on any key it
+ * has no classification for. Adding a `query.get( 'newthing' )` below therefore breaks the build
+ * until somebody says, in one line, whether it is a subsystem switch or not.
+ *
+ * ⚠️ ONE HONEST LIMIT, and it is why this is not the only new check. It records keys that were
+ * ACTUALLY READ, so a key consulted only inside a branch this plate did not take goes unrecorded.
+ * `buildGrade`'s keys are the live example: they are read only when the grade is on. The gate
+ * therefore unions the surface across every plate it loads rather than trusting one, and the
+ * whole-scene fingerprint below is the check that does not depend on this inventory at all.
+ *
+ * `get` and `has` are the only two methods this file uses; anything else would arrive as
+ * `undefined` at the call site rather than silently escaping the recorder.
+ */
+function recordingQuery( search ) {
+
+    const parameters = new URLSearchParams( search );
+    const keysRead = new Set();
+
+    return {
+        get: ( key ) => {
+
+            keysRead.add( key );
+            return parameters.get( key );
+
+        },
+        has: ( key ) => {
+
+            keysRead.add( key );
+            return parameters.has( key );
+
+        },
+        keysRead: () => [ ...keysRead ].sort()
+    };
+
+}
+
 // --- boot ---------------------------------------------------------------------------------
 
 async function boot() {
 
-    const query = new URLSearchParams( window.location.search );
+    const query = recordingQuery( window.location.search );
     const hud = document.getElementById( 'hud' );
 
-    // MSAA is ON here, which is a departure from Stage's default and is load-bearing rather than
-    // cosmetic: the eyelash and eyebrow cards are alpha-to-coverage, and alpha to coverage on a
-    // single-sampled target silently degrades to the same binary cut it replaced. `?msaa=0` is the
-    // A side, and `applyCardShading` is told which it got so the two can never disagree.
+    // ⚠️ "MSAA IS ON HERE" IS WHAT THIS COMMENT USED TO OPEN WITH, AND IT HAS BEEN FALSE SINCE THE
+    // PAGE MOVED TO TAAU. The default is `?aa=taau` — see the `aa` line below — and MSAA is now the
+    // A side rather than the shipped state. Measured on the shipped default plate,
+    // `?bare&freeze&seed=1`, by `alive-toggles.selftest.mjs`: `multisampleSamples 0`, and
+    // `?aa=msaa` takes it `0 -> 4`. The stale line matters because a reviewer who believes it
+    // captures `?msaa=0` thinking it is turning something off, and last round one did.
+    //
+    // What survives from that paragraph is the COUPLING, which is still live: the eyelash and
+    // eyebrow cards are alpha-to-coverage, and alpha to coverage on a single-sampled target
+    // silently degrades to the same binary cut it replaced — so `applyCardShading` is told which
+    // target it got and the two can never disagree. On the default TAAU path it is told `false`,
+    // and the temporal resolve antialiases those cards better than coverage did (27.1% vs 44.5%
+    // single-pixel transitions, recorded below).
     //
     // 🚩 AND IT IS GENUINELY ANTI-ALIASING THIS PAGE. An earlier version of this comment said that
     // with 3.12 open "there is nothing else anti-aliasing this page", and that was measured FALSE:
@@ -663,6 +725,17 @@ async function boot() {
         // being something a reviewer has to infer from the source.
         subsystems: () => censusOfShading( session, stage ),
 
+        // The other half of the same claim, and the half the nine counters above cannot make: not
+        // "the named subsystem went to zero" but "AND NOTHING ELSE MOVED". Whole scene, keyed by
+        // entity — see `shadingFingerprint` for why a sample of the render state was the wrong
+        // model for a claim about all of it.
+        shadingState: () => shadingFingerprint( session, stage ),
+
+        // Which URL keys this page actually consulted on this load. The gate's inventory of
+        // toggles used to be a list in the test file, which is a list of what somebody remembered;
+        // this is a list of what the code did.
+        toggleSurface: () => query.keysRead(),
+
         // Every per-frame counter a shader or a resolve can read, so a gate can state what they
         // SHOULD be after N steps rather than only whether two runs happen to agree. Two runs
         // agreeing is cross-observer agreement and it is blind to anything wrong the same way for
@@ -1040,6 +1113,12 @@ function buildBackdrop( stage, emissive = BACKDROP_EMISSIVE ) {
     } );
 
     const backdrop = new Mesh( new PlaneGeometry( 8, 6 ), material );
+
+    // Named because `shadingFingerprint` keys on mesh names, and an unnamed mesh would land under
+    // `mesh:anonymous` — which is a bucket, not an identity, and would collide with the next
+    // unnamed mesh anybody adds.
+    backdrop.name = 'backdrop';
+
     stage.add( backdrop );
 
     return backdrop;
@@ -1350,6 +1429,335 @@ function censusOfShading( session, stage ) {
     } );
 
     return census;
+
+}
+
+// --- the whole-scene shading fingerprint --------------------------------------------------------
+
+/**
+ * How deep into a node graph the structural signature walks, and how many nodes it may visit in
+ * total before it gives up and says so.
+ *
+ * Depth first: the skin's `roughnessNode` is the shallowest thing this has to tell apart —
+ * `filteredRoughness( r )` against `r` — and that shows at depth 1. The eye's `colorNode` is the
+ * deepest measured at 7. 10 is that plus margin; the budget is what stops a pathological DAG from
+ * turning a gate into a hang, and it is reported rather than swallowed so a truncated signature can
+ * never be mistaken for a complete one.
+ */
+const NODE_SIGNATURE_MAX_DEPTH = 10;
+const NODE_SIGNATURE_NODE_BUDGET = 20000;
+
+/**
+ * Floats are rounded before they go into a signature, because a signature is compared for EQUALITY
+ * across two page loads and an exact bit compare would report the last mantissa bit of a light's
+ * position as a subsystem change. Six decimals is finer than anything on this page means — the
+ * smallest deliberate quantity anywhere in the rig is a millimetre — and coarse enough that
+ * recomputing the same placement twice lands on the same string.
+ */
+function rounded( value ) {
+
+    // 🚩 UNWRAP UNIFORMS. Nearly every tunable on `Grade` is a TSL uniform node rather than a plain
+    // number, and an earlier version of this function did not know that: `String( uniform )` is
+    // `'[object Object]'` for every value it will ever hold, so `?exposure=`, `?bloom=`, `?grain=`,
+    // `?vignette=`, `?sat=` and `?thresh=` ALL measured as an empty fingerprint diff — six live
+    // attribution parameters that the instrument reported as changing nothing.
+    const scalar = value !== null && typeof value === 'object' && typeof value.value === 'number'
+        ? value.value
+        : value;
+
+    return Number.isFinite( scalar ) ? scalar.toFixed( 6 ) : String( scalar );
+
+}
+
+/**
+ * What a texture IS, in terms that survive a page reload.
+ *
+ * Deliberately not `uuid`: three mints a fresh one per instance, so every reload would report every
+ * texture as changed and the whole instrument would read as noise. The source URL is the identity
+ * that matters here — swapping which image a material samples is exactly the kind of collateral
+ * this fingerprint exists to catch, and two loads of the same URL fetch the same bytes.
+ */
+function textureIdentity( texture ) {
+
+    if ( texture === null || texture === undefined ) return 'nil';
+
+    const source = texture.source?.data;
+    const url = source?.src ?? source?.currentSrc ?? texture.name;
+
+    // Blob URLs are minted per load. The dimensions are what is left that is stable, and they are
+    // enough to catch a swap between two different maps.
+    const stable = typeof url === 'string' && url.startsWith( 'blob:' ) === false && url !== ''
+        ? url.split( '/' ).pop()
+        : `${ source?.width ?? '?' }x${ source?.height ?? '?' }`;
+
+    return `${ stable }|${ texture.channel ?? 0 }|${ texture.flipY }|${ texture.colorSpace }`;
+
+}
+
+/**
+ * The scalar a uniform or constant node is holding, or `null` for a node that carries no readable
+ * value.
+ *
+ * Deliberately narrow. A `Vector3` is worth reading — it is a colour or a direction somebody chose
+ * — and a `Matrix4` is not, because it is recomputed from the camera every frame and would report
+ * the whole graph as drifting. Anything longer than four components is treated as machinery.
+ */
+function leafValue( node ) {
+
+    const value = node.value;
+
+    if ( typeof value === 'number' ) return rounded( value );
+    if ( typeof value === 'boolean' || typeof value === 'string' ) return String( value );
+
+    if ( value !== null && typeof value === 'object' && typeof value.toArray === 'function' ) {
+
+        const components = value.toArray();
+        return components.length <= 4 ? components.map( rounded ).join( ',' ) : null;
+
+    }
+
+    return null;
+
+}
+
+/**
+ * The STRUCTURE of a TSL node graph, as a string.
+ *
+ * 🎯 This is what lets the fingerprint see a change that has no mesh and no counter behind it.
+ * `?specaa=0` swaps `material.roughnessNode` from `filteredRoughness( roughness )` to `roughness` —
+ * no mesh appears or disappears, no material is replaced, no scalar moves, and the nine-entry
+ * census is blind to it by construction. The node graph is where that change actually lives, so
+ * that is what gets read.
+ *
+ * Structure AND the scalar VALUE a leaf carries, which is more than the first version recorded.
+ * Structure alone leaves a whole class of confound invisible: a toggle that scales a strength
+ * uniform rather than swapping a node changes the frame and leaves the graph shape untouched, and
+ * the instrument would have reported "nothing else moved". Values are included from `uniform` and
+ * `constant` leaves only, and only when they are scalars or short arrays — a matrix or a texture
+ * would be noise, not signal.
+ *
+ * ⚠️ THAT ONLY WORKS BECAUSE THE PLATE IS FROZEN, and the claim is checked rather than assumed. A
+ * uniform an animation writes every frame would make the signature drift and the whole instrument
+ * would degrade into noise. `alive-toggles.selftest.mjs` loads the base plate TWICE and requires
+ * the two fingerprints to be identical before it believes any other reading, so this is a
+ * measurement rather than an argument — and it is why the gate's very first check is that one.
+ *
+ * The cycle guard is PER PATH rather than global. A global `seen` would let a subgraph reached
+ * twice print in full the first time and as `cycle` the second, which makes the signature depend on
+ * sibling order — and worse, would let a change hide behind an earlier visit.
+ */
+function nodeSignature( node, depth, path, budget ) {
+
+    if ( node === null || node === undefined ) return 'nil';
+    if ( typeof node !== 'object' ) return typeof node === 'number' ? rounded( node ) : String( node );
+
+    if ( budget.visited ++ > NODE_SIGNATURE_NODE_BUDGET ) return 'over-budget';
+    if ( depth > NODE_SIGNATURE_MAX_DEPTH ) return 'over-depth';
+    if ( path.has( node ) ) return 'cycle';
+
+    path.add( node );
+
+    const children = [];
+    const carried = leafValue( node );
+
+    if ( carried !== null ) children.push( `=${ carried }` );
+
+    for ( const key of Object.keys( node ).sort() ) {
+
+        const value = node[ key ];
+
+        if ( value !== null && typeof value === 'object' && value.isNode === true ) {
+
+            children.push( `${ key }:${ nodeSignature( value, depth + 1, path, budget ) }` );
+
+        }
+
+    }
+
+    path.delete( node );
+
+    const name = node.constructor?.name ?? 'Object';
+
+    return children.length === 0 ? name : `${ name }(${ children.join( ',' ) })`;
+
+}
+
+/**
+ * Every scalar on a material that changes what it renders. Sampled by NAME rather than by walking
+ * the object, because a material also carries a version counter, a uuid and a handful of caches
+ * that move for reasons that are not shading.
+ */
+const MATERIAL_SHADING_PROPERTIES = [
+    'alphaTest', 'alphaToCoverage', 'blending', 'clearcoat', 'clearcoatRoughness', 'depthTest',
+    'depthWrite', 'dispersion', 'emissiveIntensity', 'envMapIntensity', 'flatShading', 'forceSinglePass',
+    'ior', 'iridescence', 'metalness', 'opacity', 'premultipliedAlpha', 'reflectivity', 'roughness',
+    'sheen', 'sheenRoughness', 'side', 'specularIntensity', 'thickness', 'toneMapped', 'transmission',
+    'transparent', 'vertexColors', 'wireframe'
+];
+
+/**
+ * WHAT THIS PLATE IS SHADED WITH — the whole of it, read off the scene graph.
+ *
+ * ## Why this exists next to `censusOfShading` rather than instead of it
+ *
+ * The census answers "did the toggle do its job": nine counters, each a subsystem going to zero.
+ * That is a good, readable instrument and it stays. What it cannot answer is the OTHER half of an
+ * attribution — "and it did nothing else" — because it can only see the nine things it was told to
+ * count. A confound planted anywhere else is invisible to it, and one was: making `?cards=0` also
+ * switch off the skin's specular anti-aliasing left all nine counters exactly at their baselines
+ * and the gate reported 24/24 green, while `?specaa=0` alone is worth 24.88% of the frame's pixels.
+ *
+ * 🎯 THE MODEL ERROR WAS TREATING A SAMPLE OF THE RENDER STATE AS THE RENDER STATE. "Nothing else
+ * changed" is a claim about everything, and it cannot be checked against a list of nine. So this
+ * returns the whole of the shading state, keyed by entity, and the gate requires the set of entries
+ * a toggle CHANGES to be a subset of the entries that toggle declares it owns. Deny by default: an
+ * entry nobody declared is collateral, whether or not anybody thought of it in advance.
+ *
+ * ## What is in it
+ *
+ * - one entry per MESH, keyed by name: visibility, its material's identity, every shading scalar,
+ *   every texture it samples, and the STRUCTURE of every node on its material's graph
+ * - one entry per LIGHT, keyed by name: type, colour, intensity, placement, shadow configuration
+ * - one entry for the PIPELINE: which anti-aliasing, whether the grade is in the graph, the
+ *   multisample count, the resolution scale, the sharpen, the morph-velocity mode
+ *
+ * ## What is deliberately NOT in it
+ *
+ * Anything that moves per frame — bone matrices, morph weights, the camera, uniform VALUES. This is
+ * a fingerprint of the shading CONFIGURATION, which is what an attribution claim is about, and a
+ * frame-varying quantity in here would make the instrument non-deterministic and therefore useless.
+ * The pixel checks in `alive-toggles.selftest.mjs` are what cover the state this cannot see: they
+ * need no bookkeeping at all, so they are the backstop for any confound that lives outside shading.
+ *
+ * Keyed by NAME and not by traversal index on purpose. `?eyeocc=0` removes four meshes, and an
+ * index-keyed map would report every entry after them as changed — a gate that goes red for a
+ * hundred reasons is a gate that gets muted.
+ *
+ * @returns {Object<string,string>} entity key -> signature. Compared for equality, never parsed.
+ */
+function shadingFingerprint( session, stage ) {
+
+    const fingerprint = {};
+    const budget = { visited: 0 };
+
+    // Two meshes may share a name — the GLB has none that do today, but nothing enforces it — so a
+    // collision gets an ordinal rather than silently overwriting and shrinking the fingerprint.
+    const claim = ( key ) => {
+
+        if ( fingerprint[ key ] === undefined ) return key;
+
+        for ( let ordinal = 2; ; ordinal ++ ) {
+
+            if ( fingerprint[ `${ key }#${ ordinal }` ] === undefined ) return `${ key }#${ ordinal }`;
+
+        }
+
+    };
+
+    stage.scene.traverse( ( object ) => {
+
+        if ( object.isLight === true ) {
+
+            fingerprint[ claim( `light:${ object.name || object.type }` ) ] = [
+                object.type,
+                `visible=${ object.visible }`,
+                `color=${ object.color?.getHexString() ?? 'nil' }`,
+                `intensity=${ rounded( object.intensity ) }`,
+                `size=${ rounded( object.width ?? 0 ) }x${ rounded( object.height ?? 0 ) }`,
+                `at=${ object.position.toArray().map( rounded ).join( ',' ) }`,
+                `quat=${ object.quaternion.toArray().map( rounded ).join( ',' ) }`,
+                `castShadow=${ object.castShadow }`,
+                `shadowMap=${ object.shadow?.mapSize?.x ?? 0 }x${ object.shadow?.mapSize?.y ?? 0 }`,
+                `shadowBias=${ rounded( object.shadow?.bias ?? 0 ) }`,
+                `shadowRadius=${ rounded( object.shadow?.radius ?? 0 ) }`
+            ].join( ' ' );
+
+            return;
+
+        }
+
+        if ( object.isMesh !== true ) return;
+
+        const material = object.material;
+
+        if ( material === null || material === undefined ) {
+
+            fingerprint[ claim( `mesh:${ object.name || 'anonymous' }` ) ] = 'no material';
+            return;
+
+        }
+
+        const parts = [
+            `visible=${ object.visible }`,
+            `castShadow=${ object.castShadow }`,
+            `receiveShadow=${ object.receiveShadow }`,
+            `material=${ material.constructor?.name ?? '?' }:${ material.name || 'anonymous' }`,
+            `color=${ material.color?.getHexString() ?? 'nil' }`,
+            `emissive=${ material.emissive?.getHexString() ?? 'nil' }`
+        ];
+
+        for ( const property of MATERIAL_SHADING_PROPERTIES ) {
+
+            const value = material[ property ];
+            if ( value === undefined ) continue;
+            parts.push( `${ property }=${ typeof value === 'number' ? rounded( value ) : String( value ) }` );
+
+        }
+
+        for ( const key of Object.keys( material ).sort() ) {
+
+            const value = material[ key ];
+
+            if ( value !== null && typeof value === 'object' && value.isTexture === true ) {
+
+                parts.push( `${ key }=${ textureIdentity( value ) }` );
+
+            } else if ( value !== null && typeof value === 'object' && value.isNode === true ) {
+
+                parts.push( `${ key }=${ nodeSignature( value, 0, new Set(), budget ) }` );
+
+            }
+
+        }
+
+        fingerprint[ claim( `mesh:${ object.name || 'anonymous' }` ) ] = parts.join( ' ' );
+
+    } );
+
+    // The post stack is not a mesh and not a light, so without this entry a whole class of toggle —
+    // `?gsharp`, `?sharp`, `?tone`, `?scale`, `?morphvel`, every grade parameter — changes the frame
+    // while the fingerprint reports nothing at all. Measured before this line existed: `?gsharp=none`
+    // and `?morphvel=off` both produced an EMPTY entity diff. Each field here is one such toggle's
+    // only foothold in the instrument.
+    const grade = stage.grade;
+    const temporal = stage.temporal;
+
+    fingerprint.pipeline = [
+        `temporal=${ temporal == null ? 'none' : `${ temporal.constructor?.name ?? '?' }:${ temporal.mode ?? '?' }` }`,
+        `temporalSharpen=${ temporal?.sharpenNode == null ? 'none' : 'on' }`,
+        `resolutionScale=${ rounded( stage.resolutionScale ?? 1 ) }`,
+        `morphVelocity=${ stage.morphVelocity ?? 'default' }`,
+        `viewMode=${ stage.viewMode ?? 'default' }`,
+        `velocityGain=${ rounded( stage.velocityGain ?? 0 ) }`,
+        `depthGain=${ rounded( stage.depthGain ?? 0 ) }`,
+        `grade=${ grade == null ? 'none' : 'on' }`,
+        `tone=${ grade?.toneCurveName ?? 'nil' }`,
+        `exposure=${ rounded( grade?.exposure ?? 0 ) }`,
+        `bloom=${ rounded( grade?.bloomStrength ?? 0 ) }/${ rounded( grade?.bloomThreshold ?? 0 ) }/${ rounded( grade?.bloomRadius ?? 0 ) }`,
+        `grain=${ rounded( grade?.grainSigmaCodes ?? 0 ) }`,
+        `vignette=${ rounded( grade?.vignette ?? 0 ) }`,
+        `saturation=${ rounded( grade?.saturation ?? 0 ) }`,
+        `gradeSharpen=${ grade?.sharpness == null ? 'none' : rounded( grade.sharpness ) }`,
+        `samples=${ stage.renderer.samples ?? 0 }`,
+        `background=${ stage.scene.background?.getHexString?.() ?? 'nil' }`,
+        `toneMapping=${ stage.renderer.toneMapping }`,
+        `outputColorSpace=${ stage.renderer.outputColorSpace }`
+    ].join( ' ' );
+
+    // Reported so a truncated walk can never be read as a complete one — see the budget constants.
+    fingerprint.nodesWalked = budget.visited > NODE_SIGNATURE_NODE_BUDGET ? 'OVER BUDGET' : 'within budget';
+
+    return fingerprint;
 
 }
 

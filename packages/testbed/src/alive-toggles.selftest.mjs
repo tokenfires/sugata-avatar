@@ -15,31 +15,80 @@
  * portrait regions: shipped 0.9203, sheet off only 0.9449, material off only 0.8815, both off
  * 0.9086. The old control reported 0.0117 of movement for a shader worth 0.0388.
  *
+ * ## 🚩 AND THE FIRST VERSION OF THIS FILE DID NOT STOP IT — IT STOPPED ONE INSTANCE OF IT
+ *
+ * That version checked a CENSUS of nine named counters. Nine is not the render state; it is a
+ * sample of the render state, and "switches nothing else" is a claim about ALL of it. A confound
+ * planted on any subsystem outside the nine was invisible by construction, and `alive.js` reads
+ * THIRTY-SEVEN url keys. Reproduced 2026-08-08 with a one-line patch to `alive.js` —
+ *
+ *     skinSpecularAntiAliasing: query.get( 'specaa' ) !== '0'
+ *  -> skinSpecularAntiAliasing: query.get( 'specaa' ) !== '0' && query.get( 'cards' ) !== '0'
+ *
+ * so `?cards=0` silently removed the skin's Toksvig specular-AA term as well as the eyelash and
+ * brow cards. All nine counters sat exactly on their baselines and the file reported `PASS: 24/24
+ * checks green`. `?specaa=0` on its own is worth 24.88% of the frame's pixels, so a quarter of the
+ * frame's worth of a second subsystem was riding inside every card attribution, undetected.
+ *
+ * The model error was not a missing row. It was **treating an enumeration as a closure**: two
+ * hand-written lists — which toggles exist, and which subsystems exist — each of which the page is
+ * free to outgrow without telling anyone, and both of which already had.
+ *
+ * ## The four instruments, and why no three of them are enough
+ *
+ * 1. SURFACE CLOSURE. `alive.js` now records the url keys it actually reads and reports them from
+ *    `window.sugata.toggleSurface()`. Every key must be classified here — gated, mode switch, or
+ *    explicitly ungated with a reason. A toggle added to the page without a line in this file
+ *    turns the gate red. This is what stops the inventory falling behind again, and it is a
+ *    RUNTIME RECORD of what the code did, not a regex over what the code says.
+ *
+ * 2. FINGERPRINT. `window.sugata.shadingState()` returns the whole shading configuration keyed by
+ *    entity — every mesh's material scalars, textures and node-graph STRUCTURE, every light, and
+ *    the post pipeline. For each gated toggle the set of entities that change must equal the set
+ *    it declares. Deny by default, so an entity nobody thought of is collateral; and the declared
+ *    set must be fully used, so an allowlist cannot be padded to make a red gate green.
+ *
+ * 3. PAIRWISE PIXELS. Bookkeeping-free, and the backstop for anything the fingerprint does not
+ *    model. If `?A=0` has already removed B's subsystem, then adding `&B=0` has nothing left to
+ *    remove and the two renders come back BYTE-IDENTICAL. Checked for every ordered pair of the
+ *    scene off-switches, which is the generalisation of the eye-pair check the old file ran for
+ *    one pair only.
+ *
+ * 4. THE CENSUS, kept. Nine counters read off the scene graph. It is the most readable statement
+ *    of "the toggle did its job", and unlike the fingerprint it distinguishes a mesh that went
+ *    away from a mesh that changed. It is no longer load-bearing for closure.
+ *
+ * ## 🚩 THE PIXEL CHECKS RUN ON THE FORWARD PATH, AND THEY HAVE TO
+ *
+ * The old file compared bytes on the SHIPPED default plate. Measured 2026-08-08, four loads of
+ * `?bare&freeze&seed=1` with nothing changed between them: no two were byte-identical. Three loads
+ * with `&grade=0`: still no two identical. Three loads with `&grade=0&aa=msaa`: BYTE-IDENTICAL,
+ * every pair. The temporal resolve accumulates over however many frames the page happened to run
+ * before the screenshot, so on the default path "these two plates differ" is a claim that is true
+ * for free and a check that cannot fail — the old file's three pixel checks were decorative for
+ * exactly that reason, in the same class as the defect they were written to catch.
+ *
+ * So the pixel plates are built on `&aa=msaa&grade=0`, which is the deterministic forward path, and
+ * `PIXEL_BASE` determinism is itself the first thing checked. If someone breaks it, this file says
+ * so and reports the pixel section as unusable rather than passing thirty checks for free.
+ *
+ * (That nondeterminism is a real defect and it is not this file's — `?capture` plus a pinned frame
+ * epoch is what fixes it, and `alive-capture-determinism.selftest.mjs` owns that. This file only
+ * has to avoid being fooled by it.)
+ *
  * ## Why it is a browser test and not a unit test
  *
  * The claim under test is about what a PLATE CONTAINS, and only a rendered page can answer it.
  * Reading `alive.js` and reasoning about its control flow is exactly the method that missed the
  * defect, and asserting against the page's own flags would be a tautology — the flags were correct
  * the whole time; the thing they were supposed to control was not. So this file drives a real
- * Chromium against a real vite, and reads `window.sugata.subsystems()`, which counts live meshes
- * and lights out of the SCENE GRAPH.
- *
- * ## The two kinds of check, and why one is not enough
- *
- * 1. CENSUS. For each toggle, exactly the subsystem it names goes to zero and every other entry
- *    holds its baseline count. This is the direct instrument and it catches the general form —
- *    any toggle that takes a second subsystem with it.
- *
- * 2. PIXELS, for the eye pair. The census can only see what it was told to count, so a census
- *    check alone is a gate that trusts its own bookkeeping. The pixel check needs no bookkeeping
- *    at all: if `?eyes=0` already removed the occlusion sheet, then adding `&eyeocc=0` has nothing
- *    left to remove and the two plates come back BYTE-IDENTICAL. Under the shipped defect they did.
- *    That is a detector for this exact bug that shares no mechanism with check 1.
- *
- * A degenerate baseline would pass check 1 trivially — nothing can go to zero twice — so the
- * baseline census is asserted non-zero on every entry first.
+ * Chromium against a real vite, and reads the scene graph.
  *
  * Usage:  node "packages/testbed/src/alive-toggles.selftest.mjs"
+ *
+ * It loads about seventy plates and takes ~3.5 minutes. That is the price of the pairwise sweep,
+ * which is quadratic in the number of scene off-switches, and it is worth stating up front so a
+ * slow run is not mistaken for a hang.
  *
  * Exit codes follow tools/critic/measure.mjs, so a caller can tell a red gate from a broken tool:
  *   0 = every check green
@@ -59,43 +108,178 @@ const REPOSITORY_ROOT = path.resolve( fileURLToPath( new URL( '.', import.meta.u
 const GPU_FLAGS = [ '--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars' ];
 
 /**
- * The plate every check is made against.
+ * The plate the census and the fingerprint are read from.
  *
- * `?freeze` with NO `?preroll` is chosen deliberately and it is not the same thing as "seed 1".
- * With freeze on and no pre-roll the motion stack never advances, so no layer ever writes a morph
- * and `?seed` cannot act: measured 2026-08-08, `?bare&freeze&seed=1`, `seed=42` and
- * `seed=20260807` came back BYTE-IDENTICAL, 0 differing samples of 17,280,000. That is the
- * property this file needs — one plate, not a distribution — and it is why the seed is pinned
- * here for readability rather than for determinism.
- *
- * It also happens to be the only state in which the eye toggles are visible to G2 at all: with a
- * 6 s pre-roll the gaze has moved and at seeds 1 and 42 all four eye states measure the SAME G2,
- * because the region rect is no longer on the sclera. That is punch-list 3.3's open problem, not
- * this file's.
+ * `?freeze` with NO `?preroll` is chosen deliberately: with freeze on and no pre-roll the motion
+ * stack never advances, so no layer ever writes a morph and the scene stands in one pose. The
+ * fingerprint needs that far less than the old pixel checks did — it reads configuration, not
+ * frames — but a still plate keeps the two instruments looking at the same thing.
  */
 const BASE_QUERY = 'bare&freeze&seed=1';
 
 /**
- * Which subsystem each toggle owns. One toggle, one census entry — that IS the contract.
+ * The plate the PIXEL checks are read from, and the reason it is not `BASE_QUERY`.
  *
- * A toggle added to `alive.js` without a row here is not gated, and a row here whose subsystem is
- * not in the census will fail loudly rather than pass quietly.
+ * Byte equality is the whole mechanism of instrument 3, so it needs a plate where byte equality
+ * means something. It does not on the shipped default: see the header for the four-load
+ * measurement. `aa=msaa` puts the frame on the forward path with no temporal history, `grade=0`
+ * takes out the frame-indexed grain, and three loads of the result came back byte-identical.
+ *
+ * The cost is stated rather than hidden: these checks are made about the forward-path render, not
+ * the shipped one. What they assert — that `?eyes=0` does not also take the occlusion sheet — is a
+ * fact about which meshes and materials are in the scene, and the anti-aliasing mode does not
+ * change which meshes are in the scene. `PIXEL_BASE_IS_REPRODUCIBLE` below is what keeps that
+ * substitution honest.
  */
-const TOGGLES = [
-    { query: 'skin=0', owns: 'skinMaterial' },
-    { query: 'eyes=0', owns: 'eyeMaterial' },
-    { query: 'eyeocc=0', owns: 'eyeOcclusion' },
-    { query: 'cards=0', owns: 'cardShading' },
-    { query: 'shadows=0', owns: 'shadowCastingLights' },
-    { query: 'cavity=0', owns: 'skinCavityStrength' },
-    { query: 'grade=0', owns: 'grade' },
+const PIXEL_BASE = `${ BASE_QUERY }&aa=msaa&grade=0`;
 
-    // `?msaa=0` is a synonym and lands here too. It used to own `multisampleSamples`, and when the
-    // page moved to TAAU that row went decorative overnight: MSAA is off by default now, so the
-    // check read "multisampleSamples 0 -> 0" and PASSED without being able to fail. The toggle
-    // that removes this page's anti-aliasing is the one that removes the temporal resolve.
-    { query: 'aa=off', owns: 'temporalResolve' }
+/**
+ * EVERY TOGGLE THAT CHANGES WHAT THE FRAME IS SHADED WITH, and the exact set of fingerprint
+ * entities each one is allowed to move.
+ *
+ * `touches` is an EQUALITY, not a maximum: the entities that change must be exactly these. Too many
+ * is collateral — the confound this file exists to catch. Too few means the toggle stopped doing
+ * its job, or that somebody widened the list to quieten a red gate. Both are failures and both are
+ * reported with the difference spelled out.
+ *
+ * Every row below was MEASURED rather than reasoned about, by loading the plate and diffing the
+ * fingerprint against the baseline. Two of them record couplings nobody had written down:
+ *
+ *   - `?shadows=0` moves TWO light entities, `key` and `key-shadow`, because `LightingRig` builds a
+ *     shadow-casting companion beside the area light rather than casting from it.
+ *   - `?frame=body`, `?height=`, `?pose=` and `?gender=` each move FIVE lights, because the rig is
+ *     re-aimed at whatever the new framing put in shot. That is legitimate and it is exactly the
+ *     kind of thing a reader needs told: a plate captured at `?frame=body` is not a plate of the
+ *     portrait rig with a wider lens.
+ *
+ * `census` is the counter this toggle should drive to zero, where one exists. Six of these toggles
+ * have no counter and never did — which is the point: the fingerprint gates them anyway.
+ */
+
+/** The five entities `LightingRig` re-aims when the framing changes. Named once; used four times. */
+const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker' ];
+
+const TOGGLES = [
+
+    // --- the scene's shading subsystems ---------------------------------------------------------
+    { query: 'skin=0', census: 'skinMaterial', touches: [ 'mesh:Human' ] },
+    { query: 'eyes=0', census: 'eyeMaterial', touches: [ 'mesh:Humancornea', 'mesh:Humanhigh-poly' ] },
+    { query: 'eyeocc=0', census: 'eyeOcclusion', touches: [
+        'mesh:eyeOcclusion.left', 'mesh:eyeOcclusion.right',
+        'mesh:eyeLacrimal.left', 'mesh:eyeLacrimal.right'
+    ] },
+    { query: 'cards=0', census: 'cardShading', touches: [ 'mesh:Humaneyebrow001', 'mesh:Humaneyelashes01' ] },
+    { query: 'cavity=0', census: 'skinCavityStrength', touches: [ 'mesh:Human' ] },
+
+    // No counter has ever existed for either of these, and that is how a confound on `specaa` hid
+    // from twenty-four green checks. The fingerprint is their gate.
+    { query: 'specaa=0', census: null, touches: [ 'mesh:Human' ] },
+    { query: 'ground=0', census: null, touches: [ 'mesh:ground' ] },
+    { query: 'backdrop=0x11151f', census: null, touches: [ 'mesh:backdrop' ] },
+
+    // --- the rig ---------------------------------------------------------------------------------
+    { query: 'shadows=0', census: 'shadowCastingLights', touches: [ 'light:key', 'light:key-shadow' ] },
+    { query: 'ov=rim.irradiance:0', census: null, touches: [ 'light:rim' ] },
+
+    // --- the post pipeline -------------------------------------------------------------------------
+    // `?msaa=0` is a synonym and lands on `aa=off` too. It used to own `multisampleSamples`, and
+    // when the page moved to TAAU that row went decorative overnight: MSAA is off by default now,
+    // so the check read "multisampleSamples 0 -> 0" and PASSED without being able to fail. The
+    // toggle that removes this page's anti-aliasing is the one that removes the temporal resolve.
+    { query: 'aa=off', census: 'temporalResolve', touches: [ 'pipeline' ] },
+    { query: 'grade=0', census: 'grade', touches: [ 'pipeline' ] },
+    { query: 'morphvel=off', census: null, touches: [ 'pipeline' ] },
+    { query: 'gsharp=none', census: null, touches: [ 'pipeline' ] },
+    { query: 'sharp=0.2', census: null, touches: [ 'pipeline' ] },
+    { query: 'scale=1', census: null, touches: [ 'pipeline' ] },
+
+    // The grade's own parameters. Every one of them measured as an EMPTY diff until the fingerprint
+    // learned to unwrap a TSL uniform — six live attribution knobs that the instrument was
+    // reporting as inert. Kept as individual rows because that is what makes the next one visible.
+    { query: 'tone=agx', census: null, touches: [ 'pipeline' ] },
+    { query: 'exposure=1.1', census: null, touches: [ 'pipeline' ] },
+    { query: 'bloom=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'thresh=0.9', census: null, touches: [ 'pipeline' ] },
+    { query: 'grain=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'vignette=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'sat=1', census: null, touches: [ 'pipeline' ] },
+
+    // --- framing and identity ----------------------------------------------------------------------
+    // All four re-aim the rig, and nothing else. Gating them with an explicit five-light allowlist
+    // says out loud that a plate captured at another framing carries a differently-aimed rig.
+    { query: 'frame=body', census: null, touches: RIG_LIGHTS },
+    { query: 'height=0.3', census: null, touches: RIG_LIGHTS },
+    { query: 'pose=bind', census: null, touches: RIG_LIGHTS },
+
+    // 🎯 `?gender=1` MOVES THE CORNEA AS WELL, and nothing had ever recorded that. It loads a
+    // different bake, and `EyeMaterial` fits the corneal axis and the iris plane to the mesh it is
+    // given at construction — so the g100 cornea carries different fitted constants from the g050
+    // one. Found by the fingerprint the day it learned to read uniform VALUES and not just graph
+    // structure; the structural version reported this plate as five lights and nothing else.
+    { query: 'gender=1', census: null, touches: [ ...RIG_LIGHTS, 'mesh:Humancornea' ] },
+
+    // --- and the ones whose allowlist is EMPTY -----------------------------------------------------
+    // The strictest row shape in the table: these may change the motion, the dials or the DOM, and
+    // they may not touch the shading configuration AT ALL. A confound that reached shading from any
+    // of them would show up as a non-empty diff against an empty allowlist.
+    { query: 'seed=42', census: null, touches: [] },
+    { query: 'preroll=0.1', census: null, touches: [] },
+    { query: 'arousal=0.8', census: null, touches: [] },
+    { query: 'load=0.4', census: null, touches: [] },
+    { query: 'attention=0.9', census: null, touches: [] }
 ];
+
+/**
+ * A mode SWITCH rather than an off switch: it must turn one census entry on and the other off.
+ *
+ * Its `touches` carries a coupling worth reading twice. `?aa=msaa` moves the two CARD entities as
+ * well as the pipeline, because alpha-to-coverage is only applied when the target is actually
+ * multisampled — `applyCardShading` is told which target it got. That is not collateral, it is the
+ * documented reason the flag is passed down at all, and the fingerprint is what makes it visible
+ * instead of a paragraph in a comment.
+ */
+const MUTUALLY_EXCLUSIVE = {
+    query: 'aa=msaa',
+    turnsOn: 'multisampleSamples',
+    turnsOff: 'temporalResolve',
+    touches: [ 'mesh:Humaneyebrow001', 'mesh:Humaneyelashes01', 'pipeline' ]
+};
+
+/**
+ * URL keys `alive.js` reads that are NOT shading toggles, each with the reason it is not gated
+ * here. This table is the other half of the closure check: without it "classify every key" would be
+ * satisfiable by gating nothing, and with it, retiring a key from the gate costs a written excuse.
+ *
+ * `readHere` is whether the plates THIS FILE loads consult the key at all. It is not a detail: the
+ * surface is recorded from live reads, so a key the gate never causes to be read cannot be checked
+ * from here, and saying so is more honest than a row that looks gated and is not. Both `false`
+ * entries below were found by the gate rather than reasoned out in advance, and the second is the
+ * more interesting of the two.
+ */
+const UNGATED = {
+    bare: { readHere: true, why: 'hides the DOM overlays. Already on in every plate this file loads.' },
+    freeze: { readHere: true, why: 'stops the motion stack. Already on in every plate this file loads.' },
+    capture: { readHere: true, why: 'hands the frame clock to the caller. Its own gate is alive-capture-determinism.selftest.mjs.' },
+    msaa: { readHere: true, why: 'the legacy synonym for ?aa — `?msaa=0` resolves to `aa=off`, which is gated above.' },
+    webgl: { readHere: true, why:
+        'swaps the backend to WebGL2, which has no velocity buffer, so the page refuses to build a ' +
+        'figure at all on the default temporal path. Measured: the wait for a figure times out at ' +
+        '120 s, so no plate exists to gate.' },
+
+    clockdefect: { readHere: false, why:
+        'read only inside the `?capture` branch, and this file drives the free-running clock. ' +
+        'alive-capture-determinism.selftest.mjs is what exercises it.' },
+
+    // 🚩 `?trace=0` IS INERT ON EVERY PLATE THIS FILE TAKES, and it took the gate to notice. The
+    // read is `if ( bare || query.get( 'trace' ) === '0' )`, and `||` short-circuits — so on any
+    // `?bare` plate the key is never even consulted, which is why it never appeared in the recorded
+    // surface. That is not a bug in the page (bare already hides the strip chart) but it does mean
+    // `?trace=0` cannot be attributed from a bare plate, and a row claiming to gate it here would
+    // have been gating nothing.
+    trace: { readHere: false, why:
+        '`?bare` short-circuits the read, so no plate this file loads ever consults it. It also ' +
+        'has nothing to change on such a plate: bare has already hidden the strip chart.' }
+};
 
 /**
  * Census entries that are DELIBERATELY ZERO on the shipped plate, with the reason. Everything else
@@ -103,14 +287,59 @@ const TOGGLES = [
  *
  * `multisampleSamples` is here because MSAA and the temporal resolve are mutually exclusive —
  * `Stage.create` throws on the pair — so no single plate can carry both. It is not left unguarded:
- * MUTUALLY_EXCLUSIVE below asserts that `?aa=msaa` really does swap one for the other.
+ * MUTUALLY_EXCLUSIVE above asserts that `?aa=msaa` really does swap one for the other.
  */
 const EXPECTED_ZERO_AT_BASELINE = {
     multisampleSamples: 'MSAA is mutually exclusive with the temporal resolve, which ships on'
 };
 
-/** A mode SWITCH rather than an off switch: it must turn one entry on and the other off. */
-const MUTUALLY_EXCLUSIVE = { query: 'aa=msaa', turnsOn: 'multisampleSamples', turnsOff: 'temporalResolve' };
+/**
+ * The off switches the pairwise pixel sweep runs over: the ones that add or remove something from
+ * the SCENE, which is what "adding the second toggle had nothing left to remove" is a statement
+ * about. The pipeline and grade rows are excluded because `PIXEL_BASE` has already pinned both.
+ *
+ * 🚩 `?ground=0` IS NOT HERE, AND THE REASON IS A MEASUREMENT, NOT A JUDGEMENT. On the portrait
+ * plate it renders BYTE-IDENTICAL to the base — the floor is simply not in a head-and-shoulders
+ * frame — so every pair containing it was byte-identical too, and seven checks were failing for one
+ * reason that had nothing to do with a confound. Dropping it from the sweep would be exactly the
+ * move this file exists to prevent, so it is not dropped: `GROUND_IS_A_BODY_FRAME_TOGGLE` below
+ * asserts both halves of the excuse, that it is inert at portrait AND live at `?frame=body`.
+ */
+const PIXEL_SWEEP = [ 'skin=0', 'eyes=0', 'eyeocc=0', 'cards=0', 'shadows=0', 'cavity=0', 'specaa=0' ];
+
+/**
+ * ONE TOGGLE ABSORBS ANOTHER: adding `inner` to a plate that already has `outer` changes nothing,
+ * because `inner` is a term inside the thing `outer` removed.
+ *
+ * ⚠️ AND IT IS DIRECTIONAL. The first version of this table was keyed on the unordered pair and
+ * exempted BOTH directions, which is wrong and was caught by execution: `?skin=0` absorbs
+ * `?cavity=0` — measured byte-identical — but `?cavity=0` plainly does not absorb `?skin=0`, and
+ * the symmetric exemption was quietly retiring that second, perfectly good check. An exemption that
+ * covers more than it was argued for is the same failure as a census that counts fewer things than
+ * exist.
+ *
+ * Gated in the direction it claims, like every other exemption in this file: the pairs named here
+ * are REQUIRED to be byte-identical, so declaring an absorption is not a way to skip a check by
+ * writing its name in a list. If the cavity ever becomes something that survives `?skin=0`, this
+ * goes red and the row comes out.
+ */
+const ABSORBS = {
+    'skin=0': {
+        'cavity=0': 'the cavity term lives in the skin shader, so ?skin=0 leaves nothing to carry it',
+        'specaa=0': 'the specular-AA filter is a node on the skin roughness node, so ?skin=0 takes it too'
+    }
+};
+
+/**
+ * The two halves of the excuse for `?ground=0` sitting out of the pairwise sweep. Both are asserted,
+ * because "it changes nothing here" is also what a broken toggle looks like, and only the second
+ * check tells those two apart.
+ */
+const GROUND_IS_A_BODY_FRAME_TOGGLE = {
+    inertAt: `${ BASE_QUERY }&aa=msaa&grade=0`,
+    liveAt: `${ BASE_QUERY }&aa=msaa&grade=0&frame=body`,
+    toggle: 'ground=0'
+};
 
 let checks = 0;
 let failures = 0;
@@ -129,6 +358,22 @@ function toolError( message ) {
 
     console.error( `\nTOOL ERROR: ${ message }\n` );
     process.exit( 2 );
+
+}
+
+/** Entity keys whose signature is not the same in the two fingerprints. */
+function changedEntities( before, after ) {
+
+    const keys = new Set( [ ...Object.keys( before ), ...Object.keys( after ) ] );
+
+    return [ ...keys ].filter( ( key ) => before[ key ] !== after[ key ] ).sort();
+
+}
+
+/** Set difference, kept as a named function because the failure messages read off both directions. */
+function missingFrom( wanted, got ) {
+
+    return wanted.filter( ( entry ) => got.includes( entry ) === false ).sort();
 
 }
 
@@ -189,7 +434,7 @@ async function startVite() {
 
 }
 
-/** One page load. Returns the scene census and the rendered bytes, which are the two instruments. */
+/** One page load. Returns everything the page can say about itself, plus the rendered bytes. */
 async function loadPlate( page, baseUrl, query ) {
 
     await page.goto( `${ baseUrl }/alive.html?${ query }`, { waitUntil: 'load' } );
@@ -199,10 +444,15 @@ async function loadPlate( page, baseUrl, query ) {
     // of a half-shaded figure and would make the census right and the pixels wrong.
     await page.waitForTimeout( 1500 );
 
-    return {
-        census: await page.evaluate( () => globalThis.sugata.subsystems() ),
-        pixels: await page.screenshot( { timeout: 60_000 } )
-    };
+    const state = await page.evaluate( () => ( {
+        census: globalThis.sugata.subsystems(),
+        fingerprint: globalThis.sugata.shadingState(),
+        surface: globalThis.sugata.toggleSurface()
+    } ) );
+
+    state.pixels = await page.screenshot( { timeout: 60_000 } );
+
+    return state;
 
 }
 
@@ -231,12 +481,47 @@ const page = await context.newPage();
 
 console.log( `\nalive.html toggles — ${ server.baseUrl }/alive.html?${ BASE_QUERY }\n` );
 
+// Every key any plate in this run was seen to read. Unioned rather than taken from one plate,
+// because a key consulted only inside a branch that plate did not take goes unrecorded — see
+// `recordingQuery` in alive.js for the limit this works around.
+const observedSurface = new Set();
+
 try {
 
-    const baseline = await loadPlate( page, server.baseUrl, BASE_QUERY );
+    console.log( '--- are the instruments usable at all? -------------------------------------\n' );
 
-    console.log( '--- baseline ---------------------------------------------------------------\n' );
-    console.log( `        ${ JSON.stringify( baseline.census ) }\n` );
+    const baseline = await loadPlate( page, server.baseUrl, BASE_QUERY );
+    const baselineAgain = await loadPlate( page, server.baseUrl, BASE_QUERY );
+
+    for ( const key of [ ...baseline.surface, ...baselineAgain.surface ] ) observedSurface.add( key );
+
+    // A fingerprint that drifts between two loads of the same url reports every toggle as
+    // collateral and the whole of instrument 2 becomes noise. Checked first so a drift is diagnosed
+    // rather than blamed on whichever toggle happens to be read next.
+    const drift = changedEntities( baseline.fingerprint, baselineAgain.fingerprint );
+
+    report(
+        'the fingerprint is the same on two loads of the same url, so a difference below means something',
+        drift.length === 0,
+        drift.length === 0
+            ? `${ Object.keys( baseline.fingerprint ).length } entities, all reproducible`
+            : `DRIFTING: ${ drift.join( ', ' ) } — instrument 2 cannot separate a toggle from noise`
+    );
+
+    // The same question for instrument 3, and the one the old file never asked. See PIXEL_BASE.
+    const pixelBase = await loadPlate( page, server.baseUrl, PIXEL_BASE );
+    const pixelBaseAgain = await loadPlate( page, server.baseUrl, PIXEL_BASE );
+    const pixelsAreReproducible = pixelBase.pixels.equals( pixelBaseAgain.pixels );
+
+    report(
+        `?${ PIXEL_BASE } renders the same bytes twice, so "these two plates differ" can fail`,
+        pixelsAreReproducible,
+        pixelsAreReproducible
+            ? `two loads byte-identical at ${ pixelBase.pixels.length } bytes`
+            : 'NOT REPRODUCIBLE — every pixel check below would pass for free and none of them mean ' +
+                'anything. The default path is known non-reproducible (see the header); this is the ' +
+                'forward path, so something that was deterministic has stopped being so.'
+    );
 
     // A census of zeros would make every "went to zero" check below pass for the wrong reason.
     const empty = Object.entries( baseline.census )
@@ -264,53 +549,62 @@ try {
 
     }
 
+    console.log( `\n        baseline census: ${ JSON.stringify( baseline.census ) }` );
+    console.log( `        fingerprint entities: ${ Object.keys( baseline.fingerprint ).join( ', ' ) }\n` );
+
     console.log( '\n--- one toggle, one subsystem ----------------------------------------------\n' );
 
     for ( const toggle of TOGGLES ) {
 
         const plate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&${ toggle.query }` );
 
-        if ( plate.census[ toggle.owns ] === undefined ) {
+        for ( const key of plate.surface ) observedSurface.add( key );
+
+        // Instrument 2, both directions. Exactly the declared entities, no more and no fewer.
+        const changed = changedEntities( baseline.fingerprint, plate.fingerprint );
+        const collateral = missingFrom( changed, toggle.touches );
+        const inert = missingFrom( toggle.touches, changed );
+
+        report(
+            `?${ toggle.query } changes exactly ${ toggle.touches.length === 0 ? 'NOTHING' : toggle.touches.join( ' + ' ) }`,
+            collateral.length === 0 && inert.length === 0,
+            collateral.length === 0 && inert.length === 0
+                ? `the other ${ Object.keys( baseline.fingerprint ).length - changed.length } entities hold their signatures`
+                : [
+                    collateral.length > 0
+                        ? `COLLATERAL ${ collateral.join( ', ' ) } — every attribution made against ?${ toggle.query } is a sum`
+                        : null,
+                    inert.length > 0
+                        ? `DECLARED BUT UNCHANGED ${ inert.join( ', ' ) } — either the toggle stopped working, or this row is padded`
+                        : null
+                ].filter( ( line ) => line !== null ).join( '; ' )
+        );
+
+        // Instrument 4, where a counter exists. It says something the fingerprint does not: that
+        // the subsystem is GONE, not merely different.
+        if ( toggle.census === null ) continue;
+
+        if ( plate.census[ toggle.census ] === undefined ) {
 
             report( `?${ toggle.query } names a subsystem the census knows`, false,
-                `'${ toggle.owns }' is not in the census — this row is gating nothing` );
+                `'${ toggle.census }' is not in the census — this row is gating nothing` );
             continue;
 
         }
 
         report(
-            `?${ toggle.query } switches ${ toggle.owns } OFF`,
-            plate.census[ toggle.owns ] === 0,
-            `${ toggle.owns } ${ baseline.census[ toggle.owns ] } -> ${ plate.census[ toggle.owns ] }`
-        );
-
-        // `null` is NOT APPLICABLE, not a change. `skinCavityStrength` reports it under `?skin=0`,
-        // because the cavity is a term inside the skin shader rather than a subsystem beside it —
-        // there is no plate anywhere carrying one without the other, so there is no attribution to
-        // confound. Anything that goes to a NUMBER it did not hold at baseline is still collateral,
-        // so this exempts exactly the not-applicable case and nothing wider.
-        const collateral = Object.keys( baseline.census )
-            .filter( ( name ) => name !== toggle.owns )
-            .filter( ( name ) => plate.census[ name ] !== null )
-            .filter( ( name ) => plate.census[ name ] !== baseline.census[ name ] )
-            .map( ( name ) => `${ name } ${ baseline.census[ name ] } -> ${ plate.census[ name ] }` );
-
-        report(
-            `?${ toggle.query } switches NOTHING ELSE`,
-            collateral.length === 0,
-            collateral.length === 0
-                ? `the other ${ Object.keys( baseline.census ).length - 1 } subsystems hold their counts`
-                : `COLLATERAL: ${ collateral.join( ', ' ) } — every attribution made against ?${ toggle.query } is a sum`
+            `?${ toggle.query } switches ${ toggle.census } OFF`,
+            plate.census[ toggle.census ] === 0,
+            `${ toggle.census } ${ baseline.census[ toggle.census ] } -> ${ plate.census[ toggle.census ] }`
         );
 
     }
 
     console.log( '\n--- the anti-aliasing mode switch -------------------------------------------\n' );
 
-    // `?aa=msaa` is the A side of this round's default change, and it is the one row that is not an
-    // off switch — it swaps one anti-aliasing subsystem for another. Gated as a swap, in both
-    // directions, so neither half can quietly stop happening.
     const msaaPlate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&${ MUTUALLY_EXCLUSIVE.query }` );
+
+    for ( const key of msaaPlate.surface ) observedSurface.add( key );
 
     report(
         `?${ MUTUALLY_EXCLUSIVE.query } turns ${ MUTUALLY_EXCLUSIVE.turnsOn } ON`,
@@ -324,53 +618,204 @@ try {
         `${ MUTUALLY_EXCLUSIVE.turnsOff } ${ baseline.census[ MUTUALLY_EXCLUSIVE.turnsOff ] } -> ${ msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOff ] }`
     );
 
-    // The census only knows what it was told to count. This needs no bookkeeping: two different
-    // anti-aliasing modes cannot resolve the same edges the same way, and a byte-identical pair
-    // would mean one of them is not running at all.
-    report(
-        'the MSAA plate and the temporal plate are not the same image',
-        msaaPlate.pixels.equals( baseline.pixels ) === false,
-        msaaPlate.pixels.equals( baseline.pixels )
-            ? 'BYTE-IDENTICAL — one of the two anti-aliasing modes is not in the graph'
-            : 'the two plates differ, so both modes reach the frame buffer'
-    );
-
-    console.log( '\n--- the eye pair, in pixels ------------------------------------------------\n' );
-
-    // Independent of the census by construction: if one toggle has already removed the other's
-    // subsystem, adding the second toggle has nothing left to do and the renders match byte for
-    // byte. This is what the shipped defect looked like from outside.
-    const eyesOff = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&eyes=0` );
-    const occOff = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&eyeocc=0` );
-    const bothOff = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&eyes=0&eyeocc=0` );
-
-    // The failure text states the OBSERVATION, not a cause. Two identical plates mean the second
-    // toggle changed nothing, and that has two possible causes — the first toggle already removed
-    // its subsystem, or the second toggle is inert. Both were reproduced while proving this gate;
-    // naming one of them in the message sent a reader looking in the wrong place.
-    report(
-        '?eyeocc=0 still changes the render when ?eyes=0 is already on',
-        eyesOff.pixels.equals( bothOff.pixels ) === false,
-        eyesOff.pixels.equals( bothOff.pixels )
-            ? '?eyes=0 and ?eyes=0&eyeocc=0 are BYTE-IDENTICAL — adding ?eyeocc=0 removed nothing, so ' +
-                'either ?eyes=0 already took the sheet or ?eyeocc=0 is inert'
-            : 'the two plates differ, so the sheet survives ?eyes=0'
-    );
+    const msaaChanged = changedEntities( baseline.fingerprint, msaaPlate.fingerprint );
+    const msaaCollateral = missingFrom( msaaChanged, MUTUALLY_EXCLUSIVE.touches );
+    const msaaInert = missingFrom( MUTUALLY_EXCLUSIVE.touches, msaaChanged );
 
     report(
-        '?eyes=0 still changes the render when ?eyeocc=0 is already on',
-        occOff.pixels.equals( bothOff.pixels ) === false,
-        occOff.pixels.equals( bothOff.pixels )
-            ? '?eyeocc=0 and ?eyes=0&eyeocc=0 are BYTE-IDENTICAL — adding ?eyes=0 removed nothing, so ' +
-                'either ?eyeocc=0 already took the shader or ?eyes=0 is inert'
-            : 'the two plates differ, so the shader survives ?eyeocc=0'
+        `?${ MUTUALLY_EXCLUSIVE.query } changes exactly ${ MUTUALLY_EXCLUSIVE.touches.join( ' + ' ) }`,
+        msaaCollateral.length === 0 && msaaInert.length === 0,
+        msaaCollateral.length === 0 && msaaInert.length === 0
+            ? 'the pipeline and the two alpha-to-coverage cards, which is the documented coupling'
+            : `COLLATERAL ${ msaaCollateral.join( ', ' ) || 'none' }; DECLARED BUT UNCHANGED ${ msaaInert.join( ', ' ) || 'none' }`
     );
 
+    console.log( '\n--- is the gate looking at every toggle the page has? -----------------------\n' );
+
+    // Instrument 1. The check that stops this file quietly gating eight of thirty-seven again.
+    const classified = new Set( [
+        ...TOGGLES.map( ( toggle ) => toggle.query.split( '=' )[ 0 ] ),
+        MUTUALLY_EXCLUSIVE.query.split( '=' )[ 0 ],
+        ...Object.keys( UNGATED )
+    ] );
+
+    const unclassified = [ ...observedSurface ].filter( ( key ) => classified.has( key ) === false ).sort();
+
     report(
-        'both eye toggles together zero both eye subsystems',
-        bothOff.census.eyeMaterial === 0 && bothOff.census.eyeOcclusion === 0,
-        `eyeMaterial ${ bothOff.census.eyeMaterial }, eyeOcclusion ${ bothOff.census.eyeOcclusion }`
+        'every url key the page read is classified in this file',
+        unclassified.length === 0,
+        unclassified.length === 0
+            ? `${ observedSurface.size } keys observed, all of them either gated or listed in UNGATED with a reason`
+            : `UNCLASSIFIED: ${ unclassified.join( ', ' ) } — add a TOGGLES row with a measured 'touches', ` +
+                'or an UNGATED line saying why it is not a shading switch. Until then nothing checks it.'
     );
+
+    // And the reverse, so a row can be retired from `alive.js` without leaving a check that reads
+    // green over a toggle that no longer exists. The two keys declared `readHere: false` are held
+    // out — this file cannot cause them to be read — and asserted absent immediately below, so the
+    // hold-out is a claim that fails rather than a hole.
+    const heldOut = Object.entries( UNGATED )
+        .filter( ( [ , entry ] ) => entry.readHere === false )
+        .map( ( [ key ] ) => key );
+
+    const dead = [ ...classified ]
+        .filter( ( key ) => heldOut.includes( key ) === false )
+        .filter( ( key ) => observedSurface.has( key ) === false )
+        .sort();
+
+    report(
+        'every key this file classifies is one the page actually reads',
+        dead.length === 0,
+        dead.length === 0
+            ? `all ${ classified.size - heldOut.length } observable classified keys were observed`
+            : `NOT READ BY THE PAGE: ${ dead.join( ', ' ) } — the row is gating a toggle that is gone`
+    );
+
+    for ( const key of heldOut ) {
+
+        // If one of these starts being read on a plain plate, the reason written beside it has
+        // stopped being true and the key needs gating for real rather than excusing.
+        report(
+            `?${ key } is not consulted on any plate this file loads, as declared`,
+            observedSurface.has( key ) === false,
+            observedSurface.has( key ) === false
+                ? UNGATED[ key ].why
+                : `IT WAS READ — the hold-out reason no longer holds, so this key is now gateable ` +
+                    'from here and should be a TOGGLES row with a measured touches list'
+        );
+
+    }
+
+    console.log( '\n--- pairwise independence, in pixels ---------------------------------------\n' );
+
+    if ( pixelsAreReproducible === false ) {
+
+        console.log( '        SKIPPED — the base plate is not reproducible, so none of these could fail.\n' );
+
+    } else {
+
+        // Every plate the sweep needs, loaded once each and reused across both directions of each
+        // pair. Keyed by the query so the pair loop reads as the comparison it is making.
+        const plates = new Map();
+
+        for ( const toggle of PIXEL_SWEEP ) {
+
+            plates.set( toggle, ( await loadPlate( page, server.baseUrl, `${ PIXEL_BASE }&${ toggle }` ) ).pixels );
+
+        }
+
+        for ( const toggle of PIXEL_SWEEP ) {
+
+            // Two ways a pair check can pass without meaning anything, and both are checked here
+            // rather than assumed. A plate that does not reproduce makes "these differ" true for
+            // free — the reason the whole pixel section moved to the forward path — and reproducing
+            // the BASE does not establish that a TOGGLED plate reproduces, which is a different
+            // claim about a different render.
+            const again = ( await loadPlate( page, server.baseUrl, `${ PIXEL_BASE }&${ toggle }` ) ).pixels;
+
+            report(
+                `?${ toggle } renders the same bytes twice`,
+                plates.get( toggle ).equals( again ),
+                plates.get( toggle ).equals( again )
+                    ? 'reproducible, so a pair containing it can fail'
+                    : 'NOT REPRODUCIBLE — every pair below containing it passes for free'
+            );
+
+            // And a toggle that changes no pixels at all makes every pair containing it
+            // byte-identical for a reason that has nothing to do with a confound. Same shape as the
+            // non-zero baseline census: establish that each input is live before comparing them.
+            report(
+                `?${ toggle } moves pixels on the forward path, so a pair containing it can fail`,
+                plates.get( toggle ).equals( pixelBase.pixels ) === false,
+                plates.get( toggle ).equals( pixelBase.pixels )
+                    ? `?${ toggle } is BYTE-IDENTICAL to the base plate — it renders nothing here, and every ` +
+                        'pair below that contains it is vacuous'
+                    : 'differs from the base plate'
+            );
+
+        }
+
+        for ( let i = 0; i < PIXEL_SWEEP.length; i ++ ) {
+
+            for ( let j = i + 1; j < PIXEL_SWEEP.length; j ++ ) {
+
+                const a = PIXEL_SWEEP[ i ];
+                const b = PIXEL_SWEEP[ j ];
+                const both = ( await loadPlate( page, server.baseUrl, `${ PIXEL_BASE }&${ a }&${ b }` ) ).pixels;
+
+                // Both directions from the one extra plate, and the absorption lookup is made per
+                // direction rather than per pair — see ABSORBS for the round where it was not.
+                for ( const [ first, second ] of [ [ a, b ], [ b, a ] ] ) {
+
+                    const alone = plates.get( first );
+                    const absorbed = ABSORBS[ first ]?.[ second ];
+
+                    if ( absorbed !== undefined ) {
+
+                        // Declaring an absorption is not a way to skip a check — the exemption is
+                        // itself asserted, in exactly the direction it claims.
+                        report(
+                            `?${ first } absorbs ?${ second }, as declared`,
+                            alone.equals( both ),
+                            alone.equals( both )
+                                ? absorbed
+                                : `THEY DIFFER — the row says ${ absorbed }, so the absorption has stopped ` +
+                                    'being true and the exemption in ABSORBS is now hiding a real check'
+                        );
+                        continue;
+
+                    }
+
+                    // The failure text states the OBSERVATION, not a cause: two identical plates
+                    // mean the second toggle changed nothing, and that has two possible causes —
+                    // the first toggle already removed its subsystem, or the second toggle is
+                    // inert. Both were reproduced while proving this gate; naming one of them sent
+                    // a reader looking in the wrong place.
+                    report(
+                        `?${ second } still changes the render when ?${ first } is already on`,
+                        alone.equals( both ) === false,
+                        alone.equals( both )
+                            ? `?${ first } and ?${ first }&${ second } are BYTE-IDENTICAL — adding ?${ second } ` +
+                                `removed nothing, so either ?${ first } already took its subsystem or ?${ second } is inert`
+                            : 'the two plates differ'
+                    );
+
+                }
+
+            }
+
+        }
+
+        console.log( '\n--- the one toggle that is out of the sweep, and why ------------------------\n' );
+
+        // Both halves of the excuse, so "?ground=0 does nothing at portrait" cannot be used to
+        // retire it. If the second check ever goes red the toggle really is dead and the first
+        // check's green is meaningless.
+        const groundInert = ( await loadPlate( page, server.baseUrl,
+            `${ GROUND_IS_A_BODY_FRAME_TOGGLE.inertAt }&${ GROUND_IS_A_BODY_FRAME_TOGGLE.toggle }` ) ).pixels;
+
+        report(
+            `?${ GROUND_IS_A_BODY_FRAME_TOGGLE.toggle } changes nothing at PORTRAIT framing, which is why it is out of the sweep`,
+            groundInert.equals( pixelBase.pixels ),
+            groundInert.equals( pixelBase.pixels )
+                ? 'byte-identical to the portrait base — the floor is not in a head-and-shoulders frame'
+                : 'IT MOVES PIXELS AT PORTRAIT after all, so it belongs back in PIXEL_SWEEP'
+        );
+
+        const bodyBase = ( await loadPlate( page, server.baseUrl, GROUND_IS_A_BODY_FRAME_TOGGLE.liveAt ) ).pixels;
+        const bodyGround = ( await loadPlate( page, server.baseUrl,
+            `${ GROUND_IS_A_BODY_FRAME_TOGGLE.liveAt }&${ GROUND_IS_A_BODY_FRAME_TOGGLE.toggle }` ) ).pixels;
+
+        report(
+            `?${ GROUND_IS_A_BODY_FRAME_TOGGLE.toggle } DOES move pixels at ?frame=body, so it is out of frame rather than broken`,
+            bodyGround.equals( bodyBase ) === false,
+            bodyGround.equals( bodyBase )
+                ? 'BYTE-IDENTICAL at body framing too — the contact occlusion reaches no plate at all, and ' +
+                    'the +0.0307 floor-luma figure alive.js records for it cannot be reproduced from this page'
+                : 'the contact term is visible once the floor is in shot'
+        );
+
+    }
 
 } finally {
 
