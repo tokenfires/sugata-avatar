@@ -92,7 +92,7 @@
  *     gaze.lookAt( { yawDegrees: -20, pitchDegrees: 5 }, { predicted: true } );
  */
 
-import { Quaternion, Vector3 } from 'three';
+import { Matrix4, Quaternion, Vector3 } from 'three';
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
@@ -113,6 +113,8 @@ export const EYE_MORPH_EXCURSION_DEGREES = {
 
 /** The rig's own axes, measured. Forward is where a zero-yaw, zero-pitch gaze points. */
 const RIG_FORWARD = new Vector3( 0, 0, 1 );
+const RIG_UP = new Vector3( 0, 1, 0 );
+const RIG_RIGHT = new Vector3( 1, 0, 0 );
 
 // --- the main sequence ------------------------------------------------------------------------
 
@@ -281,6 +283,13 @@ const HEAD_SMOOTH_TIME_SECONDS = 0.18;
 const HEAD_YAW_LIMIT_DEGREES = 55;
 const HEAD_PITCH_UP_LIMIT_DEGREES = 35;
 const HEAD_PITCH_DOWN_LIMIT_DEGREES = 45;
+
+/**
+ * A neck shorter than this has no measurable direction, so the cervical axis falls back to the
+ * room's vertical. One millimetre: far below any rig's real neck (this one is 108 mm) and far
+ * above the 5e-7 quantisation the GLB stores positions at.
+ */
+const DEGENERATE_COLUMN_METRES = 0.001;
 
 /** Vestibulo-ocular reflex gain. 1.0 is the measured human value; the latency is discussed below. */
 const DEFAULT_VOR_GAIN = 1;
@@ -1573,6 +1582,11 @@ export class GazeHead extends Layer {
 
         // Split evenly across the two cervical joints this rig has, which is the smoothest curve
         // available from two joints. A rig with a full cervical chain would weight from the base up.
+        //
+        // ⚠️ This number is about the SHAPE of the neck and nothing else. It used to decide how
+        // far the head SLID sideways as well, which is a different quantity and was never checked
+        // against anything. See `onBindFromGaze()` for what that cost and how the two were
+        // separated.
         this.neckShare = options.neckShare ?? 0.5;
 
         // Rig-space yaw and pitch axes expressed in each bone's REST frame. The stack commits
@@ -1582,8 +1596,18 @@ export class GazeHead extends Layer {
         // on a rig whose head bone rests 99° off, instead of only on this one.
         this.boneAxes = new Map();
 
+        // Measured at bind: the cervical column direction and how far off vertical it leans. Read
+        // by the selftest, and reported rather than assumed because it is a property of the rig.
+        this.cervicalColumn = new Vector3( 0, 1, 0 );
+        this.cervicalTiltDegrees = 0;
+        this.cervicalLengthMetres = 0;
+
         this.scratchYawRotation = new Quaternion();
         this.scratchPitchRotation = new Quaternion();
+        this.scratchDesiredRotation = new Quaternion();
+        this.scratchNeckRotation = new Quaternion();
+        this.scratchHeadRotation = new Quaternion();
+        this.scratchBoneDelta = new Quaternion();
 
         this.targetYawDegrees = 0;
         this.targetPitchDegrees = 0;
@@ -1592,7 +1616,57 @@ export class GazeHead extends Layer {
 
     }
 
-    /** Called by Gaze once it has resolved the rig root, which both layers measure against. */
+    /**
+     * Called by Gaze once it has resolved the rig root, which both layers measure against.
+     *
+     * 🎯 THE NECK TURNS ABOUT ITS OWN LONG AXIS, NOT ABOUT THE ROOM'S VERTICAL. This is the whole
+     * of the fix recorded below, and it is a modelling fact, not a tuning choice.
+     *
+     * The head joint on this rig sits **47.3 mm anterior and 97.3 mm superior** to `neck_01` — a
+     * 108.2 mm cervical column leaning **25.95° forward** of vertical (measured on figure_g050 in
+     * relaxed-standing; `Gaze.selftest.mjs` re-measures and prints all four, so they are facts
+     * about whatever rig is loaded rather than numbers copied into a comment). Yawing the neck
+     * about the ROOM's vertical therefore swings the head joint through an arc of radius 47 mm:
+     * the skull does not just turn, it slides sideways by 47 mm × sin(neck yaw).
+     *
+     * Measured on the shipped `alive.js` stack, seed 1, 420 s at 30 fps — the same simulation
+     * `captures/r5-body` was rendered from — with the cervical axis as the only difference between
+     * the two runs:
+     *
+     *                                          vertical      column
+     *   head lateral relative to the neck       9.22 mm      1.35 mm  SD
+     *   pearson( head − neck, neck )             −0.226      −0.984
+     *   head joint on screen, above 1/15 Hz      5.94 px      2.93 px  SD
+     *   pelvis on screen, above 1/15 Hz          3.01 px      3.01 px  SD
+     *   head / pelvis on that band                1.973        0.973
+     *   head yaw                                22.253°      22.253°  SD  ← unchanged
+     *
+     * The last row is the point: **the head turns exactly as far as it did.** Only the sliding
+     * stopped. A fix that had merely quietened the head would have shown up there.
+     *
+     * That arc was the whole residue. Nothing else in the stack moves the head sideways relative
+     * to its own neck: `IdleMotion` and this layer's own head-bone share rotate the skull about
+     * its own origin, which translates nothing, and `Sway`'s neck stabilisation opposes what is
+     * left — which is why the correlation goes to −0.984 once the arc is gone.
+     *
+     * 🚩 `docs/PROGRESS.md` records this residue as *"a roll contribution — yaw and pitch do not
+     * move the head joint"*. **That diagnosis is wrong, and it is wrong in a way worth keeping.**
+     * Measured head world roll is **0.661° SD**, which over a 108 mm neck can produce 1.2 mm; the
+     * observed 9.22 mm is 7.4× that. The mechanism is yaw, acting through a lever nobody had
+     * measured — pitch and yaw genuinely do not move the head joint *when the axis passes through
+     * it*, and the axis did not.
+     *
+     * Rotating the neck's share about the **column direction** instead puts the head joint ON the
+     * axis of rotation, where a rotation cannot translate it. The neck still turns — the shape of
+     * the bend is `neckShare`'s business and is deliberately untouched — but the skull turns in
+     * place instead of swinging.
+     *
+     * A tilted axis costs two things — it under-delivers the yaw by about cos(tilt), and it tips
+     * the skull toward one shoulder. Both are paid back exactly at the head joint rather than
+     * approximately; see `writeCervicalChain()`, which is where the two joints stopped being two
+     * copies of one rotation. The two are doing different jobs: the column carries the cervical
+     * turn, the head joint aims.
+     */
     onBindFromGaze( context ) {
 
         this.boneAxes.clear();
@@ -1600,20 +1674,63 @@ export class GazeHead extends Layer {
         const rigRoot = this.gaze.rigRoot;
         if ( rigRoot === null ) return;
 
-        for ( const boneName of [ this.neckBoneName, this.headBoneName ] ) {
+        const neckBone = context.target.getBone?.( this.neckBoneName ) ?? null;
+        const headBone = context.target.getBone?.( this.headBoneName ) ?? null;
 
-            const bone = context.target.getBone?.( boneName ) ?? null;
+        this.measureCervicalColumn( neckBone, headBone, rigRoot );
+
+        for ( const [ boneName, bone ] of [ [ this.neckBoneName, neckBone ], [ this.headBoneName, headBone ] ] ) {
+
             if ( bone === null ) continue;
 
-            const rest = rotationRelativeTo( bone, rigRoot, new Quaternion() );
-            const restInverse = rest.clone().invert();
-
+            // The rig-space rest rotation, kept whole rather than reduced to two axes: the head's
+            // share is a general rotation now, not an axis-angle, so the conjugation that carries
+            // it into the bone's rest frame needs the whole quaternion.
             this.boneAxes.set( boneName, {
-                yaw: new Vector3( 0, 1, 0 ).applyQuaternion( restInverse ),
-                pitch: new Vector3( 1, 0, 0 ).applyQuaternion( restInverse )
+                rest: rotationRelativeTo( bone, rigRoot, new Quaternion() )
             } );
 
         }
+
+    }
+
+    /**
+     * Where the cervical column points, in rig space.
+     *
+     * Measured off the rig rather than declared, because the lean is anatomy: this figure's
+     * column leans 26° forward, another rig's will not, and a hardcoded axis would silently
+     * reintroduce the slide on any figure that is not this one. A rig whose two neck joints sit
+     * on top of each other has no measurable column, so that case keeps the room's vertical and
+     * says so by leaving `cervicalTiltDegrees` at zero.
+     */
+    measureCervicalColumn( neckBone, headBone, rigRoot ) {
+
+        this.cervicalColumn.set( 0, 1, 0 );
+        this.cervicalTiltDegrees = 0;
+        this.cervicalLengthMetres = 0;
+
+        if ( neckBone === null || headBone === null ) return;
+
+        const rigInverse = new Matrix4().copy( rigRoot.matrixWorld ).invert();
+
+        const neckPosition = new Vector3();
+        const headPosition = new Vector3();
+
+        neckBone.updateWorldMatrix( true, false );
+        headBone.updateWorldMatrix( true, false );
+
+        neckPosition.setFromMatrixPosition( neckBone.matrixWorld ).applyMatrix4( rigInverse );
+        headPosition.setFromMatrixPosition( headBone.matrixWorld ).applyMatrix4( rigInverse );
+
+        const column = headPosition.sub( neckPosition );
+        this.cervicalLengthMetres = column.length();
+
+        if ( this.cervicalLengthMetres < DEGENERATE_COLUMN_METRES ) return;
+
+        this.cervicalColumn.copy( column ).normalize();
+
+        this.cervicalTiltDegrees =
+            Math.acos( clamp( this.cervicalColumn.y, -1, 1 ) ) * RADIANS_TO_DEGREES;
 
     }
 
@@ -1633,8 +1750,7 @@ export class GazeHead extends Layer {
         this.yawDegrees = this.yawSmoother.advance( this.targetYawDegrees, smoothTime, deltaSeconds );
         this.pitchDegrees = this.pitchSmoother.advance( this.targetPitchDegrees, smoothTime, deltaSeconds );
 
-        this.writeBone( this.neckBoneName, this.neckShare );
-        this.writeBone( this.headBoneName, 1 - this.neckShare );
+        this.writeCervicalChain();
 
         return this.contribution;
 
@@ -1659,30 +1775,69 @@ export class GazeHead extends Layer {
     }
 
     /**
-     * Yaw about the rig's up axis, then pitch about the rig's right axis, both carried into this
-     * bone's rest frame.
+     * Writes the two cervical joints as ONE rotation split between them, rather than as two
+     * independent copies of the same rotation scaled by a share.
      *
-     * Splitting one rotation across two joints this way is an approximation: the head bone's
-     * axes have already been tipped by the neck's share, so the two pitches cross-couple by a
-     * fraction of a degree at conversational angles. It does not accumulate, because
-     * `Gaze.readHeadRotation()` measures where the head ACTUALLY ended up and VOR compensates
-     * against that rather than against what was asked for.
+     * The distinction is what makes the column axis usable at all. Turning the neck about a
+     * column that leans 26° forward stops the head sliding sideways, but it also tips the skull
+     * toward one shoulder and leaves the yaw short. Measured with both joints writing
+     * independently, over the selftest's sweep: **9.18° of head roll at the 55° clamp** and a
+     * realised yaw of **51.70° for a commanded 55°**. That is the subaxial spine's real
+     * coupled lateral flexion, and a real neck does not leave it standing: the upper cervical
+     * joints take it back out, which is why a person turning their head keeps their eyes level.
+     * Penning & Wilmink 1987 and Wang et al. 2019 both put 57–63% of cervical axial rotation at
+     * Oc–C1/C1–C2, i.e. at the top of the chain, which on a two-joint rig is the head bone.
+     *
+     * So does this. The neck writes its share about the column; the head then writes
+     * `A_neck⁻¹ · desired`, whatever that is — the gain the tilted axis lost, the coupled roll, and
+     * the old fraction-of-a-degree pitch cross-coupling all come out in the same step, exactly
+     * rather than approximately. The composition is exact because the stack applies each bone's
+     * delta on the LEFT of its rest rotation in rig space, so the head's rig-space orientation is
+     * `A_neck · A_head · rest`, and the head only has to carry the difference.
+     *
+     * `neckShare` is left doing the one job its comment claims: deciding the SHAPE of the bend.
      */
-    writeBone( boneName, share ) {
+    writeCervicalChain() {
 
-        const axes = this.boneAxes.get( boneName );
-        if ( axes === undefined ) return;
+        const neckAxes = this.boneAxes.get( this.neckBoneName );
+        const headAxes = this.boneAxes.get( this.headBoneName );
 
+        // Where the head is being asked to point, in rig space. Pitch is negated because positive
+        // pitch means "look up", and a right-handed rotation about the rig's +X axis tips the
+        // forward direction down.
         this.scratchYawRotation.setFromAxisAngle(
-            axes.yaw, this.yawDegrees * share * DEGREES_TO_RADIANS );
-
-        // Negated because positive pitch means "look up", and a right-handed rotation about the
-        // rig's +X axis tips the forward direction down.
+            RIG_UP, this.yawDegrees * DEGREES_TO_RADIANS );
         this.scratchPitchRotation.setFromAxisAngle(
-            axes.pitch, -this.pitchDegrees * share * DEGREES_TO_RADIANS );
+            RIG_RIGHT, -this.pitchDegrees * DEGREES_TO_RADIANS );
+        this.scratchDesiredRotation
+            .copy( this.scratchYawRotation ).multiply( this.scratchPitchRotation );
 
-        this.contribution.rotateBone(
-            boneName, this.scratchYawRotation.multiply( this.scratchPitchRotation ) );
+        // The neck's share, about the cervical column. A rig with no neck bone hands the whole
+        // rotation to the head, which is the right degradation: no slide, no shape.
+        this.scratchNeckRotation.identity();
+
+        if ( neckAxes !== undefined ) {
+
+            this.scratchYawRotation.setFromAxisAngle(
+                this.cervicalColumn, this.yawDegrees * this.neckShare * DEGREES_TO_RADIANS );
+            this.scratchPitchRotation.setFromAxisAngle(
+                RIG_RIGHT, -this.pitchDegrees * this.neckShare * DEGREES_TO_RADIANS );
+            this.scratchNeckRotation
+                .copy( this.scratchYawRotation ).multiply( this.scratchPitchRotation );
+
+            this.contribution.rotateBone( this.neckBoneName,
+                conjugateIntoRestFrame( this.scratchNeckRotation, neckAxes.rest, this.scratchBoneDelta ) );
+
+        }
+
+        if ( headAxes === undefined ) return;
+
+        // Whatever the neck did not deliver — including the roll it introduced.
+        this.scratchHeadRotation
+            .copy( this.scratchNeckRotation ).invert().multiply( this.scratchDesiredRotation );
+
+        this.contribution.rotateBone( this.headBoneName,
+            conjugateIntoRestFrame( this.scratchHeadRotation, headAxes.rest, this.scratchBoneDelta ) );
 
     }
 
@@ -1739,6 +1894,21 @@ class CriticallyDampedAngle {
  * about 5e-7 off unit length; `invert()` is a conjugate, exact only for unit quaternions, and
  * the error compounds down a chain.
  */
+/**
+ * Carries a rig-space rotation into a bone's rest frame: `delta = rest⁻¹ · A · rest`.
+ *
+ * The stack commits `bone.quaternion = rest · delta`, so a delta is read in the bone's rest
+ * frame. Conjugating is what keeps "nod" a nod on a rig whose head bone rests 99° off, instead of
+ * only on this one. The old code conjugated the AXIS of an axis-angle, which is the same operation
+ * written for the special case; this is the general form, needed since the head's share stopped
+ * being an axis-angle.
+ */
+function conjugateIntoRestFrame( rigRotation, rest, out ) {
+
+    return out.copy( rest ).invert().multiply( rigRotation ).multiply( rest );
+
+}
+
 function rotationRelativeTo( object, ancestor, out ) {
 
     out.identity();

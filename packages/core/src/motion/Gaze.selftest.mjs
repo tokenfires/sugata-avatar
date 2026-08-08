@@ -28,7 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { Quaternion, Vector3 } from 'three';
+import { Box3, Euler, Quaternion, Vector3 } from 'three';
 
 import { MotionStack, createMotionTarget } from './MotionStack.js';
 import {
@@ -1300,6 +1300,293 @@ function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
 
     return result;
 
+}
+
+// --- 9. the head turns in place: no lateral slide -------------------------------------------------------
+//
+// 🎯 THE GATE THIS FILE DID NOT HAVE. Every check above measures an ANGLE. The defect that got
+// through measured a DISTANCE: a visual judge and then `tools/critic/travel.mjs` reported the head
+// out-travelling the hip on screen, and the residue turned out to be this layer swinging the head
+// joint sideways every time it turned the head.
+//
+// The mechanism, and why nothing here saw it. `neck_01` sits below AND BEHIND the head joint, so
+// yawing the neck about the room's vertical carries the skull through an arc of radius equal to
+// that anterior offset. The head's ORIENTATION was correct throughout — which is all this file
+// was measuring — while its POSITION described a 47 mm arc. LEARNINGS §1.11a: a constant justified
+// on one quantity (`neckShare`, argued as the smoothest curve from two joints) silently deciding
+// another (how far the head slides).
+//
+// So the gate is stated as a distance, and — LEARNINGS §1.10b — in the unit the defect was judged
+// in as well as in millimetres, with the conversion printed beside it. The threshold is this
+// project's own recorded indistinguishability floor, 1.6 px at full-body framing (§1.10a).
+//
+// Four things are checked, and the last three exist because the obvious way to pass the first is
+// to break something else:
+//
+//   1. The head joint does not slide when the head turns.
+//   2. The head still turns as far as it was asked to. A "fix" that just moves the head less
+//      would pass check 1 and make the figure deader, which is the wrong direction entirely.
+//   3. The head stays level. Turning the neck about a forward-leaning column tips the skull
+//      toward one shoulder; the head joint has to take that back out.
+//   4. The neck still bends. Handing the whole rotation to the head joint also passes check 1,
+//      and gives a head bolted to a rigid neck.
+//
+// Measured in relaxed-standing, because the cervical column's lean is a property of the pose the
+// stack actually runs in, and the bind pose is not that pose.
+
+{
+    const { Skeleton } = await import( '../figure/Skeleton.js' );
+    const { RestPose } = await import( '../figure/RestPose.js' );
+
+    /** LEARNINGS §1.10a — travel below this is not distinguishable at full-body framing. */
+    const INDISTINGUISHABLE_PIXELS = 1.6;
+
+    /** alive.js frames the body at the figure's own height plus this margin, over 1200 px. */
+    const BODY_FRAME_MARGIN = 1.08;
+    const BODY_FRAME_PIXELS = 1200;
+
+    const skeleton = new Skeleton( figureRoot );
+    RestPose.load( 'relaxed-standing' ).applyTo( skeleton );
+    skeleton.update();
+    figureRoot.updateMatrixWorld( true );
+
+    const posedRest = capturePose( figureRoot );
+
+    const bounds = new Box3().setFromObject( figureRoot );
+    const framedHeightMillimetres = ( bounds.max.y - bounds.min.y ) * BODY_FRAME_MARGIN * 1000;
+    const pixelsPerMillimetre = BODY_FRAME_PIXELS / framedHeightMillimetres;
+
+    const neckBone = figureRoot.getObjectByName( 'neck_01' );
+    const headBone = figureRoot.getObjectByName( 'head' );
+
+    const neckAtRest = neckBone.getWorldPosition( new Vector3() );
+    const headAtRest = headBone.getWorldPosition( new Vector3() );
+    const anteriorOffsetMillimetres = ( headAtRest.z - neckAtRest.z ) * 1000;
+
+    lines.push( 'HEAD TRAVEL — the head turns, and the head joint stays put' );
+    lines.push( '' );
+    lines.push( `  framed height        ${ framedHeightMillimetres.toFixed( 1 ) } mm over ` +
+        `${ BODY_FRAME_PIXELS } px = ${ pixelsPerMillimetre.toFixed( 4 ) } px/mm` );
+    lines.push( `  neck_01 -> head      ${ ( ( headAtRest.y - neckAtRest.y ) * 1000 ).toFixed( 1 ) } mm up, ` +
+        `${ anteriorOffsetMillimetres.toFixed( 1 ) } mm forward` );
+
+    /**
+     * Holds one commanded head angle until the smoother has settled, then reports where the head
+     * ended up — in position and in orientation. `axis` selects the cervical axis: 'column' is
+     * what ships, 'vertical' restores the pre-fix behaviour so the gate can be proven red.
+     */
+    function settleHeadAt( yawDegrees, { axis = 'column' } = {} ) {
+
+        restorePose( posedRest );
+
+        const stack = new MotionStack( { seed: 20260807 } );
+        stack.bind( createMotionTarget( figureRoot ) );
+
+        const gaze = new Gaze( { rigRoot: figureRoot } );
+        stack.add( gaze.head );
+        stack.add( gaze );
+
+        if ( axis === 'vertical' ) gaze.head.cervicalColumn.set( 0, 1, 0 );
+
+        const column = {
+            tiltDegrees: gaze.head.cervicalTiltDegrees,
+            lengthMillimetres: gaze.head.cervicalLengthMetres * 1000
+        };
+
+        // The eye layer's policy retargets the head every frame, so the commanded angle is
+        // re-asserted every frame. HEAD runs before GAZE, so the value set here is the value the
+        // head bone uses on this frame.
+        for ( let frame = 0; frame < 180; frame ++ ) {
+
+            gaze.head.setTarget( yawDegrees, 0 );
+            stack.update( 1 / 60 );
+
+        }
+
+        figureRoot.updateMatrixWorld( true );
+
+        const headPosition = headBone.getWorldPosition( new Vector3() );
+        const headRotation = rotationRelativeTo( headBone, figureRoot );
+        const neckRotation = rotationRelativeTo( neckBone, figureRoot );
+
+        stack.dispose();
+
+        return { column, headPosition, headRotation, neckRotation };
+    }
+
+    /** Yaw / pitch / roll of a rig-space rotation, relative to the same rotation at yaw zero. */
+    function relativeAngles( rotation, reference ) {
+
+        const relative = reference.clone().invert().premultiply( rotation );
+        const euler = new Euler().setFromQuaternion( relative, 'YXZ' );
+
+        return {
+            yaw: euler.y * 180 / Math.PI,
+            pitch: euler.x * 180 / Math.PI,
+            roll: euler.z * 180 / Math.PI
+        };
+
+    }
+
+    const SWEEP_DEGREES = [ 10, 20, 30, 40, 55 ];
+
+    for ( const axis of [ 'column', 'vertical' ] ) {
+
+        const zero = settleHeadAt( 0, { axis } );
+
+        if ( axis === 'column' ) {
+
+            lines.push( `  cervical column      ${ zero.column.lengthMillimetres.toFixed( 1 ) } mm, ` +
+                `leaning ${ zero.column.tiltDegrees.toFixed( 2 ) }° forward of vertical` );
+            lines.push( '' );
+            lines.push( [ 'commanded', 'head slide', 'in pixels', 'realised yaw', 'head roll', 'neck yaw' ]
+                .map( ( heading ) => heading.padStart( 13 ) ).join( '' ) );
+
+        }
+
+        let worstSlideMillimetres = 0;
+        let worstYawErrorDegrees = 0;
+        let worstRollDegrees = 0;
+        let smallestNeckShare = Infinity;
+
+        for ( const commanded of SWEEP_DEGREES ) {
+
+            const settled = settleHeadAt( commanded, { axis } );
+
+            const slideMillimetres =
+                Math.abs( settled.headPosition.x - zero.headPosition.x ) * 1000;
+            const head = relativeAngles( settled.headRotation, zero.headRotation );
+            const neck = relativeAngles( settled.neckRotation, zero.neckRotation );
+
+            worstSlideMillimetres = Math.max( worstSlideMillimetres, slideMillimetres );
+            worstYawErrorDegrees = Math.max( worstYawErrorDegrees, Math.abs( head.yaw - commanded ) );
+            worstRollDegrees = Math.max( worstRollDegrees, Math.abs( head.roll ) );
+            smallestNeckShare = Math.min( smallestNeckShare, Math.abs( neck.yaw ) / commanded );
+
+            if ( axis === 'column' ) {
+
+                lines.push( [
+                    `${ commanded }°`,
+                    `${ slideMillimetres.toFixed( 2 ) } mm`,
+                    `${ ( slideMillimetres * pixelsPerMillimetre ).toFixed( 2 ) } px`,
+                    `${ head.yaw.toFixed( 2 ) }°`,
+                    `${ head.roll.toFixed( 2 ) }°`,
+                    `${ neck.yaw.toFixed( 2 ) }°`
+                ].map( ( cell ) => cell.padStart( 13 ) ).join( '' ) );
+
+            }
+
+        }
+
+        const worstSlidePixels = worstSlideMillimetres * pixelsPerMillimetre;
+
+        if ( axis === 'column' ) {
+
+            check( 'head travel: turning the head does not slide the head joint sideways',
+                worstSlidePixels < INDISTINGUISHABLE_PIXELS,
+                `worst over ${ SWEEP_DEGREES.join( '/' ) }°: ${ worstSlideMillimetres.toFixed( 2 ) } mm = ` +
+                `${ worstSlidePixels.toFixed( 2 ) } px, against the ${ INDISTINGUISHABLE_PIXELS } px floor` );
+
+            check( 'head travel: the head still turns as far as it was asked to',
+                worstYawErrorDegrees < 0.5,
+                `worst realised-yaw error ${ worstYawErrorDegrees.toFixed( 3 ) }° — a fix that moved the ` +
+                'head LESS would pass the slide check and make the figure deader' );
+
+            check( 'head travel: the head stays level while it turns',
+                worstRollDegrees < 1,
+                `worst head roll ${ worstRollDegrees.toFixed( 3 ) }°; turning about the leaning column ` +
+                'tips the skull toward one shoulder and the head joint has to take it back out' );
+
+            check( 'head travel: the neck still carries its share of the turn',
+                smallestNeckShare > 0.25,
+                `smallest neck yaw share ${ smallestNeckShare.toFixed( 3 ) } of the commanded angle — ` +
+                'handing the whole turn to the head joint also stops the slide, and reads as bolted-on' );
+
+        } else {
+
+            // §1.1: the gate is only trustworthy once it has been seen to fail. This is the
+            // shipped-before behaviour, restored by putting the cervical axis back on the room's
+            // vertical, and it is the arc the anterior offset predicts.
+            const predictedMillimetres = Math.abs( anteriorOffsetMillimetres ) *
+                Math.sin( Math.max( ...SWEEP_DEGREES ) * 0.5 * Math.PI / 180 );
+
+            check( 'head travel: KNOWN-BAD — the pre-fix vertical axis fails this gate',
+                worstSlidePixels >= INDISTINGUISHABLE_PIXELS,
+                `${ worstSlideMillimetres.toFixed( 2 ) } mm = ${ worstSlidePixels.toFixed( 2 ) } px, ` +
+                `against ${ INDISTINGUISHABLE_PIXELS } px` );
+
+            checkWithin( 'head travel: KNOWN-BAD — the slide is the arc the anterior offset predicts',
+                worstSlideMillimetres, predictedMillimetres, 1.5, ' mm' );
+
+        }
+
+    }
+
+    lines.push( '' );
+
+    // And the same quantity over the layer's own unattended behaviour, which is the form the
+    // defect was reported in: how far does this layer alone move the head sideways over minutes?
+    // Sway is not in this stack, so every millimetre here is gaze's.
+    {
+        const UNATTENDED_SECONDS = 300;
+
+        for ( const axis of [ 'column', 'vertical' ] ) {
+
+            restorePose( posedRest );
+
+            const stack = new MotionStack( { seed: 1 } );
+            stack.bind( createMotionTarget( figureRoot ) );
+
+            const gaze = new Gaze( { rigRoot: figureRoot, partnerYawDegrees: CAMERA_AZIMUTH_DEGREES } );
+            stack.add( gaze.head );
+            stack.add( gaze );
+
+            if ( axis === 'vertical' ) gaze.head.cervicalColumn.set( 0, 1, 0 );
+
+            const lateral = [];
+            const yawTrace = [];
+
+            for ( let frame = 0; frame < UNATTENDED_SECONDS * 30; frame ++ ) {
+
+                stack.update( 1 / 30 );
+                figureRoot.updateMatrixWorld( true );
+                lateral.push( headBone.getWorldPosition( new Vector3() ).x * 1000 );
+                yawTrace.push( gaze.headYawDegrees );
+
+            }
+
+            stack.dispose();
+
+            const lateralSd = standardDeviation( lateral );
+            const lateralPixels = lateralSd * pixelsPerMillimetre;
+
+            lines.push( `  unattended ${ UNATTENDED_SECONDS } s, ${ axis.padEnd( 8 ) } ` +
+                `head lateral ${ lateralSd.toFixed( 2 ) } mm SD = ${ lateralPixels.toFixed( 2 ) } px, ` +
+                `head yaw ${ standardDeviation( yawTrace ).toFixed( 2 ) }° SD` );
+
+            if ( axis === 'column' ) {
+
+                check( 'head travel: unattended, this layer alone keeps the head under the floor',
+                    lateralPixels < INDISTINGUISHABLE_PIXELS,
+                    `${ lateralSd.toFixed( 2 ) } mm SD = ${ lateralPixels.toFixed( 2 ) } px over ` +
+                    `${ UNATTENDED_SECONDS } s, against the ${ INDISTINGUISHABLE_PIXELS } px floor` );
+
+            } else {
+
+                check( 'head travel: KNOWN-BAD — unattended, the pre-fix axis fails it',
+                    lateralPixels >= INDISTINGUISHABLE_PIXELS,
+                    `${ lateralSd.toFixed( 2 ) } mm SD = ${ lateralPixels.toFixed( 2 ) } px` );
+
+            }
+
+        }
+    }
+
+    lines.push( '' );
+
+    // Leave the rig in the bind pose the rest of this file was written against.
+    restorePose( restPose );
+    figureRoot.updateMatrixWorld( true );
 }
 
 // --- 8. determinism ------------------------------------------------------------------------------------
