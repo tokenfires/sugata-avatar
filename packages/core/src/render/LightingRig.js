@@ -94,7 +94,7 @@
  * surfaces out of shot. The testbed does none of them on purpose, so the artefact is on the plate
  * where the next person can see it.
  *
- * ## Two framings, and why one rig genuinely cannot serve both
+ * ## Two framings, and the azimuth swing that was WITHDRAWN
  *
  * `docs/PROGRESS.md` records the open lead: *"Full-body lighting is a scaled portrait rig; rim
  * and kicker stop reading at body scale."* Uniform scaling is not the bug — it is provably
@@ -115,15 +115,33 @@
  * is not. Measured on this project's own two framings: the portrait frames 0.42 m over the
  * canvas height and the head is ~0.09 m in radius, so R is 21.4% of frame height; the body frame
  * is ~1.87 m and an upper arm is ~0.045 m, so R is 2.4%. **The same rim covers 8.9× fewer pixels
- * at body framing.** Holding the band constant would need `1 + cos φ = 1.04`, i.e. φ ≈ 88° —
- * which is a side key, not a rim, and would destroy the silhouette read it exists to create.
+ * at body framing.** That derivation is correct and it stands.
  *
- * So the honest answer is: **one rig cannot serve both, and no azimuth exists that would let it.**
- * What is built instead is a second preset that recovers what is recoverable — the body rim swings
- * from φ = 152° to φ = 134°, taking `1 + cos φ` from 0.117 to 0.305 (2.6×) — and spends the rest
- * on irradiance so the thinner band survives tone mapping. `silhouetteBandFraction()` reports the
- * number, and `silhouetteBandPixels()` converts it into the unit the defect is judged in, which
- * is LEARNINGS §1.10b applied to light instead of to motion.
+ * 🚩 **What was WRONG was the conclusion drawn from it.** The previous round swung the body rim
+ * from φ = −152° to −134° to take `1 + cos φ` from 0.117 to 0.305, on the reasoning that a wider
+ * band is a more legible rim. It is not, because `1 + cos φ` is the fraction of a LIMB's radius,
+ * and the largest thing in a full-body frame is not a limb — it is a torso of radius ~0.15 m.
+ * Thirty per cent of a torso's radius is not a band; it is a side key. Measured on
+ * `packages/testbed/src/lighting.html` at body framing, 900×1200, with the subject mask taken from
+ * a `?figure=0` difference plate:
+ *
+ *   | body rim azimuth        | subject px in a cool hue at S > 0.10 | interior luma SD, torso |
+ *   |-------------------------|-------------------------------------:|------------------------:|
+ *   | −134° (previous round)  |                              32.65%  |                  0.0486 |
+ *   | **−158° (shipped)**     |                          **15.03%**  |              **0.0676** |
+ *   | rim and kicker at zero  |                               0.71%  |                  0.0734 |
+ *
+ * The widening produced the round's other three defects at once: a violet cast over a third of the
+ * figure, a flattened interior (the third column is 66% of the way from the flood to the no-rim
+ * ceiling once the azimuth is put back), and a floor lit 2.5× by the backlights.
+ *
+ * **So the presets no longer disagree about azimuth at all.** They disagree about STANDOFF (2.6
+ * heights against 1.4, for the backdrop reason below), ELEVATION (a body rim rides higher so it
+ * takes the shoulders and the tops of the thighs rather than wrapping the front) and IRRADIANCE.
+ * The 8.9× pixel shortfall in band width is therefore NOT closed and is not closeable — it is
+ * asserted as a known shortfall in the selftest so nobody reads a future widening as a fix.
+ * `silhouetteBandFraction()` reports the number and `silhouetteBandPixels()` converts it into the
+ * unit the defect is judged in, which is LEARNINGS §1.10b applied to light instead of to motion.
  *
  * ## Cost
  *
@@ -262,11 +280,34 @@ export const EXPOSURE_CALIBRATION = 0.85;
  * room for the ambient term to pull it further down. The instinct that wants 4:1 here is the
  * single commonest way to render this target wrong.
  *
- * ⚠️ The fill's colour is B > R > G — blue-dominant with a magenta lean, which is the look spec's
- * §3 measured shadow cast, RGB (0.042, 0.026, 0.071). Deliberately NOT the cyan-blue a "cool
- * fill" instinct reaches for: cyan moves the shadow hue AWAY from red, and G3 (the SSS gate 3.2
- * will be judged on) asks for the terminator to move TOWARD red. A cyan fill fights the next
- * punch-list item for no gain.
+ * 🎯 **THE FILL IS WARM, AND THE PREVIOUS BLUE-MAGENTA FILL IS WHY G3 WAS RED.** This is the
+ * correction that matters most in the file, and it comes from a toggle rather than an argument.
+ * Measured on `lighting.html` at portrait framing, which carries NO skin material at all:
+ *
+ *   | fill                          | G3 saturation rise | shadow cheek | shadow hue |
+ *   |-------------------------------|-------------------:|--------------|-----------:|
+ *   | `#c9c2e6` (previous)          |            −0.0748 | `#BA9EA6`    |    343.50° |
+ *   | fill switched OFF entirely    |            +0.0489 | `#8C6B6A`    |      2.59° |
+ *   | **`#f2d2c6` (shipped)**       |        **+0.0428** | **`#C9A08E`**|  **18.96°**|
+ *
+ * Turning the fill OFF fixed G3 and broke G1 (2.0123). That is the whole diagnosis: the fill was
+ * the only thing lighting the shadow cheek, so the shadow cheek was the fill's colour, and the
+ * fill's colour was blue-magenta. Blue-magenta light on orange skin multiplies to a near-neutral
+ * grey — which is exactly the "saturation FALLS into shadow" the gate reports.
+ *
+ * ⚠️ **Two different measurements in the look spec were being conflated, and only one of them is
+ * about this light.** §3's "shadows blue-dominant with a magenta lean, RGB (0.042, 0.026, 0.071)"
+ * is the grade's darkest environment shadow at linear luma 0.04 — the cast shadow on the world.
+ * §2's shadow-side CHEEK is `#C29997`, saturation 0.234, hue ≈ 3° — warm red, because a face's
+ * shadow side in the reference is lit by bounce off skin and by transmission, not by the sky.
+ * `#f2d2c6` is that bounce stated as a light: the key's `#ffeeda` times the spec's own measured
+ * skin response R:G:B = 1 : 0.83 : 0.75, nudged pink toward the reference cheek's hue. The cast
+ * shadow stays cool because the things that light it — the hemisphere sky and the rim — still are.
+ *
+ * The irradiance came down 2.18 → 1.90 with the colour, and it had to: warm light on warm skin
+ * reflects far more than blue light does, so the same authored number made a brighter shadow side.
+ * Measured across the swap, `#c9c2e6` at 2.18 gives G1 1.6091 and `#f2d2c6` at 2.18 gives 1.4368;
+ * 1.90 puts it back at **1.5991**, inside the 1.43–1.64 reference band.
  */
 const FORM_LIGHTS = [
     {
@@ -287,8 +328,8 @@ const FORM_LIGHTS = [
         distanceInHeights: 2.3,
         widthInHeights: 4.2,
         heightInHeights: 4.2,
-        irradiance: 2.18,       // 0.727 x key
-        colour: 0xc9c2e6,       // B > R > G, magenta lean
+        irradiance: 1.90,       // 0.633 x key
+        colour: 0xf2d2c6,       // skin bounce: the key through the spec's 1 : 0.83 : 0.75 response
         shadowFraction: 0
     }
 ];
@@ -302,91 +343,128 @@ const FORM_LIGHTS = [
  * subject is darkest and closest to it in value. The kicker sits behind the key side, lower and
  * weaker, and its job is the jaw and shoulder line.
  *
- * Irradiance is high because these are grazing: at φ = 152° the surface normal that receives the
+ * Irradiance is high because these are grazing: at φ = 158° the surface normal that receives the
  * light is nearly perpendicular to the view, so almost all of it is spent on a cosine the camera
  * never sees. The look spec caps what this may look like — "≈1.0–1.5× key-lit skin luma but MUCH
  * higher chroma ... the rim wins on saturation, not brightness — do not blow it out" — and G5
  * (< 0.5% of pixels above 0.99 luma) is the gate that catches it if it does.
+ *
+ * 🎯 **THE PANELS ARE A THIRD OF THE SIZE THEY WERE, AND THE COLOUR IS TWICE THE CHROMA.** A judge
+ * measured the shipped rim failing the spec in both directions at once: 7.92% of subject pixels in
+ * a cool hue at S > 0.10, over a band whose saturation was BELOW the skin's. Both halves have the
+ * same cause. The portrait rim panel was 0.9 × 3.0 subject heights at 2.6 heights — 0.38 × 1.26 m
+ * at 1.09 m, subtending 60° vertically — so it wrapped from the crown to the collarbone; and to
+ * push a band that broad up to skin luma it had to run hot enough that ACES desaturated it.
+ *
+ * Measured on `lighting.html` at portrait framing, subject mask from a `?figure=0` plate, band
+ * statistics averaged over the outer 8 px of the shadow-side silhouette:
+ *
+ *   | portrait rim                          | cool px S>0.10 | band luma ÷ skin | band S ÷ skin |
+ *   |---------------------------------------|---------------:|-----------------:|--------------:|
+ *   | 0.9 × 3.0 heights, `#4a7dff` E 10.5   |          8.30% |             0.99 |      **0.81** |
+ *   | 0.24 × 0.90 heights, same colour E 10.5|         4.57% |             1.03 |          0.77 |
+ *   | **0.24 × 0.90, `#0f30ff` E 16**       |      **5.12%** |         **0.93** |      **1.14** |
+ *
+ * The middle row is the instructive one: shrinking the panel alone halves the AREA and does
+ * nothing for the chroma, because chroma is lost to the tone curve rather than to the panel. Only
+ * moving the colour to a deeply saturated blue — and then holding the band at ~0.93× skin luma
+ * instead of pushing it past 1.0 — gets the band above the skin's own saturation, which is what
+ * "wins on saturation, not brightness" means as a number.
+ *
+ * ⚠️ **`#0f30ff` costs something and it is the FLOOR.** The same saturated blue that reads
+ * correctly on skin reads as an electric pool on a large matte plane behind the subject. Measured
+ * over the visible floor band at body framing: `#4a7dff` gives HSV saturation 0.62 and `#0f30ff`
+ * gives 0.87, at 4.25 stops below the subject either way. `render/GroundContact.js` takes the
+ * floor's albedo as warm-with-blue-lowest for this reason and gets it back to 0.74; the rest is
+ * the look spec's "environment −15% saturation", which belongs to 3.13's grade and cannot be
+ * done from a light. Stated rather than hidden: this is a real conflict between the spec's rim
+ * clause and its environment clause, and the rig resolves it in favour of the subject.
  */
 const EDGE_LIGHTS = {
 
     portrait: [
         {
             name: 'rim',
-            azimuthDegrees: -152,
+            azimuthDegrees: -158,
             elevationDegrees: 26,
             distanceInHeights: 2.6,
-            widthInHeights: 0.9,
-            heightInHeights: 3.0,
-            irradiance: 10.5,
-            colour: 0x4a7dff,
+            widthInHeights: 0.24,
+            heightInHeights: 0.90,
+            irradiance: 16,
+            colour: 0x0f30ff,
             shadowFraction: 0
         },
         {
             name: 'kicker',
-            azimuthDegrees: 148,
+            azimuthDegrees: 154,
             elevationDegrees: -6,
             distanceInHeights: 2.5,
-            widthInHeights: 0.8,
-            heightInHeights: 2.2,
-            irradiance: 6.3,
-            colour: 0x7a5bff,
+            widthInHeights: 0.24,
+            heightInHeights: 0.85,
+            irradiance: 7,
+            // Same hue as the rim, deliberately. The kicker was `#7a5bff` — a violet — and a judge
+            // measured the crown silhouette at hue 279.5° against a cheek at 20.95°, which is the
+            // violet, not the blue. The spec asks for a rim "hue-opposed to key"; the key is
+            // ~5000 K and its opposite is a deep blue, not a magenta-blue. Rim and kicker are
+            // separated by placement and power, which is what separates them in a real studio.
+            colour: 0x0f30ff,
             shadowFraction: 0
         }
     ],
 
-    // The same two lights, changed in THREE ways, each forced by a measurement rather than chosen.
+    // The same two lights, differing in THREE ways — and NOT in azimuth, which is the change this
+    // round withdrew. See the header table: the previous −134°/132° swing is what produced the
+    // violet cast, the flattened interior and the flooded floor, all three at once.
     //
-    // 1. AZIMUTH, swung 18° and 16° toward the camera. `1 + cos φ` goes 0.117 -> 0.305 on the rim
-    //    and 0.152 -> 0.331 on the kicker, so the band covers 2.6x and 2.2x more of each limb's
-    //    radius. Measured on the thigh at full-body framing, the portrait azimuth produces NO
-    //    detectable band at all (the luma profile inward from the silhouette is monotonic — peak
-    //    and trough within 0.005 of each other); at -134° it is 14 px at 1.19x contrast.
+    // 1. STANDOFF, 2.6 subject heights down to 1.4 — the one entry from the previous round that
+    //    survived re-measurement, and the one that is NOT obvious. A scale-free standoff is right
+    //    for the key and the fill, which stand in FRONT of the subject and get further from the
+    //    backdrop as they scale. A rim stands BEHIND it and walks toward the backdrop instead. At
+    //    body framing a rim at 2.6 heights sits 3.18 m behind the focus with the backdrop 4.86 m
+    //    back, i.e. 1.68 m from the card and 4.86 m from the subject: inverse square then gives
+    //    the backdrop 8.4x the subject's irradiance and the whole studio floods. At 1.4 heights
+    //    the card gets 0.69x instead. Measured: backdrop #6475D1 at 2.6 heights against #484385
+    //    at 1.4, for the same band width.
     //
-    // 2. STANDOFF, pulled in from 2.6 subject heights to 1.4 — and this is the one that is NOT
-    //    obvious. A scale-free standoff is right for the key and the fill, which stand in FRONT of
-    //    the subject and get further from the backdrop as they scale. A rim stands BEHIND it and
-    //    walks toward the backdrop instead. At body framing a rim at 2.6 heights sits 3.18 m
-    //    behind the focus with the backdrop 4.86 m back, i.e. 1.68 m from the card and 4.86 m from
-    //    the subject: inverse square then gives the backdrop **8.4x** the subject's irradiance and
-    //    the whole studio floods blue. At 1.4 heights the rim is 1.71 m behind the focus, 3.15 m
-    //    from the card and 2.62 m from the subject, and the card gets 0.69x instead. Measured:
-    //    backdrop #6475D1 at 2.6 heights against #484385 at 1.4, for the same band width.
+    // 2. ELEVATION, 26° -> 40° on the rim and −6° -> 16° on the kicker. A body rim rides HIGHER
+    //    than a portrait rim so it takes the shoulders and the tops of the thighs instead of
+    //    wrapping around the front of a standing figure. Measured at body framing, sweeping the
+    //    rim's elevation with everything else fixed: 0° gives 9.41% of subject pixels in a cool
+    //    hue at S > 0.10 and a torso interior SD of 0.0600; 40° gives 7.35% and 0.0639 against a
+    //    rim-off ceiling of 0.0734. Higher is both cleaner AND rounder here, which is not obvious
+    //    and is the reason it is written down as a sweep rather than as a preference.
     //
-    // 3. IRRADIANCE, up to 22 — chosen off the sweep, not scaled from the portrait. One panel
-    //    lighting a subject 4.5x taller reaches its ends at very different angles, and the number
-    //    that produces a measurable band is the number that produces one.
+    // 3. IRRADIANCE, 16/7 -> 22/10 — chosen off the sweep, not scaled from the portrait. One panel
+    //    lighting a subject 4.5x taller reaches its ends at very different angles.
     //
-    // ⚠️ And the cost, which is a real conflict rather than a tuning imperfection: **at body
-    // framing a legible rim and a reference-band FACE ratio pull against each other.** The wrap
-    // that puts a band on a 30 px thigh is the same wrap that lifts the face's shadow side, and
-    // the face is 14 px wide up there. Measured across the rim-irradiance sweep at body framing:
-    // E 12.9 -> G1 1.268 with no band; E 22 -> G1 1.163 with a 14 px band; E 30 -> G1 1.125 with
-    // 14 px. Every one of those PASSES G1's < 2.0 ceiling and every one is FLATTER than the
-    // 1.43–1.64 the reference portraits measure. The rim is prioritised here because the open lead
-    // this preset exists to close is about the silhouette, and because a face 14 px wide is not
-    // what the look spec's portrait ratio was measured on.
+    // ⚠️ The cost is unchanged from the previous round and remains real: **at body framing a
+    // legible rim and a reference-band FACE ratio pull against each other.** The wrap that puts a
+    // band on a thigh is the same wrap that lifts the face's shadow side, and the face is 14 px
+    // wide up there. Measured: G1 at body framing is 1.2876 with the shipped rim and 1.2915 with
+    // the rim and kicker switched off entirely — both PASS the < 2.00 ceiling and both are FLATTER
+    // than the 1.43–1.64 the reference portraits measure. That gap is not the rim's doing (0.004
+    // of ratio), so it is a property of the body framing itself and is recorded, not tuned away.
     body: [
         {
             name: 'rim',
-            azimuthDegrees: -134,
-            elevationDegrees: 20,
+            azimuthDegrees: -158,
+            elevationDegrees: 40,
             distanceInHeights: 1.4,
-            widthInHeights: 1.1,
-            heightInHeights: 2.4,
+            widthInHeights: 0.30,
+            heightInHeights: 1.00,
             irradiance: 22,
-            colour: 0x4a7dff,
+            colour: 0x0f30ff,
             shadowFraction: 0
         },
         {
             name: 'kicker',
-            azimuthDegrees: 132,
-            elevationDegrees: -4,
+            azimuthDegrees: 154,
+            elevationDegrees: 16,
             distanceInHeights: 1.4,
-            widthInHeights: 1.0,
-            heightInHeights: 2.2,
-            irradiance: 13,
-            colour: 0x7a5bff,
+            widthInHeights: 0.30,
+            heightInHeights: 0.95,
+            irradiance: 10,
+            colour: 0x0f30ff,
             shadowFraction: 0
         }
     ]

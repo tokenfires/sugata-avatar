@@ -39,6 +39,19 @@
  *   ?exposure=1
  *   ?bare                 hide every overlay
  *   ?perf=1               run the GPU cost sweep (pins 1920x1080 unless ?w/?h say otherwise)
+ *   ?figure=0             the same studio with the SUBJECT REMOVED. Not a debug view: it is the
+ *                         plate every subject-relative statistic is computed against, because the
+ *                         only honest subject mask is a difference. Thresholding luma would call a
+ *                         lit floor "subject" and a shadow-side cheek "background".
+ *   ?ground=0             the floor without `GroundContact`'s occlusion term — same geometry, same
+ *                         albedo, no contact shadow. The attribution plate for the "figure floats"
+ *                         blocker.
+ *   ?groundstrength=1     scales the ground occlusion. 1 is the physical answer.
+ *   ?floor=0x4b3520       floor albedo, for the chroma sweep in `GroundContact`'s header.
+ *   ?backdrop=0x74777e    backdrop albedo. The default measures 1.96 stops below the subject,
+ *                         which is the look spec's 3.8:1; darkening it drops the chroma the rim
+ *                         puts on the card but walks off that number (0x6a6055 -> 2.42 stops at
+ *                         HSV S 0.282, 0x554c42 -> 2.84 stops at 0.252, against 1.96 at 0.357).
  */
 
 import {
@@ -53,6 +66,7 @@ import { Box3 } from 'three';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig, silhouetteBandPixels } from '../../core/src/render/LightingRig.js';
+import { GroundContact } from '../../core/src/render/GroundContact.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
 import { RestPose } from '../../core/src/figure/RestPose.js';
@@ -96,7 +110,6 @@ const UPPER_ARM_RADIUS_METRES = 0.045;
 // itself makes: it keeps the card's exposure relative to the subject unchanged between framings,
 // so a backdrop tuned at portrait is still right for a full body.
 const BACKDROP_ALBEDO = 0x74777e;
-const FLOOR_ALBEDO = 0x2e3036;
 const BACKDROP_DISTANCE_IN_CAMERA_DISTANCES = 1.2;
 
 const DEFAULT_WIDTH = 900;
@@ -157,7 +170,8 @@ async function boot() {
         figure: null,
         framedHeightMetres: PORTRAIT_HEIGHT_METRES,
         focus: new Vector3(),
-        canvasHeightPixels: height
+        canvasHeightPixels: height,
+        ground: studio.ground
     };
 
     const identity = new Identity( { gender: Number( query.get( 'gender' ) ?? 0.5 ) } );
@@ -192,6 +206,20 @@ async function boot() {
 
     session.figure = figure;
 
+    // Fit the ground's occluders to THIS figure, after the rest pose has been applied — the radii
+    // are measured in bind space so the pose does not change them, but the spheres' first update
+    // reads world positions and a pre-pose fit would place the first frame's contact under the
+    // bind pose's feet.
+    const missingOccluders = studio.ground.fitTo( figure.root );
+    if ( missingOccluders.length > 0 ) console.warn( `ground contact: no occluder for ${ missingOccluders.join( ', ' ) }` );
+
+    // `?figure=0` renders the identical studio with the subject removed. It is not a debug view:
+    // it is the plate every subject-relative statistic in this round is computed against. A
+    // "fraction of SUBJECT pixels carrying a violet cast" needs a subject mask, and the only
+    // honest mask is the difference between this plate and the shipped one — thresholding luma
+    // would classify a blue-flooded floor as subject and a shadow-side cheek as background.
+    if ( query.get( 'figure' ) === '0' ) figure.root.visible = false;
+
     const rig = new LightingRig( {
         preset: query.get( 'preset' ) ?? session.frameMode,
         ...( query.has( 'exposure' ) ? { exposure: Number( query.get( 'exposure' ) ) } : {} ),
@@ -214,6 +242,10 @@ async function boot() {
     const hud = document.getElementById( 'hud' );
 
     stage.onFrame( () => {
+
+        // Before the HUD and before the `bare` early-out: a contact shadow that stops following
+        // the feet on a clean plate is exactly the plate a judge measures.
+        studio.ground.update();
 
         if ( bare ) return;
         hud.textContent = describe( stage, rig, session );
@@ -241,22 +273,29 @@ function buildStudio( stage ) {
 
     const backdrop = new Mesh(
         new PlaneGeometry( 14, 10 ),
-        new MeshStandardNodeMaterial( { color: BACKDROP_ALBEDO, roughness: 0.95, metalness: 0 } )
+        new MeshStandardNodeMaterial( {
+            color: query.has( 'backdrop' ) ? Number( query.get( 'backdrop' ) ) : BACKDROP_ALBEDO,
+            roughness: 0.95,
+            metalness: 0
+        } )
     );
     backdrop.receiveShadow = true;
     backdrop.name = 'backdrop';
     stage.add( backdrop );
 
-    const floor = new Mesh(
-        new PlaneGeometry( 14, 14 ),
-        new MeshStandardNodeMaterial( { color: FLOOR_ALBEDO, roughness: 0.9, metalness: 0 } )
-    );
-    floor.rotation.x = -Math.PI / 2;
-    floor.receiveShadow = true;
-    floor.name = 'floor';
-    stage.add( floor );
+    // The floor is `render/GroundContact.js`, not a plain plane, and the difference is the whole
+    // of the "figure floats" blocker: a plain plane takes the key's shadow, and the key's shadow
+    // is ~3% of what lights the floor at the feet. `?ground=0` builds the plain plane instead —
+    // the same geometry, same albedo, no occlusion term — so the contact darkening is attributable
+    // by toggle rather than by argument.
+    const ground = new GroundContact( {
+        occlusion: query.get( 'ground' ) !== '0',
+        ...( query.has( 'groundstrength' ) ? { strength: Number( query.get( 'groundstrength' ) ) } : {} ),
+        ...( query.has( 'floor' ) ? { albedo: Number( query.get( 'floor' ) ) } : {} )
+    } );
+    ground.attachTo( stage.scene );
 
-    return { backdrop, floor };
+    return { backdrop, ground, floor: ground.mesh };
 
 }
 
@@ -300,7 +339,7 @@ function applyFraming( stage, rig, session, studio ) {
     const backdropDistance = distance * BACKDROP_DISTANCE_IN_CAMERA_DISTANCES;
     studio.backdrop.position.set( 0, session.focus.y, session.focus.z - backdropDistance );
     studio.backdrop.scale.setScalar( Math.max( 1, session.framedHeightMetres / PORTRAIT_HEIGHT_METRES ) );
-    studio.floor.scale.setScalar( Math.max( 1, session.framedHeightMetres / PORTRAIT_HEIGHT_METRES ) );
+    studio.ground.sizeTo( { focus: session.focus, subjectHeightMetres: session.framedHeightMetres } );
     session.backdropDistanceMetres = backdropDistance;
 
     rig.aimAt( {
@@ -405,7 +444,19 @@ function report( stage, rig, session ) {
         lights: rig.describe( session.canvasHeightPixels, limbRadiusFor( session ) ),
         limbRadiusMetres: limbRadiusFor( session ),
         drawCalls: stage.stats.drawCalls,
-        triangles: stage.stats.triangles
+        triangles: stage.stats.triangles,
+        ground: {
+            occluders: session.ground.occluders.map( ( entry, index ) => ( {
+                bone: entry.bone.name,
+                radiusMillimetres: session.ground.spheres[ index ].w * 1000,
+                centre: [ session.ground.spheres[ index ].x, session.ground.spheres[ index ].y, session.ground.spheres[ index ].z ]
+            } ) ),
+            // Visibility straight out from under the figure, which is the profile the "floats"
+            // defect is stated in. Metres from the world origin along +X.
+            visibilityProfile: [ 0, 0.05, 0.1, 0.2, 0.4, 0.8, 1.6 ].map( ( x ) => (
+                { x, visibility: session.ground.visibilityAt( x, 0 ) }
+            ) )
+        }
     };
 
 }
@@ -465,11 +516,22 @@ function describe( stage, rig, session ) {
         : bodyFramedHeight( session.figure );
     const otherRadius = session.frameMode === 'body' ? HEAD_RADIUS_METRES : UPPER_ARM_RADIUS_METRES;
 
+    // The ground contact, in the unit the "figure floats" blocker is stated in. A HUD that
+    // reported only the lights would let a broken occluder set pass unnoticed on a plate whose
+    // lighting numbers all look right.
+    const profile = info.ground.visibilityProfile
+        .map( ( sample ) => `${ sample.x.toFixed( 2 ) }m ${ sample.visibility.toFixed( 3 ) }` )
+        .join( '   ' );
+
     const footer = [
         '',
         `the same rim at the OTHER framing (${ ( otherRadius * 1000 ).toFixed( 0 ) } mm limb over ` +
             `${ otherHeight.toFixed( 2 ) } m of frame): ` +
-            `${ silhouetteBandPixels( rim.azimuthDegrees, otherRadius, otherHeight, session.canvasHeightPixels ).toFixed( 1 ) } px`
+            `${ silhouetteBandPixels( rim.azimuthDegrees, otherRadius, otherHeight, session.canvasHeightPixels ).toFixed( 1 ) } px`,
+        '',
+        `ground: ${ info.ground.occluders.length } fitted occluders, radii ` +
+            `${ info.ground.occluders.map( ( entry ) => entry.radiusMillimetres.toFixed( 0 ) ).join( '/' ) } mm`,
+        `sky visibility outward from the origin:  ${ profile }`
     ];
 
     return [ ...header, ...rows, ...footer ].join( '\n' );

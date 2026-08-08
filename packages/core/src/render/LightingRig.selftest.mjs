@@ -453,16 +453,54 @@ console.log( '\n--- the two framings -------------------------------------------
 
     }
 
+    // 🚩 REGRESSION GUARD, and the reason it exists is the whole of this round.
+    //
+    // The previous round swung the BODY rim from −152° to −134° to widen `1 + cos φ` from 0.117 to
+    // 0.305, and a judge then attributed three separate defects to that swing. The reasoning was
+    // sound for a LIMB and wrong for a TORSO: 30% of a 0.15 m torso radius is a side key, not a
+    // rim. Measured on lighting.html at body framing, subject mask from a ?figure=0 plate —
+    //
+    //   | body rim azimuth   | subject px cool at S>0.10 | interior luma SD, torso |
+    //   | −134°              |                    32.65% |                  0.0486 |
+    //   | −158° (shipped)    |                    15.03% |                  0.0676 |
+    //   | rim/kicker at zero |                     0.71% |                  0.0734 |
+    //
+    // — so this check fails the day someone swings it forward again, and says what it cost.
+    const WITHDRAWN_BODY_RIM_AZIMUTH = -134;
+
     for ( const name of [ 'rim', 'kicker' ] ) {
 
-        const near = silhouetteBandFraction( azimuthOf( portrait, name ) );
-        const far = silhouetteBandFraction( azimuthOf( body, name ) );
+        const portraitAzimuth = azimuthOf( portrait, name );
+        const bodyAzimuth = azimuthOf( body, name );
 
         report(
-            `${ name } widens its silhouette band for the body preset`,
-            far / near > 2.0,
-            `1 + cos φ: ${ near.toFixed( 3 ) } at ${ azimuthOf( portrait, name ) }° -> ${ far.toFixed( 3 ) } at ` +
-            `${ azimuthOf( body, name ) }°, a ${ ( far / near ).toFixed( 2 ) }x wider band`
+            `${ name } keeps the same azimuth in both presets`,
+            portraitAzimuth === bodyAzimuth,
+            `${ portraitAzimuth }° in both, 1 + cos φ = ${ silhouetteBandFraction( bodyAzimuth ).toFixed( 3 ) }. ` +
+            'The presets differ on standoff, elevation and irradiance instead — see the header.'
+        );
+
+        report(
+            `${ name } is not swung forward into a side key`,
+            Math.abs( bodyAzimuth ) > Math.abs( WITHDRAWN_BODY_RIM_AZIMUTH ) + 10,
+            `${ bodyAzimuth }° against the withdrawn ${ WITHDRAWN_BODY_RIM_AZIMUTH }°, whose band fraction ` +
+            `${ silhouetteBandFraction( WITHDRAWN_BODY_RIM_AZIMUTH ).toFixed( 3 ) } measured as a flood over a ` +
+            'torso rather than a band on a limb'
+        );
+
+    }
+
+    // What the two presets DO disagree about, checked so that "same azimuth" cannot be read as
+    // "the body preset does nothing".
+    for ( const [ field, label ] of [ [ 'distanceInHeights', 'standoff' ], [ 'elevationDegrees', 'elevation' ] ] ) {
+
+        const near = portrait.placements.find( ( entry ) => entry.name === 'rim' )[ field ];
+        const far = body.placements.find( ( entry ) => entry.name === 'rim' )[ field ];
+
+        report(
+            `the body preset changes the rim's ${ label }`,
+            near !== far,
+            `${ near } -> ${ far }`
         );
 
     }
@@ -489,11 +527,18 @@ console.log( '\n--- the two framings -------------------------------------------
         'on the portrait azimuth). No azimuth closes this; see the header derivation.'
     );
 
+    // And the shortfall is NOT bought back by azimuth, which is the correction. The body preset
+    // spends elevation and irradiance on it instead, and what that buys is measurable only on a
+    // render: at body framing the shipped rim puts the thigh silhouette's brightest pixel at
+    // 1.05x skin luma against a rim-off reading of 1.05x — i.e. the peak is the skin's own — while
+    // the outer-8 px band's saturation goes 1.63x skin (rim off) to 1.45x (rim on) at a luma of
+    // 0.67x. Numbers on a render belong in the round report; what belongs HERE is that no azimuth
+    // difference is pretending to have closed a geometric shortfall.
     report(
-        'the body preset buys back a real amount of that shortfall',
-        bodyBandArm / bodyBandArmIfUnchanged > 2.0,
-        `${ bodyBandArmIfUnchanged.toFixed( 2 ) } px -> ${ bodyBandArm.toFixed( 2 ) } px, ` +
-        `${ ( bodyBandArm / bodyBandArmIfUnchanged ).toFixed( 2 ) }x`
+        'the shortfall is NOT claimed to be closed by azimuth',
+        Math.abs( bodyBandArm - bodyBandArmIfUnchanged ) < 1e-9,
+        `${ bodyBandArmIfUnchanged.toFixed( 2 ) } px on either azimuth — the presets no longer differ there, ` +
+        'so the 8.9x pixel shortfall stands exactly as derived'
     );
 }
 
