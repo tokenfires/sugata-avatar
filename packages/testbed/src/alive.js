@@ -49,7 +49,13 @@
  *   ?gender=0.75    start on a different bake
  *   ?preroll=6      advance the stack 6 s in fixed 1/60 steps before the first drawn frame, so a
  *                   captured frame is reproducible from the seed rather than from luck
- *   ?freeze         stop advancing after the pre-roll — a still pose at a known motion time
+ *   ?freeze         stop advancing after the pre-roll — a still pose at a known motion time. It
+ *                   composes with ?capture, and until 2026-08-08 it did not: the capture hook
+ *                   advanced the simulation unconditionally, so a "frozen" capture walked the
+ *                   figure forward one step per screenshot. Every G1/G2/G4 number ever taken off
+ *                   this page through capture.mjs before that date is a function of the harness's
+ *                   step count. Frozen + captured is now N RENDERS of a STILL, which is also
+ *                   exactly what a temporal AA mode needs in order to converge.
  *   ?seed=20260807  the motion stack's root seed
  *   ?trace=0        hide the strip chart
  *   ?bare           hide every overlay — controls, HUD, strip chart — for a clean plate. A critic
@@ -71,21 +77,30 @@
  *                   other half of the eye's attribution pair
  *   ?cards=0        eyelash and eyebrow cards keep the shipped GLB material — the control for the
  *                   card shading, and the plate that proves gate G7 goes red
- *   ?msaa=0         build the stage without MSAA. Alpha to coverage needs it, so this is also the
- *                   A side of the card anti-aliasing. Shorthand for ?aa=off.
- *   ?aa=msaa|off|traa|taau
- *                   which anti-aliasing. `msaa` is the default and the shipping configuration.
- *                   `traa`/`taau` move the page onto the deferred pipeline and are NOT the
- *                   default, for one measured reason recorded under punch-list 3.12: with a morph
- *                   held at a constant weight and the camera still — a frame where every honest
- *                   motion vector is zero — three reports a large one anyway, and the jaw fizzes
- *                   at temporalRms 4.711/255 (traa) and 4.387 (taau) against MSAA's 0.000.
- *   ?grade=1        run render/Grade.js — ACES, bloom at threshold 0.8, enveloped luminance-only
- *                   grain, vignette, RCAS after the transfer. Off by default: it moves the page
- *                   onto the deferred pipeline, which is not the path Phase 2's motion numbers
- *                   were measured on.
- *   ?sharp=0.2      RCAS strength inside the grade. `?sharp=none` removes the pass, which is the
- *                   A side of the G4 recovery claim.
+ *   ?msaa=0         build the stage without any AA at all. Shorthand for ?aa=off.
+ *   ?aa=taau|traa|msaa|off
+ *                   which anti-aliasing. `taau` at 0.66 resolution scale is the DEFAULT and the
+ *                   shipping configuration; `?aa=msaa` is the A side and the forward path every
+ *                   Phase 2 motion number was measured on. Silhouette transitions that jump in a
+ *                   single pixel: 17.9% here, 67.9% under MSAA, 75.0% with no AA.
+ *   ?morphvel=off|hold|exact
+ *                   whether morph targets contribute honest motion vectors. `exact` ships.
+ *                   `off` is three r185 unpatched, where a HELD expression reports a large
+ *                   constant velocity and fizzes at 15.96x the jitter floor against 1.60x — the
+ *                   defect that kept this page off the temporal path, and the A side of 3.12.
+ *   ?grade=1|0      run render/Grade.js — ACES, bloom at threshold 0.8, enveloped luminance-only
+ *                   grain, vignette, RCAS after the transfer. ON by default; `?grade=0` is the A
+ *                   side. Note that `?aa=msaa` alone does NOT take the grade off, so the fully
+ *                   pre-2026-08-08 plate is `?aa=msaa&grade=0`.
+ *   ?sharp=0.2      RCAS strength inside the TEMPORAL RESOLVE (TRAAPost), which defaults to none —
+ *                   a sharpen in that position puts G4 out of band. Not to be confused with
+ *                   ?gsharp, which is the grade's own and is the one that ships on.
+ *   ?gsharp=none    remove the grade's RCAS pass, which is the A side of the G4 recovery claim.
+ *                   Defaults to Grade.js's TEMPORAL_RECOVERY_SHARPNESS (1.2) on this page.
+ *   ?cavity=0       skin without the baked hemisphere-visibility term — the A side of the cavity
+ *                   occlusion, which darkens and SATURATES creases (lip seam, nostril, alar
+ *                   crease, ear-to-skull gap, eye sockets) rather than greying them. `?cavity=0.5`
+ *                   sweeps the strength.
  *   ?specaa=0       skin keeps its raw region-map roughness — the A side of punch-list 3.11's
  *                   screen-space normal-variance filter. Measured on a 6 deg/s orbit: forehead
  *                   high-frequency temporal RMS 1.800 -> 1.410/255 with it on.
@@ -112,11 +127,12 @@ import { Box3 } from 'three';
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig } from '../../core/src/render/LightingRig.js';
 import { GroundContact } from '../../core/src/render/GroundContact.js';
-import { Grade } from '../../core/src/render/Grade.js';
+import { Grade, TEMPORAL_RECOVERY_SHARPNESS } from '../../core/src/render/Grade.js';
 import { EyeMaterial } from '../../core/src/material/EyeMaterial.js';
 import { buildEyeOcclusion } from '../../core/src/material/EyeOcclusion.js';
 import {
     applySkinMaterial,
+    cavityMapUrlFor,
     createSkinMaterial,
     curvatureMapUrlFor
 } from '../../core/src/material/SkinMaterial.js';
@@ -224,7 +240,40 @@ async function boot() {
     // What MSAA does NOT do is anything at all for SHADING aliasing: under a moving camera the
     // flat-forehead high-frequency temporal RMS reads 1.408/255 with and without it, identical to
     // three decimals. That is what `?specaa` (punch-list 3.11) and temporal AA are for.
-    const aa = query.get( 'aa' ) ?? ( query.get( 'msaa' ) === '0' ? 'off' : 'msaa' );
+    //
+    // 🎯 AND MSAA IS NO LONGER THE DEFAULT. The blocker that kept the page on the forward path was
+    // punch-list 3.12's held-morph defect — three reports a large constant motion vector for a
+    // morph target whose weight has not changed, so a held expression fizzed. That is fixed at
+    // source in `render/MorphVelocity.js`, which supplies the previous-frame morphed position:
+    // jawOpen HELD at 0.8 with the camera still, converged to frame 150, goes from 15.96x the
+    // jitter floor to 1.60x. `?morphvel=off` is three r185 unpatched and is the A side.
+    //
+    // With that gone, the measurement decides it. One run at 3840x5120 — the width G4's band is
+    // stated at — converged to frame 60 with a ZERO simulation step, so packagesDigest cannot
+    // differ between rows:
+    //
+    //   | configuration           |     G1 |     G4 |   G5   |   G6    |   G7    |
+    //   |-------------------------|-------:|-------:|-------:|--------:|--------:|
+    //   | 4x MSAA, no grade       | 1.6163 | 1.7457 | 2.0e-6 | 0.00001 | 0.00070 |
+    //   | TAAU 0.66 + grade + 1.2 | 1.6621 | 1.6291 | 2.0e-6 | 0.00001 | 0.00068 |
+    //
+    // Both pass; TAAU is better centred in G4's 1.5-2.1 band. What decides it is EDGES, which is
+    // what anti-aliasing is actually for, at 900x1200 converged to frame 300: the share of
+    // silhouette transitions that jump in a single pixel goes 67.9% -> 17.9%, a 3.8x improvement,
+    // and the eyelash/brow card band 44.5% -> 30.8%.
+    //
+    // ⚠️ THAT LAST NUMBER REVERSES A CLAIM THIS FILE USED TO MAKE. Alpha to coverage needs MSAA,
+    // and 3.12 recorded that turning MSAA off would turn the card anti-aliasing off with it.
+    // Measured, it goes the other way: the temporal resolve antialiases the lash and brow cards
+    // BETTER than alpha to coverage did (27.1% TAAU / 35.5% TRAA / 44.5% MSAA / 68.7% no AA).
+    //
+    // What TAAU costs that MSAA does not: a 0.1176/255 per-pixel temporal residual on flat skin
+    // with a STILL camera, against MSAA's exact 0.0000 — a forward frame of a static scene being
+    // bit-identical. That is well inside the 1.41/255 this project already accepts from 3.11's
+    // post-fix camera-motion figure. GPU timestamp index at 1920x1080, free-running: 7.31 ms ->
+    // 21.36 ms, both holding 120 fps on this machine, so nothing here is frame-limited at 1080p —
+    // and on weaker hardware `?aa=msaa` is one parameter away.
+    const aa = query.get( 'aa' ) ?? ( query.get( 'msaa' ) === '0' ? 'off' : 'taau' );
     const forceWebGL = query.has( 'webgl' );
 
     if ( forceWebGL && ( aa === 'traa' || aa === 'taau' ) ) {
@@ -236,12 +285,17 @@ async function boot() {
     }
 
     // MSAA and temporal AA are mutually exclusive and `Stage` throws on the pair. The grade needs
-    // the deferred pipeline too, so asking for either moves the page off the FORWARD path that
-    // every Phase 2 motion number and every gate on this page was measured against. Both are
-    // therefore opt-in, and the default configuration is byte-for-byte the one that shipped.
+    // the deferred pipeline too, and both now ship ON, so this page's default path is the DEFERRED
+    // one.
+    //
+    // ⚠️ THE COST OF THAT IS REAL AND IT IS NOT A RENDER COST. Every Phase 2 motion number — every
+    // travel.mjs band figure, every heatmap, every clip-based statistic in PROGRESS.md — was
+    // measured on the forward path. They are not invalidated, but they are no longer same-build
+    // comparisons, and anything A/B'd across this commit has to be re-run on one side or pinned
+    // with `?aa=msaa&grade=0` on both.
     const temporalAA = ( aa === 'traa' || aa === 'taau' ) ? aa : 'off';
     const multisampled = aa === 'msaa';
-    const wantsGrade = query.get( 'grade' ) === '1';
+    const wantsGrade = query.get( 'grade' ) !== '0';
 
     const stage = new Stage();
     await stage.create( document.getElementById( 'stage' ), {
@@ -254,7 +308,12 @@ async function boot() {
         temporalAA,
         resolutionScale: query.has( 'scale' ) ? Number( query.get( 'scale' ) ) : undefined,
         sharpness: query.get( 'sharp' ) === 'none' ? null
-            : ( query.has( 'sharp' ) ? Number( query.get( 'sharp' ) ) : undefined )
+            : ( query.has( 'sharp' ) ? Number( query.get( 'sharp' ) ) : undefined ),
+        // The A side of punch-list 3.12. `off` is three r185 unpatched — a held morph reporting a
+        // large constant motion vector — and it is the cheapest possible rejection proof that the
+        // fix is doing anything. `hold` and `exact` must agree exactly on a held morph, so a
+        // disagreement between them is a frame lag off by one.
+        morphVelocity: query.get( 'morphvel' ) ?? undefined
     } );
 
     if ( wantsGrade ) stage.setGrade( buildGrade( query ) );
@@ -321,6 +380,13 @@ async function boot() {
         // three's own specular AA is geometric only, so a micro-normal at 48 repeats has no
         // defence and crawls. `?specaa=0` is the A side.
         skinSpecularAntiAliasing: query.get( 'specaa' ) !== '0',
+        // The baked hemisphere-visibility term, applied CHROMATICALLY through the Jimenez
+        // multi-bounce fit so a crease darkens AND saturates rather than greying. It already
+        // reached this page — `createSkinMaterial` derives the cavity URL beside the curvature one
+        // — but with no switch there was no way to produce the A plate on the page a judge
+        // captures, and every attribution for it came off skin.html. `?cavity=0` is the A side and
+        // `?cavity=0.5` sweeps the strength.
+        skinCavityStrength: query.has( 'cavity' ) ? Number( query.get( 'cavity' ) ) : undefined,
         // TWO switches, not one. The eye shader and the eye occlusion sheet are separate
         // subsystems — different meshes, different materials, opposite signs on G2 — and a
         // single switch over both made every number ever attributed to `?eyes=0` a sum of the
@@ -518,7 +584,22 @@ async function boot() {
 
         if ( session.figure === null ) return false;
 
-        advanceSimulation( deltaSeconds );
+        // 🚩 `?freeze` IS HONOURED HERE TOO, and for two rounds it was not. The rAF path eight
+        // lines above has always guarded this call; this one advanced unconditionally, so
+        // `?freeze&capture` was a contradiction the page resolved silently in favour of motion —
+        // every "frozen plate" taken through capture.mjs was a plate of a figure that had been
+        // walked forward one simulation step per screenshot. Three agents hit it independently in
+        // one round. Measured before this line changed: `?bare&freeze&capture&seed=1` stepped 300
+        // frames at 1/60 on the MSAA FORWARD path — where a static scene must be bit-identical —
+        // read forehead temporalRms 3.6400/255; it now reads 0.0000 and frames 1 and 300 are the
+        // same bytes. On the lighting gates the same bug read G1 1.5976 / 1.1948 / 1.3740 /
+        // 1.0657 / 1.1110 at 1 / 5 / 15 / 30 / 60 steps of the SAME seed and framing — a 1.5x
+        // spread across a reference band 0.21 wide — and G2 0.7836 captured against 0.9200 frozen,
+        // which is the whole of punch-list 3.3's supposed red.
+        //
+        // A capture of a frozen page is a sequence of RENDERS of a still, which is exactly what a
+        // temporal AA mode needs to converge, so the two compose and neither is redundant.
+        if ( frozen === false ) advanceSimulation( deltaSeconds );
 
         if ( bare === false ) {
 
@@ -756,13 +837,21 @@ function buildGrade( query ) {
         grainSigmaCodes: number( 'grain', undefined ),
         vignette: number( 'vignette', undefined ),
         saturation: number( 'sat', undefined ),
-        // RCAS is an LDR perceptual-space operator and the grade runs it AFTER the transfer. Run
-        // on linear HDR scene colour it desaturates: the brown iris measures luma 0.1237 /
-        // saturation 0.2997 unsharpened and 0.4159 / 0.1268 with RCAS before tone mapping — 3.4x
-        // brighter and half the chroma, a brown iris rendering grey. No gate sees it; G1-G7 never
-        // sample the iris.
+        // RCAS is an LDR perceptual-space operator and the grade runs it AFTER the transfer, on
+        // architectural grounds. It defaults ON here and OFF in the constructor, and the split is
+        // the point: a forward MSAA'd frame has nothing to recover, a temporal resolve does, and
+        // this page is temporal by default. `TEMPORAL_RECOVERY_SHARPNESS` carries the sweep that
+        // chose 1.2 — inside G4's band with 8% of margin, against `none`'s 2.5%.
+        //
+        // ⚠️ The reason this comment used to give for the after-the-transfer placement — that RCAS
+        // before tone mapping takes the iris to luma 0.4159 / saturation 0.1268 against 0.1237 /
+        // 0.2997, "a brown iris rendering grey" — DOES NOT REPRODUCE. Re-measured on post.html at
+        // the same rect, converged frame 120: 0.1169/0.4086 with no sharpen, 0.1164/0.4032 with
+        // RCAS 0.4 before tone mapping, 0.1172/0.4065 under MSAA. A 1.3% difference, not 2.4x. The
+        // pass IS in the graph — it moves G4 by 1.26x — it simply does not do that. The placement
+        // stands on the architecture; the number is withdrawn.
         sharpness: query.get( 'gsharp' ) === 'none' ? null
-            : ( query.has( 'gsharp' ) ? Number( query.get( 'gsharp' ) ) : undefined )
+            : ( query.has( 'gsharp' ) ? Number( query.get( 'gsharp' ) ) : TEMPORAL_RECOVERY_SHARPNESS )
     } );
 
 }
@@ -814,7 +903,15 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
         ? await createSkinMaterial( {
             albedoMap: figure.body.material.map ?? null,
             curvatureMapUrl: curvatureMapUrlFor( bakeNameFrom( plan.figures[ 0 ].url ) ),
-            specularAntiAliasing: session.skinSpecularAntiAliasing
+            // Named explicitly rather than left to be derived, so `censusOfShading` can report
+            // whether this plate has the cavity term without inferring it from a sibling path.
+            cavityMapUrl: session.skinCavityStrength === 0
+                ? null
+                : cavityMapUrlFor( bakeNameFrom( plan.figures[ 0 ].url ) ),
+            specularAntiAliasing: session.skinSpecularAntiAliasing,
+            settings: session.skinCavityStrength === undefined
+                ? undefined
+                : { cavityStrength: session.skinCavityStrength }
         } )
         : null;
 
@@ -1032,9 +1129,35 @@ function censusOfShading( session, stage ) {
         cardShading: 0,
         shadowCastingLights: 0,
 
+        // The cavity term is not a mesh, so it cannot be counted by traversal — it is a map and a
+        // strength on the skin material's node graph. Reported as the STRENGTH THAT IS LIVE rather
+        // than as a boolean: 0 covers both "no map loaded" and "map loaded, strength dialled to
+        // nothing", which render identically and are the same plate.
+        //
+        // 🚩 `null` MEANS NOT APPLICABLE AND IS NOT THE SAME AS 0. The cavity is a term INSIDE the
+        // skin shader, not a subsystem beside it, so `?skin=0` leaves nothing that could carry it.
+        // Reporting 0 there would say "the cavity was switched off", and `alive-toggles` would
+        // correctly read that as `?skin=0` moving two entries — the confound `?eyes=0` really had.
+        // This coupling is different in kind: there is no plate anywhere with the cavity and
+        // without the skin shader, so there is no attribution to confound.
+        skinCavityStrength: session.skin === null
+            ? null
+            : ( session.skin.skin?.cavityMap == null ? 0 : session.skin.skin.cavityStrength.value ),
+
+        // Which anti-aliasing and whether the grade is in the graph, read off the renderer and the
+        // pipeline rather than off the URL. They belong in the census for the same reason the eye
+        // pair does: both are now DEFAULT-ON subsystems that a toggle can remove, so a plate has to
+        // be able to say which of them it contains.
+        temporalResolve: stage.temporal === null || stage.temporal === undefined ? 0 : 1,
+        grade: stage.grade === null || stage.grade === undefined ? 0 : 1,
+
         // Read off the renderer rather than off `session.multisampled`, so it says what the
-        // frame-buffer IS rather than what the URL asked for. Alpha to coverage on the two hair
-        // cards is inert without it, which makes `?msaa=0` an attribution toggle like the rest.
+        // frame-buffer IS rather than what the URL asked for.
+        //
+        // ⚠️ THIS IS THE ONE ENTRY THAT IS LEGITIMATELY ZERO ON THE SHIPPED PLATE, since the page
+        // moved to TAAU. `?aa=msaa` turns it on and turns `temporalResolve` off — the two are
+        // mutually exclusive and `Stage.create` throws on the pair — so it is a MODE SWITCH rather
+        // than an off switch, and `alive-toggles.selftest.mjs` gates it as one.
         multisampleSamples: stage.renderer.samples ?? 0
     };
 

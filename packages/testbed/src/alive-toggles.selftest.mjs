@@ -87,8 +87,30 @@ const TOGGLES = [
     { query: 'eyeocc=0', owns: 'eyeOcclusion' },
     { query: 'cards=0', owns: 'cardShading' },
     { query: 'shadows=0', owns: 'shadowCastingLights' },
-    { query: 'msaa=0', owns: 'multisampleSamples' }
+    { query: 'cavity=0', owns: 'skinCavityStrength' },
+    { query: 'grade=0', owns: 'grade' },
+
+    // `?msaa=0` is a synonym and lands here too. It used to own `multisampleSamples`, and when the
+    // page moved to TAAU that row went decorative overnight: MSAA is off by default now, so the
+    // check read "multisampleSamples 0 -> 0" and PASSED without being able to fail. The toggle
+    // that removes this page's anti-aliasing is the one that removes the temporal resolve.
+    { query: 'aa=off', owns: 'temporalResolve' }
 ];
+
+/**
+ * Census entries that are DELIBERATELY ZERO on the shipped plate, with the reason. Everything else
+ * must be live, or the "went to zero" checks below pass for the wrong reason.
+ *
+ * `multisampleSamples` is here because MSAA and the temporal resolve are mutually exclusive —
+ * `Stage.create` throws on the pair — so no single plate can carry both. It is not left unguarded:
+ * MUTUALLY_EXCLUSIVE below asserts that `?aa=msaa` really does swap one for the other.
+ */
+const EXPECTED_ZERO_AT_BASELINE = {
+    multisampleSamples: 'MSAA is mutually exclusive with the temporal resolve, which ships on'
+};
+
+/** A mode SWITCH rather than an off switch: it must turn one entry on and the other off. */
+const MUTUALLY_EXCLUSIVE = { query: 'aa=msaa', turnsOn: 'multisampleSamples', turnsOff: 'temporalResolve' };
 
 let checks = 0;
 let failures = 0;
@@ -217,15 +239,30 @@ try {
     console.log( `        ${ JSON.stringify( baseline.census ) }\n` );
 
     // A census of zeros would make every "went to zero" check below pass for the wrong reason.
-    const empty = Object.entries( baseline.census ).filter( ( [ , count ] ) => count === 0 );
+    const empty = Object.entries( baseline.census )
+        .filter( ( [ name, count ] ) => count === 0 && EXPECTED_ZERO_AT_BASELINE[ name ] === undefined );
 
     report(
         'every subsystem is live on the shipped plate, so a zero downstream means something',
         empty.length === 0,
         empty.length === 0
-            ? `${ Object.keys( baseline.census ).length } subsystems, all non-zero`
+            ? `${ Object.keys( baseline.census ).length } subsystems; all live except ` +
+                Object.entries( EXPECTED_ZERO_AT_BASELINE )
+                    .map( ( [ name, why ] ) => `${ name } (${ why })` ).join( ', ' )
             : `NOT LIVE: ${ empty.map( ( [ name ] ) => name ).join( ', ' ) } — the checks below cannot mean anything`
     );
+
+    // The other half of that exemption. Without this, declaring an entry "expected zero" would be
+    // a way to retire a check by writing its name in a list.
+    for ( const [ name, why ] of Object.entries( EXPECTED_ZERO_AT_BASELINE ) ) {
+
+        report(
+            `${ name } is zero at baseline for the stated reason, not because it is broken`,
+            baseline.census[ name ] === 0,
+            `${ name } = ${ baseline.census[ name ] } — ${ why }`
+        );
+
+    }
 
     console.log( '\n--- one toggle, one subsystem ----------------------------------------------\n' );
 
@@ -247,8 +284,14 @@ try {
             `${ toggle.owns } ${ baseline.census[ toggle.owns ] } -> ${ plate.census[ toggle.owns ] }`
         );
 
+        // `null` is NOT APPLICABLE, not a change. `skinCavityStrength` reports it under `?skin=0`,
+        // because the cavity is a term inside the skin shader rather than a subsystem beside it —
+        // there is no plate anywhere carrying one without the other, so there is no attribution to
+        // confound. Anything that goes to a NUMBER it did not hold at baseline is still collateral,
+        // so this exempts exactly the not-applicable case and nothing wider.
         const collateral = Object.keys( baseline.census )
             .filter( ( name ) => name !== toggle.owns )
+            .filter( ( name ) => plate.census[ name ] !== null )
             .filter( ( name ) => plate.census[ name ] !== baseline.census[ name ] )
             .map( ( name ) => `${ name } ${ baseline.census[ name ] } -> ${ plate.census[ name ] }` );
 
@@ -261,6 +304,36 @@ try {
         );
 
     }
+
+    console.log( '\n--- the anti-aliasing mode switch -------------------------------------------\n' );
+
+    // `?aa=msaa` is the A side of this round's default change, and it is the one row that is not an
+    // off switch — it swaps one anti-aliasing subsystem for another. Gated as a swap, in both
+    // directions, so neither half can quietly stop happening.
+    const msaaPlate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&${ MUTUALLY_EXCLUSIVE.query }` );
+
+    report(
+        `?${ MUTUALLY_EXCLUSIVE.query } turns ${ MUTUALLY_EXCLUSIVE.turnsOn } ON`,
+        msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOn ] > 0,
+        `${ MUTUALLY_EXCLUSIVE.turnsOn } ${ baseline.census[ MUTUALLY_EXCLUSIVE.turnsOn ] } -> ${ msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOn ] }`
+    );
+
+    report(
+        `?${ MUTUALLY_EXCLUSIVE.query } turns ${ MUTUALLY_EXCLUSIVE.turnsOff } OFF, because the two cannot coexist`,
+        msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOff ] === 0,
+        `${ MUTUALLY_EXCLUSIVE.turnsOff } ${ baseline.census[ MUTUALLY_EXCLUSIVE.turnsOff ] } -> ${ msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOff ] }`
+    );
+
+    // The census only knows what it was told to count. This needs no bookkeeping: two different
+    // anti-aliasing modes cannot resolve the same edges the same way, and a byte-identical pair
+    // would mean one of them is not running at all.
+    report(
+        'the MSAA plate and the temporal plate are not the same image',
+        msaaPlate.pixels.equals( baseline.pixels ) === false,
+        msaaPlate.pixels.equals( baseline.pixels )
+            ? 'BYTE-IDENTICAL — one of the two anti-aliasing modes is not in the graph'
+            : 'the two plates differ, so both modes reach the frame buffer'
+    );
 
     console.log( '\n--- the eye pair, in pixels ------------------------------------------------\n' );
 
