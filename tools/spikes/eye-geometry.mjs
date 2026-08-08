@@ -989,6 +989,61 @@ function reportVerdict( eyes, globeEyes, hasCornea, irisDisc, gaze ) {
   console.log();
   console.log( '  Written up in the spike\'s report, not here: this file measures, it does not decide.' );
 
+  reportHowTheShaderAnsweredThem();
+
+}
+
+// --- 10. what the shader did about it ------------------------------------------------------------
+
+/**
+ * The five failing clauses, and where each one went.
+ *
+ * This section is not a measurement, and it is here anyway. A verdict table that says "5 of 8 fail"
+ * and stops is read by the next person as five open problems, and four rounds later somebody
+ * re-derives the same workarounds — or worse, decides the asset has to change again. Each row
+ * points at the code that absorbed the clause and says which numbers it needed.
+ *
+ * `packages/core/src/material/EyeMaterial.js` is the file, and
+ * `packages/core/src/material/EyeMaterial.selftest.mjs` is what keeps the numbers honest.
+ */
+function reportHowTheShaderAnsweredThem() {
+
+  heading( '10. what punch-list 3.3 did about the five failing clauses' );
+
+  table(
+    [ 'clause', 'blocks 3.3?', 'where it went' ],
+    [
+      [ 'one eye per object', 'no',
+        'the shader splits the two eyes on the sign of the BIND-space x and carries every ' +
+        'per-eye constant twice, mixing on that flag. Bind space, not animated space, so the ' +
+        'flag is a compile-time constant per vertex.' ],
+      [ 'eye centred on its own origin', 'no',
+        'an eye-local frame is fitted at load — origin at the globe\'s sclera-band sphere centre, ' +
+        '+z along the measured cornea axis — and every optical step happens in it.' ],
+      [ 'XY roughly in [-0.5, 0.5]', 'no',
+        'same fix. HDRP\'s normalised constants are re-derived in metres from this asset rather ' +
+        'than copied: IRIS_RADIUS becomes 6.35 mm, measured, not 0.22 scaled.' ],
+      [ 'iris map separate from sclera map', 'no, at a cost',
+        'the one composited map is sampled TWICE, at the mesh UV for the sclera and at the ' +
+        'refracted hit point for the iris. Costs nothing here because the iris disc is the middle ' +
+        'of the square. What it DOES cost is research §5\'s per-property SSS blend, which needs ' +
+        'two maps and stays out of scope.' ],
+      [ 'static eye in object space', 'no',
+        'ONE mat3 per eye per frame, recomposed from the eight eyeLook* weights and the head bone. ' +
+        'Only possible because §7 measures the motion as rigid to 5.7% of peak.' ]
+    ]
+  );
+
+  console.log();
+  console.log( '  A SIXTH thing the shader needed, which is not on the contract and which this' );
+  console.log( '  spike measured without anyone asking for it — §3\'s shipped-normals table.' );
+  console.log( '  Median 3.53 degrees off the fitted sphere, maximum 23.51, over 256 vertices per' );
+  console.log( '  eye. At the corneal shell\'s roughness a 3.5 degree normal error is a whole highlight' );
+  console.log( '  width, and the first render put a hard-edged polygonal slab across each iris. Both' );
+  console.log( '  shells are therefore shaded against ANALYTIC normals — the fitted anterior cap' );
+  console.log( '  inside the cornea, the fitted eyeball outside it — which is a smoothing of the' );
+  console.log( '  measured normal field rather than a different shape. That table was the evidence.' );
+
 }
 
 // --- measurement helpers ----------------------------------------------------------------------

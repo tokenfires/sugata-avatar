@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>姿 — eye</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+        background: #08080a;
+        color: #d8dae0;
+        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow: hidden;
+    }
+
+    #stage { display: block; width: 100vw; height: 100vh; }
+
+    #hud, #controls {
+        position: fixed;
+        padding: 10px 12px;
+        background: rgba( 8, 8, 12, 0.72 );
+        border: 1px solid rgba( 255, 255, 255, 0.10 );
+        border-radius: 6px;
+        white-space: pre;
+    }
+
+    #hud { top: 12px; left: 12px; max-width: 46vw; }
+    #controls { top: 12px; right: 12px; white-space: normal; width: 250px; }
+
+    #controls label { display: block; margin: 6px 0 2px; opacity: 0.75; }
+    #controls input[ type="range" ] { width: 100%; }
+    #controls .row { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+    #controls .row label { margin: 0; opacity: 0.9; }
+
+    #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="stage"></canvas>
+<div id="boot">booting…</div>
+
+<div id="hud"></div>
+
+<div id="controls">
+    <label>gaze yaw <span id="yawValue">0</span>°</label>
+    <input id="yaw" type="range" min="-30" max="30" step="1" value="0">
+
+    <label>gaze pitch <span id="pitchValue">0</span>°</label>
+    <input id="pitch" type="range" min="-20" max="20" step="1" value="0">
+
+    <label>pupil scale <span id="pupilValue">1.00</span></label>
+    <input id="pupil" type="range" min="0.45" max="1.65" step="0.01" value="1">
+
+    <label>camera azimuth <span id="azimuthValue">12</span>°</label>
+    <input id="azimuth" type="range" min="-45" max="45" step="1" value="12">
+
+    <label>frame height <span id="heightValue">0.075</span> m</label>
+    <input id="height" type="range" min="0.03" max="0.42" step="0.005" value="0.075">
+
+    <div class="row">
+        <input id="refraction" type="checkbox" checked>
+        <label for="refraction">cornea refraction</label>
+    </div>
+    <div class="row">
+        <input id="occlusion" type="checkbox" checked>
+        <label for="occlusion">occlusion sheet + tearline</label>
+    </div>
+    <div class="row">
+        <input id="catchlight" type="checkbox" checked>
+        <label for="catchlight">catchlight</label>
+    </div>
+    <div class="row">
+        <input id="shell" type="checkbox" checked>
+        <label for="shell">corneal shell</label>
+    </div>
+    <div class="row">
+        <input id="shader" type="checkbox" checked>
+        <label for="shader">EyeMaterial (off = shipped GLB material)</label>
+    </div>
+</div>
+
+<script type="module" src="./eye.js"></script>
+</body>
+</html>
