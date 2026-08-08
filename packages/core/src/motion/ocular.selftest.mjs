@@ -53,12 +53,27 @@ globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {}
 const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
 
 const HERE = path.dirname( fileURLToPath( import.meta.url ) );
-const FIGURES = path.resolve( HERE, '../../../../assets/figures' );
+
+// The shipped figures, unless SUGATA_FIGURES_DIR says otherwise. The override exists so the
+// lid-seal probe below can be pointed at a KNOWN-BAD sweep and shown to fail — build one with
+// `tools/figure-pipeline/build.sh --eye-proxy low-poly.mhclo` into a scratch directory. A probe
+// that has only ever been run against the asset it was tuned on is not known to work
+// (docs/LEARNINGS.md 1.1).
+const FIGURES = process.env.SUGATA_FIGURES_DIR
+    ? path.resolve( process.env.SUGATA_FIGURES_DIR )
+    : path.resolve( HERE, '../../../../assets/figures' );
 const FIGURE_PATH = path.join( FIGURES, 'figure_g050.glb' );
 const GENDER_SWEEP = [ 'g000', 'g025', 'g050', 'g075', 'g100' ];
 
 /** Cells across the eyeball in the lid-seal probe. 160 puts a grid cell at about 0.2 mm. */
 const SEAL_PROBE_GRID = 160;
+
+// Every mesh that makes up the eye itself. MakeHuman names its eyeball proxy for its topology
+// rather than its anatomy, so the globe is 'Human.high-poly' and the clear shell over it is
+// 'Human.cornea'; GLTFLoader strips the dot. Matching on /eye/ would find the lashes and the brows
+// and never find the eyeballs. 'low-poly' stays in the pattern so the probe still runs against a
+// figure built with the superseded single-shell proxy.
+const EYEBALL_MESH_PATTERN = /high-poly|low-poly|cornea|eyeball/i;
 
 const checks = [];
 
@@ -1018,22 +1033,38 @@ async function measureLidSeal( figurePath ) {
 
     gltf.scene.updateMatrixWorld( true );
 
-    const meshes = {};
+    const meshes = { eyeball: [] };
     gltf.scene.traverse( ( object ) => {
 
         if ( object.isMesh !== true ) return;
         if ( object.name === 'Human' ) meshes.skin = object;
         if ( object.name === 'Humaneyelashes01' ) meshes.lashes = object;
-        if ( object.name === 'Humanlow-poly' ) meshes.eyeball = object;
+        // BOTH shells of the eye, not just the globe. The high-poly proxy is a globe carrying the
+        // iris with a clear corneal shell over it, and the cornea's apex sits 2.15-2.40 mm in
+        // front of the globe's (measured by tools/figure-pipeline/verify_glb.mjs). A lid that
+        // covers the globe but not the cornea is not shut — the cornea is what protrudes, and
+        // being transmissive does not stop it drawing through the lid.
+        //
+        // Matched by pattern rather than by name equality: this line used to read
+        // `object.name === 'Humanlow-poly'`, and an equality against a name that changed leaves
+        // `meshes.eyeball` undefined for the whole probe.
+        if ( EYEBALL_MESH_PATTERN.test( object.name ) ) meshes.eyeball.push( object );
 
     } );
+
+    if ( meshes.eyeball.length === 0 ) {
+
+        throw new Error( `no mesh matching ${ EYEBALL_MESH_PATTERN } in ${ figurePath }` );
+
+    }
 
     // The character's own left eye. The two are mirror images and measure identically, so one is
     // the measurement and the other would be a second copy of it.
     const box = eyeballBox( meshes.eyeball, 1 );
     const view = frontalGrid( box );
 
-    const eyeballDepth = depthMap( eyePatch( meshes.eyeball, box, 'eyeBlinkLeft' ), view, 0 );
+    const eyeball = meshes.eyeball.flatMap( ( mesh ) => eyePatch( mesh, box, 'eyeBlinkLeft' ) );
+    const eyeballDepth = depthMap( eyeball, view, 0 );
     const skin = eyePatch( meshes.skin, box, 'eyeBlinkLeft' );
     const lashes = eyePatch( meshes.lashes, box, 'eyeBlinkLeft' );
 
@@ -1045,16 +1076,22 @@ async function measureLidSeal( figurePath ) {
 
 }
 
-function eyeballBox( mesh, side ) {
+/** Bounds of one eye, over every mesh that makes it up — the globe and the corneal shell. */
+function eyeballBox( meshes, side ) {
 
-    const position = mesh.geometry.attributes.position;
     const point = new Vector3();
     const box = new Box3();
 
-    for ( let index = 0; index < position.count; index ++ ) {
+    for ( const mesh of meshes ) {
 
-        point.fromBufferAttribute( position, index ).applyMatrix4( mesh.matrixWorld );
-        if ( Math.sign( point.x ) === side ) box.expandByPoint( point );
+        const position = mesh.geometry.attributes.position;
+
+        for ( let index = 0; index < position.count; index ++ ) {
+
+            point.fromBufferAttribute( position, index ).applyMatrix4( mesh.matrixWorld );
+            if ( Math.sign( point.x ) === side ) box.expandByPoint( point );
+
+        }
 
     }
 

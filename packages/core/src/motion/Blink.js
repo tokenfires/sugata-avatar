@@ -193,7 +193,25 @@ const UNILATERAL_BLINK_PROBABILITY = 0.02;
 // cost is that g100 overshoots by 0.077 of a weight — under a millimetre of lid travel, against
 // the 3.8 mm it had before — and Trutoiu is explicit that a blink which fails to close fully is
 // the worse error of the two.
-const FULL_CLOSURE_MORPH_WEIGHT = 0.735;
+//
+// 🎯 THE SEAL IS A PROPERTY OF THE ASSET, AND THE ASSET CHANGED. The high-poly eye proxy with its
+// separate corneal shell stands 1.145 mm further forward than the low-poly globe it replaced, so
+// the lid has further to travel. Re-measured across the sweep by `ocular.selftest.mjs`, which
+// exists to stop this constant drifting away from the figure:
+//
+//     low-poly  g000 0.733   g025 0.722   g050 0.697   g075 0.679   g100 0.658
+//     high-poly g000 0.750   g025 0.726   g050 0.713   g075 0.700   g100 0.681
+//
+// 0.735 left g000 0.0145 of a weight short of shut. 0.752 keeps the same ~0.002 margin over the
+// measured seal that 0.735 had over the low-poly's 0.733, and the overshoot gate still passes
+// (worst 0.071 against a 0.1 limit).
+//
+// ⚠️ UNVERIFIED, AND SAID OUT LOUD: `docs/LEARNINGS.md` records that "past 0.735 the lash cards
+// punch through the lid". Nothing in the repo MEASURES lash punch-through — the selftest's
+// `sealWithLashes` number is about occlusion, not intersection. The 0.735/0.733 pairing says the
+// constant came from this probe rather than from a lash artefact, but nobody has looked at a
+// closed lid on the new asset. If lashes punch through, this is the constant to suspect first.
+const FULL_CLOSURE_MORPH_WEIGHT = 0.752;
 
 const LEFT_EYELID_MORPH = 'eyeBlinkLeft';
 const RIGHT_EYELID_MORPH = 'eyeBlinkRight';
