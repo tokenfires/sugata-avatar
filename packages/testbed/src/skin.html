@@ -65,15 +65,30 @@
     <h2>URL</h2>
     <p class="note">
         <code>?sss=0</code> curvature to zero, so the table degenerates to exact Lambert — the
-        A side of the pair.<br>
-        <code>?stock=1</code> three's stock <code>MeshPhysicalNodeMaterial</code> — no LUT, no
-        second lobe, no micro-normal.<br>
+        A side of the pre-integration pair.<br>
+        <code>?regions=0</code> no region map: one roughness, no transmission, no lip mask. The
+        A side of the <em>other</em> three, kept separate from <code>?sss=0</code> on purpose —
+        an A/B plate that moves four things at once is not an A/B plate.<br>
+        <code>?trans=0</code> transmission off. <code>?trans=&lt;n&gt;</code>,
+        <code>?transd=&lt;mm&gt;</code> its strength and its red 1/e depth.<br>
+        <code>?lobe=0</code> second specular lobe off. <code>?lobe=</code>,
+        <code>?lober=</code> its weight and roughness.<br>
+        <code>?stock=1</code> three's stock <code>MeshPhysicalNodeMaterial</code> — none of 3.2.<br>
         <code>?micro=0</code> micro-normal off, everything else on.<br>
         <code>?scatter=&lt;mm&gt;</code> scatter distance. <code>?repeat=</code>,
         <code>?mscale=</code> the micro-normal.<br>
         <code>?w=&amp;h=</code> pin the drawing buffer. <code>?frame=face|portrait|body</code>.<br>
         <code>?bare</code> hide this panel. <code>?deferred=0</code> forward path.<br>
         <code>?key=&amp;fill=</code> light intensities, for tuning the key:fill against G1.
+    </p>
+
+    <p class="note">
+        🚩 <strong>This page's high-pass σ does not certify <code>alive.html</code>.</strong> The
+        same material and the same 3840 px reference width measure <strong>2.4563</strong> here and
+        <strong>1.7548</strong> on the integrated page — a 1.40× gap from a different head size in
+        frame and a different rig, because G4 high-passes a <em>shaded</em> surface. The shipped
+        <code>microNormalScale</code> is set for <code>alive.html</code>, which is the page a judge
+        captures. Read G4 there.
     </p>
 
     <h2>Environment</h2>

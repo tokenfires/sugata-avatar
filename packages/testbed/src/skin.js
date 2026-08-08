@@ -70,6 +70,7 @@ import {
     applySkinMaterial,
     createSkinMaterial,
     curvatureMapUrlFor,
+    regionMapUrlFor,
     SKIN_DEFAULTS
 } from '../../core/src/material/SkinMaterial.js';
 
@@ -236,6 +237,8 @@ async function main() {
     const useStock = query.get( 'stock' ) === '1';
     const subsurfaceOn = query.get( 'sss' ) !== '0';
 
+    const regionsOn = query.get( 'regions' ) !== '0';
+
     const settings = {
         scatterDistanceMillimetres: number( query, 'scatter', SKIN_DEFAULTS.scatterDistanceMillimetres ),
         microNormalScale: query.get( 'micro' ) === '0' ? 0 : number( query, 'mscale', SKIN_DEFAULTS.microNormalScale ),
@@ -243,7 +246,10 @@ async function main() {
         runtimeCurvatureBlend: number( query, 'runtime', SKIN_DEFAULTS.runtimeCurvatureBlend ),
         maxScatterGain: number( query, 'gain', SKIN_DEFAULTS.maxScatterGain ),
         scatterGainFloor: number( query, 'floor', SKIN_DEFAULTS.scatterGainFloor ),
-        secondLobeWeight: query.get( 'lobe' ) === '0' ? 0 : SKIN_DEFAULTS.secondLobeWeight
+        secondLobeWeight: query.get( 'lobe' ) === '0' ? 0 : number( query, 'lobe', SKIN_DEFAULTS.secondLobeWeight ),
+        secondLobeRoughness: number( query, 'lober', SKIN_DEFAULTS.secondLobeRoughness ),
+        transmissionStrength: query.get( 'trans' ) === '0' ? 0 : number( query, 'trans', SKIN_DEFAULTS.transmissionStrength ),
+        transmissionDistanceMillimetres: number( query, 'transd', SKIN_DEFAULTS.transmissionDistanceMillimetres )
     };
 
     const bodyAlbedo = figure.body.material.map ?? null;
@@ -262,11 +268,18 @@ async function main() {
 
     } else {
 
+        // 🚩 `regionMapUrl` is passed EXPLICITLY rather than left to be derived from the curvature
+        // URL. `createSkinMaterial` derives
+        // one from the other when it is omitted, which is right for `alive.js`; here it would make
+        // `?sss=0` — a toggle that exists to isolate pre-integration — also switch off the region
+        // roughness, the transmission and the lip mask. An A/B plate that moves four things is not
+        // an A/B plate. `?regions=0` is the separate switch for the other three.
         curvatureUrl = subsurfaceOn ? curvatureMapUrlFor( figureName ) : null;
 
         material = await createSkinMaterial( {
             albedoMap: bodyAlbedo,
             curvatureMapUrl: curvatureUrl,
+            regionMapUrl: regionsOn ? regionMapUrlFor( figureName ) : null,
             settings
         } );
 
@@ -306,7 +319,7 @@ async function main() {
 
     if ( bare === false ) {
 
-        renderEnvironment( stage, material, { figureName, deferred, useStock, subsurfaceOn, curvatureUrl, settings, perf } );
+        renderEnvironment( stage, material, { figureName, deferred, useStock, subsurfaceOn, regionsOn, curvatureUrl, settings, perf } );
         renderChecks( checks );
         renderFraming( landmarks, width, height );
         document.getElementById( 'regions' ).textContent = JSON.stringify( buildRegionSpec( landmarks, width, height ), null, 1 );
@@ -889,6 +902,9 @@ function renderEnvironment( stage, material, info ) {
         [ 'curvature map', info.curvatureUrl === null ? '—' : info.curvatureUrl.slice( info.curvatureUrl.lastIndexOf( '/' ) + 1 ) ],
         [ 'scatter distance', `${ info.settings.scatterDistanceMillimetres } mm` ],
         [ 'micro-normal', `scale ${ info.settings.microNormalScale }, repeat ${ info.settings.microNormalRepeat }` ],
+        [ 'second lobe', `weight ${ info.settings.secondLobeWeight }, roughness ${ info.settings.secondLobeRoughness }` ],
+        [ 'transmission', `strength ${ info.settings.transmissionStrength }, depth ${ info.settings.transmissionDistanceMillimetres } mm (red)` ],
+        [ 'region map', info.regionsOn ? 'on — per-region roughness, thickness, lip mask' : 'OFF' ],
         [ 'roughness / ior', info.useStock ? `${ material.roughness } / —` : `${ material.roughness } / ${ material.ior }` ],
         [ 'second lobe', info.useStock ? '—' : `${ material.clearcoat } @ roughness ${ material.clearcoatRoughness }` ],
         [ 'cpu frame', `${ stage.stats.frameMs.toFixed( 2 ) } ms` ],

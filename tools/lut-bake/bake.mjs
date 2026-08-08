@@ -22,7 +22,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { encodePng } from '../critic/png.mjs';
-import { readGlb, readPrimitive } from './glb.mjs';
+import { readGlb, readMorphTargets, readPrimitive } from './glb.mjs';
 
 import {
     CURVATURE_ENCODE_MAX_PER_MILLIMETRE,
@@ -40,6 +40,19 @@ import {
 } from '../../packages/core/src/material/PreintegratedSkinLut.js';
 
 import { buildSkinMicroNormal } from '../../packages/core/src/material/SkinMicroNormal.js';
+
+import {
+    BODY_ROUGHNESS,
+    REGION_CLAIM_FRACTION,
+    SHADING_REGIONS,
+    THICKNESS_ENCODE_MAX_MILLIMETRES,
+    classifyRegionsPerVertex,
+    encodeThickness,
+    lipMaskPerVertex,
+    roughnessPerVertex,
+    thicknessOfSphereCheck,
+    thicknessPerVertex
+} from '../../packages/core/src/material/SkinRegions.js';
 
 const here = path.dirname( fileURLToPath( import.meta.url ) );
 const repoRoot = path.resolve( here, '../..' );
@@ -74,6 +87,7 @@ function main( argv ) {
         if ( options.targets.includes( 'lut' ) ) bakeLut();
         if ( options.targets.includes( 'micronormal' ) ) bakeMicroNormal();
         if ( options.targets.includes( 'curvature' ) ) bakeCurvature( options );
+        if ( options.targets.includes( 'regions' ) ) bakeRegions( options );
 
     } catch ( error ) {
 
@@ -251,6 +265,155 @@ function bakeCurvature( options ) {
 
 }
 
+// --- the region map ------------------------------------------------------------------------------
+
+/**
+ * `figure_gNNN-regions.png` — per-region roughness, baked tissue thickness and a lip mask.
+ *
+ *     R  roughness, 0..1, read straight into the shader's `roughnessNode`
+ *     G  sqrt( thickness_mm / 60 ) — how far light has to travel through the tissue
+ *     B  lip mask
+ *
+ * Both of the first two answer a defect `docs/PROGRESS.md` names explicitly: no transmission
+ * anywhere ("needs a baked thickness map and a back-lit term") and one roughness value for a
+ * material whose spec gives four.
+ */
+function bakeRegions( options ) {
+
+    // Same discipline as the curvature bake: the estimator answers a shape whose thickness is
+    // known on paper before it is pointed at a face. A sphere of radius r is exactly 2r thick
+    // along its own normal, everywhere.
+    const sphereCheck = thicknessOfSphereCheck( curvatureOfSphere( 0.05, 64 ), 0.05 );
+
+    const glb = readGlb( options.figure );
+    const mesh = readPrimitive( glb, BODY_MESH_NAME );
+    const morphTargets = readMorphTargets( glb, BODY_MESH_NAME );
+
+    const classification = classifyRegionsPerVertex( { morphTargets, positions: mesh.positions, vertexCount: mesh.vertexCount } );
+
+    if ( classification.missing.length > 0 ) {
+
+        throw new Error(
+            `mesh '${ BODY_MESH_NAME }' is missing morph targets the region map is built from: ` +
+            `${ classification.missing.join( ', ' ) }. Re-run tools/figure-pipeline/build.sh.`
+        );
+
+    }
+
+    for ( const warning of classification.warnings ) process.stderr.write( `bake.mjs: ${ warning }\n` );
+
+    const thickness = thicknessPerVertex( mesh );
+    const roughness = roughnessPerVertex( classification.regionOf );
+    const lipMask = lipMaskPerVertex( classification.regionOf );
+
+    const encodedThickness = new Float64Array( mesh.vertexCount );
+    for ( let v = 0; v < mesh.vertexCount; v ++ ) {
+
+        encodedThickness[ v ] = encodeThickness( thickness.thicknessMillimetres[ v ] );
+
+    }
+
+    const size = options.size;
+    const roughnessMap = rasteriseToUv( mesh, roughness, size, size );
+    const thicknessMap = rasteriseToUv( mesh, encodedThickness, size, size );
+    const lipMap = rasteriseToUv( mesh, lipMask, size, size );
+
+    // 🚩 `dilate` MARKS the texels it fills in the `covered` array it is handed, and the fill test
+    // below has to see those marks. Handing it a throwaway copy instead — which is the obvious
+    // thing to write — leaves the original coverage untouched, so all 96,470 dilated texels are
+    // then overwritten with the uncovered defaults and every UV island gets a hard-edged collar of
+    // default roughness and default thickness. That renders as blotches with straight edges across
+    // the cheek, which is exactly what it did before this comment was written.
+    const covered = Uint8Array.from( roughnessMap.covered );
+
+    const dilated = dilate( roughnessMap.value, covered, size, size );
+    dilate( thicknessMap.value, Uint8Array.from( roughnessMap.covered ), size, size );
+    dilate( lipMap.value, Uint8Array.from( roughnessMap.covered ), size, size );
+
+    // Everything the dilation did not reach has to read as ordinary opaque body skin, not as zero.
+    // Zero roughness is a mirror and zero thickness is tissue paper, so an uncovered texel that a
+    // bilinear tap happens to reach would render as a chrome hole or a lantern.
+    const rgba = new Uint8Array( size * size * 4 );
+
+    for ( let i = 0; i < size * size; i ++ ) {
+
+        const isCovered = covered[ i ] === 1;
+
+        rgba[ i * 4 ] = toByte( isCovered ? roughnessMap.value[ i ] : BODY_ROUGHNESS );
+        rgba[ i * 4 + 1 ] = toByte( isCovered ? thicknessMap.value[ i ] : 1 );
+        rgba[ i * 4 + 2 ] = toByte( isCovered ? lipMap.value[ i ] : 0 );
+        rgba[ i * 4 + 3 ] = 255;
+
+    }
+
+    const name = path.basename( options.figure, '.glb' );
+
+    write( `${ name }-regions.png`, encodePng( size, size, rgba ) );
+
+    const perRegion = {};
+    for ( const region of SHADING_REGIONS ) {
+
+        perRegion[ region.name ] = {
+            vertices: classification.counts[ region.name ],
+            roughness: region.roughness,
+            thicknessMillimetres: describeDistribution( subsetOf( thickness.thicknessMillimetres, classification.regionOf, region.name ) )
+        };
+
+    }
+
+    writeJson( `${ name }-regions.json`, {
+        figure: path.relative( repoRoot, options.figure ),
+        mesh: BODY_MESH_NAME,
+        vertexCount: mesh.vertexCount,
+        mapSize: size,
+        encoding: {
+            red: 'roughness, 0..1 linear',
+            green: `sqrt( thickness_mm / ${ THICKNESS_ENCODE_MAX_MILLIMETRES } )`,
+            blue: 'lip mask',
+            uncoveredTexels: `roughness ${ BODY_ROUGHNESS }, thickness opaque, lip 0`
+        },
+        claimFraction: REGION_CLAIM_FRACTION,
+        uvCoverageFraction: roughnessMap.coveredFraction,
+        dilatedTexels: dilated,
+        sphereCheck,
+        thicknessBake: {
+            rays: 7,
+            milliseconds: thickness.milliseconds,
+            nearZeroHits: thickness.nearZeroHits,
+            missesBeyondRayLimit: thickness.misses,
+            wholeBodyMillimetres: describeDistribution( thickness.thicknessMillimetres )
+        },
+        regions: perRegion,
+        unclaimedVertices: classification.counts.unclaimed
+    } );
+
+    report( 'regions', [
+        [ 'figure', path.relative( repoRoot, options.figure ) ],
+        [ 'map', `${ size } x ${ size }, UV coverage ${ ( roughnessMap.coveredFraction * 100 ).toFixed( 1 ) }%, ${ dilated } texels dilated` ],
+        [ 'sphere r=50 mm', `expected ${ sphereCheck.expectedMillimetres.toFixed( 2 ) } mm, measured median ${ sphereCheck.axialMedianMillimetres.toFixed( 2 ) } mm (${ ( sphereCheck.relativeError * 100 ).toFixed( 2 ) }% err)` ],
+        [ 'thickness bake', `${ thickness.milliseconds } ms, ${ thickness.nearZeroHits } vertices under 1 mm, ${ thickness.misses } rays past 120 mm` ],
+        ...SHADING_REGIONS.map( ( region ) => [
+            `${ region.name } (r ${ region.roughness })`,
+            `${ classification.counts[ region.name ] } verts, thickness median ` +
+            `${ describeDistribution( subsetOf( thickness.thicknessMillimetres, classification.regionOf, region.name ) ).median.toFixed( 2 ) } mm`
+        ] ),
+        [ `body (r ${ BODY_ROUGHNESS })`, `${ classification.counts.unclaimed } verts` ]
+    ] );
+
+}
+
+/** The thickness values belonging to one named region, for the per-region distributions. */
+function subsetOf( values, regionOf, regionName ) {
+
+    const index = SHADING_REGIONS.findIndex( ( region ) => region.name === regionName );
+    const subset = [];
+
+    for ( let v = 0; v < values.length; v ++ ) if ( regionOf[ v ] === index ) subset.push( values[ v ] );
+
+    return Float64Array.from( subset.length > 0 ? subset : [ 0 ] );
+
+}
+
 /**
  * The estimator, run against two spheres and a plane whose curvature is known exactly.
  *
@@ -411,7 +574,7 @@ function describeDistribution( values ) {
 
 function parseArguments( argv ) {
 
-    const known = [ 'lut', 'micronormal', 'curvature' ];
+    const known = [ 'lut', 'micronormal', 'curvature', 'regions' ];
     const targets = [];
     const options = { figure: DEFAULT_FIGURE, size: DEFAULT_MAP_SIZE };
 

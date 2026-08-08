@@ -80,7 +80,6 @@ export function readAccessor( glb, index ) {
     const accessor = glb.json.accessors[ index ];
 
     if ( accessor === undefined ) throw new Error( `no accessor ${ index }` );
-    if ( accessor.sparse !== undefined ) throw new Error( `accessor ${ index } is sparse — not supported` );
 
     const reader = COMPONENT_READERS[ accessor.componentType ];
     if ( reader === undefined ) throw new Error( `accessor ${ index } has componentType ${ accessor.componentType }` );
@@ -88,29 +87,82 @@ export function readAccessor( glb, index ) {
     const components = COMPONENTS_PER_ELEMENT[ accessor.type ];
     if ( components === undefined ) throw new Error( `accessor ${ index } has type ${ accessor.type }` );
 
-    const bufferView = glb.json.bufferViews[ accessor.bufferView ];
-    const base = ( bufferView.byteOffset ?? 0 ) + ( accessor.byteOffset ?? 0 );
-
-    // An interleaved bufferView declares its own stride; a tightly packed one does not.
-    const stride = bufferView.byteStride ?? components * reader.bytes;
-
     const view = new DataView( glb.bin.buffer, glb.bin.byteOffset, glb.bin.byteLength );
     const isIndexLike = accessor.type === 'SCALAR' && accessor.componentType !== 5126;
     const data = isIndexLike
         ? new Uint32Array( accessor.count * components )
         : new Float64Array( accessor.count * components );
 
-    for ( let element = 0; element < accessor.count; element ++ ) {
+    // A sparse accessor may declare no bufferView at all, in which case every element is zero
+    // before the overrides land. That is the common shape for a morph target: a facial action
+    // moves a few hundred vertices out of fourteen thousand, and the exporter stores only those.
+    if ( accessor.bufferView !== undefined ) {
 
-        for ( let c = 0; c < components; c ++ ) {
+        const bufferView = glb.json.bufferViews[ accessor.bufferView ];
+        const base = ( bufferView.byteOffset ?? 0 ) + ( accessor.byteOffset ?? 0 );
 
-            data[ element * components + c ] = reader.read( view, base + element * stride + c * reader.bytes );
+        // An interleaved bufferView declares its own stride; a tightly packed one does not.
+        const stride = bufferView.byteStride ?? components * reader.bytes;
+
+        for ( let element = 0; element < accessor.count; element ++ ) {
+
+            for ( let c = 0; c < components; c ++ ) {
+
+                data[ element * components + c ] = reader.read( view, base + element * stride + c * reader.bytes );
+
+            }
 
         }
 
     }
 
+    if ( accessor.sparse !== undefined ) applySparseOverrides( glb, accessor, view, data, components );
+
     return { data, count: accessor.count, components };
+
+}
+
+/**
+ * Overwrites the elements a sparse accessor names.
+ *
+ * 🚩 **This is not an optional nicety.** `tools/figure-pipeline/build.sh` emits every one of the
+ * 89 morph targets on the body mesh as a sparse accessor — a facial action moves a few hundred of
+ * fourteen thousand vertices, so a dense delta buffer would be 98% zeros. Refusing sparse
+ * accessors means refusing to read the morph targets at all, which is what `SkinRegions.js` builds
+ * its face segmentation out of.
+ *
+ * The `indices` and `values` sub-accessors are always tightly packed by the spec — they have no
+ * `byteStride` of their own — so the stride is the element size and nothing else.
+ */
+function applySparseOverrides( glb, accessor, view, data, components ) {
+
+    const sparse = accessor.sparse;
+
+    const indexReader = COMPONENT_READERS[ sparse.indices.componentType ];
+    if ( indexReader === undefined ) throw new Error( `sparse indices have componentType ${ sparse.indices.componentType }` );
+
+    const valueReader = COMPONENT_READERS[ accessor.componentType ];
+
+    const indexView = glb.json.bufferViews[ sparse.indices.bufferView ];
+    const valueView = glb.json.bufferViews[ sparse.values.bufferView ];
+
+    const indexBase = ( indexView.byteOffset ?? 0 ) + ( sparse.indices.byteOffset ?? 0 );
+    const valueBase = ( valueView.byteOffset ?? 0 ) + ( sparse.values.byteOffset ?? 0 );
+
+    for ( let i = 0; i < sparse.count; i ++ ) {
+
+        const element = indexReader.read( view, indexBase + i * indexReader.bytes );
+
+        for ( let c = 0; c < components; c ++ ) {
+
+            data[ element * components + c ] = valueReader.read(
+                view,
+                valueBase + ( i * components + c ) * valueReader.bytes
+            );
+
+        }
+
+    }
 
 }
 
@@ -156,5 +208,48 @@ export function readPrimitive( glb, meshName ) {
         vertexCount: positions.count,
         triangleCount: indices.count / 3
     };
+
+}
+
+/**
+ * The named mesh's morph targets, by name.
+ *
+ * 🎯 **This is a facial segmentation that ships inside the asset.** The figure pipeline bakes the
+ * ARKit 52 onto the body mesh (punch-list 0.3), and a morph target is nothing but a list of which
+ * vertices a named facial action moves and by how much — `mouthPucker` IS the lip region,
+ * `noseSneerLeft` IS the left alar region. `SkinRegions.js` reads that rather than asking anyone
+ * to hand-paint a mask, so a region map re-bakes correctly for a figure this repository has not
+ * built yet.
+ *
+ * Only POSITION deltas are read. glTF permits NORMAL and TANGENT targets too; this asset carries
+ * neither, and a displacement magnitude is what the classification needs.
+ *
+ * @param {Glb} glb
+ * @param {string} meshName
+ * @returns {Map<string, Float64Array>} target name -> xyz deltas, one triple per vertex.
+ */
+export function readMorphTargets( glb, meshName ) {
+
+    const mesh = glb.json.meshes.find( ( candidate ) => candidate.name === meshName );
+    if ( mesh === undefined ) throw new Error( `no mesh named '${ meshName }'` );
+
+    const primitive = mesh.primitives[ 0 ];
+    const targets = primitive.targets ?? [];
+    const names = mesh.extras?.targetNames;
+
+    if ( names === undefined ) throw new Error( `mesh '${ meshName }' has no extras.targetNames — the bake cannot name its regions` );
+    if ( names.length !== targets.length ) throw new Error( `mesh '${ meshName }' has ${ targets.length } targets but ${ names.length } names` );
+
+    const byName = new Map();
+
+    for ( let i = 0; i < targets.length; i ++ ) {
+
+        if ( targets[ i ].POSITION === undefined ) continue;      // a normals-only target says nothing about where
+
+        byName.set( names[ i ], readAccessor( glb, targets[ i ].POSITION ).data );
+
+    }
+
+    return byName;
 
 }

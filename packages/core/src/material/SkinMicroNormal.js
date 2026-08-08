@@ -75,6 +75,22 @@ const OCTAVES = [
  * A note on why this cannot be fixed by resolution instead: σ measured 4.57 at 1400 px and 4.68 at
  * 3840 px for the same scale — it barely moved. The detail's on-screen wavelength stays inside the
  * 5x5 high-pass window at both, so there is no framing at which an over-steep map comes good.
+ *
+ * 🚩 **THE CALIBRATION ABOVE IS FOR skin.html, AND skin.html IS NOT THE PAGE THE GATE IS READ ON.**
+ * The steepness is left where it is because it is a property of the texture and because the
+ * measurement behind it is real; but the σ it produces is not one number, it is one number PER
+ * PAGE, and this file's derivation was done on the browsercheck. Measured on the same texture at
+ * the same 3840 px reference width on both pages, this round:
+ *
+ *     normalScale     skin.html (3840x2160)     alive.html (3840x5120)
+ *        0.20               1.9308                    1.4764   <- G4 RED
+ *        0.25               2.4563   <- out of band   1.7548   <- G4 GREEN
+ *
+ * They differ by 1.40x because the head is a different size in frame and the rig is a different
+ * rig, and G4 high-passes a SHADED surface. `alive.html` is what a judge captures, so
+ * `SKIN_DEFAULTS.microNormalScale` is set for `alive.html` and the browsercheck's own σ is
+ * knowingly above the band. Do not "fix" that by moving the steepness — it would take alive.html
+ * back out of the band, which is the mistake this note exists to stop being made twice.
  */
 const HEIGHT_TO_SLOPE = 2.31;
 

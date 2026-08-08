@@ -1,0 +1,109 @@
+{
+  "figure": "assets/figures/figure_g025.glb",
+  "mesh": "base.001",
+  "vertexCount": 14517,
+  "mapSize": 1024,
+  "encoding": {
+    "red": "roughness, 0..1 linear",
+    "green": "sqrt( thickness_mm / 60 )",
+    "blue": "lip mask",
+    "uncoveredTexels": "roughness 0.5, thickness opaque, lip 0"
+  },
+  "claimFraction": 0.08,
+  "uvCoverageFraction": 0.624201774597168,
+  "dilatedTexels": 96470,
+  "sphereCheck": {
+    "expectedMillimetres": 100,
+    "axialMedianMillimetres": 100,
+    "relativeError": 0
+  },
+  "thicknessBake": {
+    "rays": 7,
+    "milliseconds": 8544,
+    "nearZeroHits": 0,
+    "missesBeyondRayLimit": 28993,
+    "wholeBodyMillimetres": {
+      "min": 2.746397436477406,
+      "p01": 3.9984433932664913,
+      "p10": 7.249657311524849,
+      "median": 18.19706136196469,
+      "p90": 115.24938872629035,
+      "p99": 122.68949262574453,
+      "max": 122.68949262574453,
+      "positiveFraction": 1
+    }
+  },
+  "regions": {
+    "lips": {
+      "vertices": 141,
+      "roughness": 0.23,
+      "thicknessMillimetres": {
+        "min": 5.410410133833116,
+        "p01": 5.410410133833116,
+        "p10": 6.133109848654015,
+        "median": 7.283450127104955,
+        "p90": 10.515158314527477,
+        "p99": 11.992727346013872,
+        "max": 12.020211032338391,
+        "positiveFraction": 1
+      }
+    },
+    "nose": {
+      "vertices": 486,
+      "roughness": 0.36,
+      "thicknessMillimetres": {
+        "min": 3.493773648452961,
+        "p01": 4.4813966934566,
+        "p10": 6.736161495229875,
+        "median": 15.695241264747837,
+        "p90": 28.92001366518939,
+        "p99": 63.52884788214859,
+        "max": 122.68949262574453,
+        "positiveFraction": 1
+      }
+    },
+    "brow": {
+      "vertices": 574,
+      "roughness": 0.36,
+      "thicknessMillimetres": {
+        "min": 3.1601223373643155,
+        "p01": 4.0614123592822375,
+        "p10": 5.0098579505198355,
+        "median": 17.222945282792082,
+        "p90": 67.93967654931123,
+        "p99": 100.44092643794957,
+        "max": 105.79635197880071,
+        "positiveFraction": 1
+      }
+    },
+    "eyelid": {
+      "vertices": 626,
+      "roughness": 0.46,
+      "thicknessMillimetres": {
+        "min": 2.762177469016449,
+        "p01": 2.838662992610744,
+        "p10": 3.5864681504190337,
+        "median": 5.462919644537756,
+        "p90": 25.513223804278546,
+        "p99": 45.491456715444954,
+        "max": 122.68949262574453,
+        "positiveFraction": 1
+      }
+    },
+    "cheek": {
+      "vertices": 1040,
+      "roughness": 0.46,
+      "thicknessMillimetres": {
+        "min": 3.491282856102079,
+        "p01": 4.420831936614328,
+        "p10": 5.895900310532632,
+        "median": 11.36203614489515,
+        "p90": 34.95120952208112,
+        "p99": 76.88232058304973,
+        "max": 105.64419804304416,
+        "positiveFraction": 1
+      }
+    }
+  },
+  "unclaimedVertices": 11650
+}

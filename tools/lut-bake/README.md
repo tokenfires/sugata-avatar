@@ -3,9 +3,10 @@
 Everything punch-list 3.2 needs that cannot be computed in a fragment shader.
 
 ```bash
-node tools/lut-bake/bake.mjs                     # all three, default figure
-node tools/lut-bake/bake.mjs curvature --figure assets/figures/figure_g100.glb
-node tools/lut-bake/lut-bake.selftest.mjs        # 32 checks, both directions
+node tools/lut-bake/bake.mjs                              # all four, default figure
+node tools/lut-bake/bake.mjs regions --figure assets/figures/figure_g100.glb
+node tools/lut-bake/lut-bake.selftest.mjs                 # 32 checks, both directions
+node packages/core/src/material/SkinRegions.selftest.mjs  # 29 checks, both directions
 ```
 
 Output lands in `out/`. Exit codes match the rest of the harness: `0` fine, `2` tool error.
@@ -13,10 +14,11 @@ Output lands in `out/`. Exit codes match the rest of the harness: `0` fine, `2` 
 | target | writes | who reads it |
 |---|---|---|
 | `curvature` | `figure_gNNN-curvature.png` + `.json` | **the renderer** — `SkinMaterial` fetches it |
+| `regions` | `figure_gNNN-regions.png` + `.json` | **the renderer** — per-region roughness, tissue thickness, lip mask |
 | `lut` | `preintegrated-skin-lut.png` + `.json` | **a human**. See below |
 | `micronormal` | `skin-micro-normal.png` | **a human**. See below |
 
-> ⚠️ **Only the curvature map is loaded at runtime.** The pre-integrated table and the micro-normal
+> ⚠️ **Only the curvature and region maps are loaded at runtime.** The pre-integrated table and the micro-normal
 > are *generated in the browser* by `packages/core/src/material/PreintegratedSkinLut.js` and
 > `SkinMicroNormal.js`; the PNGs here are for looking at and for diffing across a change. Editing
 > them does nothing. Both cost single-digit milliseconds to build (the selftest prints the LUT's),
@@ -32,6 +34,8 @@ Output lands in `out/`. Exit codes match the rest of the harness: `0` fine, `2` 
 - **`SkinCurvature.js`** — cotangent-Laplacian mean curvature, UV rasterisation, seam dilation, and
   the encode/decode pair the shader has to agree with.
 - **`SkinMicroNormal.js`** — tileable band-limited value noise, differentiated into a normal map.
+- **`SkinRegions.js`** — the ARKit morph set read as a facial segmentation, plus a ray-cast tissue
+  thickness bake.
 
 One implementation, three readers (browser, CLI, selftest). `glb.mjs` is the eighty-line glTF
 accessor reader the curvature bake needs — deliberately not `GLTFLoader`, which wants a DOM.
@@ -42,8 +46,43 @@ accessor reader the curvature bake needs — deliberately not `GLTFLoader`, whic
 `SkinMaterial` squares R back. The square root is not decoration: a face's broad planes sit near
 0.005 /mm and a linear 8-bit encoding gives them **one** code value where the square root gives 17.
 
-⚠️ **Load it with `NoColorSpace`.** An sRGB decode on the way in applies a 2.4 gamma to a number the
-shader then squares, and every surface silently reports as far flatter than it is.
+⚠️ **Load it with `NoColorSpace` AND `flipY = false`.** An sRGB decode on the way in applies a 2.4
+gamma to a number the shader then squares, and every surface silently reports as far flatter than
+it is. The flip is the one that actually shipped: `TextureLoader` defaults `flipY` to true and
+`GLTFLoader` sets it false, so a baked map loaded the DOM way is sampled at `1 − v` against the
+albedo on the same mesh. Measured on the ear — 3.32–7.47 mm at `v`, 42.26–60.00 mm at `1 − v`.
+`SkinMaterial.loadDataMap()` sets both.
+
+## The region map
+
+```
+R = roughness, 0..1 linear          T-zone 0.36 · cheeks/eyelids 0.46 · lips 0.23 · body 0.50
+G = sqrt( thickness_mm / 60 )       shortest ray path through the tissue
+B = lip mask
+```
+
+Uncovered texels are filled with body defaults rather than zero — zero roughness is a mirror and
+zero thickness is tissue paper, and a bilinear tap that strays off an island would render one.
+
+**Roughness** comes from the ARKit 52, which is already an anatomical segmentation of the face:
+`mouthFunnel` is the lips, `noseSneerLeft` is the left alar rim, `eyeBlinkLeft` is the left lid. A
+vertex joins a region when a member target moves it by a stated fraction of that target's own
+stroke, and the fraction is per region because `jawOpen` peaks at 38.74 mm and `noseSneerLeft` at
+4.82 mm.
+
+🚩 **Judge a region by its extent in millimetres, not by its vertex count.** Three lip definitions
+in a row had plausible counts (372, 157, 365 of 14,517) and all three rendered as a grey goatee once
+an albedo tint was hung on them. The extent is what caught it: 57 mm, 25 mm-but-off-centre and
+69 mm against a vermillion's 20 mm. The shipped claim intersects `mouthFunnel` with a ±11 mm band
+about a lip seam measured PER FIGURE from where `jawOpen`'s vertical delta steps (−6.2 → −16.1 mm
+on `figure_g050`), and lands at 21.4 x 51.0 mm.
+
+**Thickness** is ray-cast: nine rays from ε under the surface into the body over a 40° cone, and
+the SHORTEST hit is the answer. Not the mean — transmitted radiance goes as `exp(−d/L)`, so a sum
+over paths is dominated by its shortest terms, and the mean puts the nose at 53.96 mm because rays
+fired inward from the nostril wing fly down the open nostril and out of the skull. Measured on
+`figure_g050`: ear **5.59 mm**, eyelid 5.37, lip 7.08, cheek 11.21, forehead 17.29, body median 19.
+The estimator answers a sphere of radius r with exactly 2r before it is pointed at a face.
 
 ### What the bake measures, and the number that matters
 
@@ -82,7 +121,7 @@ changes the body mesh:
 
 ```bash
 for f in g000 g025 g050 g075 g100; do
-  node tools/lut-bake/bake.mjs curvature --figure "assets/figures/figure_$f.glb"
+  node tools/lut-bake/bake.mjs curvature regions --figure "assets/figures/figure_$f.glb"
 done
 ```
 
