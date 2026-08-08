@@ -1,0 +1,14 @@
+{
+  "_about": "Regions for measure.mjs on packages/testbed/src/lighting.html at ?frame=portrait&bare, 900x1200. Each rect was probed and printed before it was trusted. packages/testbed/alive.html shares the same framing constants (26 deg FOV, 0.42 m portrait height, eye line a third from the top, camera 12 deg off axis), so the same file measures that page too.",
+  "units": "normalized",
+  "imageWidth": 900,
+  "regions": {
+    "sclera":           { "note": "G2. Character's LEFT eye (image right, key side), outboard of the iris, clear of the catchlight and limbal ring. 11x6 px is the honest sample: the eye is 40 px across at this framing.", "rects": [{ "x": 0.4033, "y": 0.3033, "w": 0.0122, "h": 0.0050 }] },
+    "cheek":            { "note": "G2. Reference skin directly under the same eye and the same key.", "rects": [{ "x": 0.3556, "y": 0.3333, "w": 0.0556, "h": 0.0250 }] },
+    "faceKey":          { "note": "G1. Mid-cheek on the key side. The rig's key is at azimuth +42 from the camera, i.e. image-right.", "rects": [{ "x": 0.4000, "y": 0.3850, "w": 0.0550, "h": 0.0350 }] },
+    "faceShadow":       { "note": "G1. Core shadow on the mirrored cheek, deliberately inboard of the silhouette: the rim's band is the outer ~9 px of that edge and a patch further out would measure the rim, not the fill.", "rects": [{ "x": 0.1750, "y": 0.3850, "w": 0.0550, "h": 0.0350 }] },
+    "flatCheek":        { "note": "G4. 45x48 px of the flattest evenly-lit skin, outboard of faceKey.", "rects": [{ "x": 0.4600, "y": 0.4000, "w": 0.0500, "h": 0.0400 }] },
+    "litSkin":          { "note": "G3. Key-lit skin lower on the cheek than faceKey, so the two gates stay independent.", "rects": [{ "x": 0.4000, "y": 0.4500, "w": 0.0500, "h": 0.0300 }] },
+    "shadowTerminator": { "note": "G3. Terminator band on the shadow-side cheek.", "rects": [{ "x": 0.1350, "y": 0.4400, "w": 0.0350, "h": 0.0300 }] }
+  }
+}

@@ -112,7 +112,7 @@ function measureAll(image, regions, spec, imagePath) {
   const gates = [
     measureKeyShadowRatio(image, regions),
     measureScleraAgainstCheek(image, regions),
-    measureTerminatorShift(image, regions),
+    measureTerminatorShift(image, regions, warnings),
     measureHighPassSigma(image, lumaField, regions, warnings),
     measureHighlightClipping(image, lumaField, regions),
     measureBlackPoint(image, lumaField, regions),
@@ -210,9 +210,21 @@ function measureScleraAgainstCheek(image, regions) {
 
 // G3 — the objective subsurface-scattering test. Physically wrong skin shading darkens toward
 // grey or blue; a pre-integrated skin profile pushes the terminator redder and more saturated.
-function measureTerminatorShift(image, regions) {
+function measureTerminatorShift(image, regions, warnings) {
   const litRegion = regions.litSkin;
   const shadowRegion = regions.shadowTerminator;
+
+  // G3 does not isolate a material. Measured during punch-list 3.2: under a rig that satisfies G1,
+  // three's stock MeshPhysicalNodeMaterial scores 0.2384 on the same regions and PASSES, while the
+  // skin shader's own off/on difference at the spec's 1.0–1.5 mm scatter distance changes 0.00% of
+  // skin pixels by more than one code value. Read a green G3 as a statement about the LIGHTING and
+  // the albedo; attribute a shading change with an off/on difference image instead.
+  if (warnings) {
+    warnings.push(
+      'G3 is a property of the whole picture, not of one material. It passes identically on three\'s stock MeshPhysicalNodeMaterial under any rig that satisfies G1, so it cannot certify a skin shader on its own — attribute a material with an off/on difference at the same regions.'
+    );
+  }
+
   if (!litRegion || !shadowRegion) {
     return skipGate('G3', 'terminator saturation and hue shift', 'needs regions "litSkin" and "shadowTerminator"');
   }
@@ -283,6 +295,13 @@ function measureHighPassSigma(image, lumaField, regions, warnings) {
       `G4 was measured at ${image.width} px wide but the reference sigma band was measured at ${TARGETS.highPassReferenceWidth} px. High-pass amplitude is scale-dependent and there is no sound rescaling law — capture at 4K for a comparable number.`
     );
   }
+
+  // The sigma is a high-pass of a SHADED surface, so it reads the lighting's response to the
+  // normal perturbation and not the perturbation itself. Measured during 3.2: one unchanged
+  // micro-normal moved from 1.72 to 2.06 as the fill fell from 0.7 to 0.3.
+  warnings.push(
+    'G4 is not independent of the rig: it high-passes a SHADED surface, so it measures the lighting\'s response to the normal perturbation. One unchanged micro-normal measured sigma 1.72 at fill 0.7 and 2.06 at fill 0.3. Quote a sigma with the rig it was measured under.'
+  );
 
   return {
     id: 'G4',

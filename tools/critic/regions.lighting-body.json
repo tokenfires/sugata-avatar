@@ -1,0 +1,12 @@
+{
+  "_about": "Regions for packages/testbed/src/lighting.html at ?frame=body&bare, 900x1200. G2 is deliberately ABSENT: the eye is about 8 px across at full-body framing and any sclera patch would be more lash and lid than sclera, so measure.mjs is left to SKIP it rather than be handed a number nobody should believe.",
+  "units": "normalized",
+  "imageWidth": 900,
+  "regions": {
+    "faceKey":          { "note": "G1. Key-side cheek. 14x13 px = 182 pixels, which is what a face IS at this framing; read the ratio with that sample size in mind.", "rects": [{ "x": 0.4833, "y": 0.1050, "w": 0.0156, "h": 0.0108 }] },
+    "faceShadow":       { "note": "G1. Shadow-side cheek, mirrored.", "rects": [{ "x": 0.4256, "y": 0.1050, "w": 0.0156, "h": 0.0108 }] },
+    "flatCheek":        { "note": "G4. Not a cheek at this framing — a 40x40 patch of flat chest, because the cheek is 20 px wide and G4 needs 16x16. Named for the gate, not the anatomy.", "rects": [{ "x": 0.4778, "y": 0.3583, "w": 0.0444, "h": 0.0333 }] },
+    "litSkin":          { "note": "G3. Key-side torso.", "rects": [{ "x": 0.5222, "y": 0.3333, "w": 0.0333, "h": 0.0250 }] },
+    "shadowTerminator": { "note": "G3. Shadow-side torso, on the turn.", "rects": [{ "x": 0.3944, "y": 0.3333, "w": 0.0333, "h": 0.0250 }] }
+  }
+}

@@ -5,11 +5,21 @@
  * *does the figure read as alive when it is silent and unshaded?* Everything here serves
  * being able to LOOK at that honestly.
  *
- *   - The figure is lit by the portrait rig the look spec asks for — four RectAreaLights at a
- *     key:fill around 1.5:1, rim and kicker hue-opposed to the key. Four is the measured budget
- *     (0.265 ms + 0.618 ms per Mpx lit, per light: 3.6 ms at 1080p), and no more than four are
- *     ever in the scene, because a light left in the scene still costs a slot in the generated
- *     lighting loop even when it is invisible.
+ *   - The figure is lit by `render/LightingRig.js` — the same four RectAreaLights the look spec
+ *     asks for, but authored as IRRADIANCE AT THE FOCUS rather than as raw `intensity`, which is
+ *     what makes key:fill a design decision instead of an accident of panel geometry. This page
+ *     used to carry its own inline rig; two of that rig's own comments were measurably wrong (the
+ *     four typed intensities did not express a ratio at all — the fill panel subtends 2.485× the
+ *     key's solid angle — and the full-body rim measured 1 px of band, i.e. none). Four lights is
+ *     still the measured budget: 0.265 ms + 0.618 ms per Mpx lit, per light, 3.6 ms at 1080p.
+ *     Exactly one of them — the key — carries a co-located shadow-casting SpotLight, because a
+ *     shadow pass measures 2.62 ms and four of them would cost 77% of the frame.
+ *
+ *   - The body wears `material/SkinMaterial.js` (punch-list 3.2) and the two eye shells wear
+ *     `material/EyeMaterial.js` (3.3/3.4). Before this they were the raw GLB materials, and a
+ *     glaring white sclera is on the punch list's standing-constraints list as explicitly wrong.
+ *     ?skin=0 and ?eyes=0 put the shipped GLB materials back, which is the A side of every
+ *     comparison a judge is asked to make about the shading.
  *
  *   - It is framed as a portrait: crown to mid-chest, 30° FOV, camera at eye level and 12° off
  *     axis. That framing is not decoration. Blink and gaze are only readable when the eyes are
@@ -52,6 +62,9 @@
  *                   needing a human to drag a slider. Same for ?load and ?attention.
  *   ?capture        stop the frame loop and hand the clock to `window.__SUGATA_STEP__`, so
  *                   tools/critic/capture.mjs can drive the page one fixed step at a time.
+ *   ?skin=0         body keeps the shipped GLB material — the control for punch-list 3.2
+ *   ?eyes=0         eye shells keep their shipped GLB materials — the control for 3.3/3.4
+ *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
  */
 
 import {
@@ -59,14 +72,19 @@ import {
     Mesh,
     MeshStandardNodeMaterial,
     PlaneGeometry,
-    RectAreaLight,
-    RectAreaLightNode,
     Vector3
 } from 'three/webgpu';
 import { Box3 } from 'three';
-import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
+import { LightingRig } from '../../core/src/render/LightingRig.js';
+import { EyeMaterial } from '../../core/src/material/EyeMaterial.js';
+import { buildEyeOcclusion } from '../../core/src/material/EyeOcclusion.js';
+import {
+    applySkinMaterial,
+    createSkinMaterial,
+    curvatureMapUrlFor
+} from '../../core/src/material/SkinMaterial.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
 import { RestPose } from '../../core/src/figure/RestPose.js';
@@ -117,61 +135,24 @@ const BODY_FRAME_MARGIN = 1.10;
 // The posture the figure stands in when no URL says otherwise.
 const DEFAULT_REST_POSE = 'relaxed-standing';
 
-// --- the lighting rig ------------------------------------------------------------------------
-
-/**
- * Key / fill / rim / kicker, positioned relative to the framed focus point so the rig travels
- * with the figure when a different bake changes its height.
- *
- * The numbers come from docs/research/stellar-blade-look-spec.md § Lighting rig: key broad and
- * soft about 45° off axis and slightly above the eyeline; fill large and strong, one stop under;
- * rim and kicker hue-opposed to the key, winning on saturation rather than on brightness. The
- * figure's own axes are +X to the character's left, +Z forward, so +X here is camera left.
- *
- * ⚠️ RectAreaLight casts no shadow — three.js has never implemented it and the issue has been
- * open since 2018. Contact shadow is punch-list 3.9; nothing here fakes it.
- */
-const LIGHTING_RIG = [
-    {
-        name: 'key',
-        offsetMetres: [ 0.90, 0.45, 0.95 ],
-        sizeMetres: [ 0.85, 1.20 ],
-        colour: 0xfff0dc,
-        intensity: 5.5
-    },
-    {
-        name: 'fill',
-        offsetMetres: [ -1.05, 0.10, 0.85 ],
-        sizeMetres: [ 1.60, 1.60 ],
-        colour: 0xbcd4ff,
-        intensity: 1.9
-    },
-    {
-        name: 'rim',
-        offsetMetres: [ -0.75, 0.55, -0.90 ],
-        sizeMetres: [ 0.45, 1.10 ],
-        colour: 0x8fb6ff,
-        intensity: 16
-    },
-    {
-        name: 'kicker',
-        offsetMetres: [ 0.95, -0.10, -0.80 ],
-        sizeMetres: [ 0.35, 1.00 ],
-        colour: 0xffbe8c,
-        intensity: 10
-    }
-];
+// --- the backdrop ----------------------------------------------------------------------------
 
 /**
  * The backdrop. The look spec wants it 1.5–2.0 stops below the subject, cooler and desaturated —
  * a black void is as wrong as a blown one, because the silhouette then has nothing to separate
  * from and the head reads as a cut-out.
  *
- * It is EMISSIVE rather than lit, and that is a deliberate stand-in, not an oversight. Every one
- * of the four RectAreaLights emits toward the figure; a RectAreaLight is single-sided, so the two
- * behind the figure throw their light forward, away from anything further back. Lighting a card
- * properly would mean a fifth light, and four is the measured budget. So the card states its own
- * value directly. Replace it with a real bounce when LightingRig (punch-list 3.8) lands.
+ * Its base colour is BLACK and its emissive carries the whole value, so the card states its own
+ * exposure and the rig cannot touch it. That is deliberate, and the reason recorded here before
+ * was wrong in a way worth correcting: it said a RectAreaLight behind the figure "throws its light
+ * forward, away from anything further back", so lighting a card would need a fifth light. The key
+ * and the fill do point at the card and would light it perfectly well. The real obstacle, isolated
+ * by execution on the lighting browsercheck, is that a RectAreaLight illuminates only the
+ * half-space in FRONT OF ITS OWN PLANE, with a hard cut at the plane — on a curved subject that
+ * boundary is invisible, but across a large flat card behind the figure the rim and kicker draw a
+ * straight-edged wedge. Rim and kicker at zero give a clean backdrop; rim and kicker alone give
+ * black plus one hard wedge. A black-albedo emissive card cannot show that seam at all, which is
+ * why this one stays as it is rather than becoming a lit surface with the arrival of 3.8.
  */
 const BACKDROP_EMISSIVE = 0x11151f;
 const BACKDROP_DISTANCE_METRES = 1.9;
@@ -195,10 +176,9 @@ async function boot() {
 
     stage.scene.background = new Color( 0x08080a );
 
-    // RectAreaLight needs its linearly-transformed-cosine tables installed before first use. On
-    // the WebGPU path they go in through RectAreaLightNode; without this the lights contribute
-    // nothing at all and the figure renders black.
-    RectAreaLightNode.setLTC( RectAreaLightTexturesLib.init() );
+    // The linearly-transformed-cosine tables every RectAreaLight needs before first use are
+    // installed by LightingRig.attachTo(); without them the lights contribute nothing at all and
+    // the figure renders black, which looks exactly like a broken material.
 
     const bare = query.has( 'bare' );
 
@@ -212,7 +192,6 @@ async function boot() {
 
     }
 
-    const lights = buildLightingRig( stage );
     const backdrop = buildBackdrop( stage );
 
     const poseName = query.get( 'pose' ) ?? DEFAULT_REST_POSE;
@@ -230,8 +209,27 @@ async function boot() {
         restPose: poseName === 'bind' ? null : RestPose.load( poseName ),
         frameMode: query.get( 'frame' ) === 'body' ? 'body' : 'portrait',
         heightOverride: query.has( 'height' ) ? Number( query.get( 'height' ) ) : null,
-        framedHeightMetres: PORTRAIT_HEIGHT_METRES
+        framedHeightMetres: PORTRAIT_HEIGHT_METRES,
+
+        // The shading. Both are rebuilt per bake, because every constant in them is measured off
+        // the mesh that is actually loaded: EyeMaterial fits the sclera sphere, the corneal axis
+        // and the iris plane at construction, and the curvature map is baked per figure.
+        skinEnabled: query.get( 'skin' ) !== '0',
+        eyesEnabled: query.get( 'eyes' ) !== '0',
+        skin: null,
+        eyes: null,
+        eyeOcclusion: null
     };
+
+    // The rig is preset per framing, not scaled from one. The portrait rim azimuth measures 1 px
+    // of band on a full-body thigh — no band at all — which is the open lead PROGRESS.md records
+    // as "rim and kicker stop reading at body scale".
+    const lights = new LightingRig( {
+        preset: session.frameMode,
+        shadows: query.get( 'shadows' ) !== '0'
+    } );
+
+    lights.attachTo( stage.scene, stage.renderer );
 
     const stack = new MotionStack( { seed: Number( query.get( 'seed' ) ?? 20260807 ) } );
 
@@ -272,10 +270,18 @@ async function boot() {
 
     for ( const layer of Object.values( layers ) ) stack.add( layer );
 
-    // No eye shader yet (punch-list 3.3), so pupil dilation has nowhere to land on this asset.
-    // Reading it through the same sink a material will use proves the hook is live.
+    // Pupil dilation lands on the eye shader's own uniform. Written through a sink rather than
+    // through `pupil.driveUniform` on purpose: the gender dial rebuilds `session.eyes`, and
+    // `driveUniform` appends to a list with no way to remove an entry, so every swap would leave
+    // a dead uniform being written for the rest of the session. One sink, added once, reads
+    // whichever eye material is current.
     let pupilScale = 1;
-    pupil.addSink( ( scale ) => { pupilScale = scale; } );
+    pupil.addSink( ( scale ) => {
+
+        pupilScale = scale;
+        if ( session.eyes !== null ) session.eyes.pupilScaleUniform.value = scale;
+
+    } );
 
     const trace = createTrace( document.getElementById( 'trace' ) );
     if ( bare || query.get( 'trace' ) === '0' ) trace.setVisible( false );
@@ -302,6 +308,19 @@ async function boot() {
     const advanceSimulation = ( deltaSeconds ) => {
 
         stack.update( deltaSeconds );
+
+        // The eye frame is rebuilt from the head bone's WORLD matrix and from this frame's
+        // eyeLook* morph weights, so it has to run after the stack has committed both — and after
+        // the world matrices have been brought up to date. The renderer would do that itself, but
+        // only during render(), which is one frame too late: read there, the eye would look where
+        // the head was last frame. A 7-mesh, 53-bone subtree costs nothing to walk.
+        if ( session.eyes !== null ) {
+
+            session.figure.root.updateMatrixWorld( true );
+            session.eyes.update();
+
+        }
+
         trace.push( deltaSeconds, sampleSignals( stack, layers, samplers ) );
 
     };
@@ -401,7 +420,9 @@ async function boot() {
         frame: ( heightMetres, mode = session.frameMode ) => {
 
             const framed = frameFigure( stage, session.figure, { mode, heightMetres } );
-            aimLightingRig( lights, framed.focus, framed.distanceMetres / portraitDistanceMetres() );
+
+            lights.setPreset( mode === 'body' ? 'body' : 'portrait' );
+            aimRigAt( lights, session, framed.focus, heightMetres, stage );
 
         }
     };
@@ -488,67 +509,30 @@ function takeOverFrameLoop( renderer ) {
 }
 
 /**
- * Four RectAreaLights, parked at the origin. `aimLightingRig` moves them once the figure's height
- * is known. They are added to the scene once and never removed, because the rig is fixed at four.
+ * Aims the rig at the shot, and hands the eye shader the key's direction.
+ *
+ * `aimAt` wants the framed height rather than the figure's stature — a 0.42 m portrait crop and a
+ * 1.87 m full-body frame are different shots of the same person and want different rigs — and it
+ * wants the camera, because every placement azimuth is measured from the camera direction rather
+ * than from the world axes. That is what makes the same key:fill hold at both framings.
+ *
+ * The eye's analytic iris caustic is computed against one key direction, and its default is the
+ * inline rig this page used to carry. Left unset it would light the iris from a key that is no
+ * longer there.
  */
-function buildLightingRig( stage ) {
+function aimRigAt( lights, session, focus, framedHeightMetres, stage ) {
 
-    return LIGHTING_RIG.map( ( placement ) => {
+    lights.aimAt( { focus, subjectHeightMetres: framedHeightMetres, cameraPosition: stage.camera.position } );
 
-        const light = new RectAreaLight(
-            placement.colour,
-            placement.intensity,
-            placement.sizeMetres[ 0 ],
-            placement.sizeMetres[ 1 ]
-        );
+    if ( session.eyes === null ) return;
 
-        light.name = placement.name;
-        stage.add( light );
+    const key = lights.units.find( ( unit ) => unit.placement.name === 'key' );
+    if ( key === undefined ) return;
 
-        return { light, placement };
-
-    } );
-
-}
-
-/**
- * Points every light at the focus point the camera is framing, and scales the rig to the subject.
- *
- * The offsets in LIGHTING_RIG are authored for a head half a metre across. Aimed at a whole body
- * from the same half-metre standoff, the key panel is inside the figure's own silhouette: the
- * chest blows out and the legs fall into black. So the rig grows with the camera's distance.
- *
- * Panel SIZE scales with the offsets and intensity does not, which is the physically right pairing
- * and worth stating because the instinct is to brighten. A RectAreaLight's intensity is a
- * radiance; the irradiance it delivers goes as the solid angle it subtends, which is area over
- * distance squared. Scale both by the same factor and that ratio is unchanged — the subject keeps
- * its exposure and, more importantly, keeps the same shadow softness relative to its own size.
- *
- * @param {number} scale - camera distance over the portrait distance the offsets were authored at.
- */
-function aimLightingRig( lights, focus, scale = 1 ) {
-
-    for ( const { light, placement } of lights ) {
-
-        light.position.set(
-            focus.x + placement.offsetMetres[ 0 ] * scale,
-            focus.y + placement.offsetMetres[ 1 ] * scale,
-            focus.z + placement.offsetMetres[ 2 ] * scale
-        );
-
-        light.width = placement.sizeMetres[ 0 ] * scale;
-        light.height = placement.sizeMetres[ 1 ] * scale;
-
-        light.lookAt( focus.x, focus.y, focus.z );
-
-    }
-
-}
-
-/** The camera distance LIGHTING_RIG's offsets were authored against — the portrait standoff. */
-function portraitDistanceMetres() {
-
-    return ( PORTRAIT_HEIGHT_METRES / 2 ) / Math.tan( ( PORTRAIT_FIELD_OF_VIEW_DEGREES / 2 ) * Math.PI / 180 );
+    session.eyes.keyLightDirectionUniform.value
+        .copy( key.area.position )
+        .sub( focus )
+        .normalize();
 
 }
 
@@ -592,6 +576,26 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
 
     }
 
+    // The skin material is built BEFORE the old figure comes out of the scene, because building it
+    // fetches this bake's own baked curvature map and a fetch is another chance for a newer load
+    // to overtake this one. Doing it here means the page never shows a gap.
+    const skin = session.skinEnabled
+        ? await createSkinMaterial( {
+            albedoMap: figure.body.material.map ?? null,
+            curvatureMapUrl: curvatureMapUrlFor( bakeNameFrom( plan.figures[ 0 ].url ) )
+        } )
+        : null;
+
+    if ( token !== session.loadToken ) {
+
+        skin?.dispose();
+        figure.dispose();
+        return;
+
+    }
+
+    disposeShading( session );
+
     if ( session.figure !== null ) {
 
         stage.scene.remove( session.figure.root );
@@ -622,21 +626,104 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
     session.skeleton = skeleton;
     session.target = createMotionTarget( figure.root );
 
+    applyShading( session, skin );
+
     stack.bind( session.target );
 
     // Measured after posing, because the pose changes the figure's height by centimetres.
     session.framedHeightMetres = framedHeightFor( figure, session.frameMode, session.heightOverride );
 
-    const { focus, distanceMetres } = frameFigure( stage, figure, {
+    const { focus } = frameFigure( stage, figure, {
         mode: session.frameMode,
         heightMetres: session.framedHeightMetres
     } );
 
-    aimLightingRig( lights, focus, distanceMetres / portraitDistanceMetres() );
+    aimRigAt( lights, session, focus, session.framedHeightMetres, stage );
 
     // The card does not move with the rig. It is emissive, so distance costs it nothing, and at
     // 8 x 6 m it still fills a full-body frame from 1.9 m behind the subject.
     backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+
+}
+
+/** The bake's own name — `figure_g050` — which is what the curvature map is keyed on. */
+function bakeNameFrom( url ) {
+
+    return url.slice( url.lastIndexOf( '/' ) + 1 ).replace( '.glb', '' );
+
+}
+
+/**
+ * Puts the two Phase 3 materials on the figure that has just landed.
+ *
+ * Both are per-bake and neither is cheap to rebuild, which is why they live on `session` rather
+ * than being constructed once at boot: `EyeMaterial` fits the sclera sphere, the corneal axis, the
+ * iris plane and the eight gaze rotations off the mesh in front of it, and the curvature map is a
+ * different PNG per figure. A material built against g050 and left on g100 would be describing a
+ * different eye.
+ *
+ * ⚠️ `markAsSkin` is deliberately NOT called. It writes `material.mrtNode`, and a material
+ * carrying one cannot be forward-rendered — `NodeMaterial.setup` uses it alone against the
+ * unnamed intermediate target every tone-mapped canvas frame allocates, emits an empty WGSL
+ * output struct, and the object silently stops drawing (LEARNINGS Part 2, GBuffer.js). This page
+ * is on the forward path: `stage.create` is called without `pipeline: true`, because the deferred
+ * G-buffer would change the render path every Phase 2 motion number was measured against, and
+ * nothing here consumes a G-buffer channel yet.
+ *
+ * Shadows are switched on per mesh here rather than at load, because the rig's shadow half is the
+ * only thing that wants them and a figure with `castShadow` false produces a perfectly configured
+ * shadow map of nothing at all.
+ */
+function applyShading( session, skin ) {
+
+    const figure = session.figure;
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+        object.castShadow = true;
+        object.receiveShadow = true;
+
+    } );
+
+    if ( skin !== null ) {
+
+        applySkinMaterial( figure, skin );
+        session.skin = skin;
+
+    }
+
+    if ( session.eyesEnabled === false ) return;
+
+    // Not fatal if it throws: a figure built with the superseded single-shell eye proxy has no
+    // corneal dome to refract through, and the page is more useful reporting that in the console
+    // and rendering the GLB's own eye than it is refusing to boot.
+    try {
+
+        const eyes = new EyeMaterial( { figure } );
+        eyes.attach();
+
+        session.eyes = eyes;
+        session.eyeOcclusion = buildEyeOcclusion( { figure, geometry: eyes.geometry } );
+
+    } catch ( error ) {
+
+        console.warn( `eye material not applied: ${ error.message }` );
+
+    }
+
+}
+
+/** Drops whatever the previous bake was wearing. Called before the figure itself is disposed. */
+function disposeShading( session ) {
+
+    session.eyeOcclusion?.dispose();
+    session.eyes?.dispose();
+    session.skin?.dispose();
+
+    session.eyeOcclusion = null;
+    session.eyes = null;
+    session.skin = null;
 
 }
 
@@ -648,6 +735,11 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
  * pipeline now exports all seven meshes skinned and only the brow and lash cards non-opaque. A
  * check replaces them: if a regressed bake is ever dropped in, the HUD says so in words instead
  * of the page quietly gluing the face back on and hiding it.
+ *
+ * Materials this page installed are skipped, and the distinction is the whole point of the check:
+ * it is an account of the ASSET, and a blend that Phase 3 chose is not a defect in the bake. The
+ * corneal shell is deliberately transparent with depth writing off, so without this it would raise
+ * a permanent false alarm on the one line a judge reads to find real ones.
  *
  * @returns {string} one HUD line — the asset's own account of itself.
  */
@@ -663,6 +755,7 @@ function describeAsset( figure ) {
         const materials = Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ];
         for ( const material of materials ) {
 
+            if ( material.name?.startsWith( 'sugata.' ) === true ) continue;
             if ( material.transparent === true ) blended.push( `${ mesh.name }/${ material.name }` );
 
         }
@@ -898,7 +991,9 @@ function describeState( stage, stack, layers, session, pupilScale ) {
         `face     brow ${ faceEvents.browRaise }/${ faceEvents.browFurrow }` +
             `   lip press ${ faceEvents.lipPress }   swallow ${ faceEvents.swallow }`,
         `pupil    scale ${ pupilScale.toFixed( 3 ) }   ${ layers.pupil.physiologicalDiameterMillimetres.toFixed( 2 ) } mm` +
-            `   (no pupil morph on this asset)`
+            `   ${ session.eyes === null ? '(no eye shader — nowhere to land)' : 'on EyeMaterial.pupilScaleUniform' }`,
+        `shading  skin ${ session.skin === null ? 'OFF (shipped GLB material)' : 'SkinMaterial' }` +
+            `   eyes ${ session.eyes === null ? 'OFF (shipped GLB materials)' : 'EyeMaterial + occlusion' }`
     ].join( '\n' );
 
 }
