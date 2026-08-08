@@ -1,0 +1,62 @@
+{
+  "figure": "assets/figures/figure_g075.glb",
+  "mesh": "base.001",
+  "vertexCount": 14517,
+  "triangleCount": 26756,
+  "mapSize": 1024,
+  "encoding": {
+    "red": "sqrt( max(H,0) / max ) — convex mean curvature",
+    "green": "sqrt( max(-H,0) / max ) — concave mean curvature",
+    "blue": "unused, reserved",
+    "maxPerMillimetre": 1
+  },
+  "uvCoverageFraction": 0.624201774597168,
+  "dilatedTexels": 96470,
+  "curvaturePerMillimetre": {
+    "min": -1.8005646799755113,
+    "p01": -0.28060120936426436,
+    "p10": -0.05187576070893458,
+    "median": 0.01335623554125518,
+    "p90": 0.11449334913457385,
+    "p99": 0.3900264883155931,
+    "max": 1.0387093390369746,
+    "positiveFraction": 0.7726803058483158
+  },
+  "headCurvaturePerMillimetre": {
+    "min": -1.8005646799755113,
+    "p01": -0.3949038184517295,
+    "p10": -0.10477462815571509,
+    "median": 0.004649473598400528,
+    "p90": 0.1495464113938264,
+    "p99": 0.42684977875510277,
+    "max": 0.8530226891587964,
+    "positiveFraction": 0.5497972059486255
+  },
+  "headVertexCount": 4438,
+  "sphereChecks": [
+    {
+      "radiusMillimetres": 50,
+      "expectedPerMillimetre": 0.02,
+      "measuredMedian": 0.02000681731724854,
+      "error": 0.00034086586242695893,
+      "signCorrect": true
+    },
+    {
+      "radiusMillimetres": 2,
+      "expectedPerMillimetre": 0.5,
+      "measuredMedian": 0.5001704329312113,
+      "error": 0.0003408658624226568,
+      "signCorrect": true
+    },
+    {
+      "shape": "plane",
+      "radiusMillimetres": null,
+      "expectedPerMillimetre": 0,
+      "measuredMedian": 0,
+      "interiorMaxPerMillimetre": 0,
+      "boundaryMaxPerMillimetre": 0.06788225099390857,
+      "error": 0,
+      "signCorrect": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "note": "PREVIEW ONLY. SkinMaterial builds this table in float at load; nothing fetches the PNG.",
+  "width": 128,
+  "height": 64,
+  "ringSamples": 256,
+  "maxRingCurvature": 2,
+  "vAxis": "sqrt( ringCurvature / maxRingCurvature )",
+  "uAxis": "dotNL * 0.5 + 0.5",
+  "publishedProfileRmsRadiiMillimetres": [
+    1.6630503299659936,
+    0.3691324965374899,
+    0.22258571382728046
+  ],
+  "publishedProfileRatio": [
+    1,
+    0.22196110958652587,
+    0.1338418385881514
+  ],
+  "specChannelRatio": [
+    1,
+    0.35,
+    0.22
+  ],
+  "appliedRadialScales": [
+    0.6013047121793651,
+    0.9481690267940233,
+    0.9883832893727992
+  ],
+  "buildMilliseconds": 22.077292000000003
+}
