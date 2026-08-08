@@ -23,9 +23,10 @@
  *   2. Full closure.  Trutoiu found partial-closure blinks are consistently rated as wrong.
  *                     A complete blink therefore reaches exactly full closure, and the frame that
  *                     crosses into it is snapped so a 60 Hz sampler can never skip over it. "Full
- *                     closure" is a statement about the LID, not about the morph slider: on this
- *                     asset the eye is sealed at weight 0.735 and everything above that drives the
- *                     lid through the lower one. See FULL_CLOSURE_MORPH_WEIGHT.
+ *                     closure" is a statement about the LID, not about the morph slider: the eye
+ *                     is sealed at weight 0.681-0.750 across the gender sweep and everything above
+ *                     that drives the lid through the lower one. See FULL_CLOSURE_MORPH_WEIGHT,
+ *                     which carries the measured table and the 0.752 the layer drives to.
  *   2b. Varying amplitude. Blinks are not all the same size, and a run of identical ones is the
  *                     loudest tell this layer can produce — a 20-second capture once held eleven
  *                     blinks with a single peak value between them. Amplitude is a MIXTURE: most
@@ -40,6 +41,57 @@
  *                     dopamine function: visual attention lowers it, working-memory load
  *                     raises it. `setAttention()` and `setCognitiveLoad()` are therefore real
  *                     signal channels for Phase 5, not decoration.
+ *
+ * AND THE ARRIVALS ARE IN SIMULATED TIME, NOT IN FRAMES
+ * -----------------------------------------------------
+ * 🎯 THIS LAYER WAS THE FOURTH FRAME-COUPLED ONE, AND IT COUPLED BY A DIFFERENT MECHANISM FROM
+ * THE OTHER THREE, WHICH IS WHY THE AUDIT THAT FOUND THEM MISSED IT.
+ *
+ * `Gaze`, `FacialIdle` and `HandIdle` couple through `Signals.poissonEventOccurs` — one random
+ * draw per FRAME, so their draw RATE scales with the frame rate and an instrumented count finds
+ * them immediately (LEARNINGS §1.13). Blink never called it. It drew one interval per blink, so
+ * its draw rate is flat — measured 2.1 draws/s at 30, 60 and 120 Hz — and it was frame-coupled
+ * anyway, because it counted the interval down against dt and re-armed with `= interval`,
+ * THROWING AWAY THE NEGATIVE OVERSHOOT. Every interval was therefore rounded UP to the next whole
+ * frame, which adds a mean of dt/2 to each one.
+ *
+ * That is a systematic drift, not sampling error, and it measures exactly what the arithmetic
+ * predicts. Seed 1, 600 s, `figure_g050` in relaxed standing, blink onsets detected on
+ * `elapsed >= 0`:
+ *
+ *     blink count 30 / 60 / 120 Hz     206 / 207 / 207
+ *     first onset (s)                  0.9667 / 0.9500 / 0.9417
+ *     onset #206 (s)                   593.3000 / 591.5833 / 590.6833
+ *     last-onset drift, 30 - 120 Hz    2.6167 s over 206 blinks = 12.70 ms per blink
+ *
+ * A countdown that fires on the first frame at or past zero realises `ceil(interval / dt) * dt`,
+ * so it adds a mean of dt/2 per interval: 16.67 ms at 30 Hz against 4.17 ms at 120 Hz, a predicted
+ * 12.50 ms of drift per blink. Measured 12.70 ms (seed 1, 600 s) and 12.59 ms (seed 20260807).
+ * Confirmed directly by instrumenting both quantities over 3000 s at seed 1 — mean REALISED
+ * interval minus mean SAMPLED interval, which isolates the rounding from everything else:
+ *
+ *     rate      30 Hz     60 Hz    120 Hz    480 Hz
+ *     excess   29.68 ms  21.03 ms  16.66 ms  13.32 ms
+ *     vs 480    16.36     7.71      3.34        —          against a dt/2 of 16.67 / 8.33 / 4.17
+ *
+ * The 13.32 ms that survives at 480 Hz is the deferral rule, which is a real part of the model and
+ * is not frame-coupled; it puts the realised rate ~0.45% under the sampled one at every rate.
+ *
+ * The visible consequence is total. Comparing the two runs at the instants they SHARE — every
+ * 1/30 s — the worst disagreement in eyelid closure was **1.000000**: one frame rate has the eye
+ * fully shut where the other has it fully open. The judge captures at 30 fps and every ocular gate
+ * ran at 60 Hz, so this file's 51 checks were describing a blink train the camera never rendered.
+ *
+ * The fix is the same shape as `Sway`'s: a `Signals.PoissonSchedule` on its OWN forked stream,
+ * with the frame walked in sub-intervals cut at each arrival, so a blink begins at the instant it
+ * was drawn for rather than at the next frame boundary. Two consequences worth knowing:
+ *
+ *   - The rate is now integrated rather than frozen. The old code sampled the interval at the rate
+ *     in force when the PREVIOUS blink started, so an agent whose cognitive load spiked mid-interval
+ *     still waited out an interval drawn at the resting rate. `PoissonSchedule` consumes waiting
+ *     time at `rate x seconds`, which is the standard time-rescaling and is correct under a rate
+ *     that changes.
+ *   - The closure snap moved from the TIMELINE to the SAMPLE. See renderedClosure().
  *
  * A NOTE ON THE RECORDED RANGES
  * -----------------------------
@@ -68,6 +120,7 @@
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
+import { PoissonSchedule } from './Signals.js';
 
 // --- kinematics, measured (research §4) --------------------------------------------------------
 
@@ -218,6 +271,13 @@ const RIGHT_EYELID_MORPH = 'eyeBlinkRight';
 
 const SECONDS_PER_MINUTE = 60;
 
+// The frame is cut at the instant a blink finishes so a deferred arrival can start exactly there.
+// That step is computed as `blinkDuration() - elapsed` and then added back on, and the round trip
+// lands a few ulps either side of the end; without a tolerance the walk would spin on
+// sub-femtosecond steps. Same reasoning, and the same magnitude, as `Signals.WAIT_EPSILON` — ten
+// orders of magnitude under the shortest real quantity in this file, the 10 ms closed hold.
+const BLINK_END_EPSILON_SECONDS = 1e-12;
+
 export class Blink extends Layer {
 
     /**
@@ -230,13 +290,17 @@ export class Blink extends Layer {
      *   reading figure is 1.4–14.4/min, primary gaze 8.0–21.0/min.
      * @param {Object} [options.saccadeCoupling] - See SACCADE_COUPLING_DEFAULTS.
      * @param {number} [options.unilateralProbability=0.02]
-     * @param {number} [options.fullClosureMorphWeight=0.735] - The morph weight at which THIS
+     * @param {number} [options.fullClosureMorphWeight=0.752] - The morph weight at which THIS
      *   asset's lid is fully shut. Measure it before changing it; see FULL_CLOSURE_MORPH_WEIGHT.
      * @param {number} [options.partialBlinkProbability=0.3] - Share of blinks that do not close
      *   fully. Raise it for a drowsy or distracted character; zero it for a stylised one.
      * @param {number[]} [options.partialClosureRange=[0.6, 0.95]] - How far those close, as a
      *   fraction of full closure. Never above 1: past full closure the lash cards punch through
      *   the lower lid, which is what fullClosureMorphWeight exists to stop.
+     * @param {boolean} [options.frameQuantisedArrivals=false] - 🚩 REBUILDS THE DEFECT. Restores
+     *   the countdown-with-dropped-remainder this layer shipped with, and the timeline write-back
+     *   form of the closure snap, so the frame-rate invariance gate has something to reject
+     *   (docs/LEARNINGS.md §1.1). Never set it in an application.
      */
     constructor( options = {} ) {
 
@@ -257,6 +321,7 @@ export class Blink extends Layer {
         this.fullClosureMorphWeight = options.fullClosureMorphWeight ?? FULL_CLOSURE_MORPH_WEIGHT;
         this.partialBlinkProbability = options.partialBlinkProbability ?? PARTIAL_BLINK_PROBABILITY;
         this.partialClosureRange = [ ...( options.partialClosureRange ?? PARTIAL_CLOSURE_RANGE ) ];
+        this.frameQuantisedArrivals = options.frameQuantisedArrivals === true;
 
         // Drive signals, 0..1, written by the affect/attention system in Phase 5.
         this.cognitiveLoad = 0;
@@ -277,7 +342,23 @@ export class Blink extends Layer {
         this.leftLidParticipation = 1;
         this.rightLidParticipation = 1;
 
+        // The arrival process, built at bind time because `this.random` does not exist until the
+        // stack forks it. Its own forked stream, so the intervals between blinks are decided by
+        // the seed alone and never by how the shape draws happen to interleave with them.
+        this.arrivals = null;
+
+        // An arrival that lands inside a blink already in flight. It is held rather than dropped,
+        // and fired at the exact instant that blink finishes — see advanceTimeline().
+        this.arrivalPending = false;
+
+        // Where the current blink stood when this frame began, so the closure snap can tell
+        // whether the frame is about to step over full closure. -1 outside a blink; set to 0 by
+        // beginBlink() for a blink that started part way through the frame.
+        this.phaseAtFrameStart = -1;
+
+        // 🚩 Only the rebuilt-defect path uses these two. See frameQuantisedArrivals.
         this.secondsUntilNextBlink = 0;
+        this.lastSampledInterval = 0;
 
         // Aperture, not morph weight: 0 open, 1 shut. Published to the rest of the stack in these
         // units too, because "how shut are the eyes" is an answer about the eye, not about this
@@ -286,8 +367,12 @@ export class Blink extends Layer {
 
         // Diagnostics. The selftest reads these; so does the critic harness.
         this.blinkCount = 0;
-        this.lastSampledInterval = 0;
         this.lastBlinkWasUnilateral = false;
+
+        // Whether THIS frame's reported closure was pulled back to the instant of closure. It is
+        // the one place two frame rates are entitled to disagree, so the invariance gate needs to
+        // be told which frames those are rather than re-deriving the rule and agreeing with itself.
+        this.closureWasSnapped = false;
 
         // Preallocated so a running frame allocates nothing, and so any layer holding a reference
         // sees this frame's values without a lookup.
@@ -299,10 +384,17 @@ export class Blink extends Layer {
      * The clock is armed here and nowhere else. `reset()` deliberately does not draw, because the
      * stack calls `reset()` and then `onBind()`; drawing in both would advance the layer's stream
      * one sample further on a reset run than on a fresh one, and the two runs would diverge.
+     *
+     * Rebuilt on every bind rather than in the constructor for two reasons: `this.random` does not
+     * exist until the stack forks it, and `MotionStack.reset()` rewinds the stream and then calls
+     * `onBind()` again — so a reset genuinely replays the same arrivals.
      */
     onBind() {
 
-        this.scheduleNextBlink();
+        this.arrivals = new PoissonSchedule( this.random.fork( 'arrival' ) );
+        this.arrivalPending = false;
+
+        if ( this.frameQuantisedArrivals ) this.scheduleNextBlinkTheOldWay();
 
     }
 
@@ -310,10 +402,11 @@ export class Blink extends Layer {
 
     update( deltaSeconds, context ) {
 
-        this.advanceSchedule( deltaSeconds );
-        this.advanceBlinkInFlight( deltaSeconds );
+        this.phaseAtFrameStart = this.elapsed;
 
-        this.closure = this.eyelidClosureAt( this.elapsed );
+        this.advanceTimeline( deltaSeconds );
+
+        this.closure = this.renderedClosure();
 
         this.publishedState.closure = this.closure;
         this.publishedState.isBlinking = this.elapsed >= 0;
@@ -406,6 +499,7 @@ export class Blink extends Layer {
         if ( this.random.chance( ramp * maximumProbability ) === false ) return false;
 
         this.beginBlink();
+        this.rearmArrivalClock();
         return true;
 
     }
@@ -423,6 +517,7 @@ export class Blink extends Layer {
         if ( this.elapsed >= 0 ) return false;
 
         this.beginBlink( options.unilateral, options.closureAmplitude );
+        this.rearmArrivalClock();
         return true;
 
     }
@@ -499,45 +594,166 @@ export class Blink extends Layer {
         this.cognitiveLoad = 0;
         this.attention = 0;
         this.blinkCount = 0;
-        this.lastSampledInterval = 0;
         this.lastBlinkWasUnilateral = false;
+        this.closureWasSnapped = false;
+        this.phaseAtFrameStart = -1;
+        this.arrivalPending = false;
+
+        // Left alone on purpose: the schedule is rebuilt in onBind(), which the stack calls
+        // immediately after this, on a stream it has just rewound. Redrawing here as well would
+        // put a reset run one sample ahead of a fresh one.
         this.secondsUntilNextBlink = 0;
+        this.lastSampledInterval = 0;
 
     }
 
     // --- helpers -------------------------------------------------------------------------------
 
     /**
-     * Counts down to the next arrival and fires it when the lids are free.
+     * One frame of blink time, walked in sub-intervals split at each event.
+     *
+     * 🎯 THE FRAME IS CUT AT THE ARRIVAL, AND THAT IS THE WHOLE POINT — see the header. A blink
+     * begins at the instant its interval was drawn for rather than at the next frame boundary, so
+     * the onset times are a property of the seed and nothing else. The only thing the frame rate
+     * decides is which frame first OBSERVES a blink that was always going to start when it did.
      *
      * The arrival is sampled as a pure exponential with no floor, because that is what "Poisson
      * process" means and a floor would put an 11% atom at the floor value. The refractory period
      * is instead enforced by DEFERRAL: an arrival that lands inside a blink already in flight
      * fires the moment that blink finishes. That is also what the eyelid physically does, and it
-     * keeps the sampled distribution exactly exponential for anything that wants to test it.
+     * keeps the sampled distribution exactly exponential for anything that wants to test it — so
+     * the frame is cut at the END of a blink too, and the deferred blink starts exactly there.
+     * (The deferral is the one part of the interval that is NOT frame-coupled and never was: it
+     * costs a rate-independent 13.32 ms per blink, measured at 480 Hz.)
+     *
+     * In-flight time is aged BEFORE new arrivals fire. That ordering was worth 0.48 mm in
+     * `BodyIdle` and it is what makes the blink-end cut land the deferred blink on the right side
+     * of the boundary.
      */
-    advanceSchedule( deltaSeconds ) {
+    advanceTimeline( deltaSeconds ) {
 
-        this.secondsUntilNextBlink -= deltaSeconds;
+        const ratePerSecond = this.effectiveRatePerMinute() / SECONDS_PER_MINUTE;
 
-        if ( this.secondsUntilNextBlink > 0 ) return;
-        if ( this.elapsed >= 0 ) return;               // deferred: still blinking
+        if ( this.frameQuantisedArrivals ) {
 
-        this.beginBlink();
+            this.advanceTheOldFrameQuantisedWay( deltaSeconds );
+            return;
+
+        }
+
+        let remaining = deltaSeconds;
+
+        while ( remaining > 0 ) {
+
+            const step = Math.min( remaining, this.secondsUntilNextEvent( ratePerSecond ) );
+
+            this.ageBlinkInFlight( step );
+            this.arrivals.advance( ratePerSecond, step, () => { this.arrivalPending = true; } );
+
+            remaining -= step;
+
+            if ( this.arrivalPending === true && this.elapsed < 0 ) {
+
+                this.arrivalPending = false;
+                this.beginBlink();
+
+            }
+
+        }
 
     }
 
-    advanceBlinkInFlight( deltaSeconds ) {
+    /**
+     * How far the walk above may step before something has to be decided: the next arrival, or the
+     * instant the blink in flight finishes and frees the lids for a deferred one.
+     */
+    secondsUntilNextEvent( ratePerSecond ) {
+
+        const untilArrival = this.arrivals.secondsUntilArrival( ratePerSecond );
+
+        if ( this.elapsed < 0 ) return untilArrival;
+
+        return Math.min( untilArrival, this.blinkDuration() - this.elapsed );
+
+    }
+
+    /** Ages the blink in flight by exactly `seconds`. Nothing here is quantised to a frame. */
+    ageBlinkInFlight( seconds ) {
+
+        if ( this.elapsed < 0 ) return;
+
+        this.elapsed += seconds;
+
+        if ( this.elapsed >= this.blinkDuration() - BLINK_END_EPSILON_SECONDS ) this.elapsed = -1;
+
+    }
+
+    /**
+     * The eyelid closure this frame should RENDER, which is not always the closure at the instant
+     * the frame ends.
+     *
+     * Trutoiu's finding is that a blink which never renders fully shut reads as wrong, and at
+     * 60 Hz a 20 ms closed window is only two-thirds likely to be sampled at all — at 30 Hz, which
+     * is what the judge captures, a partial blink's closed window is zero seconds wide and would
+     * essentially never be sampled. So a frame that steps straight over the closed window reports
+     * the closure at the instant of closure instead of the closure at its own end.
+     *
+     * 🎯 THIS IS A CORRECTION TO THE SAMPLE, NOT TO THE TIMELINE, and the distinction is the
+     * second half of the frame-rate fix. The version this replaced pulled `elapsed` itself back to
+     * the closure instant, which delayed everything after it in the blink by up to a frame and
+     * made the remaining trajectory depend on the frame rate. The blink now runs on its own clock
+     * and only the reported value is snapped, so two frame rates agree exactly at every instant
+     * they share except the handful of frames where one of them needed the snap and the other
+     * did not.
+     *
+     * A blink cannot start and finish inside one frame, so the peak can never be lost between two
+     * blinks: the shortest blink the sampled durations allow is 50 + 0 + 150 = 200 ms, against a
+     * `MotionStack.maxDeltaSeconds` of 100 ms. `ocular.selftest.mjs` asserts that margin.
+     */
+    renderedClosure() {
+
+        this.closureWasSnapped = false;
+
+        if ( this.elapsed < 0 ) return 0;
+
+        // The rebuilt defect keeps the snap in the timeline, so the sample is just the timeline.
+        if ( this.frameQuantisedArrivals ) return this.eyelidClosureAt( this.elapsed );
+
+        const closureInstant = this.closingDuration;
+        const closedUntil = closureInstant + this.closedHold;
+        const previous = Math.max( this.phaseAtFrameStart, 0 );
+
+        if ( previous < closureInstant && this.elapsed > closedUntil ) {
+
+            this.closureWasSnapped = true;
+            return this.eyelidClosureAt( closureInstant );
+
+        }
+
+        return this.eyelidClosureAt( this.elapsed );
+
+    }
+
+    /**
+     * 🚩 THE DEFECT, REBUILT ON PURPOSE, so the invariance gate has something to reject (§1.1).
+     *
+     * Two frame couplings in six lines, and neither of them advances the random stream at the
+     * frame rate — which is why the audit that converted `Sway` and `BodyIdle` by counting draws
+     * per second walked straight past this file. The countdown fires on the first frame at or past
+     * zero and re-arms with `= interval`, discarding the overshoot; and the closure snap is
+     * written back into the timeline rather than into the sample.
+     */
+    advanceTheOldFrameQuantisedWay( deltaSeconds ) {
+
+        this.secondsUntilNextBlink -= deltaSeconds;
+
+        if ( this.secondsUntilNextBlink <= 0 && this.elapsed < 0 ) this.beginBlink();
 
         if ( this.elapsed < 0 ) return;
 
         const previous = this.elapsed;
         let next = previous + deltaSeconds;
 
-        // Trutoiu's finding is that a blink which never renders fully shut reads as wrong, and at
-        // 60 Hz a 20 ms closed window is only two-thirds likely to be sampled at all. So a frame
-        // that would step straight over the closed window is pulled back to the instant of
-        // closure. Costs at most one frame of timing jitter; buys a guaranteed 1.0.
         const closureInstant = this.closingDuration;
         const closedUntil = closureInstant + this.closedHold;
 
@@ -575,7 +791,7 @@ export class Blink extends Layer {
 
         // Only a complete blink has a moment with the lids resting together, because only a
         // complete blink has anything resting on anything. A partial blink turns straight round
-        // at the bottom of its travel — and the closure snap in advanceBlinkInFlight() still
+        // at the bottom of its travel — and the closure snap in renderedClosure() still
         // guarantees a frame lands exactly on that instant, so the peak is never skipped.
         this.closedHold = this.closureAmplitude < 1
             ? 0 : this.random.range( ...CLOSED_HOLD_RANGE_SECONDS );
@@ -596,7 +812,11 @@ export class Blink extends Layer {
         this.elapsed = 0;
         this.blinkCount ++;
 
-        this.scheduleNextBlink();
+        // A blink that starts part way through a frame has no earlier phase in this frame, so the
+        // snap must judge it against 0 rather than against the -1 that stood at the frame's start.
+        this.phaseAtFrameStart = 0;
+
+        if ( this.frameQuantisedArrivals ) this.scheduleNextBlinkTheOldWay();
 
     }
 
@@ -614,15 +834,41 @@ export class Blink extends Layer {
     }
 
     /**
-     * Arms the clock for the next arrival, measured from THIS blink's onset rather than from its
-     * end. Measuring from the end would add the blink's own 210–430 ms to every interval and quietly
-     * run the whole avatar ~10% below the rate it was asked for.
+     * Restarts the arrival clock from now. A blink that was recruited by something other than the
+     * schedule — a saccade, a scripted beat — counts as a blink, so the next spontaneous one is
+     * measured from THIS blink's onset rather than from the arrival that was already in flight.
+     * Without it a talkative gaze policy would silently double the blink rate.
+     *
+     * Redrawing rather than keeping the outstanding wait is the memoryless property of the
+     * process, so it changes the realisation and not the distribution.
      */
-    scheduleNextBlink() {
+    rearmArrivalClock() {
+
+        this.arrivalPending = false;
+
+        if ( this.frameQuantisedArrivals ) {
+
+            this.scheduleNextBlinkTheOldWay();
+            return;
+
+        }
+
+        // Null until the layer has been added to a BOUND stack. A scripted `blinkNow()` before
+        // that point is legal and has nothing to rearm — `onBind()` will draw the first arrival.
+        if ( this.arrivals !== null ) this.arrivals.reset();
+
+    }
+
+    /**
+     * 🚩 Part of the rebuilt defect. Arms the countdown that `advanceTheOldFrameQuantisedWay()`
+     * walks. It draws from the arrival stream's own random, so the rebuild differs from the
+     * shipped layer in the ONE property under test and not in which numbers come out of the seed.
+     */
+    scheduleNextBlinkTheOldWay() {
 
         const ratePerSecond = this.effectiveRatePerMinute() / SECONDS_PER_MINUTE;
 
-        this.lastSampledInterval = this.random.poissonInterval( ratePerSecond );
+        this.lastSampledInterval = this.arrivals.random.poissonInterval( ratePerSecond );
         this.secondsUntilNextBlink = this.lastSampledInterval;
 
     }

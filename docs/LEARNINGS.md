@@ -331,7 +331,58 @@ the same seed at three frame rates compared frame for frame: now 0.001 mm, and p
 
 This is §1.3 one level down: the question is not only what a degenerate **input** would score, but
 what a different **observer** would. `Signals.poissonEventOccurs` now carries a 🚩 at its
-definition, and three layers still have the defect — see punch-list 2.11.
+definition, and three layers still have the defect — see punch-list 2.11. ⚠️ Three was the
+wrong count; see §1.13a.
+
+### 1.13a An audit that searches for a MECHANISM will find every instance of that mechanism and no instance of the defect
+
+§1.13's fix came with a diagnostic: instrument `MotionRandom.next` and look for a draws-per-second
+that scales with the frame rate. It worked — it found `Gaze`, `FacialIdle` and `HandIdle`, and
+punch-list 2.11 was written as "the three remaining frame-coupled layers."
+
+**`Blink` was the fourth, and the instrument was structurally unable to see it.** It never called
+`poissonEventOccurs`; it drew ONE interval per blink, so its draw rate is flat by construction —
+measured **2.3 / 2.3 / 2.3 draws per second at 30 / 60 / 120 Hz**, sitting in the same table as
+`Sway`'s pre-fix 120.1 / 240.1 / 480.1 and looking exactly like a converted layer. It was frame-
+coupled anyway, through a different mechanism entirely: it counted the interval down against `dt`
+and re-armed with `= interval`, **throwing away the negative overshoot**, so every interval was
+rounded up to the next whole frame.
+
+The arithmetic is not subtle once stated. A countdown that fires on the first frame at or past zero
+realises `ceil(interval / dt) * dt`, adding a mean of `dt/2` per interval: 16.67 ms at 30 Hz against
+4.17 ms at 120 Hz, so **12.50 ms of predicted drift per blink**. Measured 12.70 ms (seed 1, 600 s)
+and 12.59 ms (seed 20260807) — and confirmed a second way, by differencing the mean REALISED
+interval against the mean SAMPLED one at four rates: 29.68 / 21.03 / 16.66 / 13.32 ms at
+30 / 60 / 120 / 480 Hz, whose differences from the 480 Hz floor are 16.36 / 7.71 / 3.34 against a
+`dt/2` of 16.67 / 8.33 / 4.17.
+
+Over 600 s at seed 1 that is **2.6167 s** of accumulated drift, and the visible consequence is
+total: comparing the 30 Hz and 120 Hz runs at the instants they SHARE, the worst disagreement in
+eyelid closure is **1.000000** — one frame rate has the eye fully shut where the other has it fully
+open. Every one of `ocular.selftest.mjs`'s 51 checks stayed green through all of it.
+
+Three transferable shapes, and the first is the expensive one:
+
+**Audit for the SYMPTOM, not for the mechanism.** The symptom is "the same seed at two frame rates
+produces two different trajectories," and it is one gate that any layer can be pointed at. The
+mechanism is whatever this month's instance happens to be. Written as a grep, the second
+mechanism is `grep -rn -- '-= deltaSeconds' packages/core/src/motion/*.js`; there is no reason to
+believe there is not a third.
+
+**A number that is right for the wrong reason reads exactly like a number that is right.** Blink's
+flat draw rate was genuine evidence of one thing and was read as evidence of another. Same family
+as §1.11a — a real measurement of the wrong quantity — but running through an *audit* rather than
+through a comment, which is worse, because an audit's output is a list of what is left to do.
+
+**A deliberate sampling correction is not a licence to make the timeline frame-dependent.** Blink
+snaps a frame that would step over full closure back to the instant of closure — Trutoiu: a blink
+that never renders shut reads as wrong, and at 30 fps a partial blink's closed window is zero
+seconds wide. The old code wrote that snap into `elapsed`, which delayed everything after it in the
+blink and made the rest of the trajectory depend on `dt`. Applying it to the reported SAMPLE
+instead keeps the guarantee and costs nothing: the two rates now agree to **3.2e-11** of aperture
+at every shared instant except the 0.43% of frames where one needed the snap and the other did
+not, and those are bounded by one frame of upphase (0.264 measured against a derived 0.347).
+**Ask of any correction whether it belongs to the model or to the observer.**
 
 ### 1.14 A floor and a measurement must be the same KIND of statistic
 

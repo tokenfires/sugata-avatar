@@ -18,6 +18,10 @@
 //         Trutoiu et al. found partial-closure blinks read as wrong. Measured on the perceptual
 //         aperture, which is what the snap logic works in; the mapping onto the morph is linear
 //         and exact and is checked separately.
+//     (b3) the blink train is a property of the SEED and not of the frame rate. Onsets, counts
+//         and every sampled shape agree exactly at 30, 60 and 120 Hz, and the rendered closure
+//         agrees at every instant two rates share bar the licensed closure-snap frames. This is
+//         the one the other fifty checks were structurally unable to see.
 //     (c) inter-blink intervals are exponentially distributed with the requested mean, which is
 //         what "Poisson process" has to mean in practice.
 //     (d) the rate moves the right way for cognitive load and for visual attention, and stays
@@ -434,6 +438,336 @@ for ( const [ label, frameSeconds ] of [ [ '120 fps', 1 / 120 ], [ '60 fps', 1 /
     );
 }
 
+// --- (b3) FRAME-RATE INVARIANCE — the same seed at 30, 60 and 120 Hz -------------------------------
+//
+// 🎯 THE ONE THE OTHER FIFTY CHECKS COULD NOT SEE. Everything above passed on a layer whose blink
+// train drifted 2.62 s over 600 s between 30 Hz and 120 Hz, because a rate gate, an amplitude gate
+// and a closure gate are all genuinely dt-invariant and this defect is in the TRAJECTORY.
+//
+// Blink was the fourth frame-coupled layer and it coupled by a different mechanism from the three
+// punch-list 2.11 names: it never called `Signals.poissonEventOccurs`, so its random DRAW RATE was
+// already flat and the draw-count audit that found the others walked straight past it. It counted
+// one sampled interval down against dt and re-armed with `= interval`, discarding the overshoot,
+// which rounds every interval UP to the next whole frame.
+//
+// What is asserted, in the order that matters:
+//   1. the ONSET INSTANTS are a property of the seed — this is the defect;
+//   2. so is every blink's SHAPE, which proves no stream is being advanced by the renderer;
+//   3. the RENDERED closure agrees exactly at every instant two rates share, EXCEPT on the frames
+//      where one of them needed the closure snap and the other did not. That exception is the
+//      deliberate part of the design (Trutoiu: a blink that never renders shut reads as wrong) and
+//      it is bounded, counted, and proven small rather than waved at.
+//
+// And then all of it is run again against `frameQuantisedArrivals: true`, which rebuilds the
+// defect, over the same seed set — §1.1a, because a rejection proved on one seed is not a proof.
+//
+// ⚠️ The rebuild is the same DEFECT, not the same TRACE: the countdown now draws from the arrival
+// stream the fix forked, where the original drew from the layer's main stream interleaved with the
+// shape draws. It reproduces the symptom to within a few per cent — 2.758 s of onset spread at
+// seed 1 over 600 s against the shipped layer's measured 2.6167 s.
+
+const INVARIANCE_SEEDS = [ 1, 7, 20260807 ];
+const INVARIANCE_RATES = [ 30, 60, 120 ];
+const INVARIANCE_SECONDS = 300;
+
+// Sub-nanosecond. The onsets are not rounded to anything, so the only spread that can survive is
+// floating-point accumulation in the walk; anything larger is a real difference in when the avatar
+// blinked. Stated in seconds because that is the unit the defect is in (LEARNINGS §1.10b).
+const ONSET_TOLERANCE_SECONDS = 1e-6;
+const CLOSURE_TOLERANCE = 1e-9;
+
+// The snap reports the peak on a frame that has already stepped past the closed window, so two
+// rates can differ there by one frame of upphase. The worst case is a complete blink at 30 Hz with
+// the shortest opening: 1 - (1 - (1/30) / 0.150)^1.7 = 0.347 of aperture. The gate is stated at
+// 0.40 so it is the ARGUMENT that decides it and not a measured maximum rounded up.
+const SNAP_DIVERGENCE_BOUND = 0.40;
+const SNAP_SHARE_BOUND = 0.01;
+
+/**
+ * One trace at one frame rate.
+ *
+ * Two things here are deliberate. Onsets are recorded as `t - elapsed` rather than as the frame
+ * time, because a blink now starts PART WAY THROUGH a frame and the frame boundary is exactly the
+ * quantisation under test — measuring at the boundary would report 25 ms of spread on a layer whose
+ * real spread is 5e-10 s. And the common samples are taken on a frame COUNT (`rate / 30`) rather
+ * than by comparing accumulated times, so the instants two traces share are shared exactly.
+ */
+function traceForInvariance( seed, rateHz, seconds, options ) {
+
+    const stack = new MotionStack( { seed } ).bind( target );
+    const blink = stack.add( new Blink( options ) );
+
+    const deltaSeconds = 1 / rateHz;
+    const frames = Math.round( seconds * rateHz );
+    const framesPerCommonSample = rateHz / INVARIANCE_RATES[ 0 ];
+
+    const onsets = [];
+    const shapes = [];
+    const samples = [];
+    let previousCount = blink.blinkCount;
+
+    for ( let frame = 1; frame <= frames; frame ++ ) {
+
+        stack.update( deltaSeconds );
+
+        if ( blink.blinkCount !== previousCount ) {
+
+            onsets.push( frame * deltaSeconds - blink.elapsed );
+            shapes.push( [ blink.closingDuration, blink.closedHold, blink.openingDuration,
+                blink.closureAmplitude, blink.leftLidParticipation, blink.rightLidParticipation ].join( ' ' ) );
+            previousCount = blink.blinkCount;
+
+        }
+
+        if ( frame % framesPerCommonSample === 0 ) {
+
+            samples.push( { closure: blink.closure, snapped: blink.closureWasSnapped } );
+
+        }
+
+    }
+
+    stack.dispose();
+
+    return { onsets, shapes, samples, blinks: blink.blinkCount };
+
+}
+
+/** Draws per second off EVERY MotionRandom stream, which is how the other three layers were found. */
+function drawsPerSecondDuring( run, seconds ) {
+
+    const original = MotionRandom.prototype.next;
+    let draws = 0;
+
+    MotionRandom.prototype.next = function countingNext() {
+
+        draws ++;
+        return original.call( this );
+
+    };
+
+    try {
+
+        run();
+        return draws / seconds;
+
+    } finally {
+
+        MotionRandom.prototype.next = original;
+
+    }
+
+}
+
+/** Every invariance quantity for one seed, across the three rates. */
+function measureInvariance( seed, options ) {
+
+    const traces = INVARIANCE_RATES.map( ( rateHz ) => traceForInvariance( seed, rateHz, INVARIANCE_SECONDS, options ) );
+
+    const blinks = traces.map( ( trace ) => trace.blinks );
+    const comparable = Math.min( ...traces.map( ( trace ) => trace.onsets.length ) );
+
+    let worstOnsetSpread = 0;
+    let shapeMismatches = 0;
+
+    for ( let index = 0; index < comparable; index ++ ) {
+
+        const instants = traces.map( ( trace ) => trace.onsets[ index ] );
+        worstOnsetSpread = Math.max( worstOnsetSpread, Math.max( ...instants ) - Math.min( ...instants ) );
+
+        if ( new Set( traces.map( ( trace ) => trace.shapes[ index ] ) ).size !== 1 ) shapeMismatches ++;
+
+    }
+
+    const reference = traces[ 1 ];
+    let worstClosure = 0;
+    let worstClosureAwayFromTheSnap = 0;
+    let snapAffected = 0;
+    let compared = 0;
+
+    for ( const trace of [ traces[ 0 ], traces[ 2 ] ] ) {
+
+        const shared = Math.min( trace.samples.length, reference.samples.length );
+
+        for ( let index = 0; index < shared; index ++ ) {
+
+            const mine = trace.samples[ index ];
+            const theirs = reference.samples[ index ];
+            const divergence = Math.abs( mine.closure - theirs.closure );
+
+            compared ++;
+            worstClosure = Math.max( worstClosure, divergence );
+
+            if ( mine.snapped || theirs.snapped ) snapAffected ++;
+            else worstClosureAwayFromTheSnap = Math.max( worstClosureAwayFromTheSnap, divergence );
+
+        }
+
+    }
+
+    return {
+        seed, blinks, comparable, worstOnsetSpread, shapeMismatches,
+        worstClosure, worstClosureAwayFromTheSnap,
+        snapShare: snapAffected / compared,
+        realisedRates: blinks.map( ( count ) => count / ( INVARIANCE_SECONDS / 60 ) ),
+    };
+
+}
+
+const shippedInvariance = INVARIANCE_SEEDS.map( ( seed ) => measureInvariance( seed, {} ) );
+const rebuiltDefect = INVARIANCE_SEEDS.map( ( seed ) => measureInvariance( seed, { frameQuantisedArrivals: true } ) );
+
+process.stdout.write( `\nFRAME-RATE INVARIANCE — ${ INVARIANCE_SECONDS } s at 30 / 60 / 120 Hz\n` );
+process.stdout.write( '           seed   blinks 30/60/120   worst onset spread (s)   ' +
+    'worst closure   away from the snap   snap-affected\n' );
+
+for ( const [ label, rows ] of [ [ 'shipped', shippedInvariance ], [ 'REBUILT DEFECT', rebuiltDefect ] ] ) {
+
+    for ( const row of rows ) {
+
+        process.stdout.write(
+            `  ${ label.padStart( 14 ) }  ${ String( row.seed ).padStart( 9 ) }   ` +
+            `${ row.blinks.join( ' / ' ).padStart( 16 ) }   ` +
+            `${ row.worstOnsetSpread.toExponential( 3 ).padStart( 22 ) }   ` +
+            `${ row.worstClosure.toFixed( 6 ).padStart( 13 ) }   ` +
+            `${ row.worstClosureAwayFromTheSnap.toExponential( 2 ).padStart( 18 ) }   ` +
+            `${ ( 100 * row.snapShare ).toFixed( 2 ).padStart( 12 ) }%\n` );
+
+    }
+
+}
+
+process.stdout.write( '\n' );
+
+{
+    const worstOnset = Math.max( ...shippedInvariance.map( ( row ) => row.worstOnsetSpread ) );
+
+    check(
+        'blink: a blink ONSET is a property of the seed, not of the frame rate',
+        worstOnset < ONSET_TOLERANCE_SECONDS,
+        `worst spread ${ worstOnset.toExponential( 3 ) } s across 30/60/120 Hz over ${ INVARIANCE_SECONDS } s x ${ INVARIANCE_SEEDS.length } seeds; the layer as shipped drifted 2.6167 s over 600 s at seed 1`
+    );
+
+    check(
+        'blink: the number of blinks is identical at every frame rate',
+        shippedInvariance.every( ( row ) => new Set( row.blinks ).size === 1 ),
+        shippedInvariance.map( ( row ) => `seed ${ row.seed }: ${ row.blinks.join( '/' ) }` ).join( ', ' )
+    );
+
+    check(
+        'blink: and so is every blink\'s sampled shape — durations, hold, amplitude, both lids',
+        shippedInvariance.every( ( row ) => row.shapeMismatches === 0 ),
+        `${ shippedInvariance.reduce( ( total, row ) => total + row.comparable, 0 ) } blinks compared, 0 mismatched`
+    );
+
+    const worstAway = Math.max( ...shippedInvariance.map( ( row ) => row.worstClosureAwayFromTheSnap ) );
+
+    check(
+        'blink: rendered closure agrees exactly at every instant two frame rates share',
+        worstAway < CLOSURE_TOLERANCE,
+        `worst ${ worstAway.toExponential( 3 ) } of aperture, excluding the frames one rate needed the closure snap`
+    );
+
+    // The snap is the ONE licensed disagreement, so it is bounded rather than excused. See
+    // SNAP_DIVERGENCE_BOUND for where 0.40 comes from — it is derived, not measured-and-rounded.
+    const worstIncludingSnap = Math.max( ...shippedInvariance.map( ( row ) => row.worstClosure ) );
+    const worstSnapShare = Math.max( ...shippedInvariance.map( ( row ) => row.snapShare ) );
+
+    check(
+        'blink: the closure snap is the only disagreement left, and it is one frame of upphase',
+        worstIncludingSnap < SNAP_DIVERGENCE_BOUND,
+        `worst ${ worstIncludingSnap.toFixed( 4 ) } of aperture against a derived bound of ${ SNAP_DIVERGENCE_BOUND }`
+    );
+
+    check(
+        'blink: and it touches well under 1% of frames',
+        worstSnapShare < SNAP_SHARE_BOUND,
+        `worst ${ ( 100 * worstSnapShare ).toFixed( 2 ) }% of shared frames`
+    );
+
+    // A blink cannot start and finish inside one frame, which is what lets the snap live in the
+    // SAMPLE instead of in the timeline: if it could, a peak would be lost between two blinks and
+    // no per-frame correction could recover it. The shortest blink the sampled ranges allow is
+    // closing 50 ms + no hold (partial) + opening 150 ms.
+    const shortestBlinkSeconds = BLINK_CONSTANTS.CLOSING_DURATION_RANGE_SECONDS[ 0 ]
+        + BLINK_CONSTANTS.OPENING_DURATION_RANGE_SECONDS[ 0 ];
+    const longestFrameSeconds = new MotionStack( {} ).maxDeltaSeconds;
+
+    check(
+        'blink: the shortest possible blink is longer than the longest possible frame',
+        shortestBlinkSeconds > longestFrameSeconds,
+        `${ ( 1000 * shortestBlinkSeconds ).toFixed( 0 ) } ms against MotionStack.maxDeltaSeconds of ${ ( 1000 * longestFrameSeconds ).toFixed( 0 ) } ms`
+    );
+}
+
+// --- (b3') §1.1: the same gates, run against the defect rebuilt on purpose --------------------------
+//
+// Every rejection is counted over the SAME seed set the forward gates run on, not asserted on one
+// draw (§1.1a). A rejection that fires on two seeds of three is a coin toss wearing a green tick.
+
+{
+    const onsetCaught = rebuiltDefect.filter( ( row ) => row.worstOnsetSpread >= ONSET_TOLERANCE_SECONDS );
+    const closureCaught = rebuiltDefect.filter( ( row ) => row.worstClosureAwayFromTheSnap >= CLOSURE_TOLERANCE );
+    const snapBoundCaught = rebuiltDefect.filter( ( row ) => row.worstClosure >= SNAP_DIVERGENCE_BOUND );
+
+    check(
+        'blink: the ONSET gate rejects frame-quantised arrivals, on every seed',
+        onsetCaught.length === INVARIANCE_SEEDS.length,
+        `${ onsetCaught.length }/${ INVARIANCE_SEEDS.length } seeds caught; worst spreads ` +
+        rebuiltDefect.map( ( row ) => row.worstOnsetSpread.toFixed( 3 ) + ' s' ).join( ', ' )
+    );
+
+    const worstMargin = Math.min( ...rebuiltDefect.map( ( row ) => row.worstOnsetSpread ) ) / ONSET_TOLERANCE_SECONDS;
+
+    check(
+        'blink: and by a margin the tolerance plainly did not decide',
+        worstMargin > 1e5,
+        `the closest seed misses by ${ worstMargin.toExponential( 2 ) }x the tolerance`
+    );
+
+    check(
+        'blink: the rendered-closure gate rejects it too, on every seed',
+        closureCaught.length === INVARIANCE_SEEDS.length,
+        `${ closureCaught.length }/${ INVARIANCE_SEEDS.length } seeds caught; worst divergences ` +
+        rebuiltDefect.map( ( row ) => row.worstClosureAwayFromTheSnap.toFixed( 4 ) ).join( ', ' ) +
+        ' of aperture — a fully shut eye against a fully open one'
+    );
+
+    check(
+        'blink: so does the snap bound, which means the defect is not a one-frame matter',
+        snapBoundCaught.length === INVARIANCE_SEEDS.length,
+        `${ snapBoundCaught.length }/${ INVARIANCE_SEEDS.length } seeds caught`
+    );
+
+    // 🚩 RECORDED AS A GATE, §1.3 AND §1.13. These two are the reason this defect survived a round
+    // whose whole purpose was to find frame-coupled layers. Asserted so nobody reads the green
+    // matrix above — or punch-list 2.11's draws-per-second table — as having covered Blink.
+    const defectDraws = INVARIANCE_RATES.map( ( rateHz ) => drawsPerSecondDuring(
+        () => traceForInvariance( 1, rateHz, 60, { frameQuantisedArrivals: true } ), 60 ) );
+    const shippedDraws = INVARIANCE_RATES.map( ( rateHz ) => drawsPerSecondDuring(
+        () => traceForInvariance( 1, rateHz, 60, {} ), 60 ) );
+
+    const drawSpread = Math.abs( defectDraws[ 2 ] - defectDraws[ 0 ] ) / defectDraws[ 1 ];
+
+    check(
+        'blink: a DRAW-COUNT audit would NOT have caught it — this is why 2.11 missed this layer',
+        drawSpread < 0.1,
+        `recorded, not tolerated: the defect draws ${ defectDraws.map( ( rate ) => rate.toFixed( 1 ) ).join( ' / ' ) } per second at 30/60/120 Hz ` +
+        `(shipped ${ shippedDraws.map( ( rate ) => rate.toFixed( 1 ) ).join( ' / ' ) }), against Sway's pre-fix 120.1 / 240.1 / 480.1`
+    );
+
+    const defectRates = rebuiltDefect.map( ( row ) => row.realisedRates );
+    const worstRateSpread = Math.max( ...defectRates.map(
+        ( rates ) => Math.abs( rates[ 2 ] - rates[ 0 ] ) / ( 0.5 * ( rates[ 0 ] + rates[ 2 ] ) ) ) );
+
+    check(
+        'blink: a RATE gate would NOT have caught it either',
+        worstRateSpread < 0.02,
+        `recorded, not tolerated: the defect's 30 vs 120 Hz realised rates differ by at most ${ ( 100 * worstRateSpread ).toFixed( 2 ) }%, ` +
+        'inside the 2% the rate gate above allows and inside Poisson sampling error'
+    );
+}
+
 // --- (c) Poisson intervals ------------------------------------------------------------------------
 //
 // Two separate claims. The SAMPLED interval is drawn as a pure exponential, which is the thing the
@@ -446,12 +780,28 @@ function collectSampledIntervals( ratePerMinute, count ) {
     const stack = new MotionStack( { seed: 23 } ).bind( target );
     const blink = stack.add( new Blink( { baselineRatePerMinute: ratePerMinute } ) );
 
+    // The layer's OWN arrival schedule, on its own forked stream — not a fresh one built here, so
+    // this measures the distribution the avatar actually blinks on. It is walked by stepping
+    // exactly to each arrival, which is the same call pattern `Blink.advanceTimeline` uses when a
+    // frame contains one, so the interval read out is the interval the layer would have waited.
+    const schedule = blink.arrivals;
+    const ratePerSecond = ratePerMinute / 60;
+
     const intervals = [];
+    let previousArrival = 0;
+    let clock = 0;
 
     while ( intervals.length < count ) {
 
-        blink.scheduleNextBlink();
-        intervals.push( blink.lastSampledInterval );
+        const step = schedule.secondsUntilArrival( ratePerSecond );
+        clock += step;
+
+        schedule.advance( ratePerSecond, step, () => {
+
+            intervals.push( clock - previousArrival );
+            previousArrival = clock;
+
+        } );
 
     }
 

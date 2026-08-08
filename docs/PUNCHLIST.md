@@ -46,6 +46,8 @@ measured there.**
 - [x] **2.1** `motion/Blink.js` — closing 50–100 ms, opening 150–300 ms, downphase ≈2× upphase,
       **full closure**, Poisson at 10.5–32.5/min, co-occurring with saccades > 30°.
       Gate: **CRITIC** vs Live2D's 0.1/0.15 (which is backwards).
+      Arrival timing was frame-coupled until 2.11a; the numbers this item's gates were measured
+      against pre-date that fix.
 - [x] **2.2** `motion/Gaze.js` saccades — main sequence (10° ≈ 300°/s, 30° ≈ 500°/s), 5–10° typical
       at 30–40 ms, ≥150 ms intersaccadic, exponential fixations, microsaccades 1–2/s at 30 arcmin.
       Skip drift and tremor.
@@ -84,6 +86,27 @@ measured there.**
       same bone trajectory to a stated tolerance, proven red by a `frameCoupledArrivals: true`
       reintroduction. ⚠️ Until this lands, every measurement of the full `alive.js` stack taken at
       60 Hz is a measurement of a trajectory the 30 fps captures do not render — see LEARNINGS §1.13.
+      🚩 THREE WAS THE WRONG COUNT — see 2.11a. The audit that produced this list searched for
+      `poissonEventOccurs` and for a draws-per-second that scales with the frame rate. Both are
+      properties of ONE coupling mechanism. Before converting the three named here, check every
+      remaining layer for the OTHER one: a countdown against `deltaSeconds` that re-arms with `=`
+      rather than `+=`. `grep -rn -- '-= deltaSeconds' packages/core/src/motion/*.js`.
+- [x] **2.11a** `motion/Blink.js` was the fourth frame-coupled layer, and it coupled by the second
+      mechanism, which is why the 2.11 audit walked past it: its draw rate is FLAT (measured
+      2.3 / 2.3 / 2.3 per second at 30 / 60 / 120 Hz) because it drew one interval per blink.
+      It counted that interval down against dt and re-armed with `= interval`, discarding the
+      overshoot, so every interval was rounded UP to the next whole frame — a mean of dt/2 each,
+      a predicted 12.50 ms of drift per blink between 30 and 120 Hz, measured **12.70 ms**
+      (seed 1) and **12.59 ms** (seed 20260807). Over 600 s at seed 1 that is **2.6167 s** of
+      accumulated drift and a worst rendered-closure disagreement at shared instants of
+      **1.000000** — one frame rate has the eye fully shut where the other has it fully open.
+      Fixed with a `PoissonSchedule` on a forked `arrival` stream, the frame cut at each arrival
+      and at the end of each blink, and the closure snap moved out of the timeline into the
+      sample. Now: onset spread **1.279e-12 s**, blink counts and every sampled shape identical
+      at all three rates, rendered closure identical to **3.158e-11** away from the licensed
+      snap frames (0.43% of frames). Gate: `ocular.selftest.mjs` (b3), 64 checks, proven red by
+      `frameQuantisedArrivals: true` on 3/3 seeds at 1.15e6x the tolerance — and it records, as
+      gates, that neither a draw-count audit nor a rate gate would have caught it.
 
 ## Phase 3 — Rendering
 
