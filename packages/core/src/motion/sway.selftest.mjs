@@ -97,10 +97,13 @@
  *   DISCOURSE      Cassell's 26% / 8% coupling.
  *
  *   GLANCE         per-band silhouette travel in PIXELS inside the fifteen seconds a viewer spends
- *   LEGIBILITY     deciding whether a thing is alive, at the framing `alive.js?frame=body` uses.
- *                  A raw standard deviation is structurally unable to see this defect, and the
- *                  section header records why the number it was first reported against was out by
- *                  an order of magnitude — a peak-to-peak floor compared against an SD.
+ *   LEGIBILITY     deciding whether a thing is alive, at the framing `alive.js?frame=body` uses,
+ *                  over the same twelve seeds as every other amplitude gate here. A raw standard
+ *                  deviation is structurally unable to see this defect, and the section header
+ *                  records why the number it was first reported against was out by an order of
+ *                  magnitude — a peak-to-peak floor compared against an SD. It also records the
+ *                  §1.1a round: the first version ran on ONE seed and its ankle/knee ratio failed
+ *                  on two of the twelve.
  *
  *   THE OTHER WAY  §1.1 — a gate that has never failed is not known to work. Known-bad layers are
  *                  constructed and the gates above must reject them, by name.
@@ -200,7 +203,6 @@ const GLANCE_BANDS = [
  */
 const GLANCE_WINDOW_SECONDS = 15;
 const GLANCE_SECONDS = 420;
-const GLANCE_SEED = 1;
 
 /**
  * 30 Hz, deliberately: it is the rate the judge's captures run at, and after the frame-rate fix it
@@ -209,8 +211,40 @@ const GLANCE_SEED = 1;
  */
 const GLANCE_SAMPLE_RATE_HZ = 30;
 
-/** Every 11th vertex. The bands are thin horizontal slices, so this leaves 30-970 per band. */
+/**
+ * Every 11th vertex. The bands are thin horizontal slices, so this leaves 29-971 per band, measured
+ * on `figure_g050.glb`: head 971, shoulder 106, hip 89, knee 31, ankle 29.
+ *
+ * ⚠️ The two lowest bands are THIN, and that is a property of the figure rather than of the stride:
+ * the legs are narrow and the bands are 183 mm of a 1659 mm stature. Re-measured at stride 1 the
+ * ankle band holds 313 vertices and its 15 s travel moves from 1.013 px to 1.165 px at seed 1 —
+ * about a seventh — so the stride is not what decides any verdict here. GLANCE BAND POPULATION
+ * gates the counts so that a later change to either the stride or the band bounds cannot silently
+ * empty one.
+ */
 const GLANCE_VERTEX_STRIDE = 11;
+
+/**
+ * The smallest number of vertices a band may hold and still be a measurement. 25 sits just under
+ * the measured worst (29, the ankle band) so the gate fires on a change that empties a band rather
+ * than on the figure this file already runs against.
+ */
+const GLANCE_BAND_VERTEX_FLOOR = 25;
+
+/**
+ * The correlation the lower shank's screen position must keep with its own knee's, measured where
+ * the pendulum runs alone. 0.5 is a long way below the measured 0.879-0.889 and a long way above
+ * the -1.000 the spine-bend model scores; nothing in between is a body.
+ */
+const SHANK_TRACKS_KNEE_CORRELATION_FLOOR = 0.5;
+
+/**
+ * The floor under the shipped layer's ankle-band travel, in pixels. It is NOT the 1.6 px
+ * indistinguishability floor — see the section header for why that band cannot reach it — it is the
+ * separation from a lower body that is not moving at all. The spine-bend model scores exactly
+ * 0.0000 px on all twelve seeds; the shipped layer's worst seed scores 0.292.
+ */
+const ANKLE_BAND_NOT_DEAD_PIXELS = 0.10;
 
 /**
  * A ceiling as well as a floor, because over-animating an idle is as bad as having none and this
@@ -219,6 +253,27 @@ const GLANCE_VERTEX_STRIDE = 11;
  * nothing in quiet standing reaches.
  */
 const GLANCE_TRAVEL_CEILING_PIXELS = 40;
+
+/**
+ * The ceiling on head-band travel divided by hip-band travel.
+ *
+ * 🚩 THIS IS NOT THE 1.00 THE BONE-MARKER GATE USES, AND THE DIFFERENCE IS THE WHOLE POINT. On bone
+ * markers HEAD PARKED measures head/pelvis at 0.848-0.852 peak-to-peak across twelve seeds — a
+ * claim with half the range to spare. Restated on BANDS the same quantity is not the same quantity:
+ * the hip band's centroid sits at 864 mm and the head band's at 1506, and the lumbar righting lands
+ * the head so nearly on top of the hip that the ratio measures 0.896-1.028 over the same twelve
+ * seeds. A 1.00 ceiling on that is a coin toss, and it read green only because the section ran on
+ * one seed (§1.1a).
+ *
+ * What the BAND ratio can resolve is the mechanism being absent altogether. A body that does not
+ * right its lumbar is a rigid lever about the ankles, which predicts
+ * (1506 - 67) / (864 - 67) = 1.805 — and `lateralRightingEnabled: false` measures 1.752-1.843 on
+ * all twelve seeds, so the prediction is the measurement. 1.40 is the midpoint of that excess over
+ * unity: it admits the shipped layer's worst seed by 36% and rejects the unrighted layer's best by
+ * 25%.
+ */
+const HEAD_BAND_OVER_HIP_BAND_CEILING = 1.40;
+const HEAD_BAND_OVER_HIP_BAND_FLOOR = 0.50;
 
 /**
  * How long the CLIP CONTENT section traces each seed. Long enough to reach the latest first
@@ -3487,13 +3542,42 @@ function measureTheOtherWay() {
  * than dead: above the floor in a typical fifteen seconds and below it in the quietest tenth.
  *
  * ⚠️ AND THE ANKLE BAND HAS A CEILING THAT IS GEOMETRY, NOT AMPLITUDE. That band is the lower
- * shank: its centroid sits about 80 mm above the ankle joint on a 420 mm shank whose lower end
- * friction pins to the floor, so it can only ever travel about a fifth of whatever the knee does.
- * Confirmed by execution rather than argued — turning the free-foot yaw release AND the toe lift
- * off together changes this band by 0.01 px, because both of them live BELOW it. Reaching 1.6 px
- * here would need the knee band at ~8.4 px against its measured 7.75, and the only honest ways to
- * buy that are amplitude increases the literature does not support. It is recorded as a reported
- * number with a floor of its own rather than gated at 1.6.
+ * shank: its centroid measures 116.5 mm above the floor against an ankle joint at 67.3 mm, so it
+ * stands 49.2 mm up a lever 449.1 mm long to the knee band's centroid at 516.4 mm, and its lower
+ * end friction pins to the floor. It can only ever travel about an eighth of whatever the knee
+ * does. Confirmed by execution rather than argued — turning the free-foot yaw release AND the toe
+ * lift off together changes this band by at most 0.03 px on any of the twelve seeds, because both
+ * of them live BELOW it. Reaching 1.6 px here would need the knee band at ~12 px against its
+ * measured 7.04-8.21, and the only honest ways to buy that are amplitude increases the literature
+ * does not support. It is recorded as a reported number with a floor of its own rather than gated
+ * at 1.6.
+ *
+ * 🚩 AND THE RATIO IT WAS FIRST GATED ON CANNOT CARRY THAT CLAIM. The first version of this section
+ * asserted `ankle band / knee band` inside 0.08..0.40, ran on seed 1, and read 0.135 — green. Over
+ * the twelve seeds every other amplitude gate here uses it measures **0.036 to 0.182**, failing on
+ * two of them (1234 at 0.076, 4242 at 0.036). That is §1.1a exactly: the forward gate was stated on
+ * a narrower sample than the gates around it, and the failure was invisible because the assertion
+ * read green.
+ *
+ * The reason it swings by a factor of five is not noise and not the layer. The ankle band's signal
+ * is the SUM of two processes with different band gains — the near-rigid lean, and the contrapposto
+ * the weight shifts blend in — and in that band the second partially CANCELS the first. Measured on
+ * the shift process alone, the left shank's band regresses on its own knee at -0.076 while the
+ * right regresses at +0.047, so the pooled centroid of the two legs can sit anywhere. Isolate the
+ * lean (`weightShiftsEnabled: false`) and the same statistic is rock solid across all twelve seeds:
+ * slope 0.1474-0.1545, correlation 0.879-0.889.
+ *
+ * 🎯 So the tracking claim is gated WHERE THE GEOMETRY IS ENTITLED TO PREDICT IT — §1.7e, one gate
+ * per regime — and the bracket is derived rather than fitted: the shank's pivot lies somewhere
+ * between the ankle joint and the floor (§1.11b), which brackets the slope by
+ * (116.5 - 67.3) / (516.4 - 67.3) = 0.110 and 116.5 / 516.4 = 0.226. The measured 0.147-0.155 sits
+ * inside that bracket on every seed, and the spine-bend model scores -0.159 at a correlation of
+ * -1.000 on every seed.
+ *
+ * 🚩 NOTHING HERE IS EVIDENCE THAT THE LEGS ARE ASYMMETRIC. The bone markers were measured to check:
+ * over the twelve seeds `calf_l` and `calf_r` travel 6.35-8.61 px and 6.44-7.99 px with a
+ * correlation of 0.970-0.997, and both feet stay inside 0.06 px. The legs track each other; it is
+ * the pooled band centroid, 49 mm above a pinned joint, that cannot hold the claim.
  *
  * 🚩 WHAT THIS INSTRUMENT IS, AND WHAT IT IS NOT. It is the skinned mesh's own vertices, grouped
  * into `travel.mjs`'s bands by REST height and projected onto the camera's right vector — not the
@@ -3503,6 +3587,10 @@ function measureTheOtherWay() {
  * HandIdle as well, and weights by silhouette area rather than by vertex. §1.9 — nothing here has
  * been looked at; it is a prediction of what a capture would show, gated so it cannot regress
  * between captures, and a capture remains the arbiter.
+ *
+ * ⏱️ COST. Four configurations over twelve seeds is 48 runs of 12,600 frames, about 5.5 minutes,
+ * and it is most of this file's wall clock. It buys the thing a single seed cannot: every number
+ * below is a worst-of-twelve rather than one draw of a stochastic process.
  */
 function measureGlanceLegibility() {
 
@@ -3514,106 +3602,264 @@ function measureGlanceLegibility() {
         `${ framing.framedHeightMillimetres.toFixed( 0 ) } / ${ framing.pixelsPerMillimetre.toFixed( 4 ) }`,
         `stature x ${ BODY_FRAME_MARGIN } over ${ FULL_BODY_CAPTURE_PIXELS } px, camera ${ CAMERA_AZIMUTH_DEGREES } degrees off axis` );
 
-    const shipped = bandTravelPixels( {}, framing );
+    // The same twelve seeds every other amplitude gate in this file runs over. §1.1a: a gate stated
+    // on one draw of a stochastic process is not known to work, and this one demonstrably did not —
+    // its ankle/knee ratio failed on two of these twelve while reading green on seed 1.
+    const shipped = SWAY_SEEDS.map( ( seed ) => bandTravelPixels( seed, {}, framing ) );
 
-    measuredGlanceBands = shipped.bands;
+    // CLIP CONTENT quotes the seed-1 hip band, because that is the clip a judge is handed.
+    measuredGlanceBands = shipped[ SWAY_SEEDS.indexOf( 1 ) ].bands;
+
+    const at = ( report, name ) => report.bands.find( ( band ) => band.name === name );
+    const across = ( name, read ) => shipped.map( ( report ) => read( at( report, name ) ) );
 
     console.log( '' );
-    console.log( '        band   height above floor (mm)   15 s travel   q10   hp15 SD   x the floor' );
+    console.log( '        band   height above floor (mm)   centroid   verts   15 s travel, 12 seeds   ' +
+        'worst q10   x the floor' );
 
-    for ( const band of shipped.bands ) {
+    for ( const band of measuredGlanceBands ) {
+
+        const travels = across( band.name, ( each ) => each.glanceTravelPixels );
+        const quiet = across( band.name, ( each ) => each.glanceQuietTenthPixels );
 
         console.log( `  ${ band.name.padStart( 10 ) }   ${ `${ band.lowMillimetres.toFixed( 0 ) }-${ band.highMillimetres.toFixed( 0 ) }`.padStart( 23 ) }   ` +
-            `${ band.glanceTravelPixels.toFixed( 2 ).padStart( 11 ) }   ${ band.glanceQuietTenthPixels.toFixed( 2 ).padStart( 4 ) }   ` +
-            `${ band.highPassedSdPixels.toFixed( 3 ).padStart( 7 ) }   ` +
-            `${ ( band.glanceTravelPixels / SILHOUETTE_WIDTH_FLOOR_PIXELS ).toFixed( 2 ).padStart( 11 ) }` );
+            `${ band.centroidMillimetres.toFixed( 1 ).padStart( 8 ) }   ${ String( band.vertexCount ).padStart( 5 ) }   ` +
+            `${ `${ Math.min( ...travels ).toFixed( 2 ) } - ${ Math.max( ...travels ).toFixed( 2 ) }`.padStart( 21 ) }   ` +
+            `${ Math.min( ...quiet ).toFixed( 2 ).padStart( 9 ) }   ` +
+            `${ ( Math.min( ...travels ) / SILHOUETTE_WIDTH_FLOOR_PIXELS ).toFixed( 2 ).padStart( 11 ) }` );
 
     }
 
     console.log( '' );
 
-    const at = ( name ) => shipped.bands.find( ( band ) => band.name === name );
+    // A band with no vertices in it reports a constant and passes every ordering gate here. §1.11:
+    // assert the population, because no amount of tightening the travel gates catches an empty band.
+    gate( 'smallest band population (vertices)',
+        Math.min( ...measuredGlanceBands.map( ( band ) => band.vertexCount ) ),
+        GLANCE_BAND_VERTEX_FLOOR, 1e6,
+        `stride ${ GLANCE_VERTEX_STRIDE } over the skinned meshes; the ankle band is the thin one` );
 
-    // Every band a viewer reads as body must clear the floor in a glance. The ankle band is
-    // excluded and reported instead — see the header for the geometry that bounds it.
+    // Every band a viewer reads as body must clear the floor in a glance, ON THE WORST SEED. The
+    // ankle band is excluded and reported instead — see the header for the geometry that bounds it.
     for ( const name of [ 'head', 'shoulder', 'hip', 'knee' ] ) {
 
-        gate( `${ name } band, 15 s travel (px)`, at( name ).glanceTravelPixels,
+        const travels = across( name, ( each ) => each.glanceTravelPixels );
+
+        gate( `${ name } band, 15 s travel, worst seed (px)`, Math.min( ...travels ),
             SILHOUETTE_WIDTH_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
-            'the floor is the 1.6 px this project measured as indistinguishable; the ceiling is over-animation' );
+            'the floor is the 1.6 px this project measured as indistinguishable' );
+
+        gate( `${ name } band, 15 s travel, liveliest seed (px)`, Math.max( ...travels ),
+            SILHOUETTE_WIDTH_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
+            'the ceiling half: over-animating an idle is as bad as having none' );
 
     }
 
-    note( 'ankle band (lower shank), 15 s travel (px)',
-        `${ at( 'ankle' ).glanceTravelPixels.toFixed( 2 ) }, quiet tenth ${ at( 'ankle' ).glanceQuietTenthPixels.toFixed( 2 ) }`,
-        'MARGINAL and geometrically bounded — see the section header. Not gated at the floor; gated below against a dead one.' );
+    const ankleTravels = across( 'ankle', ( each ) => each.glanceTravelPixels );
+    const ankleQuiet = across( 'ankle', ( each ) => each.glanceQuietTenthPixels );
 
-    // 🎯 The lower shank IS pinned, so what is gated there is the RATIO it must keep to the knee.
-    // A shank that stops tracking its own knee is a shank that has come off the leg, and that is a
-    // defect this instrument can see where an absolute floor is not entitled to speak.
-    gate( 'ankle band / knee band travel', at( 'ankle' ).glanceTravelPixels / at( 'knee' ).glanceTravelPixels,
-        0.08, 0.40,
-        'the band centroid sits ~80 mm up a 420 mm shank pinned at the ankle, so ~0.19 is the geometric prediction' );
+    note( 'ankle band (lower shank), 15 s travel over 12 seeds (px)',
+        `${ Math.min( ...ankleTravels ).toFixed( 2 ) } - ${ Math.max( ...ankleTravels ).toFixed( 2 ) }, ` +
+        `quiet tenth ${ Math.min( ...ankleQuiet ).toFixed( 2 ) } - ${ Math.max( ...ankleQuiet ).toFixed( 2 ) }`,
+        'MARGINAL and geometrically bounded — see the section header. Not gated at 1.6; gated below against a dead one.' );
+
+    // 🚩 THE QUIET TENTH IS NOT A SINGLE NUMBER EITHER, and reporting it from one seed hid that.
+    // At seed 1 it reads 0.74 px, which is what the section header describes as marginal. Over the
+    // twelve it falls to 0.13-0.16 px on four of them — 101, 1234, 4242 and 20260807, the last of
+    // which is this file's own default SEED. Recorded as a gate so the range cannot quietly shrink
+    // back to one seed's worth of it.
+    gate( 'seeds whose quiet tenth is under a fifth of a pixel',
+        ankleQuiet.filter( ( value ) => value < 0.2 ).length, 0, 6,
+        `recorded, not tolerated: ${ ankleQuiet.map( ( value ) => value.toFixed( 2 ) ).join( ' ' ) }` );
+
+    // 🎯 The lower shank IS pinned, so what is asserted is that it TRACKS its own knee. Measured
+    // where the pendulum runs alone, because that is the only regime a rigid-lever prediction is
+    // entitled to speak for — §1.7e. See the header for the ratio this replaced and why it swung by
+    // a factor of five on the shipped layer without the layer being at fault.
+    const lean = SWAY_SEEDS.map( ( seed ) => bandTravelPixels( seed, { weightShiftsEnabled: false }, framing ) );
+
+    const leanSlopes = lean.map( ( report ) => regressionSlope( at( report, 'knee' ).samples, at( report, 'ankle' ).samples ) );
+    const leanCorrelations = lean.map( ( report ) => pearson( at( report, 'ankle' ).samples, at( report, 'knee' ).samples ) );
+
+    const pivot = anklePivotMillimetres();
+    const ankleCentroid = measuredGlanceBands.find( ( band ) => band.name === 'ankle' ).centroidMillimetres;
+    const kneeCentroid = measuredGlanceBands.find( ( band ) => band.name === 'knee' ).centroidMillimetres;
+
+    // The pivot is somewhere between the ankle joint and the floor — §1.11b argued that exact
+    // question for the sole — so the lever ratio is bracketed rather than pinned, and the bracket
+    // is computed from this figure rather than typed in.
+    const slopeFloor = ( ankleCentroid - pivot ) / ( kneeCentroid - pivot );
+    const slopeCeiling = ankleCentroid / kneeCentroid;
+
+    note( 'shank lever bracket, pivot at the ankle joint / at the floor',
+        `${ slopeFloor.toFixed( 3 ) } .. ${ slopeCeiling.toFixed( 3 ) }`,
+        `ankle band centroid ${ ankleCentroid.toFixed( 1 ) } mm, knee band ${ kneeCentroid.toFixed( 1 ) } mm, ankle joint ${ pivot.toFixed( 1 ) } mm` );
+
+    gate( 'shank on knee, slope, flattest seed', Math.min( ...leanSlopes ), slopeFloor, slopeCeiling,
+        'the lean alone; the bracket above is geometry, not a fitted range' );
+
+    gate( 'shank on knee, slope, steepest seed', Math.max( ...leanSlopes ), slopeFloor, slopeCeiling, '' );
+
+    gate( 'shank on knee, correlation, weakest seed', Math.min( ...leanCorrelations ),
+        SHANK_TRACKS_KNEE_CORRELATION_FLOOR, 1,
+        'a shank that has come off the leg stops tracking before it stops moving' );
+
+    // 🚩 RECORDED AS A GATE, §1.1a. The statistic this section used to assert the same claim on is
+    // regime-dependent by a factor of five, which is why it could read green on one seed and fail
+    // on two others. Asserted so that nobody restates the tracking claim on it again.
+    const shippedRatios = SWAY_SEEDS.map( ( seed, index ) =>
+        at( shipped[ index ], 'ankle' ).glanceTravelPixels / at( shipped[ index ], 'knee' ).glanceTravelPixels );
+
+    gate( 'the 15 s RATIO spans too far to gate, x across seeds',
+        Math.max( ...shippedRatios ) / Math.min( ...shippedRatios ), 3, 1e3,
+        `recorded, not tolerated: ${ Math.min( ...shippedRatios ).toFixed( 3 ) } .. ${ Math.max( ...shippedRatios ).toFixed( 3 ) } ` +
+        `against ${ Math.min( ...leanSlopes ).toFixed( 3 ) } .. ${ Math.max( ...leanSlopes ).toFixed( 3 ) } for the slope on the lean` );
 
     // 🚩 Travel must fall monotonically FROM THE HIP DOWN, and only from the hip down. Below the
     // pelvis the body is a chain pinned at the floor, so a band that out-travels the one above it
     // is a fix that was bought by scaling something rather than by articulating it.
     //
     // ⚠️ The head is deliberately NOT in that chain, and this gate found that out by failing when
-    // it was: the head travels LESS laterally than the hip on purpose — 10.96 px against 11.44 —
-    // because `LATERAL_HEAD_PER_CENTRE_OF_MASS` parks it over the base of support. That is the
-    // whole finding of the round before this one, and stating a head > hip ordering here would
+    // it was: the head travels LESS laterally than the hip on purpose — 10.96 px against 11.44 at
+    // seed 1 — because `LATERAL_HEAD_PER_CENTRE_OF_MASS` parks it over the base of support. That is
+    // the whole finding of the round before this one, and stating a head > hip ordering here would
     // have re-asserted the defect it fixed. The head has its own gates in HEAD PARKED; this one
     // starts at the pelvis. The shoulder band is out for a different reason — the arms hang in it
     // and carry their own idle from another layer.
-    const chain = [ 'hip', 'knee', 'ankle' ].map( ( name ) => at( name ).glanceTravelPixels );
+    const monotone = shipped.map( ( report ) => {
 
-    let monotone = 1;
-    for ( let index = 1; index < chain.length; index ++ ) if ( chain[ index ] > chain[ index - 1 ] ) monotone = 0;
+        const chain = [ 'hip', 'knee', 'ankle' ].map( ( name ) => at( report, name ).glanceTravelPixels );
 
-    gate( 'travel falls monotonically from the hip down', monotone, 1, 1,
-        `hip > knee > ankle: ${ chain.map( ( value ) => value.toFixed( 2 ) ).join( ' > ' ) }` );
+        for ( let index = 1; index < chain.length; index ++ ) if ( chain[ index ] > chain[ index - 1 ] ) return 0;
 
-    gate( 'the head travels LESS laterally than the hip',
-        at( 'head' ).glanceTravelPixels / at( 'hip' ).glanceTravelPixels, 0.50, 1.00,
-        'the same claim HEAD PARKED gates on bone markers, restated on the band a camera sees' );
+        return 1;
 
-    measureGlanceLegibilityTheOtherWay( framing, shipped );
+    } );
+
+    gate( 'seeds where travel falls monotonically from the hip down',
+        monotone.filter( ( value ) => value === 1 ).length, SWAY_SEEDS.length, SWAY_SEEDS.length,
+        `hip > knee > ankle on every seed; worst margins ${ Math.min( ...across( 'knee', ( each ) => each.glanceTravelPixels ) ).toFixed( 2 ) } ` +
+        `knee against ${ Math.max( ...ankleTravels ).toFixed( 2 ) } ankle` );
+
+    const headOverHip = SWAY_SEEDS.map( ( seed, index ) =>
+        at( shipped[ index ], 'head' ).glanceTravelPixels / at( shipped[ index ], 'hip' ).glanceTravelPixels );
+
+    gate( 'head band / hip band travel, worst seed', Math.max( ...headOverHip ),
+        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING,
+        'NOT the bone-marker claim — see the constant. An unrighted lumbar scores 1.75-1.84 here' );
+
+    gate( 'head band / hip band travel, lowest seed', Math.min( ...headOverHip ),
+        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING, '' );
+
+    measureGlanceLegibilityTheOtherWay( framing, shipped, at );
 
 }
 
 /**
- * §1.1. The state the lower body was measured dead in is still buildable: `anklePendulumShare: 0`
- * is the spine-bend model that produced exactly 0.0000 mm below the hips over 600 frames, which is
- * the failure `Sway.js` was rewritten for. The gate must reject it, and the margin must be a chasm.
+ * The ankle joint's height above the floor, in millimetres, in the pose the stack runs in.
+ *
+ * Read off the rig rather than typed in, because the shank lever bracket the tracking gate uses is
+ * derived from it and a different figure must move the bracket rather than silently keep this one.
  */
-function measureGlanceLegibilityTheOtherWay( framing, shipped ) {
+function anklePivotMillimetres() {
 
-    const spineBend = bandTravelPixels(
-        { anklePendulumShare: 0, stanceBlendEnabled: false }, framing );
+    restoreRestPose();
+    figure.root.updateMatrixWorld( true );
 
-    const at = ( report, name ) => report.bands.find( ( band ) => band.name === name );
+    const bounds = new Box3().setFromObject( figure.root );
+    const foot = figure.root.getObjectByName( 'foot_l' );
 
-    note( 'spine-bend model, knee / ankle travel (px)',
-        `${ at( spineBend, 'knee' ).glanceTravelPixels.toFixed( 4 ) } / ${ at( spineBend, 'ankle' ).glanceTravelPixels.toFixed( 4 ) }`,
-        `against ${ at( shipped, 'knee' ).glanceTravelPixels.toFixed( 2 ) } / ${ at( shipped, 'ankle' ).glanceTravelPixels.toFixed( 2 ) } as constructed` );
+    return ( new Vector3().setFromMatrixPosition( foot.matrixWorld ).y - bounds.min.y ) * 1000;
 
-    gate( 'the knee gate REJECTS the spine-bend model',
-        at( spineBend, 'knee' ).glanceTravelPixels < SILHOUETTE_WIDTH_FLOOR_PIXELS ? 1 : 0, 1, 1,
-        '1 means the gate caught it; this configuration is the historical 0.0000 mm lower body' );
+}
 
-    gate( 'and the ratio gate REJECTS it too',
-        at( spineBend, 'ankle' ).glanceTravelPixels / Math.max( at( spineBend, 'knee' ).glanceTravelPixels, 1e-9 ) < 0.08
-        || at( spineBend, 'knee' ).glanceTravelPixels === 0 ? 1 : 0, 1, 1,
-        'a shank that is not tracking a knee that is not moving' );
+/**
+ * §1.1 and §1.1a. Two states the gates above must reject, each run over THE SAME TWELVE SEEDS the
+ * forward gates use, each asserted as a COUNT of seeds caught rather than as one verdict.
+ *
+ *   - `anklePendulumShare: 0, stanceBlendEnabled: false` is the spine-bend model that produced
+ *     exactly 0.0000 mm below the hips over 600 frames, the failure `Sway.js` was rewritten for.
+ *   - `lateralRightingEnabled: false` is the body that leans without righting its lumbar: a rigid
+ *     lever about the ankles, which is what the head-band ceiling is entitled to resolve and the
+ *     only thing it is entitled to resolve. See HEAD_BAND_OVER_HIP_BAND_CEILING.
+ *
+ * 🚩 The count matters more than the verdict. The version of this section that shipped before ran
+ * its rejection on one seed, and so did the forward gate it was proving — which is how a forward
+ * gate that fails on two of twelve seeds was signed off as green by a rejection that agreed with it.
+ */
+function measureGlanceLegibilityTheOtherWay( framing, shipped, at ) {
+
+    const spineBend = SWAY_SEEDS.map( ( seed ) =>
+        bandTravelPixels( seed, { anklePendulumShare: 0, stanceBlendEnabled: false }, framing ) );
+
+    const unrighted = SWAY_SEEDS.map( ( seed ) =>
+        bandTravelPixels( seed, { lateralRightingEnabled: false }, framing ) );
+
+    const spineBendKnees = spineBend.map( ( report ) => at( report, 'knee' ).glanceTravelPixels );
+    const spineBendAnkles = spineBend.map( ( report ) => at( report, 'ankle' ).glanceTravelPixels );
+    const shippedAnkles = shipped.map( ( report ) => at( report, 'ankle' ).glanceTravelPixels );
+
+    note( 'spine-bend model, knee / ankle travel over 12 seeds (px)',
+        `${ Math.max( ...spineBendKnees ).toFixed( 4 ) } / ${ Math.max( ...spineBendAnkles ).toFixed( 4 ) } at their worst`,
+        `against ${ Math.min( ...shipped.map( ( report ) => at( report, 'knee' ).glanceTravelPixels ) ).toFixed( 2 ) } / ` +
+        `${ Math.min( ...shippedAnkles ).toFixed( 2 ) } as constructed` );
+
+    gate( 'seeds where the knee floor CATCHES the spine-bend model',
+        spineBendKnees.filter( ( value ) => value < SILHOUETTE_WIDTH_FLOOR_PIXELS ).length,
+        SWAY_SEEDS.length, SWAY_SEEDS.length,
+        'this configuration is the historical 0.0000 mm lower body, on every seed' );
+
+    // The tracking gate is stated on the lean, so its rejection is read off the same two series.
+    const spineBendSlopes = spineBend.map( ( report ) => regressionSlope( at( report, 'knee' ).samples, at( report, 'ankle' ).samples ) );
+    const spineBendCorrelations = spineBend.map( ( report ) => pearson( at( report, 'ankle' ).samples, at( report, 'knee' ).samples ) );
+
+    gate( 'seeds where the tracking gate CATCHES it too',
+        spineBendCorrelations.filter( ( value ) => value < SHANK_TRACKS_KNEE_CORRELATION_FLOOR ).length,
+        SWAY_SEEDS.length, SWAY_SEEDS.length,
+        `a shank not tracking a knee that is not moving: slope ${ Math.max( ...spineBendSlopes ).toFixed( 3 ) }, ` +
+        `correlation ${ Math.max( ...spineBendCorrelations ).toFixed( 3 ) } at their most favourable` );
+
+    // 🎯 THE GATE THE OLD 1.00 CEILING WAS REACHING FOR, stated where the band can resolve it.
+    const unrightedRatios = unrighted.map( ( report ) =>
+        at( report, 'head' ).glanceTravelPixels / at( report, 'hip' ).glanceTravelPixels );
+
+    note( 'unrighted lumbar, head band / hip band over 12 seeds',
+        `${ Math.min( ...unrightedRatios ).toFixed( 3 ) } - ${ Math.max( ...unrightedRatios ).toFixed( 3 ) }`,
+        'the rigid-lever prediction from the band centroids is 1.805, so the prediction IS the measurement' );
+
+    gate( 'seeds where the head-band ceiling CATCHES an unrighted lumbar',
+        unrightedRatios.filter( ( value ) => value > HEAD_BAND_OVER_HIP_BAND_CEILING ).length,
+        SWAY_SEEDS.length, SWAY_SEEDS.length,
+        `every seed, by at least ${ ( Math.min( ...unrightedRatios ) / HEAD_BAND_OVER_HIP_BAND_CEILING ).toFixed( 2 ) }x` );
+
+    // 🚩 RECORDED AS A GATE, §1.1a. The ceiling that shipped before was 1.00, and it would have
+    // caught the unrighted layer too — but it also caught the SHIPPED layer on two of these twelve
+    // seeds. Asserted in both directions so that neither half of that is forgotten.
+    const shippedRatios = shipped.map( ( report ) =>
+        at( report, 'head' ).glanceTravelPixels / at( report, 'hip' ).glanceTravelPixels );
+
+    gate( 'seeds a 1.00 ceiling would have FAILED on the shipped layer',
+        shippedRatios.filter( ( value ) => value > 1.0 ).length, 1, SWAY_SEEDS.length,
+        `recorded, not tolerated: ${ shippedRatios.filter( ( value ) => value > 1.0 ).map( ( value ) => value.toFixed( 3 ) ).join( ' ' ) } ` +
+        '— the old single-seed gate read 0.958 and never saw them' );
 
     // 🚩 RECORDED AS A GATE, §1.3 AND §1.10a. The heat map cannot see this and neither can a raw
-    // standard deviation: on the shipped layer the ankle band's raw SD is 0.36 px and its 15 s
-    // travel is 1.09 px, a factor of three apart, and the floor this is judged against is a
-    // peak-to-peak. Asserted so nobody restates this gate on an SD and thinks it says the same thing.
-    gate( 'a raw SD is NOT this measurement',
-        at( shipped, 'ankle' ).rawSdPixels > SILHOUETTE_WIDTH_FLOOR_PIXELS ? 1 : 0, 0, 0,
-        `recorded, not tolerated: raw SD ${ at( shipped, 'ankle' ).rawSdPixels.toFixed( 3 ) } px against a peak-to-peak floor of ${ SILHOUETTE_WIDTH_FLOOR_PIXELS }` );
+    // standard deviation. Over the twelve seeds the ankle band's raw SD spans 0.168-1.398 px while
+    // the statistic the 1.6 px floor is actually stated in — the median peak-to-peak inside a 15 s
+    // window — spans 0.29-1.50 px. They are not the same measurement even where they are the same
+    // size: a 420 s trace carries a slow drift the SD counts in full and a 15 s window barely sees.
+    // Asserted so nobody restates this gate on an SD and thinks it says the same thing.
+    const ankleSds = shipped.map( ( report ) => at( report, 'ankle' ).rawSdPixels );
+
+    gate( 'seeds where a raw SD would clear the floor',
+        ankleSds.filter( ( value ) => value > SILHOUETTE_WIDTH_FLOOR_PIXELS ).length, 0, 0,
+        `recorded, not tolerated: raw SD ${ Math.min( ...ankleSds ).toFixed( 3 ) }-${ Math.max( ...ankleSds ).toFixed( 3 ) } px ` +
+        `against a peak-to-peak floor of ${ SILHOUETTE_WIDTH_FLOOR_PIXELS }` );
+
+    // The shipped shank is not dead, which is the one absolute statement this band supports.
+    gate( 'ankle band travel, worst seed (px)', Math.min( ...shippedAnkles ),
+        ANKLE_BAND_NOT_DEAD_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
+        `against the spine-bend model's ${ Math.max( ...spineBendAnkles ).toFixed( 4 ) } px on its liveliest seed` );
 
 }
 
@@ -3624,10 +3870,15 @@ function measureGlanceLegibilityTheOtherWay( framing, shipped ) {
  * here into heights above the floor so that they land on the same anatomy offline as they do in a
  * capture, and the converted bounds are printed in millimetres so the two can be checked against
  * each other by hand.
+ *
+ * The seed is a parameter rather than a constant because the section runs the whole twelve — see
+ * §1.1a and the header. The centroid and the population are recorded alongside the travel, because
+ * the tracking gate's lever bracket is derived from the first and the second is gated in its own
+ * right.
  */
-function bandTravelPixels( options, framing ) {
+function bandTravelPixels( seed, options, framing ) {
 
-    const { stack, layer, root } = buildStack( GLANCE_SEED, options ); // eslint-disable-line no-unused-vars
+    const { stack, layer, root } = buildStack( seed, options ); // eslint-disable-line no-unused-vars
 
     root.updateMatrixWorld( true );
 
@@ -3648,6 +3899,8 @@ function bandTravelPixels( options, framing ) {
             high: toHeight( band.top ),
             lowMillimetres: toHeight( band.bottom ) * statureMetres * 1000,
             highMillimetres: toHeight( band.top ) * statureMetres * 1000,
+            vertexCount: 0,
+            restHeightSumMillimetres: 0,
             samples: []
         };
 
@@ -3672,7 +3925,13 @@ function bandTravelPixels( options, framing ) {
             const height = ( vertex.y - floor ) / statureMetres;
 
             bands.forEach( ( band, index2 ) => {
-                if ( height >= band.low && height <= band.high ) groups[ index2 ].push( index );
+
+                if ( height < band.low || height > band.high ) return;
+
+                groups[ index2 ].push( index );
+                band.vertexCount ++;
+                band.restHeightSumMillimetres += ( vertex.y - floor ) * 1000;
+
             } );
 
         }
@@ -3724,6 +3983,7 @@ function bandTravelPixels( options, framing ) {
         band.highPassedSdPixels = standardDeviation( highPassed( band.samples, GLANCE_WINDOW_SECONDS ) );
         band.glanceTravelPixels = glance[ Math.floor( glance.length / 2 ) ];
         band.glanceQuietTenthPixels = glance[ Math.floor( 0.10 * glance.length ) ];
+        band.centroidMillimetres = band.restHeightSumMillimetres / Math.max( band.vertexCount, 1 );
 
     }
 
@@ -3982,10 +4242,10 @@ function measureClipContentTheOtherWay( bySeed ) {
         seedOne.blendMinimum <= FULL_TRANSFER_BLEND ? 0 : 1, 0, 0,
         `recorded, not tolerated: seed 1 reaches ${ seedOne.blendMinimum.toFixed( 3 ) } and would pass a depth gate` );
 
-    // 🚩 AND THE OTHER GATE THAT WAS ALREADY LOOKING AT THIS EXACT CLIP. GLANCE LEGIBILITY runs at
-    // seed 1, over 420 s, in pixels, at this framing — and passes, because its statistic is a
-    // peak-to-peak inside a 15 s window, which a 1.4 s fidget satisfies on its own. Same family as
-    // §1.14: right unit, wrong statistic for the behaviour being asked about.
+    // 🚩 AND THE OTHER GATE THAT WAS ALREADY LOOKING AT THIS EXACT CLIP. GLANCE LEGIBILITY includes
+    // seed 1 among its twelve, over 420 s, in pixels, at this framing — and passes on it, because
+    // its statistic is a peak-to-peak inside a 15 s window, which a 1.4 s fidget satisfies on its
+    // own. Same family as §1.14: right unit, wrong statistic for the behaviour being asked about.
     const hip = measuredGlanceBands.find( ( band ) => band.name === 'hip' );
 
     gate( 'the GLANCE gate does NOT catch it either',
