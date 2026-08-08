@@ -315,7 +315,16 @@ async function boot() {
     // A capture has to be able to ask for a state — "the same twenty seconds, but aroused" — and
     // a slider only a human can drag makes that impossible. Written to the input rather than to
     // the layer so the control and the figure cannot disagree about what the value is.
-    for ( const id of [ 'arousal', 'load', 'attention' ] ) {
+    //
+    // 🚩 `gender` is in this list and its omission made `?gender` completely inert, which is worth
+    // recording because the mechanism is invisible from either end. `session.identity` was built
+    // from the URL, but the slider kept its HTML default of 0.5; `bindDial` publishes once at
+    // setup so every dial starts in sync, that publish carried 0.5, and it reloaded g050 over
+    // whichever bake the URL had just fetched. Proven by execution: `?gender=1` requested
+    // figure_g100.glb AND THEN figure_g050.glb, and the plate came back byte-identical to
+    // `?gender=0`. The guard in `bindDial('gender')` was written to stop exactly that redundant
+    // fetch, and could not, because it compares two values that this loop is what keeps equal.
+    for ( const id of [ 'arousal', 'load', 'attention', 'gender' ] ) {
 
         if ( query.has( id ) ) document.getElementById( id ).value = query.get( id );
 
