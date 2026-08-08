@@ -168,13 +168,67 @@ const RADIUS_PERCENTILE = 0.75;
  * The look spec puts the background "1.5–2.0 stops below subject, cooler and desaturated", and
  * §3 adds that the grade drains the environment by 15% of saturation while the character gains 8%.
  *
- * 🚩 The floor's albedo has BLUE AS ITS LOWEST CHANNEL, and that is the correction, not a taste.
- * The previous studio floor was `#2e3036`, whose blue channel is its HIGHEST — under a saturated
- * blue rim that is a mirror, and the measured result was a floor at HSV saturation 0.62 filling
- * the bottom third of every full-body frame. A warm-neutral floor reflects the same rim at a
- * fraction of the chroma while sitting at the same level.
+ * 🚩 **BLUE IS THE LOWEST CHANNEL AND THAT IS NECESSARY — BUT THE PREVIOUS VERSION OF THIS NOTE
+ * THOUGHT IT WAS SUFFICIENT, AND IT IS NOT, BY A FACTOR THE ARGUMENT NEVER LOOKED AT.** The note
+ * said a warm floor "reflects the same rim at a fraction of the chroma", which is true and was
+ * treated as the end of the matter. The shipped floor then measured HSV saturation **0.7342** at
+ * body framing — *worse* than the 0.62 the note cites as the rejected floor's score. Two things
+ * were missing from the argument, and both are multiplicative:
+ *
+ * **1. The fraction is 1/4.9, and the light is 210:1.** `LightingRig`'s rim and kicker are
+ * `#0f30ff`, whose LINEAR blue:red is 1.0 : 0.00477 — a near-primary. `#4b3520` linearises to
+ * (0.0703, 0.0356, 0.0144), so its red:blue of 4.9 : 1 divides that 210 down to **43 : 1**. An
+ * albedo cannot neutralise a light 210× off-neutral unless the albedo is 210× off-neutral the
+ * other way, and a floor that red would be a vivid orange under the key.
+ *
+ * **2. Three quarters of the floor's light never touched the albedo at all.** Measured on
+ * `lighting.html?frame=body&bare` at 900×1200, WebGPU, MSAA (the default), the floor patch at
+ * x 0.06–0.14 / y 0.90–0.94 of the frame — the same rects for every row, `?floor=` being the only
+ * change:
+ *
+ *   | floor albedo            | rgb          | HSV S  | linear luma |
+ *   |-------------------------|--------------|-------:|------------:|
+ *   | `0x4b3520` (as shipped) | (53, 44,166) | 0.7342 |      0.0534 |
+ *   | **`0x000000`**          | **(0,23,148)**| **1.00** |  **0.0272** |
+ *
+ * A black floor has no diffuse term by construction, so that second row is **specular only** — and
+ * it is 51% of the shipped floor's luma and 76% of its blue. `MeshStandardNodeMaterial` gives every
+ * dielectric F0 = 0.04 with F90 = 1, a floor is seen at grazing incidence over most of its visible
+ * area, and the specular lobe reflects the rim's own colour **with no albedo anywhere in the
+ * path**. The header's argument governs a quarter of the picture it was written about. This is
+ * LEARNINGS §1.11a — a justification that is correct about the wrong quantity.
+ *
+ * ## What actually fixed it, and why it is not in this file
+ *
+ * Neither the albedo's hue nor its level can win this. Measured sweeps, same page and rects:
+ *
+ *   | change, at the old rim standoff of 1.4 heights          | floor S | luma  | frame blue-cast |
+ *   |---------------------------------------------------------|--------:|------:|----------------:|
+ *   | shipped                                                  |  0.7342 | 0.053 |          24.06% |
+ *   | albedo up to `0x99764f` (spec-legal 1.5–2.0 stops)        |  0.4992 | 0.197 |          12.76% |
+ *   | albedo up to `0xcca270` (0.7 stops below subject — wrong) |  0.3486 | 0.367 |           0.05% |
+ *   | `specularIntensity` 1 → 0 at the shipped albedo           |  0.6608 | 0.013 |          19.78% |
+ *
+ * The only lever that moves it is the one in `LightingRig`: the body rim and kicker moved from
+ * 2.56 m behind the subject to 1.19 m, which changes nothing about the rim ON the subject (the
+ * irradiance is re-solved at the focus) and takes the light off the floor by inverse square AND by
+ * moving the panel's own plane — a `RectAreaLight` lights only its front hemisphere — in past the
+ * frame edge. See that file's `EDGE_LIGHTS.body` for the sweep.
+ *
+ * With the rim off the floor, the albedo's remaining job is what this note always said it was:
+ * blue lowest, and the level set by the spec's background band. `0x968c34` measures
+ * **S 0.2216 at linear luma 0.1945** against a key-lit cheek at 0.5629 — **1.58 stops below the
+ * subject**, inside the spec's 1.5–2.0, and below the skin's own S 0.357, which is what "the
+ * environment is drained" means as a number. The blue-lowest clause is still load-bearing and is
+ * still measured: a NEUTRAL floor of the same luminance, `0x7a7570`, scores **S 0.5427** and puts
+ * 12.45% of the frame back in a saturated blue.
+ *
+ * ⚠️ Specular is now **21% of the floor's light**, not 76% (`?floorspec` was built to dial it and
+ * then removed, because at the new standoff `specularIntensity` 1 → 0 moves saturation 0.2216 →
+ * 0.1840 and is not worth a material class change). If the rim ever moves back out, the specular
+ * share climbs with it and this constant will be fighting the same losing battle again.
  */
-const FLOOR_ALBEDO = 0x4b3520;
+const FLOOR_ALBEDO = 0x968c34;
 
 /** Extent of the ground plane in framed subject heights. Large enough to leave frame at both. */
 const GROUND_EXTENT_IN_HEIGHTS = 12;

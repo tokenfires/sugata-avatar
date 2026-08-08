@@ -168,31 +168,78 @@ const shot = {
 };
 
 {
-    const portrait = rigFor( { preset: 'portrait', subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } );
-    const body = rigFor( { preset: 'body', subjectHeightMetres: BODY_HEIGHT_METRES, ...shot } );
-
+    // 🚩 THE PRESET IS HELD AND ONLY THE SCALE CHANGES, and that is a correction. This block used
+    // to rescale from the PORTRAIT preset to the BODY preset and call the difference "drift",
+    // which conflates the mechanism under test (irradiance is re-solved when the shot changes
+    // size) with the preset table (the two presets are allowed to disagree, and they now do —
+    // `FORM_LIGHT_OVERRIDES_BY_PRESET` authors the body fill at 1.20 against portrait's 1.90).
+    // Written the old way this check went red on a deliberate, measured art change while
+    // remaining unable to say anything about the invariance it is named for.
     const scaleFactor = BODY_HEIGHT_METRES / PORTRAIT_HEIGHT_METRES;
 
-    for ( const name of [ 'key', 'fill' ] ) {
+    for ( const preset of [ 'portrait', 'body' ] ) {
 
-        const near = deliveredIrradiance( portrait.rig, name );
-        const far = deliveredIrradiance( body.rig, name );
-        const drift = Math.abs( far.total - near.total ) / near.total;
+        const near = rigFor( { preset, subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } );
+        const far = rigFor( { preset, subjectHeightMetres: BODY_HEIGHT_METRES, ...shot } );
+
+        for ( const name of [ 'key', 'fill' ] ) {
+
+            const small = deliveredIrradiance( near.rig, name );
+            const large = deliveredIrradiance( far.rig, name );
+            const drift = Math.abs( large.total - small.total ) / small.total;
+
+            report(
+                `${ preset }/${ name }: delivered irradiance survives a ${ scaleFactor.toFixed( 2 ) }x rescale`,
+                drift < 1e-9,
+                `${ small.total.toFixed( 6 ) } (panel at ${ small.distance.toFixed( 3 ) } m) -> ` +
+                `${ large.total.toFixed( 6 ) } (panel at ${ large.distance.toFixed( 3 ) } m), drift ${ ( drift * 100 ).toExponential( 2 ) }%`
+            );
+
+        }
+
+    }
+
+    // And the thing the old form was accidentally asserting, now stated on purpose: the two
+    // presets differ in exactly the fields the tables say they differ in, and nowhere else. A
+    // preset that quietly diverged on the key would look identical to this file's prose.
+    {
+        const portraitRig = rigFor( { preset: 'portrait', subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } ).rig;
+        const bodyRig = rigFor( { preset: 'body', subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } ).rig;
+
+        const differing = [];
+
+        for ( const unit of portraitRig.units ) {
+
+            const other = bodyRig.units.find( ( entry ) => entry.placement.name === unit.placement.name );
+
+            for ( const field of Object.keys( unit.placement ) ) {
+
+                if ( field === 'name' ) continue;
+                if ( unit.placement[ field ] !== other.placement[ field ] ) differing.push( `${ unit.placement.name }.${ field }` );
+
+            }
+
+        }
+
+        const expected = [
+            'fill.irradiance',
+            'rim.elevationDegrees', 'rim.distanceInHeights', 'rim.widthInHeights', 'rim.heightInHeights', 'rim.irradiance',
+            'kicker.elevationDegrees', 'kicker.distanceInHeights', 'kicker.widthInHeights', 'kicker.heightInHeights', 'kicker.irradiance'
+        ].sort().join( ', ' );
 
         report(
-            `${ name }: delivered irradiance survives a ${ scaleFactor.toFixed( 2 ) }x rescale`,
-            drift < 1e-9,
-            `portrait ${ near.total.toFixed( 6 ) } (panel at ${ near.distance.toFixed( 3 ) } m) -> ` +
-            `body ${ far.total.toFixed( 6 ) } (panel at ${ far.distance.toFixed( 3 ) } m), drift ${ ( drift * 100 ).toExponential( 2 ) }%`
+            'the two presets disagree about exactly the fields the tables document',
+            differing.sort().join( ', ' ) === expected,
+            `differing: ${ differing.sort().join( ', ' ) || '(none)' }`
         );
-
     }
 
     // CONTROL, and it is a NEGATIVE result worth keeping. What `alive.js` does today — scale the
     // panel and the standoff together and leave `intensity` alone — is genuinely scale-invariant,
     // not just approximately. So the invariance check above, on its own, would pass for the model
     // this file replaces: it proves nothing. The defect the rig actually removes is the next check.
-    const unit = portrait.rig.units.find( ( entry ) => entry.placement.name === 'key' );
+    const portraitAtPortraitScale = rigFor( { preset: 'portrait', subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } );
+    const unit = portraitAtPortraitScale.rig.units.find( ( entry ) => entry.placement.name === 'key' );
     const fixedRadiance = unit.area.intensity;
 
     const nearDelivered = fixedRadiance * projectedSolidAngle(
@@ -434,6 +481,132 @@ console.log( '\n--- the gate: designed key:fill --------------------------------
     );
 }
 
+console.log( '\n--- the gate: how much of the rim lands on the environment --------------------\n' );
+
+// 🎯 The defect this exists for: 45.3% of a full-body frame measured as saturated blue-violet, of
+// which 17.8% was floor, because the rim and kicker delivered **36.6× the key and fill** to a
+// point on the floor two metres behind the subject. Every gate in this file was green, and none
+// of them could have seen it: they all measure what a light delivers AT THE FOCUS, and the whole
+// defect is what it delivers everywhere else.
+//
+// The quantity is a RATIO computed identically at one point, so the point-to-differential-area
+// approximation used here — panel treated as a differential emitter, which at d/panel ≈ 2.4 is
+// only fair — largely cancels. Anchored against rendered measurements on
+// `lighting.html?frame=body&bare` at 900×1200:
+//
+//   | rim standoff (heights) | this ratio | frame pixels in a saturated blue |
+//   |------------------------|-----------:|---------------------------------:|
+//   | 2.6 (portrait's)       |      49.94 | —                                 |
+//   | 1.4 (the defect)       |      36.61 | 24.06% at the old floor albedo    |
+//   | 1.1                    |      18.88 | 9.81%                             |
+//   | 0.8                    |       4.69 | 3.62%                             |
+//   | **0.65 (shipped)**     |   **2.10** | **1.19%**, and 0.07% as shipped   |
+//
+// The ceiling is 3.0 because that is BETWEEN the shipped 2.10 and the nearest measured
+// configuration that still floods — 4.69, which renders 3.62% of the frame saturated blue. It is
+// interpolated from those two plates, not chosen for comfort.
+//
+// ⚠️ WHAT THIS GATE CANNOT SEE, so nobody assumes it does:
+//   - The floor's ALBEDO. A neutral floor under a compliant rig still measured HSV S 0.5427
+//     (`?floor=0x7a7570`). That clause is gated in `GroundContact.selftest.mjs`.
+//   - The SPECULAR half of the floor's response, which carries no albedo and is 21% of the
+//     floor's light at this standoff and was 76% at the old one.
+//   - Any point but this one. It is a horizontal receiver 2 m behind the focus, chosen because it
+//     is the middle of the visible floor band at body framing.
+{
+    const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
+    const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
+    const COOL_LIGHTS = [ 'rim', 'kicker' ];
+    const ENVIRONMENT_COOL_TO_WARM_MAX = 3.0;
+
+    const bodyShot = {
+        focus: new Vector3( 0, 0.91, 0 ),
+        cameraPosition: new Vector3( 0.39, 0.91, 1.83 ),
+        subjectHeightMetres: 1.825
+    };
+
+    /** Cool-light irradiance at `FLOOR_POINT` over warm-light irradiance at the same point. */
+    function environmentCoolToWarm( overrides ) {
+
+        const { rig } = rigFor( { preset: 'body', overrides, ...bodyShot } );
+
+        let cool = 0;
+        let warm = 0;
+
+        for ( const unit of rig.units ) {
+
+            const panel = unit.area.position;
+            const aim = bodyShot.focus.clone().sub( panel ).normalize();
+            const toPoint = FLOOR_POINT.clone().sub( panel );
+            const distance = toPoint.length();
+            const direction = toPoint.clone().normalize();
+
+            const cosPanel = aim.dot( direction );
+            const cosReceiver = FLOOR_NORMAL.dot( direction.clone().negate() );
+
+            // A RectAreaLight emits into its FRONT hemisphere only, so a receiver behind the
+            // panel's plane gets nothing — that clamp is not a guard, it is half the mechanism
+            // the shipped standoff relies on. At 0.65 heights the kicker's contribution here is
+            // exactly zero for this reason.
+            const irradiance = ( cosPanel <= 0 || cosReceiver <= 0 )
+                ? 0
+                : unit.area.intensity * unit.area.width * unit.area.height * cosPanel * cosReceiver / ( distance * distance );
+
+            if ( COOL_LIGHTS.includes( unit.placement.name ) ) cool += irradiance; else warm += irradiance;
+
+        }
+
+        return cool / warm;
+
+    }
+
+    const shipped = environmentCoolToWarm( {} );
+
+    report(
+        'the rim and kicker do not flood the floor behind the subject',
+        shipped < ENVIRONMENT_COOL_TO_WARM_MAX,
+        `cool:warm irradiance 2 m behind the focus = ${ shipped.toFixed( 2 ) }:1 against a ceiling of ` +
+        `${ ENVIRONMENT_COOL_TO_WARM_MAX.toFixed( 1 ) }:1. Rendered: 0.07% of the frame in a saturated blue.`
+    );
+
+    // FOUR known-bads, and they are four DIFFERENT mechanisms on purpose. A gate proved red only
+    // by undoing the exact change that motivated it is decorative — it demonstrates that one
+    // constant is load-bearing and nothing else.
+    const knownBad = [
+        {
+            what: 'DISTANCE — the standoff put back to where the defect was',
+            overrides: {
+                rim: { distanceInHeights: 1.4, widthInHeights: 0.30, heightInHeights: 1.00 },
+                kicker: { distanceInHeights: 1.4, widthInHeights: 0.30, heightInHeights: 0.95 }
+            }
+        },
+        {
+            what: 'POWER — the shipped geometry with the rim turned up',
+            overrides: { rim: { irradiance: 80 } }
+        },
+        {
+            what: 'AIM — the shipped geometry with the rim raised until it points at the floor',
+            overrides: { rim: { elevationDegrees: 75 } }
+        },
+        {
+            what: 'DENOMINATOR — the warm lights taken away, which is how an environment goes cool without the rim moving',
+            overrides: { key: { irradiance: 0.3 }, fill: { irradiance: 0.12 } }
+        }
+    ];
+
+    for ( const variant of knownBad ) {
+
+        const measured = environmentCoolToWarm( variant.overrides );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            measured >= ENVIRONMENT_COOL_TO_WARM_MAX,
+            `${ measured.toFixed( 2 ) }:1, rejected against the ${ ENVIRONMENT_COOL_TO_WARM_MAX.toFixed( 1 ) }:1 ceiling`
+        );
+
+    }
+}
+
 console.log( '\n--- the two framings ---------------------------------------------------------\n' );
 
 {
@@ -445,10 +618,11 @@ console.log( '\n--- the two framings -------------------------------------------
     for ( const name of [ 'key', 'fill' ] ) {
 
         report(
-            `${ name } is identical in both presets`,
+            `${ name } sits at the same azimuth in both presets`,
             azimuthOf( portrait, name ) === azimuthOf( body, name ),
-            `${ azimuthOf( portrait, name ) }° in both — a form light authored in subject heights is scale-free, ` +
-            'so there is nothing for a second preset to change'
+            `${ azimuthOf( portrait, name ) }° in both — a form light's PLACEMENT authored in subject heights is ` +
+            'scale-free, so there is nothing for a second preset to change there. Its POWER is a different ' +
+            'question and the two presets do disagree about the fill; see FORM_LIGHT_OVERRIDES_BY_PRESET.'
         );
 
     }

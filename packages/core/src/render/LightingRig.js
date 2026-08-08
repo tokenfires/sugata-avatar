@@ -94,6 +94,23 @@
  * surfaces out of shot. The testbed does none of them on purpose, so the artefact is on the plate
  * where the next person can see it.
  *
+ * ✅ **AT BODY FRAMING THE FIRST WAY OUT IS NOW TAKEN, AND THE WEDGE IS GONE.** A judge reported a
+ * hard-edged wedge in the top-left of `alive.html?bare&frame=body`; this is what it was. It went
+ * with the standoff — at 0.65 heights the body rim's plane no longer reaches the card, which sits
+ * 4.86 m back. Measured on that page at 900×1200, seed 1, one `__SUGATA_STEP__` after load, on
+ * two fixed rects — one inside the wedge, one on clean backdrop 0.74 of the frame away:
+ *
+ *   | rim standoff | wedge rect     | clean rect     |
+ *   |--------------|----------------|----------------|
+ *   | 1.4 (was)    | rgb(5, 10, 60) | rgb(7, 7, 33)  |
+ *   | 0.65         | rgb(5, 4, 4)   | rgb(6, 5, 5)   |
+ *
+ * The two rects are now the same colour to within a code value, which is the difference between
+ * "there is a wedge" and "there is not." **Portrait framing keeps its 2.6-height standoff and so
+ * keeps the wedge**, and on `lighting.html`'s lit grey card it is large: 30.4% of the portrait
+ * frame sits above HSV S 0.5 in a 200–280° hue. That is a real open item, recorded rather than
+ * fixed, because the portrait standoff is doing a different job — see `EDGE_LIGHTS`.
+ *
  * ## Two framings, and the azimuth swing that was WITHDRAWN
  *
  * `docs/PROGRESS.md` records the open lead: *"Full-body lighting is a scaled portrait rig; rim
@@ -136,7 +153,8 @@
  * ceiling once the azimuth is put back), and a floor lit 2.5× by the backlights.
  *
  * **So the presets no longer disagree about azimuth at all.** They disagree about STANDOFF (2.6
- * heights against 1.4, for the backdrop reason below), ELEVATION (a body rim rides higher so it
+ * heights against 0.65 — for the backdrop reason below AND for the floor, see `EDGE_LIGHTS.body`;
+ * the figure was 1.4 until the floor was measured), ELEVATION (a body rim rides higher so it
  * takes the shoulders and the tops of the thighs rather than wrapping the front) and IRRADIANCE.
  * The 8.9× pixel shortfall in band width is therefore NOT closed and is not closeable — it is
  * asserted as a known shortfall in the selftest so nobody reads a future widening as a fix.
@@ -379,6 +397,18 @@ const FORM_LIGHTS = [
  * the look spec's "environment −15% saturation", which belongs to 3.13's grade and cannot be
  * done from a light. Stated rather than hidden: this is a real conflict between the spec's rim
  * clause and its environment clause, and the rig resolves it in favour of the subject.
+ *
+ * 🚩 **THE PARAGRAPH ABOVE IS THE ONE THAT SHIPPED THE DEFECT, AND IT IS KEPT SO THE SHAPE OF THE
+ * MISTAKE IS ON THE PAGE.** Every number in it is real. The conclusion — that the floor is a cost
+ * the rig pays and hands to the grade — is wrong twice over. It is wrong because 0.74 is not
+ * "got back", it is **worse than the 0.62 the same paragraph offers as the rejected
+ * alternative**, and the sentence walks past that. And it is wrong because it treats the floor as
+ * a property of the rim's COLOUR when it is a property of the rim's PLACEMENT: at body framing the
+ * cool lights were delivering **36.6× the key and fill** to a point on the floor two metres behind
+ * the subject, and no colour and no albedo can survive that. Standoff 1.4 → 0.65 takes that ratio
+ * to 2.10 and the floor to HSV S 0.2661, with the rim on the subject unchanged. See
+ * `EDGE_LIGHTS.body` for the sweep and `LightingRig.selftest.mjs` for the gate that now measures
+ * this quantity, which nothing did before.
  */
 const EDGE_LIGHTS = {
 
@@ -437,21 +467,67 @@ const EDGE_LIGHTS = {
     // 3. IRRADIANCE, 16/7 -> 22/10 — chosen off the sweep, not scaled from the portrait. One panel
     //    lighting a subject 4.5x taller reaches its ends at very different angles.
     //
-    // ⚠️ The cost is unchanged from the previous round and remains real: **at body framing a
-    // legible rim and a reference-band FACE ratio pull against each other.** The wrap that puts a
-    // band on a thigh is the same wrap that lifts the face's shadow side, and the face is 14 px
-    // wide up there. Measured: G1 at body framing is 1.2876 with the shipped rim and 1.2915 with
-    // the rim and kicker switched off entirely — both PASS the < 2.00 ceiling and both are FLATTER
-    // than the 1.43–1.64 the reference portraits measure. That gap is not the rim's doing (0.004
-    // of ratio), so it is a property of the body framing itself and is recorded, not tuned away.
+    // ⚠️ ~~The cost is unchanged from the previous round and remains real: at body framing a
+    // legible rim and a reference-band FACE ratio pull against each other.~~ **WITHDRAWN, and the
+    // withdrawal is the interesting part.** The measurement was right — G1 at body framing read
+    // 1.2876 with the rim and 1.2915 without it, so the rim is worth 0.004 of ratio and is
+    // genuinely not the cause. The conclusion drawn from it was not: "the rim is not the cause" was
+    // read as "nothing in the rig is the cause", and the note closed with "recorded, not tuned
+    // away" on a gate reading 12% below its own reference band. It is the FILL, it is a framing
+    // effect with a mechanism, and 1.90 → 1.20 puts body at 1.5259. See
+    // `FORM_LIGHT_OVERRIDES_BY_PRESET`. Ruling out one suspect is not a diagnosis.
+    // 🎯 **STANDOFF 1.4 → 0.65, AND IT IS THE ONLY THING THAT MOVED THE FLOOR.** The comment above
+    // reasoned correctly that a rim walks toward the backdrop as the subject grows, and then
+    // stopped at 1.4 heights because that fixed the backdrop. It never measured the FLOOR, and the
+    // floor is 20.3% of a body frame: at 1.4 heights it rendered at HSV saturation 0.7342 with
+    // 24.06% of the frame in a saturated blue. `GroundContact`'s header has the arithmetic for why
+    // no floor albedo can answer that. This does.
+    //
+    // Two mechanisms, not one, and the second is the reason the effect is so much steeper than
+    // inverse square alone:
+    //
+    //   1. **Inverse square, relative.** `irradiance` is authored AT THE FOCUS and re-solved every
+    //      time the rig aims, so halving the standoff leaves the subject's rim untouched and
+    //      quarters what reaches everything the panel is not pointed at.
+    //   2. **The panel's own plane.** A `RectAreaLight` lights only its front hemisphere. Bringing
+    //      it in from 2.56 m to 1.19 m behind the focus (at body framing) walks the plane's
+    //      intersection with the floor forward, so the far floor — the part seen at the most
+    //      grazing incidence, where Fresnel is highest and the specular is strongest — leaves the
+    //      light entirely rather than merely dimming.
+    //
+    // Measured on `lighting.html?frame=body&bare` at 900×1200, WebGPU, MSAA default, with the panel
+    // width and height scaled by the same factor as the standoff so the SOFTNESS is held constant.
+    // Floor statistics on a fixed rect; rim statistics over the shadow-side silhouette band against
+    // an interior key-side skin reference, both masked by difference against a `?figure=0` plate:
+    //
+    //   | standoff (heights) | floor S | frame blue-cast | rim band S ÷ skin | G1     |
+    //   |--------------------|--------:|----------------:|------------------:|-------:|
+    //   | 1.4 (was)          |  0.7342 |          24.06% |             1.363 | 1.2876 |
+    //   | 1.1                |  0.4904 |           9.81% |             1.152 | 1.2879 |
+    //   | 0.8                |  0.4700 |           3.62% |             1.146 | 1.2884 |
+    //   | **0.65**           |**0.4437**|       **1.19%** |         **1.130** | 1.2891 |
+    //   | 0.5                |  0.4437 |           1.19% |             1.083 | 1.2904 |
+    //   | 0.35               |  0.5068 |           6.57% |             1.204 | 1.2911 |
+    //
+    // (The floor column there is at the OLD albedo, so the three columns are attributable to the
+    // standoff alone; `GroundContact` then takes 0.4437 to 0.2216.) 0.65 is the knee: from 1.4 to
+    // 0.65 the frame's blue-cast falls 20× for 0.23 of rim saturation, and the next step costs
+    // three times as much per unit gained. 1.19 m behind a standing figure is also a strip light a
+    // gaffer could actually hang.
+    //
+    // ⚠️ Two things this does NOT fix, stated so they are not rediscovered. The rim's own band
+    // still sits at **0.61× key-lit skin luma** against the spec's "≈1.0–1.5×", and pushing it up
+    // is what cost the chroma the last round bought. And the panel still draws a straight-edged
+    // wedge on any flat surface further back — see the header — it is just a smaller and nearer
+    // one now.
     body: [
         {
             name: 'rim',
             azimuthDegrees: -158,
             elevationDegrees: 40,
-            distanceInHeights: 1.4,
-            widthInHeights: 0.30,
-            heightInHeights: 1.00,
+            distanceInHeights: 0.65,
+            widthInHeights: 0.1393,   // 0.30 × 0.65/1.4 — same solid angle at the subject
+            heightInHeights: 0.4643,  // 1.00 × 0.65/1.4
             irradiance: 22,
             colour: 0x0f30ff,
             shadowFraction: 0
@@ -460,15 +536,53 @@ const EDGE_LIGHTS = {
             name: 'kicker',
             azimuthDegrees: 154,
             elevationDegrees: 16,
-            distanceInHeights: 1.4,
-            widthInHeights: 0.30,
-            heightInHeights: 0.95,
+            distanceInHeights: 0.65,
+            widthInHeights: 0.1393,   // 0.30 × 0.65/1.4
+            heightInHeights: 0.4411,  // 0.95 × 0.65/1.4
             irradiance: 10,
             colour: 0x0f30ff,
             shadowFraction: 0
         }
     ]
 
+};
+
+/**
+ * The one FORM-light field the two presets disagree about, and the sweep that set it.
+ *
+ * 🎯 **G1 IS THE HIGHEST-LEVERAGE PARAMETER IN THE SPEC AND THE BODY PRESET WAS BELOW ITS BAND.**
+ * The gate asserts `< 2:1` only, so a face that is FLATTER than the reference reads as a pass —
+ * LEARNINGS §1.11 inside the objective instrument itself. Measured against the reference band of
+ * 1.43–1.64 linear (1.18–1.25 encoded), the shipped rig read **1.5991 at portrait** (in band) and
+ * **1.2876 at body** (below it, and passing).
+ *
+ * The previous note attributed that gap to "a property of the body framing itself" on the strength
+ * of a rim-off plate, and the rim-off plate is real — 1.2915 against 1.2876, so the rim is worth
+ * 0.004 of ratio and is indeed not the cause. What the note did not do is ask what WAS. It is the
+ * fill, and it is a framing effect with a mechanism: `elevationDegrees` is measured at the FOCUS,
+ * and at body framing the focus is at mid-torso while the face is 0.7 m above it, so a fill
+ * authored at 2° above the focus arrives at the cheek from very slightly BELOW and fills the
+ * shadow side more completely than the same 2° does in a head-and-shoulders crop.
+ *
+ * Swept on `lighting.html?frame=body&bare` at 900×1200 with `regions.lighting-body.json`, nothing
+ * else changed:
+ *
+ *   | body fill irradiance | G1 linear | G1 encoded | in the 1.43–1.64 band |
+ *   |----------------------|----------:|-----------:|-----------------------|
+ *   | 1.90 (portrait's)    |    1.2891 |     1.1280 | no — below            |
+ *   | 1.55                 |    1.3893 |     1.1693 | no — below            |
+ *   | 1.30                 |    1.4818 |     1.2064 | yes                   |
+ *   | **1.20**             |**1.5259** | **1.2237** | **yes, centred**      |
+ *   | 1.10                 |    1.5744 |     1.2424 | yes                   |
+ *   | 0.90                 |    1.6876 |     1.2856 | no — above            |
+ *
+ * 1.20 is chosen for the CENTRE of the band rather than for the edge, because the band is narrow
+ * and the thing on the other side of it is the conventional three-point ratio the whole look spec
+ * exists to reject. It leaves body at 1.5259 and portrait at 1.5991 — 5% apart, both inside.
+ */
+const FORM_LIGHT_OVERRIDES_BY_PRESET = {
+    portrait: {},
+    body: { fill: { irradiance: 1.20 } }
 };
 
 /**
@@ -860,8 +974,14 @@ export class LightingRig {
         const edge = EDGE_LIGHTS[ this.preset ];
         if ( edge === undefined ) throw new Error( `LightingRig: unknown preset '${ this.preset }'.` );
 
+        // Three layers, and the order is the meaning of each: the form lights as authored, then
+        // the preset's own disagreement with them (one field, see the table), then the caller's
+        // overrides, which are the browsercheck's sliders and must win over both.
+        const presetForm = FORM_LIGHT_OVERRIDES_BY_PRESET[ this.preset ] ?? {};
+
         const placements = [ ...FORM_LIGHTS, ...edge ].map( ( placement ) => ( {
             ...placement,
+            ...( presetForm[ placement.name ] ?? {} ),
             ...( this.overrides[ placement.name ] ?? {} )
         } ) );
 

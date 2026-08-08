@@ -892,6 +892,97 @@ console.log( '\nRADIUS FIT — on a synthetic body of KNOWN radius, because the 
     );
 }
 
+console.log( '\nTHE ALBEDO — blue lowest, and by ENOUGH. The old note asserted the clause and never\n' +
+             'stated the margin, and a floor that satisfied the letter of it measured worse than\n' +
+             'the floor it replaced.\n' );
+
+{
+    // The floor's DIFFUSE response to the rim is `albedo × lightColour`, both linear. That product
+    // is the only part of the picture the albedo governs, and the number that decides whether a
+    // saturated rim reads as a coloured pool is how far the albedo pushes the product's blue back
+    // down relative to its red. Stated as a suppression factor so it is comparable across floors:
+    //
+    //     suppression = (albedo_R / albedo_B),  i.e. how many times the blue:red of the LIGHT is
+    //                    divided down by the time it comes off this surface.
+    //
+    // Anchored on rendered plates, `lighting.html?frame=body&bare` at 900×1200, WebGPU, MSAA
+    // default, everything but `?floor=` held, with the shipped rim standoff:
+    //
+    //   | floor albedo          | suppression | rendered floor HSV S | frame saturated-blue |
+    //   |-----------------------|------------:|---------------------:|---------------------:|
+    //   | `0x2e3036` (rejected) |        0.74 | 0.62 (on record)     | —                    |
+    //   | `0x7a7570` (neutral)  |        1.20 | 0.5427               | 12.45%               |
+    //   | `0x8a8378` (warm-ish) |        1.35 | 0.4888               | 3.51%                |
+    //   | `0x4b3520` (previous) |        4.87 | 0.2661 today; 0.7342 at the old rim standoff    |
+    //   | **`0x968c34`**        |    **8.88** | **0.2216**           | **0.03%**            |
+    //
+    // 🚩 THE SECOND AND THIRD ROWS ARE THE POINT. Both have blue as their lowest channel, so both
+    // pass the clause as it used to be written, and both render a floor more saturated than the
+    // skin. The floor of 4.0 sits above them and below the two that work.
+    //
+    // ⚠️ What this cannot see, and it is most of the original defect: the floor's SPECULAR half
+    // carries no albedo at all. At the OLD rim standoff a floor of albedo `0x000000` — no diffuse
+    // by construction — still rendered rgb(0,23,148) at HSV S 1.00, 51% of the shipped floor's
+    // luma and 76% of its blue. Re-run that plate with `?floor=0x000000`. The term that governs it
+    // is the rim's standoff, gated in `LightingRig.selftest.mjs`, not anything in this file.
+    const MINIMUM_BLUE_SUPPRESSION = 4.0;
+
+    const srgbToLinear = ( encoded ) => encoded <= 0.04045 ? encoded / 12.92 : Math.pow( ( encoded + 0.055 ) / 1.055, 2.4 );
+
+    const suppressionOf = ( albedo ) => {
+
+        const linear = [ 16, 8, 0 ].map( ( shift ) => srgbToLinear( ( ( albedo >> shift ) & 0xff ) / 255 ) );
+
+        return linear[ 0 ] / linear[ 2 ];
+
+    };
+
+    // Read off the class rather than off a copy of the constant, so a change to the shipped floor
+    // is measured here instead of being duplicated here.
+    const shipped = suppressionOf( new GroundContact().albedo );
+
+    report(
+        'the shipped floor divides the rim\'s blue:red by at least 4x',
+        shipped >= MINIMUM_BLUE_SUPPRESSION,
+        `suppression ${ shipped.toFixed( 2 ) }x against a floor of ${ MINIMUM_BLUE_SUPPRESSION.toFixed( 1 ) }x — ` +
+        'rendered HSV S 0.2216 at linear luma 0.1945, 1.58 stops below a key-lit cheek'
+    );
+
+    // Three known-bads. The first is the one the old note named; the second and third are the ones
+    // it could not have named, because they OBEY it — blue is their lowest channel and they still
+    // render a floor above the skin's own saturation. A gate that only rejects `#2e3036` would be
+    // rejecting a hex, not a property.
+    const knownBad = [
+        { albedo: 0x2e3036, what: 'the rejected studio floor — blue is its HIGHEST channel', rendered: 'S 0.62 on record' },
+        { albedo: 0x7a7570, what: 'a NEUTRAL floor — blue lowest, by 1.20x', rendered: 'S 0.5427, 12.45% of the frame saturated blue' },
+        { albedo: 0x8a8378, what: 'a warm-NEUTRAL floor — blue lowest, by 1.35x, and it still floods', rendered: 'S 0.4888, 3.51% of the frame' }
+    ];
+
+    for ( const variant of knownBad ) {
+
+        const measured = suppressionOf( variant.albedo );
+
+        report(
+            `KNOWN-BAD: 0x${ variant.albedo.toString( 16 ).padStart( 6, '0' ) } — ${ variant.what }`,
+            measured < MINIMUM_BLUE_SUPPRESSION,
+            `suppression ${ measured.toFixed( 2 ) }x, rejected. Rendered: ${ variant.rendered }`
+        );
+
+    }
+
+    // And the direction nobody guards: a floor so red it neutralises the rim by brute force would
+    // pass the check above and read as vivid orange under the warm key. The clause is "blue is the
+    // lowest channel", not "red is the only channel".
+    const overCorrected = 0xff2010;
+
+    report(
+        'a floor red enough to neutralise the rim by brute force is NOT what this asks for',
+        suppressionOf( overCorrected ) >= MINIMUM_BLUE_SUPPRESSION && suppressionOf( new GroundContact().albedo ) < suppressionOf( overCorrected ),
+        `0xff2010 scores ${ suppressionOf( overCorrected ).toFixed( 0 ) }x — the check is one-sided BY DESIGN and cannot ` +
+        'reject it. The level and hue that keep the floor inside the spec\'s background band are measured on the render, not here.'
+    );
+}
+
 console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' }: ${ checks - failures }/${ checks } checks green\n` );
 
 process.exitCode = failures === 0 ? 0 : 1;

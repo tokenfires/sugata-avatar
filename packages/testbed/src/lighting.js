@@ -47,7 +47,11 @@
  *                         albedo, no contact shadow. The attribution plate for the "figure floats"
  *                         blocker.
  *   ?groundstrength=1     scales the ground occlusion. 1 is the physical answer.
- *   ?floor=0x4b3520       floor albedo, for the chroma sweep in `GroundContact`'s header.
+ *   ?floor=0x968c34       floor albedo, for the chroma sweep in `GroundContact`'s header.
+ *                         🚩 `?floor=0x000000` is not a debug view either: a black floor has no
+ *                         diffuse term at all, so it renders the floor's SPECULAR half alone —
+ *                         the term no albedo can touch, and the one that carried 76% of the old
+ *                         floor's blue while the albedo argument was busy governing the other 24%.
  *   ?backdrop=0x74777e    backdrop albedo. The default measures 1.96 stops below the subject,
  *                         which is the look spec's 3.8:1; darkening it drops the chroma the rim
  *                         puts on the card but walks off that number (0x6a6055 -> 2.42 stops at
