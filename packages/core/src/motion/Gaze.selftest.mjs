@@ -40,6 +40,7 @@ import {
     saccadeProgress
 } from './Gaze.js';
 import { Blink } from './Blink.js';
+import { MotionRandom } from './Signals.js';
 
 // three's GLTFLoader assumes a browser when it decodes embedded textures. Nothing here looks at a
 // pixel, so the two smallest possible stubs get the loader as far as the morph and skin data.
@@ -373,7 +374,11 @@ function runUnattended( totalSeconds, stepSeconds ) {
         if ( gaze.saccadeCount !== previousSaccadeCount ) {
 
             previousSaccadeCount = gaze.saccadeCount;
-            fixationDurations.push( gaze.fixationRemaining );
+            // The DRAWN interval, not the countdown. Reading `fixationRemaining` here samples it
+            // after part of a frame has already been taken off, which pushes draws below the
+            // 0.15 s floor where the reference CDF is exactly zero — worth D = 0.343 of KS
+            // statistic on a test whose critical value is 0.035, all of it instrument.
+            fixationDurations.push( gaze.lastFixationSeconds );
             amplitudes.push( gaze.lastSaccadeAmplitudeDegrees );
 
             // The gap that matters physiologically is end of one movement to start of the next.
@@ -682,59 +687,95 @@ lines.push( '' );
 lines.push( 'HEAD RECENTRING — a held eccentricity is handed to the head' );
 lines.push( '' );
 
+// ⚠️ THE THREE GATES BELOW USED TO RUN WITH THE AUTONOMOUS POLICY LIVE, AND TWO OF THEM PASSED
+// ON THE DRAW RATHER THAN ON THE BEHAVIOUR. §1.1a. A three-second window contains about 1.7 region
+// changes, and a listening figure averts on 10% of them; when it averted, the head was commanded
+// somewhere the gate had no expectation about. Re-measured over twelve seeds ON THE PRE-FIX LAYER,
+// "the head is no longer left square to the room" passed on 9 of 12 and "setHeadRecentring( false )
+// leaves the head alone" on **6 of 12** — a coin toss that had been reading green for two phases
+// because the committed seed happened to be a quiet one. (The fix re-drew the arrival times and
+// landed on a noisy one, which is the only reason it was ever noticed.)
+//
+// They now run with `setPolicyEnabled( false )`, so `lookAt()` is the only thing aiming gaze and
+// the scenario is the one the gate describes, and they assert over the SAME twelve seeds.
+
 {
     const SUSTAINED_EYE_DEGREES = EYE_RANGE_DEGREES * SUSTAINED_EYE_ECCENTRICITY_FRACTION;
+    const SEEDS = [ 20260807, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 
-    // Listening, so the policy is on the partner 90% of the time and the eccentricity is the
-    // sustained one this section is about rather than a run of aversions.
-    const { stack, gaze } = buildRig( {
-        withHead: true,
-        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES }
-    } );
+    /** Three seconds of looking at a partner 12° off-axis, with nothing else deciding anything. */
+    function settleOnPartner( seed, gazeOptions = {} ) {
 
-    gaze.setConversationState( 'listening' );
-    gaze.lookAt( { yawDegrees: CAMERA_AZIMUTH_DEGREES, pitchDegrees: 0 } );
+        const { stack, gaze } = buildRig( {
+            seed,
+            withHead: true,
+            gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES, policy: false, ...gazeOptions }
+        } );
 
-    const eyeYawTrace = [];
+        gaze.setConversationState( 'listening' );
+        gaze.lookAt( { yawDegrees: CAMERA_AZIMUTH_DEGREES, pitchDegrees: 0 } );
 
-    for ( let frame = 0; frame < 180; frame ++ ) {
+        const eyeYawTrace = [];
 
-        stack.update( 1 / 60 );
-        eyeYawTrace.push( gaze.eyeYawDegrees );
+        for ( let frame = 0; frame < 180; frame ++ ) {
+
+            stack.update( 1 / 60 );
+            eyeYawTrace.push( gaze.eyeYawDegrees );
+
+        }
+
+        // Frame 30 is 0.5 s: the saccade has landed and the head's share (zero, at 12°) has been
+        // commanded, but the recentring hold-off has only just expired.
+        const result = {
+            eyeAtLanding: Math.abs( eyeYawTrace[ 29 ] ),
+            eyeAfterSettle: Math.abs( eyeYawTrace[ 179 ] ),
+            headYaw: gaze.head.yawDegrees,
+            headTarget: gaze.head.targetYawDegrees
+        };
+
+        stack.dispose();
+
+        return result;
 
     }
 
-    // Frame 30 is 0.5 s: the saccade has landed and the head's share (zero, at 12°) has been
-    // commanded, but the recentring hold-off has only just expired.
-    const eyeAtLanding = Math.abs( eyeYawTrace[ 29 ] );
-    const eyeAfterSettle = Math.abs( eyeYawTrace[ 179 ] );
+    const settled = SEEDS.map( ( seed ) => settleOnPartner( seed ) );
+    const opted = SEEDS.map( ( seed ) => settleOnPartner( seed, { headRecentring: false } ) );
 
-    lines.push( `  partner ${ CAMERA_AZIMUTH_DEGREES }° off-axis, listening` );
-    lines.push( `  eye yaw at landing (0.5 s)   ${ eyeAtLanding.toFixed( 2 ) }°` );
-    lines.push( `  eye yaw after settle (3 s)   ${ eyeAfterSettle.toFixed( 2 ) }°` );
-    lines.push( `  head yaw after settle        ${ gaze.head.yawDegrees.toFixed( 2 ) }°` );
+    lines.push( `  partner ${ CAMERA_AZIMUTH_DEGREES }° off-axis, listening, policy off, ${ SEEDS.length } seeds` );
+    lines.push( `  eye yaw at landing (0.5 s)   ${ settled[ 0 ].eyeAtLanding.toFixed( 2 ) }°` );
+    lines.push( `  eye yaw after settle (3 s)   ${ settled[ 0 ].eyeAfterSettle.toFixed( 2 ) }°` );
+    lines.push( `  head yaw after settle        ${ settled[ 0 ].headYaw.toFixed( 2 ) }°` );
     lines.push( '' );
 
     check( 'recentring: the eyes carry the whole eccentricity at first, as they should',
-        eyeAtLanding > SUSTAINED_EYE_DEGREES,
-        `${ eyeAtLanding.toFixed( 2 ) }° at 0.5 s — the eyes lead, the head has not been asked yet` );
+        settled.every( ( run ) => run.eyeAtLanding > SUSTAINED_EYE_DEGREES ),
+        `worst ${ Math.min( ...settled.map( ( run ) => run.eyeAtLanding ) ).toFixed( 2 ) }° at 0.5 s over ` +
+        `${ SEEDS.length } seeds — the eyes lead, the head has not been asked yet` );
 
     check( 'recentring: the head then comes round and the eyes return toward centre',
-        eyeAfterSettle <= SUSTAINED_EYE_DEGREES + 1.5,
-        `eye ${ eyeAfterSettle.toFixed( 2 ) }° against a sustained comfort of ` +
-        `${ SUSTAINED_EYE_DEGREES.toFixed( 2 ) }°, head ${ gaze.head.yawDegrees.toFixed( 2 ) }°` );
+        settled.every( ( run ) => run.eyeAfterSettle <= SUSTAINED_EYE_DEGREES + 1.5 ),
+        `worst eye ${ Math.max( ...settled.map( ( run ) => run.eyeAfterSettle ) ).toFixed( 2 ) }° against a ` +
+        `sustained comfort of ${ SUSTAINED_EYE_DEGREES.toFixed( 2 ) }°, over ${ SEEDS.length } seeds` );
 
     check( 'recentring: the head is no longer left square to the room',
-        gaze.head.yawDegrees > CAMERA_AZIMUTH_DEGREES - SUSTAINED_EYE_DEGREES - 1.5,
-        `head ${ gaze.head.yawDegrees.toFixed( 2 ) }° of the ${ CAMERA_AZIMUTH_DEGREES }° it is looking at` );
+        settled.every( ( run ) => run.headYaw > CAMERA_AZIMUTH_DEGREES - SUSTAINED_EYE_DEGREES - 1.5 ),
+        `worst head ${ Math.min( ...settled.map( ( run ) => run.headYaw ) ).toFixed( 2 ) }° of the ` +
+        `${ CAMERA_AZIMUTH_DEGREES }° it is looking at, over ${ SEEDS.length } seeds ` +
+        `(the pre-fix gate ran on one seed and held on 9 of these 12)` );
 
-    stack.dispose();
+    // The opt-out, so an application driving its own neck can have the old behaviour back.
+    check( 'recentring: setHeadRecentring( false ) leaves the head where the shift put it',
+        opted.every( ( run ) => Math.abs( run.headTarget ) < 1e-9 ),
+        `worst |head target| ${ Math.max( ...opted.map( ( run ) => Math.abs( run.headTarget ) ) ).toExponential( 2 ) }° ` +
+        `over ${ SEEDS.length } seeds (the pre-fix gate ran on one seed and held on 6 of these 12)` );
+
 }
 
 {
     // A dart out and back inside the hold-off must NOT drag the head along. This is the whole
     // reason recentring waits before acting: a glance is eyes-only and always was.
-    const { stack, gaze } = buildRig( { withHead: true } );
+    const { stack, gaze } = buildRig( { withHead: true, gazeOptions: { policy: false } } );
 
     gaze.setHeadRecentring( true );
     gaze.lookAt( { yawDegrees: 10, pitchDegrees: 0 } );
@@ -748,25 +789,6 @@ lines.push( '' );
     check( 'recentring: a glance shorter than the hold-off stays eyes-only',
         Math.abs( gaze.head.targetYawDegrees ) < 0.5,
         `head asked for ${ gaze.head.targetYawDegrees.toFixed( 3 ) }° after a 10° dart out and back` );
-
-    stack.dispose();
-}
-
-{
-    // The opt-out, so an application driving its own neck can have the old behaviour back.
-    const { stack, gaze } = buildRig( {
-        withHead: true,
-        gazeOptions: { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES, headRecentring: false }
-    } );
-
-    gaze.setConversationState( 'listening' );
-    gaze.lookAt( { yawDegrees: CAMERA_AZIMUTH_DEGREES, pitchDegrees: 0 } );
-
-    for ( let frame = 0; frame < 180; frame ++ ) stack.update( 1 / 60 );
-
-    check( 'recentring: setHeadRecentring( false ) leaves the head where the shift put it',
-        Math.abs( gaze.head.targetYawDegrees ) < 1e-9,
-        `head asked for ${ gaze.head.targetYawDegrees.toFixed( 3 ) }° with recentring off` );
 
     stack.dispose();
 }
@@ -1382,7 +1404,17 @@ function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
         const stack = new MotionStack( { seed: 20260807 } );
         stack.bind( createMotionTarget( figureRoot ) );
 
-        const gaze = new Gaze( { rigRoot: figureRoot } );
+        // This section is about the cervical CHAIN — where a commanded head angle puts the skull —
+        // so nothing else may aim the head. The policy is off and recentring is off, which leaves
+        // `setTarget` below as the only thing writing a target.
+        //
+        // ⚠️ It used to rely on ordering instead: "HEAD runs before GAZE, so the value set here is
+        // the value the head bone uses on this frame." That stopped being true when the whole
+        // ocular walk moved into the head slot so that the bone could carry the CURRENT frame's
+        // decisions (see `Gaze.advanceOcularState`), and the policy then overwrote this target
+        // inside the frame — worth 5.65° of realised-yaw error. Turning the other authors off is
+        // what the test meant all along; the ordering was scaffolding.
+        const gaze = new Gaze( { rigRoot: figureRoot, policy: false, headRecentring: false } );
         stack.add( gaze.head );
         stack.add( gaze );
 
@@ -1393,9 +1425,6 @@ function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
             lengthMillimetres: gaze.head.cervicalLengthMetres * 1000
         };
 
-        // The eye layer's policy retargets the head every frame, so the commanded angle is
-        // re-asserted every frame. HEAD runs before GAZE, so the value set here is the value the
-        // head bone uses on this frame.
         for ( let frame = 0; frame < 180; frame ++ ) {
 
             gaze.head.setTarget( yawDegrees, 0 );
@@ -1648,6 +1677,489 @@ function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
         before.every( ( value, index ) => value === after[ index ] ),
         'a layer that resets only its stream restarts mid-saccade and diverges' );
 }
+
+// --- 10. frame-rate invariance ----------------------------------------------------------------------
+//
+// 🎯 THE ONE GATE EVERY OTHER GATE IN THIS FILE IS BLIND TO. LEARNINGS §1.13.
+//
+// Everything above is measured at a single frame rate, so all of it is satisfied by a layer whose
+// trajectory depends on how often it is looked at. This layer's did. Same seed, same simulated
+// instants, 300 s: 691 saccades at 30 Hz against 721 at 60 Hz, head yaw agreeing to pearson
+// r = 0.017, worst disagreement 76.6°. A judge captures at 30 fps and every gate here ran at 60,
+// so every head number in the repo described a trajectory no camera had rendered.
+//
+// The measurement is world-space, because degrees are not what a viewer sees. The two eyeball
+// globes are weighted 100% to the head bone, so their centroids — measured off the asset, not
+// declared — are landmarks rigidly attached to it, 88.73 mm from the head joint in the transverse
+// plane. That lever turns a head angle into on-screen travel: 1° of head yaw is 1.04 px at the
+// body framing, so the pre-fix 76.6° was about 70 px of it.
+
+lines.push( 'FRAME-RATE INVARIANCE — the same seed at 30, 60 and 120 Hz' );
+lines.push( '' );
+
+{
+    const { Skeleton } = await import( '../figure/Skeleton.js' );
+    const { RestPose } = await import( '../figure/RestPose.js' );
+
+    const INVARIANCE_SEEDS = [ 1, 20260807, 4242 ];
+    const INVARIANCE_RATES = [ 30, 60, 120 ];
+    const INVARIANCE_SECONDS = 300;
+
+    /** LEARNINGS §1.10a — travel below this is not distinguishable at full-body framing. */
+    const INDISTINGUISHABLE_PIXELS = 1.6;
+
+    /**
+     * Worst permitted disagreement between two frame rates, at a matched simulated instant, over
+     * every landmark. Measured worst across the three seeds is 0.207 mm, so this is 2.4× headroom,
+     * and in the unit the defect is judged in it is 0.33 px — a fifth of the floor above. It is not
+     * zero because two residues are inherent and are named in `Gaze.advanceOcularState`; the
+     * frame-coupled rebuild below misses it by more than two orders of magnitude either way.
+     */
+    const INVARIANCE_TOLERANCE_MM = 0.5;
+
+    /**
+     * The same statement for the eyes. Measured worst across the three seeds is 0.082°, so this is
+     * 2.4× headroom as well, and at the portrait framing — the close crop where an iris is worth
+     * pixels — it is 0.09 px of pupil travel against a 1.6 px floor.
+     */
+    const INVARIANCE_EYE_TOLERANCE_DEGREES = 0.2;
+
+    /**
+     * LEARNINGS Part 3: the committed portrait region files are authored at 0.42 m of framed
+     * height over 1200 px. Quoted rather than re-derived, because it is a property of the page's
+     * camera constants and not of this rig.
+     */
+    const PORTRAIT_PIXELS_PER_MILLIMETRE = 1200 / 420;
+
+    /**
+     * Eyeball globe radius, quoted from LEARNINGS Part 2 ("the globe radius (15.11–15.50 mm)")
+     * rather than re-measured here. The top of the recorded range is used deliberately: it is the
+     * radius that turns a given eye rotation into the MOST pupil travel, so every pixel figure
+     * below is the worst case rather than a flattering one.
+     *
+     * ⚠️ It is not re-derived because a naive re-derivation gets it wrong. The mean vertex distance
+     * from the `high-poly` centroid is 11.13 mm on this asset — the mesh is not a bare sphere, and
+     * fitting a reference surface through the feature is the mistake §1.11d is about. When a number
+     * is already measured and recorded, quote it.
+     */
+    const GLOBE_RADIUS_MILLIMETRES = 15.50;
+
+    // The framing, measured in relaxed-standing because that is the pose alive.js renders, then
+    // the rig is put back so the traces run in the same pose every other section used.
+    const skeleton = new Skeleton( figureRoot );
+    RestPose.load( 'relaxed-standing' ).applyTo( skeleton );
+    skeleton.update();
+    figureRoot.updateMatrixWorld( true );
+
+    const framedHeightMillimetres = new Box3().setFromObject( figureRoot ).getSize( new Vector3() ).y * 1.08 * 1000;
+    const pixelsPerMillimetre = 1200 / framedHeightMillimetres;
+
+    restorePose( restPose );
+    figureRoot.updateMatrixWorld( true );
+
+    const headBone = figureRoot.getObjectByName( 'head' );
+
+    const eyeLandmarks = measureEyeLandmarksInHeadBindFrame();
+
+    const leverMillimetres = Math.hypot( eyeLandmarks[ 0 ].x, eyeLandmarks[ 0 ].z ) * 1000;
+    const pixelsPerDegreeOfHeadYaw = leverMillimetres * ( Math.PI / 180 ) * pixelsPerMillimetre;
+
+    lines.push( `  eye-globe centroids, head bind frame  ±${ ( eyeLandmarks[ 0 ].x * 1000 ).toFixed( 2 ) } mm lateral, ` +
+        `${ ( eyeLandmarks[ 0 ].z * 1000 ).toFixed( 2 ) } mm anterior of the head joint` );
+    lines.push( `  interpupillary distance               ${ ( eyeLandmarks[ 0 ].distanceTo( eyeLandmarks[ 1 ] ) * 1000 ).toFixed( 2 ) } mm (measured, not declared)` );
+    lines.push( `  lever in the transverse plane         ${ leverMillimetres.toFixed( 2 ) } mm` );
+    lines.push( `  body framing                          ${ framedHeightMillimetres.toFixed( 1 ) } mm over 1200 px = ${ pixelsPerMillimetre.toFixed( 4 ) } px/mm` );
+    lines.push( `  so one degree of head yaw is          ${ pixelsPerDegreeOfHeadYaw.toFixed( 3 ) } px of eye-landmark travel` );
+    lines.push( '' );
+
+    const shipped = INVARIANCE_SEEDS.map( ( seed ) => compareAcrossRates( seed, {} ) );
+    const coupled = INVARIANCE_SEEDS.map( ( seed ) => compareAcrossRates( seed, { frameCoupledArrivals: true } ) );
+    const laggedVor = INVARIANCE_SEEDS.map( ( seed ) => compareAcrossRates( seed, { frameCoupledVestibuloOcular: true } ) );
+
+    lines.push( '            seed   worst landmark      worst head    worst eye   saccades at 30/60/120   microsaccades/s' );
+
+    for ( const [ label, group ] of [ [ 'shipped', shipped ], [ 'KNOWN-BAD', coupled ], [ 'lagged VOR', laggedVor ] ] ) {
+
+        for ( const run of group ) {
+
+            lines.push( `  ${ label.padStart( 9 ) } ${ String( run.seed ).padStart( 9 ) }   ` +
+                `${ run.worstMillimetres.toFixed( 4 ).padStart( 9 ) } mm = ${ ( run.worstMillimetres * pixelsPerMillimetre ).toFixed( 3 ).padStart( 7 ) } px   ` +
+                `${ run.worstHeadDegrees.toFixed( 4 ).padStart( 8 ) }°   ${ run.worstEyeDegrees.toFixed( 4 ).padStart( 8 ) }°   ` +
+                `${ run.saccades.join( ' / ' ).padStart( 21 ) }   ${ run.microsaccadeRates.map( ( rate ) => rate.toFixed( 2 ) ).join( ' / ' ) }` );
+
+        }
+
+    }
+
+    lines.push( '' );
+
+    const worstShippedMillimetres = Math.max( ...shipped.map( ( run ) => run.worstMillimetres ) );
+    const worstCoupledMillimetres = Math.max( ...coupled.map( ( run ) => run.worstMillimetres ) );
+
+    check( 'frame rate: the same seed puts the head in the same place at 30, 60 and 120 Hz',
+        worstShippedMillimetres <= INVARIANCE_TOLERANCE_MM,
+        `worst ${ worstShippedMillimetres.toFixed( 4 ) } mm = ${ ( worstShippedMillimetres * pixelsPerMillimetre ).toFixed( 3 ) } px ` +
+        `over ${ INVARIANCE_SEEDS.length } seeds × ${ INVARIANCE_SECONDS } s, against a ${ INVARIANCE_TOLERANCE_MM } mm tolerance` );
+
+    check( 'frame rate: and that is well under the indistinguishability floor',
+        worstShippedMillimetres * pixelsPerMillimetre < INDISTINGUISHABLE_PIXELS,
+        `${ ( worstShippedMillimetres * pixelsPerMillimetre ).toFixed( 3 ) } px against the ${ INDISTINGUISHABLE_PIXELS } px floor` );
+
+    // The eye is a separate assertion because the landmark gate above structurally cannot make it:
+    // the eight ARKit morphs rotate the globes INSIDE a head bone the gate is measuring the
+    // position of, so an eye angle can be wrong by the whole orbit with every landmark exact.
+    const pixelsPerDegreeOfEyeYaw = GLOBE_RADIUS_MILLIMETRES * ( Math.PI / 180 ) * PORTRAIT_PIXELS_PER_MILLIMETRE;
+
+    const worstShippedEyeDegrees = Math.max( ...shipped.map( ( run ) => run.worstEyeDegrees ) );
+    const worstLaggedEyeDegrees = Math.max( ...laggedVor.map( ( run ) => run.worstEyeDegrees ) );
+
+    lines.push( `  eye globe radius ${ GLOBE_RADIUS_MILLIMETRES.toFixed( 2 ) } mm (quoted, LEARNINGS Part 2), portrait framing ` +
+        `${ PORTRAIT_PIXELS_PER_MILLIMETRE.toFixed( 4 ) } px/mm, so one degree of eye yaw is ` +
+        `${ pixelsPerDegreeOfEyeYaw.toFixed( 3 ) } px of pupil travel` );
+    lines.push( '' );
+
+    check( 'frame rate: the eyes point the same way at 30, 60 and 120 Hz too',
+        worstShippedEyeDegrees <= INVARIANCE_EYE_TOLERANCE_DEGREES,
+        `worst ${ worstShippedEyeDegrees.toFixed( 4 ) }° = ${ ( worstShippedEyeDegrees * pixelsPerDegreeOfEyeYaw ).toFixed( 3 ) } px ` +
+        `of pupil travel at portrait framing, against a ${ INVARIANCE_EYE_TOLERANCE_DEGREES }° tolerance` );
+
+    check( 'frame rate: KNOWN-BAD — a vestibulo-ocular reflex latency of one FRAME fails it',
+        laggedVor.every( ( run ) => run.worstEyeDegrees > INVARIANCE_EYE_TOLERANCE_DEGREES ),
+        `${ laggedVor.filter( ( run ) => run.worstEyeDegrees > INVARIANCE_EYE_TOLERANCE_DEGREES ).length } of ` +
+        `${ INVARIANCE_SEEDS.length } seeds caught; worst ${ worstLaggedEyeDegrees.toFixed( 3 ) }° = ` +
+        `${ ( worstLaggedEyeDegrees * pixelsPerDegreeOfEyeYaw ).toFixed( 2 ) } px, past the ${ INDISTINGUISHABLE_PIXELS } px floor ` +
+        `— and note its HEAD is still exact at ${ Math.max( ...laggedVor.map( ( run ) => run.worstMillimetres ) ).toFixed( 4 ) } mm, ` +
+        `so the landmark gate alone would have shipped it` );
+
+    check( 'frame rate: every event lands at the same instant, so the counts are identical',
+        shipped.every( ( run ) => new Set( run.saccades ).size === 1 && new Set( run.microsaccades ).size === 1 ),
+        `saccades ${ shipped.map( ( run ) => run.saccades.join( '/' ) ).join( ', ' ) }; ` +
+        `microsaccades ${ shipped.map( ( run ) => run.microsaccades.join( '/' ) ).join( ', ' ) }` );
+
+    check( 'frame rate: the sub-frame walk never runs out of its step budget',
+        shipped.every( ( run ) => run.exhausted === 0 ),
+        `worst ${ Math.max( ...shipped.map( ( run ) => run.worstSteps ) ) } sub-steps in a frame, against a budget of 64` );
+
+    // 🚩 §1.1 — the rejection, over the SAME seeds as the gate, asserting the count rather than
+    // one verdict (§1.1a).
+    check( 'frame rate: KNOWN-BAD — the gate rejects frame-coupled arrivals, on every seed',
+        coupled.filter( ( run ) => run.worstMillimetres > INVARIANCE_TOLERANCE_MM ).length === INVARIANCE_SEEDS.length,
+        `${ coupled.filter( ( run ) => run.worstMillimetres > INVARIANCE_TOLERANCE_MM ).length } of ` +
+        `${ INVARIANCE_SEEDS.length } seeds caught; worst ${ worstCoupledMillimetres.toFixed( 2 ) } mm = ` +
+        `${ ( worstCoupledMillimetres * pixelsPerMillimetre ).toFixed( 1 ) } px` );
+
+    check( 'frame rate: KNOWN-BAD — and by a margin the tolerance did not decide',
+        worstCoupledMillimetres / INVARIANCE_TOLERANCE_MM > 100,
+        `${ ( worstCoupledMillimetres / INVARIANCE_TOLERANCE_MM ).toFixed( 0 ) }× the tolerance` );
+
+    // 🚩 RECORDED AS GATES, §1.3 AND §1.13. Everything else in this file passed on the coupled
+    // layer, which is why it shipped for two phases. Asserted here so nobody reads the green
+    // matrix above as covering it.
+    const coupledRates = coupled.flatMap( ( run ) => run.microsaccadeRates );
+
+    check( 'frame rate: KNOWN-BAD — a RATE gate would NOT have caught it',
+        coupledRates.every( ( rate ) => rate >= 1 && rate <= 2 ),
+        `recorded, not tolerated: the coupled layer's microsaccade rate is ` +
+        `${ Math.min( ...coupledRates ).toFixed( 2 ) }-${ Math.max( ...coupledRates ).toFixed( 2 ) } /s at 30/60/120 Hz, ` +
+        `every one of them inside the research's 1-2 /s band` );
+
+    // §1.11 — stated as an overlap rather than as a threshold, because a threshold here would be
+    // a number invented to make the point. The point is that there is no threshold: any band on
+    // head yaw amplitude wide enough to admit the CORRECT layer across seeds also admits the
+    // coupled one at every rate, so this statistic cannot separate them at any tolerance.
+    const shippedAmplitudes = shipped.flatMap( ( run ) => run.headYawSds );
+    const coupledAmplitudes = coupled.flatMap( ( run ) => run.headYawSds );
+
+    const amplitudesOverlap = Math.min( ...coupledAmplitudes ) < Math.max( ...shippedAmplitudes ) &&
+        Math.max( ...coupledAmplitudes ) > Math.min( ...shippedAmplitudes );
+
+    check( 'frame rate: KNOWN-BAD — an AMPLITUDE gate would NOT have caught it either',
+        amplitudesOverlap,
+        `recorded, not tolerated: head yaw SD is ${ Math.min( ...shippedAmplitudes ).toFixed( 2 ) }-` +
+        `${ Math.max( ...shippedAmplitudes ).toFixed( 2 ) }° on the shipped layer and ` +
+        `${ Math.min( ...coupledAmplitudes ).toFixed( 2 ) }-${ Math.max( ...coupledAmplitudes ).toFixed( 2 ) }° on the ` +
+        `coupled one — overlapping ranges, so no threshold on this statistic separates a ` +
+        `${ ( worstCoupledMillimetres * pixelsPerMillimetre ).toFixed( 0 ) } px trajectory error from none at all` );
+
+    // §1.1a again, pointed at the cheapest gate here: event counts are the easy thing to check and
+    // they are NOT a proof on their own, because a coupled run can still land the same total.
+    const coupledCountsAgreeSomewhere = coupled.some( ( run ) => new Set( run.saccades ).size === 1 );
+
+    check( 'frame rate: KNOWN-BAD — an EVENT-COUNT gate alone would not have been a proof',
+        coupledCountsAgreeSomewhere,
+        `recorded, not tolerated: on seed ${ ( coupled.find( ( run ) => new Set( run.saccades ).size === 1 ) ?? coupled[ 0 ] ).seed } ` +
+        `the coupled layer produces the same saccade count at all three rates and a ` +
+        `${ ( worstCoupledMillimetres * pixelsPerMillimetre ).toFixed( 0 ) } px trajectory difference` );
+
+    // The walk is a loop, and a loop is the one failure mode this change introduces that none of
+    // the gates above can produce: they all step at a constant dt. A real frame time jitters and
+    // occasionally stalls, and a stall arrives at the layer as MotionStack's clamp — a single
+    // 100 ms step containing several transitions.
+    {
+        const { stack, gaze } = buildRig( { seed: 99, withHead: true } );
+
+        const jitter = new MotionRandom( 99 );
+        let elapsed = 0;
+
+        while ( elapsed < 300 ) {
+
+            // One frame in a few hundred is a 2 s stall, which the stack clamps to its
+            // maxDeltaSeconds. Everything else is a 30-120 fps loop with no fixed rate at all.
+            const delta = jitter.chance( 0.003 ) ? 2 : jitter.range( 1 / 120, 1 / 30 );
+
+            stack.update( delta );
+            elapsed = stack.time;
+
+        }
+
+        const saccadeRate = gaze.saccadeCount / elapsed;
+
+        lines.push( `  jittering 30-120 fps with stalls, ${ elapsed.toFixed( 0 ) } s: ` +
+            `${ gaze.worstStepsInAFrame } sub-steps in the worst frame, ` +
+            `${ gaze.exhaustedStepBudgetFrames } frames out of budget, ` +
+            `${ saccadeRate.toFixed( 2 ) } saccades/s` );
+        lines.push( '' );
+
+        check( 'frame rate: a jittering frame time never exhausts the sub-step budget',
+            gaze.exhaustedStepBudgetFrames === 0,
+            `worst ${ gaze.worstStepsInAFrame } sub-steps in a frame over ${ elapsed.toFixed( 0 ) } s including ` +
+            `clamped 2 s stalls, against a budget of 64` );
+
+        check( 'frame rate: and the layer still behaves, rather than merely not hanging',
+            saccadeRate > 1.5 && saccadeRate < 4,
+            `${ saccadeRate.toFixed( 2 ) } saccades/s, against ${ ( shipped[ 0 ].saccades[ 1 ] / INVARIANCE_SECONDS ).toFixed( 2 ) } on a fixed 60 Hz loop` );
+
+        stack.dispose();
+    }
+
+    // 🚩 §1.11 — AND A CHECK OF A DIFFERENT KIND, BECAUSE THE ONE ABOVE STRUCTURALLY CANNOT MAKE
+    // IT. The head smoother's own contribution to the coupling measures 0.0286° = 0.044 mm, a
+    // ninth of the tolerance the landmark gate is stated at — so reverting `CriticallyDampedAngle`
+    // to its Padé approximation of exp(−x) would pass everything above. The tolerance cannot be
+    // tightened to catch it without first removing the recentring residue that sets it. So the
+    // smoother is gated separately, on a step target where it is EXACTLY invariant or not at all.
+    {
+        const SMOOTH_TARGET_DEGREES = 30;
+        const SMOOTH_SECONDS = 3;
+
+        /** The shipped smoother, driven by a held target with nothing else aiming the head. */
+        function smootherTraceAtRate( rateHz ) {
+
+            const { stack, gaze } = buildRig( {
+                withHead: true,
+                gazeOptions: { policy: false, headRecentring: false }
+            } );
+
+            const samples = [];
+
+            for ( let frame = 0; frame < Math.round( SMOOTH_SECONDS * rateHz ); frame ++ ) {
+
+                gaze.head.setTarget( SMOOTH_TARGET_DEGREES, 0 );
+                stack.update( 1 / rateHz );
+
+                if ( ( frame + 1 ) % ( rateHz / 30 ) === 0 ) samples.push( gaze.head.yawDegrees );
+
+            }
+
+            stack.dispose();
+
+            return samples;
+
+        }
+
+        /**
+         * A local copy of the SmoothDamp recurrence, so the rejection below can vary one term.
+         * `decay` is the only difference between the shipped form and the one it replaced.
+         */
+        function referenceSmootherTrace( rateHz, decay ) {
+
+            const smoothTime = 0.18;
+            const omega = 2 / smoothTime;
+            const step = 1 / rateHz;
+
+            let value = 0;
+            let velocity = 0;
+            const samples = [];
+
+            for ( let frame = 0; frame < Math.round( SMOOTH_SECONDS * rateHz ); frame ++ ) {
+
+                const factor = decay( omega * step );
+                const change = value - SMOOTH_TARGET_DEGREES;
+                const temp = ( velocity + omega * change ) * step;
+
+                velocity = ( velocity - omega * temp ) * factor;
+                value = SMOOTH_TARGET_DEGREES + ( change + temp ) * factor;
+
+                if ( ( frame + 1 ) % ( rateHz / 30 ) === 0 ) samples.push( value );
+
+            }
+
+            return samples;
+
+        }
+
+        const exact = ( x ) => Math.exp( -x );
+        const pade = ( x ) => 1 / ( 1 + x + 0.48 * x * x + 0.235 * x * x * x );
+
+        const shippedSpread = worstDisagreement( smootherTraceAtRate( 30 ), smootherTraceAtRate( 60 ) );
+        const referenceSpread = worstDisagreement( referenceSmootherTrace( 30, exact ), referenceSmootherTrace( 60, exact ) );
+        const padeSpread = worstDisagreement( referenceSmootherTrace( 30, pade ), referenceSmootherTrace( 60, pade ) );
+
+        // The copy has to be proven faithful before its rejection means anything: it must
+        // reproduce the shipped smoother's own trace, not merely behave similarly.
+        const fidelity = worstDisagreement( smootherTraceAtRate( 60 ), referenceSmootherTrace( 60, exact ) );
+
+        lines.push( `  head smoother, 30° step, 30 vs 60 Hz:  shipped ${ shippedSpread.toExponential( 2 ) }°, ` +
+            `exact-exp reference ${ referenceSpread.toExponential( 2 ) }°, Padé reference ${ padeSpread.toFixed( 6 ) }°` );
+        lines.push( '' );
+
+        check( 'frame rate: the head smoother is EXACTLY invariant, not approximately',
+            shippedSpread < 1e-9,
+            `worst ${ shippedSpread.toExponential( 3 ) }° between 30 and 60 Hz on a held 30° target — ` +
+            `with decay = exp(−ωΔt) the recurrence is the analytic solution, so two half-steps are one whole step` );
+
+        check( 'frame rate: the reference smoother reproduces the shipped one, so its rejection counts',
+            fidelity < 1e-9,
+            `worst ${ fidelity.toExponential( 3 ) }° between the shipped smoother and the local copy at 60 Hz` );
+
+        check( 'frame rate: KNOWN-BAD — the Padé approximation this replaced fails that gate',
+            padeSpread > 1e-9,
+            `${ padeSpread.toFixed( 6 ) }° = ${ ( padeSpread * pixelsPerDegreeOfHeadYaw ).toFixed( 4 ) } px — under the ` +
+            `${ INVARIANCE_TOLERANCE_MM } mm landmark tolerance above, which is exactly why it needs its own gate` );
+
+    }
+
+    /**
+     * Where the two eyeball globes sit in the head bone's BIND frame, in metres.
+     *
+     * Bind, not current (LEARNINGS §1.16): `boneInverses` is pose-independent by construction, and
+     * reading `matrixWorld` here would bake in whatever pose the rig happened to be left in.
+     */
+    function measureEyeLandmarksInHeadBindFrame() {
+
+        let landmarks = null;
+
+        figureRoot.traverse( ( node ) => {
+
+            // `high-poly` is the eyeball globes; the name is about topology, not anatomy.
+            if ( node.isSkinnedMesh !== true || node.name.endsWith( 'high-poly' ) === false ) return;
+
+            const position = node.geometry.attributes.position;
+            const headIndex = node.skeleton.bones.findIndex( ( bone ) => bone.name === 'head' );
+
+            const left = new Vector3();
+            const right = new Vector3();
+            let leftCount = 0;
+            let rightCount = 0;
+
+            for ( let index = 0; index < position.count; index ++ ) {
+
+                const vertex = new Vector3().fromBufferAttribute( position, index );
+
+                if ( vertex.x > 0 ) { left.add( vertex ); leftCount ++; }
+                else { right.add( vertex ); rightCount ++; }
+
+            }
+
+            left.divideScalar( leftCount );
+            right.divideScalar( rightCount );
+
+            landmarks = [
+                left.applyMatrix4( node.skeleton.boneInverses[ headIndex ] ),
+                right.applyMatrix4( node.skeleton.boneInverses[ headIndex ] )
+            ];
+
+        } );
+
+        return landmarks;
+
+    }
+
+    /** One seed at all three rates, compared against the 60 Hz run at matched simulated instants. */
+    function compareAcrossRates( seed, gazeOptions ) {
+
+        const traces = INVARIANCE_RATES.map( ( rate ) => traceAtRate( seed, rate, gazeOptions ) );
+        const reference = traces[ 1 ];
+
+        return {
+            seed,
+            worstMillimetres: 1000 * Math.max( ...traces.map( ( trace ) => worstDisagreement( trace.landmarks, reference.landmarks ) ) ),
+            worstHeadDegrees: Math.max( ...traces.map( ( trace ) => worstDisagreement( trace.headYaw, reference.headYaw ) ) ),
+            worstEyeDegrees: Math.max( ...traces.map( ( trace ) => worstDisagreement( trace.eyeYaw, reference.eyeYaw ) ) ),
+            saccades: traces.map( ( trace ) => trace.saccades ),
+            microsaccades: traces.map( ( trace ) => trace.microsaccades ),
+            microsaccadeRates: traces.map( ( trace ) => trace.microsaccades / INVARIANCE_SECONDS ),
+            headYawSds: traces.map( ( trace ) => standardDeviation( trace.headYaw ) ),
+            exhausted: traces.reduce( ( total, trace ) => total + trace.exhausted, 0 ),
+            worstSteps: Math.max( ...traces.map( ( trace ) => trace.worstSteps ) )
+        };
+
+    }
+
+    /**
+     * One trace, sampled at whole seconds so that two rates are compared at the SAME simulated
+     * instants rather than at the same frame index.
+     */
+    function traceAtRate( seed, rateHz, gazeOptions ) {
+
+        const { stack, gaze } = buildRig( { seed, withHead: true, gazeOptions } );
+
+        const landmarks = [];
+        const headYaw = [];
+        const eyeYaw = [];
+        const scratch = new Vector3();
+
+        for ( let frame = 0; frame < Math.round( INVARIANCE_SECONDS * rateHz ); frame ++ ) {
+
+            stack.update( 1 / rateHz );
+
+            if ( ( frame + 1 ) % rateHz !== 0 ) continue;
+
+            figureRoot.updateMatrixWorld( true );
+
+            for ( const landmark of eyeLandmarks ) {
+
+                scratch.copy( landmark ).applyMatrix4( headBone.matrixWorld );
+                landmarks.push( scratch.x, scratch.y, scratch.z );
+
+            }
+
+            headYaw.push( gaze.head.yawDegrees );
+            eyeYaw.push( gaze.eyeYawDegrees );
+
+        }
+
+        const trace = {
+            landmarks, headYaw, eyeYaw,
+            saccades: gaze.saccadeCount,
+            microsaccades: gaze.microsaccadeCount,
+            exhausted: gaze.exhaustedStepBudgetFrames,
+            worstSteps: gaze.worstStepsInAFrame
+        };
+
+        stack.dispose();
+
+        return trace;
+
+    }
+
+    function worstDisagreement( samples, reference ) {
+
+        let worst = 0;
+
+        for ( let index = 0; index < Math.min( samples.length, reference.length ); index ++ ) {
+
+            worst = Math.max( worst, Math.abs( samples[ index ] - reference[ index ] ) );
+
+        }
+
+        return worst;
+
+    }
+
+}
+
+lines.push( '' );
 
 // --- statistics helpers ------------------------------------------------------------------------------
 

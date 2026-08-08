@@ -202,6 +202,18 @@ export class MotionRandom {
      *
      * 🎯 USE `PoissonSchedule` INSTEAD for anything a viewer will see. This is kept for a caller
      * that genuinely only wants a per-frame coin — and there is no such caller in the motion stack.
+     *
+     * Converted so far: `Sway`, `BodyIdle`, `Gaze`. Still on the per-frame coin, and still carrying
+     * the defect: `FacialIdle`, `HandIdle` (punch-list 2.11).
+     *
+     * ⚠️ AND CONVERTING THE ARRIVALS IS NOT THE WHOLE JOB. `Gaze` swapped this call for a schedule
+     * and was still 905× outside its own invariance tolerance, because arrivals are only one of the
+     * ways a frame can become the clock. The other three it had, all of which had to go as well:
+     * countdowns advanced per frame with the overshoot DISCARDED (which rounds every drawn interval
+     * up to a multiple of dt); a smoother using a rational approximation of `exp(−x)` instead of
+     * `exp(−x)`, which breaks the two-half-steps-are-one-whole-step identity; and a feedback target
+     * that was a continuous function of a fast signal, so it was only ever sampled wherever the
+     * frame rate happened to put a boundary. Check for all four.
      */
     poissonEventOccurs( eventsPerSecond, deltaSeconds ) {
 

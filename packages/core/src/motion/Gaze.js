@@ -32,6 +32,18 @@
  *      almost all the time. We use BEAT's.
  *
  *
+ * AND IT DOES ALL THREE IN SIMULATED TIME, NOT IN FRAMES
+ *
+ * Every clock in this file — region dwell, fixation, saccade latency, the intersaccadic floor,
+ * head release, microsaccade arrivals, the recentring hold-off — is advanced by a walk that cuts
+ * each frame at the next scheduled transition, so an event happens at the instant it was drawn
+ * for rather than at the next frame boundary. That is not tidiness. Advancing them by the frame
+ * and discarding the overshoot inflated every interval by dt/2, which at 30 Hz against 60 Hz gave
+ * the SAME SEED 691 saccades against 721 and head yaw traces correlating at r = 0.017 — so every
+ * number measured at 60 Hz described a trajectory the 30 fps captures never rendered. See
+ * `advanceOcularState()`, LEARNINGS §1.13, and the FRAME-RATE INVARIANCE section of the selftest.
+ *
+ *
  * WHAT DRIVES THE EYES ON THIS ASSET
  *
  * The MakeHuman `game_engine` rig has NO EYE BONES (see figure/Skeleton.js). Gaze is the eight
@@ -96,6 +108,7 @@ import { Matrix4, Quaternion, Vector3 } from 'three';
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
+import { PoissonSchedule } from './Signals.js';
 
 // --- measured on the shipped figure -----------------------------------------------------------
 
@@ -157,6 +170,32 @@ const SACCADE_LATENCY_SECONDS = 0.2;
 
 /** No new saccade may start within this long of the last one ending. */
 const MINIMUM_INTERSACCADIC_SECONDS = 0.15;
+
+// --- the sub-frame walk -------------------------------------------------------------------------
+
+/**
+ * Slack on the threshold tests that fire an event, in seconds.
+ *
+ * `advanceOcularState` cuts each step exactly at the next transition, so a clock that COUNTS DOWN
+ * is stepped by its own remaining value and lands on exactly zero — that arithmetic is exact in
+ * binary floating point and needs no help. The three clocks that ACCUMULATE — `sinceSaccadeEnded`,
+ * `saccade.elapsed` and the eccentricity timers — are stepped by `threshold − now`, and
+ * `now + ( threshold − now )` is NOT guaranteed to reach `threshold`. Without the slack the walk
+ * would take an empty step, fail to fire, and take another, until the budget below stopped it.
+ *
+ * A femtosecond, against clocks measured in tenths of a second: 11 orders of magnitude of margin,
+ * so it cannot swallow a real interval.
+ */
+const TRANSITION_EPSILON_SECONDS = 1e-12;
+
+/**
+ * Ceiling on sub-intervals per frame. This layer runs about ten transitions a second at its
+ * busiest — saccade starts and ends, microsaccade starts and ends, region changes, head releases —
+ * so a 30 Hz frame contains well under one on average and a handful at worst. 64 is two orders of
+ * magnitude of headroom, and reaching it means a clock is scheduling a transition it then fails to
+ * clear. See `Gaze.exhaustedStepBudgetFrames`.
+ */
+const MAXIMUM_STEPS_PER_FRAME = 64;
 
 // --- microsaccades ----------------------------------------------------------------------------
 
@@ -477,6 +516,14 @@ export class Gaze extends Layer {
      * @param {string} [options.blinkLayerName='blink'] - Layer asked to blink on a large shift.
      * @param {boolean} [options.blinkCoupling=true] - See `setBlinkCoupling()`.
      * @param {boolean} [options.headRecentring=true] - See `setHeadRecentring()`.
+     * @param {boolean} [options.policy=true] - See `setPolicyEnabled()`.
+     * @param {boolean} [options.frameCoupledArrivals=false] - Set true to advance every clock by
+     *   the whole frame and roll the microsaccade coin once per frame, exactly as this layer used
+     *   to. It exists so `Gaze.selftest.mjs` has a known-bad run to reject; nothing should ship
+     *   with it on. See `advanceOcularState()`.
+     * @param {boolean} [options.frameCoupledVestibuloOcular=false] - The companion known-bad: the
+     *   reflex then compensates for the head as it stood one FRAME ago rather than at the instant
+     *   it is evaluated. See `readHeadRotation()` for what that was and why it went.
      * @param {boolean} [options.enabled=true]
      */
     constructor( options = {} ) {
@@ -506,6 +553,7 @@ export class Gaze extends Layer {
         // Figure facts, resolved in onBind().
         this.headBone = null;
         this.rigRoot = null;
+        this.microsaccades = null;
         this.headRestRotation = new Quaternion();
         this.headRestRotationInverse = new Quaternion();
 
@@ -626,6 +674,24 @@ export class Gaze extends Layer {
     }
 
     /**
+     * Whether the autonomous conversational policy chooses where to look. On by default.
+     *
+     * Off pauses the region and fixation clocks and leaves `lookAt()` as the only thing that aims
+     * gaze — everything below the policy still runs, so the saccade main sequence, the eye–head
+     * split, microsaccades and the VOR are all unchanged. That is what an agent scripting its own
+     * gaze wants (following a cursor, walking a list of targets), and it is what makes a gate on
+     * the hand-over measurable: with the policy live, a three-second window is a lottery over how
+     * many regions it happened to visit.
+     */
+    setPolicyEnabled( enabled ) {
+
+        this.policyEnabled = enabled !== false;
+
+        return this;
+
+    }
+
+    /**
      * "Um." Gaze aversion during a filled pause is a speech-planning signal, not decoration —
      * it tells the listener the floor is still held while the next clause is assembled.
      */
@@ -711,22 +777,21 @@ export class Gaze extends Layer {
 
         }
 
+        // Microsaccade arrivals, on their own stream. Built here because `this.random` does not
+        // exist until the stack forks it, and rebuilt on every bind because `MotionStack.reset()`
+        // rewinds and re-binds. See `fireEventTransitions()` for why this is a schedule rather
+        // than a per-frame coin.
+        this.microsaccades = new PoissonSchedule( this.random.fork( 'microsaccade' ) );
+
         this.head.onBindFromGaze( context );
 
     }
 
     update( deltaSeconds, context ) {
 
-        this.advancePolicy( deltaSeconds );
-        this.advanceSaccade( deltaSeconds );
-        this.advanceMicrosaccade( deltaSeconds );
-
-        this.readHeadRotation();
-        this.applyVestibuloOcularReflex();
-
-        // After the reflex, because it is this frame's EYE angle — not the gaze target — that
-        // says whether the eyes are being left to hold an eccentricity on their own.
-        this.advanceHeadRecentring( deltaSeconds );
+        // Idempotent per frame: `GazeHead` runs first and calls this too, so that the head bone
+        // it writes carries THIS frame's decisions rather than last frame's. See the method.
+        this.advanceOcularState( deltaSeconds, context );
 
         this.writeEyeMorphs();
 
@@ -742,31 +807,315 @@ export class Gaze extends Layer {
 
     }
 
+    /**
+     * One frame of ocular simulation, walked in sub-intervals cut at every scheduled transition.
+     *
+     * 🎯 THE FRAME IS NOT THE CLOCK. THE SIMULATION IS. Read this before changing anything below.
+     *
+     * The version this replaced advanced eight countdowns by `deltaSeconds` once per frame and
+     * DISCARDED the overshoot every time one expired, which rounds every drawn interval up to a
+     * whole multiple of the frame time. That inflates each interval by dt/2 in expectation — 16.7
+     * ms at 30 Hz against 8.3 ms at 60 Hz — and the two runs drift apart by that much per event
+     * for as long as they run. Measured on this layer before the fix, seed 1 over 300 s, the same
+     * seed at 30 and 60 Hz produced 691 against 721 saccades and head yaw traces that agreed to
+     * pearson r = 0.017, worst disagreement 76.6° at a matched instant. LEARNINGS §1.13.
+     *
+     * Now every clock is advanced in SIMULATED time: the step is cut at the soonest scheduled
+     * transition, the continuous state is integrated across the interval, and the transition
+     * fires exactly on the boundary. An arrival time is then a property of the seed alone, and
+     * the frame rate decides only which frame observes it.
+     *
+     * The order inside a step is load-bearing, and it is the same order `Sway.advanceAxis` uses:
+     * everything in flight is AGED first, then arrivals fire. Firing first would let an event
+     * scheduled at the boundary spend the interval that decided on it — a region change and the
+     * 200 ms saccade latency it schedules would collapse into the same instant.
+     *
+     * ⚠️ TWO RESIDUES ARE INHERENT AND ARE WHAT THE INVARIANCE TOLERANCE IS SIZED FOR.
+     * `advanceAxisRecentring` accumulates its eccentricity clock from the eye angle sampled at the
+     * END of each interval, so the 0.3 s hand-over latency can start up to one step late; and the
+     * VOR reads the head bone the stack committed LAST frame, which is a deliberate 7–15 ms
+     * latency realised as one frame. Both are bounded by dt and neither accumulates.
+     */
+    advanceOcularState( deltaSeconds, context ) {
+
+        if ( context.frame === this.advancedForFrame ) return;
+        if ( this.enabled === false ) return;
+
+        this.advancedForFrame = context.frame;
+
+        // Once per frame, not once per step: this reads a bone the stack commits between frames,
+        // so it cannot change inside one.
+        this.readHeadRotation();
+
+        if ( this.frameCoupledArrivals ) {
+
+            // 🚩 THE DEFECT, REBUILT ON PURPOSE. One step the length of the whole frame, so every
+            // expiry overshoots and the overshoot is thrown away, and one Bernoulli draw per frame
+            // off the LAYER's stream for the microsaccades — which is what used to advance the
+            // whole layer's randomness at the frame rate. The selftest's invariance section must
+            // reject this.
+            const eligible = this.saccade === null && this.microsaccadeActive === false;
+
+            this.head.advanceSmoothing( deltaSeconds );
+            this.ageEventClocks( deltaSeconds );
+
+            if ( eligible &&
+                this.random.poissonEventOccurs( MICROSACCADE_RATE_PER_SECOND, deltaSeconds ) ) {
+
+                this.beginMicrosaccade();
+
+            }
+
+            this.fireEventTransitions( 0 );
+            this.applyVestibuloOcularReflex();
+            this.advanceHeadRecentring( deltaSeconds );
+
+            return;
+
+        }
+
+        let remaining = deltaSeconds;
+        let steps = 0;
+
+        while ( remaining > 0 && steps < MAXIMUM_STEPS_PER_FRAME ) {
+
+            const step = Math.min( remaining, this.secondsUntilNextTransition() );
+
+            // Captured before ageing, because a step that ends ON a saccade's end was ineligible
+            // for its whole length. Suppression PAUSES the microsaccade process rather than
+            // sampling and discarding it, which is what keeps the rate a rate over eligible time.
+            const eligibleSeconds =
+                ( this.saccade === null && this.microsaccadeActive === false ) ? step : 0;
+
+            this.head.advanceSmoothing( step );
+            this.ageEventClocks( step );
+
+            this.fireEventTransitions( eligibleSeconds );
+
+            this.applyVestibuloOcularReflex();
+
+            // After the reflex, because it is this instant's EYE angle — not the gaze target —
+            // that says whether the eyes are being left to hold an eccentricity on their own.
+            this.advanceHeadRecentring( step );
+
+            remaining -= step;
+            steps ++;
+
+        }
+
+        // A budget of MAXIMUM_STEPS_PER_FRAME is roughly two orders of magnitude above the
+        // transition rate this layer actually produces, so a non-zero count means a clock is
+        // scheduling a transition it then fails to clear. Recorded rather than thrown, because a
+        // motion layer must not be able to stop a render loop, and asserted zero in the selftest.
+        if ( steps >= MAXIMUM_STEPS_PER_FRAME ) this.exhaustedStepBudgetFrames ++;
+
+        this.worstStepsInAFrame = Math.max( this.worstStepsInAFrame, steps );
+
+    }
+
+    /**
+     * How long until the next scheduled change of state, over every clock this layer runs.
+     *
+     * Zero is a legitimate answer and means "a transition is due right now": the walk then takes
+     * an empty step, fires it, and comes straight back. That is how a schedule set up mid-frame —
+     * a predicted shift releases its head at countdown zero — reaches its own instant instead of
+     * waiting for the next frame.
+     */
+    secondsUntilNextTransition() {
+
+        let soonest = Infinity;
+
+        // The policy's clocks. A forced region suspends them both: while one is running, nothing
+        // else about where to look is up for reconsideration.
+        if ( this.policyEnabled === false ) {
+
+            // Nothing scheduled here at all — see setPolicyEnabled().
+
+        } else if ( this.forcedRegion !== null ) {
+
+            soonest = Math.min( soonest, this.forcedRegionRemaining );
+
+        } else {
+
+            soonest = Math.min( soonest, this.regionHoldRemaining );
+
+            if ( this.pendingShift === null ) soonest = Math.min( soonest, this.fixationRemaining );
+
+        }
+
+        if ( this.headRelease !== null ) soonest = Math.min( soonest, this.headRelease.countdown );
+
+        if ( this.saccade !== null ) {
+
+            soonest = Math.min( soonest, this.saccade.duration - this.saccade.elapsed );
+
+        } else if ( this.pendingShift !== null ) {
+
+            // Two conditions gate the launch and the later of them decides the instant: the
+            // latency has to have run out AND the intersaccadic floor has to be clear.
+            soonest = Math.min( soonest, Math.max( this.pendingShift.eyeCountdown,
+                MINIMUM_INTERSACCADIC_SECONDS - this.sinceSaccadeEnded ) );
+
+        }
+
+        if ( this.microsaccadeActive ) {
+
+            soonest = Math.min( soonest, this.microsaccadeRemaining );
+
+        } else if ( this.saccade === null && this.microsaccades !== null ) {
+
+            soonest = Math.min( soonest,
+                this.microsaccades.secondsUntilArrival( MICROSACCADE_RATE_PER_SECOND ) );
+
+        }
+
+        return Math.max( soonest, 0 );
+
+    }
+
+    /**
+     * Everything continuous, moved forward by one sub-interval. Nothing here draws a random
+     * number and nothing here starts or ends an event: every arrival happens between calls to
+     * this, which is what keeps the trajectory a property of the seed.
+     */
+    ageEventClocks( seconds ) {
+
+        if ( this.policyEnabled === false ) {
+
+            // Paused, not merely ignored, so re-enabling resumes from where it stopped rather
+            // than firing a backlog of expiries on the first frame.
+
+        } else if ( this.forcedRegion !== null ) {
+
+            this.forcedRegionRemaining -= seconds;
+
+        } else {
+
+            this.regionHoldRemaining -= seconds;
+            this.fixationRemaining -= seconds;
+
+        }
+
+        this.sinceSaccadeEnded += seconds;
+
+        if ( this.headRelease !== null ) this.headRelease.countdown -= seconds;
+        if ( this.pendingShift !== null ) this.pendingShift.eyeCountdown -= seconds;
+
+        if ( this.saccade !== null ) {
+
+            this.saccade.elapsed += seconds;
+
+            const progress = saccadeProgress( this.saccade.elapsed / this.saccade.duration );
+
+            this.currentGazeYawDegrees = this.saccade.fromYaw +
+                ( this.saccade.toYaw - this.saccade.fromYaw ) * progress;
+            this.currentGazePitchDegrees = this.saccade.fromPitch +
+                ( this.saccade.toPitch - this.saccade.fromPitch ) * progress;
+
+        }
+
+        if ( this.microsaccadeActive ) {
+
+            this.microsaccadeRemaining -= seconds;
+
+            const progress = saccadeProgress(
+                1 - Math.max( this.microsaccadeRemaining, 0 ) / MICROSACCADE_DURATION_SECONDS );
+
+            this.microsaccadeYawDegrees = this.microsaccadeFromYaw +
+                ( this.microsaccadeToYaw - this.microsaccadeFromYaw ) * progress;
+            this.microsaccadePitchDegrees = this.microsaccadeFromPitch +
+                ( this.microsaccadeToPitch - this.microsaccadeFromPitch ) * progress;
+
+        }
+
+    }
+
+    /**
+     * Every event that lands on this interval's boundary, in a fixed order: ends before
+     * beginnings, and the slow policy clock last.
+     *
+     * The ordering is not cosmetic. A saccade that finishes at this instant has to be OVER before
+     * the next one is allowed to consider starting, or the intersaccadic floor is measured against
+     * the wrong movement. And the policy runs last so that a region change scheduling a 200 ms
+     * saccade latency cannot have that latency spent by the launch check sitting above it.
+     *
+     * @param {number} eligibleSeconds - How much of the interval the microsaccade process was
+     *   allowed to run for. Zero during a saccade or while one microsaccade is still in flight.
+     */
+    fireEventTransitions( eligibleSeconds ) {
+
+        if ( this.saccade !== null &&
+            this.saccade.elapsed >= this.saccade.duration - TRANSITION_EPSILON_SECONDS ) {
+
+            this.currentGazeYawDegrees = this.saccade.toYaw;
+            this.currentGazePitchDegrees = this.saccade.toPitch;
+            this.saccade = null;
+            this.sinceSaccadeEnded = 0;
+
+        }
+
+        if ( this.microsaccadeActive &&
+            this.microsaccadeRemaining <= TRANSITION_EPSILON_SECONDS ) {
+
+            this.microsaccadeYawDegrees = this.microsaccadeToYaw;
+            this.microsaccadePitchDegrees = this.microsaccadeToPitch;
+            this.microsaccadeRemaining = 0;
+            this.microsaccadeActive = false;
+
+        }
+
+        if ( this.headRelease !== null &&
+            this.headRelease.countdown <= TRANSITION_EPSILON_SECONDS ) {
+
+            this.commandHead( this.headRelease.yawDegrees, this.headRelease.pitchDegrees );
+            this.headRelease = null;
+
+        }
+
+        if ( this.pendingShift !== null && this.saccade === null &&
+            this.pendingShift.eyeCountdown <= TRANSITION_EPSILON_SECONDS &&
+            this.sinceSaccadeEnded >= MINIMUM_INTERSACCADIC_SECONDS - TRANSITION_EPSILON_SECONDS ) {
+
+            this.launchSaccade( this.pendingShift );
+
+        }
+
+        if ( eligibleSeconds > 0 ) {
+
+            this.microsaccades.advance( MICROSACCADE_RATE_PER_SECOND, eligibleSeconds,
+                () => this.beginMicrosaccade() );
+
+        }
+
+        this.firePolicyTransitions();
+
+    }
+
     // --- policy ----------------------------------------------------------------------------
 
     /**
      * The slow clock. Decides WHERE to look — at the partner or away — and re-decides when the
-     * current region expires. The fast clock inside a region is `advanceSaccade`.
+     * current region expires. The fast clock inside a region is the saccade.
      */
-    advancePolicy( deltaSeconds ) {
+    firePolicyTransitions() {
 
-        if ( this.forcedRegionRemaining > 0 ) {
+        if ( this.policyEnabled === false ) return;
 
-            this.forcedRegionRemaining -= deltaSeconds;
+        if ( this.forcedRegion !== null ) {
 
-            if ( this.forcedRegionRemaining > 0 ) return;
+            if ( this.forcedRegionRemaining > TRANSITION_EPSILON_SECONDS ) return;
 
             // A forced aversion or mutual gaze ends by handing control straight back to the
             // policy, rather than by leaving the character parked wherever the event left it.
             this.forcedRegion = null;
-            this.regionHoldRemaining = 0;
+            this.forcedRegionRemaining = 0;
+
+            this.beginRegion( this.chooseRegion() );
+            return;
 
         }
 
-        this.regionHoldRemaining -= deltaSeconds;
-        this.fixationRemaining -= deltaSeconds;
-
-        if ( this.regionHoldRemaining <= 0 ) {
+        if ( this.regionHoldRemaining <= TRANSITION_EPSILON_SECONDS ) {
 
             this.beginRegion( this.chooseRegion() );
             return;
@@ -775,7 +1124,7 @@ export class Gaze extends Layer {
 
         // Still in the same region: scan around inside it. These are the 5–10° saccades the
         // research calls typical, and they are why a fixating character does not look frozen.
-        if ( this.fixationRemaining <= 0 && this.pendingShift === null ) {
+        if ( this.fixationRemaining <= TRANSITION_EPSILON_SECONDS && this.pendingShift === null ) {
 
             this.beginExploratorySaccade();
 
@@ -947,67 +1296,6 @@ export class Gaze extends Layer {
 
     }
 
-    /**
-     * Advances the pending shift and the in-flight saccade, and leaves `currentGaze*` holding
-     * this frame's gaze direction in rig space.
-     */
-    advanceSaccade( deltaSeconds ) {
-
-        this.sinceSaccadeEnded += deltaSeconds;
-
-        // The head can be released before, with or after the eyes — that is the whole point of
-        // the predicted/reactive distinction — so it runs on its own clock.
-        if ( this.headRelease !== null ) {
-
-            this.headRelease.countdown -= deltaSeconds;
-
-            if ( this.headRelease.countdown <= 0 ) {
-
-                this.commandHead( this.headRelease.yawDegrees, this.headRelease.pitchDegrees );
-                this.headRelease = null;
-
-            }
-
-        }
-
-        const pending = this.pendingShift;
-
-        if ( pending !== null ) {
-
-            pending.eyeCountdown -= deltaSeconds;
-
-            const intersaccadicSatisfied = this.sinceSaccadeEnded >= MINIMUM_INTERSACCADIC_SECONDS;
-
-            if ( pending.eyeCountdown <= 0 && this.saccade === null && intersaccadicSatisfied ) {
-
-                this.launchSaccade( pending );
-
-            }
-
-        }
-
-        if ( this.saccade === null ) return;
-
-        this.saccade.elapsed += deltaSeconds;
-
-        const progress = saccadeProgress( this.saccade.elapsed / this.saccade.duration );
-
-        this.currentGazeYawDegrees = this.saccade.fromYaw +
-            ( this.saccade.toYaw - this.saccade.fromYaw ) * progress;
-        this.currentGazePitchDegrees = this.saccade.fromPitch +
-            ( this.saccade.toPitch - this.saccade.fromPitch ) * progress;
-
-        if ( this.saccade.elapsed >= this.saccade.duration ) {
-
-            this.currentGazeYawDegrees = this.saccade.toYaw;
-            this.currentGazePitchDegrees = this.saccade.toPitch;
-            this.saccade = null;
-            this.sinceSaccadeEnded = 0;
-
-        }
-
-    }
-
     launchSaccade( pending ) {
 
         this.saccade = {
@@ -1039,6 +1327,13 @@ export class Gaze extends Layer {
         this.fixationRemaining = this.random.exponential( FIXATION_MEAN_SECONDS, {
             min: MINIMUM_INTERSACCADIC_SECONDS
         } );
+
+        // The DRAWN interval, kept because the countdown above is a different quantity the moment
+        // any time passes. The selftest's KS test used to read `fixationRemaining` after a frame
+        // had run and so tested a distribution shifted left by part of a frame — which put mass
+        // below the 0.15 s floor, where the reference CDF is zero. That is where its D = 0.343
+        // came from, and it is a property of the sampling, not of the layer.
+        this.lastFixationSeconds = this.fixationRemaining;
 
         this.requestBlinkForLargeShift( pending.amplitude );
 
@@ -1077,27 +1372,16 @@ export class Gaze extends Layer {
      *
      * Suppressed during a saccade, as in physiology, and bounded by a clamp on the accumulated
      * offset — see MICROSACCADE_OFFSET_CAP_DEGREES for why that clamp is the whole trick.
+     *
+     * 🎯 Called from a `PoissonSchedule` arrival, never from a per-frame coin, and every draw here
+     * comes from THAT process's own stream rather than from the layer's. Both halves matter. The
+     * coin drew one random number per FRAME, which advanced the whole layer's stream at the frame
+     * rate and moved every gaze decision downstream of it; and a shared stream would re-couple the
+     * frame rate through the order two processes happen to interleave in. See `Signals.js`.
      */
-    advanceMicrosaccade( deltaSeconds ) {
+    beginMicrosaccade() {
 
-        if ( this.microsaccadeRemaining > 0 ) {
-
-            this.microsaccadeRemaining -= deltaSeconds;
-
-            const progress = saccadeProgress(
-                1 - Math.max( this.microsaccadeRemaining, 0 ) / MICROSACCADE_DURATION_SECONDS );
-
-            this.microsaccadeYawDegrees = this.microsaccadeFromYaw +
-                ( this.microsaccadeToYaw - this.microsaccadeFromYaw ) * progress;
-            this.microsaccadePitchDegrees = this.microsaccadeFromPitch +
-                ( this.microsaccadeToPitch - this.microsaccadeFromPitch ) * progress;
-
-            return;
-
-        }
-
-        if ( this.saccade !== null ) return;
-        if ( this.random.poissonEventOccurs( MICROSACCADE_RATE_PER_SECOND, deltaSeconds ) === false ) return;
+        const random = this.microsaccades.random;
 
         // A direction that would take the eye past the cap is redrawn rather than shortened.
         // Shortening was the first version and it pulled the mean amplitude down to 0.43° against
@@ -1111,7 +1395,7 @@ export class Gaze extends Layer {
 
         for ( let attempt = 0; attempt < 8 && accepted === false; attempt ++ ) {
 
-            const direction = this.random.range( 0, Math.PI * 2 );
+            const direction = random.range( 0, Math.PI * 2 );
 
             yaw = this.microsaccadeYawDegrees + MICROSACCADE_AMPLITUDE_DEGREES * Math.cos( direction );
             pitch = this.microsaccadePitchDegrees + MICROSACCADE_AMPLITUDE_DEGREES * Math.sin( direction );
@@ -1138,6 +1422,7 @@ export class Gaze extends Layer {
         this.microsaccadeToYaw = yaw;
         this.microsaccadeToPitch = pitch;
         this.microsaccadeRemaining = MICROSACCADE_DURATION_SECONDS;
+        this.microsaccadeActive = true;
         this.microsaccadeCount ++;
 
     }
@@ -1185,23 +1470,48 @@ export class Gaze extends Layer {
         if ( this.headRecentring === false ) return;
 
         this.advanceAxisRecentring( this.recentringYaw, {
-            eyeDegrees: this.currentEyeYawDegrees,
-            gazeDegrees: this.currentGazeYawDegrees,
+            gazeDegrees: this.settledGazeYawDegrees,
             eyeRangeDegrees: this.horizontalEyeRangeDegrees(),
             commandedHeadDegrees: this.commandedHeadYawDegrees,
             deltaSeconds
         } );
 
         this.advanceAxisRecentring( this.recentringPitch, {
-            eyeDegrees: this.currentEyePitchDegrees,
-            gazeDegrees: this.currentGazePitchDegrees,
-            eyeRangeDegrees: this.currentGazePitchDegrees >= 0
+            gazeDegrees: this.settledGazePitchDegrees,
+            eyeRangeDegrees: this.settledGazePitchDegrees >= 0
                 ? this.eyeExcursionDegrees.up : this.eyeExcursionDegrees.down,
             commandedHeadDegrees: this.commandedHeadPitchDegrees,
             deltaSeconds
         } );
 
         this.aimHead();
+
+    }
+
+    /**
+     * Where gaze is SETTLING — the saccade's destination while one is in flight, and where gaze
+     * already is otherwise.
+     *
+     * 🎯 THE SETTLE IS NOT PART OF THE TRANSIT, and reading the live interpolated angle instead of
+     * this one is what kept the head frame-rate-coupled after the arrivals were fixed. A saccade
+     * crosses the midline at up to 500°/s; the recentring hand-over is a 12°/s settle afterwards.
+     * Driving the hand-over's target from the transit made the head's target a CONTINUOUS function
+     * of a very fast signal, and a continuous target is only ever sampled at whatever instants the
+     * frame rate happens to offer — the smoother then integrates against a different staircase at
+     * every rate. Measured, seed 1 over 300 s with everything else already fixed: worst head yaw
+     * disagreement 3.764° at 30 vs 60 Hz, halving to 1.875° at 60 vs 120 Hz, i.e. first order in
+     * dt. Reading the destination makes both the amount and the SIGN piecewise constant, changing
+     * only at transitions the walk already cuts at, and the disagreement goes to exactly zero.
+     */
+    get settledGazeYawDegrees() {
+
+        return this.saccade !== null ? this.saccade.toYaw : this.currentGazeYawDegrees;
+
+    }
+
+    get settledGazePitchDegrees() {
+
+        return this.saccade !== null ? this.saccade.toPitch : this.currentGazePitchDegrees;
 
     }
 
@@ -1213,12 +1523,22 @@ export class Gaze extends Layer {
      */
     advanceAxisRecentring( axis, options ) {
 
-        const { eyeDegrees, gazeDegrees, eyeRangeDegrees, commandedHeadDegrees, deltaSeconds } = options;
+        const { gazeDegrees, eyeRangeDegrees, commandedHeadDegrees, deltaSeconds } = options;
 
         const comfortDegrees = eyeRangeDegrees * SUSTAINED_EYE_ECCENTRICITY_FRACTION;
         const wantedDegrees = Math.max( 0, Math.abs( gazeDegrees ) - comfortDegrees );
 
-        if ( Math.abs( eyeDegrees ) > comfortDegrees ) axis.eccentricSeconds += deltaSeconds;
+        // How far round the head already is, counted as a TARGET rather than as the smoothed bone,
+        // and only when it is round the same side gaze wants. `eye = gaze − head`, so the eye is
+        // sitting outside its comfort band exactly when the settled gaze asks for more than the
+        // head is already carrying — which is the same condition the old `|eye| > comfort` test
+        // stated, but written on two piecewise-constant quantities instead of on the live
+        // eyeball. The eyeball carries the saccade transit, every microsaccade, and the one-frame
+        // VOR latency, none of which is evidence about whether an eccentricity is being HELD.
+        const commandedRelief = Math.sign( commandedHeadDegrees ) === Math.sign( gazeDegrees )
+            ? Math.abs( commandedHeadDegrees ) : 0;
+
+        if ( wantedDegrees > Math.max( commandedRelief, axis.headDegrees ) ) axis.eccentricSeconds += deltaSeconds;
         else axis.eccentricSeconds = 0;
 
         if ( wantedDegrees <= axis.headDegrees ) {
@@ -1233,18 +1553,26 @@ export class Gaze extends Layer {
         // make two: a turn, a stop, and a creep on for the last few degrees. The slow hand-over
         // below is for the other case — a gaze the head was never recruited for at all, which is
         // where a held eccentricity comes from and is the only place a settle has to be visible.
-        if ( commandedHeadDegrees !== 0 &&
-            Math.sign( commandedHeadDegrees ) === Math.sign( gazeDegrees ) ) {
+        if ( commandedRelief > 0 ) {
 
             axis.headDegrees = wantedDegrees;
             return;
 
         }
 
-        if ( axis.eccentricSeconds < HEAD_RECENTRING_LATENCY_SECONDS ) return;
+        // The ramp runs for the part of this interval that came AFTER the latch matured, not for
+        // the whole of any interval the maturity happened to land in. Rounding the start up to the
+        // next boundary is the same discard-the-overshoot error the whole frame walk exists to
+        // remove — it cost 0.447° of hand-over, one frame's worth at 12°/s, purely because 30 Hz
+        // and 60 Hz round the 0.3 s latency to different instants. Written this way the ramp is
+        // also exact under splitting: the total is the same however the interval is cut.
+        const rampSeconds = Math.min( deltaSeconds,
+            Math.max( axis.eccentricSeconds - HEAD_RECENTRING_LATENCY_SECONDS, 0 ) );
+
+        if ( rampSeconds <= 0 ) return;
 
         axis.headDegrees = Math.min( wantedDegrees,
-            axis.headDegrees + HEAD_RECENTRING_RATE_DEGREES_PER_SECOND * deltaSeconds );
+            axis.headDegrees + HEAD_RECENTRING_RATE_DEGREES_PER_SECOND * rampSeconds );
 
     }
 
@@ -1257,11 +1585,14 @@ export class Gaze extends Layer {
      */
     aimHead() {
 
+        // The SETTLED gaze decides the side, for the same reason it decides the amount: a saccade
+        // that crosses the midline would otherwise flip this sign at a continuous zero crossing
+        // sampled wherever the frame rate put it. See `settledGazeYawDegrees`.
         this.head.setTarget(
             largerMagnitude( this.commandedHeadYawDegrees,
-                Math.sign( this.currentGazeYawDegrees ) * this.recentringYaw.headDegrees ),
+                Math.sign( this.settledGazeYawDegrees ) * this.recentringYaw.headDegrees ),
             largerMagnitude( this.commandedHeadPitchDegrees,
-                Math.sign( this.currentGazePitchDegrees ) * this.recentringPitch.headDegrees )
+                Math.sign( this.settledGazePitchDegrees ) * this.recentringPitch.headDegrees )
         );
 
     }
@@ -1312,34 +1643,59 @@ export class Gaze extends Layer {
     }
 
     /**
-     * Reads how far the head has actually turned, in rig space, from the bone the stack
-     * committed LAST frame.
+     * Separates the head rotation the VOR has to compensate for into the part this layer asked
+     * for and the part somebody else did — breath, sway, a backchannel nod.
      *
-     * Reading last frame's commit rather than this frame's intent is deliberate on two counts.
-     * It is the only value available — the stack commits after every layer has run — and the
-     * resulting one-frame delay IS the VOR latency: 16.7 ms at 60 Hz, 8.3 ms at 120 Hz, against
-     * a measured 7–15 ms. Modelling the latency explicitly on top of that would double-count it.
+     * 🚩 THE OLD DOC COMMENT HERE JUSTIFIED A ONE-FRAME LAG AND IT WAS RIGHT ABOUT THE WRONG
+     * RANGE. It read: "the resulting one-frame delay IS the VOR latency: 16.7 ms at 60 Hz, 8.3 ms
+     * at 120 Hz, against a measured 7–15 ms." Both of those numbers are inside the measured band
+     * and the sentence never mentions **30 Hz, which is 33.3 ms — more than double the top of
+     * that band, and it is the rate every judge capture in this project is rendered at.** A
+     * latency defined as "one frame" is not a latency, it is a frame-rate coupling: measured,
+     * seed 1 over 300 s with every other coupling already removed, eye yaw disagreed by 3.394°
+     * worst / 0.337° RMS between 30 and 60 Hz, and by 0.000° once the head term below was read at
+     * the current instant instead.
      *
-     * It also means VOR compensates for every source of head motion, not just gaze's own —
-     * breath, sway, a backchannel nod — because all of them are in that committed quaternion.
+     * The stack commits bones after every layer has run, so the bone genuinely is one frame old
+     * and cannot be made fresher from here. What CAN be made fresh is this layer's own share of
+     * it, because this layer is the thing that decided it: `GazeHead.yawDegrees` is exact at every
+     * sub-step of the walk. So the stale bone is used only to recover what everyone ELSE did —
+     *
+     *     external = bone( t − dt ) − thisLayer( t − dt )
+     *
+     * both terms being from the same instant, so the subtraction is exact — and the reflex adds
+     * this layer's live angle back at the instant it is evaluated. Measured on this rig, the
+     * cervical chain delivers what it was asked for to **0.009° of yaw and 0.010° of pitch**, so
+     * the decomposition is a real separation rather than a hopeful one.
+     *
+     * The residual lag on `external` is 33 ms of a signal that moves at under a degree a second
+     * (sway's head excursion is millimetres over seconds), and those layers are dt-invariant in
+     * their own right.
      */
     readHeadRotation() {
 
-        if ( this.headBone === null || this.rigRoot === null ) {
+        this.externalHeadYawDegrees = 0;
+        this.externalHeadPitchDegrees = 0;
 
-            this.headYawDegrees = 0;
-            this.headPitchDegrees = 0;
-            return;
-
-        }
+        if ( this.headBone === null || this.rigRoot === null ) return;
 
         rotationRelativeTo( this.headBone, this.rigRoot, this.scratchQuaternion );
         this.scratchQuaternion.multiply( this.headRestRotationInverse );
 
         this.scratchVector.copy( RIG_FORWARD ).applyQuaternion( this.scratchQuaternion );
 
-        this.headYawDegrees = Math.atan2( this.scratchVector.x, this.scratchVector.z ) * RADIANS_TO_DEGREES;
-        this.headPitchDegrees = Math.asin( clamp( this.scratchVector.y, -1, 1 ) ) * RADIANS_TO_DEGREES;
+        const boneYawDegrees = Math.atan2( this.scratchVector.x, this.scratchVector.z ) * RADIANS_TO_DEGREES;
+        const bonePitchDegrees = Math.asin( clamp( this.scratchVector.y, -1, 1 ) ) * RADIANS_TO_DEGREES;
+
+        // `this.head` has not been advanced yet this frame, so both terms describe the same
+        // instant — the pose the stack committed at the end of the last one.
+        this.externalHeadYawDegrees = boneYawDegrees - this.head.yawDegrees;
+        this.externalHeadPitchDegrees = bonePitchDegrees - this.head.pitchDegrees;
+
+        // Kept only so the known-bad rebuild can compose against the stale angle. See
+        // `applyVestibuloOcularReflex`.
+        this.headYawAtFrameStart = this.head.yawDegrees;
+        this.headPitchAtFrameStart = this.head.pitchDegrees;
 
     }
 
@@ -1367,6 +1723,19 @@ export class Gaze extends Layer {
      * is not.
      */
     applyVestibuloOcularReflex() {
+
+        // 🚩 THE OTHER DEFECT, REBUILT ON PURPOSE. Composing against the head angle as it stood at
+        // the START of the frame is what reading the bone alone used to do, and it makes the
+        // reflex's latency equal to the frame time. The selftest's invariance section rejects it.
+        const headYawDegrees = this.frameCoupledVestibuloOcular
+            ? this.headYawAtFrameStart : this.head.yawDegrees;
+        const headPitchDegrees = this.frameCoupledVestibuloOcular
+            ? this.headPitchAtFrameStart : this.head.pitchDegrees;
+
+        // Where the head is at THIS instant: what everyone else did to it as of the last commit,
+        // plus this layer's own share as of now. See `readHeadRotation()`.
+        this.headYawDegrees = this.externalHeadYawDegrees + headYawDegrees;
+        this.headPitchDegrees = this.externalHeadPitchDegrees + headPitchDegrees;
 
         const yaw = this.currentGazeYawDegrees + this.microsaccadeYawDegrees -
             this.vestibuloOcularGain * this.headYawDegrees;
@@ -1502,6 +1871,7 @@ export class Gaze extends Layer {
         this.regionCentrePitchDegrees = 0;
         this.regionHoldRemaining = 0;      // decide a region on the first frame
         this.fixationRemaining = 0;
+        this.lastFixationSeconds = 0;
 
         this.forcedRegion = null;
         this.forcedRegionRemaining = 0;
@@ -1513,6 +1883,10 @@ export class Gaze extends Layer {
 
         this.headYawDegrees = 0;
         this.headPitchDegrees = 0;
+        this.externalHeadYawDegrees = 0;
+        this.externalHeadPitchDegrees = 0;
+        this.headYawAtFrameStart = 0;
+        this.headPitchAtFrameStart = 0;
 
         // The two things that aim the head: the share of a shift it was commanded to take, and
         // the sustained eccentricity it has agreed to carry. See aimHead().
@@ -1523,6 +1897,9 @@ export class Gaze extends Layer {
         this.recentringPitch = { headDegrees: 0, eccentricSeconds: 0 };
 
         this.blinkCoupling = options.blinkCoupling ?? true;
+        this.policyEnabled = options.policy ?? true;
+        this.frameCoupledArrivals = options.frameCoupledArrivals ?? false;
+        this.frameCoupledVestibuloOcular = options.frameCoupledVestibuloOcular ?? false;
 
         this.pendingShift = null;
         this.headRelease = null;
@@ -1538,7 +1915,18 @@ export class Gaze extends Layer {
         this.microsaccadeToYaw = 0;
         this.microsaccadeToPitch = 0;
         this.microsaccadeRemaining = 0;
+        this.microsaccadeActive = false;
         this.microsaccadeCount = 0;
+
+        // Rewound here for a reset outside the stack. In the stack's own path `onBind` runs a
+        // moment later and replaces it with a schedule on a freshly forked stream.
+        this.microsaccades?.reset();
+
+        // -1 rather than 0, because MotionStack's first frame IS frame 1 and a layer must not
+        // start the run believing it has already advanced.
+        this.advancedForFrame = -1;
+        this.exhaustedStepBudgetFrames = 0;
+        this.worstStepsInAFrame = 0;
 
         this.head?.resetState();
 
@@ -1743,16 +2131,33 @@ export class GazeHead extends Layer {
 
     }
 
-    update( deltaSeconds ) {
+    update( deltaSeconds, context ) {
 
-        const smoothTime = HEAD_SMOOTH_TIME_SECONDS / this.gaze.headSpeed;
-
-        this.yawDegrees = this.yawSmoother.advance( this.targetYawDegrees, smoothTime, deltaSeconds );
-        this.pitchDegrees = this.pitchSmoother.advance( this.targetPitchDegrees, smoothTime, deltaSeconds );
+        // 🎯 THE HEAD SLOT IS WHERE THE WHOLE OCULAR SIMULATION RUNS, and it runs before this
+        // layer writes a bone. Gaze's own slot is later, so a head driven from there would be
+        // reading a target decided one frame ago — a lag of 33 ms at 30 Hz against 16.7 ms at
+        // 60 Hz, which is a frame-rate-dependent head trajectory by any other name. Advancing
+        // here instead makes the bone below carry THIS frame's decisions. The call is idempotent
+        // per frame, so an eyes-only figure that never adds this layer still advances correctly
+        // from `Gaze.update`.
+        this.gaze.advanceOcularState( deltaSeconds, context );
 
         this.writeCervicalChain();
 
         return this.contribution;
+
+    }
+
+    /**
+     * One sub-interval of head smoothing, driven from Gaze's walk rather than from the frame, so
+     * that a target set part-way through a frame is smoothed toward from the instant it was set.
+     */
+    advanceSmoothing( seconds ) {
+
+        const smoothTime = HEAD_SMOOTH_TIME_SECONDS / this.gaze.headSpeed;
+
+        this.yawDegrees = this.yawSmoother.advance( this.targetYawDegrees, smoothTime, seconds );
+        this.pitchDegrees = this.pitchSmoother.advance( this.targetPitchDegrees, smoothTime, seconds );
 
     }
 
@@ -1853,6 +2258,18 @@ const RADIANS_TO_DEGREES = 180 / Math.PI;
  * approach because a first-order filter starts at full speed, and a head that snaps into motion
  * and eases out reads as a flinch. Critically damped starts from rest, accelerates and settles
  * without overshoot, which is what a head does.
+ *
+ * 🎯 WITH `decay = exp( −ω·dt )` THIS IS THE EXACT ANALYTIC SOLUTION, not an integrator.
+ * For a constant target the error `e = value − target` obeys `ë + 2ω·ė + ω²e = 0`, whose solution
+ * is `e(t) = ( e₀ + ( v₀ + ω·e₀ )·t )·exp( −ω·t )` — which is line for line what is written below.
+ * Exactness is the property that matters here: two half-steps then give bit-for-bit the same
+ * answer as one whole step, so the head's trajectory does not depend on how often it is sampled.
+ *
+ * ⚠️ It used to use a Padé rational for `exp( −x )`, "accurate to ~0.1%, three multiplies instead
+ * of a transcendental". True, and it is exactly that 0.1% that broke the identity: measured on a
+ * 30° step target, 30 Hz against 60 Hz, the Padé form disagreed by **0.0286° worst / 0.0078° RMS**
+ * and `Math.exp` by **0.000000°**. Cheap and nearly right is the wrong trade for a quantity a
+ * frame-rate invariance gate is stated on.
  */
 class CriticallyDampedAngle {
 
@@ -1868,11 +2285,7 @@ class CriticallyDampedAngle {
         if ( deltaSeconds <= 0 ) return this.value;
 
         const omega = 2 / Math.max( smoothTime, 1e-4 );
-        const x = omega * deltaSeconds;
-
-        // Padé approximation of exp(-x); accurate to ~0.1% over the frame times we ever see, and
-        // it costs three multiplies instead of a transcendental.
-        const decay = 1 / ( 1 + x + 0.48 * x * x + 0.235 * x * x * x );
+        const decay = Math.exp( -omega * deltaSeconds );
 
         const change = this.value - target;
         const temp = ( this.velocity + omega * change ) * deltaSeconds;
