@@ -63,7 +63,12 @@
  *   ?capture        stop the frame loop and hand the clock to `window.__SUGATA_STEP__`, so
  *                   tools/critic/capture.mjs can drive the page one fixed step at a time.
  *   ?skin=0         body keeps the shipped GLB material — the control for punch-list 3.2
- *   ?eyes=0         eye shells keep their shipped GLB materials — the control for 3.3/3.4
+ *   ?eyes=0         eye shells keep their shipped GLB materials — the control for 3.3. It switches
+ *                   the SHADER and nothing else: the occlusion sheet stays on, so the difference
+ *                   between this plate and the shipped one is the eye material alone. It used to
+ *                   remove the sheet too — see `applyEyeShading` for what that cost G2.
+ *   ?eyeocc=0       no eye occlusion sheet and no lacrimal strip — the control for 3.4, and the
+ *                   other half of the eye's attribution pair
  *   ?cards=0        eyelash and eyebrow cards keep the shipped GLB material — the control for the
  *                   card shading, and the plate that proves gate G7 goes red
  *   ?msaa=0         build the stage without MSAA. Alpha to coverage needs it, so this is also the
@@ -316,7 +321,12 @@ async function boot() {
         // three's own specular AA is geometric only, so a micro-normal at 48 repeats has no
         // defence and crawls. `?specaa=0` is the A side.
         skinSpecularAntiAliasing: query.get( 'specaa' ) !== '0',
+        // TWO switches, not one. The eye shader and the eye occlusion sheet are separate
+        // subsystems — different meshes, different materials, opposite signs on G2 — and a
+        // single switch over both made every number ever attributed to `?eyes=0` a sum of the
+        // two. `applyEyeShading` carries the measurement.
         eyesEnabled: query.get( 'eyes' ) !== '0',
+        eyeOcclusionEnabled: query.get( 'eyeocc' ) !== '0',
         cardsEnabled: query.get( 'cards' ) !== '0',
         multisampled,
         skin: null,
@@ -557,6 +567,11 @@ async function boot() {
         layers,
         session,
         lights,
+
+        // What this plate ACTUALLY contains, counted off the scene. Every `?x=0` attribution claim
+        // on this page is a claim about this object, so it is readable from outside rather than
+        // being something a reviewer has to infer from the source.
+        subsystems: () => censusOfShading( session, stage ),
         frame: ( heightMetres, mode = session.frameMode ) => {
 
             const framed = frameFigure( stage, session.figure, { mode, heightMetres } );
@@ -920,24 +935,125 @@ function applyShading( session, skin ) {
 
     if ( session.cardsEnabled ) session.cards = applyCardShading( figure, session.multisampled );
 
-    if ( session.eyesEnabled === false ) return;
+    applyEyeShading( session );
+
+}
+
+/**
+ * The eye's TWO subsystems, switched independently — `?eyes=0` and `?eyeocc=0`.
+ *
+ * 🚩 THEY USED TO SHARE ONE SWITCH, and that quietly confounded every attribution ever made
+ * against it. `?eyes=0` returned before both `new EyeMaterial()` and `buildEyeOcclusion()`, so the
+ * plate it produced was missing the eye SHADER *and* the four occlusion and lacrimal meshes — and
+ * the difference between it and the shipped plate was read, in PROGRESS.md and in a review round,
+ * as the shader's contribution alone.
+ *
+ * Measured 2026-08-08 on ONE page load of `?bare&freeze&seed=1` at 900x1200 CSS (canvas
+ * 1800x2400), four states differing only in what was switched — same frame, same seed, same
+ * process, same GPU state — through `measure.mjs` against `regions.lighting-portrait.json`:
+ *
+ *   | state                                  | G2 luma ratio | G2 saturation ratio |
+ *   |----------------------------------------|--------------:|--------------------:|
+ *   | shipped: material attached, sheet on   |   0.9203 PASS |              1.3355 |
+ *   | sheet off only                         |   0.9449 PASS |              1.2585 |
+ *   | material off only                      |   0.8815 FAIL |              0.7479 |
+ *   | both off — what `?eyes=0` used to give |   0.9086 FAIL |              0.7059 |
+ *
+ * The two contributions have OPPOSITE SIGNS on the luma half: the material costs 0.0388 and the
+ * sheet hands 0.0246 back, so the old combined control reported 0.0117 — under a third of the
+ * shader's real effect, on a plate that had no way to say so. On the chroma half they compound
+ * instead, which is how the same control could look informative.
+ *
+ * ⚠️ The coupling was STRUCTURAL, not careless. `buildEyeOcclusion` needs `EyeMaterial#geometry` —
+ * the fitted sclera sphere, corneal axis and iris plane — so the shortest way to skip the material
+ * also destroyed the only measurement the sheet is built from. The resolution is that constructing
+ * the material IS the measurement and `attach()` is the visual change: the material is therefore
+ * always built, and only conditionally worn. An unattached `EyeMaterial` still gets its per-frame
+ * `update()` and its pupil and key-light uniforms written, deliberately — the A plate should differ
+ * from the B plate in the RENDER, not in how much per-frame work the page did.
+ */
+function applyEyeShading( session ) {
 
     // Not fatal if it throws: a figure built with the superseded single-shell eye proxy has no
     // corneal dome to refract through, and the page is more useful reporting that in the console
     // and rendering the GLB's own eye than it is refusing to boot.
+    let eyes;
+
     try {
 
-        const eyes = new EyeMaterial( { figure } );
-        eyes.attach();
-
-        session.eyes = eyes;
-        session.eyeOcclusion = buildEyeOcclusion( { figure, geometry: eyes.geometry } );
+        eyes = new EyeMaterial( { figure: session.figure } );
 
     } catch ( error ) {
 
         console.warn( `eye material not applied: ${ error.message }` );
+        return;
 
     }
+
+    session.eyes = eyes;
+
+    if ( session.eyesEnabled ) eyes.attach();
+
+    if ( session.eyeOcclusionEnabled ) {
+
+        session.eyeOcclusion = buildEyeOcclusion( { figure: session.figure, geometry: eyes.geometry } );
+
+    }
+
+}
+
+/**
+ * WHICH SHADING SUBSYSTEMS ARE ACTUALLY LIVE, read off the scene graph rather than off the flags
+ * that were supposed to put them there.
+ *
+ * 🎯 This is the model the page was missing, and its absence is the defect above. Attribution is a
+ * claim about the SET of subsystems a plate contains, and until now nothing on the page ever stated
+ * that set: the toggles were scattered `query.get(...) !== '0'` reads and the control flow of
+ * `applyShading` decided what a plate really held. A reviewer could only learn what `?eyes=0`
+ * removed by reading the function, and nobody did for two rounds. A census that a test can execute
+ * turns "this toggle switches one thing" from an argument into a measurement.
+ *
+ * Read from the SCENE on purpose. Reporting the flags back would be a tautology and would have
+ * reported the old bug as correct.
+ *
+ * One honest limit: `skinMaterial` compares identity against the material this page built, so it
+ * reads 0 both when the skin was never built and when it was built and never applied. It cannot
+ * distinguish those two, and it does not need to — either way the plate has no skin shader on it.
+ *
+ * @returns {Object} counts of live meshes/lights per subsystem — `alive-toggles.selftest.mjs`
+ *   loads the page once per toggle and asserts exactly the named entry moved.
+ */
+function censusOfShading( session, stage ) {
+
+    const census = {
+        skinMaterial: 0,
+        eyeMaterial: 0,
+        eyeOcclusion: 0,
+        cardShading: 0,
+        shadowCastingLights: 0,
+
+        // Read off the renderer rather than off `session.multisampled`, so it says what the
+        // frame-buffer IS rather than what the URL asked for. Alpha to coverage on the two hair
+        // cards is inert without it, which makes `?msaa=0` an attribution toggle like the rest.
+        multisampleSamples: stage.renderer.samples ?? 0
+    };
+
+    stage.scene.traverse( ( object ) => {
+
+        if ( object.isLight === true && object.castShadow === true ) census.shadowCastingLights ++;
+
+        if ( object.isMesh !== true || object.visible === false ) return;
+
+        const name = object.material?.name ?? '';
+
+        if ( session.skin !== null && object.material === session.skin ) census.skinMaterial ++;
+        if ( name === 'sugata.eye.globe' || name === 'sugata.eye.cornea' ) census.eyeMaterial ++;
+        if ( name === 'sugata.eye.occlusion' || name === 'sugata.eye.lacrimal' ) census.eyeOcclusion ++;
+        if ( name.startsWith( 'sugata.card.' ) ) census.cardShading ++;
+
+    } );
+
+    return census;
 
 }
 
@@ -1346,9 +1462,14 @@ function describeState( stage, stack, layers, session, pupilScale ) {
         `face     brow ${ faceEvents.browRaise }/${ faceEvents.browFurrow }` +
             `   lip press ${ faceEvents.lipPress }   swallow ${ faceEvents.swallow }`,
         `pupil    scale ${ pupilScale.toFixed( 3 ) }   ${ layers.pupil.physiologicalDiameterMillimetres.toFixed( 2 ) } mm` +
-            `   ${ session.eyes === null ? '(no eye shader — nowhere to land)' : 'on EyeMaterial.pupilScaleUniform' }`,
+            `   ${ session.eyes?.attached === true ? 'on EyeMaterial.pupilScaleUniform' : '(no eye shader — nowhere to land)' }`,
+        // The eye shader and the occlusion sheet are reported SEPARATELY because they switch
+        // separately, and a HUD that says "eyes ON" over a plate missing one of them is how the
+        // confound survived. `attached` rather than `!== null`: the material is always built, since
+        // building it is what measures the geometry the sheet needs.
         `shading  skin ${ session.skin === null ? 'OFF (shipped GLB material)' : 'SkinMaterial' }` +
-            `   eyes ${ session.eyes === null ? 'OFF (shipped GLB materials)' : 'EyeMaterial + occlusion' }` +
+            `   eyes ${ session.eyes?.attached === true ? 'EyeMaterial' : 'OFF (shipped GLB materials)' }` +
+            `   eyeocc ${ session.eyeOcclusion === null ? 'OFF' : `${ session.eyeOcclusion.meshes.length } sheets` }` +
             `   cards ${ session.cards.length === 0 ? 'OFF (shipped GLB materials)'
                 : `${ session.cards.length } lobe-free${ session.multisampled ? ' + a2c' : ', NO MSAA — a2c inert' }` }`
     ].join( '\n' );

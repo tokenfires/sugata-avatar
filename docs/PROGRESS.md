@@ -104,7 +104,8 @@ what kind of error it is prone to.
 | `gaze.head`'s residue "is a **roll** contribution" | PROGRESS, open leads | roll is 0.661° SD = 1.2 mm; the slide was **9.22 mm** and it was **yaw through a 47 mm lever**. Fixed in `1df749b`, left standing as a live lead for two rounds |
 | "the three remaining frame-coupled layers — `Gaze.js:1100`, …" | PUNCHLIST:103 | **two**, then **zero**. Gaze was already converted, and `Gaze.js:1100` never held the call |
 | "a concurrent agent's file edit will kill a long browser capture" | LEARNINGS §1.12 | **false since `capture.mjs` started its own un-watched vite.** Proven both ways: default vite sends `full-reload` and destroys the context; the tool's settings send nothing and it survives |
-| G2 sclera:cheek **0.9641** on `alive.html`, gate green | PROGRESS + PUNCHLIST 3.3 | **0.8127, FAIL** — and it is a distribution: 0.8127 / 0.9627 / 0.9736 / 0.4384 over four seeds |
+| G2 sclera:cheek **0.9641** on `alive.html`, gate green | PROGRESS + PUNCHLIST 3.3 | **0.8127, FAIL** — and it is a distribution: 0.8127 / 0.9627 / 0.9736 / 0.4384 over four seeds. ⚠️ 2026-08-08: the spread is real but the recipe printed beside it is not — `?bare&freeze` with no `?preroll` is seed-inert, proven byte-identical across three seeds |
+| "the eye shader makes G2 worse … −0.062 of ratio", from `?eyes=0` | PROGRESS 3.3, added the same day | **the control was compound.** `?eyes=0` removed the occlusion sheet too (`eyeOcclusion 4 → 0`), and the two subsystems pull opposite ways on the luma half. Isolated: shader **+0.0388** luma and **+0.5876** saturation ratio. Fixed in `alive.js`; gated by `alive-toggles.selftest.mjs` |
 
 Two of those had already been *corrected elsewhere in the same file* and left standing in the
 place a reader looks first. **A number that appears twice will be updated once.**
@@ -151,8 +152,10 @@ this produced **three** distinct digests.
 
 **Punch-list 2.11 is closed and 3.3 is reopened.** 2.11: every surviving `poissonEventOccurs` call
 is inside a known-bad branch, `FacialIdle.selftest` is 27/27 with a 2.1e8× rejection and
-`idle-motion.selftest` 106/106 with 1.1e7×. 3.3: G2 is red and the eye shader is on the losing side
-of its own control (`?eyes=0` reads 0.8746 against a shipped 0.8127).
+`idle-motion.selftest` 106/106 with 1.1e7×. 3.3: G2 is red, and **the claim that the eye shader was
+on the losing side of its own control is withdrawn** — `?eyes=0` was removing the occlusion sheet
+as well as the shader, so it was never that shader's control. Isolated, the shader takes G2 luma
+0.8815 → 0.9203 and saturation 0.7479 → 1.3355. See 3.3/3.4 below.
 
 **Five documented selftest counts had drifted** and every command in LEARNINGS Part 3 was re-run:
 `tools/critic/selftest.mjs` 79 → **125** (now 125 including the new provenance and comparison
@@ -279,10 +282,35 @@ two independent reasons:
    ~40 px across. One frame, four seeds, nothing else changed: **0.8127 / 0.9627 / 0.9736 /
    0.4384** at seeds 1 / 42 / 4242 / 20260807. A 2.2× spread; two of four pass; at 20260807 the
    rect has walked onto the iris. The 0.9641 this item was marked done on is one draw of that.
-2. **The eye shader makes G2 WORSE on this page, not better.** With `?eyes=0` — the shipped GLB
-   materials — the same plate at seed 1 reads **0.8746**. The previously recorded control was
-   0.9421. Both the shipped and the control number have moved and the *sign of the shader's
-   contribution is negative*: −0.062 of ratio.
+2. ~~**The eye shader makes G2 WORSE on this page, not better.**~~ **WITHDRAWN 2026-08-08 — the
+   control was compound and the sign does not survive isolation.** `?eyes=0` returned before both
+   `new EyeMaterial()` *and* `buildEyeOcclusion()`, so it removed the eye shader **and the four
+   occlusion/lacrimal meshes**, and every number ever attributed to it is a sum over two
+   subsystems. Confirmed by execution, not by reading: `window.sugata.subsystems()` on
+   `?bare&freeze&seed=1` reported `eyeOcclusion 4 → 0` under `?eyes=0`. Fixed in
+   `alive.js#applyEyeShading`; the sheet now has its own control, `?eyeocc=0`.
+
+   Re-measured with the two switched **independently**, four states from one page load of
+   `?bare&freeze&seed=1` at 900×1200 CSS (canvas 1800×2400) — same frame, same process, same GPU
+   state — through `measure.mjs` against `regions.lighting-portrait.json`:
+
+   | state | G2 luma ratio | G2 saturation ratio |
+   |---|---:|---:|
+   | shipped — material attached, sheet on | **0.9203** PASS | **1.3355** |
+   | `?eyeocc=0` — sheet off only | 0.9449 PASS | 1.2585 |
+   | `?eyes=0` — material off only | 0.8815 FAIL | 0.7479 |
+   | `?eyes=0&eyeocc=0` — what `?eyes=0` used to render | 0.9086 FAIL | 0.7059 |
+
+   The two contributions have **opposite signs on the luma half**: the material costs 0.0388 and
+   the sheet hands 0.0246 back, so the compound control reported 0.0117 for a shader worth 0.0388.
+   With the sheet held constant the shader's contribution is **positive on both halves** — luma
+   0.8815 → 0.9203, saturation 0.7479 → **1.3355** — and at this motion state the shader is the
+   only reason the chroma half is inside its band at all. The recorded −0.062 was a sum, and a sum
+   whose two terms partly cancel.
+
+   ⚠️ The absolute level here (0.9203) is not the 0.8127 recorded above, and the reason is
+   instrument state rather than disagreement — see the seed note below. The *difference* between
+   two plates from one page load is the attributable quantity; neither absolute number is.
 3. **And the gate was only ever measuring half its own spec sentence.** The look spec says the
    sclera "measures the same luminance as the surrounding cheek and is *more* saturated than skin
    (0.275 vs 0.215)". Only the luma clause was gated. Measured: sclera saturation **0.0917**
@@ -309,18 +337,37 @@ apex to iris plane 3.14–3.51 mm. The iris and pupil radii come from `brown_eye
 two SHELLS; the number the refraction actually crosses is corneal apex to the **fitted iris plane**,
 **3.328 mm** on g050. Different quantities, both correct — quote the one the formula uses.
 
-⚠️ **G2 does not isolate the eye shader under this rig**, and re-measurement made that worse rather
-than better. The recorded control was `?eyes=0` → 0.9421, passing alongside a shipped 0.9641. As of
-2026-08-08 the pair is **0.8746 (`?eyes=0`) against 0.8127 (shipped)** — both failing, and the
-shader on the losing side. The attributable evidence for 3.3 remains the refraction sweep and the
-difference between the two plates, never the gate.
+⚠️ **G2 does not isolate the eye shader under this rig** — still true, and now for a sharper reason
+than "the numbers moved". Two findings from the toggle audit, both by execution:
+
+1. **`?freeze` with no `?preroll` makes `?seed` inert.** With freeze on and no pre-roll,
+   `advanceSimulation` is never called, so no motion layer ever writes a morph and the seed cannot
+   act. Measured 2026-08-08: `?bare&freeze&seed=1`, `seed=42` and `seed=20260807` at 900×1200 CSS
+   came back **byte-identical — 0 differing samples of 17,280,000**. The four-seed G2 spread
+   recorded above (0.8127 / 0.9627 / 0.9736 / 0.4384, attributed to `alive.html?bare&freeze`)
+   cannot have come from that recipe; it must have carried a pre-roll or capture stepping. The
+   spread is real, the recipe printed beside it is not.
+2. **Once the stack does run, G2 stops seeing the eye at all.** With `?preroll=6`, all four eye
+   states measure the **same** G2 at seed 1 (1.0033) and at seed 42 (0.7879) — the toggles change
+   nothing, because the rect is no longer on the sclera. Only seed 4242 separates them
+   (0.6406 shipped against 0.7536 with `?eyes=0`). So at 2 of 3 pre-rolled seeds the gate is
+   *insensitive to the subsystem it is supposed to be measuring*, which is a stronger statement of
+   the "the rect is a lottery" finding recorded further down.
+
+The attributable evidence for 3.3 remains the refraction sweep and the difference between two
+plates from **one page load**, never the gate. `alive-toggles.selftest.mjs` now holds the toggles
+themselves to the contract that makes such a difference mean anything.
 
 ### The integration itself, and the two defects it exposed
 
 `alive.html` — the page every judge captures — carried the raw GLB materials and an inline rig until
 this round. It now builds `LightingRig`, `SkinMaterial` and `EyeMaterial` + `EyeOcclusion` per bake,
 disposes them on a gender swap, drives `Pupil` into `EyeMaterial.pupilScaleUniform`, and hands the
-eye shader the rig's own key direction. `?skin=0`, `?eyes=0` and `?shadows=0` are the controls.
+eye shader the rig's own key direction. The controls are `?skin=0`, `?eyes=0`, `?eyeocc=0`,
+`?cards=0`, `?shadows=0` and `?msaa=0` — **one subsystem each, and that is now gated rather than
+assumed**. `window.sugata.subsystems()` counts what is live off the scene graph, and
+`packages/testbed/src/alive-toggles.selftest.mjs` loads the page once per toggle and fails if any
+of them moves a second subsystem. It exists because `?eyes=0` moved two for two review rounds.
 
 It stays on the **forward** path: `markAsSkin` is deliberately not called, because a material
 carrying `mrtNode` cannot be forward-rendered, and turning on the deferred G-buffer would change
@@ -1117,6 +1164,13 @@ shipped (EyeMaterial)   1 blob   peak 1.273× cheek
 One dominant catchlight against the shipped asset's two, attributed by toggle. The spec's *size*
 clause (2–4% of iris diameter) needs a 2160 px plate to resolve — at 900 px the iris is ~40 px and
 the blob is 1 px.
+
+⚠️ **This pair was captured with the OLD compound `?eyes=0`, so its B plate had no occlusion sheet
+either.** Whether that matters is not obvious and is not asserted here: the sheet's ramp is squeezed
+against the lid margin, but `EyeOcclusion.js` records the upper margin at 3.2 mm off the eye axis —
+**inside** a 6.35 mm iris — so the sheet does cover iris the blob detector looks at. **Re-run the
+blob count against the isolated `?eyes=0` before this pair is quoted again.** The claim is not
+withdrawn, it is unverified under the corrected control.
 
 ### Two integration defects found and fixed, both silent
 
