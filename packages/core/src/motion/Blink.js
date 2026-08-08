@@ -47,9 +47,9 @@
  * 🎯 THIS LAYER WAS THE FOURTH FRAME-COUPLED ONE, AND IT COUPLED BY A DIFFERENT MECHANISM FROM
  * THE OTHER THREE, WHICH IS WHY THE AUDIT THAT FOUND THEM MISSED IT.
  *
- * `Gaze`, `FacialIdle` and `HandIdle` couple through `Signals.poissonEventOccurs` — one random
+ * `Gaze`, `FacialIdle` and `HandIdle` coupled through `Signals.poissonEventOccurs` — one random
  * draw per FRAME, so their draw RATE scales with the frame rate and an instrumented count finds
- * them immediately (LEARNINGS §1.13). Blink never called it. It drew one interval per blink, so
+ * them immediately (LEARNINGS §1.13). All three are converted now. Blink never called it. It drew one interval per blink, so
  * its draw rate is flat — measured 2.1 draws/s at 30, 60 and 120 Hz — and it was frame-coupled
  * anyway, because it counted the interval down against dt and re-armed with `= interval`,
  * THROWING AWAY THE NEGATIVE OVERSHOOT. Every interval was therefore rounded UP to the next whole

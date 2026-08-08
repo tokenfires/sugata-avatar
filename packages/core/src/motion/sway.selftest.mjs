@@ -142,7 +142,7 @@ import { fileURLToPath } from 'node:url';
 globalThis.self ??= globalThis;
 globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {} } );
 
-const { Box3, Euler, Quaternion, Vector3 } = await import( 'three' );
+const { Box3, Quaternion, Vector3 } = await import( 'three' );
 const { Figure } = await import( '../figure/Figure.js' );
 const { Skeleton } = await import( '../figure/Skeleton.js' );
 const { RestPose } = await import( '../figure/RestPose.js' );
@@ -192,7 +192,15 @@ const GLANCE_BANDS = [
     { name: 'shoulder', top: 0.20, bottom: 0.32 },
     { name: 'hip', top: 0.42, bottom: 0.52 },
     { name: 'knee', top: 0.62, bottom: 0.72 },
-    { name: 'ankle', top: 0.82, bottom: 0.92 }
+    { name: 'ankle', top: 0.82, bottom: 0.92 },
+
+    // 🚩 THE FEET, AND THIS ONE IS AHEAD OF `travel.mjs` RATHER THAN COPIED FROM IT. That tool's
+    // table stops at the ankle band and its `whole` band is 0.05-0.95 explicitly to keep the floor
+    // contact shadow out of a THRESHOLDED silhouette. Nothing is thresholded here — the vertices
+    // are the figure's own — so the rows the tool has to avoid are exactly the rows a judge
+    // reported the feet welded in. 0.925-0.980 is rows 1110-1176 of a 1200 px capture, which is
+    // the band that report was measured in.
+    { name: 'foot', top: 0.925, bottom: 0.980 }
 ];
 
 /**
@@ -670,6 +678,112 @@ const FREE_FOOT_SECONDS = 900;
 const TOE_OTHER_WAY_SECONDS = 900;
 
 /**
+ * 🎯 THE DIRECTION THE FREE KNEE TURNS, GATED — because for a whole round it was asserted backwards
+ * in prose while every number in this file stayed green.
+ *
+ * The pose files author the swivel as a rotation about the free limb's own hip-to-ankle axis that
+ * *"moves the knee 14.3 mm toward the midline"* (`weight-right.json`, `leftUpperLeg`). Medially.
+ * Measured on the mesh at seed 1, the free patella's bearing swings 12.04 degrees medially on the
+ * left and 10.55 on the right, against a loaded knee that stays inside 1.4.
+ *
+ * The floor is what makes this a gate rather than a report: it is signed, so a sign flip anywhere
+ * in the swivel — in the pose files, in the blend, or in a future refactor of either — lands at
+ * about −11 and fails by a mile rather than by a tolerance. The ceiling is the pose files' own
+ * 16 degrees of swivel plus room for the shank's counter-rotation, so a swivel that grew would be
+ * caught too.
+ */
+const FREE_KNEE_MEDIAL_SWIVEL_FLOOR_DEGREES = 5;
+const FREE_KNEE_MEDIAL_SWIVEL_CEILING_DEGREES = 20;
+
+/**
+ * The patella patch: half-height of the knee band it is cut from, and the frontmost fraction of
+ * that band kept. 30 mm either side of the knee joint holds the kneecap and nothing above or below
+ * it; the frontmost quarter is the anterior face. Both are stated here rather than inline because
+ * changing either changes what "the patella" means and the next reader should see that at once.
+ */
+const PATELLA_BAND_HALF_HEIGHT_METRES = 0.030;
+const PATELLA_PATCH_FRACTION = 0.25;
+
+/**
+ * 🎯 THE FOOT BAND'S FLOOR, AND WHY IT IS NOT 1.6 PIXELS.
+ *
+ * 0.75 px is a judgement and it is stated as one. It is not this project's indistinguishability
+ * figure, and the gate beside it records the shortfall against that figure rather than letting this
+ * number stand in for it.
+ *
+ * What it IS derived from is the separation between three measured states, at seed 1 over 420 s:
+ * the layer as it shipped last round scores **0.468 px**, a foot with no toe articulation at all
+ * scores less, and the fore-and-aft coupling takes it to **0.893 px**. 0.75 sits between the two
+ * live configurations with room either side — it rejects the shipped state by 1.6x and admits the
+ * fixed one by 1.2x — which is what a floor separating a fix from the thing it fixed has to do.
+ *
+ * ⚠️ A floor that admits the current state by only 20% is a floor that a later change can drift
+ * back through. That is deliberate here and it is the honest reading of a marginal fix: the gap to
+ * 1.6 px is real, it is in the horizontal channel, and the constant should move up when that is
+ * closed rather than being set optimistically now.
+ */
+const FOOT_BAND_MEDIAN_FLOOR_PIXELS = 0.75;
+
+/**
+ * The attribution the toggle has to show. Measured 1.91x; 1.5 leaves room for seed drift while
+ * still failing if the fore-and-aft coupling stops carrying the change.
+ */
+const FOOT_BAND_COP_ATTRIBUTION_FLOOR = 1.5;
+
+/** The window the foot band is traced over. The judge's clip length. */
+const FOOT_BAND_SECONDS = 420;
+
+/**
+ * The postural-velocity trace. 420 s is the judge's clip length, and it is long enough to contain
+ * several fidgets on both axes at Duarte's 1.0-1.2/min — which is what a PEAK statistic needs, as
+ * distinct from a mean, which only needs the trace to be stationary.
+ */
+const VELOCITY_SECONDS = 420;
+
+/**
+ * The window the peak speed is measured over. Half a second is the interval the defect was reported
+ * in — "32.5 px in 0.5 s" — and it is short enough to resolve a 0.45 s fidget rise while being long
+ * enough not to differentiate the balance band's own noise.
+ */
+const VELOCITY_PEAK_WINDOW_SECONDS = 0.5;
+
+/**
+ * Quijoux's eyes-open resultant mean velocity, 11-20 mm/s (research/body-motion-numbers.md), and
+ * this layer's own recorded position inside it. The reference is quoted from docs/PROGRESS.md
+ * rather than re-derived so that a drift shows up as a failing gate instead of as a new number.
+ */
+const MEAN_COP_SPEED_RANGE_MM_PER_SECOND = { low: 11, high: 20 };
+
+/**
+ * 🎯 THE PEAK CEILING IS THE PREDICTION ITSELF, WITH NO ALLOWANCE — and the margin is 8%, which is
+ * stated here rather than discovered later.
+ *
+ * The prediction is a mean-amplitude fidget on BOTH axes at once, at their steepest instant:
+ * 97.1 mm/s. `eventStretch` holds every larger event to the mean event's speed, so that IS the
+ * fastest thing the shapes can produce and there is nothing to add an allowance for.
+ *
+ * The measurement sits between the two readings of it and that is worth knowing. The LATERAL axis
+ * alone predicts 76.8 mm/s and the shipped layer's worst seed measures 89.8 — so the balance band
+ * and a concurrent settle really do add about 17% — but the two axes never peak together, so the
+ * two-axis figure is never reached. Across the twelve seeds: shipped 47.1-89.8, none over the
+ * ceiling; fixed-duration 47.1-124.4, four over it.
+ *
+ * ⚠️ 8% is not much headroom for a stochastic gate, and raising the ceiling to buy some would be
+ * raising it past the fastest event the layer can construct — which is the whole claim. If a future
+ * seed set fails this by a few per cent, the honest fix is to re-derive the prediction, not to
+ * widen the allowance.
+ */
+const PEAK_SPEED_ALLOWANCE_OVER_PREDICTION = 1.0;
+
+/**
+ * How far the shipped layer must out-travel a fully welded foot in this band. Measured 2.41x
+ * (0.903 against 0.374); 2.0 leaves seed room while still failing if the articulation stops
+ * carrying the difference. It is NOT larger because it cannot be — see the note beside it: a
+ * welded foot still rides the lean, so the band's own floor is 0.374 px rather than zero.
+ */
+const FOOT_BAND_WELDED_SEPARATION = 2.0;
+
+/**
  * How far the figure's REALISED centre of mass may sit from the displacement the layer commanded,
  * as a fraction, and in millimetres at the worst single frame.
  *
@@ -797,6 +911,7 @@ measureHeadParked( traces );
 measureEventLegibility();
 measureToeArticulation();
 measureFreeFootArticulation();
+measureFootBandArticulation();
 measureGlanceLegibility();
 measureClipContent();
 measureAmplitudeDistribution();
@@ -804,6 +919,7 @@ measureSegmentPaths( traces );
 measurePendulumGeometry();
 measurePlantedFeet( traces );
 measureSpectrum();
+measurePosturalVelocity();
 measureEventRates();
 measureDiscourseCoupling();
 measureTheOtherWay();
@@ -1771,6 +1887,7 @@ function measureToeArticulation() {
     let loaded = null;
     let peakLift = 0;
     let liftOnLoadedFoot = 0;
+    let liftAsymmetry = -Infinity;
 
     for ( let frame = 0; frame < TOE_TRACE_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
 
@@ -1779,9 +1896,18 @@ function measureToeArticulation() {
 
         peakLift = Math.max( peakLift, layer.toeLiftRadians.left, layer.toeLiftRadians.right );
 
-        // The foot the blend is loading must never lift its toes.
-        liftOnLoadedFoot = Math.max( liftOnLoadedFoot,
-            layer.stanceBlend > 0 ? layer.toeLiftRadians.left : layer.toeLiftRadians.right );
+        // 🚩 TWO CLAIMS NOW, BECAUSE THERE ARE TWO MECHANISMS AND THEY ARE ENTITLED TO DIFFERENT
+        // ASSERTIONS. The LATERAL unload must never lift the loaded foot's toes — that foot is
+        // carrying the body and its forefoot has nowhere to go. The FORE-AND-AFT coupling lifts
+        // BOTH feet together, correctly: a body leaning back takes the pressure off both forefeet
+        // at once, and asserting zero here would be asserting that it does not. What survives as a
+        // fact about the lateral mechanism is the ASYMMETRY — the loaded foot may never lift MORE
+        // than the free one.
+        const loadedLift = layer.stanceBlend > 0 ? layer.toeLiftRadians.left : layer.toeLiftRadians.right;
+        const freeLift = layer.stanceBlend > 0 ? layer.toeLiftRadians.right : layer.toeLiftRadians.left;
+
+        liftOnLoadedFoot = Math.max( liftOnLoadedFoot, loadedLift );
+        liftAsymmetry = Math.max( liftAsymmetry, loadedLift - freeLift );
 
         if ( loaded === null && layer.stanceBlend > 0.95 ) {
 
@@ -1796,8 +1922,16 @@ function measureToeArticulation() {
     gate( 'peak toe lift (deg)', peakLift * 180 / Math.PI, 0.5, layer.toeLiftDegrees + 0.01,
         'extension at full unload; the constant is a tuning number and this is the realised angle' );
 
-    gate( 'toe lift on the LOADED foot (deg)', liftOnLoadedFoot * 180 / Math.PI, 0, 1e-9,
-        'a foot carrying the load has its toes pressed flat and has nowhere to go' );
+    note( 'toe lift on the LOADED foot (deg)', ( liftOnLoadedFoot * 180 / Math.PI ).toFixed( 3 ),
+        'NOT zero any more, and correctly so: the fore-and-aft coupling unloads both forefeet ' +
+        'together when the body leans back. The two gates below are what is left of the old claim' );
+
+    gate( 'the loaded foot never lifts MORE than the free one (deg)', liftAsymmetry * 180 / Math.PI, -1e9, 1e-9,
+        'a foot carrying the load has its toes pressed flatter than the one that is not' );
+
+    gate( 'the LATERAL mechanism alone lifts no loaded toe (deg)',
+        lateralOnlyLoadedToeLiftDegrees(), 0, 1e-9,
+        'measured with `toeCopLiftEnabled: false`, which is the claim this gate always made' );
 
     if ( loaded === null ) {
 
@@ -1826,8 +1960,13 @@ function measureToeArticulation() {
         `against the ${ FREE_FOOT_TRAVEL_FLOOR_PIXELS } px articulation floor — the toe lift alone ` +
         'does not reach it, and the gate above cannot see that' );
 
-    gate( 'loaded toe geometry does not move (mm)', stanceRise, 0, PLANTED_VERTICAL_LIMIT_MM,
-        'the same tolerance the planting section uses; the loaded foot is still planted' );
+    // ⚠️ Measured with the fore-and-aft coupling OFF. With it on this is not a planting claim any
+    // more — a loaded forefoot legitimately rises when the body leans back — and it would be
+    // measuring the new mechanism rather than the constraint. The constraint that still applies to
+    // BOTH mechanisms is `nothing is driven below the floor`, immediately below.
+    gate( 'loaded toe geometry does not move (mm)', lateralOnlyLoadedToeRiseMillimetres(),
+        0, PLANTED_VERTICAL_LIMIT_MM,
+        'the same tolerance the planting section uses, with `toeCopLiftEnabled: false`' );
 
     gate( 'nothing is driven below the floor (mm)',
         Math.min( loaded.toes.left.lowest, loaded.toes.right.lowest ) * 1000,
@@ -1968,72 +2107,571 @@ function measureFreeFootTheOtherWay( framing ) {
 }
 
 /**
- * 🎯 PRINTED, NEVER GATED — the one thing in the lower body that no measurement here can settle.
+ * 🎯 WHICH WAY THE FREE KNEE TURNS — MEASURED ON THE MESH, IN NO FRAME AT ALL.
  *
- * The free leg's release is a swivel about a near-vertical axis, so it presents mostly as femoral
- * AXIAL rotation. Whether fourteen degrees of that reads as a relaxed leg or as a leg turned too
- * far is a question for eyes. §1.9 — a judge that only reports findings is hiding its blind spots,
- * and a gate file that quietly omits the thing it cannot measure is doing the same.
+ * This replaces a report that had the direction backwards for a round, and the reason is worth
+ * keeping because it is §1.7 in miniature. The old measurement read the y term of
+ * `restWorld⁻¹ · currentWorld` — a delta expressed in the BONE's own rest frame — and compared it
+ * against `relaxed-standing.json`'s `leftUpperLeg` `y = +9.56`, which is authored in the NORMALISED
+ * rig. `thigh_l`'s local +Y points DOWN in world (0.017, -0.997, 0.078), so the two `+y` are
+ * ANTIPARALLEL and the comparison inverted the answer. The header then wrote "the free knee turns
+ * OUT" over pose files that say, in words, that the swivel *"moves the knee 14.3 mm toward the
+ * midline"*.
  *
- * The full brief for the judge, including the direction disagreement with the re-verifier's report,
- * is in `Sway.js` beside FREE_FOOT_YAW_RELEASE.
+ * An Euler angle needs a frame and a convention; **a direction does not**. So the quantity here is
+ * where the patella POINTS: the world-space vector from the knee joint to the centroid of the
+ * patella patch — the frontmost quarter of the knee band, chosen once at rest and then followed.
+ * Its horizontal bearing is compared against the same bearing at rest, and "medial" is decided by
+ * which way the midline lies from that leg. Nothing in it can be inverted by a convention.
+ *
+ * Both directions are gated, because both are facts and only one of them used to be:
+ *   - the FREE knee turns MEDIALLY, by the amount the pose files author;
+ *   - the LOADED knee does not turn at all.
+ *
+ * ⚠️ WHAT IS STILL FOR EYES, and it is narrower than it was: whether twelve degrees of medial
+ * femoral rotation reads as a relaxed leg letting go or as knock-kneed. §1.9 — a gate file that
+ * quietly omits the thing it cannot measure is hiding its blind spots.
  */
 function reportFreeLimbSwivelForTheJudge() {
 
-    const yaw = freeLimbSwivelDegrees();
+    const facing = freeKneeFacingDegrees();
 
     console.log( '' );
-    console.log( '  FOR THE JUDGE — free-limb swivel, axial rotation from rest in degrees.' );
-    console.log( '  Look at the FREE KNEECAP at full transfer, against the same frame at rest.' );
-    console.log( '  Does it read as a relaxed contrapposto, or as a leg rotated somewhere a stander' );
-    console.log( '  would not leave it? A re-verifier reported 16 degrees INWARD; +y here is' );
-    console.log( '  EXTERNAL rotation on the left leg, so this measurement says OUT. Only eyes decide.' );
+    console.log( '  FREE-LIMB SWIVEL — where the patella POINTS, in world degrees. Positive is' );
+    console.log( '  toward +X, the character\'s LEFT. Measured on the mesh, so no frame convention' );
+    console.log( '  can invert it — which the Euler version this replaced did, for a whole round.' );
     console.log( '' );
-    console.log( '        state              thigh_l   calf_l   thigh_r   calf_r' );
+    console.log( '        state                 left knee   right knee' );
+    console.log( `        rest                  ${ facing.rest.left.toFixed( 2 ).padStart( 9 ) }   ${ facing.rest.right.toFixed( 2 ).padStart( 10 ) }` );
 
-    for ( const [ label, table ] of [ [ 'LEFT leg free ', yaw.leftFree ], [ 'RIGHT leg free', yaw.rightFree ] ] ) {
+    for ( const [ label, table ] of [ [ 'LEFT leg free ', facing.leftFree ], [ 'RIGHT leg free', facing.rightFree ] ] ) {
 
-        if ( table === null ) { console.log( `        ${ label }     never reached in ${ FREE_FOOT_SECONDS } s` ); continue; }
+        if ( table === null ) { console.log( `        ${ label }        never reached in ${ FREE_FOOT_SECONDS } s` ); continue; }
 
-        console.log( `        ${ label }     ` +
-            [ 'thigh_l', 'calf_l', 'thigh_r', 'calf_r' ].map( ( bone ) => table[ bone ].toFixed( 2 ).padStart( 7 ) ).join( '  ' ) );
+        console.log( `        ${ label }        ${ table.left.toFixed( 2 ).padStart( 9 ) }   ${ table.right.toFixed( 2 ).padStart( 10 ) }` );
+
+    }
+
+    console.log( '' );
+    console.log( '  FOR THE JUDGE — look at the FREE KNEECAP at full transfer against the same frame' );
+    console.log( '  at rest. The direction is settled and the pose files own it: the free knee drifts' );
+    console.log( '  IN, toward the stance leg. Does twelve degrees of that read as a relaxed leg, or' );
+    console.log( '  as knock-kneed? Only eyes decide that half.' );
+    console.log( '' );
+
+    if ( facing.leftFree === null || facing.rightFree === null ) {
+
+        gate( 'the trace loaded each leg in turn', 0, 1, 1,
+            `${ FREE_FOOT_SECONDS } s did not contain a full transfer both ways` );
+        return;
+
+    }
+
+    // Medial for the LEFT leg is a decreasing bearing (toward the midline at +X→0); for the RIGHT
+    // leg it is an increasing one. Signing it here means the gate reads the same for both sides.
+    const freeMedial = {
+        left: -( facing.leftFree.left - facing.rest.left ),
+        right: facing.rightFree.right - facing.rest.right
+    };
+
+    gate( 'the FREE knee turns MEDIALLY (deg, both sides)',
+        Math.min( freeMedial.left, freeMedial.right ),
+        FREE_KNEE_MEDIAL_SWIVEL_FLOOR_DEGREES, FREE_KNEE_MEDIAL_SWIVEL_CEILING_DEGREES,
+        'weight-right.json: the swivel "moves the knee 14.3 mm toward the midline". A NEGATIVE ' +
+        'number here is the direction this file asserted, wrongly, for a round' );
+
+    const loadedTurn = Math.max(
+        Math.abs( facing.leftFree.right - facing.rest.right ),
+        Math.abs( facing.rightFree.left - facing.rest.left ) );
+
+    gate( 'the LOADED knee does not swivel (deg)', loadedTurn, 0, 3.0,
+        'the free knee turns 10-12 degrees; the leg carrying the body must not follow it' );
+
+}
+
+/**
+ * The lateral toe mechanism ON ITS OWN, which is what the two planting claims above are about.
+ *
+ * Run separately rather than read off the shipped trace, because the shipped trace has both
+ * mechanisms in it and a number taken from it would be a measurement of their sum. §1.11a: check
+ * which quantity the evidence covers.
+ *
+ * Returns the worst toe-lift angle the loaded foot ever gets from the lateral mechanism, in
+ * degrees. Must be exactly zero: `unloadFractionOf` clamps at zero for the loaded side.
+ */
+function lateralOnlyLoadedToeLiftDegrees() {
+
+    const { stack, layer, root } = buildStack( SEED, { toeCopLiftEnabled: false } ); // eslint-disable-line no-unused-vars
+
+    let worst = 0;
+
+    for ( let frame = 0; frame < TOE_TRACE_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+
+        worst = Math.max( worst,
+            layer.stanceBlend > 0 ? layer.toeLiftRadians.left : layer.toeLiftRadians.right );
+
+    }
+
+    stack.dispose();
+
+    return worst * 180 / Math.PI;
+
+}
+
+/** The same run, as the rise of the loaded foot's own toe geometry at the first full transfer. */
+function lateralOnlyLoadedToeRiseMillimetres() {
+
+    const { stack, layer, root } = buildStack( SEED, { toeCopLiftEnabled: false } );
+
+    root.updateMatrixWorld( true );
+
+    const rest = toeGeometry( root );
+
+    for ( let frame = 0; frame < TOE_TRACE_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+
+        if ( layer.stanceBlend <= 0.95 ) continue;
+
+        root.updateMatrixWorld( true );
+
+        const rise = Math.abs( toeGeometry( root ).left.lowest - rest.left.lowest ) * 1000;
+
+        stack.dispose();
+
+        return rise;
+
+    }
+
+    stack.dispose();
+
+    return 0;
+
+}
+
+/**
+ * 🎯 THE FEET, IN THE STATISTIC THE DEFECT IS STATED IN — a SLIDING-WINDOW MEDIAN, not a range.
+ *
+ * 🚩 THIS SECTION EXISTS BECAUSE THE FREE-FOOT GATE ABOVE IS GREEN AND THE FEET STILL READ AS
+ * WELDED, AND BOTH OF THOSE ARE TRUE AT ONCE. That gate measures the travel between quiet standing
+ * and a full weight transfer — a whole-clip RANGE — and a range cannot see a distribution
+ * (LEARNINGS §1.11, §1.14). Measured on the shipped layer before the change this section gates, at
+ * seed 1 over 420 s at 30 Hz: the foot band's whole-clip range is 1.7-3.5 px and the MEDIAN inside
+ * a 15 s window is **0.074-0.223 px**, a factor of twenty-five apart, with every one of the top
+ * extreme frames inside a single 1.5-second window at t = 211. `heatmap.mjs` said the same thing
+ * from the other side: 96.9% of the pixels in rows 1100-1199 sit below sigma 0.5 in both clips.
+ *
+ * ⚠️ TWO STATISTICS, AND THE DIFFERENCE BETWEEN THEM IS THE FINDING RATHER THAN A DETAIL.
+ *
+ *   HORIZONTAL is what `travel.mjs` reports and what the defect was measured in. It is carried
+ *   almost entirely by the free foot's yaw release, and that release is QUADRATIC in the load
+ *   transfer — `resolvePlantedRotation` takes a fraction `unload` of a chain yaw that is itself
+ *   proportional to the blend. |stanceBlend| swings 0.213 in a median 15 s window and 0.213² is
+ *   0.045, so the horizontal signal is dead outside a transfer by construction. This round did NOT
+ *   fix that; see the recorded shortfall below.
+ *
+ *   RESULTANT adds the vertical, which is where the toes live, and it is what a viewer's eye
+ *   actually lands on. It is the statistic the fore-and-aft toe coupling moves, and it is gated.
+ *
+ * Per VERTEX rather than per centroid, for the reason the free-foot section already argued: a foot
+ * pivoting about its own ankle swings its heel one way and its toe the other and its centroid
+ * barely at all. The window's score is its worst-moving vertex; the section's score is the median
+ * over windows.
+ */
+function measureFootBandArticulation() {
+
+    section( 'FOOT BAND — the median travel inside a 15 s window, in pixels' );
+
+    const framing = fullBodyFraming();
+    const shipped = footBandTravel( {}, framing );
+
+    console.log( '' );
+    console.log( `  band ${ shipped.lowMillimetres.toFixed( 0 ) } to ${ shipped.highMillimetres.toFixed( 0 ) } mm about the floor, ` +
+        `${ shipped.vertexCount } vertices at stride ${ GLANCE_VERTEX_STRIDE }, ${ shipped.windowCount } windows` );
+    console.log( '' );
+    console.log( '        statistic                  15 s median   worst window   whole clip' );
+
+    for ( const [ label, key ] of [ [ 'worst vertex, resultant', 'resultant' ], [ 'worst vertex, horizontal', 'horizontal' ] ] ) {
+
+        console.log( `        ${ label.padEnd( 24 ) }   ${ shipped[ key ].median.toFixed( 3 ).padStart( 11 ) }   ` +
+            `${ shipped[ key ].worstWindow.toFixed( 3 ).padStart( 12 ) }   ${ shipped[ key ].wholeClip.toFixed( 3 ).padStart( 10 ) }` );
 
     }
 
     console.log( '' );
 
-    // Gated only in the one direction a number IS entitled to speak: the loaded leg must not
-    // swivel. Whether the free one swivels too far is the judge's call; whether the LOADED one
-    // swivels at all is a fact, and a leg turning under the body's weight is a defect.
-    const loaded = yaw.leftFree === null ? 0
-        : Math.max( Math.abs( yaw.leftFree.thigh_r ), Math.abs( yaw.leftFree.calf_r ) );
+    // 🚩 THE HEADLINE. The whole-clip range over the median: a body that articulates its feet only
+    // during a weight transfer scores enormously here, and a body that articulates them all the
+    // time scores near 1. This is the number the FREE FOOT section's range statistic could not
+    // produce, and it is the one that says whether the gate above is measuring a spike.
+    note( 'range / median, resultant',
+        ( shipped.resultant.wholeClip / shipped.resultant.median ).toFixed( 1 ),
+        'the spike ratio. 25.2 on the lateral mechanism alone; 1 would be a foot that never stops' );
 
-    gate( 'the LOADED leg does not swivel (deg)', loaded, 0, 3.0,
-        'the free leg turns 14 degrees at the thigh; the leg carrying the body must not follow it' );
+    gate( 'foot band, 15 s median travel (px)', shipped.resultant.median,
+        FOOT_BAND_MEDIAN_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
+        'the resultant, per vertex; see the section header for why this floor is not 1.6' );
+
+    // 🚩 RECORDED AS A GATE, NOT TOLERATED — §1.11 and the whole point of this section. The floor
+    // above is NOT this project's 1.6 px indistinguishability figure, and saying so in a comment is
+    // how the next reader comes to believe it was. The shortfall is asserted as a number so that it
+    // cannot be quietly forgotten, and asserted with a CEILING so that closing it fails this gate
+    // and forces the sentence to be rewritten.
+    gate( 'shortfall against the 1.6 px floor (x)',
+        SILHOUETTE_WIDTH_FLOOR_PIXELS / shipped.resultant.median, 1.0, 2.5,
+        `recorded, not tolerated: ${ shipped.resultant.median.toFixed( 3 ) } px against ${ SILHOUETTE_WIDTH_FLOOR_PIXELS }. ` +
+        'The remaining gap is the horizontal channel, and it is quadratic in the load transfer' );
+
+    gate( 'horizontal alone is still under the floor (px)', shipped.horizontal.median,
+        0, SILHOUETTE_WIDTH_FLOOR_PIXELS,
+        'recorded, not tolerated: the free-foot yaw release goes as the SQUARE of the load transfer ' +
+        '— a fraction `unload` of a chain yaw that is itself proportional to the blend' );
+
+    measureFootBandTheOtherWay( framing, shipped );
 
 }
 
-/** Axial yaw of both legs, from rest, at the first full transfer in each direction. */
-function freeLimbSwivelDegrees() {
+/**
+ * §1.1, three states this gate must reject, each one a real configuration rather than a model of
+ * one. The first is THE CODE AS IT SHIPPED LAST ROUND.
+ */
+function measureFootBandTheOtherWay( framing, shipped ) {
+
+    const lateralOnly = footBandTravel( { toeCopLiftEnabled: false }, framing );
+    const noToes = footBandTravel( { toeCopLiftEnabled: false, toeLiftDegrees: 0 }, framing );
+    const welded = footBandTravel( { toeCopLiftEnabled: false, toeLiftDegrees: 0, freeFootYawRelease: 0 }, framing );
+
+    console.log( '' );
+    console.log( '        configuration                    15 s median (px)   range / median' );
+
+    for ( const [ label, report ] of [
+        [ 'as shipped', shipped ],
+        [ 'lateral toe mechanism alone', lateralOnly ],
+        [ 'no toe articulation at all', noToes ],
+        [ 'welded — no yaw release either', welded ]
+    ] ) {
+
+        console.log( `        ${ label.padEnd( 30 ) }   ${ report.resultant.median.toFixed( 3 ).padStart( 16 ) }   ` +
+            `${ ( report.resultant.wholeClip / Math.max( report.resultant.median, 1e-9 ) ).toFixed( 1 ).padStart( 14 ) }` );
+
+    }
+
+    console.log( '' );
+
+    // ATTRIBUTION BY TOGGLE. The fore-and-aft coupling is the only difference between these two
+    // runs, so whatever the ratio is, it is that mechanism's and nothing else's.
+    gate( 'the fore-and-aft toe coupling is what moved it (x)',
+        shipped.resultant.median / lateralOnly.resultant.median,
+        FOOT_BAND_COP_ATTRIBUTION_FLOOR, 10,
+        `${ shipped.resultant.median.toFixed( 3 ) } px with it against ${ lateralOnly.resultant.median.toFixed( 3 ) } without` );
+
+    gate( 'the median gate REJECTS the lateral mechanism alone',
+        lateralOnly.resultant.median < FOOT_BAND_MEDIAN_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        'the state that shipped last round, whose FREE FOOT gate was green on a whole-clip range' );
+
+    gate( 'and REJECTS a foot with no toe articulation',
+        noToes.resultant.median < FOOT_BAND_MEDIAN_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        `${ noToes.resultant.median.toFixed( 3 ) } px` );
+
+    // 🚩 THE BAND HAS A FLOOR IT CANNOT GO BELOW, AND IT IS 0.374 PX RATHER THAN ZERO. A foot with
+    // no toes, no yaw release and nothing else to do still travels, because the whole body leans
+    // about a pivot and the planting correction pins the ankle JOINT rather than every vertex of
+    // the foot. So the honest statement is not "the welded foot fails the floor by 3x" — the floor
+    // would have to be 1.12 px for that and the shipped layer measures 0.903 — it is that the
+    // shipped layer OUT-TRAVELS a welded one by a stated ratio.
+    //
+    // ⚠️ That ratio is 2.4x, and it is small. Recorded plainly: this band's whole dynamic range
+    // between welded and articulated is a factor of two and a half, which is why the section leans
+    // on the range/median spike ratio as well and why the floor above is where it is.
+    note( 'the band cannot go below (px)', welded.resultant.median.toFixed( 3 ),
+        'a welded foot still rides the lean; the planting correction pins the ankle joint, not the ' +
+        'geometry around it' );
+
+    gate( 'shipped out-travels a welded foot (x)',
+        shipped.resultant.median / Math.max( welded.resultant.median, 1e-6 ),
+        FOOT_BAND_WELDED_SEPARATION, 1e9,
+        'the band\'s whole dynamic range, and it is narrow — see the note above' );
+
+    // 🚩 RECORDED AS A GATE, §1.3 and §1.11. The range statistic the FREE FOOT section is stated on
+    // passes the welded-plus-toes case comfortably; the median does not. Asserted so that nobody
+    // restates this claim on a range again.
+    gate( 'a whole-clip RANGE would NOT have caught it (px)', lateralOnly.resultant.wholeClip,
+        FREE_FOOT_TRAVEL_FLOOR_PIXELS, 1e3,
+        `recorded, not tolerated: the same trace whose 15 s median is ${ lateralOnly.resultant.median.toFixed( 3 ) } px ` +
+        `has a whole-clip range of ${ lateralOnly.resultant.wholeClip.toFixed( 2 ) } px, over the ${ FREE_FOOT_TRAVEL_FLOOR_PIXELS } px range floor` );
+
+}
+
+/**
+ * Per-vertex screen travel of the foot band, as a median over 15 s windows.
+ *
+ * The vertex set is chosen ONCE in the rest pose and then followed by index, for the reason the
+ * patella patch is: a per-frame "which vertices are in the band" set is a different set every frame
+ * and the difference between two different sets is not a motion.
+ */
+function footBandTravel( options, framing ) {
+
+    const { stack, root } = buildStack( FREE_FOOT_SEED, options ); // eslint-disable-line no-unused-vars
+
+    root.updateMatrixWorld( true );
+
+    const bounds = new Box3().setFromObject( root );
+    const floor = bounds.min.y;
+    const statureMetres = bounds.max.y - floor;
+
+    const band = GLANCE_BANDS.find( ( entry ) => entry.name === 'foot' );
+    const framedTop = ( 1 - 1 / BODY_FRAME_MARGIN ) / 2;
+    const toHeight = ( fraction ) => 1 - ( fraction - framedTop ) * BODY_FRAME_MARGIN;
+    const low = toHeight( band.bottom );
+    const high = toHeight( band.top );
+
+    const vertex = new Vector3();
+    const sets = [];
+    let vertexCount = 0;
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+        const found = [];
+
+        for ( let index = 0; index < position.count; index += GLANCE_VERTEX_STRIDE ) {
+
+            vertex.fromBufferAttribute( position, index );
+            object.applyBoneTransform( index, vertex );
+            object.localToWorld( vertex );
+
+            const height = ( vertex.y - floor ) / statureMetres;
+
+            if ( height < low || height > high ) continue;
+
+            found.push( index );
+
+        }
+
+        if ( found.length > 0 ) { sets.push( { mesh: object, position, found } ); vertexCount += found.length; }
+
+    } );
+
+    const frames = Math.round( FOOT_BAND_SECONDS * GLANCE_SAMPLE_RATE_HZ );
+    const screenX = new Float64Array( frames * vertexCount );
+    const screenY = new Float64Array( frames * vertexCount );
+
+    for ( let frame = 0; frame < frames; frame ++ ) {
+
+        stack.update( 1 / GLANCE_SAMPLE_RATE_HZ );
+        root.updateMatrixWorld( true );
+
+        let slot = frame * vertexCount;
+
+        for ( const set of sets ) {
+
+            for ( const index of set.found ) {
+
+                vertex.fromBufferAttribute( set.position, index );
+                set.mesh.applyBoneTransform( index, vertex );
+                set.mesh.localToWorld( vertex );
+
+                screenX[ slot ] = vertex.dot( framing.screenRight ) * 1000 * framing.pixelsPerMillimetre;
+                screenY[ slot ] = vertex.y * 1000 * framing.pixelsPerMillimetre;
+                slot ++;
+
+            }
+
+        }
+
+    }
+
+    stack.dispose();
+
+    return {
+        vertexCount,
+        lowMillimetres: low * statureMetres * 1000,
+        highMillimetres: high * statureMetres * 1000,
+        windowCount: Math.max( Math.floor( ( frames - GLANCE_WINDOW_SECONDS * GLANCE_SAMPLE_RATE_HZ ) / GLANCE_SAMPLE_RATE_HZ ) + 1, 0 ),
+        resultant: worstVertexTravel( screenX, screenY, frames, vertexCount, true ),
+        horizontal: worstVertexTravel( screenX, screenY, frames, vertexCount, false )
+    };
+
+}
+
+/**
+ * The worst single vertex's travel inside each 15 s window, reduced to a median, a worst window and
+ * a whole-clip range. The last two are carried so that the section can PRINT the disagreement
+ * between a range and a median rather than assert it.
+ */
+function worstVertexTravel( screenX, screenY, frames, vertexCount, resultant ) {
+
+    const width = GLANCE_WINDOW_SECONDS * GLANCE_SAMPLE_RATE_HZ;
+    const step = GLANCE_SAMPLE_RATE_HZ;
+    const windows = [];
+
+    const spanIn = ( from, to, vertexIndex ) => {
+
+        let lowX = Infinity;
+        let highX = -Infinity;
+        let lowY = Infinity;
+        let highY = -Infinity;
+
+        for ( let frame = from; frame < to; frame ++ ) {
+
+            const slot = frame * vertexCount + vertexIndex;
+
+            if ( screenX[ slot ] < lowX ) lowX = screenX[ slot ];
+            if ( screenX[ slot ] > highX ) highX = screenX[ slot ];
+            if ( screenY[ slot ] < lowY ) lowY = screenY[ slot ];
+            if ( screenY[ slot ] > highY ) highY = screenY[ slot ];
+
+        }
+
+        return resultant ? Math.hypot( highX - lowX, highY - lowY ) : highX - lowX;
+
+    };
+
+    for ( let start = 0; start + width <= frames; start += step ) {
+
+        let worst = 0;
+
+        for ( let vertexIndex = 0; vertexIndex < vertexCount; vertexIndex ++ ) {
+
+            worst = Math.max( worst, spanIn( start, start + width, vertexIndex ) );
+
+        }
+
+        windows.push( worst );
+
+    }
+
+    let wholeClip = 0;
+    for ( let vertexIndex = 0; vertexIndex < vertexCount; vertexIndex ++ ) {
+
+        wholeClip = Math.max( wholeClip, spanIn( 0, frames, vertexIndex ) );
+
+    }
+
+    windows.sort( ( a, b ) => a - b );
+
+    return {
+        median: windows[ Math.floor( windows.length / 2 ) ] ?? 0,
+        worstWindow: windows[ windows.length - 1 ] ?? 0,
+        wholeClip
+    };
+
+}
+
+/**
+ * The patella patch: the frontmost quarter of a 60 mm knee band, per leg, chosen ONCE in the rest
+ * pose and then followed by index.
+ *
+ * Chosen at rest rather than per frame because a per-frame "frontmost" set is a different set of
+ * vertices every frame, and the difference between two different sets is not a motion. Same shape
+ * as §1.10a: pick the statistic that follows the same material through the clip.
+ */
+function patellaPatch( root ) {
+
+    const kneeHeight = {
+        left: new Vector3().setFromMatrixPosition( root.getObjectByName( 'calf_l' ).matrixWorld ).y,
+        right: new Vector3().setFromMatrixPosition( root.getObjectByName( 'calf_r' ).matrixWorld ).y
+    };
+
+    const vertex = new Vector3();
+    const sets = [];
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+        const found = { left: [], right: [] };
+
+        for ( let index = 0; index < position.count; index ++ ) {
+
+            vertex.fromBufferAttribute( position, index );
+            object.applyBoneTransform( index, vertex );
+            object.localToWorld( vertex );
+
+            const side = vertex.x >= 0 ? 'left' : 'right';
+
+            if ( Math.abs( vertex.y - kneeHeight[ side ] ) > PATELLA_BAND_HALF_HEIGHT_METRES ) continue;
+
+            found[ side ].push( { index, forward: vertex.z } );
+
+        }
+
+        if ( found.left.length + found.right.length > 0 ) sets.push( { mesh: object, ...found } );
+
+    } );
+
+    // +Z is anterior on this rig, so the frontmost quarter of the band IS the kneecap.
+    for ( const side of [ 'left', 'right' ] ) {
+
+        const all = sets.flatMap( ( set, meshIndex ) => set[ side ].map( ( entry ) => ( { ...entry, meshIndex } ) ) )
+            .sort( ( a, b ) => b.forward - a.forward );
+
+        const keep = new Set( all.slice( 0, Math.round( PATELLA_PATCH_FRACTION * all.length ) )
+            .map( ( entry ) => `${ entry.meshIndex }:${ entry.index }` ) );
+
+        sets.forEach( ( set, meshIndex ) => {
+            set[ side ] = set[ side ]
+                .filter( ( entry ) => keep.has( `${ meshIndex }:${ entry.index }` ) )
+                .map( ( entry ) => entry.index );
+        } );
+
+    }
+
+    return sets;
+
+}
+
+/** The horizontal bearing of `knee joint -> patella centroid`, in degrees. +ve is toward +X. */
+function patellaBearingDegrees( sets, root, side ) {
+
+    const vertex = new Vector3();
+    const centroid = new Vector3();
+    let count = 0;
+
+    for ( const set of sets ) {
+
+        const position = set.mesh.geometry.attributes.position;
+
+        for ( const index of set[ side ] ) {
+
+            vertex.fromBufferAttribute( position, index );
+            set.mesh.applyBoneTransform( index, vertex );
+            set.mesh.localToWorld( vertex );
+            centroid.add( vertex );
+            count ++;
+
+        }
+
+    }
+
+    const joint = new Vector3().setFromMatrixPosition(
+        root.getObjectByName( side === 'left' ? 'calf_l' : 'calf_r' ).matrixWorld );
+
+    centroid.divideScalar( count ).sub( joint );
+
+    return Math.atan2( centroid.x, centroid.z ) * 180 / Math.PI;
+
+}
+
+/** Patella bearing for both knees, at rest and at the first full transfer in each direction. */
+function freeKneeFacingDegrees() {
 
     const { stack, layer, root } = buildStack( FREE_FOOT_SEED );
 
     root.updateMatrixWorld( true );
 
-    const names = [ 'thigh_l', 'calf_l', 'thigh_r', 'calf_r' ];
-    const bones = Object.fromEntries( names.map( ( name ) => [ name, root.getObjectByName( name ) ] ) );
-    const rest = Object.fromEntries(
-        names.map( ( name ) => [ name, bones[ name ].getWorldQuaternion( new Quaternion() ) ] ) );
+    const patch = patellaPatch( root );
+    const snapshot = () => ( {
+        left: patellaBearingDegrees( patch, root, 'left' ),
+        right: patellaBearingDegrees( patch, root, 'right' )
+    } );
 
-    const snapshot = () => Object.fromEntries( names.map( ( name ) => {
-
-        const delta = rest[ name ].clone().invert().multiply( bones[ name ].getWorldQuaternion( new Quaternion() ) );
-
-        // The yaw of an intrinsic Y-X-Z decomposition is the rotation about the rig's vertical,
-        // which is the axis the swivel lives on and the one the pose files author toe-out with.
-        return [ name, new Euler().setFromQuaternion( delta, 'YXZ' ).y * 180 / Math.PI ];
-
-    } ) );
+    const rest = snapshot();
 
     let leftFree = null;
     let rightFree = null;
@@ -2054,7 +2692,7 @@ function freeLimbSwivelDegrees() {
 
     stack.dispose();
 
-    return { leftFree, rightFree };
+    return { rest, leftFree, rightFree };
 
 }
 
@@ -2950,6 +3588,168 @@ function measureSpectrum() {
     // It is the strongest remaining lead on the sway spectrum.
     note( 'mean resultant velocity (mm/s)', median( meanVelocity ).toFixed( 2 ),
         'plate 11.0, board 19.7 mm/s eyes open — REPORTED at the board end; see the note in source' );
+
+}
+
+/**
+ * 🎯 HOW FAST THE BODY MOVES, WHICH NO GATE IN THIS FILE MEASURED — and the class of defect it
+ * exists to catch is a distribution leaking into a DERIVATIVE.
+ *
+ * Every amplitude gate here is stated on a position. `drawAmplitude` is a lognormal whose standard
+ * deviation exceeds its mean, which is correct (§1.7c) and gated. The event SHAPES had fixed
+ * durations, so peak speed was that whole skewed tail divided by a constant — and nothing looked.
+ * Measured on the layer before `eventStretch`, seed 1: the pelvis travelled 32.5 px, 49 mm, in half
+ * a second at t = 211 s, about **99 mm/s**, and came all the way back inside two seconds. This
+ * layer's own mean resultant centre-of-pressure velocity is 18.22 mm/s (docs/PROGRESS.md), against
+ * Quijoux's 11-20 mm/s eyes-open band.
+ *
+ * ⚠️ A MEAN AND A PEAK ARE NOT COMPARABLE AND THIS SECTION DOES NOT COMPARE THEM. §1.14 is exactly
+ * this mistake made with a peak-to-peak and a standard deviation, and it cost a round. A long trace
+ * of a rare-event process spends most of its life quiet, so its mean is far below any transient by
+ * construction; "99 against 18.22" is not a factor of 5.4 of error, it is two different statistics.
+ * The mean is therefore GATED against the literature it belongs to, the peak is gated against a
+ * PREDICTION DERIVED FROM THIS FILE'S OWN EVENT SHAPES, and the ratio between them is recorded so
+ * that a future change to either one is visible.
+ *
+ * The peak is taken over a 0.5 s window because that is the interval the defect was reported over
+ * and because a per-frame derivative of a noise-driven signal measures the noise's slew rather than
+ * the body's.
+ */
+function measurePosturalVelocity() {
+
+    section( `POSTURAL VELOCITY — centre-of-pressure speed, ${ SWAY_SEEDS.length } seeds x ${ VELOCITY_SECONDS } s` );
+
+    const shipped = SWAY_SEEDS.map( ( seed ) => centreOfPressureSpeed( seed, {} ) );
+
+    // The prediction, computed from the constants rather than typed in, so it cannot drift away
+    // from the shapes it describes. A raised cosine rising to A in T seconds peaks at pi*A/(2T);
+    // an exponential settling to A with time constant tau peaks at A/tau. `eventStretch` holds
+    // every larger event to the mean event's speed, so the mean event IS the fastest one.
+    const shape = buildStack( SEED ).layer;
+    const riseSeconds = shape.fidget.durationSeconds * shape.fidget.riseFraction;
+    const fidgetPeak = ( axis ) => Math.PI * axis.settings.shiftAmplitude * shape.fidget.amplitudeFraction
+        / ( 2 * riseSeconds );
+
+    const predicted = Math.hypot(
+        fidgetPeak( shape.medioLateral ), fidgetPeak( shape.anteroPosterior ) ) * 1000;
+
+    note( 'predicted peak from the event shapes (mm/s)', predicted.toFixed( 1 ),
+        `a mean-amplitude fidget on each axis at once: pi*A/(2*rise), ` +
+        `${ ( shape.medioLateral.settings.shiftAmplitude * 1000 ).toFixed( 0 ) } mm over ` +
+        `${ riseSeconds.toFixed( 2 ) } s laterally` );
+
+    const means = shipped.map( ( report ) => report.meanSpeed );
+    const peaks = shipped.map( ( report ) => report.peakSpeed );
+
+    console.log( '' );
+    console.log( `        mean resultant speed (mm/s)   ${ median( means ).toFixed( 2 ) } median, ` +
+        `${ Math.min( ...means ).toFixed( 2 ) }-${ Math.max( ...means ).toFixed( 2 ) } across seeds` );
+    console.log( `        peak 0.5 s speed (mm/s)       ${ median( peaks ).toFixed( 1 ) } median, ` +
+        `${ Math.min( ...peaks ).toFixed( 1 ) }-${ Math.max( ...peaks ).toFixed( 1 ) } across seeds` );
+    console.log( '' );
+
+    // ⚠️ THE COMPOSITE, not the balance band. POSTURAL BAND above reports 18.22 mm/s and that is a
+    // different quantity — `balanceDisplacement` alone, with the weight-shift processes excluded.
+    // Both sit inside Quijoux's 11-20 mm/s and neither is a restatement of the other; conflating
+    // them would be §1.7b with a velocity instead of an amplitude.
+    gate( 'mean resultant speed, median (mm/s)', median( means ),
+        MEAN_COP_SPEED_RANGE_MM_PER_SECOND.low, MEAN_COP_SPEED_RANGE_MM_PER_SECOND.high,
+        'Quijoux eyes-open 11-20 mm/s, on the COMPOSITE; the balance band alone reads 18.22' );
+
+    gate( 'peak 0.5 s speed, worst seed (mm/s)', Math.max( ...peaks ), 0,
+        predicted * PEAK_SPEED_ALLOWANCE_OVER_PREDICTION,
+        `the prediction above; eventStretch holds every larger event to the mean event's speed, so ` +
+        'that IS the fastest shape this layer can build' );
+
+    note( 'peak / mean', ( Math.max( ...peaks ) / median( means ) ).toFixed( 1 ),
+        'recorded so a change to either statistic is visible. NOT a gate: a rare-event process is ' +
+        'quiet most of the time and its mean is below any transient by construction' );
+
+    measurePosturalVelocityTheOtherWay( predicted );
+
+}
+
+/**
+ * §1.1. The known-bad is the layer with `eventStretch` defeated — a fixed event duration, which is
+ * exactly how this file shipped — run over the same twelve seeds and asserted as a COUNT (§1.1a).
+ */
+function measurePosturalVelocityTheOtherWay( predicted ) {
+
+    const fixed = SWAY_SEEDS.map( ( seed ) => centreOfPressureSpeed( seed, { eventDurationScalesWithAmplitude: false } ) );
+
+    const peaks = fixed.map( ( report ) => report.peakSpeed );
+    const ceiling = predicted * PEAK_SPEED_ALLOWANCE_OVER_PREDICTION;
+
+    note( 'fixed-duration events, peak 0.5 s speed (mm/s)',
+        `${ Math.min( ...peaks ).toFixed( 1 ) }-${ Math.max( ...peaks ).toFixed( 1 ) }`,
+        'the layer as it shipped: a lognormal amplitude divided by a constant duration' );
+
+    gate( 'seeds where the peak gate CATCHES a fixed duration',
+        peaks.filter( ( value ) => value > ceiling ).length, 3, SWAY_SEEDS.length,
+        `against a ${ ceiling.toFixed( 0 ) } mm/s ceiling. Not all twelve, and that is the point: the ` +
+        'defect is in the TAIL, so a seed whose largest draw happens to be modest passes honestly' );
+
+    // 🚩 RECORDED AS A GATE. The mean is what the literature reports and what this file already
+    // gated, and it barely moves — 18.2 either way — because stretching the tail changes the path
+    // length hardly at all. A gate on the mean is structurally unable to see this defect (§1.11).
+    const fixedMeans = fixed.map( ( report ) => report.meanSpeed );
+
+    gate( 'a MEAN speed gate would NOT have caught it (mm/s)', median( fixedMeans ),
+        MEAN_COP_SPEED_RANGE_MM_PER_SECOND.low, MEAN_COP_SPEED_RANGE_MM_PER_SECOND.high,
+        `recorded, not tolerated: the fixed-duration layer's composite mean is ` +
+        `${ median( fixedMeans ).toFixed( 2 ) } mm/s — inside the literature band, and 0.1 mm/s from the ` +
+        `shipped layer's — while its peak reaches ${ Math.max( ...peaks ).toFixed( 0 ) }. Stretching the ` +
+        'tail changes a path length hardly at all, which is why no existing gate could see this' );
+
+}
+
+/** Mean and peak resultant speed of the composite centre of pressure, in mm/s, over one seed. */
+function centreOfPressureSpeed( seed, options ) {
+
+    const { stack, layer } = buildStack( seed, options );
+
+    const frames = Math.round( VELOCITY_SECONDS * SAMPLE_RATE_HZ );
+    const width = Math.round( VELOCITY_PEAK_WINDOW_SECONDS * SAMPLE_RATE_HZ );
+    const positions = new Float64Array( 2 * frames );
+
+    let travelled = 0;
+    let previous = null;
+
+    for ( let frame = 0; frame < frames; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+
+        const x = layer.displacement.x;
+        const z = layer.displacement.z;
+
+        positions[ 2 * frame ] = x;
+        positions[ 2 * frame + 1 ] = z;
+
+        if ( previous !== null ) travelled += Math.hypot( x - previous.x, z - previous.z );
+
+        previous = { x, z };
+
+    }
+
+    stack.dispose();
+
+    // The peak is a DISPLACEMENT over the window divided by the window, not a path length: a body
+    // that jitters back and forth inside half a second has not gone anywhere and should not score
+    // as fast. That is the same quantity the defect was reported in — 32.5 px between two samples
+    // half a second apart.
+    let peak = 0;
+
+    for ( let start = 0; start + width < frames; start ++ ) {
+
+        const end = start + width;
+
+        peak = Math.max( peak, Math.hypot(
+            positions[ 2 * end ] - positions[ 2 * start ],
+            positions[ 2 * end + 1 ] - positions[ 2 * start + 1 ] ) / VELOCITY_PEAK_WINDOW_SECONDS );
+
+    }
+
+    return { meanSpeed: travelled * 1000 / VELOCITY_SECONDS, peakSpeed: peak * 1000 };
 
 }
 

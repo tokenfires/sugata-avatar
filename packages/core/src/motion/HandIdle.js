@@ -107,7 +107,7 @@ import { Quaternion, Vector3 } from 'three';
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
-import { CoherentNoise1D } from './Signals.js';
+import { CoherentNoise1D, PoissonSchedule } from './Signals.js';
 import { restRotationRelativeToRig, toBoneDeltaFrame } from './Breath.js';
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
 
@@ -246,6 +246,10 @@ export class HandIdle extends Layer {
      * @param {string|null} [options.claimFingersFrom='bodyIdle'] - Name of a layer that also
      *   drives the fingers and exposes a `fingersEnabled` flag. Pass null to leave it alone and
      *   accept the doubling, which is only ever right in a test that wants to measure it.
+     * @param {boolean} [options.frameCoupledArrivals=false] - Rebuilds the pre-conversion defect:
+     *   one Bernoulli coin per hand per frame, off one shared stream. The rate stays correct and
+     *   the trajectory becomes a function of the frame rate. Exists so the invariance gate has
+     *   something to reject; see `Signals.poissonEventOccurs` and LEARNINGS §1.13.
      */
     constructor( options = {} ) {
 
@@ -261,6 +265,7 @@ export class HandIdle extends Layer {
         this.amplitude = options.amplitude ?? 1;
         this.arousal = clampUnit( options.arousal ?? 0 );
         this.resettlesEnabled = options.resettlesEnabled ?? true;
+        this.frameCoupledArrivals = options.frameCoupledArrivals ?? false;
         this.claimFingersFrom = options.claimFingersFrom === undefined ? 'bodyIdle' : options.claimFingersFrom;
 
         // Noise position, integrated rather than read off elapsed time, so a change of arousal
@@ -335,6 +340,10 @@ export class HandIdle extends Layer {
 
             hand.resettle.elapsedSeconds = 0;
             hand.resettle.active = false;
+
+            // Redraws the first arrival on the rewound stream. Optional-chained because reset() can
+            // be called on a layer that has never been bound, which is where the schedule is built.
+            hand.schedule?.reset();
 
             for ( const finger of hand.fingers ) finger.resettleShare = 0;
 
@@ -421,20 +430,79 @@ export class HandIdle extends Layer {
     /**
      * The discrete half: the hand eases out of its resting curl and settles back into it. Poisson
      * timed per hand, so the two hands never re-settle together.
+     *
+     * 🎯 A SCHEDULE, NOT A PER-FRAME COIN. `poissonEventOccurs(rate, dt)` gets the long-run rate
+     * right at any frame rate and the realised sequence wrong at all of them, because it consumes
+     * one draw per FRAME. See `Signals.poissonEventOccurs` and LEARNINGS §1.13.
+     *
+     * 🚩 AND THE REFRACTORY IS THE SECOND COUPLING. A running re-settle blocks the next arrival, so
+     * the block ends at `RESETTLE_SECONDS` — and a frame stepping over that instant used to carry
+     * the block to the next frame boundary, quantising the refractory window to dt exactly the way
+     * `Blink`'s countdown quantised its intervals (§1.13a). The frame is therefore cut at the
+     * event's end as well as at each arrival. Pausing a memoryless wait while an event runs is
+     * exactly equivalent to suppressing the coins, not an approximation of it.
+     *
+     * The rate is arousal-scaled, which the schedule handles by counting down in unit-rate units at
+     * `rate × seconds` — the integral of the rate rather than a frozen sample of it.
      */
     advanceResettle( hand, deltaSeconds, amplitudeGain ) {
 
-        if ( hand.resettle.active ) {
+        const rate = HAND_RESETTLE_RATE * amplitudeGain;
 
-            hand.resettle.elapsedSeconds += deltaSeconds;
+        if ( this.frameCoupledArrivals ) {
 
-            if ( hand.resettle.elapsedSeconds >= RESETTLE_SECONDS ) hand.resettle.active = false;
+            // 🚩 THE DEFECT, REBUILT ON PURPOSE, so the invariance gate has something to reject.
+            // One coin per hand per frame, off the LAYER's stream, so the two hands re-interleave
+            // through the draw order as well.
+            if ( hand.resettle.active ) {
+
+                hand.resettle.elapsedSeconds += deltaSeconds;
+                if ( hand.resettle.elapsedSeconds >= RESETTLE_SECONDS ) hand.resettle.active = false;
+                return;
+
+            }
+
+            if ( this.random.poissonEventOccurs( rate, deltaSeconds ) ) this.beginResettle( hand, this.random );
 
             return;
 
         }
 
-        if ( this.random.poissonEventOccurs( HAND_RESETTLE_RATE * amplitudeGain, deltaSeconds ) === false ) return;
+        let remaining = deltaSeconds;
+
+        while ( remaining > 0 ) {
+
+            if ( hand.resettle.active ) {
+
+                const step = Math.min( remaining,
+                    Math.max( RESETTLE_SECONDS - hand.resettle.elapsedSeconds, 0 ) );
+
+                hand.resettle.elapsedSeconds += step;
+                remaining -= step;
+
+                if ( hand.resettle.elapsedSeconds < RESETTLE_SECONDS ) break;
+
+                hand.resettle.active = false;
+                continue;
+
+            }
+
+            const step = Math.min( remaining, hand.schedule.secondsUntilArrival( rate ) );
+
+            remaining -= step;
+
+            hand.schedule.advance( rate, step, () => this.beginResettle( hand, hand.schedule.random ) );
+
+        }
+
+    }
+
+    /**
+     * @param {Object} hand
+     * @param {MotionRandom} random - The hand's OWN stream in the shipped path. The frame-coupled
+     *   rebuild passes the layer stream, because sharing one was half of that defect.
+     */
+    beginResettle( hand, random ) {
 
         hand.resettle.elapsedSeconds = 0;
         hand.resettle.active = true;
@@ -443,7 +511,7 @@ export class HandIdle extends Layer {
         // what a hand at rest has room to do; curling further is a grip.
         for ( const finger of hand.fingers ) {
 
-            finger.resettleShare = -this.random.range( RESETTLE_FINGER_SHARE[ 0 ], RESETTLE_FINGER_SHARE[ 1 ] );
+            finger.resettleShare = -random.range( RESETTLE_FINGER_SHARE[ 0 ], RESETTLE_FINGER_SHARE[ 1 ] );
 
         }
 
@@ -506,6 +574,11 @@ export class HandIdle extends Layer {
         hand.noiseOffset = this.random.range( 0, 128 );
         hand.unitNoise = new CoherentNoise1D( this.nextSeed(), 256 );
         hand.fingers = [];
+
+        // Forked from the seed and the label rather than from the current state, so the two hands'
+        // arrival streams do not depend on how far the layer stream has been drawn when they are
+        // built — which is what makes a left hand's re-settles independent of the right's.
+        hand.schedule = new PoissonSchedule( this.random.fork( `handIdle:${ hand.side }` ) );
 
         const wrist = target.getBone( HUMANOID_TO_FIGURE_BONE[ `${ hand.side }Hand` ] );
 
@@ -583,7 +656,12 @@ function createHand( side ) {
         noiseOffset: 0,
         unitNoise: null,
         fingers: [],
-        resettle: { elapsedSeconds: 0, active: false }
+        resettle: { elapsedSeconds: 0, active: false },
+
+        // 🎯 ONE SCHEDULE PER HAND. The two hands used to share `this.random`, so which hand fired
+        // first in a frame decided the draw order for both — and which frame that was depends on
+        // dt. Built at bind, where the layer's stream arrives.
+        schedule: null
     };
 
 }

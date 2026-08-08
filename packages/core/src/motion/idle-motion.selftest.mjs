@@ -360,6 +360,7 @@ gateLimbSymmetryRejectsAOneSidedArm();
 gateFingerOwnership();
 gateHandArticulation();
 gateHandArticulationRejectsTheShippedFingers();
+gateHandIdleFrameRateInvariance();
 
 // --- robustness -------------------------------------------------------------------------------
 
@@ -2203,6 +2204,165 @@ function gateHandArticulation() {
  * NEVER MOVE". If the articulation gate is worth anything it must reject that, and it must reject
  * it by a wide margin rather than by a whisker.
  */
+/**
+ * 🎯 THE SAME SEED AT 30, 60 AND 120 Hz MUST PRODUCE THE SAME HANDS — punch-list 2.11, and the
+ * gate LEARNINGS §1.13 says every stochastic layer needs.
+ *
+ * `HandIdle` used to ask `poissonEventOccurs(rate, dt)` once per hand per frame, off ONE shared
+ * stream. Both halves of that were wrong: the stream was advanced by the renderer rather than by
+ * the hand, and the two hands interleaved their draws in whatever order they fired, so which frame
+ * the left hand re-settled in decided the right hand's sequence. The fix is one `PoissonSchedule`
+ * per hand on its own forked stream, plus cutting the frame at each arrival AND at each
+ * re-settle's end — the refractory window was the second coupling, the same one `Blink` had
+ * (§1.13a), and converting the arrivals alone would have left it.
+ *
+ * Measured on the layer ALONE, at the instants the three rates share. Attribution by isolation:
+ * every other layer in this file is already invariant, and running the whole stack would put five
+ * layers' worth of arithmetic between the change and the number.
+ */
+function gateHandIdleFrameRateInvariance() {
+
+    section( '2.7  HAND IDLE — the same seed at 30, 60 and 120 Hz' );
+
+    const rates = [ 30, 60, 120 ];
+
+    // 🎯 THE TOLERANCE IS THE INSTRUMENT'S FLOOR, MEASURED, NOT A ROUND NUMBER. Two things put a
+    // residue here that no scheduling fix can remove, and both are attributed below rather than
+    // assumed: `noisePhase` is INTEGRATED (`+= dt × gain`), so 18,000 additions and 72,000
+    // additions of the same total differ in their last bits; and `chainFlexionDegrees` measures
+    // through `acos` near 1, which MotionStack.selftest.mjs records as amplifying 7e-9 of
+    // quaternion error into 0.013 degrees. The drift-only run below measures what the pair costs
+    // with no events in play at all, and the tolerance sits three orders of magnitude above it and
+    // seven below the coupled layer's error.
+    const toleranceDegrees = 1e-6;
+    const seconds = 600;
+
+    const shipped = rates.map( ( rate ) => traceHandIdleAtRate( rate, seconds, {} ) );
+    const coupled = rates.map( ( rate ) => traceHandIdleAtRate( rate, seconds, { frameCoupledArrivals: true } ) );
+    const driftOnly = rates.map( ( rate ) => traceHandIdleAtRate( rate, seconds, { resettlesEnabled: false } ) );
+
+    console.log( '' );
+    console.log( '          rate   re-settles   worst finger flexion vs 60 Hz (deg)' );
+
+    for ( let index = 0; index < rates.length; index ++ ) {
+
+        console.log( `        ${ String( rates[ index ] ).padStart( 4 ) } Hz   ${ String( shipped[ index ].resettles ).padStart( 10 ) }   ` +
+            `${ worstFlexionGap( shipped[ index ], shipped[ 1 ] ).toExponential( 2 ).padStart( 34 ) }` );
+
+    }
+
+    console.log( '' );
+
+    const worst = Math.max( ...shipped.map( ( trace ) => worstFlexionGap( trace, shipped[ 1 ] ) ) );
+    const coupledWorst = Math.max( ...coupled.map( ( trace ) => worstFlexionGap( trace, coupled[ 1 ] ) ) );
+    const driftWorst = Math.max( ...driftOnly.map( ( trace ) => worstFlexionGap( trace, driftOnly[ 1 ] ) ) );
+
+    // ATTRIBUTION, not argument. With the events switched off there is nothing left to schedule,
+    // so whatever this reads is the integrated noise phase plus the acos measurement — the floor
+    // the gate above cannot go below however the arrivals are drawn.
+    note( 'drift only, no events, worst divergence (deg)', driftWorst.toExponential( 2 ),
+        `the instrument's own floor; the tolerance is ${ toleranceDegrees } and the coupled layer scores ` +
+        `${ coupledWorst.toExponential( 2 ) }` );
+
+    gate( 'worst finger divergence, 30/60/120 Hz (deg)', worst, 0, toleranceDegrees,
+        `both hands, index and middle chains, every shared instant over ${ seconds } s` );
+
+    gate( 'the events add nothing to the instrument floor (x)', worst / Math.max( driftWorst, 1e-15 ), 0, 10,
+        'if scheduling were still coupled this ratio would be enormous; it is the check that the ' +
+        'tolerance above is measuring float dust rather than hiding a residue' );
+
+    gate( 're-settle count identical at every frame rate',
+        shipped.every( ( trace ) => trace.resettles === shipped[ 0 ].resettles ) ? 1 : 0, 1, 1,
+        shipped.map( ( trace ) => trace.resettles ).join( ' / ' ) );
+
+    // §1.1 — proven against the defect itself, rebuilt behind an option.
+    gate( 'the gate REJECTS frame-coupled arrivals', coupledWorst > toleranceDegrees ? 1 : 0, 1, 1,
+        `the per-frame coin diverges by ${ coupledWorst.toExponential( 2 ) } deg` );
+
+    gate( 'and by a real margin (x the tolerance)', coupledWorst / toleranceDegrees, 1e6, 1e18,
+        'the error has to be large enough that the tolerance is not what decided it' );
+
+    // 🚩 RECORDED AS A GATE. A count is what an audit reaches for and it cannot see this. Stated
+    // in units of the sampling error, because these are Poisson counts and a percentage means
+    // something different at 5 events than at 60: the difference of two independent Poisson counts
+    // has standard deviation sqrt(N1 + N2).
+    const counts = coupled.map( ( trace ) => trace.resettles );
+    const sigmas = Math.abs( counts[ 0 ] - counts[ 2 ] ) / Math.sqrt( Math.max( counts[ 0 ] + counts[ 2 ], 1 ) );
+
+    gate( 'a RATE gate would NOT have caught it (sigma)', sigmas, 0, 3,
+        `recorded, not tolerated: ${ counts.join( ' / ' ) } re-settles at 30 / 60 / 120 Hz — ` +
+        'inside Poisson sampling error while the trajectory is a different one' );
+
+}
+
+/** HandIdle alone at one frame rate, sampled only at the instants every rate shares. */
+function traceHandIdleAtRate( rateHz, seconds, options ) {
+
+    restoreRestPose();
+
+    const skeleton = new Skeleton( figure.root );
+    RestPose.load( CONSUMER_REST_POSE ).applyTo( skeleton );
+    skeleton.update();
+    figure.root.updateMatrixWorld( true );
+
+    const stack = new MotionStack( { seed: LIMB_SEEDS[ 0 ] } );
+    stack.bind( createMotionTarget( figure.root ) );
+
+    const handIdle = stack.add( new HandIdle( { claimFingersFrom: null, ...options } ) );
+
+    const sides = { left: createLimbTrace( 'left' ), right: createLimbTrace( 'right' ) };
+    const substeps = Math.round( rateHz / 30 );
+    const samples = Math.round( seconds * 30 );
+
+    for ( let sample = 0; sample < samples; sample ++ ) {
+
+        for ( let step = 0; step < substeps; step ++ ) stack.update( 1 / rateHz );
+
+        figure.root.updateMatrixWorld( true );
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            sides[ side ].indexFlexionDegrees.push( chainFlexionDegrees( sides[ side ].indexChain ) );
+            sides[ side ].middleFlexionDegrees.push( chainFlexionDegrees( sides[ side ].middleChain ) );
+
+        }
+
+    }
+
+    const resettles = handIdle.eventCounts.resettle;
+
+    stack.dispose();
+
+    return { sides, resettles };
+
+}
+
+/** The worst disagreement between two hand traces, over both hands and both chains. */
+function worstFlexionGap( trace, reference ) {
+
+    let worst = 0;
+
+    for ( const side of [ 'left', 'right' ] ) {
+
+        for ( const channel of [ 'indexFlexionDegrees', 'middleFlexionDegrees' ] ) {
+
+            const mine = trace.sides[ side ][ channel ];
+            const theirs = reference.sides[ side ][ channel ];
+
+            for ( let index = 0; index < mine.length; index ++ ) {
+
+                worst = Math.max( worst, Math.abs( mine[ index ] - theirs[ index ] ) );
+
+            }
+
+        }
+
+    }
+
+    return worst;
+
+}
+
 function gateHandArticulationRejectsTheShippedFingers() {
 
     section( '2.7  HAND ARTICULATION — known-bad input: the finger idle as it shipped' );

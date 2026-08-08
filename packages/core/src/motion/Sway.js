@@ -343,6 +343,15 @@ const FIDGET_AMPLITUDE_FRACTION_OF_SHIFT = 1.0;
 const FIDGET_DURATION_SECONDS = 1.8;
 const FIDGET_RISE_FRACTION = 0.25;
 
+/**
+ * The largest rise fraction a stretched fidget may reach. Past 0.5 the push onto the other leg
+ * takes longer than the drift back off it, which inverts the fast-out, slow-back reading of
+ * Duarte's "a fast and LARGE displacement and returning" that FIDGET_DURATION_SECONDS argues for.
+ * At exactly 0.5 the two halves are equal, which is the boundary rather than a preference. See
+ * `fidgetShapeFor` for why this ceiling is where the amplitude stretch is spent first.
+ */
+const FIDGET_RISE_STRETCH_CEILING = 0.5;
+
 /** TUNING. How long a shift takes to settle into its new region. */
 const SHIFT_SETTLE_SECONDS = 0.8;
 
@@ -715,6 +724,46 @@ const STANCE_ANKLE_PROBE_COUNT = 8;
 const TOE_UNLOAD_LIFT_DEGREES = 2.5;
 
 /**
+ * 🎯 THE OTHER THING THAT UNLOADS A TOE, AND THE ONE THAT NEVER STOPS: THE CENTRE OF PRESSURE
+ * MOVING FORE AND AFT UNDER THE FOOT.
+ *
+ * 🚩 Read this next to the constant above, because between them they are the difference between a
+ * foot that articulates ONCE A CLIP and a foot that articulates all the time, and the round before
+ * this one shipped only the first.
+ *
+ * The lateral unload is a fine mechanism and it has a fatal duty cycle. `unloadFractionOf` is the
+ * stance blend, and the free foot's yaw release is a fraction OF A CHAIN YAW THAT IS ITSELF
+ * PROPORTIONAL TO THAT BLEND — so everything below the ankle scales as the SQUARE of the load
+ * transfer. Measured on the shipped layer, seed 1, 420 s at 30 Hz, in the foot band (rows 1110-1176
+ * of a 1200 px capture, -47 to +54 mm about the floor): the median travel inside a 15 s window is
+ * **0.223 px on the worst single vertex and 0.074-0.138 px on either foot's centroid**, while the
+ * WHOLE-CLIP range is 1.7-3.5 px. The clip's entire range is spent inside one window — the median
+ * and the range disagree by a factor of twenty-five, which is LEARNINGS §1.11 and §1.14 in one
+ * measurement. |stanceBlend| swings 0.213 in a median 15 s window, and 0.213 squared is 0.045.
+ *
+ * Fore-and-aft there is a driver with no duty-cycle problem at all. Quiet stance IS an ankle
+ * strategy: the centre of pressure travels fore and aft under the feet continuously, and this
+ * layer's own antero-posterior signal measures a **25.25 mm median sliding-window swing** over the
+ * same 420 s, with the QUIETEST window still at 15.35 mm. That is 4-5 cycles of Quijoux's 0.27 Hz
+ * mode inside every glance, on both feet, whether or not a weight transfer ever happens.
+ *
+ * What it does to a toe is not subtle and needs no citation to state the DIRECTION: as the centre
+ * of pressure moves back off the forefoot, the toes stop being pressed and relax into extension; as
+ * it moves forward they are pressed flat again. Extension only, exactly as above, so this can no
+ * more push geometry through the floor than the unload lift can.
+ *
+ * ⚠️ THE AMPLITUDE IS TUNING AND IS DELIBERATELY NOT A NEW MAGNITUDE. It is stated as a gain that
+ * reaches `TOE_UNLOAD_LIFT_DEGREES` — the ceiling already argued above — at the rearmost centre of
+ * pressure this layer can produce: the antero-posterior posture clamp (2.0 mean shifts = 34 mm on
+ * this figure) plus three standard deviations of the balance band (3 x 4.9 = 14.7 mm), so 48.7 mm.
+ * Nothing here claims a published toe angle; it claims that the fore-and-aft mechanism should reach
+ * the same ceiling the lateral one does, at the extreme each of them can reach.
+ */
+const TOE_COP_REFERENCE_EXCURSION_METRES =
+    POSTURE_OFFSET_MEAN_SHIFTS * SHIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES
+    + 3 * BALANCE_RMS_ANTERO_POSTERIOR_METRES;
+
+/**
  * 🎯 PLANTED IS A CONSEQUENCE OF LOAD, NOT A PROPERTY OF A FOOT — and getting that backwards is
  * what made both feet pixel-identical for 420 seconds.
  *
@@ -747,35 +796,50 @@ const TOE_UNLOAD_LIFT_DEGREES = 2.5;
  * 1.0 keeps all of the chain's yaw at full unload. Set to 0 for the welded foot the judge reported;
  * the selftest builds exactly that to prove its own gate can see it.
  *
- * 🎯 FOR THE NEXT VISUAL JUDGE — THE ONE THING HERE NO MEASUREMENT CAN SETTLE, AND EXACTLY WHERE TO
- * LOOK.
+ * 🎯 THE FREE KNEE TURNS **IN**, DELIBERATELY — AND THIS HEADER SAID THE OPPOSITE FOR A ROUND.
  *
  * The free leg's release is delivered as a swivel about a near-vertical axis, so it presents mostly
- * as FEMORAL AXIAL ROTATION rather than as the foot turning on the floor. Measured on figure_g050,
- * seed 1, at each full transfer, as world-frame yaw from the relaxed-standing rest:
+ * as FEMORAL AXIAL ROTATION rather than as the foot turning on the floor. That much was right. The
+ * DIRECTION written here was not, and the pose files it was supposedly derived from say so in
+ * words: `weight-right.json`'s `leftUpperLeg` is *"Free leg, SWIVELLED … turned 16 degrees about
+ * its own hip-to-ankle axis, which moves the knee 14.3 mm TOWARD THE MIDLINE"*. Medial. On purpose.
  *
- *     state                    thigh_l   calf_l   thigh_r   calf_r
- *     LEFT leg free            +14.21    +5.27     -1.02     -1.47
- *     RIGHT leg free            +1.45    +1.75    -13.54     -4.97
+ * Measured frame-free on figure_g050, seed 1, on the MESH rather than on an Euler angle — the
+ * patella patch's own world-space facing, joint centre to patella centroid, against the
+ * relaxed-standing rest:
  *
- * So the FREE thigh turns about 14 degrees and its shank about 5, while the LOADED leg stays inside
- * 1.8 — which is the asymmetry this whole mechanism is for. The question no number in this repo can
- * answer is whether fourteen degrees of femoral rotation READS as a relaxed leg letting go or as a
- * leg that has rotated too far.
+ *     state              free knee faces        loaded knee
+ *     rest                 L +5.74   R -10.46          —
+ *     LEFT leg free        L -6.30  (-12.04 deg)     +1.34
+ *     RIGHT leg free       R  +0.09 (+10.55 deg)     -1.38
  *
- * ⚠️ WHAT TO LOOK AT: the free kneecap, on a frame at full transfer, against the same frame at rest.
- * Judge it as a life drawing — does the free leg read as the classic contrapposto, weight off, knee
- * relaxed and turned slightly out? Or does the knee read as rotated to a place a standing person
- * would not leave it?
+ * Positive is toward +X, the character's LEFT. So the free knee turns 10-12 degrees TOWARD the
+ * midline on both sides, and the loaded knee stays inside 1.4 — which is the asymmetry this whole
+ * mechanism is for.
  *
- * 🚩 AND ONE DISAGREEMENT TO RESOLVE BY EYE, BECAUSE IT DECIDES WHICH DEFECT THIS WOULD BE. An
- * independent re-verifier reported the free kneecap turning INWARD by 16 degrees. The magnitude
- * agrees with the table above; the DIRECTION does not. On this rig +y yaw on the left leg is
- * EXTERNAL rotation — `relaxed-standing.json` builds the stance's toe-out with `leftUpperLeg` at
- * y = +9.56 and calls it "external rotation of the femur [that] swings the knee out with the foot"
- * — so the measurement above says the free knee turns OUT, adding to a toe-out it already has.
- * Out is the life-class pose. In is knock-kneed. They are different findings and only a pair of
- * eyes can say which one is on screen.
+ * 🚩 HOW THE SIGN GOT INVERTED, BECAUSE IT IS A TRAP THE NEXT READER WILL WALK INTO. There are two
+ * different `+y` in play and they point opposite ways.
+ *
+ *   `relaxed-standing.json` writes `leftUpperLeg` `y = +9.56` and calls it external rotation. That
+ *   is authored in the NORMALISED rig, where +Y is up, and it is correct: applying a further +14
+ *   there swings the left patella from +5.74 to +19.66 and the left foot from +13.08 to +27.15 —
+ *   OUT, exactly as the file says.
+ *
+ *   `sway.selftest.mjs` reported the swivel as the y term of `restWorld⁻¹ · currentWorld`, which is
+ *   a delta in the BONE's own rest frame — and `thigh_l`'s local +Y points DOWN in world
+ *   (0.017, -0.997, 0.078). A positive y there is a rotation about world −Y. The two `+y` are
+ *   antiparallel, the header compared them as if they were the same axis, and the conclusion
+ *   inverted. §1.7 is exactly this: a number carries a frame of reference, and these two did not
+ *   share one.
+ *
+ * The measurement that settles it takes no frame at all: where does the patella POINT. That is now
+ * what the selftest measures and gates, in `measureFreeLimbSwivel`.
+ *
+ * ⚠️ STILL FOR A PAIR OF EYES, and narrower than it was. The direction is settled and the pose
+ * files own it; what no number here can answer is whether TWELVE DEGREES of medial femoral rotation
+ * reads as a relaxed leg letting go — the free knee drifting in toward the stance leg, which is
+ * what a life class draws — or as knock-kneed. Look at the free kneecap on a frame at full transfer
+ * against the same frame at rest.
  */
 const FREE_FOOT_YAW_RELEASE = 1.0;
 
@@ -896,6 +960,15 @@ export class Sway extends Layer {
      *   dead in. See MEDIO_LATERAL_ANKLE_SHARE.
      * @param {number} [options.toeLiftDegrees=2.5] - Toe extension on a fully unloaded foot. Set to
      *   0 for the welded foot a visual judge reported; see TOE_UNLOAD_LIFT_DEGREES.
+     * @param {boolean} [options.eventDurationScalesWithAmplitude=true] - Whether a postural event
+     *   larger than its axis's mean amplitude takes proportionally longer, holding peak speed at the
+     *   mean event's. Set to false for the fixed duration this file shipped with, which measured a
+     *   49 mm centre-of-pressure move in half a second. See `eventStretch`.
+     * @param {boolean} [options.toeCopLiftEnabled=true] - Whether the toes also respond to the
+     *   centre of pressure travelling fore and aft under the foot. Set to false for the lateral
+     *   mechanism alone, which is the foot whose articulation is QUADRATIC in the load transfer and
+     *   therefore lives entirely inside a weight transfer. See TOE_COP_REFERENCE_EXCURSION_METRES;
+     *   the selftest builds exactly that state to prove its own gate can see it.
      * @param {number} [options.freeFootYawRelease=1] - Fraction of the leg chain's yaw an UNLOADED
      *   foot is allowed to keep. Set to 0 to pin both feet as rigidly as each other, which is the
      *   welded foot the judge reported. See FREE_FOOT_YAW_RELEASE.
@@ -961,6 +1034,12 @@ export class Sway extends Layer {
         this.medioLateralAnkleShare = options.medioLateralAnkleShare ?? MEDIO_LATERAL_ANKLE_SHARE;
 
         this.toeLiftDegrees = options.toeLiftDegrees ?? TOE_UNLOAD_LIFT_DEGREES;
+        this.toeCopLiftEnabled = options.toeCopLiftEnabled ?? true;
+
+        // Set to false for the fixed event duration this file shipped with, which divides a
+        // lognormal amplitude by a constant and lets the distribution's tail out as SPEED. See
+        // `eventStretch`; the selftest builds exactly that to prove its own peak gate can see it.
+        this.eventDurationScalesWithAmplitude = options.eventDurationScalesWithAmplitude ?? true;
 
         // Set to 0 for the welded foot a visual judge reported and measured at 0.024 px of
         // silhouette travel; see FREE_FOOT_YAW_RELEASE.
@@ -1333,7 +1412,7 @@ export class Sway extends Layer {
         // are not the same length. Both halves have zero slope at both ends, so nothing snaps.
         const fidget = axis.fidgetRemaining > 0
             ? axis.fidgetAmplitude
-                * fidgetShape( 1 - axis.fidgetRemaining / this.fidget.durationSeconds, this.fidget.riseFraction )
+                * fidgetShape( 1 - axis.fidgetRemaining / axis.fidgetDuration, axis.fidgetRiseFraction )
             : 0;
 
         // Drift is a pure function of elapsed time rather than an integrated state, so it is read
@@ -1367,7 +1446,7 @@ export class Sway extends Layer {
         // A shift settles toward its new region, then that region leaks slowly back to centre.
         axis.shiftTarget *= Math.exp( -seconds * settings.shiftRate / SHIFT_RETURN_INTERVALS );
         axis.shiftCurrent += ( axis.shiftTarget - axis.shiftCurrent )
-            * ( 1 - Math.exp( -seconds / SHIFT_SETTLE_SECONDS ) );
+            * ( 1 - Math.exp( -seconds / axis.shiftSettleSeconds ) );
 
     }
 
@@ -1387,6 +1466,9 @@ export class Sway extends Layer {
         // firing lands in depends on dt — the frame rate would leak back in through the ordering.
         const random = axis.shifts.random;
         const amplitude = this.drawAmplitude( axis.settings, random ) * this.drawDirection( random );
+
+        axis.shiftSettleSeconds = SHIFT_SETTLE_SECONDS
+            * eventStretch( amplitude, axis.settings, this.eventDurationScalesWithAmplitude );
 
         // A shift moves to a NEW region, so it is drawn as a signed displacement away from where
         // the stance already is rather than as an absolute position.
@@ -1420,7 +1502,12 @@ export class Sway extends Layer {
         const amplitude = this.drawAmplitude( axis.settings, random )
             * this.fidget.amplitudeFraction * this.drawDirection( random );
 
-        axis.fidgetRemaining = this.fidget.durationSeconds;
+        const shape = fidgetShapeFor( amplitude, axis.settings, this.fidget,
+            this.eventDurationScalesWithAmplitude );
+
+        axis.fidgetDuration = shape.durationSeconds;
+        axis.fidgetRiseFraction = shape.riseFraction;
+        axis.fidgetRemaining = shape.durationSeconds;
         axis.fidgetAmplitude = amplitude;
 
         this.eventCounts.fidget ++;
@@ -2426,11 +2513,26 @@ export class Sway extends Layer {
      */
     writeToeLift() {
 
+        // The fore-and-aft half, shared by both feet because the centre of pressure moves under
+        // both at once. Negative z is BACKWARD on this rig, and backward is what takes the pressure
+        // off the toes — hence the negation. Clamped at zero so the toes can only ever leave the
+        // floor: the loaded direction has nowhere to go and the planting gate is why.
+        const copLift = this.toeCopLiftEnabled
+            ? Math.max( -this.displacement.z, 0 ) / TOE_COP_REFERENCE_EXCURSION_METRES
+            : 0;
+
         for ( const foot of this.feet ) {
 
             if ( foot.toes === undefined || isPresent( foot.toes.bone ) === false ) continue;
 
-            const lift = this.unloadFractionOf( foot ) * this.toeLiftDegrees * Math.PI / 180;
+            // The two mechanisms are the LARGER of the two rather than their sum. They are two
+            // readings of one quantity — how hard this foot's forefoot is pressed — and adding them
+            // would double-count a frame where the body is both leaning back and standing on the
+            // other leg. `Math.min( ..., 1 )` is then redundant, which is the point: neither branch
+            // can carry the toes past the ceiling that was argued for one full unload.
+            const unloaded = Math.max( this.unloadFractionOf( foot ), copLift );
+
+            const lift = Math.min( unloaded, 1 ) * this.toeLiftDegrees * Math.PI / 180;
 
             this.toeLiftRadians[ foot.key ] = lift;
 
@@ -2524,6 +2626,81 @@ export class Sway extends Layer {
 
 const IDENTITY = new Quaternion();
 
+/**
+ * 🎯 HOW MUCH LONGER A LARGE POSTURAL EVENT TAKES THAN AN AVERAGE ONE — the constant that stops a
+ * fidget from being a startle.
+ *
+ * 🚩 THE DEFECT THIS FIXES IS A DISTRIBUTION LEAKING INTO A DERIVATIVE, and every gate in this file
+ * was blind to it because they all gate positions. `drawAmplitude` is a lognormal whose standard
+ * deviation EXCEEDS its mean, deliberately and correctly (§1.7c). The event shapes had FIXED
+ * durations — 1.8 s for a fidget, 0.8 s for a shift's settle — so peak SPEED was amplitude divided
+ * by a constant, and it inherited that whole skewed tail undivided.
+ *
+ * Measured on the shipped layer, seed 1: the pelvis went from -0.4 px at t = 210.5 s to -32.9 at
+ * 211.0 — **32.5 px, 49 mm, in half a second, about 99 mm/s** — and was fully back by 212.5. This
+ * layer's own mean resultant centre-of-pressure velocity is **18.22 mm/s** (docs/PROGRESS.md),
+ * against Quijoux's 11-20 mm/s eyes-open band. A 61 mm round trip inside two seconds has a
+ * transfer's amplitude and a fidget's return, and it was the largest postural event in the clip.
+ *
+ * ⚠️ THE RULE IS AN ASSUMPTION AND IS STATED AS ONE, because the alternative is worse. Duarte's
+ * only word about the timing of either fast pattern is *"fast"*, and he reports no fidget amplitude
+ * at all — so the record does not decide between "one duration for every event" and "one speed for
+ * every event". What the record DOES say is that the amplitudes are lognormal with SD > mean. Read
+ * one duration into "fast" and the speed distribution has that tail; read one speed into it and the
+ * duration distribution does, which is invisible. Between two readings of one word, the one that
+ * does not put a startle in a quiet-standing idle is the honest choice.
+ *
+ * So: an event at or below its axis's mean amplitude is EXACTLY as it was — the median event, every
+ * rate gate, every spectral gate and the legibility section are untouched — and an event above it
+ * is stretched in proportion, holding peak speed at the mean event's. `Math.max( 1, ... )` is the
+ * whole of that: it is a rule about the tail and nothing else.
+ */
+function eventStretch( amplitude, settings, enabled ) {
+
+    if ( enabled === false ) return 1;
+
+    return Math.max( 1, Math.abs( amplitude ) / settings.shiftAmplitude );
+
+}
+
+/**
+ * 🎯 SPEND THE FREE LEVER BEFORE THE EXPENSIVE ONE — and there are two, which is the whole reason
+ * this is a function rather than one multiplication.
+ *
+ * Holding a fidget's peak speed constant means holding its RISE TIME proportional to its amplitude,
+ * and rise time is `duration x riseFraction`. Those two factors do not cost the same thing:
+ *
+ *   THE RISE FRACTION IS FREE. Moving it leaves the event's total length alone, so it moves no
+ *   power in the composite spectrum at all. It is bounded by shape rather than by cost: past 0.5
+ *   the rise is longer than the return and Duarte's fast-out, slow-back reading is inverted. From a
+ *   base of 0.25 that allows a factor of 2.
+ *
+ *   THE DURATION IS NOT FREE, and `FIDGET_DURATION_SECONDS` is where the price is written down: a
+ *   1.2/min process with a multi-second time constant puts real power below 0.25 Hz and drags the
+ *   composite lateral spectral mode out of the postural band with it. Measured this round — with
+ *   the whole stretch taken out of duration, `idle-motion.selftest.mjs`'s median across twelve
+ *   seeds fell from **0.264 Hz to 0.234**, under its 0.250 floor, and re-solving the base duration
+ *   down to 1.3 s to recover it put the peak speed back to ~126 mm/s, which is no better than the
+ *   defect being fixed. Two levers pulling opposite ways on one number.
+ *
+ * So the rise fraction absorbs everything up to twice the mean amplitude, and only past that does
+ * the duration start to grow. Measured on the lognormal this layer draws from (mu 2.400, sigma
+ * 1.176), that is the difference between lengthening **35%** of fidgets and lengthening **12%**.
+ *
+ * @returns {{ riseFraction: number, durationSeconds: number }}
+ */
+function fidgetShapeFor( amplitude, settings, profile, enabled ) {
+
+    const ratio = eventStretch( amplitude, settings, enabled );
+    const riseStretch = Math.min( ratio, FIDGET_RISE_STRETCH_CEILING / profile.riseFraction );
+
+    return {
+        riseFraction: profile.riseFraction * riseStretch,
+        durationSeconds: profile.durationSeconds * ( ratio / riseStretch )
+    };
+
+}
+
 function createAxisState( settings, limit, schedules = {} ) {
 
     return {
@@ -2534,6 +2711,9 @@ function createAxisState( settings, limit, schedules = {} ) {
         shiftCurrent: 0,   // where the stance is now
         fidgetRemaining: 0,
         fidgetAmplitude: 0,
+        fidgetDuration: 0,       // seconds, drawn per event — see fidgetShapeFor
+        fidgetRiseFraction: 0,   // where the peak sits, drawn per event — see fidgetShapeFor
+        shiftSettleSeconds: SHIFT_SETTLE_SECONDS,
 
         // The two arrival processes, each on its own stream. Null until `buildSchedules` runs at
         // bind; carried across a `reset()` so a layer reset outside the stack still has them, and

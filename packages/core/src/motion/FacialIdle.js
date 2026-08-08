@@ -76,7 +76,7 @@
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
-import { CoherentNoise1D } from './Signals.js';
+import { CoherentNoise1D, PoissonSchedule } from './Signals.js';
 import { EYE_MORPH_EXCURSION_DEGREES } from './Gaze.js';
 import { BLINK_CONSTANTS } from './Blink.js';
 import { EMOTION_REGIONS, addMouthCornerOffset, applyRegion, regionOf } from '../figure/ExpressionBank.js';
@@ -364,6 +364,10 @@ export class FacialIdle extends Layer {
      *   reason: it is one fact about the asset and it should have one value in the stack.
      * @param {number} [options.noiseSeed=20260807] - Seeds the drift field. Separate from the
      *   layer's event stream so changing one does not reshuffle the other.
+     * @param {boolean} [options.frameCoupledArrivals=false] - Rebuilds the pre-conversion defect:
+     *   one Bernoulli coin per frame per event kind, off one shared stream. The rate stays correct
+     *   and the trajectory becomes a function of the frame rate. Exists so the invariance gate has
+     *   something to reject; see `Signals.poissonEventOccurs` and LEARNINGS §1.13.
      * @param {boolean} [options.enabled=true]
      */
     constructor( options = {} ) {
@@ -388,6 +392,23 @@ export class FacialIdle extends Layer {
         // Drift is deterministic in time rather than in draw order, so it comes from a noise field
         // seeded independently of the layer's event stream.
         this.noise = new CoherentNoise1D( options.noiseSeed ?? 20260807 );
+
+        this.frameCoupledArrivals = options.frameCoupledArrivals ?? false;
+
+        /**
+         * 🎯 ONE SCHEDULE PER EVENT KIND, EACH ON ITS OWN FORKED STREAM — and the "per kind" is the
+         * part that is not obvious.
+         *
+         * Four kinds used to be advanced in one loop off `this.random`, so whichever fired first in
+         * a frame drew first and every later kind's draws shifted behind it. That re-couples the
+         * frame rate through the DRAW ORDER even after the arrivals themselves are scheduled: which
+         * frame a kind fires in depends on dt, and which kind fires first in that frame decides the
+         * sequence for all four. One stream each removes the ordering entirely — a kind's draws are
+         * a property of its own seed and of nothing else in the layer.
+         *
+         * Built at bind rather than here, because `this.random` is handed to the layer by the stack.
+         */
+        this.eventSchedules = {};
 
         // Resolved at bind. Null is a supported state for all three: the layer degrades to no lid
         // follow, no blink suppression, and a caller-supplied breath phase.
@@ -499,6 +520,15 @@ export class FacialIdle extends Layer {
             ?? BLINK_CONSTANTS.FULL_CLOSURE_MORPH_WEIGHT;
 
         this.breathLayer = this.stack?.findLayer( this.breathLayerName ) ?? null;
+
+        // One arrival stream per event kind, forked from the layer's own. Forked from the seed and
+        // the label rather than from the current state, so it does not matter that the two lid
+        // asymmetries below are drawn from `this.random` immediately afterwards.
+        for ( const kind of EVENT_KINDS ) {
+
+            this.eventSchedules[ kind ] = new PoissonSchedule( this.random.fork( `facialIdle:${ kind }` ) );
+
+        }
 
         // Drawn here and not in reset(), because the stack calls reset() and THEN onBind(); a
         // draw in both would advance this layer's stream one sample further on a reset run than on
@@ -813,38 +843,110 @@ export class FacialIdle extends Layer {
 
     /**
      * Poisson arrivals, one at a time per kind. A second brow raise on top of a running one would
-     * double the amplitude and break the ceiling's meaning, so an active event simply blocks the
-     * next draw — which also gives the rate a natural refractory period.
+     * double the amplitude and break the ceiling's meaning, so a running event blocks the next
+     * arrival — which also gives the rate a natural refractory period.
      */
     advanceEvents( deltaSeconds ) {
 
-        for ( const kind of EVENT_KINDS ) {
+        for ( const kind of EVENT_KINDS ) this.advanceEventKind( kind, deltaSeconds );
+
+    }
+
+    /**
+     * One kind's frame, walked in sub-steps so that nothing about it is decided by where the frame
+     * boundaries happen to fall.
+     *
+     * 🎯 A SCHEDULE, NOT A PER-FRAME COIN. `poissonEventOccurs(rate, dt)` gets the long-run rate
+     * right at any frame rate and the realised sequence wrong at all of them, because it consumes
+     * one draw per FRAME. See `Signals.poissonEventOccurs` and LEARNINGS §1.13.
+     *
+     * 🚩 AND THE REFRACTORY IS THE SECOND COUPLING, which converting the arrivals alone does not
+     * remove. A running event blocks arrivals, so the block ENDS at `duration`, and a frame that
+     * steps over that instant used to carry the block to the next frame boundary — quantising the
+     * refractory window to dt exactly the way `Blink`'s countdown quantised its intervals (§1.13a).
+     * So the frame is cut at the event's end as well as at each arrival, and the two halves of the
+     * step are run in order.
+     *
+     * Pausing the countdown while an event runs is EXACTLY equivalent to the old "block the draw"
+     * behaviour, not an approximation of it: the wait is memoryless, so a paused exponential and a
+     * suppressed sequence of coins have the same distribution.
+     */
+    advanceEventKind( kind, deltaSeconds ) {
+
+        const definition = EVENTS[ kind ];
+        const rate = definition.ratePerMinute / 60;
+        const schedule = this.eventSchedules[ kind ];
+
+        if ( this.frameCoupledArrivals ) {
+
+            // 🚩 THE DEFECT, REBUILT ON PURPOSE, so the invariance gate has something to reject.
+            // One coin per frame, and — as it used to be — off the LAYER's stream rather than a
+            // forked one, so the four kinds re-interleave through the draw order too.
+            const running = this.activeEvents[ kind ];
+
+            if ( running !== null ) {
+
+                running.elapsed += deltaSeconds;
+                if ( running.elapsed >= running.duration ) this.activeEvents[ kind ] = null;
+                return;
+
+            }
+
+            if ( this.random.poissonEventOccurs( rate, deltaSeconds ) ) this.beginEvent( kind, this.random );
+
+            return;
+
+        }
+
+        let remaining = deltaSeconds;
+
+        while ( remaining > 0 ) {
 
             const active = this.activeEvents[ kind ];
 
             if ( active !== null ) {
 
-                active.elapsed += deltaSeconds;
-                if ( active.elapsed >= active.duration ) this.activeEvents[ kind ] = null;
+                const step = Math.min( remaining, Math.max( active.duration - active.elapsed, 0 ) );
 
+                active.elapsed += step;
+                remaining -= step;
+
+                if ( active.elapsed < active.duration ) break;
+
+                this.activeEvents[ kind ] = null;
                 continue;
 
             }
 
-            const definition = EVENTS[ kind ];
+            const step = Math.min( remaining, schedule.secondsUntilArrival( rate ) );
 
-            if ( this.random.poissonEventOccurs( definition.ratePerMinute / 60, deltaSeconds ) === false ) continue;
+            remaining -= step;
 
-            this.activeEvents[ kind ] = {
-                elapsed: 0,
-                duration: this.random.range( definition.minimumSeconds, definition.maximumSeconds ),
-                amplitude: this.random.range( EVENT_AMPLITUDE_MINIMUM, EVENT_AMPLITUDE_MAXIMUM ),
-                asymmetry: this.random.range( -EVENT_ASYMMETRY_MAXIMUM, EVENT_ASYMMETRY_MAXIMUM )
-            };
-
-            this.eventCounts[ kind ] ++;
+            schedule.advance( rate, step, () => this.beginEvent( kind, schedule.random ) );
 
         }
+
+    }
+
+    /**
+     * One event, drawn from the stream it belongs to.
+     *
+     * @param {string} kind
+     * @param {MotionRandom} random - The kind's OWN stream in the shipped path. The frame-coupled
+     *   rebuild passes the layer stream, because sharing one was half of that defect.
+     */
+    beginEvent( kind, random ) {
+
+        const definition = EVENTS[ kind ];
+
+        this.activeEvents[ kind ] = {
+            elapsed: 0,
+            duration: random.range( definition.minimumSeconds, definition.maximumSeconds ),
+            amplitude: random.range( EVENT_AMPLITUDE_MINIMUM, EVENT_AMPLITUDE_MAXIMUM ),
+            asymmetry: random.range( -EVENT_ASYMMETRY_MAXIMUM, EVENT_ASYMMETRY_MAXIMUM )
+        };
+
+        this.eventCounts[ kind ] ++;
 
     }
 
@@ -919,6 +1021,10 @@ export class FacialIdle extends Layer {
             this.activeEvents[ kind ] = null;
             this.eventCounts[ kind ] = 0;
             this.sideScales[ kind ] = { left: 1, right: 1 };
+
+            // Redraws the first arrival on the rewound stream. Optional-chained because the stack
+            // calls reset() BEFORE onBind(), so on a fresh layer there are no schedules yet.
+            this.eventSchedules[ kind ]?.reset();
 
         }
 

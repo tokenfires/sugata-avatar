@@ -397,6 +397,95 @@ const AVERSION_YAW_MINIMUM_DEGREES = 15;
 const AVERSION_YAW_MAXIMUM_DEGREES = 40;
 
 /**
+ * 🎯 THE SAME NUMBERS ARE WRONG WHEN THERE IS NOBODY TO LOOK AWAY FROM — §1.7, a number carrying a
+ * frame of reference, and the frame this one carries is A CONVERSATION.
+ *
+ * 🚩 THE MEASUREMENT FIRST, because it is worse than it sounds. On the stack `alive.js` builds, at
+ * seed 1 over 420 s at 30 Hz, in the IDLE state: the gaze head's yaw has a median MAGNITUDE of
+ * **19.29 degrees**, a p90 of 41.68 and a peak of 53.75; it is past five degrees on **81% of
+ * frames**; and it sweeps **63.27 degrees inside a median 15-second window**. Measured on the head
+ * band's vertex centroid at full-body framing, that takes the band from **10.7 px with gaze off to
+ * 48.1 px with it on** — a head/hip ratio of 3.90 against Sway's own 0.87. A silent figure waiting
+ * is not looking around a room, and this one was.
+ *
+ * The cause is not the recruitment threshold and not the head share. Both are right, and both are
+ * doing exactly what they say. The cause is that **85% of idle gaze acts are aversions**
+ * (`GAZE_TOWARD_PROBABILITY.idle` = 0.15) and every aversion is 15-40 degrees off axis — so the
+ * gaze shift exceeds the 12-degree recruitment threshold on nearly every act, and the head is
+ * recruited as the RULE rather than as the exception it is supposed to be.
+ *
+ * Those two constants are the pair that has to be read together. 15-40 degrees is the size of
+ * BREAKING MUTUAL GAZE with an interlocutor — the thing Kendon and BEAT measured — and 0.15 is
+ * marked TUNABLE precisely because "no partner engaged, so no literature figure applies". Applying
+ * a conversational aversion amplitude at an idle aversion RATE is the category error; either one on
+ * its own is fine.
+ *
+ * 🎯 SO THE IDLE AVERSION IS RE-ANCHORED ON THIS FILE'S OWN TWO BOUNDARIES, and it introduces no
+ * new magnitude:
+ *
+ *   THE FLOOR is the exploratory ceiling. The original comment already gives this rule — the
+ *   offsets "start beyond the exploratory range so that an aversion cannot be mistaken for a scan"
+ *   — and 15 was a round number chosen to satisfy it. Stating it as the rule rather than as the
+ *   number keeps the argument and drops the slack.
+ *
+ *   THE CEILING is chosen so that the range's MIDPOINT lands exactly on the head-recruitment
+ *   threshold, which is the rule: about half of idle aversions are eyes-only and about half recruit
+ *   a little head. On this asset that is 9 to 15 degrees, and 1.25 is what
+ *   `(exploratoryCeiling + k x threshold) / 2 = threshold` gives for a 9-degree floor and a
+ *   12-degree threshold. It is computed per asset, so a figure with a different eye range moves it.
+ *
+ * 🎯 MEASURED, same stack, same seed, same window. Median head-yaw magnitude **19.29 -> 6.98
+ * degrees**, frames past five degrees **81% -> 53%**, the 15-second sweep **63.27 -> 26.14
+ * degrees**, and the head band **48.1 -> 25.0 px** against Sway's own 10.7. Attribution is by
+ * toggle: `idleAversionScaled: false` reproduces every one of the first numbers.
+ *
+ * 🚩 AND IT IS DEFAULT OFF, BECAUSE IT UNCOVERS A FRAME COUPLING THAT WAS UNREACHABLE BEFORE IT.
+ * This is the honest half of the finding and it is the more valuable one.
+ *
+ * `advanceAxisRecentring` has two paths. When the shift ALREADY recruited the head
+ * (`commandedRelief > 0`) the hand-over is instant and exact. When it did not, a 12 deg/s ramp runs
+ * after a 0.3 s latency, and that ramp's eccentricity clock is accumulated over each sub-step from
+ * state sampled at the END of it — a residue `advanceOcularState`'s own header records as
+ * "bounded by dt and neither accumulates", accepted, and never measured. It was never measured
+ * because **it was unreachable**: every idle aversion was 15-40 degrees against a 12-degree
+ * recruitment threshold, so `commandedRelief > 0` on essentially every act and the ramp path never
+ * ran. Re-anchoring the aversion puts about half the acts on it.
+ *
+ * Measured, `Gaze.selftest.mjs`'s invariance section, 3 seeds x 300 s: worst head disagreement at
+ * 30/60/120 Hz goes from **0.2794 mm (0.187 px) to 2.0417 mm (1.366 px)** against a 0.5 mm
+ * tolerance, and the eyes from 0.0816 to 1.4000 degrees against 0.2. At a ceiling of 2 rather than
+ * 1.25 it is worse, not better — 3.3012 mm — which rules out "the median aversion sits on the
+ * threshold kink" as the cause. A control run through the same new code path with the range put
+ * back to 15-39 degrees scores 0.2794 mm and passes, which is what pins the cause to the RAMP PATH
+ * rather than to the change.
+ *
+ * ⚠️ TWO FIXES WERE TRIED BY EXECUTION AND NEITHER CLOSED IT, recorded so the next attempt does not
+ * repeat them: cutting the sub-step at the hand-over latency's maturity (identical to the digit,
+ * 3.3012 mm — so the LATENCY is not what is late), and moving `advanceHeadRecentring` before
+ * `fireEventTransitions` so the step is aged against the target that held during it (WORSE,
+ * 3.8587 mm). The next thing to look at is what `wantedDegrees` and `commandedRelief` are doing
+ * across a step boundary in the frames where the ramp actually runs.
+ *
+ * Shipping a known frame coupling to fix an amplitude trades §1.13 for §1.10b, and §1.13 cost this
+ * project more. So the mechanism is here, measured, toggleable and OFF.
+ *
+ * ⚠️ AND IT DOES NOT CLOSE THE HEAD/PELVIS RATIO, WHICH IS A SEPARATE FINDING AND IS RECORDED
+ * RATHER THAN TUNED AWAY. Sway alone measures head 10.7 px against hip 12.4 px on the same bands —
+ * the pelvis already leads by 0.87 — so the composite has **1.7 px of headroom** before the ratio
+ * passes 1.0. No amount of gaze that a viewer can see fits inside 1.7 px. A head/pelvis ceiling of
+ * 1.0 stated on the COMPOSITE band is therefore a gate on two processes at once and cannot be met
+ * by any figure that also looks around; it belongs on the postural layer, where it already lives
+ * and already passes. §1.7b, with a ratio instead of an amplitude.
+ *
+ * What IS gateable, and now is, is this layer's own head amplitude in idle — the numbers above.
+ *
+ * ⚠️ IDLE ONLY. `speaking` and `listening` keep 15-40 degrees exactly, because there the aversion
+ * IS a break of mutual gaze and Kendon's proportions are what it is measured against. `Gaze.js`
+ * has been burned once already by letting one regime's number speak for another (§1.7b).
+ */
+const IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS = 1.25;
+
+/**
  * TUNABLE. The vertical half of an aversion, as a fraction of the asset's own vertical eye
  * range rather than as a fixed angle. Written this way because the number that matters is how
  * much of the eye's travel an aversion spends, and that is a property of the asset: the same
@@ -507,6 +596,11 @@ export class Gaze extends Layer {
      *   runtime through `setPartnerDirection()`, but only the option survives `reset()`.
      * @param {number} [options.partnerPitchDegrees=0]
      * @param {string} [options.conversationState='idle']
+     * @param {boolean} [options.idleAversionScaled=false] - Whether an IDLE aversion is bounded by
+     *   this asset's head-recruitment threshold rather than by Kendon's conversational 15-40
+     *   degrees. ⚠️ DEFAULT OFF: it fixes a measured amplitude defect and exposes a measured frame
+     *   coupling in the recentring hand-over. Both numbers, and the reproduction, are under
+     *   IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS.
      * @param {number} [options.vestibuloOcularGain=1]
      * @param {Object} [options.eyeExcursionDegrees] - Override the measured morph excursions.
      * @param {string} [options.headBoneName='head']
@@ -1183,9 +1277,10 @@ export class Gaze extends Layer {
         } else {
 
             const side = this.random.chance( 0.5 ) ? 1 : -1;
+            const yaw = this.aversionYawRangeDegrees();
 
             this.regionCentreYawDegrees = this.partnerYawDegrees + side *
-                this.random.range( AVERSION_YAW_MINIMUM_DEGREES, AVERSION_YAW_MAXIMUM_DEGREES );
+                this.random.range( yaw.minimum, yaw.maximum );
 
             const spread = AVERSION_PITCH_FRACTION_OF_EYE_RANGE;
 
@@ -1195,6 +1290,32 @@ export class Gaze extends Layer {
         }
 
         this.scheduleGazeShift( this.regionCentreYawDegrees, this.regionCentrePitchDegrees, true );
+
+    }
+
+    /**
+     * How far off axis an aversion goes, which is NOT one range — see
+     * IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS.
+     *
+     * In conversation it is Kendon's break of mutual gaze, 15-40 degrees. In idle there is nobody
+     * to break gaze with, and the same numbers recruit the head on nearly every act; the idle range
+     * is therefore bounded by this file's own two landmarks — the exploratory ceiling below and
+     * twice the head-recruitment threshold above — so that a head turn is the exception again.
+     */
+    aversionYawRangeDegrees() {
+
+        if ( this.conversationState !== 'idle' || this.idleAversionScaled === false ) {
+
+            return { minimum: AVERSION_YAW_MINIMUM_DEGREES, maximum: AVERSION_YAW_MAXIMUM_DEGREES };
+
+        }
+
+        const threshold = this.headRecruitmentThresholdDegrees( this.horizontalEyeRangeDegrees() );
+
+        return {
+            minimum: EXPLORATORY_SACCADE_MAXIMUM_DEGREES,
+            maximum: IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS * threshold
+        };
 
     }
 
@@ -1854,6 +1975,15 @@ export class Gaze extends Layer {
     resetState( options ) {
 
         this.conversationState = options.conversationState ?? 'idle';
+
+        // 🚩 DEFAULT OFF, AND THE REASON IS NOT THAT IT IS WRONG. Turning it on fixes the head
+        // amplitude and takes this layer's own frame-rate invariance gate RED — 0.28 mm at 30/60/
+        // 120 Hz becomes 2.04 mm against a 0.5 mm tolerance, which is 1.37 px, close to this
+        // project's 1.6 px visibility floor. See IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS
+        // for the whole finding and for the two fixes that were tried and did not close it.
+        // Shipping a known frame coupling to fix an amplitude is trading LEARNINGS §1.13 for §1.10b,
+        // and §1.13 cost more. Flip this the moment the recentring hand-over is invariant.
+        this.idleAversionScaled = options.idleAversionScaled ?? false;
         this.discourse = null;
         this.fluency = null;
 

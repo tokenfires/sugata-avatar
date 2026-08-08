@@ -473,6 +473,93 @@ for ( const name of CHANNELS ) {
 gate( 'lid series difference, same seed', largestDifference, 0, 0, 'bit-identical' );
 gate( 'channel RMS difference, same seed', channelDifference, 0, 0, 'bit-identical' );
 
+// --- frame-rate invariance -------------------------------------------------------------------------------
+
+/**
+ * 🎯 THE SAME SEED AT 30, 60 AND 120 Hz MUST PRODUCE THE SAME FACE — punch-list 2.11, and the gate
+ * LEARNINGS §1.13 says every layer needs.
+ *
+ * The layer used to ask `poissonEventOccurs(rate, dt)` once per frame per event kind, off ONE
+ * shared stream. Two things were wrong with that and only the first is famous: the stream is
+ * advanced by the renderer rather than by the face, AND the four kinds interleaved their draws in
+ * whatever order they happened to fire, so which frame a brow raise landed in decided the sequence
+ * for the other three. The fix is one `PoissonSchedule` per kind on its own forked stream, plus
+ * cutting the frame at each arrival and at each event's END — the refractory window was the second
+ * coupling and converting the arrivals alone would have left it.
+ *
+ * Compared at the instants the three rates SHARE, which is every 30 Hz frame boundary. The layer
+ * is run alone against a stub target: its neighbours are already invariant, and attribution by
+ * isolation beats attribution by argument.
+ */
+section( 'frame-rate invariance — the same seed at 30, 60 and 120 Hz' );
+
+const INVARIANCE_SECONDS = 600;
+const INVARIANCE_RATES = [ 30, 60, 120 ];
+
+/**
+ * The tolerance. Every quantity compared is a morph weight on [0, 1] and every one of them is a
+ * pure function of an event's `elapsed / duration`, so a converted layer agrees to float dust and
+ * anything larger is a real re-ordering. 1e-9 is six orders of magnitude below the smallest
+ * channel amplitude this file gates (0.002 RMS) and six above the double-precision noise floor of
+ * a 600 s accumulation.
+ */
+const INVARIANCE_TOLERANCE = 1e-9;
+
+const invariance = INVARIANCE_RATES.map( ( rate ) => traceAtRate( rate, INVARIANCE_SECONDS, {} ) );
+const coupled = INVARIANCE_RATES.map( ( rate ) => traceAtRate( rate, INVARIANCE_SECONDS, { frameCoupledArrivals: true } ) );
+
+console.log( '' );
+console.log( '          rate   browRaise   browFurrow   lipPress   swallow   worst channel vs 60 Hz' );
+
+for ( let index = 0; index < INVARIANCE_RATES.length; index ++ ) {
+
+    const trace = invariance[ index ];
+
+    console.log( `        ${ String( INVARIANCE_RATES[ index ] ).padStart( 4 ) } Hz   ` +
+        [ 'browRaise', 'browFurrow', 'lipPress', 'swallow' ]
+            .map( ( kind, column ) => String( trace.eventCounts[ kind ] ).padStart( [ 9, 10, 8, 7 ][ column ] ) ).join( '   ' ) +
+        `   ${ worstAgainst( trace, invariance[ 1 ] ).toExponential( 2 ).padStart( 22 ) }` );
+
+}
+
+console.log( '' );
+
+const worstDivergence = Math.max( ...invariance.map( ( trace ) => worstAgainst( trace, invariance[ 1 ] ) ) );
+const coupledDivergence = Math.max( ...coupled.map( ( trace ) => worstAgainst( trace, coupled[ 1 ] ) ) );
+
+gate( 'worst channel divergence, 30/60/120 Hz', worstDivergence, 0, INVARIANCE_TOLERANCE,
+    `every declared channel, every shared instant, over ${ INVARIANCE_SECONDS } s` );
+
+const eventCountsAgree = EVENT_KINDS.every( ( kind ) =>
+    invariance.every( ( trace ) => trace.eventCounts[ kind ] === invariance[ 0 ].eventCounts[ kind ] ) );
+
+gate( 'event counts identical at every frame rate', eventCountsAgree ? 1 : 0, 1, 1,
+    EVENT_KINDS.map( ( kind ) => `${ kind } ${ invariance.map( ( t ) => t.eventCounts[ kind ] ).join( '/' ) }` ).join( ', ' ) );
+
+// §1.1 — the gate is proven against the defect itself, rebuilt behind an option, rather than
+// against a model of it.
+gate( 'the gate REJECTS frame-coupled arrivals', coupledDivergence > INVARIANCE_TOLERANCE ? 1 : 0, 1, 1,
+    `the per-frame coin diverges by ${ coupledDivergence.toExponential( 2 ) }` );
+
+gate( 'and by a real margin (x the tolerance)', coupledDivergence / INVARIANCE_TOLERANCE, 1e6, 1e18,
+    'the error has to be large enough that the tolerance is not what decided it' );
+
+// 🚩 RECORDED AS A GATE, §1.13: a rate gate is structurally blind to this defect, and saying so
+// once in prose is not enough — the next audit will reach for a count.
+//
+// Stated in units of the sampling error rather than as a percentage, because these are Poisson
+// counts and a percentage means something different at 5 events than at 39. The difference of two
+// independent Poisson counts has standard deviation sqrt(N1 + N2), so the 30-vs-120 Hz gap is
+// divided by that. Under 3 is "a rate gate cannot tell these two runs apart."
+const coupledCounts = EVENT_KINDS.map( ( kind ) => coupled.map( ( trace ) => trace.eventCounts[ kind ] ) );
+
+const rateSigmas = coupledCounts.map( ( counts ) =>
+    Math.abs( counts[ 0 ] - counts[ 2 ] ) / Math.sqrt( Math.max( counts[ 0 ] + counts[ 2 ], 1 ) ) );
+
+gate( 'a RATE gate would NOT have caught it (worst, sigma)', Math.max( ...rateSigmas ), 0, 3,
+    `recorded, not tolerated: ${ EVENT_KINDS.map( ( kind, index ) => `${ kind } ${ coupledCounts[ index ].join( '/' ) }` ).join( ', ' ) } ` +
+    '— every 30-vs-120 Hz gap inside Poisson sampling error while the trajectory is a different one' );
+
 section( 'stack' );
 
 console.log( run.stack.describeConflicts().split( '\n' ).map( ( line ) => `  ${ line }` ).join( '\n' ) );
@@ -499,6 +586,59 @@ function runEventsOnly( durationSeconds ) {
     for ( let frameIndex = 0; frameIndex < frames; frameIndex ++ ) stack.update( FRAME_SECONDS );
 
     return { eventCounts: { ...facialIdle.eventCounts } };
+
+}
+
+/**
+ * FacialIdle alone at one frame rate, sampled only at the instants every rate SHARES.
+ *
+ * Sampled after the 30 Hz boundary rather than every frame, because comparing a 120 Hz trace to a
+ * 30 Hz one frame for frame compares different instants and would fail on a perfectly invariant
+ * layer. The slowest rate's boundaries are the common grid.
+ */
+function traceAtRate( rateHz, durationSeconds, options ) {
+
+    const stack = new MotionStack( { seed: SEED } );
+    const facialIdle = new FacialIdle( options );
+
+    stack.add( facialIdle );
+    stack.bind( createStubTarget( CHANNELS ) );
+
+    const substeps = Math.round( rateHz / INVARIANCE_RATES[ 0 ] );
+    const samples = Math.round( durationSeconds * INVARIANCE_RATES[ 0 ] );
+    const series = new Map( CHANNELS.map( ( name ) => [ name, new Float64Array( samples ) ] ) );
+
+    for ( let sample = 0; sample < samples; sample ++ ) {
+
+        for ( let step = 0; step < substeps; step ++ ) stack.update( 1 / rateHz );
+
+        for ( const name of CHANNELS ) series.get( name )[ sample ] = facialIdle.contribution.morphs.get( name ) ?? 0;
+
+    }
+
+    return { series, eventCounts: { ...facialIdle.eventCounts } };
+
+}
+
+/** The worst disagreement between two traces, over every channel and every shared instant. */
+function worstAgainst( trace, reference ) {
+
+    let worst = 0;
+
+    for ( const name of CHANNELS ) {
+
+        const mine = trace.series.get( name );
+        const theirs = reference.series.get( name );
+
+        for ( let index = 0; index < mine.length; index ++ ) {
+
+            worst = Math.max( worst, Math.abs( mine[ index ] - theirs[ index ] ) );
+
+        }
+
+    }
+
+    return worst;
 
 }
 

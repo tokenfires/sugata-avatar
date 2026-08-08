@@ -149,16 +149,37 @@ export class MotionRandom {
      * bounds exist because physiology has floors the mathematics does not: the intersaccadic
      * interval never drops below ~150 ms however the die falls.
      *
+     * 🚩 AN EXPONENTIAL IS ALMOST SURELY POSITIVE AND THIS ONE WAS NOT, AND THE COST IS A HANG.
+     * `next()` returns `t / 2^32` and `t` can be exactly 0, so `1 - next()` can be exactly 1 and
+     * the sample exactly 0. A zero drawn by `PoissonSchedule` at CONSTRUCTION or RESET leaves
+     * `waiting` at 0 forever: `secondsUntilArrival` returns 0, a caller that cuts its frame at the
+     * arrival takes a step of 0, and `advance` returns on its own `seconds <= 0` guard without
+     * consuming anything. Reproduced on the caller shape `Blink.advanceTimeline` and
+     * `Sway.advanceAxis` both use — 1,000,000 iterations for a single 1/30 s frame with
+     * `remaining` still exactly 0.03333333333333333. (Mid-stream zeros self-heal, because
+     * `advance`'s inner `while` redraws; construction and reset have no such loop.)
+     *
+     * The zero is rejected rather than nudged, exactly as `gaussian` above rejects its own, and on
+     * the COMPLEMENT rather than on `next()` so that every non-degenerate draw maps to the value it
+     * always did. Rejecting costs one extra draw with probability 2^-32; a redrawn stream would
+     * have cost every gate in the repo its measured numbers. The smallest surviving sample is
+     * `meanSeconds × 2.33e-10`, which is still three orders of magnitude above `WAIT_EPSILON`, so
+     * the schedule makes progress rather than merely avoiding the exact zero.
+     *
      * @param {number} meanSeconds - The distribution's mean, i.e. 1 / rate.
      * @param {Object} [bounds]
      * @param {number} [bounds.min=0] - Hard floor applied after sampling.
      * @param {number} [bounds.max=Infinity] - Hard ceiling applied after sampling.
-     * @returns {number} Seconds.
+     * @returns {number} Seconds. Strictly positive for a positive mean, whatever the draw.
      */
     exponential( meanSeconds, bounds = {} ) {
 
-        // 1 - next() lands in (0, 1], which keeps log() finite at both ends of the draw.
-        const sample = -meanSeconds * Math.log( 1 - this.next() );
+        // 1 - next() lands in (0, 1], which keeps log() finite at both ends of the draw. The
+        // closed end is the degenerate one — log(1) is 0 — so it is redrawn.
+        let complement = 1 - this.next();
+        while ( complement === 1 ) complement = 1 - this.next();
+
+        const sample = -meanSeconds * Math.log( complement );
 
         const min = bounds.min ?? 0;
         const max = bounds.max ?? Infinity;
@@ -203,8 +224,11 @@ export class MotionRandom {
      * 🎯 USE `PoissonSchedule` INSTEAD for anything a viewer will see. This is kept for a caller
      * that genuinely only wants a per-frame coin — and there is no such caller in the motion stack.
      *
-     * Converted so far: `Sway`, `BodyIdle`, `Gaze`. Still on the per-frame coin, and still carrying
-     * the defect: `FacialIdle`, `HandIdle` (punch-list 2.11).
+     * 🎯 EVERY LAYER IN THE STACK IS CONVERTED: `Sway`, `BodyIdle`, `Gaze`, `FacialIdle`,
+     * `HandIdle` — and `Blink`, which coupled through a countdown rather than through this call
+     * (§1.13a). The only remaining callers are the `frameCoupledArrivals` rebuilds each layer keeps
+     * behind an option so its invariance gate has a defect to reject. If a new caller appears
+     * outside such a branch, it is a regression.
      *
      * ⚠️ AND CONVERTING THE ARRIVALS IS NOT THE WHOLE JOB. `Gaze` swapped this call for a schedule
      * and was still 905× outside its own invariance tolerance, because arrivals are only one of the

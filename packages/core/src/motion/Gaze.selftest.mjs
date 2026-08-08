@@ -1611,6 +1611,91 @@ function measureBlinkCoOccurrence( { coupled, seed = 11, seconds = 300 } ) {
         }
     }
 
+    // --- how far the head TURNS in idle, which is a different claim from how far it TRAVELS ------
+    //
+    // 🎯 The section above gates head SLIDE — the joint must not translate. Nothing gated how far
+    // the head ROTATES, and a visual judge reported the head out-travelling the pelvis. Measured on
+    // this layer at seed 1 over 420 s: the head yaw's median MAGNITUDE is 19.29 degrees, it is past
+    // five degrees on 81% of frames, and it sweeps 63 degrees inside a median 15-second window. A
+    // silent figure waiting is not looking around a room.
+    //
+    // ⚠️ BOTH STATES ARE MEASURED AND ONLY ONE IS GATED, deliberately. `idleAversionScaled` fixes
+    // the amplitude and takes the FRAME-RATE INVARIANCE section red; it ships OFF for that reason,
+    // and the amplitude is therefore a RECORDED SHORTFALL rather than a passing gate. Recording it
+    // as a gate is what stops the next reader assuming the head amplitude is settled.
+    {
+        const IDLE_SECONDS = 420;
+        const measured = {};
+
+        for ( const scaled of [ false, true ] ) {
+
+            restorePose( posedRest );
+
+            const stack = new MotionStack( { seed: 1 } );
+            stack.bind( createMotionTarget( figureRoot ) );
+
+            const gaze = new Gaze( {
+                rigRoot: figureRoot,
+                partnerYawDegrees: CAMERA_AZIMUTH_DEGREES,
+                idleAversionScaled: scaled
+            } );
+
+            stack.add( gaze.head );
+            stack.add( gaze );
+
+            const magnitudes = [];
+            let pastFive = 0;
+
+            for ( let frame = 0; frame < IDLE_SECONDS * 30; frame ++ ) {
+
+                stack.update( 1 / 30 );
+
+                const magnitude = Math.abs( gaze.headYawDegrees );
+
+                magnitudes.push( magnitude );
+                if ( magnitude > 5 ) pastFive ++;
+
+            }
+
+            stack.dispose();
+
+            magnitudes.sort( ( a, b ) => a - b );
+
+            measured[ scaled ? 'scaled' : 'shipped' ] = {
+                median: magnitudes[ Math.floor( 0.5 * magnitudes.length ) ],
+                p90: magnitudes[ Math.floor( 0.9 * magnitudes.length ) ],
+                pastFivePercent: 100 * pastFive / magnitudes.length
+            };
+
+        }
+
+        lines.push( `  idle head yaw |deg|, ${ IDLE_SECONDS } s at seed 1:` );
+
+        for ( const [ label, report ] of Object.entries( measured ) ) {
+
+            lines.push( `    ${ label.padEnd( 8 ) } median ${ report.median.toFixed( 2 ) }, ` +
+                `p90 ${ report.p90.toFixed( 2 ) }, past 5 deg on ${ report.pastFivePercent.toFixed( 1 ) }% of frames` );
+
+        }
+
+        // The forward claim, on the state that is actually shipped, stated as the shortfall it is.
+        check( 'idle head yaw: RECORDED SHORTFALL — the shipped default is past 5 deg on most frames',
+            measured.shipped.pastFivePercent > 50,
+            `${ measured.shipped.pastFivePercent.toFixed( 1 ) }% of frames, median ` +
+            `${ measured.shipped.median.toFixed( 2 ) } deg. Recorded, not tolerated: head recruitment ` +
+            'is supposed to be the exception. See IDLE_AVERSION_CEILING_IN_RECRUITMENT_THRESHOLDS' );
+
+        // And the fix is measured beside it, so the size of the available win is a number rather
+        // than a claim in a comment.
+        check( 'idle head yaw: the available fix is measured, not asserted',
+            measured.scaled.median < 0.5 * measured.shipped.median,
+            `idleAversionScaled halves it: median ${ measured.shipped.median.toFixed( 2 ) } -> ` +
+            `${ measured.scaled.median.toFixed( 2 ) } deg, past-5 ${ measured.shipped.pastFivePercent.toFixed( 1 ) } -> ` +
+            `${ measured.scaled.pastFivePercent.toFixed( 1 ) }%. It is OFF because it takes the ` +
+            'invariance section red; see the constant' );
+
+    }
+
     lines.push( '' );
 
     // Leave the rig in the bind pose the rest of this file was written against.

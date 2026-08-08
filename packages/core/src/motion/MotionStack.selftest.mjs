@@ -26,7 +26,7 @@ import { Euler, Quaternion } from 'three';
 
 import { Layer } from './Layer.js';
 import { MotionStack, MOTION_ORDER, createMotionTarget } from './MotionStack.js';
-import { MotionRandom, CoherentNoise1D } from './Signals.js';
+import { MotionRandom, CoherentNoise1D, PoissonSchedule } from './Signals.js';
 
 // three's GLTFLoader assumes a browser when it decodes embedded textures. Nothing here looks at a
 // pixel, so the two smallest possible stubs get the loader as far as the morph and skin data.
@@ -508,6 +508,64 @@ check( 'figure exposes the skeleton', target.getBone( 'neck_01' ) !== null && ta
         `mean ${ observedMean.toFixed( 5 ) } s against ${ meanSeconds } s` );
 
     check( 'exponential() respects its floor', sampler.exponential( 0.4, { min: 0.15 } ) >= 0.15 );
+
+    // 🎯 THE FORCED-ZERO DRAW. `next()` returns `t / 2^32` and `t` can be exactly 0, so the
+    // complement can be exactly 1 and the sample exactly 0 — an exponential is almost surely
+    // positive and this one was not. The consequence is not a wrong number, it is a HANG: a
+    // `PoissonSchedule` whose `waiting` is 0 hands its caller a step of 0 forever.
+    //
+    // Forced rather than waited for. 2^-32 per draw is unreachable in a test and inevitable in a
+    // long run, which is the whole shape of this defect.
+    const zeroFirst = new MotionRandom( 1 );
+    let zerosLeft = 1;
+    const realNext = zeroFirst.next.bind( zeroFirst );
+    zeroFirst.next = () => ( zerosLeft -- > 0 ? 0 : realNext() );
+
+    check( 'exponential() never returns zero, even on a zero draw', zeroFirst.exponential( 1 ) > 0,
+        'an exponential is almost surely positive; a zero here hangs every PoissonSchedule caller' );
+
+    // The caller shape verbatim: `Blink.advanceTimeline` and `Sway.advanceAxis` both cut the frame
+    // at the arrival, which is what turns a zero wait into a step of zero.
+    const spinCount = ( schedule, rate ) => {
+
+        let remaining = 1 / 30;
+        let iterations = 0;
+
+        while ( remaining > 0 && iterations < 1e6 ) {
+
+            const step = Math.min( remaining, schedule.secondsUntilArrival( rate ) );
+            schedule.advance( rate, step );
+            remaining -= step;
+            iterations ++;
+
+        }
+
+        return iterations;
+
+    };
+
+    zerosLeft = 1;
+    const zeroDrawnAtConstruction = new PoissonSchedule( zeroFirst );
+
+    check( 'a schedule built on a zero draw still advances a frame',
+        spinCount( zeroDrawnAtConstruction, 0.02 ) < 10,
+        `${ spinCount( new PoissonSchedule( new MotionRandom( 7 ) ), 0.02 ) } iterations for a normal draw` );
+
+    zerosLeft = 1;
+    const zeroDrawnAtReset = new PoissonSchedule( new MotionRandom( 7 ) );
+    zeroDrawnAtReset.random = zeroFirst;
+    zeroDrawnAtReset.reset();
+
+    check( 'and so does one that drew a zero on reset()', spinCount( zeroDrawnAtReset, 0.02 ) < 10 );
+
+    // §1.1 — the known-bad direction. `waiting = 0` IS the pre-fix state, so the gate is proven
+    // against the defect itself rather than against a model of it. 1e6 is the spin cap above.
+    const hung = new PoissonSchedule( new MotionRandom( 7 ) );
+    hung.waiting = 0;
+
+    check( 'the gate REJECTS a schedule parked at zero wait', spinCount( hung, 0.02 ) === 1e6,
+        'the state the constructor could reach before the fix: 1e6 iterations for one 1/30 s frame, ' +
+        'with `remaining` never decreasing' );
 
     // Poisson event timing: at 20 blinks/min over 30 simulated minutes, expect ~600 events.
     // sqrt(600) ~ 24.5, so +/-12% is about 3 sigma.
