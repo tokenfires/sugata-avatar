@@ -74,6 +74,27 @@ const TARGETS = {
   keyShadowRatioMax: 2.0,
   keyShadowReferenceLinear: [1.43, 1.64],
 
+  // 🎯 G1 IS TWO-SIDED, AND IT WAS NOT UNTIL 2026-08-08. It asserted `< 2.00` alone, so a render
+  // at 1.344 linear — a fifth flatter than anything either reference asset measures — read green
+  // against a reference band of 1.43–1.64. That is not a near miss on a tolerance; it is the gate
+  // being structurally unable to see half of its own failure mode, which is §1.11's shape (the
+  // right response to "my gate cannot catch this" is a structurally different assertion) applied
+  // to a direction rather than to a quantity.
+  //
+  // The floor is the reference band's own lower edge and is not a new constant: 1.43 linear is
+  // the second published asset's 1.18 encoded, the same derivation the ceiling comment above
+  // already carries. The spec states it twice and independently — the rig section gives
+  // "KEY : FILL on face 1.2:1 to 2.0:1", a range with two ends, and the checklist gives "< 2:1",
+  // one end of it. Only the second was ever transcribed into a gate.
+  //
+  // Why a floor is not pedantry here: the spec's whole first finding is that the face is
+  // DELIBERATELY flat-lit and that form is then carried by rim/kicker and a warm/cool hue split.
+  // Flatter than the reference is not "safely inside the ceiling" — it is a face with no form at
+  // all, and the ceiling cannot say so. Full-body framing on this project currently measures
+  // 1.21, which PROGRESS recorded in prose as a known trade; a gate is where a known trade
+  // belongs, so it now reads RED and says which side it is on.
+  keyShadowRatioMin: 1.43,
+
   // §2 eyes: sclera measured 0.483 against cheek 0.492 = 0.98×. Judged ENCODED — it is a
   // "reads as the same brightness" test and 0.98 is the encoded figure the spec published.
   scleraCheekRatio: 0.98,
@@ -145,10 +166,34 @@ const TARGETS = {
   //             full reference-separation on the WRONG side and still be in the family; two
   //             cannot. Recomputed at run time from the hexes, never transcribed.
   //
-  // Symmetric about red by construction, because hueDistanceFromRed is: an orange sclera 30° above
-  // red and a magenta one 30° below are equally far outside the reference's family, and the gate
-  // says so with one number instead of two. That is the same primitive and the same reasoning G3
-  // uses for the terminator — reused, not re-derived.
+  //   SIDE — the sclera sits on the SAME side of red as the cheek beside it. Added 2026-08-08,
+  //             and it is what closes the fold the clause above opens. `hueDistanceFromRed`
+  //             returns `min(hue, 360 − hue)`, so it throws the side away: an orange sclera 3°
+  //             above red and a magenta one 3° below score the same 3°. The clause above was
+  //             defended on exactly that symmetry — "equally far outside the reference's family,
+  //             and the gate says so with one number instead of two" — and the defence is wrong
+  //             about the reference. **The spec's two published hexes are on the SAME side of
+  //             red**: sclera #9D7274 at 357.209° and cheek #96767D at 346.875° are both
+  //             magenta-of-red, 2.791° and 13.125° below it. Co-siding is a measured property of
+  //             the published palette, not an absolute band anyone invented, so the gate is
+  //             entitled to assert it — relationally, like the other three clauses, against this
+  //             plate's own cheek rather than against the reference's absolute side.
+  //
+  //             What it catches that nothing else does: a magenta sclera beside orange skin. On
+  //             this project's own plate the cheek sits at hue 15.30° (orange-of-red) and the
+  //             sclera at 11.59°, so the render is on the opposite side of red from the reference
+  //             and G2 does not care — correctly, because G2 is about the eye against the skin
+  //             beside it and skin hue is G3's axis. But a sclera at hue 357° beside that same
+  //             15.30° cheek would score 3° from red against a 15.30° ceiling, sail through the
+  //             ordinal by a wide margin, and be a pink-magenta eyeball in an orange-lit face.
+  //             Measured on a synthesised plate: hue 348.4° sclera, ordinal 11.6° against a
+  //             25.6° ceiling — PASSES the ordinal, caught only by the side clause.
+  //
+  // Three axes, four clauses, and the fourth is not a fourth axis: SIDE and ORDINAL are the two
+  // halves of one signed hue comparison that `hueDistanceFromRed` had folded into one unsigned
+  // number. Same primitive G3 uses — but G3 asks whether ONE patch moved towards red between two
+  // states, where G2 compares TWO patches in one state, and a fold is harmless in the first case
+  // and lossy in the second.
   //
   // ⚠️ The hue clause does NOT catch grey, and must not be expected to: rgbToHsv reports hue 0 for
   // a fully desaturated colour, so grey scores 0° from red and sails through. Grey is the ORDINAL
@@ -267,7 +312,15 @@ const G2_SEED_LOTTERY = {
   // The configuration the record is only valid in. All three have to match the plate being
   // measured before the reproduction check below is allowed to say anything: a different page, a
   // different framing or a pre-rolled motion state is a different measurement, not a stale one.
-  pageKey: '/alive.html?bare&freeze',
+  // 🚩 `capture` IS PART OF THE KEY, and leaving it out was a live false-alarm generator.
+  // `?freeze` is INERT under `?capture` — `__SUGATA_STEP__` advances the simulation regardless —
+  // so this record is about a plate ONE SIMULATED FRAME (1/30 s) into motion, with the head
+  // already at 0.83° of gaze yaw. The genuinely frozen plate, `?bare&freeze` with no `?capture`,
+  // is byte-identical across all four of these seeds and reads 0.9200 at every one of them.
+  // Same page, same size, same seeds, two recipes, two answers, and only one of them is a
+  // lottery. LEARNINGS §1.19a.
+  pageKey: '/alive.html?bare&capture&freeze',
+  captureStepsAtThirtyFps: 1,
   pixelWidth: 900,
   pixelHeight: 1200,
   regionsPath: 'tools/critic/regions.lighting-portrait.json',
@@ -472,15 +525,43 @@ function measureKeyShadowRatio(image, regions) {
   const linearRatio = lit.linearLuma / dark.linearLuma;
   const encodedRatio = lit.encodedLuma / dark.encodedLuma;
 
+  // Both ends, and the report says WHICH end — "G1 FAIL" on its own sent an agent at the key
+  // three times before the direction was printed.
+  const failures = [];
+  if (linearRatio >= TARGETS.keyShadowRatioMax) {
+    failures.push(
+      `TOO CONTRASTY: ${round(linearRatio, 4)} linear is at or above the ${TARGETS.keyShadowRatioMax.toFixed(2)} ` +
+        `ceiling — this is western-photoreal lighting (4:1–8:1) creeping in, and the spec's first ` +
+        `finding is that this face is flat-lit`
+    );
+  }
+  if (linearRatio < TARGETS.keyShadowRatioMin) {
+    failures.push(
+      `TOO FLAT: ${round(linearRatio, 4)} linear is below the reference band's floor of ` +
+        `${TARGETS.keyShadowRatioMin.toFixed(2)} — flatter than either published asset ` +
+        `(1.43 and 1.64 linear). Raise the key or drop the fill; form is not being carried by ` +
+        `shadow OR by the rim`
+    );
+  }
+
   return {
     id: 'G1',
     name: 'face key:shadow luma ratio',
-    status: linearRatio < TARGETS.keyShadowRatioMax ? 'PASS' : 'FAIL',
+    status: failures.length === 0 ? 'PASS' : 'FAIL',
     lumaDomain: 'linear',
-    target: `< ${TARGETS.keyShadowRatioMax.toFixed(2)}:1 (reference ${TARGETS.keyShadowReferenceLinear[0]}–${TARGETS.keyShadowReferenceLinear[1]} linear, 1.18–1.25 encoded)`,
+    target:
+      `${TARGETS.keyShadowRatioMin.toFixed(2)}:1 to ${TARGETS.keyShadowRatioMax.toFixed(2)}:1 linear ` +
+      `(reference band ${TARGETS.keyShadowReferenceLinear[0]}–${TARGETS.keyShadowReferenceLinear[1]} linear, ` +
+      `1.18–1.25 encoded) — TWO-SIDED, see TARGETS.keyShadowRatioMin`,
     measured: {
       ratioLinear: round(linearRatio, 4),
       ratioEncoded: round(encodedRatio, 4),
+      side:
+        linearRatio < TARGETS.keyShadowRatioMin ? 'below the reference band'
+          : linearRatio > TARGETS.keyShadowReferenceLinear[1] ? 'above the reference band, under the ceiling'
+            : 'inside the reference band',
+      floorLinear: TARGETS.keyShadowRatioMin,
+      ceilingLinear: TARGETS.keyShadowRatioMax,
       keyLumaLinear: round(lit.linearLuma, 4),
       shadowLumaLinear: round(dark.linearLuma, 4),
       keyLumaEncoded: round(lit.encodedLuma, 4),
@@ -488,7 +569,10 @@ function measureKeyShadowRatio(image, regions) {
       keyHex: lit.hex,
       shadowHex: dark.hex,
     },
-    note: 'Judged in the linear domain: a key:shadow ratio is a ratio of light. The encoded ratio is reported so it can be compared directly against the spec text.',
+    failures,
+    note:
+      'Judged in the linear domain: a key:shadow ratio is a ratio of light. The encoded ratio is reported so it can be compared directly against the spec text. ' +
+      'TWO-SIDED since 2026-08-08 — the old `< 2.00` form passed 1.344 linear, a fifth flatter than the reference band, and a one-sided gate cannot see half its failure mode.',
   };
 }
 
@@ -541,10 +625,34 @@ function measureScleraAgainstCheek(image, regions) {
   }
   if (white.hueDistanceFromRed > hueCeiling) {
     failures.push(
-      `hue clause: the sclera is ${round(white.hueDistanceFromRed, 2)}° from red (hue ` +
+      `hue clause, ORDINAL: the sclera is ${round(white.hueDistanceFromRed, 2)}° from red (hue ` +
         `${round(white.hue, 2)}°, ${white.hex}) — the spec says pink-tinted, and the cheek beside it ` +
         `sits at ${round(skin.hueDistanceFromRed, 2)}°, so the ceiling is ${round(hueCeiling, 2)}° ` +
         `(one reference separation of ${round(reference.hueSeparation, 2)}° of slack)`
+    );
+  }
+  // The clause hueDistanceFromRed cannot state, because it folds the circle. Only meaningful
+  // when both patches carry enough chroma for a hue to exist: rgbToHsv reports 0 for grey, and
+  // grey is the saturation ordinal's job, not this one's.
+  //
+  // The neutral zone around red is the reference SCLERA's own distance from red — 2.791°, the
+  // same measurement the ordinal clause's slack comes from, spent on the other question. A hue
+  // that close to red is red, and asking which side of red red is on has no answer. Deriving the
+  // zone this way rather than choosing one has a property worth asserting: the reference sclera
+  // sits exactly at the boundary, so the clause provably cannot reject the palette it was
+  // derived from.
+  const bothHaveHue = white.saturation >= HUE_SIDE_MINIMUM_SATURATION
+    && skin.saturation >= HUE_SIDE_MINIMUM_SATURATION;
+  const scleraSide = sideOfRed(white.hue, reference.scleraHueFromRed);
+  const cheekSide = sideOfRed(skin.hue, reference.scleraHueFromRed);
+  if (bothHaveHue && scleraSide !== 'red' && cheekSide !== 'red' && scleraSide !== cheekSide) {
+    failures.push(
+      `hue clause, SIDE: the sclera is ${scleraSide}-of-red (hue ${round(white.hue, 2)}°, ` +
+        `${white.hex}) while the cheek beside it is ${cheekSide}-of-red (hue ` +
+        `${round(skin.hue, 2)}°, ${skin.hex}). The spec's own two hexes are on the SAME side ` +
+        `(sclera 357.209°, cheek 346.875°, both magenta-of-red), and the ORDINAL clause above ` +
+        `cannot see this because hueDistanceFromRed folds ±θ onto one number. Neutral zone ` +
+        `±${round(reference.scleraHueFromRed, 3)}° = the reference sclera's own distance from red`
     );
   }
 
@@ -559,7 +667,8 @@ function measureScleraAgainstCheek(image, regions) {
       ` (${round(saturationLow, 3)}–${round(saturationHigh, 3)}×), sclera never below cheek` +
       ` AND hue within ${round(hueCeiling, 2)}° of red` +
       ` (this plate's cheek at ${round(skin.hueDistanceFromRed, 2)}° + the reference's own` +
-      ` ${round(reference.hueSeparation, 2)}° sclera-to-cheek separation)`,
+      ` ${round(reference.hueSeparation, 2)}° sclera-to-cheek separation)` +
+      ` AND on the same side of red as the cheek`,
     measured: {
       ratioEncoded: round(ratio, 4),
       saturationRatio: round(saturationRatio, 4),
@@ -575,6 +684,12 @@ function measureScleraAgainstCheek(image, regions) {
       cheekHue: round(skin.hue, 2),
       scleraHueFromRed: round(white.hueDistanceFromRed, 2),
       cheekHueFromRed: round(skin.hueDistanceFromRed, 2),
+      scleraSignedHueFromRed: round(signedHueFromRed(white.hue), 2),
+      cheekSignedHueFromRed: round(signedHueFromRed(skin.hue), 2),
+      scleraSideOfRed: scleraSide,
+      cheekSideOfRed: cheekSide,
+      hueSideNeutralZone: round(reference.scleraHueFromRed, 3),
+      hueSideClauseApplies: bothHaveHue,
       hueCeilingFromRed: round(hueCeiling, 2),
       referenceHueSeparation: round(reference.hueSeparation, 2),
       referenceScleraHueFromRed: round(reference.scleraHueFromRed, 2),
@@ -591,6 +706,30 @@ function measureScleraAgainstCheek(image, regions) {
       'not copied from its prose. Note the clauses do not cover for each other: grey is caught by the saturation ordinal and scores 0° from red, so the hue clause waves it through.',
   };
 }
+
+// The SIGNED offset of a hue from red, in (−180, +180] — the information `hueDistanceFromRed`
+// throws away by returning `min(hue, 360 − hue)`.
+//
+// Positive is orange-of-red (the arc just above 0°), negative is magenta-of-red (the arc just
+// below 360°). `hueDistanceFromRed` is exactly `Math.abs` of this, so the two are the same
+// primitive with and without its sign, and nothing here re-derives an angle the rest of the file
+// already computes.
+function signedHueFromRed(hue) {
+  const wrapped = ((hue % 360) + 360) % 360;
+  return wrapped > 180 ? wrapped - 360 : wrapped;
+}
+
+function sideOfRed(hue, neutralWithin) {
+  const signed = signedHueFromRed(hue);
+  if (Math.abs(signed) <= neutralWithin) return 'red';
+  return signed > 0 ? 'orange' : 'magenta';
+}
+
+// Below this HSV saturation a hue is not a measurement — rgbToHsv returns 0 for pure grey, and
+// a near-grey patch's hue is quantisation noise. 0.02 is two code values of chroma at mid grey,
+// i.e. the floor at which an 8-bit hue means anything at all; the reference's own patches carry
+// 0.213 and 0.274, an order of magnitude above it, so this can never gate the reference out.
+const HUE_SIDE_MINIMUM_SATURATION = 0.02;
 
 // The reference sclera-to-cheek relationship, derived at run time from the two hexes the spec
 // publishes, so the numbers in the report are a measurement of the reference rather than a
@@ -816,7 +955,9 @@ function measureBlackPoint(image, lumaField, regions) {
     },
     note:
       'Below the band means blacks are crushed; above it means shadow lift, which the reference grade does not have. Measured to 1/65536 via histogram. ' +
-      '⚠️ Whole-image scope makes this a measurement of whatever the darkest 0.1% of the frame happens to BE, not of the grade. On alive.html it read 0.0250 while the backdrop was the darkest thing present, and 0.00001 once the eyelash and eyebrow cards stopped being lit by the rim — same grade, both readings red, neither about the grade. Give it a "frame" region, or read it as belonging to punch-list 3.13.',
+      '⚠️ Whole-image scope makes this a measurement of whatever the darkest 0.1% of the frame happens to BE, not of the grade. On alive.html it read 0.0250 while the backdrop was the darkest thing present, and 0.00001 once the eyelash and eyebrow cards stopped being lit by the rim — same grade, both readings red, neither about the grade. ' +
+      '🚩 AND THE DEEPER PROBLEM IS NOT SCOPE, IT IS THAT THE TARGET WAS MEASURED ON A DIFFERENT KIND OF IMAGE (LEARNINGS §1.7b). The spec\'s 0.004–0.016 comes from four WHOLE GAME FRAMES — "frontal portrait", "3/4 face close-up", "cutscene close-up", "neon action" — each a lit environment whose darkest 0.1% is deep scene shadow in a compressed JPEG, where a true zero cannot occur. A ?bare plate is a character on a flat backdrop card with near-black alpha-tested hair in front of it, and its darkest 0.1% is a lash texel at literally 0. The two populations are not comparable and no choice of rect makes them so: a "frame" region drawn on the backdrop measures the backdrop card\'s own level, which is a rig parameter, not a black point. ' +
+      'Measured 2026-08-08 on alive.html?bare&freeze&seed=1 at 900x1200: shipped 0.00001, ?cards=0 0.00393, ?grade=1 0.00312 — the grade moves it 312x and the cards move it 393x. Until this gate is stated against a plate with an environment in it, read a red G6 on a ?bare plate as UNDECIDED rather than as a black-point defect, and attribute with ?cards=0.',
   };
 }
 
@@ -1166,9 +1307,12 @@ function describeG2SeedLottery(image, provenance, scleraGate, regionsPath) {
     : `recorded ${record.measuredAt} at build ${record.build}`;
 
   const lines = [
-    'G2 samples an 11×6 px rect on an eye ~40 px across. On an animating page ?freeze pins the POSE but not the ' +
-      'ocular or postural layers, whose state at the first frame comes from the seed. On ' +
-      `${record.pageKey} at ${record.pixelWidth}×${record.pixelHeight} (${standing}) G2 luma reads ` +
+    'G2 samples an 11×6 px rect on an eye ~40 px across, so one degree of head yaw walks it onto the iris. ' +
+      '?freeze on the rAF path pins EVERYTHING — four seeds come back byte-identical and all read 0.9200 — ' +
+      'but ?freeze is INERT under ?capture, because __SUGATA_STEP__ advances the simulation regardless. ' +
+      'So a captured "frozen" plate is already in motion and the seed acts. On ' +
+      `${record.pageKey} stepped ${record.captureStepsAtThirtyFps} frame at 30 fps, ` +
+      `${record.pixelWidth}×${record.pixelHeight} (${standing}) G2 luma reads ` +
       `${ratios.map((ratio) => ratio.toFixed(4)).join(' / ')} at seeds ${seeds.join(' / ')} — a ` +
       `${round(spread, 1)}× spread, ${inBand} of ${seeds.length} inside the luma band ${round(low, 2)}–${round(high, 2)}. ` +
       'Quote G2 as a distribution over a seed set, never as one number.',
@@ -1248,8 +1392,16 @@ function canonicalPageKey(page) {
     }
   }
 
+  // 🚩 `capture` USED TO BE STRIPPED HERE, ALONGSIDE `seed`, ON THE GROUND THAT IT IS A DELIVERY
+  // MECHANISM RATHER THAN A RENDERING FLAG. It is not. `alive.js`'s `__SUGATA_STEP__` advances the
+  // simulation whether or not `?freeze` is set, so `?capture` is the flag that decides whether
+  // `?freeze` does anything at all — measured 2026-08-08, `?bare&freeze&capture` is byte-identical
+  // to `?bare&capture` at 1, 4 and 30 steps, while free-running `?bare&freeze` reads G2 0.9200
+  // against the capture recipe's 0.7836 at the same seed. Two recipes, one canonical key, and the
+  // reproduction check below would have called a correct free-running plate a drift.
+  // LEARNINGS §1.19a.
   const flags = [...new URLSearchParams(search).keys()]
-    .filter((key) => key !== 'capture' && key !== 'seed')
+    .filter((key) => key !== 'seed')
     .sort();
 
   return flags.length > 0 ? `${pathname}?${flags.join('&')}` : pathname;

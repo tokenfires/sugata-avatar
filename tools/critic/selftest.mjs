@@ -247,6 +247,55 @@ function testKeyShadowRatio() {
   // quantisation alone moves the ratio by ~0.7%.
   expectClose('G1 constructed 4:1 linear ratio reads back as 4.0', failGate.measured.ratioLinear, 4.0, 0.05);
   expectEqual('G1 photoreal ratio FAILs', failGate.status, 'FAIL');
+  expectEqual('and it says WHICH side, so a reader is not sent at the wrong end',
+    failGate.failures.filter((line) => line.includes('TOO CONTRASTY')).length, 1);
+
+  // 🎯 THE OTHER END, WHICH DID NOT EXIST UNTIL 2026-08-08. G1 asserted `< 2.00` alone, so every
+  // render flatter than the reference read green — including, on this project, 1.344 linear
+  // against a reference band of 1.43–1.64, and the full-body framing at 1.21 which PROGRESS had
+  // recorded in prose as a known trade because no gate could hold it.
+  //
+  // §1.11's shape: the right answer to "my gate cannot catch this" is a structurally different
+  // assertion, and here the structure is a DIRECTION rather than a quantity. A one-sided gate
+  // cannot see half its own failure mode, and the half it cannot see is invisible precisely
+  // because the gate is green.
+  const flatLit = linearToSrgb(0.4) * 255;
+  const flatDark = linearToSrgb(0.4 / 1.344) * 255;
+  const flatPath = writeTestImage(
+    'g1-flatter-than-reference.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? [flatLit, flatLit, flatLit] : [flatDark, flatDark, flatDark]))
+  );
+  const flatGate = gateNamed(measureFile(flatPath, spec), 'G1');
+  expectClose('G1 constructed flat ratio reads back as 1.344', flatGate.measured.ratioLinear, 1.344, 0.02);
+  expectEqual('G1 1.344 is UNDER the old 2.00 ceiling — the old gate called this green',
+    flatGate.measured.ratioLinear < 2.0, true);
+  expectEqual('G1 flatter-than-reference now FAILs', flatGate.status, 'FAIL');
+  expectEqual('and it says TOO FLAT rather than just FAIL',
+    flatGate.failures.filter((line) => line.includes('TOO FLAT')).length, 1);
+
+  // A DIFFERENT defect of the same kind, so the floor is not a gate that only catches the one
+  // number it was written for. Dead flat — key and shadow identical, which is what an unlit
+  // ambient-only render measures and what the OLD inline rig on alive.html actually scored
+  // (key:shadow 0.99 linear, recorded in PROGRESS under punch-list 3.8). The old gate passed it.
+  const deadPath = writeTestImage(
+    'g1-dead-flat.png',
+    200,
+    100,
+    paint(200, 100, () => [flatLit, flatLit, flatLit])
+  );
+  const deadGate = gateNamed(measureFile(deadPath, spec), 'G1');
+  expectClose('G1 dead-flat ratio is 1.0', deadGate.measured.ratioLinear, 1.0, 0.001);
+  expectEqual('G1 dead flat FAILs', deadGate.status, 'FAIL');
+  expectEqual('G1 dead flat is reported as TOO FLAT',
+    deadGate.failures.filter((line) => line.includes('TOO FLAT')).length, 1);
+
+  // And the reference pair must still sit inside, or the floor was set past the thing it was
+  // derived from. 1.6344 linear against a floor of 1.43 — asserted, not assumed.
+  expectEqual('the reference pair is INSIDE the reference band', gate.measured.side, 'inside the reference band');
+  expectEqual('the floor is below the reference pair it was derived from',
+    gate.measured.floorLinear < gate.measured.ratioLinear, true);
 }
 
 // ============================================================================================
@@ -386,11 +435,17 @@ function testScleraRatio() {
     if (swept.status === 'PASS') survivors.push(hue);
   }
 
-  // Only the warm arc survives, and it is the arc the spec's word "pink-tinted" names: red itself,
-  // one step to orange and one step to magenta. Everything from yellow through green, cyan and
-  // blue to purple is gone. Asserted as the exact set rather than as a count, so a future change
-  // that widens or shifts the arc has to come here and say so.
-  expectEqual('G2 hue sweep: only the pink family survives', survivors.join(','), '0,15,345');
+  // Only the warm arc survives, and it is the arc the spec's word "pink-tinted" names.
+  //
+  // ⚠️ THIS SET CHANGED ON 2026-08-08, FROM `0,15,345` TO `0,345`, AND THE CHANGE IS THE POINT.
+  // The synthetic cheek here is the spec's own `#96767D` at hue 346.875° — MAGENTA-of-red. The
+  // old two-clause hue test folded the circle (`hueDistanceFromRed` returns `min(hue, 360−hue)`),
+  // so a sclera at hue 15° scored 15° exactly as one at 345° did, and passed beside a magenta
+  // cheek while being orange. It is the same eyeball-colour defect the whole sweep exists for,
+  // one step around the wheel from the arc that should survive, and the sweep had been printing
+  // it as a survivor for a round. The SIDE clause closes it; 0° is red itself and stays, because
+  // the neutral zone is the reference sclera's own 2.791° from red.
+  expectEqual('G2 hue sweep: only the pink family survives', survivors.join(','), '0,345');
 
   // And name the reported defect explicitly, because a set-equality assertion is easy to read
   // past: a GREEN eyeball at the reference's luma and saturation is the plate that started this.
@@ -406,14 +461,14 @@ function testScleraRatio() {
   expectEqual('G2 green sclera is 120 deg from red', greenGate.measured.scleraHueFromRed, 120);
   expectEqual('G2 green sclera FAILs', greenGate.status, 'FAIL');
   expectEqual(
-    'and ONLY the hue clause catches it — the other two are green on this plate',
-    greenGate.failures.length,
-    1
+    'and ONLY the hue clauses catch it — luma and chroma are green on this plate',
+    greenGate.failures.filter((line) => line.startsWith('hue clause')).length,
+    greenGate.failures.length
   );
   expectEqual(
-    'the hue clause is what catches it',
+    'both hue clauses fire on green: 120 deg from red AND the wrong side of it',
     greenGate.failures.filter((line) => line.startsWith('hue clause')).length,
-    1
+    2
   );
 
   // The ceiling is a MEASUREMENT of the two spec hexes, not a chosen tolerance. Assert both the
@@ -423,6 +478,123 @@ function testScleraRatio() {
   expectClose('G2 reference cheek hue from red', gate.measured.referenceCheekHueFromRed, 13.13, 0.01);
   expectClose('G2 reference hue separation is derived, not typed', gate.measured.referenceHueSeparation, 10.33, 0.01);
   expectClose('G2 hue ceiling = this plate cheek + that separation', gate.measured.hueCeilingFromRed, 23.46, 0.01);
+
+  // 🎯 THE SIDE CLAUSE, PROVEN THREE WAYS. §1.1: a gate that has never failed is not known to
+  // work — and the sharper version, that a gate proved only by the known-bad it was written for
+  // is decorative. So: it must reject the defect it was written for, it must reject a DIFFERENT
+  // defect of the same kind, and it must provably NOT reject the palette it was derived from.
+  //
+  // (a) The defect it was written for: a magenta sclera beside an orange cheek. Both patches are
+  //     solved to the reference's own luma and saturation, so neither of those clauses can be
+  //     what decides it, and the ORDINAL clause is handed a sclera CLOSER to red than the cheek —
+  //     it passes that test outright. The eye is pink-magenta in an orange-lit face and until
+  //     2026-08-08 G2 called it green.
+  const referenceCheekSaturation = rgbToHsv(cheek[0] / 255, cheek[1] / 255, cheek[2] / 255).saturation;
+  const referenceCheekLuma = encodedLuma(cheek[0] / 255, cheek[1] / 255, cheek[2] / 255);
+  const orangeCheek = solveForHueSaturationLuma(20, referenceCheekSaturation, referenceCheekLuma)
+    .map((component) => Math.round(component));
+  const magentaSclera = solveForHueSaturationLuma(348, referenceSaturation, referenceLuma)
+    .map((component) => Math.round(component));
+  const crossPath = writeTestImage(
+    'g2-magenta-sclera-orange-cheek.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? magentaSclera : orangeCheek))
+  );
+  const crossGate = gateNamed(measureFile(crossPath, spec), 'G2');
+  expectEqual('G2 side: the sclera is magenta-of-red', crossGate.measured.scleraSideOfRed, 'magenta');
+  expectEqual('G2 side: the cheek beside it is orange-of-red', crossGate.measured.cheekSideOfRed, 'orange');
+  expectEqual(
+    'G2 side: the ORDINAL clause PASSES it — the sclera really is nearer red than the cheek',
+    crossGate.failures.filter((line) => line.startsWith('hue clause, ORDINAL')).length,
+    0
+  );
+  expectEqual('G2 magenta-sclera-in-orange-face FAILs', crossGate.status, 'FAIL');
+  expectEqual(
+    'and the SIDE clause is the only thing that catches it',
+    crossGate.failures.length === 1 && crossGate.failures[0].startsWith('hue clause, SIDE'),
+    true
+  );
+
+  // (b) A DIFFERENT defect in the same class, so this is not a gate that only catches its own
+  //     known-bad. Mirror it: an ORANGE sclera beside a MAGENTA cheek, which is the failure the
+  //     hue sweep above was silently passing at 15°. Same clause, opposite rotation, and the
+  //     ordinal is again satisfied.
+  const magentaCheekRgb = cheek;
+  const orangeSclera = solveForHueSaturationLuma(12, referenceSaturation, referenceLuma)
+    .map((component) => Math.round(component));
+  const mirrorPath = writeTestImage(
+    'g2-orange-sclera-magenta-cheek.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? orangeSclera : magentaCheekRgb))
+  );
+  const mirrorGate = gateNamed(measureFile(mirrorPath, spec), 'G2');
+  expectEqual('G2 side, mirrored: the sclera is orange-of-red', mirrorGate.measured.scleraSideOfRed, 'orange');
+  expectEqual('G2 side, mirrored: the cheek is magenta-of-red', mirrorGate.measured.cheekSideOfRed, 'magenta');
+  expectEqual(
+    'G2 side, mirrored: the ORDINAL clause PASSES it too',
+    mirrorGate.failures.filter((line) => line.startsWith('hue clause, ORDINAL')).length,
+    0
+  );
+  expectEqual('G2 orange-sclera-in-magenta-face FAILs', mirrorGate.status, 'FAIL');
+
+  // (c) 🚩 AND IT PROVABLY CANNOT REJECT THE REFERENCE. The neutral zone is the reference
+  //     sclera's OWN distance from red, so the spec's published pair sits exactly at the
+  //     boundary — inclusive. A gate derived from a palette that then rejects that palette is
+  //     not a gate, it is a bug with a threshold in it, and nothing in this file was asserting
+  //     the difference. Both hexes are re-solved to the reference luma so the other clauses
+  //     cannot be what passes it.
+  const referencePairPath = writeTestImage(
+    'g2-reference-pair.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? sclera : cheek))
+  );
+  const referenceGate = gateNamed(measureFile(referencePairPath, spec), 'G2');
+  expectClose(
+    'the neutral zone IS the reference sclera hue-from-red, not a chosen number',
+    referenceGate.measured.hueSideNeutralZone,
+    referenceGate.measured.referenceScleraHueFromRed,
+    0.001
+  );
+  expectEqual(
+    'the reference sclera lands INSIDE its own neutral zone, so the side clause is silent on it',
+    referenceGate.measured.scleraSideOfRed,
+    'red'
+  );
+  expectEqual(
+    'the SIDE clause never fires on the spec\'s own two hexes',
+    referenceGate.failures.filter((line) => line.startsWith('hue clause, SIDE')).length,
+    0
+  );
+
+  // (d) The signed offset is reported, so a reader can see the fold that used to hide here.
+  expectClose('signed hue: the reference sclera is 2.79 deg BELOW red', referenceGate.measured.scleraSignedHueFromRed, -2.79, 0.02);
+  expectClose('signed hue: the reference cheek is 13.13 deg BELOW red', referenceGate.measured.cheekSignedHueFromRed, -13.13, 0.02);
+  expectEqual(
+    'and hueDistanceFromRed is exactly its magnitude — one primitive, with and without its sign',
+    Math.abs(referenceGate.measured.scleraSignedHueFromRed) === referenceGate.measured.scleraHueFromRed,
+    true
+  );
+
+  // ⚠️ WHAT THE SIDE CLAUSE DOES NOT COVER, recorded rather than assumed. Near hue 180° the sign
+  // of the offset from red is arbitrary — 179° and 181° are half a degree apart on the wheel and
+  // score +179 and −179 — so the side clause's verdict there is meaningless. It is harmless only
+  // because the ORDINAL clause has already rejected anything that far from red, and that is
+  // asserted here rather than believed.
+  const cyanSclera = solveForHueSaturationLuma(181, referenceSaturation, referenceLuma)
+    .map((component) => Math.round(component));
+  const cyanPath = writeTestImage(
+    'g2-cyan-sclera-near-180.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? cyanSclera : cheek))
+  );
+  const cyanGate = gateNamed(measureFile(cyanPath, spec), 'G2');
+  expectEqual('near hue 180 the ORDINAL clause is what rejects it, not the side clause',
+    cyanGate.failures.filter((line) => line.startsWith('hue clause, ORDINAL')).length, 1);
+  expectEqual('a cyan sclera FAILs however its side is read', cyanGate.status, 'FAIL');
 
   // ⚠️ AND THE CLAUSE THAT DOES *NOT* COVER FOR ANOTHER, recorded so nobody assumes it does.
   // rgbToHsv reports hue 0 for a fully desaturated colour, so a grey eyeball scores 0 deg from red
