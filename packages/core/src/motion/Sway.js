@@ -731,15 +731,21 @@ const TOE_UNLOAD_LIFT_DEGREES = 2.5;
  * foot that articulates ONCE A CLIP and a foot that articulates all the time, and the round before
  * this one shipped only the first.
  *
- * The lateral unload is a fine mechanism and it has a fatal duty cycle. `unloadFractionOf` is the
- * stance blend, and the free foot's yaw release is a fraction OF A CHAIN YAW THAT IS ITSELF
- * PROPORTIONAL TO THAT BLEND — so everything below the ankle scales as the SQUARE of the load
- * transfer. Measured on the shipped layer, seed 1, 420 s at 30 Hz, in the foot band (rows 1110-1176
+ * The lateral unload is a fine mechanism and it had a fatal duty cycle. `unloadFractionOf` is the
+ * stance blend, and the free foot's yaw release WAS a fraction OF A CHAIN YAW THAT IS ITSELF
+ * PROPORTIONAL TO THAT BLEND — so everything below the ankle scaled as the SQUARE of the load
+ * transfer. Measured on that layer, seed 1, 420 s at 30 Hz, in the foot band (rows 1110-1176
  * of a 1200 px capture, -47 to +54 mm about the floor): the median travel inside a 15 s window is
  * **0.223 px on the worst single vertex and 0.074-0.138 px on either foot's centroid**, while the
  * WHOLE-CLIP range is 1.7-3.5 px. The clip's entire range is spent inside one window — the median
  * and the range disagree by a factor of twenty-five, which is LEARNINGS §1.11 and §1.14 in one
  * measurement. |stanceBlend| swings 0.213 in a median 15 s window, and 0.213 squared is 0.045.
+ *
+ * ✅ THE SQUARE IS GONE — see `breakawayBlendOf`, which is where the second copy of the blend was
+ * found and removed. That is the larger of the two fixes on the lateral side and it is worth
+ * 5.4-5.9x on the two quietest of four seeds. It does NOT make the constant below redundant: the
+ * lateral mechanism is still silent on a foot the weight never leaves, and seed 4242 is exactly that
+ * clip — the blend is negative on 96.3% of frames, so the right foot scores 0.011 px either way.
  *
  * Fore-and-aft there is a driver with no duty-cycle problem at all. Quiet stance IS an ankle
  * strategy: the centre of pressure travels fore and aft under the feet continuously, and this
@@ -793,8 +799,10 @@ const TOE_COP_REFERENCE_EXCURSION_METRES =
  * is a different motion from a translation of the whole foot — the ankle and the heel stay where
  * they are and the forefoot swings — and it is the one a real free foot makes.
  *
- * 1.0 keeps all of the chain's yaw at full unload. Set to 0 for the welded foot the judge reported;
- * the selftest builds exactly that to prove its own gate can see it.
+ * 1.0 keeps all of the chain's yaw once the foot is released. Set to 0 for the welded foot the judge
+ * reported; the selftest builds exactly that to prove its own gate can see it. ⚠️ HOW MUCH unloading
+ * counts as released is NOT this constant — it is `breakawayBlendOf`, and confusing the two is what
+ * squared the whole mechanism for two rounds.
  *
  * 🎯 THE FREE KNEE TURNS **IN**, DELIBERATELY — AND THIS HEADER SAID THE OPPOSITE FOR A ROUND.
  *
@@ -842,6 +850,60 @@ const TOE_COP_REFERENCE_EXCURSION_METRES =
  * against the same frame at rest.
  */
 const FREE_FOOT_YAW_RELEASE = 1.0;
+
+/**
+ * 🎯 THE RELEASE IS A DECISION ABOUT **WHICH FOOT**, NOT A SECOND COPY OF **HOW FAR** — and getting
+ * that wrong is what made the free foot's articulation QUADRATIC in the load transfer.
+ *
+ * 🚩 Read this next to `writeToeLift`, forty lines below, which already got the same question right
+ * and says so in its own comment: *"The two mechanisms are the LARGER of the two rather than their
+ * sum. They are two readings of one quantity … adding them would double-count."* `resolvePlantedRotation`
+ * MULTIPLIED two readings of one quantity, and nothing noticed for two rounds.
+ *
+ * The chain yaw a free foot keeps is `twist( pendulumCumulative · stanceCumulative )`, and
+ * `stanceCumulative` is the contrapposto at this frame's blend — so the chain yaw is ALREADY
+ * proportional to the load transfer. Multiplying it by `unloadFractionOf`, which IS the same blend
+ * rectified, squares it. Measured on the shipped layer, seed 4242, 420 s at 30 Hz: |stanceBlend|
+ * has a median of 0.336 and the realised free-foot yaw a median of 0.255° against a full-transfer
+ * 2.391° — 0.336² × 2.391 = 0.270, i.e. the square is the whole of the shortfall.
+ *
+ * What friction actually decides is a BINARY: this foot is the one the body has stepped off, or it
+ * is not. So the release SATURATES. What is left to choose is how wide the crossover is, and that
+ * is not a taste question either — below some load difference, "which foot is free" is a question
+ * the balance band's own noise is answering rather than the weight-shift process, and the layer
+ * should not commit to an answer it does not have.
+ *
+ * 🎯 THE CROSSOVER IS THEREFORE QUIJOUX'S QUIET-STANDING LATERAL RMS, EXPRESSED AS A STANCE BLEND.
+ * `BALANCE_RMS_MEDIO_LATERAL_METRES` is 3.0 mm of centre-of-pressure; the hip mechanism carries
+ * `1 - medioLateralAnkleShare` of it; and the contrapposto's measured centre-of-mass response says
+ * what blend that is worth on THIS rig (33.46 mm per unit blend on the left response, 34.62 on the
+ * right, printed by the selftest). That lands at a breakaway blend of **0.0735 / 0.0711** — a load
+ * difference of about 7% of the body's weight, which is below the 10% Bates' instrument counts as a
+ * fidget at all. Nothing is invented: one published RMS, one already-derived share, one rig
+ * measurement the layer takes at bind.
+ *
+ * ⚠️ THIS DOES NOT RAISE THE PEAK, AND THAT IS THE POINT. At a full transfer the old release was
+ * already 1, so the largest yaw this layer can produce is unchanged at 2.391°; what changes is the
+ * duty cycle in between. A change that raised the peak would be re-tuning an amplitude the pose
+ * files own; this one fills in a mid-range that was being squared away.
+ *
+ * Set `freeFootBreakawayBlend: 1` for the proportional release this layer shipped with — that value
+ * reproduces it EXACTLY, because `min( unload / 1, 1 )` is `unload`, and the selftest builds it as
+ * the known-bad rather than modelling one.
+ *
+ * @param {number} balanceRmsMetres - Quiet standing's lateral centre-of-pressure RMS.
+ * @param {number} hipShare - The fraction of the lateral signal the contrapposto carries.
+ * @param {number} responseMetresPerBlend - The contrapposto's measured lateral centre-of-mass
+ *   response, in metres per unit blend, for the side that is TAKING the weight.
+ * @returns {number} The stance blend at which the unloaded foot is fully released.
+ */
+function breakawayBlendOf( balanceRmsMetres, hipShare, responseMetresPerBlend ) {
+
+    if ( responseMetresPerBlend === 0 ) return 0;
+
+    return Math.abs( balanceRmsMetres * hipShare / responseMetresPerBlend );
+
+}
 
 /**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
@@ -951,6 +1013,9 @@ export class Sway extends Layer {
      *   on its own. The gates are stated against the layer AS CONSTRUCTED, not against this.
      * @param {boolean} [options.stanceBlendEnabled=true] - Turn off to keep the weight shifts as
      *   pure pendulum lean, without the contrapposto pose blend.
+     * @param {number} [options.lateralHeadPerCentreOfMass=1] - The head-over-centre-of-mass ratio the
+     *   lateral righting solve targets. 0.30 is the parked mannequin head the selftest builds as a
+     *   known-bad; see LATERAL_HEAD_PER_CENTRE_OF_MASS.
      * @param {boolean} [options.lateralRightingEnabled=true] - Turn off to run both lateral
      *   mechanisms without the lumbar counter-bend that parks the head. See
      *   LATERAL_HEAD_PER_CENTRE_OF_MASS.
@@ -972,6 +1037,11 @@ export class Sway extends Layer {
      * @param {number} [options.freeFootYawRelease=1] - Fraction of the leg chain's yaw an UNLOADED
      *   foot is allowed to keep. Set to 0 to pin both feet as rigidly as each other, which is the
      *   welded foot the judge reported. See FREE_FOOT_YAW_RELEASE.
+     * @param {number} [options.freeFootBreakawayBlend] - The stance blend at which the unloaded foot
+     *   is FULLY released, below which the release ramps in. Derived at bind from the balance band
+     *   and this rig's own contrapposto response when omitted. Set to 1 for the proportional release
+     *   this layer shipped with, whose articulation is the SQUARE of the load transfer; see
+     *   `breakawayBlendOf`.
      * @param {Object} [options.fidget] - The fidget profile, whose three numbers are the least
      *   supported in this file and the ones that decide whether a postural event is legible at all:
      *   `{ amplitudeFraction, durationSeconds, riseFraction }`. See
@@ -1029,6 +1099,14 @@ export class Sway extends Layer {
         // the ratio gates can see it.
         this.lateralRightingEnabled = options.lateralRightingEnabled ?? true;
 
+        // The ratio the righting solve targets. Set to 0.30 for the mannequin head an independent
+        // verifier built — a head nailed in space over a body that sways under it, which is the
+        // MIRROR of the defect the righting was added to fix and which scored better than the
+        // shipped layer on every one-sided ratio gate in the selftest. It is a known-bad and the
+        // gates' floors exist to catch it. See LATERAL_HEAD_PER_CENTRE_OF_MASS.
+        this.lateralHeadPerCentreOfMass =
+            options.lateralHeadPerCentreOfMass ?? LATERAL_HEAD_PER_CENTRE_OF_MASS;
+
         // Set to 0 for the side-by-side row of Winter's table, which is what this layer implemented
         // on a figure standing at 18.6° of toe-out. See MEDIO_LATERAL_ANKLE_SHARE.
         this.medioLateralAnkleShare = options.medioLateralAnkleShare ?? MEDIO_LATERAL_ANKLE_SHARE;
@@ -1044,6 +1122,20 @@ export class Sway extends Layer {
         // Set to 0 for the welded foot a visual judge reported and measured at 0.024 px of
         // silhouette travel; see FREE_FOOT_YAW_RELEASE.
         this.freeFootYawRelease = options.freeFootYawRelease ?? FREE_FOOT_YAW_RELEASE;
+
+        // How much of the body's weight has to have left a foot before it is released, as a stance
+        // blend. `null` derives it at bind from the balance band and this rig's own contrapposto
+        // response — see breakawayBlendOf. 1 is the proportional release this layer shipped with,
+        // and is the known-bad the FOOT BAND section builds.
+        this.freeFootBreakawayOption = options.freeFootBreakawayBlend ?? null;
+
+        /**
+         * The realised breakaway blend per foot, filled in at bind. Two values rather than one
+         * because the two contrapposto poses are asymmetric — the left response moves the centre of
+         * mass 33.46 mm per unit blend and the right 34.62 — and a foot is released by the pose that
+         * takes the weight OFF it, which is the one on the other side.
+         */
+        this.freeFootBreakaway = { left: 0, right: 0 };
 
         this.fidget = {
             amplitudeFraction: options.fidget?.amplitudeFraction ?? FIDGET_AMPLITUDE_FRACTION_OF_SHIFT,
@@ -1212,6 +1304,32 @@ export class Sway extends Layer {
         this.resolveRigGeometry( context.target );
         this.measurePendulumResponse( context.target );
         this.measureStanceResponse( context.target );
+        this.resolveFreeFootBreakaway();
+
+    }
+
+    /**
+     * How far the weight has to have gone before the foot it left is released, per foot.
+     *
+     * Derived rather than set: see `breakawayBlendOf`. A foot is freed by the contrapposto that
+     * takes the weight onto the OTHER leg, so the left foot reads the right response and vice
+     * versa. An unusable response — a pose that barely moves the centre of mass sideways — leaves
+     * the breakaway at zero, which `yawReleaseFractionOf` reads as "release the moment the blend
+     * picks a side", and is the same degenerate case `solveStanceBlend` already refuses to divide by.
+     */
+    resolveFreeFootBreakaway() {
+
+        const hipShare = 1 - this.medioLateralAnkleShare;
+
+        for ( const [ footKey, responseKey ] of [ [ 'left', 'right' ], [ 'right', 'left' ] ] ) {
+
+            this.freeFootBreakaway[ footKey ] = this.freeFootBreakawayOption !== null
+                ? this.freeFootBreakawayOption
+                : breakawayBlendOf(
+                    this.balanceRmsMedioLateral, hipShare,
+                    this.stanceResponse[ responseKey ].centreOfMass.x );
+
+        }
 
     }
 
@@ -1838,7 +1956,7 @@ export class Sway extends Layer {
         if ( Math.abs( lever ) < 0.05 ) return 0;
 
         const overshoot = this.headLever.medioLateral
-            - LATERAL_HEAD_PER_CENTRE_OF_MASS * this.centreOfMassLever.medioLateral;
+            - this.lateralHeadPerCentreOfMass * this.centreOfMassLever.medioLateral;
 
         return secantStep( solve, this.lateralRightingPerRadian, overshoot, overshoot / lever );
 
@@ -2015,7 +2133,7 @@ export class Sway extends Layer {
 
             const response = this.stanceResponse[ side ];
             const overshoot = Math.abs( response.head.x )
-                - LATERAL_HEAD_PER_CENTRE_OF_MASS * Math.abs( response.centreOfMass.x );
+                - this.lateralHeadPerCentreOfMass * Math.abs( response.centreOfMass.x );
 
             this.trunkRightingRadians[ side ] = secantStep(
                 solve[ side ], this.trunkRightingRadians[ side ], overshoot, overshoot / lever );
@@ -2471,8 +2589,31 @@ export class Sway extends Layer {
     }
 
     /**
+     * 🎯 How much of the leg chain's yaw this foot is free to keep, from 0 (friction holds it) to 1.
+     *
+     * NOT the same question as `unloadFractionOf`, and the difference is the whole of the free-foot
+     * fix — see `breakawayBlendOf`. Unloading is a LOAD reading and is the right driver for an
+     * amplitude, which is why the toe lift scales by it directly. The yaw release is not an
+     * amplitude: the chain yaw already carries the amplitude, because it is the twist of a
+     * contrapposto evaluated at this frame's blend. So this saturates, and the only thing it decides
+     * is which of the two feet the body has stepped off.
+     */
+    yawReleaseFractionOf( foot ) {
+
+        const unload = this.unloadFractionOf( foot );
+        const breakaway = this.freeFootBreakaway[ foot.key ];
+
+        if ( unload === 0 ) return 0;
+        if ( breakaway <= 0 ) return 1;
+
+        return Math.min( unload / breakaway, 1 );
+
+    }
+
+    /**
      * The rig-space rotation a planted foot ends up with: its rest orientation, turned by the share
-     * of the leg chain's yaw that its own unloading permits.
+     * of the leg chain's yaw that friction lets it keep — `yawReleaseFractionOf`, which SATURATES.
+     * It is not scaled by how far the weight went, because the chain yaw already is.
      *
      * The yaw is taken as the TWIST about the rig's vertical of the rotation the chain would
      * otherwise have handed this foot — pendulum lean outside, contrapposto inside, exactly as the
@@ -2487,7 +2628,7 @@ export class Sway extends Layer {
 
         if ( foot === undefined ) return target;
 
-        const release = this.unloadFractionOf( foot ) * this.freeFootYawRelease;
+        const release = this.yawReleaseFractionOf( foot ) * this.freeFootYawRelease;
 
         this.scratchRigRotation.multiplyQuaternions( joint.pendulumCumulative, joint.stanceCumulative );
 
@@ -2505,8 +2646,10 @@ export class Sway extends Layer {
      * 🎯 The other thing a free foot is allowed to do: its toes coming off the floor as the weight
      * leaves it.
      *
-     * Scaled by the same `unloadFractionOf` the yaw release uses. Extension only, so the toes can
-     * only leave the floor; see TOE_UNLOAD_LIFT_DEGREES for why that direction is the truthful one
+     * Scaled by `unloadFractionOf` DIRECTLY, which is the difference between this and the yaw
+     * release beside it: a toe lift is an AMPLITUDE and the load reading is the right driver for
+     * one, where the yaw release is a decision about which foot and therefore saturates. Extension
+     * only, so the toes can only leave the floor; see TOE_UNLOAD_LIFT_DEGREES for why that direction is the truthful one
      * as well as the safe one. Written as a rotation about the medio-lateral axis at the metatarsal
      * head, which is where a toe actually hinges and which leaves the joint itself exactly where the
      * planting correction put it.

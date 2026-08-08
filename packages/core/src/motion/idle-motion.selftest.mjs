@@ -66,10 +66,12 @@
  *   HANDS    fingertip travel in the HAND's own frame, in millimetres AND in pixels at full-body
  *            framing, because the second is the quantity the defect was about. The same judge
  *            wrote *"THE HANDS NEVER MOVE"*, and it was right: the shipped finger idle moves an
- *            index fingertip 0.73 mm — **0.48 px** — over seven minutes, against the 1.6 px this
- *            project already has on record (docs/PROGRESS.md) as producing indistinguishable
- *            before-and-after plates. A degree at a knuckle is not a quantity anyone can picture;
- *            a pixel at the framing we capture at is.
+ *            index fingertip 0.73 mm — **0.48 px** — over seven minutes. ⚠️ That used to be stated
+ *            "against the 1.6 px this project has on record as producing indistinguishable plates";
+ *            1.6 px was never measured (LEARNINGS §1.14a) and the sentence is withdrawn. The 0.48
+ *            itself is the evidence, and it is the INVISIBLE end of the only bracket this project
+ *            owns — a judge looked at that much travel and said the hands never move. A degree at a
+ *            knuckle is not a quantity anyone can picture; a pixel at the framing we capture at is.
  *
  * A measurement outside its range is printed as FAIL and the process exits non-zero. It is not
  * grounds for widening the range.
@@ -260,13 +262,18 @@ const BODY_FRAME_MARGIN = 1.10;
  * Stated in pixels on purpose. The shipped finger idle was authored as 0.45° of peak deviation at
  * a knuckle, which sounds reasonable and is not a quantity anybody can picture; converted, it is
  * 0.73 mm of fingertip travel — **0.48 px** — over seven minutes, and a blind judge reported the
- * hands as motionless. docs/PROGRESS.md already records the verdict on this order of magnitude:
- * a weight shift worth "1.6 pixels at full-body framing" gave before-and-after plates that were
- * *indistinguishable*.
+ * hands as motionless.
  *
- * 3.0 px is a little under twice that known-invisible figure and six times the shipped 0.48, so
- * the gate rejects the shipped layer by a factor of six rather than by a whisker. It is a
- * judgement about a rendered avatar and nothing more — there is no published resting-finger
+ * ⚠️ THIS USED TO ANCHOR ON 1.6 px AND THAT NUMBER IS NOT DATA. It was quoted out of a block
+ * docs/PROGRESS.md marks superseded and its two halves disagree by 1.85x; see LEARNINGS §1.14a and
+ * the standing constraint in PUNCHLIST. What this project owns is a BRACKET from two blind judges:
+ * **0.48 px** reported as *"the hands never move"* and **10.6 px** of pelvis excursion reported as a
+ * counted event. The threshold is somewhere inside and nothing locates it.
+ *
+ * Re-anchored without changing the number: 3.0 px is **6.25x** the 0.48 px a judge called invisible
+ * and **0.28x** the 10.6 px a judge called legible, so it sits inside the bracket nearer the
+ * invisible end, and it rejects the shipped layer by a factor of six rather than by a whisker. It is
+ * a judgement about a rendered avatar and nothing more — there is no published resting-finger
  * excursion in docs/research/ and none is invented here.
  *
  * ⚠️ Measured in the HAND's OWN FRAME. A fingertip's world position is dominated by the arm and
@@ -2177,7 +2184,8 @@ function gateHandArticulation() {
         'peak-to-peak in the HAND\'s own frame, so the arm carrying it is divided out' );
 
     gate( 'fingertip travel (px, worst)', Math.min( ...travelPixels ), FINGERTIP_TRAVEL_FLOOR_PIXELS, 40,
-        'the shipped finger idle measures 0.48 px here; 1.6 px is on record as indistinguishable' );
+        'the shipped finger idle measures 0.48 px here, which is the figure a blind judge reported ' +
+        'as "the hands never move" — the invisible end of the owned bracket, not a measured floor' );
 
     gate( 'index flexion range / rest (worst low)', Math.min( ...flexionFractions ),
         FINGER_FLEXION_RANGE_FRACTION.low, FINGER_FLEXION_RANGE_FRACTION.high,

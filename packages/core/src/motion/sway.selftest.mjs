@@ -151,6 +151,19 @@ const { MotionStack, createMotionTarget } = await import( './MotionStack.js' );
 const { MotionRandom } = await import( './Signals.js' );
 const { Sway } = await import( './Sway.js' );
 
+// 🚩 THE REST OF THE STACK, imported only for the FULL STACK section at the end of this file.
+// A layer gated only on its own is gated in one composition, and every verdict this project has
+// ever taken on head-over-hip was taken on a render of all ten of these running together. See
+// `measureFullStackHeadOverHip`.
+const { Breath } = await import( './Breath.js' );
+const { BodyIdle } = await import( './BodyIdle.js' );
+const { HandIdle } = await import( './HandIdle.js' );
+const { IdleMotion } = await import( './IdleMotion.js' );
+const { Gaze } = await import( './Gaze.js' );
+const { Blink } = await import( './Blink.js' );
+const { FacialIdle } = await import( './FacialIdle.js' );
+const { Pupil } = await import( './Pupil.js' );
+
 // The capture tool's postural nomination — which seeds it will hand a judge, and what it claims is
 // in them. Imported rather than restated so that the claim and its proof cannot drift apart: this
 // file re-measures every number in that table on every run. capture.mjs only runs its main() when
@@ -281,7 +294,24 @@ const GLANCE_TRAVEL_CEILING_PIXELS = 40;
  * 25%.
  */
 const HEAD_BAND_OVER_HIP_BAND_CEILING = 1.40;
-const HEAD_BAND_OVER_HIP_BAND_FLOOR = 0.50;
+
+/**
+ * 🎯 AND THE FLOOR, WHICH WAS 0.50 AND COULD NOT CATCH THE THING FLOORS EXIST FOR.
+ *
+ * A ratio has two failure directions and this is the other one: "the pelvis leads" does not exclude
+ * a head that has stopped moving, and a head bolted to the world is maximally "stabilised". The
+ * known-bad is `lateralHeadPerCentreOfMass: 0.30` — the mannequin head an independent verifier once
+ * built, which scored BETTER than the shipped layer on every one-sided ratio gate in HEAD PARKED.
+ *
+ * Run for the first time 2026-08-08, over the same twelve seeds as the forward gate and on the same
+ * silhouette statistic, that head scores **0.508-0.609**. Against the old 0.50 floor it passes — by
+ * 1.6% on its worst seed. The floor was not catching it; nothing was.
+ *
+ * 0.80 is the geometric midpoint between the two measured populations: the parked head's worst
+ * 0.609 and the shipped layer's lowest 1.045, whose geometric mean is 0.798. It rejects the parked
+ * head by 1.31x and admits the shipped layer by 1.31x, and it clears the full stack's 0.9918 by 24%.
+ */
+const HEAD_BAND_OVER_HIP_BAND_FLOOR = 0.80;
 
 /**
  * How long the CLIP CONTENT section traces each seed. Long enough to reach the latest first
@@ -320,10 +350,13 @@ const INVARIANCE_MARKERS = [ 'head', 'pelvis', 'kneeLeft', 'kneeRight', 'ankleLe
 /**
  * 🎯 How far two frame rates may disagree, in millimetres.
  *
- * Stated against the project's own indistinguishability floor rather than picked: 1.6 px at the
- * framing `alive.js?frame=body` uses is 1.6 / 0.6574 = 2.43 mm, and this is a hundredth of it.
- * Measured residue on the shipped layer is 0.0008 mm — three thousand times inside it — so the
- * tolerance is not what is deciding the result. The pre-fix layer scores tens of millimetres.
+ * ⚠️ THIS USED TO SAY "stated against the project's own indistinguishability floor", meaning 1.6 px.
+ * There is no such floor — see JUDGE_REPORTED_INVISIBLE_PIXELS. Re-anchored on the one end of the
+ * owned bracket that bounds this claim in the right direction: 0.48 px, the fingertip travel a blind
+ * judge reported as *"the hands never move"*, is 0.73 mm at the framing `alive.js?frame=body` uses,
+ * and this tolerance is a THIRTIETH of it. Measured residue on the shipped layer is 0.0008 mm — nine
+ * hundred times inside it — so the tolerance is not what is deciding the result either way. The
+ * pre-fix layer scores tens of millimetres.
  */
 const INVARIANCE_TOLERANCE_MM = 0.025;
 
@@ -362,6 +395,14 @@ const QUIJOUX_RMS_MEDIO_LATERAL_MM = 3.0;
 const QUIJOUX_RMS_ANTERO_POSTERIOR_MM = 4.9;
 const QUIJOUX_MODE_MEDIO_LATERAL_HZ = 0.33;
 const QUIJOUX_MODE_ANTERO_POSTERIOR_HZ = 0.27;
+
+/**
+ * The same column's f95 — the frequency below which 95% of centre-of-pressure power sits. Declared
+ * here rather than typed into the two gates that used to carry it inline, because the peak-velocity
+ * ceiling is now derived from it and a number used in three places must have one home.
+ */
+const QUIJOUX_F95_MEDIO_LATERAL_HZ = 1.09;
+const QUIJOUX_F95_ANTERO_POSTERIOR_HZ = 1.23;
 
 /** Quijoux's measured anisotropy: AP is 1.5–2x ML, always. The design ratio is 4.9/3.0 = 1.633. */
 const QUIJOUX_ANISOTROPY_LOW = 1.5;
@@ -617,12 +658,12 @@ const TOE_BAND_HEIGHT_METRES = 0.03;
  * body. So this gate is stated in the unit the defect will be judged in, at a named framing, with
  * the conversion printed beside the result.
  *
- * 3.0 px is the same floor `idle-motion.selftest.mjs` uses for the fingertips and it is taken for
- * the same reason rather than re-derived: docs/PROGRESS.md records 1.6 px at this framing as
- * producing before-and-after plates that were *indistinguishable*, and a little under twice a
- * known-invisible figure is the least that can honestly be called visible. It is a judgement about a
- * rendered avatar and nothing more; there is no published free-foot excursion in docs/research/ and
- * none is invented here.
+ * ⚠️ 3.0 px WAS justified as "a little under twice" a 1.6 px indistinguishability figure, and that
+ * figure was never measured — see JUDGE_REPORTED_INVISIBLE_PIXELS. Re-anchored, without changing the
+ * number: 3.0 px is 6.3x the 0.48 px a judge reported as *"the hands never move"* and 0.28x the
+ * 10.6 px a judge reported as a counted event, so it sits inside the owned bracket nearer the
+ * invisible end. It is a judgement about a rendered avatar and nothing more; there is no published
+ * free-foot excursion in docs/research/ and none is invented here.
  *
  * ⚠️ Asserted on BOTH feet, which is the other half of the finding. The toe lift was real and it
  * only ever fired on the character's right foot within the 420 s the judge watched: measured over
@@ -643,12 +684,35 @@ const FREE_FOOT_TRAVEL_FLOOR_PIXELS = 3.0;
  * Setting this at 3.0 as well would be asserting the same sensitivity from two statistics that do not
  * have it.
  *
- * 1.6 px is not a judgement, it is the one empirical datum this project owns on the subject:
- * docs/PROGRESS.md records a weight shift worth 1.6 px at this framing producing before-and-after
- * plates that were *indistinguishable*. So this floor claims exactly one thing — that the silhouette
- * is no longer inside the band this project has measured as invisible — and nothing more.
+ * ⚠️ THE 1.6 px THIS USED TO CITE IS NOT DATA AND THE SENTENCE HAS BEEN REMOVED. It said "1.6 px is
+ * not a judgement, it is the one empirical datum this project owns" and cited docs/PROGRESS.md:550.
+ * Those lines sit five lines below PROGRESS's own `superseded` marker; their two halves disagree by
+ * 1.85x (4.5 mm at this file's own 0.6574 px/mm is 2.958 px); and "indistinguishable" is one agent
+ * looking at two stills it did not keep. See LEARNINGS §1.14a and the standing constraint in
+ * PUNCHLIST. Every floor in this file that used to lean on it now leans on the BRACKET below.
+ *
+ * 1.6 px is kept as the NUMBER here only because the measurement that justifies it is a separation
+ * between two states, not a citation: the shipped fix measures 2.7 px of extent against a welded
+ * foot's 0.02 px sd, and 1.6 sits between them. It is a judgement and it now says so.
  */
 const SILHOUETTE_WIDTH_FLOOR_PIXELS = 1.6;
+
+/**
+ * 🎯 THE ONLY VISIBILITY EVIDENCE THIS PROJECT OWNS, AND IT IS A BRACKET RATHER THAN A THRESHOLD.
+ *
+ * Two blind visual judges, both with provenance, in the same statistic every gate in this file is
+ * stated in — peak-to-peak pixels at the full-body capture framing:
+ *
+ *   0.48 px  fingertip travel over 7 minutes, reported as *"the hands never move"*.  BELOW threshold.
+ *   10.6 px  pelvis excursion of the median legible postural event, which a judge COUNTED.  ABOVE it.
+ *
+ * A factor of twenty-two, with the threshold somewhere inside and nothing locating it. So a floor in
+ * this file may say "above the figure a judge reported as invisible" (0.48) or "short of the figure a
+ * judge reported as legible" (10.6), and may NOT say "above the measured visibility floor", because
+ * there is no such number. LEARNINGS §1.14a §"What would actually measure it" designs the staircase.
+ */
+const JUDGE_REPORTED_INVISIBLE_PIXELS = 0.48;
+const JUDGE_REPORTED_LEGIBLE_PIXELS = 10.6;
 
 /**
  * The framing every full-body capture in this project is taken at, and the camera it is taken from.
@@ -669,6 +733,14 @@ const SILHOUETTE_WIDTH_FLOOR_PIXELS = 1.6;
 const FULL_BODY_CAPTURE_PIXELS = 1200;
 const BODY_FRAME_MARGIN = 1.10;
 const CAMERA_AZIMUTH_DEGREES = 12;
+
+/**
+ * The seeds FULL STACK runs, and they are not a choice: they are the two `capture.mjs` handed the
+ * judge whose measurement this section exists to reproduce (`captures/r8-judge-body/seed-4242` and
+ * `seed-42`). Two rather than twelve because each one is ten layers over 12,600 frames and this file
+ * is already the slowest in the repo.
+ */
+const FULL_STACK_SEEDS = [ 4242, 42 ];
 
 /** The seed and window the free-foot gate runs at. Every seed tried reaches both transfers by 900 s. */
 const FREE_FOOT_SEED = 1;
@@ -705,30 +777,54 @@ const PATELLA_BAND_HALF_HEIGHT_METRES = 0.030;
 const PATELLA_PATCH_FRACTION = 0.25;
 
 /**
- * 🎯 THE FOOT BAND'S FLOOR, AND WHY IT IS NOT 1.6 PIXELS.
+ * 🎯 THE FOOT BAND'S FLOORS. TWO OF THEM, AND THE SECOND ONE IS THE ONE THE ARBITER MEASURES.
  *
- * 0.75 px is a judgement and it is stated as one. It is not this project's indistinguishability
- * figure, and the gate beside it records the shortfall against that figure rather than letting this
- * number stand in for it.
+ * ⚠️ THE PREVIOUS VERSION OF THIS BLOCK GATED THE RESULTANT AND *RECORDED* THE HORIZONTAL, AND THAT
+ * IS BACKWARDS. `tools/critic/travel.mjs` — the tool a judge scores this defect with, and the only
+ * instrument that has ever looked at a rendered foot — reports the HORIZONTAL centroid of a
+ * silhouette band. It has no vertical channel at all. So the resultant, which adds the toe lift's
+ * vertical, was the statistic nothing outside this file could see, and the horizontal, which is the
+ * statistic the verdict is taken in, was the one carried as a footnote. Both are gated now, with the
+ * horizontal stated first.
  *
- * What it IS derived from is the separation between three measured states, at seed 1 over 420 s:
- * the layer as it shipped last round scores **0.468 px**, a foot with no toe articulation at all
- * scores less, and the fore-and-aft coupling takes it to **0.893 px**. 0.75 sits between the two
- * live configurations with room either side — it rejects the shipped state by 1.6x and admits the
- * fixed one by 1.2x — which is what a floor separating a fix from the thing it fixed has to do.
+ * NEITHER FLOOR IS THIS PROJECT'S "INDISTINGUISHABILITY FIGURE", BECAUSE THERE ISN'T ONE. See
+ * JUDGE_REPORTED_INVISIBLE_PIXELS: what is owned is a 0.48-10.6 px bracket from two blind judges, and
+ * both of these floors sit inside it near the invisible end. They are separations between measured
+ * states, which is what a gate floor is for, and they say so.
  *
- * ⚠️ A floor that admits the current state by only 20% is a floor that a later change can drift
- * back through. That is deliberate here and it is the honest reading of a marginal fix: the gap to
- * 1.6 px is real, it is in the horizontal channel, and the constant should move up when that is
- * closed rather than being set optimistically now.
+ * Measured at seed 1 over 420 s at 30 Hz, per vertex, worst-moving vertex per 15 s window, median
+ * over windows — with the free-foot release fix and with each mechanism removed in turn:
+ *
+ *     configuration                       horizontal   resultant
+ *     as shipped                               1.013       1.326
+ *     proportional release (last round)        0.272       0.903
+ *     no toe articulation at all               1.012       1.012
+ *     welded — no yaw release either           0.272       0.374
+ *
+ * Read the first column: the ONLY mechanism that moves a foot horizontally is the yaw release, and
+ * the whole of this round's gain is the breakaway fix in `Sway.js` (0.272 -> 1.013, **3.7x**). The
+ * toe mechanisms contribute 0.001 px horizontally, which is why the second column exists and why the
+ * old attribution gate — stated on the resultant — was measuring a channel the judge cannot see.
+ *
+ * 0.75 px horizontal sits between the proportional release (0.272) and the fix (1.013), rejecting
+ * the old state by 2.8x and admitting the new one by 1.4x. 1.20 px resultant does the same job for
+ * the second column against the 0.903 the old release scored.
  */
-const FOOT_BAND_MEDIAN_FLOOR_PIXELS = 0.75;
+const FOOT_BAND_HORIZONTAL_FLOOR_PIXELS = 0.75;
+const FOOT_BAND_MEDIAN_FLOOR_PIXELS = 1.20;
 
 /**
- * The attribution the toggle has to show. Measured 1.91x; 1.5 leaves room for seed drift while
- * still failing if the fore-and-aft coupling stops carrying the change.
+ * The attribution the release toggle has to show, on the horizontal channel. Measured 3.72x
+ * (1.013 against 0.272); 2.5 leaves room for seed drift while still failing if the breakaway stops
+ * carrying the change.
+ *
+ * ⚠️ The fore-and-aft toe coupling's own attribution is NOT here any more and the reason is worth a
+ * sentence. It was 1.91x on the resultant, and on the horizontal it is 1.001x — the toes move
+ * vertically, by construction, so the coupling cannot appear in the statistic the verdict is taken
+ * in. It is still gated, on the resultant, where it is real.
  */
-const FOOT_BAND_COP_ATTRIBUTION_FLOOR = 1.5;
+const FOOT_BAND_RELEASE_ATTRIBUTION_FLOOR = 2.5;
+const FOOT_BAND_COP_ATTRIBUTION_FLOOR = 1.15;
 
 /** The window the foot band is traced over. The judge's clip length. */
 const FOOT_BAND_SECONDS = 420;
@@ -755,25 +851,48 @@ const VELOCITY_PEAK_WINDOW_SECONDS = 0.5;
 const MEAN_COP_SPEED_RANGE_MM_PER_SECOND = { low: 11, high: 20 };
 
 /**
- * 🎯 THE PEAK CEILING IS THE PREDICTION ITSELF, WITH NO ALLOWANCE — and the margin is 8%, which is
- * stated here rather than discovered later.
+ * 🎯 THE PEAK CEILING, RE-DERIVED FROM THE LITERATURE — because the one it replaces WAS THE LAYER'S
+ * OWN PREDICTED MAXIMUM AND THEREFORE COULD NOT FAIL.
  *
- * The prediction is a mean-amplitude fidget on BOTH axes at once, at their steepest instant:
- * 97.1 mm/s. `eventStretch` holds every larger event to the mean event's speed, so that IS the
- * fastest thing the shapes can produce and there is nothing to add an allowance for.
+ * 🚩 Read the mechanism of the old defect before the new derivation, because it is subtle and it is
+ * a shape this repository will meet again. The old ceiling was computed live, inside the section,
+ * from `shape.fidget.durationSeconds`, `shape.fidget.riseFraction` and `shape.medioLateral
+ * .settings.shiftAmplitude` — the very constants that decide how fast the layer moves. Halve the
+ * fidget duration and the layer moves twice as fast AND THE CEILING DOUBLES WITH IT, so the gate
+ * stays green through the exact change it exists to catch. It was not a weak ceiling; it was a
+ * mirror. Everything it ever proved is that the layer agrees with itself.
  *
- * The measurement sits between the two readings of it and that is worth knowing. The LATERAL axis
- * alone predicts 76.8 mm/s and the shipped layer's worst seed measures 89.8 — so the balance band
- * and a concurrent settle really do add about 17% — but the two axes never peak together, so the
- * two-axis figure is never reached. Across the twelve seeds: shipped 47.1-89.8, none over the
- * ceiling; fixed-duration 47.1-124.4, four over it.
+ * THE REPLACEMENT IS A CONSTANT AND IT READS NOTHING FROM `Sway.js`. Two published numbers:
  *
- * ⚠️ 8% is not much headroom for a stochastic gate, and raising the ceiling to buy some would be
- * raising it past the fastest event the layer can construct — which is the whole claim. If a future
- * seed set fails this by a few per cent, the honest fix is to re-derive the prediction, not to
- * widen the allowance.
+ *   THE BANDWIDTH is Quijoux's f95 — 95% of centre-of-pressure power below **1.09 Hz** laterally and
+ *   **1.23 Hz** fore-and-aft on the force plate. A displacement whose whole spectral content lies
+ *   inside that band cannot rise faster than one half-cycle of a sinusoid at its edge.
+ *
+ *   THE AMPLITUDE is Duarte's mean weight-shift excursion, **22 mm ML / 17 mm AP**.
+ *
+ * A half-cosine rise to A at frequency f peaks at pi*f*A, so the fastest event the published
+ * spectrum admits at the published amplitude is **75.3 mm/s** laterally and **65.7 mm/s** fore-and-
+ * aft, or **99.9 mm/s** with both axes at their steepest instant at once. The last is a worst case,
+ * not a prediction: the two axes are independent processes here and never peak together.
+ *
+ * ⚠️ TWO REGIMES, AND THIS DOES NOT CONFLATE THEM — §1.7b is the standing warning and it is why the
+ * split is stated. Quijoux's trial is 60 s of "stand as still as possible", so Duarte's 199 s shift
+ * process is absent from it BY CONSTRUCTION and Quijoux's AMPLITUDES may not be used for a shift.
+ * What is taken from Quijoux here is a BANDWIDTH, and a bandwidth is the one property of that
+ * spectrum a weight shift cannot exceed without putting power where the paper measures none — which
+ * this file already checks independently on the composite trace, in `POSTURAL SPECTRUM`'s
+ * "power > 2 Hz, worst" gate. The amplitude comes from the paper that measured shifts.
+ *
+ * ⚠️ AND THE HONEST NOTE ABOUT WHAT THE NEW NUMBER PROVES. 99.9 mm/s lands within 3% of the 97.1 the
+ * old mirror produced, so the verdict on TODAY's layer does not change: the worst of twelve seeds is
+ * 91.263 mm/s and passes either way. That agreement is worth recording — the layer's event shapes
+ * sit right at the edge of what the published spectrum admits, with 9% to spare — but it must not be
+ * read as one number validating the other. What changes is that the ceiling no longer moves, which
+ * is proved below by halving the fidget duration: the old ceiling followed it and stayed green.
  */
-const PEAK_SPEED_ALLOWANCE_OVER_PREDICTION = 1.0;
+const PEAK_SPEED_CEILING_MM_PER_SECOND = Math.hypot(
+    Math.PI * QUIJOUX_F95_MEDIO_LATERAL_HZ * DUARTE_SHIFT_MEDIO_LATERAL_MM,
+    Math.PI * QUIJOUX_F95_ANTERO_POSTERIOR_HZ * DUARTE_SHIFT_ANTERO_POSTERIOR_MM );
 
 /**
  * How far the shipped layer must out-travel a fully welded foot in this band. Measured 2.41x
@@ -914,6 +1033,7 @@ measureFreeFootArticulation();
 measureFootBandArticulation();
 measureGlanceLegibility();
 measureClipContent();
+measureFullStackHeadOverHip();
 measureAmplitudeDistribution();
 measureSegmentPaths( traces );
 measurePendulumGeometry();
@@ -1953,9 +2073,10 @@ function measureToeArticulation() {
     // does not clear the floor and saying so is the point. LEARNINGS §1.10b: an amplitude stated in
     // a unit nobody can picture will pass every review it is given. This gate is honest, precise and
     // green, and a millimetre of rise is 0.66 px at the framing every capture in this project is
-    // taken at — under half the 1.6 px this project has on record as indistinguishable. The toe lift
-    // is a real motion authored below the visibility floor, and the FREE FOOT section is what holds
-    // the claim it cannot.
+    // taken at — inside the 0.48-10.6 px bracket at its invisible end, and only 1.4x the 0.48 px a
+    // blind judge reported as "the hands never move". The toe lift is a real motion authored down
+    // where nothing this project owns says it is visible, and the FREE FOOT section holds the claim
+    // it cannot.
     note( 'the same rise, in pixels', ( freeRise * fullBodyFraming().pixelsPerMillimetre ).toFixed( 2 ),
         `against the ${ FREE_FOOT_TRAVEL_FLOOR_PIXELS } px articulation floor — the toe lift alone ` +
         'does not reach it, and the gate above cannot see that' );
@@ -2310,24 +2431,34 @@ function measureFootBandArticulation() {
         ( shipped.resultant.wholeClip / shipped.resultant.median ).toFixed( 1 ),
         'the spike ratio. 25.2 on the lateral mechanism alone; 1 would be a foot that never stops' );
 
-    gate( 'foot band, 15 s median travel (px)', shipped.resultant.median,
+    // 🎯 THE HORIZONTAL FIRST, because it is the channel `travel.mjs` reports and therefore the
+    // channel every verdict on this defect has ever been taken in. See the constants' header.
+    gate( 'foot band, 15 s median HORIZONTAL travel (px)', shipped.horizontal.median,
+        FOOT_BAND_HORIZONTAL_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
+        'per vertex, the statistic travel.mjs measures. The yaw release is the only mechanism that ' +
+        'can move a foot in it' );
+
+    gate( 'foot band, 15 s median resultant travel (px)', shipped.resultant.median,
         FOOT_BAND_MEDIAN_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
-        'the resultant, per vertex; see the section header for why this floor is not 1.6' );
+        'horizontal plus the toe lift\'s vertical; no capture instrument in this repo reports it' );
 
-    // 🚩 RECORDED AS A GATE, NOT TOLERATED — §1.11 and the whole point of this section. The floor
-    // above is NOT this project's 1.6 px indistinguishability figure, and saying so in a comment is
-    // how the next reader comes to believe it was. The shortfall is asserted as a number so that it
-    // cannot be quietly forgotten, and asserted with a CEILING so that closing it fails this gate
-    // and forces the sentence to be rewritten.
-    gate( 'shortfall against the 1.6 px floor (x)',
-        SILHOUETTE_WIDTH_FLOOR_PIXELS / shipped.resultant.median, 1.0, 2.5,
-        `recorded, not tolerated: ${ shipped.resultant.median.toFixed( 3 ) } px against ${ SILHOUETTE_WIDTH_FLOOR_PIXELS }. ` +
-        'The remaining gap is the horizontal channel, and it is quadratic in the load transfer' );
+    // 🚩 RECORDED AS A GATE, NOT TOLERATED — §1.11 and §1.14a. This used to say "shortfall against
+    // the 1.6 px floor", and there is no such floor: 1.6 px comes from a block PROGRESS marks
+    // superseded and its two halves disagree by 1.85x. The shortfall is now stated against the one
+    // number this project owns at the LEGIBLE end of its bracket — 10.6 px of pelvis excursion,
+    // which a blind judge counted as an event — and it is asserted with a CEILING so that closing it
+    // fails this gate and forces the sentence to be rewritten rather than quietly ageing.
+    gate( 'shortfall against the legible end of the bracket (x)',
+        JUDGE_REPORTED_LEGIBLE_PIXELS / shipped.horizontal.median, 1.0, 14.0,
+        `recorded, not tolerated: ${ shipped.horizontal.median.toFixed( 3 ) } px horizontal against the ` +
+        `${ JUDGE_REPORTED_LEGIBLE_PIXELS } px a judge COUNTED. A planted foot pivoting about its own ` +
+        'ankle cannot reach that — closing it needs a foot that is REPOSITIONED, not one that turns' );
 
-    gate( 'horizontal alone is still under the floor (px)', shipped.horizontal.median,
-        0, SILHOUETTE_WIDTH_FLOOR_PIXELS,
-        'recorded, not tolerated: the free-foot yaw release goes as the SQUARE of the load transfer ' +
-        '— a fraction `unload` of a chain yaw that is itself proportional to the blend' );
+    gate( 'and it clears the invisible end (x)',
+        shipped.horizontal.median / JUDGE_REPORTED_INVISIBLE_PIXELS, 1.0, 30.0,
+        `${ shipped.horizontal.median.toFixed( 3 ) } px against the ${ JUDGE_REPORTED_INVISIBLE_PIXELS } px ` +
+        'a judge reported as "the hands never move". This is the weaker of the two claims and the ' +
+        'only one the evidence supports' );
 
     measureFootBandTheOtherWay( framing, shipped );
 
@@ -2339,41 +2470,69 @@ function measureFootBandArticulation() {
  */
 function measureFootBandTheOtherWay( framing, shipped ) {
 
+    const proportional = footBandTravel( { freeFootBreakawayBlend: 1 }, framing );
     const lateralOnly = footBandTravel( { toeCopLiftEnabled: false }, framing );
     const noToes = footBandTravel( { toeCopLiftEnabled: false, toeLiftDegrees: 0 }, framing );
     const welded = footBandTravel( { toeCopLiftEnabled: false, toeLiftDegrees: 0, freeFootYawRelease: 0 }, framing );
 
     console.log( '' );
-    console.log( '        configuration                    15 s median (px)   range / median' );
+    console.log( '        configuration                     horizontal   resultant   range / median' );
 
     for ( const [ label, report ] of [
         [ 'as shipped', shipped ],
+        [ 'proportional release (last round)', proportional ],
         [ 'lateral toe mechanism alone', lateralOnly ],
         [ 'no toe articulation at all', noToes ],
         [ 'welded — no yaw release either', welded ]
     ] ) {
 
-        console.log( `        ${ label.padEnd( 30 ) }   ${ report.resultant.median.toFixed( 3 ).padStart( 16 ) }   ` +
+        console.log( `        ${ label.padEnd( 33 ) }   ${ report.horizontal.median.toFixed( 3 ).padStart( 10 ) }   ` +
+            `${ report.resultant.median.toFixed( 3 ).padStart( 9 ) }   ` +
             `${ ( report.resultant.wholeClip / Math.max( report.resultant.median, 1e-9 ) ).toFixed( 1 ).padStart( 14 ) }` );
 
     }
 
     console.log( '' );
 
+    // 🎯 ATTRIBUTION BY TOGGLE, on the channel the verdict is taken in. `freeFootBreakawayBlend: 1`
+    // reproduces the proportional release EXACTLY — min(unload/1,1) is unload — so this is the layer
+    // as it shipped last round and not a model of it.
+    gate( 'the breakaway is what moved the horizontal (x)',
+        shipped.horizontal.median / proportional.horizontal.median,
+        FOOT_BAND_RELEASE_ATTRIBUTION_FLOOR, 20,
+        `${ shipped.horizontal.median.toFixed( 3 ) } px with it against ` +
+        `${ proportional.horizontal.median.toFixed( 3 ) } with the release proportional to the load` );
+
+    gate( 'the horizontal gate REJECTS the proportional release',
+        proportional.horizontal.median < FOOT_BAND_HORIZONTAL_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        'the state that shipped last round, whose articulation was the SQUARE of the load transfer' );
+
+    // 🚩 AND THE SAME KNOWN-BAD ON THE RESULTANT, WHERE IT IS NEARLY INVISIBLE. Recorded as a gate
+    // because it is the reason the horizontal is now the headline: the resultant moves 1.5x between
+    // these two states and the horizontal moves 3.7x, so a reviewer reading only the resultant would
+    // have called this round's fix marginal.
+    gate( 'the RESULTANT would barely have shown it (x)',
+        shipped.resultant.median / proportional.resultant.median, 1.0, 2.0,
+        `recorded, not tolerated: ${ shipped.resultant.median.toFixed( 3 ) } against ` +
+        `${ proportional.resultant.median.toFixed( 3 ) } on the resultant, where the horizontal moves ` +
+        `${ ( shipped.horizontal.median / proportional.horizontal.median ).toFixed( 2 ) }x` );
+
     // ATTRIBUTION BY TOGGLE. The fore-and-aft coupling is the only difference between these two
-    // runs, so whatever the ratio is, it is that mechanism's and nothing else's.
-    gate( 'the fore-and-aft toe coupling is what moved it (x)',
+    // runs, so whatever the ratio is, it is that mechanism's and nothing else's. On the RESULTANT,
+    // because the toes move vertically and the horizontal channel cannot see them at all.
+    gate( 'the fore-and-aft toe coupling is what moved the resultant (x)',
         shipped.resultant.median / lateralOnly.resultant.median,
         FOOT_BAND_COP_ATTRIBUTION_FLOOR, 10,
         `${ shipped.resultant.median.toFixed( 3 ) } px with it against ${ lateralOnly.resultant.median.toFixed( 3 ) } without` );
 
-    gate( 'the median gate REJECTS the lateral mechanism alone',
-        lateralOnly.resultant.median < FOOT_BAND_MEDIAN_FLOOR_PIXELS ? 1 : 0, 1, 1,
-        'the state that shipped last round, whose FREE FOOT gate was green on a whole-clip range' );
-
-    gate( 'and REJECTS a foot with no toe articulation',
+    gate( 'the resultant gate REJECTS a foot with no toe articulation',
         noToes.resultant.median < FOOT_BAND_MEDIAN_FLOOR_PIXELS ? 1 : 0, 1, 1,
         `${ noToes.resultant.median.toFixed( 3 ) } px` );
+
+    gate( 'and REJECTS a welded foot on both channels',
+        ( welded.horizontal.median < FOOT_BAND_HORIZONTAL_FLOOR_PIXELS
+            && welded.resultant.median < FOOT_BAND_MEDIAN_FLOOR_PIXELS ) ? 1 : 0, 1, 1,
+        `${ welded.horizontal.median.toFixed( 3 ) } horizontal, ${ welded.resultant.median.toFixed( 3 ) } resultant` );
 
     // 🚩 THE BAND HAS A FLOOR IT CANNOT GO BELOW, AND IT IS 0.374 PX RATHER THAN ZERO. A foot with
     // no toes, no yaw release and nothing else to do still travels, because the whole body leans
@@ -3621,22 +3780,20 @@ function measurePosturalVelocity() {
 
     const shipped = SWAY_SEEDS.map( ( seed ) => centreOfPressureSpeed( seed, {} ) );
 
-    // The prediction, computed from the constants rather than typed in, so it cannot drift away
-    // from the shapes it describes. A raised cosine rising to A in T seconds peaks at pi*A/(2T);
-    // an exponential settling to A with time constant tau peaks at A/tau. `eventStretch` holds
-    // every larger event to the mean event's speed, so the mean event IS the fastest one.
-    const shape = buildStack( SEED ).layer;
-    const riseSeconds = shape.fidget.durationSeconds * shape.fidget.riseFraction;
-    const fidgetPeak = ( axis ) => Math.PI * axis.settings.shiftAmplitude * shape.fidget.amplitudeFraction
-        / ( 2 * riseSeconds );
+    // What the layer's own event shapes predict. 🚩 THIS IS NOT THE CEILING ANY MORE — it was, and
+    // that is the defect this section was rewritten to remove: it is computed from the very
+    // constants that decide how fast the layer moves, so it followed them. It is kept as a REPORTED
+    // number and gated against the literature ceiling below, which is what makes a change to the
+    // shapes fail deterministically rather than waiting for a seed to draw a large event.
+    const predicted = shapePredictedPeakSpeed( {} );
 
-    const predicted = Math.hypot(
-        fidgetPeak( shape.medioLateral ), fidgetPeak( shape.anteroPosterior ) ) * 1000;
+    note( 'the layer\'s own event shapes predict (mm/s)', predicted.toFixed( 1 ),
+        'a mean-amplitude fidget on each axis at once: pi*A/(2*rise). REPORTED, not the ceiling' );
 
-    note( 'predicted peak from the event shapes (mm/s)', predicted.toFixed( 1 ),
-        `a mean-amplitude fidget on each axis at once: pi*A/(2*rise), ` +
-        `${ ( shape.medioLateral.settings.shiftAmplitude * 1000 ).toFixed( 0 ) } mm over ` +
-        `${ riseSeconds.toFixed( 2 ) } s laterally` );
+    note( 'literature ceiling (mm/s)', PEAK_SPEED_CEILING_MM_PER_SECOND.toFixed( 1 ),
+        `pi*f95*A on both axes at once: Quijoux ${ QUIJOUX_F95_MEDIO_LATERAL_HZ }/` +
+        `${ QUIJOUX_F95_ANTERO_POSTERIOR_HZ } Hz with Duarte ${ DUARTE_SHIFT_MEDIO_LATERAL_MM }/` +
+        `${ DUARTE_SHIFT_ANTERO_POSTERIOR_MM } mm — reads nothing from Sway.js` );
 
     const means = shipped.map( ( report ) => report.meanSpeed );
     const peaks = shipped.map( ( report ) => report.peakSpeed );
@@ -3657,15 +3814,24 @@ function measurePosturalVelocity() {
         'Quijoux eyes-open 11-20 mm/s, on the COMPOSITE; the balance band alone reads 18.22' );
 
     gate( 'peak 0.5 s speed, worst seed (mm/s)', Math.max( ...peaks ), 0,
-        predicted * PEAK_SPEED_ALLOWANCE_OVER_PREDICTION,
-        `the prediction above; eventStretch holds every larger event to the mean event's speed, so ` +
-        'that IS the fastest shape this layer can build' );
+        PEAK_SPEED_CEILING_MM_PER_SECOND,
+        'the LITERATURE ceiling, which does not move when the layer does — see its constant' );
+
+    // 🎯 THE DETERMINISTIC HALF, AND THE ONE THE OLD SELF-REFERENTIAL CEILING COULD NOT HAVE. The
+    // gate above is stochastic: it needs a seed to draw an event large enough to reach the ceiling.
+    // This one asks whether the SHAPES themselves could ever exceed what the published spectrum
+    // admits, and it answers in one number with no seed in it at all.
+    gate( 'the event shapes fit under the literature ceiling (x)',
+        PEAK_SPEED_CEILING_MM_PER_SECOND / predicted, 1.0, 3.0,
+        `${ predicted.toFixed( 1 ) } mm/s of shape against a ${ PEAK_SPEED_CEILING_MM_PER_SECOND.toFixed( 1 ) } ` +
+        'mm/s bound. The ceiling on THIS one is not decoration either: shapes far under the bound ' +
+        'would be a layer that had stopped producing legible events' );
 
     note( 'peak / mean', ( Math.max( ...peaks ) / median( means ) ).toFixed( 1 ),
         'recorded so a change to either statistic is visible. NOT a gate: a rare-event process is ' +
         'quiet most of the time and its mean is below any transient by construction' );
 
-    measurePosturalVelocityTheOtherWay( predicted );
+    measurePosturalVelocityTheOtherWay();
 
 }
 
@@ -3673,12 +3839,12 @@ function measurePosturalVelocity() {
  * §1.1. The known-bad is the layer with `eventStretch` defeated — a fixed event duration, which is
  * exactly how this file shipped — run over the same twelve seeds and asserted as a COUNT (§1.1a).
  */
-function measurePosturalVelocityTheOtherWay( predicted ) {
+function measurePosturalVelocityTheOtherWay() {
 
     const fixed = SWAY_SEEDS.map( ( seed ) => centreOfPressureSpeed( seed, { eventDurationScalesWithAmplitude: false } ) );
 
     const peaks = fixed.map( ( report ) => report.peakSpeed );
-    const ceiling = predicted * PEAK_SPEED_ALLOWANCE_OVER_PREDICTION;
+    const ceiling = PEAK_SPEED_CEILING_MM_PER_SECOND;
 
     note( 'fixed-duration events, peak 0.5 s speed (mm/s)',
         `${ Math.min( ...peaks ).toFixed( 1 ) }-${ Math.max( ...peaks ).toFixed( 1 ) }`,
@@ -3700,6 +3866,93 @@ function measurePosturalVelocityTheOtherWay( predicted ) {
         `${ median( fixedMeans ).toFixed( 2 ) } mm/s — inside the literature band, and 0.1 mm/s from the ` +
         `shipped layer's — while its peak reaches ${ Math.max( ...peaks ).toFixed( 0 ) }. Stretching the ` +
         'tail changes a path length hardly at all, which is why no existing gate could see this' );
+
+    breakThePeakCeilingADifferentWay();
+
+}
+
+/**
+ * 🎯 A SECOND KNOWN-BAD, IN THE SAME CLASS AND BY A DIFFERENT MECHANISM — because a gate proved only
+ * against the defect it was written for is proved against nothing (LEARNINGS §1.1, and the standing
+ * instruction that a gate which only catches its own known-bad is decorative).
+ *
+ * The first known-bad above defeats `eventStretch`, which lets the AMPLITUDE distribution's tail out
+ * as speed. This one leaves `eventStretch` alone and simply makes every fidget twice as brief — the
+ * amplitude distribution is untouched, the event rate is untouched, and the spectrum moves up rather
+ * than out. It is the change the OLD ceiling was structurally unable to see, because that ceiling
+ * was `pi*A/(2*rise)` read off `fidget.durationSeconds` at run time: halve the duration and the
+ * ceiling doubled with the layer.
+ *
+ * Both halves are asserted, and the first is the one worth reading:
+ *
+ *   THE OLD CEILING WOULD HAVE STAYED GREEN. Computed here the way the old section computed it,
+ *   from the halved layer's own shapes, and compared against that same layer's measured peaks. If
+ *   this assertion ever goes red it means the old form was not in fact self-referential and this
+ *   whole rewrite was unnecessary — which is exactly what an assertion is for.
+ *
+ *   THE NEW CEILING GOES RED, deterministically on the shape gate and on a counted number of seeds
+ *   on the stochastic one.
+ */
+function breakThePeakCeilingADifferentWay() {
+
+    // Read off the shipped layer rather than typed, so the known-bad stays a HALVING of whatever
+    // `FIDGET_DURATION_SECONDS` currently is instead of drifting into an absolute number.
+    const shipped = buildStack( SEED );
+    const halved = { fidget: { durationSeconds: shipped.layer.fidget.durationSeconds / 2 } };
+
+    shipped.stack.dispose();
+
+    const mirrorCeiling = shapePredictedPeakSpeed( halved );
+    const peaks = SWAY_SEEDS.map( ( seed ) => centreOfPressureSpeed( seed, halved ).peakSpeed );
+
+    note( 'halved fidget duration, peak 0.5 s speed (mm/s)',
+        `${ Math.min( ...peaks ).toFixed( 1 ) }-${ Math.max( ...peaks ).toFixed( 1 ) }`,
+        'same amplitudes, same rate, every event twice as brief' );
+
+    gate( 'the OLD self-referential ceiling would have stayed green',
+        peaks.filter( ( value ) => value > mirrorCeiling ).length, 0, 0,
+        `it doubles to ${ mirrorCeiling.toFixed( 0 ) } mm/s with the layer, so none of the twelve ` +
+        'seeds crosses it. This is the proof that the old gate could not fail' );
+
+    gate( 'the SHAPE gate catches a halved duration deterministically (x)',
+        PEAK_SPEED_CEILING_MM_PER_SECOND / mirrorCeiling, 0, 1.0,
+        `${ mirrorCeiling.toFixed( 0 ) } mm/s of shape against a ` +
+        `${ PEAK_SPEED_CEILING_MM_PER_SECOND.toFixed( 0 ) } mm/s bound — no seed involved` );
+
+    gate( 'seeds where the LITERATURE ceiling catches a halved duration',
+        peaks.filter( ( value ) => value > PEAK_SPEED_CEILING_MM_PER_SECOND ).length,
+        3, SWAY_SEEDS.length,
+        `against a fixed ${ PEAK_SPEED_CEILING_MM_PER_SECOND.toFixed( 0 ) } mm/s: ` +
+        `${ peaks.filter( ( value ) => value > PEAK_SPEED_CEILING_MM_PER_SECOND ).length } of ` +
+        `${ SWAY_SEEDS.length }, measured 47.3-107.3. Asserted as a COUNT per §1.1a, and the count is ` +
+        'LOW on purpose — a peak lives in the tail, so a seed whose largest draw is modest passes ' +
+        'honestly even at twice the speed. The deterministic shape gate above is what carries this ' +
+        'known-bad; this one only shows that the stochastic half is not blind to it' );
+
+}
+
+/**
+ * The peak resultant speed the layer's event shapes predict, in mm/s, for a layer built however the
+ * caller likes. A raised cosine rising to A in T seconds peaks at pi*A/(2T), and `eventStretch`
+ * holds every larger event to the mean event's speed, so the mean event is the fastest one.
+ *
+ * 🚩 This is the OLD CEILING, kept as a function so that it can be REPORTED beside the literature
+ * one and so that the known-bad above can show it following a defect it is supposed to catch. It
+ * must never be passed to `gate()` as a bound again.
+ */
+function shapePredictedPeakSpeed( options ) {
+
+    const { stack, layer } = buildStack( SEED, options );
+    const riseSeconds = layer.fidget.durationSeconds * layer.fidget.riseFraction;
+
+    const axisPeak = ( axis ) => Math.PI * axis.settings.shiftAmplitude * layer.fidget.amplitudeFraction
+        / ( 2 * riseSeconds );
+
+    const predicted = Math.hypot( axisPeak( layer.medioLateral ), axisPeak( layer.anteroPosterior ) ) * 1000;
+
+    stack.dispose();
+
+    return predicted;
 
 }
 
@@ -4322,16 +4575,21 @@ function measureTheOtherWay() {
  * 1.6 px indistinguishability floor."
  *
  * 🚩 THE DEFECT IS REAL AND THE COMPARISON IS NOT, AND THE DIFFERENCE MATTERS BECAUSE IT DECIDES
- * WHERE THE WORK GOES. **1.6 px is a peak-to-peak.** `docs/PROGRESS.md` records it as a weight shift
- * that "moves the body ~4.5 mm ML — 1.6 pixels at full-body framing. Side-by-side plates before and
- * after a shift are indistinguishable": a displacement between two plates, not the spread of a
- * distribution. The numbers it was compared against are standard deviations, and on these traces the
- * peak-to-peak is 10-12x the SD. So the comparison understates the figure by an order of magnitude.
+ * WHERE THE WORK GOES. **Whatever 1.6 px is, it is a peak-to-peak**, and the numbers it was compared
+ * against are standard deviations; on these traces the peak-to-peak is 10-12x the SD, so the
+ * comparison understates the figure by an order of magnitude.
+ *
+ * ⚠️ AND THE SECOND HALF OF THAT SENTENCE, ADDED 2026-08-08: **1.6 px is not data at all.** It was
+ * quoted out of a block `docs/PROGRESS.md` itself marks superseded, and its two halves disagree by
+ * 1.85x — 4.5 mm at this file's own 0.6574 px/mm is 2.958 px, not 1.6. The table below is kept
+ * because the STATISTIC correction it makes is right and independent of the number; its last column
+ * is a ratio against a figure with nothing behind it and should be read as scale, not as a verdict.
+ * See JUDGE_REPORTED_INVISIBLE_PIXELS for what this project does own.
  *
  * Re-measured on the SAME capture in the statistic the floor is actually stated in — the median
  * travel inside a sliding 15 s window, which is the question "what does a viewer see in a glance":
  *
- *     band        median 15 s travel    10th percentile     x the 1.6 px floor
+ *     band        median 15 s travel    10th percentile     x 1.6 px (see below)
  *     head              20.84 px            16.20              13.0
  *     shoulder          11.88               9.99                7.4
  *     hip               11.79              10.01                7.4
@@ -4447,7 +4705,7 @@ function measureGlanceLegibility() {
 
         gate( `${ name } band, 15 s travel, worst seed (px)`, Math.min( ...travels ),
             SILHOUETTE_WIDTH_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
-            'the floor is the 1.6 px this project measured as indistinguishable' );
+            'a judgement, not a measured visibility floor — see JUDGE_REPORTED_INVISIBLE_PIXELS' );
 
         gate( `${ name } band, 15 s travel, liveliest seed (px)`, Math.max( ...travels ),
             SILHOUETTE_WIDTH_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
@@ -4541,17 +4799,287 @@ function measureGlanceLegibility() {
         `hip > knee > ankle on every seed; worst margins ${ Math.min( ...across( 'knee', ( each ) => each.glanceTravelPixels ) ).toFixed( 2 ) } ` +
         `knee against ${ Math.max( ...ankleTravels ).toFixed( 2 ) } ankle` );
 
-    const headOverHip = SWAY_SEEDS.map( ( seed, index ) =>
-        at( shipped[ index ], 'head' ).glanceTravelPixels / at( shipped[ index ], 'hip' ).glanceTravelPixels );
-
-    gate( 'head band / hip band travel, worst seed', Math.max( ...headOverHip ),
-        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING,
-        'NOT the bone-marker claim — see the constant. An unrighted lumbar scores 1.75-1.84 here' );
-
-    gate( 'head band / hip band travel, lowest seed', Math.min( ...headOverHip ),
-        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING, '' );
+    measureHeadOverHipBand( shipped, at );
 
     measureGlanceLegibilityTheOtherWay( framing, shipped, at );
+
+}
+
+/**
+ * 🎯 HEAD OVER HIP, ON A NAMED TIMESCALE AND A NAMED STATISTIC — because the gate had neither, and a
+ * gate whose verdict depends on an unstated parameter is not a gate.
+ *
+ * 🚩 THE DEFECT, IN ONE LINE. A judge measured this ratio on a rendered clip and reported **1.0596**
+ * (seed 4242) and **1.2045** (seed 42) against "a target of <= 1.0". THE SAME CLIPS read **0.894**
+ * and **0.909** as a whole-clip peak-to-peak, i.e. PASS. Two honest measurements of the same body
+ * disagreeing about the verdict, and nothing anywhere said which one the claim was about.
+ *
+ * THE CLAIM IS ABOUT THE GLANCE, AND HERE IS WHY, FROM WHAT A VIEWER DOES RATHER THAN FROM WHAT IS
+ * CONVENIENT TO COMPUTE.
+ *
+ *   "The pelvis leads the head" is a statement about two body parts AT THE SAME TIME. A whole-clip
+ *   peak-to-peak compares the head's largest excursion over 420 seconds against the hip's largest
+ *   excursion over 420 seconds — and on a rare-event process those two extremes come from DIFFERENT
+ *   EVENTS, minutes apart. No observer makes that comparison; there is nothing to hold it in.
+ *
+ *   A whole-clip statistic is also ONE NUMBER PER CLIP. It cannot see a distribution, and §1.14 is
+ *   the record of what that costs. The 15 s window gives 406 of them and the gate takes their median.
+ *
+ *   Fifteen seconds is GLANCE_WINDOW_SECONDS and it is not chosen here: it is four cycles of
+ *   Quijoux's 0.33 Hz lateral mode and one fidget at Duarte's 1.2/min, so a window that shows nothing
+ *   is showing nothing for a reason other than its own length (§1.4).
+ *
+ * SO THE STATISTIC IS, IN FULL, AND IT IS WHAT EVERY NUMBER BELOW IS IN: **the median, over 15 s
+ * windows stepping one second, of the peak-to-peak horizontal travel of a band's silhouette centre,
+ * in pixels, at the full-body capture framing.** The whole-clip figure is PRINTED beside it, always,
+ * so that the flip can never happen silently again — but it is not the verdict.
+ *
+ * 🎯 AND THE SECOND HALF, WHICH IS AN INSTRUMENT DEFECT AND MATTERS MORE THAN THE FIRST. This file's
+ * GLANCE_BANDS block says the bands are "identical to `tools/critic/travel.mjs`'s defaults so that an
+ * offline prediction and a capture measurement can be laid side by side." The BANDS are identical.
+ * THE STATISTIC IS NOT. `travel.mjs` takes the centroid of a THRESHOLDED SILHOUETTE — an outline —
+ * and this file took the mean of the band's PROJECTED VERTICES, which is density-weighted over the
+ * mesh's interior. On the lower body the two agree. On the head they do not, because yawing a skull
+ * redistributes vertex density without moving the outline, and the full stack yaws the head 21.0
+ * degrees SD. Measured on the stack `alive.js` builds, 420 s at 30 Hz, seed 4242:
+ *
+ *     statistic                              head/hip 15 s median
+ *     vertex centroid (what this file did)                 3.4521
+ *     silhouette centre (what travel.mjs does)             1.0257
+ *     the judge's rendered clip                            1.0596
+ *
+ * A factor of 3.4 between two offline numbers, and the silhouette form lands within 3.2% of the
+ * render. So the vertex centroid is not comparable with the arbiter and the silhouette centre is;
+ * both are now measured and the gate is on the second.
+ *
+ * ⚠️ AND THE CONSEQUENCE FOR WHAT THE ROUND WAS TOLD TO FIX. The brief for this round says the
+ * residue is `gaze.head` amplitude. On the VERTEX statistic that is true and it is enormous — the
+ * head band goes 12.28 -> 47.06 px when `gaze.head` is added, 3.83x. On the SILHOUETTE statistic,
+ * which is the one the judge measured, removing `gaze.head` moves head/hip by AT MOST 0.013 across
+ * three seeds (4242: 1.0257 -> 1.0244; 42: 0.9918 -> 0.9793; 20260807: 0.9456 -> 0.9446) — and Sway
+ * ALONE, with no gaze layer in the stack at all, scores 1.0778-1.1101, which is HIGHER than the full
+ * stack. `gaze.head` is not the residue. The ratio is what band geometry gives a correctly-righted
+ * body, and the "target <= 1.0" it was scored against is the BONE-MARKER ceiling from HEAD PARKED,
+ * borrowed onto a statistic it does not describe. Those measurements are in this file's own
+ * `measureBandStatisticDisagreement`, not in a report.
+ */
+function measureHeadOverHipBand( shipped, at ) {
+
+    console.log( '' );
+    console.log( `        THE STATISTIC: median over ${ GLANCE_WINDOW_SECONDS } s windows of the ` +
+        'peak-to-peak travel of a band\'s SILHOUETTE CENTRE, in pixels.' );
+    console.log( '' );
+    console.log( '        seed         silhouette 15 s   silhouette clip   vertex 15 s   vertex clip' );
+
+    const glanceRatios = [];
+    const wholeClipRatios = [];
+    const vertexRatios = [];
+
+    for ( let index = 0; index < SWAY_SEEDS.length; index ++ ) {
+
+        const head = at( shipped[ index ], 'head' );
+        const hip = at( shipped[ index ], 'hip' );
+
+        const glance = head.silhouetteGlanceTravelPixels / hip.silhouetteGlanceTravelPixels;
+        const clip = head.silhouetteWholeClipPixels / hip.silhouetteWholeClipPixels;
+        const vertexGlance = head.glanceTravelPixels / hip.glanceTravelPixels;
+
+        glanceRatios.push( glance );
+        wholeClipRatios.push( clip );
+        vertexRatios.push( vertexGlance );
+
+        console.log( `  ${ String( SWAY_SEEDS[ index ] ).padStart( 10 ) }   ${ glance.toFixed( 4 ).padStart( 15 ) }   ` +
+            `${ clip.toFixed( 4 ).padStart( 15 ) }   ${ vertexGlance.toFixed( 4 ).padStart( 11 ) }   ` +
+            `${ ( head.wholeClipPixels / hip.wholeClipPixels ).toFixed( 4 ).padStart( 11 ) }` );
+
+    }
+
+    console.log( '' );
+
+    gate( `head/hip, ${ GLANCE_WINDOW_SECONDS } s median, silhouette, worst seed`, Math.max( ...glanceRatios ),
+        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING,
+        'THE gate. NOT the bone-marker claim and not a whole-clip range — see the constant and the ' +
+        'section header. An unrighted lumbar scores 1.75-1.84 here' );
+
+    gate( `head/hip, ${ GLANCE_WINDOW_SECONDS } s median, silhouette, lowest seed`, Math.min( ...glanceRatios ),
+        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING, '' );
+
+    // 🚩 RECORDED AS A GATE, NOT AS PROSE. The whole-clip reading of the SAME twelve traces, so that
+    // the two timescales sit in one report and a future verdict cannot be taken on whichever one
+    // happened to be to hand. It is asserted as a BAND rather than reported, because the day these
+    // two stop bracketing each other is the day one of them has started measuring something else.
+    gate( 'whole-clip p2p reads LOWER than the glance median (x)',
+        Math.max( ...glanceRatios ) / Math.max( ...wholeClipRatios ), 1.0, 1.6,
+        `recorded, not tolerated: worst seed ${ Math.max( ...glanceRatios ).toFixed( 4 ) } on the glance ` +
+        `against ${ Math.max( ...wholeClipRatios ).toFixed( 4 ) } whole-clip. A judge reported 1.0596 and ` +
+        '0.894 for the same clip and the gate had never said which one it meant' );
+
+    measureBandStatisticDisagreement( glanceRatios, vertexRatios );
+
+}
+
+/**
+ * 🚩 ON THIS LAYER THE TWO STATISTICS AGREE, AND THAT IS ASSERTED RATHER THAN ASSUMED — because it is
+ * exactly why this file could not see the defect.
+ *
+ * `Sway` does not rotate the head; it translates it. A translation moves a vertex mean and an
+ * outline's centre by the same amount, so the two readings of head/hip agree here to within 15% and
+ * either one would have done. Add `gaze.head` — 21.0 degrees SD of yaw — and they part company by a
+ * factor of 3.4, because yawing a skull redistributes vertex density inside an outline that barely
+ * moves. That is measured in FULL STACK at the end of this file, on the stack `alive.js` builds.
+ *
+ * The gate is stated here anyway, in the direction that is true here, so that the pair is checked on
+ * every run: the day these two disagree on a Sway-only layer, something in this layer has started
+ * rotating the head and the whole GLANCE section is measuring a different quantity than it says.
+ */
+function measureBandStatisticDisagreement( silhouetteRatios, vertexRatios ) {
+
+    const ratios = vertexRatios.map( ( value, index ) => value / silhouetteRatios[ index ] );
+
+    gate( 'vertex centroid over silhouette centre, head band, worst seed',
+        Math.max( ...ratios ), 0.80, 1.20,
+        'they agree HERE because Sway translates the head rather than rotating it. Measured ' +
+        '0.834-0.912 over twelve seeds. With gaze.head in the stack the same pair reads 3.37 — ' +
+        'see FULL STACK' );
+
+    gate( 'vertex centroid over silhouette centre, head band, lowest seed',
+        Math.min( ...ratios ), 0.80, 1.20, '' );
+
+}
+
+/**
+ * 🎯 FULL STACK — the composition a judge actually captures, and the section that settles which of
+ * two honest offline statistics is the one a rendered clip agrees with.
+ *
+ * Every other section in this file runs `Sway` alone. That is right for gating `Sway`, and it is
+ * exactly why two rounds of head-over-hip verdicts came back from renders that nothing offline could
+ * reproduce. `alive.js` builds TEN layers, and one of them — `gaze.head` — turns the skull through
+ * 21.0 degrees SD of yaw. This section builds the same ten, in the same order, with the same
+ * options, on the two seeds the judge's clips were taken at.
+ *
+ * WHAT IT MEASURES, and all four numbers are the same statistic named in `measureHeadOverHipBand`:
+ *
+ *   THE SILHOUETTE READING REPRODUCES THE RENDER. Measured 1.0257 at seed 4242 against the judge's
+ *   1.0596 from `travel.mjs` on `captures/r8-judge-body/seed-4242` — 3.2% apart, on 12,600 frames
+ *   neither measurement shares with the other.
+ *
+ *   THE VERTEX READING DOES NOT. 3.4521 on the same trace: a factor of 3.4 from the render, in a
+ *   file whose GLANCE_BANDS block says the bands exist "so that an offline prediction and a capture
+ *   measurement can be laid side by side". The bands were right. The statistic was not.
+ *
+ *   🚩 `gaze.head` IS NOT THE RESIDUE, AND THE ROUND THAT PRODUCED THIS SECTION WAS BRIEFED THAT IT
+ *   WAS. Removing it moves the silhouette ratio by at most 0.013 across the seeds here, and `Sway`
+ *   ALONE — with no gaze layer in the stack at all — scores HIGHER than the full stack does. What
+ *   moves 3.83x when `gaze.head` is added is the head band's VERTEX travel, 12.28 -> 47.06 px, which
+ *   is the statistic no camera reports. A verdict was assigned to a layer on the strength of a
+ *   number from the wrong instrument; this section is the toggle that says so.
+ *
+ * ⚠️ LIMITS, per §1.9. This is still a simulation of the stack, not the stack: it drives the same
+ * ten layers over the same rig, and it does not render, so it carries no shading, no antialiasing,
+ * no contact shadow and no thresholding. Its agreement with the render is measured on ONE seed to
+ * 3.2% and on a second to 21% (0.9918 here against the judge's 1.2045), which is close enough to
+ * decide WHICH STATISTIC and nowhere near close enough to replace a capture.
+ */
+function measureFullStackHeadOverHip() {
+
+    section( 'FULL STACK — head over hip on the ten layers alive.js builds' );
+
+    const framing = fullBodyFraming();
+
+    console.log( '' );
+    console.log( '        seed   stack             head sil   hip sil   head/hip sil   head/hip vertex' );
+
+    const withGaze = [];
+    const withoutGaze = [];
+
+    for ( const seed of FULL_STACK_SEEDS ) {
+
+        for ( const [ label, gazeHead ] of [ [ 'as alive.js builds', true ], [ 'gazeHead removed', false ] ] ) {
+
+            const report = bandTravelPixels( seed, { gazeHead }, framing, buildAliveStack );
+
+            const head = report.bands.find( ( band ) => band.name === 'head' );
+            const hip = report.bands.find( ( band ) => band.name === 'hip' );
+
+            const silhouette = head.silhouetteGlanceTravelPixels / hip.silhouetteGlanceTravelPixels;
+            const vertex = head.glanceTravelPixels / hip.glanceTravelPixels;
+
+            ( gazeHead ? withGaze : withoutGaze ).push( { seed, silhouette, vertex } );
+
+            console.log( `  ${ String( seed ).padStart( 10 ) }   ${ label.padEnd( 18 ) } ` +
+                `${ head.silhouetteGlanceTravelPixels.toFixed( 3 ).padStart( 8 ) }  ` +
+                `${ hip.silhouetteGlanceTravelPixels.toFixed( 3 ).padStart( 8 ) }   ` +
+                `${ silhouette.toFixed( 4 ).padStart( 12 ) }   ${ vertex.toFixed( 4 ).padStart( 16 ) }` );
+
+        }
+
+    }
+
+    console.log( '' );
+
+    // The gate the render is judged by, on the composition the render is of.
+    gate( `full stack head/hip, ${ GLANCE_WINDOW_SECONDS } s median, silhouette, worst seed`,
+        Math.max( ...withGaze.map( ( each ) => each.silhouette ) ),
+        HEAD_BAND_OVER_HIP_BAND_FLOOR, HEAD_BAND_OVER_HIP_BAND_CEILING,
+        'the same statistic and the same ceiling GLANCE LEGIBILITY uses, on ten layers instead of one' );
+
+    // 🎯 THE ATTRIBUTION, BY TOGGLE, AND IT IS THE POINT OF THE SECTION. Asserted as a CEILING on how
+    // much gaze.head can move the verdict, so that "the residue is gaze.head amplitude" cannot be
+    // restated without this going red first.
+    const gazeEffect = withGaze.map( ( each, index ) =>
+        Math.abs( each.silhouette - withoutGaze[ index ].silhouette ) );
+
+    gate( 'gaze.head\'s effect on the silhouette ratio (absolute)', Math.max( ...gazeEffect ), 0, 0.05,
+        `recorded, not tolerated: ${ gazeEffect.map( ( value ) => value.toFixed( 4 ) ).join( ' ' ) }. The ` +
+        'brief for this round named gaze.head amplitude as the residue; on the statistic the judge ' +
+        'measured it is worth a fortieth of the gap to the ceiling' );
+
+    // 🚩 AND THE SAME TOGGLE ON THE OTHER STATISTIC, WHERE IT IS ENORMOUS. Recorded as a gate because
+    // this pair of numbers IS the finding: one instrument says gaze.head triples the head's travel
+    // and the other says it changes nothing, and only one of them is what a camera sees.
+    const vertexEffect = withGaze.map( ( each, index ) => each.vertex / withoutGaze[ index ].vertex );
+
+    gate( 'the VERTEX statistic says gaze.head triples it (x)', Math.min( ...vertexEffect ), 3.0, 10,
+        `recorded, not tolerated: ${ vertexEffect.map( ( value ) => value.toFixed( 2 ) ).join( ' ' ) }x on ` +
+        'a vertex mean against ' +
+        `${ Math.max( ...gazeEffect ).toFixed( 4 ) } of absolute change on the silhouette` );
+
+}
+
+/**
+ * The ten layers `alive.js` builds, in its order, with its options — kept in one place so that a
+ * change to the page has one place to be mirrored.
+ *
+ * ⚠️ THIS IS A COPY AND COPIES DRIFT. `packages/testbed/src/alive.js` is not this agent's file and
+ * cannot be imported here (it reaches for a DOM on module load). The mirror is asserted rather than
+ * trusted: FULL STACK's own numbers reproduce a render taken from that page to 3.2%, which is the
+ * check that the composition is the same one. If that agreement ever widens, suspect this function
+ * before suspecting the layers.
+ *
+ * `gazeHead: false` removes ONLY the head half of the gaze pair, leaving the eyes driven, which is
+ * the isolation the attribution needs.
+ */
+function buildAliveStack( seed, { gazeHead = true } = {} ) {
+
+    restoreRestPose();
+
+    const root = figure.root;
+    const stack = new MotionStack( { seed } );
+
+    stack.bind( createMotionTarget( root ) );
+
+    const bodyIdle = new BodyIdle();
+    const gaze = new Gaze( { partnerYawDegrees: CAMERA_AZIMUTH_DEGREES } );
+    const sway = new Sway( { onWeightShift: ( shift ) => bodyIdle.onWeightShift( shift ) } );
+
+    const layers = [
+        new Breath(), sway, new IdleMotion( { armsEnabled: 'auto' } ), bodyIdle, new HandIdle(),
+        ...( gazeHead ? [ gaze.head ] : [] ), gaze, new Blink(), new FacialIdle(), new Pupil()
+    ];
+
+    for ( const layer of layers ) stack.add( layer );
+
+    return { stack, layer: sway, root };
 
 }
 
@@ -4619,9 +5147,11 @@ function measureGlanceLegibilityTheOtherWay( framing, shipped, at ) {
         `a shank not tracking a knee that is not moving: slope ${ Math.max( ...spineBendSlopes ).toFixed( 3 ) }, ` +
         `correlation ${ Math.max( ...spineBendCorrelations ).toFixed( 3 ) } at their most favourable` );
 
-    // 🎯 THE GATE THE OLD 1.00 CEILING WAS REACHING FOR, stated where the band can resolve it.
+    // 🎯 THE GATE THE OLD 1.00 CEILING WAS REACHING FOR, stated where the band can resolve it — and
+    // stated on the SILHOUETTE, because that is the statistic the forward gate is on and a rejection
+    // measured on a different statistic proves a different gate (§1.1a, one level up).
     const unrightedRatios = unrighted.map( ( report ) =>
-        at( report, 'head' ).glanceTravelPixels / at( report, 'hip' ).glanceTravelPixels );
+        at( report, 'head' ).silhouetteGlanceTravelPixels / at( report, 'hip' ).silhouetteGlanceTravelPixels );
 
     note( 'unrighted lumbar, head band / hip band over 12 seeds',
         `${ Math.min( ...unrightedRatios ).toFixed( 3 ) } - ${ Math.max( ...unrightedRatios ).toFixed( 3 ) }`,
@@ -4632,16 +5162,37 @@ function measureGlanceLegibilityTheOtherWay( framing, shipped, at ) {
         SWAY_SEEDS.length, SWAY_SEEDS.length,
         `every seed, by at least ${ ( Math.min( ...unrightedRatios ) / HEAD_BAND_OVER_HIP_BAND_CEILING ).toFixed( 2 ) }x` );
 
+    // 🚩 A SECOND KNOWN-BAD IN THE SAME CLASS, BY A DIFFERENT MECHANISM — the standing instruction
+    // that a gate proved only against its own known-bad is decorative. `lateralRightingEnabled:
+    // false` removes the righting entirely and is a big, structural change. This one leaves the
+    // righting in place and simply parks the head: `LATERAL_HEAD_PER_CENTRE_OF_MASS` at 0.30 is the
+    // mannequin head a verifier once built, which scored BETTER than the shipped layer on every
+    // one-sided ratio gate in HEAD PARKED. The FLOOR is what has to catch it, and it is the half of
+    // this band that has never had a rejection of its own.
+    const parked = SWAY_SEEDS.map( ( seed ) =>
+        bandTravelPixels( seed, { lateralHeadPerCentreOfMass: 0.30 }, framing ) );
+
+    const parkedRatios = parked.map( ( report ) =>
+        at( report, 'head' ).silhouetteGlanceTravelPixels / at( report, 'hip' ).silhouetteGlanceTravelPixels );
+
+    gate( 'seeds where the head-band FLOOR catches a parked head',
+        parkedRatios.filter( ( value ) => value < HEAD_BAND_OVER_HIP_BAND_FLOOR ).length,
+        SWAY_SEEDS.length, SWAY_SEEDS.length,
+        `a head moving 30% of the centre of mass scores ${ Math.min( ...parkedRatios ).toFixed( 3 ) }-` +
+        `${ Math.max( ...parkedRatios ).toFixed( 3 ) } against a ${ HEAD_BAND_OVER_HIP_BAND_FLOOR } floor` );
+
     // 🚩 RECORDED AS A GATE, §1.1a. The ceiling that shipped before was 1.00, and it would have
-    // caught the unrighted layer too — but it also caught the SHIPPED layer on two of these twelve
-    // seeds. Asserted in both directions so that neither half of that is forgotten.
+    // caught the unrighted layer too — but it also caught the SHIPPED layer on several of these
+    // twelve seeds. Asserted in both directions so that neither half of that is forgotten, and on
+    // the silhouette statistic, which is where a judge's 1.0596 came from.
     const shippedRatios = shipped.map( ( report ) =>
-        at( report, 'head' ).glanceTravelPixels / at( report, 'hip' ).glanceTravelPixels );
+        at( report, 'head' ).silhouetteGlanceTravelPixels / at( report, 'hip' ).silhouetteGlanceTravelPixels );
 
     gate( 'seeds a 1.00 ceiling would have FAILED on the shipped layer',
         shippedRatios.filter( ( value ) => value > 1.0 ).length, 1, SWAY_SEEDS.length,
         `recorded, not tolerated: ${ shippedRatios.filter( ( value ) => value > 1.0 ).map( ( value ) => value.toFixed( 3 ) ).join( ' ' ) } ` +
-        '— the old single-seed gate read 0.958 and never saw them' );
+        '— which is why a judge measuring 1.0596 on a render scored it against the WRONG gate. 1.00 ' +
+        'is the BONE-MARKER ceiling from HEAD PARKED and does not describe a band ratio' );
 
     // 🚩 RECORDED AS A GATE, §1.3 AND §1.10a. The heat map cannot see this and neither can a raw
     // standard deviation. Over the twelve seeds the ankle band's raw SD spans 0.168-1.398 px while
@@ -4676,9 +5227,9 @@ function measureGlanceLegibilityTheOtherWay( framing, shipped, at ) {
  * the tracking gate's lever bracket is derived from the first and the second is gated in its own
  * right.
  */
-function bandTravelPixels( seed, options, framing ) {
+function bandTravelPixels( seed, options, framing, makeStack = buildStack ) {
 
-    const { stack, layer, root } = buildStack( seed, options ); // eslint-disable-line no-unused-vars
+    const { stack, layer, root } = makeStack( seed, options ); // eslint-disable-line no-unused-vars
 
     root.updateMatrixWorld( true );
 
@@ -4701,7 +5252,8 @@ function bandTravelPixels( seed, options, framing ) {
             highMillimetres: toHeight( band.top ) * statureMetres * 1000,
             vertexCount: 0,
             restHeightSumMillimetres: 0,
-            samples: []
+            samples: [],
+            silhouetteSamples: []
         };
 
     } );
@@ -4747,7 +5299,7 @@ function bandTravelPixels( seed, options, framing ) {
         stack.update( 1 / GLANCE_SAMPLE_RATE_HZ );
         root.updateMatrixWorld( true );
 
-        const totals = bands.map( () => ( { sum: 0, count: 0 } ) );
+        const totals = bands.map( () => ( { sum: 0, count: 0, low: Infinity, high: -Infinity } ) );
 
         for ( const { mesh, groups, position } of sets ) {
 
@@ -4759,8 +5311,13 @@ function bandTravelPixels( seed, options, framing ) {
                     mesh.applyBoneTransform( vertexIndex, vertex );
                     mesh.localToWorld( vertex );
 
-                    totals[ index ].sum += vertex.dot( framing.screenRight );
+                    const screen = vertex.dot( framing.screenRight );
+
+                    totals[ index ].sum += screen;
                     totals[ index ].count ++;
+
+                    if ( screen < totals[ index ].low ) totals[ index ].low = screen;
+                    if ( screen > totals[ index ].high ) totals[ index ].high = screen;
 
                 }
 
@@ -4768,8 +5325,17 @@ function bandTravelPixels( seed, options, framing ) {
 
         }
 
-        bands.forEach( ( band, index ) => band.samples.push(
-            totals[ index ].sum / totals[ index ].count * 1000 * framing.pixelsPerMillimetre ) );
+        bands.forEach( ( band, index ) => {
+
+            band.samples.push(
+                totals[ index ].sum / totals[ index ].count * 1000 * framing.pixelsPerMillimetre );
+
+            // 🎯 THE SILHOUETTE'S OWN CENTRE, which is a different quantity from the one above and
+            // is the one `travel.mjs` reports. See SILHOUETTE VERSUS VERTEX CENTROID.
+            band.silhouetteSamples.push(
+                ( totals[ index ].low + totals[ index ].high ) / 2 * 1000 * framing.pixelsPerMillimetre );
+
+        } );
 
     }
 
@@ -4784,6 +5350,13 @@ function bandTravelPixels( seed, options, framing ) {
         band.glanceTravelPixels = glance[ Math.floor( glance.length / 2 ) ];
         band.glanceQuietTenthPixels = glance[ Math.floor( 0.10 * glance.length ) ];
         band.centroidMillimetres = band.restHeightSumMillimetres / Math.max( band.vertexCount, 1 );
+
+        const silhouette = slidingWindowPeakToPeak( band.silhouetteSamples, GLANCE_WINDOW_SECONDS )
+            .sort( ( a, b ) => a - b );
+
+        band.silhouetteGlanceTravelPixels = silhouette[ Math.floor( silhouette.length / 2 ) ];
+        band.silhouetteWholeClipPixels = peakToPeak( band.silhouetteSamples );
+        band.wholeClipPixels = peakToPeak( band.samples );
 
     }
 
@@ -4883,9 +5456,10 @@ function highPassed( samples, seconds ) {
  * from numbers already in this repo rather than from taste:
  *
  *   5 px is 7.6 mm at this framing, which is 2.46× the layer's own measured medio-lateral balance
- *   RMS of 3.089 mm. Below that a viewer is reading noise; above it, a decision. The 1.6 px
- *   indistinguishability floor is deliberately NOT used — it is a peak-to-peak and this is a held
- *   offset, which is the statistic mismatch §1.14 cost a round to.
+ *   RMS of 3.089 mm. Below that a viewer is reading noise; above it, a decision. The 1.6 px figure
+ *   is deliberately NOT used — twice over. It is a peak-to-peak where this is a held offset, which
+ *   is the statistic mismatch §1.14 cost a round to; and it was never measured in the first place,
+ *   which is what §1.14a cost a second one to.
  *
  *   15 s is GLANCE_WINDOW_SECONDS: a hold that fills the span a viewer spends deciding whether the
  *   thing is alive.
