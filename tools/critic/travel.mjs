@@ -72,6 +72,12 @@ const DEFAULT_BANDS = [
   { name: 'hip', top: 0.42, bottom: 0.52 },
   { name: 'knee', top: 0.62, bottom: 0.72 },
   { name: 'ankle', top: 0.82, bottom: 0.92 },
+  // `foot` is rows 1110–1176 of a 1200 px capture — the band a judge measured the feet as welded
+  // in. Unlike every other band it CAN contain the floor contact shadow, which is why `whole`
+  // stops at 0.95. Pin --threshold rather than trusting `auto` here, and read it beside the
+  // offline prediction in sway.selftest.mjs's GLANCE LEGIBILITY table rather than alone: that
+  // table predicts a 15 s median horizontal travel of 0.09–0.44 px across twelve seeds.
+  { name: 'foot', top: 0.925, bottom: 0.98 },
   { name: 'whole', top: 0.05, bottom: 0.95 },
 ];
 

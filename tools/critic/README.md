@@ -2,7 +2,7 @@
 
 Five tools that between them stop "does this look right?" from being purely a matter of taste.
 
-- **`measure.mjs`** — reads a PNG and a region spec, returns the six objective gates from
+- **`measure.mjs`** — reads a PNG and a region spec, returns the seven objective gates from
   [`docs/research/stellar-blade-look-spec.md`](../../docs/research/stellar-blade-look-spec.md) §6
   with a PASS/FAIL each.
 - **`blind_ab.mjs`** — shuffles our render against a reference, strips provenance, and hides the
@@ -75,7 +75,19 @@ both numbers** so the choice can always be re-checked. The reasoning for each ch
 
 ---
 
-## The six gates
+## The seven gates
+
+🚩 **Six is the number in the look spec's own checklist. There are seven here, and G2 has two
+halves.** G7 was added when G1–G6 were all green on a plate whose single worst feature — eyelash
+cards rendering as vivid royal-blue spikes — was unmissable to a human and structurally invisible
+to every one of them. G2's chroma half was added when it turned out the gate had been asserting
+one clause of a two-clause spec sentence for the whole project. Both are LEARNINGS §1.11: the
+answer to "my gate cannot catch this" is a structurally different assertion, not a tuned threshold.
+
+🚩 **Every number here is about ONE PAGE at ONE FRAMING in ONE MOTION STATE**, and the report says
+which — see [Provenance](#provenance-which-page-a-number-came-from). A G4 sigma measured on
+`skin.html` was once quoted as certifying `alive.html`, which reads 1.4764 against 1.9495 at the
+same width.
 
 ### G1 — face key:shadow luma ratio < 2:1 · *linear*
 
@@ -99,19 +111,47 @@ Reference values, recomputed from the spec's published hexes:
 | 3/4 close-up (`#E5C3C3` → `#C29997`) | 1.25 | **1.634** |
 | cutscene (0.577 → 0.489, hexes not published) | 1.18 | ≈1.43 (derived) |
 
-### G2 — sclera ÷ cheek luma ≈ 0.98 ± 0.06 · *encoded*
+### G2 — sclera vs cheek, luma ≈ 0.98 ± 0.06 **and** chroma ≈ 1.284× · *encoded*
 
-> §2 · *"The sclera is NOT white. A white eyeball instantly breaks the look."*
+> §2 · *"The sclera is NOT white. It measures the same luminance as the surrounding cheek and is
+> more saturated than skin (0.275 vs 0.215), pink-tinted. A white eyeball instantly breaks the
+> look."*
 
 Regions: `sclera`, `cheek`.
 
-The reference sclera measures the same luminance as the cheek beside it (0.483 vs 0.492) and is
-*more* saturated than skin, pink-tinted. That comes from heavy lid AO plus sclera SSS — per §5,
-achieve it that way, **not** by darkening the sclera albedo, or it goes grey under every other
-light. The gate reports both saturations so you can check that too.
+**Read that spec sentence again — it makes two claims, and for three rounds this gate measured
+one.** A grey eyeball at exactly the reference brightness scored green. It comes from heavy lid AO
+plus sclera SSS; per §5, achieve it that way, **not** by darkening the sclera albedo, or it goes
+grey under every other light — which is precisely the failure the luma half alone cannot see.
+
+The gate now fails if any of three components fails, and names which:
+
+| component | target | why |
+|---|---|---|
+| luma | 0.98 ± 0.06 | the published encoded ratio, 0.483 / 0.492 |
+| chroma, ordinal | sclera S ≥ cheek S | the spec sentence verbatim; invents nothing |
+| chroma, band | 1.284× ± 6.1% | ±6.1% is the same RELATIVE tolerance the luma half carries (0.06 on 0.98), applied to the other half of the same sentence rather than invented for it |
+
+**The reference chroma ratio is recomputed at run time from the spec's own hexes**, not
+transcribed from its prose: HSV saturation of sclera `#9D7274` is (157−114)/157 = 0.27389 and of
+cheek `#96767D` is (150−118)/150 = 0.21333, so 1.2839. The spec's rounded prose (0.275 / 0.215)
+gives 1.2791 — they agree to 0.4%, and the selftest asserts the derived figures against the prose
+as an external oracle.
+
+Judged on **HSV saturation** because that is the statistic the spec published both numbers in.
+Note that G7 deliberately uses **chroma (max−min)** instead, for the opposite reason — see its
+section.
 
 **Judged encoded**: it is a perceptual "reads as the same brightness" match, and 0.98 is the
 encoded figure the spec measured.
+
+⚠️ **On an animating page this gate is a distribution, not a number.** The sclera rect is 11×6 px
+on an eye ~40 px across, and `?freeze` pins the pose but not the ocular or postural layers, whose
+state at the first drawn frame comes from the seed. Measured on `alive.html?bare&freeze` at
+900×1200, one frame, four seeds, nothing else changed: **0.8127 / 0.9627 / 0.9736 / 0.4384** at
+seeds 1 / 42 / 4242 / 20260807 — a 2.2× spread, two of four passing, and at 20260807 the rect has
+walked onto the iris. The tool warns about this on every run that has a `sclera` region. **Quote
+G2 over a seed set.**
 
 ### G3 — terminator gets more saturated AND redder · *encoded*
 
@@ -188,6 +228,85 @@ Region: `frame` (optional; defaults to the whole image).
 assets. **Below** the band means crushed blacks; **above** it means lift. Measured to 1/65536 via
 a histogram — 0.004 encoded is code value ~1 of 255, so at 8 bits this gate is working right at
 the quantisation floor and a 16-bit capture is worth having if you can get one.
+
+⚠️ **On `alive.html` this gate does not currently measure a grade.** With no `frame` region it is a
+whole-image percentile, and the darkest 0.1% of that frame is whatever happens to be darkest.
+Measured 2026-08-08 at 900×1200: **0.00001** shipped and **0.02496** with `?cards=0` — the eyelash
+and eyebrow cards are genuinely black and they own the bottom of the histogram. Neither number is
+about shadow lift. Give this gate a `frame` region before reading it.
+
+### G7 — card-band cool-chroma outliers < 0.10% · *encoded*
+
+> §2 · hair base albedo is *"essentially black — luma 0.067"* and its apparent colour is supposed
+> to come from an anisotropic lobe along the fibre; the lid crease measures 0.31× cheek; the rim
+> *"wins on saturation, not brightness"* and is capped at 1.0–1.5× key-lit skin.
+
+Region: `cardBand` — hand-drawn rects over the lash lines and brows.
+
+**This gate exists because G1–G6 were all green on a plate whose eyelashes were vivid royal-blue
+spikes.** Between them those six sample a patch of cheek, a patch of sclera, a patch of terminator
+and two whole-image percentiles; they make no assertion about colour anywhere else in the frame,
+so a near-black surface reflecting a saturated rim at full Fresnel is invisible to every one of
+them by construction. It is deliberately a different KIND of assertion — a per-pixel **outlier
+count**, not a mean or a ratio — because a mean over a patch containing both black cards and
+bright skin cannot resolve the defect at all.
+
+A pixel is an outlier when all three hold: HSV **value ≤ 0.35**, **chroma ≥ 0.15**, hue in the
+**cool arc 180–300°**. Each qualifier was checked against the alternative:
+
+- **value** restricts the count to the cards rather than to rim spill on skin. Derived, not
+  chosen: the spec's socket sample `#352327` is 0.354× its own cheek reference. Dropping it costs
+  an order of magnitude of separation (38× → 2.9×).
+- **chroma (max−min), NOT saturation.** Saturation is chroma/value, so a *dimmer* blue scores
+  *higher*. Across a card specular sweep the saturation form went 1.0 → 2.866%, 0.5 → 3.197%,
+  0.35 → 3.208%, 0.0 → 0.101% — it **peaks in the middle of a monotonically improving sequence**,
+  so a threshold on it would have called the half-fixed render worse than the broken one. The
+  chroma form is monotone: 1.879 / 1.279 / 0.925 / 0.589%.
+- **cool hue** because warm chroma there is eyeshadow and lid vasculature, baked into albedo on
+  purpose. Cool chroma is not in the asset at all.
+
+Known-bad is a URL parameter rather than a committed plate, which is the cheapest form a rejection
+proof can take: `?cards=0` restores the shipped GLB card material. Measured 2026-08-08 on
+`alive.html?bare&freeze` at 900×1200 — **0.0056%** shipped against **0.7571%**, a **135×**
+separation on identical rects.
+
+---
+
+## Provenance: which page a number came from
+
+🚩 **The defect this exists for, stated plainly.** A G4 high-pass sigma of **1.9495/255** was
+measured on `packages/testbed/src/skin.html` — a different page, different framing, different rig —
+and then recorded in the punch list as certifying `alive.html`, which measures **1.4764** at the
+same width. The two plates were never comparable. Nothing in the report said so, so nothing could
+catch it.
+
+Every report now carries a provenance block, and every gate carries a `measuredOn` string beside
+its number — because gate blocks get copied out of reports one at a time, into punch lists, commit
+messages and other agents' briefs, and a number that travels without its page is exactly how this
+happens.
+
+```
+$ node tools/critic/measure.mjs captures/plate/frames/frame-00001.png regions.lighting-portrait.json --human
+/…/frames/frame-00001.png
+900×1200, 8-bit
+measured on: /alive.html?bare=&freeze=&capture=1&seed=1  900×1200  seed 1  webgpu
+regions:     /…/tools/critic/regions.lighting-portrait.json
+```
+
+It is found automatically: `capture.mjs` writes `capture.json` beside the frames and `measure.mjs`
+walks up from the image to find it, so a plate captured the normal way needs no extra flag. For a
+screenshot taken any other way:
+
+```
+--page <text>          what page/framing this plate is
+--provenance <path>    an explicit capture.json instead of the discovered one
+```
+
+With neither, the report stamps `UNKNOWN PAGE` on every gate and warns that none of its numbers may
+be quoted as certifying anything. That warning is deliberate friction.
+
+⚠️ `blind_ab.mjs` strips PNG provenance chunks by design, so a blinded plate is anonymous — measure
+before you blind, not after.
 
 ---
 
@@ -325,17 +444,58 @@ wall-clock time, which buys three things a screen recording cannot:
 > throttled those, it was not this harness. Fixed-step is still the right design — for exactness
 > and reproducibility, not to dodge a throttle.
 
-### Reproducibility is measured, never claimed
+### Reproducibility is measured, never claimed — and the check itself had to be measured
 
 Every run reloads the page and replays its opening frames (`--verify-frames`, default 20; pass
 `--verify-frames 600` to replay everything, or `--skip-verify`). The digest line says which:
 
 ```
-digest    d076aaca8c91fda5   (byte-reproducible: verified over 600 frames)
+digest    4dea42b8659a3514   (reproducible within tolerance: 30/30 bit-identical, worst residue 0 px at Δ0/255)
 ```
 
-Verified on a clean plate at seed 1: **600/600 identical** across a fresh page load, and identical
-again from a **separate browser process**.
+🚩 **It used to compare SHA-256 digests, and that made it a false-negative generator.** A hash
+equality test is a boolean over the last code value of the last pixel, and as the verdict on a GPU
+render it reported "NOT byte-reproducible" on **8 of 10 runs of an unchanged clean plate**,
+diverging at frames 8, 11, 14, 15, 21, 21, 22 and 24. A flaky check on the observation instrument
+poisons everything downstream, so the residue was measured rather than argued about. Six
+independent browser processes, `/alive.html?bare&frame=body`, 350×600, seed 1, 30 frames, decoded
+and differenced pixel by pixel:
+
+| plate | frames bit-identical | worst frame |
+|---|---|---|
+| as shipped | 29 of 30 | 44 px of 210,000 (**0.021%**) at **Δ3/255** |
+| `?msaa=0` | 29 of 30 | 1 px at Δ1/255 |
+| `?cards=0` | **30 of 30** | — |
+
+So the render is deterministic to within the alpha-to-coverage resolve on the two hair cards, and
+the digest was reporting that dust as a determinism failure. **Attributed by toggle, not by
+argument** — that is what `?cards=0` is for.
+
+The check now differences **decoded pixels** against a tolerance of **Δ6 code values AND 0.1% of
+pixels**, both sized from that measurement: 2× and ~4× the observed residue, and 40× / 257× below
+a different seed (Δ249 on 25.75% of pixels). The bit-identical frame count survives as a reported
+fact — it is the strictest available statement and it is genuinely informative — it just is not
+the verdict. `compareFrameSequences` is exported and `selftest.mjs` proves it in both directions on
+synthetic plates carrying the measured magnitudes, including that the code-value half alone misses
+a wide shallow change and the area half alone misses a deep narrow one.
+
+### ⚠️ Two clips are comparable only if their BUILDS match
+
+The watcher-off vite this tool starts pins the tree for **one run**. Two runs launched minutes
+apart in a fan-out are of **different code**, and until now nothing said so. Measured: twelve
+captures at seed 1, six before a concurrent agent saved `FacialIdle.js` and `HandIdle.js` and six
+after — **within** either group the worst difference is Δ3/255 on 0.021% of pixels; **across** the
+groups it is Δ**209**/255 on **0.391%**. A factor of seventy, between two clips that looked like a
+repeat of the same capture.
+
+`capture.json` now carries a `source` block — git HEAD plus a content hash of every file under
+`packages/` that vite can reach. **Check it before any A/B:**
+
+```
+node -e "console.log(require('./captures/a/capture.json').source.packagesDigest)"
+```
+
+Six back-to-back runs while this was being written produced **three** distinct digests.
 
 That check is not ceremony. It has caught, in order:
 
@@ -352,9 +512,15 @@ That check is not ceremony. It has caught, in order:
 Number 3 is the reason this section exists. **A reproducibility number on its own can be a lie;
 look at the contact sheet too.**
 
-> ⚠️ The **instrumented** page (no `?bare`) is not byte-reproducible and never will be — the HUD
-> prints `stats.frameMs`, a wall-clock number that lives in the pixels. The figure underneath is
-> identical. Capture with `?bare` when the digest has to mean something.
+> ⚠️ The instrumented page (no `?bare`) prints `stats.frameMs`, a wall-clock number living in the
+> pixels — but the failure is **intermittent, not certain**, and the reason is worth knowing.
+> `?capture` detaches the rAF loop that assigns `stats`, so the HUD is **frozen** at whatever the
+> last pre-load frame saw: constant *within* a run, and different *between* runs only when the load
+> happened to land on a different millisecond. Measured twice on `/alive.html?frame=body`, same
+> seed, same build digest: one pair came back **Δ0, bit-identical**; the other **Δ41/255 on 64 px
+> (0.030%)** — over the code-value tolerance, under the area one, correctly reported as not
+> reproducible. Capture with `?bare` regardless: a plate a critic looks at should not have
+> instrumentation in it, and a check that fails one time in two is a check people learn to ignore.
 
 ### Which page to capture
 
@@ -533,7 +699,7 @@ scale, and `png.mjs` encodes with a fixed filter and deflate level.
 ## Trusting the numbers: `selftest.mjs` and `heatmap.selftest.mjs`
 
 A measurement tool nobody tested is worse than no tool — it produces confident numbers that
-quietly steer the whole project wrong. `node tools/critic/selftest.mjs` runs **79 checks** against
+quietly steer the whole project wrong. `node tools/critic/selftest.mjs` runs **125 checks** against
 synthetic images with known properties, using two kinds of oracle:
 
 **External** — images painted with the literal hex swatches published in the spec, where the tool
@@ -572,7 +738,7 @@ synthetic dead lower half is confirmed to put the cut on exactly the row it was 
 
 | file | what it is |
 |---|---|
-| `measure.mjs` | the six gates, plus the CLI |
+| `measure.mjs` | the seven gates, the provenance block, plus the CLI |
 | `blind_ab.mjs` | blind A/B pairing and reveal |
 | `capture.mjs` | fixed-step video capture — mp4, gif, contact sheet, manifest |
 | `heatmap.mjs` | per-pixel temporal-σ heat map of a captured clip, plus the band table |
@@ -580,7 +746,7 @@ synthetic dead lower half is confirmed to put the cut on exactly the row it was 
 | `travel.selftest.mjs` | 111 checks: analytic oracles for known translations, plus degenerate inputs |
 | `color.mjs` | sRGB transfer functions, both lumas, HSV — read the header comment |
 | `png.mjs` | dependency-free PNG decode/encode and chunk surgery |
-| `selftest.mjs` | 79 checks over the gates and the codec; run it after touching anything here |
+| `selftest.mjs` | 125 checks over the gates, the provenance stamp, the frame comparison and the codec; run it after touching anything here |
 | `heatmap.selftest.mjs` | 57 checks over `heatmap.mjs`; run it after touching that |
 | `regions.example.json` | documented region spec template |
 

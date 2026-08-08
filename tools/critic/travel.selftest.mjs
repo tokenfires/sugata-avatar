@@ -752,7 +752,7 @@ function testBandsDeterminismAndRefusals() {
     digestOf(first.bands), digestOf(second.bands));
 
   expectEqual('the default band table is the standing-figure one',
-    first.bands.map((band) => band.name).join(','), 'head,shoulder,hip,knee,ankle,whole');
+    first.bands.map((band) => band.name).join(','), 'head,shoulder,hip,knee,ankle,foot,whole');
 
   const custom = analyse(directory, { bands: parseBandSpec('upper:0.1-0.4,lower:0.6-0.9') });
   expectEqual('--bands is honoured, names and all',

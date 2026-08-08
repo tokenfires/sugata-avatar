@@ -28,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { encodePng, decodePng, stripProvenanceChunks } from './png.mjs';
 import { encodedLuma, linearLuma, linearToSrgb, rgbToHsv } from './color.mjs';
 import { measureAll, resolveRegions } from './measure.mjs';
+import { compareFrameSequences } from './capture.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-critic-selftest-'));
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -80,10 +81,25 @@ function runCli(scriptName, args) {
   }
 }
 
-function measureFile(filePath, spec) {
+// `provenance` is what page/framing/motion state the plate came from. A synthetic test image has
+// none by construction, and saying so here is the same statement the CLI makes on a real plate
+// with no capture.json beside it — see measure.mjs's header for the round a missing one cost.
+function measureFile(filePath, spec, provenance = SYNTHETIC_PROVENANCE) {
   const image = decodePng(fs.readFileSync(filePath));
-  return measureAll(image, resolveRegions(spec, image), spec, filePath);
+  return measureAll(
+    image,
+    resolveRegions(spec, image),
+    spec,
+    { imagePath: filePath, regionsPath: '(selftest: synthetic spec)' },
+    provenance
+  );
 }
+
+const SYNTHETIC_PROVENANCE = {
+  source: 'selftest',
+  known: true,
+  summary: 'selftest synthetic plate (no page)',
+};
 
 function gateNamed(report, id) {
   return report.gates.find((gate) => gate.id === id);
@@ -266,6 +282,215 @@ function testScleraRatio() {
   const badGate = gateNamed(measureFile(badPath, spec), 'G2');
   expectClose('G2 white eyeball ratio', badGate.measured.ratioEncoded, 1 / 0.492, 0.01);
   expectEqual('G2 white eyeball FAILs', badGate.status, 'FAIL');
+
+  // The reference chroma ratio is DERIVED from the two hexes above rather than transcribed from
+  // the spec's prose, so assert it against the prose as an external oracle: 0.275 / 0.215 = 1.2791.
+  expectClose('G2 reference chroma ratio reproduces the spec prose', gate.measured.referenceSaturationRatio, 1.2791, 0.006);
+  // ±0.002 because the spec's prose is rounded to three places and the hexes are exact: the
+  // derived figures are 0.27389 and 0.21333 against a published 0.275 and 0.215.
+  expectClose('G2 reference sclera saturation', gate.measured.referenceScleraSaturation, 0.275, 0.002);
+  expectClose('G2 reference cheek saturation', gate.measured.referenceCheekSaturation, 0.215, 0.002);
+  expectClose('G2 reference eye chroma ratio', gate.measured.saturationRatio, 1.2839, 0.001);
+
+  // 🎯 THE KNOWN-BAD THE OLD SINGLE-HALF GATE COULD NOT SEE (§1.1, §1.11).
+  //
+  // A grey sclera at exactly the reference sclera's encoded luma. The luma half is not merely
+  // passed, it is passed PERFECTLY — this is the render that matches the published brightness and
+  // renders a dead grey eyeball, and for three rounds G2 would have called it green. The grey is
+  // solved from the reference hex rather than picked, so the luma half cannot be what catches it.
+  const referenceLuma = encodedLuma(sclera[0] / 255, sclera[1] / 255, sclera[2] / 255);
+  const greyCode = Math.round(referenceLuma * 255);
+  const greyPath = writeTestImage(
+    'g2-grey-sclera.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? [greyCode, greyCode, greyCode] : cheek))
+  );
+  const greyGate = gateNamed(measureFile(greyPath, spec), 'G2');
+
+  expectClose('G2 grey sclera matches the reference LUMA to a code value', greyGate.measured.ratioEncoded, 0.9839, 0.005);
+  expectEqual('G2 grey sclera has no chroma at all', greyGate.measured.scleraSaturation, 0);
+  expectEqual('G2 grey sclera FAILs', greyGate.status, 'FAIL');
+  expectEqual(
+    'and the luma half is NOT what catches it — recorded as a gate, not tolerated',
+    greyGate.failures.filter((line) => line.startsWith('luma half')).length,
+    0
+  );
+  expectEqual(
+    'both chroma components catch it: the ordinal one and the band one',
+    greyGate.failures.filter((line) => line.startsWith('chroma half')).length,
+    2
+  );
+
+  // And the band component alone, on a sclera that IS more saturated than the cheek but by far
+  // too little: HSV S = (157−121)/157 = 0.2293 against the cheek's 0.2133, a ratio of 1.075 that
+  // is on the right side of the ordinal test and well below the band's 1.205 floor. An ordinal
+  // test with no band would pass this render; a band with no ordinal test would pass a reversed
+  // eye whose ratio happened to land in range. Both are needed and these two plates say so.
+  const weakPath = writeTestImage(
+    'g2-weak-chroma.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? [157, 121, 123] : cheek))
+  );
+  const weakGate = gateNamed(measureFile(weakPath, spec), 'G2');
+  expectEqual('G2 weak-chroma sclera is still MORE saturated than cheek', weakGate.measured.saturationRatio > 1, true);
+  expectEqual('G2 weak-chroma sclera FAILs anyway', weakGate.status, 'FAIL');
+  expectEqual(
+    'the ORDINAL component alone does NOT catch it — recorded, not tolerated',
+    weakGate.failures.filter((line) => line.includes('ORDINAL')).length,
+    0
+  );
+  expectEqual(
+    'the BAND component is what catches it',
+    weakGate.failures.filter((line) => line.includes('BAND')).length,
+    1
+  );
+}
+
+// ============================================================================================
+// 4a. PROVENANCE — which page, at which framing, in which motion state
+// ============================================================================================
+//
+// measure.mjs's header records why: a G4 sigma of 1.9495/255 measured on skin.html was quoted in
+// the punch list as certifying alive.html, which reads 1.4764 at the same width. Nothing in the
+// report said the two plates were different pages, so nothing could catch it. These checks assert
+// that the stamp exists, that it reaches every gate individually (gate blocks get copied out one
+// at a time), and that its absence is LOUD rather than silent.
+
+function testProvenance() {
+  const spec = {
+    units: 'pixels',
+    regions: {
+      sclera: [{ x: 20, y: 20, w: 60, h: 60 }],
+      cheek: [{ x: 120, y: 20, w: 60, h: 60 }],
+    },
+  };
+  const filePath = writeTestImage(
+    'provenance.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? hexToRgb('#9D7274') : hexToRgb('#96767D')))
+  );
+
+  const stamped = {
+    source: 'selftest',
+    known: true,
+    summary: '/alive.html?bare&freeze  900×1200  seed 1  webgpu',
+  };
+  const known = measureFile(filePath, spec, stamped);
+
+  expectEqual('the report carries the provenance summary', known.provenance.summary, stamped.summary);
+  expectEqual(
+    'EVERY measured gate carries it too, not just the report',
+    known.gates.filter((gate) => gate.measured && gate.measured.measuredOn === stamped.summary).length,
+    known.gates.filter((gate) => gate.measured).length
+  );
+  expectEqual(
+    'a known page raises no provenance warning',
+    known.warnings.filter((line) => line.startsWith('NO PROVENANCE')).length,
+    0
+  );
+
+  const orphan = measureFile(filePath, spec, { source: 'none', known: false, summary: 'UNKNOWN PAGE' });
+  expectEqual(
+    'a plate with no provenance is WARNED about',
+    orphan.warnings.filter((line) => line.startsWith('NO PROVENANCE')).length,
+    1
+  );
+  expectEqual('and every gate says UNKNOWN PAGE', gateNamed(orphan, 'G2').measured.measuredOn, 'UNKNOWN PAGE');
+}
+
+// ============================================================================================
+// 4b. capture.mjs's reproducibility comparison, on plates with a KNOWN residue
+// ============================================================================================
+//
+// The check this replaces compared SHA-256 digests and reported "NOT byte-reproducible" on 8 of
+// 10 runs of an unchanged clean plate, because a GPU render's alpha-to-coverage resolve moves a
+// few dozen pixels by a couple of code values. A flaky check on the observation instrument
+// poisons everything downstream, so the residue was measured and the comparison restated in the
+// units the residue is in. These plates carry the measured magnitudes exactly:
+//
+//   within one build, 12 browser processes   worst Δ3/255 on 0.025% of pixels
+//   across a concurrent agent's edit         worst Δ209/255 on 0.391% of pixels
+//   a different seed                         Δ249/255 on 25.75% of pixels
+//
+// The tolerance (Δ6 / 0.1%) has to sit above the first and below the other two. Assert it.
+
+function testFrameSequenceComparison() {
+  // 500x400 = 200,000 px, within 5% of the 350x600 plate the residue was measured on, so the
+  // pixel FRACTIONS below are the real ones rather than a rescaling of them.
+  const WIDTH = 500;
+  const HEIGHT = 400;
+  const TOTAL = WIDTH * HEIGHT;
+  const CODE_TOLERANCE = 6;
+  const AREA_TOLERANCE = 0.001;
+
+  const flat = (code) => paint(WIDTH, HEIGHT, () => [code, code, code]);
+  const perturbed = (code, pixels, delta) => {
+    const bytes = flat(code);
+    for (let i = 0; i < pixels; i += 1) {
+      bytes[i * 4] = code + delta;
+      bytes[i * 4 + 1] = code + delta;
+      bytes[i * 4 + 2] = code + delta;
+    }
+    return bytes;
+  };
+
+  const png = (bytes) => encodePng(WIDTH, HEIGHT, bytes);
+  const inside = (c) => c.worstCodeDelta <= CODE_TOLERANCE && c.worstPixelFraction <= AREA_TOLERANCE;
+  const base = png(flat(20));
+
+  const identical = compareFrameSequences([base, base], [base, base]);
+  expectEqual('two identical sequences differ by nothing', identical.worstCodeDelta, 0);
+  expectEqual('and by no pixels', identical.worstDifferingPixels, 0);
+
+  // The alpha-to-coverage residue, at the magnitude measured on the real page: Δ3 on 44 px.
+  const dust = compareFrameSequences([base, base], [base, png(perturbed(20, 44, 3))]);
+  expectEqual('the measured GPU residue reads as Δ3', dust.worstCodeDelta, 3);
+  expectEqual('on the frame it is actually on', dust.worstFrame, 2);
+  expectClose('and 44 of 200,000 pixels', dust.worstPixelFraction, 44 / TOTAL, 1e-9);
+  expectEqual(
+    'so it is INSIDE the tolerance — this is the false negative the old digest check generated',
+    inside(dust),
+    true
+  );
+
+  // 🚩 PROVEN RED THREE WAYS, because a determinism break can be deep, wide, or both, and one
+  // statistic cannot see all three (§1.11).
+  //
+  // Deep and narrow: 209 code values on the same 44 pixels. The AREA half cannot see this at all.
+  const deep = compareFrameSequences([base], [png(perturbed(20, 44, 209))]);
+  expectEqual('a deep narrow change reads as Δ209', deep.worstCodeDelta, 209);
+  expectEqual('and is REJECTED', inside(deep), false);
+  expectEqual(
+    'the AREA half ALONE does not catch it — recorded, not tolerated',
+    deep.worstPixelFraction <= AREA_TOLERANCE,
+    true
+  );
+
+  // Wide and shallow: 2 code values over 2.5% of the frame. The CODE half cannot see this at all.
+  const wide = compareFrameSequences([base], [png(perturbed(20, 5000, 2))]);
+  expectEqual('a wide shallow change stays under Δ6', wide.worstCodeDelta, 2);
+  expectEqual('and is REJECTED anyway', inside(wide), false);
+  expectEqual(
+    'the CODE half ALONE does not catch it — recorded, not tolerated',
+    wide.worstCodeDelta <= CODE_TOLERANCE,
+    true
+  );
+
+  // The real cross-build failure measured on the page: Δ209 on 821 px of 210,000 = 0.391%.
+  const acrossBuild = compareFrameSequences([base], [png(perturbed(20, 782, 209))]);
+  expectClose('the measured cross-build failure covers 0.391% of the frame', acrossBuild.worstPixelFraction, 0.00391, 1e-5);
+  expectEqual('and both halves catch it', acrossBuild.worstCodeDelta > CODE_TOLERANCE && acrossBuild.worstPixelFraction > AREA_TOLERANCE, true);
+
+  // Different sizes are not a residue, they are a different capture.
+  const mismatched = compareFrameSequences(
+    [base],
+    [encodePng(WIDTH, HEIGHT + 1, paint(WIDTH, HEIGHT + 1, () => [20, 20, 20]))]
+  );
+  expectEqual('a size mismatch is a total difference, not a small one', mismatched.worstCodeDelta, 255);
+  expectEqual('and reports the whole frame', mismatched.worstPixelFraction, 1);
 }
 
 // ============================================================================================
@@ -758,6 +983,8 @@ function run() {
   testPngRoundTrip();
   testKeyShadowRatio();
   testScleraRatio();
+  testProvenance();
+  testFrameSequenceComparison();
   testTerminatorShift();
   testHighPassSigma();
   testHighlightClipping();

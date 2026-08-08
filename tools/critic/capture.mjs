@@ -19,8 +19,7 @@
 //     MEASURED at 120 Hz in Playwright's headless Chromium, not the ~1.5 Hz that motivated this
 //     work. Whatever throttled the earlier attempts, it was not this harness. The fixed-step
 //     design is still the right one — for exactness and reproducibility, not to dodge a throttle.)
-//   - reproducible to the byte. A clean plate (?bare) at a given seed replays frame for frame:
-//     verified 600/600 across a fresh page load AND across a separate browser process.
+//   - reproducible, and the tool now says HOW reproducible rather than answering yes/no.
 //
 //     ⚠ The INSTRUMENTED page is not, and the tool will say so. The HUD prints `stats.frameMs`,
 //     a wall-clock millisecond reading, so those pixels differ run to run. The figure underneath
@@ -32,6 +31,27 @@
 // is what caught a bug where stopping the frame loop also froze skinning, so the figure rendered
 // a still pose while the strip chart happily animated. It measured as perfectly reproducible,
 // because a still image always does.
+//
+// 🚩 AND THE CHECK ITSELF WAS A FALSE-NEGATIVE GENERATOR UNTIL IT WAS MEASURED. It compared
+// SHA-256 digests, which is a boolean over a GPU render's last code value, and it reported "NOT
+// byte-reproducible" on a clean plate at random — 8 of 10 runs of the same seed, diverging at
+// frames 8, 11, 14, 15, 21, 21, 22 and 24. A flaky check on the observation instrument poisons
+// everything downstream, so the residue was measured instead of argued about. Six independent
+// browser processes, `/alive.html?bare&frame=body`, 350×600, seed 1, 30 frames, decoded and
+// differenced pixel by pixel:
+//
+//   | plate                        | frames bit-identical | worst frame                        |
+//   |------------------------------|---------------------|------------------------------------|
+//   | as shipped                   | 29 of 30            | 44 px of 210,000 (0.021%), Δ ≤ 3/255 |
+//   | `?msaa=0`                    | 29 of 30            | 1 px, Δ = 1/255                     |
+//   | `?cards=0`                   | **30 of 30**        | —                                   |
+//
+// So the render is deterministic to within an alpha-to-coverage resolve on the two hair cards,
+// and the digest was reporting that dust as a determinism failure. The check now compares DECODED
+// PIXELS against a stated tolerance and reports the magnitude either way; the bit-identical frame
+// count survives as a reported fact rather than as the verdict. LEARNINGS §1.14 is the same shape
+// one level up: a floor and a measurement must be the same KIND of statistic, and "are these two
+// files the same bytes" was never the same kind of question as "is this render deterministic".
 //
 // Outputs, all in --out:
 //   capture.mp4          h264 / yuv420p, for scrubbing frame by frame
@@ -156,12 +176,12 @@ const POSTURAL_CLIP_SECONDS = 420;
  * onset and peak each one was verified at. Both directions are represented on purpose: a judge
  * shown three clips that all load the same leg will report a body that always stands on its left.
  *
- * 4242 leads because its transfer opens at 17.1 s, so it is the one clip that shows the behaviour
+ * 4242 leads because its transfer opens at 19.0 s, so it is the one clip that shows the behaviour
  * even if the reviewer only watches the first minute. 20260807 is `alive.js`'s own default seed.
  */
 const POSTURAL_JUDGEMENT_SEEDS = [
-  { seed: 4242, direction: 'left', onsetSeconds: 17.1, peakPixels: -34.1 },
-  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 30.4 },
+  { seed: 4242, direction: 'left', onsetSeconds: 19.0, peakPixels: -33.8 },
+  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 30.2 },
   { seed: 20260807, direction: 'left', onsetSeconds: 232.2, peakPixels: -17.8 },
 ];
 
@@ -172,10 +192,10 @@ const POSTURAL_JUDGEMENT_SEEDS = [
  */
 const POSTURAL_EMPTY_SEEDS = [
   { seed: 1, firstTransferSeconds: 483.0 },
-  { seed: 7, firstTransferSeconds: 688.8 },
+  { seed: 7, firstTransferSeconds: 689.6 },
   { seed: 777, firstTransferSeconds: 968.6 },
-  { seed: 31337, firstTransferSeconds: 410.6 },
-  { seed: 99999989, firstTransferSeconds: 781.2 },
+  { seed: 31337, firstTransferSeconds: 411.1 },
+  { seed: 99999989, firstTransferSeconds: 781.3 },
 ];
 
 /**
@@ -280,6 +300,8 @@ async function captureOneSeed({ browser, server, options, seed, outputDirectory 
     frameCount: frameCountOf(options),
     framesDirectory,
     quiet: false,
+    // Only the verify window's own frames are held in memory; the rest go straight to disk.
+    retainFrames: options.verifyFrames,
   });
 
   reportBackend(capture.environment, pageUrl);
@@ -448,7 +470,7 @@ function reportPosturalContent(content) {
  * @param {?string} framesDirectory - where to write the PNGs, or null to hash and discard,
  *   which is what the reproducibility replay does.
  */
-async function driveCapture(browser, pageUrl, options, { frameCount, framesDirectory, quiet }) {
+async function driveCapture(browser, pageUrl, options, { frameCount, framesDirectory, quiet, retainFrames = 0 }) {
   const context = await browser.newContext({
     viewport: { width: options.width, height: options.height },
     deviceScaleFactor: options.dpr,
@@ -489,6 +511,11 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
   const deltaSeconds = 1 / options.fps;
   const digests = [];
 
+  // The reproducibility check needs PIXELS, not hashes (see the header), and only for its own
+  // short window — so the buffers are kept for the first `retainFrames` frames and nothing else
+  // is held in memory. At the default 20 frames and 1080×1350 that is a few tens of megabytes.
+  const retained = [];
+
   let previousDigest = null;
   let distinctFrames = 0;
   let repeatedFrames = 0;
@@ -505,6 +532,8 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     if (framesDirectory !== null) {
       fs.writeFileSync(path.join(framesDirectory, frameFileName(frame)), png);
     }
+
+    if (retained.length < retainFrames) retained.push(png);
 
     const digest = crypto.createHash('sha256').update(png).digest('hex');
     digests.push(digest);
@@ -531,6 +560,7 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     frameCount,
     deltaSeconds,
     digests,
+    retained,
     distinctFrames,
     repeatedFrames,
     pageErrors,
@@ -538,6 +568,33 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     // byte-identical, which is the property that makes a critic loop's before/after meaningful.
     sequenceDigest: crypto.createHash('sha256').update(digests.join('')).digest('hex'),
   };
+}
+
+/**
+ * 🎯 THE REPRODUCIBILITY TOLERANCE, and why a tolerance rather than a hash.
+ *
+ * Measured, not chosen. Six independent browser processes drove `/alive.html?bare&frame=body` at
+ * 350×600, seed 1, 30 frames each. Twenty-nine of thirty frames came back bit-identical in every
+ * pairing; one frame differed on 44 pixels of 210,000 — 0.021% — by at most 3 of 255 code values.
+ * `?cards=0` removes it entirely (30 of 30 bit-identical), so the residue is the alpha-to-coverage
+ * sample resolve on the two hair cards and nothing else.
+ *
+ * The ceiling is 6 code values (2× the measured worst) and 0.1% of pixels (~5× the measured
+ * worst). Both are far under anything a real determinism break produces: a different seed moves
+ * the whole silhouette, which is tens of code values across percent-scale areas of the frame, and
+ * the HUD's wall-clock millisecond readout rewrites whole glyphs.
+ *
+ * A hash cannot express any of this. `sha256(a) === sha256(b)` is a boolean over the last code
+ * value of the last pixel, and as the verdict on a GPU render it reported "NOT byte-reproducible"
+ * on 8 of 10 runs of an unchanged clean plate. The bit-identical frame count is still reported —
+ * it is the strictest available fact and it is genuinely informative — it just is not the verdict.
+ */
+const REPRODUCIBILITY_MAX_CODE_DELTA = 6;
+const REPRODUCIBILITY_MAX_PIXEL_FRACTION = 0.001;
+
+function round(value, places) {
+  const scale = 10 ** places;
+  return Math.round(value * scale) / scale;
 }
 
 /**
@@ -549,9 +606,9 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
  * node clock reading `performance.now()`, and a frozen-skinning bug that made a still image score
  * a perfect result. None of those were visible by looking at the video.
  *
- * A clean plate (?bare) now replays identically, 600/600. The instrumented page never will — the
- * HUD's `stats.frameMs` is a wall-clock number living in the pixels. Both facts are reported
- * rather than assumed, so the day a clean plate stops reproducing, something real has changed.
+ * The instrumented page will never come back clean — the HUD's `stats.frameMs` is a wall-clock
+ * number living in the pixels. That is reported rather than assumed, so the day a clean plate
+ * stops reproducing, something real has changed.
  */
 async function verifyReproducibility(browser, pageUrl, options, capture) {
   const frameCount = Math.min(options.verifyFrames, capture.frameCount);
@@ -562,23 +619,114 @@ async function verifyReproducibility(browser, pageUrl, options, capture) {
     frameCount,
     framesDirectory: null,
     quiet: true,
+    retainFrames: frameCount,
   });
 
-  let matched = 0;
+  const comparison = compareFrameSequences(
+    capture.retained.slice(0, frameCount),
+    replay.retained.slice(0, frameCount)
+  );
+
+  let bitIdentical = 0;
   for (let index = 0; index < frameCount; index += 1) {
-    if (replay.digests[index] === capture.digests[index]) matched += 1;
-    else break;
+    if (replay.digests[index] === capture.digests[index]) bitIdentical += 1;
   }
 
-  const identical = matched === frameCount;
-  console.log(identical ? `identical (${matched}/${frameCount})` : `DIVERGED at frame ${matched + 1}`);
+  const reproducible =
+    comparison.worstCodeDelta <= REPRODUCIBILITY_MAX_CODE_DELTA &&
+    comparison.worstPixelFraction <= REPRODUCIBILITY_MAX_PIXEL_FRACTION;
 
-  if (identical === false) {
+  console.log(
+    reproducible
+      ? `reproducible — ${bitIdentical}/${frameCount} bit-identical, worst residue ` +
+          `${comparison.worstDifferingPixels} px (${round(comparison.worstPixelFraction * 100, 4)}%) at Δ${comparison.worstCodeDelta}/255`
+      : `NOT reproducible — worst frame ${comparison.worstFrame}: ` +
+          `${comparison.worstDifferingPixels} px (${round(comparison.worstPixelFraction * 100, 4)}%) at Δ${comparison.worstCodeDelta}/255`
+  );
+
+  if (reproducible === false) {
     console.log('          expected when the HUD is visible — it prints a wall-clock ms figure.');
     console.log('          Capture with ?bare for a sequence digest that means something.');
   }
 
-  return { framesReplayed: frameCount, framesMatched: matched, byteReproducible: identical };
+  return {
+    framesReplayed: frameCount,
+    framesBitIdentical: bitIdentical,
+    worstFrame: comparison.worstFrame,
+    worstCodeDelta: comparison.worstCodeDelta,
+    worstDifferingPixels: comparison.worstDifferingPixels,
+    worstPixelFraction: round(comparison.worstPixelFraction, 8),
+    toleranceCodeDelta: REPRODUCIBILITY_MAX_CODE_DELTA,
+    tolerancePixelFraction: REPRODUCIBILITY_MAX_PIXEL_FRACTION,
+    reproducible,
+  };
+}
+
+/**
+ * Two PNG sequences, differenced in DECODED PIXELS. Returns the worst frame by either statistic,
+ * because they fail differently: a shading change moves many pixels a little and a geometry change
+ * moves few pixels a lot.
+ *
+ * Exported so `selftest.mjs` can prove it in both directions on synthetic plates — a real capture
+ * is far too slow to be a gate, and §1.1 says a check that has never failed is not known to work.
+ */
+export function compareFrameSequences(left, right) {
+  let worstFrame = 0;
+  let worstCodeDelta = 0;
+  let worstDifferingPixels = 0;
+  let worstPixelFraction = 0;
+
+  const frames = Math.min(left.length, right.length);
+
+  for (let index = 0; index < frames; index += 1) {
+    const a = decodePng(left[index]);
+    const b = decodePng(right[index]);
+
+    if (a.width !== b.width || a.height !== b.height) {
+      return {
+        worstFrame: index + 1,
+        worstCodeDelta: 255,
+        worstDifferingPixels: a.width * a.height,
+        worstPixelFraction: 1,
+      };
+    }
+
+    let differing = 0;
+    let maxDelta = 0;
+
+    for (let i = 0; i < a.pixels.length; i += 4) {
+      const delta =
+        Math.max(
+          Math.abs(a.pixels[i] - b.pixels[i]),
+          Math.abs(a.pixels[i + 1] - b.pixels[i + 1]),
+          Math.abs(a.pixels[i + 2] - b.pixels[i + 2])
+        ) * 255;
+
+      // Half a code value: anything smaller cannot survive the 8-bit encode and is a rounding
+      // artefact of the float decode, not a difference between two renders.
+      if (delta < 0.5) continue;
+      differing += 1;
+      if (delta > maxDelta) maxDelta = delta;
+    }
+
+    const fraction = differing / (a.width * a.height);
+
+    if (maxDelta > worstCodeDelta || fraction > worstPixelFraction) {
+      if (maxDelta > worstCodeDelta) worstCodeDelta = maxDelta;
+      if (fraction > worstPixelFraction) {
+        worstPixelFraction = fraction;
+        worstDifferingPixels = differing;
+      }
+      worstFrame = index + 1;
+    }
+  }
+
+  return {
+    worstFrame,
+    worstCodeDelta: Math.round(worstCodeDelta),
+    worstDifferingPixels,
+    worstPixelFraction,
+  };
 }
 
 /**
@@ -931,6 +1079,73 @@ async function launchBrowser(playwright, options) {
   throw new Error('could not launch Chromium. Run: npx playwright install chromium');
 }
 
+/**
+ * 🎯 WHICH BUILD THIS CLIP IS OF. The residual hazard left by the watcher-off server, measured.
+ *
+ * LEARNINGS §1.12 used to say a concurrent edit kills a long capture, and `startViteServer` fixed
+ * that — the server this tool starts serves the tree AS IT STOOD AT LAUNCH and ignores everything
+ * after. What it cannot do is make two SEPARATE runs be of the same tree, and in a fan-out they
+ * routinely are not.
+ *
+ * Measured while this function was being written. Twelve captures of `/alive.html?bare&frame=body`
+ * at seed 1, six before a concurrent agent saved `FacialIdle.js` and `HandIdle.js` and six after,
+ * differenced pixel by pixel:
+ *
+ *   within either group   worst Δ3/255 on 44 px of 210,000 (0.021%) — the alpha-to-coverage residue
+ *   across the two groups worst Δ209/255 on 821 px (0.391%) at frame 25
+ *
+ * A factor of seventy in code value, and NOTHING in the manifest said the two halves were of
+ * different code. Two clips handed to a judge as an A/B would have been an A/B of a fan-out.
+ *
+ * So the manifest carries a fingerprint of the source the server was about to serve: git HEAD plus
+ * a content hash of every file under `packages/` that vite can reach. Content rather than mtime,
+ * because a touched-but-unchanged file is the same build and should say so.
+ */
+function sourceFingerprint() {
+  const hash = crypto.createHash('sha256');
+  const roots = [path.join(REPOSITORY_ROOT, 'packages')];
+  const extensions = new Set(['.js', '.mjs', '.html', '.css', '.json', '.wgsl', '.glsl']);
+  const files = [];
+
+  const walk = (directory) => {
+    let entries;
+    try {
+      entries = fs.readdirSync(directory, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries.sort((a, b) => (a.name < b.name ? -1 : 1))) {
+      if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+      const full = path.join(directory, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (extensions.has(path.extname(entry.name))) files.push(full);
+    }
+  };
+
+  for (const root of roots) walk(root);
+
+  for (const file of files) {
+    hash.update(path.relative(REPOSITORY_ROOT, file));
+    hash.update(crypto.createHash('sha256').update(fs.readFileSync(file)).digest());
+  }
+
+  let head = null;
+  try {
+    head = fs.readFileSync(path.join(REPOSITORY_ROOT, '.git', 'HEAD'), 'utf8').trim();
+    const match = head.match(/^ref: (.+)$/);
+    if (match) head = fs.readFileSync(path.join(REPOSITORY_ROOT, '.git', match[1]), 'utf8').trim();
+  } catch {
+    head = null;
+  }
+
+  return {
+    gitHead: head,
+    packagesDigest: hash.digest('hex').slice(0, 16),
+    fileCount: files.length,
+    note: 'Two clips are of the same code only if packagesDigest matches. A concurrent edit between two runs is invisible without this — measured at 209/255 code values on 0.39% of pixels.',
+  };
+}
+
 async function startViteServer() {
   const { createServer } = await import('vite');
 
@@ -1057,6 +1272,7 @@ function buildManifest({ options, seed, pageUrl, capture, reproducibility, postu
       pixelHeight: options.height * options.dpr,
     },
     environment: capture.environment,
+    source: sourceFingerprint(),
     determinism: {
       sequenceDigest: capture.sequenceDigest,
       distinctFrames: capture.distinctFrames,
@@ -1107,9 +1323,14 @@ function printSummary(manifest, outputDirectory, options) {
 function describeReproducibility(reproducibility) {
   if (reproducibility === null) return '(reproducibility not checked)';
 
-  return reproducibility.byteReproducible
-    ? `(byte-reproducible: verified over ${reproducibility.framesReplayed} frames)`
-    : `(NOT byte-reproducible: replay diverged at frame ${reproducibility.framesMatched + 1})`;
+  const residue =
+    `${reproducibility.framesBitIdentical}/${reproducibility.framesReplayed} bit-identical, ` +
+    `worst residue ${reproducibility.worstDifferingPixels} px at Δ${reproducibility.worstCodeDelta}/255`;
+
+  return reproducibility.reproducible
+    ? `(reproducible within tolerance: ${residue})`
+    : `(NOT reproducible: ${residue}, over Δ${reproducibility.toleranceCodeDelta} / ` +
+        `${reproducibility.tolerancePixelFraction * 100}% of pixels)`;
 }
 
 function describeSize(filePath) {

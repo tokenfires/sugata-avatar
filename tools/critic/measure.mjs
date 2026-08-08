@@ -7,12 +7,22 @@
 // properties of the reference or it does not, and the number says which.
 //
 //   G1  face key:shadow luma ratio     < 2:1
-//   G2  sclera luma / cheek luma       ≈ 0.98  (±0.06)
+//   G2  sclera vs cheek, BOTH halves:  luma ≈ 0.98 (±0.06) AND chroma ≈ 1.28× (the sclera is
+//       more saturated than skin — one spec sentence, two measurable properties)
 //   G3  shadow terminator gets MORE saturated and REDDER than lit skin  (SSS correctness)
 //   G4  flat-skin 5×5 high-pass σ      1.5–2.1 / 255 at 4K
 //   G5  fraction of pixels above 0.99 luma  < 0.5%
 //   G6  black point, p0.1 luma         0.004–0.016  (NO lift)
 //   G7  near-black surfaces do not render as saturated coloured ones  < 0.10% of the card band
+//
+// 🚩 EVERY NUMBER THIS TOOL PRINTS IS ABOUT ONE PAGE AT ONE FRAMING IN ONE MOTION STATE, and the
+// report says which. That block is not decoration. A G4 sigma of 1.9495/255 was measured on
+// `packages/testbed/src/skin.html` — different page, different framing, different rig — and then
+// quoted in docs/PUNCHLIST.md as certifying `alive.html`, which measures 1.4764 at the same width.
+// The two plates were never comparable and nothing in the report said so. So: a report carries a
+// `provenance` block, every gate carries a `measuredOn` string beside its number, and a plate with
+// no provenance is WARNED about rather than silently measured. `capture.mjs` writes the
+// `capture.json` this reads; `--page` supplies it by hand for a screenshot taken any other way.
 //
 // 🚩 G7 exists because G1–G6 could all be green on a plate whose single most visually wrong
 // feature was the eyelashes rendering as vivid royal-blue spikes. Every one of G1–G6 samples a
@@ -67,6 +77,37 @@ const TARGETS = {
   // "reads as the same brightness" test and 0.98 is the encoded figure the spec published.
   scleraCheekRatio: 0.98,
   scleraCheekTolerance: 0.06,
+
+  // 🎯 THE OTHER HALF OF THE SAME SPEC SENTENCE, which no gate measured for three rounds.
+  //
+  // The spec does not say "the sclera matches the cheek's brightness". It says the sclera "measures
+  // the same luminance as the surrounding cheek and is *more* saturated than skin (0.275 vs 0.215),
+  // pink-tinted." Only the first clause was gated, so a render could match the luma exactly while
+  // rendering a grey eyeball, and G2 would call it green. Measured on `alive.html?bare&freeze` at
+  // 900×1200: sclera saturation 0.0917 against cheek 0.2200 — a ratio of 0.417 against a reference
+  // 1.284, i.e. out by 3.1× on the half nothing was looking at, while the luma half was being
+  // quoted as proof the eye shader worked.
+  //
+  // The reference is RECOMPUTED from the spec's own published hexes rather than copied from its
+  // prose, so the constant traces to a measurement rather than to a sentence: HSV saturation of
+  // sclera #9D7274 is (157−114)/157 = 0.27389 and of cheek #96767D is (150−118)/150 = 0.21333,
+  // giving 1.2839. The spec's own rounded prose figures (0.275 / 0.215) give 1.2791 — they agree
+  // to 0.4%, which is what makes it safe to quote either.
+  //
+  // Two components, because they answer different questions and one of them is ordinal:
+  //
+  //   ORDINAL — sclera saturation ≥ cheek saturation. This is the spec sentence verbatim and it
+  //             invents nothing. A grey or blue-white eyeball fails here regardless of tolerance.
+  //   BAND    — the ratio inside ±6.1% of 1.2839. That percentage is not chosen: it is the same
+  //             RELATIVE tolerance the luma half already carries (0.06 on 0.98), applied to the
+  //             other half of the same sentence rather than invented for it.
+  //
+  // Judged on HSV saturation rather than chroma (max−min) because that is the statistic the spec
+  // published both numbers in. Note that G7 deliberately uses chroma instead, for the opposite
+  // reason — see its block for the measured sweep where saturation is non-monotone.
+  scleraHexReference: '#9D7274',
+  cheekHexReference: '#96767D',
+  scleraCheekSaturationTolerance: 0.06 / 0.98,
 
   // §2 skin: saturation RISES into shadow (0.15–0.25 lit → 0.23–0.26 shadow → 0.41 in
   // transmission) and hue shifts red. The gate is RELATIONAL — the absolute band is reported
@@ -148,8 +189,9 @@ function main(argv) {
   const image = decodePng(fs.readFileSync(options.imagePath));
   const spec = JSON.parse(fs.readFileSync(options.regionsPath, 'utf8'));
   const regions = resolveRegions(spec, image);
+  const provenance = resolveProvenance(options, image);
 
-  const report = measureAll(image, regions, spec, options.imagePath);
+  const report = measureAll(image, regions, spec, options, provenance);
 
   const serialised = JSON.stringify(report, null, 2);
   if (options.outPath) fs.writeFileSync(options.outPath, serialised);
@@ -160,21 +202,28 @@ function main(argv) {
 
 // --- measurement ----------------------------------------------------------------------------
 
-function measureAll(image, regions, spec, imagePath) {
+function measureAll(image, regions, spec, options, provenance) {
   // One pass builds the encoded-luma field that three of the six gates read from. Everything
   // downstream reads this instead of touching raw pixels again.
   const lumaField = buildEncodedLumaField(image);
-  const warnings = collectCaptureWarnings(image, spec);
+  const warnings = collectCaptureWarnings(image, spec, provenance);
 
   const gates = [
     measureKeyShadowRatio(image, regions),
     measureScleraAgainstCheek(image, regions),
     measureTerminatorShift(image, regions, warnings),
-    measureHighPassSigma(image, lumaField, regions, warnings),
+    measureHighPassSigma(image, lumaField, regions, warnings, provenance),
     measureHighlightClipping(image, lumaField, regions),
     measureBlackPoint(image, lumaField, regions),
     measureCardBandChroma(image, regions),
   ];
+
+  // 🚩 STAMPED ON EVERY GATE, NOT ONLY ON THE REPORT. Gate blocks get copied out of a report one
+  // at a time — into a punch list, into a commit message, into another agent's brief — and a
+  // number that travels without its page is the exact defect this field exists to stop.
+  for (const gate of gates) {
+    if (gate.measured) gate.measured.measuredOn = provenance.summary;
+  }
 
   const summary = {
     passed: gates.filter((gate) => gate.status === 'PASS').length,
@@ -185,16 +234,112 @@ function measureAll(image, regions, spec, imagePath) {
 
   return {
     image: {
-      path: path.resolve(imagePath),
+      path: path.resolve(options.imagePath),
       width: image.width,
       height: image.height,
       bitDepth: image.bitDepth,
       colorType: image.colorType,
     },
+    regionsPath: path.resolve(options.regionsPath),
+    provenance,
     warnings,
     gates,
     summary,
   };
+}
+
+// --- provenance ------------------------------------------------------------------------------
+//
+// What page, at what size, in what motion state. See the file header for the round this cost.
+
+/** How far up from the image to look for the capture manifest. frames/ is one level; <out>/ is two. */
+const PROVENANCE_SEARCH_DEPTH = 3;
+
+function resolveProvenance(options, image) {
+  if (options.page) {
+    return describeProvenance({
+      source: '--page',
+      page: options.page,
+      pixelWidth: image.width,
+      pixelHeight: image.height,
+    });
+  }
+
+  const manifestPath = options.provenancePath ?? findCaptureManifest(options.imagePath);
+  if (manifestPath === null) {
+    return {
+      source: 'none',
+      summary: 'UNKNOWN PAGE — no capture.json found and no --page given',
+      known: false,
+    };
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  } catch (error) {
+    return {
+      source: 'none',
+      summary: `UNKNOWN PAGE — ${path.basename(manifestPath)} unreadable (${error.message})`,
+      known: false,
+    };
+  }
+
+  return describeProvenance({
+    source: path.resolve(manifestPath),
+    page: manifest.url ?? null,
+    seed: manifest.seed ?? null,
+    prerollSeconds: manifest.prerollSeconds ?? null,
+    pixelWidth: manifest.resolution?.pixelWidth ?? image.width,
+    pixelHeight: manifest.resolution?.pixelHeight ?? image.height,
+    devicePixelRatio: manifest.resolution?.devicePixelRatio ?? null,
+    backend: manifest.environment?.backend ?? null,
+    capturedAt: manifest.capturedAt ?? null,
+  });
+}
+
+/**
+ * A page URL carries the framing in its query string (`?frame=body`, `?height=0.18`) and the
+ * motion state in `?freeze` / `?preroll` / `?seed`, so the shortest honest summary is the path,
+ * the query, the pixel size and the seed. The host is dropped: it is a port number, not a fact
+ * about the render, and two captures on 5173 and 5188 are the same plate.
+ */
+function describeProvenance(fields) {
+  const parts = [];
+
+  if (fields.page) {
+    try {
+      const url = new URL(fields.page);
+      parts.push(`${url.pathname}${url.search}`);
+    } catch {
+      parts.push(fields.page);
+    }
+  } else {
+    parts.push('(page not recorded)');
+  }
+
+  parts.push(`${fields.pixelWidth}×${fields.pixelHeight}`);
+  if (fields.devicePixelRatio && fields.devicePixelRatio !== 1) parts.push(`dpr ${fields.devicePixelRatio}`);
+  if (fields.seed !== null && fields.seed !== undefined) parts.push(`seed ${fields.seed}`);
+  if (fields.prerollSeconds) parts.push(`preroll ${fields.prerollSeconds} s`);
+  if (fields.backend) parts.push(fields.backend);
+
+  return { ...fields, known: true, summary: parts.join('  ') };
+}
+
+function findCaptureManifest(imagePath) {
+  let directory = path.dirname(path.resolve(imagePath));
+
+  for (let level = 0; level < PROVENANCE_SEARCH_DEPTH; level += 1) {
+    const candidate = path.join(directory, 'capture.json');
+    if (fs.existsSync(candidate)) return candidate;
+
+    const parent = path.dirname(directory);
+    if (parent === directory) break;
+    directory = parent;
+  }
+
+  return null;
 }
 
 // G1 — the highest-leverage parameter in the whole spec. A conventional 4:1 three-point ratio
@@ -232,38 +377,90 @@ function measureKeyShadowRatio(image, regions) {
 }
 
 // G2 — a white eyeball instantly breaks the look. The reference sclera measures the SAME
-// luminance as the cheek beside it, from heavy lid AO plus sclera SSS.
+// luminance as the cheek beside it, from heavy lid AO plus sclera SSS, AND is more saturated than
+// the skin beside it. Both halves are gated; see TARGETS for why the second one exists.
 function measureScleraAgainstCheek(image, regions) {
   const sclera = regions.sclera;
   const cheek = regions.cheek;
   if (!sclera || !cheek) {
-    return skipGate('G2', 'sclera : cheek luma', 'needs regions "sclera" and "cheek"');
+    return skipGate('G2', 'sclera : cheek luma and chroma', 'needs regions "sclera" and "cheek"');
   }
 
   const white = summariseRegion(image, sclera);
   const skin = summariseRegion(image, cheek);
+
   const ratio = white.encodedLuma / skin.encodedLuma;
   const low = TARGETS.scleraCheekRatio - TARGETS.scleraCheekTolerance;
   const high = TARGETS.scleraCheekRatio + TARGETS.scleraCheekTolerance;
 
+  const reference = referenceScleraSaturationRatio();
+  const saturationRatio = skin.saturation === 0 ? Infinity : white.saturation / skin.saturation;
+  const saturationLow = reference.ratio * (1 - TARGETS.scleraCheekSaturationTolerance);
+  const saturationHigh = reference.ratio * (1 + TARGETS.scleraCheekSaturationTolerance);
+
+  const failures = [];
+  if (ratio < low || ratio > high) {
+    failures.push(
+      `luma half: ${round(ratio, 4)} outside ${round(low, 2)}–${round(high, 2)} ` +
+        `(sclera ${round(white.encodedLuma, 4)} vs cheek ${round(skin.encodedLuma, 4)})`
+    );
+  }
+  if (white.saturation < skin.saturation) {
+    failures.push(
+      `chroma half, ORDINAL: the sclera is LESS saturated than the cheek ` +
+        `(${round(white.saturation, 4)} vs ${round(skin.saturation, 4)}) — the spec says it is more`
+    );
+  }
+  if (saturationRatio < saturationLow || saturationRatio > saturationHigh) {
+    failures.push(
+      `chroma half, BAND: ${round(saturationRatio, 4)}× outside ` +
+        `${round(saturationLow, 3)}–${round(saturationHigh, 3)}× (reference ${round(reference.ratio, 4)}×)`
+    );
+  }
+
   return {
     id: 'G2',
-    name: 'sclera : cheek luma',
-    status: ratio >= low && ratio <= high ? 'PASS' : 'FAIL',
+    name: 'sclera : cheek luma and chroma',
+    status: failures.length === 0 ? 'PASS' : 'FAIL',
     lumaDomain: 'encoded',
-    target: `${TARGETS.scleraCheekRatio} ± ${TARGETS.scleraCheekTolerance} (${round(low, 2)}–${round(high, 2)})`,
+    target:
+      `luma ${TARGETS.scleraCheekRatio} ± ${TARGETS.scleraCheekTolerance} (${round(low, 2)}–${round(high, 2)})` +
+      ` AND saturation ${round(reference.ratio, 3)}× ± ${round(TARGETS.scleraCheekSaturationTolerance * 100, 1)}%` +
+      ` (${round(saturationLow, 3)}–${round(saturationHigh, 3)}×), sclera never below cheek`,
     measured: {
       ratioEncoded: round(ratio, 4),
+      saturationRatio: round(saturationRatio, 4),
       ratioLinear: round(white.linearLuma / skin.linearLuma, 4),
       scleraLumaEncoded: round(white.encodedLuma, 4),
       cheekLumaEncoded: round(skin.encodedLuma, 4),
       scleraSaturation: round(white.saturation, 4),
       cheekSaturation: round(skin.saturation, 4),
+      referenceSaturationRatio: round(reference.ratio, 4),
+      referenceScleraSaturation: round(reference.scleraSaturation, 4),
+      referenceCheekSaturation: round(reference.cheekSaturation, 4),
       scleraHex: white.hex,
       cheekHex: skin.hex,
     },
-    note: 'Judged encoded — this is a perceptual "reads as the same brightness" match, and 0.98 is the encoded figure the spec measured. Reference sclera is also MORE saturated than cheek (0.275 vs 0.215).',
+    failures,
+    note:
+      'Two halves of one spec sentence. Luma is judged encoded — a perceptual "reads as the same brightness" match, and 0.98 is the encoded figure the spec measured. ' +
+      `Saturation is judged against ${round(reference.ratio, 4)}×, recomputed here from the spec's own published hexes ` +
+      `(sclera ${TARGETS.scleraHexReference} at S ${round(reference.scleraSaturation, 5)}, cheek ${TARGETS.cheekHexReference} at S ${round(reference.cheekSaturation, 5)}), ` +
+      'not copied from its prose. A grey eyeball that happens to match the cheek\'s brightness passes the luma half alone.',
   };
+}
+
+// The reference chroma ratio, derived at run time from the two hexes the spec publishes, so the
+// number in the report is a measurement of the reference rather than a transcription of it.
+function referenceScleraSaturationRatio() {
+  const scleraSaturation = rgbToHsv(...hexToUnitRgb(TARGETS.scleraHexReference)).saturation;
+  const cheekSaturation = rgbToHsv(...hexToUnitRgb(TARGETS.cheekHexReference)).saturation;
+  return { scleraSaturation, cheekSaturation, ratio: scleraSaturation / cheekSaturation };
+}
+
+function hexToUnitRgb(hex) {
+  const value = parseInt(hex.replace('#', ''), 16);
+  return [((value >> 16) & 255) / 255, ((value >> 8) & 255) / 255, (value & 255) / 255];
 }
 
 // G3 — the objective subsurface-scattering test. Physically wrong skin shading darkens toward
@@ -330,7 +527,7 @@ function measureTerminatorShift(image, regions, warnings) {
 
 // G4 — skin micro-detail amplitude. The reference is 3–5× LOWER than photoreal scan skin;
 // too much detail reads as "western photoreal", too little as plastic.
-function measureHighPassSigma(image, lumaField, regions, warnings) {
+function measureHighPassSigma(image, lumaField, regions, warnings, provenance) {
   const patch = regions.flatCheek;
   if (!patch) {
     return skipGate('G4', 'flat-skin high-pass sigma', 'needs region "flatCheek"');
@@ -357,8 +554,17 @@ function measureHighPassSigma(image, lumaField, regions, warnings) {
   // The sigma is a high-pass of a SHADED surface, so it reads the lighting's response to the
   // normal perturbation and not the perturbation itself. Measured during 3.2: one unchanged
   // micro-normal moved from 1.72 to 2.06 as the fill fell from 0.7 to 0.3.
+  //
+  // 🚩 AND IT DOES NOT SURVIVE A CHANGE OF PAGE, which is the defect this warning was rewritten
+  // for. 1.9495/255 was measured on `skin.html` and quoted as certifying `alive.html`; that page
+  // measures 1.4764 at the same width, on a different rig, with a differently framed cheek patch.
+  // So the warning names the page the number came from rather than describing the hazard in the
+  // abstract, and it is unconditional: there is no framing at which a G4 sigma is page-portable.
   warnings.push(
-    'G4 is not independent of the rig: it high-passes a SHADED surface, so it measures the lighting\'s response to the normal perturbation. One unchanged micro-normal measured sigma 1.72 at fill 0.7 and 2.06 at fill 0.3. Quote a sigma with the rig it was measured under.'
+    'G4 is not independent of the rig OR of the page: it high-passes a SHADED surface, so it measures the lighting\'s ' +
+      'response to the normal perturbation. One unchanged micro-normal measured sigma 1.72 at fill 0.7 and 2.06 at ' +
+      `fill 0.3, and the same material measured 1.9495 on skin.html against 1.4764 on alive.html. This sigma is about ` +
+      `${provenance.known ? provenance.summary : 'an UNRECORDED page'} and nothing else — never quote it for another page.`
   );
 
   return {
@@ -714,8 +920,40 @@ function percentileFromHistogram(histogram, total, quantile) {
 
 // Things that make a measurement untrustworthy rather than merely failing. Surfaced separately
 // so a red gate is never blamed on the render when the capture itself was wrong.
-function collectCaptureWarnings(image, spec) {
+function collectCaptureWarnings(image, spec, provenance) {
   const warnings = [];
+
+  // Loud, and first, because a number without a page is the one failure mode that has already
+  // cost this project a whole round (see the file header).
+  if (provenance.known !== true) {
+    warnings.push(
+      'NO PROVENANCE. This report does not know what page, framing or motion state produced the plate, so none ' +
+        'of its numbers may be quoted as certifying anything. Capture with tools/critic/capture.mjs — it writes ' +
+        'capture.json beside the frames and this tool finds it — or pass --page "<url> @ WxH".'
+    );
+  }
+
+  // 🚩 MEASURED, NOT SUSPECTED. The sclera rect is 11×6 px on an eye ~40 px across at the portrait
+  // framing, and `?freeze` pins the POSE but not the ocular or postural layers: their state at the
+  // first drawn frame is drawn from the seed. Measured on `alive.html?bare&freeze` at 900×1200,
+  // one frame, four seeds, nothing else changed:
+  //
+  //     seed 1        G2 luma 0.8127   sclera 0.6107
+  //     seed 42       G2 luma 0.9627   sclera 0.7278
+  //     seed 4242     G2 luma 0.9736   sclera 0.7350
+  //     seed 20260807 G2 luma 0.4384   sclera 0.3277   (the rect has walked onto the iris)
+  //
+  // A 2.2× spread across the gate's own ±6% band, decided entirely by the seed. Two of those four
+  // draws pass. Any single-seed G2 on an animating page is a draw of the dice, and the 0.9641 that
+  // punch-list 3.3 was marked done on is one of them.
+  if (spec.regions?.sclera) {
+    warnings.push(
+      'G2 samples an 11×6 px rect on an eye ~40 px across. On an animating page ?freeze pins the POSE but not the ' +
+        'ocular or postural layers, whose state at the first frame comes from the seed: measured on alive.html?bare&freeze ' +
+        'at 900×1200, G2 luma reads 0.8127 / 0.9627 / 0.9736 / 0.4384 at seeds 1 / 42 / 4242 / 20260807 — a 2.2× spread, ' +
+        'two of four passing. Quote G2 as a distribution over a seed set, never as one number.'
+    );
+  }
 
   let transparent = 0;
   for (let i = 3; i < image.pixels.length; i += 4) {
@@ -765,6 +1003,8 @@ function formatHumanReport(report) {
   const lines = [];
   lines.push(`${report.image.path}`);
   lines.push(`${report.image.width}×${report.image.height}, ${report.image.bitDepth}-bit`);
+  lines.push(`measured on: ${report.provenance.summary}`);
+  lines.push(`regions:     ${report.regionsPath}`);
   lines.push('');
 
   for (const gate of report.gates) {
@@ -792,7 +1032,15 @@ function formatHumanReport(report) {
 // --- small utilities ----------------------------------------------------------------------------
 
 function parseArguments(argv) {
-  const options = { imagePath: null, regionsPath: null, human: false, outPath: null, help: false };
+  const options = {
+    imagePath: null,
+    regionsPath: null,
+    human: false,
+    outPath: null,
+    page: null,
+    provenancePath: null,
+    help: false,
+  };
   const positional = [];
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -802,6 +1050,12 @@ function parseArguments(argv) {
     else if (arg === '--out') {
       i += 1;
       options.outPath = argv[i];
+    } else if (arg === '--page') {
+      i += 1;
+      options.page = argv[i];
+    } else if (arg === '--provenance') {
+      i += 1;
+      options.provenancePath = argv[i];
     } else if (arg.startsWith('--')) throw new Error(`Unknown option ${arg}.`);
     else positional.push(arg);
   }
@@ -818,14 +1072,21 @@ function parseArguments(argv) {
 
 function usageText() {
   return [
-    'measure.mjs — six objective gates from the Stellar Blade look spec.',
+    'measure.mjs — seven objective gates from the Stellar Blade look spec.',
     '',
     'Usage:',
     '  node measure.mjs <image.png> <regions.json> [--human] [--out result.json]',
     '',
     'Options:',
-    '  --human          human-readable summary instead of JSON on stdout',
-    '  --out <path>     also write the full JSON report to a file',
+    '  --human               human-readable summary instead of JSON on stdout',
+    '  --out <path>          also write the full JSON report to a file',
+    '  --page <text>         what page/framing this plate is, when there is no capture.json',
+    '  --provenance <path>   an explicit capture.json instead of the one found beside the image',
+    '',
+    'Provenance is found automatically: capture.mjs writes capture.json beside the frames and this',
+    'tool walks up from the image to find it. Without it every gate is stamped UNKNOWN PAGE and a',
+    'warning says the numbers may not be quoted — a G4 sigma measured on skin.html once certified',
+    'alive.html, which reads 1.4764 against 1.9495 at the same width.',
     '',
     'Exit codes:  0 = all gates pass or skip   1 = a gate failed   2 = tool error',
     '',
