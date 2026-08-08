@@ -58,6 +58,12 @@ measured there.**
 - [x] **2.6** Postural sway — dominant mode 0.25–0.33 Hz, 95% power < 1.3 Hz, nothing above 2 Hz;
       RMS 3–5 mm ML / 5–7 mm AP; AP 1.5–2× ML.
 - [x] **2.7** Idle micro-motion on co-prime cycles (Perlin 1 Hz shoulder / 2 Hz elbow / 4 Hz wrist).
+      Fingers do **not** continue the ladder to 8 Hz — see `motion/HandIdle.js`. The mass rationale
+      describes a segment settling under inertia and a resting finger is held by tone, and 8 Hz
+      would put the tail inside the 8–12 Hz physiological tremor band. Finger amplitude is a
+      **fraction of measured resting flexion**, not an angle: the shipped BodyIdle finger idle was
+      authored at 0.45° of peak knuckle deviation and measured **0.48 px** of fingertip travel at
+      full-body framing over 7 minutes. HandIdle measures 5.69 px.
 - [x] **2.8** Pupil dilation from arousal, exaggerated past physiology.
 - [x] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
       Resolved by re-rooting the shift on centre of mass rather than head displacement — a
@@ -69,14 +75,27 @@ measured there.**
 
 ## Phase 3 — Rendering
 
-- [ ] **3.1** `render/Stage.js` — `RenderPipeline` (not the deprecated `PostProcessing`), MRT
-      `{output, diffuseColor, normal, velocity, sssMask}`.
+- [x] **3.1** `render/Stage.js` — `RenderPipeline` (not the deprecated `PostProcessing`), MRT
+      `{output, diffuseColor, normal, velocity, sssMask}`. Channel contract in `render/GBuffer.js`;
+      every channel verified by GPU readback on `packages/testbed/src/stage.html`, 8 of 9 checks
+      green (the ninth is the morph-velocity defect recorded under 3.12). Deferred path is
+      **opt-in** — `create({pipeline:true})` — so every existing forward-path consumer keeps the
+      behaviour its gates were measured against.
 - [ ] **3.2** `material/SkinMaterial.js` — pre-integrated (Penner) SSS via `PhysicalLightingModel`
       override, **baked** curvature map, dual-lobe specular, tiled micro-normal.
       Gate: **MEASURED** — terminator saturation *rises* and shifts red; high-pass σ 1.5–2.1/255.
 - [ ] **3.3** `material/EyeMaterial.js` — cornea refraction (IOR 1.333–1.4) into a flat iris plane,
       shader-side pupil dilation, view-dependent limbal ring, **dual-normal sclera/iris blend**
       (specular snaps flat inside the iris). Gate: **MEASURED** — sclera at ~0.98× cheek luma.
+      ✅ **The asset blocker is cleared.** The figures now build with MakeHuman's high-poly eye
+      proxy — two nested shells per eye, the outer one split onto its own transmissive material
+      (`KHR_materials_transmission`, IOR 1.3333). The corneal dome clause the spike called *not
+      shader-fixable* now passes: the front 15° cap sits **0.688 mm proud** of a sphere fitted to
+      the sclera (RMS 0.202 mm), against −0.015 mm on the old globe. `verify_glb.mjs` asserts the
+      dome, the anterior chamber and the cornea material on every figure.
+      What remains for 3.3 is the shader plus three frame changes `tools/spikes/eye-geometry.mjs`
+      enumerates: an eye-local frame from a uniform, an iris/sclera map split, and an animated
+      eye-centre uniform (gaze moves the eye centre 1.72 mm).
 - [ ] **3.4** Eye occlusion sheet + lacrimal geometry + per-eye catchlight cubemap.
 - [ ] **3.5** `material/HairMaterial.js` — Karis closed-form BSDF, cards default. Near-black albedo
       (`#150F17`) with ~10:1 spec-to-albedo contrast, broad soft dual bands, root AO 0.35–0.5.
@@ -87,10 +106,23 @@ measured there.**
 - [ ] **3.9** Screen-space contact shadows (`SSSNode`) for eyelid crease, nostril, lip corner.
 - [ ] **3.10** GTAO → **bent normals + specular occlusion** (Frostbite form). Hand-rolled — three.js
       has neither, and un-occluded ambient specular is why WebGL characters look like plastic.
+      The G-buffer's `normal` attachment is **signed view-space xyz with perceptual roughness in w**,
+      which is what `GTAONode` consumes directly — it calls `.normalize()` on what it samples, so
+      repacking to RGB8 via `packNormalToRGB` would confine the direction to the positive octant
+      and yield plausible-looking wrong AO. Do not repack it.
 - [ ] **3.11** ⚠️ Normal-map variance → roughness (Toksvig/LEAN). three.js's specular AA is
       *geometric only*, so micro-detail and hair **will** shimmer without this.
       Gate: verify with a **moving** camera, not a still.
 - [ ] **3.12** TRAA + TAAU at `resolutionScale ≈ 0.66` — the lever that buys the expensive skin shader.
+      ⚠️ **Morph targets write no velocity, and it is worse than writing none.** three r185's
+      `Morph.js` has no `positionPrevious` path (`Skinning.js` does, at :166 and :233), so the
+      previous-frame position is reconstructed from un-morphed geometry. A morph held at a
+      **constant** weight reports a **constant non-zero** motion vector — measured 35.5 px/frame at
+      1280×720, byte-identical to the reading when the same morph is actually swept. This rig has
+      no jaw bone and no eye bones, so the face is 100% morph-driven: a talking, blinking face
+      hands TRAA/TAAU a bogus motion vector across the whole head. 3.12 must either mask the face
+      out of reprojection or add a previous-weights path to the morph node. Do not assume TRAA
+      "just works" on the avatar.
 - [ ] **3.13** `render/Grade.js` — AgX/ACES, **no black lift**, bloom wide and low-threshold,
       luminance-only grain σ 1–2/255, CA off.
       Gate: **MEASURED** — < 0.5% clipped, p0.1 luma 0.004–0.016.

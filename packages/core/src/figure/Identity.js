@@ -61,7 +61,9 @@
  *
  *   One quirk worth knowing before it is mistaken for a bug: the g025/g075 → g050 blend is
  *   off by 0.111 mm, and that error is *entirely* a rigid +0.111 mm vertical offset. The
- *   shape residual after cancelling it is 0.0004 mm across all six meshes and 0.0001 mm on
+ *   shape residual after cancelling it is 0.0004 mm across all six meshes the figure had when
+ *   this was measured — the eye proxy has since become two shells, so the count is seven and the
+ *   residual on the corneal shell has NOT been re-measured — and 0.0001 mm on
  *   the body — float32 round-off at metre scale, i.e. the blend is exact and there is nothing
  *   left to measure. The bakes are re-grounded to Y = 0 after export and that grounding is
  *   not quite linear in gender. A consumer that re-grounds a blended figure removes the term.

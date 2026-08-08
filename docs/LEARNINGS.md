@@ -134,6 +134,36 @@ of pressure moves between the feet. It was read as corroboration and moved past.
 delivered in support of one claim can be the answer to a different one; when a verifier hands you a
 paper, read what it is about, not only the sentence it was quoted for.**
 
+### 1.7e A gate can encode the defect it was written to catch
+
+`sway.selftest.mjs` asserted head > pelvis > knee > ankle on the **3D resultant** excursion of the
+shipped layer, called it the inverted pendulum's signature, and passed for two rounds. Medio-
+laterally that ordering **is** the defect a visual judge reported as "the head travels 1.34× the
+hip" — the hip strategy exists precisely so the pelvis leads. The claim was true only on the axis
+the pendulum governs.
+
+When a model has **two mechanisms on two axes**, check which axis each gate is entitled to speak
+for. A gate stated on the resultant silently asserts the same mechanism on both. The fix here was
+to split it: a path-length ordering on the shipped layer, plus an **antero-posterior** height
+ordering measured where the pendulum runs alone. `headLeverMetres()` had the same disease — it
+averaged the two axes and so scaled every pendulum prediction by 0.73.
+
+### 1.7f A judge's measurement and the simulation's can both be honest and still disagree
+
+Check which one the defect lives in **before fixing either**. A blind visual judge reported one arm
+**2.5× livelier** than the other over seven minutes. Measured in the rig over 12 seeds × 6 channels
+× 2 windows, on the stack `alive.js` actually builds and in the relaxed-standing pose, the worst
+left/right energy ratio anywhere is **1.171** (300 s) / 1.125 (900 s); reconstructing the page's own
+camera, hand screen-space RMS scores 0.96–1.02. Seed offset, joint-limit proximity, degenerate
+co-prime phase and baked handedness are all ruled out by that number.
+
+The judge measured **pixels**, and pixels carry occlusion and framing: at `alive.js`'s 12° camera
+azimuth, with the pose adducting the left arm 1.5° more than the right, the right arm is the
+farther and more torso-occluded of the two, and a per-region pixel statistic scores it lower for
+reasons unrelated to how it is driven. The gate that resulted (ratio bounded at 1.40, proven red at
+2.45–3.04) is still worth having — but it was built as a **guarantee, not as a fix**, and the round
+would have been wasted if the reported magnitude had been taken as a target to tune toward.
+
 ### 1.8 Conceptual model errors look like missing features
 
 The lower body had **exactly 0.0000 mm** of motion over 600 frames. `Sway` declared only spine,
@@ -173,6 +203,18 @@ the horizontal centroid of the silhouette, in pixels — to answer "would a view
 
 That distinction is what PROGRESS's failing diagnosis was actually about: "1.6 pixels at full-body
 framing" is a travel measurement, and no amount of variance analysis produces it.
+
+### 1.10b An amplitude stated in a unit nobody can picture will pass every review it is given
+
+The finger idle was authored as **0.45° of peak knuckle deviation**. That sounds reasonable, it was
+reviewed as reasonable, and it measures **0.48 px of fingertip travel** at full-body framing over
+seven minutes — under a third of the 1.6 px this project already had on record as indistinguishable
+(§1.10a). The layer was not switched off. The amplitude was simply never converted into the
+quantity the defect is about.
+
+**State motion amplitudes in the unit the defect will be judged in, or convert them inside the
+gate.** The articulation gate for the hands is therefore stated in pixels at a named framing, and
+the conversion (1200 px over a 1825.4 mm frame = 0.6574 px/mm) is printed beside the result.
 
 ### 1.11 A single scalar check may be structurally unable to catch the error you built it for
 
@@ -229,7 +271,24 @@ exactly the one where a silently halved impact goes unnoticed.
 The spike cost a fraction of the shader and produced a scoped asset fix instead of a disappointment.
 Do this for every technique whose research doc states a geometry contract.
 
-### 1.12 Two practical traps that cost real time
+### 1.11d A test can be right about the question and wrong about the noise
+
+The eye spike asked exactly the right question — *is there a corneal dome?* — and answered it by
+comparing the front-cap bulge against the residual of a sphere fitted to **the whole shell**. That
+buries the dome in its own residual: the reference surface is fitted through the very feature being
+measured. On the high-poly cornea it reported 0.494 mm of bulge against 0.958 mm of "noise" and
+concluded *no dome*, on an asset that has one.
+
+Fitting the reference sphere to the **sclera band alone** — where the feature is absent by
+construction — separates the two real assets by **46×** where the old form managed 10×, with the
+threshold between the wrong pair: +0.688 mm proud against 0.202 mm of noise on the high-poly
+cornea, −0.015 mm against 0.191 mm on the low-poly globe.
+
+Same shape as §1.11 (a gate that structurally cannot resolve the thing it is aimed at), and it cost
+a real detour: the asset was nearly rejected on the strength of the instrument. **Fit your
+reference where the feature you are hunting is not.**
+
+### 1.12 Practical traps that cost real time
 
 **A scratch vector passed as an output target aliases itself.** `selfCheckFractionOfStature` called
 `centreOfMass( this.scratch )`, and `centreOfMass` used `this.scratch` as its own per-segment temp.
@@ -242,6 +301,20 @@ wrong value. Give measurement methods their own result vector.
 destroyed, most likely because of a navigation." Long captures and fan-out edits do not mix — run
 captures either before the fan-out or after it lands.
 
+**Constructing a second `Skeleton` over an already-posed `Figure` treats the current pose as bind
+and applies the next pose on top of it.** It produced stance measurements that were half and double
+the truth (heel separation 0.043 m and 0.227 m against a real 0.170 m), which read as a *modelling*
+error rather than an *instrument* error and sent the search to the wrong file. The `Skeleton` is now
+cached with the `Figure`. When two measurements of the same quantity straddle it by a factor of two,
+suspect the instrument.
+
+**The Claude browser pane performs no layout and fires no `requestAnimationFrame`.** `innerWidth`
+and `clientWidth` read 0, the WebGPU drawing buffer comes up 1×1, and any three.js page renders one
+frame and stalls. A page that trusts either will simply appear stuck at "booting…" and is not
+broken. The workaround, in `packages/testbed/src/stage.js`: pin the size explicitly
+(`Stage.setFixedSize`) and drive frames from a `MessageChannel` — `setTimeout` is throttled to 8/s
+when the page is hidden, `MessageChannel` measured **553,921/s**.
+
 ---
 
 ## Part 2 — Technical traps
@@ -252,6 +325,29 @@ captures either before the fan-out or after it lands.
   there is no dual-instance problem to solve. The alias omits `UniformsUtils`, `ShaderChunk`,
   `WebGLRenderer` and four others that 30+ stock addons import.
 - `PostProcessing` → **`RenderPipeline`** as of r183.
+- 🚩 **`MRTNode` silently drops output names it cannot resolve against the bound render target, and
+  if none resolve the fragment shader declares an EMPTY output struct** — invalid WGSL, and the
+  object stops drawing. `NodeMaterial.setup` uses `material.mrtNode` **alone** (not merged with the
+  renderer's) whenever a render target is bound and `renderer.getMRT()` is null, and
+  `Renderer._getFrameBufferTarget()` allocates an **unnamed** target for every tone-mapped canvas
+  frame. Net effect: **a material carrying `mrtNode` cannot be forward-rendered.** Only tag
+  materials that are drawn through a G-buffer pass. Naming `output` in the material's MRT covers
+  the "some other pass" case but not the intermediate-target case, because that texture has no name
+  at all.
+- 🚩 **Morph targets contribute NO velocity.** `nodes/accessors/Morph.js` never assigns
+  `positionPrevious`; `Skinning.js` does (:166, :233). So a morph held at a **constant** weight
+  yields a **constant non-zero** motion vector — the buffer reports the morph offset, not its
+  change. Bone motion reprojects correctly; morph motion does not.
+- `readRenderTargetPixelsAsync` pads every row to **256 bytes** and returns the raw texel type — a
+  `Uint16Array` of half floats for any 16F format. `mapAsync` also rejects a buffer size that is
+  not a multiple of 4, which breaks an R8 attachment at any width not divisible by 4.
+- `PassNode.setMRT` names must be registered with `getTexture(name)` **before any material
+  compiles**, or the channel compiles away to nothing rather than erroring.
+- `GTAONode` samples normals as `normalNode.sample(uv).rgb.normalize()` — it needs **signed
+  view-space** normals. `packNormalToRGB` into RGB8 would confine the direction to the positive
+  octant and produce plausible-looking wrong AO.
+- `readRenderTargetPixelsAsync` **never settles on the WebGL2 backend** of `WebGPURenderer` (the
+  probe hangs). Numeric readback verification is a WebGPU-only instrument.
 - `RGBELoader` deprecated since r180 → use `HDRLoader`.
 - `PCFSoftShadowMap` deprecated at r186; already removed from the WebGPU path.
 - 🚩 **Two unrelated things are called SSS.** `MeshSSSNodeMaterial` is a back-lit translucency
@@ -270,11 +366,26 @@ captures either before the fan-out or after it lands.
 
 ### The figure asset
 
-- Six meshes: `Human` (body, 89 morphs), `teeth_base` (27), `tongue01` (28), `eyelashes01` (27),
-  `eyebrow001` (49), `low-poly` (**eyeballs** — named for topology, not anatomy).
-- **65 of 89 morphs live on more than one mesh.** Setting a morph means writing every location.
+- **Seven meshes** (measured on `figure_g050.glb`): `Human` (body, 14,517 verts, 89 morphs),
+  `teeth_base` (4,494 / 27), `tongue01` (253 / 28), `eyelashes01` (250 / 27), `eyebrow001`
+  (124 / 49), `high-poly` (**the eyeball globes**, 552 / 8) and `cornea` (**the clear outer
+  shells**, 524 / 8). The eye names are about topology, not anatomy — `high-poly` replaced a
+  `low-poly` proxy, and every hardcoded `low-poly` matcher had to widen.
+- **65 of 89 morphs live on more than one mesh** (re-measured after the corneal split; still 65,
+  but `eyeLookUpLeft` is now on **5** meshes rather than 4). Setting a morph means writing every
+  location.
+- The cornea rides its own `MeshPhysicalMaterial`: alphaMode **OPAQUE** carrying
+  `KHR_materials_transmission` (transmission 1) and `KHR_materials_ior` (1.3333), so depth is
+  still written and it is not a blended surface. No `KHR_materials_volume`, so three's
+  `getVolumeTransmissionRay` gets thickness 0 and the cornea refracts nothing — a glossy wet
+  layer, by design. The anterior chamber measures 2.15–2.40 mm if anyone wants real refraction
+  out of the stock material.
 - 53-bone `game_engine` rig. 🚩 **No jaw bone, no eye bones** — face is entirely morph-driven.
-- Blink saturates at **0.735**; past that the lash cards punch through the lid.
+- Blink saturates at **0.752** on the current asset (was 0.735 on the low-poly eye; the corneal
+  apex stands 1.145 mm further forward, so the lid has further to travel). Per figure the seal is
+  g000 0.750, g025 0.726, g050 0.713, g075 0.700, g100 0.681, and the default is the largest.
+  ⚠️ "Past 0.735 the lash cards punch through the lid" was recorded here and is **not measured
+  anywhere** — no gate in the repo detects lash intersection. Treat it as a suspicion, not a fact.
 - Bind pose is worse than an A-pose: arms 41.8° out, 43.1° elbow flexion, wrists 17 cm clear of hips.
 - Gender axis is **exactly linear** (2.2e-13 mm). Blending adjacent bakes deviates 0.0004 mm in
   shape. The research's "clamp to a narrow band" mitigation is unnecessary with bracketed bakes.
@@ -293,6 +404,12 @@ so the schema constraint is load-bearing rather than optional. ~0.7 s per call.
 # Dev server (serves packages/testbed)
 npm run dev                                    # http://localhost:5173/alive.html
 
+# ⚠️ `npm run build` builds ONLY packages/testbed/index.html — vite's default single entry.
+# alive.html and src/stage.html are NOT in it, so a broken import in alive.js or stage.js
+# passes the build. To actually prove the pages resolve, build them explicitly:
+npx vite build --config <temp config listing all three HTML entries>
+# (45 modules vs 13; alive and stage each get their own chunk.)
+
 # Perf spike pages (need a repo-rooted vite; the main config roots at the testbed
 # and SPA-falls-back, returning HTTP 200 with the WRONG page)
 npm run spikes
@@ -300,7 +417,7 @@ npm run spikes
 # Rebuild all five figures (~6 s each, byte-for-byte reproducible)
 bash tools/figure-pipeline/build.sh
 
-# The asset gate — skinning, materials, ARKit 52, visemes, all six meshes
+# The asset gate — skinning, materials, ARKit 52, visemes, all seven meshes, eye geometry
 node tools/figure-pipeline/verify_glb.mjs
 
 # Objective visual gates (the six measured Stellar Blade properties)

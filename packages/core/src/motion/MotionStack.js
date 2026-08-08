@@ -739,7 +739,7 @@ export class MotionStack {
  * This is a bridge, not the destination: `figure/Figure.js` (punch-list 1.1) will implement the
  * same three methods natively over its morph registry. It exists so that the stack is testable
  * and usable before Figure lands, and it solves the same problem Figure has to — the figure GLB
- * spreads morphs across six meshes, and `jawOpen` lives on the body, the teeth AND the tongue.
+ * spreads morphs across seven meshes, and `jawOpen` lives on the body, the teeth AND the tongue.
  * Setting a morph by name means setting it everywhere it occurs.
  *
  * @param {Object3D} root - A loaded GLB scene, or any subtree containing the meshes and bones.

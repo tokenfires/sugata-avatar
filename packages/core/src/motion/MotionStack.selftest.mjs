@@ -7,7 +7,7 @@
 // The stack is the thing every motion layer plugs into, so a wrong assumption here is a wrong
 // assumption in blink, gaze, breath, sway, gesture and lipsync simultaneously. That makes it worth
 // testing against the real asset rather than a mock: the figure GLB is loaded, its 53-joint
-// skeleton is driven, and its morphs are read back off the actual six meshes. The one thing a mock
+// skeleton is driven, and its morphs are read back off the actual seven meshes. The one thing a mock
 // would hide is exactly the thing that bites — `jawOpen` exists on the body AND the teeth AND the
 // tongue, and "set a morph" has to mean all three.
 //
