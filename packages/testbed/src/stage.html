@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sugata — Stage / G-buffer browsercheck (3.1)</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body { height: 100%; }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: #0d0d10;
+        color: #d8d8de;
+        font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 460px;
+        grid-template-rows: 100%;
+    }
+
+    /* The canvas is taken out of flow. Sized as a normal block it feeds its own height back
+       into the grid row through the ResizeObserver and the two ratchet each other upward —
+       observed once at 44280 px tall. */
+    #viewport { position: relative; min-width: 0; overflow: hidden; }
+    canvas#view { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+    /* Labels for the six-pane grid view. Text cannot come out of a shader, so the
+       captions are DOM elements laid over the canvas in the same 3 x 2 arrangement. */
+    #grid-labels {
+        position: absolute; inset: 0;
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        pointer-events: none;
+    }
+    body.grid #grid-labels { display: grid; }
+    #grid-labels div {
+        outline: 1px solid rgba(255,255,255,0.14);
+        outline-offset: -1px;
+        padding: 6px 8px;
+        font-size: 11px;
+        color: #fff;
+        text-shadow: 0 0 4px #000, 0 0 8px #000;
+        align-self: start;
+    }
+
+    #panel { overflow-y: auto; padding: 14px 16px 40px; border-left: 1px solid #26262e; }
+    h1 { font-size: 13px; margin: 0 0 4px; letter-spacing: 0.04em; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
+         color: #8a8a97; margin: 20px 0 6px; }
+    p.note { color: #8a8a97; margin: 4px 0 0; font-size: 11px; }
+
+    button {
+        font: inherit; background: #1c1c24; color: #d8d8de;
+        border: 1px solid #33333e; border-radius: 4px;
+        padding: 4px 9px; margin: 0 4px 4px 0; cursor: pointer;
+    }
+    button:hover { background: #262631; }
+    button[aria-pressed="true"] { background: #2f4f7a; border-color: #4d7cb8; color: #fff; }
+
+    label.slider { display: flex; align-items: center; gap: 8px; margin: 4px 0; font-size: 11px; }
+    label.slider input { flex: 1; }
+    label.slider span.value { width: 56px; text-align: right; color: #9fd0ff; }
+
+    table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 11px; }
+    th, td { text-align: left; padding: 2px 6px 2px 0; border-bottom: 1px solid #22222a;
+             vertical-align: top; }
+    th { color: #8a8a97; font-weight: 600; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .pass { color: #64d68a; }
+    .fail { color: #ff6b6b; font-weight: 700; }
+    .info { color: #9fd0ff; }
+
+    #env div, #env-perf div { display: flex; gap: 8px; font-size: 11px; }
+    #env .k, #env-perf .k { color: #8a8a97; width: 130px; flex: none; }
+    #env .v, #env-perf .v { color: #c8c8d2; word-break: break-all; }
+
+    #status { margin-top: 6px; color: #f0c674; font-size: 11px; min-height: 1.4em; }
+</style>
+</head>
+<body>
+
+<div id="viewport">
+    <canvas id="view"></canvas>
+    <div id="grid-labels">
+        <div>1 output — shaded HDR (RGBA16F)</div>
+        <div>2 diffuseColor — albedo (RGBA8)</div>
+        <div>3 normal — view normal (RGBA16F)</div>
+        <div>4 velocity — motion vector (RG16F, gained)</div>
+        <div>5 sssMask — skin selector (R8)</div>
+        <div>6 roughness — normal.w (RGBA16F alpha)</div>
+    </div>
+</div>
+
+<div id="panel">
+    <h1>Stage / G-buffer browsercheck — punch list 3.1</h1>
+    <p class="note">
+        One geometry draw into five named attachments, composited by <code>RenderPipeline</code>.
+        Every pane below is a real MRT channel read back off the GPU, not a re-render.
+    </p>
+
+    <h2>View</h2>
+    <div id="views"></div>
+
+    <h2>Controls</h2>
+    <label class="slider">velocity gain
+        <input id="velocity-gain" type="range" min="10" max="2000" step="10" value="200">
+        <span class="value" id="velocity-gain-value">200x</span>
+    </label>
+    <label class="slider">depth gain
+        <input id="depth-gain" type="range" min="0.5" max="8" step="0.1" value="1.6">
+        <span class="value" id="depth-gain-value">1.6x</span>
+    </label>
+    <label class="slider">resolution scale
+        <input id="resolution-scale" type="range" min="0.25" max="1" step="0.01" value="1">
+        <span class="value" id="resolution-scale-value">1.00</span>
+    </label>
+    <div>
+        <button id="toggle-motion" aria-pressed="true">motion: on</button>
+        <button id="run-probe">re-run readback probe</button>
+        <button id="run-perf">run GPU cost sweep</button>
+    </div>
+    <div id="status"></div>
+
+    <h2>Environment</h2>
+    <div id="env"></div>
+
+    <h2>Live</h2>
+    <div id="live"></div>
+
+    <h2>G-buffer readback probe</h2>
+    <p class="note">
+        Each channel is read back with <code>readRenderTargetPixelsAsync</code> and checked
+        against a prediction that a still frame, or an unwritten attachment, would fail.
+    </p>
+    <div id="probe"></div>
+
+    <h2>Velocity vs motion</h2>
+    <p class="note">
+        A velocity buffer that is uniformly zero on a moving object is the classic silent
+        failure, and a uniformly-zero one on a <em>static</em> frame is what proves the
+        measurement means anything. Both directions are run.
+    </p>
+    <div id="velocity"></div>
+
+    <h2>GPU cost</h2>
+    <p class="note">
+        Timestamp-query durations at 1920x1080, dpr 1, on a separate offscreen renderer —
+        the same conditions as the Phase 0 spikes in <code>tools/spikes</code>, so the numbers
+        sit beside the 3.604 ms four-RectAreaLight figure without conversion.
+    </p>
+    <div id="env-perf"></div>
+    <div id="perf"></div>
+</div>
+
+<script type="module" src="./stage.js"></script>
+</body>
+</html>

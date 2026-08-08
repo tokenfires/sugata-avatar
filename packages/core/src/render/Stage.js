@@ -1,5 +1,5 @@
 /**
- * Stage — the renderer, the scene graph root, and the frame loop.
+ * Stage — the renderer, the scene graph root, the G-buffer, and the frame loop.
  *
  * Everything else in Sugata draws into a Stage. It exists so that no other module has to
  * know which GPU backend is live, how the canvas is sized, or when a frame happens.
@@ -9,18 +9,44 @@
  * falls back internally when adapter acquisition fails, but callers still need to know which
  * backend actually came up — quality tiers, TRAA and the hair OIT path all branch on it — so
  * `stats.backend` reports the truth read back off the renderer after initialisation.
+ *
+ * ## Two rendering modes, and why the deferred one is opt-in
+ *
+ * `create( canvas )` still does what it always did: forward rendering straight to the canvas.
+ * `create( canvas, { pipeline: true } )` instead renders the scene once into the five-attachment
+ * G-buffer described in `GBuffer.js` and composites through a `RenderPipeline`.
+ *
+ * The deferred path is opt-in rather than the default because every existing consumer
+ * (`alive.js`, the browsercheck pages, the deterministic capture tool) is calibrated against the
+ * forward path, and several measured gates in `docs/PROGRESS.md` were taken through it. Flipping
+ * the default is a one-word change in this file, and belongs to whichever punch-list item first
+ * needs the G-buffer at full-body framing — 3.2 (skin) or 3.8 (lighting rig) — so that the
+ * re-measurement happens in the same round as the change.
+ *
+ * 🚩 `PostProcessing` was renamed to `RenderPipeline` at r183; the old name still exists as a
+ * deprecated subclass that emits a `warnOnce`. This file uses `RenderPipeline`.
  */
 
 import {
     ACESFilmicToneMapping,
     PerspectiveCamera,
+    RenderPipeline,
     Scene,
     SRGBColorSpace,
     WebGPURenderer
 } from 'three/webgpu';
 
+import { pass, renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
+
+import { channelDisplayNode, channelGridNode, GBuffer } from './GBuffer.js';
+
 const MAX_PIXEL_RATIO = 2;
 const FPS_SAMPLE_WINDOW_MS = 500;
+
+// The six panes the grid view shows, row-major across 3 columns and 2 rows: all five MRT
+// attachments, plus roughness, which rides in the normal attachment's alpha and is otherwise
+// invisible. Depth is a full-screen view only — see `channelGridNode`.
+const GRID_VIEWS = [ 'output', 'diffuseColor', 'normal', 'velocity', 'sssMask', 'roughness' ];
 
 export class Stage {
 
@@ -33,11 +59,22 @@ export class Stage {
 
         this.frameCallbacks = [];
 
+        // Deferred path. All null on the forward path.
+        this.renderPipeline = null;
+        this.scenePass = null;
+        this.gbuffer = null;
+        this.viewMode = 'beauty';
+        this.composeOutput = null;
+        this.velocityGain = null;
+        this.depthGain = null;
+        this.resolutionScale = 1;
+
         // Sizing state. We re-read devicePixelRatio on every viewport update rather than
         // caching it, because dragging a window between a Retina and an external display
         // changes it without changing the CSS pixel size of the canvas.
         this.maxPixelRatio = MAX_PIXEL_RATIO;
         this.pixelRatio = 1;
+        this.fixedSize = null;
         this.resizeObserver = null;
         this.pixelRatioWatcher = null;
 
@@ -78,6 +115,14 @@ export class Stage {
      * @param {number} [options.near=0.01]
      * @param {number} [options.far=100]
      * @param {number} [options.toneMappingExposure=1]
+     * @param {boolean} [options.pipeline=false] - Render deferred, through the G-buffer.
+     * @param {boolean} [options.trackTimestamp=false] - Enable GPU timestamp queries. Costs a
+     *   little per frame, so only measurement pages ask for it.
+     * @param {number} [options.resolutionScale=1] - Scene-pass resolution as a fraction of the
+     *   drawing buffer. 0.66 is the TAAU operating point from `research/rendering-stack.md`.
+     * @param {number} [options.width] - Pins the drawing buffer instead of following CSS.
+     *   Give both, or neither. See `setFixedSize`.
+     * @param {number} [options.height]
      * @returns {Promise<Stage>}
      */
     async create( canvas, options = {} ) {
@@ -85,12 +130,19 @@ export class Stage {
         this.canvas = canvas;
         this.maxPixelRatio = options.maxPixelRatio ?? MAX_PIXEL_RATIO;
 
+        if ( options.width !== undefined && options.height !== undefined ) {
+
+            this.fixedSize = { width: options.width, height: options.height };
+
+        }
+
         const wantsWebGPU = options.forceWebGL !== true && this.isWebGPUAvailable();
 
         this.renderer = new WebGPURenderer( {
             canvas,
             antialias: options.antialias === true,
-            forceWebGL: wantsWebGPU === false
+            forceWebGL: wantsWebGPU === false,
+            trackTimestamp: options.trackTimestamp === true
         } );
 
         this.renderer.toneMapping = ACESFilmicToneMapping;
@@ -109,6 +161,12 @@ export class Stage {
             options.near ?? 0.01,
             options.far ?? 100
         );
+
+        if ( options.pipeline === true ) {
+
+            this.buildPipeline( options.resolutionScale ?? 1 );
+
+        }
 
         this.watchViewport();
         this.updateViewport();
@@ -149,6 +207,73 @@ export class Stage {
     }
 
     /**
+     * Switches what reaches the screen. `beauty` is the shipping path; the rest render one
+     * G-buffer channel, and `grid` shows six of them at once.
+     *
+     * @param {'beauty'|'grid'|'output'|'diffuseColor'|'normal'|'roughness'|'velocity'|'sssMask'|'depth'} view
+     */
+    setViewMode( view ) {
+
+        this.requirePipeline( 'setViewMode' );
+
+        this.viewMode = view;
+        this.refreshOutputNode();
+
+    }
+
+    /**
+     * Installs the composite that produces the final image, so temporal AA (3.12) and the
+     * grade (3.13) can own the end of the chain without this file knowing about either.
+     *
+     * The callback receives `(gbuffer, sceneColourNode)` and returns a vec4 in working colour
+     * space; Stage applies tone mapping and the output transfer afterwards.
+     *
+     * @param {?function(GBuffer, Node): Node} compose - Pass `null` to restore the default.
+     */
+    setComposeOutput( compose ) {
+
+        this.requirePipeline( 'setComposeOutput' );
+
+        this.composeOutput = compose;
+        this.refreshOutputNode();
+
+    }
+
+    /**
+     * Renders the scene pass at a fraction of the drawing buffer. This is the lever that pays
+     * for an expensive skin shader: `research/rendering-stack.md` puts the TAAU operating point
+     * at 0.66, which is 44% of the shaded pixels.
+     *
+     * The composite still runs at full resolution, so post effects and the grade are unaffected.
+     *
+     * @param {number} scale
+     */
+    setResolutionScale( scale ) {
+
+        this.requirePipeline( 'setResolutionScale' );
+
+        this.resolutionScale = scale;
+        this.scenePass.setResolutionScale( scale );
+
+    }
+
+    /** Display gain applied to motion vectors in the `velocity` view. */
+    setVelocityGain( gain ) {
+
+        this.requirePipeline( 'setVelocityGain' );
+        this.velocityGain.value = gain;
+
+    }
+
+    /** Display gain applied to linear depth in the `depth` view. */
+    setDepthGain( gain ) {
+
+        this.requirePipeline( 'setDepthGain' );
+        this.depthGain.value = gain;
+
+    }
+
+    /**
      * Live counters for the HUD and for the quality-tier logic that picks a rendering
      * budget from measured frame cost.
      */
@@ -156,6 +281,7 @@ export class Stage {
 
         return {
             backend: this.backendName,
+            deferred: this.renderPipeline !== null,
             fps: this.fps,
             frameMs: this.frameMs,
             dpr: this.pixelRatio,
@@ -173,6 +299,10 @@ export class Stage {
         this.unwatchViewport();
         this.frameCallbacks.length = 0;
 
+        this.renderPipeline = null;
+        this.scenePass = null;
+        this.gbuffer = null;
+
         // Renderer.dispose() stops its own animation loop, so we do not stop it twice.
         if ( this.renderer !== null ) {
 
@@ -186,6 +316,81 @@ export class Stage {
     }
 
     // --- helpers -----------------------------------------------------------------------
+
+    /**
+     * Stands up the deferred path: one scene pass writing the G-buffer, one composite.
+     *
+     * `outputColorTransform` is turned off and tone mapping is applied by this file instead.
+     * `RenderPipeline` would otherwise tone-map whatever the output node produced, which is
+     * right for the beauty view and destructive for every debug view — ACES applied to a
+     * motion vector is not a diagnostic.
+     */
+    buildPipeline( resolutionScale ) {
+
+        this.scenePass = pass( this.scene, this.camera );
+        this.gbuffer = new GBuffer( this.scenePass );
+
+        if ( resolutionScale !== 1 ) {
+
+            this.scenePass.setResolutionScale( resolutionScale );
+            this.resolutionScale = resolutionScale;
+
+        }
+
+        this.velocityGain = uniform( 200 );
+        this.depthGain = uniform( 1 );
+
+        this.renderPipeline = new RenderPipeline( this.renderer );
+        this.renderPipeline.outputColorTransform = false;
+
+        this.refreshOutputNode();
+
+    }
+
+    /**
+     * Rebuilds the composite. Node graphs are compiled, so changing what is on screen means
+     * building a new output node and telling the pipeline to recompile — cheap, and it only
+     * happens on an explicit view or composite change.
+     */
+    refreshOutputNode() {
+
+        const gbuffer = this.gbuffer;
+        const gains = { velocityGain: this.velocityGain, depthGain: this.depthGain };
+
+        if ( this.viewMode === 'grid' ) {
+
+            this.renderPipeline.outputNode = vec4( channelGridNode(
+                gbuffer, GRID_VIEWS, screenUV, 3, 2, gains
+            ), 1 );
+
+        } else if ( this.viewMode !== 'beauty' ) {
+
+            this.renderPipeline.outputNode = vec4( channelDisplayNode( gbuffer, this.viewMode, gains ), 1 );
+
+        } else {
+
+            const sceneColour = gbuffer.node( 'output' );
+            const composed = this.composeOutput === null
+                ? sceneColour
+                : this.composeOutput( gbuffer, sceneColour );
+
+            this.renderPipeline.outputNode = renderOutput( composed );
+
+        }
+
+        this.renderPipeline.needsUpdate = true;
+
+    }
+
+    requirePipeline( methodName ) {
+
+        if ( this.renderPipeline === null ) {
+
+            throw new Error( `Stage.${ methodName }() needs create({ pipeline: true }).` );
+
+        }
+
+    }
 
     /**
      * The frame body: advance every registered callback, then draw. Timing is sampled around
@@ -205,12 +410,30 @@ export class Stage {
 
         }
 
-        this.renderer.render( this.scene, this.camera );
+        this.draw();
 
         this.frameMs = performance.now() - startedAtMs;
         this.drawCalls = this.renderer.info.render.drawCalls;
         this.triangles = this.renderer.info.render.triangles;
         this.sampleFrameRate( timeMs );
+
+    }
+
+    /**
+     * One image. On the deferred path this must go through `RenderPipeline.render()` rather
+     * than `renderer.render()` — the pipeline is what binds the MRT and runs the composite.
+     */
+    draw() {
+
+        if ( this.renderPipeline !== null ) {
+
+            this.renderPipeline.render();
+
+        } else {
+
+            this.renderer.render( this.scene, this.camera );
+
+        }
 
     }
 
@@ -242,6 +465,23 @@ export class Stage {
     }
 
     /**
+     * Pins the drawing buffer to an explicit size, ignoring the canvas' CSS box.
+     *
+     * Two callers need this. A measurement page wants a fixed pixel budget so its numbers mean
+     * the same thing on every machine. And an environment with no layout — a hidden browser
+     * pane reports `innerWidth` and `clientWidth` as 0 — would otherwise render into a 1x1
+     * target and every readback would be meaningless.
+     *
+     * Pass `null` to go back to following CSS.
+     */
+    setFixedSize( width, height ) {
+
+        this.fixedSize = width === null ? null : { width, height };
+        this.updateViewport();
+
+    }
+
+    /**
      * Matches the drawing buffer to the canvas' CSS box and the current display density.
      * CSS owns layout, so `setSize` is told not to write inline styles back onto the canvas.
      */
@@ -249,8 +489,8 @@ export class Stage {
 
         if ( this.renderer === null ) return;
 
-        const width = this.canvas.clientWidth || 1;
-        const height = this.canvas.clientHeight || 1;
+        const width = this.fixedSize !== null ? this.fixedSize.width : ( this.canvas.clientWidth || 1 );
+        const height = this.fixedSize !== null ? this.fixedSize.height : ( this.canvas.clientHeight || 1 );
 
         this.pixelRatio = Math.min( window.devicePixelRatio || 1, this.maxPixelRatio );
 
