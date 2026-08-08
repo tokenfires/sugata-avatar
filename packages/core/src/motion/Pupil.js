@@ -28,13 +28,14 @@
  *
  * THIS FIGURE HAS NO PUPIL MORPH — VERIFIED
  * -----------------------------------------
- * The eyeball mesh (`low-poly`) in figure_g000..g100 carries exactly 8 morph targets, and all
- * eight are gaze:
+ * The eye in figure_g000..g100 is two meshes — the opaque globe (`high-poly`, named for its
+ * topology rather than its anatomy) and the clear corneal shell over it (`cornea`) — and each
+ * carries exactly the same 8 morph targets, all eight of them gaze:
  *
  *     eyeLookDownLeft  eyeLookDownRight  eyeLookInLeft   eyeLookInRight
  *     eyeLookOutLeft   eyeLookOutRight   eyeLookUpLeft   eyeLookUpRight
  *
- * There is no pupil shape anywhere on any of the six meshes. So this layer does not write a morph
+ * There is no pupil shape anywhere on any of the seven meshes. So this layer does not write a morph
  * on the shipped asset. It computes a scalar and publishes it to whatever will consume it — a
  * shader uniform, `context.shared`, or an arbitrary sink. If a future asset does ship a pupil
  * morph under one of PUPIL_MORPH_CANDIDATES, `onBind()` finds it and drives it as well, with no

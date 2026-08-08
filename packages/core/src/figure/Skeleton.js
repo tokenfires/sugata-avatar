@@ -330,16 +330,21 @@ export class Skeleton {
      * in the world. Reparenting only — no vertex weights, no per-frame cost.
      *
      * This exists because of a defect in the shipped figures, found by rotating the head and
-     * watching the eyes stay behind. Verified by parsing figure_g050.glb: of the six meshes,
-     * only the body carries a `skin` and JOINTS_0. The eyeballs (`Human.low-poly`), teeth,
-     * tongue, eyebrows and eyelashes are plain children of the body mesh node with no skinning
-     * at all. They follow the body's morph targets, so blinks and `jawOpen` work — but they do
-     * not follow a single bone, so the first neck rotation leaves the face behind.
+     * watching the eyes stay behind. Verified at the time by parsing figure_g050.glb: of its
+     * meshes, only the body carried a `skin` and JOINTS_0. The eyeballs, teeth, tongue, eyebrows
+     * and eyelashes were plain children of the body mesh node with no skinning at all. They
+     * followed the body's morph targets, so blinks and `jawOpen` worked — but they did not follow
+     * a single bone, so the first neck rotation left the face behind.
      *
-     * Attaching all five to `head` is right for the brows, lashes and eyeballs, and right
+     * Attaching the face parts to `head` is right for the brows, lashes and eyes, and right
      * enough for the teeth and tongue: this rig has no jaw bone either, so jaw motion is the
-     * `jawOpen` morph, which those meshes already carry. The real fix is in the figure
-     * pipeline; this makes the asset usable until that lands.
+     * `jawOpen` morph, which those meshes already carry.
+     *
+     * ⚠️ THE REAL FIX HAS LANDED. `tools/figure-pipeline/build_figure.py` now rigs every face
+     * part, and `verify_glb.mjs` fails the build if any mesh exports unskinned. All seven meshes
+     * of a current figure — including both shells of the eye, `Human.high-poly` and
+     * `Human.cornea` — carry JOINTS_0 and WEIGHTS_0. This method is kept for figures built
+     * elsewhere and for parts a consumer adds at runtime; on a current figure it is a no-op path.
      *
      * Call after the scene's world matrices are up to date — Object3D.attach reads them.
      *

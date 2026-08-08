@@ -45,13 +45,52 @@ META_VISEMES = dynamic_import("mpfb.services.faceservice", "META_VISEMES")
 # The alpha mode is the glTF one the part must export with. Brows and lashes are flat cards whose
 # silhouette lives entirely in the texture's alpha channel, so they need a cutout. Everything else
 # is closed, solid geometry that must write depth — see force_alpha_mode for why that matters.
+#
+# The eyeball proxy is 'high-poly', not the 'low-poly' one MakeHuman lists first. That is not a
+# fidelity preference, it is a geometry requirement: docs/research/eyes-and-lighting.md §1 states
+# that cornea refraction needs "a distinct dome at the front to represent the cornea", and the
+# low-poly proxy has none. Measured on the built figure, low-poly against high-poly:
+#
+#   low-poly   48 verts/eye, one shell.   Front radius minus equator radius:  0.051 mm.
+#   high-poly 532 verts/eye, two shells.  Same measurement on the outer shell: 0.494 mm,
+#                                         and the front sits 0.688 mm proud of a sphere fitted
+#                                         to the sclera alone (that fit's own RMS is 0.202 mm).
+#
+# The low-poly figure is a sphere with a flat facet where the pupil goes. See split_cornea_shell.
 FACE_PART_ASSETS = [
-    ("eyes", "low-poly.mhclo", "Eyes", "OPAQUE"),
+    ("eyes", "high-poly.mhclo", "Eyes", "OPAQUE"),
     ("teeth", "teeth_base.mhclo", "Teeth", "OPAQUE"),
     ("tongue", "tongue01.mhclo", "Tongue", "OPAQUE"),
     ("eyebrows", "eyebrow001.mhclo", "Eyebrows", "MASK"),
     ("eyelashes", "eyelashes01.mhclo", "Eyelashes", "MASK"),
 ]
+
+# Which entry above is the eyeballs. The corneal split needs to find that one object again after
+# the whole list has been attached, and matching on the filename keeps the two in step.
+EYE_ASSET_FILENAME = "high-poly.mhclo"
+
+# What the two halves of the split eyeball are called. GLTFLoader strips the dot, so the runtime
+# sees 'Humanhigh-poly' (the globe: sclera, iris, pupil) and 'Humancornea' (the clear shell).
+GLOBE_OBJECT_NAME = "Human.high-poly"
+GLOBE_MESH_NAME = "high-poly"
+CORNEA_OBJECT_NAME = "Human.cornea"
+CORNEA_MESH_NAME = "cornea"
+CORNEA_MATERIAL_NAME = "Human.cornea"
+
+# HDRP's CORNEA_IOR, quoted from docs/research/eyes-and-lighting.md §1, which gives the usable
+# range as 1.333–1.336 and HDRP's own default as 1.3333.
+CORNEA_IOR = 1.3333
+
+# docs/research/eyes-and-lighting.md §6 puts sclera roughness at 0.0–0.1, and the cornea is the
+# wet surface the specular highlight actually comes off, so it is the smoothest thing on the figure.
+CORNEA_ROUGHNESS = 0.0
+
+# Telling the two shells apart relies on one enclosing the other. This is the margin, as a fraction
+# of mean radius, below which "which one is outside" is not a safe call and the build should stop
+# rather than guess: a silently inverted split would put the opaque globe on the refractive material
+# and hide the iris behind it. Measured on figure_g050 the margin is 0.122, so 0.03 leaves four
+# times the observed headroom while still failing loudly if MakeHuman reshapes the asset.
+MINIMUM_SHELL_SEPARATION_FRACTION = 0.03
 
 # glTF's default alphaCutoff, and the value the runtime expects on a cutout material.
 ALPHA_MASK_CUTOFF = 0.5
@@ -89,6 +128,12 @@ def parse_arguments():
                         help="mhmat filename from the system assets pack, or 'none'.")
     parser.add_argument("--no-face-parts", action="store_true",
                         help="Skip eyes, teeth, tongue, eyebrows and eyelashes.")
+    parser.add_argument("--eye-proxy", default=EYE_ASSET_FILENAME,
+                        choices=["high-poly.mhclo", "low-poly.mhclo"],
+                        help="Eyeball proxy. 'high-poly.mhclo' is what ships: two shells per eye "
+                             "with a corneal dome. 'low-poly.mhclo' is the superseded single "
+                             "sphere, kept buildable so the asset gate can be run against a "
+                             "known-bad figure and shown to fail.")
     parser.add_argument("--no-microsoft-visemes", action="store_true",
                         help="Skip the 22 Microsoft visemes. The 15 OVR ones are always loaded.")
     parser.add_argument("--keep-morph-normals", action="store_true",
@@ -134,6 +179,8 @@ def attach_face_parts(basemesh, arguments):
 
     attached = []
     for asset_subdir, mhclo_filename, asset_type, alpha_mode in FACE_PART_ASSETS:
+        if asset_type == "Eyes":
+            mhclo_filename = arguments.eye_proxy
         asset_path = AssetService.find_asset_absolute_path(mhclo_filename, asset_subdir=asset_subdir)
         if asset_path is None:
             print(f"  MISSING {asset_type}: {mhclo_filename} "
@@ -363,6 +410,249 @@ def bake_for_export(basemesh):
         also_proxy=True)
 
 
+def find_eye_object(face_parts, eye_proxy):
+    """The Blender object the eyeball proxy became, or None if face parts were skipped."""
+    for part_object, asset_path, _alpha_mode in face_parts:
+        if os.path.basename(asset_path) == eye_proxy:
+            return part_object
+    return None
+
+
+def split_cornea_shell(eye_object):
+    """Moves the clear corneal shells onto their own object and their own refractive material.
+
+    The workflow this serves: the runtime needs the cornea as a surface it can shade separately
+    from the globe, because that is where the specular highlight, the refraction and the catchlight
+    live (docs/research/eyes-and-lighting.md §1 and §6). MakeHuman ships them as one object.
+
+    Left unsplit the cornea is worse than useless. MakeHuman keeps its UV island at alpha 0 in
+    brown_eye.png — measured mean alpha 21/255 over the island, against 255/255 over the iris
+    island — and force_alpha_modes pins every OPAQUE part's alpha to a constant 1.0. The clear
+    shell would export as an opaque dome covering the iris.
+
+    Returns the new cornea object.
+    """
+    mesh = eye_object.data
+    islands = connected_vertex_islands(mesh)
+
+    if len(islands) == 2:
+        print(f"  no corneal split: {eye_object.name} is a single shell per eye. This is the "
+              "superseded low-poly proxy and it has no cornea to separate.")
+        return None
+
+    if len(islands) != 4:
+        raise SystemExit(
+            f"Build failed: expected 4 shells in {eye_object.name} (two per eye), found "
+            f"{len(islands)}. The eyeball proxy is no longer the two-shell one this step assumes.")
+
+    outer_vertices = set()
+    for pair in pair_islands_into_eyes(mesh, islands):
+        outer_vertices.update(outer_shell_of(mesh, pair))
+
+    cornea_material = build_cornea_material()
+    mesh.materials.append(cornea_material)
+    cornea_slot = len(mesh.materials) - 1
+
+    moved = 0
+    for polygon in mesh.polygons:
+        if all(vertex in outer_vertices for vertex in polygon.vertices):
+            polygon.material_index = cornea_slot
+            moved += 1
+
+    if moved == 0:
+        raise SystemExit("Build failed: no polygon lies entirely on an outer shell, so the "
+                         "corneal split would produce an empty material.")
+
+    keys_before = set(shape_key_names(eye_object))
+    globe_object, cornea_object = separate_by_material(eye_object, cornea_material)
+
+    # The separation is only useful if the gaze morphs survive it on both halves. Blender rebuilds
+    # shape keys across a separate, but a silent loss here would leave the cornea welded to the
+    # skull while the globe looks around, and nothing downstream measures the cornea's morphs
+    # until the runtime is already rendering.
+    for part in (globe_object, cornea_object):
+        keys_after = set(shape_key_names(part))
+        if keys_after != keys_before:
+            raise SystemExit(
+                f"Build failed: {part.name} came out of the corneal split with shape keys "
+                f"{sorted(keys_after)}, expected {sorted(keys_before)}.")
+
+    # Both halves are named explicitly. Blender decides for itself which half keeps the original
+    # datablock, and the runtime addresses these meshes by name.
+    globe_object.name = GLOBE_OBJECT_NAME
+    globe_object.data.name = GLOBE_MESH_NAME
+    cornea_object.name = CORNEA_OBJECT_NAME
+    cornea_object.data.name = CORNEA_MESH_NAME
+
+    print(f"  split cornea: {globe_object.name} {len(globe_object.data.vertices)} verts + "
+          f"{cornea_object.name} {len(cornea_object.data.vertices)} verts, "
+          f"{len(keys_before)} shape keys on each")
+
+    return cornea_object
+
+
+def connected_vertex_islands(mesh):
+    """Vertex sets that are connected to each other through edges, largest first.
+
+    Connectivity rather than a coordinate test, for the same reason tools/spikes/eye-geometry.mjs
+    uses it: "everything with x > 0 is one eye" is a guess about how the asset happens to be laid
+    out, and the shells are exactly the thing being identified.
+    """
+    parent = list(range(len(mesh.vertices)))
+
+    def find(vertex):
+        while parent[vertex] != vertex:
+            parent[vertex] = parent[parent[vertex]]
+            vertex = parent[vertex]
+        return vertex
+
+    for edge in mesh.edges:
+        first, second = (find(index) for index in edge.vertices)
+        if first != second:
+            parent[second] = first
+
+    islands = {}
+    for vertex in range(len(mesh.vertices)):
+        islands.setdefault(find(vertex), []).append(vertex)
+
+    return sorted(islands.values(), key=len, reverse=True)
+
+
+def island_centroid(mesh, island):
+    total = Vector((0.0, 0.0, 0.0))
+    for vertex in island:
+        total += mesh.vertices[vertex].co
+    return total / len(island)
+
+
+def pair_islands_into_eyes(mesh, islands):
+    """Groups the four shells into two eyes by which centroids sit on top of one another.
+
+    The two shells of one eye are concentric to a fraction of a millimetre; the two eyes are an
+    interpupillary distance apart. So nearest-centroid pairing is not a heuristic here, it is a
+    reading of a gap three orders of magnitude wide.
+    """
+    centroids = [island_centroid(mesh, island) for island in islands]
+
+    unpaired = list(range(len(islands)))
+    pairs = []
+    while unpaired:
+        first = unpaired.pop(0)
+        nearest = min(unpaired, key=lambda other: (centroids[other] - centroids[first]).length)
+        unpaired.remove(nearest)
+        pairs.append((islands[first], islands[nearest]))
+
+    if len(pairs) != 2:
+        raise SystemExit(f"Build failed: the four eye shells grouped into {len(pairs)} eyes.")
+
+    return pairs
+
+
+def outer_shell_of(mesh, pair):
+    """Which of one eye's two shells is the cornea — the one that encloses the other.
+
+    Measured from the pair's own common centroid rather than from either shell's fitted sphere
+    centre: the two shells have centres 0.35 mm apart, and measuring each in its own frame makes
+    the inner shell appear to poke outside the outer one across a 45 degree band. It does not.
+    """
+    common_centre = island_centroid(mesh, list(pair[0]) + list(pair[1]))
+
+    radii = [
+        sum((mesh.vertices[vertex].co - common_centre).length for vertex in island) / len(island)
+        for island in pair
+    ]
+
+    separation = abs(radii[0] - radii[1]) / max(radii)
+    if separation < MINIMUM_SHELL_SEPARATION_FRACTION:
+        raise SystemExit(
+            f"Build failed: the two shells of one eye have mean radii {radii[0]:.5f} and "
+            f"{radii[1]:.5f}, a separation of {separation:.4f}. Below "
+            f"{MINIMUM_SHELL_SEPARATION_FRACTION} there is no safe way to say which is the cornea.")
+
+    return pair[0] if radii[0] > radii[1] else pair[1]
+
+
+def build_cornea_material():
+    """A clear, smooth, refractive shell — the only material on the figure that is not a surface.
+
+    Exported through KHR_materials_transmission rather than as an alpha-blended material on
+    purpose. A blended material writes no depth, which is the defect force_alpha_modes exists to
+    prevent; a transmissive one stays alphaMode OPAQUE, keeps its depth write, and is what
+    three.js needs to see to build a MeshPhysicalMaterial that refracts the globe behind it.
+    """
+    material = bpy.data.materials.new(CORNEA_MATERIAL_NAME)
+    material.use_nodes = True
+    material.use_backface_culling = True
+
+    for node in material.node_tree.nodes:
+        if node.type != "BSDF_PRINCIPLED":
+            continue
+        # No base-colour texture. The cornea's UV island in brown_eye.png is a flat pale blue held
+        # at alpha 0; used as a base colour it would tint everything seen through the cornea.
+        node.inputs["Base Color"].default_value = (1.0, 1.0, 1.0, 1.0)
+        node.inputs["Metallic"].default_value = 0.0
+        node.inputs["Roughness"].default_value = CORNEA_ROUGHNESS
+        node.inputs["IOR"].default_value = CORNEA_IOR
+        node.inputs["Transmission Weight"].default_value = 1.0
+        node.inputs["Alpha"].default_value = 1.0
+
+    return material
+
+
+def separate_by_material(mesh_object, cornea_material):
+    """Splits one object into one object per material, and says which is which.
+
+    Returns (globe object, cornea object). Both keep the armature modifier, the vertex groups and
+    the shape keys; the caller checks the last of those rather than trusting it.
+    """
+    before = set(bpy.data.objects)
+
+    bpy.ops.object.select_all(action="DESELECT")
+    mesh_object.select_set(True)
+    bpy.context.view_layer.objects.active = mesh_object
+
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.select_all(action="SELECT")
+    bpy.ops.mesh.separate(type="MATERIAL")
+    bpy.ops.object.mode_set(mode="OBJECT")
+
+    produced = [mesh_object] + [obj for obj in bpy.data.objects if obj not in before]
+    if len(produced) != 2:
+        raise SystemExit(f"Build failed: separating {mesh_object.name} by material produced "
+                         f"{len(produced)} objects, expected 2.")
+
+    for part in produced:
+        collapse_to_single_material(part)
+
+    cornea = [part for part in produced if part.data.materials[0] is cornea_material]
+    globe = [part for part in produced if part.data.materials[0] is not cornea_material]
+
+    if len(cornea) != 1 or len(globe) != 1:
+        raise SystemExit("Build failed: the corneal split did not produce exactly one cornea "
+                         "object and one globe object.")
+
+    return globe[0], cornea[0]
+
+
+def collapse_to_single_material(mesh_object):
+    """Drops the material slots a separated half no longer uses.
+
+    Blender's separate copies every slot to every half, so without this the globe would still
+    carry a cornea slot and the exporter would write a material nothing references — which the
+    asset gate reads as an unrecognised material and fails on, correctly.
+    """
+    used = {polygon.material_index for polygon in mesh_object.data.polygons}
+    if len(used) != 1:
+        raise SystemExit(f"Build failed: {mesh_object.name} uses {len(used)} materials after a "
+                         "separate-by-material, expected 1.")
+
+    keep = mesh_object.data.materials[used.pop()]
+    mesh_object.data.materials.clear()
+    mesh_object.data.materials.append(keep)
+    for polygon in mesh_object.data.polygons:
+        polygon.material_index = 0
+
+
 def force_alpha_modes(basemesh, face_parts):
     """Pins each material to the glTF alphaMode the part actually needs.
 
@@ -550,6 +840,15 @@ def main():
         bind_face_parts_to_rig(basemesh, rig, face_parts)
 
     bake_for_export(basemesh)
+
+    # After the helper strip, because the strip works through mhclo vertex correspondences that
+    # index the basemesh, and before the alpha pass, because the alpha pass is what would otherwise
+    # turn the clear corneal shell into an opaque dome.
+    eye_object = find_eye_object(face_parts, arguments.eye_proxy)
+    if eye_object is not None:
+        cornea_object = split_cornea_shell(eye_object)
+        if cornea_object is not None:
+            face_parts.append((cornea_object, "", "OPAQUE"))
 
     force_alpha_modes(basemesh, face_parts)
 

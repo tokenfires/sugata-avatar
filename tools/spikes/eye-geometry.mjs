@@ -14,8 +14,22 @@
 //
 // Every one of those is a measurable property of `assets/figures/figure_g050.glb`, and none of them
 // can be settled by reading the mesh's name. `docs/LEARNINGS.md` already records the trap: the
-// eyeballs are the mesh called `low-poly`, named for its topology rather than its anatomy. So this
-// file measures, and where it cannot measure it says so.
+// eyeballs are named for their topology rather than their anatomy. So this file measures, and where
+// it cannot measure it says so.
+//
+// WHAT THIS SPIKE FOUND, AND WHAT CHANGED BECAUSE OF IT
+//
+// Run against the original asset — MakeHuman's `low-poly` eye proxy — six of eight clauses failed,
+// and one of them was not something a shader could work around: there was no corneal dome at all.
+// Front-versus-equator bulge 0.051 mm against 0.158 mm of tessellation noise, and a flat octagonal
+// facet recessed 0.131 mm inside the sphere exactly where the pupil goes.
+//
+// The pipeline now builds with MakeHuman's `high-poly` proxy instead, which is TWO MESHES per
+// figure: `Human.high-poly`, the opaque globe carrying the iris, the pupil and the sclera, and
+// `Human.cornea`, a clear shell over it split off onto a transmissive material by
+// `tools/figure-pipeline/build_figure.py`. This file measures the cornea for everything to do with
+// the refracting surface and the globe for everything to do with the iris, and still reports the
+// same eight clauses so the before and after are comparable.
 //
 // The single most important number here is the sphere-fit residual and the radius-versus-angle
 // table in §3. A corneal dome shows up there as a radius that climbs by millimetres as the angle
@@ -44,12 +58,20 @@ const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' 
 const { Box3, Vector3 } = await import( 'three' );
 const { decodePng } = await import( '../critic/png.mjs' );
 
+// The dome test itself lives with the asset gate that now enforces it, so the spike and the gate
+// cannot drift apart and report different answers about the same file.
+const { measureCornealDome, measureAnteriorChamberMm, DOME_NOISE_MULTIPLE, FRONT_CAP_DEGREES,
+  POSTERIOR_BAND_MIN_DEGREES } = await import( '../figure-pipeline/cornea_geometry.mjs' );
+
 const REPOSITORY_ROOT = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '..', '..' );
 const DEFAULT_FIGURE = path.join( REPOSITORY_ROOT, 'assets', 'figures', 'figure_g050.glb' );
 
 // MakeHuman names the eyeball proxy for its topology. verify_glb.mjs matches the same way and for
 // the same reason: matching on /eye/ finds the lashes and the brows and never finds the eyeballs.
-const EYEBALL_MESH_PATTERN = /low-poly|eyeball/i;
+// 'low-poly' stays in the globe pattern so this spike still runs against a figure built with the
+// superseded proxy — which is how the before-and-after in the header was measured.
+const EYEBALL_GLOBE_PATTERN = /high-poly|low-poly|eyeball/i;
+const EYEBALL_CORNEA_PATTERN = /cornea/i;
 
 // The HDRP constants, quoted from the research doc so the conversion in §5 has something to
 // convert. They live in a normalised space where the eye's XY half-extent is 0.5.
@@ -105,25 +127,30 @@ function main() {
   loadScene( fileBytes ).then( ( scene ) => {
 
     const container = readGlbContainer( fileBytes );
-    const eyeMesh = findEyeballMesh( scene );
+    const globeMesh = findMesh( scene, EYEBALL_GLOBE_PATTERN );
+    const corneaMesh = findMesh( scene, EYEBALL_CORNEA_PATTERN );
 
-    if ( eyeMesh === null ) {
-      console.log( `NOT MEASURED: no mesh matching ${ EYEBALL_MESH_PATTERN } in this file.` );
+    if ( globeMesh === null ) {
+      console.log( `NOT MEASURED: no mesh matching ${ EYEBALL_GLOBE_PATTERN } in this file.` );
       process.exitCode = 2;
       return;
     }
 
-    const eyes = splitIntoConnectedComponents( eyeMesh );
+    // The refracting surface is the cornea where there is one. On a single-shell figure the globe
+    // IS the outer surface, and measuring it is what produced the finding in the header.
+    const refractingMesh = corneaMesh ?? globeMesh;
+    const eyes = splitIntoEyes( refractingMesh );
+    const globeEyes = corneaMesh === null ? eyes : splitIntoEyes( globeMesh );
 
-    reportMeshTopology( scene, eyeMesh, eyes );
-    reportPlacementAndFacing( eyeMesh, eyes );
-    reportShape( eyes );
-    reportUvs( eyes );
-    reportScale( scene, eyeMesh, eyes );
-    const irisDisc = reportMaterialAndTextures( container, eyeMesh, eyes );
-    const gaze = reportMorphDisplacement( eyeMesh, eyes );
+    reportMeshTopology( scene, refractingMesh, globeMesh, corneaMesh, eyes );
+    reportPlacementAndFacing( refractingMesh, eyes );
+    reportShape( eyes, globeEyes, corneaMesh !== null );
+    reportUvs( globeEyes );
+    reportScale( scene, refractingMesh, eyes );
+    const irisDisc = reportMaterialAndTextures( container, refractingMesh, globeMesh, globeEyes );
+    const gaze = reportMorphDisplacement( globeMesh, globeEyes, corneaMesh, eyes );
     reportDerivedConstants( eyes, irisDisc );
-    reportVerdict( eyes, irisDisc, gaze );
+    reportVerdict( eyes, globeEyes, corneaMesh !== null, irisDisc, gaze );
 
   } ).catch( ( error ) => {
     console.error( '\neye-geometry.mjs failed:', error );
@@ -141,7 +168,7 @@ function main() {
  * array and one material. Only the last case forces the shader to re-derive which eye a fragment
  * belongs to at runtime, so the distinction is worth spelling out rather than counting objects.
  */
-function reportMeshTopology( scene, eyeMesh, eyes ) {
+function reportMeshTopology( scene, eyeMesh, globeMesh, corneaMesh, eyes ) {
 
   heading( '1. one mesh or two' );
 
@@ -149,14 +176,24 @@ function reportMeshTopology( scene, eyeMesh, eyes ) {
   scene.traverse( ( object ) => { if ( object.isMesh === true ) meshNames.push( object.name ); } );
 
   row( 'scene meshes', meshNames.join( ', ' ) );
-  row( 'eyeball mesh', `${ eyeMesh.name }  (${ eyeMesh.type })` );
+  row( 'eyeball globe', `${ globeMesh.name }  ${ globeMesh.geometry.attributes.position.count } verts` );
+  row( 'corneal shell', corneaMesh === null
+    ? 'ABSENT — this figure has a single-shell eye and nothing to refract through'
+    : `${ corneaMesh.name }  ${ corneaMesh.geometry.attributes.position.count } verts` );
+  console.log();
+  console.log( '  Everything below measures the REFRACTING surface, which is the cornea where there' );
+  console.log( '  is one. §6 and §7 go back to the globe, because the iris lives there.' );
+  console.log();
+  row( 'measured here', `${ eyeMesh.name }  (${ eyeMesh.type })` );
   row( 'geometry groups', `${ eyeMesh.geometry.groups.length }  (0 = a single draw range, one material)` );
   row( 'materials', Array.isArray( eyeMesh.material )
     ? eyeMesh.material.map( ( material ) => material.name ).join( ', ' )
     : eyeMesh.material.name );
   row( 'vertices (both eyes)', String( eyeMesh.geometry.attributes.position.count ) );
   row( 'triangles (both eyes)', String( eyeMesh.geometry.index.count / 3 ) );
-  row( 'connected components', String( eyes.length ) );
+  row( 'duplicate positions (UV seams)', `${ eyes.duplicatePositionCount } of ` +
+    `${ eyeMesh.geometry.attributes.position.count }  — welded before anything below is measured` );
+  row( 'connected islands, welded', `${ eyes.islandCount }  (sizes ${ eyes.islandSizes.join( ', ' ) })` );
 
   console.log();
   table(
@@ -178,7 +215,7 @@ function reportMeshTopology( scene, eyeMesh, eyes ) {
   row( 'mirror check (left vs right in −X)', `max vertex mismatch ${ ( mirror.maxMm ).toFixed( 5 ) } mm, ` +
     `RMS ${ ( mirror.rmsMm ).toFixed( 5 ) } mm` );
   row( 'vertex order', mirror.parallelOrder
-    ? 'PARALLEL — vertex i of one eye mirrors vertex i + 48 of the other'
+    ? 'PARALLEL — vertex i of one eye mirrors vertex i of the other, in order'
     : 'not parallel — matched by nearest neighbour' );
 
 }
@@ -293,7 +330,7 @@ function reportPlacementAndFacing( eyeMesh, eyes ) {
  * over the last 20°. A sphere shows a flat line inside the tessellation noise. There is no
  * ambiguous middle case at the millimetre scale a 12 mm eyeball works at.
  */
-function reportShape( eyes ) {
+function reportShape( eyes, globeEyes, hasCornea ) {
 
   heading( '3. sphere or corneal dome  ← the deciding measurement' );
 
@@ -334,11 +371,53 @@ function reportShape( eyes ) {
       const bulgeMm = ( front.meanRadius - equator.meanRadius ) * 1000;
       console.log();
       row( 'front bin minus equator bin', `${ bulgeMm.toFixed( 3 ) } mm` );
-      row( 'tessellation noise (residual RMS)', `${ ( eye.sphere.residualRms * 1000 ).toFixed( 3 ) } mm` );
-      row( 'verdict', Math.abs( bulgeMm ) > 3 * eye.sphere.residualRms * 1000
-        ? 'a bulge above the noise — measure its profile before porting'
-        : 'NO CORNEAL BULGE — the front is the same radius as the equator, within noise' );
+      row( 'whole-shell sphere-fit residual RMS', `${ ( eye.sphere.residualRms * 1000 ).toFixed( 3 ) } mm` );
+      row( 'that comparison says', Math.abs( bulgeMm ) > 3 * eye.sphere.residualRms * 1000
+        ? 'a bulge above the noise'
+        : 'no bulge — and see below, because this form of the test cannot tell' );
     }
+
+    // The same question asked with an instrument that works on a domed shell. The version above
+    // compares the bulge against the residual of a sphere fitted to the WHOLE shell, and on a shell
+    // that is deliberately two radii the dome is most of that residual — so it is compared against
+    // itself and buried. Fitting the reference sphere to the sclera alone, where there is no cornea
+    // by construction, gives a noise estimate that is actually noise. See
+    // tools/figure-pipeline/cornea_geometry.mjs, and its selftest for the both-directions check.
+    const dome = measureCornealDome( eye.points );
+
+    console.log();
+    if ( dome.measured === false ) {
+      row( 'posterior-band instrument', `NOT MEASURED — ${ dome.frontCapCount } vertices in the ` +
+        `front cap and ${ dome.posteriorCount } behind ${ POSTERIOR_BAND_MIN_DEGREES }°` );
+    } else {
+      row( `reference sphere fitted beyond ${ POSTERIOR_BAND_MIN_DEGREES }°`,
+        `R ${ dome.posteriorRadiusMm.toFixed( 3 ) } mm over ${ dome.posteriorCount } verts, ` +
+        `RMS ${ dome.noiseMm.toFixed( 3 ) } mm` );
+      row( `front ${ FRONT_CAP_DEGREES }° cap against that sphere`,
+        `mean ${ dome.meanProudMm.toFixed( 3 ) } mm proud, max ${ dome.maxProudMm.toFixed( 3 ) } mm, ` +
+        `over ${ dome.frontCapCount } verts` );
+      row( 'verdict', dome.hasDome
+        ? `A CORNEAL DOME — ${ dome.domeRatio.toFixed( 2 ) }x the fit noise, threshold ${ DOME_NOISE_MULTIPLE }x`
+        : `NO CORNEAL DOME — ${ dome.domeRatio.toFixed( 2 ) }x the fit noise, threshold ${ DOME_NOISE_MULTIPLE }x` );
+    }
+
+  }
+
+  if ( hasCornea === true ) {
+
+    console.log();
+    console.log( '  The anterior chamber — how far the corneal apex stands in front of the globe\'s.' );
+    console.log( '  This is the gap a refracted ray crosses, and it needs no fit and no threshold:' );
+    console.log( '  either there are two surfaces or there is one.' );
+    console.log();
+
+    table(
+      [ 'eye', 'anterior chamber (mm)' ],
+      eyes.map( ( eye, index ) => [
+        eye.label,
+        measureAnteriorChamberMm( eye.points, globeEyes[ index ].points ).toFixed( 3 )
+      ] )
+    );
 
   }
 
@@ -405,7 +484,7 @@ function reportShape( eyes ) {
  */
 function reportUvs( eyes ) {
 
-  heading( '4. UVs' );
+  heading( '4. UVs  — measured on the GLOBE, because that is where the sclera texture is' );
 
   if ( eyes[ 0 ].uv === null ) {
     console.log( '  NOT MEASURED: the geometry carries no uv attribute.' );
@@ -531,24 +610,41 @@ function reportScale( scene, eyeMesh, eyes ) {
  *
  * Returns the measured iris disc so §8 can express it as an HDRP-style constant, or null.
  */
-function reportMaterialAndTextures( container, eyeMesh, eyes ) {
+function reportMaterialAndTextures( container, eyeMesh, globeMesh, eyes ) {
 
   heading( '6. material and textures' );
 
-  const material = Array.isArray( eyeMesh.material ) ? eyeMesh.material[ 0 ] : eyeMesh.material;
-
-  row( 'material', `${ material.name }  (${ material.type })` );
-  row( 'base colour factor', `#${ material.color.getHexString() }` );
-  row( 'roughness / metalness', `${ material.roughness } / ${ material.metalness }` );
-  row( 'alpha mode', `${ material.transparent ? 'BLEND' : 'OPAQUE' }  alphaTest ${ material.alphaTest }` );
-  row( 'side', material.side === 0 ? 'FrontSide' : String( material.side ) );
-
   const mapSlots = [ 'map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap',
     'alphaMap', 'clearcoatMap', 'transmissionMap' ];
-  const present = mapSlots.filter( ( slot ) => material[ slot ] != null );
-  row( 'texture slots used', present.length === 0 ? 'none' : present.join( ', ' ) );
-  row( 'texture slots absent', mapSlots.filter( ( slot ) => material[ slot ] == null ).join( ', ' ) );
 
+  // One report per distinct mesh: a single-shell figure has the globe AS the refracting surface.
+  const shells = eyeMesh === globeMesh
+    ? [ [ 'eyeball', globeMesh ] ]
+    : [ [ 'refracting surface', eyeMesh ], [ 'globe', globeMesh ] ];
+
+  for ( const [ label, mesh ] of shells ) {
+
+    const shellMaterial = Array.isArray( mesh.material ) ? mesh.material[ 0 ] : mesh.material;
+
+    console.log();
+    row( `${ label } mesh`, mesh.name );
+    row( 'material', `${ shellMaterial.name }  (${ shellMaterial.type })` );
+    row( 'base colour factor', `#${ shellMaterial.color.getHexString() }` );
+    row( 'roughness / metalness', `${ shellMaterial.roughness } / ${ shellMaterial.metalness }` );
+    row( 'transmission / ior', `${ shellMaterial.transmission ?? '—' } / ${ shellMaterial.ior ?? '—' }` );
+    row( 'alpha mode', `${ shellMaterial.transparent ? 'BLEND' : 'OPAQUE' }  alphaTest ${ shellMaterial.alphaTest }` );
+    row( 'side', shellMaterial.side === 0 ? 'FrontSide' : String( shellMaterial.side ) );
+
+    const present = mapSlots.filter( ( slot ) => shellMaterial[ slot ] != null );
+    row( 'texture slots used', present.length === 0 ? 'none' : present.join( ', ' ) );
+
+  }
+
+  console.log();
+  console.log( '  The iris lives on the globe, so everything below reads the globe\'s base-colour' );
+  console.log( '  map and measures the globe\'s own UV squares.' );
+
+  const material = Array.isArray( globeMesh.material ) ? globeMesh.material[ 0 ] : globeMesh.material;
   const image = findEyeImage( container, material );
 
   if ( image === null ) {
@@ -651,9 +747,9 @@ function reportMaterialAndTextures( container, eyeMesh, eyes ) {
  * the shader survives. If the residual after removing the mean translation is comparable to the
  * translation itself, the morph is deforming the eyeball and no rigid frame exists at all.
  */
-function reportMorphDisplacement( eyeMesh, eyes ) {
+function reportMorphDisplacement( eyeMesh, eyes, corneaMesh, corneaEyes ) {
 
-  heading( '7. eyeLook* morph displacement' );
+  heading( '7. eyeLook* morph displacement  — measured on the GLOBE' );
 
   const dictionary = eyeMesh.morphTargetDictionary;
 
@@ -708,6 +804,45 @@ function reportMorphDisplacement( eyeMesh, eyes ) {
         'residual / peak' ],
       rows
     );
+
+  }
+
+  // Do the two shells turn together? They are separate meshes carrying separate copies of the same
+  // eight morphs, so nothing in the file forces them to agree — and if they disagree the globe
+  // swims inside its own front surface, which is the sort of defect that only shows up in motion
+  // and only at large gaze angles. Cheap to check, expensive to discover later.
+  if ( corneaMesh !== null && corneaMesh !== undefined ) {
+
+    const corneaDictionary = corneaMesh.morphTargetDictionary ?? {};
+    const corneaDeltas = corneaMesh.geometry.morphAttributes.position;
+    let worstDisagreementDegrees = 0;
+    const missing = [];
+
+    for ( const [ name, index ] of Object.entries( dictionary ) ) {
+
+      if ( name in corneaDictionary === false ) { missing.push( name ); continue; }
+
+      const onGlobe = measureMorphOnComponent( deltas[ index ], eyes[ 0 ] );
+      const onCornea = measureMorphOnComponent(
+        corneaDeltas[ corneaDictionary[ name ] ], corneaEyes[ 0 ] );
+
+      // Only the four morphs that drive THIS eye. A morph the eye does not respond to has no
+      // rotation, so its "axis" is whatever the rigid fit fell out at, and comparing two of those
+      // measures nothing — it reads as a 90 degree disagreement every time.
+      if ( onGlobe.peakMm === 0 && onCornea.peakMm === 0 ) continue;
+
+      worstDisagreementDegrees = Math.max( worstDisagreementDegrees,
+        angleBetweenDegrees( onGlobe.rotationAxis, onCornea.rotationAxis ),
+        Math.abs( onGlobe.rotationDegrees - onCornea.rotationDegrees ) );
+
+    }
+
+    console.log();
+    row( 'morphs the cornea is missing', missing.length === 0 ? 'none' : missing.join( ', ' ) );
+    row( 'worst globe-vs-cornea disagreement', `${ worstDisagreementDegrees.toFixed( 3 ) }° — ` +
+      ( worstDisagreementDegrees < 1
+        ? 'the two shells turn as one body'
+        : 'THE SHELLS DISAGREE; the globe would swim inside its own front surface' ) );
 
   }
 
@@ -787,31 +922,37 @@ function reportDerivedConstants( eyes, irisDisc ) {
  * taken above rather than by a sentence written here. The thresholds are stated in the row itself
  * so a reader can disagree with one without having to re-derive the rest.
  */
-function reportVerdict( eyes, irisDisc, gaze ) {
+function reportVerdict( eyes, globeEyes, hasCornea, irisDisc, gaze ) {
+
+  // The planar-UV clause is a statement about the SCLERA's texture coordinates, and the sclera is
+  // on the globe. The corneal shell carries no texture at all.
+  const uvEye = globeEyes[ 0 ];
 
   heading( '9. verdict — does the asset satisfy the geometry contract' );
 
   const eye = eyes[ 0 ];
-  const noise = eye.sphere.residualRms * 1000;
-  const bulgeMm = ( eye.radiusByAngle[ 0 ].meanRadius
-    - eye.radiusByAngle.find( ( bin ) => bin.fromDegrees === 75 ).meanRadius ) * 1000;
+  const dome = measureCornealDome( eye.points );
+  const chamberMm = hasCornea ? measureAnteriorChamberMm( eye.points, globeEyes[ 0 ].points ) : 0;
   const irisFraction = irisDisc === null ? null : irisDisc.irisTexels / irisDisc.totalTexels;
 
   const clauses = [
-    [ 'one eye per object', eyes.length === 1,
-      `${ eyes.length } islands share one buffer, one material, one draw range` ],
+    [ 'one eye per object', eyes.islandCount === 1,
+      `${ eyes.islandCount } islands share one buffer, one material, one draw range` ],
     [ 'eye centred on its own origin', Math.hypot( ...eye.sphere.centre ) < 0.01,
       `centre is ${ ( Math.hypot( ...eye.sphere.centre ) * 1000 ).toFixed( 0 ) } mm from the origin` ],
     [ 'cornea faces +Z', angleBetweenDegrees( eye.capAxis, [ 0, 0, 1 ] ) < 10,
       `cap axis is ${ angleBetweenDegrees( eye.capAxis, [ 0, 0, 1 ] ).toFixed( 1 ) }° off +Z` ],
     [ 'XY roughly in [-0.5, 0.5]', eye.sphere.radius > 0.2 && eye.sphere.radius < 1.0,
       `radius is ${ ( eye.sphere.radius * 1000 ).toFixed( 2 ) } mm — real metres, not normalised` ],
-    [ 'a corneal dome, not a sphere', Math.abs( bulgeMm ) > 3 * noise,
-      `front-vs-equator bulge ${ bulgeMm.toFixed( 3 ) } mm against ${ noise.toFixed( 3 ) } mm of noise; ` +
-      `apex is flat to ${ eye.apex.planeRmsMm.toFixed( 3 ) } mm and recessed ${ eye.apex.sagittaMm.toFixed( 3 ) } mm` ],
-    [ 'planar UV along the cornea axis', eye.planarFrontFit.rSquaredU > 0.99 && eye.planarFrontFit.rSquaredV > 0.99,
-      `R² ${ format4( eye.planarFrontFit.rSquaredU ) } / ${ format4( eye.planarFrontFit.rSquaredV ) } ` +
-      `over the front hemisphere` ],
+    [ 'a corneal dome, not a sphere', dome.measured === true && dome.hasDome === true,
+      dome.measured === false ? 'not measurable' :
+        `the front ${ FRONT_CAP_DEGREES }° cap sits ${ dome.meanProudMm.toFixed( 3 ) } mm proud of a ` +
+        `sphere fitted to the sclera (RMS ${ dome.noiseMm.toFixed( 3 ) } mm), ` +
+        `${ dome.domeRatio.toFixed( 2 ) }x noise against a ${ DOME_NOISE_MULTIPLE }x threshold` +
+        ( hasCornea ? `; anterior chamber ${ chamberMm.toFixed( 3 ) } mm` : '' ) ],
+    [ 'planar UV along the cornea axis', uvEye.planarFrontFit.rSquaredU > 0.99 && uvEye.planarFrontFit.rSquaredV > 0.99,
+      `R² ${ format4( uvEye.planarFrontFit.rSquaredU ) } / ${ format4( uvEye.planarFrontFit.rSquaredV ) } ` +
+      `over the globe's front hemisphere` ],
     [ 'iris map separate from sclera map', irisFraction === null || irisFraction < 0.02,
       irisFraction === null ? 'not measured' :
         `one base-colour map, ${ ( irisFraction * 100 ).toFixed( 1 ) }% of each eye square is iris` ],
@@ -832,10 +973,19 @@ function reportVerdict( eyes, irisDisc, gaze ) {
   console.log();
   console.log( `  ${ failures } of ${ clauses.length } clauses fail as shipped.` );
   console.log();
-  console.log( '  The one that is not negotiable in a shader is the corneal dome. Everything else on' );
-  console.log( '  this list is a frame change, a constant, or a texture split — work a shader author' );
-  console.log( '  or a texture author can absorb. A missing dome is a missing refracting surface, and' );
-  console.log( '  no amount of shader arithmetic conjures geometry that is not in the buffer.' );
+  console.log( '  The one that was never negotiable in a shader is the corneal dome, because a' );
+  console.log( '  missing dome is a missing refracting surface and no amount of shader arithmetic' );
+  console.log( '  conjures geometry that is not in the buffer. That is why the asset changed rather' );
+  console.log( '  than the shader. Everything still failing on this list is a frame change, a' );
+  console.log( '  constant, or a texture split — work a shader author or a texture author absorbs:' );
+  console.log();
+  console.log( '    - the eye is two islands in one buffer at head height in real metres, so the' );
+  console.log( '      shader re-derives an eye-local frame from a uniform rather than reading' );
+  console.log( '      object space directly. §5 gives the conversion.' );
+  console.log( '    - the iris and the sclera share one composited map, so §5 of the research doc\'s' );
+  console.log( '      per-property blend needs the map split, or the blend re-expressed against it.' );
+  console.log( '    - gaze moves the globe, so the eye centre is an animated uniform, not a constant.' );
+  console.log( '      §7 shows the motion is RIGID, which is what makes that possible at all.' );
   console.log();
   console.log( '  Written up in the spike\'s report, not here: this file measures, it does not decide.' );
 
@@ -853,29 +1003,48 @@ async function loadScene( fileBytes ) {
 
 }
 
-function findEyeballMesh( scene ) {
+function findMesh( scene, pattern ) {
 
   let found = null;
   scene.traverse( ( object ) => {
-    if ( object.isMesh === true && EYEBALL_MESH_PATTERN.test( object.name ) ) found = object;
+    if ( object.isMesh === true && pattern.test( object.name ) ) found = object;
   } );
   return found;
 
 }
 
 /**
- * Splits the eyeball geometry into islands with a union-find over the triangle list, then measures
- * each island end to end.
+ * Splits one eye mesh into the figure's two eyes, and counts the connected islands on the way.
  *
- * Connectivity rather than a coordinate test on purpose: "everything with x > 0 is the right eye"
- * would be a guess about how the asset happens to be laid out, and the first question this spike
- * is asked to answer is exactly whether the two eyes are separate geometry.
+ * Two things had to change here when the asset became two shells, and both are about the same
+ * artifact: glTF stores one vertex per (position, uv) pair, so a vertex on a UV seam is written
+ * twice. On the corneal shell that leaves 12 duplicate positions out of 524.
+ *
+ *   - The geometry is WELDED BY POSITION first. Duplicates are a texturing artifact, and left
+ *     alone they add 22 phantom boundary edges, turn one boundary loop into six, drag the
+ *     measured opening axis 85 degrees off true, and make the two eyes different vertex counts so
+ *     the mirror check cannot run at all.
+ *   - Islands are still counted and still reported in §1, because "are the two eyes separate
+ *     geometry" was one of the questions this spike was written to answer. They no longer DEFINE
+ *     an eye. Grouping on the sign of x instead reads a 58 mm interpupillary gap between two
+ *     30 mm shells, which is not a guess about the layout — it is the widest gap in the file.
  */
-function splitIntoConnectedComponents( mesh ) {
+function splitIntoEyes( mesh ) {
 
   const geometry = mesh.geometry;
   const position = geometry.attributes.position;
   const index = geometry.index;
+
+  // Welding. Positions come out of a float32 accessor, so equal positions are bit-equal and a
+  // string key is exact — no epsilon, and therefore nothing that could weld two genuinely
+  // different vertices together.
+  const firstAtPosition = new Map();
+  const canonicalOf = new Int32Array( position.count );
+  for ( let vertex = 0; vertex < position.count; vertex ++ ) {
+    const key = `${ position.getX( vertex ) },${ position.getY( vertex ) },${ position.getZ( vertex ) }`;
+    if ( firstAtPosition.has( key ) === false ) firstAtPosition.set( key, vertex );
+    canonicalOf[ vertex ] = firstAtPosition.get( key );
+  }
 
   const parent = new Int32Array( position.count );
   for ( let vertex = 0; vertex < position.count; vertex ++ ) parent[ vertex ] = vertex;
@@ -894,31 +1063,51 @@ function splitIntoConnectedComponents( mesh ) {
   };
 
   for ( let triangle = 0; triangle < index.count; triangle += 3 ) {
-    union( index.getX( triangle ), index.getX( triangle + 1 ) );
-    union( index.getX( triangle + 1 ), index.getX( triangle + 2 ) );
+    const corners = [ 0, 1, 2 ].map( ( corner ) => canonicalOf[ index.getX( triangle + corner ) ] );
+    union( corners[ 0 ], corners[ 1 ] );
+    union( corners[ 1 ], corners[ 2 ] );
   }
 
   const groups = new Map();
+  const canonicalVertices = [];
   for ( let vertex = 0; vertex < position.count; vertex ++ ) {
+    if ( canonicalOf[ vertex ] !== vertex ) continue;
+    canonicalVertices.push( vertex );
     const root = find( vertex );
     if ( groups.has( root ) === false ) groups.set( root, [] );
     groups.get( root ).push( vertex );
   }
 
-  const components = [ ...groups.values() ].map( ( vertices ) =>
-    measureComponent( mesh, vertices, new Set( vertices ) ) );
+  const islands = [ ...groups.values() ];
+
+  // The figure's midline. Every eye mesh in this asset is symmetric about x = 0, so the mean is
+  // the midline to within floating point.
+  const meanX = canonicalVertices.reduce( ( total, vertex ) => total + position.getX( vertex ), 0 )
+    / canonicalVertices.length;
+
+  const sides = { left: [], right: [] };
+  for ( const vertex of canonicalVertices ) {
+    sides[ position.getX( vertex ) > meanX ? 'left' : 'right' ].push( vertex );
+  }
 
   // Label by anatomy, from the figure's own frame: +X is the figure's left in a +Z-forward,
   // +Y-up right-handed rig, which is the VIEWER's right. Labelled as the figure's own sides.
-  components.sort( ( a, b ) => b.centroid[ 0 ] - a.centroid[ 0 ] );
-  components[ 0 ].label = 'left  (+X)';
-  components[ 1 ].label = 'right (−X)';
+  const eyes = [
+    measureComponent( mesh, sides.left, new Set( sides.left ), canonicalOf ),
+    measureComponent( mesh, sides.right, new Set( sides.right ), canonicalOf )
+  ];
+  eyes[ 0 ].label = 'left  (+X)';
+  eyes[ 1 ].label = 'right (−X)';
 
-  return components;
+  eyes.islandCount = islands.length;
+  eyes.islandSizes = islands.map( ( island ) => island.length ).sort( ( a, b ) => b - a );
+  eyes.duplicatePositionCount = position.count - canonicalVertices.length;
+
+  return eyes;
 
 }
 
-function measureComponent( mesh, vertices, vertexSet ) {
+function measureComponent( mesh, vertices, vertexSet, canonicalOf ) {
 
   const geometry = mesh.geometry;
   const position = geometry.attributes.position;
@@ -932,11 +1121,12 @@ function measureComponent( mesh, vertices, vertexSet ) {
   const centroid = [ 0, 1, 2 ].map( ( axis ) =>
     points.reduce( ( total, point ) => total + point[ axis ], 0 ) / points.length );
 
-  // triangles and boundary edges
+  // Triangles and boundary edges, on the WELDED topology. A UV seam is not a hole in the surface,
+  // so counting it as one turns a closed cap's single boundary loop into several.
   let triangleCount = 0;
   const edgeUse = new Map();
   for ( let triangle = 0; triangle < index.count; triangle += 3 ) {
-    const corners = [ index.getX( triangle ), index.getX( triangle + 1 ), index.getX( triangle + 2 ) ];
+    const corners = [ 0, 1, 2 ].map( ( corner ) => canonicalOf[ index.getX( triangle + corner ) ] );
     if ( vertexSet.has( corners[ 0 ] ) === false ) continue;
     triangleCount ++;
     for ( let corner = 0; corner < 3; corner ++ ) {
@@ -956,6 +1146,7 @@ function measureComponent( mesh, vertices, vertexSet ) {
   const component = {
     label: '',
     vertices,
+    vertexSet,
     firstIndex: Math.min( ...vertices ),
     lastIndex: Math.max( ...vertices ),
     triangleCount,

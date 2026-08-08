@@ -195,10 +195,17 @@ function testMultiMeshMapping( figure ) {
     check( 'jawOpen reaches the tongue', jawMeshNames.some( ( name ) => name.includes( 'tongue' ) ),
         jawMeshNames.join( ', ' ) );
 
+    // The eyeball proxy is named for its topology, not its anatomy, so the globe is 'high-poly'.
+    // Since the corneal split it is two meshes, and the gaze morph has to reach BOTH: a globe that
+    // looks left inside a cornea that stays put is an eye that swims inside its own front surface.
     const gazeMeshNames = ( figure.morphRegistry.get( 'eyeLookUpLeft' ) ?? [] )
         .map( ( l ) => l.mesh.name.toLowerCase() );
-    check( 'eyeLookUpLeft reaches the eyeballs',
-        gazeMeshNames.some( ( name ) => name.includes( 'low-poly' ) || name.includes( 'eyeball' ) ),
+    check( 'eyeLookUpLeft reaches the eyeball globe',
+        gazeMeshNames.some( ( name ) =>
+            name.includes( 'high-poly' ) || name.includes( 'low-poly' ) || name.includes( 'eyeball' ) ),
+        gazeMeshNames.join( ', ' ) );
+    check( 'eyeLookUpLeft reaches the corneal shell',
+        gazeMeshNames.some( ( name ) => name.includes( 'cornea' ) ),
         gazeMeshNames.join( ', ' ) );
 
     const multiMesh = figure.morphNames.filter( ( name ) => figure.morphLocationCount( name ) > 1 );

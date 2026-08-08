@@ -27,6 +27,11 @@ globalThis.createImageBitmap ??= async () => ({ width: 1, height: 1, close() {} 
 
 const { GLTFLoader } = await import("three/examples/jsm/loaders/GLTFLoader.js");
 
+const {
+  measureCornealDome, measureAnteriorChamberMm, splitIntoEyes, positionsOf,
+  DOME_NOISE_MULTIPLE, FRONT_CAP_DEGREES, POSTERIOR_BAND_MIN_DEGREES,
+} = await import("./cornea_geometry.mjs");
+
 const ARKIT_52 = [
   "browDownLeft", "browDownRight", "browInnerUp", "browOuterUpLeft", "browOuterUpRight",
   "cheekPuff", "cheekSquintLeft", "cheekSquintRight",
@@ -49,6 +54,33 @@ const OVR_VISEMES = [
   "viseme_nn", "viseme_O", "viseme_PP", "viseme_RR", "viseme_sil", "viseme_SS", "viseme_TH",
   "viseme_U",
 ];
+
+// The two halves of the eyeball. MakeHuman names its eyeball proxies for their topology rather
+// than their anatomy, so the globe arrives as "high-poly"; the corneal shell is split off it by
+// build_figure.py and named for what it is. Both patterns keep the superseded "low-poly" and a
+// plain "eyeball" as alternatives so this gate still recognises an older or hand-built figure —
+// and, on such a figure, fails it for having no cornea rather than silently skipping the check.
+const EYEBALL_GLOBE_PATTERN = /high-poly|low-poly|eyeball/i;
+const EYEBALL_CORNEA_PATTERN = /cornea/i;
+
+// What the runtime needs from the corneal material: a refracting dielectric, not a blended
+// surface. A blended material writes no depth, which is the defect the whole material pass in
+// build_figure.py exists to prevent, so the cornea travels as alphaMode OPAQUE carrying
+// KHR_materials_transmission instead. See docs/research/eyes-and-lighting.md §1.
+const CORNEA_MIN_TRANSMISSION = 0.9;
+const CORNEA_IOR_RANGE = [1.333, 1.400];
+
+// The anterior chamber: how far in front of the globe the corneal apex has to sit before there is
+// a gap for a refracted ray to cross. Measured across the five shipping figures it runs 2.150 mm
+// (g100) to 2.402 mm (g000); a real eye is nearer 3 mm. 0.5 mm is a floor that a collapsed or
+// inverted split cannot clear, not a target.
+//
+// This check exists because the dome check above structurally cannot catch an inverted split — put
+// the globe on the cornea material and the cornea on the globe material and the corneal shell is
+// still domed, still measured, still passes. Only the sign of the gap between the two shells
+// changes. See docs/LEARNINGS.md 1.11: the answer to "my gate cannot catch this" is a different
+// kind of assertion, not a tighter threshold.
+const MINIMUM_ANTERIOR_CHAMBER_MM = 0.5;
 
 const GLB_MAGIC = 0x46546c67;          // "glTF"
 const CHUNK_TYPE_JSON = 0x4e4f534a;    // "JSON"
@@ -154,8 +186,11 @@ async function readMeshesViaThree(fileBuffer) {
       return;
     }
     const material = Array.isArray(object.material) ? object.material[0] : object.material;
+    const isEyePart = EYEBALL_GLOBE_PATTERN.test(object.name) ||
+                      EYEBALL_CORNEA_PATTERN.test(object.name);
     perMesh.push({
       name: object.name,
+      materialName: material.name,
       morphNames: Object.keys(object.morphTargetDictionary ?? {}),
       isSkinnedMesh: object.isSkinnedMesh === true,
       hasSkeleton: Boolean(object.skeleton),
@@ -164,6 +199,11 @@ async function readMeshesViaThree(fileBuffer) {
       depthWrite: material.depthWrite,
       alphaTest: material.alphaTest,
       side: material.side,
+      transmission: material.transmission,
+      ior: material.ior,
+      // Only the eye parts, because this is the one place the gate measures shape rather than
+      // metadata and there is no reason to copy 13,380 body vertices to do it.
+      positions: isEyePart ? positionsOf(object.geometry) : null,
     });
   });
 
@@ -253,6 +293,91 @@ async function verifyFigure(glbPath) {
   failures.push(...reportFaceParts(meshes));
   failures.push(...reportSkinning(json, threeMeshes));
   failures.push(...reportMaterials(json, threeMeshes));
+  failures.push(...reportEyeGeometry(threeMeshes));
+
+  return failures;
+}
+
+// The eyes are the only part of this figure whose SHAPE is load-bearing rather than incidental,
+// and the only part where a wrong shape is invisible in every other assertion here.
+//
+// docs/research/eyes-and-lighting.md §1 states a geometry contract, not just an algorithm: cornea
+// refraction traces a ray through a corneal dome into a flat iris plane, and its power scales as
+// 1/R. The figure shipped for two phases with an eyeball proxy that had no dome at all — a sphere
+// with a flat octagonal facet recessed 0.131 mm where the pupil goes — and every assertion above
+// stayed green, because morph names, skinning and alpha modes are all perfect on a sphere.
+//
+// So these three checks assert the shape directly. A regression here means the eye shader silently
+// delivers half its intended corneal power and an octagonal catchlight, which is exactly the kind
+// of half-working that a name-and-metadata gate is structurally blind to.
+function reportEyeGeometry(threeMeshes) {
+  const failures = [];
+
+  console.log("");
+  console.log("--- assertions on eye geometry ---");
+
+  const cornea = threeMeshes.find((mesh) => EYEBALL_CORNEA_PATTERN.test(mesh.name));
+  const globe = threeMeshes.find((mesh) => EYEBALL_GLOBE_PATTERN.test(mesh.name));
+
+  if (!cornea || !globe) {
+    console.log(`  FAIL the figure has ${cornea ? "" : "no corneal shell"}` +
+                `${!cornea && !globe ? " and " : ""}${globe ? "" : "no eyeball globe"} — ` +
+                "there is nothing to refract through");
+    failures.push("eye shells missing");
+    return failures;
+  }
+
+  const corneaEyes = splitIntoEyes(cornea.positions);
+  const globeEyes = splitIntoEyes(globe.positions);
+
+  for (const side of ["left", "right"]) {
+    const dome = measureCornealDome(corneaEyes[side]);
+
+    if (!dome.measured) {
+      console.log(`  FAIL ${side} cornea: too few vertices to measure ` +
+                  `(${dome.frontCapCount} in the front cap, ${dome.posteriorCount} behind ` +
+                  `${POSTERIOR_BAND_MIN_DEGREES}°)`);
+      failures.push(`${side} corneal dome not measurable`);
+      continue;
+    }
+
+    const threshold = DOME_NOISE_MULTIPLE * dome.noiseMm;
+    const verdict = dome.hasDome ? "ok  " : "FAIL";
+    console.log(`  ${verdict} ${side} corneal dome: the front ${FRONT_CAP_DEGREES}° cap sits ` +
+                `${dome.meanProudMm.toFixed(3)} mm proud of a sphere fitted to the sclera ` +
+                `(R ${dome.posteriorRadiusMm.toFixed(3)} mm, RMS ${dome.noiseMm.toFixed(3)} mm), ` +
+                `${dome.domeRatio.toFixed(2)}x noise, needs ${DOME_NOISE_MULTIPLE}x ` +
+                `(${threshold.toFixed(3)} mm)`);
+    if (!dome.hasDome) {
+      failures.push(`${side} eye has no corneal dome`);
+    }
+
+    const chamberMm = measureAnteriorChamberMm(corneaEyes[side], globeEyes[side]);
+    const chamberOk = chamberMm >= MINIMUM_ANTERIOR_CHAMBER_MM;
+    console.log(`  ${chamberOk ? "ok  " : "FAIL"} ${side} anterior chamber: the corneal apex ` +
+                `sits ${chamberMm.toFixed(3)} mm in front of the globe's, needs ` +
+                `${MINIMUM_ANTERIOR_CHAMBER_MM} mm`);
+    if (!chamberOk) {
+      failures.push(`${side} eye has no anterior chamber`);
+    }
+  }
+
+  const transmission = cornea.transmission ?? 0;
+  const transmissionOk = transmission >= CORNEA_MIN_TRANSMISSION;
+  console.log(`  ${transmissionOk ? "ok  " : "FAIL"} cornea material '${cornea.materialName}': ` +
+              `transmission ${transmission}, needs >= ${CORNEA_MIN_TRANSMISSION} — otherwise the ` +
+              "clear shell renders as an opaque dome over the iris");
+  if (!transmissionOk) {
+    failures.push("cornea material is not transmissive");
+  }
+
+  const ior = cornea.ior ?? 0;
+  const iorOk = ior >= CORNEA_IOR_RANGE[0] && ior <= CORNEA_IOR_RANGE[1];
+  console.log(`  ${iorOk ? "ok  " : "FAIL"} cornea material IOR ${ior}, needs ` +
+              `${CORNEA_IOR_RANGE[0]}–${CORNEA_IOR_RANGE[1]}`);
+  if (!iorOk) {
+    failures.push("cornea material has the wrong IOR");
+  }
 
   return failures;
 }
@@ -266,9 +391,12 @@ const REQUIRED_FACE_PARTS = [
   { match: /tongue/i, label: "tongue",    mustCarry: "tongueOut" },
   { match: /lash/i,   label: "eyelashes", mustCarry: "eyeBlinkLeft" },
   { match: /brow/i,   label: "eyebrows",  mustCarry: "browInnerUp" },
-  // MakeHuman's eyeball proxy is named for its topology ("low-poly"), not its anatomy, so
+  // MakeHuman's eyeball proxy is named for its topology ("high-poly"), not its anatomy, so
   // matching on /eye/ finds the lashes and brows instead and never finds the eyeballs.
-  { match: /low-poly|eyeball/i, label: "eyes", mustCarry: "eyeLookUpLeft" }
+  { match: EYEBALL_GLOBE_PATTERN, label: "eyes",   mustCarry: "eyeLookUpLeft" },
+  // The corneal shell is the second half of that proxy, split off in build_figure.py. It has to
+  // carry the gaze morphs too or it stays pointing forward while the globe looks away.
+  { match: EYEBALL_CORNEA_PATTERN, label: "cornea", mustCarry: "eyeLookUpLeft" }
 ];
 
 function reportFaceParts(meshes) {
@@ -369,7 +497,14 @@ function reportSkinning(gltfJson, threeMeshes) {
 // exporting alphaMode BLEND on all six materials — including the solid body. A blended material
 // does not write depth, so the teeth and tongue drew straight through closed lips and the
 // eyeballs drew over the lids. Only the flat brow and lash cards are genuinely cutouts.
-const OPAQUE_MATERIAL_PARTS = [/body/i, /low-poly|eyeball/i, /teeth/i, /tongue/i];
+//
+// The cornea belongs on this list even though it is see-through. glTF's alphaMode is about
+// compositing, and the cornea is not composited: it is a dielectric that refracts what is behind
+// it, declared through KHR_materials_transmission and rendered depth-writing like any solid.
+// Calling it BLEND would reintroduce the very defect this list exists to prevent.
+const OPAQUE_MATERIAL_PARTS = [
+  /body/i, EYEBALL_GLOBE_PATTERN, EYEBALL_CORNEA_PATTERN, /teeth/i, /tongue/i
+];
 const MASK_MATERIAL_PARTS = [/brow/i, /lash/i];
 const EXPECTED_ALPHA_CUTOFF = 0.5;
 const THREE_FRONT_SIDE = 0;

@@ -1,16 +1,22 @@
 /**
- * Figure — one clean surface over the six meshes a built figure actually arrives as.
+ * Figure — one clean surface over the seven meshes a built figure actually arrives as.
  *
  * THE PROBLEM THIS CLASS EXISTS TO SOLVE
  * --------------------------------------
- * A figure GLB is not one mesh. It is six: the body (`Human`), plus teeth, tongue, eyelashes,
- * eyebrows and eyeballs. The morph targets are spread across all six, and — this is the part
- * that bites — many of them live on SEVERAL meshes at once. Measured on figure_g050:
+ * A figure GLB is not one mesh. It is seven: the body (`Human`), plus teeth, tongue, eyelashes,
+ * eyebrows, and the eye — which is itself two meshes, the opaque globe (`Humanhigh-poly`, named
+ * for its topology rather than its anatomy) and the clear corneal shell over it (`Humancornea`).
+ * The morph targets are spread across all seven, and — this is the part that bites — many of them
+ * live on SEVERAL meshes at once. Measured on figure_g050:
  *
- *     jawOpen         -> Human, Humaneyebrow001, Humanteeth_base, Humantongue01   (4 meshes)
- *     eyeLookUpLeft   -> Human, Humaneyebrow001, Humaneyelashes01, Humanlow-poly  (4 meshes)
- *     eyeBlinkLeft    -> Human, Humaneyebrow001, Humaneyelashes01                 (3 meshes)
- *     tongueOut       -> Human, Humantongue01                                     (2 meshes)
+ *     jawOpen         -> Human, Humaneyebrow001, Humanteeth_base, Humantongue01    (4 meshes)
+ *     eyeLookUpLeft   -> Human, Humaneyebrow001, Humaneyelashes01, Humanhigh-poly,
+ *                        Humancornea                                               (5 meshes)
+ *     eyeBlinkLeft    -> Human, Humaneyebrow001, Humaneyelashes01                  (3 meshes)
+ *     tongueOut       -> Human, Humantongue01                                      (2 meshes)
+ *
+ * The gaze morphs are the sharpest case: drive the globe without the cornea and the eye swims
+ * inside its own front surface.
  *
  * Setting `body.morphTargetInfluences[dict.jawOpen] = 1` opens the lips and leaves the teeth
  * and tongue behind inside the head. Every caller that touches a morph would otherwise have to
