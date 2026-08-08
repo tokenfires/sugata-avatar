@@ -77,6 +77,7 @@ import { BodyIdle } from '../../core/src/motion/BodyIdle.js';
 import { Breath } from '../../core/src/motion/Breath.js';
 import { FacialIdle } from '../../core/src/motion/FacialIdle.js';
 import { Gaze } from '../../core/src/motion/Gaze.js';
+import { HandIdle } from '../../core/src/motion/HandIdle.js';
 import { IdleMotion } from '../../core/src/motion/IdleMotion.js';
 import { Pupil } from '../../core/src/motion/Pupil.js';
 import { Sway } from '../../core/src/motion/Sway.js';
@@ -101,8 +102,12 @@ const EYE_LINE_FROM_TOP = 1 / 3;
 // gives the cheek and jaw some form without turning the eyes away from the viewer.
 const CAMERA_AZIMUTH_DEGREES = 12;
 
-// The mesh the eye line is read off. GLTFLoader strips the dot from 'Human.low-poly'.
-const EYEBALL_MESH_NAME = 'Humanlow-poly';
+// The mesh the eye line is read off. MakeHuman names its eyeball proxy for its topology rather
+// than its anatomy, and GLTFLoader strips the dot, so 'Human.high-poly' arrives as
+// 'Humanhigh-poly'. Matched by pattern rather than by an exact string on purpose: this used to be
+// the literal 'Humanlow-poly', and when the pipeline swapped proxies the lookup returned undefined
+// and eyeLineHeight quietly fell back to a guess. A miss now says so out loud.
+const EYEBALL_MESH_PATTERN = /high-poly|low-poly|eyeball/i;
 
 // How much air to leave around the figure in the full-body frame, as a fraction of its height.
 // A body cropped hard at crown and heel reads as a passport photo of a corpse; a little headroom
@@ -233,6 +238,13 @@ async function boot() {
     const breath = new Breath();
     const bodyIdle = new BodyIdle();
 
+    // The fingers were the one part of the body a judge could see was frozen: BodyIdle's finger
+    // idle moves an index fingertip 0.73 mm over seven minutes — 0.48 px at full-body framing,
+    // against the 1.6 px this project already has on record as indistinguishable. HandIdle
+    // re-roots the amplitude as a fraction of each joint's own measured resting flexion and takes
+    // the finger channel off BodyIdle on its first frame, handing it back on dispose.
+    const handIdle = new HandIdle();
+
     // Sway measures the weight shift; the arms answer it with one small decaying swing instead of
     // drifting on obliviously while the pelvis moves. The callback carries the drawn amplitude, so
     // a big shift gets a big swing — which is the whole reason the arms are worth coupling.
@@ -252,7 +264,9 @@ async function boot() {
     // sit in different slots — HEAD runs before GAZE so the eyes can counter-rotate against the
     // head position this frame actually landed on. FacialIdle comes after Blink for the same kind
     // of reason: it reads this frame's lid closure to know how much lid-follow is left to give.
-    const layers = { breath, sway, idle, bodyIdle, gazeHead: gaze.head, gaze, blink, facialIdle, pupil };
+    const layers = {
+        breath, sway, idle, bodyIdle, handIdle, gazeHead: gaze.head, gaze, blink, facialIdle, pupil
+    };
 
     await swapFigure( session, stack, stage, lights, backdrop );
 
@@ -631,7 +645,7 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
  *
  * This page used to carry two workarounds here — one reparenting the unskinned face meshes onto
  * the head bone, one forcing every BLEND material opaque. Both are gone, because the figure
- * pipeline now exports all six meshes skinned and only the brow and lash cards non-opaque. A
+ * pipeline now exports all seven meshes skinned and only the brow and lash cards non-opaque. A
  * check replaces them: if a regressed bake is ever dropped in, the HUD says so in words instead
  * of the page quietly gluing the face back on and hiding it.
  *
@@ -740,17 +754,26 @@ function framedHeightFor( figure, mode, override ) {
 /**
  * World height of the pupils, taken as the centre of the eyeball mesh. Falls back to the crown of
  * the bounding box less a head's worth, so a figure without that mesh still frames somewhere sane
- * rather than at the navel.
+ * rather than at the navel — but says so, because a silent fallback here moves the portrait crop
+ * without moving anything a gate looks at.
  */
 function eyeLineHeight( figure ) {
 
-    const eyeballs = figure.root.getObjectByName( EYEBALL_MESH_NAME );
+    let eyeballs = null;
+    figure.root.traverse( ( object ) => {
 
-    if ( eyeballs !== undefined && eyeballs !== null ) {
+        if ( object.isMesh === true && EYEBALL_MESH_PATTERN.test( object.name ) ) eyeballs = object;
+
+    } );
+
+    if ( eyeballs !== null ) {
 
         return new Box3().setFromObject( eyeballs ).getCenter( new Vector3() ).y;
 
     }
+
+    console.warn( `alive: no mesh matching ${ EYEBALL_MESH_PATTERN } — the portrait frame is ` +
+        'guessing at the eye line from the top of the bounding box.' );
 
     return new Box3().setFromObject( figure.root ).max.y - 0.11;
 
@@ -884,13 +907,14 @@ function describeState( stage, stack, layers, session, pupilScale ) {
 
 function bindControls( { session, stack, stage, lights, backdrop, layers } ) {
 
-    const { breath, sway, bodyIdle, gaze, blink, pupil } = layers;
+    const { breath, sway, bodyIdle, handIdle, gaze, blink, pupil } = layers;
 
     bindDial( 'arousal', ( value ) => {
 
         breath.setArousal( value );
         pupil.setArousal( value );
         bodyIdle.setArousal( value );
+        handIdle.setArousal( value );
 
     } );
 

@@ -50,6 +50,27 @@
  *            in the 8–12 Hz physiological-tremor band, which IS gated, because idle motion that
  *            reaches into that band reads as illness.
  *
+ *   SYMMETRY 🎯 A RATIO, not a magnitude. Left-limb energy over right-limb energy at every arm
+ *            joint and at the fingertip, over a seed matrix, with an explicit upper bound. This
+ *            file was entirely green while a blind visual judge was reporting *"one arm is 2.5x
+ *            livelier than the other, consistently — looks like a bug, not a choice"*, because
+ *            everything in it measured ONE side and asked whether the number was in range.
+ *            LEARNINGS §1.11: when a gate cannot catch a defect, the answer is an assertion of a
+ *            different KIND, not a tighter threshold. A ratio is that different kind.
+ *
+ *            Note what is deliberately NOT gated here: phase. The arms are decorrelated
+ *            left-to-right at |r| ≈ 0.05 and that is correct and hard-won — `BodyIdle.selftest`
+ *            owns that gate. Decorrelated phase with matched energy is the target. A persistent
+ *            energy ratio is the defect.
+ *
+ *   HANDS    fingertip travel in the HAND's own frame, in millimetres AND in pixels at full-body
+ *            framing, because the second is the quantity the defect was about. The same judge
+ *            wrote *"THE HANDS NEVER MOVE"*, and it was right: the shipped finger idle moves an
+ *            index fingertip 0.73 mm — **0.48 px** — over seven minutes, against the 1.6 px this
+ *            project already has on record (docs/PROGRESS.md) as producing indistinguishable
+ *            before-and-after plates. A degree at a knuckle is not a quantity anyone can picture;
+ *            a pixel at the framing we capture at is.
+ *
  * A measurement outside its range is printed as FAIL and the process exits non-zero. It is not
  * grounds for widening the range.
  *
@@ -67,16 +88,19 @@ import { fileURLToPath } from 'node:url';
 globalThis.self ??= globalThis;
 globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {} } );
 
-const { Vector3 } = await import( 'three' );
+const { Box3, Matrix4, Quaternion, Vector3 } = await import( 'three' );
 const { Figure } = await import( '../figure/Figure.js' );
 const { BodyMass } = await import( '../figure/BodyMass.js' );
-const { HUMANOID_TO_FIGURE_BONE } = await import( '../figure/Skeleton.js' );
-const { MotionStack, createMotionTarget } = await import( './MotionStack.js' );
-const { MotionRandom } = await import( './Signals.js' );
-const { Breath } = await import( './Breath.js' );
+const { HUMANOID_TO_FIGURE_BONE, Skeleton } = await import( '../figure/Skeleton.js' );
+const { RestPose } = await import( '../figure/RestPose.js' );
+const { MotionStack, createMotionTarget, MOTION_ORDER } = await import( './MotionStack.js' );
+const { MotionRandom, CoherentNoise1D } = await import( './Signals.js' );
+const { Layer } = await import( './Layer.js' );
+const { Breath, restRotationRelativeToRig, toBoneDeltaFrame } = await import( './Breath.js' );
 const { Sway } = await import( './Sway.js' );
 const { IdleMotion } = await import( './IdleMotion.js' );
 const { BodyIdle } = await import( './BodyIdle.js' );
+const { HandIdle } = await import( './HandIdle.js' );
 
 const SAMPLE_RATE_HZ = 60;
 const FRAME_SECONDS = 1 / SAMPLE_RATE_HZ;
@@ -85,6 +109,17 @@ const SPECTRUM_DURATION_SECONDS = 300; // a tighter estimate of the same signal
 const EVENT_DURATION_SECONDS = 7200;   // two hours, for rates measured in events per minute
 
 const SEED = 20260807;
+
+/**
+ * The median of a lognormal whose MEAN is 1 and whose coefficient of variation is Duarte's own
+ * 38/22. Every relayed magnitude is a draw from that distribution scaled by its pattern's
+ * amplitude fraction, so this is the one number both the fidget and the shift expectation are
+ * built from. exp(-½·ln(1+CV²)) = 0.5010.
+ */
+const DUARTE_SHIFT_MEDIO_LATERAL_MM = 22;
+const DUARTE_SHIFT_MEDIO_LATERAL_SD_MM = 38;
+const LOGNORMAL_MEDIAN_OF_UNIT_MEAN_SHIFT = Math.exp( -0.5 * Math.log(
+    1 + ( DUARTE_SHIFT_MEDIO_LATERAL_SD_MM / DUARTE_SHIFT_MEDIO_LATERAL_MM ) ** 2 ) );
 
 /**
  * The seed × window matrix the sway gates run over. Twelve seeds because the sway statistics are
@@ -178,6 +213,91 @@ const LEVER_TOLERANCE = 0.05;
  */
 const POSTURAL_BAND_FLOOR_HZ = 0.15;
 
+/**
+ * 🎯 THE LIMB SYMMETRY BOUND. How far apart the two arms' energies may be, as a ratio, stated so
+ * that whichever side is larger goes on top.
+ *
+ * The defect this exists to catch is a blind judge's, verbatim: *"one arm is 2.5x livelier than
+ * the other, consistently, over the whole clip — looks like a bug, not a choice."* Every gate in
+ * this file was green at the time, because every one of them measured a single side's magnitude
+ * against a range. No magnitude gate can catch a ratio; that is LEARNINGS §1.11, and the answer is
+ * an assertion of a different kind rather than a tighter threshold.
+ *
+ * The number is set from the measured scatter, not from the defect. Over 12 seeds × 6 channels ×
+ * 2 windows on the consumer stack, the worst symmetric ratio observed is **1.171** (300 s) and
+ * **1.125** (900 s) — the arms are already balanced and the residual is the estimator, driven by
+ * the Poisson event streams that fire per side. 1.40 sits 2.4× further from parity than the worst
+ * of those, and 1.8× below the 2.5 it must reject. Both margins are stated because a bound with
+ * only one of them is either decorative or flaky.
+ */
+const LIMB_ENERGY_RATIO_LIMIT = 1.40;
+
+/**
+ * The seeds and window the symmetry and articulation gates run over. One draw of a stochastic
+ * process proves nothing about a ratio either — §1.4 and the sway matrix above make the same
+ * point — but these two gates are about a persistent bias rather than about an amplitude
+ * estimate, so a shorter window over the same seeds is enough and keeps the file's runtime sane.
+ */
+const LIMB_SEEDS = [ 1, 42, 777, 4242, 31337, 20260807 ];
+const LIMB_WINDOW_SECONDS = 300;
+
+/**
+ * The framing every full-body capture in this project is taken at, which is what converts a
+ * millimetre of fingertip travel into the quantity the defect was actually about.
+ *
+ * 1200 px comes from the capture command in docs/LEARNINGS.md Part 3 (`--width 700 --height 1200`);
+ * the 1.10 margin is `BODY_FRAME_MARGIN` in `packages/testbed/src/alive.js`, which frames the
+ * figure's own MEASURED height plus that margin. Stature is measured off this GLB rather than
+ * assumed, because the five bakes differ by centimetres.
+ */
+const FULL_BODY_CAPTURE_PIXELS = 1200;
+const BODY_FRAME_MARGIN = 1.10;
+
+/**
+ * 🎯 THE HAND ARTICULATION FLOOR, in pixels of fingertip travel at full-body framing over
+ * LIMB_WINDOW_SECONDS.
+ *
+ * Stated in pixels on purpose. The shipped finger idle was authored as 0.45° of peak deviation at
+ * a knuckle, which sounds reasonable and is not a quantity anybody can picture; converted, it is
+ * 0.73 mm of fingertip travel — **0.48 px** — over seven minutes, and a blind judge reported the
+ * hands as motionless. docs/PROGRESS.md already records the verdict on this order of magnitude:
+ * a weight shift worth "1.6 pixels at full-body framing" gave before-and-after plates that were
+ * *indistinguishable*.
+ *
+ * 3.0 px is a little under twice that known-invisible figure and six times the shipped 0.48, so
+ * the gate rejects the shipped layer by a factor of six rather than by a whisker. It is a
+ * judgement about a rendered avatar and nothing more — there is no published resting-finger
+ * excursion in docs/research/ and none is invented here.
+ *
+ * ⚠️ Measured in the HAND's OWN FRAME. A fingertip's world position is dominated by the arm and
+ * the whole-body sway carrying it around; in the hand's frame what is left is articulation, which
+ * is the only thing this gate is about.
+ */
+const FINGERTIP_TRAVEL_FLOOR_PIXELS = 3.0;
+
+/**
+ * How much of its resting curl a finger's total flexion must range over, and may not exceed.
+ *
+ * The floor is the same statement as the pixel floor in the units the layer authors in, kept
+ * because the two fail differently: a rig with short fingers could clear the angle and miss the
+ * pixels. The ceiling is the over-animation guard — past about half its resting curl a hand is
+ * opening and closing rather than idling, and over-animating an idle reads as a nervous condition.
+ */
+const FINGER_FLEXION_RANGE_FRACTION = { low: 0.10, high: 0.50 };
+
+/**
+ * The rest pose the symmetry and articulation gates measure in, and why they do not use the bind
+ * pose everything above them uses.
+ *
+ * `alive.js` sets `DEFAULT_REST_POSE = 'relaxed-standing'`, so that is the configuration a
+ * consumer renders and the one the judge watched. It matters here more than anywhere else in this
+ * file: `HandIdle`'s amplitude is a fraction of how flexed each joint RESTS, and the raw bind pose
+ * leaves the fingers half straight — measured 27.1° of index flexion against 55.9° posed. Gating
+ * the bind pose would be measuring a configuration no consumer builds at half the shipped
+ * amplitude, which is the mistake LEARNINGS §1.5 records against `new Sway({weightShiftsEnabled: false})`.
+ */
+const CONSUMER_REST_POSE = 'relaxed-standing';
+
 const results = [];
 
 // --- the figure -------------------------------------------------------------------------------
@@ -231,6 +351,15 @@ measureDiscourseCoupling();
 
 measureIdleMotion();
 measureArmOwnership();
+
+// --- 2.7 the two defects a magnitude gate could not see ----------------------------------------
+
+gateLimbSymmetry();
+gateLimbSymmetryRejectsAOneSidedArm();
+
+gateFingerOwnership();
+gateHandArticulation();
+gateHandArticulationRejectsTheShippedFingers();
 
 // --- robustness -------------------------------------------------------------------------------
 
@@ -900,13 +1029,17 @@ function withinTolerance( millimetres, axis, tolerance ) {
  * it as a defect because it was printed as a `....` note rather than asserted as a gate. It is a
  * gate now.
  *
- * `magnitude` is the drawn amplitude over Duarte's mean, so a shift averages 1.0 and a fidget —
- * half a shift by FIDGET_AMPLITUDE_FRACTION_OF_SHIFT — averages 0.5. The MEDIAN is what is gated
- * rather than the mean, because a lognormal that skewed has a mean whose sample estimate is far
- * noisier than its median: sigma = 1.176 in log space, so the median of n draws is good to
- * x/÷exp(1.253·1.176/sqrt(n)). At the ~150 fidgets two hours produces that is ±13%, and the
- * folded-gaussian defect would read 0.69 — five times outside the band.
+ * `magnitude` is the drawn amplitude over Duarte's mean, so a shift averages 1.0 and a fidget
+ * averages FIDGET_AMPLITUDE_FRACTION_OF_SHIFT. The MEDIAN is what is gated rather than the mean,
+ * because a lognormal that skewed has a mean whose sample estimate is far noisier than its median:
+ * sigma = 1.176 in log space, so the median of n draws is good to x/÷exp(1.253·1.176/sqrt(n)). At
+ * the ~150 fidgets two hours produces that is ±13%, and the folded-gaussian defect would read
+ * 2.8× the lognormal median — five times outside the band.
+ *
+ * ⚠️ The fidget fraction is READ OFF THE LAYER, not retyped here. This gate hardcoded 0.5 and went
+ * red the day Sway moved to 1.0, against a layer that was doing exactly what it says.
  */
+
 function measureWeightShifts() {
 
     section( '2.6 / 2.9  WEIGHT SHIFTS — Duarte & Zatsiorsky rates, and the relay' );
@@ -966,13 +1099,25 @@ function measureWeightShifts() {
     gate( 'both patterns relay', shifts.length > 0 && fidgets.length > 0 ? 1 : 0, 1, 1,
         'a fidget IS a weight shift — it is a shift that comes back' );
 
-    gate( 'relayed fidget |magnitude| median', median( fidgets ), 0.193, 0.326,
-        'lognormal median 0.2505; a folded gaussian on 22 +- 38 mm would read 0.69' );
+    // 🎯 DERIVED, NOT RETYPED. This band used to hardcode Sway's fidget amplitude fraction of 0.5,
+    // and when that constant moved to 1.0 the gate went red against a layer that was behaving
+    // correctly. Two copies of a constant drift apart; sway.selftest.mjs derives its own pooled
+    // expectation the same way, at `relayed |magnitude| mean`.
+    const fidgetFraction = new Sway().fidget.amplitudeFraction;
+    const fidgetMedian = LOGNORMAL_MEDIAN_OF_UNIT_MEAN_SHIFT * fidgetFraction;
+
+    gate( 'relayed fidget |magnitude| median', median( fidgets ),
+        fidgetMedian * 0.77, fidgetMedian * 1.30,
+        `lognormal median ${ fidgetMedian.toFixed( 4 ) } at a fidget fraction of ` +
+        `${ fidgetFraction.toFixed( 2 ) }; a folded gaussian on 22 +- 38 mm would read ` +
+        `${ ( 1.38 * fidgetFraction ).toFixed( 2 ) }` );
 
     note( 'relayed fidget |magnitude| mean', mean( fidgets ).toFixed( 3 ),
-        `n=${ fidgets.length }; expectation 0.5. Noisier than the median, hence not the gate.` );
+        `n=${ fidgets.length }; expectation ${ fidgetFraction.toFixed( 2 ) }. ` +
+        'Noisier than the median, hence not the gate.' );
     note( 'relayed shift |magnitude| median', median( shifts ).toFixed( 3 ),
-        `n=${ shifts.length }; expectation 0.501 — TOO FEW TO GATE (good to x/÷1.32 at this n)` );
+        `n=${ shifts.length }; expectation ${ LOGNORMAL_MEDIAN_OF_UNIT_MEAN_SHIFT.toFixed( 3 ) }` +
+        ' — TOO FEW TO GATE (good to x/÷1.32 at this n)' );
     note( 'relayed shift |magnitude| mean', mean( shifts ).toFixed( 3 ),
         'expectation 1.0; the pre-lognormal layer printed 1.59 here and it was not read as a defect' );
 
@@ -1200,6 +1345,29 @@ function measureDeterminism() {
     gate( 'max divergence between runs (mm)', worst * 1000, 0, 1e-9,
         'two stacks, same seed, same dt sequence' );
 
+    // The hand layer separately, because its state is not only a noise cursor: it carries Poisson
+    // re-settle events and per-finger shares drawn at the moment one fires. A layer that rewinds
+    // its noise but not its events reproduces for a while and then diverges, which is the worst
+    // shape of non-determinism to debug and exactly what Layer.reset() exists to prevent.
+    const handTrace = () => {
+
+        const trace = traceLimbs( SEED, 60, { handIdle: true } );
+
+        return trace.left.fingertipInHandFrame.flatMap( ( point ) => [ point.x, point.y, point.z ] );
+
+    };
+
+    const firstHand = handTrace();
+    const secondHand = handTrace();
+
+    let worstHand = 0;
+    for ( let index = 0; index < firstHand.length; index ++ ) {
+        worstHand = Math.max( worstHand, Math.abs( firstHand[ index ] - secondHand[ index ] ) );
+    }
+
+    gate( 'fingertip divergence between runs (mm)', worstHand * 1000, 0, 1e-9,
+        'the re-settle draws its per-finger shares at event time; those have to rewind too' );
+
 }
 
 // --- rig / stack plumbing ---------------------------------------------------------------------
@@ -1378,6 +1546,59 @@ function mean( values ) {
     for ( const value of values ) total += value;
 
     return total / values.length;
+
+}
+
+function range( values ) {
+
+    return Math.max( ...values ) - Math.min( ...values );
+
+}
+
+function worldPositionOf( object ) {
+
+    return new Vector3().setFromMatrixPosition( object.matrixWorld );
+
+}
+
+/**
+ * The RMS of a point's displacement about its own mean, resolved over all three axes — the
+ * quantity "how much did this point move", in metres, for a track of positions.
+ *
+ * Taken as the resultant of the three per-axis RMS values rather than of the per-frame distance,
+ * so it is the same statistic the sway gates report and it composes the way a variance does.
+ */
+function resultantRootMeanSquare( points ) {
+
+    const perAxis = [ 'x', 'y', 'z' ].map( ( axis ) => rootMeanSquare( points.map( ( point ) => point[ axis ] ) ) );
+
+    return Math.sqrt( perAxis[ 0 ] ** 2 + perAxis[ 1 ] ** 2 + perAxis[ 2 ] ** 2 );
+
+}
+
+function pearson( first, second ) {
+
+    const meanFirst = mean( first );
+    const meanSecond = mean( second );
+
+    let covariance = 0;
+    let varianceFirst = 0;
+    let varianceSecond = 0;
+
+    for ( let index = 0; index < first.length; index ++ ) {
+
+        const a = first[ index ] - meanFirst;
+        const b = second[ index ] - meanSecond;
+
+        covariance += a * b;
+        varianceFirst += a * a;
+        varianceSecond += b * b;
+
+    }
+
+    if ( varianceFirst === 0 || varianceSecond === 0 ) return 0;
+
+    return covariance / Math.sqrt( varianceFirst * varianceSecond );
 
 }
 
@@ -1678,6 +1899,652 @@ function measureArmOwnership() {
         return 1 - Math.abs( quaternion.w );
 
     }
+
+}
+
+// --- limb symmetry and hand articulation -------------------------------------------------------
+
+/**
+ * 🎯 THE RATIO GATE. Left-limb energy over right-limb energy, at every arm joint and at the
+ * fingertip, over a seed matrix.
+ *
+ * Read the LIMB_ENERGY_RATIO_LIMIT comment before touching anything here. In one line: a blind
+ * judge measured one arm at 2.5× the other over seven minutes while this whole file was green,
+ * because everything in it measured one side's magnitude against a range and a magnitude gate is
+ * structurally unable to see a ratio.
+ *
+ * What is measured, and why each is a different question:
+ *
+ *   ANGULAR RMS per joint — how hard the layer is driving that joint. This is where a seed, a
+ *   rest frame or a handedness bug would show, because it is upstream of every lever.
+ *
+ *   HAND POSITION RMS — how far the whole arm carries the hand in world space. A joint could be
+ *   balanced and the arms still asymmetric if one of them rides a longer lever, which is a rest
+ *   pose defect rather than a motion one, and this is the channel that would show it.
+ *
+ *   FINGERTIP RMS IN THE HAND'S FRAME — articulation alone, with the arm's carriage divided out.
+ *
+ * 🚩 What is deliberately NOT gated here is PHASE. `BodyIdle.selftest.mjs` gates left-against-right
+ * Pearson r to |r| ≤ 0.25 at every joint, and that decorrelation is correct and hard-won — two
+ * arms drifting in step read as mechanical instantly. Decorrelated phase with matched energy is
+ * the target. Nothing below may be "fixed" by correlating the sides.
+ */
+function gateLimbSymmetry() {
+
+    section( 'LIMB SYMMETRY — left against right, as a RATIO (the 2.5x defect)' );
+
+    const byChannel = new Map();
+    const byPhase = new Map();
+
+    for ( const seed of LIMB_SEEDS ) {
+
+        const trace = traceLimbs( seed, LIMB_WINDOW_SECONDS, { handIdle: true } );
+
+        for ( const [ channel, ratio ] of Object.entries( symmetricRatios( trace ) ) ) {
+
+            if ( byChannel.has( channel ) === false ) byChannel.set( channel, [] );
+            byChannel.get( channel ).push( ratio );
+
+        }
+
+        for ( const [ channel, r ] of Object.entries( leftRightCorrelations( trace ) ) ) {
+
+            if ( byPhase.has( channel ) === false ) byPhase.set( channel, [] );
+            byPhase.get( channel ).push( r );
+
+        }
+
+    }
+
+    for ( const [ channel, ratios ] of byChannel ) {
+
+        gate( `${ channel } worst L/R ratio`, Math.max( ...ratios ), 1, LIMB_ENERGY_RATIO_LIMIT,
+            `worst of ${ LIMB_SEEDS.length } seeds; measured scatter tops out at 1.17, the defect was 2.5` );
+
+    }
+
+    const worst = Math.max( ...[ ...byChannel.values() ].flat() );
+
+    note( 'worst ratio, any channel any seed', worst.toFixed( 3 ),
+        `the whole matrix in one number; the bound is ${ LIMB_ENERGY_RATIO_LIMIT }` );
+
+    // 🎯 The other half of the contract, asserted in the same place so neither can be traded for
+    // the other. Matched energy is trivially achievable by making the two sides the SAME signal,
+    // and that is the defect this project already solved — symmetric arm drift reads as mechanical
+    // before a viewer can say why. BodyIdle.selftest owns the primary decorrelation gate on its
+    // own layer alone; this one holds the same bound on the assembled consumer stack, where the
+    // hand layer is new and the arms are being read through a rest pose.
+    for ( const [ channel, correlations ] of byPhase ) {
+
+        const strongest = correlations.reduce( ( a, b ) => Math.abs( a ) > Math.abs( b ) ? a : b );
+
+        gate( `${ channel } left-right |r|`, Math.abs( strongest ), 0, 0.25,
+            `signed r = ${ strongest.toFixed( 3 ) }; the bound is BodyIdle.selftest's, unchanged` );
+
+    }
+
+}
+
+/**
+ * Known-bad input for the gate above — LEARNINGS §1.1: a gate that has never failed is not known
+ * to work.
+ *
+ * The defect is constructed rather than simulated: one extra layer that drives ONE upper arm and
+ * nothing else, which is the shape of every candidate the judge's finding pointed at — a seed
+ * offset applied to one side, a mirrored bone map, a copy-paste that never got its `_r`. It is
+ * added to the same stack the gate above measures, and the same measurement is taken.
+ *
+ * The assertion is two-sided on purpose. It is not enough that the ratio comes out large; it has
+ * to come out large enough to be the defect the judge described, and the bound has to reject it.
+ */
+function gateLimbSymmetryRejectsAOneSidedArm() {
+
+    section( 'LIMB SYMMETRY — known-bad inputs: a lopsided arm, and a mirrored pair' );
+
+    const lopsided = { ratios: [], correlations: [] };
+    const mirrored = { ratios: [], correlations: [] };
+
+    for ( const seed of LIMB_SEEDS ) {
+
+        const oneSided = traceLimbs( seed, LIMB_WINDOW_SECONDS, { handIdle: true, armDefect: 'oneSided' } );
+        lopsided.ratios.push( symmetricRatios( oneSided ).upperarm );
+        lopsided.correlations.push( Math.abs( leftRightCorrelations( oneSided ).upperarm ) );
+
+        const both = traceLimbs( seed, LIMB_WINDOW_SECONDS, { handIdle: true, armDefect: 'mirrored' } );
+        mirrored.ratios.push( symmetricRatios( both ).upperarm );
+        mirrored.correlations.push( Math.abs( leftRightCorrelations( both ).upperarm ) );
+
+    }
+
+    const smallestImbalance = Math.min( ...lopsided.ratios );
+
+    note( 'lopsided: ratio across seeds',
+        `${ smallestImbalance.toFixed( 2 ) }..${ Math.max( ...lopsided.ratios ).toFixed( 2 ) }`,
+        'the injected imbalance, measured exactly as the gate above measures the real stack' );
+
+    gate( 'lopsided reaches the judged 2.5x', smallestImbalance, 2.3, 12,
+        'if the injected defect were small the rejection below would prove nothing' );
+
+    gate( 'lopsided is REJECTED by the ratio gate', smallestImbalance > LIMB_ENERGY_RATIO_LIMIT ? 1 : 0, 1, 1,
+        `the smallest injected ratio ${ smallestImbalance.toFixed( 2 ) } must exceed the bound ${ LIMB_ENERGY_RATIO_LIMIT }` );
+
+    // 🎯 The independence proof. A mirrored pair is what "make the two arms match" produces if it
+    // is taken as an instruction about the signal rather than about its energy — and it is the
+    // defect this project already fixed once. It must sail through the ratio gate and be caught by
+    // the correlation one; if either half of that fails, the two gates are not measuring two
+    // different things and one of them is decorative.
+    const strongestMirrored = Math.max( ...mirrored.correlations );
+    const worstMirroredRatio = Math.max( ...mirrored.ratios );
+
+    note( 'mirrored: ratio / correlation',
+        `${ worstMirroredRatio.toFixed( 2 ) } / ${ strongestMirrored.toFixed( 2 ) }`,
+        'matched energy, collapsed phase — the failure a naive fix for the gate above introduces' );
+
+    gate( 'mirrored PASSES the ratio gate', worstMirroredRatio <= LIMB_ENERGY_RATIO_LIMIT ? 1 : 0, 1, 1,
+        'if the ratio gate caught this too, it would not be measuring energy alone' );
+
+    gate( 'mirrored is REJECTED by the phase gate', Math.min( ...mirrored.correlations ) > 0.25 ? 1 : 0, 1, 1,
+        `weakest injected |r| ${ Math.min( ...mirrored.correlations ).toFixed( 2 ) } must exceed the 0.25 bound` );
+
+}
+
+/**
+ * Who owns the fingers when BodyIdle and HandIdle are in the same stack.
+ *
+ * Both declare all thirty finger bones and contributions SUM, so running the pair unresolved is a
+ * silent doubling — the same trap already documented between IdleMotion and BodyIdle on the arms.
+ * HandIdle resolves it by TAKING the channel rather than yielding it, because BodyIdle's finger
+ * model is a strict subset of HandIdle's at an amplitude measured at 0.48 px of travel.
+ *
+ * Reaching into a sibling layer's flag earns a gate rather than trust: that it happens, that it is
+ * defeatable, and that it is handed back on dispose.
+ */
+function gateFingerOwnership() {
+
+    section( 'FINGER OWNERSHIP — HandIdle takes the fingers from BodyIdle' );
+
+    const claimed = runFingerOwnership( {} );
+
+    gate( 'BodyIdle stands down', claimed.ownerDrivesFingersAfter ? 0 : 1, 1, 1,
+        'bone contributions sum, so both driving the fingers is a silent doubling' );
+
+    gate( 'HandIdle drives them instead', claimed.handIdleDrivesFingers ? 1 : 0, 1, 1,
+        'taking a channel and then not writing it would be worse than leaving it alone' );
+
+    gate( 'released on dispose', claimed.ownerDrivesFingersAfterDispose ? 1 : 0, 1, 1,
+        'a layer that silences another and leaves would take the fingers with it' );
+
+    const left = runFingerOwnership( { claimFingersFrom: null } );
+
+    gate( 'claimFingersFrom: null leaves BodyIdle alone', left.ownerDrivesFingersAfter ? 1 : 0, 1, 1,
+        'the takeover is defeatable, for a test that wants to measure the doubling' );
+
+    /** Builds BodyIdle then HandIdle — the add order an application uses — and runs one second. */
+    function runFingerOwnership( options ) {
+
+        restoreRestPose();
+
+        const stack = new MotionStack( { seed: SEED } );
+        stack.bind( createMotionTarget( figure.root ) );
+
+        const bodyIdle = stack.add( new BodyIdle() );
+        const handIdle = stack.add( new HandIdle( options ) );
+
+        const fingerBone = HUMANOID_TO_FIGURE_BONE.leftIndexProximal;
+
+        let handIdlePeak = 0;
+
+        for ( let frame = 0; frame < 60; frame ++ ) {
+
+            stack.update( FRAME_SECONDS );
+
+            const rotation = handIdle.contribution.boneRotations.get( fingerBone );
+            handIdlePeak = Math.max( handIdlePeak, rotation === undefined ? 0 : 1 - Math.abs( rotation.w ) );
+
+        }
+
+        const result = {
+            ownerDrivesFingersAfter: bodyIdle.fingersEnabled,
+            handIdleDrivesFingers: handIdlePeak > 0
+        };
+
+        stack.remove( handIdle );
+        result.ownerDrivesFingersAfterDispose = bodyIdle.fingersEnabled;
+
+        stack.dispose();
+
+        return result;
+
+    }
+
+}
+
+/**
+ * 🎯 THE ARTICULATION GATE. Does the hand move enough for a viewer to see it?
+ *
+ * Stated in pixels at full-body framing, because that is the question, and because the units the
+ * shipped layer was authored in — degrees at a knuckle — are what let a motion that turned out to
+ * be 0.48 px over seven minutes pass every review it was given. See FINGERTIP_TRAVEL_FLOOR_PIXELS.
+ *
+ * Four assertions, each catching a different way of being wrong:
+ *
+ *   TRAVEL, in pixels — the defect itself.
+ *   FLEXION RANGE, as a fraction of resting curl — the same claim in the units the layer authors
+ *     in, with a CEILING as well, because over-animating an idle is as bad as having none.
+ *   TREMOR BAND — a hand can be made to travel far by buzzing, and 8–12 Hz reads as illness.
+ *   TOGETHERNESS — a relaxed hand moves as a loose unit; five independent digits read as a hand
+ *     playing an invisible piano. Same statistic BodyIdle.selftest gates, kept because the layer
+ *     driving the fingers changed underneath it.
+ */
+function gateHandArticulation() {
+
+    section( '2.7  HAND ARTICULATION — fingertip travel, in pixels at full-body framing' );
+
+    const stature = new Box3().setFromObject( figure.root );
+    const framedHeightMillimetres = ( stature.max.y - stature.min.y ) * BODY_FRAME_MARGIN * 1000;
+    const pixelsPerMillimetre = FULL_BODY_CAPTURE_PIXELS / framedHeightMillimetres;
+
+    note( 'full-body framing (mm / px per mm)',
+        `${ framedHeightMillimetres.toFixed( 0 ) } / ${ pixelsPerMillimetre.toFixed( 4 ) }`,
+        'measured stature x 1.10 margin over a 1200 px capture; alive.js and LEARNINGS Part 3' );
+
+    const travelPixels = [];
+    const flexionFractions = [];
+    const tremorPercents = [];
+    const togetherness = [];
+
+    for ( const seed of LIMB_SEEDS ) {
+
+        const trace = traceLimbs( seed, LIMB_WINDOW_SECONDS, { handIdle: true } );
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const hand = trace[ side ];
+
+            travelPixels.push( peakToPeakResultant( hand.fingertipInHandFrame ) * pixelsPerMillimetre );
+            flexionFractions.push( range( hand.indexFlexionDegrees ) / mean( hand.indexFlexionDegrees ) );
+            tremorPercents.push( welchSpectrum( hand.indexFlexionDegrees, 2048 ).powerInTremorBandPercent );
+
+        }
+
+        togetherness.push( pearson( trace.left.indexFlexionDegrees, trace.left.middleFlexionDegrees ) );
+
+    }
+
+    note( 'fingertip travel (mm, worst side/seed)',
+        ( Math.min( ...travelPixels ) / pixelsPerMillimetre ).toFixed( 2 ),
+        'peak-to-peak in the HAND\'s own frame, so the arm carrying it is divided out' );
+
+    gate( 'fingertip travel (px, worst)', Math.min( ...travelPixels ), FINGERTIP_TRAVEL_FLOOR_PIXELS, 40,
+        'the shipped finger idle measures 0.48 px here; 1.6 px is on record as indistinguishable' );
+
+    gate( 'index flexion range / rest (worst low)', Math.min( ...flexionFractions ),
+        FINGER_FLEXION_RANGE_FRACTION.low, FINGER_FLEXION_RANGE_FRACTION.high,
+        'the same claim in the units the layer authors in — a fraction of the resting curl' );
+
+    gate( 'index flexion range / rest (worst high)', Math.max( ...flexionFractions ),
+        FINGER_FLEXION_RANGE_FRACTION.low, FINGER_FLEXION_RANGE_FRACTION.high,
+        'ceiling: past about half its resting curl a hand is opening and closing, not idling' );
+
+    gate( 'finger power in 8-12 Hz tremor band (%)', Math.max( ...tremorPercents ), 0, 1,
+        'travel bought by buzzing reads as illness; relaxed fingers drift' );
+
+    gate( 'same-hand index/middle r', Math.min( ...togetherness ), 0.50, 1.0,
+        'a relaxed hand moves as a loose unit, not as five independent digits' );
+
+}
+
+/**
+ * Known-bad input for the gate above, and the strongest form of LEARNINGS §1.1 available here:
+ * the known-bad is **the code as it shipped**.
+ *
+ * Remove HandIdle and BodyIdle's own finger drift comes back — 0.45° of peak deviation at a
+ * knuckle, which is what the blind judge watched for seven minutes and reported as "THE HANDS
+ * NEVER MOVE". If the articulation gate is worth anything it must reject that, and it must reject
+ * it by a wide margin rather than by a whisker.
+ */
+function gateHandArticulationRejectsTheShippedFingers() {
+
+    section( '2.7  HAND ARTICULATION — known-bad input: the finger idle as it shipped' );
+
+    const stature = new Box3().setFromObject( figure.root );
+    const pixelsPerMillimetre =
+        FULL_BODY_CAPTURE_PIXELS / ( ( stature.max.y - stature.min.y ) * BODY_FRAME_MARGIN * 1000 );
+
+    const travelPixels = [];
+    const flexionFractions = [];
+
+    for ( const seed of LIMB_SEEDS ) {
+
+        const trace = traceLimbs( seed, LIMB_WINDOW_SECONDS, { handIdle: false } );
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            travelPixels.push( peakToPeakResultant( trace[ side ].fingertipInHandFrame ) * pixelsPerMillimetre );
+            flexionFractions.push( range( trace[ side ].indexFlexionDegrees ) / mean( trace[ side ].indexFlexionDegrees ) );
+
+        }
+
+    }
+
+    const worstCase = Math.max( ...travelPixels );
+
+    note( 'shipped fingers, travel (px)', worstCase.toFixed( 3 ),
+        'best of every side and seed, so the rejection is not luck' );
+
+    note( 'shipped fingers, flexion / rest', Math.max( ...flexionFractions ).toFixed( 4 ),
+        `against the ${ FINGER_FLEXION_RANGE_FRACTION.low } floor` );
+
+    gate( 'shipped fingers are REJECTED', worstCase < FINGERTIP_TRAVEL_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        `${ worstCase.toFixed( 2 ) } px must fall under the ${ FINGERTIP_TRAVEL_FLOOR_PIXELS } px floor` );
+
+    gate( 'rejection margin (floor / measured)', FINGERTIP_TRAVEL_FLOOR_PIXELS / worstCase, 3, 1e4,
+        'a gate that rejects the defect by a whisker is a gate that will drift back through it' );
+
+}
+
+// --- limb measurement --------------------------------------------------------------------------
+
+/**
+ * Runs the arm and hand layers the way an application does, and records what each side did.
+ *
+ * The stack is the consumer's, not a single layer in isolation: `Sway` is in it because the arms
+ * answer a weight shift through `onWeightShift`, and `IdleMotion` because its 'auto' arm yield is
+ * part of what decides who drives what. LEARNINGS §1.5 — a gate measured on a configuration no
+ * consumer would construct proved nothing once already in this file.
+ *
+ * The rest pose goes on BEFORE the stack binds, which is the whole trick and is what alive.js
+ * does: every layer snapshots rest from whatever pose the bones are in at bind time.
+ *
+ * @param {number} seed
+ * @param {number} seconds
+ * @param {Object} options
+ * @param {boolean} options.handIdle - false leaves BodyIdle's shipped finger drift in charge.
+ * @param {'oneSided'|'mirrored'|null} [options.armDefect=null] - Injects a known-bad arm layer.
+ */
+function traceLimbs( seed, seconds, { handIdle, armDefect = null } ) {
+
+    restoreRestPose();
+
+    const skeleton = new Skeleton( figure.root );
+    RestPose.load( CONSUMER_REST_POSE ).applyTo( skeleton );
+    skeleton.update();
+    figure.root.updateMatrixWorld( true );
+
+    const stack = new MotionStack( { seed } );
+    stack.bind( createMotionTarget( figure.root ) );
+
+    const bodyIdle = new BodyIdle();
+
+    stack.add( new Sway( { onWeightShift: ( shift ) => bodyIdle.onWeightShift( shift ) } ) );
+    stack.add( new IdleMotion( { armsEnabled: 'auto' } ) );
+    stack.add( bodyIdle );
+
+    if ( handIdle ) stack.add( new HandIdle() );
+    if ( armDefect !== null ) stack.add( createArmDefect( armDefect ) );
+
+    const sides = {
+        left: createLimbTrace( 'left' ),
+        right: createLimbTrace( 'right' )
+    };
+
+    const handInverse = new Matrix4();
+
+    for ( let frame = 0; frame < seconds * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+        figure.root.updateMatrixWorld( true );
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const trace = sides[ side ];
+
+            for ( const joint of trace.joints ) {
+
+                const degrees = angleBetweenDegrees( joint.bone.quaternion, joint.rest );
+
+                joint.degrees.push( degrees );
+
+                // Signed by the x component, the same convention measureIdleMotion uses: an
+                // unsigned angle folds every cycle in half, which is harmless for an energy RMS
+                // and ruins a correlation. Energy is measured on the folded series the bound was
+                // calibrated against; phase is measured on this one.
+                joint.signedDegrees.push( degrees * ( joint.bone.quaternion.x >= joint.rest.x ? 1 : -1 ) );
+
+            }
+
+            trace.handPosition.push( worldPositionOf( trace.hand ) );
+
+            // In the HAND's frame: the arm carrying the hand around the scene is divided out and
+            // what is left is articulation. A world-space fingertip is dominated by postural sway.
+            handInverse.copy( trace.hand.matrixWorld ).invert();
+            trace.fingertipInHandFrame.push( worldPositionOf( trace.fingertip ).applyMatrix4( handInverse ) );
+
+            trace.indexFlexionDegrees.push( chainFlexionDegrees( trace.indexChain ) );
+            trace.middleFlexionDegrees.push( chainFlexionDegrees( trace.middleChain ) );
+
+        }
+
+    }
+
+    stack.dispose();
+
+    return sides;
+
+}
+
+function createLimbTrace( side ) {
+
+    const boneOf = ( humanoidName ) => figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE[ humanoidName ] );
+
+    const capitalised = side === 'left' ? 'left' : 'right';
+
+    const joints = [ 'Shoulder', 'UpperArm', 'LowerArm', 'Hand' ].map( ( name ) => {
+
+        const bone = boneOf( `${ capitalised }${ name }` );
+
+        return { label: name, bone, rest: bone.quaternion.clone(), degrees: [], signedDegrees: [] };
+
+    } );
+
+    return {
+        side,
+        joints,
+        hand: boneOf( `${ capitalised }Hand` ),
+        fingertip: boneOf( `${ capitalised }IndexDistal` ),
+        indexChain: [ 'Hand', 'IndexProximal', 'IndexIntermediate', 'IndexDistal' ].map( ( n ) => boneOf( `${ capitalised }${ n }` ) ),
+        middleChain: [ 'Hand', 'MiddleProximal', 'MiddleIntermediate', 'MiddleDistal' ].map( ( n ) => boneOf( `${ capitalised }${ n }` ) ),
+        handPosition: [],
+        fingertipInHandFrame: [],
+        indexFlexionDegrees: [],
+        middleFlexionDegrees: []
+    };
+
+}
+
+/**
+ * Total flexion along a finger, in degrees: the angle between successive segment directions,
+ * summed over the two joints that have a successor to measure against.
+ *
+ * Measured as GEOMETRY rather than as a quaternion off rest, because that is the quantity the
+ * amplitude is a fraction of and the quantity a viewer sees — and because it is comparable across
+ * rigs, where a bone-local quaternion is not.
+ */
+function chainFlexionDegrees( bones ) {
+
+    const points = bones.map( worldPositionOf );
+
+    let total = 0;
+
+    for ( let index = 0; index < points.length - 2; index ++ ) {
+
+        const before = points[ index + 1 ].clone().sub( points[ index ] ).normalize();
+        const after = points[ index + 2 ].clone().sub( points[ index + 1 ] ).normalize();
+
+        total += Math.acos( Math.min( Math.max( before.dot( after ), -1 ), 1 ) ) * 180 / Math.PI;
+
+    }
+
+    return total;
+
+}
+
+/**
+ * The trace reduced to one symmetric ratio per channel: whichever side is larger goes on top, so
+ * a bound can be stated once instead of as a two-sided band nobody reads correctly.
+ */
+function symmetricRatios( trace ) {
+
+    const ratios = {};
+
+    for ( let index = 0; index < trace.left.joints.length; index ++ ) {
+
+        const label = trace.left.joints[ index ].label.toLowerCase();
+
+        ratios[ label ] = symmetricRatio(
+            rootMeanSquare( trace.left.joints[ index ].degrees ),
+            rootMeanSquare( trace.right.joints[ index ].degrees ) );
+
+    }
+
+    ratios.handPosition = symmetricRatio(
+        resultantRootMeanSquare( trace.left.handPosition ),
+        resultantRootMeanSquare( trace.right.handPosition ) );
+
+    ratios.fingertip = symmetricRatio(
+        resultantRootMeanSquare( trace.left.fingertipInHandFrame ),
+        resultantRootMeanSquare( trace.right.fingertipInHandFrame ) );
+
+    return ratios;
+
+}
+
+/**
+ * The same trace reduced to one left-against-right Pearson r per channel — PHASE, where the
+ * ratios above are ENERGY. Two arms can be perfectly matched in energy and still wrong, if they
+ * are matched by being the same signal.
+ */
+function leftRightCorrelations( trace ) {
+
+    const correlations = {};
+
+    for ( let index = 0; index < trace.left.joints.length; index ++ ) {
+
+        const label = trace.left.joints[ index ].label.toLowerCase();
+
+        correlations[ label ] = pearson(
+            trace.left.joints[ index ].signedDegrees,
+            trace.right.joints[ index ].signedDegrees );
+
+    }
+
+    correlations.fingerFlexion = pearson( trace.left.indexFlexionDegrees, trace.right.indexFlexionDegrees );
+
+    return correlations;
+
+}
+
+function symmetricRatio( a, b ) {
+
+    if ( a === 0 && b === 0 ) return 1;
+    if ( a === 0 || b === 0 ) return Infinity;
+
+    return Math.max( a / b, b / a );
+
+}
+
+/**
+ * The two injected arm defects, one per half of the symmetry contract.
+ *
+ *   'oneSided' drives ONE upper arm and nothing else — the energy imbalance the judge reported.
+ *   'mirrored' drives BOTH upper arms from the SAME noise stream — energy stays matched and the
+ *     phase collapses, which is the failure the decorrelation gate exists for and the one a naive
+ *     "fix" for the energy gate would introduce.
+ *
+ * Having both matters more than having either. They prove the two gates are independent: the
+ * mirrored defect passes the ratio gate and fails the correlation gate, so neither can be traded
+ * for the other by a future change trying to make one of them green.
+ *
+ * Both are built out of the same materials as the real thing — a coherent-noise stream on the same
+ * joint at the same Improv rate — so what is rejected is the property under test and not something
+ * structurally alien that could be rejected for the wrong reason.
+ *
+ * The class lives inside this function rather than beside the other declarations at the foot of
+ * the file because the top-level gate calls run before that point is evaluated, and a class
+ * declaration — unlike a function declaration — is in its temporal dead zone until then. A
+ * function is the one form that is hoisted, so the fixture stays where its explanation is.
+ */
+function createArmDefect( mode ) {
+
+    const bones = mode === 'mirrored'
+        ? [ HUMANOID_TO_FIGURE_BONE.leftUpperArm, HUMANOID_TO_FIGURE_BONE.rightUpperArm ]
+        : [ HUMANOID_TO_FIGURE_BONE.leftUpperArm ];
+
+    return new ( class extends Layer {
+
+        constructor() {
+
+            super( {
+                name: 'armDefect',
+                order: MOTION_ORDER.SWAY + 80,
+                boneChannels: bones
+            } );
+
+            this.elapsedSeconds = 0;
+            this.noise = null;
+            this.restFrames = new Map();
+            this.scratchRig = new Quaternion();
+            this.scratchDelta = new Quaternion();
+            this.axis = new Vector3( 1, 0, 0 );
+
+        }
+
+        onBind( context ) {
+
+            // ONE stream for however many bones. That is the whole point of the mirrored variant.
+            this.noise = new CoherentNoise1D( this.random.integer( 0, 0x7fffffff ), 256 );
+
+            for ( const boneName of bones ) {
+
+                this.restFrames.set( boneName, restRotationRelativeToRig( context.target.getBone( boneName ) ) );
+
+            }
+
+        }
+
+        update( deltaSeconds ) {
+
+            this.elapsedSeconds += deltaSeconds;
+
+            // Calibrated so the MEASURED ratio lands on the judge's 2.5, rather than picked to
+            // look like it should. Swept on this stack over the same six seeds: 3° gives
+            // 1.40–1.59, 4° gives 1.77–1.97, 5° gives 2.16–2.44, 6° gives 2.54–2.93, 7° gives
+            // 2.93–3.43. The relationship is nowhere near 1:1 with the ratio, because this adds
+            // in quadrature on top of BodyIdle's own 2° shoulder and a coherent-noise signal's
+            // RMS is about 0.23 of its peak — which is exactly why the number was measured.
+            const peak = 6.0 * Math.PI / 180;
+
+            this.scratchRig.setFromAxisAngle( this.axis, peak * this.noise.at( this.elapsedSeconds ) );
+
+            for ( const boneName of bones ) {
+
+                toBoneDeltaFrame( this.scratchRig, this.restFrames.get( boneName ), this.scratchDelta );
+
+                this.contribution.rotateBone( boneName, this.scratchDelta );
+
+            }
+
+            return this.contribution;
+
+        }
+
+        reset() {
+
+            this.elapsedSeconds = 0;
+
+        }
+
+    } )();
 
 }
 
