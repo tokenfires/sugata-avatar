@@ -250,6 +250,25 @@ const PLANTED_VERTICAL_LIMIT_MM = 0.05;
 const SOLE_TILT_LIMIT_DEGREES = 0.02;
 
 /**
+ * How far the toe joint may sit from where the released turn-out says it should, in millimetres.
+ *
+ * This is a closure residual on exact arithmetic — the layer rotates the foot rigidly about the
+ * vertical and reports the angle, so the prediction and the rig are computing the same thing twice.
+ * A twentieth of a millimetre is the same allowance the vertical planting limit uses and three
+ * orders of magnitude below the 6.0 mm arc the free foot actually travels, so a foot that slid
+ * instead of pivoting cannot fit inside it.
+ */
+const PLANTED_YAW_RESIDUAL_LIMIT_MM = 0.05;
+
+/**
+ * Rig up, for reconstructing the foot's turn-out and for stating what "flat on the floor" means.
+ * `Sway.js` states the same axis convention. Two names for one vector because they are two claims:
+ * the axis the free foot is allowed to turn about, and the direction a planted sole must face.
+ */
+const RIG_UP_AXIS = new Vector3( 0, 1, 0 );
+const WORLD_UP = new Vector3( 0, 1, 0 );
+
+/**
  * How far the head-per-centre-of-mass ratio the layer MEASURES may sit from the rig's own raw
  * geometry ratio — head height above the pivot, over centre-of-mass height above the pivot.
  *
@@ -272,6 +291,90 @@ const HEAD_PER_CENTRE_OF_MASS_TOLERANCE = 0.06;
  * righting that silently stopped being applied cannot hide inside it.
  */
 const LATERAL_RIGHTING_TOLERANCE = 0.01;
+
+/**
+ * 🎯 How far the head's REALISED lateral travel may sit from the centre of mass's, measured on the
+ * trace rather than read off the layer.
+ *
+ * `LATERAL_RIGHTING_TOLERANCE` above gates the same ratio at 1%, and it is not a substitute for this
+ * one: it reads `layer.headPerCentreOfMassLateral`, a bind-time probe of a single lean, so it can
+ * only ever catch a defect that originates in the solve. This is the same claim asked of the frame
+ * loop's own output — head displacement against the figure's own realised centre of mass, over
+ * twelve seeds of 900 s — so it also catches head travel lost to a neck-righting change, to another
+ * mechanism, or to a refactor that never touched the solve.
+ *
+ * Five per cent is derived, not chosen. The two mechanisms are solved to 1% each and mixing them
+ * across the posture clamp costs a little more: measured over the seed matrix the realised ratio
+ * spans 0.9904 to 1.0115, so 1.15% is the whole observed excursion and this leaves four times that
+ * as headroom for a differently-proportioned figure. It is still 16x tighter than the 0.182 a head
+ * with twice the righting scores, and 5x tighter than the 0.25 the reproduced constant defect
+ * scored, so nothing that parks the head fits inside it.
+ */
+const HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE = 0.05;
+
+/**
+ * 🚩 The band the head-over-pelvis ratio must land inside, and the reason it is a BAND.
+ *
+ * The ceiling is the pelvis-leads claim of §1.7d — medio-laterally the body loads a hip, so the
+ * pelvis travels furthest and the head must not out-travel it. That half was gated first and gated
+ * alone, and gating it alone was a §1.3 failure with a name attached: an independent verifier set
+ * `LATERAL_HEAD_PER_CENTRE_OF_MASS` to 0.30, producing a head moving 20.6% of the pelvis — a
+ * mannequin head nailed in space over a swaying body, the exact mirror of the defect the judge
+ * reported — and every one of these ratio gates scored it BETTER than the shipped model. A one-sided
+ * band on a ratio silently declares one direction to be free improvement.
+ *
+ * The floor is coarse ON PURPOSE and is not where the tight claim lives. The tight claim is
+ * `HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE`: the head goes where the centre of mass goes, to 5%. This
+ * floor exists so that nobody reading the band can conclude that smaller is better, and so that a
+ * parked head fails on the pelvis relationship as well as on the centre-of-mass one. Its value
+ * follows from the rig: the realised centre of mass travels 0.814-0.834 of the pelvis medio-
+ * laterally (RMS) and 0.825-0.832 (peak-to-peak), and the model parks the head ON the centre of
+ * mass, so the true ratio sits near 0.83. Half of that rejects the 0.206 the reproduced defect
+ * scored by 2.4x and the 0.116 an over-righted layer scores by 4.3x, without pretending to a
+ * precision this quantity does not have.
+ */
+const PELVIS_LEADS_FLOOR = 0.50;
+const PELVIS_LEADS_CEILING = 1.0;
+
+/**
+ * 🎯 The band the head-on-neck GAIN must land inside — the slope, which is what the correlation
+ * could not see.
+ *
+ * `pearson` answers "does the head-on-neck rotation oppose the trunk," and that sign was the judge's
+ * finding, so gating the sign was right. It is also scale-free, and that is the hole: a head nailed
+ * rigidly in space scores r = -1.000, the best mark the gate can award. The degenerate input got the
+ * top score on the gate written to catch its mirror image.
+ *
+ * The slope of the head's position-relative-to-the-neck on the neck's own displacement carries the
+ * magnitude the correlation throws away, and both of its bounds are structural rather than tuned.
+ * Head displacement is neck displacement plus head-on-neck displacement, so a slope of s gives a
+ * head that travels (1 + s) of the neck: s = 0 is no righting at all, the state the judge measured,
+ * and s = -1 is a head held perfectly still in space while the trunk moves under it. The honest band
+ * is therefore the interior of (-1, 0), and this takes the lower half of it — the neck may take back
+ * up to half of the trunk's lateral displacement, and must take back a measurable part of it.
+ *
+ * Measured on the shipped layer over twelve seeds of 900 s: -0.1165 to -0.0947, comfortably inside.
+ * An over-righted layer scores -0.654 and is rejected.
+ *
+ * ⚠️ AND THE MARGIN, STATED BECAUSE IT IS THIN. Against the reproduced constant defect this gate
+ * reads -0.507 to -0.531 — it catches it, but by 1.4% on the worst seed, and a differently-
+ * proportioned figure could plausibly move it across. This is NOT the gate that carries the claim;
+ * `HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE` rejects the same defect by 13x its tolerance. What this one
+ * adds is a different KIND of assertion — the neck's own gain, independent of where the centre of
+ * mass went — and it should be read as corroboration rather than as cover.
+ */
+const HEAD_ON_NECK_GAIN_BAND = [ -0.50, -0.01 ];
+
+/**
+ * How far the known-bad "parked head" layer over-drives the solved righting, in `measureTheOtherWay`.
+ *
+ * Measured across factors of 2, 4, 6 and 8: at 2 the head lands at 0.182 of the centre of mass and
+ * 0.116 of the pelvis, which is the defect — a head nailed in space over a body swaying under it,
+ * and a slightly harsher version of the 0.206 the reproduced constant defect produced. Past 4 the
+ * head crosses over and leans the OTHER way (head/COM 4.64 at x4, 31.5 at x6), which is a different
+ * defect and would prove the gates against the wrong thing.
+ */
+const PARKED_HEAD_RIGHTING_FACTOR = 2;
 
 /**
  * The legibility run, and the three thresholds it is stated against.
@@ -315,6 +418,81 @@ const FIDGET_DUTY_CYCLE_PERCENT = 3.0;
 const TOE_TRACE_SECONDS = 900;
 const TOE_LIFT_FLOOR_MM = 1.0;
 const TOE_BAND_HEIGHT_METRES = 0.03;
+
+/**
+ * 🎯 THE FREE-FOOT ARTICULATION FLOOR, in pixels of silhouette travel at full-body framing, and the
+ * gate this whole round exists because nobody had written.
+ *
+ * The section above it is the record of how a gate can be honest, precise, green, and still measure
+ * something no viewer can see. `TOE_LIFT_FLOOR_MM = 1.0` is a millimetre — **0.66 px** at the
+ * framing every capture in this project is taken at — asserted on the rise of the single LOWEST
+ * skinned vertex forward of one metatarsal head. The layer cleared it at 1.484 mm and the gate went
+ * green for a round, while an independent verifier measuring the same feet on 4200 rendered frames
+ * found the foot band's outer-to-outer silhouette extent had a standard deviation of **0.00 px** and
+ * called the feet welded. Both measurements are correct. Only one of them is about the defect.
+ *
+ * LEARNINGS §1.10b named this failure mode already, on the finger idle, in the same words: an
+ * amplitude stated in a unit nobody can picture will pass every review it is given. It named it and
+ * the toe constant was authored in degrees anyway, three weeks of project time later, on the same
+ * body. So this gate is stated in the unit the defect will be judged in, at a named framing, with
+ * the conversion printed beside the result.
+ *
+ * 3.0 px is the same floor `idle-motion.selftest.mjs` uses for the fingertips and it is taken for
+ * the same reason rather than re-derived: docs/PROGRESS.md records 1.6 px at this framing as
+ * producing before-and-after plates that were *indistinguishable*, and a little under twice a
+ * known-invisible figure is the least that can honestly be called visible. It is a judgement about a
+ * rendered avatar and nothing more; there is no published free-foot excursion in docs/research/ and
+ * none is invented here.
+ *
+ * ⚠️ Asserted on BOTH feet, which is the other half of the finding. The toe lift was real and it
+ * only ever fired on the character's right foot within the 420 s the judge watched: measured over
+ * five seeds, the first full transfer onto the RIGHT leg arrives at 40-592 s and on seed 1 — the
+ * capture's own seed — not until 434 s, fourteen seconds after the clip ends. A gate that reads one
+ * foot cannot see that.
+ */
+const FREE_FOOT_TRAVEL_FLOOR_PIXELS = 3.0;
+
+/**
+ * 🚩 The same claim on the statistic the verifier actually reported, at a DELIBERATELY WEAKER floor.
+ *
+ * Outer-to-outer extent is the headline number in the defect report — sd 0.00 px over 4200 frames —
+ * so it is gated here rather than only quoted, because a number that appears in a finding and not in
+ * a gate is a number nobody will check again. It is a weaker statistic than the toe region and the
+ * floor says so: a foot pivoting about its own ankle swings its toe furthest and its extreme
+ * silhouette edge least, and the shipped fix measures 4.6-5.5 px at the toe against 2.7 px of extent.
+ * Setting this at 3.0 as well would be asserting the same sensitivity from two statistics that do not
+ * have it.
+ *
+ * 1.6 px is not a judgement, it is the one empirical datum this project owns on the subject:
+ * docs/PROGRESS.md records a weight shift worth 1.6 px at this framing producing before-and-after
+ * plates that were *indistinguishable*. So this floor claims exactly one thing — that the silhouette
+ * is no longer inside the band this project has measured as invisible — and nothing more.
+ */
+const SILHOUETTE_WIDTH_FLOOR_PIXELS = 1.6;
+
+/**
+ * The framing every full-body capture in this project is taken at, and the camera it is taken from.
+ *
+ * 1200 px is the capture command in docs/LEARNINGS.md Part 3 (`--width 700 --height 1200`); the 1.10
+ * margin and the 12 degrees of azimuth are `BODY_FRAME_MARGIN` and `CAMERA_AZIMUTH_DEGREES` in
+ * `packages/testbed/src/alive.js`. Stature is measured off this GLB rather than assumed, because the
+ * five bakes differ by centimetres. Identical to `idle-motion.selftest.mjs`'s framing block, which
+ * is the file that first had to state one.
+ *
+ * The azimuth is here because feet are the one place it changes the answer. A hand's idle is
+ * lateral, so the projection costs it nothing; a foot's turn-out swings the toe both sideways and
+ * fore-and-aft, and the fore-and-aft half is nearly pure depth to a camera 12 degrees off the axis.
+ * Projecting properly rather than taking the world-space resultant costs this gate about a third of
+ * its own measurement, and reporting the larger number would be reporting travel the camera cannot
+ * see.
+ */
+const FULL_BODY_CAPTURE_PIXELS = 1200;
+const BODY_FRAME_MARGIN = 1.10;
+const CAMERA_AZIMUTH_DEGREES = 12;
+
+/** The seed and window the free-foot gate runs at. Every seed tried reaches both transfers by 900 s. */
+const FREE_FOOT_SEED = 1;
+const FREE_FOOT_SECONDS = 900;
 
 /** The other-way run only has to reach one full weight transfer, so it is short. */
 const TOE_OTHER_WAY_SECONDS = 900;
@@ -432,6 +610,7 @@ measureHeadExcursion( traces );
 measureHeadParked( traces );
 measureEventLegibility();
 measureToeArticulation();
+measureFreeFootArticulation();
 measureAmplitudeDistribution();
 measureSegmentPaths( traces );
 measurePendulumGeometry();
@@ -551,9 +730,11 @@ function measureRig() {
  * The commanded signals are stored as flat arrays rather than vectors because there are six of them
  * per frame across twelve 900 s traces, and that is 4 million numbers whichever way it is written.
  */
-function traceSway( seed, seconds, options = {} ) {
+function traceSway( seed, seconds, options = {}, afterBind = null ) {
 
     const { stack, layer, root } = buildStack( seed, options );
+
+    if ( afterBind !== null ) afterBind( layer );
 
     const bones = new Map( MARKERS.map( ( marker ) => [ marker.key, root.getObjectByName( marker.bone ) ] ) );
     const samples = new Map( MARKERS.map( ( marker ) => [ marker.key, [] ] ) );
@@ -580,18 +761,39 @@ function traceSway( seed, seconds, options = {} ) {
 
     }
 
+    // 🚩 The SOLE's NORMAL, not the foot's rotation. See soleTiltDegrees below for why that
+    // distinction is the whole gate. Resolved in each foot's OWN frame, where it is a constant.
     for ( const key of [ 'ankleLeft', 'ankleRight' ] ) {
 
-        restSoleRotations.set( key, bones.get( key ).getWorldQuaternion( new Quaternion() ) );
+        restSoleRotations.set( key, soleNormalInBoneFrame( bones.get( key ), new Vector3() ) );
 
     }
 
     const restCentreOfMass = bodyMass.centreOfMass( new Vector3() );
     const centreOfMass = new Vector3();
-    const soleRotation = new Quaternion();
+    const soleNormal = new Vector3();
 
+    /**
+     * 🚩 THE ANGLE THE SOLE'S NORMAL HAS TURNED THROUGH, which is not what this used to measure.
+     *
+     * It used to take the angle between the foot bone's world quaternion and its rest quaternion —
+     * the TOTAL rotation, on a gate named "sole tilt" and tolerated at 0.02 degrees. Those are two
+     * different quantities and the difference is exactly the defect this round is about: a foot
+     * turning out on the floor is a rotation about the vertical, which changes the total rotation by
+     * degrees and tilts the sole by nothing at all. The old form therefore forbade the one motion a
+     * free foot is allowed to make, in the name of a floor constraint that has no opinion about it,
+     * and it passed for two rounds because nothing was releasing that rotation. §1.7e: a gate can
+     * encode the defect it was written to catch.
+     *
+     * The normal is the foot bone's own +Y in world space. Tracking it answers the question the gate
+     * is named for — is the sole still parallel to the floor — and says nothing whatever about yaw.
+     */
     let soleTiltDegrees = 0;
     let stanceBlendPeak = 0;
+
+    // The turn-out each foot's own unloading released this frame, in radians. Recorded so the
+    // planting section can subtract the arc it accounts for rather than forbidding it.
+    const footYaw = { left: [], right: [] };
 
     for ( let frame = 0; frame < frames; frame ++ ) {
 
@@ -607,11 +809,14 @@ function traceSway( seed, seconds, options = {} ) {
 
         for ( const key of [ 'ankleLeft', 'ankleRight' ] ) {
 
-            bones.get( key ).getWorldQuaternion( soleRotation );
+            soleNormalOf( bones.get( key ), restSoleRotations.get( key ), soleNormal );
             soleTiltDegrees = Math.max( soleTiltDegrees,
-                angleBetweenDegrees( soleRotation, restSoleRotations.get( key ) ) );
+                angleBetweenVectorsDegrees( soleNormal, WORLD_UP ) );
 
         }
+
+        footYaw.left.push( layer.footYawRadians.left );
+        footYaw.right.push( layer.footYawRadians.right );
 
         bodyMass.centreOfMass( centreOfMass );
 
@@ -641,7 +846,7 @@ function traceSway( seed, seconds, options = {} ) {
 
     stack.dispose();
 
-    return { seed, samples, signals, restPositions, soleTiltDegrees, stanceBlendPeak, geometry,
+    return { seed, samples, signals, restPositions, soleTiltDegrees, stanceBlendPeak, geometry, footYaw,
         layerHeadPerCentreOfMassLateral: layer.headPerCentreOfMassLateral };
 
 }
@@ -973,28 +1178,70 @@ function measureHeadExcursion( traces ) {
  * exactly the right number of millimetres into every marker and still distribute them up the body
  * the wrong way round, and that is precisely what a viewer notices first.
  *
- * So this section gates three relationships, all on `new Sway()` as constructed:
+ * 🚩🚩 AND THEN THE GATES WRITTEN TO CLOSE THAT WERE ONE-SIDED, WHICH IS §1.3 REAPPEARING INSIDE THE
+ * FIX FOR §1.11. An independent verifier set `LATERAL_HEAD_PER_CENTRE_OF_MASS` to 0.30 and ran this
+ * file. That is a head moving 20.6% of the pelvis — a mannequin head nailed in space over a body
+ * that sways under it, the exact mirror of what the judge saw — and it scored BETTER than the
+ * shipped model on every ratio gate here, and took the best mark the correlation gate can award:
+ *
+ *     head / pelvis lateral RMS         0.206  target 0 .. 1.000   (shipped 0.843)
+ *     head / pelvis lateral p2p         0.205  target 0 .. 1.000   (shipped 0.832)
+ *     r(head-on-neck, neck)            -1.000  target -1 .. 0      (shipped -0.996)
+ *
+ * The three gates that did fail were the solve residuals, and they fail only because they read the
+ * constant that was changed. Head under-travel arriving from a neck-righting change, from another
+ * mechanism, or from a refactor would have been invisible. Two lessons, both already in LEARNINGS
+ * and both freshly earned here:
+ *
+ *   A RATIO HAS TWO FAILURE DIRECTIONS AND A ONE-SIDED BAND DECLARES ONE OF THEM FREE. "The pelvis
+ *   leads" does not exclude a head that has stopped moving, and neither does "the head is
+ *   stabilised" — a head bolted to the world is maximally stabilised.
+ *
+ *   A CORRELATION IS SCALE-FREE, SO IT CANNOT GATE AN AMOUNT. r = -1 is what a perfectly parked head
+ *   scores. Anywhere the claim is about HOW MUCH one part answers another, the slope has to be gated
+ *   beside the sign. See `regressionSlope`.
+ *
+ * So this section now gates five relationships, all on `new Sway()` as constructed:
  *
  *   THE SOLVE CLOSED. Both lateral mechanisms are solved so the head lands where the centre of mass
  *   lands — see LATERAL_HEAD_PER_CENTRE_OF_MASS — and this asserts the solve's residual rather than
  *   trusting it. Per side, because the contrapposto poses are asymmetric and one averaged angle
  *   parked one side and left the other overshooting by 10%.
  *
- *   THE PELVIS LEADS. Head over pelvis lateral travel, in RMS and peak-to-peak, over 12 seeds of
- *   900 s. Peak-to-peak as well as RMS because the defect lived in the peaks: the contrapposto
- *   saturates on 16-29% of frames and what it cannot deliver used to fall through to a rigid
- *   pendulum that moves the head 1.674x the centre of mass.
+ *   🎯 AND THE SOLVE'S CLAIM SURVIVED THE FRAME LOOP. The one above reads a bind-time probe off the
+ *   layer, so it can only catch a defect that originates in the solve; this reads the same ratio off
+ *   the TRACE — realised head displacement against the figure's own realised centre of mass, twelve
+ *   seeds of 900 s — and it is the gate the 0.30 experiment needed. It is two-sided at 1.00 ± 5%,
+ *   and it is stated twice on purpose: as an RMS ratio, which asks whether the head moved as far,
+ *   and as a regression slope, which asks whether it moved WITH the centre of mass. A head carrying
+ *   independent noise of the right amplitude passes the first and fails the second.
+ *
+ *   THE PELVIS LEADS — AND THE HEAD HAS NOT STOPPED. Head over pelvis lateral travel, in RMS and
+ *   peak-to-peak, over 12 seeds of 900 s, now inside a BAND. Peak-to-peak as well as RMS because the
+ *   original defect lived in the peaks: the contrapposto saturates on 16-29% of frames and what it
+ *   cannot deliver used to fall through to a rigid pendulum that moves the head 1.674x the centre of
+ *   mass. See PELVIS_LEADS_FLOOR for why the floor is coarse and where the tight claim lives.
  *
  *   THE HEAD IS STABILISED. The sign of the correlation between the head's position RELATIVE TO THE
  *   NECK and the neck's own displacement. Negative means the head-on-neck rotation opposes the trunk
  *   — which is what head stabilisation in space IS — and positive means it adds to it. This is the
  *   judge's own measurement, reproduced offline so it can be gated without a video capture.
  *
- * ⚠️ AND THE LIMIT, BECAUSE §1.9 REQUIRES IT. These three run on THIS LAYER, not on the stack the
+ *   🎯 BY THE RIGHT AMOUNT. The slope of the same pair, banded strictly inside (-1, 0): 0 is no
+ *   righting, -1 is a head held still in space while the trunk moves under it. See
+ *   HEAD_ON_NECK_GAIN_BAND.
+ *
+ * ⚠️ AND THE LIMIT, BECAUSE §1.9 REQUIRES IT. These all run on THIS LAYER, not on the stack the
  * judge watched. Measured on the full `alive.js` stack the head/pelvis peak-to-peak ratio is 1.40
  * and the correlation is +0.11; with `gaze.head` removed and nothing else changed they are 1.07 and
  * -0.94. The remaining defect is a layer this file does not own and cannot gate, and saying so is
  * the point: what is asserted here is that Sway is not the one adding to the head.
+ *
+ * ⚠️ AND A SECOND LIMIT. The centre of mass these gates compare the head against is `BodyMass`'s,
+ * computed from the same posed rig, so this is a check that the layer's two mechanisms distribute a
+ * displacement up the body correctly — NOT an independent check that the displacement itself is the
+ * right size. That claim belongs to the balance-band and composite sections, which gate amplitudes
+ * against Quijoux and Bates.
  */
 function measureHeadParked( traces ) {
 
@@ -1031,15 +1278,18 @@ function measureHeadParked( traces ) {
     const rmsRatios = [];
     const peakRatios = [];
     const correlations = [];
+    const neckGains = [];
+    const headPerCentreOfMass = [];
+    const headOnCentreOfMassSlopes = [];
 
     console.log( '' );
-    console.log( '        seed   head/pelvis RMS   head/pelvis p2p   r(head-on-neck, neck)' );
+    console.log( '        seed   head/pelvis RMS   head/pelvis p2p   r(head-on-neck, neck)   ' +
+        'neck gain   head/COM RMS' );
 
     for ( const trace of traces ) {
 
-        const head = trace.samples.get( 'head' ).map( ( point ) => point.x );
-        const neck = trace.samples.get( 'neck' ).map( ( point ) => point.x );
-        const pelvis = trace.samples.get( 'pelvis' ).map( ( point ) => point.x );
+        const relative = lateralDisplacements( trace );
+        const { head, neck, pelvis, centreOfMass } = relative;
 
         // The head's position relative to the neck is what the head-on-neck rotation produces, and
         // it is the only part of the head's motion the neck can be said to stabilise.
@@ -1048,30 +1298,99 @@ function measureHeadParked( traces ) {
         const rmsRatio = rootMeanSquare( head ) / rootMeanSquare( pelvis );
         const peakRatio = peakToPeak( head ) / peakToPeak( pelvis );
         const correlation = pearson( headOnNeck, neck );
+        const neckGain = regressionSlope( neck, headOnNeck );
+        const headOverCom = rootMeanSquare( head ) / rootMeanSquare( centreOfMass );
 
         rmsRatios.push( rmsRatio );
         peakRatios.push( peakRatio );
         correlations.push( correlation );
+        neckGains.push( neckGain );
+        headPerCentreOfMass.push( headOverCom );
+        headOnCentreOfMassSlopes.push( regressionSlope( centreOfMass, head ) );
 
         console.log( `  ${ String( trace.seed ).padStart( 10 ) }   ${ rmsRatio.toFixed( 4 ).padStart( 15 ) }   ` +
-            `${ peakRatio.toFixed( 4 ).padStart( 15 ) }   ${ correlation.toFixed( 4 ).padStart( 21 ) }` );
+            `${ peakRatio.toFixed( 4 ).padStart( 15 ) }   ${ correlation.toFixed( 4 ).padStart( 21 ) }   ` +
+            `${ neckGain.toFixed( 4 ).padStart( 9 ) }   ${ headOverCom.toFixed( 4 ).padStart( 12 ) }` );
 
     }
 
     console.log( '' );
 
-    gate( 'head / pelvis lateral RMS, worst seed', Math.max( ...rmsRatios ), 0, 1.0,
+    // 🎯 THE GATE THE 0.30 EXPERIMENT NEEDED, and the one that would have caught it whatever had
+    // caused it. Both directions, because the head lands ON the centre of mass — not at most on it.
+    gate( 'head / COM lateral RMS, lowest seed', Math.min( ...headPerCentreOfMass ),
+        1 - HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, 1 + HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE,
+        'a head parked in space scores 0.18-0.25 here; a rigid pendulum scores 1.674' );
+    gate( 'head / COM lateral RMS, highest seed', Math.max( ...headPerCentreOfMass ),
+        1 - HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, 1 + HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, '' );
+
+    // Amplitude is not tracking: a head carrying independent noise of exactly the right size passes
+    // the ratio above and fails this one.
+    gate( 'slope of head on COM, lowest seed', Math.min( ...headOnCentreOfMassSlopes ),
+        1 - HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, 1 + HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE,
+        'the head must move WITH the centre of mass, not merely as far' );
+    gate( 'slope of head on COM, highest seed', Math.max( ...headOnCentreOfMassSlopes ),
+        1 - HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, 1 + HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, '' );
+
+    gate( 'head / pelvis lateral RMS, worst seed', Math.max( ...rmsRatios ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING,
         'pelvis-leads. The judge measured 1.34 on screen; this layer alone measured 1.02 before the fix' );
 
-    gate( 'head / pelvis lateral peak-to-peak, worst seed', Math.max( ...peakRatios ), 0, 1.0,
+    gate( 'head / pelvis lateral RMS, lowest seed', Math.min( ...rmsRatios ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING,
+        'the floor half: a head that has stopped moving is not a head that leads less' );
+
+    gate( 'head / pelvis lateral peak-to-peak, worst seed', Math.max( ...peakRatios ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING,
         'the peaks are where the pendulum fallback lived, and the peaks are what a viewer sees' );
+
+    gate( 'head / pelvis lateral peak-to-peak, lowest seed', Math.min( ...peakRatios ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING, '' );
 
     gate( 'head-on-neck vs neck displacement, worst correlation', Math.max( ...correlations ), -1, 0,
         'negative on EVERY seed: the head-on-neck rotation must oppose the trunk, not add to it' );
 
+    // 🚩 The correlation above awards a parked head -1.000, its best possible mark. This is the
+    // amount, which is the part a scale-free statistic cannot carry.
+    gate( 'head-on-neck gain, weakest seed', Math.max( ...neckGains ),
+        HEAD_ON_NECK_GAIN_BAND[ 0 ], HEAD_ON_NECK_GAIN_BAND[ 1 ],
+        'slope, not sign: 0 is no righting at all and -1 is a head held still in space' );
+
+    gate( 'head-on-neck gain, strongest seed', Math.min( ...neckGains ),
+        HEAD_ON_NECK_GAIN_BAND[ 0 ], HEAD_ON_NECK_GAIN_BAND[ 1 ], '' );
+
     note( 'correlation range',
         `${ Math.min( ...correlations ).toFixed( 3 ) } to ${ Math.max( ...correlations ).toFixed( 3 ) }`,
         'the judge measured +0.10 on the full stack; see the limit note in this section\'s header' );
+
+    note( 'head / COM range', `${ Math.min( ...headPerCentreOfMass ).toFixed( 4 ) } to ` +
+        `${ Math.max( ...headPerCentreOfMass ).toFixed( 4 ) }`,
+        `the target is 1.0 exactly — LATERAL_HEAD_PER_CENTRE_OF_MASS — realised by the frame loop` );
+
+}
+
+/**
+ * The lateral displacement of the markers the head-parking gates relate to each other, all measured
+ * from the same rest pose so they are comparable, plus the figure's own realised centre of mass.
+ *
+ * 🚩 The centre of mass is already a DISPLACEMENT — `traceSway` stores it relative to the rest
+ * centre of mass — and the marker samples are absolute world positions. Subtracting the rest
+ * position from the markers is what puts all four in the same frame. RMS is blind to the offset and
+ * the ratio gates would not have noticed, but the regression slopes would have, and a helper that
+ * returns three of four series in one frame and the fourth in another is a trap for the next gate
+ * written against it.
+ */
+function lateralDisplacements( trace ) {
+
+    const lateralOf = ( key ) => trace.samples.get( key )
+        .map( ( point ) => point.x - trace.restPositions.get( key ).x );
+
+    return {
+        head: lateralOf( 'head' ),
+        neck: lateralOf( 'neck' ),
+        pelvis: lateralOf( 'pelvis' ),
+        centreOfMass: Array.from( trace.signals.realisedMedioLateral )
+    };
 
 }
 
@@ -1303,6 +1622,17 @@ function measureToeArticulation() {
     gate( 'unloaded toe geometry rises (mm)', freeRise, TOE_LIFT_FLOOR_MM, Infinity,
         'measured on skinned vertices forward of the metatarsal head, not on the joint' );
 
+    // 🚩 THE SAME NUMBER IN THE UNIT THE DEFECT WAS JUDGED IN, printed rather than gated, because it
+    // does not clear the floor and saying so is the point. LEARNINGS §1.10b: an amplitude stated in
+    // a unit nobody can picture will pass every review it is given. This gate is honest, precise and
+    // green, and a millimetre of rise is 0.66 px at the framing every capture in this project is
+    // taken at — under half the 1.6 px this project has on record as indistinguishable. The toe lift
+    // is a real motion authored below the visibility floor, and the FREE FOOT section is what holds
+    // the claim it cannot.
+    note( 'the same rise, in pixels', ( freeRise * fullBodyFraming().pixelsPerMillimetre ).toFixed( 2 ),
+        `against the ${ FREE_FOOT_TRAVEL_FLOOR_PIXELS } px articulation floor — the toe lift alone ` +
+        'does not reach it, and the gate above cannot see that' );
+
     gate( 'loaded toe geometry does not move (mm)', stanceRise, 0, PLANTED_VERTICAL_LIMIT_MM,
         'the same tolerance the planting section uses; the loaded foot is still planted' );
 
@@ -1311,6 +1641,377 @@ function measureToeArticulation() {
         Math.min( restToes.left.lowest, restToes.right.lowest ) * 1000 - PLANTED_VERTICAL_LIMIT_MM, Infinity,
         'extension only: the toes can leave the floor and can never enter it. The allowance is the ' +
         'planting section\'s own 0.05 mm, because the loaded foot still rides the lean' );
+
+}
+
+/**
+ * 🎯 THE ARTICULATION GATE FOR THE FEET. Does a foot move enough for a viewer to see it?
+ *
+ * Stated in pixels of silhouette travel at the framing every capture in this project is taken at,
+ * because that is the question, and because the units the layer was authored in — a millimetre of
+ * rise at one vertex, 2.5 degrees at a metatarsal head — are what let a foot band whose outer-to-
+ * outer extent had a standard deviation of 0.00 px pass the section above it. See
+ * FREE_FOOT_TRAVEL_FLOOR_PIXELS.
+ *
+ * Three assertions, each catching a different way of being wrong:
+ *
+ *   FREE-FOOT TRAVEL, in pixels, ON BOTH FEET — the defect itself, and the half of it that a
+ *     one-sided measurement cannot see.
+ *   LOADED-FOOT TRAVEL, in the same pixels, with a CEILING — the foot carrying the body must stay
+ *     put, and this is the direction it is easy to buy travel in dishonestly.
+ *   OUTER-TO-OUTER EXTENT — the exact statistic the verifier measured on 4200 rendered frames and
+ *     found dead. Gated here so the number in the report and the number in the gate are the same
+ *     number.
+ *
+ * 🎯 MEASURED ON THE TOE REGION, which is this rig's fingertip. Tried the whole foot band first and
+ * it was the wrong instrument in both directions at once: the worst-moving vertex of the band is up
+ * at the ankle collar, whose skin is part-weighted to the shank and therefore moves 2.6 px on a foot
+ * that is doing nothing at all, while the band's extreme silhouette edge sits on the side of a
+ * toed-out foot and under-reads a pivot by half. Forward of the metatarsal head — the same band
+ * `toeGeometry` uses — is where a foot's articulation actually shows and where a 4x crop looks.
+ */
+function measureFreeFootArticulation() {
+
+    section( 'FREE FOOT — silhouette travel in pixels at full-body framing' );
+
+    const framing = fullBodyFraming();
+
+    note( 'full-body framing (mm / px per mm)',
+        `${ framing.framedHeightMillimetres.toFixed( 0 ) } / ${ framing.pixelsPerMillimetre.toFixed( 4 ) }`,
+        `measured stature x ${ BODY_FRAME_MARGIN } margin over a ${ FULL_BODY_CAPTURE_PIXELS } px capture, ` +
+        `camera ${ CAMERA_AZIMUTH_DEGREES } degrees off axis; alive.js and LEARNINGS Part 3` );
+
+    const shipped = freeFootTravelPixels( {}, framing );
+
+    if ( shipped.reachedBothTransfers === false ) {
+
+        gate( 'the trace loaded each leg in turn', 0, 1, 1,
+            `${ FREE_FOOT_SECONDS } s did not contain a full transfer both ways; nothing below means anything` );
+        return;
+
+    }
+
+    console.log( '        foot   released yaw(deg)   free toe(px)   loaded toe(px)' );
+
+    for ( const side of [ 'left', 'right' ] ) {
+
+        console.log( `  ${ side.padStart( 10 ) }   ${ shipped.yawDegrees[ side ].toFixed( 2 ).padStart( 14 ) }   ` +
+            `${ shipped.free[ side ].toFixed( 3 ).padStart( 12 ) }   ` +
+            `${ shipped.loaded[ side ].toFixed( 3 ).padStart( 13 ) }` );
+
+    }
+
+    console.log( '' );
+
+    note( 'outer-to-outer extent (px)',
+        `${ shipped.extentAtRest.toFixed( 1 ) } at rest, range ${ shipped.extentRangePixels.toFixed( 3 ) }`,
+        'the verifier measured this at sd 0.00 px over 4200 frames and called the feet welded' );
+
+    gate( 'free-foot toe travel (px, worse foot)', Math.min( shipped.free.left, shipped.free.right ),
+        FREE_FOOT_TRAVEL_FLOOR_PIXELS, 40,
+        'BOTH feet: the toe lift alone scores 1.89 px and, in the 420 s the judge watched, only ever ' +
+        'fired on one of them' );
+
+    gate( 'loaded-foot toe travel (px, worse foot)', Math.max( shipped.loaded.left, shipped.loaded.right ),
+        0, PLANTED_HORIZONTAL_LIMIT_MM * framing.pixelsPerMillimetre,
+        'the foot carrying the body stays put — the planting limit, in the same pixels' );
+
+    gate( 'the two feet articulate alike (ratio)',
+        Math.min( shipped.free.left, shipped.free.right ) / Math.max( shipped.free.left, shipped.free.right ),
+        0.5, 1.0,
+        'the poses are deliberately asymmetric, not asymmetric by a factor: an unmirrored hips yaw ' +
+        'in weight-right.json scored 0.16 here' );
+
+    gate( 'outer-to-outer extent range (px)', shipped.extentRangePixels,
+        SILHOUETTE_WIDTH_FLOOR_PIXELS, 40,
+        'the statistic the verifier measured; a silhouette whose width never changes reads as one object' );
+
+}
+
+/**
+ * Known-bad input for the gate above, and the strongest form of LEARNINGS §1.1 available here: the
+ * known-bad is THE CODE AS IT SHIPPED.
+ *
+ * Two configurations, because the round before this one fixed half the defect and the gate has to
+ * reject both halves. `freeFootYawRelease: 0` alone is the layer exactly as the verifier measured it
+ * — the toe lift running, everything else welded. Adding `toeLiftDegrees: 0` is the foot before the
+ * toe lift existed at all, which is the state the visual judge originally reported.
+ */
+function measureFreeFootTheOtherWay( framing ) {
+
+    const shipped = freeFootTravelPixels( { freeFootYawRelease: 0 }, framing );
+    const welded = freeFootTravelPixels( { freeFootYawRelease: 0, toeLiftDegrees: 0 }, framing );
+
+    note( 'toe lift alone, free toe travel (px)',
+        `${ shipped.free.left.toFixed( 3 ) } / ${ shipped.free.right.toFixed( 3 ) }`,
+        'the layer as the verifier measured it: 2.5 degrees of toe extension and nothing else' );
+
+    gate( 'the pixel gate REJECTS the toe lift alone',
+        Math.min( shipped.free.left, shipped.free.right ) < FREE_FOOT_TRAVEL_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        '1 means the gate caught it; 0 means a foot the judge called welded would pass' );
+
+    // ⚠️ REJECTED BY 1.6x AND NOT MORE, AND THAT IS THE POINT RATHER THAN A WEAKNESS. The toe lift
+    // is a real motion authored at half the floor; it is the marginal case, which is exactly why it
+    // took a judge with a 4x crop rather than a gate to find it. The welded foot below is the one
+    // that has to fail by orders of magnitude.
+    note( 'rejection margin, toe lift alone (floor / measured)',
+        ( FREE_FOOT_TRAVEL_FLOOR_PIXELS / Math.min( shipped.free.left, shipped.free.right ) ).toFixed( 2 ),
+        'the marginal known-bad; a real motion authored below the floor' );
+
+    gate( 'the extent gate REJECTS it too',
+        shipped.extentRangePixels < SILHOUETTE_WIDTH_FLOOR_PIXELS ? 1 : 0, 1, 1,
+        `outer-to-outer range ${ shipped.extentRangePixels.toFixed( 3 ) } px against a ${ SILHOUETTE_WIDTH_FLOOR_PIXELS } px floor` );
+
+    gate( 'rejection margin, welded foot (floor / measured)',
+        FREE_FOOT_TRAVEL_FLOOR_PIXELS / Math.max( welded.free.left, welded.free.right, 1e-6 ), 3, 1e9,
+        'the fully welded foot, which must fail by a wide margin rather than by a whisker' );
+
+    gate( 'the sole-tilt gate still REJECTS a tilted sole',
+        tiltedSoleIsRejected() ? 1 : 0, 1, 1,
+        'the tilt measurement was rewritten this round to ignore yaw; it must still see a real tilt' );
+
+}
+
+/**
+ * The full-body framing, measured off this GLB. One place, because three gates convert into it and
+ * a second opinion about the scale would make two of them silently disagree.
+ */
+function fullBodyFraming() {
+
+    const stature = new Box3().setFromObject( figure.root );
+    const framedHeightMillimetres = ( stature.max.y - stature.min.y ) * BODY_FRAME_MARGIN * 1000;
+    const azimuth = CAMERA_AZIMUTH_DEGREES * Math.PI / 180;
+
+    return {
+        framedHeightMillimetres,
+        pixelsPerMillimetre: FULL_BODY_CAPTURE_PIXELS / framedHeightMillimetres,
+        screenRight: new Vector3( Math.cos( azimuth ), 0, -Math.sin( azimuth ) )
+    };
+
+}
+
+/**
+ * How far each foot's own skinned silhouette travels on screen, in pixels, between quiet standing
+ * and a full weight transfer OFF it — and, for the same two configurations, how far it travels when
+ * the transfer is ON to it.
+ *
+ * Measured per vertex rather than on a centroid or an area, because those are the statistics that
+ * average a real motion away: a foot pivoting about its own ankle moves its heel one way and its toe
+ * the other, and its centroid barely at all. The worst-moving vertex of the band is what a viewer's
+ * eye lands on and what a 4x crop shows.
+ *
+ * The two poses are found by running the layer rather than by forcing a blend, because a blend that
+ * is never reached is not a behaviour. `reachedBothTransfers` says so if the window was too short.
+ */
+function freeFootTravelPixels( options, framing ) {
+
+    const { stack, layer, root } = buildStack( FREE_FOOT_SEED, options );
+
+    root.updateMatrixWorld( true );
+
+    const band = footBandVertices( root );
+    const rest = sampleFootBand( band, framing );
+
+    // A positive blend loads the LEFT leg, so it is the right foot that is free at that moment.
+    let leftFree = null;
+    let rightFree = null;
+
+    const yawDegrees = { left: 0, right: 0 };
+
+    for ( let frame = 0; frame < FREE_FOOT_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            yawDegrees[ side ] = Math.max(
+                yawDegrees[ side ], Math.abs( layer.footYawRadians[ side ] ) * 180 / Math.PI );
+
+        }
+
+        if ( leftFree !== null && rightFree !== null ) continue;
+        if ( layer.stanceBlend > -0.95 && layer.stanceBlend < 0.95 ) continue;
+
+        root.updateMatrixWorld( true );
+
+        if ( layer.stanceBlend >= 0.95 && rightFree === null ) rightFree = sampleFootBand( band, framing );
+        if ( layer.stanceBlend <= -0.95 && leftFree === null ) leftFree = sampleFootBand( band, framing );
+
+    }
+
+    stack.dispose();
+
+    if ( leftFree === null || rightFree === null ) return { reachedBothTransfers: false };
+
+    // Each snapshot names the foot that is FREE in it, so the other foot in the same snapshot is the
+    // one carrying the body — which is where the loaded-foot ceiling comes from, at no extra cost.
+    const extents = [ rest.extentPixels, leftFree.extentPixels, rightFree.extentPixels ];
+
+    return {
+        reachedBothTransfers: true,
+        yawDegrees,
+        free: {
+            left: worstToeTravel( rest, leftFree, 'left' ),
+            right: worstToeTravel( rest, rightFree, 'right' )
+        },
+        loaded: {
+            left: worstToeTravel( rest, rightFree, 'left' ),
+            right: worstToeTravel( rest, leftFree, 'right' )
+        },
+        extentAtRest: rest.extentPixels,
+        extentRangePixels: Math.max( ...extents ) - Math.min( ...extents )
+    };
+
+}
+
+/**
+ * Every skinned vertex at or below ankle height, split by side and tagged for whether it lies
+ * forward of that foot's metatarsal head — the foot, definitionally, and the same two rules
+ * `Sway.js` used to read this figure's footprint and `toeGeometry` uses to find its toes.
+ *
+ * Resolved once at rest and then followed by index, so the travel measurement compares each vertex
+ * against itself rather than against whichever vertex happens to be on the silhouette that frame.
+ */
+function footBandVertices( root ) {
+
+    const ankle = {
+        left: new Vector3().setFromMatrixPosition( root.getObjectByName( 'foot_l' ).matrixWorld ),
+        right: new Vector3().setFromMatrixPosition( root.getObjectByName( 'foot_r' ).matrixWorld )
+    };
+
+    const ball = {
+        left: new Vector3().setFromMatrixPosition( root.getObjectByName( 'ball_l' ).matrixWorld ),
+        right: new Vector3().setFromMatrixPosition( root.getObjectByName( 'ball_r' ).matrixWorld )
+    };
+
+    const ankleHeight = Math.max( ankle.left.y, ankle.right.y );
+    const vertex = new Vector3();
+    const sets = [];
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+        const found = { left: { indices: [], toe: [] }, right: { indices: [], toe: [] } };
+
+        for ( let index = 0; index < position.count; index ++ ) {
+
+            vertex.fromBufferAttribute( position, index );
+            object.applyBoneTransform( index, vertex );
+            object.localToWorld( vertex );
+
+            if ( vertex.y > ankleHeight ) continue;
+
+            const side = vertex.x >= 0 ? 'left' : 'right';
+
+            found[ side ].indices.push( index );
+            found[ side ].toe.push( vertex.z >= ball[ side ].z );
+
+        }
+
+        if ( found.left.indices.length + found.right.indices.length > 0 ) {
+
+            sets.push( { mesh: object, left: found.left, right: found.right } );
+
+        }
+
+    } );
+
+    return sets;
+
+}
+
+/** Every tracked vertex's screen position this frame, in pixels, in the order it was resolved in. */
+function sampleFootBand( band, framing ) {
+
+    const vertex = new Vector3();
+    const sample = { left: [], right: [], toe: { left: [], right: [] } };
+
+    let minimum = Infinity;
+    let maximum = -Infinity;
+
+    for ( const { mesh, left, right } of band ) {
+
+        const position = mesh.geometry.attributes.position;
+
+        for ( const [ side, set ] of [ [ 'left', left ], [ 'right', right ] ] ) {
+
+            set.indices.forEach( ( index, order ) => {
+
+                vertex.fromBufferAttribute( position, index );
+                mesh.applyBoneTransform( index, vertex );
+                mesh.localToWorld( vertex );
+
+                const x = vertex.dot( framing.screenRight ) * 1000 * framing.pixelsPerMillimetre;
+                const y = vertex.y * 1000 * framing.pixelsPerMillimetre;
+
+                sample[ side ].push( x, y );
+                sample.toe[ side ].push( set.toe[ order ] );
+
+                minimum = Math.min( minimum, x );
+                maximum = Math.max( maximum, x );
+
+            } );
+
+        }
+
+    }
+
+    sample.extentPixels = maximum - minimum;
+
+    return sample;
+
+}
+
+/**
+ * The largest screen displacement any one TOE vertex of that foot underwent between two poses.
+ *
+ * The worst vertex rather than a centroid or an area, because those are the statistics that average
+ * a real motion away: a foot pivoting about its own ankle carries its heel one way and its toe the
+ * other, and its centroid barely at all.
+ */
+function worstToeTravel( from, to, side ) {
+
+    let worst = 0;
+
+    for ( let index = 0; index < from.toe[ side ].length; index ++ ) {
+
+        if ( from.toe[ side ][ index ] !== true ) continue;
+
+        worst = Math.max( worst, Math.hypot(
+            to[ side ][ 2 * index ] - from[ side ][ 2 * index ],
+            to[ side ][ 2 * index + 1 ] - from[ side ][ 2 * index + 1 ] ) );
+
+    }
+
+    return worst;
+
+}
+
+/**
+ * Drives one foot into a real tilt and asks whether the rewritten sole-tilt measurement still sees
+ * it. §1.1, aimed at the instrument rather than at the layer: the measurement was changed this round
+ * to stop counting a yaw as a tilt, and a measurement relaxed in one direction has to be shown still
+ * to bite in the other.
+ */
+function tiltedSoleIsRejected() {
+
+    restoreRestPose();
+
+    const foot = figure.root.getObjectByName( 'foot_l' );
+    const inBoneFrame = soleNormalInBoneFrame( foot, new Vector3() );
+
+    // A degree of roll about the rig's forward axis: a sole lifting its outer border off the floor.
+    foot.quaternion.multiply( new Quaternion().setFromAxisAngle( new Vector3( 0, 0, 1 ), Math.PI / 180 ) );
+    figure.root.updateMatrixWorld( true );
+
+    const tilt = angleBetweenVectorsDegrees( soleNormalOf( foot, inBoneFrame, new Vector3() ), WORLD_UP );
+
+    restoreRestPose();
+    figure.root.updateMatrixWorld( true );
+
+    return tilt > SOLE_TILT_LIMIT_DEGREES;
 
 }
 
@@ -1534,8 +2235,16 @@ function measureSegmentPaths( traces ) {
     // of support — so the PELVIS leads and the head must not. A blind visual judge measured 1.34
     // here on the full stack and 1.13 on this layer alone, and every one of the 97 gates in this
     // file was green at the time, because they all measured amplitudes and the defect was a ratio.
-    gate( 'ML head / pelvis RMS, worst seed', Math.max( ...lateralHeadOverPelvis ), 0, 1.0,
+    //
+    // 🚩 AND IT IS A BAND, not a ceiling. Stated as `0 .. 1.0` this gate scored a head moving 20.6%
+    // of the pelvis at 0.206 and passed it — see the header of `measureHeadParked` and
+    // PELVIS_LEADS_FLOOR. Pelvis-leads is a claim about ORDER, and order has a bottom.
+    gate( 'ML head / pelvis RMS, worst seed', Math.max( ...lateralHeadOverPelvis ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING,
         'pelvis-leads: the hip mechanism moves the pelvis furthest and parks the head' );
+    gate( 'ML head / pelvis RMS, lowest seed', Math.min( ...lateralHeadOverPelvis ),
+        PELVIS_LEADS_FLOOR, PELVIS_LEADS_CEILING,
+        'the head is parked over the base of support, not nailed to the world' );
     note( 'ML head / pelvis RMS, range',
         `${ Math.min( ...lateralHeadOverPelvis ).toFixed( 3 ) }-${ Math.max( ...lateralHeadOverPelvis ).toFixed( 3 ) }`,
         'over 12 seeds x 900 s; the judge measured 1.34 on screen before the head was parked' );
@@ -1725,6 +2434,8 @@ function measurePlantedFeet( traces ) {
     let worstHorizontal = 0;
     let worstVertical = 0;
     let worstTilt = 0;
+    let worstToeResidual = 0;
+    let worstToeSpan = 0;
 
     console.log( '        seed   marker       horiz(mm)  vert(mm)' );
 
@@ -1745,7 +2456,17 @@ function measurePlantedFeet( traces ) {
 
             }
 
-            worstHorizontal = Math.max( worstHorizontal, horizontal * 1000 );
+            // 🚩 THE TOE JOINT IS NO LONGER PINNED IN PLACE, AND MUST NOT BE. It rides the free
+            // foot's turn-out, so its horizontal travel is a legitimate arc rather than a slide, and
+            // asserting it against the ankle's own limit is the assertion that produced the welded
+            // foot. What is still true, and is the stronger claim, is measured below: the toe goes
+            // exactly where the released yaw says and nowhere else.
+            if ( key !== 'toeLeft' && key !== 'toeRight' ) {
+
+                worstHorizontal = Math.max( worstHorizontal, horizontal * 1000 );
+
+            }
+
             worstVertical = Math.max( worstVertical, vertical * 1000 );
 
             console.log( `  ${ String( trace.seed ).padStart( 10 ) }   ${ key.padEnd( 10 ) } ` +
@@ -1754,18 +2475,77 @@ function measurePlantedFeet( traces ) {
 
         }
 
+        const arc = measureToeArc( trace );
+
+        worstToeResidual = Math.max( worstToeResidual, arc.residualMm );
+        worstToeSpan = Math.max( worstToeSpan, arc.spanMm );
         worstTilt = Math.max( worstTilt, trace.soleTiltDegrees );
 
     }
 
     console.log( '' );
 
-    gate( 'worst foot slide (mm)', worstHorizontal, 0, PLANTED_HORIZONTAL_LIMIT_MM,
-        'ankle and toe, every seed, every frame' );
+    gate( 'worst ankle slide (mm)', worstHorizontal, 0, PLANTED_HORIZONTAL_LIMIT_MM,
+        'both ankles, every seed, every frame — the free foot pivots ABOUT this point, so it moves ' +
+        'no more than the loaded one does' );
     gate( 'worst foot lift (mm)', worstVertical, 0, PLANTED_VERTICAL_LIMIT_MM,
-        'cancelled exactly at the ankle; anything here is numerical residue' );
+        'ankle and toe: cancelled exactly at the ankle, and a turn about the vertical cannot lift ' +
+        'the toe by construction' );
     gate( 'worst sole tilt (deg)', worstTilt, 0, SOLE_TILT_LIMIT_DEGREES,
-        'the foot counter-rotates against the lean AND against the pose' );
+        'the angle of the SOLE\'S NORMAL from rest. A yaw is not a tilt; see traceSway' );
+
+    note( 'toe arc about the ankle (mm, worst)', worstToeSpan.toFixed( 3 ),
+        'how far the released turn-out actually carries the metatarsal head' );
+
+    gate( 'toe travel unexplained by the released yaw (mm)', worstToeResidual, 0,
+        PLANTED_YAW_RESIDUAL_LIMIT_MM,
+        'the toe minus where a rigid turn about the vertical through its own ankle puts it — a foot ' +
+        'that slid, stretched or tilted leaves a residue here and a foot that pivoted leaves none' );
+
+}
+
+/**
+ * 🎯 Closes the loop on the one motion below the ankle that is not cancelled.
+ *
+ * A released turn-out is a rigid rotation of the foot about the vertical axis through its own ankle,
+ * and the layer reports the angle it applied. So the toe joint's position is PREDICTABLE, frame by
+ * frame, from the ankle's live position and the rest offset between them — and the residue between
+ * the prediction and the rig is the gate. It is strictly stronger than the displacement bound it
+ * replaced for the toes: a foot that slid 6 mm sideways, or stretched, or tilted, or that applied
+ * its neighbour's yaw, all leave a residue, and none of them can hide inside an arc allowance.
+ */
+function measureToeArc( trace ) {
+
+    const offset = new Vector3();
+    const predicted = new Vector3();
+
+    let residualMm = 0;
+    let spanMm = 0;
+
+    for ( const [ side, ankleKey, toeKey ] of [
+        [ 'left', 'ankleLeft', 'toeLeft' ], [ 'right', 'ankleRight', 'toeRight' ] ] ) {
+
+        const restOffset = new Vector3()
+            .copy( trace.restPositions.get( toeKey ) )
+            .sub( trace.restPositions.get( ankleKey ) );
+
+        const ankles = trace.samples.get( ankleKey );
+        const toes = trace.samples.get( toeKey );
+        const yaws = trace.footYaw[ side ];
+
+        for ( let frame = 0; frame < toes.length; frame ++ ) {
+
+            offset.copy( restOffset ).applyAxisAngle( RIG_UP_AXIS, yaws[ frame ] );
+            predicted.copy( ankles[ frame ] ).add( offset );
+
+            residualMm = Math.max( residualMm, predicted.distanceTo( toes[ frame ] ) * 1000 );
+            spanMm = Math.max( spanMm, offset.distanceTo( restOffset ) * 1000 );
+
+        }
+
+    }
+
+    return { residualMm, spanMm };
 
 }
 
@@ -2170,6 +2950,89 @@ function measureTheOtherWay() {
         Math.abs( unrighted.layerHeadPerCentreOfMassLateral - 1 ) > LATERAL_RIGHTING_TOLERANCE ? 1 : 0, 1, 1,
         `unrighted pendulum lateral head/COM ${ unrighted.layerHeadPerCentreOfMassLateral.toFixed( 3 ) }` );
 
+    // --- THE MIRROR: a head nailed in space over a swaying body ---
+    //
+    // 🚩 §1.1 AND §1.3 TOGETHER, AND THE REASON THIS BLOCK EXISTS. The three gates above were written
+    // to catch a head that out-travels the pelvis, and they were stated as ceilings, so an
+    // independent verifier walked straight through them from the other side: with
+    // `LATERAL_HEAD_PER_CENTRE_OF_MASS` at 0.30 the head moved 20.6% of the pelvis and every ratio
+    // gate scored it BETTER than the shipped model, the correlation gate awarding it -1.000, the best
+    // mark available.
+    //
+    // The known-bad is built here as OVER-RIGHTING rather than by editing that constant, and the
+    // difference matters: the constant is only one of the ways the head can stop moving, and a gate
+    // that catches the head under-travelling ONLY when it originates in one constant is not gating
+    // the behaviour. `lateralRightingPerRadian` and `trunkRightingRadians` are read by the frame
+    // loop every frame, one per mechanism, so doubling them after bind is a defect that reaches the
+    // trace without passing through the solve at all — which is exactly the class the old gates
+    // could not see. Twice the solved righting lands the head at 0.18 of the centre of mass.
+    const parked = traceSway( SEED, UNCONSTRAINED_WINDOW_SECONDS, {}, ( layer ) => {
+
+        layer.lateralRightingPerRadian *= PARKED_HEAD_RIGHTING_FACTOR;
+        layer.trunkRightingRadians.left *= PARKED_HEAD_RIGHTING_FACTOR;
+        layer.trunkRightingRadians.right *= PARKED_HEAD_RIGHTING_FACTOR;
+
+    } );
+
+    const parkedLateral = lateralDisplacements( parked );
+    const parkedHeadOnNeck = parkedLateral.head.map(
+        ( value, index ) => value - parkedLateral.neck[ index ] );
+
+    const parkedHeadPerCom = rootMeanSquare( parkedLateral.head )
+        / rootMeanSquare( parkedLateral.centreOfMass );
+    const parkedRms = rootMeanSquare( parkedLateral.head ) / rootMeanSquare( parkedLateral.pelvis );
+    const parkedPeak = peakToPeak( parkedLateral.head ) / peakToPeak( parkedLateral.pelvis );
+    const parkedCorrelation = pearson( parkedHeadOnNeck, parkedLateral.neck );
+    const parkedNeckGain = regressionSlope( parkedLateral.neck, parkedHeadOnNeck );
+
+    note( 'parked head: head/COM, head/pelvis (RMS, p2p)',
+        `${ parkedHeadPerCom.toFixed( 3 ) }, ${ parkedRms.toFixed( 3 ) }, ${ parkedPeak.toFixed( 3 ) }`,
+        'against 1.00, 0.82 and 0.83 as shipped' );
+
+    gate( 'head/COM gate REJECTS a parked head',
+        Math.abs( parkedHeadPerCom - 1 ) > HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE ? 1 : 0, 1, 1,
+        '1 means the gate caught it; this is the gate the 0.30 experiment needed' );
+
+    gate( 'and by a real margin (x the tolerance)',
+        Math.abs( parkedHeadPerCom - 1 ) / HEAD_TRACKS_CENTRE_OF_MASS_TOLERANCE, 5, Infinity,
+        'the error must be large enough that the tolerance is not what decided it' );
+
+    gate( 'the pelvis-leads FLOOR REJECTS a parked head', parkedRms < PELVIS_LEADS_FLOOR ? 1 : 0, 1, 1,
+        'the half of the band that did not exist until a verifier walked through the gap' );
+
+    gate( 'the pelvis-leads floor REJECTS its peak-to-peak too',
+        parkedPeak < PELVIS_LEADS_FLOOR ? 1 : 0, 1, 1, '' );
+
+    note( 'parked head: r(head-on-neck, neck), gain',
+        `${ parkedCorrelation.toFixed( 4 ) }, ${ parkedNeckGain.toFixed( 4 ) }`,
+        'against -0.997 and -0.10 as shipped; note the correlation IMPROVES' );
+
+    gate( 'the head-on-neck GAIN gate REJECTS a parked head',
+        parkedNeckGain < HEAD_ON_NECK_GAIN_BAND[ 0 ] || parkedNeckGain > HEAD_ON_NECK_GAIN_BAND[ 1 ] ? 1 : 0,
+        1, 1, 'the slope carries the amount; the correlation beside it carries only the sign' );
+
+    // 🚩 RECORDED AS GATES, §1.11 AND §1.3. These three are the state this file was actually in — the
+    // ceiling-only ratio gates and the sign-only correlation gate, evaluated against a parked head.
+    // All three PASS it, and two of them score it better than the shipped model. They are asserted
+    // to be 0 so that nobody later reads the surviving one-sided statements as sufficient, and so
+    // that if someone removes the floor or the gain gate this section says which cover was lost.
+    gate( 'the ceiling ALONE does not catch a parked head (RMS)',
+        parkedRms > PELVIS_LEADS_CEILING ? 1 : 0, 0, 0,
+        'recorded, not tolerated: a ratio has two failure directions and this end was declared free' );
+
+    gate( 'the ceiling ALONE does not catch a parked head (p2p)',
+        parkedPeak > PELVIS_LEADS_CEILING ? 1 : 0, 0, 0, '' );
+
+    gate( 'the correlation SIGN alone does not catch a parked head',
+        parkedCorrelation > 0 ? 1 : 0, 0, 0,
+        'recorded, not tolerated: a perfectly parked head scores r = -1, the best mark available' );
+
+    // And the direction that made the old gates look like they worked, so this block is not read as
+    // an argument for loosening them: over-righting is caught, under-righting still is too.
+    gate( 'the SOLVE residual gate does NOT catch it either',
+        Math.abs( parked.layerHeadPerCentreOfMassLateral - 1 ) > LATERAL_RIGHTING_TOLERANCE ? 1 : 0, 0, 0,
+        'the solve closed correctly and the frame loop then ignored it — the whole reason for a trace gate' );
+
     // --- the fidget profile the judge watched ---
     //
     // §1.1 for the legibility gates. Half a shift's amplitude over a symmetric 1.4 s is what this
@@ -2226,6 +3089,10 @@ function measureTheOtherWay() {
 
     gate( 'the toe gate REJECTS a welded foot', weldedRise < TOE_LIFT_FLOOR_MM ? 1 : 0, 1, 1,
         '1 means the gate caught it; 0 means a foot that never deforms would pass' );
+
+    // 🚩 AND THE TOE GATE PASSING IS NOT THE FOOT BEING VISIBLE. The same welded foot is run past
+    // the pixel gate here, which is the gate that would have caught what the toe gate could not.
+    measureFreeFootTheOtherWay( fullBodyFraming() );
 
     // 🚩 WHAT COULD NOT BE MADE TO FAIL, SAID OUT LOUD. The head-excursion section has no
     // literature behind it, so there is no known-bad head amplitude to construct — its envelope is
@@ -2528,6 +3395,41 @@ function angleBetweenDegrees( a, b ) {
 
 }
 
+/**
+ * 🎯 The sole's outward normal, in world space, WITHOUT assuming anything about the rig's local
+ * axis convention.
+ *
+ * The definition used is the only one that needs no such assumption: the sole is flat on the floor
+ * in the rest pose, so whichever direction in the foot bone's own frame is world-vertical AT REST
+ * is the sole's normal, for good. `soleNormalInBoneFrame` resolves that once; this then carries it
+ * through whatever the bone is doing now.
+ *
+ * Tried the obvious way first and it was wrong: the foot bone's local +Y is not up on this rig, it
+ * runs along the bone, so a turn about the world vertical swung it and the gate reported 2.61
+ * degrees of "sole tilt" for a rotation that by construction cannot tilt a sole at all.
+ */
+function soleNormalInBoneFrame( footBone, target ) {
+
+    const rotation = footBone.getWorldQuaternion( new Quaternion() ).invert();
+
+    return target.set( 0, 1, 0 ).applyQuaternion( rotation );
+
+}
+
+function soleNormalOf( footBone, inBoneFrame, target ) {
+
+    return target.copy( inBoneFrame ).applyQuaternion( footBone.getWorldQuaternion( new Quaternion() ) );
+
+}
+
+function angleBetweenVectorsDegrees( a, b ) {
+
+    const cosine = Math.min( Math.max( a.dot( b ) / ( a.length() * b.length() ), -1 ), 1 );
+
+    return Math.acos( cosine ) * 180 / Math.PI;
+
+}
+
 /** RMS of the horizontal excursion about the mean position, in metres. */
 function resultantRms( points ) {
 
@@ -2641,6 +3543,36 @@ function pearson( a, b ) {
     const spread = Math.sqrt( varianceA * varianceB );
 
     return spread === 0 ? 0 : covariance / spread;
+
+}
+
+/**
+ * The least-squares slope of `y` on `x`, which is the GAIN a correlation deliberately throws away.
+ *
+ * Pearson's r is scale-free by construction: it answers "do these two move together, and in which
+ * direction," and it answers it identically for a head that opposes the trunk by a tenth and a head
+ * bolted rigidly in space. Both score -1. §1.3 asks what a degenerate input scores at a gate, and
+ * for a correlation the honest answer is "the best possible mark," so anywhere this file cares HOW
+ * MUCH one part answers another it has to gate the slope as well as the sign.
+ */
+function regressionSlope( x, y ) {
+
+    const meanX = x.reduce( ( total, value ) => total + value, 0 ) / x.length;
+    const meanY = y.reduce( ( total, value ) => total + value, 0 ) / y.length;
+
+    let covariance = 0;
+    let varianceX = 0;
+
+    for ( let index = 0; index < x.length; index ++ ) {
+
+        const deviationX = x[ index ] - meanX;
+
+        covariance += deviationX * ( y[ index ] - meanY );
+        varianceX += deviationX * deviationX;
+
+    }
+
+    return varianceX === 0 ? 0 : covariance / varianceX;
 
 }
 

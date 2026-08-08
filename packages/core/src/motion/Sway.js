@@ -664,15 +664,52 @@ const STANCE_ANKLE_PROBE_COUNT = 8;
 const TOE_UNLOAD_LIFT_DEGREES = 2.5;
 
 /**
+ * 🎯 PLANTED IS A CONSEQUENCE OF LOAD, NOT A PROPERTY OF A FOOT — and getting that backwards is
+ * what made both feet pixel-identical for 420 seconds.
+ *
+ * This layer computes a load transfer between the legs; that is the whole of the lateral model.
+ * It then applied a foot constraint that ignored the transfer completely. `writePose` pinned BOTH
+ * feet to their rest orientation and `writeFootPlanting` pinned BOTH ankles to their rest position,
+ * so the free foot was held exactly as rigidly as the one carrying the body. Measured on the shipped
+ * layer over 420 s, seed 1, at the framing `alive.js?frame=body` uses: the foot band's
+ * outer-to-outer silhouette extent had a standard deviation of **0.024 px**, against this project's
+ * own 1.6 px visibility floor. Nothing below the ankle moved except one toe on one foot.
+ *
+ * The floor does not freeze a foot. It constrains three of its six degrees of freedom — the height
+ * of the sole, and the two rotations that would tilt the sole out of the floor plane. FRICTION
+ * freezes the rest, and friction is a function of the load. So:
+ *
+ *   THE LOADED FOOT stays exactly as it was: position pinned, orientation pinned, sole flat. A foot
+ *   carrying the body does not turn under it.
+ *
+ *   THE UNLOADED FOOT keeps the YAW the leg chain hands it — the transverse rotation about the rig's
+ *   vertical, which maps the floor plane to itself and therefore cannot tilt or lift the sole by
+ *   construction. That is a free foot turning out as the weight leaves it, which is what the pose
+ *   files already describe ("free feet always splay wider") and what `writePose` was deleting.
+ *
+ * What is deliberately NOT released is the free foot's horizontal TRANSLATION, even though the
+ * contrapposto poses author up to 20 mm of it and say so. §1.11b of LEARNINGS is the record of what
+ * that looks like: 2.49 mm of sole slide read as a foot visibly skating. A rotation about the ankle
+ * is a different motion from a translation of the whole foot — the ankle and the heel stay where
+ * they are and the forefoot swings — and it is the one a real free foot makes.
+ *
+ * 1.0 keeps all of the chain's yaw at full unload. Set to 0 for the welded foot the judge reported;
+ * the selftest builds exactly that to prove its own gate can see it.
+ */
+const FREE_FOOT_YAW_RELEASE = 1.0;
+
+/**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
  * left-right axis, +Y is up, +Z is forward — the nose sits at z = +0.144 and the toes at
  * z = +0.139, against a heel at z = +0.022.
  *
  * A sagittal (forward/back) lean is therefore a rotation about +X, and a frontal (side-to-side)
- * lean is a rotation about +Z.
+ * lean is a rotation about +Z. A foot turning out on the floor is a rotation about +Y, and that is
+ * the one rotation the floor does not constrain — see FREE_FOOT_YAW_RELEASE.
  */
 const RIG_MEDIO_LATERAL_AXIS = new Vector3( 1, 0, 0 );
 const RIG_FORWARD_AXIS = new Vector3( 0, 0, 1 );
+const RIG_UP_AXIS = new Vector3( 0, 1, 0 );
 
 /**
  * The chain this layer drives, parent first.
@@ -774,6 +811,9 @@ export class Sway extends Layer {
      *   LATERAL_HEAD_PER_CENTRE_OF_MASS.
      * @param {number} [options.toeLiftDegrees=2.5] - Toe extension on a fully unloaded foot. Set to
      *   0 for the welded foot a visual judge reported; see TOE_UNLOAD_LIFT_DEGREES.
+     * @param {number} [options.freeFootYawRelease=1] - Fraction of the leg chain's yaw an UNLOADED
+     *   foot is allowed to keep. Set to 0 to pin both feet as rigidly as each other, which is the
+     *   welded foot the judge reported. See FREE_FOOT_YAW_RELEASE.
      * @param {Object} [options.fidget] - The fidget profile, whose three numbers are the least
      *   supported in this file and the ones that decide whether a postural event is legible at all:
      *   `{ amplitudeFraction, durationSeconds, riseFraction }`. See
@@ -824,6 +864,10 @@ export class Sway extends Layer {
         this.lateralRightingEnabled = options.lateralRightingEnabled ?? true;
 
         this.toeLiftDegrees = options.toeLiftDegrees ?? TOE_UNLOAD_LIFT_DEGREES;
+
+        // Set to 0 for the welded foot a visual judge reported and measured at 0.024 px of
+        // silhouette travel; see FREE_FOOT_YAW_RELEASE.
+        this.freeFootYawRelease = options.freeFootYawRelease ?? FREE_FOOT_YAW_RELEASE;
 
         this.fidget = {
             amplitudeFraction: options.fidget?.amplitudeFraction ?? FIDGET_AMPLITUDE_FRACTION_OF_SHIFT,
@@ -890,9 +934,15 @@ export class Sway extends Layer {
             pendulumArm: new Vector3()
         } ) );
 
-        // Degrees of toe extension on each foot this frame. Reported so a gate can read the
-        // realised angle rather than recompute it from the blend.
+        // The way back, so the joint loop in writePose can ask a foot how loaded it is without
+        // searching for it every frame.
+        for ( const foot of this.feet ) foot.joint.foot = foot;
+
+        // What each foot is doing this frame, in radians. Reported so a gate can read the realised
+        // angles rather than recompute them from the blend: `toeLiftRadians` is the extension at the
+        // metatarsal head, `footYawRadians` the turn-out the foot's own unloading released.
         this.toeLiftRadians = { left: 0, right: 0 };
+        this.footYawRadians = { left: 0, right: 0 };
 
         // Bind-time rig facts.
         this.pivot = new Vector3();               // where the pendulum turns, in rig space
@@ -1038,6 +1088,9 @@ export class Sway extends Layer {
         this.pendulumDisplacement.set( 0, 0, 0 );
 
         this.stanceBlend = 0;
+
+        this.toeLiftRadians = { left: 0, right: 0 };
+        this.footYawRadians = { left: 0, right: 0 };
 
         // The clamp is a fact about the rig's base of support, read at bind, so it survives a
         // reset — rebuilding it from the fallback here would silently narrow the stance on
@@ -1836,12 +1889,15 @@ export class Sway extends Layer {
 
             if ( joint.pendulum === 'plant' ) {
 
-                // The foot ends the chain at its rest orientation whatever the body did above
-                // it — that is the whole of "the sole stays flat" in one line, and it overrides
-                // the contrapposto's own foot angles on purpose. Those angles exist in the pose
-                // file to level the sole after the shank swings; levelling it exactly is
-                // strictly better, and it is the only version that survives a millimetre gate.
-                joint.cumulative.identity();
+                // 🎯 The foot ends the chain at its rest orientation TURNED BY WHATEVER YAW ITS OWN
+                // LOAD ALLOWS. The rest-orientation half is "the sole stays flat", and it overrides
+                // the contrapposto's own foot angles on purpose: those angles exist in the pose file
+                // to level the sole after the shank swings, and levelling it exactly is strictly
+                // better. The yaw half is FREE_FOOT_YAW_RELEASE — a rotation about the rig's
+                // vertical maps the floor plane to itself, so it cannot cost a hundredth of a degree
+                // of sole tilt, and it is the only thing below the ankle that distinguishes the foot
+                // carrying the body from the one that is not.
+                this.resolvePlantedRotation( joint, joint.cumulative );
                 continue;
 
             }
@@ -2118,27 +2174,68 @@ export class Sway extends Layer {
     }
 
     /**
-     * 🎯 The one thing below the ankle that is allowed to move: the free foot's toes coming off the
-     * floor as the weight leaves it.
+     * 🎯 How much of the body's weight has left this foot, from 0 (carrying its share) to 1 (free).
      *
-     * Driven by the stance blend, which IS the load transfer — a positive blend loads the left leg,
-     * so the right foot is the one unloading. Extension only, so the toes can only leave the floor;
-     * see TOE_UNLOAD_LIFT_DEGREES for why that direction is the truthful one as well as the safe
-     * one. Written as a rotation about the medio-lateral axis at the metatarsal head, which is where
-     * a toe actually hinges and which leaves the joint itself exactly where the planting correction
-     * put it.
+     * The stance blend IS the load transfer — a positive blend loads the left leg, so the right foot
+     * is the one unloading — and this is the single place that reading is written down. Both things
+     * a free foot is allowed to do, the yaw release and the toe lift, are scaled by it, so a reader
+     * asking "what does this layer think it means for a foot to be free?" has one answer to find and
+     * the two behaviours cannot drift apart.
+     */
+    unloadFractionOf( foot ) {
+
+        return foot.key === 'left' ? Math.max( -this.stanceBlend, 0 ) : Math.max( this.stanceBlend, 0 );
+
+    }
+
+    /**
+     * The rig-space rotation a planted foot ends up with: its rest orientation, turned by the share
+     * of the leg chain's yaw that its own unloading permits.
+     *
+     * The yaw is taken as the TWIST about the rig's vertical of the rotation the chain would
+     * otherwise have handed this foot — pendulum lean outside, contrapposto inside, exactly as the
+     * unplanted joints compose it. Twist about the vertical is the one component that maps the floor
+     * plane to itself, so what is discarded here is precisely what would have tilted the sole.
+     */
+    resolvePlantedRotation( joint, target ) {
+
+        target.identity();
+
+        const foot = joint.foot;
+
+        if ( foot === undefined ) return target;
+
+        const release = this.unloadFractionOf( foot ) * this.freeFootYawRelease;
+
+        this.scratchRigRotation.multiplyQuaternions( joint.pendulumCumulative, joint.stanceCumulative );
+
+        const yaw = release === 0 ? 0 : twistAngleAbout( this.scratchRigRotation, RIG_UP_AXIS ) * release;
+
+        this.footYawRadians[ foot.key ] = yaw;
+
+        if ( yaw === 0 ) return target;
+
+        return target.setFromAxisAngle( RIG_UP_AXIS, yaw );
+
+    }
+
+    /**
+     * 🎯 The other thing a free foot is allowed to do: its toes coming off the floor as the weight
+     * leaves it.
+     *
+     * Scaled by the same `unloadFractionOf` the yaw release uses. Extension only, so the toes can
+     * only leave the floor; see TOE_UNLOAD_LIFT_DEGREES for why that direction is the truthful one
+     * as well as the safe one. Written as a rotation about the medio-lateral axis at the metatarsal
+     * head, which is where a toe actually hinges and which leaves the joint itself exactly where the
+     * planting correction put it.
      */
     writeToeLift() {
-
-        const blend = this.stanceBlend;
 
         for ( const foot of this.feet ) {
 
             if ( foot.toes === undefined || isPresent( foot.toes.bone ) === false ) continue;
 
-            // A foot unloads when the blend goes the other way. At blend 0 both are neutral.
-            const unload = foot.key === 'left' ? Math.max( -blend, 0 ) : Math.max( blend, 0 );
-            const lift = unload * this.toeLiftDegrees * Math.PI / 180;
+            const lift = this.unloadFractionOf( foot ) * this.toeLiftDegrees * Math.PI / 180;
 
             this.toeLiftRadians[ foot.key ] = lift;
 
@@ -2259,6 +2356,7 @@ function createJointState( entry, boneName ) {
         pendulum: entry.pendulum,
         boneName,
         bone: null,
+        foot: undefined,   // set on the two 'plant' joints; see the constructor
         share: 0,          // this joint's slice of the pendulum lean
         spineFraction: 0,  // this joint's slice of an angle spread over the spine alone
 
@@ -2375,6 +2473,31 @@ function rootOf( bone ) {
 function isPresent( bone ) {
 
     return bone !== null && bone !== undefined;
+
+}
+
+/**
+ * The signed angle of the component of `rotation` that turns about `axis` — the twist half of a
+ * swing-twist decomposition, returned as an angle rather than as a quaternion because the caller
+ * wants to scale it.
+ *
+ * The decomposition is exact for a unit axis: project the quaternion's vector part onto the axis,
+ * keep the scalar part, renormalise, and what is left is a pure rotation about the axis whose
+ * companion swing carries everything perpendicular to it. `atan2` rather than `2 * acos( w )` so
+ * the sign survives, which matters here — a foot turns out on one side and in on the other.
+ *
+ * A rotation of exactly pi about an axis perpendicular to `axis` is the degenerate case, where the
+ * projection vanishes and the twist is undefined; it returns zero, which is the harmless answer and
+ * is three orders of magnitude away from anything this layer produces.
+ */
+function twistAngleAbout( rotation, axis ) {
+
+    const alongAxis = rotation.x * axis.x + rotation.y * axis.y + rotation.z * axis.z;
+    const length = Math.hypot( alongAxis, rotation.w );
+
+    if ( length < 1e-8 ) return 0;
+
+    return 2 * Math.atan2( alongAxis / length, rotation.w / length );
 
 }
 

@@ -48,10 +48,10 @@
         "hips": {
             "euler": [
                 0,
-                2.5,
+                4.9,
                 -5.5
             ],
-            "why": "z: +5.5 raises the left (stance) crest — a positive roll about the forward axis lifts everything on the +X side. y: -2 takes the stance side very slightly back, which is the transverse component of a real weight shift."
+            "why": "z: -5.5 drops the +X side and so raises the right (stance) crest. y: +4.9 takes the stance side very slightly back. 🚩 THE y IS NOT THE NEGATION OF weight-left's -2.5, AND THAT IS THE POINT. This file mirrors the contrapposto DELTA from relaxed-standing, not the absolute angle — its own notes say so — and relaxed-standing carries +1.2 of transverse rotation of its own. Mirroring the absolute gave a delta of +1.3 here against weight-left's -3.7, so the pelvis twisted less than a third as far one way as the other, and the free foot's turn-out went with it: measured, 2.91 degrees of released yaw on the right foot against 0.57 on the left, which is one foot articulating and one welded. 1.2 + 3.7 = 4.9 is the mirror of the delta and lands both at 2.9. See Sway.js's FREE_FOOT_YAW_RELEASE for what reads that yaw, and this file's notes for the rule. ⚠️ This bone is therefore in restpose.selftest.mjs's EXACT-mirror bucket while behaving like its DELTA-mirror bucket, and that check now reads 2.400 degrees on it. The delta bucket is the right home: Sway blends pose-minus-relaxed, so the delta is what a viewer sees, and the legs are already there for exactly this reason. The z is left absolute-mirrored on purpose — the legs' counter-rotations are authored against the absolute -5.5 roll, its delta residue is 1.2 degrees, and nothing measurable depends on it, where the y decides whether one foot articulates at all."
         },
         "spine": {
             "euler": [
