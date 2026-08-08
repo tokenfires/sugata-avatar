@@ -873,6 +873,264 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
 
 ---
 
+## Phase 9 — Wardrobe
+
+Clothing is not decoration on this system, it is half of how an identity presents. The brief asks
+for the level of current VTuber/Live2D work (R2), where outfit variants are definitional, and for
+an avatar that represents the AI's own identity (R8). A figure that can be male, female or anywhere
+between, and is permanently naked, satisfies neither.
+
+**WE AUTHOR OUR OWN GARMENTS.** Direct VTuber/Booth imports read cartoon-like against a photoreal
+figure, and the Fab licence forbids the use outright — §6(b)(iii) names "modeling tools that allow
+works to be exported" almost verbatim, §4(c) requires end users be restricted from extracting
+Content, and every listing sampled from the reference seller carries `isAiForbidden: true`. Both
+Fab price tiers grant identical rights, so there is no tier that buys this. Reference imagery
+informs parameters; no third-party asset is ever bundled. Same posture as
+`research/stellar-blade-look-spec.md` takes with the face.
+
+Full measurements, sources and the evidence behind every number below live in
+[`research/wardrobe-system.md`](research/wardrobe-system.md).
+
+### The plumbing
+
+- [ ] **9.1** `wardrobe/GarmentManifest.js` + `assets/wardrobe/manifest.json` — per garment: `id`,
+      `layer`, `hideMask`, `alphaMode`, `clo` (ASHRAE 55 Table 5.2.2.2B), `fabric` (the taxonomy
+      key), `formality` (authored 1–5), `palette`. 🚩 **`z_depth` from the mhclo is INERT and must
+      not be trusted** — an exhaustive grep of MPFB finds four write sites and no consumer, and the
+      shipped values put shoes (5) *under* suits (50). Layer order is ours to define.
+      Gate: **MEASURED** — a selftest asserts every entry validates, that `layer` is a total order,
+      and that two garments claiming the same layer are rejected rather than silently
+      interpenetrating. Proven red by two suits at z_depth 50, which MPFB attaches today without a
+      warning.
+- [ ] **9.2** `tools/figure-pipeline/build_figure.py` gains `--garment` and
+      `--hide-mask-attribute`. Body hiding moves from a baked MASK modifier to a per-vertex
+      `_HIDE_*` attribute, because `delete_verts` permanently removes geometry and an avatar whose
+      torso has been deleted cannot undress.
+      🚩 **`export_attributes` defaults OFF in Blender's glTF exporter and the build reports
+      success without it** — the attribute vanishes silently. 🚩 **The exporter upper-cases the
+      name**: authored `_hide_x`, exported `_HIDE_X`. Match case-insensitively.
+      Gate: **MEASURED** — the runtime index rebuild reproduces the baked triangle count exactly.
+      Proven: 17,012 = 17,012 for suit+shoes, 21,380 = 21,380 for suit alone, at **0.1609 ms**
+      median over 30 runs.
+- [ ] **9.3** `wardrobe/Wardrobe.js` — `dress(garmentIds)` / `undress()`. Loads garment fragments on
+      demand, rebuilds the body index buffer from the union of hide masks, adds and removes garment
+      `SkinnedMesh`es against the figure's existing skeleton.
+      Gate: **MEASURED** — dress → undress → dress returns the body to **26,756 triangles** with no
+      drift, and the dress step stays under **1 ms** against the 0.1609 ms measured for the rebuild
+      alone. **AND the decency invariant of 9.8 holds at every intermediate state**, not only at
+      the endpoints — a half-applied outfit is a state a user will see.
+- [ ] **9.4** Per-figure garment bakes. 🚩 **One garment fragment CANNOT serve all five figures.**
+      `female_casualsuit01` drifts **mean 95.145 mm / max 143.066 mm** between g000 and g100 — 90%
+      of the body's own 105.614 mm — because `fit_clothes_to_human` re-solves every vertex
+      barycentrically against the current basemesh. Cross-fitting g000's suit onto the g100 body
+      puts **390 of 462 covered skin vertices (84.4%) outside the cloth, median 42.14 mm proud.**
+      Textures are shared across the five; only positions differ.
+      Gate: **MEASURED** — for all five figures, covered skin outside the cloth at rest no worse
+      than the g050 baseline of **26.37%**, worst depth no worse than **9.19 mm**.
+- [ ] **9.5** `tools/figure-pipeline/verify_glb.mjs` gains a garment clause. It currently **FAILS a
+      clothed figure by construction** — `OPAQUE_MATERIAL_PARTS` is a five-regex whitelist and a
+      garment matches nothing, so `suit_g050` reports 1 problem and `layered_g050` reports 3 while
+      every eye, lip-seal and morph assertion stays green. The clause must read `alphaMode` from
+      the manifest per garment, not from a regex: a wool coat is OPAQUE, a mesh panel is MASK.
+      Gate: **MEASURED** — passes a clothed figure; proven red by a manifest declaring OPAQUE for a
+      cutout garment.
+- [ ] **9.6** KTX2/Basis for every garment texture via `KHR_texture_basisu` + `KTX2Loader`.
+      🚩 **The phase's binding constraint, and the only major unmeasured number in the research.**
+      Textures are **81% of a one-garment GLB and 87% of a three-garment one**; the CC0 set carries
+      **122 MB of PNG**, and a 4096² RGBA8 normal is **≈85 MB of VRAM with mips** — arithmetic, not
+      measurement, because no transcoder was on the machine and the agent declined to guess.
+      Gate: **MEASURED** — real transcode ratio and VRAM residency, a ten-garment catalogue held
+      under a stated budget, and a measurement of whether 2048² is distinguishable from 4096² at
+      portrait framing before we pay for the larger one.
+- [ ] **9.7** 🚩 Recover the discarded AO. Every CC0 garment mhmat declares `aomapTexture`
+      (0.7–2.2 MB, 2048²) and **none of it reaches the GLB** — `NodeWrapperGameEngine` wires only
+      diffuse → Base Color, diffuse alpha → Alpha, normal → Normal Map. There is no occlusion node
+      in MPFB's game-engine material at all. Item 3.10 exists because un-occluded ambient specular
+      is the plastic look, and we are discarding hand-baked AO for free.
+      Gate: **MEASURED** — `occlusionTexture` present on every garment material in the built GLB,
+      and a rendered on/off difference measured **in the folds**, not asserted.
+
+### What the avatar wears
+
+- [ ] **9.8** 🎯 **The foundation layer, and it is a correctness requirement rather than a style
+      choice.** The mix-and-match screen (9.12) lets a user remove a top; `undress()` exists;
+      outfit changes pass through intermediate states. In every one of those the avatar must be
+      decent. **There is no reference for this anywhere in the 638 supplied images — we author
+      blind**, which makes it the one garment in the phase with no target to measure against.
+      Author a bra, briefs, a boxer brief and a vest, at `layer: FOUNDATION` below every other
+      layer, with no hide mask of their own so nothing can remove them.
+      ⚠️ Keep them plain and unremarkable. This is the layer where "AAA quality" means *unnoticed*.
+      Gate: **MEASURED** — an exhaustive sweep asserts that for every reachable wardrobe state,
+      including every intermediate frame of a change and the empty set, the union of covered skin
+      regions includes the foundation regions. A body with no garments at all must still render
+      the foundation layer. Proven red by removing one foundation piece from the manifest.
+- [ ] **9.9** The shipping capsule — **14 authored blocks yielding 22 wearable garments and 1,368
+      outfits** across two rails, chosen from 638 reference renders for combinability rather than
+      for individual appeal. Six pieces are shared because they read at both ends of the identity
+      axis, which is what lets ten slots per rail buy three lower-body options instead of one.
+      *Shared:* straight jeans · tee sheet (5) · ribbed roll-neck · zip hoodie · Chelsea boots ·
+      sneaker sheet (5). *Men's:* tan chinos · sand work shirt · camel wool overcoat · worsted
+      trousers. *Women's:* white cotton shirt · high-waist wide-leg trousers · knit midi dress ·
+      belted trench.
+      Build order, argued in the research: crew tee as a one-day pipeline smoke test → **jeans as
+      the real first garment** (five-pocket construction is the honest test: yoke, fly, welt
+      pockets, belt loops, topstitch following seams, instanced hardware, and three orthographic
+      views so any failure is a pipeline failure rather than a reference failure) → zip hoodie, to
+      author the zip once and pay for the trench, puffer and every zipped piece after → roll-neck →
+      sneakers earlier than instinct suggests → camel overcoat last, because the lapel roll decides
+      whether tailoring is affordable at all.
+      🚩 Two fabric families are missing from the capsule and both are cheap to add: **technical
+      nylon**, the only family with real specular sheen and stiff rustle, and **leather as a
+      garment** rather than as footwear. One puffer and one café racer take coverage from ten
+      families to twelve.
+      Gate: **MEASURED** per garment via 9.4's fit thresholds, plus **CRITIC** on the capsule as a
+      wardrobe: a judge picks three outfits at random from the free-mix rail and none may read as
+      an error.
+- [ ] **9.10** 🎯 **Cultural and religious everyday dress.** The 638 reference images contain
+      **nothing outside a Western wardrobe** — no hijab, sari, kurta, abaya, hanbok, or anything
+      else. For a system whose entire premise is an AI choosing how to represent itself, a wardrobe
+      that can only represent one culture is a limitation of the product, not of the art budget.
+      This needs a deliberate sourcing pass and, for garments whose correct drape and wearing are
+      not obvious from a photograph, real reference on how they are actually worn — a sari's pleat
+      and pallu are a wrapping procedure, not a shape.
+      ⚠️ Several of these are religious articles. Get the construction right or leave the garment
+      out; a badly-made hijab is worse than none.
+      🚩 This item also carries the technique the Western capsule never exercises: **wrapped and
+      draped garments have no fixed pattern**, so they are a simulation problem rather than a
+      panel-sewing one, and they will not come out of 9.17's pipeline.
+      Gate: **MEASURED** per 9.4, plus **CRITIC** — and the critic for this item must be briefed
+      to judge whether the garment is *correctly worn*, not merely whether it renders.
+
+### Choosing what to wear
+
+- [ ] **9.11** `wardrobe/Dresser.js` — `{PAD, temperature, formality, timeOfDay} → outfit`.
+      The seasonal half is derived and cited: **Schiavon & Lee (2013) Equation 3**, adopted into
+      ASHRAE 55 Fig 5.2.2.2 from **6,333 field observations**, gives target clo from the 06:00
+      outdoor temperature; Table 5.2.2.2B gives additive per-garment clo. Colour brightness and
+      saturation from Valdez & Mehrabian (1994), 🚩 **with the arousal-brightness coefficient
+      FLIPPED POSITIVE** — Wilms & Oberfeld (2018) measured brightness *raising* arousal at
+      ηp² = 0.459 against V&M's −0.31, and hue's effect on valence failed significance at p = .051.
+      🚩 **The dominance equation has never been replicated and must be marked authored**, as must
+      silhouette, the formality ladder and time of day. No literature supports those, and an
+      authored rule set that says so is worth more than a fabricated citation.
+      🚩 **Gate selection on the MOOD layer (10 min change / 20 min return), never on the affect
+      layer (attack 150–250 ms)**, or the avatar changes clothes mid-sentence.
+      Gate: **MEASURED** — a selftest reproduces Equation 3's published breakpoints (t=−5 → 1.000,
+      t=5 → 0.636 from both branches, t=26 → 0.462), asserts every catalogue ensemble sums to
+      within tolerance of its target clo across −20…+40 °C, and proves the hysteresis with a PAD
+      trace that would otherwise change outfit more than once a minute.
+- [ ] **9.12** 🎯 The wardrobe screen — select a complete outfit, **or mix and match individual
+      pieces into one the user makes themselves**. Per-layer rails, a live preview on the actual
+      figure at the actual identity setting, colourway swatches, and save/name an outfit.
+      Not a debug panel: this is a surface a person uses for enjoyment, and changing an avatar's
+      clothes is one of the reliably pleasurable things in games, VTubing and dress-up alike.
+      ⚠️ Preview on the user's own figure, never on a stand-in — the whole point of an identity
+      axis is that the same garment reads differently along it.
+      Gate: **CRITIC** — a judge who has not seen the code assembles an outfit from parts, saves
+      it, reloads and gets it back, and reports whether the screen is pleasant to use. Plus
+      **MEASURED**: every reachable combination of the manifest renders without interpenetration
+      above the 9.4 threshold, swept exhaustively rather than sampled.
+- [ ] **9.13** 🎯 **Agency, and its limits.** The AI wears what it chooses — dressing itself daily
+      the way a person does — **when the user allows it**. Three modes, and the user owns the
+      switch: `agent` (the AI picks, per 9.11), `pinned` (the user fixes an outfit and it does not
+      change, for consistency over time), `ask` (the AI proposes and the user confirms).
+      Default is `pinned` on first run: an avatar that changes its own appearance before the user
+      has asked it to is a surprise, and the first impression of an identity should be the user's
+      choice. The AI may always *express a preference* even when pinned — that costs nothing and
+      is the difference between a puppet and a someone.
+      Persist across sessions: continuity of appearance is continuity of identity, and an agent
+      that wakes up in different clothes every session reads as a different agent.
+      Gate: **MEASURED** — a selftest proves `pinned` survives a reload, a PAD swing, a season
+      change and a restart; that `agent` mode never changes outfit more than once per mood period;
+      and that no mode can violate 9.8. Proven red by a Dresser call that ignores the pin.
+
+### Making it look real
+
+- [ ] **9.14** Cloth secondary motion on hems, skirts and coat tails, over 6.6's `SpringBones`.
+      🚩 Scope it from the measurement: pose is NOT the problem for fitted garments — a 120°
+      shoulder raise plus a 40° spine twist moves the suit's poke-through by **1.10 percentage
+      points** and its worst depth by **−0.016 mm**. The knee is: hips 70° / knees −90° takes worst
+      depth **9.190 → 14.988 mm**. Spend the budget on knees, hems and loose panels.
+      Gate: **MEASURED** — worst posed poke-through over a defined pose set no worse than the rest
+      pose, plus **CRITIC** on a walk/turn clip.
+- [ ] **9.15** Extend gate **G7** (card-band cool-chroma outliers) to garment cutout cards. Item
+      3.16 records lash and brow cards rendering as saturated royal-blue spikes for three rounds
+      while G1–G6 read green, fixed by `specularIntensity 0` and alpha-to-coverage at cutoff **0.1**
+      rather than the glTF default 0.5, which was discarding 15,368 lash and 20,262 brow texels.
+      Any garment with an alpha cutout inherits that bug.
+      Gate: **MEASURED** — G7 over the garment's cutout regions, < 0.10% of the band, proven red
+      against the un-shaded material.
+- [ ] **9.16** SPIKE: procedural fabric — weave normal + roughness + sheen/anisotropy generated
+      from `{weave, endsPerInch, picksPerInch, yarnTex, gsm}` rather than sampled. Isolated
+      prototype first, per the standing preference for proving unfamiliar domains outside the app.
+      Half is already de-risked: a probe generated plain / 2-1 twill / 3-1 twill / 4-1 satin height
+      fields from thread count alone, and the structure tensor's **coherence separates plain from
+      twill by 1.9–2.6×** (0.2887 against 0.5560 / 0.5989 / 0.7429), ordering the twills by float
+      length correctly.
+      🚩 **AND THE OBVIOUS GATE IS THE WRONG ONE — proven, not predicted.** "Measure the twill
+      diagonal with a structure tensor" reports **−90.00° on all three twills** against predicted
+      32.91° / 30.96° / 45.00°, because a whole-patch tensor is dominated by the axis-aligned yarn
+      ridges and the float diagonal is a lower-amplitude, longer-wavelength modulation on top. A
+      naive autocorrelation pitch was also out by 2–10× because the repeat is `over + under` yarns,
+      not one.
+      Gate: **MEASURED** — twill angle recovered by an **FFT peak at the weave-repeat frequency**
+      (or a band-passed tensor), matching `atan((picks × advance) / ends)` within a stated
+      tolerance; **proven red against a plain weave, which has no diagonal to find, and against the
+      whole-patch tensor above, which returns −90° on a correct twill.** Plus the anisotropic
+      highlight running along the twill line on a rendered plate.
+- [ ] **9.17** SPIKE: pattern-to-garment. **Start from GarmentCode/`pygarment` (MIT), not from
+      scratch** — the only complete open headless pipeline, it already emits GLB and a UV texture,
+      and hm08 support is three files its config anticipates: `<name>.obj`, a 26-measurement
+      `<name>.yaml`, and a segmentation JSON, which hm08's 172 named groups make scriptable.
+      🚩 **Two traps to plan for, not discover:** its Warp fork is under the **NVIDIA Source Code
+      License, not Apache-2.0**, and it targets Warp's **deprecated `warp.sim`**, whose successor
+      is Apache-2.0 **Newton**. 🚩 Design for the published **72% simulation success rate** — one
+      garment in four fails — not for the 30 s/garment average.
+      Timebox it and report an honest negative if it does not land.
+      Gate: **MEASURED** — one drafted garment reaches the CC0 baseline fit (covered skin outside
+      the cloth ≤ **26.37%**, worst depth ≤ **9.19 mm**, same signed point-to-triangle tool), and
+      the bake stays inside a stated budget against the measured **0.86 s/garment** marginal cost
+      of the mhclo path and the **0.65–3.58 s** for a Blender drape at our mesh density.
+- [ ] **9.18** Hardware library — ~15 parametric models (zips, buckles, buttons, rivets, eyelets,
+      snaps, webbing keepers, cord locks, D-rings). 🚩 **The bounded art task the phase cannot
+      avoid.** There is no academic work on procedural garment hardware, and GarmentCode states in
+      its own paper that *"the simplified definition of a panel does not allow specification of
+      internal loops"* — which blocks eyelets and buttonholes **at the pattern level** — and that
+      it cannot model *"elements sewn on top of a fabric piece, such as pockets and flounces."*
+      **Placement is derivable from pattern edges; only the models are hand-made, and only once.**
+      This is the difference between the face's *unbounded* scan requirement and clothing's
+      *bounded* one, and it is why this phase is tractable where photoreal skin was not.
+      Gate: **CRITIC** — a judge cannot tell a placed zip from an authored one at portrait framing.
+- [ ] **9.19** SPIKE: contact-driven wear, with an honest chance of a negative result.
+      🚩 **The one genuinely open problem in the phase.** AO and curvature are *geometry*-driven and
+      every bake we can run derives from them; wear is *use*-driven — knees, seat, cuffs, collar
+      folds, pocket mouths. The generic weathering canon exists (Dorsey & Hanrahan 1996; γ-ton
+      tracing 2005; Bellini et al. 2016) and **has never been applied to garments in a published
+      venue**. This is what separates a generated jacket from a bought one.
+      Gate: **CRITIC** — blind, generated-with-wear against generated-without, and the judge must
+      pick the worn one as more real. **Report a negative if it does not land; do not tune.**
+- [ ] **9.20** Third-party import path. The library **CONSUMES** a garment the user legally
+      acquired and **NEVER BUNDLES** one. No licensed asset in the repo, in the npm package, or in
+      any example. Honour VRM's machine-readable licence block programmatically and **default to
+      most-restrictive** on VRM 0.x (where every field is optional), on any unmapped 0.x↔1.0 value,
+      and on a missing block. Note in the code that no Consortium text imposes an enforcement duty
+      on applications — enforcing is a policy choice we are making, and saying so is honest.
+      Gate: **MEASURED** — a repo scan asserts no third-party garment binary is tracked, and the
+      importer refuses an asset whose licence metadata forbids the use.
+
+⚠️ **One item deliberately absent.** There is no "match the reference seller's quality" gate here,
+because that is 8.1's job and 8.1 is a blind CRITIC comparison. A subjective quality bar inside the
+wardrobe phase could be declared passed by whoever built it. This phase delivers measurable
+plumbing and measurable material parameters; a judge decides whether it looks like clothing.
+
+### Known gaps in the reference, recorded so they are not rediscovered
+
+The 638 supplied renders cover no: foundation layer (9.8 authors blind), socks or hosiery, bags,
+belts as separate items, eyewear, headwear, scarves or gloves, jewellery, sleepwear, swimwear, a
+coherent activewear set, open footwear, women's shoes beyond one block-heel boot, cardigans,
+matched formalwear, adaptive or maternity cuts, or **any non-Western dress** (9.10).
+Women's footwear is the thinnest slot on either rail by a wide margin.
+
 ## Standing constraints
 
 - **Animate early.** Every timing constraint agrees. Never analyse output audio reactively.

@@ -46,6 +46,49 @@ file disagree, **this file wins**. Re-read it before any major decision.
 the assumption, and keep going. Reserve blocking questions for things that would be unsafe or
 useless-if-wrong to assume.
 
+### A requirement the first reading missed, added by the user 2026-08-08 (R18)
+
+> When we talk about avatars, the clothing options is as much a requirement as the avatar itself.
+
+**This was an omission, not an extension.** It follows from three requirements already in the
+table above and the punch list simply did not carry it. R2 asks for the level of current
+VTuber/Live2D work, where outfit variants are definitional. R8 says the avatar represents the AI's
+own identity, and clothing is most of how a person expresses identity visually. R4 says "anything
+you could think of." What was built instead was a figure that can be male, female or anywhere
+between, and is permanently naked. Phase 3.7 (`FabricMaterial`) was the only clothing line in the
+whole document, and it is a shader.
+
+The user's further direction, also binding:
+
+> Let's not target vtuber clothes directly as they might come across as cartoon like if direct
+> imports are made. We should be making our own for AI and users to use.
+
+> This should not be taken as an "I only build this to the bare minimum specification". If this
+> rises to the level of appearance, interactivity, and clothing choice at or above what exists in
+> the same level and family as Stellar Blade, then you have correctly achieved the goal.
+
+And three specifics from `reference/README.md`, all in Phase 9: a wardrobe screen where users
+**select outfits or mix and match parts** into their own; the wardrobe **controlled by the AI
+itself when the user allows it**, so it dresses daily the way a person does, with the user able to
+**pin an outfit for consistency**; and a shipping set drawn from the reference the user supplied.
+
+**Two items were added beyond what was asked**, both because they are correctness rather than
+taste, and they are called out here so a later reader knows they were deliberate:
+
+- **9.8, the foundation layer.** A mix-and-match screen can remove a top and `undress()` exists, so
+  the avatar has to be decent in every reachable state. No reference exists for it anywhere in the
+  638 images supplied; it is authored blind.
+- **9.10, cultural and religious everyday dress.** The supplied reference contains nothing outside
+  a Western wardrobe. For a system whose premise is an AI choosing how to represent itself, a
+  wardrobe that can only represent one culture is a limit of the product, not of the art budget.
+
+⚠️ **The licence finding that decided the "author our own" approach**, recorded so it is not
+relitigated: Fab's EULA §6(b)(iii) forbids making Content available in "modeling tools that allow
+works to be exported", §4(c) requires end users be restricted from extracting Content, both price
+tiers grant identical rights, and every listing sampled from the reference seller carries
+`isAiForbidden: true`. Booth has no machine-readable licence field at all. **The library consumes
+what a user legally acquires; it never bundles.**
+
 ---
 
 ## Requirements extracted, with nothing added
@@ -71,6 +114,7 @@ Each maps to punch-list phases. If a phase does not trace back to a line here, i
 | R15 | Survive token/usage limits; **background task to resume** | `~/.claude/scheduled-tasks/sugata-avatar-resume/` |
 | R16 | Track progress | `PROGRESS.md` |
 | R17 | Use the web for sources and examples | `research/` — 9 docs |
+| R18 | **A wardrobe** — outfits by mood and season, mix-and-match, chosen by the AI or pinned by the user | Phase 9, `research/wardrobe-system.md` |
 
 ---
 

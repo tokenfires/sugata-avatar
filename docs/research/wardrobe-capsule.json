@@ -1,0 +1,266 @@
+{
+  "mens": [
+    {
+      "rank": 1,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/b0215d34-b277-4629-9f3a-2ede35a36e03.jpg",
+      "what": "Five-pocket straight-leg jeans, mid indigo. Flat, front + back + side.",
+      "layer": "BOTTOM",
+      "fabric": "denim",
+      "gender": "UNISEX",
+      "handModelled": "none — fly zip, shank button and six rivets are instanced primitives reused across every denim piece. Waistband, yoke, welt and coin pockets, belt loops and topstitch runs are all panel work.",
+      "why": "Verified by eye: three genuinely orthographic views, no rips, no distress to fake. This is the anchor bottom of the whole system and the reference weave for denim twill. Straight leg means the outline is unambiguous at 700x1200 where a skinny fit turns into a stick. Reads unchanged at both ends of the identity morph."
+    },
+    {
+      "rank": 2,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/edf23e7a-7071-41fb-84b0-9a8cfd279251.jpg",
+      "what": "T-shirt collection: crew tee, oversized tee, boxy tee, ribbed tank, pique polo — five garments in one sheet.",
+      "layer": "BASE",
+      "fabric": "cotton knit (jersey + pique + rib)",
+      "gender": "UNISEX",
+      "handModelled": "none. The cleanest zero-hardware reference in the pool; the rib neckband is a displacement band on a panel edge.",
+      "why": "Five wearable BASE garments off effectively one block, and it quietly hands us a TOP as well (the polo). Jersey is the foundational knit the fabric system must nail before anything else, and pique and rib come free in the same sheet. Highest wardrobe-multiplier per unit of authoring in the entire pool."
+    },
+    {
+      "rank": 3,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/d5c7fe46-ef5a-43f5-a883-64a58522cdc9.jpg",
+      "what": "Flat-front tan chinos with turn-up cuff. Flat, front + back + side.",
+      "layer": "BOTTOM",
+      "fabric": "cotton woven (twill)",
+      "gender": "UNISEX",
+      "handModelled": "none — one waist button and a fly zip. Welt back pockets are seam work; the turn-up is a folded hem.",
+      "why": "Stops us shipping a wardrobe of five denims. Cotton twill is a distinct procedural weave from denim despite the shared construction, so this is nearly free once the jeans block exists but teaches the fabric system a second family. The turn-up gives a defined hem line that still reads at distance."
+    },
+    {
+      "rank": 4,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/d9f8a0ce-f3ea-4824-818c-650cf6111a0a.jpg",
+      "what": "Ribbed roll-neck / turtleneck jumper, charcoal. Flat, three-quarter view.",
+      "layer": "TOP",
+      "fabric": "rib knit (fine wool / cotton)",
+      "gender": "UNISEX",
+      "handModelled": "none — no closures whatsoever. The rib is a displacement pattern and the collar is a tube.",
+      "why": "The collar column breaks the head-to-shoulder line, which is the one knit shape that survives at 200px where a crew neck flattens into a colour block. Zero hardware, layers under every OUTER in the set, and reads correctly masculine or feminine so it serves the whole morph axis. Docked only for having no back view — take the back from the crew sweater block."
+    },
+    {
+      "rank": 5,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/554a060a-89f8-4a00-be4a-5ce6617f7fe3.jpg",
+      "what": "Long-sleeve button-down work shirt, sand cotton twill, sleeves part-rolled. Flat, front + back.",
+      "layer": "TOP",
+      "fabric": "cotton woven",
+      "gender": "UNISEX",
+      "handModelled": "none — collar stand, placket, cuffs and chest flaps are panels; buttons are one instanced primitive.",
+      "why": "The canonical shirt block, and we will reuse it three times over: the women's blouse, any overshirt, any shacket. Worn open over a tee it also fakes a light OUTER, which doubles its value on the mix-and-match screen for zero extra geometry. Verified: clean collar, yoke and cuff construction, both faces shown."
+    },
+    {
+      "rank": 6,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/ef9d23fe-7a5b-4830-8579-debe769278cf.jpg",
+      "what": "Full-zip fleece hoodie with drawcord hood, charcoal. Flat, front + back, hood up.",
+      "layer": "OUTER",
+      "fabric": "fleece",
+      "gender": "UNISEX",
+      "handModelled": "one centre-front zip (slider + teeth) and two drawcord tips. Buy the zip asset once here and it pays for every other zipped piece we ever build.",
+      "why": "The most-worn outer garment on earth and non-negotiable in a modern default wardrobe. The reference shows the hood up, which is the state that actually changes the avatar's silhouette. Brushed fleece nap is a fabric family nothing else in either capsule covers."
+    },
+    {
+      "rank": 7,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/6eff9386-6919-4675-a078-c25b0a9db604.jpg",
+      "what": "Sneaker collection: white leather cupsole low-top, grey leather cupsole, black canvas, white chunky runner, black mid-top — five shoes in one sheet.",
+      "layer": "FOOTWEAR",
+      "fabric": "leather + canvas",
+      "gender": "UNISEX",
+      "handModelled": "one cupsole unit, one eyelet ring and one lace spline, authored once and reused across all five. Footwear is always partly hard-surface work; this amortises it five ways.",
+      "why": "Best value-per-build in the pool: one last, one sole family, five finished shoes. Everything else in the wardrobe needs feet, and a plain cupsole low-top is the shoe that never looks wrong with any bottom in either capsule. Verified clean — no branded overlays or mesh windows to launder."
+    },
+    {
+      "rank": 8,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/c48daac8-30bf-469b-8c9e-c3630dabb130.jpg",
+      "what": "Lug-sole Chelsea boots, olive leather, elastic side gusset, heel pull tab. Three angles.",
+      "layer": "FOOTWEAR",
+      "fabric": "leather",
+      "gender": "UNISEX",
+      "handModelled": "the lug outsole tread and the heel/side pull tabs. No laces at all — which is exactly why this is the cheapest real boot in the pool.",
+      "why": "Laceless, so we skip the single most annoying piece of footwear geometry. The chunky lug sole plus shaft height reads clearly at full-body framing where a low sneaker degenerates into a smudge. Genuinely worn by everyone and pairs with jeans, chinos, wool trousers, the skirt and the dress alike. Note 8a81e0f0 is the same boot with fewer angles — use this one and drop that."
+    },
+    {
+      "rank": 9,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/6e4182bd-723c-438b-8c0d-39986e1ad7f4.jpg",
+      "what": "Single-breasted knee-length wool overcoat, camel, notch lapel, welt and flap pockets, centre back vent. Flat, front + back.",
+      "layer": "OUTER",
+      "fabric": "wool/suiting (melton)",
+      "gender": "UNISEX",
+      "handModelled": "none — three plain buttons. The lapel roll wants a modelled break rather than pure simulation, but that is craft time, not bespoke geometry.",
+      "why": "The best single item in the pool and the hero of the men's capsule — I ranked it ninth only because the wardrobe still functions without it and does not function without shoes. Biggest unmistakable outline at avatar scale, layers over literally every top in both capsules, and melton is a wool family we otherwise only touch in trousers. Verified: lapel roll, back vent and shoulder all clearly readable."
+    },
+    {
+      "rank": 10,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/2dc9909b-a4a3-47a0-aa25-198590d9bbda.jpg",
+      "what": "Flat-front tailored trousers, mid grey worsted. Flat, front + back + side.",
+      "layer": "BOTTOM",
+      "fabric": "wool/suiting",
+      "gender": "UNISEX",
+      "handModelled": "none — waistband, single closure button, welt back pockets. The crease line is geometry and shading, not hardware.",
+      "why": "The third bottom, and the one that lifts the capsule above pure casualwear. I took this over a third jacket deliberately: three bottoms and two outers yields 810 outfits where two bottoms and three outers yields 720, and the brief's stated failure mode is a wardrobe with four jackets and one pair of trousers. Pairs directly with the overcoat and the work shirt."
+    }
+  ],
+  "womens": [
+    {
+      "rank": 1,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/b0215d34-b277-4629-9f3a-2ede35a36e03.jpg",
+      "what": "Five-pocket straight-leg jeans, mid indigo. Flat, front + back + side.",
+      "layer": "BOTTOM",
+      "fabric": "denim",
+      "gender": "UNISEX",
+      "handModelled": "none — fly zip, shank button and rivets are instanced primitives; everything else is panel and topstitch.",
+      "why": "Same anchor bottom, same authored block, and the vendor sheet states the pattern supports male and female bodies. Deliberately shared rather than duplicated: ca576131 offers a fem-cut high-rise skinny, but a skinny leg reads worse at 200px than a straight leg and the second pattern is not worth its cost until the morph is tuned. Keep ca576131 on the bench as the fem-end grading target."
+    },
+    {
+      "rank": 2,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/edf23e7a-7071-41fb-84b0-9a8cfd279251.jpg",
+      "what": "T-shirt collection: crew tee, oversized tee, boxy cropped tee, ribbed tank, pique polo — five garments in one sheet.",
+      "layer": "BASE",
+      "fabric": "cotton knit (jersey + pique + rib)",
+      "gender": "UNISEX",
+      "handModelled": "none.",
+      "why": "Shared with the men's capsule, and the boxy cropped tee in this sheet already reads feminine without any new authoring — the collection spans the identity axis by itself. Five BASE garments for one block is the cheapest way to make the women's rail look stocked on day one."
+    },
+    {
+      "rank": 3,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/d9f8a0ce-f3ea-4824-818c-650cf6111a0a.jpg",
+      "what": "Ribbed roll-neck / turtleneck jumper, charcoal. Flat, three-quarter view.",
+      "layer": "TOP",
+      "fabric": "rib knit",
+      "gender": "UNISEX",
+      "handModelled": "none — no closures at all.",
+      "why": "Shared. A roll-neck is the strongest genuinely gender-neutral knit there is, and on the feminine end it does double duty under the pinafore and over the leggings. Rib is the highest-value procedural weave test in the pool and costs us one displacement pattern."
+    },
+    {
+      "rank": 4,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/6eff9386-6919-4675-a078-c25b0a9db604.jpg",
+      "what": "Sneaker collection: five low- and mid-top cupsole shoes.",
+      "layer": "FOOTWEAR",
+      "fabric": "leather + canvas",
+      "gender": "UNISEX",
+      "handModelled": "one cupsole, one eyelet ring, one lace spline, reused five times.",
+      "why": "Shared. Sneakers are the most-worn women's shoe by a wide margin and none of these five read masculine. Five colourways means the women's rail gets visible choice at the footwear slot without a second build."
+    },
+    {
+      "rank": 5,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/c48daac8-30bf-469b-8c9e-c3630dabb130.jpg",
+      "what": "Lug-sole Chelsea boots, olive leather, elastic gusset. Three angles.",
+      "layer": "FOOTWEAR",
+      "fabric": "leather",
+      "gender": "UNISEX",
+      "handModelled": "lug outsole tread and pull tabs. No laces.",
+      "why": "Shared, and it earns its place in the women's capsule on its own merits — a lug Chelsea is the boot that works under jeans, wide-leg trousers and the midi dress equally. I chose it over the fem-specific slouch boot (0ea82ca9) because a block heel adds a foot-pose rig problem we do not need in v1; keep the slouch boot as the first post-ship addition."
+    },
+    {
+      "rank": 6,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/60b41640-cc19-49c3-ac96-8182b8de316a.jpg",
+      "what": "Crisp white cotton shirt / blouse, point collar, chest flap pockets, rolled sleeves, shaped waist. Flat, front + back.",
+      "layer": "TOP",
+      "fabric": "cotton woven",
+      "gender": "FEM",
+      "handModelled": "none — collar, placket, chest flaps and rolled cuffs are all panels.",
+      "why": "Verified fem-cut: real bust shaping and a nipped waist, so it is a true second pattern off the men's shirt block rather than a recolour. It is the one top that pairs with the jeans, the wide-leg trousers and the trench alike. I took this over the satin blouse (4c830800) because everyday and combinability are weighted 3x and fabric only 1x — but satin is the single best fabric-family addition available, so it is first on the bench."
+    },
+    {
+      "rank": 7,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/ed808c3c-a8a6-480b-be67-32e959250d79.jpg",
+      "what": "High-waist wide-leg tailored trousers, stone. Flat, front + back + side.",
+      "layer": "BOTTOM",
+      "fabric": "wool/suiting",
+      "gender": "FEM",
+      "handModelled": "none — welt back pockets are seams, one waistband closure.",
+      "why": "The wide leg gives a column silhouette that reads far better at 200px than any skinny fit — this is the single best feminine bottom in the pool on the silhouette axis. Three orthographic views make the pattern fully derivable. Note 5c44bab5 is essentially this block in linen with a paperbag waist, so linen becomes a near-free second colourway later."
+    },
+    {
+      "rank": 8,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/ef9d23fe-7a5b-4830-8579-debe769278cf.jpg",
+      "what": "Full-zip fleece hoodie with drawcord hood, charcoal. Flat, front + back, hood up.",
+      "layer": "OUTER",
+      "fabric": "fleece",
+      "gender": "UNISEX",
+      "handModelled": "one centre-front zip and two drawcord tips.",
+      "why": "Shared, and its presence here is a correctness point rather than a convenience one — a wardrobe that gives women only long tailored coats and no hoodie is not a wardrobe for normal everyday wear. It is also the short/casual counterweight to the trench, so the two outers cover genuinely different registers instead of both being long coats."
+    },
+    {
+      "rank": 9,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/17ad758e-2a76-4ae0-bec4-11fc160e9efd.jpg",
+      "what": "Knit midi dress, grey, mock neck, elbow sleeve, seamed waist with pleated flared skirt. Flat, front + side + back.",
+      "layer": "ONEPIECE",
+      "fabric": "cotton knit / jersey",
+      "gender": "FEM",
+      "handModelled": "none — the skirt pleating is regular and parameterisable, the mock neck is a short tube. A concealed back zip at most.",
+      "why": "Verified as a genuine coffee-shop dress, not eveningwear, and longer than the metadata suggested — the hem falls well below the knee, which is a far stronger silhouette. The waist seam plus flared skirt is the shape that reads instantly at avatar framing, and the flare is real drape-simulation value on walk cycles. Takes the trench, the overcoat and either footwear over it."
+    },
+    {
+      "rank": 10,
+      "file": "/Users/robault/Documents/GitHub/Sugata 姿/reference/Example Clothing/eec974dc-be6a-4611-9145-90f38bb6922f.jpg",
+      "what": "Double-breasted belted trench coat, slate gabardine, knee length, storm flap, back vent. Flat, front + back.",
+      "layer": "OUTER",
+      "fabric": "cotton woven (gabardine)",
+      "gender": "FEM",
+      "handModelled": "one belt buckle, plus a double-breasted button run of one instanced button repeated about ten times. Storm flap, belt loops and back vent are panels.",
+      "why": "The best silhouette in the entire pool — the belted waist and flared skirt read from across a room, which is precisely what survives at 700x1200. Gabardine is a tightly woven cotton with a distinctly crisper drape than the twill of the chinos, so it earns its own weave. Combinability is slightly docked because a knee-length coat hides what is under it; that is an honest cost, not a reason to drop it."
+    }
+  ],
+  "rationale": "Treat this as one wardrobe of 14 authored blocks that dresses two avatars, not as twenty separate trophies. Six pieces are shared outright — the tee sheet, the roll-neck, the straight jeans, the zip hoodie, the Chelsea boots and the sneaker sheet — because each reads correctly at both ends of the identity morph, and the vendor sheets for most of them explicitly state male and female body support. That sharing is what lets ten slots per capsule buy three lower-body options, two torso layers and two footwear options on each rail instead of one of each.\n\nThe set is built as a stack, not a lookbook. Every bottom takes every base; every base takes every top; every top takes every outer; every outer takes both shoes. There is no piece here that only works inside one specific outfit — the closest is the midi dress, and even that accepts both outers and both footwear. The men's rail deliberately carries three bottoms against two outers because the brief's own stated failure mode is four jackets and one pair of trousers, and the arithmetic backs it: three bottoms with two outers gives 810 outfits, two bottoms with three outers gives 720. The women's rail spends its third lower-body slot on the dress instead of a third trouser, which is the right trade because a dress is a whole silhouette rather than a variation on one.\n\nThe re-look mattered more than the scores did, and this is the finding to carry forward. I read 35 of the shortlisted images and six were materially misdescribed — roughly one in six. Two would have been shipping disasters: bb165a25, catalogued as \"SHIRTS COLLECTION 1 — five button shirts\", is samurai period costume with conical kasa hats, and ad30803a, catalogued as \"cream suede court sneakers\", is sci-fi powered armour with a helmet — the two things the brief names explicitly as disqualifying. Three more were simply the wrong layer: afe9d9bb (\"fleece hoodie, OUTER\") is a pair of suede loafers, c743794a (\"shawl-collar knit cardigan\") is mid-top sneakers, and 66b8ba71 (\"crew-neck fleece sweatshirt\") is distressed denim short shorts. One was a wrong garment class in a helpful direction: 9373b668, the highest-scoring bottom in the pool at 56 and described as \"tapered five-pocket jeans\", is actually denim shorts. Every one of those sat in the top forty by score. Nothing was selected here that I did not look at myself, and 8a81e0f0 was dropped as a straight duplicate of c48daac8 with fewer angles.\n\nWhere my eyes disagreed with the numbers I went with my eyes in three places. The midi dress is longer and more everyday than its description implied, which raised it. The white shirt beat the satin blouse despite satin being the better fabric-family play, because everyday and combinability carry 3x weight and fabric carries 1x. And I passed over the leather cafe racer, the puffer and the corduroy trucker — all strong, all verified genuine — because each would have cost a bottom, and a capsule with a spare jacket and no trousers is not a wardrobe.",
+  "fabricCoverage": [
+    "Denim — straight jeans (b0215d34). The marquee procedural weave and the one to solve first; the wear/fade map is the reusable asset.",
+    "Cotton woven, twill — tan chinos (d5c7fe46) and the sand work shirt (554a060a). Same weave family at two weights, which is a useful stress test of one shader across garment scales.",
+    "Cotton woven, gabardine — the trench (eec974dc). Tightly woven and noticeably crisper in drape than the chino twill; worth keeping distinct rather than folding into cotton woven.",
+    "Cotton knit, jersey — the tee sheet (edf23e7a) and the midi dress (17ad758e). The foundational knit; everything else in the knit family derives from getting this right.",
+    "Cotton knit, pique — the polo inside the tee sheet. A genuinely different knit structure from flat jersey, free in the same reference.",
+    "Rib knit — the roll-neck (d9f8a0ce) and the tank in the tee sheet. Displacement-pattern work rather than a new weave, and the highest quality-per-hour item in the set.",
+    "Wool/suiting, worsted — grey tailored trousers (2dc9909b) and the wide-leg trousers (ed808c3c). Yarn-level structure, and the base case for any check pattern we add later.",
+    "Wool/suiting, melton — the camel overcoat (6e4182bd). Heavy, felted, almost no visible weave; behaves nothing like worsted in simulation.",
+    "Fleece — the zip hoodie (ef9d23fe). Brushed nap, soft heavy drape, a genuinely different surface response from jersey.",
+    "Leather — Chelsea boots (c48daac8) and the sneaker sheet (6eff9386). A distinct BRDF rather than a weave, and both footwear references exercise it.",
+    "GAP, technical synthetic/nylon — nothing in the shipping twenty. This is the most costly omission because nylon is the only family here with real specular sheen and a stiff rustle, and no other garment teaches it. Cheapest fix is c0e406d3 (hooded puffer, verified genuine, biggest silhouette in the pool) or a5204dd0 (gilet, layers without sleeve-collision problems).",
+    "GAP, leather as a garment rather than footwear. The boots and sneakers give us the material but not the drape of a leather panel over a shoulder. 95bec96e (black cafe-racer, verified, minimal hardware) is the clean fix, and cec1ebe5 shows the same jacket worn by both a male and a female figure — direct morph-axis evidence.",
+    "GAP, corduroy. A wale is a directional, anisotropic weave nothing else in the set teaches, and it survives at avatar scale because it runs vertically along the silhouette. c99ca1d7 (verified — a sand cord trucker with a sherpa collar) is the pick.",
+    "GAP, linen. Distinct crisp-crease signature. Nearly free: 5c44bab5 is essentially the women's wide-leg block already in the set, cut in linen.",
+    "GAP, satin/silk. The only genuinely fluid-drape fabric available and the hardest simulation case in the pool. 4c830800 (navy blouse, verified) is the fix and was my runner-up at the women's TOP slot.",
+    "Verdict: ten families covered across seven weave archetypes plus one BRDF, with nylon the one omission I would actually fix before ship. Adding the puffer and the cafe racer would take coverage to twelve families for two extra builds."
+  ],
+  "combinationCount": "Men's rail — 810 distinct outfits. The tee sheet yields 5 wearable BASE garments (crew, oversized, boxy, rib tank, pique polo). TOP is optional and there are 2, so 3 torso-mid states (none, work shirt, roll-neck). OUTER is optional and there are 2, so 3 states (none, hoodie, overcoat). 3 BOTTOM (jeans, chinos, wool trousers). FOOTWEAR is 1 Chelsea plus 5 sneakers = 6. So 5 x 3 x 3 x 3 x 6 = 810.\n\nWomen's rail — 558 distinct outfits, in two paths. Separates: 5 BASE x 3 TOP states (none, white shirt, roll-neck) x 2 BOTTOM (jeans, wide-leg) x 3 OUTER states (none, hoodie, trench) x 6 FOOTWEAR = 5 x 3 x 2 x 3 x 6 = 540. Dress path: 1 ONEPIECE x 3 OUTER states x 6 FOOTWEAR = 18. Total 540 + 18 = 558.\n\nCombined, 1,368 outfits. The number that actually matters to the build schedule is the input side: 14 authored garment blocks, because 6 pieces are shared across both capsules. Those 14 blocks expand to 22 distinct wearable garments once the tee sheet's 5 and the sneaker sheet's 5 are counted out. So the ratio is roughly 98 outfits per block authored — and it climbs steeply with each colour ramp, since c4072bd5 alone hands the jeans block 5 washes for essentially the cost of a shader parameter and would take the men's rail past 4,000 on its own.\n\nOne honest caveat on those figures: they are combinatorial ceilings, not curated looks. A fair fraction are things nobody would wear — the wool trousers under the hoodie, the trench over the tank. If the wardrobe screen ships a \"styled looks\" shelf alongside free mixing, budget for roughly 30-40 hand-curated combinations on top of the free-mix rail.",
+  "gaps": [
+    "Foundation layer — no bras, briefs or underwear anywhere in the shortlist. This is the most urgent gap because it is not a style choice: the avatar has to be decent during outfit changes and when a top is removed on the mix-and-match screen. Nothing to reference; we author blind.",
+    "Socks and hosiery — every footwear reference in the pool is a bare-ankle product shot. Tights under the midi dress and the skirt are an everyday requirement for the women's rail and we have no reference for how they meet a shoe.",
+    "Headwear — no beanies, caps or hats as standalone pieces. A beanie appears only as an unusable extra inside the 59fe227f parka render, and the only hats in the pool are the samurai kasa on the mislabelled costume sheet.",
+    "Bags — no totes, backpacks, crossbody or handbags. A backpack appears only as straps intruding on the c66db7f4 sweater render. Bags are the single most visible everyday accessory and we have zero reference.",
+    "Belts as separate items — belts exist only integrated into trousers (c7b97ab5). A belt is the cheapest way to change the read of an outfit and we cannot reference one.",
+    "Eyewear — no glasses or sunglasses. Prescription glasses in particular are an identity feature more than an accessory and matter disproportionately for an avatar system.",
+    "Scarves, gloves and hats as a cold-weather set — we have three heavy outers and nothing to wear with them. Gloves appear only as an extra in the parka render.",
+    "Jewellery and watches — nothing. Small, but they carry a lot of identity signal at close framing.",
+    "Sleepwear and loungewear — no pyjamas, robes or nightwear. Sweatpants (f2f042ca) are the closest thing in the pool and are not the same category.",
+    "Swimwear — nothing at all.",
+    "Activewear as a coherent set — leggings exist (a016a8ce) but no sports bra, running top, shorts or technical layer to complete a look.",
+    "Sandals, flip-flops and open footwear — every shoe in the pool is closed. Warm-weather outfits currently have no correct footwear, which quietly caps the shorts and dress looks.",
+    "Heels beyond a single block-heel slouch boot (0ea82ca9) — no court shoe, no flat, no ballet pump, no loafer for women. Footwear is the thinnest slot on the women's rail by a wide margin.",
+    "Cultural and religious everyday dress — no hijab, sari, kurta, abaya, or anything outside a Western wardrobe. The only non-Western garment surfaced in the entire shortlist was the mislabelled samurai costume. For a system whose whole premise is a continuous identity axis, this is a conspicuous blind spot and worth a deliberate sourcing pass rather than an afterthought.",
+    "Cardigans — the one candidate catalogued as a shawl-collar cardigan (c743794a) turned out to be sneakers, so the category has no reference at all. An open-front knit is a distinct drape case from a pullover.",
+    "Matched formalwear — no suit as a coordinated two-piece, no tie, no eveningwear. The blazer (a767d7b2) and wool trousers exist separately but were never shown as a set.",
+    "Adaptive, maternity and plus-specific cuts — nothing. The vendor sheets claim parametric body support, but that is morph range, not garments designed for different bodies.",
+    "Aprons and everyday work layers — nothing between casualwear and the excluded occupational gear."
+  ],
+  "buildOrder": [
+    "1. Crew tee from edf23e7a — as a one-day pipeline smoke test, not as a real deliverable. Four panels, one rib neckband, zero hardware, one flat jersey. The point is to run the whole authoring path end to end and find out where it actually hurts while the cost of being wrong is a single afternoon. The attach, skin and morph-track legs are already proven on the CC0 suit, so this is isolating the new risk — authoring — with everything else held constant.",
+    "2. Straight jeans (b0215d34) — the real first garment, and the one I would judge the pipeline on. Five-pocket construction is the honest test the tee is not: a yoke, a fly, welt and coin pockets, belt loops, topstitch runs that have to follow seams, and instanced hardware. It also forces denim twill, the marquee weave, and produces the reusable rivet and shank-button primitives every other denim piece needs. Three orthographic views means there is no guessing in the pattern, so any failure here is a pipeline failure rather than a reference failure — which is exactly the property you want in your first hard build.",
+    "3. Zip hoodie (ef9d23fe) — buy the zip asset. A slider and a teeth run authored properly once here pays for the trench, the puffer, the cafe racer and every zipped piece we ever add, so this is the highest-leverage hardware spend in the set. It also brings the first two-panel hood and fleece nap, and the reference shows the hood up so we have the silhouette target.",
+    "4. Ribbed roll-neck (d9f8a0ce) — no closures at all, so it isolates the knit family cleanly. Rib as a displacement pattern and a tube collar; if rib looks right here it looks right on every cuff and hem in the wardrobe. Cheap, fast, and it is the second half of the fabric system's knit story after jersey.",
+    "5. Sneakers from 6eff9386 — do this fifth, earlier than instinct suggests. Footwear is the least cloth-like thing in the set: sculpted sole units, eyelets, lace splines. It exercises a different pipeline from everything above and the temptation is to defer it, which is exactly why it should come before the wardrobe is half built. One last and one sole family here unlocks five shoes and de-risks the Chelsea boot behind it.",
+    "6. Camel overcoat (6e4182bd) — the hardest drape problem in the set and therefore the last of the de-risking builds. The lapel roll wants a modelled break rather than pure simulation, and knowing how much hand-craft that actually costs determines whether the blazer, the trench and any future tailoring are affordable. Attempt this only once the simple cases are known-good, so a bad result is unambiguously about tailoring and not about the pipeline.",
+    "Then fill in: chinos and work shirt (both reuse blocks already proven), wide-leg trousers, white shirt, wool trousers, Chelsea boots, midi dress, trench last — the trench is the most hardware-dense piece in the twenty and should not be attempted until the zip and button primitives are settled.",
+    "One scheduling note worth acting on: run c4072bd5 (five denim washes) as a colour-ramp exercise immediately after the jeans land. It is close to free, it proves the colourway system on the hardest surface we have, and it makes the wardrobe screen look stocked long before the remaining blocks are done — which is worth a lot when the thing needs to be demoed."
+  ],
+  "sharedUnisex": [
+    "b0215d34 — straight-leg jeans (BOTTOM, denim). Ranked 1 in both capsules. The vendor sheet states male and female body support; a straight leg reads unchanged across the morph where a skinny or a bootcut does not.",
+    "edf23e7a — T-shirt collection, 5 garments (BASE, cotton knit). Ranked 2 in both. The sheet itself spans the axis: the boxy cropped tee reads feminine and the oversized tee reads masculine, off one block.",
+    "d9f8a0ce — ribbed roll-neck (TOP, rib knit). Ranked 4 men's, 3 women's. The most reliably gender-neutral knit shape there is, and no closures means no gendered button-side convention to get wrong.",
+    "ef9d23fe — full-zip fleece hoodie (OUTER, fleece). Ranked 6 men's, 8 women's. Worn identically at both ends of the axis; its presence on the women's rail is a correctness requirement, not a convenience.",
+    "c48daac8 — lug-sole Chelsea boots (FOOTWEAR, leather). Ranked 8 men's, 5 women's. Laceless, flat-soled, and genuinely worn by everyone — the one boot that needs no fem or masc variant.",
+    "6eff9386 — sneaker collection, 5 shoes (FOOTWEAR, leather). Ranked 7 men's, 4 women's. None of the five read masculine; the white and grey cupsole low-tops in particular are dead centre on the axis.",
+    "Effect on the build: 20 capsule slots collapse to 14 authored blocks, a 30% saving, and the shared pieces are the ones exercised hardest so they get the most iteration. Three further pieces are genuinely unisex and could be cross-listed onto the women's rail at zero build cost if the user wants a fuller women's screen — the tan chinos (d5c7fe46), the sand work shirt (554a060a) and the camel overcoat (6e4182bd). I kept them men's-side only to leave room for the dress, the trench, the wide-leg trousers and the fem-cut shirt, but nothing technical stops them appearing on both.",
+    "Two pieces are FEM by cut rather than by styling and are therefore real second patterns, not recolours: the white shirt (60b41640, bust shaping and a nipped waist) and the wide-leg trousers (ed808c3c, high-rise). Budget them as full builds. The midi dress (17ad758e) and the trench (eec974dc) are fem-styled but their blocks would grade to masc with modest change if the axis ever wants them there."
+  ]
+}
