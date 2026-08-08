@@ -3387,14 +3387,6 @@ function standardNormalCdf( x ) {
 
 }
 
-function angleBetweenDegrees( a, b ) {
-
-    const dot = Math.min( Math.abs( a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w ), 1 );
-
-    return 2 * Math.acos( dot ) * 180 / Math.PI;
-
-}
-
 /**
  * 🎯 The sole's outward normal, in world space, WITHOUT assuming anything about the rig's local
  * axis convention.

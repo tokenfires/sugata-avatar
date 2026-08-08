@@ -21,10 +21,19 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { Object3D, Vector3 } from 'three';
+import { Box3, Object3D, PerspectiveCamera, Vector3 } from 'three';
 
 import { Skeleton } from './Skeleton.js';
 import { RestPose } from './RestPose.js';
+
+// The pose FILES, not the compiled poses. The articulation gate has to rebuild a pose with a few
+// bones replaced by the angles they carried before the fix, and `RestPose` deliberately keeps only
+// compiled quaternions — reasonably, since nothing at runtime wants the source.
+import weightLeftSource from './poses/weight-left.json' with { type: 'json' };
+import weightRightSource from './poses/weight-right.json' with { type: 'json' };
+import relaxedStandingSource from './poses/relaxed-standing.json' with { type: 'json' };
+
+const POSE_SOURCE = { 'weight-left': weightLeftSource, 'weight-right': weightRightSource };
 
 // three's GLTFLoader assumes a browser when it decodes embedded textures. The stance-width check
 // needs real skinned vertices — a heel is not a joint — so the GLB is loaded properly for that one
@@ -94,10 +103,100 @@ const HEEL_MIDPOINT_TOLERANCE_METRES = 0.006;
  */
 const CONTRAPPOSTO_FOOT_DRIFT_LIMIT_METRES = 0.012;
 
+/**
+ * How far the inter-thigh gap must move between relaxed-standing and a contrapposto, in pixels at
+ * the framing `alive.js?frame=body` uses — 700 x 1200, 26 degree field of view, camera 12 degrees
+ * off axis, the figure's own height plus a tenth.
+ *
+ * Four pixels, and each part of that has a reason. The floor is this project's own measured
+ * visibility threshold: docs/PROGRESS.md records a weight shift moving "~4.5 mm ML — 1.6 pixels at
+ * full-body framing. Side-by-side plates before and after a shift are indistinguishable." The
+ * ceiling is what the poses now measure — 9.06 px on weight-left and 7.89 px on weight-right — and
+ * the gate sits between, at 2.5x the invisibility floor and a little over half the delivered
+ * amplitude, so a re-authored pose has room to move without having to re-solve this number.
+ *
+ * The old poses measure 0.35 px and 0.07 px, which is where the 26x and 113x in the commit message
+ * come from and why no tolerance narrow enough to be useful could have admitted them.
+ */
+const MINIMUM_GAP_CHANGE_PIXELS = 4;
+
+/**
+ * The gap change as a fraction of how far the band TRAVELLED, because the defect was reported as a
+ * ratio: 0.81 px of shape against 8.2 px of translation.
+ *
+ * Measured now: 0.436 on weight-left, 0.372 on weight-right, against 0.023 and 0.004 before. The
+ * gate is set at 0.15 — above anything the old data can reach by a factor of six, and below the
+ * delivered figures by a factor of two and a half, because the numerator and the denominator move
+ * together when a pose is re-authored and a tight ratio would be brittle for no gain.
+ */
+const MINIMUM_SHAPE_PER_TRAVEL = 0.15;
+
+/**
+ * The rows of the frame the gap is read from, as fractions of frame height so the same numbers read
+ * a 1200 px capture and a 600 px one.
+ *
+ * 0.583–0.642 is the mid-thigh: below the hands, so no arm contamination, and above the knees, so
+ * the taper does not dominate. It is the band the judge reported the defect in, kept deliberately
+ * rather than chosen afresh — a gate written on a different band from the finding it answers is a
+ * gate that cannot be compared with the finding.
+ */
+const THIGH_BAND_ROWS = [ 0.583, 0.642 ];
+
+/**
+ * The free limb as it was authored BEFORE the swivel, per pose. This is the gate's known-bad input
+ * and it is committed on purpose: see checkContrappostoArticulates.
+ */
+const PRE_SWIVEL_FREE_LIMB = {
+    'weight-left': {
+        rightUpperLeg: [ -4.0, -7.06, 0.94 ],
+        rightLowerLeg: [ 8.0, 0, 0 ],
+        rightFoot: [ -6.26, -0.85, -10.63 ]
+    },
+    'weight-right': {
+        leftUpperLeg: [ -4, 7.06, 3.71 ],
+        leftLowerLeg: [ 8, 0, 0 ],
+        leftFoot: [ -6.57, 1.36, 6.03 ]
+    }
+};
+
+// The camera `alive.js` builds for ?frame=body, reconstructed. Changing any of these changes every
+// pixel figure in this section, so they are named rather than inlined.
+const FRAME_WIDTH = 700;
+const FRAME_HEIGHT = 1200;
+const FRAME_FIELD_OF_VIEW_DEGREES = 26;
+const FRAME_AZIMUTH_DEGREES = 12;
+const FRAME_MARGIN = 1.10;
+
 const DOWN = new Vector3( 0, -1, 0 );
 
 /** The GLB is parsed once and re-posed, because parsing it is the expensive part. */
 let cachedFigure = null;
+
+/**
+ * The skinned figure and the Skeleton that drives it, parsed once for the whole run.
+ *
+ * 🚩 The Skeleton is cached WITH the figure, and that is load-bearing rather than an optimisation.
+ * A Skeleton reads the rig's current bone rotations as its bind reference at construction, so
+ * building a second one over an already-posed figure treats the pose as bind and applies the next
+ * pose on top of it. That silently halved one stance measurement and doubled the other before this
+ * existed — see LEARNINGS 1.12.
+ */
+async function loadFigureOnce() {
+
+    if ( cachedFigure === null ) {
+
+        const bytes = readFileSync( GLB_PATH );
+
+        const figure = await Figure.parse(
+            bytes.buffer.slice( bytes.byteOffset, bytes.byteOffset + bytes.byteLength ) );
+
+        cachedFigure = { figure, root: figure.root, skeleton: new Skeleton( figure.root ) };
+
+    }
+
+    return cachedFigure;
+
+}
 
 let failures = 0;
 
@@ -116,6 +215,7 @@ async function run() {
 
     checkMirrorSymmetry();
     await checkStanceWidth();
+    await checkContrappostoArticulates();
     checkBlendEndpoints();
     checkAuthoringErrorsAreLoud();
 
@@ -291,6 +391,27 @@ function checkContrapposto( poseName, stanceSign ) {
  *   relaxed-standing, because the stance correction is a common additive term there and cancels.
  *   The tolerance is 0.6 degrees, which is relaxed-standing's own authored toe-out asymmetry (3.5
  *   against 3.0) and was already present before any of this.
+ *
+ * 🚩 AND THEN THE PELVIS NEEDED A THIRD RULE, because it does not obey ONE mirror rule — it obeys
+ * a different one per axis, and no comparison of whole quaternions can express that. Its two axes
+ * are authored against different references on purpose (weight-right.json's `hips` note is the
+ * primary source, and it predicted this check would read 2.400 degrees before anyone ran it):
+ *
+ *   y, the transverse rotation, mirrors as a DELTA. It decides whether the free foot's turn-out is
+ *   released at all, and relaxed-standing carries +1.2 degrees of its own; mirroring the absolute
+ *   angle gave one pelvis a −3.7 degree twist against the other's +1.3, so one foot articulated
+ *   and one stayed welded. Commit 60b4d73 is the record.
+ *
+ *   z, the frontal-plane obliquity, mirrors ABSOLUTELY. The legs' counter-rotations are authored
+ *   against the absolute −5.5 roll, so the absolute is the number that has to stay true.
+ *
+ * Composing those into a quaternion and comparing that is what produced 2.400 degrees on a bone
+ * whose every authored component is an EXACT mirror under its own rule. The residual is not error;
+ * it is the two rules interfering. Asserted per component, both read 0.000 — which is a strictly
+ * stronger claim than the quaternion check ever made, not a weakened one.
+ *
+ * This is LEARNINGS 1.11 in a new place: a single scalar was structurally unable to say the thing
+ * the data actually claims.
  */
 function checkMirrorSymmetry() {
 
@@ -302,6 +423,9 @@ function checkMirrorSymmetry() {
 
     // The bones that carry the shared, deliberately unmirrored stance correction.
     const STANCE_BONES = new Set( [ 'leftUpperLeg', 'rightUpperLeg', 'leftFoot', 'rightFoot' ] );
+
+    // The pelvis mirrors per axis, not per quaternion. See the note above.
+    const PER_AXIS_BONES = new Set( [ 'hips' ] );
 
     let worstExact = 0;
     let worstStance = 0;
@@ -315,6 +439,12 @@ function checkMirrorSymmetry() {
         if ( b === undefined ) {
             assert( `weight-right has a mirror for ${ humanoidName }`, false );
             continue;
+        }
+
+        if ( PER_AXIS_BONES.has( humanoidName ) ) {
+
+            continue;   // asserted below, one axis at a time
+
         }
 
         if ( STANCE_BONES.has( humanoidName ) ) {
@@ -337,6 +467,30 @@ function checkMirrorSymmetry() {
 
     assert( `the four stance bones mirror in their contrapposto delta  (worst ${ round( worstStance, 3 ) } deg)`,
         worstStance < 0.6 );
+
+    // The pelvis, one axis at a time, read off the authored degrees rather than the compiled
+    // quaternion — the claim is about the pose DATA, and this is where it is exactly true.
+    const hipsRelaxed = relaxedStandingSource.bones.hips.euler;
+    const hipsLeft = weightLeftSource.bones.hips.euler;
+    const hipsRight = weightRightSource.bones.hips.euler;
+
+    // y mirrors as a delta: the free foot's turn-out depends on it, and relaxed-standing is not
+    // symmetric about zero. Mirroring flips the sign, so the two deltas must SUM to nothing.
+    const twistLeft = hipsLeft[ 1 ] - hipsRelaxed[ 1 ];
+    const twistRight = hipsRight[ 1 ] - hipsRelaxed[ 1 ];
+
+    assert( `pelvis transverse rotation mirrors in its delta  (${ round( twistLeft, 3 ) } vs ` +
+        `${ round( twistRight, 3 ) } deg about relaxed-standing's ${ hipsRelaxed[ 1 ] })`,
+        Math.abs( twistLeft + twistRight ) < 1e-9 );
+
+    // z mirrors absolutely: the legs' counter-rotations are authored against this number itself.
+    assert( `pelvis obliquity mirrors absolutely  (${ round( hipsLeft[ 2 ], 3 ) } vs ` +
+        `${ round( hipsRight[ 2 ], 3 ) } deg)`,
+        Math.abs( hipsLeft[ 2 ] + hipsRight[ 2 ] ) < 1e-9 );
+
+    // x is zero in all three, and a pelvis that starts flexing is a different pose.
+    assert( `pelvis carries no sagittal flexion  (${ hipsLeft[ 0 ] }, ${ hipsRight[ 0 ] } deg)`,
+        hipsLeft[ 0 ] === 0 && hipsRight[ 0 ] === 0 );
 
     // The pelvis offset is data too, and its travel is what the contrapposto is FOR.
     const travelLeft = left.hipsOffset.clone().sub( relaxed.hipsOffset );
@@ -406,6 +560,79 @@ async function checkStanceWidth() {
         console.log( `        outer-to-outer ${ round( stance.outerToOuter * 1000 ) } mm,` +
             ` inner gap ${ round( stance.innerGap * 1000 ) } mm` +
             `   — reported; the bind pose measured 480.0 and 300.6` );
+
+    }
+
+}
+
+/**
+ * 🎯 A CONTRAPPOSTO MUST ARTICULATE THE LEG PAIR, NOT ONLY TRANSLATE IT — the second finding no
+ * gate in this repo was looking for, and the reason both weight poses read as a cut-out.
+ *
+ * A blind visual judge measured 840 frames of a 420 s capture and found the thigh band's camera-left
+ * edge moving with SD 8.08 px and its camera-right edge with SD 8.41 px, while the band's WIDTH
+ * moved 0.81 px and the gap between the thighs moved 0.17 px — the two edges correlated at r = 0.995.
+ * The lower body slid sideways and never changed shape. Traced back to the pose data: at full blend
+ * the inter-thigh gap differed from relaxed-standing by **0.35 px** on weight-left and **0.07 px** on
+ * weight-right, so no amount of blend could produce articulation that was not authored.
+ *
+ * WHY IT HAPPENED, because the mechanism is the useful part. With both feet planted, a leg's hip is
+ * carried by the pelvis and its ankle is pinned to the floor, so the knee is the only thing on it
+ * that can move — and it can only move on a circle, the intersection of a sphere of radius L1 about
+ * the hip with a sphere of radius L2 about the ankle. That circle's radius is
+ *
+ *     (L1 . L2 / D) . sin( knee flexion )
+ *
+ * which measures 23.8 mm on this figure's near-straight stance leg and 51.5 mm on its free leg at
+ * 14.76 degrees of flexion. A LOADED LIMB IS A COLUMN AND HAS NO ARTICULATION TO SPEND; every
+ * millimetre the lower body has is on the free side. The poses spent none of it: both legs carried
+ * the same counter-rotation to within half a degree, which is COMMON MODE, and common mode is by
+ * construction the shape-preserving mode. The only authored asymmetry between the loaded limb and
+ * the free one was 8 degrees of knee flexion in the SAGITTAL plane, which a front-on camera cannot
+ * resolve at all.
+ *
+ * WHAT THIS GATE ASSERTS. That each contrapposto changes the inter-thigh gap, measured on the real
+ * skinned mesh at the framing `alive.js?frame=body` uses, by more than a stated number of pixels —
+ * and that the change is large against the band's translation, because a ratio is what the defect
+ * was reported as. Stated in PIXELS AT A NAMED FRAMING rather than in degrees, per LEARNINGS 1.10b:
+ * the finger idle was authored at a perfectly reasonable-sounding 0.45 degrees and measured 0.48 px.
+ *
+ * 🚩 AND IT IS PROVED RED IN BOTH DIRECTIONS, on the committed pre-swivel angles below rather than
+ * behind a constructor option. docs/PROGRESS.md records the stance-width gate as the one gate in
+ * this repo NOT proven by reintroduction, precisely because its defect lived in JSON data; this one
+ * carries its own known-bad data, so that excuse does not survive here.
+ */
+async function checkContrappostoArticulates() {
+
+    console.log( '\ncontrapposto — the leg pair articulates, it does not only translate' );
+
+    const relaxed = await measureThighBand( RestPose.load( 'relaxed-standing' ) );
+
+    for ( const [ poseName, knownBad ] of Object.entries( PRE_SWIVEL_FREE_LIMB ) ) {
+
+        const shipped = await measureThighBand( RestPose.load( poseName ) );
+        const gapChange = Math.abs( shipped.gapPixels - relaxed.gapPixels );
+        const travel = Math.abs( shipped.centroidPixels - relaxed.centroidPixels );
+
+        assert( `${ poseName }: inter-thigh gap changes by at least ${ MINIMUM_GAP_CHANGE_PIXELS } px` +
+            `  (${ round( gapChange, 2 ) } px, on ${ round( travel, 2 ) } px of band travel)`,
+            gapChange >= MINIMUM_GAP_CHANGE_PIXELS );
+
+        assert( `${ poseName }: shape is at least ${ MINIMUM_SHAPE_PER_TRAVEL } of travel` +
+            `  (${ round( gapChange / travel, 3 ) })`,
+            gapChange / travel >= MINIMUM_SHAPE_PER_TRAVEL );
+
+        // 🚩 The other direction. Same pose, free limb put back the way it was authored before the
+        // swivel — the exact angles the judge measured — and the gate has to name it.
+        const reintroduced = await measureThighBand( poseWithBones( poseName, knownBad ) );
+        const badGapChange = Math.abs( reintroduced.gapPixels - relaxed.gapPixels );
+
+        assert( `${ poseName }: the pre-swivel free limb FAILS this gate` +
+            `  (${ round( badGapChange, 2 ) } px, and the gate wants ${ MINIMUM_GAP_CHANGE_PIXELS })`,
+            badGapChange < MINIMUM_GAP_CHANGE_PIXELS );
+
+        console.log( `        free-limb knee circle ${ round( kneeCircleRadiusMetres( poseName ) * 1000 ) } mm` +
+            `  — the entire articulation budget a planted-foot stance leaves in that leg` );
 
     }
 
@@ -544,24 +771,7 @@ function poseSkeleton( poseName ) {
  */
 async function measureStance( poseName ) {
 
-    if ( cachedFigure === null ) {
-
-        const bytes = readFileSync( GLB_PATH );
-
-        const figure = await Figure.parse(
-            bytes.buffer.slice( bytes.byteOffset, bytes.byteOffset + bytes.byteLength ) );
-
-        // 🚩 The Skeleton is cached WITH the figure, and that is load-bearing rather than an
-        // optimisation. A Skeleton reads the rig's current bone rotations as its bind reference at
-        // construction, so building a second one over an already-posed figure treats the pose as
-        // bind and applies the next pose on top of it. That silently halved one stance and doubled
-        // the other before this line existed.
-        cachedFigure = { figure, skeleton: new Skeleton( figure.root ) };
-
-    }
-
-    const { root } = cachedFigure.figure;
-    const { skeleton } = cachedFigure;
+    const { root, skeleton } = await loadFigureOnce();
 
     RestPose.load( poseName ).applyTo( skeleton );
     skeleton.update();
@@ -630,6 +840,205 @@ async function measureStance( poseName ) {
         outerToOuter: left.outerEdge + right.outerEdge,
         innerGap: left.innerEdge + right.innerEdge
     };
+
+}
+
+/**
+ * The thigh band's silhouette, in pixels, for one pose.
+ *
+ * 🚩 This RASTERISES rather than projecting joints, and that is load-bearing. The inter-thigh gap is
+ * a property of the SKIN — where two thighs stop overlapping on screen — and no bone knows it. Every
+ * skinned triangle of every mesh is posed, projected through a reconstruction of `alive.js`'s body
+ * camera and filled into a coverage mask, then each row of the band is read as runs: the outermost
+ * two edges are the band's extent and the largest interior run of empty pixels is the gap.
+ *
+ * Rows with anything other than exactly two runs are skipped. Near the crotch the two limbs merge
+ * into one run and near the knees a hand can clip the outline; either way the row is not measuring
+ * two thighs and averaging it in would quietly dilute the very statistic this exists for.
+ */
+async function measureThighBand( pose ) {
+
+    const { root, skeleton } = await loadFigureOnce();
+
+    pose.applyTo( skeleton );
+    skeleton.update();
+    root.updateMatrixWorld( true );
+
+    const camera = bodyFrameCamera( root );
+    const mask = new Uint8Array( FRAME_WIDTH * FRAME_HEIGHT );
+    const vertex = new Vector3();
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+        const index = object.geometry.index;
+        const screenX = new Float64Array( position.count );
+        const screenY = new Float64Array( position.count );
+
+        for ( let i = 0; i < position.count; i ++ ) {
+
+            vertex.fromBufferAttribute( position, i );
+            object.applyBoneTransform( i, vertex );
+            object.localToWorld( vertex );
+            vertex.project( camera );
+
+            screenX[ i ] = ( vertex.x * 0.5 + 0.5 ) * FRAME_WIDTH;
+            screenY[ i ] = ( - vertex.y * 0.5 + 0.5 ) * FRAME_HEIGHT;
+
+        }
+
+        const corners = index === null ? position.count : index.count;
+
+        for ( let t = 0; t < corners; t += 3 ) {
+
+            const a = index === null ? t : index.getX( t );
+            const b = index === null ? t + 1 : index.getX( t + 1 );
+            const c = index === null ? t + 2 : index.getX( t + 2 );
+
+            fillTriangle( mask, screenX[ a ], screenY[ a ], screenX[ b ], screenY[ b ], screenX[ c ], screenY[ c ] );
+
+        }
+
+    } );
+
+    const firstRow = Math.round( THIGH_BAND_ROWS[ 0 ] * FRAME_HEIGHT );
+    const lastRow = Math.round( THIGH_BAND_ROWS[ 1 ] * FRAME_HEIGHT );
+
+    let gapTotal = 0;
+    let rowsRead = 0;
+    let centroidTotal = 0;
+    let pixels = 0;
+
+    for ( let row = firstRow; row <= lastRow; row ++ ) {
+
+        const runs = rowRuns( mask, row );
+
+        if ( runs.length === 2 ) {
+            gapTotal += runs[ 1 ][ 0 ] - runs[ 0 ][ 1 ] - 1;
+            rowsRead ++;
+        }
+
+        for ( const [ from, to ] of runs ) {
+            for ( let x = from; x <= to; x ++ ) { centroidTotal += x; pixels ++; }
+        }
+
+    }
+
+    assert( `${ pose.name }: the thigh band resolves two limbs on most rows  (${ rowsRead } of ${ lastRow - firstRow + 1 })`,
+        rowsRead > ( lastRow - firstRow ) / 2 );
+
+    return { gapPixels: gapTotal / rowsRead, centroidPixels: centroidTotal / pixels };
+
+}
+
+/** Contiguous runs of covered pixels in one row, as [from, to] pairs. */
+function rowRuns( mask, row ) {
+
+    const runs = [];
+    let start = -1;
+
+    for ( let x = 0; x < FRAME_WIDTH; x ++ ) {
+
+        const covered = mask[ row * FRAME_WIDTH + x ] === 1;
+
+        if ( covered && start < 0 ) start = x;
+        if ( covered === false && start >= 0 ) { runs.push( [ start, x - 1 ] ); start = -1; }
+
+    }
+
+    if ( start >= 0 ) runs.push( [ start, FRAME_WIDTH - 1 ] );
+
+    return runs;
+
+}
+
+/** Flat scanline fill, barycentric. No depth: a silhouette is a union, not a visibility problem. */
+function fillTriangle( mask, x0, y0, x1, y1, x2, y2 ) {
+
+    const minY = Math.max( 0, Math.floor( Math.min( y0, y1, y2 ) ) );
+    const maxY = Math.min( FRAME_HEIGHT - 1, Math.ceil( Math.max( y0, y1, y2 ) ) );
+    const minX = Math.max( 0, Math.floor( Math.min( x0, x1, x2 ) ) );
+    const maxX = Math.min( FRAME_WIDTH - 1, Math.ceil( Math.max( x0, x1, x2 ) ) );
+
+    if ( minY > maxY || minX > maxX ) return;
+
+    const area = ( x1 - x0 ) * ( y2 - y0 ) - ( x2 - x0 ) * ( y1 - y0 );
+
+    if ( area === 0 ) return;
+
+    for ( let y = minY; y <= maxY; y ++ ) {
+
+        const pixelY = y + 0.5;
+
+        for ( let x = minX; x <= maxX; x ++ ) {
+
+            const pixelX = x + 0.5;
+            const u = ( ( x1 - x0 ) * ( pixelY - y0 ) - ( pixelX - x0 ) * ( y1 - y0 ) ) / area;
+            const v = ( ( pixelX - x0 ) * ( y2 - y0 ) - ( x2 - x0 ) * ( pixelY - y0 ) ) / area;
+
+            if ( u >= 0 && v >= 0 && u + v <= 1 ) mask[ y * FRAME_WIDTH + x ] = 1;
+
+        }
+
+    }
+
+}
+
+/** `alive.js`'s ?frame=body camera, rebuilt from the figure's own bounding box. */
+function bodyFrameCamera( root ) {
+
+    const bounds = new Box3().setFromObject( root );
+    const focus = new Vector3( 0, ( bounds.min.y + bounds.max.y ) / 2, 0 );
+    const framedHeight = ( bounds.max.y - bounds.min.y ) * FRAME_MARGIN;
+    const distance = ( framedHeight / 2 ) / Math.tan( ( FRAME_FIELD_OF_VIEW_DEGREES / 2 ) * Math.PI / 180 );
+    const azimuth = FRAME_AZIMUTH_DEGREES * Math.PI / 180;
+
+    const camera = new PerspectiveCamera(
+        FRAME_FIELD_OF_VIEW_DEGREES, FRAME_WIDTH / FRAME_HEIGHT, 0.01, 100 );
+
+    camera.position.set( Math.sin( azimuth ) * distance, focus.y, Math.cos( azimuth ) * distance );
+    camera.lookAt( focus );
+    camera.updateMatrixWorld( true );
+    camera.updateProjectionMatrix();
+
+    return camera;
+
+}
+
+/** A pose with some bones overwritten — how the gate reintroduces the defect it was written for. */
+function poseWithBones( poseName, eulersByBone ) {
+
+    const data = structuredClone( POSE_SOURCE[ poseName ] );
+
+    for ( const [ bone, euler ] of Object.entries( eulersByBone ) ) {
+        data.bones[ bone ] = { euler };
+    }
+
+    return new RestPose( data, `${ poseName } (pre-swivel)` );
+
+}
+
+/**
+ * The radius of the free limb's reachable knee circle, in metres — the articulation budget a
+ * planted-foot stance leaves in that leg. Reported rather than gated: it is the quantity that
+ * explains the gate's numbers, and it is a property of the figure as much as of the pose.
+ */
+function kneeCircleRadiusMetres( poseName ) {
+
+    const skeleton = poseSkeleton( poseName );
+    const side = poseName === 'weight-left' ? 'r' : 'l';
+
+    const hip = worldPosition( skeleton, `thigh_${ side }` );
+    const knee = worldPosition( skeleton, `calf_${ side }` );
+    const ankle = worldPosition( skeleton, `foot_${ side }` );
+
+    const thigh = hip.distanceTo( knee );
+    const shank = knee.distanceTo( ankle );
+    const span = hip.distanceTo( ankle );
+
+    return thigh * shank * Math.sin( kneeFlexionDegrees( skeleton, side ) * Math.PI / 180 ) / span;
 
 }
 

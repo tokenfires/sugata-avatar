@@ -310,27 +310,27 @@
         },
         "leftUpperLeg": {
             "euler": [
-                -4,
-                7.06,
-                3.71
+                -1.49,
+                -8.72,
+                2.96
             ],
-            "why": "Free leg. z: -9 undoes the pelvis roll and abducts the leg so the free foot ends up slightly wider than the stance foot. x: -4 flexes the hip, sending the knee forward — note that a bone pointing DOWN moves backward under a positive x rotation, which is the sign trap in this whole file."
+            "why": "Free leg, SWIVELLED. The pre-swivel angles were [-4, 7.06, 3.71]. See weight-left.json's notes: the free limb is turned 16 degrees about its own hip-to-ankle axis, which moves the knee 14.3 mm toward the midline and moves nothing else, and which reads mostly as femoral axial rotation because that axis is near-vertical. 🚩 This one number is SOLVED HERE rather than mirrored, and it is the one place this file departs from its own generate-by-mirroring rule. A swivel is a rotation about a MEASURED axis, and the mirror of weight-left's axis is not this pose's axis — relaxed-standing's two legs are deliberately asymmetric and the pelvis differs too. Mirroring the delta left the free ankle 2.861 mm off where the pose had put it; solving in place leaves it 0.047 mm off, and the mirror gate reads 0.532 degrees either way, which is exactly what it read before the swivel existed. A 2.9 mm sole slide is the magnitude LEARNINGS 1.11b records as reading like a skating foot."
         },
         "leftLowerLeg": {
             "euler": [
-                8,
-                0,
-                0
+                7.12,
+                8.95,
+                0.4
             ],
-            "why": "Free knee softly flexed to 14.8 degrees total. Positive x carries the shank back, which is where the heel goes when the knee bends and the foot stays put."
+            "why": "Free knee softly flexed to 14.8 degrees total — unchanged by the swivel, which turns the leg as a rigid body. The y term is 9 degrees of tibial axial rotation about the knee-to-ankle axis, taking back the larger half of the foot rotation the swivel would otherwise hand to the floor. It moves neither the knee nor the ankle: both are on that axis."
         },
         "leftFoot": {
             "euler": [
-                -6.57,
-                1.36,
-                6.03
+                -6.71,
+                7.84,
+                6.2
             ],
-            "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider. Now also carrying the narrowed stance's counter-rotation."
+            "why": "Levels the sole back toward the floor after the shank has swung, carries the narrowed stance's counter-rotation, and absorbs the last 6.5 degrees of the swivel as a yaw about the rig's vertical — the one rotation that maps the floor plane to itself, so the sole cannot tilt or lift."
         }
     }
 }
