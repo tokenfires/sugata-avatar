@@ -1,0 +1,406 @@
+/**
+ * Grade — the last thing that happens to a frame, and the one place a "cinematic" instinct is
+ * most likely to make the render look less like the reference rather than more.
+ *
+ * Punch-list 3.13. Every constant below is quoted from `docs/research/stellar-blade-look-spec.md`
+ * §3 and §5, which measured them off reference stills. They are measurements, not taste, and the
+ * spec moves before this file does.
+ *
+ *     toneMapping           ACESFilmic (three's). AgX and Neutral are both available at r185.
+ *     highlight clipping    TARGET < 0.5% of pixels above 0.99 luma  (reference 0.017-0.036%)
+ *     black point           NO LIFT. p0.1 luma must land 0.004-0.016.
+ *     saturation            global 1.00-1.05
+ *     bloom                 threshold low/none, intensity 0.25-0.40, WIDE radius
+ *     film grain            LUMINANCE-ONLY, sigma ~1-2/255, scale with resolution
+ *     chromatic aberration  0.0
+ *     vignette              0.10-0.20  [the spec's own "unmeasured estimate"]
+ *
+ * ## The three decisions worth arguing about
+ *
+ * **No black lift, and the constant exists so a reader can see it is zero.** `BLACK_LIFT` is
+ * `0` and `blackLift` is not a constructor option. The spec calls a lifted shadow "the commonest
+ * mistake when people try to make a render look cinematic", and the project's standing
+ * constraints repeat it. A film-emulation grade that lifts blacks would put G6 red from the
+ * grade's own side, on top of whatever the scene is doing.
+ *
+ * **Chromatic aberration is absent, not disabled.** UE4's `SceneFringeIntensity` defaults to 0
+ * and the spec could not detect any in the reference. There is no option for it, so nobody can
+ * turn it on by filling in a config object.
+ *
+ * **The grade owns the output transform.** `appliesOutputTransform` is `true` and `Stage` skips
+ * its own `renderOutput` when a grade is installed. That is forced by the grain: film grain is a
+ * DISPLAY-referred quantity — "sigma 1-2/255" is a statement about 8-bit code values — and adding
+ * 1/255 of signal to a linear HDR buffer before an ACES curve means something different at every
+ * exposure level. So this file tone-maps and encodes, then grains.
+ *
+ * ## Order of operations, and why
+ *
+ *     linear HDR -> bloom -> vignette -> saturation -> tone map -> sRGB transfer -> grain
+ *
+ * Bloom is a lens/sensor effect and belongs in linear light, before the curve, or bright areas
+ * bloom by an amount that depends on where the shoulder put them. Vignette is also a lens effect
+ * and goes in linear for the same reason — and there is a second, measurable consequence: a
+ * vignette applied in linear is pushed through the tone curve's toe, so it darkens the frame's
+ * darkest region rather than scaling an already-encoded value. That is the only lever in this
+ * file that moves G6 at all, and it is a small one — 27% at the top of the spec's band, against a
+ * gate that needed 1.3x. See `DEFAULT_VIGNETTE`.
+ *
+ * Grain is last because it is display-referred. It is added equally to R, G and B, which is what
+ * "achromatic / luminance-only" means: the noise moves brightness and never hue.
+ *
+ * ## Why the RCAS sharpen lives HERE and not in `TRAAPost.js`
+ *
+ * A temporal resolve is a low-pass filter and FSR2 pairs it with RCAS to get the detail back, so
+ * the obvious place for the sharpen is immediately after the resolve. That was tried and it is
+ * measurably wrong: RCAS is an LDR, perceptual-space operator, and run on the linear HDR scene
+ * colour it **desaturates**. Measured on `post.html?aa=traa&bare` at 900x1200, the iris patch at
+ * (330..350, 360..375):
+ *
+ *   | sharpen placement              | iris luma | iris HSV saturation |
+ *   |--------------------------------|-----------|---------------------|
+ *   | none (TRAA, no sharpen)        |   0.1237  |       0.2997        |
+ *   | RCAS 0.4 before tone mapping   |   0.4159  |       0.1268        |  <- brown iris renders grey
+ *   | RCAS 0.2 after the transfer    |   0.1297  |       0.3729        |  <- preserved
+ *
+ * Three times as bright and half as saturated is not a subtle regression, and it is invisible in
+ * the gate set: G1-G7 sample cheek, sclera, terminator and the card band, and not one of them
+ * looks at the iris.
+ *
+ * So the sharpen is a stage of the grade, after tone mapping and the sRGB transfer and before the
+ * grain — which is also where FSR2 puts it.
+ */
+
+import { ACESFilmicToneMapping, AgXToneMapping, NeutralToneMapping, SRGBColorSpace } from 'three/webgpu';
+
+import {
+    convertToTexture,
+    float,
+    Fn,
+    luminance,
+    saturation as adjustSaturation,
+    screenCoordinate,
+    screenUV,
+    toneMapping,
+    uniform,
+    vec2,
+    vec3,
+    vec4,
+    workingToColorSpace
+} from 'three/tsl';
+
+import { bloom } from 'three/addons/tsl/display/BloomNode.js';
+import { sharpen } from 'three/addons/tsl/display/SharpenNode.js';
+
+/**
+ * The additive floor this grade puts under the blacks. It is zero, it is named, and it is not a
+ * constructor option — see the header. Anything that wants to argue with it argues with the
+ * look spec's p0.1 measurement of 0.004-0.016 first.
+ */
+export const BLACK_LIFT = 0;
+
+/**
+ * Spec §3: "intensity 0.25-0.40, WIDE radius, threshold low/none".
+ *
+ * ⚠️ The threshold is **0.8, not 0**, and that is a translation of the spec rather than a
+ * departure from it. UE's bloom is energy-conserving: it redistributes light, so "threshold none"
+ * costs the black point nothing. `BloomNode` ADDS a blurred copy, so threshold 0 is a global lift.
+ * Measured on `post.html?aa=traa&bare&grade=1` at 900x1200, whole-image p0.1 luma and the far
+ * backdrop patch (760,80,120,120), with grain and vignette at zero:
+ *
+ *   | strength | threshold | p0.1 luma | far backdrop |
+ *   |----------|-----------|-----------|--------------|
+ *   |     0.00 |     0     |  0.02496  |    0.0250    |  <- the ungraded frame, for reference
+ *   |     0.02 |     0     |  0.02888  |    0.0320    |
+ *   |     0.04 |     0     |  0.03309  |    0.0372    |
+ *   |     0.10 |     0     |  0.04485  |    0.0548    |
+ *   |     0.30 |     0     |  0.08630  |    0.1066    |  <- 4.3x the black point, 4.3x the card
+ *   |     0.30 |    0.6    |  0.02805  |    0.0304    |
+ *   |     0.30 |    0.9    |  0.02496  |    0.0250    |  <- indistinguishable from no bloom
+ *
+ * So threshold 0 at the spec's own intensity is a 4.3x black lift, which the same spec forbids in
+ * bold. 0.8 keeps the spec's intensity and leaves the black point where the scene put it.
+ */
+export const DEFAULT_BLOOM = { strength: 0.30, radius: 0.85, threshold: 0.8 };
+
+/**
+ * Grain sigma in 8-bit code values. Spec §3: "sigma ~0.4-0.7/255 on compressed press assets ->
+ * likely ~1-2/255 in-game". 1.5 is the middle of the in-game estimate.
+ */
+export const DEFAULT_GRAIN_SIGMA_CODES = 1.5;
+
+/**
+ * How many output pixels wide one grain cell is at the reference height. The spec says grain is
+ * "resolution-scaled", which means the grain stays the same size on the SCREEN as the render gets
+ * denser — not that it stays one pixel. `GRAIN_REFERENCE_HEIGHT` is the height at which one cell
+ * is exactly `GRAIN_CELL_PIXELS`.
+ */
+export const GRAIN_CELL_PIXELS = 1.0;
+export const GRAIN_REFERENCE_HEIGHT = 1080;
+
+/** Spec §3: "global 1.00-1.05". */
+export const DEFAULT_SATURATION = 1.02;
+
+/**
+ * Spec §3: "0.10-0.20 [unmeasured estimate]".
+ *
+ * 0.15 is the middle of that band. It is worth being clear about what it does and does not buy:
+ * measured on `post.html?aa=traa&bare&grade=1&bloom=0.30&thresh=0.8&grain=0`, whole-image p0.1
+ * luma went 0.02833 (vignette 0) -> 0.02384 (0.12) -> 0.02076 (0.20) while the cheek moved
+ * 0.8417 -> 0.8409 -> 0.8404. So the vignette darkens the corners and leaves the face alone, as
+ * it should, and it takes 27% off the black point at the top of the spec's band — **which is not
+ * enough to bring G6 into 0.004-0.016 on its own.** G6 is a measurement of the backdrop card, and
+ * the number that moves it is in `alive.js`. See the round report's diff request.
+ */
+export const DEFAULT_VIGNETTE = 0.15;
+
+/** Uniform noise on [-0.5, 0.5] has standard deviation 1/sqrt(12); the amplitude follows. */
+const UNIFORM_NOISE_SIGMA = 1 / Math.sqrt( 12 );
+
+const TONE_CURVES = {
+    aces: ACESFilmicToneMapping,
+    agx: AgXToneMapping,
+    neutral: NeutralToneMapping
+};
+
+export class Grade {
+
+    /**
+     * @param {Object} [options]
+     * @param {'aces'|'agx'|'neutral'} [options.toneCurve='aces'] - The spec measured a UE4
+     *   ACES-derived filmic curve, so `aces` is the default. `agx` is offered because it holds
+     *   highlight hue better and the spec's own note says three's ACES "desaturates highlights
+     *   more than UE's — compensate +3-5% saturation".
+     * @param {number} [options.exposure=1] - Multiplier into the curve.
+     * @param {number} [options.bloomStrength=0.30]
+     * @param {number} [options.bloomRadius=0.85] - 0..1, the mip-blend spread. Wide, per spec.
+     * @param {number} [options.bloomThreshold=0] - Zero means everything blooms a little.
+     * @param {number} [options.grainSigmaCodes=1.5] - Grain standard deviation in /255.
+     * @param {number} [options.vignette=0.12] - Fractional darkening at the frame corners.
+     * @param {number} [options.saturation=1.02]
+     * @param {?number} [options.sharpness=null] - RCAS strength in `SharpenNode`'s scale, where
+     *   **0 is maximum sharpening and 2 is none**. `null` skips the pass. It exists to give back
+     *   the micro-detail a temporal resolve removes — measured in `TRAAPost.js` — so a forward,
+     *   MSAA'd frame has no business asking for it.
+     */
+    constructor( options = {} ) {
+
+        const curveName = options.toneCurve ?? 'aces';
+
+        if ( TONE_CURVES[ curveName ] === undefined ) {
+
+            throw new Error( `Grade: toneCurve must be one of ${ Object.keys( TONE_CURVES ).join( ', ' ) }.` );
+
+        }
+
+        this.toneCurveName = curveName;
+        this.toneCurve = TONE_CURVES[ curveName ];
+
+        // Everything a page might want to drag a slider over is a uniform, so changing it does
+        // not recompile the node graph — a recompile mid-session resets TRAA's history.
+        this.exposure = uniform( options.exposure ?? 1 );
+        this.bloomStrength = uniform( options.bloomStrength ?? DEFAULT_BLOOM.strength );
+        this.bloomRadius = uniform( options.bloomRadius ?? DEFAULT_BLOOM.radius );
+        this.bloomThreshold = uniform( options.bloomThreshold ?? DEFAULT_BLOOM.threshold );
+        this.grainSigmaCodes = uniform( options.grainSigmaCodes ?? DEFAULT_GRAIN_SIGMA_CODES );
+        this.vignette = uniform( options.vignette ?? DEFAULT_VIGNETTE );
+        this.saturation = uniform( options.saturation ?? DEFAULT_SATURATION );
+
+        // The grain has to change every frame or it reads as dirt on the lens rather than as
+        // grain. Driven off `frameId` rather than off a clock, because three's node clock reads
+        // `performance.now()` and the deterministic capture tool pins wall time — a wall-clock
+        // grain would make a byte-reproducible capture stop reproducing.
+        this.grainFrame = uniform( 0 ).onFrameUpdate( ( frame ) => frame.frameId % 4096 );
+
+        // Not a uniform: `SharpenNode` takes its strength at construction and the pass either
+        // exists in the graph or it does not, so changing it is a recompile either way.
+        this.sharpness = options.sharpness ?? null;
+
+        this.bloomNode = null;
+        this.sharpenNode = null;
+
+    }
+
+    /** `Stage` reads this and skips its own `renderOutput`. See the header. */
+    get appliesOutputTransform() {
+
+        return true;
+
+    }
+
+    /**
+     * Builds the graded output node.
+     *
+     * @param {GBuffer} gbuffer - Unused today; taken so the signature matches `setComposeOutput`
+     *   and so a future grade can read `diffuseColor` for a character/environment saturation
+     *   split (spec §3: "character +8%, environment -15%") without changing every caller.
+     * @param {Node} colourNode - Linear HDR scene colour, already temporally resolved.
+     * @returns {Node<vec4>} Display-referred, sRGB-encoded.
+     */
+    compose( gbuffer, colourNode ) {
+
+        // BloomNode renders its own mip chain by sampling the input, so the input has to be
+        // texture-backed. It already is on both live paths (a pass texture, or TRAA's resolve
+        // texture); `convertToTexture` makes that true for anything else a caller composes in.
+        const source = convertToTexture( colourNode );
+
+        this.bloomNode = bloom( source, this.bloomStrength, this.bloomRadius, this.bloomThreshold );
+
+        const bloomed = source.add( this.bloomNode );
+
+        const vignetted = bloomed.rgb.mul( vignetteNode( this.vignette ) );
+
+        const saturated = adjustSaturation( vignetted, this.saturation );
+
+        const mapped = toneMapping( this.toneCurve, this.exposure, saturated );
+
+        const encoded = workingToColorSpace( mapped, SRGBColorSpace );
+
+        let sharpened = encoded;
+
+        if ( this.sharpness !== null ) {
+
+            // `denoise` stays false: it attenuates sharpening where the neighbourhood is noisy,
+            // and on this figure the "noise" is the skin micro-normal — exactly the signal G4
+            // measures and exactly what this pass is here to bring back.
+            this.sharpenNode = sharpen( vec4( encoded.xyz, 1 ), this.sharpness, false );
+            sharpened = this.sharpenNode.rgb;
+
+        }
+
+        const grained = sharpened.add( vec3( grainNode(
+            this.grainSigmaCodes, this.grainFrame, luminance( sharpened.xyz )
+        ) ) );
+
+        // Clamped because the transfer is done: anything outside 0..1 is not a highlight any
+        // more, it is a value the swap chain will wrap or clip unpredictably.
+        // `.xyz` rather than the bare node: `workingToColorSpace` carries its input's arity
+        // through, so `encoded` is vec4 when the chain started at a texture and vec3 when it did
+        // not, and `vec4( aVec4, 1 )` is five components and a compile error at r185.
+        return vec4( grained.xyz.clamp( 0, 1 ), 1 );
+
+    }
+
+    /**
+     * Frees the bloom node's render targets. Safe before `compose` has ever run.
+     */
+    dispose() {
+
+        this.bloomNode?.dispose?.();
+        this.sharpenNode?.dispose?.();
+        this.bloomNode = null;
+        this.sharpenNode = null;
+
+    }
+
+}
+
+// --- the two effects this file implements itself ---------------------------------------------
+
+/**
+ * A radial darkening towards the corners, in linear light.
+ *
+ * `amount` is the fraction of light removed AT THE CORNER, so `0.12` means the extreme corner
+ * keeps 88% and the centre is untouched. Expressed that way because that is how the spec states
+ * it ("0.10-0.20 normalised") and because it makes the CPU mirror in the selftest trivial.
+ *
+ * The falloff is `1 - amount * r^2` on the normalised radius, `r` measured from the frame centre
+ * with the corner at 1. Squared rather than linear so the middle two thirds of the frame are
+ * essentially untouched — a linear ramp is visible as a grey wash across a face.
+ *
+ * It is computed on `screenUV`, so the iso-lines are ellipses that follow the frame rather than
+ * circles inscribed in it. That is the conventional photographic choice and it is the one that
+ * behaves sanely on a 3:4 portrait: a circular vignette in a tall frame darkens the top and
+ * bottom of the head and leaves the sides alone.
+ */
+export const vignetteNode = /*@__PURE__*/ Fn( ( [ amount ] ) => {
+
+    const centred = screenUV.sub( 0.5 ).mul( 2 );
+
+    // lengthSq is 2 at the corner, so the halving puts `r^2 = 1` exactly there and `amount` is
+    // read directly as "fraction of light removed at the corner".
+    return float( 1 ).sub( amount.mul( centred.lengthSq().mul( 0.5 ) ) );
+
+} );
+
+/**
+ * Achromatic film grain, in display-referred units.
+ *
+ * `sigmaCodes` is the standard deviation in 8-bit code values, which is the unit the reference was
+ * measured in. The shader draws uniform noise on [-0.5, 0.5], whose standard deviation is
+ * 1/sqrt(12), so the amplitude is `sigmaCodes / 255 / (1/sqrt(12))`. Getting that conversion
+ * wrong is how a grade ends up with grain three times the spec's and nobody can say by how much.
+ *
+ * The hash is the usual `fract(sin(dot(.)) * k)` value noise: boring, dependency-free, and good
+ * enough for a per-pixel dither. It is seeded on the frame index so successive frames get
+ * independent noise, and quantised to a grain cell so the grain size is a screen-space property
+ * rather than a pixel-count property.
+ */
+export const grainNode = /*@__PURE__*/ Fn( ( [ sigmaCodes, frameSeed, displayLuma ] ) => {
+
+    const amplitude = sigmaCodes.div( 255 ).div( float( UNIFORM_NOISE_SIGMA ) );
+
+    const cell = screenCoordinate.xy.div( float( GRAIN_CELL_PIXELS ) ).floor();
+
+    const seeded = cell.add( frameSeed.mul( vec2( 0.7548776662, 0.5698402909 ) ) );
+
+    const noise = seeded.dot( vec2( 12.9898, 78.233 ) ).sin().mul( 43758.5453 ).fract();
+
+    return noise.sub( 0.5 ).mul( amplitude ).mul( grainEnvelope( displayLuma ) );
+
+} );
+
+/**
+ * How much grain a given display luma gets, peaking at 1 in the midtones and reaching 0 at both
+ * ends. `4L(1-L)` — the standard film-emulation shape, and it is the physics: grain is a
+ * fluctuation in developed silver density, so an unexposed region has no grains to fluctuate and
+ * a fully exposed one has no unexposed grains left.
+ *
+ * It also fixes a measured gate failure, which is how the omission was found rather than
+ * reasoned about. Flat grain at sigma 1.5/255 has a half-width of 5.2/255, so on a backdrop
+ * sitting at 3/255 it drives a tail of pixels to zero and CRUSHES them. Measured on
+ * `post.html?aa=msaa&bare&specaa=1&grade=1&backdrop=0x0a0d13` at 900x1200, whole-image p0.1 luma:
+ *
+ *   | grain            | p0.1 luma | verdict against 0.004-0.016 |
+ *   |------------------|-----------|-----------------------------|
+ *   | off              |  0.00869  | in band                     |
+ *   | flat 1.5/255     |  0.00057  | crushed, 7x below the band  |
+ *   | enveloped 1.5/255|  0.00842  | in band                     |
+ *
+ * So the grade WAS lifting nothing and crushing something, which is the same mistake in the other
+ * direction and just as invisible by eye.
+ */
+export const grainEnvelope = /*@__PURE__*/ Fn( ( [ displayLuma ] ) => {
+
+    const level = displayLuma.saturate();
+    return level.mul( level.oneMinus() ).mul( 4 );
+
+} );
+
+// --- the CPU mirror the selftest measures against ---------------------------------------------
+
+/**
+ * The vignette's multiplier at a normalised offset from centre, mirroring `vignetteNode`.
+ *
+ * A mirror is worth its risk of drifting from the shader only when it makes an assertion possible
+ * that otherwise would not be: this one lets the selftest state "the centre is untouched and the
+ * corner keeps exactly `1 - amount`" without a GPU, which is the property the spec constrains.
+ *
+ * @param {number} amount
+ * @param {number} offsetX - -1..1 across the frame.
+ * @param {number} offsetY - -1..1 down the frame.
+ */
+export function vignetteMultiplier( amount, offsetX, offsetY ) {
+
+    return 1 - amount * ( ( offsetX * offsetX + offsetY * offsetY ) * 0.5 );
+
+}
+
+/**
+ * The grain amplitude, in 0..1 display units, that produces a given sigma in 8-bit code values.
+ * Mirrors the conversion in `grainNode`.
+ */
+export function grainAmplitudeFor( sigmaCodes ) {
+
+    return ( sigmaCodes / 255 ) / UNIFORM_NOISE_SIGMA;
+
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sugata — antialiasing and post (3.11 / 3.12 / 3.13)</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #08080a; color: #d8d8de;
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+        #stage { display: block; width: 100vw; height: 100vh; }
+        #hud { position: fixed; top: 10px; left: 12px; white-space: pre; pointer-events: none;
+            text-shadow: 0 1px 2px #000; }
+        #controls { position: fixed; bottom: 12px; left: 12px; display: flex; gap: 14px;
+            flex-wrap: wrap; align-items: center; background: rgba(0,0,0,0.45);
+            padding: 8px 12px; border-radius: 6px; }
+        label { display: flex; gap: 6px; align-items: center; }
+    </style>
+</head>
+<body>
+    <canvas id="stage"></canvas>
+    <div id="hud">booting…</div>
+    <div id="controls">
+        <label>aa
+            <select id="aa">
+                <option value="msaa">msaa 4x</option>
+                <option value="off">none</option>
+                <option value="traa">traa</option>
+                <option value="taau">taau 0.66</option>
+            </select>
+        </label>
+        <label>grade <input id="grade" type="checkbox"></label>
+        <label>orbit <input id="orbit" type="checkbox"></label>
+        <label>morph <input id="morph" type="checkbox"></label>
+    </div>
+    <script type="module" src="./post.js"></script>
+</body>
+</html>

@@ -23,6 +23,22 @@
  * needs the G-buffer at full-body framing — 3.2 (skin) or 3.8 (lighting rig) — so that the
  * re-measurement happens in the same round as the change.
  *
+ * ## The end of the chain: temporal AA, then the grade
+ *
+ * `create({ temporalAA: 'traa' | 'taau' })` installs punch-list 3.12 and `setGrade()` installs
+ * 3.13. Both hang off the deferred path, in this fixed order:
+ *
+ *     scene pass -> temporal resolve -> composeOutput -> grade -> tone map + transfer
+ *
+ * The order is not arbitrary. Temporal AA has to see the raw jittered scene colour, so nothing
+ * may blur or bloom ahead of it; the grade has to see a resolved image, because bloom applied to
+ * a crawling edge blooms the crawl. `renderOutput` (tone map + output transfer) stays last unless
+ * the grade says it does that part itself.
+ *
+ * ⚠️ MSAA and temporal AA are mutually exclusive — `TRAANode` and `TAAUNode` both say so in their
+ * own headers, and the mechanism is that MSAA resolves coverage about a pixel centre that the
+ * temporal jitter has already moved. `create()` throws rather than let a caller ship the pair.
+ *
  * 🚩 `PostProcessing` was renamed to `RenderPipeline` at r183; the old name still exists as a
  * deprecated subclass that emits a `warnOnce`. This file uses `RenderPipeline`.
  */
@@ -39,6 +55,7 @@ import {
 import { pass, renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
 
 import { channelDisplayNode, channelGridNode, GBuffer } from './GBuffer.js';
+import { createTemporalResolve, TAAU_RESOLUTION_SCALE, TEMPORAL_AA_MODES } from './TRAAPost.js';
 
 const MAX_PIXEL_RATIO = 2;
 const FPS_SAMPLE_WINDOW_MS = 500;
@@ -68,6 +85,13 @@ export class Stage {
         this.velocityGain = null;
         this.depthGain = null;
         this.resolutionScale = 1;
+
+        // The end of the chain. `temporal` owns a frame of history and two render targets, so it
+        // is built once per mode and kept across output-node recompiles — rebuilding it would
+        // reset the history every time and the image would never converge.
+        this.temporal = null;
+        this.grade = null;
+        this.multisampled = false;
 
         // Sizing state. We re-read devicePixelRatio on every viewport update rather than
         // caching it, because dragging a window between a Retina and an external display
@@ -109,7 +133,19 @@ export class Stage {
      * @param {boolean} [options.forceWebGL=false] - Skip WebGPU entirely. The quality-tier
      *   layer uses this to serve Firefox the WebGL2 tier, where WebGPU dispatch overhead is
      *   roughly 18x Chrome's.
-     * @param {boolean} [options.antialias=false] - MSAA. Leave off once TRAA is in the pipeline.
+     * @param {boolean} [options.antialias=false] - 4x MSAA on the frame-buffer target.
+     *   ⚠️ This is NOT a no-op on the forward path and never was: `Renderer._getFrameBufferTarget`
+     *   builds the tone-mapping intermediate with `samples: this.samples`, so a forward,
+     *   tone-mapped canvas frame really is multisampled. Measured on `alive.html?bare&freeze` at
+     *   900x1200, row y=300, the silhouette edge at x=537-539: with MSAA
+     *   `0.7814 -> 0.6747 -> 0.0278` (one intermediate coverage sample), with `?msaa=0`
+     *   `0.7921 -> 0.7431 -> 0.0278`. Mutually exclusive with `temporalAA`.
+     * @param {'off'|'traa'|'taau'} [options.temporalAA='off'] - Punch-list 3.12. Implies
+     *   `pipeline: true`, forbids `antialias`, and — for `taau` — defaults `resolutionScale` to
+     *   the 0.66 operating point.
+     * @param {?number} [options.sharpness] - RCAS strength for the temporal path, in
+     *   `SharpenNode`'s scale (0 maximum, 2 none). `null` removes the pass; omit for the
+     *   measured default in `TRAAPost.js`.
      * @param {number} [options.maxPixelRatio=2] - Upper bound on devicePixelRatio.
      * @param {number} [options.fieldOfView=35] - Vertical FOV in degrees. Portrait range is 24-40.
      * @param {number} [options.near=0.01]
@@ -136,11 +172,31 @@ export class Stage {
 
         }
 
+        const temporalAA = options.temporalAA ?? 'off';
+
+        if ( TEMPORAL_AA_MODES.includes( temporalAA ) === false ) {
+
+            throw new Error( `Stage: temporalAA must be one of ${ TEMPORAL_AA_MODES.join( ', ' ) }.` );
+
+        }
+
+        // Refused rather than silently resolved, because the pair does not fail loudly: it
+        // produces a soft image that still crawls, which reads as "TRAA is not working" and
+        // sends the next reader after the wrong file.
+        if ( temporalAA !== 'off' && options.antialias === true ) {
+
+            throw new Error( 'Stage: MSAA and temporal AA cannot both be on — TRAANode/TAAUNode ' +
+                'jitter the camera, so MSAA would resolve coverage about a moved pixel centre.' );
+
+        }
+
+        this.multisampled = options.antialias === true;
+
         const wantsWebGPU = options.forceWebGL !== true && this.isWebGPUAvailable();
 
         this.renderer = new WebGPURenderer( {
             canvas,
-            antialias: options.antialias === true,
+            antialias: this.multisampled,
             forceWebGL: wantsWebGPU === false,
             trackTimestamp: options.trackTimestamp === true
         } );
@@ -162,9 +218,17 @@ export class Stage {
             options.far ?? 100
         );
 
-        if ( options.pipeline === true ) {
+        // Temporal AA is a deferred-path effect — it needs the velocity attachment and the depth
+        // texture the G-buffer pass owns — so asking for it is enough to ask for the pipeline.
+        const wantsPipeline = options.pipeline === true || temporalAA !== 'off';
 
-            this.buildPipeline( options.resolutionScale ?? 1 );
+        if ( wantsPipeline ) {
+
+            const defaultScale = temporalAA === 'taau' ? TAAU_RESOLUTION_SCALE : 1;
+
+            this.buildPipeline( options.resolutionScale ?? defaultScale );
+
+            if ( temporalAA !== 'off' ) this.setTemporalAA( temporalAA, { sharpness: options.sharpness } );
 
         }
 
@@ -257,6 +321,75 @@ export class Stage {
 
     }
 
+    /**
+     * Switches temporal antialiasing on, off, or between its two forms (punch-list 3.12).
+     *
+     * `taau` does not change the resolution by itself — `setResolutionScale` is a separate,
+     * explicit decision, because a caller measuring cost wants to move one thing at a time.
+     * `create({ temporalAA: 'taau' })` sets the 0.66 operating point for you.
+     *
+     * @param {'off'|'traa'|'taau'} mode
+     * @param {Object} [options]
+     * @param {?number} [options.sharpness] - RCAS strength passed through to `TRAAPost`.
+     */
+    setTemporalAA( mode, options = {} ) {
+
+        this.requirePipeline( 'setTemporalAA' );
+
+        if ( TEMPORAL_AA_MODES.includes( mode ) === false ) {
+
+            throw new Error( `Stage: temporalAA must be one of ${ TEMPORAL_AA_MODES.join( ', ' ) }.` );
+
+        }
+
+        if ( mode !== 'off' && this.multisampled ) {
+
+            throw new Error( 'Stage: cannot enable temporal AA on a renderer built with MSAA.' );
+
+        }
+
+        if ( this.temporal !== null ) {
+
+            this.temporal.dispose();
+            this.temporal = null;
+
+        }
+
+        if ( mode !== 'off' ) {
+
+            this.temporal = createTemporalResolve( {
+                mode,
+                gbuffer: this.gbuffer,
+                camera: this.camera,
+                sharpness: options.sharpness
+            } );
+
+        }
+
+        this.refreshOutputNode();
+
+    }
+
+    /**
+     * Installs the grade (punch-list 3.13) at the very end of the chain.
+     *
+     * A grade object supplies `compose( gbuffer, colourNode )` and a boolean
+     * `appliesOutputTransform`. When it is true this Stage does NOT wrap the result in
+     * `renderOutput` — the grade has tone-mapped and encoded it already, which is what a grade
+     * that adds film grain has to do, because grain is a display-referred quantity and 1/255 of
+     * signal means nothing in a linear HDR buffer.
+     *
+     * @param {?{ compose: function, appliesOutputTransform: boolean }} grade - `null` removes it.
+     */
+    setGrade( grade ) {
+
+        this.requirePipeline( 'setGrade' );
+
+        this.grade = grade;
+        this.refreshOutputNode();
+
+    }
+
     /** Display gain applied to motion vectors in the `velocity` view. */
     setVelocityGain( gain ) {
 
@@ -282,6 +415,10 @@ export class Stage {
         return {
             backend: this.backendName,
             deferred: this.renderPipeline !== null,
+            msaa: this.multisampled,
+            temporalAA: this.temporal === null ? 'off' : this.temporal.mode,
+            graded: this.grade !== null,
+            resolutionScale: this.resolutionScale,
             fps: this.fps,
             frameMs: this.frameMs,
             dpr: this.pixelRatio,
@@ -299,6 +436,14 @@ export class Stage {
         this.unwatchViewport();
         this.frameCallbacks.length = 0;
 
+        if ( this.temporal !== null ) {
+
+            this.temporal.dispose();
+            this.temporal = null;
+
+        }
+
+        this.grade = null;
         this.renderPipeline = null;
         this.scenePass = null;
         this.gbuffer = null;
@@ -369,12 +514,25 @@ export class Stage {
 
         } else {
 
-            const sceneColour = gbuffer.node( 'output' );
-            const composed = this.composeOutput === null
-                ? sceneColour
-                : this.composeOutput( gbuffer, sceneColour );
+            // scene pass -> temporal resolve -> composeOutput -> grade -> tone map + transfer.
+            // Nothing may blur or bloom before the temporal resolve; see the file header.
+            let colour = this.temporal === null ? gbuffer.node( 'output' ) : this.temporal.node;
 
-            this.renderPipeline.outputNode = renderOutput( composed );
+            if ( this.composeOutput !== null ) colour = this.composeOutput( gbuffer, colour );
+
+            if ( this.grade !== null ) {
+
+                const graded = this.grade.compose( gbuffer, colour );
+
+                this.renderPipeline.outputNode = this.grade.appliesOutputTransform === true
+                    ? graded
+                    : renderOutput( graded );
+
+            } else {
+
+                this.renderPipeline.outputNode = renderOutput( colour );
+
+            }
 
         }
 
