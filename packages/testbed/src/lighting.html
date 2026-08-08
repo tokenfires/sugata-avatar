@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — lighting rig (3.8)</title>
+    <style>
+        :root {
+            --panel: rgba(12, 12, 15, 0.82);
+            --edge: rgba(255, 255, 255, 0.12);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            background: #050506;
+            color: var(--ink);
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* The canvas is sized in DEVICE pixels by the page, not by CSS, so a screenshot of this
+           element is exactly the buffer measure.mjs will read. A CSS-stretched canvas would hand
+           the critic a resampled image and every high-pass number in it would be a lie. */
+        #frame {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            align-items: flex-start;
+        }
+
+        #stage {
+            display: block;
+            background: #000;
+        }
+
+        .panel {
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #hud {
+            white-space: pre;
+            max-width: 96ch;
+            overflow-x: auto;
+        }
+
+        #controls {
+            width: 320px;
+        }
+
+        #controls h2 {
+            font: inherit;
+            font-weight: 600;
+            margin: 12px 0 4px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        #controls h2:first-child { margin-top: 0; }
+
+        label {
+            display: grid;
+            grid-template-columns: 8.5em 1fr 4em;
+            gap: 6px;
+            align-items: center;
+            margin: 2px 0;
+        }
+
+        input[type="range"] { width: 100%; }
+
+        button {
+            font: inherit;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--edge);
+            border-radius: 4px;
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+
+        button[aria-pressed="true"] {
+            background: rgba(140, 180, 255, 0.22);
+            border-color: rgba(140, 180, 255, 0.5);
+        }
+
+        #status { color: var(--dim); }
+
+        table { border-collapse: collapse; margin-top: 6px; }
+        th, td { padding: 1px 8px 1px 0; text-align: right; }
+        th:first-child, td:first-child { text-align: left; }
+        th { color: var(--dim); font-weight: 400; }
+        td.pass { color: #7fd1a0; }
+        td.fail { color: #f2765a; }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <canvas id="stage"></canvas>
+
+        <div>
+            <div class="panel" id="hud">booting…</div>
+            <div class="panel" id="controls" style="margin-top: 12px;">
+                <h2>framing</h2>
+                <div id="framings"></div>
+
+                <h2>lights</h2>
+                <div id="toggles"></div>
+
+                <h2>dials</h2>
+                <div id="dials"></div>
+
+                <h2>diagnostics</h2>
+                <div id="actions"></div>
+                <div id="status" style="margin-top: 6px;"></div>
+            </div>
+            <div class="panel" id="perf" style="margin-top: 12px; display: none;"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./lighting.js"></script>
+</body>
+</html>
