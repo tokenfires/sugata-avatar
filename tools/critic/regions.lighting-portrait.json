@@ -9,6 +9,12 @@
     "faceShadow":       { "note": "G1. Core shadow on the mirrored cheek, deliberately inboard of the silhouette: the rim's band is the outer ~9 px of that edge and a patch further out would measure the rim, not the fill.", "rects": [{ "x": 0.1750, "y": 0.3850, "w": 0.0550, "h": 0.0350 }] },
     "flatCheek":        { "note": "G4. 45x48 px of the flattest evenly-lit skin, outboard of faceKey.", "rects": [{ "x": 0.4600, "y": 0.4000, "w": 0.0500, "h": 0.0400 }] },
     "litSkin":          { "note": "G3. Key-lit skin lower on the cheek than faceKey, so the two gates stay independent.", "rects": [{ "x": 0.4000, "y": 0.4500, "w": 0.0500, "h": 0.0300 }] },
-    "shadowTerminator": { "note": "G3. Terminator band on the shadow-side cheek.", "rects": [{ "x": 0.1350, "y": 0.4400, "w": 0.0350, "h": 0.0300 }] }
+    "shadowTerminator": { "note": "G3. Terminator band on the shadow-side cheek.", "rects": [{ "x": 0.1350, "y": 0.4400, "w": 0.0350, "h": 0.0300 }] },
+    "cardBand":         { "note": "G7. The two lash lines and the two brows — the only alpha-masked hair cards on the figure, and the near-black surfaces where a saturated rim reads as pure light colour. Each rect was drawn on the plate and looked at before it was trusted; they deliberately include the skin, sclera and iris between the cards, because G7 counts DARK outlier pixels rather than averaging the patch. Authored against alive.html?freeze&bare at 900x1200 in the rest pose.", "rects": [
+                            { "x": 0.1111, "y": 0.2867, "w": 0.1022, "h": 0.0417 },
+                            { "x": 0.3311, "y": 0.2850, "w": 0.1111, "h": 0.0433 },
+                            { "x": 0.0978, "y": 0.2600, "w": 0.1378, "h": 0.0233 },
+                            { "x": 0.2911, "y": 0.2550, "w": 0.1689, "h": 0.0250 }
+                          ] }
   }
 }

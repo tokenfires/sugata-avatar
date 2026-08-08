@@ -64,12 +64,21 @@
  *                   tools/critic/capture.mjs can drive the page one fixed step at a time.
  *   ?skin=0         body keeps the shipped GLB material — the control for punch-list 3.2
  *   ?eyes=0         eye shells keep their shipped GLB materials — the control for 3.3/3.4
+ *   ?cards=0        eyelash and eyebrow cards keep the shipped GLB material — the control for the
+ *                   card shading, and the plate that proves gate G7 goes red
+ *   ?msaa=0         build the stage without MSAA. Alpha to coverage needs it, so this is also the
+ *                   A side of the card anti-aliasing.
  *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
+ *   ?ov=rim.irradiance:0,kicker.irradiance:0
+ *                   override LightingRig placement fields, same syntax as lighting.html. One
+ *                   plate per light is how a colour cast gets attributed to a light rather than
+ *                   guessed at.
  */
 
 import {
     Color,
     Mesh,
+    MeshPhysicalNodeMaterial,
     MeshStandardNodeMaterial,
     PlaneGeometry,
     Vector3
@@ -166,12 +175,25 @@ async function boot() {
     const query = new URLSearchParams( window.location.search );
     const hud = document.getElementById( 'hud' );
 
+    // MSAA is ON here, which is a departure from Stage's default and is load-bearing rather than
+    // cosmetic: the eyelash and eyebrow cards are alpha-to-coverage, and alpha to coverage on a
+    // single-sampled target silently degrades to the same binary cut it replaced. `?msaa=0` is the
+    // A side, and `applyCardShading` is told which it got so the two can never disagree.
+    // Stage's own note says to leave MSAA off "once TRAA is in the pipeline"; punch-list 3.12 is
+    // open and blocked on the morph-velocity defect, so there is nothing else anti-aliasing this
+    // page. Measured: with and without MSAA the page is vsync-pinned at p50 16.7 ms and p95
+    // 18.4–18.7 ms at BOTH 1920x1080 and 3840x2160, i.e. it does not come off 60 Hz on this
+    // hardware. That is a headroom statement, not a cost in milliseconds — the instrument cannot
+    // resolve the delta while the frame is vsync-locked, and it is recorded as the weaker claim.
+    const multisampled = query.get( 'msaa' ) !== '0';
+
     const stage = new Stage();
     await stage.create( document.getElementById( 'stage' ), {
         fieldOfView: PORTRAIT_FIELD_OF_VIEW_DEGREES,
         near: 0.01,
         far: 50,
-        forceWebGL: query.has( 'webgl' )
+        forceWebGL: query.has( 'webgl' ),
+        antialias: multisampled
     } );
 
     stage.scene.background = new Color( 0x08080a );
@@ -216,9 +238,12 @@ async function boot() {
         // and the iris plane at construction, and the curvature map is baked per figure.
         skinEnabled: query.get( 'skin' ) !== '0',
         eyesEnabled: query.get( 'eyes' ) !== '0',
+        cardsEnabled: query.get( 'cards' ) !== '0',
+        multisampled,
         skin: null,
         eyes: null,
-        eyeOcclusion: null
+        eyeOcclusion: null,
+        cards: []
     };
 
     // The rig is preset per framing, not scaled from one. The portrait rim azimuth measures 1 px
@@ -226,7 +251,8 @@ async function boot() {
     // as "rim and kicker stop reading at body scale".
     const lights = new LightingRig( {
         preset: session.frameMode,
-        shadows: query.get( 'shadows' ) !== '0'
+        shadows: query.get( 'shadows' ) !== '0',
+        overrides: parseLightOverrides( query.get( 'ov' ) )
     } );
 
     lights.attachTo( stage.scene, stage.renderer );
@@ -536,6 +562,41 @@ function aimRigAt( lights, session, focus, framedHeightMetres, stage ) {
 
 }
 
+/**
+ * `?ov=rim.irradiance:0,kicker.irradiance:0` — arbitrary rig overrides from the URL.
+ *
+ * `packages/testbed/src/lighting.html` has had this since 3.8, and the integrated page did not,
+ * which meant no light on THIS page could be subtracted and looked at. That gap is what let the
+ * blue eyelash cards sit in PROGRESS as an unattributed "violet cast" for two rounds: attributing
+ * a colour to one of four lights takes one plate per light, and there was no way to ask for one.
+ *
+ * The syntax is deliberately identical to lighting.html's so a sweep transfers between the two
+ * pages unchanged. Kept as its own small parser rather than imported from the other page: a
+ * browsercheck importing another browsercheck's internals couples two things that are meant to be
+ * independently readable.
+ *
+ * @param {?string} spec - e.g. `key.elevationDegrees:34,rim.irradiance:9`
+ * @returns {Object} per-light field overrides, keyed by light name.
+ */
+function parseLightOverrides( spec ) {
+
+    if ( spec === null || spec === '' ) return {};
+
+    const overrides = {};
+
+    for ( const clause of spec.split( ',' ) ) {
+
+        const [ path, value ] = clause.split( ':' );
+        const [ light, field ] = path.split( '.' );
+
+        overrides[ light ] = { ...( overrides[ light ] ?? {} ), [ field ]: Number( value ) };
+
+    }
+
+    return overrides;
+
+}
+
 function buildBackdrop( stage ) {
 
     const material = new MeshStandardNodeMaterial( {
@@ -693,6 +754,8 @@ function applyShading( session, skin ) {
 
     }
 
+    if ( session.cardsEnabled ) session.cards = applyCardShading( figure, session.multisampled );
+
     if ( session.eyesEnabled === false ) return;
 
     // Not fatal if it throws: a figure built with the superseded single-shell eye proxy has no
@@ -714,16 +777,144 @@ function applyShading( session, skin ) {
 
 }
 
+/**
+ * The alpha value below which a card texel is sheet background rather than painted fibre.
+ *
+ * Not a taste setting — read off the two card textures' own alpha histograms, measured on
+ * `figure_g050.glb`'s embedded PNGs at 512x512:
+ *
+ *   | texture      | texels in alpha 0.0–0.1 | of 262,144 |
+ *   |--------------|------------------------:|-----------:|
+ *   | eyelashes01  |                 225,416 |      86.0% |
+ *   | eyebrow001   |                 236,954 |      90.4% |
+ *
+ * Everything above that first decile is painted. glTF `alphaMode: MASK` defaults `alphaCutoff` to
+ * 0.5, which throws away the whole soft ramp between 0.1 and 0.5 — 15,368 eyelash texels and
+ * 20,262 eyebrow texels, i.e. most of the brow's density and every lash tip. That is where the
+ * "visible holes in the brow" came from.
+ *
+ * With alpha-to-coverage doing the in/out decision continuously, the cutoff's only remaining job
+ * is to keep the transparent sheet out of the depth buffer, so it belongs at the top of the empty
+ * decile rather than half way up the ramp.
+ */
+const CARD_ALPHA_CUTOFF = 0.1;
+
+/**
+ * Shades the alpha-masked hair cards — the eyelashes and the eyebrows.
+ *
+ * These two meshes were the only ones on the figure `applyShading` skipped, and leaving them on
+ * MakeHuman's default `roughness 0.5 / metalness 0` slab is what made them the most visually wrong
+ * thing in the frame: at portrait framing they rendered as saturated blue spikes, more saturated
+ * than anything else on screen, on an asset whose own texture is near-black.
+ *
+ * ## Why a card must not claim an isotropic specular lobe
+ *
+ * A hair card's shading normal is its plane normal, and that is a lie about what the card stands
+ * for — a bundle of fibres. A real fibre confines its highlight to a cone about its own TANGENT,
+ * so it can only ever produce a band ALONG the strand. An isotropic GGX lobe about the card's
+ * plane normal instead puts the highlight wherever the card happens to face, and a fan of lash
+ * blades standing perpendicular to the lid faces, by construction, close to the half-vector of a
+ * light behind the head. The portrait rim sits at azimuth −152°, so its half-vector lands ~76° off
+ * the view axis — exactly the grazing geometry where Fresnel runs from 0.04 to ~1.
+ *
+ * Nothing dilutes it. The mean sRGB of `eyelashes01`'s opaque texels is (0.033, 0.012, 0.004),
+ * i.e. ~0.003 in linear, so the diffuse term contributes essentially nothing and the rendered
+ * pixel is 100% the rim's own colour. Measured on `?freeze&bare` at 900x1200, over the four lash
+ * and brow rects `regions.lighting-portrait.json` now carries:
+ *
+ *   | plate                                   | G7 cool-chroma outliers |
+ *   |-----------------------------------------|------------------------:|
+ *   | shipped, before this change             |                  0.847% |
+ *   | cards hidden altogether (the floor)      |                  0.011% |
+ *   | rim and kicker at zero irradiance        |                  0.000% |
+ *   | this treatment                           |                  0.028% |
+ *
+ * So the lobe is removed rather than tuned: `specularIntensity 0` measures at the floor, and the
+ * intermediate values do not (0.35 → 0.336%, 0.5 → 0.656%). Punch-list 3.5's Karis hair BSDF is
+ * what puts a lobe back, anisotropically, where the fibre tangent says it belongs — the look spec
+ * is explicit that hair's apparent colour comes almost entirely from those lobes, so this is an
+ * interim that owes 3.5 a replacement, not a final answer.
+ *
+ * ⚠️ It is NOT the rig's fault, and that was checked before this file was touched. The rim band on
+ * skin measures 0.7482 encoded luma against key-lit skin at 0.7935 — 0.943×, at the bottom of the
+ * look spec's own 1.0–1.5× band, so the rim is if anything under-powered. Moving the rig's shadow
+ * budget off the key and onto the back lights was tried and rejected by measurement: at
+ * `shadowFraction` 0.45 the cards barely improve (0.847% → 0.656% equivalent), and at 1.0 the rim
+ * band is destroyed (band contrast against skin 40 px inboard falls 1.0967 → 0.9340, i.e. the rim
+ * band becomes darker than the skin it is meant to separate from the backdrop).
+ *
+ * ## Why alpha to coverage
+ *
+ * `alphaMode: MASK` at cutoff 0.5 draws a texel covering 20% of a pixel at 100% opacity. That is
+ * the hard staircase on every lash tip and brow edge, and before the lobe came off it also showed
+ * a maximum-Fresnel specular at full strength on a sliver of card. Alpha to coverage turns the
+ * binary decision into a sample count, which is both the anti-aliasing fix and a proportional
+ * dilution of whatever the card reflects.
+ *
+ * It needs a multisampled target to mean anything, so it is applied only when the stage actually
+ * has one — otherwise the flag would sit on the material reading like a fix while the hard cut
+ * carried on underneath.
+ *
+ * @param {import('../../core/src/figure/Figure.js').Figure} figure
+ * @param {boolean} multisampled - whether the stage was built with MSAA.
+ * @returns {Array<import('three').Material>} the materials installed, for disposal.
+ */
+function applyCardShading( figure, multisampled ) {
+
+    const installed = [];
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+
+        // Matched on the asset's own alpha mode rather than on mesh names. `verify_glb.mjs`
+        // asserts that the brow and lash cards are the only two non-opaque meshes in the bake, and
+        // a name matcher has already had to be widened once on this project when `low-poly`
+        // became `high-poly` (LEARNINGS, the figure asset). glTF `alphaMode: MASK` arrives as a
+        // non-zero `alphaTest`.
+        const previous = object.material;
+        const isAlphaMaskedCard = previous !== undefined && previous !== null && previous.alphaTest > 0;
+        if ( isAlphaMaskedCard === false ) return;
+
+        const card = new MeshPhysicalNodeMaterial();
+        card.name = `sugata.card.${ previous.name }`;
+        card.map = previous.map;
+        card.color.copy( previous.color );
+        card.side = previous.side;
+
+        // Kept from the asset rather than re-chosen: with no specular lobe they change nothing,
+        // and a number that changes nothing should not be silently re-authored.
+        card.roughness = previous.roughness;
+        card.metalness = 0;
+
+        card.specularIntensity = 0;
+        card.alphaTest = CARD_ALPHA_CUTOFF;
+        card.alphaToCoverage = multisampled;
+
+        object.material = card;
+        installed.push( card );
+
+    } );
+
+    console.log( `card shading: ${ installed.length } mesh(es) — ${ installed.map( ( m ) => m.name ).join( ', ' ) }` +
+        `   alphaToCoverage ${ multisampled }` );
+
+    return installed;
+
+}
+
 /** Drops whatever the previous bake was wearing. Called before the figure itself is disposed. */
 function disposeShading( session ) {
 
     session.eyeOcclusion?.dispose();
     session.eyes?.dispose();
     session.skin?.dispose();
+    for ( const card of session.cards ) card.dispose();
 
     session.eyeOcclusion = null;
     session.eyes = null;
     session.skin = null;
+    session.cards = [];
 
 }
 
@@ -993,7 +1184,9 @@ function describeState( stage, stack, layers, session, pupilScale ) {
         `pupil    scale ${ pupilScale.toFixed( 3 ) }   ${ layers.pupil.physiologicalDiameterMillimetres.toFixed( 2 ) } mm` +
             `   ${ session.eyes === null ? '(no eye shader — nowhere to land)' : 'on EyeMaterial.pupilScaleUniform' }`,
         `shading  skin ${ session.skin === null ? 'OFF (shipped GLB material)' : 'SkinMaterial' }` +
-            `   eyes ${ session.eyes === null ? 'OFF (shipped GLB materials)' : 'EyeMaterial + occlusion' }`
+            `   eyes ${ session.eyes === null ? 'OFF (shipped GLB materials)' : 'EyeMaterial + occlusion' }` +
+            `   cards ${ session.cards.length === 0 ? 'OFF (shipped GLB materials)'
+                : `${ session.cards.length } lobe-free${ session.multisampled ? ' + a2c' : ', NO MSAA — a2c inert' }` }`
     ].join( '\n' );
 
 }

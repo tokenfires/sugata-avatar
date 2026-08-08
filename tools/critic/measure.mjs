@@ -2,7 +2,7 @@
 //
 // measure.mjs — the objective half of the critic loop.
 //
-// Six gates from docs/research/stellar-blade-look-spec.md §6. They exist so that "does this look
+// Seven gates from docs/research/stellar-blade-look-spec.md §6. They exist so that "does this look
 // right?" stops being purely a matter of taste: a render either reproduces the measured
 // properties of the reference or it does not, and the number says which.
 //
@@ -12,6 +12,16 @@
 //   G4  flat-skin 5×5 high-pass σ      1.5–2.1 / 255 at 4K
 //   G5  fraction of pixels above 0.99 luma  < 0.5%
 //   G6  black point, p0.1 luma         0.004–0.016  (NO lift)
+//   G7  near-black surfaces do not render as saturated coloured ones  < 0.10% of the card band
+//
+// 🚩 G7 exists because G1–G6 could all be green on a plate whose single most visually wrong
+// feature was the eyelashes rendering as vivid royal-blue spikes. Every one of G1–G6 samples a
+// small rectangle of cheek, sclera or terminator, or a whole-image percentile; between them they
+// make no assertion about COLOUR anywhere else in the frame, so a near-black surface reflecting a
+// saturated rim at full Fresnel is invisible to all six. That was true for three review rounds.
+// G7 is deliberately a different KIND of assertion — a per-pixel outlier count rather than a mean
+// or a ratio between two patches — because a mean over a patch containing both black cards and
+// bright skin cannot resolve the defect at all (LEARNINGS §1.11).
 //
 // Usage:
 //   node measure.mjs <image.png> <regions.json> [--human] [--out result.json]
@@ -73,6 +83,53 @@ const TARGETS = {
   clippedFractionMax: 0.005,
   blackPointPercentile: 0.1,
   blackPointBand: [0.004, 0.016],
+
+  // §2 hair / §2 eyes. Three published measurements bound this gate and none of them is a
+  // preference:
+  //
+  //   - hair base albedo is "essentially black — luma 0.067 (#150F17)", and its apparent colour
+  //     is supposed to come from an ANISOTROPIC lobe along the fibre, not from the card's plane;
+  //   - the lid crease / socket — the band this gate samples — measures #352327, luma 0.152,
+  //     **0.31× cheek**, and the spec says that occlusion is "heavier than physically-derived AO
+  //     would give";
+  //   - the rim, the one thing in a portrait rig entitled to be strongly chromatic, is capped at
+  //     "≈1.0–1.5× key-lit skin luma ... the rim wins on saturation, not brightness".
+  //
+  // So a DARK pixel in the socket band carrying strong chroma is, by construction, not the rim
+  // band and not the albedo: it is a light landing on a surface with nothing to dilute it.
+  //
+  // The three qualifiers are all needed, and each was checked against the alternative:
+  //
+  //   value  — restricts the count to the cards themselves, so the statistic is about the near-
+  //            black surfaces rather than about rim spill on skin. Derived from the reference,
+  //            not chosen: the spec's socket sample #352327 has HSV value 0.208 against its own
+  //            cheek reference #96767D at 0.588, i.e. **0.354× cheek**. On `alive.html` the cheek
+  //            measures value 0.851, so the reference band puts the cards at ~0.301 here. 0.35 is
+  //            that with ~16% headroom. Measured separation between the pre-fix plate and a plate
+  //            with the card meshes removed, as the ceiling moves:
+  //
+  //              ceiling  0.25   0.30   0.35   0.45   0.60   none
+  //              defect   0.415% 0.617% 0.858% 1.239% 1.464% 1.879%
+  //              floor    0.000% 0.011% 0.022% 0.112% 0.236% 0.645%
+  //              ratio       ∞    55×    38×    11×     6×     2.9×
+  //
+  //            i.e. dropping the qualifier entirely costs an order of magnitude of separation,
+  //            because bright skin beside the socket does legitimately carry cool chroma.
+  //
+  //   chroma — max−min, NOT HSV saturation. Saturation is chroma/value, so a DIMMER blue can
+  //            score HIGHER: measured across a card specular-intensity sweep on the real page
+  //            (ACES tone-mapped, which desaturates the bright end), the saturation form went
+  //            1.0 → 2.866%, 0.5 → 3.197%, 0.35 → 3.208%, 0.0 → 0.101% — it PEAKS in the middle
+  //            of a monotonically improving sequence, so a threshold on it would have called the
+  //            half-fixed render worse than the broken one. The chroma form on the same four
+  //            plates is monotone: 1.879 / 1.279 / 0.925 / 0.589%.
+  //
+  //   hue    — the cool arc. Warm chroma in this band is eyeshadow and lid vasculature, which the
+  //            spec bakes into albedo on purpose; cool chroma there is not in the asset at all.
+  cardBandMaxValue: 0.35,
+  cardBandMinChroma: 0.15,
+  cardBandCoolHueArc: [180, 300],
+  cardBandOutlierFractionMax: 0.001,
 };
 
 // A 16-bit histogram resolves the black point to ~1.5e-5, which is two orders of magnitude
@@ -116,6 +173,7 @@ function measureAll(image, regions, spec, imagePath) {
     measureHighPassSigma(image, lumaField, regions, warnings),
     measureHighlightClipping(image, lumaField, regions),
     measureBlackPoint(image, lumaField, regions),
+    measureCardBandChroma(image, regions),
   ];
 
   const summary = {
@@ -394,7 +452,99 @@ function measureBlackPoint(image, lumaField, regions) {
       totalPixels: total,
       scope: indices ? 'region "frame"' : 'whole image',
     },
-    note: 'Below the band means blacks are crushed; above it means shadow lift, which the reference grade does not have. Measured to 1/65536 via histogram.',
+    note:
+      'Below the band means blacks are crushed; above it means shadow lift, which the reference grade does not have. Measured to 1/65536 via histogram. ' +
+      '⚠️ Whole-image scope makes this a measurement of whatever the darkest 0.1% of the frame happens to BE, not of the grade. On alive.html it read 0.0250 while the backdrop was the darkest thing present, and 0.00001 once the eyelash and eyebrow cards stopped being lit by the rim — same grade, both readings red, neither about the grade. Give it a "frame" region, or read it as belonging to punch-list 3.13.',
+  };
+}
+
+// G7 — a near-black surface must not render as the most saturated thing in the frame.
+//
+// The failure this catches is specific and was worth a whole review round: the eyelash and eyebrow
+// cards on `alive.html` rendered as vivid royal-blue spikes while G1, G2, G4 and G5 all read
+// green. It is a per-pixel OUTLIER COUNT rather than a patch mean, because the band it samples
+// deliberately contains both the near-black cards and the bright skin around them, and no mean
+// over that mixture can resolve either.
+//
+// Reference numbers, all measured on `alive.html?freeze&bare` at 900×1200 (LEARNINGS §1.17 — the
+// rest pose, no pre-roll, which is the state the region file was authored against):
+//
+//   | plate                                          | outlier fraction |
+//   |------------------------------------------------|-----------------:|
+//   | cards on the shipped GLB material (`?cards=0`)  |           0.847% |
+//   | card meshes removed from the scene entirely      |           0.011% |
+//   | rim and kicker at zero irradiance                |           0.000% |
+//   | edge lights swung to the FRONT (worst case)      |           3.454% |
+//   | the shipped card treatment                       |           0.022% |
+//
+// The 0.10% threshold sits an order of magnitude below the defect and 2× above the floor, and it
+// is deliberately tight enough to reject a PARTIAL fix: alpha-to-coverage alone, with the specular
+// lobe still on the cards, measures 0.123% and still reads red — correctly, because the lash tips
+// are still visibly blue on that plate.
+function measureCardBandChroma(image, regions) {
+  const band = regions.cardBand;
+  if (!band) {
+    return skipGate('G7', 'card band chroma outliers', 'needs region "cardBand"');
+  }
+
+  const { pixels } = image;
+  const [hueLow, hueHigh] = TARGETS.cardBandCoolHueArc;
+
+  let outliers = 0;
+  let darkPixels = 0;
+  let worstChroma = 0;
+  let worstHex = null;
+  let worstValue = 0;
+
+  for (const index of band.pixelIndices) {
+    const r = pixels[index];
+    const g = pixels[index + 1];
+    const b = pixels[index + 2];
+
+    const { hue, value } = rgbToHsv(r, g, b);
+    const isCool = hue >= hueLow && hue < hueHigh;
+    const chroma = Math.max(r, g, b) - Math.min(r, g, b);
+
+    // The worst offender is reported over EVERY cool pixel in the band, not only the counted
+    // ones. The count is restricted to dark pixels because that is what makes the statistic about
+    // the cards rather than about rim spill on skin — but the single most obviously wrong pixel on
+    // the pre-fix plate was #1A45A7 at value 0.655, above the ceiling, and a report that named a
+    // lesser pixel as "worst" would send the next reader to the wrong place.
+    if (isCool && chroma > worstChroma) {
+      worstChroma = chroma;
+      worstHex = toHex({ r, g, b });
+      worstValue = value;
+    }
+
+    if (value > TARGETS.cardBandMaxValue) continue;
+    darkPixels += 1;
+
+    if (isCool && chroma >= TARGETS.cardBandMinChroma) outliers += 1;
+  }
+
+  const fraction = outliers / band.pixelIndices.length;
+
+  return {
+    id: 'G7',
+    name: 'card band chroma outliers',
+    status: fraction < TARGETS.cardBandOutlierFractionMax ? 'PASS' : 'FAIL',
+    lumaDomain: 'encoded',
+    target:
+      `< ${(TARGETS.cardBandOutlierFractionMax * 100).toFixed(2)}% of the band: ` +
+      `value ≤ ${TARGETS.cardBandMaxValue}, chroma ≥ ${TARGETS.cardBandMinChroma}, hue ${hueLow}–${hueHigh}°`,
+    measured: {
+      outlierFraction: round(fraction, 6),
+      outlierPercent: round(fraction * 100, 4),
+      outlierPixels: outliers,
+      darkPixels,
+      totalPixels: band.pixelIndices.length,
+      worstCoolChroma: round(worstChroma, 4),
+      worstCoolHex: worstHex,
+      worstCoolValue: round(worstValue, 4),
+    },
+    note:
+      'Chroma is max−min, not HSV saturation: saturation is chroma/value, so dimming a blue pixel RAISES it and the statistic stops being monotone in the defect. Reference: lid crease / socket measures 0.31× cheek luma and hair albedo is luma 0.067, so nothing in this band is entitled to carry chroma of its own. ' +
+      '⚠️ This gate covers the CHROMA half of the card defect only. The other half — binary alpha-test edges on the same cards — is NOT gated here and NOT gated anywhere: the obvious statistic, the fraction of the band at an intermediate luma, does not separate (21.06% with the hard cut against 20.07% anti-aliased, because the band is dominated by iris and lid shading rather than by card edges). A real edge gate would have to localise on the card boundary first.',
   };
 }
 
@@ -591,6 +741,17 @@ function collectCaptureWarnings(image, spec) {
         `Region spec declares imageWidth ${spec.imageWidth} but the image is ${image.width} px wide, and its rects are in PIXELS — every region is now pointing somewhere else. Re-author the rects, or switch to "units": "normalized".`
       );
     }
+  }
+
+  // G7's rects are drawn on four small features of a face at ONE framing, so they only mean
+  // anything on a plate that framing was authored for and in a motion state that has not moved
+  // them. LEARNINGS §1.17 is the same trap on G1: at ?preroll=6 the head yaws 35.8° and the
+  // committed rects sample different anatomy — for G7 that would mean sampling cheek instead of
+  // lash line, and a band with no cards in it scores a perfect zero.
+  if (spec.regions?.cardBand) {
+    warnings.push(
+      'G7 samples four hand-drawn rects on the lash lines and brows. Pin the motion state — ?freeze with NO pre-roll — or the rects land on skin and a band containing no cards passes trivially.'
+    );
   }
 
   return warnings;

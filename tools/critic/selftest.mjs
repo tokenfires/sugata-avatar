@@ -430,6 +430,87 @@ function testBlackPoint() {
 }
 
 // ============================================================================================
+// 8b. G7 — card band chroma outliers  (both directions, plus the two statistics it rejected)
+// ============================================================================================
+
+function testCardBandChroma() {
+  const size = 400;
+  const skin = hexToRgb('#D9BBAB');          // the measured cheek on alive.html at 900x1200
+
+  // The band is a mixture on purpose: mostly skin, with a small fraction of near-black card. The
+  // fraction is set to 4% because that is roughly what the four real rects contain, and because a
+  // gate stated as a fraction OF THE BAND has to be told what the band is made of before its
+  // threshold means anything.
+  const cardEvery = 25;
+  const buildBand = (cardColour) =>
+    paint(size, size, (x, y) => ((y * size + x) % cardEvery === 0 ? cardColour : skin));
+
+  const spec = { units: 'pixels', regions: { cardBand: [{ x: 0, y: 0, w: size, h: size }] } };
+
+  // A card lit only by the warm key and the ambient — near-black, essentially neutral. This is
+  // what the asset's own texture (mean sRGB 0.033 / 0.012 / 0.004) renders as when nothing
+  // saturated reaches it.
+  const neutralPath = writeTestImage('g7-neutral.png', size, size, buildBand([12, 10, 9]));
+  const neutralGate = gateNamed(measureFile(neutralPath, spec), 'G7');
+  expectEqual('G7 near-black neutral cards PASS', neutralGate.status, 'PASS');
+  expectClose('G7 counts no outliers on neutral cards', neutralGate.measured.outlierFraction, 0, 1e-6);
+
+  // The defect, painted with a colour taken off the pre-fix plate rather than invented: #071D58
+  // is the highest-chroma counted pixel in the real card band (value 0.345, chroma 0.318, hue
+  // 224°), at (109,375) on alive.html?freeze&bare&cards=0&msaa=0 at 900x1200. 4% of the band is
+  // 40x the 0.10% threshold.
+  const bluePath = writeTestImage('g7-blue-cards.png', size, size, buildBand(hexToRgb('#071D58')));
+  const blueGate = gateNamed(measureFile(bluePath, spec), 'G7');
+  expectEqual('G7 saturated blue cards FAIL', blueGate.status, 'FAIL');
+  expectClose('G7 recovers the planted outlier fraction', blueGate.measured.outlierFraction, 1 / cardEvery, 0.002);
+  expectEqual('G7 reports the worst offending pixel', blueGate.measured.worstCoolHex, '#071D58');
+
+  // 🚩 A PATCH MEAN cannot see this, and that is the whole reason G7 is an outlier count. The
+  // blue plate and the neutral plate differ in 4% of their pixels, so their mean lumas differ by
+  // well under one part in a hundred — inside any tolerance wide enough to admit a real face.
+  // LEARNINGS §1.11: when a gate structurally cannot resolve the thing it is aimed at, the answer
+  // is a different KIND of assertion, not a tighter threshold.
+  const meanLumaOf = (filePath) => {
+    const { pixels } = decodePng(fs.readFileSync(filePath));
+    let sum = 0;
+    for (let i = 0; i < pixels.length; i += 4) sum += encodedLuma(pixels[i], pixels[i + 1], pixels[i + 2]);
+    return sum / (pixels.length / 4);
+  };
+  expectClose('a patch MEAN would not resolve the defect (Δ luma < 0.01)', Math.abs(meanLumaOf(neutralPath) - meanLumaOf(bluePath)), 0, 0.01);
+
+  // Monotone in chroma at a fixed value — which is the property HSV saturation does not have,
+  // and which is why the threshold means the same thing on a half-fixed render as on a broken one.
+  const paler = [0x2a, 0x33, 0x58];       // same value as #071D58's blue channel, less chroma
+  const palerGate = gateNamed(measureFile(writeTestImage('g7-paler.png', size, size, buildBand(paler)), spec), 'G7');
+  expectEqual('G7 is monotone in chroma at fixed value', palerGate.measured.outlierFraction <= blueGate.measured.outlierFraction, true);
+  const saturationOf = ([r, g, b]) => (Math.max(r, g, b) === 0 ? 0 : (Math.max(r, g, b) - Math.min(r, g, b)) / Math.max(r, g, b));
+  expectEqual('HSV saturation would ALSO have ranked those two, so that is not the disagreement', saturationOf(paler) < saturationOf(hexToRgb('#071D58')), true);
+
+  // 🚩 What this gate does NOT catch, asserted as a gate so nobody later assumes it does
+  // (LEARNINGS §1.11). The value ceiling is what makes the statistic about near-black CARDS
+  // rather than about rim spill on skin, and the price is that a cool pixel brighter than the
+  // ceiling is not counted at all — including #1A45A7 at value 0.655, the single most obviously
+  // wrong pixel in the real pre-fix band. The gate still went red there, on 0.858% of the band,
+  // but it went red on the darker company that pixel keeps. `worstCoolHex` / `worstCoolValue` are
+  // reported over EVERY cool pixel precisely to cover this, and anything hunting a bright
+  // chromatic artefact somewhere other than the card band wants a new gate, not a wider G7.
+  const tooBright = hexToRgb('#1A45A7');
+  const tooBrightGate = gateNamed(measureFile(writeTestImage('g7-above-ceiling.png', size, size, buildBand(tooBright)), spec), 'G7');
+  expectEqual('G7 does NOT count cool pixels above the value ceiling', tooBrightGate.measured.outlierFraction, 0);
+  expectEqual('...but still reports them as the worst offender', tooBrightGate.measured.worstCoolHex, '#1A45A7');
+
+  // The value qualifier is load-bearing: without it the count is dominated by rim spill on skin.
+  // A band of BRIGHT blue-tinted skin must not trip a gate about near-black cards.
+  const tintedSkinPath = writeTestImage('g7-tinted-skin.png', size, size, buildBand([200, 205, 235]));
+  expectEqual('G7 ignores a cool tint on bright skin', gateNamed(measureFile(tintedSkinPath, spec), 'G7').status, 'PASS');
+
+  // And warm chroma in this band is eyeshadow and lid vasculature, which the look spec bakes into
+  // albedo deliberately. A dark warm card must pass.
+  const warmPath = writeTestImage('g7-warm-cards.png', size, size, buildBand([70, 20, 14]));
+  expectEqual('G7 ignores warm chroma on dark cards', gateNamed(measureFile(warmPath, spec), 'G7').status, 'PASS');
+}
+
+// ============================================================================================
 // 9. Region plumbing — normalised units, unions, missing regions
 // ============================================================================================
 
@@ -453,7 +534,7 @@ function testRegionHandling() {
   const report = measureFile(filePath, normalisedSpec);
   expectClose('normalised units resolve to the right pixels', gateNamed(report, 'G1').measured.ratioEncoded, 1.253, 0.005);
   expectEqual('gates without regions SKIP rather than fail', gateNamed(report, 'G2').status, 'SKIP');
-  expectEqual('all four region-dependent gates SKIP', report.summary.skipped, 3);
+  expectEqual('every region-dependent gate SKIPs', report.summary.skipped, 4);
 
   // The whole-image gates still run on a partial spec. This test image is two flat bright tones
   // with no dark pixels at all, so G6 must report a lifted black point — and it must be the only
@@ -518,7 +599,7 @@ function testCommandLine() {
   // Exit code 1 on a failed gate, so a calling script can branch without parsing. This two-tone
   // test image has no dark pixels at all, so G6 correctly reports a lifted black point.
   expectEqual('CLI exits 1 when a gate fails', cli.status, 1);
-  expectEqual('failing CLI run still emits its full report', parsed.gates.length, 6);
+  expectEqual('failing CLI run still emits its full report', parsed.gates.length, 7);
 
   // Exit code 2 is reserved for the tool itself breaking, so callers can tell the two apart.
   const broken = runCli('measure.mjs', [path.join(WORK_DIR, 'does-not-exist.png'), specPath]);
@@ -681,6 +762,7 @@ function run() {
   testHighPassSigma();
   testHighlightClipping();
   testBlackPoint();
+  testCardBandChroma();
   testRegionHandling();
   testCommandLine();
   testAgainstImageMagick();
