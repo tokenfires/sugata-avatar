@@ -98,6 +98,22 @@ export const TAAU_RESOLUTION_SCALE = 0.66;
 export const DEFAULT_SHARPNESS = null;
 
 /**
+ * How many frames the camera jitter takes to come back round, so a gate can say what phase a
+ * capture of N frames must be in.
+ *
+ * ⚠️ It is **31, not 32**, and the off-by-one is the node's and not a typo here. Both files build
+ * `_haltonOffsets` with `Array.from( { length: 32 }, ... )` (`TRAANode.js:751`, `TAAUNode.js:819`)
+ * and then advance with `this._jitterIndex % ( _haltonOffsets.length - 1 )` (`:337`, `:370`) — so
+ * the last entry of the table is never used and the sequence repeats every 31 frames. Verified by
+ * execution as well as by reading: 60 captured steps from a reset epoch leave `_jitterIndex` at
+ * **29**, and 60 % 31 = 29.
+ *
+ * Source-verified at three r185. If an upgrade changes the table, this number is wrong and the
+ * jitter-phase check in `alive-capture-determinism.selftest.mjs` is what will say so.
+ */
+export const HALTON_JITTER_PERIOD = 31;
+
+/**
  * Builds the temporal resolve for one `Stage`.
  *
  * The node has to be constructed once and kept, because it owns two render targets and a frame
@@ -112,7 +128,20 @@ export const DEFAULT_SHARPNESS = null;
  * @param {?number} [options.sharpness] - RCAS strength, 0 = maximum and 2 = none. `null` skips
  *   the sharpen pass entirely, which is now the default — see `DEFAULT_SHARPNESS` for the G4
  *   table that decided it. `taau` callers should pass a number; `traa` callers should not.
- * @returns {{ node: Node, mode: string, dispose: function(): void, setVelocityConfidence: function(number): void }}
+ * ## The resolve carries FRAME STATE, and a deterministic capture has to reset it
+ *
+ * Both nodes accumulate across frames, and both keep that accumulation in places a caller cannot
+ * see: a `_jitterIndex` selecting this frame's Halton camera offset, and a history render target
+ * holding the previous resolve. Neither is reset when a page hands its frame loop to a capture
+ * tool, so both start the capture wherever the requestAnimationFrame frames that ran during the
+ * page's async boot happened to leave them — a count of how many frames the machine fitted into
+ * loading a GLB.
+ *
+ * `resetFrameEpoch()` below is the repair, and the size of the hole it closes is measured in
+ * `alive.js`'s `takeOverFrameLoop`: with the node clock pinned and this left alone, three
+ * back-to-back loads of the SHIPPED DEFAULT still produced three distinct plates.
+ *
+ * @returns {{ node: Node, mode: string, dispose: function(): void, setVelocityConfidence: function(number): void, resetFrameEpoch: function(): void, frameEpoch: function(): Object }}
  */
 export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
 
@@ -158,6 +187,57 @@ export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
         setVelocityConfidence( pixels ) {
 
             resolved.maxVelocityLength = pixels;
+
+        },
+
+        /**
+         * Puts the resolve back at frame zero: jitter phase at the start of the Halton sequence,
+         * and history holding nothing a previous frame put there.
+         *
+         * The history is discarded by shrinking its render target rather than by clearing it,
+         * which looks like a trick and is the node's own mechanism. `updateBefore` compares the
+         * history target's size against the beauty buffer's and, when they differ, reinitialises
+         * the target and copies THIS FRAME'S BEAUTY into it — `TRAANode.js:387`, `TAAUNode.js:421`.
+         * That is a better epoch than a cleared buffer: clearing to black makes the first captured
+         * frames fade up out of the dark, which is a different determinism-preserving wrong answer.
+         *
+         * Both `_jitterIndex` and `_historyRenderTarget` are private. They are reached rather than
+         * re-implemented because there is no public reset, and if an upgrade renames either, the
+         * optional chaining leaves the capture correct-but-not-reproducible instead of throwing —
+         * the same failure posture `takeOverFrameLoop` takes with `_animation`.
+         */
+        resetFrameEpoch() {
+
+            resolved._jitterIndex = 0;
+            resolved._historyRenderTarget?.setSize( 1, 1 );
+
+        },
+
+        /**
+         * What the resolve's frame counters read right now, for a gate that wants to say what they
+         * SHOULD read rather than only whether two runs agree.
+         *
+         * `jitterPeriod` is reported rather than assumed: `TRAANode` and `TAAUNode` both advance
+         * with `index % ( _haltonOffsets.length - 1 )`, so the period is one SHORT of the table
+         * and a gate that hardcoded 32 would be off by one for every capture longer than 31
+         * frames.
+         */
+        frameEpoch() {
+
+            return {
+                jitterIndex: resolved._jitterIndex ?? null,
+                jitterPeriod: HALTON_JITTER_PERIOD,
+
+                // 1 exactly between `resetFrameEpoch()` and the next render, and the beauty
+                // buffer's width thereafter. It is reported because the history leg of the reset
+                // is the one a pixel check can barely see: a temporal resolve on a STATIC scene
+                // converges to the same fixed point from any starting history, so the residue of
+                // a wrong one falls under 8-bit quantisation within a few frames. Measured with
+                // the history reset deleted, `?bare&freeze&capture&seed=1` at 900x1200:
+                // byte-identical at 2 steps and at 24, and 2 distinct plates of 3 at 60. An
+                // intermittent, sub-code-value defect needs an observation that is not a pixel.
+                historyWidth: resolved._historyRenderTarget?.width ?? null
+            };
 
         },
 

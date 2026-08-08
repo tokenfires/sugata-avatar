@@ -67,7 +67,14 @@
  *   ?arousal=0.8    starting value of a dial, so a capture can ask for a state rather than
  *                   needing a human to drag a slider. Same for ?load and ?attention.
  *   ?capture        stop the frame loop and hand the clock to `window.__SUGATA_STEP__`, so
- *                   tools/critic/capture.mjs can drive the page one fixed step at a time.
+ *                   tools/critic/capture.mjs can drive the page one fixed step at a time. It also
+ *                   resets the renderer's FRAME STATE to a known epoch — see
+ *                   `takeOverFrameLoop`, which until 2026-08-08 pinned the clock and left three
+ *                   counters free-running.
+ *   ?clockdefect=   deliberately break one part of that epoch. Six named ways, one of which is
+ *                   what shipped; see `CAPTURE_CLOCK_DEFECTS`. Reached only from this parameter,
+ *                   and they exist so `alive-capture-determinism.selftest.mjs` can prove itself
+ *                   red against a PAGE rather than against a committed plate.
  *   ?skin=0         body keeps the shipped GLB material — the control for punch-list 3.2
  *   ?eyes=0         eye shells keep their shipped GLB materials — the control for 3.3. It switches
  *                   the SHADER and nothing else: the occlusion sheet stays on, so the difference
@@ -564,7 +571,9 @@ async function boot() {
     // calls __SUGATA_STEP__(1/fps), reads the pixels back, and repeats. Simulation time stops
     // depending on wall-clock time altogether, so a capture is exactly as long as it claims and
     // a seeded run reproduces frame for frame regardless of machine, load or thermal state.
-    const advanceRendererFrame = query.has( 'capture' ) ? takeOverFrameLoop( stage.renderer ) : null;
+    const advanceRendererFrame = query.has( 'capture' )
+        ? takeOverFrameLoop( stage, query.get( 'clockdefect' ) ?? 'none' )
+        : null;
 
     /**
      * Advances the motion stack by exactly `deltaSeconds`, draws one frame, and resolves once
@@ -653,6 +662,12 @@ async function boot() {
         // on this page is a claim about this object, so it is readable from outside rather than
         // being something a reviewer has to infer from the source.
         subsystems: () => censusOfShading( session, stage ),
+
+        // Every per-frame counter a shader or a resolve can read, so a gate can state what they
+        // SHOULD be after N steps rather than only whether two runs happen to agree. Two runs
+        // agreeing is cross-observer agreement and it is blind to anything wrong the same way for
+        // both of them — LEARNINGS §1.25g — and `frozen-frame` below is exactly that shape.
+        captureClock: () => readCaptureClock( stage ),
         frame: ( heightMetres, mode = session.frameMode ) => {
 
             const framed = frameFigure( stage, session.figure, { mode, heightMetres } );
@@ -685,9 +700,51 @@ function nextPaint() {
 }
 
 /**
- * Takes the renderer's per-frame tick away from requestAnimationFrame so a capture can drive it.
+ * 🚩 The named ways the capture epoch can be wrong, in the shape `GRAIN_DEFECTS` uses in
+ * `render/Grade.js`: one of them shipped, the other five exist only to be shot at.
  *
- * Two things have to happen together, and doing either one alone is a trap:
+ * A rejection proof written against the defect the gate was designed from proves the two are
+ * consistent, not that either is right (LEARNINGS §1.25a). So the list below is stated as a
+ * CLASS — *any renderer-side per-frame counter that `?capture` does not put at a known value* —
+ * and enumerated, and every entry is reachable from `?clockdefect=` so the proof is a page rather
+ * than a committed plate.
+ *
+ * The interesting two are `frozen-frame` and `offset-epoch`. `frozen-frame` is perfectly
+ * reproducible and perfectly wrong, so no two-runs-agree check can see it; `offset-epoch` is
+ * reproducible AND animating, and only an oracle that says what the counter SHOULD read catches
+ * it. Between them they are the reason this page reports `captureClock()` at all.
+ */
+export const CAPTURE_CLOCK_DEFECTS = {
+    'drifting-epoch': 'what shipped until 2026-08-08: the counters are not reset at all, so they ' +
+        'start wherever the rAF frames that ran during the async boot left them. Measured on ' +
+        'three back-to-back loads of ?bare&freeze&capture&seed=1: frameId at the first step ' +
+        '2392 / 1216 / 1961. ⚠️ Its effect on a PIXEL check is machine-dependent by construction — ' +
+        'against a warm vite with the file watcher off, two loads can boot in the same number of ' +
+        'frames and the plates then match. That is the defect being lucky, not absent, and it is ' +
+        'why `random-epoch` exists beside it.',
+    'random-epoch': 'the same defect with the environmental source made explicit: the epoch is ' +
+        '`Math.floor( Math.random() * 4096 )` rather than a count of boot frames. Nothing about ' +
+        'the mechanism differs — a frame counter starting at a value the page does not control — ' +
+        'and it lets a rejection proof of a two-run pixel check stop depending on how many frames ' +
+        'the browser fitted into loading a GLB.',
+    'unpinned-resolve': 'the node clock is reset but the temporal resolve is not, so its Halton ' +
+        'jitter phase and its history buffer carry the boot frames in. Invisible under ?aa=msaa ' +
+        'and fatal under the default — a different mechanism from the one above, in the same class.',
+    'frozen-frame': 'the frame index is pinned to 0 for the whole capture. Bit-identical across ' +
+        'runs and across STEPS, which is the degenerate input every reproducibility check passes ' +
+        'trivially (§1.3). The grain stops being grain and becomes dirt on the lens.',
+    'offset-epoch': 'the epoch is reset to 1000 rather than to 0. Reproducible, animating, and ' +
+        'still wrong: nothing else that captures this recipe lands on the same frame indices.',
+    'wall-clock-time': 'the frame index is pinned but `nodeFrame.time` is fed from ' +
+        '`performance.now()`. Any node that animates off the node clock rather than off the ' +
+        'frame index drifts with machine load, and the frame-index oracle cannot see it.'
+};
+
+/**
+ * Takes the renderer's per-frame tick away from requestAnimationFrame so a capture can drive it,
+ * and puts the renderer's frame state at a known epoch before the first step.
+ *
+ * Three things have to happen together, and doing any of them alone is a trap:
  *
  *   1. STOP the rAF chain. `setAnimationLoop( null )` is the public way and it is not enough —
  *      it only clears the user callback, while three's internal Animation keeps requesting
@@ -702,45 +759,161 @@ function nextPaint() {
  *      blink (morphs update elsewhere), the strip chart still moves, the head just never turns.
  *      It measured as *perfectly* reproducible, because a still image always is.
  *
+ *   3. 🎯 RESET THE FRAME STATE, which for two rounds this did not do, and which is the whole of
+ *      punch-list 3.20. Steps 1 and 2 pin the CLOCK — `time` and `deltaTime` — and the renderer's
+ *      frame state is not only a clock. Three counters were left running:
+ *
+ *        - `nodeFrame.frameId`, which `Grade.SHIPPED_GRAIN_SEED` draws the film grain from;
+ *        - the temporal node's `_jitterIndex`, which selects the Halton camera offset;
+ *        - the temporal node's history render target, which holds resolved colour.
+ *
+ *      All three advance on every rAF frame, and rAF starts inside `stage.create()` while `boot()`
+ *      is still awaiting the figure — so their value at the first captured step is a count of how
+ *      many frames the machine fitted into loading a GLB. Measured 2026-08-08, one vite, one
+ *      Chromium, `?bare&freeze&capture&seed=1` stepped 60x(1/60) at 900x1200 dpr 1, three loads:
+ *      `frameId` 2392 / 1216 / 1961 and three distinct plates. The clock was bit-exact in all
+ *      three — `time` 1.0000000000000013 — which is precisely why this hid: the one counter
+ *      anybody thought to check was the one that was right.
+ *
+ *      Attribution, same page, same harness, by pinning each counter from outside before stepping:
+ *
+ *        | pinned                          | ?aa=msaa (forward) | default ?aa=taau |
+ *        |---------------------------------|--------------------|------------------|
+ *        | nothing (as shipped)            | 3 distinct of 3    | 3 distinct of 3  |
+ *        | frameId + node clock            | **reproducible**   | 2 distinct of 2  |
+ *        | + `_jitterIndex`                | —                  | 2 distinct of 2  |
+ *        | + history render target         | —                  | **reproducible** |
+ *
+ *      So the grain needed one pin, and the temporal resolve needed all three. A fix that stopped
+ *      at `frameId` would have made the A-side plate reproducible and left the SHIPPED DEFAULT
+ *      exactly as broken, which is §1.25c's trap wearing a fix's clothes.
+ *
  * Both `_animation` and `_nodes` are private, so this reaches into the renderer and says so. If
  * an upgrade renames either, capture falls back to leaving rAF running: correct pictures, no
  * bit-exactness, and a console line saying which — never the frozen-pose failure, which is the
  * one that would look fine and be worthless.
  *
+ * @param {Stage} stage - taken whole rather than as `stage.renderer`, because the temporal resolve
+ *   is part of the frame state and it hangs off the stage.
+ * @param {string} [defect='none'] - one of `CAPTURE_CLOCK_DEFECTS`, or 'none'.
  * @returns {?Function} call once per frame before rendering, or null if rAF was left running.
  */
-function takeOverFrameLoop( renderer ) {
+function takeOverFrameLoop( stage, defect = 'none' ) {
 
-    const nodeFrame = renderer._nodes?.nodeFrame;
+    if ( defect !== 'none' && CAPTURE_CLOCK_DEFECTS[ defect ] === undefined ) {
 
-    if ( typeof renderer._animation?.stop === 'function' && typeof nodeFrame?.update === 'function' ) {
-
-        renderer._animation.stop();
-
-        let elapsedSeconds = 0;
-
-        return ( deltaSeconds ) => {
-
-            nodeFrame.update();
-
-            // ...and then overwrite the clock it just read. `NodeFrame.update()` derives its own
-            // time and deltaTime from `performance.now()`, which is the last place wall-clock
-            // time hides: any node that animates from them would drift with machine load. Pin
-            // both to the simulation's fixed step so the renderer shares the capture's clock.
-            elapsedSeconds += deltaSeconds;
-            nodeFrame.deltaTime = deltaSeconds;
-            nodeFrame.time = elapsedSeconds;
-
-        };
+        throw new Error(
+            `alive: ?clockdefect must be one of none, ${ Object.keys( CAPTURE_CLOCK_DEFECTS ).join( ', ' ) }.`
+        );
 
     }
 
-    console.warn(
-        'capture: could not reach renderer._animation / _nodes.nodeFrame, so the rAF chain is ' +
-        'still running. Frames are correct but not bit-reproducible — see takeOverFrameLoop().'
-    );
+    const renderer = stage.renderer;
+    const nodeFrame = renderer._nodes?.nodeFrame;
 
-    return null;
+    if ( typeof renderer._animation?.stop !== 'function' || typeof nodeFrame?.update !== 'function' ) {
+
+        console.warn(
+            'capture: could not reach renderer._animation / _nodes.nodeFrame, so the rAF chain is ' +
+            'still running. Frames are correct but not bit-reproducible — see takeOverFrameLoop().'
+        );
+
+        return null;
+
+    }
+
+    renderer._animation.stop();
+
+    // How many frames the boot burned before the capture took the loop over. Recorded rather than
+    // discarded because it is the DEFECT'S INPUT: it is what used to leak into every plate, and a
+    // gate that perturbs it (by holding the GLB back) needs to be able to see that its
+    // perturbation worked, or "the two plates matched" means nothing.
+    captureBootFrameId = nodeFrame.frameId;
+
+    // The epoch. `frameId` is set one BELOW the first frame's index because `nodeFrame.update()`
+    // increments before anything reads it, so step 1 renders at frameId 1 and step N at N — which
+    // is the oracle `alive-capture-determinism.selftest.mjs` asserts against.
+    if ( defect !== 'drifting-epoch' ) {
+
+        nodeFrame.frameId = startingFrameIdFor( defect );
+        nodeFrame.time = 0;
+        nodeFrame.deltaTime = 0;
+
+        // `NodeFrame.update()` seeds `lastTime` from `performance.now()` on its first call and
+        // differences it thereafter. Clearing it here stops the first captured frame inheriting
+        // however long the boot took as its delta, before the two lines below overwrite it.
+        nodeFrame.lastTime = undefined;
+
+    }
+
+    if ( defect !== 'drifting-epoch' && defect !== 'unpinned-resolve' ) stage.temporal?.resetFrameEpoch?.();
+
+    let elapsedSeconds = 0;
+
+    return ( deltaSeconds ) => {
+
+        nodeFrame.update();
+
+        // ...and then overwrite the clock it just read. `NodeFrame.update()` derives its own
+        // time and deltaTime from `performance.now()`, which is the last place wall-clock
+        // time hides: any node that animates from them would drift with machine load. Pin
+        // both to the simulation's fixed step so the renderer shares the capture's clock.
+        elapsedSeconds += deltaSeconds;
+        nodeFrame.deltaTime = deltaSeconds;
+        nodeFrame.time = defect === 'wall-clock-time' ? performance.now() / 1000 : elapsedSeconds;
+
+        if ( defect === 'frozen-frame' ) nodeFrame.frameId = CAPTURE_EPOCH_FRAME_ID;
+
+    };
+
+}
+
+/**
+ * The frame index the renderer is put at before the first captured step, so that step N renders
+ * at `frameId === N`. Zero, and named rather than inline because the gate's oracle is stated in
+ * terms of it and a silently changed epoch would move every capture plate in the repository.
+ */
+export const CAPTURE_EPOCH_FRAME_ID = 0;
+
+/** `nodeFrame.frameId` at the instant the capture took the frame loop over. See its assignment. */
+let captureBootFrameId = null;
+
+/** Where a capture starts counting. Zero unless a `?clockdefect=` has been asked to move it. */
+function startingFrameIdFor( defect ) {
+
+    if ( defect === 'offset-epoch' ) return CAPTURE_EPOCH_FRAME_ID + 1000;
+
+    // Deliberately unrepeatable, which is the point: it is the shipped defect's machine-dependence
+    // with the machine taken out, so a rejection proof of a two-run pixel check does not itself
+    // depend on how many rAF frames the browser fitted into loading a GLB.
+    if ( defect === 'random-epoch' ) return Math.floor( Math.random() * 4096 );
+
+    return CAPTURE_EPOCH_FRAME_ID;
+
+}
+
+/**
+ * Every per-frame counter that a shader, a resolve or a gate can read, in one object.
+ *
+ * This exists because "two runs agree" is the wrong question on its own (§1.25g): a counter that
+ * is wrong the same way on every run — pinned to a constant, or offset by a thousand — makes two
+ * observers agree exactly. The gate reads this and compares it against values derived from the
+ * step count, which is a different kind of check from a pixel diff and catches a different half.
+ */
+function readCaptureClock( stage ) {
+
+    const nodeFrame = stage.renderer._nodes?.nodeFrame ?? null;
+    const resolveClock = stage.temporal?.frameEpoch?.() ?? null;
+
+    return {
+        frameId: nodeFrame?.frameId ?? null,
+        time: nodeFrame?.time ?? null,
+        deltaTime: nodeFrame?.deltaTime ?? null,
+        jitterIndex: resolveClock?.jitterIndex ?? null,
+        jitterPeriod: resolveClock?.jitterPeriod ?? null,
+        historyWidth: resolveClock?.historyWidth ?? null,
+        bootFrameId: captureBootFrameId
+    };
 
 }
 
