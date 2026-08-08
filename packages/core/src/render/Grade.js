@@ -366,8 +366,19 @@ export const grainNode = /*@__PURE__*/ Fn( ( [ sigmaCodes, frameSeed, displayLum
  *   | flat 1.5/255     |  0.00057  | crushed, 7x below the band  |
  *   | enveloped 1.5/255|  0.00842  | in band                     |
  *
+ * Re-measured independently on the same page and viewport when the selftest below was written,
+ * by editing this function to `1` and rendering: **0.00841 enveloped -> 0.00056 flat**, i.e. the
+ * table above reproduces to 1e-5 and the crush is real, not a stale note.
+ *
  * So the grade WAS lifting nothing and crushing something, which is the same mistake in the other
  * direction and just as invisible by eye.
+ *
+ * The property that makes that true is not the exact curve, it is that the envelope vanishes AT
+ * LEAST LINEARLY at L -> 0: the grain's half-width then falls faster than the signal it is added
+ * to, so no pixel can be pushed below zero at any luma. `grainHalfWidthAt` states it, and the
+ * selftest sweeps it. `sqrt(4L(1-L))` has the same endpoints and FAILS it.
+ *
+ * Mirrored on the CPU by `grainEnvelopeAt` at the foot of this file.
  */
 export const grainEnvelope = /*@__PURE__*/ Fn( ( [ displayLuma ] ) => {
 
@@ -402,5 +413,37 @@ export function vignetteMultiplier( amount, offsetX, offsetY ) {
 export function grainAmplitudeFor( sigmaCodes ) {
 
     return ( sigmaCodes / 255 ) / UNIFORM_NOISE_SIGMA;
+
+}
+
+/**
+ * How much grain a pixel at `displayLuma` receives, 0..1, mirroring `grainEnvelope`.
+ *
+ * Same justification as `vignetteMultiplier`: it buys an assertion that is otherwise unreachable
+ * without a GPU — here, that the grain cannot crush the black point, which is a statement about
+ * the whole luma range and not about any one constant.
+ *
+ * @param {number} displayLuma - Display-referred luma. Values outside 0..1 are clamped, matching
+ *   the shader's `saturate()`; without that clamp an HDR-ish luma of 2 would ask for -8x grain.
+ */
+export function grainEnvelopeAt( displayLuma ) {
+
+    const level = Math.min( 1, Math.max( 0, displayLuma ) );
+
+    return 4 * level * ( 1 - level );
+
+}
+
+/**
+ * The largest amount the grain can move a pixel at `displayLuma`, in 0..1 display units. The
+ * shader's noise is uniform on [-0.5, 0.5] before scaling, so the excursion is half the amplitude.
+ *
+ * This is the quantity the black point actually depends on, and the invariant is one line:
+ * **`grainHalfWidthAt( sigma, L ) < L` for every L > 0**, or the grade crushes shadow pixels to
+ * zero and G6 reads a black point the scene never produced.
+ */
+export function grainHalfWidthAt( sigmaCodes, displayLuma ) {
+
+    return 0.5 * grainAmplitudeFor( sigmaCodes ) * grainEnvelopeAt( displayLuma );
 
 }
