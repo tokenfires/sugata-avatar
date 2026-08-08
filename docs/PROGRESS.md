@@ -12,7 +12,7 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: 2026-08-07 — Phase 3 shading lands on the page a judge actually captures. `alive.html` now wears `SkinMaterial`, `EyeMaterial` + occlusion and `LightingRig`; 3.3, 3.4 and 3.8 are gated green there, 3.2 is half green and half red for a reason that is arithmetic rather than a bug. Separately, every stochastic motion layer was found to have a **frame-rate-dependent trajectory** while every rate gate stayed green.
+Last updated: 2026-08-08 — a docs-and-instrument audit. **Six statements in these files were measured FALSE and are corrected below; treat any number here without a re-run date behind it as a claim, not a fact.** Punch-list 2.11 closed (all four motion layers now frame-rate invariant, gated both ways). Punch-list 3.3's G2 gate went **red** on re-measurement and is reopened. `measure.mjs` gained page provenance and the chroma half of G2; `capture.mjs`'s reproducibility check was found to be a false-negative generator and now reports a magnitude. The project's 1.6 px "indistinguishability floor" turns out never to have been measured — see LEARNINGS §1.14a.
 
 ---
 
@@ -73,13 +73,93 @@ the emote critic loop run in parallel with renderer work.
 |---|---|---|
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
-| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ⚠️ Three layers still advance their arrival processes per FRAME — punch-list 2.11 |
-| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.3, 3.4, 3.8 done; 3.2 half.** All four are wired into `alive.html`. Hair, cloth, AO, TRAA and the grade not started |
+| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ✅ 2.11 CLOSED 2026-08-08 — all four layers are frame-rate invariant and each rejects a `frameCoupledArrivals` reintroduction |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.4, 3.8, 3.11, 3.16 done; 3.2 half; 3.3 REOPENED (G2 red, and the region rect is a lottery — see below).** 3.12 and 3.13 built, gated and now REACHABLE ON `alive.html` behind `?aa=` / `?grade=1`, not default. Hair, cloth and AO not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started |
+
+### 2026-08-08 — the docs were audited against execution, and the instrument was audited against itself
+
+⚠️ **READ THIS BEFORE QUOTING ANY PLATE NUMBER BELOW.** Every `alive.html` measurement in this
+section was taken **during a live fan-out**, with three other agents saving files under `packages/`
+throughout, and the page moved under the instrument while it was being audited. Worked example: G2
+read **0.8127** at build `cf338259…`, and **0.7216** at build `7eda3451…` ninety minutes later,
+with the cheek reference moving 0.7515 → 0.8494 — somebody changed the shading, legitimately, and
+neither reading is wrong. The **mechanisms** below are robust and re-derivable; the **values** are
+stamped to a build and will not reproduce after the integrator lands this round. Re-run
+`node tools/critic/measure.mjs <plate> tools/critic/regions.lighting-portrait.json --human` and
+compare `capture.json`'s `source.packagesDigest` before treating any of them as current.
+
+**Six statements in `docs/` measured false.** Each is corrected in place, at the line it lived on,
+with the command that produced the correction. Listed here so a reader who trusts this file knows
+what kind of error it is prone to.
+
+| statement | where | measured |
+|---|---|---|
+| eyelash cards "carry a white `MeshStandardMaterial`" | PROGRESS, open leads | the texture's opaque texels are sRGB **(0.0327, 0.0118, 0.0039)** — near-black. The *factor* is white; the sentence inverts the mechanism |
+| AP composite shortfall "8.22 mm … Bates' Q1 10.34" | PROGRESS, open leads | **8.77 mm**, shortfall **1.57 mm**. The table 400 lines above already said so |
+| `gaze.head`'s residue "is a **roll** contribution" | PROGRESS, open leads | roll is 0.661° SD = 1.2 mm; the slide was **9.22 mm** and it was **yaw through a 47 mm lever**. Fixed in `1df749b`, left standing as a live lead for two rounds |
+| "the three remaining frame-coupled layers — `Gaze.js:1100`, …" | PUNCHLIST:103 | **two**, then **zero**. Gaze was already converted, and `Gaze.js:1100` never held the call |
+| "a concurrent agent's file edit will kill a long browser capture" | LEARNINGS §1.12 | **false since `capture.mjs` started its own un-watched vite.** Proven both ways: default vite sends `full-reload` and destroys the context; the tool's settings send nothing and it survives |
+| G2 sclera:cheek **0.9641** on `alive.html`, gate green | PROGRESS + PUNCHLIST 3.3 | **0.8127, FAIL** — and it is a distribution: 0.8127 / 0.9627 / 0.9736 / 0.4384 over four seeds |
+
+Two of those had already been *corrected elsewhere in the same file* and left standing in the
+place a reader looks first. **A number that appears twice will be updated once.**
+
+**🎯 And the floor the gates are built on was never measured.** `sway.selftest.mjs:632` calls 1.6 px
+"the one empirical datum this project owns on the subject" and cites `PROGRESS.md:550-552` — five
+lines inside the block this file marks `⚠️ superseded`. Its two halves are out by **1.85×** (4.5 mm
+at the printed 0.6574 px/mm is **2.958 px**, not 1.6). What this project actually owns is a
+**bracket** from two blind-judge observations: **0.48 px** peak-to-peak reported as "the hands never
+move", and **10.6 px** of pelvis excursion reported as a counted event. Full audit and a concrete
+staircase design in LEARNINGS §1.14a. Every gate that cites 1.6 px should cite the bracket instead.
+
+**The objective instrument was blind in three places and is not any more.**
+
+1. **G2 measured half its own spec sentence.** The spec says the sclera matches the cheek's
+   luminance *and* is more saturated than skin (0.275 vs 0.215). Only the luma clause was gated, so
+   a grey eyeball at the right brightness scored green. G2 now gates both, against a reference
+   **1.2839** recomputed at run time from the spec's own hexes (`#9D7274` / `#96767D`) rather than
+   transcribed from its prose. Measured on `alive.html`: **0.417×**, out by 3.1×. Proven red by a
+   grey sclera solved to match the reference luma to one code value, so the luma half provably is
+   not what catches it, and by a weak-chroma sclera that passes the ordinal test and fails the band.
+2. **A gate number could be transplanted between pages and nothing said so.** G4's 1.9495/255 was
+   measured on `skin.html` and quoted as certifying `alive.html`, which reads **1.4764** at the
+   same width. `measure.mjs` now discovers `capture.json` beside the plate, prints a `measured on:`
+   line, stamps `measuredOn` into **every gate's** measured block — because gate blocks get copied
+   out one at a time — and warns loudly when a plate has no provenance at all.
+3. **`capture.mjs`'s byte-reproducibility check was a false-negative generator.** It compared
+   SHA-256 digests, which is a boolean over the last code value, and called an unchanged clean
+   plate "NOT byte-reproducible" on **8 of 10 runs** (diverging at frames 8, 11, 14, 15, 21, 21,
+   22, 24). Differenced in pixels instead, six independent processes of `/alive.html?bare&frame=body`
+   at seed 1 agree on **29 of 30 frames** and the thirtieth differs on **44 px of 210,000 (0.021%)
+   by at most Δ3/255**. Attributed by toggle rather than argued: `?cards=0` → **30 of 30**
+   bit-identical, `?msaa=0` → one pixel at Δ1. It is the alpha-to-coverage resolve on the hair
+   cards. The check now reports a magnitude against a Δ6 / 0.1% tolerance, both sized from that
+   measurement, with the bit-identical count kept as a reported fact rather than as the verdict.
+
+**🚩 A new hazard replaced the one §1.12 used to warn about, and it is worse.** The watcher-off
+server pins the tree for **one run**; two runs in a fan-out are of different builds. Measured:
+twelve captures at seed 1, six either side of a concurrent agent saving `FacialIdle.js` and
+`HandIdle.js` — **within** a group, worst Δ3/255 on 0.021% of pixels; **across** the groups,
+Δ**209**/255 on **0.391%**. `capture.json` now carries `source.packagesDigest` (git HEAD plus a
+content hash of every file under `packages/` vite can reach). Six back-to-back runs while writing
+this produced **three** distinct digests.
+
+**Punch-list 2.11 is closed and 3.3 is reopened.** 2.11: every surviving `poissonEventOccurs` call
+is inside a known-bad branch, `FacialIdle.selftest` is 27/27 with a 2.1e8× rejection and
+`idle-motion.selftest` 106/106 with 1.1e7×. 3.3: G2 is red and the eye shader is on the losing side
+of its own control (`?eyes=0` reads 0.8746 against a shipped 0.8127).
+
+**Five documented selftest counts had drifted** and every command in LEARNINGS Part 3 was re-run:
+`tools/critic/selftest.mjs` 79 → **125** (now 125 including the new provenance and comparison
+gates), `EyeMaterial.selftest.mjs` 99 → **131**, `LightingRig.selftest.mjs` 34 → **38**,
+`sway.selftest.mjs` **194**, and `travel.selftest.mjs` (**111**) was missing from the list
+entirely. ⚠️ `LightingRig.selftest.mjs` **exits 0 even when it prints FAIL** — it cannot be used in
+a script. Filed as a diff request.
 
 ### 2026-08-07, latest — Phase 3 shading is on the aliveness page, and the motion layers were rendering a trajectory no camera sees
 
@@ -187,9 +267,34 @@ lobe. What actually closes a cheek terminator is the *other* technique — separ
 over the G-buffer's `sssMask` channel, which this material already writes and nothing else does.
 New punch-list item 3.2b.
 
-**3.3 / 3.4 `material/EyeMaterial.js` + `EyeOcclusion.js` + `EyeCatchlight.js` — GREEN.** Sclera at
-**0.9361×** cheek on `eye.html` and **0.9641×** on the integrated `alive.html` with `SkinMaterial`
-on the cheek, against a target of 0.98 ± 0.06. Refraction is proved by execution: **−0.593 px/deg**
+**3.3 / 3.4 `material/EyeMaterial.js` + `EyeOcclusion.js` + `EyeCatchlight.js` — 🔴 THE G2 HALF IS
+NO LONGER GREEN, AND IT WAS NEVER ONE NUMBER.** The record below says sclera **0.9361×** cheek on
+`eye.html` and **0.9641×** on the integrated `alive.html`. Re-measured 2026-08-08 on
+`alive.html?bare&freeze` at 900×1200 with the committed `regions.lighting-portrait.json`, G2 reads
+**0.8127** — outside the 0.92–1.04 band, **FAIL** — and the whole framing of the claim is wrong for
+two independent reasons:
+
+1. **It is a distribution, not a number.** `?freeze` pins the pose but not the ocular or postural
+   layers, whose first-frame state comes from the seed, and the sclera rect is 11×6 px on an eye
+   ~40 px across. One frame, four seeds, nothing else changed: **0.8127 / 0.9627 / 0.9736 /
+   0.4384** at seeds 1 / 42 / 4242 / 20260807. A 2.2× spread; two of four pass; at 20260807 the
+   rect has walked onto the iris. The 0.9641 this item was marked done on is one draw of that.
+2. **The eye shader makes G2 WORSE on this page, not better.** With `?eyes=0` — the shipped GLB
+   materials — the same plate at seed 1 reads **0.8746**. The previously recorded control was
+   0.9421. Both the shipped and the control number have moved and the *sign of the shader's
+   contribution is negative*: −0.062 of ratio.
+3. **And the gate was only ever measuring half its own spec sentence.** The look spec says the
+   sclera "measures the same luminance as the surrounding cheek and is *more* saturated than skin
+   (0.275 vs 0.215)". Only the luma clause was gated. Measured: sclera saturation **0.0917**
+   against cheek **0.2200** — a ratio of **0.417** against a reference **1.284** recomputed from
+   the spec's own hexes, i.e. out by **3.1×** on the half nothing was looking at. `measure.mjs`
+   now gates both halves, with the chroma half proven red by a grey sclera that matches the
+   reference luma to a code value.
+
+Diff request filed to the eye agent. Everything below this paragraph is the record as it stood and
+the refraction evidence, which is unaffected — it is measured on geometry, not on this gate.
+
+Refraction is proved by execution: **−0.593 px/deg**
 of refraction-only pupil displacement over a ±15° camera sweep against a **−0.481 px/deg** Snell
 prediction for the fitted 3.328 mm chamber, and **1.198×** corneal magnification of the pupil chord
 — neither producible by a flat disc. Shader-side pupil dilation spans 3.62 / 4.99 / 6.56 mm.
@@ -204,9 +309,11 @@ apex to iris plane 3.14–3.51 mm. The iris and pupil radii come from `brown_eye
 two SHELLS; the number the refraction actually crosses is corneal apex to the **fitted iris plane**,
 **3.328 mm** on g050. Different quantities, both correct — quote the one the formula uses.
 
-⚠️ **G2 does not isolate the eye shader under this rig.** With `?eyes=0` the shipped GLB sclera
-measures **0.9421** on the same plate and passes too. The attributable evidence is the refraction
-sweep, not the gate.
+⚠️ **G2 does not isolate the eye shader under this rig**, and re-measurement made that worse rather
+than better. The recorded control was `?eyes=0` → 0.9421, passing alongside a shipped 0.9641. As of
+2026-08-08 the pair is **0.8746 (`?eyes=0`) against 0.8127 (shipped)** — both failing, and the
+shader on the losing side. The attributable evidence for 3.3 remains the refraction sweep and the
+difference between the two plates, never the gate.
 
 ### The integration itself, and the two defects it exposed
 
@@ -550,6 +657,16 @@ because how a wrong diagnosis was written down is worth as much as the right one
 - Weight shifts fire at **0.28/min**, so **7 of 12** ninety-second windows contain none at all.
 - When one does fire it moves the body ~4.5 mm ML — **1.6 pixels** at full-body framing.
   Side-by-side plates before and after a shift are indistinguishable.
+
+  🚩 **STOP. This is the sentence the whole project's visibility floor was taken from, and it is
+  inside the superseded block.** `sway.selftest.mjs` calls it "the one empirical datum this project
+  owns on the subject" and cites these three lines by number. Three things are wrong with using it:
+  it sits below a `superseded` marker and everything else around it has been retracted; **its two
+  halves disagree by 1.85×** (4.5 mm at the framing constant `idle-motion.selftest.mjs` prints,
+  0.6574 px/mm, is **2.958 px**, not 1.6); and "indistinguishable" is one agent looking at two
+  stills it did not keep, which bounds a threshold from one side and does not locate it. **Do not
+  cite 1.6 px.** LEARNINGS §1.14a has the audit, the 0.48–10.6 px bracket that replaces it, and the
+  staircase that would actually measure it.
 - Cause: `POSTURE_HEAD_TRANSFER = 0.20` bounds the contrapposto blend to 0.077 of the pose, so a
   shift buys articulation (hip roll, lumbar counter-bend, free-knee flexion) but almost no travel.
   Duarte's 22 mm ML COP shift is ~a fifth of a full weight transfer; the two budgets disagree by
@@ -564,9 +681,10 @@ because how a wrong diagnosis was written down is worth as much as the right one
    - the portrait gate re-checked, because head excursion grew 1.65× and the portrait gate was
      passing before this change;
    - a blind visual judge on the long clip.
-   ⚠️ **Take that capture at the frame rate it will be judged at, and only after punch-list 2.11.**
-   `Gaze`, `FacialIdle` and `HandIdle` still advance their arrivals per frame, so a 60 Hz
-   measurement and a 30 fps capture are of different trajectories.
+   ✅ **The 2.11 blocker on this is CLEARED** (2026-08-08): all four motion layers are frame-rate
+   invariant and gated both ways, so a 60 Hz measurement and a 30 fps capture are now of the same
+   trajectory. Take the capture with `--postural-seeds` and check the manifest's
+   `source.packagesDigest` matches across the clips before handing them to a judge.
 2. **A blind visual judge on the integrated `alive.html`** — it is the first time the page has
    carried real shading, and three things want naming explicitly: the violet rim/kicker cast and
    the blue eyelashes, whether the full-body figure floats for want of a floor shadow, and the
@@ -579,26 +697,46 @@ because how a wrong diagnosis was written down is worth as much as the right one
 
 ### Known open leads, recorded so they are not rediscovered
 
-- 🎯 **The rim/kicker chroma reads as a violet cast on the integrated page, and no gate objects.**
-  `LightingRig`'s portrait preset deepens the rim to `#4a7dff` at 27.46 radiance and the kicker to
-  `#7a5bff` at 21.71, chasing the look spec's "much higher chroma than the skin". On a bald,
-  bare-skinned figure against a near-black card that lands as a magenta wash on the crown, the
-  shoulders and the whole shadow-side silhouette, and it turns the **eyelash cards blue** — they
-  carry a white `MeshStandardMaterial` with `alphaTest 0.5`, so a thin card at a grazing angle
-  reads whatever the back lights are. The lighting agent reached only chroma *parity* (band
-  saturation 0.174 against skin at 0.181) and believes it is an ASSET limit rather than a rig
-  limit: the spec measured that property on near-black hair (luma 0.067) and a dark suit, where
-  chroma survives, and this figure is high-albedo skin under ACES, which desaturates at the top of
-  the curve. **Re-check after 3.5 (hair) and 3.7 (fabric) exist; do not tune it now.** A visual
-  judge should be asked about the blue lashes explicitly — no gate in the repo looks at them.
-- **`G3` passes on the stock material**, so it cannot certify a skin shader. Measured under a rig
-  that satisfies G1, three's stock `MeshPhysicalNodeMaterial` scores 0.2384 and passes on the same
-  regions. `measure.mjs` now warns about this on every run, and about G4's dependence on the rig
-  (one unchanged micro-normal measured σ 1.72 at fill 0.7 and 2.06 at fill 0.3).
-- **`G6` on `alive.html` is measuring the backdrop, not a grade lift.** Whole-image p0.1 reads
-  0.0250; over the central-face `frame` region it reads **0.0120**, inside the 0.004–0.016 band.
-  A studio with a lit card and no unlit region cannot produce a 0.004 percentile without crushing.
-  Belongs to 3.13.
+- **The rim/kicker chroma reads as a violet cast on the integrated page.** `LightingRig`'s portrait
+  preset deepens the rim to `#4a7dff` at 27.46 radiance and the kicker to `#7a5bff` at 21.71,
+  chasing the look spec's "much higher chroma than the skin". On a bald, bare-skinned figure
+  against a near-black card that lands as a magenta wash on the crown, the shoulders and the whole
+  shadow-side silhouette. The lighting agent reached only chroma *parity* (band saturation 0.174
+  against skin at 0.181) and believes it is an ASSET limit rather than a rig limit: the spec
+  measured that property on near-black hair (luma 0.067) and a dark suit, where chroma survives,
+  and this figure is high-albedo skin under ACES, which desaturates at the top of the curve.
+  **Re-check after 3.5 (hair) and 3.7 (fabric) exist; do not tune it now.**
+
+  ✅ **The blue-eyelash half of this lead is CLOSED** (commit `62dc6db`), and one sentence of the
+  original was wrong in a way that matters. It said the cards "carry a white
+  `MeshStandardMaterial` with `alphaTest 0.5`". The `baseColorFactor` is `[1,1,1,1]`, which is why
+  the sentence survived — but the material carries a **base-colour texture**, and re-measured
+  2026-08-08 straight out of `figure_g050.glb` at the GLB's own `alphaCutoff` 0.5, the opaque
+  texels average sRGB **(0.0327, 0.0118, 0.0039)** — **0.0025 linear**, near-black. `eyebrow001`
+  is **(0.0547, 0.0277, 0.0240)**. That inverts the physics the fix brief was built from: with a
+  white albedo a strong diffuse would *dilute* the Fresnel term, and it is precisely because
+  there is **no diffuse to dilute** that the pixel was 100% the rim's own colour. The fix is
+  `specularIntensity 0` plus alpha to coverage at cutoff **0.1** (not 0.5 — that binary cut threw
+  away 15,368 lash and 20,262 brow texels). See LEARNINGS §1.11e.
+- 🎯 **Gate `G7` now looks at the lash cards, and it is the only gate in the repo that asserts
+  anything about colour outside four small patches.** Re-measured 2026-08-08 on
+  `alive.html?bare&freeze` at 900×1200: **0.0056%** of the card band shipped against **0.7571%**
+  with `?cards=0`, a **135×** separation on identical rects. G1–G6 were all green through three
+  rounds on the plate whose worst feature was those cards.
+- **`G3` cannot certify a skin shader — but the "it passes on the stock material" wording is now
+  stale on this page.** Re-measured 2026-08-08 on `alive.html?bare&freeze` at 900×1200, G3 **FAILS
+  both ways**: saturation rise **−0.0744** with the skin material and **−0.0720** with `?skin=0`.
+  The original 0.2384-passes-on-stock figure was taken on `lighting.html` under a different rig and
+  should not be quoted for `alive.html`. What survives unchanged is the conclusion: G3 is a
+  property of the whole picture, `measure.mjs` warns about it on every run, and a material must be
+  attributed with an off/on difference image instead.
+- **`G6` on `alive.html` no longer measures the backdrop — it measures the eyelashes.** The recorded
+  figure was whole-image p0.1 = 0.0250, over the central-face `frame` region 0.0120. Re-measured
+  2026-08-08 the whole-image p0.1 reads **0.00001** (code 0), and with `?cards=0` it goes back to
+  **0.02496**. The card fix put enough genuinely black lash and brow pixels in the frame to own the
+  bottom 0.1% of the histogram. Both the old and the new number are honest; neither is about a
+  grade lift, which is what G6 exists to detect. It belongs to 3.13 and it needs a `frame` region
+  before it means anything on this page.
 - **No transmission and no roughness map on the skin.** The reference's glowing ear (#755052 at
   saturation 0.41) needs a baked thickness map and a back-lit term. The GLB's body material carries
   a base-colour texture and nothing else, so the spec's T-zone 0.32–0.40 / cheeks 0.42–0.50 / lips
@@ -628,7 +766,8 @@ because how a wrong diagnosis was written down is worth as much as the right one
   legs. **Ask a judge specifically whether the full-body figure floats.**
 - **A per-pixel difference tool belongs in `tools/critic`.** It is the only instrument that
   attributes a change to a MATERIAL rather than to a scene, and it caught the 0.00%-changed skin
-  result that six subjective looks and five of the six objective gates all missed. Every remaining
+  result that six subjective looks and five of the six objective gates then existing all missed.
+  (G7 is the sixth's replacement in that sentence and it exists for the same reason.) Every remaining
   Phase 3 item needs exactly that.
 - **`travel.mjs` reports only whole-clip statistics**, so the defect that started the lower-body
   round — the body being invisible inside the fifteen seconds a viewer watches — is not expressible
@@ -636,20 +775,35 @@ because how a wrong diagnosis was written down is worth as much as the right one
   Wanted: `--highpass <seconds>` and `--window <seconds>` (median and 10th-percentile peak-to-peak
   inside a sliding window), both in the `--json`. Reference numbers to check an implementation
   against are in the legibility table above.
-- 🎯 **`gaze.head` is the sole remaining contributor to head-on-neck noise**, isolated by removing
-  one layer at a time from a rebuild of the exact `alive.js` stack (numbers under Finding 1 above).
-  It adds ~8 mm RMS of lateral head displacement uncorrelated with the trunk, and it is the **roll**
-  component that does it — yaw and pitch do not move the head joint. Two fixes worth considering, in
-  order: (a) reduce the frontal-plane roll component of the head layer's idle/recruitment motion
-  specifically; (b) give the head layer a stabilisation term that reads the neck's own lateral
-  displacement and opposes it — which is what the vestibulo-collic reflex does and what `Sway` now
-  does for its own two lateral mechanisms. A gate on `pearson(head.x − neck.x, neck.x) < 0` measured
-  on the full stack would hold it; `pearson`/`peakToPeak` helpers exist in `sway.selftest.mjs` to
-  copy. **Not applied this round — it is a design change to a file the balance agent did not own.**
-  ⚠️ **That isolation was done at 60 Hz on a stack whose `Gaze` layer is still frame-coupled**, so
-  every number under Finding 1 needs re-measuring once punch-list 2.11 converts it. `Gaze` fires
-  1–2 microsaccades/s, an order of magnitude more often than either layer already fixed, so its
-  divergence will be larger than their 12.4–49.4 mm.
+- ~~🎯 **`gaze.head`'s residue is a ROLL contribution** — yaw and pitch do not move the head joint.
+  Two fixes worth considering: reduce the frontal-plane roll component, or add a vestibulo-collic
+  stabilisation term.~~ **DISPROVEN AND CLOSED by commit `1df749b`, and it sat here as a live lead
+  for two rounds after it was fixed.**
+
+  It was never roll. Head world roll measures **0.661° SD**, worth 1.2 mm over a 108 mm neck, and
+  the observed slide was **7.4×** that. The mechanism is **yaw acting through a lever nobody had
+  measured**: the head joint sits **47.0 mm in FRONT of `neck_01`**, so yawing the neck about the
+  room's vertical carried the skull through an arc of that radius — **9.22 mm SD** of lateral head
+  displacement, which was the whole of the residue. `neckShare = 0.5`, argued as "the smoothest
+  curve two joints can make", was silently setting it.
+
+  Fixed by rotating the neck's share about the **cervical column**, measured at bind from the rig's
+  own two joints, which puts the head joint on the axis where a rotation cannot translate it.
+  Re-measured 2026-08-08 by running `node packages/core/src/motion/Gaze.selftest.mjs` (112 checks):
+
+  ```
+  unattended 300 s, column    head lateral 0.16 mm SD = 0.11 px,  head yaw 21.04° SD
+  unattended 300 s, vertical  head lateral 8.52 mm SD = 5.70 px,  head yaw 21.04° SD
+  ```
+
+  The head turns exactly as far as it did; it stopped sliding. Gaze.selftest gained a gate that
+  measures a **distance** rather than an angle — all 88 of its previous checks were on orientation,
+  which is why a head describing a 47 mm arc passed every one. See LEARNINGS §1.18.
+
+  ⚠️ The 60 Hz caveat that sat under this lead is also spent: `Gaze` was converted to
+  `PoissonSchedule` in commit `6bf619b`. Its only remaining `poissonEventOccurs` call is at
+  `Gaze.js:863`, inside the `if (this.frameCoupledArrivals)` known-bad branch the invariance gate
+  rejects.
 - **The medio-lateral ankle share.** `Sway.js` was implementing the SIDE-BY-SIDE row of Winter et
   al. 1996 on a figure standing at **18.6° of included foot angle**. Winter's own abstract gives the
   intermediate stance both mechanisms — "in the M/L direction the two strategies reinforce" — so
@@ -705,8 +859,14 @@ because how a wrong diagnosis was written down is worth as much as the right one
   during the work — the pre-change poses measure 0.3795 m and 5.9° against a band of 0.150–0.190 m
   and 10–18° — but unlike the other eight new gates there is no committed known-bad input, because
   the defect lives in JSON data rather than behind a constructor option.
-- **The fore-and-aft composite shortfall** — 8.22 mm against Bates' Q1 of 10.34. Analysed above;
-  closing it requires contradicting Duarte. Asserted as a known state in both selftests.
+- **The fore-and-aft composite shortfall** — **8.77 mm** against Bates' Q1 of 10.34, a shortfall of
+  **1.57 mm**. Analysed above; closing it requires contradicting Duarte. Asserted as a known state
+  in both selftests. ⚠️ This entry read **8.22 mm / 2.12 mm** for a round *after* the numbers had
+  moved — the dt fix re-rolled the realisation and the table 400 lines above this line already said
+  so. Re-measured 2026-08-08 by running `node packages/core/src/motion/sway.selftest.mjs`
+  (194 gates), whose COMPOSITE section prints `AP median / range 8.77  5.72-15.15` over its twelve
+  seeds and `AP shortfall vs Bates Q1 (mm) 1.57`. **A number that appears in two places in one file
+  will be updated in one of them.**
 - **Sway mean resultant velocity measures 18.2 mm/s** against Quijoux's 11–20 eyes-open — inside
   the band, but at the *Wii-board* end while every amplitude is now authored at the *force-plate*
   end (11.0). Reported, not gated. It is the strongest remaining lead on the balance-band spectrum
@@ -836,6 +996,151 @@ four. The LUT and curvature fetches do not separate from noise.
 **Budget left:** with 4 RectAreaLights (3.604 ms), one shadow pass (2.62 ms), 69 morphs (0.219 ms)
 and the skin material (0.301 ms), roughly **9.8 ms of the 16.6 ms frame remains** for eyes, hair,
 AO and the grade.
+
+## Integration round, 2026-08-08 — everything is on the page a judge captures
+
+Six agents worked concurrently on disjoint files and every one of them measured on **its own**
+page. This section records what the integrated `alive.html` measures, because that is the only
+number that certifies anything, and several per-page figures did not survive integration.
+
+**Every plate here**: `node tools/critic/capture.mjs --url "/alive.html?bare&freeze" --seconds
+0.034 --width W --height H --seed 1 --keep-frames`, then `measure.mjs` with the matching region
+file. `?freeze` makes capture.mjs warn that every frame is identical — that is the point of a
+freeze plate, not a fault.
+
+### The seven gates on the integrated page
+
+At the look spec's own **3840 px** reference width, portrait, default configuration:
+
+| Gate | Value | | Note |
+|---|---|---|---|
+| G1 face key:shadow | **1.5954** | PASS | inside the 1.43–1.64 reference band |
+| G2 sclera : cheek | **0.7872** | FAIL | the rect is a lottery — see below |
+| G3 terminator | **+0.0474** | PASS | the lighting agent's warm fill; not attributable to a material |
+| G4 flat-skin σ | **1.6877** | PASS | **closed this round**, 8.4× attribution against `?skin=0` (0.2013) |
+| G5 clipping | 2e-06 | PASS | numerically green, and still ~60× under the reference's 0.017–0.036% |
+| G6 black point | **1e-05** | FAIL | measuring the eyelash cards, not a grade lift — see below |
+| G7 card band chroma | 0.000665 | PASS | held through the rim colour change |
+
+⚠️ **G4 must be measured at 3840 px.** At 900 px the same page and material reads **2.2135** and
+fails. High-pass amplitude is scale-dependent with no sound rescaling law; `measure.mjs` warns about
+this itself. Both numbers are of the same render.
+
+### G6 is measuring the eyelashes, and the backdrop constant is no longer what moves it
+
+`BACKDROP_EMISSIVE` went **0x11151f → 0x050709** this round, and it is a real improvement **at body
+framing only**. Measured on the integrated page, `?backdrop=` sweeping everything else fixed:
+
+| | portrait p0.1 | body p0.1 |
+|---|---|---|
+| 0x11151f | 1e-05 | 0.04876 |
+| 0x050709 (ships) | 1e-05 | **0.02186** |
+
+Body halves, 2.2× toward the 0.004–0.016 band, and is still 37% over the ceiling. **Portrait does
+not move at all**, because since the card fix (3.16) the genuinely black lash and brow pixels own
+the bottom 0.1% of the histogram. G6 on this page needs a `frame` region before it means anything —
+`?cards=0` returns it to 0.02496 and proves the attribution.
+
+The ground plane costs G6 almost nothing: 0.02129 with `?ground=none` against 0.02186 with it.
+
+⚠️ The 3840 px portrait figure of **0.01652** for body at 0x050709 recorded during the fan-out does
+**not** reproduce here (0.02186). It was measured on `post.html` without a ground plane and before
+the lighting rig changed. Prefer the integrated number.
+
+### 🎯 The figure no longer floats, and it is attributed by toggle
+
+`render/GroundContact.js` is mounted on `alive.html`. The floor darkens toward a sole:
+
+```
+                     floor +2 px    +120 px     drop
+ground contact ON      0.2022       0.2218    +0.0195
+?ground=0 (term off)   0.2313       0.2305    −0.0009      ← the judge's "floating"
+```
+
+A shadow map could never have done it: 60% of the light on the floor at the feet comes from the two
+RectAreaLights, which cannot cast at all (three.js #14161).
+
+### G2 is red, and BOTH candidate rects are lotteries — the gate was not bent
+
+The eye agent filed a diff request to move `regions.lighting-portrait.json`'s sclera rect from
+x 0.4033 to x 0.4656, which takes G2 from 0.7836 to 0.9483 at seed 1. **It was rejected**, on two
+measurements taken at integration:
+
+1. **The proposed rect lands on bare cheek skin, outside the eye entirely.** Rendered as a 10×
+   magnified crop with both rects drawn and looked at: the shipped rect sits on the sclera; the
+   proposed one sits ~56 px outboard on the cheek. Applying it would make G2 compare cheek against
+   cheek and pass trivially.
+2. **Neither rect is stable across seeds**, so the shift only re-rolls the lottery:
+
+```
+seed        shipped rect        shifted 6 px onto clean sclera
+1           0.7836  FAIL        0.9483  PASS
+42          0.9189  FAIL        0.8331  FAIL
+4242        0.9292  PASS        0.8568  FAIL
+20260807    0.4390  FAIL        0.8346  FAIL
+```
+
+The shipped rect does have a genuine defect — it overlaps the dark limbal ring, which is why 6 px
+right moves it 0.78 → 0.95 — but that is not the reason G2 is red. **G2 is red because a fixed rect
+cannot gate an eye that moves** (LEARNINGS §1.17). The fix is a landmark-relative rect or a
+reported distribution over a seed set, not a nudge. Left red on purpose.
+
+### 3.12 and 3.13 are reachable, measured, and not default
+
+`?aa=msaa|off|traa|taau`, `?grade=1`, `?sharp=`, `?specaa=0`, `?ground=0`, `?backdrop=` all live on
+`alive.html`. Portrait, 900 px, so comparable to each other and **not** to the 3840 px table above:
+
+| config | G1 | G4 | G6 | G7 |
+|---|---|---|---|---|
+| default (MSAA) | 1.5976 | 2.2135 | 1e-05 | 0.000561 |
+| `?grade=1` | 1.6382 | 2.4175 | **0.00393** | 0.000729 |
+| `?aa=taau&grade=1` | 1.6410 | **1.842 PASS** | 0.00309 | **0.000224** |
+| `?aa=traa` | 1.5973 | 4.2333 | 1e-05 | 0.000112 |
+| `?specaa=0` | 1.5990 | 2.1712 | 1e-05 | 0.000561 |
+
+TAAU 0.66 + RCAS is the only configuration that puts G4 mid-band at 900 px and it improves G7 2.5×.
+It is **not** the default, for one reason: the held-morph velocity defect (punch-list 3.12), which
+is measured at 18.3–29.8× the no-morph control and has no dial that fixes it.
+
+`?aa=traa` reads G4 4.2333 because a temporal filter on frame 1 has no history — a single freeze
+plate is the worst case for TRAA and should not be read as a defect.
+
+### The catchlight is on the page, and it is one highlight
+
+Blob-detected above 0.93 × box max inside the iris, 900 px portrait:
+
+```
+shipped (EyeMaterial)   1 blob   peak 1.273× cheek
+?eyes=0 (GLB eye)       2 blobs  peak 1.278× and 1.249× cheek
+```
+
+One dominant catchlight against the shipped asset's two, attributed by toggle. The spec's *size*
+clause (2–4% of iris diameter) needs a 2160 px plate to resolve — at 900 px the iris is ~40 px and
+the blob is 1 px.
+
+### Two integration defects found and fixed, both silent
+
+Both are in `alive.js` and both are recorded as LEARNINGS §1.24:
+
+1. **The `?capture` hook drew the scene itself**, calling `stage.renderer.render()` rather than
+   `stage.draw()`. On the deferred path the pipeline is what binds the MRT and runs the composite,
+   so the grade and the temporal resolve were being thrown away — `?grade=1` produced a plate
+   **byte-identical to no grade across all seven gates**, and `?aa=traa` was indistinguishable from
+   `?msaa=0`. Nothing threw. Every measured number in this section was taken **after** the fix.
+2. **`ground.update()` lived in a `stage.onFrame` callback**, which `?capture` stops calling. A
+   contact shadow that stops following the feet on exactly the plates a judge measures. Per-frame
+   figure work now has one named home, `trackFigure()`, that both frame paths call.
+
+### Housekeeping
+
+- `npm run build:pages` (`vite.pages.config.js`) now builds all **seven** testbed entries. It was
+  documented as "make a temp config", rediscovered every round, and had already fallen a page
+  behind. `npm run build` still builds only `index.html` — that is vite's default and is unchanged.
+- `tools/critic/capture.mjs`'s declared postural table was re-measured after Sway's event shapes
+  changed; `sway.selftest.mjs` is 208/208 again. This is punch-list 2.12's CLIP CONTENT gate doing
+  exactly its job.
+- `tools/critic/travel.mjs` gained the `foot` band (0.925–0.98) so a capture can confirm the offline
+  foot-articulation prediction of 0.09–0.44 px.
 
 ## Session log
 

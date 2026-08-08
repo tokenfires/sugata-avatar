@@ -307,6 +307,46 @@ Same shape as §1.11 (a gate that structurally cannot resolve the thing it is ai
 a real detour: the asset was nearly rejected on the strength of the instrument. **Fit your
 reference where the feature you are hunting is not.**
 
+### 1.11e Six gates can be green on a plate whose single worst feature is unmissable
+
+At portrait framing the eyelash and eyebrow cards rendered as **saturated royal-blue spikes** —
+the most visually wrong thing in the frame by a distance — and G1, G2, G4, G5 and G6 all read
+green through three review rounds. Not one of them was wrong. Between them they sample a patch of
+cheek, a patch of sclera, a patch of terminator and two whole-image percentiles, and they make **no
+assertion about colour anywhere else in the picture**. A near-black surface reflecting a saturated
+rim at full Fresnel is invisible to every one of them by construction, which is §1.11 exactly: the
+right response to "my gates cannot catch this" is a structurally different assertion.
+
+That assertion is **G7** — a per-pixel *outlier count* over a hand-drawn band, not a mean or a
+ratio between two patches, because a mean over a patch containing both black cards and bright skin
+cannot resolve the defect at all. Measured on `alive.html?freeze&bare` at 900×1200, re-run
+2026-08-08: shipped **0.0056%** of the band against **0.7571%** with `?cards=0`, a **135×**
+separation on the identical rects.
+
+Three details in G7's construction are each worth more than the gate:
+
+- **It counts chroma (max−min), not HSV saturation.** Saturation is chroma/value, so a *dimmer*
+  blue scores *higher*. Across the card specular sweep the saturation form went 1.0 → 2.866%,
+  0.5 → 3.197%, 0.35 → 3.208%, 0.0 → 0.101% — it **peaks in the middle of a monotonically
+  improving sequence**, so a threshold on it would have called the half-fixed render worse than
+  the broken one. The chroma form is monotone: 1.879 / 1.279 / 0.925 / 0.589%.
+- **The value ceiling is derived, not chosen.** The spec's socket sample `#352327` is 0.354× its
+  own cheek reference; on this page the cheek measures value 0.851, so 0.35 is the reference band
+  with ~16% headroom. Dropping the qualifier costs an order of magnitude of separation (38× → 2.9×).
+- **`?cards=0` is the known-bad, and it is a URL parameter rather than a committed plate.** That is
+  the cheapest form a rejection proof can take, and it is re-runnable by anyone.
+
+⚠️ **And a sentence in PROGRESS inverted the physics of the very defect the fix was built from.**
+It said the cards "carry a white `MeshStandardMaterial`". The *factor* is `[1,1,1,1]`, which is
+what made the sentence survive — but the material carries a **base-colour texture**, and measured
+straight out of `figure_g050.glb` at the GLB's own `alphaCutoff` 0.5 the opaque texels average sRGB
+**(0.0327, 0.0118, 0.0039)**, i.e. **0.0025 linear**. Near-black, not white. The distinction is the
+whole mechanism: a white albedo would give a strong diffuse that *dilutes* the Fresnel term, and it
+is precisely because there is **no diffuse to dilute** that the rendered pixel was 100% the rim's
+own colour. A fix brief was written from that sentence. See §1.11a — a justification can cite real
+measurements of the wrong quantity — with the extra twist that here it cited the right quantity's
+*factor* and missed its *texture*.
+
 ### 1.13 A stochastic layer advanced once per FRAME has a trajectory that depends on the frame rate, and no rate, amplitude or spectral gate can see it
 
 `Signals.poissonEventOccurs(rate, dt)` uses the exact probability `1 − exp(−rate·dt)`, so the
@@ -402,6 +442,76 @@ way: here the number was in the right *unit* and the wrong *statistic*, which is
 because both sides say "pixels". **State the statistic beside the number, always.** When a tool
 reports SDs and your threshold is a displacement, one of the two has to change.
 
+### 1.14a 🎯 …and the floor itself was never measured. Read this before citing 1.6 px again.
+
+§1.14 is right about the *statistic* and wrong to have treated the *number* as data. Audited
+2026-08-08, three findings, in order of how much they matter.
+
+**1. Its source is a block this repository marks superseded.** `sway.selftest.mjs:632` calls 1.6 px
+"the one empirical datum this project owns on the subject" and cites `docs/PROGRESS.md:550-552`.
+Those lines sit **five lines below** PROGRESS's own `⚠️ **The diagnosis below is superseded**`
+marker — the block kept verbatim as the record of a *wrong* diagnosis, in which
+`POSTURE_HEAD_TRANSFER = 0.20` was out by 8.3×. Everything else in that block has been retracted.
+The floor was quoted out of it and nothing noticed.
+
+**2. Its two halves do not reconcile, by 1.85×.** The sentence gives a displacement *and* a pixel
+figure, so it can be checked against itself. At the framing constant `idle-motion.selftest.mjs`
+prints — 1200 px over a 1825.4 mm frame, **0.6574 px/mm** — 4.5 mm is **2.958 px**, not 1.6. Turned
+around, 1.6 px is 2.43 mm, not 4.5. (`Gaze.selftest.mjs` prints 1793.6 mm / **0.6691 px/mm** for the
+same framing, which moves the answer to 3.011 px and is a second, smaller inconsistency worth
+fixing.) Whichever half is right, the pair cannot both be, and no archived plates exist to arbitrate.
+
+**3. It is not a measurement of a threshold in the first place.** "Side-by-side plates … are
+indistinguishable" is one agent looking at two stills it did not keep. That is an *observation
+below threshold*, which bounds the threshold from one side and does not locate it.
+
+#### What this project actually owns, in one named statistic
+
+**The statistic is: peak-to-peak displacement, in pixels, at the full-body capture framing
+(1200 px tall, `BODY_FRAME_MARGIN` 1.10, camera azimuth 12°), inside a stated observation window.**
+Every number below is that. Two flavours of it exist and they are not interchangeable — a projected
+3D landmark (`idle-motion`, `sway`, `Gaze` selftests) and a silhouette-band centroid
+(`travel.mjs`) — so say which.
+
+Two anchors, both from **blind visual judges**, both with provenance, and they bracket the
+threshold rather than locating it:
+
+| | measured | the judge said |
+|---|---|---|
+| **below threshold** | fingertip travel **0.48 px** p2p over 7 min | *"the hands never move"* (finding 6) |
+| **above threshold** | median legible postural event **16.1 mm** of pelvis excursion = **10.6 px** against a 3.7 mm background | counted 3 sustained posture changes in 7 min |
+
+**So the honest statement is a bracket, 0.48 px to 10.6 px — a factor of 22 — and 1.6 px is a
+point inside it with no measurement behind it.** Citing 1.6 px is not *contradicted* by anything
+this project owns. It is also not *supported* by anything. Gates that rest on it
+(`FREE_FOOT_TRAVEL_FLOOR_PIXELS = 3.0`, `SILHOUETTE_WIDTH_FLOOR_PIXELS = 1.6`,
+`FINGERTIP_TRAVEL_FLOOR_PIXELS`, every GLANCE LEGIBILITY band) should say **"inside the 0.48–10.6 px
+bracket, nearer the invisible end"** rather than "above the measured floor", because the second
+sentence is false.
+
+One further anchor exists in a different unit and should not be converted into this one:
+`sway.selftest.mjs`'s `JUDGE_DETECTION_MULTIPLE = 5.5` — events exceeding 5.5× the balance band's
+pelvis RMS occur at 0.51/min against a judge's counted 0.43/min. That is a genuine calibration,
+in **multiples of the background**, and it is already correctly reported rather than gated.
+
+#### What would actually measure it
+
+A two-alternative forced-choice staircase, which is ~20 captures and one afternoon:
+
+1. `alive.html` gains a `?nudge=<mm>` that offsets the figure laterally by a commanded amount at
+   `?freeze` (**diff request — not this agent's file**). It must move the *body*, not the camera.
+2. Capture a pair of plates per rung — 0 mm and *d* mm — at a geometric ladder,
+   d ∈ {0.5, 0.75, 1.1, 1.7, 2.5, 3.8, 5.6, 8.4} mm, i.e. **0.33–5.5 px**, straddling the bracket.
+3. Blind each pair through `blind_ab.mjs` and interleave a **catch trial** at d = 0, so a judge
+   that always says "different" is detected.
+4. Ask one same/different question per pair, several judges, randomised order. The **75%-correct
+   point** is the threshold, in the named statistic, at the named framing.
+5. Write the answer in **one** place and make every gate cite that place.
+
+Until that runs, the bracket above is the whole of what is known, and the correct thing for a gate
+comment to say is *"there is no measured visibility threshold for this framing; the nearest
+evidence is a 0.48–10.6 px bracket from two blind-judge observations."*
+
 ### 1.1a A rejection proof measured on a narrower sample than the gate it proves is not a proof of that gate
 
 §1.1 says a gate that has never failed is not known to work. This is the sharper version: a gate
@@ -464,6 +574,89 @@ its rest pose, which is the state the region files were authored against and the
 pages can share. If a gate must be measured mid-motion, derive the rects from projected landmarks
 in the same frame — but then say so, because the numbers are not comparable to the static ones.
 
+### 1.18 Every check in a file can be about the same KIND of quantity, and the defect lives in the other kind
+
+`Gaze.selftest.mjs` had 88 checks and every one of them was about an **orientation** — yaw, pitch,
+roll, gain, latency, main-sequence velocity. The head joint sits **47.0 mm in front of `neck_01`**
+(measured, printed by the selftest), so yawing the neck about the *room's* vertical carried the
+skull through an arc of that radius: **9.22 mm SD** of lateral head slide on the shipped stack. Not
+one of the 88 checks could see it, because a slide is a **distance** and they were all angles.
+
+The consequence was not local. That slide *was* the residue `travel.mjs` had been reporting as "the
+head out-travels the hip" on every timescale shorter than two minutes, and PROGRESS recorded the
+cause as a **roll** contribution from `gaze.head` and carried it for two rounds as a live open lead
+with two proposed fixes. It is not roll: head world roll measures **0.661° SD**, worth 1.2 mm over a
+108 mm neck, and the observed slide is **7.4×** that. The mechanism was yaw acting through a lever
+nobody had measured, and `neckShare = 0.5` — argued as "the smoothest curve two joints can make" —
+was silently setting it.
+
+Fixed by rotating the neck's share about the **cervical column** (measured at bind from the rig's
+own two joints, so a different figure gets a different axis) rather than about world vertical,
+which puts the head joint *on* the axis where a rotation cannot translate it. Re-measured
+2026-08-08 by running the file:
+
+```
+unattended 300 s, column    head lateral 0.16 mm SD = 0.11 px,  head yaw 21.04° SD
+unattended 300 s, vertical  head lateral 8.52 mm SD = 5.70 px,  head yaw 21.04° SD
+```
+
+**The head turns exactly as far as it did. It just stopped sliding.** The gate that resulted states
+a DISTANCE, in millimetres and in pixels at the named framing, and is proven red four ways.
+
+Three transferable shapes:
+
+- **Audit a gate file by the kind of quantity it asserts, not by how many assertions it has.** 88
+  checks of one kind is one check. Ask what quantity a defect would show up in and search for it:
+  `grep -c 'mm\|metres\|px' <file>.selftest.mjs` returning zero on a file about a moving body is
+  the whole finding.
+- **A recorded diagnosis is not a finding until something re-measures it.** "It is a roll
+  contribution" sat in PROGRESS's *Known open leads* looking exactly as authoritative as the
+  measured entries around it, and two proposed fixes were designed against it. A lead should carry
+  the command that produced it or be marked as a hypothesis.
+- **When a joint is offset from the axis you rotate it about, you have built a lever.** Nothing in
+  the repo was measuring the distance between two joints, so nothing could price one.
+
+### 1.19 Two toggles are worth more than one argument, and `?cards=0` is the cheapest gate in the repo
+
+`alive.html` now takes `?skin=0 ?eyes=0 ?cards=0 ?msaa=0 ?shadows=0 ?freeze ?gender= ?ov=`. Each is
+one line and each turns a claim into an attribution. Worked examples measured this round, all on
+`?bare&freeze` at 900×1200 and all reproducible in a minute:
+
+| question | the toggle | the answer |
+|---|---|---|
+| is the blue-lash defect the rig or the asset? | `?cards=0` | G7 0.0056% → **0.7571%**. The cards. |
+| is the capture non-determinism the MSAA resolve? | `?cards=0`, `?msaa=0` | cards: **30/30 frames bit-identical**; msaa: 29/30 at Δ1. Alpha-to-coverage on the cards. |
+| does the eye shader carry G2? | `?eyes=0` | shipped 0.8127, shipped GLB eyes **0.8746**. The shader makes it **worse**, not better. |
+| does the skin shader carry G4? | `?skin=0` | 1.6468 → **0.4345**. Yes, 3.8×. |
+
+The `?eyes=0` row is the one to notice: it is the opposite of what PROGRESS and the punch list both
+record, and no argument would have produced it. **Add the toggle before writing the paragraph.**
+
+### 1.20 A clip is chosen for containing the behaviour, and the seed is a gate parameter
+
+Every judgement in this repo before `capture.mjs --postural-seeds` was pinned to **seed 1**, which
+contains **no sustained weight transfer at all** in 420 s — its first one opens at 483.0 s. Judges
+were being asked "does this read as a person waiting?" about a clip that, by the draw, could not
+contain the behaviour. That is §1.4 (the observation window is a gate parameter) with the window
+replaced by the seed, and it is harder to see because a seed looks like a reproducibility choice
+rather than a content choice.
+
+**A pinned seed buys reproducibility, not representativeness.** The fix is three-part and all three
+parts are needed: `--seed` takes a **list**, `capture.json` carries a `posturalContent` block saying
+what the clip is known to contain, and `--require-weight-shift` **exits 1** rather than handing a
+judge a clip that cannot show the thing. The nominated set is **4242, 42, 20260807 at 420 s**, and
+`sway.selftest.mjs`'s CLIP CONTENT section re-measures every nomination on the shipped layer at
+30 Hz and goes red if one stops being true — proven red by nominating seed 1, which turns 5 of the
+12 assertions red.
+
+⚠️ **And the same disease bit a still-plate gate in the same week.** G2's sclera rect is 11×6 px on
+an eye ~40 px across, and `?freeze` pins the **pose** but not the ocular or postural layers, whose
+state at the first drawn frame comes from the seed. Measured on `alive.html?bare&freeze`, one frame,
+four seeds, nothing else changed: G2 luma **0.8127 / 0.9627 / 0.9736 / 0.4384** at seeds
+1 / 42 / 4242 / 20260807 — a **2.2× spread**, two of four passing, and at 20260807 the rect has
+walked onto the iris. Punch-list 3.3 was marked done on **one** of those draws. A gate on a small
+rect over an animating figure is a gate on a distribution; state it as one.
+
 ### 1.12 Practical traps that cost real time
 
 **A scratch vector passed as an output target aliases itself.** `selfCheckFractionOfStature` called
@@ -472,10 +665,47 @@ The result was garbage that *looked* like a plausible small number (0.0239). It 
 because the gate ran on known-bad input in the same pass and both directions returned the same
 wrong value. Give measurement methods their own result vector.
 
-**A concurrent agent's file edit will kill a long browser capture.** Vite's watcher fired HMR while
-`capture.mjs` was 211 frames into a 3600-frame run; Playwright reported "Execution context was
-destroyed, most likely because of a navigation." Long captures and fan-out edits do not mix — run
-captures either before the fan-out or after it lands.
+~~**A concurrent agent's file edit will kill a long browser capture.**~~ **NO LONGER TRUE, and the
+stale version of this rule cost a whole round.** It was written when captures were driven against
+`npm run dev`: vite's watcher fired HMR 211 frames into a 3600-frame run and Playwright reported
+"Execution context was destroyed, most likely because of a navigation." `capture.mjs` now starts
+its **own** vite when given a bare path (`--url /alive.html?bare&frame=body`), with
+`watch: { ignored: ['**'] }`, so nothing it serves can ever be reported as changed.
+
+Re-verified 2026-08-08, **in both directions, by execution** — two servers stood up from the same
+`vite.config.js`, a real Playwright page on each, and `packages/testbed/alive.html`'s mtime bumped
+under both while a marker was held on `globalThis`:
+
+| server | what it sent on the touch | page navigations | execution context |
+|---|---|---|---|
+| default vite | `{"type":"full-reload","triggeredBy":".../alive.html"}` | 1 | **destroyed** |
+| `capture.mjs`'s settings | *nothing* | 0 | **survived** |
+
+And the positive case at full scale: a 1200-frame / 40 s capture completed with zero page errors
+while three other agents were saving files under `packages/` throughout.
+
+⚠️ **`hmr: false` is not what does it.** The `/@vite/client` script is still injected into the
+served HTML with HMR off; measured, it is there in both configurations. What disarms the reload is
+the **watcher ignore list** — chokidar never emits a change, so the server has nothing to send.
+Anyone tempted to drop `watch.ignored` because "HMR is off anyway" would silently restore the bug.
+
+🚩 **The residual hazard, which nobody had written down and which is worse than the original.** The
+watcher-off server pins the tree for **one run**. Two runs launched minutes apart in a fan-out are
+of **different builds**, and nothing said so. Measured: twelve captures of
+`/alive.html?bare&frame=body` at seed 1, six taken before a concurrent agent saved `FacialIdle.js`
+and `HandIdle.js` and six after —
+
+| comparison | worst frame difference |
+|---|---|
+| within either group, 6 processes each | Δ**3** of 255 on 44 px of 210,000 (**0.021%**) |
+| across the two groups | Δ**209** of 255 on 821 px (**0.391%**) |
+| a different seed, for scale | Δ249 on 25.75% of pixels |
+
+A factor of seventy in code value between two clips that looked like a repeat of the same capture.
+`capture.json` now carries a `source.packagesDigest` — git HEAD plus a content hash of every file
+under `packages/` that vite can reach — so **two clips are comparable only if that digest matches**.
+Six back-to-back runs while writing this produced **three** distinct digests. Check it before
+running any A/B.
 
 **Constructing a second `Skeleton` over an already-posed `Figure` treats the current pose as bind
 and applies the next pose on top of it.** It produced stance measurements that were half and double
@@ -492,6 +722,89 @@ broken. The workaround, in `packages/testbed/src/stage.js`: pin the size explici
 when the page is hidden, `MessageChannel` measured **553,921/s**.
 
 ---
+
+### 1.21 Two `+y` can point opposite ways in the same file, and comparing them inverted a documented conclusion for a round
+
+`sway.selftest.mjs` reported the free femur's swivel as the y term of `restWorld⁻¹ · currentWorld` —
+a delta in the **bone's own rest frame** — and `Sway.js`'s header compared it against
+`relaxed-standing.json`'s `leftUpperLeg` y = **+9.56**, which is authored in the **normalised rig**.
+`thigh_l`'s local +Y points DOWN in world (0.017, −0.997, 0.078), so the two axes are antiparallel,
+and the header concluded the free knee turns OUT over pose files that say in words that the swivel
+*"moves the knee 14.3 mm toward the midline"*. An independent re-verifier reported INWARD and was
+disbelieved on the strength of the wrong comparison.
+
+The fix that settles it takes **no frame at all**: measure where the patella POINTS — the world
+vector from the knee joint to the centroid of a patella patch chosen once at rest. Measured that
+way the free knee swings **12.04° medially** (left free) and **10.55°** (right free), against a
+loaded knee inside 1.4°. A direction needs no convention and cannot be inverted by one.
+
+> When a gate compares an angle against an authored constant, check that both are expressed in the
+> same frame — and prefer a measurement that has **no** frame to one that has two.
+
+### 1.22 A distribution can leak into a derivative, and every gate stated on a position is blind to it
+
+`Sway` draws weight-shift amplitudes from a lognormal whose SD exceeds its mean — correct, cited,
+and gated. Its event shapes had **fixed durations**, so peak *speed* was that skewed tail divided by
+a constant and inherited all of it: a 49 mm centre-of-pressure move in half a second, ~99 mm/s,
+against the layer's own mean resultant velocity of 18.22 mm/s.
+
+Every amplitude, rate and spectral gate stayed green — **and so did the mean-velocity gate**. The
+fixed-duration layer's composite mean is 18.76 mm/s against the fixed layer's 18.75, because
+stretching a tail changes a path length hardly at all.
+
+Two transferable shapes:
+
+1. When a layer draws an amplitude from a heavy-tailed distribution and realises it over a fixed
+   time, **gate the derivative, and gate its peak rather than its mean.** A rare-event process is
+   quiet most of the time, so its mean sits below any transient by construction.
+2. **Ask which of your levers is free before you pull the expensive one.** Holding peak speed
+   constant means holding rise *time* proportional to amplitude, and rise time has two factors that
+   do not cost the same. Moving the rise **fraction** is free — the event's total length is
+   unchanged, so no power moves in the spectrum. Moving the **duration** is not: taking the whole
+   stretch out of duration cost a full FFT bin of composite lateral spectral mode, 0.264 → 0.234 Hz,
+   under its own 0.250 floor. Spending the free lever first took the events needing a longer
+   duration from 35% to 12%, and the mode came out at **0.308 Hz** — better than before the change.
+
+### 1.23 The same SYMPTOM can have a second, unrelated cause, and the gate for the first one stays green through it
+
+§1.1's worked example is teeth drawing through closed lips from `alphaMode: BLEND`. That fix holds
+and `verify_glb.mjs` asserts it on every material of every figure — all OPAQUE, all depth-writing.
+The band came back anyway, from a **nonzero `jawOpen` in the idle layer opening the mouth for
+real**: `FacialIdle` holds it at 0.016 ± 0.012, and this asset shows teeth from `jawOpen` 0.0281
+(g100) to 0.0454 (g000). Everything about the appearance was identical; nothing about the cause was.
+
+The tell that separated them was a **toggle, not a theory**: the same GLB renders a sealed mouth on
+`eye.html` (no pose, no morphs) and an open one on `alive.html`, and `?skin=0` and `?pose=bind` both
+left it untouched.
+
+> A successor who sees a known symptom, checks its known cause, and finds the gate green is not
+> finished — they have ruled out one cause.
+
+Worth its own line: **every morph target on this asset is a SPARSE glTF accessor** (2,329 of 14,517
+vertices for `jawOpen`). An offline tool that reads only the dense `bufferView` gets all zeros and
+reports every morph as inert — which looks exactly like a correct measurement of a figure with no
+morph data. That cost a false negative inside one round.
+
+### 1.24 A capture hook that draws the scene itself will silently throw away the whole post pipeline
+
+`alive.js`'s `?capture` hook called `stage.renderer.render( scene, camera )` directly, while
+`Stage.draw()` — the method the rAF path uses — routes through `RenderPipeline.render()` when the
+deferred path is live, because the pipeline is what binds the MRT and runs the composite.
+
+The failure is **silent and looks exactly like a feature that does nothing**. Measured at the moment
+of integration: `?grade=1` produced a plate **byte-identical to no grade across all seven gates**,
+and `?aa=traa` was indistinguishable from `?msaa=0`. Nothing threw, nothing warned, and the obvious
+reading — "the grade is too subtle to measure" — is wrong in a way no amount of sweeping the grade's
+own constants would ever have revealed.
+
+The same page had the same class of bug a second time and in the other direction: `ground.update()`
+lived in a `stage.onFrame` callback, and `?capture` **takes the frame loop away from rAF**, so the
+callback stops firing and the contact shadow stops following the feet on precisely the plates a
+judge measures.
+
+> A page with two frame paths has two chances to be wrong. Give per-frame work **one** named home
+> that both paths call, and draw through the renderer's own frame method rather than reaching past
+> it. If a rendering feature measures as *exactly* zero, suspect the plumbing before the feature.
 
 ## Part 2 — Technical traps
 
@@ -514,6 +827,39 @@ when the page is hidden, `MessageChannel` measured **553,921/s**.
   `positionPrevious`; `Skinning.js` does (:166, :233). So a morph held at a **constant** weight
   yields a **constant non-zero** motion vector — the buffer reports the morph offset, not its
   change. Bone motion reprojects correctly; morph motion does not.
+  Now measured **on the real face**, not on a test sphere: `jawOpen` held at 0.8 with the camera
+  still, jaw box 200,600,220,120 at 900×1200 — MSAA temporalRms **0.000/255**, TRAA **4.711**,
+  TAAU **4.387**, against no-morph controls of 0.000 / 0.258 / 0.147. That is 18.3× and 29.8×,
+  attributed by toggle. Under an **animated** morph both temporal modes BEAT MSAA (12.315 and
+  11.234 against 13.420), so the defect is specific to **held** expressions — which is most of the
+  time for a face between blinks. `TRAAPost.selftest.mjs` re-checks the two three.js sources on
+  every run, so the day it is fixed upstream the verdict flips by itself.
+- 🚩 **MSAA IS live on a forward, tone-mapped WebGPU frame — and the project spent a round
+  believing otherwise.** `Renderer._getFrameBufferTarget()` builds the tone-mapping intermediate
+  with `samples: this.samples`, so `antialias: true` really does multisample it. Measured on the
+  head silhouette at 900×1200, largest single-pixel luma jump across the edge: **0.6933** with,
+  **0.8733** without. A whole review round chased a terminator defect whose numbers reproduce
+  **only** on the `?msaa=0` plate.
+  The trap is the opposite one: **MSAA does nothing whatever for SHADING aliasing.** Under a moving
+  camera the flat-forehead high-frequency temporal RMS reads **1.408/255 with and without it**,
+  identical to three decimals. Geometry edges and shading crawl are different problems and MSAA
+  solves exactly one of them.
+- 🚩 **three's bloom is not UE's, and swapping the mental model costs a black point.** UE's bloom is
+  energy-conserving — it *redistributes*. `BloomNode` **adds** a blurred copy. So the look spec's
+  "threshold low/none, intensity 0.25–0.40" is a **4.3× black lift** here: at strength 0.30 and
+  threshold 0, whole-image p0.1 luma goes 0.02496 → 0.08630. Threshold 0.8 keeps the intensity and
+  leaves the black point exactly where it was.
+- 🚩 **RCAS (`SharpenNode`) is an LDR perceptual-space operator and must run AFTER tone mapping and
+  the sRGB transfer.** Run on linear HDR scene colour it desaturates: the iris patch goes luma
+  0.1237 / saturation 0.2997 unsharpened → **0.4159 / 0.1268** with RCAS 0.4 before tone mapping —
+  3.4× brighter and half the chroma, a brown iris rendering grey — and back to 0.1297 / 0.3729 with
+  RCAS 0.2 after the transfer. **No gate catches it**: G1–G7 sample cheek, sclera, terminator and
+  the card band, and none of them looks at the iris.
+- 🚩 **`TextureLoader` defaults `flipY` to true; `GLTFLoader` sets it false.** So a baked data map
+  loaded with the former does not line up with the albedo on the same mesh — it is sampled
+  vertically mirrored. This shipped silently and made a whole transmission term inert: the ear's
+  baked thickness reads 3.32–7.47 mm at `v` and 42.26–60.00 mm at `1 − v`, i.e. the middle of a
+  skull. Any baked map that is not a colour texture needs `flipY = false` set explicitly.
 - `readRenderTargetPixelsAsync` pads every row to **256 bytes** and returns the raw texel type — a
   `Uint16Array` of half floats for any 16F format. `mapAsync` also rejects a buffer size that is
   not a multiple of 4, which breaks an R8 attachment at any width not divisible by 4.
@@ -607,17 +953,34 @@ so the schema constraint is load-bearing rather than optional. ~0.7 s per call.
 
 ## Part 3 — Commands known to work
 
+**Every command below was re-executed 2026-08-08 and its printed check count taken from that run,
+not from memory.** Where a count is stated it is what the command actually says today; five of them
+had drifted, and one of the drifted ones (`tools/critic/selftest.mjs`, documented at 79 and
+actually 125) is the file that certifies the objective instrument.
+
+⚠️ Two of these were re-run **during a live fan-out**, and one of them
+(`LightingRig.selftest.mjs`) printed `FAIL: 31/34` on the first pass and `PASS: 38/38` four minutes
+later, because its author was mid-save. A selftest count read while other agents are editing is a
+snapshot, not a fact. Re-run before quoting.
+
+⚠️ `LightingRig.selftest.mjs` was reported as **exiting 0 even when it prints FAIL**. Re-checked at
+integration: the file sets `process.exitCode = failures === 0 ? 0 : 1` at its top level, and the
+observation was almost certainly taken against a mid-save state during the fan-out — the same
+reading that produced the transient `FAIL: 31/34`. No change was needed. Recorded because "a gate
+that cannot be used in a script is half a gate" is still the right instinct: check the exit code,
+not the printed word.
+
 ```bash
 # Dev server (serves packages/testbed)
 npm run dev                                    # http://localhost:5173/alive.html
 
 # ⚠️ `npm run build` builds ONLY packages/testbed/index.html — vite's default single entry.
 # alive.html and every page under src/ are NOT in it, so a broken import in alive.js, stage.js,
-# skin.js, eye.js or lighting.js passes the build. To prove the pages resolve, build them
-# explicitly with a temp config listing all six HTML entries:
-#   index.html, alive.html, src/stage.html, src/skin.html, src/eye.html, src/lighting.html
-npx vite build --config <temp config listing all six HTML entries>
-# (68 modules vs 13; alive, stage, skin, eye and lighting each get their own chunk.)
+# skin.js, eye.js, lighting.js or post.js passes the build. To prove the pages resolve:
+npm run build:pages                            # vite.pages.config.js — all SEVEN entries
+# (index, alive, stage, skin, eye, lighting, post each get their own chunk.)
+# It used to be "make a temp config", which had to be rediscovered every round; the config is now
+# committed. A new page under packages/testbed/ belongs in its PAGES list on the same commit.
 # Confirmed in that build: SkinMaterial's `new URL(`...${figureName}-curvature.png`, import.meta.url)`
 # IS handled — vite's dynamic-URL glob emits all five curvature PNGs as hashed assets, so the
 # runtime lookup resolves in production as well as in dev.
@@ -630,14 +993,25 @@ npm run spikes
 bash tools/figure-pipeline/build.sh
 
 # The asset gate — skinning, materials, ARKit 52, visemes, all seven meshes, eye geometry
-node tools/figure-pipeline/verify_glb.mjs
+node tools/figure-pipeline/verify_glb.mjs      # PASS — 5 figures
+node tools/figure-pipeline/cornea_geometry.selftest.mjs   # 40 checks; the dome measurement, both ways
 
 # The corneal radius of curvature, and whether the docs still agree with it (§1.11c)
-node docs/eye-optics-claims.selftest.mjs
+node docs/eye-optics-claims.selftest.mjs       # 43 checks
 
-# Objective visual gates (the six measured Stellar Blade properties)
+# Objective visual gates — SEVEN now, not six. G7 (card-band chroma) was added after G1-G6 all
+# read green on a plate whose eyelashes were vivid blue; see §1.11e.
 node tools/critic/measure.mjs <png> <regions.json>
-node tools/critic/selftest.mjs                 # 79 checks
+node tools/critic/selftest.mjs                 # 125 checks (documented as 79 for two rounds)
+
+# 🚩 measure.mjs now records WHICH PAGE a number came from, and warns loudly when it cannot.
+# It finds `capture.json` by walking up from the image, which is where capture.mjs writes it, so
+# a plate captured the normal way needs no extra flag. For a screenshot taken any other way:
+node tools/critic/measure.mjs <png> <regions.json> --page "alive.html?bare&freeze @ 900x1200"
+#   --provenance <capture.json>   an explicit manifest instead of the discovered one
+# Every gate in the report carries a `measuredOn` string, because gate blocks get copied out one
+# at a time and a number that travels without its page is how skin.html's 1.9495 came to certify
+# alive.html, which reads 1.4764 at the same width.
 
 # Committed region files. Both were authored against 900x1200 at the portrait framing constants
 # (26 deg FOV, 0.42 m portrait height, eye line a third from the top, camera 12 deg off axis),
@@ -648,8 +1022,8 @@ node tools/critic/measure.mjs <png> tools/critic/regions.lighting-portrait.json 
 node tools/critic/measure.mjs <png> tools/critic/regions.lighting-body.json --human
 
 # The Phase 3 shading gates
-node packages/core/src/material/EyeMaterial.selftest.mjs      # 99 checks
-node packages/core/src/render/LightingRig.selftest.mjs        # 34 checks
+node packages/core/src/material/EyeMaterial.selftest.mjs      # 131 checks (documented as 99)
+node packages/core/src/render/LightingRig.selftest.mjs        # 38 checks (documented as 34) ⚠️ exits 0 on FAIL
 node tools/lut-bake/lut-bake.selftest.mjs                     # 32 checks
 node tools/lut-bake/bake.mjs curvature --figure assets/figures/figure_g050.glb
 
@@ -663,40 +1037,74 @@ http://localhost:5199/packages/testbed/src/eye.html?w=1000&h=1000&height=0.032&f
 http://localhost:5199/packages/testbed/src/skin.html?bare&w=3840&h=2160   # ?stock=1 ?sss=0 ?scatter=12
 http://localhost:5199/packages/testbed/src/lighting.html?frame=portrait&bare   # ?variant=dramatic ?ov=rim.azimuthDegrees:-134
 
-# alive.html now carries the Phase 3 materials. Controls for an A/B:
-#   ?skin=0     body keeps the shipped GLB material
-#   ?eyes=0     eye shells keep theirs
+# alive.html now carries the Phase 3 materials. Controls for an A/B — see §1.19 for worked
+# attributions, and use one of these before writing a paragraph about a cause:
+#   ?skin=0     body keeps the shipped GLB material          (G4 1.6468 -> 0.4345)
+#   ?eyes=0     eye shells keep theirs                       (G2 0.8127 -> 0.8746, i.e. WORSE with the shader)
+#   ?cards=0    eyelash/eyebrow cards keep theirs            (G7 0.0056% -> 0.7571%, the known-bad)
+#   ?msaa=0     stage without MSAA; alpha to coverage needs it, so this is the card AA's A side
 #   ?shadows=0  rig without its shadow-casting half
+#   ?gender=0…1 selects a bake. Inert until commit d7cdea1 — a slider default silently reloaded g050
+#   ?freeze     stop after the pre-roll. Pins the POSE. Does NOT pin the ocular or postural
+#               layers, whose first-frame state comes from the seed — see §1.20.
+#   ?ov=rim.irradiance:0,kicker.irradiance:0    one plate per light, to attribute a colour cast
 
 # Blind A/B — strips provenance so a critic genuinely cannot tell which is ours
 node tools/critic/blind_ab.mjs <a.png> <b.png>
 node tools/critic/blind_ab.mjs reveal
 
-# Deterministic video capture — THE observation instrument. Byte-reproducible.
+# Deterministic video capture — THE observation instrument.
 # --keep-frames is NOT optional if you intend to heat-map the result; without it the
 # PNG sequence is deleted and only the mp4/gif survive.
-node tools/critic/capture.mjs --url "http://localhost:5173/alive.html?bare&frame=body" \
+#
+# 🚩 GIVE IT A BARE PATH, NOT A localhost URL. A path starting with "/" makes the tool start its
+# OWN vite with the file watcher off, which is what makes a long capture survive a fan-out
+# (§1.12, proven in both directions). A localhost URL points it at somebody else's watching
+# server and puts the old hazard back.
+node tools/critic/capture.mjs --url "/alive.html?bare&frame=body" \
      --seconds 90 --fps 30 --width 700 --height 1200 --seed 1 --keep-frames --out captures/idle
+
+# The judgement set: one clip per seed, into <out>/seed-<n>/, on seeds MEASURED to contain a
+# sustained weight transfer. Never hand a judge a single unchecked seed — see §1.20.
+node tools/critic/capture.mjs --postural-seeds --seconds 420 --out captures/judge
+node tools/critic/capture.mjs --seed 4242,42,20260807 --require-weight-shift --seconds 420 ...
+
+# ⚠️ TWO CLIPS ARE COMPARABLE ONLY IF THEIR BUILDS MATCH. capture.json now carries
+# source.packagesDigest; check it before any A/B. Six back-to-back runs during a fan-out
+# produced THREE distinct digests, and two of those builds differed by Δ209/255 on 0.39% of
+# pixels at the same seed.
+node -e "console.log(require('./captures/a/capture.json').source.packagesDigest)"
+
+# Reproducibility is now reported as a MAGNITUDE, not a yes/no. The old digest-equality check
+# called an unchanged clean plate "NOT byte-reproducible" on 8 of 10 runs, because the
+# alpha-to-coverage resolve on the hair cards moves ~44 px by up to 3 of 255 code values.
+# Tolerance: Δ6 code values AND 0.1% of pixels, both measured rather than chosen.
 
 # Per-pixel temporal-σ heat map — see §1.10. PIN --normalise to compare two clips.
 node tools/critic/heatmap.mjs <capture-dir> --stride 5 --normalise 12 --bands 12
 node tools/critic/heatmap.selftest.mjs           # 57 checks
 
-# The dev server the captures drive. Start it through the harness (.claude/launch.json,
-# name `sugata-testbed`), NOT with bash — and note that ANY file edit while a capture is
-# running fires HMR and kills it. See §1.12.
+# How far the silhouette actually moves, in pixels — §1.10a. σ says WHETHER, this says HOW FAR.
+node tools/critic/travel.mjs <capture-dir>
+node tools/critic/travel.selftest.mjs            # 111 checks (was missing from this list entirely)
 
-# Motion-layer selftests
-node packages/core/src/figure/bodymass.selftest.mjs
-node packages/core/src/figure/figure.selftest.mjs
-node packages/core/src/motion/MotionStack.selftest.mjs
-node packages/core/src/motion/ocular.selftest.mjs
-node packages/core/src/motion/Gaze.selftest.mjs
-node packages/core/src/motion/idle-motion.selftest.mjs
-node packages/core/src/motion/sway.selftest.mjs
-node packages/core/src/motion/BodyIdle.selftest.mjs
-node packages/core/src/motion/FacialIdle.selftest.mjs
-node packages/core/src/figure/restpose.selftest.mjs
+# ⚠️ THE ADVICE THAT USED TO BE HERE — "start the dev server through the harness, and note that
+# any file edit while a capture is running kills it" — IS OBSOLETE AND WAS COSTLY. capture.mjs
+# starts its own un-watched vite when given a bare path. Long captures and fan-out edits now DO
+# mix. See §1.12 for the both-directions proof and for the residual hazard that replaced it.
+
+# Motion-layer selftests, with the check counts they print today
+node packages/core/src/figure/bodymass.selftest.mjs      # 15
+node packages/core/src/figure/figure.selftest.mjs        # 44
+node packages/core/src/figure/restpose.selftest.mjs      # prints no count
+node packages/core/src/motion/MotionStack.selftest.mjs   # 47
+node packages/core/src/motion/ocular.selftest.mjs        # 64
+node packages/core/src/motion/Gaze.selftest.mjs          # 112
+node packages/core/src/motion/idle-motion.selftest.mjs   # 106
+node packages/core/src/motion/sway.selftest.mjs          # 194  (~4 min; the slowest in the repo)
+node packages/core/src/motion/BodyIdle.selftest.mjs      # 41
+node packages/core/src/motion/FacialIdle.selftest.mjs    # 27
+node packages/core/src/render/GroundContact.selftest.mjs # new this round, untracked at time of writing
 
 # Blender (5.2.0 LTS)
 /Applications/Blender.app/Contents/MacOS/Blender --background --python <script>
