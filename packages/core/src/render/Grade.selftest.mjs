@@ -36,12 +36,18 @@
  *                   to reject flat grain, a shadow-floored envelope, and a sqrt envelope that has
  *                   the right endpoints and the wrong slope at zero.
  *
- *   ENVELOPE WIRED  The behavioural checks run on a CPU mirror, so they stay green if the shader
- *                   simply stops calling the envelope — which is exactly how the defect got in.
- *                   The last group ties the shipped node graph to the mirror. It is a structural
- *                   read of the module text, and it is honest about being one: there is no CPU
- *                   evaluator for a TSL graph, and the authoritative check on the real shader is
- *                   the rendered measurement in Grade.js's table.
+ *   R0-R6           🎯 **The rendered gate, and the reason everything above it is not enough.**
+ *                   Every check above this line runs on a CPU mirror or on a named constant, and
+ *                   an independent verifier proved the set decorative by replacing the shipped
+ *                   node's body with an expression that is arithmetically the constant 1 and
+ *                   watching this file score 28/28 green. R0-R6 render the shipped node on a GPU,
+ *                   read the pixels back, and assert what the grade DID to them: the grade is in
+ *                   the chain at all, exact black stays exact black, the shadow percentiles are
+ *                   not crushed, the midtone grain sigma is inside the spec band, the grain is
+ *                   achromatic, its envelope vanishes in the shadows, and the darkest visible band
+ *                   is not lifted. Eight rebuilt defects are rendered alongside and the gate
+ *                   prints WHICH check each one trips — three of the eight are caught by exactly
+ *                   one check, which is what makes those three load-bearing rather than ornamental.
  *
  *   VIGNETTE        The centre is untouched to floating point and the corner keeps exactly
  *                   1 - amount, which is what makes `vignette` readable as "fraction of light
@@ -69,6 +75,7 @@ import {
     grainAmplitudeFor,
     grainEnvelopeAt,
     grainHalfWidthAt,
+    TEMPORAL_RECOVERY_SHARPNESS,
     vignetteMultiplier
 } from './Grade.js';
 
@@ -418,51 +425,15 @@ function vanishingRateNearBlack( envelope ) {
     );
 }
 
-console.log( '\n--- grain: the shipped node graph is wired to the mirror above --------------\n' );
-
-{
-    // Structural, and labelled as such: the checks above run on `grainEnvelopeAt`, so they all
-    // stay green if `grainNode` simply stops calling the envelope — which is precisely the defect
-    // that shipped. There is no CPU evaluator for a TSL graph, so this reads the module text. The
-    // authoritative check on the real shader is the rendered p0.1 table in Grade.js.
-    const source = await ( await import( 'node:fs/promises' ) ).readFile(
-        new URL( './Grade.js', import.meta.url ), 'utf8'
-    );
-
-    /** The body of a top-level `Fn(...)` or `function`, from its `export` to the first line that closes it. */
-    const bodyOf = ( declaration ) => {
-
-        const start = source.indexOf( declaration );
-        if ( start < 0 ) return '';
-        const end = source.indexOf( '\n}', start );
-        return source.slice( start, end < 0 ? undefined : end );
-
-    };
-
-    const grainBody = bodyOf( 'export const grainNode' );
-    const envelopeBody = bodyOf( 'export const grainEnvelope =' );
-
-    report(
-        'the shipped grain node multiplies by the envelope',
-        /\.mul\(\s*grainEnvelope\(/.test( grainBody ),
-        grainBody === '' ? 'grainNode not found in Grade.js' : 'grainNode ends in .mul( grainEnvelope( displayLuma ) )'
-    );
-
-    report(
-        'the envelope node carries the same clamped 4L(1-L) the CPU mirror implements',
-        /saturate\(\)/.test( envelopeBody ) && /oneMinus\(\)[\s\S]{0,24}mul\(\s*4\s*\)/.test( envelopeBody ),
-        envelopeBody === ''
-            ? 'grainEnvelope not found in Grade.js'
-            : 'saturate() then level * (1 - level) * 4, matching grainEnvelopeAt'
-    );
-
-    report(
-        'the grain is driven by luminance and added achromatically to all three channels',
-        /grainNode\([\s\S]{0,160}luminance\(/.test( source ) && /add\(\s*vec3\(\s*grainNode\(/.test( source ),
-        'compose() adds vec3( grainNode( ..., luminance( sharpened.xyz ) ) ) — one scalar, broadcast, ' +
-            'so the noise moves brightness and never hue'
-    );
-}
+// The three checks that used to live here read `Grade.js`'s own TEXT with regular expressions and
+// called that "tying the shipped node graph to the mirror". They are DELETED rather than repaired,
+// because an independent verifier proved them decorative: the sabotage
+// `level.mul( level.oneMinus() ).mul( 4 ).mul( 0 ).add( 1 )` keeps every token they look for and
+// evaluates to the constant 1. A regex cannot evaluate arithmetic and should not be asked to.
+//
+// What ties the CPU mirror to the shipped GPU node now is a MEASUREMENT, and it is in the rendered
+// section at the foot of this file: the rendered grain sigma is swept across the probe's sixteen
+// display levels and its peak is compared against the peak the mirror predicts.
 
 console.log( '\n--- vignette ---------------------------------------------------------------\n' );
 
@@ -517,6 +488,16 @@ report(
 );
 
 report(
+    'the temporal recovery sharpness is a real SharpenNode setting, and not the default',
+    TEMPORAL_RECOVERY_SHARPNESS > 0 && TEMPORAL_RECOVERY_SHARPNESS < 2
+        && new ( await import( './Grade.js' ) ).Grade().sharpness === null,
+    `${ TEMPORAL_RECOVERY_SHARPNESS } on SharpenNode's 0..2 scale (0 max, 2 none), and a Grade built ` +
+        'with no options sharpens nothing — a forward MSAA frame has no temporal low-pass to recover from. ' +
+        'The sweep that chose 1.2 is in Grade.js: G4 1.5375 -> 1.6223 -> 1.9029 at RCAS none / 1.2 / 0.2, ' +
+        'against silhouette hard% 11.4 -> 17.9 -> 47.0.'
+);
+
+report(
     'global saturation is inside the spec band',
     DEFAULT_SATURATION >= SATURATION_BAND[ 0 ] && DEFAULT_SATURATION <= SATURATION_BAND[ 1 ],
     `${ DEFAULT_SATURATION } in ${ SATURATION_BAND[ 0 ] }-${ SATURATION_BAND[ 1 ] }`
@@ -546,6 +527,395 @@ console.log( '\n--- tone curves ------------------------------------------------
         threw,
         "new Grade({ toneCurve: 'filmic' }) throws"
     );
+}
+
+// ==============================================================================================
+// THE RENDERED GATE
+// ==============================================================================================
+//
+// 🚩 Everything above this line was proved DECORATIVE by an independent verifier, and the way it
+// was proved is worth more than the fix.
+//
+// The 13 behavioural checks run on `grainEnvelopeAt`, a CPU mirror. The three checks that tie the
+// mirror to the shipped GPU node are a regex over `Grade.js`'s own text. So the verifier replaced
+// the node body with
+//
+//     level.mul( level.oneMinus() ).mul( 4 ).mul( 0 ).add( 1 )
+//
+// — arithmetically the constant 1, i.e. the flat grain that crushed p0.1 from 0.00869 to 0.00057,
+// with every token the regex looks for still present — and this file scored 28/28 GREEN, exit 0.
+// It also passes with the envelope call REMOVED, because the mirror does not know.
+//
+// A CPU mirror plus a regex tests neither. What follows renders the shipped node on a GPU, reads
+// the pixels back, and asserts what the grade DID to them. Every check below has a rebuilt defect
+// that turns it red, reachable from a URL (`?graindefect=`), and the table of which defect trips
+// which check is printed rather than described — because a gate whose rejections are not
+// enumerated is a gate nobody has checked the coverage of.
+//
+// The target is `post.html?probe=grade`: sixteen vertical strips of constant linear radiance on a
+// geometric ladder, no figure in frame. A picture of a person would make the black point a
+// property of the person's silhouette, which is exactly how G6 came to be measuring the eyelashes.
+//
+// ⚠️ The rendered gate has a resolution floor and says so. A screenshot is 8-bit, so a crush
+// confined below ~0.5/255 is invisible to it — the `sqrt` envelope's crush is, and the analytic
+// vanishing-rate check above is what catches that one. The two layers are complementary and
+// neither is sufficient. The rendered gate catches `sqrt` anyway, but by its SHAPE rather than by
+// its crush, which is a different assertion.
+
+console.log( '\n--- the RENDERED grade: pixels off a GPU, not a CPU mirror --------------------\n' );
+
+{
+    const probe = await import( './MotionProbe.mjs' );
+
+    const WIDTH = 960;
+    const HEIGHT = 400;
+    const BANDS = 16;
+
+    /** Bands 0-4 render at exact display zero with the shipped grade: nothing added to nothing. */
+    const TRUE_BLACK_BANDS = [ 0, 1, 2, 3, 4 ];
+
+    /** The darkest bands with a non-zero display value. Their p0.1 is what "no crush" means. */
+    const SHADOW_BANDS = [ 6, 7, 8 ];
+
+    /** The darkest band the grade can lift measurably. Bloom threshold 0 raises it 4.4x. */
+    const LIFT_BAND = 5;
+
+    /** Display ~0.476: the peak of a 4L(1-L) envelope, where the grain should be at full sigma. */
+    const MIDTONE_BAND = 12;
+
+    // Thresholds, each set from the measurements printed by this run rather than chosen.
+    const LIFT_TOLERANCE = 0.05;              // shipped moves the band by 0.2%; threshold 0 by 344%
+    const CRUSH_TOLERANCE_CODES = 1.0;        // shipped moves shadow p0.1 by exactly 0 code values
+    const CHROMA_CEILING = 0.0005;            // shipped 0.000001, chromatic grain 0.010107
+    const SHADOW_TO_MIDTONE_SIGMA_CEILING = 0.20;  // shipped 0.103, sqrt 0.265, flat 0.795
+
+    function bandRect( index ) {
+
+        const bandWidth = WIDTH / BANDS;
+
+        return {
+            x: Math.round( index * bandWidth ) + 8,
+            y: 20,
+            width: Math.round( bandWidth ) - 16,
+            height: HEIGHT - 40
+        };
+
+    }
+
+    const PLATES = {
+        shipped: '?probe=grade&grade=1&aa=off&bare',
+        ungraded: '?probe=grade&aa=off&bare',
+        grainOff: '?probe=grade&grade=1&aa=off&bare&grain=0',
+        flat: '?probe=grade&grade=1&aa=off&bare&graindefect=flat',
+        floored: '?probe=grade&grade=1&aa=off&bare&graindefect=floored',
+        sqrt: '?probe=grade&grade=1&aa=off&bare&graindefect=sqrt',
+        inverted: '?probe=grade&grade=1&aa=off&bare&graindefect=inverted',
+        chromatic: '?probe=grade&grade=1&aa=off&bare&graindefect=chromatic',
+        naiveAmplitude: '?probe=grade&grade=1&aa=off&bare&graindefect=naive-amplitude',
+        grainDefectOff: '?probe=grade&grade=1&aa=off&bare&graindefect=off',
+        bloomThresholdZero: '?probe=grade&grade=1&aa=off&bare&thresh=0'
+    };
+
+    let server = null;
+    let browser = null;
+    const plates = {};
+
+    try {
+
+        server = await probe.startProbeServer( { port: 5186 } );
+        browser = await probe.launchProbeBrowser();
+
+        for ( const [ name, query ] of Object.entries( PLATES ) ) {
+
+            const shot = await probe.capturePlates( {
+                // Eight steps rather than one: the probe draws on `__SUGATA_STEP__`, and the
+                // first frames of any WebGPU page are shader compilation. Eight is cheap and past it.
+                browser, baseUrl: server.baseUrl, query, width: WIDTH, height: HEIGHT, frames: 8
+            } );
+
+            if ( shot.errors.length > 0 ) {
+
+                throw new Error( `${ name }: ${ shot.errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+            }
+
+            plates[ name ] = shot.frames.get( 8 );
+
+        }
+
+    } catch ( error ) {
+
+        // A rendered gate that cannot render is a FAILED gate, not a skipped one. Skipping is how
+        // a decorative gate survives: it goes quiet on the machine that would have caught it.
+        report(
+            'the rendered probe came up on a real GPU',
+            false,
+            `it did not: ${ error.message }`
+        );
+
+    }
+
+    if ( plates.shipped !== undefined ) {
+
+        /** The measurement every check below is stated against: bands of the shipped plate. */
+        const stats = ( plate, band ) => probe.bandStatistics( plate, bandRect( band ) );
+
+        const grainSigma = ( plate, band ) =>
+            probe.differenceSigma( plate, plates.grainOff, bandRect( band ) ).sigma;
+
+        // Printed first, so a reader who distrusts a verdict can check the arithmetic.
+        console.log( '      band  shipped mean   grain-off mean   shipped p0.1   grain sigma /255   chroma' );
+
+        for ( const band of [ 0, LIFT_BAND, ...SHADOW_BANDS, MIDTONE_BAND, 15 ] ) {
+
+            const shipped = stats( plates.shipped, band );
+            const clean = stats( plates.grainOff, band );
+
+            console.log( `      ${ String( band ).padStart( 4 ) }  ${ shipped.mean.toFixed( 6 ).padStart( 12 ) }   ` +
+                `${ clean.mean.toFixed( 6 ).padStart( 14 ) }   ${ shipped.percentile.toFixed( 6 ).padStart( 12 ) }   ` +
+                `${ grainSigma( plates.shipped, band ).toFixed( 3 ).padStart( 16 ) }   ${ shipped.chromaMean.toFixed( 6 ) }` );
+
+        }
+
+        console.log( '' );
+
+        // R0 — the grade is actually in the chain. LEARNINGS §1.24: a post effect that is being
+        // thrown away measures as exactly nothing, and reads as "too subtle to detect".
+        {
+            const graded = stats( plates.shipped, MIDTONE_BAND ).mean;
+            const plain = stats( plates.ungraded, MIDTONE_BAND ).mean;
+
+            report(
+                'R0 the graded plate differs from the ungraded one, so the grade is in the chain',
+                Math.abs( graded - plain ) > 0.02,
+                `midtone band ${ MIDTONE_BAND }: ungraded ${ plain.toFixed( 6 ) } -> graded ${ graded.toFixed( 6 ) }`
+            );
+        }
+
+        // R1 — nothing added to nothing. The purest statement the black point has.
+        {
+            const worst = TRUE_BLACK_BANDS
+                .map( ( band ) => stats( plates.shipped, band ) )
+                .reduce( ( a, b ) => ( b.mean > a.mean ? b : a ) );
+
+            report(
+                'R1 a band of exact black renders exact black, every pixel of it',
+                worst.mean === 0 && worst.zeroFraction === 1,
+                `bands ${ TRUE_BLACK_BANDS.join( ',' ) }: worst mean ${ worst.mean.toFixed( 8 ) }, ` +
+                    `${ ( worst.zeroFraction * 100 ).toFixed( 3 ) }% of pixels at zero`
+            );
+        }
+
+        // R2 — the crush. A percentile, because the crush moves a TAIL.
+        {
+            let worstBand = null;
+            let worstDelta = 0;
+
+            for ( const band of SHADOW_BANDS ) {
+
+                const delta = ( stats( plates.grainOff, band ).percentile - stats( plates.shipped, band ).percentile ) * 255;
+
+                if ( delta > worstDelta ) { worstDelta = delta; worstBand = band; }
+
+            }
+
+            report(
+                'R2 the grain does not crush the shadow bands',
+                worstDelta <= CRUSH_TOLERANCE_CODES,
+                `worst p0.1 loss ${ worstDelta.toFixed( 3 ) } code values (band ${ worstBand ?? SHADOW_BANDS[ 0 ] }), ` +
+                    `ceiling ${ CRUSH_TOLERANCE_CODES }`
+            );
+        }
+
+        // R3 — the grain is actually there, at the sigma the spec asks for. Measured as the
+        // standard deviation of the DIFFERENCE against the grain-off plate, so it is the grain and
+        // nothing else. 8-bit quantisation adds ~0.08 in quadrature at this level.
+        {
+            const sigma = grainSigma( plates.shipped, MIDTONE_BAND );
+
+            report(
+                'R3 the rendered midtone grain sigma is inside the spec band',
+                sigma >= GRAIN_BAND_CODES[ 0 ] && sigma <= GRAIN_BAND_CODES[ 1 ],
+                `${ sigma.toFixed( 3 ) }/255 at band ${ MIDTONE_BAND } (display ` +
+                    `${ stats( plates.shipped, MIDTONE_BAND ).mean.toFixed( 3 ) }), band ` +
+                    `${ GRAIN_BAND_CODES[ 0 ] }-${ GRAIN_BAND_CODES[ 1 ] }/255 — asked for ${ DEFAULT_GRAIN_SIGMA_CODES }`
+            );
+        }
+
+        // R4 — achromatic. No black-point check can see coloured grain, which is why this is here.
+        {
+            const chroma = stats( plates.shipped, MIDTONE_BAND ).chromaMean;
+
+            report(
+                'R4 the rendered grain moves brightness and never hue',
+                chroma <= CHROMA_CEILING,
+                `mean chroma (max-min) ${ chroma.toFixed( 6 ) } at band ${ MIDTONE_BAND }, ceiling ${ CHROMA_CEILING }`
+            );
+        }
+
+        // R5 — the SHAPE. The envelope has to vanish in the shadows, and this is the check that
+        // sees a wrong shape whose crush is below the 8-bit floor.
+        {
+            const shadow = grainSigma( plates.shipped, LIFT_BAND );
+            const midtone = grainSigma( plates.shipped, MIDTONE_BAND );
+            const ratio = midtone === 0 ? Infinity : shadow / midtone;
+
+            report(
+                'R5 the rendered grain vanishes in the shadows relative to the midtones',
+                ratio <= SHADOW_TO_MIDTONE_SIGMA_CEILING,
+                `sigma band ${ LIFT_BAND } / band ${ MIDTONE_BAND } = ${ shadow.toFixed( 3 ) } / ` +
+                    `${ midtone.toFixed( 3 ) } = ${ ratio.toFixed( 3 ) }, ceiling ${ SHADOW_TO_MIDTONE_SIGMA_CEILING }. ` +
+                    'The shipped value is at the 8-bit quantisation floor and cannot go lower.'
+            );
+        }
+
+        // R6 — no black LIFT, which is the constraint the spec states in bold and the one the
+        // bloom threshold decides. Same band, measured against the grade with the grain off.
+        {
+            const lifted = stats( plates.shipped, LIFT_BAND ).mean;
+            const reference = stats( plates.grainOff, LIFT_BAND ).mean;
+            const change = Math.abs( lifted - reference ) / reference;
+
+            report(
+                'R6 the shipped grade does not lift the darkest visible band',
+                change <= LIFT_TOLERANCE,
+                `band ${ LIFT_BAND } mean ${ reference.toFixed( 6 ) } -> ${ lifted.toFixed( 6 ) }, ` +
+                    `${ ( change * 100 ).toFixed( 2 ) }% (tolerance ${ LIFT_TOLERANCE * 100 }%)`
+            );
+        }
+
+        // R7 — the CPU mirror above and the shipped GPU node are the same function.
+        //
+        // This is what replaced three regular expressions over `Grade.js`'s own text. The rendered
+        // grain sigma is swept across all sixteen display levels; the mirror predicts where that
+        // sweep peaks, because `4L(1-L)` is maximal at L = 0.5. Comparing the PEAK rather than the
+        // values sidesteps the 8-bit quantisation floor, which dominates every band under about
+        // 0.4/255 and would make a direct comparison a measurement of the screenshot format.
+        {
+            const sigmas = [];
+            const levels = [];
+
+            for ( let band = 0; band < BANDS; band += 1 ) {
+
+                sigmas.push( grainSigma( plates.shipped, band ) );
+                levels.push( stats( plates.grainOff, band ).mean );
+
+            }
+
+            const argmax = ( values ) => values.indexOf( Math.max( ...values ) );
+
+            const measuredPeak = argmax( sigmas );
+            const predictedPeak = argmax( levels.map( grainEnvelopeAt ) );
+
+            // Unimodal: rises to the peak and falls after it, allowing the quantisation floor a
+            // little slack on the flat dark end where every sigma is within 0.05 of zero.
+            let unimodal = true;
+
+            for ( let band = 1; band < BANDS; band += 1 ) {
+
+                const rising = sigmas[ band ] >= sigmas[ band - 1 ] - 0.05;
+                const falling = sigmas[ band ] <= sigmas[ band - 1 ] + 0.05;
+
+                if ( band <= measuredPeak ? rising === false : falling === false ) unimodal = false;
+
+            }
+
+            report(
+                'R7 the rendered grain sigma peaks where the CPU mirror says it does',
+                measuredPeak === predictedPeak && unimodal,
+                `sigma by band ${ sigmas.map( ( v ) => v.toFixed( 2 ) ).join( ' ' ) } — measured peak at ` +
+                    `band ${ measuredPeak } (display ${ levels[ measuredPeak ].toFixed( 3 ) }), ` +
+                    `grainEnvelopeAt predicts band ${ predictedPeak }, unimodal ${ unimodal }`
+            );
+        }
+
+        // --- the rejections, which are what stop the six checks above from being decorative -----
+        //
+        // Each rebuilt defect must trip at least one check, and the table says WHICH — because
+        // "it fails" is not coverage. LEARNINGS §1.1, and the harder version of it: three of last
+        // round's new gates only caught their own known-bad, so four of the seven defects below
+        // were invented rather than observed.
+
+        console.log( '\n      rejection coverage — which rendered check each rebuilt defect trips\n' );
+
+        const CHECKS = {
+            R0: ( plate ) => Math.abs( stats( plate, MIDTONE_BAND ).mean - stats( plates.ungraded, MIDTONE_BAND ).mean ) > 0.02,
+            R7: ( plate ) => {
+                const sigmas = [];
+                const levels = [];
+                for ( let band = 0; band < BANDS; band += 1 ) {
+                    sigmas.push( grainSigma( plate, band ) );
+                    levels.push( stats( plates.grainOff, band ).mean );
+                }
+                const argmax = ( values ) => values.indexOf( Math.max( ...values ) );
+                return argmax( sigmas ) === argmax( levels.map( grainEnvelopeAt ) );
+            },
+            R1: ( plate ) => TRUE_BLACK_BANDS.every( ( band ) => stats( plate, band ).mean === 0 ),
+            R2: ( plate ) => SHADOW_BANDS.every( ( band ) =>
+                ( stats( plates.grainOff, band ).percentile - stats( plate, band ).percentile ) * 255 <= CRUSH_TOLERANCE_CODES ),
+            R3: ( plate ) => {
+                const sigma = grainSigma( plate, MIDTONE_BAND );
+                return sigma >= GRAIN_BAND_CODES[ 0 ] && sigma <= GRAIN_BAND_CODES[ 1 ];
+            },
+            R4: ( plate ) => stats( plate, MIDTONE_BAND ).chromaMean <= CHROMA_CEILING,
+            R5: ( plate ) => {
+                const midtone = grainSigma( plate, MIDTONE_BAND );
+                return midtone > 0 && grainSigma( plate, LIFT_BAND ) / midtone <= SHADOW_TO_MIDTONE_SIGMA_CEILING;
+            },
+            R6: ( plate ) => Math.abs( stats( plate, LIFT_BAND ).mean - stats( plates.grainOff, LIFT_BAND ).mean )
+                / stats( plates.grainOff, LIFT_BAND ).mean <= LIFT_TOLERANCE
+        };
+
+        const DEFECTS = {
+            'flat (the shipped defect, and the `.mul(0).add(1)` sabotage)': 'flat',
+            'floored at 0.25': 'floored',
+            'sqrt — right endpoints, wrong slope': 'sqrt',
+            'inverted': 'inverted',
+            'chromatic (per-channel noise)': 'chromatic',
+            'naive amplitude (missing the sqrt 12)': 'naiveAmplitude',
+            'grain removed entirely': 'grainDefectOff',
+            'bloom threshold 0 (the black lift)': 'bloomThresholdZero',
+            // The LEARNINGS 1.24 failure: the grade compiled, ran, and was thrown away by a
+            // caller that drew past the pipeline. It measures as EXACTLY nothing, which reads as
+            // "the grade is too subtle to detect" — so R0 has to be provable red too.
+            'the grade thrown away entirely (LEARNINGS 1.24)': 'ungraded'
+        };
+
+        for ( const [ label, key ] of Object.entries( DEFECTS ) ) {
+
+            const tripped = Object.entries( CHECKS )
+                .filter( ( [ , check ] ) => check( plates[ key ] ) === false )
+                .map( ( [ name ] ) => name );
+
+            report(
+                `rejected by rendering: ${ label }`,
+                tripped.length > 0,
+                tripped.length > 0
+                    ? `trips ${ tripped.join( ', ' ) }`
+                    : 'passes every rendered check — this gate does NOT cover this defect'
+            );
+
+        }
+
+        // And the honest limit, stated as a printed fact rather than as a comment: the shipped
+        // plate must pass every check, or the coverage table above is measuring a broken baseline.
+        {
+            const shippedTrips = Object.entries( CHECKS )
+                .filter( ( [ , check ] ) => check( plates.shipped ) === false )
+                .map( ( [ name ] ) => name );
+
+            report(
+                'the shipped grade passes every rendered check, so the rejections above mean something',
+                shippedTrips.length === 0,
+                shippedTrips.length === 0 ? 'R0-R7 all green on the shipped plate' : `trips ${ shippedTrips.join( ', ' ) }`
+            );
+        }
+
+    }
+
+    await browser?.close();
+    await server?.close();
+
 }
 
 console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' }: ${ checks - failures }/${ checks } checks green\n` );

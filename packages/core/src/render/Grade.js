@@ -48,26 +48,34 @@
  * Grain is last because it is display-referred. It is added equally to R, G and B, which is what
  * "achromatic / luminance-only" means: the noise moves brightness and never hue.
  *
- * ## Why the RCAS sharpen lives HERE and not in `TRAAPost.js`
+ * ## Why the RCAS sharpen lives HERE as well as in `TRAAPost.js`
  *
- * A temporal resolve is a low-pass filter and FSR2 pairs it with RCAS to get the detail back, so
- * the obvious place for the sharpen is immediately after the resolve. That was tried and it is
- * measurably wrong: RCAS is an LDR, perceptual-space operator, and run on the linear HDR scene
- * colour it **desaturates**. Measured on `post.html?aa=traa&bare` at 900x1200, the iris patch at
- * (330..350, 360..375):
+ * ⚠️ **The table that used to be here does not reproduce, and it is corrected rather than
+ * deleted, because a retracted measurement is more use to a successor than a missing one.**
  *
- *   | sharpen placement              | iris luma | iris HSV saturation |
- *   |--------------------------------|-----------|---------------------|
- *   | none (TRAA, no sharpen)        |   0.1237  |       0.2997        |
- *   | RCAS 0.4 before tone mapping   |   0.4159  |       0.1268        |  <- brown iris renders grey
- *   | RCAS 0.2 after the transfer    |   0.1297  |       0.3729        |  <- preserved
+ * It claimed that RCAS run on the linear HDR scene colour — the placement in `TRAAPost.js` —
+ * desaturates: iris luma 0.1237 / saturation 0.2997 unsharpened against 0.4159 / 0.1268 with RCAS
+ * 0.4 before tone mapping, "a brown iris rendering grey". Re-measured 2026-08-08 on exactly that
+ * page and rect (`post.html?aa=traa&bare` at 900x1200, iris 330..350 x 360..375), with the frame
+ * loop owned by the capture and the resolve converged to frame 120:
  *
- * Three times as bright and half as saturated is not a subtle regression, and it is invisible in
- * the gate set: G1-G7 sample cheek, sclera, terminator and the card band, and not one of them
- * looks at the iris.
+ *   | sharpen placement                     | iris luma | iris HSV saturation |
+ *   |---------------------------------------|-----------|---------------------|
+ *   | none                                  |  0.1169   |       0.4086        |
+ *   | RCAS 0.4 before tone mapping          |  0.1164   |       0.4032        |
+ *   | 4x MSAA, for scale                    |  0.1172   |       0.4065        |
  *
- * So the sharpen is a stage of the grade, after tone mapping and the sRGB transfer and before the
- * grain — which is also where FSR2 puts it.
+ * A 1.3% difference in saturation, not a 2.4x one. The sharpen is genuinely in the graph — it
+ * moves gate G4 from 1.6318 to 2.8920 at 900 px — so this is not "the pass was inert"; it simply
+ * does not do to the iris what was recorded. The most likely reading is that the original was
+ * taken before `docs/LEARNINGS.md` §1.24 was fixed, when `?capture` drew the scene directly and
+ * threw the whole post chain away, but that is a hypothesis and it is labelled as one.
+ *
+ * **What survives, and is still the reason this pass exists here:** RCAS is defined as an LDR
+ * perceptual-space operator and FSR2 applies it after tone mapping, so this is the reference
+ * ordering. What has changed is that it is no longer ON by default in either place —
+ * `TRAAPost.DEFAULT_SHARPNESS` is `null` because a sharpen in EITHER position pushes G4 out of the
+ * spec's band on this rig. Its table is the one to read before switching either back on.
  */
 
 import { ACESFilmicToneMapping, AgXToneMapping, NeutralToneMapping, SRGBColorSpace } from 'three/webgpu';
@@ -141,6 +149,35 @@ export const GRAIN_REFERENCE_HEIGHT = 1080;
 export const DEFAULT_SATURATION = 1.02;
 
 /**
+ * 🎯 The RCAS strength a TEMPORAL path should pass as `sharpness`, and the sweep that chose it.
+ *
+ * It is not the constructor default, and that is deliberate: a forward, MSAA'd frame has nothing
+ * to recover, so `sharpness` stays `null` unless a caller asks. This constant exists so the value
+ * a temporal page should use is a named measurement rather than a number in somebody's diff.
+ *
+ * Swept on `alive.html?bare&freeze&aa=taau&grade=1`, converged with a zero simulation step. G4 is
+ * the flat-skin high-pass sigma at **3840x5120**, the width its 1.5-2.1/255 band is stated at;
+ * `hard%` is the share of silhouette transitions that jump in a single pixel, over six rows at
+ * 900x1200, which is what a jaggy IS:
+ *
+ *   | grade RCAS | G4 /255 | silhouette hard% | card-band hard% |
+ *   |------------|---------|------------------|-----------------|
+ *   | none       | 1.5375  |      11.4        |      27.1       |
+ *   | 1.2        | 1.6223  |      17.9        |      30.8       |  <- ships
+ *   | 0.9        | 1.6609  |      26.2        |      32.7       |
+ *   | 0.6        | 1.7146  |      31.8        |      30.2       |
+ *   | 0.2        | 1.9029  |      47.0        |      33.0       |
+ *   | 4x MSAA, for scale     | 1.7457  |      67.9        |      44.5       |
+ *
+ * The trade is monotone and it is a real one: every step of sharpening buys high-pass detail and
+ * spends edge softness. `none` reads G4 1.5375, which is inside the band by 2.5% and too close to
+ * its floor to survive a re-measurement on a different plate. **1.2 buys 8% of margin for 6.5
+ * points of edge hardness and is still 3.8x better on edges than the MSAA default.** 0.2, which an
+ * earlier note proposed, costs 4x the hardness for detail the band did not need.
+ */
+export const TEMPORAL_RECOVERY_SHARPNESS = 1.2;
+
+/**
  * Spec §3: "0.10-0.20 [unmeasured estimate]".
  *
  * 0.15 is the middle of that band. It is worth being clear about what it does and does not buy:
@@ -181,6 +218,11 @@ export class Grade {
      *   **0 is maximum sharpening and 2 is none**. `null` skips the pass. It exists to give back
      *   the micro-detail a temporal resolve removes — measured in `TRAAPost.js` — so a forward,
      *   MSAA'd frame has no business asking for it.
+     * @param {?string} [options.rebuildGrainDefect=null] - 🚩 **REBUILDS A DEFECT ON PURPOSE.**
+     *   One of `GRAIN_DEFECTS`. Never set it in an application; it exists so the gate can render
+     *   the broken grade and watch its own checks go red, which is the only thing that separates a
+     *   real gate from a decorative one (`docs/LEARNINGS.md` §1.1). Same pattern, and the same
+     *   flag, as `motion/Blink.js`'s `frameQuantisedArrivals`.
      */
     constructor( options = {} ) {
 
@@ -214,6 +256,14 @@ export class Grade {
         // Not a uniform: `SharpenNode` takes its strength at construction and the pass either
         // exists in the graph or it does not, so changing it is a recompile either way.
         this.sharpness = options.sharpness ?? null;
+
+        this.rebuiltGrainDefect = options.rebuildGrainDefect ?? null;
+
+        if ( this.rebuiltGrainDefect !== null && GRAIN_DEFECTS[ this.rebuiltGrainDefect ] === undefined ) {
+
+            throw new Error( `Grade: rebuildGrainDefect must be one of ${ Object.keys( GRAIN_DEFECTS ).join( ', ' ) }.` );
+
+        }
 
         this.bloomNode = null;
         this.sharpenNode = null;
@@ -267,9 +317,9 @@ export class Grade {
 
         }
 
-        const grained = sharpened.add( vec3( grainNode(
-            this.grainSigmaCodes, this.grainFrame, luminance( sharpened.xyz )
-        ) ) );
+        const grained = sharpened.add( grainTermFor(
+            this.rebuiltGrainDefect, this.grainSigmaCodes, this.grainFrame, luminance( sharpened.xyz )
+        ) );
 
         // Clamped because the transfer is done: anything outside 0..1 is not a highlight any
         // more, it is a value the swap chain will wrap or clip unpredictably.
@@ -339,13 +389,25 @@ export const grainNode = /*@__PURE__*/ Fn( ( [ sigmaCodes, frameSeed, displayLum
 
     const amplitude = sigmaCodes.div( 255 ).div( float( UNIFORM_NOISE_SIGMA ) );
 
+    return unitGrainNoise( frameSeed ).mul( amplitude ).mul( grainEnvelope( displayLuma ) );
+
+} );
+
+/**
+ * Zero-mean uniform noise on [-0.5, 0.5], one draw per grain cell per frame.
+ *
+ * Split out of `grainNode` so the deliberately broken variants below reuse the SAME hash: a
+ * rejection proof that also changed the noise source would be proving two things at once.
+ */
+export const unitGrainNoise = /*@__PURE__*/ Fn( ( [ frameSeed ] ) => {
+
     const cell = screenCoordinate.xy.div( float( GRAIN_CELL_PIXELS ) ).floor();
 
     const seeded = cell.add( frameSeed.mul( vec2( 0.7548776662, 0.5698402909 ) ) );
 
     const noise = seeded.dot( vec2( 12.9898, 78.233 ) ).sin().mul( 43758.5453 ).fract();
 
-    return noise.sub( 0.5 ).mul( amplitude ).mul( grainEnvelope( displayLuma ) );
+    return noise.sub( 0.5 );
 
 } );
 
@@ -386,6 +448,87 @@ export const grainEnvelope = /*@__PURE__*/ Fn( ( [ displayLuma ] ) => {
     return level.mul( level.oneMinus() ).mul( 4 );
 
 } );
+
+// --- 🚩 the rebuilt defects, so the gate can watch itself go red -------------------------------
+
+/**
+ * Every way this file's grain has been, or could plausibly be, wrong — each one reachable from a
+ * URL so a rejection proof is a page rather than a committed plate (`docs/LEARNINGS.md` §1.11e).
+ *
+ * The list is not the history of this file. Four of these were never shipped; they are here
+ * because a gate that only rejects the defect it was written for is decorative, and the way to
+ * find that out is to invent a DIFFERENT defect in the same class and see whether the gate notices.
+ *
+ * ⚠️ `flat` is also the sabotage an independent verifier used to prove the old gate decorative:
+ * `level.mul( level.oneMinus() ).mul( 4 ).mul( 0 ).add( 1 )` is arithmetically the constant 1 with
+ * every token a regex looks for still present. A gate that reads source text cannot tell the two
+ * apart. A gate that renders cannot tell them apart either — and does not need to, because they
+ * produce the same picture and it fails on the picture.
+ */
+export const GRAIN_DEFECTS = {
+    flat: 'no envelope at all — grain at full strength in the blacks. The defect that shipped, and ' +
+        'what the `.mul(0).add(1)` sabotage evaluates to.',
+    floored: '0.25 + 0.75 E — "keep a little grain in the shadows". Crushes an eighth as hard.',
+    sqrt: 'sqrt(E) — right endpoints, wrong slope at zero. Below the 8-bit floor; the analytic sweep ' +
+        'is what catches this one.',
+    inverted: '1 - L — most grain where there is least light.',
+    chromatic: 'independent noise per channel. Leaves the black point alone and makes the grain ' +
+        'coloured, which no black-point check can see.',
+    'naive-amplitude': 'amplitude = sigma/255, missing the sqrt(12) that turns a uniform width into ' +
+        'a standard deviation. Delivers 0.43/255 instead of 1.5.',
+    off: 'no grain at all. The one an eye is least likely to notice and a sigma measurement catches ' +
+        'instantly.'
+};
+
+/** The wrong envelopes, in the same units as `grainEnvelope`. Reached only via `GRAIN_DEFECTS`. */
+const BROKEN_ENVELOPES = {
+    flat: () => float( 1 ),
+    floored: ( luma ) => grainEnvelope( luma ).mul( 0.75 ).add( 0.25 ),
+    sqrt: ( luma ) => grainEnvelope( luma ).sqrt(),
+    inverted: ( luma ) => luma.saturate().oneMinus()
+};
+
+/**
+ * The grain contribution added to the encoded image, as a vec3.
+ *
+ * @param {?string} defect - `null` for the shipped grain, or a key of `GRAIN_DEFECTS`.
+ * @param {Node} sigmaCodes
+ * @param {Node} frameSeed
+ * @param {Node} displayLuma
+ * @returns {Node<vec3>}
+ */
+export function grainTermFor( defect, sigmaCodes, frameSeed, displayLuma ) {
+
+    if ( defect === 'off' ) return vec3( 0 );
+
+    if ( defect === null ) return vec3( grainNode( sigmaCodes, frameSeed, displayLuma ) );
+
+    if ( defect === 'chromatic' ) {
+
+        // Three independent draws. The offsets are arbitrary and only have to decorrelate the hash.
+        return vec3(
+            grainNode( sigmaCodes, frameSeed, displayLuma ),
+            grainNode( sigmaCodes, frameSeed.add( 101 ), displayLuma ),
+            grainNode( sigmaCodes, frameSeed.add( 211 ), displayLuma )
+        );
+
+    }
+
+    if ( defect === 'naive-amplitude' ) {
+
+        return vec3( unitGrainNoise( frameSeed )
+            .mul( sigmaCodes.div( 255 ) )
+            .mul( grainEnvelope( displayLuma ) ) );
+
+    }
+
+    const amplitude = sigmaCodes.div( 255 ).div( float( UNIFORM_NOISE_SIGMA ) );
+
+    return vec3( unitGrainNoise( frameSeed )
+        .mul( amplitude )
+        .mul( BROKEN_ENVELOPES[ defect ]( displayLuma ) ) );
+
+}
 
 // --- the CPU mirror the selftest measures against ---------------------------------------------
 

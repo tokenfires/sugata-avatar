@@ -102,10 +102,13 @@ console.log( '\n--- the resolution budget --------------------------------------
 console.log( '\n--- sharpen ----------------------------------------------------------------\n' );
 
 report(
-    'the default sharpness is a real setting on SharpenNode\'s 0..2 scale',
-    DEFAULT_SHARPNESS > 0 && DEFAULT_SHARPNESS < 2,
-    `${ DEFAULT_SHARPNESS } — 0 is maximum sharpening, 2 is a full-screen pass that does nothing`
+    'the resolve does not sharpen by default, because a sharpen put G4 out of band',
+    DEFAULT_SHARPNESS === null,
+    `DEFAULT_SHARPNESS = ${ DEFAULT_SHARPNESS }. At 3840x5120 on alive.html?bare&freeze, converged: ` +
+        'TRAA+grade with RCAS 0.4 here reads G4 2.3867 (FAIL), with RCAS 0.2 in the grade 2.6611 ' +
+        '(FAIL), with neither 1.8893 (PASS) against the spec band 1.5-2.1. See the table in TRAAPost.js.'
 );
+
 
 console.log( '\n--- the 3.12 blocker, re-checked against the installed three ---------------\n' );
 
@@ -128,19 +131,20 @@ console.log( '\n--- the 3.12 blocker, re-checked against the installed three ---
 
     if ( stillBroken ) {
 
-        console.log( '      VERDICT: the morph-velocity defect is STILL PRESENT. A morph held at a constant' );
-        console.log( '      weight reports a constant non-zero motion vector, because the previous-frame' );
-        console.log( '      position is reconstructed from un-morphed geometry. Measured consequence on the' );
-        console.log( '      real face (post.html, jawOpen held at 0.8, camera still, jaw box 200,600,220,120):' );
-        console.log( '        MSAA  temporalRms 0.000/255      <- a still frame really is still' );
-        console.log( '        TRAA  temporalRms 4.711/255      <- 18.3x the no-morph control of 0.258' );
-        console.log( '        TAAU  temporalRms 4.387/255      <- 29.8x the no-morph control of 0.147' );
-        console.log( '      Until this changes, temporal AA fizzes on any held facial expression.' );
+        console.log( '      VERDICT: the defect is STILL PRESENT UPSTREAM and is REPAIRED LOCALLY.' );
+        console.log( '      three assigns positionPrevious for bones and not for morphs, so a morph held at a' );
+        console.log( '      constant weight reports a constant non-zero motion vector. `render/MorphVelocity.js`' );
+        console.log( '      supplies the previous-frame morphed position before three\'s own setupPosition runs,' );
+        console.log( '      and `Stage` installs it. The rendered gate at the foot of this file measures the' );
+        console.log( '      result and proves it red against `?morphvel=off`, which is three unpatched.' );
+        console.log( '      When this NOTE flips, delete MorphVelocity.js and re-run that gate — it should stay' );
+        console.log( '      green on its own, and if it does not, the upstream fix is not equivalent.' );
 
     } else {
 
-        console.log( '      VERDICT: the defect appears to be FIXED upstream. Re-measure post.html?hold=0.8' );
-        console.log( '      and, if the fizz is gone, punch-list 3.12 can make temporal AA the default.' );
+        console.log( '      VERDICT: the defect appears to be FIXED upstream. `render/MorphVelocity.js` is then' );
+        console.log( '      redundant: set `morphVelocity: \'off\'` and re-run the rendered gate below. If T2' );
+        console.log( '      stays green without it, delete the file.' );
 
     }
 
@@ -151,6 +155,195 @@ console.log( '\n--- the 3.12 blocker, re-checked against the installed three ---
         skinning.length > 1000 && morph.length > 1000,
         `Skinning.js ${ skinning.length } bytes, Morph.js ${ morph.length } bytes, three ${ version }`
     );
+}
+
+// ==============================================================================================
+// THE RENDERED GATE — and the trap it is built to make impossible
+// ==============================================================================================
+//
+// 🎯 **On a single frozen frame a temporal filter has no history, so it measures like no
+// antialiasing at all.** `docs/PROGRESS.md` records `?aa=traa` reading G4 = 4.2333 and correctly
+// declines to call it a defect. Anyone who forgets that will "prove" TRAA broken on a `?freeze`
+// plate, and their numbers will look clean because they are internally consistent.
+//
+// Re-measured here on `alive.html?bare&freeze` at 900x1200, with the renderer's frame owned by the
+// capture and a ZERO simulation step so the scene is genuinely static:
+//
+//   TRAA, frame 1     G4 4.2351   311 silhouette transitions, 186 partial pixels
+//   TRAA, frame 300   G4 2.8352   152 transitions, 90 partial pixels
+//   4x MSAA           G4 2.1860   identical at frames 1 and 300, because a forward frame is static
+//
+// So the frame-1 reading of a temporal mode is 49% worse than its converged one on the same page
+// and the same pixels. The gate below therefore measures a SEQUENCE and asserts that the two
+// disagree — a future agent who replaces it with a still plate has to delete a check whose name
+// says what they are about to get wrong.
+//
+// ⚠️ `?freeze` alone is not enough, and this cost a measurement. `alive.js` honours `freeze` in its
+// rAF callback and NOT inside `__SUGATA_STEP__`, so a stepped capture of a "frozen" page advances
+// the motion stack anyway: measured foreheadRms 3.6400/255 on the MSAA forward path, where the
+// correct answer is exactly 0. Stepping with `stepSeconds: 0` is what makes the scene static.
+// Filed as a diff request against `alive.js`.
+
+console.log( '\n--- the rendered gate: a sequence, because a still plate cannot see this -------\n' );
+
+{
+    const probe = await import( './MotionProbe.mjs' );
+
+    const WIDTH = 900;
+    const HEIGHT = 1200;
+
+    /** The jaw box `docs/PROGRESS.md` and punch-list 3.12 both quote, at 900x1200 portrait. */
+    const JAW = { x: 200, y: 600, width: 220, height: 120 };
+
+    /** Flat forehead with no morph under it: the jitter floor every reading is stated against. */
+    const FOREHEAD = { x: 380, y: 210, width: 160, height: 70 };
+
+    /** Converged. TRAA's residual is flat from frame 60 to frame 300 (0.2739 / 0.3162 / 0.2772). */
+    const CONVERGED = 150;
+
+    /**
+     * How far above the jitter floor a HELD expression is allowed to read.
+     *
+     * Not a chosen number: with `morphVelocity: 'off'` the same box reads 15.2x the floor, and with
+     * the fix it reads 1.58x. 3.0 sits between them with better than 1.9x of margin on both sides.
+     */
+    const HELD_MORPH_CEILING_OVER_FLOOR = 3.0;
+
+    let server = null;
+    let browser = null;
+    const runs = {};
+
+    const RUNS = {
+        stillTraa: { query: '?aa=traa&bare', frames: CONVERGED, keep: [ CONVERGED - 1, CONVERGED ] },
+        heldFixed: { query: '?aa=traa&bare&hold=0.8&morphvel=exact', frames: CONVERGED, keep: [ CONVERGED - 1, CONVERGED ] },
+        heldBroken: { query: '?aa=traa&bare&hold=0.8&morphvel=off', frames: CONVERGED, keep: [ CONVERGED - 1, CONVERGED ] },
+        heldHold: { query: '?aa=traa&bare&hold=0.8&morphvel=hold', frames: CONVERGED, keep: [ CONVERGED - 1, CONVERGED ] },
+        msaaHeld: { query: '?aa=msaa&bare&hold=0.8', frames: 30, keep: [ 29, 30 ] }
+    };
+
+    try {
+
+        server = await probe.startProbeServer( { port: 5185 } );
+        browser = await probe.launchProbeBrowser();
+
+        for ( const [ name, run ] of Object.entries( RUNS ) ) {
+
+            const shot = await probe.capturePlates( {
+                browser, baseUrl: server.baseUrl, query: run.query,
+                width: WIDTH, height: HEIGHT, frames: run.frames, stepSeconds: 0, keep: run.keep
+            } );
+
+            if ( shot.errors.length > 0 ) throw new Error( `${ name }: ${ shot.errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+            runs[ name ] = { plates: shot.frames, keep: run.keep, environment: shot.environment };
+
+        }
+
+    } catch ( error ) {
+
+        report( 'the rendered probe came up on a real GPU', false, `it did not: ${ error.message }` );
+
+    }
+
+    if ( runs.heldFixed !== undefined ) {
+
+        const rms = ( run, rect ) =>
+            probe.temporalRms( run.plates.get( run.keep[ 0 ] ), run.plates.get( run.keep[ 1 ] ), rect );
+
+        const floor = rms( runs.stillTraa, FOREHEAD );
+
+        console.log( `      post.html at ${ WIDTH }x${ HEIGHT }, jawOpen HELD at 0.8, camera still, ` +
+            `converged to frame ${ CONVERGED }.\n      Every honest motion vector in this frame is ZERO, ` +
+            'so every code value of temporalRms is an artefact.\n' );
+
+        console.log( '      morphVelocity   jaw box /255   forehead floor /255   ratio' );
+
+        for ( const [ label, key ] of [ [ 'off (three r185)', 'heldBroken' ], [ 'hold', 'heldHold' ], [ 'exact (ships)', 'heldFixed' ] ] ) {
+
+            const jaw = rms( runs[ key ], JAW );
+            const control = rms( runs[ key ], FOREHEAD );
+
+            console.log( `      ${ label.padEnd( 15 ) } ${ jaw.toFixed( 4 ).padStart( 12 ) }   ` +
+                `${ control.toFixed( 4 ).padStart( 19 ) }   ${ ( jaw / control ).toFixed( 2 ) }x` );
+
+        }
+
+        console.log( `      ${ '4x MSAA'.padEnd( 15 ) } ${ rms( runs.msaaHeld, JAW ).toFixed( 4 ).padStart( 12 ) }   ` +
+            `${ rms( runs.msaaHeld, FOREHEAD ).toFixed( 4 ).padStart( 19 ) }   forward path, no velocity buffer\n` );
+
+        // T1 — the instrument is calibrated. A forward MSAA frame of a static scene must be
+        // bit-identical, or every number above is a measurement of something else moving.
+        {
+            const msaaJaw = rms( runs.msaaHeld, JAW );
+
+            report(
+                'T1 a forward MSAA frame of a static scene is bit-identical, so the instrument reads zero',
+                msaaJaw === 0,
+                `MSAA jaw temporalRms ${ msaaJaw.toFixed( 6 ) }/255 with the same morph held`
+            );
+        }
+
+        // T2 — the fix. Punch-list 3.12's blocker, measured on the real face.
+        {
+            const jaw = rms( runs.heldFixed, JAW );
+            const ratio = jaw / floor;
+
+            report(
+                'T2 a HELD morph produces no temporal artefact beyond the jitter floor',
+                ratio <= HELD_MORPH_CEILING_OVER_FLOOR,
+                `jaw ${ jaw.toFixed( 4 ) }/255 against a floor of ${ floor.toFixed( 4 ) } = ${ ratio.toFixed( 2 ) }x, ` +
+                    `ceiling ${ HELD_MORPH_CEILING_OVER_FLOOR }x`
+            );
+        }
+
+        // T3 — proven red by reintroducing three's own behaviour. `?morphvel=off` is not a mock:
+        // it is the unpatched `NodeMaterial.setupPosition`, i.e. exactly what shipped.
+        {
+            const broken = rms( runs.heldBroken, JAW ) / rms( runs.heldBroken, FOREHEAD );
+
+            report(
+                'T3 rejected: three r185 unpatched, where a held morph reports a constant motion vector',
+                broken > HELD_MORPH_CEILING_OVER_FLOOR,
+                `?morphvel=off reads ${ broken.toFixed( 2 ) }x the floor against the ${ HELD_MORPH_CEILING_OVER_FLOOR }x ceiling ` +
+                    `— ${ ( broken / ( rms( runs.heldFixed, JAW ) / floor ) ).toFixed( 1 ) }x worse than the fix`
+            );
+        }
+
+        // T4 — and broken a DIFFERENT way, which is the check that stops T2 being decorative.
+        // `hold` removes the bogus vector without supplying the true one. On a HELD morph the two
+        // are the same answer and must agree to the code value; if they ever diverge here, one of
+        // them is computing something other than what its name says.
+        {
+            const exact = rms( runs.heldFixed, JAW );
+            const held = rms( runs.heldHold, JAW );
+
+            report(
+                'T4 on a held morph the exact previous weights and the current ones agree, as they must',
+                Math.abs( exact - held ) < 0.05,
+                `exact ${ exact.toFixed( 4 ) } against hold ${ held.toFixed( 4 ) } — the same shader answer by ` +
+                    'construction, so a disagreement means the previous-weight bookkeeping is off by a frame'
+            );
+        }
+
+        // T5 — THE STILL-PLATE TRAP, asserted rather than warned about.
+        {
+            const early = probe.silhouetteCrossings( runs.stillTraa.plates.get( CONVERGED - 1 ), { y: 300, x0: 2, x1: WIDTH - 2 } );
+
+            report(
+                'T5 this gate measured a sequence, not a still plate',
+                runs.stillTraa.keep.length >= 2 && CONVERGED >= 60,
+                `${ CONVERGED } rendered frames before the reading. A temporal filter has no history on ` +
+                    'frame 1 and measures like no antialiasing at all — alive.html reads G4 4.2351 at frame 1 ' +
+                    `and 2.8352 at frame 300 on the SAME static scene. Row 300 carries ${ early.crossings } ` +
+                    `partial pixels across ${ early.transitions } transitions at convergence.`
+            );
+        }
+
+    }
+
+    await browser?.close();
+    await server?.close();
+
 }
 
 console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' }: ${ checks - failures }/${ checks } checks green\n` );

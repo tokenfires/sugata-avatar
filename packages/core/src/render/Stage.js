@@ -55,6 +55,7 @@ import {
 import { pass, renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
 
 import { channelDisplayNode, channelGridNode, GBuffer } from './GBuffer.js';
+import { installMorphVelocity, MORPH_VELOCITY_MODES, setMorphVelocityMode } from './MorphVelocity.js';
 import { createTemporalResolve, TAAU_RESOLUTION_SCALE, TEMPORAL_AA_MODES } from './TRAAPost.js';
 
 const MAX_PIXEL_RATIO = 2;
@@ -92,6 +93,7 @@ export class Stage {
         this.temporal = null;
         this.grade = null;
         this.multisampled = false;
+        this.morphVelocity = 'off';
 
         // Sizing state. We re-read devicePixelRatio on every viewport update rather than
         // caching it, because dragging a window between a Retina and an external display
@@ -146,6 +148,11 @@ export class Stage {
      * @param {?number} [options.sharpness] - RCAS strength for the temporal path, in
      *   `SharpenNode`'s scale (0 maximum, 2 none). `null` removes the pass; omit for the
      *   measured default in `TRAAPost.js`.
+     * @param {'off'|'hold'|'exact'} [options.morphVelocity='exact'] - Whether morph targets get a
+     *   previous-frame position. three r185 gives them none, which makes a HELD expression report
+     *   a large constant motion vector; `render/MorphVelocity.js` has the mechanism and the
+     *   measurements. `off` is three's behaviour and exists as the rejection proof. Inert on the
+     *   forward path, where nothing binds a velocity attachment.
      * @param {number} [options.maxPixelRatio=2] - Upper bound on devicePixelRatio.
      * @param {number} [options.fieldOfView=35] - Vertical FOV in degrees. Portrait range is 24-40.
      * @param {number} [options.near=0.01]
@@ -191,6 +198,19 @@ export class Stage {
         }
 
         this.multisampled = options.antialias === true;
+
+        // Installed before any material compiles, because it is a vertex-stage assignment and a
+        // material built earlier would keep three's broken previous position for its whole life.
+        this.morphVelocity = options.morphVelocity ?? 'exact';
+
+        if ( MORPH_VELOCITY_MODES.includes( this.morphVelocity ) === false ) {
+
+            throw new Error( `Stage: morphVelocity must be one of ${ MORPH_VELOCITY_MODES.join( ', ' ) }.` );
+
+        }
+
+        if ( this.morphVelocity === 'off' ) setMorphVelocityMode( 'off' );
+        else installMorphVelocity( this.morphVelocity );
 
         const wantsWebGPU = options.forceWebGL !== true && this.isWebGPUAvailable();
 
@@ -417,6 +437,7 @@ export class Stage {
             deferred: this.renderPipeline !== null,
             msaa: this.multisampled,
             temporalAA: this.temporal === null ? 'off' : this.temporal.mode,
+            morphVelocity: this.morphVelocity,
             graded: this.grade !== null,
             resolutionScale: this.resolutionScale,
             fps: this.fps,

@@ -62,25 +62,40 @@ export const TEMPORAL_AA_MODES = [ 'off', 'traa', 'taau' ];
 export const TAAU_RESOLUTION_SCALE = 0.66;
 
 /**
- * RCAS sharpness, in `SharpenNode`'s own scale where **0 is maximum sharpening and 2 is none**.
+ * RCAS sharpness for the resolve, in `SharpenNode`'s scale where **0 is maximum and 2 is none**.
  *
- * A temporal resolve is a low-pass filter, and this project has a gate that measures exactly the
- * band it removes: G4 asks the flat-skin 5x5 high-pass sigma to land in 1.5-2.1/255. Measured on
- * `post.html?bare` at 900x1200, `regions.lighting-portrait.json`, sigma per 255 at the reference
- * width:
+ * 🎯 **It is `null` — the temporal resolve does not sharpen — and that is a change made on a
+ * measurement, not on taste.** It used to be 0.4, and 0.4 put gate G4 outside the look spec's own
+ * band. Measured 2026-08-08 on `alive.html?bare&freeze` at **3840x5120**, which is the width G4's
+ * 1.5-2.1/255 band is stated at, converged to frame 60 with a zero simulation step:
  *
- *   | mode                    | G4 sigma | silhouette maxStep |
- *   |-------------------------|----------|--------------------|
- *   | no AA                   |  1.6357  |             0.9868 |
- *   | 4x MSAA (what ships)    |  1.6366  |             0.7933 |
- *   | TRAA                    |  1.1914  |             0.7284 |
- *   | TAAU 0.66               |  0.6341  |             0.5703 |
+ *   | configuration                                  | G4 sigma /255 | verdict |
+ *   |------------------------------------------------|---------------|---------|
+ *   | 4x MSAA, forward (what ships today)            |    1.7457     | PASS    |
+ *   | TRAA + grade, RCAS 0.4 HERE (the old default)  |    2.3867     | **FAIL** |
+ *   | TRAA + grade, no sharpen anywhere              |    1.8893     | PASS    |
+ *   | TRAA + grade, RCAS 0.2 in the GRADE            |    2.6611     | **FAIL** |
+ *   | TAAU 0.66 + grade, RCAS 0.4 HERE               |    1.7799     | PASS    |
+ *   | TAAU 0.66 + grade, RCAS 0.2 in the grade       |    1.9034     | PASS    |
  *
- * FSR2 pairs its temporal upscale with RCAS for precisely this reason, so the pairing is the
- * reference design rather than a patch. The default is tuned by measurement, not by eye — see the
- * sweep in the round report.
+ * A temporal resolve is a low-pass filter and FSR2 pairs its upscale with RCAS to get the detail
+ * back, so a sharpen is the reference design — but the amount matters and this rig did not need
+ * one. At full input resolution TRAA removes 25% of the flat-skin high-pass band (2.1871 -> 1.6318
+ * measured at 900 px with everything else fixed), and the grade's tone curve gives most of it back:
+ * TRAA + grade with **no** sharpen lands at 1.8893, mid-band. Adding either RCAS on top overshoots.
+ *
+ * `TAAUNode` at 0.66 removes 61% (2.1871 -> 0.8428) and does want one — so `taau` callers should
+ * pass a sharpness explicitly, and `TRAAPost.selftest.mjs` prints the table above rather than
+ * letting the next reader rediscover it.
+ *
+ * ⚠️ And a claim that used to justify the placement DOES NOT REPRODUCE. `Grade.js` recorded that
+ * RCAS 0.4 run here, in linear HDR, took the iris to luma 0.4159 / saturation 0.1268 against
+ * 0.1237 / 0.2997 unsharpened — "a brown iris rendering grey". Re-measured on the same page and
+ * the same rect, converged: **0.1164 / 0.4032 with it and 0.1169 / 0.4086 without**, a 1.3%
+ * difference in saturation, not a 2.4x one. The sharpen IS in the graph — it moves G4 by 1.26x —
+ * it simply does not do that to the iris. See `Grade.js`'s header, corrected.
  */
-export const DEFAULT_SHARPNESS = 0.4;
+export const DEFAULT_SHARPNESS = null;
 
 /**
  * Builds the temporal resolve for one `Stage`.
@@ -95,7 +110,8 @@ export const DEFAULT_SHARPNESS = 0.4;
  * @param {Camera} options.camera - The same camera the scene pass renders with. The node writes
  *   a per-frame view offset onto it, so it must not be a copy.
  * @param {?number} [options.sharpness] - RCAS strength, 0 = maximum and 2 = none. `null` skips
- *   the sharpen pass entirely; omit it to get `DEFAULT_SHARPNESS`.
+ *   the sharpen pass entirely, which is now the default — see `DEFAULT_SHARPNESS` for the G4
+ *   table that decided it. `taau` callers should pass a number; `traa` callers should not.
  * @returns {{ node: Node, mode: string, dispose: function(): void, setVelocityConfidence: function(number): void }}
  */
 export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
