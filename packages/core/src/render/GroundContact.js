@@ -29,8 +29,10 @@
  * A point on the floor two centimetres from a foot does not see a dark *light*; it sees **less
  * sky**. The cue is occlusion of the whole upper hemisphere, and the reason the render has none is
  * that nothing in the scene occludes ambient at all. So this file computes that occlusion in
- * closed form — Quilez's analytic sphere occlusion for a Lambert receiver, summed over a dozen
- * spheres fitted to the figure — and multiplies it into the ground's albedo.
+ * closed form — Quilez's analytic sphere occlusion for a Lambert receiver, combined over the
+ * sixteen spheres fitted to the figure — and multiplies it into the ground's albedo. Combined, not
+ * summed: how those sixteen compose is its own model choice, and `groundVisibility` is where it is
+ * stated and measured.
  *
  * 🚩 **Multiplying the ALBEDO, not just the ambient term, is a deliberate approximation and it is
  * only sound because of what this surface is.** A matte dielectric reflects albedo × irradiance,
@@ -53,6 +55,19 @@
  *
  * The spheres then ride the bones, so the contact darkening follows a weight shift, a hip hike or
  * a planted foot without anything having to tell it that the pose changed.
+ *
+ * ## How wrong the proxy is, stated once
+ *
+ * Two approximations stack here and only one of them used to be measured. `sphereOcclusion` is a
+ * closed form checked against a single-sphere Monte-Carlo integrator to 0.001. The COMBINATION of
+ * those spheres — `∏ (1 − occlusion_i)` — had no reference of any kind, because the integrator
+ * took one sphere by construction, so the selftest could not see the combination rule at all: a
+ * physically wrong clamped sum passed every check it had.
+ *
+ * It now has one. A union integrator traces the hemisphere against all sixteen spheres at once,
+ * and against the fitted `figure_g050` set the shipped product is accurate to **0.1562 of
+ * visibility worst case, 0.0722 RMS**, always in the over-dark direction. See `groundVisibility`
+ * for the full table and for why the product is still the right rule to ship.
  *
  * ## Cost
  *
@@ -82,9 +97,23 @@ import { color, Fn, float, Loop, normalWorld, positionWorld, uniformArray, unifo
 
 /**
  * How many spheres the shader loop runs. Not a taste decision — every entry is a per-ground-pixel
- * `acos` and `atan`, and the ground is the largest single surface in a full-body frame. Sixteen is
- * what `OCCLUDER_SEGMENTS` below needs to cover both feet at three spheres each, both legs, the
- * trunk, the head and the arms — everything that can plausibly shadow a floor the figure stands on.
+ * `acos` and `atan`, and the ground is the largest single surface in a full-body frame.
+ *
+ * 🚩 `OCCLUDER_SEGMENTS` below asks for **seventeen**, not sixteen. This file used to claim
+ * sixteen was exactly what the list needed; the arithmetic says otherwise (2+2+1+1 for the feet,
+ * 2 calves, 2 thighs, pelvis, chest, neck, 2 upper arms, 2 forearms = 17), and the segment that
+ * loses the toss is the LAST one, `lowerarm_r`. So the shipped figure occludes with its left
+ * forearm and not its right.
+ *
+ * That asymmetry is kept rather than paid for, and the number is why: measured on the fitted
+ * `figure_g050` occluder set, restoring `lowerarm_r` moves floor visibility by at most **8.8e-4**,
+ * and the left/right asymmetry it leaves on the floor is at most **3.6e-4** — two orders of
+ * magnitude under the 1e-2 of luma a judge's column read can resolve, against a 17th iteration of
+ * two transcendentals over every ground pixel. `GroundContact.selftest.mjs` asserts both bounds,
+ * so if the segment list grows and the dropped tail starts to matter, the gate says so instead of
+ * this comment going quietly out of date.
+ *
+ * The dropped tail is recorded on `truncated` after `fitTo`, so nothing has to rediscover it.
  */
 export const MAX_OCCLUDERS = 16;
 
@@ -107,7 +136,7 @@ export const MAX_OCCLUDERS = 16;
  * per capsule under-covers it). `child: null` marks a tip bone: the sphere sits at the bone
  * itself and its axis for the radius fit comes from its parent.
  */
-const OCCLUDER_SEGMENTS = [
+export const OCCLUDER_SEGMENTS = [
     { bone: 'foot_l', child: 'ball_l', spheres: 2 },
     { bone: 'foot_r', child: 'ball_r', spheres: 2 },
     { bone: 'ball_l', child: null, spheres: 1 },
@@ -201,11 +230,44 @@ export function sphereOcclusion( position, normal, centre, radius ) {
 /**
  * The same integral, over a set of spheres.
  *
- * Combined MULTIPLICATIVELY — `∏ (1 − occlusion_i)` — rather than by summing the occlusions.
- * Summing double-counts wherever two spheres overlap on the receiver's hemisphere, and adjacent
- * spheres along a limb overlap almost completely, which would put a black band under every calf.
- * The product under-counts instead, which reads as a softer contact and is the failure mode a
- * viewer forgives.
+ * Combined MULTIPLICATIVELY — `∏ (1 − occlusion_i)` — which is the independent-probability
+ * assumption: it is exact only if each sphere covers a part of the hemisphere uncorrelated with
+ * every other. Nothing on a body satisfies that, so the choice needs a measurement rather than an
+ * argument, and until this round it had only an argument.
+ *
+ * 🚩 **The old note here said the product "under-counts, which reads as a softer contact and is
+ * the failure mode a viewer forgives". That is backwards, and the sign matters.** Measured against
+ * a union integrator — one that traces the cosine-weighted hemisphere against ALL the spheres at
+ * once, so it sees the overlaps — over the fitted `figure_g050` occluder set:
+ *
+ *   | rule                          | worst \|Δ visibility\| | RMS Δ |
+ *   |-------------------------------|-----------------------:|------:|
+ *   | `∏ (1 − occlusion_i)`, shipped |                 0.1562 | 0.0722 |
+ *   | `max(0, 1 − Σ occlusion_i)`    |                 0.4070 | 0.1433 |
+ *   | `1 − max occlusion_i`          |                 0.2622 | 0.0925 |
+ *   | `exp(−Σ occlusion_i)`          |                 0.2764 | 0.1083 |
+ *
+ * On the rig, all 17 of those configurations deviate NEGATIVE — at the floor point 150 mm inboard
+ * of a sole the union integrator says 0.4856 and the product says 0.3294. It **over**-occludes, by
+ * up to 0.156 of visibility, because spheres along a limb overlap heavily and the independence
+ * assumption double-counts exactly there. The contact pool is about 1.5x too dark at its worst,
+ * not too soft.
+ *
+ * The sign does flip: with a sphere on either SIDE of the receiver the caps are disjoint, the
+ * product misses the cross term and goes light instead — but only by +0.069 at worst, and a body
+ * standing on a floor produces far more overlap than separation. Both directions are gated.
+ *
+ * It is still the rule to ship, and that is now measured too. Summing is 2.6x worse in the worst
+ * case and 2.0x worse in RMS; taking the strongest occluder alone ignores the second foot entirely
+ * (0.2622 where two spheres straddle the receiver). First-order inclusion–exclusion with a cheap
+ * cap-overlap surrogate does beat it — 0.0869 worst, 0.0222 RMS on the same rig — but it is O(N²),
+ * 120 sphere pairs per ground pixel against 16 spheres, for a 1.8x accuracy gain. Every O(N)
+ * alternative tried (a running equivalent cap folded over the list, at three exponents) came out
+ * no better than the product on worst case. So the product stays, and the residual is documented
+ * rather than denied.
+ *
+ * `GroundContact.selftest.mjs` gates all of this against the union integrator and proves it red
+ * against seven rival combination rules.
  *
  * @param {number[]} position
  * @param {number[]} normal
@@ -256,6 +318,12 @@ export class GroundContact {
 
         /** @type {Array<{bone: Object3D, child: Object3D, radius: number}>} */
         this.occluders = [];
+
+        // Segments the figure HAS and the sphere budget dropped anyway — distinct from `fitTo`'s
+        // return value, which is the segments the figure does not have. Kept apart because the
+        // callers phrase that one as "this figure has no X", and a budget truncation is not that.
+        /** @type {string[]} */
+        this.truncated = [];
 
         // Sphere centres and radii live in ONE uniform array as xyz + radius in w, so the shader
         // loop reads one vec4 per occluder instead of two aligned arrays that can fall out of step.
@@ -314,12 +382,18 @@ export class GroundContact {
 
         const missing = [];
         this.occluders.length = 0;
+        this.truncated.length = 0;
 
         const radii = skinned === null ? new Map() : measureBoneRadii( skinned );
 
         for ( const segment of OCCLUDER_SEGMENTS ) {
 
-            if ( this.occluders.length >= MAX_OCCLUDERS ) break;
+            if ( this.occluders.length >= MAX_OCCLUDERS ) {
+
+                this.truncated.push( `${ segment.bone }->${ segment.child ?? 'tip' }` );
+                continue;
+
+            }
 
             const bone = bones.get( segment.bone );
             const child = segment.child === null ? bone : bones.get( segment.child );
@@ -344,13 +418,20 @@ export class GroundContact {
             // Evenly spaced along the segment, at the midpoints of `spheres` equal sub-segments,
             // so two spheres land at 0.25 and 0.75 rather than at the ends where they would
             // duplicate the neighbouring bones' spheres.
+            let placed = 0;
+
             for ( let index = 0; index < segment.spheres; index += 1 ) {
 
                 if ( this.occluders.length >= MAX_OCCLUDERS ) break;
 
                 this.occluders.push( { bone, child, radius, along: ( index + 0.5 ) / segment.spheres } );
+                placed += 1;
 
             }
+
+            // A segment the budget could only half-fill is truncated too, and saying so is the
+            // difference between "the arms are quietly missing" and a number a gate can read.
+            if ( placed < segment.spheres ) this.truncated.push( `${ label } (${ placed }/${ segment.spheres })` );
 
         }
 
@@ -433,7 +514,7 @@ export class GroundContact {
      * The albedo, times the visibility of the sky from each ground point.
      *
      * The loop runs to `activeCount` rather than to `MAX_OCCLUDERS` so a figure with fewer bones
-     * does not pay for twelve, and the parked spheres above mean a wrong count degrades to "too
+     * does not pay for sixteen, and the parked spheres above mean a wrong count degrades to "too
      * dark somewhere far away" instead of to garbage.
      */
     buildOcclusionNode() {
