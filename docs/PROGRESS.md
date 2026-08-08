@@ -12,7 +12,13 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: 2026-08-08 — a docs-and-instrument audit. **Six statements in these files were measured FALSE and are corrected below; treat any number here without a re-run date behind it as a claim, not a fact.** Punch-list 2.11 closed (all four motion layers now frame-rate invariant, gated both ways). Punch-list 3.3's G2 gate went **red** on re-measurement and is reopened. `measure.mjs` gained page provenance and the chroma half of G2; `capture.mjs`'s reproducibility check was found to be a false-negative generator and now reports a magnitude. The project's 1.6 px "indistinguishability floor" turns out never to have been measured — see LEARNINGS §1.14a.
+Last updated: **2026-08-08, second docs-and-instrument pass, build `c70195c`.**
+
+**🎯 The finding of this round: `?freeze` is INERT under `?capture`, so most of the still-plate numbers in these docs are measurements of a moving figure.** `alive.js`'s rAF path guards `advanceSimulation` with `if ( frozen === false )`; `window.__SUGATA_STEP__`, the clock `capture.mjs` drives, does not. `?freeze&capture` is byte-identical to `?capture`, and one step at 30 fps already puts the head at 0.83° of gaze yaw with the 11×6 px G2 rect walking toward the iris. Re-taken free-running at each gate's own reference width, **six of the seven objective gates are green** (G1 1.6265, G2 0.9372, G3 pass, G4 1.7469, G5 pass, G7 0.0739%, G6 the one red), and G2's famous "seed lottery" turns out to be a property of the capture recipe — free-running, four seeds produce one byte-identical PNG. **Punch-list 3.3's G2 gate is green again on the recipe its region file was authored against.**
+
+**The instrument gained two-sidedness and stopped guessing.** G1 was `< 2.00` only, so 1.344 linear read green against a reference band of 1.43–1.64; it is now two-sided and says which end. G2's hue clause folded the colour circle (`min(hue, 360−hue)`), so a magenta sclera beside an orange cheek passed; it now asserts the side, with the neutral zone derived from the reference sclera's own 2.791° from red so the clause provably cannot reject the spec's palette. `travel.mjs`'s auto threshold was three underived constants that put the cut at 0.1938 on a histogram whose valley is at 0.3588 — which is why a judge pinned `--threshold 0.30` by hand on every measurement; it is now Otsu's cut with a separability refusal, and it **refuses to guess** rather than reporting the centroid of the lit side of a cheek as travel.
+
+**Treat any number in this file without a re-run date behind it as a claim, not a fact** — and check the RECIPE and the WIDTH beside the page. Earlier this day: punch-list 2.11 closed (all four motion layers frame-rate invariant, gated both ways); `measure.mjs` gained page provenance and the chroma half of G2; `capture.mjs`'s reproducibility check was found to be a false-negative generator and now reports a magnitude. The project's 1.6 px "indistinguishability floor" turns out never to have been measured — see LEARNINGS §1.14a.
 
 ---
 
@@ -74,12 +80,80 @@ the emote critic loop run in parallel with renderer work.
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
 | 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ✅ 2.11 CLOSED 2026-08-08 — all four layers are frame-rate invariant and each rejects a `frameCoupledArrivals` reintroduction |
-| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.4, 3.8, 3.11, 3.16 done; 3.2 half; 3.3 REOPENED (G2 red, and the region rect is a lottery — see below).** 3.12 and 3.13 built, gated and now REACHABLE ON `alive.html` behind `?aa=` / `?grade=1`, not default. Hair, cloth and AO not started |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.4, 3.8, 3.11, 3.16 done, each with a gate and a measured number in PUNCHLIST.** 3.2 half green (G4 1.7469 PASS at 3840; the terminator half needs 3.2b). **3.3's G2 is GREEN again** on a genuinely frozen plate — the reds were `?capture` artefacts — and stays `[~]` pending a visual judge. 3.9, 3.12, 3.13, 3.17, 3.18 all **built and committed** (`SkinOcclusion`, `TRAAPost` + `MorphVelocity`, `Grade`, `GroundContact`, `SkinRegions`); the four "built and uncommitted" notes were stale. None is done: 3.12 blocked on the MSAA/TRAA exclusion, 3.13 on G6 measuring eyelashes, 3.9/3.17/3.18 on having no MEASURED plate result. Hair, cloth and AO not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started |
+
+### 2026-08-08, second pass — `?freeze` was inert under `?capture`, and three gates were half-blind
+
+**🎯 The page renders differently free-running than under `?capture`, and that is a defect rather than a curiosity.**
+Full derivation and the three-way proof are in LEARNINGS §1.19a; the consequence for this file is
+that **most still-plate numbers recorded above were taken through `?capture` and are therefore
+measurements of a figure already in motion.** One step at 30 fps puts the head at 0.83° of gaze
+yaw; four steps put it at 7.18° and drag G1 from 1.5976 to 1.2106. Re-taken free-running at each
+gate's own reference width on `alive.html?bare&freeze&seed=1`:
+
+| gate | measured | verdict | note |
+|---|---|---|---|
+| G1 | 1.6265 linear | PASS | inside the 1.43–1.64 band; **1.5547 at body framing**, where 1.2104 was recorded |
+| G2 | 0.9372 luma, 1.29× sat | **PASS, all four clauses** | 0.9200 at 900 px; four seeds byte-identical |
+| G3 | saturation rises, hue reddens | PASS | still cannot certify a material — passes on stock too |
+| G4 | **1.7469** /255 at 3840 px | PASS | mid-band. The same plate reads 2.1849 at 900 px, where the band does not apply |
+| G5 | 0.0002% clipped | PASS | |
+| G6 | 0.00001 | **FAIL** | `?cards=0` → 0.00393. It is measuring eyelashes, not a black point |
+| G7 | 0.0739% of the band | PASS | |
+
+**Six of seven, and G6's red is the instrument.** Diff request filed against
+`packages/testbed/src/alive.js` for the `?freeze`/`?capture` contradiction.
+
+**Three gates were one-sided or folded, and are not any more.**
+
+1. **G1 was `< 2.00` and nothing else.** The spec states the parameter as a range — *"KEY : FILL on
+   face 1.2:1 to 2.0:1"* — and only the ceiling was transcribed, so **1.344 linear read PASS**
+   against a computed reference band of 1.43–1.64 that the tool printed beside the verdict without
+   enforcing. Now two-sided against the band's own floor, reporting **which side** ("TOO FLAT" /
+   "TOO CONTRASTY"), proven red at 1.344 *and* at a dead-flat 1.000 — which is what this page's old
+   inline rig actually measured — and proven not to reject the spec's own reference pair at 1.6344.
+2. **G2's hue clause folded the colour circle.** `hueDistanceFromRed` returns `min(hue, 360 − hue)`,
+   which throws away the side, and the clause was explicitly defended on that symmetry. The defence
+   is wrong about the reference: the spec's two hexes are on the **same** side of red — sclera
+   `#9D7274` at 357.209° and cheek `#96767D` at 346.875°, both magenta-of-red — so co-siding is a
+   measured property of the published palette rather than an invented band. A magenta sclera beside
+   an orange cheek passed the ordinal clause outright and is now caught. The neutral zone is the
+   reference sclera's **own** 2.791° from red, which makes it provable that the clause cannot
+   reject the palette it came from — asserted, not assumed. It also closed a false pass the file's
+   own hue sweep had been printing as a survivor at 15°.
+3. **`travel.mjs`'s auto threshold guessed, and guessed wrong.** `p5 + 0.20·(p99 − p5)` — three
+   constants, none derived from the image — put the cut at **0.1938** on a frame whose histogram
+   valley is at **0.3588**, which is why a judge pinned `--threshold 0.30` by hand on every
+   measurement it took. It survived by being robust rather than right: the silhouette edge is steep,
+   so being 85% of the way to the wrong answer still catches the same pixels (0.04 px of head travel
+   on a 4.22 px SD). Where it is not robust it failed silently — on a crop with no backdrop in it
+   the cut moved 3.54× and the "silhouette" became the lit 80% of a patch of skin, whose centroid
+   tracks the lighting. Replaced by **Otsu's cut** (no free constant) plus a **separability
+   refusal**: η below 0.90 and the tool says *"REFUSED TO GUESS"* and exits 1. Floor sized from
+   measurement — six real framings score 0.9542–0.9790, the degenerate crop 0.7132. Verified the
+   change does not move the repo's recorded travel: `captures/r5-body` head SD 11.44 → 11.36 px.
+
+**`measure.mjs`'s plate identity was also wrong in one specific way**: `canonicalPageKey` stripped
+`capture` from a page key on the ground that it is a delivery mechanism. It is the flag that decides
+whether `?freeze` works, so two recipes shared one key and the G2 reproduction check would have
+called a correct free-running plate a drift.
+
+**Gate counts after the round:** `tools/critic/selftest.mjs` **235/235** (was 208),
+`travel.selftest.mjs` **126/126** (was 113), `heatmap.selftest.mjs` 57/57. Six of the counts
+recorded in LEARNINGS Part 3 had drifted and five files were missing from that list entirely.
+⚠️ **Every selftest in the repo exited 0 on a clean `c70195c` at the start of this pass, and forty
+minutes later — same session, three other agents mid-save — `Grade.selftest.mjs` read 37/44 exit 1
+and `TRAAPost.selftest.mjs` 5/6 exit 1, while `GroundContact` went 31 → 36 and `LightingRig`
+38 → 46.** Almost certainly half-written files rather than regressions, but nothing in the run
+could tell the two apart. **The integrator must re-run the full set once the tree stops moving;
+do not read either colour above as a verdict.** LEARNINGS Part 3.
+
+---
 
 ### 2026-08-08 — the docs were audited against execution, and the instrument was audited against itself
 
@@ -104,8 +178,12 @@ what kind of error it is prone to.
 | `gaze.head`'s residue "is a **roll** contribution" | PROGRESS, open leads | roll is 0.661° SD = 1.2 mm; the slide was **9.22 mm** and it was **yaw through a 47 mm lever**. Fixed in `1df749b`, left standing as a live lead for two rounds |
 | "the three remaining frame-coupled layers — `Gaze.js:1100`, …" | PUNCHLIST:103 | **two**, then **zero**. Gaze was already converted, and `Gaze.js:1100` never held the call |
 | "a concurrent agent's file edit will kill a long browser capture" | LEARNINGS §1.12 | **false since `capture.mjs` started its own un-watched vite.** Proven both ways: default vite sends `full-reload` and destroys the context; the tool's settings send nothing and it survives |
-| G2 sclera:cheek **0.9641** on `alive.html`, gate green | PROGRESS + PUNCHLIST 3.3 | **0.8127, FAIL** — and it is a distribution: 0.8127 / 0.9627 / 0.9736 / 0.4384 over four seeds. ⚠️ 2026-08-08: the spread is real but the recipe printed beside it is not — `?bare&freeze` with no `?preroll` is seed-inert, proven byte-identical across three seeds |
-| "the eye shader makes G2 worse … −0.062 of ratio", from `?eyes=0` | PROGRESS 3.3, added the same day | **the control was compound.** `?eyes=0` removed the occlusion sheet too (`eyeOcclusion 4 → 0`), and the two subsystems pull opposite ways on the luma half. Isolated: shader **+0.0388** luma and **+0.5876** saturation ratio. Fixed in `alive.js`; gated by `alive-toggles.selftest.mjs` |
+| G2 sclera:cheek **0.9641** on `alive.html`, gate green | PROGRESS + PUNCHLIST 3.3 | **Resolved 2026-08-08 and the gate is green again.** The red readings (0.8127, then 0.7836, and the four-seed spread) were all taken through `?capture`, which ignores `?freeze` and advances the simulation. Free-running `?bare&freeze&seed=1`: **0.9372 PASS at 3840 px, 0.9200 at 900 px, and byte-identical across four seeds** |
+| "the eye shader makes G2 worse … −0.062 of ratio", from `?eyes=0` | PROGRESS 3.3, added the same day | **the control was compound.** `?eyes=0` removed the occlusion sheet too (`eyeOcclusion 4 → 0`), and the two subsystems pull opposite ways on the luma half. Isolated: shader **+0.0388** luma (dpr 2) / **+0.0414** (dpr 1) and **+0.5876** saturation. Fixed in `alive.js`; gated by `alive-toggles.selftest.mjs` 16/16. Re-challenged for reversing sign under `?capture` and **upheld** — see the four-recipe table below |
+| `?freeze` "pins the POSE but not the ocular or postural layers" | LEARNINGS §1.20, `measure.mjs`'s G2 warning | **false on the rAF path and true only under `?capture`.** Free-running, `?freeze` pins everything: four seeds, one byte-identical PNG. `__SUGATA_STEP__` advances the simulation regardless of the flag, so `?freeze&capture` ≡ `?capture` byte for byte |
+| G1 "< 2:1", one-sided | `measure.mjs`, PUNCHLIST 3.8 | the spec states the parameter as a **range** — "KEY : FILL on face 1.2:1 to 2.0:1" — and only the ceiling was gated, so **1.344 linear read PASS** against a reference band of 1.43–1.64. Two-sided since 2026-08-08; body framing, recorded here as 1.2104, now measures **1.5547** |
+| `travel.mjs`'s auto threshold | tool + LEARNINGS Part 3 | `p5 + 0.20·(p99 − p5)` put the cut at **0.1938** where the histogram's valley is at **0.3588**, and returned a cut even on a frame with no valley — an all-figure crop got 0.6852 catching 79.8%, inside the plausible band, no warning. Otsu + a separability refusal since 2026-08-08 |
+| eleven selftest check counts in LEARNINGS Part 3 | LEARNINGS Part 3 | **six had drifted and five files were missing entirely.** Gaze 112→114, sway 194→208, GroundContact "untracked"→31, EyeMaterial 131→132, critic 125→235, travel 111→126; absent: SkinRegions 29, Grade 28, TRAAPost 6, Toksvig 9, alive-toggles 16 |
 
 Two of those had already been *corrected elsewhere in the same file* and left standing in the
 place a reader looks first. **A number that appears twice will be updated once.**
@@ -270,18 +348,28 @@ lobe. What actually closes a cheek terminator is the *other* technique — separ
 over the G-buffer's `sssMask` channel, which this material already writes and nothing else does.
 New punch-list item 3.2b.
 
-**3.3 / 3.4 `material/EyeMaterial.js` + `EyeOcclusion.js` + `EyeCatchlight.js` — 🔴 THE G2 HALF IS
-NO LONGER GREEN, AND IT WAS NEVER ONE NUMBER.** The record below says sclera **0.9361×** cheek on
-`eye.html` and **0.9641×** on the integrated `alive.html`. Re-measured 2026-08-08 on
-`alive.html?bare&freeze` at 900×1200 with the committed `regions.lighting-portrait.json`, G2 reads
-**0.8127** — outside the 0.92–1.04 band, **FAIL** — and the whole framing of the claim is wrong for
-two independent reasons:
+**3.3 / 3.4 `material/EyeMaterial.js` + `EyeOcclusion.js` + `EyeCatchlight.js` — ✅ THE G2 HALF IS
+GREEN AGAIN, AND THE WHOLE RED EPISODE WAS A RECIPE.**
 
-1. **It is a distribution, not a number.** `?freeze` pins the pose but not the ocular or postural
-   layers, whose first-frame state comes from the seed, and the sclera rect is 11×6 px on an eye
-   ~40 px across. One frame, four seeds, nothing else changed: **0.8127 / 0.9627 / 0.9736 /
-   0.4384** at seeds 1 / 42 / 4242 / 20260807. A 2.2× spread; two of four pass; at 20260807 the
-   rect has walked onto the iris. The 0.9641 this item was marked done on is one draw of that.
+⚠️ **This block is kept as the record of how it was diagnosed. Its verdict is superseded by the
+recipe table below it.** What it got right: G2 is a small-rect gate over an animating figure and
+must be quoted as a distribution. What it got wrong: it attributed the distribution to `?freeze`.
+
+**Current state, 2026-08-08, build `c70195c`, `alive.html?bare&freeze&seed=1` free-running (no
+`?capture`), committed `regions.lighting-portrait.json`: G2 PASSES all four clauses — luma
+0.9372 at 3840 px and 0.9200 at 900 px, saturation 1.29×, sclera more saturated than cheek, sclera
+and cheek on the same side of red. Four seeds return one byte-identical PNG.**
+
+The block as it stood:
+
+1. ~~**It is a distribution, not a number.**~~ **HALF WITHDRAWN.** The distribution is real and it
+   belongs to `?capture`, not to `?freeze`. `?freeze` pins everything on the rAF path — measured
+   byte-identical across seeds 1 / 42 / 4242 / 20260807, one sha256 — while `__SUGATA_STEP__`
+   advances the simulation whether or not the flag is set. Under `?bare&freeze&capture` stepped one
+   frame the four seeds read **0.7836 / 0.9189 / 0.9292 / 0.4390** and the recorded quartet
+   (0.8127 / 0.9627 / 0.9736 / 0.4384) is that same recipe two builds ago. The sclera rect really
+   is 11×6 px on a ~40 px eye and really does walk onto the iris — after the head has moved, which
+   on a genuinely frozen plate it has not.
 2. ~~**The eye shader makes G2 WORSE on this page, not better.**~~ **WITHDRAWN 2026-08-08 — the
    control was compound and the sign does not survive isolation.** `?eyes=0` returned before both
    `new EyeMaterial()` *and* `buildEyeOcclusion()`, so it removed the eye shader **and the four
@@ -308,9 +396,57 @@ two independent reasons:
    only reason the chroma half is inside its band at all. The recorded −0.062 was a sum, and a sum
    whose two terms partly cancel.
 
-   ⚠️ The absolute level here (0.9203) is not the 0.8127 recorded above, and the reason is
-   instrument state rather than disagreement — see the seed note below. The *difference* between
-   two plates from one page load is the attributable quantity; neither absolute number is.
+   ### ✅ THAT TABLE WAS CHALLENGED FOR REVERSING SIGN UNDER `?capture`. IT SURVIVES; `?capture` DOES NOT.
+
+   **The challenge was correct about the symptom.** Re-run 2026-08-08 at build `c70195c`, one
+   un-watched vite, one browser, sixteen plates, the four states above taken under four recipes:
+
+   | recipe | shipped | `?eyeocc=0` | `?eyes=0` | both off | **shader's luma contribution** |
+   |---|---:|---:|---:|---:|---:|
+   | free-running, dpr 2 — *the table above* | 0.9203 | 0.9449 | 0.8815 | 0.9086 | **+0.0388** |
+   | free-running, dpr 1 | 0.9200 | 0.9444 | 0.8786 | 0.9056 | **+0.0414** |
+   | `?capture`, 1 step, dpr 1 | 0.7836 | 0.7844 | 0.8431 | 0.8441 | **−0.0595** |
+   | `?capture`, 1 step, dpr 2 | 0.7841 | 0.7850 | 0.8343 | 0.8353 | **−0.0502** |
+
+   The table above **reproduces to four decimal places** on a free-running load and **reverses
+   sign** under `?capture`. Device pixel ratio is worth 0.0003 and is not the cause.
+
+   **The cause is a defect, and it is not in the eye.** `?freeze` is **inert under `?capture`**:
+   `alive.js`'s rAF path guards `advanceSimulation` with `if ( frozen === false )` and
+   `window.__SUGATA_STEP__` — the clock `capture.mjs` drives — does not. Proven three ways:
+
+   - `?bare&freeze&capture&seed=1` and `?bare&capture&seed=1` are **byte-identical** at 1, 4 and
+     30 steps, and both report head gaze yaw `0.8348870263049992` at step 1.
+   - `?capture` is **only a clock**: six steps at 60 fps is byte-identical to free-running
+     `?freeze&preroll=0.1`, and two steps to `?freeze&preroll=0.0333`. Nothing about the render
+     path differs.
+   - And the figure moves fast enough to matter to an 11×6 px rect. Under `?capture` at 30 fps:
+
+     | steps | head gaze yaw | G1 linear | G2 luma |
+     |---|---|---|---|
+     | 1 | 0.83° | 1.5976 | 0.7836 |
+     | 2 | 2.65° | 1.5074 | 0.3142 |
+     | 4 | 7.18° | 1.2106 | **0.2046** |
+     | 30 | −19.22° | **1.0657** | 0.9856 |
+     | free-running `?freeze` | 0.00° | 1.5962 | **0.9200** |
+
+   **So the conclusion stands and is now recipe-attributed: with the sheet held constant the eye
+   shader is worth +0.0388 to +0.0414 of G2 luma and +0.59 of saturation, on a genuinely frozen
+   plate.** The `?capture` reading is not a second opinion about the shader; it is a measurement
+   of a different, moving figure. The withdrawn sentence stays withdrawn.
+
+   Two things this settles that were open:
+
+   - **G2's "seed lottery" is a property of the capture recipe.** Free-running, seeds 1 / 42 /
+     4242 / 20260807 produce **one byte-identical PNG** (sha256 `a61bedad…`) reading 0.9200 at all
+     four. Under `?capture` stepped one frame they read **0.7836 / 0.9189 / 0.9292 / 0.4390**. Both
+     observations recorded in this file were right, about different pages.
+   - **G1 was being measured on a face turning away.** At four capture steps it reads 1.2106 and at
+     thirty 1.0657 — under the reference band, and under G1's new two-sided floor.
+
+   Filed as a diff request against `packages/testbed/src/alive.js`. `measure.mjs`'s
+   `canonicalPageKey` no longer strips `capture` from a plate's identity, because it is the flag
+   that decides whether another flag works. LEARNINGS §1.19a.
 3. **And the gate was only ever measuring half its own spec sentence.** The look spec says the
    sclera "measures the same luminance as the surrounding cheek and is *more* saturated than skin
    (0.275 vs 0.215)". Only the luma clause was gated. Measured: sclera saturation **0.0917**
@@ -347,6 +483,13 @@ than "the numbers moved". Two findings from the toggle audit, both by execution:
    recorded above (0.8127 / 0.9627 / 0.9736 / 0.4384, attributed to `alive.html?bare&freeze`)
    cannot have come from that recipe; it must have carried a pre-roll or capture stepping. The
    spread is real, the recipe printed beside it is not.
+   ✅ **CONFIRMED AND THE OPEN HALF IS CLOSED: it was capture stepping.** Re-measured the same day
+   over all four nominated seeds — free-running `?bare&freeze` gives **one** PNG, sha256
+   `a61bedad…`, G2 0.9200 at every seed; `?bare&freeze&capture` stepped one frame at 30 fps gives
+   **0.7836 / 0.9189 / 0.9292 / 0.4390**. `?freeze` is inert under `?capture` because
+   `__SUGATA_STEP__` calls `advanceSimulation` unguarded, and `?freeze&capture` is byte-identical
+   to `?capture` at 1, 4 and 30 steps. This paragraph's inference was right and its "must have"
+   is now a measurement.
 2. **Once the stack does run, G2 stops seeing the eye at all.** With `?preroll=6`, all four eye
    states measure the **same** G2 at seed 1 (1.0033) and at seed 42 (0.7879) — the toggles change
    nothing, because the rect is no longer on the sclera. Only seed 4242 separates them
@@ -537,6 +680,27 @@ to 0.941 and the correlation from +0.1125 to −0.9360. `gaze.head` adds ~8 mm R
 displacement uncorrelated with the trunk. It is a **roll** contribution — yaw and pitch do not move
 the head joint. `Sway` was deliberately *not* over-corrected against it: you cannot cancel
 independent noise with a different signal.
+
+⚠️ **"EVERY MILLIMETRE OF THAT RESIDUE IS `gaze.head`" IS TRUE OF A STATISTIC NOBODY MEASURES, AND
+FALSE OF THE ONE A JUDGE DOES.** Corrected 2026-08-08. The finding above is computed on a
+**projected-VERTEX mean**; `travel.mjs`, and therefore every judge, computes the centroid of a
+**thresholded SILHOUETTE**. `sway.selftest.mjs`'s own comment claimed the two were laid side by
+side. The bands matched; the statistic never did — on the same 420 s trace at seed 4242 they read
+**3.4521 (vertex) and 1.0257 (silhouette)** against the judge's rendered **1.0596**. The silhouette
+form lands within 3.2% of the render; the vertex form is out by 3.4×.
+
+On the statistic a judge measures, removing `gaze.head` moves head/pelvis by **at most 0.013**
+across the judge's two seeds — while moving the vertex statistic 3.85–4.46×, which is why it looked
+like the whole residue. And `Sway` ALONE, with no gaze layer in the stack at all, scores
+**1.045–1.175**, i.e. HIGHER than the full stack's 0.9918–1.0257.
+
+🚩 **So the "≤ 1.0 target" was never a property of this statistic.** It is the BONE-MARKER ceiling
+from the HEAD PARKED work, borrowed onto a band ratio it does not describe. All twelve seeds of
+Sway alone exceed 1.00 on it and always did, and the band ratio has a geometric floor above 1 for
+any righted body — hip band centroid 864 mm, head band 1506 mm, pivot 67 mm; the unrighted rigid
+lever predicts 1.805 and measures 1.697–1.905. **Nothing in the layer needs changing.** If a judge
+still reports the head leading the hip by eye, the next step is the two-alternative staircase
+LEARNINGS §1.14a designs, not another coefficient.
 
 **Finding 7 — the arms are not asymmetric in the rig.** Measured over 12 seeds × 6 channels × 2
 windows on the stack `alive.js` builds, in relaxed-standing, the worst left/right energy ratio
@@ -784,11 +948,46 @@ because how a wrong diagnosis was written down is worth as much as the right one
   bottom 0.1% of the histogram. Both the old and the new number are honest; neither is about a
   grade lift, which is what G6 exists to detect. It belongs to 3.13 and it needs a `frame` region
   before it means anything on this page.
-- **No transmission and no roughness map on the skin.** The reference's glowing ear (#755052 at
-  saturation 0.41) needs a baked thickness map and a back-lit term. The GLB's body material carries
-  a base-colour texture and nothing else, so the spec's T-zone 0.32–0.40 / cheeks 0.42–0.50 / lips
-  0.18–0.28 split cannot be honoured; one value (0.46, the cheek figure) ships. A cavity/roughness
-  bake is a natural extension of `tools/lut-bake`.
+- ~~**No transmission and no roughness map on the skin.**~~ ⚠️ **BOTH SHIPPED IN `dc078ad` AND
+  BOTH MEASURE LIVE TODAY.** The region map is fetched on `alive.html` (confirmed in the network
+  log, not inferred) and its A/B moves 6.53% of pixels on the T-zone, lids, nose and lip.
+  Transmission is live. What is true is that transmission is **STARVED, not absent**: it is worth
+  0.0008 of ear luma under the shipped rig, because the only lights behind the subject are a blue
+  rim and a 0.5 kicker. Given a warm back light the same term produces the spec's exact signature —
+  red rises, green and blue do not move: ear S 0.648 → 0.722, hue 20.4° → 14.2°, with G going
+  44.23 → 44.23 and B 27.19 → 27.36 while R goes 77.23 → 98.41.
+- 🎯 **AND THE EAR'S REAL PROBLEM IS THE OPPOSITE OF THE ONE RECORDED.** The framing above — that
+  the glowing ear needs more transmitted light — is backwards. Measured at 4K on `alive.html` with
+  every toggle at its default: **ear luma 0.7072 against a lit cheek of 0.7935, i.e. 0.891×. The
+  reference's ear is 0.344 against a cheek of 0.765, i.e. 0.450×. Ours is 2.06× too BRIGHT.**
+  Transmission can only add light. The gap is a missing SHADOW.
+  Part of it is now shipped: `material/SkinOcclusion.js` bakes hemisphere visibility and applies it
+  CHROMATICALLY through Jimenez's multi-bounce fit, so a crease darkens *and saturates* rather than
+  greying. It lands on the right anatomy (lip seam, nostril, alar crease, ear-to-skull gap, eye
+  sockets) and moves the lit cheek by 0.0002. It is honest and small: the ear goes 0.7072 → 0.6953
+  luma, S 0.2646 → 0.2740. **It does not reach #755052 and is not claimed to.**
+  ⚠️ **The rest is probably not a skin item at all.** The visible lateral surface of a bald head's
+  pinna facing a strong key is geometrically OPEN — hemisphere visibility there is ~1, correctly —
+  while the reference character's ear sits in fringe and ponytail shadow. The look spec says so
+  itself: asymmetry and shading are "delegated entirely to hair, fringe and lighting", and this
+  figure is bald. Comparing a fully key-lit bald ear against a hair-shadowed reference ear is the
+  same class of error as measuring a `?msaa=0` plate — two different scenes.
+  ⚠️ **And the saturation gap is arithmetically unreachable by occlusion alone.** HSV S =
+  (max−min)/max is invariant under a scalar, so no amount of grey darkening moves S 0.2646 toward
+  0.414. Only the chromatic term moves it, and only in proportion to how occluded the surface is.
+- ⚠️ **A thickness-driven thin-tissue albedo tint was built, calibrated and then KILLED**, and the
+  reason identifies a defect class rather than one bug. The baked thickness is a SHORTEST PATH and
+  is therefore discontinuous: a cheek vertex whose ray cone catches the oral cavity reads ~6 mm and
+  its neighbour reads >100 mm. Driven into albedo it renders as blotches on the chin, nose and
+  perioral ring at a **12/255 single-pixel neighbour step** — a seam, not a field. It ships at
+  depth 0, which is bit-identical to a build without it.
+  🚩 **This is also the identification of the "grey blotches from a region-map lip tint" regression
+  that was reported and could not be reproduced.** `SKIN_DEFAULTS.lipTint` is `[1, 1, 1]`, so
+  `mix( vec3(1), lipTint, mask )` is exactly `vec3(1)` at every texel and the lip tint cannot
+  change a pixel. The blotches ARE real, for a different cause: any ALBEDO term driven by the raw
+  thickness channel produces them. A smoothed or median-filtered thickness channel is what would
+  make that route possible, and whoever does it must re-run the neighbour-step measurement —
+  that statistic is what distinguishes a field from a decal.
 - **The curvature map is a per-vertex quantity at ~7 mm vertex spacing.** Folds finer than that —
   the true nasolabial, the eyelid crease — are not in the map because they are not in the asset.
   That bounds how much any curvature-driven technique can ever deliver here.
@@ -1145,12 +1344,25 @@ reported distribution over a seed set, not a nudge. Left red on purpose.
 | `?aa=traa` | 1.5973 | 4.2333 | 1e-05 | 0.000112 |
 | `?specaa=0` | 1.5990 | 2.1712 | 1e-05 | 0.000561 |
 
-TAAU 0.66 + RCAS is the only configuration that puts G4 mid-band at 900 px and it improves G7 2.5×.
-It is **not** the default, for one reason: the held-morph velocity defect (punch-list 3.12), which
-is measured at 18.3–29.8× the no-morph control and has no dial that fixes it.
+⚠️ **BOTH SENTENCES THAT USED TO FOLLOW THIS TABLE WERE WRONG, AND THE TABLE ITSELF IS NOT
+ENTITLED TO A VERDICT.** They said TAAU 0.66 + RCAS was "the only configuration that puts G4
+mid-band", and that it could not be the default because the held-morph velocity defect "has no
+dial that fixes it". Superseded 2026-08-08 — see the integration section at the end of this file:
+
+- The table is at **900 px** and G4's band is stated at **3840 px**, three lines after this file
+  says so itself. At the reference width the shipped MSAA default **already passed** G4 (1.7469).
+  "The only configuration that passes" is false at the width the gate is defined at.
+- The blocker **is fixed**, and not by a dial: `render/MorphVelocity.js` supplies the previous-frame
+  morphed position. Held `jawOpen` 0.8, converged to frame 150: **15.96× the jitter floor
+  unpatched, 1.60× with the fix.**
+- **TAAU 0.66 + grade + RCAS 1.2 is now the default on `alive.html`.** `?aa=msaa&grade=0` is the A
+  side.
 
 `?aa=traa` reads G4 4.2333 because a temporal filter on frame 1 has no history — a single freeze
-plate is the worst case for TRAA and should not be read as a defect.
+plate is the worst case for TRAA and should not be read as a defect. **Measured since:** on the
+same static scene TRAA reads G4 4.2351 at frame 1 and 2.8352 at frame 300, 49% worse unconverged,
+while MSAA is byte-identical at both. Anyone gating a temporal mode on a one-frame plate is
+measuring the absence of history.
 
 ### The catchlight is on the page, and it is one highlight
 
@@ -1195,6 +1407,100 @@ Both are in `alive.js` and both are recorded as LEARNINGS §1.24:
   exactly its job.
 - `tools/critic/travel.mjs` gained the `foot` band (0.925–0.98) so a capture can confirm the offline
   foot-articulation prediction of 0.09–0.44 px.
+
+---
+
+## Integration round, 2026-08-08 (second) — the page wears the round, and `?freeze` finally freezes
+
+Six agents worked disjoint files; this section is what integrating them made true. Every number
+below was re-measured on the merged tree, not carried over from an agent's report.
+
+### 🚩 `?freeze` was inert under `?capture`, and three agents found it independently
+
+`alive.js`'s rAF path guarded `advanceSimulation` with `if ( frozen === false )`. The `?capture`
+hook did not. So `?freeze&capture` was a contradiction the page resolved silently in favour of
+motion, and **every "frozen plate" ever taken through `capture.mjs` was a plate of a figure walked
+forward one simulation step per screenshot.** Proven three ways before the fix: `?freeze&capture`
+was byte-identical to `?capture` at 1/4/30 steps; `?capture` stepped N×1/60 was byte-identical to
+free-running `?preroll=N/60`, so it is only a clock; and one step at 30 fps already puts the head
+at 0.83° of gaze yaw.
+
+What it cost, all on one seed and one framing, varying only the step count:
+
+| | 1 step | 5 | 15 | 30 | 60 | frozen |
+|---|---|---|---|---|---|---|
+| G1 | 1.5976 | 1.1948 | 1.3740 | 1.0657 | 1.1110 | **1.5991** |
+
+A 1.5× spread across a reference band 0.21 wide. It is also the whole of punch-list 3.3's supposed
+red — G2 reads 0.7836 captured and 0.9200 frozen — and the whole of G2's "seed lottery": free
+running, four seeds come back as **one byte-identical PNG**. On the MSAA forward path, where a
+static scene must be bit-identical, a 300-step "frozen" capture read forehead temporalRms
+**3.6400/255**; it now reads **0.0000** and frames 1 and 300 are the same bytes.
+
+### The page's default is now the best-measured configuration, not the historical one
+
+`alive.html` boots into **TAAU 0.66 + Grade + grade-RCAS 1.2**. `?aa=msaa&grade=0` is the A side
+and is the forward path every Phase 2 motion number was measured on.
+
+Re-measured after integration at 3840×5120 — G4's own reference width — converged to frame 60 on a
+genuinely frozen page, both rows in one run so `packagesDigest` cannot differ:
+
+| configuration | G1 | G2 | G4 | G5 | G6 | G7 |
+|---|---:|---:|---:|---:|---:|---:|
+| `?aa=msaa&grade=0` | 1.6180 | 0.9221 | 1.7469 | 2e-06 | 0.00001 | 0.00074 |
+| **shipped** | 1.6636 | 0.9201 | **1.6315** | 2e-06 | 0.00001 | 0.00077 |
+
+Six of seven green on both; G4 better centred. The decider is edges: single-pixel silhouette jumps
+go **67.9% → 17.9%** at 900 px, and the eyelash/brow cards **44.5% → 30.8%** — which reverses
+3.12's long-standing claim that losing alpha-to-coverage would cost card anti-aliasing.
+
+At **body** framing the grade takes G6 from 0.01652 (3% over the ceiling) to **0.0126, inside the
+band**. G6 is now red at portrait framing only, and is UNDECIDED there rather than failed.
+
+### Everything the round built is on the page, one toggle each
+
+`?morphvel=off|hold|exact` (3.12's rejection proof), `?cavity=0` (the baked hemisphere-visibility
+term), `?grade=0`, `?aa=msaa`, `?gsharp=none`. `alive-toggles.selftest.mjs` went **16 checks (14
+green) → 24 green**, and it earned the increase: it caught two real integration defects that no
+other gate saw — `multisampleSamples` going dark on the shipped plate, and `?skin=0` reporting the
+cavity term as collateral. Its new rows were then proved red three structurally different ways (an
+inert toggle, a genuine collateral confound, and abusing the not-applicable exemption to retire a
+check).
+
+**The floor fix, the fill fix, the cavity term and the transmission term needed no wiring** — they
+are defaults inside `LightingRig.js`, `GroundContact.js` and `SkinMaterial.js`, so they were on
+`alive.html` the moment those files landed. The toggles exist so they can be *attributed* there,
+which they could not be before: every attribution for the cavity term came off `skin.html`.
+
+### LEARNINGS §1.24 re-verified on the merged tree, because it has bitten twice
+
+Both frame paths, same recipe, pixel-differenced:
+
+- **The grade is in the graph on each path independently** — 95.6% of pixels move against
+  `?grade=0`, worst 231/255. The byte-identical failure mode is ruled out on both.
+- **On the forward path the two paths are BYTE-IDENTICAL** (0.000% of pixels differ), which
+  calibrates the instrument.
+- On the temporal path they differ where they must and nowhere else: **2.37/255 mean on edges
+  against 0.105/255 on flat pixels** with the grade off (jitter phase), and a uniform 1.07/255 with
+  it on (grain, which is keyed on a frame seed the two paths clock differently). **No
+  region-shaped divergence** — the row and column profiles are flat.
+- The contact occlusion is present on both: under-sole delta −0.0191 (rAF) against −0.0200
+  (capture).
+
+### What integration did NOT close
+
+- **G6 at portrait framing.** Unchanged and deliberately not closed by authoring a `frame` region —
+  see the standing note at the top of PUNCHLIST.
+- **The rim floods the portrait backdrop.** The lighting work fixed the body preset's 36.6:1
+  environment spill to 2.10:1; the portrait preset keeps its 2.6-height standoff at **49.94:1**. It
+  does not show on `alive.html` because that page's backdrop is a near-black emissive card, which
+  is masking rather than a fix, and it is plainly visible as blue-violet wash on the silhouette.
+- **`voice/Prosody.js` is reachable from no page**, so `npm run build:pages` does not compile it and
+  the `?worker&url` AudioWorklet fix is not covered by any build in the repo. Verified by hand
+  under the real `vite.config.js` — one self-contained 5.27 kB worklet, no imports, no `data:` URLs
+  — but a hand check is not a gate. See LEARNINGS Part 2, "vite / the build".
+- **Every clip-based motion number in this file predates the deferred default.** They are not
+  invalidated, but they are no longer same-build comparisons.
 
 ## Session log
 
