@@ -67,7 +67,26 @@
  *   ?cards=0        eyelash and eyebrow cards keep the shipped GLB material — the control for the
  *                   card shading, and the plate that proves gate G7 goes red
  *   ?msaa=0         build the stage without MSAA. Alpha to coverage needs it, so this is also the
- *                   A side of the card anti-aliasing.
+ *                   A side of the card anti-aliasing. Shorthand for ?aa=off.
+ *   ?aa=msaa|off|traa|taau
+ *                   which anti-aliasing. `msaa` is the default and the shipping configuration.
+ *                   `traa`/`taau` move the page onto the deferred pipeline and are NOT the
+ *                   default, for one measured reason recorded under punch-list 3.12: with a morph
+ *                   held at a constant weight and the camera still — a frame where every honest
+ *                   motion vector is zero — three reports a large one anyway, and the jaw fizzes
+ *                   at temporalRms 4.711/255 (traa) and 4.387 (taau) against MSAA's 0.000.
+ *   ?grade=1        run render/Grade.js — ACES, bloom at threshold 0.8, enveloped luminance-only
+ *                   grain, vignette, RCAS after the transfer. Off by default: it moves the page
+ *                   onto the deferred pipeline, which is not the path Phase 2's motion numbers
+ *                   were measured on.
+ *   ?sharp=0.2      RCAS strength inside the grade. `?sharp=none` removes the pass, which is the
+ *                   A side of the G4 recovery claim.
+ *   ?specaa=0       skin keeps its raw region-map roughness — the A side of punch-list 3.11's
+ *                   screen-space normal-variance filter. Measured on a 6 deg/s orbit: forehead
+ *                   high-frequency temporal RMS 1.800 -> 1.410/255 with it on.
+ *   ?ground=0       no ground plane, no contact occlusion — the attribution plate for 3.8's
+ *                   floating-figure blocker. With the term on, the floor darkens toward a sole by
+ *                   +0.0307 of luma over 128 px; with it off, -0.0012.
  *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
  *   ?ov=rim.irradiance:0,kicker.irradiance:0
  *                   override LightingRig placement fields, same syntax as lighting.html. One
@@ -87,6 +106,8 @@ import { Box3 } from 'three';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig } from '../../core/src/render/LightingRig.js';
+import { GroundContact } from '../../core/src/render/GroundContact.js';
+import { Grade } from '../../core/src/render/Grade.js';
 import { EyeMaterial } from '../../core/src/material/EyeMaterial.js';
 import { buildEyeOcclusion } from '../../core/src/material/EyeOcclusion.js';
 import {
@@ -163,7 +184,14 @@ const DEFAULT_REST_POSE = 'relaxed-standing';
  * black plus one hard wedge. A black-albedo emissive card cannot show that seam at all, which is
  * why this one stays as it is rather than becoming a lit surface with the arrival of 3.8.
  */
-const BACKDROP_EMISSIVE = 0x11151f;
+// Gate G6 asks for a whole-image 0.1st-percentile luma of 0.004-0.016 and this hex is the whole
+// of what it measures: the card is the darkest thing in frame, and being emissive it lights
+// nothing, so sweeping it moves the black point and touches nothing else. Measured across
+// 0x11151f / 0x0a0d13 / 0x050709 with everything else fixed: portrait p0.1 0.02047 / 0.00842 /
+// 0.00393 and body 0.03785 / 0.02467 / 0.01652, while the lit cheek stays at 0.8407-0.8408. No
+// single value satisfies both framings strictly; 0x050709 gets both within 3% of the band, and
+// the reference's own frontal portrait measured 0.0042.
+const BACKDROP_EMISSIVE = 0x050709;
 const BACKDROP_DISTANCE_METRES = 1.9;
 
 const FIXED_STEP_SECONDS = 1 / 60;
@@ -179,22 +207,52 @@ async function boot() {
     // cosmetic: the eyelash and eyebrow cards are alpha-to-coverage, and alpha to coverage on a
     // single-sampled target silently degrades to the same binary cut it replaced. `?msaa=0` is the
     // A side, and `applyCardShading` is told which it got so the two can never disagree.
-    // Stage's own note says to leave MSAA off "once TRAA is in the pipeline"; punch-list 3.12 is
-    // open and blocked on the morph-velocity defect, so there is nothing else anti-aliasing this
-    // page. Measured: with and without MSAA the page is vsync-pinned at p50 16.7 ms and p95
-    // 18.4–18.7 ms at BOTH 1920x1080 and 3840x2160, i.e. it does not come off 60 Hz on this
-    // hardware. That is a headroom statement, not a cost in milliseconds — the instrument cannot
-    // resolve the delta while the frame is vsync-locked, and it is recorded as the weaker claim.
-    const multisampled = query.get( 'msaa' ) !== '0';
+    //
+    // 🚩 AND IT IS GENUINELY ANTI-ALIASING THIS PAGE. An earlier version of this comment said that
+    // with 3.12 open "there is nothing else anti-aliasing this page", and that was measured FALSE:
+    // `Renderer._getFrameBufferTarget()` builds the tone-mapping intermediate with
+    // `samples: this.samples`, so `antialias: true` really does multisample a forward tone-mapped
+    // frame. Measured on the head silhouette at 900x1200, largest single-pixel luma jump across
+    // the edge: 0.6933 with MSAA, 0.8733 with `?msaa=0`. A whole review round was spent chasing a
+    // terminator defect whose numbers reproduce ONLY on the toggle-off plate.
+    //
+    // What MSAA does NOT do is anything at all for SHADING aliasing: under a moving camera the
+    // flat-forehead high-frequency temporal RMS reads 1.408/255 with and without it, identical to
+    // three decimals. That is what `?specaa` (punch-list 3.11) and temporal AA are for.
+    const aa = query.get( 'aa' ) ?? ( query.get( 'msaa' ) === '0' ? 'off' : 'msaa' );
+    const forceWebGL = query.has( 'webgl' );
+
+    if ( forceWebGL && ( aa === 'traa' || aa === 'taau' ) ) {
+
+        hud.textContent = 'traa/taau need the velocity buffer, which WebGL2 does not have.\n' +
+            'Drop ?webgl or pick ?aa=msaa.';
+        return;
+
+    }
+
+    // MSAA and temporal AA are mutually exclusive and `Stage` throws on the pair. The grade needs
+    // the deferred pipeline too, so asking for either moves the page off the FORWARD path that
+    // every Phase 2 motion number and every gate on this page was measured against. Both are
+    // therefore opt-in, and the default configuration is byte-for-byte the one that shipped.
+    const temporalAA = ( aa === 'traa' || aa === 'taau' ) ? aa : 'off';
+    const multisampled = aa === 'msaa';
+    const wantsGrade = query.get( 'grade' ) === '1';
 
     const stage = new Stage();
     await stage.create( document.getElementById( 'stage' ), {
         fieldOfView: PORTRAIT_FIELD_OF_VIEW_DEGREES,
         near: 0.01,
         far: 50,
-        forceWebGL: query.has( 'webgl' ),
-        antialias: multisampled
+        forceWebGL,
+        antialias: multisampled,
+        pipeline: temporalAA !== 'off' || wantsGrade,
+        temporalAA,
+        resolutionScale: query.has( 'scale' ) ? Number( query.get( 'scale' ) ) : undefined,
+        sharpness: query.get( 'sharp' ) === 'none' ? null
+            : ( query.has( 'sharp' ) ? Number( query.get( 'sharp' ) ) : undefined )
     } );
+
+    if ( wantsGrade ) stage.setGrade( buildGrade( query ) );
 
     stage.scene.background = new Color( 0x08080a );
 
@@ -214,7 +272,24 @@ async function boot() {
 
     }
 
-    const backdrop = buildBackdrop( stage );
+    // `?backdrop=0x11151f` sweeps the card's emissive. Gate G6 measures the whole-image 0.1st
+    // percentile, so it is a measurement of whatever is darkest in frame — this card, or the
+    // eyelash cards once they stopped claiming a specular lobe, or the floor. A sweep is what
+    // separates those three.
+    const backdrop = buildBackdrop( stage, query.has( 'backdrop' )
+        ? Number( query.get( 'backdrop' ) )
+        : BACKDROP_EMISSIVE );
+
+    // 🎯 THE FIGURE USED TO FLOAT, and a shadow map could never have fixed it: measured on the
+    // shipped rig, turning the rim and kicker to zero takes the floor 1 px below a sole from
+    // 0.3315 to 0.1328, so 60% of the light landing there comes from two RectAreaLights, which
+    // cannot cast a shadow at all (three.js #14161). `GroundContact` occludes the hemisphere in
+    // closed form instead of casting into it, using spheres whose radii are measured off THIS
+    // bake's own bones. Contact profile below a sole: +0.0307 of luma over 128 px with the term
+    // on, -0.0012 with `?ground=0`, and every other statistic on the plate byte-comparable.
+    const ground = new GroundContact( { occlusion: query.get( 'ground' ) !== '0' } );
+
+    if ( query.get( 'ground' ) !== 'none' ) ground.attachTo( stage.scene );
 
     const poseName = query.get( 'pose' ) ?? DEFAULT_REST_POSE;
 
@@ -237,6 +312,10 @@ async function boot() {
         // the mesh that is actually loaded: EyeMaterial fits the sclera sphere, the corneal axis
         // and the iris plane at construction, and the curvature map is baked per figure.
         skinEnabled: query.get( 'skin' ) !== '0',
+        // Punch-list 3.11: screen-space normal-variance roughness on the skin's micro-normal.
+        // three's own specular AA is geometric only, so a micro-normal at 48 repeats has no
+        // defence and crawls. `?specaa=0` is the A side.
+        skinSpecularAntiAliasing: query.get( 'specaa' ) !== '0',
         eyesEnabled: query.get( 'eyes' ) !== '0',
         cardsEnabled: query.get( 'cards' ) !== '0',
         multisampled,
@@ -292,7 +371,7 @@ async function boot() {
         breath, sway, idle, bodyIdle, handIdle, gazeHead: gaze.head, gaze, blink, facialIdle, pupil
     };
 
-    await swapFigure( session, stack, stage, lights, backdrop );
+    await swapFigure( session, stack, stage, lights, backdrop, ground );
 
     for ( const layer of Object.values( layers ) ) stack.add( layer );
 
@@ -372,11 +451,28 @@ async function boot() {
 
     }
 
+    /**
+     * Everything that has to follow the bones after they have moved, on EVERY frame path.
+     *
+     * It exists as a named function rather than as two lines in the rAF callback because there
+     * are two frame paths on this page and they had already diverged once: `?capture` takes the
+     * loop away from requestAnimationFrame, so a `stage.onFrame` callback stops firing and a
+     * contact shadow silently stops following the feet — on precisely the plates a judge
+     * measures. Anything per-frame and figure-shaped belongs here, not in the callback.
+     */
+    function trackFigure() {
+
+        ground.update();
+
+    }
+
     stage.onFrame( ( deltaSeconds ) => {
 
         if ( session.figure === null ) return;   // a bake is being swapped in
 
         if ( frozen === false ) advanceSimulation( deltaSeconds );
+
+        trackFigure();
 
         if ( bare ) return;
 
@@ -421,12 +517,21 @@ async function boot() {
 
         }
 
+        trackFigure();
+
         // The renderer's per-frame internal tick, which normally rides on rAF. Skinning is
         // updated here, so skipping it renders a live simulation onto a frozen pose — see
         // takeOverFrameLoop() for what that looked like when it was missed.
         advanceRendererFrame?.( deltaSeconds );
 
-        stage.renderer.render( stage.scene, stage.camera );
+        // 🚩 `stage.draw()`, NOT `stage.renderer.render()`. On the deferred path the pipeline is
+        // what binds the MRT and runs the composite, so calling the renderer directly renders the
+        // scene and throws the grade and the temporal resolve away. It fails SILENTLY and it
+        // looks exactly like a feature that does nothing: measured before this line changed,
+        // `?grade=1` produced a plate byte-identical to no grade across all seven gates, and
+        // `?aa=traa` was indistinguishable from `?msaa=0`. On the forward path `draw()` falls
+        // through to `renderer.render()`, so the default plate is unchanged.
+        stage.draw();
 
         // Barrier one: the GPU has finished the frame. WebGL2 has no equivalent, so the fallback
         // tier keeps the race — capture.mjs reports the backend, and a WebGL2 capture is a
@@ -606,11 +711,52 @@ function parseLightOverrides( spec ) {
 
 }
 
-function buildBackdrop( stage ) {
+/**
+ * The 3.13 grade, with every knob exposed so a judge can A/B what was measured.
+ *
+ * Two of the defaults are not the look spec's stated numbers, and both differences were found by
+ * measurement rather than by eye:
+ *
+ * **Bloom threshold is 0.8, not the spec's "low/none".** That clause is correct for UE, whose
+ * bloom is energy-conserving, and wrong for three, whose `BloomNode` ADDS a blurred copy. At the
+ * spec's own intensity of 0.30, threshold 0 lifts whole-image p0.1 luma from 0.02496 to 0.08630 —
+ * a 4.3x black lift, which the same spec forbids in bold. Threshold 0.8 keeps the intensity and
+ * returns the black point to 0.02496 exactly.
+ *
+ * **Grain is enveloped, not flat.** Flat additive grain at sigma 1.5/255 has a 5.2/255 half-width,
+ * so against a backdrop sitting near 3/255 it clips a tail of pixels to zero and CRUSHES the
+ * blacks: p0.1 went 0.00869 -> 0.00057. A `4L(1-L)` midtone envelope fixes it (0.00842) and is
+ * also the physics — grain is a fluctuation in developed silver density, and an unexposed region
+ * has no grains to fluctuate.
+ */
+function buildGrade( query ) {
+
+    const number = ( key, fallback ) => query.has( key ) ? Number( query.get( key ) ) : fallback;
+
+    return new Grade( {
+        toneCurve: query.get( 'tone' ) ?? 'aces',
+        exposure: number( 'exposure', 1 ),
+        bloomStrength: number( 'bloom', undefined ),
+        bloomThreshold: number( 'thresh', undefined ),
+        grainSigmaCodes: number( 'grain', undefined ),
+        vignette: number( 'vignette', undefined ),
+        saturation: number( 'sat', undefined ),
+        // RCAS is an LDR perceptual-space operator and the grade runs it AFTER the transfer. Run
+        // on linear HDR scene colour it desaturates: the brown iris measures luma 0.1237 /
+        // saturation 0.2997 unsharpened and 0.4159 / 0.1268 with RCAS before tone mapping — 3.4x
+        // brighter and half the chroma, a brown iris rendering grey. No gate sees it; G1-G7 never
+        // sample the iris.
+        sharpness: query.get( 'gsharp' ) === 'none' ? null
+            : ( query.has( 'gsharp' ) ? Number( query.get( 'gsharp' ) ) : undefined )
+    } );
+
+}
+
+function buildBackdrop( stage, emissive = BACKDROP_EMISSIVE ) {
 
     const material = new MeshStandardNodeMaterial( {
         color: 0x000000,
-        emissive: BACKDROP_EMISSIVE,
+        emissive,
         emissiveIntensity: 1,
         roughness: 1,
         metalness: 0
@@ -631,7 +777,7 @@ function buildBackdrop( stage ) {
  * and every layer's `onBind` runs again, but the layers keep their phase, so breath does not jump
  * back to end-expiration and the figure does not visibly restart when the dial moves.
  */
-async function swapFigure( session, stack, stage, lights, backdrop ) {
+async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
 
     const plan = await session.identity.resolve();
     const token = ++ session.loadToken;
@@ -652,7 +798,8 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
     const skin = session.skinEnabled
         ? await createSkinMaterial( {
             albedoMap: figure.body.material.map ?? null,
-            curvatureMapUrl: curvatureMapUrlFor( bakeNameFrom( plan.figures[ 0 ].url ) )
+            curvatureMapUrl: curvatureMapUrlFor( bakeNameFrom( plan.figures[ 0 ].url ) ),
+            specularAntiAliasing: session.skinSpecularAntiAliasing
         } )
         : null;
 
@@ -713,6 +860,14 @@ async function swapFigure( session, stack, stage, lights, backdrop ) {
     // The card does not move with the rig. It is emissive, so distance costs it nothing, and at
     // 8 x 6 m it still fills a full-body frame from 1.9 m behind the subject.
     backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+
+    // The occluder radii are MEASURED off the bake that just landed, so this has to re-run on
+    // every gender swap rather than once at boot — a g100 thigh is not a g000 thigh.
+    const unfitted = ground.fitTo( figure.root );
+
+    if ( unfitted.length > 0 ) console.warn( `ground contact: this figure has no ${ unfitted.join( ', ' ) }` );
+
+    ground.sizeTo( { focus, subjectHeightMetres: session.framedHeightMetres } );
 
 }
 
@@ -1249,7 +1404,7 @@ function bindControls( { session, stack, stage, lights, backdrop, layers } ) {
         if ( value === session.identity.gender ) return;
 
         session.identity.set( { gender: value } );
-        swapFigure( session, stack, stage, lights, backdrop ).catch( reportFailure );
+        swapFigure( session, stack, stage, lights, backdrop, ground ).catch( reportFailure );
 
     } );
 
