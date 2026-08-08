@@ -40,15 +40,23 @@
 //                        cannot play video at all
 //   capture.json         the manifest: seed, backend, per-frame digests, timings
 //
+// ⚠ A REPRODUCIBLE CLIP IS NOT A REPRESENTATIVE ONE. See the POSTURAL CONTENT block below:
+// --seed pins the draw, and every judgement in this repo was pinned to seed 1, which contains no
+// sustained weight transfer in seven minutes. --seed takes a LIST for that reason.
+//
 // Usage:
 //   node tools/critic/capture.mjs --url http://localhost:5173/alive.html \
 //        --seconds 20 --fps 30 --width 1080 --height 1350 --seed 1 --out captures/idle
+//
+//   node tools/critic/capture.mjs --seed 4242,42,20260807 --seconds 420 --out captures/judge
+//     ^ three clips, one per seed, in captures/judge/seed-<n>/ — the postural-judgement set.
 //
 // With no --url it starts vite itself and drives /alive.html.
 //
 // Exit codes follow measure.mjs, so a calling script can tell a bad capture from a broken tool:
 //   0 = capture written, frames genuinely differ
-//   1 = the capture is not usable — every frame identical, i.e. the stepping hook did nothing
+//   1 = the capture is not usable — every frame identical (the stepping hook did nothing), or
+//       --require-weight-shift was asked for and the clip is not known to contain one
 //   2 = tool error (no browser, no ffmpeg, page never became ready)
 
 import { spawn } from 'node:child_process';
@@ -109,51 +117,176 @@ const SHEET_MARGIN = 10;
 const SHEET_PADDING = 8;
 const SHEET_BACKGROUND = '0x0b0b0e';
 
-main().catch((error) => {
-  console.error(`\ncapture.mjs failed: ${error.message}`);
-  if (process.env.DEBUG) console.error(error.stack);
-  process.exitCode = 2;
-});
+// --- POSTURAL CONTENT: which clips actually contain the behaviour a body judge is asked about ---
+//
+// 🎯 THE DEFECT THIS BLOCK EXISTS FOR. Seed 1 was pinned for every capture and every judgement in
+// this repo because it is reproducible. Reproducible is not representative. Measured on the
+// shipped `Sway` layer at this tool's own 30 fps and full-body framing, seed 1's pelvis never
+// leaves a +-5 px band for as long as fifteen seconds in 420 s — its first sustained transfer
+// arrives at 483.0 s, sixty-three seconds after the clip ends. Judges were asked whether a body
+// shifts its weight while watching a clip that, by the draw, contains no weight shift.
+//
+// It is not a bug in the layer. Duarte's medio-lateral weight shift runs at 0.30/min, so a 420 s
+// clip holds ~2.1 expected arrivals and the magnitude draw is lognormal — most shifts are small.
+// Measured over the twelve seeds `sway.selftest.mjs` gates on, only SEVEN contain a sustained
+// transfer in 420 s and the median wait for the first one is 341 s. This is LEARNINGS §1.4 one
+// level down: the window was sized against the RELAY rate (1.5/min, the pooled fidget-plus-shift
+// process) and the behaviour being judged is governed by the SHIFT rate, five times slower.
+//
+// So the seed is a gate parameter and it is now written down, measured, and re-verified on every
+// run of `packages/core/src/motion/sway.selftest.mjs` — which imports these five constants and
+// fails if any nominated seed has stopped containing its transfer, or if seed 1 has started.
+//
+// The definition of "sustained transfer", both halves derived from numbers already in the repo:
+//   - 5 px of pelvis displacement at full-body framing is 7.6 mm, which is 2.46x the layer's own
+//     measured medio-lateral balance RMS of 3.089 mm. Below that a viewer is looking at noise;
+//     above it, at a decision. (The 1.6 px indistinguishability floor is a peak-to-peak and is
+//     the wrong statistic for a held offset — LEARNINGS §1.14.)
+//   - 15 s is the glance window `sway.selftest.mjs` already measures legibility over: a hold that
+//     fills the span a viewer spends deciding whether the thing is alive.
+const POSTURAL_HOLD_PIXELS = 5;
+const POSTURAL_HOLD_SECONDS = 15;
+const POSTURAL_SMOOTHING_SECONDS = 3;
+
+/** The clip length the postural nomination below was measured at. Change it and re-verify. */
+const POSTURAL_CLIP_SECONDS = 420;
+
+/**
+ * Seeds whose 420 s clip is KNOWN BY MEASUREMENT to contain a sustained weight transfer, with the
+ * onset and peak each one was verified at. Both directions are represented on purpose: a judge
+ * shown three clips that all load the same leg will report a body that always stands on its left.
+ *
+ * 4242 leads because its transfer opens at 17.1 s, so it is the one clip that shows the behaviour
+ * even if the reviewer only watches the first minute. 20260807 is `alive.js`'s own default seed.
+ */
+const POSTURAL_JUDGEMENT_SEEDS = [
+  { seed: 4242, direction: 'left', onsetSeconds: 17.1, peakPixels: -34.1 },
+  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 30.4 },
+  { seed: 20260807, direction: 'left', onsetSeconds: 232.2, peakPixels: -17.8 },
+];
+
+/**
+ * Seeds measured to contain NO sustained transfer in 420 s. Named rather than merely omitted, so
+ * that a capture pinned to one of them gets told what it is about to fail to show. Seed 1 is here
+ * because it is the seed this whole block was written for.
+ */
+const POSTURAL_EMPTY_SEEDS = [
+  { seed: 1, firstTransferSeconds: 483.0 },
+  { seed: 7, firstTransferSeconds: 688.8 },
+  { seed: 777, firstTransferSeconds: 968.6 },
+  { seed: 31337, firstTransferSeconds: 410.6 },
+  { seed: 99999989, firstTransferSeconds: 781.2 },
+];
+
+/**
+ * Below this there is no point asking about postural content at all: nothing in the postural
+ * literature has a period short enough to appear (LEARNINGS §1.4), so a 20 s eye capture should
+ * not be nagged about weight shifts it was never going to contain.
+ */
+const POSTURAL_ADVISORY_FLOOR_SECONDS = 60;
+
+export {
+  POSTURAL_JUDGEMENT_SEEDS,
+  POSTURAL_EMPTY_SEEDS,
+  POSTURAL_CLIP_SECONDS,
+  POSTURAL_HOLD_PIXELS,
+  POSTURAL_HOLD_SECONDS,
+  POSTURAL_SMOOTHING_SECONDS,
+};
+
+// Importable as well as runnable: `sway.selftest.mjs` imports the constants above and re-measures
+// them, so the nomination cannot rot silently. Without this guard that import would launch a
+// browser and start capturing.
+if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`\ncapture.mjs failed: ${error.message}`);
+    if (process.env.DEBUG) console.error(error.stack);
+    process.exitCode = 2;
+  });
+}
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
 
   requireFfmpeg();
 
-  const outputDirectory = path.resolve(options.out);
-  const framesDirectory = path.join(outputDirectory, 'frames');
-  fs.mkdirSync(framesDirectory, { recursive: true });
-
   const playwright = await loadPlaywright(options.playwrightPath);
-  const server = options.url === null ? await startViteServer() : null;
-  const pageUrl = buildPageUrl(options, server);
-
-  console.log(`page      ${pageUrl}`);
-  console.log(`capture   ${options.seconds} s @ ${options.fps} fps = ${frameCountOf(options)} frames` +
-    `   ${options.width}x${options.height} @ dpr ${options.dpr}`);
-
+  const server = wantsOwnServer(options) ? await startViteServer() : null;
   const browser = await launchBrowser(playwright, options);
-  const startedAtMs = Date.now();
 
-  let capture = null;
-  let reproducibility = null;
+  // One clip per seed. The browser and the vite server are shared across them, which is most of
+  // the wall-clock cost, so three seeds is nothing like three times one seed.
+  const baseDirectory = path.resolve(options.out);
+  const manifests = [];
 
   try {
-    capture = await driveCapture(browser, pageUrl, options, {
-      frameCount: frameCountOf(options),
-      framesDirectory,
-      quiet: false,
-    });
+    for (const seed of options.seeds) {
+      const outputDirectory = options.seeds.length > 1
+        ? path.join(baseDirectory, `seed-${seed}`)
+        : baseDirectory;
 
-    reportBackend(capture.environment, pageUrl);
-
-    if (options.verifyFrames > 0) {
-      reproducibility = await verifyReproducibility(browser, pageUrl, options, capture);
+      manifests.push(await captureOneSeed({ browser, server, options, seed, outputDirectory }));
     }
   } finally {
     await browser.close();
     if (server !== null) await server.close();
   }
+
+  if (options.seeds.length > 1) writeSeedIndex(baseDirectory, manifests);
+
+  // A capture where nothing moved is worse than no capture: it looks like evidence and is not.
+  if (manifests.some((manifest) => manifest.determinism.distinctFrames <= 1)) {
+    console.error('\n*** EVERY FRAME IS IDENTICAL. The stepping hook did nothing — this capture is');
+    console.error('*** not evidence of anything. Check that the page exposes window.__SUGATA_STEP__');
+    console.error('*** and that ?capture is in the URL.');
+    process.exitCode = 1;
+  }
+
+  // §1.3 — a clip that cannot contain the behaviour is a degenerate input to the judge, and it
+  // scores exactly as well as a real one. --require-weight-shift makes that a failure instead of
+  // a footnote, for the callers whose whole question is postural.
+  if (options.requireWeightShift) {
+    const empty = manifests.filter((manifest) => manifest.posturalContent.containsWeightShift !== true);
+
+    if (empty.length > 0) {
+      console.error('\n*** --require-weight-shift: no sustained weight transfer is known to be in');
+      for (const manifest of empty) {
+        console.error(`***   seed ${manifest.seed ?? '(page default)'} over ${manifest.simulation.simulatedSeconds} s — ${manifest.posturalContent.reason}`);
+      }
+      console.error(`*** Checked seeds at ${POSTURAL_CLIP_SECONDS} s: ${POSTURAL_JUDGEMENT_SEEDS.map((entry) => entry.seed).join(', ')}`);
+      process.exitCode = 1;
+    }
+  }
+}
+
+/** One clip, at one seed, into one directory. Everything main() used to do inline. */
+async function captureOneSeed({ browser, server, options, seed, outputDirectory }) {
+  const framesDirectory = path.join(outputDirectory, 'frames');
+  fs.mkdirSync(framesDirectory, { recursive: true });
+
+  const pageUrl = buildPageUrl(options, server, seed);
+  const posturalContent = describePosturalContent(seed, options.seconds);
+
+  console.log('');
+  console.log(`page      ${pageUrl}`);
+  console.log(`capture   ${options.seconds} s @ ${options.fps} fps = ${frameCountOf(options)} frames` +
+    `   ${options.width}x${options.height} @ dpr ${options.dpr}`);
+
+  reportPosturalContent(posturalContent);
+
+  const startedAtMs = Date.now();
+
+  const capture = await driveCapture(browser, pageUrl, options, {
+    frameCount: frameCountOf(options),
+    framesDirectory,
+    quiet: false,
+  });
+
+  reportBackend(capture.environment, pageUrl);
+
+  const reproducibility = options.verifyFrames > 0
+    ? await verifyReproducibility(browser, pageUrl, options, capture)
+    : null;
 
   const mp4Path = path.join(outputDirectory, 'capture.mp4');
   const gifPath = path.join(outputDirectory, 'capture.gif');
@@ -165,9 +298,11 @@ async function main() {
 
   const manifest = buildManifest({
     options,
+    seed,
     pageUrl,
     capture,
     reproducibility,
+    posturalContent,
     sheetCells,
     elapsedSeconds: (Date.now() - startedAtMs) / 1000,
     outputs: { mp4: mp4Path, gif: gifPath, contactSheet: sheetPath },
@@ -179,13 +314,126 @@ async function main() {
 
   printSummary(manifest, outputDirectory, options);
 
-  // A capture where nothing moved is worse than no capture: it looks like evidence and is not.
-  if (capture.distinctFrames <= 1) {
-    console.error('\n*** EVERY FRAME IS IDENTICAL. The stepping hook did nothing — this capture is');
-    console.error('*** not evidence of anything. Check that the page exposes window.__SUGATA_STEP__');
-    console.error('*** and that ?capture is in the URL.');
-    process.exitCode = 1;
+  return manifest;
+}
+
+/**
+ * The top-level index for a multi-seed run, so a judge opening the directory is told what the set
+ * as a whole contains before it opens any one clip.
+ */
+function writeSeedIndex(baseDirectory, manifests) {
+  const index = {
+    tool: 'tools/critic/capture.mjs',
+    capturedAt: new Date().toISOString(),
+    seeds: manifests.map((manifest) => ({
+      seed: manifest.seed,
+      directory: `seed-${manifest.seed}`,
+      sequenceDigest: manifest.determinism.sequenceDigest,
+      posturalContent: manifest.posturalContent,
+    })),
+    seedsContainingWeightShift: manifests
+      .filter((manifest) => manifest.posturalContent.containsWeightShift === true)
+      .map((manifest) => manifest.seed),
+  };
+
+  fs.writeFileSync(path.join(baseDirectory, 'capture.json'), JSON.stringify(index, null, 2) + '\n');
+
+  console.log('');
+  console.log(`seed set  ${index.seeds.length} clips; sustained weight transfer in ` +
+    `${index.seedsContainingWeightShift.length} of them` +
+    (index.seedsContainingWeightShift.length > 0 ? ` (${index.seedsContainingWeightShift.join(', ')})` : ''));
+  console.log(`  ${'index'.padEnd(13)} ${path.join(baseDirectory, 'capture.json')}`);
+}
+
+// --- postural content ---------------------------------------------------------------------------
+
+/**
+ * What this (seed, duration) pair is known to contain, from the measured table at the top of this
+ * file. It answers only from measurement: a seed nobody has measured comes back `null`, which is
+ * the honest answer and reads differently in the manifest from a measured `false`.
+ */
+function describePosturalContent(seed, seconds) {
+  if (seconds < POSTURAL_ADVISORY_FLOOR_SECONDS) {
+    return {
+      containsWeightShift: null,
+      reason: `clip is ${seconds} s; below ${POSTURAL_ADVISORY_FLOOR_SECONDS} s no postural process has a short enough period to appear, so the question is not asked`,
+      measuredAtSeconds: null,
+    };
   }
+
+  if (seed === null) {
+    return {
+      containsWeightShift: null,
+      reason: 'seed not pinned — the page chose it, so nothing here can say what the clip contains. Pass --seed with one of the checked seeds.',
+      measuredAtSeconds: null,
+    };
+  }
+
+  const nominated = POSTURAL_JUDGEMENT_SEEDS.find((entry) => entry.seed === seed);
+
+  if (nominated !== undefined) {
+    // Measured at POSTURAL_CLIP_SECONDS. A shorter clip may end before the transfer opens, and
+    // saying otherwise would be exactly the unchecked claim this block exists to stop.
+    if (seconds < nominated.onsetSeconds + POSTURAL_HOLD_SECONDS) {
+      return {
+        containsWeightShift: false,
+        reason: `seed ${seed}'s transfer opens at ${nominated.onsetSeconds} s and this clip is only ${seconds} s long`,
+        measuredAtSeconds: POSTURAL_CLIP_SECONDS,
+      };
+    }
+
+    return {
+      containsWeightShift: true,
+      reason: `seed ${seed} transfers ${nominated.direction} from ${nominated.onsetSeconds} s, peak ${nominated.peakPixels} px of pelvis travel at full-body framing`,
+      measuredAtSeconds: POSTURAL_CLIP_SECONDS,
+      onsetSeconds: nominated.onsetSeconds,
+      direction: nominated.direction,
+    };
+  }
+
+  const empty = POSTURAL_EMPTY_SEEDS.find((entry) => entry.seed === seed);
+
+  if (empty !== undefined) {
+    const contains = seconds >= empty.firstTransferSeconds + POSTURAL_HOLD_SECONDS;
+
+    return {
+      containsWeightShift: contains,
+      reason: contains
+        ? `seed ${seed}'s first sustained transfer arrives at ${empty.firstTransferSeconds} s, which this ${seconds} s clip does reach`
+        : `seed ${seed} was MEASURED to hold no weight transfer until ${empty.firstTransferSeconds} s, and this clip ends at ${seconds} s`,
+      measuredAtSeconds: POSTURAL_CLIP_SECONDS,
+    };
+  }
+
+  return {
+    containsWeightShift: null,
+    reason: `seed ${seed} has never been measured for postural content`,
+    measuredAtSeconds: null,
+  };
+}
+
+/**
+ * Says it out loud, before the capture runs rather than after, because the whole cost of this
+ * defect was seven-minute clips that were judged before anyone asked what was in them.
+ */
+function reportPosturalContent(content) {
+  if (content.containsWeightShift === true) {
+    console.log(`postural  weight transfer present — ${content.reason}`);
+    return;
+  }
+
+  if (content.containsWeightShift === null && content.measuredAtSeconds === null
+    && content.reason.startsWith('clip is ')) {
+    return;
+  }
+
+  console.log('');
+  console.log('*** NO SUSTAINED WEIGHT TRANSFER IS KNOWN TO BE IN THIS CLIP.');
+  console.log(`***   ${content.reason}`);
+  console.log(`***   Checked seeds at ${POSTURAL_CLIP_SECONDS} s: ` +
+    POSTURAL_JUDGEMENT_SEEDS.map((entry) => `${entry.seed} (${entry.direction}, from ${entry.onsetSeconds} s)`).join(', '));
+  console.log('***   Judging weight shift on this clip judges the draw, not the layer.');
+  console.log('');
 }
 
 // --- driving the page -------------------------------------------------------------------------
@@ -642,11 +890,22 @@ function evenNumber(value) {
  * ?bare, ?webgl, ?gender and ?height are all legitimate things to capture, and clobbering them
  * would make the tool quietly capture something other than what was asked for.
  */
-function buildPageUrl(options, server) {
-  const url = new URL(options.url ?? `${server.baseUrl}/alive.html`);
+/**
+ * Whether this run should bring up its own vite. A bare path — `/alive.html?bare&frame=body` —
+ * means "that page, on a server of your own", which is the only way to get both a custom query
+ * and the un-watched server below.
+ */
+function wantsOwnServer(options) {
+  return options.url === null || options.url.startsWith('/');
+}
+
+function buildPageUrl(options, server, seed) {
+  const url = server === null
+    ? new URL(options.url)
+    : new URL(options.url ?? '/alive.html', server.baseUrl);
 
   url.searchParams.set('capture', '1');
-  if (options.seed !== null) url.searchParams.set('seed', String(options.seed));
+  if (seed !== null) url.searchParams.set('seed', String(seed));
   if (options.preroll > 0) url.searchParams.set('preroll', String(options.preroll));
 
   return url.href;
@@ -675,9 +934,20 @@ async function launchBrowser(playwright, options) {
 async function startViteServer() {
   const { createServer } = await import('vite');
 
+  // 🚩 THE WATCHER IS OFF, AND THAT IS THE POINT. LEARNINGS §1.12: a concurrent agent's file edit
+  // fires HMR, the page navigates, and Playwright dies with "Execution context was destroyed" —
+  // measured again while this option was being written, at frame 64 of 1800. A capture is a
+  // MEASUREMENT of one build; picking up an edit halfway through would corrupt it even if the
+  // reload were survivable. So the server this tool starts serves the tree as it stood at launch
+  // and ignores everything after. Long captures no longer have to be scheduled around a fan-out.
   const server = await createServer({
     configFile: path.join(REPOSITORY_ROOT, 'vite.config.js'),
-    server: { port: 5188, strictPort: false },
+    server: {
+      port: 5188,
+      strictPort: false,
+      hmr: false,
+      watch: { ignored: [ '**' ] },
+    },
     logLevel: 'warn',
   });
 
@@ -763,12 +1033,15 @@ function runFfmpeg(label, args) {
   });
 }
 
-function buildManifest({ options, pageUrl, capture, reproducibility, sheetCells, elapsedSeconds, outputs }) {
+function buildManifest({ options, seed, pageUrl, capture, reproducibility, posturalContent, sheetCells, elapsedSeconds, outputs }) {
   return {
     tool: 'tools/critic/capture.mjs',
     capturedAt: new Date().toISOString(),
     url: pageUrl,
-    seed: options.seed,
+    seed,
+    // What the clip is known to contain, so a later reader of this manifest does not have to
+    // reconstruct from the seed whether the judgement it supported was entitled to be made.
+    posturalContent,
     prerollSeconds: options.preroll,
     simulation: {
       fps: options.fps,
@@ -851,12 +1124,19 @@ function parseArguments(argv) {
   const options = {
     url: null,
     out: path.join('captures', 'capture'),
-    seed: null,
+    // Always a list, even when it holds one entry, and `[null]` when the page keeps its own seed.
+    // Judging one draw was the defect; the plural is the point.
+    seeds: [null],
+    requireWeightShift: false,
     playwrightPath: null,
     headed: false,
     keepFrames: false,
     ...DEFAULTS,
   };
+
+  // Applied after the loop rather than inside it, so that --postural-seeds means the same thing
+  // wherever it appears on the command line instead of depending on what came after it.
+  let posturalSet = false;
 
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
@@ -870,7 +1150,9 @@ function parseArguments(argv) {
       case '--width': options.width = Number(value); index += 1; break;
       case '--height': options.height = Number(value); index += 1; break;
       case '--dpr': options.dpr = Number(value); index += 1; break;
-      case '--seed': options.seed = Number(value); index += 1; break;
+      case '--seed': case '--seeds': options.seeds = parseSeedList(value); index += 1; break;
+      case '--postural-seeds': posturalSet = true; break;
+      case '--require-weight-shift': options.requireWeightShift = true; break;
       case '--preroll': options.preroll = Number(value); index += 1; break;
       case '--gif-fps': options.gifFps = Number(value); index += 1; break;
       case '--gif-width': options.gifWidth = Number(value); index += 1; break;
@@ -886,6 +1168,12 @@ function parseArguments(argv) {
     }
   }
 
+  if (posturalSet) {
+    options.seeds = POSTURAL_JUDGEMENT_SEEDS.map((entry) => entry.seed);
+    options.seconds = POSTURAL_CLIP_SECONDS;
+    options.requireWeightShift = true;
+  }
+
   if (Number.isFinite(options.seconds) === false || options.seconds <= 0) {
     throw new Error('--seconds must be a positive number.');
   }
@@ -896,20 +1184,47 @@ function parseArguments(argv) {
   return options;
 }
 
+/** `--seed 1` and `--seed 4242,42,20260807` are the same flag; one clip comes out per entry. */
+function parseSeedList(value) {
+  const seeds = String(value ?? '')
+    .split(',')
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0)
+    .map(Number);
+
+  if (seeds.length === 0 || seeds.some((seed) => Number.isFinite(seed) === false)) {
+    throw new Error(`--seed wants a number or a comma-separated list of numbers, not "${value}".`);
+  }
+
+  if (new Set(seeds).size !== seeds.length) {
+    throw new Error(`--seed "${value}" repeats a seed; each one would overwrite the last.`);
+  }
+
+  return seeds;
+}
+
 function printUsage() {
   console.log(`
 capture.mjs — deterministic video capture of a live Sugata page.
 
   node tools/critic/capture.mjs [options]
 
-  --url <url>          page to drive. Default: start vite and use /alive.html
+  --url <url>          page to drive. Default: start vite and use /alive.html.
+                       A bare PATH (/alive.html?bare&frame=body) starts vite here too, on a
+                       server with the file watcher OFF — a concurrent edit cannot kill it.
   --out <dir>          output directory                     (captures/capture)
   --seconds <n>        simulated seconds to capture         (${DEFAULTS.seconds})
   --fps <n>            frames per simulated second          (${DEFAULTS.fps})
   --width <px>         CSS viewport width                   (${DEFAULTS.width})
   --height <px>        CSS viewport height                  (${DEFAULTS.height})
   --dpr <n>            device pixel ratio; 2 doubles output (${DEFAULTS.dpr})
-  --seed <n>           motion stack seed. Default: the page's own
+  --seed <n[,n...]>    motion stack seed(s). Default: the page's own. A list captures one
+                       clip per seed into <out>/seed-<n>/ — judge more than one draw.
+  --postural-seeds     the measured weight-transfer set: seeds ${POSTURAL_JUDGEMENT_SEEDS.map((entry) => entry.seed).join(', ')}
+                       at ${POSTURAL_CLIP_SECONDS} s, with --require-weight-shift
+  --require-weight-shift
+                       exit 1 unless every clip is KNOWN to contain a sustained weight
+                       transfer. Seeds with none measured in ${POSTURAL_CLIP_SECONDS} s: ${POSTURAL_EMPTY_SEEDS.map((entry) => entry.seed).join(', ')}
   --preroll <s>        settle the stack this long before frame 1  (${DEFAULTS.preroll})
   --gif-fps <n>        gif frame rate                       (${DEFAULTS.gifFps})
   --gif-width <px>     gif width                            (${DEFAULTS.gifWidth})

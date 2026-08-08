@@ -148,6 +148,19 @@ const { MotionStack, createMotionTarget } = await import( './MotionStack.js' );
 const { MotionRandom } = await import( './Signals.js' );
 const { Sway } = await import( './Sway.js' );
 
+// The capture tool's postural nomination — which seeds it will hand a judge, and what it claims is
+// in them. Imported rather than restated so that the claim and its proof cannot drift apart: this
+// file re-measures every number in that table on every run. capture.mjs only runs its main() when
+// it is the process entry point, so importing it here costs a module parse and nothing else.
+const {
+    POSTURAL_JUDGEMENT_SEEDS,
+    POSTURAL_EMPTY_SEEDS,
+    POSTURAL_CLIP_SECONDS,
+    POSTURAL_HOLD_PIXELS,
+    POSTURAL_HOLD_SECONDS,
+    POSTURAL_SMOOTHING_SECONDS
+} = await import( '../../../../tools/critic/capture.mjs' );
+
 const SAMPLE_RATE_HZ = 60;
 const FRAME_SECONDS = 1 / SAMPLE_RATE_HZ;
 
@@ -206,6 +219,27 @@ const GLANCE_VERTEX_STRIDE = 11;
  * nothing in quiet standing reaches.
  */
 const GLANCE_TRAVEL_CEILING_PIXELS = 40;
+
+/**
+ * How long the CLIP CONTENT section traces each seed. Long enough to reach the latest first
+ * transfer in `capture.mjs`'s empty-seed table (968.6 s at seed 777) plus one hold, so that table's
+ * numbers are re-measured rather than trusted.
+ */
+const CLIP_CONTENT_SECONDS = 1200;
+
+/**
+ * A first transfer must open early enough that the judge sees the TRANSITION and then has time to
+ * read the held pose. 0.75 of the clip leaves 105 s after the onset — seven times the 15 s glance
+ * window — and the latest nominated seed opens at 0.707 of the clip.
+ */
+const CLIP_CONTENT_ONSET_FRACTION = 0.75;
+
+/** The nomination is a set, not a seed: one draw is what produced this defect in the first place. */
+const CLIP_CONTENT_MINIMUM_SEEDS = 3;
+
+/** The declared table is deterministic, so it is checked for agreement rather than for closeness. */
+const CLIP_CONTENT_ONSET_TOLERANCE_SECONDS = 0.1;
+const CLIP_CONTENT_PEAK_TOLERANCE_PIXELS = 0.1;
 
 /**
  * The frame-rate invariance matrix. 900 s because the defect it catches was reported at 900 s and
@@ -612,6 +646,13 @@ const results = [];
  */
 let measuredLegibility = null;
 
+/**
+ * The glance section's per-band travel, kept for the same reason: CLIP CONTENT's known-bad has to
+ * show that the glance gate passes on the very clip that contains no weight transfer, and quoting
+ * that from the same run is the only way the two numbers are known to be about the same trace.
+ */
+let measuredGlanceBands = null;
+
 // --- the figure ---------------------------------------------------------------------------------
 
 const here = path.dirname( fileURLToPath( import.meta.url ) );
@@ -702,6 +743,7 @@ measureEventLegibility();
 measureToeArticulation();
 measureFreeFootArticulation();
 measureGlanceLegibility();
+measureClipContent();
 measureAmplitudeDistribution();
 measureSegmentPaths( traces );
 measurePendulumGeometry();
@@ -3474,6 +3516,8 @@ function measureGlanceLegibility() {
 
     const shipped = bandTravelPixels( {}, framing );
 
+    measuredGlanceBands = shipped.bands;
+
     console.log( '' );
     console.log( '        band   height above floor (mm)   15 s travel   q10   hp15 SD   x the floor' );
 
@@ -3740,6 +3784,340 @@ function highPassed( samples, seconds ) {
         const to = Math.min( samples.length, index + half + 1 );
 
         out.push( samples[ index ] - ( prefix[ to ] - prefix[ from ] ) / ( to - from ) );
+
+    }
+
+    return out;
+
+}
+
+/**
+ * CLIP CONTENT — whether the clip a judge is actually handed contains a sustained weight transfer.
+ *
+ * 🎯 THE DEFECT. Every capture and every judgement in this repo was pinned to seed 1, because a
+ * pinned seed replays to the byte. Reproducible is not representative. Measured here, seed 1's
+ * pelvis never leaves a ±5 px band for as long as fifteen seconds anywhere in 420 s — its first
+ * sustained transfer opens at 483.0 s, sixty-three seconds after the clip ends. Judges were asked
+ * whether the body shifts its weight while watching a clip that, by the draw, contains no shift.
+ *
+ * IT IS NOT A DEFECT IN THE LAYER, and this section deliberately does not gate the layer's rate —
+ * `EVENT RATES` already does, against Duarte. Duarte's medio-lateral SHIFT process runs at
+ * 0.30/min, so a 420 s clip carries ~2.1 expected arrivals and the magnitude draw is lognormal:
+ * most shifts are small. Five of the twelve seeds this file gates on contain no sustained transfer
+ * in 420 s, and the median wait for the first one is measured below.
+ *
+ * It is LEARNINGS §1.4 one level down. That lesson sized the observation window against the RELAY
+ * rate — 1.5/min, the pooled fidget-plus-shift process — and the behaviour a body judge is asked
+ * about is governed by the SHIFT rate alone, five times slower. Same shape as §1.7b: two processes,
+ * one window, and the window was right for the wrong one. So the SEED is a gate parameter, exactly
+ * as the window is, and this section is where it gets gated.
+ *
+ * WHAT IS GATED. `tools/critic/capture.mjs` nominates the seeds it will hand a judge and declares
+ * what is in each. Those constants are imported, not restated, and every number in them is
+ * re-measured here: a nomination that stops being true fails, and a seed that has no transfer fails
+ * if it is nominated. THE OTHER WAY at the end nominates the five measured-empty seeds and requires
+ * all five to be rejected (§1.1a — a rejection stated on one seed is not a proof).
+ *
+ * THE SIGNAL. The pelvis bone's lateral position, projected on the camera's right vector at the
+ * full-body framing, smoothed over 3 s and measured from where it started. Both thresholds come
+ * from numbers already in this repo rather than from taste:
+ *
+ *   5 px is 7.6 mm at this framing, which is 2.46× the layer's own measured medio-lateral balance
+ *   RMS of 3.089 mm. Below that a viewer is reading noise; above it, a decision. The 1.6 px
+ *   indistinguishability floor is deliberately NOT used — it is a peak-to-peak and this is a held
+ *   offset, which is the statistic mismatch §1.14 cost a round to.
+ *
+ *   15 s is GLANCE_WINDOW_SECONDS: a hold that fills the span a viewer spends deciding whether the
+ *   thing is alive.
+ *
+ * 🚩 WHAT THIS IS NOT. It is the pelvis BONE, on `Sway` alone, offline — not the silhouette a
+ * capture measures on the full `alive.js` stack. Sway's stream is forked by layer name, so its
+ * realisation is identical in both, and no other layer drives the pelvis; but nothing here has been
+ * looked at (§1.9). It is a prediction of which clips are worth a judge's time, and it is the
+ * capture tool's manifest — not this file — that has to carry it to the judge.
+ */
+function measureClipContent() {
+
+    section( 'CLIP CONTENT — is there a weight transfer in the clip the judge is handed?' );
+
+    const framing = fullBodyFraming();
+    const traces = SWAY_SEEDS.map( ( seed ) => pelvisHoldTrace( seed, framing ) );
+    const bySeed = new Map( traces.map( ( trace ) => [ trace.seed, trace ] ) );
+
+    note( 'hold definition',
+        `>= ${ POSTURAL_HOLD_PIXELS } px for >= ${ POSTURAL_HOLD_SECONDS } s`,
+        `${ ( POSTURAL_HOLD_PIXELS / framing.pixelsPerMillimetre ).toFixed( 1 ) } mm of pelvis travel, ` +
+        `${ ( POSTURAL_HOLD_PIXELS / framing.pixelsPerMillimetre / 3.089 ).toFixed( 2 ) }x the measured ML balance RMS` );
+
+    console.log( '' );
+    console.log( '        seed   holds in clip   held (%)   first hold (s)   peak (px)   side' );
+
+    for ( const trace of traces ) {
+
+        const first = trace.clipHolds[ 0 ] ?? null;
+
+        console.log( `  ${ String( trace.seed ).padStart( 10 ) }   ${ String( trace.clipHolds.length ).padStart( 13 ) }` +
+            `   ${ ( 100 * trace.heldFraction ).toFixed( 1 ).padStart( 8 ) }` +
+            `   ${ ( trace.firstHoldSeconds === null ? 'never' : trace.firstHoldSeconds.toFixed( 1 ) ).padStart( 14 ) }` +
+            `   ${ ( first === null ? '-' : first.peakPixels.toFixed( 1 ) ).padStart( 9 ) }` +
+            `   ${ first === null ? '-' : first.direction }` );
+
+    }
+
+    console.log( '' );
+
+    const withHold = traces.filter( ( trace ) => trace.clipHolds.length > 0 );
+    const waits = traces.map( ( trace ) => trace.firstHoldSeconds ).filter( ( value ) => value !== null );
+
+    note( `seeds containing a transfer in ${ POSTURAL_CLIP_SECONDS } s`,
+        `${ withHold.length } of ${ traces.length }`,
+        `Duarte's ML shift runs at 0.30/min, so this is the draw behaving, not the layer failing` );
+    note( 'wait for the first transfer (s)',
+        `median ${ median( waits ).toFixed( 0 ) }, worst ${ Math.max( ...waits ).toFixed( 0 ) }`,
+        `an UNPINNED clip needs ${ Math.max( ...waits ).toFixed( 0 ) } s to contain one on every seed — pin instead` );
+
+    // --- the nomination capture.mjs will act on ---------------------------------------------
+
+    gate( 'nominated seeds', POSTURAL_JUDGEMENT_SEEDS.length,
+        CLIP_CONTENT_MINIMUM_SEEDS, Infinity,
+        'one draw is what produced this defect; a judgement wants a set' );
+
+    gate( 'nominated seeds containing a transfer',
+        POSTURAL_JUDGEMENT_SEEDS.filter( ( entry ) => bySeed.get( entry.seed ).clipHolds.length > 0 ).length,
+        POSTURAL_JUDGEMENT_SEEDS.length, POSTURAL_JUDGEMENT_SEEDS.length,
+        `every seed capture.mjs hands a judge must hold one, measured over ${ POSTURAL_CLIP_SECONDS } s at ${ GLANCE_SAMPLE_RATE_HZ } Hz` );
+
+    // The manifest quotes these numbers at a judge. A declared onset that no longer matches the
+    // layer is a manifest that lies, which is worse than one that says nothing.
+    const onsetError = Math.max( ...POSTURAL_JUDGEMENT_SEEDS.map( ( entry ) => {
+        const measured = bySeed.get( entry.seed ).firstHoldSeconds;
+        return measured === null ? Infinity : Math.abs( measured - entry.onsetSeconds );
+    } ) );
+
+    const peakError = Math.max( ...POSTURAL_JUDGEMENT_SEEDS.map( ( entry ) => {
+        const first = bySeed.get( entry.seed ).clipHolds[ 0 ];
+        return first === undefined ? Infinity : Math.abs( first.peakPixels - entry.peakPixels );
+    } ) );
+
+    gate( 'declared onset vs measured, worst (s)', onsetError,
+        0, CLIP_CONTENT_ONSET_TOLERANCE_SECONDS,
+        'the trace is deterministic; the table is written to one decimal, so this is agreement to the printed precision' );
+
+    gate( 'declared peak vs measured, worst (px)', peakError,
+        0, CLIP_CONTENT_PEAK_TOLERANCE_PIXELS,
+        'ditto — capture.mjs prints these at the judge before the clip is taken' );
+
+    const worstOnsetFraction = Math.max( ...POSTURAL_JUDGEMENT_SEEDS.map(
+        ( entry ) => bySeed.get( entry.seed ).firstHoldSeconds / POSTURAL_CLIP_SECONDS ) );
+
+    gate( 'latest first transfer, as a fraction of the clip', worstOnsetFraction,
+        0, CLIP_CONTENT_ONSET_FRACTION,
+        'the judge has to see the TRANSITION, not only a body already leaning' );
+
+    // Counted over the seeds that actually hold, so that a nomination with no transfer in it fails
+    // the gate above — which is about content — rather than this one, which is about coverage.
+    const directions = new Set( POSTURAL_JUDGEMENT_SEEDS
+        .map( ( entry ) => bySeed.get( entry.seed ).clipHolds[ 0 ]?.direction )
+        .filter( ( direction ) => direction !== undefined ) );
+
+    gate( 'directions represented in the nominated set', directions.size,
+        2, 2,
+        'three clips that all load the same leg would be reported as a body that always stands left' );
+
+    gate( 'declared direction vs measured',
+        POSTURAL_JUDGEMENT_SEEDS.filter(
+            ( entry ) => bySeed.get( entry.seed ).clipHolds[ 0 ]?.direction === entry.direction ).length,
+        POSTURAL_JUDGEMENT_SEEDS.length, POSTURAL_JUDGEMENT_SEEDS.length,
+        'the manifest names the side; it has to be the side' );
+
+    // --- and the seeds capture.mjs warns about ----------------------------------------------
+
+    gate( 'declared-empty seeds with no transfer in the clip',
+        POSTURAL_EMPTY_SEEDS.filter( ( entry ) => bySeed.get( entry.seed ).clipHolds.length === 0 ).length,
+        POSTURAL_EMPTY_SEEDS.length, POSTURAL_EMPTY_SEEDS.length,
+        'capture.mjs refuses these by name; the names have to be right' );
+
+    const emptyWaitError = Math.max( ...POSTURAL_EMPTY_SEEDS.map( ( entry ) => {
+        const measured = bySeed.get( entry.seed ).firstHoldSeconds;
+        return measured === null ? Infinity : Math.abs( measured - entry.firstTransferSeconds );
+    } ) );
+
+    gate( 'declared first transfer vs measured, worst (s)', emptyWaitError,
+        0, CLIP_CONTENT_ONSET_TOLERANCE_SECONDS,
+        `traced to ${ CLIP_CONTENT_SECONDS } s so the latest of them is reached rather than assumed` );
+
+    measureClipContentTheOtherWay( bySeed );
+
+}
+
+/**
+ * §1.1 and §1.1a. The nomination gate has to reject a bad nomination on EVERY seed of a set, and
+ * the two gates that were already watching this clip have to be shown NOT to catch it — otherwise
+ * the round has bought a gate that was already covered.
+ */
+function measureClipContentTheOtherWay( bySeed ) {
+
+    const rejected = POSTURAL_EMPTY_SEEDS.filter(
+        ( entry ) => bySeed.get( entry.seed ).clipHolds.length === 0 ).length;
+
+    note( 'nominating the measured-empty seeds instead',
+        POSTURAL_EMPTY_SEEDS.map( ( entry ) => `${ entry.seed } @ ${ entry.firstTransferSeconds.toFixed( 0 ) } s` ).join( ', ' ),
+        'each one is a seed somebody could reasonably have pinned' );
+
+    gate( 'the nomination gate REJECTS every empty seed', rejected,
+        POSTURAL_EMPTY_SEEDS.length, POSTURAL_EMPTY_SEEDS.length,
+        'the COUNT of seeds caught, not a single verdict — one seed of luck is not a proof' );
+
+    // 🚩 RECORDED AS A GATE. The FRAME-RATE section asserts that a full transfer HAPPENS at every
+    // frame rate, and it is satisfied by `stanceBlend <= -0.95` at any single instant. Seed 1
+    // satisfies it inside the judged clip and still holds nothing: the deep crossing is a fidget
+    // lunging through full transfer and snapping back within a second or so. DEPTH is not DURATION.
+    const seedOne = bySeed.get( 1 );
+
+    note( 'seed 1 inside the clip: blend depth, longest hold',
+        `${ seedOne.blendMinimum.toFixed( 3 ) }, ${ seedOne.longestHoldSeconds.toFixed( 1 ) } s`,
+        'a full transfer is REACHED and never HELD — the frame-rate section gates the first and not the second' );
+
+    gate( 'a full-transfer DEPTH check does NOT catch it',
+        seedOne.blendMinimum <= FULL_TRANSFER_BLEND ? 0 : 1, 0, 0,
+        `recorded, not tolerated: seed 1 reaches ${ seedOne.blendMinimum.toFixed( 3 ) } and would pass a depth gate` );
+
+    // 🚩 AND THE OTHER GATE THAT WAS ALREADY LOOKING AT THIS EXACT CLIP. GLANCE LEGIBILITY runs at
+    // seed 1, over 420 s, in pixels, at this framing — and passes, because its statistic is a
+    // peak-to-peak inside a 15 s window, which a 1.4 s fidget satisfies on its own. Same family as
+    // §1.14: right unit, wrong statistic for the behaviour being asked about.
+    const hip = measuredGlanceBands.find( ( band ) => band.name === 'hip' );
+
+    gate( 'the GLANCE gate does NOT catch it either',
+        hip.glanceTravelPixels < SILHOUETTE_WIDTH_FLOOR_PIXELS ? 1 : 0, 0, 0,
+        `recorded, not tolerated: the hip band scores ${ hip.glanceTravelPixels.toFixed( 2 ) } px on this very clip, against a ${ SILHOUETTE_WIDTH_FLOOR_PIXELS } px floor` );
+
+}
+
+/**
+ * One seed's pelvis trace, in pixels at the full-body framing, and the holds in it.
+ *
+ * Traced to CLIP_CONTENT_SECONDS and then sliced at POSTURAL_CLIP_SECONDS, so that the clip's own
+ * content and the wait for the first transfer come from the same run rather than from two.
+ */
+function pelvisHoldTrace( seed, framing ) {
+
+    const { stack, layer, root } = buildStack( seed );
+
+    const pelvis = root.getObjectByName( 'pelvis' );
+    const frames = Math.round( CLIP_CONTENT_SECONDS * GLANCE_SAMPLE_RATE_HZ );
+    const samples = new Float64Array( frames );
+    const point = new Vector3();
+
+    const clipFrames = Math.round( POSTURAL_CLIP_SECONDS * GLANCE_SAMPLE_RATE_HZ );
+    let blendMinimum = Infinity;
+
+    for ( let frame = 0; frame < frames; frame ++ ) {
+
+        stack.update( 1 / GLANCE_SAMPLE_RATE_HZ );
+        root.updateMatrixWorld( true );
+
+        point.setFromMatrixPosition( pelvis.matrixWorld );
+        samples[ frame ] = point.dot( framing.screenRight ) * 1000 * framing.pixelsPerMillimetre;
+
+        if ( frame < clipFrames ) blendMinimum = Math.min( blendMinimum, layer.stanceBlend );
+
+    }
+
+    stack.dispose();
+
+    const origin = samples[ 0 ];
+    const smoothed = boxcarMean( Array.from( samples, ( value ) => value - origin ), POSTURAL_SMOOTHING_SECONDS );
+
+    const allHolds = sustainedHolds( smoothed );
+    const clipHolds = sustainedHolds( smoothed.slice( 0, clipFrames ) );
+
+    const heldSeconds = clipHolds.reduce( ( total, hold ) => total + hold.seconds, 0 );
+
+    return {
+        seed,
+        clipHolds,
+        heldFraction: heldSeconds / POSTURAL_CLIP_SECONDS,
+        longestHoldSeconds: clipHolds.reduce( ( longest, hold ) => Math.max( longest, hold.seconds ), 0 ),
+        firstHoldSeconds: allHolds.length > 0 ? allHolds[ 0 ].startSeconds : null,
+        blendMinimum
+    };
+
+}
+
+/**
+ * The runs where the signal stays on ONE side of zero, beyond the threshold, for long enough to
+ * read as a held pose rather than as a passing fidget.
+ *
+ * The side matters: a signal that crosses zero has come back, and coming back is what separates
+ * Duarte's fidget from his weight shift. A magnitude-only test would splice a lunge left and a
+ * lunge right into one long "hold".
+ */
+function sustainedHolds( signal ) {
+
+    const holds = [];
+
+    let side = 0;
+    let start = 0;
+
+    for ( let index = 0; index <= signal.length; index ++ ) {
+
+        const value = index < signal.length ? signal[ index ] : 0;
+        const current = index < signal.length && Math.abs( value ) >= POSTURAL_HOLD_PIXELS
+            ? Math.sign( value )
+            : 0;
+
+        if ( current === side ) continue;
+
+        if ( side !== 0 ) {
+
+            const seconds = ( index - start ) / GLANCE_SAMPLE_RATE_HZ;
+
+            if ( seconds >= POSTURAL_HOLD_SECONDS ) {
+
+                let peak = 0;
+                for ( let at = start; at < index; at ++ ) {
+                    if ( Math.abs( signal[ at ] ) > Math.abs( peak ) ) peak = signal[ at ];
+                }
+
+                holds.push( {
+                    startSeconds: start / GLANCE_SAMPLE_RATE_HZ,
+                    seconds,
+                    peakPixels: peak,
+                    // +screenRight is the viewer's right, so a positive pelvis offset is the
+                    // figure's own right side. capture.mjs's manifest names the same side.
+                    direction: side > 0 ? 'right' : 'left'
+                } );
+
+            }
+
+        }
+
+        side = current;
+        start = index;
+
+    }
+
+    return holds;
+
+}
+
+/** A centred boxcar mean of the given width. `highPassed` subtracts one; this one is one. */
+function boxcarMean( samples, seconds ) {
+
+    const half = Math.floor( Math.round( seconds * GLANCE_SAMPLE_RATE_HZ ) / 2 );
+    const prefix = new Float64Array( samples.length + 1 );
+
+    for ( let index = 0; index < samples.length; index ++ ) prefix[ index + 1 ] = prefix[ index ] + samples[ index ];
+
+    const out = new Float64Array( samples.length );
+
+    for ( let index = 0; index < samples.length; index ++ ) {
+
+        const from = Math.max( 0, index - half );
+        const to = Math.min( samples.length, index + half + 1 );
+
+        out[ index ] = ( prefix[ to ] - prefix[ from ] ) / ( to - from );
 
     }
 

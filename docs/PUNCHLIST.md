@@ -76,7 +76,30 @@ measured there.**
       equilibrium rather than tuned. Measured 1.575 lateral events/min (fidget + shift, both are
       weight transfers) and a head response of 1.653× the centre of mass, against the 0.20 that
       was assumed. See `figure/BodyMass.js` and the `Sway.js` header.
+      ⚠️ **That 1.575/min is the pooled fidget-plus-shift rate. The SUSTAINED transfer — the body
+      settling onto one leg and staying — is Duarte's ML shift alone at 0.30/min**, and a 420 s
+      clip therefore carries ~2.1 expected arrivals against a lognormal magnitude draw. Measured
+      over the twelve seeds `sway.selftest.mjs` gates on, only **7 of 12** contain a sustained
+      transfer in 420 s and the median wait for the first one is **354 s**. Nothing was wrong with
+      the layer; the observation window was sized against the wrong one of its two processes.
+      See 2.12 for the gate that resulted.
 - [~] **2.10** Gate: **CRITIC** blind emote comparison vs Live2D/VTuber reference clips, silent idle.
+      🚩 **Capture the body clips with `--postural-seeds`** — seeds **4242, 42, 20260807** at
+      **420 s** — and never with a single unchecked seed. Seed 1, which every earlier capture and
+      judgement in this repo was pinned to, contains **no sustained weight transfer at all** in
+      420 s; its first one opens at 483.0 s. See 2.12.
+- [x] **2.12** The seed is a gate parameter, and it is now gated. `tools/critic/capture.mjs`
+      declares which seeds it will hand a judge and what is measured to be in each;
+      `sway.selftest.mjs`'s **CLIP CONTENT** section re-measures every one of those numbers on the
+      shipped layer at 30 Hz and fails if a nomination has stopped being true. `--seed` takes a
+      list (one clip per seed, into `<out>/seed-<n>/`), the manifest carries a `posturalContent`
+      block, and `--require-weight-shift` exits 1 rather than handing a judge a clip that cannot
+      contain the behaviour. The tool's own vite server now runs with the **file watcher off**, so
+      a concurrent agent's edit can no longer kill a long capture (LEARNINGS §1.12).
+      Gate: 12 new assertions in CLIP CONTENT, proven red by nominating seed 1 — 5 of them go red,
+      headed by `nominated seeds containing a transfer 3.000, target = 4.000`. Confirmed against
+      the arbiter: two 60 s captures of `alive.html?bare&frame=body` on one pinned threshold score
+      a hip-band lateral SD of **2.39 px at seed 1** and **14.76 px at seed 4242**.
 - [ ] **2.11** Convert the three remaining frame-coupled layers — `Gaze.js:1100`, `FacialIdle.js:836`,
       `HandIdle.js:437` — from `Signals.poissonEventOccurs` to `Signals.PoissonSchedule`, each on its
       own forked stream, and add a frame-rate invariance gate to each. `FacialIdle` needs one
@@ -276,7 +299,8 @@ measured there.**
 ## Phase 8 — Blind critic loops
 
 - [ ] **8.1** Loop: render vs AAA reference until same-tier, six measured gates green.
-- [ ] **8.2** Loop: emote vs Live2D/VTuber until decisive win.
+- [ ] **8.2** Loop: emote vs Live2D/VTuber until decisive win. Body clips come from
+      `capture.mjs --postural-seeds`; a verdict taken on one draw is a verdict about the draw.
 - [ ] **8.3** 60 fps at target resolution on this hardware, verified with a profiler.
 - [ ] **8.4** Cross-browser: Chrome/Safari WebGPU, Firefox WebGL2 tier.
 
@@ -285,6 +309,9 @@ measured there.**
 ## Standing constraints
 
 - **Animate early.** Every timing constraint agrees. Never analyse output audio reactively.
+- **A motion clip is judged on a seed SET, and only on seeds measured to contain the behaviour.**
+  A pinned seed buys reproducibility, not representativeness — `capture.mjs --postural-seeds`, or
+  `--require-weight-shift` on whatever set you pick. One draw is one draw.
 - **Dominance never goes to the face.** Posture, gaze policy, gesture amplitude only.
 - **Never proximity-blend emotions.** Threshold and saturate, 1–2 active maximum.
 - **The mouth belongs to lipsync.**
