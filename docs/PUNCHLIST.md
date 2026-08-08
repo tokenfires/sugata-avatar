@@ -64,6 +64,9 @@ measured there.**
       **fraction of measured resting flexion**, not an angle: the shipped BodyIdle finger idle was
       authored at 0.45° of peak knuckle deviation and measured **0.48 px** of fingertip travel at
       full-body framing over 7 minutes. HandIdle measures 5.69 px.
+      ⚠️ That 5.69 px was measured at 60 Hz on a layer whose arrival process is still advanced once
+      per FRAME, so the realisation it describes is not the one a 30 fps capture renders. Re-measure
+      it after 2.11 converts `HandIdle`.
 - [x] **2.8** Pupil dilation from arousal, exaggerated past physiology.
 - [x] **2.9** Weight shifts ~1–1.5/min idle; **driven by discourse boundaries, not a timer**.
       Resolved by re-rooting the shift on centre of mass rather than head displacement — a
@@ -72,6 +75,15 @@ measured there.**
       weight transfers) and a head response of 1.653× the centre of mass, against the 0.20 that
       was assumed. See `figure/BodyMass.js` and the `Sway.js` header.
 - [~] **2.10** Gate: **CRITIC** blind emote comparison vs Live2D/VTuber reference clips, silent idle.
+- [ ] **2.11** Convert the three remaining frame-coupled layers — `Gaze.js:1100`, `FacialIdle.js:836`,
+      `HandIdle.js:437` — from `Signals.poissonEventOccurs` to `Signals.PoissonSchedule`, each on its
+      own forked stream, and add a frame-rate invariance gate to each. `FacialIdle` needs one
+      schedule PER definition, not one shared stream: several definitions draw from `this.random`
+      inside one loop, so which fires first decides the draw order for all of them and re-couples
+      the frame rate through the ordering. Gate: the same seed at 30, 60 and 120 Hz produces the
+      same bone trajectory to a stated tolerance, proven red by a `frameCoupledArrivals: true`
+      reintroduction. ⚠️ Until this lands, every measurement of the full `alive.js` stack taken at
+      60 Hz is a measurement of a trajectory the 30 fps captures do not render — see LEARNINGS §1.13.
 
 ## Phase 3 — Rendering
 
@@ -81,10 +93,29 @@ measured there.**
       green (the ninth is the morph-velocity defect recorded under 3.12). Deferred path is
       **opt-in** — `create({pipeline:true})` — so every existing forward-path consumer keeps the
       behaviour its gates were measured against.
-- [ ] **3.2** `material/SkinMaterial.js` — pre-integrated (Penner) SSS via `PhysicalLightingModel`
+- [~] **3.2** `material/SkinMaterial.js` — pre-integrated (Penner) SSS via `PhysicalLightingModel`
       override, **baked** curvature map, dual-lobe specular, tiled micro-normal.
       Gate: **MEASURED** — terminator saturation *rises* and shifts red; high-pass σ 1.5–2.1/255.
-- [ ] **3.3** `material/EyeMaterial.js` — cornea refraction (IOR 1.333–1.4) into a flat iris plane,
+      **Half green, half red, and the red half is not a tuning job.**
+      *Half 1 (high-pass σ) GREEN* — 1.9495/255 at 3840×2160 on `skin.html`, dead centre of the
+      band, against a stock-material control of 0.2244. Re-measured on the integrated `alive.html`
+      at 900 px: **1.6357 with the skin material against 0.4347 without**, a 3.76× attribution.
+      *Half 2 (terminator reddening) RED, and not closable by this technique.* At the look spec's
+      own 1.0–1.5 mm scatter distance the pre-integration changes **0.00% of skin pixels** by more
+      than one code value, because this head's median mean curvature is **0.00455/mm** (r 220 mm)
+      and 1.25 × 0.00455 is a ring curvature of 0.006, where the table is Lambert to four decimals.
+      The plumbing is provably live: the change rises monotonically to 13.64% of pixels at 50 mm.
+      The default is left at the physical value rather than dialled to 12–25 mm to force a
+      subjective win. Delivered: `material/SkinMaterial.js`, `PreintegratedSkinLut.js`,
+      `SkinCurvature.js`, `SkinMicroNormal.js`, `tools/lut-bake`, `packages/testbed/src/skin.html`.
+      Budget +0.301 ms at 1080p, of which ~0.20 ms is the second specular lobe.
+- [ ] **3.2b** `material/SeparableSkinSSS.js` — Jimenez separable screen-space SSS over the
+      G-buffer's `sssMask` channel, which `SkinMaterial` already writes and nothing else does.
+      **This, not pre-integration, is what reddens a cheek terminator**: it blurs irradiance, so
+      its reach is set by the scatter distance rather than by the curvature, and ~12 mm across a
+      soft terminator is the red band the reference measures. Gate: **MEASURED** — the off/on
+      difference at the terminator regions, **not G3**, which passes on the stock material too.
+- [x] **3.3** `material/EyeMaterial.js` — cornea refraction (IOR 1.333–1.4) into a flat iris plane,
       shader-side pupil dilation, view-dependent limbal ring, **dual-normal sclera/iris blend**
       (specular snaps flat inside the iris). Gate: **MEASURED** — sclera at ~0.98× cheek luma.
       ✅ **The asset blocker is cleared.** The figures now build with MakeHuman's high-poly eye
@@ -93,16 +124,48 @@ measured there.**
       shader-fixable* now passes: the front 15° cap sits **0.688 mm proud** of a sphere fitted to
       the sclera (RMS 0.202 mm), against −0.015 mm on the old globe. `verify_glb.mjs` asserts the
       dome, the anterior chamber and the cornea material on every figure.
-      What remains for 3.3 is the shader plus three frame changes `tools/spikes/eye-geometry.mjs`
-      enumerates: an eye-local frame from a uniform, an iris/sclera map split, and an animated
-      eye-centre uniform (gaze moves the eye centre 1.72 mm).
-- [ ] **3.4** Eye occlusion sheet + lacrimal geometry + per-eye catchlight cubemap.
+      **MEASURED gate green.** Sclera:cheek **0.9361** on `eye.html` (target 0.98 ± 0.06) and
+      **0.9641** on the integrated `alive.html` with `SkinMaterial` on the cheek — the eye agent
+      flagged that the second number was the risk, and it landed inside the band. Refraction is
+      proved by execution, not by inspection: **−0.593 px/deg** of refraction-only pupil
+      displacement over a ±15° camera sweep against a **−0.481 px/deg** Snell prediction for the
+      fitted 3.328 mm anterior chamber, and **1.198×** corneal magnification of the pupil chord —
+      neither producible by a flat disc. All five remaining geometry-contract clauses are absorbed
+      in the shader rather than in the asset; every constant is fitted from the mesh at load, so
+      the material is per-figure. Gate: `node packages/core/src/material/EyeMaterial.selftest.mjs`,
+      99 checks.
+      ⚠️ **G2 does not isolate this shader under the current rig.** With `?eyes=0` the shipped GLB
+      sclera measures 0.9421 on the same plate and passes too. The attributable evidence is the
+      refraction sweep and the difference between the two plates, not the gate.
+- [x] **3.4** Eye occlusion sheet + lacrimal geometry + per-eye catchlight cubemap.
+      Delivered in `material/EyeOcclusion.js` and `material/EyeCatchlight.js`. The palpebral
+      aperture is **measured from the figure's own eyelash mesh** as a radius per 30° sector, at
+      the 20th percentile rather than the minimum — one stray lash taken as the lid margin pulled
+      the aperture inside the visible sclera and cost G2 0.28 of ratio (0.9157 → 0.6322). The
+      catchlight cubemap is generated at runtime; no asset ships.
 - [ ] **3.5** `material/HairMaterial.js` — Karis closed-form BSDF, cards default. Near-black albedo
       (`#150F17`) with ~10:1 spec-to-albedo contrast, broad soft dual bands, root AO 0.35–0.5.
 - [ ] **3.6** Hair OIT — weighted-blended on WebGL2, tile-binned on WebGPU.
 - [ ] **3.7** `material/FabricMaterial.js` — latex/PVC clearcoat, satin, sheen for shearling.
-- [ ] **3.8** `render/LightingRig.js` — 3–4 RectAreaLights (key/fill/rim/kicker), each paired with a
-      co-located shadow-casting directional. Gate: **MEASURED** — face key:shadow < 2:1.
+- [x] **3.8** `render/LightingRig.js` — 3–4 RectAreaLights (key/fill/rim/kicker); **the key alone**
+      paired with a co-located shadow-casting **SpotLight** carrying a measured 0.45 of its
+      irradiance. Gate: **MEASURED** — face key:shadow < 2:1.
+      Two corrections to this item's original wording, both measured. (a) *"each paired"* is not
+      affordable: one shadow caster costs **2.62 ms** at 1920×1080 on the real figure and four cost
+      **9.11 ms**, which with the four panels' 3.61 ms would be 12.7 ms of a 16.6 ms frame. (b)
+      *"directional"* had to become *spot*: a `DirectionalLight` has no distance falloff, so
+      splitting a light between a panel and a directional changes the pair's falloff — measured,
+      turning shadows OFF made the backdrop *darker*, which no shadow can do.
+      **Gate green at both framings.** Portrait **1.6091** linear on `lighting.html`, reproduced at
+      **1.6091** on the integrated `alive.html` with the skin material off and **1.5813** with it
+      on — all three inside the look spec's 1.43–1.64 reference band. Full body **1.2104** /
+      **1.2161**: passes the < 2.00 ceiling, flatter than the reference band, and that trade is
+      recorded rather than hidden. Known-bad proven: the conventional 4:1 portrait rig scores
+      **3.1497** and goes red on the identical regions.
+      Lights are authored as **irradiance at the focus**, not as `intensity`: three's
+      `RectAreaLight.intensity` is a radiance, so four typed intensities express a ratio only for
+      the exact panel geometry they were typed against — this rig's fill panel subtends **2.485×**
+      the key's solid angle. Budget: 3.61 ms for the four panels + 2.62 ms for the one shadow pass.
 - [ ] **3.9** Screen-space contact shadows (`SSSNode`) for eyelid crease, nostril, lip corner.
 - [ ] **3.10** GTAO → **bent normals + specular occlusion** (Frostbite form). Hand-rolled — three.js
       has neither, and un-occluded ambient specular is why WebGL characters look like plastic.

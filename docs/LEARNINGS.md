@@ -307,6 +307,112 @@ Same shape as §1.11 (a gate that structurally cannot resolve the thing it is ai
 a real detour: the asset was nearly rejected on the strength of the instrument. **Fit your
 reference where the feature you are hunting is not.**
 
+### 1.13 A stochastic layer advanced once per FRAME has a trajectory that depends on the frame rate, and no rate, amplitude or spectral gate can see it
+
+`Signals.poissonEventOccurs(rate, dt)` uses the exact probability `1 − exp(−rate·dt)`, so the
+long-run event rate is correct at 30, 60 and 120 Hz — and it consumes **one random draw per
+frame**, so the whole realisation moves. Measured on `Sway` before the fix: **120.1 / 240.1 /
+480.1 draws per second** at the three rates, and at seed 1 over 900 s the stance blend spanned
+−0.771 at 30 Hz against −0.990 at 60 Hz, **never completing the weight transfer at the rate the
+judge's capture actually renders**. The free-foot gate had therefore been proving a property of a
+trajectory no camera has ever seen. Worst bone divergence between two traces of the same seed:
+49.4 mm (Sway), 12.4 mm (BodyIdle).
+
+Every rate, amplitude and spectral gate in the repo stayed green through all of it, because the
+rate *was* right.
+
+The fix is one interval drawn per **event**, on a stream forked per process, with the frame cut at
+the arrival so an event's shape starts at the instant it was drawn for. In-flight events must be
+aged BEFORE new arrivals fire — that ordering alone was worth 0.48 mm in `BodyIdle`. The gate is
+the same seed at three frame rates compared frame for frame: now 0.001 mm, and proven red by a
+`frameCoupledArrivals: true` reintroduction at **2859×** the tolerance (Sway) and **962×**
+(BodyIdle). Both selftests also assert that a rate gate and an amplitude gate respectively would
+**not** have caught it.
+
+This is §1.3 one level down: the question is not only what a degenerate **input** would score, but
+what a different **observer** would. `Signals.poissonEventOccurs` now carries a 🚩 at its
+definition, and three layers still have the defect — see punch-list 2.11.
+
+### 1.14 A floor and a measurement must be the same KIND of statistic
+
+This project's 1.6 px indistinguishability floor is a **peak-to-peak** between two plates ("a
+weight shift moves the body ~4.5 mm ML — 1.6 pixels at full-body framing; side-by-side plates
+before and after a shift are indistinguishable"). A re-verifier compared it against **standard
+deviations** from `travel.mjs` and concluded the lower body was dead.
+
+On the same 12,600 frames the peak-to-peak is **10–12× the SD**, so the comparison was out by an
+order of magnitude. Measured in the matching statistic — median travel inside a sliding 15 s
+window — the knee band scores **6.40 px**, four times the floor, and only the ankle band is
+marginal at **2.01 px**, falling to 1.06 px in the quietest tenth of windows. The defect was real;
+its size and its location were both wrong.
+
+Same family as §1.10b (an amplitude stated in a unit nobody can picture) but running the other
+way: here the number was in the right *unit* and the wrong *statistic*, which is harder to spot
+because both sides say "pixels". **State the statistic beside the number, always.** When a tool
+reports SDs and your threshold is a displacement, one of the two has to change.
+
+### 1.1a A rejection proof measured on a narrower sample than the gate it proves is not a proof of that gate
+
+§1.1 says a gate that has never failed is not known to work. This is the sharper version: a gate
+that has failed **once**, on one draw of a stochastic process, is also not known to work — and the
+failure is invisible, because the assertion reads green.
+
+Three of `sway.selftest.mjs`'s known-bad rejections were stated on **one seed** while the forward
+gates they prove run over **twelve**, and two of them silently stopped rejecting the moment an
+unrelated fix re-drew the arrival times. The unrighted-layer correlation SIGN rejection caught the
+defect on **6 of 12 seeds** — a coin toss that had passed for a proof. The pre-fix fidget profile's
+legible-rate rejection never worked at all: over three seeds the old code scores 0.810/min against
+a 0.75 floor.
+
+Run a rejection over the same seed set as the gate, and assert the **count** of seeds caught rather
+than the single verdict.
+
+### 1.15 A bug can cancel out of the very comparison built to find it
+
+The skin material's area-light path divided by `max(saturate(N·L), 1/6)`. At zero curvature the
+pre-integrated table returns *exactly* `saturate(N·L)`, so that gain must be exactly 1 and the
+material must be bit-identical to stock diffuse — a **one-sided** floor breaks that identity
+precisely across the terminator band, and it multiplied the diffuse there by **0.023**.
+
+Because it applied equally to BOTH plates of the A/B pair, the difference image stayed clean and
+the defect was invisible in the instrument built to detect it. It was caught by asking a different
+question: *why is the shadow side grey?*
+
+Put the epsilon on both sides of a ratio whose identity case matters, and check the identity
+**algebraically** rather than by differencing.
+
+### 1.16 A transform read from the CURRENT pose is not the bind transform, and on an unposed test figure the two are indistinguishable
+
+`EyeOcclusion.placeOnHead` composed the eye's **bind object-space** frame against
+`head.matrixWorld` — the head bone's transform in whatever pose the figure happens to be standing
+in. Its own doc comment said the right thing ("the head bone's own bind transform is the inverse of
+its stored `boneInverse`") and the code did something else, which is §1.7a again: writing the
+reasoning down did not stop the code contradicting it.
+
+It passed every check on its own browsercheck page, because that page never poses the figure. On
+`alive.js`, which applies `relaxed-standing` before any material is built, **both occlusion sheets
+landed 29.3 mm to the character's left of their own eyes** — head-local x +0.0582 and +0.0004
+against a bind-correct ±0.0289 — putting one of them on the temple as a visible grey quad. The
+fix reads `skeleton.boneInverses[headIndex]`, which is pose-independent by construction.
+
+Two transferable shapes. **A component verified only on its own page has been verified in one
+pose**; the integrator's page is where a bind-vs-current confusion first shows. And when two
+things should mirror, **assert the mirror**: ±0.0289 against +0.0582/+0.0004 is a one-line check
+that no amount of looking at a single eye would have produced.
+
+### 1.17 A page that animates cannot be gated by a fixed region file
+
+Measuring the integrated `alive.html` at `?preroll=6` put the head at **35.8° of gaze yaw**, and
+the committed portrait region set — authored against the same framing constants on a static page —
+then sampled a different anatomy: `shadowTerminator` landed on the **backdrop** (#1E1F2C) and G1
+read 1.83 where the rest pose reads 1.58. Two region sets both honestly authored disagreed by
+0.6 of ratio, and neither was wrong about its own plate.
+
+**Pin the motion state before measuring a still.** `?freeze` with no pre-roll puts the figure in
+its rest pose, which is the state the region files were authored against and the only one two
+pages can share. If a gate must be measured mid-motion, derive the rects from projected landmarks
+in the same frame — but then say so, because the numbers are not comparable to the static ones.
+
 ### 1.12 Practical traps that cost real time
 
 **A scratch vector passed as an output target aliases itself.** `selfCheckFractionOfStature` called
@@ -369,6 +475,30 @@ when the page is hidden, `MessageChannel` measured **553,921/s**.
   probe hangs). Numeric readback verification is a WebGPU-only instrument.
 - `RGBELoader` deprecated since r180 → use `HDRLoader`.
 - `PCFSoftShadowMap` deprecated at r186; already removed from the WebGPU path.
+- 🚩 **`PhysicalLightingModel.direct()` is NOT the only diffuse path.** A `RectAreaLight` goes
+  through `directRectArea()` and the LTC path and never reaches `direct()`. A custom diffuse model
+  that overrides only `direct()` compiles, renders, and does **nothing at all** under a rect-area
+  rig — which is the only rig this project uses. Neither `LTC_Evaluate` nor `LTC_Uv` is re-exported
+  from `three/tsl`, and deep-importing `three/src/...` would instantiate a second copy of the node
+  system; the workable pattern is to call `super` with a scratch `reflectedLight` and post-process
+  its result. Note the consequence: pre-integration is exact for punctual lights and only a
+  per-channel gain for rect-area ones, because LTC returns a solid-angle-weighted cosine with no
+  single N·L to look up — so the area path does not reproduce the wrap into negative N·L.
+- 🚩 **A `RectAreaLight` illuminates only the half-space in FRONT of its own plane, with a hard cut
+  at the plane.** On a curved subject that boundary is invisible; across a large flat backdrop
+  behind the subject it is a straight bright/dark edge across the frame. Isolated by execution:
+  rim + kicker at zero gives a clean backdrop, rim + kicker alone gives black plus one hard wedge.
+  Mitigations: keep flat surfaces closer than the rim, give the card an emissive floor, or keep it
+  out of shot. (It is **not** true that the two back lights "throw their light forward, away from
+  anything further back" — the key and fill do light the card perfectly well. That wrong reason sat
+  in `alive.js` as authoritative for two phases.)
+- **A `SpotLight` shadow's frustum IS its light cone** — three derives `shadow.camera.fov` from
+  `light.angle`. Sizing the cone snugly to the subject for texel density therefore puts the cone
+  edge inside the frame on anything further away. Size the cone to the studio and buy texels back
+  with map size instead, which is free: the shadow pass is bound by the extra geometry draw, not by
+  fill — measured 2.62 ms at 2048 and 2.74 ms at 1024.
+- **`Renderer.shadowMap.enabled` defaults to `false` on the WebGPU path.** A rig handed only the
+  scene will build a perfectly configured shadow caster and silently produce no shadow.
 - 🚩 **Two unrelated things are called SSS.** `MeshSSSNodeMaterial` is a back-lit translucency
   hack (not a skin shader). `addons/tsl/display/SSSNode.js` is Screen-Space **Shadows**.
 - `TAARenderPass` (WebGL) **is not TAA** — no reprojection. Useless for an animated avatar.
@@ -431,10 +561,15 @@ so the schema constraint is load-bearing rather than optional. ~0.7 s per call.
 npm run dev                                    # http://localhost:5173/alive.html
 
 # ⚠️ `npm run build` builds ONLY packages/testbed/index.html — vite's default single entry.
-# alive.html and src/stage.html are NOT in it, so a broken import in alive.js or stage.js
-# passes the build. To actually prove the pages resolve, build them explicitly:
-npx vite build --config <temp config listing all three HTML entries>
-# (45 modules vs 13; alive and stage each get their own chunk.)
+# alive.html and every page under src/ are NOT in it, so a broken import in alive.js, stage.js,
+# skin.js, eye.js or lighting.js passes the build. To prove the pages resolve, build them
+# explicitly with a temp config listing all six HTML entries:
+#   index.html, alive.html, src/stage.html, src/skin.html, src/eye.html, src/lighting.html
+npx vite build --config <temp config listing all six HTML entries>
+# (68 modules vs 13; alive, stage, skin, eye and lighting each get their own chunk.)
+# Confirmed in that build: SkinMaterial's `new URL(`...${figureName}-curvature.png`, import.meta.url)`
+# IS handled — vite's dynamic-URL glob emits all five curvature PNGs as hashed assets, so the
+# runtime lookup resolves in production as well as in dev.
 
 # Perf spike pages (need a repo-rooted vite; the main config roots at the testbed
 # and SPA-falls-back, returning HTTP 200 with the WRONG page)
@@ -452,6 +587,35 @@ node docs/eye-optics-claims.selftest.mjs
 # Objective visual gates (the six measured Stellar Blade properties)
 node tools/critic/measure.mjs <png> <regions.json>
 node tools/critic/selftest.mjs                 # 79 checks
+
+# Committed region files. Both were authored against 900x1200 at the portrait framing constants
+# (26 deg FOV, 0.42 m portrait height, eye line a third from the top, camera 12 deg off axis),
+# which packages/testbed/alive.html and src/lighting.html SHARE — so one file measures both.
+# ⚠️ Pin the motion state first: alive.html at ?preroll=6 yaws the head 35.8 deg and the rects
+# then land on different anatomy. Use ?freeze with NO pre-roll. See §1.17.
+node tools/critic/measure.mjs <png> tools/critic/regions.lighting-portrait.json --human
+node tools/critic/measure.mjs <png> tools/critic/regions.lighting-body.json --human
+
+# The Phase 3 shading gates
+node packages/core/src/material/EyeMaterial.selftest.mjs      # 99 checks
+node packages/core/src/render/LightingRig.selftest.mjs        # 34 checks
+node tools/lut-bake/lut-bake.selftest.mjs                     # 32 checks
+node tools/lut-bake/bake.mjs curvature --figure assets/figures/figure_g050.glb
+
+# The Phase 3 browsercheck pages. Serve from the REPO ROOT (.claude/launch.json `sugata-root`,
+# port 5199); the testbed config roots at packages/testbed and SPA-falls-back to the WRONG page
+# at HTTP 200.
+http://localhost:5199/packages/testbed/src/eye.html?w=1000&h=1000&height=0.032&focus=left&bare
+#   ?refraction=0  flat iris, the A side of the parallax comparison
+#   ?shell=0       corneal shell out of the draw, to attribute a highlight to one mesh
+#   ?shader=0      the shipped GLB materials back
+http://localhost:5199/packages/testbed/src/skin.html?bare&w=3840&h=2160   # ?stock=1 ?sss=0 ?scatter=12
+http://localhost:5199/packages/testbed/src/lighting.html?frame=portrait&bare   # ?variant=dramatic ?ov=rim.azimuthDegrees:-134
+
+# alive.html now carries the Phase 3 materials. Controls for an A/B:
+#   ?skin=0     body keeps the shipped GLB material
+#   ?eyes=0     eye shells keep theirs
+#   ?shadows=0  rig without its shadow-casting half
 
 # Blind A/B — strips provenance so a critic genuinely cannot tell which is ours
 node tools/critic/blind_ab.mjs <a.png> <b.png>

@@ -12,7 +12,7 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: 2026-08-07 — five of the visual judge's seven findings closed by measurement; the eye asset gained a real cornea; the deferred render pipeline (3.1) landed; the corneal radius of curvature is measured and recorded at last, and the "under-strength corneal power" claim is retracted — it had the sign backwards.
+Last updated: 2026-08-07 — Phase 3 shading lands on the page a judge actually captures. `alive.html` now wears `SkinMaterial`, `EyeMaterial` + occlusion and `LightingRig`; 3.3, 3.4 and 3.8 are gated green there, 3.2 is half green and half red for a reason that is arithmetic rather than a bug. Separately, every stochastic motion layer was found to have a **frame-rate-dependent trajectory** while every rate gate stayed green.
 
 ---
 
@@ -73,13 +73,163 @@ the emote critic loop run in parallel with renderer work.
 |---|---|---|
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
-| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding** |
-| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1 done** (deferred G-buffer); 3.3's asset blocker cleared; rest not started |
+| 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ⚠️ Three layers still advance their arrival processes per FRAME — punch-list 2.11 |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.3, 3.4, 3.8 done; 3.2 half.** All four are wired into `alive.html`. Hair, cloth, AO, TRAA and the grade not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started |
+
+### 2026-08-07, latest — Phase 3 shading is on the aliveness page, and the motion layers were rendering a trajectory no camera sees
+
+**🎯 The finding that matters most this round is not a shader.** Every stochastic motion layer drew
+its Poisson arrivals **once per frame**, so the event RATE was dt-invariant and the TRAJECTORY was
+not. Measured before the fix: `Sway` consumed **120.1 / 240.1 / 480.1 random draws per second** at
+30 / 60 / 120 Hz, `BodyIdle` 30 / 60 / 120, `Breath` 0.3 at all three. At seed 1 over 900 s the
+stance blend spanned −0.771 at 30 Hz against −0.990 at 60 Hz — **the weight transfer never
+completed at the frame rate the judge's captures are taken at.** Worst bone divergence between two
+traces of the same seed: **49.4 mm** (Sway), **12.4 mm** (BodyIdle), 0.039 mm (Breath). Every rate,
+amplitude and spectral gate in the repo stayed green throughout. Fixed in `Sway`, `BodyIdle` and
+`Breath` by `Signals.PoissonSchedule` — one interval per EVENT on a per-process forked stream, the
+frame cut at the arrival, in-flight events aged before new ones fire. All three are now dt-invariant
+to float dust (worst 0.0008 mm), and both selftests carry a FRAME-RATE INVARIANCE gate proven red by
+reintroduction at **2859×** and **962×** the tolerance. `Gaze`, `FacialIdle` and `HandIdle` still
+have the defect — punch-list 2.11. See LEARNINGS §1.13.
+
+**Composite centre-of-pressure RMS moved, because the dt fix re-rolled the realisation.** 900 s,
+12 seeds:
+
+| | before | after | reference |
+|---|---|---|---|
+| ML median | 11.63 mm | **10.23 mm** | inside Bates' IQR 9.58–66.5 |
+| AP median | 8.22 mm | **8.77 mm** | still BELOW Bates' Q1 of 10.34 |
+| AP shortfall vs Bates Q1 | 2.12 mm | **1.57 mm** | recorded known state, gate still passes |
+| mean resultant velocity | 18.2 mm/s | **18.22 mm/s** | unchanged |
+
+Read the AP direction carefully: the shortfall got **smaller**, which brings the known-red assertion
+nearer to closing without closing it. Decomposed by execution, the whole move is the dt fix; the new
+`MEDIO_LATERAL_ANKLE_SHARE` moved the composite by exactly nothing (ML 10.69 / AP 8.95 either way on
+the commanded signal), which is the design claim and is now measured rather than asserted.
+
+**Lower-body legibility: the defect was real, and both its size and its location were wrong.** The
+1.6 px indistinguishability floor is a **peak-to-peak**; the report that said the lower body was
+dead compared it against **standard deviations**, which on these traces are 10–12× smaller. Measured
+in the matching statistic — median travel inside a sliding 15 s window, `captures/r5-body`, 12,600
+frames:
+
+| band | 15 s travel | quiet tenth | global SD | × the 1.6 px floor |
+|---|---|---|---|---|
+| head | 20.84 px | 16.20 | 11.03 | 13.0 |
+| shoulder | 11.88 px | 9.99 | 10.83 | 7.4 |
+| hip | 11.79 px | 10.01 | 10.92 | 7.4 |
+| knee | **6.40 px** | 5.07 | 5.72 | **4.0** |
+| ankle | **2.01 px** | **1.06** | 2.04 | 1.3 |
+
+Only the ankle band is marginal, and it is **geometrically bounded, not amplitude-bounded**: its
+centroid sits ~80 mm above the ankle joint on a 420 mm shank whose lower end friction-pins, so it
+travels ~0.19× whatever the knee does. Turning the free-foot yaw release and the toe lift off
+together changes it by **0.01 px**. A GLANCE LEGIBILITY gate now states per-band travel in pixels at
+the named framing, proven red against the historical spine-bend model which scores exactly
+**0.0000 px** at knee and ankle. See LEARNINGS §1.14.
+
+### 2026-08-07, latest — Phase 3.2 / 3.3 / 3.4 / 3.8, and what each is worth
+
+**3.8 `render/LightingRig.js` — GREEN, and it replaced `alive.js`'s inline rig.** Lights are
+authored as **irradiance at the focus**, derived through a closed-form projected solid angle,
+rather than as `intensity`. That matters because `RectAreaLight.intensity` is a *radiance*: four
+typed intensities express a ratio only for the exact panel geometry they were typed against, and
+this rig's fill panel subtends **2.485×** the key's solid angle. The old inline rig's own header
+claimed "a key:fill around 1.5:1" and measured **key:shadow 0.99 linear** — dead flat.
+
+| plate | G1 linear | note |
+|---|---|---|
+| `lighting.html` portrait | **1.6091** | inside the reference band 1.43–1.64 |
+| `alive.html` portrait, skin OFF | **1.6091** | the rig transferred exactly |
+| `alive.html` portrait, skin ON | **1.5813** | the skin material costs 0.028 of ratio |
+| `lighting.html` full body | 1.2104 | passes the < 2.00 ceiling, flatter than the band |
+| `alive.html` full body | 1.2161 | " |
+| known-bad: conventional 4:1 rig | **3.1497** | RED, as constructed |
+
+The **"rim stops reading at body scale"** open lead is closed with a residue. Measured on the thigh
+at full-body framing, the portrait rim azimuth (−152°) produces **no band at all** — 1 px, and the
+luma profile inward from the silhouette is monotonic. The body preset (−134°, standoff pulled from
+2.6 to 1.4 subject heights, irradiance 22) measures **14 px at 1.185×** contrast. Residue: no
+azimuth makes a body-framing rim as wide as a portrait one, because the same rim covers **8.9×
+fewer pixels** — an upper arm is 2.4% of the frame where a head is 21.4% — and at body framing a
+legible rim and a reference-band face ratio pull against each other.
+
+Frame cost, measured on the real 74k-triangle skinned figure at 1920×1080: **four area lights
+3.608 ms**, independently reproducing this file's fitted 3.604 ms on entirely different geometry;
+**one shadow caster 2.624 ms**, four 9.114 ms. The shadow cost is the extra geometry pass, not the
+map's fill — halving the map 2048 → 1024 moved it 2.62 → 2.74 ms, i.e. not at all. **Four shadow
+casters would be 12.7 ms of a 16.6 ms frame, so exactly one ships.** The caster is a `SpotLight`
+rather than a `DirectionalLight` because a directional has no distance falloff, and with one,
+turning shadows OFF measurably made the backdrop *darker*.
+
+**3.2 `material/SkinMaterial.js` — half green, and the red half is arithmetic.** The high-pass σ
+gate passes at **1.9495/255** at 3840×2160 against a stock-material control of 0.2244; on the
+integrated `alive.html` at 900 px it reads **1.6357 with the material against 0.4347 without**, a
+3.76× attribution. The terminator half is red and is **not closable by pre-integration**: at the
+look spec's own 1.0–1.5 mm scatter distance it changes **0.00% of skin pixels** by more than one
+code value. Cause measured, not guessed — this head's **median mean curvature is 0.00455/mm**
+(r 220 mm; p90 0.1453, p99 0.4389; 0.00437–0.00510 median across the gender sweep), and
+1.25 × 0.00455 is a ring curvature of 0.006 where the table is Lambert to four decimals. The
+plumbing is provably live:
+
+| scatter distance | 1.25 mm | 3 mm | 6 mm | 12 mm | 25 mm | 50 mm |
+|---|---|---|---|---|---|---|
+| skin pixels changed > 1 code value | **0.00%** | 1.25% | 2.83% | 5.46% | 9.29% | **13.64%** |
+
+The default is left at the physical value rather than dialled to 12–25 mm to force a subjective win
+(LEARNINGS §1.7, §1.11a). Budget **+0.301 ms** at 1080p, of which ~0.20 ms is the second specular
+lobe. What actually closes a cheek terminator is the *other* technique — separable screen-space SSS
+over the G-buffer's `sssMask` channel, which this material already writes and nothing else does.
+New punch-list item 3.2b.
+
+**3.3 / 3.4 `material/EyeMaterial.js` + `EyeOcclusion.js` + `EyeCatchlight.js` — GREEN.** Sclera at
+**0.9361×** cheek on `eye.html` and **0.9641×** on the integrated `alive.html` with `SkinMaterial`
+on the cheek, against a target of 0.98 ± 0.06. Refraction is proved by execution: **−0.593 px/deg**
+of refraction-only pupil displacement over a ±15° camera sweep against a **−0.481 px/deg** Snell
+prediction for the fitted 3.328 mm chamber, and **1.198×** corneal magnification of the pupil chord
+— neither producible by a flat disc. Shader-side pupil dilation spans 3.62 / 4.99 / 6.56 mm.
+
+Every geometric constant is fitted from the mesh at load, so the material is per-figure: sclera band
+radius 14.72–15.08 mm, corneal anterior radius **7.62 (g000) → 7.17 (g100) mm monotone**, iris plane
+depth 12.68–13.12 mm at an RMS of 0.36–0.40 mm about the plane, iris radius 6.30–6.41 mm, corneal
+apex to iris plane 3.14–3.51 mm. The iris and pupil radii come from `brown_eye.png` at 0.1135 and
+0.0250 uv, measured on 360-sample annuli.
+
+⚠️ **Superseding note on the anterior chamber.** The spike's 2.291 mm is apex-to-apex between the
+two SHELLS; the number the refraction actually crosses is corneal apex to the **fitted iris plane**,
+**3.328 mm** on g050. Different quantities, both correct — quote the one the formula uses.
+
+⚠️ **G2 does not isolate the eye shader under this rig.** With `?eyes=0` the shipped GLB sclera
+measures **0.9421** on the same plate and passes too. The attributable evidence is the refraction
+sweep, not the gate.
+
+### The integration itself, and the two defects it exposed
+
+`alive.html` — the page every judge captures — carried the raw GLB materials and an inline rig until
+this round. It now builds `LightingRig`, `SkinMaterial` and `EyeMaterial` + `EyeOcclusion` per bake,
+disposes them on a gender swap, drives `Pupil` into `EyeMaterial.pupilScaleUniform`, and hands the
+eye shader the rig's own key direction. `?skin=0`, `?eyes=0` and `?shadows=0` are the controls.
+
+It stays on the **forward** path: `markAsSkin` is deliberately not called, because a material
+carrying `mrtNode` cannot be forward-rendered, and turning on the deferred G-buffer would change
+the render path every Phase 2 motion number was measured against for no channel anyone consumes yet.
+
+Two defects only integration could find:
+
+1. **`EyeOcclusion` placed its sheets from the head bone's CURRENT transform, not its bind
+   transform.** Invisible on `eye.html`, which never poses the figure. On `alive.html`, which
+   applies `relaxed-standing` first, both sheets landed **29.3 mm** to the character's left of
+   their own eyes — head-local x **+0.0582** and **+0.0004** against a bind-correct **±0.0289** —
+   putting one on the temple as a visible grey quad. Fixed by reading
+   `skeleton.boneInverses[headIndex]`. LEARNINGS §1.16.
+2. **A still-plate gate on an animating page needs its motion state pinned.** At `?preroll=6` the
+   head sits at **35.8°** of gaze yaw and the committed region file samples the backdrop; G1 reads
+   1.83 there against 1.58 at rest. LEARNINGS §1.17.
 
 ### 2026-08-07, later — the POSTURE_HEAD_TRANSFER disagreement is resolved
 
@@ -356,11 +506,18 @@ gate asserts both numbers. Note the clinical keratometric convention uses n = 1.
 report these corneas as 44.15–48.85 D against a human 43.27 D — same conclusion, different scale.
 Do not compare a 1.376 number against a 1.3375 one.
 
-⚠️ **Nothing has looked at these eyes.** Every claim here is geometric and material-level. The
-cornea should render as clear glass with a Fresnel specular — three r185's WebGPU node path does
-implement transmission with a real refraction ray (`PhysicalLightingModel.js:128`) — but no judge has
-seen it. What to look for: a wet corneal highlight over the iris, and **not** a grey or blue-tinted
-dome.
+~~⚠️ **Nothing has looked at these eyes.**~~ **Something has, now.** `material/EyeMaterial.js`
+(punch-list 3.3) ships and is on `alive.html`. The eye agent looked at an eyes-only crop and a
+portrait: iris fibres, a dark round pupil, a legible limbal ring, sclera veins, two crisp
+rectangular catchlights, lid-margin contact shading and a lower-lid tearline; against the shipped
+GLB baseline the sclera goes from glaring white to a warm mid-grey. **That was the builder looking
+at its own work (§1.9 / Part 4) — no blind judge has seen it yet.** Two things to point one at: the
+lacrimal tearline reads slightly bright and hard along the lower lid at an eyes-only crop and is
+gated by nothing, and no source in `research/` gives a value for it.
+
+Note on which anterior-chamber number to quote: the spike's **2.291 mm** is apex-to-apex between the
+two SHELLS; the depth a refracted ray actually crosses is corneal apex to the **fitted iris plane**,
+**3.328 mm** on g050. Different quantities, both correct.
 
 ### Where Phase 2 actually stands
 
@@ -407,14 +564,78 @@ because how a wrong diagnosis was written down is worth as much as the right one
    - the portrait gate re-checked, because head excursion grew 1.65× and the portrait gate was
      passing before this change;
    - a blind visual judge on the long clip.
-2. **Phase 3 rendering** — the eyes and skin will read as dead until the eye and skin shaders
-   exist. That is expected and was correctly excluded from the motion gate. `3.3` (eyes) has the
-   best effort-to-impact ratio in the whole project: ~40 lines of TSL.
-3. Open Phase 0 items: `0.4`/`0.5` (Anny morph pair + vertex-order diff), `0.9` (hair perf spike),
+   ⚠️ **Take that capture at the frame rate it will be judged at, and only after punch-list 2.11.**
+   `Gaze`, `FacialIdle` and `HandIdle` still advance their arrivals per frame, so a 60 Hz
+   measurement and a 30 fps capture are of different trajectories.
+2. **A blind visual judge on the integrated `alive.html`** — it is the first time the page has
+   carried real shading, and three things want naming explicitly: the violet rim/kicker cast and
+   the blue eyelashes, whether the full-body figure floats for want of a floor shadow, and the
+   lacrimal tearline.
+3. **Phase 3, what remains:** `3.2b` separable screen-space SSS (the highest-value remaining skin
+   work — pre-integration provably cannot redden this cheek), `3.5`/`3.6` hair, `3.7` fabric,
+   `3.9` contact shadows, `3.10` bent normals, `3.13` the grade.
+4. Open Phase 0 items: `0.4`/`0.5` (Anny morph pair + vertex-order diff), `0.9` (hair perf spike),
    `0.11` (faceunit visual check at gender extremes).
 
 ### Known open leads, recorded so they are not rediscovered
 
+- 🎯 **The rim/kicker chroma reads as a violet cast on the integrated page, and no gate objects.**
+  `LightingRig`'s portrait preset deepens the rim to `#4a7dff` at 27.46 radiance and the kicker to
+  `#7a5bff` at 21.71, chasing the look spec's "much higher chroma than the skin". On a bald,
+  bare-skinned figure against a near-black card that lands as a magenta wash on the crown, the
+  shoulders and the whole shadow-side silhouette, and it turns the **eyelash cards blue** — they
+  carry a white `MeshStandardMaterial` with `alphaTest 0.5`, so a thin card at a grazing angle
+  reads whatever the back lights are. The lighting agent reached only chroma *parity* (band
+  saturation 0.174 against skin at 0.181) and believes it is an ASSET limit rather than a rig
+  limit: the spec measured that property on near-black hair (luma 0.067) and a dark suit, where
+  chroma survives, and this figure is high-albedo skin under ACES, which desaturates at the top of
+  the curve. **Re-check after 3.5 (hair) and 3.7 (fabric) exist; do not tune it now.** A visual
+  judge should be asked about the blue lashes explicitly — no gate in the repo looks at them.
+- **`G3` passes on the stock material**, so it cannot certify a skin shader. Measured under a rig
+  that satisfies G1, three's stock `MeshPhysicalNodeMaterial` scores 0.2384 and passes on the same
+  regions. `measure.mjs` now warns about this on every run, and about G4's dependence on the rig
+  (one unchanged micro-normal measured σ 1.72 at fill 0.7 and 2.06 at fill 0.3).
+- **`G6` on `alive.html` is measuring the backdrop, not a grade lift.** Whole-image p0.1 reads
+  0.0250; over the central-face `frame` region it reads **0.0120**, inside the 0.004–0.016 band.
+  A studio with a lit card and no unlit region cannot produce a 0.004 percentile without crushing.
+  Belongs to 3.13.
+- **No transmission and no roughness map on the skin.** The reference's glowing ear (#755052 at
+  saturation 0.41) needs a baked thickness map and a back-lit term. The GLB's body material carries
+  a base-colour texture and nothing else, so the spec's T-zone 0.32–0.40 / cheeks 0.42–0.50 / lips
+  0.18–0.28 split cannot be honoured; one value (0.46, the cheek figure) ships. A cavity/roughness
+  bake is a natural extension of `tools/lut-bake`.
+- **The curvature map is a per-vertex quantity at ~7 mm vertex spacing.** Folds finer than that —
+  the true nasolabial, the eyelid crease — are not in the map because they are not in the asset.
+  That bounds how much any curvature-driven technique can ever deliver here.
+- **`CORNEA_SCENE_SPECULAR = 0.05` is a mitigation, not physics**, and it is documented as one. At
+  the cornea's physical reflectance the portrait key panel reflects as a hard-edged slab over most
+  of the iris at an sRGB luma of ~0.36 against skin at ~0.80 — a corneal reflection *darker* than
+  the skin reads as a plastic overlay. The rig has no HDR headroom: the panel radiance was chosen
+  so the skin exposes correctly. Either raise the panel radiance and pull exposure back, or add a
+  small high-intensity eye light; then set the constant back to 1. Belongs to 3.8's next round.
+- **`EXPOSURE_CALIBRATION = 0.85` is calibrated against THIS asset's albedo** — MakeHuman's diffuse
+  texture, not the look spec's `#E3BCA8`. It is not a free knob: 1.5 stops of underexposure takes a
+  correctly-authored 1.47:1 design to a measured 2.037 and fails G1 outright, because ACES has far
+  more gradient down there. Anyone touching 3.13's grade or the tone curve must re-run G1, and
+  anyone changing the albedo must **re-measure** it rather than re-word it (LEARNINGS §1.11c). The
+  four-row sweep needed to do it is in the constant's own doc comment.
+- **The floor shadow does not read at full-body framing** and it was not fixable within 3.8. The
+  key sits at 18° elevation so its cosine at the floor is 0.31 and it is 5 m away; the floor is
+  dominated by the rim and the hemisphere term, neither of which casts. Sweeping the key's
+  elevation 18 → 30 → 42° moved the floor near the feet from 0.3045 to 0.3251 encoded, i.e.
+  nothing. Self-shadowing on the figure DOES work — the difference image shows clean shadow in the
+  eye sockets, nostril, lip line, neck-jaw crease, clavicle hollow, inside the arm and between the
+  legs. **Ask a judge specifically whether the full-body figure floats.**
+- **A per-pixel difference tool belongs in `tools/critic`.** It is the only instrument that
+  attributes a change to a MATERIAL rather than to a scene, and it caught the 0.00%-changed skin
+  result that six subjective looks and five of the six objective gates all missed. Every remaining
+  Phase 3 item needs exactly that.
+- **`travel.mjs` reports only whole-clip statistics**, so the defect that started the lower-body
+  round — the body being invisible inside the fifteen seconds a viewer watches — is not expressible
+  in it, and its headline statistic is an SD while the project's own floor is a peak-to-peak.
+  Wanted: `--highpass <seconds>` and `--window <seconds>` (median and 10th-percentile peak-to-peak
+  inside a sliding window), both in the `--json`. Reference numbers to check an implementation
+  against are in the legibility table above.
 - 🎯 **`gaze.head` is the sole remaining contributor to head-on-neck noise**, isolated by removing
   one layer at a time from a rebuild of the exact `alive.js` stack (numbers under Finding 1 above).
   It adds ~8 mm RMS of lateral head displacement uncorrelated with the trunk, and it is the **roll**
@@ -425,6 +646,27 @@ because how a wrong diagnosis was written down is worth as much as the right one
   does for its own two lateral mechanisms. A gate on `pearson(head.x − neck.x, neck.x) < 0` measured
   on the full stack would hold it; `pearson`/`peakToPeak` helpers exist in `sway.selftest.mjs` to
   copy. **Not applied this round — it is a design change to a file the balance agent did not own.**
+  ⚠️ **That isolation was done at 60 Hz on a stack whose `Gaze` layer is still frame-coupled**, so
+  every number under Finding 1 needs re-measuring once punch-list 2.11 converts it. `Gaze` fires
+  1–2 microsaccades/s, an order of magnitude more often than either layer already fixed, so its
+  divergence will be larger than their 12.4–49.4 mm.
+- **The medio-lateral ankle share.** `Sway.js` was implementing the SIDE-BY-SIDE row of Winter et
+  al. 1996 on a figure standing at **18.6° of included foot angle**. Winter's own abstract gives the
+  intermediate stance both mechanisms — "in the M/L direction the two strategies reinforce" — so
+  `MEDIO_LATERAL_ANKLE_SHARE = 0.18` now routes a derived (not tuned) fraction of the lateral signal
+  through the ankle. Measured cost: the ankle band's 15 s travel **1.09 → 0.98 px** and the knee
+  band **7.75 → 7.52 px**, against a hip band **11.01 → 11.47 px** — i.e. it moves the lower-body
+  number very slightly the WRONG way, and was shipped anyway for correctness. Measured benefit
+  beyond correctness: it turns the unrighted-layer correlation SIGN rejection from a **6/12 coin
+  toss** into a **12/12** gate. The whole change is one constant; set it to 0 to revert, and note
+  that doing so puts that rejection back to a coin toss. Third time Winter 1996 has answered a
+  question it was not asked in this project (§1.7d records the first two).
+- **`BodyIdle`'s clavicle left-right correlation fails at seed 101** (0.275 against a 0.25 ceiling)
+  on the NOISE DRIFT alone, with events disabled. Proven pre-existing: the drift is bit-identical
+  before and after the dt fix (worst quaternion component difference **0** on four seeds). Likely
+  §1.4 — the clavicle's noise lattice is the slowest in the layer, so a 60 s window contains few
+  independent cycles and the sample correlation has a large standard error. Fixing it means deriving
+  the band from the number of independent cycles in the window. **Not widened to suit.**
 - 🎯 **Morph targets write no velocity, and it is worse than writing none** (three r185). See
   punch-list 3.12 and LEARNINGS Part 2. This rig's face is 100% morph-driven, so it is not an edge
   case for us.
@@ -477,7 +719,9 @@ because how a wrong diagnosis was written down is worth as much as the right one
 - **Quijoux's cohorts are elderly** (mean 71 and 79) and no young-adult COP RMS in millimetres was
   found. Mitigated by authoring at the low end of the band; not resolved.
 - **Swallows render as lip compression only** — the asset has no throat articulation.
-- Full-body lighting is a scaled portrait rig; rim and kicker stop reading at body scale.
+- ~~Full-body lighting is a scaled portrait rig; rim and kicker stop reading at body scale.~~
+  **CLOSED with a residue** — see the 3.8 section above for the measured band widths and the
+  residue (no azimuth makes a body-framing rim as wide as a portrait one).
 
 Detailed per-item punch list lives in [`PUNCHLIST.md`](PUNCHLIST.md) once the design is
 approved.
@@ -566,8 +810,32 @@ quanta and are solid.
 deferred path as *cheaper* than forward rendering, which cannot be true. `?passes=N` still exists on
 `stage.html`; anyone re-opening it must re-validate the ordering first.
 
-**Budget left:** with 4 RectAreaLights (3.604 ms) and 69 morphs (0.219 ms), roughly **12.7 ms of the
-16.6 ms frame remains** for skin, eyes, hair, AO and the grade.
+### Shadows, and the four-light figure reproduced
+
+Measured 2026-08-07 on the **real 74k-triangle skinned figure** at 1920×1080, WebGPU, 3 repeats ×
+120 samples, variant order alternated, one render per frame, p95 headline.
+
+| variant | Δ over ambient only |
+|---|---|
+| 4 area lights, 0 shadows | **3.608 ms** — independently reproduces the fitted 3.604 ms above, on entirely different geometry |
+| + 1 shadow caster (the key) | **+2.624 ms** |
+| + 4 shadow casters | **+9.114 ms** |
+
+The shadow cost is the extra **geometry** pass, not the map's fill: halving the map 2048 → 1024
+moved the key-shadow delta 2.62 → 2.74 ms, i.e. not at all within the ±1 ms run-to-run p95 noise.
+**Four casters would be 12.7 ms of a 16.6 ms frame, so `LightingRig` pairs exactly one.**
+
+⚠️ The 2.62 ms per shadow pass is a **single-source** number with no independent reproduction, and
+it is higher than a 74k-triangle depth-only pass ought to cost on an M5 Max — it may be a three.js
+WebGPU shadow-path inefficiency worth a spike rather than a hardware fact.
+
+`SkinMaterial` costs **+0.301 ms** at 1920×1080 (1.8% of a 16.6 ms frame), of which ~0.20 ms is the
+second specular lobe — the clearcoat is one extra LTC evaluation per rect-area light, and there are
+four. The LUT and curvature fetches do not separate from noise.
+
+**Budget left:** with 4 RectAreaLights (3.604 ms), one shadow pass (2.62 ms), 69 morphs (0.219 ms)
+and the skin material (0.301 ms), roughly **9.8 ms of the 16.6 ms frame remains** for eyes, hair,
+AO and the grade.
 
 ## Session log
 
