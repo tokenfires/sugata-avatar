@@ -12,7 +12,7 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: 2026-08-07 — five of the visual judge's seven findings closed by measurement; the eye asset gained a real cornea; the deferred render pipeline (3.1) landed.
+Last updated: 2026-08-07 — five of the visual judge's seven findings closed by measurement; the eye asset gained a real cornea; the deferred render pipeline (3.1) landed; the corneal radius of curvature is measured and recorded at last, and the "under-strength corneal power" claim is retracted — it had the sign backwards.
 
 ---
 
@@ -297,11 +297,64 @@ signal, that is marginal, and four different reference bands moved the ratio imm
 future `--age` or `--muscle` change turns it red, read the number before touching the threshold:
 anything still comfortably positive is a shallower dome, not an absent one.
 
-⚠️ **The anterior chamber is shallow against anatomy.** Real eyes run nearer 3 mm; this asset gives
-2.15–2.40 mm on a globe that is itself 1.27× human radius (15.3 mm against ~12 mm). That is
-MakeHuman's authoring, not our fitting — the source `.obj` is already like this — and it means 3.3's
-corneal power will be somewhat under-strength even now. Better than the half-power the spike
-predicted on the low-poly asset, but not physical.
+**The corneal radius of curvature, which is the number 3.3 actually needs.** It was recorded
+nowhere until now. Measured on the shipped GLBs, both eyes, vertices welded by position, with a
+least-squares sphere fitted to the **front cap alone** at the same 15° cut the dome gate already
+uses (`node docs/eye-optics-claims.selftest.mjs`):
+
+| figure | R anterior, left / right | that fit's RMS | sclera-band R | power at n=1.376 | power at the shipped IOR 1.3333 |
+|---|---|---|---|---|---|
+| g000 | 7.644 / 7.629 mm | 0.018 mm | 15.110 mm | 49.19 D | 43.60 D |
+| g025 | 7.463 / 7.447 mm | 0.020 mm | 15.202 mm | 50.38 D | 44.66 D |
+| g050 | 7.252 / 7.236 mm | 0.025 mm | 15.295 mm | 51.85 D | 45.96 D |
+| g075 | 7.117 / 7.104 mm | 0.032 mm | 15.393 mm | 52.83 D | 46.83 D |
+| g100 | 6.910 / 6.909 mm | 0.042 mm | 15.496 mm | 54.41 D | 48.24 D |
+
+Left and right agree to **0.016 mm** worst case, and the cap fit's RMS is **5.9× (g100) to 10.5×
+(g000) tighter** than the same shell's sclera-band fit, so this is a genuine second radius rather
+than fit noise. The cap fit is only trustworthy inside the dome: at a 30° cut g075 and g100 read
+8.802 mm (RMS 0.2725) and 9.088 mm (RMS 0.3034), because that cap has walked off the cornea onto
+the sclera. Quote the 15° figure.
+
+⚠️ **The cornea is STEEPER than human, not flatter — its power is over-strength, not under.**
+A human anterior cornea runs 7.7–7.8 mm, i.e. 48.83–48.21 D at n = 1.376. Every figure here sits
+below that radius; the ratio against the 7.7 mm reference spans **1.007 (g000) to 1.114 (g100)**.
+The steepening is monotonic with the gender axis, so the masculine end is the extreme.
+
+🚩 **The superseded claim, and why it was wrong, because the shape of the error is worth keeping.**
+This paragraph previously read: *"the anterior chamber is shallow against anatomy … 2.15–2.40 mm on
+a globe that is itself 1.27× human radius (15.3 mm against ~12 mm) … it means 3.3's corneal power
+will be somewhat under-strength even now."* Corneal power is **(n − 1) / R of the cornea's own
+anterior surface**. Neither the chamber depth nor the globe radius appears in it. The claim reached
+a conclusion about one surface from the dimensions of two others, and it inverted the sign.
+
+It got there by inheritance. The spike's original "half power" argument (LEARNINGS §1.11c) was
+**correct for the low-poly proxy**, where there was no dome and the front surface therefore *was*
+the globe. Measured directly on MakeHuman's source mesh, `mpfb/data/eyes/low-poly/low-poly.obj`,
+one eye's 48 welded vertices fit a single sphere of R **14.955 mm** at an RMS of **0.0018 mm** — so
+flawlessly spherical there is nothing else there to be a cornea — giving **25.14 D**, 51% of a
+human 48.83 D. (Source-mesh units × 100 = mm, the MakeHuman convention; the built low-poly figure
+was *not* rebuilt to check this, because `assets/figures/` is shared with four agents editing
+concurrently. The conclusion does not depend on the fitted value: a shell whose radius is uniform
+to 0.0018 mm has no second surface to fit, at any scale.)
+
+That argument stopped applying the moment a real dome existed, and the note carried the conclusion
+across without re-deriving it against the new geometry. **When the asset changes, re-derive; do not
+re-word.**
+
+⚠️ **The chamber depth is still shallow, but it buys something else.** 2.15–2.40 mm against a real
+eye's ~3 mm is MakeHuman's authoring, not our fitting — the source `.obj` is already like this. What
+it costs is the *path length* a refracted ray crosses before it reaches the iris plane, so the iris
+will parallax less than a real one under gaze. It does not change the corneal power.
+
+⚠️ **The shipped material IOR is 1.3333, not the cornea's 1.376.** That is what the last column
+above is for: at the IOR the GLB actually carries, the delivered anterior power is 43.60–48.24 D —
+at or slightly *below* the human anterior-surface figure, despite the steeper geometry. 3.3 gets to
+choose whether to keep 1.3333 (aqueous, which is the right index for a shell modelled as one
+interface into the anterior chamber) or raise it to 1.376; the geometry supports either and the
+gate asserts both numbers. Note the clinical keratometric convention uses n = 1.3375 and would
+report these corneas as 44.15–48.85 D against a human 43.27 D — same conclusion, different scale.
+Do not compare a 1.376 number against a 1.3375 one.
 
 ⚠️ **Nothing has looked at these eyes.** Every claim here is geometric and material-level. The
 cornea should render as clear glass with a Fresnel specular — three r185's WebGPU node path does

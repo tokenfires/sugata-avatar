@@ -263,13 +263,32 @@ there is no corneal dome to refract through. Front-versus-equator bulge 0.051 mm
 of tessellation noise, and the apex is a flat octagonal facet recessed 0.131 mm *inside* the
 sphere — a dimple exactly where the pupil is.
 
-The 40 lines would have run. They would have produced roughly half the corneal power (power scales
-as 1/R, and a 15.4 mm globe against a real 7.8 mm cornea) and an octagonal catchlight. **A shader
-that runs is not a shader that delivers**, and an item chosen for its effort-to-impact ratio is
-exactly the one where a silently halved impact goes unnoticed.
+The 40 lines would have run. They would have produced roughly half the corneal power and an
+octagonal catchlight. **A shader that runs is not a shader that delivers**, and an item chosen for
+its effort-to-impact ratio is exactly the one where a silently halved impact goes unnoticed.
 
 The spike cost a fraction of the shader and produced a scoped asset fix instead of a disappointment.
 Do this for every technique whose research doc states a geometry contract.
+
+⚠️ **Read the half-power argument narrowly, because a later note read it broadly and inverted a
+sign.** Corneal power is `(n − 1) / R` of the **cornea's own anterior surface**. On the low-poly
+proxy the front surface *was* the globe — a single shell, measured on `eyes/low-poly/low-poly.obj`
+at R **14.955 mm** with a fit RMS of 0.0018 mm, so 25.14 D against a human 48.2–48.8 D — which is
+why quoting the globe radius was legitimate **there and only there**. The moment the high-poly
+asset arrived with a real dome, the globe stopped being the refracting surface: the cornea's own
+front cap fits R **6.91–7.64 mm** across the sweep, *steeper* than a human 7.7–7.8 mm.
+
+A note in PROGRESS nevertheless carried the "under-strength" conclusion onto the new asset, and
+justified it with the anterior chamber depth and the globe radius — **two quantities that do not
+appear in the formula at all**. Nothing caught it, because no gate and no doc anywhere recorded the
+corneal radius of curvature: the whole discussion was being conducted in proxies for the one number
+that decides the answer. `docs/eye-optics-claims.selftest.mjs` now measures it and asserts the docs
+agree with the measurement.
+
+**Two transferable shapes.** First, same disease as §1.11a — a justification that cites real
+measurements of the wrong quantity. Second, and worse: **when the asset changes, re-derive the
+conclusion; do not re-word it.** A sentence that was true of the old asset will survive the rewrite
+looking exactly as authoritative as one that was checked.
 
 ### 1.11d A test can be right about the question and wrong about the noise
 
@@ -380,6 +399,13 @@ when the page is hidden, `MessageChannel` measured **553,921/s**.
   `getVolumeTransmissionRay` gets thickness 0 and the cornea refracts nothing — a glossy wet
   layer, by design. The anterior chamber measures 2.15–2.40 mm if anyone wants real refraction
   out of the stock material.
+- **Corneal radius of curvature: 6.91–7.64 mm** across the gender sweep (front 15° cap, both eyes
+  agreeing to 0.016 mm; g000 7.644 → g100 6.910, monotonic). This is the number corneal power is
+  computed from, and it is **not** the globe radius (15.11–15.50 mm) — the two are separate
+  surfaces on this asset. Human is 7.7–7.8 mm, so **this cornea is steeper than human**, giving
+  49.2–54.4 D at n = 1.376 against 48.2–48.8 D. At the IOR the GLB actually carries (1.3333) the
+  delivered anterior power is 43.6–48.2 D. Full table in `PROGRESS.md`; gated by
+  `docs/eye-optics-claims.selftest.mjs`.
 - 53-bone `game_engine` rig. 🚩 **No jaw bone, no eye bones** — face is entirely morph-driven.
 - Blink saturates at **0.752** on the current asset (was 0.735 on the low-poly eye; the corneal
   apex stands 1.145 mm further forward, so the lid has further to travel). Per figure the seal is
@@ -419,6 +445,9 @@ bash tools/figure-pipeline/build.sh
 
 # The asset gate — skinning, materials, ARKit 52, visemes, all seven meshes, eye geometry
 node tools/figure-pipeline/verify_glb.mjs
+
+# The corneal radius of curvature, and whether the docs still agree with it (§1.11c)
+node docs/eye-optics-claims.selftest.mjs
 
 # Objective visual gates (the six measured Stellar Blade properties)
 node tools/critic/measure.mjs <png> <regions.json>

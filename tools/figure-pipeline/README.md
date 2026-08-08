@@ -110,6 +110,40 @@ it still writes depth.
 Both shells carry all eight `eyeLook*` morphs and turn together to within 0.874°. Anterior chamber
 — the gap a refracted ray crosses — measures 2.150 to 2.402 mm across the sweep.
 
+### The corneal radius of curvature — the number the eye shader is built from
+
+The cornea has **its own radius**, separate from the globe's, and that is the R in `(n − 1) / R`.
+Do not substitute the globe radius, the sclera-band radius or the chamber depth for it; on this
+asset they differ by a factor of two and none of them is the refracting surface. Measured by
+fitting a least-squares sphere to the **front 15° cap alone** — the same cut the dome gate uses —
+on the shipped GLBs, vertices welded by position:
+
+| figure | R anterior, left / right | that fit's RMS | globe (sclera band) R | power at n = 1.376 |
+|---|---|---|---|---|
+| g000 | 7.644 / 7.629 mm | 0.018 mm | 15.110 mm | 49.19 D |
+| g025 | 7.463 / 7.447 mm | 0.020 mm | 15.202 mm | 50.38 D |
+| g050 | 7.252 / 7.236 mm | 0.025 mm | 15.295 mm | 51.85 D |
+| g075 | 7.117 / 7.104 mm | 0.032 mm | 15.393 mm | 52.83 D |
+| g100 | 6.910 / 6.909 mm | 0.042 mm | 15.496 mm | 54.41 D |
+
+A human anterior cornea is 7.7–7.8 mm (48.83–48.21 D), so **this cornea is slightly steeper than
+human** — 1.007× the power at g000 rising to 1.114× at g100. The material ships IOR 1.3333 rather
+than the cornea's physical 1.376, which brings the delivered anterior power to 43.60–48.24 D.
+
+Two cautions. The cap fit is only valid *inside* the dome: widen the cut to 30° and g075/g100 read
+8.802 mm (RMS 0.2725) and 9.088 mm (RMS 0.3034), because the cap has walked onto the sclera. And
+the clinical keratometric convention uses n = 1.3375, which would report these as 44.15–48.85 D
+against a human 43.27 D — the same conclusion on a different scale. Never compare across conventions.
+
+```bash
+node docs/eye-optics-claims.selftest.mjs
+```
+
+Re-measures the radius from the GLBs and asserts that this table, `PROGRESS.md` and `LEARNINGS.md`
+still agree with the asset. It exists because the radius was recorded nowhere for two phases, and
+in its absence `PROGRESS.md` derived the corneal power from the chamber depth and the globe radius
+— neither of which appears in the formula — and got the sign backwards. See LEARNINGS §1.11c.
+
 To rebuild the superseded single-shell figure, which is what the asset gate's known-bad checks run
 against:
 
