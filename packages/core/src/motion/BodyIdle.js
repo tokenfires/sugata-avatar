@@ -88,7 +88,7 @@ import { Quaternion, Vector3 } from 'three';
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
-import { CoherentNoise1D } from './Signals.js';
+import { CoherentNoise1D, PoissonSchedule } from './Signals.js';
 import { restRotationRelativeToRig, toBoneDeltaFrame } from './Breath.js';
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
 
@@ -254,6 +254,15 @@ export class BodyIdle extends Layer {
      * @param {boolean} [options.torsoEnabled=true] - Turn off when a posture or gesture layer is
      *   authoring trunk twist and you do not want the two summing.
      * @param {boolean} [options.eventsEnabled=true] - Turn off to measure the noise floor alone.
+     * @param {number} [options.settleAmplitudeJitter=0.2] - How much the two sides' settle
+     *   amplitudes may differ. Set to 0 together with `settleOnsetLagSeconds: [0, 0]` to build the
+     *   PUPPET'S CROSSBAR this file's own comment warns about — two shoulders dropping on the same
+     *   frame by the same angle. The selftest constructs exactly that to prove its bilaterality
+     *   gate can see it.
+     * @param {number[]} [options.settleOnsetLagSeconds=[0.06, 0.16]] - The per-side onset lag draw.
+     * @param {boolean} [options.frameCoupledArrivals=false] - Set to true to advance the settle
+     *   with one Bernoulli draw per FRAME, the way this layer used to. The rate stays correct and
+     *   the trajectory becomes a function of the frame rate; the invariance gate builds it.
      * @param {Object} [options.bones] - Overrides for the humanoid names this drives.
      */
     constructor( options = {} ) {
@@ -293,11 +302,23 @@ export class BodyIdle extends Layer {
         this.torsoEnabled = options.torsoEnabled ?? true;
         this.eventsEnabled = options.eventsEnabled ?? true;
 
+        // The two things that keep a bilateral settle from reading as a puppet's crossbar. Both
+        // are overridable so the gate can build the crossbar and prove it is rejected.
+        this.settleAmplitudeJitter = options.settleAmplitudeJitter ?? SHOULDER_SETTLE_AMPLITUDE_JITTER;
+        this.settleOnsetLagSeconds = options.settleOnsetLagSeconds ?? SHOULDER_SETTLE_ONSET_LAG_SECONDS;
+
+        // The pre-fix arrival mechanism, kept only so the invariance gate has a known-bad.
+        this.frameCoupledArrivals = options.frameCoupledArrivals ?? false;
+
         // Noise position, integrated rather than derived from elapsed time, so that a change of
         // arousal changes the RATE the noise is read at without jumping to a new position in it.
         this.noisePhase = 0;
 
         this.eventCounts = { shoulderSettle: 0, weightShiftSwing: 0 };
+
+        // The shoulder settle's arrival process. Filled at bind, when the stack has forked a
+        // stream to build it on. See `advanceEvents`.
+        this.settleSchedule = null;
 
         this.arms = [
             createArm( 'left', bones.leftShoulder, bones.leftUpperArm, bones.leftLowerArm, bones.leftHand ),
@@ -366,6 +387,12 @@ export class BodyIdle extends Layer {
 
         this.torso.noise = new CoherentNoise1D( this.nextSeed(), 512 );
 
+        // The shoulder settle's arrivals, on their own stream. See `advanceEvents` for why this is
+        // a schedule rather than a per-frame coin, and `Signals.PoissonSchedule` for the general
+        // argument. Built here because `this.random` does not exist until the stack forks it, and
+        // rebuilt on every bind because `MotionStack.reset()` rewinds and re-binds.
+        this.settleSchedule = new PoissonSchedule( this.random.fork( 'shoulderSettle' ) );
+
         this.torso.boneNames.forEach( ( boneName, index ) => {
 
             this.torso.restFrames[ index ] = restRotationRelativeToRig( context.target.getBone( boneName ) );
@@ -398,6 +425,10 @@ export class BodyIdle extends Layer {
 
         this.noisePhase = 0;
         this.eventCounts = { shoulderSettle: 0, weightShiftSwing: 0 };
+
+        // Rewound here for a reset outside the stack. In the stack's own path `onBind` runs a
+        // moment later and replaces it with a schedule on a freshly forked stream.
+        this.settleSchedule?.reset();
 
         for ( const arm of this.arms ) {
 
@@ -441,10 +472,23 @@ export class BodyIdle extends Layer {
      */
     advanceEvents( deltaSeconds ) {
 
+        // 🎯 A SCHEDULE, NOT A PER-FRAME COIN. `poissonEventOccurs(rate, dt)` gets the rate right at
+        // any frame rate and the trajectory wrong at all of them, because it draws once per FRAME:
+        // measured on this layer, 30.0 draws/s at 30 Hz against 60.0 at 60 Hz, and the worst bone
+        // divergence between the two traces of seed 1 over 300 s was 12.36 mm. Drawing one interval
+        // per EVENT makes the arrival times a property of the seed instead. See
+        // `Signals.PoissonSchedule`.
+        //
+        // The rate is arousal-scaled and therefore time-varying, which the schedule handles by
+        // counting down in unit-rate units at `rate × dt` — the integral of the rate — rather than
+        // by freezing whatever value the last frame saw.
         const rate = SHOULDER_SETTLE_RATE * this.amplitudeGain;
 
-        if ( this.random.poissonEventOccurs( rate, deltaSeconds ) ) this.beginShoulderSettle();
-
+        // 🚩 THE EVENTS IN FLIGHT ARE AGED FIRST AND THE NEW ARRIVALS FIRE AFTER, WHICH IS THE
+        // OPPOSITE OF WHAT THIS USED TO DO. Firing first meant a settle that began this frame was
+        // immediately aged by a whole frame, so its shape started at a phase set by the frame rate.
+        // Measured: it was the entire remaining divergence once the arrivals were scheduled —
+        // 0.48 mm at 30 Hz against 60 Hz, down to float dust with the order swapped.
         for ( const arm of this.arms ) {
 
             if ( arm.settle.active ) {
@@ -466,6 +510,18 @@ export class BodyIdle extends Layer {
 
         }
 
+        if ( this.frameCoupledArrivals ) {
+
+            // 🚩 THE DEFECT, REBUILT ON PURPOSE, so the invariance gate has something to reject.
+            if ( this.settleSchedule.random.poissonEventOccurs( rate, deltaSeconds ) ) this.beginShoulderSettle();
+
+            return;
+
+        }
+
+        this.settleSchedule?.advance( rate, deltaSeconds,
+            ( secondsSinceArrival ) => this.beginShoulderSettle( secondsSinceArrival ) );
+
     }
 
     /**
@@ -473,14 +529,26 @@ export class BodyIdle extends Layer {
      * amplitudes and a short onset lag, because two shoulders that drop on exactly the same frame
      * by exactly the same angle read as a puppet's crossbar.
      */
-    beginShoulderSettle() {
+    /**
+     * @param {number} [secondsSinceArrival=0] - How far into the frame the arrival actually landed.
+     *   The settle starts already that much aged, so its shape sits at the same phase whatever the
+     *   frame rate. Without it the arrival snaps to the next frame boundary and a 30 Hz trace runs
+     *   the settle up to 33 ms late — measured at 0.31 mm of bone divergence against 60 Hz, which
+     *   is small but is a frame-rate dependence and this round is about not having any.
+     */
+    beginShoulderSettle( secondsSinceArrival = 0 ) {
+
+        // The event's own draws come from the settle process's stream, so everything this process
+        // consumes is one sequence advanced once per event. Sharing the layer stream would work
+        // today and would break silently the moment a second per-frame draw appeared beside it.
+        const random = this.settleSchedule.random;
 
         for ( const arm of this.arms ) {
 
-            const jitter = 1 + this.random.range( -SHOULDER_SETTLE_AMPLITUDE_JITTER, SHOULDER_SETTLE_AMPLITUDE_JITTER );
-            const lag = this.random.range( SHOULDER_SETTLE_ONSET_LAG_SECONDS[ 0 ], SHOULDER_SETTLE_ONSET_LAG_SECONDS[ 1 ] );
+            const jitter = 1 + random.range( -this.settleAmplitudeJitter, this.settleAmplitudeJitter );
+            const lag = random.range( this.settleOnsetLagSeconds[ 0 ], this.settleOnsetLagSeconds[ 1 ] );
 
-            arm.settle.elapsedSeconds = -lag;
+            arm.settle.elapsedSeconds = secondsSinceArrival - lag;
             arm.settle.amplitude = SHOULDER_SETTLE_DEGREES * DEGREES_TO_RADIANS * jitter * arm.mirror;
             arm.settle.active = true;
 

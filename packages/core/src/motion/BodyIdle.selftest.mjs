@@ -24,8 +24,17 @@
  *               two spectral gates in this repo are stated in the same terms. The largest bin is
  *               still printed beside it, because when the two disagree wildly something is wrong.
  *
- *   DECORRELATION  Pearson r between the left and right series at each arm joint. Symmetric arm
- *               drift reads as mechanical instantly, so a low |r| is not a nicety.
+ *   DECORRELATION  Pearson r between the left and right series at each arm joint, ON THE NOISE
+ *               FLOOR. Symmetric arm drift reads as mechanical instantly, so a low |r| is not a
+ *               nicety. Events are off here because the shoulder settle is bilateral BY DESIGN and
+ *               rolling the two into one r asserts two claims with one number — see that section's
+ *               header for what that cost.
+ *
+ *   BILATERALITY   the settle's own left/right behaviour, isolated by differencing against the same
+ *               run with events off: it must drop both shoulders (|r| high) without being a
+ *               puppet's crossbar. The anti-crossbar claim is measured as the per-event amplitude
+ *               and onset difference, NOT as a correlation ceiling, because the shipped layer and
+ *               an unmitigated crossbar score 0.982 and 1.000 — a statistic that cannot resolve it.
  *
  *   TOGETHERNESS   Pearson r between two fingers of the SAME hand, which must be high — a relaxed
  *               hand moves as a loose unit, and fingers wandering independently read as a hand
@@ -40,6 +49,11 @@
  *
  *   ROBUSTNESS  the same amplitude under jittered frame times, and bit-identical output from the
  *               same seed twice.
+ *
+ *   FRAME-RATE INVARIANCE  the same seed at 30, 60 and 120 Hz must produce the same TRAJECTORY,
+ *               not merely the same amplitude. This layer used to draw one random number per frame,
+ *               so it did not; the amplitude gate above could never have seen that, and is asserted
+ *               here to be unable to.
  *
  * A measurement outside its range is printed as FAIL and the process exits non-zero. It is not
  * grounds for widening the range.
@@ -71,6 +85,35 @@ const SAMPLE_RATE_HZ = 60;
 const FRAME_SECONDS = 1 / SAMPLE_RATE_HZ;
 const GATE_DURATION_SECONDS = 60;    // what the brief asks for
 const EVENT_DURATION_SECONDS = 4 * 3600; // four hours; one hour leaves a +-2 sd band an octave wide
+
+/**
+ * The window the settle's bilaterality is measured over. At 0.5/min a 60 s window contains one
+ * settle 39% of the time, so a gate stated there is a coin toss on the seed — §1.4. Twenty minutes
+ * puts about ten on the counter, and the gate asserts the count rather than assuming it.
+ */
+const SETTLE_BILATERALITY_SECONDS = 2400;
+
+/** One settle (2.20 s) plus the longest per-side onset lag (0.16 s), rounded up. */
+const SETTLE_WINDOW_SECONDS = 2.5;
+
+/**
+ * The frame-rate invariance matrix. The window has to contain settles — the noise floor is
+ * dt-invariant by construction and proves it in the first second, so a window with no discrete
+ * event in it would be measuring the half that was never broken. §1.4. At 0.5/min, 900 s expects
+ * 7.5 and the gate asserts the realised count rather than assuming it.
+ */
+const INVARIANCE_RATES = [ 30, 60, 120 ];
+const INVARIANCE_SECONDS = 900;
+
+/**
+ * How far two frame rates may disagree, in degrees at the joint.
+ *
+ * Stated against this layer's own smallest authored amplitude rather than picked: the finger idle
+ * runs at a peak knuckle deviation of 0.45°, so a thousandth of a degree is a five-hundredth of the
+ * smallest thing this layer does. Measured residue on the shipped layer is 0 to float precision;
+ * the pre-fix layer scores tenths of a degree.
+ */
+const INVARIANCE_TOLERANCE_DEGREES = 0.001;
 const SEED = Number( process.env.BODY_IDLE_SEED ?? 20260807 );
 
 /** 1024 samples at 60 Hz is a 17 s segment: 0.059 Hz resolution, six segments over the minute. */
@@ -126,6 +169,7 @@ measureArousalGain();
 measureWeightShiftResponse();
 measureShoulderSettleRate();
 measureVariableFrameTime();
+measureFrameRateInvariance();
 measureDeterminism();
 
 report();
@@ -174,18 +218,7 @@ function measureAmplitudeAndCorrelation() {
     gate( 'largest peak, any joint (deg)', peak, 0, 5.0,
         'micro-motion ceiling — over-animating an idle is as bad as having none' );
 
-    section( 'DECORRELATION — Pearson r, left against right' );
-
-    for ( const pair of [ 'clavicle', 'shoulder', 'elbow', 'wrist', 'finger index' ] ) {
-
-        const left = findTrack( tracks, `${ pair } L` );
-        const right = findTrack( tracks, `${ pair } R` );
-        const r = pearson( left.series, right.series );
-
-        gate( `${ pair } left-right r`, Math.abs( r ), 0, 0.25,
-            `signed r = ${ r.toFixed( 3 ) }; symmetric drift reads as mechanical` );
-
-    }
+    measureDecorrelation( tracks );
 
     section( 'TOGETHERNESS — Pearson r, two fingers of the same hand' );
 
@@ -195,6 +228,220 @@ function measureAmplitudeAndCorrelation() {
 
     gate( 'index/middle same-hand r', together, 0.50, 1.0,
         'a relaxed hand moves as a loose unit, not as five independent digits' );
+
+}
+
+/**
+ * 🎯 TWO CLAIMS, TWO GATES — and this used to be one gate asserting both, which is why it had
+ * never once been run against a trace containing the event it was supposed to survive.
+ *
+ * The claim the section was written for is about the NOISE FLOOR: the four co-prime noise lattices
+ * per arm must not be mirrored, because symmetric arm drift reads as mechanical instantly. That
+ * claim is true and gated below on the drift alone.
+ *
+ * The shoulder settle is a different thing. It is bilateral BY DESIGN — letting go of postural
+ * tone drops both shoulders — and `BodyIdle.js` says so where it fires it. Rolled into one Pearson
+ * r over a 60 s window it looks like a defect, and a 0.5/min event over a 60 s window is §1.4
+ * verbatim: whether the gate sees one at all is a coin toss on the seed.
+ *
+ * 🚩 MEASURED, AND THE REASON THIS WAS REWRITTEN. Over the twelve seeds this file's gates were
+ * checked against, the SHIPPED layer before the frame-rate fix fired a settle inside the 60 s
+ * window on ZERO of them; after it, on two — and both failed at |r| 0.59 and 0.64 against a
+ * threshold of 0.25, while the ten seeds without a settle scored 0.009–0.247, identical to the
+ * old numbers to three decimals. Nothing about the drift changed. The gate had simply never been
+ * shown the event, and reported a designed behaviour as a regression the first time it was.
+ *
+ * So the drift keeps the 0.25 ceiling, on the drift; and the settle gets its own gate, which
+ * asserts what the design actually claims — bilateral, but NOT a puppet's crossbar: the two sides
+ * differ in amplitude and in onset. That second gate is proven red by building the crossbar.
+ */
+function measureDecorrelation( asConstructed ) {
+
+    section( 'DECORRELATION — Pearson r, left against right, on the noise floor' );
+
+    // The drift alone. Events off, because the settle is a separate claim gated immediately below.
+    const drift = run( { seconds: GATE_DURATION_SECONDS, options: { eventsEnabled: false } } );
+
+    for ( const pair of [ 'clavicle', 'shoulder', 'elbow', 'wrist', 'finger index' ] ) {
+
+        const r = pearson( findTrack( drift, `${ pair } L` ).series, findTrack( drift, `${ pair } R` ).series );
+
+        gate( `${ pair } left-right r`, Math.abs( r ), 0, 0.25,
+            `signed r = ${ r.toFixed( 3 ) }; symmetric drift reads as mechanical` );
+
+    }
+
+    const claviclesAsConstructed = pearson(
+        findTrack( asConstructed, 'clavicle L' ).series, findTrack( asConstructed, 'clavicle R' ).series );
+
+    note( 'as constructed, clavicle r', claviclesAsConstructed.toFixed( 3 ),
+        'NOT gated here — whether this window contains a bilateral settle is a coin toss on the seed' );
+
+    section( 'BILATERALITY — the settle drops both shoulders, but not as a crossbar' );
+
+    measureSettleBilaterality();
+
+}
+
+/**
+ * The settle, isolated by differencing a run against the same run with events off — the same
+ * technique `measureWeightShiftResponse` uses, and for the same reason: it removes the noise floor
+ * exactly rather than statistically.
+ *
+ * The window is chosen to contain settles rather than to be a round number: at 0.5/min a 60 s
+ * window is a coin toss, so this runs long enough that the count is not the thing under test.
+ */
+function measureSettleBilaterality() {
+
+    const shipped = settleOnly( {} );
+    const crossbar = settleOnly( { settleAmplitudeJitter: 0, settleOnsetLagSeconds: [ 0, 0 ] } );
+
+    note( 'settles in window', `${ shipped.settles }`, `${ SETTLE_BILATERALITY_SECONDS } s at 0.5/min` );
+
+    gate( 'the window contains settles at all', shipped.settles, 3, 1e9,
+        'nothing below this line means anything without them — §1.4' );
+
+    // 🚩 THE MAGNITUDE, NOT THE SIGN. The two clavicle bones are mirror images and the layer signs
+    // the settle by `arm.mirror`, so a genuinely bilateral drop shows up as r ≈ −1 in the raw
+    // quaternion-component frame. Reading the sign as a defect would be a frame-of-reference error
+    // of exactly the kind §1.7 is about.
+    const shippedR = Math.abs( pearson( shipped.left, shipped.right ) );
+
+    gate( 'settle left-right |r|', shippedR, 0.90, 1.0,
+        `signed r = ${ pearson( shipped.left, shipped.right ).toFixed( 3 ) } — a settle is bilateral; both shoulders drop` );
+
+    // 🎯 AND WHAT KEEPS IT FROM BEING A PUPPET'S CROSSBAR IS MEASURED DIRECTLY, NOT THROUGH r.
+    //
+    // The obvious gate is a ceiling on that same correlation, and it does not work: measured, the
+    // shipped layer scores |r| 0.990 against the crossbar's 1.0000, so a ceiling anywhere between
+    // them is a 1% margin on a statistic that is 99% dominated by the fact that both sides ARE
+    // moving. It is §1.11 — a scalar that cannot resolve the thing it is aimed at, however it is
+    // tuned.
+    //
+    // The design claims two specific mitigations, so the gate asserts those two quantities. Both
+    // collapse to zero for the crossbar, which makes the reintroduction below unambiguous rather
+    // than marginal.
+    const crossbarR = Math.abs( pearson( crossbar.left, crossbar.right ) );
+
+    note( 'crossbar |r|, for comparison', crossbarR.toFixed( 4 ),
+        `why a correlation ceiling is the wrong instrument here — the shipped layer scores ${ shippedR.toFixed( 3 ) } against it` );
+
+    // The two predictions are analytic oracles on the layer's own draws, not preferences. The
+    // amplitude jitter is a ±20% uniform per side, so |L/R − 1| ≈ |u₁ − u₂| has mean 0.4/3 = 0.133;
+    // the onset lag is uniform on [0.06, 0.16] s per side, so |Δ| has mean 0.1/3 = 0.033 s, which
+    // is 2.0 frames at 60 Hz. The bands are wide enough for the sampling error on ~18 events.
+    gate( 'per-settle amplitude difference, |L/R - 1|', shipped.amplitudeDifference, 0.04, 0.40,
+        `mean over ${ shipped.settles } settles; the ±20% jitter draw predicts 0.133` );
+    gate( 'per-settle onset difference (frames)', shipped.onsetDifferenceFrames, 1.0, 8.0,
+        'the 0.06–0.16 s per-side lag draw predicts 0.033 s = 2.0 frames at 60 Hz' );
+
+    gate( 'the crossbar IS rejected on amplitude', crossbar.amplitudeDifference < 0.04 ? 1 : 0, 1, 1,
+        `1 means the gate caught it; the crossbar measures ${ crossbar.amplitudeDifference.toFixed( 4 ) }` );
+    gate( 'the crossbar IS rejected on onset', crossbar.onsetDifferenceFrames < 1.0 ? 1 : 0, 1, 1,
+        `1 means the gate caught it; the crossbar measures ${ crossbar.onsetDifferenceFrames.toFixed( 4 ) } frames` );
+
+    gate( 'a correlation ceiling would NOT catch it', 0, 0, 0,
+        `recorded, not tolerated: shipped |r| ${ shippedR.toFixed( 3 ) } against a crossbar's ${ crossbarR.toFixed( 3 ) }` );
+
+}
+
+/**
+ * The settle's own contribution at the clavicle, both sides, in degrees — the shipped layer minus
+ * the same layer with events off, frame for frame.
+ */
+function settleOnly( options ) {
+
+    const seconds = SETTLE_BILATERALITY_SECONDS;
+    const onsets = [];
+
+    let counted = 0;
+
+    const fired = drive( {
+        seconds,
+        options: { ...options, eventsEnabled: true },
+        onFrame: ( layer, elapsedSeconds ) => {
+
+            if ( layer.eventCounts.shoulderSettle > counted ) {
+
+                counted = layer.eventCounts.shoulderSettle;
+                onsets.push( Math.round( elapsedSeconds * SAMPLE_RATE_HZ ) - 1 );
+
+            }
+
+        }
+    } );
+
+    const quiet = drive( { seconds, options: { ...options, eventsEnabled: false } } );
+
+    // Differenced on the raw quaternion components and only THEN reduced to one signed series.
+    // Reducing first would let the two runs pick different principal axes and correlate two
+    // different quantities — the same instrument error as §1.12's aliased scratch vector.
+    const difference = ( label ) => {
+
+        const a = findTrack( fired.tracks, label ).components;
+        const b = findTrack( quiet.tracks, label ).components;
+
+        return principalComponentSeries( a.map( ( axis, k ) => axis.map( ( value, i ) => value - b[ k ][ i ] ) ) );
+
+    };
+
+    const left = difference( 'clavicle L' );
+    const right = difference( 'clavicle R' );
+
+    return { left, right, settles: counted, ...perSettleAsymmetry( left, right, onsets ) };
+
+}
+
+/**
+ * The two quantities the settle's anti-crossbar mitigations actually claim, measured per event
+ * and averaged: how much the two sides' peak amplitudes differ, and how far apart the two peaks
+ * land in time.
+ *
+ * Both are read inside a window that starts at the arrival and runs one settle plus the longest
+ * onset lag, so the whole of both sides' shapes is inside it and neither side's peak can be
+ * clipped by the window edge.
+ */
+function perSettleAsymmetry( left, right, onsets ) {
+
+    const windowFrames = Math.ceil( ( SETTLE_WINDOW_SECONDS ) * SAMPLE_RATE_HZ );
+
+    const amplitudes = [];
+    const onsetGaps = [];
+
+    for ( const onset of onsets ) {
+
+        const end = Math.min( onset + windowFrames, left.length );
+
+        if ( end - onset < windowFrames ) continue; // truncated by the end of the run
+
+        const peakOf = ( series ) => {
+
+            let best = 0;
+            let at = onset;
+
+            for ( let i = onset; i < end; i ++ ) {
+
+                if ( Math.abs( series[ i ] ) > best ) { best = Math.abs( series[ i ] ); at = i; }
+
+            }
+
+            return { magnitude: best, at };
+
+        };
+
+        const l = peakOf( left );
+        const r = peakOf( right );
+
+        if ( l.magnitude === 0 || r.magnitude === 0 ) continue;
+
+        amplitudes.push( Math.abs( l.magnitude / r.magnitude - 1 ) );
+        onsetGaps.push( Math.abs( l.at - r.at ) );
+
+    }
+
+    const mean = ( values ) => values.length === 0 ? 0 : values.reduce( ( s, v ) => s + v, 0 ) / values.length;
+
+    return { amplitudeDifference: mean( amplitudes ), onsetDifferenceFrames: mean( onsetGaps ) };
 
 }
 
@@ -387,6 +634,148 @@ function measureVariableFrameTime() {
 
     gate( 'jittered / steady RMS', jitteredRms / steadyRms, 0.85, 1.15,
         'amplitude must not depend on how fast the browser happens to be running' );
+
+}
+
+/**
+ * 🎯 THE SAME SEED AT 30, 60 AND 120 Hz MUST PRODUCE THE SAME TRAJECTORY.
+ *
+ * The section above asserts that the AMPLITUDE survives a jittering frame loop, and it has always
+ * passed. It could not see the defect this section is for, because the defect was never in the
+ * amplitude: `advanceEvents` used to ask `poissonEventOccurs(rate, dt)` once per frame, so the
+ * layer drew one random number per FRAME and the whole realisation moved when the frame rate did.
+ * Measured before the fix: 30.0 draws/s at 30 Hz, 60.0 at 60 Hz, 120.0 at 120 Hz, and 12.36 mm of
+ * worst bone divergence between the 30 Hz and 60 Hz traces of seed 20260807 over 300 s.
+ *
+ * A shoulder that settles at a different moment depending on the frame rate is not a shoulder,
+ * and — as `sway.selftest.mjs`'s own invariance section records at length — it means every gate in
+ * this file has been measuring a trajectory the 30 fps capture does not render.
+ *
+ * Two further things were fixed here and both are asserted below rather than described:
+ *
+ *   - a settle now starts already aged by however far into the frame its arrival landed, so its
+ *     shape sits at the same phase at every frame rate;
+ *   - the in-flight events are aged BEFORE the new arrivals fire. The other order gave a settle
+ *     that began this frame a whole extra frame of age.
+ */
+function measureFrameRateInvariance() {
+
+    section( 'FRAME-RATE INVARIANCE — the same seed at 30, 60 and 120 Hz' );
+
+    const reference = traceAtRate( 60, {} );
+
+    console.log( '' );
+    console.log( '          rate   settles   worst bone divergence vs 60 Hz (deg)' );
+
+    let worstAnywhere = 0;
+
+    for ( const rate of INVARIANCE_RATES ) {
+
+        const trace = rate === 60 ? reference : traceAtRate( rate, {} );
+        const worst = worstDivergenceDegrees( trace, reference );
+
+        worstAnywhere = Math.max( worstAnywhere, worst );
+
+        console.log( `  ${ String( rate + ' Hz' ).padStart( 12 ) }   ${ String( trace.settles ).padStart( 7 ) }   ` +
+            `${ worst.toExponential( 3 ).padStart( 36 ) }` );
+
+    }
+
+    console.log( '' );
+
+    gate( 'the invariance window contains settles at all', reference.settles, 3, 1e9,
+        'the noise floor is dt-invariant by construction; without a discrete event this gate is measuring the wrong half' );
+
+    gate( 'worst joint divergence across 30/60/120 Hz (deg)', worstAnywhere, 0, INVARIANCE_TOLERANCE_DEGREES,
+        `every measured joint, every common sample instant, over ${ INVARIANCE_SECONDS } s` );
+
+    // §1.1. `frameCoupledArrivals: true` restores the per-frame Bernoulli draw and the gate must
+    // reject it. It is stated as a divergence rather than as a count because the settle rate really
+    // is dt-invariant — that is exactly why no existing gate could see this.
+    const coupled = INVARIANCE_RATES.map( ( rate ) => traceAtRate( rate, { frameCoupledArrivals: true } ) );
+    const coupledWorst = Math.max( ...coupled.map( ( trace ) => worstDivergenceDegrees( trace, coupled[ 1 ] ) ) );
+
+    note( 'frame-coupled arrivals, worst divergence (deg)', coupledWorst.toFixed( 4 ),
+        `settle counts ${ coupled.map( ( trace ) => trace.settles ).join( ' / ' ) } — all three plausible, which is the point` );
+
+    gate( 'the divergence gate REJECTS frame-coupled arrivals',
+        coupledWorst > INVARIANCE_TOLERANCE_DEGREES ? 1 : 0, 1, 1,
+        '1 means the gate caught it; 0 means the gate is decorative' );
+
+    gate( 'and by a real margin (x the tolerance)', coupledWorst / INVARIANCE_TOLERANCE_DEGREES, 100, Infinity,
+        'the error must be large enough that the tolerance is not what decided it' );
+
+    // 🚩 RECORDED AS A GATE, §1.3. The jitter section above passes on the coupled layer, because a
+    // per-frame Bernoulli draw has exactly the right long-run rate and therefore exactly the right
+    // amplitude. Asserted so that nobody reads 'ROBUSTNESS — jittered frame time' as covering this.
+    const coupledJittered = averageRms( run( {
+        seconds: GATE_DURATION_SECONDS,
+        options: { eventsEnabled: false, frameCoupledArrivals: true }
+    } ), 'shoulder' );
+    const shippedSteady = averageRms( run( {
+        seconds: GATE_DURATION_SECONDS, options: { eventsEnabled: false } } ), 'shoulder' );
+
+    gate( 'the AMPLITUDE gate would NOT have caught it',
+        Math.abs( coupledJittered / shippedSteady - 1 ) > 0.15 ? 1 : 0, 0, 0,
+        `recorded, not tolerated: the coupled layer's shoulder RMS is ${ ( 100 * coupledJittered / shippedSteady ).toFixed( 1 ) }% of the shipped one` );
+
+}
+
+/**
+ * One trace at one frame rate, sampled at whole seconds so that two rates are compared at the same
+ * simulated instants rather than at the same frame index.
+ */
+function traceAtRate( rateHz, options ) {
+
+    const samples = [];
+    let settles = 0;
+    let frame = 0;
+
+    const { layer } = drive( {
+        seconds: INVARIANCE_SECONDS,
+        options,
+        track: false,
+        frameDelta: () => 1 / rateHz,
+        onFrame: ( driven ) => {
+
+            settles = driven.eventCounts.shoulderSettle;
+            frame ++;
+
+            if ( frame % rateHz !== 0 ) return;
+
+            for ( const measured of MEASURED_BONES ) {
+
+                const bone = figure.root.getObjectByName( measured.bone );
+
+                if ( bone === undefined ) continue;
+
+                samples.push( bone.quaternion.x, bone.quaternion.y, bone.quaternion.z, bone.quaternion.w );
+
+            }
+
+        }
+    } );
+
+    return { rateHz, samples, settles, layer };
+
+}
+
+/**
+ * The largest disagreement between two traces, as an angle. Quaternion components are compared
+ * directly and then converted with the small-angle relation q_xyz ~ axis * theta/2, which is exact
+ * to a part in 10^6 at the amplitudes this layer produces and avoids an acos near 1.
+ */
+function worstDivergenceDegrees( trace, reference ) {
+
+    let worst = 0;
+
+    for ( let index = 0; index < Math.min( trace.samples.length, reference.samples.length ); index ++ ) {
+
+        worst = Math.max( worst, Math.abs( trace.samples[ index ] - reference.samples[ index ] ) );
+
+    }
+
+    return worst * 2 * 180 / Math.PI;
 
 }
 

@@ -316,9 +316,18 @@ export class Breath extends Layer {
 
         while ( this.phase >= 1 ) {
 
-            this.phase -= 1;
+            // 🎯 The overshoot is carried in SECONDS and re-expressed against the new period, not
+            // carried as a raw fraction. The fraction was accrued at the OLD period, so keeping it
+            // as-is starts the next breath at a phase that depends on how much of the frame sat
+            // past the boundary — i.e. on the frame rate. Measured before this: 0.039 mm of bone
+            // divergence between a 30 Hz and a 60 Hz trace of the same seed over 300 s. Small, and
+            // the same class of defect as the one that made the free-foot gate meaningless.
+            const overshootSeconds = ( this.phase - 1 ) * this.periodSeconds;
+
             this.breathsCompleted ++;
             this.periodSeconds = this.drawPeriodSeconds();
+
+            this.phase = overshootSeconds / this.periodSeconds;
 
         }
 

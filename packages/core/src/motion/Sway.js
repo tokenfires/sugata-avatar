@@ -33,6 +33,13 @@
  * the other way round. So the lateral axis is delivered by the contrapposto, which already has
  * the right shape, and the pendulum keeps the axis it is right about.
  *
+ * 🚩 MOSTLY — AND THE EXCEPTION IS IN THE SAME ABSTRACT, TWO SENTENCES LATER. "M/L balance is under
+ * hip control" is Winter's SIDE-BY-SIDE row. At an intermediate, toed-out stance he measures both
+ * mechanisms contributing and says *"in the M/L direction the two strategies reinforce"*. This
+ * figure stands at 18.6 degrees of included foot angle, so the side-by-side row is the wrong one
+ * and the ankle owns a derived share of the lateral signal — see MEDIO_LATERAL_ANKLE_SHARE. Third
+ * time this one paper has answered a question it was not asked; read the whole table.
+ *
  * Quiet-stance balance fore-and-aft is an ANKLE STRATEGY. The body rotates about the ankles as a
  * near-rigid inverted pendulum; the trunk barely participates. So the rotation is authored at the
  * bottom of the chain and everything above it — pelvis, knees, spine, head — TRANSLATES as a
@@ -168,7 +175,7 @@ import { Quaternion, Vector3 } from 'three';
 
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
-import { CoherentNoise1D } from './Signals.js';
+import { CoherentNoise1D, PoissonSchedule } from './Signals.js';
 import { restRotationRelativeToRig, toBoneDeltaFrame } from './Breath.js';
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
 import { RestPose } from '../figure/RestPose.js';
@@ -521,6 +528,50 @@ const PIVOT_HEIGHT_FRACTION_OF_ANKLE = 1.0;
 const STANCE_BLEND_LIMIT = 1.0;
 
 /**
+ * 🎯 THE FRACTION OF MEDIO-LATERAL BALANCE THE ANKLE CARRIES — WHICH IS ZERO ONLY IF THE FEET ARE
+ * PARALLEL, AND THEY ARE NOT.
+ *
+ * 🚩 This file already cites Winter, Prince, Frank, Powell & Zabjek 1996 for the claim that lateral
+ * balance is a hip mechanism, and that claim is a row of Winter's table rather than the whole of
+ * it. The abstract states the rows separately and they are not the same:
+ *
+ *   *"In SIDE-BY-SIDE STANCE, A/P balance is totally under ankle (plantar/dorsiflexor) control,
+ *   whereas M/L balance is under hip (abductor/adductor) control."*
+ *
+ *   *"In an INTERMEDIATE 45 degrees stance position, BOTH ankle and hip mechanisms contribute to
+ *   the net balance control in totally different ways. IN THE M/L DIRECTION THE TWO STRATEGIES
+ *   REINFORCE... the ankle control is not orthogonal to the load/unload line; rather, it acts at
+ *   an angle of approximately 60 degrees."*
+ *
+ * The side-by-side row was implemented on a figure that does not stand side by side.
+ * `relaxed-standing.json` turns the femurs out by 9.56° and 9.06° — an included foot angle of
+ * 18.6°, which is McIlroy & Maki's preferred stance and is also Quijoux's own protocol ("feet at
+ * 20°"). §1.7d, again, and on the same paper: *a citation delivered in support of one claim can be
+ * the answer to a different one*, and this time the different one was two sentences further down.
+ *
+ * 🎯 THE SHARE IS DERIVED, NOT SET. The ankle mechanism acts along ONE control line. Its magnitude
+ * is already decided — it carries the whole of the antero-posterior balance, which this layer
+ * authors at Quijoux's 4.9 mm — so the only free quantity is the line's direction, and Winter gives
+ * that: the line rotates away from antero-posterior as the stance opens. Reading his 45° stance as
+ * 45° BETWEEN THE FEET, the line has rotated 30° for 22.5° of toe-out per foot, so it turns 1.333×
+ * the foot; reading it as 45° per foot gives 0.667×. This figure's 9.31° mean toe-out therefore
+ * puts the line 6.2° to 12.4° off antero-posterior, and the ankle's lateral contribution is
+ * `4.9 mm × tan(that)` = 0.53 to 1.08 mm against a lateral balance amplitude of 3.0 mm.
+ *
+ * ⚠️ THE LOW READING IS TAKEN, on the same principle as the elderly-cohort correction above: where
+ * an ambiguity in a source spans a range, author at the end that claims less. 0.53 / 3.0 = 0.18.
+ *
+ * ⚠️ AND IT IS A SHARE OF THE WHOLE LATERAL SIGNAL, not of the balance band alone, which is the one
+ * place this goes beyond Winter. He measured quiet stance; the weight-shift process is Duarte's and
+ * Winter says nothing about it. Applying the share to the composite is the simpler model and is
+ * conservative in the direction that matters — a weight shift routed through the ankle moves the
+ * head further than one routed through the hip, and the head/centre-of-mass gate is what bounds
+ * that. It closes at 1.00 either way because `lateralRightingPerRadian` is solved against the
+ * realised mechanism mix.
+ */
+const MEDIO_LATERAL_ANKLE_SHARE = 0.18;
+
+/**
  * 🎯 How much of the head's LATERAL overshoot the pendulum's own lumbar counter-bend takes back.
  *
  * The lateral signal is supposed to go through the hip mechanism, and mostly it does — but the
@@ -695,6 +746,36 @@ const TOE_UNLOAD_LIFT_DEGREES = 2.5;
  *
  * 1.0 keeps all of the chain's yaw at full unload. Set to 0 for the welded foot the judge reported;
  * the selftest builds exactly that to prove its own gate can see it.
+ *
+ * 🎯 FOR THE NEXT VISUAL JUDGE — THE ONE THING HERE NO MEASUREMENT CAN SETTLE, AND EXACTLY WHERE TO
+ * LOOK.
+ *
+ * The free leg's release is delivered as a swivel about a near-vertical axis, so it presents mostly
+ * as FEMORAL AXIAL ROTATION rather than as the foot turning on the floor. Measured on figure_g050,
+ * seed 1, at each full transfer, as world-frame yaw from the relaxed-standing rest:
+ *
+ *     state                    thigh_l   calf_l   thigh_r   calf_r
+ *     LEFT leg free            +14.21    +5.27     -1.02     -1.47
+ *     RIGHT leg free            +1.45    +1.75    -13.54     -4.97
+ *
+ * So the FREE thigh turns about 14 degrees and its shank about 5, while the LOADED leg stays inside
+ * 1.8 — which is the asymmetry this whole mechanism is for. The question no number in this repo can
+ * answer is whether fourteen degrees of femoral rotation READS as a relaxed leg letting go or as a
+ * leg that has rotated too far.
+ *
+ * ⚠️ WHAT TO LOOK AT: the free kneecap, on a frame at full transfer, against the same frame at rest.
+ * Judge it as a life drawing — does the free leg read as the classic contrapposto, weight off, knee
+ * relaxed and turned slightly out? Or does the knee read as rotated to a place a standing person
+ * would not leave it?
+ *
+ * 🚩 AND ONE DISAGREEMENT TO RESOLVE BY EYE, BECAUSE IT DECIDES WHICH DEFECT THIS WOULD BE. An
+ * independent re-verifier reported the free kneecap turning INWARD by 16 degrees. The magnitude
+ * agrees with the table above; the DIRECTION does not. On this rig +y yaw on the left leg is
+ * EXTERNAL rotation — `relaxed-standing.json` builds the stance's toe-out with `leftUpperLeg` at
+ * y = +9.56 and calls it "external rotation of the femur [that] swings the knee out with the foot"
+ * — so the measurement above says the free knee turns OUT, adding to a toe-out it already has.
+ * Out is the life-class pose. In is knock-kneed. They are different findings and only a pair of
+ * eyes can say which one is on screen.
  */
 const FREE_FOOT_YAW_RELEASE = 1.0;
 
@@ -809,6 +890,10 @@ export class Sway extends Layer {
      * @param {boolean} [options.lateralRightingEnabled=true] - Turn off to run both lateral
      *   mechanisms without the lumbar counter-bend that parks the head. See
      *   LATERAL_HEAD_PER_CENTRE_OF_MASS.
+     * @param {number} [options.medioLateralAnkleShare=0.18] - The fraction of the lateral signal
+     *   the ANKLE carries rather than the hip, which is a function of how far the feet are turned
+     *   out. Set to 0 for the parallel-feet case, which is the state the lower leg was measured
+     *   dead in. See MEDIO_LATERAL_ANKLE_SHARE.
      * @param {number} [options.toeLiftDegrees=2.5] - Toe extension on a fully unloaded foot. Set to
      *   0 for the welded foot a visual judge reported; see TOE_UNLOAD_LIFT_DEGREES.
      * @param {number} [options.freeFootYawRelease=1] - Fraction of the leg chain's yaw an UNLOADED
@@ -818,6 +903,10 @@ export class Sway extends Layer {
      *   supported in this file and the ones that decide whether a postural event is legible at all:
      *   `{ amplitudeFraction, durationSeconds, riseFraction }`. See
      *   FIDGET_AMPLITUDE_FRACTION_OF_SHIFT and FIDGET_DURATION_SECONDS.
+     * @param {boolean} [options.frameCoupledArrivals=false] - Set to true to advance the fidget and
+     *   shift processes with one Bernoulli draw per FRAME, the way this layer used to. The event
+     *   rate stays correct and the trajectory becomes a function of the frame rate; it is the
+     *   defect the FRAME-RATE INVARIANCE gate exists to catch, and the selftest builds it.
      * @param {number} [options.driftScale=1] - Scales the slow drift. Set to 0 to isolate the
      *   processes that are pinned to published amplitudes; see DRIFT_AMPLITUDE_*.
      * @param {Function} [options.onWeightShift] - Called as `({ magnitude, axis, pattern })` at
@@ -857,11 +946,19 @@ export class Sway extends Layer {
         this.weightShiftsEnabled = options.weightShiftsEnabled ?? true;
         this.stanceBlendEnabled = options.stanceBlendEnabled ?? true;
 
+        // The pre-fix arrival mechanism, kept only so the invariance gate has a known-bad. See
+        // `advanceAxis`, and `Signals.poissonEventOccurs` for why it is wrong.
+        this.frameCoupledArrivals = options.frameCoupledArrivals ?? false;
+
         // Turn off to run both lateral mechanisms as they were before the head was parked — the
         // contrapposto exactly as drawn, the pendulum as a rigid rotation. That is the state a
         // visual judge measured at head/hip 1.34, and the selftest builds it deliberately to prove
         // the ratio gates can see it.
         this.lateralRightingEnabled = options.lateralRightingEnabled ?? true;
+
+        // Set to 0 for the side-by-side row of Winter's table, which is what this layer implemented
+        // on a figure standing at 18.6° of toe-out. See MEDIO_LATERAL_ANKLE_SHARE.
+        this.medioLateralAnkleShare = options.medioLateralAnkleShare ?? MEDIO_LATERAL_ANKLE_SHARE;
 
         this.toeLiftDegrees = options.toeLiftDegrees ?? TOE_UNLOAD_LIFT_DEGREES;
 
@@ -1031,6 +1128,7 @@ export class Sway extends Layer {
     onBind( context ) {
 
         this.buildNoise();
+        this.buildSchedules();
         this.bodyMass.bind( context.target );
         this.resolveRigGeometry( context.target );
         this.measurePendulumResponse( context.target );
@@ -1095,8 +1193,18 @@ export class Sway extends Layer {
         // The clamp is a fact about the rig's base of support, read at bind, so it survives a
         // reset — rebuilding it from the fallback here would silently narrow the stance on
         // every reset and only show up as a slow drift in the gate matrix.
-        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS, this.medioLateral.limit );
-        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS, this.anteroPosterior.limit );
+        this.medioLateral = createAxisState( MEDIO_LATERAL_SETTINGS, this.medioLateral.limit, this.medioLateral );
+        this.anteroPosterior = createAxisState( ANTERO_POSTERIOR_SETTINGS, this.anteroPosterior.limit, this.anteroPosterior );
+
+        // A reset outside the stack does not re-run `onBind`, so the carried schedules are rewound
+        // here. In the stack's own reset path `onBind` replaces them a moment later with schedules
+        // on freshly forked streams, which is the stronger rewind of the two.
+        for ( const axis of [ this.medioLateral, this.anteroPosterior ] ) {
+
+            axis.fidgets?.reset();
+            axis.shifts?.reset();
+
+        }
 
         this.eventCounts = { fidget: 0, shift: 0, discourseShift: 0 };
 
@@ -1123,6 +1231,28 @@ export class Sway extends Layer {
 
     }
 
+    /**
+     * The four arrival processes — fidget and shift on each axis — each on its own named stream.
+     *
+     * 🎯 FOUR STREAMS AND NOT ONE. Sharing a stream would put the draw order at the mercy of which
+     * process happened to fire first inside a given frame, and which frame a firing lands in is a
+     * function of dt. The whole dt-invariance argument would then hold only until two arrivals fell
+     * inside the same frame — expected about once every 900 s at 30 Hz, which is exactly often
+     * enough to poison a long gate and never often enough to be reproduced by hand.
+     *
+     * Built here rather than in the constructor because `this.random` does not exist until the
+     * stack forks it, and rebuilt on every bind because `MotionStack.reset()` rewinds the stream
+     * and then calls `onBind` again — so a reset genuinely replays the same arrivals.
+     */
+    buildSchedules() {
+
+        this.medioLateral.fidgets = new PoissonSchedule( this.random.fork( 'medioLateral.fidget' ) );
+        this.medioLateral.shifts = new PoissonSchedule( this.random.fork( 'medioLateral.shift' ) );
+        this.anteroPosterior.fidgets = new PoissonSchedule( this.random.fork( 'anteroPosterior.fidget' ) );
+        this.anteroPosterior.shifts = new PoissonSchedule( this.random.fork( 'anteroPosterior.shift' ) );
+
+    }
+
     sampleBalanceBand( bands, rmsMetres ) {
 
         let total = 0;
@@ -1139,50 +1269,105 @@ export class Sway extends Layer {
 
     /**
      * One axis of weight-shift behaviour for one frame: the slow drift, any fidget in progress,
-     * the settled shift baseline, and the Poisson draws that start new events.
+     * the settled shift baseline, and the arrivals that start new events.
+     *
+     * 🎯 THE FRAME IS WALKED IN SUB-INTERVALS SPLIT AT EACH ARRIVAL, AND THAT IS THE WHOLE POINT.
+     *
+     * The version this replaced asked `poissonEventOccurs(rate, dt)` twice per axis per frame. The
+     * rate that produced was correct at any frame rate — the probability form is exact — and the
+     * TRAJECTORY was not, because four random draws per frame means the stream advances at the
+     * frame rate. Measured, seed 1, 900 s: at 60 Hz the stance blend spanned -0.990..1.000 and
+     * first crossed -0.95 at 434 s; at 30 Hz it spanned -0.771..1.000 and NEVER crossed. The judge
+     * captures at 30 fps and the gates ran at 60 Hz, so the gate proving the free foot articulates
+     * was proving it of a trajectory the camera never rendered.
+     *
+     * Now each process owns a `PoissonSchedule` on its OWN forked stream, arrival times are drawn
+     * one per event, and the frame is cut at each arrival so the event's shape begins at the exact
+     * instant it was drawn for rather than at the next frame boundary. Everything integrated below
+     * is an exact exponential or a linear countdown, so a frame containing no arrival takes a
+     * single step and is unchanged.
+     *
+     * ⚠️ One residue is inherent and is not removed by any of this: `shiftCurrent` chases a target
+     * that is itself decaying, and two exponentials in series do not compose exactly across a
+     * split. The coupling error is order dt²/(0.8 s × 199 s) — about 7e-6 of the step at 30 Hz —
+     * and it is what the invariance gate's tolerance is sized for.
      */
     advanceAxis( axis, deltaSeconds ) {
 
         const settings = axis.settings;
 
-        // New events. Poisson, because these are memoryless arrivals at a measured mean rate.
-        if ( this.random.poissonEventOccurs( settings.fidgetRate, deltaSeconds ) ) {
+        if ( this.frameCoupledArrivals ) {
 
-            this.beginFidget( axis );
+            // 🚩 THE DEFECT, REBUILT ON PURPOSE. One Bernoulli draw per frame per process, exactly
+            // as this layer used to do it, so the gate has something to reject.
+            if ( axis.fidgets.random.poissonEventOccurs( settings.fidgetRate, deltaSeconds ) ) this.beginFidget( axis );
+            if ( axis.shifts.random.poissonEventOccurs( settings.shiftRate, deltaSeconds ) ) this.beginShift( axis );
+
+            this.integrateAxis( axis, deltaSeconds );
 
         }
 
-        if ( this.random.poissonEventOccurs( settings.shiftRate, deltaSeconds ) ) {
+        let remaining = this.frameCoupledArrivals ? 0 : deltaSeconds;
 
-            this.beginShift( axis );
+        while ( remaining > 0 ) {
+
+            const step = Math.min(
+                remaining,
+                axis.fidgets.secondsUntilArrival( settings.fidgetRate ),
+                axis.shifts.secondsUntilArrival( settings.shiftRate ) );
+
+            this.integrateAxis( axis, step );
+
+            remaining -= step;
+
+            // Fidgets are asked before shifts, always. The two are separate streams, so the order
+            // decides nothing about the numbers drawn — only which callback a consumer sees first
+            // in the vanishingly rare frame that contains both.
+            axis.fidgets.advance( settings.fidgetRate, step, () => this.beginFidget( axis ) );
+            axis.shifts.advance( settings.shiftRate, step, () => this.beginShift( axis ) );
 
         }
 
         // A fidget is a single out-and-back: a quick raised-cosine push onto the other leg and a
         // longer raised-cosine return off it. See FIDGET_DURATION_SECONDS for why the two halves
         // are not the same length. Both halves have zero slope at both ends, so nothing snaps.
-        let fidget = 0;
+        const fidget = axis.fidgetRemaining > 0
+            ? axis.fidgetAmplitude
+                * fidgetShape( 1 - axis.fidgetRemaining / this.fidget.durationSeconds, this.fidget.riseFraction )
+            : 0;
 
-        if ( axis.fidgetRemaining > 0 ) {
-
-            axis.fidgetRemaining = Math.max( axis.fidgetRemaining - deltaSeconds, 0 );
-
-            fidget = axis.fidgetAmplitude
-                * fidgetShape( 1 - axis.fidgetRemaining / this.fidget.durationSeconds, this.fidget.riseFraction );
-
-        }
-
-        // A shift settles toward its new region, then that region leaks slowly back to centre.
-        axis.shiftTarget *= Math.exp( -deltaSeconds * settings.shiftRate / SHIFT_RETURN_INTERVALS );
-        axis.shiftCurrent += ( axis.shiftTarget - axis.shiftCurrent )
-            * ( 1 - Math.exp( -deltaSeconds / SHIFT_SETTLE_SECONDS ) );
-
+        // Drift is a pure function of elapsed time rather than an integrated state, so it is read
+        // once at the end of the frame and needs no part in the walk above.
         const drift = this.driftScale * settings.driftAmplitude
             * this.driftNoise[ settings.key ].at( this.elapsedSeconds * settings.driftFrequencyHz );
 
         const total = axis.shiftCurrent + fidget + drift;
 
         axis.displacement = Math.min( Math.max( total, -axis.limit ), axis.limit );
+
+    }
+
+    /**
+     * The continuous state of one axis, moved forward by `seconds` — which is a sub-interval of a
+     * frame, never necessarily the whole frame. Nothing here draws a random number: every arrival
+     * happens between calls to this, which is what keeps the trajectory a property of the seed.
+     */
+    integrateAxis( axis, seconds ) {
+
+        if ( seconds <= 0 ) return;
+
+        const settings = axis.settings;
+
+        if ( axis.fidgetRemaining > 0 ) {
+
+            axis.fidgetRemaining = Math.max( axis.fidgetRemaining - seconds, 0 );
+
+        }
+
+        // A shift settles toward its new region, then that region leaks slowly back to centre.
+        axis.shiftTarget *= Math.exp( -seconds * settings.shiftRate / SHIFT_RETURN_INTERVALS );
+        axis.shiftCurrent += ( axis.shiftTarget - axis.shiftCurrent )
+            * ( 1 - Math.exp( -seconds / SHIFT_SETTLE_SECONDS ) );
 
     }
 
@@ -1196,7 +1381,12 @@ export class Sway extends Layer {
      */
     beginShift( axis ) {
 
-        const amplitude = this.drawAmplitude( axis.settings ) * this.drawDirection();
+        // The event's own draws come from the SHIFT process's stream, not the layer's. One stream
+        // per process is what makes the draw sequence a property of the seed: two processes
+        // sharing a stream interleave in whatever order they happen to fire, and which frame a
+        // firing lands in depends on dt — the frame rate would leak back in through the ordering.
+        const random = axis.shifts.random;
+        const amplitude = this.drawAmplitude( axis.settings, random ) * this.drawDirection( random );
 
         // A shift moves to a NEW region, so it is drawn as a signed displacement away from where
         // the stance already is rather than as an absolute position.
@@ -1224,8 +1414,11 @@ export class Sway extends Layer {
      */
     beginFidget( axis ) {
 
-        const amplitude = this.drawAmplitude( axis.settings )
-            * this.fidget.amplitudeFraction * this.drawDirection();
+        // The FIDGET process's own stream; see beginShift for why it is not the layer's.
+        const random = axis.fidgets.random;
+
+        const amplitude = this.drawAmplitude( axis.settings, random )
+            * this.fidget.amplitudeFraction * this.drawDirection( random );
 
         axis.fidgetRemaining = this.fidget.durationSeconds;
         axis.fidgetAmplitude = amplitude;
@@ -1256,9 +1449,9 @@ export class Sway extends Layer {
     }
 
     /** A weight transfer goes either way, and the coin is fair. */
-    drawDirection() {
+    drawDirection( random ) {
 
-        return this.random.chance( 0.5 ) ? 1 : -1;
+        return random.chance( 0.5 ) ? 1 : -1;
 
     }
 
@@ -1287,12 +1480,12 @@ export class Sway extends Layer {
      * folded gaussian off zero; a lognormal cannot reach zero, so a floor would only distort the
      * small end. The postural clamp still bounds the large end, where it belongs.
      */
-    drawAmplitude( settings ) {
+    drawAmplitude( settings, random ) {
 
         const variance = Math.log( 1 + ( settings.shiftAmplitudeSd / settings.shiftAmplitude ) ** 2 );
         const median = Math.log( settings.shiftAmplitude ) - variance / 2;
 
-        return Math.exp( this.random.gaussian( median, Math.sqrt( variance ) ) );
+        return Math.exp( random.gaussian( median, Math.sqrt( variance ) ) );
 
     }
 
@@ -1308,10 +1501,12 @@ export class Sway extends Layer {
 
         if ( this.stanceBlendEnabled === false ) return 0;
 
-        // 🎯 THE WHOLE lateral signal, balance band included — not just the weight shifts. See
-        // the file header: medio-lateral balance is a hip mechanism, not an ankle one, so every
-        // millimetre of it belongs here rather than in the pendulum.
-        const wantedMedioLateral = this.displacement.x;
+        // 🎯 ALMOST the whole lateral signal, balance band included. Medio-lateral balance is a hip
+        // mechanism and this is where it is delivered — but not ALL of it, because these feet are
+        // turned out. See `medioLateralAnkleShare`: Winter's own paper gives the ankle a share of
+        // the lateral control the moment the stance stops being side-by-side, and what that share
+        // does not carry is what the contrapposto has to.
+        const wantedMedioLateral = this.displacement.x * ( 1 - this.medioLateralAnkleShare );
         const response = wantedMedioLateral >= 0 ? this.stanceResponse.left : this.stanceResponse.right;
 
         if ( response.usable === false ) return 0;
@@ -2329,7 +2524,7 @@ export class Sway extends Layer {
 
 const IDENTITY = new Quaternion();
 
-function createAxisState( settings, limit ) {
+function createAxisState( settings, limit, schedules = {} ) {
 
     return {
         settings,
@@ -2338,7 +2533,13 @@ function createAxisState( settings, limit ) {
         shiftTarget: 0,    // where the stance is heading
         shiftCurrent: 0,   // where the stance is now
         fidgetRemaining: 0,
-        fidgetAmplitude: 0
+        fidgetAmplitude: 0,
+
+        // The two arrival processes, each on its own stream. Null until `buildSchedules` runs at
+        // bind; carried across a `reset()` so a layer reset outside the stack still has them, and
+        // replaced wholesale by the `onBind` the stack runs immediately afterwards.
+        fidgets: schedules.fidgets ?? null,
+        shifts: schedules.shifts ?? null
     };
 
 }

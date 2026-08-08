@@ -20,6 +20,9 @@
 
 const TWO_PI = Math.PI * 2;
 
+/** See `PoissonSchedule.advance`. In unit-rate wait units, where a typical wait is order 1. */
+const WAIT_EPSILON = 1e-12;
+
 /**
  * A seeded pseudo-random stream.
  *
@@ -180,12 +183,25 @@ export class MotionRandom {
     }
 
     /**
-     * Whether a Poisson event lands inside this frame. The alternative to scheduling the next
-     * arrival explicitly; correct for any dt because it uses the true probability of at least
-     * one arrival in the interval, not `rate * dt`, which over-fires at long frame times.
+     * Whether a Poisson event lands inside this frame.
      *
-     * Prefer `poissonInterval` when the event has a duration to schedule against. Use this when
-     * the layer only needs a yes/no each frame.
+     * 🚩 THE RATE IS RIGHT AND THE TRAJECTORY IS NOT. Read this before reaching for it.
+     *
+     * The probability is exact for any dt — it is `1 - exp(-rate*dt)` rather than `rate * dt`, so
+     * the long-run event RATE is correct at 30, 60 or 120 Hz. What is not correct is the realised
+     * SEQUENCE. Every call consumes one draw from the stream, so a layer that calls this once per
+     * frame advances its randomness at the frame rate, and the same seed produces a different run
+     * at a different frame rate. Measured on `Sway` before it was converted: 120.1 draws/s at
+     * 30 Hz, 240.1 at 60 Hz, 480.1 at 120 Hz — and the worst bone divergence between the 30 Hz and
+     * 60 Hz traces of seed 1 over 300 s was **49.4 mm**. A body's sway does not depend on how often
+     * you look at it.
+     *
+     * That defect is invisible to any gate stated on an amplitude or a rate, because both of those
+     * really are dt-invariant. It is visible only in a gate that compares two frame rates frame for
+     * frame, which is what `sway.selftest.mjs`'s FRAME-RATE INVARIANCE section does.
+     *
+     * 🎯 USE `PoissonSchedule` INSTEAD for anything a viewer will see. This is kept for a caller
+     * that genuinely only wants a per-frame coin — and there is no such caller in the motion stack.
      */
     poissonEventOccurs( eventsPerSecond, deltaSeconds ) {
 
@@ -215,6 +231,106 @@ export class MotionRandom {
         }
 
         return count;
+
+    }
+
+}
+
+/**
+ * A Poisson arrival schedule that advances in SIMULATED TIME rather than in frames.
+ *
+ * 🎯 THIS IS THE dt-INVARIANT WAY TO FIRE A RARE EVENT, and the reason it exists is worth reading
+ * once. A layer that asks `poissonEventOccurs(rate, dt)` every frame draws one random number per
+ * FRAME. The rate that comes out is right; the trajectory is not, because the stream is being
+ * advanced by the renderer instead of by the body. Halve the frame rate and every subsequent event
+ * lands somewhere else. The judge's capture runs at 30 fps and the gates ran at 60 Hz, so the gates
+ * were proving properties of a trajectory the camera never rendered — see LEARNINGS §1.3 and the
+ * FRAME-RATE INVARIANCE section of `sway.selftest.mjs`.
+ *
+ * The fix is to draw ONE interval PER EVENT and count time down against it. Then the arrival times
+ * are a property of the seed alone: the only thing the frame rate decides is which frame observes
+ * an arrival that was always going to happen at the same instant.
+ *
+ * The countdown is held in UNIT-RATE units — the wait of a rate-1 process — and consumed at
+ * `rate × seconds`. That is the standard time-rescaling of a Poisson process, and it is what makes
+ * a rate that CHANGES mid-run correct rather than merely plausible: `BodyIdle`'s shoulder settle is
+ * scaled by arousal, and rescaling integrates the rate over the interval instead of freezing it at
+ * whatever value the last frame happened to see.
+ *
+ * @example
+ * // Cut the frame at the arrival so the event's own shape starts at the exact instant it arrived.
+ * const step = Math.min( remaining, schedule.secondsUntilArrival( rate ) );
+ * integrate( step );
+ * schedule.advance( rate, step, () => beginEvent() );
+ */
+export class PoissonSchedule {
+
+    /**
+     * @param {MotionRandom} random - Give each process its OWN forked stream. Two processes
+     *   sharing one stream re-couple to the frame rate through the order their draws interleave:
+     *   whichever fires first in a given frame draws first, and which frame that is depends on dt.
+     */
+    constructor( random ) {
+
+        this.random = random;
+        this.waiting = random.exponential( 1 );
+
+    }
+
+    /** Redraws the first arrival. Call from the layer's `reset()`, after the stream is rewound. */
+    reset() {
+
+        this.waiting = this.random.exponential( 1 );
+
+    }
+
+    /**
+     * How long until the next arrival at this rate. `Infinity` when the rate is zero, which is
+     * what makes it safe to pass straight into a `Math.min` that is choosing a step length.
+     */
+    secondsUntilArrival( eventsPerSecond ) {
+
+        if ( eventsPerSecond <= 0 ) return Infinity;
+
+        return this.waiting / eventsPerSecond;
+
+    }
+
+    /**
+     * Consumes `seconds` of waiting time and reports every arrival inside it, oldest first.
+     *
+     * @param {number} eventsPerSecond - May vary between calls; see the class note on rescaling.
+     * @param {number} seconds
+     * @param {Function} [onArrival] - Called as `onArrival(secondsSinceArrival)`. The argument is
+     *   how long ago inside this interval the event actually landed, so a caller that did not cut
+     *   its step at the arrival can still start the event's shape at the right phase. A caller
+     *   that did cut its step will see 0.
+     * @returns {number} How many arrived.
+     */
+    advance( eventsPerSecond, seconds, onArrival = null ) {
+
+        if ( eventsPerSecond <= 0 || seconds <= 0 ) return 0;
+
+        this.waiting -= eventsPerSecond * seconds;
+
+        let arrivals = 0;
+
+        // The epsilon is not defensive padding, it is what makes `secondsUntilArrival` usable as a
+        // step length: a caller that cuts its frame exactly at the arrival computes
+        // `waiting / rate` and this then computes `rate * that`, and the round trip lands a few
+        // ulps either side of zero. Without it the caller spins on sub-femtosecond steps. The
+        // waits themselves are unit-rate exponentials, order 1, so 1e-12 cannot swallow a real one.
+        while ( this.waiting <= WAIT_EPSILON ) {
+
+            arrivals ++;
+
+            if ( onArrival !== null ) onArrival( Math.max( -this.waiting, 0 ) / eventsPerSecond );
+
+            this.waiting += this.random.exponential( 1 );
+
+        }
+
+        return arrivals;
 
     }
 
