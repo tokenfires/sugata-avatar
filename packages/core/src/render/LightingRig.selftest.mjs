@@ -489,35 +489,121 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
 // of them could have seen it: they all measure what a light delivers AT THE FOCUS, and the whole
 // defect is what it delivers everywhere else.
 //
-// The quantity is a RATIO computed identically at one point, so the point-to-differential-area
-// approximation used here — panel treated as a differential emitter, which at d/panel ≈ 2.4 is
-// only fair — largely cancels. Anchored against rendered measurements on
-// `lighting.html?frame=body&bare` at 900×1200:
+// 🚩 **AND THE FIRST VERSION OF THIS GATE MEASURED IT WITH A QUANTITY THAT CANNOT EXPRESS
+// BLUENESS.** It partitioned the four lights with a hardcoded `COOL_LIGHTS = [ 'rim', 'kicker' ]`
+// and the arithmetic never touched `colour` at all. A verifier turned the key and the fill to the
+// rim's own `#0f30ff`; this file and `GroundContact.selftest.mjs` stayed fully green — 46/46 and
+// 36/36 — while 99.2% of a rendered body frame came back saturated blue. Reproduced here before
+// the fix, and the reproduction is the whole diagnosis:
 //
-//   | rim standoff (heights) | this ratio | frame pixels in a saturated blue |
-//   |------------------------|-----------:|---------------------------------:|
-//   | 2.6 (portrait's)       |      49.94 | —                                 |
-//   | 1.4 (the defect)       |      36.61 | 24.06% at the old floor albedo    |
-//   | 1.1                    |      18.88 | 9.81%                             |
-//   | 0.8                    |       4.69 | 3.62%                             |
-//   | **0.65 (shipped)**     |   **2.10** | **1.19%**, and 0.07% as shipped   |
+//   cool:warm by NAME, shipped        2.0982
+//   cool:warm by NAME, key+fill blue  2.0982   ← bit-identical, and the frame had gone blue
 //
-// The ceiling is 3.0 because that is BETWEEN the shipped 2.10 and the nearest measured
-// configuration that still floods — 4.69, which renders 3.62% of the frame saturated blue. It is
-// interpolated from those two plates, not chosen for comfort.
+// **THE ATTEMPTED FIX THAT WAS WRONG, KEPT BECAUSE THE SHAPE OF IT IS INSTRUCTIVE.** The obvious
+// repair is to partition by the light's own colour — cool means `b > r` — instead of by its name.
+// That is a different wrong model, not a right one, and one run of the checks below proved it: a
+// key and fill at `#e8ecff`, a perfectly ordinary daylight-balanced tint, is blue-dominant, so it
+// empties the warm bucket, drives the ratio to Infinity and FAILS the gate — on a plate that
+// renders 0.058% of the frame blue, LESS than shipped. Any binary classification of a continuous
+// colour has that failure somewhere. LEARNINGS §1.8: the model was wrong, and a threshold was
+// never going to fix it.
 //
-// ⚠️ WHAT THIS GATE CANNOT SEE, so nobody assumes it does:
+// **WHAT THE TWO CLAUSES ACTUALLY ARE, after taking the colour out of the partition entirely:**
+//
+//   1. BEHIND : IN FRONT — a purely GEOMETRIC ratio, and it is what the standoff sweep below
+//      always measured. Partitioned by which side of the subject a panel physically stands on,
+//      computed from the light's own world position against the camera axis, so it cannot be
+//      moved by a rename, by a recolour, or by a fifth light being added. It is DELIBERATELY
+//      colour-blind and now says so in its name. Shipped value unchanged at 2.0982, so every
+//      anchor in the sweep still holds.
+//   2. BLUE : RED — the per-channel irradiance arriving at the same point, summed with each
+//      light's actual linear colour and never partitioned at all. This is the quantity nothing
+//      computed, and it carries the entire colour axis on its own.
+//
+// Anchored against rendered measurements. The standoff sweep is on
+// `lighting.html?frame=body&bare` at 900×1200; the blue:red column and every colour row were
+// measured for this round on the same page at `?frame=body&bare&w=900&h=1200&webgl`, WebGL2
+// backend, **MSAA OFF — `lighting.js` passes no `antialias`, so that is the page's default** —
+// shipped floor albedo, figure visible, predicate HSV S > 0.5 and hue 200–300° over the whole
+// 900×1200 frame. The shipped row reproduces the 0.07% already on record for this plate, which is
+// how the new instrument was checked before any number from it was trusted.
+//
+//   | body rig, one thing changed        | behind:front | blue:red | frame saturated blue |
+//   |------------------------------------|-------------:|---------:|---------------------:|
+//   | rim standoff 2.6 (portrait's)      |        49.94 |        — | —                    |
+//   | rim standoff 1.4 (the old defect)  |        36.61 |    32.76 | 24.06% at the old floor albedo |
+//   | rim standoff 1.1                   |        18.88 |        — | 9.81%                |
+//   | rim standoff 0.8                   |         4.69 |        — | 3.62%                |
+//   | **shipped (standoff 0.65)**        |     **2.10** | **2.83** | **0.074%**           |
+//   | key+fill `#ffffff` (neutral)       |         2.10 |     3.07 | 0.030%               |
+//   | key+fill `#e8ecff` (daylight tint) |         2.10 |     3.79 | 0.058%               |
+//   | rim elevation 75° (the AIM bad)    |         3.35 |     4.10 | 0.034%               |
+//   | fill `#30ffff` (cyan)              |         2.10 |     4.23 | 0.460%               |
+//   | key+fill `#d8e0ff`                 |         2.10 |     4.45 | 0.104%               |
+//   | key+fill `#c4d0ff`                 |         2.10 |     5.51 | 0.664%               |
+//   | key+fill `#b0c0ff` (looks white!)  |         2.10 |     6.98 | **57.37%**           |
+//   | **key+fill `#403830` (dark WARM)** |     **2.10** |**34.71** | **18.19%**           |
+//   | key `#0f30ff`, fill untouched      |         2.10 |     9.54 | **74.20%**           |
+//   | key+fill `#0f30ff`                 |         2.10 |   209.34 | **90.79%**           |
+//   | **rim+kicker swung to the FRONT**  |    **0.000** | **9.35** | **55.72%**           |
+//
+// Read the left column down the colour rows: it is 2.10 in every single one, from a clean frame
+// to a 90.79% flood. That constant is the defect, stated as a number. Then read the last row,
+// which is the same trap set for the REPLACEMENT: swing the two blue panels round to the front of
+// the subject at standoff 1.4 and the behind bucket empties, so the geometric clause scores 0.000
+// — better than shipped and unimprovable — on a frame that is 55.72% saturated blue. Any
+// partition can be walked around by moving a light across its boundary. Only the clause with no
+// boundary catches that one, and it is asserted below rather than described here.
+//
+// THE TWO CEILINGS, AND WHY THEY ARE THOSE NUMBERS:
+//
+//   behind:front 3.0 — unchanged, and not re-derived here. It sits between the shipped 2.10 and
+//   4.69, the nearest standoff that renders 3.62% of the frame blue.
+//
+//   blue:red 4.5 — the knee in the right-hand column is between 4.45 (0.104%, indistinguishable
+//   from the shipped 0.074%) and 6.98 (57.37%). The frame's large matte surfaces cross HSV S 0.5
+//   almost together, which is why 57% more blue in the light is 550× more blue in the frame. 4.5
+//   sits immediately above the highest configuration the render says is clean, and the MUST-PASS
+//   rows below pin it there from underneath so it cannot quietly drift down onto the shipped rig.
+//
+// 🚩 **THE TWO CLAUSES ARE NOT NESTED IN EITHER DIRECTION, AND THAT IS WHY THERE ARE TWO.** Two
+// clauses where one implies the other is one clause and a decoration, so both directions are
+// asserted as checks below rather than left as prose.
+//
+//   behind:front alone misses LEVEL. Turn the key and the fill to `#403830` — a dark warm grey,
+//   blue still its lowest channel, nothing moved but the level — and it stays at exactly the
+//   shipped 2.0982 while 18.19% of the frame renders saturated blue. A ratio of IRRADIANCES
+//   cannot see it, because taking the red out of the warm half by dimming it is, at the floor,
+//   the same event as turning the rim up, and only a per-channel sum tells them apart.
+//
+//   blue:red alone misses AIM. The rim at 75° scores 4.10, under the 4.5 ceiling, while
+//   behind:front rejects it at 3.35. The ceiling cannot come down to catch it: `#d8e0ff` scores
+//   4.45 and renders 0.104%. And the render sides with the chromaticity — **the rim at 75°
+//   renders 0.034% blue, LESS than shipped.** It is a real defect, because it takes the rim off
+//   the subject, but it is not a flooded environment, and the geometric ratio rejects it for the
+//   ratio's reasons rather than the picture's. Recorded rather than smoothed over.
+//
+// ⚠️ WHAT THIS GATE STILL CANNOT SEE, so nobody assumes it does:
 //   - The floor's ALBEDO. A neutral floor under a compliant rig still measured HSV S 0.5427
-//     (`?floor=0x7a7570`). That clause is gated in `GroundContact.selftest.mjs`.
+//     (`?floor=0x7a7570`). That clause is gated in `GroundContact.selftest.mjs`, which now
+//     multiplies the albedo by the spill measured HERE rather than reading a hex on its own.
 //   - The SPECULAR half of the floor's response, which carries no albedo and is 21% of the
 //     floor's light at this standoff and was 76% at the old one.
+//   - Any HUE but blue. A cyan fill scores 4.23 and renders 0.46% inside the 200–300° window,
+//     because a cyan cast is at 180° and falls outside the predicate; a magenta key scores 3.04
+//     and is invisible to both clauses. Neither is the defect this exists for, and saying so is
+//     cheaper than a gate that pretends to a generality it does not have.
 //   - Any point but this one. It is a horizontal receiver 2 m behind the focus, chosen because it
 //     is the middle of the visible floor band at body framing.
+//   - The SHADOW-CASTER half of the key. Only the `RectAreaLight` panels are summed. Measured
+//     both ways, adding the spot halves takes the shipped behind:front 2.0982 → 1.4575 and
+//     blue:red 2.8313 → 2.1683, so the panels-only model OVERSTATES the spill by 1.44× and 1.31×.
+//     That is the conservative direction, and every anchor above is panels-only.
 {
     const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
     const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
-    const COOL_LIGHTS = [ 'rim', 'kicker' ];
-    const ENVIRONMENT_COOL_TO_WARM_MAX = 3.0;
+    const ENVIRONMENT_BEHIND_TO_FRONT_MAX = 3.0;
+    const ENVIRONMENT_BLUE_TO_RED_MAX = 4.5;
 
     const bodyShot = {
         focus: new Vector3( 0, 0.91, 0 ),
@@ -525,13 +611,26 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
         subjectHeightMetres: 1.825
     };
 
-    /** Cool-light irradiance at `FLOOR_POINT` over warm-light irradiance at the same point. */
-    function environmentCoolToWarm( overrides ) {
+    /**
+     * What arrives at `FLOOR_POINT`: split by which side of the subject the panel stands on, and
+     * separately summed per channel so the result carries a hue rather than a magnitude.
+     *
+     * Both halves read the `RectAreaLight` instances the renderer will use — `unit.area.position`
+     * and `unit.area.color` — rather than the placement table those were built from. A rig whose
+     * lights disagree with the table it publishes is then measured as it actually is, which is the
+     * difference between testing the graph and testing a copy of the numbers that made it.
+     */
+    function environmentSpill( overrides ) {
 
         const { rig } = rigFor( { preset: 'body', overrides, ...bodyShot } );
 
-        let cool = 0;
-        let warm = 0;
+        // The camera axis, pointing away from the viewer. A panel is BEHIND the subject when it
+        // is on the far side of the plane through the focus perpendicular to this.
+        const viewAxis = bodyShot.focus.clone().sub( bodyShot.cameraPosition ).normalize();
+
+        let behind = 0;
+        let inFront = 0;
+        const channels = [ 0, 0, 0 ];
 
         for ( const unit of rig.units ) {
 
@@ -552,56 +651,273 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
                 ? 0
                 : unit.area.intensity * unit.area.width * unit.area.height * cosPanel * cosReceiver / ( distance * distance );
 
-            if ( COOL_LIGHTS.includes( unit.placement.name ) ) cool += irradiance; else warm += irradiance;
+            // THE PARTITION IS GEOMETRY AND NOTHING ELSE. Not the name — a rename is free and the
+            // old list scored 0.00 under one. Not the colour either — `b > r` is a binary test on
+            // a continuous quantity and it condemns a daylight-balanced key that renders clean.
+            // Which side of the subject a panel physically stands on is neither opinion nor
+            // threshold, and it is the property the standoff sweep was always about.
+            if ( panel.clone().sub( bodyShot.focus ).dot( viewAxis ) > 0 ) behind += irradiance;
+            else inFront += irradiance;
+
+            // `Color` holds linear working space here — `ColorManagement.enabled` is true and
+            // `new Color( 0x0f30ff )` reads back 0.004777 / 0.029557 / 1.0, which is exactly the
+            // sRGB decode of #0f30ff — so these are the same units the irradiance is in and the
+            // product is a real per-channel irradiance rather than a display value.
+            const colour = unit.area.color;
+
+            channels[ 0 ] += irradiance * colour.r;
+            channels[ 1 ] += irradiance * colour.g;
+            channels[ 2 ] += irradiance * colour.b;
 
         }
 
-        return cool / warm;
+        return { behindToFront: behind / inFront, blueToRed: channels[ 2 ] / channels[ 0 ], channels };
 
     }
 
-    const shipped = environmentCoolToWarm( {} );
+    // Published so `GroundContact.selftest.mjs` can cross-check its own copy of this arithmetic
+    // against this one. Two files compute the same spill because neither may import a helper the
+    // other owns; the cross-check is what stops the copies drifting apart in silence.
+    const SHIPPED_BLUE_TO_RED = 2.8313;
+
+    const shipped = environmentSpill( {} );
+
+    // The partition has to be shown to be the partition it claims, or "geometric" is just a word
+    // in a comment. Named lights are used HERE and only here, as the expected ANSWER rather than
+    // as the input.
+    {
+        const viewAxis = bodyShot.focus.clone().sub( bodyShot.cameraPosition ).normalize();
+        const { rig } = rigFor( { preset: 'body', overrides: {}, ...bodyShot } );
+
+        const behindNames = rig.units
+            .filter( ( unit ) => unit.area.position.clone().sub( bodyShot.focus ).dot( viewAxis ) > 0 )
+            .map( ( unit ) => unit.placement.name )
+            .sort();
+
+        report(
+            'the geometric partition lands exactly on the rim and the kicker',
+            behindNames.join( ',' ) === 'kicker,rim',
+            `behind the subject by world position: ${ behindNames.join( ', ' ) }. Derived from where the ` +
+            'panels stand, never from these names — they are the expected answer, not the input.'
+        );
+    }
 
     report(
-        'the rim and kicker do not flood the floor behind the subject',
-        shipped < ENVIRONMENT_COOL_TO_WARM_MAX,
-        `cool:warm irradiance 2 m behind the focus = ${ shipped.toFixed( 2 ) }:1 against a ceiling of ` +
-        `${ ENVIRONMENT_COOL_TO_WARM_MAX.toFixed( 1 ) }:1. Rendered: 0.07% of the frame in a saturated blue.`
+        'the lights behind the subject do not out-deliver the lights in front, on the floor',
+        shipped.behindToFront < ENVIRONMENT_BEHIND_TO_FRONT_MAX,
+        `behind:in-front irradiance 2 m behind the focus = ${ shipped.behindToFront.toFixed( 2 ) }:1 against a ` +
+        `ceiling of ${ ENVIRONMENT_BEHIND_TO_FRONT_MAX.toFixed( 1 ) }:1. This clause is DELIBERATELY colour-blind; ` +
+        'the colour is the next one. Rendered: 0.074% of the frame in a saturated blue.'
     );
 
-    // FOUR known-bads, and they are four DIFFERENT mechanisms on purpose. A gate proved red only
-    // by undoing the exact change that motivated it is decorative — it demonstrates that one
-    // constant is load-bearing and nothing else.
+    report(
+        'the light reaching the floor behind the subject is not itself blue',
+        shipped.blueToRed < ENVIRONMENT_BLUE_TO_RED_MAX,
+        `blue:red of the summed per-channel irradiance = ${ shipped.blueToRed.toFixed( 4 ) }:1 against a ceiling of ` +
+        `${ ENVIRONMENT_BLUE_TO_RED_MAX.toFixed( 1 ) }:1 — the knee is between 4.45 (0.104% of the frame) and ` +
+        '6.98 (57.37%)'
+    );
+
+    report(
+        'the two files agree on what the shipped rig delivers to the floor',
+        closeTo( shipped.blueToRed, SHIPPED_BLUE_TO_RED, 0.0005 ),
+        `${ shipped.blueToRed.toFixed( 4 ) } here against ${ SHIPPED_BLUE_TO_RED.toFixed( 4 ) } published to ` +
+        'GroundContact.selftest.mjs, which multiplies it by the floor albedo. If these drift, one of the two ' +
+        'copies of the spill arithmetic has changed and the other has not.'
+    );
+
+    // Known-bads, and the point of the list is that they are DIFFERENT MECHANISMS. A gate proved
+    // red only by undoing the exact change that motivated it is decorative — it demonstrates that
+    // one constant is load-bearing and nothing else. The first four are geometric and predate
+    // this round; the rest are the colour class the first four were blind to, and three of them
+    // change a light NOBODY WOULD CALL COOL.
     const knownBad = [
         {
             what: 'DISTANCE — the standoff put back to where the defect was',
             overrides: {
                 rim: { distanceInHeights: 1.4, widthInHeights: 0.30, heightInHeights: 1.00 },
                 kicker: { distanceInHeights: 1.4, widthInHeights: 0.30, heightInHeights: 0.95 }
-            }
+            },
+            rejectedBy: [ 'behindToFront', 'blueToRed' ],
+            rendered: '24.06% of the frame at the old floor albedo'
         },
         {
             what: 'POWER — the shipped geometry with the rim turned up',
-            overrides: { rim: { irradiance: 80 } }
+            overrides: { rim: { irradiance: 80 } },
+            rejectedBy: [ 'behindToFront', 'blueToRed' ]
         },
         {
-            what: 'AIM — the shipped geometry with the rim raised until it points at the floor',
-            overrides: { rim: { elevationDegrees: 75 } }
+            what: 'AIM — the rim raised until it points at the floor',
+            overrides: { rim: { elevationDegrees: 75 } },
+            // Chromaticity 4.10, UNDER the 4.5 ceiling, and the render agrees: 0.034% of the
+            // frame, less than shipped. Only the ratio clause rejects this one. See the header.
+            rejectedBy: [ 'behindToFront' ],
+            rendered: '0.034% of the frame — this one does NOT flood, and only behind:front rejects it'
         },
         {
             what: 'DENOMINATOR — the warm lights taken away, which is how an environment goes cool without the rim moving',
-            overrides: { key: { irradiance: 0.3 }, fill: { irradiance: 0.12 } }
+            overrides: { key: { irradiance: 0.3 }, fill: { irradiance: 0.12 } },
+            rejectedBy: [ 'behindToFront', 'blueToRed' ]
+        },
+        // 🎯 THE FIFTH MECHANISM AND EVERY VARIATION ON IT THAT WOULD OTHERWISE HAVE SHIPPED. All
+        // five leave the geometry untouched, so behind:front reads exactly 2.10 on all of them —
+        // the same number the shipped rig reads. Only the chromaticity moves, and the render
+        // column is what makes that a defect rather than a preference.
+        {
+            what: 'COLOUR — the key and fill turned to the rim\'s own #0f30ff, which is the defect this round found',
+            overrides: { key: { colour: 0x0f30ff }, fill: { colour: 0x0f30ff } },
+            rejectedBy: [ 'blueToRed' ],
+            rendered: '90.79% of the frame here, 99.20% on alive.html'
+        },
+        {
+            what: 'COLOUR, ONE LIGHT — only the key turned blue, so a warm light is still standing',
+            overrides: { key: { colour: 0x0f30ff } },
+            rejectedBy: [ 'blueToRed' ],
+            rendered: '74.20% of the frame'
+        },
+        {
+            what: 'COLOUR, SUBTLE — key and fill at #b0c0ff, a tint that reads as white in a swatch',
+            overrides: { key: { colour: 0xb0c0ff }, fill: { colour: 0xb0c0ff } },
+            rejectedBy: [ 'blueToRed' ],
+            rendered: '57.37% of the frame, from a colour nobody would flag by eye'
+        },
+        {
+            what: 'COLOUR, ONE STEP SHORT OF THE KNEE — key and fill at #c4d0ff',
+            overrides: { key: { colour: 0xc4d0ff }, fill: { colour: 0xc4d0ff } },
+            rejectedBy: [ 'blueToRed' ],
+            rendered: '0.664% of the frame, 9x shipped and one step short of the knee'
+        },
+        {
+            // 🚩 THE ONE THAT IS NOT EVEN BLUE, AND THE REASON THE SECOND CLAUSE IS NOT A SECOND
+            // OPINION ON THE FIRST. `#403830` is a warm grey: blue is its LOWEST channel, so it
+            // satisfies `GroundContact`'s albedo clause read as a rule about hexes, it satisfies
+            // any "cool means b > r" partition, and it would satisfy a regex hunting for cool hex
+            // literals in the source. What it does is take the red out of the warm half by
+            // DIMMING it — at the floor, arithmetically the same event as turning the rim up
+            // tenfold, and invisible to any ratio built on irradiance rather than radiance.
+            what: 'LEVEL — key and fill dimmed to #403830, a warm grey with blue still its lowest channel',
+            overrides: { key: { colour: 0x403830 }, fill: { colour: 0x403830 } },
+            rejectedBy: [ 'blueToRed' ],
+            rendered: '18.19% of the frame, with behind:front sitting at exactly the shipped 2.0982'
         }
     ];
 
     for ( const variant of knownBad ) {
 
-        const measured = environmentCoolToWarm( variant.overrides );
+        const measured = environmentSpill( variant.overrides );
+
+        const rejected = variant.rejectedBy.some( ( clause ) => clause === 'behindToFront'
+            ? measured.behindToFront >= ENVIRONMENT_BEHIND_TO_FRONT_MAX
+            : measured.blueToRed >= ENVIRONMENT_BLUE_TO_RED_MAX );
 
         report(
             `KNOWN-BAD: ${ variant.what }`,
-            measured >= ENVIRONMENT_COOL_TO_WARM_MAX,
-            `${ measured.toFixed( 2 ) }:1, rejected against the ${ ENVIRONMENT_COOL_TO_WARM_MAX.toFixed( 1 ) }:1 ceiling`
+            rejected,
+            `behind:front ${ measured.behindToFront.toFixed( 2 ) } / ${ ENVIRONMENT_BEHIND_TO_FRONT_MAX.toFixed( 1 ) }, ` +
+            `blue:red ${ measured.blueToRed.toFixed( 2 ) } / ${ ENVIRONMENT_BLUE_TO_RED_MAX.toFixed( 1 ) } — ` +
+            `rejected by ${ variant.rejectedBy.join( ' and ' ) }` +
+            ( variant.rendered === undefined ? '' : `. Rendered: ${ variant.rendered }` )
+        );
+
+    }
+
+    // 🚩 THE TWO CLAUSES ARE NON-NESTED, ASSERTED IN BOTH DIRECTIONS.
+    //
+    // Two clauses where one implies the other is one clause and a decoration. These two checks go
+    // red the day someone tunes a ceiling until one swallows the other, which is the shape the
+    // next well-meaning simplification will take.
+    const levelOnly = environmentSpill( { key: { colour: 0x403830 }, fill: { colour: 0x403830 } } );
+
+    report(
+        'blue:red catches something behind:front cannot see at ANY ceiling',
+        levelOnly.blueToRed >= ENVIRONMENT_BLUE_TO_RED_MAX
+            && closeTo( levelOnly.behindToFront, shipped.behindToFront, 1e-9 ),
+        `key and fill dimmed to #403830: blue:red ${ levelOnly.blueToRed.toFixed( 2 ) } rejected, while behind:front is ` +
+        `${ levelOnly.behindToFront.toFixed( 4 ) } — BIT-IDENTICAL to the shipped ${ shipped.behindToFront.toFixed( 4 ) }, ` +
+        'because a ratio of irradiances cannot weigh radiance. Rendered: 18.19% of the frame.'
+    );
+
+    const aimOnly = environmentSpill( { rim: { elevationDegrees: 75 } } );
+
+    report(
+        'behind:front catches something blue:red does not, and the ceiling cannot come down to fix it',
+        aimOnly.behindToFront >= ENVIRONMENT_BEHIND_TO_FRONT_MAX
+            && aimOnly.blueToRed < ENVIRONMENT_BLUE_TO_RED_MAX,
+        `rim at 75°: behind:front ${ aimOnly.behindToFront.toFixed( 2 ) } rejected, blue:red ${ aimOnly.blueToRed.toFixed( 2 ) } ` +
+        'under the 4.5 ceiling — and it must stay under it, because #d8e0ff scores 4.45 and renders a clean 0.104%'
+    );
+
+    // 🚩 BREAKING IT TWO MORE WAYS, ON THE PARTITION ITSELF RATHER THAN ON EITHER CEILING. Both of
+    // these drive the geometric clause to a BETTER-THAN-SHIPPED score on a frame that has gone
+    // blue, which is the exact failure mode this whole block exists to stop recurring.
+    //
+    // First, the evasion the old NAME list could not survive. `overrides` spread straight into the
+    // placement, so `{ rim: { name: 'sidekey' } }` renames a light without touching one photon.
+    // Under the old list that alone moved the rim and the kicker into the warm bucket and scored
+    // 0.00 — perfect — on a rig whose render had not changed by a pixel. Here the picture is
+    // identical, so both clauses must be identical too.
+    const renamed = environmentSpill( { rim: { name: 'sidekey' }, kicker: { name: 'hairlight' } } );
+
+    report(
+        'renaming the cool lights changes neither clause, because neither reads a name',
+        closeTo( renamed.behindToFront, shipped.behindToFront, 1e-9 ) && closeTo( renamed.blueToRed, shipped.blueToRed, 1e-9 ),
+        `rim -> 'sidekey', kicker -> 'hairlight': behind:front ${ renamed.behindToFront.toFixed( 4 ) } and blue:red ` +
+        `${ renamed.blueToRed.toFixed( 4 ) }, against ${ shipped.behindToFront.toFixed( 4 ) } and ` +
+        `${ shipped.blueToRed.toFixed( 4 ) } shipped. The name list this replaced scored 0.00 here.`
+    );
+
+    // Second, and this one breaks the REPLACEMENT rather than the thing it replaced: swing the two
+    // blue panels round to the FRONT of the subject and bring them in. The behind bucket empties,
+    // so the geometric ratio reads 0.000 — a better score than shipped, and unimprovable — while
+    // the frame renders 55.72% saturated blue. A partition is a partition; the only clause that
+    // cannot be walked around by moving a light across its boundary is the one with no boundary.
+    const swungToFront = environmentSpill( {
+        rim: { azimuthDegrees: -60, distanceInHeights: 1.4 },
+        kicker: { azimuthDegrees: 60, distanceInHeights: 1.4 }
+    } );
+
+    report(
+        'KNOWN-BAD: the blue panels swung to the FRONT, which scores 0.00 on the geometric clause',
+        swungToFront.blueToRed >= ENVIRONMENT_BLUE_TO_RED_MAX,
+        `behind:front ${ swungToFront.behindToFront.toFixed( 3 ) } — an empty behind bucket, better than the shipped ` +
+        `${ shipped.behindToFront.toFixed( 2 ) } and impossible to improve on — while blue:red ` +
+        `${ swungToFront.blueToRed.toFixed( 2 ) } rejects it. Rendered: 55.72% of the frame in a saturated blue.`
+    );
+
+    // And the rename with a real defect under it, so "name-blind" is proved in the direction that
+    // matters rather than only in the harmless one.
+    const renamedAndBlue = environmentSpill( {
+        rim: { name: 'sidekey' }, kicker: { name: 'hairlight' }, key: { colour: 0x0f30ff }
+    } );
+
+    report(
+        'KNOWN-BAD: a blue key under lights renamed out of the old cool list',
+        renamedAndBlue.behindToFront >= ENVIRONMENT_BEHIND_TO_FRONT_MAX
+            || renamedAndBlue.blueToRed >= ENVIRONMENT_BLUE_TO_RED_MAX,
+        `behind:front ${ renamedAndBlue.behindToFront.toFixed( 2 ) }, blue:red ${ renamedAndBlue.blueToRed.toFixed( 2 ) } — ` +
+        'rejected, on a configuration the old name-partitioned gate scored 0.00 on'
+    );
+
+    // MUST STILL PASS. A gate is only as good as the things it does NOT reject, and a ceiling
+    // nobody pins from below drifts down until it fires on the shipped rig. Every row here is a
+    // configuration the RENDER says is clean, at or below 0.104% of the frame against the shipped
+    // 0.074%; `#d8e0ff` at 4.45 is what fixes the 4.5 ceiling from underneath.
+    const mustPass = [
+        { what: 'key and fill at neutral white', overrides: { key: { colour: 0xffffff }, fill: { colour: 0xffffff } }, rendered: '0.030% of the frame' },
+        { what: 'key and fill at #e8ecff — a daylight-balanced tint, which the colour partition condemned', overrides: { key: { colour: 0xe8ecff }, fill: { colour: 0xe8ecff } }, rendered: '0.058% of the frame, LESS than shipped' },
+        { what: 'key and fill at #d8e0ff — the row the ceiling sits on', overrides: { key: { colour: 0xd8e0ff }, fill: { colour: 0xd8e0ff } }, rendered: '0.104% of the frame' },
+        { what: 'the rim and kicker turned WARM, which removes the blue entirely', overrides: { rim: { colour: 0xffeeda }, kicker: { colour: 0xffeeda } }, rendered: 'not captured; no cool light is left to flood with' }
+    ];
+
+    for ( const variant of mustPass ) {
+
+        const measured = environmentSpill( variant.overrides );
+
+        report(
+            `MUST PASS: ${ variant.what }`,
+            measured.behindToFront < ENVIRONMENT_BEHIND_TO_FRONT_MAX && measured.blueToRed < ENVIRONMENT_BLUE_TO_RED_MAX,
+            `behind:front ${ measured.behindToFront.toFixed( 2 ) }, blue:red ${ measured.blueToRed.toFixed( 2 ) }, ` +
+            `both under their ceilings. Rendered: ${ variant.rendered }`
         );
 
     }

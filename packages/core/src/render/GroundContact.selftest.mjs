@@ -63,6 +63,15 @@
  *                         recovers that radius. A fit checked only on the real asset cannot be
  *                         wrong, because nobody knows the right answer there.
  *
+ *   THE ALBEDO, AND       🚩 The albedo clause below asks whether the floor's own hex divides blue
+ *   WHAT LANDS ON IT      down by enough. On its own that is half of a product and it was gated as
+ *                         if it were the whole thing: a verifier turned the rig's KEY and FILL
+ *                         blue and this file returned 36/36 green while the frame went 99.2%
+ *                         saturated blue, because no light of any colour enters the arithmetic. A
+ *                         floor's rendered hue is `albedo × the light that lands on it`, and the
+ *                         second factor was assumed constant. It is now built and measured.
+ *
+
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
  *
@@ -70,7 +79,7 @@
  */
 
 import { Float32BufferAttribute, Matrix4, Uint16BufferAttribute } from 'three';
-import { BufferGeometry, Bone, MeshStandardNodeMaterial, Skeleton, SkinnedMesh } from 'three/webgpu';
+import { BufferGeometry, Bone, MeshStandardNodeMaterial, Scene, Skeleton, SkinnedMesh, Vector3 } from 'three/webgpu';
 
 import {
     GroundContact,
@@ -80,6 +89,10 @@ import {
     MAX_OCCLUDERS,
     OCCLUDER_SEGMENTS
 } from './GroundContact.js';
+
+// The floor's rendered hue is a PRODUCT, and this file only ever owned one of its two factors.
+// See the REFLECTED COLOUR block at the bottom.
+import { LightingRig } from './LightingRig.js';
 
 let failures = 0;
 let checks = 0;
@@ -916,9 +929,27 @@ console.log( '\nTHE ALBEDO — blue lowest, and by ENOUGH. The old note asserted
     //   | `0x4b3520` (previous) |        4.87 | 0.2661 today; 0.7342 at the old rim standoff    |
     //   | **`0x968c34`**        |    **8.88** | **0.2216**           | **0.03%**            |
     //
+    // ⚠️ UNRESOLVED, AND FLAGGED RATHER THAN QUIETLY RECONCILED: that last cell says 0.03% and the
+    // same shipped plate re-measured for this round says **0.074%** — HSV S > 0.5, hue 200–300°,
+    // whole frame, `lighting.html?frame=body&bare&w=900&h=1200&webgl`. `LightingRig.selftest.mjs`
+    // has long carried 0.07% for the same configuration, so the disagreement is between this cell
+    // and two independent readings rather than between two readings. The likeliest cause is the
+    // backend: this row was captured on WebGPU and both others on WebGL2. Both numbers are far
+    // below anything the gate turns on, so nothing here depends on which is right — but it should
+    // be settled by a WebGPU re-capture rather than by picking one.
+    //
     // 🚩 THE SECOND AND THIRD ROWS ARE THE POINT. Both have blue as their lowest channel, so both
     // pass the clause as it used to be written, and both render a floor more saturated than the
     // skin. The floor of 4.0 sits above them and below the two that work.
+    //
+    // 🚩 **AND THE OTHER HALF OF THE PRODUCT IS NOT IN THIS BLOCK AT ALL.** Read the definition
+    // again: `suppression = albedo_R / albedo_B`. It is a property of a hex and of nothing else.
+    // "how many times the blue:red of the LIGHT is divided down" quietly assumes the light's
+    // blue:red is a constant, and it is not — it is `LightingRig`'s to set, and a verifier moved
+    // it by 74× by turning the key and the fill blue while every check in this file stayed green.
+    // The block at the bottom of this file measures the product instead. This block stays as it
+    // is, because the albedo clause is still true and still worth its own ceiling; what changed
+    // is that it is no longer the last word on the floor's colour.
     //
     // ⚠️ What this cannot see, and it is most of the original defect: the floor's SPECULAR half
     // carries no albedo at all. At the OLD rim standoff a floor of albedo `0x000000` — no diffuse
@@ -981,6 +1012,222 @@ console.log( '\nTHE ALBEDO — blue lowest, and by ENOUGH. The old note asserted
         `0xff2010 scores ${ suppressionOf( overCorrected ).toFixed( 0 ) }x — the check is one-sided BY DESIGN and cannot ` +
         'reject it. The level and hue that keep the floor inside the spec\'s background band are measured on the render, not here.'
     );
+}
+
+console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually lands on it, which is the\n' +
+             'quantity the block above assumed and never computed.\n' );
+
+// 🎯 THE DEFECT THIS EXISTS FOR. Turning the rig's KEY and FILL to the rim's `#0f30ff` left this
+// file at 36/36 green and `LightingRig.selftest.mjs` at 46/46, on a render where 99.2% of a body
+// frame came back saturated blue. Neither file could see it: this one reads a hex, and that one
+// partitioned lights by name. Between them they owned both factors of a product and measured
+// neither product nor second factor.
+//
+// The floor's diffuse response is `albedo × incident irradiance`, per channel, both linear. So:
+//
+//     reflected blue:red  =  (albedo_B × E_B) / (albedo_R × E_R)
+//
+// which is the albedo clause's `blue:red of the light ÷ suppression`, with the numerator MEASURED
+// from the real rig instead of assumed constant.
+//
+// The incident half is deliberately a second, independent copy of the arithmetic in
+// `LightingRig.selftest.mjs`. Neither file may import a helper the other owns, so instead of a
+// comment asking future readers to keep two copies in step, the shipped incident value is checked
+// against the one that file publishes. If the copies drift, this goes red.
+//
+// Anchored on rendered plates, `lighting.html?frame=body&bare` at 900×1200. The albedo rows are
+// the ones the block above already measured, re-expressed in the reflected quantity; the two
+// LIGHT rows were measured for this round at `?frame=body&bare&w=900&h=1200&webgl`, WebGL2
+// backend, MSAA OFF (`lighting.js` passes no `antialias`), predicate HSV S > 0.5 and hue 200–300°:
+//
+//   | what changed                         | incident B:R | reflected B:R | rendered           |
+//   |--------------------------------------|-------------:|--------------:|--------------------|
+//   | **shipped rig, shipped floor**       |     **2.83** |     **0.319** | S 0.2216, 0.074%   |
+//   | floor `0x4b3520` (the previous one)  |         2.83 |         0.581 | S 0.2661           |
+//   | floor `0x8a8378` (warm-neutral)      |         2.83 |         2.092 | S 0.4888, 3.51%    |
+//   | floor `0x7a7570` (neutral)           |         2.83 |         2.357 | S 0.5427, 12.45%   |
+//   | floor `0x2e3036` (rejected studio)   |         2.83 |         3.823 | S 0.62             |
+//   | key+fill `#b0c0ff`, shipped floor    |         6.98 |         0.785 | 57.37% of the frame|
+//   | key+fill `#0f30ff`, shipped floor    |       209.34 |        23.570 | 90.79% of the frame|
+//
+// THE CEILING IS 0.71, and it is pinned twice over. It is where the albedo block's own 4.0
+// suppression floor lands when re-expressed here under the shipped rig — 2.8313 ÷ 4.0 = 0.708 —
+// so this clause is exactly as strict as that one on the albedo axis and no stricter. And
+// independently it sits between 0.581, which renders an acceptable S 0.2661, and 0.785, which
+// renders 57.37% of the frame blue. Two derivations, one number.
+//
+// ⚠️ WHAT THIS STILL CANNOT SEE: the specular half, as above — it carries no albedo, so it is
+// absent from a product of albedo and irradiance by construction. And it is one point on the
+// floor, the same one `LightingRig.selftest.mjs` uses, 2 m behind the focus.
+{
+    const MAXIMUM_REFLECTED_BLUE_TO_RED = 0.71;
+
+    // Published by `LightingRig.selftest.mjs`, which asserts the same figure against its own copy.
+    const LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED = 2.8313;
+
+    const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
+    const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
+
+    const bodyShot = {
+        focus: new Vector3( 0, 0.91, 0 ),
+        cameraPosition: new Vector3( 0.39, 0.91, 1.83 ),
+        subjectHeightMetres: 1.825
+    };
+
+    const srgbToLinear = ( encoded ) => encoded <= 0.04045 ? encoded / 12.92 : Math.pow( ( encoded + 0.055 ) / 1.055, 2.4 );
+
+    const linearAlbedo = ( hex ) => [ 16, 8, 0 ].map( ( shift ) => srgbToLinear( ( ( hex >> shift ) & 0xff ) / 255 ) );
+
+    /** Per-channel irradiance at `FLOOR_POINT` from a real rig, weighted by each light's colour. */
+    function incidentAtFloor( overrides ) {
+
+        const scene = new Scene();
+        const rig = new LightingRig( { preset: 'body', overrides } );
+
+        rig.attachTo( scene, null );
+        rig.aimAt( bodyShot );
+
+        const channels = [ 0, 0, 0 ];
+
+        for ( const unit of rig.units ) {
+
+            const panel = unit.area.position;
+            const aim = bodyShot.focus.clone().sub( panel ).normalize();
+            const toPoint = FLOOR_POINT.clone().sub( panel );
+            const distance = toPoint.length();
+            const direction = toPoint.clone().normalize();
+
+            const cosPanel = aim.dot( direction );
+            const cosReceiver = FLOOR_NORMAL.dot( direction.clone().negate() );
+
+            // A RectAreaLight lights only its front hemisphere; a receiver behind the panel's
+            // plane gets nothing from it.
+            const irradiance = ( cosPanel <= 0 || cosReceiver <= 0 )
+                ? 0
+                : unit.area.intensity * unit.area.width * unit.area.height * cosPanel * cosReceiver / ( distance * distance );
+
+            // `unit.area.color` is the light the renderer will use, in linear working space.
+            const colour = unit.area.color;
+
+            channels[ 0 ] += irradiance * colour.r;
+            channels[ 1 ] += irradiance * colour.g;
+            channels[ 2 ] += irradiance * colour.b;
+
+        }
+
+        return channels;
+
+    }
+
+    const reflectedBlueToRed = ( { albedo = new GroundContact().albedo, rig = {} } = {} ) => {
+
+        const surface = linearAlbedo( albedo );
+        const incident = incidentAtFloor( rig );
+
+        return ( surface[ 2 ] * incident[ 2 ] ) / ( surface[ 0 ] * incident[ 0 ] );
+
+    };
+
+    const shippedIncident = incidentAtFloor( {} );
+
+    report(
+        'this file and LightingRig.selftest.mjs agree on what lands on the floor',
+        Math.abs( shippedIncident[ 2 ] / shippedIncident[ 0 ] - LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED ) <= 0.0005,
+        `incident blue:red ${ ( shippedIncident[ 2 ] / shippedIncident[ 0 ] ).toFixed( 4 ) } here against ` +
+        `${ LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED.toFixed( 4 ) } published there. Two copies of one calculation, ` +
+        'because neither file may import the other\'s helper — so they are checked against each other instead.'
+    );
+
+    const shipped = reflectedBlueToRed();
+
+    report(
+        'the floor reflects the rig without turning blue',
+        shipped < MAXIMUM_REFLECTED_BLUE_TO_RED,
+        `reflected blue:red ${ shipped.toFixed( 3 ) } against a ceiling of ${ MAXIMUM_REFLECTED_BLUE_TO_RED } — ` +
+        'rendered HSV S 0.2216, 0.074% of the frame in a saturated blue'
+    );
+
+    // Both factors, each broken on its own, and then the one that breaks NEITHER factor's own
+    // clause. The three albedo rows must still be rejected THROUGH the product, or this block has
+    // lost coverage the block above had; the light rows are what that block could never see.
+    const knownBad = [
+        {
+            what: 'ALBEDO — 0x2e3036, the rejected studio floor',
+            arguments: { albedo: 0x2e3036 },
+            rendered: 'S 0.62 on record'
+        },
+        {
+            what: 'ALBEDO — 0x7a7570, a neutral floor that obeys "blue is lowest"',
+            arguments: { albedo: 0x7a7570 },
+            rendered: 'S 0.5427, 12.45% of the frame'
+        },
+        {
+            what: 'ALBEDO — 0x8a8378, a warm-neutral floor that also obeys it',
+            arguments: { albedo: 0x8a8378 },
+            rendered: 'S 0.4888, 3.51% of the frame'
+        },
+        {
+            what: 'LIGHT — the shipped floor under a key and fill turned to #0f30ff',
+            arguments: { rig: { key: { colour: 0x0f30ff }, fill: { colour: 0x0f30ff } } },
+            rendered: '90.79% of the frame here, 99.20% on alive.html — and 36/36 green before this block existed'
+        },
+        {
+            what: 'LIGHT, SUBTLE — the shipped floor under a key and fill at #b0c0ff, a tint that reads as white',
+            arguments: { rig: { key: { colour: 0xb0c0ff }, fill: { colour: 0xb0c0ff } } },
+            rendered: '57.37% of the frame'
+        },
+        {
+            // 🚩 BREAKING IT A DIFFERENT WAY. This is the row that neither factor's own clause can
+            // reject. `#403830` is a warm grey — blue is its LOWEST channel, so the light passes
+            // any "cool hex" test — and the floor is the shipped one, so the albedo clause is
+            // untouched at 8.88x. What moved is the LEVEL of the warm half: dimming the key and
+            // the fill takes the red out of the incident light without adding any blue, and the
+            // product goes with it. Only a gate that multiplies the two factors sees this.
+            what: 'NEITHER FACTOR — the shipped floor, key and fill merely DIMMED to the warm grey #403830',
+            arguments: { rig: { key: { colour: 0x403830 }, fill: { colour: 0x403830 } } },
+            rendered: '18.19% of the frame, with the albedo clause still reading its full 8.88x'
+        },
+        {
+            // And the geometric one, so this block is not blind to the mechanism that produced the
+            // original defect either.
+            what: 'GEOMETRY — the shipped floor with the rim standoff back at 1.4 heights',
+            arguments: { rig: { rim: { distanceInHeights: 1.4 }, kicker: { distanceInHeights: 1.4 } } },
+            rendered: '24.06% of the frame at the old floor albedo'
+        }
+    ];
+
+    for ( const variant of knownBad ) {
+
+        const measured = reflectedBlueToRed( variant.arguments );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            measured >= MAXIMUM_REFLECTED_BLUE_TO_RED,
+            `reflected blue:red ${ measured.toFixed( 3 ) }, rejected against ${ MAXIMUM_REFLECTED_BLUE_TO_RED }. ` +
+            `Rendered: ${ variant.rendered }`
+        );
+
+    }
+
+    // MUST STILL PASS, so the ceiling is pinned from below as well as above. `0x4b3520` is the
+    // floor this project shipped before the current one and it renders at S 0.2661 — a gate that
+    // rejected it would be a gate that had drifted.
+    const mustPass = [
+        { what: '0x4b3520, the previous floor, under the shipped rig', arguments: { albedo: 0x4b3520 }, rendered: 'S 0.2661' },
+        { what: 'the shipped floor under a daylight-balanced #e8ecff key and fill', arguments: { rig: { key: { colour: 0xe8ecff }, fill: { colour: 0xe8ecff } } }, rendered: '0.058% of the frame, LESS than shipped' }
+    ];
+
+    for ( const variant of mustPass ) {
+
+        const measured = reflectedBlueToRed( variant.arguments );
+
+        report(
+            `MUST PASS: ${ variant.what }`,
+            measured < MAXIMUM_REFLECTED_BLUE_TO_RED,
+            `reflected blue:red ${ measured.toFixed( 3 ) }, under ${ MAXIMUM_REFLECTED_BLUE_TO_RED }. Rendered: ${ variant.rendered }`
+        );
+
+    }
 }
 
 console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' }: ${ checks - failures }/${ checks } checks green\n` );
