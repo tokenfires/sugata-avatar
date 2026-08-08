@@ -69,6 +69,7 @@ import { Skeleton } from '../../core/src/figure/Skeleton.js';
 import {
     applySkinMaterial,
     createSkinMaterial,
+    cavityMapUrlFor,
     curvatureMapUrlFor,
     regionMapUrlFor,
     SKIN_DEFAULTS
@@ -239,6 +240,11 @@ async function main() {
 
     const regionsOn = query.get( 'regions' ) !== '0';
 
+    // Its own switch, separate from `?regions=0`, because the cavity map is its own bake and its
+    // own file. `?cavity=0` removes the map entirely — the exact A side — and `?cavity=<n>` scales
+    // the occlusion without re-baking.
+    const cavityOn = query.get( 'cavity' ) !== '0';
+
     const settings = {
         scatterDistanceMillimetres: number( query, 'scatter', SKIN_DEFAULTS.scatterDistanceMillimetres ),
         microNormalScale: query.get( 'micro' ) === '0' ? 0 : number( query, 'mscale', SKIN_DEFAULTS.microNormalScale ),
@@ -249,7 +255,12 @@ async function main() {
         secondLobeWeight: query.get( 'lobe' ) === '0' ? 0 : number( query, 'lobe', SKIN_DEFAULTS.secondLobeWeight ),
         secondLobeRoughness: number( query, 'lober', SKIN_DEFAULTS.secondLobeRoughness ),
         transmissionStrength: query.get( 'trans' ) === '0' ? 0 : number( query, 'trans', SKIN_DEFAULTS.transmissionStrength ),
-        transmissionDistanceMillimetres: number( query, 'transd', SKIN_DEFAULTS.transmissionDistanceMillimetres )
+        transmissionDistanceMillimetres: number( query, 'transd', SKIN_DEFAULTS.transmissionDistanceMillimetres ),
+        cavityStrength: number( query, 'cavity', SKIN_DEFAULTS.cavityStrength ),
+        thinTissueDepthMillimetres: query.get( 'thin' ) === '0'
+            ? 0
+            : number( query, 'thind', SKIN_DEFAULTS.thinTissueDepthMillimetres ),
+        thinTissueTint: tintFromQuery( query, 'thin', SKIN_DEFAULTS.thinTissueTint )
     };
 
     const bodyAlbedo = figure.body.material.map ?? null;
@@ -280,6 +291,7 @@ async function main() {
             albedoMap: bodyAlbedo,
             curvatureMapUrl: curvatureUrl,
             regionMapUrl: regionsOn ? regionMapUrlFor( figureName ) : null,
+            cavityMapUrl: cavityOn ? cavityMapUrlFor( figureName ) : null,
             settings
         } );
 
@@ -315,11 +327,18 @@ async function main() {
     const perf = query.get( 'perf' ) === '1' ? await measureGpuCost( stage, clock, query ) : null;
 
     const landmarks = measureLandmarks( stage, figure, lights, width, height );
-    const checks = runChecks( { stage, figure, material, useStock, subsurfaceOn, landmarks, deferred } );
+
+    // Measured off the FRAMEBUFFER, before the property checks, because the two answer different
+    // questions and only this one can answer "is the term visible?".
+    const cavity = ( useStock === false && material.hasCavityMap )
+        ? await measureCavityEffect( stage, clock, material, landmarks, width, height )
+        : null;
+
+    const checks = runChecks( { stage, figure, material, useStock, subsurfaceOn, landmarks, deferred, cavity } );
 
     if ( bare === false ) {
 
-        renderEnvironment( stage, material, { figureName, deferred, useStock, subsurfaceOn, regionsOn, curvatureUrl, settings, perf } );
+        renderEnvironment( stage, material, { figureName, deferred, useStock, subsurfaceOn, regionsOn, cavityOn, curvatureUrl, settings, perf } );
         renderChecks( checks );
         renderFraming( landmarks, width, height );
         document.getElementById( 'regions' ).textContent = JSON.stringify( buildRegionSpec( landmarks, width, height ), null, 1 );
@@ -679,7 +698,7 @@ function buildRegionSpec( landmarks, width, height ) {
  * None of them is the gate — the gate is measured off the pixels by `tools/critic/measure.mjs`.
  * These exist so that when the gate is red, the reason is already narrowed to one part.
  */
-function runChecks( { stage, figure, material, useStock, subsurfaceOn, landmarks, deferred } ) {
+function runChecks( { stage, figure, material, useStock, subsurfaceOn, landmarks, deferred, cavity } ) {
 
     const checks = [];
 
@@ -723,6 +742,54 @@ function runChecks( { stage, figure, material, useStock, subsurfaceOn, landmarks
             'normalNode is what makes the detail reach the shading normal AND the G-buffer',
             material.normalNode !== null && material.normalNode !== undefined,
             `scale ${ material.skinUniforms.microNormalScale.value }, repeat ${ material.skinUniforms.microNormalRepeat.value }` );
+
+        if ( cavity !== null ) {
+
+            // 🚩 THREE ASSERTIONS, NOT ONE, AND THE THIRD IS THE POINT.
+            //
+            // A cavity term can be wrong in three independent ways and each of the first two has a
+            // gate that the other cannot see: it can be dead (nothing moves), it can be an
+            // all-over darkening masquerading as occlusion (the forehead moves), and it can be
+            // GREY. The third is the one that matters and the one a plain scalar-AO
+            // implementation fails: HSV saturation is invariant under a scalar, so a grey
+            // occlusion cannot move the ear's saturation by one thousandth however hard it is
+            // pushed, and a gate that only checked "did the crease get darker" would pass it.
+            // See `buildCavityGain` in SkinMaterial.js.
+
+            add( 'the cavity term is visible on the render',
+                'measured on the framebuffer at strength 0 vs shipped, not read off the material',
+                cavity.movedFraction > 0.003,
+                `${ ( cavity.movedFraction * 100 ).toFixed( 2 ) }% of the face frame moved` );
+
+            // 🚩 A LOWER BOUND ON THE CREASES **AND** AN UPPER BOUND ON THE FOREHEAD, because
+            // either alone is passable by a broken term: a global darkening satisfies the first,
+            // and a dead term satisfies the second. There is deliberately no ceiling on
+            // `movedFraction` — "fewer than N% of pixels moved" is neither of the two claims this
+            // term makes, and picking an N after seeing the number is how a gate becomes
+            // decorative. The separation between these two figures is the claim.
+            add( 'the cavity term lands on the MOUTH and not on the forehead',
+                'a named anatomy that must darken and a named one that must not — "something got darker" is not a location',
+                cavity.mouthBandDelta > 2 / 255 && cavity.foreheadDelta < 1.0 / 255,
+                `mouth band ${ ( cavity.mouthBandDelta * 255 ).toFixed( 2 ) }/255, `
+                + `forehead ${ ( cavity.foreheadDelta * 255 ).toFixed( 2 ) }/255, `
+                + `darkest 1% ${ ( cavity.creaseDelta * 255 ).toFixed( 2 ) }/255` );
+
+            // 🚩 AGAINST A GREY OCCLUSION OF THE SAME DEPTH, not against the no-cavity plate. Two
+            // earlier versions of this assertion compared cavity-off with cavity-on and BOTH were
+            // decorative — a deliberately grey build passed them at red:blue 1.3807, because what
+            // survives in a crease is specular plus the RED-ONLY transmitted term. The threshold
+            // is derived rather than fitted: at visibility 0.5 the fit returns
+            // `mb(0.5, 0.890) = 0.8502` in red against a scalar's 0.500, i.e. a red gain of 1.70,
+            // and `mb(0.5, 0.659) = 0.7503` in blue, a blue gain of 1.50. A grey build returns
+            // exactly 1.00 for both, so 1.05 separates them with a wide margin on either side.
+            add( 'the cavity term is CHROMATIC — creases go redder, not greyer',
+                'measured against the SAME occlusion applied as a scalar (cavityChroma 0 vs 1), so nothing else differs',
+                cavity.redGainOverGrey > 1.05
+                    && cavity.redGainOverGrey > cavity.blueGainOverGrey * 1.02,
+                `over a grey occlusion of the same depth, red x${ cavity.redGainOverGrey.toFixed( 4 ) } `
+                + `and blue x${ cavity.blueGainOverGrey.toFixed( 4 ) } (linear)` );
+
+        }
 
         add( 'skin is tagged for the G-buffer only on the deferred path',
             'a material carrying mrtNode cannot be forward-rendered — GBuffer.js §markAsSkin',
@@ -832,6 +899,227 @@ function startFrameClock( stage ) {
 }
 
 /**
+ * What the cavity term does to the PIXELS, by rendering the page twice.
+ *
+ * 🚩 THIS IS DELIBERATELY NOT A CHECK ON THE MATERIAL, AND THE DISTINCTION IS THE WHOLE REASON IT
+ * EXISTS. `runChecks` can assert that `material.aoNode` is not null, that the map loaded and that
+ * the uniform holds the value it was given, and every one of those can be true of a term that is
+ * sampled upside down, multiplied into a variable nothing reads, or reduced to grey. The only
+ * statement that cannot be faked is one about the framebuffer, so this one flips the uniform,
+ * re-renders, and differences the two plates.
+ *
+ * The rects are the ones `buildRegionSpec` already derives from the figure's own eye landmarks, so
+ * the probe follows a different bake or a different framing instead of being nailed to a
+ * screenshot: `flatCheek` is the forehead — the flattest, most open skin on a face — and `frame`
+ * is the central face without any backdrop in it.
+ *
+ * @returns {{movedFraction: number, foreheadDelta: number, creaseDelta: number,
+ *            redDropFraction: number, blueDropFraction: number}}
+ *   `creaseDelta` is the mean over the darkest 1% of the moved pixels — the creases themselves —
+ *   and `red`/`blueDropFraction` are that same 1%'s per-channel drop as a fraction of its own
+ *   unoccluded value, which is the pair that says whether the darkening carries colour.
+ */
+async function measureCavityEffect( stage, clock, material, landmarks, width, height ) {
+
+    const spec = buildRegionSpec( landmarks, width, height );
+    const shipped = material.skinUniforms.cavityStrength.value;
+    const shippedChroma = material.skinUniforms.cavityChroma.value;
+
+    // Two extra rects, in the same face units `FACE_REGIONS` uses — `u` toward the key, `v` down,
+    // both in interocular distances from the eye midpoint — but kept LOCAL to this function rather
+    // than added to that table, because `buildRegionSpec`'s output is a contract with
+    // `tools/critic/measure.mjs` and this probe is not one of its gates.
+    //
+    // 🚩 `mouthBand` IS THE LOCATION CLAIM, and it exists because the version of this gate without
+    // it passed a mislocated map. Sampling the cavity map at `1 − v` — the flipY bug this
+    // repository already shipped once, on the region map, and documented at length in
+    // `loadDataMap` — moves every occluded texel somewhere else on the body, and a gate that only
+    // asks "did the darkest 1% get darker" cannot tell the difference: with the flip in place the
+    // darkest 1% still moved 65.73/255 and the forehead still moved 0.00/255. Naming an anatomy
+    // that must darken is what turns "something got darker" into "the mouth got darker".
+    //
+    // The band was found by scanning the midline of the cavity difference at 1600x1600 rather than
+    // placed by eye: it peaks at v 1.60–1.65, which is the lip seam.
+    const probeRects = {
+        mouthBand: faceRect( landmarks, width, height, 0.15, 1.62, 0.30 ),
+        forehead: spec.regions.flatCheek.rects[ 0 ]
+    };
+
+    // Three plates, not two, and the third is what makes the chromaticity assertion honest.
+    //   off   — strength 0. The term contributes nothing; this is where "is it visible" comes from.
+    //   grey  — shipped strength, chroma 0: the same occlusion applied as a plain scalar.
+    //   full  — shipped strength, chroma 1: the multi-bounce fit.
+    // `grey` and `full` differ in the fit and in NOTHING else, so a comparison between them cannot
+    // be explained by the transmitted term, by specular, or by the transfer function.
+    const off = await renderAndRead( 0, shippedChroma );
+    const grey = await renderAndRead( shipped, 0 );
+    const full = await renderAndRead( shipped, 1 );
+
+    material.skinUniforms.cavityStrength.value = shipped;
+    material.skinUniforms.cavityChroma.value = shippedChroma;
+    clock.resume();
+
+    const count = off.length / 4;
+    const drops = [];
+    let moved = 0;
+
+    for ( let index = 0; index < count; index ++ ) {
+
+        const before = ( off[ index * 4 ] + off[ index * 4 + 1 ] + off[ index * 4 + 2 ] ) / 3;
+        const after = ( full[ index * 4 ] + full[ index * 4 + 1 ] + full[ index * 4 + 2 ] ) / 3;
+        const delta = ( before - after ) / 255;
+
+        if ( Math.abs( delta ) > 1 / 255 ) moved ++;
+        drops.push( { index, delta } );
+
+    }
+
+    // The creases: the 1% of the face frame the term darkens hardest.
+    drops.sort( ( a, b ) => b.delta - a.delta );
+    const darkest = drops.slice( 0, Math.max( 1, Math.round( count * 0.01 ) ) );
+
+    let creaseDelta = 0;
+    let greyRed = 0, greyBlue = 0, fullRed = 0, fullBlue = 0;
+
+    for ( const { index, delta } of darkest ) {
+
+        creaseDelta += delta;
+
+        // Linearised, because these are ratios of LIGHT. Encoded values carry the sRGB offset,
+        // which is not scale-invariant and made the first version of this gate pass a grey build.
+        greyRed += srgbToLinear( grey[ index * 4 ] / 255 );
+        greyBlue += srgbToLinear( grey[ index * 4 + 2 ] / 255 );
+        fullRed += srgbToLinear( full[ index * 4 ] / 255 );
+        fullBlue += srgbToLinear( full[ index * 4 + 2 ] / 255 );
+
+    }
+
+    return {
+        movedFraction: moved / count,
+        foreheadDelta: Math.abs( await meanDelta( probeRects.forehead ) ),
+        mouthBandDelta: await meanDelta( probeRects.mouthBand ),
+        creaseDelta: creaseDelta / darkest.length,
+
+        // What the fit buys over a grey occlusion of the same depth, per channel. Both are ratios
+        // of the same pixels under two builds that differ only in `cavityChroma`.
+        redGainOverGrey: fullRed / Math.max( 1e-6, greyRed ),
+        blueGainOverGrey: fullBlue / Math.max( 1e-6, greyBlue )
+    };
+
+    async function renderAndRead( strength, chroma ) {
+
+        material.skinUniforms.cavityStrength.value = strength;
+        material.skinUniforms.cavityChroma.value = chroma;
+
+        // Two frames, not one. The first is the one that picks up the changed uniform; the second
+        // exists because the deferred path renders through a G-buffer and a single frame after a
+        // uniform change has caught a stale attachment on this page before.
+        //
+        // 🚩 AND IT IS `stage.renderFrame`, NEVER `renderer.render`/`renderAsync` DIRECTLY. Calling
+        // the renderer straight bypasses the deferred pipeline and draws a material carrying an
+        // `mrtNode` down the forward path, which emits an empty WGSL output struct: the first
+        // version of this function did exactly that and the page filled with
+        // "structures must have at least one member" while every property check still passed.
+        clock.pause();
+        for ( let frame = 0; frame < 2; frame ++ ) {
+
+            stage.renderer._nodes.nodeFrame.update();
+            stage.renderFrame( performance.now() );
+
+        }
+
+        return readRect( stage, spec.regions.frame.rects[ 0 ], width, height );
+
+    }
+
+    async function meanDelta( rect ) {
+
+        const before = await renderAndRead2( 0, rect );
+        const after = await renderAndRead2( shipped, rect );
+
+        let total = 0;
+        for ( let index = 0; index < before.length; index += 4 ) {
+
+            total += ( ( before[ index ] + before[ index + 1 ] + before[ index + 2 ] )
+                - ( after[ index ] + after[ index + 1 ] + after[ index + 2 ] ) ) / 3 / 255;
+
+        }
+
+        return total / ( before.length / 4 );
+
+    }
+
+    async function renderAndRead2( strength, rect ) {
+
+        material.skinUniforms.cavityStrength.value = strength;
+        material.skinUniforms.cavityChroma.value = shippedChroma;
+
+        for ( let frame = 0; frame < 2; frame ++ ) {
+
+            stage.renderer._nodes.nodeFrame.update();
+            stage.renderFrame( performance.now() );
+
+        }
+
+        return readRect( stage, rect, width, height );
+
+    }
+
+}
+
+/**
+ * One rect in face units — `u` toward the key light, `v` down the face, both in interocular
+ * distances from the eye midpoint — as the normalised rect `readRect` wants. Same arithmetic as
+ * `buildRegionSpec`, so a probe placed this way follows a different bake or framing.
+ */
+function faceRect( landmarks, width, height, u, v, size ) {
+
+    const unit = landmarks.interocularPixels;
+    const half = size * unit / 2;
+    const centreX = landmarks.midEye.x + u * unit * landmarks.keySign;
+    const centreY = landmarks.midEye.y + v * unit;
+
+    return {
+        x: Math.max( 0, centreX - half ) / width,
+        y: Math.max( 0, centreY - half ) / height,
+        w: Math.min( width, 2 * half ) / width,
+        h: Math.min( height, 2 * half ) / height
+    };
+
+}
+
+/** sRGB EOTF. Same definition as `tools/critic/color.mjs`, so a number here means what it means there. */
+function srgbToLinear( encoded ) {
+
+    return encoded <= 0.04045 ? encoded / 12.92 : Math.pow( ( encoded + 0.055 ) / 1.055, 2.4 );
+
+}
+
+/**
+ * One rect of the live canvas as RGBA bytes.
+ *
+ * Through a 2D canvas rather than `readRenderTargetPixelsAsync`, because the thing that has to be
+ * measured is what a screenshot would contain — after the tone map, after the transfer, after
+ * whatever the presentation path does — and that is the canvas. Same technique `eye.js` uses.
+ */
+function readRect( stage, rect, width, height ) {
+
+    const canvas = stage.renderer.domElement;
+    const buffer = document.createElement( 'canvas' );
+    buffer.width = canvas.width;
+    buffer.height = canvas.height;
+    buffer.getContext( '2d' ).drawImage( canvas, 0, 0 );
+
+    return buffer.getContext( '2d' ).getImageData(
+        Math.round( rect.x * width ),
+        Math.round( rect.y * height ),
+        Math.max( 1, Math.round( rect.w * width ) ),
+        Math.max( 1, Math.round( rect.h * height ) )
+    ).data;
+
+}
+
+/**
  * GPU cost of this variant, from real timestamp queries.
  *
  * Reported as **p95, not the median**, for the reason `packages/testbed/src/stage.js` measured and
@@ -905,6 +1193,10 @@ function renderEnvironment( stage, material, info ) {
         [ 'second lobe', `weight ${ info.settings.secondLobeWeight }, roughness ${ info.settings.secondLobeRoughness }` ],
         [ 'transmission', `strength ${ info.settings.transmissionStrength }, depth ${ info.settings.transmissionDistanceMillimetres } mm (red)` ],
         [ 'region map', info.regionsOn ? 'on — per-region roughness, thickness, lip mask' : 'OFF' ],
+        [ 'cavity map', info.cavityOn ? `on — hemisphere visibility, strength ${ info.settings.cavityStrength }` : 'OFF' ],
+        [ 'thin tissue', info.settings.thinTissueDepthMillimetres === 0
+            ? 'OFF'
+            : `${ info.settings.thinTissueTint.map( ( c ) => c.toFixed( 2 ) ).join( ', ' ) } under ${ info.settings.thinTissueDepthMillimetres } mm` ],
         [ 'roughness / ior', info.useStock ? `${ material.roughness } / —` : `${ material.roughness } / ${ material.ior }` ],
         [ 'second lobe', info.useStock ? '—' : `${ material.clearcoat } @ roughness ${ material.clearcoatRoughness }` ],
         [ 'cpu frame', `${ stage.stats.frameMs.toFixed( 2 ) } ms` ],
@@ -961,6 +1253,23 @@ function publish( payload ) {
     globalThis.__SKIN_RESULT__ = payload;
     globalThis.__SKIN_DONE__ = true;
     console.log( 'SKIN ' + JSON.stringify( payload ) );
+
+}
+
+/**
+ * `?thin=1,0.72,0.76` — a colour multiplier as three comma-separated numbers.
+ *
+ * `?thin=0` is the OFF switch and is handled before this by zeroing the depth, which is the exact
+ * A side: at depth 0 the thinness term saturates to 0 everywhere and the tint is identity, so the
+ * plate is bit-identical to a build with no tint at all rather than nearly so.
+ */
+function tintFromQuery( query, name, fallback ) {
+
+    const raw = query.get( name );
+    if ( raw === null || raw === '0' ) return fallback;
+
+    const parts = raw.split( ',' ).map( Number );
+    return parts.length === 3 && parts.every( Number.isFinite ) ? parts : fallback;
 
 }
 

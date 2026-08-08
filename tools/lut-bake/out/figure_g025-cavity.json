@@ -1,0 +1,40 @@
+{
+  "figure": "assets/figures/figure_g025.glb",
+  "mesh": "base.001",
+  "vertexCount": 14517,
+  "mapSize": 1024,
+  "encoding": {
+    "rgb": "cosine-weighted hemisphere visibility, 0..1 linear; 1 = open",
+    "alpha": "opaque, deliberately — see bakeCavity",
+    "uncoveredTexels": "visibility 1 (open)"
+  },
+  "rays": 32,
+  "radiusMillimetres": 35,
+  "knownAnswer": {
+    "sphere": {
+      "expected": 1,
+      "measured": 1,
+      "absoluteError": 0
+    },
+    "crease": {
+      "expected": 0.5,
+      "measured": 0.53125,
+      "absoluteError": 0.03125,
+      "leakFraction": 0.01818913635335947
+    }
+  },
+  "uvCoverageFraction": 0.624201774597168,
+  "dilatedTexels": 96470,
+  "milliseconds": 7381,
+  "sealedVertices": 231,
+  "visibility": {
+    "min": 0,
+    "p01": 0,
+    "p10": 0.4375,
+    "median": 1,
+    "p90": 1,
+    "p99": 1,
+    "max": 1,
+    "positiveFraction": 0.9840876214093821
+  }
+}

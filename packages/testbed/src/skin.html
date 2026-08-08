@@ -71,6 +71,10 @@
         an A/B plate that moves four things at once is not an A/B plate.<br>
         <code>?trans=0</code> transmission off. <code>?trans=&lt;n&gt;</code>,
         <code>?transd=&lt;mm&gt;</code> its strength and its red 1/e depth.<br>
+        <code>?cavity=0</code> no cavity map — the exact A side of the chromatic occlusion.
+        <code>?cavity=&lt;n&gt;</code> scales the occlusion without re-baking.<br>
+        <code>?thind=&lt;mm&gt;</code> the thin-tissue tint's depth. <strong>Ships at 0, i.e. OFF</strong>
+        — <code>?thind=10&amp;thin=0,0.2,1</code> reproduces the blotch plate that killed it.<br>
         <code>?lobe=0</code> second specular lobe off. <code>?lobe=</code>,
         <code>?lober=</code> its weight and roughness.<br>
         <code>?stock=1</code> three's stock <code>MeshPhysicalNodeMaterial</code> — none of 3.2.<br>
@@ -80,6 +84,18 @@
         <code>?w=&amp;h=</code> pin the drawing buffer. <code>?frame=face|portrait|body</code>.<br>
         <code>?bare</code> hide this panel. <code>?deferred=0</code> forward path.<br>
         <code>?key=&amp;fill=</code> light intensities, for tuning the key:fill against G1.
+    </p>
+
+    <p class="note">
+        🎯 <strong>The three cavity checks below are measured on the FRAMEBUFFER, not on the
+        material.</strong> The page renders itself three times — occlusion off, occlusion applied
+        as a plain scalar (<code>cavityChroma&nbsp;0</code>), and occlusion applied through the
+        multi-bounce fit — and differences the plates. Each of the three was proved by injecting a
+        separate defect into <code>SkinMaterial.js</code> and confirming it went red: a grey
+        occlusion, a global constant in place of the baked map, the map sampled at
+        <code>1&nbsp;−&nbsp;v</code>, the gain computed and never multiplied in, and visibility
+        inverted. Two earlier versions of the chromatic check passed the grey build and are
+        described in the code where they failed.
     </p>
 
     <p class="note">

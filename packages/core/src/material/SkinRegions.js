@@ -458,8 +458,13 @@ export function thicknessOfSphereCheck( sphere, radiusMetres ) {
 }
 
 // --- the geometry the thickness bake needs -------------------------------------------------------
+//
+// These four are exported rather than private because `SkinOcclusion.js` casts rays over the SAME
+// mesh for a different question — how much of the sky a point can see, rather than how far it is
+// to the far side — and a second copy of a spatial index is a second place for a subtle indexing
+// bug to live. Nothing outside the two bakes should need them.
 
-function meanEdgeLength( positions, indices, triangleCount ) {
+export function meanEdgeLength( positions, indices, triangleCount ) {
 
     let total = 0;
 
@@ -487,7 +492,7 @@ function meanEdgeLength( positions, indices, triangleCount ) {
  * Stated rather than hidden, because the alternative — inserting every triangle into every cell
  * its box touches — costs several times the memory for no measurable change in the answer.
  */
-function buildCentroidGrid( positions, indices, triangleCount ) {
+export function buildCentroidGrid( positions, indices, triangleCount ) {
 
     let minX = Infinity, minY = Infinity, minZ = Infinity;
     let maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
@@ -591,7 +596,7 @@ function clampInteger( value, count ) {
 }
 
 /** Möller–Trumbore, both faces, nearest hit inside `maxDistance`. */
-function nearestHit( positions, indices, candidates, ox, oy, oz, dx, dy, dz, maxDistance ) {
+export function nearestHit( positions, indices, candidates, ox, oy, oz, dx, dy, dz, maxDistance ) {
 
     let nearest = Infinity;
 
@@ -634,7 +639,7 @@ function nearestHit( positions, indices, candidates, ox, oy, oz, dx, dy, dz, max
 }
 
 /** Any orthonormal frame whose forward axis is the given (already unit) direction. */
-function orthonormalBasis( fx, fy, fz ) {
+export function orthonormalBasis( fx, fy, fz ) {
 
     const helper = Math.abs( fy ) < 0.9 ? [ 0, 1, 0 ] : [ 1, 0, 0 ];
 

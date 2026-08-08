@@ -128,6 +128,18 @@
  * Two spec clauses genuinely conflict here — §5's "rim hue-opposed to key" and §5's transmission
  * target — and this file resolves it by staying where the effect is still red and saying so.
  *
+ * 🎯 **AND THE NUMBER BEHIND THAT SENTENCE HAS NOW BEEN TAKEN, BECAUSE A ROUND OF REVIEW READ THE
+ * REMAINING GAP AS "there is still no subsurface transmission" AND THAT IS NOT WHAT IS WRONG.** On
+ * `skin.html?frame=face` at 1600x1600, a 60x170 px ear patch:
+ *
+ *     ?trans=0   luma 0.7373        ?trans=1   luma 0.7381        ?trans=8   luma 0.7433
+ *
+ * The shipped term is worth **0.0008 of luma at the ear** under this rig. Given a warm back light
+ * instead (`?key=0&fill=0&rim=0&kicker=9`) the SAME term takes the same patch from `#4d2c1b`
+ * S 0.648 hue 20.4° to `#622c1b` S 0.722 hue 14.2° — red rises, green and blue do not move at all,
+ * which is precisely §2's signature. The term is correct and STARVED. What the ear is short of is
+ * a shadow, not a glow, and that is what `SkinOcclusion.js` and `buildCavityGain` below address.
+ *
  * ## 🎯 What the subsurface half is measured to be worth, which is almost nothing
  *
  * This is the most important paragraph in the file and it is not the one anyone expects.
@@ -348,6 +360,88 @@ export const SKIN_DEFAULTS = {
     // an A/B plate without disturbing the distance, which is a length.
     transmissionStrength: 1.0,
 
+    // --- cavity occlusion -----------------------------------------------------------------------
+    //
+    // 🎯 THE TERM THAT MOVES THE EAR, and the reason it is here rather than more transmission is a
+    // measurement. On `skin.html?frame=face` at 1600x1600 a 60x170 px ear patch reads luma 0.7373
+    // at `?trans=0` and 0.7381 at `?trans=1`: the shipped transmission is worth 0.0008 of luma
+    // there, because the rig's only back lights are a blue rim and a 0.5 kicker and red-filtered
+    // tissue transmits almost none of a blue light. The ear is not short of a glow. It is short of
+    // a shadow — it renders at 0.891x the lit cheek where the reference's renders at 0.450x.
+    //
+    // `SkinOcclusion.js` bakes hemisphere visibility; `buildCavityGain` turns it into a per-channel
+    // multiplier. 1.0 is the baked answer applied as measured; the dial exists so the A/B plate is
+    // exact and so the effect can be swept without re-baking.
+    cavityStrength: 1.0,
+
+    // The albedo the multi-bounce fit is evaluated against — §5's `baseColor #E3BCA8` in linear-ish
+    // display units, `(227, 188, 168) / 255`. A uniform rather than a sample of the albedo map on
+    // purpose: this is the SKIN's scattering albedo, the colour a photon is multiplied by on each
+    // bounce inside the cavity, and it should not swing with a freckle or a lip in the texture.
+    cavityAlbedo: [ 0.890, 0.737, 0.659 ],
+
+    // How much of the multi-bounce fit to use, against a plain grey occlusion. 1 is the fit; 0 is
+    // the counterfactual `skin.js` renders to prove the fit is doing something. Not a look control.
+    cavityChroma: 1.0,
+
+    // --- thin tissue ------------------------------------------------------------------------------
+    //
+    // 🎯 THE OTHER HALF OF THE EAR, AND THE ONE OCCLUSION ARITHMETICALLY CANNOT DELIVER.
+    //
+    // HSV saturation is `(max − min) / max`, which is INVARIANT UNDER A SCALAR: darkening the
+    // measured ear `#daaba0` by any factor whatsoever leaves it at S 0.2646. The reference sits at
+    // S 0.414. So however hard the cavity term is pushed, and however dark the ear gets, the
+    // saturation gap does not close by one thousandth — it needs a term that changes the RATIO
+    // between the channels, not their sum.
+    //
+    // The physical statement is the one every figure painter knows and the reference obeys: the
+    // thin, blood-rich parts of a face — ear, ala, lip, eyelid, fingertip — are redder and deeper
+    // in colour than the cheek, because light entering them makes a short, blood-rich passage
+    // instead of a long diffuse one through the dermis. `docs/research/stellar-blade-look-spec.md`
+    // §2 measures exactly that gradient and calls it the SSS test: lit cheek S 0.15 → shadow cheek
+    // S 0.23–0.26 → **ear S 0.414**, hue shifting red the whole way.
+    //
+    // 🚩 **BUILT, MEASURED, AND SHIPPED OFF — THE HYPOTHESIS BEHIND IT IS FALSE, AND THE
+    // MEASUREMENT THAT KILLED IT IS THE MOST USEFUL THING THIS ROUND LEARNED ABOUT BAKED MAPS.**
+    //
+    // The reasoning for building it was: the lip tint below fails because a CLASSIFIED, thresholded
+    // mask has a boundary and the boundary is in the wrong place, whereas baked thickness is a
+    // CONTINUOUS geometric field with no boundary at all — so it should be able to carry albedo
+    // where the mask cannot. That reasoning is wrong, because baked thickness is not continuous.
+    //
+    // The ray-cast reduction is a SHORTEST PATH, and over the mid-face the shortest path steps
+    // discontinuously: a cheek vertex whose cone catches the oral cavity reads about 6 mm while its
+    // neighbour, whose cone misses it, reads the far side of the skull at over 100 mm. The field is
+    // a step function wherever that interior boundary crosses the surface.
+    //
+    // Measured, on `skin.html?frame=face` at 1600x1600, with the tint pushed to `(0, 0.2, 1)` so
+    // the affected region is unmistakable: the tinted area is the perioral ring, both nasolabial
+    // folds, the chin and the under-eye — with visible BLOTCH EDGES — and the ear, which is the
+    // one anatomy the whole term exists for, is not touched at any depth that spares the cheek. At
+    // the calibrated tint the difference image's worst single-pixel neighbour STEP is **12/255**,
+    // which is a seam rather than a gradient. 🎯 That is also the identification of a defect
+    // another agent reported this round as "grey blotches on the chin, nose and mouth": the cause
+    // class is not the lip tint (which is identity, below, and cannot change a pixel) — it is ANY
+    // albedo term driven by the baked thickness channel.
+    //
+    // So the generalisation from `lipTint` stands and gets sharper: **a baked map can carry albedo
+    // only if it is smooth, and "geometric" does not imply "smooth".** Thickness carries roughness
+    // and transmission perfectly well, because both are low-contrast and a 12/255 step in either
+    // is invisible.
+    //
+    // The term is left in place at depth 0 — which makes `thinness` exactly 0 and the multiplier
+    // exactly `vec3(1)`, so the shipped plate is bit-identical to a build without it — because it
+    // is one line away from working for whoever brings a smoothed thickness channel, and because
+    // the numbers below should not have to be rediscovered. `?thind=10` on `skin.html` reproduces
+    // the plate described above.
+    thinTissueDepthMillimetres: 0,
+
+    // What the depth would be if the field were smooth enough to use, from the baked distributions:
+    // ear 3.9–7.8, lip median 6.98, eyelid median 5.55, ala ~5, against cheek median 11.19 and
+    // whole-body median 19.75. Red is held at 1 so the term can only ever remove green and blue.
+    fittedThinTissueDepthMillimetres: 10.0,
+    thinTissueTint: [ 1.00, 0.72, 0.76 ],
+
     // --- lips ---------------------------------------------------------------------------------
     //
     // 🚩 **OFF BY DEFAULT, and the reason is the most useful thing this round measured about maps.**
@@ -424,6 +518,10 @@ export class SkinLightingModel extends PhysicalLightingModel {
         // Per-fragment and independent of which light is being evaluated, like the two above.
         this.transmittance = null;
 
+        // The chromatic cavity gain — see `buildCavityGain`. vec3, one multiplier per channel,
+        // 1 in the open and darker-and-redder in a crease.
+        this.cavityGain = null;
+
     }
 
     /**
@@ -457,6 +555,10 @@ export class SkinLightingModel extends PhysicalLightingModel {
         this.transmittance = this.nodes.regionMap === null
             ? null
             : buildTransmittance( this.nodes ).toVar( 'skinTransmittance' );
+
+        this.cavityGain = this.nodes.cavityMap === null
+            ? null
+            : buildCavityGain( this.nodes ).toVar( 'skinCavityGain' );
 
         super.start( builder );
 
@@ -509,6 +611,38 @@ export class SkinLightingModel extends PhysicalLightingModel {
     }
 
     /**
+     * Applies the chromatic cavity gain to a diffuse contribution.
+     *
+     * 🎯 IT IS APPLIED TO **DIRECT** DIFFUSE, WHICH IS NOT WHERE AN AMBIENT OCCLUSION TERM GOES,
+     * AND THAT IS DELIBERATE. Two measurements put it there.
+     *
+     * The first: this rig has no environment map. Four RectAreaLights and an emissive backdrop
+     * card, nothing else — so `indirectDiffuse` is essentially zero and an occlusion term applied
+     * only to it would be applied to nothing. `material.aoNode` is still set, so a future IBL rig
+     * gets the ordinary treatment as well; this is the term that does the work today.
+     *
+     * The second: the cavities in question are millimetres across — the concha is ~15 mm, the alar
+     * crease and the lip seam a few — and the rig's shadow map covers a 0.42 m portrait at a texel
+     * footprint of centimetres. It cannot resolve any of them, so nothing else in the pipeline
+     * darkens them at all, and the ear measures 0.891x the lit cheek against the reference's
+     * 0.450x. This is a CAVITY term standing in for shadowing the shadow map cannot see, which is
+     * why the radius it is baked at is short (35 mm) — long enough for the concha, far too short
+     * for the underside of the jaw, which the shadow casters do own.
+     *
+     * Transmission is deliberately NOT passed through here. Light that arrives through the tissue
+     * did not come down the occluded hemisphere, and attenuating it by the same factor would
+     * cancel exactly the chroma this term exists to expose.
+     *
+     * @param {Node<vec3>} diffuse
+     * @returns {Node<vec3>} unchanged when the figure has no baked cavity map.
+     */
+    occluded( diffuse ) {
+
+        return this.cavityGain === null ? diffuse : diffuse.mul( this.cavityGain );
+
+    }
+
+    /**
      * The pre-integrated response for one light direction: what Lambert's `saturate(N·L)` becomes.
      *
      * @param {Node<float>} dotNL - signed, -1 to 1.
@@ -534,9 +668,9 @@ export class SkinLightingModel extends PhysicalLightingModel {
 
         const dotNL = normalView.dot( input.lightDirection );
 
-        input.reflectedLight.directDiffuse.addAssign(
+        input.reflectedLight.directDiffuse.addAssign( this.occluded(
             input.lightColor.mul( this.scatteredLambert( dotNL ) ).mul( DIFFUSE_CONTRIBUTION ).mul( 1 / Math.PI )
-        );
+        ) );
 
         const transmitted = this.transmitted( input.lightColor, input.lightDirection );
         if ( transmitted !== null ) input.reflectedLight.directDiffuse.addAssign( transmitted );
@@ -565,7 +699,7 @@ export class SkinLightingModel extends PhysicalLightingModel {
             .div( dotNL.saturate().add( floor ) )
             .min( this.nodes.maxScatterGain );
 
-        input.reflectedLight.directDiffuse.addAssign( scratch.directDiffuse.mul( gain ) );
+        input.reflectedLight.directDiffuse.addAssign( this.occluded( scratch.directDiffuse.mul( gain ) ) );
 
         // Same approximation as the gain above and for the same reason: an area light has no
         // single direction, so the panel's centre stands in for one. Past the terminator the LTC
@@ -590,6 +724,65 @@ function buildTransmittance( nodes ) {
     const thicknessMillimetres = encoded.mul( encoded ).mul( THICKNESS_ENCODE_MAX_MILLIMETRES );
 
     return thicknessMillimetres.div( nodes.transmissionDistances ).negate().exp();
+
+}
+
+/**
+ * The cavity term, as a per-channel multiplier on diffuse.
+ *
+ * ## Why it is chromatic, which is the whole point
+ *
+ * A scalar occlusion multiplies every channel equally, and HSV saturation is invariant under a
+ * scalar: darkening `#daaba0` by half gives `#6d5550`, still S 0.265. The reference's ear is both
+ * DARKER and MORE SATURATED than our own — luma 0.344 against 0.7072, S 0.414 against 0.2646 — so
+ * a grey occlusion cannot close the gap no matter how strong it is, and would just make a grey ear.
+ *
+ * What actually happens in a skin cavity is that light bounces several times before it escapes,
+ * and every bounce multiplies by the albedo. Skin albedo is roughly `(0.89, 0.74, 0.66)`, so two
+ * bounces attenuate blue about 1.8x more than red: a crease converges toward a dark saturated red
+ * rather than toward grey. That is the mechanism the look spec is describing when it says
+ * "saturation RISES into shadow … and hue shifts red".
+ *
+ * The closed form is Jimenez et al.'s multi-bounce fit (SIGGRAPH 2016 course, "Practical
+ * Real-Time Strategies for Accurate Indirect Occlusion"), evaluated per channel against the
+ * albedo. It is worth noting that the fit is normalised: at visibility 1 it returns 1 for every
+ * albedo, `(2.0404 - 4.7951 + 2.7552) = 0.0005` plus `(-0.3324 + 0.6417 + 0.6903) = 0.9996`. So an
+ * unoccluded fragment is bit-for-bit what it was before this term existed, and every A/B plate
+ * differs only where the bake found geometry.
+ *
+ * ## Strength
+ *
+ * `cavityStrength` scales the OCCLUSION, not the visibility, so 0 is exactly "off" and the A side
+ * of the plate is exact rather than nearly-exact.
+ */
+function buildCavityGain( nodes ) {
+
+    const baked = nodes.cavityMap.sample( uv() ).r;
+    const visibility = float( 1 ).sub( float( 1 ).sub( baked ).mul( nodes.cavityStrength ) ).saturate();
+
+    const albedo = nodes.cavityAlbedo;
+
+    const a = albedo.mul( 2.0404 ).sub( 0.3324 );
+    const b = albedo.mul( -4.7951 ).add( 0.6417 );
+    const c = albedo.mul( 2.7552 ).add( 0.6903 );
+
+    const multiBounce = visibility.mul( a ).add( b ).mul( visibility ).add( c ).mul( visibility ).max( visibility );
+
+    // 🚩 `cavityChroma` EXISTS SO THE CHROMATICITY CAN BE GATED, and it was added because the gate
+    // that did not have it was decorative. `skin.js` needs a plate that differs from the shipped
+    // one in the multi-bounce fit ALONE — same visibility, same transmission, same specular, same
+    // everything — because every cheaper comparison is confounded:
+    //
+    //   - "blue fell further than red between cavity-off and cavity-on" passed a deliberately
+    //     broken scalar build (red fell 45.50%, blue 54.99%), because the sRGB transfer's offset
+    //     is not scale-invariant;
+    //   - the same comparison in LINEAR light still passed it, at a red:blue gain of **1.3807**,
+    //     because what survives in a crease is specular plus the RED-ONLY transmitted term, and
+    //     that residual reddens the crease no matter how grey the occlusion is.
+    //
+    // With this dial the counterfactual is exact: at 0 the term is `vec3(visibility)` — a plain
+    // grey occlusion — and at 1 it is the fit. Nothing else moves between the two.
+    return mix( vec3( visibility ), multiBounce, nodes.cavityChroma );
 
 }
 
@@ -667,6 +860,8 @@ export class SkinNodeMaterial extends MeshPhysicalNodeMaterial {
  *   it is derived from `curvatureMapUrl`, because the two are siblings out of the same bake and a
  *   caller that has one always has the other; pass `null` to disable per-region roughness, all
  *   transmission and the lip tint at once, which is the A side of those three.
+ * @param {?string} [options.cavityMapUrl] - the baked hemisphere-visibility map. Derived from
+ *   `curvatureMapUrl` when omitted, like the region map; pass `null` for the no-cavity plate.
  * @param {Object} [options.settings] - overrides over `SKIN_DEFAULTS`.
  * @returns {Promise<SkinNodeMaterial>} resolves once the baked maps have decoded, so the caller
  *   never puts a half-loaded material in front of a capture.
@@ -687,6 +882,18 @@ export async function createSkinMaterial( options = {} ) {
         ? null
         : await loadDataMap( regionMapUrl, 'node tools/lut-bake/bake.mjs regions' );
 
+    // Its own file rather than the region map's free alpha channel, and the reason is a hazard
+    // rather than a preference: a browser decoding a PNG with a non-opaque alpha channel may hand
+    // back PREMULTIPLIED colour, which would silently scale the roughness and thickness in the
+    // other three channels by the occlusion. A separate opaque map cannot do that to anything.
+    const cavityMapUrl = options.cavityMapUrl === undefined
+        ? cavityMapUrlBeside( options.curvatureMapUrl )
+        : options.cavityMapUrl;
+
+    const cavityMap = cavityMapUrl == null
+        ? null
+        : await loadDataMap( cavityMapUrl, 'node tools/lut-bake/bake.mjs cavity' );
+
     const ratio = settings.transmissionChannelRatio;
     const distance = settings.transmissionDistanceMillimetres;
 
@@ -704,7 +911,13 @@ export async function createSkinMaterial( options = {} ) {
             distance * ratio[ 1 ],
             distance * ratio[ 2 ]
         ) ),
-        lipTint: uniform( new Vector3( ...settings.lipTint ) )
+        lipTint: uniform( new Vector3( ...settings.lipTint ) ),
+        cavityMap: cavityMap === null ? null : texture( cavityMap ),
+        cavityStrength: uniform( settings.cavityStrength ),
+        cavityAlbedo: uniform( new Vector3( ...settings.cavityAlbedo ) ),
+        cavityChroma: uniform( settings.cavityChroma ),
+        thinTissueDepthMillimetres: uniform( settings.thinTissueDepthMillimetres ),
+        thinTissueTint: uniform( new Vector3( ...settings.thinTissueTint ) )
     };
 
     const material = new SkinNodeMaterial( nodes );
@@ -717,6 +930,19 @@ export async function createSkinMaterial( options = {} ) {
 
         applyRegionMap( material, nodes, options.albedoMap ?? null,
             options.specularAntiAliasing !== false );
+
+    }
+
+    if ( cavityMap !== null ) {
+
+        // The ordinary path, for the indirect half. Verified against r185's `NodeMaterial.js`
+        // line 1037 rather than assumed: `aoNode` is read there and assigned into
+        // `ambientOcclusion`, which `PhysicalLightingModel.indirect()` applies to the IBL diffuse.
+        // On today's rig that is worth nothing — there is no environment map — and it is set
+        // anyway so that adding one later does not need this file reopened. The term that does the
+        // work now is `SkinLightingModel.occluded()`, which is chromatic and hits DIRECT diffuse.
+        material.aoNode = nodes.cavityMap.sample( uv() ).r
+            .oneMinus().mul( nodes.cavityStrength ).oneMinus().saturate();
 
     }
 
@@ -748,12 +974,18 @@ export async function createSkinMaterial( options = {} ) {
         transmissionStrength: nodes.transmissionStrength,
         transmissionDistances: nodes.transmissionDistances,
         lipTint: nodes.lipTint,
+        cavityStrength: nodes.cavityStrength,
+        cavityAlbedo: nodes.cavityAlbedo,
+        cavityChroma: nodes.cavityChroma,
+        thinTissueDepthMillimetres: nodes.thinTissueDepthMillimetres,
+        thinTissueTint: nodes.thinTissueTint,
         microNormalScale: microScale,
         microNormalRepeat: microRepeat
     };
 
     material.skinSettings = settings;
     material.hasRegionMap = regionMap !== null;
+    material.hasCavityMap = cavityMap !== null;
 
     return material;
 
@@ -794,6 +1026,15 @@ function applyRegionMap( material, nodes, albedoMap, specularAntiAliasing = true
     // nothing per frame. `?specaa=0` on alive.html is the A side.
     material.roughnessNode = specularAntiAliasing ? filteredRoughness( roughness ) : roughness;
 
+    // The thin-tissue tint. Driven by the SAME green channel the transmission reads, decoded the
+    // same way — one encoding, two consumers, and `THICKNESS_ENCODE_MAX_MILLIMETRES` is imported
+    // rather than repeated so the two cannot drift apart.
+    const thicknessMillimetres = region.g.mul( region.g ).mul( THICKNESS_ENCODE_MAX_MILLIMETRES );
+    // `.max()` rather than a branch: at depth 0 the quotient is enormous and `thinness`
+    // saturates to exactly 0, which is the off state, with no division by zero anywhere.
+    const thinness = float( 1 ).sub( thicknessMillimetres.div( nodes.thinTissueDepthMillimetres.max( 1e-4 ) ) ).saturate();
+    const thinTint = mix( vec3( 1, 1, 1 ), nodes.thinTissueTint, thinness );
+
     if ( albedoMap === null ) return;
 
     // 🚩 The mask is THRESHOLDED, and it has to be. `rasteriseToUv` fills every triangle that
@@ -805,7 +1046,7 @@ function applyRegionMap( material, nodes, albedoMap, specularAntiAliasing = true
     // interpolation invented, and keeps a soft edge so the lip line does not alias.
     const tint = mix( vec3( 1, 1, 1 ), nodes.lipTint, region.b.smoothstep( 0.55, 0.92 ) );
 
-    material.colorNode = vec4( texture( albedoMap ).rgb.mul( tint ), 1 );
+    material.colorNode = vec4( texture( albedoMap ).rgb.mul( tint ).mul( thinTint ), 1 );
 
 }
 
@@ -822,6 +1063,16 @@ function regionMapUrlBeside( curvatureMapUrl ) {
     if ( curvatureMapUrl.includes( '-curvature.png' ) === false ) return null;
 
     return curvatureMapUrl.replace( '-curvature.png', '-regions.png' );
+
+}
+
+/** The cavity map from the same bake. Same derivation, same reason. */
+function cavityMapUrlBeside( curvatureMapUrl ) {
+
+    if ( curvatureMapUrl == null ) return null;
+    if ( curvatureMapUrl.includes( '-curvature.png' ) === false ) return null;
+
+    return curvatureMapUrl.replace( '-curvature.png', '-cavity.png' );
 
 }
 
@@ -1004,5 +1255,12 @@ export function curvatureMapUrlFor( figureName = 'figure_g050' ) {
 export function regionMapUrlFor( figureName = 'figure_g050' ) {
 
     return new URL( `../../../../tools/lut-bake/out/${ figureName }-regions.png`, import.meta.url ).href;
+
+}
+
+/** The third sibling: hemisphere visibility, for the cavity term. */
+export function cavityMapUrlFor( figureName = 'figure_g050' ) {
+
+    return new URL( `../../../../tools/lut-bake/out/${ figureName }-cavity.png`, import.meta.url ).href;
 
 }

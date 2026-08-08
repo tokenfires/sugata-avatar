@@ -42,6 +42,13 @@ import {
 import { buildSkinMicroNormal } from '../../packages/core/src/material/SkinMicroNormal.js';
 
 import {
+    OCCLUSION_RADIUS_MILLIMETRES,
+    OCCLUSION_RAYS,
+    occlusionKnownAnswerCheck,
+    occlusionPerVertex
+} from '../../packages/core/src/material/SkinOcclusion.js';
+
+import {
     BODY_ROUGHNESS,
     REGION_CLAIM_FRACTION,
     SHADING_REGIONS,
@@ -88,6 +95,7 @@ function main( argv ) {
         if ( options.targets.includes( 'micronormal' ) ) bakeMicroNormal();
         if ( options.targets.includes( 'curvature' ) ) bakeCurvature( options );
         if ( options.targets.includes( 'regions' ) ) bakeRegions( options );
+        if ( options.targets.includes( 'cavity' ) ) bakeCavity( options );
 
     } catch ( error ) {
 
@@ -402,6 +410,89 @@ function bakeRegions( options ) {
 
 }
 
+// --- the cavity map ------------------------------------------------------------------------------
+
+/**
+ * `figure_gNNN-cavity.png` — cosine-weighted hemisphere visibility, 1 = open sky, 0 = sealed.
+ *
+ * Greyscale into all three channels with an OPAQUE alpha, and both of those are deliberate. The
+ * value could have ridden in the region map's spare alpha channel for free; it does not, because a
+ * browser decoding a PNG whose alpha is not 255 may hand back premultiplied colour, and that would
+ * silently scale the roughness and thickness in the other channels by the occlusion. Three
+ * duplicate channels cost 700 KB across five bakes and cannot do that to anything.
+ *
+ * See `SkinOcclusion.js` for what the number means and why the radius is short.
+ */
+function bakeCavity( options ) {
+
+    // Same discipline as the other two bakes: the estimator answers shapes whose visibility is
+    // known on paper — a convex sphere at exactly 1, a right-angle crease at exactly 0.5 — before
+    // it is pointed at a face.
+    const knownAnswer = occlusionKnownAnswerCheck();
+
+    const glb = readGlb( options.figure );
+    const mesh = readPrimitive( glb, BODY_MESH_NAME );
+
+    const occlusion = occlusionPerVertex( mesh );
+
+    const size = options.size;
+    const visibilityMap = rasteriseToUv( mesh, occlusion.visibility, size, size );
+
+    // The same dilation trap `bakeRegions` documents at length: `dilate` marks what it filled in
+    // the array it is handed, and the fill test below has to see those marks.
+    const covered = Uint8Array.from( visibilityMap.covered );
+    const dilated = dilate( visibilityMap.value, covered, size, size );
+
+    const rgba = new Uint8Array( size * size * 4 );
+
+    for ( let i = 0; i < size * size; i ++ ) {
+
+        // Uncovered reads as OPEN. A bilinear tap that strays off an island then loses the effect
+        // rather than inventing a black hole in the middle of a cheek.
+        const value = toByte( covered[ i ] === 1 ? visibilityMap.value[ i ] : 1 );
+
+        rgba[ i * 4 ] = value;
+        rgba[ i * 4 + 1 ] = value;
+        rgba[ i * 4 + 2 ] = value;
+        rgba[ i * 4 + 3 ] = 255;
+
+    }
+
+    const name = path.basename( options.figure, '.glb' );
+
+    write( `${ name }-cavity.png`, encodePng( size, size, rgba ) );
+
+    writeJson( `${ name }-cavity.json`, {
+        figure: path.relative( repoRoot, options.figure ),
+        mesh: BODY_MESH_NAME,
+        vertexCount: mesh.vertexCount,
+        mapSize: size,
+        encoding: {
+            rgb: 'cosine-weighted hemisphere visibility, 0..1 linear; 1 = open',
+            alpha: 'opaque, deliberately — see bakeCavity',
+            uncoveredTexels: 'visibility 1 (open)'
+        },
+        rays: OCCLUSION_RAYS,
+        radiusMillimetres: OCCLUSION_RADIUS_MILLIMETRES,
+        knownAnswer,
+        uvCoverageFraction: visibilityMap.coveredFraction,
+        dilatedTexels: dilated,
+        milliseconds: occlusion.milliseconds,
+        sealedVertices: occlusion.sealedVertices,
+        visibility: describeDistribution( occlusion.visibility )
+    } );
+
+    report( 'cavity', [
+        [ 'figure', path.relative( repoRoot, options.figure ) ],
+        [ 'map', `${ size } x ${ size }, UV coverage ${ ( visibilityMap.coveredFraction * 100 ).toFixed( 1 ) }%, ${ dilated } texels dilated` ],
+        [ 'sphere (convex)', `expected 1.000, measured ${ knownAnswer.sphere.measured.toFixed( 3 ) } (err ${ knownAnswer.sphere.absoluteError.toFixed( 4 ) })` ],
+        [ '90° crease', `expected 0.500, measured ${ knownAnswer.crease.measured.toFixed( 3 ) } (derived leak ${ knownAnswer.crease.leakFraction.toFixed( 4 ) })` ],
+        [ 'cast', `${ OCCLUSION_RAYS } rays at ${ OCCLUSION_RADIUS_MILLIMETRES } mm, ${ occlusion.milliseconds } ms, ${ occlusion.sealedVertices } sealed vertices` ],
+        [ 'visibility', `median ${ describeDistribution( occlusion.visibility ).median.toFixed( 3 ) }, p10 ${ describeDistribution( occlusion.visibility ).p10.toFixed( 3 ) }` ]
+    ] );
+
+}
+
 /** The thickness values belonging to one named region, for the per-region distributions. */
 function subsetOf( values, regionOf, regionName ) {
 
@@ -574,7 +665,7 @@ function describeDistribution( values ) {
 
 function parseArguments( argv ) {
 
-    const known = [ 'lut', 'micronormal', 'curvature', 'regions' ];
+    const known = [ 'lut', 'micronormal', 'curvature', 'regions', 'cavity' ];
     const targets = [];
     const options = { figure: DEFAULT_FIGURE, size: DEFAULT_MAP_SIZE };
 

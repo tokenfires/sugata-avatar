@@ -3,10 +3,11 @@
 Everything punch-list 3.2 needs that cannot be computed in a fragment shader.
 
 ```bash
-node tools/lut-bake/bake.mjs                              # all four, default figure
+node tools/lut-bake/bake.mjs                              # all five, default figure
 node tools/lut-bake/bake.mjs regions --figure assets/figures/figure_g100.glb
 node tools/lut-bake/lut-bake.selftest.mjs                 # 32 checks, both directions
 node packages/core/src/material/SkinRegions.selftest.mjs  # 29 checks, both directions
+node packages/core/src/material/SkinOcclusion.selftest.mjs # 13 checks, two known-answer shapes
 ```
 
 Output lands in `out/`. Exit codes match the rest of the harness: `0` fine, `2` tool error.
@@ -15,10 +16,11 @@ Output lands in `out/`. Exit codes match the rest of the harness: `0` fine, `2` 
 |---|---|---|
 | `curvature` | `figure_gNNN-curvature.png` + `.json` | **the renderer** — `SkinMaterial` fetches it |
 | `regions` | `figure_gNNN-regions.png` + `.json` | **the renderer** — per-region roughness, tissue thickness, lip mask |
+| `cavity` | `figure_gNNN-cavity.png` + `.json` | **the renderer** — cosine-weighted hemisphere visibility, applied chromatically. ~7.5 s per figure |
 | `lut` | `preintegrated-skin-lut.png` + `.json` | **a human**. See below |
 | `micronormal` | `skin-micro-normal.png` | **a human**. See below |
 
-> ⚠️ **Only the curvature and region maps are loaded at runtime.** The pre-integrated table and the micro-normal
+> ⚠️ **Only the curvature, region and cavity maps are loaded at runtime.** The pre-integrated table and the micro-normal
 > are *generated in the browser* by `packages/core/src/material/PreintegratedSkinLut.js` and
 > `SkinMicroNormal.js`; the PNGs here are for looking at and for diffing across a change. Editing
 > them does nothing. Both cost single-digit milliseconds to build (the selftest prints the LUT's),
