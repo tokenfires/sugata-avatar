@@ -27,7 +27,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { encodePng, decodePng, stripProvenanceChunks } from './png.mjs';
 import { encodedLuma, linearLuma, linearToSrgb, rgbToHsv } from './color.mjs';
-import { measureAll, resolveRegions } from './measure.mjs';
+import { measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY } from './measure.mjs';
 import { compareFrameSequences } from './capture.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-critic-selftest-'));
@@ -84,13 +84,16 @@ function runCli(scriptName, args) {
 // `provenance` is what page/framing/motion state the plate came from. A synthetic test image has
 // none by construction, and saying so here is the same statement the CLI makes on a real plate
 // with no capture.json beside it — see measure.mjs's header for the round a missing one cost.
-function measureFile(filePath, spec, provenance = SYNTHETIC_PROVENANCE) {
+// regionsPath is overridable because one warning — G2's seed record — only applies when the plate
+// was measured through the region spec the record was measured through, and a synthetic test has
+// to be able to say it was.
+function measureFile(filePath, spec, provenance = SYNTHETIC_PROVENANCE, regionsPath = '(selftest: synthetic spec)') {
   const image = decodePng(fs.readFileSync(filePath));
   return measureAll(
     image,
     resolveRegions(spec, image),
     spec,
-    { imagePath: filePath, regionsPath: '(selftest: synthetic spec)' },
+    { imagePath: filePath, regionsPath },
     provenance
   );
 }
@@ -346,6 +349,112 @@ function testScleraRatio() {
     weakGate.failures.filter((line) => line.includes('BAND')).length,
     1
   );
+
+  // 🎯 THE KNOWN-BAD THE TWO-CLAUSE GATE COULD NOT SEE EITHER — the fix for a half-measured
+  // sentence was itself a half-measured sentence.
+  //
+  // Luma and saturation are TWO numbers; a colour is THREE. Pin the first two and what is left is
+  // not a point, it is the entire hue circle. So the check below is not one known-bad: it is the
+  // WHOLE free manifold, swept. Every plate is solved — not picked — to carry the reference
+  // sclera's exact encoded luma AND its exact HSV saturation, so neither of the first two clauses
+  // can be what decides any of them. Measured before the hue clause existed: 24 of 24 PASSED.
+  const referenceSaturation = rgbToHsv(sclera[0] / 255, sclera[1] / 255, sclera[2] / 255).saturation;
+  const survivors = [];
+  for (let hue = 0; hue < 360; hue += 15) {
+    const solved = solveForHueSaturationLuma(hue, referenceSaturation, referenceLuma);
+    const sweptPath = writeTestImage(
+      `g2-hue-${hue}.png`,
+      200,
+      100,
+      paint(200, 100, (x) => (x < 100 ? solved : cheek))
+    );
+    const swept = gateNamed(measureFile(sweptPath, spec), 'G2');
+
+    // The construction has to be verified on every plate or the sweep proves nothing: if a
+    // solved colour missed the luma or the saturation band, its FAIL would be the old gate's
+    // doing and the hue clause would be getting credit it had not earned.
+    expectEqual(
+      `hue ${hue}: the solved plate still satisfies the LUMA clause, so hue is what decides it`,
+      swept.failures.filter((line) => line.startsWith('luma half')).length,
+      0
+    );
+    expectEqual(
+      `hue ${hue}: the solved plate still satisfies BOTH chroma clauses`,
+      swept.failures.filter((line) => line.startsWith('chroma half')).length,
+      0
+    );
+    if (swept.status === 'PASS') survivors.push(hue);
+  }
+
+  // Only the warm arc survives, and it is the arc the spec's word "pink-tinted" names: red itself,
+  // one step to orange and one step to magenta. Everything from yellow through green, cyan and
+  // blue to purple is gone. Asserted as the exact set rather than as a count, so a future change
+  // that widens or shifts the arc has to come here and say so.
+  expectEqual('G2 hue sweep: only the pink family survives', survivors.join(','), '0,15,345');
+
+  // And name the reported defect explicitly, because a set-equality assertion is easy to read
+  // past: a GREEN eyeball at the reference's luma and saturation is the plate that started this.
+  const greenPath = writeTestImage(
+    'g2-green-sclera.png',
+    200,
+    100,
+    paint(200, 100, (x) => (x < 100 ? [97, 134, 97] : cheek))
+  );
+  const greenGate = gateNamed(measureFile(greenPath, spec), 'G2');
+  expectClose('G2 green sclera matches the reference LUMA', greenGate.measured.ratioEncoded, 0.9839, 0.005);
+  expectClose('G2 green sclera sits INSIDE the chroma band', greenGate.measured.saturationRatio, 1.2943, 0.001);
+  expectEqual('G2 green sclera is 120 deg from red', greenGate.measured.scleraHueFromRed, 120);
+  expectEqual('G2 green sclera FAILs', greenGate.status, 'FAIL');
+  expectEqual(
+    'and ONLY the hue clause catches it — the other two are green on this plate',
+    greenGate.failures.length,
+    1
+  );
+  expectEqual(
+    'the hue clause is what catches it',
+    greenGate.failures.filter((line) => line.startsWith('hue clause')).length,
+    1
+  );
+
+  // The ceiling is a MEASUREMENT of the two spec hexes, not a chosen tolerance. Assert both the
+  // separation it is built from and the ceiling it produces on this plate, so a silently-edited
+  // constant cannot pass: sclera #9D7274 sits 2.791 deg from red, cheek #96767D 13.125 deg.
+  expectClose('G2 reference sclera hue from red', gate.measured.referenceScleraHueFromRed, 2.79, 0.01);
+  expectClose('G2 reference cheek hue from red', gate.measured.referenceCheekHueFromRed, 13.13, 0.01);
+  expectClose('G2 reference hue separation is derived, not typed', gate.measured.referenceHueSeparation, 10.33, 0.01);
+  expectClose('G2 hue ceiling = this plate cheek + that separation', gate.measured.hueCeilingFromRed, 23.46, 0.01);
+
+  // ⚠️ AND THE CLAUSE THAT DOES *NOT* COVER FOR ANOTHER, recorded so nobody assumes it does.
+  // rgbToHsv reports hue 0 for a fully desaturated colour, so a grey eyeball scores 0 deg from red
+  // and the hue clause waves it through. Grey is the saturation ordinal's job, and the two grey
+  // failures asserted above are still exactly two.
+  expectEqual('the hue clause does NOT catch grey — it scores 0 deg from red', greyGate.measured.scleraHueFromRed, 0);
+  expectEqual(
+    'so grey is still caught by the chroma clauses alone, not by hue',
+    greyGate.failures.filter((line) => line.startsWith('hue clause')).length,
+    0
+  );
+}
+
+// Solves for the RGB triple with a given hue and HSV saturation whose ENCODED luma is exactly the
+// one asked for. Hue and saturation are invariant under a uniform scale of the triple, so the
+// full-value colour is built first and then scaled until its Rec.709 encoded luma lands. This is
+// what lets the hue sweep above hold two of G2's three clauses fixed by construction.
+function solveForHueSaturationLuma(hueDegrees, saturation, targetEncodedLuma) {
+  const sector = (((hueDegrees % 360) + 360) % 360) / 60;
+  const secondary = saturation * (1 - Math.abs((sector % 2) - 1));
+  const wheel = [
+    [saturation, secondary, 0],
+    [secondary, saturation, 0],
+    [0, saturation, secondary],
+    [0, secondary, saturation],
+    [secondary, 0, saturation],
+    [saturation, 0, secondary],
+  ][Math.floor(sector) % 6];
+
+  const atFullValue = wheel.map((component) => component + (1 - saturation));
+  const scale = targetEncodedLuma / encodedLuma(...atFullValue);
+  return atFullValue.map((component) => component * scale * 255);
 }
 
 // ============================================================================================
@@ -399,6 +508,257 @@ function testProvenance() {
     1
   );
   expectEqual('and every gate says UNKNOWN PAGE', gateNamed(orphan, 'G2').measured.measuredOn, 'UNKNOWN PAGE');
+}
+
+// ============================================================================================
+// 4a-bis. THE G2 SEED RECORD — a number the instrument prints about ITS OWN SUBJECT
+// ============================================================================================
+//
+// 🚩 THE ONE DEFECT IN THIS ROUND WHERE THE OBJECTIVE INSTRUMENT WAS ITSELF THE LIAR.
+//
+// measure.mjs used to carry the G2 seed distribution as prose inside the warning string, with a
+// typed verdict: "…0.8127 / 0.9627 / 0.9736 / 0.4384 … a 2.2× spread, two of four passing." True
+// when written. Six commits of render work later every value had moved and only ONE of four still
+// passed, and the tool went on printing the old sentence on every report it produced. Re-measured
+// 2026-08-08 at build 82260d4: 0.7836 / 0.9189 / 0.9292 / 0.4390.
+//
+// A gate for this cannot be "assert the four numbers", because that is the same literal in a
+// second file and it rots in lockstep. It has to be a gate on the MECHANISM, and there are four
+// distinct ways this class of defect gets in:
+//
+//   1. the record drifts away from the render        → the reproduction check must FIRE
+//   2. it fires on plates it has no business judging → it must stay SILENT on those
+//   3. it silently stops being applicable at all     → the comparability contract must hold
+//                                                      against the URL shape capture.mjs writes
+//   4. the verdict is typed rather than counted      → spread and pass count must track the data
+//
+// Each is asserted below, and 1 is asserted at the SMALLEST drift the defect actually produced
+// (seed 20260807 moved 0.0006), not at a comfortable one.
+
+// The exact URL shape capture.mjs writes into capture.json — flags with `=`, plus the two keys
+// that name the run rather than the render. If that shape ever changes, the reproduction check
+// goes quiet forever and the whole mechanism above becomes decorative, so pin it here.
+const CAPTURE_URL_AS_WRITTEN = 'http://localhost:5188/alive.html?bare=&freeze=&capture=1&seed=1';
+
+function g2RecordProvenance(seed, overrides = {}) {
+  return {
+    source: 'selftest',
+    known: true,
+    page: `http://localhost:5188/alive.html?bare=&freeze=&capture=1&seed=${seed}`,
+    seed,
+    prerollSeconds: null,
+    pixelWidth: G2_SEED_LOTTERY.pixelWidth,
+    pixelHeight: G2_SEED_LOTTERY.pixelHeight,
+    summary: `/alive.html?bare&freeze  900×1200  seed ${seed}  webgpu`,
+    ...overrides,
+  };
+}
+
+function staleWarnings(report) {
+  return report.warnings.filter((line) => line.startsWith('THE G2 SEED RECORD ABOVE IS STALE'));
+}
+
+function lotteryWarning(report) {
+  return report.warnings.find((line) => line.startsWith('G2 samples an 11×6 px rect')) ?? '';
+}
+
+function testG2SeedRecord() {
+  // The plate has to be the recorded SIZE, because that is half of what makes a number
+  // comparable. Reference sclera against reference cheek gives a ratio of 0.9839 by construction
+  // — the same pair section 3 asserts against the spec — so the record can be pointed at a value
+  // this test knows without measuring the real page.
+  const sclera = hexToRgb('#9D7274');
+  const cheek = hexToRgb('#96767D');
+  const width = G2_SEED_LOTTERY.pixelWidth;
+  const height = G2_SEED_LOTTERY.pixelHeight;
+  const spec = {
+    units: 'pixels',
+    regions: {
+      sclera: [{ x: 20, y: 20, w: 60, h: 60 }],
+      cheek: [{ x: 400, y: 20, w: 60, h: 60 }],
+    },
+  };
+  const platePath = writeTestImage(
+    'g2-seed-record.png',
+    width,
+    height,
+    paint(width, height, (x) => (x < width / 2 ? sclera : cheek))
+  );
+
+  const plateRatio = gateNamed(measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath), 'G2').measured
+    .ratioEncoded;
+
+  // Swap the real record for one this plate satisfies exactly, then put it back. Mutating the
+  // record rather than the plate is the honest direction: it is the record that rotted.
+  const realRatios = { ...G2_SEED_LOTTERY.lumaRatioBySeed };
+  const restore = () => {
+    G2_SEED_LOTTERY.lumaRatioBySeed = realRatios;
+  };
+
+  // --- 1. the record must reproduce, and must SAY SO when it does not --------------------------
+  G2_SEED_LOTTERY.lumaRatioBySeed = { ...realRatios, 1: plateRatio };
+  const agreeing = measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath);
+  expectEqual('a record that reproduces on the plate raises NO stale warning', staleWarnings(agreeing).length, 0);
+  expectEqual(
+    'and the lottery sentence is not marked historical',
+    lotteryWarning(agreeing).includes('HISTORICAL AND KNOWN STALE'),
+    false
+  );
+
+  // The smallest drift the real defect produced: seed 20260807 went 0.4384 → 0.4390. A check that
+  // only catches the big movers would have let that one through, so it is the one asserted.
+  const smallestRealDrift = 0.0006;
+  G2_SEED_LOTTERY.lumaRatioBySeed = { ...realRatios, 1: round(plateRatio - smallestRealDrift, 4) };
+  const drifted = measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath);
+  expectEqual(
+    `a record 0.0006 off — the SMALLEST real drift — is caught`,
+    staleWarnings(drifted).length,
+    1
+  );
+  expectEqual(
+    'and the lottery sentence disowns itself in the same report',
+    lotteryWarning(drifted).includes('HISTORICAL AND KNOWN STALE'),
+    true
+  );
+  expectEqual(
+    'the stale warning names BOTH numbers, so nobody has to go and find them',
+    (staleWarnings(drifted)[0] ?? '').includes(round(plateRatio, 4).toFixed(4)) &&
+      (staleWarnings(drifted)[0] ?? '').includes((plateRatio - smallestRealDrift).toFixed(4)),
+    true
+  );
+
+  // And the whole-round defect at its real magnitude, for the record.
+  G2_SEED_LOTTERY.lumaRatioBySeed = { ...realRatios, 1: round(plateRatio - 0.0291, 4) };
+  expectEqual(
+    'the actual 2026-08-08 drift on seed 1 (0.0291) is caught',
+    staleWarnings(measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath)).length,
+    1
+  );
+
+  // --- 2. and it must stay QUIET on plates it cannot judge -------------------------------------
+  //
+  // A check that cries stale on a page it was never measured on gets switched off inside a day,
+  // and then defect 1 is back. Every one of these differs from the record in exactly one way, on
+  // a plate whose ratio is 0.0291 away from what the record claims.
+  const notComparable = [
+    ['an unrecorded seed', g2RecordProvenance(7, { page: CAPTURE_URL_AS_WRITTEN.replace('seed=1', 'seed=7') })],
+    ['a different page', g2RecordProvenance(1, { page: 'http://localhost:5188/skin.html?bare=&freeze=' })],
+    ['a different framing flag', g2RecordProvenance(1, { page: 'http://localhost:5188/alive.html?bare=&freeze=&frame=body' })],
+    ['a pre-rolled motion state', g2RecordProvenance(1, { prerollSeconds: 6 })],
+    ['no provenance at all', { source: 'none', known: false, summary: 'UNKNOWN PAGE' }],
+  ];
+  for (const [what, provenance] of notComparable) {
+    expectEqual(
+      `no stale claim on ${what}`,
+      staleWarnings(measureFile(platePath, spec, provenance, G2_SEED_LOTTERY.regionsPath)).length,
+      0
+    );
+  }
+
+  // A different SIZE is the same class and needs its own plate, because the size compared is the
+  // image's. 900×1200 rects on a 450×600 plate are not the recorded measurement.
+  const halfSpec = {
+    units: 'pixels',
+    regions: {
+      sclera: [{ x: 20, y: 20, w: 60, h: 60 }],
+      cheek: [{ x: 300, y: 20, w: 60, h: 60 }],
+    },
+  };
+  const halfPath = writeTestImage(
+    'g2-seed-record-half.png',
+    width / 2,
+    height / 2,
+    paint(width / 2, height / 2, (x) => (x < width / 4 ? sclera : cheek))
+  );
+  expectEqual(
+    'no stale claim on a different resolution',
+    staleWarnings(measureFile(halfPath, halfSpec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath)).length,
+    0
+  );
+
+  // And the region spec, which is the other half of what a G2 ratio is a statement about. The
+  // body spec samples different rectangles on the same page at the same size — a legitimately
+  // different number, and crying stale at it would train people to ignore the warning.
+  expectEqual(
+    'no stale claim through a different region spec',
+    staleWarnings(
+      measureFile(platePath, spec, g2RecordProvenance(1), 'tools/critic/regions.lighting-body.json')
+    ).length,
+    0
+  );
+  restore();
+
+  // --- 3. the comparability contract, against the URL capture.mjs actually writes ---------------
+  //
+  // Silence is the failure mode with no symptom. If canonicalPageKey and the record's pageKey ever
+  // stop agreeing on the shape capture.mjs emits, every check above passes and the mechanism is
+  // dead. Pin the shape itself.
+  expectEqual(
+    'capture.mjs\'s own URL shape canonicalises to the record\'s pageKey',
+    canonicalPageKey(CAPTURE_URL_AS_WRITTEN),
+    G2_SEED_LOTTERY.pageKey
+  );
+  expectEqual(
+    'and the run-naming keys are what get dropped, not the render-deciding ones',
+    canonicalPageKey('/alive.html?freeze&bare&seed=4242&capture=1'),
+    G2_SEED_LOTTERY.pageKey
+  );
+  expectEqual(
+    'a framing flag is NOT dropped — it is a different render',
+    canonicalPageKey('/alive.html?bare=&freeze=&frame=body') === G2_SEED_LOTTERY.pageKey,
+    false
+  );
+
+  // --- 4. the verdict is counted, not typed -----------------------------------------------------
+  //
+  // The original sentence carried "a 2.2× spread, two of four passing" as English. Recompute both
+  // here from the record and TARGETS and require the printed sentence to agree — and then move the
+  // record and require the sentence to move with it, which is the part a hand-typed verdict fails.
+  const printed = lotteryWarning(measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath));
+  const ratios = Object.values(G2_SEED_LOTTERY.lumaRatioBySeed);
+  const low = TARGETS.scleraCheekRatio - TARGETS.scleraCheekTolerance;
+  const high = TARGETS.scleraCheekRatio + TARGETS.scleraCheekTolerance;
+  const inBand = ratios.filter((ratio) => ratio >= low && ratio <= high).length;
+  const spread = Math.max(...ratios) / Math.min(...ratios);
+
+  expectEqual('the printed spread is the computed one', printed.includes(`${round(spread, 1)}× spread`), true);
+  expectEqual(
+    'the printed pass count is the counted one',
+    printed.includes(`${inBand} of ${ratios.length} inside the luma band`),
+    true
+  );
+  expectEqual(
+    'and every recorded value is printed at the 4 dp the tolerance assumes',
+    ratios.every((ratio) => printed.includes(ratio.toFixed(4))),
+    true
+  );
+
+  // Move the data; the verdict has to move on its own. With all four seeds inside the band the
+  // count must read 4 of 4 and the spread must collapse to 1.0 — neither is reachable by editing
+  // the record alone if the sentence is typed.
+  G2_SEED_LOTTERY.lumaRatioBySeed = { 1: 0.98, 42: 0.98, 4242: 0.98, 20260807: 0.98 };
+  const moved = lotteryWarning(measureFile(platePath, spec, g2RecordProvenance(42), G2_SEED_LOTTERY.regionsPath));
+  expectEqual('a re-measured record moves the pass count with it', moved.includes('4 of 4 inside the luma band'), true);
+  expectEqual('and the spread with it', moved.includes('1× spread'), true);
+  restore();
+
+  // --- 5. the zombie guard ----------------------------------------------------------------------
+  //
+  // The four superseded values must not appear in ANY string the report prints. This is the one
+  // assertion that names the old numbers, and it names them only to forbid them.
+  const superseded = ['0.8127', '0.9627', '0.9736', '0.4384'];
+  const printedStrings = [];
+  const report = measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath);
+  printedStrings.push(...report.warnings);
+  for (const gate of report.gates) {
+    for (const key of ['target', 'note', 'reason']) if (gate[key]) printedStrings.push(gate[key]);
+    printedStrings.push(...(gate.failures ?? []));
+  }
+  expectEqual(
+    'no superseded G2 seed value survives anywhere in a printed report',
+    superseded.filter((value) => printedStrings.some((line) => line.includes(value))).join(',') || 'none',
+    'none'
+  );
 }
 
 // ============================================================================================
@@ -984,6 +1344,7 @@ function run() {
   testKeyShadowRatio();
   testScleraRatio();
   testProvenance();
+  testG2SeedRecord();
   testFrameSequenceComparison();
   testTerminatorShift();
   testHighPassSigma();

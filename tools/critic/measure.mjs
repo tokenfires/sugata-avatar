@@ -7,8 +7,9 @@
 // properties of the reference or it does not, and the number says which.
 //
 //   G1  face key:shadow luma ratio     < 2:1
-//   G2  sclera vs cheek, BOTH halves:  luma ≈ 0.98 (±0.06) AND chroma ≈ 1.28× (the sclera is
-//       more saturated than skin — one spec sentence, two measurable properties)
+//   G2  sclera vs cheek, ALL THREE clauses: luma ≈ 0.98 (±0.06) AND chroma ≈ 1.28× AND the hue
+//       stays in the cheek's warm family (the sclera is the same brightness as skin, more
+//       saturated than skin, and PINK — one spec sentence, three measurable properties)
 //   G3  shadow terminator gets MORE saturated and REDDER than lit skin  (SSS correctness)
 //   G4  flat-skin 5×5 high-pass σ      1.5–2.1 / 255 at 4K
 //   G5  fraction of pixels above 0.99 luma  < 0.5%
@@ -109,6 +110,55 @@ const TARGETS = {
   cheekHexReference: '#96767D',
   scleraCheekSaturationTolerance: 0.06 / 0.98,
 
+  // 🎯 AND THE THIRD CLAUSE OF THE SAME SENTENCE, which the second one did not rescue.
+  //
+  // 🚩 THE FIX FOR A HALF-MEASURED SENTENCE WAS ITSELF A HALF-MEASURED SENTENCE. Adding the
+  // saturation half above closed the grey eyeball and nothing else, because luma and saturation
+  // are TWO numbers and a colour is THREE. Fix an encoded luma and an HSV saturation and what is
+  // left is not a point — it is the whole hue circle, a one-dimensional manifold of colours every
+  // one of which satisfied both clauses. MEASURED, on a 900×1200 plate filling this repo's own
+  // sclera and cheek rects: sclera RGB (97,134,97), a flat GREEN eyeball at hue 120°, solved to
+  // carry the reference's encoded luma (0.4842 against the reference #9D7274's 0.4835) and the
+  // reference's HSV saturation (0.2761 against 0.2739) — and PASSED G2 at ratioEncoded 0.9853,
+  // saturationRatio 1.2943, against the reference plate's own 0.9839. Grey was caught; green,
+  // blue, cyan and yellow were not. The known-bad the round proved the half against was simply
+  // the one point on that manifold with no chroma at all.
+  //
+  // So the repair is not a fourth tolerance — it is making the assertion COMPLETE over the
+  // quantity it is about. Three clauses on (encodedLuma, saturation, hue) is a full basis for a
+  // colour: no free dimension remains, and there is no fifth clause to discover next round.
+  //
+  // The spec sentence's third word for the sclera is "pink-tinted", and the hue clause is judged
+  // the way the other two are — RELATIONALLY, against the cheek in the same plate under the same
+  // key. An absolute hue band would have to be invented; this one is measured. From the spec's
+  // own two published hexes, via the same hueDistanceFromRed() G3 already uses:
+  //
+  //     sclera #9D7274 → hue 357.209°, i.e. 2.791° from red
+  //     cheek  #96767D → hue 346.875°, i.e. 13.125° from red
+  //     the sclera is 10.334° CLOSER to red than the skin beside it
+  //
+  //   ORDINAL-WITH-SLACK — hueDistanceFromRed(sclera) ≤ hueDistanceFromRed(cheek) + 10.334°.
+  //             Direction is the spec sentence verbatim: pinker than the skin, not less pink. The
+  //             slack is not chosen either — it is that same measured 10.334° separation, spent
+  //             the other way, exactly as the band clause above spends the luma half's own
+  //             relative tolerance rather than inventing one. Read it as: a sclera may sit one
+  //             full reference-separation on the WRONG side and still be in the family; two
+  //             cannot. Recomputed at run time from the hexes, never transcribed.
+  //
+  // Symmetric about red by construction, because hueDistanceFromRed is: an orange sclera 30° above
+  // red and a magenta one 30° below are equally far outside the reference's family, and the gate
+  // says so with one number instead of two. That is the same primitive and the same reasoning G3
+  // uses for the terminator — reused, not re-derived.
+  //
+  // ⚠️ The hue clause does NOT catch grey, and must not be expected to: rgbToHsv reports hue 0 for
+  // a fully desaturated colour, so grey scores 0° from red and sails through. Grey is the ORDINAL
+  // saturation clause's job. Each clause covers one axis; none of them covers another's.
+  //
+  // ⚠️ Relational, so it inherits the same property the other two clauses have: a render whose
+  // CHEEK hue is wrong widens the sclera's allowance. G2 is a gate about the eye against the skin
+  // beside it, not about whether the skin itself is the right colour — that is G3's axis and the
+  // look spec's §2. Do not quietly turn this into an absolute skin-hue gate; write a new one.
+
   // §2 skin: saturation RISES into shadow (0.15–0.25 lit → 0.23–0.26 shadow → 0.41 in
   // transmission) and hue shifts red. The gate is RELATIONAL — the absolute band is reported
   // but not enforced, because it depends on the key colour of the shot being measured.
@@ -173,6 +223,67 @@ const TARGETS = {
   cardBandOutlierFractionMax: 0.001,
 };
 
+// --- observations of OUR OWN RENDER, which are NOT targets and DO rot -------------------------
+//
+// Everything in TARGETS above is a property of the REFERENCE. Stellar Blade does not ship a patch
+// tonight, so a literal is a safe home for those numbers. Everything in this block is the other
+// kind of number entirely — a measurement of the SUBJECT UNDER TEST — and it moves every time the
+// subject moves.
+//
+// 🚩 THE TWO KINDS SHARED A REPRESENTATION ONCE, AND THE INSTRUMENT PRINTED A FALSE NUMBER ON
+// EVERY REPORT IT PRODUCED FOR A WHOLE ROUND. The G2 seed distribution below used to live inside
+// the warning string itself, as English prose with a hand-typed verdict: "…G2 luma reads 0.8127 /
+// 0.9627 / 0.9736 / 0.4384 at seeds 1 / 42 / 4242 / 20260807 — a 2.2× spread, two of four
+// passing." Six commits of render work later, all four values had moved and only ONE of four
+// still passed — and nothing in the repo could notice, because prose carries no provenance, no
+// date, and no way to be compared against the plate in front of the tool. The one place in the
+// round where the objective instrument was itself the liar.
+//
+// So: the observation is DATA, the sentence is DERIVED from it (the spread and the pass count are
+// computed against TARGETS, never typed), and the tool CHECKS the record against the plate it is
+// measuring whenever that plate is one of the recorded seeds at the recorded page and size. A
+// stale record can still be printed. It can no longer be printed silently.
+//
+// Re-measured 2026-08-08 at build 82260d4, one frame each, nothing else changed:
+//
+//     node tools/critic/capture.mjs --url "/alive.html?bare&freeze&capture" --seconds 0.034 \
+//          --width 900 --height 1200 --seed <n> --keep-frames --out <dir>
+//     node tools/critic/measure.mjs <dir>/frames/frame-00001.png \
+//          tools/critic/regions.lighting-portrait.json
+//
+//     seed 1        G2 luma 0.7836   sclera 0.6129   cheek 0.7822   FAIL
+//     seed 42       G2 luma 0.9189   sclera 0.7242   cheek 0.7881   FAIL
+//     seed 4242     G2 luma 0.9292   sclera 0.7313   cheek 0.7870   PASS
+//     seed 20260807 G2 luma 0.4390   sclera 0.3406   cheek 0.7759   FAIL
+//
+// The last row is not noise and it is not inherited from the previous comment: the two plates
+// were cropped 70×50 px around the rect, magnified 8× with the rect outlined, and LOOKED AT. At
+// 4242 the rect sits on clean sclera; at 20260807 the gaze has carried the iris and limbal ring
+// underneath it, so half the sample is iris. Same rect, same page, different draw of the seed.
+const G2_SEED_LOTTERY = {
+  measuredAt: '2026-08-08',
+  build: '82260d4',
+
+  // The configuration the record is only valid in. All three have to match the plate being
+  // measured before the reproduction check below is allowed to say anything: a different page, a
+  // different framing or a pre-rolled motion state is a different measurement, not a stale one.
+  pageKey: '/alive.html?bare&freeze',
+  pixelWidth: 900,
+  pixelHeight: 1200,
+  regionsPath: 'tools/critic/regions.lighting-portrait.json',
+
+  /** seed → G2 encoded luma ratio, at the 4 dp the report prints. */
+  lumaRatioBySeed: { 1: 0.7836, 42: 0.9189, 4242: 0.9292, 20260807: 0.439 },
+
+  // The record is printed to 4 dp, so it has to be TRUE to 4 dp: half a unit in the last place.
+  // Not a guess about noise. MEASURED — six independent browser processes, seed 1, same page and
+  // size, returned 0.7836 every time, spread 0.0000 (capture.mjs reported 1/1 bit-identical,
+  // worst residue 0 px at Δ0/255 on each). And the drift this check has to catch is bigger than
+  // it even at its smallest: seed 20260807 moved 0.4384 → 0.4390 across the integration commit
+  // while seeds 42 and 4242 moved by 0.044.
+  reproductionTolerance: 0.0005,
+};
+
 // A 16-bit histogram resolves the black point to ~1.5e-5, which is two orders of magnitude
 // finer than the 0.004–0.016 band G6 cares about, and costs 256 KB instead of sorting 8M floats.
 const HISTOGRAM_BINS = 65536;
@@ -206,11 +317,16 @@ function measureAll(image, regions, spec, options, provenance) {
   // One pass builds the encoded-luma field that three of the six gates read from. Everything
   // downstream reads this instead of touching raw pixels again.
   const lumaField = buildEncodedLumaField(image);
-  const warnings = collectCaptureWarnings(image, spec, provenance);
+
+  // G2 is measured before the warnings rather than with the rest, because one of the warnings is
+  // about G2's own seed record and can only be honest if it can compare that record against the
+  // number this plate actually produced.
+  const scleraGate = measureScleraAgainstCheek(image, regions);
+  const warnings = collectCaptureWarnings(image, spec, provenance, scleraGate, options.regionsPath);
 
   const gates = [
     measureKeyShadowRatio(image, regions),
-    measureScleraAgainstCheek(image, regions),
+    scleraGate,
     measureTerminatorShift(image, regions, warnings),
     measureHighPassSigma(image, lumaField, regions, warnings, provenance),
     measureHighlightClipping(image, lumaField, regions),
@@ -377,13 +493,15 @@ function measureKeyShadowRatio(image, regions) {
 }
 
 // G2 — a white eyeball instantly breaks the look. The reference sclera measures the SAME
-// luminance as the cheek beside it, from heavy lid AO plus sclera SSS, AND is more saturated than
-// the skin beside it. Both halves are gated; see TARGETS for why the second one exists.
+// luminance as the cheek beside it, from heavy lid AO plus sclera SSS, IS more saturated than the
+// skin beside it, AND is pink rather than some other colour at that brightness and saturation.
+// All three clauses of the one spec sentence are gated; see TARGETS for why the last two exist,
+// and for the green eyeball that passed when only the first two did.
 function measureScleraAgainstCheek(image, regions) {
   const sclera = regions.sclera;
   const cheek = regions.cheek;
   if (!sclera || !cheek) {
-    return skipGate('G2', 'sclera : cheek luma and chroma', 'needs regions "sclera" and "cheek"');
+    return skipGate('G2', 'sclera : cheek luma, chroma and hue', 'needs regions "sclera" and "cheek"');
   }
 
   const white = summariseRegion(image, sclera);
@@ -393,10 +511,14 @@ function measureScleraAgainstCheek(image, regions) {
   const low = TARGETS.scleraCheekRatio - TARGETS.scleraCheekTolerance;
   const high = TARGETS.scleraCheekRatio + TARGETS.scleraCheekTolerance;
 
-  const reference = referenceScleraSaturationRatio();
+  const reference = referenceScleraAgainstCheek();
   const saturationRatio = skin.saturation === 0 ? Infinity : white.saturation / skin.saturation;
   const saturationLow = reference.ratio * (1 - TARGETS.scleraCheekSaturationTolerance);
   const saturationHigh = reference.ratio * (1 + TARGETS.scleraCheekSaturationTolerance);
+
+  // The warm arc this plate's own cheek defines, widened by the reference's own sclera-to-cheek
+  // hue separation. Measured against the cheek in the same frame, never against an absolute hue.
+  const hueCeiling = skin.hueDistanceFromRed + reference.hueSeparation;
 
   const failures = [];
   if (ratio < low || ratio > high) {
@@ -417,16 +539,27 @@ function measureScleraAgainstCheek(image, regions) {
         `${round(saturationLow, 3)}–${round(saturationHigh, 3)}× (reference ${round(reference.ratio, 4)}×)`
     );
   }
+  if (white.hueDistanceFromRed > hueCeiling) {
+    failures.push(
+      `hue clause: the sclera is ${round(white.hueDistanceFromRed, 2)}° from red (hue ` +
+        `${round(white.hue, 2)}°, ${white.hex}) — the spec says pink-tinted, and the cheek beside it ` +
+        `sits at ${round(skin.hueDistanceFromRed, 2)}°, so the ceiling is ${round(hueCeiling, 2)}° ` +
+        `(one reference separation of ${round(reference.hueSeparation, 2)}° of slack)`
+    );
+  }
 
   return {
     id: 'G2',
-    name: 'sclera : cheek luma and chroma',
+    name: 'sclera : cheek luma, chroma and hue',
     status: failures.length === 0 ? 'PASS' : 'FAIL',
     lumaDomain: 'encoded',
     target:
       `luma ${TARGETS.scleraCheekRatio} ± ${TARGETS.scleraCheekTolerance} (${round(low, 2)}–${round(high, 2)})` +
       ` AND saturation ${round(reference.ratio, 3)}× ± ${round(TARGETS.scleraCheekSaturationTolerance * 100, 1)}%` +
-      ` (${round(saturationLow, 3)}–${round(saturationHigh, 3)}×), sclera never below cheek`,
+      ` (${round(saturationLow, 3)}–${round(saturationHigh, 3)}×), sclera never below cheek` +
+      ` AND hue within ${round(hueCeiling, 2)}° of red` +
+      ` (this plate's cheek at ${round(skin.hueDistanceFromRed, 2)}° + the reference's own` +
+      ` ${round(reference.hueSeparation, 2)}° sclera-to-cheek separation)`,
     measured: {
       ratioEncoded: round(ratio, 4),
       saturationRatio: round(saturationRatio, 4),
@@ -438,24 +571,47 @@ function measureScleraAgainstCheek(image, regions) {
       referenceSaturationRatio: round(reference.ratio, 4),
       referenceScleraSaturation: round(reference.scleraSaturation, 4),
       referenceCheekSaturation: round(reference.cheekSaturation, 4),
+      scleraHue: round(white.hue, 2),
+      cheekHue: round(skin.hue, 2),
+      scleraHueFromRed: round(white.hueDistanceFromRed, 2),
+      cheekHueFromRed: round(skin.hueDistanceFromRed, 2),
+      hueCeilingFromRed: round(hueCeiling, 2),
+      referenceHueSeparation: round(reference.hueSeparation, 2),
+      referenceScleraHueFromRed: round(reference.scleraHueFromRed, 2),
+      referenceCheekHueFromRed: round(reference.cheekHueFromRed, 2),
       scleraHex: white.hex,
       cheekHex: skin.hex,
     },
     failures,
     note:
-      'Two halves of one spec sentence. Luma is judged encoded — a perceptual "reads as the same brightness" match, and 0.98 is the encoded figure the spec measured. ' +
-      `Saturation is judged against ${round(reference.ratio, 4)}×, recomputed here from the spec's own published hexes ` +
-      `(sclera ${TARGETS.scleraHexReference} at S ${round(reference.scleraSaturation, 5)}, cheek ${TARGETS.cheekHexReference} at S ${round(reference.cheekSaturation, 5)}), ` +
-      'not copied from its prose. A grey eyeball that happens to match the cheek\'s brightness passes the luma half alone.',
+      'Three clauses of one spec sentence, on the three axes of a colour — fix any two and the third is still free, which is how a green eyeball at the right luma and saturation passed for a round. ' +
+      'Luma is judged encoded — a perceptual "reads as the same brightness" match, and 0.98 is the encoded figure the spec measured. ' +
+      `Saturation is judged against ${round(reference.ratio, 4)}×, and hue against this plate's own cheek plus the reference's ${round(reference.hueSeparation, 2)}° separation — both recomputed here from the spec's own published hexes ` +
+      `(sclera ${TARGETS.scleraHexReference} at S ${round(reference.scleraSaturation, 5)} and ${round(reference.scleraHueFromRed, 3)}° from red, cheek ${TARGETS.cheekHexReference} at S ${round(reference.cheekSaturation, 5)} and ${round(reference.cheekHueFromRed, 3)}° from red), ` +
+      'not copied from its prose. Note the clauses do not cover for each other: grey is caught by the saturation ordinal and scores 0° from red, so the hue clause waves it through.',
   };
 }
 
-// The reference chroma ratio, derived at run time from the two hexes the spec publishes, so the
-// number in the report is a measurement of the reference rather than a transcription of it.
-function referenceScleraSaturationRatio() {
-  const scleraSaturation = rgbToHsv(...hexToUnitRgb(TARGETS.scleraHexReference)).saturation;
-  const cheekSaturation = rgbToHsv(...hexToUnitRgb(TARGETS.cheekHexReference)).saturation;
-  return { scleraSaturation, cheekSaturation, ratio: scleraSaturation / cheekSaturation };
+// The reference sclera-to-cheek relationship, derived at run time from the two hexes the spec
+// publishes, so the numbers in the report are a measurement of the reference rather than a
+// transcription of it. Both the chroma ratio and the hue separation come from the same pair.
+function referenceScleraAgainstCheek() {
+  const scleraHsv = rgbToHsv(...hexToUnitRgb(TARGETS.scleraHexReference));
+  const cheekHsv = rgbToHsv(...hexToUnitRgb(TARGETS.cheekHexReference));
+
+  const scleraHueFromRed = hueDistanceFromRed(scleraHsv.hue);
+  const cheekHueFromRed = hueDistanceFromRed(cheekHsv.hue);
+
+  return {
+    scleraSaturation: scleraHsv.saturation,
+    cheekSaturation: cheekHsv.saturation,
+    ratio: scleraHsv.saturation / cheekHsv.saturation,
+    scleraHueFromRed,
+    cheekHueFromRed,
+    // Positive in the reference: the sclera is PINKER than the skin beside it. Spent as slack in
+    // the other direction, which is what makes the clause a measurement rather than a preference.
+    hueSeparation: cheekHueFromRed - scleraHueFromRed,
+  };
 }
 
 function hexToUnitRgb(hex) {
@@ -920,7 +1076,7 @@ function percentileFromHistogram(histogram, total, quantile) {
 
 // Things that make a measurement untrustworthy rather than merely failing. Surfaced separately
 // so a red gate is never blamed on the render when the capture itself was wrong.
-function collectCaptureWarnings(image, spec, provenance) {
+function collectCaptureWarnings(image, spec, provenance, scleraGate, regionsPath) {
   const warnings = [];
 
   // Loud, and first, because a number without a page is the one failure mode that has already
@@ -935,24 +1091,13 @@ function collectCaptureWarnings(image, spec, provenance) {
 
   // 🚩 MEASURED, NOT SUSPECTED. The sclera rect is 11×6 px on an eye ~40 px across at the portrait
   // framing, and `?freeze` pins the POSE but not the ocular or postural layers: their state at the
-  // first drawn frame is drawn from the seed. Measured on `alive.html?bare&freeze` at 900×1200,
-  // one frame, four seeds, nothing else changed:
+  // first drawn frame is drawn from the seed. Any single-seed G2 on an animating page is a draw of
+  // the dice, and the 0.9641 that punch-list 3.3 was marked done on is one of them.
   //
-  //     seed 1        G2 luma 0.8127   sclera 0.6107
-  //     seed 42       G2 luma 0.9627   sclera 0.7278
-  //     seed 4242     G2 luma 0.9736   sclera 0.7350
-  //     seed 20260807 G2 luma 0.4384   sclera 0.3277   (the rect has walked onto the iris)
-  //
-  // A 2.2× spread across the gate's own ±6% band, decided entirely by the seed. Two of those four
-  // draws pass. Any single-seed G2 on an animating page is a draw of the dice, and the 0.9641 that
-  // punch-list 3.3 was marked done on is one of them.
+  // The distribution itself lives in G2_SEED_LOTTERY, not in this sentence, and everything
+  // quantitative below is derived from it — see the block above for the round that cost.
   if (spec.regions?.sclera) {
-    warnings.push(
-      'G2 samples an 11×6 px rect on an eye ~40 px across. On an animating page ?freeze pins the POSE but not the ' +
-        'ocular or postural layers, whose state at the first frame comes from the seed: measured on alive.html?bare&freeze ' +
-        'at 900×1200, G2 luma reads 0.8127 / 0.9627 / 0.9736 / 0.4384 at seeds 1 / 42 / 4242 / 20260807 — a 2.2× spread, ' +
-        'two of four passing. Quote G2 as a distribution over a seed set, never as one number.'
-    );
+    warnings.push(...describeG2SeedLottery(image, provenance, scleraGate, regionsPath));
   }
 
   let transparent = 0;
@@ -993,6 +1138,121 @@ function collectCaptureWarnings(image, spec, provenance) {
   }
 
   return warnings;
+}
+
+/**
+ * The G2-is-a-lottery caveat, rendered from G2_SEED_LOTTERY rather than typed.
+ *
+ * Two sentences come out of here and they answer different questions. The first says what the
+ * recorded distribution IS, with the date and build it was taken at, and every quantity in it —
+ * the spread, the pass count, the band — is computed, so the sentence cannot disagree with its
+ * own numbers or with TARGETS. The second says whether the record is still TRUE, by comparing it
+ * against the plate the tool has in its hands. That second one is the whole point: it is the only
+ * mechanism here that can notice the render moving out from under a number nobody re-ran.
+ */
+function describeG2SeedLottery(image, provenance, scleraGate, regionsPath) {
+  const record = G2_SEED_LOTTERY;
+  const low = TARGETS.scleraCheekRatio - TARGETS.scleraCheekTolerance;
+  const high = TARGETS.scleraCheekRatio + TARGETS.scleraCheekTolerance;
+
+  const seeds = Object.keys(record.lumaRatioBySeed);
+  const ratios = seeds.map((seed) => record.lumaRatioBySeed[seed]);
+  const spread = Math.max(...ratios) / Math.min(...ratios);
+  const inBand = ratios.filter((ratio) => ratio >= low && ratio <= high).length;
+
+  const reproduction = checkG2RecordAgainstPlate(image, provenance, scleraGate, regionsPath);
+  const standing = reproduction.stale
+    ? 'HISTORICAL AND KNOWN STALE — see the next warning'
+    : `recorded ${record.measuredAt} at build ${record.build}`;
+
+  const lines = [
+    'G2 samples an 11×6 px rect on an eye ~40 px across. On an animating page ?freeze pins the POSE but not the ' +
+      'ocular or postural layers, whose state at the first frame comes from the seed. On ' +
+      `${record.pageKey} at ${record.pixelWidth}×${record.pixelHeight} (${standing}) G2 luma reads ` +
+      `${ratios.map((ratio) => ratio.toFixed(4)).join(' / ')} at seeds ${seeds.join(' / ')} — a ` +
+      `${round(spread, 1)}× spread, ${inBand} of ${seeds.length} inside the luma band ${round(low, 2)}–${round(high, 2)}. ` +
+      'Quote G2 as a distribution over a seed set, never as one number.',
+  ];
+
+  if (reproduction.message) lines.push(reproduction.message);
+  return lines;
+}
+
+/**
+ * Does the recorded distribution still reproduce on THIS plate?
+ *
+ * Only answerable when the plate is the same page, the same pixel size, the same un-pre-rolled
+ * motion state and one of the recorded seeds — anything else is a different measurement rather
+ * than a disagreeing one, and a check that cried stale on those would be turned off within a day.
+ * When it is answerable it is decisive, because at a pinned seed this render is deterministic to
+ * 0.0000 across processes (see the record's tolerance).
+ */
+function checkG2RecordAgainstPlate(image, provenance, scleraGate, regionsPath) {
+  const record = G2_SEED_LOTTERY;
+  const recorded = record.lumaRatioBySeed[provenance?.seed];
+
+  // The size compared is the IMAGE's, not the manifest's, because the rects are in pixels and it
+  // is the pixels that were measured. A manifest can describe a plate that was later cropped.
+  //
+  // The rects matter as much as the plate does — a G2 ratio is a statement about two rectangles,
+  // and the same page measured through a different region spec is a different measurement, not a
+  // disagreeing one. Compared by file name because callers pass this path relative, absolute and
+  // from other working directories, and the name is what distinguishes the committed specs.
+  const comparable =
+    provenance?.known === true &&
+    recorded !== undefined &&
+    !provenance.prerollSeconds &&
+    canonicalPageKey(provenance.page) === record.pageKey &&
+    image.width === record.pixelWidth &&
+    image.height === record.pixelHeight &&
+    path.basename(regionsPath ?? '') === path.basename(record.regionsPath) &&
+    scleraGate?.measured?.ratioEncoded !== undefined;
+
+  if (!comparable) return { stale: false, message: null };
+
+  const measured = scleraGate.measured.ratioEncoded;
+  const delta = Math.abs(measured - recorded);
+  if (delta <= record.reproductionTolerance) return { stale: false, message: null };
+
+  return {
+    stale: true,
+    message:
+      'THE G2 SEED RECORD ABOVE IS STALE — DO NOT QUOTE IT. This plate is the configuration the record was measured ' +
+      `in (${record.pageKey}, ${record.pixelWidth}×${record.pixelHeight}, seed ${provenance.seed}) and it reads ` +
+      `${round(measured, 4)} where the record says ${recorded.toFixed(4)} — Δ${round(delta, 4)} against a tolerance of ` +
+      `${record.reproductionTolerance}. The render has moved out from under the record. Re-measure all ` +
+      `${Object.keys(record.lumaRatioBySeed).length} seeds and update G2_SEED_LOTTERY in tools/critic/measure.mjs; ` +
+      'the capture and measure commands are in the comment above it.',
+  };
+}
+
+/**
+ * A page URL reduced to the things that decide what was rendered: the path and the set of query
+ * FLAGS, minus the two that name the run rather than the render (`capture`, `seed`). So
+ * `/alive.html?bare=&freeze=&capture=1&seed=42` and `/alive.html?freeze&bare` are one page.
+ */
+function canonicalPageKey(page) {
+  if (!page) return null;
+
+  let pathname = page;
+  let search = '';
+  try {
+    const url = new URL(page);
+    pathname = url.pathname;
+    search = url.search;
+  } catch {
+    const queryStart = page.indexOf('?');
+    if (queryStart >= 0) {
+      pathname = page.slice(0, queryStart);
+      search = page.slice(queryStart);
+    }
+  }
+
+  const flags = [...new URLSearchParams(search).keys()]
+    .filter((key) => key !== 'capture' && key !== 'seed')
+    .sort();
+
+  return flags.length > 0 ? `${pathname}?${flags.join('&')}` : pathname;
 }
 
 function skipGate(id, name, reason) {
@@ -1128,4 +1388,4 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
 }
 
-export { measureAll, resolveRegions, TARGETS };
+export { measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY };
