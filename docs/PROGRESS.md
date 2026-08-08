@@ -12,9 +12,11 @@
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: **2026-08-08, second docs-and-instrument pass, build `c70195c`.**
+Last updated: **2026-08-08, third pass, HEAD `1985425`, `packagesDigest 78bdabba19b059e0`.**
 
-**🎯 The finding of this round: `?freeze` is INERT under `?capture`, so most of the still-plate numbers in these docs are measurements of a moving figure.** `alive.js`'s rAF path guards `advanceSimulation` with `if ( frozen === false )`; `window.__SUGATA_STEP__`, the clock `capture.mjs` drives, does not. `?freeze&capture` is byte-identical to `?capture`, and one step at 30 fps already puts the head at 0.83° of gaze yaw with the 11×6 px G2 rect walking toward the iris. Re-taken free-running at each gate's own reference width, **six of the seven objective gates are green** (G1 1.6265, G2 0.9372, G3 pass, G4 1.7469, G5 pass, G7 0.0739%, G6 the one red), and G2's famous "seed lottery" turns out to be a property of the capture recipe — free-running, four seeds produce one byte-identical PNG. **Punch-list 3.3's G2 gate is green again on the recipe its region file was authored against.**
+**🎯 The finding of this round: the shipped default plate is not reproducible from its own identity, so a single gate number taken on it is a draw rather than a value — and the headline that rested on one was wrong.** Page, framing, seed, recipe, build and step count all fixed, six consecutive loads of `alive.html?bare&freeze&seed=1&capture` at 3840×5120 return **five distinct PNGs** differing on 56.4% of pixels. `?capture` pins simulation time and does not pin render state: the grade's grain phase (`frameId % 4096`) and `TRAANode`'s Halton `_jitterIndex` both ride on the renderer's frame counter, which at the first captured step is whatever the page rendered during boot — measured 15 / 16 / 17 / 18 across four loads. **Consequence: 8.1 is FIVE of seven, not six.** Over 14 draws at HEAD, G2 reads **0.9194–0.9198 and fails all 14 times**; the `0.9201 PASS` this file and PUNCHLIST both carried never recurred and was one ten-thousandth inside the band floor when it was written down. The `?aa=msaa&grade=0` A side is byte-identical across every load and reproduces its recorded G1 1.6180 / G2 0.9221 / G4 1.7469 / G7 0.0742% to five decimals, which is what says the harness is sound and the shipped row is not.
+
+**✅ And the previous round's headline is RETRACTED: `?freeze` HOLDS under `?capture` now.** It was inert before `c9fa59c` and that fix landed. Proven at HEAD on the byte-reproducible forward path: `?bare&freeze&seed=1&capture&aa=msaa&grade=0` at 1, 60 and 300 steps returns one sha256 (`afd763f45354…`), free-running returns the same bytes, and dropping `?freeze` makes 1 step differ from 60. The free-running G1 1.6265 / G2 0.9372 / G7 0.0739% recorded here at `c70195c` do **not** reproduce at HEAD under either AA/grade configuration; do not quote 0.9372.
 
 **The instrument gained two-sidedness and stopped guessing.** G1 was `< 2.00` only, so 1.344 linear read green against a reference band of 1.43–1.64; it is now two-sided and says which end. G2's hue clause folded the colour circle (`min(hue, 360−hue)`), so a magenta sclera beside an orange cheek passed; it now asserts the side, with the neutral zone derived from the reference sclera's own 2.791° from red so the clause provably cannot reject the spec's palette. `travel.mjs`'s auto threshold was three underived constants that put the cut at 0.1938 on a histogram whose valley is at 0.3588 — which is why a judge pinned `--threshold 0.30` by hand on every measurement; it is now Otsu's cut with a separability refusal, and it **refuses to guess** rather than reporting the centroid of the lit side of a cheek as travel.
 
@@ -80,7 +82,7 @@ the emote critic loop run in parallel with renderer work.
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
 | 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ✅ 2.11 CLOSED 2026-08-08 — all four layers are frame-rate invariant and each rejects a `frameCoupledArrivals` reintroduction |
-| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.4, 3.8, 3.11, 3.16 done, each with a gate and a measured number in PUNCHLIST.** 3.2 half green (G4 1.7469 PASS at 3840; the terminator half needs 3.2b). **3.3's G2 is GREEN again** on a genuinely frozen plate — the reds were `?capture` artefacts — and stays `[~]` pending a visual judge. 3.9, 3.12, 3.13, 3.17, 3.18 all **built and committed** (`SkinOcclusion`, `TRAAPost` + `MorphVelocity`, `Grade`, `GroundContact`, `SkinRegions`); the four "built and uncommitted" notes were stale. None is done: 3.12 blocked on the MSAA/TRAA exclusion, 3.13 on G6 measuring eyelashes, 3.9/3.17/3.18 on having no MEASURED plate result. Hair, cloth and AO not started |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **3.1, 3.4, 3.8, 3.11, 3.16 done, each with a gate and a measured number in PUNCHLIST.** 3.2 half green (G4 1.7469 PASS at 3840 on `?aa=msaa&grade=0`, 1.6227–1.6362 on the shipped default; the terminator half needs 3.2b). **3.3's G2 is RED on the shipped default and green on the A side** — 0.9194–0.9198 over 14 draws with TAAU + grade against 0.9221 with MSAA and no grade, MARGINAL both ways at 0.0002–0.0021 from the 0.92 floor. It stays `[~]`; the "GREEN again" recorded here was measured at `c70195c` before TAAU + grade became the default and does not reproduce. 3.9, 3.12, 3.13, 3.17, 3.18 all **built and committed** (`SkinOcclusion`, `TRAAPost` + `MorphVelocity`, `Grade`, `GroundContact`, `SkinRegions`); the four "built and uncommitted" notes were stale. None is done: 3.12 blocked on the MSAA/TRAA exclusion, 3.13 on G6 measuring eyelashes, 3.9/3.17/3.18 on having no MEASURED plate result. Hair, cloth and AO not started |
 | 4 | Speech — viseme timeline, TTS, coarticulation | not started |
 | 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
@@ -96,18 +98,27 @@ measurements of a figure already in motion.** One step at 30 fps puts the head a
 yaw; four steps put it at 7.18° and drag G1 from 1.5976 to 1.2106. Re-taken free-running at each
 gate's own reference width on `alive.html?bare&freeze&seed=1`:
 
-| gate | measured | verdict | note |
+⚠️ **SUPERSEDED 2026-08-08 (third pass). Read the table at the top of this file and PUNCHLIST's
+seven-gate block instead.** Two of the four claims in this section measured false at HEAD
+`1985425`: `?freeze` is no longer inert under `?capture` (fixed in `c9fa59c`), and the free-running
+G1 1.6265 / G2 0.9372 / G7 0.0739% below do not reproduce under either AA/grade configuration —
+`c70195c` predates TAAU + grade becoming the default, so this table describes the old forward
+default. **Do not quote 0.9372.** The 1.5547 body-framing figure could not be reproduced from any
+configuration and is withdrawn. Kept as written because the reasoning about step count is still
+correct and is what the fix was built on.
+
+| gate | measured at `c70195c` | verdict then | note |
 |---|---|---|---|
-| G1 | 1.6265 linear | PASS | inside the 1.43–1.64 band; **1.5547 at body framing**, where 1.2104 was recorded |
-| G2 | 0.9372 luma, 1.29× sat | **PASS, all four clauses** | 0.9200 at 900 px; four seeds byte-identical |
+| G1 | 1.6265 linear | PASS | inside the 1.43–1.64 band; the **1.5547 at body framing** here is withdrawn |
+| G2 | 0.9372 luma, 1.29× sat | PASS, all four clauses | 0.9200 at 900 px; four seeds byte-identical. **Does not reproduce at HEAD** |
 | G3 | saturation rises, hue reddens | PASS | still cannot certify a material — passes on stock too |
-| G4 | **1.7469** /255 at 3840 px | PASS | mid-band. The same plate reads 2.1849 at 900 px, where the band does not apply |
+| G4 | **1.7469** /255 at 3840 px | PASS | mid-band. The same plate reads 2.1849 at 900 px, where the band does not apply. This one DOES reproduce, on `?aa=msaa&grade=0` |
 | G5 | 0.0002% clipped | PASS | |
-| G6 | 0.00001 | **FAIL** | `?cards=0` → 0.00393. It is measuring eyelashes, not a black point |
+| G6 | 0.00001 | FAIL | `?cards=0` → 0.00393. It is measuring eyelashes, not a black point |
 | G7 | 0.0739% of the band | PASS | |
 
-**Six of seven, and G6's red is the instrument.** Diff request filed against
-`packages/testbed/src/alive.js` for the `?freeze`/`?capture` contradiction.
+**Six of seven was the reading at `c70195c`; it is five of seven at HEAD.** The diff request filed
+against `packages/testbed/src/alive.js` for the `?freeze`/`?capture` contradiction was actioned.
 
 **Three gates were one-sided or folded, and are not any more.**
 
@@ -1448,9 +1459,21 @@ genuinely frozen page, both rows in one run so `packagesDigest` cannot differ:
 | configuration | G1 | G2 | G4 | G5 | G6 | G7 |
 |---|---:|---:|---:|---:|---:|---:|
 | `?aa=msaa&grade=0` | 1.6180 | 0.9221 | 1.7469 | 2e-06 | 0.00001 | 0.00074 |
-| **shipped** | 1.6636 | 0.9201 | **1.6315** | 2e-06 | 0.00001 | 0.00077 |
+| **shipped**, 14 loads | 1.6633–1.6638 | 0.9194–0.9198 | 1.6227–1.6362 | 1e-06–2e-06 | 0.00001 | 0.000721–0.000767 |
 
-Six of seven green on both; G4 better centred. The decider is edges: single-pixel silhouette jumps
+G2 is MARGINAL on both rows: 0.9221 clears the 0.92 floor by 0.0021 and 0.9198 misses it by 0.0002,
+against a measured load-to-load spread of 0.0004.
+
+🚩 **THE SHIPPED ROW WAS `1.6636 | 0.9201 | 1.6315 | 2e-06 | 0.00001 | 0.00077` AND WAS CALLED SIX
+OF SEVEN. It is five of seven and the row is a range.** Re-measured at HEAD `1985425` over 14 loads
+(10 captured, 4 free-running): every draw fails G2, the maximum observed is 0.9198, and 0.9201
+never recurs. The MSAA row is byte-identical across loads and reproduces to five decimals, which is
+what separates a harness fault from a render one. MARGINAL: both rows sit within 0.0021 of the 0.92
+floor against a 0.0004 load-to-load spread, so neither verdict is a statement about the eye
+shader — it is a statement about an 11×6 px rect. See the third-pass section below.
+
+G4 is better centred on the shipped row, but **26% of that is film grain** — `?grain=0` takes it to
+1.1951–1.1960, below the 1.5 floor. The decider is edges: single-pixel silhouette jumps
 go **67.9% → 17.9%** at 900 px, and the eyelash/brow cards **44.5% → 30.8%** — which reverses
 3.12's long-standing claim that losing alpha-to-coverage would cost card anti-aliasing.
 
@@ -1501,6 +1524,153 @@ Both frame paths, same recipe, pixel-differenced:
   — but a hand check is not a gate. See LEARNINGS Part 2, "vite / the build".
 - **Every clip-based motion number in this file predates the deferred default.** They are not
   invalidated, but they are no longer same-build comparisons.
+
+---
+
+## Third pass, 2026-08-08 — the plate is a draw, and 8.1 is five of seven
+
+HEAD `1985425`, `packagesDigest 78bdabba19b059e0`. All plates from a `git archive HEAD` snapshot
+with `assets/figures` copied in and served by a watcher-off vite, because the live tree moved
+twice mid-run — one attempt died on a mid-save `Grade.js:260` — and a moving tree is not a build.
+Four working-tree loads at digest `e2a3dfc5744bab2b` are reported separately and land in the same
+ranges.
+
+### The defect: PUNCHLIST 8.1's headline
+
+8.1 stated, for `alive.html?bare&freeze&seed=1` at 3840×5120 through `?capture`, 60 frames,
+TAAU 0.66 + grade + RCAS 1.2: *"G1 1.6636 PASS · G2 0.9201 PASS · G3 PASS · G4 1.6315 PASS ·
+G5 0.0002% PASS · G6 0.00001 FAIL · G7 0.0773% PASS"* — six of seven. **It is five of seven.**
+Reproduced at that width and that recipe:
+
+| statistic | 10 captured loads | 4 free-running loads | 8.1 claimed | verdict |
+|---|---|---|---|---|
+| G1 | 1.6634–1.6637 | 1.6633–1.6638 | 1.6636 | inside the observed range |
+| **G2** | **0.9194–0.9198** | **0.9195–0.9196** | **0.9201 PASS** | **FAIL, 14 of 14 draws; 0.9201 never observed** |
+| G4 | 1.6227–1.6362 | 1.6230–1.6298 | 1.6315 | inside |
+| G5 | 0.000001–0.000002 | 0.000002 | 0.0002% | top of the range |
+| G6 | 0.00001 | 0.00001 | 0.00001 FAIL | agrees |
+| G7 | 0.000736–0.000767 | 0.000721–0.000742 | 0.0773% | **above every draw** |
+
+`measure.mjs --human` on one of them: `FAIL G2 … luma half: 0.9197 outside 0.92–1.04
+(sclera 0.7221 vs cheek 0.7851)`, footer `FAIL: 5 passed, 2 failed, 0 skipped`.
+
+**The control row is what makes this a finding rather than a difference of setup.** On the same
+runs, `?aa=msaa&grade=0` returns G1 **1.6180**, G2 **0.9221**, G4 **1.7469**, G6 **0.00001**,
+G7 **0.000742** — PUNCHLIST's own recorded control values, to five decimals, every time.
+
+### Root cause: `?capture` pins simulation time and does not pin render state
+
+Six consecutive loads of the shipped default, one build, one seed, one recipe, 60 steps each:
+**five distinct PNGs** (`84904758`, `533b083c`, `89060afd`, `533b083c`, `1a11ed86`, `61b86af7`).
+Free-running, four loads, four distinct PNGs. Two of them differ on **56.4% of pixels**, mean
+|Δ| 1.8/255, worst 118/255, spread over the whole frame including the backdrop.
+
+Attributed by toggle, in one run:
+
+| configuration | loads | distinct plates |
+|---|---:|---:|
+| shipped (TAAU 0.66 + grade) | 6 | **5** |
+| `?grade=0` (TAAU, no grade) | 2 | 1 |
+| `?aa=msaa` (grade, no TAAU) | 2 | 1 |
+| `?aa=msaa&grade=0` | 4 | 1 |
+| `?grain=0` (TAAU + grade, grain off) | 4 | **3** |
+| `?aa=msaa&grain=0` | 3 | 1 |
+
+And by probe, reading `renderer._nodes.nodeFrame.frameId` before the first accepted capture step:
+**15 / 16 / 17 / 18** on four loads of the shipped default, **18 / 21 / 21 / 22** on `?aa=msaa`.
+That counter is the number of frames the page rendered during boot, and it is wall-clock
+dependent. `Grade.js` keys the grain phase to it —
+`uniform(0).onFrameUpdate( frame => frame.frameId % 4096 )` — and three's `TRAANode` advances its
+32-entry Halton `_jitterIndex` once per render from construction. **One unpinned counter, two
+consumers**: killing the grain leaves the TAAU path stochastic, which is the second consumer
+showing through, and killing TAAU leaves the graded MSAA path deterministic only because its 2
+loads happened to draw the same phase.
+
+Diff request filed (see below). The fix is to reset the counter — or to derive the grain phase and
+the jitter index from the capture step index — when `takeOverFrameLoop` runs.
+
+### ✅ `?freeze` under `?capture` is fixed, and the standing warning is retracted
+
+Both docs still carried *"`?freeze` IS INERT UNDER `?capture`"* as a standing constraint. It was
+true before `c9fa59c`. Proven false at HEAD on the byte-reproducible forward path, where a
+comparison is exact rather than statistical:
+
+| recipe | steps | sha256 |
+|---|---:|---|
+| `?bare&freeze&seed=1&capture&aa=msaa&grade=0` | 1 | `afd763f45354…` |
+| same | 60 | `afd763f45354…` |
+| same | 300 | `afd763f45354…` |
+| `?bare&seed=1&capture&aa=msaa&grade=0` (no freeze) | 1 | `81677f580441…` |
+| same | 60 | `e2ba8638d792…` |
+
+And free-running at 3840×5120, 90 rAF frames, `?bare&freeze&seed=1&aa=msaa&grade=0` returns
+`b3609ee0652d…` — **the same bytes as the captured 60-frame plate at the same size**. Two frame
+paths, one picture.
+
+### Two numbers that changed meaning
+
+- **26% of the shipped default's G4 is film grain.** `?grain=0` takes σ from 1.6227–1.6362 to
+  **1.1951–1.1960**, below the 1.5 floor; on `?aa=msaa` it reads 2.2546 → 1.9771. G4 is a
+  high-pass statistic and additive noise is high-pass, so "TAAU + grade centres G4" is a claim
+  about the grade as much as about `SkinMaterial` — and the grain half is the stochastic half.
+- **`?aa=msaa` with the grade on reads G6 0.000280**, not 0.00001, on the same regions. Still
+  below the 0.004 floor and still UNDECIDED for the reasons in PUNCHLIST 3.13, but it is a 28×
+  move and nothing had recorded it.
+
+### The gate: `docs/measured-claims.selftest.mjs`
+
+A doc gate, in the family of `docs/eye-optics-claims.selftest.mjs`, because the defect lived
+entirely in prose that no code assertion could reach. It parses every gate claim in PUNCHLIST.md
+and PROGRESS.md — inline (`G2 0.9201 PASS`), in markdown tables headed by gate ids, and in the
+recorded raw-draw lists — and adjudicates each against `TARGETS` **imported from
+`tools/critic/measure.mjs`**, not re-typed. Four rules: BAND (the stated verdict must match the
+tool's band), COUNT (an "N of seven" headline must equal the PASS count in its own roster),
+MARGIN (a value closer to a band edge than the measured load-to-load spread must carry the literal
+token `MARGINAL`, naming the gate), and DRAWS (quoted ranges must be the min and max of the raw
+draws the doc records). **56 checks**, `node docs/measured-claims.selftest.mjs`.
+
+Proved red **nine ways**, and the table of which rule catches which is printed on every run: the
+original defect, the other band edge, the ceiling rather than the floor, a marginal FAIL rather
+than a marginal PASS, a verdict that contradicts the band, a band that moved while the doc did
+not, a percent-versus-fraction unit slip, a count that drifts from its own roster, and — a
+different syntactic vehicle — the same marginal value hiding in a markdown table cell. Then the
+original 8.1 paragraph is spliced back into the **real** PUNCHLIST text and the whole adjudication
+re-run over it, because a fixture can be shaped to the parser that reads it and a real file cannot.
+
+🚩 **And four evasions it does NOT catch are printed too, as a measurement rather than a wish**: a
+claim written as prose with no gate id and a lowercase verdict; a value written before its gate id;
+and abuse of either exemption — prefixing a live claim with a retraction word, or wrapping it in
+backticks. Two are parser reach and two are inherent to having exemptions at all. The mitigation is
+a coverage floor: if a rewrite hides claims from the parser the live-claim count collapses, and the
+count is itself gated at 80% of today's.
+
+Its honest limit, stated in the file: it cannot re-render, so a number that is inside its band,
+not marginal, and simply wrong for the build is invisible to every rule. Provenance and
+`packagesDigest` are the only defence against that.
+
+### Diff requests filed against files this pass does not own
+
+1. **`packages/testbed/src/alive.js`** — in `takeOverFrameLoop`/the `?capture` hook, pin the
+   renderer's frame counter when the capture takes the loop over (e.g. zero
+   `renderer._nodes.nodeFrame.frameId` and `TRAANode._jitterIndex` at takeover, or drive both from
+   the capture step index). Without it no still plate on the shipped default is reproducible, and
+   `capture.mjs`'s reproducibility check cannot mean what it says.
+   ⏳ **Already in flight.** As this section was written, `alive.js`, `render/TRAAPost.js` and a new
+   `alive-capture-determinism.selftest.mjs` sit uncommitted in the working tree under the label
+   **punch-list 3.20 — the capture epoch**, naming the same three counters and adding a
+   reproducibility/oracle/liveness gate. That agent read `frameId` as 2392 / 1216 / 1961 at
+   900×1200 (rAF ticks during the GLB load); this pass read 15 / 16 / 17 / 18 at the first accepted
+   step. Same defect from two instruments, found independently — which is the third time this
+   round that a defect surfaced twice before it surfaced once.
+   **Every range in this pass is therefore stamped to the PRE-3.20 build and must be re-measured
+   once it lands, not narrowed by hand.**
+2. **`tools/critic/measure.mjs`** — the G2 warning still says *"`?freeze` is INERT under
+   `?capture`"* and quotes the pre-fix seed spread 0.7836 / 0.9189 / 0.9292 / 0.4390 as current.
+   Both are stale at HEAD; the warning should instead say that a graded or temporally-resolved
+   plate is a draw and ask for a load count.
+3. **`tools/critic/capture.mjs`** — `verifyReproducibility` compares a second run of the same
+   recipe. On the shipped default that will now report a real difference on ~56% of pixels every
+   time. It should either pin the frame counter (1) or state which configurations it can speak for.
 
 ## Session log
 

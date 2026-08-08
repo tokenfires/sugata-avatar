@@ -19,45 +19,121 @@ Every report carries a `provenance` line and stamps `measuredOn` into every gate
 measured on `skin.html` was quoted here as certifying `alive.html`, which reads 1.4764 against
 1.9495 at the same width. Quote gate numbers **with** that line or not at all.
 
-🎯 **AND "RECIPE" IS IN THAT LIST AS OF 2026-08-08, BECAUSE `?freeze` IS INERT UNDER `?capture`.**
-`__SUGATA_STEP__` advances the simulation whether or not freeze is set, so a "frozen" *captured*
-plate is one simulated frame into motion with the head already yawing, and `?freeze&capture` is
-byte-identical to `?capture` alone. Free-running `?bare&freeze` is genuinely frozen: four seeds come
-back **byte-identical** and G2 reads **0.9200 at every one**. Under `?bare&freeze&capture` stepped
-one frame the same four seeds read **0.7836 / 0.9189 / 0.9292 / 0.4390**. Every G2 number ever
-recorded in this file as a "seed lottery" belongs to the second recipe. LEARNINGS §1.19a; filed as
-a diff request against `packages/testbed/src/alive.js`.
+✅ **`?freeze` UNDER `?capture` IS FIXED, AND THE WARNING THAT USED TO STAND HERE IS RETRACTED.**
+This block used to read *"`?freeze` IS INERT UNDER `?capture`"*. Proven by execution at HEAD
+`1985425`, on the byte-reproducible forward path so the comparison is exact:
+`alive.html?bare&freeze&seed=1&capture&aa=msaa&grade=0` at 900×1200 stepped **1, 60 and 300**
+frames returns **one sha256, `afd763f45354…`, all three times**, and the same recipe free-running
+(no `?capture`, 90 rAF frames) returns **the identical bytes** at 3840×5120 (`b3609ee0652d…`,
+equal to the captured 60-frame plate). Without `?freeze`, 1 step and 60 steps differ
+(`81677f58…` vs `e2ba8638…`), so the clock is still running when it should be. Historical: the
+seed spread *"0.7836 / 0.9189 / 0.9292 / 0.4390"* belongs to the pre-fix recipe and is not
+reachable today.
+
+🚩 **WHAT REPLACES IT IS WORSE, BECAUSE IT SURVIVES THE FIX: ON THE SHIPPED DEFAULT THE PLATE IS
+NOT REPRODUCIBLE FROM ITS OWN IDENTITY.** Page, framing, seed, recipe, build and step count fixed;
+`alive.html?bare&freeze&seed=1&capture` at 3840×5120 stepped 60×(1/60) at HEAD `1985425`,
+`packagesDigest 78bdabba19b059e0`, six consecutive loads in one un-watched vite:
+**five distinct PNGs** (`84904758`, `533b083c`, `89060afd`, `533b083c`, `1a11ed86`, `61b86af7`).
+Free-running the same page four times gives **four distinct PNGs**. Two loads differ on **56.4% of
+pixels**, mean |Δ| 1.8/255 and worst 118/255, spread over the whole frame including the backdrop.
+Every other configuration measured is byte-identical across loads
+(`?aa=msaa&grade=0` ×4, `?grade=0` ×2, `?aa=msaa&grain=0` ×3).
+
+**Root cause, attributed by toggle and by probe, not by argument.** `?capture` pins *simulation*
+time and does not pin *render* state. Both the grade's grain phase
+(`Grade.js`: `uniform(0).onFrameUpdate( frame => frame.frameId % 4096 )`) and `TRAANode`'s Halton
+`_jitterIndex` ride on the renderer's own frame counter, which at the first accepted capture step
+is whatever the page happened to render during boot — measured **15 / 16 / 17 / 18** on four loads
+of the shipped default and **18 / 21 / 21 / 22** on `?aa=msaa`. Turning the grain off
+(`?grain=0`) makes the MSAA path byte-identical and leaves the TAAU path with **three distinct
+plates in four loads**, which is the second consumer showing through. So it is one unpinned
+counter with two consumers, not two bugs.
+Filed as a diff request against `packages/testbed/src/alive.js` /
+`packages/core/src/render/Grade.js`: reset the frame counter when the capture hook takes the loop
+over, so the grain phase and the jitter index are functions of the capture step index.
+⏳ **AND IT IS BEING FIXED CONCURRENTLY, WHICH DATES EVERY RANGE IN THIS FILE.** As this was
+written, `packages/testbed/src/alive.js`, `packages/core/src/render/TRAAPost.js` and a new
+`alive-capture-determinism.selftest.mjs` are uncommitted in the working tree under the label
+**punch-list 3.20 — the capture epoch**, reaching the same three counters (`frameId`, the resolve's
+`_jitterIndex`, and its history target) from the other side. That agent measured `frameId` at
+**2392 / 1216 / 1961** on three loads at 900×1200 — a count of rAF ticks during the GLB load, where
+this file's 15 / 16 / 17 / 18 is the same counter read after the figure is up. Same defect, two
+instruments.
+🚩 **When 3.20 lands, every range in this file becomes a value again and must be RE-MEASURED, not
+narrowed by hand.** Retire the ranges only against a fresh capture whose reproducibility check is
+green, and delete the MARGIN entry for a gate only when its measured spread is actually zero.
+
+🚩 **THE CONSEQUENCE FOR THIS FILE. Any gate number quoted for a graded or temporally-resolved
+plate is a DRAW, not a value**, and must be written as a range over a stated number of loads. The
+measured load-to-load spread on the shipped default, over **14 draws** (6 captured at HEAD,
+4 captured on the working tree, 4 free-running), is G1 **0.0005**, G2 **0.0004**, G4 **0.0135**,
+G5 **0.000001**, G6 **0.000000**, G7 **0.000046**. `docs/measured-claims.selftest.mjs` holds this
+file and PROGRESS to it.
+
+The draws themselves, so the spreads above are arithmetic rather than assertion. Recipe:
+`alive.html?bare&freeze&seed=1` at 3840×5120 dpr 1 on the shipped default, portrait regions;
+loads 1–4 captured on the working tree at digest `e2a3dfc5744bab2b`, 5–10 captured at HEAD
+`1985425` digest `78bdabba19b059e0`, 11–14 free-running at HEAD. `measured-claims.selftest.mjs`
+re-derives every range quoted anywhere in these two documents from this block.
+
+```rawdraws recipe=shipped-default-3840x5120 loads=14
+G1 1.6637 1.6637 1.6634 1.6637 1.6634 1.6637 1.6635 1.6637 1.6634 1.6637 1.6637 1.6638 1.6636 1.6633
+G2 0.9197 0.9196 0.9196 0.9196 0.9198 0.9197 0.9194 0.9197 0.9196 0.9196 0.9195 0.9195 0.9196 0.9196
+G4 1.6294 1.6362 1.6270 1.6362 1.6270 1.6294 1.6227 1.6294 1.6270 1.6362 1.6230 1.6275 1.6289 1.6298
+G5 0.000001 0.000002 0.000002 0.000002 0.000002 0.000001 0.000002 0.000001 0.000002 0.000002 0.000002 0.000002 0.000002 0.000002
+G6 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001
+G7 0.000736 0.000767 0.000745 0.000767 0.000764 0.000736 0.000745 0.000736 0.000745 0.000767 0.000742 0.000721 0.000736 0.000739
+```
 
 ---
 
-## 🎯 THE MEASURED STATE OF THE SEVEN GATES, 2026-08-08, build `c70195c`
+## 🎯 THE MEASURED STATE OF THE SEVEN GATES, 2026-08-08, HEAD `1985425`, digest `78bdabba19b059e0`
 
-Re-run against a genuinely frozen plate — `alive.html?bare&freeze&seed=1`, free-running, **no
-`?capture`** — at each gate's own reference width. Every earlier gate line in this file was taken on
-the capture recipe at 900 px and is therefore about a moving figure measured at the wrong scale for
-G4.
+Portrait regions (`regions.lighting-portrait.json`) at 3840×5120, dpr 1, `?bare&freeze&seed=1`, on
+**the shipped default** — TAAU 0.66 + grade + RCAS 1.2 — which is what a judge loads. Every row is
+a **range over repeated loads**, because on this configuration the plate is not reproducible from
+its own identity (see the block above). Captured column: 10 loads through `?capture`, 60 steps.
+Free-running column: 4 loads, no `?capture`, 90 rAF frames.
 
-| gate | measured | verdict | recipe |
+| gate | captured ×10 | free-running ×4 | verdict |
 |---|---|---|---|
-| G1 face key:shadow | **1.6265** linear | PASS, inside the 1.43–1.64 band | portrait, 3840×5120 |
-| G2 sclera:cheek | **0.9372** luma, 1.29× saturation, same side of red | **PASS — all four clauses** | portrait, 3840×5120 |
-| G3 terminator | saturation rises, hue reddens | PASS | portrait, 3840×5120 |
-| G4 high-pass σ | **1.7469** /255 | **PASS**, dead centre of 1.5–2.1 | portrait, **3840** px — the band's own width |
-| G5 clipping | 0.0002% | PASS | portrait, 3840×5120 |
-| G6 black point | **0.00001** | **FAIL** | portrait — and see below, it is not about the grade |
-| G7 card band | 0.0739% | PASS | portrait, 3840×5120 |
-| G1 at body framing | **1.5822** linear | PASS, inside the band | body, 900×1200, `regions.lighting-body.json` |
-| G6 at body framing | **0.0126** | **PASS**, inside 0.004–0.016 | body, 900×1200 — the grade closed it here |
+| G1 face key:shadow | **1.6634–1.6637** linear | **1.6633–1.6638** | PASS, above the 1.43–1.64 reference band and under the 2.00 ceiling |
+| G2 sclera:cheek luma | **0.9194–0.9198** | **0.9195–0.9196** | **FAIL — 14 of 14 draws under the 0.92 floor.** MARGINAL: the whole range is 0.0002–0.0006 from the floor and the load-to-load spread is 0.0004 |
+| G3 terminator | saturation rises, hue reddens | same | PASS |
+| G4 high-pass σ | **1.6227–1.6362** /255 | **1.6230–1.6298** | PASS, inside 1.5–2.1 at **3840** px — the band's own width |
+| G5 clipping | 0.0001%–0.0002% | 0.0002% | PASS |
+| G6 black point | **0.00001** | **0.00001** | **FAIL** — and see below, it is not about the grade |
+| G7 card band | 0.0736%–0.0767% | 0.0721%–0.0742% | PASS |
 
-⚠️ **The `1.5547` this table used to carry at body framing could not be reproduced from any
-configuration measured this round** and should not be quoted. Body G1 measures 1.5259 on
-`lighting.html` and 1.4974–1.5822 on `alive.html` depending on the AA/grade configuration; the
-pre-change value was 1.2876. If 1.5547 came off `alive.html` it is a step-count artefact of the
-`?freeze`-under-`?capture` bug — see the integration section of PROGRESS.
+The A side, `?aa=msaa&grade=0`, on the same run and the same regions, is **byte-identical across
+every load and across both frame paths** and therefore has values rather than ranges:
+G1 **1.6180** PASS · G2 **0.9221** PASS · G3 PASS · G4 **1.7469** PASS · G5 0.0002% PASS ·
+G6 **0.00001** FAIL · G7 0.0742% PASS. Six of seven.
 
-**Six of seven green, and G6's red is UNDECIDED rather than a render defect.** With `?cards=0` the
-same plate returns **0.00393** and with `?grade=1` **0.00312**, so the darkest 0.1% of the frame is
-genuinely-black eyelash and eyebrow pixels rather than a lifted or crushed black point.
+⚠️ **This table replaces one taken at build `c70195c` whose G1 1.6265 / G2 0.9372 / G7 0.0739% do
+not reproduce at HEAD under either AA/grade configuration.** `c70195c` predates `c9fa59c`, which
+made TAAU + grade the default, so that table describes the old forward default on an older
+lighting and eye state; its G4 1.7469 and G7 0.0739% are within a hair of today's
+`?aa=msaa&grade=0` row, which is consistent with that reading. Do not quote 0.9372.
+⚠️ **The body-framing rows are NOT re-measured this round** and are carried over unverified:
+G1 1.5822 and G6 0.0126 at 900×1200 on `regions.lighting-body.json`. Treat them as pending.
+The `1.5547` an earlier revision carried at body framing could not be reproduced from any
+configuration and should not be quoted.
+
+**Five of seven green, and the two reds are different kinds of thing.**
+
+- **G2 is a real red on the shipped default and a green on the A side**, which makes it a
+  *configuration* result rather than an eye-shader result: 0.9194–0.9198 with TAAU + grade against
+  0.9221 with MSAA and no grade, on one build, one seed, one set of rects. MARGINAL either way —
+  both sit within 0.0021 of the 0.92 floor and the load-to-load spread is 0.0004 — so neither
+  verdict is a statement about the eye. 3.3's own note that an 11×6 px rect on a 40 px eye is
+  fragile by construction is the governing caveat. **What would settle it:** a wider sclera rect,
+  or G2 restated over a seed set on a plate whose identity determines it.
+- **G6 is UNDECIDED, not failed.** With `?cards=0` an ungraded plate at `c70195c` returned
+  **0.00393** and with `?grade=1` **0.00312**, so the darkest 0.1% of the frame is genuinely-black
+  eyelash and eyebrow pixels rather than a lifted or crushed black point. Neither figure was
+  re-measured this round.
 
 🚩 **And the fix is NOT the `frame` region this file has been asking for.** `measure.mjs` has
 supported a `frame` region all along and none was ever authored — but drawing one would not help,
@@ -77,11 +153,21 @@ is no sound rescaling law, so every G4 number in this file taken at 900 px was n
 the target. Attribution holds at either width: `?skin=0` takes 900 px σ from 2.1849 to **0.4406**,
 a 4.96× contribution from `SkinMaterial`.
 
-⚠️ **These plates were taken during a live fan-out**, from a watcher-off vite pinned at the moment
-it launched, with `git HEAD` at `c70195c` and a clean tree at the start of the run. Other agents
-were saving under `packages/` throughout, so the tree they will hand the integrator is **not** the
-one these numbers describe. Re-run before quoting; the mechanisms are robust, the values are stamped
-to a build. Same warning the section below this one carries, for the same reason, one round later.
+🚩 **AND A QUARTER OF THE SHIPPED DEFAULT'S G4 IS FILM GRAIN, WHICH IS NOT A SKIN SHADER.** Measured
+this round at 3840×5120, same recipe, `?grain=0` against the default: σ goes **1.6227–1.6362 →
+1.1951–1.1960**, i.e. the grain contributes **≈0.43 of 1.63, about 26%**, and without it the
+shipped default FAILS G4's 1.5 floor. On `?aa=msaa` the same toggle reads 2.2546 → 1.9771. G4 is a
+high-pass statistic and additive noise is high-pass by construction, so this is expected — but it
+means "the shipped default centres G4 in its band" is a statement about the grade as much as about
+`SkinMaterial`, and the grain half of it is the stochastic half.
+
+⚠️ **These plates were taken during a live fan-out.** The 10 captured and 4 free-running loads in
+the table above are all at HEAD `1985425` from a `git archive` snapshot with `assets/figures` copied
+in, served by a watcher-off vite, so no concurrent edit can reach them — `packagesDigest
+78bdabba19b059e0` on every run. Four further captured loads were taken from the live working tree
+at digest `e2a3dfc5744bab2b` and land in the same ranges; they are counted in the 14 draws and not
+in the table. Other agents were saving under `packages/` throughout — a mid-save `Grade.js` threw
+at `Grade.js:260` during one attempt — which is exactly why the snapshot exists.
 
 ---
 
@@ -103,6 +189,13 @@ to a build. Same warning the section below this one carries, for the same reason
       both turned out to be one-sided: `< 2.00` passed 1.344 linear against a 1.43–1.64 reference
       band, and `min(hue, 360−hue)` passed a magenta sclera beside an orange cheek.
       `node tools/critic/selftest.mjs` — **235 checks**, re-run 2026-08-08 (was 125, then 208).
+      🎯 **And the gates now have a gate of their own on the DOCUMENTS side.**
+      `node docs/measured-claims.selftest.mjs` — **56 checks** — re-adjudicates every gate claim in
+      this file and PROGRESS against `TARGETS` imported from `measure.mjs`, and refuses a bare
+      verdict inside a band edge's own measured noise. It exists because 8.1's headline read
+      `six of seven … G2 0.9201 PASS` for a round while every selftest under `packages/` was green
+      and right to be: the render was not the defect and the tool was not the defect, so nothing in
+      the repo could reach it. Its four blind spots are printed on every run rather than implied.
 - [x] **0.7** Blind A/B harness: shuffles ours vs reference, strips provenance, collects a verdict.
 - [x] **0.8** SPIKE: morph-target cost. 52 + 15 visemes + 2 gender on 13.7k verts. Sets the budget.
 - [ ] **0.9** SPIKE: hair perf — frostbitten-hair demo on this Mac, built-in profiler, sweep strands.
@@ -502,13 +595,26 @@ to a build. Same warning the section below this one carries, for the same reason
       **MEASURED AT THE REFERENCE WIDTH, and re-measured after integration on the shipped tree
       (3840×5120, `?bare&freeze&seed=1`, 60 rendered frames of a genuinely frozen page):**
 
-      | configuration                       |     G1 |     G2 |     G4 |      G6 |      G7 |
-      |-------------------------------------|-------:|-------:|-------:|--------:|--------:|
-      | `?aa=msaa&grade=0` (the old default) | 1.6180 | 0.9221 | 1.7469 | 0.00001 | 0.00074 |
-      | shipped: TAAU 0.66 + grade + RCAS 1.2| 1.6636 | 0.9201 | 1.6315 | 0.00001 | 0.00077 |
+      | configuration                        |              G1 |              G2 |              G4 |      G6 |                G7 |
+      |--------------------------------------|----------------:|----------------:|----------------:|--------:|------------------:|
+      | `?aa=msaa&grade=0` (the old default)  |          1.6180 |          0.9221 |          1.7469 | 0.00001 |           0.00074 |
+      | shipped: TAAU 0.66 + grade + RCAS 1.2 | 1.6633–1.6638 | 0.9194–0.9198 | 1.6227–1.6362 | 0.00001 | 0.000721–0.000767 |
 
-      Both pass six of seven; G6 is the one red and is UNDECIDED rather than a defect (see 3.13).
-      G4 is better centred in its 1.5–2.1 band. What decides it is EDGES, which is what
+      G2 is MARGINAL on both rows: 0.9221 clears the 0.92 floor by 0.0021 and 0.9198 misses it by
+      0.0002, against a measured load-to-load spread of 0.0004.
+      🚩 **THE SHIPPED ROW USED TO READ `1.6636 | 0.9201 | 1.6315 | 0.00001 | 0.00077` AND CALL
+      ITSELF SIX OF SEVEN. IT IS FIVE OF SEVEN AND THE ROW IS A RANGE.** Re-measured at HEAD
+      `1985425` over **14 loads** of `alive.html?bare&freeze&seed=1` at 3840×5120: **every one of
+      the 14 draws fails G2**, none reaches 0.9201, and the maximum observed is 0.9198. The MSAA
+      row is byte-identical across every load and reproduces the four values above to five
+      decimals, which is what says the harness is sound and the shipped row is not. See the
+      reproducibility block at the top of this file for why a graded temporally-resolved plate has
+      a range instead of a value.
+      MARGINAL: G2 on both rows is within 0.0021 of the 0.92 floor against a load-to-load spread
+      of 0.0004, so the PASS on the MSAA row is as unentitled as the FAIL on the shipped row.
+      G6 is UNDECIDED rather than a defect (see 3.13). G4 is better centred in its 1.5–2.1 band —
+      though see the top of this file: **26% of the shipped row's G4 is film grain**, and with
+      `?grain=0` it drops to 1.1951–1.1960 and fails. What decides it is EDGES, which is what
       anti-aliasing is for: at 900×1200 the share of silhouette transitions that jump in a single
       pixel goes **67.9% → 17.9%**, a 3.8× improvement.
       **What it costs that MSAA does not:** a 0.1176/255 per-pixel temporal residual on flat skin
@@ -721,30 +827,45 @@ to a build. Same warning the section below this one carries, for the same reason
 ## Phase 8 — Blind critic loops
 
 - [ ] **8.1** Loop: render vs AAA reference until same-tier, **all seven** measured gates green.
-      **SIX OF SEVEN GREEN as of 2026-08-08, re-measured after integration on the shipped
-      defaults** — `alive.html?bare&freeze&seed=1` at 3840×5120, portrait regions, 60 rendered
-      frames of a genuinely frozen page through `?capture` (which now honours `?freeze`), TAAU 0.66
-      + grade + RCAS 1.2:
-      G1 **1.6636** PASS · G2 **0.9201** PASS · G3 PASS · G4 **1.6315** PASS · G5 0.0002% PASS ·
-      G6 **0.00001 FAIL** · G7 0.0773% PASS.
-      Body framing on the same build at 900×1200: G1 **1.5822** PASS, G6 **0.0126 PASS** — inside
-      0.004–0.016, where the pre-grade plate was 0.01652 and 3% over the ceiling. **G6 is now red
-      at portrait framing only.**
-      The immediately preceding configuration (`?aa=msaa&grade=0`) on the identical run reads
-      G1 1.6180 · G2 0.9221 · G4 1.7469 · G6 0.00001 · G7 0.0742%, so the default change moved G4
-      toward the centre of its band and left the rest inside theirs.
-      ⚠️ **Three of the four reds in the line this replaces were artefacts of how the plate was
-      taken, not of the render.** The old line — G1 1.5783, G2 0.8127 FAIL, G3 −0.0744 FAIL,
-      G4 1.6468, G6 0.00001 FAIL — was measured at 900 px through `?capture`, which ignores
-      `?freeze` and advances the simulation, and at 900 px G4's band does not apply. Re-taken at
-      each gate's own reference width on a genuinely frozen plate, G2 and G3 are green and G4
-      moves from 2.1849 (out of band at 900 px) to 1.7469 (mid-band at 3840).
-      **The one genuine red is G6, and it is an instrument problem**: with `?cards=0` the same
-      plate reads 0.00393, so the bottom 0.1% of the histogram is black eyelash pixels rather than
-      a lifted black point. It is UNDECIDED rather than failed, and a `frame` region does not close
-      it — 8.1 should be judged on the other six and told so explicitly.
-      🚩 **Quote that line with its page, its width AND its recipe**, and note what it is not: seven
-      green measured gates is the entry condition for a blind comparison, not a pass of one.
+      **FIVE OF SEVEN GREEN as of 2026-08-08 at HEAD `1985425`, digest `78bdabba19b059e0`** —
+      `alive.html?bare&freeze&seed=1` at 3840×5120 dpr 1, portrait regions, 60 rendered frames of a
+      genuinely frozen page through `?capture`, TAAU 0.66 + grade + RCAS 1.2. **Ten loads of that
+      one recipe, reported as a range because it is not reproducible from its own identity:**
+      G1 **1.6634–1.6637** PASS · G2 **0.9194–0.9198 FAIL** · G3 PASS · G4 **1.6227–1.6362** PASS ·
+      G5 0.0001%–0.0002% PASS · G6 **0.00001 FAIL** · G7 0.0736%–0.0767% PASS.
+      Four free-running loads of the same page (no `?capture`, 90 rAF frames) land inside those
+      ranges and fail G2 the same way: 0.9195–0.9196.
+      ⚠️ **G2 is MARGINAL, and the red is not a rendering finding on its own.** The range misses the
+      0.92 floor by 0.0002–0.0006 against a load-to-load spread of 0.0004, and the A side clears it
+      by only 0.0021. At that margin the verdict is a property of an 11×6 px rect on a 40 px eye
+      (3.3), not of the eye shader. **What would settle it:** widen the sclera rect, or restate G2
+      over a seed set on a plate whose identity determines it.
+      🚩 **THIS LINE USED TO READ "SIX OF SEVEN GREEN … G2 0.9201 PASS" AND IT IS THE HEADLINE THE
+      WHOLE PHASE IS QUOTED BY.** `0.9201` is 0.0001 above the 0.92 floor, it is a single draw from
+      a distribution whose measured spread is 0.0004, and it did not recur in **14 draws** at HEAD.
+      Two things had to be true at once for it to survive: the plate is stochastic on the shipped
+      default, and a value one ten-thousandth inside a band edge was written down as a bare PASS.
+      MARGINAL is now the required word for the second, and `docs/measured-claims.selftest.mjs` is
+      the gate. Also corrected in passing: G7 was quoted as 0.0773%, above every one of the 14
+      draws; G5 as 0.0002%, which is the top of its observed range.
+      **The A side is what a claim of soundness rests on.** `?aa=msaa&grade=0` is byte-identical
+      across every load and across both frame paths, and on the same run reads
+      G1 **1.6180** · G2 **0.9221** · G4 **1.7469** · G6 0.00001 · G7 0.0742% — reproducing this
+      file's own recorded values to five decimals. **Six of seven.** So the default change from MSAA
+      to TAAU + grade moved G4 toward the centre of its band and moved G2 out of its band, and the
+      second half of that trade was never written down.
+      ⚠️ **Body framing is NOT re-measured this round.** G1 1.5822 and G6 0.0126 at 900×1200 are
+      carried over from build `c70195c` and are pending.
+      **G6 stays UNDECIDED, not failed**: with `?cards=0` the same plate reads 0.00393, so the
+      bottom 0.1% of the histogram is black eyelash pixels rather than a lifted black point, and a
+      `frame` region does not close it.
+      ⚠️ Historical, kept so the pattern is visible: an earlier revision of this line read
+      G1 1.5783, G2 0.8127 FAIL, G3 −0.0744 FAIL, G4 1.6468, G6 0.00001 FAIL, measured at 900 px
+      through a `?capture` that then ignored `?freeze`. Three of those four reds were artefacts of
+      how the plate was taken. **That is the same failure as this one with the sign flipped** — a
+      recipe defect reported as a render verdict — and it is why the recipe, the width, the load
+      count and the margin all have to travel with the number.
+      🚩 Seven green measured gates is the entry condition for a blind comparison, not a pass of one.
 - [ ] **8.2** Loop: emote vs Live2D/VTuber until decisive win. Body clips come from
       `capture.mjs --postural-seeds`; a verdict taken on one draw is a verdict about the draw.
 - [ ] **8.3** 60 fps at target resolution on this hardware, verified with a profiler.
@@ -757,13 +878,27 @@ to a build. Same warning the section below this one carries, for the same reason
 - **Animate early.** Every timing constraint agrees. Never analyse output audio reactively.
 - **A motion clip is judged on a seed SET, and only on seeds measured to contain the behaviour.**
   A pinned seed buys reproducibility, not representativeness — `capture.mjs --postural-seeds`, or
-  `--require-weight-shift` on whatever set you pick. One draw is one draw. **This applies to still
-  plates too, but ONLY on the capture recipe:** `?freeze` free-running pins everything and four
-  seeds come back byte-identical, while `?freeze&capture` is not frozen at all and the same four
-  seeds span G2 0.4390–0.9292.
-- **`?freeze` IS INERT UNDER `?capture`.** `__SUGATA_STEP__` advances the simulation regardless, so
-  `?freeze&capture` is byte-identical to `?capture` and renders a moving figure. Take a still plate
-  free-running, or state the step count as part of the plate's identity. LEARNINGS §1.19a.
+  `--require-weight-shift` on whatever set you pick. One draw is one draw. **And this now applies
+  to still plates on EVERY recipe, not just the capture one** — see the next two bullets.
+- **`?freeze` HOLDS UNDER `?capture`.** Retracted 2026-08-08: this bullet used to read *"`?freeze`
+  IS INERT UNDER `?capture`"*, which was true before `c9fa59c` and is not true now. Proven at HEAD
+  `1985425` on the byte-reproducible forward path — `?bare&freeze&seed=1&capture&aa=msaa&grade=0`
+  at 1, 60 and 300 steps returns one sha256, and free-running returns the same bytes; drop
+  `?freeze` and 1 step differs from 60. LEARNINGS §1.19a needs the same correction.
+- **🚩 A STILL PLATE ON THE SHIPPED DEFAULT IS A DRAW, NOT A VALUE.** Page, framing, seed, recipe,
+  build and step count fixed, six loads of `?bare&freeze&seed=1&capture` at 3840×5120 return **five
+  distinct PNGs** differing on 56.4% of pixels. The renderer's frame counter is not pinned when
+  `?capture` takes the loop over, and both the grade's grain phase and TRAA's Halton jitter index
+  ride on it. Quote a **range over N loads with N stated**, or use `?aa=msaa&grade=0`, which is
+  byte-identical across loads and across both frame paths. `?grade=0` and `?grain=0` each remove
+  one consumer and neither removes both.
+- **🚩 NO BARE VERDICT INSIDE THE NOISE. `MARGINAL` IS A REQUIRED WORD.** A gate value closer to a
+  band edge than that gate's measured load-to-load spread does not license a PASS or a FAIL on its
+  own, in either direction. Measured spreads on the shipped default: G1 0.0005, G2 0.0004,
+  G4 0.0135, G5 0.000001, G6 0.000000, G7 0.000046. Write the literal token `MARGINAL` within 400
+  characters of the claim, and say what would settle it. `G2 0.9201 PASS` — one ten-thousandth
+  inside the floor — is how a whole phase came to be reported as six of seven when it is five.
+  Enforced by `node docs/measured-claims.selftest.mjs`.
 - **State the WIDTH beside any G4 number.** High-pass σ is scale-dependent with no sound rescaling
   law; the band is stated at 3840 px and the same plate reads 1.7469 there and 2.1849 at 900.
 - **A toggle is only an attribution if it moves ONE subsystem.** `?eyes=0` moved two for two review
