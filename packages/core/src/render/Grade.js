@@ -145,6 +145,24 @@ export const DEFAULT_GRAIN_SIGMA_CODES = 1.5;
 export const GRAIN_CELL_PIXELS = 1.0;
 export const GRAIN_REFERENCE_HEIGHT = 1080;
 
+/**
+ * The frame seed the shipped grain is drawn from: the renderer's own frame counter, wrapped.
+ *
+ * Named rather than written inline in the constructor so it reads as a claim and so the broken
+ * drivers sit in one table beside it. Two properties make it right: it advances on every frame,
+ * and it depends on NOTHING but the frame index, which is what makes a stepped capture
+ * byte-reproducible. T1 and T3 measure exactly those two.
+ *
+ * `4096` is a wrap, not a period the eye can see: the hash below decorrelates on a seed change of
+ * 1, so consecutive seeds are already independent fields and the wrap only keeps the float small
+ * enough that `sin()` still has bits left at the far end of a long session.
+ */
+function SHIPPED_GRAIN_SEED( frame ) {
+
+    return frame.frameId % 4096;
+
+}
+
 /** Spec §3: "global 1.00-1.05". */
 export const DEFAULT_SATURATION = 1.02;
 
@@ -251,7 +269,13 @@ export class Grade {
         // grain. Driven off `frameId` rather than off a clock, because three's node clock reads
         // `performance.now()` and the deterministic capture tool pins wall time — a wall-clock
         // grain would make a byte-reproducible capture stop reproducing.
-        this.grainFrame = uniform( 0 ).onFrameUpdate( ( frame ) => frame.frameId % 4096 );
+        //
+        // ⚠️ Both halves of that sentence are claims about a SEQUENCE, and for a round nothing
+        // measured either: the gate's sixteen checks were all single-frame statistics, so
+        // `onFrameUpdate( () => 0 )` — the exact defect this comment warns against — scored 44/44
+        // green. The T-checks in `Grade.selftest.mjs` render a seven-frame sequence and two
+        // independent runs, and are what makes this comment enforceable rather than advisory.
+        this.grainFrame = uniform( 0 ).onFrameUpdate( SHIPPED_GRAIN_SEED );
 
         // Not a uniform: `SharpenNode` takes its strength at construction and the pass either
         // exists in the graph or it does not, so changing it is a recompile either way.
@@ -262,6 +286,15 @@ export class Grade {
         if ( this.rebuiltGrainDefect !== null && GRAIN_DEFECTS[ this.rebuiltGrainDefect ] === undefined ) {
 
             throw new Error( `Grade: rebuildGrainDefect must be one of ${ Object.keys( GRAIN_DEFECTS ).join( ', ' ) }.` );
+
+        }
+
+        // 🚩 Five of the rebuilt defects break the CLOCK rather than the amplitude or the envelope,
+        // so they replace the driver above rather than anything in `compose`. See
+        // `GRAIN_SEED_DRIVERS`, and the T-checks in the selftest that exist to catch them.
+        if ( GRAIN_SEED_DRIVERS[ this.rebuiltGrainDefect ] !== undefined ) {
+
+            this.grainFrame = uniform( 0 ).onFrameUpdate( GRAIN_SEED_DRIVERS[ this.rebuiltGrainDefect ] );
 
         }
 
@@ -394,22 +427,50 @@ export const grainNode = /*@__PURE__*/ Fn( ( [ sigmaCodes, frameSeed, displayLum
 } );
 
 /**
- * Zero-mean uniform noise on [-0.5, 0.5], one draw per grain cell per frame.
+ * How far the frame seed slides the hash's input per frame.
  *
- * Split out of `grainNode` so the deliberately broken variants below reuse the SAME hash: a
- * rejection proof that also changed the noise source would be proving two things at once.
+ * 🎯 **These two numbers have to be irrational, and that is the whole of why the grain is grain
+ * rather than a moving texture.** The hash is evaluated on the integer grain cell plus this
+ * offset. An INTEGER offset would make frame N's field an exact spatial translation of frame 0's —
+ * every pixel gets a value some other pixel already had, so the grain slides across the screen
+ * like a sheet of dirt being dragged. With an irrational offset the hash lands somewhere new on
+ * every frame and no translation of one frame matches another.
+ *
+ * The failure is invisible to any per-pixel temporal statistic: a slid field is still perfectly
+ * decorrelated at zero offset, still deterministic, still the right sigma. `grain-scrolls` rebuilds
+ * it and T4 is the check that sees it. See `SCROLL_SEED_STEP`.
  */
-export const unitGrainNoise = /*@__PURE__*/ Fn( ( [ frameSeed ] ) => {
+const GRAIN_SEED_STEP = [ 0.7548776662, 0.5698402909 ];
+
+/** 🚩 The integer version, reached only via `GRAIN_DEFECTS['grain-scrolls']`. */
+const SCROLL_SEED_STEP = [ 3, 7 ];
+
+/**
+ * Zero-mean uniform noise on [-0.5, 0.5], one draw per grain cell per frame, for a given per-frame
+ * seed step.
+ *
+ * Split out so the deliberately broken variants below reuse the SAME hash: a rejection proof that
+ * also changed the noise source would be proving two things at once.
+ */
+const steppedGrainNoise = /*@__PURE__*/ Fn( ( [ frameSeed, stepX, stepY ] ) => {
 
     const cell = screenCoordinate.xy.div( float( GRAIN_CELL_PIXELS ) ).floor();
 
-    const seeded = cell.add( frameSeed.mul( vec2( 0.7548776662, 0.5698402909 ) ) );
+    const seeded = cell.add( frameSeed.mul( vec2( stepX, stepY ) ) );
 
     const noise = seeded.dot( vec2( 12.9898, 78.233 ) ).sin().mul( 43758.5453 ).fract();
 
     return noise.sub( 0.5 );
 
 } );
+
+/** The shipped noise: `steppedGrainNoise` at the irrational step. */
+export const unitGrainNoise = /*@__PURE__*/ Fn( ( [ frameSeed ] ) =>
+    steppedGrainNoise( frameSeed, float( GRAIN_SEED_STEP[ 0 ] ), float( GRAIN_SEED_STEP[ 1 ] ) ) );
+
+/** 🚩 The same hash, slid by whole cells, so the grain translates instead of redrawing. */
+const scrollingGrainNoise = /*@__PURE__*/ Fn( ( [ frameSeed ] ) =>
+    steppedGrainNoise( frameSeed, float( SCROLL_SEED_STEP[ 0 ] ), float( SCROLL_SEED_STEP[ 1 ] ) ) );
 
 /**
  * How much grain a given display luma gets, peaking at 1 in the midtones and reaching 0 at both
@@ -477,7 +538,41 @@ export const GRAIN_DEFECTS = {
     'naive-amplitude': 'amplitude = sigma/255, missing the sqrt(12) that turns a uniform width into ' +
         'a standard deviation. Delivers 0.43/255 instead of 1.5.',
     off: 'no grain at all. The one an eye is least likely to notice and a sigma measurement catches ' +
-        'instantly.'
+        'instantly.',
+
+    // The six that break TIME. Every statistic above is a single-frame one and cannot see any of
+    // these; they are the class the gate was blind to for a round.
+    frozen: 'the seed never advances. One fixed noise field, which is dirt on the lens and not ' +
+        'grain — the defect the constructor comment names, and the one that scored 44/44 green.',
+    'two-frame': 'the seed alternates 0,1,0,1. Consecutive frames DO differ, so a gate that only ' +
+        'diffs neighbours passes it; it is two pieces of dirt taking turns at 30 Hz.',
+    'four-frame': 'the seed cycles 0,1,2,3. It exists because it BEAT the first version of T2, whose ' +
+        'four consecutive frames landed on four distinct seeds — a repeat check sees a period only ' +
+        'when two of its frames are congruent modulo it.',
+    'quarter-rate': 'the seed advances once every four frames. Three neighbouring pairs in four are ' +
+        'identical, so a single-pair check passes it three times out of four.',
+    'wall-clock': 'the seed is performance.now(). It looks perfect in motion and destroys ' +
+        'reproducibility: the same frame index renders a different field on every run.',
+    'grain-scrolls': 'the per-frame seed step is a whole number of cells, so every frame is an exact ' +
+        'TRANSLATION of one fixed field. Decorrelated at zero offset, deterministic, right sigma — ' +
+        'it defeats every other check in this file and reads as grain sliding across the screen.'
+};
+
+/**
+ * 🚩 The broken frame-seed drivers, in `onFrameUpdate`'s signature. Reached only via
+ * `GRAIN_DEFECTS`, and they replace `SHIPPED_GRAIN_SEED` rather than anything inside `compose` —
+ * the grain they produce is the shipped grain with a broken clock, which is the point. A defect
+ * that also changed the amplitude or the envelope would be caught by R3 or R5 and would prove
+ * nothing about the temporal checks.
+ */
+const GRAIN_SEED_DRIVERS = {
+    frozen: () => 0,
+    'two-frame': ( frame ) => frame.frameId % 2,
+    'four-frame': ( frame ) => frame.frameId % 4,
+    'quarter-rate': ( frame ) => Math.floor( frame.frameId / 4 ) % 4096,
+    // Wrapped at 4096 like the shipped seed, so the ONLY difference from shipped is where the
+    // number comes from. An unwrapped clock would also change the hash's numeric range.
+    'wall-clock': () => performance.now() % 4096
 };
 
 /** The wrong envelopes, in the same units as `grainEnvelope`. Reached only via `GRAIN_DEFECTS`. */
@@ -501,7 +596,13 @@ export function grainTermFor( defect, sigmaCodes, frameSeed, displayLuma ) {
 
     if ( defect === 'off' ) return vec3( 0 );
 
-    if ( defect === null ) return vec3( grainNode( sigmaCodes, frameSeed, displayLuma ) );
+    // The temporal defects are the shipped grain term with a broken seed; the constructor has
+    // already swapped the driver, so there is nothing left for this function to do differently.
+    if ( defect === null || GRAIN_SEED_DRIVERS[ defect ] !== undefined ) {
+
+        return vec3( grainNode( sigmaCodes, frameSeed, displayLuma ) );
+
+    }
 
     if ( defect === 'chromatic' ) {
 
@@ -518,6 +619,14 @@ export function grainTermFor( defect, sigmaCodes, frameSeed, displayLuma ) {
 
         return vec3( unitGrainNoise( frameSeed )
             .mul( sigmaCodes.div( 255 ) )
+            .mul( grainEnvelope( displayLuma ) ) );
+
+    }
+
+    if ( defect === 'grain-scrolls' ) {
+
+        return vec3( scrollingGrainNoise( frameSeed )
+            .mul( sigmaCodes.div( 255 ).div( float( UNIFORM_NOISE_SIGMA ) ) )
             .mul( grainEnvelope( displayLuma ) ) );
 
     }

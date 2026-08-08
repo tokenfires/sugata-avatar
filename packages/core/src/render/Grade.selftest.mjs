@@ -49,6 +49,18 @@
  *                   prints WHICH check each one trips — three of the eight are caught by exactly
  *                   one check, which is what makes those three load-bearing rather than ornamental.
  *
+ *   T1-T4           🎯 **The rendered gate's other axis, and the reason R0-R7 were not enough
+ *                   either.** Every one of R0-R7 is a SINGLE-FRAME statistic — mean, percentile,
+ *                   sigma, chroma, envelope shape — and all of them are identical whether the noise
+ *                   field changes between frames or not. So an independent verifier replaced the
+ *                   seed driver with `onFrameUpdate( () => 0 )`, which is the exact defect
+ *                   `Grade.js`'s own comment names in as many words, and this file scored 44/44
+ *                   green. T1-T4 render a SEQUENCE and two independent runs, and assert the four
+ *                   things a grain has to do over time: it changes, it does not repeat, it does not
+ *                   merely slide, and it depends on nothing but the frame index. Five rebuilt
+ *                   temporal defects are rendered alongside, and the gate asserts that every one of
+ *                   them passes all of R0-R7 — which is the finding, printed rather than described.
+ *
  *   VIGNETTE        The centre is untouched to floating point and the corner keeps exactly
  *                   1 - amount, which is what makes `vignette` readable as "fraction of light
  *                   removed at the corner" rather than as an arbitrary dial.
@@ -78,6 +90,11 @@ import {
     TEMPORAL_RECOVERY_SHARPNESS,
     vignetteMultiplier
 } from './Grade.js';
+
+// Static because the temporal helpers below are module-level and need it. `MotionProbe.mjs` pulls
+// in vite and playwright lazily, inside the two functions that need them, so importing it here
+// costs a PNG decoder and nothing else.
+import { codeValueAt } from './MotionProbe.mjs';
 
 let checks = 0;
 let failures = 0;
@@ -561,6 +578,125 @@ console.log( '\n--- tone curves ------------------------------------------------
 // vanishing-rate check above is what catches that one. The two layers are complementary and
 // neither is sufficient. The rendered gate catches `sqrt` anyway, but by its SHAPE rather than by
 // its crush, which is a different assertion.
+//
+// 🚩 AND THE SECOND AXIS, which R0-R7 were blind to for a round. Every one of them is a statistic
+// of ONE frame, so none of them can see what the grain does over TIME — and "what it does over
+// time" is the first thing `Grade.js`'s constructor comment claims: "The grain has to change every
+// frame or it reads as dirt on the lens rather than as grain." A verifier froze the seed and this
+// file reported 44/44 green. T1-T4 below render a sequence and two runs. They are a different
+// measurement, not a stronger one: a temporal defect leaves every R-check's number untouched, and
+// the gate proves that by rendering five of them and asserting they all pass R0-R7.
+
+/**
+ * The grain field on its own: the plate minus the same frame with the grain switched off, in 8-bit
+ * code values, laid out as rows so a SHIFTED correlation is a matter of indexing.
+ *
+ * `padX`/`padY` extra pixels are read on every side of `rect`, so a correlation at a shift of up to
+ * the pad still samples real pixels. They differ because the probe's geometry is not square: a
+ * band is 60 px wide and 400 tall, so there is far more room to look up and down than sideways,
+ * and T4's reach follows the room it has rather than a round number.
+ */
+function grainField( plate, grainOffPlate, rect, padX, padY ) {
+
+    const rows = [];
+
+    for ( let y = rect.y - padY; y < rect.y + rect.height + padY; y += 1 ) {
+
+        const row = new Float64Array( rect.width + 2 * padX );
+
+        for ( let x = rect.x - padX; x < rect.x + rect.width + padX; x += 1 ) {
+
+            row[ x - ( rect.x - padX ) ] = codeValueAt( plate, x, y ) - codeValueAt( grainOffPlate, x, y );
+
+        }
+
+        rows.push( row );
+
+    }
+
+    return { rows, padX, padY, width: rect.width, height: rect.height };
+
+}
+
+/**
+ * Pearson correlation between two grain fields, with the second one shifted by `(dx, dy)`.
+ *
+ * At `(0,0)` this asks "is frame B's noise the same noise as frame A's", which is what a frozen or
+ * a repeating seed fails. At a non-zero shift it asks "is frame B's noise frame A's noise MOVED",
+ * which is the one defect that leaves every other statistic in this file exactly right.
+ */
+function fieldCorrelation( a, b, dx = 0, dy = 0 ) {
+
+    const { padX, padY, width, height } = a;
+    const count = width * height;
+
+    let sumA = 0;
+    let sumB = 0;
+
+    for ( let y = 0; y < height; y += 1 ) {
+
+        for ( let x = 0; x < width; x += 1 ) {
+
+            sumA += a.rows[ y + padY ][ x + padX ];
+            sumB += b.rows[ y + padY + dy ][ x + padX + dx ];
+
+        }
+
+    }
+
+    const meanA = sumA / count;
+    const meanB = sumB / count;
+
+    let covariance = 0;
+    let varianceA = 0;
+    let varianceB = 0;
+
+    for ( let y = 0; y < height; y += 1 ) {
+
+        for ( let x = 0; x < width; x += 1 ) {
+
+            const da = a.rows[ y + padY ][ x + padX ] - meanA;
+            const db = b.rows[ y + padY + dy ][ x + padX + dx ] - meanB;
+
+            covariance += da * db;
+            varianceA += da * da;
+            varianceB += db * db;
+
+        }
+
+    }
+
+    return covariance / Math.sqrt( varianceA * varianceB );
+
+}
+
+/**
+ * The largest |r| over every shift the fields have room for, and where it was found.
+ *
+ * The search box is the pad, and the pad is the probe's geometry — see `grainField`. It is NOT a
+ * tolerance to be tuned: an integral seed step of (5,11) was missed by an earlier version of this
+ * check whose box was a square +-8, and the fix was to search all the room there is rather than to
+ * pick a bigger round number.
+ */
+function strongestShiftedCorrelation( a, b ) {
+
+    let best = { r: 0, dx: 0, dy: 0 };
+
+    for ( let dy = -a.padY; dy <= a.padY; dy += 1 ) {
+
+        for ( let dx = -a.padX; dx <= a.padX; dx += 1 ) {
+
+            const r = Math.abs( fieldCorrelation( a, b, dx, dy ) );
+
+            if ( r > best.r ) best = { r, dx, dy };
+
+        }
+
+    }
+
+    return best;
+
+}
 
 console.log( '\n--- the RENDERED grade: pixels off a GPU, not a CPU mirror --------------------\n' );
 
@@ -908,6 +1044,334 @@ console.log( '\n--- the RENDERED grade: pixels off a GPU, not a CPU mirror -----
                 'the shipped grade passes every rendered check, so the rejections above mean something',
                 shippedTrips.length === 0,
                 shippedTrips.length === 0 ? 'R0-R7 all green on the shipped plate' : `trips ${ shippedTrips.join( ', ' ) }`
+            );
+        }
+
+        // ==========================================================================================
+        // T1-T4 — THE SAME PIXELS, ACROSS TIME
+        // ==========================================================================================
+        //
+        // Everything above measures ONE frame. `Grade.js`'s constructor comment makes two claims
+        // that no single frame can test — the grain changes every frame, and it depends on nothing
+        // but the frame index — and a verifier proved both untested by freezing the seed and
+        // watching this file score 44/44.
+        //
+        // Four statistics, on a seven-frame sequence plus a second independent run:
+        //
+        //   T1  it MOVES          sigma(frame N - frame N+1) / sigma(grain) = sqrt(2) for independent
+        //                         draws, 0 for a frozen field. A ratio, so it cannot be satisfied by
+        //                         a grain of the wrong size — R3 already owns the size.
+        //   T2  it does not REPEAT  every one of the 21 pairs is decorrelated, at every lag from 1
+        //                         to 11 — not just the neighbours, and not just short lags.
+        //                         `two-frame` beats a neighbours-only check (adjacent r = 0.026,
+        //                         lag-2 r = 1.0000) and `four-frame` beat four consecutive frames.
+        //   T3  it is DETERMINISTIC  the same frame index renders the same field in a second run.
+        //                         This is the half of the comment about `performance.now()`, and it
+        //                         is the only check `wall-clock` trips.
+        //   T4  it does not SLIDE  no spatial shift the probe has room for lines frame N up with
+        //                         frame N+1. `grain-scrolls` passes T1, T2 AND T3 and is caught
+        //                         only here — and beat this check's first +-8 px version.
+        //
+        // ⚠️ Measured at the MIDTONE band for the same reason R3 and R7 are: below it the residual
+        // is a couple of 8-bit code values and the quantisation, not the grain, sets the
+        // correlation — the shipped grade reads r = 0.33 at band 6 and r = 0.04 at band 12. A
+        // temporal check run in the shadows would be a measurement of the screenshot format.
+
+        console.log( '\n--- T: the same grade across TIME, which R0-R7 cannot see ---------------------\n' );
+
+        /**
+         * The frames T2 compares, and the reason they are not simply four in a row.
+         *
+         * ⚠️ They WERE four in a row, and `four-frame` beat that: a repeat check sees a period p
+         * only when two of its frames are congruent modulo p, and 9,10,11,12 are four distinct
+         * residues mod 4. K consecutive frames therefore cover periods 1..K-1 and nothing else,
+         * which is a gate that catches the repeats somebody already thought of.
+         *
+         * Six in a row plus one far frame instead. The pairwise differences are 1,2,3,4,5 inside
+         * the block and 6,7,8,9,10,11 from the block to frame 20 — every period from 1 to 11
+         * appears, so every one of them is caught. **Period 12 and longer is the stated limit**,
+         * and the price of raising it is one screenshot per extra frame.
+         */
+        const SEQUENCE_FRAMES = [ 9, 10, 11, 12, 13, 14, 20 ];
+
+        /**
+         * T1 and T4 need a genuinely CONSECUTIVE pair; `SEQUENCE_FRAMES` no longer ends in one.
+         *
+         * Every T-check is a statement about a LAG, never about an absolute frame index, and that
+         * is load-bearing rather than tidy: the renderer's `frameId` is offset from the capture
+         * index by a constant this file has no way to know. Measured — with the seven-frame set,
+         * `two-frame` and `four-frame` render byte-identical fields at frames 13 and 14, which
+         * happens exactly when the underlying frameId there is 0 mod 4.
+         */
+        const CONSECUTIVE_PAIR = [ 13, 14 ];
+
+        /**
+         * T3 renders one frame twice — and the second run reaches it on a DELIBERATELY different
+         * wall clock, by screenshotting every frame on the way and spending a few hundred
+         * milliseconds the first run does not.
+         *
+         * ⚠️ That is not belt-and-braces, it is the check. Without it T3 measured luck and said so
+         * in the wrong direction: `performance.now()` is PAGE-relative and Chromium coarsens it, so
+         * two runs with the SAME capture schedule reach frame 9 at the same clamped value, and the
+         * `wall-clock` defect reproduced byte for byte — run-to-run sigma 0.0000, T3 green, defect
+         * shipped. An earlier draft only caught it because its two runs happened to have different
+         * screenshot counts, which is a property of the harness and not of the grade.
+         */
+        const DETERMINISM_SLOW_RUN = [ 5, 6, 7, 8, 9 ];
+        const DETERMINISM_FRAME = DETERMINISM_SLOW_RUN.at( -1 );
+
+        if ( SEQUENCE_FRAMES.includes( CONSECUTIVE_PAIR[ 0 ] ) === false
+            || SEQUENCE_FRAMES.includes( CONSECUTIVE_PAIR[ 1 ] ) === false
+            || SEQUENCE_FRAMES.includes( DETERMINISM_FRAME ) === false ) {
+
+            throw new Error( 'Grade.selftest: CONSECUTIVE_PAIR and DETERMINISM_FRAME must all be ' +
+                'frames SEQUENCE_FRAMES captures, or the first run has nothing to compare against.' );
+
+        }
+
+        /**
+         * T4's search box, which is the probe's geometry rather than a tolerance.
+         *
+         * ⚠️ This started as a square +-8 and it was WRONG, in the way rule 4 exists to catch: a
+         * rebuilt `grain-scrolls` sliding by (3,7) was rejected, and then the same defect written
+         * into the shipped path as an integral seed step of (5,11) sailed through, because 11 > 8.
+         * A search box that only reaches as far as the defect it was written for is a decorative
+         * check with a number in it.
+         *
+         * So the box is now everything the probe leaves room for. A band is 60 px wide, which caps
+         * the horizontal reach; the frame is 400 tall against a 264 px sample, which does not. The
+         * rect is narrowed and vertically inset to buy that room, at the cost of sampling 4,224
+         * pixels instead of 16,200. That costs precision — the max of 3,201 correlations of 4,224
+         * samples runs to 0.06-0.08 on a clean plate against 0.04 for a single pair of the full
+         * band — and it is still four times under the ceiling and twelve times under a real slide.
+         */
+        const SLIDE_RADIUS_X = 16;
+        const SLIDE_RADIUS_Y = 48;
+
+        // Thresholds, each set from the measurements this run prints rather than chosen.
+        const TEMPORAL_RATIO_BAND = [ 1.25, 1.55 ];  // sqrt(2) = 1.414 ideal; shipped 1.38-1.40, frozen 0
+        const REPEAT_CEILING = 0.20;                 // shipped worst 0.044-0.052, a repeat is 1.0000
+        const SLIDE_CEILING = 0.30;                  // worst clean 0.058-0.078, an integral step 0.91
+
+        const TEMPORAL_PLATES = {
+            shipped: '?probe=grade&grade=1&aa=off&bare',
+            frozen: '?probe=grade&grade=1&aa=off&bare&graindefect=frozen',
+            twoFrame: '?probe=grade&grade=1&aa=off&bare&graindefect=two-frame',
+            fourFrame: '?probe=grade&grade=1&aa=off&bare&graindefect=four-frame',
+            quarterRate: '?probe=grade&grade=1&aa=off&bare&graindefect=quarter-rate',
+            wallClock: '?probe=grade&grade=1&aa=off&bare&graindefect=wall-clock',
+            grainScrolls: '?probe=grade&grade=1&aa=off&bare&graindefect=grain-scrolls'
+        };
+
+        /** T1-T3 want every pixel of the band; they are population statistics at zero offset. */
+        const midtoneRect = bandRect( MIDTONE_BAND );
+
+        /**
+         * T4 wants ROOM either side, so it takes a narrow column down the middle of the same band
+         * and leaves `SLIDE_RADIUS_X`/`SLIDE_RADIUS_Y` px of real pixels around it to shift into.
+         * Six px of the band's own edge are left unread at each side in any case — with `aa=off` a
+         * band boundary can land mid-pixel and that pixel is neither band.
+         */
+        const slideRect = {
+            x: Math.round( MIDTONE_BAND * ( WIDTH / BANDS ) ) + 6 + SLIDE_RADIUS_X,
+            y: 20 + SLIDE_RADIUS_Y,
+            width: Math.round( WIDTH / BANDS ) - 12 - 2 * SLIDE_RADIUS_X,
+            height: HEIGHT - 40 - 2 * SLIDE_RADIUS_Y
+        };
+
+        /**
+         * Everything the four T-checks need, for one page: the sequence's grain fields, the sigmas,
+         * and one frame captured again in a SEPARATE page load.
+         */
+        async function measureSequence( query ) {
+
+            const run = async ( keep ) => {
+
+                const shot = await probe.capturePlates( {
+                    browser, baseUrl: server.baseUrl, query, width: WIDTH, height: HEIGHT,
+                    frames: Math.max( ...keep ), keep
+                } );
+
+                if ( shot.errors.length > 0 ) throw new Error( `${ query }: ${ shot.errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+                return shot.frames;
+
+            };
+
+            const first = await run( SEQUENCE_FRAMES );
+            const repeat = ( await run( DETERMINISM_SLOW_RUN ) ).get( DETERMINISM_FRAME );
+
+            const fields = SEQUENCE_FRAMES.map(
+                ( frame ) => grainField( first.get( frame ), plates.grainOff, midtoneRect, 0, 0 ) );
+
+            const slideFields = CONSECUTIVE_PAIR.map( ( frame ) => grainField(
+                first.get( frame ), plates.grainOff, slideRect, SLIDE_RADIUS_X, SLIDE_RADIUS_Y ) );
+
+            let worstRepeat = 0;
+            let worstPair = '';
+
+            for ( let i = 0; i < fields.length; i += 1 ) {
+
+                for ( let j = i + 1; j < fields.length; j += 1 ) {
+
+                    const r = Math.abs( fieldCorrelation( fields[ i ], fields[ j ] ) );
+
+                    if ( r > worstRepeat ) {
+
+                        worstRepeat = r;
+                        worstPair = `${ SEQUENCE_FRAMES[ i ] }-${ SEQUENCE_FRAMES[ j ] }`;
+
+                    }
+
+                }
+
+            }
+
+            const grainSigmaHere = probe.differenceSigma(
+                first.get( CONSECUTIVE_PAIR[ 1 ] ), plates.grainOff, midtoneRect ).sigma;
+
+            const consecutive = probe.differenceSigma(
+                first.get( CONSECUTIVE_PAIR[ 0 ] ), first.get( CONSECUTIVE_PAIR[ 1 ] ), midtoneRect ).sigma;
+
+            return {
+                lastPlate: first.get( SEQUENCE_FRAMES.at( -1 ) ),
+                ratio: grainSigmaHere === 0 ? 0 : consecutive / grainSigmaHere,
+                grainSigma: grainSigmaHere,
+                consecutive,
+                worstRepeat,
+                worstPair,
+                runToRunSigma: probe.differenceSigma( first.get( DETERMINISM_FRAME ), repeat, midtoneRect ).sigma,
+                slide: strongestShiftedCorrelation( slideFields[ 0 ], slideFields[ 1 ] )
+            };
+
+        }
+
+        const sequences = {};
+
+        for ( const [ name, query ] of Object.entries( TEMPORAL_PLATES ) ) {
+
+            sequences[ name ] = await measureSequence( query );
+
+        }
+
+        console.log( '      page            grain sigma   consec sigma   ratio   worst pair r   run-to-run   best slide' );
+
+        for ( const [ name, s ] of Object.entries( sequences ) ) {
+
+            console.log( `      ${ name.padEnd( 14 ) }  ${ s.grainSigma.toFixed( 3 ).padStart( 11 ) }   ` +
+                `${ s.consecutive.toFixed( 3 ).padStart( 12 ) }   ${ s.ratio.toFixed( 3 ).padStart( 5 ) }   ` +
+                `${ s.worstRepeat.toFixed( 4 ).padStart( 12 ) }   ${ s.runToRunSigma.toFixed( 4 ).padStart( 10 ) }   ` +
+                `${ s.slide.r.toFixed( 4 ) }@(${ s.slide.dx },${ s.slide.dy })` );
+
+        }
+
+        console.log( '' );
+
+        const TEMPORAL_CHECKS = {
+            T1: ( s ) => s.ratio >= TEMPORAL_RATIO_BAND[ 0 ] && s.ratio <= TEMPORAL_RATIO_BAND[ 1 ],
+            T2: ( s ) => s.worstRepeat <= REPEAT_CEILING,
+            T3: ( s ) => s.runToRunSigma === 0,
+            T4: ( s ) => s.slide.r <= SLIDE_CEILING
+        };
+
+        {
+            const s = sequences.shipped;
+
+            report(
+                'T1 the grain field CHANGES between consecutive frames, by the amount two independent draws would',
+                TEMPORAL_CHECKS.T1( s ),
+                `sigma(frame ${ CONSECUTIVE_PAIR[ 0 ] } - frame ${ CONSECUTIVE_PAIR[ 1 ] }) / sigma(grain) = ` +
+                    `${ s.consecutive.toFixed( 3 ) } / ${ s.grainSigma.toFixed( 3 ) } = ${ s.ratio.toFixed( 3 ) }, ` +
+                    `band ${ TEMPORAL_RATIO_BAND[ 0 ] }-${ TEMPORAL_RATIO_BAND[ 1 ] } around sqrt(2) = 1.414. ` +
+                    'A frozen field reads 0.000; an alternating-sign one would read 2.000.'
+            );
+
+            report(
+                'T2 no two frames of the seven carry the same field, at any lag from 1 to 11',
+                TEMPORAL_CHECKS.T2( s ),
+                `worst |r| over the ${ SEQUENCE_FRAMES.length * ( SEQUENCE_FRAMES.length - 1 ) / 2 } pairs of ` +
+                    `frames ${ SEQUENCE_FRAMES.join( ',' ) } is ${ s.worstRepeat.toFixed( 4 ) } (frames ` +
+                    `${ s.worstPair }), ceiling ${ REPEAT_CEILING }. Their pairwise differences cover every ` +
+                    'lag 1..11, so every repeat period up to 11 frames is caught; 12 is the stated limit. ' +
+                    'The residual 0.03-0.05 is the fract(sin) hash, not sampling noise: 1/sqrt(16200) is 0.008.'
+            );
+
+            report(
+                'T3 the same frame index renders the same field in a separate run, so a capture reproduces',
+                TEMPORAL_CHECKS.T3( s ),
+                `two page loads reaching frame ${ DETERMINISM_FRAME } on deliberately different wall clocks ` +
+                    `(the second screenshots frames ${ DETERMINISM_SLOW_RUN.join( ',' ) } on the way, the first ` +
+                    `none): difference sigma ${ s.runToRunSigma.toFixed( 6 ) } code values. This is the claim the ` +
+                    'constructor comment makes about performance.now(), and it had never been measured.'
+            );
+
+            report(
+                'T4 the grain is REDRAWN each frame, not slid across the screen',
+                TEMPORAL_CHECKS.T4( s ),
+                `strongest |r| over the ${ ( 2 * SLIDE_RADIUS_X + 1 ) * ( 2 * SLIDE_RADIUS_Y + 1 ) } shifts within ` +
+                    `+-${ SLIDE_RADIUS_X } x +-${ SLIDE_RADIUS_Y } px is ${ s.slide.r.toFixed( 4 ) } at ` +
+                    `(${ s.slide.dx },${ s.slide.dy }), ceiling ${ SLIDE_CEILING }. The irrational GRAIN_SEED_STEP ` +
+                    'is what makes this true; an integral step of (3,7) or (5,11) reads 0.92 at that offset.'
+            );
+        }
+
+        console.log( '\n      rejection coverage — which temporal check each rebuilt clock defect trips\n' );
+
+        const TEMPORAL_DEFECTS = {
+            'frozen (`onFrameUpdate( () => 0 )`, the reported defect verbatim)': 'frozen',
+            'two-frame (0,1,0,1 — passes a neighbours-only check)': 'twoFrame',
+            'four-frame (0,1,2,3 — passes FOUR consecutive frames, which is what T2 used to be)': 'fourFrame',
+            'quarter-rate (advances once in four)': 'quarterRate',
+            'wall-clock (performance.now(), unreproducible)': 'wallClock',
+            'grain-scrolls (an integer seed step — one field, translated)': 'grainScrolls'
+        };
+
+        for ( const [ label, key ] of Object.entries( TEMPORAL_DEFECTS ) ) {
+
+            const tripped = Object.entries( TEMPORAL_CHECKS )
+                .filter( ( [ , check ] ) => check( sequences[ key ] ) === false )
+                .map( ( [ name ] ) => name );
+
+            report(
+                `rejected by rendering a sequence: ${ label }`,
+                tripped.length > 0,
+                tripped.length > 0
+                    ? `trips ${ tripped.join( ', ' ) }`
+                    : 'passes every temporal check — this gate does NOT cover this defect'
+            );
+
+        }
+
+        // 🎯 The finding, asserted rather than described. If a temporal defect ever DID trip an
+        // R-check, the rejections above would be proving something about that defect's amplitude
+        // or envelope instead of about its clock, and the T-checks would be back to unproven.
+        {
+            const contaminated = Object.entries( TEMPORAL_DEFECTS )
+                .map( ( [ label, key ] ) => [ label, Object.entries( CHECKS )
+                    .filter( ( [ , check ] ) => check( sequences[ key ].lastPlate ) === false )
+                    .map( ( [ name ] ) => name ) ] )
+                .filter( ( [ , tripped ] ) => tripped.length > 0 );
+
+            report(
+                'every temporal defect passes ALL of R0-R7 — which is exactly why T1-T4 had to exist',
+                contaminated.length === 0,
+                contaminated.length === 0
+                    ? `all ${ Object.keys( TEMPORAL_DEFECTS ).length } broken clocks are invisible to the ` +
+                        'single-frame checks: same mean, same p0.1, same sigma, same chroma, same envelope shape'
+                    : contaminated.map( ( [ label, tripped ] ) => `${ label } trips ${ tripped.join( '/' ) }` ).join( '; ' )
+            );
+        }
+
+        {
+            const shippedTemporalTrips = Object.entries( TEMPORAL_CHECKS )
+                .filter( ( [ , check ] ) => check( sequences.shipped ) === false )
+                .map( ( [ name ] ) => name );
+
+            report(
+                'the shipped grade passes every temporal check, so the rejections above mean something',
+                shippedTemporalTrips.length === 0,
+                shippedTemporalTrips.length === 0 ? 'T1-T4 all green on the shipped sequence'
+                    : `trips ${ shippedTemporalTrips.join( ', ' ) }`
             );
         }
 
