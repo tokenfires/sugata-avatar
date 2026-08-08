@@ -26,6 +26,14 @@ import { Object3D, Vector3 } from 'three';
 import { Skeleton } from './Skeleton.js';
 import { RestPose } from './RestPose.js';
 
+// three's GLTFLoader assumes a browser when it decodes embedded textures. The stance-width check
+// needs real skinned vertices — a heel is not a joint — so the GLB is loaded properly for that one
+// section, and nothing here inspects a pixel. Both stubs must be in place before the import.
+globalThis.self ??= globalThis;
+globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {} } );
+
+const { Figure } = await import( './Figure.js' );
+
 const GLB_PATH = fileURLToPath( new URL( '../../../../assets/figures/figure_g050.glb', import.meta.url ) );
 
 // Anatomical targets. Each is the prose claim in the pose file, restated as an interval.
@@ -42,13 +50,60 @@ const RELAXED_TARGETS = {
 // figure skated".
 const FOOT_TRAVEL_LIMIT_METRES = 0.045;
 
+/**
+ * 🎯 McIlroy WE and Maki BE (1997), "Preferred placement of the feet during quiet stance:
+ * development of a standardized foot placement for balance testing", Clinical Biomechanics
+ * 12(1):66-70. N = 262, aged 19-97, standing as they preferred: **0.17 m between heel centres,
+ * 14 degrees between the long axes of the feet.**
+ *
+ * This gate exists because every measured gate in this repo was green while the figure stood with
+ * its heels 379.9 mm apart — more than twice a preferred stance — and a blind visual judge called
+ * it in one line. A wide base is not a cosmetic choice: it is how a body STOPS moving sideways, so
+ * a stance this wide mechanically suppresses the medio-lateral sway that `motion/Sway.js` spends
+ * most of its effort producing. Nothing in the repo was measuring the base of support.
+ *
+ * The tolerance is per-pose scatter, not uncertainty in the source. All three poses are solved to
+ * the same target and land within 1.5 mm and 1.2 degrees of it; the band is wide enough that a
+ * re-authored contrapposto does not have to be re-solved to four figures, and far too narrow to
+ * admit the stance this gate was written against.
+ */
+const PREFERRED_HEEL_SEPARATION_METRES = 0.17;
+const HEEL_SEPARATION_TOLERANCE_METRES = 0.020;
+const PREFERRED_FOOT_ANGLE_DEGREES = 14;
+const FOOT_ANGLE_TOLERANCE_DEGREES = 4;
+
+/**
+ * How far the heel midpoint may sit from the figure's own bind-pose heel midpoint, in metres.
+ *
+ * Narrowing the stance by adducting the two hips by DIFFERENT amounts — which the asymmetric bind
+ * pose forces — narrows it about the pelvis rather than about the floor, and left the figure
+ * standing 32.6 mm to one side of where it had been. That is a quarter of the new half-stance and
+ * it reads on screen as a lean. It is fixed by translating the whole figure through the pelvis
+ * offset, and this is the gate that would catch it coming back.
+ */
+const BIND_HEEL_MIDPOINT_METRES = -0.00715;
+const HEEL_MIDPOINT_TOLERANCE_METRES = 0.006;
+
+/**
+ * How far a contrapposto may carry the heel midpoint away from the rest pose's, in metres.
+ *
+ * A real weight shift does reposition the feet slightly and there is no foot IK here to pin them,
+ * which weight-left.json says in its own notes. Measured: 4.0 mm one way and 8.2 mm the other, where
+ * the poses this replaced drifted 2.4 and 11.9. So this is not a new residue and it is a little
+ * smaller than it was.
+ */
+const CONTRAPPOSTO_FOOT_DRIFT_LIMIT_METRES = 0.012;
+
 const DOWN = new Vector3( 0, -1, 0 );
+
+/** The GLB is parsed once and re-posed, because parsing it is the expensive part. */
+let cachedFigure = null;
 
 let failures = 0;
 
-run();
+await run();
 
-function run() {
+async function run() {
 
     const relaxedSkeleton = poseSkeleton( 'relaxed-standing' );
 
@@ -60,6 +115,7 @@ function run() {
     checkContrapposto( 'weight-right', -1 );
 
     checkMirrorSymmetry();
+    await checkStanceWidth();
     checkBlendEndpoints();
     checkAuthoringErrorsAreLoud();
 
@@ -172,7 +228,14 @@ function checkContrapposto( poseName, stanceSign ) {
 
     const hipTilt = hipLineTiltDegrees( skeleton ) * stanceSign;
     const shoulderTilt = shoulderLineTiltDegrees( skeleton ) * stanceSign;
-    const pelvisShift = worldPosition( skeleton, 'pelvis' ).x * stanceSign;
+
+    // 🚩 Pelvis TRAVEL, which is a displacement from the resting stance — not the pelvis's absolute
+    // x, which is what this used to read. The two were the same number only because relaxed-standing
+    // happened to sit near x = 0, and they stopped being the same the moment the whole figure was
+    // translated to recentre the narrowed stance. An absolute position was never the claim: the
+    // pose file says "the pelvis translates over the stance foot", and translation is a difference.
+    const pelvisShift = ( worldPosition( skeleton, 'pelvis' ).x
+        - worldPosition( relaxed, 'pelvis' ).x ) * stanceSign;
 
     within( 'weighted hip is raised', hipTilt, [ 3, 9 ] );
     assert( `shoulder line opposes the hip line  (shoulder ${ round( shoulderTilt ) }°, hip ${ round( hipTilt ) }°)`,
@@ -201,29 +264,150 @@ function checkContrapposto( poseName, stanceSign ) {
 
 }
 
-/** weight-right must be the exact sagittal mirror of weight-left. It is generated, so this is a real risk. */
+/**
+ * weight-right must be the sagittal mirror of weight-left. It is generated, so this is a real risk.
+ *
+ * 🚩 THIS CHECK HAD TO CHANGE SHAPE, AND THE REASON IS WORTH READING. It used to compare the two
+ * poses' absolute world joint positions and demand they mirror to a tenth of a micron. That worked
+ * only because the legs of the two poses really were exact numeric mirrors of each other. They no
+ * longer are: the narrowing that brings the heels to a preferred stance width is a correction to
+ * the FIGURE — whose two ankles sit 12.5 mm off centre from each other — so it belongs to the left
+ * leg and the right leg rather than to the stance leg and the free leg, and it is deliberately
+ * IDENTICAL in all three poses rather than mirrored. Mirroring it instead would move the whole
+ * stance 15 mm sideways every time the figure shifted its weight, which is a skating foot.
+ *
+ * And comparing the world positions of the CONTRAPPOSTO — each pose's displacement from
+ * relaxed-standing — does not work either, measured: the residue is 14 mm, because
+ * relaxed-standing's own left/right asymmetry is deliberate and large (the arms differ by 1.8
+ * degrees, the toe-out by 0.5, the pelvis travel by 4 mm) and it enters both differences unequally.
+ * A 14 mm tolerance is not a gate.
+ *
+ * So the claim is asserted where it is exactly true — in the pose DATA — and in two parts:
+ *
+ *   Every bone the stance correction does not touch must mirror EXACTLY, angle for angle. That is
+ *   two thirds of the file and the part a generator would corrupt.
+ *
+ *   The four leg and foot bones, and the pelvis offset, must mirror in their DIFFERENCE from
+ *   relaxed-standing, because the stance correction is a common additive term there and cancels.
+ *   The tolerance is 0.6 degrees, which is relaxed-standing's own authored toe-out asymmetry (3.5
+ *   against 3.0) and was already present before any of this.
+ */
 function checkMirrorSymmetry() {
 
     console.log( '\nweight-left / weight-right — mirror' );
 
-    const left = poseSkeleton( 'weight-left' );
-    const right = poseSkeleton( 'weight-right' );
+    const relaxed = RestPose.load( 'relaxed-standing' );
+    const left = RestPose.load( 'weight-left' );
+    const right = RestPose.load( 'weight-right' );
 
-    let worst = 0;
+    // The bones that carry the shared, deliberately unmirrored stance correction.
+    const STANCE_BONES = new Set( [ 'leftUpperLeg', 'rightUpperLeg', 'leftFoot', 'rightFoot' ] );
 
-    for ( const name of [ 'head', 'hand_l', 'hand_r', 'foot_l', 'foot_r', 'ball_l', 'ball_r', 'pelvis', 'index_03_l' ] ) {
+    let worstExact = 0;
+    let worstStance = 0;
 
-        const mirroredName = name.endsWith( '_l' ) ? `${ name.slice( 0, -2 ) }_r`
-            : name.endsWith( '_r' ) ? `${ name.slice( 0, -2 ) }_l` : name;
+    for ( const humanoidName of left.rotations.keys() ) {
 
-        const a = worldPosition( left, name );
-        const b = worldPosition( right, mirroredName );
+        const mirroredName = mirrorHumanoidName( humanoidName );
+        const a = left.rotations.get( humanoidName );
+        const b = right.rotations.get( mirroredName );
 
-        worst = Math.max( worst, Math.abs( a.x + b.x ), Math.abs( a.y - b.y ), Math.abs( a.z - b.z ) );
+        if ( b === undefined ) {
+            assert( `weight-right has a mirror for ${ humanoidName }`, false );
+            continue;
+        }
+
+        if ( STANCE_BONES.has( humanoidName ) ) {
+
+            const deltaLeft = relaxed.rotations.get( humanoidName ).clone().invert().multiply( a );
+            const deltaRight = relaxed.rotations.get( mirroredName ).clone().invert().multiply( b );
+
+            worstStance = Math.max( worstStance, degreesApart( mirrorQuaternion( deltaLeft ), deltaRight ) );
+
+        } else {
+
+            worstExact = Math.max( worstExact, degreesApart( mirrorQuaternion( a ), b ) );
+
+        }
 
     }
 
-    assert( `every checked joint mirrors to under 0.1 mm  (worst ${ ( worst * 1000 ).toExponential( 2 ) } mm)`, worst < 1e-4 );
+    assert( `every bone outside the stance mirrors exactly  (worst ${ worstExact.toExponential( 2 ) } deg)`,
+        worstExact < 1e-3 );
+
+    assert( `the four stance bones mirror in their contrapposto delta  (worst ${ round( worstStance, 3 ) } deg)`,
+        worstStance < 0.6 );
+
+    // The pelvis offset is data too, and its travel is what the contrapposto is FOR.
+    const travelLeft = left.hipsOffset.clone().sub( relaxed.hipsOffset );
+    const travelRight = right.hipsOffset.clone().sub( relaxed.hipsOffset );
+
+    assert( `pelvis travel mirrors in x to under 5 mm  (${ round( ( travelLeft.x + travelRight.x ) * 1000, 2 ) } mm,` +
+        ` deliberate: the two shifts were authored 38 and 42 mm)`,
+        Math.abs( travelLeft.x + travelRight.x ) < 0.005 );
+
+    assert( `pelvis travel mirrors in y exactly  (${ round( ( travelLeft.y - travelRight.y ) * 1000, 4 ) } mm)`,
+        Math.abs( travelLeft.y - travelRight.y ) < 1e-6 );
+
+}
+
+/**
+ * 🎯 THE BASE OF SUPPORT — the finding no gate in this repo was looking for.
+ *
+ * Measured off skinned vertices rather than joints, because a heel is not a bone: every vertex of
+ * every skinned mesh below its own side's ankle joint is the footprint, the rearmost fifth of each
+ * foot is its heel, and the frontmost fifth is its toe. See PREFERRED_HEEL_SEPARATION_METRES for the
+ * source and for why this matters mechanically rather than cosmetically.
+ *
+ * All three poses are checked, not just the rest pose. A contrapposto that quietly splays the feet
+ * would put the figure back in a braced stance for the whole duration of a weight shift, which is
+ * exactly the window in which the lateral motion is supposed to be most legible.
+ */
+async function checkStanceWidth() {
+
+    console.log( '\nbase of support — McIlroy & Maki 1997' );
+
+    // Filled by the rest pose, which is checked first because the other two are checked against it.
+    let restMidpoint = 0;
+
+    for ( const poseName of RestPose.names ) {
+
+        const stance = await measureStance( poseName );
+
+        within( `${ poseName }: heel separation (m)`, stance.heelSeparation,
+            [ PREFERRED_HEEL_SEPARATION_METRES - HEEL_SEPARATION_TOLERANCE_METRES,
+                PREFERRED_HEEL_SEPARATION_METRES + HEEL_SEPARATION_TOLERANCE_METRES ] );
+
+        within( `${ poseName }: included foot angle (deg)`, stance.includedAngleDegrees,
+            [ PREFERRED_FOOT_ANGLE_DEGREES - FOOT_ANGLE_TOLERANCE_DEGREES,
+                PREFERRED_FOOT_ANGLE_DEGREES + FOOT_ANGLE_TOLERANCE_DEGREES ] );
+
+        // Where the figure STANDS is a property of the rest pose. A contrapposto is allowed to
+        // reposition the feet a little — it does in life, and there is no foot IK here to stop it —
+        // so the two weight poses are checked against the rest pose rather than against the bind
+        // one, at the amplitude the pose files already claim.
+        if ( poseName === 'relaxed-standing' ) {
+
+            restMidpoint = stance.heelMidpoint;
+
+            within( `${ poseName }: heel midpoint, so the figure is not standing off centre (m)`,
+                stance.heelMidpoint,
+                [ BIND_HEEL_MIDPOINT_METRES - HEEL_MIDPOINT_TOLERANCE_METRES,
+                    BIND_HEEL_MIDPOINT_METRES + HEEL_MIDPOINT_TOLERANCE_METRES ] );
+
+        } else {
+
+            within( `${ poseName }: heel midpoint moves with the shift, but only a little (m)`,
+                stance.heelMidpoint - restMidpoint,
+                [ -CONTRAPPOSTO_FOOT_DRIFT_LIMIT_METRES, CONTRAPPOSTO_FOOT_DRIFT_LIMIT_METRES ] );
+
+        }
+
+        console.log( `        outer-to-outer ${ round( stance.outerToOuter * 1000 ) } mm,` +
+            ` inner gap ${ round( stance.innerGap * 1000 ) } mm` +
+            `   — reported; the bind pose measured 480.0 and 300.6` );
+
+    }
 
 }
 
@@ -345,6 +529,110 @@ function poseSkeleton( poseName ) {
 
 }
 
+/**
+ * The figure's footprint, in world metres, for one pose.
+ *
+ * Loaded through `Figure` rather than through the JSON-chunk tree the rest of this file uses,
+ * because this is the one measurement that needs the SKIN: a heel centre and a foot's long axis are
+ * properties of the mesh, and the rig has no landmark for either. `applyBoneTransform` gives the
+ * skinned position of a vertex in the pose the bones are currently in, which is exactly what a
+ * force plate would see.
+ *
+ * Each foot is cut at its OWN ankle height and the two are split at the midline between the ankles.
+ * A single shared cutoff empties the set for a foot the pose has lifted, and an empty set turns
+ * every statistic here into NaN — which reads as a crash rather than as a failure.
+ */
+async function measureStance( poseName ) {
+
+    if ( cachedFigure === null ) {
+
+        const bytes = readFileSync( GLB_PATH );
+
+        const figure = await Figure.parse(
+            bytes.buffer.slice( bytes.byteOffset, bytes.byteOffset + bytes.byteLength ) );
+
+        // 🚩 The Skeleton is cached WITH the figure, and that is load-bearing rather than an
+        // optimisation. A Skeleton reads the rig's current bone rotations as its bind reference at
+        // construction, so building a second one over an already-posed figure treats the pose as
+        // bind and applies the next pose on top of it. That silently halved one stance and doubled
+        // the other before this line existed.
+        cachedFigure = { figure, skeleton: new Skeleton( figure.root ) };
+
+    }
+
+    const { root } = cachedFigure.figure;
+    const { skeleton } = cachedFigure;
+
+    RestPose.load( poseName ).applyTo( skeleton );
+    skeleton.update();
+    root.updateMatrixWorld( true );
+
+    const ankle = {
+        left: new Vector3().setFromMatrixPosition( root.getObjectByName( 'foot_l' ).matrixWorld ),
+        right: new Vector3().setFromMatrixPosition( root.getObjectByName( 'foot_r' ).matrixWorld )
+    };
+
+    const midline = ( ankle.left.x + ankle.right.x ) / 2;
+    const sides = { left: [], right: [] };
+    const vertex = new Vector3();
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+
+        for ( let index = 0; index < position.count; index ++ ) {
+
+            vertex.fromBufferAttribute( position, index );
+            object.applyBoneTransform( index, vertex );
+            object.localToWorld( vertex );
+
+            const isLeft = vertex.x >= midline;
+
+            if ( vertex.y > ( isLeft ? ankle.left.y : ankle.right.y ) ) continue;
+
+            ( isLeft ? sides.left : sides.right ).push( vertex.clone() );
+
+        }
+
+    } );
+
+    const describe = ( points ) => {
+
+        const depths = points.map( ( point ) => point.z );
+        const rearmost = Math.min( ...depths );
+        const frontmost = Math.max( ...depths );
+        const span = frontmost - rearmost;
+
+        const heel = points.filter( ( point ) => point.z < rearmost + 0.2 * span );
+        const toe = points.filter( ( point ) => point.z > frontmost - 0.2 * span );
+        const mean = ( set, axis ) => set.reduce( ( total, point ) => total + point[ axis ], 0 ) / set.length;
+
+        return {
+            heelX: mean( heel, 'x' ), heelZ: mean( heel, 'z' ),
+            toeX: mean( toe, 'x' ), toeZ: mean( toe, 'z' ),
+            innerEdge: points.reduce( ( best, point ) => Math.min( best, Math.abs( point.x - midline ) ), Infinity ),
+            outerEdge: points.reduce( ( best, point ) => Math.max( best, Math.abs( point.x - midline ) ), 0 )
+        };
+
+    };
+
+    const left = describe( sides.left );
+    const right = describe( sides.right );
+
+    const angleOf = ( foot ) => Math.abs( Math.atan2( foot.toeX - foot.heelX, foot.toeZ - foot.heelZ ) * 180 / Math.PI );
+
+    return {
+        heelSeparation: left.heelX - right.heelX,
+        heelMidpoint: ( left.heelX + right.heelX ) / 2,
+        includedAngleDegrees: angleOf( left ) + angleOf( right ),
+        outerToOuter: left.outerEdge + right.outerEdge,
+        innerGap: left.innerEdge + right.innerEdge
+    };
+
+}
+
 // ---- measurement ---------------------------------------------------------------------------------
 
 function worldPosition( skeleton, boneName ) {
@@ -425,6 +713,33 @@ function posesMatch( a, b ) {
     }
 
     return true;
+
+}
+
+/** 'leftUpperLeg' -> 'rightUpperLeg', and anything unsided back to itself. */
+function mirrorHumanoidName( humanoidName ) {
+
+    if ( humanoidName.startsWith( 'left' ) ) return `right${ humanoidName.slice( 4 ) }`;
+    if ( humanoidName.startsWith( 'right' ) ) return `left${ humanoidName.slice( 5 ) }`;
+
+    return humanoidName;
+
+}
+
+/**
+ * A rotation reflected across the sagittal plane. Reflecting a frame reverses handedness, so the
+ * quaternion's x component and its angle survive and y and z flip — which is the quaternion form of
+ * the (x, -y, -z) Euler rule the pose files state.
+ */
+function mirrorQuaternion( rotation ) {
+
+    return rotation.clone().set( rotation.x, -rotation.y, -rotation.z, rotation.w );
+
+}
+
+function degreesApart( a, b ) {
+
+    return a.angleTo( b ) * 180 / Math.PI;
 
 }
 

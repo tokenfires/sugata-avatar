@@ -15,10 +15,16 @@
 
         "TRUNK. Slight thoracic rounding, slight forward head, shoulders protracted and depressed a few degrees off the squared-up bind pose. All of it under 4 degrees; past that it reads as slumped rather than relaxed.",
 
-        "ASYMMETRY. A degree or two of difference between the sides everywhere it is cheap — arms, hands, hips, feet. Nobody stands square, and exact bilateral symmetry is one of the tells that a figure was posed by a machine. It is deliberately kept below the threshold at which it reads as a lean."
+        "ASYMMETRY. A degree or two of difference between the sides everywhere it is cheap — arms, hands, hips, feet. Nobody stands square, and exact bilateral symmetry is one of the tells that a figure was posed by a machine. It is deliberately kept below the threshold at which it reads as a lean.",
+
+        "STANCE WIDTH — the largest single correction this pose has had, and it came from a visual judge rather than from a number. The bind pose stands with its heel centres 379.9 mm apart and 480.0 mm outer edge to outer edge, measured off every skinned vertex below the ankle joint. That is a braced athletic stance, not a resting one, and it suppresses the very lateral sway the motion layer spends most of its effort producing: a wide base is how a body STOPS moving sideways. McIlroy WE and Maki BE (1997), 'Preferred placement of the feet during quiet stance: development of a standardized foot placement for balance testing', Clinical Biomechanics 12(1):66-70, measured 262 people aged 19-97 standing as they preferred and report 0.17 m between heel centres with 14 degrees between the long axes of the feet. Those two numbers are what the leg angles below are solved to. Measured result: heel centres 169.8 mm, included foot angle 14.1 degrees, outer-to-outer 295.5 mm.",
+
+        "HOW THE ANGLES WERE FOUND, because they are solved rather than drawn. Four free parameters — adduction at each hip separately, one shared extra external rotation, and the pelvis height — against four measurements taken off the skinned mesh: heel separation, included foot angle, and each ankle's height. The two adductions are solved SEPARATELY because the bind pose's ankles are not symmetric (x = +175.5 and -188.0), so one mirrored angle would centre the stance on the figure's right. The feet then carry an exact counter-rotation: the correction that restores the sole's world orientation is computed in the normalised rig's own algebra, R_foot' = flattening( R_low^-1 . R_up'^-1 . R_up . R_low ) . R_foot, with its yaw dropped so the foot turns out with the leg but does not tilt. Sole roll changes by 0.08 degrees; a hand-mirrored 'minus the adduction' leaves it tilted by three.",
+
+        "The pelvis rises 3.2 mm, which is what keeps the soles on the same floor: adducting a leg swings the ankle up an arc as well as inward. It also moves 32.55 mm toward the figure's right, and that is not cosmetic: adducting the two legs by different amounts narrows the stance ABOUT THE PELVIS rather than about the floor, which left the heel midpoint 32.6 mm to the figure's left of where the bind pose put it. Translating the pelvis translates the whole figure — the legs hang off it — so the body stays over its own feet and the same 32.55 mm goes into all three poses, leaving the contrapposto's authored 38 mm of pelvis travel exactly as drawn. Measured heel midpoint: -7.2 mm, against the bind pose's -7.15 mm."
     ],
 
-    "hipsOffsetMetres": [ 0.002, 0, 0 ],
+    "hipsOffsetMetres": [ -0.0306, 0.0032, 0 ],
 
     "axes": {
         "elbowExtendLeft": [ 0.7449, 0.6647, -0.0514 ],
@@ -88,13 +94,13 @@
         "rightThumbProximal": { "axis": "thumbCurlRight", "degrees": 13 },
         "rightThumbDistal": { "axis": "thumbCurlRight", "degrees": 9 },
 
-        "leftUpperLeg": { "euler": [ 0, 3.5, 0 ], "why": "Toe-out comes from the hip, not the ankle: external rotation of the femur swings the knee out with the foot, which is what a real stance does. Ankle-only toe-out leaves the knee pointing straight ahead and reads as a dance position." },
+        "leftUpperLeg": { "euler": [ 0, 9.56, -5.29 ], "why": "y: toe-out comes from the hip, not the ankle — external rotation of the femur swings the knee out with the foot, which is what a real stance does. Ankle-only toe-out leaves the knee pointing straight ahead and reads as a dance position. z: -5.29 of adduction, solved to bring this heel to half of McIlroy and Maki's 0.17 m." },
         "leftLowerLeg": { "euler": [ 0, 0, 0 ], "why": "The bind pose already carries the knee 6.8 degrees forward of the hip-ankle line. Nothing to add; flexing further would sink the figure through the floor, since there is no foot IK here to catch it." },
-        "leftFoot": { "euler": [ 0, 0, 0 ] },
+        "leftFoot": { "euler": [ 0.56, 0, 5.32 ], "why": "The exact counter-rotation for this leg's adduction, so the sole stays as flat as the bind pose had it while the thigh tilts inward. Not the negative of the adduction: the hip's roll and its external rotation do not commute." },
 
-        "rightUpperLeg": { "euler": [ 0, -3.0, 0 ], "why": "Half a degree less toe-out than the left." },
+        "rightUpperLeg": { "euler": [ 0, -9.06, 9.94 ], "why": "Half a degree less toe-out than the left. The adduction is 4.65 degrees larger because the bind pose's right ankle sits 12.5 mm further from the midline than its left one — the stance is centred on the figure, not on the rig." },
         "rightLowerLeg": { "euler": [ 0, 0, 0 ] },
-        "rightFoot": { "euler": [ 0, 0, 0 ] }
+        "rightFoot": { "euler": [ 1.05, 0, -10.0 ], "why": "As the left foot, for the larger adduction on this side." }
 
     }
 }

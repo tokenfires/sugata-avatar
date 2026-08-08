@@ -4,11 +4,12 @@
     "notes": [
         "The sagittal mirror of weight-left, generated rather than retyped. Every angle, every comment and every reason lives in weight-left.json — read that file, then read left for right.",
         "The mirror rule, for anyone editing this by hand: a rotation reflected across the sagittal plane keeps its x component and negates y and z. So an Euler triple (x, y, z) becomes (x, -y, -z), a measured axis (ax, ay, az) becomes (ax, -ay, -az) at the same angle, and the hips offset negates in x only.",
-        "Weight on the right leg therefore raises the RIGHT hip and drops the RIGHT shoulder."
+        "Weight on the right leg therefore raises the RIGHT hip and drops the RIGHT shoulder.",
+        "STANCE WIDTH is the one thing here that is NOT mirrored, and it must not be. The narrowing that brings the heels to McIlroy and Maki's preferred 0.17 m is a correction to the FIGURE's bind pose, whose two ankles sit 12.5 mm off centre from each other, so it belongs to the left leg and the right leg rather than to the stance leg and the free leg. Every pose therefore carries the same per-leg adduction and external rotation; what is mirrored is the contrapposto delta on top of it, exactly as before. Measured after: heel centres 169.6 mm, included angle 15.17 degrees, outer-to-outer 298.7 mm."
     ],
     "hipsOffsetMetres": [
-        -0.04,
-        -0.005,
+        -0.0726,
+        -0.0018,
         0
     ],
     "axes": {
@@ -286,10 +287,10 @@
         "rightUpperLeg": {
             "euler": [
                 0,
-                -5.5,
-                8.5
+                -11.56,
+                18.44
             ],
-            "why": "Stance leg. z: -8.5 undoes the pelvis's +5.5 roll and adds three degrees of adduction on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it."
+            "why": "Stance leg. Against relaxed-standing's [0, -9.06, 9.94] this is -2.5 of external rotation and +8.5 of adduction: the +8.5 undoes the pelvis's -5.5 roll and adds three degrees on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it. The absolute numbers carry the narrowed stance; the DELTA from relaxed-standing is the contrapposto."
         },
         "rightLowerLeg": {
             "euler": [
@@ -301,16 +302,17 @@
         },
         "rightFoot": {
             "euler": [
+                1.92,
                 0,
-                0,
-                0
-            ]
+                -10.04
+            ],
+            "why": "The stance foot's counter-rotation for the narrowed stance; see relaxed-standing."
         },
         "leftUpperLeg": {
             "euler": [
                 -4,
-                1,
-                9
+                7.06,
+                3.71
             ],
             "why": "Free leg. z: -9 undoes the pelvis roll and abducts the leg so the free foot ends up slightly wider than the stance foot. x: -4 flexes the hip, sending the knee forward — note that a bone pointing DOWN moves backward under a positive x rotation, which is the sign trap in this whole file."
         },
@@ -324,11 +326,11 @@
         },
         "leftFoot": {
             "euler": [
-                -6,
-                2,
-                0
+                -6.57,
+                1.36,
+                6.03
             ],
-            "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider."
+            "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider. Now also carrying the narrowed stance's counter-rotation."
         }
     }
 }

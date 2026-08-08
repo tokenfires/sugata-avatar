@@ -265,14 +265,76 @@ const SHIFT_PROBABILITY_AT_PLAIN_TURN_BOUNDARY = 0.08;
 // --- tuning constants, with no primary support -------------------------------------------
 
 /**
- * TUNING. Duarte reports fidget *intervals* but no fidget amplitude, and a fidget is by
- * definition smaller than a shift because it returns to the same region. Half the shift
- * amplitude is the assumption; it is visible in the selftest's event report if it is wrong.
+ * 🎯 Fidget amplitude, as a fraction of a shift's — and a constant that was wrong for a reason
+ * worth keeping, because the paper had already answered it.
+ *
+ * Duarte reports fidget INTERVALS and no fidget amplitude, so this cannot be read off his table.
+ * What it used to say was: "a fidget is by definition smaller than a shift because it returns to
+ * the same region", and half was the assumption. The first clause does not follow from the second,
+ * and the paper's own words say otherwise — FIDGETING is *"a fast and LARGE displacement and
+ * returning of COP to approximately the same position"* against SHIFTING's *"a fast displacement of
+ * the average position of COP from one region to another"*. The word that separates them is
+ * RETURNING, not smaller; "large" is in the description of the fidget.
+ *
+ * 🚩 AND IT WAS THE LEGIBILITY DEFECT. A blind visual judge watching seven minutes read THREE
+ * postural events, 0.43 a minute, against a relay firing at 1.5. Measured over 90 minutes on this
+ * figure: the balance band alone moves the pelvis 3.7 mm RMS, the median relayed event moved it
+ * 11.4 mm, and the excursion at which the judge's count comes out right is about 5.5x the
+ * background — roughly 20 mm. Half the relays were the same size as the sway they were supposed to
+ * stand out from, and 78% of the relays are fidgets, so halving them halved almost the whole
+ * stream. It is not a rate problem and it is not the lognormal's tail; it is signal against
+ * background.
+ *
+ * At parity the median event moves the pelvis 16.1 mm against a 3.7 mm background — see the
+ * selftest's LEGIBILITY section for the measured rate above the judge's own threshold. It costs the
+ * fifteen-minute composite almost nothing, because a fidget returns: 11.63 mm of lateral
+ * centre-of-pressure SD becomes 11.80, well inside Bates' interquartile range either way.
  */
-const FIDGET_AMPLITUDE_FRACTION_OF_SHIFT = 0.5;
+const FIDGET_AMPLITUDE_FRACTION_OF_SHIFT = 1.0;
 
-/** TUNING. How long a fidget's out-and-back takes. "Fast" is all Duarte says. */
-const FIDGET_DURATION_SECONDS = 1.4;
+/**
+ * 🎯 How long a fidget's out-and-back takes, and how that time is split between going and coming
+ * back. "Fast" is all Duarte says — and reading it as symmetric was the second half of the
+ * legibility defect.
+ *
+ * The version this replaced was a raised cosine over 1.4 s: 0.7 s out, 0.7 s back. At 1.2 fidgets a
+ * minute that is a duty cycle of **2.5%** — the figure is mid-fidget for one frame in forty. A judge
+ * that samples the timeline rather than staring at it continuously therefore expects to catch about
+ * one fidget in seven minutes however large they are, which is part of why it read THREE postural
+ * events in seven minutes when the relay was firing at 1.5 a minute. The other part was amplitude,
+ * and amplitude alone cannot fix this, because an event that is not on screen cannot be seen at any
+ * size.
+ *
+ * 🚩 The word "fast" in Duarte's definition attaches to the DISPLACEMENT — *"a fast and large
+ * displacement and returning of COP to approximately the same position"* — and not to the return.
+ * Muscle says the same thing: loading the other leg is an active push and coming back off it is
+ * largely passive, so a fidget is fast out and slow back in exactly the way `BodyIdle`'s shoulder
+ * settle already argues for. The SHAPE is the argued part of this change: the time to peak drops
+ * from 0.70 s to 0.45 s — the displacement is faster than it was, which is the half Duarte's wording
+ * supports — and the return stretches from 0.70 s to 1.35 s.
+ *
+ * 🎯 AND THE DURATION HAS A MEASURED CEILING, WHICH IS THE PART WORTH KNOWING. A longer fidget is a
+ * better fidget by every legibility measure — 3.0 s takes the duty cycle to 5.3% — and it is not
+ * free: a 1.2/min process with a multi-second time constant puts real power below 0.25 Hz, and the
+ * COMPOSITE lateral spectral mode measured at the head falls out of the postural band with it.
+ * Measured, `idle-motion.selftest.mjs`'s median across twelve seeds:
+ *
+ *     1.4 s  0.308 Hz     1.8 s  0.264 Hz     2.0 s  0.234 Hz     3.0 s  0.176 Hz
+ *
+ * against a band of 0.250-0.360. 1.8 s is the longest duration that keeps it inside, so 1.8 s is
+ * what this is, and the duty cycle it buys is 3.2% rather than 5.3%.
+ *
+ * ⚠️ That ceiling is stated against a composite measured with a quiet-standing number, which is the
+ * category error §1.7b is about — Quijoux's 60 s "stand as still as possible" trials cannot contain
+ * a weight-shift process at 49-199 s intervals. `sway.selftest.mjs` gates the same claim on
+ * `balanceDisplacement`, where it belongs, and reads 0.322 Hz at any of these durations. So the
+ * ceiling may well be an artefact of the wrong gate. It is honoured anyway, because a slower
+ * composite rock is a real change in what a viewer sees and there is no source saying it is right —
+ * and honouring it costs 0.02 legible events a minute, measured. Revisit with a source, not a
+ * preference.
+ */
+const FIDGET_DURATION_SECONDS = 1.8;
+const FIDGET_RISE_FRACTION = 0.25;
 
 /** TUNING. How long a shift takes to settle into its new region. */
 const SHIFT_SETTLE_SECONDS = 0.8;
@@ -322,13 +384,28 @@ const SHIFT_RETURN_INTERVALS = 1.0;
 const POSTURE_OFFSET_MEAN_SHIFTS = 2.0;
 
 /**
- * A ceiling on the lateral clamp, as a fraction of the half-stance, in case a figure is posed with
- * its feet unusually close together. A full weight transfer puts the centre of pressure over the
- * stance foot, so a quarter of that distance is nowhere near a one-legged stance. It does not bind
- * on the shipped figure — 45.4 mm against the 44 mm the shift rule asks for — and there is no
- * fore-and-aft equivalent because the rig has no heel landmark to read one from.
+ * 🚩 A ceiling on the lateral clamp for a figure posed with its feet unusually close together — and
+ * a constant whose value changed the day the stance width did, which is §1.11b again.
+ *
+ * It used to be a QUARTER of the half-stance, and that was safe only because the half-stance was
+ * 181.8 mm: it allowed 45.4 mm against the 44 mm the shift rule asks for, and never bound. Bringing
+ * the feet to McIlroy & Maki's preferred separation halves the half-stance to 77.7 mm, and a quarter
+ * of that is 19.4 mm — BELOW Duarte's own mean medio-lateral shift of 22 mm, so more than half of
+ * every shift the layer draws would be clipped. Measured: the 900 s composite fell from 11.63 mm to
+ * 6.63 mm, outside Bates' interquartile range, and the sway this whole file exists to produce
+ * halved. A rail that binds harder than the paper being implemented is not a rail.
+ *
+ * A quarter was never a physical limit. The physical limit is the base of support: the centre of
+ * pressure cannot leave the feet. Measured on this figure at its new stance, the stance ankle sits
+ * 77.7 mm from the midline and the OUTER BORDER of that foot sits 147.7 mm from it — so a clamp at
+ * the ankle is already conservative by 70 mm. It is exactly where the centre of pressure sits when
+ * the load is fully on one leg, which is the most a weight shift can ever be.
+ *
+ * So the ceiling is the half-stance itself and there is no fraction any more. On the shipped figure
+ * it allows 77.7 mm against the 44 mm the shift rule asks for, so Duarte's amplitude is what decides
+ * a quiet-standing stance — which is the right way round. There is no fore-and-aft equivalent
+ * because the rig has no heel landmark to read one from.
  */
-const POSTURE_OFFSET_CEILING_FRACTION_OF_HALF_STANCE = 0.25;
 
 /**
  * 🎯 Drift amplitude, in COP metres — the one free parameter in the weight-shift half of this
@@ -444,6 +521,53 @@ const PIVOT_HEIGHT_FRACTION_OF_ANKLE = 1.0;
 const STANCE_BLEND_LIMIT = 1.0;
 
 /**
+ * 🎯 How much of the head's LATERAL overshoot the pendulum's own lumbar counter-bend takes back.
+ *
+ * The lateral signal is supposed to go through the hip mechanism, and mostly it does — but the
+ * contrapposto saturates. A unit blend moves the centre of mass 32.1 mm to the left or 34.7 mm to
+ * the right, and the medio-lateral command reaches 52 mm on a bad seed: two of Duarte's mean shifts
+ * plus a balance band on top. Whatever the pose cannot deliver falls through to the pendulum, and
+ * measured over four 900 s traces that is **16 to 29 per cent of frames** carrying up to **19.8 mm**
+ * of centre-of-mass travel on an ankle mechanism that Winter says has almost no lateral authority.
+ *
+ * It is visible in exactly the way the judge described. The pendulum is a rigid rotation, so it
+ * moves the head 1.674x as far as the centre of mass, where the contrapposto moves it 1.00x — so
+ * the head/pelvis ratio is fine in RMS (0.88-0.96) and wrong at the PEAKS (0.99-1.16), and peaks
+ * are what a viewer sees.
+ *
+ * 🚩 The fix is NOT to give the pendulum a bigger share or the pose a bigger blend. It is that head
+ * stabilisation is a reflex about the HEAD, not about the hips: whichever mechanism moves the body
+ * sideways, the righting reflex parks the head over the base of support. So the head's lateral
+ * response must not depend on which internal mechanism happened to deliver the displacement, and
+ * this target is shared with the contrapposto's own `STANCE_TRUNK_RIGHTING`.
+ *
+ * ⚠️ MEDIO-LATERAL ONLY. Fore-and-aft the inverted pendulum is right and the head really does travel
+ * further than the centre of mass; that is what `headPerCentreOfMass` still gates against the rig's
+ * raw height ratio. Applying this on both axes would break the one mechanism this file gets right.
+ *
+ * 🎯 THE TARGET IS A RATIO AND IT IS SOLVED, NOT SET. Writing it as "cancel the measured overshoot"
+ * is the obvious thing and it is wrong by a third, because the counter-bend moves the CENTRE OF MASS
+ * as well as the head — it is rotating half the body's mass. Measured on the contrapposto: an extra
+ * unit of righting moves the head 23.2 mm and the centre of mass 5.9 mm, so cancelling the whole
+ * overshoot lands the head 17% short of where the centre of mass ends up. The angle is therefore
+ * found by secant iteration on the realised ratio, which converges in one step because the relation
+ * is linear, and the residual is asserted by the selftest rather than assumed.
+ *
+ * 🚩 That is also, retrospectively, what the old hand-tuned STANCE_TRUNK_RIGHTING = 1.35 was: not a
+ * number someone liked, but the fixed point of exactly this equation, found by eye and recorded as
+ * a tuning constant. Solving it makes it survive a change to the poses or the rig.
+ */
+const LATERAL_HEAD_PER_CENTRE_OF_MASS = 1.0;
+
+/**
+ * How many passes the righting solve takes. The relation between the counter-bend angle and the
+ * realised head/centre-of-mass ratio is linear, so a secant step from two probes lands on it: one
+ * pass to measure the mechanism as authored, one at a first guess, one to land, one to leave the
+ * measured residual in the layer for the gate to read.
+ */
+const RIGHTING_SOLVE_PASSES = 4;
+
+/**
  * The lean the pendulum response is measured at during bind, in radians.
  *
  * A rigid rotation is exactly linear in the angle to first order and the runtime never exceeds
@@ -500,15 +624,44 @@ const STANCE_ANKLE_PROBE_COUNT = 8;
  * pose file describes it correctly in prose — "the lumbar spine bends back the other way to bring
  * the head over the support" — while its measured angles do not deliver it.
  *
- * 🚩 TUNING, with no published coefficient, in the same class as HEAD_STABILISATION. It is
- * expressed as a FRACTION of the measured overshoot rather than as an angle, so it stays right if
- * the poses are re-authored: 0 leaves the pose exactly as drawn, 1.0 lands the head where the
- * centre of mass lands, and above 1.0 the head travels less than the centre of mass, which is what
- * a strong righting reflex does. The pose is left alone deliberately — a deliberate contrapposto
- * and an involuntary balance correction are different behaviours that happen to share a shape, and
- * only the second one wants its head parked.
+ * It is expressed as a FRACTION of the measured overshoot rather than as an angle, so it stays right
+ * if the poses are re-authored: 0 leaves the pose exactly as drawn, 1.0 lands the head where the
+ * centre of mass lands, and above 1.0 the head travels less than the centre of mass. The pose is
+ * left alone deliberately — a deliberate contrapposto and an involuntary balance correction are
+ * different behaviours that happen to share a shape, and only the second one wants its head parked.
+ *
+ * 🎯 IT IS NO LONGER A FRACTION. It was 1.35 — a tuning constant with no support — and it is now
+ * the solved angle that lands the head where the centre of mass lands, against the shared target
+ * `LATERAL_HEAD_PER_CENTRE_OF_MASS`. See that constant for why the obvious "cancel the measured
+ * overshoot" is wrong by a third, and for why 1.35 was in fact the fixed point of this same
+ * equation found by eye.
+ *
+ * 🚩 And it is solved PER SIDE. The two contrapposto poses are deliberately asymmetric and their
+ * overshoots differ by a fifth, so one angle averaged over both left the left side parked (head over
+ * centre of mass 0.996) and the right side still overshooting (1.095). Averaging two measurements
+ * that were taken separately, and are applied separately, buys nothing.
  */
-const STANCE_TRUNK_RIGHTING = 1.35;
+
+/**
+ * 🎯 How far the toes lift off the floor when a foot is fully unloaded, in degrees of extension at
+ * the metatarsophalangeal joint.
+ *
+ * TUNING, with no published amplitude, and stated as EXTENSION ONLY on purpose. A loaded foot's toes
+ * are already flat on the floor and have nowhere to go; what a life class draws, and what a camera
+ * sees, is the FREE foot — its toes relax and come off the ground a millimetre or two while the
+ * stance foot stays pressed. Driving it from unloading rather than from loading is therefore both
+ * the truthful direction and the safe one: the toes can only ever move away from the floor, so no
+ * amount of this can push geometry through it.
+ *
+ * It is applied at the toe joint, which is the metatarsal head, so the joint itself does not move —
+ * only the geometry beyond it rotates. That is what keeps it clear of the planting gate entirely:
+ * every marker that gate follows, ankle and toe joint alike, is at or behind this pivot.
+ *
+ * Two and a half degrees lifts the tip of a 234 mm foot by about 2 mm at full unload, and the
+ * contrapposto reaches full blend on a sixth of frames. The selftest prints the realised angle
+ * rather than trusting this number.
+ */
+const TOE_UNLOAD_LIFT_DEGREES = 2.5;
 
 /**
  * Rig-space anatomical axes, verified on figure_g050.glb (2026-08-07): +X is the character's
@@ -544,13 +697,21 @@ const SWAY_CHAIN = [
     { humanoid: 'leftFoot', parent: 'leftLowerLeg', pendulum: 'plant' },
     { humanoid: 'rightUpperLeg', parent: 'hips', pendulum: 'carried' },
     { humanoid: 'rightLowerLeg', parent: 'rightUpperLeg', pendulum: 'carried' },
-    { humanoid: 'rightFoot', parent: 'rightLowerLeg', pendulum: 'plant' }
+    { humanoid: 'rightFoot', parent: 'rightLowerLeg', pendulum: 'plant' },
+
+    // 🎯 The toes, and the reason they are here at all. A judge watching 6300 frames reported the
+    // feet as "pixel-for-pixel identical", and was right: planting is correct — the sole slides
+    // 0.16 mm over fifteen minutes — but a foot with zero deformation reads as WELDED rather than
+    // as standing. The toes are the only articulation below the ankle this rig has, and they are
+    // driven by unloading alone. See TOE_UNLOAD_LIFT_DEGREES.
+    { humanoid: 'leftToes', parent: 'leftFoot', pendulum: 'toes' },
+    { humanoid: 'rightToes', parent: 'rightFoot', pendulum: 'toes' }
 ];
 
 /** The two feet, and which pose loads each of them. Used for planting and for the stance blend. */
 const STANCE_FEET = [
-    { key: 'left', foot: 'leftFoot', shank: 'leftLowerLeg' },
-    { key: 'right', foot: 'rightFoot', shank: 'rightLowerLeg' }
+    { key: 'left', foot: 'leftFoot', shank: 'leftLowerLeg', toes: 'leftToes' },
+    { key: 'right', foot: 'rightFoot', shank: 'rightLowerLeg', toes: 'rightToes' }
 ];
 
 /**
@@ -608,6 +769,15 @@ export class Sway extends Layer {
      *   on its own. The gates are stated against the layer AS CONSTRUCTED, not against this.
      * @param {boolean} [options.stanceBlendEnabled=true] - Turn off to keep the weight shifts as
      *   pure pendulum lean, without the contrapposto pose blend.
+     * @param {boolean} [options.lateralRightingEnabled=true] - Turn off to run both lateral
+     *   mechanisms without the lumbar counter-bend that parks the head. See
+     *   LATERAL_HEAD_PER_CENTRE_OF_MASS.
+     * @param {number} [options.toeLiftDegrees=2.5] - Toe extension on a fully unloaded foot. Set to
+     *   0 for the welded foot a visual judge reported; see TOE_UNLOAD_LIFT_DEGREES.
+     * @param {Object} [options.fidget] - The fidget profile, whose three numbers are the least
+     *   supported in this file and the ones that decide whether a postural event is legible at all:
+     *   `{ amplitudeFraction, durationSeconds, riseFraction }`. See
+     *   FIDGET_AMPLITUDE_FRACTION_OF_SHIFT and FIDGET_DURATION_SECONDS.
      * @param {number} [options.driftScale=1] - Scales the slow drift. Set to 0 to isolate the
      *   processes that are pinned to published amplitudes; see DRIFT_AMPLITUDE_*.
      * @param {Function} [options.onWeightShift] - Called as `({ magnitude, axis, pattern })` at
@@ -646,6 +816,20 @@ export class Sway extends Layer {
 
         this.weightShiftsEnabled = options.weightShiftsEnabled ?? true;
         this.stanceBlendEnabled = options.stanceBlendEnabled ?? true;
+
+        // Turn off to run both lateral mechanisms as they were before the head was parked — the
+        // contrapposto exactly as drawn, the pendulum as a rigid rotation. That is the state a
+        // visual judge measured at head/hip 1.34, and the selftest builds it deliberately to prove
+        // the ratio gates can see it.
+        this.lateralRightingEnabled = options.lateralRightingEnabled ?? true;
+
+        this.toeLiftDegrees = options.toeLiftDegrees ?? TOE_UNLOAD_LIFT_DEGREES;
+
+        this.fidget = {
+            amplitudeFraction: options.fidget?.amplitudeFraction ?? FIDGET_AMPLITUDE_FRACTION_OF_SHIFT,
+            durationSeconds: options.fidget?.durationSeconds ?? FIDGET_DURATION_SECONDS,
+            riseFraction: options.fidget?.riseFraction ?? FIDGET_RISE_FRACTION
+        };
 
         // Where the centre of mass is, for whatever pose the rig is in. This is what makes every
         // published centre-of-pressure amplitude in this file mean something on this figure.
@@ -702,8 +886,13 @@ export class Sway extends Layer {
             key: foot.key,
             joint: this.jointsByHumanoid.get( foot.foot ),
             shank: this.jointsByHumanoid.get( foot.shank ),
+            toes: this.jointsByHumanoid.get( foot.toes ),
             pendulumArm: new Vector3()
         } ) );
+
+        // Degrees of toe extension on each foot this frame. Reported so a gate can read the
+        // realised angle rather than recompute it from the blend.
+        this.toeLiftRadians = { left: 0, right: 0 };
 
         // Bind-time rig facts.
         this.pivot = new Vector3();               // where the pendulum turns, in rig space
@@ -721,8 +910,18 @@ export class Sway extends Layer {
         // Reported, never solved against: how far the head goes per radian, and per unit of
         // centre-of-mass travel. The second is the number the old POSTURE_HEAD_TRANSFER was
         // guessing at, and having it measured is the whole point of the re-rooting.
+        //
+        // 🎯 It is the ANTERO-POSTERIOR ratio, because that is the axis the inverted pendulum
+        // governs and the only one where a rigid-plank prediction is the right thing to check
+        // against. The lateral figure is reported beside it and is a different claim entirely —
+        // see LATERAL_HEAD_PER_CENTRE_OF_MASS.
         this.headLever = { anteroPosterior: 1, medioLateral: 1 };
         this.headPerCentreOfMass = 1;
+        this.headPerCentreOfMassLateral = 1;
+
+        // The lumbar counter-roll the pendulum adds per radian of LATERAL lean, sized at bind from
+        // the rig's own measured overshoot. See LATERAL_HEAD_PER_CENTRE_OF_MASS.
+        this.lateralRightingPerRadian = 0;
 
         // Per-unit-blend response of the contrapposto, measured on this rig at bind.
         this.stanceResponse = {
@@ -730,8 +929,8 @@ export class Sway extends Layer {
             right: createStanceResponse()
         };
 
-        // Sized at bind from the pose's own measured overshoot. See STANCE_TRUNK_RIGHTING.
-        this.trunkRightingRadians = 0;
+        // Sized at bind from each pose's own measured overshoot. See STANCE_TRUNK_RIGHTING.
+        this.trunkRightingRadians = { left: 0, right: 0 };
 
         this.ankleRotation = new Quaternion();
         this.scratchRigRotation = new Quaternion();
@@ -906,15 +1105,17 @@ export class Sway extends Layer {
 
         }
 
-        // A fidget is a single out-and-back, so a raised cosine over its whole duration.
+        // A fidget is a single out-and-back: a quick raised-cosine push onto the other leg and a
+        // longer raised-cosine return off it. See FIDGET_DURATION_SECONDS for why the two halves
+        // are not the same length. Both halves have zero slope at both ends, so nothing snaps.
         let fidget = 0;
 
         if ( axis.fidgetRemaining > 0 ) {
 
             axis.fidgetRemaining = Math.max( axis.fidgetRemaining - deltaSeconds, 0 );
 
-            const progress = 1 - axis.fidgetRemaining / FIDGET_DURATION_SECONDS;
-            fidget = axis.fidgetAmplitude * 0.5 * ( 1 - Math.cos( 2 * Math.PI * progress ) );
+            fidget = axis.fidgetAmplitude
+                * fidgetShape( 1 - axis.fidgetRemaining / this.fidget.durationSeconds, this.fidget.riseFraction );
 
         }
 
@@ -971,9 +1172,9 @@ export class Sway extends Layer {
     beginFidget( axis ) {
 
         const amplitude = this.drawAmplitude( axis.settings )
-            * FIDGET_AMPLITUDE_FRACTION_OF_SHIFT * this.drawDirection();
+            * this.fidget.amplitudeFraction * this.drawDirection();
 
-        axis.fidgetRemaining = FIDGET_DURATION_SECONDS;
+        axis.fidgetRemaining = this.fidget.durationSeconds;
         axis.fidgetAmplitude = amplitude;
 
         this.eventCounts.fidget ++;
@@ -1143,11 +1344,13 @@ export class Sway extends Layer {
     }
 
     /**
-     * How far the accumulated weight-shift offset may travel, read off the rig's base of support.
+     * How far the accumulated weight-shift offset may travel.
      *
-     * Medio-laterally the base runs from the midline out to the stance foot; antero-posteriorly it
-     * runs from the ankle forward to the ball. Both are things the rig knows about itself, which
-     * is why POSTURE_OFFSET_FRACTION_OF_BASE is a fraction — see it for why a quarter.
+     * Duarte's own shift amplitude decides it — POSTURE_OFFSET_MEAN_SHIFTS — and the rig's base of
+     * support is only a ceiling on top of that, for a figure posed with its feet nearly touching.
+     * Medio-laterally that ceiling is the distance from the midline out to the stance ankle, which
+     * is where the centre of pressure sits with the load fully on one leg; see the comment above
+     * POSTURE_OFFSET_MEAN_SHIFTS's neighbour for why it is no longer a quarter of that.
      */
     resolvePostureLimits() {
 
@@ -1166,10 +1369,7 @@ export class Sway extends Layer {
         // being pinned to nothing: half a centimetre of stance is a bad read, not a narrow stance.
         if ( halfStance <= 0.005 ) return;
 
-        this.medioLateral.limit = Math.min(
-            this.medioLateral.limit,
-            POSTURE_OFFSET_CEILING_FRACTION_OF_HALF_STANCE * halfStance
-        );
+        this.medioLateral.limit = Math.min( this.medioLateral.limit, halfStance );
 
     }
 
@@ -1214,6 +1414,17 @@ export class Sway extends Layer {
             { key: 'medioLateral', component: 'x', anteroPosterior: 0, medioLateral: PENDULUM_PROBE_RADIANS }
         ];
 
+        // Repeated passes, because the lateral righting cannot be sized without measuring what it
+        // does — and what it does includes moving the centre of mass it is being measured against.
+        // Pass one is the rigid rotation; the rest are the secant solve. Everything downstream reads
+        // the last pass, which is the pendulum the frame loop will actually run.
+        const solve = createRightingSolve();
+        const passes = this.lateralRightingEnabled ? RIGHTING_SOLVE_PASSES : 1;
+
+        for ( let pass = 0; pass < passes; pass ++ ) {
+
+        if ( pass > 0 ) this.lateralRightingPerRadian = this.stepLateralRighting( solve, restHead );
+
         for ( const probe of probes ) {
 
             this.buildPendulumRotations( probe.anteroPosterior, probe.medioLateral );
@@ -1243,8 +1454,6 @@ export class Sway extends Layer {
 
         }
 
-        root.updateMatrixWorld( true );
-
         // A degenerate rig — no reference bone, or a body whose mass all sits at the pivot —
         // would divide by zero and fling the figure. One metre keeps the layer harmless.
         for ( const key of [ 'anteroPosterior', 'medioLateral' ] ) {
@@ -1254,12 +1463,49 @@ export class Sway extends Layer {
 
         }
 
+        }
+
+        root.updateMatrixWorld( true );
+
         // Reported, not used: the coefficient POSTURE_HEAD_TRANSFER used to guess at. On
-        // figure_g050 posed into relaxed-standing it reads 1.676, against the 0.20 assumed —
-        // and it is a MEASUREMENT, so do not expect the digits to survive a change to the rig,
-        // the pivot height or the rest pose. The selftest gates it against the raw height ratio
+        // figure_g050 posed into relaxed-standing it reads 1.674 FORE AND AFT, against the 0.20
+        // assumed — and it is a MEASUREMENT, so do not expect the digits to survive a change to the
+        // rig, the pivot height or the rest pose. The selftest gates it against the raw height ratio
         // rather than against a literal, for exactly that reason.
-        this.headPerCentreOfMass = this.headLever.medioLateral / this.centreOfMassLever.medioLateral;
+        //
+        // 🎯 Antero-posterior, not medio-lateral, and the axis matters: this is the rigid-inverted-
+        // pendulum claim, and the pendulum is only an inverted pendulum fore and aft. The lateral
+        // figure below is the OTHER claim — the head parked over the base of support — and lands
+        // near 1.0 by construction.
+        this.headPerCentreOfMass = this.headLever.anteroPosterior / this.centreOfMassLever.anteroPosterior;
+        this.headPerCentreOfMassLateral = this.headLever.medioLateral / this.centreOfMassLever.medioLateral;
+
+    }
+
+    /**
+     * One secant step toward the lumbar counter-roll that parks the head during a LATERAL pendulum
+     * lean.
+     *
+     * The first step needs a starting guess and takes the obvious one — the angle that would cancel
+     * the whole measured overshoot if the counter-bend moved only the head. It does not; it rotates
+     * half the body's mass, so it moves the centre of mass too, and every step after this one is
+     * measuring that and correcting for it. Identical in form to `stepTrunkRighting`, deliberately:
+     * it is the same reflex doing the same thing to a different mechanism.
+     */
+    stepLateralRighting( solve, restHead ) {
+
+        const spine = this.spineJoints()[ 0 ];
+
+        if ( restHead === null || spine === undefined || isPresent( spine.bone ) === false ) return 0;
+
+        const lever = restHead.y - spine.restPosition.y;
+
+        if ( Math.abs( lever ) < 0.05 ) return 0;
+
+        const overshoot = this.headLever.medioLateral
+            - LATERAL_HEAD_PER_CENTRE_OF_MASS * this.centreOfMassLever.medioLateral;
+
+        return secantStep( solve, this.lateralRightingPerRadian, overshoot, overshoot / lever );
 
     }
 
@@ -1345,9 +1591,12 @@ export class Sway extends Layer {
         // overshoots the centre of mass. Sizing the righting term needs a number that the righting
         // term itself would otherwise change, so the circle is broken by measuring twice — and
         // everything downstream reads pass two, which is the pose the runtime actually plays.
-        for ( const pass of [ 'as-authored', 'with-righting' ] ) {
+        const solve = { left: createRightingSolve(), right: createRightingSolve() };
+        const passes = this.lateralRightingEnabled ? RIGHTING_SOLVE_PASSES : 1;
 
-        if ( pass === 'with-righting' ) this.resolveTrunkRighting( head, restHead );
+        for ( let pass = 0; pass < passes; pass ++ ) {
+
+        if ( pass > 0 ) this.stepTrunkRighting( solve, restHead );
 
         for ( const side of [ 'left', 'right' ] ) {
 
@@ -1411,14 +1660,13 @@ export class Sway extends Layer {
      * Sizes the lumbar counter-bend that parks the head, from the overshoot just measured.
      *
      * The overshoot is how much further the pose carries the head than it carries the centre of
-     * mass, per unit blend, averaged over the two sides because the poses are deliberately
-     * asymmetric. The angle that cancels a chosen fraction of it is that distance over the lever
+     * mass, per unit blend, PER SIDE — the two poses are deliberately asymmetric and their
+     * overshoots differ by a fifth, so one averaged angle parks one side and leaves the other
+     * overshooting. The angle that cancels a chosen fraction of it is that distance over the lever
      * from the lumbar spine to the head — first order, which at four degrees is exact to four
      * decimal places.
      */
-    resolveTrunkRighting( head, restHead ) {
-
-        this.trunkRightingRadians = 0;
+    stepTrunkRighting( solve, restHead ) {
 
         const spine = this.spineJoints()[ 0 ];
 
@@ -1428,15 +1676,16 @@ export class Sway extends Layer {
 
         if ( Math.abs( lever ) < 0.05 ) return;
 
-        const overshoot = [ 'left', 'right' ].reduce( ( total, side ) => {
+        for ( const side of [ 'left', 'right' ] ) {
 
             const response = this.stanceResponse[ side ];
+            const overshoot = Math.abs( response.head.x )
+                - LATERAL_HEAD_PER_CENTRE_OF_MASS * Math.abs( response.centreOfMass.x );
 
-            return total + Math.abs( response.head.x ) - Math.abs( response.centreOfMass.x );
+            this.trunkRightingRadians[ side ] = secantStep(
+                solve[ side ], this.trunkRightingRadians[ side ], overshoot, overshoot / lever );
 
-        }, 0 ) / 2;
-
-        this.trunkRightingRadians = STANCE_TRUNK_RIGHTING * overshoot / lever;
+        }
 
     }
 
@@ -1575,6 +1824,16 @@ export class Sway extends Layer {
 
             if ( isPresent( joint.bone ) === false ) continue;
 
+            if ( joint.pendulum === 'toes' ) {
+
+                // The toes end the chain at the foot's orientation plus their own lift. Reading the
+                // foot's cumulative rather than starting from identity is what keeps the lift a
+                // rotation ABOUT THE METATARSAL HEAD rather than a second, competing plant.
+                joint.cumulative.copy( this.jointsByHumanoid.get( joint.parent ).cumulative );
+                continue;
+
+            }
+
             if ( joint.pendulum === 'plant' ) {
 
                 // The foot ends the chain at its rest orientation whatever the body did above
@@ -1616,6 +1875,7 @@ export class Sway extends Layer {
 
         this.writePelvisTravel();
         this.writeFootPlanting();
+        this.writeToeLift();
 
     }
 
@@ -1641,7 +1901,12 @@ export class Sway extends Layer {
                     break;
 
                 case 'spine':
-                    this.composeRigRotation( leanAnteroPosterior * joint.share, leanMedioLateral * joint.share );
+                    // The spine's token share of the lean, MINUS the lumbar counter-roll that parks
+                    // the head during a lateral lean. Both are frontal-plane angles on the same
+                    // joints, so they are one number rather than two rotations to compose.
+                    this.composeRigRotation(
+                        leanAnteroPosterior * joint.share,
+                        leanMedioLateral * ( joint.share - this.lateralRightingPerRadian * joint.spineFraction ) );
                     joint.pendulumCumulative.multiplyQuaternions( parent.pendulumCumulative, this.scratchRigRotation );
                     break;
 
@@ -1654,9 +1919,9 @@ export class Sway extends Layer {
                     break;
 
                 default:
-                    // 'carried' and 'plant' — the leg rides the pelvis and adds nothing of its
-                    // own. The foot's counter-rotation is applied in writePose(), against the
-                    // pose as well as the lean.
+                    // 'carried', 'plant' and 'toes' — the leg rides the pelvis and adds nothing of
+                    // its own. The foot's counter-rotation and the toes' lift are applied in
+                    // writePose(), against the pose as well as the lean.
                     joint.pendulumCumulative.copy( parent.pendulumCumulative );
 
             }
@@ -1688,7 +1953,7 @@ export class Sway extends Layer {
 
         // The extra lumbar counter-bend that parks the head. Signed so it always opposes the
         // direction the pose is carrying the head; see STANCE_TRUNK_RIGHTING.
-        const righting = ( side === 'left' ? 1 : -1 ) * this.trunkRightingRadians * blend;
+        const righting = ( side === 'left' ? 1 : -1 ) * this.trunkRightingRadians[ side ] * blend;
 
         for ( const joint of this.joints ) {
 
@@ -1853,6 +2118,45 @@ export class Sway extends Layer {
     }
 
     /**
+     * 🎯 The one thing below the ankle that is allowed to move: the free foot's toes coming off the
+     * floor as the weight leaves it.
+     *
+     * Driven by the stance blend, which IS the load transfer — a positive blend loads the left leg,
+     * so the right foot is the one unloading. Extension only, so the toes can only leave the floor;
+     * see TOE_UNLOAD_LIFT_DEGREES for why that direction is the truthful one as well as the safe
+     * one. Written as a rotation about the medio-lateral axis at the metatarsal head, which is where
+     * a toe actually hinges and which leaves the joint itself exactly where the planting correction
+     * put it.
+     */
+    writeToeLift() {
+
+        const blend = this.stanceBlend;
+
+        for ( const foot of this.feet ) {
+
+            if ( foot.toes === undefined || isPresent( foot.toes.bone ) === false ) continue;
+
+            // A foot unloads when the blend goes the other way. At blend 0 both are neutral.
+            const unload = foot.key === 'left' ? Math.max( -blend, 0 ) : Math.max( blend, 0 );
+            const lift = unload * this.toeLiftDegrees * Math.PI / 180;
+
+            this.toeLiftRadians[ foot.key ] = lift;
+
+            if ( lift === 0 ) continue;
+
+            // Negative about +X carries the far end of a forward-pointing bone upward, which is the
+            // same sign trap the pose files warn about — the toes point along +Z, not down.
+            this.scratchAxisRotation.setFromAxisAngle( RIG_MEDIO_LATERAL_AXIS, -lift );
+
+            toBoneDeltaFrame( this.scratchAxisRotation, foot.toes.restFrame, this.scratchBoneDelta );
+
+            this.contribution.rotateBone( foot.toes.boneName, this.scratchBoneDelta );
+
+        }
+
+    }
+
+    /**
      * Where the contrapposto alone would put one ankle this frame, in rig space.
      *
      * The pose response was measured with no lean applied, so it cannot simply be added to the
@@ -1969,6 +2273,65 @@ function createJointState( entry, boneName ) {
         cumulative: new Quaternion(),
         rigRotation: new Quaternion()
     };
+
+}
+
+/**
+ * A fidget's profile over its own duration, peaking at 1 and starting and ending at 0.
+ *
+ * Fast out, slow back — see FIDGET_DURATION_SECONDS. Two raised cosines rather than one, which is
+ * what makes the two halves independently timed; the symmetric single cosine it replaced is the
+ * special case at a rise fraction of 0.5.
+ */
+function fidgetShape( progress, riseFraction ) {
+
+    if ( progress <= 0 || progress >= 1 ) return 0;
+
+    if ( progress < riseFraction ) {
+
+        return 0.5 * ( 1 - Math.cos( Math.PI * progress / riseFraction ) );
+
+    }
+
+    const release = ( progress - riseFraction ) / ( 1 - riseFraction );
+
+    return 0.5 * ( 1 + Math.cos( Math.PI * release ) );
+
+}
+
+/** The two probes a secant solve remembers: the last angle tried and the error it produced. */
+function createRightingSolve() {
+
+    return { angle: 0, error: NaN };
+
+}
+
+/**
+ * One secant step toward the angle that drives `error` to zero.
+ *
+ * The first call has only one probe, so it takes the caller's `firstGuess` — a first-order estimate
+ * that ignores the counter-bend's effect on the centre of mass. Every call after that has two probes
+ * and solves the line through them, which lands exactly, because the relation between the angle and
+ * the error is linear to well past the angles this file reaches.
+ *
+ * A degenerate pair — two probes with the same error, which means the angle does nothing — returns
+ * the angle unchanged rather than dividing by zero and flinging the figure.
+ */
+function secantStep( solve, angle, error, firstGuess ) {
+
+    const previous = solve.angle;
+    const previousError = solve.error;
+
+    solve.angle = angle;
+    solve.error = error;
+
+    if ( Number.isNaN( previousError ) ) return angle + firstGuess;
+
+    const slope = ( error - previousError ) / ( angle - previous );
+
+    if ( Number.isFinite( slope ) === false || Math.abs( slope ) < 1e-6 ) return angle;
+
+    return angle - error / slope;
 
 }
 

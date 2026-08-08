@@ -263,6 +263,63 @@ const SOLE_TILT_LIMIT_DEGREES = 0.02;
 const HEAD_PER_CENTRE_OF_MASS_TOLERANCE = 0.06;
 
 /**
+ * How far the SOLVED lateral head-over-centre-of-mass ratio may sit from its target of 1.0.
+ *
+ * This is a solve residual, not a modelling allowance: the secant lands on the target in one step
+ * because the relation is linear, so the only thing left is the linearisation of a rotation over the
+ * probe angle. Measured, it is under a part in a thousand. One per cent is three orders of magnitude
+ * larger than that and thirty times smaller than the 1.674 a rigid rotation would give, so a
+ * righting that silently stopped being applied cannot hide inside it.
+ */
+const LATERAL_RIGHTING_TOLERANCE = 0.01;
+
+/**
+ * The legibility run, and the three thresholds it is stated against.
+ *
+ * `JUDGE_DETECTION_MULTIPLE` is CALIBRATED, not chosen: measured over 90 minutes at the constants
+ * the judge watched, the rate of events whose peak pelvis excursion exceeds 5.5x the balance band's
+ * own pelvis RMS is 0.51/min, and the judge read 3 events in 7 minutes, 0.43/min. It is reported
+ * rather than gated, because it is one observation by one judge on one clip and it should not be
+ * loadbearing — but it is the only empirical anchor that exists for "a viewer noticed", and an
+ * anchor with a provenance beats a threshold with none.
+ *
+ * `LEGIBLE_EVENT_MULTIPLE` is the gate, at 3x, and it is deliberately BELOW the judge's threshold:
+ * asserting the calibrated number would be fitting a gate to a single observation. Three standard
+ * deviations of the background is the standard statement of "distinguishable from the background",
+ * and it is far above the 1x the median event used to sit at.
+ *
+ * `LEGIBLE_EVENT_RATE_PER_MINUTE` is 0.75, which is half of punch-list 2.9's 1.5 — the half that
+ * does not need a conversation. See the section header for why the other half requires
+ * `markDiscourseBoundary()` and cannot be reached from Duarte's own intervals.
+ *
+ * `FIDGET_DUTY_CYCLE_PERCENT` is 3%, against the 2.47% the symmetric 1.4 s fidget produced and the
+ * 3.20% the asymmetric 1.8 s one does. It is the gate that catches an amplitude-only fix, and its
+ * ceiling is not a preference: see FIDGET_DURATION_SECONDS for the measured spectral constraint that
+ * decides how long a fidget may be.
+ */
+const LEGIBILITY_SEEDS = [ 1, 42, 20260807 ];
+const LEGIBILITY_SECONDS = 1800;
+const LEGIBILITY_WINDOW_SECONDS = 4.0;
+const JUDGE_DETECTION_MULTIPLE = 5.5;
+const LEGIBLE_EVENT_MULTIPLE = 3.0;
+const LEGIBLE_EVENT_RATE_PER_MINUTE = 0.75;
+const FIDGET_DUTY_CYCLE_PERCENT = 3.0;
+
+/**
+ * The toe run. `TOE_LIFT_FLOOR_MM` is the least the free foot's toes must come off the floor at a
+ * full weight transfer for the foot to stop reading as welded: one millimetre, which at the framing
+ * the judge used is under a pixel on its own but is what turns a rigid silhouette into a deforming
+ * one. The realised figure is 1.5 mm and it is printed, not assumed. `TOE_BAND_HEIGHT_METRES` is how
+ * far above the metatarsal head a vertex may sit and still be counted as toe rather than instep.
+ */
+const TOE_TRACE_SECONDS = 900;
+const TOE_LIFT_FLOOR_MM = 1.0;
+const TOE_BAND_HEIGHT_METRES = 0.03;
+
+/** The other-way run only has to reach one full weight transfer, so it is short. */
+const TOE_OTHER_WAY_SECONDS = 900;
+
+/**
  * How far the figure's REALISED centre of mass may sit from the displacement the layer commanded,
  * as a fraction, and in millimetres at the worst single frame.
  *
@@ -344,6 +401,8 @@ const bodyMass = new BodyMass().bind( boneTarget );
  */
 const MARKERS = [
     { key: 'head', bone: 'head', segment: true },
+    // The neck is followed only so the head can be measured RELATIVE to it. See measureHeadParked.
+    { key: 'neck', bone: 'neck_01', segment: false },
     { key: 'pelvis', bone: 'pelvis', segment: true },
     { key: 'kneeLeft', bone: 'calf_l', segment: true },
     { key: 'kneeRight', bone: 'calf_r', segment: false },
@@ -370,6 +429,9 @@ measureBalanceBand( traces );
 measureCentreOfMassClosure( traces );
 measureComposite( traces );
 measureHeadExcursion( traces );
+measureHeadParked( traces );
+measureEventLegibility();
+measureToeArticulation();
 measureAmplitudeDistribution();
 measureSegmentPaths( traces );
 measurePendulumGeometry();
@@ -471,7 +533,7 @@ function measureRig() {
         'a shortfall means a segment landmark did not resolve on this rig' );
 
     gate( 'posture clamp ML (mm)', layer.medioLateral.limit * 1000, 20, 90,
-        '2 x Duarte ML 22 mm; the half-stance ceiling would allow 45.4 and does not bind' );
+        '2 x Duarte ML 22 mm; the half-stance ceiling would allow 77.7 and does not bind' );
     gate( 'posture clamp AP (mm)', layer.anteroPosterior.limit * 1000, 10, 60,
         '2 x Duarte AP 17 mm; inside the 50 mm rear footprint measured on this figure' );
 
@@ -489,9 +551,9 @@ function measureRig() {
  * The commanded signals are stored as flat arrays rather than vectors because there are six of them
  * per frame across twelve 900 s traces, and that is 4 million numbers whichever way it is written.
  */
-function traceSway( seed, seconds ) {
+function traceSway( seed, seconds, options = {} ) {
 
-    const { stack, layer, root } = buildStack( seed );
+    const { stack, layer, root } = buildStack( seed, options );
 
     const bones = new Map( MARKERS.map( ( marker ) => [ marker.key, root.getObjectByName( marker.bone ) ] ) );
     const samples = new Map( MARKERS.map( ( marker ) => [ marker.key, [] ] ) );
@@ -579,7 +641,8 @@ function traceSway( seed, seconds ) {
 
     stack.dispose();
 
-    return { seed, samples, signals, restPositions, soleTiltDegrees, stanceBlendPeak, geometry };
+    return { seed, samples, signals, restPositions, soleTiltDegrees, stanceBlendPeak, geometry,
+        layerHeadPerCentreOfMassLateral: layer.headPerCentreOfMassLateral };
 
 }
 
@@ -895,6 +958,401 @@ function measureHeadExcursion( traces ) {
 }
 
 /**
+ * 🎯 IS THE HEAD PARKED? THE RATIO AND CORRELATION GATES, AND WHY THEY DID NOT EXIST BEFORE.
+ *
+ * Every one of this file's 97 gates was green when a blind visual judge watched seven minutes of
+ * the full stack and reported two defects it could not see:
+ *
+ *   "the head still travels 1.34x the hip" — the direction was right, the target is pelvis-leads;
+ *   "head-on-neck motion adds to the trunk lean instead of cancelling it, r = +0.10 against neck
+ *   displacement, when head stabilisation in space should make it negative."
+ *
+ * 🚩 THE REASON THE GATES MISSED BOTH IS THE SAME REASON, AND IT IS WORTH STATING PLAINLY: every
+ * gate in this file measured a MAGNITUDE, and both defects are RELATIONSHIPS. Nothing here compared
+ * two body parts to each other, and nothing here correlated anything with anything. A layer can put
+ * exactly the right number of millimetres into every marker and still distribute them up the body
+ * the wrong way round, and that is precisely what a viewer notices first.
+ *
+ * So this section gates three relationships, all on `new Sway()` as constructed:
+ *
+ *   THE SOLVE CLOSED. Both lateral mechanisms are solved so the head lands where the centre of mass
+ *   lands — see LATERAL_HEAD_PER_CENTRE_OF_MASS — and this asserts the solve's residual rather than
+ *   trusting it. Per side, because the contrapposto poses are asymmetric and one averaged angle
+ *   parked one side and left the other overshooting by 10%.
+ *
+ *   THE PELVIS LEADS. Head over pelvis lateral travel, in RMS and peak-to-peak, over 12 seeds of
+ *   900 s. Peak-to-peak as well as RMS because the defect lived in the peaks: the contrapposto
+ *   saturates on 16-29% of frames and what it cannot deliver used to fall through to a rigid
+ *   pendulum that moves the head 1.674x the centre of mass.
+ *
+ *   THE HEAD IS STABILISED. The sign of the correlation between the head's position RELATIVE TO THE
+ *   NECK and the neck's own displacement. Negative means the head-on-neck rotation opposes the trunk
+ *   — which is what head stabilisation in space IS — and positive means it adds to it. This is the
+ *   judge's own measurement, reproduced offline so it can be gated without a video capture.
+ *
+ * ⚠️ AND THE LIMIT, BECAUSE §1.9 REQUIRES IT. These three run on THIS LAYER, not on the stack the
+ * judge watched. Measured on the full `alive.js` stack the head/pelvis peak-to-peak ratio is 1.40
+ * and the correlation is +0.11; with `gaze.head` removed and nothing else changed they are 1.07 and
+ * -0.94. The remaining defect is a layer this file does not own and cannot gate, and saying so is
+ * the point: what is asserted here is that Sway is not the one adding to the head.
+ */
+function measureHeadParked( traces ) {
+
+    section( 'HEAD PARKED — ratios and a correlation, which is what no gate here measured' );
+
+    const { layer, stack } = buildStack( SEED );
+
+    // The solve's own residual, read off the layer rather than recomputed, because what has to be
+    // true is that the thing the frame loop uses landed on its target.
+    for ( const side of [ 'left', 'right' ] ) {
+
+        const response = layer.stanceResponse[ side ];
+
+        gate( `contrapposto head / COM, ${ side }`,
+            Math.abs( response.head.x ) / Math.abs( response.centreOfMass.x ),
+            1 - LATERAL_RIGHTING_TOLERANCE, 1 + LATERAL_RIGHTING_TOLERANCE,
+            'the lumbar counter-bend is solved per side; a single averaged angle left this at 1.095' );
+
+    }
+
+    gate( 'pendulum lateral head / COM', layer.headPerCentreOfMassLateral,
+        1 - LATERAL_RIGHTING_TOLERANCE, 1 + LATERAL_RIGHTING_TOLERANCE,
+        'a rigid rotation would give 1.674 — the pendulum carries 16-29% of frames when the pose saturates' );
+
+    note( 'lumbar righting, pendulum (deg per deg of lean)', layer.lateralRightingPerRadian.toFixed( 3 ),
+        'solved by secant against the ratio above, not set as a fraction of the overshoot' );
+    note( 'lumbar righting, contrapposto (deg at blend 1)',
+        `${ ( layer.trunkRightingRadians.left * 180 / Math.PI ).toFixed( 2 ) } / ` +
+        `${ ( layer.trunkRightingRadians.right * 180 / Math.PI ).toFixed( 2 ) }`,
+        'left / right; the pose files are asymmetric on purpose so these differ' );
+
+    stack.dispose();
+
+    const rmsRatios = [];
+    const peakRatios = [];
+    const correlations = [];
+
+    console.log( '' );
+    console.log( '        seed   head/pelvis RMS   head/pelvis p2p   r(head-on-neck, neck)' );
+
+    for ( const trace of traces ) {
+
+        const head = trace.samples.get( 'head' ).map( ( point ) => point.x );
+        const neck = trace.samples.get( 'neck' ).map( ( point ) => point.x );
+        const pelvis = trace.samples.get( 'pelvis' ).map( ( point ) => point.x );
+
+        // The head's position relative to the neck is what the head-on-neck rotation produces, and
+        // it is the only part of the head's motion the neck can be said to stabilise.
+        const headOnNeck = head.map( ( value, index ) => value - neck[ index ] );
+
+        const rmsRatio = rootMeanSquare( head ) / rootMeanSquare( pelvis );
+        const peakRatio = peakToPeak( head ) / peakToPeak( pelvis );
+        const correlation = pearson( headOnNeck, neck );
+
+        rmsRatios.push( rmsRatio );
+        peakRatios.push( peakRatio );
+        correlations.push( correlation );
+
+        console.log( `  ${ String( trace.seed ).padStart( 10 ) }   ${ rmsRatio.toFixed( 4 ).padStart( 15 ) }   ` +
+            `${ peakRatio.toFixed( 4 ).padStart( 15 ) }   ${ correlation.toFixed( 4 ).padStart( 21 ) }` );
+
+    }
+
+    console.log( '' );
+
+    gate( 'head / pelvis lateral RMS, worst seed', Math.max( ...rmsRatios ), 0, 1.0,
+        'pelvis-leads. The judge measured 1.34 on screen; this layer alone measured 1.02 before the fix' );
+
+    gate( 'head / pelvis lateral peak-to-peak, worst seed', Math.max( ...peakRatios ), 0, 1.0,
+        'the peaks are where the pendulum fallback lived, and the peaks are what a viewer sees' );
+
+    gate( 'head-on-neck vs neck displacement, worst correlation', Math.max( ...correlations ), -1, 0,
+        'negative on EVERY seed: the head-on-neck rotation must oppose the trunk, not add to it' );
+
+    note( 'correlation range',
+        `${ Math.min( ...correlations ).toFixed( 3 ) } to ${ Math.max( ...correlations ).toFixed( 3 ) }`,
+        'the judge measured +0.10 on the full stack; see the limit note in this section\'s header' );
+
+}
+
+/**
+ * 🎯 CAN A VIEWER SEE A POSTURAL EVENT? The gate the judge's third finding needs, and the one this
+ * file could not have had, because every rate here counted events the SIMULATION fired.
+ *
+ * The relay fires at 1.51 a minute and the event-rate gates above are green. A blind judge watched
+ * seven minutes and read THREE postural events — 0.43 a minute. Both numbers are right, and the gap
+ * between them is the whole finding: a rate gate counts what the model does and a viewer counts what
+ * the SCREEN does, and nothing here had ever measured the second.
+ *
+ * Measured over 90 minutes, at the constants the judge watched:
+ *
+ *   the balance band alone moves the pelvis  3.7 mm RMS   <- the background an event must beat
+ *   the median relayed event moved it       11.4 mm       <- three times it, and the judge missed it
+ *   the excursion matching the judge's count ~20 mm       <- about 5.5x the background
+ *   the timeline spent mid-fidget            2.5%         <- 1.2/min x 1.4 s
+ *
+ * 🚩 TWO SEPARATE CAUSES, AND ONLY ONE OF THEM IS AMPLITUDE. 78% of relays are fidgets, they carried
+ * half a shift's amplitude on an assumption the source paper contradicts, and they lasted 1.4 s —
+ * so the figure was mid-fidget for one frame in forty. A judge sampling the timeline expects to
+ * catch about one of those in seven minutes AT ANY SIZE. Both constants are fixed, both
+ * are argued from Duarte's own wording rather than dialled, and the two fixes attack different
+ * halves of the problem: see FIDGET_AMPLITUDE_FRACTION_OF_SHIFT and FIDGET_DURATION_SECONDS.
+ *
+ * ⚠️ AND THE PART THAT CANNOT BE FIXED WITHOUT CONTRADICTING THE PAPER, RECORDED RATHER THAN TUNED
+ * AWAY — the same shape as the antero-posterior composite shortfall above. Punch-list 2.9 asks for
+ * 1–1.5 posture shifts a minute. That is CASSELL'S CONVERSATIONAL rate, and this layer delivers it
+ * through `markDiscourseBoundary()`, which a silent idle never calls. Duarte's *sustained* lateral
+ * shift — the pattern a viewer reads as "it changed its stance" — fires at 0.30/min, which is 2.1 in
+ * seven minutes. The judge read 3. **The model was not under-firing; the gate was counting a
+ * different quantity from the one being watched.** Raising the sustained rate to 1.5/min would mean
+ * five times Duarte's measured interval.
+ *
+ * So what is gated here is the part that IS ours to get right: an event that fires must be big
+ * enough and last long enough to be seen.
+ */
+function measureEventLegibility() {
+
+    section( 'LEGIBILITY — not whether an event fired, but whether it could be seen' );
+
+    const measured = legibilityOf( LEGIBILITY_SEEDS, {} );
+
+    note( 'balance-band pelvis RMS (mm)', measured.backgroundMm.toFixed( 2 ),
+        'the background, measured on { weightShiftsEnabled: false } rather than assumed' );
+    note( 'relayed events', `${ measured.count } over ${ measured.minutes.toFixed( 0 ) } min`,
+        `${ ( measured.count / measured.minutes ).toFixed( 3 ) }/min` );
+    note( 'peak pelvis excursion (mm)',
+        `p25 ${ measured.quantile( 0.25 ).toFixed( 1 ) }  median ${ measured.quantile( 0.5 ).toFixed( 1 ) }` +
+        `  p75 ${ measured.quantile( 0.75 ).toFixed( 1 ) }  p90 ${ measured.quantile( 0.9 ).toFixed( 1 ) }`,
+        'per relayed event, over its own duration' );
+    note( 'rate past the judge\'s own threshold (/min)',
+        measured.ratePastMultiple( JUDGE_DETECTION_MULTIPLE ).toFixed( 3 ),
+        `${ JUDGE_DETECTION_MULTIPLE }x background is where the count matches the 3 events it read in 7 minutes` );
+
+    gate( 'median event / background', measured.medianMultiple,
+        LEGIBLE_EVENT_MULTIPLE, Infinity,
+        'the typical event must be several times the sway it is supposed to stand out from' );
+
+    gate( 'legible events per minute', measured.ratePastMultiple( LEGIBLE_EVENT_MULTIPLE ),
+        LEGIBLE_EVENT_RATE_PER_MINUTE, Infinity,
+        'a postural event a viewer cannot see does not count as one' );
+
+    gate( 'fraction of the timeline mid-fidget (%)', measured.dutyPercent,
+        FIDGET_DUTY_CYCLE_PERCENT, Infinity,
+        'an event that is not on screen when a viewer looks cannot be seen at any amplitude' );
+
+}
+
+/**
+ * The legibility measurement itself, over a set of seeds and one layer configuration.
+ *
+ * Separated from the gates so THE OTHER WAY can run the identical measurement on the constants the
+ * judge actually watched. §1.1 — a gate that has never failed is not known to work, and a
+ * legibility gate is exactly the kind that can be written to pass by construction.
+ */
+function legibilityOf( seeds, options ) {
+
+    const background = [];
+    const excursions = [];
+    let fidgetFrames = 0;
+    let totalFrames = 0;
+
+    for ( const seed of seeds ) {
+
+        // The background is MEASURED, not assumed: the same layer with the weight-shift process off
+        // is exactly the trace an event has to stand out from.
+        const quiet = traceSway( seed, LEGIBILITY_SECONDS, { ...options, weightShiftsEnabled: false } );
+        const quietPelvis = quiet.samples.get( 'pelvis' ).map( ( point ) => point.x );
+
+        background.push( rootMeanSquare( quietPelvis ) * 1000 );
+
+        const { stack, layer, root } = buildStack( seed, options );
+        const pelvis = root.getObjectByName( 'pelvis' );
+        const relayed = [];
+
+        layer.onWeightShift = ( event ) => relayed.push( { frame: totalFrames, ...event } );
+
+        const frames = Math.round( LEGIBILITY_SECONDS * SAMPLE_RATE_HZ );
+        const track = new Float64Array( frames );
+        const startFrame = totalFrames;
+
+        for ( let frame = 0; frame < frames; frame ++ ) {
+
+            stack.update( FRAME_SECONDS );
+            root.updateMatrixWorld( true );
+
+            track[ frame ] = pelvis.matrixWorld.elements[ 12 ];
+
+            // Time spent mid-fidget, on either axis: the duty cycle a sampling viewer integrates.
+            if ( layer.medioLateral.fidgetRemaining > 0 ) fidgetFrames ++;
+
+            totalFrames ++;
+
+        }
+
+        stack.dispose();
+
+        const window = Math.round( LEGIBILITY_WINDOW_SECONDS * SAMPLE_RATE_HZ );
+
+        for ( const event of relayed ) {
+
+            const start = event.frame - startFrame;
+            const end = Math.min( start + window, frames );
+            let peak = 0;
+
+            for ( let frame = start; frame < end; frame ++ ) {
+
+                peak = Math.max( peak, Math.abs( track[ frame ] - track[ start ] ) );
+
+            }
+
+            excursions.push( peak * 1000 );
+
+        }
+
+    }
+
+    const backgroundMm = median( background );
+    const sorted = [ ...excursions ].sort( ( a, b ) => a - b );
+    const quantile = ( fraction ) => sorted[ Math.min( sorted.length - 1, Math.floor( fraction * sorted.length ) ) ];
+    const minutes = seeds.length * LEGIBILITY_SECONDS / 60;
+
+    return {
+        backgroundMm,
+        quantile,
+        minutes,
+        count: excursions.length,
+        medianMultiple: quantile( 0.5 ) / backgroundMm,
+        dutyPercent: 100 * fidgetFrames / totalFrames,
+        ratePastMultiple: ( multiple ) =>
+            excursions.filter( ( value ) => value >= multiple * backgroundMm ).length / minutes
+    };
+
+}
+
+/**
+ * 🎯 THE FEET ARE NOT WELDED. The judge's last finding, and the only one below the ankle.
+ *
+ * "The feet are pixel-for-pixel identical for 6300 frames." Planting is correct — the sole slides
+ * 0.16 mm over fifteen minutes and the section above gates it in millimetres — but a foot with
+ * literally zero deformation reads as a boot glued to the floor. The rig has exactly one
+ * articulation below the ankle, the metatarsophalangeal joint, and this drives it from unloading.
+ *
+ * Three claims, and the second is the one that makes this safe to have at all:
+ *
+ *   THE UNLOADED FOOT'S TOES COME UP, and the loaded foot's do not move. Measured on the SKIN, not
+ *   on the bone: the toe joint is the pivot, so it does not move by construction and reading it
+ *   would prove nothing.
+ *
+ *   NOTHING GOES THROUGH THE FLOOR. Extension only, so the toes can only ever move away from it —
+ *   which is why the direction was chosen before the amplitude was.
+ *
+ *   THE PLANTING GATE IS UNTOUCHED. Every marker it follows sits at or behind the pivot, so this
+ *   cannot move any of them, and the section above still runs at 0.05 mm of vertical.
+ */
+function measureToeArticulation() {
+
+    section( 'TOES — the one articulation below the ankle this rig has' );
+
+    const { stack, layer, root } = buildStack( SEED );
+
+    const restToes = toeGeometry( root );
+    let loaded = null;
+    let peakLift = 0;
+    let liftOnLoadedFoot = 0;
+
+    for ( let frame = 0; frame < TOE_TRACE_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
+
+        stack.update( FRAME_SECONDS );
+        root.updateMatrixWorld( true );
+
+        peakLift = Math.max( peakLift, layer.toeLiftRadians.left, layer.toeLiftRadians.right );
+
+        // The foot the blend is loading must never lift its toes.
+        liftOnLoadedFoot = Math.max( liftOnLoadedFoot,
+            layer.stanceBlend > 0 ? layer.toeLiftRadians.left : layer.toeLiftRadians.right );
+
+        if ( loaded === null && layer.stanceBlend > 0.95 ) {
+
+            loaded = { blend: layer.stanceBlend, toes: toeGeometry( root ) };
+
+        }
+
+    }
+
+    stack.dispose();
+
+    gate( 'peak toe lift (deg)', peakLift * 180 / Math.PI, 0.5, layer.toeLiftDegrees + 0.01,
+        'extension at full unload; the constant is a tuning number and this is the realised angle' );
+
+    gate( 'toe lift on the LOADED foot (deg)', liftOnLoadedFoot * 180 / Math.PI, 0, 1e-9,
+        'a foot carrying the load has its toes pressed flat and has nowhere to go' );
+
+    if ( loaded === null ) {
+
+        gate( 'the trace reached a full weight transfer', 0, 1, 1,
+            'no frame in the window loaded a leg; nothing below can be measured' );
+        return;
+
+    }
+
+    note( 'measured at blend', loaded.blend.toFixed( 3 ), 'weight on the left leg, so the right foot unloads' );
+
+    const freeRise = ( loaded.toes.right.lowest - restToes.right.lowest ) * 1000;
+    const stanceRise = Math.abs( loaded.toes.left.lowest - restToes.left.lowest ) * 1000;
+
+    gate( 'unloaded toe geometry rises (mm)', freeRise, TOE_LIFT_FLOOR_MM, Infinity,
+        'measured on skinned vertices forward of the metatarsal head, not on the joint' );
+
+    gate( 'loaded toe geometry does not move (mm)', stanceRise, 0, PLANTED_VERTICAL_LIMIT_MM,
+        'the same tolerance the planting section uses; the loaded foot is still planted' );
+
+    gate( 'nothing is driven below the floor (mm)',
+        Math.min( loaded.toes.left.lowest, loaded.toes.right.lowest ) * 1000,
+        Math.min( restToes.left.lowest, restToes.right.lowest ) * 1000 - PLANTED_VERTICAL_LIMIT_MM, Infinity,
+        'extension only: the toes can leave the floor and can never enter it. The allowance is the ' +
+        'planting section\'s own 0.05 mm, because the loaded foot still rides the lean' );
+
+}
+
+/** The lowest skinned vertex of each foot forward of its metatarsal head, in world metres. */
+function toeGeometry( root ) {
+
+    const ball = {
+        left: new Vector3().setFromMatrixPosition( root.getObjectByName( 'ball_l' ).matrixWorld ),
+        right: new Vector3().setFromMatrixPosition( root.getObjectByName( 'ball_r' ).matrixWorld )
+    };
+
+    const result = { left: { lowest: Infinity }, right: { lowest: Infinity } };
+    const vertex = new Vector3();
+
+    root.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh !== true ) return;
+
+        const position = object.geometry.attributes.position;
+
+        for ( let index = 0; index < position.count; index ++ ) {
+
+            vertex.fromBufferAttribute( position, index );
+            object.applyBoneTransform( index, vertex );
+            object.localToWorld( vertex );
+
+            const side = vertex.x >= 0 ? 'left' : 'right';
+
+            // Forward of the metatarsal head and below the ankle: the toes, and nothing else.
+            if ( vertex.z < ball[ side ].z || vertex.y > ball[ side ].y + TOE_BAND_HEIGHT_METRES ) continue;
+
+            result[ side ].lowest = Math.min( result[ side ].lowest, vertex.y );
+
+        }
+
+    } );
+
+    return result;
+
+}
+
+/**
  * 🎯 AN ANALYTIC ORACLE ON THE SHIFT AMPLITUDE DRAW, AND THE DEFECT IT REPLACED.
  *
  * Duarte reports his medio-lateral shift amplitude as 22 ± 38 mm. The obvious reading is a
@@ -1016,12 +1474,17 @@ function measureSegmentPaths( traces ) {
 
     const ratioBySegment = new Map( SEGMENT_ORDER.map( ( key ) => [ key, [] ] ) );
     const pathBySegment = new Map( SEGMENT_ORDER.map( ( key ) => [ key, [] ] ) );
+    const lateralHeadOverPelvis = [];
     let orderingBreaks = 0;
 
     for ( const trace of traces ) {
 
         const headRms = resultantRms( trace.samples.get( 'head' ) );
         const excursions = [];
+
+        lateralHeadOverPelvis.push(
+            rootMeanSquare( trace.samples.get( 'head' ).map( ( point ) => point.x ) )
+            / rootMeanSquare( trace.samples.get( 'pelvis' ).map( ( point ) => point.x ) ) );
 
         for ( const key of SEGMENT_ORDER ) {
 
@@ -1034,7 +1497,15 @@ function measureSegmentPaths( traces ) {
 
             ratioBySegment.get( key ).push( ratio / predicted );
             pathBySegment.get( key ).push( pathLengthMillimetres( track ) );
-            excursions.push( resultantRms( track ) );
+
+            // 🎯 TOTAL PATH, not excursion. What this section claims on the shipped layer is that
+            // there IS a lower body and that it moves less the further down the chain you go — the
+            // failure it was born from measured 0.0000 mm here. Excursion cannot carry that claim
+            // any more: medio-laterally the pelvis now leads the head deliberately, and fore-and-aft
+            // the contrapposto swings the free knee forward, so on 3 of 12 seeds the knee out-travels
+            // the pelvis. Both are the model being right. The pendulum's own height ordering is
+            // asserted where the pendulum runs alone, in measurePendulumGeometry.
+            excursions.push( pathLengthMillimetres( track ) );
 
             console.log( `  ${ String( trace.seed ).padStart( 10 ) }   ${ key.padEnd( 10 ) } ` +
                 `${ mlRms.toFixed( 3 ).padStart( 7 ) } ${ apRms.toFixed( 3 ).padStart( 7 ) }  ` +
@@ -1055,8 +1526,19 @@ function measureSegmentPaths( traces ) {
 
     console.log( '' );
 
-    gate( 'height ordering breaks', orderingBreaks, 0, 0,
-        'head > pelvis > knee > ankle, on every seed — that is what a pendulum does' );
+    gate( 'path-length ordering breaks', orderingBreaks, 0, 0,
+        'head > pelvis > knee > ankle in total travel, on every seed — a body, not a plank on a hinge' );
+
+    // 🎯 THE OTHER AXIS, AND THE OTHER MECHANISM. Medio-laterally the body loads a hip, the pelvis
+    // travels over the stance foot and the lumbar spine counter-bends to park the head over the base
+    // of support — so the PELVIS leads and the head must not. A blind visual judge measured 1.34
+    // here on the full stack and 1.13 on this layer alone, and every one of the 97 gates in this
+    // file was green at the time, because they all measured amplitudes and the defect was a ratio.
+    gate( 'ML head / pelvis RMS, worst seed', Math.max( ...lateralHeadOverPelvis ), 0, 1.0,
+        'pelvis-leads: the hip mechanism moves the pelvis furthest and parks the head' );
+    note( 'ML head / pelvis RMS, range',
+        `${ Math.min( ...lateralHeadOverPelvis ).toFixed( 3 ) }-${ Math.max( ...lateralHeadOverPelvis ).toFixed( 3 ) }`,
+        'over 12 seeds x 900 s; the judge measured 1.34 on screen before the head was parked' );
 
     for ( const key of SEGMENT_ORDER.slice( 1 ) ) {
 
@@ -1104,6 +1586,7 @@ function measurePendulumGeometry() {
 
     const observed = new Map( SEGMENT_ORDER.slice( 1 ).map( ( key ) => [ key, [] ] ) );
     const ankleDeviationMm = [];
+    let pendulumOrderingBreaks = 0;
 
     for ( const seed of PENDULUM_SEEDS ) {
 
@@ -1126,12 +1609,20 @@ function measurePendulumGeometry() {
 
         }
 
-        const headRms = resultantRms( tracks.get( 'head' ) );
+        // 🎯 ANTERO-POSTERIOR only. The rigid-rotation prediction is a claim about the axis the
+        // inverted pendulum governs; medio-laterally this layer deliberately adds a lumbar
+        // counter-bend that parks the head, so a lateral excursion is NOT proportional to height
+        // above the pivot and asserting that it is would gate the defect back in.
+        const headRms = rootMeanSquare( tracks.get( 'head' ).map( ( point ) => point.z ) );
+        const apExcursions = [];
 
         for ( const key of SEGMENT_ORDER ) {
 
             const track = tracks.get( key );
-            const ratio = resultantRms( track ) / headRms;
+            const apRms = rootMeanSquare( track.map( ( point ) => point.z ) );
+            const ratio = apRms / headRms;
+
+            apExcursions.push( apRms );
             const predicted = predictedSegmentRatio( layer, worldHeightOfBone( root, bones.get( key ).name ) );
 
             if ( key !== 'head' ) observed.get( key ).push( ratio / predicted );
@@ -1139,9 +1630,15 @@ function measurePendulumGeometry() {
 
             console.log( `  ${ String( seed ).padStart( 10 ) }   ${ key.padEnd( 10 ) } ` +
                 `${ ( rootMeanSquare( track.map( ( p ) => p.x ) ) * 1000 ).toFixed( 3 ).padStart( 7 ) } ` +
-                `${ ( rootMeanSquare( track.map( ( p ) => p.z ) ) * 1000 ).toFixed( 3 ).padStart( 7 ) }  ` +
+                `${ ( apRms * 1000 ).toFixed( 3 ).padStart( 7 ) }  ` +
                 `${ ratio.toFixed( 4 ).padStart( 6 ) }  ${ predicted.toFixed( 4 ).padStart( 9 ) }  ` +
                 `${ ( ratio / predicted ).toFixed( 4 ).padStart( 10 ) }` );
+
+        }
+
+        for ( let i = 1; i < apExcursions.length; i ++ ) {
+
+            if ( apExcursions[ i ] >= apExcursions[ i - 1 ] ) pendulumOrderingBreaks ++;
 
         }
 
@@ -1150,6 +1647,10 @@ function measurePendulumGeometry() {
     }
 
     console.log( '' );
+
+    gate( 'AP height ordering breaks', pendulumOrderingBreaks, 0, 0,
+        'head > pelvis > knee > ankle fore and aft, every seed — the inverted pendulum\'s signature,' +
+        ' asserted where the pendulum runs alone' );
 
     for ( const key of [ 'pelvis', 'kneeLeft' ] ) {
 
@@ -1483,13 +1984,16 @@ function measureEventRates() {
         byPattern.get( 'shift' ).filter( ( event ) => event.magnitude > 0 ).length,
         byPattern.get( 'shift' ).length, '' );
 
-    // The relayed magnitude is the drawn amplitude over Duarte's 22 mm mean. Fidgets carry half a
-    // shift's amplitude, so the mixture's expectation is (1.2 x 0.5 + 0.30 x 1.0) / 1.5 = 0.60 —
-    // and the folded gaussian this replaced would have put it at 0.60 x 35.3 / 22 = 0.96, which is
-    // the 1.59-against-1.0 the old report printed without anyone reading it.
+    // The relayed magnitude is the drawn amplitude over Duarte's 22 mm mean, so the mixture's
+    // expectation is (1.2 x fidgetFraction + 0.30 x 1.0) / 1.5. The fraction is read off the layer
+    // rather than written here, because it is the constant this file's LEGIBILITY section exists to
+    // argue about and two copies of it would drift apart. The folded gaussian this replaced would
+    // have multiplied whatever it is by 35.3 / 22, which is the 1.59-against-1.0 the old report
+    // printed without anyone reading it.
     const magnitudes = relayed.map( ( event ) => Math.abs( event.magnitude ) );
+    const fidgetFraction = new Sway().fidget.amplitudeFraction;
     const expectedMagnitude =
-        ( DUARTE_FIDGET_RATE_MEDIO_LATERAL * 0.5 + DUARTE_SHIFT_RATE_MEDIO_LATERAL ) / relayRate;
+        ( DUARTE_FIDGET_RATE_MEDIO_LATERAL * fidgetFraction + DUARTE_SHIFT_RATE_MEDIO_LATERAL ) / relayRate;
 
     // 3 standard errors, where a single draw's relative spread is Duarte's own 38/22.
     const magnitudeError = 3 * expectedMagnitude
@@ -1497,7 +2001,8 @@ function measureEventRates() {
 
     gate( 'relayed |magnitude| mean', mean( magnitudes ),
         expectedMagnitude - magnitudeError, expectedMagnitude + magnitudeError,
-        `fidgets at half amplitude mixed with shifts: ${ expectedMagnitude.toFixed( 2 ) } expected` );
+        `fidgets at ${ fidgetFraction.toFixed( 2 ) } of a shift mixed with shifts: ` +
+        `${ expectedMagnitude.toFixed( 2 ) } expected` );
 
     note( 'relayed |magnitude| range',
         `${ Math.min( ...magnitudes ).toFixed( 2 ) }-${ Math.max( ...magnitudes ).toFixed( 2 ) }`,
@@ -1628,6 +2133,99 @@ function measureTheOtherWay() {
     gate( 'composite gate REJECTS a layer with no weight shifts',
         quietMl < BATES_IQR_MEDIO_LATERAL_MM[ 0 ] || quietMl > BATES_IQR_MEDIO_LATERAL_MM[ 1 ] ? 1 : 0, 1, 1,
         'fifteen unconstrained minutes are not fifteen quiet ones' );
+
+    // --- the lateral righting removed: the state the visual judge measured ---
+    //
+    // §1.1 for the three newest gates. `lateralRightingEnabled: false` runs the contrapposto exactly
+    // as its pose file draws it and the pendulum as a rigid rotation, which is what this layer did
+    // when a blind judge reported "the head still travels 1.34x the hip" and "head-on-neck motion
+    // adds to the trunk lean instead of cancelling it".
+    const unrighted = traceSway( SEED, UNCONSTRAINED_WINDOW_SECONDS, { lateralRightingEnabled: false } );
+
+    const unrightedHead = unrighted.samples.get( 'head' ).map( ( point ) => point.x );
+    const unrightedNeck = unrighted.samples.get( 'neck' ).map( ( point ) => point.x );
+    const unrightedPelvis = unrighted.samples.get( 'pelvis' ).map( ( point ) => point.x );
+
+    const unrightedRms = rootMeanSquare( unrightedHead ) / rootMeanSquare( unrightedPelvis );
+    const unrightedPeak = peakToPeak( unrightedHead ) / peakToPeak( unrightedPelvis );
+    const unrightedCorrelation = pearson(
+        unrightedHead.map( ( value, index ) => value - unrightedNeck[ index ] ), unrightedNeck );
+
+    note( 'unrighted head / pelvis (RMS, p2p)',
+        `${ unrightedRms.toFixed( 3 ) }, ${ unrightedPeak.toFixed( 3 ) }`,
+        'against 0.822 and 0.826 with the head parked' );
+
+    gate( 'ratio gate REJECTS the unrighted RMS', unrightedRms > 1.0 ? 1 : 0, 1, 1,
+        '1 means the gate caught it; 0 means the gate is decorative' );
+
+    gate( 'ratio gate REJECTS the unrighted peak-to-peak', unrightedPeak > 1.0 ? 1 : 0, 1, 1, '' );
+
+    note( 'unrighted r(head-on-neck, neck)', unrightedCorrelation.toFixed( 4 ),
+        'against -0.997 with the head parked; the judge measured +0.10 on the full stack' );
+
+    gate( 'correlation gate REJECTS the unrighted sign', unrightedCorrelation > 0 ? 1 : 0, 1, 1,
+        'the sign is the whole claim: a head that adds to the trunk lean is not being stabilised' );
+
+    gate( 'the solve residual gate REJECTS it too',
+        Math.abs( unrighted.layerHeadPerCentreOfMassLateral - 1 ) > LATERAL_RIGHTING_TOLERANCE ? 1 : 0, 1, 1,
+        `unrighted pendulum lateral head/COM ${ unrighted.layerHeadPerCentreOfMassLateral.toFixed( 3 ) }` );
+
+    // --- the fidget profile the judge watched ---
+    //
+    // §1.1 for the legibility gates. Half a shift's amplitude over a symmetric 1.4 s is what this
+    // layer shipped when a blind judge read three postural events in seven minutes.
+    const dim = legibilityOf( [ SEED ], {
+        fidget: { amplitudeFraction: 0.5, durationSeconds: 1.4, riseFraction: 0.5 }
+    } );
+
+    note( 'pre-fix median event / background, duty (%)',
+        `${ dim.medianMultiple.toFixed( 2 ) }, ${ dim.dutyPercent.toFixed( 2 ) }`,
+        'against 4.39 and 3.20 as shipped' );
+
+    gate( 'legibility REJECTS the pre-fix duty cycle',
+        dim.dutyPercent < FIDGET_DUTY_CYCLE_PERCENT ? 1 : 0, 1, 1,
+        '1 means the gate caught it; a symmetric 1.4 s fidget is on screen for one frame in forty' );
+
+    gate( 'legibility REJECTS the pre-fix legible rate',
+        dim.ratePastMultiple( LEGIBLE_EVENT_MULTIPLE ) < LEGIBLE_EVENT_RATE_PER_MINUTE ? 1 : 0, 1, 1,
+        `pre-fix ${ dim.ratePastMultiple( LEGIBLE_EVENT_MULTIPLE ).toFixed( 3 ) }/min` );
+
+    // 🚩 RECORDED AS A GATE, §1.11: the median-amplitude check on its own does NOT catch the state
+    // the judge watched — 3.34 against a threshold of 3.0 — because half the defect was never
+    // amplitude. Someone later will assume one legibility number covers the whole claim; this is
+    // what stops them.
+    gate( 'the median gate alone does NOT catch the pre-fix profile',
+        dim.medianMultiple < LEGIBLE_EVENT_MULTIPLE ? 1 : 0, 0, 0,
+        'recorded, not tolerated: duration and amplitude are two defects and need two gates' );
+
+    // --- the welded foot ---
+    //
+    // §1.1 for the toe gates. `toeLiftDegrees: 0` is the foot the judge watched: correctly planted,
+    // and pixel-for-pixel identical for 6300 frames.
+    const welded = buildStack( SEED, { toeLiftDegrees: 0 } );
+    const weldedRest = toeGeometry( welded.root );
+    let weldedRise = 0;
+
+    for ( let frame = 0; frame < TOE_OTHER_WAY_SECONDS * SAMPLE_RATE_HZ; frame ++ ) {
+
+        welded.stack.update( FRAME_SECONDS );
+
+        if ( welded.layer.stanceBlend > 0.95 ) {
+
+            welded.root.updateMatrixWorld( true );
+            weldedRise = ( toeGeometry( welded.root ).right.lowest - weldedRest.right.lowest ) * 1000;
+            break;
+
+        }
+
+    }
+
+    welded.stack.dispose();
+
+    note( 'welded foot, unloaded toe rise (mm)', weldedRise.toFixed( 4 ), 'against 1.489 with the toes driven' );
+
+    gate( 'the toe gate REJECTS a welded foot', weldedRise < TOE_LIFT_FLOOR_MM ? 1 : 0, 1, 1,
+        '1 means the gate caught it; 0 means a foot that never deforms would pass' );
 
     // 🚩 WHAT COULD NOT BE MADE TO FAIL, SAID OUT LOUD. The head-excursion section has no
     // literature behind it, so there is no known-bad head amplitude to construct — its envelope is
@@ -1842,9 +2440,19 @@ function worldHeightOfBone( root, boneName ) {
  * figure they agree to about 0.02%, and the segment prediction below compares a RESULTANT
  * excursion, so it wants the one number.
  */
+/**
+ * 🎯 The ANTERO-POSTERIOR head lever, and not the mean of the two axes it used to be.
+ *
+ * The two were within a hair of each other while both axes were rigid rotations, so averaging them
+ * was free. They are not any more: the layer parks the head during a lateral lean, which halves the
+ * lateral lever by design. Every prediction this feeds is a rigid-rotation prediction, and the
+ * rotation is only rigid fore and aft — so averaging in the lateral lever would silently scale every
+ * pendulum prediction by 0.73 and fail the geometry gate against a model that is doing the right
+ * thing.
+ */
 function headLeverMetres( layer ) {
 
-    return ( layer.headLever.medioLateral + layer.headLever.anteroPosterior ) / 2;
+    return layer.headLever.anteroPosterior;
 
 }
 
@@ -1993,6 +2601,46 @@ function median( values ) {
 function rootMeanSquare( samples ) {
 
     return standardDeviation( samples );
+
+}
+
+/** Peak-to-peak, because the defect this file's newest gates were written for lived in the peaks. */
+function peakToPeak( samples ) {
+
+    return Math.max( ...samples ) - Math.min( ...samples );
+
+}
+
+/**
+ * Pearson's r between two equal-length series.
+ *
+ * The first correlation this repository has ever computed between two body parts, which is the whole
+ * finding of §1.7d: a layer that claims a body is ARTICULATED rather than rigid is making a claim
+ * about how its parts move relative to each other, and no amplitude can express that.
+ */
+function pearson( a, b ) {
+
+    const meanA = a.reduce( ( total, value ) => total + value, 0 ) / a.length;
+    const meanB = b.reduce( ( total, value ) => total + value, 0 ) / b.length;
+
+    let covariance = 0;
+    let varianceA = 0;
+    let varianceB = 0;
+
+    for ( let index = 0; index < a.length; index ++ ) {
+
+        const deviationA = a[ index ] - meanA;
+        const deviationB = b[ index ] - meanB;
+
+        covariance += deviationA * deviationB;
+        varianceA += deviationA * deviationA;
+        varianceB += deviationB * deviationB;
+
+    }
+
+    const spread = Math.sqrt( varianceA * varianceB );
+
+    return spread === 0 ? 0 : covariance / spread;
 
 }
 

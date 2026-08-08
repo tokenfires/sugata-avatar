@@ -11,10 +11,12 @@
 
         "The free leg does what a free leg does: hip slightly flexed so the knee comes forward, knee softly bent to about 15 degrees, foot a little wider and turned out more than the stance foot. The stance leg is close to straight and close to vertical under the pelvis, which is what carrying the load looks like.",
 
-        "ARMS. The stance-side hip juts out, so the arm on that side hangs 2 degrees further out to clear it and the free-side arm hangs 2 degrees closer in. Everything else about the arms and hands is relaxed-standing unchanged — a weight shift is a pelvis and spine event, and animating the fingers along with it would read as a whole-body flinch."
+        "ARMS. The stance-side hip juts out, so the arm on that side hangs 2 degrees further out to clear it and the free-side arm hangs 2 degrees closer in. Everything else about the arms and hands is relaxed-standing unchanged — a weight shift is a pelvis and spine event, and animating the fingers along with it would read as a whole-body flinch.",
+
+        "STANCE WIDTH. This pose carries the same narrowing relaxed-standing does — heel centres at McIlroy and Maki's preferred 0.17 m rather than the bind pose's 0.38 m; see that file's notes for the source and the solve. The SAME adduction and external rotation are added here as there, deliberately: Sway blends the difference between relaxed-standing and this pose, so one common delta leaves every authored contrapposto angle exactly as it was drawn. Only the pelvis height is re-solved, against the mean of the two ankles. Measured after: heel centres 169.8 mm, included angle 14.76 degrees, outer-to-outer 298.1 mm."
     ],
 
-    "hipsOffsetMetres": [ 0.040, -0.005, 0 ],
+    "hipsOffsetMetres": [ 0.0075, -0.0018, 0 ],
 
     "axes": {
         "elbowExtendLeft": [ 0.7449, 0.6647, -0.0514 ],
@@ -84,13 +86,13 @@
         "rightThumbProximal": { "axis": "thumbCurlRight", "degrees": 13 },
         "rightThumbDistal": { "axis": "thumbCurlRight", "degrees": 9 },
 
-        "leftUpperLeg": { "euler": [ 0, 5.5, -8.5 ], "why": "Stance leg. z: -8.5 undoes the pelvis's +5.5 roll and adds three degrees of adduction on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it." },
+        "leftUpperLeg": { "euler": [ 0, 11.56, -13.79 ], "why": "Stance leg. Against relaxed-standing's [0, 9.56, -5.29] this is +2.0 of external rotation and -8.5 of adduction: the -8.5 undoes the pelvis's +5.5 roll and adds three degrees on top, which is what keeps the planted foot planted while the pelvis travels 40 mm over it. The absolute numbers carry the narrowed stance; the DELTA from relaxed-standing is the contrapposto and is unchanged." },
         "leftLowerLeg": { "euler": [ 0, 0, 0 ], "why": "The stance knee stays where the bind pose has it. A knee carrying the load is close to straight." },
-        "leftFoot": { "euler": [ 0, 0, 0 ] },
+        "leftFoot": { "euler": [ 1.45, 0, 5.37 ], "why": "The stance foot's counter-rotation for the narrowed stance; see relaxed-standing." },
 
-        "rightUpperLeg": { "euler": [ -4.0, -1.0, -9.0 ], "why": "Free leg. z: -9 undoes the pelvis roll and abducts the leg so the free foot ends up slightly wider than the stance foot. x: -4 flexes the hip, sending the knee forward — note that a bone pointing DOWN moves backward under a positive x rotation, which is the sign trap in this whole file." },
+        "rightUpperLeg": { "euler": [ -4.0, -7.06, 0.94 ], "why": "Free leg. Against relaxed-standing's [0, -9.06, 9.94] this is +2.0 of external rotation and -9.0 of adduction: the -9 undoes the pelvis roll and abducts the leg so the free foot ends up slightly wider than the stance foot. x: -4 flexes the hip, sending the knee forward — note that a bone pointing DOWN moves backward under a positive x rotation, which is the sign trap in this whole file." },
         "rightLowerLeg": { "euler": [ 8.0, 0, 0 ], "why": "Free knee softly flexed to 14.8 degrees total. Positive x carries the shank back, which is where the heel goes when the knee bends and the foot stays put." },
-        "rightFoot": { "euler": [ -6.0, -2.0, 0 ], "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider." }
+        "rightFoot": { "euler": [ -6.26, -0.85, -10.63 ], "why": "Levels the sole back toward the floor after the shank has swung, and turns the free foot out a couple of degrees more than the stance foot — free feet always splay wider. Now also carrying the narrowed stance's counter-rotation." }
 
     }
 }
