@@ -40,13 +40,25 @@
 //
 // Usage:
 //   node tools/critic/travel.mjs captures/judge-body
-//   node tools/critic/travel.mjs captures/judge-body-after --threshold 0.1979 --stride 6
+//   node tools/critic/travel.mjs captures/judge-body-after --threshold 0.3588 --stride 6
+//
+// 🚩 `auto` NO LONGER GUESSES, as of 2026-08-08. It picks Otsu's cut — the luma that maximises
+// between-class variance, which has no tunable constant — and REFUSES the clip when the silhouette
+// that cut produces swallows the frame (over 70%, against 24.3-60.3% for every real framing in
+// captures/ and 89.5% for an all-figure crop). ⚠️ That refusal was FIRST written against Otsu's
+// separability η and η was measured, later the same day, to separate the two populations
+// BACKWARDS once the ground plane put a lit floor in shot — see the note at
+// SILHOUETTE_REFUSE_HIGH_AUTO. The rule it replaced was `p5 + 0.20·(p99 − p5)`, three underived
+// constants that put the cut at 0.1938 on a frame whose histogram valley is at 0.3588, which is why a judge
+// pinned `--threshold 0.30` by hand on every measurement it took. Pinning is still honoured and is
+// still the right thing when comparing two clips; it is no longer a workaround.
 //
 // Exit codes follow heatmap.mjs, measure.mjs and capture.mjs, so a calling script can tell a dead
 // clip from a broken tool:
 //   0 = travel measured, the silhouette moved
-//   1 = the clip is not evidence — the threshold caught nothing or everything, or no band
-//       travelled at all; or --fail-on-motionless and a band is a statue
+//   1 = the clip is not evidence — the threshold caught nothing or everything, auto refused to
+//       guess on a frame that is all subject, or no band travelled at all; or
+//       --fail-on-motionless and a band is a statue
 //   2 = tool error (no frames, mismatched frame sizes, unreadable PNG, unparseable band table)
 
 import fs from 'node:fs';
@@ -74,9 +86,12 @@ const DEFAULT_BANDS = [
   { name: 'ankle', top: 0.82, bottom: 0.92 },
   // `foot` is rows 1110–1176 of a 1200 px capture — the band a judge measured the feet as welded
   // in. Unlike every other band it CAN contain the floor contact shadow, which is why `whole`
-  // stops at 0.95. Pin --threshold rather than trusting `auto` here, and read it beside the
-  // offline prediction in sway.selftest.mjs's GLANCE LEGIBILITY table rather than alone: that
-  // table predicts a 15 s median horizontal travel of 0.09–0.44 px across twelve seeds.
+  // stops at 0.95. Read it beside the offline prediction in sway.selftest.mjs's GLANCE
+  // LEGIBILITY table rather than alone: that table predicts a 15 s median horizontal travel of
+  // 0.09–0.44 px across twelve seeds. (The advice that used to be here — "pin --threshold rather
+  // than trusting auto" — was right about the old fixed-fraction rule and is superseded; `auto`
+  // now finds the valley and refuses when there is not one. Pin to COMPARE two clips, not to
+  // work around the tool.)
   { name: 'foot', top: 0.925, bottom: 0.98 },
   { name: 'whole', top: 0.05, bottom: 0.95 },
 ];
@@ -95,24 +110,133 @@ const DEFAULTS = {
 // percentiles it came from, and pinnable — exactly the discipline heatmap.mjs uses for --normalise,
 // and for the same reason: two clips can only be compared on the SAME basis.
 //
-// The rule: sit a fixed fraction of the way from a low percentile of the first frame's luma to a
-// high one.
+// 🎯 THE OLD RULE, AND WHY IT WAS REPLACED ON 2026-08-08.
 //
-//   p5 rather than the minimum   — one vignetted corner or one crushed black pixel is not the
-//                                  backdrop level.
-//   p99 rather than the maximum  — one specular highlight on an eyelash is not the figure level.
-//   20% rather than halfway      — the backdrop is tight (on the judge-body captures p5→p75 spans
-//                                  0.004 luma) while the figure spans hair-dark to skin-bright.
-//                                  A halfway cut would slice the shadow side of the body off the
-//                                  silhouette and call the loss "travel". 20% clears the backdrop
-//                                  by two orders of magnitude and still keeps dark hair inside.
-const THRESHOLD_LOW_PERCENTILE = 5;
-const THRESHOLD_HIGH_PERCENTILE = 99;
-const THRESHOLD_FRACTION = 0.2;
+// It sat a fixed fraction of the way between two percentiles of the first frame:
+// `p5 + 0.20 · (p99 − p5)`. Three constants, none of them derived from the image in front of it,
+// and the symptom was that a judge pinned `--threshold 0.30` by hand on every measurement it
+// took rather than trust `auto`. That judge was right, and the reason is measurable: on
+// `captures/r5-body/frames/frame-00001.png` the histogram's actual valley — the luma that
+// maximises between-class variance — is at **0.3588**, and the old rule put the cut at **0.1938**,
+// down in the backdrop's own upper tail, 46% of the way to the valley from the wrong side.
+//
+// It survived because it was ROBUST rather than RIGHT. The silhouette edge is steep, so a cut
+// anywhere in the wide empty gap between backdrop and figure catches the same pixels: measured,
+// r6-body at its own auto 0.2218 and at r5-body's auto 0.1938 differ by 0.04 px of head travel
+// on a 4.22 px SD. A gate can be wrong by 85% of the distance to the right answer and still print
+// a presentable table, which is §1.3 with the degenerate input replaced by a degenerate constant.
+//
+// And where it is not robust it fails silently. Both percentiles are statistics of the WHOLE
+// frame, so both move with the figure's AREA FRACTION — a framing choice, nothing to do with the
+// figure. Measured on that one frame, cropping only:
+//
+//     rect                       p5      p99     old cut   Otsu    silhouette
+//     whole frame (figure 25%)   0.0516  0.7626  0.1938    0.3588  24.3%
+//     torso crop                 0.0552  0.7708  0.1983    0.3745  81.9%
+//     a crop that is ALL figure  0.6661  0.7614  0.6852    0.7039  79.8%
+//
+// On the last row the cut has moved 3.54× and "the silhouette" is the lit 80% of a patch of skin.
+// Nothing refused: `SILHOUETTE_WARN_HIGH` is 0.8 and a warning is not a refusal, so the tool
+// would have reported the centroid of the LIT SIDE OF A CHEEK, which tracks the lighting rather
+// than the body, as travel — in pixels, to two decimal places.
+//
+// --- what replaced it -------------------------------------------------------------------------
+//
+// Otsu's method: the cut that maximises between-class variance. It has NO free constant — there
+// is nothing to tune and nothing to justify in a comment — and it finds the valley wherever the
+// valley is, so it is invariant to the figure's area fraction over the whole range where a valley
+// exists. Measured across four crops of the same frame it moves 0.3588 → 0.3863 (7.7%) where the
+// silhouette it defines stays the silhouette; the old rule's apparent stability over the same
+// crops was stability of a number that was in the wrong place to begin with.
+//
+// The refusal is the other half, and it is what "make it refuse to guess" means. Otsu always
+// returns a cut, including on a histogram with no valley at all, so the cut alone is not evidence.
+// η — the between-class variance it achieved as a fraction of the total variance — is the
+// separability of the two classes it found, and it is the number that says whether there were two
+// classes. Measured, on real frames and on the degenerate crop:
+//
+//     whole body frame  0.9720      whole portrait frame  0.9790
+//     padded body       0.9633      r6-body whole         0.9695
+//     torso crop        0.9542      head crop             0.9685
+//     ALL-FIGURE CROP   0.7132   ← the one with no backdrop in it
+//
+// Six real framings span 0.9542–0.9790; the degenerate one scores 0.7132. The floor sat at 0.90,
+// between them, 4.7% below the worst real reading and 26% above the degenerate one.
+//
+// 🚩 --- AND η STOPPED WORKING THE DAY THE FLOOR BECAME A LIT SURFACE ---------------------------
+//
+// Every one of those seven readings is a crop of ONE frame from `captures/r5-body`, taken before
+// the figure stood on anything. That is §1.1a exactly: a threshold sized on a narrower sample than
+// the population it gates. Re-measured 2026-08-08 across the WHOLE capture set and on the current
+// build, η no longer separates the two populations — **it separates them backwards**:
+//
+//     clip                                              η        silhouette
+//     r5/r6/r7/judge-* (pre-shading, two-class)   0.9683–0.9798    24.3–60.3%
+//     r8-judge-body seed-42 / seed-4242           0.8922 / 0.8920      —      ← REFUSED
+//     r8-clip-body                                    0.8794           —      ← REFUSED
+//     current build, full body, shipped defaults      0.8936        36.7%     ← REFUSED
+//     current build, ALL-FIGURE CROP, no backdrop     0.9030        89.5%     ← ACCEPTED
+//
+// The last two rows are the whole argument. The degenerate crop the floor exists to catch scores
+// HIGHER than the real full-body frame it is meant to admit, so no floor can be placed between
+// them and the statistic has failed, not the calibration.
+//
+// The cause is not a defect: η is the variance explained by the best TWO-class split, and the
+// scene now has THREE luma classes — near-black backdrop, lit floor, lit figure. Punch-list 3.8's
+// ground plane put the floor in shot and this round's lighting work took it from linear luma
+// 0.0534 to 0.1687. A two-class model necessarily explains less of a three-class frame. **η going
+// down is the scene getting richer, which is the opposite of the degeneracy it was read as.**
+//
+// --- what refuses now, and why it is the right statistic --------------------------------------
+//
+// The degeneracy being guarded against is "the crop is all figure, so the cut lands inside the
+// subject and the silhouette is the LIT PART of it". That has a direct signature — the silhouette
+// swallows the frame — and the silhouette fraction measures it without a model of the histogram:
+//
+//     real framings, every clip in captures/ plus the current build   24.3% – 60.3%
+//     torso crop (mostly figure)                                          81.9%
+//     all-figure crop, no backdrop, current build                         89.5%
+//
+// `SILHOUETTE_REFUSE_HIGH_AUTO` sits at 0.70: 16% above the worst real reading and 16% below the
+// mildest degenerate one.
+//
+// --- BUT THE TWO STATISTICS SEE DIFFERENT DEGENERACIES, SO BOTH REFUSE -------------------------
+//
+// The silhouette fraction cannot see a frame whose histogram has no valley at all. Measured on the
+// two synthetic single-class frames `travel.selftest.mjs` builds — a smooth luma gradient, and a
+// unimodal noise field — Otsu cuts them near the middle and the "silhouette" is about half the
+// frame, which is a perfectly ordinary-looking number:
+//
+//     frame                              eta      silhouette
+//     synthetic gradient, one class     0.7500       50.5%     <- silhouette rule is BLIND
+//     synthetic noise, one class        0.7498       48.3%     <- silhouette rule is BLIND
+//     all-figure crop, current build    0.9030       89.5%     <- eta is BLIND
+//     real framings, all of captures/   0.8794+      18.9-60.3%
+//
+// Neither statistic dominates and each is blind to what the other catches, so both refuse:
+//
+//   * eta below `MINIMUM_SEPARABILITY` — the histogram has no valley, so the cut is a fiction.
+//     Re-derived over the widened population: 0.80 sits 6.7% below the worst real reading (0.8794)
+//     and 6.7% above the worst synthetic one (0.7498). The old 0.90 was above three real clips.
+//   * silhouette over `SILHOUETTE_REFUSE_HIGH_AUTO` — there IS a valley, and the cut fell inside
+//     the subject.
+//
+// η is still printed either way, because a reader comparing two clips wants it.
+const THRESHOLD_HISTOGRAM_BINS = 256;
+const SILHOUETTE_REFUSE_HIGH_AUTO = 0.70;
+const MINIMUM_SEPARABILITY = 0.80;
 
-// Below this separation between the two percentiles there is no figure to distinguish from a
-// backdrop, and any threshold picked from the histogram is a fiction. An all-black clip and an
-// all-white clip both land here — refused, rather than reported as zero travel.
+// Kept only for the diagnostic line that prints the old rule's answer beside the new one, so a
+// reader comparing against an older report can see how far apart the two bases are. Nothing
+// depends on these.
+const LEGACY_LOW_PERCENTILE = 5;
+const LEGACY_HIGH_PERCENTILE = 99;
+const LEGACY_FRACTION = 0.2;
+
+// Below this separation between the extremes there is no figure to distinguish from a backdrop,
+// and any threshold picked from the histogram is a fiction. An all-black clip and an all-white
+// clip both land here — refused, rather than reported as zero travel. Retained from the old rule
+// because it catches the flat-frame case one step earlier than η does, and more legibly.
 const MINIMUM_SEPARATION = 0.05;
 
 // A silhouette this small or this large is not a standing figure; it is a threshold that missed.
@@ -120,6 +244,12 @@ const MINIMUM_SEPARATION = 0.05;
 // subtler misses, where a real but wrong region is being tracked.
 const SILHOUETTE_REFUSE_LOW = 0.001;
 const SILHOUETTE_REFUSE_HIGH = 0.999;
+// A band this full is not holding a body part against a backdrop; the silhouette has swallowed
+// the band and its centroid is the band's own centre by construction. Measured at integration:
+// with the lit ground plane above the cut, `ankle` fills 100.0% and `foot` 99.5% and both report
+// x = 449.5 on a 900 px frame. Real bands holding a limb measure 8.9-31.7%.
+const BAND_FULL_WARN = 0.90;
+
 const SILHOUETTE_WARN_LOW = 0.02;
 const SILHOUETTE_WARN_HIGH = 0.8;
 
@@ -166,7 +296,11 @@ function analyseClip(framePaths, options) {
   if (threshold.refused) {
     return degenerateReport(framePaths, firstFrame, options, threshold, {
       refused: true,
-      reason: 'no-separation',
+      // Two distinct findings, not two shades of one: a frame with no dynamic range at all, and a
+      // frame with plenty of range and only one class in it. The second is the one the old rule
+      // could not see, and it is the one that produced a presentable table of small plausible
+      // numbers about the lit side of a cheek.
+      reason: threshold.refusedBecause === 'no-two-classes' ? 'no-two-classes' : 'no-separation',
     });
   }
 
@@ -189,7 +323,7 @@ function analyseClip(framePaths, options) {
     motionlessBands: summarised
       .filter((band) => band.observedFrames >= 2 && band.x.sd === 0 && band.y.sd === 0)
       .map((band) => band.name),
-    verdict: judge(silhouette, summarised),
+    verdict: judge(silhouette, summarised, threshold.mode.startsWith('auto')),
   };
 }
 
@@ -209,24 +343,106 @@ function chooseThreshold(image, requested) {
   }
   lumas.sort();
 
-  const lowValue = percentileOfSorted(lumas, THRESHOLD_LOW_PERCENTILE / 100);
-  const highValue = percentileOfSorted(lumas, THRESHOLD_HIGH_PERCENTILE / 100);
+  const lowValue = percentileOfSorted(lumas, LEGACY_LOW_PERCENTILE / 100);
+  const highValue = percentileOfSorted(lumas, LEGACY_HIGH_PERCENTILE / 100);
   const separation = highValue - lowValue;
   const automatic = requested === 'auto';
 
+  const otsu = otsuThreshold(lumas);
+
   return {
-    mode: automatic ? 'auto' : 'pinned',
-    luma: automatic ? lowValue + THRESHOLD_FRACTION * separation : requested,
-    lowPercentile: THRESHOLD_LOW_PERCENTILE,
-    highPercentile: THRESHOLD_HIGH_PERCENTILE,
+    mode: automatic ? 'auto (Otsu)' : 'pinned',
+    luma: automatic ? otsu.luma : requested,
+    separability: otsu.separability,
+    separabilityFloor: MINIMUM_SEPARABILITY,
+    // Reported so a reader holding an older report can see how far apart the two bases are.
+    // Nothing is decided by it.
+    legacyRuleWouldHavePicked: lowValue + LEGACY_FRACTION * separation,
+    lowPercentile: LEGACY_LOW_PERCENTILE,
+    highPercentile: LEGACY_HIGH_PERCENTILE,
     lowValue,
     highValue,
     separation,
-    fraction: THRESHOLD_FRACTION,
+    fraction: LEGACY_FRACTION,
     // A pinned threshold is the operator's decision and is honoured even on a flat frame — the
     // silhouette-fraction check downstream still catches it. Only auto refuses here, because auto
-    // would otherwise invent a cut in a histogram that has no shoulder to cut at.
-    refused: automatic && separation < MINIMUM_SEPARATION,
+    // would otherwise invent a cut in a histogram that has no valley to cut at.
+    //
+    // TWO refusals here, because they are two different findings: a frame with no dynamic range
+    // at all, and a frame with plenty of range and only one class in it. A THIRD lives in
+    // `judge()` — a cut that fell inside the subject — because it needs the silhouette, which is
+    // not known until the frames have been measured. See the note at SILHOUETTE_REFUSE_HIGH_AUTO
+    // for why one statistic could not do both jobs.
+    refused: automatic && (separation < MINIMUM_SEPARATION || otsu.separability < MINIMUM_SEPARABILITY),
+    refusedBecause: automatic === false ? null
+      : separation < MINIMUM_SEPARATION ? 'no-dynamic-range'
+        : otsu.separability < MINIMUM_SEPARABILITY ? 'no-two-classes'
+          : null,
+  };
+}
+
+/**
+ * Otsu's cut, plus the separability η that says whether the cut means anything.
+ *
+ * The method is the boring, forty-year-old primitive for exactly this question: of every possible
+ * cut, take the one that maximises the variance BETWEEN the two classes it creates. It has no
+ * tunable constant, which is the whole reason it is here — the rule it replaced had three.
+ *
+ * η = σ²between / σ²total, in [0, 1]. It is the fraction of the image's luma variance that the
+ * split explains. A figure against a backdrop explains nearly all of it (measured 0.954–0.979
+ * across six real framings); a single-class patch cannot (0.713 on an all-figure crop), because
+ * there is no split that explains a unimodal spread. That is the difference between "the cut is
+ * here" and "there is a cut", and only the second entitles anything downstream to a number.
+ *
+ * @param {Float64Array} sortedLumas - encoded luma of every pixel, ascending.
+ * @returns {{luma: number, separability: number}}
+ */
+function otsuThreshold(sortedLumas) {
+  const bins = THRESHOLD_HISTOGRAM_BINS;
+  const last = bins - 1;
+  const histogram = new Float64Array(bins);
+  for (const luma of sortedLumas) {
+    const bin = Math.round(Math.min(1, Math.max(0, luma)) * last);
+    histogram[bin] += 1;
+  }
+
+  const total = sortedLumas.length;
+  let sumAll = 0;
+  for (let bin = 0; bin < bins; bin += 1) sumAll += (bin / last) * histogram[bin];
+  const mean = sumAll / total;
+
+  let varianceTotal = 0;
+  for (let bin = 0; bin < bins; bin += 1) {
+    varianceTotal += histogram[bin] * ((bin / last) - mean) ** 2;
+  }
+  varianceTotal /= total;
+
+  let weightBelow = 0;
+  let sumBelow = 0;
+  let bestBetween = -1;
+  let bestBin = 0;
+
+  for (let bin = 0; bin < last; bin += 1) {
+    weightBelow += histogram[bin];
+    sumBelow += (bin / last) * histogram[bin];
+    const weightAbove = total - weightBelow;
+    if (weightBelow === 0 || weightAbove === 0) continue;
+
+    const meanBelow = sumBelow / weightBelow;
+    const meanAbove = (sumAll - sumBelow) / weightAbove;
+    const between = (weightBelow / total) * (weightAbove / total) * (meanBelow - meanAbove) ** 2;
+
+    if (between > bestBetween) {
+      bestBetween = between;
+      bestBin = bin;
+    }
+  }
+
+  // Half a bin above the last bin of the lower class: the cut belongs between the two bins it
+  // separates, not on either of them.
+  return {
+    luma: (bestBin + 0.5) / last,
+    separability: varianceTotal === 0 ? 0 : Math.max(0, bestBetween) / varianceTotal,
   };
 }
 
@@ -243,6 +459,7 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
     x: makeSeriesTracker(),
     y: makeSeriesTracker(),
     area: makeSeriesTracker(),
+    coverage: makeSeriesTracker(),
     emptyFrames: 0,
   }));
   const silhouette = makeSeriesTracker();
@@ -268,6 +485,7 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
       pushSample(tracker.x, totals.sumX / totals.count);
       pushSample(tracker.y, totals.sumY / totals.count);
       pushSample(tracker.area, totals.count);
+      pushSample(tracker.coverage, totals.count / (width * (band.lastRow - band.firstRow + 1)));
     });
 
     // Bands overlap (`whole` contains all the others), so the per-frame silhouette count is taken
@@ -371,6 +589,15 @@ function summariseBands(bands, measurement) {
       lastRow: band.lastRow,
       observedFrames: tracker.x.count,
       emptyFrames: tracker.emptyFrames,
+      // 🚩 WHAT FRACTION OF THE BAND THE SILHOUETTE FILLS, and it is not cosmetic. A band the
+      // silhouette FILLS has a centroid pinned to the band's own centre by construction: it cannot
+      // move, and it reports a rock-steady number that looks like an excellent measurement of a
+      // perfectly still body part. Measured 2026-08-08 at integration on a body plate with the
+      // lit ground plane in shot — `ankle` 100.0% and `foot` 99.5% full, both reporting centroid
+      // x = 449.5 on a 900 px frame, which is the frame centre to one decimal. The floor had risen
+      // above the automatic cut and the two lowest bands were measuring it instead of the legs.
+      // Nothing in the report said so, because every other statistic looked healthy.
+      coverage: summariseTracker(tracker.coverage),
       x: summariseTracker(tracker.x),
       y: summariseTracker(tracker.y),
       area,
@@ -388,7 +615,7 @@ function summariseBands(bands, measurement) {
  * a threshold that separated nothing, a threshold that caught nothing or everything, and a
  * silhouette that is genuinely there but genuinely does not travel.
  */
-function judge(silhouette, bands) {
+function judge(silhouette, bands, automatic) {
   const observed = bands.filter((band) => band.observedFrames >= 2);
 
   if (silhouette.meanFraction <= SILHOUETTE_REFUSE_LOW) {
@@ -396,6 +623,13 @@ function judge(silhouette, bands) {
   }
   if (silhouette.meanFraction >= SILHOUETTE_REFUSE_HIGH) {
     return { refused: true, reason: 'threshold-caught-everything', travelled: false };
+  }
+
+  // The "all figure, no backdrop" degeneracy — a cut that landed inside the subject, so the
+  // silhouette is the lit part of it. AUTO ONLY: a pin is the operator's claim, and the tool
+  // honours a pin even on a frame it would not have chosen a cut for, exactly as it does above.
+  if (automatic && silhouette.meanFraction >= SILHOUETTE_REFUSE_HIGH_AUTO) {
+    return { refused: true, reason: 'silhouette-is-the-whole-subject', travelled: false };
   }
   if (observed.length === 0) {
     return { refused: true, reason: 'no-band-holds-the-figure', travelled: false };
@@ -538,12 +772,15 @@ function formatReport(report, options) {
   lines.push(`travel     ${report.units}`);
   lines.push(
     `threshold  luma ${threshold.luma.toFixed(4)}   [${threshold.mode}]   ` +
-      `${(threshold.fraction * 100).toFixed(0)}% of the way from ` +
+      `separability eta ${threshold.separability.toFixed(4)} ` +
+      `(floor ${threshold.separabilityFloor.toFixed(2)})   frame 1 spans ` +
       `p${threshold.lowPercentile} = ${threshold.lowValue.toFixed(4)} to ` +
-      `p${threshold.highPercentile} = ${threshold.highValue.toFixed(4)} of frame 1`
+      `p${threshold.highPercentile} = ${threshold.highValue.toFixed(4)}`
   );
   lines.push(
-    `           pin with --threshold ${threshold.luma.toFixed(4)} to put another clip on this exact basis`
+    `           pin with --threshold ${threshold.luma.toFixed(4)} to put another clip on this exact basis` +
+      `   (the pre-2026-08-08 fixed-fraction rule would have picked ` +
+      `${threshold.legacyRuleWouldHavePicked.toFixed(4)})`
   );
 
   if (report.bands.length > 0) {
@@ -568,7 +805,7 @@ function formatReport(report, options) {
 }
 
 function formatBandTable(report) {
-  const header = ['band', 'rows', 'x SD', 'x p2p', 'y SD', 'y p2p', 'area', 'area SD', 'area cv', 'empty'];
+  const header = ['band', 'rows', 'x SD', 'x p2p', 'y SD', 'y p2p', 'area', 'area SD', 'area cv', 'full', 'empty'];
   const rows = report.bands.map((band) => [
     band.name,
     `${band.firstRow}–${band.lastRow}`,
@@ -579,6 +816,9 @@ function formatBandTable(report) {
     Math.round(band.area.mean).toString(),
     band.area.sd.toFixed(1),
     percent(band.areaVariation),
+    // A band the silhouette fills reports the band's own centre and cannot move. Flagged rather
+    // than merely printed, because the number it corrupts looks healthy.
+    band.coverage.mean >= BAND_FULL_WARN ? `${percent(band.coverage.mean)}!` : percent(band.coverage.mean),
     band.emptyFrames === 0 ? '-' : String(band.emptyFrames),
   ]);
 
@@ -610,6 +850,32 @@ function verdictLines(report, options) {
     lines.push('*** A flat frame — all black, all white, or a page that never rendered — has no');
     lines.push('*** silhouette, so it has no centroid and no travel. This is NOT zero travel.');
     lines.push('*** Pin --threshold <luma> only if you know what the figure level is.');
+    return lines;
+  }
+
+  if (verdict.reason === 'no-two-classes') {
+    lines.push('*** REFUSED TO GUESS: this frame has dynamic range but only ONE class in it.');
+    lines.push(`*** Otsu's best cut at luma ${threshold.luma.toFixed(4)} explains only ` +
+      `eta = ${threshold.separability.toFixed(4)} of the frame's`);
+    lines.push(`*** luma variance, under the ${threshold.separabilityFloor.toFixed(2)} floor. ` +
+      'Every real clip in captures/ measures');
+    lines.push('*** 0.879-0.980; a single-class gradient or noise field measures 0.750. There is');
+    lines.push('*** no valley to cut at, so any silhouette here would be an arbitrary slice of a');
+    lines.push('*** smooth field, and its centroid would track the shading rather than a body.');
+    lines.push('*** Widen the framing so a backdrop is in shot, or pin --threshold if you know the');
+    lines.push('*** figure level — a pin is honoured, and is your claim rather than the tool\'s.');
+    return lines;
+  }
+
+  if (verdict.reason === 'silhouette-is-the-whole-subject') {
+    lines.push(`*** REFUSED TO GUESS: the silhouette is ${percent(silhouette.meanFraction)} of the frame,`);
+    lines.push(`*** over the ${percent(SILHOUETTE_REFUSE_HIGH_AUTO)} bound for an automatic threshold.`);
+    lines.push('*** Every real framing in captures/ measures 24.3-60.3%; a crop that is all figure');
+    lines.push('*** with no backdrop in it measures 89.5%. At this fraction the cut has landed');
+    lines.push('*** INSIDE the subject, so the "silhouette" is the LIT PART of it and its centroid');
+    lines.push('*** would track the lighting rather than the body.');
+    lines.push('*** Widen the framing so a backdrop is in shot, or pin --threshold if you know the');
+    lines.push('*** figure level — a pin is honoured, and is your claim rather than the tool\'s.');
     return lines;
   }
 
@@ -792,8 +1058,11 @@ export {
   parseBandSpec,
   DEFAULT_BANDS,
   DEFAULTS,
-  THRESHOLD_FRACTION,
-  THRESHOLD_LOW_PERCENTILE,
-  THRESHOLD_HIGH_PERCENTILE,
+  otsuThreshold,
+  LEGACY_FRACTION,
+  LEGACY_LOW_PERCENTILE,
+  LEGACY_HIGH_PERCENTILE,
   MINIMUM_SEPARATION,
+  MINIMUM_SEPARABILITY,
+  SILHOUETTE_REFUSE_HIGH_AUTO,
 };

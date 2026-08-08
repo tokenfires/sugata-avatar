@@ -58,7 +58,15 @@ import { fileURLToPath } from 'node:url';
 
 import { encodePng } from './png.mjs';
 import { findFramePaths } from './heatmap.mjs';
-import { analyseClip, parseBandSpec, resolveBands, DEFAULTS } from './travel.mjs';
+import {
+  analyseClip,
+  parseBandSpec,
+  resolveBands,
+  DEFAULTS,
+  MINIMUM_SEPARATION,
+  MINIMUM_SEPARABILITY,
+  SILHOUETTE_REFUSE_HIGH_AUTO,
+} from './travel.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-travel-selftest-'));
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -705,9 +713,25 @@ function testThresholdIsPublishedAndPinnable() {
   });
 
   const auto = analyse(directory);
-  expectEqual('an auto threshold is labelled auto', auto.threshold.mode, 'auto');
-  expectClose('and sits the documented fraction of the way between the documented percentiles',
-    auto.threshold.luma,
+  expectEqual('an auto threshold names the method it used', auto.threshold.mode, 'auto (Otsu)');
+
+  // ⚠️ THIS ASSERTION USED TO SAY THE OPPOSITE, AND THE CHANGE IS THE FIX. It read "and sits the
+  // documented fraction of the way between the documented percentiles" — i.e. it asserted the
+  // arithmetic of `p5 + 0.20·(p99 − p5)` against itself. That is a check that the code computes
+  // what the code computes; it could not have failed, and it could not have noticed that the cut
+  // was landing 0.1938 on a frame whose histogram valley is at 0.3588.
+  //
+  // What is asserted now is a PROPERTY of the answer rather than its formula: the cut lies
+  // strictly between the two classes it claims to separate, and it explains the frame's variance.
+  // A formula check has to be rewritten whenever the formula changes; a property check does not.
+  expectTrue('the auto cut lies strictly between the two classes it separates',
+    auto.threshold.luma > auto.threshold.lowValue && auto.threshold.luma < auto.threshold.highValue,
+    `cut ${auto.threshold.luma} against p5 ${auto.threshold.lowValue} / p99 ${auto.threshold.highValue}`);
+  expectTrue('and it explains nearly all of the frame\'s luma variance on a clean two-tone clip',
+    auto.threshold.separability > 0.99,
+    `eta ${auto.threshold.separability}`);
+  expectClose('the old fixed-fraction rule is still reported, so two eras of report can be compared',
+    auto.threshold.legacyRuleWouldHavePicked,
     auto.threshold.lowValue + auto.threshold.fraction * (auto.threshold.highValue - auto.threshold.lowValue),
     1e-12);
 
@@ -731,6 +755,219 @@ function testThresholdIsPublishedAndPinnable() {
   // A threshold set above the figure catches nothing — the knob demonstrably bites.
   expectEqual('a threshold above the figure level catches nothing and is refused',
     analyse(directory, { threshold: 0.95 }).verdict.reason, 'threshold-caught-nothing');
+
+  testAutoRefusesToGuess();
+}
+
+// 🎯 THE REFUSAL THAT DID NOT EXIST BEFORE 2026-08-08, proven on THREE different frames rather
+// than on the one it was written for — §1.1a: a gate that has failed once is not known to work.
+//
+// The old auto rule always returned a cut. On a frame with no backdrop in it that cut lands inside
+// the subject, the "silhouette" becomes the lit part of the subject, and the centroid it reports
+// tracks the lighting. Measured on `captures/r5-body/frames/frame-00001.png`: an all-figure crop
+// puts the old cut at 0.6852 catching 79.8% — inside the 2%–80% plausible band, so not even a
+// warning fired.
+function testAutoRefusesToGuess() {
+  // (a) The defect it was written for: a full-frame subject with a smooth luma gradient across it
+  //     and nothing else. Plenty of dynamic range, exactly one class.
+  const gradient = writeClip('one-class-gradient', {
+    frames: 8,
+    valueAt: (x) => 115 + 76 * (x / (FRAME_WIDTH - 1)),   // encoded luma 0.451 → 0.749
+  });
+  const gradientReport = analyse(gradient);
+  expectEqual('a single-class gradient is REFUSED rather than cut arbitrarily',
+    gradientReport.verdict.reason, 'no-two-classes');
+  expectTrue('and it is refused on separability, not on dynamic range — the range is there',
+    gradientReport.threshold.separation >= MINIMUM_SEPARATION,
+    `separation ${gradientReport.threshold.separation}`);
+  expectTrue('eta is below the floor',
+    gradientReport.threshold.separability < MINIMUM_SEPARABILITY,
+    `eta ${gradientReport.threshold.separability}`);
+
+  // (b) A DIFFERENT defect in the same class, so this is not a gate that only catches its own
+  //     known-bad. Not a gradient at all: uniform mid-grey plus per-pixel noise — a unimodal
+  //     spread with no structure whatsoever. Different image, different reason to have no valley,
+  //     same refusal.
+  let noiseSeed = 20260808;
+  const nextNoise = () => {
+    noiseSeed = (noiseSeed * 1103515245 + 12345) & 0x7fffffff;
+    return noiseSeed / 0x7fffffff;
+  };
+  const noisy = writeClip('one-class-noise', {
+    frames: 8,
+    valueAt: () => 77 + 102 * nextNoise(),               // encoded luma 0.302 → 0.702, unimodal
+  });
+  const noisyReport = analyse(noisy);
+  expectEqual('a unimodal noise field is REFUSED too — a second, unrelated way to have no valley',
+    noisyReport.verdict.reason, 'no-two-classes');
+
+  // (c) 🚩 AND IT MUST NOT REFUSE A REAL FRAME. A refusal that also rejects the clips the tool
+  //     exists to measure is worse than no refusal, and nothing here was asserting the difference.
+  //     A small figure on a dark backdrop is the hardest real case — the figure is 4% of the frame
+  //     and the between-class weight term is therefore small.
+  const smallFigure = writeClip('small-figure-on-backdrop', {
+    frames: 8,
+    valueAt: (x, y, frame) =>
+      hardRectangle(x, y, { left: 100 + frame, width: 18, top: 60, height: 90 }),
+  });
+  const smallReport = analyse(smallFigure);
+  expectEqual('a figure covering a few percent of the frame is NOT refused',
+    smallReport.verdict.refused, false);
+  expectTrue('its eta clears the floor with room to spare',
+    smallReport.threshold.separability >= MINIMUM_SEPARABILITY,
+    `eta ${smallReport.threshold.separability}`);
+
+  // (d) A pin is honoured even where auto refuses — the operator's claim, not the tool's guess.
+  const pinnedThroughRefusal = analyse(gradient, { threshold: 0.60 });
+  expectEqual('a pinned threshold is still honoured on a frame auto refuses',
+    pinnedThroughRefusal.threshold.mode, 'pinned');
+  expectEqual('and it is not reported as a separability refusal',
+    pinnedThroughRefusal.verdict.reason === 'no-two-classes', false);
+
+  // (e) The refusal has to be legible and it has to exit non-zero, or a script will read past it.
+  const cli = runCli([gradient]);
+  expectEqual('the separability refusal exits 1', cli.status, 1);
+  expectTrue('and says it refused to GUESS rather than just failing',
+    cli.stdout.includes('REFUSED TO GUESS'),
+    cli.stdout);
+  expectTrue('and prints the eta it refused on',
+    /eta = 0\.\d+/.test(cli.stdout),
+    cli.stdout);
+
+  testAutoRefusesACutInsideTheSubject();
+}
+
+// 🎯 THE SECOND REFUSAL, added 2026-08-08 at integration, and the measurement that forced it.
+//
+// η alone was the whole refusal for one day. Then punch-list 3.8's ground plane and this round's
+// lighting work put a LIT FLOOR in shot, the scene went from two luma classes to three, and η —
+// which is by definition the variance explained by the best TWO-class split — fell on every real
+// clip. It did not merely drift: it INVERTED. Measured on the current build, a real full-body
+// frame scores 0.8936 and an all-figure crop with no backdrop in it scores 0.9030, so the
+// degenerate frame outranks the good one and NO floor can be placed between them.
+//
+// The degeneracy η was standing in for is "the cut landed inside the subject", and that has a
+// direct signature η cannot express: the silhouette swallows the frame. Both refusals ship,
+// because each is blind to what the other catches — a single-class gradient cuts at ~50% of the
+// frame (silhouette rule blind) and an all-figure crop has a perfectly good valley between lit and
+// shadowed skin (η blind).
+function testAutoRefusesACutInsideTheSubject() {
+  // (a) The measured case: a frame that is ALL subject, with a real valley in it. Lit skin against
+  //     shadowed skin — two genuine classes, so η is high and useless — and the "silhouette" it
+  //     produces is the lit part.
+  const allSubject = writeClip('all-subject-lit-and-shadowed', {
+    frames: 8,
+    valueAt: (x, y, frame) => (x > 34 + frame ? 196 : 148),   // 85% lit, 15% shadowed, both skin
+  });
+  const allSubjectReport = analyse(allSubject);
+  expectEqual('a cut INSIDE the subject is refused on the silhouette fraction',
+    allSubjectReport.verdict.reason, 'silhouette-is-the-whole-subject');
+  expectTrue('and eta is BLIND to it — the two skin tones are a real valley',
+    allSubjectReport.threshold.separability >= MINIMUM_SEPARABILITY,
+    `eta ${allSubjectReport.threshold.separability} is above the ${MINIMUM_SEPARABILITY} floor`);
+
+  // (b) A DIFFERENT frame in the same class, so this is not a gate that catches only its own
+  //     known-bad: a soft two-tone split at a different ratio and orientation.
+  const mostlySubject = writeClip('mostly-subject-horizontal', {
+    frames: 8,
+    valueAt: (x, y, frame) => (y > 24 + frame ? 210 : 132),
+  });
+  expectEqual('a second, differently-shaped all-subject frame is refused too',
+    analyse(mostlySubject).verdict.reason, 'silhouette-is-the-whole-subject');
+
+  // (c) 🚩 AND IT MUST NOT REFUSE A REAL FRAME. The hardest real case for THIS rule is the
+  //     opposite of the hardest case for eta: a figure that legitimately fills a lot of the frame.
+  //     Portrait framing in captures/ measures 58-60%, so the bound has to clear that.
+  const bigFigure = writeClip('portrait-sized-figure', {
+    frames: 8,
+    valueAt: (x, y, frame) =>
+      hardRectangle(x, y, { left: 20 + frame, width: 120, top: 10, height: 160 }),
+  });
+  const bigReport = analyse(bigFigure);
+  expectEqual('a portrait-sized figure filling much of the frame is NOT refused',
+    bigReport.verdict.refused, false);
+  expectTrue('and its silhouette fraction is under the bound with room to spare',
+    bigReport.silhouette.meanFraction < SILHOUETTE_REFUSE_HIGH_AUTO,
+    `silhouette ${bigReport.silhouette.meanFraction} against ${SILHOUETTE_REFUSE_HIGH_AUTO}`);
+
+  // (d) A pin is the operator's claim and is honoured where auto refuses — same contract as eta.
+  expectEqual('a pinned threshold is honoured on a frame the silhouette rule refuses',
+    analyse(allSubject, { threshold: 0.68 }).verdict.reason === 'silhouette-is-the-whole-subject',
+    false);
+
+  // (e) Legible, and non-zero, or a script reads past it.
+  const cli = runCli([allSubject]);
+  expectEqual('the silhouette refusal exits 1', cli.status, 1);
+  expectTrue('and names the fraction it refused on',
+    cli.stdout.includes('REFUSED TO GUESS: the silhouette is'),
+    cli.stdout);
+
+  testThreeClassSceneIsNotRefused();
+}
+
+// 🚩 THE CHECK WHOSE ABSENCE COST THIS ROUND, and it is one frame.
+//
+// Every synthetic frame above has exactly TWO luma classes, because that is what a figure on a
+// backdrop is. So did all seven readings the 0.90 η floor was originally derived from — they were
+// crops of one frame captured before the figure stood on anything. Nothing in this file, and
+// nothing in that derivation, described the scene the renderer actually produces TODAY: a
+// near-black backdrop, a LIT FLOOR, and a lit figure. Three classes.
+//
+// η is the variance explained by the best two-class split, so it necessarily falls on a
+// three-class frame — and it fell below 0.90 on every real clip, which refused the repo's own
+// nominated judgement clips while accepting a degenerate crop. A single synthetic frame with a
+// third band in it would have caught that the moment the floor was written.
+function testThreeClassSceneIsNotRefused() {
+  const FLOOR_TOP = Math.round(FRAME_HEIGHT * 0.78);
+
+  const threeClass = writeClip('backdrop-floor-and-figure', {
+    frames: 8,
+    valueAt: (x, y, frame) => {
+      // A lit figure, on a lit floor, against a near-black backdrop — the shipped scene's
+      // structure, at its measured levels: backdrop ~0.02, floor ~0.45, figure ~0.75 encoded.
+      if (hardRectangle(x, y, { left: 78 + frame, width: 44, top: 30, height: 170 }) > 100) return 191;
+      return y >= FLOOR_TOP ? 115 : 5;
+    },
+  });
+
+  const report = analyse(threeClass, {
+    bands: [
+      { name: 'chest', top: 0.15, bottom: 0.35 },
+      { name: 'feet', top: 0.80, bottom: 0.95 },
+    ],
+  });
+
+  expectEqual('a THREE-class scene — backdrop, lit floor, lit figure — is NOT refused',
+    report.verdict.refused, false);
+
+  // A refused report carries no bands, and the checks below would throw rather than fail. A gate
+  // that crashes reads as a broken tool (exit 2), not as a red gate (exit 1) — so it stops here
+  // and says which check to look at instead.
+  if (report.verdict.refused) {
+    expectTrue('...so the band checks below can run at all',
+      false,
+      `refused as '${report.verdict.reason}' with eta ${report.threshold.separability} — if this ` +
+        `is the separability floor, it has been set above what a three-class scene can score`);
+    return;
+  }
+
+  // 🚩 AND THE BAND THAT IS ALL FLOOR SAYS SO. Otsu splits backdrop from everything-that-is-lit,
+  // so the floor joins the silhouette and the lowest band fills completely. Its centroid is then
+  // the band's own centre and CANNOT MOVE — which is a rock-steady number that reads as "this body
+  // part is perfectly still". Measured on a real body plate at integration: ankle 100.0% full,
+  // foot 99.5%, both reporting x = 449.5 on a 900 px frame. This is the check that says so.
+  const feet = report.bands.find((band) => band.name === 'feet');
+  const chest = report.bands.find((band) => band.name === 'chest');
+
+  expectTrue('the band that is all floor is flagged as full',
+    feet.coverage.mean >= 0.90,
+    `feet coverage ${feet.coverage.mean}`);
+  expectTrue('and its centroid is pinned — it cannot travel, whatever the body does',
+    feet.x.sd < 0.01,
+    `feet x SD ${feet.x.sd}`);
+  expectTrue('while a band holding the actual figure is NOT flagged, and does travel',
+    chest.coverage.mean < 0.90 && chest.x.sd > 0,
+    `chest coverage ${chest.coverage.mean}, x SD ${chest.x.sd}`);
 }
 
 // ================================================================================================
