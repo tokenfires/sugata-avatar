@@ -393,7 +393,31 @@ const UNGATED = {
     // have been gating nothing.
     trace: { readHere: false, why:
         '`?bare` short-circuits the read, so no plate this file loads ever consults it. It also ' +
-        'has nothing to change on such a plate: bare has already hidden the strip chart.' }
+        'has nothing to change on such a plate: bare has already hidden the strip chart.' },
+
+    // 🚩 THE GATE FOUND THIS ONE THE HOUR IT LANDED, which is the whole point of recording the
+    // surface from live reads rather than maintaining a list. Phase 9 added `?wear` to `alive.js`
+    // and this file went 144/144 -> 143/144 with `UNCLASSIFIED: wear` before anybody had a chance
+    // to forget about it.
+    //
+    // It is NOT a shading switch and a TOGGLES row would be the wrong shape for it. Every other
+    // key in that table changes how the SAME scene is shaded; `?wear` changes WHAT IS IN the scene
+    // — it swaps the body for the hide-mask bake, rebuilds the body's index buffer and adds up to
+    // three `SkinnedMesh`es — so "changes exactly these entities and no others" has no honest
+    // allowlist. Its gate is `packages/core/src/wardrobe/wardrobe.selftest.mjs` (35 assertions),
+    // which measures the thing that actually matters about it: the rebuilt index equals the baked
+    // one as a multiset of triangle centroids, not merely in count.
+    //
+    // ⚠️ What THIS file is entitled to say about it is the claim the shipped plate depends on, and
+    // it is asserted below rather than left as prose: **with `?wear` absent, the page must not
+    // consult the wardrobe at all.** `readHere: true` is honest — the key IS read on every plate
+    // here, because `query.has( 'wear' )` runs unconditionally — and what the check asserts is that
+    // reading it and finding nothing costs the plate nothing.
+    wear: { readHere: true, why:
+        'PHASE 9. Not a shading switch: it changes what is IN the scene (a different body bake, a ' +
+        'rebuilt index buffer, up to three garment meshes), so no entity allowlist describes it. ' +
+        'Gated by packages/core/src/wardrobe/wardrobe.selftest.mjs. What is checked HERE is the ' +
+        'only claim the shipped plate rests on: absent, it is inert.' }
 };
 
 /**
@@ -720,7 +744,14 @@ async function loadPlate( page, baseUrl, query ) {
     const state = await page.evaluate( () => ( {
         census: globalThis.sugata.subsystems(),
         fingerprint: globalThis.sugata.shadingState(),
-        surface: globalThis.sugata.toggleSurface()
+        surface: globalThis.sugata.toggleSurface(),
+
+        // Phase 9's inertness claim, read off the page rather than assumed. `?wear` is UNGATED
+        // here for the reason written in that table; this is the one thing about it this file IS
+        // entitled to check, so it is carried on every plate.
+        wardrobe: globalThis.sugata.wardrobe === null || globalThis.sugata.wardrobe === undefined
+            ? null
+            : globalThis.sugata.wardrobe.stats().worn
     } ) );
 
     // Instrument 5. A second evaluate rather than a fifth field above, because this function is
@@ -801,6 +832,11 @@ console.log( `\nalive.html toggles — ${ server.baseUrl }/alive.html?${ BASE_QU
 // `recordingQuery` in alive.js for the limit this works around.
 const observedSurface = new Set();
 
+// Plate label -> what the wardrobe was wearing on it, or null if it was never built. Phase 9's
+// inertness claim is checked over ALL of these rather than over the baseline alone, because "the
+// boot path does not touch the wardrobe" is a claim about every reachable configuration.
+const plateWardrobes = new Map();
+
 try {
 
     console.log( '--- are the instruments usable at all? -------------------------------------\n' );
@@ -809,6 +845,9 @@ try {
     const baselineAgain = await loadPlate( page, server.baseUrl, BASE_QUERY );
 
     for ( const key of [ ...baseline.surface, ...baselineAgain.surface ] ) observedSurface.add( key );
+
+    plateWardrobes.set( 'baseline', baseline.wardrobe );
+    plateWardrobes.set( 'baseline (second load)', baselineAgain.wardrobe );
 
     // A fingerprint that drifts between two loads of the same url reports every toggle as
     // collateral and the whole of instrument 2 becomes noise. Checked first so a drift is diagnosed
@@ -907,6 +946,8 @@ try {
 
         for ( const key of plate.surface ) observedSurface.add( key );
 
+        plateWardrobes.set( `?${ toggle.query }`, plate.wardrobe );
+
         // Instrument 2, both directions. Exactly the declared entities, no more and no fewer.
         const changed = changedEntities( baseline.fingerprint, plate.fingerprint );
         const collateral = missingFrom( changed, toggle.touches );
@@ -980,6 +1021,8 @@ try {
 
     for ( const key of msaaPlate.surface ) observedSurface.add( key );
 
+    plateWardrobes.set( `?${ MUTUALLY_EXCLUSIVE.query }`, msaaPlate.wardrobe );
+
     report(
         `?${ MUTUALLY_EXCLUSIVE.query } turns ${ MUTUALLY_EXCLUSIVE.turnsOn } ON`,
         msaaPlate.census[ MUTUALLY_EXCLUSIVE.turnsOn ] > 0,
@@ -1018,6 +1061,51 @@ try {
                     `${ Object.keys( baseline.rendererState ).length - movedState.length } properties hold`
                 : `COLLATERAL ${ stateCollateral.join( ', ' ) || 'none' }; DECLARED BUT UNCHANGED ` +
                     `${ stateInert.join( ', ' ) || 'none' }`
+        );
+    }
+
+    // 🎯 PHASE 9's INERTNESS CLAIM, which is the one thing this file is entitled to say about
+    // `?wear` — see its UNGATED row. Every plate in this run was loaded WITHOUT it, so if the
+    // wardrobe were being built eagerly it would be built on all of them, and the shipped default
+    // a judge captures would be paying for a manifest fetch and a different body bake.
+    //
+    // Asserted over EVERY plate rather than over the baseline alone, because "the boot path does
+    // not touch the wardrobe" is a claim about all reachable configurations and one plate is a
+    // sample. 37 keys were swept; none of them may wake it.
+    {
+        const woken = [ ...plateWardrobes.entries() ]
+            .filter( ( [ , worn ] ) => worn !== null )
+            .map( ( [ label, worn ] ) => `${ label } -> [${ worn.join( ', ' ) }]` );
+
+        report(
+            'with ?wear absent the wardrobe is never built, on ANY plate this file loads',
+            woken.length === 0,
+            woken.length === 0
+                ? `${ plateWardrobes.size } plates, sugata.wardrobe null on every one — no manifest fetch, ` +
+                    'no hide-mask body, nothing added to the scene'
+                : `THE WARDROBE WOKE UP UNASKED on ${ woken.join( '; ' ) } — every plate in this run is a ` +
+                    'sum, and so is the shipped default'
+        );
+
+        // 🚩 AND THE PROOF THAT THE CHECK ABOVE IS NOT SATISFIED BY A PAGE THAT HAS NO WARDROBE AT
+        // ALL. Thirty-five nulls are also what you get if `?wear` were deleted, if the dynamic
+        // import silently failed, or if `sugata.wardrobe` were never exposed — so on its own the
+        // check cannot tell "correctly inert" from "absent". One plate WITH the flag separates
+        // them, and it is the cheap end of the flag: `?wear=` builds the wardrobe over the
+        // hide-mask body and fetches no garment fragments, so it costs the body bake and the
+        // manifest rather than 18 MB of PNG.
+        const wardrobePlate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&wear=` );
+
+        for ( const key of wardrobePlate.surface ) observedSurface.add( key );
+
+        report(
+            'and the same check SEES a wardrobe when ?wear IS present, so the nulls above mean inert and not absent',
+            Array.isArray( wardrobePlate.wardrobe ) && wardrobePlate.wardrobe.length === 0,
+            Array.isArray( wardrobePlate.wardrobe )
+                ? `?wear= built the wardrobe and wore [${ wardrobePlate.wardrobe.join( ', ' ) }] — ` +
+                    'the decency floor, which is empty until 9.8 lands'
+                : 'sugata.wardrobe is STILL null with ?wear in the url — the check above proves nothing, ' +
+                    'because it cannot distinguish an inert wardrobe from a missing one'
         );
     }
 
