@@ -616,8 +616,13 @@ async function boot() {
     // mutation is a no-op wearing a defect's name.
     //
     // ⚠️ `plantLightDefect` and `plantGroundDefect` both return null for an absent parameter and
-    // touch nothing, so the default plate is untouched with this code present. That is asserted by
-    // digest in `alive-toggles.selftest.mjs` rather than claimed here.
+    // touch nothing, so the default plate is untouched with this code present. MEASURED, not
+    // argued: `capture.mjs --plate` at 3840x5120, 60 steps at 60 fps, seed 1, three loads returns
+    // sha256 d3c9946f73e5eaa1 — this repository's own recorded mode for the shipped default —
+    // 3/3 pairs bit-identical, residue 0 px at Δ0, and all seven objective gates to the last digit.
+    // ⚠️ `alive-toggles.selftest.mjs` does NOT gate that: it compares plates against each other,
+    // so it would be blind to a change that moved every plate the same way. The digest is the gate,
+    // and it has to be re-taken by hand whenever this file grows a switch.
     const defects = {
         light: plantLightDefect( lights, query.get( 'statedefect' ) ),
         ground: plantGroundDefect( ground, query.get( 'grounddefect' ) )
