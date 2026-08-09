@@ -30,8 +30,9 @@ equal to the captured 60-frame plate). Without `?freeze`, 1 step and 60 steps di
 seed spread *"0.7836 / 0.9189 / 0.9292 / 0.4390"* belongs to the pre-fix recipe and is not
 reachable today.
 
-✅ **AND THE DEFECT THAT REPLACED IT IS FIXED TOO. THE SHIPPED DEFAULT IS NOW REPRODUCIBLE FROM ITS
-OWN IDENTITY, AND EVERY RANGE IN THIS FILE HAS BEEN RE-MEASURED BACK INTO A VALUE.**
+✅ **AND THE DEFECT THAT REPLACED IT IS FIXED TOO. THE SHIPPED DEFAULT IS NOW REPRODUCIBLE, AND
+EVERY RANGE IN THIS FILE HAS BEEN RE-MEASURED BACK INTO A VALUE.** ⚠️ **This heading used to read
+"reproducible FROM ITS OWN IDENTITY", which is the overclaim the next block withdraws.**
 This block used to say that on the shipped default the plate is a draw: six loads of
 `alive.html?bare&freeze&seed=1&capture` at 3840×5120 returned **five distinct PNGs**, two of them
 differing on 56.4% of pixels, because `?capture` pinned simulation time and left the renderer's own
@@ -39,15 +40,60 @@ frame counter — the grade's grain phase and TRAA's Halton `_jitterIndex` — r
 many frames the machine fitted into loading a GLB. **Punch-list 3.20 landed in `4aafd91`
 (+ `eaae0e3`, `29a1f1c`) and closed it at source.**
 
-**Proven at HEAD `2ec7db9` by execution, three loads, one recipe:**
-`alive.html?bare&freeze&seed=1&capture` at 3840×5120 dpr 1, 60 steps at 60 fps, shipped default —
-**one PNG, sha256 `257caca2782adde9`, all three times.** The three loads span *three* different
-`packagesDigest` values (`88e231cb22a6f25c` ×2, `3b9036e830386551`), because other agents were
-saving under `packages/` throughout, and the bytes are still identical — which says the digest
-churn was selftest files rather than shipped code, and says so by measurement rather than by
-argument. The A side, `?aa=msaa&grade=0`, returns **`b3609ee0652db4c5`** over two loads at two more
-digests, and **that is byte-for-byte the plate this file recorded at HEAD `1985425`** for the same
-recipe. Two builds, one picture: the forward path did not move.
+🚩 **AND "REPRODUCIBLE" IS A TOLERANCE, NOT A sha256. THE PARAGRAPH THAT STOOD HERE SAID OTHERWISE
+AND IS WITHDRAWN.** It used to read *"Proven at HEAD `2ec7db9` by execution, three loads, one
+recipe … one PNG, sha256 `257caca2782adde9`, all three times"*, with the A side *"`b3609ee0652db4c5`
+over two loads … byte-for-byte the plate this file recorded at HEAD `1985425`"*. Three agreeing
+loads is an observation of one run. It was written down as a guarantee, and the standing constraint
+below turned that guarantee into the identity every gate value in this file is held against.
+
+**Re-measured 2026-08-08 at HEAD `f7042a0` with `tools/critic/capture.mjs --plate`** — which steps
+to the plate frame, screenshots only that frame, reloads the page N times and differences the
+decoded pixels — on this tool's own frozen vite, so every load inside a run is of one build.
+Same recipe as the fence below: 3840×5120 dpr 1, 60 steps at 60 fps, seed 1.
+
+| configuration | runs | loads | distinct sha256 | pairs bit-identical | worst residue |
+|---|---:|---:|---|---:|---|
+| shipped default | 7 | 103 | 1 … 12, run by run | **671 / 1053** | 164 px of 19,660,800 (0.00083%) at Δ2/255 |
+| `?grain=0` | 4 | 43 | 1 … 7 | **211 / 283** | 75 px (0.00038%) at Δ3/255 |
+| `?aa=msaa&grade=0` | 4 | 45 | **1, every run** | **290 / 290** | **none — Δ0 on 0 px** |
+
+⚠️ **The pair counts are exact and comparable; the residue MAGNITUDES come from two definitions.**
+The first four runs differenced every pair, the last three difference one representative per
+distinct digest against the modal plate, because all-pairs at thirty loads is 870 decodes of a
+19.6 MP PNG and was measured taking longer than the capture. The column is the maximum over both,
+so it is an upper bound on the vs-mode statistic and the true statistic for the all-pairs runs.
+
+**So the shipped default reproduces to Δ2 of 255 on under 0.001% of pixels, and that is the whole
+guarantee.** Every residue measured is inside `capture.mjs`'s reproducibility tolerance (Δ6 on 0.1%
+of pixels) by 3× in code value and 120× in area, which is why nothing downstream moved — see the
+gate note below. It is a long way outside a single digest.
+
+🎯 **THE THING THAT MAKES A SHA UNUSABLE AS THE IDENTITY IS NOT THE RESIDUE'S SIZE, IT IS THAT THE
+RESIDUE COMES AND GOES.** Two runs of thirty loads, the same recipe, the same build, an hour apart:
+one returned **twelve** distinct digests with 171 of 435 pairs matching, the other returned **one**
+digest across all thirty. A run can look like a proof of byte identity and the next run of the same
+thing does not. Two runs taken deliberately *concurrently* were the worst (1 of 45 and 3 of 45),
+which says machine load moves the magnitude — but the quiet 30-load run that came back dirty says
+load is not the whole of it, and nothing here attributes the mechanism. **What is settled is that
+no number of agreeing loads establishes byte identity for this plate.**
+
+✅ **THE SHAS THIS FILE ALREADY RECORDED SURVIVE — AS MODES.** `d3c9946f73e5eaa1` is the modal
+digest of the default over all 103 loads and was 19 of 30 in the dirty run; `b457a3e675e5c766` and
+`75e81b1868e5191c` are the modes for `?grain=0` and the A side. The digests in the fence were
+right. The word *identity* around them was not, so the fence now carries `bitident=` and `worst=`
+beside every one of them and `measured-claims.selftest.mjs`'s **REPRO** rule holds the prose to it.
+
+⚠️ **THE ATTRIBUTION THAT USED TO GO WITH THIS IS ALSO WITHDRAWN, IN BOTH DIRECTIONS.** A fan-out
+agent measured the residue at 900×1200 and attributed it to needing *both* the temporal resolve and
+the grain, on the strength of `?grain=0` coming back clean three times. At 3840 `?grain=0` is
+**dirty in three of its four runs and clean in the fourth** — the same run-to-run coin flip the
+default shows — so the grain does not discriminate. What DOES discriminate is the temporal resolve:
+`?aa=msaa&grade=0` is the only configuration with a residue of zero in **every** run, 45 loads
+including both deliberately concurrent ones. The forward MSAA path is byte-deterministic here; the
+TAAU path is not. ⚠️ That also narrows `capture.mjs`'s own header, which attributes the residue to
+the hair cards' alpha-to-coverage resolve: that was measured at 350×600 on the MSAA-era default,
+and alpha-to-coverage is exactly what the clean A side still has.
 
 🚩 **RETIRING A RANGE IS A RE-MEASUREMENT AND TWO OF THE FOUR RANGES DO NOT CONTAIN THEIR OWN
 SUCCESSOR.** G1 was `1.6634–1.6637` and is **1.6630**; G7 was `0.000736–0.000767` and is
@@ -81,18 +127,40 @@ G7 0.000736 0.000767 0.000745 0.000767 0.000764 0.000736 0.000745 0.000736 0.000
 ```
 
 And the plate every current number in this file is read off. One line per configuration, each a
-value rather than a range because each is byte-reproducible across the loads stated.
-`measured-claims.selftest.mjs` holds the prose to these.
+value rather than a range because each configuration's gate readings are stable across the loads
+stated — which is a *different* statement from the bytes being stable, and the two are now recorded
+separately. `measured-claims.selftest.mjs` holds the prose to these.
 
-```plates build=integration-of-2ec7db9 page=/alive.html?bare&freeze&seed=1&capture steps=60 fps=60 dpr=1
-default   3840x5120 portrait loads=3 sha=d3c9946f73e5eaa1 G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.000601
-msaa      3840x5120 portrait loads=1 sha=75e81b1868e5     G1 1.4989 G2 0.9576 G4 1.7721 G5 0.000002 G6 0.00195 G7 0.00061
-grain0    3840x5120 portrait loads=1 sha=b457a3e675e5     G1 1.5377 G2 0.9544 G4 1.2140 G5 0.000002 G6 0.0042 G7 0.000582
-cards0    3840x5120 portrait loads=1 sha=3e56f7f71e34     G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.007878
-default   900x1200  portrait loads=1 sha=63a1737211da     G1 1.5331 G2 0.9547 G4 1.4745 G5 0.000000 G6 0.0042 G7 0.000336
-seedrec   900x1200  portrait loads=4 sha=6cc1427e2354     G1 1.5301 G2 0.9560 G4 1.5683 G5 0.000000 G6 0.0042 G7 0.000729
-bodydflt  900x1200  body     loads=1 sha=cf2a968f9432     G1 1.5869 G4 1.3315 G5 0.000000 G6 0.01597
+**Reading a plate line.** `loads=N runs=R` is N page loads spread over R separate invocations of
+`capture.mjs --plate`; loads are only comparable within a run, so the pair count is the sum of each
+run's own N(N−1)/2. `bitident=K/P` counts bit-identical PAIRS, K of P compared. `worst=` is the worst code
+delta of 255 and `px=` the worst differing-pixel count of 19,660,800, both against the modal plate.
+`sha=` is the MODE, not a guarantee. A line with no `runs=` is one run; a line with no `bitident=`
+was taken once and its reproducibility is therefore **unmeasured**, which the four carried-over
+rows below say by carrying `loads=1`.
+
+⚠️ **Only the three 3840 portrait rows were re-measured for reproducibility.** `cards0`, the two
+900×1200 rows and `bodydflt` carry the gate values recorded at `2ec7db9` and were taken once each;
+`seedrec`'s old `loads=4` meant four *seeds*, not four loads of one recipe, and is written `seeds=4`
+now so the field stops meaning two things. None of those four has a measured residue and none of
+them should be quoted as byte-reproducible until it does.
+
+```plates build=HEAD-f7042a0 page=/alive.html?bare&freeze&seed=1&capture steps=60 fps=60 dpr=1
+default   3840x5120 portrait loads=103 runs=7 sha=d3c9946f73e5eaa1 bitident=671/1053 worst=2 px=164 G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.000601
+msaa      3840x5120 portrait loads=45 runs=4 sha=75e81b1868e5191c bitident=290/290 worst=0 px=0 G1 1.4989 G2 0.9576 G4 1.7721 G5 0.000002 G6 0.00195 G7 0.00061
+grain0    3840x5120 portrait loads=43 runs=4 sha=b457a3e675e5c766 bitident=211/283 worst=3 px=75 G1 1.5377 G2 0.9544 G4 1.2140 G5 0.000002 G6 0.0042 G7 0.000582
+cards0    3840x5120 portrait loads=1 sha=3e56f7f71e34 G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.007878
+default   900x1200  portrait loads=1 sha=63a1737211da G1 1.5331 G2 0.9547 G4 1.4745 G5 0.000000 G6 0.0042 G7 0.000336
+seedrec   900x1200  portrait loads=1 seeds=4 sha=6cc1427e2354 G1 1.5301 G2 0.9560 G4 1.5683 G5 0.000000 G6 0.0042 G7 0.000729
+bodydflt  900x1200  body     loads=1 sha=cf2a968f9432 G1 1.5869 G4 1.3315 G5 0.000000 G6 0.01597
 ```
+
+🎯 **AND THE GATE VALUES ARE UNAFFECTED, WHICH IS THE OTHER HALF OF THE FINDING.** All three loads
+of the run that produced the seven-gate table below read G1 1.5378 / G2 0.9544 / G3 / G4 1.6346 /
+G5 0.000002 / G6 0.0042 / G7 0.000601, identical to the last digit. A Δ2 excursion on 164 pixels of
+19.7 million cannot move a regional mean, a high-pass σ or a 0.1st percentile at four decimals.
+**Seven of seven stands; the byte claim that used to sit under it does not.** Those are separable
+claims and this file had merged them.
 
 🎯 **TWO ATTRIBUTIONS THAT CHANGED SHAPE, NOT JUST VALUE, AND BOTH SAY THE CARD FLOOR LANDED.**
 
@@ -114,12 +182,15 @@ bodydflt  900x1200  body     loads=1 sha=cf2a968f9432     G1 1.5869 G4 1.3315 G5
 
 Portrait regions (`regions.lighting-portrait.json`) at 3840×5120, dpr 1,
 `alive.html?bare&freeze&seed=1&capture`, **60 steps at 60 fps**, on **the shipped default** —
-TAAU 0.66 + grade + RCAS 1.2, **MSAA OFF** — which is what a judge loads. Every row is a **value**,
-because 3.20 landed and three loads return one PNG (`d3c9946f73e5eaa1`) — and the three loads span
-the whole of this round's integration, including the wardrobe landing between the first and the
-third, which is what says `?wear` costs the judge's plate nothing. ⚠️ **Every historical number
-measured under MSAA is a different configuration, not a disagreeing one** — the A-side column is
-beside it for exactly that reason.
+TAAU 0.66 + grade + RCAS 1.2, **MSAA OFF** — which is what a judge loads. Every row is a **value**
+because 3.20 landed and the three loads agreed to the last digit on all seven gates — and the three
+loads span the whole of this round's integration, including the wardrobe landing between the first
+and the third, which is what says `?wear` costs the judge's plate nothing. ⚠️ **The sentence here
+used to say that the three loads return one PNG, and that is withdrawn**: the
+plate's modal digest is `d3c9946f73e5eaa1`, its residue is Δ2 on 164 px of 19.7 million, and it is
+gate STABILITY rather than byte identity that entitles a single value. See the plate block at the
+top of this file. ⚠️ **Every historical number measured under MSAA is a different configuration,
+not a disagreeing one** — the A-side column is beside it for exactly that reason.
 
 The default's toggle state is not asserted from prose: `alive-toggles.selftest.mjs` (**144/144**)
 holds `temporalResolve` live and `multisampleSamples` at zero on the baseline plate, holds
@@ -250,13 +321,15 @@ disjoint effects, no overlap — which is what an attribution is supposed to loo
 `alive-toggles.selftest.mjs` at 109/109 now enforces for every flag on the page.
 
 ⚠️ **These plates were taken during a live fan-out and the digest churned under them.** Three loads
-of the default span three `packagesDigest` values and return one PNG; two loads of the A side span
-two more and return one PNG that matches the one recorded at `1985425`. That is the honest form of
-the old snapshot discipline: rather than freezing the tree, the digest is recorded per plate and
-the *bytes* are what carries the claim. What churned was other agents' selftest files under
-`packages/` — `GroundContact.selftest.mjs` and `LightingRig.selftest.mjs` were both modified
-mid-run — none of which `alive.js` imports, which is why the render did not move and why that can
-be asserted from the shas rather than from the reasoning.
+of the default span three `packagesDigest` values and return the same modal digest; two loads of
+the A side span two more and land on the digest recorded at `1985425`. That is the honest form of
+the old snapshot discipline: rather than freezing the tree, the digest is recorded per plate. What
+churned was other agents' selftest files under `packages/` — `GroundContact.selftest.mjs` and
+`LightingRig.selftest.mjs` were both modified mid-run — none of which `alive.js` imports, which is
+why the render did not move. 🚩 **The sentence that used to close this paragraph said the *bytes*
+are what carries the claim, and that is withdrawn**: the bytes carry a residue of their own that
+has nothing to do with the digest, so a matching sha is evidence of an unchanged build and never
+proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly this reason.
 
 ---
 
@@ -277,19 +350,22 @@ be asserted from the shas rather than from the reasoning.
       two-clause spec sentence. G1 gained its FLOOR and G2 its hue-SIDE clause on 2026-08-08, when
       both turned out to be one-sided: `< 2.00` passed 1.344 linear against a 1.43–1.64 reference
       band, and `min(hue, 360−hue)` passed a magenta sclera beside an orange cheek.
-      `node tools/critic/selftest.mjs` — **235 checks**, re-run 2026-08-08 at `2ec7db9` (was 125,
-      then 208). ⚠️ It does **not** match `*.selftest.mjs`; a glob that assumes it does skips the
+      `node tools/critic/selftest.mjs` — **258 checks**, re-run 2026-08-08 at `f7042a0` (was 125,
+      then 208, then 235). The 23 added are `capture.mjs --plate`'s: which digest IS a plate when
+      thirty loads return twelve of them, and why bit-identical PAIRS is not "loads that match the
+      plate". ⚠️ It does **not** match `*.selftest.mjs`; a glob that assumes it does skips the
       most-quoted gate in the project.
       🎯 **And the gates now have a gate of their own on the DOCUMENTS side.**
-      `node docs/measured-claims.selftest.mjs` — **49 checks**, and **five rules now, not four**:
+      `node docs/measured-claims.selftest.mjs` — **60 checks**, and **six rules now, not five**:
       PLATES was added 2026-08-08 when 3.20 made the plate reproducible, because DRAWS can only
-      police a range and there are no ranges left. The count fell from 56 because most of those
-      checks were one-per-quoted-range. It re-adjudicates every gate claim in
+      police a range and there are no ranges left; **REPRO** was added the same day when PLATES
+      turned out to rest on an overclaim — the fence's sha256 is a MODE, the plate has a measured
+      residue, and nothing held the prose to that. It re-adjudicates every gate claim in
       this file and PROGRESS against `TARGETS` imported from `measure.mjs`, and refuses a bare
       verdict inside a band edge's own measured noise. It exists because 8.1's headline read
       `six of seven … G2 0.9201 PASS` for a round while every selftest under `packages/` was green
       and right to be: the render was not the defect and the tool was not the defect, so nothing in
-      the repo could reach it. Its four blind spots are printed on every run rather than implied.
+      the repo could reach it. Its blind spots are printed on every run rather than implied.
 - [x] **0.7** Blind A/B harness: shuffles ours vs reference, strips provenance, collects a verdict.
 - [x] **0.8** SPIKE: morph-target cost. 52 + 15 visemes + 2 gender on 13.7k verts. Sets the budget.
 - [ ] **0.9** SPIKE: hair perf — frostbitten-hair demo on this Mac, built-in profiler, sweep strands.
@@ -896,7 +972,11 @@ be asserted from the shas rather than from the reasoning.
       resolve converges to the same fixed point from any history.
       **Verified independently 2026-08-08 at `2ec7db9`:** three loads of
       `?bare&freeze&seed=1&capture` at 3840×5120, 60 steps, across three different
-      `packagesDigest`s → one PNG, `257caca2782adde9`. See the block at the top of this file.
+      `packagesDigest`s → one digest. 🚩 **That line used to read "→ one PNG, `257caca2782adde9`"
+      and the digest is unreachable today**; re-measured at `f7042a0` over 103 loads the plate is
+      reproducible to Δ2/255 on 164 px of 19.7 million and its mode is `d3c9946f73e5eaa1`. 3.20 is
+      not in question — the pre-3.20 failure was 56.4% of pixels, four orders of magnitude larger —
+      but the epoch pin bought a tolerance and not a hash. See the block at the top of this file.
 
 ## Phase 4 — Speech
 
@@ -1378,26 +1458,38 @@ Women's footwear is the thinnest slot on either rail by a wide margin.
   `?freeze` and 1 step differs from 60. LEARNINGS §1.19a needs the same correction.
 - **✅ A STILL PLATE ON THE SHIPPED DEFAULT IS A VALUE AGAIN — AND ITS STEP COUNT IS PART OF ITS
   IDENTITY.** This bullet used to read *"a still plate on the shipped default is a draw"*, and it
-  was right until 3.20. At `2ec7db9` three loads of `?bare&freeze&seed=1&capture` at 3840×5120,
-  60 steps, return one PNG. **What replaces the warning is narrower and still bites: a temporal
+  was right until 3.20. Since then the GATE VALUES agree to the last digit across every load
+  measured. **What replaces the warning is narrower and still bites: a temporal
   resolve at N steps is not the picture at M steps.** Measured, one page, one seed, 900×1200:
   G2 0.9182 at 1 step and 0.9169 at 60. State the step count with the width, the seed and the
   digest, or the plate is not identified. `measure.mjs` now reads it out of the frame file name.
+- **🚩 A PLATE'S sha256 IS A MODE, NOT AN IDENTITY, AND THE NEXT BULLET USED TO SAY OTHERWISE.**
+  The sentence retired here is *"three loads … one PNG, all three times"*. Measured over 103 loads
+  at 3840×5120 the shipped default returns its modal digest most of the time and a Δ≤2 variant the
+  rest, and whether a given run of thirty is clean or dirty is a coin flip on the same build. **A
+  plate quoted with a sha and no residue is quoting a draw.** Take one with
+  `capture.mjs --plate --plate-loads N` — it prints the ```plates row, `bitident=` and all — and
+  never with a clip's last frame, because `--verify-frames` is an opening window that does not
+  reach the frame you are about to hash.
 - **🚩 NO BARE VERDICT INSIDE THE NOISE. `MARGINAL` IS A REQUIRED WORD.** A gate value closer to a
   band edge than that gate's **retained fragility floor** does not license a PASS or a FAIL on its
   own, in either direction. Floor: G1 0.0005, G2 0.0004, G4 0.0135, G5 0.000001, G6 0.000000,
-  G7 0.000046. ⚠️ **Those were the load-to-load spread and that spread is now ZERO** — they are
+  G7 0.000046. ⚠️ **Those were the load-to-load spread and the spread of the GATE VALUES is now
+  ZERO** (the bytes are not — that is a separate statement, see the plate block) — they are
   retained because the *recipe* sensitivities measured at `2ec7db9` are larger: G2 moves 0.0013
   between 1 capture step and 60, 0.0028 between 900 px and 3840 px, and 0.0024 between the shipped
   default and its A side. Setting the floor to the measured zero would make the rule inert, which
   is a gate going green by going blind. Write the literal token `MARGINAL` within 400 characters of
   the claim, and say what would settle it. `G2 0.9201 PASS` — one ten-thousandth inside the floor —
   is how a whole phase came to be reported as six of seven when it is five.
-  Enforced by `node docs/measured-claims.selftest.mjs`, **five rules**, 49 checks.
-- **🚩 A CURRENT NUMBER BELONGS TO A NAMED PLATE.** Every gate value quoted for the shipped default
-  is held by the **PLATES** rule against the ```plates block at the top of this file, which carries
-  a sha256 and a load count per configuration. Re-measure and update both, or the gate goes red.
-  Hand-narrowing a value is the mutation that replaced hand-narrowing a range.
+  Enforced by `node docs/measured-claims.selftest.mjs`, **six rules**.
+- **🚩 A CURRENT NUMBER BELONGS TO A NAMED PLATE, AND THE PLATE BELONGS TO A MEASURED TOLERANCE.**
+  Every gate value quoted for the shipped default is held by the **PLATES** rule against the
+  ```plates block at the top of this file. Re-measure and update both, or the gate goes red;
+  hand-narrowing a value is the mutation that replaced hand-narrowing a range. ⚠️ **This bullet
+  used to call the sha256 the identity, and the sha is a mode.** **REPRO** now requires every
+  multi-load row to carry `bitident=`, `worst=` and `px=`, holds that record to its own arithmetic,
+  and refuses a byte-identity claim written next to a plate the fence records as not being one.
 - **State the WIDTH beside any G4 number.** High-pass σ is scale-dependent with no sound rescaling
   law; the band is stated at 3840 px and the same plate reads 1.7469 there and 2.1849 at 900.
 - **A toggle is only an attribution if it moves ONE subsystem.** `?eyes=0` moved two for two review

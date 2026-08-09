@@ -71,6 +71,12 @@
 //   node tools/critic/capture.mjs --seed 4242,42,20260807 --seconds 420 --out captures/judge
 //     ^ three clips, one per seed, in captures/judge/seed-<n>/ — the postural-judgement set.
 //
+//   node tools/critic/capture.mjs --plate --steps 60 --fps 60 --width 3840 --height 5120 \
+//        --seed 1 --url '/alive.html?bare&freeze&seed=1' --out captures/plate-default
+//     ^ ONE STILL, taken three times from three fresh page loads, with the residue between them
+//       measured. This is what a ```plates row in PUNCHLIST is, and see the block below for why
+//       it is not a clip with the other 59 frames deleted.
+//
 // With no --url it starts vite itself and drives /alive.html.
 //
 // 🎯 --- "FRAMES GENUINELY DIFFER" WAS NEVER A TEST THAT THE PICTURE MOVED -----------------------
@@ -92,11 +98,36 @@
 // `liveness.movingBlockShare` is a statement about the PICTURE.** The second is heatmap.mjs's
 // statistic, imported rather than reimplemented, and a clip that fails it exits 1.
 //
+// 🚩 --- A PLATE IS NOT A CLIP, AND UNTIL `--plate` THIS TOOL COULD ONLY MAKE CLIPS ------------
+//
+// Most of what this repository measures is a STILL: one frame, at a stated step count, at a
+// stated width, whose sha256 is quoted as the identity of a configuration. PUNCHLIST's ```plates
+// fence is a table of them. There was no way to take one. What people did instead was run a clip
+// with --keep-frames and hash the last file in `frames/`, which has three consequences and all
+// three bit:
+//
+//   1. it costs 60 screenshots of a 19.6 MP frame to keep one — measured at 363 s per plate on
+//      this machine, which is why plates get taken once and their reproducibility asserted;
+//   2. `verifyReproducibility` replays the FIRST --verify-frames frames (default 20) of 60, so
+//      the one frame the plate is read off is the one frame the determinism check never sees.
+//      A determinism check that reads the opening window cannot see a divergence at frame 60,
+//      exactly as a liveness check that reads seven frames cannot see a freeze at frame 16;
+//   3. the residue therefore never gets measured at plate width at all, and the claim written
+//      down is the strongest one the evidence appears to allow — "one PNG, all three times".
+//
+// Measured at 3840×5120 (see the PLATE RESIDUE block above `capturePlate`): that claim is not
+// true, and the tool's own header has said since it was written that `sha256(a) === sha256(b)`
+// is the wrong verdict for a GPU render. `--plate` steps to the plate frame, screenshots only
+// that frame, replays the whole thing from N fresh page loads, and reports the residue as a
+// TOLERANCE with the bit-identical count beside it — the same shape as `verifyReproducibility`,
+// pointed at the frame that is actually quoted.
+//
 // Exit codes follow measure.mjs, so a calling script can tell a bad capture from a broken tool:
 //   0 = capture written, the picture moved
 //   1 = the capture is not usable — every frame identical (the stepping hook did nothing), the
-//       frames differ but nothing coherent moved (a frozen simulation under film grain), or
-//       --require-weight-shift was asked for and the clip is not known to contain one
+//       frames differ but nothing coherent moved (a frozen simulation under film grain),
+//       --require-weight-shift was asked for and the clip is not known to contain one, or
+//       --plate found the plate outside the reproducibility tolerance
 //   2 = tool error (no browser, no ffmpeg, page never became ready)
 
 import { spawn } from 'node:child_process';
@@ -164,6 +195,11 @@ const DEFAULTS = {
   sheetColumns: 4,
   sheetCellWidth: 340,
   verifyFrames: 20,
+  // Plate mode replays the whole plate this many times from fresh page loads. Three is the
+  // smallest number that gives more than one PAIR, and pairs are what the residue is measured
+  // over — with two loads, "1 of 1 pairs bit-identical" and "the plate is reproducible" are the
+  // same sentence, and there is no way to see two loads agreeing while a third does not.
+  plateLoads: 3,
 };
 
 // Contact-sheet tiling. Margin is the outer border, padding the gap between cells; both are
@@ -263,11 +299,23 @@ if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
 async function main() {
   const options = parseArguments(process.argv.slice(2));
 
-  requireFfmpeg();
+  // A plate is a PNG. ffmpeg is a clip-mode dependency and demanding it here would make a still
+  // impossible to take on a machine that only needs one.
+  if (options.plate === false) requireFfmpeg();
 
   const playwright = await loadPlaywright(options.playwrightPath);
   const server = wantsOwnServer(options) ? await startViteServer() : null;
   const browser = await launchBrowser(playwright, options);
+
+  if (options.plate) {
+    try {
+      await capturePlates({ browser, server, options });
+    } finally {
+      await browser.close();
+      if (server !== null) await server.close();
+    }
+    return;
+  }
 
   // One clip per seed. The browser and the vite server are shared across them, which is most of
   // the wall-clock cost, so three seeds is nothing like three times one seed.
@@ -336,6 +384,48 @@ async function main() {
       console.error(`*** Checked seeds at ${POSTURAL_CLIP_SECONDS} s: ${POSTURAL_JUDGEMENT_SEEDS.map((entry) => entry.seed).join(', ')}`);
       process.exitCode = 1;
     }
+  }
+}
+
+/**
+ * Plate mode's top level: one plate per seed, into one directory each, and a non-zero exit if any
+ * of them landed outside the reproducibility tolerance.
+ *
+ * A plate whose residue exceeds the tolerance is not a plate — it is two pictures — and every
+ * number read off it is a draw from something nobody has characterised. Exiting 1 is the same
+ * stance clip mode takes on a clip in which nothing moved.
+ */
+async function capturePlates({ browser, server, options }) {
+  const baseDirectory = path.resolve(options.out);
+  const failures = [];
+
+  for (const seed of options.seeds) {
+    const outputDirectory = options.seeds.length > 1
+      ? path.join(baseDirectory, `seed-${seed}`)
+      : baseDirectory;
+
+    const pageUrl = buildPageUrl(options, server, seed);
+
+    console.log('');
+    console.log(`page      ${pageUrl}`);
+    console.log(`plate     ${options.steps ?? frameCountOf(options)} steps @ ${options.fps} fps` +
+      `   ${options.width}x${options.height} @ dpr ${options.dpr}   ${options.plateLoads} loads`);
+
+    const startedAtMs = Date.now();
+    const plate = await capturePlate(browser, pageUrl, options);
+    reportBackend(plate.environment, pageUrl);
+    writePlate(plate, options, outputDirectory, pageUrl, (Date.now() - startedAtMs) / 1000);
+
+    if (plate.reproducibility.reproducible === false) failures.push(seed);
+  }
+
+  if (failures.length > 0) {
+    console.error('');
+    console.error('*** PLATE OUTSIDE THE REPRODUCIBILITY TOLERANCE — this is not one picture.');
+    console.error(`***   seed(s) ${failures.join(', ')}`);
+    console.error('*** Every gate value read off it is a draw from a distribution nobody has');
+    console.error('*** characterised. Do not record it in a ```plates fence.');
+    process.exitCode = 1;
   }
 }
 
@@ -530,7 +620,15 @@ function reportPosturalContent(content) {
  * @param {?string} framesDirectory - where to write the PNGs, or null to hash and discard,
  *   which is what the reproducibility replay does.
  */
-async function driveCapture(browser, pageUrl, options, { frameCount, framesDirectory, quiet, retainFrames = 0 }) {
+/**
+ * A fresh browser context on a loaded, steppable page — everything both a clip and a plate need
+ * before the first step, and nothing either of them differs on.
+ *
+ * Extracted so `capturePlate` cannot drift from `driveCapture` in viewport, colour scheme,
+ * reduced-motion or readiness. A plate whose context differed from the clip's in any of those is
+ * a different picture, and the whole point of a plate is that it is the same picture twice.
+ */
+async function openSteppablePage(browser, pageUrl, options) {
   const context = await browser.newContext({
     viewport: { width: options.width, height: options.height },
     deviceScaleFactor: options.dpr,
@@ -567,6 +665,12 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     });
 
   const environment = await readEnvironment(page);
+
+  return { context, page, environment, pageErrors };
+}
+
+async function driveCapture(browser, pageUrl, options, { frameCount, framesDirectory, quiet, retainFrames = 0 }) {
+  const { context, page, environment, pageErrors } = await openSteppablePage(browser, pageUrl, options);
 
   const deltaSeconds = 1 / options.fps;
   const digests = [];
@@ -684,6 +788,16 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
  * the whole silhouette, which is tens of code values across percent-scale areas of the frame, and
  * the HUD's wall-clock millisecond readout rewrites whole glyphs.
  *
+ * 🚩 THE ATTRIBUTION ABOVE IS NARROWER THAN IT READS, AND THE CEILING IS NOT. "The alpha-to-
+ * coverage sample resolve on the two hair cards and nothing else" was measured at 350×600 on the
+ * MSAA-era default. Re-measured at 3840×5120 on today's shipped default with `--plate`, 103 loads
+ * over seven runs: the TAAU path leaves a residue (671 of 1053 pairs bit-identical, worst Δ2 of
+ * 255 on 164 px of 19,660,800) and `?aa=msaa&grade=0` — which still has the cards and still has
+ * alpha-to-coverage — leaves NONE, 290 of 290 pairs over 45 loads including two deliberately
+ * concurrent runs. So there are two residues, not one, and the cards are the smaller of them.
+ * The tolerance covers both with room: the worst plate residue ever measured here is a third of
+ * the code ceiling and a hundredth of the area ceiling. PUNCHLIST's plate block carries the runs.
+ *
  * A hash cannot express any of this. `sha256(a) === sha256(b)` is a boolean over the last code
  * value of the last pixel, and as the verdict on a GPU render it reported "NOT byte-reproducible"
  * on 8 of 10 runs of an unchanged clean plate. The bit-identical frame count is still reported —
@@ -709,9 +823,17 @@ function round(value, places) {
  * The instrumented page will never come back clean — the HUD's `stats.frameMs` is a wall-clock
  * number living in the pixels. That is reported rather than assumed, so the day a clean plate
  * stops reproducing, something real has changed.
+ *
+ * 🚩 ITS COVERAGE IS AN OPENING WINDOW, AND IT NOW SAYS SO IN WORDS. Replaying frames 1..20 of 60
+ * says nothing whatsoever about frame 60, and frame 60 is the one every plate in PUNCHLIST is
+ * read off. This was not a hypothetical: three loads of the shipped default were recorded as
+ * "one PNG, all three times" on the strength of a verify line that had never looked at the frame
+ * being quoted. `coversPlateFrame` is in the manifest and in the console line, and `--plate`
+ * exists so the question can be asked about the right frame.
  */
 async function verifyReproducibility(browser, pageUrl, options, capture) {
   const frameCount = Math.min(options.verifyFrames, capture.frameCount);
+  const coversPlateFrame = frameCount >= capture.frameCount;
 
   process.stdout.write(`verify    replaying the first ${frameCount} frames… `);
 
@@ -744,6 +866,11 @@ async function verifyReproducibility(browser, pageUrl, options, capture) {
           `${comparison.worstDifferingPixels} px (${round(comparison.worstPixelFraction * 100, 4)}%) at Δ${comparison.worstCodeDelta}/255`
   );
 
+  if (coversPlateFrame === false) {
+    console.log(`          window is frames 1-${frameCount} of ${capture.frameCount}. ` +
+      `FRAME ${capture.frameCount} — the plate — WAS NOT REPLAYED. Use --plate for that.`);
+  }
+
   if (reproducible === false) {
     console.log('          expected when the HUD is visible — it prints a wall-clock ms figure.');
     console.log('          Capture with ?bare for a sequence digest that means something.');
@@ -751,6 +878,10 @@ async function verifyReproducibility(browser, pageUrl, options, capture) {
 
   return {
     framesReplayed: frameCount,
+    // Whether the replay reached the LAST frame, which is the one a still plate is read off.
+    // False is the default at 20 of 60, and a manifest that does not say so invites the claim
+    // this field exists to stop.
+    coversPlateFrame,
     framesBitIdentical: bitIdentical,
     worstFrame: comparison.worstFrame,
     worstCodeDelta: comparison.worstCodeDelta,
@@ -760,6 +891,239 @@ async function verifyReproducibility(browser, pageUrl, options, capture) {
     tolerancePixelFraction: REPRODUCIBILITY_MAX_PIXEL_FRACTION,
     reproducible,
   };
+}
+
+/**
+ * 🎯 ONE STILL PLATE, TAKEN N TIMES FROM N FRESH PAGE LOADS, WITH THE RESIDUE MEASURED.
+ *
+ * THE PLATE RESIDUE, and why this function reports a tolerance and not a verdict on a hash.
+ *
+ * A plate is a page, a seed, a width, a dpr and a STEP COUNT, and its sha256 is quoted in
+ * PUNCHLIST's ```plates fence as the identity of a configuration. The claim that fence rested on
+ * was "three loads → one PNG". Re-measured here, at the width the fence states:
+ *
+ *   `/alive.html?bare&freeze&seed=1&capture`, 3840×5120, dpr 1, 60 steps at 60 fps, shipped
+ *   default (TAAU 0.66 + grade + RCAS 1.2, MSAA off) — see the plate block in PUNCHLIST for the
+ *   loads, the shas and the per-pair residue.
+ *
+ * The residue is real, tiny, and NOT removed by `?grain=0`, which is what the earlier attribution
+ * assumed. It is the same alpha-to-coverage dust the header block measured at 350×600 — one code
+ * value on a handful of pixels — and at 19.6 megapixels a handful of pixels is enough to change
+ * the last byte of a sha256 about a third of the time. That is why this returns the same shape
+ * `verifyReproducibility` does: a bit-identical COUNT, reported as a fact, and a verdict taken
+ * against a measured tolerance.
+ *
+ * Cost, and why plate mode exists as well as clip mode: a clip screenshots every frame, so a
+ * 60-step plate at 3840×5120 costs 60 screenshots of a 19.6 MP frame to keep one of them. This
+ * steps the same 60 times — the step count is part of the identity and cannot be shortened — and
+ * screenshots once.
+ */
+/**
+ * The bookkeeping half of a plate: which digest IS the plate, and how many of the pairs matched.
+ *
+ * BIT IDENTITY IS COUNTED OVER EVERY PAIR, AND IT IS FREE. "load 1 equals load 2" and "load 2
+ * equals load 3" are two facts and neither implies the third, so a record that only compares
+ * against load 1 can call a plate reproducible when two of its loads disagree with each other. Two
+ * loads are bit-identical exactly when their digests match, so the full N(N-1)/2 count costs
+ * nothing but string comparisons and grouping by digest gives it in one pass.
+ *
+ * 🎯 AND THE PLATE IS THE MODE, NOT LOAD 1. Measured at 30 loads of the shipped default: nineteen
+ * came back `d3c9946f73e5eaa1` — the digest this repository has quoted as the plate all along —
+ * and eleven were one-off variants, load 1 among them. Naming load 1 "the plate" would have
+ * recorded a singleton as the identity and made every other load look like a divergence from it.
+ * Ties break toward the earliest load, so a run with no repeats at all still reports something
+ * rather than nothing, and `modal.loads.length` is how a reader sees that it is one of one.
+ *
+ * Pure and exported so `selftest.mjs` can prove it on digest lists whose answer is known by hand —
+ * a real 30-load plate takes three and a half minutes and cannot be a gate.
+ *
+ * @param {string[]} digests - one sha256 per load, in load order.
+ */
+export function summarisePlateLoads(digests) {
+  const byDigest = new Map();
+  digests.forEach((digest, index) => {
+    if (byDigest.has(digest) === false) byDigest.set(digest, []);
+    byDigest.get(digest).push(index + 1);
+  });
+
+  const groups = [...byDigest.entries()].map(([sha256, members]) => ({ sha256, loads: members }));
+
+  const modal = groups.reduce((best, group) =>
+    group.loads.length > best.loads.length ||
+    (group.loads.length === best.loads.length && group.loads[0] < best.loads[0]) ? group : best);
+
+  let bitIdenticalPairs = 0;
+  for (const group of groups) bitIdenticalPairs += (group.loads.length * (group.loads.length - 1)) / 2;
+
+  return {
+    groups,
+    modal,
+    distinctShas: groups.length,
+    bitIdenticalPairs,
+    pairsCompared: (digests.length * (digests.length - 1)) / 2,
+  };
+}
+
+async function capturePlate(browser, pageUrl, options) {
+  const steps = options.steps ?? frameCountOf(options);
+  const deltaSeconds = 1 / options.fps;
+  const loads = [];
+  const pngs = [];
+  let environment = null;
+  const pageErrors = [];
+
+  for (let load = 1; load <= options.plateLoads; load += 1) {
+    process.stdout.write(`plate     load ${load}/${options.plateLoads}: ${steps} steps… `);
+
+    const opened = await openSteppablePage(browser, pageUrl, options);
+    if (environment === null) environment = opened.environment;
+
+    for (let step = 1; step <= steps; step += 1) {
+      const stepped = await opened.page.evaluate((dt) => globalThis.__SUGATA_STEP__(dt), deltaSeconds);
+      if (stepped !== true) {
+        throw new Error(`__SUGATA_STEP__ refused at step ${step} — the figure is not loaded.`);
+      }
+    }
+
+    const png = await opened.page.screenshot({ timeout: SCREENSHOT_TIMEOUT_MS });
+    await opened.context.close();
+
+    pngs.push(png);
+    pageErrors.push(...opened.pageErrors);
+
+    // The digest of the file EXACTLY as it is written to disk, because that is what a reader
+    // re-derives with `shasum -a 256`. Playwright writes no provenance chunks, so the raw file
+    // digest and the plate digest are the same number; `stripProvenanceChunks` is deliberately
+    // not applied here, or the fence would record a digest nobody can reproduce by hand.
+    const sha = crypto.createHash('sha256').update(png).digest('hex');
+    loads.push({ load, sha256: sha, bytes: png.length, source: sourceFingerprint() });
+    console.log(sha.slice(0, 16));
+  }
+
+  const summary = summarisePlateLoads(loads.map((load) => load.sha256));
+  const { groups, modal, bitIdenticalPairs, pairsCompared } = summary;
+  const referencePng = pngs[modal.loads[0] - 1];
+
+  // THE MAGNITUDE IS MEASURED AGAINST THE MODAL PLATE, and the choice of one reference rather than
+  // all pairs is a deliberate limit rather than an oversight. A true all-pairs residue at 30 loads
+  // is 435 comparisons of a 19.6 MP PNG — 870 decodes — and it was measured taking longer than the
+  // capture it was describing. One representative per DISTINCT digest, differenced against the
+  // mode, is a handful of decodes and answers the question the tolerance is about: how far from
+  // the plate can a load land. It under-estimates the worst PAIR by at most a factor of two
+  // (triangle inequality), and `residueMeasuredAgainst` says so in the manifest rather than
+  // leaving a reader to assume all-pairs.
+  const versusReference = [];
+
+  for (const group of groups) {
+    if (group.sha256 === modal.sha256) continue;
+    const index = group.loads[0] - 1;
+    const comparison = compareFrameSequences([referencePng], [pngs[index]]);
+    versusReference.push({
+      load: group.loads[0],
+      sha256: group.sha256,
+      differingPixels: comparison.worstDifferingPixels,
+      pixelFraction: round(comparison.worstPixelFraction, 10),
+      codeDelta: comparison.worstCodeDelta,
+    });
+  }
+
+  const worstCodeDelta = versusReference.reduce((worst, entry) => Math.max(worst, entry.codeDelta), 0);
+  const worstPixelFraction = versusReference.reduce((worst, entry) => Math.max(worst, entry.pixelFraction), 0);
+  const worstDifferingPixels = versusReference.reduce((worst, entry) => Math.max(worst, entry.differingPixels), 0);
+
+  return {
+    steps,
+    fps: options.fps,
+    loads,
+    environment,
+    pageErrors,
+    png: referencePng,
+    reproducibility: {
+      loads: loads.length,
+      pairsCompared,
+      bitIdenticalPairs,
+      distinctShas: groups.length,
+      // The plate itself: the digest that came back most often, and how many of the loads it was.
+      plateSha256: modal.sha256,
+      modalLoads: modal.loads.length,
+      digestGroups: groups,
+      residueMeasuredAgainst: 'the modal plate — one decode per distinct digest, not all pairs',
+      versusReference,
+      worstCodeDelta,
+      worstDifferingPixels,
+      worstPixelFraction,
+      toleranceCodeDelta: REPRODUCIBILITY_MAX_CODE_DELTA,
+      tolerancePixelFraction: REPRODUCIBILITY_MAX_PIXEL_FRACTION,
+      reproducible:
+        worstCodeDelta <= REPRODUCIBILITY_MAX_CODE_DELTA &&
+        worstPixelFraction <= REPRODUCIBILITY_MAX_PIXEL_FRACTION,
+    },
+  };
+}
+
+/** Plate mode's whole output: one PNG, one manifest, and a fence line ready to paste. */
+function writePlate(plate, options, outputDirectory, pageUrl, elapsedSeconds) {
+  fs.mkdirSync(outputDirectory, { recursive: true });
+
+  const platePath = path.join(outputDirectory, 'plate.png');
+  fs.writeFileSync(platePath, plate.png);
+
+  const manifest = {
+    tool: 'tools/critic/capture.mjs --plate',
+    capturedAt: new Date().toISOString(),
+    url: pageUrl,
+    seed: options.seeds[0] ?? null,
+    simulation: { fps: plate.fps, steps: plate.steps, stepSeconds: 1 / plate.fps },
+    resolution: {
+      cssWidth: options.width,
+      cssHeight: options.height,
+      devicePixelRatio: options.dpr,
+      pixelWidth: options.width * options.dpr,
+      pixelHeight: options.height * options.dpr,
+    },
+    environment: plate.environment,
+    // Whether the three loads are even OF one build. This tool's own vite freezes the tree at
+    // launch and ignores every later edit, so the loads are one build by construction; an
+    // external --url server usually has the watcher on, and in a fan-out a load can be of code
+    // that did not exist when the previous load ran. `loads[].source.packagesDigest` says what
+    // actually happened either way.
+    servedByOwnFrozenServer: wantsOwnServer(options),
+    loads: plate.loads,
+    reproducibility: plate.reproducibility,
+    pageErrors: plate.pageErrors,
+    outputs: { plate: path.relative(REPOSITORY_ROOT, platePath) },
+    wallClockSeconds: Number(elapsedSeconds.toFixed(1)),
+  };
+
+  fs.writeFileSync(path.join(outputDirectory, 'plate.json'), JSON.stringify(manifest, null, 2) + '\n');
+
+  const residue = plate.reproducibility;
+  console.log('');
+  console.log(`plate     ${residue.plateSha256.slice(0, 16)} — the MODE, ${residue.modalLoads} of ` +
+    `${plate.loads.length} loads; ${residue.distinctShas} distinct sha256, ` +
+    `${residue.bitIdenticalPairs}/${residue.pairsCompared} pairs bit-identical`);
+  console.log(`residue   worst ${residue.worstDifferingPixels} px ` +
+    `(${(100 * residue.worstPixelFraction).toFixed(7)}%) at Δ${residue.worstCodeDelta}/255` +
+    `   vs the mode   tolerance Δ${residue.toleranceCodeDelta} / ${100 * residue.tolerancePixelFraction}% of pixels`);
+  console.log(`verdict   ${residue.reproducible
+    ? 'reproducible WITHIN TOLERANCE'
+    : 'NOT reproducible — outside the measured tolerance'}` +
+    `${residue.distinctShas > 1 ? '   <- and NOT byte-identical: do not write "one PNG"' : ''}`);
+  console.log(`stepping  ${plate.steps} step(s) at ${plate.fps} fps   ` +
+    '<- part of the plate identity, not just its cost');
+
+  // The line a PUNCHLIST ```plates row needs, so the record and the measurement cannot drift by a
+  // transcription. Gate values are the caller's to fill in from measure.mjs; everything that
+  // describes the PLATE rather than the picture is emitted here.
+  console.log('');
+  console.log(`fence     loads=${plate.loads.length} sha=${residue.plateSha256.slice(0, 16)} ` +
+    `bitident=${residue.bitIdenticalPairs}/${residue.pairsCompared} ` +
+    `worst=${residue.worstCodeDelta} px=${residue.worstDifferingPixels}`);
+  console.log('');
+  console.log(`  plate         ${platePath}  ${describeSize(platePath)}`);
+  console.log(`  manifest      ${path.join(outputDirectory, 'plate.json')}`);
+
+  return manifest;
 }
 
 /**
@@ -1450,7 +1814,8 @@ function describeReproducibility(reproducibility) {
 
   const residue =
     `${reproducibility.framesBitIdentical}/${reproducibility.framesReplayed} bit-identical, ` +
-    `worst residue ${reproducibility.worstDifferingPixels} px at Δ${reproducibility.worstCodeDelta}/255`;
+    `worst residue ${reproducibility.worstDifferingPixels} px at Δ${reproducibility.worstCodeDelta}/255` +
+    (reproducibility.coversPlateFrame === false ? ', PLATE FRAME NOT COVERED' : '');
 
   return reproducibility.reproducible
     ? `(reproducible within tolerance: ${residue})`
@@ -1477,6 +1842,10 @@ function parseArguments(argv) {
     playwrightPath: null,
     headed: false,
     keepFrames: false,
+    // Plate mode. `steps` is null until asked for, so --seconds/--fps keep meaning the same thing
+    // in both modes and a plate can still be described the way the punch list describes one.
+    plate: false,
+    steps: null,
     ...DEFAULTS,
   };
 
@@ -1506,6 +1875,9 @@ function parseArguments(argv) {
       case '--sheet-columns': options.sheetColumns = Number(value); index += 1; break;
       case '--verify-frames': options.verifyFrames = Number(value); index += 1; break;
       case '--skip-verify': options.verifyFrames = 0; break;
+      case '--plate': options.plate = true; break;
+      case '--steps': options.steps = Number(value); index += 1; break;
+      case '--plate-loads': options.plateLoads = Number(value); index += 1; break;
       case '--playwright': options.playwrightPath = value; index += 1; break;
       case '--headed': options.headed = true; break;
       case '--keep-frames': options.keepFrames = true; break;
@@ -1525,6 +1897,17 @@ function parseArguments(argv) {
   }
   if (Number.isFinite(options.fps) === false || options.fps <= 0) {
     throw new Error('--fps must be a positive number.');
+  }
+  if (options.steps !== null && (Number.isInteger(options.steps) === false || options.steps < 1)) {
+    throw new Error('--steps must be a positive whole number of simulation steps.');
+  }
+  // One load cannot measure a residue: the whole output of plate mode is a comparison, and a
+  // single load would report "0 of 0 pairs bit-identical" as if that were a clean result.
+  if (options.plate && (Number.isInteger(options.plateLoads) === false || options.plateLoads < 2)) {
+    throw new Error('--plate-loads must be at least 2 — one load measures nothing about reproducibility.');
+  }
+  if (options.plate === false && options.steps !== null) {
+    throw new Error('--steps is plate mode only. In clip mode the frame count is --seconds x --fps.');
   }
 
   return options;
@@ -1577,8 +1960,18 @@ capture.mjs — deterministic video capture of a live Sugata page.
   --sheet-cells <n>    frames on the contact sheet          (${DEFAULTS.sheetCells})
   --sheet-columns <n>  contact sheet columns                (${DEFAULTS.sheetColumns})
   --verify-frames <n>  replay this many frames to prove reproducibility (${DEFAULTS.verifyFrames})
+                       ⚠ an OPENING window. At the default it does not reach the last frame,
+                       which is the frame a still plate is read off. Use --plate for that.
   --skip-verify        do not replay
   --keep-frames        keep the PNG sequence
+
+  PLATE MODE — one still, taken N times, with the residue measured instead of asserted.
+  --plate              step to the plate frame, screenshot only that frame, repeat from fresh
+                       page loads, and report the pairwise residue against the tolerance.
+                       Writes plate.png + plate.json. No ffmpeg needed.
+  --steps <n>          simulation steps before the plate is taken (default --seconds x --fps).
+                       Part of the plate's identity: N steps is not the picture at M steps.
+  --plate-loads <n>    how many fresh loads to compare      (${DEFAULTS.plateLoads})
   --headed             run Chromium headed
   --playwright <path>  path to a playwright installation
 `);

@@ -31,7 +31,7 @@ import {
   measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY,
   describeG2Margin, G2_RECIPE_SENSITIVITIES,
 } from './measure.mjs';
-import { compareFrameSequences } from './capture.mjs';
+import { compareFrameSequences, summarisePlateLoads } from './capture.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-critic-selftest-'));
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -1045,6 +1045,59 @@ function testFrameSequenceComparison() {
 }
 
 // ============================================================================================
+// 4c. capture.mjs --plate: which digest IS the plate, and how many pairs matched
+// ============================================================================================
+//
+// A still plate's sha256 is quoted in PUNCHLIST as the identity of a configuration, and it is not
+// one. Measured with `--plate` at 3840x5120, 60 steps, on the shipped default: thirty loads of one
+// build returned TWELVE distinct digests, nineteen of them the digest already on record, worst
+// residue 2 of 255 on 164 pixels of 19,660,800. A second run of the same thirty returned one
+// digest. Whether a run looks byte-identical is not a property of the build.
+//
+// So `summarisePlateLoads` has two jobs and both were got wrong in a first draft:
+//   - name the plate as the MODE. Naming load 1 makes a singleton the identity, and load 1 WAS a
+//     singleton in the thirty-load run;
+//   - count bit-identical PAIRS over all N(N-1)/2, not against a reference, because two loads can
+//     each match the plate and a third can match neither.
+
+function testPlateSummary() {
+  // The shape of the measured 30-load run, compressed: a dominant mode and a tail of singletons,
+  // with the mode NOT first. 10 loads, mode 'M' on 6 of them, four one-offs.
+  const measured = ['x', 'M', 'M', 'y', 'M', 'z', 'M', 'w', 'M', 'M'];
+  const summary = summarisePlateLoads(measured);
+
+  expectEqual('the plate is the modal digest, not load 1', summary.modal.sha256, 'M');
+  expectEqual('and it reports how many loads it was', summary.modal.loads.length, 6);
+  expectEqual('load 1 was a singleton, which is why naming it would have been wrong',
+    summary.groups.find((group) => group.sha256 === 'x').loads.length, 1);
+  expectEqual('distinct digests', summary.distinctShas, 5);
+  // C(6,2) among the mode, and nothing else pairs with anything.
+  expectEqual('bit-identical pairs are counted over every pair', summary.bitIdenticalPairs, 15);
+  expectEqual('of the full N(N-1)/2', summary.pairsCompared, 45);
+
+  // 🚩 THE COUNT IS NOT "MATCHES THE PLATE", and this is the case that separates them. Two loads
+  // agree with each other and neither is the mode: an against-the-reference count scores this 3,
+  // the true pair count is 4. Getting this wrong understates agreement on exactly the runs where
+  // the plate is least stable.
+  const twoGroups = summarisePlateLoads(['A', 'A', 'A', 'B', 'B']);
+  expectEqual('the mode is the larger group', twoGroups.modal.sha256, 'A');
+  expectEqual('and the B pair is counted too', twoGroups.bitIdenticalPairs, 3 + 1);
+
+  const clean = summarisePlateLoads(['A', 'A', 'A', 'A']);
+  expectEqual('a genuinely byte-identical run is every pair', clean.bitIdenticalPairs, 6);
+  expectEqual('over every pair', clean.pairsCompared, 6);
+
+  // No repeats at all: there is no mode, and the honest report is "one of N" rather than silence.
+  const noRepeats = summarisePlateLoads(['A', 'B', 'C']);
+  expectEqual('with no repeats the tie breaks to the earliest load', noRepeats.modal.sha256, 'A');
+  expectEqual('and says it is one of three', noRepeats.modal.loads.length, 1);
+  expectEqual('with nothing bit-identical', noRepeats.bitIdenticalPairs, 0);
+
+  // Two loads is the floor the CLI enforces, and it must still produce a pair.
+  expectEqual('two loads is one pair', summarisePlateLoads(['A', 'B']).pairsCompared, 1);
+}
+
+// ============================================================================================
 // 5. G3 — terminator saturation and hue shift
 // ============================================================================================
 
@@ -1537,6 +1590,7 @@ function run() {
   testProvenance();
   testG2SeedRecord();
   testFrameSequenceComparison();
+  testPlateSummary();
   testTerminatorShift();
   testG2MarginVerdict();
   testHighPassSigma();

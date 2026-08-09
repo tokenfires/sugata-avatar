@@ -23,7 +23,7 @@
  * verdict inside the noise**, in either direction, plus three cheaper consistency rules that catch
  * the neighbouring mutations.
  *
- * FIVE RULES
+ * SIX RULES
  *
  *   BAND    A stated verdict must agree with the band `measure.mjs` actually enforces. The bands
  *           are IMPORTED from `tools/critic/measure.mjs`, never re-typed here, so tightening a
@@ -40,6 +40,12 @@
  *           the shipped plate reproducible and turned every range back into a value: DRAWS can
  *           only police a range, and the mutation that replaced hand-narrowing a range is hand-
  *           narrowing a value, which BAND, MARGIN and DRAWS are all blind to.
+ *   REPRO   A plate's identity is a measured TOLERANCE, not a sha256. Every multi-load plate must
+ *           record its residue (`bitident=`, `worst=`, `px=`), the record must be arithmetically
+ *           self-consistent, and no document may claim byte identity beside a plate the fence
+ *           itself records as not byte-identical. Added 2026-08-08 after PLATES let through the
+ *           overclaim it was built on: "three loads → one PNG, sha256 …, all three times", written
+ *           as a guarantee about a plate that returns twelve distinct digests in thirty loads.
  *
  * ⚠️ WHAT 3.20 DID TO THE MARGIN RULE, STATED RATHER THAN QUIETLY ABSORBED. MARGIN's floor used to
  * be the load-to-load spread, and after the epoch pin **that spread is measured ZERO** — three
@@ -673,9 +679,55 @@ function recordedPlates(text) {
     if (Object.keys(gates).length === 0) continue;
     const sha = /sha=([0-9a-f]+)/.exec(line);
     const loads = /loads=(\d+)/.exec(line);
-    plates.push({ name: parts[0], size: parts[1], regions: parts[2], sha: sha?.[1] ?? null, loads: Number(loads?.[1] ?? 0), gates });
+    // The residue fields. `bitident=K/N` is bit-identical PAIRS of N compared pairs, `worst` is the
+    // worst code delta of 255 and `px` the worst differing-pixel count. Absent on a single-load
+    // plate, where there is no pair to compare and the REPRO rule says so rather than assuming.
+    const bitident = /bitident=(\d+)\/(\d+)/.exec(line);
+    const worst = /\bworst=(\d+)/.exec(line);
+    const pixels = /\bpx=(\d+)/.exec(line);
+    const runs = /\bruns=(\d+)/.exec(line);
+    plates.push({
+      name: parts[0], size: parts[1], regions: parts[2],
+      sha: sha?.[1] ?? null, loads: Number(loads?.[1] ?? 0), gates,
+      runs: runs === null ? 1 : Number(runs[1]),
+      bitIdenticalPairs: bitident === null ? null : Number(bitident[1]),
+      pairsCompared: bitident === null ? null : Number(bitident[2]),
+      worstCodeDelta: worst === null ? null : Number(worst[1]),
+      worstDifferingPixels: pixels === null ? null : Number(pixels[1]),
+    });
   }
   return plates;
+}
+
+/**
+ * The phrases these documents use to claim BYTE identity, as opposed to reproducibility within a
+ * tolerance. Deliberately the strong ones only: "reproducible", "reproduces" and "the same plate"
+ * are all true of a plate with a one-code-value residue and must stay writable.
+ */
+const BYTE_IDENTITY_PHRASES = [
+  "byte-identical", "byte identical", "byte-for-byte", "byte for byte",
+  "one PNG", "identical bytes", "one byte-identical", "all three times",
+  "0 differing samples", "no differing pixels",
+  // "K/P pairs bit-identical" is a COUNT and stays writable — it is the honest form. A bare
+  // "the plate is bit-identical" is the same overclaim in the tool's own vocabulary, so the two
+  // copulas are listed and the count is not.
+  "is bit-identical", "are bit-identical",
+];
+
+/** Every unretracted, unquoted byte-identity claim in a document, with where it sits. */
+function byteIdentityClaims(text) {
+  const quotes = quotedRanges(text);
+  const found = [];
+  for (const phrase of BYTE_IDENTITY_PHRASES) {
+    let at = text.indexOf(phrase);
+    while (at !== -1) {
+      if (isRetracted(text, at) === false && isQuotation(quotes, at) === false) {
+        found.push({ phrase, index: at });
+      }
+      at = text.indexOf(phrase, at + 1);
+    }
+  }
+  return found.sort((left, right) => left.index - right.index);
 }
 
 const plates = recordedPlates(punchlist);
@@ -803,6 +855,305 @@ if (plates !== null) {
       stalePlate === punchlist
         ? `NO-OP: no plate line reads "G4 ${headlineG4} G5", so this proof did not run`
         : `plate moved to ${reparsed?.gates?.G4}, prose still says ${headlineG4}`);
+  }
+}
+
+// --- 3c. REPRO — a plate's IDENTITY is a tolerance, and a sha256 is not one -----------------------
+//
+// 🚩 THE RULE THE PLATES FENCE NEEDED AND DID NOT HAVE, AND THE ONE DEFECT PLATES ITSELF LET IN.
+//
+// PLATES holds every quoted gate VALUE to a named, sha-stamped plate. What it never asked is
+// whether the plate has a single sha at all. It does not. Measured 2026-08-08 with
+// `tools/critic/capture.mjs --plate`, three loads of the shipped default at 3840x5120, 60 steps,
+// on this tool's own frozen vite so all three loads are of one build: TWO distinct sha256, one of
+// three pairs bit-identical, worst residue 52 px of 19,660,800 at delta 1 of 255. `?grain=0` at
+// the same recipe: THREE distinct sha256, zero of three pairs bit-identical. The record said
+// "one PNG, sha256 ..., all three times" and the guarantee is "reproducible to 1 code value on
+// under 0.0003% of pixels".
+//
+// This is not a new discovery in this repository — `capture.mjs`'s own header has said since it
+// was written that `sha256(a) === sha256(b)` is a boolean over the last code value of the last
+// pixel and reported a clean plate as NOT reproducible on 8 of 10 runs. The document side adopted
+// the hash anyway, because a hash is what fits in a table cell. So REPRO does two things a hash
+// cannot, and they fail differently:
+//
+//   presence + arithmetic  A multi-load plate must record its residue, and the record must be
+//                          self-consistent: N loads means N(N-1)/2 pairs, a fully bit-identical
+//                          plate has worst=0, and a plate with a residue does not have worst=0.
+//   prose against data     A byte-identity claim — "one PNG", "byte-identical", "all three
+//                          times" — sitting next to the sha of a plate the fence itself records
+//                          as NOT fully bit-identical is a claim the document's own data refutes.
+//
+// The honest limit, same as everywhere else in this file: it cannot render. If the fence records
+// a residue that was never measured, every check here is green. What it stops is the fence and
+// the prose drifting apart, and the specific overclaim that a sha is a guarantee.
+
+section("3c. REPRO — a plate's identity is a measured tolerance, not a sha256");
+
+/** N things compared pairwise. */
+function choose2(n) {
+  return (n * (n - 1)) / 2;
+}
+
+/**
+ * How many pairs N loads spread over R runs CAN have been compared as. Loads are only comparable
+ * within a run — two loads of different runs are of different machine states and, for the plates
+ * here, sometimes of different builds — so the total is the sum of each run's own C(n,2), and the
+ * fence records N and R rather than the split.
+ *
+ * That still pins the answer between two computable bounds, and R = 1 pins it exactly. Which is
+ * what makes "loads=6 bitident=3/3" catchable: six loads in one run is fifteen pairs, not three.
+ */
+function pairBounds(loads, runs) {
+  if (runs === 1) return { low: choose2(loads), high: choose2(loads) };
+  // Fewest: split as evenly as the counts allow. Most: one big run and R-1 singletons.
+  const quotient = Math.floor(loads / runs);
+  const remainder = loads % runs;
+  const low = remainder * choose2(quotient + 1) + (runs - remainder) * choose2(quotient);
+  return { low, high: choose2(loads - runs + 1) };
+}
+
+/**
+ * Every way one fence line can contradict itself, as findings rather than assertions, so the
+ * rejection proofs below can point the same function at a mutated document.
+ */
+function reproFindings(platesToCheck) {
+  const findings = [];
+  for (const plate of platesToCheck ?? []) {
+    if (plate.loads < 2) continue;
+
+    if (plate.bitIdenticalPairs === null) {
+      findings.push(`${plate.name}: loads=${plate.loads} with no bitident= — the residue was never recorded`);
+      continue;
+    }
+    if (plate.runs < 1 || plate.runs > plate.loads) {
+      findings.push(`${plate.name}: runs=${plate.runs} against loads=${plate.loads}`);
+      continue;
+    }
+    const bounds = pairBounds(plate.loads, plate.runs);
+    if (plate.pairsCompared < bounds.low || plate.pairsCompared > bounds.high) {
+      findings.push(`${plate.name}: loads=${plate.loads} over runs=${plate.runs} implies ` +
+        `${bounds.low === bounds.high ? bounds.low : `${bounds.low}-${bounds.high}`} pairs, ` +
+        `bitident says ${plate.pairsCompared}`);
+    }
+    if (plate.bitIdenticalPairs > plate.pairsCompared) {
+      findings.push(`${plate.name}: ${plate.bitIdenticalPairs} bit-identical pairs of ${plate.pairsCompared}`);
+    }
+    if (plate.worstCodeDelta === null || plate.worstDifferingPixels === null) {
+      findings.push(`${plate.name}: no worst= / px= residue beside bitident=`);
+      continue;
+    }
+    const clean = plate.bitIdenticalPairs === plate.pairsCompared;
+    if (clean && (plate.worstCodeDelta > 0 || plate.worstDifferingPixels > 0)) {
+      findings.push(`${plate.name}: every pair bit-identical yet worst=${plate.worstCodeDelta} ` +
+        `px=${plate.worstDifferingPixels} — those cannot both be true`);
+    }
+    if (clean === false && plate.worstCodeDelta === 0) {
+      findings.push(`${plate.name}: ${plate.pairsCompared - plate.bitIdenticalPairs} pair(s) differ ` +
+        "yet worst=0 — a difference of zero code values is not a difference");
+    }
+  }
+  return findings;
+}
+
+/**
+ * A byte-identity claim is attributed to the plate whose digest is NEAREST it, and it is a finding
+ * when that plate is one the fence itself records as not fully bit-identical.
+ *
+ * NEAREST-WINS, RATHER THAN "ANY PLATE WITHIN A RADIUS", and the difference is not cosmetic: the
+ * first draft flagged an honest sentence about the byte-deterministic A side three times over —
+ * once per residual plate — because the sentence sat inside every plate's radius at once. A claim
+ * is about one configuration. It should be adjudicated against one.
+ *
+ * 🚩 THE RADIUS IS A LAYOUT CONSTANT AND IT IS QUOTED FROM MEASUREMENT, NOT CHOSEN. It was 700 and
+ * that was too small: putting the original sentence back where it actually stood in PUNCHLIST
+ * landed it **2,274** characters from the nearest occurrence of the plate's digest, so the first
+ * rejection proof came back GREEN on the exact defect this rule exists for. The nearest TRUE
+ * byte-identity claim about a different configuration in the same block is **3,575** characters
+ * from that digest. 2,500 sits between them. What would break it is a rewrite that discusses a
+ * plate further from its digest than that, and the symptom would be this rule going quiet rather
+ * than loud — so the phrase-count check above is what keeps it honest.
+ *
+ * KNOWN HOLE, printed rather than implied: a byte-identity claim with NO recorded plate digest
+ * within the radius is not adjudicated at all. There are several in these documents, all of them
+ * quoting digests from builds the fence never recorded. Attributing those would need the fence to
+ * carry every historical plate, which it deliberately does not.
+ */
+const BYTE_CLAIM_RADIUS = 2500;
+
+function overclaimedIdentity(text, platesToCheck) {
+  const known = (platesToCheck ?? []).filter((plate) => plate.sha !== null);
+  if (known.length === 0) return [];
+
+  const anchors = [];
+  for (const plate of known) {
+    let at = text.indexOf(plate.sha);
+    while (at !== -1) {
+      anchors.push({ plate, at });
+      at = text.indexOf(plate.sha, at + 1);
+    }
+  }
+
+  const found = [];
+  for (const claim of byteIdentityClaims(text)) {
+    let nearest = null;
+    for (const anchor of anchors) {
+      const distance = Math.abs(claim.index - anchor.at);
+      if (distance > BYTE_CLAIM_RADIUS) continue;
+      if (nearest === null || distance < nearest.distance) nearest = { ...anchor, distance };
+    }
+    if (nearest === null) continue;
+    const plate = nearest.plate;
+    // A plate with no residue record is not a clean plate, it is an unmeasured one, and a byte
+    // identity claimed for it is the same overclaim one step earlier. Skipping it here would let a
+    // single-load row SHADOW a residual one: the first draft did exactly that, and the rejection
+    // proof came back green because the sentence landed nearer `bodydflt` than the default.
+    if (plate.bitIdenticalPairs === null) {
+      found.push({
+        plate: plate.name, sha: plate.sha, phrase: claim.phrase, index: claim.index,
+        where: `${nearest.distance} chars from the UNMEASURED plate`,
+      });
+      continue;
+    }
+    if (plate.bitIdenticalPairs === plate.pairsCompared) continue;
+    found.push({
+      plate: plate.name, sha: plate.sha, phrase: claim.phrase, index: claim.index,
+      where: `${nearest.distance} chars from the digest of`,
+    });
+  }
+  return found;
+}
+
+if (plates !== null) {
+  const multiLoad = plates.filter((plate) => plate.loads >= 2);
+
+  check("the fence records more than one multi-load plate, so REPRO has something to police",
+    multiLoad.length >= 2, `${multiLoad.length} plates with loads >= 2 of ${plates.length}`);
+
+  check("every multi-load plate records its residue, and the record is self-consistent",
+    reproFindings(plates).length === 0, reproFindings(plates).join("; ") || "all consistent");
+
+  // The scanner has to be finding phrases, or the prose check below is green because it is blind.
+  // These documents are full of honest byte-identity claims about plates that ARE byte-identical;
+  // a count of zero means the phrase list stopped matching how they are written.
+  const phraseCount = [...texts.values()].reduce((sum, text) => sum + byteIdentityClaims(text).length, 0);
+  check("the byte-identity phrase scanner is finding claims, so the prose check is not blind",
+    phraseCount >= 10, `${phraseCount} unretracted byte-identity phrases across ${texts.size} documents`);
+
+  const overclaims = [];
+  for (const [label, text] of texts) {
+    for (const hit of overclaimedIdentity(text, plates)) overclaims.push({ label, ...hit });
+  }
+  const describe = (hit) => `${hit.label}: "${hit.phrase}" ${hit.where} ${hit.plate} (${hit.sha})`;
+
+  // PUNCHLIST owns the fence, so it is held hard.
+  const here = overclaims.filter((hit) => hit.label === "PUNCHLIST.md");
+  check("PUNCHLIST claims no byte identity beside a plate its own fence says is not one",
+    here.length === 0, here.map(describe).join("; ") || "none");
+
+  // 🚩 AND THE SAME DEFECT IS LIVE IN PROGRESS.md, WHICH THIS AGENT DOES NOT OWN. Two sentences —
+  // the fourth-pass header at the top and the Phase 3 row of the status table — still read
+  // "three loads, one PNG, sha256 d3c9946f73e5eaa1", which is the exact claim this rule exists to
+  // refuse. They are printed here rather than exempted, and the ceiling is a RATCHET set to
+  // today's count: a third turns the gate red, and when the diff request lands the detail line
+  // says to lower it. A backlog that is counted and printed is not a rule that looks away.
+  const elsewhere = overclaims.filter((hit) => hit.label !== "PUNCHLIST.md");
+  const BACKLOG_CEILING = 2;
+  check("the same defect in documents this file does not own is not growing",
+    elsewhere.length <= BACKLOG_CEILING,
+    `${elsewhere.length} of a ceiling of ${BACKLOG_CEILING}` +
+    (elsewhere.length < BACKLOG_CEILING ? " — LOWER THE CEILING, the backlog shrank" : "") +
+    (elsewhere.length > 0 ? `: ${elsewhere.map(describe).join("; ")}` : ""));
+
+  // 🚩 THE REJECTION PROOFS. The first is the defect itself; the other three are DIFFERENT
+  // mutations in the same class, and they are caught by a different mechanism from the first —
+  // which is the whole point, because a gate that only recognises the sentence it was written
+  // against is a regex with a comment.
+  const residual = plates.find((plate) => plate.loads >= 2 && plate.bitIdenticalPairs !== null &&
+    plate.bitIdenticalPairs < plate.pairsCompared);
+
+  check("the fence records at least one plate that is NOT fully bit-identical, or these proofs are vacuous",
+    residual !== undefined,
+    residual === undefined ? "every plate is clean — re-anchor the proofs" : `${residual.name} at ${residual.bitIdenticalPairs}/${residual.pairsCompared}`);
+
+  if (residual !== undefined) {
+    // 1. THE ORIGINAL, PUT BACK INTO THE REAL FILE. The sentence goes immediately after the fence
+    //    that records the plate — which is where a reader would naturally write it and where the
+    //    original stood — rather than into a fixture. Inside the fence it would be masked as a
+    //    quotation, and a proof that lands in a masked region proves nothing.
+    {
+      const fenceStart = punchlist.indexOf("```plates");
+      const reinfected = punchlist.slice(0, fenceStart) +
+        "The shipped default returns one PNG, all three times.\n\n" +
+        punchlist.slice(fenceStart);
+      const caught = overclaimedIdentity(reinfected, plates)
+        .filter((hit) => hit.plate === residual.name);
+      check("REPRO: the original overclaim — 'one PNG ... all three times' beside the fence — is caught",
+        fenceStart > 0 && caught.length > 0,
+        caught.map((hit) => `"${hit.phrase}" ${hit.where} ${hit.plate}`).join(", ") || "NOTHING");
+    }
+
+    // 2. SAME CLASS, DIFFERENT MECHANISM: leave the prose alone and launder the RECORD instead —
+    //    claim every pair bit-identical while the measured residue stays beside it. The prose
+    //    check goes blind the moment the fence says the plate is clean, so only the arithmetic
+    //    can see this one. That asymmetry is asserted, not hoped for.
+    {
+      const laundered = punchlist.replace(
+        `bitident=${residual.bitIdenticalPairs}/${residual.pairsCompared}`,
+        `bitident=${residual.pairsCompared}/${residual.pairsCompared}`);
+      const reparsed = recordedPlates(laundered);
+      const findings = reproFindings(reparsed);
+      const proseBlind = overclaimedIdentity(punchlist, reparsed).length === 0;
+      check("REPRO: laundering bitident= to a clean sweep, leaving worst= behind, is caught by the arithmetic",
+        laundered !== punchlist && findings.some((finding) => finding.includes(residual.name)) && proseBlind,
+        laundered === punchlist
+          ? `NO-OP: no fence line reads bitident=${residual.bitIdenticalPairs}/${residual.pairsCompared}`
+          : `${findings.join("; ")} — and the prose rule is blind to it, which is why both exist`);
+    }
+
+    // 3. SAME CLASS, DIFFERENT MECHANISM AGAIN: inflate the LOAD COUNT. Three loads that agree is
+    //    a weaker result than six, and "loads=6" costs one keystroke. Nothing about the residue
+    //    changes, so presence and prose are both blind; the pair arithmetic is not.
+    {
+      const inflated = punchlist.replace(
+        `loads=${residual.loads} runs=${residual.runs}`,
+        `loads=${residual.loads * 2} runs=${residual.runs}`);
+      const findings = reproFindings(recordedPlates(inflated));
+      check("REPRO: doubling loads= without touching bitident= is caught by the pair arithmetic",
+        inflated !== punchlist && findings.some((finding) => finding.includes("implies")),
+        inflated === punchlist
+          ? `NO-OP: no fence line reads "loads=${residual.loads} runs=${residual.runs}"`
+          : findings.join("; "));
+    }
+
+    // 5. SAME CLASS, THE OTHER HALF OF THE ARITHMETIC: collapse runs= to 1, which upgrades "103
+    //    loads across seven separate runs" into "103 loads in one continuous run" — a materially
+    //    stronger claim about one machine state, for one keystroke. Only the exact R = 1 branch of
+    //    the bound can see it, and the range branch that passes the real line cannot.
+    {
+      const collapsed = punchlist.replace(
+        `loads=${residual.loads} runs=${residual.runs}`, `loads=${residual.loads} runs=1`);
+      const findings = reproFindings(recordedPlates(collapsed));
+      check("REPRO: collapsing runs= to 1 is caught, because one run pins the pair count exactly",
+        residual.runs > 1 && collapsed !== punchlist && findings.some((finding) => finding.includes("implies")),
+        residual.runs === 1
+          ? "NO-OP: the residual plate is a single run, so there is nothing to collapse"
+          : findings.join("; "));
+    }
+
+    // 4. SAME CLASS, THE LAZY MUTATION: drop the residue fields altogether and let the plate go
+    //    back to being a bare sha. This is how the fence looked before this rule existed, so if it
+    //    is not caught the rule can be undone by deletion.
+    {
+      const stripped = punchlist
+        .replace(/bitident=\d+\/\d+ ?/g, "")
+        .replace(/\bworst=\d+ ?/g, "")
+        .replace(/\bpx=\d+ ?/g, "");
+      const findings = reproFindings(recordedPlates(stripped));
+      check("REPRO: deleting the residue fields puts the fence back to a bare sha, and goes red",
+        stripped !== punchlist && findings.length >= multiLoad.length,
+        stripped === punchlist ? "NO-OP: no residue fields to strip" : `${findings.length} findings`);
+    }
   }
 }
 
