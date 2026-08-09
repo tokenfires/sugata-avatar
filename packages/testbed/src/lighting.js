@@ -33,6 +33,17 @@
  *                         the body preset is doing something)
  *   ?variant=dramatic     KNOWN-BAD: a 4:1 key:fill, the ratio the look spec rejects
  *   ?variant=noshadow     KNOWN-BAD: area lights only, no shadow halves at all
+ *   ?statedefect=<name>   🚩 KNOWN-BAD: plants one whole-state defect on the real rig, so the
+ *                         fingerprint's claims can be checked in PIXELS rather than in headless
+ *                         arithmetic. One of: decay, cutoff, shadowintensity, shadowfocus,
+ *                         rimlayer, skyaxis, panelmirror, panelaim. The tables live in
+ *                         `./light-defects.js`, which carries the measured pixel effect of every
+ *                         one of them, and `alive.js` plants the same set from the same module.
+ *   ?grounddefect=<name>  🚩 the same for the surface half: receiveshadow, metalness, emissive,
+ *                         desync, tilt, tonemapped.
+ *                         ⚠️ Both are INVISIBLE on a `?bare` plate by construction — that is the
+ *                         property they exist to demonstrate. A number quoted off one of these
+ *                         without naming the parameter is a number about nothing.
  *   ?w=900&h=1200         drawing buffer, in device pixels
  *   ?gender=0.5           which bake
  *   ?pose=relaxed-standing
@@ -67,6 +78,9 @@ import {
     Vector3
 } from 'three/webgpu';
 import { Box3 } from 'three';
+
+import { scheduleTask } from './frame-clock.js';
+import { plantGroundDefect, plantLightDefect } from './light-defects.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig, silhouetteBandPixels } from '../../core/src/render/LightingRig.js';
@@ -175,7 +189,9 @@ async function boot() {
         framedHeightMetres: PORTRAIT_HEIGHT_METRES,
         focus: new Vector3(),
         canvasHeightPixels: height,
-        ground: studio.ground
+        ground: studio.ground,
+        lightDefect: null,
+        groundDefect: undefined
     };
 
     const identity = new Identity( { gender: Number( query.get( 'gender' ) ?? 0.5 ) } );
@@ -238,6 +254,20 @@ async function boot() {
     } );
 
     rig.attachTo( stage.scene, stage.renderer );
+
+    // Before `applyFraming`, which is the first `aimAt`, so the mutation is in place for the first
+    // solve as well as for every later one.
+    session.lightDefect = plantLightDefect( rig, query.get( 'statedefect' ) );
+
+    session.groundDefect = plantGroundDefect( studio.ground, query.get( 'grounddefect' ) ) ?? undefined;
+
+    if ( session.lightDefect !== null || session.groundDefect !== undefined ) {
+
+        console.warn( `🚩 DEFECT PLANTED — statedefect=${ session.lightDefect?.name ?? 'none' } ` +
+            `(${ session.lightDefect?.altered ?? 0 } distinct light object(s)), grounddefect=` +
+            `${ session.groundDefect ?? 'none' }. This plate is a rejection proof, not a picture of the rig.` );
+
+    }
 
     applyFraming( stage, rig, session, studio );
 
@@ -381,6 +411,8 @@ function eyeLineHeight( figure, bounds ) {
 
 }
 
+// --- the state defects, as URL parameters ---------------------------------------------------------
+
 // --- known-bad variants -------------------------------------------------------------------------
 
 /**
@@ -441,6 +473,12 @@ function report( stage, rig, session ) {
         frameMode: session.frameMode,
         preset: rig.preset,
         variant: session.variant,
+        // Named in the report as well as in the HUD, because `?bare` hides the HUD and a defect
+        // plate is invisible by construction. A capture driver reading this object has no excuse.
+        stateDefect: session.lightDefect === null
+            ? null
+            : { name: session.lightDefect.name, lightsAltered: session.lightDefect.altered },
+        groundDefect: session.groundDefect ?? null,
         framedHeightMetres: session.framedHeightMetres,
         focus: session.focus.toArray(),
         cameraPosition: stage.camera.position.toArray(),
@@ -486,6 +524,10 @@ function describe( stage, rig, session ) {
         `${ info.backend }  ${ info.canvas.width }x${ info.canvas.height }  ${ stage.stats.fps.toFixed( 0 ) } fps  ` +
             `${ info.drawCalls } draws  ${ ( info.triangles / 1000 ).toFixed( 0 ) }k tris`,
         `frame ${ info.frameMode } ${ info.framedHeightMetres.toFixed( 3 ) } m   rig preset ${ info.preset }   variant ${ info.variant }`,
+        ...( info.stateDefect === null && info.groundDefect === null ? [] : [
+            `🚩 DEFECT PLANTED — statedefect ${ info.stateDefect?.name ?? 'none' } ` +
+            `(${ info.stateDefect?.lightsAltered ?? 0 } light object(s)), grounddefect ${ info.groundDefect ?? 'none' }`
+        ] ),
         `designed key:fill  ${ info.designedKeyToFill.toFixed( 3 ) }:1   ` +
             `(G1 wants the RENDERED key:shadow < 2.00, reference 1.43–1.64 linear)`,
         `silhouette band reported against a ${ ( info.limbRadiusMetres * 1000 ).toFixed( 0 ) } mm ` +
@@ -664,30 +706,10 @@ function addDial( container, label, min, max, step, value, apply ) {
 
 // --- the frame clock ------------------------------------------------------------------------
 
-/**
- * A macrotask a hidden page does not throttle. Same reasoning, and the same measured numbers, as
- * `packages/testbed/src/stage.js`: `setTimeout(fn, 0)` yields 8 callbacks per second in a hidden
- * pane; a `MessageChannel` measured 553,921.
- *
- * Duplicated rather than shared because `stage.js` does not export it and this agent does not own
- * that file. It is ~15 lines and the alternative is a screenshot of "booting…".
- */
-const taskChannel = new MessageChannel();
-const taskQueue = [];
-
-taskChannel.port1.onmessage = () => {
-
-    const task = taskQueue.shift();
-    if ( task !== undefined ) task();
-
-};
-
-function scheduleTask( task ) {
-
-    taskQueue.push( task );
-    taskChannel.port2.postMessage( 0 );
-
-}
+// `scheduleTask` is imported from `stage.js` — a macrotask a hidden page does not throttle.
+// `setTimeout(fn, 0)` yields 8 callbacks per second in a hidden pane; a `MessageChannel` measured
+// 553,921. This page carried its own copy for two rounds because `stage.js` did not export it;
+// `docs/OPEN-REQUESTS.md` REQ-023 removed the copy rather than the reason for it.
 
 /**
  * Probes whether requestAnimationFrame is alive and, if it is not, drives the renderer's own

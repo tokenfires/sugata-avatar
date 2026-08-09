@@ -728,6 +728,362 @@ export function silhouetteBandPixels( azimuthDegrees, limbRadiusMetres, framedHe
 
 }
 
+// --- what three actually reads ---------------------------------------------------------------
+//
+// 🚩 THIS SECTION EXISTS BECAUSE THREE ROUNDS OF THIS GATE WERE A LIST OF NAMED MECHANISMS.
+//
+// Round one found a caster built at the wrong COLOUR and added a colour equality. Round two found
+// a caster built at the wrong INTENSITY and added a focus-delivery equality plus a cone equality.
+// Round three found `shadowCaster.decay` 2 -> 1 (41.64% of the frame moved, worst delta 8/255) and
+// `shadowCaster.distance` 0 -> 1.2 (79.47% of the frame, worst delta 87/255, the key's modelling
+// visibly gone) walking past all four while `LightingRig.selftest.mjs` read 98/98 and
+// `GroundContact.selftest.mjs` 65/65.
+//
+// The three mechanisms are unrelated as mechanisms and identical as a failure: **the gate enumerated
+// the properties somebody had already been bitten by.** So the question this section answers is not
+// "is the decay right" — it is "what is the COMPLETE set of properties that decide what a light puts
+// on the figure", answered from three's own source rather than from memory, so the gate can assert
+// the SET and go red on the fourth mechanism nobody has met yet.
+//
+// Enumerated at **three 0.185.1** by grepping every read in `three/src/nodes/lighting/*.js` and
+// `three/src/nodes/accessors/Lights.js`, plus the two `reference()` forms that read through a
+// string and so do not appear as `light.x`:
+//
+//   AnalyticLightNode.update      light.color x light.intensity          -> the light's colour node
+//   AnalyticLightNode.setup       light.castShadow, renderer.shadowMap.enabled, object.receiveShadow
+//   SpotLightNode.update          light.angle, light.penumbra, light.distance, light.decay
+//   SpotLightNode.setupDirect     light.matrixWorld (position), light.target (direction),
+//                                 light.map / light.colorNode (projector), and
+//                                 getDistanceAttenuation( d, light.distance, light.decay )
+//   RectAreaLightNode.update      light.width, light.height, light.matrixWorld (position AND the
+//                                 extracted rotation)
+//   HemisphereLightNode           light.color, light.groundColor, light.intensity, and
+//                                 light.matrixWorld POSITION normalised as the sky axis
+//   ShadowNode                    reference( 'intensity' | 'bias' | 'normalBias' | 'radius' |
+//                                 'blurSamples' | 'mapSize', shadow ), reference( 'near' | 'far',
+//                                 shadow.camera ), shadow.mapType, shadow.autoUpdate,
+//                                 shadow.needsUpdate, shadow.shadowNode, shadow.filterNode,
+//                                 shadow.biasNode
+//   SpotLightShadow.updateMatrices  camera.fov = 2 x light.angle x shadow.focus, camera.aspect =
+//                                 (mapSize.width / mapSize.height) x shadow.aspect, and
+//                                 camera.far = light.distance || camera.far
+//   Renderer._projectObject       object.visible, object.layers.test( camera.layers )
+//
+// Two of those lines are worth reading twice. `shadow.focus` is a MULTIPLIER on the shadow
+// frustum's field of view and nothing in this repo had ever named it; and `light.distance` reaches
+// the picture twice — once through the falloff window and once by overriding the shadow camera's
+// far plane — which is why the 0 -> 1.2 injection moved 79% of the frame rather than a little of it.
+
+/**
+ * three's own distance falloff, on the CPU, so a gate can ASK what a caster delivers rather than
+ * assume it.
+ *
+ * A faithful port of `getDistanceAttenuation` in `three/src/nodes/lighting/LightUtils.js` (Frostbite
+ * 3, "Moving to Physically Based Rendering", p32 eq. 26), including both details that matter and
+ * neither of which an inverse square has: the `max( ..., 0.01 )` floor on the powered distance, and
+ * the squared window that switches on the moment `cutoffDistance` is greater than zero.
+ *
+ * 🚩 **THE HARDCODED `1 / d²` IS THE DEFECT THIS FUNCTION REPLACES.** Both selftests measured a
+ * caster's contribution as `intensity / d²` and said so in a comment — *"with `distance` 0 and
+ * `decay` 2 the distance term is a plain inverse square"* — which is true, and is a PREMISE about
+ * two fields the same gate never read. An oracle that assumes the value of a field cannot test it.
+ * Written this way, `decay` and `distance` are inputs to the answer, so a caster at `decay` 1 or
+ * `distance` 1.2 fails the delivery equality on arithmetic rather than on a named check.
+ *
+ * @param {number} lightDistance - metres from the light to the receiving point.
+ * @param {number} cutoffDistance - `SpotLight.distance`; 0 disables the window entirely.
+ * @param {number} decayExponent - `SpotLight.decay`; 2 is inverse square.
+ * @returns {number} the scalar three multiplies the light's colour by, for distance alone.
+ */
+export function distanceAttenuation( lightDistance, cutoffDistance, decayExponent ) {
+
+    let falloff = 1 / Math.max( Math.pow( lightDistance, decayExponent ), 0.01 );
+
+    if ( cutoffDistance > 0 ) {
+
+        const ratio = lightDistance / cutoffDistance;
+        const window = Math.min( 1, Math.max( 0, 1 - ratio * ratio * ratio * ratio ) );
+
+        falloff *= window * window;
+
+    }
+
+    return falloff;
+
+}
+
+/**
+ * Everything a `SpotLight` multiplies its colour by at one point, except the receiver's own cosine.
+ *
+ * `SpotLightNode.setupDirect` is `colorNode x spotAttenuation x getDistanceAttenuation`, and
+ * `getSpotAttenuation` is `smoothstep( cos angle, cos( angle x (1 − penumbra) ), cos θ )` with θ
+ * measured from the axis the TARGET defines. All four of `angle`, `penumbra`, `decay` and
+ * `distance` therefore enter here, which is the point: one function, four fields, no premises.
+ *
+ * ⚠️ Axis and distance are taken from `position` and `target.position` rather than from
+ * `matrixWorld`, because a headless rig never runs `updateMatrixWorld`. That is only the same thing
+ * while both objects are direct children of the scene with no transform above them — which is a
+ * claim about the graph, so `lightRenderState` reports `parentIsScene` and the gate asserts it
+ * rather than leaving it as an assumption in this comment (LEARNINGS §1.25l).
+ *
+ * @param {import('three').SpotLight} spot
+ * @param {import('three').Vector3} point - world position of the receiving point.
+ * @returns {number} irradiance per unit `intensity` at that point.
+ */
+export function spotIrradianceFactor( spot, point ) {
+
+    _axis.copy( spot.target.position ).sub( spot.position ).normalize();
+    _toPoint.copy( point ).sub( spot.position );
+
+    const distance = _toPoint.length();
+    const cosine = distance === 0 ? 1 : _axis.dot( _toPoint ) / distance;
+
+    const coneCos = Math.cos( spot.angle );
+    const penumbraCos = Math.cos( spot.angle * ( 1 - spot.penumbra ) );
+
+    const t = penumbraCos === coneCos
+        ? ( cosine >= coneCos ? 1 : 0 )
+        : Math.min( 1, Math.max( 0, ( cosine - coneCos ) / ( penumbraCos - coneCos ) ) );
+
+    const cone = t * t * ( 3 - 2 * t );
+
+    return cone * distanceAttenuation( distance, spot.distance, spot.decay );
+
+}
+
+/**
+ * Fields that exist on every `Object3D` and cannot change what a LIGHT contributes, each with the
+ * reason it cannot. Verified by grep over `three/src/nodes/**` and `three/src/renderers/common/**`
+ * at three 0.185.1 — a field is inert here only if no shading path reads it FOR A LIGHT, not
+ * merely because it looks like bookkeeping.
+ */
+const INERT_ON_ANY_LIGHT = {
+    isObject3D: 'a type brand',
+    uuid: 'keys the node cache (`AnalyticLightNode.getHash`); a different uuid rebuilds the same light',
+    name: 'labels the shadow render pass in a debug capture and nothing else',
+    type: 'the light node class is chosen by constructor lookup in `NodeLibrary`, not by this string',
+    parent: 'covered instead by `parentIsScene`, which is the property the world-space claim needs',
+    children: 'a light with children still contributes exactly its own term',
+    up: 'consumed by `lookAt`; the result of that call is `quaternion`, which IS classified',
+    rotation: 'the Euler mirror of `quaternion`; the same state read twice',
+    quaternion: 'only a `RectAreaLight` is oriented — a spot points at its target and a hemisphere '
+        + 'light reads its POSITION as the sky axis, so neither consults its own rotation. Promoted '
+        + 'to a read field for `RectAreaLight` below',
+    scale: 'reaches the picture only through `extractRotation( matrixWorld )`, which a `RectAreaLight` '
+        + 'does and no other light here does. Promoted for `RectAreaLight` below — and read the '
+        + 'measurement there before assuming which scales matter, because the obvious answer is wrong',
+    matrix: 'the local composition of position/quaternion/scale, all three of which ARE classified',
+    matrixWorld: 'ditto, one level up, and equal to `matrix` while `parentIsScene` holds',
+    matrixAutoUpdate: 'decides WHEN `matrix` is recomposed, not what it recomposes to',
+    matrixWorldAutoUpdate: 'as above',
+    matrixWorldNeedsUpdate: 'a dirty flag',
+    receiveShadow: 'read on the objects being SHADED (`AnalyticLightNode.setup`), never on the light',
+    frustumCulled: 'lights are collected in `_projectObject` before any frustum test',
+    renderOrder: 'orders draw calls; lights are not drawn',
+    animations: 'clip storage',
+    customDepthMaterial: 'used when a MESH is rendered into a shadow map',
+    customDistanceMaterial: 'as above',
+    static: 'a hint to the render-list cache; the same light either way',
+    pivot: 'consumed by `updateMatrix`, i.e. folded into `matrix`',
+    userData: 'application storage, read by nothing in three',
+    isLight: 'a type brand'
+};
+
+/** Per-class inert fields, same rule and same evidence. */
+const INERT_BY_CLASS = {
+    RectAreaLight: { isRectAreaLight: 'a type brand' },
+    SpotLight: { isSpotLight: 'a type brand' },
+    HemisphereLight: { isHemisphereLight: 'a type brand' }
+};
+
+/**
+ * Fields three reads on every light whatever its class, then the ones it reads per class.
+ *
+ * 🚩 `castShadow` is a READ field on a `RectAreaLight` and on a `HemisphereLight`, which is not the
+ * obvious call — neither can cast (three.js #14161; there is no hemisphere shadow path). It is here
+ * because `AnalyticLightNode.setup` reads the flag before it asks whether the class supports it and
+ * goes straight to `this.light.shadow.shadowNode`, and `light.shadow` is `undefined` on both. The
+ * consequence of setting it is not "nothing", it is a TypeError at first compile. Classifying it as
+ * inert would have been the defensible-sounding answer and the wrong one.
+ */
+const READ_ON_ANY_LIGHT = [ 'color', 'intensity', 'position', 'visible', 'layers', 'castShadow' ];
+
+/**
+ * ⚠️ `scale` IS A READ FIELD ON A `RectAreaLight` AND THE REASON IS NOT THE OBVIOUS ONE.
+ *
+ * The plausible argument — that `extractRotation( matrixWorld )` divides the scale out per axis, so
+ * a non-uniform scale SKEWS the panel basis — is wrong, and it is wrong because `extractRotation`
+ * NORMALISES each column, which removes any positive per-axis scale exactly. Measured on
+ * `/src/lighting.html?frame=body` at 900x1200, WebGPU, element screenshot, one change at a time
+ * with the restore verified clean:
+ *
+ *   | key panel scale | % of the frame moved | worst Δ/255 |
+ *   |-----------------|---------------------:|------------:|
+ *   | (1, 2, 1)       |            **0.00%** |       **0** |
+ *   | (1, −1, 1)      |           **98.86%** |     **140** |
+ *
+ * A MIRROR is what moves it: `.length()` is positive, so a negative scale survives normalisation as
+ * a sign, the basis changes handedness, and the panel's half-height points the other way. The field
+ * stays classified as read because of the second row; the first row is kept because it is exactly
+ * LEARNINGS §1.25h — a plausible mechanism is not a measured effect, and this one is zero.
+ */
+const READ_BY_CLASS = {
+    RectAreaLight: [ 'width', 'height', 'quaternion', 'scale' ],
+    HemisphereLight: [ 'groundColor' ],
+    SpotLight: [ 'distance', 'angle', 'penumbra', 'decay', 'map', 'target', 'shadow' ]
+};
+
+/** Fields three reads that do not exist until somebody sets them. Absent is the declared state. */
+const READ_WHEN_PRESENT = {
+    RectAreaLight: [ 'colorNode' ],
+    SpotLight: [ 'colorNode', 'iesMap' ],
+    HemisphereLight: [ 'colorNode' ]
+};
+
+/** `LightShadow` fields that reach the picture, and the ones that cannot. */
+const INERT_ON_SHADOW = {
+    map: 'the render target itself, allocated by `ShadowNode`',
+    mapPass: 'the VSM intermediate target',
+    matrix: 'recomputed every frame by `LightShadow.updateMatrices`',
+    isSpotLightShadow: 'a type brand',
+    _frustum: 'scratch',
+    _frameExtents: 'scratch',
+    _viewportCount: 'scratch',
+    _viewports: 'scratch'
+};
+
+const _axis = /* @__PURE__ */ new Vector3();
+const _toPoint = /* @__PURE__ */ new Vector3();
+
+/** Values reduced to something a gate can compare and print without caring about class. */
+function plainValue( value ) {
+
+    if ( value === undefined || value === null ) return null;
+    if ( value.isColor === true ) return value.getHex();
+    if ( value.isVector3 === true ) return [ value.x, value.y, value.z ];
+    if ( value.isVector2 === true ) return [ value.x, value.y ];
+    if ( value.isEuler === true ) return [ value.x, value.y, value.z ];
+    if ( value.isQuaternion === true ) return [ value.x, value.y, value.z, value.w ];
+    // `Layers` carries no `isLayers` brand, so it is recognised by its shape.
+    if ( typeof value.test === 'function' && typeof value.mask === 'number' ) return value.mask;
+    if ( value.isTexture === true ) return `texture:${ value.uuid }`;
+    if ( value.isObject3D === true ) return [ value.position.x, value.position.y, value.position.z ];
+
+    return value;
+
+}
+
+/**
+ * 🎯 THE WHOLE-STATE FINGERPRINT. Everything about one light that can change the picture, as a flat
+ * map — plus, and this is the half that makes it a CLOSURE rather than a list, everything about it
+ * that cannot, with a reason each, and anything that fits neither description.
+ *
+ * `unclassified` is the load-bearing return value. A list of named mechanisms cannot know what it
+ * is missing; a closure can, because the object is asked what fields it HAS and every one of them
+ * has to be accounted for. When three adds a field, when a light changes class, or when somebody
+ * sets something nobody has thought about, the field lands in `unclassified` and the gate goes red
+ * naming it — before anybody has to have been bitten by it.
+ *
+ * `missing` is the same instrument pointed the other way: a field this file says three reads, that
+ * the object does not have. That is a rename in the dependency or a light of the wrong class, and
+ * it would otherwise present as a check quietly comparing `undefined` against `undefined`.
+ *
+ * The rig does NOT say what any of these values ought to be. That belongs to the gate, derived from
+ * the placement table, so the two are independent derivations rather than one written twice.
+ *
+ * @param {import('three').Light} light
+ * @returns {{ read: Object<string, *>, inert: Object<string, string>, unclassified: string[], missing: string[] }}
+ */
+export function lightRenderState( light ) {
+
+    const className = light.constructor.name;
+    const readNames = [ ...READ_ON_ANY_LIGHT, ...( READ_BY_CLASS[ className ] ?? [] ) ];
+
+    const inert = { ...INERT_ON_ANY_LIGHT, ...( INERT_BY_CLASS[ className ] ?? {} ) };
+    for ( const name of readNames ) delete inert[ name ];
+
+    const read = {};
+    const missing = [];
+
+    for ( const name of readNames ) {
+
+        if ( name in light === false ) {
+
+            missing.push( name );
+            continue;
+
+        }
+
+        if ( name === 'shadow' ) continue;   // expanded below, one level down
+
+        read[ name ] = plainValue( light[ name ] );
+
+    }
+
+    // The world-space claim every distance in this file makes, stated as state rather than assumed.
+    read.parentIsScene = light.parent !== null && light.parent.isScene === true;
+
+    // Fields that are absent by default and are read the moment they exist.
+    for ( const name of READ_WHEN_PRESENT[ className ] ?? [] ) {
+
+        read[ `optional.${ name }` ] = light[ name ] === undefined ? null : plainValue( light[ name ] );
+
+    }
+
+    const unclassified = Object.keys( light )
+        .filter( ( key ) => key in inert === false && readNames.includes( key ) === false );
+
+    if ( light.shadow !== undefined && light.shadow !== null ) {
+
+        const shadow = light.shadow;
+
+        for ( const key of [ 'intensity', 'bias', 'normalBias', 'radius', 'blurSamples', 'mapSize',
+            'mapType', 'autoUpdate', 'needsUpdate', 'focus', 'aspect', 'biasNode' ] ) {
+
+            if ( key in shadow === false ) missing.push( `shadow.${ key }` );
+            else read[ `shadow.${ key }` ] = plainValue( shadow[ key ] );
+
+        }
+
+        // Absent by default, and each of them replaces a whole stage of the shadow when it is not.
+        for ( const key of [ 'shadowNode', 'filterNode' ] ) {
+
+            read[ `shadow.optional.${ key }` ] = shadow[ key ] === undefined ? null : 'set';
+
+        }
+
+        for ( const key of Object.keys( shadow ) ) {
+
+            if ( key === 'camera' ) continue;
+            if ( key in INERT_ON_SHADOW ) continue;
+            if ( `shadow.${ key }` in read ) continue;
+
+            unclassified.push( `shadow.${ key }` );
+
+        }
+
+        // The shadow camera. `fov` and `aspect` are deliberately NOT read: `SpotLightShadow
+        // .updateMatrices` overwrites both every frame from `light.angle x shadow.focus` and
+        // `mapSize x shadow.aspect`, so the authored pair is inert and its two INPUTS are what the
+        // gate has to hold. `far` is read anyway because `light.distance || camera.far` means a
+        // non-zero cutoff silently takes the far plane over.
+        // `coordinateSystem` is deliberately absent: `ShadowNode.render` assigns it from the render
+        // camera on every shadow pass, so the authored value is never the one used.
+        for ( const key of [ 'near', 'far', 'zoom', 'filmGauge', 'filmOffset' ] ) {
+
+            read[ `shadow.camera.${ key }` ] = plainValue( shadow.camera[ key ] );
+
+        }
+
+        read[ 'shadow.camera.layers' ] = shadow.camera.layers.mask;
+        read[ 'shadow.camera.view' ] = shadow.camera.view === null ? null : 'set';
+
+    }
+
+    return { read, inert, unclassified, missing };
+
+}
+
 // --- the rig ---------------------------------------------------------------------------------
 
 let ltcInstalled = false;
@@ -1067,6 +1423,15 @@ export class LightingRig {
         // `distance` 0 and the default `decay` 2 give plain inverse-square falloff, which is what
         // makes this a redistribution of the panel's light rather than a second, differently
         // behaved light. See the header's note on why this is not a DirectionalLight.
+        //
+        // 🚩 BOTH LINES ARE LOAD-BEARING AND BOTH WERE UNGATED UNTIL THIS ROUND. Measured on
+        // rendered pixels by an independent verifier: `decay` 2 -> 1 moves 41.64% of the frame at
+        // a worst delta of 8/255; `distance` 0 -> 1.2 moves 79.47% at 87/255 and takes the key's
+        // modelling away entirely — because a non-zero `distance` reaches the picture TWICE, once
+        // through the falloff window in `getDistanceAttenuation` and once through
+        // `SpotLightShadow.updateMatrices`, which sets `camera.far = light.distance || camera.far`
+        // and so collapses the shadow frustum as well. Neither is a default three would restore;
+        // both are written here explicitly so the fingerprint has something to hold them to.
         const shadowCaster = new SpotLight( new Color( placement.colour ), 1 );
         shadowCaster.name = `${ placement.name }-shadow`;
         shadowCaster.castShadow = true;
@@ -1192,6 +1557,18 @@ export class LightingRig {
             // what keeps `shadowFraction` a pure redistribution: at the focus the pair delivers
             // exactly the authored irradiance for every value of f, and everywhere else both
             // halves fall off the same way.
+            //
+            // 🚩 `distance * distance` IS THE INVERSE OF `distanceAttenuation` AT `decay` 2 AND
+            // `distance` 0, AND AT NO OTHER SETTING. That is a premise about two fields written
+            // three lines below in `buildUnit`, and a premise stated in a comment is the shape
+            // this gate failed at three times running. It is now held rather than asserted:
+            // `LightingRig.selftest.mjs`'s MAGNITUDE clause measures delivery with
+            // `spotIrradianceFactor`, which reads `decay` and `distance` off the light, so any
+            // other value of either fails here instead of silently redistributing. Deliberately
+            // NOT written as `irradiance * f / distanceAttenuation( ... )` — a coefficient that
+            // adapts to the caster's own falloff would hold the focus and quietly change every
+            // other point in the frame, which is the 41.64% of pixels the `decay` 2 -> 1
+            // injection moved.
             shadowCaster.intensity = placement.shadowFraction * irradiance * distance * distance;
 
             this.frameShadowCamera( shadowCaster, distance, height );

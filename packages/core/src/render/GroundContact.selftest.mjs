@@ -93,6 +93,27 @@
  *                         answers "did anything change", not "is it right". MAGNITUDE and REACH
  *                         below are oracles against the rig's own contract instead.
  *
+ *   THE FINGERPRINT       🎯 AND THE SHAPE A FOURTH TIME, WHICH IS WHY THE LAST BLOCK IS NOT A
+ *                         FIFTH CHECK. Every clause above was written from a defect that had
+ *                         already happened, and `shadowCaster.decay` 2 -> 1 (41.64% of a rendered
+ *                         frame, worst delta 8/255) and `distance` 0 -> 1.2 (79.47%, 87/255) then
+ *                         walked past all four at 65/65. The floor's colour is
+ *                         `albedo x occlusion x incident`, and NOTHING in this file had ever
+ *                         asserted anything about the first two factors' own objects — the mesh,
+ *                         the material or the three uniforms.
+ *
+ *                         `GroundContact.renderState` closes them, and the material half closes
+ *                         itself: it is a DELTA against a freshly constructed
+ *                         `MeshStandardNodeMaterial`, so the closure comes from three's 110 fields
+ *                         rather than from a list of the ones we remembered. Proved red on five
+ *                         mechanisms — `receiveShadow`, `metalness`, `toneMapped`, a uniform out of
+ *                         step with its own mirror, and a tilted plane — every one of which leaves
+ *                         `visibilityAt()` BIT-IDENTICAL, and `visibilityAt` is what the five
+ *                         occlusion blocks above all measure through. Each is also measured IN
+ *                         PIXELS on `/src/lighting.html?frame=body` at 900x1200 and the numbers are
+ *                         beside the clauses, because "this would have shown up in the picture" is
+ *                         the claim, and it is the claim the last three rounds got wrong.
+ *
 
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
@@ -105,7 +126,9 @@
  * The three flags are rejection proofs, each planting a different defect in the shadow-caster half.
  * Each prints how many DISTINCT lights it altered, because a reach counter that counts calls is how
  * the last round's caster-magnitude finding came to be reported against an unchanged rig.
- * Expected: 62/65, 60/65 and 59/65 respectively.
+ * Expected: 72/75, 70/75 and 69/75 respectively — re-measured this round, because the fingerprint
+ * block moved every one of them and a stale expectation in a usage note is a claim with no gate on
+ * it (LEARNINGS §1.25e).
  */
 
 import { Float32BufferAttribute, Matrix4, Uint16BufferAttribute } from 'three';
@@ -122,7 +145,7 @@ import {
 
 // The floor's rendered hue is a PRODUCT, and this file only ever owned one of its two factors.
 // See the REFLECTED COLOUR block at the bottom.
-import { LightingRig, projectedSolidAngle } from './LightingRig.js';
+import { LightingRig, lightRenderState, projectedSolidAngle, spotIrradianceFactor } from './LightingRig.js';
 
 /**
  * 🚩 THE REJECTION PROOF, AS A FLAG. Mirrors `LightingRig.selftest.mjs`'s flag of the same name.
@@ -1229,13 +1252,6 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 
     const linearAlbedo = ( hex ) => [ 16, 8, 0 ].map( ( shift ) => srgbToLinear( ( ( hex >> shift ) & 0xff ) / 255 ) );
 
-    const smoothstep = ( edge0, edge1, x ) => {
-
-        const t = Math.min( 1, Math.max( 0, ( x - edge0 ) / ( edge1 - edge0 ) ) );
-        return t * t * ( 3 - 2 * t );
-
-    };
-
     /** A rig aimed at the body shot, kept as a function so the caster block can read its units. */
     function rigFor( overrides, options = {} ) {
 
@@ -1291,23 +1307,19 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 
             if ( withCasters === false || unit.shadowCaster === null ) continue;
 
-            // three's spot, with `distance` 0 and `decay` 2: intensity x spotAttenuation / d².
-            // `getSpotAttenuation` is smoothstep( cos(angle), cos(angle·(1−penumbra)), cos(θ) ),
-            // and `penumbra` is 1 on every caster this rig builds.
+            // 🚩 THIS USED TO READ `intensity x spotAttenuation / d²` UNDER A COMMENT SAYING "with
+            // `distance` 0 and `decay` 2". Both halves of that premise are fields of the light, and
+            // reading neither of them is how `decay` 2 -> 1 and `distance` 0 -> 1.2 moved 41.64%
+            // and 79.47% of a rendered frame with this file at 65/65. `spotIrradianceFactor` is
+            // three's own `getSpotAttenuation x getDistanceAttenuation` with all four of `angle`,
+            // `penumbra`, `decay` and `distance` taken off the object.
             const spot = unit.shadowCaster;
-            const axis = spot.target.position.clone().sub( spot.position ).normalize();
-            const toSpotPoint = FLOOR_POINT.clone().sub( spot.position );
-            const spotDistance = toSpotPoint.length();
-            const spotDirection = toSpotPoint.clone().normalize();
-
-            const attenuation = smoothstep(
-                Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( spotDirection ) );
-
+            const spotDirection = FLOOR_POINT.clone().sub( spot.position ).normalize();
             const cosSpotReceiver = FLOOR_NORMAL.dot( spotDirection.clone().negate() );
 
             accumulate( cosSpotReceiver <= 0
                 ? 0
-                : spot.intensity * attenuation * cosSpotReceiver / ( spotDistance * spotDistance ),
+                : spot.intensity * spotIrradianceFactor( spot, FLOOR_POINT ) * cosSpotReceiver,
             spot.color );
 
         }
@@ -1524,13 +1536,12 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
             const toPanel = unit.area.position.clone().sub( bodyShot.focus ).length();
             const fromPanel = unit.area.intensity * projectedSolidAngle( unit.area.width, unit.area.height, toPanel );
 
-            const spot = unit.shadowCaster;
-            const axis = spot.target.position.clone().sub( spot.position ).normalize();
-            const toFocus = bodyShot.focus.clone().sub( spot.position );
-            const attenuation = smoothstep( Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ),
-                axis.dot( toFocus.clone().normalize() ) );
-
-            const fromCaster = spot.intensity * attenuation / toFocus.lengthSq();
+            // 🎯 `/ toFocus.lengthSq()` STOOD HERE, AND IT IS WHERE THE THIRD MECHANISM LIVED. It
+            // is the right arithmetic at `decay` 2 and `distance` 0 and it assumes both, so a
+            // caster at `decay` 1 delivered something different to every pixel in the frame while
+            // this equality read exact to 1e-9. Deriving the same number through
+            // `spotIrradianceFactor` turns the assumption into an input.
+            const fromCaster = unit.shadowCaster.intensity * spotIrradianceFactor( unit.shadowCaster, bodyShot.focus );
 
             return { fromPanel, fromCaster, total: fromPanel + fromCaster };
 
@@ -1851,6 +1862,401 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
                 'clean S 0.2661. LEARNINGS §1.11: a structurally different assertion, not a tighter threshold.'
             );
         }
+    }
+}
+
+console.log( '\nTHE WHOLE-STATE FINGERPRINT — because the three blocks above are a list of the\n' +
+    'mechanisms somebody had already been bitten by, and the fourth one walks past a list\n' );
+
+// 🎯 THE SAME SHAPE A FOURTH TIME, AND THIS TIME ANSWERED AS A SET RATHER THAN AS A CHECK.
+//
+// Read the block headers at the top of this file in order. THE ALBEDO gated the floor's own hex,
+// and a verifier turned the rig's key and fill blue and scored 36/36. WHAT LANDS ON IT gated the
+// panels, and a verifier turned the caster blue and scored 47/47. THE CASTER HALF gated the
+// caster's colour, and a gain on it scored 55/55. THE CASTER'S SIZE gated its magnitude, and
+// `shadowCaster.decay` 2 -> 1 and `distance` 0 -> 1.2 scored 65/65 while moving 41.64% and 79.47%
+// of a rendered frame.
+//
+// Every one of those clauses is correct and every one of them was written from a defect that had
+// already happened. What the floor puts in the frame is `albedo x occlusion x incident`, and the
+// third factor is now closed by `lightRenderState` over in `LightingRig.js`. The first two live in
+// this file's own objects — a `Mesh`, a `MeshStandardNodeMaterial` and three uniforms — and NOTHING
+// in this file has ever asserted anything about any of them.
+//
+// 🚩 THE THING WORTH COPYING IS HOW THE MATERIAL HALF IS CLOSED. `MeshStandardNodeMaterial` carries
+// 110 fields; a hand-written list of the interesting ones is the same enumeration that has now
+// failed four times. `GroundContact.renderState` diffs the shipped material against a freshly
+// constructed one instead, so the closure comes from three rather than from us: exactly the fields
+// this file has moved show up, and a field somebody sets later — or a field three adds next
+// release — shows up on the day it moves and not on the day somebody remembers it.
+
+{
+    const shot = { focus: new Vector3( 0, 0.91, 0 ), subjectHeightMetres: 1.825 };
+
+    // Transcribed from `GROUND_EXTENT_IN_HEIGHTS` rather than exported and imported. An imported
+    // constant agrees with itself; a transcription goes red when the extent moves without anybody
+    // saying so, which is the entire job of a fingerprint.
+    const EXTENT_IN_HEIGHTS = 12;
+
+    /**
+     * A synthetic left foot standing on the floor — `foot_l` -> `ball_l`, a 46 mm shell about each,
+     * which is the radius `fitTo` measures off `figure_g050`'s own foot.
+     *
+     * 🚩 IT IS HERE BECAUSE THE FIRST VERSION OF THIS BLOCK FITTED NOTHING, AND THE EVIDENCE IT
+     * PRODUCED WAS WORTHLESS. With no occluders `visibilityAt` returns exactly 1 everywhere, so
+     * "every mutation leaves `visibilityAt` bit-identical" was true of a function that had no
+     * output to move. LEARNINGS §1.3 — ask what a degenerate input would score. With a foot on the
+     * floor the mirror reads 0.6-something under the sole and the claim starts meaning something.
+     */
+    function syntheticFoot() {
+
+        const RADIUS = 0.046;
+
+        const foot = new Bone();
+        foot.name = 'foot_l';
+        foot.position.set( 0, 0.055, -0.05 );
+
+        const ball = new Bone();
+        ball.name = 'ball_l';
+        ball.position.set( 0, -0.01, 0.09 );
+
+        foot.add( ball );
+        foot.updateMatrixWorld( true );
+
+        const positions = [];
+        const indices = [];
+        const weights = [];
+
+        for ( let step = 0; step < 48; step += 1 ) {
+
+            const angle = ( step / 48 ) * Math.PI * 2;
+
+            for ( const [ boneIndex, alongZ ] of [ [ 0, -0.03 ], [ 0, 0.0 ], [ 0, 0.03 ], [ 1, 0.10 ], [ 1, 0.13 ] ] ) {
+
+                positions.push( Math.cos( angle ) * RADIUS, 0.055 + Math.sin( angle ) * RADIUS, -0.05 + alongZ );
+                indices.push( boneIndex, 0, 0, 0 );
+                weights.push( 1, 0, 0, 0 );
+
+            }
+
+        }
+
+        const geometry = new BufferGeometry();
+        geometry.setAttribute( 'position', new Float32BufferAttribute( positions, 3 ) );
+        geometry.setAttribute( 'skinIndex', new Uint16BufferAttribute( indices, 4 ) );
+        geometry.setAttribute( 'skinWeight', new Float32BufferAttribute( weights, 4 ) );
+
+        const mesh = new SkinnedMesh( geometry, new MeshStandardNodeMaterial() );
+        mesh.bind( new Skeleton( [ foot, ball ] ), new Matrix4() );
+        mesh.add( foot );
+        mesh.updateMatrixWorld( true );
+
+        return mesh;
+
+    }
+
+    const groundIn = ( options = {} ) => {
+
+        const ground = new GroundContact( options );
+
+        ground.attachTo( new Scene() );
+        ground.sizeTo( shot );
+        ground.fitTo( syntheticFoot() );
+
+        return ground;
+
+    };
+
+    // The material this file authors, stated as a delta against stock and as nothing else. Three
+    // entries, and a fourth is a FAILURE rather than a curiosity.
+    const DECLARED_MATERIAL_DELTAS = {
+        color: { is: '#968c34', stock: '#ffffff' },
+        roughness: { is: '0.9', stock: '1' },
+        colorNode: { is: 'node', stock: 'null' }
+    };
+
+    const declaredMesh = {
+        position: [ shot.focus.x, 0, shot.focus.z ],
+        rotation: [ -Math.PI / 2, 0, 0 ],
+        scale: [ shot.subjectHeightMetres * EXTENT_IN_HEIGHTS, shot.subjectHeightMetres * EXTENT_IN_HEIGHTS, 1 ],
+        receiveShadow: true,
+        castShadow: false,
+        visible: true,
+        layers: 1,
+        renderOrder: 0,
+        frustumCulled: true,
+        geometry: 'PlaneGeometry 1x1'
+    };
+
+    const sameValue = ( actual, expected ) => Array.isArray( expected )
+        ? Array.isArray( actual ) && actual.length === expected.length
+            && actual.every( ( entry, index ) => Math.abs( entry - expected[ index ] ) <= 1e-9 )
+        : actual === expected;
+
+    /** Every way one ground's state disagrees with what this file declares, named. */
+    function groundFaults( ground, { declaredDeltas = DECLARED_MATERIAL_DELTAS, occlusion = true } = {} ) {
+
+        const state = ground.renderState();
+        const faults = [];
+
+        for ( const [ key, expected ] of Object.entries( declaredMesh ) ) {
+
+            if ( sameValue( state.mesh[ key ], expected ) === false ) {
+
+                faults.push( `mesh.${ key } reads ${ JSON.stringify( state.mesh[ key ] ) } against a declared ${ JSON.stringify( expected ) }` );
+
+            }
+
+        }
+
+        for ( const [ key, delta ] of Object.entries( state.materialDeltas ) ) {
+
+            if ( key in declaredDeltas === false ) {
+
+                faults.push( `material.${ key } has moved off its stock ${ delta.stock } to ${ delta.is } and nothing declares it` );
+                continue;
+
+            }
+
+            if ( delta.is !== declaredDeltas[ key ].is ) {
+
+                faults.push( `material.${ key } reads ${ delta.is } against a declared ${ declaredDeltas[ key ].is }` );
+
+            }
+
+        }
+
+        for ( const key of Object.keys( declaredDeltas ) ) {
+
+            if ( key in state.materialDeltas === false ) {
+
+                faults.push( `material.${ key } is declared as a delta and now reads its stock value` );
+
+            }
+
+        }
+
+        const expectedUniforms = {
+            albedo: 0x968c34,
+            occlusionEnabled: occlusion,
+            strength: 1,
+            strengthUniform: 1,
+            activeCount: ground.occluders.length,
+            occluderCount: ground.occluders.length,
+            parkedSpheres: MAX_OCCLUDERS - ground.occluders.length
+        };
+
+        for ( const [ key, expected ] of Object.entries( expectedUniforms ) ) {
+
+            if ( state.uniforms[ key ] !== expected ) {
+
+                faults.push( `uniforms.${ key } reads ${ state.uniforms[ key ] } against a declared ${ expected }` );
+
+            }
+
+        }
+
+        return { faults, state };
+
+    }
+
+    {
+        const ground = groundIn();
+        const { faults, state } = groundFaults( ground );
+
+        report(
+            'CLOSURE: the shipped ground moves exactly three material fields off stock, and declares all three',
+            faults.length === 0,
+            faults.length === 0
+                ? `${ Object.keys( state.materialDeltas ).length } delta(s) — ` +
+                    `${ Object.entries( state.materialDeltas ).map( ( [ key, delta ] ) => `${ key } ${ delta.stock }->${ delta.is }` ).join( ', ' ) } — ` +
+                    `against a stock MeshStandardNodeMaterial, plus ${ Object.keys( declaredMesh ).length } mesh field(s) and ` +
+                    `${ Object.keys( state.uniforms ).length } uniform(s) exact. metalness, emissive, envMapIntensity, ` +
+                    'toneMapped, shadowSide, flatShading and every other field three carries are at their defaults ' +
+                    'and would appear here on the day one of them stopped being'
+                : faults.join( '; ' )
+        );
+    }
+
+    {
+        // `occlusion: false` is the plate every attribution in this file's header was measured
+        // against, so its state has to be declared too — otherwise the fingerprint quietly only
+        // covers the shipped configuration, which is how a gate ends up describing one draw.
+        const ground = groundIn( { occlusion: false } );
+        const { faults } = groundFaults( ground, {
+            declaredDeltas: { color: DECLARED_MATERIAL_DELTAS.color, roughness: DECLARED_MATERIAL_DELTAS.roughness },
+            occlusion: false
+        } );
+
+        report(
+            'CLOSURE: `occlusion: false` differs from the shipped ground in exactly ONE field, the colour node',
+            faults.length === 0,
+            faults.length === 0
+                ? 'the flat-albedo plate is the identical plane with `colorNode` back at its stock null — one ' +
+                    'delta fewer and nothing else moved, which is what makes it a valid attribution baseline ' +
+                    'rather than a second, differently-built floor'
+                : faults.join( '; ' )
+        );
+    }
+
+    {
+        // And the light half of the product, closed by the same instrument the rig owns, so this
+        // file is not relying on the other one having been run.
+        const scene = new Scene();
+        const rig = new LightingRig( { preset: 'body' } );
+
+        rig.attachTo( scene, null );
+        rig.aimAt( { ...shot, cameraPosition: new Vector3( 0.39, 0.91, 1.83 ) } );
+
+        const unclassified = [];
+        const missing = [];
+
+        for ( const light of rig.lights ) {
+
+            for ( const key of lightRenderState( light ).unclassified ) unclassified.push( `${ light.name }.${ key }` );
+            for ( const key of lightRenderState( light ).missing ) missing.push( `${ light.name }.${ key }` );
+
+        }
+
+        report(
+            'CLOSURE: the third factor — every field of every light in the rig that lands on this floor is classified',
+            unclassified.length === 0 && missing.length === 0,
+            unclassified.length === 0 && missing.length === 0
+                ? `${ rig.lights.length } light(s) fully accounted for by \`lightRenderState\`. The floor's colour is ` +
+                    'albedo x occlusion x INCIDENT, and this file owns the first two; the third is closed over there ' +
+                    'and asserted here so neither file depends on the other having been run'
+                : `UNCLASSIFIED ${ unclassified.join( ', ' ) }; MISSING ${ missing.join( ', ' ) }`
+        );
+    }
+
+    // --- proved red, four mechanisms, none of them a colour and none of them a light ----------
+    //
+    // 🚩 RULE 4. Every one of these leaves `visibilityAt()` BIT-IDENTICAL, and `visibilityAt` is
+    // what the Monte-Carlo, union-integrator, CONTRACT, BUDGET and CONTACT PROFILE blocks all
+    // measure through. Between them those five blocks are 40-odd of this file's checks and they are
+    // all a test of one function; none of them looks at the object that carries it.
+
+    const mutations = [
+        {
+            what: 'RECEIVE SHADOW — mesh.receiveShadow true -> false',
+            why: 'the project can afford exactly ONE shadow caster (2.62 ms, more than two and a half ' +
+                'area lights) and it was bought to put the figure on the ground. `AnalyticLightNode.setup` ' +
+                'skips the shadow entirely for an object that does not receive one, so the floor keeps its ' +
+                'occlusion darkening, keeps its albedo, and loses the cast shadow at the feet. Measured ' +
+                '1.49% of a 900x1200 body frame moved at a worst Δ20/255 — the cast shadow is small and it ' +
+                'is the whole of what one 2.62 ms light was bought for.',
+            mutate: ( ground ) => { ground.mesh.receiveShadow = false; }
+        },
+        {
+            what: 'METALNESS — 0 -> 0.4',
+            why: 'the header\'s whole albedo argument rests on "a matte dielectric reflects albedo x ' +
+                'irradiance", which is why multiplying occlusion into the albedo is sound at all. At ' +
+                'metalness 0.4 the diffuse term is 60% of what it was and F0 has taken on the albedo\'s ' +
+                'colour, so the floor reflects the rim\'s blue through a tinted specular the occlusion ' +
+                'term never touches. The one approximation this file flags as load-bearing, unasserted. ' +
+                'Measured 26.31% of a 900x1200 body frame moved at a worst Δ19/255.',
+            mutate: ( ground ) => { ground.mesh.material.metalness = 0.4; }
+        },
+        {
+            what: 'EMISSIVE — material.emissive black -> #101010',
+            why: 'an emissive floor adds light that no occlusion term multiplies, so the contact ' +
+                'darkening this whole file exists to produce is diluted by a constant. It is the one ' +
+                'material field that can defeat the occlusion without touching it. Measured 26.31% of a ' +
+                '900x1200 body frame moved at a worst Δ7/255 — 26.31% is the floor\'s own share of that ' +
+                'frame, so this is EVERY ground pixel, shallowly.',
+            mutate: ( ground ) => { ground.mesh.material.emissive.setHex( 0x101010 ); }
+        },
+        {
+            what: 'TONE MAPPING — material.toneMapped true -> false',
+            why: '⚠️ AND THIS ONE IS HERE WITH ITS PIXEL EFFECT MEASURED AT ZERO, WHICH IS THE POINT. ' +
+                'The plausible story is that the floor stops going through ACES while the figure still ' +
+                'does. Measured: 0.00% of the frame moved, 0/255 — on this page tone mapping is an OUTPUT ' +
+                'pass, so a per-material flag decides nothing. §1.25h. The clause still goes red, and it ' +
+                'should: a closure covers a field BEFORE it matters, and the day the floor gets its own ' +
+                'material-level output the flag stops being inert with nobody having touched this file.',
+            mutate: ( ground ) => { ground.mesh.material.toneMapped = false; }
+        },
+        {
+            what: 'DESYNC — strengthUniform.value 1 -> 0 with `strength` left at 1',
+            why: 'the shader reads the uniform and every CPU mirror in this file reads `this.strength`. ' +
+                'Out of step, `visibilityAt()` reports the full contact darkening — so the CONTACT PROFILE ' +
+                'block passes, the CONTRACT block passes, the union integrator passes — and the rendered ' +
+                'floor has no occlusion on it at all. The gap between a model and the thing that draws. ' +
+                'Measured 19.07% of a 900x1200 body frame moved at a worst Δ108/255 — the second largest ' +
+                'excursion of any ground mechanism, on a change the CPU mirror reports as nothing.',
+            mutate: ( ground ) => { ground.strengthUniform.value = 0; }
+        },
+        {
+            what: 'TILT — the plane rolled 2.9° off horizontal',
+            why: 'the occlusion model, the sphere fit and every number in the header assume a receiver at ' +
+                'y = 0 with normal +Y. A tilted floor changes `normalWorld` under the whole integral and ' +
+                'puts a horizon across the frame, with the material, the uniforms and the light untouched. ' +
+                'Measured 31.20% of a 900x1200 body frame moved at a worst Δ104/255.',
+            mutate: ( ground ) => { ground.mesh.rotation.x += 0.05; }
+        }
+    ];
+
+    console.log( '      injection                                     fingerprint   visibilityAt(0.05, 0)   contact profile' );
+
+    for ( const variant of mutations ) {
+
+        const clean = groundIn();
+        const dirty = groundIn();
+
+        variant.mutate( dirty );
+
+        const { faults } = groundFaults( dirty );
+
+        // The CPU mirror the rest of this file measures through, at two points on the contact
+        // profile — under a sphere and clear of it. Bit-identical is the claim, so it is compared
+        // as an exact equality rather than inside a tolerance.
+        const cleanProfile = [ clean.visibilityAt( 0.05, 0 ), clean.visibilityAt( 0.6, 0 ) ];
+        const dirtyProfile = [ dirty.visibilityAt( 0.05, 0 ), dirty.visibilityAt( 0.6, 0 ) ];
+        const profileMoved = cleanProfile.some( ( value, index ) => value !== dirtyProfile[ index ] );
+
+        console.log( `      ${ variant.what.slice( 0, 45 ).padEnd( 46 ) }${ ( faults.length > 0 ? 'RED' : 'green' ).padEnd( 14 ) }` +
+            `${ dirtyProfile[ 0 ].toFixed( 9 ).padEnd( 24 ) }${ profileMoved ? 'MOVED' : 'bit-identical' }` );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            faults.length > 0 && profileMoved === false,
+            `FINGERPRINT reads ${ faults[ 0 ] ?? 'NOTHING' }, while \`visibilityAt\` is bit-identical at both ` +
+            `sample points (${ dirtyProfile.map( ( value ) => value.toFixed( 9 ) ).join( ', ' ) }) — so the five ` +
+            `blocks above it are all green. ${ variant.why }`
+        );
+
+    }
+
+    // MUST STILL PASS, or a fingerprint this tight would reject every legitimate reconfiguration
+    // and be turned off by the next person who needed one.
+    for ( const variant of [
+        { what: 'a ground sized to a portrait shot', ground: () => {
+
+            const ground = new GroundContact();
+            ground.attachTo( new Scene() );
+            ground.sizeTo( { focus: new Vector3( 0.3, 1.55, -0.2 ), subjectHeightMetres: 0.42 } );
+
+            return { ground, shot: { focus: new Vector3( 0.3, 1.55, -0.2 ), subjectHeightMetres: 0.42 } };
+
+        } }
+    ] ) {
+
+        const { ground, shot: otherShot } = variant.ground();
+        const state = ground.renderState();
+
+        const expectedScale = otherShot.subjectHeightMetres * EXTENT_IN_HEIGHTS;
+
+        report(
+            `MUST PASS: ${ variant.what }`,
+            Math.abs( state.mesh.scale[ 0 ] - expectedScale ) <= 1e-9
+                && Math.abs( state.mesh.position[ 0 ] - otherShot.focus.x ) <= 1e-9
+                && state.mesh.position[ 1 ] === 0
+                && Object.keys( state.materialDeltas ).length === 3,
+            `scale ${ state.mesh.scale[ 0 ].toFixed( 4 ) } m against ${ expectedScale.toFixed( 4 ) } and the plane ` +
+            `still at y = 0 under a focus 1.55 m up, with the same three material deltas — the declaration is ` +
+            'derived from the shot, so a different shot is not a defect'
+        );
+
     }
 }
 

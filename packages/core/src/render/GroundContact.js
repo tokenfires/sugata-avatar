@@ -233,6 +233,30 @@ const FLOOR_ALBEDO = 0x968c34;
 /** Extent of the ground plane in framed subject heights. Large enough to leave frame at both. */
 const GROUND_EXTENT_IN_HEIGHTS = 12;
 
+/**
+ * One material field, reduced to a string a delta scan can compare across two instances.
+ *
+ * Everything unrecognised collapses to its type name rather than to its identity, because two
+ * fresh `{}`s are not `===` and a scan that reported every object field as a difference would be
+ * a closure nobody keeps. A node is reported as present-or-absent for the same reason: two
+ * instances of the same TSL graph are different objects and the same shader.
+ */
+function describeMaterialValue( value ) {
+
+    if ( value === undefined ) return 'undefined';
+    if ( value === null ) return 'null';
+    if ( value.isColor === true ) return `#${ value.getHexString() }`;
+    if ( value.isVector2 === true ) return `(${ value.x }, ${ value.y })`;
+    if ( value.isEuler === true ) return `(${ value.x }, ${ value.y }, ${ value.z })`;
+    if ( value.isTexture === true ) return 'texture';
+    if ( value.isNode === true ) return 'node';
+    if ( typeof value === 'function' ) return 'function';
+    if ( typeof value === 'object' ) return `{${ Object.keys( value ).sort().join( ',' ) }}`;
+
+    return String( value );
+
+}
+
 // --- the occlusion integral --------------------------------------------------------------------
 
 /**
@@ -559,6 +583,82 @@ export class GroundContact {
         this.mesh.removeFromParent();
         this.mesh.geometry.dispose();
         this.mesh.material.dispose();
+
+    }
+
+    /**
+     * 🎯 THE WHOLE-STATE FINGERPRINT, THE GROUND'S HALF. Same instrument as `lightRenderState` in
+     * `LightingRig.js`, pointed at the surface rather than at the light, and here for the same
+     * reason: this file's gate has twice been a list of the mechanisms somebody had already been
+     * bitten by. It gated the albedo's own hex, then the light that lands on it, then the caster
+     * half of that light — three rounds, three named mechanisms, and every round's clause was
+     * written after the defect rather than before it.
+     *
+     * What a matte plane puts in the frame is `albedo x occlusion x incident`, and the first two
+     * factors live entirely in the objects this method describes. The light is the third and is
+     * held by `lightRenderState`.
+     *
+     * 🚩 THE MATERIAL HALF IS A DELTA AGAINST A STOCK `MeshStandardNodeMaterial`, NOT A LIST OF
+     * FIELDS. A `MeshStandardNodeMaterial` carries 110 fields at three 0.185.1 and a hand-written
+     * list of the interesting ones is exactly the enumeration that keeps failing. Diffing against a
+     * freshly constructed material instead makes the CLOSURE come from three: every field this
+     * file has moved away from its default shows up, including the ones nobody has thought of, and
+     * including the ones three adds next release. `envMapIntensity`, `emissive`, `flatShading`,
+     * `aoMapIntensity`, `shadowSide`, `toneMapped`, `dithering` — none of them is named anywhere in
+     * this file, all of them change what the floor looks like, and all of them are covered by the
+     * fact that they are currently at their defaults and would stop being.
+     *
+     * @returns {{ mesh: Object, materialDeltas: Object, uniforms: Object }}
+     */
+    renderState() {
+
+        const material = this.mesh.material;
+        const reference = new MeshStandardNodeMaterial();
+        const materialDeltas = {};
+
+        for ( const key of Object.keys( material ) ) {
+
+            // `uuid` is a fresh string per instance and `version` counts recompiles; neither can
+            // change a pixel. Everything else is compared.
+            if ( key === 'uuid' || key === 'version' ) continue;
+
+            const mine = describeMaterialValue( material[ key ] );
+            const stock = describeMaterialValue( reference[ key ] );
+
+            if ( mine !== stock ) materialDeltas[ key ] = { is: mine, stock };
+
+        }
+
+        reference.dispose();
+
+        return {
+            mesh: {
+                position: [ this.mesh.position.x, this.mesh.position.y, this.mesh.position.z ],
+                rotation: [ this.mesh.rotation.x, this.mesh.rotation.y, this.mesh.rotation.z ],
+                scale: [ this.mesh.scale.x, this.mesh.scale.y, this.mesh.scale.z ],
+                // 🚩 `receiveShadow` false and the ONE shadow this project can afford stops landing
+                // on the ground it was bought for. Nothing has ever asserted it.
+                receiveShadow: this.mesh.receiveShadow,
+                castShadow: this.mesh.castShadow,
+                visible: this.mesh.visible,
+                layers: this.mesh.layers.mask,
+                renderOrder: this.mesh.renderOrder,
+                frustumCulled: this.mesh.frustumCulled,
+                geometry: `${ this.mesh.geometry.type } ${ this.mesh.geometry.parameters.width }x${ this.mesh.geometry.parameters.height }`
+            },
+            materialDeltas,
+            uniforms: {
+                albedo: this.albedo,
+                occlusionEnabled: this.occlusionEnabled,
+                strength: this.strength,
+                strengthUniform: this.strengthUniform.value,
+                activeCount: this.activeCount.value,
+                occluderCount: this.occluders.length,
+                // Parked spheres sit at y −1e4 with a 1 mm radius so a wrong count degrades to
+                // "too dark somewhere far away". That is a contract, so it is state.
+                parkedSpheres: this.spheres.filter( ( sphere ) => sphere.y === -1e4 && sphere.w === 0.001 ).length
+            }
+        };
 
     }
 

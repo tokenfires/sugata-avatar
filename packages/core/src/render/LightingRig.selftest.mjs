@@ -35,6 +35,22 @@
  *                   a claim about MAGNITUDE and the first two clauses written to defend it were an
  *                   equality on COLOUR and a test of a SIGN. See the block's own header.
  *
+ *   THE FINGERPRINT 🎯 And the clause that exists because those four are a LIST OF NAMED
+ *                   MECHANISMS. Round one found a wrong caster COLOUR and added a colour equality;
+ *                   round two found a wrong caster INTENSITY and added two more; round three found
+ *                   `decay` 2 -> 1 (41.64% of the frame, worst delta 8/255) and `distance` 0 -> 1.2
+ *                   (79.47%, 87/255, the key's modelling gone) walking past all four at 98/98.
+ *                   Adding a decay check makes it four rounds and four checks.
+ *
+ *                   So this asserts the SET. `lightRenderState` enumerates, from three's own source
+ *                   at 0.185.1, every field the WebGPU path reads to decide what a light puts on
+ *                   the figure — and every field it does not, with a reason each. A field in
+ *                   neither list is a FAILURE, so the gate can go red for a mechanism nobody has
+ *                   met yet, which is the one thing an enumeration of remembered defects cannot do.
+ *                   Every read field is then held to a value derived here from the placement table.
+ *                   Proved red on six mechanisms, none of them decay or distance, with PREMISE,
+ *                   MAGNITUDE and REACH green on all six.
+ *
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
  *
@@ -46,17 +62,22 @@
  * The three flags are rejection proofs, each planting a different defect in the shadow-caster
  * half. Every one of them prints how many DISTINCT lights it altered, because a reach counter that
  * counts calls is how the last round's caster-magnitude finding came to be reported against a rig
- * that had not changed. Expected: 87/98, 85/98 and 90/98 respectively.
+ * that had not changed. Expected: 99/122, 97/122 and 102/122 respectively — re-measured this round,
+ * because adding the fingerprint moved every one of them and a stale expectation in a usage note is
+ * a claim with no gate on it (LEARNINGS §1.25e).
  */
 
-import { Color, PerspectiveCamera, Scene, Vector3 } from 'three/webgpu';
+import { Color, PerspectiveCamera, Scene, UnsignedByteType, Vector3 } from 'three/webgpu';
 
 import {
     LightingRig,
     MAX_AREA_LIGHTS,
+    distanceAttenuation,
+    lightRenderState,
     projectedSolidAngle,
     silhouetteBandFraction,
-    silhouetteBandPixels
+    silhouetteBandPixels,
+    spotIrradianceFactor
 } from './LightingRig.js';
 
 /**
@@ -252,9 +273,12 @@ function deliveredIrradiance( rig, name ) {
     const fromPanel = unit.area.intensity * projectedSolidAngle( unit.area.width, unit.area.height, distance );
 
     // A SpotLight's intensity is a luminous intensity, so what it delivers at the focus is
-    // intensity / d². Reading `intensity` as if it were an irradiance would make every
-    // conservation check below agree with the implementation by sharing its mistake.
-    const fromCaster = unit.shadowCaster === null ? 0 : unit.shadowCaster.intensity / ( distance * distance );
+    // intensity times three's own attenuation. Reading `intensity` as if it were an irradiance
+    // would make every conservation check below agree with the implementation by sharing its
+    // mistake — and so, less obviously, would writing `intensity / d²`, which was what stood here
+    // until this round. `/ d²` is the right answer at `decay` 2 and `distance` 0 and is a PREMISE
+    // about two fields no gate in the repo read. `spotIrradianceFactor` reads both off the light.
+    const fromCaster = unit.shadowCaster === null ? 0 : unit.shadowCaster.intensity * spotIrradianceFactor( unit.shadowCaster, rig.focus );
 
     return { fromPanel, fromCaster, total: fromPanel + fromCaster, distance };
 
@@ -1171,13 +1195,6 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
         subjectHeightMetres: 1.825
     };
 
-    const smoothstep = ( edge0, edge1, x ) => {
-
-        const t = Math.min( 1, Math.max( 0, ( x - edge0 ) / ( edge1 - edge0 ) ) );
-        return t * t * ( 3 - 2 * t );
-
-    };
-
     /**
      * 🚩 THE DEFECT INJECTOR, and it goes through the REAL construction path.
      *
@@ -1274,25 +1291,28 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 
             if ( withCasters === false || unit.shadowCaster === null ) continue;
 
-            // three's spot: `intensity × spotAttenuation × getDistanceAttenuation`, and with
-            // `distance` 0 and `decay` 2 the distance term is a plain inverse square. The axis is
-            // taken from the target's world position, so a caster aimed somewhere other than the
-            // subject is measured where it actually points.
+            // three's spot: `intensity × spotAttenuation × getDistanceAttenuation`. Both terms come
+            // from `spotIrradianceFactor`, which reads `angle`, `penumbra`, `decay` AND `distance`
+            // off the light — the last two used to be assumed here, in a comment that said "with
+            // `distance` 0 and `decay` 2 the distance term is a plain inverse square". The axis is
+            // taken from the target's position, so a caster aimed somewhere other than the subject
+            // is measured where it actually points.
             const spot = unit.shadowCaster;
-            const axis = spot.target.position.clone().sub( spot.position ).normalize();
             const toSpotPoint = FLOOR_POINT.clone().sub( spot.position );
             const spotDistance = toSpotPoint.length();
             const spotDirection = toSpotPoint.clone().normalize();
 
+            // `withCone: false` reproduces the omni reading the header's 1.4575 / 2.1683 came from,
+            // so it drops the cone term and keeps the distance one — read off the light either way.
             const attenuation = withCone
-                ? smoothstep( Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( spotDirection ) )
-                : 1;
+                ? spotIrradianceFactor( spot, FLOOR_POINT )
+                : distanceAttenuation( spotDistance, spot.distance, spot.decay );
 
             const cosSpotReceiver = FLOOR_NORMAL.dot( spotDirection.clone().negate() );
 
             accumulate( spot.position, cosSpotReceiver <= 0
                 ? 0
-                : spot.intensity * attenuation * cosSpotReceiver / ( spotDistance * spotDistance ),
+                : spot.intensity * attenuation * cosSpotReceiver,
             spot.color );
 
         }
@@ -1395,13 +1415,12 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 
         if ( unit.shadowCaster === null ) return { fromPanel, fromCaster: 0, total: fromPanel };
 
-        const spot = unit.shadowCaster;
-        const axis = spot.target.position.clone().sub( spot.position ).normalize();
-        const toFocus = bodyShot.focus.clone().sub( spot.position );
-        const attenuation = smoothstep(
-            Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( toFocus.clone().normalize() ) );
-
-        const fromCaster = spot.intensity * attenuation / toFocus.lengthSq();
+        // 🎯 `/ toFocus.lengthSq()` STOOD HERE FOR TWO ROUNDS AND IT IS THE THIRD MECHANISM'S HOME.
+        // It is the correct arithmetic at `decay` 2 and `distance` 0 and it ASSUMES both, so a
+        // caster at `decay` 1 delivered a different amount of light to every pixel in the frame
+        // while this equality read exact. `spotIrradianceFactor` derives the same number from the
+        // light's own four cone-and-falloff fields, so the assumption became an input.
+        const fromCaster = unit.shadowCaster.intensity * spotIrradianceFactor( unit.shadowCaster, bodyShot.focus );
 
         return { fromPanel, fromCaster, total: fromPanel + fromCaster };
 
@@ -1901,6 +1920,770 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
             `its key still splits ${ delivered.fromCaster.toFixed( 6 ) } of ${ delivered.total.toFixed( 6 ) } into the ` +
             `caster — a share of ${ ( delivered.fromCaster / delivered.total ).toFixed( 9 ) } against the authored ` +
             `${ key.placement.shadowFraction }`
+        );
+    }
+}
+
+console.log( '\n--- the whole-state fingerprint ----------------------------------------------\n' );
+
+// 🎯 THE CLAUSE THAT EXISTS BECAUSE THE FOUR ABOVE WERE A LIST OF NAMED MECHANISMS.
+//
+// Three rounds, three findings, three checks, and the third finding walked past the first two:
+//
+//   round 1  a caster built at the wrong COLOUR        -> PREMISE, an equality on colour
+//   round 2  a caster built at the wrong INTENSITY     -> MAGNITUDE and REACH, two equalities
+//   round 3  `shadowCaster.decay` 2 -> 1, 41.64% of the frame moved, worst delta 8/255
+//            `shadowCaster.distance` 0 -> 1.2, 79.47% of the frame, worst delta 87/255, the key's
+//            modelling visibly gone — and this file read 98/98 through both
+//
+// Adding a decay check would make it four rounds and four checks. The interesting question is not
+// the patch; it is why the same gate fails the same way, and the answer is that every clause above
+// was written from a defect somebody had already been bitten by. An enumeration of remembered
+// mechanisms cannot cover the one nobody has met.
+//
+// So this block asserts a SET instead. `lightRenderState` in `LightingRig.js` enumerates, from
+// three's own source at 0.185.1, every field the WebGPU path reads to decide what a light puts on
+// the figure — and every field it does NOT read, with a reason each. Anything on the object that is
+// in neither list comes back in `unclassified`, and this block goes red naming it. That is the half
+// that outlives a list: it is a CLOSURE over what the object HAS, not a list of what we remembered.
+//
+// Then every read field is compared against a value DERIVED HERE from the placement table and the
+// rig's contract. The two mechanisms above fall out of that table without being named: `decay` and
+// `distance` are read fields with declared values, AND they are inputs to the caster's delivered
+// irradiance, so each of them now fails twice.
+//
+// ⚠️ STATED RATHER THAN CLAIMED: this clause is a SUPERSET of MAGNITUDE and REACH, not an
+// independent peer of them. A displaced caster fails both; a mis-coned caster fails both. That is
+// deliberate — MAGNITUDE and REACH are physical equalities that survive a change of authored
+// intent, while a fingerprint row goes red the moment somebody DECLARES a different cone, which is
+// the right behaviour for state and the wrong behaviour for physics. The rows below prove the
+// containment is strict in the direction that matters: five mechanisms the four clauses above
+// cannot see at all.
+
+{
+    const shots = {
+        portrait: {
+            focus: new Vector3( 0, 1.55, 0 ),
+            cameraPosition: new Vector3( 0.42, 1.57, 1.18 ),
+            subjectHeightMetres: PORTRAIT_HEIGHT_METRES
+        },
+        body: {
+            focus: new Vector3( 0, 0.91, 0 ),
+            cameraPosition: new Vector3( 0.39, 0.91, 1.83 ),
+            subjectHeightMetres: BODY_HEIGHT_METRES
+        }
+    };
+
+    // Transcribed from `AMBIENT` in `LightingRig.js` on purpose rather than imported. An imported
+    // constant agrees with itself; a transcription goes red when somebody moves the sky colour
+    // without saying so, which is the whole job of a fingerprint. Same pattern as the panels-only
+    // spill figure that is carried in two files.
+    const AMBIENT_SKY = 0xb9c4ea;
+    const AMBIENT_GROUND = 0x5a4038;
+
+    /** The unit basis `solve()` builds its azimuths in, re-derived from the shot. */
+    function basisFor( shot ) {
+
+        const toCamera = shot.cameraPosition.clone().sub( shot.focus );
+        toCamera.y = 0;
+        toCamera.normalize();
+
+        return { toCamera, right: new Vector3( toCamera.z, 0, -toCamera.x ), up: new Vector3( 0, 1, 0 ) };
+
+    }
+
+    function placementPosition( placement, rig, shot ) {
+
+        const { toCamera, right, up } = basisFor( shot );
+        const azimuth = placement.azimuthDegrees * Math.PI / 180;
+        const elevation = placement.elevationDegrees * Math.PI / 180;
+
+        return shot.focus.clone()
+            .addScaledVector( toCamera, Math.cos( azimuth ) * Math.cos( elevation ) * placement.distanceInHeights * rig.subjectHeightMetres )
+            .addScaledVector( right, Math.sin( azimuth ) * Math.cos( elevation ) * placement.distanceInHeights * rig.subjectHeightMetres )
+            .addScaledVector( up, Math.sin( elevation ) * placement.distanceInHeights * rig.subjectHeightMetres );
+
+    }
+
+    /**
+     * What every field of every light MUST read, derived from the placement table, the shot and the
+     * rig's own contract — never from the built objects.
+     *
+     * The one field with no closed form here is the caster's `intensity`, and it is derived from
+     * the contract instead of from `LightingRig.js:1195`'s coefficient: the intensity that delivers
+     * exactly `shadowFraction x irradiance` AT THE FOCUS, under the caster's own falloff as
+     * `spotIrradianceFactor` reads it. That is why `decay` and `distance` fail this table on two
+     * rows each — their declared value, and the intensity that value implies.
+     */
+    function declaredState( rig, shot ) {
+
+        const declared = new Map();
+        const height = rig.subjectHeightMetres;
+
+        for ( const unit of rig.units ) {
+
+            const { placement, area, shadowCaster } = unit;
+
+            const distance = placement.distanceInHeights * height;
+            const width = placement.widthInHeights * height;
+            const panelHeight = placement.heightInHeights * height;
+            const irradiance = placement.irradiance * rig.exposure;
+            const share = shadowCaster === null ? 0 : placement.shadowFraction;
+            const position = placementPosition( placement, rig, shot );
+
+            declared.set( area.name, {
+                color: placement.colour,
+                intensity: ( 1 - share ) * irradiance / projectedSolidAngle( width, panelHeight, distance ),
+                position: [ position.x, position.y, position.z ],
+                scale: [ 1, 1, 1 ],
+                visible: true,
+                layers: 1,
+                castShadow: false,
+                width,
+                height: panelHeight,
+                parentIsScene: true,
+                'optional.colorNode': null
+            } );
+
+            if ( shadowCaster === null ) continue;
+
+            const coverage = rig.shadowCoverageInHeights * height;
+
+            declared.set( shadowCaster.name, {
+                color: placement.colour,
+                intensity: share * irradiance / spotIrradianceFactor( shadowCaster, rig.focus ),
+                position: [ position.x, position.y, position.z ],
+                visible: true,
+                layers: 1,
+                castShadow: true,
+                distance: 0,
+                angle: Math.atan2( coverage, distance ),
+                penumbra: 1,
+                decay: 2,
+                map: null,
+                target: [ shot.focus.x, shot.focus.y, shot.focus.z ],
+                parentIsScene: true,
+                'optional.colorNode': null,
+                'optional.iesMap': null,
+                'shadow.intensity': 1,
+                'shadow.bias': -0.0002,
+                'shadow.normalBias': 0.02,
+                'shadow.radius': 1,
+                'shadow.blurSamples': 8,
+                'shadow.mapSize': [ rig.shadowMapSize, rig.shadowMapSize ],
+                'shadow.mapType': UnsignedByteType,
+                'shadow.autoUpdate': true,
+                'shadow.needsUpdate': false,
+                'shadow.focus': 1,
+                'shadow.aspect': 1,
+                'shadow.biasNode': null,
+                'shadow.optional.shadowNode': null,
+                'shadow.optional.filterNode': null,
+                'shadow.camera.near': Math.max( 0.01, distance - height ),
+                'shadow.camera.far': distance + height * 8,
+                'shadow.camera.zoom': 1,
+                'shadow.camera.filmGauge': 35,
+                'shadow.camera.filmOffset': 0,
+                'shadow.camera.layers': 1,
+                'shadow.camera.view': null
+            } );
+
+        }
+
+        if ( rig.ambientLight !== null ) {
+
+            declared.set( rig.ambientLight.name, {
+                color: AMBIENT_SKY,
+                groundColor: AMBIENT_GROUND,
+                intensity: rig.irradianceOf( 'key' ) * rig.ambientFractionOfKey,
+                // 🚩 A `HemisphereLight` has no direction of its own: `HemisphereLightNode`
+                // NORMALISES ITS WORLD POSITION and uses that as the sky axis. Nothing in this repo
+                // had ever said so, and a rig that placed its ambient light the way it places the
+                // other four would tilt the whole sky gradient across the figure.
+                position: [ 0, 1, 0 ],
+                visible: true,
+                layers: 1,
+                castShadow: false,
+                parentIsScene: true,
+                'optional.colorNode': null
+            } );
+
+        }
+
+        return declared;
+
+    }
+
+    const sameValue = ( actual, expected ) => {
+
+        if ( Array.isArray( expected ) ) {
+
+            return Array.isArray( actual ) && actual.length === expected.length
+                && actual.every( ( entry, index ) => sameValue( entry, expected[ index ] ) );
+
+        }
+
+        if ( typeof expected === 'number' && Number.isInteger( expected ) === false ) {
+
+            return Math.abs( actual - expected ) <= Math.max( 1e-9, Math.abs( expected ) * 1e-9 );
+
+        }
+
+        return actual === expected;
+
+    };
+
+    const show = ( value ) => Array.isArray( value )
+        ? `[${ value.map( ( entry ) => typeof entry === 'number' ? entry.toFixed( 6 ) : entry ).join( ', ' ) }]`
+        : ( typeof value === 'number' && Number.isInteger( value ) === false ? value.toFixed( 9 ) : String( value ) );
+
+    /**
+     * Every fault in one rig: unclassified fields, missing fields, declared-vs-measured mismatches,
+     * and the two panel-orientation invariants that have no scalar form.
+     */
+    function fingerprintFaults( rig, shot ) {
+
+        const declared = declaredState( rig, shot );
+
+        const unclassified = [];
+        const missing = [];
+        const mismatched = [];
+        const undeclared = [];
+        let rows = 0;
+
+        for ( const light of rig.lights ) {
+
+            const state = lightRenderState( light );
+
+            for ( const key of state.unclassified ) unclassified.push( `${ light.name }.${ key }` );
+            for ( const key of state.missing ) missing.push( `${ light.name }.${ key }` );
+
+            const expected = declared.get( light.name );
+
+            if ( expected === undefined ) {
+
+                undeclared.push( `${ light.name } is in the scene and nothing declares it` );
+                continue;
+
+            }
+
+            for ( const [ key, value ] of Object.entries( state.read ) ) {
+
+                if ( key === 'quaternion' ) continue;   // no scalar declaration; see the invariant below
+
+                if ( key in expected === false ) {
+
+                    undeclared.push( `${ light.name }.${ key } is read by three and declared by nobody` );
+                    continue;
+
+                }
+
+                rows += 1;
+
+                if ( sameValue( value, expected[ key ] ) === false ) {
+
+                    mismatched.push( `${ light.name }.${ key } reads ${ show( value ) } against a declared ${ show( expected[ key ] ) }` );
+
+                }
+
+            }
+
+            for ( const key of Object.keys( expected ) ) {
+
+                if ( key === 'quaternion' ) continue;
+                if ( key in state.read === false ) missing.push( `${ light.name }.${ key } is declared and three does not read it` );
+
+            }
+
+        }
+
+        // The panel's ORIENTATION, as the invariant `lookAt` is defined by rather than as a
+        // quaternion nobody can check by eye: a `RectAreaLight`'s local −Z, rotated into the world,
+        // points at the focus. −Z and not +Z because `Object3D.lookAt` takes the CAMERA branch for
+        // anything with `isLight`, building the basis with +Z running from the target back to the
+        // object — measured here as 180.000° before the sign was corrected, which is the cheapest
+        // possible confirmation of which branch runs.
+        //
+        // `RectAreaLightNode.update` extracts exactly this rotation out of `matrixWorld` to build
+        // its half-width and half-height vectors, and a panel turned even slightly away lights
+        // something else — the same half-space cut the header's backdrop wedge is about.
+        for ( const unit of rig.units ) {
+
+            const facing = new Vector3( 0, 0, -1 ).applyQuaternion( unit.area.quaternion );
+            const toFocus = rig.focus.clone().sub( unit.area.position ).normalize();
+
+            rows += 1;
+
+            if ( closeTo( facing.dot( toFocus ), 1, 1e-9 ) === false ) {
+
+                mismatched.push( `${ unit.area.name }.quaternion turns the panel ` +
+                    `${ ( Math.acos( Math.min( 1, facing.dot( toFocus ) ) ) * 180 / Math.PI ).toFixed( 3 ) }° off the focus` );
+
+            }
+
+        }
+
+        return { unclassified, missing, mismatched, undeclared, rows };
+
+    }
+
+    // --- the shipped rig, in both presets and with every light casting ------------------------
+
+    const fingerprintCases = [
+        { what: 'portrait, shipped', preset: 'portrait', overrides: {}, options: {} },
+        { what: 'body, shipped', preset: 'body', overrides: {}, options: {} },
+        {
+            what: 'body, every light casting at a different fraction',
+            preset: 'body',
+            overrides: {
+                key: { shadowFraction: 0.45 }, fill: { shadowFraction: 0.30 },
+                rim: { shadowFraction: 0.60 }, kicker: { shadowFraction: 0.90 }
+            },
+            options: {}
+        },
+        { what: 'portrait, shadows off entirely', preset: 'portrait', overrides: {}, options: { shadows: false } },
+        { what: 'body, ambient off', preset: 'body', overrides: {}, options: { ambient: false } },
+        { what: 'body, a 1024 map and a 4-height cone', preset: 'body', overrides: {}, options: { shadowMapSize: 1024, shadowCoverageInHeights: 4 } }
+    ];
+
+    function rigForFingerprint( variant ) {
+
+        const scene = new Scene();
+        const rig = new LightingRig( { preset: variant.preset, overrides: variant.overrides, ...variant.options } );
+
+        rig.attachTo( scene, null );
+        rig.aimAt( shots[ variant.preset ] );
+
+        return rig;
+
+    }
+
+    for ( const variant of fingerprintCases ) {
+
+        const rig = rigForFingerprint( variant );
+        const faults = fingerprintFaults( rig, shots[ variant.preset ] );
+
+        report(
+            `CLOSURE: ${ variant.what } — every field on every light is classified, and every classified field exists`,
+            faults.unclassified.length === 0 && faults.missing.length === 0 && faults.undeclared.length === 0,
+            faults.unclassified.length === 0 && faults.missing.length === 0 && faults.undeclared.length === 0
+                ? `${ rig.lights.length } light(s), ${ faults.rows } declared field(s) accounted for. An ` +
+                    'enumeration cannot know what it is missing; this asks the objects what they HAVE and ' +
+                    'fails on anything nobody classified — including a field three has not shipped yet.'
+                : `UNCLASSIFIED ${ faults.unclassified.join( ', ' ) || 'none' }; MISSING ` +
+                    `${ faults.missing.join( ', ' ) || 'none' }; UNDECLARED ${ faults.undeclared.join( ', ' ) || 'none' }`
+        );
+
+        report(
+            `FINGERPRINT: ${ variant.what } — every field reads what the placement table says it should`,
+            faults.mismatched.length === 0,
+            faults.mismatched.length === 0
+                ? `${ faults.rows } field(s) exact across ${ rig.lights.length } light(s), tolerance 1e-9 relative — ` +
+                    'these are equalities, and a tolerance wide enough to be an opinion would be a threshold ' +
+                    'wearing an equality\'s name'
+                : `${ faults.mismatched.length } row(s) wrong: ${ faults.mismatched.join( '; ' ) }`
+        );
+
+    }
+
+    // The table itself, printed once, because a fingerprint nobody can read is a hash.
+    {
+        const rig = rigForFingerprint( fingerprintCases[ 1 ] );
+        const caster = rig.lights.find( ( light ) => light.isSpotLight === true );
+        const state = lightRenderState( caster );
+
+        console.log( `\n      the key's caster, all ${ Object.keys( state.read ).length } fields three reads, ` +
+            `and the ${ Object.keys( state.inert ).length } it does not:\n` );
+
+        const keys = Object.keys( state.read );
+
+        for ( let index = 0; index < keys.length; index += 3 ) {
+
+            console.log( '      ' + keys.slice( index, index + 3 )
+                .map( ( key ) => `${ key }=${ show( state.read[ key ] ) }`.slice( 0, 40 ).padEnd( 42 ) ).join( '' ) );
+
+        }
+
+        console.log( `\n      inert: ${ Object.keys( state.inert ).join( ', ' ) }\n` );
+    }
+
+    // --- proved red, five mechanisms, none of them decay or distance --------------------------
+    //
+    // 🚩 RULE 4: A GATE THAT ONLY CATCHES ITS OWN KNOWN-BAD IS DECORATIVE. The two mechanisms this
+    // round was handed are `decay` and `distance`, so they are the two rows that prove least. The
+    // five below were found by reading the closure's own field list and asking, of each, "what
+    // would this do to the picture, and which existing clause would see it?" — which is the search
+    // a list of named mechanisms cannot perform and a closure can.
+    //
+    // Read the four right-hand columns. Every one of them is green on every row.
+
+    function withLightState( mutate, body ) {
+
+        const solve = LightingRig.prototype.solve;
+        const altered = new Set();
+
+        LightingRig.prototype.solve = function () {
+
+            const result = solve.call( this );
+
+            for ( const light of this.lights ) {
+
+                if ( mutate( light ) === true ) altered.add( light );
+
+            }
+
+            return result;
+
+        };
+
+        try {
+
+            return { ...body(), altered: altered.size };
+
+        } finally {
+
+            LightingRig.prototype.solve = solve;
+
+        }
+
+    }
+
+    /** Every clause in this file that could plausibly speak, over one injected rig. */
+    function verdictsUnder( mutate ) {
+
+        return withLightState( mutate, () => {
+
+            const rig = rigForFingerprint( fingerprintCases[ 1 ] );
+            const faults = fingerprintFaults( rig, shots.body );
+
+            const shadowed = rig.units.filter( ( unit ) => unit.shadowCaster !== null );
+
+            // MAGNITUDE and REACH, restated here over the same rig so the columns are comparable.
+            let magnitudeRed = false;
+            let reachRed = false;
+
+            for ( const unit of shadowed ) {
+
+                const spot = unit.shadowCaster;
+                const authored = unit.placement.irradiance * rig.exposure;
+                const toPanel = unit.area.position.distanceTo( rig.focus );
+                const fromPanel = unit.area.intensity * projectedSolidAngle( unit.area.width, unit.area.height, toPanel );
+                const fromCaster = spot.intensity * spotIrradianceFactor( spot, rig.focus );
+                const total = fromPanel + fromCaster;
+
+                if ( closeTo( total / authored, 1, 1e-9 ) === false ) magnitudeRed = true;
+                if ( closeTo( fromCaster / total, unit.placement.shadowFraction, 1e-9 ) === false ) magnitudeRed = true;
+
+                const standoff = unit.placement.distanceInHeights * rig.subjectHeightMetres;
+                const halfExtent = standoff * Math.tan( spot.angle );
+
+                if ( closeTo( halfExtent / ( rig.shadowCoverageInHeights * rig.subjectHeightMetres ), 1, 1e-9 ) === false ) reachRed = true;
+
+            }
+
+            const premiseRed = rig.units
+                .filter( ( unit ) => unit.shadowCaster !== null )
+                .some( ( unit ) => unit.shadowCaster.color.getHex() !== unit.area.color.getHex() );
+
+            return {
+                closureRed: faults.unclassified.length > 0 || faults.missing.length > 0 || faults.undeclared.length > 0,
+                fingerprintRed: faults.mismatched.length > 0,
+                magnitudeRed,
+                reachRed,
+                premiseRed,
+                first: faults.mismatched[ 0 ] ?? faults.unclassified[ 0 ] ?? 'nothing'
+            };
+
+        } );
+
+    }
+
+    const stateKnownBad = [
+        {
+            what: 'SHADOW INTENSITY — shadow.intensity 1 -> 0.5',
+            why: 'a three feature since r165 and named nowhere in this repo. Every shadow the rig casts ' +
+                'is half as dark; the light itself delivers exactly what it always did, so no delivery ' +
+                'equality anywhere can see it. Measured 2.06% of a 900x1200 body frame moved at a worst ' +
+                'Δ23/255 — small in area because one caster casts one shadow, and unmissable where it lands.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.intensity = 0.5;
+                return true;
+
+            }
+        },
+        {
+            what: 'LAYERS — the rim moved onto layer 1',
+            why: '`Renderer._projectObject` collects a light only if `light.layers.test( camera.layers )`, ' +
+                'so the rim is not in the frame at all. Every clause above reads the light OBJECT and ' +
+                'finds it perfect; the renderer never asks it for anything. Measured 24.00% of a 900x1200 ' +
+                'body frame moved at a worst Δ192/255 — the largest single code-value excursion of any ' +
+                'mechanism here, because a rim is the brightest thing on a silhouette.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'rim' ) return false;
+                light.layers.set( 1 );
+                return true;
+
+            }
+        },
+        {
+            what: 'SHADOW FOCUS — shadow.focus 1 -> 1.6',
+            why: '`SpotLightShadow.updateMatrices` sets `camera.fov = 2 x light.angle x focus`, so the ' +
+                'shadow frustum widens by 60% and the map spends its texels on empty studio. REACH ' +
+                'measures `light.angle` and `light.angle` did not move. Measured 0.74% of a 900x1200 ' +
+                'body frame at a worst Δ26/255 — the smallest area of any mechanism here, and it is ' +
+                'the shadow edge, which is exactly where a viewer looks for contact.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.focus = 1.6;
+                return true;
+
+            }
+        },
+        {
+            what: 'SKY AXIS — the hemisphere light tilted to (0.6, 0.8, 0)',
+            why: '`HemisphereLightNode` normalises the light\'s POSITION into the sky axis, so the ' +
+                'ambient gradient rolls 37° across the figure. Nothing else in the repo reads a ' +
+                'hemisphere light\'s position, and its intensity and both colours are untouched. ' +
+                'Measured 42.91% of a 900x1200 body frame moved at a worst Δ12/255 — broad and shallow, ' +
+                'which is the signature of an ambient term and the hardest kind of error to see by eye.',
+            mutate: ( light ) => {
+
+                if ( light.isHemisphereLight !== true ) return false;
+                light.position.set( 0.6, 0.8, 0 );
+                return true;
+
+            }
+        },
+        {
+            what: 'PANEL MIRROR — the key panel scaled 1 x −1 x 1',
+            why: '`RectAreaLightNode.update` builds its half-width and half-height by running ' +
+                '`extractRotation( matrixWorld )` over them, and a NEGATIVE scale survives that — ' +
+                '`.length()` is positive, so the sign stays, the basis changes handedness and the ' +
+                'panel\'s half-height points the other way. Measured 98.86% of a 900x1200 body ' +
+                'frame moved at a worst Δ140/255, with `width`, `height`, `colour`, `intensity` ' +
+                'and `position` every one of them still exactly as authored. ⚠️ AND THE OBVIOUS ' +
+                'VERSION OF THIS DEFECT IS INERT: the first draft used (1, 2, 1) on the argument ' +
+                'that a non-uniform scale skews the basis, and it measured 0.00% moved and 0/255, ' +
+                'because `extractRotation` NORMALISES each column. §1.25h — the mechanism was ' +
+                'plausible, the effect was zero, and only the measurement told the two apart.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'key' ) return false;
+                light.scale.set( 1, -1, 1 );
+                return true;
+
+            }
+        },
+        {
+            what: 'PANEL AIM — the fill panel yawed 11.5° off the focus',
+            why: 'the orientation invariant is hand-rolled rather than a declared scalar, so it needs its ' +
+                'own proof. A `RectAreaLight` lights only the half-space in front of its own plane and ' +
+                'LTC integrates the rectangle from the rotated half-width and half-height, so a yawed ' +
+                'panel is a differently-shaped light — with `width`, `height`, `position`, `colour` and ' +
+                '`intensity` every one of them still exactly as authored. Measured 73.17% of a 900x1200 ' +
+                'body frame moved at a worst Δ5/255: nearly the whole picture, two code values deep. ' +
+                'A judge would not see it and every gate in this file was blind to it.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'fill' ) return false;
+                light.rotateY( 0.2 );
+                return true;
+
+            }
+        }
+    ];
+
+    console.log( '      injection                                closure  fingerprint  premise  magnitude  reach' );
+
+    for ( const variant of stateKnownBad ) {
+
+        const verdict = verdictsUnder( variant.mutate );
+
+        console.log( `      ${ variant.what.slice( 0, 40 ).padEnd( 41 ) }${ ( verdict.closureRed ? 'RED' : 'green' ).padEnd( 9 ) }` +
+            `${ ( verdict.fingerprintRed ? 'RED' : 'green' ).padEnd( 13 ) }${ ( verdict.premiseRed ? 'RED' : 'green' ).padEnd( 9 ) }` +
+            `${ ( verdict.magnitudeRed ? 'RED' : 'green' ).padEnd( 11 ) }${ verdict.reachRed ? 'RED' : 'green' }` );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            verdict.fingerprintRed === true && verdict.altered > 0
+                && verdict.premiseRed === false && verdict.magnitudeRed === false && verdict.reachRed === false,
+            `${ verdict.altered } distinct light object(s) altered after solve. FINGERPRINT reads ` +
+            `${ verdict.first }. PREMISE, MAGNITUDE and REACH are all green — ${ variant.why }`
+        );
+
+    }
+
+    // And the two mechanisms the round WAS handed, which now fail twice each: once as a declared
+    // field, and once through the delivered irradiance, because `spotIrradianceFactor` reads both
+    // fields instead of assuming them. Two independent instruments on one defect is the state a
+    // gate should be in after it has been walked past three times.
+    for ( const variant of [
+        {
+            what: 'DECAY — shadowCaster.decay 2 -> 1',
+            rendered: '41.64% of the frame moved, worst delta 8/255, measured on rendered pixels by an ' +
+                'independent verifier while this file read 98/98. Re-measured this round on ' +
+                '`/src/lighting.html?frame=body` at 900x1200 — 96.11% and Δ70/255. ⚠️ The two are NOT in ' +
+                'conflict and neither supersedes the other: they are different pages, different framings ' +
+                'and different recipes, and a defect\'s pixel footprint is a property of the plate ' +
+                '(§1.20). Both say the same thing about the gate, which is that it read green through it.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.decay = 1;
+                return true;
+
+            }
+        },
+        {
+            what: 'CUTOFF — shadowCaster.distance 0 -> 1.2',
+            rendered: '79.47% of the frame moved, worst delta 87/255, the key\'s modelling visibly gone — ' +
+                'because a non-zero cutoff reaches the picture through the falloff window AND through ' +
+                '`camera.far = light.distance || camera.far`. Re-measured this round on ' +
+                '`/src/lighting.html?frame=body` at 900x1200 — 96.08% and Δ140/255, same caveat as the ' +
+                'DECAY row: two plates, two footprints, one defect. 🚩 The far-plane coupling also means ' +
+                'this defect does not clean up after itself — restoring `distance` to 0 leaves ' +
+                '`camera.far` at 1.2, because `light.distance || camera.far` now reads the corrupted ' +
+                'value. Found by a restore check that came back dirty; it is why the pixel run puts this ' +
+                'mechanism last.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.distance = 1.2;
+                return true;
+
+            }
+        }
+    ] ) {
+
+        const verdict = verdictsUnder( variant.mutate );
+
+        report(
+            `KNOWN-BAD: ${ variant.what } — the mechanism this round was handed`,
+            verdict.fingerprintRed === true && verdict.magnitudeRed === true && verdict.altered > 0,
+            `${ verdict.altered } caster(s) altered. FINGERPRINT reads ${ verdict.first }, and MAGNITUDE is ` +
+            `independently red because the delivered irradiance is now derived through the light's own ` +
+            `\`decay\` and \`distance\` rather than through a hardcoded 1/d². Rendered: ${ variant.rendered }`
+        );
+
+    }
+
+    // 🚩 THE CLOSURE, PROVED RED IN THE DIRECTION NOTHING ELSE CAN REACH: a field three reads that
+    // this repo has never heard of. Simulated by removing one entry from the classification, which
+    // is byte-for-byte what a three upgrade adding a field looks like from in here.
+    {
+        const rig = rigForFingerprint( fingerprintCases[ 1 ] );
+        const caster = rig.lights.find( ( light ) => light.isSpotLight === true );
+
+        caster.somethingThreeAddedInR186 = 0.5;
+
+        const state = lightRenderState( caster );
+
+        report(
+            'CLOSURE catches what NO clause in this file could: a field nobody has classified',
+            state.unclassified.length === 1 && state.unclassified[ 0 ] === 'somethingThreeAddedInR186',
+            `an unrecognised field on a caster comes back as ${ JSON.stringify( state.unclassified ) } rather than ` +
+            'being silently ignored. This is the only assertion in the repo that can go red for a defect ' +
+            'that does not exist yet, and it is the reason this block is a closure rather than a sixth clause.'
+        );
+
+        delete caster.somethingThreeAddedInR186;
+    }
+
+    // 🚩 AND THE OTHER DIRECTION, because a closure asserted one way is half a closure. A field
+    // this file says three reads that the object does not have is a rename in the dependency or a
+    // light of the wrong class, and without `missing` it presents as a check quietly comparing
+    // `undefined` with `undefined` and passing. Simulated by deleting `decay`, which is exactly
+    // what a three release renaming it would look like from in here.
+    {
+        const rig = rigForFingerprint( fingerprintCases[ 1 ] );
+        const caster = rig.lights.find( ( light ) => light.isSpotLight === true );
+
+        delete caster.decay;
+
+        const state = lightRenderState( caster );
+
+        report(
+            'CLOSURE, THE OTHER WAY: a field this file expects and three no longer has',
+            state.missing.length === 1 && state.missing[ 0 ] === 'decay' && 'decay' in state.read === false,
+            `a caster with no \`decay\` reports missing ${ JSON.stringify( state.missing ) } instead of comparing ` +
+            'undefined against undefined and passing. The value clause and the closure clause fail together ' +
+            'here on purpose: one says the number is wrong, the other says the field is gone, and a gate that ' +
+            'can only say the first cannot survive a dependency upgrade.'
+        );
+
+        caster.decay = 2;
+    }
+
+    // 🚩 STATED LIMIT, AND IT IS THE ONE PLACE THIS CLOSURE DOES NOT REACH.
+    //
+    // `lightRenderState` closes over the LIGHT OBJECTS. Three things outside them also decide what
+    // a light puts on the figure, and saying so is the difference between a closure and a claim to
+    // completeness that is not true:
+    //
+    //   `renderer.shadowMap.enabled`   `AnalyticLightNode.setupShadow` returns immediately when it
+    //                                  is false, so every caster in the rig silently stops casting.
+    //                                  The rig sets it in `attachTo` and it is asserted below.
+    //   `renderer.shadowMap.type`      selects the filter in `ShadowNode.getShadowFilterFn`. Left
+    //                                  at three's default here; owned by `Stage.js`, not this file.
+    //   `object.receiveShadow`         read on the SHADED object, not on the light — `alive.js` and
+    //                                  `lighting.js` set it on the figure, and a figure that does
+    //                                  not receive has no shadow under its own chin.
+    //
+    // The first is this file's to hold, so it is held rather than described.
+    {
+        const scene = new Scene();
+        const fakeRenderer = { shadowMap: { enabled: false, type: 'untouched' } };
+        const rig = new LightingRig( { preset: 'body' } );
+
+        rig.attachTo( scene, fakeRenderer );
+        rig.aimAt( shots.body );
+
+        const withoutShadows = new LightingRig( { preset: 'body', shadows: false } );
+        const otherRenderer = { shadowMap: { enabled: false, type: 'untouched' } };
+
+        withoutShadows.attachTo( new Scene(), otherRenderer );
+
+        report(
+            'THE RENDERER FLAG: attaching a shadowing rig enables the shadow map, and a non-shadowing one does not',
+            fakeRenderer.shadowMap.enabled === true && fakeRenderer.shadowMap.type === 'untouched'
+                && otherRenderer.shadowMap.enabled === false,
+            '`Renderer.shadowMap.enabled` defaults to FALSE on the WebGPU path, and ' +
+            '`AnalyticLightNode.setupShadow` returns immediately when it is false — so a rig handed a ' +
+            'renderer that never had it set builds a perfect caster that casts nothing, and every clause ' +
+            'in this file reads green. It is the one field outside the light objects that this file owns, ' +
+            'and `shadowMap.type` is deliberately left alone because `Stage.js` owns the filter.'
+        );
+    }
+
+    // MUST STILL PASS. A fingerprint that rejects a legitimately reconfigured rig is a fingerprint
+    // nobody will keep, so the cases above already include shadows-off, ambient-off, a different
+    // map size and a different cone. This is the last one and the sharpest: the browsercheck's own
+    // slider path, which is what `overrides` exists for.
+    {
+        const scene = new Scene();
+        const rig = new LightingRig( {
+            preset: 'body',
+            exposure: 1.4,
+            overrides: { fill: { irradiance: 3.1, colour: 0xffffff }, rim: { elevationDegrees: 55 } }
+        } );
+
+        rig.attachTo( scene, null );
+        rig.aimAt( shots.body );
+
+        const faults = fingerprintFaults( rig, shots.body );
+
+        report(
+            'MUST PASS: a rig re-exposed and overridden the way the browsercheck sliders do it',
+            faults.mismatched.length === 0 && faults.unclassified.length === 0 && faults.undeclared.length === 0,
+            faults.mismatched.length === 0
+                ? `exposure 1.4, the fill at 3.1 and white, the rim 29° higher: ${ faults.rows } field(s) still ` +
+                    'exact, because every declaration is derived from the placement table rather than pinned ' +
+                    'to the shipped numbers'
+                : faults.mismatched.join( '; ' )
         );
     }
 }

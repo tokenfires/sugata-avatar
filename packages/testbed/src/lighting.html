@@ -122,6 +122,19 @@
         </div>
     </div>
 
+    <!--
+        Every URL parameter this page takes is documented at the top of `lighting.js`. The two
+        worth knowing about from here, because they change the picture and leave no mark on it:
+
+            ?statedefect=decay|cutoff|shadowintensity|shadowfocus|rimlayer|skyaxis|panelmirror|panelaim
+            ?grounddefect=receiveshadow|metalness|emissive|desync|tilt|tonemapped
+
+        Each plants one whole-state defect on the real rig or the real floor, so the fingerprint
+        clauses in `LightingRig.selftest.mjs` and `GroundContact.selftest.mjs` can be checked
+        against rendered pixels. On a `?bare` plate they are indistinguishable from a clean one by
+        eye — that is the property they demonstrate — so the plate is identified by its URL, by
+        `__LIGHTING_INFO__().stateDefect`, and by a console warning on load.
+    -->
     <script type="module" src="./lighting.js"></script>
 </body>
 </html>
