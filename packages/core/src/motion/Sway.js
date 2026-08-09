@@ -669,35 +669,85 @@ const LATERAL_HEAD_PER_CENTRE_OF_MASS = 1.0;
  * couple — shares summing to 0 — leaves the authored shoulder line untouched at ANY angle: measured
  * -2.90° against the pose's -2.91° at every head target from 1.0 down to 0.3.
  *
- * 🚩 AND THIS RIG CANNOT AFFORD A PURE ONE, WHICH IS THE PART A SUCCESSOR NEEDS. The three spine
- * joints sit at 959.7, 1025.8 and 1101.0 mm and the shoulder joint at 1316.5 — the whole spine is
- * LUMBAR, and there are 215 mm of solid bone above the last joint. A tilt therefore has a 509 mm
- * lever on the head and the best couple has 141 mm, so the same head parking costs 3.6x the angle.
- * Measured, the full couple that parks the head at target 1.0: 12.8° at the waist, and then
+ * 🎯 SO THE SHARES SUM TO ZERO, AND THAT IS NOT A PREFERENCE — IT IS THE ONLY SPREAD UNDER WHICH THE
+ * SHOULDER LINE IS NOT A FUNCTION OF A BALANCE CONSTANT.
  *
- *   - the `spine` bone's skin weights carry the whole abdomen, so a large bend there cancels the
- *     pelvis's own translation inside the hip band. On seeds 1, 42, 777 and 4242 the hip band's 15 s
- *     travel falls from 10.8-13.3 px to 3.2-5.1 px while the HEAD band's falls too, from 11.5-14.4
- *     to 10.1-13.1 — and over the selftest's full twelve, the knee band overtakes the hip and
- *     `head/hip` reads 2.547-3.510 against a 1.400 ceiling. Twenty gates go red.
+ * Any spread whose shares sum to `s` rotates the shoulder girdle by `s x righting`, and the righting
+ * angle is solved at bind from how far this rig's pose overshoots. So with s != 0 the tilt an artist
+ * drew comes out multiplied by a number that depends on the figure's proportions, on the pose's
+ * overshoot and on `LATERAL_HEAD_PER_CENTRE_OF_MASS`. Measured over the family [1, 0, -g] on this
+ * rig, at unit blend, against an authored shoulder line of -2.91 / +3.11 degrees:
  *
- * So the shipped spread gives back 80% of the angle rather than 100%, and puts both halves ABOVE
- * the lumbar — nothing at `spine`, the bend at `chest` and the give-back at `upperChest` — so the
- * abdomen keeps riding the pelvis and only the ribcage shifts. Measured at blend 1.0: shoulder line
- * -1.02° / +1.01°, which is 0.35 and 0.33 of what the pose draws, against 0.08 and 0.05 for the
- * tilt it replaces. Every existing gate stays green, `head/hip` at 1.231-1.383 against its 1.400
- * ceiling.
+ *     g       righting (deg, L/R)     realised shoulder line / authored
+ *     0.6            4.8 / 5.4                    0.34 / 0.31
+ *     0.8            7.0 / 7.8                    0.52 / 0.50
+ *     0.9            9.1 / 10.1                   0.69 / 0.67
+ *     1.0           12.8 / 14.3                   1.00 / 1.00
  *
- * ⚠️ THAT CEILING IS WHAT DECIDES THIS NUMBER, and it should not be. It is a ratio whose DENOMINATOR
- * is the hip band, and the hip band travels furthest when the abdomen is rigid — so the gate pays
- * for exactly the thing this constant exists to stop. A wider give-back is better on every direct
- * measure and is blocked by it. See TRUNK ARTICULATION in `sway.selftest.mjs`, and read that gate's
- * header before raising this.
+ * Only the last row is a property of the POSE. The others are properties of the solve.
  *
- * Set this to `[ 0.5, 0.3, 0.2 ]` for the tilt it replaces, or to `[ 0, 0, 1 ]` for a give-back
- * that is not a give-back at all. Both are known-bads and both are built by the selftest.
+ * 🚩 WHICH TWO JOINTS, AND WHY IT IS THE LUMBAR ONE. A couple's lever on the head is the DISTANCE
+ * between the bend and the give-back, not the height of either, so the three available pairs cost
+ * very different angles. Measured above the sole: the joints at 959.7, 1025.8 and 1101.0 mm, the
+ * shoulder at 1316.5 and the head at 1516.4.
+ *
+ *     [ 1, 0, -1 ]  spine -> upperChest   lever 141.3 mm   12.8 / 14.3 deg   <- shipped
+ *     [ 0, 1, -1 ]  chest -> upperChest   lever  75.2 mm   24.2 / 26.9 deg
+ *     [ 1, -1, 0 ]  spine -> chest        lever  66.1 mm   27.5 / 30.7 deg
+ *
+ * The widest pair is also the anatomically right one: lateral trunk flexion is led from the lumbar
+ * spine and the thoracic cage counter-curves above it, which is the shape a couple across those two
+ * joints makes. ⚠️ §1.9 — NO SPINE RANGE-OF-MOTION FIGURE EXISTS ANYWHERE IN `research/`, so the
+ * 12.8 / 14.3 degrees is recorded rather than checked against a published limit. It is the angle at
+ * UNIT blend, which is the top of the range: over twelve 420 s traces the per-seed mean |blend| is
+ * 0.087-0.509 and its median across seeds is 0.182, so the typical angle is nearer 2.3 degrees and
+ * the liveliest seed's mean is 6.5.
+ *
+ * 🚩 THE ROUND BEFORE THIS ONE MEASURED THE PURE COUPLE AND REJECTED IT, AND THE REASON WAS AN
+ * INSTRUMENT DEFECT. It recorded that a full give-back takes the hip band's 15 s travel from
+ * 10.8-13.3 px to 3.2-5.1 px and `head/hip` to 2.5-3.5 against a 1.400 ceiling — twenty gates red —
+ * and attributed it to "the `spine` bone's skin weights carry the whole abdomen, so a large bend
+ * there cancels the pelvis's own translation inside the hip band."
+ *
+ * That attribution is wrong, and it is wrong in a way no amount of re-reading the code would find.
+ * The hip band is the 793-976 mm rows of the capture frame. On this figure it holds 89 vertices at
+ * stride 11, of which 56 are on the arm chain from the shoulder joint out and only 33 are pelvis and
+ * thigh — and BOTH of its silhouette edges are arm, because the hands hang wider than the hips. The
+ * band's silhouette centre correlates with an ARM-ONLY reading of the same rows at r = 1.0000 in
+ * every configuration tested, and with its own AXIAL reading at 0.6612. It is an arm-span midpoint
+ * wearing the name of the pelvis.
+ *
+ * The arms are children of the thorax. So the moment the trunk articulates, the arms go inboard with
+ * the ribcage while the pelvis goes outboard, and the statistic reads the cancellation. Measured
+ * over the same twelve seeds, restricted to the band's pelvis and thigh vertices, the pelvis travels
+ * FURTHER under the pure couple than under anything else:
+ *
+ *                        hip band, all 89     hip band, 33 axial     head / hip, axial
+ *     unrighted                7.86-10.18            9.38-11.50            1.47-1.54
+ *     tilt [0.5, 0.3, 0.2]    11.23-13.09           11.21-13.75            0.97-1.11
+ *     [ 0, 1, -0.8 ]           8.87-10.87           11.86-14.46            0.90-1.03
+ *     [ 1, 0, -1 ]              3.60-5.30           13.92-17.03            0.67-0.80
+ *
+ * The pelvis leading the head is what a hip strategy IS. See TRUNK ARTICULATION and GLANCE
+ * LEGIBILITY in `sway.selftest.mjs`, both of which are now stated on the axial reading and record
+ * the arm-inclusive one beside it.
+ *
+ * ⚠️ WHAT THE PURE COUPLE COSTS, MEASURED RATHER THAN WAVED AT. The counter-bend rotates half the
+ * body's mass, so it cuts this pose's centre-of-mass response from 31.3 to 26.1 mm per unit blend —
+ * which means the same commanded centre of pressure needs more blend, and `STANCE_BLEND_LIMIT`
+ * saturates more often. Over four 900 s traces the saturated fraction goes from 0.11-4.36% to
+ * 0.55-10.18% of frames, and the share of the lateral demand left on the ANKLE pendulum — the
+ * mechanism Winter says has no lateral authority — goes from 0.181-0.199 to 0.189-0.256. The loop
+ * closure survives it (0.986-1.012 against a 2% tolerance, worst frame 0.568 mm against 1.5) because
+ * `resolvePendulumDisplacement` hands the residue to the pendulum rather than dropping it. That is a
+ * real price and it is the next thing to attack: it is bounded by the AUTHORED POSE's own response,
+ * not by this constant.
+ *
+ * Set this to `[ 0.5, 0.3, 0.2 ]` for the tilt this replaced, to `[ 0, 0, 1 ]` for a give-back that
+ * is not a give-back at all, or to `[ 0, 1, -0.8 ]` for the 80% partial that shipped for one round.
+ * All three are known-bads and all three are built by the selftest.
  */
-const LATERAL_SHIFT_COUPLE = [ 0.0, 1.0, -0.8 ];
+const LATERAL_SHIFT_COUPLE = [ 1.0, 0.0, -1.0 ];
 
 /**
  * How many passes the righting solve takes. The relation between the counter-bend angle and the
@@ -1009,6 +1059,20 @@ const RIG_UP_AXIS = new Vector3( 0, 1, 0 );
  * upper arms by a couple of degrees and level the head, but at the blends this layer reaches
  * that is under half a degree, and claiming those channels would put Sway into a permanent
  * channel conflict with BodyIdle, IdleMotion and Gaze for a motion nobody can see.
+ *
+ * ⚠️ HALF OF THAT LAST SENTENCE IS STALE AND THE OTHER HALF WAS TESTED THIS ROUND. "Under half a
+ * degree" was true when `POSTURE_HEAD_TRANSFER = 0.20` bounded the blend to 0.077 of the pose; the
+ * blend now reaches 1.0, so the head roll this chain discards is up to 1.7 degrees. And it is half
+ * of an authored PAIR — `weight-left.json`'s neck "+2.0, brings the head back toward vertical" and
+ * head "+1.2, levels the eyes. A contrapposto with a tilted horizon reads as a stumble."
+ *
+ * The head was nevertheless added to this table, measured, and REMOVED again, because it moves
+ * nothing this file can see: every head statistic here is read off the head JOINT's position, and a
+ * rotation of the head bone turns the skull about that joint without moving it. Five 300 s traces
+ * before and after are identical to four decimal places on `r(head-on-neck, neck)` and on the gain.
+ * What it would change is the rendered skull's ROLL, which no gate in this repo measures and which
+ * would cost a permanent overlapping channel with `Gaze`. §1.9: recorded as unlooked-at rather than
+ * shipped on an argument.
  */
 const SWAY_CHAIN = [
     { humanoid: 'hips', parent: null, pendulum: 'lean' },

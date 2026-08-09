@@ -126,6 +126,8 @@ import { findFramePaths, fitPhotometrically, lumaQuantiles } from './heatmap.mjs
 const DEFAULT_BANDS = [
   { name: 'head', top: 0.08, bottom: 0.2 },
   { name: 'shoulder', top: 0.2, bottom: 0.32 },
+  // ⚠️ `hip` is named for the pelvis and measures the ARMS. See `HIP_BAND_CAVEAT_LINES`, which is
+  // printed under every band table this tool renders.
   { name: 'hip', top: 0.42, bottom: 0.52 },
   { name: 'knee', top: 0.62, bottom: 0.72 },
   { name: 'ankle', top: 0.82, bottom: 0.92 },
@@ -978,6 +980,8 @@ function formatReport(report, options) {
     );
     lines.push('');
     lines.push(formatBandTable(report));
+    lines.push('');
+    lines.push(...HIP_BAND_CAVEAT_LINES);
   }
 
   lines.push('');
@@ -991,6 +995,32 @@ function formatReport(report, options) {
 
   return lines.join('\n');
 }
+
+/**
+ * Printed under every band table, because the number this warns about looks perfectly healthy and
+ * the person reading it is a judge who did not write the tool.
+ *
+ * 🚩 MEASURED, offline, on `figure_g050` in `relaxed-standing` at stride 11 — see
+ * `packages/core/src/motion/sway.selftest.mjs`'s BAND PROVENANCE block, which gates every figure
+ * below. A thresholded silhouette cannot exclude the arms, so this instrument cannot be fixed;
+ * it can only be labelled. Narrowing the hip band was considered and rejected — nothing has yet
+ * measured whether a narrowed band still tracks the pelvis on a RENDER, and a caveat is what the
+ * evidence supports.
+ */
+const HIP_BAND_CAVEAT_LINES = [
+  '⚠️ THE HIP BAND\'S SILHOUETTE CENTRE IS AN ARM-SPAN MIDPOINT, NOT THE PELVIS.',
+  '   Of the 89 vertices in the 793–976 mm rows, 56 are on the arm chain from the shoulder joint',
+  '   out and only 33 are pelvis and thigh — and BOTH silhouette edges are hand and forearm,',
+  '   because the hands hang wider than the hips (band width 491.7 mm on a 340 mm pelvis). The',
+  '   band\'s centre correlates with an ARM-ONLY reading of the same rows at r = 1.0000, and with',
+  '   its own pelvis/thigh reading at 0.6612 once the trunk articulates. The arms are children of',
+  '   the thorax.',
+  '',
+  '   So head/hip measured here is a ratio of the head to the ARMS, and it RISES when the trunk',
+  '   articulates correctly: on the ten layers alive.js builds it reads 1.5744–1.6909 where the',
+  '   same clips read 0.7478–0.7939 over the pelvis vertices alone. Do not read this ratio as a',
+  '   claim about the pelvis.',
+];
 
 function formatBandTable(report) {
   // `x coh` sits immediately beside `x SD` because the pair is the finding: on a real clip they

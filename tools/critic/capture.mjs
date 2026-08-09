@@ -47,7 +47,18 @@
 //   | `?cards=0`                   | **30 of 30**        | —                                   |
 //
 // So the render is deterministic to within an alpha-to-coverage resolve on the two hair cards,
-// and the digest was reporting that dust as a determinism failure. The check now compares DECODED
+// and the digest was reporting that dust as a determinism failure.
+//
+// 🚩 THAT ATTRIBUTION IS A PROPERTY OF THE FRAMING IT WAS TAKEN AT — 350×600 on the MSAA-era
+// default — and it is NARROWED AT 3840. Re-measured at 3840×5120 on today's shipped default over
+// 103 loads in seven runs there are TWO residues and the cards are the smaller: the TAAU path
+// leaves 671 of 1053 pairs bit-identical (worst Δ2/255 on 164 px of 19,660,800) while
+// `?aa=msaa&grade=0`, which still has the cards and still has alpha-to-coverage, leaves none —
+// 290 of 290 over 45 loads. The tolerance block below carries the full runs under the same
+// literal token NARROWED AT 3840, so the two cannot be updated one at a time again; `cd2e567`
+// corrected the block and not this header, in the same file, in the same commit.
+//
+// The check now compares DECODED
 // PIXELS against a stated tolerance and reports the magnitude either way; the bit-identical frame
 // count survives as a reported fact rather than as the verdict. LEARNINGS §1.14 is the same shape
 // one level up: a floor and a measurement must be the same KIND of statistic, and "are these two
@@ -214,12 +225,12 @@ const SHEET_BACKGROUND = '0x0b0b0e';
 // this repo because it is reproducible. Reproducible is not representative. Measured on the
 // shipped `Sway` layer at this tool's own 30 fps and full-body framing, seed 1's pelvis never
 // leaves a +-5 px band for as long as fifteen seconds in 420 s — its first sustained transfer
-// arrives at 483.0 s, sixty-three seconds after the clip ends. Judges were asked whether a body
+// arrives at 482.8 s, sixty-three seconds after the clip ends. Judges were asked whether a body
 // shifts its weight while watching a clip that, by the draw, contains no weight shift.
 //
 // It is not a bug in the layer. Duarte's medio-lateral weight shift runs at 0.30/min, so a 420 s
 // clip holds ~2.1 expected arrivals and the magnitude draw is lognormal — most shifts are small.
-// Measured over the twelve seeds `sway.selftest.mjs` gates on, only SEVEN contain a sustained
+// Measured over the twelve seeds `sway.selftest.mjs` gates on, only EIGHT contain a sustained
 // transfer in 420 s and the median wait for the first one is 341 s. This is LEARNINGS §1.4 one
 // level down: the window was sized against the RELAY rate (1.5/min, the pooled fidget-plus-shift
 // process) and the behaviour being judged is governed by the SHIFT rate, five times slower.
@@ -247,13 +258,13 @@ const POSTURAL_CLIP_SECONDS = 420;
  * onset and peak each one was verified at. Both directions are represented on purpose: a judge
  * shown three clips that all load the same leg will report a body that always stands on its left.
  *
- * 4242 leads because its transfer opens at 19.0 s, so it is the one clip that shows the behaviour
+ * 4242 leads because its transfer opens at 18.77 s, so it is the one clip that shows the behaviour
  * even if the reviewer only watches the first minute. 20260807 is `alive.js`'s own default seed.
  */
 const POSTURAL_JUDGEMENT_SEEDS = [
-  { seed: 4242, direction: 'left', onsetSeconds: 19.0, peakPixels: -35.6 },
-  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 31.9 },
-  { seed: 20260807, direction: 'left', onsetSeconds: 232.1, peakPixels: -18.7 },
+  { seed: 4242, direction: 'left', onsetSeconds: 18.77, peakPixels: -40.02 },
+  { seed: 42, direction: 'right', onsetSeconds: 296.70, peakPixels: 35.72 },
+  { seed: 20260807, direction: 'left', onsetSeconds: 231.97, peakPixels: -21.90 },
 ];
 
 /**
@@ -262,11 +273,10 @@ const POSTURAL_JUDGEMENT_SEEDS = [
  * because it is the seed this whole block was written for.
  */
 const POSTURAL_EMPTY_SEEDS = [
-  { seed: 1, firstTransferSeconds: 482.9 },
-  { seed: 7, firstTransferSeconds: 689.5 },
-  { seed: 777, firstTransferSeconds: 968.5 },
-  { seed: 31337, firstTransferSeconds: 411.1 },
-  { seed: 99999989, firstTransferSeconds: 781.3 },
+  { seed: 1, firstTransferSeconds: 482.80 },
+  { seed: 7, firstTransferSeconds: 501.90 },
+  { seed: 777, firstTransferSeconds: 968.37 },
+  { seed: 31337, firstTransferSeconds: 411.03 },
 ];
 
 /**
@@ -788,7 +798,8 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
  * the whole silhouette, which is tens of code values across percent-scale areas of the frame, and
  * the HUD's wall-clock millisecond readout rewrites whole glyphs.
  *
- * 🚩 THE ATTRIBUTION ABOVE IS NARROWER THAN IT READS, AND THE CEILING IS NOT. "The alpha-to-
+ * 🚩 THE ATTRIBUTION ABOVE IS NARROWER THAN IT READS, AND THE CEILING IS NOT — NARROWED AT 3840,
+ * the same token this file's header carries so the pair cannot drift apart again. "The alpha-to-
  * coverage sample resolve on the two hair cards and nothing else" was measured at 350×600 on the
  * MSAA-era default. Re-measured at 3840×5120 on today's shipped default with `--plate`, 103 loads
  * over seven runs: the TAAU path leaves a residue (671 of 1053 pairs bit-identical, worst Δ2 of
