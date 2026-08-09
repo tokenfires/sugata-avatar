@@ -554,7 +554,7 @@ const UNGATED = {
     foundation: { readHere: true, why:
         'PHASE 9.8. Wears the decency floor under whatever ?wear asked for, and implies the ' +
         'wardrobe. Not a shading switch: it adds geometry. Gated by ' +
-        'packages/core/src/wardrobe/decency.selftest.mjs (20 assertions, 48 reachable states, ' +
+        'packages/core/src/wardrobe/decency.selftest.mjs (25 assertions, 48 reachable states, ' +
         'coverage by ray cast). ⚠️ It also changes WHEN the body first draws — with a decencyFloor ' +
         'configured the Wardrobe hides the body until the first dress resolves — which is exactly ' +
         'why it must stay opt-in and why ?wear alone still takes the no-floor path.' },
@@ -563,7 +563,7 @@ const UNGATED = {
         'PHASE 5. Adds affect/ExpressionLayer.js AND affect/PostureLayer.js to the motion stack and ' +
         'settles them. Not a shading switch: it writes MORPH WEIGHTS and BONE ROTATIONS, so it ' +
         'changes the pose of the same materials rather than the materials. Gated by ' +
-        'packages/core/src/affect/affect.selftest.mjs (112 checks), which measures the two things ' +
+        'packages/core/src/affect/affect.selftest.mjs (114 checks), which measures the two things ' +
         'that matter — that the face composes over the viseme rather than replacing it, viseme ' +
         'unchanged to 0.00e+0, and that the BAP prescription reaches a bone at all.' },
 
@@ -598,7 +598,7 @@ const UNGATED = {
     // 🚩 THESE TWO ARE DELIBERATE KNOWN-BADS AND A TOGGLES ROW WOULD BE THE WRONG SHAPE TWICE
     // OVER. They do not turn a subsystem off; they CORRUPT one, and the corruption is invisible on
     // a ?bare plate by construction — that is the property they exist to demonstrate. Their gates
-    // are the light-state and surface fingerprints in LightingRig.selftest.mjs (122 checks) and
+    // are the light-state and surface fingerprints in LightingRig.selftest.mjs (140 checks) and
     // GroundContact.selftest.mjs (75), where each is proved red against a state closure rather
     // than against a pixel count. See packages/testbed/src/light-defects.js.
     statedefect: { readHere: true, why:

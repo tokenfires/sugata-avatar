@@ -998,6 +998,25 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       reproducible to Δ2/255 on 164 px of 19.7 million and its mode is `d3c9946f73e5eaa1`. 3.20 is
       not in question — the pre-3.20 failure was 56.4% of pixels, four orders of magnitude larger —
       but the epoch pin bought a tolerance and not a hash. See the block at the top of this file.
+- [ ] **3.21** Re-measure all fourteen `?statedefect=` switches on **`alive.html` at the objective
+      recipe** — `?bare&freeze&seed=1&capture`, 3840×5120, 60 steps at 60 fps, dpr 1 — and put that
+      column beside the existing `lighting.html` one in `packages/testbed/src/light-defects.js`'s
+      table, each column labelled with its page, framing and step count.
+      🚩 **Converted here from ledger REQ-034, and the conversion is the point: this is a
+      MEASUREMENT CAMPAIGN, not a diff.** Twenty-eight plates at 19.66 Mpx (a defect and a baseline
+      per switch), a per-switch difference over each pair, and a table rebuilt from the result. The
+      ledger is for changes an integrator can apply and adjudicate with a regex; work whose cost is
+      GPU hours belongs on a list that can sequence it. Same disposition and same reasoning as
+      REQ-024 → 9.21.
+      **Why it is worth the hours.** R8 wired the switches onto `alive.html` and spot-measured three
+      of them at 900×1200 portrait: `statedefect=decay` moves **29.21%** of samples at worst Δ16/255
+      there, against **96.11% / Δ70** on `lighting.html` at body framing and **41.64% / Δ8** as an
+      earlier verifier reported on `alive.html`. Three numbers, three recipes, one mechanism. A
+      defect's pixel footprint is a property of the plate (LEARNINGS §1.20), so none of the three is
+      wrong and none of them answers the question a judge asks. One table, one recipe per column.
+      Gate: **MEASURED** — every row of the new column carries the page, the framing and the step
+      count that produced it, and the module's header stops saying the figures are not transferable
+      while offering only one page's worth of them.
 
 ## Phase 4 — Speech
 
@@ -1036,7 +1055,8 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
 ## Phase 5 — Affect
 
 🎯 **5.1, 5.2, 5.4 and 5.5 are DONE**, and the affect half of **6.2** landed with them. Gate for all
-five: `packages/core/src/affect/affect.selftest.mjs`, **112 checks**, every constant re-derived
+five: `packages/core/src/affect/affect.selftest.mjs`, **114 checks** (measured at R10; this line
+said 112, and the commit that added the posture section said 114 in its own message), every constant re-derived
 in-process rather than compared to a literal, and **18 rejection proofs** — all **13** declared
 defect modes across `AffectState`, `ExpressionMap` and `PostureLayer`, plus four structural
 known-bads that are configurations rather than flags. Browsercheck:
@@ -1124,7 +1144,18 @@ attributable.
       mapping. (a) `MAX_CORNER_OFFSET` 0.35 delivers **6.54 mm of `mouthSmileLeft`'s 18.68 mm**
       authored travel; `MAX_CORNER_OFFSET_SILENT` and `VisemeLayer`'s published `shared.speaking`
       landed this round so a caller can raise the cap when nothing is speaking, and nothing yet
-      ramps between them. (b) The ARKit brow shapes on `figure_g050` travel only **6.95 mm**
+      ramps between them.
+      🚩 **THE RAMP IS THIS ITEM'S WORK, converted here from ledger REQ-034's neighbour REQ-032, and
+      the reason it is not a one-line diff is a MISSING CONSTANT.** `ExpressionLayer` clamps
+      unconditionally to `MAX_CORNER_OFFSET`; reading `context.shared.speaking` and ramping between
+      0.35 and 1.0 is four lines. The ramp TIME is not four lines: `MAX_CORNER_OFFSET_SILENT` is 1.0
+      against 0.35, so a hard switch pops the smile **12.14 mm** the instant speech starts, and the
+      only quantity anywhere near it is a viseme onset at ~40–80 ms — a range, from a different
+      mechanism, that nobody has measured against this face. Rule 1 of every fan-out prompt is that
+      a number is not invented; putting an unmeasured time constant on the mouth would be inventing
+      one, in the most visible place on the figure. So the ramp lands with the critic plates this
+      item already asks for, and the constant comes off them. (b) The ARKit brow shapes on
+      `figure_g050` travel only **6.95 mm**
       (`browDown`) and 5.20 mm (`browInnerUp`) at weight 1, against 18.68 mm for the smile and
       38.74 mm for `jawOpen`. (b) is LEARNINGS §1.11c and belongs to the figure pipeline.
       ⚠️ Also expect a note on the eyes: Arellano's AU43 is 1.0 below arousal −0.6, so `bored`
@@ -1405,28 +1436,39 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       regions includes the foundation regions. A body with no garments at all must still render
       the foundation layer. Proven red by removing one foundation piece from the manifest.
 
-      ✅ **MEASURED.** `node packages/core/src/wardrobe/decency.selftest.mjs` — **20 assertions**.
+      ✅ **MEASURED.** `node packages/core/src/wardrobe/decency.selftest.mjs` — **25 assertions**
+      (it read 20 until R9; the five it gained are all about the SAMPLER rather than about cloth).
       48 reachable states swept exhaustively (4 foundation preferences × 16 outer subsets; 16 more
       refused by the conflict rule), plus the empty set, plus `takeOff` of every worn garment in
-      turn, plus 18 samples taken at every point the event loop can yield during 5 outfit changes.
+      turn, plus **165 samples taken at every point the event loop can yield during 6 outfit
+      changes** — and an assertion that no change contributed ZERO of them.
       Coverage is a **RAY CAST** from each of 186 `_DECENCY_*` body vertices into the geometry
       actually drawn at `drawRange`, not from the build's own region sets.
+      🚩 **The sampler was hooked to the fragment LOADER and the one transition this gate exists for
+      was sampled zero times.** A change whose fragments are all cached loads nothing, so the strip
+      back to the floor contributed no samples while the gate's own message counted it as covered.
+      Hooked to the YIELD instead, all six changes are observed (53/53/26/26/4/3), and a burst of 8
+      is measured to have saturated — doubling it observes a cached change no more times.
       🚩 **The garments are NOT mhclo assets.** `build_figure.py --foundation` cuts each one from
       the figure's own skin as a conformal shell at 3 mm, tapered to 0.8 mm at the hem, relaxed and
       reprojected — 0.48–4.20 mm clearance, **0 vertices through the body**, and **ZERO texture
       bytes** across four fragments. ⚠️ Only g050 is built; the shell has no fitting step, so
       another identity is one re-run of the build command.
-      Proven red **four ways in two mechanisms**: a piece removed from the manifest, the floor
-      emptied, a garment **TRIMMED AT THE GUSSET** (manifest, floor and worn set all identical —
-      only the ray cast sees it), and an outer garment that occludes the foundation but no longer
-      hides the skin.
+      Proven red **six ways in three mechanisms**. *Bookkeeping — the wrong garments are worn:* a
+      piece removed from the manifest, and the floor emptied. *Geometry — the right garments are
+      worn and the skin is still visible:* a garment **TRIMMED AT THE GUSSET** (manifest, floor and
+      worn set all identical — only the ray cast sees it), and an outer garment that occludes the
+      foundation but no longer hides the skin. *Coverage — the measurement is correct and is looking
+      at nothing:* the mid-change sampler hooked to the fragment loader, and the same sampler woken
+      only on macrotasks. Each of the last two leaves **2 of 6** changes unobserved — a different
+      cause and the same silent zero — and that third mechanism is the one this item did not have.
       🚩 **A mechanism this item did not anticipate, recorded so a later reader does not read it as
       a violation of "nothing can remove them".** A foundation garment that hides nothing still has
       to be WEARABLE UNDER something, and a conformal shell 3 mm off skin pokes through
       `female_casualsuit01` everywhere the skin would — 9.4's own 26.37% / 9.19 mm baseline. The
       resolution is `_UNDER_<id>` attributes, a rename of the body's own `_hide_<id>`, which stop
       part of a foundation garment being **DRAWN** without ever removing it from `worn`: the vest
-      goes 14,266 → 1,670 drawn triangles under the casual suit, **88.3% occluded, still worn**,
+      goes 25,024 → 4,476 drawn triangles under the casual suit, **82.1% occluded, still worn**,
       and `occlusionOf()` names the occluder. ⚠️ That invariant is structural today — an `_under_`
       attribute cannot exist without the matching `_hide_` — and anything that ever writes one by
       another route breaks it silently.

@@ -71,6 +71,16 @@ in the published paper:
 2. **Shoulder-swing signs are inverted between Table 1 and Table 4** (−90/−45/+25 vs +90/+45/−25).
    Magnitudes agree.
 3. Figure 2's exemplar labels are offset by one row.
+4. 🚩 **Table 1's own stated ad/abduction convention contradicts Coulson's verbal summary, for
+   happiness and for sadness — the two rows a body actuator reads first.** The convention above says
+   *negative = arms above shoulder level (abduction), positive = arms toward trunk (adduction)*. The
+   verbal summary says happiness has **"arms above shoulder level"**, and Table 1 gives happiness
+   **+50**; it says sadness has **"arms at side of trunk"**, and Table 1 gives sadness **−60, −80**.
+   Both are inverted with respect to the stated convention, and they are inverted in opposite
+   directions from each other, so no single global sign flip repairs the column. Found by
+   `affect/PostureLayer.js`, which is why that layer takes **magnitude** from this table and
+   **direction** from BAP, and resolves left-versus-right by measuring at bind time which side of
+   the spine each arm is on rather than by trusting a sign written here.
 
 **Recognition ceilings — this matters for what we can expect a critic to read:**
 

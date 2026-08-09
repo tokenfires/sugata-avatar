@@ -149,7 +149,9 @@ function checkTaxonomy( cat ) {
 
     const unipolar = cat.sliders.filter( ( s ) => s.range === 'unipolar' );
     exact( 'unipolar categories', unipolar.length, 8,
-        'seven head shapes and chin-triangle; §2.2 calls all 203 bidirectional and 8 are not' );
+        'seven head shapes and chin-triangle; §2.2 USED TO call all 203 bidirectional and 8 are '
+        + 'not. It says 195/8 today, and this string is on identityassets.selftest.mjs\'s\n'
+        + 'QUOTATIONS allowlist as a retraction that has to name what it retracts' );
 
     const fileArithmetic = cat.sliders.reduce( ( n, s ) => n + Object.keys( s.ends ).length, 0 );
     exact( 'ends sum to the raw file count', fileArithmetic, CENSUS.detail,

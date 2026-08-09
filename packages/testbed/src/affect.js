@@ -1,7 +1,8 @@
 /**
  * affect — the browsercheck for punch-list 5.1, 5.2, 5.4 and 5.5.
  *
- * `affect.selftest.mjs` proves 91 things about the numbers. It cannot prove a face is LEGIBLE, and
+ * `affect.selftest.mjs` proves 114 things about the numbers — 91 before R9 gave the BAP body
+ * prescription an actuator. It cannot prove a face is LEGIBLE, and
  * LEARNINGS §1.2 is blunt about the difference: "Structural correctness is not visual correctness...
  * If an artifact will ultimately be judged by eye, SOMETHING MUST LOOK AT IT, early." That is what
  * this page is for. It drives the real `ExpressionLayer` through the real `MotionStack` onto the

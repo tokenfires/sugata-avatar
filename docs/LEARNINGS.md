@@ -963,12 +963,13 @@ judge measures.
 
 ---
 
-## §1.25 — Twenty-one lessons about GATES, all of them paid for in whole rounds
+## §1.25 — Twenty-three lessons about GATES, all of them paid for in whole rounds
 
 *(It said "six" through three rounds in which entries g, h, i, j, k, l and m were added under it,
-and "thirteen" through the round that added n through s. A count in a heading is a claim with no
-gate on it — §1.25e, one heading up. Re-derived 2026-08-09 by counting the `### 1.25` headings:
-a through u, twenty-one.)*
+"thirteen" through the round that added n through s, and "twenty-one" through the round that added
+v and w. A count in a heading is a claim with no gate on it — §1.25e, one heading up. Re-derived
+2026-08-09 at R10 by counting the `### 1.25` headings: a through w, **twenty-three**. `grep -c
+'^### 1\.25' docs/LEARNINGS.md`, which is the derivation and not a memory.)*
 
 §1.1 says a gate that has never failed is not known to work, and the repo took that seriously: every
 new gate now ships with a rejection proof. These six are what came back when that discipline was
@@ -1561,6 +1562,17 @@ Three properties turned out to matter, and all three are now mechanised in
   real file, and — the clause that makes it not a rubber stamp — an APPLIED entry's predicate must
   ALSO fail against the tree at the commit the request was filed at, which proves the pattern
   discriminates the change rather than matching something that was always there.
+  ⚠️ **That clause was OPTIONAL for two rounds, and the thing that made it optional was that
+  nothing validated `filed-at`.** The pre-image reader answered *"that commit does not resolve"*
+  with the same `null` it used for *"the file did not exist there"* — an ERROR and an ANSWER sharing
+  a return value — and `matches( verify, null )` is `false`, which is the PASSING side of the
+  discrimination clause. So an unreadable `filed-at` did not weaken the clause; it switched it off,
+  in the green direction. Measured on the real ledger before the fix: an entry with
+  `filed-at: deadbee` and a `verify` of `/const /` — 195 matching lines at HEAD, 144 at the declared
+  pre-image, discriminating nothing — ran `PASS: 11/11, exit 0`. `filed-at` is now held to exactly
+  the standard the ```rounds fence was always held to: hex shape, resolves, is a **commit**, and
+  HEAD descends from it. **A clause is only as strong as the weakest field it reads, and the field
+  it reads is the one nobody thinks to gate.**
 - **An expiry.** OPEN entries are pinned to a round, rounds are pinned to commits, and HEAD may not
   run more than 14 commits past the newest declared round. A request cannot quietly become
   furniture.
@@ -1674,6 +1686,78 @@ and the only one that could have.
 > **When a table is transcribed into code, gate the table's STRUCTURE** — no coincident rows, no
 > duplicate keys, monotone where it should be — **and not only its values, because structure is what
 > a transcription error destroys.**
+
+### 1.25v A SAMPLER THAT REPORTS A COUNT IT DID NOT EARN IS A GATE MEASURING NOTHING AND SAYING SO IN GREEN
+
+`decency.selftest.mjs` sweeps the wardrobe for indecent intermediate frames by starting a change,
+not awaiting it, and sampling the live scene on every turn of the event loop until it settles. The
+hook that woke the sampler was the **fragment loader**. Every fragment a second change needs is
+already cached, so the strip back to the floor — `undress()`, the one transition a decency gate
+exists for — loaded nothing, woke the sampler zero times, and **contributed zero samples while the
+gate's own summary line counted it among the changes covered**. Measured: 2 of 6 changes silently
+unobserved. The same shape a second way, and it is a different cause: a sampler woken only on
+MACROTASKS is blind to a change whose only yields are microtasks, and it too reads 2 of 6.
+
+The measurement was never wrong. The ray cast is exact, the 186 decency vertices are real, the 48
+swept states are real. It was **pointed at nothing** for a third of the states it claimed, and no
+assertion in the file could tell the difference between *"sampled it and it was decent"* and
+*"never sampled it"* — because both produce zero indecent samples.
+
+The repair is one assertion and it is the cheapest in the file: **no change may contribute zero
+samples.** That clause turns "we looked and it was fine" into "we looked", which is the claim that
+was actually missing. The file now proves the sampler red two ways, in a third mechanism beside the
+two the punch-list item named — *bookkeeping* (the wrong garments are worn) and *geometry* (the
+right garments are worn and the skin is visible) now sit beside *coverage* (the measurement is
+correct and is looking at nothing). And the burst length is measured rather than chosen: doubling
+8 to 16 observes a cached change no more times, so 8 has saturated.
+
+> **Every sweep, sample set or fan-out that reports "N states checked" must separately assert that
+> each state contributed at least one observation.** A count of samples is not a count of coverage,
+> and a zero in a per-state histogram is the only place the difference is visible. §1.25a asks
+> whether a gate can catch a defect it was not built from; this asks the question one level lower —
+> whether the gate was looking at the thing at all.
+
+### 1.25w 🚩 A DATA STRUCTURE COMPUTED EVERY FRAME AND READ BY NOBODY IS INDISTINGUISHABLE, TO EVERY GATE, FROM ONE THAT IS
+
+*(Two agents independently claimed the letter "v" for their lesson in the same round, which is worth
+one line of record: a numbering scheme with no gate on it collides exactly like a filename does.
+This one was renumbered; the decency lesson kept v because it named its insertion point.)*
+
+`ExpressionMap.body()` produced a nine-channel BAP body prescription on every frame from punch-list
+5.4 onward. It was correct. It was derived from Coulson, re-derived by the gate rather than compared
+to a literal, and covered by checks that passed. **Its only readers in the entire tree were a HUD
+string and a `readout()` object.** `ExpressionLayer` declared zero bone channels, so across all
+seven non-neutral presets, **0 of 20 body bones moved by more than 0.000000 mm** — while the
+prescriptions read anger `approach` 0.947 / `armSpread` −0.807 and fear `approach` −0.705 /
+`kneeActivation` 0.855. Measured on eight `?affect=` plates at shipped defaults: the **face** band
+changed 18.28–43.97% of its pixels; the **torso** band changed **0.00%** for joy, anger, fear,
+sadness and surprise. Phase 5's brief asks for a full-body avatar. At HEAD the avatar emoted from
+the eyebrows up.
+
+Nothing was red, and nothing could have been. Every gate on the prescription tested the
+prescription: its ranges, its normalisation, its response to PAD, its refusal to leak dominance onto
+the face. **A producer's gates cannot see that the consumer does not exist**, because the producer's
+contract is satisfied in full either way. This is §1.25l's shape — a true statement standing in for
+an untested one — moved from a comment into an architecture: *"the body prescription is computed"*
+was true, and *"the body prescription reaches a bone"* was never asserted by anybody.
+
+Two mapping bugs were hiding behind the same silence, both invisible for the same reason. `disliking`
+had no BAP row, and `body()` dropped rowless emotions from **its own denominator** — so the `disgust`
+preset prescribed the complete anger body, `approach` 0.947 / `armSpread` −0.807, bit-identical, on
+the one emotion research §3 says has no readable posture at all. Either half alone leaves the body
+nearly right, which is why they are now two named defects rather than one.
+
+⚠️ **And the obvious gate for this blocker does not catch it.** *"Does the body differ from
+neutral?"* is GREEN on all four of the class-2 defects, because a body that is wrong still differs
+from neutral. The checks that work measure **world displacement of named bones on the real mesh**
+against a declared expectation — joy 175.3 mm, surprise 148.6 mm, anger 139.6 mm, sadness 99.0 mm,
+disgust 86.3 mm, fear 34.7 mm, bored 0.0 mm — and anger against fear, identical in pleasure and
+arousal and opposite in dominance, is the pair that proves the axis reaches the trunk.
+
+> **For every computed structure, name its consumer and gate the CONSUMER.** The cheapest form is
+> one assertion at the far end of the pipe — *does anything downstream actually move?* — and it is
+> the only assertion that can fail when the producer is perfect and the wire is missing. If a value
+> is worth computing every frame, it is worth one check that somebody reads it.
 
 ---
 
@@ -1986,36 +2070,40 @@ so the schema constraint is load-bearing rather than optional. ~0.7 s per call.
 
 ## Part 3 — Commands known to work
 
-## 🎯 THE GATE ROSTER, **re-derived 2026-08-09 (second time that day)** at R8 — EVERY ROW
+## 🎯 THE GATE ROSTER, **re-derived 2026-08-09 at R10 (third time that day)** — EVERY ROW
 
 ⚠️ **Do not maintain the table below by editing the rows a reader noticed.** §1.25p is the reason,
-and this table is the second worked example of it in two days: a declared-versus-measured table that
-fails on one row is a table that has drifted, and drift does not respect row boundaries. **Every one
-of the twelve rows the previous audit recorded had moved again by `af0e68d`.** Not most. All twelve.
+and this table is now the THIRD worked example of it in two days: a declared-versus-measured table
+that fails on one row is a table that has drifted, and drift does not respect row boundaries. R8's
+audit found that **every one of the twelve rows the previous audit recorded had moved again**. R10
+opened with four separate agents filing corrections to four separate rows of the table below — and
+correcting only those four would have left three others wrong and the roster's own headline count
+wrong by one. **Every row here is from one run.**
 
-**How this was measured, because the tree was not quiet.** A six-agent fan-out was live: `git status`
-showed eight tracked files modified under `packages/core/src/render/`, `packages/core/src/figure/`,
-`tools/figure-pipeline/` and `assets/`, plus five untracked trees. A run started on a clean tree at
-07:58:21Z reported **DIRTY** at 08:14:16Z and `GroundContact.selftest.mjs` crashed inside it with
-`ReferenceError: spotIrradianceFactor is not defined` — a half-saved file, green again on a re-run
-sixty seconds later. **That is §1.12's hazard, not a regression, and it is exactly why this table is
-not taken from that run.**
+**Taken from one `bash tools/run-selftests.sh` at R10 integration**, HEAD `3749d27`, on a tree whose
+only modifications were this round's own. **39 gates, FAILING GATES: 0.** The three counts the
+runner does not surface — it prints only each gate's last line — were taken immediately afterwards
+from the same tree.
 
-**So HEAD was measured in an isolated worktree**: `git worktree add --detach <tmp> af0e68d`, with
-`node_modules` and the gitignored asset trees symlinked in. Every count below marked *(HEAD)* comes
-from that run, which cannot be moved by another agent mid-flight.
+🚩 **THE ROSTER IS 39 AND IT SAID 38, and the 38 was itself the number that replaced a remembered
+40 one round earlier.** `find . -name "*.selftest.mjs" -not -path "./node_modules/*"` returns
+**37**, plus the **2** the runner names explicitly because they do not match the glob —
+`tools/critic/selftest.mjs`, whose name has no prefix, and `tools/figure-pipeline/verify_glb.mjs`.
+Confirmed against the run itself: `grep -c "^exit=" ` on its output reads **39**. The 39th is
+`tools/identity-pipeline/identityassets.selftest.mjs`, which landed in R9 after the 38 was counted.
+**A count is true at an instant, and this one has now been wrong three rounds running for three
+different reasons — remembered, then counted-and-outgrown, then counted-and-outgrown again. Derive
+it; do not carry it.**
 
-**Taken from one `bash tools/run-selftests.sh` run at the end of R8's integration**, with the
-fan-out finished and nothing else editing — which is the condition the previous audit could not get
-and had to substitute an isolated worktree for. **38 gates, FAILING GATES: 0.** The three counts the
-runner does not surface (it prints only each gate's last line) were taken directly afterwards.
-
-| command | previous audit said | **measured at R8** |
+| command | R8 said | **measured at R10** |
 |---|---|---|
+| `motion/sway.selftest.mjs` | 238 | **238** — held (~6 min, the slowest in the repo) |
 | `motion/Gaze.selftest.mjs` | 114 | **114** — held twice running |
-| `motion/sway.selftest.mjs` | 229 | **238** |
-| `render/GroundContact.selftest.mjs` | 65 | **75** |
-| `render/LightingRig.selftest.mjs` | 98 | **122** |
+| `render/LightingRig.selftest.mjs` | 122 | **140** |
+| `render/GroundContact.selftest.mjs` | 75 | **77** |
+| `affect/affect.selftest.mjs` | 91 | **114** |
+| `wardrobe/decency.selftest.mjs` | 20 | **25** |
+| `tools/request-ledger.selftest.mjs` | 11 | **23** |
 | `material/EyeMaterial.selftest.mjs` | 132 | **132** — held |
 | `tools/critic/selftest.mjs` | 258 | **258** — held |
 | `tools/critic/travel.selftest.mjs` | 158 | **158** — held |
@@ -2029,29 +2117,26 @@ runner does not surface (it prints only each gate's last line) were taken direct
 And the rest of the roster, all from the same run: bodymass **15**, figure **44**, restpose (prints
 no count), MotionStack **47**, ocular **64**, idle-motion **106**, BodyIdle **41**, FacialIdle **27**,
 SkinOcclusion **13**, MorphVelocity **16**, prosody **26**, visemes **59**, wardrobe **45**,
+agency **28**, identitytargets **47**, identitycatalogue **72**, identityassets **28**,
 cornea_geometry **40**, lut-bake **32**, eye-optics-claims **43**, measured-claims **60**,
-alive-capture-determinism **49**, and `verify_glb.mjs` PASS on **14 files**.
+alive-capture-determinism **49**, and `verify_glb.mjs` PASS on **32 files**.
 
-**Six gates are NEW since the last audit** and are the reason the roster went 32 → 38: `affect`
-**91**, `identitytargets` **47**, `identitycatalogue` **72**, `decency` **20**, `agency` **28**, and
-`request-ledger` **11** (which landed in R7 and is the 33rd; the other five are R8's).
+⚠️ **`verify_glb`'s 32 is a property of THIS MACHINE'S BUILD OUTPUT, not of the repo, and it read
+14 one commit ago.** R10 built the foundation layer at g000 and g100 to answer REQ-033, so twelve
+more gitignored fragments exist here than exist in a fresh clone. It is the one row in this roster
+that a successor should expect to disagree with and should not "correct" — check what is built
+before assuming drift.
 
-⚠️ **AND THIS PARAGRAPH SAID "40" UNTIL IT WAS COUNTED.** 38 is `find . -name "*.selftest.mjs"`
-returning **36**, plus the **2** the runner names explicitly because they do not match the glob —
-`tools/critic/selftest.mjs`, whose name has no prefix, and `tools/figure-pipeline/verify_glb.mjs`.
-Confirmed against the run itself: `grep -c "^exit=" ` on its output reads **38**. A hand-typed count
-in the very table that exists to stop hand-typed counts is §1.25e closing the loop on itself, and it
-survived a commit message before it was caught. **Derive the count; do not remember it.**
+🎯 **SIXTEEN OF SIXTEEN ROWS HELD OR MOVED FOR A REASON THIS FILE CAN NAME, for the second round
+running.** Six moved and every one is a gate that gained checks between R8 and R10: LightingRig
+122 → 140 (the shadow-camera closure, §1.25t), GroundContact 75 → 77 (the mesh half of the same
+closure, plus its planted-field red proof), affect 91 → 114 (`PostureLayer` and its 18 rejection
+proofs, §1.25w), decency 20 → 25 (the mid-change sampler's coverage clause, §1.25v), request-ledger
+11 → 23 (the FILED-AT clause and the four clauses that had no red proof at all). Ten held.
 
-🎯 **THIRTEEN OF THIRTEEN TABLE ROWS HELD OR MOVED FOR A REASON THIS FILE CAN NAME — the first time
-that has been true.** Four moved and each is a gate whose owner added checks in R8: sway 229 → 238,
-GroundContact 65 → 75, LightingRig 98 → 122. Nine held. That is what the previous two audits were
-trying to reach, and it only became reachable once the roster was taken from a runner rather than
-from thirteen separate invocations at thirteen different instants.
-
-⚠️ **AND THE PREVIOUS AUDIT'S METHOD IS RETIRED, WITH ITS COST RECORDED.** It measured HEAD in an
-isolated `git worktree` because a six-agent fan-out was live. That was the right call and it bought
-a caveat: `alive-toggles`, `alive-capture-determinism`, `TRAAPost`'s rendered section and
+⚠️ **AND THE PREVIOUS AUDIT'S METHOD IS RETIRED, WITH ITS COST RECORDED.** An earlier audit measured
+HEAD in an isolated `git worktree` because a six-agent fan-out was live. That was the right call and
+it bought a caveat: `alive-toggles`, `alive-capture-determinism`, `TRAAPost`'s rendered section and
 `verify_glb` all FAILED in the worktree for reasons that had nothing to do with the code — vite
 returns **403 Forbidden** on assets symlinked outside the server root, and the worktree carried
 HEAD's `assets/wardrobe/manifest.json` against the working tree's built fragments (308 problems
@@ -2247,7 +2332,7 @@ node tools/critic/measure.mjs <png> tools/critic/regions.lighting-body.json --hu
 
 # The Phase 3 shading gates
 node packages/core/src/material/EyeMaterial.selftest.mjs      # 132 checks
-node packages/core/src/render/LightingRig.selftest.mjs        # 122 checks. It once read 63, then 82
+node packages/core/src/render/LightingRig.selftest.mjs        # 140 checks. It once read 63, then 82
                                                               # four minutes later, because the file was
                                                               # being edited under the run — quote a
                                                               # count with the tree state it was read at.
@@ -2346,6 +2431,10 @@ node tools/critic/travel.selftest.mjs            # 138 checks (was 126, was 113)
 # mix. See §1.12 for the both-directions proof and for the residual hazard that replaced it.
 
 # Motion-layer selftests, with the check counts they print today
+# ⚠️ RE-DERIVED AT R10 FROM THE SAME RUN AS THE ROSTER ABOVE. This block had drifted on FIVE of its
+# seventeen rows while the roster two screens up was right — two tables of the same numbers is two
+# chances to be wrong (§1.25p), and the roster is the one a runner produces. Read that one; this
+# one is here for the per-file invocations and their timings.
 node packages/core/src/figure/bodymass.selftest.mjs      # 15
 node packages/core/src/figure/figure.selftest.mjs        # 44
 node packages/core/src/figure/restpose.selftest.mjs      # prints no count
@@ -2353,19 +2442,31 @@ node packages/core/src/motion/MotionStack.selftest.mjs   # 47
 node packages/core/src/motion/ocular.selftest.mjs        # 64
 node packages/core/src/motion/Gaze.selftest.mjs          # 114
 node packages/core/src/motion/idle-motion.selftest.mjs   # 106
-node packages/core/src/motion/sway.selftest.mjs          # 223  (~5 min; the slowest in the repo)
+node packages/core/src/motion/sway.selftest.mjs          # 238 (~6 min; the slowest in the repo)
 node packages/core/src/motion/BodyIdle.selftest.mjs      # 41
 node packages/core/src/motion/FacialIdle.selftest.mjs    # 27
-node packages/core/src/render/GroundContact.selftest.mjs # 47  (was 36, then 31; re-run at 2ec7db9)
+node packages/core/src/render/GroundContact.selftest.mjs # 77  (36, then 31, then 47, then 65, then
+                                                         #     75; the mesh half of the state closure
+                                                         #     and its planted-field proof are R10's)
 
 node packages/core/src/material/SkinRegions.selftest.mjs # 29
-node packages/core/src/render/Grade.selftest.mjs         # 56  rendered now, not a CPU mirror — §1.25b
-                                                         #     (was 44; the temporal grain checks landed)
+node packages/core/src/render/Grade.selftest.mjs         # 65  rendered now, not a CPU mirror — §1.25b
+                                                         #     (was 44, then 56; the temporal grain
+                                                         #     checks and the 600-frame horizon landed)
 node packages/core/src/render/TRAAPost.selftest.mjs      # 11  renders a 150-frame sequence
 node packages/core/src/render/Toksvig.selftest.mjs       # 9
-node packages/testbed/src/alive-toggles.selftest.mjs     # 109 (was 24) each ?x=0 moves exactly ONE
-                                                         #     subsystem — surface closure + fingerprint
-                                                         #     + pairwise pixels + the old census.
+node packages/core/src/affect/affect.selftest.mjs        # 114 (was 91) PAD, WASABI, the AU map, and
+                                                         #     the BAP body prescription reaching a
+                                                         #     bone — §1.25w
+node packages/core/src/wardrobe/decency.selftest.mjs     # 25  (was 20) 48 reachable states by ray
+                                                         #     cast, 165 mid-change samples — §1.25v
+node packages/core/src/wardrobe/agency.selftest.mjs      # 28
+node tools/identity-pipeline/identityassets.selftest.mjs # 28  the census SENTENCE, repo-wide
+node tools/request-ledger.selftest.mjs                   # 23  (was 11) the diff-request ledger
+node packages/testbed/src/alive-toggles.selftest.mjs     # 151 (was 24, then 109) each ?x=0 moves
+                                                         #     exactly ONE subsystem — surface closure
+                                                         #     + fingerprint + pairwise pixels + the
+                                                         #     old census.
                                                          #     ~3.5 min, ~70 plates in a real Chromium.
 
 # Added 2026-08-08. Every one of these is a gate; run them.

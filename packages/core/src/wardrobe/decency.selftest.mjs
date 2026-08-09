@@ -979,7 +979,7 @@ record( hatted.occlusion.every( ( entry ) => entry.drawnTriangles === entry.full
 // --- RED 1: the punch list's own known-bad -------------------------------------------------------------
 
 console.log( '' );
-console.log( '--- RED: four ways to break it, in two different mechanisms ---' );
+console.log( '--- RED: six ways to break it, in three different mechanisms ---' );
 
 const withoutBriefs = structuredClone( manifestSource );
 withoutBriefs.garments = withoutBriefs.garments.filter( ( entry ) => entry.id !== 'foundation_briefs' );
