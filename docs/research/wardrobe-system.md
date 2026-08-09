@@ -233,8 +233,15 @@ exported cleanly, reported success, and carried
 `POSITION,NORMAL,TEXCOORD_0,JOINTS_0,WEIGHTS_0` and nothing else. With `export_attributes=True`
 the body primitive carries `_HIDE_FEMALE_CASUALSUIT01,_HIDE_SHOES01,POSITION,…`.
 
-🚩 **Gotcha 2 — the name is upper-cased.** Authored `_hide_female_casualsuit01`, exported
-`_HIDE_FEMALE_CASUALSUIT01`. Match case-insensitively or the runtime finds nothing.
+🚩 **Gotcha 2 — the name is upper-cased, AND THEN IT IS LOWER-CASED BACK.** Authored
+`_hide_female_casualsuit01`, exported `_HIDE_FEMALE_CASUALSUIT01` — read out of the GLB's own JSON
+chunk. But three r185's `GLTFLoader` lower-cases unknown attributes on the way in, so
+`geometry.attributes` carries `_hide_female_casualsuit01` again — read off the loaded geometry.
+
+**Both halves are true and they cancel, which is worse than either alone.** A reader who follows
+the original advice and matches on the UPPER-CASE spelling because the file has it will find
+nothing in three. Case-insensitive is the right rule; the reason is that **both spellings occur,
+one on each side of the file**, not that the exporter shouts.
 
 Verification, in node against three r185's `GLTFLoader`:
 
@@ -287,6 +294,13 @@ packed bitfield 1.8 KB. Ship it as bytes — a hide flag is a boolean.
 | nude figure | 12.30 s | — |
 | + 1 garment | 13.44 s | +1.14 s |
 | + 3 garments | 14.88 s | +2.58 s (0.86 s/garment) |
+
+⚠️ **THESE ARE MACHINE-STATE NUMBERS, NOT PIPELINE CONSTANTS, and they must travel with their
+provenance.** Re-measured on the same script, the same Blender 5.2.0 LTS `fbe6228777e7` and the
+same machine class during Phase 9's build: **nude 8.56 s, suit + shoes 8.73 s, four garments with
+masks and fragments 9.54 s.** The CONCLUSION below is untouched and in fact gets stronger — an
+agent still cannot wait ~9 s and still cannot ship Blender — but quoting 12.30 s as a property of
+the pipeline is quoting a warm cache and a cold one as if they were the same measurement.
 
 **An AI agent choosing an outfit by mood cannot wait 13 seconds and cannot ship Blender.** (It
 also cannot ship MPFB at all — GPLv3, build-time only, per the standing constraint.) Runtime
@@ -613,6 +627,30 @@ the twills by float length exactly as it should: 2/1 < 3/1 < 4/1 satin. **That i
 highlight strength, derived from nothing but the weave type and the thread count, and it is
 measurable.** Generating the structure procedurally is not the hard part.
 
+🚩 **CORRECTED BY 9.16's SPIKE: THE SEPARATION IS REAL AND ITS CAUSE IS MISATTRIBUTED.** The four
+fabrics above have **four different setts** (plain 120×80, denim 68×44, gabardine 100×60, satin
+180×90), so float length and sett imbalance moved together and this table cannot say which caused
+the ordering. Varying each alone, with sett and yarns held at 114.3 × 67.3 /in and 36.9/28.27 tex:
+
+| weave | float | warp-face fraction | coherence |
+|---|---:|---:|---:|
+| plain | 1 | 0.500 | 0.1406 |
+| **2/2 twill** | **2** | **0.500** | **0.1743** |
+| 2/1 twill | 2 | 0.667 | 0.3754 |
+| 3/1 twill | 3 | 0.750 | 0.3807 |
+| 4/1 satin (move 2) | 4 | 0.800 | 0.5689 |
+
+The 2/2 twill shares the 2/1's float length and lands **nearer the plain weave**, and 2/1 vs 3/1
+differ by 1.4% across a whole float. **Coherence tracks WARP-FACE FRACTION, not float length.**
+
+And the confound measured directly: holding the weave at *plain* and moving only the sett spans
+**0.0036** (90×90, isotropic) to **0.5592** (68×44) — a plain weave at denim's sett is *more*
+coherent than a 3/1 twill at a balanced sett. **A bare coherence number is not a statement about
+the weave.** Consequence for 9.11: drive anisotropy strength from measured coherence, never from a
+float-length lookup, or a 2/2 gabardine gets a lobe it does not have. (The spike's absolute values
+do not reproduce this table's — different generator — so quote coherence *with its sett* or not at
+all. `tools/spikes/fabric-weave.mjs --gate`.)
+
 🚩 **What did NOT work, and it changes the gate.** The **orientation** readout failed. Every twill
 reported −90.00°, i.e. axis-aligned, not the diagonal. The predicted twill angles from the thread
 count ratio are 32.91° (denim), 30.96° (gabardine) and 45.00° (satin) — the probe recovered none
@@ -631,6 +669,27 @@ twills: I predicted one yarn spacing where the repeat is `over + under` yarns.
 > plain weave** — which has no diagonal to find. Recorded here so the spike does not spend a round
 > discovering it. (Same shape as 3.13's `Grade.selftest.mjs`: a check that reads green on a
 > decorative implementation is worse than no check.)
+
+✅ **9.16's SPIKE BUILT THAT GATE AND IT PASSES — with two corrections to the paragraph above and
+one addition the paragraph did not anticipate.** `tools/spikes/fabric-weave.mjs --gate`:
+
+- **The two twills are recovered exactly.** 32.91° and 30.96°, error 0.0000–0.0001° on a periodic
+  patch and 0.018–0.197° through an incommensurate Hann-windowed one, against a stated ±1.0°.
+- 🚩 **The satin's predicted 45.00° IS THE FORMULA APPLIED OFF ITS DOMAIN, and the gate is right to
+  refuse it.** A 4/1 move-2 satin's interlacing set satisfies *both* `(2i − j) ≡ 4 (mod 5)` and
+  `(i + 2j) ≡ 2 (mod 5)` — multiply the first by 3, the inverse of 2 mod 5 — so it has two
+  generators and two diagonals, and the stronger peak is at **−14.04°**, only 1.468× the 45.00°
+  family. That is the textile definition of satin: it is *constructed* so the interlacings never
+  line up into a visible twill. A gate returning 45.00° would be reading a number off a structure
+  that does not have one. The plain weave is refused at uniqueness **exactly 1.000000**, because
+  `(i − j) mod 2` and `(i + j) mod 2` are the same function.
+- 🚩 **AN FFT PEAK GATE IS STILL BLIND TO WHETHER THE DIAGONAL CAME FROM AN INTERLACING.**
+  `painted-diagonal` — axis-aligned yarn ridges plus a cosine at exactly the right wave vector,
+  with no weave underneath — **passes it cleanly at 32.91°.** A second, independent instrument is
+  required: fold the patch onto one weave repeat and measure its SHAPE. Harmonic fraction 0.048 for
+  the painted sinusoid, 0.345 for real generated denim, 1.040 for an ideal 3/1 square wave.
+- **And the angle must be SIGNED.** An S-twill has identical |angle|, coherence, yarn diameter and
+  GSM to its Z-twill twin; the sign is the only thing that separates them.
 
 #### The measured data that can actually be shipped
 
@@ -681,7 +740,35 @@ measurements** — γ in degrees, `a` the thread weight:
 
 | | reachable today? | evidence |
 |---|---|---|
-| **weave normal / roughness / anisotropy from thread count** | ✅ **yes** — §4.4, coherence separates weaves 1.9–2.6× from parameters alone | measured here |
+| **weave normal / roughness / anisotropy from thread count** | ✅ **yes, for WOVEN cloth** — §4.4, and 9.16's spike recovers the twill angle to 0.0001° from `{weave, ends, picks, tex, gsm}` alone. See the three closer limits below | measured here |
+
+🚩 **THREE LIMITS ARRIVE BEFORE THE ONES IN THIS TABLE, all measured by 9.16's spike.**
+
+1. **It generates NEW cloth and cannot generate OWNED cloth — and the gate's own precision is the
+   evidence.** Every yarn is the same diameter, every crimp the same amplitude, the repeat exact to
+   floating point, which is *why* the FFT recovers the angle to 0.0001°. Real cloth's spectrum is
+   broadened by hairiness, count variation, tension drift, skew, bow and wear. A fabric that returns
+   a delta function where a real one returns a smeared peak reads as rendered. Adding white noise is
+   **not** the mitigation: at σ 400 µm — larger than a yarn — coherence collapses 0.3954 → 0.0390
+   while the angle error stays at 0.012°, i.e. it destroys the appearance statistic and leaves the
+   structural one untouched, the opposite of ageing. **Recommendation for 9.19: perturb the LATTICE**
+   (per-yarn diameter and tension from a distribution, a slow skew field, correlated hairiness)
+   rather than starting from the weathering canon, which §4.5 already records has never been applied
+   to garments in a published venue. "How wide should the peak be" is a question a photograph of
+   real denim can answer.
+2. **Thread count describes the surface for FOUR of the nine named families, not nine.** Denim,
+   chino, gabardine and worsted wool are wovens and the model applies. Jersey, piqué and rib are
+   *loops* and get a coarser model validated against nothing (§5.3 carries no knit surface
+   measurement). Melton and fleece are *napped* — melton is milled until the ground weave is
+   mechanically destroyed — and leather is a BRDF with no ends, picks, tex or repeat at all. What is
+   generable for the last three is the sheen lobe, not the weave.
+3. **Generated fabric THICKNESS is 24–48% too thin** against the F&T 1/2018 control set, and the
+   correction it would need varies by **1.47×** across four weaves whose real thicknesses span only
+   1.15× — so no single crimp constant fixes it, and the generated *order* is wrong (the 3/1 twill
+   generates thinnest and measures thicker than the plain weave). Invisible under a normal map;
+   visible under displacement or at a silhouette, which is where a garment edge lives. Reported by
+   the spike and deliberately **not gated**, because turning it green means fitting a constant to
+   four points and §5.3 calls this the single best calibration target in the document.
 | **topstitching** | ✅ **yes, and it is the lowest-risk item on the list.** Seam curves come free from pattern topology; instancing stitch geometry along a curve with jitter is a Geometry Nodes group. ⚠️ **[✗] zero academic papers exist** — nobody wrote it up because it is not hard | — |
 | **printed graphics** | ✅ **yes, structurally.** In a sewing-pattern pipeline **your UV space IS your pattern space** — composite artwork onto the flat panel *before* drape and the drape carries it. Seam registration is trivial in pattern space; you would have to *add* misregistration to look real | FabricDiffusion (SA 2024), DressWild — *"projected onto the UV parameterization induced by the sewing patterns, ensuring seam consistency"* |
 | **dirt / grime masks** | ✅ **yes.** AO + curvature → mask is documented product behaviour, and every required bake is headless-Blender-native | Substance Dirt generator / Mask Builder docs |

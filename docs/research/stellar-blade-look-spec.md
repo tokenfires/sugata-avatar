@@ -210,9 +210,18 @@ Measured output:
 
 1. **Highlight rolloff is very soft.** Essentially nothing hard-clips — even a frame full of
    emissive neon puts 0.001% of pixels at white.
-2. 🚩 **Blacks are NOT lifted.** p0.1 luma sits at 0.004–0.016. There is **no faded/milky-black
+2. 🚩 **Blacks are NOT lifted.** p0.1 luma sits at 0.0028–0.0163. There is **no faded/milky-black
    film grade. Do not add shadow lift** — the commonest mistake when people try to make a render
    look "cinematic."
+
+   ⚠️ **This range was written as 0.004–0.016 for three rounds and that is not what the four rows
+   above measure.** They are 0.0042 / 0.0163 / 0.0028 / 0.0042, so the rounded band excluded the
+   cutscene close-up at the bottom and clipped the 3/4 face at the top — a band that rejects one of
+   the four frames it was derived from. `TARGETS.blackPointBand` in `tools/critic/measure.mjs`
+   still gates 0.004–0.016; it is 4% tight at the bottom and 2% tight at the top, and a plate
+   landing in 0.0028–0.0040 is inside the reference and outside the gate. Recorded rather than
+   silently widened, because the gate's own band is a measured claim and moving it is a
+   re-measurement.
 
 **Colour cast [M]:** shadows blue-dominant with a magenta lean, RGB (0.042, 0.026, 0.071) — B > R > G.
 Midtones near-neutral, faintly magenta. Skin under warm key R:G:B = 1 : 0.83 : 0.75.
@@ -359,7 +368,8 @@ purely subjective critique.** Automate them in `tools/critic`.
 3. Skin shadow terminator gets **more saturated and redder**, not bluer
 4. Flat-skin high-pass σ ≈ **1.5–2.1 / 255** at 4K — not smoother, not sharper
 5. **< 0.5%** of pixels clipped above 0.99 luma
-6. Black point at **p0.1 luma ≈ 0.004–0.016** — no lift
+6. Black point at **p0.1 luma ≈ 0.0028–0.0163** — no lift (the four reference frames' own range;
+   the gate ships the rounded 0.004–0.016 and §5's note says what that costs)
 
 Reference targets: `overview_character.jpg` and `post_ms7/01.jpg`.
 

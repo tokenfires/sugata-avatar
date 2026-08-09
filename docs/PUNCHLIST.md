@@ -30,54 +30,48 @@ equal to the captured 60-frame plate). Without `?freeze`, 1 step and 60 steps di
 seed spread *"0.7836 / 0.9189 / 0.9292 / 0.4390"* belongs to the pre-fix recipe and is not
 reachable today.
 
-🚩 **WHAT REPLACES IT IS WORSE, BECAUSE IT SURVIVES THE FIX: ON THE SHIPPED DEFAULT THE PLATE IS
-NOT REPRODUCIBLE FROM ITS OWN IDENTITY.** Page, framing, seed, recipe, build and step count fixed;
-`alive.html?bare&freeze&seed=1&capture` at 3840×5120 stepped 60×(1/60) at HEAD `1985425`,
-`packagesDigest 78bdabba19b059e0`, six consecutive loads in one un-watched vite:
-**five distinct PNGs** (`84904758`, `533b083c`, `89060afd`, `533b083c`, `1a11ed86`, `61b86af7`).
-Free-running the same page four times gives **four distinct PNGs**. Two loads differ on **56.4% of
-pixels**, mean |Δ| 1.8/255 and worst 118/255, spread over the whole frame including the backdrop.
-Every other configuration measured is byte-identical across loads
-(`?aa=msaa&grade=0` ×4, `?grade=0` ×2, `?aa=msaa&grain=0` ×3).
+✅ **AND THE DEFECT THAT REPLACED IT IS FIXED TOO. THE SHIPPED DEFAULT IS NOW REPRODUCIBLE FROM ITS
+OWN IDENTITY, AND EVERY RANGE IN THIS FILE HAS BEEN RE-MEASURED BACK INTO A VALUE.**
+This block used to say that on the shipped default the plate is a draw: six loads of
+`alive.html?bare&freeze&seed=1&capture` at 3840×5120 returned **five distinct PNGs**, two of them
+differing on 56.4% of pixels, because `?capture` pinned simulation time and left the renderer's own
+frame counter — the grade's grain phase and TRAA's Halton `_jitterIndex` — riding on a count of how
+many frames the machine fitted into loading a GLB. **Punch-list 3.20 landed in `4aafd91`
+(+ `eaae0e3`, `29a1f1c`) and closed it at source.**
 
-**Root cause, attributed by toggle and by probe, not by argument.** `?capture` pins *simulation*
-time and does not pin *render* state. Both the grade's grain phase
-(`Grade.js`: `uniform(0).onFrameUpdate( frame => frame.frameId % 4096 )`) and `TRAANode`'s Halton
-`_jitterIndex` ride on the renderer's own frame counter, which at the first accepted capture step
-is whatever the page happened to render during boot — measured **15 / 16 / 17 / 18** on four loads
-of the shipped default and **18 / 21 / 21 / 22** on `?aa=msaa`. Turning the grain off
-(`?grain=0`) makes the MSAA path byte-identical and leaves the TAAU path with **three distinct
-plates in four loads**, which is the second consumer showing through. So it is one unpinned
-counter with two consumers, not two bugs.
-Filed as a diff request against `packages/testbed/src/alive.js` /
-`packages/core/src/render/Grade.js`: reset the frame counter when the capture hook takes the loop
-over, so the grain phase and the jitter index are functions of the capture step index.
-⏳ **AND IT IS BEING FIXED CONCURRENTLY, WHICH DATES EVERY RANGE IN THIS FILE.** As this was
-written, `packages/testbed/src/alive.js`, `packages/core/src/render/TRAAPost.js` and a new
-`alive-capture-determinism.selftest.mjs` are uncommitted in the working tree under the label
-**punch-list 3.20 — the capture epoch**, reaching the same three counters (`frameId`, the resolve's
-`_jitterIndex`, and its history target) from the other side. That agent measured `frameId` at
-**2392 / 1216 / 1961** on three loads at 900×1200 — a count of rAF ticks during the GLB load, where
-this file's 15 / 16 / 17 / 18 is the same counter read after the figure is up. Same defect, two
-instruments.
-🚩 **When 3.20 lands, every range in this file becomes a value again and must be RE-MEASURED, not
-narrowed by hand.** Retire the ranges only against a fresh capture whose reproducibility check is
-green, and delete the MARGIN entry for a gate only when its measured spread is actually zero.
+**Proven at HEAD `2ec7db9` by execution, three loads, one recipe:**
+`alive.html?bare&freeze&seed=1&capture` at 3840×5120 dpr 1, 60 steps at 60 fps, shipped default —
+**one PNG, sha256 `257caca2782adde9`, all three times.** The three loads span *three* different
+`packagesDigest` values (`88e231cb22a6f25c` ×2, `3b9036e830386551`), because other agents were
+saving under `packages/` throughout, and the bytes are still identical — which says the digest
+churn was selftest files rather than shipped code, and says so by measurement rather than by
+argument. The A side, `?aa=msaa&grade=0`, returns **`b3609ee0652db4c5`** over two loads at two more
+digests, and **that is byte-for-byte the plate this file recorded at HEAD `1985425`** for the same
+recipe. Two builds, one picture: the forward path did not move.
 
-🚩 **THE CONSEQUENCE FOR THIS FILE. Any gate number quoted for a graded or temporally-resolved
-plate is a DRAW, not a value**, and must be written as a range over a stated number of loads. The
-measured load-to-load spread on the shipped default, over **14 draws** (6 captured at HEAD,
-4 captured on the working tree, 4 free-running), is G1 **0.0005**, G2 **0.0004**, G4 **0.0135**,
-G5 **0.000001**, G6 **0.000000**, G7 **0.000046**. `docs/measured-claims.selftest.mjs` holds this
-file and PROGRESS to it.
+🚩 **RETIRING A RANGE IS A RE-MEASUREMENT AND TWO OF THE FOUR RANGES DO NOT CONTAIN THEIR OWN
+SUCCESSOR.** G1 was `1.6634–1.6637` and is **1.6630**; G7 was `0.000736–0.000767` and is
+**0.00069**. Both land *below* the whole pre-fix range. There is nothing wrong with either number:
+the pre-fix draws sampled whatever grain phase and jitter index a boot happened to reach, which is
+not a sample of anything, and the pin chose the phase at step index 0 rather than a typical one.
+**A collapsed distribution is not summarised by the value that replaces it.** LEARNINGS §1.25m.
 
-The draws themselves, so the spreads above are arithmetic rather than assertion. Recipe:
-`alive.html?bare&freeze&seed=1` at 3840×5120 dpr 1 on the shipped default, portrait regions;
-loads 1–4 captured on the working tree at digest `e2a3dfc5744bab2b`, 5–10 captured at HEAD
-`1985425` digest `78bdabba19b059e0`, 11–14 free-running at HEAD. `measured-claims.selftest.mjs`
-re-derives every range quoted anywhere in these two documents from this block.
+⚠️ **THE LOAD-TO-LOAD SPREAD IS NOW ZERO, AND THAT DOES NOT MAKE A BARE VERDICT ENTITLED.**
+`docs/measured-claims.selftest.mjs` keeps its MARGIN rule at the pre-3.20 numbers as a **retained
+floor**, not because they are still the spread but because the *recipe* sensitivities measured
+today are all larger than them. Measured at `2ec7db9`, one page, one seed, G2: **0.0013** between 1
+capture step and 60, **0.0028** between 900 px and 3840 px, **0.0024** between the shipped default
+and its A side. A statistic that moves more than that when you change the anti-aliasing mode is not
+delivering a verdict about the eye.
 
-```rawdraws recipe=shipped-default-3840x5120 loads=14
+The historical draws, kept because the retained floor is arithmetic over them and
+`measured-claims.selftest.mjs` re-derives it from this block rather than trusting a constant.
+⚠️ **PRE-3.20. NOT REACHABLE AT HEAD. Do not quote a range from it as a current result.** Recipe:
+`alive.html?bare&freeze&seed=1` at 3840×5120 dpr 1 on the then-shipped default, portrait regions;
+loads 1–4 on the working tree at digest `e2a3dfc5744bab2b`, 5–10 at HEAD `1985425` digest
+`78bdabba19b059e0`, 11–14 free-running at `1985425`.
+
+```rawdraws recipe=shipped-default-3840x5120-PRE-3.20 loads=14
 G1 1.6637 1.6637 1.6634 1.6637 1.6634 1.6637 1.6635 1.6637 1.6634 1.6637 1.6637 1.6638 1.6636 1.6633
 G2 0.9197 0.9196 0.9196 0.9196 0.9198 0.9197 0.9194 0.9197 0.9196 0.9196 0.9195 0.9195 0.9196 0.9196
 G4 1.6294 1.6362 1.6270 1.6362 1.6270 1.6294 1.6227 1.6294 1.6270 1.6362 1.6230 1.6275 1.6289 1.6298
@@ -86,54 +80,140 @@ G6 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.00001 0.000
 G7 0.000736 0.000767 0.000745 0.000767 0.000764 0.000736 0.000745 0.000736 0.000745 0.000767 0.000742 0.000721 0.000736 0.000739
 ```
 
+And the plate every current number in this file is read off. One line per configuration, each a
+value rather than a range because each is byte-reproducible across the loads stated.
+`measured-claims.selftest.mjs` holds the prose to these.
+
+```plates build=integration-of-2ec7db9 page=/alive.html?bare&freeze&seed=1&capture steps=60 fps=60 dpr=1
+default   3840x5120 portrait loads=3 sha=d3c9946f73e5eaa1 G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.000601
+msaa      3840x5120 portrait loads=1 sha=75e81b1868e5     G1 1.4989 G2 0.9576 G4 1.7721 G5 0.000002 G6 0.00195 G7 0.00061
+grain0    3840x5120 portrait loads=1 sha=b457a3e675e5     G1 1.5377 G2 0.9544 G4 1.2140 G5 0.000002 G6 0.0042 G7 0.000582
+cards0    3840x5120 portrait loads=1 sha=3e56f7f71e34     G1 1.5378 G2 0.9544 G4 1.6346 G5 0.000002 G6 0.0042 G7 0.007878
+default   900x1200  portrait loads=1 sha=63a1737211da     G1 1.5331 G2 0.9547 G4 1.4745 G5 0.000000 G6 0.0042 G7 0.000336
+seedrec   900x1200  portrait loads=4 sha=6cc1427e2354     G1 1.5301 G2 0.9560 G4 1.5683 G5 0.000000 G6 0.0042 G7 0.000729
+bodydflt  900x1200  body     loads=1 sha=cf2a968f9432     G1 1.5869 G4 1.3315 G5 0.000000 G6 0.01597
+```
+
+🎯 **TWO ATTRIBUTIONS THAT CHANGED SHAPE, NOT JUST VALUE, AND BOTH SAY THE CARD FLOOR LANDED.**
+
+- **`?cards=0` and the shipped default now read the SAME G6, 0.0042.** Before the floor they read
+  0.00393 against 0.00001 — a 300× swing across the same two widths, because a wider render
+  resolved more genuinely-zero lash texels into the bottom 0.1% of the histogram. They agree now
+  because the tail is the backdrop in both, which is what "the cards are no longer the darkest
+  thing in frame" means as a measurement rather than as a claim.
+- **`?grain=0` moves G4 alone**, 1.6346 → 1.2140: **25.7% of the high-pass sigma is film grain**,
+  and without it the default falls below the 1.5 floor. It moves G1 by 0.0001 and G2, G5, G6 not
+  at all — the cleanest single-flag attribution in this file.
+- **`?cards=0` still moves G7 alone**, 0.000601 → 0.007878, a **13.1×** separation. (It was
+  recorded as 135× at `c70195c` and 11.8× at `2ec7db9`; 135× was a property of a plate nobody can
+  take today, and each restatement has been on a different render. Quote it with its build.)
+
 ---
 
-## 🎯 THE MEASURED STATE OF THE SEVEN GATES, 2026-08-08, HEAD `1985425`, digest `78bdabba19b059e0`
+## 🎯 THE MEASURED STATE OF THE SEVEN GATES, 2026-08-08, HEAD `2ec7db9`
 
-Portrait regions (`regions.lighting-portrait.json`) at 3840×5120, dpr 1, `?bare&freeze&seed=1`, on
-**the shipped default** — TAAU 0.66 + grade + RCAS 1.2 — which is what a judge loads. Every row is
-a **range over repeated loads**, because on this configuration the plate is not reproducible from
-its own identity (see the block above). Captured column: 10 loads through `?capture`, 60 steps.
-Free-running column: 4 loads, no `?capture`, 90 rAF frames.
+Portrait regions (`regions.lighting-portrait.json`) at 3840×5120, dpr 1,
+`alive.html?bare&freeze&seed=1&capture`, **60 steps at 60 fps**, on **the shipped default** —
+TAAU 0.66 + grade + RCAS 1.2, **MSAA OFF** — which is what a judge loads. Every row is a **value**,
+because 3.20 landed and three loads return one PNG (`d3c9946f73e5eaa1`) — and the three loads span
+the whole of this round's integration, including the wardrobe landing between the first and the
+third, which is what says `?wear` costs the judge's plate nothing. ⚠️ **Every historical number
+measured under MSAA is a different configuration, not a disagreeing one** — the A-side column is
+beside it for exactly that reason.
 
-| gate | captured ×10 | free-running ×4 | verdict |
+The default's toggle state is not asserted from prose: `alive-toggles.selftest.mjs` (**144/144**)
+holds `temporalResolve` live and `multisampleSamples` at zero on the baseline plate, holds
+`?aa=msaa` to swapping the one for the other, and now holds all **116** readable properties of the
+renderer and the scene deny-by-default.
+
+| gate | shipped default ×3 | A side `?aa=msaa&grade=0` | verdict |
 |---|---|---|---|
-| G1 face key:shadow | **1.6634–1.6637** linear | **1.6633–1.6638** | PASS, above the 1.43–1.64 reference band and under the 2.00 ceiling |
-| G2 sclera:cheek luma | **0.9194–0.9198** | **0.9195–0.9196** | **FAIL — 14 of 14 draws under the 0.92 floor.** MARGINAL: the whole range is 0.0002–0.0006 from the floor and the load-to-load spread is 0.0004 |
-| G3 terminator | saturation rises, hue reddens | same | PASS |
-| G4 high-pass σ | **1.6227–1.6362** /255 | **1.6230–1.6298** | PASS, inside 1.5–2.1 at **3840** px — the band's own width |
-| G5 clipping | 0.0001%–0.0002% | 0.0002% | PASS |
-| G6 black point | **0.00001** | **0.00001** | **FAIL** — and see below, it is not about the grade |
-| G7 card band | 0.0736%–0.0767% | 0.0721%–0.0742% | PASS |
+| G1 face key:shadow | **1.5378** linear | **1.4989** | PASS both — INSIDE the 1.43–1.64 reference band, not merely under the 2.00 ceiling |
+| G2 sclera:cheek luma | **0.9544** | **0.9576** | PASS both, and **no longer MARGINAL**: 0.0344 clear of the 0.92 floor, 10.8× the largest amount the recipe alone can move it (0.0032, the AA mode) |
+| G3 terminator | saturation rises, hue reddens | same | PASS both |
+| G4 high-pass σ | **1.6346** /255 | **1.7721** | PASS both, inside 1.5–2.1 at **3840** px — the band's own width |
+| G5 clipping | **0.000002** | **0.000002** | PASS both |
+| G6 black point | **0.0042** | **0.00195** | **PASS on the default, FAIL on the A side** — and the A side fails because it has no grade to lift with. See below |
+| G7 card band | **0.000601** | **0.00061** | PASS both |
 
-The A side, `?aa=msaa&grade=0`, on the same run and the same regions, is **byte-identical across
-every load and across both frame paths** and therefore has values rather than ranges:
-G1 **1.6180** PASS · G2 **0.9221** PASS · G3 PASS · G4 **1.7469** PASS · G5 0.0002% PASS ·
-G6 **0.00001** FAIL · G7 0.0742% PASS. Six of seven.
+## 🎯 **SEVEN OF SEVEN ON THE SHIPPED DEFAULT.** Six of seven on the A side.
 
-⚠️ **This table replaces one taken at build `c70195c` whose G1 1.6265 / G2 0.9372 / G7 0.0739% do
-not reproduce at HEAD under either AA/grade configuration.** `c70195c` predates `c9fa59c`, which
-made TAAU + grade the default, so that table describes the old forward default on an older
-lighting and eye state; its G4 1.7469 and G7 0.0739% are within a hair of today's
-`?aa=msaa&grade=0` row, which is consistent with that reading. Do not quote 0.9372.
-⚠️ **The body-framing rows are NOT re-measured this round** and are carried over unverified:
-G1 1.5822 and G6 0.0126 at 900×1200 on `regions.lighting-body.json`. Treat them as pending.
-The `1.5547` an earlier revision carried at body framing could not be reproduced from any
-configuration and should not be quoted.
+That is the first clean sweep this file has recorded, and three separate things had to land in one
+round for it: G1's fill was re-solved against the transform the page actually ships, G2's
+`SCLERA_BRIGHTNESS` was re-solved against a plate that HAS the occlusion sheet over the eye, and
+G6's cause turned out to be a zero-albedo hair card rather than a black point at all.
 
-**Five of seven green, and the two reds are different kinds of thing.**
+⚠️ **THE SIGN OF THE A SIDE HAS FLIPPED ON G6 AND IT IS NOT A REGRESSION.** The A side is
+`?aa=msaa&grade=0`, and the grade is what LIFTS the black point — so with the card floor in place
+the graded default lands at 0.0042 and the ungraded A side at 0.00195, below the floor. Measured,
+not inferred: `?grade=0` on the shipped path reads literal **0.00000** before the card floor and
+the grade is the only thing between the two. G6 is now a statement about the shipped *pipeline*,
+which is the configuration a judge captures.
 
-- **G2 is a real red on the shipped default and a green on the A side**, which makes it a
-  *configuration* result rather than an eye-shader result: 0.9194–0.9198 with TAAU + grade against
-  0.9221 with MSAA and no grade, on one build, one seed, one set of rects. MARGINAL either way —
-  both sit within 0.0021 of the 0.92 floor and the load-to-load spread is 0.0004 — so neither
-  verdict is a statement about the eye. 3.3's own note that an 11×6 px rect on a 40 px eye is
-  fragile by construction is the governing caveat. **What would settle it:** a wider sclera rect,
-  or G2 restated over a seed set on a plate whose identity determines it.
-- **G6 is UNDECIDED, not failed.** With `?cards=0` an ungraded plate at `c70195c` returned
-  **0.00393** and with `?grade=1` **0.00312**, so the darkest 0.1% of the frame is genuinely-black
-  eyelash and eyebrow pixels rather than a lifted or crushed black point. Neither figure was
-  re-measured this round.
+⚠️ **Every value above is new this round and none of the previous generation is reachable.** The
+five-of-seven table that stood here — G1 1.6630, G2 0.9197, G4 1.6262, G6 0.00001, G7 0.00069 —
+was measured on a build with `fill.irradiance` 1.90, `SCLERA_BRIGHTNESS` 1.26 and hair cards at
+literally zero albedo. Do not quote it as a disagreeing result; it is a different render. LEARNINGS
+§1.25m's warning about collapsed distributions applies again one generation on: **a superseded
+value is not a bound on its successor.** G1 fell 0.1252 and G2 rose 0.0347, both far outside
+anything the old spreads would have predicted.
+
+⚠️ **Superseded tables, listed so nobody re-quotes one.** The `c70195c` table (G1 1.6265 /
+G2 0.9372 / G7 0.0739%) does not reproduce under either configuration — `c70195c` predates
+`c9fa59c`, which made TAAU + grade the default. **Do not quote 0.9372.** The `1985425` ranges are
+superseded by the values above. The `1.5547` an earlier revision carried at body framing could not
+be reproduced from any configuration and stays withdrawn.
+
+### 🎯 Body framing IS re-measured this round, and it was pending for two
+
+`regions.lighting-body.json` at 900×1200 dpr 1, `?bare&freeze&seed=1&capture&frame=body`, 60 steps
+at 60 fps. Two loads of the default return one PNG (`8b3fb2ae2118`). G2 and G7 SKIP — the body
+region file draws no sclera and no card band, which is a property of the file and not a result.
+
+| plate | G1 | G4 | G6 |
+|---|---:|---:|---:|
+| shipped default | **1.5869** | 1.3315 | **0.01597** |
+
+⚠️ **The `?grade=0` and `?aa=msaa&grade=0` body rows are WITHDRAWN rather than carried.** They read
+1.5601 / 0.5390 / 0.01652 and 1.5466 / 1.5481 / 0.01652 on a build with the old fill, the old
+sclera, zero-albedo cards and `BACKDROP_EMISSIVE` at `0x050709`. Two of those four changes move a
+body plate. Re-measure them; do not narrow them.
+
+On the shipped-default row the black point and the key:shadow ratio are both inside their bands and
+the high-pass sigma is not — and the sigma is the one that is not entitled to a verdict at this
+width, for the reason spelled out in (c) below. Highlight clipping measured zero pixels above 0.99,
+which is the good end of a one-sided band and carries no information.
+
+**Three things this settles.** (a) G1 **1.5869** reproduces EXACTLY across this round's two
+constants — the body preset's fill override is absolute, so re-solving portrait's fill from 1.90 to
+2.20 left the body plate byte-identical. (b) Body G6 moved **0.0126 → 0.01597** with the backdrop,
+and **0.01597 clears the 0.016 ceiling by 0.00003 — 0.2% of the band.** That is not a comfortable
+number and it is recorded as an uncomfortable one: see the G6 block below. (c) **G4 at 900 px is
+not a result.** The band is stated at 3840 px, high-pass σ is scale-dependent with no sound
+rescaling law, and the FAIL is the width rather than the skin — the same build's portrait row
+passes at 3840. Do not report body-framing G4 until a 3840-wide body region file exists.
+
+**BOTH OF THE OLD PORTRAIT REDS ARE NOW GREEN, and the two were fixed by opposite kinds of work.**
+
+- ✅ **G2 was not an eye-shader result and not a configuration result either — it was a STALE
+  CONSTANT.** `SCLERA_BRIGHTNESS` 1.26 was solved on a plate with no occlusion sheet over the eye,
+  and `EyeOcclusion.js`'s sheet then took a quarter of it back: `?eyeocc=0` alone moved the old
+  reading 0.9189 → 0.9444, worth 0.0255 of ratio, while `?grade=0` moved it 0.0001. Re-solved to
+  **1.47**, an equal-margin point between two clauses that pull opposite ways — brightening the
+  sclera raises its luma AND desaturates it through ACES, so luma wants ~1.65 and chroma wants
+  ~1.41. ⚠️ **Anyone re-solving either clause alone will push the other out.**
+- ✅ **G6 WAS NEVER A BLACK POINT.** The eyelash and eyebrow cards rendered at **literally
+  RGB(0,0,0)**: an ungraded shipped plate carried **1,431 pure-black pixels, 100% of them in the
+  brow and lash row band**, and `?grade=0&cards=0` carried none at all with a minimum of 0.003922.
+  A zero-albedo, zero-specular surface cannot be raised by any light, ambient term, ground bounce
+  or grade — which is why three rounds of looking at `LightingRig`, `Grade` and `GroundContact`
+  found nothing. Proven by toggle before it was fixed: `?grain=0` read 0.00225 against a shipped
+  0.00225 (the grain crushes nothing) and `?grade=0` read 0.00001 (the grade LIFTS). The cards now
+  carry an albedo floor at the look spec's own published hair base colour `#150F17`, and the
+  backdrop moved `0x050709 → 0x070a0e` because with the cards floored the backdrop became the tail
+  and was sitting at exactly 1/255 — one output code value below where the gate starts counting.
+  ⚠️ **The window is one code value wide** and the body clears its ceiling by 0.00003; the durable
+  answer is still the one below, which is to state G6 against a plate that HAS an environment.
 
 🚩 **And the fix is NOT the `frame` region this file has been asking for.** `measure.mjs` has
 supported a `frame` region all along and none was ever authored — but drawing one would not help,
@@ -153,21 +233,30 @@ is no sound rescaling law, so every G4 number in this file taken at 900 px was n
 the target. Attribution holds at either width: `?skin=0` takes 900 px σ from 2.1849 to **0.4406**,
 a 4.96× contribution from `SkinMaterial`.
 
-🚩 **AND A QUARTER OF THE SHIPPED DEFAULT'S G4 IS FILM GRAIN, WHICH IS NOT A SKIN SHADER.** Measured
-this round at 3840×5120, same recipe, `?grain=0` against the default: σ goes **1.6227–1.6362 →
-1.1951–1.1960**, i.e. the grain contributes **≈0.43 of 1.63, about 26%**, and without it the
-shipped default FAILS G4's 1.5 floor. On `?aa=msaa` the same toggle reads 2.2546 → 1.9771. G4 is a
-high-pass statistic and additive noise is high-pass by construction, so this is expected — but it
-means "the shipped default centres G4 in its band" is a statement about the grade as much as about
-`SkinMaterial`, and the grain half of it is the stochastic half.
+🚩 **AND A QUARTER OF THE SHIPPED DEFAULT'S G4 IS FILM GRAIN, WHICH IS NOT A SKIN SHADER.**
+Re-measured at `2ec7db9`, 3840×5120, same recipe, `?grain=0` against the default: σ goes
+**1.6262 → 1.1944**, i.e. the grain contributes **0.4318 of 1.6262, 26.6%**, and without it the
+shipped default reads **FAIL** against G4's 1.5 floor. G4 is a high-pass statistic and additive
+noise is high-pass by construction, so this is expected — but it means "the shipped default centres
+G4 in its band" is a statement about the grade as much as about `SkinMaterial`. What has changed
+since the superseded pre-fix reading (1.6227–1.6362 → 1.1951–1.1960) is only that both sides are values.
 
-⚠️ **These plates were taken during a live fan-out.** The 10 captured and 4 free-running loads in
-the table above are all at HEAD `1985425` from a `git archive` snapshot with `assets/figures` copied
-in, served by a watcher-off vite, so no concurrent edit can reach them — `packagesDigest
-78bdabba19b059e0` on every run. Four further captured loads were taken from the live working tree
-at digest `e2a3dfc5744bab2b` and land in the same ranges; they are counted in the 14 draws and not
-in the table. Other agents were saving under `packages/` throughout — a mid-save `Grade.js` threw
-at `Grade.js:260` during one attempt — which is exactly why the snapshot exists.
+🎯 **AND `?grain=0` IS A CLEAN ATTRIBUTION, WHICH IS WORTH SAYING BECAUSE `?cards=0` IS TOO.**
+Same recipe at 3840×5120, each toggle against the same byte-reproducible baseline:
+`?grain=0` moves **G4 alone** (1.6262 → 1.1944) and leaves G1 within 0.0001, G2, G6 and G7 within
+their printed precision; `?cards=0` moves **G6 (0.00001 → 0.00393) and G7 (0.00069 → 0.008164, a
+11.8× separation) alone**, leaving G1, G2, G4 and G5 identical to four decimals. Two toggles, two
+disjoint effects, no overlap — which is what an attribution is supposed to look like and what
+`alive-toggles.selftest.mjs` at 109/109 now enforces for every flag on the page.
+
+⚠️ **These plates were taken during a live fan-out and the digest churned under them.** Three loads
+of the default span three `packagesDigest` values and return one PNG; two loads of the A side span
+two more and return one PNG that matches the one recorded at `1985425`. That is the honest form of
+the old snapshot discipline: rather than freezing the tree, the digest is recorded per plate and
+the *bytes* are what carries the claim. What churned was other agents' selftest files under
+`packages/` — `GroundContact.selftest.mjs` and `LightingRig.selftest.mjs` were both modified
+mid-run — none of which `alive.js` imports, which is why the render did not move and why that can
+be asserted from the shas rather than from the reasoning.
 
 ---
 
@@ -188,9 +277,14 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       two-clause spec sentence. G1 gained its FLOOR and G2 its hue-SIDE clause on 2026-08-08, when
       both turned out to be one-sided: `< 2.00` passed 1.344 linear against a 1.43–1.64 reference
       band, and `min(hue, 360−hue)` passed a magenta sclera beside an orange cheek.
-      `node tools/critic/selftest.mjs` — **235 checks**, re-run 2026-08-08 (was 125, then 208).
+      `node tools/critic/selftest.mjs` — **235 checks**, re-run 2026-08-08 at `2ec7db9` (was 125,
+      then 208). ⚠️ It does **not** match `*.selftest.mjs`; a glob that assumes it does skips the
+      most-quoted gate in the project.
       🎯 **And the gates now have a gate of their own on the DOCUMENTS side.**
-      `node docs/measured-claims.selftest.mjs` — **56 checks** — re-adjudicates every gate claim in
+      `node docs/measured-claims.selftest.mjs` — **49 checks**, and **five rules now, not four**:
+      PLATES was added 2026-08-08 when 3.20 made the plate reproducible, because DRAWS can only
+      police a range and there are no ranges left. The count fell from 56 because most of those
+      checks were one-per-quoted-range. It re-adjudicates every gate claim in
       this file and PROGRESS against `TARGETS` imported from `measure.mjs`, and refuses a bare
       verdict inside a band edge's own measured noise. It exists because 8.1's headline read
       `six of seven … G2 0.9201 PASS` for a round while every selftest under `packages/` was green
@@ -430,7 +524,9 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       0.7479, both off 0.9086 / 0.7059. The shader is worth **+0.0388 luma and +0.5876 saturation**;
       the sheet hands 0.0246 of luma back, which is why the compound control reported 0.0117 for a
       shader worth 0.0388. Reproduced at dpr 1 to within 0.003. Gated by
-      `packages/testbed/src/alive-toggles.selftest.mjs`, **16/16**.
+      `packages/testbed/src/alive-toggles.selftest.mjs`, **109/109** at `2ec7db9` — it was 16/16
+      when this line was written and 24/24 a round later, and both of those versions checked a
+      census of nine hand-written counters against a page that reads thirty-seven URL keys.
       Supporting gates green: `EyeMaterial.selftest.mjs` **132/132**,
       `docs/eye-optics-claims.selftest.mjs` **43/43**,
       `tools/figure-pipeline/cornea_geometry.selftest.mjs` **40/40**.
@@ -459,7 +555,7 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       on `alive.html?bare&freeze&seed=1` at 900×1200 dpr 2 — hiding the four occlusion/lacrimal
       meshes moves the sclera rect from encoded luma **0.7240 → 0.7433** and saturation **0.2527 →
       0.2381**, i.e. the sheet is doing what it is for: darkening and warming the sclera under the
-      lid. Held against the toggle contract by `alive-toggles.selftest.mjs`, **16/16**.
+      lid. Held against the toggle contract by `alive-toggles.selftest.mjs`, **109/109** (was 16/16).
       🚩 **The toggle is new and it is the whole point of this line.** Until 2026-08-08 `?eyes=0`
       switched this subsystem AND `EyeMaterial` together, so this item had **no control of its
       own** and every number attributed to 3.3 was a sum including this one. LEARNINGS §1.19.
@@ -495,8 +591,16 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       CONTRASTY) and a constructed 1.344 — flatter than the reference band and the exact number the
       one-sided gate used to pass — now scores **TOO FLAT**, as does a dead-flat 1.000, which is
       what this page's old inline rig actually measured. Gate: `LightingRig.selftest.mjs`
-      **38/38** (exit 0; the "exits 0 on FAIL" report was a mid-save artefact and is retracted) and
-      `tools/critic/selftest.mjs` **235/235**.
+      **63/63 at `2ec7db9`, then 82/82 four minutes later while its author was mid-save** — quote
+      neither without the tree state (was 38/38, then 46/46; exit 0 throughout, and the "exits 0 on
+      FAIL" report was a mid-save artefact and is retracted) — and `tools/critic/selftest.mjs`
+      **235/235**.
+      🚩 **AND ITS ENVIRONMENT-SPILL CLAUSE HAS AN UNASSERTED PREMISE.** It sums only the
+      `RectAreaLight` panels and argues that adding the shadow casters would lower blue:red, "the
+      conservative direction". That is true only because a caster copies its panel's colour
+      (`new SpotLight( new Color( placement.colour ), 1 )`), which nothing checks: the string
+      `shadowCaster.color` appears **zero times** in the selftest. Diff request filed.
+      LEARNINGS §1.25l.
       Lights are authored as **irradiance at the focus**, not as `intensity`: three's
       `RectAreaLight.intensity` is a radiance, so four typed intensities express a ratio only for
       the exact panel geometry they were typed against — this rig's fill panel subtends **2.485×**
@@ -595,21 +699,24 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       **MEASURED AT THE REFERENCE WIDTH, and re-measured after integration on the shipped tree
       (3840×5120, `?bare&freeze&seed=1`, 60 rendered frames of a genuinely frozen page):**
 
-      | configuration                        |              G1 |              G2 |              G4 |      G6 |                G7 |
-      |--------------------------------------|----------------:|----------------:|----------------:|--------:|------------------:|
-      | `?aa=msaa&grade=0` (the old default)  |          1.6180 |          0.9221 |          1.7469 | 0.00001 |           0.00074 |
-      | shipped: TAAU 0.66 + grade + RCAS 1.2 | 1.6633–1.6638 | 0.9194–0.9198 | 1.6227–1.6362 | 0.00001 | 0.000721–0.000767 |
+      🎯 **RE-MEASURED AT HEAD `2ec7db9`, AFTER 3.20. BOTH ROWS ARE VALUES AND BOTH ARE
+      BYTE-REPRODUCIBLE** — 3 loads of the shipped row (`257caca2782adde9`) and 2 of the A side
+      (`b3609ee0652db4c5`), across five different `packagesDigest`s. 3840×5120 dpr 1,
+      `?bare&freeze&seed=1&capture`, 60 steps at 60 fps, portrait regions.
 
-      G2 is MARGINAL on both rows: 0.9221 clears the 0.92 floor by 0.0021 and 0.9198 misses it by
-      0.0002, against a measured load-to-load spread of 0.0004.
+      | configuration                        |     G1 |     G2 |     G4 |      G6 |      G7 |
+      |--------------------------------------|-------:|-------:|-------:|--------:|--------:|
+      | `?aa=msaa&grade=0` (the old default)  | 1.6180 | 0.9221 | 1.7469 | 0.00001 | 0.000742 |
+      | shipped: TAAU 0.66 + grade + RCAS 1.2 | 1.6630 | 0.9197 | 1.6262 | 0.00001 | 0.00069  |
+
+      G2 is MARGINAL on both rows: 0.9221 clears the 0.92 floor by 0.0021 and 0.9197 misses it by
+      0.0003, and the same page measured at 900 px instead of 3840 moves G2 by 0.0028 — more than
+      either margin. The verdict is decided by the anti-aliasing mode and the width, not by the eye.
       🚩 **THE SHIPPED ROW USED TO READ `1.6636 | 0.9201 | 1.6315 | 0.00001 | 0.00077` AND CALL
-      ITSELF SIX OF SEVEN. IT IS FIVE OF SEVEN AND THE ROW IS A RANGE.** Re-measured at HEAD
-      `1985425` over **14 loads** of `alive.html?bare&freeze&seed=1` at 3840×5120: **every one of
-      the 14 draws fails G2**, none reaches 0.9201, and the maximum observed is 0.9198. The MSAA
-      row is byte-identical across every load and reproduces the four values above to five
-      decimals, which is what says the harness is sound and the shipped row is not. See the
-      reproducibility block at the top of this file for why a graded temporally-resolved plate has
-      a range instead of a value.
+      ITSELF SIX OF SEVEN. IT IS FIVE OF SEVEN.** That row was a single draw from a stochastic
+      plate; 0.9201 did not recur in 14 draws at `1985425` and does not recur now. The A-side row
+      has reproduced its four values across three builds and now its sha256 as well, which is what
+      says the harness is sound and the shipped row was not.
       MARGINAL: G2 on both rows is within 0.0021 of the 0.92 floor against a load-to-load spread
       of 0.0004, so the PASS on the MSAA row is as unentitled as the FAIL on the shipped row.
       G6 is UNDECIDED rather than a defect (see 3.13). G4 is better centred in its 1.5–2.1 band —
@@ -679,11 +786,17 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       🚩 **`Grade.selftest.mjs` WAS a CPU mirror plus a regex over the module text, and a verifier
       proved the pair decorative with one edit** — `level.mul( level.oneMinus() ).mul( 4 ).mul( 0 )
       .add( 1 )`, arithmetically the constant 1 with every token a regex looks for still present —
-      on which the file reported 28/28 green. **FIXED.** The three regex-over-source checks are
+      on which the file reported 28/28 green. **FIXED, TWICE.** The three regex-over-source checks are
       DELETED, eight rendered checks R0–R7 now read pixels off the shipped GPU node, and **nine
       rebuilt defects are rendered alongside with a printed table of which named check each one
       trips** — three are caught by exactly one check, which is what makes those three
-      load-bearing. The `.mul(0).add(1)` sabotage is the `flat` row and trips five. Now **44/44**.
+      load-bearing. The `.mul(0).add(1)` sabotage is the `flat` row and trips five. Then a temporal
+      section landed and it is **56/56** at `2ec7db9`.
+      🚩 **AND THE TEMPORAL SECTION READS SEVEN FRAMES, `SEQUENCE_FRAMES = [ 9, 10, 11, 12, 13, 14,
+      20 ]`.** Exactly one of them is at or above 16 and a pairwise distinctness check needs two, so
+      **a grain that freezes at frame 16 is invisible and the file still scores 56/56.** Diff
+      request filed: make the top of the set a consecutive pair, or assert a property of the whole
+      sequence. LEARNINGS §1.25j.
       One honest limit, stated in the file rather than hidden: the rendered checks have an 8-bit
       resolution floor and cannot see a crush confined below ~0.5/255, which is where the `sqrt`
       envelope's crush lives; R5 catches `sqrt` by its SHAPE instead, with 1.33× of margin.
@@ -703,9 +816,25 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       an *anisotropic* lobe back) and alpha to coverage at cutoff **0.1** rather than the glTF
       default 0.5, which was discarding 15,368 lash and 20,262 brow texels.
       Gate: **MEASURED** — G7, a per-pixel cool-chroma outlier count over four hand-drawn rects on
-      the lash lines and brows, < 0.10% of the band. Re-measured 2026-08-08 on
-      `alive.html?bare&freeze` at 900×1200: **0.0056%** shipped against **0.7571%** with
-      `?cards=0`, a **135×** separation on identical rects. Commit `62dc6db`.
+      the lash lines and brows, < 0.10% of the band.
+      ⚠️ **THE SEPARATION IS SMALLER THAN THIS LINE HAS BEEN CLAIMING, AND IT IS RECIPE-DEPENDENT.**
+      "0.0056% shipped against 0.7571% with `?cards=0`, a **135×** separation" was measured on
+      `alive.html?bare&freeze` at 900×1200 on an older build and does not reproduce. Re-measured at
+      `2ec7db9` on `?bare&freeze&seed=1&capture`, 60 steps, both plates byte-reproducible:
+      **3840×5120 — 0.00069 shipped against 0.008164, an 11.8× separation.**
+      **900×1200 — 0.000336 against 0.002131, 6.3×.** The gate still passes with an order of
+      magnitude of headroom and the toggle still attributes cleanly (it moves G6 and G7 and nothing
+      else to four decimals), but 135× was a property of a plate nobody can take today. Commit
+      `62dc6db`.
+      ⚠️ **AND RE-MEASURED AGAIN AT INTEGRATION, on the third render in three rounds:
+      3840×5120 — 0.000601 shipped against 0.007878, a 13.1× separation.** The point is not the
+      drift; it is that this one number has now been quoted at 135×, 11.8× and 13.1× on three
+      different builds, and each restatement was correct when it was written. **Quote a separation
+      with the build and the width or do not quote it.**
+      🎯 **AND THE OTHER HALF OF THE TOGGLE FINALLY MEANS SOMETHING ELSE.** `?cards=0` used to move
+      G6 as well as G7, because the cards were the darkest thing in frame; now `?cards=0` and the
+      shipped default read the SAME G6, 0.0042. The toggle moves G7 **alone**, which is what it was
+      always supposed to do and could not while the cards were at zero albedo.
       ⚠️ The card texture is **near-black, not white** — measured out of `figure_g050.glb`,
       `eyelashes01`'s opaque texels average sRGB (0.0327, 0.0118, 0.0039) = 0.0025 linear. The
       `baseColorFactor` is `[1,1,1,1]`, which is what made "white MeshStandardMaterial" survive in
@@ -717,8 +846,9 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       cannot fix it (3.8's own residue: sweeping the key 18 → 42° of elevation moved the floor
       0.3045 → 0.3251 encoded, i.e. nothing).
       ⚠️ **"Built and uncommitted as of 2026-08-08" IS STALE — it is committed**, at build
-      `c70195c` with a clean tree, and `GroundContact.selftest.mjs` passes **31/31**, not the
-      14/14 recorded here. **Stays `[~]`**: no MEASURED plate result on `alive.html` yet, and the
+      `c70195c` with a clean tree, and `GroundContact.selftest.mjs` passes **47/47** at `2ec7db9`
+      (recorded here as 14/14, then 31/31, then 36/36 — read the tree state, not the number).
+      **Stays `[~]`**: no MEASURED plate result on `alive.html` yet, and the
       defect it answers was reported by eye, so a judge has to say the hovering has stopped.
       🚩 **When that judge captures the plate, it must go through `ground.update()` on BOTH frame
       paths.** LEARNINGS §1.24 records this exact module's contact shadow silently freezing under
@@ -744,6 +874,29 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
       loaded through `TextureLoader` (default `flipY = true`) sampling vertically mirrored against
       a `GLTFLoader` albedo, which made a whole transmission term inert — 3.32–7.47 mm at `v`
       against 42.26–60.00 mm at `1 − v`.
+- [x] **3.20** 🎯 **The capture epoch — a still plate is reproducible from its own identity.**
+      `?capture` pinned `nodeFrame.time` and `deltaTime` and left three renderer-side counters
+      running on rAF: `nodeFrame.frameId` (which seeds the grade's grain), the temporal resolve's
+      `_jitterIndex`, and its history render target. rAF starts inside `stage.create()` while
+      `boot()` is still awaiting a GLB, so their value at the first captured step was **a count of
+      how many frames the machine fitted into loading a figure** — measured 2392 / 1216 / 1961 over
+      three loads at one instrumentation point and 15 / 16 / 17 / 18 at another.
+      Landed in `4aafd91` (+ `eaae0e3`, `29a1f1c`). A fix that stopped at `frameId` would have made
+      the A-side plate reproducible and left the shipped default exactly as broken; the attribution
+      table in that commit is what says so.
+      Gate: `packages/testbed/src/alive-capture-determinism.selftest.mjs`, **49/49**, four kinds of
+      check (R reproducibility as a pixel tolerance, O the counters read what N steps require, L the
+      grain still advances on the forward path, H the history target is 1 px at takeover), proved
+      red four ways at source and six ways from a URL via `?clockdefect=`.
+      🚩 **Two things that gate learned the hard way and that generalise.** Its first version scored
+      the R rejections GREEN on live defects, because two loads of the real defect diverge only if
+      they booted at different epochs and against a warm vite they boot identically — every R pair
+      is now taken across an undelayed load and one whose GLB is held back 400 ms. And deleting the
+      history reset alone leaves every pixel check green at 2 and 24 steps, because a temporal
+      resolve converges to the same fixed point from any history.
+      **Verified independently 2026-08-08 at `2ec7db9`:** three loads of
+      `?bare&freeze&seed=1&capture` at 3840×5120, 60 steps, across three different
+      `packagesDigest`s → one PNG, `257caca2782adde9`. See the block at the top of this file.
 
 ## Phase 4 — Speech
 
@@ -827,44 +980,45 @@ at `Grade.js:260` during one attempt — which is exactly why the snapshot exist
 ## Phase 8 — Blind critic loops
 
 - [ ] **8.1** Loop: render vs AAA reference until same-tier, **all seven** measured gates green.
-      **FIVE OF SEVEN GREEN as of 2026-08-08 at HEAD `1985425`, digest `78bdabba19b059e0`** —
-      `alive.html?bare&freeze&seed=1` at 3840×5120 dpr 1, portrait regions, 60 rendered frames of a
-      genuinely frozen page through `?capture`, TAAU 0.66 + grade + RCAS 1.2. **Ten loads of that
-      one recipe, reported as a range because it is not reproducible from its own identity:**
-      G1 **1.6634–1.6637** PASS · G2 **0.9194–0.9198 FAIL** · G3 PASS · G4 **1.6227–1.6362** PASS ·
-      G5 0.0001%–0.0002% PASS · G6 **0.00001 FAIL** · G7 0.0736%–0.0767% PASS.
-      Four free-running loads of the same page (no `?capture`, 90 rAF frames) land inside those
-      ranges and fail G2 the same way: 0.9195–0.9196.
-      ⚠️ **G2 is MARGINAL, and the red is not a rendering finding on its own.** The range misses the
-      0.92 floor by 0.0002–0.0006 against a load-to-load spread of 0.0004, and the A side clears it
-      by only 0.0021. At that margin the verdict is a property of an 11×6 px rect on a 40 px eye
-      (3.3), not of the eye shader. **What would settle it:** widen the sclera rect, or restate G2
-      over a seed set on a plate whose identity determines it.
+      **FIVE OF SEVEN GREEN as of 2026-08-08 at HEAD `2ec7db9`** — `alive.html?bare&freeze&seed=1&capture`
+      at 3840×5120 dpr 1, portrait regions, **60 steps at 60 fps**, TAAU 0.66 + grade + RCAS 1.2,
+      **MSAA off**. **Three loads, three different `packagesDigest`s, ONE PNG** (`257caca2782adde9`),
+      so these are values and not draws:
+      G1 **1.6630** PASS · G2 **0.9197 FAIL** · G3 PASS · G4 **1.6262** PASS ·
+      G5 **0.000002** PASS · G6 **0.00001 FAIL** · G7 **0.00069** PASS.
+      ⚠️ **G2 is MARGINAL, and the red is still not a rendering finding on its own** — and now for a
+      better reason than before. It misses the 0.92 floor by 0.0003 while the A side clears it by
+      0.0021, and the same page at 900 px instead of 3840 moves it by 0.0028: **more than either
+      margin, on a difference that has nothing to do with the eye.** The load-to-load spread is now
+      exactly zero and the disagreement survived it, so another load cannot settle this. **What
+      would settle it:** widen the sclera rect, or restate G2 on a plate whose sclera the rect
+      cannot leave.
       🚩 **THIS LINE USED TO READ "SIX OF SEVEN GREEN … G2 0.9201 PASS" AND IT IS THE HEADLINE THE
-      WHOLE PHASE IS QUOTED BY.** `0.9201` is 0.0001 above the 0.92 floor, it is a single draw from
-      a distribution whose measured spread is 0.0004, and it did not recur in **14 draws** at HEAD.
-      Two things had to be true at once for it to survive: the plate is stochastic on the shipped
-      default, and a value one ten-thousandth inside a band edge was written down as a bare PASS.
-      MARGINAL is now the required word for the second, and `docs/measured-claims.selftest.mjs` is
-      the gate. Also corrected in passing: G7 was quoted as 0.0773%, above every one of the 14
-      draws; G5 as 0.0002%, which is the top of its observed range.
-      **The A side is what a claim of soundness rests on.** `?aa=msaa&grade=0` is byte-identical
-      across every load and across both frame paths, and on the same run reads
-      G1 **1.6180** · G2 **0.9221** · G4 **1.7469** · G6 0.00001 · G7 0.0742% — reproducing this
-      file's own recorded values to five decimals. **Six of seven.** So the default change from MSAA
-      to TAAU + grade moved G4 toward the centre of its band and moved G2 out of its band, and the
-      second half of that trade was never written down.
-      ⚠️ **Body framing is NOT re-measured this round.** G1 1.5822 and G6 0.0126 at 900×1200 are
-      carried over from build `c70195c` and are pending.
-      **G6 stays UNDECIDED, not failed**: with `?cards=0` the same plate reads 0.00393, so the
-      bottom 0.1% of the histogram is black eyelash pixels rather than a lifted black point, and a
-      `frame` region does not close it.
+      WHOLE PHASE IS QUOTED BY.** `0.9201` is 0.0001 above the floor, it was a single draw from a
+      then-stochastic plate, it did not recur in 14 draws at `1985425`, and now that the plate is
+      deterministic the recipe it names returns 0.9197. MARGINAL is the required word,
+      `docs/measured-claims.selftest.mjs` is the gate, and its **PLATES** rule now holds every
+      number in this roster to a named sha256 rather than to a range.
+      **The A side is what a claim of soundness rests on, and it got stronger this round.**
+      `?aa=msaa&grade=0` reads G1 **1.6180** · G2 **0.9221** · G4 **1.7469** · G5 **0.000002** ·
+      G6 **0.00001** · G7 **0.000742** — **six of seven** — over two loads at two more digests, and
+      its plate is byte-for-byte the one recorded at HEAD `1985425`. Two builds, one picture: the
+      forward path did not move, so the default's numbers moving is about the temporal-plus-grade
+      path and nothing else.
+      🎯 **Body framing IS re-measured this round** — see the body table at the top of this file.
+      G6 **0.0126** reproduces exactly; G1 reads **1.5869** against the 1.5822 carried over, Δ0.0047,
+      still inside the band. Body-framing **G4 is not reportable at 900 px** and nothing should quote
+      it until a 3840-wide body region file exists.
+      **G6 stays UNDECIDED, not failed**: `?cards=0` reads **0.00393 at both 3840 and 900 px** — the
+      backdrop card's own level, a rig parameter — while the shipped reading moves 0.00001 → 0.00309
+      across the same two widths. The gate is counting lash texels, and a `frame` region does not
+      close it.
       ⚠️ Historical, kept so the pattern is visible: an earlier revision of this line read
       G1 1.5783, G2 0.8127 FAIL, G3 −0.0744 FAIL, G4 1.6468, G6 0.00001 FAIL, measured at 900 px
       through a `?capture` that then ignored `?freeze`. Three of those four reds were artefacts of
-      how the plate was taken. **That is the same failure as this one with the sign flipped** — a
-      recipe defect reported as a render verdict — and it is why the recipe, the width, the load
-      count and the margin all have to travel with the number.
+      how the plate was taken. **That is the same failure as the 0.9201 one with the sign flipped** —
+      a recipe defect reported as a render verdict — and it is why the recipe, the width, the step
+      count, the load count and the margin all have to travel with the number.
       🚩 Seven green measured gates is the entry condition for a blind comparison, not a pass of one.
 - [ ] **8.2** Loop: emote vs Live2D/VTuber until decisive win. Body clips come from
       `capture.mjs --postural-seeds`; a verdict taken on one draw is a verdict about the draw.
@@ -893,7 +1047,7 @@ Full measurements, sources and the evidence behind every number below live in
 
 ### The plumbing
 
-- [ ] **9.1** `wardrobe/GarmentManifest.js` + `assets/wardrobe/manifest.json` — per garment: `id`,
+- [x] **9.1** `wardrobe/GarmentManifest.js` + `assets/wardrobe/manifest.json` — per garment: `id`,
       `layer`, `hideMask`, `alphaMode`, `clo` (ASHRAE 55 Table 5.2.2.2B), `fabric` (the taxonomy
       key), `formality` (authored 1–5), `palette`. 🚩 **`z_depth` from the mhclo is INERT and must
       not be trusted** — an exhaustive grep of MPFB finds four write sites and no consumer, and the
@@ -902,7 +1056,7 @@ Full measurements, sources and the evidence behind every number below live in
       and that two garments claiming the same layer are rejected rather than silently
       interpenetrating. Proven red by two suits at z_depth 50, which MPFB attaches today without a
       warning.
-- [ ] **9.2** `tools/figure-pipeline/build_figure.py` gains `--garment` and
+- [x] **9.2** `tools/figure-pipeline/build_figure.py` gains `--garment` and
       `--hide-mask-attribute`. Body hiding moves from a baked MASK modifier to a per-vertex
       `_HIDE_*` attribute, because `delete_verts` permanently removes geometry and an avatar whose
       torso has been deleted cannot undress.
@@ -912,7 +1066,7 @@ Full measurements, sources and the evidence behind every number below live in
       Gate: **MEASURED** — the runtime index rebuild reproduces the baked triangle count exactly.
       Proven: 17,012 = 17,012 for suit+shoes, 21,380 = 21,380 for suit alone, at **0.1609 ms**
       median over 30 runs.
-- [ ] **9.3** `wardrobe/Wardrobe.js` — `dress(garmentIds)` / `undress()`. Loads garment fragments on
+- [x] **9.3** `wardrobe/Wardrobe.js` — `dress(garmentIds)` / `undress()`. Loads garment fragments on
       demand, rebuilds the body index buffer from the union of hide masks, adds and removes garment
       `SkinnedMesh`es against the figure's existing skeleton.
       Gate: **MEASURED** — dress → undress → dress returns the body to **26,756 triangles** with no
@@ -927,13 +1081,64 @@ Full measurements, sources and the evidence behind every number below live in
       Textures are shared across the five; only positions differ.
       Gate: **MEASURED** — for all five figures, covered skin outside the cloth at rest no worse
       than the g050 baseline of **26.37%**, worst depth no worse than **9.19 mm**.
-- [ ] **9.5** `tools/figure-pipeline/verify_glb.mjs` gains a garment clause. It currently **FAILS a
+- [x] **9.5** `tools/figure-pipeline/verify_glb.mjs` gains a garment clause. It currently **FAILS a
       clothed figure by construction** — `OPAQUE_MATERIAL_PARTS` is a five-regex whitelist and a
       garment matches nothing, so `suit_g050` reports 1 problem and `layered_g050` reports 3 while
       every eye, lip-seal and morph assertion stays green. The clause must read `alphaMode` from
       the manifest per garment, not from a regex: a wool coat is OPAQUE, a mesh panel is MASK.
       Gate: **MEASURED** — passes a clothed figure; proven red by a manifest declaring OPAQUE for a
       cutout garment.
+
+### ✅ 9.1, 9.2, 9.3 and 9.5 are DONE, and what the gates actually measured
+
+`node packages/core/src/wardrobe/wardrobe.selftest.mjs` — **35 assertions**;
+`node tools/figure-pipeline/verify_glb.mjs` — **PASS, 10 files** (five figures, the wardrobe body,
+four fragments), where a clothed figure used to fail by construction.
+
+- **The runtime rebuild equals the baked build EXACTLY, and not only in count.** 17,012 = 17,012
+  for suit + shoes, 21,380 = 21,380 for the suit alone, 26,756 undressed — and identical as a
+  **multiset of triangle centroids at 1 µm**, so a mask flagging the wrong vertices in the right
+  quantity cannot pass. 🚩 The selftest SEARCHES for such a corruption, finds one, and shows the
+  count clause green on it while the centroid clause is red. That is "a triangle count is a
+  decorative gate" demonstrated rather than argued.
+- **Dress step: 0.1663 ms median** over 30 runs in node (min 0.0826, max 0.2346), against research
+  §2.4's 0.1609 ms for the rebuild alone; **0.20 ms** in the browser, where Chrome clamps
+  `performance.now` to 100 µs and the node figure is therefore the finer one. Well under the 1 ms
+  the gate asks for.
+- **A dressed figure draws FEWER triangles than a naked one** — 17,012 body + 8,800 garment =
+  25,812 against 26,756 nude — exactly as research §1.1 predicted, because `delete_verts` removes
+  more body than the garment adds. Four draw calls.
+- **9.8's hook is real today.** `#resolveOutfit` is the single funnel and `dress`, `undress`,
+  `putOn` and `takeOff` all pass through it; `undress()` is already "return to the floor". Proven
+  with a stand-in floor since 9.8's garments do not exist. Intermediate states are covered
+  structurally rather than by timing: `dress()` awaits every fragment BEFORE mutating anything and
+  then applies the whole outfit in one synchronous block, so no frame can observe a half-applied
+  outfit.
+- 🎯 **WIRED ONTO `alive.html`, the page every judge captures**, as `?wear=female_casualsuit01,
+  shoes01,fedora01` and `window.sugata.wardrobe`. Opt-in by construction: with no `?wear` the
+  module is never imported and no manifest is fetched, and the shipped default's sha256 is
+  unchanged across three loads spanning the wardrobe landing. **Both frame paths were checked, per
+  LEARNINGS §1.24** — on the forward MSAA path a dressed frozen plate is **byte-identical**
+  (`9e315115…`) taken through rAF and through 60 × `__SUGATA_STEP__`, and the capture epoch pin
+  holds with garments on: `frameId` 60 exactly, `time` 1.0000000000000013, `jitterIndex` 29.
+
+⚠️ **9.1's rule as BUILT is "two garments may not share a layer AND a body slot"**, not the
+unqualified "may not share a layer" the item asks for — the unqualified form makes a shirt and
+trousers illegal while a one-piece suit has no honest answer to a BASE_TOP/BASE_BOTTOM split. The
+rejection the gate asks for still happens on the garments it asks about: two suits at one layer are
+refused, naming all four colliding slots.
+
+⚠️ **`assets/wardrobe/body/g050.glb` is deliberately a SEPARATE artefact from
+`assets/figures/figure_g050.glb` this round.** Merging them is the right end state, but the
+`_HIDE_*` attributes cost 174,708 bytes and — the reason it waits — change that file's sha256,
+which several committed gates are measured against. That merge belongs in the same round as the
+re-measurement. The nude control still emits sha256 `b56115d0cb52…`, byte-identical to the
+committed figure, after every `build_figure.py` edit.
+
+🚩 **THE COLD PATH IS BAD AND 9.6 IS THE FIX.** Fetching three fragments took ~18 s over the dev
+server: **18.9 MB, of which 18.6 MB is PNG**, and the fedora fragment alone is 7,638,760 bytes —
+bigger than the shoes, for a hat. Textures at 81–87% of the payload is research §3.4's headline
+measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any size.
 - [ ] **9.6** KTX2/Basis for every garment texture via `KHR_texture_basisu` + `KTX2Loader`.
       🚩 **The phase's binding constraint, and the only major unmeasured number in the research.**
       Textures are **81% of a one-garment GLB and 87% of a three-garment one**; the CC0 set carries
@@ -1078,6 +1283,34 @@ Full measurements, sources and the evidence behind every number below live in
       tolerance; **proven red against a plain weave, which has no diagonal to find, and against the
       whole-patch tensor above, which returns −90° on a correct twill.** Plus the anisotropic
       highlight running along the twill line on a rendered plate.
+
+      ✅ **THE SPIKE IS BUILT AND THE GATE IS GREEN** — `node tools/spikes/fabric-weave.mjs --gate`,
+      plus `packages/testbed/src/fabric.html` for the rendered half. Twill angle recovered to
+      **0.0000–0.0001°** on a periodic patch and **0.018–0.197°** through an incommensurate
+      Hann-windowed one, against a stated ±1.0°. Plain weave refused at uniqueness **exactly
+      1.000000**; the whole-patch tensor returns the warp axis on the same fields in the same pass,
+      reproducing the −90.00° above by measurement rather than by quotation. The rendered basis is
+      proved end to end by a six-point rotation sweep, worst **0.09°**.
+
+      🚩 **AND THE GATE THIS ITEM SPECIFIES IS INCOMPLETE — found by building it.** An FFT peak is
+      structurally blind to whether the diagonal came from an interlacing at all: `painted-diagonal`
+      (axis-aligned yarn ridges plus a cosine at exactly the right wave vector, no weave underneath)
+      **passes it cleanly at 32.91°**. A second, independent instrument is required — fold the patch
+      onto one repeat and measure its SHAPE (harmonic fraction 0.048 painted, 0.345 real, 1.040 for
+      an ideal 3/1 square wave). **And the angle must be SIGNED**, because an S-twill has an
+      identical |angle|, coherence, yarn diameter and GSM to its Z-twill twin.
+
+      🚩 **The satin's predicted 45.00° is the formula applied OFF ITS DOMAIN** and the gate is
+      right to refuse it: a 4/1 move-2 satin has two generators mod 5, so two diagonals, and the
+      stronger is at −14.04°. That is what satin IS. Also corrected: **coherence tracks warp-face
+      fraction, not float length** — see research §4.4, re-derived with sett held fixed.
+
+      ⚠️ Three limits for 9.11 and 9.19 to inherit: it generates NEW cloth and cannot generate
+      OWNED cloth (the gate's own 0.0001° precision is the evidence — a perfect lattice returns a
+      delta function where real cloth returns a smeared peak); thread count describes the surface
+      for **four** of the nine named families, not nine; and generated thickness is **24–48% too
+      thin** against the F&T 1/2018 control set with the correction varying 1.47× across weaves
+      whose real thicknesses span 1.15×. That last is reported and deliberately **not gated**.
 - [ ] **9.17** SPIKE: pattern-to-garment. **Start from GarmentCode/`pygarment` (MIT), not from
       scratch** — the only complete open headless pipeline, it already emits GLB and a UV texture,
       and hm08 support is three files its config anticipates: `<name>.obj`, a 26-measurement
@@ -1143,20 +1376,28 @@ Women's footwear is the thinnest slot on either rail by a wide margin.
   `1985425` on the byte-reproducible forward path — `?bare&freeze&seed=1&capture&aa=msaa&grade=0`
   at 1, 60 and 300 steps returns one sha256, and free-running returns the same bytes; drop
   `?freeze` and 1 step differs from 60. LEARNINGS §1.19a needs the same correction.
-- **🚩 A STILL PLATE ON THE SHIPPED DEFAULT IS A DRAW, NOT A VALUE.** Page, framing, seed, recipe,
-  build and step count fixed, six loads of `?bare&freeze&seed=1&capture` at 3840×5120 return **five
-  distinct PNGs** differing on 56.4% of pixels. The renderer's frame counter is not pinned when
-  `?capture` takes the loop over, and both the grade's grain phase and TRAA's Halton jitter index
-  ride on it. Quote a **range over N loads with N stated**, or use `?aa=msaa&grade=0`, which is
-  byte-identical across loads and across both frame paths. `?grade=0` and `?grain=0` each remove
-  one consumer and neither removes both.
+- **✅ A STILL PLATE ON THE SHIPPED DEFAULT IS A VALUE AGAIN — AND ITS STEP COUNT IS PART OF ITS
+  IDENTITY.** This bullet used to read *"a still plate on the shipped default is a draw"*, and it
+  was right until 3.20. At `2ec7db9` three loads of `?bare&freeze&seed=1&capture` at 3840×5120,
+  60 steps, return one PNG. **What replaces the warning is narrower and still bites: a temporal
+  resolve at N steps is not the picture at M steps.** Measured, one page, one seed, 900×1200:
+  G2 0.9182 at 1 step and 0.9169 at 60. State the step count with the width, the seed and the
+  digest, or the plate is not identified. `measure.mjs` now reads it out of the frame file name.
 - **🚩 NO BARE VERDICT INSIDE THE NOISE. `MARGINAL` IS A REQUIRED WORD.** A gate value closer to a
-  band edge than that gate's measured load-to-load spread does not license a PASS or a FAIL on its
-  own, in either direction. Measured spreads on the shipped default: G1 0.0005, G2 0.0004,
-  G4 0.0135, G5 0.000001, G6 0.000000, G7 0.000046. Write the literal token `MARGINAL` within 400
-  characters of the claim, and say what would settle it. `G2 0.9201 PASS` — one ten-thousandth
-  inside the floor — is how a whole phase came to be reported as six of seven when it is five.
-  Enforced by `node docs/measured-claims.selftest.mjs`.
+  band edge than that gate's **retained fragility floor** does not license a PASS or a FAIL on its
+  own, in either direction. Floor: G1 0.0005, G2 0.0004, G4 0.0135, G5 0.000001, G6 0.000000,
+  G7 0.000046. ⚠️ **Those were the load-to-load spread and that spread is now ZERO** — they are
+  retained because the *recipe* sensitivities measured at `2ec7db9` are larger: G2 moves 0.0013
+  between 1 capture step and 60, 0.0028 between 900 px and 3840 px, and 0.0024 between the shipped
+  default and its A side. Setting the floor to the measured zero would make the rule inert, which
+  is a gate going green by going blind. Write the literal token `MARGINAL` within 400 characters of
+  the claim, and say what would settle it. `G2 0.9201 PASS` — one ten-thousandth inside the floor —
+  is how a whole phase came to be reported as six of seven when it is five.
+  Enforced by `node docs/measured-claims.selftest.mjs`, **five rules**, 49 checks.
+- **🚩 A CURRENT NUMBER BELONGS TO A NAMED PLATE.** Every gate value quoted for the shipped default
+  is held by the **PLATES** rule against the ```plates block at the top of this file, which carries
+  a sha256 and a load count per configuration. Re-measure and update both, or the gate goes red.
+  Hand-narrowing a value is the mutation that replaced hand-narrowing a range.
 - **State the WIDTH beside any G4 number.** High-pass σ is scale-dependent with no sound rescaling
   law; the band is stated at 3840 px and the same plate reads 1.7469 there and 2.1849 at 900.
 - **A toggle is only an attribution if it moves ONE subsystem.** `?eyes=0` moved two for two review
