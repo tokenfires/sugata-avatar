@@ -104,7 +104,7 @@ export class VisemeLayer extends Layer {
 
     }
 
-    update( deltaSeconds ) {
+    update( deltaSeconds, context ) {
 
         const weights = this.schedule.update( deltaSeconds );
 
@@ -121,6 +121,14 @@ export class VisemeLayer extends Layer {
         }
 
         this.speaking = wrote;
+
+        // Published so a layer that must not fight the mouth can tell whether the mouth is busy.
+        // `MotionStack` documents `shared` as being for exactly this — "cross-layer state that is
+        // genuinely shared: affect, speech timing, the gaze target" — and `affect/ExpressionLayer`
+        // reads it to pick between `MAX_CORNER_OFFSET` and `MAX_CORNER_OFFSET_SILENT`. Reaching
+        // into this layer's `speaking` field directly would couple the two in the direction Phase 4
+        // spent its whole design avoiding.
+        if ( context?.shared !== undefined ) context.shared.speaking = wrote;
 
         // A silent layer returns null so it stays out of the channel-conflict report entirely,
         // rather than claiming fifteen shapes at zero on every frame of every silence.

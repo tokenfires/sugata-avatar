@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>姿 — affect</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+        background: #08080a;
+        color: #d8dae0;
+        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow: hidden;
+    }
+
+    #stage { display: block; width: 100vw; height: 100vh; }
+
+    #hud, #controls {
+        position: fixed;
+        padding: 10px 12px;
+        background: rgba( 8, 8, 12, 0.72 );
+        border: 1px solid rgba( 255, 255, 255, 0.10 );
+        border-radius: 6px;
+    }
+
+    #hud { top: 12px; left: 12px; max-width: 46vw; white-space: pre; }
+
+    #controls {
+        top: 12px;
+        right: 12px;
+        width: 300px;
+        max-height: calc( 100vh - 24px );
+        overflow-y: auto;
+    }
+
+    #controls label { display: block; margin: 8px 0 2px; opacity: 0.75; }
+    #controls input[ type="range" ] { width: 100%; }
+    #controls input[ type="text" ] {
+        width: 100%;
+        box-sizing: border-box;
+        font: inherit;
+        color: inherit;
+        background: rgba( 255, 255, 255, 0.06 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-radius: 4px;
+        padding: 5px 7px;
+    }
+    #controls button {
+        font: inherit;
+        color: inherit;
+        background: rgba( 255, 255, 255, 0.08 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-radius: 4px;
+        padding: 5px 9px;
+        margin: 4px 4px 0 0;
+        cursor: pointer;
+    }
+    #controls button:hover { background: rgba( 255, 255, 255, 0.16 ); }
+    #controls .row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    #controls hr { border: 0; border-top: 1px solid rgba( 255, 255, 255, 0.10 ); margin: 12px 0 4px; }
+
+    #meter {
+        position: fixed;
+        left: 12px;
+        bottom: 12px;
+        right: 12px;
+        height: 92px;
+        /* ?w/?h letterboxing makes the body a centred grid, and `place-items: center` applies
+           self-alignment to fixed boxes too. Opt back out explicitly, as voice.html does. */
+        place-self: end stretch;
+        background: rgba( 8, 8, 12, 0.72 );
+        border: 1px solid rgba( 255, 255, 255, 0.10 );
+        border-radius: 6px;
+    }
+
+    #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="stage"></canvas>
+<div id="boot">booting…</div>
+
+<div id="hud"></div>
+
+<div id="controls">
+    <label>emotion presets</label>
+    <div class="row" id="presets"></div>
+
+    <hr>
+
+    <label>pleasure <span id="pleasureValue">0.00</span></label>
+    <input id="pleasure" type="range" min="-1" max="1" step="0.01" value="0">
+
+    <label>arousal <span id="arousalValue">0.00</span></label>
+    <input id="arousal" type="range" min="-1" max="1" step="0.01" value="0">
+
+    <label>dominance <span id="dominanceValue">0.00</span> — never reaches the face</label>
+    <input id="dominance" type="range" min="-1" max="1" step="0.01" value="0">
+
+    <div class="row">
+        <button id="settle">settle now</button>
+        <button id="release">release</button>
+    </div>
+
+    <hr>
+
+    <label>tier 1 — say something</label>
+    <input id="utterance" type="text" value="That is the third time you have ignored me. I am done asking nicely.">
+    <div class="row">
+        <button id="feel">estimate</button>
+        <button id="speak">speak (viseme under the offset)</button>
+    </div>
+
+    <hr>
+
+    <label>mood <span id="moodValue"></span></label>
+    <div class="row">
+        <button id="fastMood">accelerate mood 600x</button>
+        <button id="resetMood">reset mood</button>
+    </div>
+</div>
+
+<canvas id="meter"></canvas>
+
+<script type="module" src="./affect.js"></script>
+</body>
+</html>

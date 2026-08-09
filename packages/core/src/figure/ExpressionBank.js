@@ -245,13 +245,31 @@ export function applyRegion( figure, region, values ) {
  * @param {Object} offsets
  * @param {number} [offsets.smile=0] - AU12, from positive pleasure.
  * @param {number} [offsets.frown=0] - AU15, from negative pleasure.
+ * @param {number} [offsets.cap=MAX_CORNER_OFFSET] - which cap to clamp to; see the two constants.
  */
 export const MAX_CORNER_OFFSET = 0.35;
 
-export function addMouthCornerOffset( figure, { smile = 0, frown = 0 } = {} ) {
+/**
+ * The cap when the mouth is SILENT.
+ *
+ * 🚩 The 0.35 cap's own stated reason is that "the viseme underneath is still legible". When
+ * nothing is speaking there is no viseme, and the reason does not apply — while the cost of
+ * applying it anyway is measured: `mouthSmileLeft` travels **18.68 mm** at weight 1 on
+ * `figure_g050`, so 0.35 delivers **6.54 mm** and discards the other 12.14 mm. That is the single
+ * largest reason a settled joy renders as polite rather than joyful (Phase 5.7).
+ *
+ * This is still the same additive AU12/AU15 offset the standing constraint permits — it is that
+ * offset over nothing, rather than a second absolute mouth target.
+ *
+ * ⚠️ RAMP between the two caps rather than switching, or a smile pops the instant speech starts.
+ * `voice/VisemeLayer.js` publishes `context.shared.speaking` for exactly this decision.
+ */
+export const MAX_CORNER_OFFSET_SILENT = 1.0;
 
-    const smileOffset = clampToCorner( smile );
-    const frownOffset = clampToCorner( frown );
+export function addMouthCornerOffset( figure, { smile = 0, frown = 0, cap = MAX_CORNER_OFFSET } = {} ) {
+
+    const smileOffset = clampToCorner( smile, cap );
+    const frownOffset = clampToCorner( frown, cap );
 
     addWeight( figure, 'mouthSmileLeft', smileOffset );
     addWeight( figure, 'mouthSmileRight', smileOffset );
@@ -351,10 +369,10 @@ function addWeight( figure, name, amount ) {
 
 }
 
-function clampToCorner( offset ) {
+function clampToCorner( offset, cap = MAX_CORNER_OFFSET ) {
 
     if ( ! ( offset > 0 ) ) return 0;   // also catches NaN and undefined
-    return Math.min( offset, MAX_CORNER_OFFSET );
+    return Math.min( offset, cap );
 
 }
 
