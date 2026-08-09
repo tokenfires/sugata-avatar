@@ -96,6 +96,11 @@
  *
  *   DISCOURSE      Cassell's 26% / 8% coupling.
  *
+ *   TRUNK          the shoulder line the layer realises against the one the pose draws, and the
+ *   ARTICULATION   shoulder band minus the hip band — a DIFFERENCE, because every other lateral
+ *                  gate here is a ratio of two travels and a rigid torso scores 1.000 on all of
+ *                  them. That is how a torso 93% rigid on its pelvis passed the whole file.
+ *
  *   GLANCE         per-band silhouette travel in PIXELS inside the fifteen seconds a viewer spends
  *   LEGIBILITY     deciding whether a thing is alive, at the framing `alive.js?frame=body` uses,
  *                  over the same twelve seeds as every other amplitude gate here. A raw standard
@@ -144,7 +149,7 @@ globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {}
 
 const { Box3, Quaternion, Vector3 } = await import( 'three' );
 const { Figure } = await import( '../figure/Figure.js' );
-const { Skeleton } = await import( '../figure/Skeleton.js' );
+const { Skeleton, HUMANOID_TO_FIGURE_BONE } = await import( '../figure/Skeleton.js' );
 const { RestPose } = await import( '../figure/RestPose.js' );
 const { BodyMass, WHOLE_BODY_COM_FRACTION_OF_STATURE } = await import( '../figure/BodyMass.js' );
 const { MotionStack, createMotionTarget } = await import( './MotionStack.js' );
@@ -312,6 +317,50 @@ const HEAD_BAND_OVER_HIP_BAND_CEILING = 1.40;
  * head by 1.31x and admits the shipped layer by 1.31x, and it clears the full stack's 0.9918 by 24%.
  */
 const HEAD_BAND_OVER_HIP_BAND_FLOOR = 0.80;
+
+/**
+ * 🎯 The fraction of the shoulder-line counter-tilt the pose draws that the layer must still be
+ * delivering at unit blend. See TRUNK ARTICULATION for what this catches and why no ratio could.
+ *
+ * 0.25 is a judgement and it is stated as one, but it is a judgement between two MEASURED
+ * populations rather than a round number: the tilt this replaced realises 0.045 and 0.082 of the
+ * authored line, the shipped spread realises 0.325 and 0.351, and the geometric mean of the two
+ * worsts is 0.170. The floor sits above that, at the point where it rejects the defect by 3.0x on
+ * its more favourable side and admits the shipped layer by 1.30x on its less favourable one.
+ *
+ * ⚠️ IT IS A FLOOR AND NOT A TARGET. The pose draws 1.000 and nothing about the anatomy says the
+ * runtime should deliver less; 0.25 is what the head-over-hip ceiling in GLANCE LEGIBILITY leaves
+ * room for. Read `LATERAL_SHIFT_COUPLE` before treating a pass here as the shape being right.
+ */
+const SHOULDER_LINE_REALISED_FLOOR = 0.25;
+
+/**
+ * The floor under the shoulder-band-minus-hip-band differential, in pixels of 15 s median
+ * peak-to-peak at the full-body framing.
+ *
+ * 🚩 A WEAK GATE, ON PURPOSE, AND SAID SO OUT LOUD. The trace statistic separates the shipped layer
+ * from the tilt it replaced by about a fifth — 1.58-2.02 px against 1.38-1.64 — where the geometric
+ * shoulder-line claim above separates them by 4x. That is a property of the statistic and not of the
+ * fix: a band centroid averages a tilt away, which is most of why the defect survived a heat map and
+ * two rounds of ratio gates. It is gated at all because it is the number a judge reported and the
+ * number a successor will reach for, and it is stated at 1.5 px — just under the tilt's own best —
+ * so that it catches a torso that has stopped articulating ENTIRELY without pretending to resolve
+ * the difference between 7% and 20%.
+ */
+const TRUNK_DIFFERENTIAL_FLOOR_PIXELS = 1.5;
+
+/**
+ * `Sway`'s own `spineShare` default, mirrored so THE OTHER WAY can put the pure tilt back. It is not
+ * exported, and a copy that drifts would silently stop reproducing the defect — so the shoulder-line
+ * numbers this reproduces are printed rather than asserted from a literal.
+ */
+const SPINE_SHARE_TILT = [ 0.5, 0.3, 0.2 ];
+
+/**
+ * How closely the head band's vertex centroid and its silhouette centre must agree on a Sway-only
+ * layer. See `measureBandStatisticDisagreement` for what moved it and what it still rejects.
+ */
+const HEAD_BAND_STATISTIC_AGREEMENT = [ 0.70, 1.20 ];
 
 /**
  * How long the CLIP CONTENT section traces each seed. Long enough to reach the latest first
@@ -1032,6 +1081,7 @@ measureToeArticulation();
 measureFreeFootArticulation();
 measureFootBandArticulation();
 measureGlanceLegibility();
+measureTrunkArticulation();
 measureClipContent();
 measureFullStackHeadOverHip();
 measureAmplitudeDistribution();
@@ -4931,19 +4981,28 @@ function measureHeadOverHipBand( shipped, at ) {
  * The gate is stated here anyway, in the direction that is true here, so that the pair is checked on
  * every run: the day these two disagree on a Sway-only layer, something in this layer has started
  * rotating the head and the whole GLANCE section is measuring a different quantity than it says.
+ *
+ * ⚠️ THE BAND WAS 0.80-1.20 AND IS NOW 0.70-1.20, and the reason is a real change rather than a
+ * tolerance that wanted widening. `LATERAL_SHIFT_COUPLE` makes the righting a bend with a give-back
+ * above it, and a give-back at `upperChest` is 215 mm below the shoulder and 415 mm below the head:
+ * it translates the head, but it also swings the NECK through a shorter arc than the skull, which
+ * redistributes vertex density inside the head band by a few per cent. Measured over twelve seeds
+ * the pair now reads 0.773-0.855 against 0.834-0.912 before. The floor moves to the point that still
+ * rejects the thing this gate exists for by the same margin it always did — gaze.head's 3.37, which
+ * it now rejects by 4.8x — rather than to the point that admits the measurement.
  */
 function measureBandStatisticDisagreement( silhouetteRatios, vertexRatios ) {
 
     const ratios = vertexRatios.map( ( value, index ) => value / silhouetteRatios[ index ] );
 
     gate( 'vertex centroid over silhouette centre, head band, worst seed',
-        Math.max( ...ratios ), 0.80, 1.20,
+        Math.max( ...ratios ), HEAD_BAND_STATISTIC_AGREEMENT[ 0 ], HEAD_BAND_STATISTIC_AGREEMENT[ 1 ],
         'they agree HERE because Sway translates the head rather than rotating it. Measured ' +
-        '0.834-0.912 over twelve seeds. With gaze.head in the stack the same pair reads 3.37 — ' +
+        '0.773-0.855 over twelve seeds. With gaze.head in the stack the same pair reads 3.37 — ' +
         'see FULL STACK' );
 
     gate( 'vertex centroid over silhouette centre, head band, lowest seed',
-        Math.min( ...ratios ), 0.80, 1.20, '' );
+        Math.min( ...ratios ), HEAD_BAND_STATISTIC_AGREEMENT[ 0 ], HEAD_BAND_STATISTIC_AGREEMENT[ 1 ], '' );
 
 }
 
@@ -5169,8 +5228,15 @@ function measureGlanceLegibilityTheOtherWay( framing, shipped, at ) {
     // mannequin head a verifier once built, which scored BETTER than the shipped layer on every
     // one-sided ratio gate in HEAD PARKED. The FLOOR is what has to catch it, and it is the half of
     // this band that has never had a rejection of its own.
-    const parked = SWAY_SEEDS.map( ( seed ) =>
-        bandTravelPixels( seed, { lateralHeadPerCentreOfMass: 0.30 }, framing ) );
+    // 🚩 AND IT IS A CONFIGURATION, NOT A KNOB. The mannequin was built with the righting spread as
+    // a TILT, which is what the layer did then, and the spread is part of what makes it a mannequin:
+    // under `LATERAL_SHIFT_COUPLE` the same 0.30 target does not park the head at all. It cannot —
+    // the couple's lever on the head is a third of the tilt's, so the solve answers a low target with
+    // a large angle at the waist, which moves the HIP band rather than holding the head. Measured
+    // over these twelve seeds it reads 1.029-1.210, comfortably above this floor and nothing like a
+    // parked head. Naming the spread is what keeps the known-bad the state it says it is.
+    const parked = SWAY_SEEDS.map( ( seed ) => bandTravelPixels(
+        seed, { lateralShiftCouple: SPINE_SHARE_TILT, lateralHeadPerCentreOfMass: 0.30 }, framing ) );
 
     const parkedRatios = parked.map( ( report ) =>
         at( report, 'head' ).silhouetteGlanceTravelPixels / at( report, 'hip' ).silhouetteGlanceTravelPixels );
@@ -5421,6 +5487,290 @@ function highPassed( samples, seconds ) {
     }
 
     return out;
+
+}
+
+/**
+ * 🎯 TRUNK ARTICULATION — does the weight shift reach the TORSO, or only move it?
+ *
+ * A hip strategy is by definition trunk-relative-to-pelvis motion: the pelvis stacks over the loaded
+ * foot, the stance-side crest rises, and the shoulder line ends up tilted OPPOSITE the hip line.
+ * `figure/poses/weight-left.json` draws exactly that and says why — "it is that divergence... that
+ * produces the S every life class teaches. Tilt them the same way and the figure looks braced, not
+ * resting" — and measures its own result at hip line +5.5°, shoulder line -3.0°.
+ *
+ * 🚩 NONE OF IT WAS REACHING THE RENDER, AND EVERY GATE IN THIS FILE WAS GREEN. A blind judge
+ * measured, on both 420 s clips at the shipped default: shoulder-band centroid minus hip-band
+ * centroid, SD 0.756 px and 0.709 px, against hip bands of 9.29 and 10.96 px and a pelvis travelling
+ * 52 px peak to peak. Seven per cent articulation inside the translation. An unaligned A/B of the two
+ * extreme frames showed the navel and crotch lines level and the shoulder line parallel to the pelvis
+ * line; the per-pixel heat map of the same clip showed a bright sweeping silhouette edge around a
+ * dead torso interior.
+ *
+ * 🚩 WHY NOTHING CAUGHT IT, WHICH IS THE PART WORTH KEEPING. Every lateral gate in this file is a
+ * RATIO OF TWO LANDMARK TRAVELS — head over centre of mass, head over pelvis, head band over hip
+ * band. A rigid body translating sideways moves every landmark by the same amount, so it scores
+ * exactly 1.000 on all of them, and 1.000 was the design target. The whole gate battery was
+ * satisfiable by the degenerate case, and the solve, being exact, found it. §1.3: ask of any green
+ * metric what a degenerate input would score here.
+ *
+ * 🎯 SO THIS SECTION IS STATED ON A DIFFERENCE AND NOT ON A RATIO. A rigid slab scores ZERO, not one.
+ *
+ *   THE PRIMARY CLAIM is the realised shoulder line as a FRACTION of the one the pose draws, per
+ *   side, at unit blend, read off the rig rather than off a trace. It is a bind-time geometric fact
+ *   with no seed in it, it is causally the thing the judge described, and its known-bads separate
+ *   from it by 3x and by SIGN rather than by a few per cent.
+ *
+ *   THE SECOND CLAIM is the judge's own statistic, in his own units, so the two can be laid side by
+ *   side: shoulder-band silhouette centre minus hip-band silhouette centre, over the same twelve
+ *   seeds every other amplitude gate here runs over.
+ *
+ * ⚠️ AND THE HONEST PART. The shipped spread restores 0.33-0.35 of the authored shoulder line, up
+ * from 0.05-0.08, and it is NOT the value this section would choose. A wider give-back is better on
+ * every measure in here and is blocked by GLANCE LEGIBILITY's `head/hip` ceiling — a ratio whose
+ * DENOMINATOR is the hip band, which travels furthest exactly when the abdomen is rigid. Measured:
+ * a full give-back takes the shoulder line to 0.51-0.53 and `head/hip` to 1.39-1.62 against a 1.400
+ * ceiling, and a full couple takes it to 1.00 and `head/hip` to 2.5-3.5 — while the HEAD band's own
+ * travel FALLS, from 11.5-14.4 px to 10.1-13.1. That gate fails on a numerator that is improving.
+ * Raising `LATERAL_SHIFT_COUPLE` needs that ceiling re-derived first, and re-deriving it is a change
+ * to a contract a previous round set deliberately, on evidence this one did not have.
+ */
+function measureTrunkArticulation() {
+
+    section( 'TRUNK ARTICULATION — does the shift reach the torso, or only move it?' );
+
+    const framing = fullBodyFraming();
+    const shipped = shoulderLineFractions( {} );
+
+    note( 'shoulder line the pose draws (deg, left / right)',
+        `${ shipped.authored.left.toFixed( 2 ) } / ${ shipped.authored.right.toFixed( 2 ) }`,
+        `weight-left.json declares -3.0 against a hip line of +5.5; measured here at unit blend ` +
+        `against ${ shipped.hipLine.left.toFixed( 2 ) } / ${ shipped.hipLine.right.toFixed( 2 ) }` );
+
+    note( 'shoulder line the layer realises (deg, left / right)',
+        `${ shipped.realised.left.toFixed( 2 ) } / ${ shipped.realised.right.toFixed( 2 ) }`,
+        'the pose, plus whatever the lateral righting spends on the same three joints' );
+
+    for ( const side of [ 'left', 'right' ] ) {
+
+        gate( `realised shoulder line / authored, ${ side }`, shipped.fraction[ side ],
+            SHOULDER_LINE_REALISED_FLOOR, 1.2,
+            'a difference, not a ratio of travels: a torso that translates rigidly scores 0 here ' +
+            'and 1.000 on every other lateral gate in this file' );
+
+    }
+
+    // The judge's own statistic, in the judge's own units, over the twelve seeds. Reported with a
+    // floor rather than only reported, because §1.9 is about claims nobody has looked at and this
+    // one has been looked at — by a judge, on a render, who called it 7%.
+    const differentials = SWAY_SEEDS.map( ( seed ) => trunkDifferential( seed, {}, framing ) );
+
+    console.log( '' );
+    console.log( '        shoulder band minus hip band, silhouette centres, per seed' );
+    console.log( '        seed        SD (px)   15 s travel (px)   as a fraction of the hip band SD' );
+
+    for ( let index = 0; index < SWAY_SEEDS.length; index ++ ) {
+
+        const each = differentials[ index ];
+
+        console.log( `  ${ String( SWAY_SEEDS[ index ] ).padStart( 12 ) }   ${ each.sdPixels.toFixed( 3 ).padStart( 7 ) }   ` +
+            `${ each.glancePixels.toFixed( 3 ).padStart( 16 ) }   ${ each.overHipSd.toFixed( 4 ).padStart( 32 ) }` );
+
+    }
+
+    console.log( '' );
+
+    gate( 'shoulder-minus-hip, 15 s travel, worst seed (px)',
+        Math.min( ...differentials.map( ( each ) => each.glancePixels ) ),
+        TRUNK_DIFFERENTIAL_FLOOR_PIXELS, GLANCE_TRAVEL_CEILING_PIXELS,
+        'the differential a judge measured at 0.756 px of SD; the floor is stated on the same 15 s ' +
+        'median peak-to-peak every other band claim in this file uses' );
+
+    measureTrunkArticulationTheOtherWay( framing, shipped, differentials );
+
+}
+
+/**
+ * §1.1 and 🚩 the standing instruction that follows it: prove the gate red by putting the defect
+ * back, and then BREAK IT A DIFFERENT WAY IN THE SAME CLASS.
+ *
+ *   THE DEFECT ITSELF is `lateralShiftCouple: SPINE_SHARE_TILT` — the pure tilt this section was written
+ *   for. Every degree of righting rotates the shoulder girdle by a degree, so the solve pays for the
+ *   head with the S.
+ *
+ *   🚩 THE DIFFERENT MECHANISM is `[ 0, 0, 1 ]`: the whole righting at the TOP joint, which is the
+ *   obvious "put the counter-bend where the shoulders are" edit and is a give-back that gives nothing
+ *   back. It parks the head as well as the tilt does — so HEAD PARKED, GLANCE LEGIBILITY and the
+ *   whole ratio battery stay green on it — and it does not merely flatten the shoulder line, it
+ *   INVERTS it, tilting it the same way as the hip line. That is the "braced, not resting" figure
+ *   `weight-left.json` warns about by name, and it is a state that scores BETTER than the shipped
+ *   layer on the head-over-hip gates while looking worse than the defect this round was called for.
+ */
+function measureTrunkArticulationTheOtherWay( framing, shipped, differentials ) {
+
+    const tilt = shoulderLineFractions( { lateralShiftCouple: SPINE_SHARE_TILT } );
+    const topOnly = shoulderLineFractions( { lateralShiftCouple: [ 0, 0, 1 ] } );
+
+    note( 'the tilt this replaced, shoulder line / authored',
+        `${ tilt.fraction.left.toFixed( 3 ) } / ${ tilt.fraction.right.toFixed( 3 ) }`,
+        `against the shipped ${ shipped.fraction.left.toFixed( 3 ) } / ${ shipped.fraction.right.toFixed( 3 ) }` );
+
+    note( 'the whole righting at the top joint, shoulder line / authored',
+        `${ topOnly.fraction.left.toFixed( 3 ) } / ${ topOnly.fraction.right.toFixed( 3 ) }`,
+        'NEGATIVE is the point: the shoulder line has been tipped the SAME way as the hip line' );
+
+    gate( 'sides where the shoulder-line floor CATCHES the tilt',
+        [ 'left', 'right' ].filter( ( side ) => tilt.fraction[ side ] < SHOULDER_LINE_REALISED_FLOOR ).length,
+        2, 2,
+        `by ${ ( SHOULDER_LINE_REALISED_FLOOR / Math.max( tilt.fraction.left, tilt.fraction.right ) ).toFixed( 1 ) }x ` +
+        'on its more favourable side' );
+
+    gate( 'sides where it CATCHES a give-back at the top joint too',
+        [ 'left', 'right' ].filter( ( side ) => topOnly.fraction[ side ] < SHOULDER_LINE_REALISED_FLOOR ).length,
+        2, 2,
+        'a different mechanism in the same class: the head is parked just as well and the S is ' +
+        'inverted rather than merely lost' );
+
+    // 🚩 AND THE RATIO GATES DO NOT CATCH EITHER OF THEM, which is why this section exists. Stated
+    // as a gate rather than as a note so that a later change cannot quietly make it untrue.
+    const topOnlyRatios = SWAY_SEEDS.map( ( seed ) => {
+
+        const report = bandTravelPixels( seed, { lateralShiftCouple: [ 0, 0, 1 ] }, framing );
+        const at = ( name ) => report.bands.find( ( band ) => band.name === name );
+
+        return at( 'head' ).silhouetteGlanceTravelPixels / at( 'hip' ).silhouetteGlanceTravelPixels;
+
+    } );
+
+    gate( 'seeds where head/hip CATCHES the inverted shoulder line',
+        topOnlyRatios.filter( ( value ) =>
+            value > HEAD_BAND_OVER_HIP_BAND_CEILING || value < HEAD_BAND_OVER_HIP_BAND_FLOOR ).length,
+        0, 0,
+        `recorded, not tolerated: ${ Math.min( ...topOnlyRatios ).toFixed( 3 ) }-` +
+        `${ Math.max( ...topOnlyRatios ).toFixed( 3 ) } against a ${ HEAD_BAND_OVER_HIP_BAND_FLOOR }-` +
+        `${ HEAD_BAND_OVER_HIP_BAND_CEILING } band — a ratio of two travels cannot see a shape` );
+
+    const tiltDifferentials = SWAY_SEEDS.map( ( seed ) =>
+        trunkDifferential( seed, { lateralShiftCouple: SPINE_SHARE_TILT }, framing ) );
+
+    note( 'the tilt, shoulder-minus-hip 15 s travel over 12 seeds (px)',
+        `${ Math.min( ...tiltDifferentials.map( ( each ) => each.glancePixels ) ).toFixed( 3 ) } - ` +
+        `${ Math.max( ...tiltDifferentials.map( ( each ) => each.glancePixels ) ).toFixed( 3 ) }`,
+        `against the shipped ${ Math.min( ...differentials.map( ( each ) => each.glancePixels ) ).toFixed( 3 ) } - ` +
+        `${ Math.max( ...differentials.map( ( each ) => each.glancePixels ) ).toFixed( 3 ) } — ` +
+        'the trace statistic separates by a fifth where the geometric one separates by 4x, which is ' +
+        'why the shoulder line and not this is what the section is gated on' );
+
+}
+
+/**
+ * The frontal-plane tilt of the shoulder line at unit blend, per side, as authored and as realised.
+ *
+ * Read off the two upper-arm joints rather than off `upperChest`, because the shoulder line a viewer
+ * sees is where the deltoids are — 215 mm above the last spine joint, which is the lever that turns
+ * a degree of thoracic roll into something on screen.
+ *
+ * The AUTHORED figure is measured rather than read from the pose file, by running the same code path
+ * with the righting off. A number typed in here would go stale the moment the pose is redrawn, and
+ * the claim this section makes is about the fraction that survives, not about 3.0 degrees.
+ */
+function shoulderLineFractions( options ) {
+
+    const measure = ( layerOptions ) => {
+
+        const { stack, layer, root } = buildStack( SEED, layerOptions );
+
+        root.updateMatrixWorld( true );
+
+        const restShoulder = shoulderLineDegrees();
+        const restHip = hipLineDegrees();
+        const snapshot = layer.snapshotJoints();
+        const shoulder = {};
+        const hip = {};
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            layer.buildStanceRotations( 1, side );
+            layer.applyStanceToBones( 1, side, snapshot );
+
+            root.updateMatrixWorld( true );
+
+            shoulder[ side ] = shoulderLineDegrees() - restShoulder;
+            hip[ side ] = hipLineDegrees() - restHip;
+
+            layer.restoreJoints( snapshot );
+
+        }
+
+        stack.dispose();
+
+        return { shoulder, hip };
+
+    };
+
+    const authored = measure( { ...options, lateralRightingEnabled: false } );
+    const realised = measure( options );
+
+    return {
+        authored: authored.shoulder,
+        hipLine: authored.hip,
+        realised: realised.shoulder,
+        fraction: {
+            left: realised.shoulder.left / authored.shoulder.left,
+            right: realised.shoulder.right / authored.shoulder.right
+        }
+    };
+
+}
+
+/** Frontal-plane tilt of the line through the two upper-arm joints, degrees, left shoulder up. */
+function shoulderLineDegrees() {
+
+    return lineTiltDegrees( 'leftUpperArm', 'rightUpperArm' );
+
+}
+
+/** The same, for the two hip joints — the line the shoulder line has to diverge from. */
+function hipLineDegrees() {
+
+    return lineTiltDegrees( 'leftUpperLeg', 'rightUpperLeg' );
+
+}
+
+function lineTiltDegrees( leftHumanoid, rightHumanoid ) {
+
+    const left = new Vector3().setFromMatrixPosition(
+        figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE[ leftHumanoid ] ).matrixWorld );
+    const right = new Vector3().setFromMatrixPosition(
+        figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE[ rightHumanoid ] ).matrixWorld );
+
+    return Math.atan2( left.y - right.y, left.x - right.x ) * 180 / Math.PI;
+
+}
+
+/**
+ * The judge's statistic: the shoulder band's silhouette centre minus the hip band's, per frame.
+ *
+ * A DIFFERENCE of two bands rather than a ratio, which is the whole point — the two bands of a rigid
+ * torso move together, so the difference is flat however far the body travels. Reported three ways
+ * because the judge reported it as an SD against the hip band's SD and this file states every other
+ * band claim as a 15 s median peak-to-peak (§1.14).
+ */
+function trunkDifferential( seed, options, framing ) {
+
+    const report = bandTravelPixels( seed, options, framing );
+    const at = ( name ) => report.bands.find( ( band ) => band.name === name );
+
+    const shoulder = at( 'shoulder' ).silhouetteSamples;
+    const hip = at( 'hip' ).silhouetteSamples;
+    const difference = shoulder.map( ( value, index ) => value - hip[ index ] );
+    const glance = slidingWindowPeakToPeak( difference, GLANCE_WINDOW_SECONDS ).sort( ( a, b ) => a - b );
+
+    return {
+        sdPixels: standardDeviation( difference ),
+        glancePixels: glance[ Math.floor( glance.length / 2 ) ],
+        overHipSd: standardDeviation( difference ) / standardDeviation( hip )
+    };
 
 }
 

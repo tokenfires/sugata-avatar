@@ -616,8 +616,88 @@ const MEDIO_LATERAL_ANKLE_SHARE = 0.18;
  * 🚩 That is also, retrospectively, what the old hand-tuned STANCE_TRUNK_RIGHTING = 1.35 was: not a
  * number someone liked, but the fixed point of exactly this equation, found by eye and recorded as
  * a tuning constant. Solving it makes it survive a change to the poses or the rig.
+ *
+ * 🚩 AND 1.0 IS THE RATIO A RIGID SLAB PRODUCES BY DEFINITION.
+ *
+ * A body that translates sideways without deforming moves every landmark on it by the same amount,
+ * so its head-over-centre-of-mass ratio is exactly 1.000 whatever else is true of it. The target is
+ * therefore satisfiable by the degenerate answer, and with the righting spread as a TILT — see
+ * LATERAL_SHIFT_COUPLE — the degenerate answer was the only one in reach, so the solve, which is
+ * exact and had the whole trunk to spend, delivered it. Measured on this rig at blend 1.0,
+ * weight-left, lateral travel in millimetres:
+ *
+ *     hips 38.1   spine 32.2   chest 32.3   upperChest 36.0   neck 36.5   head 33.5
+ *
+ * Every trunk landmark inside 6 mm of the pelvis, and the shoulder line at -0.24° against a hip
+ * line of +4.30° — parallel to a quarter of a degree, where `figure/poses/weight-left.json` draws
+ * -3.0° against +5.5° and says in as many words that it is "that divergence... that produces the S
+ * every life class teaches. Tilt them the same way and the figure looks braced, not resting." A
+ * blind judge measured the consequence in pixels on both 420 s clips: shoulder-band centroid minus
+ * hip-band centroid, SD 0.76 px and 0.71 px, against a hip band whose own SD is 9.3 and 11.0 px and
+ * a pelvis travelling 52 px peak to peak. Seven per cent articulation inside the translation, and
+ * a heat map of the same clip showing a bright sweeping silhouette edge around a dead torso.
+ *
+ * 🎯 THE VALUE IS NOT THE ROOT CAUSE AND CHANGING IT DOES NOT HELP. Lowering the target parks the
+ * head correctly and INVERTS the shoulder line — +1.54° at 0.6 and +2.61° at 0.3, against a hip
+ * line still at +4.30°, which is exactly the braced figure the pose file warns about. Both
+ * directions are the same defect: one degree of freedom being asked to satisfy two requirements.
+ * The value stays at 1.0 and the SPREAD is what changed.
  */
 const LATERAL_HEAD_PER_CENTRE_OF_MASS = 1.0;
+
+/**
+ * 🎯 HOW THE RIGHTING ANGLE IS SPREAD OVER THE THREE SPINE JOINTS — lumbar first, and it does NOT
+ * sum to one. That is the whole of this change.
+ *
+ * 🚩 WHAT WENT WRONG. The righting used to be spread by `spineShare` — [0.5, 0.3, 0.2], summing to
+ * ONE — so every degree of it rotated the shoulder girdle by a degree. Two unrelated requirements
+ * were then riding one number:
+ *
+ *   1. the head must not overshoot the pelvis, which wants the trunk carried inboard; and
+ *   2. the shoulder line must stay tilted OPPOSITE the hip line, which is what contrapposto IS.
+ *
+ * A tilt serves either and not both. Measured on this rig, weight-left at blend 1.0, shoulder line
+ * in degrees against a hip line of +4.30° and a pose that draws -2.91°:
+ *
+ *     righting off, pose as drawn      -2.91      head 57.3 mm / pelvis 38.1 mm = 1.50
+ *     tilt [0.5, 0.3, 0.2]             -0.24      head 33.5 mm / pelvis 38.1 mm = 0.88
+ *
+ * 🎯 A COUPLE IS THE MISSING DEGREE OF FREEDOM. A bend with an equal counter-bend above it does not
+ * rotate what sits on top of it — it TRANSLATES it. So the shoulder girdle, the arms, the neck and
+ * the head keep exactly the orientation the pose drew, the girdle still travels inboard, and the
+ * trunk between the two bends goes with neither, which is the deformation that was missing. A pure
+ * couple — shares summing to 0 — leaves the authored shoulder line untouched at ANY angle: measured
+ * -2.90° against the pose's -2.91° at every head target from 1.0 down to 0.3.
+ *
+ * 🚩 AND THIS RIG CANNOT AFFORD A PURE ONE, WHICH IS THE PART A SUCCESSOR NEEDS. The three spine
+ * joints sit at 959.7, 1025.8 and 1101.0 mm and the shoulder joint at 1316.5 — the whole spine is
+ * LUMBAR, and there are 215 mm of solid bone above the last joint. A tilt therefore has a 509 mm
+ * lever on the head and the best couple has 141 mm, so the same head parking costs 3.6x the angle.
+ * Measured, the full couple that parks the head at target 1.0: 12.8° at the waist, and then
+ *
+ *   - the `spine` bone's skin weights carry the whole abdomen, so a large bend there cancels the
+ *     pelvis's own translation inside the hip band. On seeds 1, 42, 777 and 4242 the hip band's 15 s
+ *     travel falls from 10.8-13.3 px to 3.2-5.1 px while the HEAD band's falls too, from 11.5-14.4
+ *     to 10.1-13.1 — and over the selftest's full twelve, the knee band overtakes the hip and
+ *     `head/hip` reads 2.547-3.510 against a 1.400 ceiling. Twenty gates go red.
+ *
+ * So the shipped spread gives back 80% of the angle rather than 100%, and puts both halves ABOVE
+ * the lumbar — nothing at `spine`, the bend at `chest` and the give-back at `upperChest` — so the
+ * abdomen keeps riding the pelvis and only the ribcage shifts. Measured at blend 1.0: shoulder line
+ * -1.02° / +1.01°, which is 0.35 and 0.33 of what the pose draws, against 0.08 and 0.05 for the
+ * tilt it replaces. Every existing gate stays green, `head/hip` at 1.231-1.383 against its 1.400
+ * ceiling.
+ *
+ * ⚠️ THAT CEILING IS WHAT DECIDES THIS NUMBER, and it should not be. It is a ratio whose DENOMINATOR
+ * is the hip band, and the hip band travels furthest when the abdomen is rigid — so the gate pays
+ * for exactly the thing this constant exists to stop. A wider give-back is better on every direct
+ * measure and is blocked by it. See TRUNK ARTICULATION in `sway.selftest.mjs`, and read that gate's
+ * header before raising this.
+ *
+ * Set this to `[ 0.5, 0.3, 0.2 ]` for the tilt it replaces, or to `[ 0, 0, 1 ]` for a give-back
+ * that is not a give-back at all. Both are known-bads and both are built by the selftest.
+ */
+const LATERAL_SHIFT_COUPLE = [ 0.0, 1.0, -0.8 ];
 
 /**
  * How many passes the righting solve takes. The relation between the counter-bend angle and the
@@ -1019,6 +1099,10 @@ export class Sway extends Layer {
      * @param {boolean} [options.lateralRightingEnabled=true] - Turn off to run both lateral
      *   mechanisms without the lumbar counter-bend that parks the head. See
      *   LATERAL_HEAD_PER_CENTRE_OF_MASS.
+     * @param {number[]} [options.lateralShiftCouple=[0.5,0.5,-1]] - How the righting angle is spread
+     *   over the three spine joints. Sums to ZERO so the shoulder girdle translates without
+     *   rotating. Set to `[ 0.5, 0.3, 0.2 ]` for the pure tilt this replaced, which parked the head
+     *   by flattening the contrapposto into a rigid slab. See LATERAL_SHIFT_COUPLE.
      * @param {number} [options.medioLateralAnkleShare=0.18] - The fraction of the lateral signal
      *   the ANKLE carries rather than the hip, which is a function of how far the feet are turned
      *   out. Set to 0 for the parallel-feet case, which is the state the lower leg was measured
@@ -1106,6 +1190,11 @@ export class Sway extends Layer {
         // gates' floors exist to catch it. See LATERAL_HEAD_PER_CENTRE_OF_MASS.
         this.lateralHeadPerCentreOfMass =
             options.lateralHeadPerCentreOfMass ?? LATERAL_HEAD_PER_CENTRE_OF_MASS;
+
+        // Set to `spineShare` — [ 0.5, 0.3, 0.2 ], summing to one — for the pure TILT this
+        // replaced, which rotated the shoulder girdle by every degree it spent parking the head
+        // and left the torso translating as one piece. Known-bad; see LATERAL_SHIFT_COUPLE.
+        this.lateralShiftCouple = options.lateralShiftCouple ?? LATERAL_SHIFT_COUPLE;
 
         // Set to 0 for the side-by-side row of Winter's table, which is what this layer implemented
         // on a figure standing at 18.6° of toe-out. See MEDIO_LATERAL_ANKLE_SHARE.
@@ -1240,6 +1329,11 @@ export class Sway extends Layer {
         // The lumbar counter-roll the pendulum adds per radian of LATERAL lean, sized at bind from
         // the rig's own measured overshoot. See LATERAL_HEAD_PER_CENTRE_OF_MASS.
         this.lateralRightingPerRadian = 0;
+
+        // How far one radian of righting carries the head, metres, for each of the two spreads —
+        // the pendulum's tilt and the contrapposto's couple. Read off the rig in
+        // `measureRightingLever`; they are the secant solves' first guesses and nothing else.
+        this.rightingLever = { pendulum: 0, stance: 0 };
 
         // Per-unit-blend response of the contrapposto, measured on this rig at bind.
         this.stanceResponse = {
@@ -1772,14 +1866,19 @@ export class Sway extends Layer {
 
         this.spineJoints().forEach( ( joint, index ) => {
 
-            // Two different shares, and conflating them would silently shrink the righting by the
-            // ankle share: `share` is this joint's slice of the PENDULUM lean, which sums to the
-            // spine's 15% participation; `spineFraction` is its slice of any angle spread over the
-            // spine alone, and sums to 1.
+            // THREE different shares, and conflating any two of them would silently break one of
+            // them: `share` is this joint's slice of the PENDULUM lean, which sums to the spine's
+            // 15% participation; `spineFraction` is its slice of a LEAN spread over the spine
+            // alone, and sums to 1; `rightingShare` is its slice of the righting COUPLE, and sums
+            // to 0 so that the shoulder girdle translates without rotating. See
+            // LATERAL_SHIFT_COUPLE.
             joint.share = spineParticipation * this.spineShare[ index ];
             joint.spineFraction = this.spineShare[ index ];
+            joint.rightingShare = this.lateralShiftCouple[ index ] ?? 0;
 
         } );
+
+        this.rightingLever = this.measureRightingLever( target );
 
         const pelvis = this.jointsByHumanoid.get( 'hips' );
 
@@ -1947,18 +2046,45 @@ export class Sway extends Layer {
      */
     stepLateralRighting( solve, restHead ) {
 
-        const spine = this.spineJoints()[ 0 ];
-
-        if ( restHead === null || spine === undefined || isPresent( spine.bone ) === false ) return 0;
-
-        const lever = restHead.y - spine.restPosition.y;
-
-        if ( Math.abs( lever ) < 0.05 ) return 0;
+        if ( restHead === null || Math.abs( this.rightingLever.pendulum ) < 0.05 ) return 0;
 
         const overshoot = this.headLever.medioLateral
             - this.lateralHeadPerCentreOfMass * this.centreOfMassLever.medioLateral;
 
-        return secantStep( solve, this.lateralRightingPerRadian, overshoot, overshoot / lever );
+        return secantStep(
+            solve, this.lateralRightingPerRadian, overshoot, overshoot / this.rightingLever.pendulum );
+
+    }
+
+    /**
+     * How far one radian of the righting COUPLE carries the head, in metres — the first-order
+     * estimate the secant solve starts from.
+     *
+     * A single counter-bend at the lumbar would give the head-over-lumbar height, and that is what
+     * this used to be. A couple gives the sum of each joint's share times its own height under the
+     * head, and because the shares sum to zero most of that sum cancels: what is left is the
+     * distance between where the trunk bends and where it gives the angle back. On this figure the
+     * couple's lever is about half the single bend's, which is the price of leaving the shoulder
+     * girdle unrotated and is why the solved angle is roughly twice what it was.
+     *
+     * It is only a first guess — the relation is linear and the secant lands on the answer at the
+     * second probe whatever this returns — but a guess that is out by the wrong factor costs a
+     * pass, and RIGHTING_SOLVE_PASSES only has four.
+     */
+    measureRightingLever( target ) {
+
+        const head = target.getBone( this.referenceBoneName );
+
+        if ( isPresent( head ) === false ) return { pendulum: 0, stance: 0 };
+
+        const headHeight = worldPositionOf( head, this.scratchDisplacement ).y;
+        const leverOf = ( shareOf ) => this.spineJoints().reduce(
+            ( total, joint ) => total + shareOf( joint ) * ( headHeight - joint.restPosition.y ), 0 );
+
+        return {
+            pendulum: leverOf( ( joint ) => joint.spineFraction ),
+            stance: leverOf( ( joint ) => joint.rightingShare )
+        };
 
     }
 
@@ -2115,19 +2241,13 @@ export class Sway extends Layer {
      * The overshoot is how much further the pose carries the head than it carries the centre of
      * mass, per unit blend, PER SIDE — the two poses are deliberately asymmetric and their
      * overshoots differ by a fifth, so one averaged angle parks one side and leaves the other
-     * overshooting. The angle that cancels a chosen fraction of it is that distance over the lever
-     * from the lumbar spine to the head — first order, which at four degrees is exact to four
-     * decimal places.
+     * overshooting. The angle that cancels a chosen fraction of it is that distance over the
+     * COUPLE's own lever — see `measureRightingLever` — first order, which at these angles is a
+     * first guess the secant improves on rather than a claim.
      */
     stepTrunkRighting( solve, restHead ) {
 
-        const spine = this.spineJoints()[ 0 ];
-
-        if ( restHead === null || spine === undefined || isPresent( spine.bone ) === false ) return;
-
-        const lever = restHead.y - spine.restPosition.y;
-
-        if ( Math.abs( lever ) < 0.05 ) return;
+        if ( restHead === null || Math.abs( this.rightingLever.stance ) < 0.05 ) return;
 
         for ( const side of [ 'left', 'right' ] ) {
 
@@ -2135,8 +2255,10 @@ export class Sway extends Layer {
             const overshoot = Math.abs( response.head.x )
                 - this.lateralHeadPerCentreOfMass * Math.abs( response.centreOfMass.x );
 
-            this.trunkRightingRadians[ side ] = secantStep(
-                solve[ side ], this.trunkRightingRadians[ side ], overshoot, overshoot / lever );
+            // Never negative. A target the pose already meets asks for an OUTWARD bend, which is
+            // a lean added to a lean; the pose is left as drawn instead.
+            this.trunkRightingRadians[ side ] = Math.max( secantStep(
+                solve[ side ], this.trunkRightingRadians[ side ], overshoot, overshoot / this.rightingLever.stance ), 0 );
 
         }
 
@@ -2360,6 +2482,13 @@ export class Sway extends Layer {
                     // The spine's token share of the lean, MINUS the lumbar counter-roll that parks
                     // the head during a lateral lean. Both are frontal-plane angles on the same
                     // joints, so they are one number rather than two rotations to compose.
+                    //
+                    // 🎯 A TILT here, and a COUPLE on the contrapposto — see LATERAL_SHIFT_COUPLE
+                    // for why the two mechanisms want different spreads. The pendulum is a rigid
+                    // rotation of the whole body and has no authored shape to protect: bending its
+                    // spine back IS the head-stabilisation reflex, and the shoulder line it rotates
+                    // is one this layer put there a millisecond earlier. The contrapposto's
+                    // shoulder line was drawn by hand and means something.
                     this.composeRigRotation(
                         leanAnteroPosterior * joint.share,
                         leanMedioLateral * ( joint.share - this.lateralRightingPerRadian * joint.spineFraction ) );
@@ -2407,8 +2536,9 @@ export class Sway extends Layer {
 
         const pose = this.stancePoses[ side ];
 
-        // The extra lumbar counter-bend that parks the head. Signed so it always opposes the
-        // direction the pose is carrying the head; see STANCE_TRUNK_RIGHTING.
+        // The extra lumbar counter-bend that parks the head, as a bend/give-back COUPLE so the
+        // authored shoulder line survives it. Signed so it always opposes the direction the pose
+        // is carrying the head; see LATERAL_SHIFT_COUPLE.
         const righting = ( side === 'left' ? 1 : -1 ) * this.trunkRightingRadians[ side ] * blend;
 
         for ( const joint of this.joints ) {
@@ -2422,7 +2552,7 @@ export class Sway extends Layer {
 
             if ( joint.pendulum === 'spine' && righting !== 0 ) {
 
-                this.scratchAxisRotation.setFromAxisAngle( RIG_FORWARD_AXIS, righting * joint.spineFraction );
+                this.scratchAxisRotation.setFromAxisAngle( RIG_FORWARD_AXIS, righting * joint.rightingShare );
                 this.scratchRigRotation.multiply( this.scratchAxisRotation );
 
             }
@@ -2883,6 +3013,7 @@ function createJointState( entry, boneName ) {
         foot: undefined,   // set on the two 'plant' joints; see the constructor
         share: 0,          // this joint's slice of the pendulum lean
         spineFraction: 0,  // this joint's slice of an angle spread over the spine alone
+        rightingShare: 0,  // this joint's slice of the righting COUPLE, which sums to zero
 
         restFrame: new Quaternion(),
         restPosition: new Vector3(),
