@@ -1,14 +1,20 @@
-# Phase 0 performance spikes
+# Spikes
 
-Two standalone pages that answer budget questions with measurements instead of estimates:
+Standalone probes that answer one question each with measurements instead of estimates. A spike
+answers a question and writes **no production code**.
 
 | File | Punch list | Question |
 |---|---|---|
 | `morph-cost.html` | 0.8 | What does a 69-shape ARKit + viseme rig cost per frame on a 13.7k-vertex head? |
 | `rectarea-cost.html` | 0.10 | Where does a RectAreaLight portrait rig start to hurt? |
+| `fabric-weave.mjs` | **9.16** | **Can fabric appearance be GENERATED from `{weave, ends, picks, tex, gsm}` instead of sampled — and can the twill angle be recovered to prove it?** |
 
 Supporting files: `spike-harness.js` (shared measurement plumbing), `spike-page.css`,
 `run.mjs` (headless runner), `results/` (scraped JSON + page screenshots).
+
+`fabric-weave.mjs` has no harness and no results directory: it is dependency-free, side-effect-free
+on import, and prints its own gate. Its rendered half is `packages/testbed/src/fabric.html`, which
+imports this module rather than mirroring it.
 
 ---
 
@@ -269,3 +275,385 @@ Consequences:
 - **DPR > 1.** Pixel ratio is pinned to 1. A Retina 2× target multiplies lit pixels by 4, which
   the cost model above extends to directly.
 - **RectAreaLight against a real skin material.** See point 4 above.
+
+---
+
+# 9.16 — PROCEDURAL FABRIC WEAVE
+
+**Measured 2026-08-08.** `node --version` v24.13.1, three.js r185, WebGPU on Apple Metal via the
+Claude browser pane. The generator uses **no RNG** unless `--noise` is passed, so every number below
+has a load-to-load spread of exactly **0** and no verdict is MARGINAL for a noise reason. The one
+place a value sits near a floor is called out with the literal token.
+
+```
+node tools/spikes/fabric-weave.mjs --table          the taxonomy, with every number's provenance
+node tools/spikes/fabric-weave.mjs --measure        generate + measure all twelve fabrics
+node tools/spikes/fabric-weave.mjs --gate           the gate and its reds; exits 1 on failure
+node tools/spikes/fabric-weave.mjs --gate --nonperiodic    the same, forced through sub-bin interpolation
+node tools/spikes/fabric-weave.mjs --noise          white-noise and rival-contamination sweeps
+node tools/spikes/fabric-weave.mjs --json           machine-readable
+
+# the rendered half — MUST be served from the repo root, it imports tools/spikes/
+preview_start { name: "sugata-root" }
+http://localhost:5199/packages/testbed/src/fabric.html
+```
+
+## The headline
+
+**Yes.** A twill's angle is recoverable from a height field generated out of thread count alone, to
+**0.0000–0.0001°** on a patch cut to whole repeats and **0.018–0.197°** on an incommensurate,
+Hann-windowed patch forced through sub-bin interpolation, against a stated tolerance of **±1.0°**.
+
+The gate is punch-list 9.16's own: *"twill angle recovered by an FFT peak at the weave-repeat
+frequency, matching `atan((picks × advance) / ends)` within a stated tolerance."*
+
+| fabric | weave | sett /in | predicted | recovered | error | uniqueness | prominence |
+|---|---|---|---:|---:|---:|---:|---:|
+| denim | 3/1 Z twill | 68 × 44 | 32.91° | **32.91°** | 0.0001° | 6.73× | 259× |
+| chino | 3/1 Z twill | 114.3 × 67.3 | 30.49° | **30.49°** | 0.0000° | 10.92× | 688× |
+| gabardine | 2/2 Z twill | 114.3 × 68.6 | 30.96° | **30.96°** | 0.0000° | 3.39× | 423× |
+| worsted wool | 2/2 Z twill | 114.3 × 68.6 | 30.96° | **30.96°** | 0.0000° | 3.39× | 423× |
+| gabardine (§4.4 spec) | 2/1 Z twill | 100 × 60 | 30.96° | **30.96°** | 0.0000° | 47.17× | 397× |
+
+## The three reds, and a fourth nobody asked for
+
+**RED 1 — a plain weave, which has no diagonal to find.** Poplin 120 × 80 is refused, at
+`uniqueness = 1.000000` and `mirrorRatio = 1.000000` — **exactly** 1, not approximately. Not a
+tuned threshold catching a near miss: `(i − j) mod 2` and `(i + j) mod 2` are the same function, so
+the field is mirror-symmetric in x and the two diagonals agree to the last bit. Its diagonal also
+sits precisely on the corner of the search band, at the yarn lattice's own Nyquist in both axes,
+which is the same fact said twice — *a plain weave's diagonal is not a repeat structure, it is the
+yarn lattice.*
+
+🚩 **And the first version of this generator FAILED that red**, which is the whole argument for
+writing it. It centred each yarn cross-section on the interpolation segment (a `floor` index)
+instead of on the yarn (a `round` index), so every ridge sat in the gutter between two yarns. The
+picture still looked like cloth. But `floor` is not symmetric about a yarn centre where `round` is,
+the field lost its mirror symmetry, and poplin's ± diagonals read **1.99e6 against 4.40e5 — a
+chirality of 4.5× on a plain weave**, with RED 1 green on a broken generator.
+
+**RED 2 — the whole-patch structure tensor, on the same correct twills, in the same pass.** It
+returns the warp axis, as §4.4 measured. Test stated two-sided: within 10° of ±90° *and* more than
+20° from the true twill.
+
+| | tensor says | off the warp axis | from the twill | FFT says |
+|---|---:|---:|---:|---:|
+| denim | 88.24° | 1.8° | 55.3° | **32.91°** ✓ |
+| chino | 88.32° | 1.7° | 57.8° | **30.49°** ✓ |
+| gabardine (§4.4) | 86.69° | 3.3° | 55.7° | **30.96°** ✓ |
+
+⚠️ One fabric is **excluded** from that red and the reason is worth keeping. The 2/2 gabardine's
+tensor reads **−2.20°**, nowhere near the warp axis — but its coherence is only **0.1314**, and an
+orientation read off a near-isotropic tensor is a direction picked out of noise. *A structure
+tensor's angle is only meaningful in proportion to the coherence printed beside it*, and neither
+§4.4 nor this file should quote one without the other.
+
+**RED 3 — five defects, only ONE of which the gate was designed around** (LEARNINGS §1.25a). The
+class stated out loud: *any height field whose visible float structure does not correspond to the
+specified interlacing* — which can break in the angle, the handedness, the aspect, the amplitude, or
+the provenance.
+
+| defect | FFT | repeat µm | harmonic frac | caught by |
+|---|---|---:|---:|---|
+| `wrong-advance` move 2 not 1 | REFUSED | 0.00 | n/a | FFT + repeat-profile |
+| `s-twill` handedness flipped | **−32.91°** | 0.12 | 42.5 | FFT + repeat-profile |
+| `transposed` ends↔picks | 57.10° | 0.02 | n/a | FFT + repeat-profile |
+| `flat-floats` zero crimp | REFUSED | 0.00 | n/a | FFT + repeat-profile |
+| `painted-diagonal` | **32.91° — PASSES** | 67.97 | **0.048** | **repeat-profile only** |
+
+🎯 **`s-twill` is the one that decided the gate's shape.** Same denim woven the other hand:
+identical yarn diameters, identical GSM, identical coherence, identical `|angle|`. Every gate that
+compares magnitudes is green on it. That is why the FFT gate reports a **signed** angle.
+
+🎯 **`painted-diagonal` is the one the FFT gate cannot see, and it is reported rather than hidden.**
+It is axis-aligned yarn ridges plus a cosine at exactly the correct twill wave vector with **no
+interlacing underneath at all** — a picture of a twill, not a twill — and the FFT recovers 32.91°
+cleanly. What catches it is `repeatProfile`, an independent instrument: fold the patch onto one
+weave repeat along the twill normal and ask what SHAPE the repeat has. A real interlacing is a
+square-ish alternation of floats; the painted one is a pure sinusoid.
+
+| | harmonic fraction (h2+h3+h4)/h1 |
+|---|---:|
+| ideal 3/1 square wave, `\|sin(πkd)\|/k` at d = 0.75 | **1.040** *(computed)* |
+| real generated denim | **0.345** |
+| floor | 0.15 |
+| `painted-diagonal` | **0.048** |
+
+**RED 4, unasked for — CONTAMINATION.** White noise is the easy case: it spreads across every bin
+and a single-bin peak barely notices (σ = 400 µm, larger than a yarn, moves the angle by 0.012°
+while collapsing coherence 0.395 → 0.039). So a rival diagonal of the *opposite hand* was added at
+growing amplitude, putting the energy exactly where a wrong answer lives.
+
+| rival amplitude | % of the true modulation | recovered | uniqueness | verdict |
+|---:|---:|---|---:|---|
+| 20 µm | 68% | 32.91° | 2.91 | correct |
+| 29 µm | 99% | 32.91° | 2.01 | correct but **MARGINAL** — 0.5% above the floor |
+| 40 µm | 137% | REFUSED | 1.46 | refuses |
+| 100 µm | 341% | REFUSED | 1.71 | refuses |
+
+**The gate never returns a confident wrong number.** It is correct or it declines.
+
+## Two corrections to `research/wardrobe-system.md` §4.4
+
+### 1. Coherence tracks WARP-FACE FRACTION, not float length
+
+§4.4 says coherence *"orders the twills by float length exactly as it should: 2/1 < 3/1 < 4/1
+satin."* Those four fabrics had **four different setts** — plain 120×80, denim 68×44, gabardine
+100×60, satin 180×90 — so float length and sett imbalance moved together and the measurement cannot
+say which caused the ordering. Varying each alone, using the same control §5.3 praises in the
+Fibres & Textiles dataset (*"the yarns are held identical … and only the weave changes"*):
+
+**(a) sett and yarns fixed at 114.3 × 67.3 /in, 36.9 / 28.27 tex:**
+
+| weave | float | warp-face | coherence |
+|---|---:|---:|---:|
+| plain | 1 | 0.500 | 0.1406 |
+| **2/2 twill** | **2** | **0.500** | **0.1743** |
+| 2/1 twill | 2 | 0.667 | 0.3754 |
+| 3/1 twill | 3 | 0.750 | 0.3807 |
+| 4/1 satin m2 | 4 | 0.800 | 0.5689 |
+| 5/1 sateen m2 | 5 | 0.833 | 0.5617 |
+
+A **2/2 twill breaks the tie** §4.4 could not: float length 2, warp-face 0.500. If coherence
+tracked float length it would land beside the 2/1 at 0.3754. It lands at 0.1743, **nearer the plain
+weave**. And 2/1 and 3/1 differ by **1.4%** despite a whole float of difference.
+
+**(b) weave fixed at plain, sett varying — the confound, measured:**
+
+| sett | ends:picks | coherence |
+|---|---:|---:|
+| 90 × 90 | 1.000 | **0.0036** |
+| 100 × 100 | 1.000 | 0.1146 |
+| 114.3 × 67.3 | 1.698 | 0.1406 |
+| 120 × 80 | 1.500 | 0.1664 |
+| 68 × 44 | 1.545 | **0.5592** |
+
+A **plain weave at denim's sett is more coherent than a 3/1 twill at a balanced sett** (0.5592
+against 0.3807) and within 0.5% of a 5/1 sateen. Sett alone spans nearly the whole range, so **a
+bare coherence number is not a statement about the weave.** The balanced 90×90 reading 0.0036 —
+isotropic — is the sanity check on the instrument.
+
+**Consequence for the material:** drive anisotropy strength from the **measured coherence of the
+generated field**, which is what `anisotropyFromMeasurement` does. A float-length lookup would give
+a 2/2 gabardine a lobe it does not have.
+
+⚠️ These are this generator's numbers from a different implementation, and they do not reproduce
+§4.4's absolute values. The finding is about the *separation and its cause*, not the digits.
+
+### 2. Satin has no twill line, and 45.00° was the formula applied off its domain
+
+§4.4 predicts **45.00°** for the 4/1 move-2 satin. The gate **refuses** it, at `uniqueness` 1.468,
+and it is right to. A satin's interlacing point set satisfies **both** `(2i − j) ≡ 4 (mod 5)` and
+`(i + 2j) ≡ 2 (mod 5)` — multiply the first by 3, the inverse of 2 mod 5 — so it has two generators
+and two diagonals, and the second one is the stronger peak (**−14.04°**, at 1.468× the 45.00°
+family). That is the textile definition of satin: it is *constructed* so the interlacings never line
+up into a visible twill. **Reported, not tuned.** A gate returning 45.00° here would be reading a
+number off a structure that does not have one.
+
+## The taxonomy, and where it is empty on purpose
+
+Nine named families plus three controls. **Three of the nine are not woven and one is not a
+textile,** and the tool refuses them rather than returning a number.
+
+| class | families | what applies |
+|---|---|---|
+| **woven** | denim, chino, gabardine, worsted wool *(+ poplin, satin, §4.4 gabardine as controls)* | height field from the draft; **twill gate applies** |
+| **knit** | jersey, piqué, rib | intermeshed loops — no warp, no weft, no float, **no twill line**. Wale : course gate applies instead |
+| **napped** | melton, fleece | fulled or brushed; the structure is destroyed on purpose. **Thread count predicts nothing about the surface.** Sheen lobe only |
+| **non-textile** | **leather** | 🚩 **a BRDF, not a weave.** No ends, no picks, no repeat. `generateHeightField` throws rather than returning a plausible field |
+
+The knit gate recovers the lattice instead, and it needed a real correction: **a knit loop has two
+legs per wale**, so the surface's dominant x-period is half the wale pitch and the naive peak reads
+every knit at exactly 2×. Fixed by textbook fundamental detection (walk the submultiples), not by a
+factor of two. Recovered against expected: jersey 23.00 / 23.00 wales·cm⁻¹, courses 17.00 / 17;
+1×1 rib 11.50 / 11.50 (its surface period is two wales); piqué 10.00 / 10.00 (its tuck cell spans
+two wales).
+
+**Where a number does not exist, the field is `null` and the source line says so.** Denim's drape
+coefficient — *"[✗] none published, anywhere"* per §5.3. Piqué's everything — wardrobe-system has no
+piqué row at all, and the wale/course figures here are authored inside jersey's measured band.
+Rib's GSM is **deliberately empty**: the only rib figure in repo is Wang/O'Brien/Ramamoorthi's
+0.276 kg·m⁻², and §5.3 carries the double flag *"DO NOT SHIP THE WANG VALUES."* Their **ratio**
+finding is licence-free and is used instead — woven stiffness is flatly anisotropic, knit is soft
+and bias-dependent.
+
+⚠️ **Two in-repo sources disagree about gabardine** and both are carried rather than one being
+picked silently: §5.3 says 2/2 twill at 45 × 27 /cm; the §4.4 probe used 2/1 twill at 100 × 60 /in.
+
+⚠️ **`worsted-wool` shares gabardine's row.** §5.3 puts "wool suiting / gabardine" on one line, and
+the only measured anchor behind it is a fabric whose yarns are **50/50 PES/Co, not wool**. No
+worsted-specific sett was found in repo. The geometry is a PES/Co twill wearing a wool label.
+
+**The yarn diameter formula was re-derived rather than transcribed on faith** — `d(µm) = 37.42·√tex`
+against §5.3's four worked values: Ne 9.13 → 300.94 vs 301, Ne 14 → 243.02 vs 243, Ne 30 → 166.02 vs
+166, Ne 45 → 135.55 vs 135. All four inside 0.6 µm.
+
+## What each instrument can and cannot see
+
+Stated in the tool's own output as well as here, per LEARNINGS §1.25b.
+
+| instrument | sees | **blind to** |
+|---|---|---|
+| `fftTwillAngle` | the orientation and uniqueness of the dominant off-axis modulation | whether that modulation came from an interlacing at all (`painted-diagonal`) |
+| `repeatProfile` | whether the surface is really made of floats of the right shape | the diagonal's angle; it folds along the spec's direction, so "wrong angle" and "no interlacing" look the same to it |
+| `structureTensor` | gradient anisotropy — the coherence half that works | the diagonal entirely. That is RED 2 |
+| all three | | **whether the maps reach the shader in the right orientation.** Only `fabric.html` closes that |
+
+🚩 **Two draft-recovery attempts failed before `repeatProfile` worked**, and both failures are about
+this height model rather than about the code:
+
+- **Thresholding the height at a crossing cannot work at all.** The envelope there is
+  `amp_top + ½·d_top`, and since `amp_warp = ½·d_weft` and `amp_weft = ½·d_warp` those are
+  *identical* — a warp-up and a weft-up crossing are exactly the same height. Physically right for
+  a balanced fabric.
+- **Per-cell orientation is degenerate on an open weave.** Denim's weft covers only 304 µm of its
+  577 µm pitch, so a weft-up cell's neighbourhood is full of exposed warp ridge. Measured: the
+  windowed tensor called **75.7%** of denim's cells warp-up and a curvature probe **75.0%**, against
+  a warp-face fraction of exactly **75%** — both had learnt to answer "warp" and nothing else. Either
+  would have produced a plausible number that was measuring the class prior.
+
+## The rendered half — `packages/testbed/src/fabric.html`
+
+It imports `fabric-weave.mjs` rather than mirroring it, so there is no CPU mirror to drift, and it
+measures what §5.3 warns fails silently: *"the tangent socket must link to a tangent node using the
+same UVMap as the normal map, or the direction is wrong **without an error**."*
+
+**Two things it does that are worth reusing.** It **probes the readback's row order** by moving the
+light to world +y and seeing which end of the buffer got bright (at `?res=512&light=1.1`: 1049.6
+against 418.0 → row 0 is the top), because the whole measurement is an angle and a flipped row order silently
+negates it — and a negated twill angle is exactly the `s-twill` defect. And it calls
+`geometry.computeTangents()`, without which `tangentView` reads a `tangent` attribute
+`PlaneGeometry` does not have and the anisotropy frame is undefined with nothing erroring.
+
+**The measurement, and the two instruments that failed first.**
+
+- An intensity-weighted **second moment** of the difference image put the axis 35° off the twill and
+  made "gained" and "lost" 11° apart when they must be 90° apart, on a frame whose highlight is
+  unmistakable by eye. A second moment integrates the far tail — where a broad lobe has its area and
+  none of its shape — and per-yarn glints outnumber the lobe's own texels.
+- The **half-maximum radius** `r(θ)`, the textbook lobe descriptor, measured the isotropic lobe at
+  95.5 px against a 126 px frame — clipped by the viewport — and the anisotropic one at 12 px,
+  because **roughness 0.55–0.75 denim has no compact specular lobe to find an edge on**. It is a
+  matte fabric; the sheen is a wide gentle bias, not a highlight with a rim.
+- What works is the **area-weighted radial integral of the difference** — where did the toggle move
+  the energy — which needs no edge and no threshold and cancels the diffuse and the weave texture.
+
+**The result, and it is a sweep rather than a single agreement**, because one agreement can be two
+errors cancelling. `anisotropyRotation` commanded across 150°, everything else held, on a smooth
+plane:
+
+| commanded ρ | expected axis | rendered axis | error |
+|---:|---:|---:|---:|
+| 0° | 90.00° | 90.00° | 0.00° |
+| 30° | 60.00° | 60.00° | 0.00° |
+| **57.09°** *(derived from the FFT angle)* | **32.91°** | **33.00°** | **0.09°** |
+| 90° | 0.00° | 0.00° | 0.00° |
+| 120° | −30.00° | −30.00° | 0.00° |
+| 150° | −60.00° | −60.00° | 0.00° |
+
+Worst **0.09°** against a stated ±8°. **The tangent attribute, the UV orientation, the map row order
+and the warp-relative → +U basis change are all correct together** — which is the composite §5.3
+says fails silently. The ρ = 0° and ρ = 90° rows *are* the rejection proofs, executed rather than
+suggested: 0° must land on the weft and 90° on the warp. The third proof needs a reload —
+`?defect=s-twill` mirrors the derived rotation to 122.91° and the rendered axis follows it, on a
+fabric where yarn diameters, GSM, coherence and `|twill angle|` are all identical.
+
+🚩 **THE SAME SWEEP ON THE TEXTURED FABRIC IS RESOLUTION-DEPENDENT, and that is itself the
+finding.** With the weave normal map attached:
+
+| commanded ρ | expected | rendered at `?res=256` | rendered at `?res=512` |
+|---:|---:|---:|---:|
+| 0° | 90.00° | 89.00° | **−20.00°** |
+| 30° | 60.00° | **3.00°** | 54.00° |
+| 57.09° | 32.91° | **−6.00°** | 30.00° |
+| 90° | 0.00° | 0.00° | 0.00° |
+| 120° | −30.00° | **0.00°** | −27.00° |
+| 150° | −60.00° | **4.00°** | −54.00° |
+| **worst error** | | **64°** | **70°** |
+
+At 256 it is pinned near the warp axis and ignores the command entirely. At 512 it tracks to within
+**6°** for five of the six and fails only at ρ = 0° — anisotropy along the **weft**, i.e. across the
+yarn ridges the normal map has already made dominant. Same worst-case number, opposite character.
+
+The mechanism is a three.js fact, read out of r185 rather than guessed: `AccessorsUtils.js` builds
+`TBNViewMatrix` from `tangentView, bitangentView, normalView`; `Bitangent.js` derives
+`bitangentView = normalView.cross(tangentView)`; and `Normal.js` resolves `normalView`, outside the
+NORMAL/VERTEX sub-builds, to `builder.context.setupNormal()` — **the normal-mapped normal**. So the
+anisotropy frame is re-derived per texel from the perturbed normal and **twists at every yarn
+crossing**. On a weave that is physically right, and it makes a single macro axis a quantity that
+depends on how finely the weave is sampled.
+
+**So the honest split:** what is **gated** is that nothing between the FFT angle and the shader is
+flipped, transposed or mirrored (0.09° over 150°). That the band on the textured plate lies along
+the twill is **observed by eye** — it is plainly there on the plate — and 8.1's blind critic is who
+decides it, because this instrument's own answer moves with resolution.
+
+---
+
+## 🎯 WHERE PROCEDURAL RUNS OUT
+
+The single most useful thing this spike can report, and the answer is not the one the punch list
+expected. §4.5 named wear, dirt, seam pucker and worn-in creasing as the boundary. **Those are real,
+but three closer limits were measured here and they arrive first.**
+
+### 1. It generates NEW cloth and cannot generate OWNED cloth. Confirmed, and it is worse than "add wear later".
+
+Everything this generator produces is a **perfect lattice**. Every yarn is the same diameter, every
+crimp the same amplitude, every float the same length, the repeat exact to floating point. That is
+precisely why the FFT recovers the angle to 0.0001° — **the gate's own precision is the evidence for
+the limit.** A real garment's spectrum is broadened by yarn hairiness, count variation, weaving
+tension drift, skew, bow and every hour it has been worn, and a fabric that returns a delta function
+where a real one returns a smeared peak is a fabric that reads as *rendered*.
+
+Nothing here is a mitigation. `--noise` adds white noise, which is uncorrelated at every scale and
+therefore not what cloth does: it destroyed coherence (0.395 → 0.039 at σ = 400 µm) while leaving
+the angle at 0.012° error, i.e. it broke the appearance statistic and left the structural one
+untouched — the opposite of ageing.
+
+### 2. Thread count describes the surface for FOUR of the nine named families, not nine.
+
+Not a hedge — a count. Denim, chino, gabardine and worsted wool are wovens and the model applies.
+**Jersey, piqué and rib are loops** and get a coarser model validated against nothing, because §5.3
+carries wales, courses, tex and GSM for knits and **no surface measurement at all**. **Melton and
+fleece are napped**, and melton is milled until the ground weave is *mechanically destroyed* —
+thread count predicts nothing about a melton surface, and §4.5 has no row for it because there is
+nothing to derive. **Leather is a BRDF** with no lattice at all. So the honest headline is: *fabric
+appearance is generable from physical parameters for woven cloth, plausible-but-unvalidated for
+knits, and not generable for napped or pile surfaces, where what is generable is the sheen lobe.*
+
+### 3. Fabric THICKNESS is generated wrong, and no single constant fixes it. Measured today.
+
+The one external validation available — §5.3 calls the F&T 1/2018 weave comparison *"the single
+best calibration target in this whole document"* because the yarns are held identical (36.9 /
+28.27 tex) and only the weave changes, and it publishes a measured thickness per weave. Run by
+`--gate` section 8, reported and deliberately **not gated**, because turning it green would mean
+fitting a constant to four data points:
+
+| weave | ends/cm | picks/cm | F&T measured | generated | ratio |
+|---|---:|---:|---:|---:|---:|
+| plain | 46 | 20 | 0.48 mm | 0.271 mm | 1.771 |
+| twill 2/2 | 45 | 27 | 0.53 mm | 0.346 mm | 1.532 |
+| twill 3/1 | 45 | 26.5 | 0.50 mm | 0.261 mm | 1.918 |
+| weft rib 2/2 | 46 | 22 | 0.46 mm | 0.352 mm | 1.308 |
+
+The model is **24–48% too thin**, and the correction it would need varies by **1.47×** across four
+weaves whose real thicknesses span only **1.15×**. So no single crimp constant fixes it — crimp
+interchange between warp and weft is a mechanical equilibrium this model does not solve. It gets
+the **order** wrong too: the 3/1 twill generates thinnest (0.261 mm) and measures *thicker* than the
+plain weave (0.50 against 0.48). Invisible under a normal map. Visible under a **displacement** map
+or at a silhouette, which is exactly where a garment edge lives.
+
+### And what is NOT the boundary, despite expectation
+
+Pockets and hardware are §4.5's other two gaps and they are **bounded** — placement is derivable
+from pattern edges and ~15 models is a one-time cost. The weave itself is now measurably solved for
+wovens at zero marginal cost per fabric, across the whole family axis, from five numbers. That is a
+materially better position than the face was in, where the missing content was unbounded scan data.
+
+**9.19 should chase (1).** Not with a weathering paper — §4.5 records that the canon has never been
+applied to garments — but with the cheapest available version of the right idea: **perturb the
+lattice.** Per-yarn diameter and tension drawn from a distribution, a slow low-frequency skew field,
+and hairiness as a correlated normal perturbation. It is testable with the instruments already in
+this file: a real fabric's FFT peak has a **width**, and this one's has none. *"How wide should the
+peak be"* is a question a photograph of real denim can answer, and it is a far more tractable target
+than a wear model.

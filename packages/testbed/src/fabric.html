@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — procedural fabric weave (spike 9.16)</title>
+    <style>
+        :root {
+            --panel: rgba(12, 12, 15, 0.82);
+            --edge: rgba(255, 255, 255, 0.12);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            background: #050506;
+            color: var(--ink);
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* The canvas is sized in DEVICE pixels by the page, never by CSS. A CSS-stretched canvas
+           hands any measurement a resampled image, and the highlight-orientation number taken off
+           it would be a measurement of the browser's resampler. Same rule as lighting.html. */
+        #frame {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        canvas { display: block; background: #000; }
+
+        .panel {
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #hud { white-space: pre; max-width: 108ch; overflow-x: auto; }
+
+        h2 {
+            font: inherit;
+            font-weight: 600;
+            margin: 12px 0 4px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h2:first-child { margin-top: 0; }
+
+        .maps { display: flex; gap: 10px; flex-wrap: wrap; }
+        .maps figure { margin: 0; }
+        .maps figcaption { color: var(--dim); margin-top: 3px; }
+
+        a { color: #8cb4ff; }
+        .pass { color: #7fd1a0; }
+        .fail { color: #f2765a; }
+        .warn { color: #e8c46a; }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <div>
+            <canvas id="stage"></canvas>
+            <div class="panel" style="margin-top: 12px;">
+                <h2>generated maps</h2>
+                <div class="maps" id="maps"></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="panel" id="hud">booting…</div>
+        </div>
+    </div>
+
+    <script type="module" src="./fabric.js"></script>
+</body>
+</html>
