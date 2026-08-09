@@ -110,17 +110,55 @@ fragments and the decency attributes**, which turns `decency.selftest.mjs` red f
 nothing to do with the code. That is why it is on the documented command above rather than in a
 footnote.
 
-Measured at g050, all four with **ZERO images**:
+🎯 **MEASURED AT THREE IDENTITIES, NOT ONE.** 9.8 shipped with `g050` and nothing else, and the
+claim that the shells fit every identity *by construction* — they are cut from the basemesh AT the
+requested identity, so there is no fitting step to drift — was an argument rather than a
+measurement. It is a measurement now. Built 2026-08-09 at R10, three runs of the documented command
+above with `--gender 0`, `--gender 0.5` and `--gender 1`, **10.6–14.3 s each**, all three exit 0:
 
-| fragment | faces | bytes | textures |
-|---|---:|---:|---:|
-| `foundation_bra` | 8,956 | 778,516 | **0** |
-| `foundation_vest` | 12,134 | 1,035,740 | **0** |
-| `foundation_briefs` | 5,072 | 452,836 | **0** |
-| `foundation_boxer_brief` | 5,358 | 470,364 | **0** |
+| fragment | | g000 | g050 | g100 |
+|---|---|---:|---:|---:|
+| `foundation_bra` | faces | 9,342 | 8,956 | 8,654 |
+| | bytes | 809,112 | 778,516 | 756,872 |
+| | standoff mm | 0.80–4.33 | 0.80–4.12 | 0.80–4.57 |
+| `foundation_vest` | faces | 12,318 | 12,134 | 12,006 |
+| | bytes | 1,050,904 | 1,035,740 | 1,024,140 |
+| | standoff mm | 0.58–4.41 | 0.48–4.20 | **0.28**–4.81 |
+| `foundation_briefs` | faces | 5,042 | 5,072 | 5,222 |
+| | bytes | 450,784 | 452,836 | 466,628 |
+| | standoff mm | **0.22**–4.57 | 0.80–4.18 | 0.64–4.29 |
+| `foundation_boxer_brief` | faces | 5,246 | 5,358 | 5,566 |
+| | bytes | 462,548 | 470,364 | 486,988 |
+| | standoff mm | **0.22**–4.61 | 0.80–4.18 | 0.65–4.29 |
 
-Build-time clearance **0.48–4.20 mm** with **0 vertices through the body**; 22–38 vertices per lower
-garment are deliberately thinned where the crotch leaves no room. The build FAILS rather than ships
+All twelve fragments carry **ZERO images** and **0 vertices through the body**. The g050 column
+reproduces the numbers this table shipped with to the byte, which is what makes the other two
+columns comparable rather than merely present.
+
+⚠️ **"0.48–4.20 mm clearance" was a g050 property and this table is why it is no longer written as
+a general one.** The nearest approach falls to **0.22 mm** on both lower garments at g000 — less
+than half the g050 minimum, against a 0.05 mm floor — and the vest reaches **0.28 mm** at g100. Both
+pass, and neither is comfortable: the margin over the 0.05 mm z-fighting floor is **4.4×** at g000
+and **5.6×** at g100, against **9.6×** at the identity the claim was written from. A judge has
+looked at none of the twelve.
+
+The decency regions are themselves identity-dependent, which is the other thing one figure could
+not show: chest **122 / 110 / 118** body vertices and seat **30 / 40 / 44** across g000 / g050 /
+g100. Every floor combination the build enumerates covers every region at all three.
+
+🚩 **AND THE BUILD ENUMERATES TWO OF THE FOUR LEGAL FLOORS, WHICH THIS RUN FOUND BY GOING OFF
+g050.** At g100 `foundation_briefs` covers **42 of 44** seat vertices — and the build passed,
+because `floor_candidates` takes one garment per SLOT and `LEGS` has exactly one candidate, so
+`foundation_boxer_brief` is forced into every enumerated outfit and every outfit containing
+`foundation_briefs` then conflicts out at `HIPS`. The two floors never checked are `bra + briefs`
+and `vest + briefs` — and `bra + briefs` is the floor the shipped runtime default actually picks.
+Filed as **REQ-059** in [`docs/OPEN-REQUESTS.md`](../../docs/OPEN-REQUESTS.md), with the note that
+the build's set algebra and `decency.selftest.mjs`'s ray cast are different instruments: a vertex
+outside the cut region may still have cloth in front of it, and only the ray cast can say.
+
+Build-time clearance at g050 **0.48–4.20 mm** with **0 vertices through the body**; 22–38 vertices
+per lower garment are deliberately thinned where the crotch leaves no room (55 at g000, 42 at g100).
+The build FAILS rather than ships
 if a shell folded through the body, if a standoff falls outside [0.05 mm, 2× the cut offset], or if
 any decency-floor combination leaves a region uncovered. It fired three times while 9.8 was being
 built and was right every time.
