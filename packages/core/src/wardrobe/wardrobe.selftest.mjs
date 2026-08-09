@@ -25,7 +25,7 @@
  * 🚩 **AND A CENTROID IS A WEAK IDENTITY IN EXACTLY THE SAME WAY, WHICH THIS FILE MISSED FOR A
  * ROUND.** A centroid is the MEAN of three vertices, so it is invariant under every permutation of
  * them — including the one that matters. Reverse the winding of every rebuilt triangle and the
- * count is unchanged, the centroid multiset is unchanged, and all 35 of the assertions this file
+ * count is unchanged, the centroid multiset is unchanged, and every assertion this file
  * used to make read green on a body that renders inside out: `Human.body` is `doubleSided: false`,
  * measured off the GLB and re-measured here as `material.side === FrontSide`, so a back-facing
  * triangle is not drawn at all. **A triangle is an ORDERED TRIPLE OF VERTICES, and modelling it as
@@ -1063,8 +1063,10 @@ async function checkDecencyHook( manifest ) {
     console.log( '' );
     console.log( '--- 9.8 hook: the floor is unioned into every state, including undress ---' );
 
-    // 9.8's foundation garments do not exist yet, so the floor is proven with a garment that does.
-    // What is being tested is the FUNNEL, not the wardrobe: that no path to the body skips it.
+    // What is being tested here is the FUNNEL, not the foundation layer: that no path to the body
+    // skips `#resolveOutfit`. `shoes01` stands in for a floor garment deliberately — 9.8's own
+    // gate is `decency.selftest.mjs`, which measures coverage geometrically off the built shells,
+    // and a funnel test that used the real floor would fail for two different reasons at once.
     const figure = new Figure( await loadGltf( BODY_PATH ) );
     const wardrobe = new Wardrobe( figure, manifest, {
         decencyFloor: () => [ 'shoes01' ],

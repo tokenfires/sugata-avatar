@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sugata — Wardrobe plumbing browsercheck (9.1, 9.2, 9.3, 9.5)</title>
+<title>Sugata — Wardrobe browsercheck (9.1, 9.2, 9.3, 9.5, 9.8, 9.13)</title>
 <style>
     :root { color-scheme: dark; }
 
@@ -59,13 +59,26 @@
 </div>
 
 <div id="panel">
-    <h1>Wardrobe plumbing browsercheck — punch list 9.1, 9.2, 9.3, 9.5</h1>
+    <h1>Wardrobe browsercheck — punch list 9.1, 9.2, 9.3, 9.5, 9.8, 9.13</h1>
     <p class="note">
         The body is built with <code>--hide-mask-attribute</code>, so its geometry is whole and
         the index buffer is rebuilt from the union of the worn garments' <code>_HIDE_*</code>
         masks. Garments are fetched as fragments on demand and rebound to this figure's own
         skeleton by bone name. Nothing here is baked.
     </p>
+    <p class="note">
+        <strong>9.8:</strong> the foundation layer is the decency floor and is unioned into every
+        outfit, including the empty one — take everything off and it is still there.
+        <strong>9.13:</strong> the mode switch below is the user's; the AI may state a preference
+        in any of the three, and does.
+    </p>
+
+    <h2>Foundation layer (9.8)</h2>
+    <p class="note">
+        One garment per body slot, and nothing can remove either. Under an opaque outer garment the
+        covered part stops being DRAWN — that is occlusion, not removal, and the worn list says so.
+    </p>
+    <div id="foundation"></div>
 
     <h2>Outfit</h2>
     <div id="garments"></div>
@@ -75,6 +88,26 @@
     </div>
     <div id="status"></div>
 
+    <h2>Agency (9.13)</h2>
+    <p class="note">
+        Default is <code>pinned</code> on first run, and it persists in
+        <code>localStorage</code> — reload the page and the avatar is still wearing this.
+    </p>
+    <div id="modes"></div>
+    <div>
+        <button id="pin-current">pin what is worn</button>
+        <button id="ai-consider">let the AI decide now</button>
+        <button id="forget">forget everything (first-run state)</button>
+    </div>
+    <div id="agency"></div>
+
+    <h2>What the AI would have worn</h2>
+    <p class="note">
+        Expressed in every mode, honoured or not. An AI able to state a preference even when
+        overruled is the difference between a puppet and a someone.
+    </p>
+    <div id="preferences"></div>
+
     <h2>Measured, live</h2>
     <p class="note">
         <code>body</code> is what the index rebuild left. The baked build of the same two garments
@@ -82,6 +115,9 @@
         by <code>packages/core/src/wardrobe/wardrobe.selftest.mjs</code>.
     </p>
     <div id="stats"></div>
+
+    <h2>Occlusion (9.8)</h2>
+    <div id="occlusion"></div>
 
     <h2>Hide masks on this body</h2>
     <div id="masks"></div>

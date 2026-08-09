@@ -39,13 +39,51 @@ geometrically lossless: `docs/research/wardrobe-system.md` §2.4 measured the re
 `--garment-fragment-dir` writes each garment to its own small GLB — the fragment the runtime
 fetches on demand — and leaves it out of the body GLB. §3.5 of the research chose fragments over
 one atlas GLB because textures are 81–87% of a clothed figure and VRAM is the binding constraint.
+
+## The foundation layer (punch-list 9.8)
+
+    blender --background --python build_figure.py -- \
+        --gender 0.5 --output body_g050.glb \
+        --foundation foundation_bra --foundation foundation_briefs \
+        --hide-mask-attribute --garment-fragment-dir assets/wardrobe
+
+🎯 **A foundation garment is not an mhclo. It is generated from the figure's own skin**, as a
+conformal shell: a region of body faces, duplicated, pushed out along the vertex normals by 3 mm,
+and tapered back to 0.8 mm over the last two rings so the hem melts into the skin instead of
+showing an open edge.
+
+Three properties fall out of that construction rather than being engineered, and each one is a
+problem the mhclo path has:
+
+  * **It fits every identity exactly.** §3.3 measured `female_casualsuit01` drifting mean
+    95.145 mm / max 143.066 mm between g000 and g100 because `fit_clothes_to_human` re-solves
+    barycentrically against the basemesh. A shell cut from the basemesh AT that identity has no
+    fitting step to drift. This is why 9.8 can ship while 9.4 is blocked.
+  * **Its skin weights are the body's own**, copied vertex-for-vertex rather than interpolated
+    through mhclo correspondences, so there is no class of vertex that can be left unweighted.
+  * **It needs no texture.** A flat base colour plus a roughness from the `knit_jersey` row of
+    research §5.3 is the whole material, which matters because §3.4 makes textures 81–87% of the
+    wardrobe's cost. The four foundation fragments together carry no image at all.
+
+⚠️ The regions are AUTHORED. There is no reference for underwear anywhere in the 638 supplied
+images (docs/BRIEF.md), so every fraction in `FOUNDATION_GARMENTS` below is a design decision.
+What is NOT authored is the frame they are expressed in: every cut is a fraction of a distance
+between two measured anatomical landmarks — rig bone heads, and MakeHuman's own `nipple` vertex
+group — so the same numbers produce a correctly placed garment at any point on the identity axes.
+
+`--foundation` also writes the three `_decency_*` regions onto the body. Those are the TARGET the
+coverage gate measures against, and they are deliberately derived from a DIFFERENT source than the
+garment regions — MakeHuman's `nipple` group and measured extrema, not the landmark fractions
+above — so a garment that is cut too small fails instead of moving the target with it.
 """
 
 import argparse
 import json
+import math
 import os
 import sys
 
+import bmesh
 import bpy
 from mathutils import Vector
 
@@ -149,6 +187,94 @@ HIDE_MASK_ATTRIBUTE_PREFIX = "_hide_"
 # (research §3.3), and cross-fitting puts 84.4% of the covered skin outside the cloth.
 GARMENT_FRAGMENT_FILENAME = "g{:03d}.glb"
 
+# --- punch-list 9.8: the foundation layer -------------------------------------------------------
+#
+# How far a foundation shell stands off the skin, and how it ends.
+#
+# 3 mm is the smallest offset that is unambiguously more than the noise floor of everything else in
+# the pipeline: the runtime rebuild and the bake agree on positions to 1 µm (wardrobe.selftest.mjs
+# CENTROID_TOLERANCE_M), and the fit gate works in millimetres. It is also thin enough that a
+# uniform normal offset does not self-intersect in the concave places — the crotch and the armpit —
+# which is measured per build by `describe_foundation` and fails the build if it stops being true.
+#
+# The hem tapers back to 0.8 mm over the last two rings rather than to zero, because a shell edge
+# AT the skin z-fights with it. 0.8 mm still reads as "the fabric ends here" and is 800× the
+# position agreement above.
+FOUNDATION_OFFSET_M = 0.0030
+FOUNDATION_HEM_OFFSET_M = 0.0008
+FOUNDATION_HEM_RINGS = 2
+
+# The closest the shell may come to the skin anywhere, after every clamp and every relaxation.
+FOUNDATION_MINIMUM_CLEARANCE_M = 0.00005
+
+# 🚩 How many times the patch is subdivided before the garment is cut out of it, and WHY the first
+# build had to grow this: the base mesh is a body, and its edge loops run where a body's anatomy
+# runs, not where a hem does. Cut straight out of it, every hem is a staircase of whole quads —
+# measured on the first build, the briefs came out at 162 faces and the leg openings stepped by a
+# visible half-centimetre. A garment whose entire requirement is to go UNNOTICED cannot have a
+# staircase for an edge.
+#
+# Subdivision is LINEAR, not Catmull-Clark, and that is the load-bearing half: linear subdivision
+# puts every new vertex exactly on the polygon it splits, so the patch stays exactly on the body's
+# own surface and the 3 mm standoff is still 3 mm. Catmull-Clark would shrink it into the skin.
+#
+# ONE level, not two, and the second one was tried and rejected on a measurement rather than on
+# taste: at two levels the vest came out at 18,484 triangles against the whole suit's 4,236, for a
+# garment that is worn in every state the avatar can reach and is therefore always resident. One
+# level halves the hem step and costs 4,621.
+FOUNDATION_SUBDIVISIONS = 1
+
+# How far past the garment the patch is cut before subdividing. The offset direction at a hem
+# vertex is its smooth normal, which needs its neighbours to exist — cut the patch flush with the
+# garment and the outermost ring would be offset along a normal computed from half a neighbourhood.
+FOUNDATION_PATCH_MARGIN_RINGS = 3
+
+# How many extra rounds of subdivision the hem band gets after the uniform pass. See the call site.
+#
+# Two, because one was not enough to look at: at one pass the bra band and the brief's leg opening
+# still stepped visibly at the scale of a base-mesh quad, which on a garment whose entire
+# requirement is to go unnoticed is the only thing anyone notices.
+FOUNDATION_HEM_REFINEMENTS = 2
+
+# `knit_jersey` from research §5.3: roughness 0.65–0.80 [I], soft sheen, clings. The middle of the
+# band. No texture at all — see the module docstring.
+FOUNDATION_ROUGHNESS = 0.78
+
+# 🎯 The region a foundation garment inherits from an OUTER garment's hide mask: "this part of me
+# is underneath that, and must not be drawn while it is worn."
+#
+# This is NOT a hide mask of the foundation garment's own — 9.8 says a foundation garment hides
+# nothing, and it does not: it never removes a single body vertex. It is the same occlusion rule
+# the BODY already obeys, applied to the shell that replaced the body's surface there. Without it
+# the layer is unwearable under anything: the g050 baseline has 26.37% of the suit's covered skin
+# sitting OUTSIDE the cloth at rest, worst depth 9.19 mm (punch-list 9.4), and a shell 3 mm proud
+# of that skin pokes through the suit everywhere the skin already would.
+#
+# 🚩 A DIFFERENT PREFIX FROM `_hide_`, deliberately. `verify_glb.mjs` asserts that every `_HIDE_*`
+# attribute it finds is some manifest garment's own and flags between 0.1% and 90% of its mesh —
+# and on a bra fragment `_HIDE_FEMALE_CASUALSUIT01` flags nearly all of it, which is correct and
+# would read as the degenerate "erases the figure" case.
+UNDER_MASK_ATTRIBUTE_PREFIX = "_under_"
+
+# The decency regions the coverage gate measures against, written onto the body by `--foundation`.
+#
+# ⚠️ Derived on purpose from a DIFFERENT source than the garment cuts below: MakeHuman's own
+# `nipple` vertex group, and measured extrema of the body surface. If both came from the same
+# fractions, shrinking a garment would shrink its target with it and the gate would be a
+# tautology — docs/LEARNINGS.md §1.25a.
+DECENCY_ATTRIBUTE_PREFIX = "_decency_"
+DECENCY_REGIONS = ("chest", "groin", "seat")
+
+# How far each decency region reaches, as a multiple of a measured body dimension.
+#
+# ⚠️ AUTHORED, and there is no reference to author against — docs/BRIEF.md records that the 638
+# supplied images contain no foundation layer at all. `CHEST_DILATION` is a multiple of the radius
+# of MakeHuman's own areola ring; the other two are multiples of the hip half-width, which is the
+# nearest measured dimension that scales with the pelvis on every identity axis.
+DECENCY_CHEST_DILATION = 1.35
+DECENCY_GROIN_RADIUS_IN_HIP_HALF_WIDTHS = 0.75
+DECENCY_SEAT_RADIUS_IN_HIP_HALF_WIDTHS = 0.55
+
 # The manifest the build reads a garment's alphaMode from, relative to the repo root two levels up.
 DEFAULT_WARDROBE_MANIFEST = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -200,6 +326,12 @@ def parse_arguments():
                              "'_hide_<id>' attribute instead of baking the MASK modifier. The "
                              "body keeps all its geometry and the runtime rebuilds the index "
                              "buffer, which is what lets the figure undress.")
+    parser.add_argument("--foundation", action="append", default=[], metavar="ID",
+                        help="Punch-list 9.8. Generate a foundation garment from the figure's own "
+                             "skin as a conformal shell, e.g. 'foundation_bra'. Repeatable. Also "
+                             "writes the three _decency_* regions onto the body, which is what "
+                             "the coverage gate measures against. Known ids: " +
+                             ", ".join(sorted(FOUNDATION_GARMENTS)) + ".")
     parser.add_argument("--garment-fragment-dir", default=None, metavar="DIR",
                         help="Write each garment to DIR/<id>/g<NNN>.glb as a standalone fragment "
                              "and leave it out of the body GLB.")
@@ -211,7 +343,7 @@ def parse_arguments():
 
 
 def read_wardrobe_manifest(manifest_path, garment_ids):
-    """alphaMode per garment id, read from the wardrobe manifest.
+    """The manifest entry per garment id, read from the wardrobe manifest.
 
     The build does NOT decide a garment's alpha mode from its name. `verify_glb.mjs` reads the
     same field out of the same file, so a garment whose manifest entry says MASK and whose GLB
@@ -220,6 +352,10 @@ def read_wardrobe_manifest(manifest_path, garment_ids):
 
     An unlisted garment stops the build. A garment nothing describes cannot be dressed, layered or
     verified, so shipping one is worse than not building it.
+
+    The whole entry is returned rather than just `alphaMode`, because a foundation garment takes
+    its base colour from the same place — `palette[0]` — and one authority beating two is the
+    reason this function exists at all.
     """
     if not garment_ids:
         return {}
@@ -238,7 +374,7 @@ def read_wardrobe_manifest(manifest_path, garment_ids):
         raise SystemExit(f"Build failed: {unlisted} are not in {manifest_path}. Add a manifest "
                          "entry — id, layer, alphaMode, clo, fabric, formality, palette — first.")
 
-    return {garment_id: by_id[garment_id]["alphaMode"] for garment_id in garment_ids}
+    return {garment_id: by_id[garment_id] for garment_id in garment_ids}
 
 
 def create_figure(arguments):
@@ -483,6 +619,958 @@ def describe_hide_masks(basemesh, expected_attribute_names):
         raise SystemExit(
             f"Build failed: hide-mask attributes {missing} are not on the baked basemesh. They "
             "were written before the bake, so the helper strip dropped them.")
+
+
+# --- punch-list 9.8: the foundation layer --------------------------------------------------------
+
+
+class BodyLandmarks:
+    """Where this figure's anatomy actually is, measured rather than assumed.
+
+    Every field is in the basemesh's own local space, in metres, and every one of them moves with
+    the identity sliders. That is the whole point: `FOUNDATION_GARMENTS` states its cuts as
+    fractions of distances between two of these, so one set of numbers dresses g000 and g100 alike.
+
+    Two independent sources, deliberately:
+
+      * the RIG's bone heads, which MPFB fits to the shaped figure's own joint cubes, and
+      * the MESH — MakeHuman's `nipple` vertex group, and measured extrema of the skin surface.
+
+    The decency regions come only from the second. The garment cuts come mostly from the first.
+    """
+
+    def __init__(self, bone_head, bust_centre, bust_radius, crotch, seat, hip_half_width):
+        self.hip = {1.0: bone_head["thigh_l"].copy(), -1.0: bone_head["thigh_r"].copy()}
+        self.knee = {1.0: bone_head["calf_l"].copy(), -1.0: bone_head["calf_r"].copy()}
+
+        self.pelvis_z = bone_head["pelvis"].z
+        self.spine_01_z = bone_head["spine_01"].z
+        self.spine_02_z = bone_head["spine_02"].z
+        self.spine_03_z = bone_head["spine_03"].z
+        self.clavicle_z = bone_head["clavicle_l"].z
+        self.thigh_z = bone_head["thigh_l"].z
+        self.knee_z = bone_head["calf_l"].z
+        self.shoulder_half_width = abs(bone_head["upperarm_l"].x)
+        self.hip_half_width = hip_half_width
+
+        # Left and right, so the chest region is two balls rather than one that spans the sternum.
+        self.bust_centre = bust_centre
+        self.bust_radius = bust_radius
+        self.bust_z = sum(centre.z for centre in bust_centre) / len(bust_centre)
+
+        self.crotch = crotch
+        self.seat = seat
+
+        self.thigh_length = self.thigh_z - self.knee_z
+        self.torso_height = self.clavicle_z - self.pelvis_z
+
+    def between(self, lower, upper, fraction):
+        """A height a stated fraction of the way from one landmark to another."""
+        return lower + (upper - lower) * fraction
+
+    def describe(self):
+        return (f"pelvis {self.pelvis_z:.4f}  spine_01 {self.spine_01_z:.4f}  "
+                f"spine_03 {self.spine_03_z:.4f}  bust {self.bust_z:.4f}  "
+                f"clavicle {self.clavicle_z:.4f}  thigh {self.thigh_z:.4f}  "
+                f"knee {self.knee_z:.4f}  crotch {self.crotch.z:.4f}  "
+                f"hip half-width {self.hip_half_width:.4f}  "
+                f"shoulder half-width {self.shoulder_half_width:.4f}")
+
+
+# Which bones a foundation garment is allowed to grow on. This is what keeps a horizontal cut from
+# picking up the arms: the figure stands in an A-pose, so the hands sit at z 0.988–1.076 and the
+# fingertips reach 0.911 — a waistband at 0.910 is 1.4 mm from swallowing a finger on g050, and
+# closer than that on some identities. A bone allowlist is not a threshold and cannot drift.
+TORSO_BONES = frozenset({"spine_01", "spine_02", "spine_03", "clavicle_l", "clavicle_r"})
+LOWER_BONES = frozenset({"pelvis", "spine_01", "thigh_l", "thigh_r"})
+
+
+# How far the thigh's own surface lies from its bone, as a multiple of the hip half-width, and how
+# fast the hem is allowed to drop away past that. Together these are the gusset.
+#
+# 🚩 **THE LEG HEM AND THE CROTCH ARE THE SAME CUT AND THEY CANNOT BE THE SAME THRESHOLD**, which
+# took three attempts. Measured on g050: the thigh surface is at most 88 mm from its own bone, and
+# the crotch is 114.9 mm from the nearest one — 0.87 and 1.13 of the hip half-width. A hem stated
+# as "how far down the thigh" alone cuts the crotch off, because the crotch is 0.315 of the way to
+# the knee, further down than any brief's leg opening. A hem stated as "inside this tube, cut;
+# outside it, keep" is a STEP, and a step across a skinning boundary comes out as the notched,
+# tabbed hem the second build produced.
+#
+# So the hem is a threshold that GROWS with distance from the thigh bone: at the thigh surface it
+# is the garment's own hem parameter, and by the time it reaches the crotch it is 0.70 further down
+# the leg than that, which no brief reaches. Continuous in both coordinates, so the boundary it
+# draws on the body is a smooth closed curve.
+THIGH_SURFACE_IN_HIP_HALF_WIDTHS = 0.90
+CROTCH_RELIEF_PER_HIP_HALF_WIDTH = 3.0
+
+
+def foundation_region_briefs(point, dominant, marks):
+    """Briefs: the pelvis to the waistband, with the leg openings just below the hip joint."""
+    return lower_body_region(point, dominant, marks,
+                             waist_fraction=0.45, leg_fraction=0.08)
+
+
+def foundation_region_boxer_brief(point, dominant, marks):
+    """A boxer brief: the same garment with the legs taken to mid-thigh."""
+    return lower_body_region(point, dominant, marks,
+                             waist_fraction=0.45, leg_fraction=0.50)
+
+
+def lower_body_region(point, dominant, marks, waist_fraction, leg_fraction):
+    """Below the waistband; and if it is on a leg, above that leg's hem.
+
+    🚩 THE SPLIT INTO TWO CASES IS THE WHOLE FUNCTION, and the first build got it wrong by not
+    having it. A single "how far down the thigh" cut puts the crotch at 0.315 of the way to the
+    knee — further down the leg than a brief's leg opening — so a brief cut that way has no gusset
+    at all, and the decency gate still passed because the boxer brief covered the groin instead.
+    A garment is not decent because another garment is.
+
+    So: the leg is a TUBE around the thigh bone, and the crotch, the pubis and the buttocks are
+    outside it. Inside the tube the garment ends at a hem measured along the bone — along the bone
+    and not at a height, because the thigh runs outward as well as down, 41 mm of x over 391 mm of
+    z on g050, and a horizontal cut across it is a slanted hem.
+    """
+    if dominant not in LOWER_BONES:
+        return False
+
+    if point.z > marks.between(marks.pelvis_z, marks.spine_01_z, waist_fraction):
+        return False
+
+    along, across = thigh_coordinates(point, marks)
+
+    clear_of_thigh = max(0.0, across / marks.hip_half_width - THIGH_SURFACE_IN_HIP_HALF_WIDTHS)
+    hem = leg_fraction + CROTCH_RELIEF_PER_HIP_HALF_WIDTH * clear_of_thigh
+
+    return along <= hem
+
+
+def thigh_coordinates(point, marks):
+    """(how far down the nearer thigh, how far out from its bone). 0 at the hip, 1 at the knee."""
+    side = 1.0 if point.x >= 0.0 else -1.0
+    hip = marks.hip[side]
+    axis = marks.knee[side] - hip
+
+    offset = point - hip
+    along = offset.dot(axis) / axis.length_squared
+
+    return along, (offset - axis * along).length
+
+
+def foundation_region_bra(point, dominant, marks):
+    """A band around the bust, and a strap over each shoulder.
+
+    The band's height comes off the `nipple` group rather than off a spine bone, because the bust
+    moves 50.2 mm up the torso between g000 and g100 while spine_03 moves 45.5 mm — close, but not
+    the same, and the band has to enclose the breast at both ends of the axis.
+    """
+    if dominant not in TORSO_BONES:
+        return False
+
+    underbust = marks.bust_z - 0.50 * (marks.bust_z - marks.spine_03_z)
+    overbust = marks.bust_z + 0.45 * (marks.clavicle_z - marks.bust_z)
+
+    if underbust <= point.z <= overbust:
+        return True
+
+    return is_shoulder_strap(point, marks, overbust, inner=0.36, outer=0.56)
+
+
+def foundation_region_vest(point, dominant, marks):
+    """A plain sleeveless undershirt: hem at the hip, armholes, a neck opening, two wide straps."""
+    if dominant not in TORSO_BONES.union({"pelvis"}):
+        return False
+
+    hem = marks.between(marks.pelvis_z, marks.spine_01_z, 0.15)
+    if point.z < hem:
+        return False
+
+    # Below the armholes the vest is a full tube; above them it is two straps, and the same pair of
+    # bounds cuts the armhole on the outside and the neck opening on the inside.
+    armhole = marks.bust_z + 0.25 * (marks.clavicle_z - marks.bust_z)
+    if point.z < armhole:
+        return True
+
+    return is_shoulder_strap(point, marks, armhole, inner=0.22, outer=0.75)
+
+
+def is_shoulder_strap(point, marks, from_height, inner, outer):
+    """A vertical band of skin at a fixed distance from the midline, above a given height.
+
+    Bounding only |x| is what makes one rule produce a strap that runs up the chest, over the
+    shoulder and down the back: the band is a plane pair, and the shoulder is the only place the
+    body crosses it.
+    """
+    if point.z < from_height:
+        return False
+
+    lateral = abs(point.x) / marks.shoulder_half_width
+    return inner <= lateral <= outer
+
+
+# The four garments 9.8 names, and nothing else. Each is a region rule plus the manifest id it
+# ships under; everything else about it — layer, slots, clo, palette — lives in the manifest.
+FOUNDATION_GARMENTS = {
+    "foundation_bra": foundation_region_bra,
+    "foundation_briefs": foundation_region_briefs,
+    "foundation_boxer_brief": foundation_region_boxer_brief,
+    "foundation_vest": foundation_region_vest,
+}
+
+
+def measure_landmarks(basemesh, rig):
+    """Reads the figure's anatomy off the rig and the skin. Must run after the macro bake."""
+    to_local = basemesh.matrix_world.inverted()
+    bone_head = {bone.name: to_local @ (rig.matrix_world @ bone.head_local)
+                 for bone in rig.data.bones}
+
+    required = ["pelvis", "spine_01", "spine_02", "spine_03", "clavicle_l", "thigh_l", "calf_l",
+                "upperarm_l"]
+    missing = [name for name in required if name not in bone_head]
+    if missing:
+        raise SystemExit(f"Build failed: the rig has no {missing}. The foundation layer measures "
+                         "its cuts from bone heads, and cannot be placed on a rig it cannot read.")
+
+    mesh = basemesh.data
+    hip_half_width = abs(bone_head["thigh_l"].x)
+
+    bust_centre, bust_radius = measure_bust(basemesh)
+    crotch = measure_crotch(mesh, bone_head, hip_half_width)
+    seat = measure_seat(mesh, bone_head, crotch, hip_half_width)
+
+    return BodyLandmarks(bone_head, bust_centre, bust_radius, crotch, seat, hip_half_width)
+
+
+def measure_bust(basemesh):
+    """The centre and radius of each areola, from MakeHuman's own `nipple` vertex group.
+
+    Ground truth this build did not author: the group is part of the base mesh and is the only
+    place in the whole pipeline that says where the chest region is without someone deciding.
+    """
+    group = basemesh.vertex_groups.get("nipple")
+    if group is None:
+        raise SystemExit("Build failed: the basemesh has no 'nipple' vertex group, which is where "
+                         "the chest decency region is measured from.")
+
+    sides = {1.0: [], -1.0: []}
+    for vertex in basemesh.data.vertices:
+        if not any(entry.group == group.index for entry in vertex.groups):
+            continue
+        sides[1.0 if vertex.co.x >= 0.0 else -1.0].append(vertex.co.copy())
+
+    centres = []
+    radii = []
+    for side in (-1.0, 1.0):
+        points = sides[side]
+        if not points:
+            raise SystemExit("Build failed: the 'nipple' vertex group has no vertices on one side "
+                             "of the body.")
+        centre = sum(points, Vector((0.0, 0.0, 0.0))) / len(points)
+        centres.append(centre)
+        radii.append(max((point - centre).length for point in points))
+
+    return centres, radii
+
+
+def measure_crotch(mesh, bone_head, hip_half_width):
+    """The lowest point of the skin on the midline between the legs.
+
+    Measured rather than derived from the pelvis bone, because the pelvis bone head sits inside the
+    body and the perineum is 80–90 mm below it, by an amount that changes with weight and gender.
+    """
+    thigh_z = bone_head["thigh_l"].z
+    knee_z = bone_head["calf_l"].z
+    floor = thigh_z - 0.35 * (thigh_z - knee_z)
+
+    candidates = [vertex.co for vertex in mesh.vertices
+                  if abs(vertex.co.x) < 0.28 * hip_half_width
+                  and floor < vertex.co.z < bone_head["pelvis"].z]
+
+    if not candidates:
+        raise SystemExit("Build failed: no skin found on the midline between the legs, so the "
+                         "groin decency region cannot be placed.")
+
+    return min(candidates, key=lambda point: point.z).copy()
+
+
+def measure_seat(mesh, bone_head, crotch, hip_half_width):
+    """The rearmost point of each buttock, in the band between the crotch and the pelvis bone."""
+    apexes = []
+
+    for side in (-1.0, 1.0):
+        candidates = [vertex.co for vertex in mesh.vertices
+                      if vertex.co.x * side > 0.15 * hip_half_width
+                      and crotch.z < vertex.co.z < bone_head["pelvis"].z]
+
+        if not candidates:
+            raise SystemExit("Build failed: no skin found on one buttock, so the seat decency "
+                             "region cannot be placed.")
+
+        apexes.append(max(candidates, key=lambda point: point.y).copy())
+
+    return apexes
+
+
+def decency_region_membership(basemesh, marks, dominant):
+    """Which body vertices belong to each decency region. Balls around measured anatomy.
+
+    ⚠️ Authored radii — see `DECENCY_CHEST_DILATION` and friends. What is not authored is where the
+    balls are centred, and the centres are what a shrunken garment fails against.
+
+    🎯 The groin has one extra clause, and it is the difference between a target and a tautology.
+    The ball around the crotch reaches 76 mm on g050, which runs a little way down the inside of
+    each thigh — and no brief covers the inside of a thigh. So the region excludes anything the
+    RIG says is leg. That is MPFB's own weight painting deciding where the leg starts, which is a
+    different authority from the leg tube the garment rule uses; shrink the garment's gusset and
+    this target does not move with it.
+    """
+    membership = {name: set() for name in DECENCY_REGIONS}
+
+    groin_radius = DECENCY_GROIN_RADIUS_IN_HIP_HALF_WIDTHS * marks.hip_half_width
+    seat_radius = DECENCY_SEAT_RADIUS_IN_HIP_HALF_WIDTHS * marks.hip_half_width
+    leg_bones = {"thigh_l", "thigh_r", "calf_l", "calf_r"}
+
+    for vertex in basemesh.data.vertices:
+        point = vertex.co
+
+        for centre, radius in zip(marks.bust_centre, marks.bust_radius):
+            if (point - centre).length <= radius * DECENCY_CHEST_DILATION:
+                membership["chest"].add(vertex.index)
+
+        if ((point - marks.crotch).length <= groin_radius
+                and dominant[vertex.index] not in leg_bones):
+            membership["groin"].add(vertex.index)
+
+        for apex in marks.seat:
+            if (point - apex).length <= seat_radius:
+                membership["seat"].add(vertex.index)
+
+    return membership
+
+
+def write_decency_attributes(basemesh, membership):
+    """Ships the decency regions on the body, so the coverage gate reads them off the artefact.
+
+    A gate that recomputed the regions from its own copy of the anatomy would be measuring its own
+    arithmetic. These are written by the build that cut the garments and read by a gate that did
+    not, which is the only arrangement where a disagreement means something.
+    """
+    written = []
+
+    for name in DECENCY_REGIONS:
+        attribute_name = f"{DECENCY_ATTRIBUTE_PREFIX}{name}"
+        attribute = basemesh.data.attributes.new(attribute_name, "FLOAT", "POINT")
+        for index in membership[name]:
+            attribute.data[index].value = 1.0
+        written.append((name, attribute_name, len(membership[name])))
+        print(f"  decency region {name}: {len(membership[name]):,} body verts as {attribute_name}")
+
+    return written
+
+
+def build_foundation_garments(basemesh, rig, marks, arguments, manifest_entries):
+    """Cuts each requested foundation garment out of the figure's own skin.
+
+    Returns the same (object, mhclo path, id) shape `attach_garments` returns, so the alpha pass
+    and the fragment export treat a bra and a jacket identically.
+    """
+    if not arguments.foundation:
+        return [], {}, {}
+
+    dominant = dominant_bone_per_vertex(basemesh, rig)
+    built = []
+    regions = {}
+    standoffs = {}
+
+    for garment_id in arguments.foundation:
+        region_of = FOUNDATION_GARMENTS.get(garment_id)
+        if region_of is None:
+            raise SystemExit(f"Build failed: '{garment_id}' is not a foundation garment. Known: "
+                             f"{', '.join(sorted(FOUNDATION_GARMENTS))}.")
+
+        entry = manifest_entries[garment_id]
+        if entry["layer"] != "FOUNDATION":
+            raise SystemExit(f"Build failed: '{garment_id}' is at layer {entry['layer']} in the "
+                             "manifest. A garment generated by --foundation must be at FOUNDATION "
+                             "— it is the layer nothing can remove, and a shell 3 mm off the skin "
+                             "worn over anything else would be inside it.")
+
+        region = {vertex.index for vertex in basemesh.data.vertices
+                  if region_of(vertex.co, dominant[vertex.index], marks)}
+
+        if not region:
+            raise SystemExit(f"Build failed: the region rule for '{garment_id}' selected no "
+                             "vertices at this identity.")
+
+        shell, standoff = cut_conformal_shell(basemesh, rig, garment_id, region, region_of,
+                                              marks, entry)
+        built.append((shell, "", garment_id))
+        regions[garment_id] = region
+        standoffs[garment_id] = standoff
+
+    return built, regions, standoffs
+
+
+def dominant_bone_per_vertex(basemesh, rig):
+    """The bone each body vertex is weighted to most, by name. Unweighted vertices report ''."""
+    bone_names = {bone.name for bone in rig.data.bones}
+    group_name = {group.index: group.name for group in basemesh.vertex_groups}
+
+    dominant = [""] * len(basemesh.data.vertices)
+
+    for vertex in basemesh.data.vertices:
+        best_weight = 0.0
+        for entry in vertex.groups:
+            name = group_name[entry.group]
+            if name in bone_names and entry.weight > best_weight:
+                best_weight = entry.weight
+                dominant[vertex.index] = name
+
+    return dominant
+
+
+def cut_conformal_shell(basemesh, rig, garment_id, region, region_of, marks, manifest_entry):
+    """Duplicates the body, refines a patch of it, and cuts the garment out of the patch.
+
+    Four steps, and each one is in the order it is for a reason:
+
+      1. **Cut a patch** three rings wider than the garment. Everything after this works on a few
+         hundred faces instead of thirteen thousand, and the margin means the hem's own normals are
+         computed from a complete neighbourhood.
+      2. **Subdivide the patch linearly**, so the hem can follow a curve instead of the base mesh's
+         anatomy-shaped edge loops. See FOUNDATION_SUBDIVISIONS.
+      3. **Offset the WHOLE patch** along its normals, before anything else is deleted. Deleting
+         first would recompute the normals around the new boundary and flare the hem outward.
+      4. **Cut the garment** out of the offset patch.
+    """
+    shell = basemesh.copy()
+    shell.data = basemesh.data.copy()
+    shell.name = f"Human.{garment_id}"
+    shell.data.name = garment_id
+    basemesh.users_collection[0].objects.link(shell)
+
+    # A bra has no use for `viseme_kk`, and a shape key on a mesh about to lose 90% of its vertices
+    # is 89 morph targets of noise in the fragment. Cleared first because bmesh cannot subdivide a
+    # mesh that has them.
+    shell.shape_key_clear()
+
+    rename_hide_masks_to_under_masks(shell.data)
+
+    # The decency regions are the gate's TARGET and belong on the body. Shipping a copy of them on
+    # the garment would let a coverage check answer itself out of the garment's own bookkeeping
+    # instead of measuring where the cloth is.
+    for name in [name for name in shell.data.attributes.keys()
+                 if name.lower().startswith(DECENCY_ATTRIBUTE_PREFIX)]:
+        shell.data.attributes.remove(shell.data.attributes[name])
+
+    patch = dilate(region, vertex_neighbours(shell.data), FOUNDATION_PATCH_MARGIN_RINGS)
+    keep_only(shell, patch)
+
+    subdivide_linearly(shell, [edge.index for edge in shell.data.edges],
+                       FOUNDATION_SUBDIVISIONS)
+    refined = region_on(shell, rig, region_of, marks)
+
+    # 🎯 And then again, only where it shows. The hem is the only part of a foundation garment
+    # anyone can see the resolution of — the interior is a flat colour lying on skin — so the
+    # second refinement is spent entirely on the two rings either side of the cut. Uniform, it
+    # would have cost the vest 13,527 extra triangles to smooth an edge that is 8% of it.
+    for _pass in range(FOUNDATION_HEM_REFINEMENTS):
+        subdivide_linearly(shell, edges_near_boundary(shell.data, refined), 1)
+        refined = region_on(shell, rig, region_of, marks)
+
+    # Snapshotted before anything moves. `vertex_normals` is a derived cache and the first write
+    # to a position invalidates it, so reading it inside the loop would offset later vertices
+    # along normals that already reflect earlier ones.
+    normals = [normal.vector.copy() for normal in shell.data.vertex_normals]
+    skin = skin_surface_of(shell.data)
+
+    offsets = shell_offsets(shell.data, refined)
+    thinned = clamp_offsets_to_available_gap(shell.data, refined, normals, skin, offsets)
+    through = count_penetrations(shell.data, refined, normals, skin, offsets)
+
+    for vertex in shell.data.vertices:
+        vertex.co += normals[vertex.index] * offsets[vertex.index]
+
+    relax_onto_the_body(shell.data, refined, offsets, skin)
+
+    nearest, furthest = measure_clearance(shell.data, refined, skin)
+    standoff = Standoff(nearest, furthest, through, thinned)
+
+    keep_only(shell, refined)
+    assign_foundation_material(shell, garment_id, manifest_entry)
+
+    return shell, standoff
+
+
+# A vertex may not use more than this share of the space in front of it. 🚩 The crotch is why:
+# the perineum is a slot between two surfaces that FACE EACH OTHER and close to nothing, so a
+# uniform 3 mm offset pushes each wall 3 mm into the other and the shell crosses itself. Measured
+# on the first build with the leg tube in place: the briefs reached 10.28 mm from their own surface
+# with 3 vertices inside the body, all of them at the crotch seam.
+#
+# A third rather than a half so that both walls together take two thirds and there is still a gap.
+GAP_SHARE_PER_WALL = 0.33
+
+
+def clamp_offsets_to_available_gap(mesh, region, normals, skin, offsets):
+    """Thins the shell wherever the body does not leave 3 mm of room in front of it.
+
+    Cloth in a crease is thinner than cloth on a thigh. This is that, measured: look straight out
+    of each vertex, and if the body is in the way, take a third of whatever distance there is.
+    """
+    reach = FOUNDATION_OFFSET_M / GAP_SHARE_PER_WALL
+
+    # Far enough off the surface not to hit the vertex's own faces, small against the offset.
+    lift = FOUNDATION_OFFSET_M / 60.0
+
+    thinned = 0
+
+    for index in region:
+        origin = mesh.vertices[index].co + normals[index] * lift
+        hit = skin.ray_cast(origin, normals[index], reach)
+
+        if hit[0] is None:
+            continue
+
+        allowed = (hit[3] + lift) * GAP_SHARE_PER_WALL
+        if allowed < offsets[index]:
+            offsets[index] = allowed
+            thinned += 1
+
+    return thinned
+
+
+def skin_surface_of(mesh):
+    """A BVH of the patch as it stands BEFORE the offset — the exact surface the shell came off.
+
+    🚩 Deliberately not a BVH of the whole body, and the first attempt was, which cost a build.
+    `BVHTree.FromPolygons` triangulates, the base mesh is quads, and a quad spanning a curved
+    torso is not planar — so a subdivided vertex that sits exactly on the bilinear patch sits up to
+    1.25 mm off the triangulation of it. Measured: every shell reported a maximum standoff of
+    4.25 mm for a 3.00 mm offset, and none of them was wrong.
+    """
+    from mathutils.bvhtree import BVHTree
+
+    return BVHTree.FromPolygons([vertex.co.copy() for vertex in mesh.vertices],
+                                [list(polygon.vertices) for polygon in mesh.polygons])
+
+
+class Standoff:
+    """What a finished shell measured: how clear of the skin it is, and whether it went through.
+
+    ⚠️ `through` is the number of vertices whose offset crossed a surface that was in front of
+    them. It is the direct verification of `clamp_offsets_to_available_gap`'s precondition, and it
+    replaced two attempts at a general inside/outside test that both produced false positives on
+    correct geometry — the record is in `count_penetrations`.
+    """
+
+    def __init__(self, nearest, furthest, through, thinned):
+        self.nearest = nearest
+        self.furthest = furthest
+        self.through = through
+        self.thinned = thinned
+
+
+def count_penetrations(mesh, region, normals, skin, offsets):
+    """How many vertices would be pushed THROUGH a surface standing in front of them.
+
+    This is the whole of the fold check, and it is deliberately narrow. Two wider tests were built
+    first and both called correct geometry broken:
+
+      * nearest-point-and-sign says a vertex is inside whenever its nearest surface faces away from
+        it, which at the bottom of the gluteal cleft is every vertex — the two walls face EACH
+        OTHER. Three vertices on the midline at z 0.838–0.858 failed the build.
+      * filtering to same-facing surfaces then reports the far side of the buttock, 10.28 mm away,
+        as the surface a 3 mm offset was measured against.
+      * a ray-parity test along the vertex normal called four bra hem vertices inside the body at a
+        measured clearance of 0.797 mm, which they plainly are not.
+
+    A fold is caused by exactly one thing here — an offset larger than the space in front of it —
+    so that is what is measured, at the vertex where it would happen, against the surface it would
+    hit. Nothing about it is a proxy.
+    """
+    lift = FOUNDATION_OFFSET_M / 60.0
+    through = 0
+
+    for index in region:
+        if offsets[index] <= lift:
+            continue
+
+        origin = mesh.vertices[index].co + normals[index] * lift
+        hit = skin.ray_cast(origin, normals[index], offsets[index] - lift)
+
+        if hit[0] is not None:
+            through += 1
+
+    return through
+
+
+def measure_clearance(mesh, region, skin):
+    """(nearest, furthest) distance from the offset shell back to the skin it was cut from."""
+    nearest = float("inf")
+    furthest = 0.0
+
+    for index in region:
+        _location, _normal, _face, distance = skin.find_nearest(mesh.vertices[index].co)
+
+        if distance is None:
+            continue
+
+        nearest = min(nearest, distance)
+        furthest = max(furthest, distance)
+
+    return nearest, furthest
+
+
+def dilate(region, neighbours, rings):
+    """The region plus everything within `rings` edges of it."""
+    grown = set(region)
+
+    for _ring in range(rings):
+        grown |= {neighbour for index in grown for neighbour in neighbours[index]}
+
+    return grown
+
+
+# How much of the body's small detail the cloth is allowed to forget, and how hard the skin pushes
+# back afterwards. 🚩 A pure normal offset is not fabric, it is PAINT: it reproduces every bump it
+# is laid over, and on the vest that meant the areola came through the cloth. Cloth spans a small
+# concavity and rides over a small convexity, which is a low-pass filter over the surface — so the
+# shell is smoothed, and then anything the smoothing pulled back under the hem clearance is pushed
+# out again along its own normal. Smooth-then-reproject rather than smooth-and-hope.
+FOUNDATION_RELAX_PASSES = 4
+FOUNDATION_RELAX_STRENGTH = 0.55
+
+
+def relax_onto_the_body(mesh, region, offsets, skin):
+    """Low-pass filters the shell, then pushes anything that sank back out to the hem clearance.
+
+    The hem is pinned. Smoothing moves a vertex toward the average of its neighbours, and at a free
+    boundary that average is one-sided, so an unpinned hem creeps inward and the garment shrinks a
+    little on every pass — which is the shape of the cut, not a detail of the fabric.
+    """
+    neighbours = vertex_neighbours(mesh)
+    inside = [index for index in region
+              if all(neighbour in region for neighbour in neighbours[index])]
+
+    for _pass in range(FOUNDATION_RELAX_PASSES):
+        moved = {}
+
+        for index in inside:
+            average = Vector((0.0, 0.0, 0.0))
+            for neighbour in neighbours[index]:
+                average += mesh.vertices[neighbour].co
+            average /= len(neighbours[index])
+
+            moved[index] = mesh.vertices[index].co.lerp(average, FOUNDATION_RELAX_STRENGTH)
+
+        for index, position in moved.items():
+            mesh.vertices[index].co = position
+
+    for index in region:
+        # 🚩 The target is the vertex's OWN offset, not the hem constant. Vertices in a crease were
+        # deliberately thinned by `clamp_offsets_to_available_gap` — 28 of them at the crotch —
+        # and pushing those back out to the full hem would undo the one thing standing between the
+        # shell and the surface it is folded against.
+        target = min(FOUNDATION_HEM_OFFSET_M, offsets[index])
+
+        # Along the SKIN's normal at the nearest point, not the vertex's own. Its own normal is
+        # from before the smoothing and can be almost tangential to the direction that actually
+        # buys clearance; measured, that left the briefs 0.14 mm off the body at the crotch.
+        for _attempt in range(5):
+            _location, normal, _face, distance = skin.find_nearest(mesh.vertices[index].co)
+
+            if distance is None or distance >= target:
+                break
+
+            mesh.vertices[index].co += normal * (target - distance)
+
+
+def region_on(shell, rig, region_of, marks):
+    """Which of the shell's CURRENT vertices the garment's own region rule selects."""
+    dominant = dominant_bone_per_vertex(shell, rig)
+
+    return {vertex.index for vertex in shell.data.vertices
+            if region_of(vertex.co, dominant[vertex.index], marks)}
+
+
+def edges_near_boundary(mesh, region):
+    """Every edge within two rings of the region's boundary, by index."""
+    neighbours = vertex_neighbours(mesh)
+
+    boundary = {index for index in region
+                if any(neighbour not in region for neighbour in neighbours[index])}
+    band = dilate(boundary, neighbours, 2)
+
+    return [edge.index for edge in mesh.edges
+            if edge.vertices[0] in band and edge.vertices[1] in band]
+
+
+def subdivide_linearly(shell, edge_indices, levels):
+    """Splits the given edges in half, `levels` times, without moving any existing surface.
+
+    `smooth=0` is what makes it linear: every new vertex lands on the polygon it split, so the
+    patch is still exactly the body's surface and the standoff measured afterwards is the standoff
+    that was asked for.
+
+    Edges are passed by INDEX rather than as bmesh elements because the caller reads them off the
+    mesh and bmesh builds its own; indices are the only thing the two share.
+    """
+    if levels <= 0 or not edge_indices:
+        return
+
+    mesh = bmesh.new()
+    mesh.from_mesh(shell.data)
+    mesh.edges.ensure_lookup_table()
+
+    wanted = set(edge_indices)
+    edges = [edge for edge in mesh.edges if edge.index in wanted]
+
+    for _level in range(levels):
+        result = bmesh.ops.subdivide_edges(mesh, edges=edges, cuts=1, smooth=0.0,
+                                           use_grid_fill=True)
+        edges = [element for element in result["geom_inner"] if isinstance(element, bmesh.types.BMEdge)]
+
+    mesh.to_mesh(shell.data)
+    mesh.free()
+    shell.data.update()
+
+
+def shell_offsets(mesh, region):
+    """How far each vertex is pushed out: the full offset inside, tapering to the hem at the edge.
+
+    The taper is measured in RINGS OF THE MESH rather than in metres, because the base mesh's edge
+    length varies by a factor of several across the body and a metric falloff would be two
+    quads wide at the hip and half a quad wide at the chest.
+    """
+    neighbours = vertex_neighbours(mesh)
+
+    # Ring 0 is the boundary: in the region, with at least one neighbour outside it.
+    ring = {}
+    frontier = []
+    for index in region:
+        if any(neighbour not in region for neighbour in neighbours[index]):
+            ring[index] = 0
+            frontier.append(index)
+
+    depth = 0
+    while frontier and depth < FOUNDATION_HEM_RINGS:
+        depth += 1
+        nextFrontier = []
+        for index in frontier:
+            for neighbour in neighbours[index]:
+                if neighbour in region and neighbour not in ring:
+                    ring[neighbour] = depth
+                    nextFrontier.append(neighbour)
+        frontier = nextFrontier
+
+    offsets = [0.0] * len(mesh.vertices)
+    for index in region:
+        depth = ring.get(index, FOUNDATION_HEM_RINGS)
+        fraction = min(1.0, depth / FOUNDATION_HEM_RINGS)
+        offsets[index] = (FOUNDATION_HEM_OFFSET_M +
+                          (FOUNDATION_OFFSET_M - FOUNDATION_HEM_OFFSET_M) * fraction)
+
+    return offsets
+
+
+def vertex_neighbours(mesh):
+    """Adjacency over the mesh's edges."""
+    neighbours = [[] for _ in mesh.vertices]
+
+    for edge in mesh.edges:
+        first, second = edge.vertices
+        neighbours[first].append(second)
+        neighbours[second].append(first)
+
+    return neighbours
+
+
+def rename_hide_masks_to_under_masks(mesh):
+    """`_hide_<outer>` on the body becomes `_under_<outer>` on a shell cut from it.
+
+    The vertices are the same vertices, so the mapping is a rename and not a computation. The
+    prefix changes because the MEANING does: on the body it says "delete me while that is worn",
+    and on a foundation garment it says "do not draw me while that is worn". Neither removes the
+    foundation garment; see UNDER_MASK_ATTRIBUTE_PREFIX.
+    """
+    for name in [name for name in mesh.attributes.keys()
+                 if name.lower().startswith(HIDE_MASK_ATTRIBUTE_PREFIX)]:
+        mesh.attributes[name].name = (UNDER_MASK_ATTRIBUTE_PREFIX +
+                                      name[len(HIDE_MASK_ATTRIBUTE_PREFIX):])
+
+
+def keep_only(shell, region):
+    """Keeps the region's faces and nothing else, then drops whatever is left with no face."""
+    mesh = bmesh.new()
+    mesh.from_mesh(shell.data)
+    mesh.verts.ensure_lookup_table()
+
+    outside = [vertex for vertex in mesh.verts if vertex.index not in region]
+    bmesh.ops.delete(mesh, geom=outside, context="VERTS")
+
+    loose = [vertex for vertex in mesh.verts if not vertex.link_faces]
+    if loose:
+        bmesh.ops.delete(mesh, geom=loose, context="VERTS")
+
+    mesh.to_mesh(shell.data)
+    mesh.free()
+    shell.data.update()
+
+
+def assign_foundation_material(shell, garment_id, manifest_entry):
+    """One plain Principled BSDF, base colour from the manifest palette, and no texture at all.
+
+    🚩 The material's NAME is the manifest id, and that is load-bearing rather than tidy:
+    `verify_glb.mjs` resolves a garment by EXACT material name and fails an unlisted one, precisely
+    so a `/suit/i` pattern cannot accept any garment for any entry.
+    """
+    material = bpy.data.materials.new(garment_id)
+    material.use_nodes = True
+
+    principled = material.node_tree.nodes.get("Principled BSDF")
+    red, green, blue = srgb_hex_to_linear(manifest_entry["palette"][0])
+    principled.inputs["Base Color"].default_value = (red, green, blue, 1.0)
+    principled.inputs["Roughness"].default_value = FOUNDATION_ROUGHNESS
+    principled.inputs["Metallic"].default_value = 0.0
+
+    shell.data.materials.clear()
+    shell.data.materials.append(material)
+
+
+def srgb_hex_to_linear(hex_colour):
+    """#rrggbb to linear RGB, the space Blender's node inputs and glTF's baseColorFactor are in."""
+    channels = [int(hex_colour[position:position + 2], 16) / 255.0 for position in (1, 3, 5)]
+
+    return tuple(channel / 12.92 if channel <= 0.04045
+                 else ((channel + 0.055) / 1.055) ** 2.4
+                 for channel in channels)
+
+
+def describe_foundation(shells, regions, standoffs, marks, membership, manifest_entries):
+    """Prints what each shell came out as, and fails the build on the ways it can silently go bad.
+
+    🚩 **A uniform normal offset folds through itself wherever the surface is concave on a radius
+    smaller than the offset**, and the foundation layer is cut for exactly the two places on a body
+    where that is plausible: the crotch and the armpit. A fold is not visible in a vertex count, a
+    face count or a file size, and on a single-sided shell it renders as a hole. `measure_standoff`
+    is where it is looked for.
+
+    The other one is a garment that renders beautifully and does not cover the thing it exists to
+    cover — checked here against every outfit the decency floor could pick, not against the union
+    of all of them. The runtime half of that is in `wardrobe.selftest.mjs` and measures the built
+    GLBs geometrically; both are needed, because this one is set algebra over the build's own
+    region sets and would be checking its arithmetic against itself if it stood alone
+    (docs/LEARNINGS.md §1.25a).
+    """
+    if not shells:
+        return
+
+    print("")
+    print("=== foundation layer (9.8) ===")
+    print(f"landmarks       : {marks.describe()}")
+
+    problems = []
+
+    for shell, _path, garment_id in shells:
+        standoff = standoffs[garment_id]
+        nearest, furthest = standoff.nearest, standoff.furthest
+
+        print(f"{garment_id:<24}: {len(shell.data.vertices):>5,} verts  "
+              f"{len(shell.data.polygons):>5,} faces  "
+              f"standoff {nearest * 1000:.2f}–{furthest * 1000:.2f} mm  "
+              f"{standoff.thinned} verts thinned into a crease  "
+              f"{standoff.through} through the skin")
+
+        if standoff.through > 0:
+            problems.append(f"{garment_id} pushes {standoff.through} vertices THROUGH a surface "
+                            "standing in front of them — the gap clamp did not hold")
+
+        # ⚠️ Twice the offset, not the offset. `relax_onto_the_body` is a low-pass filter and a
+        # low-pass filter BRIDGES: the vest spans the sternal notch and stands 4.20 mm off the
+        # skin at the bottom of it, correctly. What this catches is a normal field or a taper
+        # gone wrong, which does not stop at twice.
+        if furthest > FOUNDATION_OFFSET_M * 2.0 + 1e-6:
+            problems.append(f"{garment_id} stands off up to {furthest * 1000:.2f} mm, which is "
+                            f"more than twice the {FOUNDATION_OFFSET_M * 1000:.1f} mm it was cut "
+                            "at; the taper or the normals are wrong")
+
+        # ⚠️ An absolute floor rather than a fraction of the hem, for two measured reasons.
+        # `nearest` is a perpendicular distance to a triangulated surface, and at a convex ridge
+        # that is shorter than the along-normal offset that produced it — the vest's 0.8 mm hem
+        # crosses the collarbone at 0.40 mm perpendicular. And in a crease the offset is
+        # deliberately a fraction of the hem, because the body left no room: 28 vertices at the
+        # crotch. What is NOT allowed is coplanar.
+        if nearest < FOUNDATION_MINIMUM_CLEARANCE_M:
+            problems.append(f"{garment_id} comes within {nearest * 1000:.3f} mm of the skin, "
+                            f"under the {FOUNDATION_MINIMUM_CLEARANCE_M * 1000:.2f} mm floor; "
+                            "that close it z-fights")
+
+    for garment_id, region in regions.items():
+        per_region = "  ".join(
+            f"{name} {len(membership[name] & region):>3}/{len(membership[name]):<3}"
+            for name in DECENCY_REGIONS)
+        print(f"{garment_id:<24}: covers {per_region}")
+
+    # 🚩 The clause the first build did not have, and it would have shipped a brief with no gusset:
+    # every OUTFIT the floor can pick has to cover every region, and "some shell covers it" is not
+    # that. A shell that covers the groin is no use if it is the one the floor did not choose.
+    for outfit in floor_candidates(regions, manifest_entries):
+        covered = set().union(*(regions[garment_id] for garment_id in outfit))
+        short = {name: len(membership[name] - covered) for name in DECENCY_REGIONS
+                 if membership[name] - covered}
+
+        if short:
+            problems.append(f"the floor {'+'.join(outfit)} leaves " +
+                            ", ".join(f"{count} {name}" for name, count in short.items()) +
+                            " body vertices uncovered")
+
+    if problems:
+        raise SystemExit("Build failed: " + "; ".join(problems))
+
+
+def floor_candidates(regions, manifest_entries):
+    """Every set of foundation garments the decency floor could legally pick.
+
+    One garment per body slot, because two garments at one layer sharing a slot is exactly what
+    GarmentManifest refuses. The build enumerates them from the manifest's own slots rather than
+    from a hardcoded top/bottom pair, so a fifth foundation garment is covered the day it is added.
+    """
+    by_slot = {}
+    for garment_id in regions:
+        for slot in manifest_entries[garment_id]["slots"]:
+            by_slot.setdefault(slot, []).append(garment_id)
+
+    outfits = [()]
+    for slot in sorted(by_slot):
+        outfits = [outfit + (garment_id,)
+                   for outfit in outfits
+                   for garment_id in by_slot[slot]]
+
+    # A garment claiming two slots appears twice in a product; de-duplicate, and drop the outfits
+    # that pair two garments which could never be worn together.
+    unique = []
+    for outfit in outfits:
+        candidate = tuple(sorted(set(outfit)))
+        if candidate in unique or conflicts_within(candidate, manifest_entries):
+            continue
+        unique.append(candidate)
+
+    return unique
+
+
+def conflicts_within(outfit, manifest_entries):
+    """True when two garments in this outfit claim the same body slot at the same layer."""
+    claimed = set()
+
+    for garment_id in outfit:
+        entry = manifest_entries[garment_id]
+        for slot in entry["slots"]:
+            key = (entry["layer"], slot)
+            if key in claimed:
+                return True
+            claimed.add(key)
+
+    return False
 
 
 def apply_skin(basemesh, arguments):
@@ -963,7 +2051,7 @@ def export_glb(hierarchy, output_path, arguments):
         # 🚩 Defaults OFF, and the build reports success without it. Passed explicitly, as a
         # boolean rather than a conditional keyword, so the nude control build keeps exporting
         # byte-for-byte what it always did: measured, sha256 b56115d0cb52… either way.
-        export_attributes=arguments.hide_mask_attribute,
+        export_attributes=arguments.hide_mask_attribute or bool(arguments.foundation),
         export_yup=True)
 
 
@@ -1066,7 +2154,8 @@ def main():
 
     print(f"Building figure at gender={arguments.gender} -> {output_path}")
 
-    garment_alpha_modes = read_wardrobe_manifest(arguments.wardrobe_manifest, arguments.garment)
+    manifest_entries = read_wardrobe_manifest(arguments.wardrobe_manifest,
+                                              arguments.garment + arguments.foundation)
 
     clear_startup_scene()
 
@@ -1111,20 +2200,44 @@ def main():
 
     force_alpha_modes(basemesh, face_parts)
     for garment_object, _asset_path, garment_id in garments:
-        alpha_mode = garment_alpha_modes[garment_id]
+        alpha_mode = manifest_entries[garment_id]["alphaMode"]
         force_alpha_mode(garment_object, alpha_mode)
         print(f"  {garment_object.name}: {alpha_mode} (from the wardrobe manifest)")
 
     hierarchy = collect_figure_hierarchy(basemesh)
     bake_macro_shape_keys_on_hierarchy(hierarchy)
 
-    fragments = export_garment_fragments(rig, garments, arguments)
+    # 🎯 The foundation layer is cut LAST, and every word of that is load-bearing. After the helper
+    # strip, so the shell is cut from the vertices that ship. After the macro bake, so it is cut
+    # from THIS figure rather than from MakeHuman's genderless base — the whole reason a body-
+    # derived shell needs no fitting step is that it is derived from the body it will be worn on.
+    foundation = []
+    if arguments.foundation:
+        if rig is None:
+            raise SystemExit("Build failed: --foundation measures its cuts from the rig's bone "
+                             "heads, and --rig none leaves no rig to measure.")
+
+        marks = measure_landmarks(basemesh, rig)
+        membership = decency_region_membership(basemesh, marks,
+                                               dominant_bone_per_vertex(basemesh, rig))
+        write_decency_attributes(basemesh, membership)
+
+        foundation, regions, standoffs = build_foundation_garments(
+            basemesh, rig, marks, arguments, manifest_entries)
+        describe_foundation(foundation, regions, standoffs, marks, membership, manifest_entries)
+
+        for shell, _path, garment_id in foundation:
+            force_alpha_mode(shell, manifest_entries[garment_id]["alphaMode"])
+
+    fragments = export_garment_fragments(rig, garments + foundation, arguments)
 
     # A garment written as its own fragment is deliberately absent from the body GLB: the body
     # carries the hide masks for the whole catalogue and the garments arrive on demand.
     garment_objects = {garment_object for garment_object, _path, _id in garments}
+    shell_objects = {shell for shell, _path, _id in foundation}
     body_hierarchy = [member for member in hierarchy
-                      if member not in garment_objects or not fragments]
+                      if (member not in garment_objects or not fragments)
+                      and member not in shell_objects]
 
     export_glb(body_hierarchy, output_path, arguments)
     describe_result(basemesh, body_hierarchy, output_path)

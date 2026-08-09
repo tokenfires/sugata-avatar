@@ -29,8 +29,8 @@
  *
  * ⚠️ **That sentence stood alone for a round and it was not enough, because a centroid is a MEAN
  * and a mean is invariant under the permutation that matters.** Reversing the winding of every
- * triangle this class rebuilds left the count identical, the centroid multiset identical, and all
- * 35 of the gate's assertions green — on a body that does not render, since `Human.body` is
+ * triangle this class rebuilds left the count identical, the centroid multiset identical, and every
+ * one of the gate's assertions green — on a body that does not render, since `Human.body` is
  * `doubleSided: false` and a back-facing triangle is culled. The gate now also compares the kept
  * triangles as ORIENTED CORNER TRIPLES (position + UV, canonicalised over rotations only), and
  * asserts intrinsically that every kept triangle's geometric normal agrees with its shading
@@ -61,15 +61,32 @@
  *
  * ## 🎯 Where 9.8's decency invariant plugs in — it is one function, and it is already called
  *
- * 9.8 (the foundation layer) is not built and its garments do not exist yet. The API is shaped so
- * it lands without reshaping anything: pass `decencyFloor`, a function returning the garment ids
- * that must be worn in every reachable state. **`#resolveOutfit` unions it into every outfit, and
- * `dress()`, `undress()`, `putOn()` and `takeOff()` all go through `#resolveOutfit`** — there is
- * no path to the body that skips it. `undress()` is therefore already "return to the floor", not
- * "remove everything", and its behaviour with a floor of `[]` is the degenerate case rather than
- * the design. When 9.8 ships, `decencyFloor` becomes
- * `() => manifest.ids().filter( ( id ) => manifest.get( id ).layer === 'FOUNDATION' )` and nothing
- * else moves.
+ * Pass `decencyFloor`, a function returning the garment ids that must be worn in every reachable
+ * state. **`#resolveOutfit` unions it into every outfit, and `dress()`, `undress()`, `putOn()` and
+ * `takeOff()` all go through `#resolveOutfit`** — there is no path to the body that skips it.
+ * `undress()` is therefore "return to the floor", not "remove everything", and its behaviour with
+ * a floor of `[]` is the degenerate case rather than the design. `FoundationLayer` (9.8) is what
+ * supplies the floor in practice; nothing in this class knows its name.
+ *
+ * ## 🎯 `_UNDER_*`: how a garment that can never be removed is still not drawn through a coat
+ *
+ * 9.8's foundation garments are conformal shells 3 mm off the skin, and the skin they are cut from
+ * pokes through `female_casualsuit01` at rest — 26.37% of the covered vertices, worst depth
+ * 9.19 mm (punch-list 9.4). On the BODY that does not matter, because the suit's `_HIDE_*` mask
+ * deletes the skin underneath. A bra worn under the same suit has no such mask and would poke
+ * through it everywhere the skin would.
+ *
+ * So a garment fragment may carry `_UNDER_<other garment>` attributes, written by
+ * `build_figure.py` as a rename of the body's own `_hide_<other garment>` — the same vertices,
+ * because a shell cut from the body inherits the body's mapping exactly. This class rebuilds a
+ * garment's index buffer from the union of the `_UNDER_*` masks of whatever OPAQUE garments are
+ * worn OUTSIDE it, by the same code that rebuilds the body's.
+ *
+ * ⚠️ **This is not removal and it does not weaken 9.8.** The garment is still worn, still in
+ * `worn`, still in every stat; the part of it that is not drawn is the part an opaque garment is
+ * covering, which is exactly the condition under which the decency invariant is satisfied by that
+ * garment instead. `occlusionOf()` reports it per garment so a gate can assert the pairing rather
+ * than trust it, and a MASK or BLEND garment is refused the privilege — you can see through those.
  */
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -84,6 +101,118 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 function normaliseAttributeName( name ) {
 
     return name.toLowerCase();
+
+}
+
+/** The prefix a garment carries the region it sits underneath another garment in. See the header. */
+const UNDER_MASK_PREFIX = '_under_';
+
+/** The prefix the BODY carries a garment's deleted region under. */
+const HIDE_MASK_PREFIX = '_hide_';
+
+/** Every `_hide_*` / `_under_*` attribute on a geometry, keyed by its lowercased name. */
+function maskAttributesOf( geometry, prefix ) {
+
+    const found = new Map();
+
+    for ( const [ name, attribute ] of Object.entries( geometry.attributes ) ) {
+
+        if ( normaliseAttributeName( name ).startsWith( prefix ) === false ) continue;
+
+        found.set( normaliseAttributeName( name ), attribute );
+
+    }
+
+    return found;
+
+}
+
+/**
+ * A per-vertex 0/1 array over the union of the named masks, or null when nothing is hidden.
+ *
+ * Exported as a free function because the body and every garment run the same union: the body's
+ * masks are named `_hide_<id>` and a garment's are named `_under_<id>`, and past the naming there
+ * is one rule.
+ */
+function unionOfMasks( attributes, names, vertexCount ) {
+
+    const present = names
+        .map( ( name ) => attributes.get( normaliseAttributeName( name ) ) )
+        .filter( ( attribute ) => attribute !== undefined );
+
+    if ( present.length === 0 ) return null;
+
+    const hidden = new Uint8Array( vertexCount );
+
+    for ( const attribute of present ) {
+
+        for ( let vertex = 0; vertex < vertexCount; vertex += 1 ) {
+
+            // Exported as FLOAT. Anything above a half is flagged; the writer only ever sets
+            // 0.0 or 1.0, and a threshold beats an equality test on a float that has been
+            // through a file.
+            if ( attribute.getX( vertex ) > 0.5 ) hidden[ vertex ] = 1;
+
+        }
+
+    }
+
+    return hidden;
+
+}
+
+/**
+ * Rewrites a geometry's index buffer to the triangles none of whose vertices is hidden.
+ *
+ * 🚩 **THE ORDER `a, b, c` IS LOAD-BEARING IN BOTH BRANCHES.** The body is backface culled, so a
+ * triangle written the other way round is not drawn — and reordering an index buffer is exactly
+ * the shape a plausible cache-locality "optimisation" takes. Two of them were tried against this
+ * function: a full reversal, and a canonicalisation putting the lowest index first, which reverses
+ * 6,897 of 21,380 triangles. Both leave the count and the centroid multiset untouched.
+ * `wardrobe.selftest.mjs` catches both; nothing else in the repo does.
+ *
+ * "Any vertex hidden drops the triangle" is not a choice either — it is what Blender's MASK
+ * modifier does, and reproducing the bake exactly is the whole claim.
+ *
+ * The index array is edited in place and the tail is cut off with `drawRange` rather than
+ * reallocated: same GPU buffer, one upload, and the full triangle list is still there to restore
+ * from when the garment comes off.
+ */
+function rebuildIndex( geometry, fullIndex, hidden ) {
+
+    const index = geometry.index;
+
+    if ( hidden === null ) {
+
+        index.array.set( fullIndex );
+        index.needsUpdate = true;
+        geometry.setDrawRange( 0, fullIndex.length );
+        return fullIndex.length;
+
+    }
+
+    const target = index.array;
+    let written = 0;
+
+    for ( let offset = 0; offset < fullIndex.length; offset += 3 ) {
+
+        const a = fullIndex[ offset ];
+        const b = fullIndex[ offset + 1 ];
+        const c = fullIndex[ offset + 2 ];
+
+        if ( hidden[ a ] === 1 || hidden[ b ] === 1 || hidden[ c ] === 1 ) continue;
+
+        target[ written ] = a;
+        target[ written + 1 ] = b;
+        target[ written + 2 ] = c;
+        written += 3;
+
+    }
+
+    index.needsUpdate = true;
+    geometry.setDrawRange( 0, written );
+
+    return written;
 
 }
 
@@ -144,7 +273,8 @@ export class Wardrobe {
 
         }
 
-        this.hideAttributes = this.#collectHideAttributes();
+        this.hideAttributes = maskAttributesOf( this.body.geometry, HIDE_MASK_PREFIX );
+        this.#warnIfNoHideMasks();
         this.fragments = new Map();      // garment id -> { mesh, jointRemapIsIdentity }
         this.wornMeshes = new Map();     // garment id -> SkinnedMesh currently in the scene
         this.worn = [];                  // garment ids, innermost first
@@ -155,6 +285,21 @@ export class Wardrobe {
         // A fresh geometry's drawRange is (0, Infinity). Normalising it here means `stats()`
         // reports a real triangle count before the first `dress()` rather than Infinity.
         this.#rebuildBodyIndex( [] );
+
+        // 🚩 THE FRAME BETWEEN CONSTRUCTION AND THE FIRST `dress()`, which is a real frame.
+        //
+        // A wardrobe is built over a figure that is already in the scene, and the first outfit has
+        // to fetch its fragments over the network before anything can be worn. Every frame drawn
+        // in that window is a bare body — measured by `decency.selftest.mjs`, which samples the
+        // live scene at every point the event loop can yield during a change and found six
+        // indecent samples, all of them in the first dress.
+        //
+        // So a figure with a decency floor does not DRAW until the floor is on. Not "is dressed
+        // in a placeholder", not "fades in" — not drawn, which is the only state that is
+        // guaranteed decent. A wardrobe with no floor is unchanged: `alive.html?wear=…` passes no
+        // `decencyFloor`, so `hasFloor` is false and the body is visible exactly as before.
+        this.dressedAtLeastOnce = false;
+        this.body.visible = this.#hasFloor() === false;
 
     }
 
@@ -236,11 +381,13 @@ export class Wardrobe {
 
         return {
             worn: [ ...this.worn ],
+            bodyVisible: this.body.visible,
             bodyTriangles: this.body.geometry.drawRange.count / 3,
             fullBodyTriangles: this.fullTriangleCount,
             hiddenTriangles: this.fullTriangleCount - this.body.geometry.drawRange.count / 3,
-            garmentTriangles: [ ...this.wornMeshes.values() ].reduce(
-                ( total, mesh ) => total + mesh.geometry.index.count / 3, 0 ),
+            garmentTriangles: this.worn.reduce(
+                ( total, id ) => total + this.fragments.get( id ).drawnTriangles, 0 ),
+            occlusion: this.occlusionOf(),
             drawCalls: 1 + this.wornMeshes.size,
             residentFragments: this.fragments.size,
             insulation: this.manifest.insulationOf( this.worn ),
@@ -249,6 +396,32 @@ export class Wardrobe {
             jointRemapIsIdentity: [ ...this.fragments.values() ]
                 .every( ( fragment ) => fragment.jointRemapIsIdentity )
         };
+
+    }
+
+    /**
+     * Per worn garment: how much of it is drawn, and which OPAQUE outer garments cover the rest.
+     *
+     * 🎯 This is what makes `_UNDER_*` auditable rather than a claim. 9.8's invariant is that the
+     * foundation layer is worn in every reachable state; the interesting question is whether the
+     * part of it that is NOT drawn is exactly the part something opaque is covering, and a gate
+     * can only ask that if the runtime says which garment did the covering.
+     */
+    occlusionOf() {
+
+        return this.worn.map( ( id ) => {
+
+            const fragment = this.fragments.get( id );
+
+            return {
+                id,
+                drawnTriangles: fragment.drawnTriangles,
+                fullTriangles: fragment.fullTriangles,
+                occludedBy: [ ...fragment.occludedBy ],
+                carriesUnderMasks: fragment.underMasks.size > 0
+            };
+
+        } );
 
     }
 
@@ -325,6 +498,7 @@ export class Wardrobe {
 
         const startedAt = now();
         this.#rebuildBodyIndex( this.manifest.hideMasksFor( outfit ) );
+        this.#rebuildGarmentIndices( outfit );
         this.lastRebuildMs = now() - startedAt;
 
         const arriving = new Set( outfit );
@@ -350,124 +524,89 @@ export class Wardrobe {
 
         this.worn = outfit;
 
+        // The floor is on. From here the body draws, and never stops.
+        this.dressedAtLeastOnce = true;
+        this.body.visible = true;
+
     }
 
-    /**
-     * Rebuilds the body's index buffer, keeping every triangle none of whose vertices is hidden.
-     *
-     * "Any vertex hidden drops the triangle" is not a choice — it is what Blender's MASK modifier
-     * does, and reproducing the bake exactly is the whole claim. The counts in the class header
-     * are what proves it.
-     *
-     * The index array is edited in place and the tail is cut off with `drawRange` rather than
-     * reallocated: same GPU buffer, one upload, and the full triangle list is still there to
-     * restore from when the garment comes off.
-     *
-     * 🚩 **THE ORDER `a, b, c` IS LOAD-BEARING IN BOTH BRANCHES BELOW.** The body is backface
-     * culled, so a triangle written the other way round is not drawn — and reordering an index
-     * buffer is exactly the shape a plausible cache-locality "optimisation" takes. Two of them
-     * were tried against this file: a full reversal, and a canonicalisation putting the lowest
-     * index first, which reverses 6,897 of 21,380 triangles. Both leave the count and the centroid
-     * multiset untouched. `wardrobe.selftest.mjs` catches both; nothing else in the repo does.
-     */
+    /** Whether a decency floor is configured. A floor that throws counts as one — see the header. */
+    #hasFloor() {
+
+        try {
+
+            return this.decencyFloor().length > 0;
+
+        } catch ( error ) {
+
+            console.warn( `Wardrobe: the decency floor threw (${ error.message }). Treating the ` +
+                'figure as one that has a floor, so it stays hidden until it is dressed.' );
+            return true;
+
+        }
+
+    }
+
+    /** Rebuilds the body's index buffer from the union of the worn garments' hide masks. */
     #rebuildBodyIndex( hideMaskNames ) {
 
         const geometry = this.body.geometry;
-        const index = geometry.index;
+        const hidden = unionOfMasks( this.hideAttributes, hideMaskNames,
+            geometry.attributes.position.count );
 
-        const hidden = this.#unionOfMasks( hideMaskNames );
-
-        if ( hidden === null ) {
-
-            index.array.set( this.fullIndex );
-            index.needsUpdate = true;
-            geometry.setDrawRange( 0, this.fullIndex.length );
-            return;
-
-        }
-
-        const source = this.fullIndex;
-        const target = index.array;
-        let written = 0;
-
-        for ( let offset = 0; offset < source.length; offset += 3 ) {
-
-            const a = source[ offset ];
-            const b = source[ offset + 1 ];
-            const c = source[ offset + 2 ];
-
-            if ( hidden[ a ] === 1 || hidden[ b ] === 1 || hidden[ c ] === 1 ) continue;
-
-            target[ written ] = a;
-            target[ written + 1 ] = b;
-            target[ written + 2 ] = c;
-            written += 3;
-
-        }
-
-        index.needsUpdate = true;
-        geometry.setDrawRange( 0, written );
-
-    }
-
-    /** A per-vertex 0/1 array over the union of the named masks, or null when nothing is hidden. */
-    #unionOfMasks( hideMaskNames ) {
-
-        const present = hideMaskNames
-            .map( ( name ) => this.hideAttributes.get( normaliseAttributeName( name ) ) )
-            .filter( ( attribute ) => attribute !== undefined );
-
-        if ( present.length === 0 ) return null;
-
-        const vertexCount = this.body.geometry.attributes.position.count;
-        const hidden = new Uint8Array( vertexCount );
-
-        for ( const attribute of present ) {
-
-            for ( let vertex = 0; vertex < vertexCount; vertex += 1 ) {
-
-                // Exported as FLOAT. Anything above a half is flagged; the writer only ever sets
-                // 0.0 or 1.0, and a threshold beats an equality test on a float that has been
-                // through a file.
-                if ( attribute.getX( vertex ) > 0.5 ) hidden[ vertex ] = 1;
-
-            }
-
-        }
-
-        return hidden;
+        rebuildIndex( geometry, this.fullIndex, hidden );
 
     }
 
     /**
-     * Every `_hide_*` attribute on the body, keyed by its lowercased name.
+     * Rebuilds each worn garment's index buffer from what is worn OPAQUE outside it.
      *
-     * 🚩 An empty map is the silent failure this whole path is exposed to: Blender's glTF exporter
-     * has `export_attributes` OFF by default, and a build without it succeeds, reports success,
-     * and produces a figure that can wear a garment and never hide anything under it. So an empty
-     * map is not treated as "no garments in the catalogue" — the caller is told, once, at load.
+     * A garment with no `_UNDER_*` attributes — every mhclo garment in the catalogue — is restored
+     * whole every time, which costs one `set()` on an already-resident buffer and means this
+     * method has no special case for "the ordinary garment".
      */
-    #collectHideAttributes() {
+    #rebuildGarmentIndices( outfit ) {
 
-        const found = new Map();
+        for ( const id of outfit ) {
 
-        for ( const [ name, attribute ] of Object.entries( this.body.geometry.attributes ) ) {
+            const fragment = this.fragments.get( id );
+            const geometry = fragment.mesh.geometry;
 
-            if ( normaliseAttributeName( name ).startsWith( '_hide_' ) === false ) continue;
+            // Only garments this fragment actually carries a mask for. Reporting every opaque
+            // outer garment as an occluder would name `shoes01` as covering a bra, which is true
+            // of the sort order and false of the geometry.
+            const covering = outfit.filter( ( other ) => other !== id &&
+                this.manifest.orderOf( other ) > this.manifest.orderOf( id ) &&
+                this.manifest.get( other ).alphaMode === 'OPAQUE' &&
+                fragment.underMasks.has( `${ UNDER_MASK_PREFIX }${ other }` ) );
 
-            found.set( normaliseAttributeName( name ), attribute );
+            const hidden = unionOfMasks( fragment.underMasks,
+                covering.map( ( other ) => `${ UNDER_MASK_PREFIX }${ other }` ),
+                geometry.attributes.position.count );
+
+            const drawn = rebuildIndex( geometry, fragment.fullIndex, hidden );
+
+            fragment.drawnTriangles = drawn / 3;
+            fragment.occludedBy = hidden === null ? [] : covering;
 
         }
 
-        if ( found.size === 0 ) {
+    }
 
-            console.warn( 'Wardrobe: the body carries no _HIDE_* attributes. Rebuild it with ' +
-                '`build_figure.py --hide-mask-attribute` — without them a garment will be worn ' +
-                'over a body that is still fully drawn underneath it.' );
+    /**
+     * 🚩 An empty hide-mask map is the silent failure this whole path is exposed to: Blender's
+     * glTF exporter has `export_attributes` OFF by default, and a build without it succeeds,
+     * reports success, and produces a figure that can wear a garment and never hide anything under
+     * it. So an empty map is not treated as "no garments in the catalogue" — the caller is told,
+     * once, at load.
+     */
+    #warnIfNoHideMasks() {
 
-        }
+        if ( this.hideAttributes.size > 0 ) return;
 
-        return found;
+        console.warn( 'Wardrobe: the body carries no _HIDE_* attributes. Rebuild it with ' +
+            '`build_figure.py --hide-mask-attribute` — without them a garment will be worn ' +
+            'over a body that is still fully drawn underneath it.' );
 
     }
 
@@ -533,7 +672,15 @@ export class Wardrobe {
         // bounds, which do not follow the pose.
         garmentMesh.frustumCulled = false;
 
-        return { mesh: garmentMesh, jointRemapIsIdentity: identity };
+        return {
+            mesh: garmentMesh,
+            jointRemapIsIdentity: identity,
+            underMasks: maskAttributesOf( garmentMesh.geometry, UNDER_MASK_PREFIX ),
+            fullIndex: garmentMesh.geometry.index.array.slice(),
+            fullTriangles: garmentMesh.geometry.index.count / 3,
+            drawnTriangles: garmentMesh.geometry.index.count / 3,
+            occludedBy: []
+        };
 
     }
 

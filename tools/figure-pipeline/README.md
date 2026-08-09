@@ -60,6 +60,8 @@ $BLENDER --background --python tools/figure-pipeline/build_figure.py --python-ex
   --gender 0.5 --output assets/wardrobe/body/g050.glb \
   --garment female_casualsuit01 --garment shoes01 --garment fedora01 \
   --garment female_elegantsuit01 \
+  --foundation foundation_bra --foundation foundation_vest \
+  --foundation foundation_briefs --foundation foundation_boxer_brief \
   --hide-mask-attribute --garment-fragment-dir assets/wardrobe
 
 # 2 and 3. the BAKED controls the runtime rebuild is measured against
@@ -89,6 +91,39 @@ Measured on this machine, Blender 5.2.0 LTS `fbe6228777e7`, M5 Max:
 The attribute body is **11,742,100 bytes** against the nude control's 11,567,392 — +174,708 for
 three FLOAT32 masks over 14,517 vertices, which is §2.4's 58,068 bytes per garment. Ship them as
 `UNSIGNED_BYTE` and that becomes 14.5 KB each; a hide flag is a boolean.
+
+### `--foundation` — punch-list 9.8
+
+🚩 **A foundation garment is generated from the figure's OWN SKIN rather than fitted from an
+mhclo.** `--foundation <id>` takes a region of body faces, refines it, offsets it 3 mm along its
+normals, tapers to 0.8 mm at the hem, low-pass filters the result so it behaves like cloth rather
+than paint, and reprojects. Because the shell is cut from the basemesh **at the requested
+identity**, it has **no fitting step and therefore nothing to drift** — unlike 9.4's mhclo garments,
+it can be regenerated for any `--gender` by re-running the command above.
+
+The flag also writes the three `_DECENCY_*` vertex regions onto the body, which is what
+`packages/core/src/wardrobe/decency.selftest.mjs` measures coverage against, and it turns
+`export_attributes` on for the same reason `--hide-mask-attribute` does.
+
+⚠️ **Leave `--foundation` off the command and the very next rebuild silently drops the four
+fragments and the decency attributes**, which turns `decency.selftest.mjs` red for a reason that has
+nothing to do with the code. That is why it is on the documented command above rather than in a
+footnote.
+
+Measured at g050, all four with **ZERO images**:
+
+| fragment | faces | bytes | textures |
+|---|---:|---:|---:|
+| `foundation_bra` | 8,956 | 778,516 | **0** |
+| `foundation_vest` | 12,134 | 1,035,740 | **0** |
+| `foundation_briefs` | 5,072 | 452,836 | **0** |
+| `foundation_boxer_brief` | 5,358 | 470,364 | **0** |
+
+Build-time clearance **0.48–4.20 mm** with **0 vertices through the body**; 22–38 vertices per lower
+garment are deliberately thinned where the crotch leaves no room. The build FAILS rather than ships
+if a shell folded through the body, if a standoff falls outside [0.05 mm, 2× the cut offset], or if
+any decency-floor combination leaves a region uncovered. It fired three times while 9.8 was being
+built and was right every time.
 
 🚩 **Two traps this path walks into, both silent, both handled here rather than discovered again.**
 
