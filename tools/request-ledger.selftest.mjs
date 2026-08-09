@@ -31,6 +31,9 @@
  *             the change really did land. Green here means "this regex can tell the two trees
  *             apart", which is the only reading of "APPLIED" worth having.
  *
+ *   FILED-AT  ...and `filed-at` must be a REAL COMMIT THIS HISTORY DESCENDS FROM, for every
+ *             status. See the next section: without this, the clause above is optional.
+ *
  *   OPEN      `verify` must NOT match at HEAD — an entry that was fixed incidentally by someone
  *             else is a STALE ENTRY, and a ledger of stale entries is worse than no ledger.
  *             `anchor` must MATCH at HEAD, so the request still points at code that exists.
@@ -40,6 +43,24 @@
  *   REJECTED  `verify` must NOT match at HEAD (a rejected change that is present is a
  *             contradiction), `anchor` must match, and `reason` must be a written sentence
  *             rather than a word — REJECTION_REASON_FLOOR characters, sized in the constant.
+ *
+ * ## 🚩 The hole in the paragraph above, found by a verifier in R9 — an ERROR READ AS DATA
+ *
+ * Everything the APPLIED clause claims rests on `before`, the pre-image read out of `filed-at`.
+ * `fileAtCommit()` answered "that commit does not resolve" with the same `null` it uses for "the
+ * file did not exist at that commit". The first is an ERROR; the second is an ANSWER; they shared
+ * a return value. And `matches( verify, null )` is `false` — which is the PASSING side of the
+ * discrimination clause. So an unresolvable `filed-at` did not weaken the anti-rubber-stamp
+ * clause, it switched it OFF, and it switched it off in the green direction.
+ *
+ * Measured, on the real ledger, before the fix below: `REQ-013` with `filed-at: deadbee` and
+ * `verify: packages/testbed/src/alive.js /const /` — a pattern hitting **195 lines at HEAD and
+ * 144 at `2ec7db9`**, so discriminating nothing whatsoever — ran `PASS: 11/11 checks green`,
+ * `exit 0`. A fully rubber-stamped entry, which is the one thing this file exists to refuse.
+ *
+ * Nothing anywhere validated `filed-at`. The ```rounds fence has always been held to git, and
+ * that clause is thorough — but it validates ROUND shas, and only round shas. The standard was
+ * simply never applied to the field the discrimination clause actually reads.
  *
  * ## Rounds, and why they are pinned to commits
  *
@@ -58,13 +79,46 @@
  * You cannot keep committing without declaring a new round, and declaring a new round is what
  * turns every carried-over OPEN entry red.
  *
- * ## Proved red, six ways, and printed on every run
+ * ## Proved red on every run, and the invariant is COVERAGE rather than a count
  *
  * Rule 4 of this project's standing constraints: a gate that only catches its own known-bad is
- * decorative. Two of the six below are the two failures the brief names; the other four are
- * different mutations in the same class, and — this is the part that matters — they are caught by
- * DIFFERENT clauses, not by the same clause with a different input. The table prints which clause
- * caught which, so a successor who weakens one can see the coverage collapse.
+ * decorative. Every mutation below is spliced into the REAL ledger and run through the REAL
+ * adjudicator against the REAL tree, and each one declares the clause that must catch it.
+ *
+ * ⚠️ THE HEADER USED TO SAY "six ways" WHILE SEVEN PROOFS RAN, for two rounds — a hand-typed count
+ * in the file whose entire subject is hand-typed claims. So the number is not asserted here any
+ * more; the run prints it, and what the run ASSERTS is that every clause the adjudicator can emit
+ * has a proof standing behind it. That clause vocabulary is read out of this file's own source
+ * rather than listed by hand, which is how the four clauses that had no proof at all — SCHEMA,
+ * TARGET, ANCHOR and REJECTED-STALE — were found.
+ *
+ * And the old "each proof is caught by a DIFFERENT clause" assertion is gone, because it was the
+ * right instinct with the wrong invariant: it would have FORBIDDEN the FILED-AT fix. Rule 4 asks
+ * for a clause to be broken more than one way, which necessarily puts two proofs on one clause.
+ * FILED-AT accordingly carries four, failing for four different reasons.
+ *
+ * ## Ablation, because "the proofs pass" is not the same claim as "the code is load-bearing"
+ *
+ * Every piece of the FILED-AT fix was removed in turn and the suite re-run. Measured, at the
+ * commit this landed on — and TWO of the six rows changed the code that shipped:
+ *
+ *   remove the clause entirely  16/23  exit 1   all four mechanisms go NOT CAUGHT
+ *   remove the hex-shape test   20/23  exit 1   ...but only AFTER RED 15 existed; before it, 22/22
+ *                                               GREEN. The test was decorative and ablation is the
+ *                                               only thing that said so.
+ *   remove rev-parse ^{commit}  22/23  exit 1   ...and only the DIAGNOSIS check goes red. The
+ *                                               ancestry call errors on a bad sha too, so
+ *                                               detection never needed this half; what needed it
+ *                                               was not calling `deadbee` "a commit".
+ *   remove --is-ancestor        20/23  exit 1   RED 10 goes NOT CAUGHT
+ *   remove the VACUOUS guard    18/23  exit 1   the three APPLIED mechanisms throw instead of
+ *                                               failing — which is how the crash-instead-of-report
+ *                                               bug in `redProof`'s catch branch was found
+ *   remove fileAtCommit's throw 23/23  exit 0   ⚠️ BY DESIGN, and stated rather than hidden: the
+ *                                               adjudicator validates before it reads, so nothing
+ *                                               here reaches that throw. It guards the NEXT caller
+ *                                               and it has no proof. It is the one line in this
+ *                                               fix that is a seatbelt rather than a gate.
  *
  *   run: node tools/request-ledger.selftest.mjs
  */
@@ -132,41 +186,141 @@ function git( ...args ) {
 }
 
 /**
+ * Is `sha` usable as a PRE-IMAGE — a real commit this history descends from? Returns `null` when
+ * it is, and the reason it is not when it is not.
+ *
+ * 🚩 THIS IS THE FIX FOR THE HOLE IN THE HEADER'S THIRD SECTION. Four things have to be true
+ * before "the pattern did not match there" means anything, and none of them used to be checked:
+ *
+ *   1. it looks like a sha at all — which also keeps a leading dash out of an argv position;
+ *   2. it resolves, unambiguously, in this repository;
+ *   3. it is a COMMIT, not a tree or a blob pasted out of `git ls-tree`;
+ *   4. HEAD descends from it. A `filed-at` on a rebased-away branch resolves fine and READS fine,
+ *      and the answer it produces is about a tree that is nobody's ancestor.
+ *
+ * `rev-parse --verify <sha>^{commit}` settles 2 and 3 in one call; `merge-base --is-ancestor`
+ * settles 4. This is precisely the standard the ```rounds fence has always been held to — the bug
+ * was that it was never applied to the field the discrimination clause actually reads.
+ */
+const preImageVerdicts = new Map();
+
+function preImageVerdict( sha ) {
+
+    if ( preImageVerdicts.has( sha ) === true ) return preImageVerdicts.get( sha );
+
+    let verdict = null;
+
+    if ( /^[0-9a-f]{7,40}$/.test( sha ) === false ) {
+
+        verdict = `"${ sha }" is not a 7-to-40 character hex sha`;
+
+    }
+
+    if ( verdict === null ) {
+
+        try {
+
+            git( 'rev-parse', '--verify', `${ sha }^{commit}` );
+
+        } catch {
+
+            verdict = `${ sha } does not resolve to a commit in this repository`;
+
+        }
+
+    }
+
+    if ( verdict === null ) {
+
+        try {
+
+            git( 'merge-base', '--is-ancestor', sha, 'HEAD' );
+
+        } catch {
+
+            verdict = `${ sha } is a commit, but HEAD does not descend from it, so its tree is `
+                + 'the pre-image of nothing here';
+
+        }
+
+    }
+
+    preImageVerdicts.set( sha, verdict );
+
+    return verdict;
+
+}
+
+/**
  * The contents of `path` at `commit`, or `null` when the file did not exist there.
  *
  * `null` is a real answer and not an error: a request filed against a file that did not yet exist
  * — `tools/run-selftests.sh` is exactly that case — has a pre-image with no match in it, which is
  * precisely what the discrimination clause wants to see.
+ *
+ * ⚠️ AND THAT IS EXACTLY WHY THIS NOW THROWS on an unusable commit. "Unknown" and "empty" are
+ * different answers and they used to share this return value, which is the whole defect. The
+ * adjudicator validates `filed-at` before it gets here and so never reaches the throw; the throw
+ * is a guard against the NEXT caller, who will not have read this comment.
+ *
+ * Reads are memoised because the red proofs below re-adjudicate the same 34 entries fourteen
+ * times over, and git objects are immutable.
  */
+const fileContents = new Map();
+
 function fileAtCommit( commit, path ) {
+
+    const unusable = preImageVerdict( commit );
+
+    if ( unusable !== null ) throw new Error( `pre-image unreadable — ${ unusable }` );
+
+    const key = `${ commit }:${ path }`;
+
+    if ( fileContents.has( key ) === true ) return fileContents.get( key );
+
+    let content;
 
     try {
 
         // stderr is discarded on purpose: "exists on disk, but not in <sha>" is the ANSWER to this
         // question for a file the request predates, not a problem worth printing 30 times.
-        return execFileSync( 'git', [ 'show', `${ commit }:${ path }` ],
+        content = execFileSync( 'git', [ 'show', key ],
             { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
                 stdio: [ 'ignore', 'pipe', 'ignore' ] } );
 
     } catch {
 
-        return null;
+        content = null;
 
     }
+
+    fileContents.set( key, content );
+
+    return content;
 
 }
 
+const headContents = new Map();
+
 function fileAtHead( path ) {
+
+    if ( headContents.has( path ) === true ) return headContents.get( path );
+
+    let content;
 
     try {
 
-        return readFileSync( resolve( REPO, path ), 'utf8' );
+        content = readFileSync( resolve( REPO, path ), 'utf8' );
 
     } catch {
 
-        return null;
+        content = null;
 
     }
+
+    headContents.set( path, content );
+
+    return content;
 
 }
 
@@ -403,6 +557,25 @@ function adjudicate( text, { readHead = fileAtHead, readAt = fileAtCommit } = {}
 
         }
 
+        // Provenance, and it runs for EVERY status rather than only for APPLIED. The APPLIED
+        // branch is the one that reads this commit, but half a validated field is how the last
+        // hole got in: an OPEN entry whose `filed-at` is fiction becomes an APPLIED entry whose
+        // `filed-at` is fiction the moment somebody flips the status, and at that point the
+        // discrimination clause is already off.
+        const filedAt = entry[ 'filed-at' ];
+        const filedAtIsPresent = filedAt !== undefined && filedAt !== '';
+        const filedAtUnusable = filedAtIsPresent
+            ? preImageVerdict( filedAt )
+            : 'the field is missing, and SCHEMA has already said so';
+
+        if ( filedAtIsPresent === true && filedAtUnusable !== null ) {
+
+            fail( id, 'FILED-AT', `${ filedAtUnusable }. This is the commit the anti-rubber-stamp `
+                + 'clause reads, and an unreadable pre-image turns that clause off in the GREEN '
+                + 'direction rather than the red one' );
+
+        }
+
         const status = entry.status;
 
         if ( STATUSES.includes( status ) === false ) {
@@ -453,13 +626,22 @@ function adjudicate( text, { readHead = fileAtHead, readAt = fileAtCommit } = {}
             // Clause 2: the pattern can tell the two trees apart. This is the anti-rubber-stamp
             // clause — see the header. It runs even when clause 1 already failed, because the two
             // answer different questions and a reader deserves both.
-            const before = readAt( entry[ 'filed-at' ], verify.path );
+            //
+            // 🚩 It does NOT run when `filed-at` is unusable, and that guard is the point of the
+            // whole fix. Running it anyway would compare HEAD against a tree we could not read and
+            // then report no violation — a reassuring silence about a question that was never
+            // asked, which is the exact shape of the defect. FILED-AT has already failed the entry.
+            if ( filedAtUnusable === null ) {
 
-            if ( matches( verify, before ) === true ) {
+                const before = readAt( filedAt, verify.path );
 
-                fail( id, 'APPLIED-VACUOUS',
-                    `verify already matched ${ verify.path } at filed-at ` +
-                    `${ entry[ 'filed-at' ] }, so it does not discriminate the change` );
+                if ( matches( verify, before ) === true ) {
+
+                    fail( id, 'APPLIED-VACUOUS',
+                        `verify already matched ${ verify.path } at filed-at ` +
+                        `${ filedAt }, so it does not discriminate the change` );
+
+                }
 
             }
 
@@ -557,7 +739,7 @@ check( 'entry count is at or above the coverage floor',
     live.entries.length >= MIN_ENTRIES, `${ live.entries.length } >= ${ MIN_ENTRIES }` );
 
 // ================================================================================================
-// 2. THE RED PROOFS — six mutations, and the clause each one has to reach
+// 2. THE RED PROOFS — each mutation, and the clause it has to reach
 // ================================================================================================
 //
 // 🚩 Every proof mutates the REAL ledger text and runs the REAL adjudicator over the REAL tree.
@@ -596,9 +778,44 @@ function mutateField( text, id, field, value ) {
 
 }
 
-const anApplied = live.entries.find( ( entry ) => entry.status === 'APPLIED' );
+/**
+ * A commit object carrying `sha`'s exact tree, parented on HEAD so that HEAD cannot descend from
+ * it. Nothing references it: `commit-tree` writes one loose object and touches no ref, no index
+ * and no working file, and `git gc` prunes it. The identity and both dates are pinned so a given
+ * HEAD always yields the same sha rather than a fresh dangling object on every run.
+ *
+ * RED 10 needs this and there is no other way to get it: this repository is linear, so every
+ * commit that exists is an ancestor of HEAD and the ancestry half of FILED-AT would have no
+ * proof — which is the definition of a decorative clause.
+ */
+function commitOffTheHistory( sha ) {
+
+    return execFileSync( 'git',
+        [ 'commit-tree', `${ sha }^{tree}`, '-p', 'HEAD',
+            '-m', 'request-ledger.selftest RED 10 — deliberately off this history' ],
+        { cwd: REPO, encoding: 'utf8', stdio: [ 'ignore', 'pipe', 'ignore' ],
+            env: { ...process.env,
+                GIT_AUTHOR_NAME: 'red proof', GIT_AUTHOR_EMAIL: 'proof@localhost',
+                GIT_COMMITTER_NAME: 'red proof', GIT_COMMITTER_EMAIL: 'proof@localhost',
+                GIT_AUTHOR_DATE: '2000-01-01T00:00:00Z',
+                GIT_COMMITTER_DATE: '2000-01-01T00:00:00Z' } } ).trim();
+
+}
+
+const applied = live.entries.filter( ( entry ) => entry.status === 'APPLIED' );
+
+const anApplied = applied[ 0 ];
 const anOpen = live.entries.find( ( entry ) => entry.status === 'OPEN' );
 const aRejected = live.entries.find( ( entry ) => entry.status === 'REJECTED' );
+
+/**
+ * The FILED-AT proofs are filed against a DIFFERENT applied entry from RED 1–3 on purpose. The
+ * verifier who found the hole first mutated the entry those three are built on and got a red for
+ * the wrong reason — the proofs broke, not the adjudication — and had to move the identical
+ * mutation one entry down to see the truth. A proof that only works on the one entry every other
+ * proof already touches is not independent evidence.
+ */
+const anotherApplied = applied[ 1 ];
 
 const proofs = [];
 
@@ -612,20 +829,35 @@ function redProof( label, clause, mutate, options ) {
 
     } catch ( error ) {
 
-        proofs.push( { label, clause, caught: false, detail: `threw: ${ error.message }` } );
-        return;
+        // ⚠️ THIS RETURNS THE PROOF, and the first draft returned nothing. A mutation that throws
+        // is a legitimate red — but callers hold onto the returned proof to assert its diagnosis,
+        // and `undefined` turned a clean named FAIL into a TypeError stack trace with no summary
+        // line after it. Found by ablating the APPLIED-VACUOUS guard, which is exactly the state
+        // that makes these mutations throw. A gate is allowed to fail; it is not allowed to crash
+        // instead of saying what it found.
+        const threw = { label, clause, caught: false, diagnosis: '',
+            detail: `threw: ${ error.message }` };
+
+        proofs.push( threw );
+
+        return threw;
 
     }
 
     const hits = result.violations.filter( ( violation ) => violation.clause === clause );
     const others = result.violations.filter( ( violation ) => violation.clause !== clause );
 
-    proofs.push( {
+    const proof = {
         label, clause,
         caught: hits.length > 0,
+        diagnosis: hits.length > 0 ? hits[ 0 ].detail : '',
         detail: hits.length > 0
             ? `${ hits[ 0 ].id }: ${ hits[ 0 ].detail.slice( 0, 96 ) }`
-            : `NOT CAUGHT — ${ others.length } other violations` } );
+            : `NOT CAUGHT — ${ others.length } other violations` };
+
+    proofs.push( proof );
+
+    return proof;
 
 }
 
@@ -669,6 +901,84 @@ redProof( 'the entries are reformatted out of the parser\'s reach', 'COVERAGE',
 redProof( 'a round declared at a commit that is not in this history', 'ROUNDS',
     ( text ) => text.replace( /```rounds\n/, '```rounds\nR99 0000000  2026-01-01  fictional\n' ) );
 
+// --- FILED-AT, broken three different ways ------------------------------------------------------
+//
+// 🚩 RED 2 proves APPLIED-VACUOUS catches a vacuous PATTERN. It said nothing about a vacuous
+// PRE-IMAGE, and a verifier walked straight through the gap. So the clause that closes it gets
+// three proofs failing for three different reasons, and they are caught by different HALVES of it:
+// 8 and 9 by the resolve half, 10 by the ancestry half. Delete either half and exactly one of
+// these three goes green, which is what makes both halves load-bearing rather than ornamental.
+
+// RED 8 — the reported defect, reproduced verbatim: a sha naming no object at all, paired with a
+// `verify` that discriminates nothing. Before FILED-AT existed this ran 11/11 green at exit 0,
+// because `null` was the passing side of the discrimination clause.
+const namesNoObject = redProof( 'APPLIED at a filed-at naming no object, with a vacuous verify',
+    'FILED-AT',
+    ( text ) => mutateField(
+        mutateField( text, anotherApplied.id, 'filed-at', 'deadbee' ),
+        anotherApplied.id, 'verify', `${ anotherApplied.target } /./` ) );
+
+// RED 9 — a real object in this repository, forty hex characters of it, that happens to be a TREE.
+// The `git ls-tree` copy-paste. `git show <tree>:<path>` fails exactly the way an unknown sha
+// does, so it used to produce the identical silent no-op through a completely different route.
+const wrongObjectType = redProof( 'APPLIED at a filed-at that is a real object of the wrong type',
+    'FILED-AT',
+    ( text ) => mutateField( text, anotherApplied.id, 'filed-at', git( 'rev-parse', 'HEAD^{tree}' ) ) );
+
+// RED 10 — the one the resolve half cannot see. A real commit, right type, carrying the entry's
+// OWN honest pre-image tree — so `git show` succeeds and the discrimination clause returns the
+// correct answer. Nothing is wrong with the content. What is wrong is the PROVENANCE: this commit
+// is not in HEAD's history and the gate never asked. That is the rebased-away-branch case, and the
+// only reason the answer came out right here is that the proof deliberately made it come out right.
+const offThisHistory = redProof( 'APPLIED at a real commit this history does not descend from',
+    'FILED-AT',
+    ( text ) => mutateField( text, anotherApplied.id, 'filed-at',
+        commitOffTheHistory( anotherApplied[ 'filed-at' ] ) ) );
+
+// RED 15 — the fourth mechanism, and the one ABLATION had to find rather than inspection: with the
+// hex-shape test removed the suite still read 22/22, so the test was decorative until this proof
+// existed. `filed-at: HEAD` resolves, is an ancestor-of-self, and is accepted by everything else in
+// the clause — and it is not a pin at all. It means a different commit tomorrow, which makes the
+// pre-image of an APPLIED entry drift silently until the discrimination clause is comparing HEAD
+// with itself. `main`, `HEAD~3` and `<sha>^` are the same defect; the rule is a shape rule because
+// `filed-at` has exactly one legitimate form and telling immutable expressions from moving ones at
+// parse time buys nothing.
+//
+// Filed against an OPEN entry on purpose: OPEN never runs the discrimination clause, so nothing but
+// FILED-AT can possibly catch this one.
+const notAPinAtAll = redProof( 'filed-at is a moving reference rather than an immutable sha',
+    'FILED-AT',
+    ( text ) => mutateField( text, anOpen.id, 'filed-at', 'HEAD' ) );
+
+// --- the four clauses that had no proof at all --------------------------------------------------
+//
+// Found by the coverage assertion below, not by inspection. That is the argument for deriving the
+// clause vocabulary from the source rather than listing it by hand: SCHEMA, TARGET, ANCHOR and
+// REJECTED-STALE had shipped for two rounds with nothing standing behind them.
+
+// RED 11 — two entries at the same address. An id is what the ledger is indexed by, and a code
+// comment citing REQ-025 has no way to tell which of two REQ-025s it meant.
+redProof( 'two entries carrying the same id', 'SCHEMA',
+    ( text ) => mutateField( text, live.entries[ 1 ].id, 'id', live.entries[ 0 ].id ) );
+
+// RED 12 — the verify names a file that is not at HEAD. Without this clause "did not match" reads
+// as a clean negative when the honest answer is that there was nothing to look in.
+redProof( 'verify points at a file that does not exist at HEAD', 'TARGET',
+    ( text ) => mutateField( text, anApplied.id, 'verify',
+        'packages/testbed/src/this-file-does-not-exist.js /anything/' ) );
+
+// RED 13 — the anchor has rotted: the entry is still OPEN and the code it points at has moved.
+// The ledger's header tells the integrator to re-anchor rather than delete; this is what makes
+// that instruction reachable instead of advisory.
+redProof( 'an OPEN entry anchored to code that is no longer there', 'ANCHOR',
+    ( text ) => mutateField( text, anOpen.id, 'anchor',
+        `${ anOpen.target } /ZZ_NO_SUCH_TOKEN_IN_ANY_FILE_ZZ/` ) );
+
+// RED 14 — RED 3's mirror on the other status: a change was REJECTED and is in the file anyway.
+// `/./` matches every non-empty file, so this is the strongest available "it is present".
+redProof( 'REJECTED, but the change is in the file', 'REJECTED-STALE',
+    ( text ) => mutateField( text, aRejected.id, 'verify', `${ aRejected.target } /./` ) );
+
 console.log( '    mutation                                                  clause            caught' );
 console.log( `    ${ '-'.repeat( 100 ) }` );
 
@@ -687,14 +997,114 @@ for ( const proof of proofs ) {
 
 }
 
-// A coverage statement about the proofs themselves: seven mutations, seven distinct clauses. If a
-// successor collapses two clauses into one, this goes red and says why.
-{
-    const distinct = new Set( proofs.map( ( proof ) => proof.clause ) );
+// ================================================================================================
+// 2b. THE COVERAGE STATEMENT ABOUT THE PROOFS THEMSELVES
+// ================================================================================================
+//
+// This used to assert "N proofs, N distinct clauses". Wrong invariant, twice over: it says nothing
+// about a clause with NO proof — four had none — and it would have FORBIDDEN the FILED-AT fix,
+// since rule 4 requires breaking a clause more than one way and that puts two proofs on one clause.
+//
+// So the vocabulary is read out of this file's own source and the assertion is inverted: every
+// clause the adjudicator can emit must have a proof standing behind it. A successor who adds a
+// clause and no proof gets a red naming the clause.
 
-    check( 'each red proof is caught by a DIFFERENT clause, so the coverage is not one check ' +
-        'answering seven questions',
-    distinct.size === proofs.length, `${ distinct.size } clauses for ${ proofs.length } proofs` );
+/**
+ * Every clause string `adjudicate()` is capable of emitting, read from this file's own source.
+ *
+ * ⚠️ COMMENTS ARE STRIPPED BEFORE THE SCAN, and the first draft of this function did not do that:
+ * a sentence in the comment above it spelled out the shape of the call it was looking for, the
+ * scan read the prose as code, and the coverage check went red demanding a red proof for a clause
+ * named CLAUSE. Funny, and also the correct behaviour of the check — but a source scanner that
+ * reads documentation as source will eventually do the inverse and miss a real clause, so it reads
+ * code only. Every `//` in this file is a whole line, verified by grep, so the line rule is safe.
+ */
+function clausesTheAdjudicatorCanEmit() {
+
+    const code = readFileSync( fileURLToPath( import.meta.url ), 'utf8' )
+        .replace( /\/\*[\s\S]*?\*\//g, '' )
+        .replace( /^[ \t]*\/\/.*$/gm, '' );
+
+    // The failure helper takes the clause as its second argument, and the first never contains a
+    // comma.
+    const literal = [ ...code.matchAll( /\bfail\(\s*[^,]+,\s*'([A-Z][A-Z-]*)'/g ) ]
+        .map( ( hit ) => hit[ 1 ] );
+
+    // Exactly one clause is built at runtime — `${ status }-STALE` — and a source scan cannot
+    // expand it, so its two expansions are named. The count of runtime-built forms is asserted
+    // below, so a successor who adds a second one gets a red rather than a silently short list.
+    const runtimeBuilt = [ ...code.matchAll( /\bfail\(\s*[^,]+,\s*`([^`]*)`/g ) ]
+        .map( ( hit ) => hit[ 1 ] );
+
+    return { clauses: new Set( [ ...literal, 'OPEN-STALE', 'REJECTED-STALE' ] ), runtimeBuilt };
+
+}
+
+{
+    const { clauses, runtimeBuilt } = clausesTheAdjudicatorCanEmit();
+    const proved = new Set( proofs.filter( ( proof ) => proof.caught ).map( ( p ) => p.clause ) );
+    const unproved = [ ...clauses ].filter( ( clause ) => proved.has( clause ) === false );
+
+    check( 'the clause vocabulary read from this file is fully expanded — exactly one clause is '
+        + 'built at runtime, and it is the STALE pair',
+    runtimeBuilt.length === 1 && /-STALE$/.test( runtimeBuilt[ 0 ] ),
+    `${ runtimeBuilt.length } runtime-built form(s): ${ runtimeBuilt.join( ', ' ) || 'none' }` );
+
+    // The scan's other failure direction. Comment-stripping that ate real code, or a clause name
+    // typed one way in the proof and another in the adjudicator, both show up as a proof declaring
+    // a clause the source does not contain — and both would otherwise make the coverage check
+    // pass by shrinking the thing it is measuring against.
+    const undeclared = proofs
+        .map( ( proof ) => proof.clause )
+        .filter( ( clause ) => clauses.has( clause ) === false );
+
+    check( 'every clause a red proof declares actually exists in the adjudicator, so the scan '
+        + 'cannot pass by under-reading the source',
+    undeclared.length === 0,
+    undeclared.length === 0 ? `${ proofs.length } proofs, every clause found in source`
+        : `not in source: ${ [ ...new Set( undeclared ) ].join( ', ' ) }` );
+
+    check( 'every clause the adjudicator can emit has a red proof behind it, so no clause is '
+        + 'decorative',
+    unproved.length === 0,
+    unproved.length === 0
+        ? `${ proofs.length } proofs cover all ${ clauses.size } clauses`
+        : `NO PROOF for ${ unproved.join( ', ' ) }` );
+
+    // Rule 4 as an assertion rather than a habit: the clause this round added is proved red by
+    // three mutations that fail for three different reasons, not by three inputs to one reason.
+    const filedAtMechanisms = proofs.filter(
+        ( proof ) => proof.clause === 'FILED-AT' && proof.caught ).length;
+
+    check( 'FILED-AT is proved red four DIFFERENT ways — not a pin, no object, wrong object type, '
+        + 'and right object off this history',
+    filedAtMechanisms === 4, `${ filedAtMechanisms } mechanisms` );
+
+    // 🚩 AND THE CHECK THAT STOPS HALF OF FILED-AT BEING DECORATIVE, which ablation caught before
+    // it shipped. `merge-base --is-ancestor` ERRORS on a sha naming no object and on a sha naming
+    // a tree, so it catches RED 8 and RED 9 unaided: with the `rev-parse --verify ^{commit}` call
+    // ablated, the suite still read 21/22 green and the only red was this check. Detection did not
+    // need the resolve half. The DIAGNOSIS did — without it "deadbee" is reported as "a commit
+    // HEAD does not descend from", a confident false statement about what is wrong, and this
+    // project has spent three rounds on what a gate that misdescribes its own finding costs.
+    //
+    // So the diagnosis is asserted, and asserting it is what makes the resolve half load-bearing.
+    const shape = /is not a 7-to-40 character hex sha/;
+    const resolution = /does not resolve to a commit/;
+    const ancestry = /does not descend/;
+
+    const told = ( proof, expected ) => expected.test( proof.diagnosis )
+        && [ shape, resolution, ancestry ].filter(
+            ( other ) => other !== expected && other.test( proof.diagnosis ) ).length === 0;
+
+    check( 'FILED-AT tells the four mechanisms APART — one shape failure, two resolution failures '
+        + 'and one ancestry failure, not one verdict wearing four hats',
+    told( notAPinAtAll, shape ) && told( namesNoObject, resolution )
+        && told( wrongObjectType, resolution ) && told( offThisHistory, ancestry ),
+    `not-a-pin: ${ told( notAPinAtAll, shape ) ? 'shape' : 'WRONG' }, `
+        + `no-object: ${ told( namesNoObject, resolution ) ? 'resolution' : 'WRONG' }, `
+        + `wrong-type: ${ told( wrongObjectType, resolution ) ? 'resolution' : 'WRONG' }, `
+        + `off-history: ${ told( offThisHistory, ancestry ) ? 'ancestry' : 'WRONG' }` );
 }
 
 // ================================================================================================
