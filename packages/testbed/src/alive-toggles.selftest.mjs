@@ -34,7 +34,28 @@
  * hand-written lists — which toggles exist, and which subsystems exist — each of which the page is
  * free to outgrow without telling anyone, and both of which already had.
  *
- * ## The four instruments, and why no three of them are enough
+ * ## 🚩 AND THE SECOND VERSION DID NOT STOP IT EITHER — IT STOPPED A SECOND INSTANCE OF IT
+ *
+ * That version's answer to "an enumeration is not a closure" was the FINGERPRINT: the whole scene,
+ * keyed by entity, deny-by-default. It closed the mesh surface and the light surface completely.
+ * It did not close the RENDERER, and nobody noticed, because `shadingFingerprint`'s `pipeline`
+ * entry looks like a whole-object reading and is nineteen hand-picked fields. Reproduced
+ * 2026-08-08 by an independent verifier with a one-line patch to `alive.js` routing `?cards=0`
+ * through `renderer.toneMappingExposure` — a property the `pipeline` row does not carry, sitting
+ * one identifier away from `toneMapping`, which it does. **The file reported 109/109 green.** The
+ * confound is worth **48.64% of the frame's samples at a mean of 4.60/255**, against the 0.478%
+ * at 0.424/255 that `?cards=0` legitimately does: **102x the pixel area and 10.8x the magnitude**
+ * of the thing being attributed.
+ *
+ * The model error is the SAME ONE, one level up, and that is the part worth carrying forward: a
+ * hand-written list of nineteen pipeline fields is a sample of the renderer's state, and "the
+ * toggle changed nothing else" is a claim about all of it. Adding `toneMappingExposure` to the
+ * list would fix this confound and nothing else. Walked rather than listed, the renderer and the
+ * scene between them carry **116** readable configuration properties on this page — the gate
+ * prints the count every run — so a nineteen-field row leaves the next confound 97 others to pick
+ * from.
+ *
+ * ## The FIVE instruments, and why no four of them are enough
  *
  * 1. SURFACE CLOSURE. `alive.js` now records the url keys it actually reads and reports them from
  *    `window.sugata.toggleSurface()`. Every key must be classified here — gated, mode switch, or
@@ -57,6 +78,37 @@
  * 4. THE CENSUS, kept. Nine counters read off the scene graph. It is the most readable statement
  *    of "the toggle did its job", and unlike the fingerprint it distinguishes a mesh that went
  *    away from a mesh that changed. It is no longer load-bearing for closure.
+ *
+ * 5. RENDERER AND SCENE STATE, ENUMERATED. The `WebGPURenderer` and the `Scene` are the two
+ *    objects the fingerprint samples rather than reads, so this walks them instead of listing
+ *    them: every own property and every prototype accessor that returns a scalar, plus one level
+ *    into any plain-object member (which is what reaches `shadowMap.enabled` and
+ *    `debug.checkShaderErrors`). 116 properties on the shipped plate, PROPERTY-GRANULAR rather
+ *    than entity-granular, and deny-by-default — a toggle declares the exact property paths it
+ *    may move and any other movement is collateral.
+ *
+ *    It lives HERE rather than inside `shadingFingerprint` because `alive.js` belongs to another
+ *    agent this round; the equivalent one-line widening of the page's own fingerprint is filed as
+ *    a diff request. The gate does not depend on that landing.
+ *
+ *    Measured, so the reader knows what it costs: on two loads of the same url the 116 values are
+ *    identical, and across every toggle in the table exactly TWO move anything — `?shadows=0`
+ *    (`renderer.shadowMap.enabled`, `scene.children`) and `?aa=msaa` (`renderer._samples` and its
+ *    accessor). Everything else is inert on both objects, which is what makes a single moved
+ *    property a signal rather than noise. `scene.uuid` is excluded and says why at its exclusion.
+ *
+ *    🎯 AND THE PROOF, RUN THREE WAYS. Each `--confound` below turns the file red and is caught by
+ *    EXACTLY ONE check — the instrument-5 row for `?cards=0` — which is the finding rather than a
+ *    detail: instruments 1-4 stay green on all three, so the confound really is invisible to
+ *    everything that existed before this instrument, and instrument 5 really is what catches it.
+ *
+ *      | --confound | shipped | with the confound | the one check that fires                        |
+ *      |------------|---------|-------------------|-------------------------------------------------|
+ *      | exposure   | 144/144 | 144/145           | `renderer.toneMappingExposure 1 -> 1.35`        |
+ *      | shadowmap  | 144/144 | 144/145           | `renderer.shadowMap.enabled true -> false`      |
+ *      | scene      | 144/144 | 144/145           | `scene.backgroundIntensity 1 -> 0.6`            |
+ *
+ *    (145 rather than 144 because a confound run adds the check that the rewrite reached the page.)
  *
  * ## 🚩 THE PIXEL CHECKS RUN ON THE FORWARD PATH, AND THEY HAVE TO
  *
@@ -102,6 +154,59 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const REPOSITORY_ROOT = path.resolve( fileURLToPath( new URL( '.', import.meta.url ) ), '../../..' );
+
+/**
+ * 🚩 THE REJECTION PROOFS, AS A FLAG, WITH NOTHING WRITTEN TO THE WORKING TREE.
+ *
+ *     node "packages/testbed/src/alive-toggles.selftest.mjs" --confound=exposure
+ *
+ * Each entry is a one-line patch to `alive.js` — the same shape as the patch an independent
+ * verifier used to walk past 109 green checks — applied by intercepting the module vite serves
+ * and rewriting it in flight. `alive.js` on disk is never touched, which matters for two reasons:
+ * it belongs to another agent this round, and a proof that lives in the gate can be re-run by
+ * anyone, where a paragraph describing an edit somebody once made cannot.
+ *
+ * The anchor is `window.sugata = {`, which sits inside the function where both `stage` and
+ * `query` are in scope and runs once the renderer exists. It survives vite's transform — checked
+ * by fetching the served module and counting occurrences, which is exactly one.
+ *
+ * All three route a `?cards=0` confound somewhere the shipped `pipeline` fingerprint row does not
+ * look, and they are three DIFFERENT mechanisms rather than three spellings of one:
+ *
+ *   exposure     `renderer.toneMappingExposure`, the reported defect. One identifier away from
+ *                `toneMapping`, which the pipeline row DOES carry.
+ *   shadowmap    `renderer.shadowMap.enabled`, a nested plain-object member — a property path
+ *                that no flat list of renderer fields would reach even if somebody wrote one.
+ *   scene        `scene.backgroundIntensity`, which is not on the renderer at all. It exists to
+ *                prove the fix closed a SURFACE and not a property list: a gate that had only
+ *                learned to enumerate the renderer would sail through this one.
+ */
+const CONFOUNDS = {
+    exposure: {
+        code: 'if ( query.get( \'cards\' ) === \'0\' ) stage.renderer.toneMappingExposure = 1.35;',
+        why: 'the reported defect: ?cards=0 also lifts the renderer exposure by 35%'
+    },
+    shadowmap: {
+        code: 'if ( query.get( \'cards\' ) === \'0\' ) stage.renderer.shadowMap.enabled = false;',
+        why: 'a nested plain-object member: ?cards=0 also switches the shadow map off'
+    },
+    scene: {
+        code: 'if ( query.get( \'cards\' ) === \'0\' ) stage.scene.backgroundIntensity = 0.6;',
+        why: 'not on the renderer at all: ?cards=0 also dims the scene background'
+    }
+};
+
+const CONFOUND_ANCHOR = 'window.sugata = {';
+
+const CONFOUND = process.argv
+    .find( ( argument ) => argument.startsWith( '--confound=' ) )?.split( '=' )[ 1 ] ?? null;
+
+if ( CONFOUND !== null && CONFOUNDS[ CONFOUND ] === undefined ) {
+
+    console.error( `\n--confound: '${ CONFOUND }' is not one of ${ Object.keys( CONFOUNDS ).join( ', ' ) }\n` );
+    process.exit( 2 );
+
+}
 
 // The same flags capture.mjs launches with. `headless_shell` has no GPU and therefore no WebGPU,
 // so the channel matters as much as the flags.
@@ -178,7 +283,12 @@ const TOGGLES = [
     { query: 'backdrop=0x11151f', census: null, touches: [ 'mesh:backdrop' ] },
 
     // --- the rig ---------------------------------------------------------------------------------
-    { query: 'shadows=0', census: 'shadowCastingLights', touches: [ 'light:key', 'light:key-shadow' ] },
+    // 🎯 The only TOGGLES row with a non-empty `rendererState`. `LightingRig.attachTo` flips
+    // `renderer.shadowMap.enabled`, and the caster and its target leave the scene graph, so the
+    // scene's own child count moves. Both were MEASURED by instrument 5 rather than reasoned out,
+    // and writing them down is what turns "the renderer never moves" into a checkable claim.
+    { query: 'shadows=0', census: 'shadowCastingLights', touches: [ 'light:key', 'light:key-shadow' ],
+        rendererState: [ 'renderer.shadowMap.enabled', 'scene.children' ] },
     { query: 'ov=rim.irradiance:0', census: null, touches: [ 'light:rim' ] },
 
     // --- the post pipeline -------------------------------------------------------------------------
@@ -242,7 +352,12 @@ const MUTUALLY_EXCLUSIVE = {
     query: 'aa=msaa',
     turnsOn: 'multisampleSamples',
     turnsOff: 'temporalResolve',
-    touches: [ 'mesh:Humaneyebrow001', 'mesh:Humaneyelashes01', 'pipeline' ]
+    touches: [ 'mesh:Humaneyebrow001', 'mesh:Humaneyelashes01', 'pipeline' ],
+
+    // Both spellings of the same fact, because instrument 5 enumerates rather than curates: the
+    // MSAA count lives in the private field and `samples` is its accessor. Declaring both is
+    // cheaper than deciding which one is canonical, and neither may move on its own.
+    rendererState: [ 'renderer._samples', 'renderer.get:samples' ]
 };
 
 /**
@@ -361,6 +476,164 @@ function toolError( message ) {
 
 }
 
+/**
+ * INSTRUMENT 5, and it runs INSIDE the page — it is handed to `page.evaluate`, so it may not
+ * reference anything in this module's scope.
+ *
+ * ## Why a walk and not a list
+ *
+ * `shadingFingerprint`'s `pipeline` row is nineteen hand-picked fields, and a confound planted on
+ * any of the other 118 readable properties of the renderer and the scene is invisible to it. That
+ * is the same "enumeration is not a closure" error the fingerprint itself was built to fix, one
+ * level up. So this enumerates rather than lists: own properties, prototype accessors, and one
+ * level into plain-object members.
+ *
+ * ## What it reads, and the three deliberate limits
+ *
+ * - **Own properties**, including the underscore-prefixed ones. `_samples` is where the MSAA count
+ *   actually lives and its public accessor is a second reading of the same thing; both are kept,
+ *   because deny-by-default is cheaper than deciding which of two spellings is canonical.
+ * - **Prototype accessors**, read through a try/catch. A getter that throws is recorded as
+ *   `threw` rather than skipped, so a property that STARTS throwing is a change.
+ * - **One level into plain objects** — members whose constructor is `Object` and nothing else.
+ *   That is what reaches `shadowMap.enabled`, `shadowMap.type` and `debug.checkShaderErrors`, and
+ *   what keeps `backend`, `info`, `_nodes` and the other twenty machinery instances out. A class
+ *   instance is recorded by its constructor name only, so a per-frame counter inside `info`
+ *   cannot make the instrument drift.
+ * - **`undefined` values are dropped, not recorded.** Measured: `scene.backgroundNode` is an own
+ *   property holding `undefined` on some plates and absent on others, reproducibly, and the two
+ *   states are the same state. Recording it made `?shadows=0` carry a difference that means
+ *   nothing.
+ * - **`uuid` is excluded and this is the only exclusion.** three mints a fresh one per instance,
+ *   so `scene.uuid` differs on every load and would report the instrument as pure noise — the same
+ *   reason `textureIdentity` in `alive.js` refuses to use it. Anything else that drifts is a real
+ *   finding and the baseline check below is what surfaces it.
+ *
+ * @returns {Object<string,string>} property path -> value. Compared for equality, never parsed.
+ */
+function rendererAndSceneState() {
+
+    const subjects = { renderer: globalThis.sugata.stage.renderer, scene: globalThis.sugata.stage.scene };
+    const state = {};
+
+    const describe = ( value ) => {
+
+        if ( value === null ) return 'null';
+        if ( typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string' ) return String( value );
+        if ( typeof value === 'function' ) return null;
+        if ( Array.isArray( value ) ) return `array(${ value.length })`;
+
+        if ( typeof value === 'object' ) {
+
+            if ( value.isColor === true ) return `color:${ value.getHexString() }`;
+            return `object:${ value.constructor?.name ?? '?' }`;
+
+        }
+
+        return String( value );
+
+    };
+
+    for ( const [ label, subject ] of Object.entries( subjects ) ) {
+
+        const seen = new Set();
+
+        const record = ( key, value ) => {
+
+            if ( value === undefined ) return;
+
+            const described = describe( value );
+
+            if ( described !== null ) state[ `${ label }.${ key }` ] = described;
+
+        };
+
+        for ( const key of Object.keys( subject ).sort() ) {
+
+            seen.add( key );
+
+            if ( key === 'uuid' ) continue;
+
+            let value;
+
+            try {
+
+                value = subject[ key ];
+
+            } catch {
+
+                state[ `${ label }.${ key }` ] = 'threw';
+                continue;
+
+            }
+
+            record( key, value );
+
+            // The one level down. A plain object here is a configuration bag three wrote by hand
+            // — `shadowMap`, `debug` — and everything else is a class with machinery in it.
+            if ( value !== null && typeof value === 'object' && Array.isArray( value ) === false
+                && value.constructor === Object ) {
+
+                for ( const inner of Object.keys( value ).sort() ) {
+
+                    try {
+
+                        record( `${ key }.${ inner }`, value[ inner ] );
+
+                    } catch {
+
+                        state[ `${ label }.${ key }.${ inner }` ] = 'threw';
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        let prototype = Object.getPrototypeOf( subject );
+
+        while ( prototype !== null && prototype !== Object.prototype ) {
+
+            for ( const key of Object.getOwnPropertyNames( prototype ).sort() ) {
+
+                if ( seen.has( key ) || key === 'uuid' ) continue;
+
+                const descriptor = Object.getOwnPropertyDescriptor( prototype, key );
+
+                if ( descriptor === undefined || typeof descriptor.get !== 'function' ) continue;
+
+                seen.add( key );
+
+                try {
+
+                    record( `get:${ key }`, subject[ key ] );
+
+                } catch {
+
+                    state[ `${ label }.get:${ key }` ] = 'threw';
+
+                }
+
+            }
+
+            prototype = Object.getPrototypeOf( prototype );
+
+        }
+
+    }
+
+    // Not a property of either object, and the one piece of render state that lives on the canvas:
+    // `?scale` is applied with `setSize`, so this is where a resolution confound would show.
+    const canvas = globalThis.sugata.stage.renderer.domElement;
+
+    state[ 'renderer.canvasPixels' ] = `${ canvas.width }x${ canvas.height }`;
+
+    return state;
+
+}
+
 /** Entity keys whose signature is not the same in the two fingerprints. */
 function changedEntities( before, after ) {
 
@@ -450,6 +723,11 @@ async function loadPlate( page, baseUrl, query ) {
         surface: globalThis.sugata.toggleSurface()
     } ) );
 
+    // Instrument 5. A second evaluate rather than a fifth field above, because this function is
+    // defined in THIS file and shipped into the page — see `rendererAndSceneState` for why that
+    // is deliberate rather than awkward.
+    state.rendererState = await page.evaluate( rendererAndSceneState );
+
     state.pixels = await page.screenshot( { timeout: 60_000 } );
 
     return state;
@@ -479,6 +757,43 @@ try {
 const context = await browser.newContext( { viewport: { width: 900, height: 1200 }, deviceScaleFactor: 2 } );
 const page = await context.newPage();
 
+if ( CONFOUND !== null ) {
+
+    // The rewrite is asserted rather than attempted: a route that silently failed to find its
+    // anchor would produce a clean run and read as "the gate did not catch it", which is the exact
+    // wrong conclusion. `injected` is checked after the sweep.
+    let injected = 0;
+
+    await page.route( '**/src/alive.js*', async ( route ) => {
+
+        const response = await route.fetch();
+        const body = await response.text();
+
+        if ( body.includes( CONFOUND_ANCHOR ) === false ) {
+
+            await route.fulfill( { response } );
+            return;
+
+        }
+
+        injected += 1;
+
+        await route.fulfill( {
+            status: 200,
+            headers: { ...response.headers(), 'content-type': 'application/javascript' },
+            body: body.replace( CONFOUND_ANCHOR, `${ CONFOUNDS[ CONFOUND ].code }\n    ${ CONFOUND_ANCHOR }` )
+        } );
+
+    } );
+
+    globalThis.__confoundInjections = () => injected;
+
+    console.log( `\n🚩 CONFOUND INJECTED: ${ CONFOUNDS[ CONFOUND ].why }\n   ${ CONFOUNDS[ CONFOUND ].code }\n` +
+        '   alive.js on disk is untouched; the module is rewritten in flight. This run is a\n' +
+        '   rejection proof, not a verdict on the repo.\n' );
+
+}
+
 console.log( `\nalive.html toggles — ${ server.baseUrl }/alive.html?${ BASE_QUERY }\n` );
 
 // Every key any plate in this run was seen to read. Unioned rather than taken from one plate,
@@ -506,6 +821,38 @@ try {
         drift.length === 0
             ? `${ Object.keys( baseline.fingerprint ).length } entities, all reproducible`
             : `DRIFTING: ${ drift.join( ', ' ) } — instrument 2 cannot separate a toggle from noise`
+    );
+
+    // The same question for instrument 5. It walks two live three.js objects, so "does it hold
+    // still" is not a formality — a single per-frame counter caught by the walk would report every
+    // toggle as collateral, and the walk is deliberately wide enough that one could be.
+    const stateDrift = changedEntities( baseline.rendererState, baselineAgain.rendererState );
+
+    report(
+        'the renderer and scene walk is the same on two loads of the same url',
+        stateDrift.length === 0,
+        stateDrift.length === 0
+            ? `${ Object.keys( baseline.rendererState ).length } properties across the renderer and the scene, ` +
+                'all reproducible — so a property that moves below moved because a toggle moved it'
+            : `DRIFTING: ${ stateDrift.map( ( key ) => `${ key } ${ baseline.rendererState[ key ] } / ` +
+                `${ baselineAgain.rendererState[ key ] }` ).join( ', ' ) } — instrument 5 cannot separate a ` +
+                'toggle from noise. Either exclude the property with a written reason, or fix what is drifting.'
+    );
+
+    // A walk that found almost nothing would pass every check below for free, the same way a
+    // census of zeros would. 119 is what the shipped page measures; the floor is set well under it
+    // so a three.js upgrade that renames a few fields does not fail this, while a walk that
+    // collapsed to a handful of properties does.
+    report(
+        'the walk actually reaches the renderer\'s state, so "nothing moved" means something',
+        Object.keys( baseline.rendererState ).length >= 80
+            && baseline.rendererState[ 'renderer.toneMappingExposure' ] !== undefined
+            && baseline.rendererState[ 'renderer.shadowMap.enabled' ] !== undefined
+            && baseline.rendererState[ 'scene.backgroundIntensity' ] !== undefined,
+        `${ Object.keys( baseline.rendererState ).length } properties, including the three a confound has ` +
+        `already been routed through: toneMappingExposure=${ baseline.rendererState[ 'renderer.toneMappingExposure' ] }, ` +
+        `shadowMap.enabled=${ baseline.rendererState[ 'renderer.shadowMap.enabled' ] }, ` +
+        `backgroundIntensity=${ baseline.rendererState[ 'scene.backgroundIntensity' ] }`
     );
 
     // The same question for instrument 3, and the one the old file never asked. See PIXEL_BASE.
@@ -580,6 +927,33 @@ try {
                 ].filter( ( line ) => line !== null ).join( '; ' )
         );
 
+        // Instrument 5, property-granular and deny-by-default. Most rows declare NOTHING here,
+        // which is the strictest shape in the table: a toggle that reaches the renderer or the
+        // scene at all is collateral unless it says so and says exactly what.
+        const declaredState = toggle.rendererState ?? [];
+        const movedState = changedEntities( baseline.rendererState, plate.rendererState );
+        const stateCollateral = missingFrom( movedState, declaredState );
+        const stateInert = missingFrom( declaredState, movedState );
+
+        report(
+            `?${ toggle.query } moves ${ declaredState.length === 0 ? 'NO renderer or scene state' : declaredState.join( ' + ' ) }`,
+            stateCollateral.length === 0 && stateInert.length === 0,
+            stateCollateral.length === 0 && stateInert.length === 0
+                ? `the other ${ Object.keys( baseline.rendererState ).length - movedState.length } properties of the ` +
+                    'renderer and the scene hold their values'
+                : [
+                    stateCollateral.length > 0
+                        ? `COLLATERAL ${ stateCollateral.map( ( key ) => `${ key } ` +
+                            `${ baseline.rendererState[ key ] ?? 'ABSENT' } -> ${ plate.rendererState[ key ] ?? 'ABSENT' }` )
+                            .join( ', ' ) } — every attribution made against ?${ toggle.query } is a sum`
+                        : null,
+                    stateInert.length > 0
+                        ? `DECLARED BUT UNCHANGED ${ stateInert.join( ', ' ) } — either the toggle stopped working, ` +
+                            'or this row is padded'
+                        : null
+                ].filter( ( line ) => line !== null ).join( '; ' )
+        );
+
         // Instrument 4, where a counter exists. It says something the fingerprint does not: that
         // the subsystem is GONE, not merely different.
         if ( toggle.census === null ) continue;
@@ -629,6 +1003,23 @@ try {
             ? 'the pipeline and the two alpha-to-coverage cards, which is the documented coupling'
             : `COLLATERAL ${ msaaCollateral.join( ', ' ) || 'none' }; DECLARED BUT UNCHANGED ${ msaaInert.join( ', ' ) || 'none' }`
     );
+
+    {
+        const movedState = changedEntities( baseline.rendererState, msaaPlate.rendererState );
+        const stateCollateral = missingFrom( movedState, MUTUALLY_EXCLUSIVE.rendererState );
+        const stateInert = missingFrom( MUTUALLY_EXCLUSIVE.rendererState, movedState );
+
+        report(
+            `?${ MUTUALLY_EXCLUSIVE.query } moves ${ MUTUALLY_EXCLUSIVE.rendererState.join( ' + ' ) } and nothing else on the renderer`,
+            stateCollateral.length === 0 && stateInert.length === 0,
+            stateCollateral.length === 0 && stateInert.length === 0
+                ? `renderer._samples ${ baseline.rendererState[ 'renderer._samples' ] } -> ` +
+                    `${ msaaPlate.rendererState[ 'renderer._samples' ] }, and the other ` +
+                    `${ Object.keys( baseline.rendererState ).length - movedState.length } properties hold`
+                : `COLLATERAL ${ stateCollateral.join( ', ' ) || 'none' }; DECLARED BUT UNCHANGED ` +
+                    `${ stateInert.join( ', ' ) || 'none' }`
+        );
+    }
 
     console.log( '\n--- is the gate looking at every toggle the page has? -----------------------\n' );
 
@@ -813,6 +1204,25 @@ try {
                 ? 'BYTE-IDENTICAL at body framing too — the contact occlusion reaches no plate at all, and ' +
                     'the +0.0307 floor-luma figure alive.js records for it cannot be reproduced from this page'
                 : 'the contact term is visible once the floor is in shot'
+        );
+
+    }
+
+    // 🚩 A REJECTION PROOF THAT NEVER APPLIED ITS DEFECT IS A CLEAN RUN THAT READS AS A GATE
+    // FAILURE. Asserted, and asserted INSIDE the run so it lands in the same tally as everything
+    // else: if the anchor ever stops appearing in the served module, this says so rather than
+    // letting a green run be reported as "the gate does not catch it".
+    if ( CONFOUND !== null ) {
+
+        const injections = globalThis.__confoundInjections();
+
+        report(
+            `the --confound=${ CONFOUND } rewrite actually reached the served alive.js`,
+            injections > 0,
+            injections > 0
+                ? `${ injections } module loads rewritten at the '${ CONFOUND_ANCHOR }' anchor`
+                : `THE ANCHOR WAS NEVER FOUND — no plate in this run carried the confound, so every green ` +
+                    'check above is a green check on the shipped page and proves nothing about the gate'
         );
 
     }

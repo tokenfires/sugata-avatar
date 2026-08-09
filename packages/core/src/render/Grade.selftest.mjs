@@ -61,6 +61,27 @@
  *                   temporal defects are rendered alongside, and the gate asserts that every one of
  *                   them passes all of R0-R7 — which is the finding, printed rather than described.
  *
+ *   L1-L5           🎯 **And the reason T1-T4 were not enough. `SEQUENCE_FRAMES` tops out at frame
+ *                   20.** A grain that advances correctly and then FREEZES FROM FRAME 16 scores
+ *                   full marks on all four, because every frame they look at is inside the
+ *                   healthy stretch. Reproduced by rewriting the served `Grade.js` — see
+ *                   `SourcePatchProbe.mjs` — with a `late-freeze` driver: on the midtone band, the
+ *                   worst consecutive-pair ratio over 74 pairs is **0.000 at frames 32-33** while
+ *                   the same defect scores T1 **1.397** and T2 **0.0441** on the seven frames
+ *                   T1-T4 look at. L1-L3 render **600 frames**, sample 96 of them, and
+ *                   check every one of the 74 consecutive pairs and all 4,560 pairwise
+ *                   correlations; L0 COMPUTES what that sampling can and cannot see rather than
+ *                   claiming it, and L4 states the horizon against the clip lengths
+ *                   `capture.mjs` actually renders. A second late defect — a 37-frame repeat
+ *                   arriving at frame 16 — is caught by L2 (worst |r| **1.0000** at frames 32-513)
+ *                   and **not** by L1 (worst ratio **1.369**, inside the band), which is what
+ *                   makes the two separate checks rather than one restated.
+ *                   L5 is the finding that came out of building them: the shipped seed is
+ *                   `frameId % 4096`, so the grain **repeats exactly every 4096 frames**, proven
+ *                   by rendering frames 100 and 4196 and measuring a difference sigma of
+ *                   0.000000 against an adjacent control of 2.146. Outside a 600-frame clip;
+ *                   three times over inside a 12,600-frame postural one.
+ *
  *   VIGNETTE        The centre is untouched to floating point and the corner keeps exactly
  *                   1 - amount, which is what makes `vignette` readable as "fraction of light
  *                   removed at the corner" rather than as an arbitrary dial.
@@ -76,6 +97,10 @@
  * the range.
  *
  * Usage:  node "packages/core/src/render/Grade.selftest.mjs"
+ *
+ * ⚠️ It renders four 600-frame clips and one 4,197-frame clip and takes several minutes. That is
+ * the cost of the L-checks and it is stated here so a slow run is not mistaken for a hang: a
+ * stepped frame of the grade probe measures ~17-21 ms and a kept screenshot ~100 ms.
  */
 
 import {
@@ -1372,6 +1397,488 @@ console.log( '\n--- the RENDERED grade: pixels off a GPU, not a CPU mirror -----
                 shippedTemporalTrips.length === 0,
                 shippedTemporalTrips.length === 0 ? 'T1-T4 all green on the shipped sequence'
                     : `trips ${ shippedTemporalTrips.join( ', ' ) }`
+            );
+        }
+
+
+        // ==========================================================================================
+        // L1-L4 — THE LONG CLIP, WHICH T1-T4 CANNOT SEE EITHER
+        // ==========================================================================================
+        //
+        // 🎯 THE DEFECT THIS EXISTS FOR, and it is the third layer of the same onion.
+        //
+        // R0-R7 measure one frame. T1-T4 fixed that by measuring a SEQUENCE — and the sequence is
+        // `SEQUENCE_FRAMES`, whose highest member is **frame 20**. A grain that advances perfectly
+        // for fifteen frames and then STOPS scores full marks on all four: frames 9-14 and 20 are
+        // all inside the healthy stretch, so T1 sees motion, T2 sees no repeat, T3 reproduces and
+        // T4 sees no slide. Reproduced for this round with a `late-freeze` seed driver whose onset
+        // is frame 16. Measured on the midtone band over the 74 consecutive pairs this section
+        // samples: the shipped grade's WORST pair ratio is **1.378**, `late-freeze`'s is
+        // **0.000 at frames 32-33**, and on the seven frames T1-T4 actually look at the same
+        // defect scores T1 **1.397** and T2 **0.0441** — green on both. T1-T4 never look past 20.
+        //
+        // 🚩 THE MODEL ERROR IS §1.4, RESTATED FOR A DEGRADATION RATHER THAN FOR A RATE: **the
+        // observation window is a gate parameter, and a window shorter than the clip certifies
+        // nothing about the rest of the clip.** `tools/critic/capture.mjs` renders 300 frames by
+        // default (10 s at 30 fps) and 12,600 for a postural clip, and every judgement in this
+        // project is made on one of those. A seven-frame window topping out at 20 was being read
+        // as "the grain is fine."
+        //
+        // ## What the horizon is, and why it is 600 and not 20 or 12,600
+        //
+        // 600 frames is 20 s at this project's 30 fps — the clip length `docs/LEARNINGS.md` quotes
+        // for its motion findings, and twice `capture.mjs`'s default. It is a CHOICE and it is
+        // costed rather than asserted: measured on this machine, one stepped frame of the grade
+        // probe is ~21 ms and one kept screenshot ~100 ms, so a 600-frame run with 96 kept frames
+        // is ~23 s and three of them are ~70 s. The postural 12,600-frame clip would be ~4.5
+        // minutes per run and is NOT certified here; L4 states that limit as a check rather than
+        // as a caveat, because a caveat in a comment is what let frame 20 stand for a clip.
+        //
+        // ## The sampling, and the two exact statements it buys
+        //
+        // 96 frames: five dense blocks of twelve at 1, 150, 300, 450 and 585, plus a consecutive
+        // pair every 32 frames, plus 599 and 600. Two properties, both COMPUTED by the gate rather
+        // than argued in this comment, and both printed:
+        //
+        //   FREEZE ONSET — the set contains 74 consecutive pairs and the highest starts at 599, so
+        //   a stall beginning at ANY frame from 1 to 599 has a pair entirely inside it. That is
+        //   complete coverage of the horizon, not a sample of it.
+        //
+        //   REPEAT PERIOD — a period p is detectable only if two sampled frames are congruent
+        //   mod p, which is a fact about the frame set and nothing else. `periodsNotCovered`
+        //   computes it: every period from 1 to 481 is covered, 581 of the 600 are, and the
+        //   smallest uncovered one is printed so the limit is a number a reader can act on.
+        //   (The old set's equivalent number was 12, stated in its own comment.)
+        //
+        // ## The two defects, and why they are two
+        //
+        // Neither exists in `GRAIN_DEFECTS`, and `Grade.js` belongs to another agent this round,
+        // so they are injected by rewriting the served module — see `SourcePatchProbe.mjs`. Both
+        // are late-onset and they are caught by DIFFERENT checks, which is the point:
+        //
+        //   late-freeze   the seed stops at frame 16. Caught by L1 (a consecutive pair reads 0)
+        //                 and by L2 (every frame after 16 is the same field).
+        //   late-period   the seed acquires a 37-frame repeat at frame 16. Consecutive frames
+        //                 still differ, the run reproduces, nothing slides — **L1 is green on it**,
+        //                 worst pair ratio 1.369 at frames 288-289 where late-freeze reads 0.000.
+        //                 Only L2 sees it, at |r| 1.0000 between frames 32 and 513, and only
+        //                 because both are sampled and 481 = 13 x 37.
+        const LONG_HORIZON = 600;
+        const LONG_BLOCK_STARTS = [ 1, 150, 300, 450, 585 ];
+        const LONG_BLOCK_LENGTH = 12;
+        const LONG_CHECKPOINT_STRIDE = 32;
+
+        const LONG_FRAMES = ( () => {
+
+            const frames = new Set( [ LONG_HORIZON - 1, LONG_HORIZON ] );
+
+            for ( const start of LONG_BLOCK_STARTS ) {
+
+                for ( let offset = 0; offset < LONG_BLOCK_LENGTH; offset += 1 ) frames.add( start + offset );
+
+            }
+
+            for ( let frame = LONG_CHECKPOINT_STRIDE; frame + 1 <= LONG_HORIZON; frame += LONG_CHECKPOINT_STRIDE ) {
+
+                frames.add( frame );
+                frames.add( frame + 1 );
+
+            }
+
+            return [ ...frames ].filter( ( frame ) => frame >= 1 && frame <= LONG_HORIZON ).sort( ( a, b ) => a - b );
+
+        } )();
+
+        /** Every `(n, n+1)` the sample set contains. A freeze from frame f is caught by any of these with n >= f. */
+        const LONG_PAIRS = LONG_FRAMES
+            .filter( ( frame ) => LONG_FRAMES.includes( frame + 1 ) )
+            .map( ( frame ) => [ frame, frame + 1 ] );
+
+        /**
+         * The repeat periods this frame set is structurally unable to see.
+         *
+         * A gate that samples frames cannot detect a period p unless two of its samples fall in
+         * the same residue class mod p — that is arithmetic, not tuning, and it is the reason the
+         * old seven-frame set could say "every period up to 11" and nothing beyond. Computed here
+         * so the claim is produced by the set rather than written beside it.
+         */
+        function periodsNotCovered( frames, maximum ) {
+
+            const uncovered = [];
+
+            for ( let period = 1; period <= maximum; period += 1 ) {
+
+                const residues = new Set();
+                let collides = false;
+
+                for ( const frame of frames ) {
+
+                    const residue = frame % period;
+
+                    if ( residues.has( residue ) ) { collides = true; break; }
+
+                    residues.add( residue );
+
+                }
+
+                if ( collides === false ) uncovered.push( period );
+
+            }
+
+            return uncovered;
+
+        }
+
+        /**
+         * 🚩 The two late-onset seed drivers, as a rewrite of the served `Grade.js`.
+         *
+         * The anchor is `GRAIN_SEED_DRIVERS`'s declaration, and the replacement ALSO mutates
+         * `GRAIN_DEFECTS` — the constructor validates the name against that table and throws
+         * otherwise, which is how the first attempt at this failed: the driver was installed, the
+         * page never booted, and the only symptom was a 120 s timeout. Recorded because the next
+         * person to inject a defect here will hit it.
+         */
+        const LATE_DEFECT_ONSET = 16;
+        const LATE_DEFECT_PERIOD = 37;
+
+        const LATE_DEFECT_PATCH = {
+            urlPattern: '**/Grade.js*',
+            anchor: 'const GRAIN_SEED_DRIVERS = {',
+            replacement: `const LATE_ONSET = ${ LATE_DEFECT_ONSET };
+Object.assign( GRAIN_DEFECTS, {
+    'late-freeze': 'the seed advances correctly and then STOPS, at frame ${ LATE_DEFECT_ONSET }',
+    'late-period': 'the seed acquires a ${ LATE_DEFECT_PERIOD }-frame repeat at frame ${ LATE_DEFECT_ONSET }'
+} );
+const GRAIN_SEED_DRIVERS = {
+    'late-freeze': ( frame ) => Math.min( frame.frameId, LATE_ONSET ) % 4096,
+    'late-period': ( frame ) => frame.frameId < LATE_ONSET
+        ? frame.frameId % 4096
+        : ( LATE_ONSET + ( ( frame.frameId - LATE_ONSET ) % ${ LATE_DEFECT_PERIOD } ) ) % 4096,`
+        };
+
+        const { capturePatchedPlates } = await import( './SourcePatchProbe.mjs' );
+
+        /** One 600-frame run, and the four statistics the L-checks are made of. */
+        async function measureLongClip( query, patch ) {
+
+            const shot = await capturePatchedPlates( {
+                browser, baseUrl: server.baseUrl, query, width: WIDTH, height: HEIGHT,
+                frames: LONG_HORIZON, keep: LONG_FRAMES, patch
+            } );
+
+            if ( shot.errors.length > 0 ) throw new Error( `${ query }: ${ shot.errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+            const grainSigma = probe.differenceSigma(
+                shot.frames.get( LONG_HORIZON ), plates.grainOff, midtoneRect ).sigma;
+
+            // L1. The WORST pair, because a late freeze makes exactly one region of the clip dead
+            // and an average over 74 pairs would bury it.
+            let worstRatio = Infinity;
+            let worstRatioPair = '';
+
+            for ( const [ first, second ] of LONG_PAIRS ) {
+
+                const consecutive = probe.differenceSigma(
+                    shot.frames.get( first ), shot.frames.get( second ), midtoneRect ).sigma;
+                const ratio = grainSigma === 0 ? 0 : consecutive / grainSigma;
+
+                if ( ratio < worstRatio ) {
+
+                    worstRatio = ratio;
+                    worstRatioPair = `${ first }-${ second }`;
+
+                }
+
+            }
+
+            // L2. Every pair of the 96 sampled frames, which is 4,560 correlations.
+            const fields = LONG_FRAMES.map(
+                ( frame ) => grainField( shot.frames.get( frame ), plates.grainOff, midtoneRect, 0, 0 ) );
+
+            let worstRepeat = 0;
+            let worstRepeatPair = '';
+
+            for ( let i = 0; i < fields.length; i += 1 ) {
+
+                for ( let j = i + 1; j < fields.length; j += 1 ) {
+
+                    const r = Math.abs( fieldCorrelation( fields[ i ], fields[ j ] ) );
+
+                    if ( r > worstRepeat ) {
+
+                        worstRepeat = r;
+                        worstRepeatPair = `${ LONG_FRAMES[ i ] }-${ LONG_FRAMES[ j ] }`;
+
+                    }
+
+                }
+
+            }
+
+            // L3. The slide check at the FAR END of the clip, not at its start.
+            const lastPair = LONG_PAIRS.at( -1 );
+            const slideFields = lastPair.map( ( frame ) => grainField(
+                shot.frames.get( frame ), plates.grainOff, slideRect, SLIDE_RADIUS_X, SLIDE_RADIUS_Y ) );
+
+            return {
+                grainSigma,
+                worstRatio,
+                worstRatioPair,
+                worstRepeat,
+                worstRepeatPair,
+                lastPair,
+                slide: strongestShiftedCorrelation( slideFields[ 0 ], slideFields[ 1 ] )
+            };
+
+        }
+
+        console.log( `\n--- L: the same grade over ${ LONG_HORIZON } frames, which T1-T4 cannot see -----------\n` );
+
+        const uncoveredPeriods = periodsNotCovered( LONG_FRAMES, LONG_HORIZON );
+
+        report(
+            `L0 the ${ LONG_FRAMES.length }-frame sample set covers every freeze onset and every repeat period up to ${ uncoveredPeriods[ 0 ] - 1 }`,
+            LONG_PAIRS.length > 0
+                && Math.max( ...LONG_PAIRS.map( ( [ first ] ) => first ) ) === LONG_HORIZON - 1
+                && uncoveredPeriods[ 0 ] > 400,
+            `${ LONG_PAIRS.length } consecutive pairs, the last starting at ` +
+                `${ Math.max( ...LONG_PAIRS.map( ( [ first ] ) => first ) ) }, so a stall beginning at any frame ` +
+                `1..${ LONG_HORIZON - 1 } has a pair inside it. Repeat periods: ` +
+                `${ LONG_HORIZON - uncoveredPeriods.length }/${ LONG_HORIZON } covered, all of 1..` +
+                `${ uncoveredPeriods[ 0 ] - 1 }, smallest uncovered ${ uncoveredPeriods[ 0 ] }. This is arithmetic on ` +
+                'the frame set, computed rather than claimed — see periodsNotCovered.'
+        );
+
+        /**
+         * 🚩 THE REJECTION PROOF IN ITS STRONGEST FORM: put the defect in the SHIPPED arm.
+         *
+         *     node "packages/core/src/render/Grade.selftest.mjs" --shipped-grain-defect=late-freeze
+         *
+         * The coverage rows below already fail if a defect passes every L-check, which is this
+         * file's established idiom and is asserted on every run. This flag asks the other
+         * question — does the FILE go red when the shipped grade is the broken one — and it is
+         * the question rule 4 is actually about. `late-freeze` and `late-period` are the two
+         * names; both are injected by the same source rewrite the coverage rows use.
+         */
+        const SHIPPED_GRAIN_DEFECT = process.argv
+            .find( ( argument ) => argument.startsWith( '--shipped-grain-defect=' ) )?.split( '=' )[ 1 ] ?? null;
+
+        if ( SHIPPED_GRAIN_DEFECT !== null ) {
+
+            console.log( `\n      🚩 DEFECT INJECTED INTO THE SHIPPED ARM: graindefect=${ SHIPPED_GRAIN_DEFECT }. This run\n` +
+                '      is a rejection proof, not a verdict on the repo.\n' );
+
+        }
+
+        const longSequences = {
+            shipped: await measureLongClip(
+                SHIPPED_GRAIN_DEFECT === null
+                    ? '?probe=grade&grade=1&aa=off&bare'
+                    : `?probe=grade&grade=1&aa=off&bare&graindefect=${ SHIPPED_GRAIN_DEFECT }`,
+                SHIPPED_GRAIN_DEFECT === null ? null : LATE_DEFECT_PATCH ),
+            lateFreeze: await measureLongClip(
+                '?probe=grade&grade=1&aa=off&bare&graindefect=late-freeze', LATE_DEFECT_PATCH ),
+            latePeriod: await measureLongClip(
+                '?probe=grade&grade=1&aa=off&bare&graindefect=late-period', LATE_DEFECT_PATCH )
+        };
+
+        console.log( '      page            grain sigma   worst pair ratio   worst repeat r   best slide' );
+
+        for ( const [ name, s ] of Object.entries( longSequences ) ) {
+
+            console.log( `      ${ name.padEnd( 14 ) }  ${ s.grainSigma.toFixed( 3 ).padStart( 11 ) }   ` +
+                `${ `${ s.worstRatio.toFixed( 3 ) }@${ s.worstRatioPair }`.padStart( 16 ) }   ` +
+                `${ `${ s.worstRepeat.toFixed( 4 ) }@${ s.worstRepeatPair }`.padStart( 14 ) }   ` +
+                `${ s.slide.r.toFixed( 4 ) }@(${ s.slide.dx },${ s.slide.dy })` );
+
+        }
+
+        console.log( '' );
+
+        const LONG_CHECKS = {
+            L1: ( s ) => s.worstRatio >= TEMPORAL_RATIO_BAND[ 0 ] && s.worstRatio <= TEMPORAL_RATIO_BAND[ 1 ],
+            L2: ( s ) => s.worstRepeat <= REPEAT_CEILING,
+            L3: ( s ) => s.slide.r <= SLIDE_CEILING
+        };
+
+        {
+            const s = longSequences.shipped;
+
+            report(
+                `L1 EVERY consecutive pair across ${ LONG_HORIZON } frames moves, not just the one at frame 13`,
+                LONG_CHECKS.L1( s ),
+                `worst of ${ LONG_PAIRS.length } pairs is ${ s.worstRatio.toFixed( 3 ) } at frames ${ s.worstRatioPair }, ` +
+                    `band ${ TEMPORAL_RATIO_BAND[ 0 ] }-${ TEMPORAL_RATIO_BAND[ 1 ] }. A clip that dies at any point ` +
+                    'reads 0.000 here; T1 measured one pair at frame 13 and could not.'
+            );
+
+            report(
+                `L2 no two of the ${ LONG_FRAMES.length } sampled frames carry the same field, at any lag up to ${ uncoveredPeriods[ 0 ] - 1 }`,
+                LONG_CHECKS.L2( s ),
+                `worst |r| over the ${ LONG_FRAMES.length * ( LONG_FRAMES.length - 1 ) / 2 } pairs is ` +
+                    `${ s.worstRepeat.toFixed( 4 ) } (frames ${ s.worstRepeatPair }), ceiling ${ REPEAT_CEILING }. ` +
+                    `T2's seven frames covered lags 1..11; this covers 1..${ uncoveredPeriods[ 0 ] - 1 }.`
+            );
+
+            report(
+                `L3 the grain is still redrawn rather than slid at frame ${ s.lastPair[ 0 ] }, not only at frame 13`,
+                LONG_CHECKS.L3( s ),
+                `strongest |r| over the shifts within +-${ SLIDE_RADIUS_X } x +-${ SLIDE_RADIUS_Y } px at frames ` +
+                    `${ s.lastPair.join( '-' ) } is ${ s.slide.r.toFixed( 4 ) } at (${ s.slide.dx },${ s.slide.dy }), ` +
+                    `ceiling ${ SLIDE_CEILING }`
+            );
+        }
+
+        console.log( '\n      rejection coverage — which LONG check each late-onset defect trips, and which\n' +
+                     '      of T1-T4 it walks straight past\n' );
+
+        const LONG_DEFECTS = {
+            [ `late-freeze (the seed stops at frame ${ LATE_DEFECT_ONSET })` ]: 'lateFreeze',
+            [ `late-period (a ${ LATE_DEFECT_PERIOD }-frame repeat from frame ${ LATE_DEFECT_ONSET })` ]: 'latePeriod'
+        };
+
+        for ( const [ label, key ] of Object.entries( LONG_DEFECTS ) ) {
+
+            const tripped = Object.entries( LONG_CHECKS )
+                .filter( ( [ , check ] ) => check( longSequences[ key ] ) === false )
+                .map( ( [ name ] ) => name );
+
+            report(
+                `rejected by rendering ${ LONG_HORIZON } frames: ${ label }`,
+                tripped.length > 0,
+                tripped.length > 0
+                    ? `trips ${ tripped.join( ', ' ) }. Worst pair ratio ` +
+                        `${ longSequences[ key ].worstRatio.toFixed( 3 ) } at ${ longSequences[ key ].worstRatioPair }, ` +
+                        `worst repeat ${ longSequences[ key ].worstRepeat.toFixed( 4 ) } at ` +
+                        `${ longSequences[ key ].worstRepeatPair }`
+                    : 'passes every long check — this gate does NOT cover this defect'
+            );
+
+        }
+
+        // 🎯 THE FINDING, ASSERTED. Both late defects are invisible to T1-T4, because every frame
+        // T1-T4 look at is inside the healthy stretch before the onset. If one of them ever DID
+        // trip a T-check, the rejections above would be proving something about a defect that the
+        // seven-frame window already caught, and L1-L3 would be back to unproven.
+        {
+            const seenEarly = [];
+
+            for ( const [ label, key ] of Object.entries( LONG_DEFECTS ) ) {
+
+                const query = key === 'lateFreeze'
+                    ? '?probe=grade&grade=1&aa=off&bare&graindefect=late-freeze'
+                    : '?probe=grade&grade=1&aa=off&bare&graindefect=late-period';
+
+                const shot = await capturePatchedPlates( {
+                    browser, baseUrl: server.baseUrl, query, width: WIDTH, height: HEIGHT,
+                    frames: Math.max( ...SEQUENCE_FRAMES ), keep: SEQUENCE_FRAMES, patch: LATE_DEFECT_PATCH
+                } );
+
+                const early = SEQUENCE_FRAMES.map(
+                    ( frame ) => grainField( shot.frames.get( frame ), plates.grainOff, midtoneRect, 0, 0 ) );
+
+                let worst = 0;
+
+                for ( let i = 0; i < early.length; i += 1 ) {
+
+                    for ( let j = i + 1; j < early.length; j += 1 ) {
+
+                        worst = Math.max( worst, Math.abs( fieldCorrelation( early[ i ], early[ j ] ) ) );
+
+                    }
+
+                }
+
+                const consecutive = probe.differenceSigma(
+                    shot.frames.get( CONSECUTIVE_PAIR[ 0 ] ), shot.frames.get( CONSECUTIVE_PAIR[ 1 ] ), midtoneRect ).sigma;
+                const grainSigma = probe.differenceSigma(
+                    shot.frames.get( CONSECUTIVE_PAIR[ 1 ] ), plates.grainOff, midtoneRect ).sigma;
+                const ratio = grainSigma === 0 ? 0 : consecutive / grainSigma;
+
+                const t1 = ratio >= TEMPORAL_RATIO_BAND[ 0 ] && ratio <= TEMPORAL_RATIO_BAND[ 1 ];
+                const t2 = worst <= REPEAT_CEILING;
+
+                if ( t1 === false || t2 === false ) seenEarly.push( `${ label } (T1 ${ ratio.toFixed( 3 ) }, T2 ${ worst.toFixed( 4 ) })` );
+
+                console.log( `      ${ label.padEnd( 56 ) } on frames ${ SEQUENCE_FRAMES.join( ',' ) }: ` +
+                    `T1 ratio ${ ratio.toFixed( 3 ) }, T2 worst r ${ worst.toFixed( 4 ) }` );
+
+            }
+
+            report(
+                'every late-onset defect passes T1 and T2 on the old seven-frame window — which is exactly why L1-L3 had to exist',
+                seenEarly.length === 0,
+                seenEarly.length === 0
+                    ? `both broken clocks are invisible to frames ${ SEQUENCE_FRAMES.join( ',' ) }: the onset is frame ` +
+                        `${ LATE_DEFECT_ONSET } and only frame 20 of that set is past it, which is one frame and ` +
+                        'therefore no pair'
+                    : `CAUGHT EARLY: ${ seenEarly.join( '; ' ) } — the window was not the thing that missed them`
+            );
+        }
+
+        // ⚠️ THE HORIZON, AS A CHECK RATHER THAN AS A CAVEAT. A gate that certifies 600 frames and
+        // is read as certifying a clip cannot be corrected by a sentence in a header — frame 20
+        // was read that way for a round. So the two clip lengths this project actually renders are
+        // named here, and the one this gate does not reach is a printed, failing-if-forgotten fact.
+        {
+            const CAPTURE_DEFAULT_FRAMES = 300;      // tools/critic/capture.mjs DEFAULTS: 10 s at 30 fps
+            const POSTURAL_CLIP_FRAMES = 12_600;     // POSTURAL_CLIP_SECONDS 420 at 30 fps
+
+            report(
+                `L4 the horizon reaches capture.mjs's DEFAULT clip, and is stated as NOT reaching the postural one`,
+                LONG_HORIZON >= CAPTURE_DEFAULT_FRAMES && LONG_HORIZON < POSTURAL_CLIP_FRAMES,
+                `certified to frame ${ LONG_HORIZON } (${ ( LONG_HORIZON / 30 ).toFixed( 1 ) } s at 30 fps) against ` +
+                    `capture.mjs's default ${ CAPTURE_DEFAULT_FRAMES } and its postural ${ POSTURAL_CLIP_FRAMES }. ` +
+                    `Anything after frame ${ LONG_HORIZON } is UNMEASURED by this gate: at ~21 ms a stepped frame, ` +
+                    `raising the horizon to ${ POSTURAL_CLIP_FRAMES } costs ~4.5 minutes per run and there are three ` +
+                    'runs. That is the price, stated, so the next reader decides rather than assumes.'
+            );
+
+            // 🎯 AND THE HORIZON IS NOT A HYPOTHETICAL LIMIT — THERE IS A REAL REPEAT JUST PAST IT.
+            //
+            // The shipped driver is `frame.frameId % 4096`, so frames k and k+4096 are handed the
+            // SAME seed and must render the same field. That is a 4096-frame repeat period: 136 s
+            // at 30 fps, comfortably outside a 600-frame clip and comfortably INSIDE the 12,600-
+            // frame postural one, where it recurs three times.
+            //
+            // Rendered rather than reasoned, because a CPU reading of the driver is exactly the
+            // kind of mirror this whole file exists to distrust — an independent verifier once
+            // replaced the shipped node's body with an arithmetic constant and watched the mirror
+            // checks score 28/28. Measured here: the midtone difference sigma between frames 100
+            // and 4196 is **0.000000** while the adjacent control (100 against 101) is **2.146**.
+            //
+            // It is recorded as a LIMIT rather than as a failure. Nothing in the look spec asks
+            // for a non-repeating grain over 136 s, `Grade.js` belongs to another agent, and a
+            // gate that goes red on a documented design choice gets muted. What this check does is
+            // pin the period: if the wrap ever moves — shortened by a well-meant tidy-up, or fixed
+            // — this says so, and it is the only measurement anywhere in the repo of how long the
+            // grain actually goes before it comes round again.
+            //
+            // Cost: one extra run to frame 4197, measured at 70.5 s (~17 ms a stepped frame).
+            const SEED_WRAP_FRAMES = 4096;
+            const WRAP_PROBE_FRAME = 100;
+
+            const wrapShot = await capturePatchedPlates( {
+                browser, baseUrl: server.baseUrl, query: '?probe=grade&grade=1&aa=off&bare',
+                width: WIDTH, height: HEIGHT,
+                frames: WRAP_PROBE_FRAME + SEED_WRAP_FRAMES,
+                keep: [ WRAP_PROBE_FRAME, WRAP_PROBE_FRAME + 1, WRAP_PROBE_FRAME + SEED_WRAP_FRAMES ],
+                patch: null
+            } );
+
+            const wrapped = probe.differenceSigma( wrapShot.frames.get( WRAP_PROBE_FRAME ),
+                wrapShot.frames.get( WRAP_PROBE_FRAME + SEED_WRAP_FRAMES ), midtoneRect ).sigma;
+            const adjacent = probe.differenceSigma( wrapShot.frames.get( WRAP_PROBE_FRAME ),
+                wrapShot.frames.get( WRAP_PROBE_FRAME + 1 ), midtoneRect ).sigma;
+
+            report(
+                `L5 STATED LIMIT: the grain repeats exactly every ${ SEED_WRAP_FRAMES } frames, which is where the seed wraps`,
+                wrapped === 0 && adjacent > 1,
+                `frames ${ WRAP_PROBE_FRAME } and ${ WRAP_PROBE_FRAME + SEED_WRAP_FRAMES } differ by sigma ` +
+                    `${ wrapped.toFixed( 6 ) } code values — the same field — against ${ adjacent.toFixed( 3 ) } for ` +
+                    `the adjacent control. ${ ( SEED_WRAP_FRAMES / 30 ).toFixed( 1 ) } s at 30 fps: outside a ` +
+                    `${ LONG_HORIZON }-frame clip, and three times over inside a ${ POSTURAL_CLIP_FRAMES }-frame one. ` +
+                    'Recorded as the measured period, not as a defect — but it moves the day the wrap does.'
             );
         }
 

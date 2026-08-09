@@ -71,6 +71,19 @@
  *                         floor's rendered hue is `albedo × the light that lands on it`, and the
  *                         second factor was assumed constant. It is now built and measured.
  *
+ *   THE CASTER HALF       🚩 And the SAME SHAPE ONE LEVEL DOWN, which cost another round. The
+ *                         incident light above sums the four `RectAreaLight` panels and leaves out
+ *                         the key's shadow-casting `SpotLight`, excused by a comment in
+ *                         `LightingRig.selftest.mjs` saying the spot half only ever LOWERS the
+ *                         number. True of a rig whose casters carry their panel's colour, which
+ *                         nothing asserted: a verifier built the key's caster at `#0f30ff` and
+ *                         this file returned 47/47 green while body-framing saturated blue went
+ *                         0.2881% -> 12.0152% of the frame. Two clauses now, and the honest one
+ *                         first — the PRODUCT cannot reject a blue caster at any defensible
+ *                         ceiling (0.366 against 0.71), so the load-bearing clause is an EQUALITY
+ *                         between each caster's colour and its panel's, with the caster-inclusive
+ *                         product measured beside it so the excuse is a number rather than prose.
+ *
 
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
@@ -79,7 +92,7 @@
  */
 
 import { Float32BufferAttribute, Matrix4, Uint16BufferAttribute } from 'three';
-import { BufferGeometry, Bone, MeshStandardNodeMaterial, Scene, Skeleton, SkinnedMesh, Vector3 } from 'three/webgpu';
+import { BufferGeometry, Bone, Color, MeshStandardNodeMaterial, Scene, Skeleton, SkinnedMesh, Vector3 } from 'three/webgpu';
 
 import {
     GroundContact,
@@ -93,6 +106,41 @@ import {
 // The floor's rendered hue is a PRODUCT, and this file only ever owned one of its two factors.
 // See the REFLECTED COLOUR block at the bottom.
 import { LightingRig } from './LightingRig.js';
+
+/**
+ * 🚩 THE REJECTION PROOF, AS A FLAG. Mirrors `LightingRig.selftest.mjs`'s flag of the same name.
+ *
+ *     node "packages/core/src/render/GroundContact.selftest.mjs" --caster-colour=0x0f30ff
+ *
+ * builds every shadow caster at that colour rather than at its panel's — the defect a verifier
+ * planted in `LightingRig.js` and watched this file score 47/47 through, because the incident
+ * half of its product summed the `RectAreaLight` panels and nothing else.
+ */
+const CASTER_COLOUR_DEFECT = process.argv
+    .find( ( argument ) => argument.startsWith( '--caster-colour=' ) )?.split( '=' )[ 1 ] ?? null;
+
+if ( CASTER_COLOUR_DEFECT !== null ) {
+
+    const hex = Number( CASTER_COLOUR_DEFECT );
+
+    if ( Number.isFinite( hex ) === false ) throw new Error( `--caster-colour: '${ CASTER_COLOUR_DEFECT }' is not a number` );
+
+    const buildUnit = LightingRig.prototype.buildUnit;
+
+    LightingRig.prototype.buildUnit = function ( placement ) {
+
+        const unit = buildUnit.call( this, placement );
+
+        if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( hex );
+
+        return unit;
+
+    };
+
+    console.log( `\n🚩 DEFECT INJECTED: every shadow caster built at #${ hex.toString( 16 ).padStart( 6, '0' ) } ` +
+        'rather than at its panel\'s colour. This run is a rejection proof, not a verdict on the repo.\n' );
+
+}
 
 let failures = 0;
 let checks = 0;
@@ -1065,6 +1113,10 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
     // Published by `LightingRig.selftest.mjs`, which asserts the same figure against its own copy.
     const LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED = 2.8313;
 
+    // 🎯 And the same figure with the SHADOW-CASTER half summed in, also published there. See the
+    // CASTER HALF block below for why one number was not enough.
+    const LIGHTING_RIG_SHIPPED_CASTER_INCLUSIVE_BLUE_TO_RED = 2.1973;
+
     const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
     const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
 
@@ -1078,16 +1130,45 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 
     const linearAlbedo = ( hex ) => [ 16, 8, 0 ].map( ( shift ) => srgbToLinear( ( ( hex >> shift ) & 0xff ) / 255 ) );
 
-    /** Per-channel irradiance at `FLOOR_POINT` from a real rig, weighted by each light's colour. */
-    function incidentAtFloor( overrides ) {
+    const smoothstep = ( edge0, edge1, x ) => {
+
+        const t = Math.min( 1, Math.max( 0, ( x - edge0 ) / ( edge1 - edge0 ) ) );
+        return t * t * ( 3 - 2 * t );
+
+    };
+
+    /** A rig aimed at the body shot, kept as a function so the caster block can read its units. */
+    function rigFor( overrides, options = {} ) {
 
         const scene = new Scene();
-        const rig = new LightingRig( { preset: 'body', overrides } );
+        const rig = new LightingRig( { preset: 'body', overrides, ...options } );
 
         rig.attachTo( scene, null );
         rig.aimAt( bodyShot );
 
+        return rig;
+
+    }
+
+    /**
+     * Per-channel irradiance at `FLOOR_POINT` from a real rig, weighted by each light's colour.
+     *
+     * @param {boolean} [withCasters=false] - sum the `SpotLight` halves as well as the panels. The
+     *   default is false because every ceiling in this file is anchored on the panels-only reading
+     *   and the caster-inclusive one is measurably LESS strict; see the CASTER HALF block.
+     */
+    function incidentAtFloor( overrides, withCasters = false ) {
+
+        const rig = rigFor( overrides );
         const channels = [ 0, 0, 0 ];
+
+        const accumulate = ( irradiance, colour ) => {
+
+            channels[ 0 ] += irradiance * colour.r;
+            channels[ 1 ] += irradiance * colour.g;
+            channels[ 2 ] += irradiance * colour.b;
+
+        };
 
         for ( const unit of rig.units ) {
 
@@ -1107,11 +1188,28 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
                 : unit.area.intensity * unit.area.width * unit.area.height * cosPanel * cosReceiver / ( distance * distance );
 
             // `unit.area.color` is the light the renderer will use, in linear working space.
-            const colour = unit.area.color;
+            accumulate( irradiance, unit.area.color );
 
-            channels[ 0 ] += irradiance * colour.r;
-            channels[ 1 ] += irradiance * colour.g;
-            channels[ 2 ] += irradiance * colour.b;
+            if ( withCasters === false || unit.shadowCaster === null ) continue;
+
+            // three's spot, with `distance` 0 and `decay` 2: intensity x spotAttenuation / d².
+            // `getSpotAttenuation` is smoothstep( cos(angle), cos(angle·(1−penumbra)), cos(θ) ),
+            // and `penumbra` is 1 on every caster this rig builds.
+            const spot = unit.shadowCaster;
+            const axis = spot.target.position.clone().sub( spot.position ).normalize();
+            const toSpotPoint = FLOOR_POINT.clone().sub( spot.position );
+            const spotDistance = toSpotPoint.length();
+            const spotDirection = toSpotPoint.clone().normalize();
+
+            const attenuation = smoothstep(
+                Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( spotDirection ) );
+
+            const cosSpotReceiver = FLOOR_NORMAL.dot( spotDirection.clone().negate() );
+
+            accumulate( cosSpotReceiver <= 0
+                ? 0
+                : spot.intensity * attenuation * cosSpotReceiver / ( spotDistance * spotDistance ),
+            spot.color );
 
         }
 
@@ -1119,10 +1217,10 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 
     }
 
-    const reflectedBlueToRed = ( { albedo = new GroundContact().albedo, rig = {} } = {} ) => {
+    const reflectedBlueToRed = ( { albedo = new GroundContact().albedo, rig = {}, casters = false } = {} ) => {
 
         const surface = linearAlbedo( albedo );
-        const incident = incidentAtFloor( rig );
+        const incident = incidentAtFloor( rig, casters );
 
         return ( surface[ 2 ] * incident[ 2 ] ) / ( surface[ 0 ] * incident[ 0 ] );
 
@@ -1227,6 +1325,179 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
             `reflected blue:red ${ measured.toFixed( 3 ) }, under ${ MAXIMUM_REFLECTED_BLUE_TO_RED }. Rendered: ${ variant.rendered }`
         );
 
+    }
+
+    console.log( '\nTHE CASTER HALF — the light the block above sums is the PANELS, and the rig has a\n' +
+                 'shadow-casting SpotLight too. What that omission was excused with, gated.\n' );
+
+    // 🎯 THE DEFECT THIS EXISTS FOR, and it is the third time this pair of files has been caught
+    // by the same shape. The block above fixed "one factor of a product was assumed constant" by
+    // measuring the incident light — and measured only the `RectAreaLight` panels, because
+    // `LightingRig.selftest.mjs` said in a comment that adding the spot halves LOWERS the number
+    // and is therefore the conservative reading. True of a rig whose casters carry their panel's
+    // colour. Nothing asserted that. A verifier built the key's caster at `#0f30ff` and this file
+    // returned **47/47 green** while body-framing saturated blue went **0.2881% → 12.0152%**.
+    //
+    // ⚠️ AND THE HONEST PART FIRST, BECAUSE IT DECIDES THE SHAPE OF THE FIX. Measured below: the
+    // caster-inclusive reflected blue:red under a `#0f30ff` caster is **0.366**, against a ceiling
+    // of 0.71. **The product clause cannot reject this defect at any ceiling this file could
+    // defend** — the caster is 45% of the key alone, and at a floor point 2 m behind the subject
+    // its cone is grazing, so the shipped `0.319` only moves to `0.366`. Bringing the ceiling to
+    // 0.36 would reject `0x4b3520`, the floor this project shipped last, which renders a clean
+    // S 0.2661. That is LEARNINGS §1.11 exactly: the right answer to "my gate cannot resolve this"
+    // is a structurally different assertion, not a tightened threshold.
+    //
+    // So the two clauses here are not two opinions on the product:
+    //
+    //   PREMISE       every caster carries EXACTLY its panel's colour — an equality, so it has no
+    //                 threshold to walk around and no hue it is blind to. This is the sentence the
+    //                 panels-only incident quietly rests on.
+    //   CONSERVATISM  the caster-inclusive reflected colour is measured every run and required to
+    //                 be no worse than the panels-only one. That is the excuse itself, as a number.
+    {
+        const shippedPanelsOnly = incidentAtFloor( {}, false );
+        const shippedWithCasters = incidentAtFloor( {}, true );
+
+        const blueToRed = ( channels ) => channels[ 2 ] / channels[ 0 ];
+
+        report(
+            'this file and LightingRig.selftest.mjs agree on the CASTER-INCLUSIVE incident light too',
+            Math.abs( blueToRed( shippedWithCasters ) - LIGHTING_RIG_SHIPPED_CASTER_INCLUSIVE_BLUE_TO_RED ) <= 0.0005,
+            `incident blue:red with the spot half summed in: ${ blueToRed( shippedWithCasters ).toFixed( 4 ) } here ` +
+            `against ${ LIGHTING_RIG_SHIPPED_CASTER_INCLUSIVE_BLUE_TO_RED.toFixed( 4 ) } published there. The ` +
+            `panels-only pair (${ blueToRed( shippedPanelsOnly ).toFixed( 4 ) }) was already cross-checked; this is ` +
+            'the half that was not, and it is where the defect lived.'
+        );
+
+        const divergences = ( rig ) => rig.units
+            .filter( ( unit ) => unit.shadowCaster !== null )
+            .filter( ( unit ) => unit.shadowCaster.color.getHex() !== unit.area.color.getHex() )
+            .map( ( unit ) => `${ unit.placement.name }: panel #${ unit.area.color.getHexString() } ` +
+                `vs caster #${ unit.shadowCaster.color.getHexString() }` );
+
+        {
+            const found = divergences( rigFor( {} ) );
+
+            report(
+                'PREMISE: every shadow caster carries exactly its panel\'s colour',
+                found.length === 0,
+                found.length === 0
+                    ? 'the caster is the same hex as the panel it was split from, so summing the panels alone is a ' +
+                        'statement about the rig\'s colour and not only about part of it'
+                    : `DIVERGED: ${ found.join( '; ' ) } — the incident half of this file's product is measuring a ` +
+                        'rig whose colour is not the rig\'s colour'
+            );
+        }
+
+        report(
+            'CONSERVATISM: the caster half LOWERS the reflected colour, which is what licensed leaving it out',
+            reflectedBlueToRed( { casters: true } ) <= reflectedBlueToRed( { casters: false } ),
+            `reflected blue:red ${ reflectedBlueToRed( { casters: false } ).toFixed( 4 ) } panels-only -> ` +
+            `${ reflectedBlueToRed( { casters: true } ).toFixed( 4 ) } with the caster. Rendered on the shipped ` +
+            'plate: HSV S 0.2216, 0.074% of the frame in a saturated blue.'
+        );
+
+        // 🚩 FOUR MECHANISMS IN ONE CLASS, and the printed columns are the finding. The class is
+        // "a light-colour defect that reaches the floor through the caster half". Every row leaves
+        // the panels untouched, so the panels-only product reads the shipped 0.319 on all four.
+        //
+        // Read the `product` column: NOT ONE of them is rejected by it, including the one that
+        // rendered 12% of the frame blue. The product clause is doing real work on the panel axis
+        // and is structurally unable to do any on this one, and saying so in a printed table is
+        // worth more than a ceiling nudged until one row happens to fall over.
+        console.log( '      caster colour   panels-only product   caster-inclusive product   rejected by product?   premise' );
+
+        const casterKnownBad = [
+            { hex: 0x0f30ff, what: 'the casters at the rim\'s own #0f30ff — the defect this round found' },
+            { hex: 0x403830, what: 'LEVEL — the casters dimmed to the warm grey #403830, blue still its lowest channel' },
+            { hex: 0xff30ff, what: 'HUE — the casters turned magenta, outside the 200-300 degree predicate entirely' },
+            { hex: 0xb0c0ff, what: 'SUBTLE — the casters at #b0c0ff, the tint that reads as white in a swatch' }
+        ];
+
+        for ( const variant of casterKnownBad ) {
+
+            const original = LightingRig.prototype.buildUnit;
+
+            LightingRig.prototype.buildUnit = function ( placement ) {
+
+                const unit = original.call( this, placement );
+
+                if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( variant.hex );
+
+                return unit;
+
+            };
+
+            let panelsOnly;
+            let withCasters;
+            let found;
+
+            try {
+
+                panelsOnly = reflectedBlueToRed( { casters: false } );
+                withCasters = reflectedBlueToRed( { casters: true } );
+                found = divergences( rigFor( {} ) );
+
+            } finally {
+
+                LightingRig.prototype.buildUnit = original;
+
+            }
+
+            const productRejects = withCasters >= MAXIMUM_REFLECTED_BLUE_TO_RED;
+
+            console.log( `      #${ variant.hex.toString( 16 ).padStart( 6, '0' ) }         ` +
+                `${ panelsOnly.toFixed( 4 ).padStart( 19 ) }   ${ withCasters.toFixed( 4 ).padStart( 24 ) }   ` +
+                `${ ( productRejects ? 'yes' : 'NO' ).padStart( 20 ) }   ${ found.length > 0 ? 'RED' : 'green' }` );
+
+            report(
+                `KNOWN-BAD: ${ variant.what }`,
+                found.length > 0 || productRejects,
+                `rejected by ${ [ found.length > 0 ? 'PREMISE' : null, productRejects ? 'the product' : null ]
+                    .filter( ( clause ) => clause !== null ).join( ' and ' ) || 'NOTHING' }. The panels-only product ` +
+                `reads ${ panelsOnly.toFixed( 4 ) } — the shipped value to four decimals, because no panel moved — ` +
+                `and the caster-inclusive one ${ withCasters.toFixed( 4 ) } against a ${ MAXIMUM_REFLECTED_BLUE_TO_RED } ceiling.`
+            );
+
+        }
+
+        // The limit, asserted rather than described, so nobody later reads the block above as
+        // covering the caster axis. If a future rig ever DID push the caster-inclusive product
+        // over the ceiling, this goes red and the sentence in the header stops being true.
+        {
+            const original = LightingRig.prototype.buildUnit;
+
+            LightingRig.prototype.buildUnit = function ( placement ) {
+
+                const unit = original.call( this, placement );
+
+                if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( 0x0f30ff );
+
+                return unit;
+
+            };
+
+            let underCeiling;
+
+            try {
+
+                underCeiling = reflectedBlueToRed( { casters: true } );
+
+            } finally {
+
+                LightingRig.prototype.buildUnit = original;
+
+            }
+
+            report(
+                'STATED LIMIT: the product clause CANNOT reject a blue caster, and the premise clause is why this block exists',
+                underCeiling < MAXIMUM_REFLECTED_BLUE_TO_RED,
+                `a #0f30ff caster reflects ${ underCeiling.toFixed( 4 ) }, comfortably under the ` +
+                `${ MAXIMUM_REFLECTED_BLUE_TO_RED } ceiling — and the ceiling cannot come down to catch it, because ` +
+                '0x4b3520, the floor this project shipped before the current one, reflects 0.581 and renders a ' +
+                'clean S 0.2661. LEARNINGS §1.11: a structurally different assertion, not a tighter threshold.'
+            );
+        }
     }
 }
 

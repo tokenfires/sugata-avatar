@@ -36,7 +36,7 @@
  * Usage:  node "packages/core/src/render/LightingRig.selftest.mjs"
  */
 
-import { PerspectiveCamera, Scene, Vector3 } from 'three/webgpu';
+import { Color, PerspectiveCamera, Scene, Vector3 } from 'three/webgpu';
 
 import {
     LightingRig,
@@ -45,6 +45,48 @@ import {
     silhouetteBandFraction,
     silhouetteBandPixels
 } from './LightingRig.js';
+
+/**
+ * 🚩 THE REJECTION PROOF, AS A FLAG RATHER THAN AS A COMMITTED PATCH.
+ *
+ *     node "packages/core/src/render/LightingRig.selftest.mjs" --caster-colour=0x0f30ff
+ *
+ * builds every shadow caster at that colour instead of at its panel's, which is the defect an
+ * independent verifier planted in `LightingRig.js` and watched this file score 63/63 through.
+ * It patches `buildUnit`, so the caster is built wrong and then aimed, solved and rebuilt exactly
+ * as the broken implementation's would be — and it patches it for the WHOLE run, so the checks
+ * that matter are asked about the shipped rig rather than about a variant.
+ *
+ * A flag rather than an edit for two reasons. `LightingRig.js` belongs to another agent this
+ * round and a temporary patch to a file somebody else is writing is a merge accident waiting to
+ * happen; and a proof that lives in the gate is re-runnable by anyone, which a paragraph
+ * describing an edit somebody once made is not. Same shape as `?cards=0` and `?graindefect=`.
+ */
+const CASTER_COLOUR_DEFECT = process.argv
+    .find( ( argument ) => argument.startsWith( '--caster-colour=' ) )?.split( '=' )[ 1 ] ?? null;
+
+if ( CASTER_COLOUR_DEFECT !== null ) {
+
+    const hex = Number( CASTER_COLOUR_DEFECT );
+
+    if ( Number.isFinite( hex ) === false ) throw new Error( `--caster-colour: '${ CASTER_COLOUR_DEFECT }' is not a number` );
+
+    const buildUnit = LightingRig.prototype.buildUnit;
+
+    LightingRig.prototype.buildUnit = function ( placement ) {
+
+        const unit = buildUnit.call( this, placement );
+
+        if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( hex );
+
+        return unit;
+
+    };
+
+    console.log( `\n🚩 DEFECT INJECTED: every shadow caster built at #${ hex.toString( 16 ).padStart( 6, '0' ) } ` +
+        'rather than at its panel\'s colour. This run is a rejection proof, not a verdict on the repo.\n' );
+
+}
 
 // --- the two framings this project actually uses ---------------------------------------------
 //
@@ -172,7 +214,7 @@ const shot = {
     // to rescale from the PORTRAIT preset to the BODY preset and call the difference "drift",
     // which conflates the mechanism under test (irradiance is re-solved when the shot changes
     // size) with the preset table (the two presets are allowed to disagree, and they now do —
-    // `FORM_LIGHT_OVERRIDES_BY_PRESET` authors the body fill at 1.20 against portrait's 1.90).
+    // `FORM_LIGHT_OVERRIDES_BY_PRESET` authors the body fill at 1.20 against portrait's 2.20).
     // Written the old way this check went red on a deliberate, measured art change while
     // remaining unable to say anything about the invariance it is named for.
     const scaleFactor = BODY_HEIGHT_METRES / PORTRAIT_HEIGHT_METRES;
@@ -595,10 +637,15 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
 //     cheaper than a gate that pretends to a generality it does not have.
 //   - Any point but this one. It is a horizontal receiver 2 m behind the focus, chosen because it
 //     is the middle of the visible floor band at body framing.
-//   - The SHADOW-CASTER half of the key. Only the `RectAreaLight` panels are summed. Measured
-//     both ways, adding the spot halves takes the shipped behind:front 2.0982 → 1.4575 and
-//     blue:red 2.8313 → 2.1683, so the panels-only model OVERSTATES the spill by 1.44× and 1.31×.
-//     That is the conservative direction, and every anchor above is panels-only.
+//   - The SHADOW-CASTER half of the key. Only the `RectAreaLight` panels are summed here, and
+//     every anchor above is panels-only. 🚩 **THAT EXCUSE USED TO BE A PARAGRAPH AND IT WAS
+//     WALKED PAST.** It read "adding the spot halves takes behind:front 2.0982 → 1.4575 and
+//     blue:red 2.8313 → 2.1683, so panels-only OVERSTATES the spill — the conservative
+//     direction." Every word of that is a claim about a rig whose CASTERS SHARE THEIR PANEL'S
+//     COLOUR, which nothing asserted. A verifier built the casters at `#0f30ff` and this file
+//     stayed 63/63 green while body-framing blue went 0.2881% → 12.0152% of the frame. The
+//     excuse is now a measured block of its own — see "the SHADOW-CASTER half" below, which
+//     gates the premise as well as the arithmetic.
 {
     const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
     const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
@@ -920,6 +967,453 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
             `both under their ceilings. Rendered: ${ variant.rendered }`
         );
 
+    }
+}
+
+console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum ------------------\n' );
+
+// 🎯 THE DEFECT THIS EXISTS FOR, and it is the same shape as the one above it one level down.
+//
+// The block above sums the four `RectAreaLight` panels and nothing else, and it excused the
+// omission with a quantitative claim: adding the spot halves LOWERS both clauses, so panels-only
+// is the conservative reading. The claim was true of the rig as built. It is not a property of
+// the rig — it is a property of a rig whose casters carry their panel's colour — and nothing
+// anywhere asserted that. An independent verifier built the key's `SpotLight` at the rim's own
+// `#0f30ff` and BOTH this file (63/63) and `GroundContact.selftest.mjs` (47/47) stayed green
+// while body-framing saturated blue went **0.2881% → 12.0152% of the frame**.
+//
+// 🚩 THE MODEL ERROR WAS EXCUSING A MISSING TERM WITH AN ARGUMENT INSTEAD OF A MEASUREMENT. The
+// argument was sound and its premise was ungated, which is §1.11a exactly — a justification that
+// cites a real measurement of a quantity that is not the one it is about. So there are now two
+// clauses here and they are NOT nested in either direction:
+//
+//   PREMISE       Every shadow caster carries EXACTLY its panel's colour. An equality, so it has
+//                 no threshold to walk around and no hue it is blind to. This is the sentence the
+//                 block above was assuming; assert it and the assumption stops being free.
+//
+//   CONSERVATISM  The caster-inclusive spill is measured every run and required to be no WORSE
+//                 than the panels-only spill on both clauses. That turns "panels-only overstates
+//                 the spill" from a paragraph into a number, so it fails the day the caster half
+//                 starts contributing in the other direction — with or without a colour change.
+//
+// ⚠️ THE CEILINGS STAY ON THE PANELS-ONLY MODEL, and that is a measurement rather than inertia.
+// Re-run for this round, the caster-inclusive model LOSES coverage on two rows the panels-only
+// model rejects: `AIM rim 75` goes behind:front 3.354 → 2.375 (under the 3.0 ceiling) and
+// `COLOUR #c4d0ff` goes blue:red 5.512 → 4.446 (under the 4.5 ceiling). Both are asserted below,
+// so a future "simplify the two models into one" edit goes red instead of quietly retiring two
+// known-bads.
+//
+// ⚠️ AND THE HEADER'S 1.4575 / 2.1683 CAME FROM A MODEL WITH NO CONE TERM. A `SpotLight`'s
+// contribution is `intensity × spotAttenuation × cos(receiver) / d²`, and three's
+// `getSpotAttenuation` is `smoothstep( cos(angle), cos(angle·(1−penumbra)), cos(θ) )` — with
+// `penumbra` 1 that is `smoothstep( cos(angle), 1, cos(θ) )`. Included, the shipped figures are
+// **1.4859 and 2.1973**; dropped, they are **1.4575 and 2.1683**, which is the pair on record to
+// four decimals. Recorded rather than reconciled away: the old numbers were an omni-light
+// reading of a cone, they are reproduced exactly by aiming the cone at the receiver, and the
+// cone-aware pair is what this block gates.
+{
+    const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
+    const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
+    const ENVIRONMENT_BEHIND_TO_FRONT_MAX = 3.0;
+    const ENVIRONMENT_BLUE_TO_RED_MAX = 4.5;
+
+    // Published by the block above, which measures the same two quantities on the panels alone.
+    // Re-asserted here so the third copy of this arithmetic cannot drift away from the other two.
+    const PANELS_ONLY_SHIPPED = { behindToFront: 2.0982, blueToRed: 2.8313 };
+
+    // 🎯 Published TO `GroundContact.selftest.mjs`, which sums the caster half into its own copy of
+    // the incident light and asserts this same figure. Two files, two copies, one number — the
+    // pattern the panels-only value already uses, extended to the half that was missing.
+    const CASTER_INCLUSIVE_SHIPPED_BLUE_TO_RED = 2.1973;
+
+    const bodyShot = {
+        focus: new Vector3( 0, 0.91, 0 ),
+        cameraPosition: new Vector3( 0.39, 0.91, 1.83 ),
+        subjectHeightMetres: 1.825
+    };
+
+    const smoothstep = ( edge0, edge1, x ) => {
+
+        const t = Math.min( 1, Math.max( 0, ( x - edge0 ) / ( edge1 - edge0 ) ) );
+        return t * t * ( 3 - 2 * t );
+
+    };
+
+    /**
+     * 🚩 THE DEFECT INJECTOR, and it goes through the REAL construction path.
+     *
+     * `LightingRig.buildUnit` is where a caster's colour is decided, so wrapping it is the same
+     * edit a patched implementation would make — the caster is built wrong, and then `solve()`,
+     * `aimAt()` and every rebuild run over it exactly as they would in the broken rig. Mutating
+     * `unit.shadowCaster.color` after the fact would leave the same object state today and would
+     * stop being faithful the moment `solve()` learned to touch colour.
+     *
+     * The prototype is restored in a `finally`, because a leaked patch would silently rewrite
+     * every check after this block.
+     */
+    function withCasterColour( hex, body ) {
+
+        const original = LightingRig.prototype.buildUnit;
+
+        LightingRig.prototype.buildUnit = function ( placement ) {
+
+            const unit = original.call( this, placement );
+
+            if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( hex );
+
+            return unit;
+
+        };
+
+        try {
+
+            return body();
+
+        } finally {
+
+            LightingRig.prototype.buildUnit = original;
+
+        }
+
+    }
+
+    function rigFor( overrides, options = {} ) {
+
+        const scene = new Scene();
+        const rig = new LightingRig( { preset: 'body', overrides, ...options } );
+
+        rig.attachTo( scene, null );
+        rig.aimAt( bodyShot );
+
+        return rig;
+
+    }
+
+    /**
+     * The spill at `FLOOR_POINT`, with the caster half included or not, read off the light
+     * objects the renderer will use rather than off the placement table they were built from.
+     *
+     * @param {boolean} withCasters - false reproduces the block above; true adds the spot halves.
+     * @param {boolean} [withCone=true] - false drops `getSpotAttenuation`, which is the omni model
+     *   the header's 1.4575 / 2.1683 came from. Kept so that pair can be reproduced rather than
+     *   contradicted.
+     */
+    function spillAtFloor( rig, withCasters, withCone = true ) {
+
+        const viewAxis = bodyShot.focus.clone().sub( bodyShot.cameraPosition ).normalize();
+
+        let behind = 0;
+        let inFront = 0;
+        const channels = [ 0, 0, 0 ];
+
+        const accumulate = ( position, irradiance, colour ) => {
+
+            if ( position.clone().sub( bodyShot.focus ).dot( viewAxis ) > 0 ) behind += irradiance;
+            else inFront += irradiance;
+
+            channels[ 0 ] += irradiance * colour.r;
+            channels[ 1 ] += irradiance * colour.g;
+            channels[ 2 ] += irradiance * colour.b;
+
+        };
+
+        for ( const unit of rig.units ) {
+
+            const panel = unit.area.position;
+            const aim = bodyShot.focus.clone().sub( panel ).normalize();
+            const toPoint = FLOOR_POINT.clone().sub( panel );
+            const distance = toPoint.length();
+            const direction = toPoint.clone().normalize();
+
+            const cosPanel = aim.dot( direction );
+            const cosReceiver = FLOOR_NORMAL.dot( direction.clone().negate() );
+
+            accumulate( panel, ( cosPanel <= 0 || cosReceiver <= 0 )
+                ? 0
+                : unit.area.intensity * unit.area.width * unit.area.height * cosPanel * cosReceiver / ( distance * distance ),
+            unit.area.color );
+
+            if ( withCasters === false || unit.shadowCaster === null ) continue;
+
+            // three's spot: `intensity × spotAttenuation × getDistanceAttenuation`, and with
+            // `distance` 0 and `decay` 2 the distance term is a plain inverse square. The axis is
+            // taken from the target's world position, so a caster aimed somewhere other than the
+            // subject is measured where it actually points.
+            const spot = unit.shadowCaster;
+            const axis = spot.target.position.clone().sub( spot.position ).normalize();
+            const toSpotPoint = FLOOR_POINT.clone().sub( spot.position );
+            const spotDistance = toSpotPoint.length();
+            const spotDirection = toSpotPoint.clone().normalize();
+
+            const attenuation = withCone
+                ? smoothstep( Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( spotDirection ) )
+                : 1;
+
+            const cosSpotReceiver = FLOOR_NORMAL.dot( spotDirection.clone().negate() );
+
+            accumulate( spot.position, cosSpotReceiver <= 0
+                ? 0
+                : spot.intensity * attenuation * cosSpotReceiver / ( spotDistance * spotDistance ),
+            spot.color );
+
+        }
+
+        return { behindToFront: behind / inFront, blueToRed: channels[ 2 ] / channels[ 0 ] };
+
+    }
+
+    /** Every unit whose caster does not carry its panel's colour, named. */
+    const casterColourDivergences = ( rig ) => rig.units
+        .filter( ( unit ) => unit.shadowCaster !== null )
+        .filter( ( unit ) => unit.shadowCaster.color.getHex() !== unit.area.color.getHex() )
+        .map( ( unit ) => `${ unit.placement.name }: panel #${ unit.area.color.getHexString() } ` +
+            `vs caster #${ unit.shadowCaster.color.getHexString() }` );
+
+    const shippedRig = rigFor( {} );
+    const shippedPanels = spillAtFloor( shippedRig, false );
+    const shippedFull = spillAtFloor( shippedRig, true );
+    const shippedFullNoCone = spillAtFloor( shippedRig, true, false );
+
+    // Instrument first, as everywhere else in this file: three copies of one calculation exist
+    // (here, the block above, and GroundContact.selftest.mjs) and none of them may drift.
+    report(
+        'this block reproduces the panels-only spill the block above gates',
+        closeTo( shippedPanels.behindToFront, PANELS_ONLY_SHIPPED.behindToFront, 0.0005 )
+            && closeTo( shippedPanels.blueToRed, PANELS_ONLY_SHIPPED.blueToRed, 0.0005 ),
+        `panels-only behind:front ${ shippedPanels.behindToFront.toFixed( 4 ) } and blue:red ` +
+        `${ shippedPanels.blueToRed.toFixed( 4 ) } here, against ${ PANELS_ONLY_SHIPPED.behindToFront.toFixed( 4 ) } ` +
+        `and ${ PANELS_ONLY_SHIPPED.blueToRed.toFixed( 4 ) } there. Same arithmetic, third copy.`
+    );
+
+    report(
+        'the two files agree on the CASTER-INCLUSIVE figure as well as the panels-only one',
+        closeTo( shippedFull.blueToRed, CASTER_INCLUSIVE_SHIPPED_BLUE_TO_RED, 0.0005 ),
+        `${ shippedFull.blueToRed.toFixed( 4 ) } here against ${ CASTER_INCLUSIVE_SHIPPED_BLUE_TO_RED.toFixed( 4 ) } ` +
+        'published to GroundContact.selftest.mjs, which multiplies it by the floor albedo. The panels-only ' +
+        'figure was already cross-checked; this is the half that was not.'
+    );
+
+    report(
+        'the header\'s 1.4575 / 2.1683 are reproduced by DROPPING the cone term, which is where they came from',
+        closeTo( shippedFullNoCone.behindToFront, 1.4575, 0.0005 ) && closeTo( shippedFullNoCone.blueToRed, 2.1683, 0.0005 ),
+        `omni model ${ shippedFullNoCone.behindToFront.toFixed( 4 ) } / ${ shippedFullNoCone.blueToRed.toFixed( 4 ) } ` +
+        `against the cone-aware ${ shippedFull.behindToFront.toFixed( 4 ) } / ${ shippedFull.blueToRed.toFixed( 4 ) }. ` +
+        'The pair on record is the omni reading of a light that has a cone; the cone-aware pair is what is gated below.'
+    );
+
+    // CLAUSE 1 — the premise the block above spends its whole excuse on.
+    {
+        const divergences = casterColourDivergences( shippedRig );
+
+        report(
+            'PREMISE: every shadow caster carries exactly its panel\'s colour',
+            divergences.length === 0,
+            divergences.length === 0
+                ? `${ shippedRig.units.filter( ( unit ) => unit.shadowCaster !== null ).length } caster(s), each the ` +
+                    'same hex as the panel it was split from. This is the sentence "panels-only is conservative" ' +
+                    'silently assumes, and it is an EQUALITY — no threshold to walk around, no hue it cannot see.'
+                : `DIVERGED: ${ divergences.join( '; ' ) } — every anchor in the block above is now a measurement ` +
+                    'of a rig whose colour is not the rig\'s colour'
+        );
+    }
+
+    // CLAUSE 2 — the excuse itself, measured rather than argued.
+    report(
+        'CONSERVATISM: adding the caster half lowers both clauses, so panels-only really is the conservative read',
+        shippedFull.behindToFront <= shippedPanels.behindToFront
+            && shippedFull.blueToRed <= shippedPanels.blueToRed,
+        `behind:front ${ shippedPanels.behindToFront.toFixed( 4 ) } -> ${ shippedFull.behindToFront.toFixed( 4 ) } ` +
+        `(${ ( shippedPanels.behindToFront / shippedFull.behindToFront ).toFixed( 2 ) }x overstated), blue:red ` +
+        `${ shippedPanels.blueToRed.toFixed( 4 ) } -> ${ shippedFull.blueToRed.toFixed( 4 ) } ` +
+        `(${ ( shippedPanels.blueToRed / shippedFull.blueToRed ).toFixed( 2 ) }x). If either arrow ever points the ` +
+        'other way the anchors above stop bounding anything and this goes red.'
+    );
+
+    // And the caster-inclusive spill has to clear the ceilings on its own, or "conservative" would
+    // be true of a rig that is over both of them anyway.
+    report(
+        'the caster-inclusive spill is under both ceilings too',
+        shippedFull.behindToFront < ENVIRONMENT_BEHIND_TO_FRONT_MAX && shippedFull.blueToRed < ENVIRONMENT_BLUE_TO_RED_MAX,
+        `behind:front ${ shippedFull.behindToFront.toFixed( 4 ) } / ${ ENVIRONMENT_BEHIND_TO_FRONT_MAX.toFixed( 1 ) }, ` +
+        `blue:red ${ shippedFull.blueToRed.toFixed( 4 ) } / ${ ENVIRONMENT_BLUE_TO_RED_MAX.toFixed( 1 ) }`
+    );
+
+    // 🚩 THE KNOWN-BADS, AND THEY ARE FOUR DIFFERENT MECHANISMS INSIDE ONE CLASS. The class is "a
+    // light-colour defect that reaches the frame through the caster half"; the first row is the
+    // one the verifier built, and the other three exist because a gate proved red only against
+    // the defect it was written from is decorative (rule 4 / LEARNINGS §1.25a).
+    //
+    // Read the `conservatism` column: it is GREEN on three of the four. A caster dimmed to a warm
+    // grey, or turned magenta, delivers LESS blue-per-red to this floor point than the panel it
+    // replaced, so the arithmetic clause is blind to it by construction and only the equality
+    // sees it. That is the whole argument for the premise clause existing, printed.
+    const casterKnownBad = [
+        {
+            what: 'the casters built at the rim\'s own #0f30ff — the defect this round found',
+            hex: 0x0f30ff,
+            rendered: 'body-framing saturated blue 0.2881% -> 12.0152% of the frame, with this file at 63/63'
+        },
+        {
+            what: 'LEVEL — the casters dimmed to #403830, a warm grey with blue still its LOWEST channel',
+            hex: 0x403830,
+            rendered: 'not captured. Same mechanism as the #403830 row above: it removes red rather than adding blue'
+        },
+        {
+            what: 'HUE — the casters turned magenta #ff30ff, which no blue predicate anywhere can see',
+            hex: 0xff30ff,
+            rendered: 'not captured. Magenta sits outside the 200-300 degree window every rendered anchor uses'
+        },
+        {
+            what: 'SUBTLE — the casters at #b0c0ff, the tint that reads as white in a swatch',
+            hex: 0xb0c0ff,
+            rendered: 'the panel-side version of this colour renders 57.37% of the frame blue'
+        }
+    ];
+
+    console.log( '      caster colour   premise   conservatism   full behind:front   full blue:red' );
+
+    for ( const variant of casterKnownBad ) {
+
+        const rig = withCasterColour( variant.hex, () => rigFor( {} ) );
+        const panels = spillAtFloor( rig, false );
+        const full = spillAtFloor( rig, true );
+
+        const premiseRed = casterColourDivergences( rig ).length > 0;
+        const conservatismRed = full.behindToFront > panels.behindToFront || full.blueToRed > panels.blueToRed;
+
+        console.log( `      #${ variant.hex.toString( 16 ).padStart( 6, '0' ) }         ` +
+            `${ ( premiseRed ? 'RED' : 'green' ).padEnd( 9 ) }${ ( conservatismRed ? 'RED' : 'green' ).padEnd( 15 ) }` +
+            `${ full.behindToFront.toFixed( 4 ).padStart( 17 ) }${ full.blueToRed.toFixed( 4 ).padStart( 16 ) }` );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            premiseRed || conservatismRed,
+            `rejected by ${ [ premiseRed ? 'PREMISE' : null, conservatismRed ? 'CONSERVATISM' : null ]
+                .filter( ( clause ) => clause !== null ).join( ' and ' ) || 'NOTHING' }. ` +
+            `Panels-only reads ${ panels.blueToRed.toFixed( 4 ) } — IDENTICAL to the shipped rig, because the ` +
+            `panels did not move. Rendered: ${ variant.rendered }`
+        );
+
+    }
+
+    // 🚩 NON-NESTED, ASSERTED IN BOTH DIRECTIONS, because two clauses where one implies the other
+    // are one clause and a decoration — the same assertion the block above makes about its own
+    // pair, and it had to be searched for here rather than assumed.
+    {
+        const rig = withCasterColour( 0x403830, () => rigFor( {} ) );
+        const panels = spillAtFloor( rig, false );
+        const full = spillAtFloor( rig, true );
+
+        report(
+            'PREMISE catches something CONSERVATISM cannot, at any ceiling',
+            casterColourDivergences( rig ).length > 0
+                && full.behindToFront <= panels.behindToFront && full.blueToRed <= panels.blueToRed,
+            `casters at #403830: the equality rejects it, while the caster half still LOWERS blue:red ` +
+            `${ panels.blueToRed.toFixed( 4 ) } -> ${ full.blueToRed.toFixed( 4 ) } — so the conservatism clause is ` +
+            'green and no ceiling on it could be brought down to help, because the number moved the safe way'
+        );
+    }
+
+    {
+        // The other direction, and it took a search to find: the caster half CAN out-deliver its
+        // panel at this receiver without any colour diverging. Give the two blue back lights most
+        // of their energy as casters and widen the cone, and their narrow, steeply-angled panels —
+        // which barely reach a floor point 2 m back — are replaced by spots that do. Colours match
+        // throughout, so the premise clause is green and only the measurement sees it.
+        //
+        // It is a CONSTRUCTED configuration rather than a plausible edit, and it is not over
+        // either ceiling: 0.951 against 4.5. That is the point. What it breaks is the EXCUSE — the
+        // moment the caster half raises a clause, the panels-only anchors stop bounding the truth,
+        // and the file has to say so rather than carry a paragraph that has quietly gone false.
+        const rig = rigFor(
+            { rim: { shadowFraction: 0.9 }, kicker: { shadowFraction: 0.9 } },
+            { shadowCoverageInHeights: 4 }
+        );
+        const panels = spillAtFloor( rig, false );
+        const full = spillAtFloor( rig, true );
+
+        report(
+            'CONSERVATISM catches something PREMISE cannot: the blue back lights moved into wide-coned casters',
+            casterColourDivergences( rig ).length === 0
+                && ( full.behindToFront > panels.behindToFront || full.blueToRed > panels.blueToRed ),
+            `rim and kicker at shadowFraction 0.9 with the cone at 4 heights: every caster still carries its ` +
+            `panel's colour, and the caster half RAISES blue:red ${ panels.blueToRed.toFixed( 4 ) } -> ` +
+            `${ full.blueToRed.toFixed( 4 ) } and behind:front ${ panels.behindToFront.toFixed( 4 ) } -> ` +
+            `${ full.behindToFront.toFixed( 4 ) }. Both are far under their ceilings; what has failed is the ` +
+            'claim that panels-only bounds them.'
+        );
+    }
+
+    // 🚩 WHY THE CEILINGS STAY ON THE PANELS-ONLY MODEL. Asserted rather than explained, so the
+    // obvious simplification — "there is one spill function now, use it everywhere" — goes red and
+    // reads this instead of retiring two known-bads on its way past.
+    for ( const variant of [
+        {
+            what: 'AIM — the rim raised to 75 degrees',
+            overrides: { rim: { elevationDegrees: 75 } },
+            clause: 'behindToFront',
+            ceiling: ENVIRONMENT_BEHIND_TO_FRONT_MAX
+        },
+        {
+            what: 'COLOUR — key and fill at #c4d0ff, one step short of the knee',
+            overrides: { key: { colour: 0xc4d0ff }, fill: { colour: 0xc4d0ff } },
+            clause: 'blueToRed',
+            ceiling: ENVIRONMENT_BLUE_TO_RED_MAX
+        }
+    ] ) {
+
+        const rig = rigFor( variant.overrides );
+        const panels = spillAtFloor( rig, false );
+        const full = spillAtFloor( rig, true );
+
+        report(
+            `THE PANELS-ONLY CEILINGS ARE LOAD-BEARING: ${ variant.what } is rejected there and NOT here`,
+            panels[ variant.clause ] >= variant.ceiling && full[ variant.clause ] < variant.ceiling,
+            `${ variant.clause } panels-only ${ panels[ variant.clause ].toFixed( 3 ) } (rejected) -> ` +
+            `caster-inclusive ${ full[ variant.clause ].toFixed( 3 ) } (under the ${ variant.ceiling } ceiling). ` +
+            'Moving the ceilings onto the caster-inclusive model would lose this row, so the two models are ' +
+            'both kept and this check is what stops them being merged.'
+        );
+
+    }
+
+    // MUST STILL PASS, on the new clauses, or a clean rig would be rejected by the fix.
+    for ( const variant of [
+        { what: 'key and fill at neutral white', overrides: { key: { colour: 0xffffff }, fill: { colour: 0xffffff } } },
+        { what: 'key and fill at the daylight tint #e8ecff', overrides: { key: { colour: 0xe8ecff }, fill: { colour: 0xe8ecff } } },
+        { what: 'shadows switched off entirely, so there is no caster to compare', overrides: {}, options: { shadows: false } },
+        { what: 'the key\'s shadow fraction at zero', overrides: { key: { shadowFraction: 0 } } }
+    ] ) {
+
+        const rig = rigFor( variant.overrides, variant.options ?? {} );
+        const panels = spillAtFloor( rig, false );
+        const full = spillAtFloor( rig, true );
+
+        report(
+            `MUST PASS: ${ variant.what }`,
+            casterColourDivergences( rig ).length === 0
+                && full.behindToFront <= panels.behindToFront + 1e-12
+                && full.blueToRed <= panels.blueToRed + 1e-12,
+            `no colour divergence; caster half takes behind:front ${ panels.behindToFront.toFixed( 4 ) } -> ` +
+            `${ full.behindToFront.toFixed( 4 ) } and blue:red ${ panels.blueToRed.toFixed( 4 ) } -> ` +
+            `${ full.blueToRed.toFixed( 4 ) }`
+        );
+
+    }
+
+    // The injector has to be shown to restore what it patched, or every check after this block is
+    // being run against a rig this one broke. Same shape as the fingerprint drift check in
+    // alive-toggles.selftest.mjs: establish the instrument before believing anything it says.
+    {
+        const after = rigFor( {} );
+
+        report(
+            'the defect injector leaves LightingRig.prototype.buildUnit exactly as it found it',
+            casterColourDivergences( after ).length === 0
+                && closeTo( spillAtFloor( after, true ).blueToRed, shippedFull.blueToRed, 1e-12 ),
+            `a rig built after the four injections reads blue:red ${ spillAtFloor( after, true ).blueToRed.toFixed( 6 ) } ` +
+            `against the ${ shippedFull.blueToRed.toFixed( 6 ) } measured before them, with no colour divergence`
+        );
     }
 }
 
