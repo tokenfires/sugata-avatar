@@ -27,6 +27,16 @@
  * compares the kept triangles as a SET of centroids against the baked build, so a mask that
  * flagged the wrong vertices in the right quantity cannot pass.
  *
+ * ⚠️ **That sentence stood alone for a round and it was not enough, because a centroid is a MEAN
+ * and a mean is invariant under the permutation that matters.** Reversing the winding of every
+ * triangle this class rebuilds left the count identical, the centroid multiset identical, and all
+ * 35 of the gate's assertions green — on a body that does not render, since `Human.body` is
+ * `doubleSided: false` and a back-facing triangle is culled. The gate now also compares the kept
+ * triangles as ORIENTED CORNER TRIPLES (position + UV, canonicalised over rotations only), and
+ * asserts intrinsically that every kept triangle's geometric normal agrees with its shading
+ * normal — in BOTH regimes, because the restore branch below has no baked artefact to be compared
+ * against and a defect there is visible to nothing else.
+ *
  * ## Why fragments, and why atomically
  *
  * Garments arrive as their own small GLBs, fetched on demand. Research §3.5 chose that over one
@@ -352,6 +362,13 @@ export class Wardrobe {
      * The index array is edited in place and the tail is cut off with `drawRange` rather than
      * reallocated: same GPU buffer, one upload, and the full triangle list is still there to
      * restore from when the garment comes off.
+     *
+     * 🚩 **THE ORDER `a, b, c` IS LOAD-BEARING IN BOTH BRANCHES BELOW.** The body is backface
+     * culled, so a triangle written the other way round is not drawn — and reordering an index
+     * buffer is exactly the shape a plausible cache-locality "optimisation" takes. Two of them
+     * were tried against this file: a full reversal, and a canonicalisation putting the lowest
+     * index first, which reverses 6,897 of 21,380 triangles. Both leave the count and the centroid
+     * multiset untouched. `wardrobe.selftest.mjs` catches both; nothing else in the repo does.
      */
     #rebuildBodyIndex( hideMaskNames ) {
 

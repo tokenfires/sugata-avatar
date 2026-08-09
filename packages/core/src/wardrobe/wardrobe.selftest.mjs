@@ -22,12 +22,27 @@
  * green on it while the centroid clause reads red. That is the difference between a gate and a
  * decoration.
  *
- * The three ways the rebuild is broken, all in the same defect class — "the runtime body does not
+ * 🚩 **AND A CENTROID IS A WEAK IDENTITY IN EXACTLY THE SAME WAY, WHICH THIS FILE MISSED FOR A
+ * ROUND.** A centroid is the MEAN of three vertices, so it is invariant under every permutation of
+ * them — including the one that matters. Reverse the winding of every rebuilt triangle and the
+ * count is unchanged, the centroid multiset is unchanged, and all 35 of the assertions this file
+ * used to make read green on a body that renders inside out: `Human.body` is `doubleSided: false`,
+ * measured off the GLB and re-measured here as `material.side === FrontSide`, so a back-facing
+ * triangle is not drawn at all. **A triangle is an ORDERED TRIPLE OF VERTICES, and modelling it as
+ * a point discards the one property backface culling reads.** Clauses 5 and 6 below key on the
+ * ordered triple instead, canonicalised over rotations only — a rotation is three ways of writing
+ * the same oriented triangle, a reflection is the defect.
+ *
+ * The five ways the rebuild is broken, all in the same defect class — "the runtime body does not
  * match the baked body":
  *
  *   1. the hide masks are absent    (`export_attributes` off — the exporter's silent default)
  *   2. the keep rule is inverted    (drop a triangle only when ALL THREE vertices are hidden)
  *   3. the mask flags the wrong vertices, in the right quantity, to the same triangle count
+ *   4. the winding is reversed      (invisible to count AND centroid; the body is backface culled)
+ *   5. a corner is swapped for its UV-SEAM TWIN — same position, same normal, different UV, so it
+ *      is invisible to count, to centroid, AND to the facing clause that catches 4. It is the
+ *      second mechanism inside 4's own class, and only the ordered-corner clause sees it.
  *
  * And the manifest gate (9.1) is proven red three ways too: a duplicate layer NAME, two distinct
  * layer names at the same ORDER — which a name-uniqueness check cannot see — and an outfit whose
@@ -46,6 +61,7 @@ globalThis.self ??= globalThis;
 globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {} } );
 
 const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
+const { FrontSide } = await import( 'three' );
 const { Figure } = await import( '../figure/Figure.js' );
 const { GarmentManifest, validateManifest } = await import( './GarmentManifest.js' );
 const { Wardrobe } = await import( './Wardrobe.js' );
@@ -67,6 +83,26 @@ const EXPECTED_TRIANGLES = { nude: 26756, suit: 21380, suitAndShoes: 17012 };
 // expected to agree exactly; 1 µm is four orders below the 9.19 mm poke-through the fit gate
 // works in, and exists so a float that has been through a file does not fail on its last bit.
 const CENTROID_TOLERANCE_M = 1e-6;
+
+// The same argument for the UV half of a corner key. UVs are unitless in [0,1] over a 4096² atlas,
+// so 1e-6 is a quarter of a texel and cannot merge two distinct seam corners: the closest pair
+// measured on this body is 0.107 apart in u.
+const UV_TOLERANCE = 1e-6;
+
+/**
+ * How far a kept vertex's normal may drift from the baked build's OFF THE MASK CUT.
+ *
+ * ⚠️ This is the one place the runtime rebuild and the bake are ENTITLED to disagree, and it is
+ * bounded here rather than left as folklore. Blender recomputes vertex normals along the boundary
+ * the MASK modifier cuts, so the baked body's normals are genuinely different there — measured on
+ * `suit_g050.glb`: of 11,779 kept vertices, the 127 that lie on the cut diverge by up to
+ * **16.365°**, while every vertex off the cut agrees to within **0.0316°**. A 518× separation.
+ *
+ * That is why the corner key below is POSITION + UV and NOT normal: adding the normal would make
+ * the comparative clause fail on 244 correct triangles. Recorded as a gate so the next reader who
+ * reaches for "surely the normal belongs in the key too" is stopped by a measurement.
+ */
+const OFF_CUT_NORMAL_TOLERANCE_DEG = 0.1;
 
 const results = [];
 
@@ -159,6 +195,124 @@ function centroidKeys( geometry, indexArray, indexCount ) {
 
 }
 
+/**
+ * One corner of a triangle, keyed on POSITION and UV — everything about a vertex that the drawn
+ * pixel depends on and that survives the bake unchanged.
+ *
+ * The normal is deliberately absent; see `OFF_CUT_NORMAL_TOLERANCE_DEG`.
+ */
+function cornerKey( geometry, vertex ) {
+
+    const positions = geometry.attributes.position;
+    const uvs = geometry.attributes.uv;
+    const positionScale = 1 / CENTROID_TOLERANCE_M;
+    const uvScale = 1 / UV_TOLERANCE;
+
+    return `${ Math.round( positions.getX( vertex ) * positionScale ) },` +
+        `${ Math.round( positions.getY( vertex ) * positionScale ) },` +
+        `${ Math.round( positions.getZ( vertex ) * positionScale ) }:` +
+        `${ Math.round( uvs.getX( vertex ) * uvScale ) },${ Math.round( uvs.getY( vertex ) * uvScale ) }`;
+
+}
+
+/**
+ * The kept triangles as a sorted array of ORIENTED corner keys — the identity a centroid is not.
+ *
+ * 🚩 This exists because the centroid multiset above is invariant under winding, and the body is
+ * backface culled. Keyed on the ordered triple and canonicalised over ROTATIONS ONLY: `(a,b,c)`,
+ * `(b,c,a)` and `(c,a,b)` are three spellings of one oriented triangle and must compare equal,
+ * while `(c,b,a)` is the defect and must not.
+ *
+ * Strictly stronger than `centroidKeys` — it separates every pair the centroid separates, plus
+ * winding, plus a corner swapped for a vertex at the same position with a different UV. Both
+ * extra powers are proven red below.
+ */
+function orientedKeys( geometry, indexArray, indexCount ) {
+
+    const keys = new Array( indexCount / 3 );
+
+    for ( let triangle = 0; triangle < indexCount / 3; triangle += 1 ) {
+
+        const first = cornerKey( geometry, indexArray[ triangle * 3 ] );
+        const second = cornerKey( geometry, indexArray[ triangle * 3 + 1 ] );
+        const third = cornerKey( geometry, indexArray[ triangle * 3 + 2 ] );
+
+        const rotations = [
+            `${ first }/${ second }/${ third }`,
+            `${ second }/${ third }/${ first }`,
+            `${ third }/${ first }/${ second }`
+        ];
+
+        keys[ triangle ] = rotations.sort()[ 0 ];
+
+    }
+
+    return keys.sort();
+
+}
+
+/**
+ * How many kept triangles face INWARD, and by how much — an INTRINSIC check that needs no bake.
+ *
+ * A triangle's geometric normal is the cross product of its edges, which is the quantity the
+ * rasteriser's facing test is computed from. Its shading normal comes off the NORMAL attribute,
+ * which a winding change does not touch. On a closed, consistently wound surface the two agree in
+ * sign everywhere; reverse the winding and every one of them flips.
+ *
+ * This is the §1.11 move — a structurally different assertion rather than a tightened threshold.
+ * It is also the only clause here stated in the units of the defect: `Human.body` is single-sided,
+ * so "faces inward" means "is not drawn".
+ */
+function facingAgainstShadingNormals( geometry, indexArray, indexCount ) {
+
+    const positions = geometry.attributes.position;
+    const normals = geometry.attributes.normal;
+
+    let inward = 0;
+    let degenerate = 0;
+    let worstDot = Infinity;
+
+    for ( let offset = 0; offset < indexCount; offset += 3 ) {
+
+        const a = indexArray[ offset ];
+        const b = indexArray[ offset + 1 ];
+        const c = indexArray[ offset + 2 ];
+
+        const edge1X = positions.getX( b ) - positions.getX( a );
+        const edge1Y = positions.getY( b ) - positions.getY( a );
+        const edge1Z = positions.getZ( b ) - positions.getZ( a );
+        const edge2X = positions.getX( c ) - positions.getX( a );
+        const edge2Y = positions.getY( c ) - positions.getY( a );
+        const edge2Z = positions.getZ( c ) - positions.getZ( a );
+
+        const faceX = edge1Y * edge2Z - edge1Z * edge2Y;
+        const faceY = edge1Z * edge2X - edge1X * edge2Z;
+        const faceZ = edge1X * edge2Y - edge1Y * edge2X;
+        const faceLength = Math.hypot( faceX, faceY, faceZ );
+
+        if ( faceLength === 0 ) {
+
+            degenerate += 1;
+            continue;
+
+        }
+
+        const shadeX = ( normals.getX( a ) + normals.getX( b ) + normals.getX( c ) ) / 3;
+        const shadeY = ( normals.getY( a ) + normals.getY( b ) + normals.getY( c ) ) / 3;
+        const shadeZ = ( normals.getZ( a ) + normals.getZ( b ) + normals.getZ( c ) ) / 3;
+        const shadeLength = Math.hypot( shadeX, shadeY, shadeZ );
+
+        const dot = ( faceX * shadeX + faceY * shadeY + faceZ * shadeZ ) / ( faceLength * shadeLength );
+
+        if ( dot <= 0 ) inward += 1;
+        if ( dot < worstDot ) worstDot = dot;
+
+    }
+
+    return { inward, degenerate, worstDot, total: indexCount / 3 };
+
+}
+
 /** How many triangles are in one list and not the other, counted both ways. */
 function multisetDifference( first, second ) {
 
@@ -192,6 +346,102 @@ function bakedKeptOf( gltf ) {
 
     const body = bodyMeshOf( gltf );
     return centroidKeys( body.geometry, body.geometry.index.array, body.geometry.index.count );
+
+}
+
+/** The rebuilt index as a plain array, cut at drawRange — what the GPU would actually be given. */
+function keptIndexOf( wardrobe ) {
+
+    const geometry = wardrobe.body.geometry;
+    return Array.from( geometry.index.array.slice( 0, geometry.drawRange.count ) );
+
+}
+
+function orientedOf( wardrobe ) {
+
+    const geometry = wardrobe.body.geometry;
+    return orientedKeys( geometry, geometry.index.array, geometry.drawRange.count );
+
+}
+
+function bakedOrientedOf( gltf ) {
+
+    const body = bodyMeshOf( gltf );
+    return orientedKeys( body.geometry, body.geometry.index.array, body.geometry.index.count );
+
+}
+
+/**
+ * Where the runtime rebuild and the bake are allowed to differ, measured rather than assumed.
+ *
+ * Matches every kept runtime vertex to a baked vertex by position + UV, then splits the normal
+ * disagreement into vertices ON the mask cut (a triangle of theirs was dropped) and OFF it.
+ */
+function normalDivergenceAgainstBake( wardrobe, bakedGeometry ) {
+
+    const geometry = wardrobe.body.geometry;
+    const kept = keptIndexOf( wardrobe );
+    const keptVertexSet = new Set( kept );
+
+    // A full-index triangle that is not in the kept list was dropped; every kept vertex it touches
+    // sits on the cut Blender re-normalled around.
+    const keptTriangles = new Set();
+    for ( let offset = 0; offset < kept.length; offset += 3 ) {
+
+        keptTriangles.add( `${ kept[ offset ] },${ kept[ offset + 1 ] },${ kept[ offset + 2 ] }` );
+
+    }
+
+    const onCut = new Set();
+    const full = wardrobe.fullIndex;
+    for ( let offset = 0; offset < full.length; offset += 3 ) {
+
+        if ( keptTriangles.has( `${ full[ offset ] },${ full[ offset + 1 ] },${ full[ offset + 2 ] }` ) ) continue;
+
+        for ( let corner = 0; corner < 3; corner += 1 ) {
+
+            if ( keptVertexSet.has( full[ offset + corner ] ) ) onCut.add( full[ offset + corner ] );
+
+        }
+
+    }
+
+    const bakedByCorner = new Map();
+    for ( let vertex = 0; vertex < bakedGeometry.attributes.position.count; vertex += 1 ) {
+
+        bakedByCorner.set( cornerKey( bakedGeometry, vertex ), vertex );
+
+    }
+
+    const runtimeNormals = geometry.attributes.normal;
+    const bakedNormals = bakedGeometry.attributes.normal;
+
+    let unmatched = 0;
+    let onCutWorstDeg = 0;
+    let offCutWorstDeg = 0;
+
+    for ( const vertex of keptVertexSet ) {
+
+        const bakedVertex = bakedByCorner.get( cornerKey( geometry, vertex ) );
+
+        if ( bakedVertex === undefined ) {
+
+            unmatched += 1;
+            continue;
+
+        }
+
+        const dot = runtimeNormals.getX( vertex ) * bakedNormals.getX( bakedVertex ) +
+            runtimeNormals.getY( vertex ) * bakedNormals.getY( bakedVertex ) +
+            runtimeNormals.getZ( vertex ) * bakedNormals.getZ( bakedVertex );
+        const degrees = Math.acos( Math.min( 1, Math.max( -1, dot ) ) ) * 180 / Math.PI;
+
+        if ( onCut.has( vertex ) ) onCutWorstDeg = Math.max( onCutWorstDeg, degrees );
+        else offCutWorstDeg = Math.max( offCutWorstDeg, degrees );
+
+    }
+
+    return { keptVertices: keptVertexSet.size, onCut: onCut.size, unmatched, onCutWorstDeg, offCutWorstDeg };
 
 }
 
@@ -287,6 +537,14 @@ async function checkRebuild( manifest ) {
         `the whole body is ${ EXPECTED_TRIANGLES.nude } triangles`,
         `${ wardrobe.fullTriangleCount }` );
 
+    // 🚩 THE FACT THAT MAKES WINDING LOAD-BEARING, measured rather than assumed. `Human.body` is
+    // `doubleSided: false` in the GLB, so three gives it FrontSide and a back-facing triangle is
+    // not drawn. If the pipeline ever ships a double-sided body this clause goes red, and the two
+    // orientation clauses below become advisory instead of silently pointless.
+    record( wardrobe.body.material.side === FrontSide,
+        'the body is BACKFACE CULLED, so triangle winding decides whether it renders at all',
+        `material.side = ${ wardrobe.body.material.side } (THREE.FrontSide = ${ FrontSide })` );
+
     const bakedSuitShoes = await loadGltf( BAKED_SUIT_SHOES_PATH );
     const bakedSuit = await loadGltf( BAKED_SUIT_PATH );
 
@@ -307,6 +565,14 @@ async function checkRebuild( manifest ) {
         `${ suitShoesDifference.onlyInFirst } only in the rebuild, ` +
         `${ suitShoesDifference.onlyInSecond } only in the bake` );
 
+    // 🎯 The clause the centroid multiset above cannot make. Same triangles, and the same way round.
+    const suitShoesOriented = multisetDifference(
+        orientedOf( wardrobe ), bakedOrientedOf( bakedSuitShoes ) );
+    record( suitShoesOriented.identical,
+        'suit + shoes: the rebuilt triangles equal the baked ones AS ORIENTED CORNER TRIPLES',
+        `${ EXPECTED_TRIANGLES.suitAndShoes } triangles, ${ suitShoesOriented.onlyInFirst } ` +
+        'differing in winding, vertex or UV' );
+
     // --- suit alone ---
     await wardrobe.dress( [ 'female_casualsuit01' ] );
     const runtimeSuit = keptOf( wardrobe );
@@ -320,7 +586,41 @@ async function checkRebuild( manifest ) {
     record( multisetDifference( runtimeSuit, bakedSuitKept ).identical,
         'suit alone: the rebuilt triangle SET equals the baked one' );
 
-    return { figure, wardrobe, bakedSuitKept, runtimeSuit };
+    const bakedSuitOriented = bakedOrientedOf( bakedSuit );
+    const suitOriented = multisetDifference( orientedOf( wardrobe ), bakedSuitOriented );
+    record( suitOriented.identical,
+        'suit alone: the rebuilt triangles equal the baked ones AS ORIENTED CORNER TRIPLES',
+        `${ EXPECTED_TRIANGLES.suit } triangles, ${ suitOriented.onlyInFirst } differing` );
+
+    // The intrinsic clause, needing no bake at all: every triangle the rebuild keeps faces outward.
+    // Stated on both regimes, because the dressed body is the rebuild's output and the nude body is
+    // the restore path — a winding defect could live in either branch of `#rebuildBodyIndex`.
+    const dressedFacing = facingAgainstShadingNormals(
+        wardrobe.body.geometry, wardrobe.body.geometry.index.array, wardrobe.body.geometry.drawRange.count );
+
+    await wardrobe.undress();
+    const nudeFacing = facingAgainstShadingNormals(
+        wardrobe.body.geometry, wardrobe.body.geometry.index.array, wardrobe.body.geometry.drawRange.count );
+
+    record( dressedFacing.inward === 0 && nudeFacing.inward === 0 &&
+            dressedFacing.degenerate === 0 && nudeFacing.degenerate === 0,
+        'every kept triangle FACES OUTWARD — geometric normal agrees with the shading normal',
+        `dressed ${ dressedFacing.inward }/${ dressedFacing.total } inward (worst dot ` +
+        `${ dressedFacing.worstDot.toFixed( 6 ) }), nude ${ nudeFacing.inward }/${ nudeFacing.total } ` +
+        `(worst dot ${ nudeFacing.worstDot.toFixed( 6 ) }), 0 degenerate` );
+
+    // ⚠️ And what the comparative identity is NOT entitled to claim. See OFF_CUT_NORMAL_TOLERANCE_DEG.
+    await wardrobe.dress( [ 'female_casualsuit01' ] );
+    const divergence = normalDivergenceAgainstBake( wardrobe, bodyMeshOf( bakedSuit ).geometry );
+
+    record( divergence.unmatched === 0 && divergence.offCutWorstDeg < OFF_CUT_NORMAL_TOLERANCE_DEG,
+        'the runtime and baked vertices correspond 1:1, and their normals differ only ON the cut',
+        `${ divergence.keptVertices } kept vertices, ${ divergence.unmatched } unmatched; ` +
+        `${ divergence.onCut } on the cut diverge up to ${ divergence.onCutWorstDeg.toFixed( 3 ) }°, ` +
+        `off the cut ${ divergence.offCutWorstDeg.toFixed( 4 ) }° — which is why the corner key is ` +
+        'position + UV and NOT normal' );
+
+    return { figure, wardrobe, bakedSuitKept, bakedSuitOriented, runtimeSuit };
 
 }
 
@@ -501,6 +801,166 @@ function findCountPreservingCorruption( body, maskName ) {
 
 }
 
+// --- 9.2 red: two mechanisms a CENTROID cannot see -------------------------------------------------
+
+/**
+ * 🚩 THE SECTION THAT EXISTS BECAUSE THE FILE ABOVE USED TO PASS ON A BODY THAT DOES NOT RENDER.
+ *
+ * Both breaks below leave the triangle COUNT and the triangle CENTROID MULTISET exactly as the
+ * correct rebuild leaves them, so every clause this file made before them reads green on both. Each
+ * one records that fact as an assertion rather than a remark — a gate that cannot see a defect
+ * should have to say so out loud.
+ */
+async function checkWindingRed( wardrobe, bakedSuitKept, bakedSuitOriented ) {
+
+    console.log( '' );
+    console.log( '--- 9.2 RED: winding and seam twins, both invisible to count and centroid ---' );
+
+    await wardrobe.dress( [ 'female_casualsuit01' ] );
+
+    const geometry = wardrobe.body.geometry;
+    const kept = keptIndexOf( wardrobe );
+
+    // 🚩 RED 4 — THE REPORTED DEFECT. Reverse the winding of every rebuilt triangle: one character
+    // in `#rebuildBodyIndex`, `target[written] = c ... = a`. The body is backface culled, so this
+    // is a figure that vanishes when it is dressed.
+    const reversed = [];
+    for ( let offset = 0; offset < kept.length; offset += 3 ) {
+
+        reversed.push( kept[ offset + 2 ], kept[ offset + 1 ], kept[ offset ] );
+
+    }
+
+    const reversedCentroids = centroidKeys( geometry, reversed, reversed.length );
+
+    record( reversed.length / 3 === bakedSuitKept.length &&
+            multisetDifference( reversedCentroids, bakedSuitKept ).identical,
+        'RED 4: reversed winding — the COUNT and CENTROID clauses both read GREEN on it',
+        `${ reversed.length / 3 } triangles, centroid multiset identical to the bake; this is why ` +
+        'those two clauses alone were a decoration' );
+
+    const reversedOriented = multisetDifference(
+        orientedKeys( geometry, reversed, reversed.length ), bakedSuitOriented );
+
+    record( reversedOriented.onlyInFirst === reversed.length / 3,
+        'RED 4: the ORIENTED CORNER clause catches it — every triangle, not a sample',
+        `${ reversedOriented.onlyInFirst } of ${ reversed.length / 3 } triangles differ from the bake` );
+
+    const reversedFacing = facingAgainstShadingNormals( geometry, reversed, reversed.length );
+
+    record( reversedFacing.inward === reversedFacing.total,
+        'RED 4: and the intrinsic FACING clause catches it independently, with no bake to compare to',
+        `${ reversedFacing.inward }/${ reversedFacing.total } triangles face inward, worst dot ` +
+        `${ reversedFacing.worstDot.toFixed( 6 ) } against ${ '+0.263262' } when correct` );
+
+    // 🚩 RED 5 — A DIFFERENT MECHANISM IN THE SAME CLASS, and the reason RED 4's facing clause is
+    // not enough on its own. Swap one corner for its UV-SEAM TWIN: the body has 1,122 pairs of
+    // vertices at an identical position with an identical normal and a different UV, because that
+    // is what a UV seam is. Substituting one for the other moves nothing and re-textures three
+    // triangles from a different island — 0.107 in u and 0.434 in v away, a third of the atlas.
+    //
+    // Invisible to the count, invisible to the centroid, and invisible to the facing clause, which
+    // reads positions and normals and sees neither change. Only the corner key carries UV.
+    const twin = findSeamTwinSubstitution( geometry, kept );
+
+    if ( twin === null ) {
+
+        skip( 'RED 5: a UV-seam twin substitution', 'no twin pair found among the kept vertices' );
+        return;
+
+    }
+
+    const twinCentroids = centroidKeys( geometry, twin.index, twin.index.length );
+    const twinFacing = facingAgainstShadingNormals( geometry, twin.index, twin.index.length );
+    const correctFacing = facingAgainstShadingNormals( geometry, kept, kept.length );
+
+    record( twin.index.length / 3 === bakedSuitKept.length &&
+            multisetDifference( twinCentroids, bakedSuitKept ).identical &&
+            twinFacing.inward === 0 && twinFacing.worstDot === correctFacing.worstDot,
+        'RED 5: a UV-seam twin — COUNT, CENTROID and FACING all read GREEN on it',
+        `${ twin.index.length / 3 } triangles, centroid multiset identical, facing worst dot ` +
+        `${ twinFacing.worstDot.toFixed( 6 ) } byte-identical to the correct rebuild's` );
+
+    const twinOriented = multisetDifference(
+        orientedKeys( geometry, twin.index, twin.index.length ), bakedSuitOriented );
+
+    record( twinOriented.onlyInFirst === twin.touched,
+        'RED 5: only the ORIENTED CORNER clause catches it, because only its key carries UV',
+        `corner ${ twin.from } -> its twin ${ twin.to } (same position, same normal, UV ` +
+        `${ twin.uvDistance.toFixed( 4 ) } away); ${ twinOriented.onlyInFirst } of ` +
+        `${ twin.touched } touched triangles differ from the bake` );
+
+}
+
+/**
+ * One kept vertex and a twin of it: same position, same normal, a different UV.
+ *
+ * Returns the substituted index array and how many triangles it touched. The point of the pair is
+ * that every quantity the other clauses measure is preserved exactly.
+ */
+function findSeamTwinSubstitution( geometry, keptIndex ) {
+
+    const positions = geometry.attributes.position;
+    const normals = geometry.attributes.normal;
+    const uvs = geometry.attributes.uv;
+    const scale = 1 / CENTROID_TOLERANCE_M;
+
+    const byPosition = new Map();
+    for ( let vertex = 0; vertex < positions.count; vertex += 1 ) {
+
+        const key = `${ Math.round( positions.getX( vertex ) * scale ) },` +
+            `${ Math.round( positions.getY( vertex ) * scale ) },` +
+            `${ Math.round( positions.getZ( vertex ) * scale ) }`;
+
+        if ( byPosition.has( key ) ) byPosition.get( key ).push( vertex );
+        else byPosition.set( key, [ vertex ] );
+
+    }
+
+    const kept = new Set( keptIndex );
+
+    for ( const group of byPosition.values() ) {
+
+        if ( group.length !== 2 ) continue;
+
+        const [ from, to ] = group;
+        if ( kept.has( from ) === false ) continue;
+
+        const sameNormal = Math.abs( normals.getX( from ) - normals.getX( to ) ) < 1e-7 &&
+            Math.abs( normals.getY( from ) - normals.getY( to ) ) < 1e-7 &&
+            Math.abs( normals.getZ( from ) - normals.getZ( to ) ) < 1e-7;
+
+        const uvDistance = Math.hypot( uvs.getX( from ) - uvs.getX( to ), uvs.getY( from ) - uvs.getY( to ) );
+
+        if ( sameNormal === false || uvDistance < UV_TOLERANCE ) continue;
+
+        const index = keptIndex.slice();
+        let touched = 0;
+
+        for ( let offset = 0; offset < index.length; offset += 3 ) {
+
+            let hit = false;
+
+            for ( let corner = 0; corner < 3; corner += 1 ) {
+
+                if ( index[ offset + corner ] !== from ) continue;
+                index[ offset + corner ] = to;
+                hit = true;
+
+            }
+
+            if ( hit ) touched += 1;
+
+        }
+
+        return { from, to, touched, uvDistance, index };
+
+    }
+
+    return null;
+
+}
+
 // --- 9.3: dress, undress, dress again ----------------------------------------------------------
 
 async function checkDressCycle( wardrobe ) {
@@ -647,8 +1107,9 @@ if ( missing.length > 0 ) {
 const manifestSource = JSON.parse( fs.readFileSync( MANIFEST_PATH, 'utf8' ) );
 const manifest = checkManifest( manifestSource );
 
-const { wardrobe, bakedSuitKept } = await checkRebuild( manifest );
+const { wardrobe, bakedSuitKept, bakedSuitOriented } = await checkRebuild( manifest );
 await checkRebuildRed( manifest, bakedSuitKept );
+await checkWindingRed( wardrobe, bakedSuitKept, bakedSuitOriented );
 await checkDressCycle( wardrobe );
 await checkDecencyHook( manifest );
 
