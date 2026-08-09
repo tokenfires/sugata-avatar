@@ -251,9 +251,9 @@ const POSTURAL_CLIP_SECONDS = 420;
  * even if the reviewer only watches the first minute. 20260807 is `alive.js`'s own default seed.
  */
 const POSTURAL_JUDGEMENT_SEEDS = [
-  { seed: 4242, direction: 'left', onsetSeconds: 19.0, peakPixels: -33.8 },
-  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 30.2 },
-  { seed: 20260807, direction: 'left', onsetSeconds: 232.2, peakPixels: -17.8 },
+  { seed: 4242, direction: 'left', onsetSeconds: 19.0, peakPixels: -35.6 },
+  { seed: 42, direction: 'right', onsetSeconds: 297.0, peakPixels: 31.9 },
+  { seed: 20260807, direction: 'left', onsetSeconds: 232.1, peakPixels: -18.7 },
 ];
 
 /**
@@ -262,9 +262,9 @@ const POSTURAL_JUDGEMENT_SEEDS = [
  * because it is the seed this whole block was written for.
  */
 const POSTURAL_EMPTY_SEEDS = [
-  { seed: 1, firstTransferSeconds: 483.0 },
-  { seed: 7, firstTransferSeconds: 689.6 },
-  { seed: 777, firstTransferSeconds: 968.6 },
+  { seed: 1, firstTransferSeconds: 482.9 },
+  { seed: 7, firstTransferSeconds: 689.5 },
+  { seed: 777, firstTransferSeconds: 968.5 },
   { seed: 31337, firstTransferSeconds: 411.1 },
   { seed: 99999989, firstTransferSeconds: 781.3 },
 ];
