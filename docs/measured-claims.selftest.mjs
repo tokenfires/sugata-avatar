@@ -195,9 +195,28 @@ function isQuotation(ranges, index) {
   return ranges.some(([from, to]) => index >= from && index < to);
 }
 
-/** The same text with every quotation blanked, for scans that work on a window rather than an index. */
+/**
+ * The same text with every quotation blanked, for scans that work on a window rather than an index.
+ *
+ * 🚩 **`[...text]` SPLITS BY CODE POINT AND `match.index` COUNTS UTF-16 UNITS, AND THIS FUNCTION
+ * USED TO MIX THEM.** Every emoji in these documents is a surrogate pair — one code point, two
+ * UTF-16 units — so the array was SHORTER than the offsets being written into it, and every mask
+ * landed N characters early, where N is the number of astral characters earlier in the file. At the
+ * moment this was found there were **50** of them before punch-list 8.1, and the drift had been
+ * silently blanking the wrong 50 characters of every quotation in the second half of `PUNCHLIST.md`
+ * for as long as the rule has existed.
+ *
+ * It went unnoticed because a mask that is off by fifty characters still usually lands on prose. It
+ * surfaced when a round added exactly TWO 🚩 upstream and the drift moved from 50 to 52 — far enough
+ * to blank the `G1 **` of 8.1's live roster, so COUNT read six gates and four passes out of a
+ * seven-gate roster and called a correct headline wrong. **A gate can be wrong in the green
+ * direction for its whole life and only ever announce it in the red one**, and what announced it
+ * here was unrelated prose being added to a different section.
+ *
+ * `split("")` splits into UTF-16 units, which is the same unit `RegExp` reports and `slice` takes.
+ */
 function maskQuotations(text) {
-  const characters = [...text];
+  const characters = text.split("");
   for (const [from, to] of quotedRanges(text)) {
     for (let at = from; at < to && at < characters.length; at += 1) characters[at] = " ";
   }
