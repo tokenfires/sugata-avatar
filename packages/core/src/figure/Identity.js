@@ -100,8 +100,19 @@ const DEFAULTS = {
  * Axes that exist in the API but have no baked geometry behind them. They are accepted,
  * stored and reported back — and they are no-ops. Saying so beats a silent nothing.
  *
- * Adding one means extending the figure pipeline to sweep it and re-baking the matrix, which
- * multiplies the file count: a 5x3 gender-by-age matrix is fifteen 11 MB GLBs.
+ * ⚠️ **THE SENTENCE THAT USED TO FOLLOW THIS IS SUPERSEDED, AND IT IS LEFT HERE RETRACTED RATHER
+ * THAN DELETED.** It read: *"Adding one means extending the figure pipeline to sweep it and
+ * re-baking the matrix, which multiplies the file count: a 5x3 gender-by-age matrix is fifteen
+ * 11 MB GLBs."* That describes a solution this project no longer needs. Punch-list 10.1 measured
+ * that an MPFB target is a pure additive per-vertex offset with no solver, and that applying the
+ * targets in JS reproduces a headless MPFB build to **1.2e-4 mm on all 19,158 vertices** — see
+ * `IdentityTargets.js` and its selftest. **There is no matrix to bake.**
+ *
+ * These three axes are still no-ops HERE, and the reason has narrowed to one thing: this class
+ * decides *what file to load*, and the CPU path decides *what to do with it afterwards*. Wiring
+ * them together is punch-list **10.8**, which also needs 10.7's skeleton refit — measured, a body
+ * identity moves 97 of 106 bone ends by up to 18.727 mm, and glTF still cannot morph a skeleton.
+ * A FACE identity needs neither: 0 of 106 bone ends move, by exactly 0.000 mm.
  */
 export const NOT_YET_BAKED = [ 'age', 'build', 'height' ];
 

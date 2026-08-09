@@ -1,0 +1,389 @@
+{
+ "note": "TargetService.calculate_target_stack_from_macro_info_dict's own output, recorded from the running addon. IdentityCatalogue.macroTargetStack must reproduce it.",
+ "provenance": {
+  "blender": "5.2.0 LTS fbe6228777e7",
+  "mpfb": "20260722"
+ },
+ "cases": [
+  {
+   "label": "neutral",
+   "macro": {
+    "gender": 0.5,
+    "age": 0.5,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "proportions": 0.5,
+    "height": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "race": {
+     "asian": 0.33,
+     "caucasian": 0.33,
+     "african": 0.33
+    }
+   },
+   "mpfbStack": [
+    {
+     "file": "macrodetails/asian-female-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/asian-male-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/caucasian-female-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/caucasian-male-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/african-female-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/african-male-young",
+     "weight": 0.16500000655651093
+    },
+    {
+     "file": "macrodetails/universal-female-young-averagemuscle-averageweight",
+     "weight": 0.5
+    },
+    {
+     "file": "macrodetails/universal-male-young-averagemuscle-averageweight",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "label": "macro_off",
+   "macro": {
+    "gender": 0.8,
+    "age": 0.3,
+    "muscle": 0.7,
+    "weight": 0.35,
+    "proportions": 0.2,
+    "height": 0.9,
+    "cupsize": 0.7,
+    "firmness": 0.25,
+    "race": {
+     "asian": 0.33,
+     "caucasian": 0.33,
+     "african": 0.33
+    }
+   },
+   "mpfbStack": [
+    {
+     "file": "macrodetails/asian-female-child",
+     "weight": 0.04348608172798157
+    },
+    {
+     "file": "macrodetails/asian-male-child",
+     "weight": 0.16771392666435245
+    },
+    {
+     "file": "macrodetails/asian-female-young",
+     "weight": 0.02446092097198963
+    },
+    {
+     "file": "macrodetails/asian-male-young",
+     "weight": 0.09433908374869825
+    },
+    {
+     "file": "macrodetails/caucasian-female-child",
+     "weight": 0.04348608172798157
+    },
+    {
+     "file": "macrodetails/caucasian-male-child",
+     "weight": 0.16771392666435245
+    },
+    {
+     "file": "macrodetails/caucasian-female-young",
+     "weight": 0.02446092097198963
+    },
+    {
+     "file": "macrodetails/caucasian-male-young",
+     "weight": 0.09433908374869825
+    },
+    {
+     "file": "macrodetails/african-female-child",
+     "weight": 0.04348608172798157
+    },
+    {
+     "file": "macrodetails/african-male-child",
+     "weight": 0.16771392666435245
+    },
+    {
+     "file": "macrodetails/african-female-young",
+     "weight": 0.02446092097198963
+    },
+    {
+     "file": "macrodetails/african-male-young",
+     "weight": 0.09433908374869825
+    },
+    {
+     "file": "macrodetails/universal-female-child-averagemuscle-minweight",
+     "weight": 0.02355548446848
+    },
+    {
+     "file": "macrodetails/universal-female-child-averagemuscle-averageweight",
+     "weight": 0.05653796833152
+    },
+    {
+     "file": "macrodetails/universal-female-child-maxmuscle-minweight",
+     "weight": 0.015199837131519999
+    },
+    {
+     "file": "macrodetails/universal-female-child-maxmuscle-averageweight",
+     "weight": 0.036482710068479994
+    },
+    {
+     "file": "macrodetails/universal-female-young-averagemuscle-minweight",
+     "weight": 0.013249960013519997
+    },
+    {
+     "file": "macrodetails/universal-female-young-averagemuscle-averageweight",
+     "weight": 0.031802607186479995
+    },
+    {
+     "file": "macrodetails/universal-female-young-maxmuscle-averageweight",
+     "weight": 0.02052152441352
+    },
+    {
+     "file": "macrodetails/universal-male-child-averagemuscle-minweight",
+     "weight": 0.09084706273151999
+    },
+    {
+     "file": "macrodetails/universal-male-child-averagemuscle-averageweight",
+     "weight": 0.21805148446847997
+    },
+    {
+     "file": "macrodetails/universal-male-child-maxmuscle-minweight",
+     "weight": 0.058621615668479995
+    },
+    {
+     "file": "macrodetails/universal-male-child-maxmuscle-averageweight",
+     "weight": 0.14070383713152
+    },
+    {
+     "file": "macrodetails/universal-male-young-averagemuscle-minweight",
+     "weight": 0.05110147278648
+    },
+    {
+     "file": "macrodetails/universal-male-young-averagemuscle-averageweight",
+     "weight": 0.12265396001352001
+    },
+    {
+     "file": "macrodetails/universal-male-young-maxmuscle-minweight",
+     "weight": 0.03297465881352
+    },
+    {
+     "file": "macrodetails/universal-male-young-maxmuscle-averageweight",
+     "weight": 0.07914590838648
+    },
+    {
+     "file": "macrodetails/height/female-child-averagemuscle-minweight-maxheight",
+     "weight": 0.018373277885414402
+    },
+    {
+     "file": "macrodetails/height/female-child-averagemuscle-averageweight-maxheight",
+     "weight": 0.0440996152985856
+    },
+    {
+     "file": "macrodetails/height/female-child-maxmuscle-minweight-maxheight",
+     "weight": 0.0118558729625856
+    },
+    {
+     "file": "macrodetails/height/female-child-maxmuscle-averageweight-maxheight",
+     "weight": 0.028456513853414397
+    },
+    {
+     "file": "macrodetails/height/female-young-averagemuscle-minweight-maxheight",
+     "weight": 0.010334968810545598
+    },
+    {
+     "file": "macrodetails/height/female-young-averagemuscle-averageweight-maxheight",
+     "weight": 0.024806033605454397
+    },
+    {
+     "file": "macrodetails/height/female-young-maxmuscle-averageweight-maxheight",
+     "weight": 0.0160067890425456
+    },
+    {
+     "file": "macrodetails/height/male-child-averagemuscle-minweight-maxheight",
+     "weight": 0.07086070893058559
+    },
+    {
+     "file": "macrodetails/height/male-child-averagemuscle-averageweight-maxheight",
+     "weight": 0.1700801578854144
+    },
+    {
+     "file": "macrodetails/height/male-child-maxmuscle-minweight-maxheight",
+     "weight": 0.0457248602214144
+    },
+    {
+     "file": "macrodetails/height/male-child-maxmuscle-averageweight-maxheight",
+     "weight": 0.1097489929625856
+    },
+    {
+     "file": "macrodetails/height/male-young-averagemuscle-minweight-maxheight",
+     "weight": 0.0398591487734544
+    },
+    {
+     "file": "macrodetails/height/male-young-averagemuscle-averageweight-maxheight",
+     "weight": 0.09567008881054562
+    },
+    {
+     "file": "macrodetails/height/male-young-maxmuscle-minweight-maxheight",
+     "weight": 0.0257202338745456
+    },
+    {
+     "file": "macrodetails/height/male-young-maxmuscle-averageweight-maxheight",
+     "weight": 0.0617338085414544
+    },
+    {
+     "file": "breast/female-child-averagemuscle-minweight-averagecup-minfirmness",
+     "weight": 0.0340715954121984
+    },
+    {
+     "file": "breast/female-child-averagemuscle-minweight-maxcup-minfirmness",
+     "weight": 0.021985652715801596
+    },
+    {
+     "file": "breast/female-child-averagemuscle-minweight-maxcup-averagefirmness",
+     "weight": 0.0228830262960384
+    },
+    {
+     "file": "breast/female-child-averagemuscle-averageweight-averagecup-minfirmness",
+     "weight": 0.08177878001180158
+    },
+    {
+     "file": "breast/female-child-averagemuscle-averageweight-maxcup-minfirmness",
+     "weight": 0.05277005186019839
+    },
+    {
+     "file": "breast/female-child-averagemuscle-averageweight-maxcup-averagefirmness",
+     "weight": 0.05492393152796159
+    },
+    {
+     "file": "breast/female-child-maxmuscle-minweight-averagecup-minfirmness",
+     "weight": 0.021985652715801596
+    },
+    {
+     "file": "breast/female-child-maxmuscle-minweight-maxcup-minfirmness",
+     "weight": 0.014186859156198398
+    },
+    {
+     "file": "breast/female-child-maxmuscle-minweight-maxcup-averagefirmness",
+     "weight": 0.0147659146319616
+    },
+    {
+     "file": "breast/female-child-maxmuscle-averageweight-averagecup-minfirmness",
+     "weight": 0.0527700518601984
+    },
+    {
+     "file": "breast/female-child-maxmuscle-averageweight-maxcup-minfirmness",
+     "weight": 0.0340513562678016
+    },
+    {
+     "file": "breast/female-child-maxmuscle-averageweight-maxcup-averagefirmness",
+     "weight": 0.03544120754403839
+    },
+    {
+     "file": "breast/female-young-averagemuscle-minweight-averagecup-minfirmness",
+     "weight": 0.019165272419361598
+    },
+    {
+     "file": "breast/female-young-averagemuscle-minweight-maxcup-minfirmness",
+     "weight": 0.012366929652638399
+    },
+    {
+     "file": "breast/female-young-averagemuscle-minweight-maxcup-averagefirmness",
+     "weight": 0.012871702291521599
+    },
+    {
+     "file": "breast/female-young-averagemuscle-averageweight-averagecup-minfirmness",
+     "weight": 0.0460005637566384
+    },
+    {
+     "file": "breast/female-young-averagemuscle-averageweight-maxcup-minfirmness",
+     "weight": 0.029683154171361602
+    },
+    {
+     "file": "breast/female-young-averagemuscle-averageweight-maxcup-averagefirmness",
+     "weight": 0.0308947114844784
+    },
+    {
+     "file": "breast/female-young-maxmuscle-minweight-averagecup-minfirmness",
+     "weight": 0.012366929652638399
+    },
+    {
+     "file": "breast/female-young-maxmuscle-averageweight-averagecup-minfirmness",
+     "weight": 0.029683154171361595
+    },
+    {
+     "file": "breast/female-young-maxmuscle-averageweight-maxcup-minfirmness",
+     "weight": 0.0191538879006384
+    },
+    {
+     "file": "breast/female-young-maxmuscle-averageweight-maxcup-averagefirmness",
+     "weight": 0.019935679243521597
+    },
+    {
+     "file": "macrodetails/proportions/female-child-averagemuscle-minweight-uncommonproportions",
+     "weight": 0.013855335964359934
+    },
+    {
+     "file": "macrodetails/proportions/female-child-averagemuscle-averageweight-uncommonproportions",
+     "weight": 0.03325563297260006
+    },
+    {
+     "file": "macrodetails/proportions/female-child-maxmuscle-averageweight-uncommonproportions",
+     "weight": 0.02145913006227993
+    },
+    {
+     "file": "macrodetails/proportions/female-young-averagemuscle-averageweight-uncommonproportions",
+     "weight": 0.01870629354708753
+    },
+    {
+     "file": "macrodetails/proportions/female-young-maxmuscle-averageweight-uncommonproportions",
+     "weight": 0.012070760660032463
+    },
+    {
+     "file": "macrodetails/proportions/male-child-averagemuscle-minweight-uncommonproportions",
+     "weight": 0.053436242298680055
+    },
+    {
+     "file": "macrodetails/proportions/male-child-averagemuscle-averageweight-uncommonproportions",
+     "weight": 0.1282578831643599
+    },
+    {
+     "file": "macrodetails/proportions/male-child-maxmuscle-minweight-uncommonproportions",
+     "weight": 0.03448123433619993
+    },
+    {
+     "file": "macrodetails/proportions/male-child-maxmuscle-averageweight-uncommonproportions",
+     "weight": 0.08276199700076005
+    },
+    {
+     "file": "macrodetails/proportions/male-young-averagemuscle-minweight-uncommonproportions",
+     "weight": 0.030057886293007534
+    },
+    {
+     "file": "macrodetails/proportions/male-young-averagemuscle-averageweight-uncommonproportions",
+     "weight": 0.07214505927995246
+    },
+    {
+     "file": "macrodetails/proportions/male-young-maxmuscle-minweight-uncommonproportions",
+     "weight": 0.01939569431411246
+    },
+    {
+     "file": "macrodetails/proportions/male-young-maxmuscle-averageweight-uncommonproportions",
+     "weight": 0.04655362331292753
+    }
+   ]
+  }
+ ]
+}

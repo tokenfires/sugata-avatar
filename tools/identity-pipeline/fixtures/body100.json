@@ -1,0 +1,75 @@
+{
+ "label": "body100",
+ "note": "A body reshape at full weight — the large case, and the one that moves the skeleton.",
+ "sliders": [
+  [
+   "torso/measure-shoulder-dist-decr-incr",
+   1
+  ],
+  [
+   "legs/upperlegs-height-decr-incr",
+   1
+  ],
+  [
+   "legs/lowerlegs-height-decr-incr",
+   1
+  ],
+  [
+   "torso/measure-waist-circ-decr-incr",
+   1
+  ],
+  [
+   "hip/hip-scale-horiz-decr-incr",
+   1
+  ],
+  [
+   "neck/measure-neck-height-decr-incr",
+   1
+  ],
+  [
+   "torso/torso-scale-vert-decr-incr",
+   1
+  ]
+ ],
+ "blenderTargets": [
+  [
+   "torso/measure-shoulder-dist-incr",
+   1
+  ],
+  [
+   "legs/upperlegs-height-incr",
+   1
+  ],
+  [
+   "legs/lowerlegs-height-incr",
+   1
+  ],
+  [
+   "torso/measure-waist-circ-incr",
+   1
+  ],
+  [
+   "hip/hip-scale-horiz-incr",
+   1
+  ],
+  [
+   "neck/measure-neck-height-incr",
+   1
+  ],
+  [
+   "torso/torso-scale-vert-incr",
+   1
+  ]
+ ],
+ "space": "blender-z-up-metres",
+ "vertexCount": 19158,
+ "deltaUnits": "int32 nanometres, gzipped, 3 per vertex, in blenderTargets' own space",
+ "verticesMoved": 18912,
+ "identityMagnitudeMm": 187.26693930472777,
+ "provenance": {
+  "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+  "mpfb": "20260722",
+  "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+  "scaleFactor": 0.10000000149011612
+ }
+}

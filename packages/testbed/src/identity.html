@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sugata — Identity sculpting browsercheck (10.1, 10.2)</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body { height: 100%; }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: #0d0d10;
+        color: #d8d8de;
+        font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 480px;
+        grid-template-rows: 100%;
+    }
+
+    /* Out of flow deliberately: sized as a normal block the canvas feeds its own height back
+       into the grid row through the ResizeObserver and the two ratchet each other upward.
+       stage.html and wardrobe.html both record the same thing, observed once at 44280 px tall. */
+    #viewport { position: relative; min-width: 0; overflow: hidden; }
+    canvas#view { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+    #panel { overflow-y: auto; padding: 14px 16px 40px; border-left: 1px solid #26262e; }
+    h1 { font-size: 13px; margin: 0 0 4px; letter-spacing: 0.04em; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
+         color: #8a8a97; margin: 20px 0 6px; }
+    p.note { color: #8a8a97; margin: 4px 0 0; font-size: 11px; }
+    code { color: #9fd0ff; }
+
+    button, select, input[type="search"] {
+        font: inherit; background: #1c1c24; color: #d8d8de;
+        border: 1px solid #33333e; border-radius: 4px;
+        padding: 4px 9px; margin: 0 4px 4px 0;
+    }
+    button { cursor: pointer; }
+    button:hover { background: #262631; }
+    button[aria-pressed="true"] { background: #2f4f7a; border-color: #4d7cb8; color: #fff; }
+    input[type="search"] { width: 220px; }
+
+    table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 11px; }
+    th, td { text-align: left; padding: 2px 6px 2px 0; border-bottom: 1px solid #22222a;
+             vertical-align: top; }
+    th { color: #8a8a97; font-weight: 600; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .slider { display: grid; grid-template-columns: 1fr 128px 52px; gap: 6px;
+              align-items: center; padding: 1px 0; font-size: 11px; }
+    .slider label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .slider .value { text-align: right; font-variant-numeric: tabular-nums; color: #9fd0ff; }
+    .slider input { width: 100%; }
+    .slider.measure label::after { content: ' cm'; color: #6a6a77; }
+
+    .pass { color: #64d68a; }
+    .fail { color: #ff6b6b; font-weight: 700; }
+    .info { color: #9fd0ff; }
+    .warn { color: #f0c674; }
+
+    #status { margin-top: 6px; color: #f0c674; font-size: 11px; min-height: 1.4em; }
+</style>
+</head>
+<body>
+
+<div id="viewport">
+    <canvas id="view"></canvas>
+</div>
+
+<div id="panel">
+    <h1>Identity sculpting browsercheck — punch list 10.1, 10.2</h1>
+    <p class="note">
+        203 slider categories across 21 regions, read out of MPFB's own <code>target.json</code>.
+        A target is a pure additive per-vertex offset with no solver, so an identity is applied
+        <strong>once</strong>, on the CPU, into the position buffer — it is not a morph target and
+        it costs nothing per frame. The panel below the viewport measures that claim rather than
+        asserting it.
+    </p>
+
+    <h2>Presets</h2>
+    <div id="presets"></div>
+    <div id="status"></div>
+
+    <h2>Sliders</h2>
+    <div>
+        <select id="region"></select>
+        <input type="search" id="filter" placeholder="filter 200 sliders…">
+        <button id="reset">reset all</button>
+    </div>
+    <p class="note">
+        66 of the 203 categories are <code>has_left_and_right</code> and draw two widgets, so the
+        exposed set is 200 sliders and 266 widgets. Symmetry is the default; the left/right split
+        is 10.12's item and is not on this page.
+    </p>
+    <div id="sliders"></div>
+
+    <h2>Measured, live</h2>
+    <div id="stats"></div>
+
+    <h2>Per-frame cost</h2>
+    <p class="note">
+        Identity writes into <code>POSITION</code> and touches no morph target, so the figure's
+        GPU morph budget is the same number before and after. Press the button to sample frame
+        time on the current identity; compare it against the neutral figure's.
+    </p>
+    <div><button id="sample-frames">sample 120 frames</button></div>
+    <div id="frames"></div>
+
+    <h2>What this page does NOT yet do</h2>
+    <p class="note warn">
+        The eyes, cornea, teeth, tongue, brows and lashes are separate meshes fitted to the body by
+        MPFB's barycentric rule, and the skeleton is placed from the body's own vertices. Neither
+        is refitted here — that is punch list 10.7 and 10.9. Move a head or body slider far enough
+        and the eyeballs stay where they were. The numbers below say how far the body moved so the
+        size of that gap is visible rather than implied.
+    </p>
+    <div id="limits"></div>
+
+    <h2>Environment</h2>
+    <div id="env"></div>
+</div>
+
+<script type="module" src="./identity.js"></script>
+</body>
+</html>

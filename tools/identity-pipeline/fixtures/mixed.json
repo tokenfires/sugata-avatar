@@ -1,0 +1,58 @@
+{
+ "label": "mixed",
+ "note": "Both ends of the same slider on opposite sides, a negative end, and a unipolar shape. Every other fixture pushes one way, and a sign error would survive all three of them.",
+ "sliders": [
+  [
+   "eyes/eye-scale-decr-incr",
+   {
+    "left": -0.6,
+    "right": 0.35
+   }
+  ],
+  [
+   "chin/chin-height-decr-incr",
+   0.8
+  ],
+  [
+   "head/head-square",
+   1
+  ],
+  [
+   "nose/nose-volume-decr-incr",
+   -0.45
+  ]
+ ],
+ "blenderTargets": [
+  [
+   "eyes/l-eye-scale-decr",
+   0.6
+  ],
+  [
+   "eyes/r-eye-scale-incr",
+   0.35
+  ],
+  [
+   "chin/chin-height-incr",
+   0.8
+  ],
+  [
+   "head/head-square",
+   1
+  ],
+  [
+   "nose/nose-volume-decr",
+   0.45
+  ]
+ ],
+ "space": "blender-z-up-metres",
+ "vertexCount": 19158,
+ "deltaUnits": "int32 nanometres, gzipped, 3 per vertex, in blenderTargets' own space",
+ "verticesMoved": 2234,
+ "identityMagnitudeMm": 24.14206326553055,
+ "provenance": {
+  "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+  "mpfb": "20260722",
+  "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+  "scaleFactor": 0.10000000149011612
+ }
+}

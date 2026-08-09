@@ -1,0 +1,71 @@
+{
+ "label": "face025",
+ "note": "The same seven at a quarter, because §1.1 and §1.2a both claim exact linearity in weight.",
+ "sliders": [
+  [
+   "eyes/eye-scale-decr-incr",
+   0.25
+  ],
+  [
+   "chin/chin-height-decr-incr",
+   -0.25
+  ],
+  [
+   "forehead/forehead-scale-vert-decr-incr",
+   0.25
+  ],
+  [
+   "nose/nose-scale-horiz-decr-incr",
+   -0.25
+  ],
+  [
+   "mouth/mouth-scale-horiz-decr-incr",
+   0.25
+  ],
+  [
+   "head/head-oval",
+   0.25
+  ]
+ ],
+ "blenderTargets": [
+  [
+   "eyes/l-eye-scale-incr",
+   0.25
+  ],
+  [
+   "eyes/r-eye-scale-incr",
+   0.25
+  ],
+  [
+   "chin/chin-height-decr",
+   0.25
+  ],
+  [
+   "forehead/forehead-scale-vert-incr",
+   0.25
+  ],
+  [
+   "nose/nose-scale-horiz-decr",
+   0.25
+  ],
+  [
+   "mouth/mouth-scale-horiz-incr",
+   0.25
+  ],
+  [
+   "head/head-oval",
+   0.25
+  ]
+ ],
+ "space": "blender-z-up-metres",
+ "vertexCount": 19158,
+ "deltaUnits": "int32 nanometres, gzipped, 3 per vertex, in blenderTargets' own space",
+ "verticesMoved": 4187,
+ "identityMagnitudeMm": 14.055710208288318,
+ "provenance": {
+  "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+  "mpfb": "20260722",
+  "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+  "scaleFactor": 0.10000000149011612
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "label": "face100",
+ "note": "A face reshape at full weight. Seven categories, one end each.",
+ "sliders": [
+  [
+   "eyes/eye-scale-decr-incr",
+   1
+  ],
+  [
+   "chin/chin-height-decr-incr",
+   -1
+  ],
+  [
+   "forehead/forehead-scale-vert-decr-incr",
+   1
+  ],
+  [
+   "nose/nose-scale-horiz-decr-incr",
+   -1
+  ],
+  [
+   "mouth/mouth-scale-horiz-decr-incr",
+   1
+  ],
+  [
+   "head/head-oval",
+   1
+  ]
+ ],
+ "blenderTargets": [
+  [
+   "eyes/l-eye-scale-incr",
+   1
+  ],
+  [
+   "eyes/r-eye-scale-incr",
+   1
+  ],
+  [
+   "chin/chin-height-decr",
+   1
+  ],
+  [
+   "forehead/forehead-scale-vert-incr",
+   1
+  ],
+  [
+   "nose/nose-scale-horiz-decr",
+   1
+  ],
+  [
+   "mouth/mouth-scale-horiz-incr",
+   1
+  ],
+  [
+   "head/head-oval",
+   1
+  ]
+ ],
+ "space": "blender-z-up-metres",
+ "vertexCount": 19158,
+ "deltaUnits": "int32 nanometres, gzipped, 3 per vertex, in blenderTargets' own space",
+ "verticesMoved": 4187,
+ "identityMagnitudeMm": 56.22296000392974,
+ "provenance": {
+  "blender": "5.2.0 LTS fbe6228777e7 (2026-07-14)",
+  "mpfb": "20260722",
+  "basemesh": "MPFB create_human, gender 0.5, all other macros 0.5, race 0.33/0.33/0.33",
+  "scaleFactor": 0.10000000149011612
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "format": "sugata-identity-vertex-map",
+ "formatVersion": 1,
+ "mesh": "base.001",
+ "bin": "figure-vertex-map.bin",
+ "elementType": "uint16",
+ "positionCount": 14517,
+ "basemeshVertexCount": 19158,
+ "distinctBasemeshVertices": 13380,
+ "maxBasemeshIndex": 13379,
+ "groundingY": 0,
+ "solvedOn": "figure_g050.glb",
+ "worstMatchDistanceM": 2.407356265396403e-7,
+ "unmatched": 0,
+ "ambiguous": 0,
+ "validatedAgainst": [
+  {
+   "figure": "figure_g000.glb",
+   "worstDuplicateSpreadMm": 0
+  },
+  {
+   "figure": "figure_g025.glb",
+   "worstDuplicateSpreadMm": 0
+  },
+  {
+   "figure": "figure_g050.glb",
+   "worstDuplicateSpreadMm": 0
+  },
+  {
+   "figure": "figure_g075.glb",
+   "worstDuplicateSpreadMm": 0
+  },
+  {
+   "figure": "figure_g100.glb",
+   "worstDuplicateSpreadMm": 0
+  }
+ ],
+ "note": "0 unmatched and 0 ambiguous is the proof. maxBasemeshIndex 13379 against a 13,380-vertex shipped body settles research/identity-sculpting.md §1.4's flagged assumption that the helper geometry occupies the high indices: measured, it does."
+}
