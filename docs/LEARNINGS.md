@@ -2007,7 +2007,7 @@ from that run, which cannot be moved by another agent mid-flight.
 
 **Taken from one `bash tools/run-selftests.sh` run at the end of R8's integration**, with the
 fan-out finished and nothing else editing — which is the condition the previous audit could not get
-and had to substitute an isolated worktree for. **40 gates, FAILING GATES: 0.** The three counts the
+and had to substitute an isolated worktree for. **38 gates, FAILING GATES: 0.** The three counts the
 runner does not surface (it prints only each gate's last line) were taken directly afterwards.
 
 | command | previous audit said | **measured at R8** |
@@ -2032,9 +2032,16 @@ SkinOcclusion **13**, MorphVelocity **16**, prosody **26**, visemes **59**, ward
 cornea_geometry **40**, lut-bake **32**, eye-optics-claims **43**, measured-claims **60**,
 alive-capture-determinism **49**, and `verify_glb.mjs` PASS on **14 files**.
 
-**Six gates are NEW in R8** and are the reason the roster went 32 → 40: `affect` **91**,
-`identitytargets` **47**, `identitycatalogue` **72**, `decency` **20**, `agency` **28**, and
+**Six gates are NEW since the last audit** and are the reason the roster went 32 → 38: `affect`
+**91**, `identitytargets` **47**, `identitycatalogue` **72**, `decency` **20**, `agency` **28**, and
 `request-ledger` **11** (which landed in R7 and is the 33rd; the other five are R8's).
+
+⚠️ **AND THIS PARAGRAPH SAID "40" UNTIL IT WAS COUNTED.** 38 is `find . -name "*.selftest.mjs"`
+returning **36**, plus the **2** the runner names explicitly because they do not match the glob —
+`tools/critic/selftest.mjs`, whose name has no prefix, and `tools/figure-pipeline/verify_glb.mjs`.
+Confirmed against the run itself: `grep -c "^exit=" ` on its output reads **38**. A hand-typed count
+in the very table that exists to stop hand-typed counts is §1.25e closing the loop on itself, and it
+survived a commit message before it was caught. **Derive the count; do not remember it.**
 
 🎯 **THIRTEEN OF THIRTEEN TABLE ROWS HELD OR MOVED FOR A REASON THIS FILE CAN NAME — the first time
 that has been true.** Four moved and each is a gate whose owner added checks in R8: sway 229 → 238,
