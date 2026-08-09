@@ -757,6 +757,16 @@ applied during integration and are recorded in the round's commits rather than h
 integrator applies in the same pass is a diff, not a ledger entry. What is below is the residue:
 work that was declined, deferred with a reason, or that belongs to a phase that has not started.
 
+🚩 **One request was to file MORE entries, and it is refused on the gate's own terms.** The identity
+agent asked for its five `docs/research/identity-sculpting.md` corrections and its `PUNCHLIST.md`
+entry to be transcribed here as OPEN. All six were APPLIED during integration, and **the gate
+REFUSES an OPEN entry whose change is present at HEAD** — `OPEN-STALE`, one of its seven red proofs,
+on the stated grounds that *"an entry fixed incidentally by someone else is a stale entry, and a
+ledger of stale entries is worse than no ledger."* Filing them would have turned the suite red to
+record work that was done. The purpose behind the request — that a correctly-filed request must not
+evaporate — is what the whole R8 request pass exists for, and it is met by applying them and saying
+so, not by writing them down twice.
+
 ## REQ-031 — `Stage.js` should assert or document `renderer.shadowMap.type`
 
 ```request
