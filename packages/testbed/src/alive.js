@@ -799,11 +799,13 @@ async function boot() {
         shadingState: () => shadingFingerprint( session, stage ),
 
         // And the surface `shadingState` cannot close by listing fields: every readable property
-        // of the renderer and the scene, walked. A `?cards=0` confound routed through
-        // `renderer.toneMappingExposure` was invisible to nineteen hand-picked pipeline fields;
-        // this is the deny-by-default answer to the whole class. Separate from `shadingState`
-        // because three honest toggles move render state and would read as collateral inside it.
-        renderState: () => renderAndSceneState( stage ),
+        // of the three objects the draw call takes — renderer, scene AND CAMERA — walked. A
+        // `?cards=0` confound routed through `renderer.toneMappingExposure` was invisible to
+        // nineteen hand-picked pipeline fields, and a second one through `camera.filmOffset` was
+        // invisible to a walk of the first two subjects. This is the deny-by-default answer to the
+        // whole class. Separate from `shadingState` because several honest toggles move render
+        // state — `?frame=body` moves the camera — and would read as collateral inside it.
+        renderState: () => frameSubjectState( stage ),
 
         // Which URL keys this page actually consulted on this load. The gate's inventory of
         // toggles used to be a list in the test file, which is a list of what somebody remembered;
@@ -1949,7 +1951,8 @@ function shadingFingerprint( session, stage ) {
 }
 
 /**
- * Every readable configuration property of the renderer and the scene, walked rather than listed.
+ * Every readable configuration property of the three objects that produce a frame, walked rather
+ * than listed: `renderer.render( scene, camera )`.
  *
  * ## Why this exists beside `shadingFingerprint` instead of inside it
  *
@@ -1957,14 +1960,23 @@ function shadingFingerprint( session, stage ) {
  * render state standing in for a claim about ALL of it, which is the same "an enumeration is not a
  * closure" error the fingerprint itself was built to fix, one level up. An independent verifier
  * routed a `?cards=0` confound through `renderer.toneMappingExposure` and every instrument on this
- * page reported the plate as clean. Measured on this page, the renderer and the scene carry ~116
- * readable properties, so naming the one that got caught fixes one confound and leaves the rest.
+ * page reported the plate as clean.
  *
  * It is a SEPARATE entry point rather than extra rows in the fingerprint because the fingerprint is
  * compared as an exact entity set: `?shadows=0` legitimately moves `renderer.shadowMap.enabled`,
- * `?aa=off` moves the sample count and `?scale=1` moves the canvas size, so folding the walk into
- * the same key space would make three honest toggles read as collateral. Two questions, two
+ * `?aa=off` moves the camera's jitter offset and `?frame=body` moves the camera itself, so folding
+ * the walk into the same key space would make honest toggles read as collateral. Two questions, two
  * objects — "what shading did this plate use" and "what render state did this plate use".
+ *
+ * ## 🚩 THE SUBJECT LIST IS THE PART THAT KEEPS BEING WRONG
+ *
+ * The first version of this function walked the renderer and the scene, and a second verifier
+ * routed `?cards=0` through `stage.camera.filmOffset`: `alive-toggles.selftest.mjs` reported
+ * **147/147 green** on a plate where 53.8625% of samples differ from the baseline. The subjects are
+ * now the argument list of the draw call rather than a choice, and the walk closes the list itself
+ * by recording every object-valued member of the `Stage` — the gate requires each to be walked or
+ * excused. Keep this function and the gate's own copy in step: the gate checks that they report the
+ * same property paths and says so by name when they diverge.
  *
  * ## What it reads, and the deliberate limits
  *
@@ -1973,37 +1985,119 @@ function shadingFingerprint( session, stage ) {
  *   cheaper than adjudicating which of two spellings is canonical.
  * - **Prototype accessors**, through a try/catch. A getter that throws is recorded as `threw`
  *   rather than skipped, so a property that STARTS throwing is a change rather than a silence.
- * - **One level into plain objects** — members whose constructor is `Object` and nothing else.
- *   That reaches `shadowMap.enabled` and `debug.checkShaderErrors` and keeps `backend`, `info`,
- *   `_nodes` and the other machinery instances out, so a per-frame counter cannot make it drift.
+ * - **Three's math values BY VALUE**, through `toArray` — identified by the method rather than by a
+ *   list of class names. Recorded as `object:Vector3`, a 20 mm camera dolly is invisible.
+ * - **One level into CONFIGURATION BAGS** — a member carrying nothing but scalars. That reaches
+ *   `shadowMap.enabled`, `debug.checkShaderErrors`, `camera.view.fullWidth` and `camera.layers.mask`
+ *   and keeps `backend`, `info` and `_nodes` out, so a per-frame counter cannot make it drift.
  * - **`undefined` values are dropped.** Measured: `scene.backgroundNode` is an own property
- *   holding `undefined` on some plates and absent on others, reproducibly, and those are the same
- *   state.
- * - **`uuid` is excluded, and it is the only exclusion.** three mints a fresh one per instance, so
- *   it differs on every load — the same reason `textureIdentity` above refuses to use it.
+ *   holding `undefined` on some plates and absent on others, and those are the same state.
+ * - **Numbers are rounded to 1e-6**, so `lookAt` re-deriving the same yaw to within a few ULP does
+ *   not read as a rotation. The cost: a confound under a micron of camera travel is invisible.
+ * - **Exclusions are recorded as `excluded:<path>` markers, not skipped**, so a stale one is
+ *   visible. Two: `uuid` on any subject, and the temporal resolve's per-frame jitter offsets.
  *
  * @returns {Object<string,string>} property path -> value. Compared for equality, never parsed.
  */
-function renderAndSceneState( stage ) {
+function frameSubjectState( stage ) {
 
-    const subjects = { renderer: stage.renderer, scene: stage.scene };
+    const subjects = { renderer: stage.renderer, scene: stage.scene, camera: stage.camera };
     const state = {};
+
+    const excludedReason = ( propertyPath ) => {
+
+        if ( propertyPath.endsWith( '.uuid' ) ) return 'a fresh uuid is minted per instance, every load';
+
+        // TAAU calls `setViewOffset` before each frame and `clearViewOffset` after it, leaving the
+        // last Halton sample behind. These two record which frame was read, not the configuration.
+        if ( propertyPath === 'camera.view.offsetX' || propertyPath === 'camera.view.offsetY' ) {
+
+            return 'the temporal resolve rewrites it every frame; it records the frame, not the configuration';
+
+        }
+
+        return null;
+
+    };
+
+    const roundedNumber = ( value ) => {
+
+        if ( Number.isFinite( value ) === false ) return String( value );
+
+        return String( Number( value.toFixed( 6 ) ) );
+
+    };
 
     const describe = ( value ) => {
 
         if ( value === null ) return 'null';
-        if ( typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string' ) return String( value );
+        if ( typeof value === 'number' ) return roundedNumber( value );
+        if ( typeof value === 'boolean' || typeof value === 'string' ) return String( value );
         if ( typeof value === 'function' ) return null;
         if ( Array.isArray( value ) ) return `array(${ value.length })`;
+        if ( typeof value !== 'object' ) return String( value );
 
-        if ( typeof value === 'object' ) {
+        if ( value.isColor === true ) return `color:${ value.getHexString() }`;
 
-            if ( value.isColor === true ) return `color:${ value.getHexString() }`;
-            return `object:${ value.constructor?.name ?? '?' }`;
+        if ( typeof value.toArray === 'function' ) {
+
+            try {
+
+                const numbers = value.toArray();
+
+                if ( Array.isArray( numbers ) ) {
+
+                    const described = numbers
+                        .map( ( entry ) => typeof entry === 'number' ? roundedNumber( entry ) : String( entry ) );
+
+                    return `${ value.constructor?.name ?? '?' }(${ described.join( ',' ) })`;
+
+                }
+
+            } catch {
+
+                // not a value object after all — fall through to the type name
+            }
 
         }
 
-        return String( value );
+        return `object:${ value.constructor?.name ?? '?' }`;
+
+    };
+
+    /** A member carrying nothing but scalars is configuration; anything holding an object is machinery. */
+    const isConfigurationBag = ( value ) => {
+
+        if ( value === null || typeof value !== 'object' || Array.isArray( value ) ) return false;
+        if ( typeof value.toArray === 'function' ) return false;
+
+        for ( const key of Object.keys( value ) ) {
+
+            const inner = value[ key ];
+            if ( inner !== null && typeof inner === 'object' ) return false;
+
+        }
+
+        return true;
+
+    };
+
+    const record = ( propertyPath, value ) => {
+
+        if ( value === undefined ) return;
+
+        const reason = excludedReason( propertyPath );
+
+        if ( reason !== null ) {
+
+            state[ `excluded:${ propertyPath }` ] = reason;
+            return;
+
+        }
+
+        const described = describe( value );
+
+        if ( described !== null ) state[ propertyPath ] = described;
 
     };
 
@@ -2011,22 +2105,11 @@ function renderAndSceneState( stage ) {
 
         const seen = new Set();
 
-        const record = ( key, value ) => {
-
-            if ( value === undefined ) return;
-
-            const described = describe( value );
-
-            if ( described !== null ) state[ `${ label }.${ key }` ] = described;
-
-        };
-
         for ( const key of Object.keys( subject ).sort() ) {
 
             seen.add( key );
 
-            if ( key === 'uuid' ) continue;
-
+            const propertyPath = `${ label }.${ key }`;
             let value;
 
             try {
@@ -2035,29 +2118,36 @@ function renderAndSceneState( stage ) {
 
             } catch {
 
-                state[ `${ label }.${ key }` ] = 'threw';
+                state[ propertyPath ] = 'threw';
                 continue;
 
             }
 
-            record( key, value );
+            record( propertyPath, value );
 
-            // The one level down. A plain object here is a configuration bag three wrote by hand
-            // — `shadowMap`, `debug` — and everything else is a class with machinery in it.
-            if ( value !== null && typeof value === 'object' && Array.isArray( value ) === false
-                && value.constructor === Object ) {
+            let bag = false;
 
-                for ( const inner of Object.keys( value ).sort() ) {
+            try {
 
-                    try {
+                bag = isConfigurationBag( value );
 
-                        record( `${ key }.${ inner }`, value[ inner ] );
+            } catch {
 
-                    } catch {
+                bag = false;
 
-                        state[ `${ label }.${ key }.${ inner }` ] = 'threw';
+            }
 
-                    }
+            if ( bag === false ) continue;
+
+            for ( const inner of Object.keys( value ).sort() ) {
+
+                try {
+
+                    record( `${ propertyPath }.${ inner }`, value[ inner ] );
+
+                } catch {
+
+                    state[ `${ propertyPath }.${ inner }` ] = 'threw';
 
                 }
 
@@ -2071,7 +2161,7 @@ function renderAndSceneState( stage ) {
 
             for ( const key of Object.getOwnPropertyNames( prototype ).sort() ) {
 
-                if ( seen.has( key ) || key === 'uuid' ) continue;
+                if ( seen.has( key ) ) continue;
 
                 const descriptor = Object.getOwnPropertyDescriptor( prototype, key );
 
@@ -2081,7 +2171,7 @@ function renderAndSceneState( stage ) {
 
                 try {
 
-                    record( `get:${ key }`, subject[ key ] );
+                    record( `${ label }.get:${ key }`, subject[ key ] );
 
                 } catch {
 
@@ -2097,11 +2187,23 @@ function renderAndSceneState( stage ) {
 
     }
 
-    // Not a property of either object, and the one piece of render state that lives on the canvas:
+    // Not a property of any subject, and the one piece of render state that lives on the canvas:
     // `?scale` is applied with `setSize`, so this is where a resolution confound would show.
     const canvas = stage.renderer.domElement;
 
     state[ 'renderer.canvasPixels' ] = `${ canvas.width }x${ canvas.height }`;
+
+    // THE SUBJECT LIST, CLOSED. Every object-valued member of the Stage, by identity, so a Stage
+    // that grows a member nobody walks is visible from outside rather than being a silent hole.
+    for ( const key of Object.keys( stage ).sort() ) {
+
+        const member = stage[ key ];
+
+        if ( member === null || typeof member !== 'object' ) continue;
+
+        state[ `stage.${ key }` ] = `object:${ member.constructor?.name ?? '?' }`;
+
+    }
 
     return state;
 

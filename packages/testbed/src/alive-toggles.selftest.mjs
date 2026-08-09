@@ -55,6 +55,34 @@
  * prints the count every run — so a nineteen-field row leaves the next confound 97 others to pick
  * from.
  *
+ * ## 🚩 AND THE THIRD VERSION DID NOT STOP IT EITHER. THE ENUMERATION MOVED TO THE SUBJECT LIST
+ *
+ * That version walked, deny-by-default, every readable property of two objects — and the two
+ * objects were a hand-written list. `renderer.render( scene, camera )` takes THREE, and the walk
+ * took the first two. Reproduced 2026-08-08 with a one-line patch routing `?cards=0` through
+ * `stage.camera.filmOffset`: **`PASS: 147/147 checks green`**, the file's own reach check among
+ * them. An independent verifier measured the confounded plate against the baseline at 900x1200,
+ * `?bare&freeze&seed=1&capture`, 60 steps — **53.8625% of samples differing, worst 247/255**,
+ * against `0.0000%` for two separate launches of the baseline, and against the **1.0672%** the
+ * PUNCHLIST records for what `?cards=0` legitimately does. Roughly fifty times the pixel area of
+ * the thing being attributed.
+ *
+ * The model error is the same one A THIRD TIME, one level further up, and this is the version to
+ * remember: **each fix closed the surface it had just been burned on and left the container of that
+ * surface enumerated.** Nine counters -> the whole scene keyed by entity, whose renderer was a
+ * nineteen-field row. Nineteen fields -> every property of the renderer and the scene, whose
+ * SUBJECT LIST was two names. There is no reason to expect the next one to be different, so the
+ * subject list is now closed the same way the toggle list is: the walk reports every object-valued
+ * member of the `Stage`, and every one of them must be walked here or carry a written reason.
+ * Fourteen exist; three are walked; the eleven that are not are named below with what does cover
+ * them — and where nothing fully does, the gate says so on every run rather than implying closure.
+ *
+ * A second mechanism in the same class, found while fixing the first and just as invisible:
+ * `describe()` recorded a `Vector3` as the string `object:Vector3`. Adding the camera as a subject
+ * would have caught `filmOffset`, a scalar, and still missed `camera.position.z += 0.02` — a dolly
+ * that moves every pixel — because the property it lives on is a VALUE OBJECT and the walk was
+ * recording its type name. Both confounds ship as `--confound=camera` and `--confound=cameraTransform`.
+ *
  * ## The FIVE instruments, and why no four of them are enough
  *
  * 1. SURFACE CLOSURE. `alive.js` now records the url keys it actually reads and reports them from
@@ -79,36 +107,65 @@
  *    of "the toggle did its job", and unlike the fingerprint it distinguishes a mesh that went
  *    away from a mesh that changed. It is no longer load-bearing for closure.
  *
- * 5. RENDERER AND SCENE STATE, ENUMERATED. The `WebGPURenderer` and the `Scene` are the two
- *    objects the fingerprint samples rather than reads, so this walks them instead of listing
- *    them: every own property and every prototype accessor that returns a scalar, plus one level
- *    into any plain-object member (which is what reaches `shadowMap.enabled` and
- *    `debug.checkShaderErrors`). 116 properties on the shipped plate, PROPERTY-GRANULAR rather
- *    than entity-granular, and deny-by-default — a toggle declares the exact property paths it
- *    may move and any other movement is collateral.
+ * 5. FRAME SUBJECT STATE, ENUMERATED. The subjects are the arguments of the draw call —
+ *    `renderer.render( scene, camera )` — because that is the closure the claim needs, and any
+ *    shorter list is a sample of it. Each is WALKED rather than listed: every own property and
+ *    every prototype accessor that returns a scalar, every three math value read as its NUMBERS
+ *    rather than its type name, and one level into any configuration bag (a member carrying
+ *    nothing but scalars, which is what reaches `shadowMap.enabled`, `debug.checkShaderErrors`,
+ *    `camera.view.fullWidth` and `camera.layers.mask`). 183 properties on the shipped plate,
+ *    PROPERTY-GRANULAR rather than entity-granular, and deny-by-default — a toggle declares the
+ *    exact property paths it may move and any other movement is collateral.
  *
- *    It lives HERE rather than inside `shadingFingerprint` because `alive.js` belongs to another
- *    agent this round; the equivalent one-line widening of the page's own fingerprint is filed as
- *    a diff request. The gate does not depend on that landing.
+ *    And the subject list itself is closed rather than trusted: the walk also records every
+ *    object-valued member of the `Stage` by identity, and `UNWALKED_SUBJECTS` below must carry a
+ *    written reason for each of the eleven that are not walked. A `Stage` that grows a fifteenth
+ *    member turns this file red on the run after it lands.
  *
- *    Measured, so the reader knows what it costs: on two loads of the same url the 116 values are
- *    identical, and across every toggle in the table exactly TWO move anything — `?shadows=0`
- *    (`renderer.shadowMap.enabled`, `scene.children`) and `?aa=msaa` (`renderer._samples` and its
- *    accessor). Everything else is inert on both objects, which is what makes a single moved
- *    property a signal rather than noise. `scene.uuid` is excluded and says why at its exclusion.
+ *    ⚠️ Seven of those eleven are the post stack, and their reason is an ADMISSION rather than a
+ *    closure — the run prints it every time rather than leaving it in a comment. What is checkable
+ *    about it is checked: `GRADE_UNIFORMS` holds the `Grade` to the exact set of knobs something is
+ *    known to carry, so the day it grows one this file goes red instead of the knob going ungated.
  *
- *    🎯 AND THE PROOF, RUN THREE WAYS. Each `--confound` below turns the file red and is caught by
- *    EXACTLY ONE check — the instrument-5 row for `?cards=0` — which is the finding rather than a
- *    detail: instruments 1-4 stay green on all three, so the confound really is invisible to
- *    everything that existed before this instrument, and instrument 5 really is what catches it.
+ *    Measured, so the reader knows what it costs. On two loads of the same url the 183 values are
+ *    identical bar two, `camera.view.offsetX` and `camera.view.offsetY`, which are excluded and say
+ *    why at their exclusion. Across the toggle table exactly SEVEN rows move anything, all of them
+ *    declared and all of them measured rather than reasoned out:
  *
- *      | --confound | shipped | with the confound | the one check that fires                        |
- *      |------------|---------|-------------------|-------------------------------------------------|
- *      | exposure   | 144/144 | 144/145           | `renderer.toneMappingExposure 1 -> 1.35`        |
- *      | shadowmap  | 144/144 | 144/145           | `renderer.shadowMap.enabled true -> false`      |
- *      | scene      | 144/144 | 144/145           | `scene.backgroundIntensity 1 -> 0.6`            |
+ *      | toggle                                | what it moves on the frame subjects              |
+ *      |---------------------------------------|--------------------------------------------------|
+ *      | `?shadows=0`                          | `renderer.shadowMap.enabled`, `scene.children`   |
+ *      | `?aa=msaa`                            | the sample count, and the camera's view offset   |
+ *      | `?aa=off`                             | the camera's view offset, `stage.temporal`       |
+ *      | `?scale=1`                            | the four view-offset extents (the input size)    |
+ *      | `?grade=0`                            | `stage.grade`                                    |
+ *      | `?frame=body` `?height=` `?pose=` `?gender=` | the camera placement, four properties     |
  *
- *    (145 rather than 144 because a confound run adds the check that the rewrite reached the page.)
+ *    The last row is the one worth reading twice: four toggles that nothing in this repo had ever
+ *    recorded as MOVING THE CAMERA now say so out loud, so a plate captured at `?frame=body` is
+ *    known to be a plate from a different viewpoint and not merely a wider lens.
+ *
+ *    🎯 AND THE PROOF, RUN FIVE WAYS, every number below measured against THIS file at 151 clean
+ *    checks. Four of the five are caught by EXACTLY ONE check — the instrument-5 row for
+ *    `?cards=0` — and that is the finding rather than a detail: instruments 1-4 stay green, so the
+ *    confound really is invisible to everything that existed before this instrument.
+ *
+ *      | --confound      | mechanism                      | result  | what fires                        |
+ *      |-----------------|--------------------------------|---------|-----------------------------------|
+ *      | exposure        | renderer scalar                | 150/152 | instrument 5 AND the pipeline row |
+ *      | shadowmap       | nested configuration bag       | 151/152 | `renderer.shadowMap.enabled`      |
+ *      | scene           | not on the renderer at all     | 151/152 | `scene.backgroundIntensity`       |
+ *      | camera          | THE THIRD SUBJECT              | 151/152 | `camera.filmOffset 0 -> 0.6`      |
+ *      | cameraTransform | a VALUE OBJECT on that subject | 151/152 | `camera.position`, and the three  |
+ *      |                 |                                |         | matrices derived from it          |
+ *
+ *    (A confound run carries one check more than a clean one, because it adds the check that the
+ *    rewrite reached the page.)
+ *
+ *    ⚠️ `exposure` IS THE ODD ROW AND IT USED TO BE THE TYPICAL ONE. When it was first planted it
+ *    fired one check, here. `toneMappingExposure` was then added to `shadingFingerprint`'s pipeline
+ *    row by name, so today it fires two — which is precisely the point made further up: naming the
+ *    field that got caught fixes that confound and nothing else. The other four still fire once.
  *
  * ## 🚩 THE PIXEL CHECKS RUN ON THE FORWARD PATH, AND THEY HAVE TO
  *
@@ -170,16 +227,24 @@ const REPOSITORY_ROOT = path.resolve( fileURLToPath( new URL( '.', import.meta.u
  * `query` are in scope and runs once the renderer exists. It survives vite's transform — checked
  * by fetching the served module and counting occurrences, which is exactly one.
  *
- * All three route a `?cards=0` confound somewhere the shipped `pipeline` fingerprint row does not
- * look, and they are three DIFFERENT mechanisms rather than three spellings of one:
+ * All five route a `?cards=0` confound somewhere an earlier version of this gate did not look, and
+ * they are five DIFFERENT mechanisms rather than five spellings of one:
  *
- *   exposure     `renderer.toneMappingExposure`, the reported defect. One identifier away from
- *                `toneMapping`, which the pipeline row DOES carry.
- *   shadowmap    `renderer.shadowMap.enabled`, a nested plain-object member — a property path
- *                that no flat list of renderer fields would reach even if somebody wrote one.
- *   scene        `scene.backgroundIntensity`, which is not on the renderer at all. It exists to
- *                prove the fix closed a SURFACE and not a property list: a gate that had only
- *                learned to enumerate the renderer would sail through this one.
+ *   exposure         `renderer.toneMappingExposure`, the defect reported against version two. One
+ *                    identifier away from `toneMapping`, which the pipeline row DOES carry.
+ *   shadowmap        `renderer.shadowMap.enabled`, a nested configuration bag — a property path
+ *                    that no flat list of renderer fields would reach even if somebody wrote one.
+ *   scene            `scene.backgroundIntensity`, which is not on the renderer at all. It exists to
+ *                    prove the fix closed a SURFACE and not a property list: a gate that had only
+ *                    learned to enumerate the renderer would sail through this one.
+ *   camera           `camera.filmOffset`, the defect reported against version three, whose walk
+ *                    covered two of the draw call's three arguments. A scalar, so a gate that had
+ *                    only learned to add the camera to its subject list catches this one.
+ *   cameraTransform  `camera.position.z`, and it is here because the fix for `camera` does NOT
+ *                    catch it: `position` is a `Vector3`, and a walk that records objects by
+ *                    constructor name sees `object:Vector3` before and after a 20 mm dolly. It is
+ *                    the SECOND MECHANISM IN THE SAME CLASS, and it is what forced the walk to
+ *                    read three's math values as numbers.
  */
 const CONFOUNDS = {
     exposure: {
@@ -193,6 +258,16 @@ const CONFOUNDS = {
     scene: {
         code: 'if ( query.get( \'cards\' ) === \'0\' ) stage.scene.backgroundIntensity = 0.6;',
         why: 'not on the renderer at all: ?cards=0 also dims the scene background'
+    },
+    camera: {
+        code: 'if ( query.get( \'cards\' ) === \'0\' ) { stage.camera.filmOffset = 0.6; stage.camera.updateProjectionMatrix(); }',
+        why: 'the THIRD argument of the draw call: ?cards=0 also shifts the camera\'s film back. The ' +
+            'verifier who reported this measured it at 53.8625% of samples differing, worst 247/255'
+    },
+    cameraTransform: {
+        code: 'if ( query.get( \'cards\' ) === \'0\' ) { stage.camera.position.z += 0.02; stage.camera.updateMatrixWorld( true ); }',
+        why: 'a VALUE OBJECT on that third argument: ?cards=0 also dollies the camera 20 mm closer, ' +
+            'which a walk that records a Vector3 by its constructor name cannot see'
     }
 };
 
@@ -264,6 +339,44 @@ const PIXEL_BASE = `${ BASE_QUERY }&aa=msaa&grade=0`;
 /** The five entities `LightingRig` re-aims when the framing changes. Named once; used four times. */
 const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker' ];
 
+/**
+ * 🎯 THE FOUR PROPERTIES `placeCamera` MOVES, and the fact nothing in this repo had written down:
+ * `?frame`, `?height`, `?pose` and `?gender` all MOVE THE CAMERA. They re-aim the rig — that much
+ * was recorded — and they also re-place the viewpoint, because the framing is solved from the eye
+ * height of whatever figure and pose the plate ended up with.
+ *
+ * Measured, one plate each against the baseline: `?pose=bind` lifts the camera 5.5 mm and
+ * `?gender=1` lifts it 66.4 mm, both purely in Y; `?height=0.3` moves it in all three axes; and
+ * `?frame=body` walks it 3.1 m back. `lookAt` re-derives the same 12° yaw each time to within a
+ * few ULP, which is why the rotation is NOT in this list — see `roundedNumber` for the precision
+ * that makes that a stable statement rather than a flaky one.
+ *
+ * Until this landed, a plate captured at another framing carried an undeclared viewpoint change,
+ * and instrument 5 could not have said so because it was not looking at the camera at all.
+ */
+const CAMERA_PLACEMENT = [
+    'camera.matrix', 'camera.matrixWorld', 'camera.matrixWorldInverse', 'camera.position'
+];
+
+/**
+ * What leaves the camera when the temporal resolve does.
+ *
+ * TAAU jitters the projection by calling `camera.setViewOffset` before each frame and
+ * `camera.clearViewOffset` after it, so on the shipped default the camera carries a disabled view
+ * offset holding the last Halton sample. Take the resolve away — `?aa=off`, `?aa=msaa` — and
+ * `camera.view` is null and the whole bag goes with it, including the two excluded per-frame
+ * members, whose `excluded:` markers disappear alongside the properties they stand for.
+ *
+ * Declared as a named list because two rows need it and because it is the clearest single statement
+ * of a coupling that reads as surprising: turning the anti-aliasing off changes the CAMERA.
+ */
+const TEMPORAL_VIEW_OFFSET = [
+    'camera.view', 'camera.view.enabled',
+    'camera.view.fullWidth', 'camera.view.fullHeight', 'camera.view.width', 'camera.view.height',
+    'excluded:camera.view.offsetX', 'excluded:camera.view.offsetY',
+    'stage.temporal'
+];
+
 const TOGGLES = [
 
     // --- the scene's shading subsystems ---------------------------------------------------------
@@ -296,12 +409,21 @@ const TOGGLES = [
     // when the page moved to TAAU that row went decorative overnight: MSAA is off by default now,
     // so the check read "multisampleSamples 0 -> 0" and PASSED without being able to fail. The
     // toggle that removes this page's anti-aliasing is the one that removes the temporal resolve.
-    { query: 'aa=off', census: 'temporalResolve', touches: [ 'pipeline' ] },
-    { query: 'grade=0', census: 'grade', touches: [ 'pipeline' ] },
+    { query: 'aa=off', census: 'temporalResolve', touches: [ 'pipeline' ],
+        rendererState: TEMPORAL_VIEW_OFFSET },
+    { query: 'grade=0', census: 'grade', touches: [ 'pipeline' ],
+        rendererState: [ 'stage.grade' ] },
     { query: 'morphvel=off', census: null, touches: [ 'pipeline' ] },
     { query: 'gsharp=none', census: null, touches: [ 'pipeline' ] },
     { query: 'sharp=0.2', census: null, touches: [ 'pipeline' ] },
-    { query: 'scale=1', census: null, touches: [ 'pipeline' ] },
+
+    // `?scale` sets the resolve's INPUT size, and the jitter offset is expressed in input pixels,
+    // so the four view-offset extents move with it. Measured: 1188x1584 -> 1800x2400 at scale=1.
+    // The canvas does not move — `renderer.canvasPixels` holds — which is the distinction between
+    // rendering at a different internal resolution and rendering at a different output size.
+    { query: 'scale=1', census: null, touches: [ 'pipeline' ], rendererState: [
+        'camera.view.fullWidth', 'camera.view.fullHeight', 'camera.view.width', 'camera.view.height'
+    ] },
 
     // The grade's own parameters. Every one of them measured as an EMPTY diff until the fingerprint
     // learned to unwrap a TSL uniform — six live attribution knobs that the instrument was
@@ -317,16 +439,17 @@ const TOGGLES = [
     // --- framing and identity ----------------------------------------------------------------------
     // All four re-aim the rig, and nothing else. Gating them with an explicit five-light allowlist
     // says out loud that a plate captured at another framing carries a differently-aimed rig.
-    { query: 'frame=body', census: null, touches: RIG_LIGHTS },
-    { query: 'height=0.3', census: null, touches: RIG_LIGHTS },
-    { query: 'pose=bind', census: null, touches: RIG_LIGHTS },
+    { query: 'frame=body', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
+    { query: 'height=0.3', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
+    { query: 'pose=bind', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
 
     // 🎯 `?gender=1` MOVES THE CORNEA AS WELL, and nothing had ever recorded that. It loads a
     // different bake, and `EyeMaterial` fits the corneal axis and the iris plane to the mesh it is
     // given at construction — so the g100 cornea carries different fitted constants from the g050
     // one. Found by the fingerprint the day it learned to read uniform VALUES and not just graph
     // structure; the structural version reported this plate as five lights and nothing else.
-    { query: 'gender=1', census: null, touches: [ ...RIG_LIGHTS, 'mesh:Humancornea' ] },
+    { query: 'gender=1', census: null, touches: [ ...RIG_LIGHTS, 'mesh:Humancornea' ],
+        rendererState: CAMERA_PLACEMENT },
 
     // --- and the ones whose allowlist is EMPTY -----------------------------------------------------
     // The strictest row shape in the table: these may change the motion, the dials or the DOM, and
@@ -357,7 +480,10 @@ const MUTUALLY_EXCLUSIVE = {
     // Both spellings of the same fact, because instrument 5 enumerates rather than curates: the
     // MSAA count lives in the private field and `samples` is its accessor. Declaring both is
     // cheaper than deciding which one is canonical, and neither may move on its own.
-    rendererState: [ 'renderer._samples', 'renderer.get:samples' ]
+    //
+    // And the camera's view offset, for the same reason `?aa=off` declares it: choosing MSAA
+    // switches the temporal resolve off, and the jitter it was applying to the camera goes with it.
+    rendererState: [ 'renderer._samples', 'renderer.get:samples', ...TEMPORAL_VIEW_OFFSET ]
 };
 
 /**
@@ -419,6 +545,92 @@ const UNGATED = {
         'Gated by packages/core/src/wardrobe/wardrobe.selftest.mjs. What is checked HERE is the ' +
         'only claim the shipped plate rests on: absent, it is inert.' }
 };
+
+/**
+ * THE SUBJECTS INSTRUMENT 5 WALKS, and they are the argument list of the draw call rather than a
+ * choice: `renderer.render( scene, camera )`. Version three of this file walked the first two, and
+ * a confound on the third passed 147/147.
+ */
+const WALKED_SUBJECTS = [ 'renderer', 'scene', 'camera' ];
+
+/**
+ * The other object-valued members of the `Stage`, each with the reason it is not walked and what
+ * does cover it. This is the closure half of instrument 5's subject list, and it exists because
+ * three consecutive versions of this file were defeated by the same move: closing a surface and
+ * leaving the container of that surface enumerated.
+ *
+ * A `Stage` that grows a member absent from both tables turns the gate red. Retiring one costs a
+ * written excuse, exactly as in `UNGATED`.
+ *
+ * ⚠️ AND ONE OF THESE REASONS IS AN ADMISSION RATHER THAN A CLOSURE, which is why the check below
+ * prints it every run instead of leaving it in a comment. The seven post-stack members are
+ * identity-checked here and their STATE is covered by `shadingFingerprint`'s `pipeline` row — which
+ * is nineteen hand-picked fields, i.e. the very shape this instrument exists because of. A confound
+ * planted inside the `Grade` on a field that row does not carry would be caught by neither. That is
+ * a known open hole in the post stack, not a claim that the post stack is closed.
+ */
+const UNWALKED_SUBJECTS = {
+    canvas: 'the HTMLCanvasElement. Its only render-bearing state is its pixel size, and that IS ' +
+        'walked, as renderer.canvasPixels. Walking a DOM node would drag in the element prototype.',
+
+    renderPipeline: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    scenePass: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    gbuffer: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    temporal: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    grade: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    velocityGain: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+    depthGain: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
+
+    frameCallbacks: 'an array of bound per-frame functions. It carries no shading configuration; ' +
+        'anything a callback CHANGED would show up on the subject it changed.',
+    resizeObserver: 'a browser ResizeObserver. No render state of its own.',
+    pixelRatioWatcher: 'a MediaQueryList. No render state of its own.'
+};
+
+/** How many of `UNWALKED_SUBJECTS` are the post stack, so the open-hole line can count itself. */
+const POST_STACK_SUBJECTS = Object.entries( UNWALKED_SUBJECTS )
+    .filter( ( [ , why ] ) => why.startsWith( 'POST STACK' ) ).map( ( [ name ] ) => name );
+
+/**
+ * 🎯 THE ONE HALF OF THE POST-STACK HOLE THAT CAN BE CLOSED FROM HERE, and it is worth reading as a
+ * worked example of what "identity-checked, not walked" is actually worth.
+ *
+ * Measured at this commit rather than assumed: `Grade` owns EIGHT live-mutable uniforms, and seven
+ * of them are carried by `shadingFingerprint`'s `pipeline` row, which unwraps a TSL uniform to its
+ * `.value` — see `rounded` in alive.js, and the round where not unwrapping made six attribution
+ * knobs measure as an empty diff. So there is no post-boot confound to plant on the `Grade` today:
+ * `toneCurve` is the one field the row does not carry, and patching it after boot is INERT because
+ * it is consumed when the node graph is built. `grainFrame` is the eighth uniform and is written
+ * every frame, so nothing set on it survives either.
+ *
+ * That is a coincidence, not a guarantee, and it is exactly the shape of LEARNINGS §1.25i — an
+ * instrument defeated by a feature that shipped after it. So the coincidence is gated: the set of
+ * uniforms the `Grade` owns must be exactly this set. Add one to `Grade.js` and this file goes red
+ * on the next run, which is the prompt to carry it in the pipeline row before anyone attributes
+ * anything to it.
+ */
+const GRADE_UNIFORMS = {
+    exposure: 'pipeline row: exposure=',
+    bloomStrength: 'pipeline row: bloom= (first of three)',
+    bloomThreshold: 'pipeline row: bloom= (second of three)',
+    bloomRadius: 'pipeline row: bloom= (third of three)',
+    grainSigmaCodes: 'pipeline row: grain=',
+    vignette: 'pipeline row: vignette=',
+    saturation: 'pipeline row: saturation=',
+
+    grainFrame: 'NOT in the pipeline row, and it cannot be: it is driven per frame by onFrameUpdate, ' +
+        'so nothing a toggle sets on it survives to the next frame. Grade.selftest.mjs owns the grain.'
+};
+
+/**
+ * Property paths the walk records as EXCLUDED rather than by value, checked below to be live: an
+ * exclusion for a property that no longer exists is a line nobody will delete on their own.
+ *
+ * `uuid` is excluded by suffix on every subject and is not listed here — there is no fixed set of
+ * subjects to enumerate it over, so the check asserts that at least one `excluded:*.uuid` marker
+ * came back instead.
+ */
+const PER_FRAME_EXCLUSIONS = [ 'camera.view.offsetX', 'camera.view.offsetY' ];
 
 /**
  * Census entries that are DELIBERATELY ZERO on the shipped plate, with the reason. Everything else
@@ -504,57 +716,161 @@ function toolError( message ) {
  * INSTRUMENT 5, and it runs INSIDE the page — it is handed to `page.evaluate`, so it may not
  * reference anything in this module's scope.
  *
- * ## Why a walk and not a list
+ * ## The subjects are the draw call's arguments, and that is the point
  *
- * `shadingFingerprint`'s `pipeline` row is nineteen hand-picked fields, and a confound planted on
- * any of the other 118 readable properties of the renderer and the scene is invisible to it. That
- * is the same "enumeration is not a closure" error the fingerprint itself was built to fix, one
- * level up. So this enumerates rather than lists: own properties, prototype accessors, and one
- * level into plain-object members.
+ * `renderer.render( scene, camera )`. Three previous versions of this instrument each closed the
+ * surface they had just been burned on and left the CONTAINER of that surface enumerated — nine
+ * counters inside a scene nobody was reading whole; nineteen pipeline fields inside a renderer
+ * nobody was reading whole; and then the renderer and the scene, read whole, inside a subject list
+ * of two. A `?cards=0` confound on `camera.filmOffset` passed 147/147 against the third.
  *
- * ## What it reads, and the three deliberate limits
+ * So the subject list is derived from what actually produces the frame rather than chosen, and the
+ * `stage.*` rows at the bottom close it: every object-valued member of the `Stage` is recorded by
+ * identity, and the gate requires each one to be walked or excused in `UNWALKED_SUBJECTS`.
+ *
+ * ## What it reads, and the deliberate limits
  *
  * - **Own properties**, including the underscore-prefixed ones. `_samples` is where the MSAA count
  *   actually lives and its public accessor is a second reading of the same thing; both are kept,
  *   because deny-by-default is cheaper than deciding which of two spellings is canonical.
  * - **Prototype accessors**, read through a try/catch. A getter that throws is recorded as
  *   `threw` rather than skipped, so a property that STARTS throwing is a change.
- * - **One level into plain objects** — members whose constructor is `Object` and nothing else.
- *   That is what reaches `shadowMap.enabled`, `shadowMap.type` and `debug.checkShaderErrors`, and
- *   what keeps `backend`, `info`, `_nodes` and the other twenty machinery instances out. A class
- *   instance is recorded by its constructor name only, so a per-frame counter inside `info`
- *   cannot make the instrument drift.
+ * - **Three's math values BY VALUE.** A `Vector3`, `Euler`, `Quaternion` or `Matrix4` states itself
+ *   as a flat numeric array through `toArray`, so that is what gets recorded. Identified by the
+ *   method rather than by a list of class names, because a list of class names is the mistake this
+ *   file keeps being defeated by. Recording them as `object:Vector3` is how a 20 mm camera dolly
+ *   stayed invisible — `--confound=cameraTransform`.
+ * - **One level into CONFIGURATION BAGS** — a member carrying nothing but scalars. That is what
+ *   reaches `shadowMap.enabled`, `debug.checkShaderErrors`, `camera.view.fullWidth` and
+ *   `camera.layers.mask`, and what keeps `backend`, `info`, `_nodes` and the other machinery
+ *   instances out: they all hold objects, so they are recorded by constructor name only and a
+ *   per-frame counter inside `info` cannot make the instrument drift. This replaces the older
+ *   `constructor === Object` test, which was a narrower spelling of the same idea that could not
+ *   see into `Layers`.
  * - **`undefined` values are dropped, not recorded.** Measured: `scene.backgroundNode` is an own
  *   property holding `undefined` on some plates and absent on others, reproducibly, and the two
  *   states are the same state. Recording it made `?shadows=0` carry a difference that means
  *   nothing.
- * - **`uuid` is excluded and this is the only exclusion.** three mints a fresh one per instance,
- *   so `scene.uuid` differs on every load and would report the instrument as pure noise — the same
- *   reason `textureIdentity` in `alive.js` refuses to use it. Anything else that drifts is a real
- *   finding and the baseline check below is what surfaces it.
+ * - **Numbers are rounded to 1e-6**, and the cost is stated rather than hidden: a confound smaller
+ *   than a micron of camera travel or a millionth of a stop of exposure is invisible here. What it
+ *   buys is that `lookAt` re-deriving the same 12° yaw to within a few ULP does not read as the
+ *   camera having rotated, which would have made four honest toggles carry two spurious properties
+ *   each and taught the next reader to widen allowlists.
+ * - **Exclusions are RECORDED, not skipped.** An excluded path comes back as
+ *   `excluded:<path>` holding its reason, so the marker moves when the property stops existing and
+ *   the gate can check that no exclusion has gone stale. Two kinds exist, and both say why at the
+ *   point of exclusion: `uuid` on any subject, and the temporal resolve's per-frame jitter offsets.
  *
  * @returns {Object<string,string>} property path -> value. Compared for equality, never parsed.
  */
-function rendererAndSceneState() {
+function frameSubjectState() {
 
-    const subjects = { renderer: globalThis.sugata.stage.renderer, scene: globalThis.sugata.stage.scene };
+    const stage = globalThis.sugata.stage;
+    const subjects = { renderer: stage.renderer, scene: stage.scene, camera: stage.camera };
     const state = {};
+
+    const excludedReason = ( propertyPath ) => {
+
+        // three mints a fresh uuid per instance, so it differs on every load and would report the
+        // whole instrument as noise. Same reason `textureIdentity` in alive.js refuses to use it.
+        if ( propertyPath.endsWith( '.uuid' ) ) return 'a fresh uuid is minted per instance, every load';
+
+        // TAAU calls `camera.setViewOffset` before each frame and `camera.clearViewOffset` after it,
+        // which disables the offset and leaves the last Halton sample sitting in these two fields.
+        // Measured over two loads of ?bare&freeze&seed=1: offsetX -0.125 / 0.375, offsetY -0.2778 /
+        // 0.0556, and they are the ONLY two of the 183 properties that move. They record which
+        // frame the screenshot landed on, and nothing a toggle could set survives in them, because
+        // the next frame overwrites both.
+        if ( propertyPath === 'camera.view.offsetX' || propertyPath === 'camera.view.offsetY' ) {
+
+            return 'the temporal resolve rewrites it every frame; it records the frame, not the configuration';
+
+        }
+
+        return null;
+
+    };
+
+    const roundedNumber = ( value ) => {
+
+        if ( Number.isFinite( value ) === false ) return String( value );
+
+        // `Number` on the fixed form rather than the fixed form itself, so 100 stays "100" and the
+        // -2.8e-17 that `lookAt` leaves in a matrix collapses onto the 0 in the other plate's.
+        return String( Number( value.toFixed( 6 ) ) );
+
+    };
 
     const describe = ( value ) => {
 
         if ( value === null ) return 'null';
-        if ( typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string' ) return String( value );
+        if ( typeof value === 'number' ) return roundedNumber( value );
+        if ( typeof value === 'boolean' || typeof value === 'string' ) return String( value );
         if ( typeof value === 'function' ) return null;
         if ( Array.isArray( value ) ) return `array(${ value.length })`;
+        if ( typeof value !== 'object' ) return String( value );
 
-        if ( typeof value === 'object' ) {
+        if ( value.isColor === true ) return `color:${ value.getHexString() }`;
 
-            if ( value.isColor === true ) return `color:${ value.getHexString() }`;
-            return `object:${ value.constructor?.name ?? '?' }`;
+        if ( typeof value.toArray === 'function' ) {
+
+            try {
+
+                const numbers = value.toArray();
+
+                if ( Array.isArray( numbers ) ) {
+
+                    const described = numbers
+                        .map( ( entry ) => typeof entry === 'number' ? roundedNumber( entry ) : String( entry ) );
+
+                    return `${ value.constructor?.name ?? '?' }(${ described.join( ',' ) })`;
+
+                }
+
+            } catch {
+
+                // not a value object after all — fall through to the type name
+            }
 
         }
 
-        return String( value );
+        return `object:${ value.constructor?.name ?? '?' }`;
+
+    };
+
+    /** A member carrying nothing but scalars is configuration; anything holding an object is machinery. */
+    const isConfigurationBag = ( value ) => {
+
+        if ( value === null || typeof value !== 'object' || Array.isArray( value ) ) return false;
+        if ( typeof value.toArray === 'function' ) return false;
+
+        for ( const key of Object.keys( value ) ) {
+
+            const inner = value[ key ];
+            if ( inner !== null && typeof inner === 'object' ) return false;
+
+        }
+
+        return true;
+
+    };
+
+    const record = ( propertyPath, value ) => {
+
+        if ( value === undefined ) return;
+
+        const reason = excludedReason( propertyPath );
+
+        if ( reason !== null ) {
+
+            state[ `excluded:${ propertyPath }` ] = reason;
+            return;
+
+        }
+
+        const described = describe( value );
+
+        if ( described !== null ) state[ propertyPath ] = described;
 
     };
 
@@ -562,22 +878,11 @@ function rendererAndSceneState() {
 
         const seen = new Set();
 
-        const record = ( key, value ) => {
-
-            if ( value === undefined ) return;
-
-            const described = describe( value );
-
-            if ( described !== null ) state[ `${ label }.${ key }` ] = described;
-
-        };
-
         for ( const key of Object.keys( subject ).sort() ) {
 
             seen.add( key );
 
-            if ( key === 'uuid' ) continue;
-
+            const propertyPath = `${ label }.${ key }`;
             let value;
 
             try {
@@ -586,29 +891,36 @@ function rendererAndSceneState() {
 
             } catch {
 
-                state[ `${ label }.${ key }` ] = 'threw';
+                state[ propertyPath ] = 'threw';
                 continue;
 
             }
 
-            record( key, value );
+            record( propertyPath, value );
 
-            // The one level down. A plain object here is a configuration bag three wrote by hand
-            // — `shadowMap`, `debug` — and everything else is a class with machinery in it.
-            if ( value !== null && typeof value === 'object' && Array.isArray( value ) === false
-                && value.constructor === Object ) {
+            let bag = false;
 
-                for ( const inner of Object.keys( value ).sort() ) {
+            try {
 
-                    try {
+                bag = isConfigurationBag( value );
 
-                        record( `${ key }.${ inner }`, value[ inner ] );
+            } catch {
 
-                    } catch {
+                bag = false;
 
-                        state[ `${ label }.${ key }.${ inner }` ] = 'threw';
+            }
 
-                    }
+            if ( bag === false ) continue;
+
+            for ( const inner of Object.keys( value ).sort() ) {
+
+                try {
+
+                    record( `${ propertyPath }.${ inner }`, value[ inner ] );
+
+                } catch {
+
+                    state[ `${ propertyPath }.${ inner }` ] = 'threw';
 
                 }
 
@@ -622,7 +934,7 @@ function rendererAndSceneState() {
 
             for ( const key of Object.getOwnPropertyNames( prototype ).sort() ) {
 
-                if ( seen.has( key ) || key === 'uuid' ) continue;
+                if ( seen.has( key ) ) continue;
 
                 const descriptor = Object.getOwnPropertyDescriptor( prototype, key );
 
@@ -632,7 +944,7 @@ function rendererAndSceneState() {
 
                 try {
 
-                    record( `get:${ key }`, subject[ key ] );
+                    record( `${ label }.get:${ key }`, subject[ key ] );
 
                 } catch {
 
@@ -648,11 +960,26 @@ function rendererAndSceneState() {
 
     }
 
-    // Not a property of either object, and the one piece of render state that lives on the canvas:
+    // Not a property of any subject, and the one piece of render state that lives on the canvas:
     // `?scale` is applied with `setSize`, so this is where a resolution confound would show.
-    const canvas = globalThis.sugata.stage.renderer.domElement;
+    const canvas = stage.renderer.domElement;
 
     state[ 'renderer.canvasPixels' ] = `${ canvas.width }x${ canvas.height }`;
+
+    // THE SUBJECT LIST, CLOSED. Every object-valued member of the Stage, by identity. Two jobs: the
+    // gate checks this inventory against WALKED_SUBJECTS + UNWALKED_SUBJECTS, so a new member is a
+    // red gate rather than a silent hole; and an identity is itself a weak state check — `?grade=0`
+    // shows up here as `stage.grade` disappearing, which is how the post stack gets any coverage at
+    // all from an instrument that does not walk it.
+    for ( const key of Object.keys( stage ).sort() ) {
+
+        const member = stage[ key ];
+
+        if ( member === null || typeof member !== 'object' ) continue;
+
+        state[ `stage.${ key }` ] = `object:${ member.constructor?.name ?? '?' }`;
+
+    }
 
     return state;
 
@@ -751,13 +1078,30 @@ async function loadPlate( page, baseUrl, query ) {
         // entitled to check, so it is carried on every plate.
         wardrobe: globalThis.sugata.wardrobe === null || globalThis.sugata.wardrobe === undefined
             ? null
-            : globalThis.sugata.wardrobe.stats().worn
+            : globalThis.sugata.wardrobe.stats().worn,
+
+        // The page's OWN copy of the walk. Not used for any verdict — a confound is a patch to
+        // `alive.js`, so an instrument that lives there could be patched with it — but its key set
+        // is checked against this file's walk on the baseline, which is what stops the two copies
+        // drifting apart and a doc quoting a property count that stopped being true.
+        pageRenderState: Object.keys( globalThis.sugata.renderState() ).sort(),
+
+        // Every live-mutable uniform the Grade owns. The Grade is one of the post-stack members
+        // instrument 5 does NOT walk, so this is how the gate notices it growing a knob that
+        // nothing carries — see GRADE_UNIFORMS.
+        gradeUniforms: globalThis.sugata.stage.grade == null ? null : Object.keys( globalThis.sugata.stage.grade )
+            .filter( ( key ) => {
+
+                const member = globalThis.sugata.stage.grade[ key ];
+                return member !== null && typeof member === 'object' && typeof member.value === 'number';
+
+            } ).sort()
     } ) );
 
     // Instrument 5. A second evaluate rather than a fifth field above, because this function is
-    // defined in THIS file and shipped into the page — see `rendererAndSceneState` for why that
+    // defined in THIS file and shipped into the page — see `frameSubjectState` for why that
     // is deliberate rather than awkward.
-    state.rendererState = await page.evaluate( rendererAndSceneState );
+    state.rendererState = await page.evaluate( frameSubjectState );
 
     state.pixels = await page.screenshot( { timeout: 60_000 } );
 
@@ -862,36 +1206,164 @@ try {
             : `DRIFTING: ${ drift.join( ', ' ) } — instrument 2 cannot separate a toggle from noise`
     );
 
-    // The same question for instrument 5. It walks two live three.js objects, so "does it hold
+    // The same question for instrument 5. It walks three live three.js objects, so "does it hold
     // still" is not a formality — a single per-frame counter caught by the walk would report every
-    // toggle as collateral, and the walk is deliberately wide enough that one could be.
+    // toggle as collateral, and the walk is deliberately wide enough that one could be. It found
+    // two, and they are excluded by path with the mechanism written at the exclusion.
     const stateDrift = changedEntities( baseline.rendererState, baselineAgain.rendererState );
 
     report(
-        'the renderer and scene walk is the same on two loads of the same url',
+        'the frame-subject walk is the same on two loads of the same url',
         stateDrift.length === 0,
         stateDrift.length === 0
-            ? `${ Object.keys( baseline.rendererState ).length } properties across the renderer and the scene, ` +
-                'all reproducible — so a property that moves below moved because a toggle moved it'
+            ? `${ Object.keys( baseline.rendererState ).length } properties across the renderer, the scene ` +
+                'and the camera, all reproducible — so a property that moves below moved because a toggle moved it'
             : `DRIFTING: ${ stateDrift.map( ( key ) => `${ key } ${ baseline.rendererState[ key ] } / ` +
                 `${ baselineAgain.rendererState[ key ] }` ).join( ', ' ) } — instrument 5 cannot separate a ` +
                 'toggle from noise. Either exclude the property with a written reason, or fix what is drifting.'
     );
 
     // A walk that found almost nothing would pass every check below for free, the same way a
-    // census of zeros would. 119 is what the shipped page measures; the floor is set well under it
-    // so a three.js upgrade that renames a few fields does not fail this, while a walk that
-    // collapsed to a handful of properties does.
+    // census of zeros would. 183 is what the shipped page measures; the floor is set under it so a
+    // three.js upgrade that renames a few fields does not fail this, while a walk that collapsed to
+    // a handful of properties does — and so does a walk that quietly loses a whole SUBJECT, which
+    // is the defect this round, because 150 is above what the renderer and the scene reach alone.
+    const reachProbes = {
+        'renderer.toneMappingExposure': 'a renderer scalar',
+        'renderer.shadowMap.enabled': 'a nested configuration bag',
+        'scene.backgroundIntensity': 'the scene rather than the renderer',
+        'camera.filmOffset': 'THE THIRD SUBJECT',
+        'camera.position': 'a value object on it, read as numbers rather than as object:Vector3',
+
+        // The bag rule is a widening of `constructor === Object`, and this is the one property that
+        // proves the widening reaches anything: `Layers` is a class, so the old rule stopped at
+        // `object:Layers` and a camera that had been switched onto an empty layer looked identical.
+        'camera.layers.mask': 'a configuration bag whose class is NOT Object'
+    };
+
+    const unreached = Object.keys( reachProbes ).filter( ( key ) => baseline.rendererState[ key ] === undefined );
+
     report(
-        'the walk actually reaches the renderer\'s state, so "nothing moved" means something',
-        Object.keys( baseline.rendererState ).length >= 80
-            && baseline.rendererState[ 'renderer.toneMappingExposure' ] !== undefined
-            && baseline.rendererState[ 'renderer.shadowMap.enabled' ] !== undefined
-            && baseline.rendererState[ 'scene.backgroundIntensity' ] !== undefined,
-        `${ Object.keys( baseline.rendererState ).length } properties, including the three a confound has ` +
-        `already been routed through: toneMappingExposure=${ baseline.rendererState[ 'renderer.toneMappingExposure' ] }, ` +
-        `shadowMap.enabled=${ baseline.rendererState[ 'renderer.shadowMap.enabled' ] }, ` +
-        `backgroundIntensity=${ baseline.rendererState[ 'scene.backgroundIntensity' ] }`
+        'the walk reaches every subject a confound has been routed through, so "nothing moved" means something',
+        Object.keys( baseline.rendererState ).length >= 150 && unreached.length === 0,
+        unreached.length === 0
+            ? `${ Object.keys( baseline.rendererState ).length } properties, of which ` +
+                `${ Object.keys( baseline.rendererState ).filter( ( key ) => key.startsWith( 'camera.' ) ).length } ` +
+                'on the camera. ' + Object.entries( reachProbes )
+                    .map( ( [ key, why ] ) => `${ key }=${ baseline.rendererState[ key ] } (${ why })` ).join( ', ' )
+            : `NOT REACHED: ${ unreached.join( ', ' ) } — a confound routed through any of these is ` +
+                'invisible, which is exactly how the last three versions of this file were defeated'
+    );
+
+    // 🎯 THE SUBJECT LIST, CLOSED. Three versions of this instrument were beaten by the same move —
+    // close a surface, leave its container enumerated — so the container is checked too. Unioned
+    // over both baseline loads; the per-toggle plates cannot add a Stage member without also
+    // showing it as a diff, and the whole-run union is gathered below for the retired-row half.
+    const stageMembers = new Set( [
+        ...Object.keys( baseline.rendererState ), ...Object.keys( baselineAgain.rendererState )
+    ].filter( ( key ) => key.startsWith( 'stage.' ) ).map( ( key ) => key.slice( 'stage.'.length ) ) );
+
+    const unclassifiedSubjects = [ ...stageMembers ]
+        .filter( ( name ) => WALKED_SUBJECTS.includes( name ) === false )
+        .filter( ( name ) => UNWALKED_SUBJECTS[ name ] === undefined ).sort();
+
+    report(
+        'every object the Stage holds is either walked or excused, so the SUBJECT list is closed too',
+        unclassifiedSubjects.length === 0,
+        unclassifiedSubjects.length === 0
+            ? `${ stageMembers.size } members: ${ WALKED_SUBJECTS.join( ' + ' ) } walked, the other ` +
+                `${ stageMembers.size - WALKED_SUBJECTS.length } excused in UNWALKED_SUBJECTS`
+            : `UNCLASSIFIED SUBJECT: ${ unclassifiedSubjects.join( ', ' ) } — the Stage grew a member ` +
+                'nothing here looks at. Walk it, or write down what does cover it.'
+    );
+
+    // And the reverse, so an excuse cannot outlive the member it excuses.
+    const deadSubjects = Object.keys( UNWALKED_SUBJECTS )
+        .filter( ( name ) => stageMembers.has( name ) === false ).sort();
+
+    report(
+        'every excused subject is one the Stage actually holds',
+        deadSubjects.length === 0,
+        deadSubjects.length === 0
+            ? `all ${ Object.keys( UNWALKED_SUBJECTS ).length } excuses correspond to a live member`
+            : `NOT ON THE STAGE: ${ deadSubjects.join( ', ' ) } — the excuse is excusing nothing`
+    );
+
+    // 🚩 AND THE HOLE THAT IS LEFT, PRINTED RATHER THAN IMPLIED — LEARNINGS §1.25b: a gate that
+    // overstates its own scope is worse than a missing gate. This is not a check and it is
+    // deliberately not counted as one; the checkable half of it is the Grade-uniform closure below.
+    console.log( `\n        ⚠️  KNOWN OPEN HOLE: ${ POST_STACK_SUBJECTS.length } post-stack members ` +
+        `(${ POST_STACK_SUBJECTS.join( ', ' ) }) are identity-checked\n` +
+        '            here and NOT walked. Their state is covered only by shadingFingerprint\'s 19-field\n' +
+        '            `pipeline` row, which is the same shape of instrument this file exists because of.\n' +
+        '            Measured at this commit: no post-boot confound can be planted on the Grade, because\n' +
+        '            every uniform it owns is either carried by that row or rewritten every frame. That\n' +
+        '            is a coincidence and the next check is what keeps it one.\n' );
+
+    // The checkable half. `Grade` is not walked, so the gate cannot see INTO it — what it can see is
+    // whether it has grown a knob nobody carries.
+    const gradeUniforms = baseline.gradeUniforms ?? [];
+    const uncarriedUniforms = gradeUniforms.filter( ( name ) => GRADE_UNIFORMS[ name ] === undefined ).sort();
+    const retiredUniforms = Object.keys( GRADE_UNIFORMS )
+        .filter( ( name ) => gradeUniforms.includes( name ) === false ).sort();
+
+    report(
+        'the Grade owns exactly the uniforms this file knows something covers',
+        baseline.gradeUniforms !== null && uncarriedUniforms.length === 0 && retiredUniforms.length === 0,
+        baseline.gradeUniforms === null
+            ? 'THERE IS NO GRADE ON THE BASELINE PLATE — the shipped default is supposed to carry one, ' +
+                'and without it this check and the pipeline row are both reading nothing'
+            : uncarriedUniforms.length === 0 && retiredUniforms.length === 0
+                ? `${ gradeUniforms.length } uniforms, each one either in the fingerprint's pipeline row ` +
+                    'or written every frame: ' + gradeUniforms.join( ', ' )
+                : [
+                    uncarriedUniforms.length > 0
+                        ? `THE GRADE GREW A KNOB: ${ uncarriedUniforms.join( ', ' ) } — instrument 5 does not ` +
+                            'walk the Grade, so unless the pipeline row carries it, nothing does. Add it there ' +
+                            'and here before attributing anything to it'
+                        : null,
+                    retiredUniforms.length > 0
+                        ? `NO LONGER ON THE GRADE: ${ retiredUniforms.join( ', ' ) } — the row here is ` +
+                            'describing a field that is gone'
+                        : null
+                ].filter( ( line ) => line !== null ).join( '; ' )
+    );
+
+    // An exclusion for a property that no longer exists is a line nobody deletes on their own, and
+    // it reads as caution while covering nothing. Both kinds are asserted live on the baseline.
+    const staleExclusions = PER_FRAME_EXCLUSIONS
+        .filter( ( propertyPath ) => baseline.rendererState[ `excluded:${ propertyPath }` ] === undefined );
+
+    const uuidMarkers = Object.keys( baseline.rendererState )
+        .filter( ( key ) => key.startsWith( 'excluded:' ) && key.endsWith( '.uuid' ) );
+
+    report(
+        'every exclusion the walk declares is a property that actually exists',
+        staleExclusions.length === 0 && uuidMarkers.length > 0,
+        staleExclusions.length === 0 && uuidMarkers.length > 0
+            ? `${ PER_FRAME_EXCLUSIONS.length } per-frame exclusions and ${ uuidMarkers.length } uuids, ` +
+                'all present on the baseline and all recorded as markers rather than silently skipped'
+            : `STALE: ${ [ ...staleExclusions, uuidMarkers.length === 0 ? 'no uuid marker at all' : null ]
+                .filter( ( entry ) => entry !== null ).join( ', ' ) } — the exclusion covers nothing and ` +
+                'should come out, or the property it names has moved'
+    );
+
+    // The page ships its own copy of this walk as `sugata.renderState()`, for the console and for
+    // anyone measuring by hand. Two copies drift, and a doc quoting the older one's property count
+    // goes stale silently — which has already happened once, at 116.
+    const mirrorOnly = baseline.pageRenderState
+        .filter( ( key ) => baseline.rendererState[ key ] === undefined );
+    const gateOnly = Object.keys( baseline.rendererState )
+        .filter( ( key ) => baseline.pageRenderState.includes( key ) === false ).sort();
+
+    report(
+        'the page\'s own renderState() walks the same properties this file does',
+        mirrorOnly.length === 0 && gateOnly.length === 0,
+        mirrorOnly.length === 0 && gateOnly.length === 0
+            ? `both walks report the same ${ baseline.pageRenderState.length } property paths`
+            : `THE TWO COPIES HAVE DRIFTED — only on the page: ${ mirrorOnly.join( ', ' ) || 'none' }; ` +
+                `only in this file: ${ gateOnly.join( ', ' ) || 'none' }. The gate's own copy is what ` +
+                'decides the verdicts, so this is the page mirror being wrong, not the gate.'
     );
 
     // The same question for instrument 3, and the one the old file never asked. See PIXEL_BASE.
@@ -969,19 +1441,19 @@ try {
         );
 
         // Instrument 5, property-granular and deny-by-default. Most rows declare NOTHING here,
-        // which is the strictest shape in the table: a toggle that reaches the renderer or the
-        // scene at all is collateral unless it says so and says exactly what.
+        // which is the strictest shape in the table: a toggle that reaches the renderer, the scene
+        // or the camera at all is collateral unless it says so and says exactly what.
         const declaredState = toggle.rendererState ?? [];
         const movedState = changedEntities( baseline.rendererState, plate.rendererState );
         const stateCollateral = missingFrom( movedState, declaredState );
         const stateInert = missingFrom( declaredState, movedState );
 
         report(
-            `?${ toggle.query } moves ${ declaredState.length === 0 ? 'NO renderer or scene state' : declaredState.join( ' + ' ) }`,
+            `?${ toggle.query } moves ${ declaredState.length === 0 ? 'NO frame-subject state' : declaredState.join( ' + ' ) }`,
             stateCollateral.length === 0 && stateInert.length === 0,
             stateCollateral.length === 0 && stateInert.length === 0
                 ? `the other ${ Object.keys( baseline.rendererState ).length - movedState.length } properties of the ` +
-                    'renderer and the scene hold their values'
+                    'renderer, the scene and the camera hold their values'
                 : [
                     stateCollateral.length > 0
                         ? `COLLATERAL ${ stateCollateral.map( ( key ) => `${ key } ` +
