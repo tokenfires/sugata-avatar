@@ -197,8 +197,7 @@ const SCLERA_BAND_MIN_DEGREES = 30;
 // "flat iris plane" is a 0.38 mm approximation to a shallow bowl, not a fiction.
 const IRIS_PLANE_FIT_FRACTION = 0.78;
 
-// Sclera brightness multiplier on the sampled map. research §6 gives 0.9-1.3 for HDRP's equivalent
-// control, and this sits inside that band.
+// Sclera brightness multiplier on the sampled map.
 //
 // SOLVED against the gate rather than chosen: with the map passed through at 1.0 the sclera
 // measures 0.6963 encoded luma against a cheek at 0.7603, i.e. a ratio of 0.9157 where G2 wants
@@ -208,7 +207,62 @@ const IRIS_PLANE_FIT_FRACTION = 0.78;
 // it is still a warm mid-grey — the punch list's standing constraint is against a WHITE sclera, and
 // the gate it is paired with says the eye that reads as real is barely brighter than the skin
 // around it. Matching the cheek IS the constraint; 1.0 was under it, not safely inside it.
-const SCLERA_BRIGHTNESS = 1.26;
+//
+// 🎯 **1.26 WAS SOLVED WITHOUT THE OCCLUSION SHEET IN THE PICTURE, AND IT COSTS EXACTLY THE
+// DIFFERENCE BETWEEN G2 GREEN AND G2 RED.** Attributed by toggle on
+// `alive.html?bare&freeze&seed=1&capture` at 900x1200, shipped default (TAAU 0.66 + grade + RCAS),
+// changing one thing at a time:
+//
+//   | plate                | G2 luma ratio | sclera encoded | verdict against the 0.92 floor |
+//   |----------------------|--------------:|---------------:|--------------------------------|
+//   | shipped              |        0.9189 |         0.7202 | FAIL by 0.0011                 |
+//   | `&eyeocc=0`          |        0.9444 |         0.7401 | PASS                           |
+//   | `&grade=0`           |        0.9188 |         0.7216 | FAIL — so it is NOT the grade  |
+//   | `&aa=msaa&grade=0`   |        0.9208 |         0.7243 | FAIL                           |
+//
+// So `EyeOcclusion.js`'s sheet is worth **0.0255 of ratio** and the grade is worth 0.0001. The
+// sheet is not the defect — its own header records that the ramp was squeezed against the lid
+// margin precisely so it would stop eating the temporal sclera, and it now reads 0.9361 there
+// against 0.6322 before that fix. What is stale is THIS constant: 0.9157 -> 1.26 was solved on a
+// plate with no sheet over the eye at all, and the sheet then took a quarter of it back. A
+// multiplier solved against a render is only valid for the render it was solved on (§1.11c —
+// when the asset changes, re-derive the conclusion rather than re-wording it).
+//
+// 🎯 RE-SOLVED, on the rig this round also re-solved (`LightingRig.js` portrait fill 1.90 -> 2.20,
+// which moves the cheek this ratio is measured against). Swept by setting
+// `scleraBrightnessUniform` from the page before the first capture step — proven equivalent to
+// editing this constant, because the sweep's 1.26 plate is BYTE-IDENTICAL to the file-edited one
+// (sha256 29ee8996bfa7):
+//
+//   | brightness | G2 luma ratio | G2 chroma ratio | both clauses in band? |
+//   |------------|--------------:|----------------:|-----------------------|
+//   | 1.26       |        0.9169 |          1.3660 | no — luma low AND chroma high |
+//   | 1.41       |        0.9448 |          1.2842 | yes                   |
+//   | 1.45       |        0.9512 |          1.2636 | yes                   |
+//   | **1.47**   |    **0.9547** |      **1.2523** | **yes, balanced**     |
+//   | 1.48       |        0.9564 |          1.2495 | yes                   |
+//   | 1.55       |        0.9673 |          1.2126 | yes, 0.007 off the chroma floor |
+//   | 1.65       |        0.9817 |          1.1701 | no — chroma below 1.205 |
+//   | 1.85       |        1.0069 |          1.0850 | no — chroma below 1.205 |
+//
+// 🚩 **THE TWO CLAUSES PULL OPPOSITE WAYS AND NEITHER CAN BE CENTRED**, which is why the value is
+// an equal-margin solve rather than a target. Brightening the sclera raises its luma AND
+// DESATURATES it — ACES compresses, so a brighter patch comes out of the transfer with less
+// chroma. Luma wants 0.98 (brightness ~1.65); chroma wants the reference 1.2839 (brightness
+// ~1.41). 1.47 is where the two normalised margins meet: luma 0.9547 sits 0.578 of a half-band
+// above the 0.92 floor and chroma 1.2523 sits 0.598 of a half-band above the 1.2052 floor.
+// Anyone re-solving one clause alone will push the other out — measure both or move neither.
+//
+// ⚠️ **1.47 IS OUTSIDE research §6's "Sclera Brightness 0.9-1.3", and the band does not transfer.**
+// That is HDRP's slider range on an HDRP-authored sclera map; the multiplicand here is MakeHuman's
+// `brown_eye.png`, whose sclera is sRGB (160,153,145) — encoded luma 0.6036, a mid-grey rather
+// than a sclera white — so the same rendered result needs a larger number in front of it (§1.7: a
+// published number carries a frame of reference; ask what it was measured ON). The constraint that
+// does transfer is physical, and it is close enough to be worth stating: the pink tint's red gain
+// is 1.6476, so the red albedo reaches unit reflectance at brightness **1.727**. At 1.47 the sclera
+// albedo is linear (0.851, 0.385, 0.355), under 1.0 in every channel with 15% of headroom. Past
+// 1.73 this stops being a reflectance and starts being an emission, and no gate would say so.
+const SCLERA_BRIGHTNESS = 1.47;
 
 /**
  * 🎯 The sclera's CHROMA, which is the half of the look spec no gate was measuring.

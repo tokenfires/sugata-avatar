@@ -291,12 +291,55 @@ export const EXPOSURE_CALIBRATION = 0.85;
  * Both numbers come from the look spec's § Lighting rig. The key is "broad soft, ~45° off-axis,
  * slightly above the eyeline"; the fill is "large, very strong."
  *
- * The fill's irradiance is 0.68 of the key's, and that is the whole ball game. A face turned 45°
+ * The fill's irradiance is 0.73 of the key's, and that is the whole ball game. A face turned 45°
  * into the key receives essentially all of it on the lit side and essentially none on the shadow
  * side, so the shadow side is carried by the fill and the measured ratio lands near key ÷ fill.
- * 1 ÷ 0.68 = 1.47 linear, inside the reference band of 1.43–1.64 and under G1's 2.0 ceiling with
- * room for the ambient term to pull it further down. The instinct that wants 4:1 here is the
- * single commonest way to render this target wrong.
+ * 1 ÷ 0.73 = 1.36 linear before the ambient and the output transform get to it, inside the spec's
+ * own stated key:fill range of 1.2:1 to 2.0:1. The instinct that wants 4:1 here is the single
+ * commonest way to render this target wrong.
+ *
+ * 🎯 **IT WAS 1.90 (0.63 OF KEY) AND THE OUTPUT TRANSFORM MOVED UNDERNEATH IT.** The header's own
+ * 🚩 says it: *"exposure is not neutral to the gate. Anyone who moves the grade (3.13) or the tone
+ * curve must re-run G1."* `render/Grade.js` became the page default and G1 was not re-run, so a rig
+ * solved at **1.5991** on the ungraded forward path shipped at **1.6586** — 1.2% ABOVE the 1.64
+ * reference band top, on the one gate this project had genuinely landed.
+ *
+ * The +0.040 is the **vignette**, and it is a framing effect rather than a lighting one, which is
+ * why no amount of staring at the rig would have found it. `regions.lighting-portrait.json` puts
+ * `faceShadow` at normalised x 0.175–0.230 and `faceKey` at 0.400–0.455, so the shadow patch sits
+ * 0.30 of a half-frame off centre and the key patch 0.07 — the face is not centred, so a radial
+ * darkening is not symmetric across the pair. `vignetteNode`'s `1 − 0.15·r²` predicts the shadow
+ * patch keeps 0.9701 against the key patch's 0.9956, i.e. the ratio is inflated by **×1.0263**.
+ * Measured by toggle on `alive.html?bare&freeze&seed=1&capture` at 900×1200: shipped **1.6586**,
+ * `&vignette=0` **1.6189**, `&grade=0` **1.6189** — ×1.0245, and the two toggles agree to four
+ * decimal places, so the vignette is the WHOLE of the grade's contribution to G1 and bloom, RCAS
+ * and the saturation trim are worth nothing on this pair.
+ *
+ * So the fill is re-solved against the transform the page actually ships. Swept on
+ * `alive.html?bare&freeze&seed=1&capture&ov=fill.irradiance:<x>` at 900×1200, portrait regions,
+ * TAAU 0.66 + grade + RCAS 1.2, nothing else changed:
+ *
+ *   | fill | G1 linear | cheek encoded | G2 chroma ratio | G6 p0.1 | G7 outliers |
+ *   |------|----------:|--------------:|----------------:|--------:|------------:|
+ *   | 1.90 |    1.6586 |        0.7837 |          1.3457 | 0.00225 |    0.000561 |
+ *   | 2.05 |    1.5913 |        0.7884 |          1.3540 | 0.00227 |    0.000449 |
+ *   | **2.20** | **1.5331** |    **0.7933** |      1.3660 | 0.00309 |    0.000336 |
+ *   | 2.40 |    1.4664 |        0.7998 |          1.3848 | 0.00338 |    0.000280 |
+ *
+ * **2.20 is picked by two independent readings, which is what makes it a solve rather than a
+ * tune.** It puts G1 at 1.5331 against a band CENTRE of 1.535 — the band is 0.21 wide and the
+ * thing on the far side of its top is the conventional three-point ratio the whole look spec
+ * exists to reject, so the centre is where a value with a ±0.0005 load-to-load spread belongs.
+ * And it puts the G2 cheek patch at **0.7933 encoded against the reference's own 0.793**
+ * (`#E5C3C3`, the same hex the band's top edge is derived from), which is the *absolute* half of
+ * the calibration `EXPOSURE_CALIBRATION` had to trade against the ratio. At 1.90 the two readings
+ * disagreed; at 2.20 they land on the same number.
+ *
+ * ⚠️ **The one thing 2.20 costs is G2's chroma clause, and it is paid for in `EyeMaterial.js`.**
+ * The sclera:cheek HSV-saturation ratio rises with the fill and 1.3660 is outside the 1.205–1.362
+ * band. Brightening the sclera pushes it back down through ACES (a brighter patch desaturates),
+ * so `SCLERA_BRIGHTNESS` was re-solved in the same round and the pair is measured together —
+ * neither number is correct on its own. See `EyeMaterial.js`'s `SCLERA_BRIGHTNESS`.
  *
  * 🎯 **THE FILL IS WARM, AND THE PREVIOUS BLUE-MAGENTA FILL IS WHY G3 WAS RED.** This is the
  * correction that matters most in the file, and it comes from a toggle rather than an argument.
@@ -326,6 +369,8 @@ export const EXPOSURE_CALIBRATION = 0.85;
  * reflects far more than blue light does, so the same authored number made a brighter shadow side.
  * Measured across the swap, `#c9c2e6` at 2.18 gives G1 1.6091 and `#f2d2c6` at 2.18 gives 1.4368;
  * 1.90 puts it back at **1.5991**, inside the 1.43–1.64 reference band.
+ * ⚠️ Historical: 1.5991 and 1.4368 are UNGRADED forward-path numbers and are not comparable with
+ * the graded sweep above. The colour swap's conclusion stands; its absolute figures do not.
  */
 const FORM_LIGHTS = [
     {
@@ -346,7 +391,7 @@ const FORM_LIGHTS = [
         distanceInHeights: 2.3,
         widthInHeights: 4.2,
         heightInHeights: 4.2,
-        irradiance: 1.90,       // 0.633 x key
+        irradiance: 2.20,       // 0.733 x key — re-solved against the SHIPPED grade; see above
         colour: 0xf2d2c6,       // skin bounce: the key through the spec's 1 : 0.83 : 0.75 response
         shadowFraction: 0
     }
@@ -569,7 +614,7 @@ const EDGE_LIGHTS = {
  *
  *   | body fill irradiance | G1 linear | G1 encoded | in the 1.43–1.64 band |
  *   |----------------------|----------:|-----------:|-----------------------|
- *   | 1.90 (portrait's)    |    1.2891 |     1.1280 | no — below            |
+ *   | 1.90 (portrait's, at the time) | 1.2891 | 1.1280 | no — below         |
  *   | 1.55                 |    1.3893 |     1.1693 | no — below            |
  *   | 1.30                 |    1.4818 |     1.2064 | yes                   |
  *   | **1.20**             |**1.5259** | **1.2237** | **yes, centred**      |
@@ -579,6 +624,16 @@ const EDGE_LIGHTS = {
  * 1.20 is chosen for the CENTRE of the band rather than for the edge, because the band is narrow
  * and the thing on the other side of it is the conventional three-point ratio the whole look spec
  * exists to reject. It leaves body at 1.5259 and portrait at 1.5991 — 5% apart, both inside.
+ *
+ * ⚠️ **That sweep is an UNGRADED `lighting.html` sweep and the two framings have since been
+ * re-measured on the page a judge actually loads.** On `alive.html?bare&freeze&seed=1&capture` at
+ * 900×1200 with the shipped default (TAAU 0.66 + grade + RCAS 1.2), body reads **1.5869** against
+ * this table's 1.5259 — the grade's vignette again, and the body frame's `faceKey`/`faceShadow`
+ * pair sits closer to the frame centre than portrait's, so it collects less of it (+0.061 here
+ * against +0.040 there). **Body was already inside the band and this round did not touch it**: the
+ * 1.20 override is absolute, so re-solving the portrait fill above cannot reach it — proven rather
+ * than argued, the body plate is BYTE-IDENTICAL across that change (sha256 `8b3fb2ae2118` at
+ * 1.90 and at 2.20), and G1 reads **1.5869** on both.
  */
 const FORM_LIGHT_OVERRIDES_BY_PRESET = {
     portrait: {},
