@@ -9,17 +9,33 @@
    this wrong repeatedly.
 3. **This file** — where the work stands.
 4. **[`PUNCHLIST.md`](PUNCHLIST.md)** — the next item and its acceptance gate.
+5. **[`OPEN-REQUESTS.md`](OPEN-REQUESTS.md)** — every cross-file change an agent filed but could not
+   make itself, with its measured evidence and an adjudicated status. **Read it before starting a
+   round and again before closing one.** Two of the last three engineering blockers were requests
+   that evaporated when a round ended; `tools/request-ledger.selftest.mjs` is what stops that, and
+   it goes red when an entry is OPEN past its round or claims APPLIED without the change being in
+   the file. A request filed anywhere else — a report, a commit body, a code comment — is a request
+   that will be lost. LEARNINGS §1.25r.
 
 Update this file whenever a phase changes state. It is written to survive total context loss.
 
-Last updated: **2026-08-08, FIFTH pass — integration of a six-agent fan-out onto `2ec7db9`.**
+Last updated: **2026-08-09, R7 — the diff-request ledger, and the gate roster re-derived on every row.**
 
 ## 🎯 **THE SHIPPED DEFAULT PASSES SEVEN OF SEVEN.** First clean sweep this file has recorded.
 
 `alive.html?bare&freeze&seed=1&capture` at 3840×5120 dpr 1, 60 steps at 60 fps, on the shipped
-default (TAAU 0.66 + grade + RCAS 1.2, MSAA OFF) — **three loads, one PNG, sha256
-`d3c9946f73e5eaa1`**, spanning the whole integration including the wardrobe landing between the
-first load and the third.
+default (TAAU 0.66 + grade + RCAS 1.2, MSAA OFF) — **three loads, one set of gate values**, spanning
+the whole integration including the wardrobe landing between the first load and the third.
+
+⚠️ **This sentence used to read "three loads, one PNG, sha256 `d3c9946f73e5eaa1`" and that is
+WITHDRAWN.** `cd2e567` re-measured the same recipe over **103 loads in seven runs** and found
+`d3c9946f73e5eaa1` is the plate's **modal** digest, not its identity: 671 of 1,053 pairs are
+bit-identical and the worst residue is Δ2/255 on 164 px of 19,660,800 (0.00083%). Three agreeing
+loads is an observation of one run. What entitles a single value per gate here is **gate STABILITY
+rather than byte identity** — a Δ2 excursion on 164 px cannot move a regional mean, a high-pass σ or
+a 0.1st percentile at four decimals, and all three loads read the seven values below to the last
+digit. Those are separable claims and this file had merged them. PUNCHLIST's plate block carries the
+runs; `docs/measured-claims.selftest.mjs`'s REPRO rule now holds this prose to it.
 
 **G1 1.5378 · G2 0.9544 · G3 PASS · G4 1.6346 · G5 0.000002 · G6 0.0042 · G7 0.000601.**
 
@@ -142,14 +158,14 @@ the emote critic loop run in parallel with renderer work.
 | 0 | Foundation — scaffold, asset pipeline, critic harness, spikes | **done** (0.4/0.5/0.9/0.11 open) |
 | 1 | Body and identity — gender morph pair, ARKit bank, rig | **done** |
 | 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ✅ 2.11 CLOSED 2026-08-08 — all four layers are frame-rate invariant and each rejects a `frameCoupledArrivals` reintroduction |
-| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **Done and gated: 3.1, 3.2, 3.3, 3.4, 3.8, 3.11, 3.12, 3.13, 3.16.** 🎯 **THE SHIPPED DEFAULT NOW PASSES SEVEN OF SEVEN** (G1 1.5378 · G2 0.9544 · G3 · G4 1.6346 · G5 0.000002 · G6 0.0042 · G7 0.000601, three loads one PNG `d3c9946f73e5eaa1`), which closes 3.2’s first half, 3.3 and 3.13 in one round. **3.3 was a stale constant, not a configuration result**: `SCLERA_BRIGHTNESS` 1.26 was solved on a plate with no occlusion sheet over the eye and the sheet took a quarter of it back — `?eyeocc=0` alone moves the ratio 0.0255 against `?grade=0`’s 0.0001 — re-solved to 1.47. **3.13’s G6 was never a black point**: the hair cards rendered at literally RGB(0,0,0), 1,431 pure-black pixels all in the brow/lash band, and nothing downstream can raise a zero-albedo surface; they now carry the look spec’s own `#150F17` albedo floor. `Grade.selftest.mjs` **65/65** and its horizon is now 600 rendered frames rather than a seven-frame window. **Still built and RED:** 3.2b — 3.2’s terminator half is G3, which passes on three’s stock material too and therefore certifies nothing. **Built and UNGATED — no MEASURED plate result exists, so none of these may be marked done:** 3.9 (`SkinOcclusion`, 13/13 on the bake and nothing on the render), 3.17 (`GroundContact`, **55/55** and no plate), 3.18 (`SkinRegions`, 29/29 and neither of its two effects attributed on a plate). **Not started:** 3.5, 3.6, 3.7, 3.10, 3.14, 3.15 — hair, hair OIT, cloth, GTAO/bent normals, DOF, and the blind critic loop |
+| 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **Done and gated: 3.1, 3.2, 3.3, 3.4, 3.8, 3.11, 3.12, 3.13, 3.16.** 🎯 **THE SHIPPED DEFAULT NOW PASSES SEVEN OF SEVEN** (G1 1.5378 · G2 0.9544 · G3 · G4 1.6346 · G5 0.000002 · G6 0.0042 · G7 0.000601, three loads agreeing on all seven values; the plate's modal digest is `d3c9946f73e5eaa1` and its residue is Δ2/255 on 164 px of 19.7 million, so this is gate stability and NOT byte identity), which closes 3.2’s first half, 3.3 and 3.13 in one round. **3.3 was a stale constant, not a configuration result**: `SCLERA_BRIGHTNESS` 1.26 was solved on a plate with no occlusion sheet over the eye and the sheet took a quarter of it back — `?eyeocc=0` alone moves the ratio 0.0255 against `?grade=0`’s 0.0001 — re-solved to 1.47. **3.13’s G6 was never a black point**: the hair cards rendered at literally RGB(0,0,0), 1,431 pure-black pixels all in the brow/lash band, and nothing downstream can raise a zero-albedo surface; they now carry the look spec’s own `#150F17` albedo floor. `Grade.selftest.mjs` **65/65** and its horizon is now 600 rendered frames rather than a seven-frame window. **Still built and RED:** 3.2b — 3.2’s terminator half is G3, which passes on three’s stock material too and therefore certifies nothing. **Built and UNGATED — no MEASURED plate result exists, so none of these may be marked done:** 3.9 (`SkinOcclusion`, 13/13 on the bake and nothing on the render), 3.17 (`GroundContact`, **55/55** and no plate), 3.18 (`SkinRegions`, 29/29 and neither of its two effects attributed on a plate). **Not started:** 3.5, 3.6, 3.7, 3.10, 3.14, 3.15 — hair, hair OIT, cloth, GTAO/bent normals, DOF, and the blind critic loop |
 | 4 | Speech — viseme timeline, TTS, coarticulation | **4.1, 4.2, 4.5 built** — `voice/{Visemes,VisemeSchedule,VisemeLayer,Coarticulation,Prosody,Pitch}.js` + `prosody-worklet.js`, 59/59 viseme and 26/26 prosody gates green, scheduled against simulated time and asserted frame-rate invariant from day one. 4.3 (TTS) and 4.4's on-screen sync gate not started. ⚠️ This row read "not started" for one round after the work landed — written during Build, committed after |
-| 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | not started |
+| 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | **5.1, 5.2, 5.4 and 5.5 built and gated** — `affect/{AffectState,ReflexAffect,ExpressionMap,ExpressionLayer,SeedLexicon}.js`, `affect.selftest.mjs` **91 checks**, plus `affect.html` driving the real figure. Attack 0.200 s / decay 2.25 s MEASURED off the trajectory, mood at ALMA's 600/1200 s, 30/60/120 Hz agree to 6.693e-14, fast:slow separation 298:1 at one second. Tier 1 p99 **0.01417 ms**; ⚠️ **the licence question is resolved** — no NRC-VAD, no Warriner, VADER's rules from its published description, and a 217-entry list authored here with no accuracy claim. Dominance weight 0.50 / PHI 0.645 / DELTA 0.35 all derived against ALMA's 24 OCC vectors; ≤2 active and ≤1 saturated over a 41³ cube. Viseme unchanged to **0.00e+0** under a settled expression on the real figure. 🚩 **research §1's WASABI angry anchor was DEGENERATE** — (80,80,100) is bit-identical to happy's, corrected to (−80,80,100). ⚠️ **5.7 open and expected to push back: the faces are measurably distinct (joy vs anger 19.87% of face-band pixels) and UNDER-DRIVEN** — the 0.35 corner cap delivers 6.54 mm of 18.68 mm, and the ARKit brow shapes travel ~7 mm at weight 1. 5.3 and 5.6 not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started. ⚠️ No longer blocked on reference: `reference/stellar-blade/` now holds **203 plates across 103 outfits, front and back**, extracted from a user-supplied webarchive. Same shot type as our own `?frame=body` capture — one figure, neutral stance, flat dark backdrop — so framing, pose and background are already matched, which is normally the hard part of a blind set. **All are ~200×434**; no `/original` was archived, so they support silhouette, palette and material-family judgement and NOT microdetail. Crop the Japanese UI chrome or it is a provenance tell. See `reference/stellar-blade/EXTRACTION-NOTES.md` |
-| 9 | **Wardrobe** — garments, layering, fabric, mood/season, the dressing screen | **STARTED. 9.1, 9.2, 9.3 and 9.5 are done and gated** (`wardrobe.selftest.mjs` 35 assertions; `verify_glb.mjs` PASS on 10 files, where a clothed figure used to fail by construction), and **9.16’s procedural-fabric spike is green** (`tools/spikes/fabric-weave.mjs --gate`). The runtime index rebuild equals the baked build exactly — 17,012 = 17,012 and 21,380 = 21,380, identical as a 1 µm centroid multiset and not merely in count — dressing costs **0.1663 ms** median, and a dressed figure draws **25,812** triangles against **26,756** nude. Wired onto `alive.html` as `?wear=…`, opt-in so the judge’s plate is untouched. Remaining: 16 items, every one gated |
-| 10 | **Identity sculpting** — face and body proportion, the coherence gate, the human–AI loop | **specified, not started.** 13 items, every one gated; `research/identity-sculpting.md`. 🎯 The architecture is measured, not assumed: identity targets are pure additive per-vertex offsets, so CPU application reproduces Blender to **1.1e-4 mm** and 203 sliders cost **2.06 ms ONCE, zero per frame** — the baked-GLB combinatorics are dead. ARKit deltas stay valid but never rescale (worst −10% of a blink, exactly linear, bounded); the face has no skeleton to break (0 of 106 bone ends move); the body skeleton refits to **0.000 mm in 33 ms**. ⚠️ **Garments do NOT survive identity** — two body sliders drift a suit **106.9 mm** — and the JS refit is 0.0064 ms but needs **22.6 KB of helper vertices per garment** shipped, because the exporter deletes the 1,879 of 1,885 verts it reads. **That gates 9.4.** |
+| 9 | **Wardrobe** — garments, layering, fabric, mood/season, the dressing screen | **STARTED. 9.1, 9.2, 9.3, 9.5, 9.8 and 9.13 are done and gated** (`wardrobe.selftest.mjs` **45** assertions — it was already 45 before this round and this row said 35; `decency.selftest.mjs` **20**; `agency.selftest.mjs` **28**; `verify_glb.mjs` PASS on **14** files, where a clothed figure used to fail by construction). **9.8 — the foundation layer** is four garments cut from the figure's own skin as conformal shells rather than fitted from mhclo, so they need no fitting step and no texture at all: 0.48–4.20 mm clearance, 0 vertices through the body, ZERO images across four fragments. Decency is measured by RAY CAST from 186 `_DECENCY_*` vertices into the geometry actually drawn, over all 48 reachable states. **9.13 — agency** ships `pinned`/`agent`/`ask` with `pinned` the first-run default, gated on the MOOD layer (it THROWS on an affect-layer reading), with `expressPreference()` first-class in every mode, and **9.16’s procedural-fabric spike is green** (`tools/spikes/fabric-weave.mjs --gate`). The runtime index rebuild equals the baked build exactly — 17,012 = 17,012 and 21,380 = 21,380, identical as a 1 µm centroid multiset and not merely in count — dressing costs **0.1663 ms** median, and a dressed figure draws **25,812** triangles against **26,756** nude. Wired onto `alive.html` as `?wear=…`, opt-in so the judge’s plate is untouched. Remaining: 16 items, every one gated |
+| 10 | **Identity sculpting** — face and body proportion, the coherence gate, the human–AI loop | **10.1 and 10.2 BUILT AND GATED** — `figure/{IdentityTargets,IdentityCatalogue}.js`, 119 new checks in two selftests (**47** + **72**), plus `identity.html`. CPU application reproduces headless MPFB to **1.151e-4 mm** on all 19,158 vertices against a 0.001 mm gate; all 266 exposed widgets apply in **1.0028 ms**, once, and per-frame cost is zero *structurally* — no per-frame entry point exists. The catalogue is 203 categories / 66 sided / 269 widgets / 530 raw / 21 regions with **0 of 1,258 files unclassified**, and the macro solver reproduces MPFB's own stack at 0.000e+0 weight error. ✅ research §1.4's helper-index assumption is now MEASURED and true. 🚩 **The ARKit closure cost is WORSE on the shipped export than §1.2a's basemesh table and one row flips sign** — size 10.3 off `tools/identity-pipeline/measure_expression_cost.mjs`, not off the doc. ⚠️ **The figure reshapes and the face parts and skeleton do not**: 15.000 mm of skin rise against 0.000 mm of eyeball rise on "tall build", visible in the plate — that is 10.7 and 10.9. ⚠️ The macro CORPUS is 85.2 MB packed and does not ship; 10.8 needs a representation, not a loader. Remaining 11 items, every one gated; 13 items, every one gated; `research/identity-sculpting.md`. 🎯 The architecture is measured, not assumed: identity targets are pure additive per-vertex offsets, so CPU application reproduces Blender to **1.1e-4 mm** and 203 sliders cost **2.06 ms ONCE, zero per frame** — the baked-GLB combinatorics are dead. ARKit deltas stay valid but never rescale (worst −10% of a blink, exactly linear, bounded); the face has no skeleton to break (0 of 106 bone ends move); the body skeleton refits to **0.000 mm in 33 ms**. ⚠️ **Garments do NOT survive identity** — two body sliders drift a suit **106.9 mm** — and the JS refit is 0.0064 ms but needs **22.6 KB of helper vertices per garment** shipped, because the exporter deletes the 1,879 of 1,885 verts it reads. **That gates 9.4.** |
 
 ### 2026-08-08, second pass — `?freeze` was inert under `?capture`, and three gates were half-blind
 
@@ -312,8 +328,15 @@ as well as the shader, so it was never that shader's control. Isolated, the shad
 `tools/critic/selftest.mjs` 79 → **125** (now 125 including the new provenance and comparison
 gates), `EyeMaterial.selftest.mjs` 99 → **131**, `LightingRig.selftest.mjs` 34 → **38**,
 `sway.selftest.mjs` **194**, and `travel.selftest.mjs` (**111**) was missing from the list
-entirely. ⚠️ `LightingRig.selftest.mjs` **exits 0 even when it prints FAIL** — it cannot be used in
-a script. Filed as a diff request.
+entirely. ⚠️ **CORRECTED 2026-08-09: this line used to say `LightingRig.selftest.mjs` "exits 0 even
+when it prints FAIL — it cannot be used in a script. Filed as a diff request." That measures false,
+and it measured false on the day it was written.** The file has ended with
+`process.exitCode = failures === 0 ? 0 : 1` since `7936f37`, 2026-08-07 — the day *before* the
+request was filed. It **exits 1 on a failing run, proven by execution**:
+`node packages/core/src/render/LightingRig.selftest.mjs --caster-gain=5` prints
+`FAIL: 85/98 checks green` and returns 1. The request is recorded and closed as REQ-021 in
+[`OPEN-REQUESTS.md`](OPEN-REQUESTS.md); had anyone applied it they would have changed working code
+to satisfy an unverified report.
 
 ### 2026-08-07, latest — Phase 3 shading is on the aliveness page, and the motion layers were rendering a trajectory no camera sees
 
@@ -778,6 +801,17 @@ any righted body — hip band centroid 864 mm, head band 1506 mm, pivot 67 mm; t
 lever predicts 1.805 and measures 1.697–1.905. **Nothing in the layer needs changing.** If a judge
 still reports the head leading the hip by eye, the next step is the two-alternative staircase
 LEARNINGS §1.14a designs, not another coefficient.
+
+⚠️ **RETRACTED 2026-08-09 — THERE WAS NO GEOMETRIC FLOOR; THERE WAS AN ARM.** The 1.805 rigid-lever
+prediction and its 1.697–1.905 measurement are both correct, and they agree *because both are
+properties of the ARM-INCLUSIVE band* — a rigid body carries its arms with it, so the lever
+arithmetic and the silhouette answer the same question. Of the 89 vertices in the hip band, **56
+are on the arm chain and 33 are pelvis and thigh**, and both silhouette edges are hand and forearm.
+On the AXIAL reading of the same twelve traces the unrighted layer scores **1.473–1.541** and the
+shipped layer scores **0.670–0.799** — below 1.00 on every seed, i.e. the pelvis leads the head,
+which is what a hip strategy is. The conclusion that followed from the floor ("nothing in the layer
+needs changing") is therefore withdrawn: the layer DID need changing, and the change landed this
+round. See LEARNINGS §1.27 and the R8 entry below.
 
 **Finding 7 — the arms are not asymmetric in the rig.** Measured over 12 seeds × 6 channels × 2
 windows on the stack `alive.js` builds, in relaxed-standing, the worst left/right energy ratio
@@ -1963,6 +1997,368 @@ RestPose with contrapposto variants; the six objective critic gates.
 Every defect this session was found by adversarial verification or visual judgement, never by
 the agent that wrote the code. That pattern is documented in LEARNINGS.md Part 4 and should
 continue.
+
+---
+
+## R8, 2026-08-09 — six agents, and the round the instruments were wrong more often than the code
+
+Integration of a six-agent fan-out: lighting-gate, trunk-articulation, ledger-and-docs, affect
+(Phase 5.1/5.2/5.4/5.5), wardrobe (9.8/9.13) and identity (10.1/10.2). **34 diff requests and 26
+docs corrections were filed and every one is dispositioned** — the request pass was a gated
+integration step this round for the first time, which is the mechanism `af0e68d` asked for.
+
+🎯 **The theme of the round, and it is not a coincidence: in four of the six workstreams the thing
+that was wrong was the INSTRUMENT, not the code.** A trunk statistic that measured the arms. A
+lighting gate that was an enumeration of remembered defects. A ledger of filed requests that was a
+list of comments pointing at a document this repository does not contain. A research constant
+transcribed with the wrong sign, into a position where no downstream gate could ever see the
+distinction it deleted. LEARNINGS §1.25t, §1.25u, §1.26, §1.27, §1.28.
+
+### The lighting gate stopped being a list of mechanisms
+
+It had been hardened twice and walked past three times: a caster at the wrong colour, then at the
+wrong intensity, then `shadowCaster.decay` 2 → 1 (**41.64%** of a rendered frame moved, worst
+Δ8/255) and `shadowCaster.distance` 0 → 1.2 (**79.47%**, Δ87/255) with `LightingRig.selftest.mjs`
+reading 98/98 and `GroundContact.selftest.mjs` 65/65 through both.
+
+The round did not add a decay check. It enumerated, from three 0.185.1's own source, the complete
+set of properties the WebGPU path reads to decide what a light puts on the figure, and asserts the
+SET — `lightRenderState()` in `LightingRig.js`, `GroundContact.renderState()` for the surface half.
+See LEARNINGS §1.25t.
+
+Eleven mechanisms are proved red, **none of them decay or distance**, every one with PREMISE,
+MAGNITUDE and REACH green: `shadow.intensity`, `layers`, `shadow.focus`, the hemisphere light's sky
+axis, a mirrored panel, a yawed panel; and on the ground `receiveShadow`, `metalness`, `emissive`, a
+uniform desynced from its own CPU mirror, and a tilted plane — all five of those leaving
+`visibilityAt()` **bit-identical**, which is what the five occlusion blocks measure through.
+
+Each is also a URL parameter on `lighting.html`, so the pixel claims are re-runnable. Measured on
+`/src/lighting.html?frame=body` at 900×1200, WebGPU, one change at a time with the restore verified
+bit-for-bit: `panelmirror` **98.86%** of the frame at Δ140/255, `decay` 96.11% / Δ70, `cutoff`
+96.08% / Δ140, `panelaim` 73.17% / Δ5, `skyaxis` 42.91% / Δ12, `tilt` 31.20% / Δ104, `metalness`
+and `emissive` 26.31% / Δ19 and Δ7, `rimlayer` 24.00% / Δ192, `desync` 19.07% / Δ108,
+`shadowintensity` 2.06% / Δ23, `receiveshadow` 1.49% / Δ20, `shadowfocus` 0.74% / Δ26.
+
+⚠️ **Two mechanisms measured ZERO and are recorded with their zeros.** A positive non-uniform panel
+scale (1, 2, 1) moves 0.00% — `extractRotation` normalises each column, so the plausible skew
+argument is wrong and the real mechanism is a MIRROR. `material.toneMapped` moves 0.00% because tone
+mapping here is an output pass. Both stay in the gates: a closure covers a field before it matters.
+
+⚠️ **The lighting agent's pixel figures and the previous verifier's are not the same numbers and
+neither supersedes the other** — `decay` reads 96.11% / Δ70 on `lighting.html` at body framing
+against 41.64% / Δ8 as reported on `alive.html`. Different page, framing and recipe; a defect's
+pixel footprint is a property of the plate. Both are recorded side by side in the gate with that
+caveat, and REQ-032 asks for the switches on `alive.html` so one page can answer.
+
+### Lateral balance became a hip strategy, because the statistic that said otherwise measured the arms
+
+**"A fifth on the trace" was not a shortfall. The statistic was BLIND.** Named in full: the
+shoulder-band silhouette centre minus the hip-band silhouette centre, 15 s median peak-to-peak,
+pixels, at full-body framing (1825 mm over 1200 px = 0.6574 px/mm, camera 12° off axis), over 420 s
+at 30 Hz on twelve seeds. At the previous HEAD it read 1.690–2.309 px shipped against 1.242–1.586
+for its own known-bad.
+
+Both terms of that difference ride the same body segment. The hip band is the 793–976 mm rows; **56
+of its 89 vertices at stride 11 are on the arm chain**, BOTH of its silhouette edges are hand and
+forearm (the hands hang wider than the hips: band width 491.7 mm on a 340 mm pelvis), and its
+silhouette centre correlates with an ARM-ONLY reading of the same rows at **r = 1.0000** in every
+configuration tested. The arms are children of the thorax. So a band named for the pelvis moves with
+the ribcage, and **articulating the trunk CANCELS the statistic that measures articulation.**
+
+Restated on the band's 33 axial vertices the same twelve clips read **5.396–6.704 px**, 3.2× larger,
+and the same fix separates from the tilt by 1.7× instead of by a fifth.
+
+🚩 **The previous round's written diagnosis is false and is retracted above.** *"The hip band travels
+furthest when the abdomen is rigid… the `spine` bone's skin weights carry the whole abdomen"* —
+measured on the axial vertices the PELVIS travels **13.92–17.03 px** under the pure couple against
+**9.38–11.50** unrighted, i.e. furthest exactly when the trunk articulates most. That
+mis-attribution is what blocked the fix for a round.
+
+With `HEAD_BAND_OVER_HIP_BAND_CEILING` re-derived on the axial reading, `LATERAL_SHIFT_COUPLE` goes
+`[0, 1, −0.8]` → `[1, 0, −1]` and the realised shoulder line goes **0.350/0.324** of the authored
+one to **0.996/0.996**. A pure couple is not a tuning choice: it is the only spread whose shares sum
+to zero and therefore the only one under which the artist's tilt is not multiplied by a balance
+constant (measured across `[1, 0, −g]`: g=0.6 → 0.34, 0.8 → 0.52, 0.9 → 0.69, 1.0 → 1.00). The
+`spine`→`upperChest` pair is chosen on a measured lever — 141.3 mm, 12.8°/14.3° — against 75.2 mm /
+24.2° and 66.1 mm / 27.5° for the other two pairs.
+
+**What it costs, measured rather than argued:** the counter-bend rotates half the body's mass, so
+the pose's centre-of-mass response drops 31.3 → **26.1 mm per unit blend**, `STANCE_BLEND_LIMIT`
+saturates on up to **10.2%** of frames instead of 4.4%, and the ankle picks up **25.6%** of the
+lateral demand instead of 19.9%. The loop closure survives because `resolvePendulumDisplacement`
+hands the residue on. That residue runs through the mechanism Winter says has no lateral authority,
+which is the thing this layer exists to avoid — it is bounded by the AUTHORED POSE's centre-of-mass
+response, not by any constant this round changed, so the next lever is a deeper contrapposto pose,
+which is pose authoring and not tuning.
+
+🚩 **A second gate was green for the wrong reason for two rounds.** HEAD PARKED requires
+`r(head-on-neck, neck) < 0`. Under the old spread the composite read −0.97 to −0.999 — but that was
+**1.9° of net girdle rotation** produced by a spread that did not sum to zero, not the
+head-stabilisation reflex. Taking the girdle rotation to zero took the mask off: the reflex lives on
+the PENDULUM path only, where it measures **−1.0000** on every seed. LEARNINGS §1.28.
+
+⚠️ **A candidate fix was measured and REJECTED rather than shipped.** The pose files write the neck
+and head as an authored pair and `SWAY_CHAIN` applies only the neck half, discarding up to 1.7° of
+authored head roll. Adding `head` to the chain changes **nothing any statistic in the file can
+see** — byte-identical output to four decimals — because every head statistic reads the head
+JOINT's position and a head-bone rotation turns the skull about that joint without moving it. It
+was reverted rather than shipped for a permanent overlapping channel with `Gaze`. What it WOULD
+change is the rendered skull's roll during a weight shift, which no gate in this repo measures.
+
+`sway.selftest.mjs` reads **238/238** with the postural manifest applied.
+
+### Phase 5 — affect, and a research constant that was degenerate rather than merely wrong
+
+`packages/core/src/affect/` ships `AffectState` (PAD, asymmetric smoothing, ALMA mood layer),
+`ReflexAffect` (tier 1, VADER rules + prosody arousal), `ExpressionMap` (WASABI
+threshold-and-saturate + Arellano AUs + BAP body prescription), `ExpressionLayer` (composes over
+`VisemeLayer`) and `SeedLexicon` (the licence resolution). Gate: `affect.selftest.mjs`, **91 checks**,
+every constant re-derived rather than compared to a literal, nine reintroduced defects proved red
+across five classes with five separate *"a weaker gate would have said fine"* assertions.
+Browsercheck at `packages/testbed/src/affect.html` drives the real figure.
+
+**5.1.** Attack 0.200 s and decay 2.25 s, both midpoints of research §8.3's bands, MEASURED off the
+trajectory at 0.200000 s and 2.250000 s — the declared constant, not merely a value inside the band.
+Mood at ALMA's 600 s change and 1200 s return, measured crossings at 300.000 s and 600.000 s.
+30/60/120 Hz agree to **6.693e-14**. Decay/attack asymmetry 11.25×. One second of a full-scale
+target moves the fast layer **298×** further than the slow one, which is the separation Phases 9 and
+10 are entitled to rely on.
+
+**5.2.** Tier 1 text inference median 0.00187 ms, **p99 0.01417 ms** over 20,000 calls. It agrees
+with the 35B on the SIGN of pleasure for all three utterances the LM Studio doc measured, and
+reproduces its sadness-below-anger dominance ordering. ⚠️ **The licence question is resolved:**
+NRC-VAD and Warriner are both excluded and absent, VADER's rule layer is implemented from its
+published description, and the shipped **217-entry** word list is AUTHORED IN THIS REPOSITORY with
+no accuracy claim made for it anywhere.
+
+**5.4.** Dominance weight **0.50**, PHI **0.645**, DELTA **0.35** — all three derived against ALMA's
+own 24 OCC vectors rather than picked. The feasible-set sweep, expensive to re-derive because it is
+a 41³ grid crossed with 24 vectors over a two-dimensional search:
+
+| dominance weight | feasible PHI window | ≥2 active | 3+ active | worst discarded | coverage |
+|---|---|---|---|---|---|
+| 0.35 | 0.51–0.53 | 9.31% | 0.000% | 0.0000 | 65.3% |
+| 0.40 | 0.54–0.59 | 11.03% | 0.015% | 0.0209 | 70.7% |
+| **0.50** | **0.59–0.70** | 15.85% | 0.331% | 0.2186 | 77.7% |
+| 0.60 | 0.65–0.82 | 24.18% | 1.561% | 0.3428 | 84.0% |
+| 0.80 | 0.81–0.90 | 32.03% | 4.852% | 0.4396 | 86.6% |
+
+0.50 is the smallest weight whose window is at least 0.10 wide; PHI 0.645 is that window's midpoint.
+At most **2** emotions active and at most **1** saturated over the whole 41³ cube.
+
+🚩 **`docs/research/affect-and-animation.md` transcribed WASABI's angry anchor as (80, 80, 100),
+which is bit-identical to one of happy's four — measured separation 0.0000.** Anger and joy would
+fire together at equal weight at every point in the PAD cube. Shipped with the sign restored to
+(−80, 80, 100), which is Becker-Asano's published value and agrees with ALMA's independent OCC table
+in the same section (Anger P −0.51, Hate P −0.6). The doc is corrected and the gate carries the
+rejection proof. LEARNINGS §1.25u.
+
+**5.5.** The mouth carries only the additive offset, measured on the real figure with a live viseme
+underneath: `viseme_aa` **0.600000000 → 0.600000000**, difference 0.00e+0, while the corner offset
+arrives capped. Confirmed live in a browser over a second of the canned utterance — visemes move up
+to 0.60, the smile holds at exactly **0.3500** across all 25 samples.
+
+⚠️ **THE HONEST VISUAL VERDICT: the faces are measurably distinct and UNDER-DRIVEN.** Joy vs anger
+changes **19.87%** of the face-band pixels, but joy reads *pleasant* rather than joyful and anger
+reads *displeased* rather than angry. Two measured causes, **neither of which is the mapping**:
+`MAX_CORNER_OFFSET` 0.35 delivers **6.54 mm of `mouthSmileLeft`'s 18.68 mm** authored travel, and
+the ARKit brow shapes on `figure_g050` travel only **6.95 mm** (`browDown`) and 5.20 mm
+(`browInnerUp`) at weight 1 against 18.68 mm for the smile and 38.74 mm for `jawOpen`. The first is
+addressed this round (`MAX_CORNER_OFFSET_SILENT`, plus `VisemeLayer` publishing
+`context.shared.speaking` so a layer can tell whether the mouth is busy). The second is
+LEARNINGS §1.11c and belongs to the figure pipeline. 5.7 stays open and should expect to turn on it.
+
+The four portrait plates are in `captures/affect-phase5/`; `captures/` is gitignored, so they are
+regenerable from `affect.html?emotion=<preset>&settle&bare&w=760&h=950` and not committed.
+
+### 9.8 and 9.13 — the avatar is decent in every reachable state, and it chooses its own clothes only when allowed
+
+**9.8, the foundation layer.** Four garments — bra, vest, briefs, boxer brief — at
+`layer: FOUNDATION`, `hideMask: null`, authored blind because the 638 supplied reference images
+contain no foundation layer at all. 🚩 **They are NOT mhclo assets.** `build_figure.py --foundation`
+cuts each one out of the figure's OWN SKIN as a conformal shell: a region of body faces, refined,
+pushed 3 mm along its normals, tapered to 0.8 mm at the hem, low-pass filtered so it behaves like
+cloth instead of paint, and reprojected. Three properties fall out of that rather than being
+engineered — it fits every identity exactly (no fitting step to drift, **which is why 9.8 could ship
+while 9.4 is blocked by exactly that drift**), its skin weights are the body's own, and it needs no
+texture at all.
+
+Build numbers, all with **ZERO images**: `foundation_bra` 8,956 faces / 778,516 B, `foundation_vest`
+12,134 / 1,035,740 B, `foundation_briefs` 5,072 / 452,836 B, `foundation_boxer_brief` 5,358 /
+470,364 B. Build-time clearance 0.48–4.20 mm with **0 vertices through the body**. Against
+`female_casualsuit01`'s 8.76 MB of PNG, that is the whole point.
+
+Gate: `decency.selftest.mjs`, **20 assertions**, 48 reachable states swept exhaustively, coverage
+measured by RAY CAST from each of 186 `_DECENCY_*` body vertices into the geometry actually drawn at
+`drawRange` — not from the build's own bookkeeping.
+
+**9.13, agency.** `WardrobeAgency` with `pinned` (default on first run) / `agent` / `ask`, persisted
+per profile. `expressPreference()` is first-class and works in every mode including pinned;
+unheard preferences are kept and surfaced — the user's standing note is that an AI able to express a
+preference even when overruled is *"the difference between a puppet and a someone."* Selection is
+gated on the MOOD layer and `readMood` THROWS on an affect-layer reading. Gate:
+`agency.selftest.mjs`, **28 assertions**: pinned survives 32 PAD-corner × season steps, a reload and
+a restart rebuilt from 6,646 serialised bytes; agent changes 6 times in 60 simulated minutes against
+a ceiling of 6.
+
+🎯 **Three real defects the new gates found, each a class of bug the repo had no other instrument
+for:**
+
+1. **A bare body was drawn between `Wardrobe` construction and the first `dress()`** — 6 of 18
+   mid-change samples indecent, all in the first dress. The body now does not draw at all until the
+   floor is on. `alive.js` passes no floor, so its plates are unchanged: body visible at
+   construction, 26,756 triangles, 17,012 + 8,800 after dressing.
+2. **The briefs had no gusset, and the decency gate passed anyway because the BOXER brief covered
+   the groin.** A single "how far down the thigh" cut puts the crotch at 0.315 of the way to the
+   knee — further down the leg than any brief's leg opening. LEARNINGS §1.29 and §1.31.
+3. **The mood RETURN period was inert.** `lastWornAt` was keyed on `wardrobe.worn` (request + floor)
+   and looked up by request, so no key ever matched; the 10-minute change period was covering for
+   the 20-minute return period, and the agency would oscillate between two outfits every eleven
+   minutes with every other clause green.
+
+⚠️ **`_UNDER_` occlusion is a mechanism the punch list does not describe.** A foundation garment
+that hides nothing still has to be wearable UNDER something, and a shell 3 mm off skin pokes through
+an outer garment everywhere the skin would. `_UNDER_<id>` attributes — a rename of the body's own
+`_hide_<id>` — stop part of a foundation garment being DRAWN without ever removing it from `worn`:
+the vest goes 14,266 → 1,670 drawn triangles under the casual suit, **88.3% occluded, still worn**,
+and `occlusionOf()` names the occluder so a gate can assert the pairing.
+
+`verify_glb.mjs` now covers **14 files** where it covered 10.
+
+### 10.1 and 10.2 — the avatar has 203 sliders instead of one axis
+
+**10.1.** `IdentityTargets.js` applies MPFB detail targets on the CPU, once, into the position
+buffer, and reproduces headless Blender 5.2.0 LTS + MPFB 20260722 to **1.151e-4 / 1.370e-4 /
+1.193e-4 / 1.442e-4 mm** on all 19,158 vertices across four identities (small 14.056 mm, large
+187.267 mm, mixed-sign 24.142 mm) — a 7× margin on the punch list's 0.001 mm gate. All 266 exposed
+widgets apply in **1.0028 ms** median, once, off the frame path. Per-frame cost is **zero and shown
+so structurally**: no per-frame entry point exists, and the GPU morph target count and every
+influence are bit-identical across a 187 mm reshape.
+
+**10.2.** `IdentityCatalogue.js` + `assets/identity/catalogue.json` transcribe MPFB's own
+`target.json`: **203 categories, 66 sided, 269 widgets, 530 raw files, 21 regions**, matching
+research §2.2 region-by-region, with all **1,258** installed files classified and **0** unclassified.
+The JS macro-stack solver reproduces `TargetService.calculate_target_stack_from_macro_info_dict`
+exactly — same files, same order, **0.000e+0** weight error — at the shipped default (8 targets) and
+off-midpoint (77 targets). Gates: `identitytargets.selftest.mjs` **47** and
+`identitycatalogue.selftest.mjs` **72**, 119 new checks, every class proven red twice.
+
+**Settled: research §1.4's flagged assumption is TRUE.** The shipped body's 14,517 glTF positions map
+onto basemesh indices 0..13,379 exactly — 13,380 distinct sources, 0 unmatched, 0 ambiguous, worst
+agreement 2.4e-7 m — validated on all five gender bakes at 0.00 mm split-copy spread. Solved by
+coordinate matching rather than read out of the export, which matters because re-exporting to add an
+index attribute would change every GLB's sha256 and every gate measured against it.
+
+🚩 **THE ARKIT EXPRESSION COST IS WORSE ON THE SHIPPED MESH THAN RESEARCH §1.2a REPORTS, AND 10.3
+MUST BE SIZED OFF THESE NUMBERS.** Peak travel is invariant to identity to **0.000000 mm** across
+eight identities, so §1.2's superposition finding holds where it renders. The closure costs do not.
+On `base.001` / 14,517 positions, eyeBlinkLeft against its own 12.600 mm vertical travel:
+
+| target @1.0 | shipped mesh | research §1.2a, basemesh |
+|---|---|---|
+| `eye-height2-incr` | **−1.827 mm (−14.5%)** | −1.543 mm (−10.0%) |
+| `eye-scale-incr` | −1.017 (−8.1%) | −1.049 (−6.8%) |
+| `eye-scale-decr` | +1.009 (+8.0%) | +1.042 (+6.7%) |
+| `eye-trans-out` | +0.000 (0.0%) | +0.000 — rigid-motion zero CONFIRMED |
+| `head-scale-horiz-incr` | **−0.186 (−1.5%)** | +0.016 (+0.1%) — **SIGN FLIP, 11×** |
+| composed face identity | −1.015 (−8.1%) | not measured |
+| eyes region, every slider | **−8.721 (−69.2%) — the eye does not close** | not measured |
+
+And the row §1.2a never took: a composed face identity costs **mouthPucker −2.293 mm of 6.100 mm,
+−37.6%**, four times the eyeBlink cost on the same identity. Exact linearity in weight is CONFIRMED
+(−1.015 at 1.00 against −0.254 at 0.25, ratio 3.996), so a corrective is still one scalar per pair —
+there are just more pairs and they are bigger. ⚠️ The mesh-vs-instrument attribution on the sign flip
+is NOT settled: the shipped-mesh instrument requires a non-zero morph delta in its weakly-driven
+band and §1.2a's stated rule does not say. Reproduce with
+`node tools/identity-pipeline/measure_expression_cost.mjs`.
+
+⚠️ **THE FIGURE IS RESHAPED AND NOTHING ELSE IS, AND IT IS VISIBLE.** The eyes, cornea, teeth,
+tongue, brows and lashes are separate mhclo-fitted meshes and the skeleton is placed from the body's
+vertices; neither is refitted. Measured on the shipped figure: the "tall build" preset raises the
+skin at the eye line **15.000 mm** and the eyeball proxy **0.000 mm**. That is 10.7 and 10.9, and it
+is the single biggest thing between 10.1 and a usable character creator.
+
+⚠️ **The macro corpus does not ship and 10.8 has to decide what to do about it.** The solver is exact,
+but the 564 files behind the eight macro parameters hold 5,323,086 moved-vertex records = **85.2 MB**
+packed, against 10.81 MB for all 530 detail targets. Lazily fetching only the ~50–124 active files is
+still tens of MB per macro change. 10.8 needs a different representation, not a loader.
+
+---
+
+## R7, 2026-08-09 — the ledger, and a table that had drifted on every row
+
+**The deliverable of this pass is a mechanism, not a document.**
+[`OPEN-REQUESTS.md`](OPEN-REQUESTS.md) + `tools/request-ledger.selftest.mjs`, in the suite as the
+33rd gate. **30 entries: 21 APPLIED, 8 OPEN, 1 REJECTED** when it landed; **34 entries — 28 APPLIED, 4 OPEN, 2 REJECTED — after R8 resolved every one of the eight.** LEARNINGS §1.25r.
+
+**No status in that file is believed.** Every entry carries a `verify:` predicate the gate
+adjudicates against the real file, and an APPLIED entry's predicate must ALSO **fail** against the
+tree at the commit the request was filed at — which is what stops a green from meaning "somebody
+typed APPLIED". Proved red three ways against the real artefacts, not fixtures, with both files
+restored byte-identically afterwards:
+
+| mutation | clause | result |
+|---|---|---|
+| delete REQ-016's change from `PROGRESS.md` and leave the entry APPLIED | APPLIED-ABSENT | exit 1 |
+| leave the change in place, weaken REQ-016's `verify` to `/PROGRESS/` | APPLIED-VACUOUS | exit 1 |
+| set REQ-022's `filed-round` back to R6 | EXPIRED | exit 1 |
+
+The middle row is the one that matters: the entry is **honest**, the change **is** in the file, and
+the gate still refuses it because the pattern cannot tell the two trees apart. Four more mutations
+run in-process on every invocation — a stale OPEN, a one-word rejection, entries reformatted out of
+the parser's reach, and a round declared at a commit not in this history — and the run asserts that
+all seven are caught by **seven different clauses**.
+
+### The eleven, reconstructed and re-verified
+
+They were not in one place. Two `PROGRESS.md` sections, two `PUNCHLIST.md` notes, commit bodies, and
+— the largest group — **five code comments routing a reader to "the round report"**, a document that
+does not exist in this repository, in every case for a request that had already landed. **Four of
+the eleven turned out to be resolved or resolved-by-supersession**, which is the argument for
+verifying rather than transcribing. Seven are now OPEN in R7 against `packages/**` and `tools/critic/
+capture.mjs`, all filed as diffRequests; four were applied here.
+
+🚩 **And one had been filed on a claim that was already false when it was written.** This file said
+`LightingRig.selftest.mjs` *"exits 0 even when it prints FAIL — it cannot be used in a script"*. It
+has set `process.exitCode` since `7936f37`, the day before. Proven by execution:
+`--caster-gain=5` prints `FAIL: 85/98` and returns **1**. Had anyone applied that request they would
+have changed working code to satisfy an unverified report. **A request is a claim, and a claim gets
+verified before it gets applied.**
+
+### The gate roster was re-derived, every row
+
+⚠️ **Twelve of thirteen rows in LEARNINGS Part 3's table had moved.** Not most — all but Gaze.
+sway 208→**229**, GroundContact 31→**65**, Grade 28→**65**, LightingRig 38→**98**, critic 235→**258**,
+travel 126→**158**, heatmap 57→**71**, alive-toggles 16→**151**, TRAAPost 6→**11**. Same shape as
+§1.25p and the second worked example of it in two days.
+
+**Measured in an isolated worktree, because the tree was not quiet.** A six-agent fan-out was live;
+a run that started clean at 07:58:21Z reported DIRTY at 08:14:16Z and `GroundContact.selftest.mjs`
+crashed inside it with `ReferenceError: spotIrradianceFactor is not defined` — a half-saved file,
+green again sixty seconds later. HEAD was then measured at `git worktree add --detach <tmp> af0e68d`
+with the gitignored asset trees symlinked in. **32 gates; every headless gate green.** The four that
+fail there are the browser-driven ones plus `verify_glb`, all for the same environmental reason —
+vite returns 403 on assets symlinked outside the server root — and all four pass in the main tree.
+
+### Four LEARNINGS entries this round earned
+
+- **§1.25p** — a value can sit inside a passing band and still be wrong. The 232.2 onset, passing at
+  0.067 of a 0.100 tolerance, true value 232.1. **When a declared-versus-measured table fails on one
+  row, re-derive every row.**
+- **§1.25q** — a gate that documents its own assumption in a comment is a gate that does not test
+  it. **Third instance**, and the newest one is inside the clause the previous two produced:
+  MAGNITUDE computes `intensity × spotAttenuation / d²` over a comment reading *"with `distance` 0
+  and `decay` 2 the distance term is a plain inverse square"*, and neither selftest asserts either
+  half. REQ-030.
+- **§1.25r** — a filed request is a defect with a delay fuse.
+- **§1.25s** — 🚩 **a summariser is not a source.** A research agent recorded that `WebFetch`'s
+  summariser **fabricated plausible anthropometric numbers twice in one session**, inventing values
+  for a table that contains neither, caught only by re-extracting from raw HTML. This is the most
+  dangerous entry in Part 1 because it *survives re-measurement*: fetch again and the summariser
+  produces another well-formed number in the same range, and two agreeing reads look like
+  corroboration. Every reference constant in this project — Bates, Quijoux, ANSUR II, Farkas, the
+  look spec's hexes — is the reference side of a gate. **A fabricated reference does not make a gate
+  fail; it re-aims it.**
 
 ---
 

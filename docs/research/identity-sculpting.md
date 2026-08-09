@@ -44,7 +44,8 @@ Two things this document adds to that opener before anything else, because they 
 question the phase is answering:
 
 > 🎯 **The 1,258 files are not 1,258 parameters.** MPFB ships `targets/target.json`, which groups
-> the detail targets into **203 bidirectional slider categories across 21 body regions** — 530 of
+> the detail targets into **203 slider categories across 21 body regions — 195 bidirectional and 8
+> unipolar** (see §2.2's ⚠️) — 530 of
 > the 1,258 files. Of the rest, **348 are the interpolation corpus for eight macro sliders** and
 > **228 are the corpus for two more** (cupsize, firmness); **102 are the legacy FACS expression
 > units** (34 × 3 ethnicities) and **62 are the asymmetry set**. The real exposed count is
@@ -167,6 +168,49 @@ helper strip removes the vertices that carried the peak. **Quote the number with
 > **(c) It is exactly linear in weight.** −1.022 mm at 1.00 against −0.256 mm at 0.25 is a ratio of
 > 3.99. So a corrective is a single scalar per (faceunit × slider) pair, not a curve.
 
+---
+
+#### 🚩 §1.2a re-measured on the SHIPPED EXPORT, 2026-08-09 — worse than the table above, with one sign flip
+
+Every figure in the table above was taken on the 19,158-vertex Blender basemesh. **Phase 10.3 must
+be sized off the mesh that renders**, and it does not agree. Instrument:
+`node tools/identity-pipeline/measure_expression_cost.mjs`, on `base.001` / 14,517 glTF positions.
+
+**What holds.** Peak travel is invariant to identity to **0.000000 mm** across eight identities
+including the extreme, so §1.2's superposition finding is true where it renders. `jawOpen`'s 3-D
+peak reads **38.738 mm** on both meshes.
+
+**What does not.** Against eyeBlinkLeft's own **12.600 mm** vertical travel on this mesh:
+
+| target @1.0 | shipped export | §1.2a above (basemesh) |
+|---|---:|---:|
+| `eye-height2-incr` | **−1.827 mm (−14.5%)** | −1.543 mm (−10.0%) |
+| `eye-scale-incr` | −1.017 (−8.1%) | −1.049 (−6.8%) |
+| `eye-scale-decr` | +1.009 (+8.0%) | +1.042 (+6.7%) |
+| `eye-trans-out` | **+0.000 (0.0%)** | +0.000 — rigid-motion zero **CONFIRMED** |
+| `head-scale-horiz-incr` | **−0.186 (−1.5%)** | +0.016 (+0.1%) — **SIGN FLIP, 11×** |
+| composed face identity @1.00 | −1.015 (−8.1%) | −1.022 (−6.6%) |
+| composed face identity @0.25 | −0.254 (−2.0%), ratio **3.996** | −0.256 |
+| **eyes region, every slider @1.0** | **−8.721 (−69.2%) — the eye does not close** | not measured |
+| **composed face identity → `mouthPucker`** | **−2.293 mm of 6.100 (−37.6%)** | not measured |
+
+🚩 **Conclusion (b) above is wrong for the skull case.** `eye-trans-out` really is +0.000, so the
+rigid-motion class is not empty — but *widening the whole skull is not in it* on the shipped mesh,
+and it costs eleven times what the basemesh table says, in the other direction.
+
+🚩 **The mouth row is the one nobody priced.** §1.2a only ever measured mouth faceunits against eye
+sliders. A composed face identity costs `mouthPucker` **four times** what it costs eyeBlinkLeft on
+the same identity. 10.3's corrective table needs a mouth row.
+
+✅ **Conclusion (c) survives intact** — ratio 3.996 between weight 1.00 and 0.25 — so a corrective is
+still one scalar per pair. There are just more pairs and they are bigger.
+
+⚠️ **The mesh-vs-instrument attribution is NOT settled.** The shipped-mesh instrument's
+weakly-driven set is *"non-zero |Δy| ≤ 15% of peak"*; §1.2a's stated rule above has no non-zero
+qualifier, and without one the band sweeps in the ~12,000 vertices the morph never touches, which
+makes the answer a statistic about the shins. The disagreement could be the mesh or could be that
+clause, and §1.2a's instrument was not re-run to find out. **10.3 should settle it.**
+
 ⚠️ **What this instrument does NOT establish.** It measures the *vertical* gap between two
 blendshape-defined vertex sets. It does not prove the lids meet in three dimensions, it says
 nothing about the corners of the fissure, and it cannot see a lid that closes but folds wrongly.
@@ -254,12 +298,22 @@ of those, indices >= 13,380 (HELPERS)   : 1,879
 refit cost, 2,197 verts, 200 runs       : 0.0064 ms median  (min 0.0063, max 0.0612)
 ```
 
-⚠️ **The 1,879 figure rests on one assumption, stated rather than buried:** that hm08's helper
+~~⚠️ **The 1,879 figure rests on one assumption, stated rather than buried:** that hm08's helper
 geometry occupies the HIGH indices, so "index ≥ 13,380" and "is a helper" are the same set. The
 max referenced index of 17,975 against a 19,158-vertex basemesh and a 13,380-vertex shipped body
 is consistent with it, and it is how MakeHuman appends helpers — but **the index map was not
-dumped and diffed.** If the assumption is wrong the *count* moves; the conclusion (the fit rule
-reads vertices the export deletes) does not, because 17,975 exceeds 13,380 either way.
+dumped and diffed.**~~
+
+✅ **RETRACTED 2026-08-09 — IT WAS DUMPED AND DIFFED, AND THE ASSUMPTION HOLDS EXACTLY.**
+`figure_g050.glb`'s body mesh has **14,517 glTF positions**; matched by coordinate against the
+19,158-vertex Blender basemesh they resolve to **13,380 distinct basemesh vertices with max index
+13,379** — zero unmatched, zero ambiguous, worst coordinate agreement **2.4e-7 m**. Validated on all
+five gender bakes, where split copies coincide at **0.00 mm**. (The 14,517 against 13,380 is the
+glTF exporter splitting vertices on UV seams, not a discrepancy.) The map ships as
+`assets/identity/figure-vertex-map.{json,bin}`, is solved by
+`tools/identity-pipeline/build_from_blender.mjs` and is gated by `identitytargets.selftest.mjs`.
+It was solved by coordinate matching rather than read out of the export deliberately: re-exporting
+to add an index attribute would change every GLB's sha256 and every gate measured against it.
 
 > 🎯 **A continuous garment refit costs 6.4 microseconds.** That is a thousandth of the 0.1609 ms
 > the wardrobe already spends rebuilding the body index buffer at dress time. Cost is not the
@@ -346,7 +400,7 @@ raw targets into UI sliders:
 
 | bucket | files | what it is |
 |---|---:|---|
-| detail targets, grouped by `target.json` | **530** | **203 bidirectional slider categories**, 21 regions |
+| detail targets, grouped by `target.json` | **530** | **203 slider categories — 195 bidirectional, 8 unipolar**, 21 regions |
 | `macrodetails/` | 348 | the interpolation corpus for `gender / age / muscle / weight / proportions / height` |
 | `breast/` beyond the 12 detail targets | 216 | the corpus for `cupsize` and `firmness` |
 | `expression/units/{african,asian,caucasian}/` | 102 | 34 legacy FACS units × 3 ethnicities |
@@ -393,18 +447,38 @@ raw targets into UI sliders:
 | buttocks | 1 | 0 | 1 | 2 |
 | **total** | **203** | **66** | **269** | **530** |
 
-Each category carries `has_left_and_right`, a `label`, and an `opposites` block naming the
-negative and positive target for each side — so a category is literally a slider running −1 → +1,
-and MPFB has already done the work of saying which file is which end. **Do not re-derive this
-grouping; read `target.json`.**
+Each category carries `has_left_and_right`, a `label`, and — for **195 of the 203** — an
+`opposites` block naming the negative and positive target for each side, so those categories are
+literally sliders running −1 → +1 and MPFB has already done the work of saying which file is which
+end. **Do not re-derive this grouping; read `target.json`.**
 
-🎯 **A sub-family worth naming separately: the 26 `measure-*` categories.** `measure-bust-circ`,
+⚠️ **CORRECTED 2026-08-09: eight categories are UNIPOLAR, and this section used to call all 203
+bidirectional.** The seven `head-<shape>` categories — `oval`, `square`, `round`, `triangular`,
+`invertedtriangular`, `diamond`, `rectangular` — and `chin-triangle` carry **no `opposites` block at
+all**, name one file each, and run **0 → +1**. Every count this section gates on survives, and the
+closing arithmetic is checkable: **66 sided × 4 + 129 unsided-bidirectional × 2 + 8 unipolar × 1 =
+530** files exactly. It is also why the table above reads `chin` **15** raw targets rather than 16
+and `head` **27** rather than 34 — those are the visible trace of it. Only the adjective was loose,
+and it is loose in a way that produces a bug: **a UI that draws every category as a −1 → +1 dial
+applies seven head shapes backwards.** `IdentityCatalogue` carries `range: bipolar|unipolar` per
+slider and refuses a negative weight on a unipolar one; gated by
+`packages/core/src/figure/identitycatalogue.selftest.mjs`.
+
+🎯 **A sub-family worth naming separately: the 20 `measure-*` categories.** `measure-bust-circ`,
 `measure-waist-circ`, `measure-hips-circ`, `measure-shoulder-dist`, `measure-upperarm-length`,
 `measure-neck-circ` and the rest are targets keyed to *body measurements* rather than to shape
-adjectives. That is exactly GarmentCode's 26-measurement input vector
-(`wardrobe-system.md` §4.3), which means **the identity slider set and the garment-drafting input
-are already the same interface.** Phase 9.12 should read its body vector out of Phase 10's
-identity, not compute it separately.
+adjectives, so **the identity slider set and the garment-drafting input are largely the same
+interface.** Phase 9.12 should read its body vector out of Phase 10's identity rather than
+computing it separately.
+
+⚠️ **CORRECTED 2026-08-09: there are 20, not 26, and the difference lands on Phase 9.12.** Counted
+out of `targets/target.json` and gated at 20 by `identitycatalogue.selftest.mjs`: 3 arms, 1 feet,
+1 hands, 5 legs, 2 neck, 8 torso. **The 26 is GarmentCode's input-vector size**
+(`wardrobe-system.md` §4.3, line 563), carried across as if it were MPFB's count — and §2.4's own
+table already reports MakeHuman's Measure tab as *"20 real-world measurements in 9 groups"*, which
+agrees with the library and not with the old number. **Consequence: the identity slider set supplies
+20 of GarmentCode's 26 measurements, so Phase 9.12 must derive the remaining six from the mesh or
+default them.** Six inputs is a design decision, not a lookup.
 
 ### 2.3 The recommended exposed set
 
@@ -423,7 +497,7 @@ And an explicit **exclusion tier**, because saying what is off the dial matters 
 | `asym/` | 62 | standing constraint — but see §2.5, which argues for one narrow exception |
 | `genitals/` | 3 | Phase 9.8's decency invariant makes them unreachable; exposing a slider nothing can show is a lie |
 | `expression/units/` | 102 | these are expressions, not identity. They belong to Phase 5 as correction sources, per `base-mesh-verification.md` |
-| the `measure-*` half of the detail tier | 26 | exposed, but as a **measurement** panel in centimetres, not as a −1 → +1 dial. A user asking for a 92 cm bust should type 92 |
+| the `measure-*` half of the detail tier | 20 | exposed, but as a **measurement** panel in centimetres, not as a −1 → +1 dial. A user asking for a 92 cm bust should type 92 |
 
 **Why 21 region dials rather than something cleverer.** Because the region grouping is the one the
 human eye already uses. "Something's off about the mouth" is a sentence people say; "something's
@@ -472,7 +546,7 @@ protocol gate is written to detect exactly that.
 3. 🚩 **Direct manipulation and sliders split by PARAMETER TYPE, not by skill level.**
    Spatial/shape → drag on the mesh; scalar/non-spatial → slider. The proof is that Sims 4 removed
    shape sliders in 2014 **and added colour and makeup sliders back in 2020**. For us: the 203
-   shape categories are drag candidates; the 26 `measure-*` categories and the 11 macros are
+   shape categories are drag candidates; the 20 `measure-*` categories and the 11 macros are
    sliders. §2.3's measurements panel is on the right side of that line.
 4. **At hundreds of parameters the answer is search + filter + recently-used + favourites, not more
    tabs.** Only CC4 actually ships it, and it is the tool with the most morphs. **269 widgets is
@@ -1171,7 +1245,7 @@ changes, and every stored identity silently becomes a different face.
 They meet at exactly one place, and §1.4 says what it costs: a garment fragment is keyed by figure,
 and with continuous identity there is no finite set of figures to key on. So:
 
-- The identity file **owns** the body measurement vector (the 26 `measure-*` categories, §2.2).
+- The identity file **owns** the body measurement vector (the 20 `measure-*` categories, §2.2).
 - The wardrobe **derives** its fit from that vector at dress time, by re-running the barycentric
   refit — 0.0064 ms — rather than by selecting a pre-baked fragment.
 - `GarmentManifest.fragmentUrl`'s per-figure indexing becomes a **cache key**, not a requirement.
@@ -1222,7 +1296,7 @@ Phase 0.3's build pipeline. Phase 3's render path, for anything a judge looks at
 that 9.4's five per-gender bakes become a cache rather than a correctness requirement — 10.9 is
 where that is settled, and **9.4 should not be built until 10.9 has run.**
 **Unblocks:** R8 properly (today the AI can choose a gender and nothing else); Phase 9.12's
-body-measurement vector, which is the same 26 `measure-*` categories; and Phase 8's critic loops,
+body-measurement vector, of which the 20 `measure-*` categories supply 20 — see §2.2's ⚠️; and Phase 8's critic loops,
 which currently compare one figure because there is only one.
 
 ```
@@ -1232,7 +1306,8 @@ The brief's R8 asks for an avatar that is "male, female, or a combination of the
 identity." Phase 1 delivered the first half and named the second: `Identity.js` accepts
 `{age, build, height}`, stores them, and does nothing with them — `NOT_YET_BAKED` says so in code.
 This phase is the second half, and it is larger than three axes: **1,258 targets are already
-installed, and `targets/target.json` groups them into 203 bidirectional sliders across 21 regions.**
+installed, and `targets/target.json` groups them into 203 sliders — 195 bidirectional and 8
+unipolar — across 21 regions.**
 
 Measurements, sources and the evidence behind every number below live in
 [`research/identity-sculpting.md`](research/identity-sculpting.md).
@@ -1357,7 +1432,7 @@ Measurements, sources and the evidence behind every number below live in
 - [ ] **10.10** The UI — three tiers and an exclusion tier. **Macro** (11: the eight `macro.json`
       parameters plus three ethnicity weights), **Region** (21 dials, one per region, driving a
       curated subset), **Detail** (the 203 `target.json` categories, 269 with left and right split).
-      The 26 `measure-*` categories are a **measurements panel in centimetres**, not −1 → +1 dials.
+      The 20 `measure-*` categories are a **measurements panel in centimetres**, not −1 → +1 dials.
       Excluded: the 62 `asym` targets, the 3 genital targets (Phase 9.8's decency invariant makes
       them unreachable), and the 102 expression units (those belong to Phase 5).
       🚩 **269 widgets render, not 203** — 66 of the categories are `has_left_and_right` and draw
@@ -1433,6 +1508,18 @@ shipped library of ethnic presets is a product decision this document has no mea
   read §1.2a's millimetres as a verdict on appearance** — the standing constraint records that
   there is no measured visibility threshold for this project's framing, only a 0.48–10.6 px
   bracket.
+  ⚠️ **Partly closed 2026-08-09, and what it revealed is worse than what it settled.** §1.2a's
+  table was re-measured on the shipped export (see the sub-section under §1.2a): peak travel is
+  identity-invariant to 0.000000 mm, but the closure costs are **larger** than the basemesh table,
+  `head-scale-horiz-incr` **flips sign**, and two cases the document never measured — a composed
+  face identity against `mouthPucker` at **−37.6%**, and the eyes region hard over at **−69.2%,
+  where the eye does not close** — are worse than anything in it. Still nothing rendered: a plate
+  and a judge are 10.13's, and the eyes-region case is the one to show them.
+- **[✗] The face parts and the skeleton are not refitted, and it IS visible.** 10.1 reshapes the
+  body mesh; the eyes, cornea, teeth, tongue, brows and lashes are separate mhclo-fitted meshes and
+  the skeleton is placed from the body's vertices. Measured on the shipped figure: the "tall build"
+  preset raises the skin at the eye line **15.000 mm** and the eyeball proxy **0.000 mm**. That is
+  10.7 and 10.9, and it is plainly visible in `identity.html`'s plate.
 - **🚩 Three eye-closure instruments were written and are discarded, and the failures are recorded
   because the project's standard says to.**
   - **v1, a delta-seam column** — the same method `measureLipSeal` uses. It reported a neutral

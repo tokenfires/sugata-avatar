@@ -1051,14 +1051,18 @@ if (plates !== null) {
   check("PUNCHLIST claims no byte identity beside a plate its own fence says is not one",
     here.length === 0, here.map(describe).join("; ") || "none");
 
-  // 🚩 AND THE SAME DEFECT IS LIVE IN PROGRESS.md, WHICH THIS AGENT DOES NOT OWN. Two sentences —
-  // the fourth-pass header at the top and the Phase 3 row of the status table — still read
-  // "three loads, one PNG, sha256 d3c9946f73e5eaa1", which is the exact claim this rule exists to
-  // refuse. They are printed here rather than exempted, and the ceiling is a RATCHET set to
-  // today's count: a third turns the gate red, and when the diff request lands the detail line
-  // says to lower it. A backlog that is counted and printed is not a rule that looks away.
+  // 🚩 THE BACKLOG IS EMPTY AND THE RATCHET IS DOWN. This ceiling was 2, for two sentences in
+  // PROGRESS.md — the fourth-pass header and the Phase 3 row of the status table — that still read
+  // "three loads, one PNG, sha256 d3c9946f73e5eaa1" while this rule existed to refuse exactly that.
+  // The request was filed by the agent who found it and could not edit that file; it is REQ-016 in
+  // docs/OPEN-REQUESTS.md and it landed 2026-08-09. Both sentences now say modal digest, residue
+  // and gate stability.
+  //
+  // A ratchet that is not lowered after the backlog clears is a licence to re-introduce the
+  // defect twice, which is why the detail line below has always printed "LOWER THE CEILING" when
+  // the count falls under it, and why it is lowered here rather than left at a comfortable 2.
   const elsewhere = overclaims.filter((hit) => hit.label !== "PUNCHLIST.md");
-  const BACKLOG_CEILING = 2;
+  const BACKLOG_CEILING = 0;
   check("the same defect in documents this file does not own is not growing",
     elsewhere.length <= BACKLOG_CEILING,
     `${elsewhere.length} of a ceiling of ${BACKLOG_CEILING}` +

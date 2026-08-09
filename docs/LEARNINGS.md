@@ -672,7 +672,8 @@ Isolated, four states from one page load of `?bare&freeze&seed=1` at 900×1200 C
 
 **A toggle is only an attribution if it moves ONE thing, and nothing in the repo was checking that.**
 `window.sugata.subsystems()` now counts what is live off the scene graph and
-`packages/testbed/src/alive-toggles.selftest.mjs` (16 checks) loads the page once per toggle and
+`packages/testbed/src/alive-toggles.selftest.mjs` (**151 checks** at `af0e68d`; 16 when this
+paragraph was written) loads the page once per toggle and
 fails if any of them moves a second subsystem. Same shape as §1.11a — a real measurement of the
 wrong quantity — with the extra sting that the wrong quantity was produced by the very instrument
 this section was written to recommend. **Add the toggle before writing the paragraph, and prove the
@@ -962,10 +963,12 @@ judge measures.
 
 ---
 
-## §1.25 — Thirteen lessons about GATES, all of them paid for in whole rounds
+## §1.25 — Twenty-one lessons about GATES, all of them paid for in whole rounds
 
-*(It said "six" through three rounds in which entries g, h, i, j, k, l and m were added under it.
-A count in a heading is a claim with no gate on it — §1.25e, one heading up.)*
+*(It said "six" through three rounds in which entries g, h, i, j, k, l and m were added under it,
+and "thirteen" through the round that added n through s. A count in a heading is a claim with no
+gate on it — §1.25e, one heading up. Re-derived 2026-08-09 by counting the `### 1.25` headings:
+a through u, twenty-one.)*
 
 §1.1 says a gate that has never failed is not known to work, and the repo took that seriously: every
 new gate now ships with a rejection proof. These six are what came back when that discipline was
@@ -1156,6 +1159,13 @@ and it is the cheap version — the expensive version is the file that got clobb
 | **judge / visual critic** | no | its value is that it did not touch anything |
 | **adversarial verifier** | no | §Part 4: mixing report and repair loses the signal |
 | **integrator** | yes — merges, resolves, tags the round | the only one allowed near another agent's files |
+
+🎯 **And the corollary the ownership rule needs to be safe: every agent that declines to edit
+another agent's file MUST file the change in [`OPEN-REQUESTS.md`](OPEN-REQUESTS.md), with an id.**
+Not in the round report, not in a code comment saying "see the round report", not in a commit body.
+The ownership rule is right and it has a leak, and the leak has cost two blockers — §1.25r. The
+integrator's request pass is a **gated** step: `tools/request-ledger.selftest.mjs` fails when an
+entry is OPEN past its round or claims APPLIED without the change being in the file.
 
 And the transferable half: **when two instructions in a prompt conflict, an agent resolves the
 conflict by doing nothing.** That is the safe default and it is usually the wrong outcome. If a
@@ -1362,6 +1372,15 @@ The generalisation across this round: **every phrase that lets a gate stop early
 for an unasserted premise.** "Conservative", "worst case", "an upper bound", "it can only help",
 "the other term is smaller" — each names a comparison the gate is not making.
 
+⚠️ **RETRACTED IN PART, 2026-08-09 — "the cheapest possible repair" was applied and was still not
+enough, which is the point.** The colour equality landed as five explicit PREMISE checks. The same
+paragraph's *other* unstated premise — that `decay` is 2 and `distance` is 0, so the distance term
+is a plain inverse square — stayed unstated and unread, and both fields then moved **41.64%** and
+**79.47%** of a rendered frame with the colour equality green. A repair aimed at the ONE premise you
+happened to notice is the same enumeration error the section is about. **§1.25t is the repair that
+holds** — a closure over every field the dependency reads, rather than a check per remembered
+premise — and the two sections have to be read together.
+
 ### 1.25m Pinning a stochastic counter does NOT land on the middle of the distribution it collapsed
 
 When punch-list **3.20** pinned the capture frame epoch, every range in PUNCHLIST became a value
@@ -1443,6 +1462,324 @@ the edge that happened to be in play is a rule about one edge.
 
 > **A caveat that cannot come off is not a caveat, it is letterhead.** If a warning is worth
 > printing, it is worth computing the condition under which it should NOT print.
+
+### 1.25p 🚩 A VALUE CAN SIT INSIDE A PASSING BAND AND STILL BE WRONG — A TOLERANCE BOUNDS ERROR, NOT CORRECTNESS
+
+**This one cost a red tree, and it is the cheapest lesson in this section to act on.**
+
+`tools/critic/capture.mjs` declares a postural manifest — onset second and peak pixel excursion per
+seed — and `sway.selftest.mjs` checks the declaration against a freshly simulated measurement,
+tolerance 0.100. Two rows were red. They were fixed. **The third row was green and also wrong.**
+
+Seed `20260807` declared an onset of **232.2** against a measured **232.133**. That is an error of
+**0.067 inside a 0.100 tolerance** — comfortably passing, and still not the right number, because
+232.133 rounds to **232.1**. It had been passing for rounds. Nothing in this repo would ever have
+flagged it; it surfaced only because a temporary probe printed every value instead of the delta the
+gate reports.
+
+**The failing row is evidence that the table has DRIFTED, and drift does not respect row
+boundaries.** A tolerance is a statement about how much error is acceptable before someone must be
+told. It is not a statement that the value inside it is correct, and reading it as one is how a
+whole table rots while one cell goes red. So:
+
+> **When a declared-versus-measured table fails on ONE row, RE-DERIVE EVERY ROW.** Not the failing
+> one. Every one. Print the measurement beside the declaration for all of them, and take the
+> rounding from the precision the table itself declares.
+
+Proof it improved rather than merely crossed the line — all three errors fell, including the one
+that was already passing:
+
+| statistic | before | after | tolerance |
+|---|---|---|---|
+| declared onset vs measured, worst (s) | 0.067 | **0.033** | 0.100 |
+| declared peak vs measured, worst (px) | 1.813 | **0.049** | 0.100 (was FAIL) |
+| declared first transfer, worst (s) | 0.100 | **0.033** | 0.100 (was FAIL) |
+
+This is the same shape as three lessons already above — 97 green sway gates on a figure a judge
+called a mannequin (§1.9), gates that measured magnitudes while the defects were ratios (§1.11), a
+toggle whose numbers matched the docs to four decimals BECAUSE it was the same toggle state
+(§1.25c). **Green is not evidence of correctness. It is evidence that one specific question was
+asked and answered.**
+
+### 1.25q A GATE THAT DOCUMENTS ITS OWN ASSUMPTION IN A COMMENT IS A GATE THAT DOES NOT TEST IT — THREE INSTANCES NOW
+
+Every time this has happened the comment was *correct*. That is what makes it hard to see: the
+sentence is true, it is well written, it names the premise precisely — and it is prose, so nothing
+executes it, and the day the premise stops holding the gate goes on printing PASS.
+
+The three, in the order they were caught:
+
+1. **§1.25l, the environment-spill clause.** *"Summing only the panels is the conservative
+   direction"* — sound **only if** a shadow caster shares its panel's colour. The shipped code did
+   (`new SpotLight( new Color( placement.colour ), 1 )`); the string `shadowCaster.color` appeared
+   **zero times** in the selftest. Fixed with an explicit PREMISE equality.
+2. **`8771061`, the same pair of files one level up.** PREMISE is an equality on **colour** and
+   CONSERVATISM is a test of a **sign**, and the sentence they were defending is entirely a claim
+   about **magnitude**. Neither bounds a magnitude. Two new clauses, MAGNITUDE and REACH, proved red
+   six ways — and the reported evidence for the old ones *did not reproduce*, because the injector
+   patched `buildUnit` while `solve()` overwrote `shadowCaster.intensity` on every `aimAt()`.
+3. **🚩 The MAGNITUDE clause that replaced them, measured at `af0e68d`.** Its own arithmetic is
+   `intensity × spotAttenuation / d²`, over a comment reading *"with `distance` 0 and `decay` 2 the
+   distance term is a plain inverse square"* — `LightingRig.selftest.mjs:1278` and
+   `GroundContact.selftest.mjs:1294`. **Neither file asserts `decay === 2` or `distance === 0`.**
+   Set `shadowCaster.distance` to anything finite and three switches to a windowed falloff the
+   oracle does not model; the clause would then be comparing the rig against arithmetic that
+   describes a different light, and it would be an *equality*, so it would fail loudly for the
+   wrong reason — or, worse, be "fixed" by adjusting the oracle. The fix is two lines. It is filed
+   as REQ-030 in [`OPEN-REQUESTS.md`](OPEN-REQUESTS.md).
+
+> **If a comment states the condition under which the check is valid, that sentence is an
+> assertion someone forgot to write.** Convert it. It is nearly always one equality, it costs
+> nothing, and it turns "this was true when I wrote it" into "this is true now".
+
+### 1.25r A FILED REQUEST IS A DEFECT WITH A DELAY FUSE — AND TWO BLOCKERS CAME OUT OF DROPPED ONES
+
+The pattern is not carelessness and it does not respond to being more careful. It is structural:
+
+- an agent measures something correctly in a file it owns;
+- the fix belongs in a file it does **not** own, and the ownership rule is right — §1.25f and the
+  role table exist because agents editing each other's files is worse;
+- so it files a precise request, with the measurement attached;
+- and the round ends. The request was in a report. Reports are read once.
+
+**Cost, twice.** `?capture` left the renderer's frame counter running for a round after the defect
+was diagnosed, because the request sat in a report while five distinct PNGs came out of one build.
+And the postural manifest in `tools/critic/capture.mjs` left the repo **failing its own gate suite
+at HEAD for a full round** — `sway.selftest.mjs` at 227/229 on a *clean* tree, which is the worst
+state a project can be left in: an integrator sees red with no uncommitted change to blame, and
+every gate result measured afterwards is measured against a tree that was already failing.
+
+Three properties turned out to matter, and all three are now mechanised in
+[`OPEN-REQUESTS.md`](OPEN-REQUESTS.md) + `tools/request-ledger.selftest.mjs`:
+
+- **One address.** A request in a round report has no address. A request with an id has one, and
+  the code comment that motivated it can cite the id instead of "see the round report" — a
+  dangling pointer that appears **five times** in `packages/` at `af0e68d`, in every case for a
+  request that had already landed.
+- **A status nobody can assert.** `status: APPLIED` typed by the person who wanted it applied is
+  the artefact that failed us. Every entry carries a `verify:` predicate adjudicated against the
+  real file, and — the clause that makes it not a rubber stamp — an APPLIED entry's predicate must
+  ALSO fail against the tree at the commit the request was filed at, which proves the pattern
+  discriminates the change rather than matching something that was always there.
+- **An expiry.** OPEN entries are pinned to a round, rounds are pinned to commits, and HEAD may not
+  run more than 14 commits past the newest declared round. A request cannot quietly become
+  furniture.
+
+> **Treat a filed request as an unresolved defect that is currently invisible, because that is
+> exactly what it is.** The measurement has already been paid for; only the carrying is left, and
+> the carrying is the part that has never survived a round on goodwill.
+
+### 1.25s 🚩 A SUMMARISER IS NOT A SOURCE — RE-READ EVERY NUMBER FROM THE PRIMARY ARTEFACT
+
+A research agent recorded that `WebFetch`'s summariser **fabricated plausible anthropometric
+numbers twice in one session**, inventing values for a table that contains neither of them, and
+caught it only by re-extracting from the raw HTML.
+
+This is the most dangerous failure mode in this document, because every other one in Part 1 is
+caught by measuring again. This one **survives** measuring again — you re-run the fetch, the
+summariser produces a number in the same plausible range, and two agreeing reads look like
+corroboration. The numbers are not noise, they are *well-formed*: right units, right magnitude,
+right shape for the table they claim to come from. There is nothing on the surface to notice.
+
+It is worse here than in most projects because of what this project is built on. Bates' IQR,
+Quijoux's balance bands, ANSUR II's covariance, Farkas' craniofacial norms, the Stellar Blade look
+spec's own hexes — these are **the reference side of nearly every gate in the repo**. A fabricated
+reference does not make a gate fail. It re-aims it, and everything downstream then agrees with a
+number nobody published.
+
+> **Any number that arrives via a summariser must be re-read from the primary artefact before it
+> is written down** — the raw HTML, the PDF page, the table cell — and the doc line must say which
+> artefact and where in it. If the primary cannot be reached, the number is not available: record
+> the gap. A missing constant blocks one gate. An invented one poisons every gate that cites it,
+> silently, forever.
+
+Corollary already in force elsewhere and worth restating in this frame: `docs/research/` numbers
+are quoted with their source, and **rule 1 of every fan-out prompt** — *never invent a number that
+is already in `docs/research/`* — is the same instinct pointed at ourselves. This entry points it
+at the tools.
+
+### 1.25t A GATE BUILT FROM REMEMBERED DEFECTS CANNOT COVER THE NEXT ONE. ASSERT THE SET.
+
+*(Filed as "§1.25n" by the agent that measured it; renumbered because that letter was taken. It
+corrects **§1.25l**, which now carries a forward pointer here — the two are one lesson in two
+halves and neither reads correctly alone.)*
+
+The lighting gate failed the same way three rounds running and the mechanism was different every
+time — a caster at the wrong COLOUR, a caster at the wrong INTENSITY, then `shadowCaster.decay`
+2 → 1 (**41.64%** of the frame, worst Δ8/255) and `shadowCaster.distance` 0 → 1.2 (**79.47%**,
+Δ87/255, the key's modelling visibly gone) with `LightingRig.selftest.mjs` at 98/98 and
+`GroundContact.selftest.mjs` at 65/65 through both. Each round added the check for the mechanism it
+had been handed. Four rounds, four checks, and the fifth mechanism walks past.
+
+**The common cause is not any of the mechanisms. It is that every clause was written FROM a defect
+that had already happened.** An enumeration of remembered defects is structurally unable to contain
+the one nobody has met. The fix is to stop enumerating mechanisms and close over PROPERTIES: ask
+what the COMPLETE set of things is that decide the outcome, take that set from the dependency's own
+source rather than from memory, and fail on any member of it that moves without a declared reason —
+including a member that does not exist yet.
+
+`lightRenderState()` in `render/LightingRig.js` is the worked example. For one light it returns
+every field three 0.185.1's WebGPU path reads, every field it does NOT read with a reason each, and
+`unclassified` — anything on the object that fits neither description. `unclassified` is the
+load-bearing return value: it is the only assertion in the repo that can go red for a defect that
+does not exist yet, proved by planting a field three has not shipped. `missing` is the same
+instrument the other way — a field we say three reads that the object lacks, which is a rename in
+the dependency presenting as a check quietly comparing `undefined` with `undefined`.
+`GroundContact.renderState()` closes the surface half the same way, and its material clause is the
+transferable trick: `MeshStandardNodeMaterial` carries 110 fields, so it **diffs against a freshly
+constructed one** rather than listing the interesting ones, and the closure comes from three
+instead of from us.
+
+🚩 **Two things the enumeration found that nothing in this repo had ever named.** `shadow.focus` is
+a multiplier on the shadow frustum's field of view (`SpotLightShadow.updateMatrices`:
+`fov = RAD2DEG * 2 * light.angle * focus`), so REACH's cone equality on `light.angle` cannot see it.
+And `light.distance` reaches the picture TWICE — through `getDistanceAttenuation`'s window and
+through `camera.far = light.distance || camera.far` — which is why the 0 → 1.2 injection moved four
+fifths of the frame rather than a little of it. It also **does not clean up after itself**: restoring
+`distance` to 0 leaves the far plane at 1.2, because `light.distance || camera.far` now reads the
+corrupted value, and twelve subsequent rows of a pixel sweep were contaminated before a restore
+check caught it.
+
+🎯 **AND THE SPECIFIC ROOT CAUSE IS §1.11a ONE LEVEL DOWN — AN ORACLE THAT ASSUMES THE FIELD IT IS
+TESTING.** Both selftests measured a caster's delivery as `intensity / d²` under a comment saying
+*"with `distance` 0 and `decay` 2 the distance term is a plain inverse square"*. That sentence is
+true, and it is a PREMISE about the two fields the gate never read. `distanceAttenuation()` and
+`spotIrradianceFactor()` are now faithful CPU ports of three's `getDistanceAttenuation` and
+`getSpotAttenuation`, so both fields are INPUTS to the answer and each mechanism now fails twice —
+once as a declared field, once through the physics. The swap is value-neutral on the shipped rig:
+the caster-inclusive floor spill reproduces at 2.1973 / 2.1768 / 2.5289 to four decimals.
+**When a comment states the value of a field, that is the field the gate is not testing.**
+
+⚠️ **And two of the six mechanisms invented to break the new gate measured ZERO, which is §1.25h
+and is why they are recorded rather than dropped.** A non-uniform panel scale of (1, 2, 1) moves
+**0.00%** of a 900×1200 body frame — the argument that `extractRotation` skews the basis is wrong,
+because it NORMALISES each column, so a positive per-axis scale cancels exactly. The real mechanism
+is a MIRROR: (1, −1, 1) survives normalisation as a sign and moves **98.86%** at Δ140/255.
+`material.toneMapped` false likewise moves 0.00%, because tone mapping on this page is an output
+pass. Both are kept in the gates labelled with their measured zeros: a closure legitimately covers a
+field before it matters.
+
+### 1.25u A TRANSCRIBED CONSTANT CAN BE DEGENERATE RATHER THAN MERELY WRONG, AND THE DIFFERENCE IS WHETHER ANY GATE DOWNSTREAM CAN STILL SEE
+
+`docs/research/affect-and-animation.md` §1 transcribes WASABI's angry anchor as (80, 80, 100). At
+that value it is **bit-identical to one of happy's four** — measured separation 0.0000 — so every
+PAD point in the cube is equidistant from both and no distance-based activation can ever separate
+anger from joy.
+
+A wrong number moves an answer; a **degenerate** one deletes a distinction, and nothing downstream
+reports a distinction it never had. What caught it was not review but a gate written for a different
+reason — *"no two emotions share an anchor"* — which is the cheapest check in `affect.selftest.mjs`
+and the only one that could have.
+
+> **When a table is transcribed into code, gate the table's STRUCTURE** — no coincident rows, no
+> duplicate keys, monotone where it should be — **and not only its values, because structure is what
+> a transcription error destroys.**
+
+---
+
+### 1.26 TWO SIMILAR MAGNITUDES ARE NOT EVIDENCE OF CANCELLATION — COMPARE FIELDS WITH A DOT PRODUCT
+
+`eyeWideLeft` peaks at 3.92 mm and `eyeSquintLeft` at 3.95 mm on the same 123 eyelash vertices,
+0.8% apart, and anger drives both. The obvious reading is that ARKit's antagonistic lid shapes
+cancel and that FACS's AU5+AU7 glare is unreachable on this figure. The justification for a fix had
+already been written when the measurement came back: the cosine between the two displacement
+**fields** is **0.0180** — they are orthogonal, and the peak of the sum is **100.0%** of the peak of
+the larger. Nothing cancels.
+
+The real antagonists on this figure are the brow pairs: `browInnerUp` against `browDown` at cosine
+**−0.3790** (sum 80.1% of the larger) and `browOuterUp` against `browDown` at **−0.4955** (88.3%).
+
+Same family as §1.11a — a real measurement of the wrong quantity — with the twist that the wrong
+quantity was a **scalar standing in for a vector field**. Two peak magnitudes tell you nothing about
+whether two deformations oppose each other. Recorded because it did NOT become a bug: the near-miss
+is the lesson.
+
+### 1.27 A BAND STATISTIC IS THE MIDPOINT OF ITS TWO EXTREME VERTICES, AND ON A STANDING HUMAN THOSE ARE LIMBS
+
+*(§1.7e — "a gate can encode the defect it was written to catch" — does not carry this class, and
+this cost a round on top of the round it was already blocking.)*
+
+The trunk-articulation axis has been rebuilt wrongly three times. The instrument is *the
+shoulder-band silhouette centre minus the hip-band silhouette centre*. Both bands were copied
+verbatim from the judge's own `tools/critic/travel.mjs` so that offline and rendered numbers could
+be laid side by side — and the bands WERE identical. What differed was **which body part set the
+extremes**.
+
+Measured on `figure_g050` in `relaxed-standing` at stride 11: of the 89 vertices in the hip band's
+793–976 mm rows, **56 are on the arm chain and 33 are pelvis and thigh**, and **both** silhouette
+edges are hand and forearm — the hands hang wider than the hips, band width 491.7 mm on a 340 mm
+pelvis. The head band's two edges are the SHOULDERS at its bottom row, 289 mm wide on a 150 mm
+skull. Neither band is named for the thing it measures.
+
+The arms are children of the thorax, so articulating the trunk moves the arms inboard as the pelvis
+goes outboard, and **a statistic named for the pelvis CANCELS the very thing it is measuring**. The
+band's centre correlates with an arm-only reading of the same rows at r = **1.0000** in every
+configuration tested, and with its own pelvis/thigh reading at **0.6612** once the trunk
+articulates. Restated on the 33 axial vertices, the same twelve clips read 5.396–6.704 px against
+1.690–2.309 — 3.2× larger — and the fix separates from its known-bad by 1.7× instead of by a fifth.
+
+> **When a gate's denominator is a REGION rather than a landmark, assert which body part sets its
+> edges, and assert it as a correlation against a decomposition of the same region.** That check now
+> exists as BAND PROVENANCE in `sway.selftest.mjs`, and it is the gate that would have caught this
+> two rounds earlier.
+
+### 1.28 A KNOWN-BAD THAT PINS A CONSTANT THE SHIPPED LAYER HAS MOVED AWAY FROM IS TESTING A CONFIGURATION NOBODY SHIPS
+
+§1.1's standing instruction — prove the gate red by reintroducing the defect, then break it a
+different way in the same class — is written as though known-bads are fixed configurations. They
+are not, and this cost twice in one round.
+
+The parked-head known-bad pinned `lateralShiftCouple: SPINE_SHARE_TILT`, and its comment explained
+at length that the tilt was PART of what made the head a mannequin, because *"under
+LATERAL_SHIFT_COUPLE the same 0.30 target does not park the head at all… it reads 1.029–1.210"*.
+Both halves stopped being true the moment the shipped spread changed: inheriting the shipped spread,
+the same 0.30 target scores 0.244–0.346.
+
+> **A known-bad should INHERIT the shipped configuration and override only the defect.** Anything
+> else drifts into testing a build the project abandoned.
+
+🚩 **And the corollary, which is the more expensive half: A GATE CAN BE GREEN FOR A REASON THAT IS
+NOT THE MECHANISM IT NAMES.** The head-on-neck sign gate read −0.97 to −0.999 for two rounds on the
+strength of **1.9 degrees of incidental girdle rotation** produced by a spread that did not sum to
+zero — not from the head-stabilisation reflex it claims to test. Taking the artefact to zero turned
+the gate red, and the reflex it names measures −1.0000 on the path it actually lives on (the
+pendulum), which no clause had ever isolated.
+
+### 1.29 WHEN A RULE IS SATISFIABLE BY A UNION, GATE IT ON EVERY LEGAL SELECTION
+
+The foundation-layer briefs shipped with **no gusset** and the decency clause read green, because
+it asked whether SOME shell covered each region rather than whether every outfit the floor could
+actually pick did — and the BOXER brief covered the groin. **A garment is not decent because another
+garment is.** The repaired gate sweeps all 48 reachable states rather than the union of them.
+
+### 1.30 "IS THIS POINT INSIDE THE MESH" IS A PARITY QUESTION, AND THREE DISTANCE-SHAPED ANSWERS TO IT WERE ALL WRONG
+
+Nearest-point-and-sign fails in a crevice: at the bottom of the gluteal cleft the two nearest
+surfaces FACE EACH OTHER and the sign is meaningless — three correct vertices at z 0.838–0.858
+failed a build. Filtering to same-facing surfaces then reports the far side of the buttock, 10.28 mm
+away, as the surface a 3 mm offset was measured against. A ray-parity test along the vertex normal
+called four bra-hem vertices inside the body at a measured clearance of 0.797 mm.
+
+The fix was to stop asking the general question and measure the specific one: **an offset is only
+unsafe if it crosses a surface standing in front of it**, so cast from the pre-offset position along
+the normal and compare the hit distance to the offset.
+
+> **NARROW THE QUESTION UNTIL IT HAS ONE MECHANISM.** Three plausible general answers cost three
+> builds; the specific question was correct first time.
+
+### 1.31 A THRESHOLD IN THE WRONG UNIT DOES THE CUTTING INSTEAD OF THE PARAMETER THAT WAS SUPPOSED TO
+
+The briefs' leg hem was written as *"is this inside a tube around the thigh bone"* plus *"how far
+down the bone"*. The tube radius was 0.85 hip half-widths = **86.3 mm** — inside the thigh, whose
+surface reaches **88 mm**. So the upper thigh read as "not leg", was kept to the waistband, and the
+hem landed wherever the thigh happened to narrow to 86.3 mm: the briefs came out as cycling shorts
+and the hem parameter was doing nothing at all.
+
+Every number in the rule was plausible. The failure was that **two of them were measured on the same
+body and nobody compared them**.
+
+> **Bracket a threshold against the two things it has to separate, and write both measurements next
+> to it.**
 
 ---
 
@@ -1649,32 +1986,76 @@ so the schema constraint is load-bearing rather than optional. ~0.7 s per call.
 
 ## Part 3 — Commands known to work
 
-**Every command below was re-executed 2026-08-08 at build `c70195c` and its printed check count
-taken from that run, not from memory.** Where a count is stated it is what the command actually
-says today.
+## 🎯 THE GATE ROSTER, **re-derived 2026-08-09 (second time that day)** at R8 — EVERY ROW
 
-🚩 **THIS LIST DRIFTS FASTER THAN ANY OTHER PART OF THESE DOCS, AND IT DRIFTED AGAIN.** It was
-audited a round ago with the note "five of them had drifted"; **seven** had drifted since, and
-**five selftests were missing from it entirely**. The full re-run:
+⚠️ **Do not maintain the table below by editing the rows a reader noticed.** §1.25p is the reason,
+and this table is the second worked example of it in two days: a declared-versus-measured table that
+fails on one row is a table that has drifted, and drift does not respect row boundaries. **Every one
+of the twelve rows the previous audit recorded had moved again by `af0e68d`.** Not most. All twelve.
 
-| command | this file said | measured 2026-08-08 |
+**How this was measured, because the tree was not quiet.** A six-agent fan-out was live: `git status`
+showed eight tracked files modified under `packages/core/src/render/`, `packages/core/src/figure/`,
+`tools/figure-pipeline/` and `assets/`, plus five untracked trees. A run started on a clean tree at
+07:58:21Z reported **DIRTY** at 08:14:16Z and `GroundContact.selftest.mjs` crashed inside it with
+`ReferenceError: spotIrradianceFactor is not defined` — a half-saved file, green again on a re-run
+sixty seconds later. **That is §1.12's hazard, not a regression, and it is exactly why this table is
+not taken from that run.**
+
+**So HEAD was measured in an isolated worktree**: `git worktree add --detach <tmp> af0e68d`, with
+`node_modules` and the gitignored asset trees symlinked in. Every count below marked *(HEAD)* comes
+from that run, which cannot be moved by another agent mid-flight.
+
+**Taken from one `bash tools/run-selftests.sh` run at the end of R8's integration**, with the
+fan-out finished and nothing else editing — which is the condition the previous audit could not get
+and had to substitute an isolated worktree for. **40 gates, FAILING GATES: 0.** The three counts the
+runner does not surface (it prints only each gate's last line) were taken directly afterwards.
+
+| command | previous audit said | **measured at R8** |
 |---|---|---|
-| `motion/Gaze.selftest.mjs` | 112 | **114** |
-| `motion/sway.selftest.mjs` | 194 | **208** |
-| `render/GroundContact.selftest.mjs` | "new this round, untracked" | **31** |
-| `material/EyeMaterial.selftest.mjs` | 131 | **132** |
-| `tools/critic/selftest.mjs` | 125 | **235** (208 before this round's G1/G2 work) |
-| `tools/critic/travel.selftest.mjs` | 111 | **126** (113 before this round's threshold work) |
-| `material/SkinRegions.selftest.mjs` | *absent* | **29** |
-| `render/Grade.selftest.mjs` | *absent* | **28** |
-| `render/TRAAPost.selftest.mjs` | *absent* | **6** |
-| `render/Toksvig.selftest.mjs` | *absent* | **9** |
-| `testbed/src/alive-toggles.selftest.mjs` | *absent* | **16** |
+| `motion/Gaze.selftest.mjs` | 114 | **114** — held twice running |
+| `motion/sway.selftest.mjs` | 229 | **238** |
+| `render/GroundContact.selftest.mjs` | 65 | **75** |
+| `render/LightingRig.selftest.mjs` | 98 | **122** |
+| `material/EyeMaterial.selftest.mjs` | 132 | **132** — held |
+| `tools/critic/selftest.mjs` | 258 | **258** — held |
+| `tools/critic/travel.selftest.mjs` | 158 | **158** — held |
+| `tools/critic/heatmap.selftest.mjs` | 71 | **71** — held |
+| `material/SkinRegions.selftest.mjs` | 29 | **29** — held |
+| `render/Grade.selftest.mjs` | 65 | **65** — held |
+| `render/TRAAPost.selftest.mjs` | 11 | **11** — held |
+| `render/Toksvig.selftest.mjs` | 9 | **9** — held |
+| `testbed/src/alive-toggles.selftest.mjs` | 151 | **151** — held |
 
-Everything else held at that moment: bodymass 15, figure 44, MotionStack 47, ocular 64,
-idle-motion 106, BodyIdle 41, FacialIdle 27, LightingRig 38, heatmap 57, lut-bake 32,
-eye-optics-claims 43, cornea_geometry 40, `verify_glb.mjs` PASS on 5 figures,
-`restpose.selftest.mjs` still prints no count. All 23 exited 0.
+And the rest of the roster, all from the same run: bodymass **15**, figure **44**, restpose (prints
+no count), MotionStack **47**, ocular **64**, idle-motion **106**, BodyIdle **41**, FacialIdle **27**,
+SkinOcclusion **13**, MorphVelocity **16**, prosody **26**, visemes **59**, wardrobe **45**,
+cornea_geometry **40**, lut-bake **32**, eye-optics-claims **43**, measured-claims **60**,
+alive-capture-determinism **49**, and `verify_glb.mjs` PASS on **14 files**.
+
+**Six gates are NEW in R8** and are the reason the roster went 32 → 40: `affect` **91**,
+`identitytargets` **47**, `identitycatalogue` **72**, `decency` **20**, `agency` **28**, and
+`request-ledger` **11** (which landed in R7 and is the 33rd; the other five are R8's).
+
+🎯 **THIRTEEN OF THIRTEEN TABLE ROWS HELD OR MOVED FOR A REASON THIS FILE CAN NAME — the first time
+that has been true.** Four moved and each is a gate whose owner added checks in R8: sway 229 → 238,
+GroundContact 65 → 75, LightingRig 98 → 122. Nine held. That is what the previous two audits were
+trying to reach, and it only became reachable once the roster was taken from a runner rather than
+from thirteen separate invocations at thirteen different instants.
+
+⚠️ **AND THE PREVIOUS AUDIT'S METHOD IS RETIRED, WITH ITS COST RECORDED.** It measured HEAD in an
+isolated `git worktree` because a six-agent fan-out was live. That was the right call and it bought
+a caveat: `alive-toggles`, `alive-capture-determinism`, `TRAAPost`'s rendered section and
+`verify_glb` all FAILED in the worktree for reasons that had nothing to do with the code — vite
+returns **403 Forbidden** on assets symlinked outside the server root, and the worktree carried
+HEAD's `assets/wardrobe/manifest.json` against the working tree's built fragments (308 problems
+across 14 files). **Four of thirteen rows could not be measured by the method that was chosen to
+make them measurable.** The cheaper answer is the one used here: run the roster when the tree stops
+moving, which is exactly what integration is for.
+
+Previous audit, kept for the drift record: at `c70195c` seven counts had drifted and five selftests
+were missing from the list entirely (Gaze 112→114, sway 194→208, GroundContact untracked→31,
+EyeMaterial 131→132, critic 125→235, travel 111→126; absent: SkinRegions 29, Grade 28, TRAAPost 6,
+Toksvig 9, alive-toggles 16). That audit was itself the second in two rounds.
 
 🚩 **AND THEN THE SAME COMMAND SET WAS RE-RUN ~40 MINUTES LATER, IN THE SAME SESSION, AND FIVE
 ANSWERS HAD CHANGED — INCLUDING TWO REDS.** Nothing was rolled back and nothing was broken; three
@@ -1859,9 +2240,12 @@ node tools/critic/measure.mjs <png> tools/critic/regions.lighting-body.json --hu
 
 # The Phase 3 shading gates
 node packages/core/src/material/EyeMaterial.selftest.mjs      # 132 checks
-node packages/core/src/render/LightingRig.selftest.mjs        # 63 checks, then 82 four minutes later —
-                                                              # the file was being edited under the run.
+node packages/core/src/render/LightingRig.selftest.mjs        # 122 checks. It once read 63, then 82
+                                                              # four minutes later, because the file was
+                                                              # being edited under the run — quote a
+                                                              # count with the tree state it was read at.
                                                               # It DOES exit 0/1 correctly; see above.
+node packages/core/src/render/GroundContact.selftest.mjs      # 75 checks
 node tools/lut-bake/lut-bake.selftest.mjs                     # 32 checks
 node tools/lut-bake/bake.mjs curvature --figure assets/figures/figure_g050.glb
 
@@ -1874,6 +2258,14 @@ http://localhost:5199/packages/testbed/src/eye.html?w=1000&h=1000&height=0.032&f
 #   ?shader=0      the shipped GLB materials back
 http://localhost:5199/packages/testbed/src/skin.html?bare&w=3840&h=2160   # ?stock=1 ?sss=0 ?scatter=12
 http://localhost:5199/packages/testbed/src/lighting.html?frame=portrait&bare   # ?variant=dramatic ?ov=rim.azimuthDegrees:-134
+
+# 🚩 The whole-state defects, plantable on the real page so the light-state fingerprint's claims can
+# be checked in PIXELS rather than in headless arithmetic. Each is invisible on a ?bare plate BY
+# CONSTRUCTION — that is the property they demonstrate — so a number quoted off one of these without
+# naming the parameter is a number about nothing.
+/src/lighting.html?frame=body&statedefect=decay|cutoff|shadowintensity|shadowfocus|rimlayer|skyaxis|panelmirror|panelaim
+/src/lighting.html?frame=body&grounddefect=receiveshadow|metalness|emissive|desync|tilt|tonemapped
+# Measured pixel effect of every one: see GROUND_STATE_DEFECTS' header in lighting.js.
 
 # alive.html now carries the Phase 3 materials. Controls for an A/B — see §1.19 for worked
 # attributions, and use one of these before writing a paragraph about a cause:

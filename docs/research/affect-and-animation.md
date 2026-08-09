@@ -68,9 +68,29 @@ threshold, `Φ` = activation threshold. **A radial basis function over PAD space
 > which *is* the mush. Gate with a threshold so only 1–2 emotions are ever active, and saturate
 > so near-anchor movement doesn't flicker.**
 
-WASABI anchors (−100…100) with base intensity: Angry (80,80,100) 0.75 · Annoyed (−50,0,100) 0.75 ·
+⚠️ **A THRESHOLD ALONE DOES NOT DELIVER THAT INVARIANT AT ANY VALUE THAT LEAVES THE FACE USABLE.**
+Measured over a 41³ PAD grid at the shipped constants (dominance weight 0.50, Φ 0.645, Δ 0.35):
+63.3% of the cube has one emotion active, 15.5% has two, and **0.331% has three**, the largest
+discarded third-place weight being 0.2186. Making the threshold tight enough to guarantee two by
+geometry alone requires **Φ ≤ 0.50**, which silences **eight of ALMA's own 24 OCC emotion vectors**.
+The invariant therefore has to be enforced **by construction** — a hard cap that takes the two
+strongest — with the threshold tuned so the cap almost never bites.
+`ExpressionMap.MAX_ACTIVE_EMOTIONS` is that cap and its comment carries the measurement.
+
+WASABI anchors (−100…100) with base intensity: **Angry (−80,80,100) 0.75** · Annoyed (−50,0,100) 0.75 ·
 Bored (0,−80,100) 0.75 · Depressed (0,−80,−100) 0.75 · **Fearful (−80,80,−100) 0.25** ·
 Happy (80,80,±100) *and* (50,0,±100) 0.75 · Sad (−50,0,−100) 0.75 · **Surprised (10,80,±100) 0.0**.
+
+⚠️ **CORRECTED 2026-08-09, and the correction is load-bearing rather than cosmetic.** This line
+transcribed Angry as **(80,80,100)** — positive pleasure — which makes the angry anchor
+**bit-identical to one of happy's four**, measured separation **0.0000**. Every point in the PAD
+cube is then equidistant from both, so anger and joy fire together at equal weight everywhere and
+**no distance-based activation can ever separate them**. A wrong number moves an answer; a
+degenerate one deletes a distinction, and nothing downstream reports a distinction it never had.
+Becker-Asano's WASABI places anger at negative pleasure, and the ALMA OCC table in this same section
+independently gives Anger P −0.51 and Hate P −0.6. `packages/core/src/affect/ExpressionMap.js` ships
+the corrected sign; `affect.selftest.mjs` refuses any anchor set with a coincident pair and carries
+the rejection proof against the transcribed value. LEARNINGS §1.25u.
 
 Two details worth stealing: **happiness occupies four regions** (Ekman has one positive emotion,
 so it must cover all of +P), and **base intensity 0.0 means the emotion cannot fire from affect
@@ -86,6 +106,23 @@ identified, arousal mostly (except negative arousal), **dominance not at all**. 
 > **Dominance must be carried by posture, gaze policy, interruption behaviour and gesture
 > amplitude — never by the face. This is a structural argument for full-body, and a place where
 > Live2D cannot compete at all.**
+
+🚩 **THIS SECTION AND THE ONE BELOW IT CONTRADICT EACH OTHER, AND THE DOCUMENT DID NOT SAY WHICH
+WINS.** The activation table immediately following gives **AU1, AU4, AU6 and AU10 as functions of
+DOMINANCE**, in the same paper the "not at all" finding comes from and from which the punch list
+derives the standing constraint. Both cannot be honoured.
+
+**Resolution taken 2026-08-09, recorded here so the next reader does not have to pick:** the
+standing constraint wins. The four dominance-driven activation functions are dropped and
+AU1/AU2/AU4/AU6/AU7/AU9 are supplied from the discrete emotion **label** instead — a categorical
+signal, not a dominance level. The pure-pleasure and pure-arousal functions are implemented
+verbatim. `AffectState.faceInput()` returns a frozen two-key object and `ExpressionMap.face()`
+THROWS on any input carrying a third, so the constraint is a mechanism rather than a policy.
+
+Worth noting that the two constraints agree by accident on the sharpest case: **AU10, the one this
+document calls "pure dominance", maps to `mouthUpperUpLeft/Right`** — which `figure/ExpressionBank.js`
+already refuses from an emotion caller because it is a mouth shape. Two independent constraints,
+same answer.
 
 ### PAD → AU activation functions (Arellano, validated perceptually)
 
@@ -172,6 +209,39 @@ Mean pooling crushes long sentences toward zero.
 - **Valence** — √n-normalised signed sum with shifter handling, or just VADER `compound`.
 - **Arousal** — **max, or mean of top-k (k≈3).** Arousal is unsigned; mean-pooling one intense
   word among nine calm ones gives "calm," which is wrong — **the intense word *is* the content.**
+
+### 🎯 VADER's published rule constants, with values
+
+⚠️ **Added 2026-08-09.** This document named VADER as the licence-clean choice in §0 and described
+its `compound` as well calibrated, but recorded **none of its constants** — so
+`packages/core/src/affect/ReflexAffect.js` implemented eleven of them citing a source the repository
+did not hold. Source: **Hutto & Gilbert, "VADER: A Parsimonious Rule-based Model for Sentiment
+Analysis of Social Media Text", ICWSM 2014** (MIT licence).
+
+| constant | value | what it does |
+|---|---|---|
+| `B_INCR` | **0.293** | booster/intensifier increment ("very", "extremely") |
+| `C_INCR` | **0.733** | ALL-CAPS emphasis increment |
+| `N_SCALAR` | **−0.74** | negation multiplier |
+| exclamation | **0.292** each, **max 4** | punctuation emphasis |
+| two question marks | **0.180** | |
+| three or more question marks | **0.960** | |
+| negation window | **3 words** | how far back a negator reaches |
+| booster distance damping | **1.0 / 0.95 / 0.90** | at 1, 2 and 3 words of separation |
+| `but` clause | **0.5** before, **1.5** after | contrastive conjunction re-weighting |
+| normaliser | `compound = x / sqrt(x² + 15)` | α = 15 |
+
+**Two EMFACS prototype units this project uses that Arellano's table above does not contain**, both
+recorded here rather than left as ⚠️ comments in code:
+
+- **AU7 (lid tightener) on `angry` / `annoyed`.** This document records that ARKit has no AU23 —
+  *"one of anger's most discriminative AUs"* — and the standing mouth constraint blocks the
+  documented `mouthTighten` workaround, so anger has to read from the eyes.
+- **AU9 (nose wrinkler) on `disliking`.** Punch-list 5.7 names disgust and **neither WASABI nor
+  ALMA supplies a disgust anchor**, so the prototype unit is the only source available.
+
+Source for both: the EMFACS emotion prototypes. If a reviewer prefers to reject them, they are
+`EMOTION_AU_SETS` in `ExpressionMap.js` and removing them costs anger its eyes.
 
 ### Browser prosody extraction
 

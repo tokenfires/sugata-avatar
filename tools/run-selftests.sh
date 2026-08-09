@@ -15,6 +15,18 @@
 #   bash tools/run-selftests.sh          # or: npm run selftests
 #
 # Exit code is the number of gates that failed, capped at 250 by the shell.
+#
+# 🎯 THE DIFF-REQUEST LEDGER IS ONE OF THE GATES BELOW, and it is registered by the glob rather than
+# by name: `tools/request-ledger.selftest.mjs` matches `*.selftest.mjs`, so it is picked up by the
+# `find` on line 45 with no entry of its own. It adjudicates every entry in `docs/OPEN-REQUESTS.md`
+# against the file that entry names — an APPLIED entry whose change is not in the file goes red, and
+# so does an OPEN entry carried past its round. That is the gate on the failure mode that left this
+# repo red at HEAD for a full round: a correctly-filed cross-file request that nobody carried.
+# LEARNINGS §1.25r.
+#
+# ⚠️ IT READS THE WORKING TREE, ON PURPOSE — the tree is what the integrator commits — SO IT IS
+# SUBJECT TO THE SAME MID-FAN-OUT CAVEAT AS EVERY COUNT BELOW. If the tail line says DIRTY, a red
+# ledger entry may be another agent's half-saved file rather than a dropped request.
 
 cd "$( dirname "$0" )/.." || exit 1
 
