@@ -53,11 +53,53 @@
 // pinned `--threshold 0.30` by hand on every measurement it took. Pinning is still honoured and is
 // still the right thing when comparing two clips; it is no longer a workaround.
 //
+// 🎯 --- AND THE VERDICT USED TO BE `sd > 0`, WHICH A FROZEN CLIP PASSES. ----------------------
+//
+// Measured on `captures/r9-frozen-taau` — 600 frames of a figure held still by `?freeze`, on the
+// shipped default — this tool exited **0** and printed *"travelled — the silhouette moved.
+// Largest lateral SD: knee at 0.04 px SD"*. Nothing in that clip moved: the identical URL at
+// `?aa=msaa&grade=0` renders 1 distinct frame and 599 repeats, which is the control.
+//
+// The numbers were never wrong. 0.04 px is an honest reading of what the shipped page's film
+// grain does to a centroid: grain flips a few boundary pixels in and out each frame and the
+// centroid of ~30,000 pixels wobbles by hundredths of one. The VERDICT was wrong, because
+// `travelled = some band has x.sd > 0` is a test any nonzero noise floor passes (§1.3).
+//
+// --- what replaced it: a floor, and a statistic the floor can be stated in ---------------------
+//
+// A floor alone is not enough, because the obvious way past one is a LOUDER noise floor. So the
+// gated quantity is not the raw SD but the COHERENT travel:
+//
+//     split the band's rows into ODD and EVEN, take a centroid of each, and report
+//     sqrt(max(0, cov(odd, even)))
+//
+// Two interleaved sub-images of the same band see the SAME lateral shift — a body moving right
+// moves both centroids by the same amount — and INDEPENDENT grain, because they are disjoint
+// pixels. So the covariance keeps the shift whole and the noise cancels IN EXPECTATION AT ANY
+// AMPLITUDE. (A left/right split was measured first and rejected: it confounds a translation with
+// a change of width, so a breathing figure scores negative.)
+//
+// Measured, worst band per clip, 100 frames each:
+//
+//     r9-frozen-taau         frozen                   raw SD 0.057   coherent 0.0655
+//     r10-frozen-grain15     frozen, grain ×10        raw SD 0.126   coherent 0.0567
+//     j9-ab-traa             frozen, ?aa=traa         raw SD 0.167   coherent 0.1670
+//     r9-frozen-msaa         frozen, no grain at all  raw SD 0.000   coherent 0.0000
+//     r9-judge-body-42       moving                   raw SD 1.963   coherent 1.9626
+//     r8-clip-body           moving                   raw SD 2.400   coherent 2.3998
+//     judge-portrait         moving                   raw SD 37.28   coherent 37.2830
+//
+// Ten frozen clips top out at 0.1670 px; ten moving clips bottom out at 1.9626 px. On a real clip
+// the coherent share of the raw SD is 0.999–1.000, so the statistic costs a moving clip nothing.
+// Note the third row: turning the grain up TEN TIMES moves the coherent number by less than the
+// difference between two frozen clips, which is what "immune to the amplitude of the noise floor"
+// means and is why the gate is not stated on the raw SD.
+//
 // Exit codes follow heatmap.mjs, measure.mjs and capture.mjs, so a calling script can tell a dead
 // clip from a broken tool:
 //   0 = travel measured, the silhouette moved
 //   1 = the clip is not evidence — the threshold caught nothing or everything, auto refused to
-//       guess on a frame that is all subject, or no band travelled at all; or
+//       guess on a frame that is all subject, or no band travelled above the noise floor; or
 //       --fail-on-motionless and a band is a statue
 //   2 = tool error (no frames, mismatched frame sizes, unreadable PNG, unparseable band table)
 
@@ -69,7 +111,10 @@ import { decodePng } from './png.mjs';
 import { encodedLuma } from './color.mjs';
 // Frame discovery is heatmap.mjs's, not a second copy of it: the two tools read the same capture
 // directories and must agree on what a frame is, in what order, and how --stride thins them.
-import { findFramePaths } from './heatmap.mjs';
+// `fitPhotometrically` is shared for the stronger version of the same reason: the two tools must
+// agree on what counts as "the same picture, differently exposed", or one of them will refuse a
+// clip the other measures.
+import { findFramePaths, fitPhotometrically, lumaQuantiles } from './heatmap.mjs';
 
 // Bands are named for a standing figure at full-body framing, and given as fractions of frame
 // height so the same table reads a 1200px capture and a 600px one. The gaps are deliberate — the
@@ -253,6 +298,20 @@ const BAND_FULL_WARN = 0.90;
 const SILHOUETTE_WARN_LOW = 0.02;
 const SILHOUETTE_WARN_HIGH = 0.8;
 
+// The travel a band must show, in the COHERENT statistic, before this tool will say it moved.
+//
+// Derived as the geometric mean of the two populations in the header table: the frozen clips top
+// out at 0.1670 px (`j9-ab-traa`) and the moving clips bottom out at 1.9626 px
+// (`r9-judge-body-42`), and √(0.1670 × 1.9626) = 0.573. Rounded down to 0.55 px, which sits 3.29×
+// above the loudest frozen clip and 3.57× below the quietest moving one.
+//
+// ⚠️ THIS IS A NOISE FLOOR, NOT A VISIBILITY THRESHOLD, and the two must not be confused —
+// LEARNINGS §1.14a is the record of what happens when they are. It says "this tool cannot tell
+// this apart from grain", not "a viewer cannot see this". The nearest thing this project owns to
+// a visibility threshold is a 0.48–10.6 px bracket from two blind-judge observations, and 0.55 px
+// sits inside it near the invisible end BY COINCIDENCE rather than by derivation.
+const COHERENT_TRAVEL_FLOOR_PIXELS = 0.55;
+
 // --- entry point --------------------------------------------------------------------------------
 
 function main(argv) {
@@ -318,10 +377,23 @@ function analyseClip(framePaths, options) {
     clip: clipSummary(framePaths, firstFrame, options),
     units: 'pixels of the captured frame; centroid of the thresholded silhouette',
     threshold,
+    photometric: measurement.photometric,
     silhouette,
     bands: summarised,
+    // 🚩 THIS USED TO BE `x.sd === 0 && y.sd === 0`, which no band of a graded page can ever
+    // satisfy, so `--fail-on-motionless` was a flag that could not fire on the shipped default.
+    // It is now stated on the coherent travel against the noise floor.
+    //
+    // Bands the silhouette FILLS are excluded, and that exclusion is measured rather than
+    // defensive: with the lit ground plane above the cut, `ankle` fills 100.0% and `foot` 99.2%
+    // of their rows, and a filled band's centroid is its own centre by construction — it cannot
+    // move whatever the figure does. Calling that a statue would be a true statement about the
+    // measurement and a false one about the body. They are already flagged with `!` in the table.
     motionlessBands: summarised
-      .filter((band) => band.observedFrames >= 2 && band.x.sd === 0 && band.y.sd === 0)
+      .filter((band) => band.observedFrames >= 2 &&
+        band.coverage.mean < BAND_FULL_WARN &&
+        band.xCoherent < COHERENT_TRAVEL_FLOOR_PIXELS &&
+        band.yCoherent < COHERENT_TRAVEL_FLOOR_PIXELS)
       .map((band) => band.name),
     verdict: judge(silhouette, summarised, threshold.mode.startsWith('auto')),
   };
@@ -460,9 +532,19 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
     y: makeSeriesTracker(),
     area: makeSeriesTracker(),
     coverage: makeSeriesTracker(),
+    // The two interleaved sub-images. See the header: same shift, independent grain.
+    xCoherence: makePairTracker(),
+    yCoherence: makePairTracker(),
     emptyFrames: 0,
   }));
   const silhouette = makeSeriesTracker();
+
+  // One luma field per frame, computed once and read by every band and by the silhouette count.
+  // It used to be recomputed inside each band, and the bands OVERLAP — `whole` contains all the
+  // others — so a seven-band table decoded the same pixel's luma up to three times.
+  const frameLuma = new Float32Array(width * height);
+  const photometric = { worstGain: 1, worstOffset: 0 };
+  let referenceQuantiles = null;
 
   let frameIndex = 0;
   for (const framePath of framePaths) {
@@ -474,8 +556,30 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
       );
     }
 
+    for (let pixel = 0, base = 0; pixel < frameLuma.length; pixel += 1, base += 4) {
+      frameLuma[pixel] = encodedLuma(image.pixels[base], image.pixels[base + 1], image.pixels[base + 2]);
+    }
+
+    // 🎯 EVERY FRAME IS EXPOSURE-MATCHED TO FRAME 1 BEFORE IT IS THRESHOLDED, and this is a
+    // refusal rather than a nicety. The cut is one fixed luma for the whole clip (see
+    // chooseThreshold), so a frame that is globally 30% brighter grows the silhouette everywhere
+    // and its centroid moves — motion the tool would report in pixels, from a figure that never
+    // moved. Measured before this line existed, on 120 frames synthesised from ONE static frame
+    // with a ±30% gain wobble: exit 0, "the silhouette moved". After it: refused.
+    const quantiles = lumaQuantiles(frameLuma);
+    if (frameIndex === 0) referenceQuantiles = quantiles;
+    const match = fitPhotometrically(quantiles, referenceQuantiles);
+    if (Math.abs(match.gain - 1) > Math.abs(photometric.worstGain - 1)) photometric.worstGain = match.gain;
+    if (Math.abs(match.offset) > Math.abs(photometric.worstOffset)) photometric.worstOffset = match.offset;
+
+    if (match.gain !== 1 || match.offset !== 0) {
+      for (let pixel = 0; pixel < frameLuma.length; pixel += 1) {
+        frameLuma[pixel] = (frameLuma[pixel] - match.offset) / match.gain;
+      }
+    }
+
     bands.forEach((band, index) => {
-      const totals = accumulateBand(image, threshold, band);
+      const totals = accumulateBand(frameLuma, width, threshold, band);
       const tracker = trackers[index];
 
       if (totals.count === 0) {
@@ -486,18 +590,31 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
       pushSample(tracker.y, totals.sumY / totals.count);
       pushSample(tracker.area, totals.count);
       pushSample(tracker.coverage, totals.count / (width * (band.lastRow - band.firstRow + 1)));
+
+      // A band one row deep, or one whose silhouette lands entirely on rows of one parity, has
+      // only one sub-image and no covariance to take. Skipped rather than faked; the band then
+      // reports a coherent travel of 0 and says `emptyFrames`-style nothing, which is the honest
+      // state for a statistic that could not be computed.
+      if (totals.oddCount > 0 && totals.evenCount > 0) {
+        pushPair(
+          tracker.xCoherence, totals.oddSumX / totals.oddCount, totals.evenSumX / totals.evenCount
+        );
+        pushPair(
+          tracker.yCoherence, totals.oddSumY / totals.oddCount, totals.evenSumY / totals.evenCount
+        );
+      }
     });
 
     // Bands overlap (`whole` contains all the others), so the per-frame silhouette count is taken
     // over the whole frame rather than summed from the bands — a sum would double-count and could
     // push the coverage warning past 100% on a perfectly good clip.
-    pushSample(silhouette, countSilhouette(image, threshold));
+    pushSample(silhouette, countSilhouette(frameLuma, threshold));
 
     frameIndex += 1;
     reportProgress(frameIndex, framePaths.length);
   }
 
-  return { trackers, silhouette, framePixels: width * height, frameCount: frameIndex };
+  return { trackers, silhouette, framePixels: width * height, frameCount: frameIndex, photometric };
 }
 
 /**
@@ -508,33 +625,50 @@ function measureFrames(framePaths, threshold, bands, firstFrame) {
  * correctly-rounded division of two exact integers — identical on every machine, which is what
  * "same frames in, same numbers out" rests on.
  */
-function accumulateBand(image, threshold, band) {
+function accumulateBand(luma, width, threshold, band) {
   let sumX = 0;
   let sumY = 0;
   let count = 0;
+  // The same sums split by row parity, which is the whole of the coherent statistic: two
+  // interleaved sub-images of one band, seeing one shift and two independent grain fields.
+  let oddSumX = 0;
+  let oddSumY = 0;
+  let oddCount = 0;
 
   for (let y = band.firstRow; y <= band.lastRow; y += 1) {
-    let base = y * image.width * 4;
-    for (let x = 0; x < image.width; x += 1, base += 4) {
-      const luma = encodedLuma(image.pixels[base], image.pixels[base + 1], image.pixels[base + 2]);
-      if (luma >= threshold) {
+    const isOddRow = (y & 1) === 1;
+    let index = y * width;
+    for (let x = 0; x < width; x += 1, index += 1) {
+      if (luma[index] >= threshold) {
         sumX += x;
         sumY += y;
         count += 1;
+        if (isOddRow) {
+          oddSumX += x;
+          oddSumY += y;
+          oddCount += 1;
+        }
       }
     }
   }
 
-  return { sumX, sumY, count };
+  return {
+    sumX,
+    sumY,
+    count,
+    oddSumX,
+    oddSumY,
+    oddCount,
+    evenSumX: sumX - oddSumX,
+    evenSumY: sumY - oddSumY,
+    evenCount: count - oddCount,
+  };
 }
 
-function countSilhouette(image, threshold) {
+function countSilhouette(luma, threshold) {
   let count = 0;
-  const pixelCount = image.width * image.height;
-  for (let pixel = 0, base = 0; pixel < pixelCount; pixel += 1, base += 4) {
-    if (encodedLuma(image.pixels[base], image.pixels[base + 1], image.pixels[base + 2]) >= threshold) {
-      count += 1;
-    }
+  for (let pixel = 0; pixel < luma.length; pixel += 1) {
+    if (luma[pixel] >= threshold) count += 1;
   }
   return count;
 }
@@ -561,6 +695,38 @@ function pushSample(tracker, value) {
   tracker.sumSquaredDeltas += deltaFromOldMean * (value - tracker.mean);
   if (value < tracker.min) tracker.min = value;
   if (value > tracker.max) tracker.max = value;
+}
+
+/**
+ * The same online scheme for a COVARIANCE between two series, which is what separates a real
+ * shift from a noise floor.
+ *
+ * The co-moment update is Welford's with one of the two deltas taken against the OLD mean and the
+ * other against the NEW one — that asymmetry is not a typo, it is what makes the running form
+ * exact, and getting it symmetric is the classic way to introduce a bias that grows with the
+ * series length.
+ *
+ * Sign is kept. A negative covariance means the two sub-images moved OPPOSITE ways, which a
+ * translation cannot do and a change of width can, so it is reported as zero coherent travel
+ * rather than folded to a positive number.
+ */
+function makePairTracker() {
+  return { count: 0, meanA: 0, meanB: 0, coMoment: 0 };
+}
+
+function pushPair(tracker, a, b) {
+  tracker.count += 1;
+  const deltaAFromOldMean = a - tracker.meanA;
+  tracker.meanA += deltaAFromOldMean / tracker.count;
+  tracker.meanB += (b - tracker.meanB) / tracker.count;
+  tracker.coMoment += deltaAFromOldMean * (b - tracker.meanB);
+}
+
+/** Coherent travel in pixels: the part of the wobble both sub-images agree on. */
+function coherentTravel(tracker) {
+  if (tracker.count < 2) return 0;
+  const covariance = tracker.coMoment / tracker.count;
+  return covariance > 0 ? Math.sqrt(covariance) : 0;
 }
 
 // Population σ, not sample σ: the clip IS the population. We are describing the travel this clip
@@ -600,6 +766,13 @@ function summariseBands(bands, measurement) {
       coverage: summariseTracker(tracker.coverage),
       x: summariseTracker(tracker.x),
       y: summariseTracker(tracker.y),
+      // 🎯 THE GATED NUMBER. `x.sd` above includes whatever the page's grain does to a centroid;
+      // this is the part two disjoint halves of the band agree on, which independent noise cannot
+      // produce at any amplitude. On a real clip it is 0.999–1.000 of `x.sd`; on a frozen one it
+      // is a few hundredths of a pixel. See the header.
+      xCoherent: coherentTravel(tracker.xCoherence),
+      yCoherent: coherentTravel(tracker.yCoherence),
+      coherenceFrames: tracker.xCoherence.count,
       area,
       // The area's own coefficient of variation. Under a few percent the silhouette is stable and
       // the centroid means what it says; well above that, the threshold is chasing the lighting.
@@ -635,14 +808,23 @@ function judge(silhouette, bands, automatic) {
     return { refused: true, reason: 'no-band-holds-the-figure', travelled: false };
   }
 
-  const travelled = observed.some((band) => band.x.sd > 0 || band.y.sd > 0);
+  // 🎯 The verdict, and the line this whole file's header is about. It used to read
+  // `band.x.sd > 0`, which every clip of a page carrying film grain passes.
+  const travelled = observed.some((band) =>
+    band.xCoherent > COHERENT_TRAVEL_FLOOR_PIXELS || band.yCoherent > COHERENT_TRAVEL_FLOOR_PIXELS);
+
   if (travelled === false) {
-    // A figure that changes shape without moving is a real and different thing from a still frame
-    // repeated — breathing, not swaying — and conflating the two would hide a working capture.
+    // Three distinct findings, and a reader needs to know which. A still frame repeated has σ of
+    // exactly zero everywhere; a frozen figure on a graded page has a small nonzero σ that is
+    // grain; a figure that breathes without swaying is a real and different thing from both.
+    const anyMovement = observed.some((band) => band.x.sd > 0 || band.y.sd > 0);
     const changesShape = observed.some((band) => band.area.sd > 0);
+
     return {
       refused: true,
-      reason: changesShape ? 'shape-changes-but-does-not-travel' : 'silhouette-frozen',
+      reason: anyMovement === false
+        ? (changesShape ? 'shape-changes-but-does-not-travel' : 'silhouette-frozen')
+        : 'at-the-noise-floor',
       travelled: false,
     };
   }
@@ -785,6 +967,12 @@ function formatReport(report, options) {
 
   if (report.bands.length > 0) {
     lines.push(
+      `exposure   every frame matched to frame 1 before thresholding; worst fit ` +
+        `×${report.photometric.worstGain.toFixed(4)} ` +
+        `${report.photometric.worstOffset >= 0 ? '+' : '−'}${Math.abs(report.photometric.worstOffset).toFixed(5)}` +
+        `   (a global brightness wobble would otherwise read as travel)`
+    );
+    lines.push(
       `silhouette ${percent(silhouette.meanFraction)} of the frame  ` +
         `(min ${percent(silhouette.minFraction)}, max ${percent(silhouette.maxFraction)})`
     );
@@ -805,13 +993,20 @@ function formatReport(report, options) {
 }
 
 function formatBandTable(report) {
-  const header = ['band', 'rows', 'x SD', 'x p2p', 'y SD', 'y p2p', 'area', 'area SD', 'area cv', 'full', 'empty'];
+  // `x coh` sits immediately beside `x SD` because the pair is the finding: on a real clip they
+  // agree to three decimals, and where they disagree the difference is the page's noise floor.
+  const header = [
+    'band', 'rows', 'x SD', 'x coh', 'x p2p', 'y SD', 'y coh', 'y p2p',
+    'area', 'area SD', 'area cv', 'full', 'empty',
+  ];
   const rows = report.bands.map((band) => [
     band.name,
     `${band.firstRow}–${band.lastRow}`,
     band.x.sd.toFixed(2),
+    band.xCoherent.toFixed(2),
     band.x.peakToPeak.toFixed(2),
     band.y.sd.toFixed(2),
+    band.yCoherent.toFixed(2),
     band.y.peakToPeak.toFixed(2),
     Math.round(band.area.mean).toString(),
     band.area.sd.toFixed(1),
@@ -900,6 +1095,22 @@ function verdictLines(report, options) {
     return lines;
   }
 
+  if (verdict.reason === 'at-the-noise-floor') {
+    const loudest = largestCoherentBand(report.bands);
+    lines.push('*** AT THE NOISE FLOOR. The centroids wobble, and NONE of that wobble is motion.');
+    lines.push(`*** The best band is ${loudest.name} at ${loudest.xCoherent.toFixed(4)} px of COHERENT ` +
+      `travel (raw SD ${loudest.x.sd.toFixed(4)} px),`);
+    lines.push(`*** under the ${COHERENT_TRAVEL_FLOOR_PIXELS} px floor. Coherent travel is what two ` +
+      'interleaved halves of');
+    lines.push('*** a band AGREE on, so a fresh independent value per pixel per frame — film grain,');
+    lines.push('*** a temporal resolve — cancels out of it at any amplitude, and a real shift does');
+    lines.push('*** not. Measured: frozen clips top out at 0.1670 px here, including one with the');
+    lines.push('*** grain turned up 10×; moving clips bottom out at 1.9626 px.');
+    lines.push('*** The likeliest cause is that the simulation never advanced. Check ?freeze, and');
+    lines.push('*** check the capture hook actually stepped it. The raw SD column is grain.');
+    return lines;
+  }
+
   if (verdict.reason === 'silhouette-frozen') {
     lines.push('*** THE SILHOUETTE IS FROZEN. Every band reports x SD and y SD of EXACTLY 0, and the');
     lines.push('*** area never changes by one pixel. The clip is a still repeated, or the capture');
@@ -916,9 +1127,12 @@ function verdictLines(report, options) {
   }
 
   if (report.motionlessBands.length > 0) {
-    lines.push(`*** MOTIONLESS BANDS: ${report.motionlessBands.join(', ')} — x SD and y SD are EXACTLY 0`);
-    lines.push('*** across the clip. Those rows of the figure are a statue. If the figure does not');
-    lines.push('*** reach into them, fine; if it does, that part of it never moved by one pixel.');
+    lines.push(`*** MOTIONLESS BANDS: ${report.motionlessBands.join(', ')} — coherent travel under ` +
+      `${COHERENT_TRAVEL_FLOOR_PIXELS} px in both`);
+    lines.push('*** axes, which is indistinguishable from the page\'s own noise floor. Those rows of');
+    lines.push('*** the figure are a statue. If the figure does not reach into them, fine; if it');
+    lines.push('*** does, that part of it did not move enough for this instrument to see it.');
+    lines.push('*** (Bands the silhouette FILLS are excluded — their centroid cannot move.)');
     if (options.failOnMotionless === false) {
       lines.push('*** (--fail-on-motionless turns this into a non-zero exit.)');
     }
@@ -933,19 +1147,25 @@ function verdictLines(report, options) {
   }
 
   if (lines.length === 0) {
-    lines.push(`travelled  the silhouette moved. Largest lateral SD: ` +
-      `${largestTravelBand(report.bands)}.`);
+    const best = largestCoherentBand(report.bands);
+    lines.push(
+      'travelled  the silhouette moved. Largest COHERENT lateral travel: ' +
+        `${best.name} at ${best.xCoherent.toFixed(2)} px ` +
+        `(raw SD ${best.x.sd.toFixed(2)} px, ${best.x.peakToPeak.toFixed(2)} px peak-to-peak).`
+    );
   }
 
   return lines;
 }
 
-function largestTravelBand(bands) {
+// Ranked on the coherent number rather than the raw SD, so the band the banner names is the band
+// that carries the evidence rather than the band with the noisiest boundary.
+function largestCoherentBand(bands) {
   let best = bands[0];
   for (const band of bands) {
-    if (band.x.sd > best.x.sd) best = band;
+    if (band.xCoherent > best.xCoherent) best = band;
   }
-  return `${best.name} at ${best.x.sd.toFixed(2)} px SD, ${best.x.peakToPeak.toFixed(2)} px peak-to-peak`;
+  return best;
 }
 
 function percent(fraction) {
@@ -1016,18 +1236,23 @@ function usageText() {
     'centroid (lateral travel), the same for its vertical centroid (bob), and the SD of the',
     'silhouette area (a stability check on the threshold, and how breathing is told from swaying).',
     '',
+    'Beside each SD it reports the COHERENT travel — the part two interleaved halves of the band',
+    'agree on, which a per-pixel noise floor such as film grain cannot produce at any amplitude.',
+    'That is the number the verdict is stated on; the raw SD of a frozen graded page is not zero.',
+    '',
     'Options:',
     '  --json <path>            also write the numbers as JSON',
     `  --threshold auto|<luma>  figure/backdrop cut, encoded luma   (${DEFAULTS.threshold})`,
-    `                           auto sits ${(THRESHOLD_FRACTION * 100).toFixed(0)}% of the way from ` +
-      `p${THRESHOLD_LOW_PERCENTILE} to p${THRESHOLD_HIGH_PERCENTILE} of frame 1`,
-    '                           and prints its choice; PIN IT to compare two clips',
+    '                           auto is Otsu\'s cut — the luma that maximises between-class',
+    '                           variance — and it REFUSES rather than guess when the histogram',
+    '                           has no valley; it prints its choice, so PIN IT to compare clips',
     '  --bands <spec>           band table, compact form:',
     '                             head:0.08-0.20,hip:0.42-0.52',
     '                           bounds are fractions of frame height, 0 at the top',
     '  --bands-file <path>      band table as JSON: [{ "name", "top", "bottom" }, …]',
     `  --stride <n>             use every nth frame                 (${DEFAULTS.stride})`,
-    '  --fail-on-motionless     exit 1 if any band never moved, to use this as a gate',
+    '  --fail-on-motionless     exit 1 if any band that holds the figure has coherent travel',
+    `                           under ${COHERENT_TRAVEL_FLOOR_PIXELS} px in both axes, to use this as a gate`,
     '',
     `Default bands: ${DEFAULT_BANDS.map((band) => `${band.name} ${band.top}-${band.bottom}`).join(', ')}`,
     '',
@@ -1054,6 +1279,11 @@ export {
   chooseThreshold,
   measureFrames,
   summariseBands,
+  makePairTracker,
+  pushPair,
+  coherentTravel,
+  COHERENT_TRAVEL_FLOOR_PIXELS,
+  BAND_FULL_WARN,
   resolveBands,
   parseBandSpec,
   DEFAULT_BANDS,

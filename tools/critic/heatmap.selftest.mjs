@@ -31,6 +31,29 @@
 //   *"a metric a frozen image passes trivially is measuring nothing."* A σ map of a frozen clip
 //   is a perfectly presentable black rectangle, so the tool must SAY it is frozen, not draw it.
 //
+// 🎯 --- AND THIS FILE USED GAUSSIAN NOISE AS ITS MODEL OF MOTION, WHICH IS THE DEFECT ----------
+//
+// Every fixture above builds "a region that moves" as `base + σ · gaussian()` — a fresh
+// independent value in every pixel of every frame. That is not motion. It is exactly what the
+// shipped page's film grain is, and building the gate's positive fixture out of it is the reason
+// `heatmap.mjs` reported 89.5% of a FROZEN clip of the shipped default as moving and exited 0.
+// The instrument and the test of the instrument shared one wrong idea, so neither could catch it.
+//
+// Two consequences run through the sections below and both are load-bearing:
+//
+//   - The noise ladder and the precision fixture are still the right oracles for the PER-PIXEL σ,
+//     which is a real quantity honestly measured. They are now ALSO rejection proofs: a clip of
+//     pure per-pixel noise must be REFUSED as a noise floor, however loud it is. Section 2
+//     asserts both about the same clip, which is the clearest statement of the finding available.
+//   - The statue fixture's living half now carries a MOVING EDGE, because the property under test
+//     is "can the tool find a dead region", and a fixture whose live region is noise was asking a
+//     different question.
+//
+// Section 8 is new and is the §1.25a work: three defects in the class "temporal variation that is
+// not motion", built by three different mechanisms — per-pixel noise, a global exposure flicker,
+// and real motion confined to too little of the frame — with a coherently moving bar beside them
+// as the control that must NOT be refused.
+//
 // Run: node tools/critic/heatmap.selftest.mjs
 
 import fs from 'node:fs';
@@ -284,9 +307,21 @@ function testKnownSigmaLadder() {
   expectTrue('p99 σ sits above mean σ in every band', report.bands.every((band) => band.p99Sigma > band.meanSigma),
     report.bands.map((band) => `${band.meanSigma.toFixed(2)}→${band.p99Sigma.toFixed(2)}`).join(' '));
 
-  // Every pixel in this clip moves, so nothing may be skipped and nothing may read as dead.
+  // Every pixel in this clip has a nonzero σ, so nothing may be skipped as static.
   expectEqual('no pixel of a fully-noisy clip is skipped as static', report.coverage.skippedStatic, 0);
-  expectEqual('no band of a fully-noisy clip is called dead', report.deadBands.length, 0);
+
+  // 🎯 AND THE SAME CLIP MUST BE REFUSED. This assertion used to read "no band of a fully-noisy
+  // clip is called dead", which is the defect written down as an expectation: a clip in which
+  // every pixel draws an independent value every frame contains NO MOTION, however large the
+  // amplitude. σ 13 is nine times the shipped grain and it must still be refused.
+  expectEqual('EVERY band of a fully-noisy clip is dead — per-pixel noise is not motion',
+    report.deadBands.length, NOISE_LADDER.length);
+  expectTrue('and the clip as a whole is refused as a noise floor',
+    report.coherence.movingBlockShare === 0,
+    `${(100 * report.coherence.movingBlockShare).toFixed(3)}% of blocks move; ` +
+      `mean block σ ${format(report.coherence.meanBlockSigma)} against a per-pixel mean of ` +
+      `${format(report.coherence.meanPixelSigma)} — the block mean divided the noise by ~8`);
+  expectEqual('the CLI exits 1 on it', runCli([directory, '--out', path.join(WORK_DIR, 'ladder.png')]).status, 1);
 
   // Auto-normalisation has to publish the number it picked, or two clips can never be compared.
   expectTrue('auto normalisation reports the σ it chose', report.scale.mode === 'auto' && report.scale.maxSigma > 0,
@@ -332,8 +367,10 @@ function testFrozenClipIsRefused() {
   expectTrue('the frozen banner leads, not the dead-band noise',
     run.stdout.indexOf('***') === run.stdout.indexOf('*** EVERY PIXEL IS FROZEN'),
     run.stdout.split('\n').filter((line) => line.startsWith('***')).length + ' *** lines, frozen first');
-  expectTrue('the frozen report states counted vs skipped',
-    /counted 0 moving \(0\.0%\)/.test(run.stdout) && /skipped 4,096 static/.test(run.stdout),
+  // The word is "NONZERO σ", not "moving", and that is not cosmetic — this line said
+  // "counted 751,419 moving (89.5%)" about a clip of a frozen figure on the shipped default.
+  expectTrue('the frozen report states nonzero-σ vs skipped, and does not call either "moving"',
+    /counted 0 NONZERO σ \(0\.0%\)/.test(run.stdout) && /skipped 4,096 static/.test(run.stdout),
     run.stdout.split('\n').find((line) => line.startsWith('pixels')) ?? '(no pixels line)');
 }
 
@@ -346,18 +383,43 @@ function testFrozenClipIsRefused() {
 // name the dead bands rather than leaving the reader to squint at an image.
 
 const STATUE_HEIGHT = 120;
+const STATUE_WIDTH = 96;
 const STATUE_FRAMES = 120;
 const STATUE_SIGMA = 6;
+const STATUE_BAR_WIDTH = 24;
+const STATUE_BAR_SWING = 12;
+const STATUE_BACKDROP = 70;
+const STATUE_BAR = 190;
 
+/**
+ * The living half is a BAR THAT MOVES, plus grain, and the change from grain alone is the point.
+ *
+ * This fixture used to be `128 + 6 · gaussian()` above the hip line and a constant below it, and
+ * every check in the section passed. It could not have failed: the tool it was testing counted a
+ * pixel as moving whenever its σ was nonzero, and the fixture's live half was built out of the one
+ * thing that makes σ nonzero without anything moving. The live half now translates a hard edge
+ * back and forth across ~6 of the 12 block columns, which is what a silhouette does, and the grain
+ * stays on top of it so the fixture still looks like the page this tool is pointed at.
+ */
 function testLivingTorsoOnStatueLegs() {
   const gaussian = makeGaussianSource(1979);
   const hipLine = STATUE_HEIGHT / 2;
 
+  // The bar's left edge per frame, precomputed so `valueAt` stays a pure function of (x, y, frame)
+  // and the clip is reproducible whatever order the writer walks the pixels in.
+  const barLeftAt = (frame) =>
+    Math.round(STATUE_WIDTH / 2 - STATUE_BAR_WIDTH / 2 + STATUE_BAR_SWING * Math.sin((2 * Math.PI * frame) / 40));
+
   const directory = writeClip('statue-legs', {
-    width: 96,
+    width: STATUE_WIDTH,
     height: STATUE_HEIGHT,
     frames: STATUE_FRAMES,
-    valueAt: (x, y) => (y < hipLine ? 128 + STATUE_SIGMA * gaussian() : 70),
+    valueAt: (x, y, frame) => {
+      if (y >= hipLine) return STATUE_BACKDROP;
+      const left = barLeftAt(frame);
+      const onBar = x >= left && x < left + STATUE_BAR_WIDTH;
+      return (onBar ? STATUE_BAR : STATUE_BACKDROP) + STATUE_SIGMA * gaussian();
+    },
   });
 
   const report = analyse(directory, { bands: 10 });
@@ -367,13 +429,22 @@ function testLivingTorsoOnStatueLegs() {
   const alive = report.bands.slice(0, 5);
   const dead = report.bands.slice(5);
 
-  expectClose('living bands read the injected σ',
-    alive.reduce((sum, band) => sum + band.meanSigma, 0) / alive.length,
-    expectedSigma(STATUE_SIGMA, STATUE_FRAMES),
-    0.03 * expectedSigma(STATUE_SIGMA, STATUE_FRAMES));
-  expectEqual('no living band is called dead', alive.filter((band) => band.deadFraction > 0).length, 0);
-  expectEqual('every dead band is 100% below the dead threshold', dead.filter((band) => band.deadFraction !== 1).length, 0);
-  expectEqual('every dead band counts zero moving pixels', dead.filter((band) => band.countedPixels !== 0).length, 0);
+  expectTrue('every living band clears the moving-block floor',
+    alive.every((band) => band.coherence.movingBlockShare >= 0.01),
+    alive.map((band) => `${(100 * band.coherence.movingBlockShare).toFixed(1)}%`).join(' '));
+  expectTrue('every dead band holds no moving block at all',
+    dead.every((band) => band.coherence.movingBlocks === 0),
+    dead.map((band) => band.coherence.movingBlocks).join(' '));
+  expectEqual('every dead band is 100% below the per-pixel dead threshold',
+    dead.filter((band) => band.deadFraction !== 1).length, 0);
+  expectEqual('every dead band counts zero nonzero-σ pixels', dead.filter((band) => band.countedPixels !== 0).length, 0);
+
+  // The separation between the two halves, as one number, so a later change that erodes it says so.
+  const quietestAlive = Math.min(...alive.map((band) => band.coherence.p99BlockSigma));
+  expectTrue('the live half outruns the dead half by a wide margin on block σ',
+    quietestAlive > 10 * Math.max(0.001, ...dead.map((band) => band.coherence.p99BlockSigma)),
+    `quietest live band p99 block σ ${format(quietestAlive)} against a dead half of exactly ` +
+      `${format(Math.max(...dead.map((band) => band.coherence.p99BlockSigma)))}`);
 
   expectClose('the cut lands exactly on the hip line',
     report.bands[5].firstRow, hipLine, 0);
@@ -395,12 +466,18 @@ function testLivingTorsoOnStatueLegs() {
   expectEqual('the JSON report carries the same dead bands', written.deadBands.join(','), '6,7,8,9,10');
   expectEqual('the JSON report omits the multi-megabyte σ field', 'field' in written, false);
 
-  // The dead threshold is a knob. Both directions: push it above the injected σ and the living
-  // bands must die too; drop it to zero and nothing may be dead, not even the frozen legs.
-  expectEqual('--dead above the injected σ kills every band',
-    analyse(directory, { bands: 10, dead: 100 }).deadBands.length, 10);
-  expectEqual('--dead 0 leaves no band dead, not even the frozen ones',
-    analyse(directory, { bands: 10, dead: 0 }).deadBands.length, 0);
+  // 🚩 `--dead` NO LONGER DECIDES ANYTHING, and that has to be asserted rather than assumed,
+  // because the flag is still there and a reader will reach for it. It moves the per-pixel `dead%`
+  // column only. It used to pick the dead bands, and on any page carrying film grain that column
+  // reads 0.0% for a frozen figure, so it was a knob attached to nothing.
+  expectEqual('--dead far above the injected σ does NOT change the verdict',
+    analyse(directory, { bands: 10, dead: 100 }).deadBands.join(','), '6,7,8,9,10');
+  expectEqual('--dead 0 does NOT change the verdict either',
+    analyse(directory, { bands: 10, dead: 0 }).deadBands.join(','), '6,7,8,9,10');
+  expectTrue('--dead does still move the per-pixel column it describes',
+    analyse(directory, { bands: 10, dead: 100 }).bands[0].deadFraction === 1 &&
+      analyse(directory, { bands: 10, dead: 0 }).bands[0].deadFraction === 0,
+    'dead=100 → deadFraction 1, dead=0 → deadFraction 0 on band 1');
 }
 
 // ================================================================================================
@@ -571,6 +648,130 @@ function testDeterminismAndRefusals() {
   expectEqual('an unknown option is refused', runCli([directory, '--colour-map', 'rainbow']).status, 2);
 }
 
+// ================================================================================================
+// 8. THE NOISE-FLOOR REFUSAL, proved against four clips built by four different mechanisms
+// ================================================================================================
+//
+// LEARNINGS §1.25a: a gate that only catches its own known-bad is decorative, because the gate and
+// the known-bad were written by the same person in the same hour against the same mental model.
+// So the class is stated out loud —
+//
+//     ANY TEMPORAL VARIATION IN A CLIP THAT IS NOT A PART OF THE PICTURE CHANGING PLACE
+//
+// — and enumerated, and the enumeration deliberately includes one entry that the gate's designer
+// did NOT have in mind, `flicker`, which is spatially COHERENT and therefore survives the block
+// mean the whole repair is built on. It walked straight through the first version of this gate
+// (37.9% of blocks "moving" on a clip synthesised from ONE static frame) and is the reason
+// heatmap.mjs exposure-matches every frame before averaging.
+//
+// The fourth clip is the control, and it matters as much as the three defects: a refusal that also
+// rejects the clips the tool exists for is worse than no refusal at all.
+
+// 256×256 at an 8 px block is 1024 blocks, which is the smallest frame on which the `patch`
+// defect can be stated honestly: a 12×12 patch touches ~4 of them, 0.4%, and the real case it
+// stands for — a HUD readout on a 700×1200 capture — is ~30 of 13,200, 0.23%. On a 128×128 frame
+// the same patch is 1.6% of the blocks and would clear the floor for reasons of arithmetic rather
+// than of evidence.
+const CLASS_WIDTH = 256;
+const CLASS_HEIGHT = 256;
+const CLASS_FRAMES = 90;
+const CLASS_PATCH = 12;
+
+function testNoiseFloorRefusalAgainstItsWholeClass() {
+  const gaussian = makeGaussianSource(31337);
+
+  // A static picture with real structure in it, so the flicker and patch clips are frames of
+  // SOMETHING rather than of a flat field — a flat field would be caught by an easier check.
+  // Kept under code value 170 so that a ×1.3 flicker does not clip at 255: clipping is a
+  // non-linear distortion no global gain can undo, and letting it in would mean the flicker clip
+  // was being refused partly for a reason this section is not about.
+  const staticPicture = (x, y) =>
+    60 + 90 * (x > CLASS_WIDTH * 0.3 && x < CLASS_WIDTH * 0.7 && y > CLASS_HEIGHT * 0.2 ? 1 : 0) +
+    20 * Math.sin((x / CLASS_WIDTH) * 6);
+
+  // 1. PER-PIXEL NOISE, loud. The mechanism the repair was designed against.
+  const noise = writeClip('class-noise', {
+    width: CLASS_WIDTH, height: CLASS_HEIGHT, frames: CLASS_FRAMES,
+    valueAt: (x, y) => staticPicture(x, y) + 12 * gaussian(),
+  });
+
+  // 2. GLOBAL EXPOSURE FLICKER. Spatially coherent — the block mean PRESERVES it — so this is the
+  //    second mechanism, and the one that proved the first version of the gate decorative.
+  const flickerGain = [];
+  for (let frame = 0; frame <= CLASS_FRAMES; frame += 1) flickerGain.push(1 + 0.3 * Math.sin(frame * 1.7));
+  const flicker = writeClip('class-flicker', {
+    width: CLASS_WIDTH, height: CLASS_HEIGHT, frames: CLASS_FRAMES,
+    valueAt: (x, y, frame) => staticPicture(x, y) * flickerGain[frame],
+  });
+
+  // 3. REAL MOTION, TOO LITTLE OF IT. A HUD digit, a blinking eye: genuine coherent movement over
+  //    a handful of blocks. The clip still is not evidence that a BODY moved, and a share floor is
+  //    the only thing that can say so — an amplitude test cannot, because the amplitude is large.
+  const patch = writeClip('class-patch', {
+    width: CLASS_WIDTH, height: CLASS_HEIGHT, frames: CLASS_FRAMES,
+    valueAt: (x, y, frame) => {
+      const inPatch = y >= 16 && y < 16 + CLASS_PATCH && x >= 16 && x < 16 + CLASS_PATCH;
+      return inPatch ? (frame % 2 === 0 ? 20 : 240) : staticPicture(x, y);
+    },
+  });
+
+  // 4. THE CONTROL. A hard edge sweeping across the frame, plus the same grain as clip 1, so the
+  //    only difference between this and the defects is that something changes place.
+  const grain = makeGaussianSource(90210);
+  const moving = writeClip('class-moving', {
+    width: CLASS_WIDTH, height: CLASS_HEIGHT, frames: CLASS_FRAMES,
+    valueAt: (x, y, frame) => {
+      const edge = CLASS_WIDTH * 0.5 + CLASS_WIDTH * 0.25 * Math.sin((2 * Math.PI * frame) / 30);
+      return (x < edge ? 200 : 40) + 12 * grain();
+    },
+  });
+
+  const measured = {
+    noise: analyse(noise), flicker: analyse(flicker), patch: analyse(patch), moving: analyse(moving),
+  };
+
+  for (const [name, report] of Object.entries(measured)) {
+    const share = report.coherence.movingBlockShare;
+    const detail = `${(100 * share).toFixed(3)}% of blocks move, mean block σ ` +
+      `${format(report.coherence.meanBlockSigma)}, per-pixel σ ${format(report.coherence.meanPixelSigma)}, ` +
+      `worst exposure fit ×${report.photometric.worstGain.toFixed(4)}`;
+
+    if (name === 'moving') {
+      expectTrue('CONTROL — a sweeping edge is NOT refused', share >= 0.01, detail);
+      expectEqual('CONTROL — and the CLI exits 0 on it',
+        runCli([moving, '--out', path.join(WORK_DIR, 'class-moving.png')]).status, 0);
+    } else {
+      expectTrue(`REJECTED — "${name}" is refused as a noise floor`, share < 0.01, detail);
+    }
+  }
+
+  // The two whole-frame defects look ALIVE to the per-pixel statistic, which is the whole reason
+  // it could not be the gate. Stated as a number so the point cannot be read past. (`patch` is
+  // excluded because most of ITS frame is bit-identical, so the per-pixel statistic gets that one
+  // right — a defect being visible to one instrument is exactly why there are two.)
+  expectTrue('both whole-frame defects look ALIVE to the per-pixel statistic',
+    ['noise', 'flicker'].every((name) => measured[name].coverage.countedFraction > 0.5),
+    ['noise', 'flicker', 'patch']
+      .map((name) => `${name} ${(100 * measured[name].coverage.countedFraction).toFixed(1)}% nonzero σ`).join(', '));
+
+  // And the flicker specifically must be caught by the exposure match rather than by luck: the
+  // fit has to SEE the gain, or the refusal is being produced by something else. Stated as a
+  // distance from 1 rather than as `> 1.2`, because the worst frame of a symmetric wobble is as
+  // likely to be the dark one — measured ×0.54 here, which the one-sided form read as innocent.
+  expectTrue('the exposure match measured the flicker it removed',
+    Math.abs(measured.flicker.photometric.worstGain - 1) > 0.2,
+    `worst fit ×${measured.flicker.photometric.worstGain.toFixed(4)}, ` +
+      `against ×${measured.moving.photometric.worstGain.toFixed(4)} on the moving control`);
+
+  expectEqual('the CLI exits 1 on the flicker clip',
+    runCli([flicker, '--out', path.join(WORK_DIR, 'class-flicker.png')]).status, 1);
+  expectEqual('the CLI exits 1 on the small-patch clip',
+    runCli([patch, '--out', path.join(WORK_DIR, 'class-patch.png')]).status, 1);
+  expectTrue('and the banner names the finding rather than drawing the map',
+    runCli([noise, '--out', path.join(WORK_DIR, 'class-noise.png')]).stdout.includes('NOTHING COHERENT MOVED'),
+    'expected a "NOTHING COHERENT MOVED" banner');
+}
+
 function refusalFrom(action, pattern) {
   try {
     action();
@@ -590,6 +791,7 @@ function run() {
   testNumericalStability();
   testNormalisationComparability();
   testDeterminismAndRefusals();
+  testNoiseFloorRefusalAgainstItsWholeClass();
 
   const width = Math.max(...gates.map((gate) => gate.label.length));
   for (const gate of gates) {

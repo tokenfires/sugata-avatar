@@ -73,9 +73,29 @@
 //
 // With no --url it starts vite itself and drives /alive.html.
 //
+// 🎯 --- "FRAMES GENUINELY DIFFER" WAS NEVER A TEST THAT THE PICTURE MOVED -----------------------
+//
+// This tool's liveness check was `distinctFrames <= 1`. The shipped page reseeds a film grain from
+// `frameId` on every frame, so no two frames of it are ever byte-identical, whatever the figure is
+// doing. Measured on 2026-08-08, same build, same seed, same session, one flag apart:
+//
+//     /alive.html?bare&frame=body&freeze     150 distinct, 0 repeated   0.000% of blocks moved
+//     /alive.html?bare&frame=body            150 distinct, 0 repeated   8.864% of blocks moved
+//
+// Identical on the old statistic. The first clip is a figure standing perfectly still — `?freeze`
+// at `?aa=msaa&grade=0` renders 1 distinct frame and 599 repeats, which is the control proving the
+// flag really does freeze — and this tool handed it to judges as a 20-second clip of a living
+// body. Every downstream reading of that clip inherited the error.
+//
+// The manifest now carries a `liveness` block beside `determinism`, and the distinction between
+// them is the whole finding: **`determinism.distinctFrames` is a statement about BYTES and
+// `liveness.movingBlockShare` is a statement about the PICTURE.** The second is heatmap.mjs's
+// statistic, imported rather than reimplemented, and a clip that fails it exits 1.
+//
 // Exit codes follow measure.mjs, so a calling script can tell a bad capture from a broken tool:
-//   0 = capture written, frames genuinely differ
-//   1 = the capture is not usable — every frame identical (the stepping hook did nothing), or
+//   0 = capture written, the picture moved
+//   1 = the capture is not usable — every frame identical (the stepping hook did nothing), the
+//       frames differ but nothing coherent moved (a frozen simulation under film grain), or
 //       --require-weight-shift was asked for and the clip is not known to contain one
 //   2 = tool error (no browser, no ffmpeg, page never became ready)
 
@@ -87,6 +107,15 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { decodePng, encodePng } from './png.mjs';
+// The liveness statistic is heatmap.mjs's, not a second copy of it. Three tools in this directory
+// answer "did anything move" and they must answer it the same way or a judge gets two verdicts.
+import {
+  createBlockCoherence,
+  lumaFieldOf,
+  COHERENCE_BLOCK,
+  MOVING_BLOCK_SIGMA_CODES,
+  MOVING_BLOCK_SHARE_FLOOR,
+} from './heatmap.mjs';
 
 const CRITIC_DIRECTORY = path.dirname(fileURLToPath(import.meta.url));
 const REPOSITORY_ROOT = path.resolve(CRITIC_DIRECTORY, '..', '..');
@@ -115,6 +144,12 @@ const FFMPEG = process.env.FFMPEG || '/opt/homebrew/bin/ffmpeg';
 
 const READY_TIMEOUT_MS = 120_000;
 const SCREENSHOT_TIMEOUT_MS = 60_000;
+
+// How many frames the liveness statistic decodes, spread evenly across the whole clip. Decoding
+// is the only per-frame cost this tool pays beyond the screenshot, so it is bounded rather than
+// proportional: 120 samples of a 12,600-frame judge clip is one every 4 simulated seconds, which
+// is far finer than the 0.5-1/min rate of the postural events the clip exists to contain.
+const LIVENESS_SAMPLE_FRAMES = 120;
 
 const DEFAULTS = {
   seconds: 10,
@@ -259,6 +294,31 @@ async function main() {
     console.error('\n*** EVERY FRAME IS IDENTICAL. The stepping hook did nothing — this capture is');
     console.error('*** not evidence of anything. Check that the page exposes window.__SUGATA_STEP__');
     console.error('*** and that ?capture is in the URL.');
+    process.exitCode = 1;
+  }
+
+  // 🎯 …and the check above cannot fire on a page that has film grain, which the shipped default
+  // does. See the note beside `liveness` in captureFrames: 600 distinct frames of a figure that
+  // never moved. This is the same finding as heatmap.mjs's, at the point the clip is created
+  // rather than at the point somebody analyses it.
+  const noiseFloorOnly = manifests.filter((manifest) =>
+    manifest.determinism.distinctFrames > 1 &&
+    manifest.liveness.movingBlockShare !== null &&
+    manifest.liveness.movingBlockShare < MOVING_BLOCK_SHARE_FLOOR);
+
+  if (noiseFloorOnly.length > 0) {
+    console.error('\n*** NOTHING COHERENT MOVED. The frames DIFFER and the picture did not change.');
+    for (const manifest of noiseFloorOnly) {
+      console.error(`***   seed ${manifest.seed ?? '(page default)'}: ` +
+        `${manifest.determinism.distinctFrames} distinct frames, but only ` +
+        `${(100 * manifest.liveness.movingBlockShare).toFixed(3)}% of ` +
+        `${COHERENCE_BLOCK}×${COHERENCE_BLOCK} blocks vary by more than σ ${MOVING_BLOCK_SIGMA_CODES} ` +
+        `(floor ${(100 * MOVING_BLOCK_SHARE_FLOOR).toFixed(0)}%, over ${manifest.liveness.sampled} sampled frames)`);
+    }
+    console.error('*** Frame-to-frame difference is what FILM GRAIN produces. Measured: a figure');
+    console.error('*** frozen by ?freeze on the shipped default renders 600 distinct frames and');
+    console.error('*** 0.000% moving blocks; every real clip in captures/ scores 5.095% or more.');
+    console.error('*** Check ?freeze is not in the URL and that the simulation is advancing.');
     process.exitCode = 1;
   }
 
@@ -521,6 +581,22 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
   let repeatedFrames = 0;
   let lastProgressAtMs = 0;
 
+  // 🎯 `distinctFrames` IS NOT A LIVENESS CHECK ON A PAGE THAT HAS FILM GRAIN, and the exit-1
+  // condition below it rested on that for two rounds. Measured: `?bare&frame=body&freeze` on the
+  // shipped default renders 600 DISTINCT frames of a figure that never moved, because the grade
+  // reseeds its grain from `frameId` every frame. The same URL at `?aa=msaa&grade=0` renders
+  // 1 distinct and 599 repeated, which is the control proving `?freeze` really does freeze.
+  //
+  // So a second statistic is accumulated as the frames go past: the share of 8×8 blocks whose
+  // mean luma varies across the clip. It is the same one heatmap.mjs gates on and it is imported
+  // rather than reimplemented. Sampled rather than taken on every frame because decoding a PNG is
+  // not free and a 12,600-frame judge clip would pay for it twice over — LIVENESS_SAMPLE_FRAMES
+  // evenly spaced samples span the WHOLE clip, which sees more of the motion than the same number
+  // of consecutive ones would.
+  let coherence = null;
+  const liveness = { sampled: 0, movingBlockShare: null, meanBlockSigma: null };
+  const sampleEvery = Math.max(1, Math.ceil(frameCount / LIVENESS_SAMPLE_FRAMES));
+
   for (let frame = 1; frame <= frameCount; frame += 1) {
     const stepped = await page.evaluate((dt) => globalThis.__SUGATA_STEP__(dt), deltaSeconds);
 
@@ -542,6 +618,13 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     else distinctFrames += 1;
     previousDigest = digest;
 
+    if ((frame - 1) % sampleEvery === 0) {
+      const image = decodePng(png);
+      if (coherence === null) coherence = createBlockCoherence(image);
+      coherence.push(lumaFieldOf(image));
+      liveness.sampled += 1;
+    }
+
     if (quiet !== true && (Date.now() - lastProgressAtMs > 2000 || frame === frameCount)) {
       lastProgressAtMs = Date.now();
       process.stdout.write(
@@ -555,6 +638,22 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
 
   await context.close();
 
+  // Two samples are the minimum a temporal σ can be taken over; below that the clip is a still and
+  // `distinctFrames` says so on its own.
+  if (coherence !== null && liveness.sampled >= 2) {
+    const { blockSigma } = coherence.result();
+    let moving = 0;
+    let sum = 0;
+    for (let block = 0; block < blockSigma.length; block += 1) {
+      sum += blockSigma[block];
+      if (blockSigma[block] > MOVING_BLOCK_SIGMA_CODES) moving += 1;
+    }
+    liveness.blocks = blockSigma.length;
+    liveness.movingBlocks = moving;
+    liveness.movingBlockShare = moving / blockSigma.length;
+    liveness.meanBlockSigma = sum / blockSigma.length;
+  }
+
   return {
     environment,
     frameCount,
@@ -563,6 +662,7 @@ async function driveCapture(browser, pageUrl, options, { frameCount, framesDirec
     retained,
     distinctFrames,
     repeatedFrames,
+    liveness,
     pageErrors,
     // One number that identifies the whole run. Two captures with the same sequence digest are
     // byte-identical, which is the property that makes a critic loop's before/after meaningful.
@@ -1273,6 +1373,15 @@ function buildManifest({ options, seed, pageUrl, capture, reproducibility, postu
     },
     environment: capture.environment,
     source: sourceFingerprint(),
+    // 🚩 READ THIS BEFORE `determinism.distinctFrames`. Distinct frames is a statement about
+    // BYTES; this is the statement about the PICTURE, and on a page carrying film grain they
+    // disagree completely — a frozen figure gives 600 distinct frames and 0.000% moving blocks.
+    liveness: {
+      ...capture.liveness,
+      block: COHERENCE_BLOCK,
+      movingBlockSigmaCodes: MOVING_BLOCK_SIGMA_CODES,
+      movingBlockShareFloor: MOVING_BLOCK_SHARE_FLOOR,
+    },
     determinism: {
       sequenceDigest: capture.sequenceDigest,
       distinctFrames: capture.distinctFrames,
@@ -1304,8 +1413,24 @@ function printSummary(manifest, outputDirectory, options) {
     'the output is exact either way)');
   console.log(`frames    ${manifest.determinism.distinctFrames} distinct, ` +
     `${manifest.determinism.repeatedConsecutiveFrames} repeated`);
+  console.log(`moved     ${manifest.liveness.movingBlockShare === null
+    ? 'not measured — fewer than two sampled frames'
+    : `${(100 * manifest.liveness.movingBlockShare).toFixed(3)}% of ${manifest.liveness.blocks} ` +
+      `${COHERENCE_BLOCK}x${COHERENCE_BLOCK} blocks (floor ${(100 * MOVING_BLOCK_SHARE_FLOOR).toFixed(0)}%, ` +
+      `${manifest.liveness.sampled} frames sampled)   <- distinct frames is bytes; this is the picture`}`);
   console.log(`digest    ${manifest.determinism.sequenceDigest.slice(0, 16)}   ` +
     describeReproducibility(manifest.determinism.reproducibility));
+
+  // 🎯 THE STEP COUNT IS PART OF A PLATE'S IDENTITY, so it is printed where a human reads the
+  // digest rather than only in the line about wall clock. Measured at `2ec7db9`, one page and one
+  // seed at 900x1200: G2 reads 0.9182 after 1 capture step and 0.9169 after 60, because the
+  // capture hook drives the frame epoch once per captured frame and the temporal resolve has
+  // accumulated a different number of samples. `measure.mjs` reads this back out of the frame file
+  // name to decide whether two plates are comparable at all; two plates at different step counts
+  // are two different pictures, not one picture measured twice.
+  console.log(`stepping  ${manifest.simulation.frameCount} step(s) at ` +
+    `${(1 / manifest.simulation.stepSeconds).toFixed(0)} fps   ` +
+    '<- part of the plate identity, not just its cost');
 
   if (manifest.pageErrors.length > 0) {
     console.log(`page errors:\n  ${manifest.pageErrors.slice(0, 5).join('\n  ')}`);

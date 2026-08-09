@@ -35,10 +35,91 @@
 //   node tools/critic/heatmap.mjs captures/idle-body
 //   node tools/critic/heatmap.mjs captures/idle-body --normalise 8.42 --bands 12 --dead 0.5
 //
+// 🎯 --- THE PER-PIXEL σ ABOVE MEASURES FILM GRAIN, AND ON THE SHIPPED DEFAULT THAT IS MOST OF
+//        WHAT IT MEASURES. Read this before quoting `moving%` or `dead%`. -------------------
+//
+// The shipped page carries an enveloped film grain (`Grade.js`, σ 1.5/255, reseeded every frame
+// off `frameId`) and a temporal resolve. Both put a fresh, independent value into every pixel of
+// every frame, so EVERY PIXEL HAS A NONZERO TEMPORAL σ WHETHER OR NOT ANYTHING MOVED. Measured
+// on `captures/r9-frozen-taau` — 600 frames of a figure frozen by `?freeze`, shipped default:
+//
+//     pixels    counted 751,419 moving (89.5%)   skipped 88,581 static
+//     band 10   rows 1080-1199   mean σ 1.512   dead% 0.0%
+//
+// Nothing in that clip moved. `?aa=msaa&grade=0` on the identical URL renders 1 distinct frame
+// and 599 repeats, which is the control proving `?freeze` really does freeze. So the per-pixel
+// statistic reported 89.5% of the frame "moving" on a stone-still figure, and its refusal — the
+// EVERY PIXEL IS FROZEN banner, which needs σ to be exactly 0 — cannot fire on a page that has
+// grain. That is LEARNINGS §1.3 arriving inside the instrument: a metric a frozen image passes
+// trivially is measuring nothing.
+//
+// --- what separates grain from motion, and why a per-pixel test cannot -------------------------
+//
+// Grain is spatially UNCORRELATED: each pixel draws its own value. Motion is not — a silhouette
+// edge sweeping through a region moves every pixel of that region together. No statistic computed
+// one pixel at a time can tell those apart, and a spatial one can, because averaging a k×k block
+// divides independent noise by k while leaving a coherent edge sweep where it was.
+//
+// So this tool now measures a second field beside the per-pixel one: the temporal σ of the
+// **8×8 BLOCK MEAN**. Measured over the capture corpus, 100 frames each, whole frame:
+//
+//     clip                              per-pixel σ   block σ   blocks over σ 8
+//     r9-frozen-taau      frozen             0.7453    0.1457            0.000%
+//     r9-frozen-nograin   frozen             0.1672    0.0954            0.000%
+//     r9-frozen-taau-nograde frozen          0.1562    0.1009            0.000%
+//     r10-frozen-grain15  frozen, 10× grain  6.4595    0.8399            0.000%
+//     j9-b900 / j9-p900 / j9-ab-traa frozen  0.67-0.87 0.13-0.16         0.000%
+//     r9-judge-body-42    moving             2.2718    1.6465            5.586%
+//     r8-clip-body        moving             2.0241    1.5475            5.095%
+//     judge-portrait      moving            14.1204   13.1267           31.440%
+//
+// Ten frozen clips: **0.000%** of blocks over σ 8, including one with the grain turned up 10×.
+// Ten moving clips: **5.095% – 31.440%**. That is the refusal, and it is the whole of the repair.
+//
+// 🚩 --- AND THE BLOCK MEAN ALONE WAS STILL DECORATIVE, CAUGHT BY BREAKING IT A SECOND WAY ------
+//
+// §1.25a: a gate that only catches its own known-bad is decorative, so the block statistic was
+// aimed at a defect in the same class built by a DIFFERENT mechanism. Grain is spatially
+// uncorrelated; a **global exposure flicker** is the opposite — every pixel scaled by the same
+// per-frame gain — and the block mean is built to PRESERVE exactly that. Measured, on 120 frames
+// synthesised from one genuinely static frame of `r9-frozen-msaa` with a ±30% gain wobble:
+//
+//     block σ mean 5.213, p99 16.600, 37.9% of blocks "moving" — EXIT 0, no refusal
+//
+// A frozen figure, an instrument saying more than a third of the frame moved. Same shape as the
+// grain finding, one level along.
+//
+// The repair is that a global gain and a global offset are two numbers, so they can be MEASURED
+// and DIVIDED OUT. Each frame's luma p10 and p90 are matched to frame 1's, and the coherent field
+// accumulates the corrected frame. Re-measured with the correction in place, the ±30% flicker
+// clip scores **0.0% of blocks moving** and is refused — mean block σ 5.213 → 0.113, a 46× crush.
+//
+// ⚠️ The first version of this used ordinary least squares over every pixel and it was measurably
+// the wrong estimator — it absorbed the SUBJECT into the "exposure". See `fitPhotometrically`,
+// which carries the table. The cost of the correction on a real clip is now measured rather than
+// argued: on the identical 30 frames of `r8-judge-ground-on`, uncorrected against corrected, mean
+// block σ 2.0175 → 2.011 and the moving-block share 6.690% → 6.6%, and the worst gain any real
+// clip in the corpus asks for is between ×0.9861 and ×1.0062.
+//
+// ⚠️ THE CORRECTION APPLIES TO THE COHERENT FIELD ONLY. The per-pixel σ that this tool draws is left
+// exactly as it was, because it is the historical artefact and its numbers are quoted in
+// docs/. So the map shows what the clip literally contains and the verdict is stated on what
+// survives a whole-frame gain and offset — and the report says which is which.
+//
+// ⚠️ ONE STATISTIC THAT LOOKED DECISIVE AND IS NOT, recorded so it is not re-proposed. The
+// coherence gain G = k·σ_block/σ_pixel has a derived null of exactly 1 for spatially-independent
+// noise, which is the kind of oracle LEARNINGS §1.25g asks for, and it reads 1.040 on the 10×
+// grain clip against 5.798 on a moving one. It is still unusable: `r9-frozen-nograin` and
+// `r9-frozen-taau-nograde` are FROZEN and score G = 4.562 and 5.169, because with the grain off
+// the only temporal variation left is the resolve's sub-pixel camera jitter, which is spatially
+// coherent by construction. Frozen tops out at 5.169 and moving bottoms out at 5.593 — a 1.08×
+// gap. G is reported below, and reported only.
+//
 // Exit codes follow measure.mjs and capture.mjs, so a calling script can tell a dead clip from
 // a broken tool:
 //   0 = heat map written, the picture moved
-//   1 = the clip is not evidence — σ is 0 everywhere, or --fail-on-dead-bands and a band is dead
+//   1 = the clip is not evidence — σ is 0 everywhere, the only temporal variance is a spatially
+//       uncorrelated noise floor, or --fail-on-dead-bands and a band is dead
 //   2 = tool error (no frames, mismatched frame sizes, unreadable PNG)
 
 import fs from 'node:fs';
@@ -75,6 +156,37 @@ const DEFAULTS = {
   stride: 1,
   failOnDeadBands: false,
 };
+
+// --- the spatial-coherence field ----------------------------------------------------------------
+//
+// Every constant here is derived from the corpus table in this file's header, and the derivations
+// are stated because a floor nobody can re-derive is a floor nobody can re-check.
+
+// The block edge, in pixels. Independent noise in a k×k mean falls by k; a coherent edge sweep
+// does not fall at all. 8 is the smallest k that separated the two populations of clips in the
+// header table, and at the 700-1200 px framings this harness captures it is ~13 mm of subject —
+// below the scale of any body part this tool is ever asked about, so nothing a judge cares about
+// is averaged away. k=2 and k=4 were measured too and do not separate: on the 10× grain clip they
+// leave block σ at 3.757 and 1.897 against a moving clip's 1.5-2.1.
+const COHERENCE_BLOCK = 8;
+
+// A block whose 8×8 mean varies by more than this many code values across the clip is counted as
+// MOVING. Derived as the geometric mean of the two populations' p99 block σ: the frozen clips top
+// out at 2.118 (the 10× grain one) and the moving clips bottom out at 30.023, and √(2.118×30.023)
+// = 7.97. So the floor sits 3.78× above the loudest frozen clip and 3.75× below the quietest
+// moving one — the two margins are equal by construction, which is the point of a geometric mean.
+const MOVING_BLOCK_SIGMA_CODES = 8;
+
+// Under this share of moving blocks there is no coherent motion in the clip and the report is
+// refused rather than printed as a table of small plausible numbers.
+//
+// Measured: every one of the ten frozen clips scores EXACTLY 0.000% and every one of the ten
+// moving clips scores 5.095% or more. The floor is placed at 1% rather than at the midpoint
+// because the interesting robustness question is what happens when MOVING_BLOCK_SIGMA_CODES is
+// wrong: halve it to 4 and the worst frozen clip rises only to 0.015%, still 67× under this
+// floor, while the quietest moving clip is at 7.583%. Both constants can be a factor of two out
+// and the verdict does not change.
+const MOVING_BLOCK_SHARE_FLOOR = 0.01;
 
 // Auto-normalisation reads a high percentile rather than the true maximum. One HUD digit, one
 // specular sparkle on an eyelash, one antialiased silhouette edge sweeping a full code range —
@@ -143,6 +255,10 @@ function main(argv) {
   // record of what that costs: the capture tool once scored perfectly byte-reproducible while
   // rendering a still pose, because a still image always does. Say it, do not draw it and hope.
   if (report.coverage.counted === 0) return 1;
+  // 🎯 The refusal that had to exist. The one above needs σ to be exactly 0 everywhere, which a
+  // page carrying film grain can never produce, so before this line a frozen clip of the shipped
+  // default exited 0 and reported 89.5% of the frame moving.
+  if (report.coherence.movingBlockShare < MOVING_BLOCK_SHARE_FLOOR) return 1;
   if (options.failOnDeadBands && report.deadBands.length > 0) return 1;
   return 0;
 }
@@ -169,6 +285,7 @@ function analyseClip(framePaths, options) {
   const scale = resolveScale(options.normalise, { autoMax, observedMax });
 
   const bands = summariseBands(field, options);
+  const coherence = summariseCoherence(field, 0, field.blockRows);
 
   return {
     clip: {
@@ -191,10 +308,175 @@ function analyseClip(framePaths, options) {
     thresholds: {
       dead: options.dead,
       deadBandFraction: options.deadBandFraction,
+      coherenceBlock: COHERENCE_BLOCK,
+      movingBlockSigmaCodes: MOVING_BLOCK_SIGMA_CODES,
+      movingBlockShareFloor: MOVING_BLOCK_SHARE_FLOOR,
     },
+    // The honest answer to "did anything move", and the only one that survives the page's own
+    // grain. See the header table: ten frozen clips score 0.000% here, ten moving clips 5%+.
+    coherence,
+    photometric: field.photometric,
     bands,
-    deadBands: bands.filter((band) => band.deadFraction >= options.deadBandFraction).map((band) => band.index),
+    // 🚩 A BAND IS DEAD BY THE COHERENT STATISTIC, NOT BY THE PER-PIXEL ONE. `deadFraction` is
+    // retained and printed because it is the historical column and it describes the map that is
+    // drawn — but on the shipped default it reads 0.0% for a frozen figure, so it cannot be
+    // allowed to decide anything.
+    deadBands: bands
+      .filter((band) => band.coherence.movingBlockShare < MOVING_BLOCK_SHARE_FLOOR)
+      .map((band) => band.index),
     field,
+  };
+}
+
+/**
+ * The block-coherence statistic as a streaming accumulator, so that the three tools that ask
+ * "did anything move" answer it with ONE definition rather than three that drift apart.
+ *
+ * `heatmap.mjs` feeds it every frame, `capture.mjs` feeds it a sample of frames while it is
+ * already holding them, and `travel.mjs` uses the exposure match alone. A caller pushes luma
+ * fields in code values and reads a summary; nothing about the block size, the exposure match or
+ * the moving-block floor is the caller's business.
+ *
+ * @param {{width: number, height: number}} frame
+ */
+function createBlockCoherence({ width, height }) {
+  const blockColumns = Math.ceil(width / COHERENCE_BLOCK);
+  const blockRows = Math.ceil(height / COHERENCE_BLOCK);
+  const mean = new Float64Array(blockColumns * blockRows);
+  const sumSquaredDeltas = new Float64Array(blockColumns * blockRows);
+  const total = new Float64Array(blockColumns * blockRows);
+  const pixelsPerBlock = new Float64Array(blockColumns * blockRows);
+
+  for (let y = 0; y < height; y += 1) {
+    const blockRow = Math.floor(y / COHERENCE_BLOCK) * blockColumns;
+    for (let x = 0; x < width; x += 1) pixelsPerBlock[blockRow + Math.floor(x / COHERENCE_BLOCK)] += 1;
+  }
+
+  let referenceQuantiles = null;
+  let frames = 0;
+  let worstGain = 1;
+  let worstOffset = 0;
+
+  return {
+    /** @param {Float32Array} luma - the frame's luma in 8-bit code values, row-major. */
+    push(luma) {
+      const quantiles = lumaQuantiles(luma, CODE_VALUE_SCALE);
+      if (referenceQuantiles === null) referenceQuantiles = quantiles;
+
+      const match = fitPhotometrically(quantiles, referenceQuantiles);
+      if (Math.abs(match.gain - 1) > Math.abs(worstGain - 1)) worstGain = match.gain;
+      if (Math.abs(match.offset) > Math.abs(worstOffset)) worstOffset = match.offset;
+
+      total.fill(0);
+      for (let y = 0, pixel = 0; y < height; y += 1) {
+        const blockRow = Math.floor(y / COHERENCE_BLOCK) * blockColumns;
+        for (let x = 0; x < width; x += 1, pixel += 1) {
+          total[blockRow + Math.floor(x / COHERENCE_BLOCK)] += (luma[pixel] - match.offset) / match.gain;
+        }
+      }
+
+      frames += 1;
+      for (let block = 0; block < total.length; block += 1) {
+        const value = total[block] / pixelsPerBlock[block];
+        const deltaFromOldMean = value - mean[block];
+        mean[block] += deltaFromOldMean / frames;
+        sumSquaredDeltas[block] += deltaFromOldMean * (value - mean[block]);
+      }
+    },
+
+    /** The σ of every block, and the exposure fits that were divided out getting there. */
+    result() {
+      const blockSigma = new Float64Array(mean.length);
+      for (let block = 0; block < blockSigma.length; block += 1) {
+        blockSigma[block] = frames === 0 ? 0 : Math.sqrt(sumSquaredDeltas[block] / frames);
+      }
+      return { blockSigma, blockColumns, blockRows, frames, photometric: { worstGain, worstOffset } };
+    },
+  };
+}
+
+/** Rec.709 encoded luma of a decoded PNG, in code values, as one flat array. */
+function lumaFieldOf(image) {
+  const luma = new Float32Array(image.width * image.height);
+  for (let pixel = 0, base = 0; pixel < luma.length; pixel += 1, base += 4) {
+    luma[pixel] =
+      encodedLuma(image.pixels[base], image.pixels[base + 1], image.pixels[base + 2]) * CODE_VALUE_SCALE;
+  }
+  return luma;
+}
+
+/**
+ * The half-open range of block rows a band owns: those whose FIRST pixel row lies inside it.
+ *
+ * A band thinner than one block contains no block start, and would otherwise own nothing and read
+ * as permanently dead. That case falls back to the blocks the band overlaps and is the one place
+ * two bands can claim the same block — the alternative is a band that no evidence can ever save.
+ *
+ * @param {number} firstRow - first pixel row of the band, inclusive.
+ * @param {number} lastRow - last pixel row of the band, inclusive.
+ * @param {number} blockRows - how many block rows the frame has.
+ * @returns {[number, number]} first block row inclusive, last block row exclusive.
+ */
+function blockRowsOf(firstRow, lastRow, blockRows) {
+  const first = Math.ceil(firstRow / COHERENCE_BLOCK);
+  const last = Math.floor(lastRow / COHERENCE_BLOCK) + 1;
+
+  if (last > first) return [Math.min(first, blockRows), Math.min(last, blockRows)];
+
+  return [
+    Math.min(Math.floor(firstRow / COHERENCE_BLOCK), blockRows),
+    Math.min(Math.floor(lastRow / COHERENCE_BLOCK) + 1, blockRows),
+  ];
+}
+
+/**
+ * Pools the block-σ field over a range of block rows: how much of it is moving, and how loud.
+ *
+ * `gain` is reported and NOT gated. It is k·σ_block/σ_pixel, whose value for spatially-independent
+ * noise is exactly 1, so it reads like the first-principles oracle §1.25g asks for — and it is
+ * measured to be useless as a gate, because a frozen clip with the grain OFF scores 5.169 against
+ * a moving clip's 5.593. It is worth printing because it says which KIND of temporal variance a
+ * clip holds: near 1 is a fresh independent value per pixel per frame, well above 1 is something
+ * spatially extended, which may be motion or may be a sub-pixel camera jitter.
+ */
+function summariseCoherence(field, firstBlockRow, lastBlockRow) {
+  const start = firstBlockRow * field.blockColumns;
+  const end = Math.min(field.blockSigma.length, lastBlockRow * field.blockColumns);
+
+  let movingBlocks = 0;
+  let sum = 0;
+  const sigmas = new Float64Array(Math.max(0, end - start));
+
+  for (let block = start; block < end; block += 1) {
+    const blockSigma = field.blockSigma[block];
+    sigmas[block - start] = blockSigma;
+    sum += blockSigma;
+    if (blockSigma > MOVING_BLOCK_SIGMA_CODES) movingBlocks += 1;
+  }
+
+  sigmas.sort();
+
+  // The per-pixel σ over the same rows, so `gain` compares like with like.
+  const firstPixelRow = firstBlockRow * COHERENCE_BLOCK;
+  const lastPixelRow = Math.min(field.height, lastBlockRow * COHERENCE_BLOCK);
+  let pixelSum = 0;
+  for (let pixel = firstPixelRow * field.width; pixel < lastPixelRow * field.width; pixel += 1) {
+    pixelSum += field.sigma[pixel];
+  }
+  const pixelCount = (lastPixelRow - firstPixelRow) * field.width;
+  const meanPixelSigma = pixelCount === 0 ? 0 : pixelSum / pixelCount;
+  const meanBlockSigma = sigmas.length === 0 ? 0 : sum / sigmas.length;
+
+  return {
+    block: COHERENCE_BLOCK,
+    blocks: sigmas.length,
+    movingBlocks,
+    movingBlockShare: sigmas.length === 0 ? 0 : movingBlocks / sigmas.length,
+    meanBlockSigma,
+    p99BlockSigma: percentileOfSorted(sigmas, 0.99),
+    maxBlockSigma: sigmas.length === 0 ? 0 : sigmas[sigmas.length - 1],
+    meanPixelSigma,
+    gain: meanPixelSigma === 0 ? 0 : (COHERENCE_BLOCK * meanBlockSigma) / meanPixelSigma,
   };
 }
 
@@ -213,6 +495,11 @@ function accumulateSigmaField(framePaths) {
   let sumSquaredDeltas = null;
   let frameCount = 0;
 
+  // The second field, and the reason this tool is not measuring grain. Shared with capture.mjs
+  // so that "did anything move" has one definition in this directory — see createBlockCoherence.
+  let coherence = null;
+  let frameLuma = null;
+
   for (const framePath of framePaths) {
     const image = decodePng(fs.readFileSync(framePath));
 
@@ -221,6 +508,9 @@ function accumulateSigmaField(framePaths) {
       height = image.height;
       mean = new Float64Array(width * height);
       sumSquaredDeltas = new Float64Array(width * height);
+
+      coherence = createBlockCoherence({ width, height });
+      frameLuma = new Float32Array(width * height);
     } else if (image.width !== width || image.height !== height) {
       throw new Error(
         `frame ${path.basename(framePath)} is ${image.width}×${image.height}, but the clip ` +
@@ -230,15 +520,20 @@ function accumulateSigmaField(framePaths) {
 
     frameCount += 1;
 
-    for (let pixel = 0, base = 0; pixel < mean.length; pixel += 1, base += 4) {
+    for (let pixel = 0, base = 0; pixel < frameLuma.length; pixel += 1, base += 4) {
       const luma =
         encodedLuma(image.pixels[base], image.pixels[base + 1], image.pixels[base + 2]) *
         CODE_VALUE_SCALE;
 
+      frameLuma[pixel] = luma;
+
+      // The per-pixel field is the raw clip, unmatched. It is what the heat map draws.
       const deltaFromOldMean = luma - mean[pixel];
       mean[pixel] += deltaFromOldMean / frameCount;
       sumSquaredDeltas[pixel] += deltaFromOldMean * (luma - mean[pixel]);
     }
+
+    coherence.push(frameLuma);
 
     reportProgress(frameCount, framePaths.length);
   }
@@ -251,7 +546,104 @@ function accumulateSigmaField(framePaths) {
     sigma[pixel] = Math.sqrt(sumSquaredDeltas[pixel] / frameCount);
   }
 
-  return { width, height, frameCount, sigma, mean };
+  const blocks = coherence.result();
+
+  return {
+    width, height, frameCount, sigma, mean,
+    blockSigma: blocks.blockSigma,
+    blockColumns: blocks.blockColumns,
+    blockRows: blocks.blockRows,
+    photometric: blocks.photometric,
+  };
+}
+
+// The two points of the luma histogram that the exposure match is pinned to. They straddle the
+// figure/backdrop cut — p10 sits deep in the backdrop, p90 in the lit subject — and each is the
+// boundary of a large population rather than a single pixel, which is what p0 and p100 would be.
+const PHOTOMETRIC_LOW_QUANTILE = 0.1;
+const PHOTOMETRIC_HIGH_QUANTILE = 0.9;
+const PHOTOMETRIC_HISTOGRAM_BINS = 4096;
+
+/**
+ * Where two quantiles of a frame's luma sit, with the position interpolated inside its bin.
+ *
+ * The interpolation is not tidiness. Without it the quantile lands on a bin edge, so grain
+ * jittering the histogram by one bin reads as a 0.3% exposure change — which the corrector then
+ * "removes" by scaling the whole frame, injecting a spatially coherent term into the very field
+ * built to have none. Measured: bin-edge quantiles put a frozen clip's worst gain at 0.9969;
+ * interpolated, at 0.99996.
+ */
+/**
+ * @param {Float32Array} luma - the frame's luma, in whatever unit the caller is holding it.
+ * @param {number} [fullScale=1] - the value a white pixel takes in that unit. REQUIRED to be
+ *   right: this tool carries luma in 8-bit code values and travel.mjs carries it normalised, and
+ *   the first version of this function assumed 0–1 for both. Every code-value frame then binned
+ *   into the top bin, every quantile came back at full scale, the span came back zero, and the
+ *   corrector silently returned the identity — so the flicker adversary it exists to catch walked
+ *   straight through it reporting a gain of exactly ×1.0000. An "exactly 1.0000" from an estimator
+ *   fitted to real data is a tell, not a reassurance.
+ */
+function lumaQuantiles(luma, fullScale = 1) {
+  const last = PHOTOMETRIC_HISTOGRAM_BINS - 1;
+  const histogram = new Int32Array(PHOTOMETRIC_HISTOGRAM_BINS);
+
+  for (let pixel = 0; pixel < luma.length; pixel += 1) {
+    histogram[Math.min(last, Math.max(0, Math.round((luma[pixel] / fullScale) * last)))] += 1;
+  }
+
+  const pick = (fraction) => {
+    const target = fraction * luma.length;
+    let seen = 0;
+    for (let bin = 0; bin <= last; bin += 1) {
+      const next = seen + histogram[bin];
+      if (next >= target) {
+        // Where inside this bin the target falls, so the answer moves smoothly as the histogram
+        // shifts by less than a whole bin.
+        const within = histogram[bin] === 0 ? 0 : (target - seen) / histogram[bin];
+        return (fullScale * (bin - 0.5 + within)) / last;
+      }
+      seen = next;
+    }
+    return fullScale;
+  };
+
+  return { low: pick(PHOTOMETRIC_LOW_QUANTILE), high: pick(PHOTOMETRIC_HIGH_QUANTILE) };
+}
+
+/**
+ * The whole-frame gain and offset that carry the reference frame's exposure onto this one.
+ *
+ * 🚩 THIS WAS ORDINARY LEAST SQUARES OVER EVERY PIXEL AND THAT WAS WRONG, in the direction that
+ * matters: OLS is dragged by the subject, so it absorbed real motion into the "exposure". The
+ * justification originally written here — "a body moves through a small minority of pixels, so the
+ * worst gain any real clip needs is 1.0 to three decimals" — was plausible, was never measured,
+ * and is false. Measured over 80 frames per clip:
+ *
+ *     clip                  worst OLS gain   worst quantile gain
+ *     judge-portrait                0.7418                0.9930
+ *     r9-judge-body-42              0.9667                0.9939
+ *     r5-body                       0.9431                0.9978
+ *     j9-clip-portrait              0.9178                0.9964
+ *     flicker adversary ×1.30       1.1989                1.1989
+ *     flicker adversary ×1.06       1.0395                1.0390
+ *
+ * Matching two QUANTILES instead is equally sensitive to the thing being removed and 35× less
+ * sensitive to the thing that must survive, and the reason is one sentence: **a translation
+ * leaves a frame's luma histogram nearly unchanged — the same pixels are lit, in different
+ * places — while an exposure change transforms it.** A subject moving cannot move a percentile
+ * much; a gain moves every percentile by exactly the gain.
+ *
+ * A flat frame has no span between its quantiles, so the identity is returned rather than a
+ * division by zero.
+ */
+function fitPhotometrically(frameQuantiles, referenceQuantiles) {
+  const span = referenceQuantiles.high - referenceQuantiles.low;
+  if (Math.abs(span) < 1e-9) return { gain: 1, offset: 0 };
+
+  const gain = (frameQuantiles.high - frameQuantiles.low) / span;
+  if (Math.abs(gain) < 1e-9) return { gain: 1, offset: 0 };
+
+  return { gain, offset: frameQuantiles.low - gain * referenceQuantiles.low };
 }
 
 /**
@@ -287,6 +679,16 @@ function summariseBands(field, options) {
       index: index + 1,
       firstRow,
       lastRow: lastRow - 1,
+      // A block row belongs to the band its FIRST pixel row falls in, so every block is counted
+      // once and no band borrows its neighbour's motion across the boundary.
+      //
+      // 🚩 This used to floor the start and ceil the end, which is the obvious way to write it and
+      // gives a band every block it OVERLAPS. Measured on the statue fixture — 120 rows, 10 bands,
+      // so 12 rows a band against an 8 px block — the first dead band then inherited the block
+      // straddling the hip line and read as alive, and the gate named 7,8,9,10 where the truth is
+      // 6,7,8,9,10. A block cannot resolve a boundary finer than itself; the question is only
+      // which side of the boundary it is allowed to speak for, and the answer has to be one side.
+      coherence: summariseCoherence(field, ...blockRowsOf(firstRow, lastRow - 1, field.blockRows)),
       totalPixels,
       countedPixels: counted.length,
       countedFraction: totalPixels === 0 ? 0 : counted.length / totalPixels,
@@ -525,9 +927,26 @@ function formatReport(report, options) {
   lines.push(`source    ${clip.framesDirectory}`);
   lines.push(`σ         ${report.units}`);
   lines.push(
-    `pixels    counted ${count(coverage.counted)} moving (${percent(coverage.countedFraction)})   ` +
+    `pixels    counted ${count(coverage.counted)} NONZERO σ (${percent(coverage.countedFraction)})   ` +
       `skipped ${count(coverage.skippedStatic)} static, σ = 0 exactly ` +
       `(${percent(1 - coverage.countedFraction)})`
+  );
+  // 🚩 That line used to say "moving", and on a frozen clip of the shipped default it said 89.5%
+  // of the frame was moving. A nonzero per-pixel σ is what film grain produces; it is not motion.
+  lines.push(
+    `coherent  ${percent(report.coherence.movingBlockShare)} of ${count(report.coherence.blocks)} ` +
+      `${report.coherence.block}×${report.coherence.block} blocks move ` +
+      `(block σ over ${MOVING_BLOCK_SIGMA_CODES}, floor ${percent(MOVING_BLOCK_SHARE_FLOOR)})   ` +
+      `mean block σ ${report.coherence.meanBlockSigma.toFixed(3)}, p99 ${report.coherence.p99BlockSigma.toFixed(3)}`
+  );
+  lines.push(
+    `          gain k·σblock/σpixel = ${report.coherence.gain.toFixed(3)} ` +
+      '(1.0 = every pixel drew its own value; REPORTED, NOT GATED — see the header)'
+  );
+  lines.push(
+    `          block field is exposure-matched to frame 1 (p10/p90) before averaging; ` +
+      `worst fit ×${report.photometric.worstGain.toFixed(4)} ` +
+      `${report.photometric.worstOffset >= 0 ? '+' : '−'}${Math.abs(report.photometric.worstOffset).toFixed(3)}`
   );
   lines.push(
     `scale     0 → ${scale.maxSigma.toFixed(3)} σ   [${scale.mode}]   ` +
@@ -549,14 +968,29 @@ function formatReport(report, options) {
     lines.push('*** EVERY PIXEL IS FROZEN. σ is exactly 0 across the whole frame, so this heat map');
     lines.push('*** is a black rectangle and it is not evidence of anything. The clip is a still');
     lines.push('*** repeated, or the capture never stepped the simulation. Do not read the map.');
+  } else if (report.coherence.movingBlockShare < MOVING_BLOCK_SHARE_FLOOR) {
+    lines.push('');
+    lines.push('*** NOTHING COHERENT MOVED. This is a NOISE FLOOR, not a moving picture.');
+    lines.push(`*** ${percent(coverage.countedFraction)} of pixels have a nonzero temporal σ — but only ` +
+      `${percent(report.coherence.movingBlockShare)} of`);
+    lines.push(`*** ${report.coherence.block}×${report.coherence.block} blocks vary by more than σ ` +
+      `${MOVING_BLOCK_SIGMA_CODES}, under the ${percent(MOVING_BLOCK_SHARE_FLOOR)} floor. Independent`);
+    lines.push('*** noise averages away in a block mean; a silhouette sweeping through one does not.');
+    lines.push('*** Measured: every frozen clip in captures/ scores 0.000% here, including one with');
+    lines.push('*** the grain turned up 10×; every moving clip scores 5.095% or more.');
+    lines.push('*** The likeliest cause is that the simulation never advanced — ?freeze, a capture');
+    lines.push('*** hook that did not step, or a page that rendered one pose. The per-pixel map');
+    lines.push('*** below is film grain and it is NOT evidence of anything. Do not read it.');
   } else if (report.deadBands.length > 0) {
     const dead = report.bands.filter((band) => report.deadBands.includes(band.index));
     lines.push('');
     lines.push(`*** DEAD BANDS: ${report.deadBands.join(', ')} — rows ` +
-      `${dead[0].firstRow}–${dead[dead.length - 1].lastRow} are at least ` +
-      `${percent(options.deadBandFraction)} below σ ${options.dead.toFixed(2)}.`);
+      `${dead[0].firstRow}–${dead[dead.length - 1].lastRow} hold under ` +
+      `${percent(MOVING_BLOCK_SHARE_FLOOR)} moving ${COHERENCE_BLOCK}×${COHERENCE_BLOCK} blocks.`);
     lines.push('*** Nothing there moved. If that is backdrop, fine. If the figure reaches into');
     lines.push('*** those rows, that part of the figure is a statue.');
+    lines.push('*** (Stated on the COHERENT column. The per-pixel dead% beside it is grain and');
+    lines.push('*** reads 0.0% on a frozen band of the shipped default.)');
   }
 
   lines.push('');
@@ -568,7 +1002,14 @@ function formatReport(report, options) {
 }
 
 function formatBandTable(report, options) {
-  const header = ['band', 'rows', 'moving', 'mean σ', 'p99 σ', 'max σ', `dead% (σ<${options.dead.toFixed(2)})`];
+  // Two blocks of columns, and the order is the finding: the per-pixel ones first because they
+  // are what this tool has always printed, then the coherent ones, which are the ones that
+  // decide. `blk σ` and `blk move%` are the 8×8 block statistics; `dead%` is per-pixel and is
+  // there for continuity with older reports rather than because anything reads it.
+  const header = [
+    'band', 'rows', 'σ>0', 'mean σ', 'p99 σ', 'max σ', `dead% (σ<${options.dead.toFixed(2)})`,
+    'blk σ', 'blk p99', `blk move% (>${MOVING_BLOCK_SIGMA_CODES})`,
+  ];
   const rows = report.bands.map((band) => [
     String(band.index),
     `${band.firstRow}–${band.lastRow}`,
@@ -577,6 +1018,11 @@ function formatBandTable(report, options) {
     band.p99Sigma.toFixed(3),
     band.maxSigma.toFixed(3),
     percent(band.deadFraction),
+    band.coherence.meanBlockSigma.toFixed(3),
+    band.coherence.p99BlockSigma.toFixed(3),
+    band.coherence.movingBlockShare < MOVING_BLOCK_SHARE_FLOOR
+      ? `${percent(band.coherence.movingBlockShare)} DEAD`
+      : percent(band.coherence.movingBlockShare),
   ]);
 
   const widths = header.map((_, column) =>
@@ -675,18 +1121,34 @@ function usageText() {
     'The directory may be a capture root (its frames/ subdirectory is found automatically) or a',
     'directory of numbered PNGs. capture.mjs only keeps its frames with --keep-frames.',
     '',
+    'TWO FIELDS ARE MEASURED AND ONLY ONE OF THEM DECIDES ANYTHING.',
+    '  per-pixel σ   what the map draws. On a page carrying film grain EVERY pixel has a nonzero',
+    `                one, so it cannot answer "did anything move" — measured, a frozen figure on`,
+    '                the shipped default reads 89.5% of the frame with nonzero σ.',
+    `  block σ       the same statistic on the ${COHERENCE_BLOCK}×${COHERENCE_BLOCK} block mean, after every frame is`,
+    '                exposure-matched to frame 1. Independent noise averages away in a block mean',
+    '                and a silhouette sweeping through one does not. This is the verdict.',
+    '',
     'Options:',
     `  --out <path>                heat map PNG               (<capture-dir>/heatmap.png)`,
     '  --json <path>               also write the numbers as JSON',
     `  --normalise auto|<σ>        σ at the top of the ramp   (${DEFAULTS.normalise})`,
     '                              auto prints its choice; pin it to compare two clips',
     `  --bands <n>                 horizontal bands           (${DEFAULTS.bands})`,
-    `  --dead <σ>                  dead-pixel threshold, code values  (${DEFAULTS.dead})`,
-    `  --dead-band-fraction <f>    band called dead at this dead%     (${DEFAULTS.deadBandFraction})`,
+    `  --dead <σ>                  per-pixel dead threshold, code values  (${DEFAULTS.dead})`,
+    '                              REPORTING ONLY — it moves the dead% column and does NOT',
+    '                              decide which bands are dead. It used to, and on a graded page',
+    '                              that column reads 0.0% for a frozen figure.',
+    `  --dead-band-fraction <f>    reporting only, as above               (${DEFAULTS.deadBandFraction})`,
     `  --stride <n>                use every nth frame        (${DEFAULTS.stride})`,
     '  --fail-on-dead-bands        exit 1 if any band is dead, to use this as a gate',
     '',
-    'Exit codes:  0 = the picture moved   1 = frozen clip or dead band   2 = tool error',
+    `A band is DEAD when under ${(100 * MOVING_BLOCK_SHARE_FLOOR).toFixed(0)}% of its blocks vary by more than σ ${MOVING_BLOCK_SIGMA_CODES}; the whole clip is`,
+    'REFUSED when the frame as a whole is. Measured, ten frozen clips score 0.000% and ten moving',
+    'clips 5.095%–31.440%. Both constants are derived in the source, from those two populations.',
+    '',
+    'Exit codes:  0 = the picture moved   1 = frozen clip, noise floor, or dead band',
+    '             2 = tool error',
     '',
   ].join('\n');
 }
@@ -708,9 +1170,17 @@ export {
   analyseClip,
   accumulateSigmaField,
   summariseBands,
+  summariseCoherence,
+  createBlockCoherence,
+  lumaFieldOf,
+  fitPhotometrically,
+  lumaQuantiles,
   findFramePaths,
   renderHeatMap,
   sampleRamp,
   RAMP_STOPS,
   DEFAULTS,
+  COHERENCE_BLOCK,
+  MOVING_BLOCK_SIGMA_CODES,
+  MOVING_BLOCK_SHARE_FLOOR,
 };

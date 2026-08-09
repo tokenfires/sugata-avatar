@@ -66,6 +66,7 @@ import {
   MINIMUM_SEPARATION,
   MINIMUM_SEPARABILITY,
   SILHOUETTE_REFUSE_HIGH_AUTO,
+  COHERENT_TRAVEL_FLOOR_PIXELS,
 } from './travel.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-travel-selftest-'));
@@ -1049,6 +1050,138 @@ function digestOf(value) {
   return crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0, 16);
 }
 
+// ================================================================================================
+// 12. THE NOISE FLOOR — the defect that made `travelled` mean nothing, and its whole class
+// ================================================================================================
+//
+// Every fixture above this line is noise-free, and that is why all 138 of them were green while
+// the tool exited 0 on 600 frames of a figure held still by `?freeze` and printed *"travelled —
+// the silhouette moved."* The verdict was `some band has x.sd > 0`, and the shipped page carries
+// film grain, so no band of any real clip could ever fail it.
+//
+// The class is stated out loud, because a class can be enumerated and a hunch cannot:
+//
+//     ANY PER-FRAME VARIATION THAT MOVES A CENTROID WITHOUT MOVING THE BODY
+//
+// and it is attacked here by three mechanisms, only the first of which the repair was designed
+// against: per-pixel grain at the shipped amplitude, the same grain TEN TIMES louder (an absolute
+// pixel floor is walked past by simply turning the noise up), and a global exposure wobble, which
+// is spatially COHERENT and therefore invisible to the odd/even split the repair rests on — it is
+// caught upstream instead, by exposure-matching every frame before it is thresholded.
+//
+// The fourth clip is the control and it carries the oracle: a KNOWN translation with grain on top.
+// The coherent statistic must return the analytic SD derived in this file's header, not merely
+// "something above the floor" — LEARNINGS §1.25g, an invariance test needs an oracle beside it.
+
+const FLOOR_FRAMES = 64;
+const FLOOR_WIDTH = 40;
+const FLOOR_ORIGIN = 100;
+const FLOOR_SHEAR = 0.11;
+const SHIPPED_GRAIN_CODES = 1.5;
+const LOUD_GRAIN_CODES = 15;
+
+/** Deterministic gaussian, so a fixture is a fixture and not a coin toss. */
+function makeGaussianSource(seed) {
+  let state = seed >>> 0;
+  const nextUniform = () => {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    return (state + 0.5) / 4294967296;
+  };
+  return () => Math.sqrt(-2 * Math.log(nextUniform())) * Math.cos(2 * Math.PI * nextUniform());
+}
+
+function testTheNoiseFloorIsNotTravel() {
+  // A sheared antialiased edge, because §11 measured that to be the realistic case and the
+  // axis-aligned one to be the worst; the point here is grain, not edge orientation.
+  const figure = (x, left) => shadeByCoverage(coverageOfColumn(x, left, left + FLOOR_WIDTH));
+  const edgeAt = (frame, y, step) => FLOOR_ORIGIN + frame * step + y * FLOOR_SHEAR;
+
+  const build = (name, { step, grain, flicker }) => {
+    const gaussian = makeGaussianSource(20260808);
+    const gains = [];
+    for (let frame = 0; frame <= FLOOR_FRAMES; frame += 1) gains.push(1 + (flicker ?? 0) * Math.sin(frame * 1.7));
+    return writeClip(name, {
+      frames: FLOOR_FRAMES,
+      valueAt: (x, y, frame) =>
+        (figure(x, edgeAt(frame, y, step)) + (grain ?? 0) * gaussian()) * gains[frame],
+    });
+  };
+
+  const stillGrainy = build('floor-still-grainy', { step: 0, grain: SHIPPED_GRAIN_CODES });
+  const stillLoud = build('floor-still-loud', { step: 0, grain: LOUD_GRAIN_CODES });
+  const stillFlicker = build('floor-still-flicker', { step: 0, flicker: 0.3 });
+  const movingGrainy = build('floor-moving-grainy', { step: SUBPIXEL_STEP, grain: SHIPPED_GRAIN_CODES });
+
+  const bands = parseBandSpec('all:0.0-1.0');
+  const measured = {
+    stillGrainy: analyse(stillGrainy, { bands }),
+    stillLoud: analyse(stillLoud, { bands }),
+    stillFlicker: analyse(stillFlicker, { bands }),
+    movingGrainy: analyse(movingGrainy, { bands }),
+  };
+
+  // 🎯 THE HEADLINE, stated as the comparison it is: the retired verdict passes every defect and
+  // the new one passes none of them. Without this line the section proves the new rule works and
+  // says nothing about why the old one did not.
+  const oldVerdictWouldPass = (report) => report.bands.some((band) => band.x.sd > 0 || band.y.sd > 0);
+  for (const name of ['stillGrainy', 'stillLoud', 'stillFlicker']) {
+    const band = measured[name].bands[0];
+    expectTrue(`"${name}" — the RETIRED verdict (x SD > 0) would have called this travel`,
+      oldVerdictWouldPass(measured[name]),
+      `x SD ${format(band.x.sd)} px, y SD ${format(band.y.sd)} px on a figure that never moved`);
+    expectEqual(`"${name}" — the clip is refused`, measured[name].verdict.refused, true);
+    expectEqual(`"${name}" — and refused for the RIGHT reason, not as a frozen still`,
+      measured[name].verdict.reason, 'at-the-noise-floor');
+    expectTrue(`"${name}" — coherent travel is under the ${COHERENT_TRAVEL_FLOOR_PIXELS} px floor`,
+      band.xCoherent < COHERENT_TRAVEL_FLOOR_PIXELS && band.yCoherent < COHERENT_TRAVEL_FLOOR_PIXELS,
+      `x coherent ${format(band.xCoherent)} px, y coherent ${format(band.yCoherent)} px`);
+  }
+
+  // Turning the grain up TEN TIMES must not buy the defect a pass, and the margin must not shrink
+  // to nothing either. This is the reason the gate is stated on the coherent number rather than on
+  // a pixel floor applied to the raw SD.
+  const quiet = measured.stillGrainy.bands[0];
+  const loud = measured.stillLoud.bands[0];
+  expectTrue('a 10× louder noise floor inflates the RAW SD, which is why a raw floor is not enough',
+    loud.x.sd > 3 * quiet.x.sd,
+    `raw x SD ${format(quiet.x.sd)} px at σ ${SHIPPED_GRAIN_CODES} against ${format(loud.x.sd)} px at σ ${LOUD_GRAIN_CODES}`);
+  expectTrue('and leaves the COHERENT number where it was',
+    loud.xCoherent < COHERENT_TRAVEL_FLOOR_PIXELS / 2,
+    `x coherent ${format(quiet.xCoherent)} px at σ ${SHIPPED_GRAIN_CODES} against ` +
+      `${format(loud.xCoherent)} px at σ ${LOUD_GRAIN_CODES}`);
+
+  // The flicker is caught upstream, and the fit has to have SEEN it — otherwise the refusal is
+  // being produced by something else and this rejection proof is measuring luck.
+  expectTrue('the exposure match measured the flicker it removed',
+    Math.abs(measured.stillFlicker.photometric.worstGain - 1) > 0.2,
+    `worst fit ×${measured.stillFlicker.photometric.worstGain.toFixed(4)} on the flicker clip, ` +
+      `×${measured.movingGrainy.photometric.worstGain.toFixed(4)} on the moving control`);
+
+  // --- THE CONTROL, and the oracle -------------------------------------------------------------
+  const control = measured.movingGrainy.bands[0];
+  const expectedSd = expectedTravelSd(SUBPIXEL_STEP, FLOOR_FRAMES);
+
+  expectEqual('CONTROL — a known translation UNDER the same grain is not refused',
+    measured.movingGrainy.verdict.refused, false);
+  expectClose('CONTROL — and the coherent statistic returns the ANALYTIC SD, not just "above the floor"',
+    control.xCoherent, expectedSd, 0.02 * expectedSd);
+  expectTrue('CONTROL — the coherent number never exceeds the raw SD it is extracted from',
+    control.xCoherent <= control.x.sd + 1e-9,
+    `coherent ${format(control.xCoherent)} px, raw ${format(control.x.sd)} px, oracle ${format(expectedSd)} px`);
+
+  note('  NOISE FLOOR, coherent travel in px (all:0.0-1.0 band, 64 frames)',
+    `still+grain σ1.5 ${format(quiet.xCoherent)}, ` +
+      `still+grain σ15 ${format(loud.xCoherent)}, ` +
+      `still+flicker ±30% ${format(measured.stillFlicker.bands[0].xCoherent)}, ` +
+      `moving 0.25 px/frame + grain σ1.5 ${format(control.xCoherent)} against an oracle of ${format(expectedSd)}`);
+
+  const run = runCli([stillGrainy, '--bands', 'all:0.0-1.0']);
+  expectEqual('the CLI exits 1 on a still grainy clip with no flag needed', run.status, 1);
+  expectTrue('and the banner says NOISE FLOOR rather than printing a table of small numbers',
+    run.stdout.includes('AT THE NOISE FLOOR'),
+    run.stdout.split('\n').find((line) => line.startsWith('***')) ?? '(no *** banner)');
+}
+
 function refusalFrom(action, pattern) {
   try {
     action();
@@ -1072,6 +1205,7 @@ function run() {
   testThresholdFailureModes();
   testThresholdIsPublishedAndPinnable();
   testBandsDeterminismAndRefusals();
+  testTheNoiseFloorIsNotTravel();
 
   const width = Math.max(...gates.map((gate) => gate.label.length));
   for (const gate of gates) {
