@@ -46,11 +46,71 @@ One figure at a time, with the full option list:
 Useful flags: `--age/--muscle/--weight/--height/--proportions`, `--rig none`, `--skin none`,
 `--no-face-parts`, `--no-microsoft-visemes`, `--keep-morph-normals`, `--eye-proxy`.
 
+## Building a wardrobe-ready body and its garment fragments
+
+Punch-list 9.2. Three commands, and all of their output is gitignored build output exactly like
+`assets/figures/*.glb`:
+
+```bash
+BLENDER=/Applications/Blender.app/Contents/MacOS/Blender
+
+# 1. the body: whole geometry plus a per-vertex _HIDE_* mask per garment, and one fragment GLB
+#    per garment written into assets/wardrobe/<id>/g050.glb
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output assets/wardrobe/body/g050.glb \
+  --garment female_casualsuit01 --garment shoes01 --garment fedora01 \
+  --garment female_elegantsuit01 \
+  --hide-mask-attribute --garment-fragment-dir assets/wardrobe
+
+# 2 and 3. the BAKED controls the runtime rebuild is measured against
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output assets/wardrobe/baked/suit_shoes_g050.glb \
+  --garment female_casualsuit01 --garment shoes01
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output assets/wardrobe/baked/suit_g050.glb \
+  --garment female_casualsuit01
+```
+
+Then:
+
+```bash
+node packages/core/src/wardrobe/wardrobe.selftest.mjs
+```
+
+Measured on this machine, Blender 5.2.0 LTS `fbe6228777e7`, M5 Max:
+
+| build | wall | body verts | body tris |
+|---|---:|---:|---:|
+| nude control — sha256 `b56115d0cb52…`, identical to the committed `figure_g050.glb` | 8.56 s | 14,517 | 26,756 |
+| `--garment female_casualsuit01`, masks BAKED | ~9 s | 11,779 | **21,380** |
+| `--garment` suit + shoes, masks BAKED | 8.73 s | 9,247 | **17,012** |
+| four garments, `--hide-mask-attribute` + fragments | 9.54 s | 14,517 | 26,756 |
+
+The attribute body is **11,742,100 bytes** against the nude control's 11,567,392 — +174,708 for
+three FLOAT32 masks over 14,517 vertices, which is §2.4's 58,068 bytes per garment. Ship them as
+`UNSIGNED_BYTE` and that becomes 14.5 KB each; a hide flag is a boolean.
+
+🚩 **Two traps this path walks into, both silent, both handled here rather than discovered again.**
+
+- `export_attributes` **defaults OFF** in Blender's glTF exporter and the build reports success
+  without it. `export_glb` passes it explicitly and `describe_hide_masks` reads the baked mesh
+  back rather than trusting the export call. A figure built without it can wear a garment and
+  will never hide the body underneath.
+- The exporter **UPPER-CASES** the attribute name: authored `_hide_shoes01`, the file carries
+  `_HIDE_SHOES01` — and three.js's `GLTFLoader` lowercases unknown attributes on the way back in,
+  so the runtime sees `_hide_shoes01` again. Both spellings exist in the wild. Every consumer
+  matches case-insensitively.
+
+⚠️ `assets/wardrobe/body/g050.glb` is deliberately a **separate artefact** from the shipped
+`assets/figures/figure_g050.glb` this round. Adding the attributes changes that file's sha256, and
+several measured gates in `docs/PROGRESS.md` were taken against it.
+
 ## Verifying
 
 ```bash
-node tools/figure-pipeline/verify_glb.mjs                       # every figure
+node tools/figure-pipeline/verify_glb.mjs                       # every figure AND the wardrobe
 node tools/figure-pipeline/verify_glb.mjs assets/figures/x.glb  # one
+node tools/figure-pipeline/verify_glb.mjs --manifest path.json  # gate against another manifest
 ```
 
 Checks each GLB twice: once by parsing the GLB container's JSON chunk by hand, and once through
@@ -71,6 +131,52 @@ construction — a perfect sphere must read as no dome, a dome of height *h* mus
 noise at the asset's own 0.24 mm floor must not manufacture one. `verify_glb.mjs`'s cornea checks
 stop at "no corneal shell" on both real known-bad figures, so without this the dome test itself
 would never have been run in the failing direction.
+
+### The garment clause (punch-list 9.5)
+
+The gate used to **fail a clothed figure by construction**: `OPAQUE_MATERIAL_PARTS` was a
+five-regex whitelist over `body`, the eye parts, `teeth` and `tongue`, and a garment matched none
+of them, so `suit_g050` reported one problem and `layered_g050` reported three while every eye,
+lip-seal and morph assertion stayed green (research §3.7).
+
+The replacement is not a sixth regex — **a wool coat is OPAQUE and a mesh panel is MASK, and no
+name pattern can know which.** A material resolves to a manifest garment by **exact id**, and the
+expectation comes from that entry's `alphaMode` and its own `alphaCutoff`. A garment the manifest
+does not list still fails as unrecognised; falling through to a pass would make the gate weaker
+for clothed figures than for nude ones.
+
+It also asserts the hide masks on the body: every `_HIDE_*` attribute belongs to a declared
+garment, and none of them is degenerate (all-zero hides nothing; near-all erases the figure).
+Measured on `assets/wardrobe/body/g050.glb`: 2,738 / 2,574 / 2,536 of 14,517 vertices, 18.9% /
+17.7% / 17.5%.
+
+Both directions are proven red, and the end-to-end version of the one the punch list names is a
+real build rather than a mock:
+
+```bash
+# 1. build the suit as a genuine cutout, by pointing the build at a manifest that says MASK …
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output /tmp/cutout_body.glb --garment female_casualsuit01 \
+  --wardrobe-manifest /tmp/cutout_manifest.json \
+  --hide-mask-attribute --garment-fragment-dir /tmp/cutout_fragments
+
+# 2. … then verify it against the SHIPPED manifest, which says OPAQUE.
+node tools/figure-pipeline/verify_glb.mjs /tmp/cutout_fragments/female_casualsuit01/g050.glb
+#   FAIL Human.female_casualsuit01: alphaMode MASK, expected OPAQUE (manifest:
+#        female_casualsuit01); doubleSided, expected backface culled
+#   FAIL Humanfemale_casualsuit01 in three.js: side 2, expected FrontSide
+
+# and the other direction, no rebuild needed:
+node tools/figure-pipeline/verify_glb.mjs assets/wardrobe/female_casualsuit01/g050.glb \
+  --manifest /tmp/cutout_manifest.json
+#   FAIL … alphaMode OPAQUE, expected MASK; alphaCutoff undefined, expected 0.1;
+#        single sided, expected doubleSided
+```
+
+`node tools/figure-pipeline/verify_glb.mjs --selftest` runs the fast version of the same decision
+against known-bad manifests — an unlisted garment, a near-miss id that a `/suit/i` regex would
+have accepted, both alpha directions, and three.js's dot-stripped spelling — alongside the
+lip-seal selftest.
 
 ## What a built figure contains
 

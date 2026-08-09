@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sugata — Wardrobe plumbing browsercheck (9.1, 9.2, 9.3, 9.5)</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body { height: 100%; }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: #0d0d10;
+        color: #d8d8de;
+        font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 460px;
+        grid-template-rows: 100%;
+    }
+
+    /* Taken out of flow deliberately: sized as a normal block the canvas feeds its own height
+       back into the grid row through the ResizeObserver and the two ratchet each other upward.
+       stage.html records the same thing, observed once at 44280 px tall. */
+    #viewport { position: relative; min-width: 0; overflow: hidden; }
+    canvas#view { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+    #panel { overflow-y: auto; padding: 14px 16px 40px; border-left: 1px solid #26262e; }
+    h1 { font-size: 13px; margin: 0 0 4px; letter-spacing: 0.04em; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
+         color: #8a8a97; margin: 20px 0 6px; }
+    p.note { color: #8a8a97; margin: 4px 0 0; font-size: 11px; }
+
+    button {
+        font: inherit; background: #1c1c24; color: #d8d8de;
+        border: 1px solid #33333e; border-radius: 4px;
+        padding: 4px 9px; margin: 0 4px 4px 0; cursor: pointer;
+    }
+    button:hover { background: #262631; }
+    button[aria-pressed="true"] { background: #2f4f7a; border-color: #4d7cb8; color: #fff; }
+
+    table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 11px; }
+    th, td { text-align: left; padding: 2px 6px 2px 0; border-bottom: 1px solid #22222a;
+             vertical-align: top; }
+    th { color: #8a8a97; font-weight: 600; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .pass { color: #64d68a; }
+    .fail { color: #ff6b6b; font-weight: 700; }
+    .info { color: #9fd0ff; }
+
+    #status { margin-top: 6px; color: #f0c674; font-size: 11px; min-height: 1.4em; }
+</style>
+</head>
+<body>
+
+<div id="viewport">
+    <canvas id="view"></canvas>
+</div>
+
+<div id="panel">
+    <h1>Wardrobe plumbing browsercheck — punch list 9.1, 9.2, 9.3, 9.5</h1>
+    <p class="note">
+        The body is built with <code>--hide-mask-attribute</code>, so its geometry is whole and
+        the index buffer is rebuilt from the union of the worn garments' <code>_HIDE_*</code>
+        masks. Garments are fetched as fragments on demand and rebound to this figure's own
+        skeleton by bone name. Nothing here is baked.
+    </p>
+
+    <h2>Outfit</h2>
+    <div id="garments"></div>
+    <div>
+        <button id="dress-all">dress: suit + shoes + hat</button>
+        <button id="undress">undress</button>
+    </div>
+    <div id="status"></div>
+
+    <h2>Measured, live</h2>
+    <p class="note">
+        <code>body</code> is what the index rebuild left. The baked build of the same two garments
+        is 17,012 triangles and the undressed body is 26,756; both are asserted against real GLBs
+        by <code>packages/core/src/wardrobe/wardrobe.selftest.mjs</code>.
+    </p>
+    <div id="stats"></div>
+
+    <h2>Hide masks on this body</h2>
+    <div id="masks"></div>
+
+    <h2>Manifest</h2>
+    <p class="note">
+        Layer order is ours — <code>z_depth</code> in the mhclo is inert, four write sites and no
+        consumer, and its shipped values put shoes under suits.
+    </p>
+    <div id="manifest"></div>
+
+    <h2>Environment</h2>
+    <div id="env"></div>
+</div>
+
+<script type="module" src="./wardrobe.js"></script>
+</body>
+</html>

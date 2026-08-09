@@ -1,0 +1,11 @@
+# Garment fragments are BUILD OUTPUT, exactly like assets/figures/*.glb, and for the same reason:
+# they come out of headless Blender + MPFB2 and are regenerable in about a second each.
+#
+#   blender --background --python tools/figure-pipeline/build_figure.py -- \
+#       --gender 0.5 --output assets/figures/figure_g050.glb \
+#       --garment female_casualsuit01 --garment shoes01 \
+#       --hide-mask-attribute --garment-fragment-dir assets/wardrobe
+#
+# The manifest is NOT build output. It is authored, it is the authority the build, the runtime and
+# the asset gate all read alphaMode and layer order from, and it is committed.
+*/*.glb

@@ -15,9 +15,34 @@ Usage:
         --gender 0.5 --output /path/to/figure_g050.glb
 
 Run --help through the same '--' separator for the full option list.
+
+## Clothing (punch-list 9.2)
+
+    blender --background --python build_figure.py -- \
+        --gender 0.5 --output body_g050.glb \
+        --garment female_casualsuit01 --garment shoes01 \
+        --hide-mask-attribute --garment-fragment-dir assets/wardrobe
+
+`--garment` attaches an MPFB CLOTHES asset through the same `add_mhclo_asset` +
+`ClothesService.set_up_rigging` path the face parts already use — no new code path, and the
+garment arrives fully skinned to the figure's own rig.
+
+`--hide-mask-attribute` is what makes a wardrobe possible at all. Left alone, MPFB hides the body
+under a garment with a `Delete.<asset>` vertex group behind a MASK modifier, and
+`bake_modifiers_remove_helpers(bake_masks=True)` makes that deletion permanent. **A body whose
+torso has been deleted cannot undress.** With this flag the same vertex set travels as a
+per-vertex `_hide_<asset>` attribute instead, the MASK modifier is dropped, and the runtime
+rebuilds the body's index buffer from the union of whichever masks are worn. That is
+geometrically lossless: `docs/research/wardrobe-system.md` §2.4 measured the rebuilt body at
+17,012 triangles against 17,012 for the baked build, at 0.1609 ms median over 30 runs.
+
+`--garment-fragment-dir` writes each garment to its own small GLB — the fragment the runtime
+fetches on demand — and leaves it out of the body GLB. §3.5 of the research chose fragments over
+one atlas GLB because textures are 81–87% of a clothed figure and VRAM is the binding constraint.
 """
 
 import argparse
+import json
 import os
 import sys
 
@@ -99,6 +124,36 @@ ALPHA_MASK_CUTOFF = 0.5
 # the head and nowhere else. Present in MPFB's game_engine rig.
 FALLBACK_BONE_NAME = "head"
 
+# Where MPFB keeps CLOTHES assets, and the vertex group it names the hidden body region after.
+# `update_delete_group` (clothesservice.py:295) creates 'Delete.<assetname>' and hangs an inverted
+# MASK modifier off it; both are named this way and both are found by this prefix.
+GARMENT_ASSET_SUBDIR = "clothes"
+DELETE_GROUP_PREFIX = "Delete."
+
+# The per-vertex attribute a garment's hidden body region travels as when --hide-mask-attribute is
+# on. 1.0 means "this body vertex is under the garment and must not be drawn while it is worn".
+#
+# 🚩 Blender's glTF exporter UPPER-CASES a custom attribute name: authored '_hide_shoes01', the
+# file carries '_HIDE_SHOES01'. Verified on the built GLB, not read off a wiki. Every consumer —
+# GarmentManifest.js, Wardrobe.js and verify_glb.mjs — matches case-insensitively for that reason.
+#
+# 🚩 And the exporter's `export_attributes` DEFAULTS OFF, which is the quiet half: the first build
+# of this path exported cleanly, reported success, and carried no attribute at all. `export_glb`
+# passes it explicitly, and `describe_hide_masks` reads the written file back rather than trusting
+# the export call, because a silent drop here is invisible until the runtime has nothing to hide.
+HIDE_MASK_ATTRIBUTE_PREFIX = "_hide_"
+
+# A garment fragment is a garment mesh plus the rig it is skinned to, and nothing else. The
+# filename is the point on the gender axis, because a fragment CANNOT be shared across the five
+# figures — `female_casualsuit01` drifts mean 95.145 mm / max 143.066 mm between g000 and g100
+# (research §3.3), and cross-fitting puts 84.4% of the covered skin outside the cloth.
+GARMENT_FRAGMENT_FILENAME = "g{:03d}.glb"
+
+# The manifest the build reads a garment's alphaMode from, relative to the repo root two levels up.
+DEFAULT_WARDROBE_MANIFEST = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    "assets", "wardrobe", "manifest.json")
+
 
 def parse_arguments():
     """Reads the arguments Blender passes through after the '--' separator."""
@@ -138,8 +193,52 @@ def parse_arguments():
                         help="Skip the 22 Microsoft visemes. The 15 OVR ones are always loaded.")
     parser.add_argument("--keep-morph-normals", action="store_true",
                         help="Export per-morph normals. Roughly doubles file size.")
+    parser.add_argument("--garment", action="append", default=[], metavar="ID",
+                        help="MPFB clothes asset id, e.g. 'female_casualsuit01'. Repeatable.")
+    parser.add_argument("--hide-mask-attribute", action="store_true",
+                        help="Carry each garment's hidden body region as a per-vertex "
+                             "'_hide_<id>' attribute instead of baking the MASK modifier. The "
+                             "body keeps all its geometry and the runtime rebuilds the index "
+                             "buffer, which is what lets the figure undress.")
+    parser.add_argument("--garment-fragment-dir", default=None, metavar="DIR",
+                        help="Write each garment to DIR/<id>/g<NNN>.glb as a standalone fragment "
+                             "and leave it out of the body GLB.")
+    parser.add_argument("--wardrobe-manifest", default=DEFAULT_WARDROBE_MANIFEST,
+                        help="Garment manifest the build reads alphaMode from. One authority for "
+                             "the build, the runtime and the asset gate.")
 
     return parser.parse_args(script_arguments)
+
+
+def read_wardrobe_manifest(manifest_path, garment_ids):
+    """alphaMode per garment id, read from the wardrobe manifest.
+
+    The build does NOT decide a garment's alpha mode from its name. `verify_glb.mjs` reads the
+    same field out of the same file, so a garment whose manifest entry says MASK and whose GLB
+    says OPAQUE is a gate failure rather than two files quietly disagreeing — which is exactly the
+    hole the five-regex whitelist left (research §3.7).
+
+    An unlisted garment stops the build. A garment nothing describes cannot be dressed, layered or
+    verified, so shipping one is worse than not building it.
+    """
+    if not garment_ids:
+        return {}
+
+    if not os.path.exists(manifest_path):
+        raise SystemExit(f"Build failed: no wardrobe manifest at {manifest_path}, and "
+                         f"--garment was given for {garment_ids}.")
+
+    with open(manifest_path, encoding="utf-8") as handle:
+        manifest = json.load(handle)
+
+    by_id = {entry["id"]: entry for entry in manifest.get("garments", [])}
+
+    unlisted = [garment_id for garment_id in garment_ids if garment_id not in by_id]
+    if unlisted:
+        raise SystemExit(f"Build failed: {unlisted} are not in {manifest_path}. Add a manifest "
+                         "entry — id, layer, alphaMode, clo, fabric, formality, palette — first.")
+
+    return {garment_id: by_id[garment_id]["alphaMode"] for garment_id in garment_ids}
 
 
 def create_figure(arguments):
@@ -195,8 +294,12 @@ def attach_face_parts(basemesh, arguments):
     return attached
 
 
-def bind_face_parts_to_rig(basemesh, rig, face_parts):
-    """Gives every face part the armature modifier and bone weights it needs to export skinned.
+def bind_mhclo_parts_to_rig(basemesh, rig, parts):
+    """Gives every mhclo part the armature modifier and bone weights it needs to export skinned.
+
+    Face parts and garments arrive by the same route and are rigged by the same call. Measured on
+    `female_casualsuit01`: 2,197 of 2,197 garment vertices weighted, 0 strays
+    (`docs/research/wardrobe-system.md` §1.1).
 
     MPFB only rigs an mhclo asset if a skeleton already exists when the asset is added
     (HumanService.add_mhclo_asset), and this build deliberately adds the face parts first — see
@@ -210,7 +313,7 @@ def bind_face_parts_to_rig(basemesh, rig, face_parts):
     before the strip, because the weights are interpolated through mhclo vertex correspondences
     that index the basemesh by vertex number.
     """
-    for part_object, asset_path, _alpha_mode in face_parts:
+    for part_object, asset_path, _alpha_mode in parts:
         mhclo = Mhclo()
         mhclo.load(asset_path)
 
@@ -272,6 +375,114 @@ def bind_unweighted_vertices_to_fallback_bone(mesh_object, rig):
     fallback_group.add(stray_indices, 1.0, "REPLACE")
 
     return len(stray_indices)
+
+
+def attach_garments(basemesh, arguments):
+    """Adds each --garment as an MPFB CLOTHES asset, through the existing mhclo path.
+
+    Returns the same (object, mhclo path, alpha mode) shape the face parts use, so the rigging and
+    alpha passes can treat a garment and an eyebrow identically.
+
+    Two ordering facts this depends on, both load-bearing:
+
+      * Garments are attached AFTER the expression shape keys are loaded. `interpolate_targets`
+        pushes all 89 morphs onto the figure's direct children, and a jacket has no use for
+        `viseme_kk` — attaching later keeps the fragment small and its morph list empty.
+      * They are attached BEFORE the rig, like the face parts, because `set_up_rigging` needs the
+        mhclo's vertex correspondences into the basemesh and those are read before the helper
+        strip.
+
+    Alpha mode is deliberately not decided here. `assets/wardrobe/manifest.json` owns it — a wool
+    coat is OPAQUE and a mesh panel is MASK, and that is a property of the garment, not of a
+    filename pattern. The value is looked up per garment at export time by `garment_alpha_mode`.
+    """
+    attached = []
+    for garment_id in arguments.garment:
+        asset_path = AssetService.find_asset_absolute_path(
+            f"{garment_id}.mhclo", asset_subdir=GARMENT_ASSET_SUBDIR)
+        if asset_path is None:
+            raise SystemExit(
+                f"Build failed: no clothes asset '{garment_id}.mhclo' under the MPFB "
+                f"'{GARMENT_ASSET_SUBDIR}' data directory.")
+
+        garment_object = HumanService.add_mhclo_asset(asset_path, basemesh,
+                                                      asset_type="Clothes",
+                                                      material_type="GAMEENGINE")
+        attached.append((garment_object, asset_path, garment_id))
+        print(f"  added garment: {garment_id} ({len(garment_object.data.vertices):,} verts)")
+
+    return attached
+
+
+def hide_mask_attribute_name(garment_id):
+    """The per-vertex attribute a garment's hidden body region travels under."""
+    return f"{HIDE_MASK_ATTRIBUTE_PREFIX}{garment_id}"
+
+
+def write_hide_mask_attributes(basemesh, garments):
+    """Turns each 'Delete.<id>' vertex group into a per-vertex attribute and drops its modifier.
+
+    This is the whole of punch-list 9.2. MPFB's `update_delete_group` does not delete anything by
+    itself — it makes a vertex group and an inverted MASK modifier, and the destruction happens
+    later, at `bake_modifiers_remove_helpers(bake_masks=True)`. So the deletion is ours, at one
+    line, and it is optional.
+
+    Written BEFORE the bake on purpose: Blender remaps a mesh attribute through the helper strip
+    exactly as it remaps positions, so the flags stay on the right vertices without this code
+    knowing anything about which vertices the strip removes.
+
+    Returns [(garment id, attribute name, flagged vertex count)].
+    """
+    written = []
+
+    for _garment_object, _asset_path, garment_id in garments:
+        group = basemesh.vertex_groups.get(f"{DELETE_GROUP_PREFIX}{garment_id}")
+
+        # A hat hides nothing — `fedora01` ships no delete_verts at all — so an absent group is a
+        # legitimate garment, not a failure. It gets no attribute and the manifest records no mask.
+        if group is None:
+            print(f"  {garment_id}: no delete group, nothing to hide")
+            continue
+
+        flagged = [vertex.index for vertex in basemesh.data.vertices
+                   if any(entry.group == group.index for entry in vertex.groups)]
+
+        attribute_name = hide_mask_attribute_name(garment_id)
+        attribute = basemesh.data.attributes.new(attribute_name, "FLOAT", "POINT")
+        for index in flagged:
+            attribute.data[index].value = 1.0
+
+        remove_mask_modifier(basemesh, f"{DELETE_GROUP_PREFIX}{garment_id}")
+
+        written.append((garment_id, attribute_name, len(flagged)))
+        print(f"  {garment_id}: {len(flagged):,} body verts flagged as {attribute_name}, "
+              "MASK modifier removed")
+
+    return written
+
+
+def remove_mask_modifier(mesh_object, modifier_name):
+    """Drops the MASK modifier that would otherwise bake the hidden region away permanently."""
+    modifier = mesh_object.modifiers.get(modifier_name)
+    if modifier is not None:
+        mesh_object.modifiers.remove(modifier)
+
+
+def describe_hide_masks(basemesh, expected_attribute_names):
+    """Fails the build if a hide-mask attribute did not survive to the exported mesh.
+
+    🚩 This exists because the failure it catches is silent. Blender's glTF exporter drops custom
+    attributes unless `export_attributes=True`, and the build still reports success: the first run
+    of this path wrote `POSITION,NORMAL,TEXCOORD_0,JOINTS_0,WEIGHTS_0` and nothing else, printed a
+    clean summary, and produced a figure that could never undress.
+    """
+    present = {name.lower() for name in basemesh.data.attributes.keys()}
+    missing = [name for name in expected_attribute_names if name.lower() not in present]
+
+    if missing:
+        raise SystemExit(
+            f"Build failed: hide-mask attributes {missing} are not on the baked basemesh. They "
+            "were written before the bake, so the helper strip dropped them.")
 
 
 def apply_skin(basemesh, arguments):
@@ -749,7 +960,40 @@ def export_glb(hierarchy, output_path, arguments):
         export_extras=True,                # carries mesh 'targetNames' through to the loader
         export_skins=arguments.rig != "none",
         export_animations=False,
+        # 🚩 Defaults OFF, and the build reports success without it. Passed explicitly, as a
+        # boolean rather than a conditional keyword, so the nude control build keeps exporting
+        # byte-for-byte what it always did: measured, sha256 b56115d0cb52… either way.
+        export_attributes=arguments.hide_mask_attribute,
         export_yup=True)
+
+
+def export_garment_fragments(rig, garments, arguments):
+    """Writes one GLB per garment: the garment mesh, skinned, plus the rig it is skinned to.
+
+    A fragment is what the runtime fetches when the avatar puts something on. It carries no body,
+    no face parts and no morph targets — `female_casualsuit01` is 2,197 verts and 4,236 triangles
+    — so the whole cost of a garment is its textures, which is what research §3.4 says the wardrobe
+    budget actually is.
+
+    The rig travels with the fragment because a skinned glTF mesh has to name its joints, and
+    `Wardrobe.js` then throws that copy away and rebinds the geometry to the figure's own live
+    skeleton by BONE NAME. Position in the joint array is not assumed to match; it is remapped.
+    """
+    if arguments.garment_fragment_dir is None:
+        return []
+
+    gender_suffix = int(round(arguments.gender * 100))
+    written = []
+
+    for garment_object, _asset_path, garment_id in garments:
+        fragment_path = os.path.join(os.path.abspath(arguments.garment_fragment_dir), garment_id,
+                                     GARMENT_FRAGMENT_FILENAME.format(gender_suffix))
+        export_glb([rig, garment_object], fragment_path, arguments)
+        written.append((garment_id, fragment_path))
+        print(f"  fragment: {garment_id} -> {fragment_path} "
+              f"({os.path.getsize(fragment_path):,} bytes)")
+
+    return written
 
 
 def shape_key_names(mesh_object):
@@ -822,6 +1066,8 @@ def main():
 
     print(f"Building figure at gender={arguments.gender} -> {output_path}")
 
+    garment_alpha_modes = read_wardrobe_manifest(arguments.wardrobe_manifest, arguments.garment)
+
     clear_startup_scene()
 
     basemesh = create_figure(arguments)
@@ -834,12 +1080,25 @@ def main():
     # silently skipped, leaving the teeth behind when the jaw opens.
     load_expression_shape_keys(basemesh, arguments)
 
+    # Garments come after the expressions and before the rig. See attach_garments for why both
+    # halves of that sentence matter.
+    garments = attach_garments(basemesh, arguments)
+
+    rig = None
     if arguments.rig != "none":
         rig = HumanService.add_builtin_rig(basemesh, arguments.rig)
         print(f"  added rig: {arguments.rig}")
-        bind_face_parts_to_rig(basemesh, rig, face_parts)
+        bind_mhclo_parts_to_rig(basemesh, rig, face_parts)
+        bind_mhclo_parts_to_rig(basemesh, rig, garments)
+
+    hide_masks = []
+    if arguments.hide_mask_attribute:
+        hide_masks = write_hide_mask_attributes(basemesh, garments)
 
     bake_for_export(basemesh)
+
+    if arguments.hide_mask_attribute:
+        describe_hide_masks(basemesh, [name for _id, name, _count in hide_masks])
 
     # After the helper strip, because the strip works through mhclo vertex correspondences that
     # index the basemesh, and before the alpha pass, because the alpha pass is what would otherwise
@@ -851,11 +1110,38 @@ def main():
             face_parts.append((cornea_object, "", "OPAQUE"))
 
     force_alpha_modes(basemesh, face_parts)
+    for garment_object, _asset_path, garment_id in garments:
+        alpha_mode = garment_alpha_modes[garment_id]
+        force_alpha_mode(garment_object, alpha_mode)
+        print(f"  {garment_object.name}: {alpha_mode} (from the wardrobe manifest)")
 
     hierarchy = collect_figure_hierarchy(basemesh)
     bake_macro_shape_keys_on_hierarchy(hierarchy)
-    export_glb(hierarchy, output_path, arguments)
-    describe_result(basemesh, hierarchy, output_path)
+
+    fragments = export_garment_fragments(rig, garments, arguments)
+
+    # A garment written as its own fragment is deliberately absent from the body GLB: the body
+    # carries the hide masks for the whole catalogue and the garments arrive on demand.
+    garment_objects = {garment_object for garment_object, _path, _id in garments}
+    body_hierarchy = [member for member in hierarchy
+                      if member not in garment_objects or not fragments]
+
+    export_glb(body_hierarchy, output_path, arguments)
+    describe_result(basemesh, body_hierarchy, output_path)
+    describe_wardrobe(hide_masks, fragments)
+
+
+def describe_wardrobe(hide_masks, fragments):
+    """Prints what the wardrobe half of the build produced, so a silent drop cannot pass."""
+    if not hide_masks and not fragments:
+        return
+
+    print("")
+    print("=== wardrobe ===")
+    for garment_id, attribute_name, flagged in hide_masks:
+        print(f"hide mask       : {attribute_name} ({garment_id}) {flagged:,} body verts")
+    for garment_id, fragment_path in fragments:
+        print(f"fragment        : {garment_id} -> {fragment_path}")
 
 
 main()

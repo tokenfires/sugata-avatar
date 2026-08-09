@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "note": "Punch-list 9.1. The garments below are MPFB2's CC0 assets and are PLUMBING STAND-INS, not the shipping capsule — 9.9 authors that. They exist so dress/undress, the hide-mask rebuild and the asset gate are exercised against real skinned geometry rather than a fixture.",
+  "fragmentPaths": "Relative to THIS FILE, not to the repo root. The build writes them, the runtime resolves them against the manifest's own URL, and the node selftest against its own directory — so moving the wardrobe directory moves everything in it and nothing has to be rewritten.",
+  "figureCoverage": "Only g050 is declared. A garment fragment CANNOT be shared across the five figures — female_casualsuit01 drifts mean 95.145 mm / max 143.066 mm between g000 and g100, and cross-fitting puts 84.4% of the covered skin outside the cloth (research/wardrobe-system.md §3.3). Punch-list 9.4 bakes the other four and measures the fit; declaring paths to files nobody has measured would be a promise this manifest cannot keep, and GarmentManifest.fragmentUrl throws a named error for a figure a garment does not ship.",
+  "layers": [
+    {
+      "name": "FOUNDATION",
+      "order": 100,
+      "description": "Bra, briefs, boxer brief, vest. Punch-list 9.8 authors these; nothing may remove them and they carry no hide mask of their own."
+    },
+    {
+      "name": "HOSIERY",
+      "order": 200,
+      "description": "Socks, tights, stockings."
+    },
+    {
+      "name": "BASE",
+      "order": 300,
+      "description": "Shirt, tee, trousers, skirt, dress, one-piece suit — the layer worn directly over the foundation."
+    },
+    {
+      "name": "MID",
+      "order": 400,
+      "description": "Sweater, hoodie, cardigan, waistcoat."
+    },
+    {
+      "name": "OUTER",
+      "order": 500,
+      "description": "Coat, jacket, trench, puffer."
+    },
+    {
+      "name": "FOOTWEAR",
+      "order": 600,
+      "description": "Shoes, boots, sneakers."
+    },
+    {
+      "name": "HANDWEAR",
+      "order": 700,
+      "description": "Gloves, mittens."
+    },
+    {
+      "name": "NECKWEAR",
+      "order": 800,
+      "description": "Scarf, tie, necklace."
+    },
+    {
+      "name": "HEADWEAR",
+      "order": 900,
+      "description": "Hat, cap, hijab, headband."
+    },
+    {
+      "name": "ACCESSORY",
+      "order": 1000,
+      "description": "Belt, bag, eyewear, watch."
+    }
+  ],
+  "slots": [
+    "HEAD",
+    "NECK",
+    "TORSO",
+    "ARMS",
+    "HANDS",
+    "HIPS",
+    "LEGS",
+    "FEET"
+  ],
+  "garments": [
+    {
+      "id": "female_casualsuit01",
+      "name": "Casual suit",
+      "layer": "BASE",
+      "slots": ["TORSO", "ARMS", "HIPS", "LEGS"],
+      "hideMask": "_hide_female_casualsuit01",
+      "alphaMode": "OPAQUE",
+      "clo": 0.4,
+      "cloSource": "ASHRAE 55-2013 Table 5.2.2.2B, additive per §5.2.2.2(c): long-sleeve dress shirt 0.25 + trousers, thin 0.15. The table has no one-piece casual suit; this is the sum of its two parts, and the sum is what the standard says to do.",
+      "fabric": "cotton_twill",
+      "formality": 2,
+      "formalitySource": "AUTHORED. research/wardrobe-system.md §6 records that no literature supports a formality ladder; the number is a design choice and is marked as one.",
+      "palette": ["#5a5f6b", "#2f333c", "#7d7468"],
+      "fragments": {
+        "g050": "female_casualsuit01/g050.glb"
+      },
+      "source": "MPFB2 / MakeHuman system assets, CC0 (released September 2020 by Data Collection AB, Joel Palmius, Jonas Hauquier)."
+    },
+    {
+      "id": "shoes01",
+      "name": "Low shoes",
+      "layer": "FOOTWEAR",
+      "slots": ["FEET"],
+      "hideMask": "_hide_shoes01",
+      "alphaMode": "OPAQUE",
+      "clo": 0.02,
+      "cloSource": "ASHRAE 55-2013 Table 5.2.2.2B, 'shoes' 0.02.",
+      "fabric": "leather",
+      "formality": 2,
+      "formalitySource": "AUTHORED, as above.",
+      "palette": ["#3a3129", "#151517"],
+      "fragments": {
+        "g050": "shoes01/g050.glb"
+      },
+      "source": "MPFB2 / MakeHuman system assets, CC0."
+    },
+    {
+      "id": "fedora01",
+      "name": "Fedora",
+      "layer": "HEADWEAR",
+      "slots": ["HEAD"],
+      "hideMask": null,
+      "alphaMode": "OPAQUE",
+      "clo": null,
+      "cloSource": "NONE. ASHRAE 55-2013 Table 5.2.2.2B lists no headwear, and research/wardrobe-system.md §6.1 makes clo the seasonal input. A fabricated value would corrupt every ensemble sum, so this garment declares no insulation and Dresser (9.11) must treat null as 'contributes nothing', not as zero-because-measured.",
+      "fabric": "wool_gabardine",
+      "formality": 3,
+      "formalitySource": "AUTHORED, as above.",
+      "palette": ["#4a4038", "#232326"],
+      "fragments": {
+        "g050": "fedora01/g050.glb"
+      },
+      "source": "MPFB2 / MakeHuman system assets, CC0. Measured: this asset carries NO delete_verts at all, which is why hideMask is null — a hat hides nothing."
+    },
+    {
+      "id": "female_elegantsuit01",
+      "name": "Elegant suit",
+      "layer": "BASE",
+      "slots": ["TORSO", "ARMS", "HIPS", "LEGS"],
+      "hideMask": "_hide_female_elegantsuit01",
+      "alphaMode": "OPAQUE",
+      "clo": 0.61,
+      "cloSource": "ASHRAE 55-2013 Table 5.2.2.2B, additive: long-sleeve dress shirt 0.25 + trousers, thin 0.15 + suit jacket, single-breasted, thin 0.36 would be 0.76; this asset is a dress and jacket rather than three pieces, so the sum used is dress-equivalent (shirt 0.25 + trousers 0.15) plus a thin jacket 0.36 minus the trousers it does not have. AUTHORED ARITHMETIC over table rows — flagged, because the table has no row for this garment.",
+      "fabric": "wool_gabardine",
+      "formality": 4,
+      "formalitySource": "AUTHORED, as above.",
+      "palette": ["#2b2b33", "#4d3f46"],
+      "fragments": {
+        "g050": "female_elegantsuit01/g050.glb"
+      },
+      "source": "MPFB2 / MakeHuman system assets, CC0. Present because it collides with female_casualsuit01 on every slot at the same layer, which is the state MPFB attaches today with no warning — the two suits interpenetrate and both delete groups apply as a union (research §2.2). It is the manifest gate's known-bad."
+    }
+  ]
+}

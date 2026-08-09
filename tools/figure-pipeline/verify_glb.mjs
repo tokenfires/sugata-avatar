@@ -209,10 +209,41 @@ async function readMeshesViaThree(fileBuffer) {
       mouthGeometry: LIP_SEAL_MESHES.some((pattern) => pattern.test(object.name))
         ? { positions: positionsOf(object.geometry), jawOpen: jawOpenDeltasOf(object) }
         : null,
+      // Counted here rather than in the clause, because this is the only place the loaded
+      // geometry is in hand. An empty list on a body is what a build with export_attributes
+      // left off produces, and it is indistinguishable from a nude figure without the manifest.
+      hideMasks: hideMasksOf(object.geometry),
     });
   });
 
   return perMesh;
+}
+
+/** Every `_HIDE_*` attribute on a geometry, with how many vertices each one flags.
+ *
+ * Case-insensitive by construction: the exporter upper-cases what the build authored in
+ * lower-case, so neither spelling can be the one to match on.
+ */
+function hideMasksOf(geometry) {
+  const masks = [];
+  const vertexCount = geometry.attributes.position.count;
+
+  for (const [name, attribute] of Object.entries(geometry.attributes)) {
+    if (!name.toLowerCase().startsWith("_hide_")) {
+      continue;
+    }
+
+    let flagged = 0;
+    for (let vertex = 0; vertex < vertexCount; vertex += 1) {
+      if (attribute.getX(vertex) > 0.5) {
+        flagged += 1;
+      }
+    }
+
+    masks.push({ name, flagged, vertexCount });
+  }
+
+  return masks.sort((first, second) => first.name.localeCompare(second.name));
 }
 
 // --- the lip seal ---------------------------------------------------------------------------
@@ -403,7 +434,7 @@ function reportMissing(label, required, present) {
   return missing;
 }
 
-async function verifyFigure(glbPath) {
+async function verifyFigure(glbPath, wardrobe = null) {
   console.log("");
   console.log("=".repeat(78));
   console.log(glbPath);
@@ -474,7 +505,8 @@ async function verifyFigure(glbPath) {
 
   failures.push(...reportFaceParts(meshes));
   failures.push(...reportSkinning(json, threeMeshes));
-  failures.push(...reportMaterials(json, threeMeshes));
+  failures.push(...reportMaterials(json, threeMeshes, wardrobe));
+  failures.push(...reportHideMasks(json, threeMeshes, wardrobe));
   failures.push(...reportEyeGeometry(threeMeshes));
   failures.push(...reportLipSeal(threeMeshes));
 
@@ -693,7 +725,7 @@ const EXPECTED_ALPHA_CUTOFF = 0.5;
 const THREE_FRONT_SIDE = 0;
 const THREE_DOUBLE_SIDE = 2;
 
-function reportMaterials(gltfJson, threeMeshes) {
+function reportMaterials(gltfJson, threeMeshes, wardrobe) {
   const failures = [];
 
   console.log("");
@@ -703,11 +735,20 @@ function reportMaterials(gltfJson, threeMeshes) {
     // glTF omits alphaMode when it is the default, so an absent field means OPAQUE.
     const alphaMode = material.alphaMode ?? "OPAQUE";
     const doubleSided = material.doubleSided === true;
-    const isCutout = MASK_MATERIAL_PARTS.some((pattern) => pattern.test(material.name));
-    const isSolid = OPAQUE_MATERIAL_PARTS.some((pattern) => pattern.test(material.name));
+
+    // 🚩 Punch-list 9.5. A garment matched NONE of the five regexes above, so a clothed figure
+    // failed this gate BY CONSTRUCTION: `suit_g050` reported one problem and `layered_g050`
+    // reported three while every eye, lip-seal and morph assertion stayed green (research §3.7).
+    // The fix is not a sixth regex. A wool coat is OPAQUE and a mesh panel is MASK, and no name
+    // pattern can know which — so the expectation is read from the garment's own manifest entry.
+    const { garment, isCutout, isSolid, expectedCutoff } =
+      expectationFor(material.name, wardrobe);
 
     if (!isCutout && !isSolid) {
-      console.log(`  FAIL ${material.name}: unrecognised material, no expected alpha mode`);
+      const because = garment !== null
+        ? `manifest alphaMode ${garment.alphaMode} is not handled by this gate`
+        : "unrecognised material, no expected alpha mode";
+      console.log(`  FAIL ${material.name}: ${because}`);
       failures.push(`${material.name} is not covered by the material expectations`);
       continue;
     }
@@ -716,10 +757,11 @@ function reportMaterials(gltfJson, threeMeshes) {
     const problems = [];
 
     if (alphaMode !== expectedMode) {
-      problems.push(`alphaMode ${alphaMode}, expected ${expectedMode}`);
+      problems.push(`alphaMode ${alphaMode}, expected ${expectedMode}` +
+                    (garment !== null ? ` (manifest: ${garment.id})` : ""));
     }
-    if (isCutout && (material.alphaCutoff ?? EXPECTED_ALPHA_CUTOFF) !== EXPECTED_ALPHA_CUTOFF) {
-      problems.push(`alphaCutoff ${material.alphaCutoff}, expected ${EXPECTED_ALPHA_CUTOFF}`);
+    if (isCutout && (material.alphaCutoff ?? EXPECTED_ALPHA_CUTOFF) !== expectedCutoff) {
+      problems.push(`alphaCutoff ${material.alphaCutoff}, expected ${expectedCutoff}`);
     }
     // Closed geometry seen from inside is a rendering artefact; a lash card seen from behind is
     // still a lash.
@@ -736,22 +778,239 @@ function reportMaterials(gltfJson, threeMeshes) {
       continue;
     }
 
-    console.log(`  ok   ${material.name.padEnd(24)} ${alphaMode.padEnd(6)} ` +
-                `${doubleSided ? "doubleSided" : "backface culled"}`);
+    console.log(`  ok   ${material.name.padEnd(28)} ${alphaMode.padEnd(6)} ` +
+                `${doubleSided ? "doubleSided" : "backface culled"}` +
+                `${garment !== null ? `   [manifest: ${garment.id}]` : ""}`);
   }
 
-  failures.push(...reportRuntimeMaterials(threeMeshes));
+  failures.push(...reportRuntimeMaterials(threeMeshes, wardrobe));
 
   return failures;
 }
 
+// --- the wardrobe clause (punch-list 9.5) ------------------------------------------------------
+//
+// Three things this section is careful about, all of them mistakes that were available here:
+//
+//   1. **Resolution is by EXACT id, never by pattern.** `/suit/i` would accept any garment for any
+//      manifest entry, which is the same defect as the whitelist it replaces with the sign
+//      flipped. A material resolves to a garment only when its name — with at most a leading
+//      `Human.` removed, and with three.js's dot-stripping allowed for — equals a manifest id.
+//   2. **An unlisted garment still FAILS.** Falling through to "no expectation, pass" would make
+//      the gate weaker for clothed figures than for nude ones.
+//   3. **The hide masks are checked on the body, not assumed from the build log.** The exporter's
+//      `export_attributes` defaults off and the build reports success without it.
+
+/**
+ * What alpha settings a material is expected to have, and where the expectation came from.
+ *
+ * The manifest wins whenever it has an entry, and the five name regexes are the fallback for the
+ * body and the face parts, which are not garments and never will be. Factored out of both
+ * material clauses so the container check and the three.js check cannot drift apart, and so
+ * `runGarmentClauseSelftest` can exercise the decision without a GLB.
+ */
+function expectationFor(materialName, wardrobe) {
+  const garment = garmentForMaterial(materialName, wardrobe);
+
+  if (garment !== null) {
+    return {
+      garment,
+      isCutout: garment.alphaMode === "MASK",
+      isSolid: garment.alphaMode === "OPAQUE",
+      // A garment states its own cutoff. Item 3.16 lost 15,368 lash and 20,262 brow texels to the
+      // inherited glTF default of 0.5, and any garment with an alpha cutout inherits that bug.
+      expectedCutoff: garment.alphaCutoff ?? EXPECTED_ALPHA_CUTOFF
+    };
+  }
+
+  return {
+    garment: null,
+    isCutout: MASK_MATERIAL_PARTS.some((pattern) => pattern.test(materialName)),
+    isSolid: OPAQUE_MATERIAL_PARTS.some((pattern) => pattern.test(materialName)),
+    expectedCutoff: EXPECTED_ALPHA_CUTOFF
+  };
+}
+
+/** The manifest entry a glTF material belongs to, or null. */
+function garmentForMaterial(materialName, wardrobe) {
+  if (wardrobe === null || typeof materialName !== "string") {
+    return null;
+  }
+
+  // 'Human.female_casualsuit01' in the file; three.js sanitises the node name to
+  // 'Humanfemale_casualsuit01'. Both spellings are tried, and nothing else is.
+  const candidates = [
+    materialName,
+    materialName.replace(/^Human\./, ""),
+    materialName.replace(/^Human/, "")
+  ];
+
+  for (const candidate of candidates) {
+    const garment = wardrobe.byId.get(candidate);
+    if (garment !== undefined) {
+      return garment;
+    }
+  }
+
+  return null;
+}
+
+/** Loads the garment manifest, or null when there is no wardrobe to check against. */
+function readWardrobeManifest(manifestPath) {
+  if (!fs.existsSync(manifestPath)) {
+    return null;
+  }
+
+  const source = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  return {
+    path: manifestPath,
+    source,
+    byId: new Map(source.garments.map((garment) => [garment.id, garment]))
+  };
+}
+
+// A hide mask that flags nothing hides nothing, and one that flags everything erases the figure.
+// Both are silent: the build prints a count nobody reads and the runtime renders something
+// plausible. The measured masks on g050 are 5,156 / 3,130 / 3,898 of 14,517 body vertices, i.e.
+// 21% / 36% of the body, so a band this wide cannot be tripped by a legitimate garment.
+const MIN_HIDE_MASK_FRACTION = 0.001;
+const MAX_HIDE_MASK_FRACTION = 0.9;
+
+/**
+ * Every `_HIDE_*` attribute on the body is a manifest garment's, and every one of them does
+ * something.
+ *
+ * 🚩 The failure this exists for is the quietest in the whole pipeline. Blender's glTF exporter
+ * drops custom attributes unless `export_attributes=True`, which defaults OFF; the first build of
+ * the hide-mask path exported cleanly, printed a clean summary, and carried
+ * `POSITION,NORMAL,TEXCOORD_0,JOINTS_0,WEIGHTS_0` and nothing else. A figure like that can put a
+ * garment on and will never hide the body under it.
+ *
+ * 🚩 And the name is UPPER-CASED on the way out: authored `_hide_shoes01`, exported
+ * `_HIDE_SHOES01`. Matched case-insensitively, or the gate finds nothing and says so wrongly.
+ */
+function reportHideMasks(gltfJson, threeMeshes, wardrobe) {
+  const failures = [];
+
+  const carriers = threeMeshes.filter((mesh) => mesh.hideMasks.length > 0);
+
+  if (wardrobe === null || carriers.length === 0) {
+    return failures;
+  }
+
+  console.log("");
+  console.log("--- assertions on hide masks (punch-list 9.2) ---");
+
+  const declared = new Map();
+  for (const garment of wardrobe.source.garments) {
+    if (garment.hideMask !== null) {
+      declared.set(garment.hideMask.toLowerCase(), garment.id);
+    }
+  }
+
+  for (const mesh of carriers) {
+    for (const mask of mesh.hideMasks) {
+      const garmentId = declared.get(mask.name.toLowerCase());
+      const fraction = mask.flagged / mask.vertexCount;
+
+      if (garmentId === undefined) {
+        console.log(`  FAIL ${mesh.name}: ${mask.name} matches no garment's hideMask in ` +
+                    `${path.basename(wardrobe.path)}`);
+        failures.push(`${mask.name} is an undeclared hide mask`);
+        continue;
+      }
+
+      if (fraction < MIN_HIDE_MASK_FRACTION || fraction > MAX_HIDE_MASK_FRACTION) {
+        console.log(`  FAIL ${mesh.name}: ${mask.name} flags ${mask.flagged} of ` +
+                    `${mask.vertexCount} vertices (${(fraction * 100).toFixed(2)}%), which is ` +
+                    "outside the band a real garment can occupy");
+        failures.push(`${mask.name} is degenerate`);
+        continue;
+      }
+
+      console.log(`  ok   ${mask.name.padEnd(34)} ${String(mask.flagged).padStart(6)} of ` +
+                  `${mask.vertexCount} verts (${(fraction * 100).toFixed(1)}%)   [${garmentId}]`);
+    }
+  }
+
+  return failures;
+}
+
+/**
+ * A garment fragment GLB: one skinned garment, no body, no face.
+ *
+ * Verified separately from a figure because none of the figure clauses apply — a jacket has no
+ * ARKit morphs, no eyes and no lips — and running them would either fail a correct fragment or,
+ * worse, be silently skipped. The clauses that DO apply are the ones that decide whether the
+ * runtime can wear it: it is skinned, every vertex is weighted, and its material matches what the
+ * manifest says the runtime and the layering will assume.
+ */
+async function verifyGarmentFragment(glbPath, wardrobe) {
+  console.log("");
+  console.log("=".repeat(78));
+  console.log(`${glbPath}   [garment fragment]`);
+  console.log("=".repeat(78));
+
+  const fileBuffer = fs.readFileSync(glbPath);
+  const { json } = readGlbContainer(fileBuffer);
+  const threeMeshes = await readMeshesViaThree(fileBuffer);
+
+  const failures = [];
+  const meshes = summariseMeshes(json);
+
+  console.log(`file size       : ${fileBuffer.byteLength.toLocaleString()} bytes`);
+  for (const mesh of meshes) {
+    console.log(`  ${mesh.name.padEnd(28)} ${String(mesh.vertexCount).padStart(6)} verts`);
+  }
+
+  if (meshes.length !== 1) {
+    console.log(`  FAIL a fragment must carry exactly one mesh, this has ${meshes.length}`);
+    failures.push(`${path.basename(glbPath)} is not a single-garment fragment`);
+  }
+
+  console.log("");
+  console.log("--- assertions on the fragment ---");
+
+  const garment = garmentForMaterial(threeMeshes[0]?.materialName ?? "", wardrobe);
+
+  if (garment === null) {
+    console.log(`  FAIL material '${threeMeshes[0]?.materialName}' resolves to no manifest garment`);
+    failures.push(`${path.basename(glbPath)} is not in the manifest`);
+  } else {
+    console.log(`  ok   manifest entry     ${garment.id} — layer ${garment.layer}, ` +
+                `${garment.alphaMode}, clo ${garment.clo ?? "unrated"}`);
+  }
+
+  failures.push(...reportSkinning(json, threeMeshes));
+  failures.push(...reportMaterials(json, threeMeshes, wardrobe));
+
+  return failures;
+}
+
+/** Whether a GLB is a garment fragment rather than a figure. */
+function looksLikeGarmentFragment(glbPath, wardrobe) {
+  if (wardrobe === null) {
+    return false;
+  }
+
+  const { json } = readGlbContainer(fs.readFileSync(glbPath));
+  const materials = json.materials ?? [];
+
+  return materials.length === 1 && garmentForMaterial(materials[0].name, wardrobe) !== null;
+}
+
 // alphaMode is only the file's half of the story. What actually decides whether the teeth draw
 // through the lips is three.js writing depth, so assert the loaded material directly.
-function reportRuntimeMaterials(threeMeshes) {
+function reportRuntimeMaterials(threeMeshes, wardrobe) {
   const failures = [];
 
   for (const mesh of threeMeshes) {
-    const isCutout = MASK_MATERIAL_PARTS.some((pattern) => pattern.test(mesh.name));
+    // The runtime clause resolves on the MATERIAL name for a garment and falls back to the MESH
+    // name for a face part, because that is what each of the two naming conventions provides.
+    const { garment, expectedCutoff } = expectationFor(mesh.materialName, wardrobe);
+    const isCutout = garment !== null
+      ? garment.alphaMode === "MASK"
+      : MASK_MATERIAL_PARTS.some((pattern) => pattern.test(mesh.name));
     const problems = [];
 
     if (mesh.transparent) {
@@ -760,8 +1019,8 @@ function reportRuntimeMaterials(threeMeshes) {
     if (!mesh.depthWrite) {
       problems.push("depthWrite off");
     }
-    if (isCutout && mesh.alphaTest !== EXPECTED_ALPHA_CUTOFF) {
-      problems.push(`alphaTest ${mesh.alphaTest}, expected ${EXPECTED_ALPHA_CUTOFF}`);
+    if (isCutout && mesh.alphaTest !== expectedCutoff) {
+      problems.push(`alphaTest ${mesh.alphaTest}, expected ${expectedCutoff}`);
     }
     if (!isCutout && mesh.side !== THREE_FRONT_SIDE) {
       problems.push(`side ${mesh.side}, expected FrontSide`);
@@ -863,21 +1122,150 @@ function runLipSealSelftest() {
   return failures;
 }
 
+/** Every wardrobe artefact worth gating: the body that carries the masks, and each fragment. */
+function wardrobeTargets(wardrobeDir) {
+  if (!fs.existsSync(wardrobeDir)) {
+    return [];
+  }
+
+  const targets = [];
+
+  for (const entry of fs.readdirSync(wardrobeDir).sort()) {
+    const candidate = path.join(wardrobeDir, entry);
+    if (!fs.statSync(candidate).isDirectory() || entry === "baked") {
+      continue;
+    }
+    for (const file of fs.readdirSync(candidate).sort()) {
+      if (file.endsWith(".glb")) {
+        targets.push(path.join(candidate, file));
+      }
+    }
+  }
+
+  return targets;
+}
+
+/**
+ * 🚩 THE OTHER WAY, for the garment clause (punch-list 9.5, docs/LEARNINGS.md §1.1).
+ *
+ * The clause passes every garment this repo builds, which by itself proves nothing. So this drives
+ * the decision function with input whose right answer is known, in four mechanisms that all live
+ * in one class — "the gate accepts a garment it should reject":
+ *
+ *   1. a garment the manifest does not list must NOT fall through to a pass;
+ *   2. resolution must be by EXACT id — a manifest holding `female_casualsuit01` must not accept
+ *      `female_casualsuit02`, which is the failure mode a `/suit/i` regex would have;
+ *   3. a manifest declaring OPAQUE for a garment must reject a MASK material, and
+ *   4. a manifest declaring MASK must reject an OPAQUE one — the direction the punch list names,
+ *      and the one a whitelist of "known clothing names" would never see.
+ *
+ * The end-to-end version of 3 was also run once, by building the suit as a real cutout and
+ * verifying it against the shipped OPAQUE manifest; `tools/figure-pipeline/README.md` has the
+ * command. This selftest is the version that runs in a second and needs no Blender.
+ */
+function runGarmentClauseSelftest(wardrobe) {
+  console.log("");
+  console.log("--- garment clause: the gate against known-bad manifests ---");
+
+  if (wardrobe === null) {
+    console.log("  SKIP no garment manifest to test against");
+    return ["no garment manifest"];
+  }
+
+  const opaqueGarment = wardrobe.source.garments.find((entry) => entry.alphaMode === "OPAQUE");
+
+  if (opaqueGarment === undefined) {
+    console.log("  SKIP the manifest has no OPAQUE garment to build the cases from");
+    return ["no OPAQUE garment in the manifest"];
+  }
+
+  const cutoutManifest = {
+    path: wardrobe.path,
+    source: wardrobe.source,
+    byId: new Map([[opaqueGarment.id, { ...opaqueGarment, alphaMode: "MASK", alphaCutoff: 0.1 }]])
+  };
+
+  const cases = [
+    {
+      label: "unlisted garment    ",
+      run: () => expectationFor("Human.some_unlisted_jacket", wardrobe),
+      expect: (result) => result.garment === null && !result.isCutout && !result.isSolid,
+      why: "no manifest entry and no name pattern — must be reported as unrecognised"
+    },
+    {
+      label: "near-miss id        ",
+      run: () => expectationFor(`Human.${opaqueGarment.id}_variant`, wardrobe),
+      expect: (result) => result.garment === null,
+      why: "resolution is by exact id, so a lookalike name must NOT borrow the entry"
+    },
+    {
+      label: "manifest OPAQUE     ",
+      run: () => expectationFor(`Human.${opaqueGarment.id}`, wardrobe),
+      expect: (result) => result.garment !== null && result.isSolid && !result.isCutout,
+      why: "the shipped entry — a MASK material on it would be a failure"
+    },
+    {
+      label: "manifest MASK       ",
+      run: () => expectationFor(`Human.${opaqueGarment.id}`, cutoutManifest),
+      expect: (result) => result.isCutout && !result.isSolid && result.expectedCutoff === 0.1,
+      why: "a cutout garment must expect MASK and its OWN cutoff, not glTF's default 0.5"
+    },
+    {
+      label: "three.js spelling   ",
+      run: () => expectationFor(`Human${opaqueGarment.id}`, wardrobe),
+      expect: (result) => result.garment !== null,
+      why: "GLTFLoader strips the dot; both spellings must resolve to the same entry"
+    }
+  ];
+
+  const failures = [];
+
+  for (const testCase of cases) {
+    const result = testCase.run();
+    const correct = testCase.expect(result);
+
+    console.log(`  ${correct ? "ok  " : "FAIL"} ${testCase.label} ` +
+                `garment=${result.garment?.id ?? "none"} cutout=${result.isCutout} ` +
+                `solid=${result.isSolid} cutoff=${result.expectedCutoff} — ${testCase.why}`);
+
+    if (!correct) {
+      failures.push(`garment clause: ${testCase.label.trim()} decided wrongly`);
+    }
+  }
+
+  return failures;
+}
+
 async function main() {
   const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(pipelineDir, "..", "..");
   const figuresDir = path.join(repoRoot, "assets", "figures");
+  const wardrobeDir = path.join(repoRoot, "assets", "wardrobe");
 
-  if (process.argv.includes("--selftest")) {
-    const failures = runLipSealSelftest();
+  const argv = process.argv.slice(2);
+  const manifestFlag = argv.indexOf("--manifest");
+  const manifestPath = manifestFlag === -1
+    ? path.join(wardrobeDir, "manifest.json")
+    : path.resolve(argv[manifestFlag + 1]);
+
+  const wardrobe = readWardrobeManifest(manifestPath);
+
+  if (argv.includes("--selftest")) {
+    const failures = [...runLipSealSelftest(), ...runGarmentClauseSelftest(wardrobe)];
     console.log("");
     console.log(failures.length === 0
-      ? "PASS — the lip-seal gate rejects known-bad mouths and accepts a sealed one."
+      ? "PASS — the lip-seal and garment gates reject known-bad input and accept good input."
       : `FAIL — ${failures.length} problem(s): ${failures.join("; ")}`);
     process.exit(failures.length === 0 ? 0 : 1);
   }
 
-  let targets = process.argv.slice(2);
+  // `--manifest <path>` consumes the argument after it. `manifestFlag + 1` is 0 when the flag is
+  // absent, and position 0 is the first target — so the flag has to be tested for presence first
+  // or the default run silently drops whichever file was named first.
+  const manifestValuePosition = manifestFlag === -1 ? -1 : manifestFlag + 1;
+  let targets = argv.filter((argument, position) =>
+    !argument.startsWith("--") && position !== manifestValuePosition);
+
   if (targets.length === 0) {
     if (!fs.existsSync(figuresDir)) {
       console.error(`No figures directory at ${figuresDir}. Run tools/figure-pipeline/build.sh first.`);
@@ -887,6 +1275,11 @@ async function main() {
       .filter((name) => name.endsWith(".glb"))
       .sort()
       .map((name) => path.join(figuresDir, name));
+
+    // The wardrobe body and every garment fragment, when they have been built. Without this the
+    // default run would keep verifying only nude figures — which is how a clothed figure went
+    // three rounds failing this gate by construction and nobody's default run ever saw it.
+    targets.push(...wardrobeTargets(wardrobeDir));
   }
 
   if (targets.length === 0) {
@@ -894,18 +1287,25 @@ async function main() {
     process.exit(1);
   }
 
+  if (wardrobe === null) {
+    console.log(`No garment manifest at ${manifestPath}; the wardrobe clauses will not run.`);
+  }
+
   const allFailures = [];
   for (const target of targets) {
-    allFailures.push(...await verifyFigure(path.resolve(target)));
+    const resolved = path.resolve(target);
+    allFailures.push(...(looksLikeGarmentFragment(resolved, wardrobe)
+      ? await verifyGarmentFragment(resolved, wardrobe)
+      : await verifyFigure(resolved, wardrobe)));
   }
 
   console.log("");
   console.log("=".repeat(78));
   if (allFailures.length === 0) {
-    console.log(`PASS — ${targets.length} figure(s) verified.`);
+    console.log(`PASS — ${targets.length} file(s) verified.`);
     process.exit(0);
   }
-  console.log(`FAIL — ${allFailures.length} problem(s) across ${targets.length} figure(s).`);
+  console.log(`FAIL — ${allFailures.length} problem(s) across ${targets.length} file(s).`);
   process.exit(1);
 }
 
