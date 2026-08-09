@@ -1035,10 +1035,29 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
 
 ## Phase 5 — Affect
 
-🎯 **5.1, 5.2, 5.4 and 5.5 are DONE.** Gate for all four: `packages/core/src/affect/affect.selftest.mjs`,
-**91 checks**, every constant re-derived in-process rather than compared to a literal, nine
-reintroduced defects proved red across five classes. Browsercheck: `packages/testbed/src/affect.html`,
-which drives the real figure rather than a fixture.
+🎯 **5.1, 5.2, 5.4 and 5.5 are DONE**, and the affect half of **6.2** landed with them. Gate for all
+five: `packages/core/src/affect/affect.selftest.mjs`, **112 checks**, every constant re-derived
+in-process rather than compared to a literal, and **18 rejection proofs** — all **13** declared
+defect modes across `AffectState`, `ExpressionMap` and `PostureLayer`, plus four structural
+known-bads that are configurations rather than flags. Browsercheck:
+`packages/testbed/src/affect.html`, which drives the real figure rather than a fixture.
+
+🚩 **AND A BLOCKER THAT LIVED THROUGH THE WHOLE OF PHASE 5 BECAUSE NOTHING MEASURED A BONE BELOW THE
+NECK.** `ExpressionMap.body()` computed a BAP prescription every frame from 5.4 onward and the only
+readers in the tree were a HUD string and a `readout()` object.
+**Measured by the R9 verifier** on eight portrait plates at `alive.html?bare&affect=<preset>&seed=1`,
+900×1200 dpr 1, 90 steps at 30 fps, **shipped defaults (aa=taau + grade + RCAS, MSAA OFF)**,
+differenced against neutral at Δ>2/255: the face band changed **18.28–43.97%** of its pixels and the
+**torso band (rows 800–1200) changed 0.00% for joy, anger, fear, sadness and surprise** and 1.99%
+for disgust and bored.
+**Reproduced independently at the mechanism level** through a real `MotionStack` over
+`figure_g050.glb`: `ExpressionLayer` declares **0 bone channels**, and across all seven non-neutral
+presets **0 of 20 body bones** moved by more than 0.000000 mm against neutral, while the
+prescriptions read anger `approach 0.947 / armSpread −0.807 / illustrative 0.425`, fear
+`approach −0.705 / kneeActivation 0.855`, joy `armSpread 0.565 / headTiltUp 1.000`.
+R5 asks for the full range of emotion as a full-body avatar and the avatar emoted from the eyebrows
+up. `affect/PostureLayer.js` is the actuator; `?affectbody=0` is the A side that keeps the claim
+attributable.
 
 - [x] **5.1** `affect/AffectState.js` — PAD + asymmetric smoothing (attack 150–250 ms, decay
       1.5–3 s) + slow mood layer (10 min change, 20 min return).
@@ -1092,6 +1111,12 @@ which drives the real figure rather than a fixture.
 - [ ] **5.6** `ear/Mic.js` — capture, VAD, listening posture, backchannel nods, gaze shift.
 - [ ] **5.7** Gate: **CRITIC** — full emotional range legible blind; disgust exempt from the body
       gate (no posture reaches 50% recognition; it is face-only).
+      🚩 **THIS GATE WAS UNREACHABLE UNTIL 2026-08-09 AND THE REASON WAS NOT THE FACE.** A critic
+      asked whether the full range reads would have been shown seven plates whose BODIES were
+      bit-identical for five of them. `affect/PostureLayer.js` closed that; see 6.2 for the measured
+      per-preset displacements and for the four channels still outstanding. **Capture the critic
+      plates at `?frame=body`** — a portrait crop cannot show a 14° trunk lean or a 334 mm hand
+      span, and every affect plate this project has captured so far was a portrait.
       ⚠️ **EXPECT THIS TO PUSH BACK, AND THE TWO CAUSES ARE ALREADY MEASURED.** The four portrait
       plates in `captures/affect-phase5/` are measurably distinct — joy vs anger changes **19.87%**
       of the face-band pixels, closest emotion pair 0.2553 RMS over 19 committed influences — and
@@ -1119,6 +1144,46 @@ which drives the real figure rather than a fixture.
 - [ ] **6.2** `motion/Posture.js` — BAP loadings: anger forward-lean +1.96 / fear backward +1.46 /
       joy broad symmetric arms + head up / sadness arms drawn in. **This is where dominance
       becomes visible.**
+      🎯 **THE AFFECT HALF IS BUILT AND GATED — `packages/core/src/affect/PostureLayer.js`**, at
+      `MOTION_ORDER.POSTURE`, driving three of `body()`'s nine channels. Full scales are DERIVED
+      from Coulson Table 1 by one rule the gate re-runs — the smallest non-zero magnitude in the
+      column that codes the channel — giving **approach 20° (chest bend), armSpread 50° (shoulder
+      ad/abduct), headTiltUp 20° (head bend)**, scaled by the BAP loading and again by the
+      activation weight. Signs are **measured on the rig at bind**, not transcribed, because
+      research §3 records three sign problems in the published paper and Coulson's own shoulder
+      convention contradicts his verbal summary. Measured on `figure_g050` in `relaxed-standing`,
+      per preset, worst world displacement of 20 body bones against neutral:
+      **anger 139.6 mm** (trunk +14.20°, head 133.7 mm forward, arms clamped to vertical),
+      **joy 175.3 mm** (arms +21.20°, head +15.00°, hand span +333.9 mm),
+      **surprise 148.6 mm**, **sadness 99.0 mm**, **disgust 86.3 mm**, **fear 34.7 mm**
+      (trunk −3.53°, head 34.4 mm back), **bored 0.0 mm**.
+      🎯 Anger and fear are identical in pleasure and arousal and opposite in dominance, and their
+      trunks now go opposite ways — the axis the face may not carry, visible in the body and
+      nowhere else.
+      ⚠️ **WHAT IS STILL 6.2's, AND WHY EACH ONE WAS LEFT.**
+      (a) `kneeActivation` — fear's largest loading at 1.77. A knee bend that does not also lower
+      the pelvis is a figure on stilts; doing it right is **6.5**'s analytic two-bone solve plus a
+      pelvis offset plus a foot re-plant.
+      (b) The **whole-body** half of `approach`. What ships is the trunk hinging at the lumbar,
+      which is a joint rotation Coulson gives in degrees. BAP's "forward whole-body movement" is
+      also a centre-of-pressure travel, and `Sway` already owns the pelvis, the legs, the feet and
+      the footprint clamp that keeps them standable — a second ankle pendulum in `affect/` would be
+      a duplicate model that cannot see the first one's clamp. Filed against `Sway` as a request.
+      (c) `bored` has **no** BAP row, so its body is neutral by construction. Dael reports no factor
+      for boredom. The evidence a row would be derived from is Wallbott's expansiveness scale, where
+      boredom sits at **1.00**, the floor, tied with disgust and below sadness's 1.06 — but that is
+      a second literature on a different scale and bridging them is a modelling decision, not a
+      transcription.
+      (d) `sadness` gets only `armSpread`, which saturates the measured adduction budget at ~10°.
+      Three independent sources say sadness drops the HEAD — Coulson Table 1 (head bend 25/50, and
+      his summary calls it "the only emotion with forward head bend"), and Melzer's head-drop odds
+      ratio of **7.60**, the strongest single marker in that study. BAP simply has no head factor
+      for sadness above its reporting threshold. A `headTiltUp` row for `sad` is the best-supported
+      extension available and it is a derivation rather than a transcription, so it is 6.2's call.
+      ⚠️ The `disgust` preset carries a third of annoyance's forward lean, because its PAD point
+      co-activates `annoyed` at 0.38. That is the map being honest about where disgust sits in PAD;
+      5.7 exempts disgust from the body gate for the reason research §3 gives — no disgust posture
+      reaches 50% recognition from any viewpoint.
 - [ ] **6.3** `motion/Gesture.js` — BEAT rules. **Stroke onset 0–200 ms BEFORE the stressed
       syllable, never after**; ~380 ms stroke; preparation starts 400–600 ms early. 9–26/min.
 - [ ] **6.4** Expressivity: spend the budget on **Spatial Extent and Temporal Extent** — the other

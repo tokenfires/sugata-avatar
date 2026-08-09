@@ -318,7 +318,28 @@ export const BAP_PRESCRIPTIONS = Object.freeze( {
     surprised: bap( { armSpread: 1.17, headTiltUp: 2.07 } ),
     sad:       bap( { armSpread: -1.08 } ),
     depressed: bap( { armSpread: -1.08 } ),
-    bored:     bap( {} )
+
+    /**
+     * Two EXPLICIT empties, and they are not the same statement as an absent row. See `body()`:
+     * an emotion with no row at all is one we have no BAP evidence about, and it dilutes the
+     * prescription toward neutral; an emotion with an empty row is one the evidence says has no
+     * posture.
+     *
+     *   bored      Dael's table reports no factor for it above threshold.
+     *   disliking  research §3, Coulson's recognition ceilings: "no disgust posture reached 50%
+     *              from any viewpoint… Disgust cannot be conveyed by posture alone. It must come
+     *              from the face." Punch-list 5.7 exempts disgust from the body gate for the same
+     *              reason. A cited zero, not a gap.
+     *
+     * 🚩 THE ROW FOR `disliking` IS ALSO A BUG FIX AND THE BUG IS WORTH NAMING. Without it,
+     * `disliking` fell out of the normaliser entirely, so the `disgust` preset — which activates
+     * `disliking 0.75` alongside `annoyed 0.38` — prescribed the FULL anger body, at
+     * `approach 0.947 / armSpread −0.807`, because the only emotion left in the denominator was
+     * the weaker one. Measured on the shipped presets before the fix; disgust and anger were the
+     * same prescription to fifteen decimal places.
+     */
+    bored:     bap( {} ),
+    disliking: bap( {} )
 } );
 
 // ================================================================================================
@@ -549,8 +570,26 @@ export class ExpressionMap {
     // --- the body -------------------------------------------------------------------------------
 
     /**
-     * The prescription dominance is FOR. Numbers only; this file never writes a bone, and Phase
-     * 6's `motion/Posture.js` and `motion/Gesture.js` are what consume it.
+     * The prescription dominance is FOR.
+     *
+     * Numbers only; this file never writes a bone. `affect/PostureLayer.js` is what actuates the
+     * three POSTURAL channels — approach, armSpread and headTiltUp — and Phase 6's
+     * `motion/Gesture.js` and the gaze policy are what will consume the rest.
+     *
+     * 🚩 TWO PROPERTIES OF THE RETURN THAT A CONSUMER MUST NOT CONFUSE.
+     *
+     * The five BAP channels are a weight-NORMALISED mean, so they carry direction and shape and
+     * NOT strength: a barely-active fear and a saturated fear prescribe the same posture. `intensity`
+     * is the strength, separately, and an actuator that forgets to multiply by it renders every
+     * emotion at full commitment. It is the same quantity the face already scales its AUs by, so
+     * the two halves of one emotion move together.
+     *
+     * 🚩 AND THE DENOMINATOR IS EVERY ACTIVATION, NOT EVERY ACTIVATION WE HAVE A ROW FOR. An
+     * emotion with no `BAP_PRESCRIPTIONS` row is one the published table says nothing about — all
+     * 23 remaining ALMA OCC appraisals are in that position — and the honest reading of "no
+     * evidence" is a pull toward neutral, not an abstention that hands full authority to whatever
+     * weaker emotion happens to be co-active. Dropping such rows from the denominator is what made
+     * the `disgust` preset prescribe a full anger body; see `BAP_PRESCRIPTIONS`.
      *
      * @param {Array} activations - From `activate()`.
      * @param {{pleasure, arousal, dominance}} pad - All three axes, deliberately.
@@ -565,13 +604,32 @@ export class ExpressionMap {
         };
 
         let totalWeight = 0;
+        let strongestWeight = 0;
 
         for ( const { emotion, weight } of activations ) {
 
-            const loadings = BAP_PRESCRIPTIONS[ emotion ];
-            if ( loadings === undefined ) continue;
-
             totalWeight += weight;
+            strongestWeight = Math.max( strongestWeight, weight );
+
+            // 🚩 Defect D: the other half of the shipped bug, and it has to be separable from
+            // defect C because either one alone leaves the body nearly right. C is the general
+            // normaliser error; D is the specific missing row that made C visible on a preset.
+            const loadings = this.defects.noBapRowForDisliking === true && emotion === 'disliking'
+                ? undefined
+                : BAP_PRESCRIPTIONS[ emotion ];
+
+            if ( loadings === undefined ) {
+
+                // 🚩 Defect C: the shipped path has already counted this emotion into the
+                // denominator above. Undoing that here is the original bug exactly — an emotion we
+                // have no BAP row for abstains, and the weaker co-active emotion inherits its
+                // authority.
+                if ( this.defects.bapDenominatorSkipsUnlisted === true ) totalWeight -= weight;
+
+                continue;
+
+            }
+
             for ( const channel of Object.keys( prescription ) ) {
 
                 prescription[ channel ] += ( loadings[ channel ] ?? 0 ) * weight;
@@ -589,6 +647,23 @@ export class ExpressionMap {
         return {
 
             ...prescription,
+
+            /**
+             * How strongly the body should commit to the shape above, on [0, 1].
+             *
+             * 🎯 THE STRONGEST ACTIVATION'S WEIGHT, NOT THE SUM, and it is the same rule `face()`
+             * already applies to a shared AU: "the strongest claim on a unit wins. Summing would
+             * double-count." A sum reaches 1.0 whenever two emotions are co-active, which made the
+             * `disgust` preset — `disliking 0.75` plus `annoyed 0.38` — the most fully committed
+             * body in the whole preset set, on the one emotion research §3 says has no posture at
+             * all. Under the max rule it commits at 0.75, like every other drift-reachable emotion.
+             *
+             * It is also what makes WASABI's own base intensities visible in the body: `fearful`
+             * ships at 0.25 because the paper calls it "reluctant", so a drift-driven fear reads as
+             * a quarter-strength face AND a quarter-strength body rather than a timid face on a
+             * fully committed one.
+             */
+            intensity: Math.min( 1, strongestWeight ),
 
             /**
              * The brief's third destination for dominance, and a bare mapping onto the unit
@@ -642,13 +717,27 @@ export class ExpressionMap {
  * class "dominance reached the face":
  *     dominanceToFace  routed to AU9 / the nose
  *     dominanceToBrow  routed to AU4 / the brow, at a different magnitude
+ *
+ * class "the body prescription has the wrong shape" — the other two members of this class live on
+ * `PostureLayer`, because they are actuation errors rather than mapping ones:
+ *     bapDenominatorSkipsUnlisted   an emotion with no BAP row abstains from the normaliser instead
+ *                                   of diluting it, so a weaker co-active emotion inherits full
+ *                                   authority.
+ *     noBapRowForDisliking          the missing row itself. Separate from the one above because
+ *                                   EITHER ALONE leaves the body nearly right and the pair is what
+ *                                   SHIPPED: together they gave the `disgust` preset the complete
+ *                                   anger body, at approach 0.947, on the one emotion research §3
+ *                                   says has no readable posture at all.
  */
 export const DEFECTS = Object.freeze( {
     proximityBlend: 'inverse-distance weights over every anchor, normalised — the average face',
     noSaturation: 'the RBF without its dead zone, so near-anchor movement flickers',
     wideThreshold: 'PHI opened past the feasible window, so three or more fire at once',
     dominanceToFace: 'dominance routed into AU9',
-    dominanceToBrow: 'dominance routed into AU4'
+    dominanceToBrow: 'dominance routed into AU4',
+    bapDenominatorSkipsUnlisted:
+        'an emotion with no BAP row leaves the body normaliser instead of diluting it',
+    noBapRowForDisliking: 'disgust has no BAP row at all, so it inherits whatever is co-active'
 } );
 
 const DEFECTS_OFF = Object.freeze( Object.fromEntries( Object.keys( DEFECTS ).map( ( key ) => [ key, false ] ) ) );

@@ -97,10 +97,17 @@
  *                   does not draw until the first dress resolves, which changes the TIMING of any
  *                   plate captured before that promise settles. `?wear` without `?foundation`
  *                   keeps the pre-9.8 behaviour exactly.
- *   ?affect=joy     PHASE 5. Put a settled emotional expression on the face through
- *                   `affect/ExpressionLayer.js`, composed over the viseme layer rather than
- *                   replacing it. One of the `EMOTION_PRESETS` in `affect/ExpressionMap.js`, or
- *                   `p,a,d` as three numbers for a raw PAD point. Absent, nothing is imported.
+ *   ?affect=joy     PHASE 5. Put a settled emotional expression on the face AND the body, through
+ *                   `affect/ExpressionLayer.js` and `affect/PostureLayer.js`, composed over the
+ *                   viseme and motion layers rather than replacing them. One of the
+ *                   `EMOTION_PRESETS` in `affect-presets.js`, or `p,a,d` as three numbers for a
+ *                   raw PAD point. Absent, nothing is imported.
+ *   ?affectbody=0   The A side of the above, and the reason it exists is a measurement: before
+ *                   `PostureLayer` landed, eight `?affect=` plates differed on the face and FIVE OF
+ *                   SEVEN were bit-identical to neutral in the torso band, because the BAP
+ *                   prescription had no actuator. Attribution needs a plate with the face on and
+ *                   the body off, and `?affect=anger&affectbody=0` is it. Read on every plate, so
+ *                   its absence is a plate the gate can compare against.
  *   ?identity=      PHASE 10. Apply MPFB detail targets to the figure's position buffer, once, at
  *                   load. `?identity=eyes/eye-scale-incr:1,nose/nose-width-decr:0.5` is the
  *                   general form. Absent, neither the catalogue nor the 10.8 MB of target data is
@@ -590,6 +597,10 @@ async function boot() {
 
         // Phase 5. Null unless `?affect=` asked for one; the module is not imported otherwise.
         affectRequest: query.get( 'affect' ),
+        // Read unconditionally, so the key appears in the url surface `alive-toggles.selftest.mjs`
+        // records from live reads even on a plate with no `?affect` at all. A toggle that only
+        // exists on plates nobody captures is a toggle no gate can classify.
+        affectBodyEnabled: query.get( 'affectbody' ) !== '0',
         affect: null,
 
         // A commanded static lateral offset of the figure, in metres. On `session` rather than in
@@ -952,6 +963,12 @@ async function boot() {
             },
             nudgeMillimetres: session.nudgeMetres * 1000,
             affect: session.affect === null ? null : session.affect.preset,
+
+            // The posture the BAP prescription actually produced, in degrees, so a gate can state
+            // WHY the torso band moved rather than only that it did. Null when `?affectbody=0`.
+            affectPostureDegrees: session.affect?.posture == null
+                ? null
+                : { ...session.affect.posture.appliedDegrees },
             identity: session.identityReport,
             foundation: session.foundationEnabled
                 ? ( session.wardrobe?.worn ?? null )
@@ -1736,16 +1753,24 @@ async function buildFoundationFloor() {
 }
 
 /**
- * Adds Phase 5's expression layer to the motion stack and settles it on the requested emotion.
+ * Adds Phase 5's expression layers to the motion stack and settles them on the requested emotion.
+ *
+ * 🚩 TWO LAYERS, NOT ONE, AND THE SECOND ONE IS THE FIX FOR A MEASURED BLOCKER. `ExpressionLayer`
+ * owns the face; `PostureLayer` is the actuator for the BAP body prescription the map has been
+ * computing since 5.4. Without it, eight `?affect=` plates differed on the face and five of the
+ * seven non-neutral ones had a torso band bit-identical to neutral — the avatar emoted from the
+ * eyebrows up. `?affectbody=0` is the A side, kept so that claim stays attributable.
  *
  * 🚩 IT COMPOSES OVER THE VISEME LAYER RATHER THAN REPLACING IT, which is 5.5's whole invariant:
  * the layer DECLARES brow, eye, cheek, nose and exactly four mouth-corner shapes, so writing any
- * absolute mouth, jaw or viseme shape throws rather than being caught by a runtime check.
+ * absolute mouth, jaw or viseme shape throws rather than being caught by a runtime check. The
+ * posture layer is the same idea on bones: it declares four, and the lumbar and the head are
+ * shared with sway, idle and gaze on purpose, because contributions add.
  *
  * Settled rather than left mid-attack, because a still plate of a face caught 80 ms into a 200 ms
  * attack is a plate of a different face and there is no other way to make it reproducible.
  *
- * @returns {Promise<?Object>} `{ layer, preset }`, or null when no emotion was asked for.
+ * @returns {Promise<?Object>} `{ layer, posture, preset }`, or null when no emotion was asked for.
  */
 async function attachAffect( stack, session ) {
 
@@ -1782,10 +1807,16 @@ async function attachAffect( stack, session ) {
 
     stack.add( layer );
 
-    console.log( `affect: ${ session.affectRequest } settled at PAD ` +
-        `(${ pad.pleasure }, ${ pad.arousal }, ${ pad.dominance })` );
+    // Built from the expression layer rather than constructed alongside it, so the two cannot end
+    // up holding different states and rendering two different emotions.
+    const posture = session.affectBodyEnabled ? layer.postureLayer() : null;
+    if ( posture !== null ) stack.add( posture );
 
-    return { layer, preset: session.affectRequest };
+    console.log( `affect: ${ session.affectRequest } settled at PAD ` +
+        `(${ pad.pleasure }, ${ pad.arousal }, ${ pad.dominance })` +
+        ( posture === null ? '  ·  body OFF (?affectbody=0)' : '' ) );
+
+    return { layer, posture, preset: session.affectRequest };
 
 }
 

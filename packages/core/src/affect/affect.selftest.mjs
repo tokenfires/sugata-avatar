@@ -1,6 +1,7 @@
 /**
- * Gate for `affect/AffectState.js`, `affect/ExpressionMap.js`, `affect/ExpressionLayer.js` and
- * `affect/ReflexAffect.js` — punch-list 5.1, 5.2, 5.4 and 5.5.
+ * Gate for `affect/AffectState.js`, `affect/ExpressionMap.js`, `affect/ExpressionLayer.js`,
+ * `affect/PostureLayer.js` and `affect/ReflexAffect.js` — punch-list 5.1, 5.2, 5.4, 5.5 and the
+ * affect half of 6.2.
  *
  * Everything here is measured by EXECUTION. Nothing reads the source, and the MOUTH and REAL FIGURE
  * sections drive a real `MotionStack` over a real `figure_g050.glb` and read the resulting
@@ -43,6 +44,17 @@
  *   MOUTH       The mouth belongs to lipsync, measured on the real figure with a live viseme
  *               underneath the expression.
  *
+ *   POSTURE     🚩 The section that closes a blocker, and the defect it closes was invisible to
+ *               every check above it: the BAP body prescription was computed on every frame and
+ *               read by nobody, so five of seven `?affect=` presets rendered a torso band
+ *               bit-identical to neutral. Every number here is a WORLD DISPLACEMENT of a real bone
+ *               on the real figure, because the prescription object was always correct. It also
+ *               re-derives all three Coulson full scales, MEASURES the sign conventions on the rig
+ *               rather than transcribing them from a paper the research doc says has inverted
+ *               signs, holds the centre of mass inside the measured footprint, and is proved red by
+ *               five defects in two classes — every one of which moves bones, so the obvious gate
+ *               for the blocker is green on all of them.
+ *
  *   REFLEX      VADER's rules, each one exercised; the sub-millisecond budget, measured; and the
  *               licence, asserted against the tree rather than promised in a comment.
  *
@@ -76,9 +88,10 @@ const {
 } = await import( './AffectState.js' );
 
 const {
-    ACTIVATION_THRESHOLD, ALMA_OCC_PAD, ANCHOR_SETS, AU_MORPHS, DOMINANCE_METRIC_WEIGHT,
-    EMOTION_MORPHS, ExpressionMap, MAX_ACTIVE_EMOTIONS, MOUTH_CORNER_MORPHS, SATURATION_THRESHOLD,
-    WASABI_ANCHORS, au12, au15, au25, au26, au43, au5, minimumAnchorSeparation, nearestDistance
+    ACTIVATION_THRESHOLD, ALMA_OCC_PAD, ANCHOR_SETS, AU_MORPHS, BAP_PRESCRIPTIONS,
+    DOMINANCE_METRIC_WEIGHT, EMOTION_MORPHS, ExpressionMap, MAX_ACTIVE_EMOTIONS, MOUTH_CORNER_MORPHS,
+    SATURATION_THRESHOLD, WASABI_ANCHORS, au12, au15, au25, au26, au43, au5, minimumAnchorSeparation,
+    nearestDistance
 } = await import( './ExpressionMap.js' );
 
 const { ExpressionLayer } = await import( './ExpressionLayer.js' );
@@ -1170,6 +1183,617 @@ if ( fs.existsSync( figurePath ) === false ) {
     check( 'REAL FIGURE  a neutral affect state contributes nothing at all',
         neutral.update( 1 / 60 ) === null && neutral.activations.length === 0,
         'no emotion active, no morph written' );
+
+    // ============================================================================================
+    // POSTURE — 🚩 the BAP prescription reaches the BODY, and every angle traces to Coulson
+    // ============================================================================================
+    //
+    // THE DEFECT THIS SECTION EXISTS FOR, stated so a later reader knows what green means here.
+    // `ExpressionMap.body()` computed a prescription on every frame for a whole phase and the only
+    // readers in the tree were a HUD string and a `readout()` object. Measured on the shipped page:
+    // eight `?affect=` presets, and the torso band of FIVE of the seven non-neutral plates was
+    // bit-identical to neutral. Nothing in the repo was measuring a bone below the neck against the
+    // affect state, so nothing went red.
+    //
+    // Everything below is measured on the real figure, in `relaxed-standing`, through a real
+    // MotionStack — never off the prescription object alone, because the prescription was always
+    // correct and it was the actuation that did not exist.
+
+    const {
+        COULSON_TABLE_1, CHANNEL_TO_COULSON_COLUMN, POSTURE_DEFECTS, POSTURE_FULL_SCALE_DEGREES,
+        PostureLayer, smallestListedMagnitude
+    } = await import( './PostureLayer.js' );
+
+    const { RestPose } = await import( '../figure/RestPose.js' );
+    const { HUMANOID_TO_FIGURE_BONE, Skeleton } = await import( '../figure/Skeleton.js' );
+    const { BodyMass } = await import( '../figure/BodyMass.js' );
+    const { Quaternion: Q, Vector3 } = await import( 'three' );
+
+    // 🎯 The PAD points are imported from the testbed rather than restated, and that is deliberate.
+    // `affect-presets.js` exists because `alive.html` and `affect.html` must pose the same points;
+    // a gate with its own copy is a third table to disagree with the other two, and the blocker
+    // this section closes was reported against those exact eight presets.
+    const { EMOTION_PRESETS } = await import( '../../../testbed/src/affect-presets.js' );
+
+    const postureSkeleton = new Skeleton( figure.root );
+    const relaxedStanding = RestPose.load( 'relaxed-standing' );
+    const bodyMass = new BodyMass();
+
+    // Every bone below the neck the blocker was reported on, plus the head, so a plate that only
+    // moves the face cannot pass by moving nothing.
+    const BODY_BONES = [
+        'hips', 'spine', 'chest', 'upperChest', 'neck', 'head',
+        'leftShoulder', 'leftUpperArm', 'leftLowerArm', 'leftHand',
+        'rightShoulder', 'rightUpperArm', 'rightLowerArm', 'rightHand',
+        'leftUpperLeg', 'leftLowerLeg', 'leftFoot', 'rightUpperLeg', 'rightLowerLeg', 'rightFoot'
+    ].map( ( humanoid ) => HUMANOID_TO_FIGURE_BONE[ humanoid ] );
+
+    const boneAt = ( name, into = new Vector3() ) =>
+        into.setFromMatrixPosition( figure.root.getObjectByName( name ).matrixWorld );
+
+    /**
+     * One plate: rest pose, stack, layers, one frame, then everything the checks below read.
+     *
+     * `extraLayers` and the two defect bags are what turn this into a rejection harness — the same
+     * function produces the shipped plate and every known-bad, so their numbers are comparable by
+     * construction rather than by care.
+     */
+    function posturePlate( pad, options = {} ) {
+
+        relaxedStanding.applyTo( postureSkeleton );
+        postureSkeleton.update();
+        figure.root.updateMatrixWorld( true );
+
+        const target = createMotionTarget( figure.root );
+        const plateStack = new MotionStack( { seed: 1 } );
+        plateStack.bind( target );
+
+        const expression = new ExpressionLayer( { map: new ExpressionMap( options.mapDefects ?? {} ) } );
+        if ( pad.trigger !== undefined ) expression.trigger( pad.trigger );
+        expression.state.push( { pleasure: pad.pleasure, arousal: pad.arousal, dominance: pad.dominance } );
+        for ( let step = 0; step < 300; step ++ ) expression.state.update( 0.01 );
+
+        plateStack.add( expression );
+
+        let posture = null;
+
+        if ( options.withPosture !== false ) {
+
+            posture = options.unpairedState === true
+                // The mistake `ExpressionLayer.postureLayer()` exists to make unreachable: a layer
+                // built by hand, with neither the state nor the map passed.
+                ? new PostureLayer( { defects: options.postureDefects ?? {} } )
+                : expression.postureLayer( { defects: options.postureDefects ?? {} } );
+
+            plateStack.add( posture );
+
+        }
+
+        for ( const layer of options.extraLayers ?? [] ) plateStack.add( layer );
+
+        for ( let frame = 0; frame < ( options.frames ?? 1 ); frame ++ ) plateStack.update( 1 / 60 );
+
+        figure.root.updateMatrixWorld( true );
+
+        const bones = new Map();
+        for ( const name of BODY_BONES ) bones.set( name, boneAt( name ) );
+
+        bodyMass.bind( target );
+
+        const headBone = figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE.head );
+        const headForward = new Vector3( 0, 0, 1 )
+            .applyQuaternion( headBone.getWorldQuaternion( new Q() ) );
+
+        const armAbduction = {};
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const shoulder = bones.get( HUMANOID_TO_FIGURE_BONE[ `${ side }UpperArm` ] );
+            const elbow = bones.get( HUMANOID_TO_FIGURE_BONE[ `${ side }LowerArm` ] );
+            const sign = Math.sign( shoulder.x - bones.get( HUMANOID_TO_FIGURE_BONE.spine ).x ) || 1;
+
+            armAbduction[ side ] = Math.atan2( ( elbow.x - shoulder.x ) * sign, shoulder.y - elbow.y )
+                * 180 / Math.PI;
+
+        }
+
+        return {
+            expression,
+            posture,
+            bones,
+            headForward,
+            armAbduction,
+            centreOfMass: bodyMass.centreOfMass( new Vector3() ),
+            handSpan: Math.abs(
+                bones.get( HUMANOID_TO_FIGURE_BONE.leftHand ).x
+                - bones.get( HUMANOID_TO_FIGURE_BONE.rightHand ).x ),
+            morphs: [ ...EMOTION_MORPHS, ...MOUTH_CORNER_MORPHS ].map( ( name ) => readMorph( name ) ?? 0 )
+        };
+
+    }
+
+    /** The largest world displacement of any watched bone between two plates, in millimetres. */
+    const worstBoneShift = ( a, b ) => {
+
+        let worst = 0;
+        for ( const name of BODY_BONES ) worst = Math.max( worst, a.bones.get( name ).distanceTo( b.bones.get( name ) ) );
+        return worst * 1000;
+
+    };
+
+    // --- the derivation ---------------------------------------------------------------------
+
+    check( '🎯 POSTURE  every full scale is RE-DERIVED from Coulson Table 1 by the stated rule',
+        Object.entries( CHANNEL_TO_COULSON_COLUMN ).every( ( [ channel, column ] ) =>
+            POSTURE_FULL_SCALE_DEGREES[ channel ] === smallestListedMagnitude( column ) )
+        && POSTURE_FULL_SCALE_DEGREES.approach === 20
+        && POSTURE_FULL_SCALE_DEGREES.armSpread === 50
+        && POSTURE_FULL_SCALE_DEGREES.headTiltUp === 20,
+        Object.entries( CHANNEL_TO_COULSON_COLUMN )
+            .map( ( [ channel, column ] ) =>
+                `${ channel } <- ${ column } ${ POSTURE_FULL_SCALE_DEGREES[ channel ] }°` ).join( '   ' ) +
+        `   (over ${ Object.keys( COULSON_TABLE_1 ).length } transcribed emotion rows)` );
+
+    // 🎯 §1.25t: a gate built from remembered channels cannot cover the next one. This asserts the
+    // SET — every key `body()` returns is either actuated by the layer or named as somebody else's.
+    {
+        const DEFERRED_CHANNELS = {
+            kneeActivation: 'punch-list 6.5, analytic two-bone IK — a knee bend must also lower the pelvis',
+            illustrative: 'punch-list 6.3, motion/Gesture.js — a gesture RATE, not a pose',
+            gestureAmplitude: 'punch-list 6.4, GRETA Spatial Extent',
+            temporalExtent: 'punch-list 6.4, GRETA Temporal Extent',
+            headAlignment: 'motion/Gaze.js — gaze policy',
+            gazeAwayFractionTheme: 'motion/Gaze.js — BEAT theme/rheme policy',
+            gazeAwayFractionRheme: 'motion/Gaze.js — BEAT theme/rheme policy',
+            dominance: 'the input axis, echoed for a HUD',
+            intensity: 'read by PostureLayer as the commitment scalar'
+        };
+
+        const map = new ExpressionMap();
+        const returned = Object.keys( map.body( map.activate( { pleasure: -0.8, arousal: 0.7, dominance: 0.7 } ),
+            { pleasure: -0.8, arousal: 0.7, dominance: 0.7 } ) );
+
+        const unaccounted = returned.filter( ( key ) =>
+            CHANNEL_TO_COULSON_COLUMN[ key ] === undefined && DEFERRED_CHANNELS[ key ] === undefined );
+
+        check( '🎯 POSTURE  every channel body() returns is either ACTUATED here or named elsewhere',
+            unaccounted.length === 0,
+            unaccounted.length === 0
+                ? `${ returned.length } channels: ${ Object.keys( CHANNEL_TO_COULSON_COLUMN ).length } actuated, ` +
+                    `${ Object.keys( DEFERRED_CHANNELS ).length } deferred with a named owner`
+                : `UNACCOUNTED: ${ unaccounted.join( ', ' ) } — a channel that is neither driven nor ` +
+                    'deferred is the whole defect this section exists for, one channel smaller' );
+
+        // The other half of the set: an emotion affect DRIFT can reach must have a BAP row, or its
+        // body silently falls back to whatever else happens to be co-active.
+        const driftReachable = Object.entries( ANCHOR_SETS )
+            .filter( ( [ , anchors ] ) => anchors.base > 0 )
+            .map( ( [ name ] ) => name );
+
+        const missingRows = driftReachable.filter( ( name ) => BAP_PRESCRIPTIONS[ name ] === undefined );
+
+        check( '🎯 POSTURE  every emotion affect drift can reach has an explicit BAP row',
+            missingRows.length === 0,
+            `${ driftReachable.length } drift-reachable emotions, ${ missingRows.length } without a row` +
+            `${ missingRows.length === 0 ? '' : `: ${ missingRows.join( ', ' ) }` }; ` +
+            `${ Object.keys( BAP_PRESCRIPTIONS ).length } rows in total, of which ` +
+            `${ Object.values( BAP_PRESCRIPTIONS ).filter( ( row ) => Object.keys( row ).length === 0 ).length } ` +
+            'are EXPLICIT empties (bored — Dael reports no factor; disliking — Coulson, no disgust ' +
+            'posture reaches 50% from any viewpoint)' );
+    }
+
+    // --- the wiring, on the real figure, over the shipped presets ---------------------------
+
+    const neutralPlate = posturePlate( EMOTION_PRESETS.neutral );
+    const platesByPreset = new Map();
+
+    for ( const [ name, pad ] of Object.entries( EMOTION_PRESETS ) ) {
+
+        if ( name === 'neutral' ) continue;
+        platesByPreset.set( name, posturePlate( pad ) );
+
+    }
+
+    const movedPresets = [ ...platesByPreset.entries() ]
+        .filter( ( [ , plate ] ) => worstBoneShift( neutralPlate, plate ) > 1 )
+        .map( ( [ name ] ) => name );
+
+    check( '🎯 POSTURE  the affect state reaches the BODY — six of seven presets move a body bone',
+        movedPresets.length >= 6,
+        [ ...platesByPreset.entries() ]
+            .map( ( [ name, plate ] ) => `${ name } ${ worstBoneShift( neutralPlate, plate ).toFixed( 1 ) } mm` )
+            .join( '   ' ) +
+        '   ⚠️ `bored` is the seventh and it moves 0.0 mm BY CONSTRUCTION: Dael\'s BAP table reports ' +
+        'no factor for boredom, so its row is an explicit empty rather than a gap. Wallbott gives it ' +
+        'the floor of the expansiveness scale (1.00, tied with disgust), which is the evidence a ' +
+        'later row would be derived from; deriving it is punch-list 6.2.' );
+
+    check( '🎯 POSTURE  …and `bored` moving nothing is the BAP row being empty, not the wiring failing',
+        Object.keys( BAP_PRESCRIPTIONS.bored ).length === 0
+            && platesByPreset.get( 'bored' ).posture.prescription.intensity > 0.7
+            && platesByPreset.get( 'bored' ).posture.activations[ 0 ].emotion === 'bored',
+        `bored activates at ${ platesByPreset.get( 'bored' ).posture.prescription.intensity.toFixed( 2 ) } ` +
+        'intensity and prescribes every channel at 0.000 — the layer is running and has nothing to say' );
+
+    // --- the signs, measured on the rig rather than transcribed ------------------------------
+
+    {
+        const anger = platesByPreset.get( 'anger' );
+        const fear = platesByPreset.get( 'fear' );
+        const joy = platesByPreset.get( 'joy' );
+
+        const headZ = ( plate ) => plate.bones.get( HUMANOID_TO_FIGURE_BONE.head ).z;
+        const comZ = ( plate ) => plate.centreOfMass.z;
+
+        check( '🎯 POSTURE  approach carries the trunk FORWARD for anger and BACK for fear',
+            headZ( anger ) > headZ( neutralPlate ) && headZ( fear ) < headZ( neutralPlate )
+                && comZ( anger ) > comZ( neutralPlate ) && comZ( fear ) < comZ( neutralPlate ),
+            `head z ${ ( ( headZ( anger ) - headZ( neutralPlate ) ) * 1000 ).toFixed( 1 ) } mm (anger, ` +
+            `approach ${ anger.posture.prescription.approach.toFixed( 3 ) }) vs ` +
+            `${ ( ( headZ( fear ) - headZ( neutralPlate ) ) * 1000 ).toFixed( 1 ) } mm (fear, ` +
+            `${ fear.posture.prescription.approach.toFixed( 3 ) }); centre of mass ` +
+            `${ ( ( comZ( anger ) - comZ( neutralPlate ) ) * 1000 ).toFixed( 1 ) } / ` +
+            `${ ( ( comZ( fear ) - comZ( neutralPlate ) ) * 1000 ).toFixed( 1 ) } mm. ` +
+            '🎯 Anger and fear are IDENTICAL in pleasure and arousal and opposite in dominance — this ' +
+            'is the axis the face may not carry, visible in the body and nowhere else.' );
+
+        check( '🎯 POSTURE  armSpread opens the arms for joy and draws them in for anger',
+            joy.handSpan > neutralPlate.handSpan && anger.handSpan < neutralPlate.handSpan,
+            `hand span ${ ( neutralPlate.handSpan * 1000 ).toFixed( 1 ) } mm neutral -> ` +
+            `${ ( joy.handSpan * 1000 ).toFixed( 1 ) } mm joy (+${ ( ( joy.handSpan - neutralPlate.handSpan ) * 1000 ).toFixed( 1 ) }) ` +
+            `-> ${ ( anger.handSpan * 1000 ).toFixed( 1 ) } mm anger (${ ( ( anger.handSpan - neutralPlate.handSpan ) * 1000 ).toFixed( 1 ) })` );
+
+        check( '🎯 POSTURE  headTiltUp raises the face for joy, and the sign was never transcribed',
+            joy.headForward.y > neutralPlate.headForward.y + 0.01,
+            `the head's forward vector rises from y ${ neutralPlate.headForward.y.toFixed( 4 ) } to ` +
+            `${ joy.headForward.y.toFixed( 4 ) } — ${ ( Math.asin( joy.headForward.y ) * 180 / Math.PI
+                - Math.asin( neutralPlate.headForward.y ) * 180 / Math.PI ).toFixed( 2 ) }° of pitch at ` +
+            `headTiltUp ${ joy.posture.prescription.headTiltUp.toFixed( 3 ) }. research §3 says to verify ` +
+            'sign conventions on the rig, so left/right and up/down are MEASURED at bind here.' );
+    }
+
+    // --- physical correctness, which is what stops a full scale from being raised carelessly ---
+
+    {
+        // The base of support, measured off this bake's own mesh: every vertex below the ankle
+        // joints, projected fore and aft of their midpoint. `Sway`'s header quotes 183 mm forward
+        // and 50 mm behind on this figure; this is the same measurement, re-run rather than quoted.
+        relaxedStanding.applyTo( postureSkeleton );
+        postureSkeleton.update();
+        figure.root.updateMatrixWorld( true );
+
+        const ankleMid = boneAt( HUMANOID_TO_FIGURE_BONE.leftFoot )
+            .add( boneAt( HUMANOID_TO_FIGURE_BONE.rightFoot ) ).multiplyScalar( 0.5 );
+
+        let forwardExtent = -Infinity;
+        let rearExtent = Infinity;
+        const vertex = new Vector3();
+
+        figure.root.traverse( ( object ) => {
+
+            if ( object.isMesh !== true && object.isSkinnedMesh !== true ) return;
+
+            const positions = object.geometry.attributes.position;
+
+            for ( let index = 0; index < positions.count; index ++ ) {
+
+                vertex.fromBufferAttribute( positions, index ).applyMatrix4( object.matrixWorld );
+                if ( vertex.y > ankleMid.y ) continue;
+
+                forwardExtent = Math.max( forwardExtent, vertex.z - ankleMid.z );
+                rearExtent = Math.min( rearExtent, vertex.z - ankleMid.z );
+
+            }
+
+        } );
+
+        let worstName = '';
+        let worstMargin = Infinity;
+
+        for ( const [ name, plate ] of [ [ 'neutral', neutralPlate ], ...platesByPreset ] ) {
+
+            const offset = plate.centreOfMass.z - ankleMid.z;
+            const margin = Math.min( forwardExtent - offset, offset - rearExtent );
+
+            if ( margin < worstMargin ) { worstMargin = margin; worstName = name; }
+
+        }
+
+        check( '🎯 POSTURE  every emotion leaves the centre of mass INSIDE the measured footprint',
+            worstMargin > 0,
+            `footprint ${ ( forwardExtent * 1000 ).toFixed( 1 ) } mm forward / ` +
+            `${ ( -rearExtent * 1000 ).toFixed( 1 ) } mm behind the ankle midpoint, measured off this ` +
+            `bake's own mesh; tightest margin ${ ( worstMargin * 1000 ).toFixed( 1 ) } mm on \`${ worstName }\`. ` +
+            'A sustained lean puts the centre of pressure under the centre of mass (BodyMass.js), so a ' +
+            'projection outside the feet is a figure falling over — this is the check that stops a full ' +
+            'scale being raised for legibility.' );
+
+        check( '🎯 POSTURE  no emotion drives an arm past vertical into the ribcage',
+            [ ...platesByPreset.values() ].every( ( plate ) =>
+                plate.armAbduction.left >= -0.01 && plate.armAbduction.right >= -0.01 ),
+            `relaxed standing hangs the arms at ${ neutralPlate.armAbduction.left.toFixed( 2 ) }° and ` +
+            `${ neutralPlate.armAbduction.right.toFixed( 2 ) }° from vertical, and that measured angle IS ` +
+            `the adduction budget. Tightest: ` +
+            `${ Math.min( ...[ ...platesByPreset.values() ].flatMap( ( p ) => [ p.armAbduction.left, p.armAbduction.right ] ) ).toFixed( 2 ) }°. ` +
+            `anger asks for ${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpread.toFixed( 1 ) }° ` +
+            `and is held at ${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpreadLeft.toFixed( 2 ) }°/` +
+            `${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpreadRight.toFixed( 2 ) }°` );
+    }
+
+    // --- it composes with the motion stack rather than fighting it ---------------------------
+
+    {
+        const { Sway } = await import( '../motion/Sway.js' );
+
+        const swayOnly = posturePlate( EMOTION_PRESETS.anger,
+            { withPosture: false, extraLayers: [ new Sway() ], frames: 600 } );
+
+        const swayPlusPosture = posturePlate( EMOTION_PRESETS.anger,
+            { extraLayers: [ new Sway() ], frames: 600 } );
+
+        const postureAlone = platesByPreset.get( 'anger' ).bones.get( HUMANOID_TO_FIGURE_BONE.head ).z
+            - neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.head ).z;
+
+        const underSway = swayPlusPosture.bones.get( HUMANOID_TO_FIGURE_BONE.head ).z
+            - swayOnly.bones.get( HUMANOID_TO_FIGURE_BONE.head ).z;
+
+        check( '🎯 POSTURE  the lean survives 600 frames of live sway, to within a millimetre',
+            Math.abs( underSway - postureAlone ) < 0.001,
+            `anger carries the head ${ ( postureAlone * 1000 ).toFixed( 1 ) } mm forward on its own and ` +
+            `${ ( underSway * 1000 ).toFixed( 1 ) } mm forward with Sway running underneath it — a ` +
+            `difference of ${ ( Math.abs( underSway - postureAlone ) * 1000 ).toFixed( 3 ) } mm. The two ` +
+            'layers share the lumbar and the contributions ADD, which is the stack working; a layer that ' +
+            'wrote an absolute rotation would have discarded one of them.' );
+
+        check( '🎯 POSTURE  and it touches no morph, so 5.5\'s mouth guarantee is untouched by it',
+            platesByPreset.get( 'anger' ).posture.morphChannels.length === 0
+                && platesByPreset.get( 'anger' ).morphs.some( ( value ) => value > 0 ),
+            `the posture layer declares 0 morph channels and ` +
+            `${ platesByPreset.get( 'anger' ).posture.boneChannels.length } bone channels ` +
+            `(${ platesByPreset.get( 'anger' ).posture.boneChannels.join( ', ' ) }); the face still writes ` +
+            `${ platesByPreset.get( 'anger' ).morphs.filter( ( value ) => value > 0 ).length } influences` );
+    }
+
+    // --- idempotence, which is what `Layer.onBind`'s contract asks for ------------------------
+
+    {
+        // 🚩 `MotionStack.reset()` calls `layer.reset()` and then `layer.onBind()` and does NOT
+        // re-commit, so `onBind` re-measures the adduction budget off a figure still standing in
+        // the pose this layer wrote. A settled anger holds its arms AT vertical, so a naive
+        // re-measurement reads a budget of zero and the arms never adduct again — a defect that
+        // needs a critic run's SECOND clip to appear, which is the shape LEARNINGS §1.25j is about.
+        relaxedStanding.applyTo( postureSkeleton );
+        postureSkeleton.update();
+        figure.root.updateMatrixWorld( true );
+
+        const target = createMotionTarget( figure.root );
+        const cycledStack = new MotionStack( { seed: 1 } );
+        cycledStack.bind( target );
+
+        const expression = new ExpressionLayer();
+        expression.state.push( EMOTION_PRESETS.anger );
+        for ( let step = 0; step < 300; step ++ ) expression.state.update( 0.01 );
+
+        const posture = expression.postureLayer();
+        cycledStack.add( expression );
+        cycledStack.add( posture );
+
+        cycledStack.update( 1 / 60 );
+        const firstBudget = { ...posture.maxAdductionRadians };
+        const firstApplied = { ...posture.appliedDegrees };
+
+        // `reset()` rewinds the affect state to neutral as well — that is `ExpressionLayer.reset`
+        // doing its job — so the emotion is pushed again before the comparison. What is under test
+        // is the BUDGET, which `onBind` re-measured during the reset off a figure whose arms were
+        // still held at vertical by the frame before it.
+        cycledStack.reset();
+        expression.state.push( EMOTION_PRESETS.anger );
+        for ( let step = 0; step < 300; step ++ ) expression.state.update( 0.01 );
+        cycledStack.update( 1 / 60 );
+
+        // The residual is the out-of-plane component of a frontal rotation read back through a
+        // two-argument arctangent, at float precision: measured 1.17e-6°, and the tolerance is
+        // three orders above it and four below the 10.18° budget it is bounding. A budget that
+        // re-measured as ZERO — the defect — is 10.18° away from passing, not 0.001°.
+        const BUDGET_DRIFT_TOLERANCE_DEGREES = 0.001;
+        const driftDegrees = ( a, b ) => Math.abs( a - b ) * 180 / Math.PI;
+
+        check( '🎯 POSTURE  a stack reset re-measures the SAME adduction budget, from a posed figure',
+            driftDegrees( posture.maxAdductionRadians.leftUpperArm, firstBudget.leftUpperArm )
+                < BUDGET_DRIFT_TOLERANCE_DEGREES
+                && driftDegrees( posture.maxAdductionRadians.rightUpperArm, firstBudget.rightUpperArm )
+                    < BUDGET_DRIFT_TOLERANCE_DEGREES
+                && Math.abs( posture.appliedDegrees.armSpreadLeft - firstApplied.armSpreadLeft )
+                    < BUDGET_DRIFT_TOLERANCE_DEGREES,
+            `budget ${ ( firstBudget.leftUpperArm * 180 / Math.PI ).toFixed( 4 ) }°/` +
+            `${ ( firstBudget.rightUpperArm * 180 / Math.PI ).toFixed( 4 ) }° before the reset and ` +
+            `${ ( posture.maxAdductionRadians.leftUpperArm * 180 / Math.PI ).toFixed( 4 ) }°/` +
+            `${ ( posture.maxAdductionRadians.rightUpperArm * 180 / Math.PI ).toFixed( 4 ) }° after it, ` +
+            `with the arms held at ${ posture.appliedDegrees.armSpreadLeft.toFixed( 4 ) }° throughout; ` +
+            `worst drift ${ ( Math.max( Math.abs( posture.maxAdductionRadians.leftUpperArm - firstBudget.leftUpperArm ), Math.abs( posture.maxAdductionRadians.rightUpperArm - firstBudget.rightUpperArm ) ) * 180 / Math.PI ).toExponential( 2 ) }° — ` +
+            'onBind subtracts this layer\'s own last contribution before measuring, so the measurement ' +
+            'is a fact about the rig rather than about the frame it happened to run on' );
+    }
+
+    {
+        // 🚩 THE OTHER MEMBER OF THAT CLASS, AND IT IS THE ONE THAT ACTUALLY SHIPPED FOR AN HOUR.
+        // `alive.js` writes a rest pose into the bones' LOCAL quaternions and adds the layers, and
+        // NOTHING recomputes a world matrix in between — so `onBind` reading `matrixWorld` measures
+        // the GLB's bind pose, which on this figure is an A-pose. The budget came out at twice the
+        // truth and the clamp silently stopped biting.
+        //
+        // ⚠️ Note what this sequence deliberately omits: the `updateMatrixWorld` that
+        // `posturePlate` above performs. Every other check in this section runs on a refreshed
+        // graph and every one of them stays GREEN against this defect — including "no emotion
+        // drives an arm past vertical", which is the check written for exactly this symptom.
+        // Reproduce the ORDER, which is where the defect lives. The bind pose is what the world
+        // matrices hold when a GLB has just been parsed, so it is put there first; the rest pose
+        // then goes into the LOCAL quaternions, exactly as `RestPose.applyTo` + `Skeleton.update()`
+        // do, and neither of them touches a world matrix. A layer binding here sees an A-pose.
+        postureSkeleton.reset();
+        postureSkeleton.update();
+        figure.root.updateMatrixWorld( true );
+
+        relaxedStanding.applyTo( postureSkeleton );
+        postureSkeleton.update();
+
+        const staleStack = new MotionStack( { seed: 1 } );
+        staleStack.bind( createMotionTarget( figure.root ) );
+
+        const staleExpression = new ExpressionLayer();
+        const stalePosture = staleExpression.postureLayer();
+        staleStack.add( staleExpression );
+        staleStack.add( stalePosture );
+
+        const measured = {
+            left: stalePosture.maxAdductionRadians.leftUpperArm * 180 / Math.PI,
+            right: stalePosture.maxAdductionRadians.rightUpperArm * 180 / Math.PI
+        };
+
+        check( '🎯 POSTURE  the budget is measured off the POSED figure even when nothing refreshed it',
+            Math.abs( measured.left - neutralPlate.armAbduction.left ) < 0.01
+                && Math.abs( measured.right - neutralPlate.armAbduction.right ) < 0.01,
+            `bound the way alive.js binds — rest pose written to local quaternions, layers added, no ` +
+            `updateMatrixWorld — and the budget reads ${ measured.left.toFixed( 4 ) }°/` +
+            `${ measured.right.toFixed( 4 ) }° against the relaxed stance's own ` +
+            `${ neutralPlate.armAbduction.left.toFixed( 4 ) }°/${ neutralPlate.armAbduction.right.toFixed( 4 ) }°. ` +
+            'Without the refresh it reads the GLB bind pose, an A-pose, at roughly twice the angle.' );
+    }
+
+    // --- 🚩 REJECTION. Two classes, five defects, and each one survives the obvious gate -------
+
+    {
+        // CLASS 1 — the prescription reaches no bone. Two ways in, and neither is a code change to
+        // the layer: the first is the tree exactly as it shipped, the second is a caller mistake.
+        const noPostureLayer = new Map();
+        const unpaired = new Map();
+
+        for ( const [ name, pad ] of Object.entries( EMOTION_PRESETS ) ) {
+
+            if ( name === 'neutral' ) continue;
+            noPostureLayer.set( name, posturePlate( pad, { withPosture: false } ) );
+            unpaired.set( name, posturePlate( pad, { unpairedState: true } ) );
+
+        }
+
+        const neutralFaceOnly = posturePlate( EMOTION_PRESETS.neutral, { withPosture: false } );
+        const neutralUnpaired = posturePlate( EMOTION_PRESETS.neutral, { unpairedState: true } );
+
+        const worstFaceOnly = Math.max( ...[ ...noPostureLayer.values() ]
+            .map( ( plate ) => worstBoneShift( neutralFaceOnly, plate ) ) );
+
+        const worstUnpaired = Math.max( ...[ ...unpaired.values() ]
+            .map( ( plate ) => worstBoneShift( neutralUnpaired, plate ) ) );
+
+        check( '🚩 POSTURE  REJECTED: the tree as it shipped — face layer only, and every body is identical',
+            worstFaceOnly === 0,
+            `seven presets, and the worst world displacement of any of ${ BODY_BONES.length } body bones ` +
+            `against neutral is ${ worstFaceOnly.toFixed( 6 ) } mm. THIS IS THE BLOCKER, reproduced: the ` +
+            'prescription was computed on every frame and handed to nobody.' );
+
+        check( '🚩 POSTURE  REJECTED: a PostureLayer built by hand, holding its own neutral state',
+            worstUnpaired === 0 && unpaired.get( 'anger' ).posture !== null,
+            `the layer is in the stack and declares ` +
+            `${ unpaired.get( 'anger' ).posture.boneChannels.length } bone channels, and the worst body ` +
+            `displacement is still ${ worstUnpaired.toFixed( 6 ) } mm, because it is reading a fresh ` +
+            'AffectState that nobody ever pushed to. `ExpressionLayer.postureLayer()` is the paired ' +
+            'constructor that makes this unreachable.' );
+
+        check( '🚩 POSTURE  …and "is a layer declaring body bones in the stack?" says BOTH are fine',
+            unpaired.get( 'anger' ).posture.boneChannels.length
+                === platesByPreset.get( 'anger' ).posture.boneChannels.length,
+            'the obvious gate for a missing actuator is presence, and presence cannot tell a wired ' +
+            'layer from an unwired one — which is why every number in this section is a world ' +
+            'displacement on the real mesh' );
+
+        // CLASS 2 — the prescription reaches the body with the wrong SHAPE. Every member moves
+        // bones, so a bone-count gate is green on all three.
+        const angerIgnoringIntensity = posturePlate( EMOTION_PRESETS.anger,
+            { postureDefects: { ignoreIntensity: true } } );
+        const fearIgnoringIntensity = posturePlate( EMOTION_PRESETS.fear,
+            { postureDefects: { ignoreIntensity: true } } );
+
+        check( '🚩 POSTURE  REJECTED: ignoreIntensity — WASABI\'s reluctant fear stands like a settled anger',
+            Math.abs( fearIgnoringIntensity.posture.appliedDegrees.approach )
+                > Math.abs( platesByPreset.get( 'fear' ).posture.appliedDegrees.approach ) * 3.5,
+            `fear leans ${ platesByPreset.get( 'fear' ).posture.appliedDegrees.approach.toFixed( 2 ) }° ` +
+            `shipped and ${ fearIgnoringIntensity.posture.appliedDegrees.approach.toFixed( 2 ) }° with the ` +
+            `defect — 4x, which is exactly 1/0.25, WASABI's base intensity for an emotion its own paper ` +
+            `calls "reluctant". Anger is unaffected at ` +
+            `${ angerIgnoringIntensity.posture.appliedDegrees.approach.toFixed( 2 ) }° because its base is ` +
+            'saturated, so a gate that only looked at anger would have said this was fine.' );
+
+        const angerUnclamped = posturePlate( EMOTION_PRESETS.anger,
+            { postureDefects: { unclampedAdduction: true } } );
+
+        check( '🚩 POSTURE  REJECTED: unclampedAdduction — the humerus is driven through the ribcage',
+            angerUnclamped.armAbduction.left < -15 && angerUnclamped.armAbduction.right < -15,
+            `the arms end ${ angerUnclamped.armAbduction.left.toFixed( 2 ) }° and ` +
+            `${ angerUnclamped.armAbduction.right.toFixed( 2 ) }° from vertical — past it, i.e. inside the ` +
+            `trunk — against ${ platesByPreset.get( 'anger' ).armAbduction.left.toFixed( 2 ) }°/` +
+            `${ platesByPreset.get( 'anger' ).armAbduction.right.toFixed( 2 ) }° shipped. The hand span ` +
+            `still MOVES, by ${ ( ( angerUnclamped.handSpan - neutralPlate.handSpan ) * 1000 ).toFixed( 1 ) } mm ` +
+            `against the shipped ${ ( ( platesByPreset.get( 'anger' ).handSpan - neutralPlate.handSpan ) * 1000 ).toFixed( 1 ) } mm, ` +
+            'so an "armSpread changed the arms" gate is green on it.' );
+
+        // 🚩 The two halves of the normaliser bug, separately, because either alone leaves the body
+        // nearly right — and the second is demonstrated on a TRIGGERED ALMA emotion rather than on
+        // `disgust`, so it is a claim about every rowless emotion rather than about one preset.
+        const disgustBothHalves = posturePlate( EMOTION_PRESETS.disgust, {
+            mapDefects: { defects: { bapDenominatorSkipsUnlisted: true, noBapRowForDisliking: true } }
+        } );
+
+        const disgustMissingRowOnly = posturePlate( EMOTION_PRESETS.disgust,
+            { mapDefects: { defects: { noBapRowForDisliking: true } } } );
+
+        check( '🚩 POSTURE  REJECTED: the pair that shipped — disgust prescribes the COMPLETE anger body',
+            Math.abs( disgustBothHalves.posture.prescription.approach
+                - platesByPreset.get( 'anger' ).posture.prescription.approach ) < 1e-12
+            && Math.abs( disgustBothHalves.posture.prescription.armSpread
+                - platesByPreset.get( 'anger' ).posture.prescription.armSpread ) < 1e-12,
+            `disgust's approach goes ${ platesByPreset.get( 'disgust' ).posture.prescription.approach.toFixed( 3 ) } ` +
+            `-> ${ disgustBothHalves.posture.prescription.approach.toFixed( 3 ) } and its armSpread ` +
+            `${ platesByPreset.get( 'disgust' ).posture.prescription.armSpread.toFixed( 3 ) } -> ` +
+            `${ disgustBothHalves.posture.prescription.armSpread.toFixed( 3 ) } — BIT-IDENTICAL to anger's ` +
+            `${ platesByPreset.get( 'anger' ).posture.prescription.approach.toFixed( 3 ) } / ` +
+            `${ platesByPreset.get( 'anger' ).posture.prescription.armSpread.toFixed( 3 ) }, because the ` +
+            'co-active `annoyed` at weight 0.38 inherits the whole body from `disliking` at 0.75. ' +
+            'research §3: no disgust posture reaches 50% recognition from any viewpoint.' );
+
+        check( '🚩 POSTURE  …and EITHER HALF ALONE leaves it nearly right, which is why both are named',
+            Math.abs( disgustMissingRowOnly.posture.prescription.approach
+                - platesByPreset.get( 'disgust' ).posture.prescription.approach ) < 1e-12,
+            `the missing row on its own changes the prescription by exactly nothing ` +
+            `(${ disgustMissingRowOnly.posture.prescription.approach.toFixed( 3 ) }), because the shipped ` +
+            'normaliser dilutes a rowless emotion the same way it dilutes an empty one. A gate that ' +
+            'only knew about the missing row would have called the fix complete after adding the row.' );
+
+        // The general claim, on an emotion that has no BAP row at any point in this repo's history.
+        const hatePad = { pleasure: -0.6, arousal: 0.6, dominance: 0.3, trigger: 'hate' };
+        const hateShipped = posturePlate( hatePad );
+        const hateSkipping = posturePlate( hatePad,
+            { mapDefects: { defects: { bapDenominatorSkipsUnlisted: true } } } );
+
+        check( '🚩 POSTURE  REJECTED: bapDenominatorSkipsUnlisted — a rowless ALMA appraisal abstains',
+            hateSkipping.posture.prescription.approach > hateShipped.posture.prescription.approach * 1.3,
+            `a triggered \`hate\` co-activates \`angry\`; approach goes ` +
+            `${ hateShipped.posture.prescription.approach.toFixed( 3 ) } -> ` +
+            `${ hateSkipping.posture.prescription.approach.toFixed( 3 ) } with the defect. 23 of ALMA's 24 ` +
+            'OCC appraisals have no BAP row and every one of them is reachable through `trigger()`, so ' +
+            'this is a property of the normaliser rather than a fact about disgust.' );
+
+        check( '🚩 POSTURE  …and a "does the body differ from neutral?" gate says all FOUR are fine',
+            worstBoneShift( neutralPlate, angerIgnoringIntensity ) > 1
+                && worstBoneShift( neutralPlate, angerUnclamped ) > 1
+                && worstBoneShift( neutralPlate, disgustBothHalves ) > 1
+                && worstBoneShift( neutralPlate, hateSkipping ) > 1,
+            `${ worstBoneShift( neutralPlate, angerIgnoringIntensity ).toFixed( 1 ) } mm, ` +
+            `${ worstBoneShift( neutralPlate, angerUnclamped ).toFixed( 1 ) } mm, ` +
+            `${ worstBoneShift( neutralPlate, disgustBothHalves ).toFixed( 1 ) } mm and ` +
+            `${ worstBoneShift( neutralPlate, hateSkipping ).toFixed( 1 ) } mm of body movement ` +
+            'respectively. Closing the blocker makes the OBVIOUS gate for it decorative, which is why ' +
+            'class 2 exists at all — LEARNINGS §1.25a.' );
+    }
 }
 
 // ================================================================================================

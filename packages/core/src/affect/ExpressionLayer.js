@@ -36,6 +36,19 @@
  * which is the kind of defect that looks like a tuning problem.
  *
  *
+ * 🚩 THE BODY HALF IS A SECOND LAYER, AND IT IS NOT OPTIONAL
+ * ---------------------------------------------------------
+ * This layer computes `bodyPrescription` and writes only the face. That is correct — it declares
+ * face morphs and no bone channels, so it physically cannot move a body — but for one whole phase
+ * nothing else read the prescription either, and the measured consequence was that five of seven
+ * `?affect=` presets rendered a torso band BIT-IDENTICAL to neutral. An avatar that emotes from the
+ * eyebrows up is not what R5 asks for.
+ *
+ * `affect/PostureLayer.js` is the actuator, and `postureLayer()` below is the paired constructor:
+ * it hands the new layer THIS layer's own state and map, so the two cannot end up reading different
+ * emotions. Add both, or the body does not emote.
+ *
+ *
  * ⚠️ EYELIDS ARE SHARED WITH BLINK, ON PURPOSE
  * AU43 (eye closure, negative arousal) lands on `eyeBlinkLeft/Right`, which `motion/Blink.js` also
  * declares. That is the case `motion/Layer.js`'s own header opens with — "blink and emotion both
@@ -49,6 +62,7 @@ import { Layer } from '../motion/Layer.js';
 import { MOTION_ORDER } from '../motion/MotionStack.js';
 import { AffectState } from './AffectState.js';
 import { EMOTION_MORPHS, ExpressionMap, MOUTH_CORNER_MORPHS } from './ExpressionMap.js';
+import { PostureLayer } from './PostureLayer.js';
 
 /** Below this a morph is not worth a write or a line in the conflict report. */
 const EXPRESSION_EPSILON = 1e-6;
@@ -84,6 +98,27 @@ export class ExpressionLayer extends Layer {
         this.activations = [];
         this.faceResult = null;
         this.bodyPrescription = null;
+
+    }
+
+    /**
+     * The body half of this layer, sharing its state and its map.
+     *
+     * A caller that constructs `PostureLayer` itself has to remember to pass both, and passing
+     * neither is silent — it gets a layer holding a fresh neutral `AffectState` that never moves,
+     * which looks exactly like the defect this pair exists to close. This is the constructor that
+     * cannot be got wrong.
+     *
+     *     const affect = new ExpressionLayer();
+     *     stack.add( affect );
+     *     stack.add( affect.postureLayer() );
+     *
+     * @param {Object} [options] - Anything `PostureLayer` takes; `state` and `map` are supplied.
+     * @returns {PostureLayer}
+     */
+    postureLayer( options = {} ) {
+
+        return new PostureLayer( { ...options, state: this.state, map: this.map } );
 
     }
 

@@ -560,11 +560,27 @@ const UNGATED = {
         'why it must stay opt-in and why ?wear alone still takes the no-floor path.' },
 
     affect: { readHere: true, why:
-        'PHASE 5. Adds affect/ExpressionLayer.js to the motion stack and settles it. Not a ' +
-        'shading switch: it writes MORPH WEIGHTS, so it changes the pose of the same materials ' +
-        'rather than the materials. Gated by packages/core/src/affect/affect.selftest.mjs ' +
-        '(91 checks), which measures the thing that matters — that the layer composes over the ' +
-        'viseme rather than replacing it, viseme unchanged to 0.00e+0.' },
+        'PHASE 5. Adds affect/ExpressionLayer.js AND affect/PostureLayer.js to the motion stack and ' +
+        'settles them. Not a shading switch: it writes MORPH WEIGHTS and BONE ROTATIONS, so it ' +
+        'changes the pose of the same materials rather than the materials. Gated by ' +
+        'packages/core/src/affect/affect.selftest.mjs (112 checks), which measures the two things ' +
+        'that matter — that the face composes over the viseme rather than replacing it, viseme ' +
+        'unchanged to 0.00e+0, and that the BAP prescription reaches a bone at all.' },
+
+    // 🚩 THIS KEY EXISTS BECAUSE OF A MEASUREMENT, AND THE MEASUREMENT IS THE REASON IT IS READ
+    // UNCONDITIONALLY. Before `PostureLayer` landed, eight `?affect=` plates differed on the face
+    // and FIVE OF SEVEN had a torso band bit-identical to neutral, because `ExpressionMap.body()`
+    // had no actuator. A claim that the body now emotes is only attributable against a plate with
+    // the face on and the body off, and `?affect=anger&affectbody=0` is that plate. `alive.js`
+    // reads the key in `readSession` rather than inside `attachAffect`, so it lands in the surface
+    // this file records even on plates carrying no `?affect` at all — a toggle that only appears on
+    // plates nobody captures is a toggle no gate can classify.
+    affectbody: { readHere: true, why:
+        'PHASE 5/6.2. The A side of ?affect: it withholds affect/PostureLayer.js while leaving the ' +
+        'face layer in place. Not a shading switch — it changes the POSE — and on a plate with no ' +
+        '?affect it has nothing to withhold, which is the claim asserted here: absent, inert. Its ' +
+        'own gate is the POSTURE section of affect.selftest.mjs, where the body displacement of ' +
+        'every preset is measured on the real mesh against neutral.' },
 
     identity: { readHere: true, why:
         'PHASE 10. Rewrites the body geometry\'s position buffer once at load. Not a shading ' +
