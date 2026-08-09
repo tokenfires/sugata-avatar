@@ -211,6 +211,11 @@ import {
 
 import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
 
+// The closure instrument this file invented for the light graph. It moved to its own module when
+// `GroundContact.js` needed exactly it for the surface, because two copies of a closure is how a
+// closure comes to have a hole in it — which is the one defect it exists to make impossible.
+import { classifyNode, plainValue } from './StateClosure.js';
+
 // --- the measured budget ------------------------------------------------------------------
 
 /**
@@ -1059,8 +1064,9 @@ const NODES_ON_SHADOW = { camera: () => SHADOW_CAMERA_NODE };
 // So the model changes rather than the list. **A light's render state is an object GRAPH**, and
 // every node in it — the light, its shadow, the shadow's camera, the spot's target — gets the same
 // treatment: swept for what it HAS, every own key either read with a value or inert with a reason,
-// anything else into `unclassified`. `classifyNode` below is that sweep, and the two tables after it
-// are the two nodes that were being read by hand.
+// anything else into `unclassified`. `classifyNode` in `StateClosure.js` is that sweep — it moved
+// out of this file when `GroundContact.js` needed the identical instrument for the plane it draws —
+// and the two tables below are the two nodes that were being read by hand.
 //
 // ⚠️ The classifications below are MEASURED, not grepped. Each field was perturbed on the shipped
 // rig and three's own `LightShadow.updateMatrices` / `scene.updateMatrixWorld()` asked whether the
@@ -1205,72 +1211,6 @@ const SPOT_TARGET_NODE = {
 
 const _axis = /* @__PURE__ */ new Vector3();
 const _toPoint = /* @__PURE__ */ new Vector3();
-
-/** Values reduced to something a gate can compare and print without caring about class. */
-function plainValue( value ) {
-
-    if ( value === undefined || value === null ) return null;
-    if ( value.isColor === true ) return value.getHex();
-    if ( value.isVector3 === true ) return [ value.x, value.y, value.z ];
-    if ( value.isVector2 === true ) return [ value.x, value.y ];
-    if ( value.isEuler === true ) return [ value.x, value.y, value.z ];
-    if ( value.isQuaternion === true ) return [ value.x, value.y, value.z, value.w ];
-    // `Layers` carries no `isLayers` brand, so it is recognised by its shape.
-    if ( typeof value.test === 'function' && typeof value.mask === 'number' ) return value.mask;
-    if ( value.isTexture === true ) return `texture:${ value.uuid }`;
-    if ( value.isObject3D === true ) return [ value.position.x, value.position.y, value.position.z ];
-
-    return value;
-
-}
-
-/**
- * Sweeps ONE node of the light's graph: every own key either read with a value or inert with a
- * reason, anything else into `unclassified`, anything declared-read but absent into `missing`.
- *
- * This is the generalisation of what `lightRenderState` already did for the light itself, and its
- * whole reason to exist is that the light was the only node getting it. A node handed to this
- * function cannot hide a field, which is the property the seven hardcoded `shadow.camera` reads did
- * not have.
- *
- * @param {import('three').Object3D} node
- * @param {string} prefix - key prefix in the returned maps, e.g. `shadow.camera`.
- * @param {{ read: string[], inert: Object<string,string>, derived: Object<string,Function> }} spec
- * @param {{ read: Object, inert: Object, unclassified: string[], missing: string[] }} into
- */
-function classifyNode( node, prefix, spec, into ) {
-
-    for ( const name of spec.read ) {
-
-        if ( name in node === false ) {
-
-            into.missing.push( `${ prefix }.${ name }` );
-            continue;
-
-        }
-
-        into.read[ `${ prefix }.${ name }` ] = plainValue( node[ name ] );
-
-    }
-
-    for ( const [ name, why ] of Object.entries( spec.inert ) ) into.inert[ `${ prefix }.${ name }` ] = why;
-
-    for ( const [ name, derive ] of Object.entries( spec.derived ) ) {
-
-        into.read[ `${ prefix }.${ name }` ] = derive( node );
-
-    }
-
-    for ( const key of Object.keys( node ) ) {
-
-        if ( spec.read.includes( key ) ) continue;
-        if ( key in spec.inert ) continue;
-
-        into.unclassified.push( `${ prefix }.${ key }` );
-
-    }
-
-}
 
 /**
  * 🎯 THE WHOLE-STATE FINGERPRINT. Everything about one light that can change the picture, as a flat

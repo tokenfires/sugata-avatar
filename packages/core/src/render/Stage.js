@@ -45,6 +45,7 @@
 
 import {
     ACESFilmicToneMapping,
+    PCFShadowMap,
     PerspectiveCamera,
     RenderPipeline,
     Scene,
@@ -224,6 +225,29 @@ export class Stage {
         this.renderer.toneMapping = ACESFilmicToneMapping;
         this.renderer.toneMappingExposure = options.toneMappingExposure ?? 1;
         this.renderer.outputColorSpace = SRGBColorSpace;
+
+        // 🚩 THE SHADOW FILTER IS DECIDED HERE, AND IT USED TO BE DECIDED BY NOBODY.
+        //
+        // `LightingRig.attachTo` sets `shadowMap.enabled` and deliberately does not touch `type`,
+        // because the renderer belongs to this file — and until R10 nothing in the repository had
+        // an opinion about `type` at all. `grep -n shadow packages/core/src/render/Stage.js`
+        // returned nothing, so the whole shadow filter was three's default arriving by omission.
+        //
+        // That is not a cosmetic field. `ShadowNode.setupShadow` reads
+        // `getShadowFilterFn( renderer.shadowMap.type )` and selects the ENTIRE filter from it —
+        // `_shadowFilterLib[ type ]`, one of Basic / PCF / PCF-soft / VSM — and THROWS
+        // "Shadow map type not supported yet" for a type the WebGPU path has no entry for. The
+        // neighbouring field is the cautionary tale: `shadowMap.enabled` defaults to FALSE on this
+        // path and `AnalyticLightNode.setupShadow` returns immediately when it is false, which is a
+        // rig that builds a perfect caster casting nothing.
+        //
+        // `PCFShadowMap` IS three's default (`Renderer.js`: `this.shadowMap = { enabled: false,
+        // transmitted: false, type: PCFShadowMap }`), so writing it changes no pixel — every plate
+        // measured before this line reproduces after it. Writing it changes who is answerable for
+        // it: this is now a decision a plate can be attributed to, and a three release that moves
+        // the default moves nothing here. The one shadow caster this project can afford costs
+        // 2.62 ms, and the filter it is resolved through should not be an accident.
+        this.renderer.shadowMap.type = PCFShadowMap;
 
         await this.renderer.init();
 

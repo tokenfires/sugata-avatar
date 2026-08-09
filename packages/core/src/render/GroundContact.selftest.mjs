@@ -1975,17 +1975,44 @@ console.log( '\nTHE WHOLE-STATE FINGERPRINT — because the three blocks above a
         colorNode: { is: 'node', stock: 'null' }
     };
 
+    /**
+     * Every row `GROUND_MESH_NODE` reads or derives, declared here rather than in the module — two
+     * independent derivations of the same claim, which is the property that makes the comparison
+     * worth anything.
+     *
+     * ⚠️ **THIS TABLE IS NO LONGER THE CLOSURE, AND THAT IS THE POINT OF THE ROUND THAT CHANGED
+     * IT.** It used to be nine keys checked against a nine-key object literal, so the two agreed by
+     * construction and neither could see a tenth field. The module now sweeps all **34** own keys of
+     * the Mesh; this table declares the ones with values, and `unclassified` / `missing` below carry
+     * the half a declaration cannot: a field nobody has met.
+     */
     const declaredMesh = {
         position: [ shot.focus.x, 0, shot.focus.z ],
         rotation: [ -Math.PI / 2, 0, 0 ],
+        // The same rotation as a quaternion, so a direct write to one and not the other is a fault
+        // rather than a silence. sin(−π/4), 0, 0, cos(−π/4).
+        quaternion: [ -Math.SQRT1_2, 0, 0, Math.SQRT1_2 ],
         scale: [ shot.subjectHeightMetres * EXTENT_IN_HEIGHTS, shot.subjectHeightMetres * EXTENT_IN_HEIGHTS, 1 ],
-        receiveShadow: true,
-        castShadow: false,
+        pivot: null,
+        // Without these two the rows above are an INTENTION rather than a place: three composes the
+        // matrix from them only when it is told to.
+        matrixAutoUpdate: true,
+        matrixWorldAutoUpdate: true,
         visible: true,
         layers: 1,
         renderOrder: 0,
         frustumCulled: true,
-        geometry: 'PlaneGeometry 1x1'
+        receiveShadow: true,
+        castShadow: false,
+        customDepthMaterial: null,
+        customDistanceMaterial: null,
+        morphTargetInfluences: null,
+        morphTargetDictionary: null,
+        count: 1,
+        up: [ 0, 1, 0 ],
+        parentIsScene: true,
+        childCount: 0,
+        geometryDescription: 'PlaneGeometry 1x1'
     };
 
     const sameValue = ( actual, expected ) => Array.isArray( expected )
@@ -2001,11 +2028,30 @@ console.log( '\nTHE WHOLE-STATE FINGERPRINT — because the three blocks above a
 
         for ( const [ key, expected ] of Object.entries( declaredMesh ) ) {
 
-            if ( sameValue( state.mesh[ key ], expected ) === false ) {
+            if ( sameValue( state.mesh.read[ key ], expected ) === false ) {
 
-                faults.push( `mesh.${ key } reads ${ JSON.stringify( state.mesh[ key ] ) } against a declared ${ JSON.stringify( expected ) }` );
+                faults.push( `mesh.${ key } reads ${ JSON.stringify( state.mesh.read[ key ] ) } against a declared ${ JSON.stringify( expected ) }` );
 
             }
+
+        }
+
+        // 🚩 THE HALF A DECLARATION CANNOT COVER, and the reason the mesh sweep exists. A field on
+        // the Mesh that the spec neither reads nor calls inert is a mechanism nobody has met — a
+        // three release, a class change, or somebody setting a property this file never considered.
+        for ( const key of state.mesh.unclassified ) {
+
+            faults.push( `mesh.${ key } is on the object and GROUND_MESH_NODE neither reads it nor ` +
+                'declares it inert, so nothing here can say whether it moves the floor' );
+
+        }
+
+        // The same instrument the other way: a field the spec says three reads that the Mesh does
+        // not have is a rename in the dependency presenting as `undefined === undefined`.
+        for ( const key of state.mesh.missing ) {
+
+            faults.push( `mesh.${ key } is declared read and is not on the object — a rename in ` +
+                'three, or a mesh of a class this spec was not written for' );
 
         }
 
@@ -2058,6 +2104,57 @@ console.log( '\nTHE WHOLE-STATE FINGERPRINT — because the three blocks above a
 
         return { faults, state };
 
+    }
+
+    {
+        // 🚩 THE CLOSURE'S OTHER HALF, ASSERTED ONCE BECAUSE IT IS A PROPERTY OF THE SPEC AND NOT OF
+        // A GROUND. An `inert:` row is the only place in the whole instrument where a human says
+        // "this cannot change the picture" and nothing measures it, so the one thing that can be
+        // held is that a reader was made to write an argument down. A one-word reason is an
+        // enumeration wearing a closure's clothes.
+        const { mesh } = groundIn().renderState();
+
+        const thin = Object.entries( mesh.inert )
+            .filter( ( [ , why ] ) => typeof why !== 'string' || why.length < 24 )
+            .map( ( [ key ] ) => key );
+
+        report(
+            'CLOSURE: every field GROUND_MESH_NODE calls inert carries a reason a reader can argue with',
+            thin.length === 0,
+            thin.length === 0
+                ? `${ Object.keys( mesh.inert ).length } inert fields, every reason at least 24 characters; ` +
+                  `${ Object.keys( mesh.read ).length } read, ${ mesh.unclassified.length } unclassified`
+                : `no reason worth reading on: ${ thin.join( ', ' ) }`
+        );
+    }
+
+    {
+        // 🚩 THE ONLY ASSERTION IN THIS FILE THAT CAN GO RED FOR A DEFECT NOBODY HAS MET, PROVED.
+        // §1.25a: a closure that has never been shown to catch an unforeseen field is a list with a
+        // longer comment. Planting a property three does not ship is the cheapest stand-in for the
+        // next release, for a mesh of another class, and for somebody setting something this file
+        // never considered — all three arrive as "an own key the spec does not account for".
+        const ground = groundIn();
+
+        ground.mesh.tessellationBudget = 4;
+
+        const planted = groundFaults( ground );
+        const named = planted.state.mesh.unclassified.includes( 'tessellationBudget' );
+
+        delete ground.mesh.tessellationBudget;
+
+        const restored = groundFaults( ground );
+
+        report(
+            'RED: a field three has not shipped, planted on the ground mesh, is named by the closure',
+            named === true && planted.faults.length === 1 && restored.faults.length === 0,
+            named === true
+                ? `unclassified named it and the ground reported ${ planted.faults.length } fault(s); ` +
+                  `${ restored.faults.length } after removing it. Nothing in this file lists ` +
+                  '`tessellationBudget` — the sweep asks the object what it HAS, which is why it could'
+                : `unclassified reads [${ planted.state.mesh.unclassified.join( ', ' ) }] — the ` +
+                  'closure did not see a field that is plainly on the object'
+        );
     }
 
     {
@@ -2248,11 +2345,11 @@ console.log( '\nTHE WHOLE-STATE FINGERPRINT — because the three blocks above a
 
         report(
             `MUST PASS: ${ variant.what }`,
-            Math.abs( state.mesh.scale[ 0 ] - expectedScale ) <= 1e-9
-                && Math.abs( state.mesh.position[ 0 ] - otherShot.focus.x ) <= 1e-9
-                && state.mesh.position[ 1 ] === 0
+            Math.abs( state.mesh.read.scale[ 0 ] - expectedScale ) <= 1e-9
+                && Math.abs( state.mesh.read.position[ 0 ] - otherShot.focus.x ) <= 1e-9
+                && state.mesh.read.position[ 1 ] === 0
                 && Object.keys( state.materialDeltas ).length === 3,
-            `scale ${ state.mesh.scale[ 0 ].toFixed( 4 ) } m against ${ expectedScale.toFixed( 4 ) } and the plane ` +
+            `scale ${ state.mesh.read.scale[ 0 ].toFixed( 4 ) } m against ${ expectedScale.toFixed( 4 ) } and the plane ` +
             `still at y = 0 under a focus 1.55 m up, with the same three material deltas — the declaration is ` +
             'derived from the shot, so a different shot is not a defect'
         );

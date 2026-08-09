@@ -95,6 +95,9 @@ import {
 
 import { color, Fn, float, Loop, normalWorld, positionWorld, uniformArray, uniform, vec3 } from 'three/tsl';
 
+// The same closure instrument the light half uses. See `GROUND_MESH_NODE` and `renderState()`.
+import { classifyNode } from './StateClosure.js';
+
 /**
  * How many spheres the shader loop runs. Not a taste decision — every entry is a per-ground-pixel
  * `acos` and `atan`, and the ground is the largest single surface in a full-body frame.
@@ -366,6 +369,83 @@ export function groundVisibility( position, normal, occluders ) {
 
 }
 
+/**
+ * 🎯 EVERY OWN FIELD OF THE GROUND PLANE, CLASSIFIED — the node spec `renderState()` sweeps.
+ *
+ * ⚠️ **This replaces a hand-written `mesh: { position, rotation, scale, … }` literal, and the
+ * replacement is the whole point rather than a tidy-up.** That literal named nine fields of a Mesh
+ * that carries **34 own keys** at three 0.185.1. It was written the same way, from the same memory,
+ * as the light-state list that let two planted defects move pixels past a green gate two rounds
+ * running — LEARNINGS §1.25t. A list cannot know what it is missing. A closure can, because
+ * `classifyNode` asks the object what fields it HAS and requires every one to be read, inert with a
+ * reason, or covered by a derived row; anything else lands in `unclassified` and the gate goes red
+ * naming it, **including a field three has not shipped yet**.
+ *
+ * The material half was already a closure — a delta against a freshly constructed
+ * `MeshStandardNodeMaterial` — so the mesh half was the last enumeration in this file.
+ *
+ * 🚩 THREE FIELDS ARE READ HERE THAT THE OLD LITERAL DID NOT NAME, AND EACH IS A WAY THE FLOOR
+ * DISAPPEARS UNDER A GREEN CHECK. `matrixAutoUpdate` false leaves the plane wherever its matrix was
+ * last composed no matter what `position` says, so a gate reading `position` alone is reading an
+ * intention rather than a place. `pivot` and `rotation` only close together, exactly as they do for
+ * the spot's target: a pivot correction is algebraically zero at an identity rotation and stops
+ * being at any other, so calling either inert alone assumes the other's value. And `up` is inert
+ * only because nothing calls `lookAt` on the ground — that is a claim about this file, not about
+ * three, so it is written down as one.
+ */
+const GROUND_MESH_NODE = {
+
+    read: [
+        // where the plane is, and whether three will honour the transform that says so
+        'position', 'rotation', 'quaternion', 'scale', 'pivot',
+        'matrixAutoUpdate', 'matrixWorldAutoUpdate',
+        // whether it is drawn, in what order, and whether the one shadow lands on it
+        'visible', 'layers', 'renderOrder', 'frustumCulled', 'receiveShadow', 'castShadow',
+        // what a shadow pass would draw it with, if it ever cast one
+        'customDepthMaterial', 'customDistanceMaterial',
+        // a plane has no morph attributes, so these read null — and would stop
+        'morphTargetInfluences', 'morphTargetDictionary', 'count',
+        // consumed by `lookAt`, which nothing calls on the ground. Read rather than argued about,
+        // because the argument is about this file's behaviour and files change.
+        'up'
+    ],
+
+    inert: {
+        isObject3D: 'a type brand, set once in the Object3D constructor and never written again',
+        isMesh: 'a type brand; three dispatches on it and nothing in this file writes it',
+        uuid: 'nothing in the WebGPU render path keys on it — the render list is keyed by object '
+            + 'identity, and the material cache by the material',
+        name: 'a label, read by `getObjectByName` and by this project\'s own HUD; nothing in the '
+            + 'render path reads it',
+        type: 'nothing dispatches on it; the render path branches on the `isMesh` brand instead',
+        parent: 'covered instead by `parentIsScene` below, which is the property the claim needs — '
+            + 'a plane parented under a translated node is somewhere else',
+        children: 'covered instead by `childCount` below: a child of the ground IS drawn, so the '
+            + 'honest statement is that there are none rather than that they do not matter',
+        matrix: 'recomposed from position/quaternion/scale/pivot by `updateMatrix`, and '
+            + '`matrixAutoUpdate` — the field that decides whether that happens — is READ above',
+        matrixWorld: 'recomposed by `updateMatrixWorld`, with `matrixWorldAutoUpdate` and '
+            + '`parentIsScene` closing it',
+        matrixWorldNeedsUpdate: 'a dirty flag; the scene graph update runs regardless',
+        geometry: 'covered instead by `geometryDescription` below, which names the type and both '
+            + 'plane dimensions — a swapped geometry changes the string',
+        material: 'covered instead by `materialDeltas`, which diffs the shipped material against a '
+            + 'freshly constructed `MeshStandardNodeMaterial` and is a closure in its own right',
+        animations: 'clip storage for an `AnimationMixer`; nothing animates the ground, and if '
+            + 'anything ever did it would move the transform rows above',
+        static: 'a render-list cache hint; three re-derives what it draws either way',
+        userData: 'application storage, read by nothing in three and by nothing in this project'
+    },
+
+    derived: {
+        parentIsScene: ( mesh ) => mesh.parent !== null && mesh.parent.isScene === true,
+        childCount: ( mesh ) => mesh.children.length,
+        geometryDescription: ( mesh ) => `${ mesh.geometry.type } `
+            + `${ mesh.geometry.parameters.width }x${ mesh.geometry.parameters.height }`
+    }
+
+};
+
 // --- the class -----------------------------------------------------------------------------------
 
 export class GroundContact {
@@ -608,7 +688,15 @@ export class GroundContact {
      * this file, all of them change what the floor looks like, and all of them are covered by the
      * fact that they are currently at their defaults and would stop being.
      *
-     * @returns {{ mesh: Object, materialDeltas: Object, uniforms: Object }}
+     * 🚩 AND THE MESH HALF IS NOW A CLOSURE TOO, WHICH IT WAS NOT. It used to be a nine-field
+     * object literal over a Mesh with 34 own keys — the same shape, written from the same memory,
+     * as the light-state list that two planted defects walked past. `GROUND_MESH_NODE` above is the
+     * declaration and `classifyNode` is the sweep, shared with `LightingRig.js` rather than copied:
+     * `mesh.unclassified` is the load-bearing return value and it is the only thing here that can
+     * go red for a field nobody has met yet.
+     *
+     * @returns {{ mesh: { read: Object, inert: Object, unclassified: string[], missing: string[] },
+     *             materialDeltas: Object, uniforms: Object }}
      */
     renderState() {
 
@@ -631,21 +719,16 @@ export class GroundContact {
 
         reference.dispose();
 
+        // 🚩 `receiveShadow` false and the ONE shadow this project can afford stops landing on the
+        // ground it was bought for. It is one row of the sweep below rather than a remembered line,
+        // which is the difference the whole spec exists for.
+        const mesh = { read: {}, inert: {}, unclassified: [], missing: [] };
+
+        // An empty prefix names the fields bare — a plane is one node, not a graph.
+        classifyNode( this.mesh, '', GROUND_MESH_NODE, mesh );
+
         return {
-            mesh: {
-                position: [ this.mesh.position.x, this.mesh.position.y, this.mesh.position.z ],
-                rotation: [ this.mesh.rotation.x, this.mesh.rotation.y, this.mesh.rotation.z ],
-                scale: [ this.mesh.scale.x, this.mesh.scale.y, this.mesh.scale.z ],
-                // 🚩 `receiveShadow` false and the ONE shadow this project can afford stops landing
-                // on the ground it was bought for. Nothing has ever asserted it.
-                receiveShadow: this.mesh.receiveShadow,
-                castShadow: this.mesh.castShadow,
-                visible: this.mesh.visible,
-                layers: this.mesh.layers.mask,
-                renderOrder: this.mesh.renderOrder,
-                frustumCulled: this.mesh.frustumCulled,
-                geometry: `${ this.mesh.geometry.type } ${ this.mesh.geometry.parameters.width }x${ this.mesh.geometry.parameters.height }`
-            },
+            mesh,
             materialDeltas,
             uniforms: {
                 albedo: this.albedo,
