@@ -90,6 +90,40 @@
  *                   manifest is fetched, so the plate the seven gates are stated on is untouched
  *                   — see `WARDROBE_BODY_URL`. Needs the g050 bake; refused in words otherwise.
  *                   Live from the console as `sugata.wardrobe`.
+ *   ?foundation     PHASE 9.8. Wear the foundation layer under whatever `?wear` asked for, so the
+ *                   decency floor is visible on the page a judge captures. Implies the wardrobe:
+ *                   `?foundation` alone dresses the figure in the floor and nothing else.
+ *                   ⚠️ OPT-IN, and it must stay so — with a `decencyFloor` configured the body
+ *                   does not draw until the first dress resolves, which changes the TIMING of any
+ *                   plate captured before that promise settles. `?wear` without `?foundation`
+ *                   keeps the pre-9.8 behaviour exactly.
+ *   ?affect=joy     PHASE 5. Put a settled emotional expression on the face through
+ *                   `affect/ExpressionLayer.js`, composed over the viseme layer rather than
+ *                   replacing it. One of the `EMOTION_PRESETS` in `affect/ExpressionMap.js`, or
+ *                   `p,a,d` as three numbers for a raw PAD point. Absent, nothing is imported.
+ *   ?identity=      PHASE 10. Apply MPFB detail targets to the figure's position buffer, once, at
+ *                   load. `?identity=eyes/eye-scale-incr:1,nose/nose-width-decr:0.5` is the
+ *                   general form. Absent, neither the catalogue nor the 10.8 MB of target data is
+ *                   fetched. ⚠️ 10.7 and 10.9 are not built: the eyes, teeth and skeleton do NOT
+ *                   follow the skin, measured at 15.000 mm of skin rise against 0.000 mm of
+ *                   eyeball rise on a tall build. Expect to see it.
+ *   ?nudge=2.5      Offset the FIGURE laterally by that many millimetres, after the pre-roll and
+ *                   compatible with `?freeze`. It moves the BODY and not the camera on purpose — a
+ *                   camera nudge changes perspective and parallax and is a different stimulus.
+ *                   This exists for one measurement: the 2AFC staircase that would retire the
+ *                   project's unmeasured 1.6 px indistinguishability floor. LEARNINGS §1.14a.
+ *   ?statedefect=   🚩 KNOWN-BAD. Plant one whole-state light defect on the real rig, from the same
+ *                   table `lighting.html` uses (`./light-defects.js`), so the light-state
+ *                   fingerprint's rejection proofs are re-runnable ON THE PAGE THE SEVEN GATES ARE
+ *                   MEASURED ON. One of decay, cutoff, shadowintensity, shadowfocus, rimlayer,
+ *                   skyaxis, panelmirror, panelaim.
+ *   ?grounddefect=  🚩 the same for the surface half: receiveshadow, metalness, emissive, desync,
+ *                   tilt, tonemapped.
+ *                   ⚠️ BOTH ARE INVISIBLE ON A `?bare` PLATE BY CONSTRUCTION — that is the property
+ *                   they exist to demonstrate. `panelaim` moves three quarters of a frame at five
+ *                   code values. The plate is identified only by its URL, by
+ *                   `sugata.report().defects`, and by a console warning. A number quoted off one
+ *                   of these without naming the parameter is a number about nothing.
  *   ?msaa=0         build the stage without any AA at all. Shorthand for ?aa=off.
  *   ?aa=taau|traa|msaa|off
  *                   which anti-aliasing. `taau` at 0.66 resolution scale is the DEFAULT and the
@@ -144,6 +178,8 @@ import {
 } from 'three/webgpu';
 import { max, texture, vec3, vec4 } from 'three/tsl';
 import { Box3, SRGBColorSpace } from 'three';
+
+import { plantGroundDefect, plantLightDefect } from './light-defects.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig } from '../../core/src/render/LightingRig.js';
@@ -283,6 +319,12 @@ const BACKDROP_DISTANCE_METRES = 1.9;
  * identity range is worse than one that says which fifth it has.
  */
 const WARDROBE_BODY_URL = new URL( '../../../assets/wardrobe/body/g050.glb', import.meta.url ).href;
+
+// Phase 10. Written as a bundler-visible `new URL(..., import.meta.url)` for the reason
+// `IdentityTargets.js`'s own region table gives: a URL built by string concatenation is invisible
+// to rollup, so `vite build` emits no asset and the built page 404s on data the dev server served
+// happily. Only fetched when `?identity=` asked for something.
+const IDENTITY_CATALOGUE_URL = new URL( '../../../assets/identity/catalogue.json', import.meta.url ).href;
 const WARDROBE_MANIFEST_URL = new URL( '../../../assets/wardrobe/manifest.json', import.meta.url ).href;
 
 /** The one bake the wardrobe has fragments for. See WARDROBE_BODY_URL. */
@@ -531,10 +573,29 @@ async function boot() {
         // Phase 9. `?wear=female_casualsuit01,shoes01` dresses the figure; `?wear=` with nothing
         // after it loads the wardrobe and wears nothing, which is the way to see the body swap on
         // its own. See `WARDROBE_BODY_URL` for why this is opt-in and what it costs when it is on.
-        wardrobeRequest: query.has( 'wear' )
+        //
+        // `?foundation` (9.8) IMPLIES the wardrobe, because the decency floor is a wardrobe
+        // mechanism — `Wardrobe.dress()` unions the floor into every outfit — so asking for the
+        // floor on a page with no wardrobe would be asking for nothing.
+        wardrobeRequest: ( query.has( 'wear' ) || query.has( 'foundation' ) )
             ? ( query.get( 'wear' ) ?? '' ).split( ',' ).map( ( id ) => id.trim() ).filter( ( id ) => id !== '' )
             : null,
-        wardrobe: null
+        foundationEnabled: query.has( 'foundation' ),
+        wardrobe: null,
+
+        // Phase 10. Null unless `?identity=` asked for something — see `applyIdentityTargets`,
+        // which is where the 10.8 MB of target data is (not) fetched.
+        identityRequest: parseIdentityRequest( query.get( 'identity' ) ),
+        identityReport: null,
+
+        // Phase 5. Null unless `?affect=` asked for one; the module is not imported otherwise.
+        affectRequest: query.get( 'affect' ),
+        affect: null,
+
+        // A commanded static lateral offset of the figure, in metres. On `session` rather than in
+        // `boot`'s scope because a gender swap builds a whole new root and would otherwise drop it
+        // silently — which on a psychophysical staircase is a trial reported at the wrong distance.
+        nudgeMetres: ( query.has( 'nudge' ) ? Number( query.get( 'nudge' ) ) : 0 ) / 1000
     };
 
     // The rig is preset per framing, not scaled from one. The portrait rim azimuth measures 1 px
@@ -547,6 +608,29 @@ async function boot() {
     } );
 
     lights.attachTo( stage.scene, stage.renderer );
+
+    // 🚩 KNOWN-BADS, ON THE PAGE THE SEVEN OBJECTIVE GATES ARE MEASURED ON. The tables are shared
+    // with `lighting.html` rather than copied, because a rejection proof that only runs on the
+    // browsercheck cannot be re-run against the plate anybody actually quotes. Planted on the rig's
+    // `solve` rather than on its constructor: `solve()` runs on every re-aim, so a one-shot
+    // mutation is a no-op wearing a defect's name.
+    //
+    // ⚠️ `plantLightDefect` and `plantGroundDefect` both return null for an absent parameter and
+    // touch nothing, so the default plate is untouched with this code present. That is asserted by
+    // digest in `alive-toggles.selftest.mjs` rather than claimed here.
+    const defects = {
+        light: plantLightDefect( lights, query.get( 'statedefect' ) ),
+        ground: plantGroundDefect( ground, query.get( 'grounddefect' ) )
+    };
+
+    if ( defects.light !== null || defects.ground !== null ) {
+
+        console.warn( `🚩 DEFECT PLANTED — statedefect=${ defects.light?.name ?? 'none' } ` +
+            `(${ defects.light?.altered ?? 0 } distinct light object(s)), ` +
+            `grounddefect=${ defects.ground ?? 'none' }. This plate LOOKS clean and is not. ` +
+            'Quote no number off it without naming the parameter.' );
+
+    }
 
     const stack = new MotionStack( { seed: Number( query.get( 'seed' ) ?? 20260807 ) } );
 
@@ -586,6 +670,10 @@ async function boot() {
     await swapFigure( session, stack, stage, lights, backdrop, ground );
 
     for ( const layer of Object.values( layers ) ) stack.add( layer );
+
+    // Phase 5, opt-in. Added after the ten shipped layers so its MOTION_ORDER slot decides where it
+    // runs rather than insertion order, and so an absent `?affect` imports nothing.
+    session.affect = await attachAffect( stack, session );
 
     // Pupil dilation lands on the eye shader's own uniform. Written through a sink rather than
     // through `pupil.driveUniform` on purpose: the gender dial rebuilds `session.eyes`, and
@@ -660,6 +748,29 @@ async function boot() {
     for ( let step = 0; step < Math.round( prerollSeconds / FIXED_STEP_SECONDS ); step ++ ) {
 
         advanceSimulation( FIXED_STEP_SECONDS );
+
+    }
+
+    // 🎯 `?nudge=<mm>` — a commanded lateral offset of the FIGURE, for the one experiment that can
+    // retire this project's 1.6 px indistinguishability floor.
+    //
+    // That floor is cited by gates all over the repo as "the one empirical datum this project owns
+    // on the subject" and nobody measured it (LEARNINGS §1.14a); its two halves are out by 1.85x.
+    // What the project really owns is a bracket between two blind-judge observations: 0.48 px
+    // peak-to-peak reported as "the hands never move", and 10.6 px of pelvis excursion reported as
+    // a counted event. A 2AFC staircase closes it in about twenty captures — pairs at d in
+    // {0.5, 0.75, 1.1, 1.7, 2.5, 3.8, 5.6, 8.4} mm through `blind_ab.mjs`, with a d = 0 catch trial.
+    //
+    // 🚩 IT MOVES THE BODY, NOT THE CAMERA, and that is not a detail. A camera nudge changes
+    // perspective and parallax, so it is a different stimulus and its threshold would be a
+    // different number. Applied to the figure root AFTER the pre-roll so it is a static offset
+    // rather than something the stack integrates, and it composes with `?freeze` for the same
+    // reason: nothing downstream of here writes the root's x.
+    if ( session.nudgeMetres !== 0 && session.figure !== null ) {
+
+        session.figure.root.position.x = session.nudgeMetres;
+        session.figure.root.updateMatrixWorld( true );
+        ground.update();
 
     }
 
@@ -816,6 +927,31 @@ async function boot() {
         // default plate must not pay for this. `sugata.wardrobe.dress([...])`, `.undress()`,
         // `.putOn([...])`, `.takeOff([...])` and `.stats()` all work from the console.
         get wardrobe() { return session.wardrobe; },
+
+        /**
+         * Everything a screenshot of this page cannot carry, as a plain object a capture driver can
+         * read and record beside the pixels.
+         *
+         * 🚩 `defects` IS THE LOAD-BEARING FIELD AND IT IS WHY THIS EXISTS. A `?bare` plate with a
+         * planted defect is INDISTINGUISHABLE FROM A CLEAN ONE by construction — `panelaim` moves
+         * 73% of a frame at five code values — so the only things that identify it are the URL,
+         * this object and a console warning. A capture driver that screenshots one of these
+         * without recording the query string produces a number about nothing.
+         */
+        report: () => ( {
+            defects: {
+                light: defects.light === null
+                    ? null
+                    : { name: defects.light.name, lightsAltered: defects.light.altered },
+                ground: defects.ground
+            },
+            nudgeMillimetres: session.nudgeMetres * 1000,
+            affect: session.affect === null ? null : session.affect.preset,
+            identity: session.identityReport,
+            foundation: session.foundationEnabled
+                ? ( session.wardrobe?.worn ?? null )
+                : null
+        } ),
 
         // Every per-frame counter a shader or a resolve can read, so a gate can state what they
         // SHOULD be after N steps rather than only whether two runs happen to agree. Two runs
@@ -1262,6 +1398,12 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
 
     }
 
+    // Phase 10. BEFORE the skin material and before the pose, because identity rewrites the
+    // position buffer and everything downstream measures off it — `EyeMaterial` fits the sclera
+    // sphere, `GroundContact` measures occluder radii, and `framedHeightFor` reads the bounds.
+    // Absent `?identity=`, this returns immediately and fetches nothing.
+    session.identityReport = await applyIdentityTargets( figure, session );
+
     // The skin material is built BEFORE the old figure comes out of the scene, because building it
     // fetches this bake's own baked curvature map and a fetch is another chance for a newer load
     // to overtake this one. Doing it here means the page never shows a gap.
@@ -1299,6 +1441,9 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     }
 
     stage.add( figure.root );
+
+    // `?nudge` survives a bake swap. See `session.nudgeMetres`.
+    figure.root.position.x = session.nudgeMetres;
     figure.root.updateMatrixWorld( true );
 
     // The rest pose goes on BEFORE the stack binds, and the order is the whole trick. MotionStack
@@ -1396,9 +1541,26 @@ async function dressFigure( session ) {
 
     const { Wardrobe } = await import( '../../core/src/wardrobe/Wardrobe.js' );
 
-    session.wardrobe = await Wardrobe.create( session.figure, WARDROBE_MANIFEST_URL );
+    // Punch-list 9.8. ⚠️ OPT-IN, AND IT MUST STAY SO. With a `decencyFloor` configured the
+    // `Wardrobe` constructor hides the body until the first dress resolves — that is 9.8's fix for
+    // a bare body being drawn between construction and the first `dress()` — which changes the
+    // TIMING of any plate captured before that promise settles. `?wear` without `?foundation`
+    // therefore takes the no-floor path and behaves exactly as it did before 9.8 existed.
+    const floor = session.foundationEnabled
+        ? await buildFoundationFloor()
+        : null;
 
-    if ( session.wardrobeRequest.length === 0 ) {
+    session.wardrobe = await Wardrobe.create( session.figure, WARDROBE_MANIFEST_URL,
+        floor === null ? undefined : { decencyFloor: floor } );
+
+    // 🚩 `?foundation` MUST STILL DRESS, and finding out why cost a plate. `dress()` is what unions
+    // the decency floor into an outfit, and with a floor configured the `Wardrobe` constructor
+    // hides the body until the first dress resolves — so the early return below, on an EMPTY
+    // request, produced a page with no figure on it at all. Measured: `?bare&freeze&capture` at
+    // 900x1200 differed from the nude plate on 60.2% of samples at worst Δ252/255, which is what
+    // "the body is not drawn" looks like as a number. `dress([])` is the empty outfit, and the
+    // empty outfit is still the floor.
+    if ( session.wardrobeRequest.length === 0 && session.foundationEnabled === false ) {
 
         console.log( 'wardrobe: loaded, wearing nothing. ' +
             `Hide masks available: ${ session.wardrobe.availableHideMasks().join( ', ' ) }` );
@@ -1420,6 +1582,205 @@ async function dressFigure( session ) {
         console.warn( `wardrobe: ${ error.message }` );
 
     }
+
+}
+
+/**
+ * `?identity=eyes/eye-scale-incr:1,nose/nose-width-decr:0.5` — the slider stack, parsed.
+ *
+ * Returns null for an absent or empty parameter, which is what keeps the whole of Phase 10 —
+ * a 211 KB catalogue and up to 10.81 MB of packed target data — out of the default plate.
+ *
+ * @returns {?Object<string, number>}
+ */
+function parseIdentityRequest( spec ) {
+
+    if ( spec === null || spec === '' ) return null;
+
+    const values = {};
+
+    for ( const clause of spec.split( ',' ) ) {
+
+        const separator = clause.lastIndexOf( ':' );
+
+        if ( separator < 0 ) {
+
+            console.warn( `?identity: "${ clause }" has no ":weight". Expected slider-id:weight.` );
+            continue;
+
+        }
+
+        values[ clause.slice( 0, separator ).trim() ] = Number( clause.slice( separator + 1 ) );
+
+    }
+
+    return Object.keys( values ).length === 0 ? null : values;
+
+}
+
+/**
+ * Applies Phase 10 identity targets to the figure's position buffer, once, at load time.
+ *
+ * 🎯 Identity morphs never animate, so they are not GPU morph targets and cost NOTHING per frame:
+ * this rewrites the buffer and there is no per-frame entry point to call. Measured against a
+ * headless MPFB build, it reproduces Blender to 1.151e-4 mm on all 19,158 vertices.
+ *
+ * ⚠️ 10.7 AND 10.9 ARE NOT BUILT AND IT IS VISIBLE. The eyes, cornea, teeth, tongue, brows and
+ * lashes are separate mhclo-fitted meshes and the skeleton is placed from the body's vertices;
+ * neither is refitted here. On the shipped figure a "tall build" raises the skin at the eye line
+ * 15.000 mm and the eyeball proxy 0.000 mm. That is a known gap, not a bug in this function, and a
+ * judge shown an identity plate should be told which one they are looking at.
+ *
+ * Only the regions the request actually names are fetched — `loadRegions` is per region precisely
+ * so a product pays for what it edits.
+ *
+ * @returns {Promise<?Object>} the apply report, or null when no identity was asked for.
+ */
+async function applyIdentityTargets( figure, session ) {
+
+    if ( session.identityRequest === null ) return null;
+
+    const [ { IdentityCatalogue }, targetsModule ] = await Promise.all( [
+        import( '../../core/src/figure/IdentityCatalogue.js' ),
+        import( '../../core/src/figure/IdentityTargets.js' )
+    ] );
+
+    const { IdentityTargets, AXIS_GLTF, FIGURE_VERTEX_MAP_URL, FIGURE_VERTEX_MAP_BIN_URL } = targetsModule;
+
+    const catalogue = await IdentityCatalogue.load( { url: IDENTITY_CATALOGUE_URL } );
+    const targets = new IdentityTargets( catalogue );
+
+    const manifest = await ( await fetch( FIGURE_VERTEX_MAP_URL ) ).json();
+    const map = new Uint16Array( await ( await fetch( FIGURE_VERTEX_MAP_BIN_URL ) ).arrayBuffer() );
+
+    // The glTF NODE is named 'Human' and its mesh 'base.001'; three keeps the node name, so
+    // matching on the mesh name finds nothing. The position count is what the vertex map is keyed
+    // to anyway, and it is the property that would have to change for this lookup to be wrong.
+    let body = null;
+    figure.root.traverse( ( node ) => {
+
+        if ( node.isMesh && node.geometry.attributes.position.count === manifest.positionCount ) body = node;
+
+    } );
+
+    if ( body === null ) {
+
+        console.warn( `?identity: no mesh with ${ manifest.positionCount } positions in this bake. ` +
+            'Phase 10 is keyed to the g050 vertex map; load ?gender=0.5.' );
+        return null;
+
+    }
+
+    targets.useVertexMap( map );
+
+    // A misspelled slider id is a CALLER error, and it must not throw out of the boot path and
+    // leave a blank canvas — the same reasoning `dressFigure` gives for a refused outfit. The
+    // failure a judge needs to see is the figure plus the reason, not an empty page.
+    let stack;
+
+    try {
+
+        stack = catalogue.resolve( session.identityRequest );
+
+    } catch ( error ) {
+
+        console.warn( `?identity: ${ error.message } The figure is at the catalogue default. ` +
+            `Region ids look like 'eyes/eye-scale-decr-incr'; ${ catalogue.sliders.length } exist.` );
+        return null;
+
+    }
+
+    const regions = [ ...new Set( Object.keys( session.identityRequest )
+        .map( ( id ) => id.includes( '/' ) ? id.slice( 0, id.indexOf( '/' ) ) : id ) ) ];
+
+    await targets.loadRegions( regions );
+
+    const report = targets.apply( body.geometry.attributes.position.array, stack, { axis: AXIS_GLTF } );
+
+    body.geometry.attributes.position.needsUpdate = true;
+    body.geometry.computeBoundingSphere();
+
+    console.log( `identity: ${ Object.keys( session.identityRequest ).length } slider(s), ` +
+        `${ report.targetsApplied } target(s), ${ report.verticesMoved } vertices moved, ` +
+        `worst displacement ${ report.maxDisplacementMm?.toFixed( 3 ) ?? '?' } mm. ` +
+        '⚠️ Punch-list 10.7/10.9: the eyes, teeth and skeleton do NOT follow the skin yet.' );
+
+    return report;
+
+}
+
+/**
+ * Builds punch-list 9.8's decency floor over the garment manifest.
+ *
+ * Dynamic, like the wardrobe itself, so `?wear` without `?foundation` imports nothing new and the
+ * pre-9.8 behaviour is byte-for-byte what it was.
+ */
+async function buildFoundationFloor() {
+
+    const [ { FoundationLayer }, { GarmentManifest } ] = await Promise.all( [
+        import( '../../core/src/wardrobe/FoundationLayer.js' ),
+        import( '../../core/src/wardrobe/GarmentManifest.js' )
+    ] );
+
+    const foundation = new FoundationLayer( await GarmentManifest.load( WARDROBE_MANIFEST_URL ) );
+
+    console.log( `foundation: floor is ${ foundation.floor().join( ', ' ) }` );
+
+    return foundation.floor;
+
+}
+
+/**
+ * Adds Phase 5's expression layer to the motion stack and settles it on the requested emotion.
+ *
+ * 🚩 IT COMPOSES OVER THE VISEME LAYER RATHER THAN REPLACING IT, which is 5.5's whole invariant:
+ * the layer DECLARES brow, eye, cheek, nose and exactly four mouth-corner shapes, so writing any
+ * absolute mouth, jaw or viseme shape throws rather than being caught by a runtime check.
+ *
+ * Settled rather than left mid-attack, because a still plate of a face caught 80 ms into a 200 ms
+ * attack is a plate of a different face and there is no other way to make it reproducible.
+ *
+ * @returns {Promise<?Object>} `{ layer, preset }`, or null when no emotion was asked for.
+ */
+async function attachAffect( stack, session ) {
+
+    if ( session.affectRequest === null || session.affectRequest === '' ) return null;
+
+    const [ { ExpressionLayer }, { EMOTION_PRESETS } ] = await Promise.all( [
+        import( '../../core/src/affect/ExpressionLayer.js' ),
+        import( './affect-presets.js' )
+    ] );
+
+    // `?affect=0.9,0.6,0.5` is a raw PAD point; anything else is a preset name.
+    const numeric = session.affectRequest.split( ',' ).map( Number );
+    const pad = numeric.length === 3 && numeric.every( Number.isFinite )
+        ? { pleasure: numeric[ 0 ], arousal: numeric[ 1 ], dominance: numeric[ 2 ] }
+        : EMOTION_PRESETS[ session.affectRequest ];
+
+    if ( pad === undefined ) {
+
+        console.warn( `?affect: '${ session.affectRequest }' is not a preset and is not "p,a,d". ` +
+            `Known: ${ Object.keys( EMOTION_PRESETS ).join( ', ' ) }.` );
+        return null;
+
+    }
+
+    const layer = new ExpressionLayer();
+
+    if ( pad.trigger !== undefined ) layer.trigger( pad.trigger );
+
+    layer.state.push( { pleasure: pad.pleasure, arousal: pad.arousal, dominance: pad.dominance } );
+
+    // 3 s at a 10 ms step is fifteen attack time constants; the residual is under 1e-6 of an axis.
+    // The same arithmetic the frame loop runs, at a larger step — not a back door around it.
+    for ( let step = 0; step < 300; step ++ ) layer.state.update( 0.01 );
+
+    stack.add( layer );
+
+    console.log( `affect: ${ session.affectRequest } settled at PAD ` +
+        `(${ pad.pleasure }, ${ pad.arousal }, ${ pad.dominance })` );
+
+    return { layer, preset: session.affectRequest };
 
 }
 

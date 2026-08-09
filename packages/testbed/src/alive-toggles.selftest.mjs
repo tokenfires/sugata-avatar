@@ -530,7 +530,7 @@ const UNGATED = {
     // key in that table changes how the SAME scene is shaded; `?wear` changes WHAT IS IN the scene
     // — it swaps the body for the hide-mask bake, rebuilds the body's index buffer and adds up to
     // three `SkinnedMesh`es — so "changes exactly these entities and no others" has no honest
-    // allowlist. Its gate is `packages/core/src/wardrobe/wardrobe.selftest.mjs` (35 assertions),
+    // allowlist. Its gate is `packages/core/src/wardrobe/wardrobe.selftest.mjs` (45 assertions),
     // which measures the thing that actually matters about it: the rebuilt index equals the baked
     // one as a multiset of triangle centroids, not merely in count.
     //
@@ -543,7 +543,57 @@ const UNGATED = {
         'PHASE 9. Not a shading switch: it changes what is IN the scene (a different body bake, a ' +
         'rebuilt index buffer, up to three garment meshes), so no entity allowlist describes it. ' +
         'Gated by packages/core/src/wardrobe/wardrobe.selftest.mjs. What is checked HERE is the ' +
-        'only claim the shipped plate rests on: absent, it is inert.' }
+        'only claim the shipped plate rests on: absent, it is inert.' },
+
+    // --- R8's six new keys. Every one of them is the `?wear` shape rather than the `?skin=0`
+    // shape: none changes how the SAME scene is shaded, so no entity allowlist describes any of
+    // them, and each has its own gate elsewhere. What THIS file is entitled to assert about all
+    // six is the claim the shipped plate rests on — absent, they are inert — and that is what the
+    // default-plate digest below measures.
+
+    foundation: { readHere: true, why:
+        'PHASE 9.8. Wears the decency floor under whatever ?wear asked for, and implies the ' +
+        'wardrobe. Not a shading switch: it adds geometry. Gated by ' +
+        'packages/core/src/wardrobe/decency.selftest.mjs (20 assertions, 48 reachable states, ' +
+        'coverage by ray cast). ⚠️ It also changes WHEN the body first draws — with a decencyFloor ' +
+        'configured the Wardrobe hides the body until the first dress resolves — which is exactly ' +
+        'why it must stay opt-in and why ?wear alone still takes the no-floor path.' },
+
+    affect: { readHere: true, why:
+        'PHASE 5. Adds affect/ExpressionLayer.js to the motion stack and settles it. Not a ' +
+        'shading switch: it writes MORPH WEIGHTS, so it changes the pose of the same materials ' +
+        'rather than the materials. Gated by packages/core/src/affect/affect.selftest.mjs ' +
+        '(91 checks), which measures the thing that matters — that the layer composes over the ' +
+        'viseme rather than replacing it, viseme unchanged to 0.00e+0.' },
+
+    identity: { readHere: true, why:
+        'PHASE 10. Rewrites the body geometry\'s position buffer once at load. Not a shading ' +
+        'switch: it changes the SHAPE the same materials are on. Gated by ' +
+        'packages/core/src/figure/identitytargets.selftest.mjs (47 checks), which reproduces ' +
+        'headless MPFB to 1.151e-4 mm on all 19,158 vertices — a claim no pixel gate can make.' },
+
+    nudge: { readHere: true, why:
+        'Offsets the figure laterally by a commanded number of millimetres. It exists for the 2AFC ' +
+        'staircase that would retire this project\'s unmeasured 1.6 px indistinguishability floor ' +
+        '(LEARNINGS §1.14a), so its whole point is to move the plate by a stated amount — which ' +
+        'makes "changes nothing it should not" the wrong question. What is asserted here is that ' +
+        'absent, it is inert.' },
+
+    // 🚩 THESE TWO ARE DELIBERATE KNOWN-BADS AND A TOGGLES ROW WOULD BE THE WRONG SHAPE TWICE
+    // OVER. They do not turn a subsystem off; they CORRUPT one, and the corruption is invisible on
+    // a ?bare plate by construction — that is the property they exist to demonstrate. Their gates
+    // are the light-state and surface fingerprints in LightingRig.selftest.mjs (122 checks) and
+    // GroundContact.selftest.mjs (75), where each is proved red against a state closure rather
+    // than against a pixel count. See packages/testbed/src/light-defects.js.
+    statedefect: { readHere: true, why:
+        'KNOWN-BAD, shared with lighting.html via ./light-defects.js. Plants one whole-state light ' +
+        'defect on the real rig so LightingRig.selftest.mjs\'s rejection proofs are re-runnable on ' +
+        'the page the seven objective gates are measured on. Absent, plantLightDefect returns null ' +
+        'and touches nothing.' },
+
+    grounddefect: { readHere: true, why:
+        'KNOWN-BAD, the surface half of the above. Gated by GroundContact.selftest.mjs\'s ' +
+        'renderState() closure. Absent, plantGroundDefect returns null and touches nothing.' }
 };
 
 /**
