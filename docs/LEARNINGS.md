@@ -2080,10 +2080,17 @@ opened with four separate agents filing corrections to four separate rows of the
 correcting only those four would have left three others wrong and the roster's own headline count
 wrong by one. **Every row here is from one run.**
 
-**Taken from one `bash tools/run-selftests.sh` at R10 integration**, HEAD `3749d27`, on a tree whose
-only modifications were this round's own. **39 gates, FAILING GATES: 0.** The three counts the
-runner does not surface — it prints only each gate's last line — were taken immediately afterwards
-from the same tree.
+**Taken from one `bash tools/run-selftests.sh` at R10 integration**, HEAD `188b95b`, **`tree: clean`
+at both ends** — 16:37:24Z and 16:54:29Z, seventeen minutes. **39 gates, FAILING GATES: 0.** The
+three counts the runner does not surface — it prints only each gate's last line — were taken
+separately and every other number here comes from that one run.
+
+⚠️ **Every row was first read from a run at `3749d27` whose tree was DIRTY with this round's own
+work, and the table was not published from it.** That run read `FAILING GATES: 1`, correctly: the
+ledger was mid-disposal. The runner's own header is the rule and it is followed here rather than
+quoted — *quote counts from a run that was clean at BOTH ends, or quote them with the word DIRTY.*
+All sixteen rows reproduced unchanged between the two runs, which is worth one line of record: the
+dirty run was not wrong, it was unquotable.
 
 🚩 **THE ROSTER IS 39 AND IT SAID 38, and the 38 was itself the number that replaced a remembered
 40 one round earlier.** `find . -name "*.selftest.mjs" -not -path "./node_modules/*"` returns
