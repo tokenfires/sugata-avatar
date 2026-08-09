@@ -30,10 +30,23 @@
  *                   and the band is reported in pixels at both framings (LEARNINGS §1.10b: an
  *                   amplitude stated in a unit nobody can picture passes every review).
  *
+ *   THE CASTER HALF The `RectAreaLight` panel and the shadow-casting `SpotLight` it was split from
+ *                   are gated on four axes, because "summing the panels alone is conservative" is
+ *                   a claim about MAGNITUDE and the first two clauses written to defend it were an
+ *                   equality on COLOUR and a test of a SIGN. See the block's own header.
+ *
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
  *
  * Usage:  node "packages/core/src/render/LightingRig.selftest.mjs"
+ *         node "packages/core/src/render/LightingRig.selftest.mjs" --caster-colour=0x0f30ff
+ *         node "packages/core/src/render/LightingRig.selftest.mjs" --caster-gain=5
+ *         node "packages/core/src/render/LightingRig.selftest.mjs" --caster-cone=1.4
+ *
+ * The three flags are rejection proofs, each planting a different defect in the shadow-caster
+ * half. Every one of them prints how many DISTINCT lights it altered, because a reach counter that
+ * counts calls is how the last round's caster-magnitude finding came to be reported against a rig
+ * that had not changed. Expected: 87/98, 85/98 and 90/98 respectively.
  */
 
 import { Color, PerspectiveCamera, Scene, Vector3 } from 'three/webgpu';
@@ -62,29 +75,123 @@ import {
  * happen; and a proof that lives in the gate is re-runnable by anyone, which a paragraph
  * describing an edit somebody once made is not. Same shape as `?cards=0` and `?graindefect=`.
  */
-const CASTER_COLOUR_DEFECT = process.argv
-    .find( ( argument ) => argument.startsWith( '--caster-colour=' ) )?.split( '=' )[ 1 ] ?? null;
+function numericFlag( name ) {
+
+    const raw = process.argv.find( ( argument ) => argument.startsWith( `${ name }=` ) )?.split( '=' )[ 1 ] ?? null;
+
+    if ( raw === null ) return null;
+
+    const value = Number( raw );
+
+    if ( Number.isFinite( value ) === false ) throw new Error( `${ name }: '${ raw }' is not a number` );
+
+    return value;
+
+}
+
+/**
+ * 🚩 EVERY INJECTOR IN THIS FILE COUNTS WHAT IT REACHED, and that is not decoration either.
+ *
+ * A verifier reported this file green under a caster brightened 5x, having installed the patch on
+ * `buildUnit` — where the colour is decided — and counted 52 caster builds as proof of reach.
+ * `solve()` writes `shadowCaster.intensity` on every `aimAt()`, so the patch was overwritten and
+ * the rig under test was the shipped one. 52 builds were touched and nothing was changed. Measured:
+ * a body caster reads 25.835991187 shipped and 25.835991187 with `buildUnit` multiplying by five.
+ *
+ * So a reach counter that counts CALLS is the same trap one level down: `solve()` runs on every
+ * re-aim and a rebuild makes new lights, so a call count says nothing about how much of the rig
+ * moved. What is printed below is the number of DISTINCT light objects each injector altered, and
+ * the `--caster-gain` / `--caster-cone` pair patch `solve` for exactly the same reason.
+ */
+const injectorReach = [];
+
+process.on( 'exit', () => {
+
+    for ( const line of injectorReach ) console.log( line() );
+
+} );
+
+const CASTER_COLOUR_DEFECT = numericFlag( '--caster-colour' );
 
 if ( CASTER_COLOUR_DEFECT !== null ) {
 
-    const hex = Number( CASTER_COLOUR_DEFECT );
-
-    if ( Number.isFinite( hex ) === false ) throw new Error( `--caster-colour: '${ CASTER_COLOUR_DEFECT }' is not a number` );
-
+    const hex = CASTER_COLOUR_DEFECT;
     const buildUnit = LightingRig.prototype.buildUnit;
+    const altered = new Set();
 
     LightingRig.prototype.buildUnit = function ( placement ) {
 
         const unit = buildUnit.call( this, placement );
 
-        if ( unit.shadowCaster !== null ) unit.shadowCaster.color = new Color( hex );
+        if ( unit.shadowCaster !== null ) {
+
+            unit.shadowCaster.color = new Color( hex );
+            altered.add( unit.shadowCaster );
+
+        }
 
         return unit;
 
     };
 
+    injectorReach.push( () => `🚩 INJECTOR REACH: ${ altered.size } distinct caster(s) recoloured. Colour is set in ` +
+        '`buildUnit` and never written again, so a build-time patch is the surviving one here.' );
+
     console.log( `\n🚩 DEFECT INJECTED: every shadow caster built at #${ hex.toString( 16 ).padStart( 6, '0' ) } ` +
         'rather than at its panel\'s colour. This run is a rejection proof, not a verdict on the repo.\n' );
+
+}
+
+/**
+ * 🚩 THE MAGNITUDE REJECTION PROOFS, AND THEY PATCH `solve` RATHER THAN `buildUnit`.
+ *
+ *     node "packages/core/src/render/LightingRig.selftest.mjs" --caster-gain=5
+ *     node "packages/core/src/render/LightingRig.selftest.mjs" --caster-cone=1.4
+ *
+ * `--caster-gain` scales every solved caster's `intensity`; `--caster-cone` scales its `angle`.
+ * Both leave the colour exactly alone, so the PREMISE clause is green by construction, and both
+ * are applied AFTER `solve()` has written its own values — which is where `LightingRig.js:1195`
+ * decides the caster's magnitude, and therefore what a wrong coefficient there would look like
+ * from the outside.
+ *
+ * They are two mechanisms and not one. A gain moves what the caster delivers everywhere,
+ * including at the focus. A wider cone moves it everywhere EXCEPT at the focus: `penumbra` is 1
+ * on every caster this rig builds, so `smoothstep( cos angle, 1, 1 )` is 1 on-axis for any angle
+ * at all, and the focus reads bit-identical while a grazing floor point two metres back gets
+ * several times the light. The two clauses below are split along that line.
+ */
+const CASTER_GAIN_DEFECT = numericFlag( '--caster-gain' );
+const CASTER_CONE_DEFECT = numericFlag( '--caster-cone' );
+
+if ( CASTER_GAIN_DEFECT !== null || CASTER_CONE_DEFECT !== null ) {
+
+    const solve = LightingRig.prototype.solve;
+    const altered = new Set();
+
+    LightingRig.prototype.solve = function () {
+
+        const result = solve.call( this );
+
+        for ( const unit of this.units ) {
+
+            if ( unit.shadowCaster === null ) continue;
+
+            if ( CASTER_GAIN_DEFECT !== null ) unit.shadowCaster.intensity *= CASTER_GAIN_DEFECT;
+            if ( CASTER_CONE_DEFECT !== null ) unit.shadowCaster.angle *= CASTER_CONE_DEFECT;
+
+            altered.add( unit.shadowCaster );
+
+        }
+
+        return result;
+
+    };
+
+    injectorReach.push( () => `🚩 INJECTOR REACH: ${ altered.size } distinct SOLVED caster(s) altered — patched on \`solve\`, ` +
+        'so the change survives every re-aim rather than being overwritten by the next one.' );
+
+    console.log( `\n🚩 DEFECT INJECTED: every shadow caster's intensity x${ CASTER_GAIN_DEFECT ?? 1 } and cone ` +
+        `x${ CASTER_CONE_DEFECT ?? 1 }, colour untouched. This run is a rejection proof, not a verdict on the repo.\n` );
 
 }
 
@@ -984,8 +1091,19 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 //
 // 🚩 THE MODEL ERROR WAS EXCUSING A MISSING TERM WITH AN ARGUMENT INSTEAD OF A MEASUREMENT. The
 // argument was sound and its premise was ungated, which is §1.11a exactly — a justification that
-// cites a real measurement of a quantity that is not the one it is about. So there are now two
-// clauses here and they are NOT nested in either direction:
+// cites a real measurement of a quantity that is not the one it is about.
+//
+// 🎯 AND THE FIRST REPAIR REPEATED THE SHAPE ONE MORE TIME, WHICH IS WHY THERE ARE NOW FOUR
+// CLAUSES, NONE OF THEM NESTED IN THE OTHERS. "Panels-only is the conservative read" is a claim
+// about MAGNITUDE. The two clauses written to defend it were an equality on COLOUR and a test of a
+// SIGN, and neither bounds a magnitude. Measured for this round — headless arithmetic, no plate,
+// so the shipped default of aa=taau + grade + RCAS 1.2 with MSAA OFF is not in play: scale every
+// NON-KEY caster's SOLVED intensity by five with the colours untouched, and this file returned
+// **82/82** and `GroundContact.selftest.mjs` **55/55**. A gain on the KEY's caster was caught, but
+// only by two four-decimal cross-file constants — and cross-file agreement answers "did anything
+// change", not "is it right" (§1.25a's fourth-defect corollary), and only for the one
+// configuration those constants were blessed on. So the two clauses added here are oracles
+// derived from the rig's own contract rather than blessed numbers.
 //
 //   PREMISE       Every shadow caster carries EXACTLY its panel's colour. An equality, so it has
 //                 no threshold to walk around and no hue it is blind to. This is the sentence the
@@ -995,6 +1113,27 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 //                 than the panels-only spill on both clauses. That turns "panels-only overstates
 //                 the spill" from a paragraph into a number, so it fails the day the caster half
 //                 starts contributing in the other direction — with or without a colour change.
+//
+//   MAGNITUDE     At the focus, the panel half plus the caster half deliver EXACTLY the authored
+//                 irradiance, and the caster's share is EXACTLY its `shadowFraction`. Read off the
+//                 real light objects — position, intensity, cone attenuation toward the focus —
+//                 so it is an oracle for `LightingRig.js:1195` rather than a copy of it. This is
+//                 the sentence "the caster half is a REDISTRIBUTION of the panel half", which is
+//                 the whole reason a panels-only reading is bounded at all. An equality again: any
+//                 gain, any displaced caster, any caster aimed off the focus breaks it — in either
+//                 preset, and on EVERY light rather than only on the one the shipped rig gives a
+//                 shadow to, which is where the 82/82 hole was.
+//
+//   REACH         The caster's cone half-extent at its own standoff equals
+//                 `shadowCoverageInHeights x framedHeight`, exactly. MAGNITUDE is structurally
+//                 blind to the cone: `penumbra` is 1 on every caster this rig builds, so
+//                 `smoothstep( cos angle, 1, 1 )` is 1 on-axis for ANY angle and the focus
+//                 equality does not move by a bit — while the cone is the only thing deciding how
+//                 far off-axis that magnitude reaches. Measured: caster-inclusive blue:red at the
+//                 floor goes 2.1973 shipped -> 2.1768 at 1.4x and -> 2.5289 at 0.5x, with the
+//                 focus equality bit-identical on both. Also an equality, so the deliberately
+//                 wide-coned configuration further down stays green for the right reason — it
+//                 ASKED for a wide cone and got the one it asked for.
 //
 // ⚠️ THE CEILINGS STAY ON THE PANELS-ONLY MODEL, and that is a measurement rather than inertia.
 // Re-run for this round, the caster-inclusive model LOSES coverage on two rows the panels-only
@@ -1229,6 +1368,344 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
         'other way the anchors above stop bounding anything and this goes red.'
     );
 
+    // CLAUSE 3 — MAGNITUDE, and CLAUSE 4 — REACH. What the two clauses above never asked.
+    //
+    // 🎯 The hole, measured: `--caster-gain=5` applied to the NON-KEY casters only left this file
+    // at 82/82 and `GroundContact.selftest.mjs` at 55/55. PREMISE is an equality on colour and the
+    // gain does not touch colour; CONSERVATISM asks which way a sum moved and a brighter caster
+    // still moves blue:red the safe way at this receiver. Neither is a magnitude, and the excuse
+    // they defend is entirely a claim about magnitude.
+    //
+    // The oracle is the rig's own contract, stated in `LightingRig.js` above line 1195: "at the
+    // focus the pair delivers exactly the authored irradiance for every value of f". Everything
+    // here is derived from the placement table and three's own attenuation model and compared
+    // against the built objects — a second derivation, not a copy of the first. Note the
+    // TOLERANCES ARE FLOAT NOISE, 1e-9 relative: these are equalities, and a tolerance wide enough
+    // to be an opinion would be a threshold wearing an equality's name.
+
+    /**
+     * What one unit's two halves deliver at the focus, read off the light objects the renderer
+     * will use. The caster term carries three's `getSpotAttenuation`, so a caster aimed away from
+     * the focus is measured where it actually points rather than where the table says it does.
+     */
+    function deliveredAtFocus( unit ) {
+
+        const toPanel = unit.area.position.clone().sub( bodyShot.focus ).length();
+        const fromPanel = unit.area.intensity * projectedSolidAngle( unit.area.width, unit.area.height, toPanel );
+
+        if ( unit.shadowCaster === null ) return { fromPanel, fromCaster: 0, total: fromPanel };
+
+        const spot = unit.shadowCaster;
+        const axis = spot.target.position.clone().sub( spot.position ).normalize();
+        const toFocus = bodyShot.focus.clone().sub( spot.position );
+        const attenuation = smoothstep(
+            Math.cos( spot.angle ), Math.cos( spot.angle * ( 1 - spot.penumbra ) ), axis.dot( toFocus.clone().normalize() ) );
+
+        const fromCaster = spot.intensity * attenuation / toFocus.lengthSq();
+
+        return { fromPanel, fromCaster, total: fromPanel + fromCaster };
+
+    }
+
+    // Every configuration the two clauses above are silent about. The all-cast row is the one that
+    // matters most: the shipped rig gives a shadow to the KEY alone, so every anchor and every
+    // cross-file constant in both files describes the key's caster and nothing else — and the
+    // fractions differ per light so a clause that hardcoded one share would still be caught.
+    const magnitudeCases = [
+        { what: 'portrait, shipped', overrides: {}, options: { preset: 'portrait' }, casters: 1 },
+        { what: 'body, shipped', overrides: {}, options: {}, casters: 1 },
+        {
+            what: 'body, EVERY light casting at a different fraction',
+            overrides: {
+                key: { shadowFraction: 0.45 }, fill: { shadowFraction: 0.30 },
+                rim: { shadowFraction: 0.60 }, kicker: { shadowFraction: 0.90 }
+            },
+            options: {},
+            casters: 4
+        },
+        {
+            what: 'body, the wide-coned back lights the CONSERVATISM counter-example uses',
+            overrides: { rim: { shadowFraction: 0.9 }, kicker: { shadowFraction: 0.9 } },
+            options: { shadowCoverageInHeights: 4 },
+            casters: 3
+        }
+    ];
+
+    /**
+     * MAGNITUDE and REACH over one rig, returned as NAMED FAULTS rather than as booleans so a
+     * report can say which light broke and by how much. One definition, because three copies of
+     * one equality is the drift this file spends its whole length guarding two copies against.
+     */
+    function clauseFaults( rig ) {
+
+        const shadowed = rig.units.filter( ( unit ) => unit.shadowCaster !== null );
+        const magnitude = [];
+        const reach = [];
+
+        for ( const unit of shadowed ) {
+
+            const authored = unit.placement.irradiance * rig.exposure;
+            const { fromCaster, total } = deliveredAtFocus( unit );
+
+            if ( closeTo( total / authored, 1, 1e-9 ) === false ) {
+
+                magnitude.push( `${ unit.placement.name } delivers ${ total.toFixed( 6 ) } against an authored ` +
+                    `${ authored.toFixed( 6 ) }` );
+
+            }
+
+            if ( closeTo( fromCaster / total, unit.placement.shadowFraction, 1e-9 ) === false ) {
+
+                magnitude.push( `${ unit.placement.name } caster share ${ ( fromCaster / total ).toFixed( 9 ) } ` +
+                    `against an authored ${ unit.placement.shadowFraction }` );
+
+            }
+
+            // REACH. `frameShadowCamera` sets `angle = atan2( coverage x height, distance )`, so
+            // the cone's half-extent at the subject's own standoff IS the coverage in metres. A
+            // cone scaled by anything breaks this and moves nothing the clause above can see.
+            const standoff = unit.placement.distanceInHeights * rig.subjectHeightMetres;
+            const halfExtent = standoff * Math.tan( unit.shadowCaster.angle );
+            const authoredExtent = rig.shadowCoverageInHeights * rig.subjectHeightMetres;
+
+            if ( closeTo( halfExtent / authoredExtent, 1, 1e-9 ) === false ) {
+
+                reach.push( `${ unit.placement.name } cone reaches ${ halfExtent.toFixed( 4 ) } m at its ` +
+                    `${ standoff.toFixed( 3 ) } m standoff against an authored ${ authoredExtent.toFixed( 4 ) } m` );
+
+            }
+
+        }
+
+        return { shadowed, magnitude, reach };
+
+    }
+
+    for ( const variant of magnitudeCases ) {
+
+        const rig = rigFor( variant.overrides, variant.options );
+        const { shadowed, magnitude: magnitudeFaults, reach: reachFaults } = clauseFaults( rig );
+
+        report(
+            `MAGNITUDE: ${ variant.what } — the caster half is a redistribution of the panel half, at the focus`,
+            shadowed.length === variant.casters && magnitudeFaults.length === 0,
+            shadowed.length === variant.casters && magnitudeFaults.length === 0
+                ? `${ shadowed.length } caster(s): ${ shadowed.map( ( unit ) => {
+                    const { fromPanel, fromCaster } = deliveredAtFocus( unit );
+                    return `${ unit.placement.name } ${ fromPanel.toFixed( 3 ) }+${ fromCaster.toFixed( 3 ) }=` +
+                        `${ ( unit.placement.irradiance * rig.exposure ).toFixed( 3 ) } at f=${ unit.placement.shadowFraction }`;
+                } ).join( ', ' ) }`
+                : `${ shadowed.length } caster(s), expected ${ variant.casters }. ${ magnitudeFaults.join( '; ' ) || 'shares and totals exact' }`
+        );
+
+        report(
+            `REACH: ${ variant.what } — every cone is the one shadowCoverageInHeights asked for`,
+            shadowed.length === variant.casters && reachFaults.length === 0,
+            shadowed.length === variant.casters && reachFaults.length === 0
+                ? `${ shadowed.length } cone(s) at coverage ${ rig.shadowCoverageInHeights }, i.e. ` +
+                    `${ ( rig.shadowCoverageInHeights * rig.subjectHeightMetres ).toFixed( 3 ) } m half-extent at each ` +
+                    'standoff. The focus equality above cannot see this — penumbra is 1, so on-axis attenuation is ' +
+                    '1 for any angle whatsoever.'
+                : `${ shadowed.length } caster(s), expected ${ variant.casters }. ${ reachFaults.join( '; ' ) || 'cones exact' }`
+        );
+
+    }
+
+    /**
+     * 🚩 THE MAGNITUDE INJECTOR, AND IT PATCHES `solve` BECAUSE `buildUnit` DOES NOT SURVIVE.
+     *
+     * This is the correction that produced the two clauses above. A verifier reported both files
+     * green under a caster brightened fivefold, having installed the patch the way
+     * `withCasterColour` installs its own — on `buildUnit` — and having counted 52 caster builds
+     * as evidence of reach. `solve()` writes `shadowCaster.intensity` on every `aimAt()`, so the
+     * patch was overwritten before any check read it. Measured: a body caster reads
+     * **25.835991187** shipped and **25.835991187** with `buildUnit` multiplying it by five.
+     *
+     * Colour lives in `buildUnit` and is never written again, so that injector is faithful for
+     * colour and only for colour. Everything a `solve` writes — intensity, position, target, cone
+     * — has to be patched here or it is a no-op wearing a reach counter.
+     */
+    function withSolvedCasters( { gain = 1, cone = 1, standoff = 1, aimOffset = 0, only = null }, body ) {
+
+        const solve = LightingRig.prototype.solve;
+
+        // Distinct light OBJECTS, not calls. `solve()` runs on every re-aim and a rebuild makes new
+        // lights, so a call counter reports a number that has nothing to do with how much of the
+        // rig moved — which is the same reach-versus-effect confusion this whole block is about.
+        const altered = new Set();
+
+        LightingRig.prototype.solve = function () {
+
+            const result = solve.call( this );
+
+            for ( const unit of this.units ) {
+
+                if ( unit.shadowCaster === null ) continue;
+
+                if ( only !== null ) {
+
+                    if ( only.name !== undefined && unit.placement.name !== only.name ) continue;
+                    if ( only.exclude !== undefined && unit.placement.name === only.exclude ) continue;
+
+                }
+
+                const spot = unit.shadowCaster;
+
+                spot.intensity *= gain;
+                spot.angle *= cone;
+
+                if ( standoff !== 1 ) spot.position.lerpVectors( this.focus, spot.position, standoff );
+                if ( aimOffset !== 0 ) spot.target.position.set( this.focus.x + aimOffset, this.focus.y, this.focus.z );
+
+                altered.add( spot );
+
+            }
+
+            return result;
+
+        };
+
+        try {
+
+            return { ...body(), altered: altered.size };
+
+        } finally {
+
+            LightingRig.prototype.solve = solve;
+
+        }
+
+    }
+
+    /**
+     * Every clause in this block, as booleans, over one injected rig — so the known-bad table and
+     * the non-nestedness checks below read the same four verdicts from the same arithmetic.
+     */
+    function clauseVerdicts( injection, overrides = {} ) {
+
+        return withSolvedCasters( injection, () => {
+
+            const rig = rigFor( overrides );
+            const faults = clauseFaults( rig );
+
+            const panels = spillAtFloor( rig, false );
+            const full = spillAtFloor( rig, true );
+
+            return {
+                magnitudeRed: faults.magnitude.length > 0,
+                reachRed: faults.reach.length > 0,
+                premiseRed: casterColourDivergences( rig ).length > 0,
+                conservatismRed: full.behindToFront > panels.behindToFront || full.blueToRed > panels.blueToRed,
+                blueToRed: full.blueToRed
+            };
+
+        } );
+
+    }
+
+    // 🚩 FOUR MECHANISMS IN THE MAGNITUDE CLASS, and only the first is the one the clause was
+    // written from. The class is "the caster half delivers the wrong amount while carrying exactly
+    // the right colour". Read the `premise` column: green on all four, which is the finding.
+    console.log( '\n      injection                        premise   conservatism-era clauses   magnitude   reach' );
+
+    const magnitudeKnownBad = [
+        {
+            what: 'GAIN — every solved caster at 5x, colours untouched',
+            injection: { gain: 5 },
+            clause: 'magnitudeRed'
+        },
+        {
+            what: 'GAIN, NON-KEY ONLY at 5x — the configuration that scored 82/82 here and 55/55 there',
+            // The shipped rig gives a shadow to the key alone, so this one is measured on a rig
+            // where the back lights cast. Every cross-file constant in both files describes the
+            // key's caster; this is the mechanism that walks around all of them at once.
+            injection: { gain: 5, only: { exclude: 'key' } },
+            overrides: { rim: { shadowFraction: 0.6 }, kicker: { shadowFraction: 0.6 } },
+            clause: 'magnitudeRed'
+        },
+        {
+            what: 'DISPLACEMENT — the caster pulled to half its standoff with its intensity left alone',
+            injection: { standoff: 0.5 },
+            clause: 'magnitudeRed'
+        },
+        {
+            what: 'AIM — the caster\'s target slid 0.5 m sideways, so the focus is off its axis',
+            injection: { aimOffset: 0.5 },
+            clause: 'magnitudeRed'
+        },
+        {
+            what: 'CONE — every cone at 1.4x, which the focus equality cannot see at all',
+            injection: { cone: 1.4 },
+            clause: 'reachRed'
+        },
+        {
+            what: 'CONE — every cone at 0.5x, the direction that starves the shadow map instead',
+            injection: { cone: 0.5 },
+            clause: 'reachRed'
+        }
+    ];
+
+    for ( const variant of magnitudeKnownBad ) {
+
+        const verdict = clauseVerdicts( variant.injection, variant.overrides ?? {} );
+
+        console.log( `      ${ variant.what.slice( 0, 32 ).padEnd( 33 ) }${ ( verdict.premiseRed ? 'RED' : 'green' ).padEnd( 10 ) }` +
+            `${ ( verdict.conservatismRed ? 'RED' : 'green' ).padEnd( 27 ) }${ ( verdict.magnitudeRed ? 'RED' : 'green' ).padEnd( 12 ) }` +
+            `${ verdict.reachRed ? 'RED' : 'green' }` );
+
+        report(
+            `KNOWN-BAD: ${ variant.what }`,
+            verdict[ variant.clause ] === true && verdict.altered > 0,
+            `${ verdict.altered } distinct caster object(s) altered after solve; rejected by ` +
+            `${ [ verdict.magnitudeRed ? 'MAGNITUDE' : null, verdict.reachRed ? 'REACH' : null ]
+                .filter( ( clause ) => clause !== null ).join( ' and ' ) || 'NOTHING' }, while PREMISE reads ` +
+            `${ verdict.premiseRed ? 'RED' : 'green' } and CONSERVATISM ${ verdict.conservatismRed ? 'RED' : 'green' }. ` +
+            `Caster-inclusive blue:red ${ verdict.blueToRed.toFixed( 4 ) } against the shipped ` +
+            `${ shippedFull.blueToRed.toFixed( 4 ) }.`
+        );
+
+    }
+
+    // 🚩 NON-NESTED, ASSERTED IN BOTH DIRECTIONS, as everywhere else in this file. Two clauses
+    // where one implies the other are one clause and a decoration.
+    {
+        const gained = clauseVerdicts( { gain: 5 } );
+        const coned = clauseVerdicts( { cone: 1.4 } );
+        const pinched = clauseVerdicts( { cone: 0.5 } );
+
+        report(
+            'MAGNITUDE catches something REACH cannot: a caster 5x too bright inside an untouched cone',
+            gained.magnitudeRed === true && gained.reachRed === false && gained.premiseRed === false,
+            `a 5x gain leaves the cone exactly as authored, so REACH is green and PREMISE is green — the colour ` +
+            `never moved — while the focus equality rejects it. Caster-inclusive blue:red ` +
+            `${ gained.blueToRed.toFixed( 4 ) } against the shipped ${ shippedFull.blueToRed.toFixed( 4 ) }.`
+        );
+
+        // ⚠️ AND THE DIRECTION IS THE OPPOSITE OF THE ONE THE INSTINCT PREDICTS, so it is measured
+        // rather than argued. Widening the cone puts MORE caster light on a floor point 2 m back —
+        // and the only caster the shipped rig builds is the KEY's, which is warm, so more of it
+        // means more RED and blue:red goes DOWN. Pinching the cone takes that warm light away and
+        // blue:red goes UP. Both are the same defect, both move the spill by more than a hundred
+        // times the 0.0005 the cross-file constants are held to, and MAGNITUDE is bit-identical on
+        // both because on-axis attenuation is 1 at every angle. §1.25h: a plausible mechanism is
+        // not a measured effect, and it can point the wrong way.
+        const SPILL_MOVED = 0.005;
+
+        report(
+            'REACH catches something MAGNITUDE cannot, and not by a tolerance: the focus reading is BIT-IDENTICAL',
+            coned.reachRed === true && coned.magnitudeRed === false && coned.premiseRed === false
+                && pinched.reachRed === true && pinched.magnitudeRed === false
+                && Math.abs( coned.blueToRed - shippedFull.blueToRed ) > SPILL_MOVED
+                && Math.abs( pinched.blueToRed - shippedFull.blueToRed ) > SPILL_MOVED,
+            `caster-inclusive blue:red at the floor: shipped ${ shippedFull.blueToRed.toFixed( 4 ) }, cone 1.4x ` +
+            `${ coned.blueToRed.toFixed( 4 ) } (down — the widened cone spills MORE of a WARM caster onto the ` +
+            `floor), cone 0.5x ${ pinched.blueToRed.toFixed( 4 ) } (up — it spills less). Both move it by far more ` +
+            'than the 0.0005 the cross-file constants are held to, and on both the focus equality does not move ' +
+            'by a bit: penumbra is 1, so smoothstep( cos angle, 1, 1 ) is 1 for every angle there is. No ' +
+            'tolerance on MAGNITUDE could ever catch these — the quantity it measures is genuinely unchanged.'
+        );
+    }
+
     // And the caster-inclusive spill has to clear the ceilings on its own, or "conservative" would
     // be true of a rig that is over both of them anyway.
     report(
@@ -1401,18 +1878,29 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 
     }
 
-    // The injector has to be shown to restore what it patched, or every check after this block is
-    // being run against a rig this one broke. Same shape as the fingerprint drift check in
+    // Both injectors have to be shown to restore what they patched, or every check after this
+    // block is being run against a rig this one broke. Same shape as the fingerprint drift check in
     // alive-toggles.selftest.mjs: establish the instrument before believing anything it says.
+    //
+    // 🚩 AND IT IS ASSERTED ON THE FOCUS EQUALITY AS WELL AS ON THE FLOOR SPILL, because the
+    // `withSolvedCasters` injections move quantities the floor spill barely registers — the AIM row
+    // takes blue:red 2.1973 to 2.1769 and a leak of it would look like rounding.
     {
         const after = rigFor( {} );
+        const key = after.units.find( ( unit ) => unit.shadowCaster !== null );
+        const delivered = deliveredAtFocus( key );
 
         report(
-            'the defect injector leaves LightingRig.prototype.buildUnit exactly as it found it',
+            'both defect injectors leave LightingRig.prototype exactly as they found it',
             casterColourDivergences( after ).length === 0
-                && closeTo( spillAtFloor( after, true ).blueToRed, shippedFull.blueToRed, 1e-12 ),
-            `a rig built after the four injections reads blue:red ${ spillAtFloor( after, true ).blueToRed.toFixed( 6 ) } ` +
-            `against the ${ shippedFull.blueToRed.toFixed( 6 ) } measured before them, with no colour divergence`
+                && closeTo( spillAtFloor( after, true ).blueToRed, shippedFull.blueToRed, 1e-12 )
+                && closeTo( delivered.total / ( key.placement.irradiance * after.exposure ), 1, 1e-12 )
+                && closeTo( delivered.fromCaster / delivered.total, key.placement.shadowFraction, 1e-12 ),
+            `a rig built after every injection above reads blue:red ${ spillAtFloor( after, true ).blueToRed.toFixed( 6 ) } ` +
+            `against the ${ shippedFull.blueToRed.toFixed( 6 ) } measured before them, with no colour divergence, and ` +
+            `its key still splits ${ delivered.fromCaster.toFixed( 6 ) } of ${ delivered.total.toFixed( 6 ) } into the ` +
+            `caster — a share of ${ ( delivered.fromCaster / delivered.total ).toFixed( 9 ) } against the authored ` +
+            `${ key.placement.shadowFraction }`
         );
     }
 }
