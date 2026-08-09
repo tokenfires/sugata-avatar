@@ -27,7 +27,10 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { encodePng, decodePng, stripProvenanceChunks } from './png.mjs';
 import { encodedLuma, linearLuma, linearToSrgb, rgbToHsv } from './color.mjs';
-import { measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY } from './measure.mjs';
+import {
+  measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY,
+  describeG2Margin, G2_RECIPE_SENSITIVITIES,
+} from './measure.mjs';
 import { compareFrameSequences } from './capture.mjs';
 
 const WORK_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sugata-critic-selftest-'));
@@ -698,6 +701,12 @@ function testProvenance() {
 // second file and it rots in lockstep. It has to be a gate on the MECHANISM, and there are four
 // distinct ways this class of defect gets in:
 //
+// ⚠️ AND THE RE-MEASUREMENT ABOVE IS ITSELF SUPERSEDED, which is the point of check 5 below. The
+// capture-epoch pin (punch-list 3.20) collapsed the lottery entirely: the same four seeds on the
+// same recipe at `2ec7db9` return ONE PNG and 0.9182 every time. So `0.7836 / 0.9189 / 0.9292 /
+// 0.4390` joined `0.8127 / 0.9627 / 0.9736 / 0.4384` on the forbidden list, and this comment is
+// the history rather than the record. The record lives in `G2_SEED_LOTTERY`, one file over.
+//
 //   1. the record drifts away from the render        → the reproduction check must FIRE
 //   2. it fires on plates it has no business judging → it must stay SILENT on those
 //   3. it silently stops being applicable at all     → the comparability contract must hold
@@ -916,9 +925,19 @@ function testG2SeedRecord() {
 
   // --- 5. the zombie guard ----------------------------------------------------------------------
   //
-  // The four superseded values must not appear in ANY string the report prints. This is the one
+  // Every superseded value must not appear in ANY string the report prints. This is the one
   // assertion that names the old numbers, and it names them only to forbid them.
-  const superseded = ['0.8127', '0.9627', '0.9736', '0.4384'];
+  //
+  // 🚩 TWO GENERATIONS ARE LISTED, AND THE SECOND IS THE DANGEROUS ONE. The guard was one
+  // generation behind for a whole round: it forbade the 2026-08-07 values while measure.mjs went
+  // on printing the 2026-08-08 ones, which had ALSO been superseded by the capture-epoch pin. The
+  // values a reader is most likely to re-paste are the ones that were current until this morning,
+  // not the ones that were current last week — so a generation stays on this list forever once it
+  // leaves the record, and adding to it is part of re-measuring the record.
+  const superseded = [
+    '0.8127', '0.9627', '0.9736', '0.4384',   // the first generation, pre-82260d4
+    '0.7836', '0.9189', '0.9292', '0.4390'    // the second: the pre-epoch-pin seed lottery
+  ];
   const printedStrings = [];
   const report = measureFile(platePath, spec, g2RecordProvenance(1), G2_SEED_LOTTERY.regionsPath);
   printedStrings.push(...report.warnings);
@@ -1519,6 +1538,7 @@ function run() {
   testG2SeedRecord();
   testFrameSequenceComparison();
   testTerminatorShift();
+  testG2MarginVerdict();
   testHighPassSigma();
   testHighlightClipping();
   testBlackPoint();
@@ -1536,6 +1556,70 @@ function run() {
   process.stdout.write(`\n${checks.length - failed}/${checks.length} checks passed.\n`);
   process.stdout.write(`Test images left in ${WORK_DIR}\n`);
   return failed === 0 ? 0 : 1;
+}
+
+// ============================================================================================
+// 4a-ter. THE G2 MARGIN VERDICT — a rule that decides whether a verdict may be quoted
+// ============================================================================================
+//
+// The sentence this replaces was four typed literals ("0.9197 FAIL against 0.9221 PASS, a
+// difference of 0.0024"). It was true when written and false one round later, at which point the
+// tool would have gone on stamping MARGINAL on a green clearing its floor by ten times the largest
+// thing that can move it — training a reader to skip the word, which is the failure mode MARGINAL
+// exists to prevent.
+//
+// The replacement is computed, so the class of rot above cannot recur. But a computed rule with no
+// rejection proof is the same decoration wearing better clothes, so this section proves it fires
+// in BOTH directions and does not merely track the sign of the gate.
+function testG2MarginVerdict() {
+  const low = TARGETS.scleraCheekRatio - TARGETS.scleraCheekTolerance;
+  const high = TARGETS.scleraCheekRatio + TARGETS.scleraCheekTolerance;
+  const worst = Math.max(...G2_RECIPE_SENSITIVITIES.map((row) => row.delta));
+
+  const verdict = (ratio) => describeG2Margin({ measured: { ratioEncoded: ratio } }, low, high);
+  const isMarginal = (ratio) => verdict(ratio).startsWith('G2 IS MARGINAL');
+
+  // The forward case: the plate this round actually ships. Clears the floor by 10x the worst
+  // recipe sensitivity, so the verdict is entitled and the rule says so.
+  expectEqual('MARGIN: the shipped default is NOT marginal', isMarginal(0.9544), false);
+
+  // 🚩 REJECTION 1 — a PASSING plate that is marginal anyway. This is the direction the rule exists
+  // for and the one a sign-following check cannot do: 0.9210 is INSIDE the band and still too close
+  // to its edge to be quoted, because changing the anti-aliasing mode alone moves G2 further.
+  expectEqual('MARGIN: a PASS 0.0010 inside the floor is still MARGINAL', isMarginal(low + 0.0010), true);
+
+  // 🚩 REJECTION 2 — a DIFFERENT mechanism in the same class: the CEILING, which the retired
+  // sentence never mentioned at all because no plate had ever approached it. A gate written only
+  // against the edge that happened to be in play is a gate about one edge.
+  expectEqual('MARGIN: a PASS 0.0010 inside the CEILING is MARGINAL too', isMarginal(high - 0.0010), true);
+  expectEqual(
+    'MARGIN: and it names the CEILING rather than defaulting to the floor',
+    verdict(high - 0.0010).includes('from the ceiling'),
+    true
+  );
+
+  // 🚩 REJECTION 3 — a FAILING plate just outside the floor. The rule is about distance from the
+  // edge, not about which side of it the plate landed on, so a near-miss FAIL is unquotable for
+  // exactly the same reason a near-hit PASS is.
+  expectEqual('MARGIN: a FAIL 0.0010 outside the floor is MARGINAL', isMarginal(low - 0.0010), true);
+
+  // The boundary is the sensitivity itself, not a hand-picked number, and it is asserted from both
+  // sides so that shrinking the table silently cannot widen the rule.
+  expectEqual('MARGIN: the boundary is the worst recipe sensitivity, below', isMarginal(low + worst * 0.99), true);
+  expectEqual('MARGIN: the boundary is the worst recipe sensitivity, above', isMarginal(low + worst * 1.01), false);
+
+  // A gate that cannot be measured must not report headroom it does not have.
+  expectEqual(
+    'MARGIN: an unmeasurable G2 offers no verdict at all',
+    describeG2Margin({}, low, high).includes('could not be measured'),
+    true
+  );
+
+  // And the table it all rests on has to be a table, not one row that happens to be biggest.
+  expectEqual('MARGIN: every recipe sensitivity is a positive measured number',
+    G2_RECIPE_SENSITIVITIES.every((row) => row.delta > 0 && row.detail.length > 0)
+      && G2_RECIPE_SENSITIVITIES.length >= 3,
+    true);
 }
 
 process.exitCode = run();

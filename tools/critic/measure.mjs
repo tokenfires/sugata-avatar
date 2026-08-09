@@ -289,51 +289,95 @@ const TARGETS = {
 // measuring whenever that plate is one of the recorded seeds at the recorded page and size. A
 // stale record can still be printed. It can no longer be printed silently.
 //
-// Re-measured 2026-08-08 at build 82260d4, one frame each, nothing else changed:
+// 🚩 AND THEN IT HAPPENED A SECOND TIME, TO THIS VERY BLOCK, IN THE OTHER DIRECTION.
+//
+// The record below used to hold 0.7836 / 0.9189 / 0.9292 / 0.4390 and the sentence built from it
+// asserted, as current fact, that "?freeze is INERT under ?capture". Both were true when written
+// and both were false from `c9fa59c` onward — the flag was fixed, PUNCHLIST retracted the warning
+// in bold, and THIS TOOL WENT ON PRINTING IT AT THE TOP OF EVERY REPORT. A retracted claim printed
+// by the instrument is worse than one buried in a doc, because the instrument is what a judge reads
+// first and is the thing they trust when the docs and the render disagree.
+//
+// The mechanism that was supposed to catch exactly this — `checkG2RecordAgainstPlate` below — could
+// not, and the reason is worth more than the fix: the four recorded values were unreachable, so no
+// plate anybody took could BE one of the recorded seeds at the recorded ratio, and a check that
+// only fires on a comparable plate fires on nothing when the recipe it names has stopped existing.
+// A staleness check keyed to a configuration goes quiet when the configuration goes away.
+//
+// Re-measured 2026-08-08 at build `2ec7db9`, one frame each, same recipe, nothing else changed:
 //
 //     node tools/critic/capture.mjs --url "/alive.html?bare&freeze&capture" --seconds 0.034 \
-//          --width 900 --height 1200 --seed <n> --keep-frames --out <dir>
+//          --fps 30 --width 900 --height 1200 --dpr 1 --seed <n> --keep-frames --out <dir>
 //     node tools/critic/measure.mjs <dir>/frames/frame-00001.png \
 //          tools/critic/regions.lighting-portrait.json
 //
-//     seed 1        G2 luma 0.7836   sclera 0.6129   cheek 0.7822   FAIL
-//     seed 42       G2 luma 0.9189   sclera 0.7242   cheek 0.7881   FAIL
-//     seed 4242     G2 luma 0.9292   sclera 0.7313   cheek 0.7870   PASS
-//     seed 20260807 G2 luma 0.4390   sclera 0.3406   cheek 0.7759   FAIL
+//     seed 1        G2 luma 0.9182   sha256 9a1292b4c887…   MARGINAL FAIL (0.0018 under the floor)
+//     seed 42       G2 luma 0.9182   sha256 9a1292b4c887…   MARGINAL FAIL
+//     seed 4242     G2 luma 0.9182   sha256 9a1292b4c887…   MARGINAL FAIL
+//     seed 20260807 G2 luma 0.9182   sha256 9a1292b4c887…   MARGINAL FAIL
 //
-// The last row is not noise and it is not inherited from the previous comment: the two plates
-// were cropped 70×50 px around the rect, magnified 8× with the rect outlined, and LOOKED AT. At
-// 4242 the rect sits on clean sclera; at 20260807 the gaze has carried the iris and limbal ring
-// underneath it, so half the sample is iris. Same rect, same page, different draw of the seed.
+// FOUR SEEDS, ONE PNG, BYTE-IDENTICAL. The lottery is gone, and it was never a property of the eye:
+// it was a property of a recipe that advanced the simulation one frame while claiming to be frozen,
+// and of a frame epoch that was a count of how many frames the machine fitted into loading a GLB.
+// The seed spread this block used to carry is NOT REACHABLE TODAY and must not be quoted as
+// evidence about the eye, the shader, or the seed.
+//
+// What survives, and is the reason the record is kept rather than deleted:
+//   - the rect is still 11×6 px on a ~40 px eye, so it is still fragile to anything that moves the
+//     head, and `?preroll` still invalidates it (§1.17);
+//   - the four values are now a REPRODUCTION ORACLE. They agree to the last digit, so any
+//     disagreement at all is signal — either the render moved, or the epoch pin came undone;
+//   - and 0.9182 is 0.0018 under the 0.92 floor, which is inside the noise this gate is quoted
+//     with, so the verdict is MARGINAL and the second warning line says so on every report.
 const G2_SEED_LOTTERY = {
   measuredAt: '2026-08-08',
-  build: '82260d4',
+  build: '2ec7db9+integration',
 
-  // The configuration the record is only valid in. All three have to match the plate being
-  // measured before the reproduction check below is allowed to say anything: a different page, a
-  // different framing or a pre-rolled motion state is a different measurement, not a stale one.
-  // 🚩 `capture` IS PART OF THE KEY, and leaving it out was a live false-alarm generator.
-  // `?freeze` is INERT under `?capture` — `__SUGATA_STEP__` advances the simulation regardless —
-  // so this record is about a plate ONE SIMULATED FRAME (1/30 s) into motion, with the head
-  // already at 0.83° of gaze yaw. The genuinely frozen plate, `?bare&freeze` with no `?capture`,
-  // is byte-identical across all four of these seeds and reads 0.9200 at every one of them.
-  // Same page, same size, same seeds, two recipes, two answers, and only one of them is a
-  // lottery. LEARNINGS §1.19a.
+  // The configuration the record is only valid in. All of it has to match the plate being measured
+  // before the reproduction check below is allowed to say anything: a different page, a different
+  // framing or a pre-rolled motion state is a different measurement, not a stale one.
+  //
+  // 🚩 `capture` IS PART OF THE KEY, and leaving it out was a live false-alarm generator. The
+  // reason recorded here used to be "`?freeze` is INERT under `?capture`", which is retracted —
+  // but the conclusion is unchanged and the new reason is stronger. `?capture` does not change
+  // WHETHER the figure is frozen any more; it changes HOW MANY FRAMES THE TEMPORAL RESOLVE HAS
+  // ACCUMULATED, because the capture hook steps the frame epoch once per captured frame. Measured
+  // at `2ec7db9`, same page, same seed, 900×1200: **1 step reads G2 0.9182 and 60 steps read
+  // 0.9169** on the shipped TAAU+grade default. So the STEP COUNT is part of the plate's identity
+  // in the same way the seed and the build digest are, and a key that folded `?capture` away would
+  // put two different pictures under one name.
+  //
+  // ⚠️ `captureStepsAtThirtyFps` is therefore load-bearing and not decoration. It is 1 because that
+  // is the recipe this record was first taken on and re-taking it there keeps the history
+  // comparable; it is NOT the recipe a gate result should be quoted from. Quote 8.1's plate:
+  // 3840×5120, 60 steps at 60 fps. LEARNINGS §1.19a, §1.25i.
   pageKey: '/alive.html?bare&capture&freeze',
   captureStepsAtThirtyFps: 1,
   pixelWidth: 900,
   pixelHeight: 1200,
   regionsPath: 'tools/critic/regions.lighting-portrait.json',
 
-  /** seed → G2 encoded luma ratio, at the 4 dp the report prints. */
-  lumaRatioBySeed: { 1: 0.7836, 42: 0.9189, 4242: 0.9292, 20260807: 0.439 },
+  /**
+   * seed → G2 encoded luma ratio, at the 4 dp the report prints.
+   *
+   * 🎯 RE-MEASURED AT INTEGRATION, and the previous record's own stale warning is what demanded
+   * it — this is the check catching a real drift rather than a planted one. `SCLERA_BRIGHTNESS`
+   * moved 1.26 → 1.47 in the same round (gate-residue's G2 solve), so every seed moved together:
+   * the warning read "0.956 where the record says 0.9182 — Δ0.0378 against a tolerance of 0.0005.
+   * The render has moved out from under the record", which is exactly the sentence it exists to
+   * print. Four independent browser processes, four seeds, `?bare&freeze&capture` at 900×1200
+   * stepped 1 frame at 30 fps, returned ONE PNG (sha256 `6cc1427e2354…`) and therefore one value.
+   *
+   * ⚠️ Note the direction: the old values are BELOW the 0.92 floor and these are above it. The
+   * record is a reproduction oracle, not a verdict — but a reader who remembers "G2 fails at the
+   * record recipe" is remembering a render that no longer exists.
+   */
+  lumaRatioBySeed: { 1: 0.9560, 42: 0.9560, 4242: 0.9560, 20260807: 0.9560 },
 
   // The record is printed to 4 dp, so it has to be TRUE to 4 dp: half a unit in the last place.
-  // Not a guess about noise. MEASURED — six independent browser processes, seed 1, same page and
-  // size, returned 0.7836 every time, spread 0.0000 (capture.mjs reported 1/1 bit-identical,
-  // worst residue 0 px at Δ0/255 on each). And the drift this check has to catch is bigger than
-  // it even at its smallest: seed 20260807 moved 0.4384 → 0.4390 across the integration commit
-  // while seeds 42 and 4242 moved by 0.044.
+  // Not a guess about noise. MEASURED — the four seeds return one PNG, so the spread is 0.0000,
+  // which is what makes this a usable oracle: before the epoch pin the same four seeds spanned
+  // 0.4390–0.9292 and no tolerance could have separated drift from draw.
   reproductionTolerance: 0.0005,
 };
 
@@ -464,7 +508,30 @@ function resolveProvenance(options, image) {
     devicePixelRatio: manifest.resolution?.devicePixelRatio ?? null,
     backend: manifest.environment?.backend ?? null,
     capturedAt: manifest.capturedAt ?? null,
+
+    // 🎯 THE STEP COUNT IS PART OF THE PLATE'S IDENTITY, because the shipped page resolves
+    // temporally: the same page at the same seed is a different picture at 1 step and at 60.
+    // Read from the FILE NAME when the caller handed us `frame-00060.png`, because measuring an
+    // early frame out of a long capture is normal and the manifest describes the whole run, not
+    // the frame in your hand. `simulation.frameCount` is the fallback for a plate saved any other
+    // way. Measured evidence for why this matters: 0.9182 at 1 step against 0.9169 at 60 on one
+    // page and one seed at 2ec7db9.
+    captureSteps: frameIndexFromFileName(options.imagePath) ?? manifest.simulation?.frameCount ?? null,
+    captureFps: manifest.simulation?.fps ?? null,
   });
+}
+
+/**
+ * `…/frames/frame-00060.png` → 60. Anything else → null.
+ *
+ * `capture.mjs` writes one PNG per simulated step with a 1-based five-digit index, so the file name
+ * IS the step count for that plate. Deliberately strict: a name this pattern does not match tells
+ * us nothing, and guessing from a partial match is how a step count gets attached to a screenshot
+ * that never had one.
+ */
+function frameIndexFromFileName(imagePath) {
+  const match = /^frame-(\d+)\.png$/i.exec(path.basename(imagePath ?? ''));
+  return match ? Number(match[1]) : null;
 }
 
 /**
@@ -957,7 +1024,7 @@ function measureBlackPoint(image, lumaField, regions) {
       'Below the band means blacks are crushed; above it means shadow lift, which the reference grade does not have. Measured to 1/65536 via histogram. ' +
       '⚠️ Whole-image scope makes this a measurement of whatever the darkest 0.1% of the frame happens to BE, not of the grade. On alive.html it read 0.0250 while the backdrop was the darkest thing present, and 0.00001 once the eyelash and eyebrow cards stopped being lit by the rim — same grade, both readings red, neither about the grade. ' +
       '🚩 AND THE DEEPER PROBLEM IS NOT SCOPE, IT IS THAT THE TARGET WAS MEASURED ON A DIFFERENT KIND OF IMAGE (LEARNINGS §1.7b). The spec\'s 0.004–0.016 comes from four WHOLE GAME FRAMES — "frontal portrait", "3/4 face close-up", "cutscene close-up", "neon action" — each a lit environment whose darkest 0.1% is deep scene shadow in a compressed JPEG, where a true zero cannot occur. A ?bare plate is a character on a flat backdrop card with near-black alpha-tested hair in front of it, and its darkest 0.1% is a lash texel at literally 0. The two populations are not comparable and no choice of rect makes them so: a "frame" region drawn on the backdrop measures the backdrop card\'s own level, which is a rig parameter, not a black point. ' +
-      'Measured 2026-08-08 on alive.html?bare&freeze&seed=1 at 900x1200: shipped 0.00001, ?cards=0 0.00393, ?grade=1 0.00312 — the grade moves it 312x and the cards move it 393x. Until this gate is stated against a plate with an environment in it, read a red G6 on a ?bare plate as UNDECIDED rather than as a black-point defect, and attribute with ?cards=0.',
+      'Re-measured 2026-08-08 at 2ec7db9 on alive.html?bare&freeze&seed=1&capture, 60 steps, shipped default (TAAU 0.66 + grade + RCAS 1.2, MSAA off). At 3840x5120: shipped 0.00001, ?cards=0 0.00393. At 900x1200: shipped 0.00309, ?cards=0 0.00393. Read those four numbers together, because they say what the gate is measuring: ?cards=0 returns 0.00393 at BOTH widths — it is the backdrop card\'s own emissive level, a rig parameter, resolution-independent — while the shipped reading moves 300x with resolution, because a wider render resolves more genuinely-zero alpha-tested lash texels into the bottom 0.1%. So G6 on a ?bare plate is a measurement of how many lash pixels fit in the frame. Read a red G6 here as UNDECIDED rather than as a black-point defect, attribute with ?cards=0, and state the width.',
   };
 }
 
@@ -1231,12 +1298,19 @@ function collectCaptureWarnings(image, spec, provenance, scleraGate, regionsPath
   }
 
   // 🚩 MEASURED, NOT SUSPECTED. The sclera rect is 11×6 px on an eye ~40 px across at the portrait
-  // framing, and `?freeze` pins the POSE but not the ocular or postural layers: their state at the
-  // first drawn frame is drawn from the seed. Any single-seed G2 on an animating page is a draw of
-  // the dice, and the 0.9641 that punch-list 3.3 was marked done on is one of them.
+  // framing, so a degree of head yaw walks it onto the iris and any plate whose motion state is not
+  // pinned gives a G2 that is about the pose rather than about the eye. `?preroll` is the live
+  // version of that hazard (§1.17): at `?preroll=6` the head is 35.8° round and the rect is on skin.
+  //
+  // ⚠️ WHAT THIS COMMENT USED TO SAY, AND WHY IT IS RETRACTED. It read "`?freeze` pins the POSE but
+  // not the ocular or postural layers: their state at the first drawn frame is drawn from the seed.
+  // Any single-seed G2 on an animating page is a draw of the dice." That was true of the pre-`c9fa59c`
+  // capture recipe and is false at HEAD: measured at `2ec7db9`, seeds 1 / 42 / 4242 / 20260807 on
+  // `?bare&freeze&capture` at 900×1200 return ONE PNG and G2 0.9182 at every one. The seed is no
+  // longer the hazard; the rect size and the MARGINAL band edge are.
   //
   // The distribution itself lives in G2_SEED_LOTTERY, not in this sentence, and everything
-  // quantitative below is derived from it — see the block above for the round that cost.
+  // quantitative below is derived from it — see the block above for the two rounds that cost.
   if (spec.regions?.sclera) {
     warnings.push(...describeG2SeedLottery(image, provenance, scleraGate, regionsPath));
   }
@@ -1282,6 +1356,72 @@ function collectCaptureWarnings(image, spec, provenance, scleraGate, regionsPath
 }
 
 /**
+ * How far G2 can move WITHOUT the eye changing at all — the recipe sensitivities, each measured by
+ * changing exactly one thing about how a plate is taken and nothing about the render.
+ *
+ * 🎯 THIS TABLE IS WHY THE MARGINAL VERDICT IS COMPUTED AND NOT TYPED. The sentence that used to
+ * stand here was four literals — "0.9197 FAIL against 0.9221 PASS, a difference of 0.0024" — and
+ * it went stale the moment `SCLERA_BRIGHTNESS` moved, at which point the tool would have gone on
+ * stamping MARGINAL on a green that clears its floor by ten times the largest thing that can move
+ * it. A word printed on every report regardless of the report is a word a reader learns to skip,
+ * which is the opposite of what MARGINAL is for.
+ *
+ * So the rule is now: G2 is MARGINAL when the plate's distance from the nearer band edge is
+ * SMALLER than the largest amount the recipe alone can move it. That comparison re-derives itself
+ * from the plate every run. Keeping the table honest is still manual, but a wrong row here makes
+ * the verdict wrong in a way a reader can check, where a wrong literal in a sentence could not be
+ * checked at all.
+ *
+ * Each row: change one thing, measure both, subtract. All at the integrated build, portrait
+ * regions, `?bare&freeze&seed=1&capture` unless the row says otherwise.
+ */
+const G2_RECIPE_SENSITIVITIES = [
+  { what: 'capture step count', delta: 0.0013, detail: '900×1200, 1 step 0.9560 against 60 steps 0.9547' },
+  { what: 'capture width', delta: 0.0003, detail: '60 steps, 900 px 0.9547 against 3840 px 0.9544' },
+  { what: 'anti-aliasing mode', delta: 0.0032, detail: '3840×5120, shipped default 0.9544 against ?aa=msaa&grade=0 0.9576' },
+];
+
+/**
+ * Whether this plate's G2 verdict is entitled to be read on its own.
+ *
+ * @param {Object} scleraGate - as `measureScleraAgainstCheek` returns it.
+ * @param {number} low - the luma band's floor.
+ * @param {number} high - its ceiling.
+ */
+function describeG2Margin(scleraGate, low, high) {
+  const worst = G2_RECIPE_SENSITIVITIES.reduce(
+    (largest, row) => (row.delta > largest.delta ? row : largest), G2_RECIPE_SENSITIVITIES[0]);
+
+  const table = G2_RECIPE_SENSITIVITIES
+    .map((row) => `${row.what} ${round(row.delta, 4)} (${row.detail})`).join('; ');
+
+  const measured = scleraGate?.measured?.ratioEncoded;
+
+  if (typeof measured !== 'number') {
+    return 'G2 could not be measured on this plate, so no margin verdict is offered. The recipe alone ' +
+      `can move this gate by up to ${round(worst.delta, 4)} — ${table}.`;
+  }
+
+  const margin = Math.min(Math.abs(measured - low), Math.abs(measured - high));
+  const edge = Math.abs(measured - low) <= Math.abs(measured - high) ? 'floor' : 'ceiling';
+
+  if (margin < worst.delta) {
+    return 'G2 IS MARGINAL AND THE VERDICT ABOVE IS NOT ENTITLED ON ITS OWN. This plate reads ' +
+      `${round(measured, 4)}, which is ${round(margin, 4)} from the ${edge} — SMALLER than the ` +
+      `${round(worst.delta, 4)} that changing the ${worst.what} alone moves it (${worst.detail}). ` +
+      'The recipe is deciding this gate, not the eye. What would settle it: a wider sclera rect, or G2 ' +
+      'restated over a plate whose sclera the rect cannot leave. Do not report a bare PASS or FAIL ' +
+      'here without the word MARGINAL.';
+  }
+
+  return `G2 is NOT marginal on this plate and the verdict above stands on its own: ${round(measured, 4)} ` +
+    `is ${round(margin, 4)} from the ${edge}, which is ${round(margin / worst.delta, 1)}× the largest ` +
+    `amount the recipe alone can move it (${round(worst.delta, 4)}, the ${worst.what}). The rect is still ` +
+    '11×6 px on a ~40 px eye, so this is a statement about headroom and not about robustness to a moved ' +
+    `head. Recipe sensitivities: ${table}.`;
+}
+
+/**
  * The G2-is-a-lottery caveat, rendered from G2_SEED_LOTTERY rather than typed.
  *
  * Two sentences come out of here and they answer different questions. The first says what the
@@ -1307,15 +1447,18 @@ function describeG2SeedLottery(image, provenance, scleraGate, regionsPath) {
     : `recorded ${record.measuredAt} at build ${record.build}`;
 
   const lines = [
-    'G2 samples an 11×6 px rect on an eye ~40 px across, so one degree of head yaw walks it onto the iris. ' +
-      '?freeze on the rAF path pins EVERYTHING — four seeds come back byte-identical and all read 0.9200 — ' +
-      'but ?freeze is INERT under ?capture, because __SUGATA_STEP__ advances the simulation regardless. ' +
-      'So a captured "frozen" plate is already in motion and the seed acts. On ' +
+    'G2 samples an 11×6 px rect on an eye ~40 px across, so one degree of head yaw walks it onto the iris — ' +
+      'the gate is fragile by construction and that has not changed. What HAS changed: ?freeze now HOLDS ' +
+      'under ?capture (fixed in c9fa59c) and the capture frame epoch is pinned (punch-list 3.20, 4aafd91), ' +
+      'so a frozen plate is a still and the seed no longer draws. On ' +
       `${record.pageKey} stepped ${record.captureStepsAtThirtyFps} frame at 30 fps, ` +
       `${record.pixelWidth}×${record.pixelHeight} (${standing}) G2 luma reads ` +
       `${ratios.map((ratio) => ratio.toFixed(4)).join(' / ')} at seeds ${seeds.join(' / ')} — a ` +
       `${round(spread, 1)}× spread, ${inBand} of ${seeds.length} inside the luma band ${round(low, 2)}–${round(high, 2)}. ` +
-      'Quote G2 as a distribution over a seed set, never as one number.',
+      'This record is now a REPRODUCTION CHECK, not a lottery: if these seeds stop agreeing, either the ' +
+      'render moved or the epoch pin came undone, and alive-capture-determinism.selftest.mjs tells you which.',
+
+    describeG2Margin(scleraGate, low, high),
   ];
 
   if (reproduction.message) lines.push(reproduction.message);
@@ -1342,7 +1485,7 @@ function checkG2RecordAgainstPlate(image, provenance, scleraGate, regionsPath) {
   // and the same page measured through a different region spec is a different measurement, not a
   // disagreeing one. Compared by file name because callers pass this path relative, absolute and
   // from other working directories, and the name is what distinguishes the committed specs.
-  const comparable =
+  const sameRecipe =
     provenance?.known === true &&
     recorded !== undefined &&
     !provenance.prerollSeconds &&
@@ -1352,7 +1495,45 @@ function checkG2RecordAgainstPlate(image, provenance, scleraGate, regionsPath) {
     path.basename(regionsPath ?? '') === path.basename(record.regionsPath) &&
     scleraGate?.measured?.ratioEncoded !== undefined;
 
-  if (!comparable) return { stale: false, message: null };
+  // 🚩 THE STEP COUNT IS PART OF THE RECIPE, AND LEAVING IT OUT MADE THIS CHECK CRY WOLF.
+  //
+  // Found by execution 2026-08-08 while re-taking the record: a 60-step plate of the SAME page, the
+  // same size and the same seed reads G2 0.9169 against the 1-step record's 0.9182, and this check
+  // reported "the render has moved out from under the record" — which is false. Nothing moved. The
+  // page's default is a temporal resolve, so the number of accumulated frames is part of what the
+  // picture IS, and two step counts are two plates.
+  //
+  // A false alarm is not a harmless conservatism here: this check's whole value is that it is quiet
+  // until it is right, and one wolf cry is how a warning gets skimmed past. So the mismatch gets its
+  // own branch and its own sentence, rather than being folded into either silence or an alarm.
+  //
+  // `provenance.captureSteps` is read from the FILE NAME first and from `simulation.frameCount`
+  // only as a fallback — see `frameIndexFromFileName`.
+  // ⚠️ AN UNRECORDED STEPPING IS TREATED AS THE RECORDED ONE, AND THAT IS A DELIBERATE WEAKENING.
+  // A plate whose provenance carries no `simulation` block cannot be excluded on stepping without
+  // silencing the check for every caller that builds a provenance by hand — which includes this
+  // tool's own rejection proofs, four of which went green the moment the strict form landed. So:
+  // a KNOWN different stepping is not comparable; an UNKNOWN stepping is compared, exactly as it
+  // was before. The residual hole is a manifest with no simulation block at a non-recorded step
+  // count, and it is written down here rather than left to be discovered.
+  const steps = provenance?.captureSteps ?? null;
+  const fps = provenance?.captureFps ?? null;
+  const steppingUnknown = steps === null && fps === null;
+  const sameStepping = steppingUnknown || (steps === record.captureStepsAtThirtyFps && fps === 30);
+
+  if (sameRecipe && !sameStepping) {
+    return {
+      stale: false,
+      message:
+        'The G2 seed record above is NOT comparable with this plate and no drift is being claimed. Same page, size and ' +
+        `seed, different stepping: the record is ${record.captureStepsAtThirtyFps} step at 30 fps and this is ` +
+        `${steps ?? 'an unknown number of'} step(s) at ${fps ?? 'an unrecorded'} fps. On the shipped temporal default the ` +
+        'step count decides how converged the resolve is — measured at 2ec7db9, one page and one seed, 1 step reads ' +
+        '0.9182 and 60 steps read 0.9169 — so this is a different picture rather than a disagreeing one.',
+    };
+  }
+
+  if (!sameRecipe || !sameStepping) return { stale: false, message: null };
 
   const measured = scleraGate.measured.ratioEncoded;
   const delta = Math.abs(measured - recorded);
@@ -1393,13 +1574,20 @@ function canonicalPageKey(page) {
   }
 
   // 🚩 `capture` USED TO BE STRIPPED HERE, ALONGSIDE `seed`, ON THE GROUND THAT IT IS A DELIVERY
-  // MECHANISM RATHER THAN A RENDERING FLAG. It is not. `alive.js`'s `__SUGATA_STEP__` advances the
-  // simulation whether or not `?freeze` is set, so `?capture` is the flag that decides whether
-  // `?freeze` does anything at all — measured 2026-08-08, `?bare&freeze&capture` is byte-identical
-  // to `?bare&capture` at 1, 4 and 30 steps, while free-running `?bare&freeze` reads G2 0.9200
-  // against the capture recipe's 0.7836 at the same seed. Two recipes, one canonical key, and the
-  // reproduction check below would have called a correct free-running plate a drift.
-  // LEARNINGS §1.19a.
+  // MECHANISM RATHER THAN A RENDERING FLAG. It is not, and it stays in the key — but the ARGUMENT
+  // recorded here has been replaced, because the one it rested on was retracted.
+  //
+  // The old argument: `__SUGATA_STEP__` advanced the simulation whether or not `?freeze` was set,
+  // so `?capture` decided whether `?freeze` did anything at all. True until `c9fa59c`; false since.
+  // Do not quote the 0.9200-against-0.7836 pair it cited — that spread is not reachable at HEAD.
+  //
+  // The argument that replaces it is about the RESOLVE rather than the simulation, and it survives
+  // the fix. `?capture` drives the frame epoch one step per captured frame, and the page's default
+  // is a temporal resolve, so the number of steps decides how converged the picture is. Measured
+  // 2026-08-08 at `2ec7db9`, `/alive.html?bare&freeze&seed=1&capture` at 900×1200: **G2 0.9182 at
+  // 1 step and 0.9169 at 60**, one page, one seed, one build. Free-running is a third accumulation
+  // history again. Fold `capture` away and those all share a name, and the reproduction check
+  // below would call a correct plate a drift. LEARNINGS §1.19a, §1.25i.
   const flags = [...new URLSearchParams(search).keys()]
     .filter((key) => key !== 'seed')
     .sort();
@@ -1540,4 +1728,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
 }
 
-export { measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY };
+export {
+  measureAll, resolveRegions, canonicalPageKey, round, TARGETS, G2_SEED_LOTTERY,
+  // Exported ONLY so selftest.mjs can prove the margin rule fires in both directions. A computed
+  // verdict with no rejection proof is the same decoration as the typed sentence it replaced.
+  describeG2Margin, G2_RECIPE_SENSITIVITIES,
+};

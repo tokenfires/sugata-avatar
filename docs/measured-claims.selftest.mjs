@@ -23,18 +23,33 @@
  * verdict inside the noise**, in either direction, plus three cheaper consistency rules that catch
  * the neighbouring mutations.
  *
- * FOUR RULES
+ * FIVE RULES
  *
  *   BAND    A stated verdict must agree with the band `measure.mjs` actually enforces. The bands
  *           are IMPORTED from `tools/critic/measure.mjs`, never re-typed here, so tightening a
  *           band in the tool turns every stale verdict in the documents red.
  *   COUNT   An "N of seven green" headline must equal the number of PASS verdicts in its own gate
  *           roster. Catches prose drifting away from the list directly beneath it.
- *   MARGIN  A value closer to a band edge than that gate's measured load-to-load spread does not
+ *   MARGIN  A value closer to a band edge than that gate's retained fragility floor does not
  *           license a bare PASS or FAIL. The claim must carry the literal token MARGINAL within
  *           400 characters. This is the rule that catches 8.1.
  *   DRAWS   Every range quoted for the shipped default must be the min and max of the raw draws
  *           PUNCHLIST records in its ```rawdraws block. Arithmetic over the document's own data.
+ *   PLATES  Every current single value must be the value a named, sha-stamped plate produced, as
+ *           recorded in PUNCHLIST's ```plates block. Added 2026-08-08 when punch-list 3.20 made
+ *           the shipped plate reproducible and turned every range back into a value: DRAWS can
+ *           only police a range, and the mutation that replaced hand-narrowing a range is hand-
+ *           narrowing a value, which BAND, MARGIN and DRAWS are all blind to.
+ *
+ * ⚠️ WHAT 3.20 DID TO THE MARGIN RULE, STATED RATHER THAN QUIETLY ABSORBED. MARGIN's floor used to
+ * be the load-to-load spread, and after the epoch pin **that spread is measured ZERO** — three
+ * loads of the shipped default return one PNG. A zero floor makes MARGIN inert, which would have
+ * been a gate going green by going blind. The floor is therefore RETAINED at the pre-3.20 numbers,
+ * and the justification is measured rather than sentimental: the recipe sensitivities that remain
+ * are all LARGER than it. At 2ec7db9, one page and one seed, G2 moves 0.0013 between 1 capture
+ * step and 60, 0.0028 between 900 px and 3840 px, and 0.0024 between the shipped default and its
+ * A side, against a retained floor of 0.0004. A verdict that flips when you change the
+ * anti-aliasing mode is not a verdict about the eye.
  *
  * WHAT THIS FILE CANNOT DO, STATED RATHER THAN IMPLIED
  *
@@ -73,14 +88,20 @@ const BANDS = {
   G7: { low: 0, high: TARGETS.cardBandOutlierFractionMax, what: "card-band outlier fraction" },
 };
 
-// Measured 2026-08-08 at HEAD 1985425, packagesDigest 78bdabba19b059e0: fourteen loads of
-// alive.html?bare&freeze&seed=1 at 3840x5120 on the shipped default (TAAU 0.66 + grade + RCAS 1.2),
-// ten through ?capture at 60 steps and four free-running at 90 rAF frames. The raw draws live in
+// The RETAINED FRAGILITY FLOOR for MARGIN. Measured 2026-08-08 at HEAD 1985425, packagesDigest
+// 78bdabba19b059e0: fourteen loads of alive.html?bare&freeze&seed=1 at 3840x5120 on the shipped
+// default, ten through ?capture at 60 steps and four free-running. The raw draws live in
 // PUNCHLIST's ```rawdraws block and the DRAWS rule below re-derives these from them, so this table
 // is a cache of a measurement rather than a set of chosen constants.
 //
-// G6 spreads zero because its value is a hard 8-bit zero and quantised; a zero spread makes the
-// MARGIN rule inert for G6, which is the honest consequence and not a special case.
+// 🚩 IT IS NO LONGER "THE LOAD-TO-LOAD SPREAD", AND THE NAME IS KEPT ONLY BECAUSE IT IS QUOTED IN
+// THE FAILURE MESSAGES. After punch-list 3.20 the load-to-load spread is ZERO on every gate. These
+// numbers are retained as a FLOOR because the recipe sensitivities measured at 2ec7db9 are all
+// larger — see the header. Replacing them with the measured zero would have made MARGIN inert,
+// which is a gate going green by going blind, and is the exact failure this file exists to name.
+//
+// G6 was already zero here, because its value is a hard 8-bit zero and quantised; a zero floor
+// makes the MARGIN rule inert for G6, which is the honest consequence and not a special case.
 const LOAD_TO_LOAD_SPREAD = { G1: 0.0005, G2: 0.0004, G4: 0.0135, G5: 0.000001, G6: 0, G7: 0.000046 };
 
 // The MARGINAL token has to NAME the gate it excuses, within 32 characters. Without that, one
@@ -230,6 +251,32 @@ function inlineClaims(text) {
  * numeric cell. Three is the threshold because two gate columns can occur by accident in a
  * comparison table and three cannot.
  */
+/**
+ * Which cells of THIS row carry a gate value.
+ *
+ * Column-headed tables answer once for the whole table (`gateColumns`). Row-labelled tables answer
+ * per row: the first cell names the gate and every later numeric cell is a value for it. The first
+ * cell is excluded from the values so a row like `| G4 high-pass σ | 1.6262 |` does not read its
+ * own label as data.
+ */
+function gateColumnsForRow(gateColumns, bodyCells) {
+  if (gateColumns.length >= 3) return gateColumns;
+  const label = /^(G[1-7])\b/.exec(bodyCells[0] ?? "");
+  if (label === null) return [];
+
+  // ⚠️ ONLY CELLS THAT ARE A BARE MEASUREMENT COUNT. A row-labelled table's other cells are prose —
+  // the target band ("1.43–1.64 reference band"), the verdict ("PASS both, inside 1.5–2.1 at
+  // 3840 px"), a note with a date in it — and reading a number out of any of them produces a claim
+  // the document never made. Measured consequence of not doing this: the first version of this
+  // path invented four claims, including a G2 of "2026–8" out of a date. So the cell must be a
+  // number and at most a unit, and anything wordier is skipped and NOT reported as a claim.
+  const BARE_MEASUREMENT = /^-?\d+(?:\.\d+)?(?:e-?\d+)?\s*(?:%|×|x|\/255|linear|encoded)?$/i;
+  return bodyCells
+    .map((cell, column) => ({ cell, column }))
+    .filter((entry) => entry.column > 0 && BARE_MEASUREMENT.test(entry.cell))
+    .map((entry) => ({ column: entry.column, id: label[1] }));
+}
+
 function tableClaims(text) {
   const found = [];
   const lines = text.split("\n");
@@ -247,14 +294,23 @@ function tableClaims(text) {
     const gateColumns = cells
       .map((cell, column) => ({ column, id: /^(G[1-7])\b/.exec(cell)?.[1] ?? null }))
       .filter((entry) => entry.id !== null);
-    if (gateColumns.length < 3) continue;
+    // 🚩 THE SEVEN-GATE TABLE — THE MOST-READ TABLE IN PUNCHLIST — WAS INVISIBLE HERE FOR A ROUND.
+    // This loop was written against 3.12's shape, where the gate ids are COLUMN HEADINGS. The
+    // headline table is transposed: one ROW per gate, `| G4 high-pass σ | 1.6262 | 1.7469 | … |`,
+    // and it has no gate id in its header at all, so `gateColumns.length < 3` skipped the whole
+    // thing. Found by execution while proving the PLATES rule red: nudging the headline G4 by
+    // 0.23% changed nothing, because nothing was reading it.
+    //
+    // Both shapes are now handled and the ROW shape is recognised per row rather than per table,
+    // which is what keeps the two paths from double-counting: a table with gate ids in its header
+    // takes the column path and never reaches the row path.
     if ((lines[index + 1] ?? "").includes("---") === false) continue;
 
     for (let row = index + 2; row < lines.length; row += 1) {
       const body = lines[row].trim();
       if (body.startsWith("|") === false) break;
       const bodyCells = body.split("|").slice(1, -1).map((cell) => plain(cell).trim());
-      for (const { column, id } of gateColumns) {
+      for (const { column, id } of gateColumnsForRow(gateColumns, bodyCells)) {
         const cell = bodyCells[column];
         if (cell === undefined) continue;
         const numberMatch = NUMBER.exec(cell);
@@ -563,9 +619,15 @@ if (draws !== null) {
       quotedRanges.push({ label, ...claim });
     }
   }
-  check("the documents quote ranges rather than single values for the shipped default",
-    quotedRanges.length >= 4, `${quotedRanges.length} ranges found`);
-
+  // ⚠️ THIS CHECK USED TO READ "the documents quote RANGES rather than single values for the
+  // shipped default", with a floor of four. That was right for the pre-3.20 world and is wrong for
+  // this one: punch-list 3.20 pinned the capture frame epoch, three loads of the shipped default
+  // now return one PNG, and a range would be a fiction. The floor moved to the PLATES rule below,
+  // which is strictly stronger — it holds the documents to the value a named plate actually
+  // produced rather than to the width of a spread.
+  //
+  // A range is still ALLOWED (historical prose quotes several) and still has to be arithmetic over
+  // the draws, which is what the loop below is for.
   for (const range of quotedRanges) {
     const list = draws[range.id];
     if (list === undefined) continue;
@@ -573,6 +635,174 @@ if (draws !== null) {
     const show = (value) => Number(value.toPrecision(6));
     check(`${range.label} range ${range.id} ${show(range.values[0])}–${show(range.values[1])} lies inside the recorded draws`,
       inside, `draws span ${Math.min(...list)}–${Math.max(...list)}`);
+  }
+}
+
+// --- 3b. PLATES — every current single value is the value a named, sha-stamped plate produced -----
+//
+// 🎯 THE RULE THAT REPLACES DRAWS AS THE LOAD-BEARING ONE, NOW THAT THE PLATE IS REPRODUCIBLE.
+//
+// DRAWS could only ask "is this range the extremes of the recorded draws?" — arithmetic over the
+// document's own data, which catches a hand-narrowed range and nothing else. With punch-list 3.20
+// landed, the shipped default returns ONE PNG over repeated loads, so a stronger question is
+// answerable: **is this number the number that plate produced?** PUNCHLIST records the plates in a
+// ```plates fence with a sha256 apiece, and every live single value for one of those
+// configurations has to equal the recorded value exactly.
+//
+// It still cannot render — the honest limit at the top of this file is unchanged, and a plate
+// record can be wrong in lockstep with the prose. What it stops is the specific thing PUNCHLIST
+// instructed against: **retiring a range by narrowing it in prose instead of re-measuring.** A
+// hand-narrowed value now has to be hand-narrowed in two places, one of which carries a sha256.
+
+section("3b. PLATES — the documents' single values are the values a recorded plate produced");
+
+/** PUNCHLIST's ```plates fence: one line per configuration, `Gn value` pairs after the metadata. */
+function recordedPlates(text) {
+  const block = /```plates[^\n]*\n([\s\S]*?)```/.exec(text);
+  if (block === null) return null;
+  const plates = [];
+  for (const line of block[1].split("\n")) {
+    const parts = line.trim().split(/\s+/);
+    if (parts.length < 4) continue;
+    const gates = {};
+    for (let i = 0; i < parts.length - 1; i += 1) {
+      if (/^G[1-7]$/.test(parts[i]) && Number.isNaN(Number(parts[i + 1])) === false) {
+        gates[parts[i]] = Number(parts[i + 1]);
+      }
+    }
+    if (Object.keys(gates).length === 0) continue;
+    const sha = /sha=([0-9a-f]+)/.exec(line);
+    const loads = /loads=(\d+)/.exec(line);
+    plates.push({ name: parts[0], size: parts[1], regions: parts[2], sha: sha?.[1] ?? null, loads: Number(loads?.[1] ?? 0), gates });
+  }
+  return plates;
+}
+
+const plates = recordedPlates(punchlist);
+
+check("PUNCHLIST records the plates its current values are read off",
+  plates !== null && plates.length >= 4, plates === null ? "no ```plates block" : `${plates.length} plates`);
+
+if (plates !== null) {
+  check("every recorded plate carries a sha256 prefix and a load count",
+    plates.every((plate) => plate.sha !== null && plate.loads >= 1),
+    plates.filter((plate) => plate.sha === null || plate.loads < 1).map((plate) => plate.name).join(", ") || "all do");
+
+  // A paste error is the cheap way for this record to be wrong, and it looks like two
+  // configurations agreeing on every gate. The two 3840 portrait rows are the pair 8.1 is quoted
+  // from and they must differ, because one of them is the A side of the other.
+  const portrait = plates.filter((plate) => plate.size === "3840x5120" && plate.regions === "portrait");
+  const headline = portrait.find((plate) => plate.name === "default");
+  const aSide = portrait.find((plate) => plate.name === "msaa");
+  check("the shipped default and its A side are recorded as different plates",
+    headline !== undefined && aSide !== undefined && headline.sha !== aSide.sha &&
+      ["G1", "G4", "G7"].some((id) => headline.gates[id] !== aSide.gates[id]),
+    headline && aSide ? `${headline.sha} vs ${aSide.sha}` : "one of the two is missing");
+
+  // The rule itself, and the hard part is SCOPING it. A parsed claim does not say which plate it
+  // came from, so "every G2 in the documents must be 0.9197" would condemn the A-side 0.9221 that
+  // sits two lines below it. The window is therefore narrow (0.5%) and, more importantly, a gate is
+  // only adjudicated when the headline value is UNAMBIGUOUS: if any other recorded plate has a
+  // different value for that gate inside the same window, the gate is skipped and said to be
+  // skipped. Measured consequence at this build: G2's A side is 0.26% away and `?grain=0`'s G1 is
+  // 0.006% away, so G1 and G2 are out of the rule's reach and G4, G6 and G7 are in it. That is a
+  // real limit and printing it is cheaper than a rule that fires on correct prose.
+  const WINDOW = 0.005;
+  const recorded = headline?.gates ?? {};
+  const ambiguous = new Set();
+  for (const [id, value] of Object.entries(recorded)) {
+    for (const other of plates) {
+      const rival = other.gates[id];
+      if (rival === undefined || rival === value) continue;
+      if (Math.abs(rival - value) < Math.abs(value) * WINDOW) ambiguous.add(id);
+    }
+  }
+
+  const adjudicable = Object.keys(recorded).filter((id) => ambiguous.has(id) === false);
+  check("the rule says which gates it can reach and which it cannot",
+    adjudicable.length >= 3,
+    `reaches ${adjudicable.join(", ") || "nothing"}; skipped as ambiguous against another plate: ${[...ambiguous].join(", ") || "none"}`);
+
+  // `against` is a parameter and not the closure's `recorded`, because the second rejection proof
+  // below mutates the PLATE and has to ask the question against the mutated one. When it read the
+  // closure it compared the prose to the UNMUTATED plate, found no mismatch, and the proof passed
+  // on an assertion that could not fail.
+  const nearMisses = (text, against = recorded) => {
+    const found = [];
+    for (const claim of [...inlineClaims(text), ...tableClaims(text)]) {
+      if (isRetracted(text, claim.index)) continue;
+      const value = against[claim.id];
+      if (value === undefined || ambiguous.has(claim.id)) continue;
+      for (const said of claim.values) {
+        const delta = Math.abs(said - value);
+        if (delta > 1e-9 && delta < Math.abs(value) * WINDOW) found.push({ id: claim.id, said, plate: value });
+      }
+    }
+    return found;
+  };
+
+  let matched = 0;
+  const mismatches = [];
+  for (const [label, text] of texts) {
+    for (const claim of [...inlineClaims(text), ...tableClaims(text)]) {
+      if (isRetracted(text, claim.index)) continue;
+      const value = recorded[claim.id];
+      if (value === undefined || ambiguous.has(claim.id)) continue;
+      for (const said of claim.values) if (Math.abs(said - value) < 1e-9) matched += 1;
+    }
+    for (const miss of nearMisses(text)) mismatches.push({ label, ...miss });
+  }
+
+  check("the documents' shipped-default values are the recorded plate's, to the last digit",
+    mismatches.length === 0,
+    mismatches.map((m) => `${m.label} ${m.id} says ${m.said}, plate says ${m.plate}`).join("; ") || "no near-misses");
+
+  check("and enough of them are checked for the rule to be worth having",
+    matched >= 4, `${matched} live values matched the recorded plate`);
+
+  // 🚩 THE REJECTION PROOF, and it is the mutation this rule exists for: narrow a value by hand,
+  // in the direction that would flatter the result, by less than a percent. DRAWS cannot see it
+  // (a single value is not a range), BAND cannot see it (it is still inside), MARGIN cannot see it
+  // (it is nowhere near an edge). PLATES catches it because the plate did not move with the prose.
+  //
+  // ⚠️ BOTH PROOFS ARE DERIVED FROM THE RECORDED PLATE, NOT TYPED. They used to be string literals
+  // keyed to `1.6262`, and at the first re-measurement that broke in the worst possible way: the
+  // first became a no-op replace that still read green by luck, and the second PASSED VACUOUSLY —
+  // it asserted that the plate's G4 differed from a hard-coded 1.6262, which a re-measured plate
+  // satisfies trivially without any mutation having been applied. A rejection proof that cannot
+  // fail is the exact defect this file exists to catch, one level up. Anchoring on the plate means
+  // a re-measurement carries the proofs with it.
+  const headlineG4 = recorded.G4;
+
+  // 0.23% — small enough that BAND, MARGIN and DRAWS are all blind, large enough to be a lie.
+  // Rounded to the four decimals the documents print, so the mutation is a value a human could
+  // plausibly have typed rather than one no reader would believe.
+  const nudgedG4 = Number((headlineG4 * 1.0023).toFixed(4));
+
+  {
+    const nudged = punchlist.replace(`**${headlineG4}**`, `**${nudgedG4}**`);
+    const caught = nudged !== punchlist && nearMisses(nudged).some((miss) => miss.id === "G4");
+    check("PLATES: a value hand-narrowed by 0.23% is caught, where BAND, MARGIN and DRAWS are all blind",
+      caught,
+      nudged === punchlist
+        ? `NO-OP: the prose does not contain **${headlineG4}**, so this proof did not run — anchor it`
+        : `${headlineG4} nudged to ${nudgedG4} — inside the band, far from an edge, not a range`);
+  }
+
+  // And the other direction, which is the mutation a careless re-measure produces: the plate record
+  // is updated and the prose is not. Same check, opposite side, and it must also bite. The
+  // assertion is that the mutation REACHED the plate — anything weaker is the vacuous check above.
+  {
+    const moved = nudgedG4;
+    const stalePlate = punchlist.replace(`G4 ${headlineG4} G5`, `G4 ${moved} G5`);
+    const reparsed = recordedPlates(stalePlate)?.find(
+      (plate) => plate.name === "default" && plate.size === "3840x5120");
+    check("PLATES: moving the PLATE and leaving the prose is caught by the same rule",
+      stalePlate !== punchlist && reparsed !== undefined && reparsed.gates.G4 === moved
+        && nearMisses(stalePlate, reparsed.gates).some((miss) => miss.id === "G4"),
+      stalePlate === punchlist
+        ? `NO-OP: no plate line reads "G4 ${headlineG4} G5", so this proof did not run`
+        : `plate moved to ${reparsed?.gates?.G4}, prose still says ${headlineG4}`);
   }
 }
 
