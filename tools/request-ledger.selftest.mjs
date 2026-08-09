@@ -146,9 +146,10 @@ const REJECTION_REASON_FLOOR = 40;
  *
  * ⚠️ RAISE IT WHEN A ROUND ADDS ENTRIES, or the floor stops being a floor: entries are never
  * deleted, so a ledger that has grown to 34 and is still gated at 30 tolerates four disappearing.
- * 30 at R7, 34 at R8.
+ * 30 at R7, 34 at R8, 59 at R10 — the jump is the round that discovered the Fix phase runs after
+ * integration, so five agents' 43 requests had no integrator to file them with.
  */
-const MIN_ENTRIES = 34;
+const MIN_ENTRIES = 59;
 
 /** See the header: 8, 8 and 8 commits in the last three rounds. */
 const ROUND_COMMIT_CEILING = 14;

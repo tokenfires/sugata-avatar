@@ -26,7 +26,7 @@ adjudicates it against the real file, in both directions:
 
 | status | what the gate proves |
 |---|---|
-| **APPLIED** | `verify` matches the target **at HEAD** — *and does not match it at the entry's `filed-at` commit*. The second clause is the anti-rubber-stamp clause: a pattern that matches both trees cannot tell you the change landed, so it is refused even when the change really did land. |
+| **APPLIED** | `verify` matches the target **at HEAD** — *and does not match it at the entry's `filed-at` commit*. The second clause is the anti-rubber-stamp clause: a pattern that matches both trees cannot tell you the change landed, so it is refused even when the change really did land. ⚠️ **It is only as strong as `filed-at`, so `filed-at` is gated to the same standard as a round sha** — hex shape, resolves, is a **commit**, and HEAD descends from it. Until R9 nothing checked it, and an unreadable pre-image did not weaken this clause, it switched it OFF in the green direction: `filed-at: deadbee` with a `verify` matching 195 lines at HEAD ran `PASS: 11/11, exit 0`. A moving reference — `HEAD`, `main`, `<sha>^` — is refused for the same reason: it is not a pin, so the pre-image drifts until the clause compares HEAD with itself. |
 | **OPEN** | `verify` does **not** match at HEAD (an entry fixed incidentally by someone else is a stale entry, and a ledger of stale entries is worse than no ledger), `anchor` **does** match at HEAD (the request still points at code that exists), and `filed-round` is the **current** round. |
 | **REJECTED** | `verify` does not match at HEAD, `anchor` does, and `reason` is a written sentence rather than a word — 40 characters, which is about one clause of English. |
 
@@ -67,6 +67,8 @@ R5  2ec7db9  2026-08-08  An avatar that can be anyone and wears nothing; Phase 9
 R6  d9fc9e0  2026-08-08  The seven gates are green, and eleven documented numbers were not
 R7  af0e68d  2026-08-09  The postural manifest tells a judge the truth again
 R8  dcd1968  2026-08-09  Lateral balance is a hip strategy, and the statistic was measuring the arms
+R9  3bfc5e7  2026-08-09  The lighting gate asserts the SET of things a light does, not a list of remembered defects
+R10 3749d27  2026-08-09  The body was computing an emotion every frame and telling nobody
 ```
 
 Rounds before R4 are not reconstructed. Resolved entries are pinned by their `filed-at` **commit**,
@@ -771,10 +773,9 @@ so, not by writing them down twice.
 
 ```request
 id:          REQ-031
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/render/Stage.js
 filed-by:    the lighting-gate agent
-filed-round: R8
 filed-at:    af0e68d
 first-filed: af0e68d, 2026-08-09
 change:      Assert or document `renderer.shadowMap.type`. `LightingRig.attachTo` sets
@@ -792,20 +793,30 @@ verify:      packages/core/src/render/Stage.js /shadowMap\.type/
 anchor:      packages/core/src/render/Stage.js /this\.renderer = new WebGPURenderer\( \{/
 ```
 
-⚠️ **The anchor is the renderer construction, not a shadow field, because `Stage.js` mentions
-shadows NOWHERE** — measured, `grep -n shadow packages/core/src/render/Stage.js` returns nothing.
-That absence IS the request: the file that owns the renderer has no opinion about the filter three
-will select from `shadowMap.type`, and a default nobody wrote down is a default nobody can attribute
-a plate to.
+⚠️ **The anchor was the renderer construction, not a shadow field, because `Stage.js` mentioned
+shadows NOWHERE** — measured at `af0e68d`, `grep -n shadow packages/core/src/render/Stage.js`
+returned nothing. That absence WAS the request: the file that owns the renderer had no opinion about
+the filter three selects from `shadowMap.type`, and a default nobody wrote down is a default nobody
+can attribute a plate to.
+
+✅ **APPLIED IN R10 AS A WRITE RATHER THAN A COMMENT, AND THE WRITE IS MEASURED TO BE A NO-OP.**
+`this.renderer.shadowMap.type = PCFShadowMap` now sits beside the tone-mapping lines with the
+argument attached. `PCFShadowMap` **is** three's default — `Renderer.js`: `this.shadowMap = {
+enabled: false, transmitted: false, type: PCFShadowMap }` — so no plate moves, which is the point:
+the choice becomes attributable without becoming a change. Documenting it would have left the value
+decided by a dependency's default and described by us, which is the split that produced
+`shadowMap.enabled` defaulting FALSE on this path while `AnalyticLightNode.setupShadow` returns
+immediately on it — a rig that builds a perfect caster casting nothing.
+
+The request said "assert or document" and the third option was better than both.
 
 ## REQ-032 — nothing ramps between the two mouth-corner caps
 
 ```request
 id:          REQ-032
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/affect/ExpressionLayer.js
 filed-by:    the R8 integrator, out of the affect agent's ExpressionBank request
-filed-round: R8
 filed-at:    af0e68d
 first-filed: af0e68d, 2026-08-09
 change:      Read `context.shared.speaking` and ramp the corner cap between `MAX_CORNER_OFFSET` and
@@ -821,18 +832,33 @@ evidence:    Measured on figure_g050: `mouthSmileLeft` travels 18.68 mm at weigh
              ⚠️ RAMP, do not switch: `MAX_CORNER_OFFSET_SILENT` is 1.0 against 0.35, so a hard
              switch pops a smile 12 mm the instant speech starts. The ramp constant is not measured
              and needs one; a viseme onset is ~40-80 ms.
+reason:      REJECTED AS A REQUEST AND CONVERTED TO PUNCH-LIST 5.7, on the entry's own evidence. The
+             four lines that read `shared.speaking` are not the work; the RAMP TIME is, and it does
+             not exist. `MAX_CORNER_OFFSET_SILENT` is 1.0 against 0.35, so the cap has to travel
+             12.14 mm of mouth corner without popping, and the only quantity anywhere near it is a
+             viseme onset at ~40-80 ms — a RANGE, from a different mechanism, never measured against
+             this face. Applying the request now means choosing a time constant out of the air and
+             putting it on the most-looked-at part of the figure, which is rule 1 of every fan-out
+             prompt inverted. 5.7 already owns both halves: it names this gap in its own words and
+             its CRITIC plates at `?frame=body` are what the constant comes off. The ledger is for
+             changes an integrator can apply and adjudicate; this one needs a measurement first, and
+             a list that can sequence it is the right home. Same disposition and same reasoning as
+             REQ-024 -> 9.21. Both directions are written down: 5.7 now cites REQ-032 by name.
 anchor:      packages/core/src/affect/ExpressionLayer.js /MAX_CORNER_OFFSET/
 verify:      packages/core/src/affect/ExpressionLayer.js /shared\.speaking|MAX_CORNER_OFFSET_SILENT/
 ```
+
+⚠️ **A rejection is not a refusal to do the work — it is a refusal to do it HERE.** The measurement
+that unblocks it is on 5.7's own gate, and the two documents now point at each other so neither can
+lose it. What would re-open this entry: a measured onset for the corner ramp on `figure_g050`.
 
 ## REQ-033 — the foundation layer is built at one identity out of five
 
 ```request
 id:          REQ-033
-status:      OPEN
+status:      APPLIED
 target:      tools/figure-pipeline/README.md
 filed-by:    the R8 integrator, out of the wardrobe agent's own openConcern
-filed-round: R8
 filed-at:    af0e68d
 first-filed: af0e68d, 2026-08-09
 change:      Build the four foundation garments at g000 and g100 as well as g050 and record the
@@ -846,18 +872,42 @@ evidence:    9.8 ships with `assets/wardrobe/foundation_*/g050.glb` and nothing 
              instrument: it FAILS on a shell that folded through the body, on a standoff outside
              [0.05 mm, 2x the cut offset], and on any decency-floor combination that leaves a
              region uncovered, and it fired three times while 9.8 was being built.
-anchor:      tools/figure-pipeline/README.md /--foundation/
-verify:      tools/figure-pipeline/README.md /foundation_bra.*g000|g000.*foundation_bra/
+verify:      tools/figure-pipeline/README.md /g000 \| g050 \| g100/
 ```
+
+✅ **APPLIED IN R10, AND IT PAID FOR ITSELF TWICE.** Three runs of the documented command at
+`--gender 0`, `0.5` and `1`, 10.6-14.3 s each, all three exit 0, twelve fragments with ZERO images
+and **0 vertices through the body** at every identity. The g050 column reproduces the numbers the
+README shipped with to the byte, which is what makes the other two comparable rather than merely
+present. Two things only three identities could show:
+
+- **"0.48-4.20 mm clearance" was a g050 property written as a general one.** The nearest approach
+  falls to **0.22 mm** on both lower garments at g000 and the vest reaches **0.28 mm** at g100 —
+  less than half the g050 minimum, against a 0.05 mm z-fighting floor. Both pass. Neither is
+  comfortable, and no judge has looked at any of the twelve.
+- 🚩 **The build's own coverage gate enumerates TWO of the four legal floors.** At g100
+  `foundation_briefs` covers 42 of 44 seat vertices and the build passed anyway, because
+  `floor_candidates` takes one garment per SLOT and `LEGS` has exactly one candidate, so
+  `foundation_boxer_brief` is forced into every enumerated outfit and every outfit containing
+  `foundation_briefs` then conflicts out at `HIPS`. The two never checked are `bra + briefs` and
+  `vest + briefs` — and `bra + briefs` is the floor the shipped runtime default picks. Filed as
+  **REQ-059**, because it is a new defect with a measurement and not part of this request.
+
+⚠️ **THE `verify` WAS RE-ANCHORED AND THAT IS §1.25n, NOT A CONVENIENCE.** It read
+`/foundation_bra.*g000|g000.*foundation_bra/` — a single-LINE proximity pattern, and the answer the
+request asked for is a TABLE, where the fragment names run down one axis and the identities across
+the other, so the two tokens are never on one line. The pattern would have gone red on a correct
+answer. It now matches the three-identity column header, which is the SHAPE of the thing being
+asked for rather than an accident of how it was expected to be typed. The `anchor` is dropped with
+the OPEN status, as the schema intends.
 
 ## REQ-034 — the defect table has two sets of pixel figures and one page
 
 ```request
 id:          REQ-034
-status:      OPEN
+status:      REJECTED
 target:      packages/testbed/src/light-defects.js
 filed-by:    the R8 integrator
-filed-round: R8
 filed-at:    af0e68d
 first-filed: af0e68d, 2026-08-09
 change:      Re-measure all fourteen switches on `alive.html` at the recipe the seven objective
@@ -870,6 +920,634 @@ evidence:    R8 wired the switches onto `alive.html` and spot-measured three of 
              reported on `alive.html`. Three numbers, three recipes, one mechanism. A defect's pixel
              footprint is a property of the plate (LEARNINGS §1.20), so none of the three is wrong
              and none of them answers the question a judge asks. One table, one recipe per column.
+reason:      REJECTED AS A REQUEST AND CONVERTED TO PUNCH-LIST 3.21, because it is a MEASUREMENT
+             CAMPAIGN and not a diff. Fourteen switches at the objective recipe is twenty-eight
+             plates at 19.66 Mpx — a defect and a baseline each — plus a per-switch difference over
+             every pair and a table rebuilt from the result. Nothing about it is wrong and nothing
+             about it can be adjudicated by a regex over a file: an integrator can carry a diff, and
+             cannot carry GPU hours. The request is right that three numbers for one mechanism
+             (29.21% at 900x1200 portrait, 96.11% on lighting.html at body framing, 41.64% as an
+             earlier verifier reported) is one table's worth of confusion, and every word of that
+             evidence is now in 3.21 where a phase can sequence it. Same shape and same disposition
+             as REQ-024 -> 9.21. Rejecting it here is what stops it being carried as furniture.
 anchor:      packages/testbed/src/light-defects.js /% of frame moved/
 verify:      packages/testbed/src/light-defects.js /3840x5120/
 ```
+
+⚠️ **Two of R8's four residual entries are rejected-and-converted and that is the ledger working
+rather than the ledger giving up.** Both are work whose cost is a measurement; neither is a change
+an integrator could have applied in the pass that inherited it. The test the ledger's header sets is
+whether a successor can re-open the decision from what is written here — REQ-024's conversion to
+9.21 is the precedent, and both of these carry the same three things it does: the measurement, the
+reason the ledger is the wrong home, and the punch-list item that is the right one.
+
+---
+
+# R10 — the forty-three that were never filed, and the hole in the workflow that lost them
+
+🚩 **THE ROUND'S FIX PHASE RUNS AFTER INTEGRATION, SO THERE WAS NO INTEGRATOR LEFT TO RECEIVE ITS
+REQUESTS.** Five R9 fix agents filed **43 cross-file requests and docs corrections** between them.
+Every one was measured, precise and correctly declined — the agents did the right thing with the
+files they did not own — and every one landed in a report that the round had already finished
+reading. That is not a failure of the agents and it is not a failure of this ledger. It is the
+workflow's own ordering: the pass that exists to catch dropped requests ran BEFORE the pass that
+files the most of them.
+
+**The fix is one sentence in the round protocol** — the request pass runs LAST, after Fix, or runs
+twice — and it is written here rather than in a report because a request about losing requests in
+reports has an obvious place to be lost.
+
+## The arithmetic, so nothing is quietly dropped
+
+**43 filed → 24 distinct changes → 24 entries, REQ-035 … REQ-058.** Nineteen of the 43 are
+`docsCorrections` restating a `diffRequest` from the same agent in the same words; they are folded
+into the entry for the change they restate and named in its `filed-by`, because two entries with one
+`verify` between them is a duplicate id waiting to happen and the gate says so. The fold is stated
+per group below and the totals reconcile:
+
+| agent | filed | distinct | entries |
+|---|---:|---:|---|
+| request-ledger `filed-at` | 9 | 5 | REQ-035 … REQ-039 |
+| LightingRig closure blind to the shadow camera | 7 | 4 | REQ-040 … REQ-043 |
+| decency mid-change sampler coverage | 12 | 6 | REQ-044 … REQ-049 |
+| identity census "203 bidirectional" | 7 | 4 | REQ-050 … REQ-053 |
+| BAP body prescription reaches no bone | 8 | 5 | REQ-054 … REQ-058 |
+| **total** | **43** | **24** | |
+
+Plus **REQ-059**, which is not one of the 43: it is a defect REQ-033's measurement found on the way.
+
+## ⚠️ Three of the 43 were WRONG, and they were verified before they were applied
+
+Not carelessness — the same thing that happens to every claim in this repository that is written
+down instead of re-run.
+
+- **The request that was made false by the commit that filed it.** The identity agent asked for the
+  "203 bidirectional" sentence to be fixed in four places. `c2e2b9a` — the agent's own commit —
+  fixed the GENERATOR and regenerated the asset, so three of the four were already correct when the
+  request arrived and the fourth is a gitignored bundle. REQ-053 records it as applied at the
+  commit that shipped the four copies rather than at the one that filed the request, because that
+  is the only tree in which the pre-image is the defect.
+- **A request to change a string that a gate requires to be present.** REQ-050 asked for the
+  "§2.2 calls all 203 bidirectional" rationale in `identitycatalogue.selftest.mjs` to be corrected.
+  That exact phrase is on `identityassets.selftest.mjs`'s `QUOTATIONS` allowlist and is asserted
+  **present** — a retraction has to name what it retracts. Applying it as written turns a green gate
+  red. Applied as a TENSE correction instead, which is what the request meant.
+- **A request whose stated defect measured clean.** REQ-052 asked for `PROGRESS.md`'s 10.2 gate
+  counts to be corrected. Re-measured: `identitytargets` **47** and `identitycatalogue` **72**, both
+  exactly as written, and 47 + 72 = the 119 the paragraph claims. The real defect was one the
+  request did not name — a third gate, `identityassets.selftest.mjs` **28**, added in R9 and absent
+  from the list.
+
+**And every count in the 43 was re-measured rather than transcribed.** Two disagreed with the
+request that carried them: the decency agent's requests all say the stale number is **20** and do
+not say what replaces it — measured, it is **25**; and the request-ledger agent asked for **23**,
+measured **23**, which held. The gate roster's own headline said **38** gates and measures **39**.
+
+## REQ-035 — the R9 rounds row, which is what expires everything above it
+
+```request
+id:          REQ-035
+status:      APPLIED
+target:      docs/OPEN-REQUESTS.md
+filed-by:    the request-ledger fix agent (diffRequest 1 of 9)
+filed-at:    c5f4e47
+change:      Add `R9  3bfc5e7  2026-08-09  The lighting gate asserts the SET…` to the rounds
+             fence at the top of this file. Without it the expiry clause has nothing to expire
+             against and R8's four OPEN entries stay quietly legal.
+evidence:    Measured at the time of filing: HEAD was 15 commits past R9's opening commit against a
+             ROUND_COMMIT_CEILING of 14, so the ROUNDS clause was already red and naming the fix in
+             its own failure message. The row is what turned REQ-031 through REQ-034 red, which is
+             the mechanism doing exactly the job it was built for.
+verify:      docs/OPEN-REQUESTS.md /^R9  3bfc5e7/m
+```
+
+🎯 **This was the most urgent of the 43 and it is the one that made the other forty-two findable**,
+because declaring a round is the only thing in this file that forces a disposal pass.
+
+## REQ-036 — the gate roster still counted `request-ledger` at eleven checks
+
+```request
+id:          REQ-036
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the request-ledger fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c5f4e47
+change:      The roster's "six gates are NEW" paragraph reads `request-ledger` **11**. The FILED-AT
+             clause and the four clauses that had no red proof at all took it to 23.
+evidence:    Measured: `node tools/request-ledger.selftest.mjs` prints `22/23` red at the time of
+             filing and 23 checks total — 3 live-adjudication checks, 15 red proofs and 5 coverage
+             statements about the proofs themselves.
+verify:      docs/LEARNINGS.md /\| 11 \| \*\*23\*\* \|/
+```
+
+⚠️ **Applied by re-deriving the WHOLE roster, not the row.** §1.25p, and the table's own header says
+so: four separate R9 agents filed corrections to four separate rows, and correcting only those four
+would have left three others wrong and the roster's headline count wrong by one.
+
+## REQ-037 — "seven mutations, seven different clauses" was the wrong invariant
+
+```request
+id:          REQ-037
+status:      APPLIED
+target:      docs/PROGRESS.md
+filed-by:    the request-ledger fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c5f4e47
+change:      The R7 section's "Four more mutations run in-process … the run asserts that all seven
+             are caught by seven different clauses" is no longer what the gate does or what it
+             should do.
+evidence:    Measured: 15 red proofs, 12 clauses, 23 checks. The distinct-clause-per-proof rule was
+             wrong twice over — it is silent about a clause with NO proof, and four had none
+             (SCHEMA, TARGET, ANCHOR, REJECTED-STALE, found by deriving the clause vocabulary from
+             the gate's own source); and it would have FORBIDDEN the FILED-AT fix, because rule 4
+             asks for a clause to be broken more than one way. FILED-AT carries four proofs failing
+             for four different reasons.
+verify:      docs/PROGRESS.md /15 red proofs against 12 clauses/
+```
+
+## REQ-038 — the status table described the anti-rubber-stamp clause without its load-bearing field
+
+```request
+id:          REQ-038
+status:      APPLIED
+target:      docs/OPEN-REQUESTS.md
+filed-by:    the request-ledger fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c5f4e47
+change:      The APPLIED row of this file's own status table explains that the pattern must fail at
+             `filed-at` and never says that `filed-at` is what makes the sentence assertable.
+evidence:    Measured before the fix: an entry with `filed-at: deadbee` and a `verify` of `/const /`
+             — 195 matching lines at HEAD, 144 at the declared pre-image, discriminating nothing —
+             ran `PASS: 11/11, exit 0`. An unreadable pre-image did not weaken the clause; it
+             switched it off, in the green direction, because `matches( verify, null )` is `false`
+             and `false` is the passing side.
+verify:      docs/OPEN-REQUESTS.md /hex shape, resolves, is a \*\*commit\*\*/
+```
+
+## REQ-039 — §1.25r's "A status nobody can assert" bullet, and the two rounds it was optional for
+
+```request
+id:          REQ-039
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the request-ledger fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c5f4e47
+change:      §1.25r states the anti-rubber-stamp clause as a property the ledger has. It had it
+             conditionally, on a field nothing validated, for two rounds. The lesson is not that the
+             clause exists; it is that a clause is only as strong as the weakest field it reads.
+evidence:    `fileAtCommit()` returned the same `null` for "that commit does not resolve" and for
+             "the file did not exist there" — an ERROR and an ANSWER sharing a return value. Nothing
+             anywhere validated `filed-at`, while the rounds fence had always been held to git.
+             The standard was simply never applied to the field the clause actually reads.
+verify:      docs/LEARNINGS.md /That clause was OPTIONAL for two rounds/
+```
+
+## REQ-040 — `GroundContact.renderState()` was still a hand-written list
+
+```request
+id:          REQ-040
+status:      APPLIED
+target:      packages/core/src/render/GroundContact.js
+filed-by:    the LightingRig-closure fix agent (diffRequest 1 of 7)
+filed-at:    da5e6f0
+change:      Replace the hand-written `mesh: { … }` literal in `renderState()` with the same
+             enumerated closure `LightingRig` now uses, so an own field the spec does not account
+             for lands in `unclassified` and the gate goes red naming it.
+evidence:    The literal named NINE fields of a Mesh that carries **34 own keys** at three 0.185.1.
+             It is the same shape, written from the same memory, as the light-state list that let
+             two planted defects move pixels past a green gate two rounds running — §1.25t. The
+             material half of the same method was already a closure (a delta against a freshly
+             constructed `MeshStandardNodeMaterial`), so the mesh half was the last enumeration in
+             the file.
+verify:      packages/core/src/render/GroundContact.js /GROUND_MESH_NODE/
+```
+
+🎯 **Applied, and the closure found three fields the literal never named** — `matrixAutoUpdate`
+false leaves the plane wherever its matrix was last composed no matter what `position` says, so a
+gate reading `position` alone reads an intention rather than a place; and `pivot` with `rotation`
+only close together, exactly as they do for the spot's target.
+
+⚠️ **`classifyNode` and `plainValue` moved to `packages/core/src/render/StateClosure.js` rather than
+being copied.** §1.25 on copies: they drift — and a closure that has drifted is a closure with a
+hole in it, which is the one defect the instrument exists to make impossible. `LightingRig` reads
+140/140 unchanged across the move.
+
+**The gate went 75 → 77** and both new checks are about the closure rather than about the floor: one
+asserts every `inert:` row carries a reason a reader can argue with (24 characters, which found four
+one-word reasons the move had inherited), and one PLANTS a field three does not ship and proves
+`unclassified` names it. §1.25a — a closure that has never been shown to catch an unforeseen field
+is a list with a longer comment.
+
+## REQ-041 — the Part 3 command block still said `# 122 checks`
+
+```request
+id:          REQ-041
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the LightingRig-closure fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    da5e6f0
+change:      `node packages/core/src/render/LightingRig.selftest.mjs        # 122 checks` is stale.
+evidence:    Measured on a clean tree at R10: **140/140**. The shadow-camera closure added eighteen.
+verify:      docs/LEARNINGS.md /# 140 checks\. It once read 63/
+```
+
+⚠️ **And the block it sits in had drifted on FIVE of its seventeen rows** while the roster two
+screens above it was right — sway 223 against 238, GroundContact 47 against 77, Grade 56 against 65,
+alive-toggles 109 against 151. Two tables of the same numbers is two chances to be wrong. Both are
+re-derived from the same run and the command block now says which of the two to read.
+
+## REQ-042 — `alive-toggles` cites the lighting gate's check count in a comment
+
+```request
+id:          REQ-042
+status:      APPLIED
+target:      packages/testbed/src/alive-toggles.selftest.mjs
+filed-by:    the LightingRig-closure fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    da5e6f0
+change:      The comment reading `LightingRig.selftest.mjs (122 checks)` is a hand-typed count in a
+             gate — §1.25e, the same disease one file over.
+evidence:    Measured 140. A count inside a comment is a claim with no gate on it, and this one
+             points at the file whose count moved most in two rounds.
+verify:      packages/testbed/src/alive-toggles.selftest.mjs /LightingRig\.selftest\.mjs \(140 checks\)/
+```
+
+## REQ-043 — the gate roster's LightingRig row
+
+```request
+id:          REQ-043
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the LightingRig-closure fix agent (diffRequest 4 of 7)
+filed-at:    da5e6f0
+change:      The roster row `| render/LightingRig.selftest.mjs | 98 | **122** |` is a measurement
+             dated R8 and it is no longer the measurement.
+evidence:    140 at R10, and §1.25t's own worked example is the reason: the closure went one level
+             down into the shadow camera and the check count went with it.
+verify:      docs/LEARNINGS.md /\| `render\/LightingRig\.selftest\.mjs` \| 122 \| \*\*140\*\* \|/
+```
+
+## REQ-044 — `alive-toggles` cites the decency gate's assertion count
+
+```request
+id:          REQ-044
+status:      APPLIED
+target:      packages/testbed/src/alive-toggles.selftest.mjs
+filed-by:    the decency fix agent (diffRequest 1 of 12)
+filed-at:    26d0824
+change:      The `?foundation` key's `why` string says `decency.selftest.mjs (20 assertions, 48
+             reachable states, coverage by ray cast)`.
+evidence:    ⚠️ **MEASURED 25, and the request does not say so** — every one of this agent's twelve
+             requests names the stale 20 and none of them names its replacement. `node
+             packages/core/src/wardrobe/decency.selftest.mjs` prints `PASS — 25 assertions.` The 48
+             reachable states and the ray cast are both still exactly right.
+verify:      packages/testbed/src/alive-toggles.selftest.mjs /decency\.selftest\.mjs \(25 assertions/
+```
+
+## REQ-045 — `PROGRESS.md`'s Phase 9 status row
+
+```request
+id:          REQ-045
+status:      APPLIED
+target:      docs/PROGRESS.md
+filed-by:    the decency fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    26d0824
+change:      The Phase 9 row reads `decency.selftest.mjs` **20**.
+evidence:    Measured 25. The five it gained are all about the SAMPLER rather than about cloth, and
+             the row now says which — a count that moves for a reason a reader can name is worth
+             more than a count.
+verify:      docs/PROGRESS.md /`decency\.selftest\.mjs` \*\*25\*\*/
+```
+
+## REQ-046 — `PROGRESS.md`'s 9.8 gate line
+
+```request
+id:          REQ-046
+status:      APPLIED
+target:      docs/PROGRESS.md
+filed-by:    the decency fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    26d0824
+change:      "Gate: `decency.selftest.mjs`, **20 assertions**, 48 reachable states swept
+             exhaustively" — the first number is stale and the rest of the sentence is right.
+evidence:    Measured 25 assertions, 48 states, 186 `_DECENCY_*` vertices, ray cast at `drawRange`.
+             Re-verified all four rather than the one that was flagged: §1.25p, a sentence that is
+             wrong on one number is a sentence that has drifted.
+verify:      docs/PROGRESS.md /`decency\.selftest\.mjs`, \*\*25 assertions\*\*/
+```
+
+## REQ-047 — punch-list 9.8's ✅ MEASURED block
+
+```request
+id:          REQ-047
+status:      APPLIED
+target:      docs/PUNCHLIST.md
+filed-by:    the decency fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    26d0824
+change:      The MEASURED block says **20 assertions** and "18 samples taken at every point the
+             event loop can yield during 5 outfit changes".
+evidence:    ⚠️ **TWO numbers in that sentence are stale and the request named one.** Measured: 25
+             assertions, and **165 samples across 6 outfit changes** — 53/53/26/26/4/3, none of them
+             zero, which is the clause the round added. The old 18-over-5 was taken with the sampler
+             hooked to the fragment loader, which is precisely the defect: a change whose fragments
+             are all cached contributed nothing and was counted as covered.
+verify:      docs/PUNCHLIST.md /165 samples taken at every point the event loop can yield during 6 outfit/
+```
+
+🚩 **A third stale number in the same item, which nobody asked about and §1.25p says to look for.**
+The `_UNDER_` paragraph read "the vest goes 14,266 → 1,670 drawn triangles under the casual suit,
+**88.3% occluded**". Measured now, in both `PUNCHLIST.md` and `PROGRESS.md`: **25,024 → 4,476,
+82.1%**.
+
+## REQ-048 — "proven red four ways in two mechanisms" is now six ways in three
+
+```request
+id:          REQ-048
+status:      APPLIED
+target:      docs/PUNCHLIST.md
+filed-by:    the decency fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    26d0824
+change:      9.8 says the gate is proven red four ways in two mechanisms. The round added a THIRD
+             mechanism and the punch list is the only place that says how many there are.
+evidence:    The gate's own header is the primary artefact and it reads "PROVEN RED SIX WAYS, IN
+             THREE DIFFERENT MECHANISMS": *bookkeeping* (a piece removed from the manifest, the
+             floor emptied), *geometry* (a garment trimmed at the gusset, an outer garment that
+             occludes the foundation but no longer hides the skin), and *coverage* (the sampler
+             hooked to the fragment loader, the sampler woken only on macrotasks). Each of the last
+             two leaves 2 of 6 changes unobserved.
+verify:      docs/PUNCHLIST.md /Proven red \*\*six ways in three mechanisms\*\*/
+```
+
+⚠️ **AND THE GATE'S OWN PRINTED BANNER SAID FOUR-IN-TWO WHILE ITS HEADER SAID SIX-IN-THREE.**
+`console.log( '--- RED: four ways to break it, in two different mechanisms ---' )`, in the file
+whose subject is measurements that stop being true. Corrected in the same pass; §1.25e does not stop
+at documentation.
+
+## REQ-049 — a new §1.25 lesson about a sampler that reports coverage it did not earn
+
+```request
+id:          REQ-049
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the decency fix agent (diffRequest 6 of 12)
+filed-at:    26d0824
+change:      Add a §1.25 entry after §1.25u: a measurement can be exact and pointed at nothing, and
+             no assertion downstream can tell "sampled it and it was decent" from "never sampled
+             it", because both produce zero indecent samples.
+evidence:    2 of 6 outfit changes contributed zero samples while the gate's summary counted them as
+             covered, and the transition it lost was the strip back to the floor — the one a decency
+             gate exists for. The repair is one assertion: no change may contribute zero samples.
+verify:      docs/LEARNINGS.md /### 1\.25v A SAMPLER THAT REPORTS A COUNT IT DID NOT EARN/
+```
+
+🚩 **TWO AGENTS CLAIMED §1.25v INDEPENDENTLY IN THE SAME ROUND.** The decency agent asked for it
+after §1.25u and the BAP agent asked for it by name; a numbering scheme with no gate on it collides
+exactly like a filename does. Resolved as v and w — this one keeps v because it named its insertion
+point — and the §1.25 heading count is re-derived rather than incremented: `grep -c '^### 1\.25'`
+reads **23**, and the heading now says twenty-three.
+
+## REQ-050 — the unipolar assertion's rationale cites §2.2 in the present tense
+
+```request
+id:          REQ-050
+status:      APPLIED
+target:      packages/core/src/figure/identitycatalogue.selftest.mjs
+filed-by:    the identity-census fix agent (diffRequest 1 of 7)
+filed-at:    c2e2b9a
+change:      The unipolar check's rationale reads "§2.2 calls all 203 bidirectional and 8 are not".
+             §2.2 was corrected; it says 195/8 today.
+evidence:    ⚠️ **THE REQUEST AS WRITTEN WOULD TURN A GREEN GATE RED, AND VERIFYING IT IS WHAT FOUND
+             THAT.** The literal phrase "all 203 bidirectional" is on
+             `identityassets.selftest.mjs`'s `QUOTATIONS` allowlist and is asserted **present** in
+             this exact file — a retraction has to be able to name what it retracts, and an
+             allowlist that can rot into a blanket permit is not an allowlist. Removing the phrase
+             fails `28/28`. Applied as the TENSE correction the request meant, in the same words the
+             builder already uses one file over: "§2.2 USED TO call all 203 bidirectional".
+verify:      packages/core/src/figure/identitycatalogue.selftest.mjs /§2\.2 USED TO call all 203 bidirectional/
+```
+
+## REQ-051 — the roster's headline gate count
+
+```request
+id:          REQ-051
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the identity-census fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c2e2b9a
+change:      The gate roster says **38 gates**, and it says so in the paragraph that exists to
+             record that it previously said 40 from memory.
+evidence:    Measured at R10: `grep -c "^exit=" ` on a full `tools/run-selftests.sh` run reads
+             **39**. `find . -name "*.selftest.mjs" -not -path "./node_modules/*"` returns 37, plus
+             the 2 the runner names explicitly. The 39th is
+             `tools/identity-pipeline/identityassets.selftest.mjs`, which this agent's own commit
+             added after the 38 was counted.
+verify:      docs/LEARNINGS.md /THE ROSTER IS 39 AND IT SAID 38/
+```
+
+🎯 **Three rounds, three wrong counts, three different reasons: remembered, then
+counted-and-outgrown, then counted-and-outgrown again.** The paragraph now carries the derivation
+rather than the answer.
+
+## REQ-052 — `PROGRESS.md`'s 10.2 gate counts
+
+```request
+id:          REQ-052
+status:      APPLIED
+target:      docs/PROGRESS.md
+filed-by:    the identity-census fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    c2e2b9a
+change:      Correct the 10.2 paragraph's gate counts.
+evidence:    ⚠️ **RE-MEASURED AND BOTH STATED COUNTS ARE RIGHT**: `identitytargets.selftest.mjs`
+             **47** and `identitycatalogue.selftest.mjs` **72**, and 47 + 72 is the 119 the
+             paragraph claims. The defect is one the request did not name — the paragraph lists two
+             gates and there are three. `tools/identity-pipeline/identityassets.selftest.mjs`,
+             **28/28**, landed in R9 and holds the census SENTENCE rather than the census data,
+             which is a different claim and belongs in the list.
+verify:      docs/PROGRESS.md /identityassets\.selftest\.mjs` \*\*28\*\*/
+```
+
+🚩 **A request can be right that a paragraph is wrong and wrong about how.** Applying the literal
+request would have changed two correct numbers.
+
+## REQ-053 — the census sentence in four places, three of which were already fixed
+
+```request
+id:          REQ-053
+status:      APPLIED
+target:      tools/identity-pipeline/build_identity_assets.mjs
+filed-by:    the identity-census fix agent (diffRequest 4 of 7)
+filed-at:    cf19499
+first-filed: c2e2b9a, 2026-08-09
+change:      "203 bidirectional sliders" lives in the GENERATOR as a literal, in the generated
+             `assets/identity/catalogue.json`, in the built `dist-pages/` bundle and in
+             `PUNCHLIST.md`. Fix the generator and regenerate; a hand-edited generated file is a
+             defect with a delay fuse.
+evidence:    Measured against MPFB's own `target.json`: 195 categories carry an `opposites` block
+             and run −1 → +1; **8 do not** — the seven `head-<shape>` categories and
+             `chin-triangle` — and name one file each, running 0 → +1. A UI drawing every category
+             as a −1 → +1 dial applies seven head shapes backwards. The file arithmetic closes on
+             530 either way (66×4 + 129×2 + 8×1), which is why the DATA was never wrong and every
+             gate on it was correctly green.
+verify:      tools/identity-pipeline/build_identity_assets.mjs /export function censusNotes/
+```
+
+⚠️ **THE REQUEST WAS MADE FALSE BY THE COMMIT THAT FILED IT, AND THE ENTRY IS PINNED ACCORDINGLY.**
+`c2e2b9a` is the agent's own commit and it did exactly what the request asks: `censusNotes()`
+templates all five sentences out of the finished catalogue, the shipped `catalogue.json` was
+regenerated with all 20 region `.bin` files byte-identical and one line changed, and `PUNCHLIST.md`
+was corrected in the same pass. So `filed-at` here is **`cf19499`** — the commit that shipped the
+four copies — because that is the only tree in which the pre-image is the defect, and an entry whose
+pre-image already contains the fix is refused by the anti-rubber-stamp clause, correctly.
+
+**The fourth copy is `dist-pages/assets/catalogue-By0FhX45.json`, it is gitignored build output, and
+the answer is to rebuild rather than to edit.** `identityassets.selftest.mjs` skips `dist` and
+`dist-pages` and says why in its own words — *"a stale bundle is a stale bundle; rebuild it"* — and
+it holds `N bidirectional` = 195, `N unipolar` = 8 and `N sided` = 66 across every other text file
+in the repository, which is the closure a four-place hand-edit could never have been.
+
+## REQ-054 — a new §1.25 lesson: a structure computed every frame and read by nobody
+
+```request
+id:          REQ-054
+status:      APPLIED
+target:      docs/LEARNINGS.md
+filed-by:    the BAP fix agent (diffRequest 1 of 8)
+filed-at:    3749d27
+change:      Add a §1.25 entry: "A DATA STRUCTURE COMPUTED EVERY FRAME AND READ BY NOBODY IS
+             INDISTINGUISHABLE, TO EVERY GATE, FROM ONE THAT IS."
+evidence:    `ExpressionMap.body()` produced a correct nine-channel BAP prescription every frame
+             from 5.4 onward and its only readers were a HUD string and a `readout()`. Measured:
+             the face band changed 18.28–43.97% of its pixels across eight `?affect=` plates and the
+             torso band changed **0.00%** for joy, anger, fear, sadness and surprise; 0 of 20 body
+             bones moved by more than 0.000000 mm. Every gate on the producer was green and every
+             one of them was right — a producer's contract is satisfied whether or not a consumer
+             exists.
+verify:      docs/LEARNINGS.md /### 1\.25w/
+```
+
+## REQ-055 — `PROGRESS.md`'s Phase 5 row and its 5.x section
+
+```request
+id:          REQ-055
+status:      APPLIED
+target:      docs/PROGRESS.md
+filed-by:    the BAP fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    3749d27
+change:      Two places say `affect.selftest.mjs` **91 checks**, and the shipped-module list in both
+             omits `PostureLayer`.
+evidence:    Measured **114**. The 23 new ones are the posture section: three BAP channels actuated
+             at `MOTION_ORDER.POSTURE`, full scales DERIVED from Coulson Table 1 by a rule the gate
+             re-runs, and every posture number a world displacement on the real mesh — joy 175.3 mm,
+             surprise 148.6 mm, anger 139.6 mm, sadness 99.0 mm, disgust 86.3 mm, fear 34.7 mm,
+             bored 0.0 mm.
+verify:      docs/PROGRESS.md /`affect\.selftest\.mjs` \*\*114 checks\*\*/
+```
+
+⚠️ **`PUNCHLIST.md` said 112 for the same gate, which nobody filed and which is a third value for
+one number.** Corrected in the same pass to the measured 114.
+
+## REQ-056 — the affect browsercheck's header count
+
+```request
+id:          REQ-056
+status:      APPLIED
+target:      packages/testbed/src/affect.js
+filed-by:    the BAP fix agent (diffRequest + a docsCorrection restating it)
+filed-at:    3749d27
+change:      Line 4 reads "`affect.selftest.mjs` proves 91 things about the numbers".
+evidence:    Measured 114. The sentence is load-bearing rather than decorative — it is the setup for
+             the page's whole argument, that a selftest cannot prove a face is LEGIBLE — so the
+             number in it should be the one a reader would get by running the file.
+verify:      packages/testbed/src/affect.js /proves 114 things about the numbers/
+```
+
+## REQ-057 — research §3 records three sign problems in Coulson and there is a fourth
+
+```request
+id:          REQ-057
+status:      APPLIED
+target:      docs/research/body-motion-numbers.md
+filed-by:    the BAP fix agent (diffRequest 5 of 8)
+filed-at:    3749d27
+change:      Add a fourth item to §3's "🚩 Verify sign conventions" list: Table 1's own stated
+             ad/abduction convention contradicts Coulson's verbal summary.
+evidence:    Read off the table. The convention says *negative = arms above shoulder level, positive
+             = arms toward trunk*. The verbal summary says happiness has "arms above shoulder level"
+             and Table 1 gives happiness **+50**; it says sadness has "arms at side of trunk" and
+             Table 1 gives sadness **−60, −80**. Both inverted, and inverted in OPPOSITE directions
+             from each other, so no single global sign flip repairs the column. This is why
+             `PostureLayer` takes magnitude from Coulson, direction from BAP, and left-versus-right
+             from a measurement at bind time.
+verify:      docs/research/body-motion-numbers.md /contradicts Coulson's verbal summary/
+```
+
+🎯 **A research file is the reference side of the gates that cite it, so a sign problem in it is
+§1.25s pointed inward.** Three were already recorded; the fourth was found by an actuator trying to
+use the table and is now recorded beside them.
+
+## REQ-058 — `Sway` should expose an affect-driven fore-and-aft centre-of-pressure bias
+
+```request
+id:          REQ-058
+status:      OPEN
+target:      packages/core/src/motion/Sway.js
+filed-by:    the BAP fix agent (diffRequest 6 of 8)
+filed-round: R10
+filed-at:    3749d27
+first-filed: 3749d27, 2026-08-09
+change:      Expose an affect-driven fore-and-aft centre-of-pressure bias on the sway pendulum, so
+             BAP's `approach` channel reaches the balance model rather than stopping at the trunk
+             bones. Coulson's weight column is a real DOF — "weight forwards" for anger, "backwards"
+             for fear and disgust — and it is the one channel of the prescription that belongs to
+             balance rather than to a joint rotation.
+evidence:    `PostureLayer` drives three of the nine BAP channels and `approach` is actuated as a
+             chest bend only. The postural manifest already models the base of support: measured off
+             this bake's own mesh, 179.4 mm forward and 54.4 mm behind the ankle midpoint, tightest
+             margin 51.1 mm across all seven presets. The quantity the request needs therefore
+             exists and is measured; what does not exist is a way for affect to move it.
+anchor:      packages/core/src/motion/Sway.js /export class Sway/
+verify:      packages/core/src/motion/Sway.js /affectCentreOfPressureBias/
+```
+
+⚠️ **DELIBERATELY CARRIED, NOT DEFERRED BY OMISSION, AND THE REASONING IS THE ENTRY.** `Sway.js` is
+the most-rebuilt file in this project; its gate is **238 checks and about six minutes**, the slowest
+in the repo; and two of its assertions are documented KNOWN-RED and must stay red. A change to the
+pendulum made incidentally, at the end of a pass whose subject is documentation counts, is exactly
+how this project acquired the blocker that created this ledger — a postural table that left
+`sway.selftest.mjs` at 227/229 on a clean tree for a full round. **This one is picked up
+deliberately at the start of a round or not at all**, with the footprint check re-derived in the
+same pass, because a fore-and-aft bias is the one BAP channel that can walk the centre of mass out
+of the base of support.
+
+## REQ-059 — the foundation build checks two of the four legal decency floors
+
+```request
+id:          REQ-059
+status:      OPEN
+target:      tools/figure-pipeline/build_figure.py
+filed-by:    the R10 request pass, out of REQ-033's measurement
+filed-round: R10
+filed-at:    3749d27
+first-filed: 3749d27, 2026-08-09
+change:      `floor_candidates()` takes the cartesian product over every SLOT any foundation garment
+             claims, which forces a garment that is the sole claimant of a slot into every outfit.
+             `foundation_boxer_brief` is the only claimant of `LEGS`, so it appears in every
+             candidate, and every candidate that also contains `foundation_briefs` is then dropped
+             by the `HIPS` conflict rule. Enumerate over the slots DECENCY needs covered, not over
+             every slot a foundation garment happens to claim.
+evidence:    Measured by executing the enumeration against the shipped manifest: it returns exactly
+             two outfits, `(boxer_brief, bra)` and `(boxer_brief, vest)`. The two it never checks
+             are `bra + briefs` and `vest + briefs` — and `bra + briefs` is the floor the shipped
+             runtime default actually picks, as `decency.selftest.mjs` prints on every run ("ended
+             wearing foundation_bra, foundation_briefs"). It matters at an identity nobody had
+             built: at g100 `foundation_briefs` covers **42 of 44** seat vertices, so the unchecked
+             `bra + briefs` floor is short two, and the build exited 0.
+             ⚠️ NOT YET A DECENCY FAILURE, and the difference is the point of having two
+             instruments. The build's clause is SET ALGEBRA over its own cut regions; the runtime
+             gate is a RAY CAST into the geometry actually drawn. A vertex outside the cut region
+             may still have cloth in front of it, and only the ray cast can say. Fixing the
+             enumeration and re-running `decency.selftest.mjs` against the g100 body is the pass.
+anchor:      tools/figure-pipeline/build_figure.py /def floor_candidates/
+verify:      tools/figure-pipeline/build_figure.py /DECENCY_SLOTS/
+```
+
+🚩 **Found by doing REQ-033 rather than by reading the code, which is REQ-033's whole argument.**
+The claim that the shells fit every identity *by construction* was an argument from the construction
+and it was checked at one identity; building the other two took forty seconds and turned up both a
+clearance that halves at the extremes and a gate that enumerates half its own domain.

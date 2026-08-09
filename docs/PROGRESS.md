@@ -160,11 +160,11 @@ the emote critic loop run in parallel with renderer work.
 | 2 | **Ocular + idle** — blink, saccade, VOR, breath, sway | **built; all measured gates green, visual judgement outstanding.** ✅ 2.11 CLOSED 2026-08-08 — all four layers are frame-rate invariant and each rejects a `frameCoupledArrivals` reintroduction |
 | 3 | Rendering — skin, eyes, hair, cloth, lighting, post | **Done and gated: 3.1, 3.2, 3.3, 3.4, 3.8, 3.11, 3.12, 3.13, 3.16.** 🎯 **THE SHIPPED DEFAULT NOW PASSES SEVEN OF SEVEN** (G1 1.5378 · G2 0.9544 · G3 · G4 1.6346 · G5 0.000002 · G6 0.0042 · G7 0.000601, three loads agreeing on all seven values; the plate's modal digest is `d3c9946f73e5eaa1` and its residue is Δ2/255 on 164 px of 19.7 million, so this is gate stability and NOT byte identity), which closes 3.2’s first half, 3.3 and 3.13 in one round. **3.3 was a stale constant, not a configuration result**: `SCLERA_BRIGHTNESS` 1.26 was solved on a plate with no occlusion sheet over the eye and the sheet took a quarter of it back — `?eyeocc=0` alone moves the ratio 0.0255 against `?grade=0`’s 0.0001 — re-solved to 1.47. **3.13’s G6 was never a black point**: the hair cards rendered at literally RGB(0,0,0), 1,431 pure-black pixels all in the brow/lash band, and nothing downstream can raise a zero-albedo surface; they now carry the look spec’s own `#150F17` albedo floor. `Grade.selftest.mjs` **65/65** and its horizon is now 600 rendered frames rather than a seven-frame window. **Still built and RED:** 3.2b — 3.2’s terminator half is G3, which passes on three’s stock material too and therefore certifies nothing. **Built and UNGATED — no MEASURED plate result exists, so none of these may be marked done:** 3.9 (`SkinOcclusion`, 13/13 on the bake and nothing on the render), 3.17 (`GroundContact`, **55/55** and no plate), 3.18 (`SkinRegions`, 29/29 and neither of its two effects attributed on a plate). **Not started:** 3.5, 3.6, 3.7, 3.10, 3.14, 3.15 — hair, hair OIT, cloth, GTAO/bent normals, DOF, and the blind critic loop |
 | 4 | Speech — viseme timeline, TTS, coarticulation | **4.1, 4.2, 4.5 built** — `voice/{Visemes,VisemeSchedule,VisemeLayer,Coarticulation,Prosody,Pitch}.js` + `prosody-worklet.js`, 59/59 viseme and 26/26 prosody gates green, scheduled against simulated time and asserted frame-rate invariant from day one. 4.3 (TTS) and 4.4's on-screen sync gate not started. ⚠️ This row read "not started" for one round after the work landed — written during Build, committed after |
-| 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | **5.1, 5.2, 5.4 and 5.5 built and gated** — `affect/{AffectState,ReflexAffect,ExpressionMap,ExpressionLayer,SeedLexicon}.js`, `affect.selftest.mjs` **91 checks**, plus `affect.html` driving the real figure. Attack 0.200 s / decay 2.25 s MEASURED off the trajectory, mood at ALMA's 600/1200 s, 30/60/120 Hz agree to 6.693e-14, fast:slow separation 298:1 at one second. Tier 1 p99 **0.01417 ms**; ⚠️ **the licence question is resolved** — no NRC-VAD, no Warriner, VADER's rules from its published description, and a 217-entry list authored here with no accuracy claim. Dominance weight 0.50 / PHI 0.645 / DELTA 0.35 all derived against ALMA's 24 OCC vectors; ≤2 active and ≤1 saturated over a 41³ cube. Viseme unchanged to **0.00e+0** under a settled expression on the real figure. 🚩 **research §1's WASABI angry anchor was DEGENERATE** — (80,80,100) is bit-identical to happy's, corrected to (−80,80,100). ⚠️ **5.7 open and expected to push back: the faces are measurably distinct (joy vs anger 19.87% of face-band pixels) and UNDER-DRIVEN** — the 0.35 corner cap delivers 6.54 mm of 18.68 mm, and the ARKit brow shapes travel ~7 mm at weight 1. 5.3 and 5.6 not started |
+| 5 | Affect — PAD, WASABI activation, AU mapping, mic-in | **5.1, 5.2, 5.4 and 5.5 built and gated** — `affect/{AffectState,ReflexAffect,ExpressionMap,ExpressionLayer,PostureLayer,SeedLexicon}.js`, `affect.selftest.mjs` **114 checks**, plus `affect.html` driving the real figure. 🎯 **`PostureLayer` is the actuator R9 added**, because `ExpressionMap.body()` had produced a BAP prescription every frame since 5.4 and its only readers were a HUD string and a `readout()`: the torso band moved **0.00%** of its pixels for joy, anger, fear, sadness and surprise while the face band moved 18.28–43.97%. Worst body-bone displacement against neutral now joy **175.3 mm**, surprise 148.6 mm, anger 139.6 mm, sadness 99.0 mm, disgust 86.3 mm, fear 34.7 mm, bored 0.0 mm. Attack 0.200 s / decay 2.25 s MEASURED off the trajectory, mood at ALMA's 600/1200 s, 30/60/120 Hz agree to 6.693e-14, fast:slow separation 298:1 at one second. Tier 1 p99 **0.01417 ms**; ⚠️ **the licence question is resolved** — no NRC-VAD, no Warriner, VADER's rules from its published description, and a 217-entry list authored here with no accuracy claim. Dominance weight 0.50 / PHI 0.645 / DELTA 0.35 all derived against ALMA's 24 OCC vectors; ≤2 active and ≤1 saturated over a 41³ cube. Viseme unchanged to **0.00e+0** under a settled expression on the real figure. 🚩 **research §1's WASABI angry anchor was DEGENERATE** — (80,80,100) is bit-identical to happy's, corrected to (−80,80,100). ⚠️ **5.7 open and expected to push back: the faces are measurably distinct (joy vs anger 19.87% of face-band pixels) and UNDER-DRIVEN** — the 0.35 corner cap delivers 6.54 mm of 18.68 mm, and the ARKit brow shapes travel ~7 mm at weight 1. 5.3 and 5.6 not started |
 | 6 | Body motion — gesture, posture, IK, physics | not started |
 | 7 | Runtime API and testbed | not started |
 | 8 | Blind critic loops until same-tier | not started. ⚠️ No longer blocked on reference: `reference/stellar-blade/` now holds **203 plates across 103 outfits, front and back**, extracted from a user-supplied webarchive. Same shot type as our own `?frame=body` capture — one figure, neutral stance, flat dark backdrop — so framing, pose and background are already matched, which is normally the hard part of a blind set. **All are ~200×434**; no `/original` was archived, so they support silhouette, palette and material-family judgement and NOT microdetail. Crop the Japanese UI chrome or it is a provenance tell. See `reference/stellar-blade/EXTRACTION-NOTES.md` |
-| 9 | **Wardrobe** — garments, layering, fabric, mood/season, the dressing screen | **STARTED. 9.1, 9.2, 9.3, 9.5, 9.8 and 9.13 are done and gated** (`wardrobe.selftest.mjs` **45** assertions — it was already 45 before this round and this row said 35; `decency.selftest.mjs` **20**; `agency.selftest.mjs` **28**; `verify_glb.mjs` PASS on **14** files, where a clothed figure used to fail by construction). **9.8 — the foundation layer** is four garments cut from the figure's own skin as conformal shells rather than fitted from mhclo, so they need no fitting step and no texture at all: 0.48–4.20 mm clearance, 0 vertices through the body, ZERO images across four fragments. Decency is measured by RAY CAST from 186 `_DECENCY_*` vertices into the geometry actually drawn, over all 48 reachable states. **9.13 — agency** ships `pinned`/`agent`/`ask` with `pinned` the first-run default, gated on the MOOD layer (it THROWS on an affect-layer reading), with `expressPreference()` first-class in every mode. **9.16’s procedural-fabric spike is green** (`tools/spikes/fabric-weave.mjs --gate`). The runtime index rebuild equals the baked build exactly — 17,012 = 17,012 and 21,380 = 21,380, identical as a 1 µm centroid multiset and not merely in count — dressing costs **0.1663 ms** median, and a dressed figure draws **25,812** triangles against **26,756** nude. Wired onto `alive.html` as `?wear=…` and `?foundation`, both opt-in so the judge’s plate is untouched — verified by digest, not asserted. Remaining: 15 items including the new 9.21 (merge the wardrobe body into the shipped figure, on the same pass 10.9 rebuilds it), every one gated |
+| 9 | **Wardrobe** — garments, layering, fabric, mood/season, the dressing screen | **STARTED. 9.1, 9.2, 9.3, 9.5, 9.8 and 9.13 are done and gated** (`wardrobe.selftest.mjs` **45** assertions — it was already 45 before this round and this row said 35; `decency.selftest.mjs` **25** — it read 20 until R9 gave the mid-change sampler its own coverage clause and two red proofs; `agency.selftest.mjs` **28**; `verify_glb.mjs` PASS on **14** files, where a clothed figure used to fail by construction). **9.8 — the foundation layer** is four garments cut from the figure's own skin as conformal shells rather than fitted from mhclo, so they need no fitting step and no texture at all: 0.48–4.20 mm clearance, 0 vertices through the body, ZERO images across four fragments. Decency is measured by RAY CAST from 186 `_DECENCY_*` vertices into the geometry actually drawn, over all 48 reachable states. **9.13 — agency** ships `pinned`/`agent`/`ask` with `pinned` the first-run default, gated on the MOOD layer (it THROWS on an affect-layer reading), with `expressPreference()` first-class in every mode. **9.16’s procedural-fabric spike is green** (`tools/spikes/fabric-weave.mjs --gate`). The runtime index rebuild equals the baked build exactly — 17,012 = 17,012 and 21,380 = 21,380, identical as a 1 µm centroid multiset and not merely in count — dressing costs **0.1663 ms** median, and a dressed figure draws **25,812** triangles against **26,756** nude. Wired onto `alive.html` as `?wear=…` and `?foundation`, both opt-in so the judge’s plate is untouched — verified by digest, not asserted. Remaining: 15 items including the new 9.21 (merge the wardrobe body into the shipped figure, on the same pass 10.9 rebuilds it), every one gated |
 | 10 | **Identity sculpting** — face and body proportion, the coherence gate, the human–AI loop | **10.1 and 10.2 BUILT AND GATED** — `figure/{IdentityTargets,IdentityCatalogue}.js`, 119 new checks in two selftests (**47** + **72**), plus `identity.html`. CPU application reproduces headless MPFB to **1.151e-4 mm** on all 19,158 vertices against a 0.001 mm gate; all 266 exposed widgets apply in **1.0028 ms**, once, and per-frame cost is zero *structurally* — no per-frame entry point exists. The catalogue is 203 categories / 66 sided / 269 widgets / 530 raw / 21 regions with **0 of 1,258 files unclassified**, and the macro solver reproduces MPFB's own stack at 0.000e+0 weight error. ✅ research §1.4's helper-index assumption is now MEASURED and true. 🚩 **The ARKit closure cost is WORSE on the shipped export than §1.2a's basemesh table and one row flips sign** — size 10.3 off `tools/identity-pipeline/measure_expression_cost.mjs`, not off the doc. ⚠️ **The figure reshapes and the face parts and skeleton do not**: 15.000 mm of skin rise against 0.000 mm of eyeball rise on "tall build", visible in the plate — that is 10.7 and 10.9. ⚠️ The macro CORPUS is 85.2 MB packed and does not ship; 10.8 needs a representation, not a loader. Remaining 11 items, every one gated; 13 items, every one gated; `research/identity-sculpting.md`. 🎯 The architecture is measured, not assumed: identity targets are pure additive per-vertex offsets, so CPU application reproduces Blender to **1.1e-4 mm** and 203 sliders cost **2.06 ms ONCE, zero per frame** — the baked-GLB combinatorics are dead. ARKit deltas stay valid but never rescale (worst −10% of a blink, exactly linear, bounded); the face has no skeleton to break (0 of 106 bone ends move); the body skeleton refits to **0.000 mm in 33 ms**. ⚠️ **Garments do NOT survive identity** — two body sliders drift a suit **106.9 mm** — and the JS refit is 0.0064 ms but needs **22.6 KB of helper vertices per garment** shipped, because the exporter deletes the 1,879 of 1,885 verts it reads. **That gates 9.4.** |
 
 ### 2026-08-08, second pass — `?freeze` was inert under `?capture`, and three gates were half-blind
@@ -2000,6 +2000,113 @@ continue.
 
 ---
 
+## R10, 2026-08-09 — forty-three requests nobody could file, and a mask that was wrong by fifty characters
+
+**The deliverable of this pass is a disposal, and a hole in the workflow that made it necessary.**
+Five R9 fix agents filed **43 cross-file requests** between them. Every one was measured and
+correctly declined — the agents did the right thing with files they did not own — and every one
+landed in a report the round had already finished reading, **because the Fix phase runs AFTER
+integration and there was no integrator left to receive them.** The pass that exists to stop
+requests evaporating ran before the pass that files the most of them.
+
+The protocol fix is one sentence — **the request pass runs LAST, after Fix, or runs twice** — and it
+is recorded in `OPEN-REQUESTS.md` rather than in a report, because a request about losing requests
+in reports has an obvious place to be lost.
+
+**47 dispositions: 43 unfiled + the 4 R8 entries that R9's round declaration expired.** The 43
+collapse to 24 distinct changes (nineteen are `docsCorrections` restating a `diffRequest` from the
+same agent) and are entered as REQ-035 … REQ-058, with the arithmetic shown in the ledger so nothing
+is quietly folded away. **Of the 47: 44 applied, 2 rejected-and-converted to punch-list items, and
+1 carried as OPEN at R10 with the reasoning written down.** A 60th disposition, REQ-059, is not one
+of the 47 — it is a defect REQ-033's measurement turned up. The ledger is **59 entries** and its
+coverage floor moved 34 → 59.
+
+### ⚠️ Three of the 43 were wrong, and verifying them is what found that
+
+- **One was made false by the commit that filed it.** The identity agent asked for the census
+  sentence that called all 203 detail categories bidirectional — 195 are, and 8 are unipolar — to be
+  fixed in four places; its own commit `c2e2b9a` had already fixed the generator and regenerated the
+  asset, so three of the four were correct on arrival and the fourth was a gitignored bundle
+  (rebuilt, not edited). 🚩 **And writing this paragraph tripped that agent's own gate**, which
+  holds `N bidirectional` = 195 across every text file in the repository and does not care that the
+  offending phrase was being quoted in a retrospective. That is the sweep behaving exactly as
+  designed: quoting the retired claim is legal only from the `QUOTATIONS` allowlist, with a reason,
+  and a round report is not a retraction.
+- **One would have turned a green gate red.** The unipolar rationale in
+  `identitycatalogue.selftest.mjs` is on `identityassets.selftest.mjs`'s `QUOTATIONS` allowlist and
+  is asserted **present** — a retraction has to name what it retracts. Applied as a tense
+  correction, which is what it meant.
+- **One named a defect that measured clean.** 10.2's gate counts are exactly right (47 + 72 = 119).
+  The real defect was a third gate the paragraph did not list.
+
+**Two counts disagreed with the requests that carried them.** `decency.selftest.mjs` is **25**, not
+the 20 all twelve of that agent's requests name; and the gate roster's headline is **39 gates**, not
+the 38 it claimed — the 39th is `identityassets.selftest.mjs`, added by the very round that filed
+the correction. Both roster tables in LEARNINGS were re-derived whole rather than by row (§1.25p),
+and the second of them had drifted on five of seventeen rows while the first was right.
+
+### 🚩 `docs/measured-claims.selftest.mjs` had been masking the wrong characters for its whole life
+
+Found by accident, and the accident is instructive. `maskQuotations()` built its buffer with
+`[...text]` — **code points** — and wrote into it at `match.index` — **UTF-16 units**. Every emoji in
+these documents is a surrogate pair, so every mask landed N characters early, where N is the number
+of astral characters earlier in the file. At punch-list 8.1 that was **50**.
+
+It never showed, because a mask fifty characters out of place still usually lands on prose. It
+showed when this round added exactly **two 🚩 upstream**, the drift went 50 → 52, and the mask
+blanked the `G1 **` of 8.1's live roster — so COUNT read six gates and four passes out of a
+seven-gate roster and called a correct headline wrong. **A gate can be wrong in the green direction
+for its whole life and only ever announce it in the red one**, and what announced this one was
+unrelated prose in a different section. Fixed to `split("")`; 60/60 green.
+
+### What was applied, in one line each
+
+- **`GroundContact.renderState()` is a closure rather than a list.** Its `mesh: { … }` literal named
+  nine fields of a Mesh carrying **34 own keys** — the same shape as the light-state list two
+  planted defects walked past two rounds running. `classifyNode`/`plainValue` moved to
+  `render/StateClosure.js` and both files import them, because a copied closure is a closure with a
+  hole in it. The gate went **75 → 77**: one check asserts every `inert:` row carries a reason worth
+  reading, one PLANTS a field three does not ship and proves `unclassified` names it.
+- **`Stage.js` decides the shadow filter, and used to decide it by omission.** `grep -n shadow
+  packages/core/src/render/Stage.js` returned nothing while `ShadowNode` selects the entire filter
+  from `renderer.shadowMap.type`. It is now written explicitly to `PCFShadowMap` — three's own
+  default, so no plate moves — which makes it attributable without making it a change.
+- **The foundation layer is measured at three identities instead of one** (REQ-033). Twelve
+  fragments, zero images, **0 vertices through the body** at g000/g050/g100, g050 reproducing the
+  committed numbers to the byte. Two findings: the "0.48–4.20 mm clearance" claim was a g050
+  property and the nearest approach falls to **0.22 mm** at g000; and the build's own coverage gate
+  enumerates **two of the four legal decency floors**, because `LEGS` has one claimant which is
+  therefore forced into every candidate. At g100 the unchecked `bra + briefs` floor is two seat
+  vertices short. Filed as REQ-059.
+- **Two lessons, and a numbering collision.** §1.25v — a sampler that reports a count it did not
+  earn — and §1.25w — a structure computed every frame and read by nobody. Two agents claimed the
+  letter `v` independently; the §1.25 heading count is re-derived by `grep -c` rather than
+  incremented, and reads **twenty-three**.
+
+### Rejected, and converted rather than dropped
+
+- **REQ-032 → punch-list 5.7.** The mouth-corner ramp is four lines of code and a **missing time
+  constant**: 0.35 → 1.0 is 12.14 mm of travel and the nearest quantity is a viseme onset at
+  ~40–80 ms, a range from a different mechanism never measured against this face. Choosing one would
+  be inventing a number in the most-looked-at place on the figure. 5.7's critic plates are where the
+  constant comes off; both documents now cite each other.
+- **REQ-034 → punch-list 3.21.** Re-measuring fourteen light-defect switches at the objective recipe
+  is twenty-eight plates at 19.66 Mpx and a table rebuilt from the differences. An integrator can
+  carry a diff and cannot carry GPU hours. Same disposition as REQ-024 → 9.21.
+
+### Carried as OPEN at R10, deliberately
+
+- **REQ-058, `Sway.js`'s fore-and-aft centre-of-pressure bias.** The most-rebuilt file in the
+  project, a 238-check gate at ~6 minutes, and two documented known-red assertions that must stay
+  red. A pendulum change made incidentally at the end of a documentation pass is exactly how this
+  project acquired the blocker that created the ledger.
+- **REQ-059, `floor_candidates()`.** Found by doing REQ-033. Needs the enumeration fixed AND
+  `decency.selftest.mjs` re-run against a g100 body, because the build's set algebra and the
+  runtime's ray cast are different instruments and only the ray cast can say whether two uncovered
+  vertices are visible.
+
+---
+
 ## R8, 2026-08-09 — six agents, and the round the instruments were wrong more often than the code
 
 Integration of a six-agent fan-out: lighting-gate, trunk-articulation, ledger-and-docs, affect
@@ -2112,9 +2219,10 @@ change is the rendered skull's roll during a weight shift, which no gate in this
 `packages/core/src/affect/` ships `AffectState` (PAD, asymmetric smoothing, ALMA mood layer),
 `ReflexAffect` (tier 1, VADER rules + prosody arousal), `ExpressionMap` (WASABI
 threshold-and-saturate + Arellano AUs + BAP body prescription), `ExpressionLayer` (composes over
-`VisemeLayer`) and `SeedLexicon` (the licence resolution). Gate: `affect.selftest.mjs`, **91 checks**,
-every constant re-derived rather than compared to a literal, nine reintroduced defects proved red
-across five classes with five separate *"a weaker gate would have said fine"* assertions.
+`VisemeLayer`), `PostureLayer` (the BAP actuator, at `MOTION_ORDER.POSTURE`) and `SeedLexicon` (the
+licence resolution). Gate: `affect.selftest.mjs`, **114 checks** — 91 before R9 wired the body —
+every constant re-derived rather than compared to a literal, and **18 rejection proofs covering all
+13 declared defect modes plus four structural known-bads**.
 Browsercheck at `packages/testbed/src/affect.html` drives the real figure.
 
 **5.1.** Attack 0.200 s and decay 2.25 s, both midpoints of research §8.3's bands, MEASURED off the
@@ -2188,9 +2296,19 @@ Build numbers, all with **ZERO images**: `foundation_bra` 8,956 faces / 778,516 
 470,364 B. Build-time clearance 0.48–4.20 mm with **0 vertices through the body**. Against
 `female_casualsuit01`'s 8.76 MB of PNG, that is the whole point.
 
-Gate: `decency.selftest.mjs`, **20 assertions**, 48 reachable states swept exhaustively, coverage
+Gate: `decency.selftest.mjs`, **25 assertions**, 48 reachable states swept exhaustively, coverage
 measured by RAY CAST from each of 186 `_DECENCY_*` body vertices into the geometry actually drawn at
 `drawRange` — not from the build's own bookkeeping.
+
+⚠️ **It read 20 assertions and four red proofs until R9, and the five it gained are all about the
+SAMPLER rather than about cloth.** The mid-change sweep was hooked to the fragment LOADER, so a
+change whose fragments were all cached was sampled **zero times while the gate's own message counted
+it as covered** — the strip back to the floor, which is the one transition a decency gate exists for.
+Hooked to the yield instead, the run takes **165 samples across 6 outfit changes** and asserts that
+no change contributed zero of them. Proven red **six ways in three mechanisms** now, the third
+mechanism being *"the measurement is correct and is looking at nothing"*: a loader-hooked sampler and
+a macrotask-only sampler each leave 2 of 6 changes unobserved, a different cause and the same silent
+zero.
 
 **9.13, agency.** `WardrobeAgency` with `pinned` (default on first run) / `agent` / `ask`, persisted
 per profile. `expressPreference()` is first-class and works in every mode including pinned;
@@ -2220,7 +2338,7 @@ for:**
 that hides nothing still has to be wearable UNDER something, and a shell 3 mm off skin pokes through
 an outer garment everywhere the skin would. `_UNDER_<id>` attributes — a rename of the body's own
 `_hide_<id>` — stop part of a foundation garment being DRAWN without ever removing it from `worn`:
-the vest goes 14,266 → 1,670 drawn triangles under the casual suit, **88.3% occluded, still worn**,
+the vest goes 25,024 → 4,476 drawn triangles under the casual suit, **82.1% occluded, still worn**,
 and `occlusionOf()` names the occluder so a gate can assert the pairing.
 
 `verify_glb.mjs` now covers **14 files** where it covered 10.
@@ -2241,7 +2359,10 @@ research §2.2 region-by-region, with all **1,258** installed files classified a
 The JS macro-stack solver reproduces `TargetService.calculate_target_stack_from_macro_info_dict`
 exactly — same files, same order, **0.000e+0** weight error — at the shipped default (8 targets) and
 off-midpoint (77 targets). Gates: `identitytargets.selftest.mjs` **47** and
-`identitycatalogue.selftest.mjs` **72**, 119 new checks, every class proven red twice.
+`identitycatalogue.selftest.mjs` **72**, 119 new checks, every class proven red twice — and, added
+in R9, `tools/identity-pipeline/identityassets.selftest.mjs` **28**, which holds the census SENTENCE
+rather than the census data. Both counts above were re-measured at R10 and both held; the third gate
+is the row this paragraph was missing.
 
 **Settled: research §1.4's flagged assumption is TRUE.** The shipped body's 14,517 glTF positions map
 onto basemesh indices 0..13,379 exactly — 13,380 distinct sources, 0 unmatched, 0 ambiguous, worst
@@ -2304,10 +2425,17 @@ restored byte-identically afterwards:
 | set REQ-022's `filed-round` back to R6 | EXPIRED | exit 1 |
 
 The middle row is the one that matters: the entry is **honest**, the change **is** in the file, and
-the gate still refuses it because the pattern cannot tell the two trees apart. Four more mutations
-run in-process on every invocation — a stale OPEN, a one-word rejection, entries reformatted out of
-the parser's reach, and a round declared at a commit not in this history — and the run asserts that
-all seven are caught by **seven different clauses**.
+the gate still refuses it because the pattern cannot tell the two trees apart.
+
+⚠️ **"Seven mutations, seven different clauses" was the wrong invariant and this paragraph carried
+it for two rounds.** Measured at R9: **15 red proofs against 12 clauses, 23 checks.** Two things
+changed and both are corrections rather than growth. A distinct-clause-per-proof rule says nothing
+about a clause with NO proof — **four had none** (SCHEMA, TARGET, ANCHOR, REJECTED-STALE), found by
+deriving the clause vocabulary from the gate's own source rather than listing it by hand. And it
+would have *forbidden* the FILED-AT fix, because rule 4 asks for a clause to be broken more than one
+way and that necessarily puts two proofs on one clause; FILED-AT carries four, failing for four
+different reasons. The assertion is now inverted: **every clause the adjudicator can emit must have
+a red proof behind it**, and a successor who adds a clause with no proof gets a red naming it.
 
 ### The eleven, reconstructed and re-verified
 
