@@ -29,6 +29,18 @@
  * if the JS is to reproduce Blender rather than merely approximate it).
  *
  *
+ * NO SENTENCE IN THE OUTPUT RESTATES A NUMBER THE OUTPUT ALREADY CARRIES
+ *
+ * `census.notes` used to be five hand-typed English sentences, and one of them said "203
+ * bidirectional sliders" for the whole of the round in which research §2.2 was corrected to
+ * "195 bidirectional and 8 unipolar". The correction could not reach it: the sentence was a
+ * literal in this file, it duplicated a fact the very same artefact carries as `sliders[].range`,
+ * and no gate read it. A hand-typed restatement of your own data has no mechanism to be right.
+ *
+ * So `censusNotes()` templates every number in those sentences out of the finished catalogue, and
+ * `identityassets.selftest.mjs` re-derives them from the SHIPPED file and demands the strings
+ * back. Change the library and the prose follows; hand-edit the prose and the gate goes red.
+ *
  * Usage:
  *   node tools/identity-pipeline/build_identity_assets.mjs
  *   node tools/identity-pipeline/build_identity_assets.mjs --targets-dir /path/to/mpfb/data/targets
@@ -122,6 +134,10 @@ function main() {
         }
 
     }
+
+    // The notes are written LAST, from the finished regions and sliders, because a note is a
+    // restatement and a restatement has to be derived from the thing it restates.
+    census.summary.notes = censusNotes( census.summary, taxonomyOf( regions, sliders ) );
 
     const catalogue = {
         format: "sugata-identity-catalogue",
@@ -221,18 +237,70 @@ function takeCensus( targetsDir ) {
             "breast-macro": counts[ "breast-macro" ],
             expression: counts.expression,
             asym: counts.asym,
-            unclassified: counts.unclassified,
-            notes: {
-                detail: "530 files, grouped by target.json into 203 bidirectional sliders / 21 regions.",
-                macro: "The interpolation corpus for the eight macro.json parameters. NOT 348 sliders.",
-                "breast-macro": "The corpus for cupsize and firmness, by the same combinatorial rule.",
-                expression: "34 legacy FACS units x 3 ethnicities. Expressions belong to Phase 5, not identity.",
-                asym: "31 randomiser asymmetry pairs, no semantic label. Out of the exposed set; 10.12 "
-                    + "handles author-declared asymmetry through the 66 sided detail categories instead."
-            }
+            unclassified: counts.unclassified
+            // `notes` is attached by main() once the sliders exist. See censusNotes().
         }
     };
 
+}
+
+/**
+ * The four counts every prose claim about this library is really a claim about, read off the
+ * catalogue's own slider list rather than off `target.json` a second time.
+ *
+ * `bipolar` and `unipolar` are the pair the corrected research §2.2 turns on: a bipolar category
+ * names a file at each end and runs −1 → +1, a unipolar one names a single file and runs 0 → +1,
+ * and describeSlider() decides which purely by whether `target.json` gave it an `opposites` block.
+ */
+export function taxonomyOf( regions, sliders ) {
+    return {
+        categories: sliders.length,
+        bipolar: sliders.filter( ( s ) => s.range === "bipolar" ).length,
+        unipolar: sliders.filter( ( s ) => s.range === "unipolar" ).length,
+        sided: sliders.filter( ( s ) => s.sided ).length,
+        regions: regions.length
+    };
+}
+
+/**
+ * The five census sentences, with every number templated out of the measured counts.
+ *
+ * 🚩 THIS FUNCTION IS THE FIX FOR A REAL DEFECT, so do not "simplify" it back into literals. The
+ * detail note is the sentence that said "203 bidirectional sliders" while the catalogue sitting
+ * around it recorded 195 bipolar and 8 unipolar ranges. Nothing was wrong with the DATA; the
+ * English beside it had simply never been derived from anything.
+ *
+ * Two numbers here are structural rather than counted, and are asserted rather than templated:
+ * the expression corpus is three ethnicity folders deep and the asym set is left/right pairs. If
+ * either stops dividing, the sentence would be a new claim and the build should stop instead.
+ */
+export function censusNotes( counts, taxonomy ) {
+
+    const facsUnits = exactQuotient( counts.expression, 3, "expression files over 3 ethnicities" );
+    const asymPairs = exactQuotient( counts.asym, 2, "asym files over left/right" );
+
+    return {
+        detail: `${ counts.detail } files, grouped by target.json into ${ taxonomy.categories } `
+            + `slider categories — ${ taxonomy.bipolar } bidirectional, ${ taxonomy.unipolar } `
+            + `unipolar — across ${ taxonomy.regions } regions.`,
+        macro: "The interpolation corpus for the eight macro.json parameters. "
+            + `NOT ${ counts.macro } sliders.`,
+        "breast-macro": "The corpus for cupsize and firmness, by the same combinatorial rule.",
+        expression: `${ facsUnits } legacy FACS units x 3 ethnicities. `
+            + "Expressions belong to Phase 5, not identity.",
+        asym: `${ asymPairs } randomiser asymmetry pairs, no semantic label. Out of the exposed `
+            + `set; 10.12 handles author-declared asymmetry through the ${ taxonomy.sided } sided `
+            + "detail categories instead."
+    };
+
+}
+
+function exactQuotient( total, divisor, what ) {
+    if ( total % divisor !== 0 ) {
+        throw new Error( `${ what }: ${ total } is not divisible by ${ divisor }, so the sentence `
+            + "that assumes it would be a guess. Re-read the library before editing this note." );
+    }
+    return total / divisor;
 }
 
 /** `eyes/l-eye-scale-incr.target.gz` -> `l-eye-scale-incr`. */
@@ -314,10 +382,11 @@ function describeSlider( regionId, category, index, excludedBecause ) {
 
     // 🚩 Eight of the 203 are NOT bidirectional and target.json says so by omitting `opposites`
     // entirely: the seven `head-<shape>` categories and `chin-triangle` each name one file and run
-    // 0 → +1. research/identity-sculpting.md §2.2 calls all 203 "bidirectional slider categories";
-    // measured against the library, 195 are and 8 are not. The arithmetic still lands on 530 files
-    // (66 sided × 4 + 129 unsided-bidirectional × 2 + 8 unipolar × 1), so the count the research
-    // gates on is right and only the adjective was loose.
+    // 0 → +1. research/identity-sculpting.md §2.2 USED TO call all 203 "bidirectional slider
+    // categories" and was corrected 2026-08-09; measured against the library, 195 are and 8 are
+    // not. The arithmetic still lands on 530 files (66 sided × 4 + 129 unsided-bidirectional × 2
+    // + 8 unipolar × 1), so the count the research gates on is right and only the adjective was
+    // loose. `censusNotes()` above now derives the adjective instead of typing it.
     const opposites = category.opposites ?? { "positive-unsided": category.targets[ 0 ] };
 
     for ( const [ key, name ] of Object.entries( opposites ) ) {
@@ -395,4 +464,9 @@ function argValue( flag ) {
     return i === - 1 ? null : process.argv[ i + 1 ];
 }
 
-main();
+// Only build when run as a script. `identityassets.selftest.mjs` imports censusNotes() and
+// taxonomyOf() to re-derive the shipped catalogue's prose, and it must be able to do that on a
+// machine with no MPFB install — which is every machine that is not the one that baked the assets.
+if ( process.argv[ 1 ] && path.resolve( process.argv[ 1 ] ) === fileURLToPath( import.meta.url ) ) {
+    main();
+}

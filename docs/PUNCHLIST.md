@@ -1615,7 +1615,10 @@ The brief's R8 asks for an avatar that is "male, female, or a combination of the
 identity." Phase 1 delivered the first half and named the second: `Identity.js` accepts
 `{age, build, height}`, stores them, and does nothing with them — `NOT_YET_BAKED` says so in code.
 This phase is the second half, and it is larger than three axes: **1,258 targets are already
-installed, and `targets/target.json` groups them into 203 bidirectional sliders across 21 regions.**
+installed, and `targets/target.json` groups them into 203 slider categories — 195 bidirectional and
+8 unipolar — across 21 regions.** (Corrected 2026-08-09 with research §2.2; the eight are the seven
+`head-<shape>` categories and `chin-triangle`, which carry no `opposites` block and run 0 → +1.
+Held to the shipped `assets/identity/catalogue.json` by `tools/identity-pipeline/identityassets.selftest.mjs`.)
 
 Measurements, sources and the evidence behind every number below live in
 [`research/identity-sculpting.md`](research/identity-sculpting.md).
@@ -1675,6 +1678,32 @@ Measurements, sources and the evidence behind every number below live in
       derive or default six of them**), and **195** categories are bidirectional with **8 unipolar**
       — the seven `head-<shape>` categories and `chin-triangle` have no `opposites` block and run
       0 → +1, so a UI that draws every category as a −1…+1 dial applies seven head shapes backwards.
+
+      🚩 **THAT CORRECTION LANDED IN ONE FILE AND THREE LIVE COPIES SURVIVED IT** — this line 1618
+      above, `assets/identity/catalogue.json`'s `census.notes.detail` (**shipped**), and the literal
+      in `build_identity_assets.mjs` that writes it. A fourth sat in the gitignored `dist-pages/`
+      bundle. Every gate on this data was green and correctly so: **the data was never wrong.** What
+      was wrong was English beside the data, restating it, derived from nothing.
+      🎯 **Fixed at the model rather than the three symptoms.** `censusNotes()` now templates every
+      number in those five sentences out of the finished catalogue, so a generated artefact no
+      longer hand-types a restatement of its own contents; the shipped `catalogue.json` rebuilds
+      with all 20 region `.bin` files **byte-identical** and one line changed.
+      Gate: **MEASURED** — `node tools/identity-pipeline/identityassets.selftest.mjs`, **28 checks**
+      in three rules. ARITHMETIC recounts the 530 detail files four independent ways
+      (66×4 + 129×2 + 8×1) so 195/8 is evidence before it is an oracle; DERIVED rebuilds the shipped
+      notes from the shipped file; SWEEP holds `N bidirectional`=**195**, `N unipolar`=**8**,
+      `N sided`=**66** across every text file in the repo (**219** of them at this commit; the gate
+      counts them itself and fails a sweep of fewer than 100), matching on whitespace- *and*
+      continuation-marker-collapsed text because §2.2's own "8 unipolar" wraps behind a `>`.
+      Retractions stay legal through a `QUOTATIONS` allowlist that is asserted **present** per file.
+      If ARITHMETIC fails, SWEEP **refuses to run** rather than holding prose to a count the
+      catalogue could not close — a broken oracle fails correct prose as readily as it passes stale.
+      Proven red **ten ways**, and live: both original sentences reintroduced verbatim were caught
+      with correct line numbers, and so were four fresh breaks in untouched files — a `sided` drift
+      in `IdentityCatalogue.js`, a `unipolar` drift in `identity.html`, a claim wrapped across a
+      blockquote marker, and the builder hardcoding the literal back into `censusNotes()`. **That
+      last one blinds DERIVED** — its oracle moves with the literal — **and SWEEP caught it at both
+      sites**, which is the two rules covering each other rather than agreeing with each other.
       ⚠️ The per-slider `axis` tag (`size|position|volume|shape`) is a **regex over names**, not a
       measurement. 10.10 and 10.11 depend on that grouping and it should be validated before it is
       trusted.
