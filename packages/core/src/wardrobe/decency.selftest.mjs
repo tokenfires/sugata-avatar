@@ -36,20 +36,32 @@
  *      so a state is (outer garments) × (which bra) × (which brief), not just the first of each.
  *   3. **Every intermediate frame of a change.** `dress()` awaits its fragments before it mutates
  *      anything, which is a CLAIM about atomicity and is checked here by observation rather than
- *      by reading the code: the loader is instrumented to sample the live scene at every point the
- *      event loop can yield, and every sample is run through the same decency measurement.
+ *      by reading the code: the change is STARTED BUT NOT AWAITED, and the live scene is sampled
+ *      on every turn of the event loop until it settles, each sample through the same measurement.
+ *      ⚠️ The hook point is the YIELD, not the fragment load. Hooking the loader instead — which
+ *      is what this file shipped with — left the strip-back-to-the-floor transition sampled zero
+ *      times while the gate's own message counted it as covered. See the section comment.
  *
- * ## PROVEN RED FOUR WAYS, IN TWO DIFFERENT MECHANISMS
+ * ## PROVEN RED SIX WAYS, IN THREE DIFFERENT MECHANISMS
  *
- * 🚩 A gate that only catches its own known-bad is decorative, so the geometry half and the
- * bookkeeping half are each broken independently:
+ * 🚩 A gate that only catches its own known-bad is decorative, so each half of the measurement —
+ * and the sampler that decides which states the measurement is even pointed at — is broken alone:
  *
+ * *bookkeeping — the wrong garments are worn:*
  *   1. a foundation piece REMOVED FROM THE MANIFEST — the red the punch list names;
  *   2. the floor emptied, which is what a `decencyFloor` returning `[]` does;
+ *
+ * *geometry — the right garments are worn and the skin is still visible:*
  *   3. a foundation garment whose GEOMETRY IS TRIMMED at the gusset, manifest untouched, floor
  *      untouched, every id present — only the ray cast can see this one;
  *   4. an outer garment whose hide mask is dropped, which does not undress the avatar but removes
  *      the OTHER way a region can be decent, and is the mechanism clause (a) exists for.
+ *
+ * *coverage — the measurement is correct and is looking at nothing:*
+ *   5. the mid-change sampler hooked to the fragment LOADER, blind to any change that loads
+ *      nothing because every fragment it needs is already cached. This is the defect that shipped;
+ *   6. the mid-change sampler hooked to the right thing but woken only on MACROTASKS, blind to any
+ *      change whose only yields are microtasks. Same silent zero, a different cause.
  */
 
 import fs from 'node:fs';
@@ -324,8 +336,13 @@ function drawnGeometryGrid( wardrobe ) {
 
 }
 
-/** Which body vertices are not drawn at all, because a worn garment's hide mask removed them. */
-function undrawnBodyVertices( wardrobe ) {
+/**
+ * Which body vertices are still drawn — everything else was removed by a worn garment's hide mask.
+ *
+ * The complement is what the caller cares about, so read the call site as "drawn, and therefore
+ * still capable of being indecent".
+ */
+function drawnBodyVertices( wardrobe ) {
 
     const geometry = wardrobe.body.geometry;
     const drawn = new Set();
@@ -352,7 +369,7 @@ function exposureOf( wardrobe, regions ) {
     const positions = geometry.attributes.position;
     const normals = geometry.attributes.normal;
 
-    const drawn = undrawnBodyVertices( wardrobe );
+    const drawn = drawnBodyVertices( wardrobe );
     const grid = drawnGeometryGrid( wardrobe );
 
     const exposed = {};
@@ -654,46 +671,247 @@ console.log( '--- every point the event loop can yield during a change ---' );
 
 /**
  * 🎯 `dress()` claims to load every fragment before it mutates anything. This is that claim
- * OBSERVED rather than read: the loader hands back a promise that resolves several macrotasks
- * later — so a real frame could be drawn — and samples the live scene each time.
+ * OBSERVED rather than read.
+ *
+ * ⚠️ **THE HOOK POINT IS THE YIELD, NOT THE LOAD, AND GETTING THAT WRONG COST THIS GATE ITS TEETH.**
+ *
+ * The sampler used to live inside the instrumented loader, which made it blind to precisely the
+ * transition it most needed to watch. `Wardrobe` caches fragments, so a change that puts nothing
+ * NEW on loads nothing, calls the loader zero times, and was therefore sampled zero times.
+ *
+ * Measured on the five-change list this file shipped with, by counting samples per change:
+ * **6, 6, 3, 3, 0**. The zero was the strip from a full outfit back to the foundation floor — the
+ * one change with nothing but the floor between the avatar and bare skin, and so the one where a
+ * decency failure is most likely. The gate's own message read "across 5 outfit changes". It had
+ * covered 4, and nothing in it could tell the difference.
+ *
+ * The fix is to stop inferring the yield from the load. The change is started and not awaited, and
+ * the scene is sampled on every turn of the event loop until the change settles. A sixth change was
+ * added at the same time — a pure removal from a dressed state — so the blind class is represented
+ * more than once and cannot be re-broken by editing a single line of the list.
+ *
+ * **Both kinds of turn are load-bearing, in opposite directions:**
+ *
+ *   * a MACROTASK turn is where a frame can actually be painted, so a change spanning one is a
+ *     change a user could see half of. `macrotaskSpanningLoader` spreads each fetch over three of
+ *     them deliberately, because a real network fetch does.
+ *   * a MICROTASK turn is the ONLY yield a fully-cached change has. No frame is painted inside one,
+ *     so a cached change is atomic with respect to the renderer — but it is not atomic with respect
+ *     to other JavaScript, and a sampler woken only on macrotasks reports zero samples for it and
+ *     calls that a pass. That is RED 6.
+ *
+ * Alternating the two is also what stops the observer deadlocking: a microtask-only spin would
+ * starve the timer queue the loader is waiting on, and the loop would never terminate.
  */
-let samples = [];
-let sampledWardrobe = null;
 
-const slowLoader = async ( url ) => {
+/** One sample of the live scene, through the same decency measurement as every other state here. */
+function sampleScene( wardrobe ) {
 
-    for ( let tick = 0; tick < 3; tick += 1 ) {
+    return {
+        worn: [ ...wardrobe.wornMeshes.keys() ],
+        bodyVisible: wardrobe.body.visible,
+        exposed: totalExposed( exposureOf( wardrobe, regions ) )
+    };
 
-        await new Promise( ( resolve ) => setTimeout( resolve, 0 ) );
+}
 
-        if ( sampledWardrobe !== null ) {
+/**
+ * A fragment load that spans three macrotasks, so a real frame could be drawn part-way through it.
+ *
+ * `onTick` exists only for RED 5, which reconstructs the load-coupled sampler this file shipped
+ * with. Nothing on the green path samples from inside it — that coupling is the defect.
+ */
+function macrotaskSpanningLoader( onTick = null ) {
 
-            samples.push( {
-                worn: [ ...sampledWardrobe.wornMeshes.keys() ],
-                bodyVisible: sampledWardrobe.body.visible,
-                exposed: totalExposed( exposureOf( sampledWardrobe, regions ) )
-            } );
+    return async ( url ) => {
+
+        for ( let tick = 0; tick < 3; tick += 1 ) {
+
+            await new Promise( ( resolve ) => setTimeout( resolve, 0 ) );
+            if ( onTick !== null ) onTick();
 
         }
 
+        return loadFragmentFromDisk( url );
+
+    };
+
+}
+
+/**
+ * How many microtask turns the observer takes before letting the timer queue have one.
+ *
+ * ⚠️ **A FLOOR, NOT A TUNING KNOB.** Set it below what a cached change yields and the observer
+ * silently degrades back towards the defect — at 1, the two cached changes are seen ONCE each. Set
+ * it far above and every extra turn lands on a change that is waiting for a timer, re-measuring a
+ * scene that has not moved. Swept on this build, this machine, 2026-08-09, every row re-derived
+ * together against the file as it stands:
+ *
+ *     burst | the 2 cached | the 4 that load  | wall   | the saturation clause
+ *     ------|--------------|------------------|--------|----------------------
+ *        1  |     1, 1     |  11, 13,  7,  7  | 1.81 s | RED
+ *        2  |     2, 2     |  17, 17,  8,  8  | 1.82 s | RED
+ *        3  |     3, 3     |  23, 23, 11, 11  | 1.76 s | RED
+ *        4  |     4, 3     |  29, 29, 14, 14  | 1.91 s | green — saturation
+ *        5  |     4, 3     |  35, 35, 17, 17  | 2.18 s | green
+ *      → 8  |     4, 3     |  53, 53, 26, 26  | 2.54 s | green — chosen
+ *       16  |     4, 3     | 101, 101, 50, 50 | 3.49 s | green
+ *       32  |     4, 3     | 197, 197, 98, 98 | 5.94 s | green
+ *
+ * **Saturation is at 4 and the value below is 8** — 2× margin, bought for 0.6 s. The margin is the
+ * point, not caution: the yield depth of a cached `dress()` belongs to `Wardrobe` and to V8's
+ * `await` desugaring, and neither is this file's to pin.
+ *
+ * 🚩 **HOW MUCH THAT MOVES, MEASURED THE HARD WAY.** An earlier draft of this table read saturation
+ * at 3. Adding a single `.catch()` to the observer's own promise chain — a correctness fix in
+ * `dressWhileObserving`, nothing to do with `Wardrobe` — put one more microtask in the chain and
+ * moved saturation to 4. A constant sitting exactly ON saturation is a constant that goes red on a
+ * change that has nothing to do with it.
+ *
+ * That is also the whole argument for asserting the saturation rather than recording it. The wall
+ * column is indicative, noisy at the low end, and nothing asserts on it; the cached column is the
+ * subject, and the clause "doubling the burst observes a cached change no more times" re-derives it
+ * on every run. Proven: at 1, 2 and 3 that clause goes RED; from 4 up it is green.
+ */
+const MICROTASK_BURST = 8;
+
+/**
+ * Starts one change and calls `take` on every turn of the event loop until the change settles.
+ *
+ * Returns how many turns it observed — the number this gate has to assert on, because a zero here
+ * is the gate measuring nothing and reporting a pass.
+ *
+ * @param {boolean} [options.microtaskTurns] - false wakes on macrotasks only. RED 6 uses that.
+ * @param {number} [options.microtaskBurst] - overridden only to prove the default has saturated.
+ */
+async function dressWhileObserving( wardrobe, outfit, take,
+    { microtaskTurns = true, microtaskBurst = MICROTASK_BURST } = {} ) {
+
+    let settled = false;
+    let taken = 0;
+    let failure = null;
+
+    // The rejection is caught HERE rather than at the `await` below, because the loop can span many
+    // turns and an unhandled rejection that old is a process-level crash in Node — which would look
+    // like an infrastructure fault rather than the refused outfit it is. Rethrown after the loop, so
+    // a caller still sees `dress()` throw exactly as it would have.
+    const pending = wardrobe.dress( outfit )
+        .catch( ( error ) => { failure = error; } )
+        .finally( () => { settled = true; } );
+
+    for ( let turn = 0; settled === false; turn += 1 ) {
+
+        // Exhaust the microtask turns first — they are the only yields a fully-cached change has —
+        // then hand the timer queue one, or a change waiting on a fetch would spin here forever.
+        const microtaskTurn = microtaskTurns && ( turn % ( microtaskBurst + 1 ) ) !== microtaskBurst;
+
+        if ( microtaskTurn ) await Promise.resolve();
+        else await new Promise( ( resolve ) => setTimeout( resolve, 0 ) );
+
+        if ( settled ) break;
+
+        take( wardrobe );
+        taken += 1;
+
     }
 
-    return loadFragmentFromDisk( url );
+    await pending;
 
-};
+    if ( failure !== null ) throw failure;
 
-const transitions = await wardrobeFor( manifestSource, {}, { loadFragment: slowLoader } );
-sampledWardrobe = transitions.wardrobe;
+    return taken;
 
+}
+
+/**
+ * The changes, chosen so both classes are present. The first four each pull at least one fragment
+ * off disk; the last two cannot, because by then everything they name is cached — one removes
+ * garments and adds none, the other strips to the floor. Those last two ARE the class the old
+ * sampler never saw, and there are deliberately two of them.
+ *
+ * Which are which is measured by `countTurnsPerChange`, not asserted here, so this comment cannot
+ * quietly stop being true.
+ */
 const changes = [
     [],
     [ 'female_casualsuit01', 'shoes01' ],
     [ 'fedora01' ],
     [ 'female_elegantsuit01', 'shoes01', 'fedora01' ],
+    [ 'female_elegantsuit01' ],
     []
 ];
 
-for ( const change of changes ) await transitions.wardrobe.dress( change );
+function nameOf( change ) {
+
+    return change.join( '+' ) || 'undress';
+
+}
+
+function describeCounts( counts ) {
+
+    return counts.map( ( entry ) => `${ entry.name } ${ entry.taken }` ).join( ', ' );
+
+}
+
+/**
+ * Runs the whole change list on a fresh wardrobe and returns how many turns each change was
+ * observed for, without the ray cast — what is under test here is WHETHER a turn was seen.
+ *
+ * 🎯 It also measures, rather than declares, which changes loaded nothing. "The cached ones" is
+ * the whole subject of this section, and a hand-maintained list of which those are would rot the
+ * first time the change list moved.
+ */
+async function countTurnsPerChange( options = {} ) {
+
+    let loaded = 0;
+
+    const spanning = macrotaskSpanningLoader();
+
+    const run = await wardrobeFor( manifestSource, {}, {
+        loadFragment: ( url ) => { loaded += 1; return spanning( url ); }
+    } );
+
+    const counts = [];
+
+    for ( const change of changes ) {
+
+        const before = loaded;
+        const taken = await dressWhileObserving( run.wardrobe, change, () => {}, options );
+
+        counts.push( { name: nameOf( change ), taken, cached: loaded === before } );
+
+    }
+
+    return counts;
+
+}
+
+const samples = [];
+const perChange = [];
+
+const transitions = await wardrobeFor( manifestSource, {}, { loadFragment: macrotaskSpanningLoader() } );
+
+for ( const change of changes ) {
+
+    const taken = await dressWhileObserving( transitions.wardrobe, change,
+        ( wardrobe ) => samples.push( sampleScene( wardrobe ) ) );
+
+    perChange.push( { name: nameOf( change ), taken } );
+
+}
+
+// 🚩 THE CLAUSE THAT WAS MISSING, AND IT IS A §1.25a CHECK ON THE GATE'S OWN INPUT RATHER THAN ON
+// ITS SUBJECT — the same shape as the region-size clause above. "18 samples across 5 changes" is a
+// coverage claim, and a coverage claim has to be measured per change or it is an average hiding a
+// zero. Every clause below this one is only worth as much as this one.
+const unobserved = perChange.filter( ( entry ) => entry.taken === 0 );
+
+record( unobserved.length === 0,
+    'every outfit change was actually observed — no change contributed zero samples',
+    unobserved.length === 0
+        ? describeCounts( perChange )
+        : `${ unobserved.length } of ${ changes.length } unobserved: ` +
+          `${ unobserved.map( ( entry ) => entry.name ).join( ', ' ) }` );
 
 const indecentSamples = samples.filter( ( sample ) => sample.exposed > 0 );
 
@@ -892,6 +1110,10 @@ await unmasked.wardrobe.dress( [ 'female_casualsuit01' ] );
 
 const maskedExposure = exposureOf( unmasked.wardrobe, regions );
 
+// Read, not declared. PROGRESS.md quotes 21,380 for the suit alone; a literal here would be a
+// second copy of that number free to drift away from the build without anything noticing.
+const maskedBodyTriangles = unmasked.wardrobe.stats().bodyTriangles;
+
 for ( const name of unmasked.wardrobe.availableHideMasks() ) {
 
     unmasked.wardrobe.hideAttributes.delete( name );
@@ -906,7 +1128,7 @@ record( totalExposed( maskedExposure ) === 0 && totalExposed( unmaskedExposure )
     `with the mask ${ describeExposure( maskedExposure ) } exposed, without it ` +
     `${ describeExposure( unmaskedExposure ) } — same manifest, same worn set ` +
     `(${ unmasked.wardrobe.worn.join( ', ' ) }), body ${ unmasked.wardrobe.stats().bodyTriangles } ` +
-    'triangles instead of 21,380' );
+    `triangles instead of ${ maskedBodyTriangles }` );
 
 /**
  * And the invariant that makes the coupling structural rather than a coincidence: a garment can
@@ -943,6 +1165,125 @@ const occludersWithoutMask = [ ...occluders ]
 record( occluders.size > 0 && occludersWithoutMask.length === 0,
     'every garment that can occlude the foundation layer also deletes the skin under it',
     `${ [ ...occluders ].join( ', ' ) } — each declares a hideMask in the manifest` );
+
+// --- RED 5 and 6: the sampler blinded, twice, by two unrelated causes ------------------------------------
+
+/**
+ * 🚩 **A THIRD CLASS, AND THE ONLY ONE THAT MAKES EVERY OTHER CLAUSE WORTHLESS WITHOUT SAYING SO.**
+ *
+ * Reds 1–4 break the measurement: the wrong garments are worn, or the right ones are and the skin
+ * still shows. Both leave the gate reading a real state and reporting the truth about it.
+ *
+ * These two break the COVERAGE. The measurement is untouched and correct. What changes is which
+ * states it is ever pointed at — and a sampler that observes nothing reports zero indecent samples,
+ * which reads identically to a pass. This file shipped in exactly that condition, so the two causes
+ * below are deliberately unrelated to each other:
+ *
+ *   * RED 5 hooks the sampler to the wrong EVENT. The load is a proxy for the yield and the proxy
+ *     is exact only while nothing is cached.
+ *   * RED 6 hooks it to the right event at the wrong GRANULARITY. A cached change's only yields are
+ *     microtasks, and an observer that wakes on timers has already missed the whole change.
+ *
+ * Both are run over the same `changes` list as the green path, and both are asserted against the
+ * same `taken === 0` predicate the green clause uses, so what is proven is that the new clause goes
+ * red — not merely that the counts differ.
+ */
+// RED 5: the sampler this file shipped with, reconstructed. It counts a turn only from inside the
+// loader, so a change that loads nothing counts nothing.
+const loadCoupled = [];
+
+const loadCoupledRun = await wardrobeFor( manifestSource, {}, {
+    loadFragment: macrotaskSpanningLoader( () => { loadCoupled.at( -1 ).taken += 1; } )
+} );
+
+for ( const change of changes ) {
+
+    loadCoupled.push( { name: nameOf( change ), taken: 0 } );
+    await loadCoupledRun.wardrobe.dress( change );
+
+}
+
+// RED 6: the right hook, woken only on macrotasks. A fully-cached change resolves inside the
+// microtask drain that runs before the first timer callback, so the observer wakes to a settled
+// change and takes nothing.
+//
+// ⚠️ The counts for the changes that LOAD jitter by ±1 between runs — they depend on how the
+// observer's own timers interleave with the loader's, which is wall-clock. The zeros do not: they
+// are structural, and 6 consecutive runs measured 0 for both cached changes every time. The clause
+// asserts only on the zeros, so this red does not flake.
+const macrotaskOnly = await countTurnsPerChange( { microtaskTurns: false } );
+
+const blindToLoader = loadCoupled.filter( ( entry ) => entry.taken === 0 );
+
+record( blindToLoader.length > 0,
+    'RED 5: a sampler hooked to the fragment LOADER is blind to a change that loads nothing',
+    blindToLoader.length > 0
+        ? `${ describeCounts( loadCoupled ) } — ${ blindToLoader.length } of ${ loadCoupled.length } ` +
+          `unobserved (${ blindToLoader.map( ( entry ) => entry.name ).join( ', ' ) }), so the ` +
+          'coverage clause goes red'
+        : 'it observed every change — this red no longer reproduces the defect it names' );
+
+const blindToMacrotasks = macrotaskOnly.filter( ( entry ) => entry.taken === 0 );
+
+record( blindToMacrotasks.length > 0,
+    'RED 6: a sampler woken only on MACROTASKS is blind to a change that yields only microtasks',
+    blindToMacrotasks.length > 0
+        ? `${ describeCounts( macrotaskOnly ) } — ${ blindToMacrotasks.length } of ` +
+          `${ macrotaskOnly.length } unobserved, a different cause and the same silent zero`
+        : 'it observed every change — this red no longer reproduces the defect it names' );
+
+// 🎯 The half that stops reds 5 and 6 being a test of the word "cached": the sampler this file now
+// uses sees those same changes on the same wardrobe shape, so what differs above is the sampler.
+record( perChange.every( ( entry ) => entry.taken > 0 ),
+    'RED 5b/6b: and the sampler this file now uses observes every one of those same changes',
+    describeCounts( perChange ) );
+
+// --- and the constant that decides whether the observer is deep enough ------------------------------------
+
+/**
+ * 🚩 `MICROTASK_BURST` is the one number in this section that could quietly re-create the defect —
+ * too small and a cached change is observed fewer times than it yields, which is the same blindness
+ * as RED 6 with a smaller radius. A comment saying "4 was enough when I measured it" is exactly the
+ * kind of claim this repo has been burned by, so the saturation is asserted instead of recorded:
+ * DOUBLE the burst, and a cached change must be observed the same number of times.
+ *
+ * Only the cached changes are compared. A change that loads spends its time in the timer queue, so
+ * its count depends on how long the loop's own work takes and is not a property of the burst.
+ */
+const atBurst = await countTurnsPerChange();
+const atDoubleBurst = await countTurnsPerChange( { microtaskBurst: MICROTASK_BURST * 2 } );
+
+// Paired by position before filtering, so a failure can name the change and both of its counts —
+// once these are filtered down, the array index no longer points at the change it came from.
+const paired = atBurst.map( ( entry, at ) => ( { ...entry, doubled: atDoubleBurst[ at ].taken } ) );
+
+const cachedChanges = paired.filter( ( entry ) => entry.cached );
+const burstBound = cachedChanges.filter( ( entry ) => entry.taken !== entry.doubled );
+
+function describeSaturation() {
+
+    if ( cachedChanges.length === 0 ) {
+
+        return 'no change in the list loaded nothing, so this clause proved nothing — add one';
+
+    }
+
+    if ( burstBound.length > 0 ) {
+
+        return `the burst IS what bounds ${ burstBound.map( ( entry ) =>
+            `${ entry.name } ${ entry.taken } -> ${ entry.doubled }` ).join( ', ' ) } — ` +
+            `raise MICROTASK_BURST above ${ MICROTASK_BURST } until doubling it changes nothing`;
+
+    }
+
+    return `${ cachedChanges.length } cached changes ` +
+        `(${ describeCounts( cachedChanges ) }) unchanged at a burst of ${ MICROTASK_BURST * 2 }`;
+
+}
+
+record( cachedChanges.length > 0 && burstBound.length === 0,
+    `a burst of ${ MICROTASK_BURST } has saturated — doubling it observes a cached change no more times`,
+    describeSaturation() );
 
 // --- summary --------------------------------------------------------------------------------------------
 
