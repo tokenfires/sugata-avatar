@@ -48,8 +48,29 @@
  *                   neither list is a FAILURE, so the gate can go red for a mechanism nobody has
  *                   met yet, which is the one thing an enumeration of remembered defects cannot do.
  *                   Every read field is then held to a value derived here from the placement table.
- *                   Proved red on six mechanisms, none of them decay or distance, with PREMISE,
- *                   MAGNITUDE and REACH green on all six.
+ *                   Proved red on sixteen mechanisms, none of them decay or distance, with PREMISE,
+ *                   MAGNITUDE and REACH green on all sixteen.
+ *
+ *   THE GRAPH       🎯 And round four, which walked past the fingerprint the same way the fingerprint
+ *                   was written to stop happening. The closure swept the LIGHT and then hand-read
+ *                   seven fields off `shadow.camera` with the camera excluded from the sweep, so
+ *                   **37 of the camera's 44 own keys were in no list at all and not reported as
+ *                   unclassified either** — the closure was an enumeration one level down. A
+ *                   verifier planted `camera.matrixAutoUpdate = false` (1.07% of the frame, worst
+ *                   Δ40/255) and a reparented camera (0.50%, Δ15/255) and this file read 122/122
+ *                   through both. The fix is a model change: a light's state is an object GRAPH, and
+ *                   every node in it — light, shadow, shadow camera, spot target — gets the same
+ *                   sweep. Eight further mechanisms in the same class are proved red below, seven of
+ *                   them never met by anybody.
+ *
+ *   LIVENESS        🎯 And the instrument that would have found it first. Everything above asks
+ *                   whether the rig matches its own declarations; nothing asked whether the
+ *                   declarations match THREE. Four inert reasons read well and were wrong
+ *                   (`matrixAutoUpdate`, `matrixWorldAutoUpdate`, `pivot`, `isLight`). So every own
+ *                   field of every graph node is perturbed and three's own `updateMatrices` /
+ *                   `updateMatrixWorld` asked whether the answer moved: nothing classified inert may
+ *                   move it except by moving a field that IS held, and nothing classified read may
+ *                   be silently dead. Proved red both ways.
  *
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening
  * the range.
@@ -62,12 +83,14 @@
  * The three flags are rejection proofs, each planting a different defect in the shadow-caster
  * half. Every one of them prints how many DISTINCT lights it altered, because a reach counter that
  * counts calls is how the last round's caster-magnitude finding came to be reported against a rig
- * that had not changed. Expected: 99/122, 97/122 and 102/122 respectively — re-measured this round,
- * because adding the fingerprint moved every one of them and a stale expectation in a usage note is
- * a claim with no gate on it (LEARNINGS §1.25e).
+ * that had not changed. Expected: **107/140, 105/140 and 110/140** respectively — re-measured this
+ * round, because the graph sweep and the LIVENESS clause moved every one of them and a stale
+ * expectation in a usage note is a claim with no gate on it (LEARNINGS §1.25e). They read 99/122,
+ * 97/122 and 102/122 before this round; the totals are not comparable across a round that added
+ * eighteen checks, which is exactly why they are re-measured rather than reasoned about.
  */
 
-import { Color, PerspectiveCamera, Scene, UnsignedByteType, Vector3 } from 'three/webgpu';
+import { Color, Object3D, PerspectiveCamera, Scene, UnsignedByteType, Vector3, WebGPUCoordinateSystem } from 'three/webgpu';
 
 import {
     LightingRig,
@@ -1935,11 +1958,24 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
 //   round 3  `shadowCaster.decay` 2 -> 1, 41.64% of the frame moved, worst delta 8/255
 //            `shadowCaster.distance` 0 -> 1.2, 79.47% of the frame, worst delta 87/255, the key's
 //            modelling visibly gone — and this file read 98/98 through both
+//   round 4  `shadow.camera.matrixAutoUpdate` false, 1.07% of the frame, worst delta 40/255
+//            the shadow camera reparented under a translated node, 0.50%, delta 15/255
+//            — and this file read 122/122 through both, WITH the closure below already in it
 //
 // Adding a decay check would make it four rounds and four checks. The interesting question is not
 // the patch; it is why the same gate fails the same way, and the answer is that every clause above
 // was written from a defect somebody had already been bitten by. An enumeration of remembered
 // mechanisms cannot cover the one nobody has met.
+//
+// 🚩 AND ROUND 4 IS THE ONE THAT MATTERS MOST, BECAUSE IT HAPPENED AFTER THAT PARAGRAPH WAS
+// WRITTEN AND THE CLOSURE BELOW WAS ALREADY IN PLACE. The closure swept the LIGHT and then handled
+// `shadow.camera` — an `Object3D` with 44 own fields — with seven hardcoded reads and
+// `if ( key === 'camera' ) continue;`. Thirty-seven fields in no list, `unclassified` empty. The
+// thing written so that an enumeration could not cover the next mechanism was itself an
+// enumeration, one level down, and the lesson is not "sweep the camera too": it is that a closure
+// has to close over the whole GRAPH, because the state that decides the picture is a graph and not
+// a flat map. See `classifyNode` in `LightingRig.js`, and the LIVENESS clause below, which is the
+// separate instrument that asks three whether the classification is right at all.
 //
 // So this block asserts a SET instead. `lightRenderState` in `LightingRig.js` enumerates, from
 // three's own source at 0.185.1, every field the WebGPU path reads to decide what a light puts on
@@ -2039,6 +2075,11 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 visible: true,
                 layers: 1,
                 castShadow: false,
+                isLight: true,
+                isRectAreaLight: true,
+                matrixAutoUpdate: true,
+                matrixWorldAutoUpdate: true,
+                pivot: null,
                 width,
                 height: panelHeight,
                 parentIsScene: true,
@@ -2056,6 +2097,11 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 visible: true,
                 layers: 1,
                 castShadow: true,
+                isLight: true,
+                isSpotLight: true,
+                matrixAutoUpdate: true,
+                matrixWorldAutoUpdate: true,
+                pivot: null,
                 distance: 0,
                 angle: Math.atan2( coverage, distance ),
                 penumbra: 1,
@@ -2079,13 +2125,36 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 'shadow.biasNode': null,
                 'shadow.optional.shadowNode': null,
                 'shadow.optional.filterNode': null,
+                // 🚩 THE SHADOW CAMERA IS A GRAPH NODE WITH 44 FIELDS AND THIS TABLE CARRIED SEVEN.
+                // The other 37 were neither declared here nor reported as unclassified, and two of
+                // them moved pixels past a green gate — see `SHADOW_CAMERA_NODE` in `LightingRig.js`
+                // for the plate table. Every row below is derived from the rig's contract, and the
+                // eight new ones are three's own defaults, which is exactly the point: the rig never
+                // sets them, so "the default" IS the declaration and a caster that has been walked
+                // away from it fails here.
                 'shadow.camera.near': Math.max( 0.01, distance - height ),
                 'shadow.camera.far': distance + height * 8,
                 'shadow.camera.zoom': 1,
                 'shadow.camera.filmGauge': 35,
                 'shadow.camera.filmOffset': 0,
                 'shadow.camera.layers': 1,
-                'shadow.camera.view': null
+                'shadow.camera.view': null,
+                'shadow.camera.up': [ 0, 1, 0 ],
+                'shadow.camera.matrixAutoUpdate': true,
+                'shadow.camera.matrixWorldAutoUpdate': true,
+                'shadow.camera.pivot': null,
+                'shadow.camera.isCamera': true,
+                'shadow.camera.isPerspectiveCamera': true,
+                'shadow.camera._reversedDepth': false,
+                'shadow.camera.parentIsNull': true,
+
+                // The spot's target, the other node in the graph. Three reads
+                // `setFromMatrixPosition( target.matrixWorld )`, so the graph around it is as
+                // load-bearing as the position the `target` row above carries.
+                'target.matrixAutoUpdate': true,
+                'target.matrixWorldAutoUpdate': true,
+                'target.pivot': null,
+                'target.parentIsScene': true
             } );
 
         }
@@ -2104,6 +2173,11 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 visible: true,
                 layers: 1,
                 castShadow: false,
+                isLight: true,
+                isHemisphereLight: true,
+                matrixAutoUpdate: true,
+                matrixWorldAutoUpdate: true,
+                pivot: null,
                 parentIsScene: true,
                 'optional.colorNode': null
             } );
@@ -2494,6 +2568,214 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 return true;
 
             }
+        },
+
+        // --- and the fourth mechanism, which is a GRAPH rather than a scalar ------------------
+        //
+        // 🚩 THE SIX ROWS ABOVE ARE ALL FIELDS ON A LIGHT, AND THAT IS WHY THEY ALL PASSED WHILE THE
+        // SHADOW CAMERA WAS OPEN. `lightRenderState` swept the light and hand-read seven fields off
+        // `shadow.camera`, so 37 of the camera's 44 own keys were in no list at all and not reported
+        // as unclassified either. An independent verifier planted two of them in `frameShadowCamera`
+        // and watched this file read 122/122 through both:
+        //
+        //   `camera.matrixAutoUpdate = false`           1.07% of the frame moved, worst Δ40/255
+        //   camera reparented under a translated node   0.50% of the frame moved, worst Δ15/255
+        //
+        // (`/alive.html?bare&freeze&seed=1&capture`, 900×1200, dpr 1, seed 1, 60 steps @ 60 fps, two
+        // loads, shipped default toggles aa=taau + grade + RCAS with MSAA OFF, 0 px residue.)
+        //
+        // The rows below are those two AND five more that nobody has been bitten by, all in the same
+        // class. Their amplitudes are headless and exact rather than borrowed from a plate: each is
+        // the displacement three's own `LightShadow.updateMatrices` produces after
+        // `scene.updateMatrixWorld()`, on the body rig at focus (0, 0.91, 0), camera (0.39, 0.91,
+        // 1.83), framed height 1.87 m. Two units, both physical: how far the shadow camera moved in
+        // metres, and the largest single element change in `shadow.matrix` — the model-to-shadow-map
+        // matrix every shadowed pixel is sampled through.
+        {
+            what: 'GRAPH — shadow.camera.matrixAutoUpdate false',
+            why: 'the first of the two an independent verifier planted, and the one that shows what the ' +
+                'old reason got wrong. `matrixAutoUpdate` was classified inert as "decides WHEN `matrix` ' +
+                'is recomposed, not what it recomposes to" — true only if something else recomposes it, ' +
+                'and nothing does. `LightShadow.updateMatrices` writes `camera.position` and calls ' +
+                '`lookAt`, then `updateMatrixWorld()` declines to fold either in, so the camera renders ' +
+                'the shadow map from the WORLD ORIGIN. Measured: the shadow camera moves 5.2155 m — ' +
+                'exactly its own standoff, i.e. all the way to (0,0,0) — and `shadow.matrix` moves by ' +
+                '6.06 in its largest element. On pixels: 1.07% of the frame at a worst Δ40/255.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.camera.matrixAutoUpdate = false;
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — the shadow camera reparented under a translated node',
+            why: 'the second planted mechanism, and the one that names the model error rather than a ' +
+                'field. It is a GRAPH defect: every field on the camera still reads exactly what the ' +
+                'table declares, and the camera is somewhere else. The closure already knew graph was a ' +
+                'hazard — it asserts `parentIsScene` for the LIGHT — and never asked the same question ' +
+                'of the camera, because a flat map of `light.field` has nowhere to put "and this field ' +
+                'is another Object3D with 44 fields of its own." Measured: the camera moves 0.2081 m, ' +
+                'the length of the carrier\'s own offset, and `shadow.matrix` moves 0.154. On pixels: ' +
+                '0.50% of the frame at a worst Δ15/255.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                if ( light.shadow.camera.parent !== null ) return false;
+
+                const carrier = new Object3D();
+                carrier.name = 'a node nobody declared';
+                carrier.position.set( 0.12, -0.08, 0.15 );
+                light.parent.add( carrier );
+                carrier.add( light.shadow.camera );
+
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — shadow.camera.matrixWorldAutoUpdate false',
+            why: 'NOT one of the two handed over — the same 5.2155 m collapse to the world origin ' +
+                'through the other of the two flags, and it was classified inert with the reason "as ' +
+                'above" pointing at a reason that was itself wrong. Two flags, one sentence of ' +
+                'justification, both live: the shape of a classification written from what a field ' +
+                'sounds like rather than from what three does with it.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.camera.matrixWorldAutoUpdate = false;
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — shadow.camera.up tilted 21°',
+            why: 'NOT one of the two handed over. `up` is genuinely inert on a LIGHT — the file\'s own ' +
+                'reason, that `lookAt` consumes it and the RESULT is the classified `quaternion`, is ' +
+                'correct there. It is wrong one level down, because `LightShadow.updateMatrices` calls ' +
+                '`lookAt` on every shadow pass and the camera\'s quaternion is NOT classified: it is ' +
+                'inert precisely BECAUSE that call overwrites it. So the same reason flips sign between ' +
+                'two nodes, which is the argument for classifying per node. Measured: the camera does ' +
+                'not move at all — 0.0000 m — and `shadow.matrix` still moves 0.143, because the map is ' +
+                'rolled about the view axis. The verifier measured this one on pixels too, at 0.08% and ' +
+                'Δ3/255: the smallest of the three, and invisible to every clause in this file.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.camera.up.set( Math.sin( 21 * Math.PI / 180 ), Math.cos( 21 * Math.PI / 180 ), 0 );
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — shadow.camera.pivot set',
+            why: 'NOT one of the two handed over, and the field is live on THREE different nodes with ' +
+                'three different reasons. `Object3D.updateMatrix` applies the pivot correction to the ' +
+                'translation column, so it walks the shadow camera 0.4767 m sideways and moves ' +
+                '`shadow.matrix` by 0.368. It was classified inert everywhere as "consumed by ' +
+                '`updateMatrix`, i.e. folded into `matrix`" — which is true, and `matrix` is inert only ' +
+                'because its INPUTS are classified, so folding into it is an argument for reading the ' +
+                'field rather than against it.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.shadow.camera.pivot = new Vector3( 0.4, 0.3, 0.2 );
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — the spot TARGET reparented under a translated node',
+            why: 'NOT one of the two handed over, and a different NODE rather than a different field: ' +
+                'the target is the other Object3D in a spot\'s graph, and three aims the light with ' +
+                '`setFromMatrixPosition( light.target.matrixWorld )` (Lights.js `lightTargetPosition`, ' +
+                'and again in `LightShadow.updateMatrices`). The declared `target` row reads the ' +
+                'target\'s LOCAL position, so it is still exactly the focus and still green. Measured: ' +
+                'the aim moves 0.2081 m off the focus and `shadow.matrix` moves 0.0971 — the shadow and ' +
+                'the cone both point somewhere else while every scalar in the table is perfect.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                if ( light.target.parent === null || light.target.parent.isScene !== true ) return false;
+
+                const carrier = new Object3D();
+                carrier.name = 'a node nobody declared';
+                carrier.position.set( 0.12, -0.08, 0.15 );
+                light.target.parent.add( carrier );
+                carrier.add( light.target );
+
+                return true;
+
+            }
+        },
+        {
+            what: 'GRAPH — target.matrixAutoUpdate false',
+            why: 'NOT one of the two handed over. The same flag as the first graph row, on the other ' +
+                'node, with a bigger amplitude: the target never composes its `matrix`, so its world ' +
+                'position stays at the origin and the aim moves the full 0.9100 m from the focus down ' +
+                'to the floor, taking `shadow.matrix` 0.548 with it. The spot then points at the ' +
+                'figure\'s feet and lights it from underneath, with `target` reading exactly the focus.',
+            mutate: ( light ) => {
+
+                if ( light.isSpotLight !== true ) return false;
+                light.target.matrixAutoUpdate = false;
+                return true;
+
+            }
+        },
+        {
+            what: 'LIGHT — the key panel\'s matrixAutoUpdate false',
+            why: 'NOT one of the two handed over, and it is on the LIGHT rather than in the graph below ' +
+                'it, which is what makes it the sharpest row here: `solve()` sets `position` and then ' +
+                'calls `lookAt`, and `Object3D.lookAt` writes `quaternion` WITHOUT recomposing `matrix`. ' +
+                'So with the flag off the panel keeps the orientation from the PREVIOUS solve while ' +
+                '`quaternion` holds the correct one — and the panel-aim invariant three rows above ' +
+                'reads `quaternion`, so it stays green. Measured: the panel\'s world basis ends up ' +
+                '12.0° off the focus with its position exactly right. This is why the flag is now a ' +
+                'read field on every light and not only on the shadow camera.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'key' ) return false;
+                light.matrixAutoUpdate = false;
+                return true;
+
+            }
+        },
+        {
+            what: 'LIGHT — the key panel\'s pivot set',
+            why: 'NOT one of the two handed over. `pivot` was inert on every light for the same wrong ' +
+                'reason as on the camera. Measured on the body rig: the key panel\'s world position ' +
+                'moves from (3.742, 2.412, 2.716) to (3.829, 2.365, 3.182), i.e. 0.475 m, with ' +
+                '`position` reading exactly what the placement table says. ⚠️ It is inert on the SPOT ' +
+                'and on the HEMISPHERE light, because the pivot correction is algebraically zero at ' +
+                'identity rotation and only the panel is turned by `lookAt` — conditional inertness, ' +
+                'which is not inertness. Held as a read field on all three rather than argued away.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'key' ) return false;
+                light.pivot = new Vector3( 0.4, 0.3, 0.2 );
+                return true;
+
+            }
+        },
+        {
+            what: 'LIGHT — the key panel\'s isLight brand cleared',
+            why: 'NOT one of the two handed over, and the one row here whose evidence is source rather ' +
+                'than a headless displacement, stated that way rather than dressed up. ' +
+                '`Renderer._projectObject` collects lights with `else if ( object.isLight ) ' +
+                'renderList.pushLight( object )`, so a light without the brand is never collected and ' +
+                'contributes nothing at all — the same total loss as the LAYERS row above, which was ' +
+                'measured at 24.00% of a body frame and Δ192/255 on the rim. It read "a type brand" for ' +
+                'three rounds. `isObject3D` really is only a brand and stays inert; the difference is ' +
+                'that something branches on one of them.',
+            mutate: ( light ) => {
+
+                if ( light.name !== 'key' ) return false;
+                light.isLight = false;
+                return true;
+
+            }
         }
     ];
 
@@ -2593,6 +2875,40 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
         delete caster.somethingThreeAddedInR186;
     }
 
+    // 🚩 THE SAME PROOF ON THE TWO NODES BELOW THE LIGHT, WHICH IS THE ONE THAT COULD NOT BE
+    // WRITTEN BEFORE THIS ROUND. The shadow camera was excluded from the sweep with
+    // `if ( key === 'camera' ) continue;` and read through seven hardcoded names, so a field three
+    // added to `PerspectiveCamera` — or a field anybody set on it — landed in NO list and was not
+    // reported. Measured on the shipped body rig before the fix: 7 fields read, 44 own enumerable
+    // keys, 37 in neither list, `unclassified` empty. Now every node is swept, so the closure
+    // reaches one level down and the assertion is per node rather than per light.
+    for ( const [ label, nodeOf, expected ] of [
+        [ 'the shadow camera', ( caster ) => caster.shadow.camera, 'shadow.camera.somethingThreeAddedInR186' ],
+        [ 'the spot target', ( caster ) => caster.target, 'target.somethingThreeAddedInR186' ]
+    ] ) {
+
+        const rig = rigForFingerprint( fingerprintCases[ 1 ] );
+        const caster = rig.lights.find( ( light ) => light.isSpotLight === true );
+        const node = nodeOf( caster );
+
+        node.somethingThreeAddedInR186 = 0.5;
+
+        const state = lightRenderState( caster );
+
+        report(
+            `CLOSURE reaches ${ label }: an unclassified field one level down the graph`,
+            state.unclassified.length === 1 && state.unclassified[ 0 ] === expected,
+            `an unrecognised field on ${ label } comes back as ${ JSON.stringify( state.unclassified ) }. ` +
+            'Before this round the same injection on the camera returned [] — the camera was skipped by ' +
+            'the sweep and read through seven hardcoded names, leaving 37 of its 44 own keys in no list ' +
+            'at all. A closure that stops at the first object is a list of remembered mechanisms one ' +
+            'level down, which is exactly what it was written not to be.'
+        );
+
+        delete node.somethingThreeAddedInR186;
+
+    }
+
     // 🚩 AND THE OTHER DIRECTION, because a closure asserted one way is half a closure. A field
     // this file says three reads that the object does not have is a rename in the dependency or a
     // light of the wrong class, and without `missing` it presents as a check quietly comparing
@@ -2616,6 +2932,277 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
         );
 
         caster.decay = 2;
+    }
+
+    // --- LIVENESS: the classification checked against three, not against itself ---------------
+    //
+    // 🎯 THE CLAUSE THAT WOULD HAVE FOUND THE WRONG REASONS BEFORE A VERIFIER DID.
+    //
+    // Everything above asks whether the rig matches its own declarations. Nothing above asks whether
+    // the DECLARATIONS match three, and that is the gap the fourth mechanism came through: four rows
+    // sat in the inert table with reasons that read well and were wrong —
+    //
+    //   `matrixAutoUpdate`      "decides WHEN `matrix` is recomposed, not what it recomposes to"
+    //   `matrixWorldAutoUpdate` "as above"
+    //   `pivot`                 "consumed by `updateMatrix`, i.e. folded into `matrix`"
+    //   `isLight`               "a type brand"
+    //
+    // Each of the first three names a mechanism that folds the field into something else that IS
+    // classified, and each is true only if something recomposes that something-else. Nothing does.
+    // A reason written from a grep is an argument, and arguments have now been wrong four times in
+    // this file.
+    //
+    // So this clause perturbs every own field of a node and asks THREE whether the answer moved,
+    // through three's own `LightShadow.updateMatrices` and `Object3D.updateMatrixWorld`. Two
+    // assertions, and the first is the one that matters:
+    //
+    //   A. Every field classified INERT must measure inert — or must move the picture ONLY by also
+    //      moving a field that is classified READ, which is legitimate aliasing (`rotation` moves
+    //      `quaternion`, and `quaternion` is held). A false INERT is how a mechanism gets in.
+    //   B. Every field classified READ should measure live. Where it cannot be shown live headlessly
+    //      the field is named below with its citation, rather than the assertion being softened —
+    //      a held list of two with reasons beats a threshold nobody can argue with.
+    //
+    // ⚠️ SCOPE, STATED. The signature for each node is the quantity three consumes from it, so the
+    // prober can only speak about fields that reach the picture through that quantity: the shadow
+    // camera's view and projection, the target's world position, the panel's world placement. Fields
+    // that reach the picture some other way — colour, intensity, width, height, visible, layers,
+    // castShadow, the class brands — are out of its reach by construction and are covered instead by
+    // a KNOWN-BAD row each, above. This is a second instrument on one axis, not a third closure.
+    {
+        const probes = [
+            {
+                what: 'shadow.camera',
+                prefix: 'shadow.camera.',
+                nodeOf: ( rig ) => rig.units[ 0 ].shadowCaster.shadow.camera,
+                lightOf: ( rig ) => rig.units[ 0 ].shadowCaster,
+                // Faithful to `ShadowNode.render`, which assigns `coordinateSystem` from the RENDER
+                // camera and calls `updateProjectionMatrix()` before every pass. Modelling that here
+                // is what lets the inert reason for `coordinateSystem` be CHECKED rather than
+                // believed — without it the probe reports the field live and the reason unproven.
+                signature: ( rig, scene ) => {
+
+                    const caster = rig.units[ 0 ].shadowCaster;
+
+                    scene.updateMatrixWorld();
+                    caster.shadow.camera.coordinateSystem = WebGPUCoordinateSystem;
+                    caster.shadow.camera.updateProjectionMatrix();
+                    caster.shadow.updateMatrices( caster );
+
+                    return caster.shadow.matrix.elements.slice();
+
+                },
+                heldWithoutHeadlessProof: {
+                    filmGauge: '`PerspectiveCamera.updateProjectionMatrix` reads it only through '
+                        + '`getFilmWidth()` inside the `filmOffset !== 0` branch, so it is live exactly '
+                        + 'when `filmOffset` is — and `filmOffset` is itself a read field, so the pair '
+                        + 'closes. Holding it is one row; arguing it away is a conditional',
+                    isPerspectiveCamera: '`ShadowNode` branches on it to choose the depth encoding '
+                        + '(ShadowNode.js:350 `isOrthographicCamera`, :626 `isPerspectiveCamera`), which '
+                        + 'needs a real shadow pass rather than `updateMatrices`. Source, not a probe',
+                    layers: 'decides WHICH OBJECTS are drawn into the shadow map — `ShadowNode.render` '
+                        + 'swaps the mask in and out around the pass (ShadowNode.js:731–766) and '
+                        + '`_projectObject` tests it. It cannot move `shadow.matrix`, which is the '
+                        + 'signature here, because it changes the map\'s CONTENT and not its geometry'
+                }
+            },
+            {
+                what: 'target',
+                prefix: 'target.',
+                nodeOf: ( rig ) => rig.units[ 0 ].shadowCaster.target,
+                lightOf: ( rig ) => rig.units[ 0 ].shadowCaster,
+                signature: ( rig, scene ) => {
+
+                    scene.updateMatrixWorld();
+
+                    return new Vector3()
+                        .setFromMatrixPosition( rig.units[ 0 ].shadowCaster.target.matrixWorld )
+                        .toArray();
+
+                },
+                heldWithoutHeadlessProof: {
+                    pivot: 'measured live only in company: `pivot` alone moves nothing (the correction '
+                        + 'is algebraically zero at identity rotation) and `rotation` alone moves nothing '
+                        + '(`compose` writes `position` verbatim into the translation column), while the '
+                        + 'two together take the aim to (−0.043, 0.910, 0.261). Reading `pivot` is what '
+                        + 'makes the inert reasons for `rotation` and `scale` unconditional'
+                }
+            },
+            {
+                what: 'the key panel',
+                prefix: '',
+                nodeOf: ( rig ) => rig.units[ 0 ].area,
+                lightOf: ( rig ) => rig.units[ 0 ].area,
+                signature: ( rig, scene ) => {
+
+                    scene.updateMatrixWorld();
+
+                    const world = rig.units[ 0 ].area.matrixWorld;
+
+                    return [ ...world.elements ];
+
+                },
+                // Everything a panel contributes that is not its placement. Each has a KNOWN-BAD row.
+                heldWithoutHeadlessProof: {
+                    color: 'not a placement; the signature here is the panel\'s world matrix',
+                    intensity: 'as above',
+                    width: 'as above',
+                    height: 'as above',
+                    visible: 'as above — read in `_projectObject`, which this probe does not run',
+                    layers: 'as above; proved by the LAYERS known-bad row',
+                    castShadow: 'as above; it is a TypeError at first compile, not a placement',
+                    isLight: 'as above; proved by its own known-bad row and by `_projectObject`',
+                    isRectAreaLight: 'read only by `WebGLLights.js`, which this project does not run',
+                    matrixWorldAutoUpdate: 'inert on a panel that `solve()` has already placed, and live '
+                        + 'the moment the rig re-aims. Proved on the shadow camera, where '
+                        + '`updateMatrices` re-places the node every pass'
+                }
+            }
+        ];
+
+        /**
+         * A perturbation a CALLER could plausibly make, per field.
+         *
+         * ⚠️ The generic branches below are deliberately conservative, and the two named overrides
+         * are why. A `children` array perturbed by pushing a plain `{}` makes `updateMatrixWorld`
+         * throw, and a probe that reads a throw as "the field is live" reports every array field as
+         * a false inert; a `view` perturbed into a Vector3 has no `.enabled`, so
+         * `updateProjectionMatrix` ignores it and the probe reports a live field as dead. Both are
+         * defects in the INSTRUMENT rather than in the classification, and both were caught by this
+         * clause failing on its first run — which is the cheapest possible evidence that it is
+         * measuring something.
+         */
+        const perturbationOverrides = {
+            children: ( node ) => node.add( new Object3D() ),
+            view: ( node ) => { node.view = { enabled: true, fullWidth: 2, fullHeight: 2, offsetX: 0.3, offsetY: 0, width: 1, height: 1 }; }
+        };
+
+        const perturb = ( node, key ) => {
+
+            if ( perturbationOverrides[ key ] !== undefined ) { perturbationOverrides[ key ]( node ); return; }
+
+            const value = node[ key ];
+
+            if ( value === null || value === undefined ) { node[ key ] = new Vector3( 0.4, 0.3, 0.2 ); return; }
+            if ( typeof value === 'boolean' ) { node[ key ] = ! value; return; }
+            if ( typeof value === 'number' ) { node[ key ] = value === 0 ? 0.37 : value * 1.37; return; }
+            if ( typeof value === 'string' ) { node[ key ] = `${ value }-perturbed`; return; }
+            if ( value.isColor === true ) { value.setHex( 0x123456 ); return; }
+            if ( value.isVector3 === true || value.isEuler === true ) { value.set( 0.4, 0.3, 0.2 ); return; }
+            if ( value.isQuaternion === true ) { value.set( 0.1, 0.2, 0.3, 0.927 ).normalize(); return; }
+            if ( value.isMatrix4 === true ) { value.makeTranslation( 0.7, 0.7, 0.7 ); return; }
+            if ( typeof value.set === 'function' && typeof value.mask === 'number' ) { value.set( 3 ); return; }
+            if ( Array.isArray( value ) ) { node[ key ] = [ ...value, {} ]; return; }
+            if ( value.isObject3D === true ) { value.position.set( 0.4, 0.3, 0.2 ); return; }
+
+            node[ key ] = { perturbed: true };
+
+        };
+
+        // ⚠️ A TOLERANCE, AND IT IS NOT AN OPINION ABOUT THE PHYSICS. `Camera.updateMatrixWorld`
+        // DECOMPOSES `matrixWorld` and recomposes `matrixWorldInverse` at unit scale, so a scaled
+        // camera comes back through a divide and a multiply and lands within an ulp or two of where
+        // it started rather than exactly on it. An exact comparison reads that as a live field. The
+        // question this clause asks is "does three's answer CHANGE", and 1e-12 on a matrix whose
+        // live perturbations move it by 0.09 to 6.06 is four orders of magnitude clear of both.
+        const moved = ( a, b ) => {
+
+            if ( typeof a === 'string' || typeof b === 'string' ) return a !== b;
+
+            return a.some( ( value, index ) => Math.abs( value - b[ index ] ) > 1e-12 );
+
+        };
+
+        for ( const probe of probes ) {
+
+            const fresh = () => {
+
+                const scene = new Scene();
+                const rig = new LightingRig( { preset: 'body' } );
+
+                rig.attachTo( scene, null );
+                rig.aimAt( shots.body );
+
+                return { scene, rig };
+            };
+
+            const base = fresh();
+            const reference = probe.signature( base.rig, base.scene );
+            const referenceRead = lightRenderState( probe.lightOf( base.rig ) ).read;
+
+            const falseInert = [];
+            const aliased = [];
+            const readButInert = [];
+            let live = 0;
+
+            for ( const key of Object.keys( probe.nodeOf( base.rig ) ) ) {
+
+                const name = `${ probe.prefix }${ key }`;
+
+                // `parent` is the one field a perturbation cannot express in place, and it has its own
+                // derived row (`parentIsNull` / `parentIsScene`) plus two known-bad rows above.
+                if ( key === 'parent' ) continue;
+
+                const trial = fresh();
+                const node = probe.nodeOf( trial.rig );
+
+                perturb( node, key );
+
+                let signature;
+
+                try { signature = probe.signature( trial.rig, trial.scene ); }
+                catch { signature = 'threw'; }
+
+                const changed = moved( signature, reference );
+                const state = lightRenderState( probe.lightOf( trial.rig ) );
+                const isRead = name in state.read;
+
+                if ( changed ) live += 1;
+
+                if ( isRead === false && changed === true ) {
+
+                    // Legitimate only if it moved the picture BY moving a field that IS held.
+                    const movedARead = Object.keys( referenceRead ).some( ( held ) =>
+                        JSON.stringify( state.read[ held ] ) !== JSON.stringify( referenceRead[ held ] ) );
+
+                    ( movedARead ? aliased : falseInert ).push( name );
+
+                }
+
+                if ( isRead === true && changed === false && key in probe.heldWithoutHeadlessProof === false ) {
+
+                    readButInert.push( name );
+
+                }
+
+            }
+
+            report(
+                `LIVENESS: nothing ${ probe.what } calls inert can move what three consumes`,
+                falseInert.length === 0,
+                falseInert.length === 0
+                    ? `${ live } field(s) measured live and every one of them is a declared read row; ` +
+                        `${ aliased.length } inert field(s) move the picture only by also moving a read ` +
+                        `field (${ aliased.join( ', ' ) || 'none' }), which is the aliasing the ` +
+                        'classification allows. This asks three, not the table — the four reasons this ' +
+                        'round corrected all read well and were all wrong.'
+                    : `FALSE INERT: ${ falseInert.join( ', ' ) } change what three consumes and are ` +
+                        'classified as fields that cannot'
+            );
+
+            report(
+                `LIVENESS, the other way: nothing ${ probe.what } calls read is silently dead`,
+                readButInert.length === 0,
+                readButInert.length === 0
+                    ? `every read field either moved the signature or is one of ` +
+                        `${ Object.keys( probe.heldWithoutHeadlessProof ).length } named as held without a ` +
+                        'headless proof, each with its citation. A read field nobody can move is a row ' +
+                        'that will never go red, and a table full of those is a hash'
+                    : `HELD BUT DEAD: ${ readButInert.join( ', ' ) } are declared read and move nothing, ` +
+                        'and are not on the named held list'
+            );
+
+        }
     }
 
     // 🚩 STATED LIMIT, AND IT IS THE ONE PLACE THIS CLOSURE DOES NOT REACH.

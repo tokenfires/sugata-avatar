@@ -745,6 +745,14 @@ export function silhouetteBandPixels( azimuthDegrees, limbRadiusMetres, framedHe
 // on the figure", answered from three's own source rather than from memory, so the gate can assert
 // the SET and go red on the fourth mechanism nobody has met yet.
 //
+// 🚩 ROUND FOUR ARRIVED ANYWAY, AND IT CAME THROUGH THE PARAGRAPH ABOVE RATHER THAN AROUND IT. The
+// set was asserted for the LIGHT and hand-read for the shadow CAMERA — seven fields out of 44, with
+// the camera excluded from the sweep — so the closure was an enumeration one level down and two
+// planted defects moved pixels past a green gate. The correction is a change of MODEL, not another
+// row: a light's render state is an object GRAPH, and `classifyNode` sweeps every node of it. See
+// `SHADOW_CAMERA_NODE` below for the plates, and read that section before adding anything here,
+// because "add the field that bit us" is the move this file has now made four times.
+//
 // Enumerated at **three 0.185.1** by grepping every read in `three/src/nodes/lighting/*.js` and
 // `three/src/nodes/accessors/Lights.js`, plus the two `reference()` forms that read through a
 // string and so do not appear as `light.x`:
@@ -856,27 +864,58 @@ export function spotIrradianceFactor( spot, point ) {
  * reason it cannot. Verified by grep over `three/src/nodes/**` and `three/src/renderers/common/**`
  * at three 0.185.1 — a field is inert here only if no shading path reads it FOR A LIGHT, not
  * merely because it looks like bookkeeping.
+ *
+ * 🚩 **AND, THIS ROUND, VERIFIED BY EXECUTION AS WELL, WHICH MOVED FOUR ROWS OUT OF THIS TABLE.**
+ * A reason written from a grep is an argument, and this file has now shipped four wrong ones. Every
+ * row here and in every table below is re-derived by perturbing the field on the shipped rig and
+ * asking three's own update path whether the answer changed — `scene.updateMatrixWorld()` then the
+ * quantities `RectAreaLightNode.update`, `SpotLightNode.setupDirect` and `HemisphereLightNode`
+ * actually pull (world position, `extractRotation( matrixWorld )`, colour, intensity, width, height,
+ * angle, penumbra, distance, decay, the target's world position, visible, layers, castShadow). The
+ * prober lives in `LightingRig.selftest.mjs` as the LIVENESS clause, so the tables are not merely
+ * asserted against themselves. What it found:
+ *
+ *   | field                   | was                                       | measured |
+ *   |-------------------------|-------------------------------------------|----------|
+ *   | `matrixAutoUpdate`      | inert, "decides WHEN `matrix` is recomposed" | **LIVE** on `RectAreaLight` and `SpotLight` |
+ *   | `matrixWorldAutoUpdate` | inert, "as above"                         | **LIVE** on all three classes |
+ *   | `pivot`                 | inert, "folded into `matrix`"             | **LIVE** on `RectAreaLight` |
+ *   | `isLight`               | inert, "a type brand"                     | **LIVE** — `Renderer._projectObject` collects a light with `else if ( object.isLight )`, so a light without the brand contributes nothing at all |
+ *
+ * The first three share one mistake: each reason names a mechanism that folds the field into
+ * something else that IS classified, and each is true only if something recomposes that
+ * something-else. Nothing does. `matrixAutoUpdate` false leaves `matrix` at the identity it was
+ * constructed with, so the light sits at the world origin however carefully `solve()` set its
+ * `position`. "Folded into a classified field" is a statement about the LAST write, and these three
+ * decide whether the write happens.
  */
 const INERT_ON_ANY_LIGHT = {
-    isObject3D: 'a type brand',
+    isObject3D: 'a type brand — and unlike `isLight` below, nothing in the WebGPU path branches on it',
     uuid: 'keys the node cache (`AnalyticLightNode.getHash`); a different uuid rebuilds the same light',
     name: 'labels the shadow render pass in a debug capture and nothing else',
     type: 'the light node class is chosen by constructor lookup in `NodeLibrary`, not by this string',
     parent: 'covered instead by `parentIsScene`, which is the property the world-space claim needs',
     children: 'a light with children still contributes exactly its own term',
-    up: 'consumed by `lookAt`; the result of that call is `quaternion`, which IS classified',
-    rotation: 'the Euler mirror of `quaternion`; the same state read twice',
+    up: 'consumed by `lookAt`; the result of that call is `quaternion`, which IS classified. ⚠️ Read '
+        + 'the SHADOW CAMERA\'s entry before copying this reason anywhere: there `lookAt` runs inside '
+        + '`LightShadow.updateMatrices` every frame and the resulting quaternion is NOT classified, '
+        + 'so the same field is live one level down',
+    rotation: 'the Euler mirror of `quaternion`; the same state read twice, and three keeps the two '
+        + 'in step through `_onRotationChange`, so a rig that set this instead fails the panel '
+        + 'orientation invariant. Measured: setting `rotation` on the key panel does move the render '
+        + 'state, and it moves it BY moving `quaternion`',
     quaternion: 'only a `RectAreaLight` is oriented — a spot points at its target and a hemisphere '
         + 'light reads its POSITION as the sky axis, so neither consults its own rotation. Promoted '
         + 'to a read field for `RectAreaLight` below',
     scale: 'reaches the picture only through `extractRotation( matrixWorld )`, which a `RectAreaLight` '
         + 'does and no other light here does. Promoted for `RectAreaLight` below — and read the '
         + 'measurement there before assuming which scales matter, because the obvious answer is wrong',
-    matrix: 'the local composition of position/quaternion/scale, all three of which ARE classified',
-    matrixWorld: 'ditto, one level up, and equal to `matrix` while `parentIsScene` holds',
-    matrixAutoUpdate: 'decides WHEN `matrix` is recomposed, not what it recomposes to',
-    matrixWorldAutoUpdate: 'as above',
-    matrixWorldNeedsUpdate: 'a dirty flag',
+    matrix: 'the local composition of position/quaternion/scale/pivot, all four of which ARE '
+        + 'classified — and `matrixAutoUpdate`, which decides whether the composition happens at all, '
+        + 'is classified too. That last clause is what was missing when this row was written',
+    matrixWorld: 'ditto, one level up, with `matrixWorldAutoUpdate` and `parentIsScene` closing it',
+    matrixWorldNeedsUpdate: 'a dirty flag: setting it true forces one extra recomposition of a matrix '
+        + '`matrixAutoUpdate` already recomposes every frame. Measured inert on all three classes',
     receiveShadow: 'read on the objects being SHADED (`AnalyticLightNode.setup`), never on the light',
     frustumCulled: 'lights are collected in `_projectObject` before any frustum test',
     renderOrder: 'orders draw calls; lights are not drawn',
@@ -884,16 +923,20 @@ const INERT_ON_ANY_LIGHT = {
     customDepthMaterial: 'used when a MESH is rendered into a shadow map',
     customDistanceMaterial: 'as above',
     static: 'a hint to the render-list cache; the same light either way',
-    pivot: 'consumed by `updateMatrix`, i.e. folded into `matrix`',
-    userData: 'application storage, read by nothing in three',
-    isLight: 'a type brand'
+    userData: 'application storage, read by nothing in three'
 };
 
-/** Per-class inert fields, same rule and same evidence. */
+/**
+ * Per-class inert fields, same rule and same evidence.
+ *
+ * Empty for all three classes since the brands moved to `READ_BY_CLASS`. Kept rather than deleted
+ * because the NEXT class added here will have its own bookkeeping, and a table that exists is one
+ * somebody fills in.
+ */
 const INERT_BY_CLASS = {
-    RectAreaLight: { isRectAreaLight: 'a type brand' },
-    SpotLight: { isSpotLight: 'a type brand' },
-    HemisphereLight: { isHemisphereLight: 'a type brand' }
+    RectAreaLight: {},
+    SpotLight: {},
+    HemisphereLight: {}
 };
 
 /**
@@ -905,8 +948,18 @@ const INERT_BY_CLASS = {
  * goes straight to `this.light.shadow.shadowNode`, and `light.shadow` is `undefined` on both. The
  * consequence of setting it is not "nothing", it is a TypeError at first compile. Classifying it as
  * inert would have been the defensible-sounding answer and the wrong one.
+ *
+ * 🚩 `isLight` is here for the same shape of reason and it was classified inert until this round.
+ * `Renderer._projectObject` collects lights with `else if ( object.isLight ) renderList.pushLight()`,
+ * so the brand is not documentation — it is the test that decides whether the light exists.
+ *
+ * 🚩 `matrixAutoUpdate`, `matrixWorldAutoUpdate` and `pivot` are here because they were MEASURED
+ * live, having been argued inert. See the table on `INERT_ON_ANY_LIGHT`.
  */
-const READ_ON_ANY_LIGHT = [ 'color', 'intensity', 'position', 'visible', 'layers', 'castShadow' ];
+const READ_ON_ANY_LIGHT = [
+    'color', 'intensity', 'position', 'visible', 'layers', 'castShadow',
+    'isLight', 'matrixAutoUpdate', 'matrixWorldAutoUpdate', 'pivot'
+];
 
 /**
  * ⚠️ `scale` IS A READ FIELD ON A `RectAreaLight` AND THE REASON IS NOT THE OBVIOUS ONE.
@@ -926,11 +979,26 @@ const READ_ON_ANY_LIGHT = [ 'color', 'intensity', 'position', 'visible', 'layers
  * a sign, the basis changes handedness, and the panel's half-height points the other way. The field
  * stays classified as read because of the second row; the first row is kept because it is exactly
  * LEARNINGS §1.25h — a plausible mechanism is not a measured effect, and this one is zero.
+ *
+ * ⚠️ **`scale` IS INERT ON THE SHADOW CAMERA, MIRROR AND ALL, AND THAT IS NOT AN INCONSISTENCY.**
+ * `Camera.updateMatrixWorld` decomposes its own `matrixWorld` and rebuilds `matrixWorldInverse` with
+ * `_scale.set( 1, 1, 1 )` (three/src/cameras/Camera.js:126) — a camera throws its scale away, sign
+ * included. Measured: `(2,2,2)`, `(1,2,3)` and `(−1,1,1)` on the key's shadow camera all leave
+ * `matrixWorldInverse` bit-identical. The same field, opposite verdicts, both from three's source.
+ * That is the whole argument for classifying PER NODE rather than once for the graph.
+ *
+ * ⚠️ **The three class brands are read fields and only one of them is genuinely read on this path.**
+ * `isSpotLight` is (`LightsNode.customCacheKey`, deciding whether `map` and `colorNode` join the
+ * program hash); `isRectAreaLight` and `isHemisphereLight` are read only by `WebGLLights.js`, which
+ * this project does not run. They are held anyway, and the reason is stated rather than dressed up:
+ * a brand is one boolean, holding it costs one declared row, and arguing about whether a brand is
+ * "just a brand" has now cost this file four wrong rows. `isLight` is the cautionary case — it read
+ * "a type brand" for three rounds and it is the test `_projectObject` uses to collect the light.
  */
 const READ_BY_CLASS = {
-    RectAreaLight: [ 'width', 'height', 'quaternion', 'scale' ],
-    HemisphereLight: [ 'groundColor' ],
-    SpotLight: [ 'distance', 'angle', 'penumbra', 'decay', 'map', 'target', 'shadow' ]
+    RectAreaLight: [ 'width', 'height', 'quaternion', 'scale', 'isRectAreaLight' ],
+    HemisphereLight: [ 'groundColor', 'isHemisphereLight' ],
+    SpotLight: [ 'distance', 'angle', 'penumbra', 'decay', 'map', 'target', 'shadow', 'isSpotLight' ]
 };
 
 /** Fields three reads that do not exist until somebody sets them. Absent is the declared state. */
@@ -952,6 +1020,189 @@ const INERT_ON_SHADOW = {
     _viewports: 'scratch'
 };
 
+/**
+ * Fields on a `LightShadow` that are OBJECTS IN THE GRAPH, swept as nodes rather than read flat.
+ *
+ * 🚩 The same object drives BOTH the "skip it in the flat sweep" test and the node sweep itself,
+ * deliberately. The old code had those as two separate edits — `if ( key === 'camera' ) continue;`
+ * in one place and seven hardcoded reads in another — so a node could be excused from the flat
+ * sweep without ever being swept as a node, which is exactly what happened. One table, one
+ * consequence: excusing a field here IS enrolling it below.
+ */
+const NODES_ON_SHADOW = { camera: () => SHADOW_CAMERA_NODE };
+
+// --- and the fields of the graph, which is the half that was missing -------------------------
+//
+// 🚩 THE CLOSURE WAS ITSELF AN ENUMERATION, ONE LEVEL DOWN, AND IT COST A FOURTH MECHANISM.
+//
+// The section above was written so that "an enumeration of remembered mechanisms structurally
+// cannot cover the next one" — and then handled the shadow CAMERA with seven hardcoded reads and
+// `if ( key === 'camera' ) continue;`, so the camera was never swept at all. Measured on the shipped
+// body rig: 7 fields read, 44 own enumerable keys, **37 in neither list and not reported in
+// `unclassified`**, with `unclassified` and `missing` both empty. An independent verifier planted
+// two of them in `frameShadowCamera()` and the gate read 122/122 through both:
+//
+//   | planted in `frameShadowCamera()`               | gate    | % of frame moved | worst Δ/255 |
+//   |------------------------------------------------|---------|-----------------:|------------:|
+//   | `camera.matrixAutoUpdate = false`              | 122/122 |            1.07% |          40 |
+//   | camera reparented under a translated node      | 122/122 |            0.50% |          15 |
+//   | `camera.up` tilted 21°                         | 122/122 |            0.08% |           3 |
+//
+// (`/alive.html?bare&freeze&seed=1&capture`, 900×1200, dpr 1, seed 1, 60 steps @ 60 fps, 2 loads,
+// shipped defaults aa=taau + grade + RCAS with MSAA OFF, 0 px residue within each plate.)
+//
+// The second one is the tell. It is a GRAPH defect, not a scalar one, and the closure already knew
+// graph was a hazard — it asserts `parentIsScene` for the LIGHT and never asked the same question of
+// the camera. The reason it never asked is structural: a flat map of `light.field` has nowhere to
+// put "and this field is another Object3D with 44 fields of its own."
+//
+// So the model changes rather than the list. **A light's render state is an object GRAPH**, and
+// every node in it — the light, its shadow, the shadow's camera, the spot's target — gets the same
+// treatment: swept for what it HAS, every own key either read with a value or inert with a reason,
+// anything else into `unclassified`. `classifyNode` below is that sweep, and the two tables after it
+// are the two nodes that were being read by hand.
+//
+// ⚠️ The classifications below are MEASURED, not grepped. Each field was perturbed on the shipped
+// rig and three's own `LightShadow.updateMatrices` / `scene.updateMatrixWorld()` asked whether the
+// answer moved; `LightingRig.selftest.mjs`'s LIVENESS clause is that prober kept as a gate, so the
+// tables cannot drift away from three without going red.
+
+/**
+ * The shadow camera. 14 fields three reads, 30 it cannot, one derived fact about the graph.
+ *
+ * 🚩 **Four of the reads are fields that are INERT ON A LIGHT, and the difference is `lookAt`.** A
+ * light is placed by `solve()` once and left; the shadow camera is re-placed by
+ * `LightShadow.updateMatrices` on every shadow pass, which sets `position` from the light's world
+ * matrix, calls `camera.lookAt( target )` and then `camera.updateMatrixWorld()`. That sequence puts
+ * `up`, `isCamera` (the branch `Object3D.lookAt` takes), `matrixAutoUpdate` and
+ * `matrixWorldAutoUpdate` directly in the path of the result, and it makes `position`, `rotation`
+ * and `quaternion` — the three a reader would reach for first — derived and therefore inert.
+ *
+ * 🚩 **`focus` here is NOT `shadow.focus`.** `PerspectiveCamera.focus` is the stereo convergence
+ * distance and `updateProjectionMatrix` never reads it; `shadow.focus` is the multiplier on the
+ * shadow frustum's field of view and is read one level up. Two live fields one property apart with
+ * the same name, and only one of them does anything here.
+ */
+const SHADOW_CAMERA_NODE = {
+
+    read: [
+        // the projection
+        'near', 'far', 'zoom', 'filmGauge', 'filmOffset', 'view',
+        // the view matrix, via `updateMatrices`
+        'up', 'matrixAutoUpdate', 'matrixWorldAutoUpdate', 'pivot', 'isCamera',
+        // what the shadow pass draws, and how depth is encoded
+        'layers', 'isPerspectiveCamera', '_reversedDepth'
+    ],
+
+    inert: {
+        isObject3D: 'a type brand; `_projectObject` never sees the shadow camera as an object',
+        uuid: 'the render list is keyed by object identity (`ChainMap`), not by uuid',
+        name: 'a label',
+        type: 'nothing dispatches on it; the depth path branches on `isPerspectiveCamera` instead',
+        parent: 'covered instead by `parentIsNull` below, which is the property the claim needs',
+        children: 'the camera is not in the scene being rendered, so its children are never drawn',
+        position: 'assigned from `light.matrixWorld` by `LightShadow.updateMatrices` on every pass',
+        rotation: 'the Euler mirror of a quaternion `lookAt` overwrites on every pass',
+        quaternion: 'assigned by `camera.lookAt( target )` inside `updateMatrices`',
+        scale: '⚠️ NOT for the reason a `RectAreaLight`\'s scale is read. `Camera.updateMatrixWorld` '
+            + 'rebuilds `matrixWorldInverse` with `_scale.set( 1, 1, 1 )` (Camera.js:126), so a camera '
+            + 'discards its own scale — MEASURED inert at (2,2,2), (1,2,3) and the mirror (−1,1,1), '
+            + 'which is the case that moved 98.86% of the frame on a panel',
+        matrix: 'recomposed from position/quaternion/scale/pivot by `updateMatrix`, and '
+            + '`matrixAutoUpdate` — the field that decides whether that happens — is READ above',
+        matrixWorld: 'recomposed by `updateMatrixWorld`, with `matrixWorldAutoUpdate` and '
+            + '`parentIsNull` closing it',
+        matrixWorldNeedsUpdate: 'a dirty flag; `updateMatrices` calls `updateMatrixWorld()` regardless',
+        visible: 'the camera is not in the scene being rendered',
+        castShadow: 'as above',
+        receiveShadow: 'as above',
+        frustumCulled: 'as above',
+        renderOrder: 'as above',
+        animations: 'clip storage',
+        customDepthMaterial: 'read on a MESH being rendered into a shadow map, never on the camera',
+        customDistanceMaterial: 'as above',
+        static: 'a render-list cache hint',
+        userData: 'application storage',
+        matrixWorldInverse: 'recomputed by `Camera.updateMatrixWorld` from `matrixWorld`',
+        projectionMatrix: 'recomputed by `updateProjectionMatrix`, which `ShadowNode.render` calls on '
+            + 'every shadow pass (ShadowNode.js:439)',
+        projectionMatrixInverse: 'recomputed alongside it',
+        coordinateSystem: 'assigned from the RENDER camera on every shadow pass '
+            + '(`ShadowNode.render`, ShadowNode.js:438), so the authored value is never the one used',
+        fov: 'overwritten every pass by `SpotLightShadow.updateMatrices` from `light.angle x '
+            + 'shadow.focus`; the two INPUTS are what the gate holds',
+        aspect: 'overwritten every pass from `mapSize.width / mapSize.height x shadow.aspect`',
+        focus: '`PerspectiveCamera.focus`, the stereo convergence distance — NOT `shadow.focus`. '
+            + '`updateProjectionMatrix` does not read it'
+    },
+
+    derived: {
+        // Every distance and every matrix in this file assumes the shadow camera stands alone, so
+        // that `updateMatrixWorld()` leaves it exactly where `updateMatrices` put it. It is never
+        // added to any scene. Stated as state, because a verifier reparented it under a translated
+        // node and moved 0.50% of the frame past a green gate.
+        parentIsNull: ( camera ) => camera.parent === null
+    }
+
+};
+
+/**
+ * The spot's target. Three reads `setFromMatrixPosition( light.target.matrixWorld )` — a WORLD
+ * position — in two places (`Lights.js` `lightTargetPosition`, and `LightShadow.updateMatrices`),
+ * so the target's place in the graph is as load-bearing as its `position`.
+ *
+ * ⚠️ **`pivot` is read here and `rotation`/`scale` are inert, and the pair only closes together.**
+ * Measured on the shipped target: pivot alone moves nothing (identity rotation makes the pivot
+ * correction algebraically zero), rotation alone moves nothing (`compose` writes `position`
+ * verbatim into the translation column whatever the basis), and the two TOGETHER move the target's
+ * world position to (−0.043, 0.910, 0.261). Neither can be called inert on its own without assuming
+ * the other's value. Reading `pivot` — one row, declared null — makes the inert reasons for
+ * `rotation` and `scale` true unconditionally instead of true-given-a-field-nobody-checks.
+ */
+const SPOT_TARGET_NODE = {
+
+    read: [ 'matrixAutoUpdate', 'matrixWorldAutoUpdate', 'pivot' ],
+
+    inert: {
+        isObject3D: 'a type brand; the target is an empty `Object3D` and is never drawn',
+        uuid: 'nothing keys on it',
+        name: 'a label',
+        type: 'nothing dispatches on it',
+        parent: 'covered instead by `parentIsScene` below',
+        children: 'the target is read for its world position only',
+        up: 'consumed by `lookAt`, which nothing calls on the target',
+        position: 'the same state the light\'s own `target` row already carries, read twice',
+        rotation: '`Matrix4.compose` writes `position` verbatim into the translation column whatever '
+            + 'the basis, so only the pivot correction could involve the rotation — and `pivot` is '
+            + 'READ above. Measured inert with `pivot` at its declared null',
+        quaternion: 'the same state as `rotation`',
+        scale: 'as `rotation`: it scales the basis columns, never the translation column',
+        matrix: 'recomposed by `updateMatrix`, and `matrixAutoUpdate` is READ above',
+        matrixWorld: 'recomposed by `updateMatrixWorld`, with `matrixWorldAutoUpdate` and '
+            + '`parentIsScene` closing it',
+        matrixWorldNeedsUpdate: 'a dirty flag',
+        layers: 'measured inert — an empty `Object3D` draws nothing, so failing `_projectObject`\'s '
+            + 'layer test removes nothing from the frame, and `scene.updateMatrixWorld()` runs before '
+            + 'and independently of it',
+        visible: 'measured inert, and counterintuitively so: an INVISIBLE target still aims the spot, '
+            + 'because the aim is read off `matrixWorld` and not out of the render list',
+        castShadow: 'the target is not a mesh',
+        receiveShadow: 'as above',
+        frustumCulled: 'as above',
+        renderOrder: 'as above',
+        animations: 'clip storage',
+        customDepthMaterial: 'as `castShadow`',
+        customDistanceMaterial: 'as above',
+        static: 'a render-list cache hint',
+        userData: 'application storage'
+    },
+
+    derived: {
+        parentIsScene: ( target ) => target.parent !== null && target.parent.isScene === true
+    }
+
+};
+
 const _axis = /* @__PURE__ */ new Vector3();
 const _toPoint = /* @__PURE__ */ new Vector3();
 
@@ -970,6 +1221,54 @@ function plainValue( value ) {
     if ( value.isObject3D === true ) return [ value.position.x, value.position.y, value.position.z ];
 
     return value;
+
+}
+
+/**
+ * Sweeps ONE node of the light's graph: every own key either read with a value or inert with a
+ * reason, anything else into `unclassified`, anything declared-read but absent into `missing`.
+ *
+ * This is the generalisation of what `lightRenderState` already did for the light itself, and its
+ * whole reason to exist is that the light was the only node getting it. A node handed to this
+ * function cannot hide a field, which is the property the seven hardcoded `shadow.camera` reads did
+ * not have.
+ *
+ * @param {import('three').Object3D} node
+ * @param {string} prefix - key prefix in the returned maps, e.g. `shadow.camera`.
+ * @param {{ read: string[], inert: Object<string,string>, derived: Object<string,Function> }} spec
+ * @param {{ read: Object, inert: Object, unclassified: string[], missing: string[] }} into
+ */
+function classifyNode( node, prefix, spec, into ) {
+
+    for ( const name of spec.read ) {
+
+        if ( name in node === false ) {
+
+            into.missing.push( `${ prefix }.${ name }` );
+            continue;
+
+        }
+
+        into.read[ `${ prefix }.${ name }` ] = plainValue( node[ name ] );
+
+    }
+
+    for ( const [ name, why ] of Object.entries( spec.inert ) ) into.inert[ `${ prefix }.${ name }` ] = why;
+
+    for ( const [ name, derive ] of Object.entries( spec.derived ) ) {
+
+        into.read[ `${ prefix }.${ name }` ] = derive( node );
+
+    }
+
+    for ( const key of Object.keys( node ) ) {
+
+        if ( spec.read.includes( key ) ) continue;
+        if ( key in spec.inert ) continue;
+
+        into.unclassified.push( `${ prefix }.${ key }` );
+
+    }
 
 }
 
@@ -1054,7 +1353,7 @@ export function lightRenderState( light ) {
 
         for ( const key of Object.keys( shadow ) ) {
 
-            if ( key === 'camera' ) continue;
+            if ( key in NODES_ON_SHADOW ) continue;   // swept as a graph node, just below
             if ( key in INERT_ON_SHADOW ) continue;
             if ( `shadow.${ key }` in read ) continue;
 
@@ -1062,21 +1361,26 @@ export function lightRenderState( light ) {
 
         }
 
-        // The shadow camera. `fov` and `aspect` are deliberately NOT read: `SpotLightShadow
-        // .updateMatrices` overwrites both every frame from `light.angle x shadow.focus` and
-        // `mapSize x shadow.aspect`, so the authored pair is inert and its two INPUTS are what the
-        // gate has to hold. `far` is read anyway because `light.distance || camera.far` means a
-        // non-zero cutoff silently takes the far plane over.
-        // `coordinateSystem` is deliberately absent: `ShadowNode.render` assigns it from the render
-        // camera on every shadow pass, so the authored value is never the one used.
-        for ( const key of [ 'near', 'far', 'zoom', 'filmGauge', 'filmOffset' ] ) {
+        // 🚩 The shadow's own graph nodes, swept rather than hand-read. This used to be seven
+        // hardcoded reads with the camera excluded from the sweep above, which left 37 of its 44 own
+        // fields in neither list AND out of `unclassified` — see the section header for the two that
+        // moved pixels past a 122/122 gate. `far` is read despite `light.distance || camera.far`,
+        // because a non-zero cutoff silently taking the far plane over is exactly what the gate is
+        // for.
+        for ( const [ key, specOf ] of Object.entries( NODES_ON_SHADOW ) ) {
 
-            read[ `shadow.camera.${ key }` ] = plainValue( shadow.camera[ key ] );
+            classifyNode( shadow[ key ], `shadow.${ key }`, specOf(), { read, inert, unclassified, missing } );
 
         }
 
-        read[ 'shadow.camera.layers' ] = shadow.camera.layers.mask;
-        read[ 'shadow.camera.view' ] = shadow.camera.view === null ? null : 'set';
+    }
+
+    // The spot's target is the other Object3D in the light's graph, and three reads its WORLD
+    // position — so where it sits in the graph decides the aim as much as its own `position` does.
+    // Same sweep, same reason.
+    if ( light.target !== undefined && light.target !== null && light.target.isObject3D === true ) {
+
+        classifyNode( light.target, 'target', SPOT_TARGET_NODE, { read, inert, unclassified, missing } );
 
     }
 
