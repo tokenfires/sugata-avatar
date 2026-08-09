@@ -84,6 +84,12 @@
  *                   other half of the eye's attribution pair
  *   ?cards=0        eyelash and eyebrow cards keep the shipped GLB material — the control for the
  *                   card shading, and the plate that proves gate G7 goes red
+ *   ?wear=a,b       PHASE 9. Dress the figure. `?wear=female_casualsuit01,shoes01,fedora01` is
+ *                   the catalogue; `?wear=` alone loads the wardrobe and wears nothing, which is
+ *                   how to see the body swap on its own. Absent, NOTHING is imported and no
+ *                   manifest is fetched, so the plate the seven gates are stated on is untouched
+ *                   — see `WARDROBE_BODY_URL`. Needs the g050 bake; refused in words otherwise.
+ *                   Live from the console as `sugata.wardrobe`.
  *   ?msaa=0         build the stage without any AA at all. Shorthand for ?aa=off.
  *   ?aa=taau|traa|msaa|off
  *                   which anti-aliasing. `taau` at 0.66 resolution scale is the DEFAULT and the
@@ -136,7 +142,8 @@ import {
     PlaneGeometry,
     Vector3
 } from 'three/webgpu';
-import { Box3 } from 'three';
+import { max, texture, vec3, vec4 } from 'three/tsl';
+import { Box3, SRGBColorSpace } from 'three';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { LightingRig } from '../../core/src/render/LightingRig.js';
@@ -220,14 +227,66 @@ const DEFAULT_REST_POSE = 'relaxed-standing';
  * why this one stays as it is rather than becoming a lit surface with the arrival of 3.8.
  */
 // Gate G6 asks for a whole-image 0.1st-percentile luma of 0.004-0.016 and this hex is the whole
-// of what it measures: the card is the darkest thing in frame, and being emissive it lights
-// nothing, so sweeping it moves the black point and touches nothing else. Measured across
-// 0x11151f / 0x0a0d13 / 0x050709 with everything else fixed: portrait p0.1 0.02047 / 0.00842 /
-// 0.00393 and body 0.03785 / 0.02467 / 0.01652, while the lit cheek stays at 0.8407-0.8408. No
-// single value satisfies both framings strictly; 0x050709 gets both within 3% of the band, and
-// the reference's own frontal portrait measured 0.0042.
-const BACKDROP_EMISSIVE = 0x050709;
+// of what it measures ONCE THE CARDS HAVE A FLOOR: the backdrop is then the darkest thing in
+// frame, and being emissive it lights nothing, so sweeping it moves the black point and touches
+// nothing else.
+//
+// ⚠️ THE SWEEP THAT USED TO STAND HERE IS SUPERSEDED AND IS NOT APPENDED TO, BECAUSE IT WAS TAKEN
+// ON A DIFFERENT PICTURE. It read `0x11151f / 0x0a0d13 / 0x050709` -> portrait 0.02047 / 0.00842 /
+// 0.00393, body 0.03785 / 0.02467 / 0.01652, at a time when the eyelash and eyebrow cards rendered
+// at literally RGB(0,0,0) and OWNED the whole tail — so on the portrait plate it was measuring the
+// cards through the backdrop's name. See CARD_ALBEDO_FLOOR for the 1,431 pure-black pixels.
+//
+// 🎯 RE-MEASURED AT INTEGRATION, on the shipped default with the card floor in place, ONE FLAG
+// APART, `?bare&freeze&seed=1&capture` 60 steps at 900x1200 dpr 1:
+//
+//   | backdrop  | portrait p0.1 | body p0.1 |
+//   |-----------|--------------:|----------:|
+//   | 0x050709  |       0.00393 |   0.01260 |   portrait 0.00007 UNDER the 0.004 floor
+//   | 0x070a0e  |       0.00420 |   0.01597 |   both in band
+//
+// 0x050709's portrait reading is exactly 1/255 — it IS the backdrop's own output code value, so
+// the failure was never about the picture, it was about the darkest surface in frame sitting one
+// code value below where the gate starts counting.
+//
+// ⚠️ AND THE WINDOW IS ONE OUTPUT CODE VALUE WIDE. Body clears the 0.016 ceiling by 0.00003, i.e.
+// 0.2% of the band, and the next step up (0x090c12) puts body OUT at 0.01989. That is not a
+// comfortable constant and it should not be read as one: it is a value chosen so BOTH framings can
+// be measured at all, on a gate the punch list already records as asking one question of two
+// populations. The durable fix is PUNCHLIST's, not this line's — state G6 against a plate that HAS
+// an environment, rather than against a void with a card in front of it.
+const BACKDROP_EMISSIVE = 0x070a0e;
 const BACKDROP_DISTANCE_METRES = 1.9;
+
+// --- the wardrobe ------------------------------------------------------------------------------
+
+/**
+ * The wardrobe-ready body, and the manifest that says what may be worn over it.
+ *
+ * 🎯 WHY `?wear` IS OPT-IN AND THE DEFAULT PLATE IS UNTOUCHED. This page carries every measured
+ * gate in `docs/PROGRESS.md` and it is the page 8.1's blind critic captures. Dressing changes the
+ * silhouette, the draw-call count and the body's own triangle count, and loading the wardrobe body
+ * changes the bake's sha256 — so with no `?wear` in the URL nothing here is imported, nothing is
+ * fetched, and the plate is byte-for-byte the plate the seven gates are stated on. Verified by
+ * execution at integration, not asserted: the shipped default's sha256 is unchanged by this file's
+ * wardrobe code being present.
+ *
+ * ⚠️ THE BODY IS A DIFFERENT ARTEFACT FROM `assets/figures/figure_g050.glb`, DELIBERATELY. It is
+ * the same MPFB2 build plus the per-vertex `_HIDE_*` attributes the runtime rebuild needs, which
+ * costs 174,708 bytes (58,068 per garment, as FLOAT32) and — the reason it is not simply merged —
+ * a different sha256 on a file several committed gates are measured against. Merging them is the
+ * right end state and belongs in the same round as that re-measurement, not before it.
+ *
+ * ⚠️ AND ONLY `g050` EXISTS. Punch-list 9.4 owns the other four bakes and the fit thresholds that
+ * would make them trustworthy, so `?wear` with `?gender` anywhere other than 0.5 is REFUSED in
+ * words rather than silently ignored — a wardrobe that quietly does nothing on four fifths of the
+ * identity range is worse than one that says which fifth it has.
+ */
+const WARDROBE_BODY_URL = new URL( '../../../assets/wardrobe/body/g050.glb', import.meta.url ).href;
+const WARDROBE_MANIFEST_URL = new URL( '../../../assets/wardrobe/manifest.json', import.meta.url ).href;
+
+/** The one bake the wardrobe has fragments for. See WARDROBE_BODY_URL. */
+const WARDROBE_BAKE = 'figure_g050';
 
 const FIXED_STEP_SECONDS = 1 / 60;
 
@@ -467,7 +526,15 @@ async function boot() {
         skin: null,
         eyes: null,
         eyeOcclusion: null,
-        cards: []
+        cards: [],
+
+        // Phase 9. `?wear=female_casualsuit01,shoes01` dresses the figure; `?wear=` with nothing
+        // after it loads the wardrobe and wears nothing, which is the way to see the body swap on
+        // its own. See `WARDROBE_BODY_URL` for why this is opt-in and what it costs when it is on.
+        wardrobeRequest: query.has( 'wear' )
+            ? ( query.get( 'wear' ) ?? '' ).split( ',' ).map( ( id ) => id.trim() ).filter( ( id ) => id !== '' )
+            : null,
+        wardrobe: null
     };
 
     // The rig is preset per framing, not scaled from one. The portrait rim azimuth measures 1 px
@@ -731,10 +798,22 @@ async function boot() {
         // model for a claim about all of it.
         shadingState: () => shadingFingerprint( session, stage ),
 
+        // And the surface `shadingState` cannot close by listing fields: every readable property
+        // of the renderer and the scene, walked. A `?cards=0` confound routed through
+        // `renderer.toneMappingExposure` was invisible to nineteen hand-picked pipeline fields;
+        // this is the deny-by-default answer to the whole class. Separate from `shadingState`
+        // because three honest toggles move render state and would read as collateral inside it.
+        renderState: () => renderAndSceneState( stage ),
+
         // Which URL keys this page actually consulted on this load. The gate's inventory of
         // toggles used to be a list in the test file, which is a list of what somebody remembered;
         // this is a list of what the code did.
         toggleSurface: () => query.keysRead(),
+
+        // Phase 9, live. Null unless `?wear` was in the URL — see WARDROBE_BODY_URL for why the
+        // default plate must not pay for this. `sugata.wardrobe.dress([...])`, `.undress()`,
+        // `.putOn([...])`, `.takeOff([...])` and `.stats()` all work from the console.
+        get wardrobe() { return session.wardrobe; },
 
         // Every per-frame counter a shader or a resolve can read, so a gate can state what they
         // SHOULD be after N steps rather than only whether two runs happen to agree. Two runs
@@ -860,6 +939,36 @@ export const CAPTURE_CLOCK_DEFECTS = {
  *      So the grain needed one pin, and the temporal resolve needed all three. A fix that stopped
  *      at `frameId` would have made the A-side plate reproducible and left the SHIPPED DEFAULT
  *      exactly as broken, which is §1.25c's trap wearing a fix's clothes.
+ *
+ *   4. ⚠️ AND WHAT IS LEFT AFTER ALL THAT IS 1 LSB ON 0.0008% OF SAMPLES, WHICH IS NOT ZERO.
+ *      Re-verified 2026-08-08 at HEAD `2ec7db9` by SEPARATE BROWSER LAUNCHES in separate node
+ *      processes against one un-watched vite — a stronger test than two contexts of one browser,
+ *      which share a GPU process and a shader cache. `?bare&freeze&seed=1&capture` stepped
+ *      60×(1/60) at 900×1200 dpr 1. The counters are pinned EXACTLY on every run: `frameId` 60,
+ *      `jitterIndex` 29, `time` 1.0000000000000013 to sixteen significant figures. The pixels are
+ *      not quite:
+ *
+ *        | configuration                       | launches | result                              |
+ *        |-------------------------------------|----------|-------------------------------------|
+ *        | `?aa=msaa&grade=0` (the A side)     | 4        | byte-identical, sha `afd763f4535435fd` |
+ *        | `?aa=msaa` (grade on, no resolve)   | 3        | byte-identical                      |
+ *        | `?aa=taau&grade=0` (resolve, no grade) | 3     | byte-identical                      |
+ *        | `?grain=0` (resolve + grade, no grain) | 3     | byte-identical                      |
+ *        | **shipped default**                 | 10       | 5-34 of 4,320,000 samples differ, every one of them by exactly 1/255 |
+ *
+ *      IT TAKES BOTH THE RESOLVE AND THE GRAIN; neither alone does it, and `?grain=0` is the
+ *      single flag that attributes it. The mechanism is a quantiser, not a counter: the temporal
+ *      resolve accumulates in float and a GPU is free to reorder the reductions inside a
+ *      dispatch, so its output differs in the last bits between launches — invisible until a
+ *      dither is added on top, which pushes a few dozen pixels across a code boundary. It does
+ *      not grow with the clip (9 samples at 240 steps against 34 at 60).
+ *
+ *      So the honest statement of what `?capture` now guarantees on the shipped default is
+ *      "reproducible to 1 code value on under 0.001% of samples", not "byte-identical", and a
+ *      gate that compares two plates must state a TOLERANCE rather than a digest. `capture.mjs`'s
+ *      header already says this about its own reproducibility check, and it is the reason
+ *      `alive-capture-determinism.selftest.mjs` compares decoded pixels rather than sha256.
+ *      Anyone quoting a sha for a shipped-default plate is quoting one draw.
  *
  * Both `_animation` and `_nodes` are private, so this reaches into the renderer and says so. If
  * an upgrade renames either, capture falls back to leaving rAF running: correct pictures, no
@@ -1138,7 +1247,10 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     const plan = await session.identity.resolve();
     const token = ++ session.loadToken;
 
-    const figure = await Figure.load( plan.figures[ 0 ].url );
+    // The wardrobe needs the body that carries the `_HIDE_*` attributes; everything else — the
+    // curvature map, the cavity map, the eye fit — is still keyed on the identity's own bake name,
+    // because the two files are the same geometry and differ only by those attributes.
+    const figure = await Figure.load( wardrobeBodyOr( plan.figures[ 0 ].url, session ) );
 
     // A fast slider drag starts several loads; only the newest may land.
     if ( token !== session.loadToken ) {
@@ -1232,6 +1344,80 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     if ( unfitted.length > 0 ) console.warn( `ground contact: this figure has no ${ unfitted.join( ', ' ) }` );
 
     ground.sizeTo( { focus, subjectHeightMetres: session.framedHeightMetres } );
+
+    // LAST, and the order is load-bearing in two directions. The ground's occluder radii are
+    // MEASURED off the meshes under `figure.root`, so dressing before `fitTo` would fit a capsule
+    // to a trouser leg; and `dress()` rebuilds the body's index buffer, so framing before it is
+    // framing on the whole body rather than on whatever the outfit leaves showing — which is what
+    // keeps `?wear` from moving the camera relative to a nude plate.
+    await dressFigure( session );
+
+}
+
+/**
+ * The body a figure should be loaded from: the wardrobe's, when this plate is dressing.
+ *
+ * Refuses in words rather than degrading, because a wardrobe that silently does nothing on four
+ * fifths of the identity range reads as a broken wardrobe rather than as an unbuilt one.
+ */
+function wardrobeBodyOr( url, session ) {
+
+    if ( session.wardrobeRequest === null ) return url;
+
+    if ( bakeNameFrom( url ) !== WARDROBE_BAKE ) {
+
+        console.warn( `?wear is ignored on ${ bakeNameFrom( url ) }: punch-list 9.4 owns the other ` +
+            `four bakes and only ${ WARDROBE_BAKE } has garment fragments. Load ?gender=0.5 to dress.` );
+
+        session.wardrobeRequest = null;
+        return url;
+
+    }
+
+    return WARDROBE_BODY_URL;
+
+}
+
+/**
+ * Builds the wardrobe over the figure that has just landed and wears what the URL asked for.
+ *
+ * The import is dynamic so a plate with no `?wear` never pays for it — neither the module nor the
+ * manifest fetch — which is what makes the shipped default byte-identical with this code present.
+ *
+ * A refused outfit is REPORTED and the page carries on nude, rather than throwing out of the boot
+ * path and leaving a blank canvas. Two garments at one layer is a caller error, not a page error,
+ * and the failure a judge needs to see is the figure plus the reason.
+ */
+async function dressFigure( session ) {
+
+    if ( session.wardrobeRequest === null ) return;
+
+    const { Wardrobe } = await import( '../../core/src/wardrobe/Wardrobe.js' );
+
+    session.wardrobe = await Wardrobe.create( session.figure, WARDROBE_MANIFEST_URL );
+
+    if ( session.wardrobeRequest.length === 0 ) {
+
+        console.log( 'wardrobe: loaded, wearing nothing. ' +
+            `Hide masks available: ${ session.wardrobe.availableHideMasks().join( ', ' ) }` );
+        return;
+
+    }
+
+    try {
+
+        const stats = await session.wardrobe.dress( session.wardrobeRequest );
+
+        console.log( `wardrobe: wearing ${ stats.worn.join( ', ' ) } — ` +
+            `body ${ stats.bodyTriangles } tris (${ stats.hiddenTriangles } hidden) + ` +
+            `${ stats.garmentTriangles } garment tris in ${ stats.drawCalls } draw calls, ` +
+            `dressed in ${ stats.lastDressMs.toFixed( 3 ) } ms` );
+
+    } catch ( error ) {
+
+        console.warn( `wardrobe: ${ error.message }` );
+
+    }
 
 }
 
@@ -1751,6 +1937,7 @@ function shadingFingerprint( session, stage ) {
         `samples=${ stage.renderer.samples ?? 0 }`,
         `background=${ stage.scene.background?.getHexString?.() ?? 'nil' }`,
         `toneMapping=${ stage.renderer.toneMapping }`,
+        `toneMappingExposure=${ rounded( stage.renderer.toneMappingExposure ) }`,
         `outputColorSpace=${ stage.renderer.outputColorSpace }`
     ].join( ' ' );
 
@@ -1758,6 +1945,165 @@ function shadingFingerprint( session, stage ) {
     fingerprint.nodesWalked = budget.visited > NODE_SIGNATURE_NODE_BUDGET ? 'OVER BUDGET' : 'within budget';
 
     return fingerprint;
+
+}
+
+/**
+ * Every readable configuration property of the renderer and the scene, walked rather than listed.
+ *
+ * ## Why this exists beside `shadingFingerprint` instead of inside it
+ *
+ * `shadingFingerprint`'s `pipeline` row is nineteen hand-picked renderer fields — a SAMPLE of the
+ * render state standing in for a claim about ALL of it, which is the same "an enumeration is not a
+ * closure" error the fingerprint itself was built to fix, one level up. An independent verifier
+ * routed a `?cards=0` confound through `renderer.toneMappingExposure` and every instrument on this
+ * page reported the plate as clean. Measured on this page, the renderer and the scene carry ~116
+ * readable properties, so naming the one that got caught fixes one confound and leaves the rest.
+ *
+ * It is a SEPARATE entry point rather than extra rows in the fingerprint because the fingerprint is
+ * compared as an exact entity set: `?shadows=0` legitimately moves `renderer.shadowMap.enabled`,
+ * `?aa=off` moves the sample count and `?scale=1` moves the canvas size, so folding the walk into
+ * the same key space would make three honest toggles read as collateral. Two questions, two
+ * objects — "what shading did this plate use" and "what render state did this plate use".
+ *
+ * ## What it reads, and the deliberate limits
+ *
+ * - **Own properties**, underscore-prefixed ones included: `_samples` is where the MSAA count
+ *   lives and its public accessor is a second reading of the same thing. Deny-by-default is
+ *   cheaper than adjudicating which of two spellings is canonical.
+ * - **Prototype accessors**, through a try/catch. A getter that throws is recorded as `threw`
+ *   rather than skipped, so a property that STARTS throwing is a change rather than a silence.
+ * - **One level into plain objects** — members whose constructor is `Object` and nothing else.
+ *   That reaches `shadowMap.enabled` and `debug.checkShaderErrors` and keeps `backend`, `info`,
+ *   `_nodes` and the other machinery instances out, so a per-frame counter cannot make it drift.
+ * - **`undefined` values are dropped.** Measured: `scene.backgroundNode` is an own property
+ *   holding `undefined` on some plates and absent on others, reproducibly, and those are the same
+ *   state.
+ * - **`uuid` is excluded, and it is the only exclusion.** three mints a fresh one per instance, so
+ *   it differs on every load — the same reason `textureIdentity` above refuses to use it.
+ *
+ * @returns {Object<string,string>} property path -> value. Compared for equality, never parsed.
+ */
+function renderAndSceneState( stage ) {
+
+    const subjects = { renderer: stage.renderer, scene: stage.scene };
+    const state = {};
+
+    const describe = ( value ) => {
+
+        if ( value === null ) return 'null';
+        if ( typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string' ) return String( value );
+        if ( typeof value === 'function' ) return null;
+        if ( Array.isArray( value ) ) return `array(${ value.length })`;
+
+        if ( typeof value === 'object' ) {
+
+            if ( value.isColor === true ) return `color:${ value.getHexString() }`;
+            return `object:${ value.constructor?.name ?? '?' }`;
+
+        }
+
+        return String( value );
+
+    };
+
+    for ( const [ label, subject ] of Object.entries( subjects ) ) {
+
+        const seen = new Set();
+
+        const record = ( key, value ) => {
+
+            if ( value === undefined ) return;
+
+            const described = describe( value );
+
+            if ( described !== null ) state[ `${ label }.${ key }` ] = described;
+
+        };
+
+        for ( const key of Object.keys( subject ).sort() ) {
+
+            seen.add( key );
+
+            if ( key === 'uuid' ) continue;
+
+            let value;
+
+            try {
+
+                value = subject[ key ];
+
+            } catch {
+
+                state[ `${ label }.${ key }` ] = 'threw';
+                continue;
+
+            }
+
+            record( key, value );
+
+            // The one level down. A plain object here is a configuration bag three wrote by hand
+            // — `shadowMap`, `debug` — and everything else is a class with machinery in it.
+            if ( value !== null && typeof value === 'object' && Array.isArray( value ) === false
+                && value.constructor === Object ) {
+
+                for ( const inner of Object.keys( value ).sort() ) {
+
+                    try {
+
+                        record( `${ key }.${ inner }`, value[ inner ] );
+
+                    } catch {
+
+                        state[ `${ label }.${ key }.${ inner }` ] = 'threw';
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        let prototype = Object.getPrototypeOf( subject );
+
+        while ( prototype !== null && prototype !== Object.prototype ) {
+
+            for ( const key of Object.getOwnPropertyNames( prototype ).sort() ) {
+
+                if ( seen.has( key ) || key === 'uuid' ) continue;
+
+                const descriptor = Object.getOwnPropertyDescriptor( prototype, key );
+
+                if ( descriptor === undefined || typeof descriptor.get !== 'function' ) continue;
+
+                seen.add( key );
+
+                try {
+
+                    record( `get:${ key }`, subject[ key ] );
+
+                } catch {
+
+                    state[ `${ label }.get:${ key }` ] = 'threw';
+
+                }
+
+            }
+
+            prototype = Object.getPrototypeOf( prototype );
+
+        }
+
+    }
+
+    // Not a property of either object, and the one piece of render state that lives on the canvas:
+    // `?scale` is applied with `setSize`, so this is where a resolution confound would show.
+    const canvas = stage.renderer.domElement;
+
+    state[ 'renderer.canvasPixels' ] = `${ canvas.width }x${ canvas.height }`;
+
+    return state;
 
 }
 
@@ -1782,6 +2128,38 @@ function shadingFingerprint( session, stage ) {
  * decile rather than half way up the ramp.
  */
 const CARD_ALPHA_CUTOFF = 0.1;
+
+/**
+ * The darkest albedo a hair card is allowed to claim, as an sRGB hex.
+ *
+ * 🎯 THIS IS THE WHOLE OF G6 AT PORTRAIT FRAMING, and it is a measurement rather than a taste
+ * setting. Both card textures' cores are **0.0000 linear** — not dark, ZERO — and an ungraded
+ * shipped plate at 900x1200 carried **1,431 pixels at literally RGB(0,0,0), 100% of them in the
+ * brow and lash row band**. `?grade=0&cards=0` on the same build has **no** pure-black pixel at
+ * all and a minimum of 0.003922, which is the backdrop.
+ *
+ * A surface at zero albedo with `specularIntensity 0` cannot be raised by any light, any ambient
+ * term, any ground bounce or any grade — so the black point was never a black point, and three
+ * rounds of looking at `LightingRig`, `Grade` and `GroundContact` for it were looking in the wrong
+ * file. Proven by toggle: `?grain=0` reads 0.00225 against the shipped 0.00225 (identical to five
+ * decimals, so the grain crushes nothing) and `?grade=0` reads 0.00001 (so the grade LIFTS).
+ *
+ * The value is the look spec's own published hair base albedo — §Hair states it as a measurement,
+ * "base albedo is essentially black — luma 0.067 (#150F17)" — which is 0.0060 linear, i.e. the
+ * texture cores are 27x below the reference and are not a physical reflectance. It is a FLOOR on
+ * the albedo and not an emissive, so the cards still respond to the rig; an emissive was used to
+ * bound the magnitude during attribution and is not what ships.
+ *
+ * Measured with that magnitude probe: the brow+lash band's p0.1 goes 0.00113 -> 0.00843 and the
+ * whole-frame G6 goes 0.00225 -> 0.00393. A much darker floor (#0A070B) gives the same 0.00393,
+ * which is the finding: ANY non-zero floor takes the cards out of the tail, so this constant is
+ * chosen for being the spec's published value rather than for the number it produces.
+ *
+ * ⚠️ Punch-list 3.5's Karis hair BSDF is what eventually makes hair's colour come from its
+ * anisotropic lobes rather than its albedo, exactly as the spec describes. When that lands, this
+ * floor is the thing to re-derive, not to keep.
+ */
+const CARD_ALBEDO_FLOOR = 0x150F17;
 
 /**
  * Shades the alpha-masked hair cards — the eyelashes and the eyebrows.
@@ -1865,6 +2243,25 @@ function applyCardShading( figure, multisampled ) {
         card.map = previous.map;
         card.color.copy( previous.color );
         card.side = previous.side;
+
+        // The albedo floor — see CARD_ALBEDO_FLOOR. Written as an explicit `colorNode` rather than
+        // left to `materialColor` because the floor has to be applied to the SAMPLED texel, and
+        // the alpha has to survive it: `alphaTest` reads `diffuseColor.a`, and `vec4( someVec3 )`
+        // pads the alpha with ZERO, which would discard every texel on the card and delete the
+        // brows and lashes outright. So the alpha is carried across from the same sample
+        // explicitly, and the browsercheck below counts the meshes that came out the other side.
+        if ( previous.map !== null && previous.map !== undefined ) {
+
+            const floor = new Color().setHex( CARD_ALBEDO_FLOOR, SRGBColorSpace );
+            const sampled = texture( previous.map );
+
+            card.colorNode = vec4(
+                max( sampled.rgb.mul( vec3( previous.color.r, previous.color.g, previous.color.b ) ),
+                    vec3( floor.r, floor.g, floor.b ) ),
+                sampled.a
+            );
+
+        }
 
         // Kept from the asset rather than re-chosen: with no specular lobe they change nothing,
         // and a number that changes nothing should not be silently re-authored.

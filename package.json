@@ -11,6 +11,9 @@
     "preview": "vite preview",
     "figure": "bash tools/figure-pipeline/build.sh",
     "critic": "node tools/critic/measure.mjs",
+    "wardrobe": "node packages/core/src/wardrobe/wardrobe.selftest.mjs",
+    "verify:glb": "node tools/figure-pipeline/verify_glb.mjs",
+    "selftests": "bash tools/run-selftests.sh",
     "spikes": "vite --config vite.spikes.config.js"
   },
   "dependencies": {

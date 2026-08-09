@@ -28,7 +28,9 @@ const PAGES = [
     'src/eye.html',
     'src/lighting.html',
     'src/post.html',
-    'src/voice.html'
+    'src/voice.html',
+    'src/wardrobe.html',
+    'src/fabric.html'
 ];
 
 export default mergeConfig( base, defineConfig( {
