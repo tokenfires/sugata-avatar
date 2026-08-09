@@ -1444,6 +1444,206 @@ coherent activewear set, open footwear, women's shoes beyond one block-heel boot
 matched formalwear, adaptive or maternity cuts, or **any non-Western dress** (9.10).
 Women's footwear is the thinnest slot on either rail by a wide margin.
 
+## Phase 10 — Identity sculpting
+
+The brief's R8 asks for an avatar that is "male, female, or a combination of the two — the AI's
+identity." Phase 1 delivered the first half and named the second: `Identity.js` accepts
+`{age, build, height}`, stores them, and does nothing with them — `NOT_YET_BAKED` says so in code.
+This phase is the second half, and it is larger than three axes: **1,258 targets are already
+installed, and `targets/target.json` groups them into 203 bidirectional sliders across 21 regions.**
+
+Measurements, sources and the evidence behind every number below live in
+[`research/identity-sculpting.md`](research/identity-sculpting.md).
+
+### The architecture
+
+- [ ] **10.1** `figure/IdentityTargets.js` — CPU application of MPFB detail and macro targets to the
+      position buffer, once, at identity-change time. 🎯 **Identity morphs never animate, so they
+      are not GPU morph targets and cost NOTHING per frame.** A target is a pure additive
+      per-vertex offset with no solver: applying the `.target` files in JS reproduces MPFB's own
+      output to **1.09e-4 mm** on an identity whose own magnitude is 23.218 mm, and to
+      **1.15e-4 mm** on one of 187.267 mm.
+      Gate: **MEASURED** — for a stated identity, the JS result matches a headless MPFB build of
+      the same identity to < 0.001 mm on all 19,158 vertices, and the per-frame morph cost is
+      unchanged against Phase 0.8's measured **0.219 ms for 69 targets**. Apply cost must stay
+      under the measured **2.0598 ms for all 203 sliders at once**, once, off the frame path.
+- [ ] **10.2** `figure/IdentityCatalogue.js` + `assets/identity/catalogue.json` — the 203 slider
+      categories read out of MPFB's `target.json`, with region, label, sidedness and the two target
+      filenames per direction. 🚩 **`macrodetails` is NOT a 348-slider tier**; it is the
+      interpolation corpus for eight macro parameters declared in `macro.json`, and exposing it as
+      sliders would be exposing `universal-female-young-maxmuscle-minweight` as a dial.
+      Gate: **MEASURED** — the catalogue accounts for all 1,258 installed files exactly
+      (530 detail + 348 macro + 216 breast-macro + 102 expression + 62 asym), and a selftest fails
+      if any file is unclassified. Region counts must match research §2.2 to the unit.
+- [ ] **10.3** Expression correctives. 🚩 **A blendshape is a fixed absolute displacement and it
+      does not rescale.** `jawOpen` travels **38.738 mm** and `eyeBlinkLeft` **15.521 mm** on the
+      base figure, on a face identity, and on a body identity — **identical to the last digit**. So
+      an identity that changes the size of a gap leaves the expression under- or over-shooting it:
+      measured, `eye-height2-incr` costs **−1.543 mm of a 15.50 mm blink (−10.0%)**,
+      `eye-scale-incr` −1.049 mm, `eye-scale-decr` **+1.042 mm** (lids drive through each other),
+      and the effect is **exactly linear in weight** (−1.022 at 1.00 against −0.256 at 0.25).
+      🎯 **Rigid-motion targets cost EXACTLY ZERO** — `eye-trans-out`, `head-scale-horiz-incr`,
+      `chin-height-incr` and `mouth-scale-horiz-incr` all measure +0.000 mm — so the expensive
+      sliders are a nameable minority and the corrective is one scalar per (faceunit × slider).
+      Gate: **MEASURED** — build the lid-corner instrument the research doc's §7 says is missing
+      (ray-cast against triangles, or a plate), prove it **red** on `eye-height2-incr` at 1.0, and
+      show residual closure error < 0.2 mm across the whole exposed slider range after correction.
+- [ ] **10.4** `figure/CoherenceGate.js` — anthropometric ratios computed from the mesh, reported in
+      three bands (inside-norm / stylised / outside-human-variation) against cited population
+      norms. **This is `verify_glb.mjs` plus a clause, not a new subsystem** — §1.5 measured the
+      existing gate already failing an extreme identity unaided, on the corneal dome, when the
+      fitted sclera radius went 15.308 → 18.372 mm.
+      🎯 **The named first case is the user's: an agent that wants to read as "cute" and moves the
+      eyes apart.** Measured on real builds, `eye-trans-out` at 1.0 moves intercanthal distance
+      **27.789 → 36.989 mm** and the canthal index **31.596 → 38.073** while leaving eye fissure
+      length and bizygomatic width **bit-identical**, whereas the same intent served correctly
+      (bigger eyes, shorter chin, taller forehead) leaves the canthal index **unchanged to four
+      decimal places** and moves the eye-line fraction 0.4358 → 0.4689.
+      🚩 **The gate REDIRECTS, it does not block, and the research corrects the reason why.**
+      Separation is absent from Lorenz's seven baby-schema points and from all five parametric
+      studies (Glocker 2009, Borgi 2014, Yao 2022, Geldart 1999, Sternglanz 1977) — but Naran 2018
+      found +10% intercanthal rated **more** attractive and Haig 1984 found *"marked insensitivity
+      to wide-set eyes"*, and Hall 2009 says there is **no objective adult criterion** for
+      hypertelorism at all. So the message is *"this lever does nothing for that intent"*, and the
+      redirect is to the levers that work: **eye width / face width toward 0.19** (adult 0.17,
+      infant 0.19, Borgi 2014) and **eye line LOWER** — Lorenz's own item 3, and PC1 at **31.6% of
+      variance**, the largest single component, in Komori 2022.
+      🚩 **Population-matched thresholds are mandatory, not a refinement.** East Asian canthal index
+      runs ~41–44 against European ~35–36, so a European-normed gate flags a healthy Korean face —
+      the exact look target R3 binds us to — by about 2 SD. Read the threshold off the identity's
+      own ethnicity weights. And 🚩 **do NOT build the morphological facial index gate**: it needs
+      zygion, whose cross-method spread is 14.6 mm and which the NIOSH handbook locates "by
+      palpation" of bone that a soft-tissue mesh does not have.
+      ⚠️ **Licensing, flagged the way NRC-VAD was.** `Elements of Morphology` (the hypertelorism
+      definitions) is **CC 3.0 NonCommercial**, and the two best Korean tables (Kwon 2021,
+      Lee 2020) are **CC BY-NC**. Cite the figures as facts; ship no tables. The clean Korean source
+      is Lee 2019 *Sci Rep*, CC-BY 4.0, n = 7,569.
+      Gate: **MEASURED** — **proven red on the built `eyes-wide` figure** and green on
+      `cute-correct`, both of which exist. A gate that has never failed is decoration; this one
+      ships with its red fixture. Every threshold carries its citation and its population in the
+      code, and a threshold with neither fails the selftest.
+- [ ] **10.5** `figure/IdentityFile.js` — serialisation. Sparse JSON: only moved sliders are
+      written, so a default identity is a few hundred bytes and two identities diff to the list of
+      real differences. 🎯 **It stores INTENT, not only parameters** — the agent's stated goal in
+      its own words, a `serves` string per choice, and a per-choice provenance of
+      `agent` / `human-adjusted` / `preset:<id>` with `agentProposed` retained whenever the two
+      differ. Without that, "something's off about the face" has no gradient to follow and 10.11 is
+      intractable. It also carries the coherence verdict at save time and a pinned
+      `targetLibrary` digest over the targets actually referenced.
+      Gate: **MEASURED** — round-trip is exact (load → save → byte-identical); a file authored
+      against a changed target library **refuses to load silently** and reports which sliders moved
+      and by how many millimetres of resulting displacement; and a selftest asserts that a
+      human-overruled choice retains what the agent proposed.
+- [ ] **10.6** Preset library — a small set of *looks*, not people. 🚩 MPFB's own authors warn that
+      *"Phenotypes are based on preconceptions of artists … they encode by design stereotypes of
+      MakeHuman artists"*, and this project's base is a deliberately blended androgynous midpoint.
+      Presets are start points that write `provenance: preset:<id>` and are then free to deviate.
+      Gate: **MEASURED** — every preset passes 10.4 at the inside-norm or stylised band, none at
+      outside-human-variation; and each ships its own intent statement, so a preset teaches the
+      format rather than bypassing it.
+- [ ] **10.7** Skeleton refitting for BODY identity. 🎯 **The face needs none**: measured, a face
+      identity moving 5,340 vertices by up to 23.218 mm moves **0 of 106 bone ends by exactly
+      0.000 mm**, because MPFB's `game_engine` rig has 53 bones and none of them is facial. A body
+      identity is different — 97 of 106 ends move, mean 10.979 mm, max 18.727 mm.
+      MPFB places bones from the mesh by `CUBE`/`VERTEX`/`MEAN` strategies over named helper
+      vertices (`entities/rig.py:272-300`), so the rule is a pure function and
+      `RigService.refit_existing_armature` reproduces a from-scratch fit to **0.000 mm in
+      0.0312–0.0327 s**. 🚩 **But MPFB is GPLv3 and build-time only**, so the runtime needs the
+      strategy table and the referenced helper positions as shipped data.
+      Gate: **MEASURED** — the JS refit reproduces MPFB's own refit to < 0.1 mm on all 106 bone
+      ends, across the body-identity range, and the skin does not slide: no vertex moves more than
+      the **0.342 mm** `Identity.js` already accepts as its worst blend error.
+- [ ] **10.8** Continuous gender. With 10.1 and 10.7 the five 11 MB bakes become one base plus a
+      parameter, and `Identity.js`'s `NEAREST` / `LIVE_PREVIEW` split — which exists *only* because
+      glTF cannot morph a skeleton — collapses into one exact mode.
+      Gate: **MEASURED** — the CPU-composed figure at each of 0.00/0.25/0.50/0.75/1.00 matches the
+      corresponding committed GLB to < 0.01 mm, and `estimatedErrorMm` becomes 0 everywhere rather
+      than the current worst-case **0.342 mm**. Ship the bakes until this passes.
+- [ ] **10.9** 🚩 Wardrobe coupling — **this item gates Phase 9.4 and 9.4 must not start before
+      it.** Measured: **two** body sliders drift `female_casualsuit01` by **mean 28.722 mm / max
+      106.887 mm**, against 143.066 mm for the entire gender sweep, and the garment tracks the body
+      at 87.8% of its mean drift. A per-gender fragment cannot serve a continuous identity.
+      🎯 **The fix is arithmetic, not a solver.** `ClothesService.fit_clothes_to_human` is
+      `v = w1·V[a] + w2·V[b] + w3·V[c] + offset ⊙ (x_size, z_size, y_size)`, and a JS port refits
+      2,197 vertices in **0.0064 ms median over 200 runs**. 🚩 **The catch: 1,879 of the 1,885
+      basemesh indices the rule reads are HELPER vertices the export deletes** (max index 17,975
+      against a 13,380-vertex shipped body), so those positions must ship — **22.6 KB per garment**
+      as float32, or one shared union array.
+      Gate: **MEASURED** — a runtime-refitted garment meets 9.4's own bar on a continuous identity:
+      covered skin outside the cloth ≤ **26.37%**, worst depth ≤ **9.19 mm**, by the same signed
+      point-to-triangle tool; and the refit result matches a headless MPFB refit to < 0.1 mm.
+- [ ] **10.10** The UI — three tiers and an exclusion tier. **Macro** (11: the eight `macro.json`
+      parameters plus three ethnicity weights), **Region** (21 dials, one per region, driving a
+      curated subset), **Detail** (the 203 `target.json` categories, 269 with left and right split).
+      The 26 `measure-*` categories are a **measurements panel in centimetres**, not −1 → +1 dials.
+      Excluded: the 62 `asym` targets, the 3 genital targets (Phase 9.8's decency invariant makes
+      them unreachable), and the 102 expression units (those belong to Phase 5).
+      🚩 **269 widgets render, not 203** — 66 of the categories are `has_left_and_right` and draw
+      two. At that count the shipped answer across every deep creator is **search + filter +
+      recently-used + favourites, not a fourth tier** (Reallusion CC4, the tool with the most
+      morphs, is the only one that actually does it). Build the filter first.
+      Steal two behaviours from MetaHuman, whose docs describe them plainly: **correlated
+      parameters move together by default**, with **pinning** as the escape hatch. MPFB's macro
+      layer already works that way — `macro.json` is a piecewise-linear blend over 564 authored
+      anchors, so **every point in macro space is on the manifold and the 203 detail sliders are
+      what can leave it.** And split by parameter type, not skill: shape → direct manipulation,
+      scalars and measurements → sliders. Sims 4 is the proof, having removed shape sliders in 2014
+      and added colour sliders back in 2020.
+      Gate: **CRITIC** — a judge who has not seen the parameter list can reach a named target look
+      using only the Macro and Region tiers, and says which tier they wanted and could not find.
+- [ ] **10.11** The collaboration protocol — the user asked for this explicitly: *"It might be a
+      good process for them to work together on helping AI create a coherent representation."*
+      Roles go where each party is reliable: **the AI measures and proposes, the human adjudicates
+      and POINTS, the AI translates.** The human must be allowed to say only *"something's off
+      about the face"* and get progress. The translation step runs gate-first (a measured cause
+      beats a searched one), then region isolation by A/B in **≤ 5 comparisons** (⌈log₂ 21⌉), then
+      3–5 verb-grouped axes inside the region rather than 22 sliders, then pairwise preference —
+      and a dispersed gallery is viable before any optimiser, because a full rebuild is 2.0598 ms.
+      🎯 **The published query counts say this is achievable and say what to build.** Koyama et al.
+      (SIGGRAPH 2020) drove a **10-dimension human body-shape space to a described target in seven
+      human answers** on a 3×3 grid, and 12 parameters to satisfaction in **5.36 ± 2.69** iterations
+      at 14.8 s per subtask; Brochu et al. (SCA 2010) measured pairwise at **8.45 ± 2.81** against
+      **28.35 ± 5.13** for numeric ratings. 🚩 **And the same paper states the limit that forces
+      region isolation: *"BO is known to perform poorly with very high dimensionality (e.g., over
+      20 dimensions)"* — we have 203.** ⚠️ Design for *satisfactory*, not optimal: Jamieson & Nowak's
+      O(d log n) bound assumes independent errors, and their Theorem 5 says persistent errors are
+      *"natural, for example, if the reference is a single human"*, under which exact recovery is
+      not guaranteed.
+      🎯 **The AI states which candidate IT prefers, and why, BEFORE the human answers**, and 10.5
+      records the disagreement. That ordering is the mechanism, not the manners.
+      Gate: **CRITIC** — blind, identities produced by the loop against identities produced by the
+      AI alone, and the loop must win. **This gate must be allowed to fail**: if it does not win,
+      the loop is ceremony and should be cut. Plus **MEASURED** — on identities with a known
+      injected single-region defect, the A/B tree localises it in ≤ 5 comparisons on ≥ 80% of
+      trials, and the "neither / both" branch is exercised by a deliberate two-region defect.
+- [ ] **10.12** ⚠️ Author-declared asymmetry, default OFF. The standing constraint —
+      *"Do not add facial asymmetry"* — was measured against the Stellar Blade target and it holds
+      for **procedural** asymmetry; the 62 `asym-eye-3-l` targets are randomiser fodder with no
+      semantic label and stay out of the exposed set entirely. What this item adds is narrow: any
+      of the **66 sided detail categories** may be driven independently left and right by an author
+      who says why, recorded in the identity file.
+      Gate: **MEASURED** — total left-right RMS deviation over the face region stays under a stated
+      threshold unless the file carries an `asymmetry.intent` string; proven red by an identity
+      that sets one side without declaring it. Plus **CRITIC** — if a blind judge cannot tell an
+      author-asymmetric figure from a symmetric one at portrait framing, **drop this item.**
+- [ ] **10.13** SPIKE: does an identity figure still read as AAA? 🚩 Every number in the research
+      doc is geometric — **nothing was rendered, no plate was captured, no judge has seen an
+      identity figure.** The standing constraint records that there is no measured visibility
+      threshold for this project's framing, only a 0.48–10.6 px bracket, so **1.5 mm of residual
+      blink gap may or may not be visible and this document cannot say which.**
+      Gate: **CRITIC** — plates at the identity range's extremes go through the existing seven
+      gates in `measure.mjs` and a blind judge, and the judge reports what broke first. Report an
+      honest negative and a narrower usable band if the range does not hold.
+```
+
+⚠️ **Two items deliberately NOT in the list.** There is no "identity looks good" gate, because that
+is 8.1's job and putting a subjective bar inside the phase that builds the thing would let it be
+declared passed by whoever built it. And there is no preset-per-ethnicity item: the base is a
+deliberately blended midpoint, the three ethnicity weights are already in the Macro tier, and a
+shipped library of ethnic presets is a product decision this document has no measurement for.
+
+---
+
 ## Standing constraints
 
 - **Animate early.** Every timing constraint agrees. Never analyse output audio reactively.

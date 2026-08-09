@@ -89,6 +89,44 @@ tiers grant identical rights, and every listing sampled from the reference selle
 `isAiForbidden: true`. Booth has no machine-readable licence field at all. **The library consumes
 what a user legally acquires; it never bundles.**
 
+### R19, added by the user 2026-08-08 — identity sculpting, and the partnership that drives it
+
+> Something like a character creator screen in video games. Facial size and positioning, body size
+> and proportions. Some AIs and humans may lean more towards noticeable masculine or feminine
+> features, or prefer setting a gender but wanting to enable cross gender attributes.
+
+Again an omission rather than an extension: R8 asks for an avatar that is "male, female, or a
+combination of the two", and Phase 1 delivered one axis. `Identity.js` accepts `age`, `build` and
+`height`, stores them, and does nothing — `NOT_YET_BAKED` says so in code. Meanwhile **1,258
+modelling targets were already installed**, grouped by the library's own `target.json` into 203
+sliders across 21 regions. We were using 89.
+
+🎯 **And the second half of the user's thought is the part that shapes the design:**
+
+> When you and I have worked before we both found sometimes you needed my eye to gauge visual
+> coherence... It might be a good process for them to work together on helping AI create a
+> coherent representation.
+
+**This is not a courtesy, it is a measured property of the system.** Across nine rounds, every
+single time, the visual judge found what every measured gate missed — 97 green sway gates on a
+figure a judge called a mannequin; five of seven objective gates passing on a face a critic placed
+nowhere near AAA. **The AI does not reliably perceive its own visual coherence.** A character
+creator built as though it did would produce confident, measurably-correct, subtly wrong faces.
+
+So Phase 10 assigns roles where each party is measurably reliable — the same builder/judge split
+this whole project runs on, pointed at identity. The AI states intent and measures; the human
+adjudicates and **points**, and "something's off about the face" is the CORRECT form of that
+contribution rather than a degraded one; the AI translates it into candidate parameter moves.
+
+And the identity file records **intent, not only parameters** — because a vague judgement against
+203 sliders has no gradient to follow without one, and because `eye_separation: 0.68` is a magic
+number where "approachable, young, soft — and here is how each choice serves that" is a decision a
+later reader can revisit, disagree with, or inherit.
+
+The user's standing note from the wardrobe carries here and matters more, because this is the
+agent's face: **an AI able to express a preference even when overruled is "the difference between a
+puppet and a someone."**
+
 ---
 
 ## Requirements extracted, with nothing added
@@ -115,6 +153,7 @@ Each maps to punch-list phases. If a phase does not trace back to a line here, i
 | R16 | Track progress | `PROGRESS.md` |
 | R17 | Use the web for sources and examples | `research/` — 9 docs |
 | R18 | **A wardrobe** — outfits by mood and season, mix-and-match, chosen by the AI or pinned by the user | Phase 9, `research/wardrobe-system.md` |
+| R19 | **Identity sculpting** — face and body proportion, cross-gender attributes, and a human–AI loop for reaching a coherent self-representation | Phase 10, `research/identity-sculpting.md` |
 
 ---
 
