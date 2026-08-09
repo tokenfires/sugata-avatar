@@ -41,12 +41,17 @@
  * did not. Offered because a baked micro-normal with mips is the case where it beats the
  * screen-space estimate, and because it is the form the punch list names.
  *
- * ## Where this has to be applied, and why it is not applied here
+ * ## Where this is applied, and why it is not applied here
  *
  * Roughness is a material property and this repository puts materials in `packages/core/src/
  * material/`, which this file's author does not own. `render/` can offer the node; only the
- * material can install it. The round report carries the diff request; `post.html?specaa=1` runs
- * the experiment from the page so the number in the table above has a partner.
+ * material can install it — that division is still why the node lives in this file.
+ *
+ * ✅ It is installed. `material/SkinMaterial.js` reads
+ * `material.roughnessNode = specularAntiAliasing ? filteredRoughness( roughness ) : roughness`,
+ * which is the diff request this section used to point at, resolved. See
+ * `docs/OPEN-REQUESTS.md` REQ-026. `post.html?specaa=1` still runs the experiment from the page,
+ * so the number in the table above keeps its partner now that the fix is the default.
  */
 
 import { float, Fn, normalView, vec3 } from 'three/tsl';

@@ -62,6 +62,8 @@ import {
 
 import { diffuseColor, float, mrt, normalView, output, pass, renderOutput, roughness, vec4, velocity } from 'three/tsl';
 
+import { scheduleTask } from './frame-clock.js';
+
 import { Stage } from '../../core/src/render/Stage.js';
 import { GBUFFER_CHANNELS, markAsSkin } from '../../core/src/render/GBuffer.js';
 
@@ -580,31 +582,10 @@ async function readChannel( renderer, renderTarget, name ) {
  * `driver.rafWorks` is reported in the published results, because a wall-clock frame time means
  * nothing on the fallback path and a reader has to be able to see which one produced the numbers.
  */
-/**
- * A macrotask that a hidden page does not throttle.
- *
- * Measured in this pane: `setTimeout(fn, 0)` yields **8 callbacks per second** when the document
- * is hidden, which turns a 2,520-frame cost sweep into five hours. The same loop over a
- * `MessageChannel` measured **553,921 per second**. A microtask (`Promise.resolve()`) is not an
- * option — it never returns to the event loop, so the GPU readbacks and timestamp resolves the
- * sweep depends on would never settle.
- */
-const _taskChannel = new MessageChannel();
-const _taskQueue = [];
-
-_taskChannel.port1.onmessage = () => {
-
-    const task = _taskQueue.shift();
-    if ( task !== undefined ) task();
-
-};
-
-function scheduleTask( task ) {
-
-    _taskQueue.push( task );
-    _taskChannel.port2.postMessage( 0 );
-
-}
+// The frame clock lives in `./frame-clock.js` and is imported at the top of this file. It used to
+// be fifteen private lines here, and by the time anyone counted, `lighting.js` and `fabric.js` had
+// each pasted their own copy with a comment explaining that this file did not export it.
+// `docs/OPEN-REQUESTS.md` REQ-023.
 
 async function createFrameDriver( renderer ) {
 

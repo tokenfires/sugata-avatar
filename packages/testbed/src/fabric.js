@@ -91,6 +91,8 @@ import {
     WebGPURenderer
 } from 'three/webgpu';
 
+import { scheduleTask } from './frame-clock.js';
+
 import {
     fabricByKey,
     resolveSpec,
@@ -130,27 +132,9 @@ const log = ( line = '' ) => { lines.push( line ); hud.textContent = lines.join(
 
 // --- the frame clock ---------------------------------------------------------------------------
 
-/**
- * A macrotask a hidden page does not throttle. Duplicated from `lighting.js` rather than shared,
- * for the same reason it gives: `stage.js` does not export it, this agent does not own that file,
- * and it is fifteen lines against a screenshot of "booting…".
- */
-const taskChannel = new MessageChannel();
-const taskQueue = [];
-
-taskChannel.port1.onmessage = () => {
-
-    const task = taskQueue.shift();
-    if ( task !== undefined ) task();
-
-};
-
-function scheduleTask( task ) {
-
-    taskQueue.push( task );
-    taskChannel.port2.postMessage( 0 );
-
-}
+// `scheduleTask` is imported from `stage.js` — a macrotask a hidden page does not throttle, at a
+// measured 553,921 dispatches/s against `setTimeout(fn, 0)`'s 8 in a hidden pane. This page and
+// `lighting.js` each carried a copy of it; `docs/OPEN-REQUESTS.md` REQ-023 deleted both.
 
 // --- textures ------------------------------------------------------------------------------
 

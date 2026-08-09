@@ -204,7 +204,13 @@ export const TEMPORAL_RECOVERY_SHARPNESS = 1.2;
  * 0.8417 -> 0.8409 -> 0.8404. So the vignette darkens the corners and leaves the face alone, as
  * it should, and it takes 27% off the black point at the top of the spec's band — **which is not
  * enough to bring G6 into 0.004-0.016 on its own.** G6 is a measurement of the backdrop card, and
- * the number that moves it is in `alive.js`. See the round report's diff request.
+ * the number that moves it is in `alive.js`.
+ *
+ * ✅ It landed: `docs/OPEN-REQUESTS.md` REQ-010, `CARD_ALBEDO_FLOOR` and
+ * `BACKDROP_EMISSIVE = 0x070a0e`. G6 moved 0.00001 -> 0.0042 on the shipped default, and `?cards=0`
+ * and the default now read the SAME G6 — which is what "the cards are no longer the darkest thing
+ * in frame" means as a measurement rather than as a claim. This paragraph used to point at a round
+ * report, which is a document this repository does not contain.
  */
 export const DEFAULT_VIGNETTE = 0.15;
 

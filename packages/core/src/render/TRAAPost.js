@@ -43,9 +43,12 @@
  *     bogus large velocity wants.
  *
  * `velocityConfidence` below exists so that a caller can turn the reprojection off entirely and
- * MEASURE the difference rather than argue about it — see `post.html?velocity=0`. The real repair
- * is a previous-weights path in the morph node, which lives outside this file; the diff request
- * is recorded in the round report.
+ * MEASURE the difference rather than argue about it — see `post.html?velocity=0`.
+ *
+ * ✅ The real repair LANDED. `render/MorphVelocity.js` gives morph targets a previous-frame
+ * position, which three.js does not, and that is punch-list 3.12's blocker fixed at source rather
+ * than worked around here. The request is `docs/OPEN-REQUESTS.md` REQ-009, resolved; the pointer
+ * this paragraph used to carry was to a round report that does not exist in this repository.
  */
 
 import { traa } from 'three/addons/tsl/display/TRAANode.js';

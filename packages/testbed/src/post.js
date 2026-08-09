@@ -232,6 +232,13 @@ async function boot() {
     // measurement of this hex and of nothing else the grade can reach. The constant lives in
     // `alive.js`, which this agent does not own; a sweep is what turns "darken the card" into a
     // diff request with a number in it.
+    //
+    // ✅ The number landed as `docs/OPEN-REQUESTS.md` REQ-010 — `CARD_ALBEDO_FLOOR` and
+    // `BACKDROP_EMISSIVE = 0x070a0e` in `alive.js`. The sweep's own conclusion arrived with it:
+    // G6 moved 0.00001 -> 0.0042 on the shipped default, and `?cards=0` and the default now read
+    // the SAME G6, which is what "the cards are no longer the darkest thing in frame" means as a
+    // measurement rather than as a claim. The switch stays: it is the attribution mechanism, and
+    // it is worth more now that the fix is the default than it was when it was the proposal.
     const backdrop = buildBackdrop( stage, query.has( 'backdrop' )
         ? Number( query.get( 'backdrop' ) )
         : BACKDROP_EMISSIVE );
@@ -457,8 +464,11 @@ async function loadFigure( session, stage, lights, backdrop, query ) {
     //
     // The fix belongs in `material/SkinMaterial.js`, which this agent does not own, so it is
     // applied here to the material instance this page constructed. That is a page-level A/B, not
-    // an edit to the material: `render/Toksvig.js` supplies the node, the round report carries
-    // the diff request, and this switch is what makes the claim measurable in the meantime.
+    // an edit to the material: `render/Toksvig.js` supplies the node and this switch is what makes
+    // the claim measurable.
+    //
+    // ✅ The request landed as `docs/OPEN-REQUESTS.md` REQ-008 — `material/SkinMaterial.js` now
+    // installs `filteredRoughness` itself. The switch stays as the A/B against the default.
     //
     // `normalView` is deliberately the SHADING normal — the one `material.normalNode` has already
     // perturbed with the micro-normal. That is the whole point: three's own specular AA takes
