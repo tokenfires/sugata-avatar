@@ -5,39 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sugata 姿 — testbed</title>
     <style>
+        :root {
+            --bg: #08080a;
+            --panel: #101014;
+            --edge: rgba(255, 255, 255, 0.10);
+            --edge-lit: rgba(255, 255, 255, 0.22);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+            --dimmer: #61667a;
+            --accent: #9db4ff;
+            --warm: #ffc98d;
+        }
+
         html, body {
             margin: 0;
-            height: 100%;
-            background: #0b0b0d;
-            color: #e6e6e6;
-            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
-            overscroll-behavior: none;
+            background: var(--bg);
+            color: var(--ink);
+            font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
         }
 
-        /* CSS owns canvas layout; Stage only sizes the drawing buffer to match. */
-        #stage {
-            display: block;
-            width: 100%;
-            height: 100%;
-            touch-action: none;
+        main { max-width: 980px; margin: 0 auto; padding: 40px 24px 72px; }
+
+        h1 { font-size: 22px; font-weight: 500; margin: 0 0 4px; letter-spacing: 0.02em; }
+        h1 .glyph { color: var(--accent); }
+
+        .strap { color: var(--dim); margin: 0 0 34px; max-width: 68ch; }
+
+        h2 {
+            font-size: 12px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 0.14em; color: var(--dimmer);
+            margin: 38px 0 12px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--edge);
         }
 
-        #hud {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            padding: 8px 12px;
-            border-radius: 6px;
-            background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            white-space: pre;
-            pointer-events: none;
+        h2 .note { text-transform: none; letter-spacing: 0; color: var(--dimmer); }
+
+        /* One card per page. Grid rather than flex so the blurbs line up down the column and the
+           eye can scan `phase` without reading every card. */
+        .pages { display: grid; gap: 10px; }
+
+        a.page {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 4px 16px;
+            padding: 13px 16px;
+            border: 1px solid var(--edge);
+            border-radius: 7px;
+            background: var(--panel);
+            text-decoration: none;
+            color: inherit;
         }
+
+        a.page:hover, a.page:focus-visible {
+            border-color: var(--edge-lit);
+            background: #14141a;
+            outline: none;
+        }
+
+        a.page .name { color: var(--accent); font-size: 15px; }
+        a.page .phase { color: var(--dimmer); text-align: right; white-space: nowrap; }
+        a.page .blurb { grid-column: 1 / -1; color: var(--dim); max-width: 76ch; }
+
+        a.page .gates { grid-column: 1 / -1; margin-top: 3px; color: var(--dimmer); font-size: 11px; }
+        a.page .gates b { font-weight: 400; color: var(--dim); }
+
+        /* Commands. `user-select: all` on the command itself so one click selects the whole line
+           and nothing around it — these get pasted far more often than they get read. */
+        .group { margin-bottom: 18px; }
+        .group h3 {
+            font-size: 12px; font-weight: 500; color: var(--warm);
+            margin: 0 0 8px; letter-spacing: 0.04em;
+        }
+        .cmd { display: grid; grid-template-columns: 20ch minmax(0, 1fr); gap: 4px 18px; padding: 5px 0; }
+        .cmd code {
+            user-select: all; color: var(--ink);
+            background: var(--panel); border: 1px solid var(--edge);
+            border-radius: 4px; padding: 1px 7px; justify-self: start;
+        }
+        .cmd span { color: var(--dim); max-width: 72ch; }
+
+        @media (max-width: 700px) {
+            a.page { grid-template-columns: 1fr; }
+            a.page .phase { text-align: left; }
+            .cmd { grid-template-columns: 1fr; }
+        }
+
+        footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--edge); color: var(--dimmer); }
+        footer a { color: var(--dim); }
     </style>
 </head>
 <body>
-    <canvas id="stage"></canvas>
-    <div id="hud">booting…</div>
-    <script type="module" src="./src/main.js"></script>
+<main>
+    <h1><span class="glyph">姿</span> Sugata — testbed</h1>
+    <p class="strap">
+        A body for an AI. Every page below exists because something had to be LOOKED at: each one
+        has a selftest that proves its numbers, and a selftest cannot tell you whether a face is
+        legible. Start at <b>alive</b> — that is the page the objective gates measure and the page
+        a blind judge captures.
+    </p>
+
+    <div id="hub"></div>
+
+    <footer>
+        The list on this page is generated from <code>packages/testbed/pages.js</code>, and
+        <code>pages.selftest.mjs</code> asserts it matches both the filesystem and
+        <code>vite.pages.config.js</code> — so a page added without a card here fails a gate
+        rather than quietly going missing.
+    </footer>
+</main>
+
+<script type="module">
+    import { ACCEPTANCE, BROWSERCHECKS, SCAFFOLD, COMMANDS } from './pages.js';
+
+    // Built with createElement and textContent rather than innerHTML: the blurbs are prose that
+    // will be edited by whoever adds a page, and an apostrophe or an angle bracket in one of them
+    // should not be able to reach the parser.
+    const el = ( tag, className, text ) => {
+        const node = document.createElement( tag );
+        if ( className ) node.className = className;
+        if ( text !== undefined ) node.textContent = text;
+        return node;
+    };
+
+    function pageCard( page ) {
+        const card = el( 'a', 'page' );
+        card.href = page.path;
+        card.append( el( 'div', 'name', page.name ), el( 'div', 'phase', page.phase ),
+            el( 'div', 'blurb', page.blurb ) );
+
+        if ( page.gates.length > 0 ) {
+            const gates = el( 'div', 'gates' );
+            gates.append( el( 'b', null, 'gates: ' ), document.createTextNode( page.gates.join( ' · ' ) ) );
+            card.append( gates );
+        }
+
+        return card;
+    }
+
+    function section( title, note, pages ) {
+        const heading = el( 'h2', null, title );
+        if ( note ) heading.append( el( 'span', 'note', `  ${ note }` ) );
+
+        const list = el( 'div', 'pages' );
+        for ( const page of pages ) list.append( pageCard( page ) );
+
+        return [ heading, list ];
+    }
+
+    const hub = document.getElementById( 'hub' );
+
+    hub.append( ...section( 'Acceptance', '— what everything else is compared against', ACCEPTANCE ) );
+    hub.append( ...section( 'Browserchecks', '— one per thing that has to be seen', BROWSERCHECKS ) );
+    hub.append( ...section( 'Scaffold', '— when nothing renders anywhere', SCAFFOLD ) );
+
+    hub.append( el( 'h2', null, 'Commands' ) );
+
+    for ( const { group, items } of COMMANDS ) {
+        const block = el( 'div', 'group' );
+        block.append( el( 'h3', null, group ) );
+
+        for ( const item of items ) {
+            const row = el( 'div', 'cmd' );
+            row.append( el( 'code', null, item.run ), el( 'span', null, item.does ) );
+            block.append( row );
+        }
+
+        hub.append( block );
+    }
+</script>
 </body>
 </html>

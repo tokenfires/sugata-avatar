@@ -23,6 +23,7 @@ const testbed = fileURLToPath( new URL( 'packages/testbed/', import.meta.url ) )
 const PAGES = [
     'index.html',
     'alive.html',
+    'src/scaffold.html',
     'src/stage.html',
     'src/skin.html',
     'src/eye.html',

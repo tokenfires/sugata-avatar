@@ -2501,12 +2501,15 @@ node tools/spikes/fabric-weave.mjs --help      # and packages/testbed/src/fabric
 #     --garment female_casualsuit01 --garment shoes01 --garment fedora01 \
 #     --garment female_elegantsuit01 --hide-mask-attribute --garment-fragment-dir assets/wardrobe
 
-# ⚠️ `npm run build` builds ONLY packages/testbed/index.html — vite's default single entry.
-# alive.html and every page under src/ are NOT in it, so a broken import in alive.js, stage.js,
-# skin.js, eye.js, lighting.js or post.js passes the build. To prove the pages resolve:
+# ⚠️ `npm run build` builds ONLY packages/testbed/index.html — vite's default single entry — and
+# since index.html became the HUB it no longer compiles a renderer page at all. It resolves the
+# page list and stops. alive.html and everything under src/ are not in it, so a broken import in
+# alive.js, stage.js, skin.js, eye.js, lighting.js or post.js passes it. To prove the pages resolve:
 npm run build:pages                            # vite.pages.config.js — every entry in its PAGES list
-# (index, alive, stage, skin, eye, lighting, post, voice each get their own chunk. It said SEVEN
-# for a round after src/voice.html landed — the count is in the config's PAGES list, read it there.)
+# (Each page gets its own chunk. Do not quote a count here: it said SEVEN for a round after
+# src/voice.html landed, and the count is in the config's PAGES list — read it there. That list is
+# now gated in both directions by packages/testbed/pages.selftest.mjs against the filesystem AND
+# against the index's own cards, so a page nobody builds and a page nobody can find are both red.)
 # It used to be "make a temp config", which had to be rediscovered every round; the config is now
 # committed. A new page under packages/testbed/ belongs in its PAGES list on the same commit.
 # Confirmed in that build: SkinMaterial's `new URL(`...${figureName}-curvature.png`, import.meta.url)`
