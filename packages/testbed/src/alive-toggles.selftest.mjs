@@ -502,14 +502,37 @@ const UNGATED = {
     freeze: { readHere: true, why: 'stops the motion stack. Already on in every plate this file loads.' },
     capture: { readHere: true, why: 'hands the frame clock to the caller. Its own gate is alive-capture-determinism.selftest.mjs.' },
     msaa: { readHere: true, why: 'the legacy synonym for ?aa — `?msaa=0` resolves to `aa=off`, which is gated above.' },
+    // 🚩 THIS ROW USED TO RECORD A DEAD ROUTE AS INTENDED BEHAVIOUR, and that is the worst thing
+    // a gate file can contain. It read: "the page refuses to build a figure at all on the default
+    // temporal path. Measured: the wait for a figure times out at 120 s, so no plate exists to
+    // gate." Every word of that was an accurate description of what the page did. It was also a
+    // written excuse for `?webgl` rendering NOTHING — untouched 300x150 canvas, no
+    // `window.sugata`, no `__SUGATA_STEP__` — on the one flag a reviewer reaches for first, and
+    // the excuse is why the defect survived a full round of review with a green gate above it.
+    //
+    // `?webgl` now DOWNGRADES `?aa` to `msaa` instead of returning early, and this row's claim is
+    // no longer prose: the WEBGL2 TIER section below loads the plate and asserts it rendered, on
+    // the same flags every capture uses. It stays in UNGATED rather than moving to TOGGLES because
+    // it is still not a shading switch — it swaps the BACKEND, which moves the pipeline, the
+    // sample count and the resolve together, so no entity allowlist describes it.
     webgl: { readHere: true, why:
-        'swaps the backend to WebGL2, which has no velocity buffer, so the page refuses to build a ' +
-        'figure at all on the default temporal path. Measured: the wait for a figure times out at ' +
-        '120 s, so no plate exists to gate.' },
+        'swaps the backend to WebGL2, which has no velocity buffer, so `?aa` downgrades to msaa on ' +
+        'this tier. Not a shading switch: a backend swap moves the pipeline, the sample count and ' +
+        'the resolve at once, so no entity allowlist describes it. What is asserted instead is the ' +
+        'claim the tier exists to support — it RENDERS — in the WEBGL2 TIER section of this file.' },
 
     clockdefect: { readHere: false, why:
         'read only inside the `?capture` branch, and this file drives the free-running clock. ' +
         'alive-capture-determinism.selftest.mjs is what exercises it.' },
+
+    // The `?clockdefect` shape exactly: a key that exists only to be shot at. It is read on every
+    // plate — the session object consults it beside `?wear` — and it changes nothing at all unless
+    // `?wear` is also present, which no plate in this file carries.
+    wearrace: { readHere: true, why:
+        'a rejection-proof hook for the wardrobe dressing race, inert without `?wear`. It moves ' +
+        'ONE visibility flag during the wardrobe\'s async window and touches no shading state, so ' +
+        'a TOGGLES row would have an empty allowlist and nothing to say. Its gate is the dressed ' +
+        'recipe in alive-capture-determinism.selftest.mjs, which runs both defects.' },
 
     // 🚩 `?trace=0` IS INERT ON EVERY PLATE THIS FILE TAKES, and it took the gate to notice. The
     // read is `if ( bare || query.get( 'trace' ) === '0' )`, and `||` short-circuits — so on any
@@ -1830,6 +1853,90 @@ try {
                 ? 'BYTE-IDENTICAL at body framing too — the contact occlusion reaches no plate at all, and ' +
                     'the +0.0307 floor-luma figure alive.js records for it cannot be reproduced from this page'
                 : 'the contact term is visible once the floor is in shot'
+        );
+
+    }
+
+    // --- THE WEBGL2 TIER: it must RENDER, not explain itself ------------------------------------
+    //
+    // 🚩 This section replaces a written excuse. The `webgl` row of UNGATED used to record "the
+    // page refuses to build a figure at all… no plate exists to gate", which was true and was the
+    // reason `?webgl` shipped for a whole round rendering an untouched 300x150 canvas with no
+    // `window.sugata` and no `window.__SUGATA_STEP__` on it. A gate that certifies a dead route is
+    // worse than no gate, because it is read as coverage.
+    //
+    // Four checks, and the last three are what stop the first one being satisfiable by a page that
+    // quietly ignored `?webgl` and served WebGPU again — which is the obvious way to make "it
+    // renders" green without a fallback tier existing at all.
+    {
+
+        console.log( '\n--- the WebGL2 fallback tier renders on the flags every plate uses ----------\n' );
+
+        const ready = await page.goto( `${ server.baseUrl }/alive.html?webgl&${ BASE_QUERY }`,
+            { waitUntil: 'load' } )
+            .then( () => page.waitForFunction(
+                () => globalThis.sugata?.session?.figure != null
+                    && typeof globalThis.__SUGATA_STEP__ === 'function',
+                null, { timeout: 120_000 } ) )
+            .then( () => true )
+            .catch( () => false );
+
+        report(
+            'W1 ?webgl builds a figure and exposes the capture hook, on ?bare with no other flags',
+            ready,
+            ready
+                ? 'window.sugata.session.figure and window.__SUGATA_STEP__ both present'
+                : 'NEITHER APPEARED WITHIN 120 s. This is the Phase 8 defect: the page returned ' +
+                    'before Stage was constructed, so no capture.mjs plate and no measure.mjs gate ' +
+                    'can be taken on the documented fallback tier at all'
+        );
+
+        // Only meaningful once W1 is green; reported as skipped rather than crashing the run, so a
+        // red W1 stays one legible failure instead of an exception in the middle of the tally.
+        const tier = ready === false ? null : await page.evaluate( () => {
+
+            const renderer = globalThis.sugata.stage.renderer;
+            const canvas = renderer.domElement;
+
+            return {
+                isWebGL: renderer.backend?.isWebGLBackend === true,
+                samples: renderer.samples,
+                canvasPixels: canvas.width * canvas.height,
+                temporal: globalThis.sugata.stage.temporal == null ? null : globalThis.sugata.stage.temporal.mode
+            };
+
+        } );
+
+        report(
+            'W2 …and it really is the WebGL2 backend, not WebGPU ignoring the flag',
+            tier !== null && tier.isWebGL === true,
+            tier === null ? 'not checked — W1 is red' : `backend.isWebGLBackend = ${ tier.isWebGL }`
+        );
+
+        // ⚠️ The downgrade itself, and it has to be checked as WELL as "it rendered": a page that
+        // built a figure and left `aa` at taau would render a WebGL2 frame with a dead velocity
+        // buffer — plausible pixels, silently wrong temporal state — which is exactly the failure
+        // class the old refusal was written to avoid. `samples` is the forward path's own witness.
+        report(
+            'W3 …with ?aa downgraded to msaa rather than left on a resolve WebGL2 cannot feed',
+            tier !== null && tier.samples === 4 && tier.temporal === null,
+            tier === null
+                ? 'not checked — W1 is red'
+                : `renderer.samples ${ tier.samples } (4 = the forward MSAA target), ` +
+                    `stage.temporal ${ tier.temporal === null ? 'absent' : `STILL ${ tier.temporal }` }`
+        );
+
+        // 🚩 NON-DEGENERACY, and it is not ceremony: `canvas.width * canvas.height` is 45,000 on an
+        // untouched canvas (300x150) and 4,320,000 at this file's 900x1200 dpr 2. The defect's
+        // signature is the DEFAULT canvas size, so this is the one number that separates "the page
+        // sized its drawing buffer" from "the page never touched it", and it fails loudly on the
+        // exact artefact the Phase 8 round found.
+        report(
+            'W4 …onto a canvas the page actually sized, not the untouched 300x150 default',
+            tier !== null && tier.canvasPixels > 45_000,
+            tier === null
+                ? 'not checked — W1 is red'
+                : `${ tier.canvasPixels } drawing-buffer pixels; 45000 would be the 300x150 default`
         );
 
     }

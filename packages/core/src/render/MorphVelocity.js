@@ -305,6 +305,28 @@ function previousInfluenceState( mesh, targetCount, mode ) {
 
         const live = _previousInfluences.get( object );
 
+        // 🚩 A LATENT CAPTURE HAZARD, RECORDED WHERE THE MECHANISM LIVES. `live.frameId` is seeded
+        // from whatever `nodeFrame.frameId` this mesh was last DRAWN at, which on a page that
+        // renders during boot is a BOOT frame index. `?capture`'s `takeOverFrameLoop` resets
+        // `nodeFrame.frameId` to 0 and counts up again — and nothing resets `live.frameId`. If a
+        // page's boot frame count lands inside the captured range, the shift below is skipped for
+        // exactly one captured frame, silently, and WHICH frame depends on the machine.
+        //
+        // This is a member of the class punch-list 3.20 names: renderer-side per-frame state that
+        // `?capture` does not put at a known value. Measured, and only PARTLY attributed — on the
+        // pre-fix dressed `alive.html`, `?morphvel=hold` was reproducible 3 of 3 where `exact` and
+        // `off` were 1 of 3, and deleting this guard moved the outcome to 3 of 4 WITHOUT closing
+        // it. So this is implicated and is not the whole of it; do not read the note as a full
+        // attribution.
+        //
+        // `alive.html` is immune as of 9.22 because it no longer draws the figure during boot — the
+        // fix removed the INPUT rather than enumerating the counters, which is the only move that
+        // closes an open set. ⚠️ Two pages still render during boot and still carry this:
+        // `packages/testbed/src/wardrobe.js` and `packages/testbed/src/post.js`. Capture from
+        // either and this is a candidate before the renderer is.
+        //
+        // The clean repair, if a third page ever needs it, is an exported epoch reset that clears
+        // every live `frameId` to -1, called beside `stage.temporal?.resetFrameEpoch?.()`.
         if ( live === undefined || live.frameId === frameId ) return;
 
         live.frameId = frameId;

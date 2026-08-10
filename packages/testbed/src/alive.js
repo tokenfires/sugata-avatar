@@ -45,7 +45,9 @@
  *
  * URL parameters, for reproducible captures:
  *
- *   ?webgl          force the WebGL2 fallback tier
+ *   ?webgl          force the WebGL2 fallback tier. It has no velocity buffer, so `?aa` DOWNGRADES
+ *                   to `msaa` on this tier rather than the page refusing to build — see the
+ *                   comment on `aa` for the round in which `?webgl` rendered nothing at all.
  *   ?gender=0.75    start on a different bake
  *   ?preroll=6      advance the stack 6 s in fixed 1/60 steps before the first drawn frame, so a
  *                   captured frame is reproducible from the seed rather than from luck
@@ -90,6 +92,10 @@
  *                   manifest is fetched, so the plate the seven gates are stated on is untouched
  *                   — see `WARDROBE_BODY_URL`. Needs the g050 bake; refused in words otherwise.
  *                   Live from the console as `sugata.wardrobe`.
+ *   ?wearrace=      REJECTION PROOFS ONLY, and inert without `?wear`. Puts the dressing race back:
+ *                   `unheld` is the defect that made every dressed plate stochastic,
+ *                   `released-early` is the half-fix that looks correct. See
+ *                   `WARDROBE_DRESS_DEFECTS`; gated by alive-capture-determinism.selftest.mjs.
  *   ?foundation     PHASE 9.8. Wear the foundation layer under whatever `?wear` asked for, so the
  *                   decency floor is visible on the page a judge captures. Implies the wardrobe:
  *                   `?foundation` alone dresses the figure in the floor and nothing else.
@@ -450,14 +456,46 @@ async function boot() {
     // post-fix camera-motion figure. GPU timestamp index at 1920x1080, free-running: 7.31 ms ->
     // 21.36 ms, both holding 120 fps on this machine, so nothing here is frame-limited at 1080p —
     // and on weaker hardware `?aa=msaa` is one parameter away.
-    const aa = query.get( 'aa' ) ?? ( query.get( 'msaa' ) === '0' ? 'off' : 'taau' );
+    const requestedAA = query.get( 'aa' ) ?? ( query.get( 'msaa' ) === '0' ? 'off' : 'taau' );
     const forceWebGL = query.has( 'webgl' );
 
-    if ( forceWebGL && ( aa === 'traa' || aa === 'taau' ) ) {
+    // 🚩 `?webgl` USED TO RENDER NOTHING AT ALL, and it had done since TAAU became the default.
+    // This branch wrote a sentence into the HUD and RETURNED BEFORE `Stage` was constructed. The
+    // canvas therefore stayed at its untouched 300x150, `window.sugata` was never defined and
+    // `window.__SUGATA_STEP__` never appeared — so `capture.mjs`, `measure.mjs` and every gate in
+    // the repo timed out on the one flag a reviewer reaches for first. The fallback tier had to be
+    // invoked with THREE flags to work, which is not a fallback.
+    //
+    // ⚠️ ONE THING THE PHASE 8 DIAGNOSTIC SAID ABOUT THIS IS NOT TRUE and it is worth writing down
+    // rather than quietly fixing: it recorded `?webgl&bare` as "a completely blank, silent page"
+    // because `?bare` hides the HUD. It does not — the `?bare` branch is fifty lines BELOW this
+    // one, so the early return ran first and the HUD was never hidden. Measured on the refusing
+    // build: `getComputedStyle( hud ).display` is `block` and its height is non-zero under
+    // `?webgl&bare` and under `?webgl` alike, both showing the refusal text. The page said why it
+    // was empty. What it did not do is render, and that is the whole of the defect.
+    //
+    // What replaces the refusal is a DOWNGRADE. WebGL2 genuinely has no velocity buffer, so traa
+    // and taau genuinely cannot run on it — but the right answer to "this tier cannot do the
+    // default" is to serve the tier's own default, not to serve nothing. Measured at 450x600,
+    // `?webgl&aa=msaa&bare&freeze&seed=1&capture`: canvas 450x600, backend `webgl2`,
+    // `renderer.samples` 4, 63.51% of the frame above black — against canvas 300x150, no
+    // `sugata`, `__SUGATA_STEP__` absent on the refusing path.
+    //
+    // ⚠️ IT DOWNGRADES `?aa` AND NOTHING ELSE. The 7/7 recipe the Phase 8 round measured was
+    // `?webgl&aa=msaa&gsharp=none` (G4 2.0587), and it would be easy to read that as "the tier
+    // also wants the grade's RCAS pass off". `?gsharp` is an A/B toggle with its own attribution,
+    // this fallback has no measurement saying RCAS costs the WebGL2 tier a gate, and a fallback
+    // that silently moves two dials cannot be attributed. `?webgl&aa=msaa` renders with RCAS on —
+    // same 63.51%, no page errors — and the 7/7 recipe is still reachable verbatim. One dial.
+    const aa = ( forceWebGL && ( requestedAA === 'traa' || requestedAA === 'taau' ) )
+        ? 'msaa'
+        : requestedAA;
 
-        hud.textContent = 'traa/taau need the velocity buffer, which WebGL2 does not have.\n' +
-            'Drop ?webgl or pick ?aa=msaa.';
-        return;
+    if ( aa !== requestedAA ) {
+
+        console.warn( `alive: ?aa=${ requestedAA } needs the velocity buffer, which WebGL2 does ` +
+            'not have. The WebGL2 tier is rendering at ?aa=msaa instead. Drop ?webgl for the ' +
+            'temporal path, or say ?aa=msaa to silence this.' );
 
     }
 
@@ -588,6 +626,11 @@ async function boot() {
             ? ( query.get( 'wear' ) ?? '' ).split( ',' ).map( ( id ) => id.trim() ).filter( ( id ) => id !== '' )
             : null,
         foundationEnabled: query.has( 'foundation' ),
+
+        // Rejection proofs for the dressing race. Read here rather than in `dressFigure` so the
+        // key is consulted exactly once, on the same line as the request it perturbs. `none` on
+        // every plate that does not ask; see `WARDROBE_DRESS_DEFECTS`.
+        wardrobeDressDefect: query.get( 'wearrace' ) ?? 'none',
         wardrobe: null,
 
         // Phase 10. Null unless `?identity=` asked for something — see `applyIdentityTargets`,
@@ -1561,6 +1604,118 @@ async function dressFigure( session ) {
 
     if ( session.wardrobeRequest === null ) return;
 
+    if ( WARDROBE_DRESS_DEFECTS[ session.wardrobeDressDefect ] === undefined ) {
+
+        throw new Error( `alive: ?wearrace must be one of ${ Object.keys( WARDROBE_DRESS_DEFECTS ).join( ', ' ) }.` );
+
+    }
+
+    // 🚩 THE FIGURE IS HIDDEN FOR THE WHOLE OF THE WARDROBE'S ASYNC WINDOW, AND THIS IS WHAT MAKES
+    // A DRESSED PLATE REPRODUCIBLE. Until this line, `?wear` made every dressed plate STOCHASTIC:
+    // the same URL loaded three times returned three distinct images, so no dressed plate could be
+    // gated at all and the whole of Phase 9 was unmeasurable.
+    //
+    // The mechanism, measured rather than reasoned out. `swapFigure` adds the figure to the scene
+    // and only THEN awaits this function, which dynamically imports `Wardrobe.js`, fetches the
+    // manifest and fetches one GLB per garment. rAF is still running through all of it — `?capture`
+    // does not take the frame loop over until `boot()` reaches `takeOverFrameLoop`, well after
+    // `swapFigure` returns — so the figure is RENDERED for however many frames those fetches
+    // happen to take. That count is a property of the machine and the disk cache, not of the URL.
+    //
+    // Per-frame renderer state then carries the count past the capture epoch. `takeOverFrameLoop`
+    // pins `nodeFrame.frameId`, the resolve's jitter index and its history (3.20) and all three
+    // read correct on every one of these loads — the leak is state that advances only on frames
+    // where the MESH is drawn, which no epoch reset reaches. A nude page never showed it because
+    // `swapFigure` returns immediately after adding the figure, so ZERO boot frames draw it; the
+    // wardrobe's awaits are what open the window.
+    //
+    // ⚠️ WHICH counter it is was NOT fully isolated, and the fix does not depend on knowing. Two
+    // partial attributions, both by execution: `?morphvel=hold` makes the dressed plate
+    // reproducible 3 of 3 where `exact` and `off` are 1 of 3, and deleting `MorphVelocity`'s
+    // `live.frameId === frameId` guard — which holds a BOOT frame index across the epoch reset —
+    // moves the outcome from 1 of 3 agreeing to 3 of 4 without closing it. So the previous-
+    // influence shift is implicated and is not the whole of it, and chasing the rest would be the
+    // enumeration trap this repo has been burned by three times: the counters are an open set and
+    // the BOOT FRAME COUNT is the single input all of them read. Removing the input closes the
+    // class. `MorphVelocity`'s stale guard is filed separately as a latent hazard for the other
+    // pages that render during boot.
+    //
+    // Measured at 450x600, `?bare&freeze&seed=1&aa=traa&grade=0&wear=&capture`, 12 steps, one
+    // vite, separate browser contexts, reading `sugata.captureClock().bootFrameId` beside each
+    // plate. **The plate was an exact function of the boot frame count** — eight loads, three
+    // epochs, three digests, no exceptions:
+    //
+    //   | bootFrameId | plate sha (16) | loads |
+    //   |-------------|----------------|-------|
+    //   | 12          | d4c39944a3966be4 | 1   |
+    //   | 13          | 713be99f9eca75e5 | 5   |
+    //   | 14          | 4dbb93ae41cd43ed | 2   |
+    //
+    // and the nude control on the same recipe read bootFrameId 10 on 4 of 4 loads and one digest.
+    // Worst residue between dressed loads: 1653 px of 270,000 at Δ117/255 (`?wear=`), and on the
+    // shipped default at 3840x5120 the Phase 8 harness recorded up to Δ122 on 224 px.
+    //
+    // With the figure hidden across the window the same probe reads, still across three distinct
+    // boot epochs: `?wear=` 6 loads -> worst 1 px at Δ1/255; `?wear=female_casualsuit01,shoes01`
+    // 5 loads BYTE-IDENTICAL on the temporal path (boot epochs 23 and 25) and 5 loads
+    // byte-identical on the shipped default (boot epochs 25 and 26). The 1-px remainder is the
+    // resolve-plus-grain quantiser this file already documents under `takeOverFrameLoop`.
+    //
+    // ⚠️ IT IS A VISIBILITY FLAG, NOT A REMOVAL. `stage.add` has already happened, the ground
+    // contact has already been fitted and the camera has already been framed off the whole body —
+    // all three read the object, not the draw — so nothing upstream of here changes. And it is the
+    // same promise 9.8 already makes for the decency floor one level down: a body that is going to
+    // be dressed is not drawn undressed first. On a live gender swap it costs a blink while the
+    // new bake's garments load, which is the correct trade for the same reason.
+    const defect = WARDROBE_DRESS_DEFECTS[ session.wardrobeDressDefect ];
+
+    session.figure.root.visible = defect.holds === false;
+
+    try {
+
+        await putGarmentsOn( session, defect );
+
+    } finally {
+
+        session.figure.root.visible = true;
+
+    }
+
+}
+
+/**
+ * The named ways the dressing race can be reintroduced, so the gate on it is proved against a PAGE
+ * rather than against a hand edit — the same discipline `CAPTURE_CLOCK_DEFECTS` follows, and for
+ * the same reason: §1.25a, a gate that only catches its own known-bad is decorative.
+ *
+ * The class is stated out loud rather than left to be inferred from the two rows: **any window in
+ * which the figure is DRAWN while the wardrobe is still resolving.** Both rows below are instances
+ * of it and neither is the other's special case — `unheld` is what shipped, `released-early` is the
+ * half-fix a reader who stopped at "hold it over the import" would write next, and it is the more
+ * useful of the two because it looks correct.
+ *
+ * `holds` is whether the figure is hidden at the start of the window; `releaseBeforeDress` releases
+ * it one await early, with the garment GLB fetches still to come.
+ */
+const WARDROBE_DRESS_DEFECTS = {
+    none: { holds: true, releaseBeforeDress: false },
+
+    // The shipped defect. Measured at 450x600 on `?aa=traa&grade=0&wear=`: eight loads, three boot
+    // epochs, three digests, plate an exact function of bootFrameId — see `dressFigure`.
+    unheld: { holds: false, releaseBeforeDress: false },
+
+    // The half-fix. The module import and the manifest fetch are covered and the per-garment GLB
+    // fetches are not, so the window narrows and does not close — which is precisely the shape of
+    // defect a two-load pixel check passes whenever both loads happen to boot at the same epoch.
+    'released-early': { holds: true, releaseBeforeDress: true }
+};
+
+/**
+ * Builds the wardrobe and wears the request. Split out of `dressFigure` only so the visibility
+ * hold above has a single body to wrap, and so a `return` in the empty-outfit case cannot skip it.
+ */
+async function putGarmentsOn( session, defect ) {
+
     const { Wardrobe } = await import( '../../core/src/wardrobe/Wardrobe.js' );
 
     // Punch-list 9.8. ⚠️ OPT-IN, AND IT MUST STAY SO. With a `decencyFloor` configured the
@@ -1589,6 +1744,10 @@ async function dressFigure( session ) {
         return;
 
     }
+
+    // `?wearrace=released-early`. See WARDROBE_DRESS_DEFECTS — the garment fetches below are the
+    // half of the window this puts back.
+    if ( defect.releaseBeforeDress === true ) session.figure.root.visible = true;
 
     try {
 
@@ -1847,6 +2006,26 @@ function bakeNameFrom( url ) {
  * Shadows are switched on per mesh here rather than at load, because the rig's shadow half is the
  * only thing that wants them and a figure with `castShadow` false produces a perfectly configured
  * shadow map of nothing at all.
+ *
+ * 🚩 AND THAT SENTENCE, ALONE, IS THE ONE THAT MADE A ROUND-LONG BUG INVISIBLE. It is an accurate
+ * account of the FIGURE and a silently incomplete account of the SCENE. This traverse runs at the
+ * `applyShading( session, skin )` call above; `dress()` runs a hundred lines later. A traverse
+ * cannot reach an object that does not exist yet, and it never runs again — so for a full round
+ * every garment and every accessory was parented with both flags at three's default of `false`,
+ * and a hat cast no shadow on the forehead beneath it. Three blind judges named it as their joint
+ * strongest tell that this was a render.
+ *
+ * 🎯 THE FIX IS NOT HERE, AND MUST NOT BE MOVED HERE. `Wardrobe.#adoptFragment` shades every
+ * fragment itself via `applyFragmentShading()`, so the flags now arrive WITH the fragment, on any
+ * page that dresses a figure rather than only on this one. A second traverse added below `dress()`
+ * would paper over a regression in the library and take
+ * `packages/core/src/wardrobe/shadow.selftest.mjs` green on a live bug — that gate measures the
+ * rendered consequence (the forehead under the fedora brim is 31.68% darker than the same forehead
+ * bareheaded) and it is not able to tell who set the flag.
+ *
+ * No behaviour change was made to this function. The note is here because this is where the next
+ * reader who notices garments were missed will reach, and the paragraph above currently argues for
+ * the version that failed.
  */
 function applyShading( session, skin ) {
 

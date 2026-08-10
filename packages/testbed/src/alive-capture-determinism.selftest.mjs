@@ -95,6 +95,29 @@
  *   | offset-epoch      | green       | —            | **RED**    | green   | green   |
  *   | wall-clock-time   | green       | —            | **RED**    | green   | —       |
  *
+ * ## A SECOND defect class in the same file: the DRESSING RACE
+ *
+ * 🚩 Everything above is about counters the capture epoch does not reset. The dressed recipe added
+ * later is about the epoch's INPUT, and it is the more general finding of the two. `?wear` puts the
+ * figure in the scene and then awaits a module import, a manifest and one GLB per garment with rAF
+ * still running, so the figure is DRAWN for a machine-dependent number of boot frames — and per-
+ * mesh state that only advances on frames where the mesh is drawn is not something any epoch reset
+ * reaches. Measured at 450x600: the dressed plate was an exact function of `bootFrameId` over eight
+ * loads, three epochs, three digests. The nude plate was reproducible only because its boot happens
+ * to be stable, which is why nothing here caught it for a whole phase.
+ *
+ * The fix is in `alive.js`'s `dressFigure` — hold the figure invisible across the wardrobe's async
+ * window, so zero boot frames draw it — and it closes the CLASS rather than one counter, which is
+ * the difference from every row in the table above. `?wearrace=unheld|released-early` are its two
+ * rejection proofs and the second is the important one: it holds the figure over the import and
+ * the manifest and releases it before the garment fetches, which is the half-fix that looks right.
+ *
+ * ⚠️ AND THE REJECTIONS ONLY LAND AT `SHORT_STEPS`. At 24 steps the resolve has converged and the
+ * defect measures 46–1588 samples run to run, straddling the tolerance; at 2 steps it is 0.19–0.21%
+ * of samples at worst Δ21. The W block carries the decay table and prints the 24-step number
+ * without asserting it. Same lesson as the history reset one paragraph down, from the other side:
+ * a converged temporal resolve hides its own starting conditions.
+ *
  * `unpinned-resolve` is the row that matters most and it is not the defect the fix was designed
  * from. It is green under `?aa=msaa` and red under the default, so a fix that had stopped at
  * `frameId` — which is where the obvious reading of the evidence pointed — would have made the
@@ -284,6 +307,52 @@ const RESIDUE_SAMPLE_SHARE = 0.0001;
 const RESIDUE_WORST_CODES = 12;
 
 /**
+ * 🚩 THE W REJECTIONS NEEDED THEIR OWN FLOOR, AND FINDING OUT WHY COST A SUITE.
+ *
+ * The R and R2 ACCEPTANCE checks ask "are these two plates the same render", and `withinResidue`
+ * above is the right question for that. The W block asks the OPPOSITE question — "does this
+ * deliberately reintroduced defect still show" — and for a while it asked it by negating
+ * `withinResidue`, which quietly made a REJECTION's floor equal to an ACCEPTANCE's ceiling. Those
+ * are not the same number and they must not be one constant.
+ *
+ * It went red on a live, correctly-caught defect. `?wearrace=released-early` at SHORT_STEPS
+ * measured, on the same tree in one day:
+ *
+ *     8735 samples of 4,320,000 (0.2022%), worst 21/255   quiet machine
+ *     8343 samples             (0.1931%), worst 21/255   quiet machine
+ *      438 samples             (0.0101%)                 quiet machine, a later run
+ *      136 samples             (0.0031%)                 inside a run with three other agents
+ *
+ * 136 is under RESIDUE_SAMPLE_SHARE's 432, so the check declared the two plates "the same render"
+ * and took a 39-gate suite red — on a defect it had caught correctly four times that morning. The
+ * perturbation is a race, its magnitude is machine load, and a threshold tuned on a quiet machine
+ * is a threshold tuned on the weather (LEARNINGS §1.25y).
+ *
+ * ⚠️ THE FLOOR IS NOT SET TO "WHATEVER PASSES", WHICH WOULD MAKE IT DECORATIVE IN THE OTHER
+ * DIRECTION. What entitles a floor this low is that the CLEAN dressed recipe is not merely small
+ * here, it is EXACTLY ZERO: R2 on `?wear=female_casualsuit01,shoes01` with no defect reads
+ * `0 of 4320000 samples differ (0.0000%), worst 0.0/255` across boot epochs 25 and 164. The
+ * question this floor separates is therefore "nothing at all" from "something", not "small" from
+ * "large", and it is set an order of magnitude under the smallest perturbation ever observed
+ * (136 samples, 21/255) and infinitely above the clean reading. Both clauses must clear it, so a
+ * one-pixel decode artefact at Δ1 cannot satisfy it.
+ *
+ * If this ever needs raising, do not raise it — the honest fix is to stop measuring a wall-clock
+ * race at all and hold the window open for a fixed number of drawn frames, so the check controls
+ * the quantity it is asserting on.
+ */
+const RACE_REJECTION_SAMPLES = 20;
+const RACE_REJECTION_WORST_CODES = 8;
+
+/** Whether a reintroduced race defect is still visible in the pixels. See RACE_REJECTION_SAMPLES. */
+function raceIsVisible( difference ) {
+
+    return difference.differing >= RACE_REJECTION_SAMPLES &&
+        difference.worstCodes >= RACE_REJECTION_WORST_CODES;
+
+}
+
+/**
  * The recipes. Between them they cover both AA families and both sides of the grade, which are the
  * two subsystems that read a per-frame counter.
  *
@@ -295,8 +364,41 @@ const RECIPES = [
     { name: 'default (taau + grade)', query: '', resolve: true },
     { name: 'aa=msaa (forward + grade)', query: 'aa=msaa', resolve: false },
     { name: 'aa=traa', query: 'aa=traa', resolve: true },
-    { name: 'aa=msaa&grade=0 (no grain, no resolve)', query: 'aa=msaa&grade=0', resolve: false }
+    { name: 'aa=msaa&grade=0 (no grain, no resolve)', query: 'aa=msaa&grade=0', resolve: false },
+
+    // 🚩 THE DRESSED RECIPE, AND IT IS NOT A FIFTH COPY OF THE SAME CHECK. Everything above it
+    // loads one GLB and is done; `?wear` loads a second body bake, then dynamically imports
+    // `Wardrobe.js`, then fetches a manifest, then fetches one GLB per garment — and until the
+    // fix in `alive.js`'s `dressFigure` it did all of that with the figure ALREADY IN THE SCENE
+    // and rAF ALREADY RUNNING. The plate was therefore a function of how many frames those
+    // fetches happened to take.
+    //
+    // Measured at 450x600, `?bare&freeze&seed=1&aa=traa&grade=0&wear=&capture`, 12 steps, reading
+    // `sugata.captureClock().bootFrameId` beside each plate: eight loads, three boot epochs, and
+    // the digest was an EXACT function of the epoch — 12 -> d4c39944, 13 -> 713be99f (5 loads),
+    // 14 -> 4dbb93ae (2 loads). Worst residue 1653 px of 270,000 at Δ117/255. The nude control on
+    // the same recipe read bootFrameId 10 on 4 of 4 loads and one digest, which is why nothing
+    // above this line ever caught it: the nude page's boot happens to be stable on this machine.
+    // Phase 8 measured the same defect at 3840x5120 as Δ7/115 px to Δ122/224 px, and it made all
+    // ten delivered plates fail `capture.mjs`'s own tolerance.
+    //
+    // ⚠️ THE POINT OF THE ROW IS THAT IT IS RUN THROUGH CHECK P. R alone would be "two dressed
+    // loads agreed", and the defect passes that whenever both loads happen to burn the same number
+    // of boot frames — which they did on 5 of 8 loads above. P forces the two loads to different
+    // boot epochs with BOOT_DELAY_MS, and R is only allowed to mean anything after it.
+    //
+    // It carries garments rather than `?wear=` alone because `dress()` adds a fetch per garment
+    // inside the window the fix closes, so the empty request exercises the shorter half of it.
+    { name: 'wear=female_casualsuit01,shoes01 (dressed)',
+        query: 'wear=female_casualsuit01,shoes01', resolve: true }
 ];
+
+/**
+ * The dressed row above, by reference rather than by a second copy of its query string, because
+ * the W rejection proofs must shoot at the recipe the forward checks certify. Two literals would
+ * be free to drift and the run would still be green.
+ */
+const DRESSED_RECIPE = RECIPES[ RECIPES.length - 1 ];
 
 /**
  * The rejection proofs. `expect` is the FULL expected verdict of every check the defect is run
@@ -901,6 +1003,108 @@ try {
         );
 
         console.log( '' );
+
+        // --- W: the dressing race, put back two different ways ----------------------------------
+        //
+        // §1.25a. The dressed recipe above would be decorative if the only thing it could catch
+        // were the defect its author already fixed, so both rows of `WARDROBE_DRESS_DEFECTS` are
+        // run here and the CLASS is named in that table rather than left implicit: any window in
+        // which the figure is drawn while the wardrobe is still resolving.
+        //
+        // `released-early` is the one that matters. It holds the figure over the module import and
+        // the manifest fetch — the obvious half of the window, and the half a reader who skimmed
+        // the fix would call done — and releases it before the per-garment GLB fetches. Measured
+        // at 450x600 on `?aa=traa&grade=0&wear=female_casualsuit01,shoes01`, 5 loads each:
+        // `none` 5/5 byte-identical across boot epochs 24 and 26; `unheld` 3 distinct digests over
+        // epochs 25/26/27; `released-early` 4 distinct digests over epochs 24/25/26/27, worst
+        // 1343 px at Δ229/255 — and the two defects map the SAME digest onto the SAME boot epoch,
+        // which is what says they are one mechanism at two window widths rather than two bugs.
+        //
+        // 🚩 AND THE FIRST VERSION OF THIS BLOCK SHOT AT `STEPS` AND MISSED. Both rejections came
+        // back GREEN-when-they-should-be-red at 24 steps — 46 and 53 of 4,320,000 samples at worst
+        // Δ4 and Δ3, inside RESIDUE_SAMPLE_SHARE — which is not a weak defect, it is a CONVERGED
+        // one: the resolve on a frozen scene walks back towards its fixed point and erases most of
+        // the transient it started from. Measured on the shipped default at this file's own
+        // 900x1200, three loads per row, `?wear=female_casualsuit01,shoes01&wearrace=unheld`:
+        //
+        //   | steps | samples differing | worst | R's verdict           |
+        //   |-------|-------------------|-------|-----------------------|
+        //   | 2     | 8868  (0.2052%)   | 17    | **NOT reproducible**  |
+        //   | 6     | 585   (0.0135%)   | 8     | NOT reproducible      |
+        //   | 12    | 29    (0.0007%)   | 5     | reproducible — MISSED |
+        //   | 24    | 18    (0.0004%)   | 4     | reproducible — MISSED |
+        //
+        // So `SHORT_STEPS` is not a supplementary check on this defect, it is the ONLY one that
+        // reaches it reliably, and the 24-step row of the forward checks above is carried by O and
+        // H rather than by R. Same shape as the file header's note that `frozen-frame` and
+        // `offset-epoch` are invisible to R.
+        //
+        // ⚠️ AND THE 24-STEP RESIDUAL IS NOT ASSERTED IN EITHER DIRECTION, which is a decision and
+        // not an omission. The obvious way to write the limitation down is a row asserting the
+        // defect IS within tolerance at 24 steps — and that row was written, run, and measured
+        // FLAKY: across four runs of the same two defects the 24-step residual read 46, 53, 137
+        // and 1588 samples, and the last of those is 0.0368%, outside RESIDUE_SAMPLE_SHARE. The
+        // defect at 24 steps straddles the threshold. A gate row over a straddling statistic is a
+        // coin flip wearing a check's clothes, so the number is MEASURED AND PRINTED on every run
+        // and no verdict is taken from it. §1.14: a floor and a measurement have to be the same
+        // kind of statistic, and "converged to somewhere near the fixed point" is not.
+        //
+        // ⚠️ THE ORACLE MUST STAY GREEN ON BOTH, and it is asserted rather than assumed. These are
+        // not clock defects: `frameId`, `time` and the jitter phase are pinned exactly as on a
+        // clean load, and the plate is wrong anyway. A defect that also moved the counters would
+        // be caught by O and would prove nothing about whether R can see a dressing race.
+        console.log( '--- W: the dressing race, reintroduced from the page ------------------------\n' );
+
+        for ( const defect of [ 'unheld', 'released-early' ] ) {
+
+            const query = `${ BASE_QUERY }&${ DRESSED_RECIPE.query }&wearrace=${ defect }`;
+
+            const shortA = await takePlate( browser, server.baseUrl, query, SHORT_STEPS );
+            const shortB = await takePlate( browser, server.baseUrl, query, SHORT_STEPS, BOOT_DELAY_MS );
+            const shortDifference = comparePlates( shortA.pixels, shortB.pixels );
+
+            report(
+                `  P  ?wearrace=${ defect } — the two loads booted at different epochs`,
+                shortA.clock.bootFrameId !== shortB.clock.bootFrameId,
+                `boot epoch ${ shortA.clock.bootFrameId } undelayed vs ${ shortB.clock.bootFrameId } ` +
+                    'delayed. Without this the R rejection below could be a defect that did nothing.'
+            );
+
+            report(
+                `  R${ SHORT_STEPS } ?wearrace=${ defect } is NOT reproducible before the resolve converges`,
+                raceIsVisible( shortDifference ),
+                `${ describe( shortDifference ) } — expected a difference, against a floor of ` +
+                    `${ RACE_REJECTION_SAMPLES } samples AND ${ RACE_REJECTION_WORST_CODES }/255 ` +
+                    '(the clean dressed recipe reads exactly 0 and 0.0 here — see ' +
+                    'RACE_REJECTION_SAMPLES). Green here would mean the dressed recipe cannot see a ' +
+                    'figure being drawn mid-dress, which is the only thing it was added to see.'
+            );
+
+            const a = await takePlate( browser, server.baseUrl, query, STEPS );
+            const b = await takePlate( browser, server.baseUrl, query, STEPS, BOOT_DELAY_MS );
+            const difference = comparePlates( a.pixels, b.pixels );
+
+            // Printed, deliberately not asserted. See the straddling-threshold note above.
+            console.log( `      (R at ${ STEPS } steps, NOT a check: ${ describe( difference ) }, ` +
+                `${ withinResidue( difference ) ? 'inside' : 'outside' } the tolerance. The resolve ` +
+                `has converged by here and this statistic straddles RESIDUE_SAMPLE_SHARE run to ` +
+                `run — R${ SHORT_STEPS } above is the check that catches this defect.)` );
+
+            const oracle = checkOracle( defect, a.clock, STEPS, true );
+
+            report(
+                `  O  ?wearrace=${ defect } leaves the counter oracle green, so R${ SHORT_STEPS } is what catches it`,
+                oracle.ok,
+                oracle.ok
+                    ? oracle.detail
+                    : `THE ORACLE MOVED: ${ oracle.detail }. This defect was supposed to touch the ` +
+                        'dressing window and nothing else; if it moves the clock too, the R ' +
+                        'rejection above is over-attributed.'
+            );
+
+            console.log( '' );
+
+        }
 
     }
 
