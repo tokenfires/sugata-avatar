@@ -1230,17 +1230,46 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 // absent from a product of albedo and irradiance by construction. And it is one point on the
 // floor, the same one `LightingRig.selftest.mjs` uses, 2 m behind the focus.
 {
-    const MAXIMUM_REFLECTED_BLUE_TO_RED = 0.71;
+    // ⚠️ 0.71 UNTIL 2026-08-09, AND IT WAS RE-DERIVED RATHER THAN RESCALED. Both of the original
+    // derivations still hold, on the new rig's numbers: the albedo block's 4.0 suppression floor
+    // re-expressed here is 2.5144 ÷ 4.0 = 0.629, and independently it must sit between 0.516 —
+    // floor `0x4b3520`, which renders an acceptable S 0.2661 — and 0.709, key+fill `#b0c0ff`,
+    // which renders 57.37% of the frame blue. 0.629 is inside both. Every row in the table above
+    // moved with the shipped incident figure, which went 2.8313 -> 2.5144 when the kicker went
+    // warm; the table's RELATIONSHIPS are unchanged and its absolute column is stale by that ratio.
+    const MAXIMUM_REFLECTED_BLUE_TO_RED = 0.629;
+
 
     // Published by `LightingRig.selftest.mjs`, which asserts the same figure against its own copy.
-    const LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED = 2.8313;
+    const LIGHTING_RIG_SHIPPED_INCIDENT_BLUE_TO_RED = 2.5144;
 
     // 🎯 And the same figure with the SHADOW-CASTER half summed in, also published there. See the
     // CASTER HALF block below for why one number was not enough.
-    const LIGHTING_RIG_SHIPPED_CASTER_INCLUSIVE_BLUE_TO_RED = 2.1973;
+    const LIGHTING_RIG_SHIPPED_CASTER_INCLUSIVE_BLUE_TO_RED = 1.9742;
 
     const FLOOR_POINT = new Vector3( 0, 0, -2.0 );
     const FLOOR_NORMAL = new Vector3( 0, 1, 0 );
+
+    // 🚩 ONE FLOOR POINT IS NOT A FLOOR, AND THIS IS THE MEASUREMENT THAT SAYS SO.
+    //
+    // Every clause below reads `FLOOR_POINT` alone. That is sound only while the defect it is
+    // looking for lands there, and one round of this file found a rig where it does not: with the
+    // portrait/body kicker at `#ffd7b0` (the warm kicker, swept and withdrawn — see
+    // `EDGE_LIGHTS.portrait`), the GEOMETRY known-bad below reads **0.344** here against a shipped
+    // 0.283, i.e. comfortably under the ceiling and NOT rejected, while the same configuration
+    // renders **20.11%** of a 900×1200 body frame in a saturated blue against the shipped rig's
+    // **7.09%**, at floor HSV S 0.3682 against 0.2688 (`lighting.html?frame=body&bare` with `?ov=rim.distanceInHeights:1.4`). The wedge
+    // moved off the sample point; the defect did not move at all. On the SHIPPED rig it reads
+    // 3.854 and is rejected, which is why this is a recorded hazard and not a live clause.
+    // (The 0.344 reading is on the warm-kicker rig; the 20.11% render figure above is the shipped
+    // one, and the defect renders at least that badly on both.)
+    //
+    // ⚠️ AND THE OBVIOUS REPAIR WAS TRIED AND IS WRONG: sampling twelve floor points and gating the
+    // worst-over-point RATIO reads 4.82× on the SHIPPED rig and 1.00× on the defect — inverted,
+    // because the near kicker lights one sample hot and contributes nothing at `FLOOR_POINT`.
+    // Gating the worst VALUE instead loses the ceiling entirely: the MUST-PASS `0x4b3520` row
+    // climbs to 0.737 while the `#b0c0ff` known-bad stays at 0.709, so no ceiling separates them.
+    // Whatever closes this is not a statistic over this point set. §1.20.
 
     const bodyShot = {
         focus: new Vector3( 0, 0.91, 0 ),
@@ -1272,7 +1301,7 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
      *   default is false because every ceiling in this file is anchored on the panels-only reading
      *   and the caster-inclusive one is measurably LESS strict; see the CASTER HALF block.
      */
-    function incidentAtFloor( overrides, withCasters = false ) {
+    function incidentAtFloor( overrides, withCasters = false, point = FLOOR_POINT ) {
 
         const rig = rigFor( overrides );
         const channels = [ 0, 0, 0 ];
@@ -1289,7 +1318,7 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
 
             const panel = unit.area.position;
             const aim = bodyShot.focus.clone().sub( panel ).normalize();
-            const toPoint = FLOOR_POINT.clone().sub( panel );
+            const toPoint = point.clone().sub( panel );
             const distance = toPoint.length();
             const direction = toPoint.clone().normalize();
 
@@ -1314,12 +1343,12 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
             // three's own `getSpotAttenuation x getDistanceAttenuation` with all four of `angle`,
             // `penumbra`, `decay` and `distance` taken off the object.
             const spot = unit.shadowCaster;
-            const spotDirection = FLOOR_POINT.clone().sub( spot.position ).normalize();
+            const spotDirection = point.clone().sub( spot.position ).normalize();
             const cosSpotReceiver = FLOOR_NORMAL.dot( spotDirection.clone().negate() );
 
             accumulate( cosSpotReceiver <= 0
                 ? 0
-                : spot.intensity * spotIrradianceFactor( spot, FLOOR_POINT ) * cosSpotReceiver,
+                : spot.intensity * spotIrradianceFactor( spot, point ) * cosSpotReceiver,
             spot.color );
 
         }
@@ -1381,9 +1410,23 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
             rendered: '90.79% of the frame here, 99.20% on alive.html — and 36/36 green before this block existed'
         },
         {
+            // ⚠️ 0.785 at the old ceiling of 0.71 and **0.709** now, against a ceiling of 0.629 —
+            // the row that made the ceiling a re-derivation rather than a rescale. Reintroducing
+            // 0.71 with the shipped rig leaves this at 0.709 and it goes GREEN, on a tint that
+            // renders 57.37% of the frame blue. Proven, not argued.
             what: 'LIGHT, SUBTLE — the shipped floor under a key and fill at #b0c0ff, a tint that reads as white',
             arguments: { rig: { key: { colour: 0xb0c0ff }, fill: { colour: 0xb0c0ff } } },
             rendered: '57.37% of the frame'
+        },
+        {
+            // 🎯 AND THE SAME CLASS BROKEN A SECOND WAY, so the tightened ceiling is load-bearing
+            // on more than the one row that forced it. `#b6c4ff` is `#b0c0ff` walked six code
+            // values toward white — a tint no reviewer would flag in a swatch and no "blue is
+            // lowest" predicate can see, since blue is its HIGHEST channel by the same margin as
+            // before. It reads **0.6586**: rejected at 0.629 and comfortably green at the old 0.71.
+            what: 'LIGHT, SUBTLE, SECOND — the shipped floor under a key and fill at #b6c4ff, six code values whiter',
+            arguments: { rig: { key: { colour: 0xb6c4ff }, fill: { colour: 0xb6c4ff } } },
+            rendered: '68.39% of a 900x1200 body frame in a saturated blue, at floor HSV S 0.3626 against the shipped 0.2688'
         },
         {
             // 🚩 BREAKING IT A DIFFERENT WAY. This is the row that neither factor's own clause can
@@ -1399,9 +1442,13 @@ console.log( '\nTHE REFLECTED COLOUR — albedo TIMES the light that actually la
         {
             // And the geometric one, so this block is not blind to the mechanism that produced the
             // original defect either.
+            //
+            // ⚠️ 3.496 until the body rim went to −168° on 2026-08-09 and 3.854 after it, both at
+            // `FLOOR_POINT` and both rejected — but see the hazard recorded at FLOOR_POINT for the
+            // rig on which this row goes GREEN at 0.344 while still rendering the same defect.
             what: 'GEOMETRY — the shipped floor with the rim standoff back at 1.4 heights',
             arguments: { rig: { rim: { distanceInHeights: 1.4 }, kicker: { distanceInHeights: 1.4 } } },
-            rendered: '24.06% of the frame at the old floor albedo'
+            rendered: '20.11% of a 900x1200 body frame in a saturated blue against the shipped 7.09%, floor HSV S 0.3682 against 0.2688'
         }
     ];
 

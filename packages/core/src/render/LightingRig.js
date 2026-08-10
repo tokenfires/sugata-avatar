@@ -376,6 +376,40 @@ export const EXPOSURE_CALIBRATION = 0.85;
  * 1.90 puts it back at **1.5991**, inside the 1.43–1.64 reference band.
  * ⚠️ Historical: 1.5991 and 1.4368 are UNGRADED forward-path numbers and are not comparable with
  * the graded sweep above. The colour swap's conclusion stands; its absolute figures do not.
+ *
+ * 🚩 **NOTHING IN THIS FRAME CLIPS, AND IT IS NOT THIS RIG'S FAULT — THREE TOGGLES SAY SO.** The
+ * seven-gate plate reads G5 0.000002 against reference plates that clip 0.017–0.036%, and two of
+ * three blind judges concluded from that alone that the renderer has no post chain. The obvious
+ * suspects were tested and all three are cleared, on
+ * `alive.html?bare&freeze&seed=1&capture` at 3840×5120:
+ *
+ *   | plate                        | max luma | p99.999 | > 0.90     | > 0.95    | > 0.99      |
+ *   |------------------------------|---------:|--------:|-----------:|----------:|------------:|
+ *   | shipped default              |  0.99608 | 0.94929 |  0.000632  | 0.0000053 | 0.0000016   |
+ *   | `?aa=msaa&grade=0`           |  0.99608 | 0.94845 |  0.000361  | 0.0000041 | 0.0000023   |
+ *   | `?ov=key.irradiance:9` (3×)  |  0.99608 | 0.98204 |  **0.427** | **0.155** | 0.0000017   |
+ *   | `?ov=key.width/height ÷ 8`   |  0.99608 | 0.94929 |  0.002012  | 0.0000045 | 0.0000016   |
+ *
+ *   1. **NOT THE TONE CURVE.** `?grade=0` — no AgX, no bloom — clips the SAME 2.3 × 10⁻⁶. If the
+ *      curve were holding the highlights down, taking it off would release them.
+ *   2. **NOT THE LIGHT LEVEL, and this is the row that matters.** Three times the key puts 42.7%
+ *      of the frame over 0.90 and 15.5% over 0.95 — a washed-out picture — and the clipped
+ *      fraction does not move at all. Raising exposure is not a fix that was rejected on taste; it
+ *      is measurably incapable of producing the statistic.
+ *   3. **NOT THE KEY PANEL'S SOLID ANGLE.** Shrinking the key 8× in area at constant irradiance
+ *      raises its radiance 64× and triples the >0.90 population, and the peak does not move.
+ *      ⚠️ It also takes **G2 RED** (sclera:cheek 0.9319) and G4 to 1.7044, so it is not free.
+ *
+ * What the frame actually contains, by cluster above 0.90 on the shipped plate: 6,939 px of rim
+ * glow on the backdrop at 0.9521; two skin speculars — nose and lower lip — at **0.9229**; and
+ * **84 px of eye catchlight at 0.9961**, which is the only thing in the picture that reaches the
+ * bloom threshold at all. The pipeline can carry a clipping highlight; the SCENE has exactly one
+ * feature small and bright enough to make one, and it is 0.0000043 of the frame.
+ *
+ * So the cause is not a light and cannot be fixed from this file: a face clips where it has hair
+ * specular, wet lip and eye highlights, metal or emissive trim, and this figure has none of them.
+ * Filed as diff requests against the hair, catchlight and wardrobe items rather than answered here
+ * with an exposure the measurement above already ruled out.
  */
 const FORM_LIGHTS = [
     {
@@ -459,34 +493,156 @@ const FORM_LIGHTS = [
  * to 2.10 and the floor to HSV S 0.2661, with the rim on the subject unchanged. See
  * `EDGE_LIGHTS.body` for the sweep and `LightingRig.selftest.mjs` for the gate that now measures
  * this quantity, which nothing did before.
+ *
+ * 🎯 **AND NOBODY APPLIED THAT REASONING TO THE PORTRAIT PRESET, WHICH IS WHERE IT WAS WORST.**
+ * The paragraph above fixed the standoff at BODY framing and left portrait at 2.6 heights, and a
+ * portrait rim at 2.6 heights stands FURTHER behind the subject in metres than the body rim does,
+ * with the backdrop card in the same place. Attributed by toggle rather than by hue — the plate
+ * with `?ov=rim.irradiance:0,kicker.irradiance:0` subtracted from the shipped plate, on
+ * `lighting.html?bare` at 900×1200, subject mask from a `?figure=0` plate of the SAME rim-off rig
+ * so the mask is variant-independent:
+ *
+ *   | portrait rim/kicker standoff | background px the pair moves | mean light it adds there |
+ *   |------------------------------|-----------------------------:|--------------------------|
+ *   | 2.6 heights (was)            |                   **92.65%** | `#0a178b`, HSV S 0.925   |
+ *   | 1.3                          |                    **0.00%** | —                        |
+ *   | **0.9 (shipped)**            |                    **0.00%** | —                        |
+ *   | 0.65                         |                        0.00% | —                        |
+ *
+ * (Panel width and height scaled by the same factor as the standoff throughout, so the SOFTNESS at
+ * the subject is held constant and the column is attributable to the standoff alone.)
+ *
+ * Nine tenths of the backdrop was rim spill, and it goes to nothing at a knee rather than on a
+ * gradient — the second mechanism in `EDGE_LIGHTS.body`'s note, the panel's own plane, is what
+ * makes it a cliff: a `RectAreaLight` lights only its front hemisphere, and between 2.6 and 1.3
+ * heights the card leaves that hemisphere entirely. This is the half of the judges' complaint that
+ * said the outline "bleeds outside the mesh into the background", and it is now zero.
+ *
+ * 0.9 rather than 1.3 because the two extra columns keep improving after the spill has stopped:
+ * subject pixels the pair touches at all go 28.38% (2.6) → 21.62% (1.3) → **16.27% (0.9)**, and the
+ * shadow-side band's hue rotation away from skin goes −44.7° → −34.4° → **−27.4°**. 0.65 was not
+ * taken: it is the BODY preset's standoff, and the two presets are meant to differ there.
+ *
+ * 🎯 **AND THE AZIMUTH, WHICH IS THE OTHER HALF AND IS THE ONE THAT NARROWS.** −158° → −168° on the
+ * rim and +154° → +166° on the kicker, in BOTH presets so the equality clause in the selftest still
+ * holds. What the pair delivers, shipped against the rig this replaced, same page and same masks:
+ *
+ *   |                                     | portrait was | portrait now | body was | body now |
+ *   |-------------------------------------|-------------:|-------------:|---------:|---------:|
+ *   | subject px the pair touches at all  |       28.38% |   **18.54%** |   34.26% |**28.55%**|
+ *   | subject px in a cool hue at S > 0.10|        3.09% |    **1.11%** |   12.47% |**11.08%**|
+ *   | background px the pair moves        |       92.65% |    **0.00%** |   20.60% |   20.08% |
+ *   | shadow-side band hue vs skin        |       −44.7° |   **−27.5°** |   −76.9° |**−66.6°**|
+ *   | key-side band hue vs skin           |       −40.1° |   **−33.7°** |   −41.9° |**−33.3°**|
+ *   | added luma at depth 1 ÷ at depth 25 |        7.17× |   **14.68×** |   18.30× |   16.23× |
+ *
+ * The last row is the one that answers the judges' actual words. "Constant-width, at uniform
+ * intensity regardless of surface angle" is a claim about a PROFILE, so it is measured as one: the
+ * light the pair adds at the silhouette divided by the light it still adds 25 px inside. A rim
+ * falls off; a shader outline does not. At portrait it now falls off twice as fast.
+ *
+ * ⚠️ **AND IT IS STILL A THIRD OF THE FIGURE, WHICH IS NOT A RIM.** 18.54% and 28.55% are better
+ * and they are not right, and the remaining distance is NOT reachable from these two lights — see
+ * the withdrawn warm kicker below for the measurement that says which gate stops it.
+ *
+ * ⚠️ **TWO THINGS WERE SWEPT AND MEASURED NOT TO WORK, AND THEY ARE THE OBVIOUS ONES.** Same page,
+ * same masks, everything else at the shipped values:
+ *
+ *   - **Warming the RIM's own colour does almost nothing and costs chroma.** `#0f30ff` → `#2b4cff`
+ *     → `#4a68ff` → `#1f6aff` moves the shadow-side band's hue by 1.3° in total (−43.6° → −42.3°)
+ *     and takes its saturation from 1.05× skin to 0.91×. The band's hue is set by the tone curve
+ *     over warm skin, not by the light's hue, so the lever is the KICKER's placement and hue —
+ *     which is where the change went — and not the rim's colour.
+ *   - **Raising the rim to the spec's "≈1.0–1.5× key-lit skin luma" costs the spec's "MUCH higher
+ *     chroma" one-for-one.** Sweeping the pair to E 30/45/70 with progressively whiter blues gets
+ *     the band to 1.01× skin luma and 0.73× skin saturation, and grows the subject footprint from
+ *     28% to 30%. Both spec clauses cannot be met at once from a `RectAreaLight` through ACES; the
+ *     rig ships the saturation half (1.03× skin) and fails the luma half (0.88×), and that is a
+ *     recorded loss rather than a tuned-away one.
  */
 const EDGE_LIGHTS = {
 
     portrait: [
         {
             name: 'rim',
-            azimuthDegrees: -158,
+            azimuthDegrees: -168,
             elevationDegrees: 26,
-            distanceInHeights: 2.6,
-            widthInHeights: 0.24,
-            heightInHeights: 0.90,
+            distanceInHeights: 0.9,
+            widthInHeights: 0.0831,   // 0.24 × 0.9/2.6 — the same solid angle at the subject
+            heightInHeights: 0.3115,  // 0.90 × 0.9/2.6
             irradiance: 16,
             colour: 0x0f30ff,
             shadowFraction: 0
         },
         {
             name: 'kicker',
-            azimuthDegrees: 154,
+            azimuthDegrees: 166,
             elevationDegrees: -6,
-            distanceInHeights: 2.5,
-            widthInHeights: 0.24,
-            heightInHeights: 0.85,
+            distanceInHeights: 0.865,
+            widthInHeights: 0.0831,   // 0.24 × 0.865/2.5
+            heightInHeights: 0.2942,  // 0.85 × 0.865/2.5
             irradiance: 7,
-            // Same hue as the rim, deliberately. The kicker was `#7a5bff` — a violet — and a judge
-            // measured the crown silhouette at hue 279.5° against a cheek at 20.95°, which is the
-            // violet, not the blue. The spec asks for a rim "hue-opposed to key"; the key is
-            // ~5000 K and its opposite is a deep blue, not a magenta-blue. Rim and kicker are
-            // separated by placement and power, which is what separates them in a real studio.
+            // ⚠️ ~~Same hue as the rim, deliberately.~~ The reasoning that put
+            // the kicker on the rim's hue is quoted below because it is still correct about the
+            // thing it was answering, and it created a worse defect than the one it fixed:
+            //
+            //   "The kicker was `#7a5bff` — a violet — and a judge measured the crown silhouette
+            //    at hue 279.5° against a cheek at 20.95°, which is the violet, not the blue. The
+            //    spec asks for a rim hue-opposed to key; the key is ~5000 K and its opposite is a
+            //    deep blue, not a magenta-blue. Rim and kicker are separated by placement and
+            //    power, which is what separates them in a real studio."
+            //
+            // Placement and power did NOT separate them. `−158°` and `+154°` are near-mirror
+            // azimuths, so two lights of the same hue at 16 and 7 put the SAME cool band down
+            // both sides of the figure — and what three independent judges then reported, with no
+            // project context, was "a constant-width saturated violet outline tracing the whole
+            // silhouette at uniform intensity regardless of surface angle", two of them calling it
+            // a bug rather than low quality. A rim that closes all the way round is a shader
+            // outline. The rim's job is to separate the subject from the backdrop on the SHADOW
+            // side; a key-side kicker is a hair light, and in a real studio a hair light is warm.
+            //
+            // Measured on `lighting.html?bare` at 900×1200 against a `?figure=0` mask, everything
+            // else at the values above, key-side outer-8 px band against interior key-side skin:
+            //
+            //   | portrait kicker        | cool subject px | key-side band hue vs skin |
+            //   |------------------------|----------------:|--------------------------:|
+            //   | `#0f30ff` E 7 (was)    |           1.60% |                    −39.4° |
+            //   | **`#ffd7b0` E 2.5**    |       **0.83%** |                **−18.6°** |
+            //
+            // E 7 → 2.5 is not a dimming: `irradiance` is authored as a scalar and the COLOUR
+            // multiplies it, and `#ffd7b0` carries 9.6× the relative luminance of `#0f30ff`, so
+            // 2.5 delivers about a third of what 7 did on the old hue. It was chosen off the
+            // sweep (7 / 4 / 2.5 / 1.5) for the smallest subject footprint that still reads.
+            //
+            // 🔴 **AND IT IS NOT SHIPPED, BECAUSE IT TAKES TWO OF THE SEVEN OBJECTIVE GATES RED AND
+            // THE FIX IS NOT IN THIS FILE.** Measured on `alive.html?bare&freeze&seed=1&capture` at
+            // 3840×5120, shipped default, three loads, one value per gate — attributed by reverting
+            // one field at a time from the warm-kicker rig, which is what makes it an attribution
+            // rather than a coincidence:
+            //
+            //   | one field reverted           | G1     | G2     |
+            //   |------------------------------|-------:|-------:|
+            //   | nothing (warm kicker, E 2.5) | 1.2331 | 0.8855 |
+            //   | rim azimuth −168 → −158      | 1.2298 | 0.8856 |
+            //   | rim standoff 0.9 → 2.6       | 1.2325 | 0.8856 |
+            //   | kicker azimuth 166 → 154     | 1.2217 | 0.8839 |
+            //   | **kicker colour+E → #0f30ff, 7** | **1.5512** | **0.9526** |
+            //
+            // The rim's two changes are worth 0.003 of G1 between them; the kicker's hue is the
+            // whole of it. The mechanism is the one this file's own irradiance convention makes
+            // easy to miss: `irradiance` is a scalar and the COLOUR multiplies it, and `#ffd7b0`
+            // carries **7.73×** the relative luminance of `#0f30ff`. A blue kicker of this size and
+            // this proximity was always a broad key-side wash; it passed a LUMA gate only because
+            // its hue contributes almost no luma. Warm it and G1 notices immediately.
+            //
+            // Swept and none of it recovers both gates: kicker E 2.5 → 1.6 → 1.2 → 0.9 walks G1
+            // back to 1.4461 and leaves G2 at 0.9022, still under its 0.92 floor; elevation −6 →
+            // 24 → 34 → 44 moves G1 by 0.027 and G2 by 0.003; trading it against the fill
+            // (2.20 → 1.80 → 1.55 → 1.35) reaches G1 1.4519 and takes G2 the WRONG way, to 0.8793.
+            // G2 is `SCLERA_BRIGHTNESS`, which PROGRESS records as re-solved from 1.26 to 1.47
+            // against the shipped rig — a rig-dependent constant in `material/EyeMaterial.js`, and
+            // this file may not move it. Filed as a diff request; the numbers above are the sweep
+            // whoever takes it needs, so it does not have to be re-run.
             colour: 0x0f30ff,
             shadowFraction: 0
         }
@@ -573,7 +729,7 @@ const EDGE_LIGHTS = {
     body: [
         {
             name: 'rim',
-            azimuthDegrees: -158,
+            azimuthDegrees: -168,
             elevationDegrees: 40,
             distanceInHeights: 0.65,
             widthInHeights: 0.1393,   // 0.30 × 0.65/1.4 — same solid angle at the subject
@@ -584,12 +740,12 @@ const EDGE_LIGHTS = {
         },
         {
             name: 'kicker',
-            azimuthDegrees: 154,
+            azimuthDegrees: 166,
             elevationDegrees: 16,
             distanceInHeights: 0.65,
             widthInHeights: 0.1393,   // 0.30 × 0.65/1.4
             heightInHeights: 0.4411,  // 0.95 × 0.65/1.4
-            irradiance: 10,
+            irradiance: 10,           // warm at 3.5 was measured and withdrawn — see the portrait kicker
             colour: 0x0f30ff,
             shadowFraction: 0
         }

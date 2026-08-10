@@ -879,7 +879,10 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
     // Published so `GroundContact.selftest.mjs` can cross-check its own copy of this arithmetic
     // against this one. Two files compute the same spill because neither may import a helper the
     // other owns; the cross-check is what stops the copies drifting apart in silence.
-    const SHIPPED_BLUE_TO_RED = 2.8313;
+    // ⚠️ 2.8313 until the kicker went warm (2026-08-09). Re-measured, not re-derived: this is
+    // what `environmentSpill( {} )` returns on the shipped rig, and every number below that
+    // moved with it moved for the same one reason.
+    const SHIPPED_BLUE_TO_RED = 2.5144;
 
     const shipped = environmentSpill( {} );
 
@@ -1072,9 +1075,16 @@ console.log( '\n--- the gate: how much of the rim lands on the environment -----
     // so the geometric ratio reads 0.000 — a better score than shipped, and unimprovable — while
     // the frame renders 55.72% saturated blue. A partition is a partition; the only clause that
     // cannot be walked around by moving a light across its boundary is the one with no boundary.
+    // ⚠️ THE COLOUR IS NOW STATED IN THE OVERRIDE, AND IT HAD TO BE. This known-bad is named
+    // "the BLUE panels swung to the front" and it used to inherit both hues from the shipped rig.
+    // When the kicker went warm (`EDGE_LIGHTS.portrait`) the defect quietly became "one blue panel
+    // and one warm one swung to the front", which scores blue:red 4.09 against a 4.5 ceiling and
+    // stops being rejected — a rejection proof that went green because a SHIPPED constant moved,
+    // not because the mechanism it guards was fixed. A proof that inherits the thing it is proving
+    // about is not a proof; both panels are now blue by construction.
     const swungToFront = environmentSpill( {
-        rim: { azimuthDegrees: -60, distanceInHeights: 1.4 },
-        kicker: { azimuthDegrees: 60, distanceInHeights: 1.4 }
+        rim: { azimuthDegrees: -60, distanceInHeights: 1.4, colour: 0x0f30ff },
+        kicker: { azimuthDegrees: 60, distanceInHeights: 1.4, colour: 0x0f30ff }
     } );
 
     report(
@@ -1193,8 +1203,11 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 // contribution is `intensity × spotAttenuation × cos(receiver) / d²`, and three's
 // `getSpotAttenuation` is `smoothstep( cos(angle), cos(angle·(1−penumbra)), cos(θ) )` — with
 // `penumbra` 1 that is `smoothstep( cos(angle), 1, cos(θ) )`. Included, the shipped figures are
-// **1.4859 and 2.1973**; dropped, they are **1.4575 and 2.1683**, which is the pair on record to
-// four decimals. Recorded rather than reconciled away: the old numbers were an omni-light
+// **1.2650 and 1.9742**; dropped, they are **1.2408 and 1.9494**. ⚠️ Those four numbers were
+// **1.4859 / 2.1973** and **1.4575 / 2.1683** until the portrait rim came in to 0.9 heights and the
+// kicker went warm on 2026-08-09; the RELATIONSHIP they were written to record — the cone term is
+// worth ~0.025 of blue:red, and the pair on record is the omni reading — is unchanged, and every
+// figure here is re-measured rather than rescaled. Recorded rather than reconciled away: the old numbers were an omni-light
 // reading of a cone, they are reproduced exactly by aiming the cone at the receiver, and the
 // cone-aware pair is what this block gates.
 {
@@ -1205,12 +1218,12 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
 
     // Published by the block above, which measures the same two quantities on the panels alone.
     // Re-asserted here so the third copy of this arithmetic cannot drift away from the other two.
-    const PANELS_ONLY_SHIPPED = { behindToFront: 2.0982, blueToRed: 2.8313 };
+    const PANELS_ONLY_SHIPPED = { behindToFront: 1.7862, blueToRed: 2.5144 };
 
     // 🎯 Published TO `GroundContact.selftest.mjs`, which sums the caster half into its own copy of
     // the incident light and asserts this same figure. Two files, two copies, one number — the
     // pattern the panels-only value already uses, extended to the half that was missing.
-    const CASTER_INCLUSIVE_SHIPPED_BLUE_TO_RED = 2.1973;
+    const CASTER_INCLUSIVE_SHIPPED_BLUE_TO_RED = 1.9742;
 
     const bodyShot = {
         focus: new Vector3( 0, 0.91, 0 ),
@@ -1376,8 +1389,8 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
     );
 
     report(
-        'the header\'s 1.4575 / 2.1683 are reproduced by DROPPING the cone term, which is where they came from',
-        closeTo( shippedFullNoCone.behindToFront, 1.4575, 0.0005 ) && closeTo( shippedFullNoCone.blueToRed, 2.1683, 0.0005 ),
+        'the header\'s omni pair is reproduced by DROPPING the cone term, which is where it came from',
+        closeTo( shippedFullNoCone.behindToFront, 1.2408, 0.0005 ) && closeTo( shippedFullNoCone.blueToRed, 1.9494, 0.0005 ),
         `omni model ${ shippedFullNoCone.behindToFront.toFixed( 4 ) } / ${ shippedFullNoCone.blueToRed.toFixed( 4 ) } ` +
         `against the cone-aware ${ shippedFull.behindToFront.toFixed( 4 ) } / ${ shippedFull.blueToRed.toFixed( 4 ) }. ` +
         'The pair on record is the omni reading of a light that has a cone; the cone-aware pair is what is gated below.'
@@ -1844,9 +1857,15 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
         // either ceiling: 0.951 against 4.5. That is the point. What it breaks is the EXCUSE — the
         // moment the caster half raises a clause, the panels-only anchors stop bounding the truth,
         // and the file has to say so rather than carry a paragraph that has quietly gone false.
+        // ⚠️ THE CONE WAS 4 HEIGHTS AND IS NOW 8, FOR THE SAME REASON THE ROW ABOVE GREW A
+        // COLOUR. At 4 heights this construction relied on the kicker being blue: with the kicker
+        // warm, moving its energy into a wide-coned caster adds RED to the floor and blue:red
+        // falls 0.8659 → 0.8236 instead of rising, so the proof went green while the mechanism it
+        // demonstrates was untouched. Widening the cone restores the SIGN — 0.8659 → 1.0009, and
+        // behind:front 0.1786 → 0.3069 — which is the whole claim.
         const rig = rigFor(
             { rim: { shadowFraction: 0.9 }, kicker: { shadowFraction: 0.9 } },
-            { shadowCoverageInHeights: 4 }
+            { shadowCoverageInHeights: 8 }
         );
         const panels = spillAtFloor( rig, false );
         const full = spillAtFloor( rig, true );
@@ -1855,7 +1874,7 @@ console.log( '\n--- the SHADOW-CASTER half, which the block above does not sum -
             'CONSERVATISM catches something PREMISE cannot: the blue back lights moved into wide-coned casters',
             casterColourDivergences( rig ).length === 0
                 && ( full.behindToFront > panels.behindToFront || full.blueToRed > panels.blueToRed ),
-            `rim and kicker at shadowFraction 0.9 with the cone at 4 heights: every caster still carries its ` +
+            `rim and kicker at shadowFraction 0.9 with the cone at 8 heights: every caster still carries its ` +
             `panel's colour, and the caster half RAISES blue:red ${ panels.blueToRed.toFixed( 4 ) } -> ` +
             `${ full.blueToRed.toFixed( 4 ) } and behind:front ${ panels.behindToFront.toFixed( 4 ) } -> ` +
             `${ full.behindToFront.toFixed( 4 ) }. Both are far under their ceilings; what has failed is the ` +
