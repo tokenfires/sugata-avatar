@@ -798,12 +798,101 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       A 2.0 mm shell with a 1.2 mm rolled hem casts one to three pixels at ~1 mm/px. The gate
       reports it and deliberately does not assert it. **The painted-on read is fixed by THICKNESS
       (9.8's hem roll), not by shadow** — do not spend a round trying to shadow a 2 mm lip.
-- [ ] **3.10** GTAO → **bent normals + specular occlusion** (Frostbite form). Hand-rolled — three.js
+      ✅ **CONFIRMED IN R12 AT TWENTY TIMES THE MAGNIFICATION, which is where the alternative
+      explanation could still have hidden.** "No measurable shadow at 1 mm/px" leaves open that a
+      closer look would find one, and `hem.selftest.mjs` takes that look: at **20.00 px/mm** on the
+      briefs' leg opening, clearing `castShadow` on the worn fragments moves the hem's darkening by
+      **0.00%** — 52.32% against 52.32%, identical to five decimals, at both framings it measures.
+      The dark line at a foundation hem is the rolled band's **own shading**, not a shadow it casts.
+- [x] **3.10** GTAO → **bent normals + specular occlusion** (Frostbite form). Hand-rolled — three.js
       has neither, and un-occluded ambient specular is why WebGL characters look like plastic.
       The G-buffer's `normal` attachment is **signed view-space xyz with perceptual roughness in w**,
       which is what `GTAONode` consumes directly — it calls `.normalize()` on what it samples, so
       repacking to RGB8 via `packNormalToRGB` would confine the direction to the positive octant
       and yield plausible-looking wrong AO. Do not repack it.
+      **DELIVERED** in `render/GTAO.js`, live on `alive.html` with `?gtao=0` as the A side and four
+      sub-toggles that separate the halves: `?bentnormal=0`, `?specocc=0`, `?ambspec=0`,
+      `?gtaostrength=0`. Gate `render/GTAO.selftest.mjs` **27/27**, ten of them rendered on a real
+      GPU. `?gtaoq=low|medium|high` is the cost lever and `?gtaoview=ao|bent|specocc|ambient`
+      shows the intermediates.
+      🎯 **THE AMBIENT MOVED, AND THAT IS THE MECHANISM.** With 3.10 on, `LightingRig` is built
+      `ambient: false` and the hemisphere is re-evaluated per pixel in the composite through the
+      bent normal. Applying AO as a multiply on the beauty buffer — which is what three's own
+      `GTAONode` documentation shows — would darken the DIRECT light too. **The move is proven
+      exact before any occlusion is claimed:** `?gtaostrength=0&bentnormal=0&ambspec=0` neutralises
+      every 3.10 term and reproduces the forward `HemisphereLight` to **+0.038 / +0.034 / +0.054**
+      code values on forehead, cheek and neck.
+      **MEASURED EFFECT**, mean Rec.709 luma in 8-bit code values, `alive.html?bare&freeze&seed=1`
+      at 900×1200 converged to frame 6 with a zero simulation step, portrait unless marked:
+
+      | region        | AO alone | bent normal | ambient spec | **spec occ alone** | whole 3.10 |
+      |---------------|---------:|------------:|-------------:|-------------------:|-----------:|
+      | forehead ctrl |   −0.001 |      −0.315 |       +0.262 |             −0.005 |     −0.021 |
+      | nostril       |   −0.371 |      +1.005 |       +0.320 |             −0.048 |     +1.466 |
+      | inner ear     |   −0.619 |      +0.591 |       +0.297 |             −0.062 |     +1.054 |
+      | under chin    |   −0.147 |      +1.260 |       +0.277 |             −0.056 |     +1.573 |
+      | neck          |   −0.028 |      +0.678 |       +0.226 |             −0.003 |     +0.926 |
+      | lip seam      |   −2.847 |      −0.987 |       +1.155 |             −0.812 |     −0.407 |
+      | armpit (body) |   −1.610 |      +1.230 |       +0.469 |             −0.373 |     +0.116 |
+      | inner thigh   |   −0.298 |      +0.166 |       +0.971 |             −0.189 |     +1.155 |
+
+      🚩 **AND THE HEADLINE IS NOT WHAT THE ITEM ASSUMED. Occlusion DARKENS these creases and the
+      bent normal BRIGHTENS them by more, so the net is brighter, not darker.** That is correct
+      physics on this rig and it is a consequence of the ambient being a `HemisphereLight` with a
+      bright sky (`#b9c4ea`) and a dark ground (`#5a4038`): under the chin the geometric normal
+      points down and collects the *ground*, while the average unoccluded direction points outward
+      and collects sky. The naive evaluation was wrong in the other direction, and correcting it is
+      worth more than the occlusion is. **So 3.10 does not, on its own, answer the judges' "no
+      contact darkening".** What would: an ambient whose sky/ground contrast is smaller, or a
+      cavity term with a longer bake radius than 3.9's 35 mm, or `?gtaostrength=2`. Do not read
+      this table as a failure of the occlusion — the AO column is clean, signed correctly at every
+      named region, and reads **−0.001 on the flat forehead control**, so it is occlusion and not
+      an exposure change.
+      **SPECULAR OCCLUSION HAS ITS OWN READING**, which is the column above and also the quantity
+      itself through `?gtaoview=specocc` (ACES-encoded, 227 = fully passed): forehead **226.45**,
+      under chin **220.89**, nostril **213.06**, lip seam **138.04**, armpit **130.74**. It is
+      built from the bent normal and the roughness, not from the AO scalar — three's own
+      `PhysicalLightingModel.ambientOcclusion()` already has the Lagarde scalar form and cannot
+      tell two pixels with the same AO and opposite unoccluded directions apart.
+      ⚠️ **AND THE AMBIENT SPECULAR IT OCCLUDES DID NOT EXIST BEFORE THIS ITEM.** Source-verified:
+      `HemisphereLightNode.setup` adds to `context.irradiance` only, `indirectSpecular` reads
+      `radiance`/`iblIrradiance`, and `alive.html` sets no `scene.environment`. The hemisphere lit
+      the diffuse half of every material and none of the specular half. 3.10 supplies it.
+      **MEASURED COST**, GPU timestamps at 1080×1920 full body on `?bare&freeze&seed=1&frame=body&gputime=1`,
+      200 samples after 60 warm-up frames, three rounds per arm, median of the per-round p50s:
+      **off 12.1494 ms · low 12.9949 (+0.845, p95 13.921) · medium 14.0262 (+1.877, p95 25.855) ·
+      high 22.4699 (+10.320)**. Against a 16.6 ms budget, **`low` is the only preset whose p50 AND
+      p95 both fit, so `low` is what ships** — 8 samples at half resolution, keeping roughly four
+      fifths of the occlusion depth (nostril 220.26 against medium's 218.25 on the AO view) with
+      LESS dither on flat skin (0.151 against 0.319 per-pixel sigma). `high` must not ship.
+      🚩 **PROVEN RED TWICE, BOTH TIMES AGAINST THE PHYSICS RATHER THAN THE PLUMBING.**
+      (A) The packed-normal error `GBuffer.js` warns about, planted at source: the occlusion buffer
+      is rearranged — under the chin **224.68 → 207.10** (17.6 code values of occlusion invented)
+      while the inner ear goes **214.12 → 216.36**, i.e. 2.2 code values LESS occluded. *The sign
+      inverts*, which no honest change of strength can do, and the beauty plate moves by about one
+      code value, so a reviewer looking at the picture would sign it off. Shipping the defect takes
+      the gate to 25/27; restoring the file byte-identically returns 27/27. It stays reachable as
+      `?gtaodefect=packed`.
+      (B) Specular occlusion fed the GEOMETRIC normal instead of the bent one — the version three
+      already has: the term collapses from −0.371/−0.056/−0.062/−0.812 (nostril / chin / ear / lip
+      seam) to **−0.004/−0.011/−0.010/−0.369**, and R3 goes red at 26/27. **About nine tenths of
+      specular occlusion here comes from the bent normal**, not from the AO scalar.
+      ⚠️ **G6 MOVES AND AT BODY FRAMING IT LEAVES THE BAND.** Whole-image p0.1 luma at 900×1200:
+      portrait **0.00420 → 0.00754** (band 0.004–0.016, still in), body **0.01597 → 0.01989 (OUT)**.
+      It is the ambient specular, not the occlusion — `?ambspec=0` reads 0.01597 at body, exactly
+      the pre-3.10 value — and it is the floor at grazing incidence, where a real floor does have a
+      sky sheen. G5 (fraction above 0.99 luma) is 0.0000% on every arm at both framings. The band
+      was calibrated on a frame that had no ambient specular at all; someone has to decide whether
+      to re-baseline G6 or to keep `?ambspec=0` at body framing, and this note is so that decision
+      is taken rather than discovered.
+      🚩 **AND ONE MEASURED CONTRADICTION IN A NEIGHBOURING FILE.** `material/SkinMaterial.js` says
+      "this rig has no environment map … `indirectDiffuse` is essentially zero and an occlusion term
+      applied only to it would be applied to nothing", and that is why the cavity term is applied to
+      DIRECT diffuse. `indirectDiffuse` is not zero — it is the hemisphere ambient — and
+      `material.aoNode` was doing measurable work on it: moving the ambient out of the forward
+      shader releases that grip and the identity plate reads **+3.084** at the lip seam and
+      **+0.848** at the inner ear against **+0.038** on flat skin. Filed as a diff request rather
+      than patched, because the fix is a judgement about where the cavity belongs.
 - [x] **3.11** ⚠️ Normal-map variance → roughness (Toksvig/LEAN). three.js's specular AA is
       *geometric only*, so micro-detail and hair **will** shimmer without this.
       Gate: verify with a **moving** camera, not a still.
@@ -1691,10 +1780,11 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       Hooked to the YIELD instead, all six changes are observed (53/53/26/26/4/3), and a burst of 8
       is measured to have saturated — doubling it observes a cached change no more times.
       🚩 **The garments are NOT mhclo assets.** `build_figure.py --foundation` cuts each one from
-      the figure's own skin as a conformal shell at 3 mm, tapered to 0.8 mm at the hem, relaxed and
-      reprojected — 0.48–4.20 mm clearance, **0 vertices through the body**, and **ZERO texture
-      bytes** across four fragments. ⚠️ Only g050 is built; the shell has no fitting step, so
-      another identity is one re-run of the build command.
+      the figure's own skin as a conformal shell at 3 mm, held to 2.0 mm at the hem and then rolled
+      under, relaxed and reprojected — **0 vertices through the body** and **ZERO texture bytes**
+      across four fragments, at all three shipping identities. (This paragraph read "tapered to
+      0.8 mm at the hem", "0.48–4.20 mm clearance" and "only g050 is built" until R12; the taper
+      was the defect, the clearance figure was g050's alone, and three identities ship.)
       Proven red **six ways in three mechanisms**. *Bookkeeping — the wrong garments are worn:* a
       piece removed from the manifest, and the floor emptied. *Geometry — the right garments are
       worn and the skin is still visible:* a garment **TRIMMED AT THE GUSSET** (manifest, floor and
@@ -1739,11 +1829,22 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       ⚠️ **The triangle counts and clearances above are superseded.** At g050: bra 18,346 → 22,090,
       briefs 10,498 → 12,498, boxer brief 11,114 → 12,674, vest 25,024 → 28,832 — **a worn floor
       pair costs +5,744 triangles**, and the floor is resident in every reachable state by
-      construction. Clearances are now measured **AFTER** the roll rather than before, which is the
-      correction that matters: the first version measured before it and was therefore looking at
-      every vertex except the ones at risk. g000 **0.14–4.61 mm**, g050 **0.48–4.20 mm**, g100
-      **0.22–4.81 mm**, all above the 0.05 mm z-fight floor, **0 vertices through the skin**, across
-      **all three identities** (the item's "only g050 is built" is also superseded).
+      construction. All four counts were re-derived from the shipped GLBs in R12 and match.
+      Clearances are now measured **AFTER** the roll rather than before, which is the correction
+      that matters: the first version measured before it and was therefore looking at every vertex
+      except the ones at risk. g000 **0.14–4.61 mm**, g050 **0.48–4.20 mm**, g100 **0.22–4.81 mm**,
+      all above the 0.05 mm z-fight floor, **0 vertices through the skin**, across **all three
+      identities** (the item's "only g050 is built" is also superseded).
+      ⚠️ **THOSE CLEARANCES ARE MEASURED AGAINST THE SUBDIVIDED PATCH, NOT AGAINST THE BODY THE
+      RENDERER DRAWS, and the two are not close.** `skin_surface_of` is a BVH of the patch the shell
+      was cut from and its own comment says why it must be (triangulating a curved base-mesh quad
+      moves the surface up to 1.25 mm). What z-fights, though, is the exporter's **triangulation**,
+      because a foundation garment hides no body vertices and the skin is drawn underneath it.
+      Measured off the shipped artefacts in R12, nearest approach of the rolled ring to the drawn
+      body: g000 **0.016–0.033 mm**, g050 **0.002–0.151 mm**, g100 **0.005–0.012 mm**, against
+      **0.209–1.331 mm** for the same ring in a `--no-hem-roll` build. The roll is what closes that
+      gap, and whether it z-fights on screen is **not yet measured** — it needs a rendered probe at
+      g100 and the wardrobe page ships only g050.
       **The 2.0 mm hem offset is a MEASURED CEILING, not a round number** — swept at g000, the
       tightest perineal slot: 0.8 mm → 0.22, 1.2 → 0.13, 1.6 → 0.11, **2.0 → 0.14**, and 2.2 mm
       reads **0.049 mm** and **fails the build**. `describe_foundation` now FAILS a shell with zero
@@ -1763,6 +1864,70 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       `FOUNDATION_HEM_REFINEMENTS`, not the roll.** 8.3 measures shadow+depth at 0.49 ms of a
       16.22 ms frame, so this is not the bottleneck today — but it is a permanent cost on the one
       garment set that can never be taken off.
+
+      🎯 **R12 — THE ROLL NOW READS, AND UNTIL R12 NOBODY HAD LOOKED.** Everything above is about
+      geometry the build wrote and the build's own log counted; the judges' complaint was about
+      **pixels**, and no pixel of the hem had ever been measured. Under this repo's rules the item
+      was therefore not closed. `packages/core/src/wardrobe/hem.selftest.mjs` closes it — **39
+      assertions** (41 with a built no-roll variant pointed at it), headless, nonzero exit on
+      failure — in two halves that share one measurement module,
+      `packages/core/src/wardrobe/HemGeometry.js`.
+      **THE ARTEFACT.** The band is found **topologically in the shipped GLB**, with no marker
+      attribute to trust: after `extrude_edge_only` the only open boundary left is the band's outer
+      ring, so the band is exactly the triangles touching it and there are exactly **two per
+      boundary edge**. All twelve fragments satisfy that exactly (briefs 1,000 edges → 2,000
+      triangles; bra 1,872 → 3,744; vest 1,904 → 3,808; boxer 780 → 1,560 at g050).
+      ⚠️ **That count is an exactness check on the band, NOT what separates rolled from flat** — a
+      clean row of quads ending in a knife edge satisfies it too, as the gate's own synthetic tube
+      demonstrates, and a round that reads it as the discriminator will set the wrong threshold.
+      **THE DISCRIMINATOR IS DEPTH**, measured as how far each ring vertex sits **beneath the
+      shell's own surface along that surface's normal**: **median 1.200 mm on all twelve**, which is
+      `FOUNDATION_HEM_ROLL_M` recovered from the bytes rather than read from the source.
+      `verify_glb.mjs` gained the same clause, so the default asset run gates it too.
+      **THE PIXELS, which is the half that answers the judge.** The statistic is the **HEM TROUGH**:
+      how much darker the garment is in the 1.5 mm immediately inside its own colour boundary than
+      the same garment is 4–8 mm inside, per column, aligned on that boundary. It is the right one
+      because a gradient cannot separate the two cases — garment and skin are different colours
+      either way — while **only geometry can darken a surface before it ends**. The boundary is
+      located on CHROMA and the trough measured on LUMA, so the darkening cannot move the locator
+      that finds it. Measured on the briefs' leg opening, foundation floor only:
+      **52.32%** at 20.00 px/mm (a person leaning in) and **40.19%** at 5.33 px/mm (conversational
+      distance), against a **15%** floor authored between the two measurements and fitted to
+      neither.
+      🚩 **THE RED PROOF IS A BUILD, and `build_figure.py --no-hem-roll` exists for it.** Built to a
+      scratch directory at R12, exit 0, reproducing the pre-roll face counts to the unit (bra 8,956,
+      vest 12,134, briefs 5,072, boxer 5,358). Its shells read **median roll depth 0.112–0.125 mm**
+      and a trough of **3.86% / 3.65%** — a **13.6×** collapse. Copied over the shipped g050 shells,
+      the gate goes **red 10 of 39** and `verify_glb.mjs` red on 8 clauses; restored, both are green
+      and the four sha256s are unchanged. The gate also carries a **runtime** reconstruction of the
+      same defect so its red half runs with no Blender: it reads 4.70% / 3.80% against the build's
+      3.86% / 3.65%.
+      🚩 **AND THE MOST USEFUL THING R12 MEASURED: THE ROLL READS THROUGH ITS NORMALS, NOT ITS
+      AREA.** The first version of the runtime break moved the band's positions onto the hem ring
+      and left the exported normals alone. It moved 1,003 vertices and changed the statistic by
+      **nothing** — 52.32% against 52.32%. At this hem the band extrudes along the view direction
+      and its projected area is very nearly zero; what the camera sees is the shell's last ring of
+      faces, whose vertex normals the extrusion turned through most of a right angle. **Anything
+      that preserves the band's faces but flattens its normals loses the fix**, which is not
+      obvious from `roll_the_hem`'s own text and is now written into it.
+      Blind pair captured for the judges at conversational distance, shipped hem against the
+      no-roll build, same body, same light, same camera.
+      🚩 **THE JUDGES SAID TWO THINGS AND ONLY ONE OF THEM IS FIXED. THE HEM IS STILL JAGGY, AND
+      IT IS NOW MEASURED.** *"A texture region, not a garment"* is the thickness complaint and the
+      roll answers it. *"A **jaggy** texture boundary on bare skin"* is a different property of the
+      same edge and the roll does nothing for it: the shell is cut by a per-vertex region rule on a
+      body whose edge loops run where anatomy runs, so the hem is a staircase of whole quads however
+      thick it is. Measured as the residual of the hem's screen row about a straight-line fit — the
+      line removed because a hem is allowed to slope and to curve, and what reads as jagged is the
+      part that does not: **rms 0.934 mm, peak-to-peak 3.378 mm** over 6.4 mm of leg opening, and
+      **rms 2.642 mm, peak-to-peak 9.413 mm** over 24 mm of it. **The staircase is between three and
+      eight times the roll it sits on.** Reported and not asserted, because nothing has been done
+      about it and a floor no build has ever cleared is a decoration.
+      ⚠️ **`FOUNDATION_HEM_REFINEMENTS` CANNOT FIX THIS AND RAISING IT AGAIN WOULD BE A ROUND
+      WASTED** — subdivision halves the step's size and does not move the cut, because the cut is a
+      predicate over vertices. The fix is a hem that is a CURVE on the surface rather than a
+      selection of vertices: cut along an isoline of the region rule, splitting edges where it
+      crosses them. That is a real piece of work and it is what 9.8's next reopen is for.
 - [x] **9.22** 🎯 **A dressed plate is reproducible, so Phase 9 can be measured at all.** `?wear`
       made every dressed plate stochastic: three loads, three digests, and re-running the identical
       command returned a different modal digest. Cause, measured rather than argued: the plate is an

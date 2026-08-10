@@ -1722,6 +1722,32 @@ export class LightingRig {
     }
 
     /**
+     * The ambient term's parameters, whether or not the light is in the scene.
+     *
+     * Punch-list 3.10 takes the hemisphere ambient OUT of the forward shader and re-evaluates it
+     * per pixel through the bent normal, so the rig gets built with `ambient: false` and something
+     * downstream has to know what it would have been. This is that something, and it is a method
+     * rather than an exported constant because `intensity` is derived from the key's irradiance
+     * and the exposure, both of which a caller can move.
+     *
+     * ⚠️ It reports the DESIGN, not the scene. `?ov=` overrides reach `placements` and are
+     * therefore included; a caller that mutates `ambientLight.intensity` directly after attach is
+     * not, and `render/GTAO.js` would then be lighting from a value the frame no longer uses.
+     *
+     * @returns {{ skyColour: number, groundColour: number, intensity: number, attached: boolean }}
+     */
+    describeAmbient() {
+
+        return {
+            skyColour: AMBIENT.skyColour,
+            groundColour: AMBIENT.groundColour,
+            intensity: this.irradianceOf( 'key' ) * this.ambientFractionOfKey,
+            attached: this.ambientLight !== null
+        };
+
+    }
+
+    /**
      * The ratio the gate is about, as DESIGNED — key irradiance over fill irradiance.
      *
      * ⚠️ This is the rig's intent, not a measurement of the render. The two differ because the

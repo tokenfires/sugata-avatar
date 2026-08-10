@@ -617,9 +617,21 @@ export class SkinLightingModel extends PhysicalLightingModel {
      * AND THAT IS DELIBERATE. Two measurements put it there.
      *
      * The first: this rig has no environment map. Four RectAreaLights and an emissive backdrop
-     * card, nothing else — so `indirectDiffuse` is essentially zero and an occlusion term applied
-     * only to it would be applied to nothing. `material.aoNode` is still set, so a future IBL rig
-     * gets the ordinary treatment as well; this is the term that does the work today.
+     * card, nothing else — so the IBL half of `indirectSpecular` is genuinely zero and an occlusion
+     * term applied only to it would be applied to nothing. `material.aoNode` is still set, so a
+     * future IBL rig gets the ordinary treatment as well; this is the term that does the work today.
+     *
+     * ⚠️ **CORRECTED BY MEASUREMENT IN THE 3.10 ROUND: `indirectDiffuse` WAS NOT ZERO.** The
+     * sentence above used to say it was, and the `HemisphereLight` in `LightingRig` is the
+     * counter-example — `HemisphereLightNode.setup` adds its mix straight into
+     * `context.irradiance`, which `PhysicalLightingModel.indirectDiffuse` turns into light, and
+     * `ambientOcclusion()` then multiplies by `aoNode`. So the cavity map WAS attenuating the
+     * ambient diffuse, and measurably: with 3.10 installed the ambient moves out of the forward
+     * shader into `render/GTAO.js`'s composite, which does not sample this map, and the plate
+     * brightens by **+3.084 code values at the lip seam** and **+0.848 at the inner ear** against
+     * **+0.038 on flat forehead skin** (`GTAO.selftest.mjs`, R1). That is the size of the grip this
+     * term had on the indirect half. Whether the cavity should follow the ambient into the
+     * composite is a judgement about where it belongs and is not taken here.
      *
      * The second: the cavities in question are millimetres across — the concha is ~15 mm, the alar
      * crease and the lip seam a few — and the rig's shadow map covers a 0.42 m portrait at a texel

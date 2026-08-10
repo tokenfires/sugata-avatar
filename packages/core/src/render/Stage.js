@@ -25,15 +25,18 @@
  *
  * ## The end of the chain: temporal AA, then the grade
  *
- * `create({ temporalAA: 'traa' | 'taau' })` installs punch-list 3.12 and `setGrade()` installs
- * 3.13. Both hang off the deferred path, in this fixed order:
+ * `create({ temporalAA: 'traa' | 'taau' })` installs punch-list 3.12, `setAmbientOcclusion()`
+ * installs 3.10 and `setGrade()` installs 3.13. All three hang off the deferred path, in this
+ * fixed order:
  *
- *     scene pass -> temporal resolve -> composeOutput -> grade -> tone map + transfer
+ *     scene pass -> temporal resolve -> ambient occlusion -> composeOutput -> grade
+ *                -> tone map + transfer
  *
  * The order is not arbitrary. Temporal AA has to see the raw jittered scene colour, so nothing
- * may blur or bloom ahead of it; the grade has to see a resolved image, because bloom applied to
- * a crawling edge blooms the crawl. `renderOutput` (tone map + output transfer) stays last unless
- * the grade says it does that part itself.
+ * may blur or bloom ahead of it; 3.10 adds scene-referred light and so has to land before
+ * anything that tone-maps or blooms; the grade has to see a resolved image, because bloom applied
+ * to a crawling edge blooms the crawl. `renderOutput` (tone map + output transfer) stays last
+ * unless the grade says it does that part itself.
  *
  * ⚠️ MSAA and temporal AA are mutually exclusive — `TRAANode` and `TAAUNode` both say so in their
  * own headers, and the mechanism is that MSAA resolves coverage about a pixel centre that the
@@ -92,6 +95,7 @@ export class Stage {
         // is built once per mode and kept across output-node recompiles — rebuilding it would
         // reset the history every time and the image would never converge.
         this.temporal = null;
+        this.ambientOcclusion = null;
         this.grade = null;
         this.multisampled = false;
         this.morphVelocity = 'off';
@@ -415,6 +419,39 @@ export class Stage {
     }
 
     /**
+     * Installs punch-list 3.10 — GTAO, bent normals and specular occlusion — between the temporal
+     * resolve and the grade.
+     *
+     * That slot is not negotiable in either direction. It has to be AFTER the resolve because the
+     * effect's own dither is a spatial pattern the resolve would otherwise be asked to treat as
+     * scene detail, and because handing `TAAUNode` a computed node instead of a texture costs a
+     * full-resolution copy pass every frame (see `TRAAPost.js`). It has to be BEFORE the grade
+     * because bloom applied to an unoccluded crease blooms light that is not there.
+     *
+     * ⚠️ **The effect OWNS the ambient term when it is installed.** It re-evaluates the hemisphere
+     * per pixel through the bent normal, so `LightingRig` must be built with `ambient: false` on
+     * the same page. Installing it against a rig that still has its `HemisphereLight` attached
+     * does not fail — it renders the ambient twice, which looks like a lift and not like a bug.
+     *
+     * @param {?{ compose: function, dispose: function }} effect - from
+     *   `createGroundTruthOcclusion`. `null` removes it.
+     */
+    setAmbientOcclusion( effect ) {
+
+        this.requirePipeline( 'setAmbientOcclusion' );
+
+        if ( this.ambientOcclusion !== null && this.ambientOcclusion !== effect ) {
+
+            this.ambientOcclusion.dispose();
+
+        }
+
+        this.ambientOcclusion = effect;
+        this.refreshOutputNode();
+
+    }
+
+    /**
      * Installs the grade (punch-list 3.13) at the very end of the chain.
      *
      * A grade object supplies `compose( gbuffer, colourNode )` and a boolean
@@ -461,6 +498,7 @@ export class Stage {
             deferred: this.renderPipeline !== null,
             msaa: this.multisampled,
             temporalAA: this.temporal === null ? 'off' : this.temporal.mode,
+            ambientOcclusion: this.ambientOcclusion === null ? 'off' : this.ambientOcclusion.quality,
             morphVelocity: this.morphVelocity,
             graded: this.grade !== null,
             resolutionScale: this.resolutionScale,
@@ -485,6 +523,13 @@ export class Stage {
 
             this.temporal.dispose();
             this.temporal = null;
+
+        }
+
+        if ( this.ambientOcclusion !== null ) {
+
+            this.ambientOcclusion.dispose();
+            this.ambientOcclusion = null;
 
         }
 
@@ -559,9 +604,12 @@ export class Stage {
 
         } else {
 
-            // scene pass -> temporal resolve -> composeOutput -> grade -> tone map + transfer.
-            // Nothing may blur or bloom before the temporal resolve; see the file header.
+            // scene pass -> temporal resolve -> ambient occlusion -> composeOutput -> grade ->
+            // tone map + transfer. Nothing may blur or bloom before the temporal resolve; see the
+            // file header, and `setAmbientOcclusion` for why 3.10 sits where it does.
             let colour = this.temporal === null ? gbuffer.node( 'output' ) : this.temporal.node;
+
+            if ( this.ambientOcclusion !== null ) colour = this.ambientOcclusion.compose( gbuffer, colour );
 
             if ( this.composeOutput !== null ) colour = this.composeOutput( gbuffer, colour );
 
