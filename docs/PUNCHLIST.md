@@ -192,7 +192,7 @@ gate STABILITY rather than byte identity that entitles a single value. See the p
 top of this file. ⚠️ **Every historical number measured under MSAA is a different configuration,
 not a disagreeing one** — the A-side column is beside it for exactly that reason.
 
-The default's toggle state is not asserted from prose: `alive-toggles.selftest.mjs` (**151/151** at
+The default's toggle state is not asserted from prose: `alive-toggles.selftest.mjs` (**155/155** at
 `af0e68d`; this line read **144/144** for a round and 109/109 before that — quote it with a build)
 holds `temporalResolve` live and `multisampleSamples` at zero on the baseline plate, holds
 `?aa=msaa` to swapping the one for the other, and now holds all **116** readable properties of the
@@ -319,7 +319,7 @@ Same recipe at 3840×5120, each toggle against the same byte-reproducible baseli
 their printed precision; `?cards=0` moves **G6 (0.00001 → 0.00393) and G7 (0.00069 → 0.008164, a
 11.8× separation) alone**, leaving G1, G2, G4 and G5 identical to four decimals. Two toggles, two
 disjoint effects, no overlap — which is what an attribution is supposed to look like and what
-`alive-toggles.selftest.mjs`, **151/151** at `af0e68d`, enforces this for every flag on the page.
+`alive-toggles.selftest.mjs`, **155/155** at `R11`, enforces this for every flag on the page.
 
 ⚠️ **These plates were taken during a live fan-out and the digest churned under them.** Three loads
 of the default span three `packagesDigest` values and return the same modal digest; two loads of
@@ -642,7 +642,7 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       on `alive.html?bare&freeze&seed=1` at 900×1200 dpr 2 — hiding the four occlusion/lacrimal
       meshes moves the sclera rect from encoded luma **0.7240 → 0.7433** and saturation **0.2527 →
       0.2381**, i.e. the sheet is doing what it is for: darkening and warming the sclera under the
-      lid. Held against the toggle contract by `alive-toggles.selftest.mjs`, **151/151** at `af0e68d`
+      lid. Held against the toggle contract by `alive-toggles.selftest.mjs`, **155/155** at `R11`
       (109/109 at `2ec7db9`, 16/16 when the file was written).
       🚩 **The toggle is new and it is the whole point of this line.** Until 2026-08-08 `?eyes=0`
       switched this subsystem AND `EyeMaterial` together, so this item had **no control of its
@@ -698,6 +698,61 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       `RectAreaLight.intensity` is a radiance, so four typed intensities express a ratio only for
       the exact panel geometry they were typed against — this rig's fill panel subtends **2.485×**
       the key's solid angle. Budget: 3.61 ms for the four panels + 2.62 ms for the one shadow pass.
+
+      🔴 **REOPENED AND PARTLY RE-CLOSED IN R11, because three blind judges named the rim as the
+      single strongest tell that this is a render.** ⚠️ **The gate counts quoted above are three
+      rounds stale**: `LightingRig.selftest.mjs` is **140/140** and `GroundContact.selftest.mjs` is
+      **78/78** as of R11. ⚠️ **And this item's own claim that the rim sits "below skin saturation"
+      is wrong by measurement** — it reads **1.03–1.13× skin**, marginally ABOVE, which still fails
+      the spec's "MUCH higher chroma" clause but for the opposite reason to the one recorded.
+      (a) **THE PORTRAIT RIM WAS MOVING 92.65% OF THE BACKGROUND.** `EDGE_LIGHTS.body` had already
+      diagnosed and fixed exactly this at BODY framing in an earlier round (standoff 1.4 → 0.65) and
+      nobody applied the same reasoning to PORTRAIT, which was still at **2.6 heights** — further
+      behind the subject in metres than the body rim, with the backdrop card in the same place.
+      Shipped at **0.9/0.865 heights** with the panels scaled by the same factor so softness at the
+      subject is held constant. The spill goes to **0.00%** at a knee near 1.3 heights, not on a
+      gradient: it is the panel's own front-hemisphere plane leaving the card.
+      (b) **Azimuth −158/+154 → −168/+166** in BOTH presets. Measured, shipped against the rig it
+      replaces, on `lighting.html?bare` at 900×1200 with the pair subtracted by
+      `?ov=rim.irradiance:0,kicker.irradiance:0`:
+
+      | | portrait was | portrait now | body was | body now |
+      |---|---:|---:|---:|---:|
+      | subject px the pair touches at all | 28.38% | **18.54%** | 34.26% | **28.55%** |
+      | subject px cool at S>0.10 | 3.09% | **1.11%** | 12.47% | **11.08%** |
+      | background px the pair moves | 92.65% | **0.00%** | 20.60% | **20.08%** |
+      | shadow-side band hue vs skin | −44.7° | **−27.5°** | −76.9° | **−66.6°** |
+      | key-side band hue vs skin | −40.1° | **−33.7°** | −41.9° | **−33.3°** |
+      | added luma, depth 1 px : depth 25 px | 7.17× | **14.68×** | 18.30× | **16.23×** |
+
+      🎯 **The last row is the one that answers the judges' actual words.** "Constant width at
+      uniform intensity regardless of surface angle" is a claim about a PROFILE, so a profile was
+      measured: the light the pair adds at the silhouette over the light it still adds 25 px inside.
+      A rim falls off; a shader outline does not. At portrait it now falls off twice as fast.
+      (c) 🔴 **THE WARM KICKER WAS BUILT, MEASURED AND WITHDRAWN — it takes G1 and G2 red.**
+      `#ffd7b0` at E 2.5 was the single best lever found: cool subject pixels **1.60% → 0.83%** and
+      key-side band hue rotation **−39.4° → −18.6°**, which breaks the one-hue-all-the-way-round
+      property that is the whole of the complaint. On the seven-gate plate it reads **G1 1.2331 /
+      G2 0.8855**. Attributed by reverting one field at a time: rim azimuth −0.003, rim standoff
+      −0.001, kicker azimuth −0.011, **kicker colour+E the entire 0.32**. Mechanism: `irradiance` is
+      a scalar and the COLOUR multiplies it, and `#ffd7b0` carries **7.73×** the relative luminance
+      of `#0f30ff` — a blue kicker of that size and proximity was always a broad key-side wash, and
+      it passed a LUMA gate only because its hue contributes almost no luma. Nothing recovers both:
+      E 2.5/1.6/1.2/0.9 reaches G1 1.4461 with G2 stuck at 0.9022 against a 0.92 floor; elevation
+      −6/24/34/44 moves G1 by 0.027; trading against the fill 2.20/1.80/1.55/1.35 reaches G1 1.4519
+      and takes G2 the WRONG way to 0.8793. Blocked on `SCLERA_BRIGHTNESS` in
+      `material/EyeMaterial.js` — filed as **REQ-060**.
+      🚩 **Two obvious fixes measured NOT to work, recorded so they are not re-run.** Warming the
+      RIM's own colour (`#0f30ff` → `#2b4cff` → `#4a68ff` → `#1f6aff`) moves the band hue **1.3°**
+      in total and costs 13% of its chroma — the band's hue is set by the tone curve over warm skin,
+      not by the light's hue. And the look spec's two rim clauses **cannot both be met** from a
+      `RectAreaLight` through ACES: sweeping E to 30/45/70 with progressively whiter blues reaches
+      1.01× skin luma at 0.73× skin saturation and GROWS the footprint 28% → 30%. The rig ships the
+      saturation half (1.03× skin) and fails the luma half (0.88×), recorded as a loss.
+      ⚠️ **G4 moved 1.6346 → 1.7471 from a LIGHTING change** — 7% of its band, still inside
+      1.5–2.1. The rim's grazing light is part of what G4 high-passes, so this file's standing
+      warning that G4 "is not independent of the rig" now has a number on it, and any future G4
+      reading has to name its rig as well as its page and its width.
 - [~] **3.9** Screen-space contact shadows (`SSSNode`) for eyelid crease, nostril, lip corner.
       **NOT what shipped, and the substitute is better argued than the original.**
       🚩 **`material/SkinOcclusion.js` is UNTRACKED as of this writing** — `git status` reports it
@@ -716,6 +771,33 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       same ear patch is re-measured on and off and reported against the reference's 0.450×, this is
       built-and-ungated. `SSSNode` itself remains untouched, and whether it is still wanted for the
       eyelid crease at portrait framing is an open question, not a closed one.
+
+      🎯 **3.9 HAS A SECOND HALF NOBODY HAD WRITTEN DOWN: GARMENTS CAST AND RECEIVE NO SHADOWS.**
+      Everything above is `SkinOcclusion.js` and screen-space traces on the FACE. Three independent
+      blind judges made the garment half their joint number one, and it had no line anywhere in this
+      file. Root cause, confirmed before fixing: neither `castShadow` nor `receiveShadow` appeared
+      **anywhere** in `packages/core/src/wardrobe/` — `Wardrobe.js` parented every fragment and left
+      both flags at three's default of `false`, while `applyShading()` in `alive.js` traverses
+      `figure.root` at line 1491 and `dress()` runs at 1595, so the traverse **cannot** reach a
+      garment and never runs again. Fixed in `Wardrobe.#adoptFragment` via a new
+      `applyFragmentShading()`, which sets BOTH flags, anisotropy 8 on every garment texture, and
+      aliases `uv1` for the AO channel.
+      Gate: **MEASURED**, and it measures the rendered consequence rather than the flag —
+      `packages/core/src/wardrobe/shadow.selftest.mjs`, **11 assertions**: the forehead under the
+      fedora brim is **31.68% darker** than the same forehead bareheaded, against a 4% floor, on a
+      box derived from the head bone that does not move between readings. Proven red **four ways**:
+      (A) `applyFragmentShading` removed → 5 of 9 red and the headline reads exactly **0.00%**,
+      which is verbatim what the three judges described; (B) the HALF FIX, `castShadow` set and
+      `receiveShadow` dropped → caught by the receive clause alone; (C) the `uv1` alias dropped →
+      flag clause red, render unchanged (so the alias is recorded as DEFENSIVE, not load-bearing on
+      three r185's WebGPU path); (D) the build-side AO wiring reverted and the artefacts rebuilt →
+      the AO reading collapses to exactly 0.00%.
+      🚩 **AND THE MEASURED NON-RESULT, which matters as much.** The foundation hem casts **no
+      measurable shadow** at full-body framing: 34 boxes swept down both thighs from the hip joint
+      to 16 cm below it, `castShadow` on against off, and **not one box moved by more than 0.5%**.
+      A 2.0 mm shell with a 1.2 mm rolled hem casts one to three pixels at ~1 mm/px. The gate
+      reports it and deliberately does not assert it. **The painted-on read is fixed by THICKNESS
+      (9.8's hem roll), not by shadow** — do not spend a round trying to shadow a 2 mm lip.
 - [ ] **3.10** GTAO → **bent normals + specular occlusion** (Frostbite form). Hand-rolled — three.js
       has neither, and un-occluded ambient specular is why WebGL characters look like plastic.
       The G-buffer's `normal` attachment is **signed view-space xyz with perceptual roughness in w**,
@@ -852,6 +934,38 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       on `?bare&frame=body&freeze&seed=1`: p0.1 luma **0.01652 → 0.0126**, inside 0.004–0.016 where
       the ungraded plate was 3% over the ceiling. Portrait is the opposite failure and unchanged.
       Gate: **MEASURED** — < 0.5% clipped, p0.1 luma 0.004–0.016.
+
+      🎯 **R11: 5.6 ms OF "THE GRADE'S COST" WAS NEVER THE GRADE'S, AND THE CORRECTION IS AN
+      ATTRIBUTION RATHER THAN A NUMBER.** The Phase 8 diagnostic put `Grade.js` at **8.54 ms** in
+      its pass structure and concluded *"nothing that adds a pass can land until this is fixed"*.
+      Measured: `Grade.compose` calls `convertToTexture( colourNode )` because `BloomNode` must
+      sample a texture — and it was being handed a `TAAUNode`, which is a `TempNode`, not a
+      `TextureNode`. three's `convertToTexture` recognises `isSampleNode`/`isTextureNode`/
+      `isPassNode` and none of the three matched (`RTTNode.js:298`), so it fell through to
+      `rtt( node )` and built a **full-resolution HalfFloat render pass, every frame, whose entire
+      output was a bit-exact copy of `TAAUNode.resolve`** — itself a full-resolution HalfFloat
+      texture. A buffer copied onto itself, once per frame, invisible in every pixel. The fix is one
+      line in `TRAAPost.createTemporalResolve`: hand out `( sharpenNode ?? resolved
+      ).getTextureNode()`. Attributed **by toggle**, three alternating rounds on one tree in one
+      session at 1080p portrait, 250 samples after 150 warm-up: texture 10.371 / 10.292 / 11.218
+      against node 15.880 / 16.519 / 15.991 — **5.62 ms at the medians, no overlap between the
+      sets**. The 3840×5120 plate is **BYTE-IDENTICAL across the change**, 0 of 19,660,800 pixels
+      differing, so no gate can have moved. ⚠️ **"Nothing that adds a pass can land" is withdrawn** —
+      items 9 and 12 now have roughly 4 ms of headroom at 1080p body. ⚠️ **And the sub-attribution
+      "bloom strength +0.001 ms" is withdrawn as meaningless**: `?bloom=0` set a UNIFORM while the
+      twelve-pass mip chain went on rendering. `Grade` now carries `bloomEnabled` so the toggle is
+      structural, proven byte-identical to the uniform-zero path (0 of 1,080,000 pixels).
+      🚩 **"NOTHING IN OUR FRAME CLIPS AND THEREFORE NOTHING BLOOMS" IS FALSE AS A STATEMENT ABOUT
+      THE BLOOM'S CONTRIBUTION, and must not be used to justify deleting or cheapening the chain.**
+      Measured on `alive.html?bare&freeze&seed=1&capture` at 900×1200, 60 steps, base against
+      `?bloom=0`: **maxΔ 232/255, meanΔ 4.48/255, 841,659 of 1,080,000 pixels changed, 316,163 of
+      them by more than 2.** Both claims are true and compatible: G5 measures the share of pixels
+      above 0.99 luma in the ENCODED frame (0.000002), while `BloomNode` adds a blurred copy of
+      everything above threshold 0.8 in **LINEAR HDR**, where speculars run far above 1.0. A frame
+      can clip nothing and bloom a great deal. Same run for scale: `?grain=0` maxΔ **3**,
+      `?gsharp=none` maxΔ **16** — the RCAS is a small change to the picture even though it is what
+      puts G4 in band. The bloom is the largest remaining cost in the grade (about 3.4 of its
+      3.8 ms at 1080p portrait) and it is the one term that cannot simply go.
       ⚠️ **"Built and uncommitted as of 2026-08-08" IS STALE — it is committed**, at build
       `c70195c` with a clean tree.
       ⚠️ **The RCAS-before-tone-mapping number this file and `Grade.js` both used to carry DOES NOT
@@ -981,7 +1095,7 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       Landed in `4aafd91` (+ `eaae0e3`, `29a1f1c`). A fix that stopped at `frameId` would have made
       the A-side plate reproducible and left the shipped default exactly as broken; the attribution
       table in that commit is what says so.
-      Gate: `packages/testbed/src/alive-capture-determinism.selftest.mjs`, **49/49**, four kinds of
+      Gate: `packages/testbed/src/alive-capture-determinism.selftest.mjs`, **61/61**, four kinds of
       check (R reproducibility as a pixel tolerance, O the counters read what N steps require, L the
       grain still advances on the forward path, H the history target is 1 px at takeover), proved
       red four ways at source and six ways from a URL via `?clockdefect=`.
@@ -991,6 +1105,33 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       is now taken across an undelayed load and one whose GLB is held back 400 ms. And deleting the
       history reset alone leaves every pixel check green at 2 and 24 steps, because a temporal
       resolve converges to the same fixed point from any history.
+      🎯 **A FIFTH RECIPE, AND A SECOND DEFECT CLASS: the dressing race.** Everything 3.20 pinned is
+      a counter the epoch reset does not reach. `?wear` exposed the epoch's INPUT. `swapFigure` adds
+      the figure to the scene and only then awaits `dressFigure`, which imports a module, fetches a
+      manifest and fetches a GLB per garment with rAF still running — so the figure is DRAWN for a
+      machine-dependent number of boot frames, and per-mesh state that advances only on drawn frames
+      is not reached by any reset. Measured at 450×600 on `?aa=traa&grade=0&wear=&capture`, 12 steps:
+      the plate was an **exact function of `bootFrameId`** over eight loads — 12 → `d4c39944`,
+      13 → `713be99f` (5 loads), 14 → `4dbb93ae` (2 loads) — worst residue 1653 px of 270,000 at
+      Δ117/255. ⚠️ **The nude control read `bootFrameId` 10 on 4 of 4 loads and one digest, so the
+      nude plate was reproducible because this machine's boot is stable, not by construction.** Fixed
+      in `alive.js`'s `dressFigure` by holding `figure.root.visible = false` across the wardrobe's
+      async window: `?wear=female_casualsuit01,shoes01` returns **one digest over 5 loads spanning
+      boot epochs 23–26**, worst residue 0 px, and `capture.mjs --plate` goes from *2 distinct
+      sha256, NOT reproducible* to **3/3 pairs bit-identical**, sha `e053bdf52b098209`. ⚠️ That is
+      a statement about the 450×600 dressed plate and not about the 3840 default whose fence sits
+      just above — the two must not be read together. Gated as the fifth recipe, whose P check runs it across
+      boot epochs 27 and 164. Rejection proofs are page-reachable as `?wearrace=unheld` and
+      `?wearrace=released-early`.
+      🚩 **AND THE REJECTIONS ONLY LAND BEFORE THE RESOLVE CONVERGES.** Aimed at 24 steps they were
+      GREEN on live defects — 46 and 53 samples of 4.32 M at Δ4/Δ3, inside tolerance. Decay at
+      900×1200: 2 steps 8868 px/Δ17, 6 steps 585/Δ8, 12 steps 29/Δ5, 24 steps 18/Δ4. Across four runs
+      the 24-step figure read 46, 53, 137 and 1588 samples — it straddles the threshold — so it is
+      printed and not asserted, and `SHORT_STEPS` is the only check that reaches this defect.
+      ⚠️ **R2 for `?wearrace=released-early` then measured FLAKY under machine load** — 438 differing
+      samples on a quiet machine against 136 inside a four-agent run, and 136 fell under its floor and
+      took the whole suite red. The floor is now derived from the measured range rather than from the
+      weather; see the gate's own `RACE_SAMPLE_FLOOR` block.
       **Verified independently 2026-08-08 at `2ec7db9`:** three loads of
       `?bare&freeze&seed=1&capture` at 3840×5120, 60 steps, across three different
       `packagesDigest`s → one digest. 🚩 **That line used to read "→ one PNG, `257caca2782adde9`"
@@ -1281,7 +1422,82 @@ attributable.
 - [ ] **8.2** Loop: emote vs Live2D/VTuber until decisive win. Body clips come from
       `capture.mjs --postural-seeds`; a verdict taken on one draw is a verdict about the draw.
 - [ ] **8.3** 60 fps at target resolution on this hardware, verified with a profiler.
+      🎯 **MEASURED IN R11, AND THE ITEM STAYS UNTICKED.** `tools/spikes/alive-perf.mjs`,
+      `alive.html?bare&seed=1&capture`, 600 samples after 150 warm-up, GPU timestamps:
+
+      | framing | p50 before | p50 after | p99 before | p99 after |
+      |---|---:|---:|---:|---:|
+      | 720p portrait | 11.798 | **8.574** | 16.120 | 10.399 ⚠️ |
+      | 720p body | 13.876 | **9.846** | 18.126 | 18.194 ⚠️ |
+      | 1080p portrait | 16.196 | **11.129** | 21.618 | 19.409 ⚠️ |
+      | **1080p body** | 17.730 | **12.329** | 23.071 | **12.990** |
+      | page default, portrait | 27.064 | **21.465** | 47.755 | 24.655 ⚠️ |
+      | page default, body | 27.065 | **20.648** | 45.522 | 24.077 ⚠️ |
+
+      **1080p full body is inside 16.6 ms at every percentile**, which is the stated target, and the
+      whole of the gain is the redundant-RTT removal recorded in 3.13. ⚠️ **The rows marked ⚠️ were
+      taken with three other build agents driving browsers on the same machine — their p99s are
+      upper bounds, not the render.** The p50 column and the 1080p body row are clean.
+      🔴 **NOT TICKED: the page a user actually loads is still 1.3× over.** The page default is
+      7.72 Mpx and reads 21.5 ms p50, about 46 fps. Where the remaining time is, measured on the
+      post-fix build at 1080p portrait: base 11.263, `?bloom=0&gsharp=none` **7.453** — the grade
+      still costs 3.81 ms and the RCAS pair is only 0.398 of it, so it is essentially all the
+      twelve-pass bloom mip chain, which 3.13 records cannot simply be deleted.
+      🎯 **AND THE ROUND'S SECOND PERF FINDING INVERTED WHEN IT WAS RE-MEASURED, WHICH IS WHY IT
+      IS HERE RATHER THAN IN A PLAN.** The Phase 8 diagnostic recorded taau@0.66 at 15.96 ms against
+      `?aa=off` 12.62 and `?aa=msaa` 13.22, and concluded that **the shipped AA is a net loss of
+      3.34 ms** and that "the taau-plus-RCAS chain should be re-derived rather than tuned". That gap
+      was an artefact: `?aa=off` and `?aa=msaa` have no temporal node, so neither of them ever paid
+      for the redundant RTT, and the whole 3.34 ms was on the taau side of a comparison the RTT was
+      inflating. Re-measured on the integrated build, quiet machine, 600 samples after 150 warm-up
+      at 1080p portrait:
+
+      | variant | gpu p50 | Δ base |
+      |---|---:|---:|
+      | **base — taau 0.66 + grade + RCAS (shipped)** | **11.381** | 0.000 |
+      | `?aa=off` | 12.484 | **+1.103** |
+      | `?aa=msaa` | 13.149 | **+1.768** |
+
+      **The shipped AA is now the CHEAPEST of the three and is a net WIN of 1.1–1.8 ms**, not a loss
+      of 3.34. Do not re-derive the chain for frame time; there is no longer a frame-time case for
+      it. Same run, for whoever needs the decomposition: `?grade=0` −3.991, `?skin=0` −1.824,
+      `?shadows=0` −1.181, `?eyes=0` −0.722, `?eyeocc=0` −0.216, `?ground=none` −0.051,
+      `?cards=0` −0.001, `?nomotion` −0.063. At body framing, `?wear` costs **−0.875** (a dressed
+      figure is CHEAPER than a nude one, because the hidden body triangles stop being drawn) and
+      `?scale=1` is **+3.961**.
+      🚩 **PER-PASS TIMESTAMPS ON THIS MACHINE NAME PASSES RELIABLY AND PRICE THEM UNRELIABLY.**
+      `tools/spikes/pass-profile.mjs` lands this round and found the defect. Twenty passes, and the
+      sum of per-pass p50s matches the frame total to 0.3% — but SIX passes spanning 960×540 to
+      1920×1080 and everything from a brightness threshold to a full G-buffer all sit within 5% of
+      the same ~1.44 ms plateau, while a 4096² shadow map with real geometry prices at **0.266**,
+      and the pass the tool priced at 1.443 is worth **5.62 ms by toggle**. The plateau is a
+      stall/serialisation artefact, not work. **Attribute by toggle; use the pass list only to find
+      what to toggle.**
 - [ ] **8.4** Cross-browser: Chrome/Safari WebGPU, Firefox WebGL2 tier.
+      🚩 **The WebGL2 tier rendered NOTHING for a whole round, and a gate certified the refusal.**
+      Since TAAU became the default `aa`, `alive.js` hit `forceWebGL && aa === 'taau'`, wrote a
+      sentence into the HUD and RETURNED BEFORE `Stage` was constructed — canvas left at its
+      untouched 300×150, `window.sugata` never defined, `window.__SUGATA_STEP__` never exposed, so
+      `capture.mjs` and `measure.mjs` timed out on the one flag a reviewer reaches for first. The
+      documented fallback tier needed THREE flags to work, which is not a fallback. `?webgl` now
+      DOWNGRADES `?aa` to `msaa` on that tier instead of refusing: `?webgl&bare&freeze&seed=1` gives
+      backend `webgl2`, `renderer.samples` 4, a sized canvas, and a `--plate` at 3/3 bit-identical,
+      sha `bf0eb5824a8fff6d`. It moves ONE dial — `?gsharp` is left exactly as it is, so the Phase 8
+      7/7 recipe `?webgl&aa=msaa&gsharp=none` (G4 2.0587) is still reachable verbatim and the
+      downgrade stays attributable.
+      ⚠️ **One detail of the diagnosis was wrong and is corrected here rather than repeated**: it
+      read "a completely BLANK SILENT PAGE because `?bare` hides the HUD". It does not — the `?bare`
+      branch is ~50 lines BELOW the early return, so the refusal ran first and the HUD was never
+      hidden. Measured on the refusing build, `getComputedStyle(hud).display` is `block` under
+      `?webgl&bare` and `?webgl` alike. Every other claim in that item held exactly.
+      Gate: `alive-toggles.selftest.mjs` **W1–W4** (it renders / it really is WebGL2 / `?aa` really
+      downgraded / the canvas was really sized). Proved red twice — the early return reinstated
+      turns all four red at 151/155, and a second break that renders on WebGL2 with the resolve
+      still on turns **only W3** red at 154/155, which is the "plausible pixels, silently wrong"
+      case the old refusal was written to avoid.
+      ⚠️ **Still open in 8.4: Firefox and Safari, and the seven gates were NOT re-measured on the
+      WebGL2 tier this round.** Bare `?webgl` is now `aa=msaa` with the grade's RCAS still ON, which
+      is not the recipe the 7/7 reading was taken at.
 
 ---
 
@@ -1413,13 +1629,38 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       Gate: **MEASURED** — real transcode ratio and VRAM residency, a ten-garment catalogue held
       under a stated budget, and a measurement of whether 2048² is distinguishable from 4096² at
       portrait framing before we pay for the larger one.
-- [ ] **9.7** 🚩 Recover the discarded AO. Every CC0 garment mhmat declares `aomapTexture`
-      (0.7–2.2 MB, 2048²) and **none of it reaches the GLB** — `NodeWrapperGameEngine` wires only
-      diffuse → Base Color, diffuse alpha → Alpha, normal → Normal Map. There is no occlusion node
-      in MPFB's game-engine material at all. Item 3.10 exists because un-occluded ambient specular
-      is the plastic look, and we are discarding hand-baked AO for free.
-      Gate: **MEASURED** — `occlusionTexture` present on every garment material in the built GLB,
-      and a rendered on/off difference measured **in the folds**, not asserted.
+- [x] **9.7** 🚩 Recover the discarded AO. **DONE AND MEASURED IN R11.**
+      ⚠️ **This item's own headline count was wrong at the moment it was read, and rule 4 says the
+      whole row is then re-derived.** It said *"Every CC0 garment mhmat declares `aomapTexture`"*.
+      Measured against the installed MPFB data directory it is **TWO OF FOUR**:
+      `female_casualsuit01.mhmat` declares `female_casualsuit01_ao.png` (**2,153,148 bytes**) and
+      `female_elegantsuit01.mhmat` declares `female_elegantsuit01_ao.png` (**1,350,953 bytes**);
+      `shoes01.mhmat` and `fedora01.mhmat` declare no `aomapTexture` at all. Everything else in the
+      diagnosis held: `NodeWrapperGameEngine` wires only diffuse → Base Color, diffuse alpha →
+      Alpha, normal → Normal Map, and there is no occlusion node in MPFB's game-engine material.
+      **FIXED** by `wire_garment_ao_maps()` in `build_figure.py`, which reads each garment's mhmat
+      directly, loads the declared map Non-Color, and feeds it to the glTF exporter's
+      `glTF Material Output` → `Occlusion` socket. Read off the built GLB's JSON chunk,
+      `occlusionTexture` is now present for both garments that declare one and absent for the two
+      that do not.
+      Gate: **MEASURED, on both halves.** The rendered on/off difference **in the folds** is
+      `packages/core/src/wardrobe/shadow.selftest.mjs`: **0.26781 with the map against 0.27026
+      without**, over a 150 px box on the jacket torso — a **0.91% darkening** against a 0.4% floor,
+      repeatable to five decimals, and proven red by reverting the build wiring and rebuilding, at
+      which point it reads exactly **0.00%**. The build-side clause (mhmat declares ⇔ GLB carries)
+      is in `tools/figure-pipeline/verify_glb.mjs`, so a build that silently stopped wiring the node
+      is caught without a GPU.
+      ⚠️ **The effect is small and that is the physics, not a weak result.** An occlusion map
+      attenuates INDIRECT light only, and the wardrobe page's ambient is 0.55 against directionals
+      of 2.4/1.1/1.6, so the AO is allowed to touch about a tenth of the light in the frame. The
+      0.4% floor separates *wired* from *sampled by nothing*; it is **not** a statement that the AO
+      is doing much work in the shipped lighting rig, and it should not be quoted as one.
+      ⚠️ **THE COST LANDS SQUARELY ON 9.6**: the casualsuit fragment grew **8.93 → 11.08 MB** and
+      the elegantsuit **3.72 → 5.07 MB** — **+3.5 MB of new PNG** for two garments.
+      🚩 **Incidental finding: the same mhmats also declare `castShadows True` and
+      `receiveShadows True`, which the game-engine material path threw away alongside the AO.** The
+      source assets were never the problem — see 3.9's wardrobe half, which is the other half of the
+      same discard.
 
 ### What the avatar wears
 
@@ -1482,6 +1723,72 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       26,756-triangle body — a 52% add in the nude state, collapsing to near zero under any opaque
       outer garment (briefs measure 0 of 4,960 drawn under the casual suit). At refinement 1 they
       are 4,504 and 2,440 and the hems step visibly at the scale of a base-mesh quad.
+
+      🎯 **REOPENED AND RE-CLOSED IN R11 — the item's own open question was answered, and the
+      answer was no.** The paragraph above asks a harsh critic whether the layer goes **unnoticed**.
+      Three blind judges answered and **two ranked it their single strongest separating property**:
+      *"a texture region, not a garment"*, *"a jaggy texture boundary on bare skin"*. They were
+      wrong about the mechanism — there is not one texture byte on this layer — and **right about
+      the read**: a surface tapered to nothing at its edge has visibly no thickness, so the eye
+      resolves it as a mask painted on skin.
+      **FIXED** by `roll_the_hem()` in `build_figure.py`, which extrudes the shell's open boundary
+      and folds it back as a band of real faces. The hem no longer melts into the skin; it ends at
+      2.0 mm and turns under, precisely so the edge IS visible. New constants:
+      `FOUNDATION_HEM_OFFSET_M` **0.0008 → 0.0020**, `FOUNDATION_HEM_ROLL_M` **0.0012**,
+      `FOUNDATION_HEM_ROLL_FLOOR_M` **0.0008**.
+      ⚠️ **The triangle counts and clearances above are superseded.** At g050: bra 18,346 → 22,090,
+      briefs 10,498 → 12,498, boxer brief 11,114 → 12,674, vest 25,024 → 28,832 — **a worn floor
+      pair costs +5,744 triangles**, and the floor is resident in every reachable state by
+      construction. Clearances are now measured **AFTER** the roll rather than before, which is the
+      correction that matters: the first version measured before it and was therefore looking at
+      every vertex except the ones at risk. g000 **0.14–4.61 mm**, g050 **0.48–4.20 mm**, g100
+      **0.22–4.81 mm**, all above the 0.05 mm z-fight floor, **0 vertices through the skin**, across
+      **all three identities** (the item's "only g050 is built" is also superseded).
+      **The 2.0 mm hem offset is a MEASURED CEILING, not a round number** — swept at g000, the
+      tightest perineal slot: 0.8 mm → 0.22, 1.2 → 0.13, 1.6 → 0.11, **2.0 → 0.14**, and 2.2 mm
+      reads **0.049 mm** and **fails the build**. `describe_foundation` now FAILS a shell with zero
+      rolled faces, so the absence of the band is a build failure rather than a note.
+      🚩 **The roll's WINDING had to be proven, and the first orientation rule was wrong.** A
+      foundation garment exports OPAQUE and is backface culled, so a band built the other way round
+      would be *invisible* — the defect it exists to fix, with extra triangles. Counting edges
+      traversed twice in the same direction on the exported index buffer: "point away from the
+      interior face centre" left **4 inconsistent edges each** on the briefs and the boxer brief;
+      the shipped rule (two faces sharing an edge traverse it in opposite directions) leaves
+      **0** on all four shells.
+      🚩 **And the roll vertices had to inherit their `_under_*` masks.** A roll vertex with no mask
+      value stays drawn when an outer garment hides the rest of the shell, leaving a ring of hem
+      poking through a jacket. Flagged fractions are preserved (bra 82.72% → 80.90% of a larger
+      vertex count); had the roll been zeroed the bra would have fallen to 69.8%.
+      ⚠️ **If item 3 (Grade.js) tightens the frame budget, the honest lever is
+      `FOUNDATION_HEM_REFINEMENTS`, not the roll.** 8.3 measures shadow+depth at 0.49 ms of a
+      16.22 ms frame, so this is not the bottleneck today — but it is a permanent cost on the one
+      garment set that can never be taken off.
+- [x] **9.22** 🎯 **A dressed plate is reproducible, so Phase 9 can be measured at all.** `?wear`
+      made every dressed plate stochastic: three loads, three digests, and re-running the identical
+      command returned a different modal digest. Cause, measured rather than argued: the plate is an
+      **exact function of `sugata.captureClock().bootFrameId`** — eight loads, three boot epochs,
+      three digests, no exceptions (12 → `d4c39944`, 13 → `713be99f`, 14 → `4dbb93ae`), worst
+      residue 1653 px of 270,000 at Δ117/255. `swapFigure` adds the figure to the scene and only
+      then awaits `dressFigure`, which imports a module, fetches a manifest and fetches a GLB per
+      garment **with rAF still running**, so the figure is DRAWN for a machine-dependent number of
+      boot frames and per-mesh state that advances only on drawn frames is not reached by any epoch
+      reset. ⚠️ **The nude control read `bootFrameId` 10 on 4 of 4 loads — the nude plate was
+      reproducible because this machine's boot happens to be stable, not by construction.**
+      Fix: hold `figure.root.visible = false` across the wardrobe's async window — the same promise
+      9.8 already makes for the decency floor, applied to determinism. Result:
+      `?wear=female_casualsuit01,shoes01` is 5/5 byte-identical across boot epochs 23–26, and
+      `capture.mjs --plate` goes from *"2 distinct sha256, NOT reproducible"* to 3/3 bit-identical.
+      Gate: the fifth recipe in `alive-capture-determinism.selftest.mjs` (**61/61**), with
+      `?wearrace=unheld` and `?wearrace=released-early` as its two page-reachable rejection proofs.
+      ⚠️ **WHICH per-frame counter carries the boot count was NOT isolated, and the fix does not
+      depend on it.** `?morphvel=hold` fixes it (3/3 against 1/3) and deleting `MorphVelocity`'s
+      `live.frameId === frameId` guard moves it to 3/4 without closing it — so there is at least one
+      more. Enumerating them is the trap; the boot frame count is the single input every such
+      counter reads, and removing the input closes the class. The residual hazard is recorded at the
+      guard in `render/MorphVelocity.js` for the two pages that still render during boot.
+      ⚠️ **Any dressed-plate sha or ```plates fence written before this fix is a draw from a
+      distribution and must be retaken or struck** — including all twelve of the Phase 8 comparison
+      plates, which were taken with `?wear`.
 - [ ] **9.9** The shipping capsule — **14 authored blocks yielding 22 wearable garments and 1,368
       outfits** across two rails, chosen from 638 reference renders for combinability rather than
       for individual appeal. Six pieces are shared because they read at both ends of the identity

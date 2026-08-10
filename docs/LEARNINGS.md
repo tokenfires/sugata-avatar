@@ -672,7 +672,7 @@ Isolated, four states from one page load of `?bare&freeze&seed=1` at 900×1200 C
 
 **A toggle is only an attribution if it moves ONE thing, and nothing in the repo was checking that.**
 `window.sugata.subsystems()` now counts what is live off the scene graph and
-`packages/testbed/src/alive-toggles.selftest.mjs` (**151 checks** at `af0e68d`; 16 when this
+`packages/testbed/src/alive-toggles.selftest.mjs` (**155 checks** at R11; 151 at `af0e68d`, 16 when this
 paragraph was written) loads the page once per toggle and
 fails if any of them moves a second subsystem. Same shape as §1.11a — a real measurement of the
 wrong quantity — with the extra sting that the wrong quantity was produced by the very instrument
@@ -1761,6 +1761,113 @@ arousal and opposite in dominance, is the pair that proves the axis reaches the 
 
 ---
 
+### 1.25x A GATE ROW THAT RECORDS A DEAD ROUTE AS INTENDED BEHAVIOUR IS WORSE THAN NO ROW
+
+`alive-toggles.selftest.mjs` carried an UNGATED entry reading, of `?webgl`: *"the page refuses to
+build a figure at all on the default temporal path. Measured: the wait for a figure times out at
+120 s, so no plate exists to gate."* **Every word of it was an accurate description of what the page
+did.** It was also a written excuse for the documented fallback tier rendering NOTHING — canvas left
+at its untouched 300×150, `window.sugata` never defined, `window.__SUGATA_STEP__` never exposed —
+and the excuse is why the defect survived a full review round underneath a green gate.
+
+**The tell is grammatical and worth learning to spot: the row's reason described the PAGE'S
+BEHAVIOUR rather than naming the gate that covers it.** Every other row in that table points at a
+gate. A route with no gate must either get one or be deleted; *"here is why it cannot be gated"* is
+a third option that should not exist.
+
+Fixed in R11 by making the tier work — `?webgl` downgrades `?aa` to `msaa` rather than refusing —
+and by replacing the excuse with four checks. Proven red twice, and the second break is the
+instructive one: downgrade `traa` but not `taau`, so the page RENDERS on WebGL2 with the resolve
+still on. W1, W2 and W4 stay green and only W3 fires. Plausible pixels, silently wrong, is the
+failure the original refusal existed to avoid and the one a single "does it render" check misses.
+
+### 1.25y A DEFECT CAN SIT INSIDE THE TOLERANCE BECAUSE THE RESOLVE CONVERGED, NOT BECAUSE IT IS SMALL
+
+Two live dressing-race defects, run through the determinism gate's R check at its standard 24 steps,
+came back at **46 and 53 samples of 4,320,000 at Δ4 and Δ3** — comfortably inside
+`RESIDUE_SAMPLE_SHARE`, comfortably GREEN, and both were rendering visibly wrong plates. A temporal
+resolve on a frozen scene walks back toward its fixed point and **erases the starting conditions it
+was handed**. Measured decay at 900×1200: 2 steps 8868 px at Δ17, 6 steps 585 at Δ8, 12 steps 29 at
+Δ5, 24 steps 18 at Δ4 — a **490× fall in twenty-two frames**.
+
+This is the same fact §1.25 already recorded from the other side (deleting the history reset leaves
+every pixel check green at 2 and 24 steps) and it generalises: **on any temporally-resolved page a
+reproducibility check must be taken BEFORE convergence, and a long capture is the WEAKER test, not
+the stronger one.**
+
+Second half, and it is a separate rule: the 24-step residual is not merely small, it **STRADDLES**
+the threshold — 46, 53, 137 and 1588 samples across four runs of the same two defects. A gate row
+over a straddling statistic is a coin flip wearing a check's clothes, so it is printed and not
+asserted (§1.14). ⚠️ The same shape then bit the R2 rejection from the other direction: its
+perturbation ranged 438 differing samples on a quiet machine to 136 inside a four-agent run, and 136
+fell under its floor and took a 39-gate suite red. **A floor derived from one quiet measurement is a
+floor derived from the weather.**
+
+### 1.25z THE INSTRUMENT WAS WRONG, AND IN ALL THREE CASES ONLY A SOURCE-LEVEL REINTRODUCTION FOUND IT
+
+Three separate instrument bugs in one gate, each of which produced a **confidently green reading on
+a broken build**, and none of which was visible to the gate's own toggles.
+
+1. **A PROBE THAT WRITES `flag = breakage !== 'x'` REPAIRS THE LIBRARY ON ITS WAY PAST.** With
+   `applyFragmentShading` fully commented out of `Wardrobe.js` the flag clause went red exactly as
+   designed and *every luma reading stayed at 31.68%, green*, on a build carrying the original bug —
+   because the probe set the flag it was there to observe. A probe must **snapshot what it finds and
+   only ever CLEAR, never set**. The general rule: **an instrument may subtract from the subject,
+   never add.**
+2. **SCOPE OVERLAP BETWEEN TWO RESTORE LOOPS.** A garment is parented to `body.parent`, which is
+   inside `figure.root`, so a traverse of the figure also visits the garments; the traverse's restore
+   silently undid the break the garment loop had just applied, and the castShadow-cleared reading
+   came back identical to the shadowed one **on a build where everything was correct**. Cost an hour
+   of blaming the renderer. Two loops that restore state must have provably disjoint scopes, or one
+   must run first and exclude the other's members.
+3. **UNIT SCALE ON A DECODER.** `tools/critic/png.mjs` returns a `Float32Array` already normalised to
+   [0,1]; dividing by 255 again turned the whole frame black — **and a black frame still has ratios
+   in it**, so two black readings differing in the last bit reported a plausible 46% shadow. Assert
+   an ABSOLUTE floor on any probe, not only a ratio: *a ratio between two wrong numbers is a
+   well-formed lie.* The gate now asserts the box is on lit skin (luma > 0.15) before it is allowed
+   to compare two lumas.
+
+All three passed a red proof against the gate's own toggles. What caught them was reintroducing the
+defect **in the source** and checking the gate went red for the right reason — which is what rule 3
+is for, and why "prove your gate red" means *at the source*, not *at the switch you built for it*.
+
+### 1.25aa A REJECTION PROOF THAT INHERITS A SHIPPED CONSTANT IS NOT A PROOF
+
+`LightingRig.selftest.mjs`'s "blue panels swung to the FRONT" construction took **both** panel hues
+from the shipped rig and overrode only the azimuths. The moment the kicker's shipped colour changed,
+the defect became *one blue panel and one warm one* and went **green at blue:red 4.09 against a 4.5
+ceiling** — a proof that stopped proving because a constant it never named moved underneath it. The
+same shape in the CONSERVATISM construction, whose cone had to widen 4 → 8 heights to restore the
+**sign** it exists to demonstrate (blue:red 0.8659 falling → 1.0009 rising).
+
+Both are repaired by **stating the defect's own parameters in the override** — `colour: 0x0f30ff`
+written out in the construction rather than inherited. A known-bad is a specimen; a specimen that
+tracks the shipped value is not a specimen, it is a second copy of the subject. Same family as
+§1.28, one level further in: there the constant was pinned and stale, here it was not pinned at all.
+
+### 1.25ab A GATE ON ONE SAMPLE POINT IS A GATE ON ONE SAMPLE POINT — AND THE TWO OBVIOUS REPAIRS ARE BOTH WRONG
+
+`GroundContact.selftest.mjs`'s floor clause reads the reflected blue:red ratio at exactly
+**(0, 0, −2.0)**. On a rig variant the GEOMETRY known-bad — rim standoff back to 1.4 — reads **0.344
+there, comfortably under the ceiling, GREEN** — while rendering **20.11% of a body frame in
+saturated blue** against 7.09% shipped. The wedge of spill moves off the sample point; the defect
+does not move.
+
+⚠️ **Both obvious repairs were measured and both fail.** A worst-over-point **RATIO** across twelve
+samples reads **4.82× on the SHIPPED rig and 1.00× on the defect** — inverted, so it would reject the
+good rig and pass the bad one. Gating the worst **VALUE** loses the ceiling entirely: the MUST-PASS
+warm floor `0x4b3520` climbs to **0.737** while the `#b0c0ff` known-bad sits at **0.709**, so nothing
+separates them. Recorded in the file as an **open hazard**, not papered over — on the shipped rig the
+offending row reads 3.854 and is correctly rejected, so it is a hazard on record rather than a live
+failure.
+
+What DID land in the same pass is the ceiling itself: re-derived **0.71 → 0.629** from both of its
+original derivations on the new numbers (2.5144/4.0 = 0.629; between 0.516 acceptable and 0.709 bad),
+and **proven red by reintroduction** — at 0.71 the `#b0c0ff` known-bad reads 0.709 and goes green on
+a tint that renders 57.37% of the frame blue. Broken a second way in the same class: `#b6c4ff`, six
+code values whiter and invisible in a swatch, reads 0.6586 — rejected at 0.629, green at 0.71, and it
+renders **68.39%** of a body frame blue.
+
 ### 1.26 TWO SIMILAR MAGNITUDES ARE NOT EVIDENCE OF CANCELLATION — COMPARE FIELDS WITH A DOT PRODUCT
 
 `eyeWideLeft` peaks at 3.92 mm and `eyeSquintLeft` at 3.95 mm on the same 123 eyelash vertices,
@@ -2116,17 +2223,26 @@ it; do not carry it.**
 | `tools/critic/travel.selftest.mjs` | 158 | **158** — held |
 | `tools/critic/heatmap.selftest.mjs` | 71 | **71** — held |
 | `material/SkinRegions.selftest.mjs` | 29 | **29** — held |
-| `render/Grade.selftest.mjs` | 65 | **65** — held |
-| `render/TRAAPost.selftest.mjs` | 11 | **11** — held |
+| `render/Grade.selftest.mjs` | 65 | **68** at R11 — the bloom bypass |
+| `render/TRAAPost.selftest.mjs` | 11 | **15** at R11 — the resolve's output type |
 | `render/Toksvig.selftest.mjs` | 9 | **9** — held |
-| `testbed/src/alive-toggles.selftest.mjs` | 151 | **151** — held |
+| `testbed/src/alive-toggles.selftest.mjs` | 151 | **155** at R11 — the WebGL2 tier |
 
 And the rest of the roster, all from the same run: bodymass **15**, figure **44**, restpose (prints
 no count), MotionStack **47**, ocular **64**, idle-motion **106**, BodyIdle **41**, FacialIdle **27**,
-SkinOcclusion **13**, MorphVelocity **16**, prosody **26**, visemes **59**, wardrobe **45**,
-agency **28**, identitytargets **47**, identitycatalogue **72**, identityassets **28**,
-cornea_geometry **40**, lut-bake **32**, eye-optics-claims **43**, measured-claims **60**,
-alive-capture-determinism **49**, and `verify_glb.mjs` PASS on **32 files**.
+SkinOcclusion **13**, MorphVelocity **16**, prosody **26**, visemes **59**, wardrobe **50**
+(45 before R11), agency **28**, identitytargets **47**, identitycatalogue **72**,
+identityassets **28**, cornea_geometry **40**, lut-bake **32**, eye-optics-claims **43**,
+measured-claims **60**, alive-capture-determinism **61** (49 before R11), and `verify_glb.mjs` PASS
+on **32 files**.
+
+⚠️ **R11 ADDS A FORTIETH GATE AND MOVES SEVEN ROWS**, and no fan-out agent could quote any of them —
+all four were editing while the others ran, so every count any of them read came off a DIRTY tree.
+New: `packages/core/src/wardrobe/shadow.selftest.mjs`, **11 assertions**, picked up by the
+`*.selftest.mjs` glob with no runner entry of its own; it needs playwright and a GPU chromium, the
+second browser-driven gate in the suite. Moved: wardrobe 45 → **50**, Grade 65 → **68**,
+TRAAPost 11 → **15**, alive-toggles 151 → **155**, alive-capture-determinism 49 → **61**,
+LightingRig → **140**, GroundContact 77 → **78**.
 
 ⚠️ **`verify_glb`'s 32 is a property of THIS MACHINE'S BUILD OUTPUT, not of the repo, and it read
 14 one commit ago.** R10 built the foundation layer at g000 and g100 to answer REQ-033, so twelve
@@ -2222,7 +2338,7 @@ plate WITH `?wear=` separates "correctly inert" from "absent".
 | `BodyIdle` 41 | `FacialIdle` 27 | `Gaze` 114 | `MotionStack` 47 |
 | `idle-motion` 106 | `ocular` 64 | `sway` 223 | `Grade` **65** |
 | `GroundContact` **55** | `LightingRig` **82** | `MorphVelocity` 16 | `TRAAPost` 11 |
-| `Toksvig` 9 | `prosody` 26 | `visemes` 59 | `alive-capture-determinism` **49** |
+| `Toksvig` 9 | `prosody` 26 | `visemes` 59 | `alive-capture-determinism` **61** at R11 |
 | `alive-toggles` **146** | `heatmap` **71** | `travel` **158** | `cornea_geometry` 40 |
 | `lut-bake` 32 | `critic/selftest` **244** | `wardrobe` **35** (new) | |
 
@@ -2457,7 +2573,7 @@ node packages/core/src/render/GroundContact.selftest.mjs # 77  (36, then 31, the
                                                          #     and its planted-field proof are R10's)
 
 node packages/core/src/material/SkinRegions.selftest.mjs # 29
-node packages/core/src/render/Grade.selftest.mjs         # 65  rendered now, not a CPU mirror — §1.25b
+node packages/core/src/render/Grade.selftest.mjs         # 68  rendered now, not a CPU mirror — §1.25b
                                                          #     (was 44, then 56; the temporal grain
                                                          #     checks and the 600-frame horizon landed)
 node packages/core/src/render/TRAAPost.selftest.mjs      # 11  renders a 150-frame sequence
@@ -2470,7 +2586,7 @@ node packages/core/src/wardrobe/decency.selftest.mjs     # 25  (was 20) 48 reach
 node packages/core/src/wardrobe/agency.selftest.mjs      # 28
 node tools/identity-pipeline/identityassets.selftest.mjs # 28  the census SENTENCE, repo-wide
 node tools/request-ledger.selftest.mjs                   # 23  (was 11) the diff-request ledger
-node packages/testbed/src/alive-toggles.selftest.mjs     # 151 (was 24, then 109) each ?x=0 moves
+node packages/testbed/src/alive-toggles.selftest.mjs     # 155 (was 24, then 109, then 151) each ?x=0 moves
                                                          #     exactly ONE subsystem — surface closure
                                                          #     + fingerprint + pairwise pixels + the
                                                          #     old census.
@@ -2486,7 +2602,7 @@ node packages/core/src/voice/prosody.selftest.mjs          # 26  punch-list 4.5
 # Added later on 2026-08-08 — punch-list 3.20, the capture epoch. THE gate for whether a still
 # plate on the shipped default is reproducible from its own identity. Run it before quoting any
 # captured number; if it is red, every range in PUNCHLIST is a draw again.
-node packages/testbed/src/alive-capture-determinism.selftest.mjs  # 49, ~60 s
+node packages/testbed/src/alive-capture-determinism.selftest.mjs  # 61, ~80 s
 
 # Blender (5.2.0 LTS)
 /Applications/Blender.app/Contents/MacOS/Blender --background --python <script>

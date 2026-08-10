@@ -69,6 +69,7 @@ R7  af0e68d  2026-08-09  The postural manifest tells a judge the truth again
 R8  dcd1968  2026-08-09  Lateral balance is a hip strategy, and the statistic was measuring the arms
 R9  3bfc5e7  2026-08-09  The lighting gate asserts the SET of things a light does, not a list of remembered defects
 R10 3749d27  2026-08-09  The body was computing an emotion every frame and telling nobody
+R11 a90bca9  2026-08-09  The gate roster is quoted from the run that was clean at both ends
 ```
 
 Rounds before R4 are not reconstructed. Resolved entries are pinned by their `filed-at` **commit**,
@@ -1481,6 +1482,89 @@ verify:      docs/research/body-motion-numbers.md /contradicts Coulson's verbal 
 §1.25s pointed inward.** Three were already recorded; the fourth was found by an actuator trying to
 use the table and is now recorded beside them.
 
+## REQ-060 — `SCLERA_BRIGHTNESS` blocks the warm kicker, which is the fix for the violet outline
+
+```request
+id:          REQ-060
+status:      OPEN
+target:      packages/core/src/material/EyeMaterial.js
+filed-by:    the R11 lighting agent (diffRequest 3 of 5)
+filed-round: R11
+filed-at:    a90bca9
+first-filed: a90bca9, 2026-08-09
+change:      Re-solve `SCLERA_BRIGHTNESS` — currently 1.47, itself re-solved from 1.26 against the
+             shipped rig — so a WARM kicker can land in `render/LightingRig.js`. The rig change is
+             two constants and is fully specified in that file's kicker comment block; it is
+             blocked on this one number and on nothing else.
+evidence:    Three blind judges independently named the rim as the strongest single tell that this
+             is a render, and their words describe a PROPERTY rather than an intensity: one hue,
+             constant width, tracing the whole silhouette. Only warming ONE side breaks that.
+             Measured: kicker `#ffd7b0` at E 2.5 takes cool subject pixels 1.60% -> 0.83% and the
+             key-side band hue rotation -39.4deg -> -18.6deg. It also takes G1 to 1.2331 and G2 to
+             0.8855 against a 0.92 floor.
+             ⚠️ ATTRIBUTED FIELD BY FIELD so nobody re-derives it: reverting rim azimuth costs
+             0.003 of G1, rim standoff 0.001, kicker azimuth 0.011, and the kicker's COLOUR+E is
+             the entire remaining 0.32. Mechanism: `irradiance` is a scalar and the colour
+             multiplies it, and `#ffd7b0` carries 7.73x the relative luminance of `#0f30ff` — so a
+             blue kicker of that size was always a broad key-side wash, and it passed a LUMA gate
+             only because its hue contributes almost no luma.
+             ⚠️ THE WHOLE SWEEP IS RECORDED SO IT NEED NOT BE RE-RUN. G2 against kicker E:
+             0.8855 at 2.5, 0.8883 at 1.6, 0.8943 at 1.2, 0.9022 at 0.9 — the floor is 0.92 and
+             nothing reaches it. Elevation -6/24/34/44 moves G2 by 0.003. Trading against the fill
+             at 2.20/1.80/1.55/1.35 takes G2 the WRONG way, to 0.8793, while recovering G1 to
+             1.4519. The kicker cannot be rescued by power, by elevation, or by the fill.
+anchor:      packages/core/src/material/EyeMaterial.js /const SCLERA_BRIGHTNESS/
+verify:      packages/core/src/render/LightingRig.js /colour: 0xffd7b0/
+```
+
+🎯 **The `verify` is on `LightingRig.js`, not on the target, and that is deliberate.** What has to
+become true is that the warm kicker SHIPS; a changed constant in `EyeMaterial.js` that did not
+unblock it would be a number moving for no reason. The gate's rule that a `verify` must discriminate
+against `filed-at` holds either way. ⚠️ **And the first draft of this entry got that wrong and the
+gate caught it**: `verify` read `/ffd7b0/`, which MATCHES at HEAD — the withdrawn experiment is
+recorded in `LightingRig.js`'s kicker comment block as `#ffd7b0`, so the pattern could not tell a
+documented experiment from a shipped light. It is now `/colour: 0xffd7b0/`, the declaration form,
+which appears zero times in that file today.
+
+## REQ-061 — the frame has no highlight energy, and the cause is provably outside the lighting rig
+
+```request
+id:          REQ-061
+status:      OPEN
+target:      docs/PUNCHLIST.md
+filed-by:    the R11 lighting agent (diffRequest 4 of 5)
+filed-round: R11
+filed-at:    a90bca9
+first-filed: a90bca9, 2026-08-09
+change:      Carry the highlight-energy diagnosis onto the items that can actually act on it —
+             3.4 (the eye catchlight cubemap), 3.5/3.6 (hair), and Phase 9's costume emissive and
+             metal trim — rather than leaving it filed against the lighting rig, which has been
+             measured incapable of producing it. State in each that RAISING EXPOSURE IS NOT THE
+             FIX, because that is the move the symptom invites and it is measurably wrong.
+evidence:    Three toggles at 3840x5120, each excluding a suspect by execution rather than by
+             argument. NOT the tone curve: `?aa=msaa&grade=0` clips the same 2.3e-6. NOT the light
+             level: 3x the key puts 42.7% of the frame over 0.90 luma and 15.5% over 0.95 and the
+             CLIPPED fraction does not move at all. NOT the key's solid angle: an 8x smaller panel
+             carries 64x the radiance, triples the >0.90 population, does not move the peak, and
+             takes G2 RED at 0.9319 with G4 to 1.7044.
+             Clustering the shipped plate above 0.90 says where the light is: 6,939 px of rim glow
+             on the BACKDROP at 0.9521, two skin speculars (nose, lower lip) at 0.9229, and 84 px
+             of eye catchlight at 0.9961 — the only thing in the frame reaching the bloom
+             threshold, at 0.0000043 of the frame against reference plates at 0.017-0.036%.
+             The pipeline can carry a clipping highlight; the SCENE has exactly one feature small
+             and bright enough to make one. A face clips where it has hair specular, a wet lip,
+             metal or emissive trim. G5 has three orders of magnitude of headroom to pay for all
+             three.
+anchor:      docs/PUNCHLIST.md /Hair OIT/
+verify:      docs/PUNCHLIST.md /three orders of magnitude of headroom/
+```
+
+⚠️ **Filed rather than applied, and the reason is that it is a REASSIGNMENT and not a correction.**
+The exclusions belong beside the items that will act on them, and 3.5, 3.6 and 3.4 are all unstarted
+work whose entries should be written by whoever picks them up. Two judges in the Phase 8 round
+concluded "no post-processing at all" from this same symptom; without a ledger entry the three
+exclusions get re-derived from scratch next round, which is the cost this file exists to stop.
+
 ## REQ-058 — `Sway` should expose an affect-driven fore-and-aft centre-of-pressure bias
 
 ```request
@@ -1488,9 +1572,16 @@ id:          REQ-058
 status:      OPEN
 target:      packages/core/src/motion/Sway.js
 filed-by:    the BAP fix agent (diffRequest 6 of 8)
-filed-round: R10
+filed-round: R11
 filed-at:    3749d27
 first-filed: 3749d27, 2026-08-09
+carried:     R10 -> R11. CARRIED A SECOND TIME, and the reasoning below is unchanged and was
+             re-read rather than assumed. R11 was a budget-constrained four-agent round whose brief
+             forbade exploratory work and long captures; `sway.selftest.mjs` alone runs about seven
+             minutes and did not complete under two of the four agents. Picking up the most-rebuilt
+             file in the project at the END of such a round is precisely the move this entry argues
+             against. ⚠️ Two carries is the limit anyone should read into this: a third means the
+             entry is not being decided, and the honest action then is to reject it.
 change:      Expose an affect-driven fore-and-aft centre-of-pressure bias on the sway pendulum, so
              BAP's `approach` channel reaches the balance model rather than stopping at the trunk
              bones. Coulson's weight column is a real DOF — "weight forwards" for anger, "backwards"
@@ -1522,9 +1613,18 @@ id:          REQ-059
 status:      OPEN
 target:      tools/figure-pipeline/build_figure.py
 filed-by:    the R10 request pass, out of REQ-033's measurement
-filed-round: R10
+filed-round: R11
 filed-at:    3749d27
 first-filed: 3749d27, 2026-08-09
+carried:     R10 -> R11, and NOT by omission — re-read and deliberately deferred. R11 rewrote
+             `build_figure.py` twice (9.7's AO recovery and 9.8's hem roll) and rebuilt every
+             wardrobe artefact at three identities. Changing the floor ENUMERATION in the same pass
+             would have put a second, unattributed reason under any decency movement, and the entry
+             itself records that the two unchecked floors are a BUILD-gate hole rather than a live
+             decency failure — the runtime ray cast is green on all 48 states. What this needs is a
+             round that owns the rebuild and re-runs `decency.selftest.mjs` against the g100 body,
+             which is the pass the evidence below already specifies. ⚠️ Second carry; see REQ-058
+             on why there should not be a third.
 change:      `floor_candidates()` takes the cartesian product over every SLOT any foundation garment
              claims, which forces a garment that is the sole claimant of a slot into every outfit.
              `foundation_boxer_brief` is the only claimant of `LEGS`, so it appears in every
