@@ -782,22 +782,82 @@ proof of one. `--plate`'s manifest records `servedByOwnFrozenServer` for exactly
       garment and never runs again. Fixed in `Wardrobe.#adoptFragment` via a new
       `applyFragmentShading()`, which sets BOTH flags, anisotropy 8 on every garment texture, and
       aliases `uv1` for the AO channel.
+      ⚠️ **AND THE FLAG PAIR WAS ONLY TWO THIRDS OF THE FIX. THIS ENTRY READ AS CLOSED WHEN IT WAS
+      NOT.** With both flags set, the ONLY contact that darkened was the one the judges named. A
+      blind pair set built at seven contacts (`tools/critic/rejudge.mjs`) refused three of them
+      because the two sides did not separate, and one was worse than weak: at the elegant suit's
+      skirt hem the plates were **BIT-IDENTICAL** with shadows on and off — 0.000% of pixels
+      changed, peak Δluma 0.00000, against `garment-cast`, `garment-receive` and `body-receive`
+      alike. The missing third is **`material.shadowSide`**. three leaves it `null` and then renders
+      the OPPOSITE of `material.side` into the shadow map, so a FrontSide garment casts from its
+      **back faces only** — for a brim that is the underside two millimetres above the forehead,
+      which is exactly why the one working contact was the one that worked; for a TUBE (sleeve,
+      cuff, skirt) it is the far wall, decimetres behind the limb inside it, so the limb was never
+      behind an occluder. Every garment fragment in `assets/wardrobe` is authored
+      `doubleSided: false` — read off all 24 fragment GLBs, eight garments x three figure variants —
+      so every one of them was affected.
+      Fixed in `applyFragmentShading` as `GARMENT_SHADOW_SIDE = DoubleSide`, whose comment carries
+      the measurements. Re-derived this session on `wardrobe.html`, shadows on against `garment-cast`
+      cleared, changing nothing but that value: **`hem-thigh` 0.000% → 1.335% of pixels changed,
+      peak 0.00000 → 0.33627**; `cuff-wrist` 0.332% → 0.469%; `hat-forehead` 5.941% → 5.958%. With
+      `shadowSide` forced to `BackSide` the plates are **bit-identical** to the ones the old build
+      produced, at every view — the mechanism as a sha256 rather than as an argument.
+      **DoubleSide rather than FrontSide, and the numbers that decided it:** the two are byte-identical
+      at four of five views and differ at the cuff on 55 pixels, peak Δluma 0.09636, **100% of them
+      darker under DoubleSide** — all of it DoubleSide finding shadow FrontSide missed — DoubleSide is a strict superset, and it is also
+      what three's own default already gives a `doubleSided: true` garment, so it cannot regress one.
+      It costs nothing measurable: **2,885 draw calls and 8,874,893 triangles over 200 renders,
+      identical to the unit at `null`, FrontSide and DoubleSide**; frame-time median 8.300 ms in all
+      three. No acne — a frame filled edge to edge with jacket cloth reads **0.000% of pixels
+      changed** and mean |Laplacian| of luma 0.004290 → 0.004290. No peter-panning — under the skirt
+      hem the shadow starts on the **first lit pixel**, mean darkening 0.18434 at +0 px decaying to
+      0.08092 at +39 px over 802 columns.
       Gate: **MEASURED**, and it measures the rendered consequence rather than the flag —
-      `packages/core/src/wardrobe/shadow.selftest.mjs`, **11 assertions**: the forehead under the
-      fedora brim is **31.68% darker** than the same forehead bareheaded, against a 4% floor, on a
-      box derived from the head bone that does not move between readings. Proven red **four ways**:
+      `packages/core/src/wardrobe/shadow.selftest.mjs`, **19 assertions** on TWO contacts, a brim and
+      a tube, because a brim probe alone went green for a whole round on a library where nothing
+      tubular cast anything. The forehead under the fedora brim is **31.68% darker** than the same
+      forehead bareheaded, and the thigh below the elegant suit's skirt hem is **13.21% darker** than
+      the same thigh with the skirt off, both against a 4% floor, on boxes derived from the head and
+      thigh bones that do not move between readings. The tube probe's box is asserted to be **pure
+      skin**: taking the skirt off and leaving it on with `castShadow` cleared read 0.46412 and
+      0.46412, so the headline cannot be a cloth-for-skin swap. Proven red **five ways** — (E)
+      **`material.shadowSide` reverted alone** (one line, tree restored byte-identically afterwards,
+      sha256 `41c563ad…` both sides) → **4 of 19 red**, the tube reads **0.46412 in all four states**,
+      i.e. bit-identical, and *the forehead probe stays green at 31.68%*, which is the whole reason
+      the second contact exists. And the four that were already recorded:
       (A) `applyFragmentShading` removed → 5 of 9 red and the headline reads exactly **0.00%**,
       which is verbatim what the three judges described; (B) the HALF FIX, `castShadow` set and
       `receiveShadow` dropped → caught by the receive clause alone; (C) the `uv1` alias dropped →
       flag clause red, render unchanged (so the alias is recorded as DEFENSIVE, not load-bearing on
       three r185's WebGPU path); (D) the build-side AO wiring reverted and the artefacts rebuilt →
       the AO reading collapses to exactly 0.00%.
-      🚩 **AND THE MEASURED NON-RESULT, which matters as much.** The foundation hem casts **no
-      measurable shadow** at full-body framing: 34 boxes swept down both thighs from the hip joint
-      to 16 cm below it, `castShadow` on against off, and **not one box moved by more than 0.5%**.
-      A 2.0 mm shell with a 1.2 mm rolled hem casts one to three pixels at ~1 mm/px. The gate
-      reports it and deliberately does not assert it. **The painted-on read is fixed by THICKNESS
-      (9.8's hem roll), not by shadow** — do not spend a round trying to shadow a 2 mm lip.
+      🚩 **AND THE MEASURED NON-RESULT, which matters as much — IT STILL STANDS, AND `shadowSide`
+      DOES NOT MOVE IT.** Round 11 recorded that the FOUNDATION hem casts no measurable shadow at
+      full-body framing: 34 boxes down both thighs from the hip joint to 16 cm below it, `castShadow`
+      on against off, not one box moved by more than 0.5%. **Re-derived on the fixed build this
+      session** — 17 boxes at 10 mm steps from the hip joint to 160 mm below it, foundation floor
+      only, 26 mm half-size, `castShadow` on against off: **every box reads 0.00%, and the two lumas
+      are identical to five decimals at every one of them** (0.54689, 0.55827, 0.56250, 0.55409 …).
+      The gate's own foundation reading is unchanged too: 0.56231 against 0.56231, 0.00%, before and
+      after. A 2.0 mm shell with a 1.2 mm rolled hem casts one to three pixels at ~1 mm/px, and
+      putting its NEAR wall into the shadow map instead of its far one does not make a two-millimetre
+      lip any deeper. The gate reports it and deliberately does not assert it. **The painted-on read
+      is fixed by THICKNESS (9.8's hem roll), not by shadow** — do not spend a round trying to shadow
+      a 2 mm lip.
+      ⚠️ **THE TWO FACTS ARE SEPARATE AND ONLY ONE OF THEM MOVED. Do not conflate them.** The
+      `shadowSide` fix moves *"a worn GARMENT that wraps a limb casts nothing onto the limb"* — a
+      renderer defect, now closed, measured at the skirt hem going from bit-identical to 13.21%
+      darkening in the gate and 1.335% of changed pixels in the pair set. It does **not** move *"a
+      2 mm foundation shell casts nothing at full-body framing"* — a geometry limit, still open in
+      the sense that it is still true, and still answered by 9.8's hem roll rather than by shadows.
+      🚩 **Re-judge, re-run this session with the fix in: 6 of the 7 contacts now publish** (they
+      were 4 of 7). `hem-thigh` 0.000% → **1.335%** changed, peak 0.33627, and `cuff-wrist`
+      0.469% → **1.752%** — the latter after its framing was tightened from `heightM` 0.26 to 0.13,
+      which moved the AREA statistic and left the peak at 0.36107 exactly, since a peak is per-pixel.
+      **`sleeve-arm` still REFUSES: 0.182% changed, peak 0.06555** against a 0.500% / 0.05 floor.
+      That is reported rather than tuned away — tightening ITS framing the same way made it *worse*
+      (0.042%), so the casual suit's short fitted sleeve is in the same 1–2 mm regime as the
+      foundation hem, not under-framed. One contact still has nothing a judge could separate.
       ✅ **CONFIRMED IN R12 AT TWENTY TIMES THE MAGNIFICATION, which is where the alternative
       explanation could still have hidden.** "No measurable shadow at 1 mm/px" leaves open that a
       closer look would find one, and `hem.selftest.mjs` takes that look: at **20.00 px/mm** on the
@@ -1456,6 +1516,25 @@ attributable.
       Start `stiffness 0.75 / drag 0.05 / gravity 0`. Support `center`.
 - [ ] **6.7** Collider pruning — VRoid ships 460–1362 checks/frame, past VRChat's "Poor" tier.
 - [ ] **6.8** Soft-tissue jiggle. Hair drag 0.4 (over-damped drape) vs tissue 0.05 (fast ring).
+- [ ] **6.9** 🎯 **Affect must reach the BALANCE model, not stop at the trunk bones.** Expose a
+      fore-and-aft centre-of-pressure bias on `motion/Sway.js`'s pendulum so BAP's `approach`
+      channel actuates weight shift. Coulson's weight column is a real degree of freedom — "weight
+      forwards" for anger, "backwards" for fear and disgust — and it is the one channel of the
+      prescription that belongs to balance rather than to a joint rotation.
+      **Converted from REQ-058 at R12**, which its own carry note demanded rather than a third
+      carry. Nothing in the substance was withdrawn; it was in the wrong container. A request is a
+      small correction to a file somebody is already holding, and this is a new degree of freedom
+      on the most-rebuilt file in the project — so for three rounds it competed against one-line
+      fixes and lost to every one of them. Here it competes with the work it belongs beside.
+      Evidence, carried verbatim and already measured: `affect/PostureLayer.js` drives three of the
+      nine BAP channels and actuates `approach` as a chest bend only. The base of support is
+      already modelled and measured off this bake's own mesh — **179.4 mm forward and 54.4 mm
+      behind the ankle midpoint, tightest margin 51.1 mm** across all seven presets. The quantity
+      exists; what does not exist is a way for affect to move it.
+      🚩 The A/P axis is an **ankle pendulum** and lateral balance is a **hip** strategy (Winter
+      1996). This item is the A/P half only; do not let it acquire the lateral half by proximity.
+      Gate: the emotion must be readable in the CoP trace with the trunk bones frozen, which is
+      what proves the channel reached balance rather than being read off the chest bend twice.
 
 ## Phase 7 — Runtime API and testbed
 
@@ -2174,6 +2253,31 @@ measured on our own artefacts. KTX2/Basis is not optional for a wardrobe of any 
       Gate: **MEASURED** — one body in the tree; `verify_glb.mjs` green on the merged artefact; and
       every gate that names a figure sha256 re-measured **in the same commit**, with the old numbers
       replaced rather than carried.
+- [ ] **9.23** 🚩 **The foundation build checks two of the four legal decency floors, and the two it
+      skips include the one the runtime actually picks.** `floor_candidates()` in `build_figure.py`
+      takes the cartesian product over every SLOT any foundation garment claims, which forces a
+      garment that is the sole claimant of a slot into every outfit. `foundation_boxer_brief` is the
+      only claimant of `LEGS`, so it appears in every candidate, and every candidate that also
+      contains `foundation_briefs` is then dropped by the `HIPS` conflict rule. Enumerate over the
+      slots DECENCY needs covered, not over every slot a foundation garment happens to claim.
+      Measured by executing the enumeration against the shipped manifest: it returns exactly two
+      outfits, `(boxer_brief, bra)` and `(boxer_brief, vest)`. The two it never checks are
+      `bra + briefs` and `vest + briefs` — and **`bra + briefs` is the floor the shipped runtime
+      default picks**, as `decency.selftest.mjs` prints on every run. It matters at an identity
+      nobody had built: at g100 `foundation_briefs` covers **42 of 44** seat vertices, so the
+      unchecked floor is short two, and the build exited 0.
+      ⚠️ **NOT A DECENCY FAILURE, and the distinction is why this is not urgent.** The build's
+      clause is SET ALGEBRA over its own cut regions; the runtime gate is a RAY CAST into the
+      geometry actually drawn, and the ray cast is **green on all 48 reachable states**. This is a
+      hole in the BUILD gate, not a figure anyone can undress into indecency.
+      ⚠️ **Arrived as REQ-059 and was REJECTED AS A REQUEST AND CONVERTED HERE at R12**, on the
+      rule the entry's own carry note invoked against itself — it warned there should not be a
+      third carry, and R12 is where the third would have been. The fix is one enumeration; VERIFYING
+      it means rebuilding the wardrobe artefacts at three identities and re-running
+      `decency.selftest.mjs` against the g100 body. That is a rebuild-owning pass, which is what a
+      punch-list item with a gate is and what a request handed to whoever is passing is not.
+      Gate: **MEASURED** — the enumeration returns all four legal floors, `bra + briefs` among them,
+      and the g100 seat coverage is asserted rather than reported.
 
 ⚠️ **One item deliberately absent.** There is no "match the reference seller's quality" gate here,
 because that is 8.1's job and 8.1 is a blind CRITIC comparison. A subjective quality bar inside the

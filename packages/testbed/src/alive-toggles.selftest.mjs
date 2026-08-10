@@ -74,8 +74,10 @@
  * SUBJECT LIST was two names. There is no reason to expect the next one to be different, so the
  * subject list is now closed the same way the toggle list is: the walk reports every object-valued
  * member of the `Stage`, and every one of them must be walked here or carry a written reason.
- * Fourteen exist; three are walked; the eleven that are not are named below with what does cover
+ * FIFTEEN exist; three are walked; the twelve that are not are named below with what does cover
  * them — and where nothing fully does, the gate says so on every run rather than implying closure.
+ * The fifteenth is punch-list 3.10's `stage.ambientOcclusion`, and the day it landed this file went
+ * red with `UNCLASSIFIED SUBJECT: ambientOcclusion`, which is the mechanism working.
  *
  * A second mechanism in the same class, found while fixing the first and just as invisible:
  * `describe()` recorded a `Vector3` as the string `object:Vector3`. Adding the camera as a subject
@@ -113,23 +115,26 @@
  *    every prototype accessor that returns a scalar, every three math value read as its NUMBERS
  *    rather than its type name, and one level into any configuration bag (a member carrying
  *    nothing but scalars, which is what reaches `shadowMap.enabled`, `debug.checkShaderErrors`,
- *    `camera.view.fullWidth` and `camera.layers.mask`). 183 properties on the shipped plate,
+ *    `camera.view.fullWidth` and `camera.layers.mask`). 184 properties on the shipped plate,
  *    PROPERTY-GRANULAR rather than entity-granular, and deny-by-default — a toggle declares the
  *    exact property paths it may move and any other movement is collateral.
  *
  *    And the subject list itself is closed rather than trusted: the walk also records every
  *    object-valued member of the `Stage` by identity, and `UNWALKED_SUBJECTS` below must carry a
- *    written reason for each of the eleven that are not walked. A `Stage` that grows a fifteenth
- *    member turns this file red on the run after it lands.
+ *    written reason for each of the twelve that are not walked. A `Stage` that grows a sixteenth
+ *    member turns this file red on the run after it lands, and a fifteenth one just did.
  *
- *    ⚠️ Seven of those eleven are the post stack, and their reason is an ADMISSION rather than a
+ *    ⚠️ Seven of those twelve are the post stack, and their reason is an ADMISSION rather than a
  *    closure — the run prints it every time rather than leaving it in a comment. What is checkable
  *    about it is checked: `GRADE_UNIFORMS` holds the `Grade` to the exact set of knobs something is
  *    known to carry, so the day it grows one this file goes red instead of the knob going ungated.
+ *    `stage.ambientOcclusion` is an eighth post-stack member with a BETTER reason and its own
+ *    remaining hole — the pipeline row carries its whole `describe()`, but four of its eight live
+ *    uniforms are outside that report, so `OCCLUSION_UNIFORMS` states and checks the same closure.
  *
- *    Measured, so the reader knows what it costs. On two loads of the same url the 183 values are
+ *    Measured, so the reader knows what it costs. On two loads of the same url the 184 values are
  *    identical bar two, `camera.view.offsetX` and `camera.view.offsetY`, which are excluded and say
- *    why at their exclusion. Across the toggle table exactly SEVEN rows move anything, all of them
+ *    why at their exclusion. Across the toggle table exactly EIGHT rows move anything, all of them
  *    declared and all of them measured rather than reasoned out:
  *
  *      | toggle                                | what it moves on the frame subjects              |
@@ -139,24 +144,28 @@
  *      | `?aa=off`                             | the camera's view offset, `stage.temporal`       |
  *      | `?scale=1`                            | the four view-offset extents (the input size)    |
  *      | `?grade=0`                            | `stage.grade`                                    |
+ *      | `?gtao=0`                             | `stage.ambientOcclusion`, and `scene.children`   |
+ *      |                                       | — the ambient goes back in as a HemisphereLight  |
  *      | `?frame=body` `?height=` `?pose=` `?gender=` | the camera placement, four properties     |
  *
  *    The last row is the one worth reading twice: four toggles that nothing in this repo had ever
  *    recorded as MOVING THE CAMERA now say so out loud, so a plate captured at `?frame=body` is
  *    known to be a plate from a different viewpoint and not merely a wider lens.
  *
- *    🎯 AND THE PROOF, RUN FIVE WAYS, every number below measured against THIS file at 151 clean
+ *    🎯 AND THE PROOF, RUN FIVE WAYS, every number below re-derived against THIS file at 191 clean
  *    checks. Four of the five are caught by EXACTLY ONE check — the instrument-5 row for
  *    `?cards=0` — and that is the finding rather than a detail: instruments 1-4 stay green, so the
  *    confound really is invisible to everything that existed before this instrument.
  *
  *      | --confound      | mechanism                      | result  | what fires                        |
  *      |-----------------|--------------------------------|---------|-----------------------------------|
- *      | exposure        | renderer scalar                | 150/152 | instrument 5 AND the pipeline row |
- *      | shadowmap       | nested configuration bag       | 151/152 | `renderer.shadowMap.enabled`      |
- *      | scene           | not on the renderer at all     | 151/152 | `scene.backgroundIntensity`       |
- *      | camera          | THE THIRD SUBJECT              | 151/152 | `camera.filmOffset 0 -> 0.6`      |
- *      | cameraTransform | a VALUE OBJECT on that subject | 151/152 | `camera.position`, and the three  |
+ *      | exposure        | renderer scalar                | 190/192 | instrument 5 AND the pipeline row |
+ *      | shadowmap       | nested configuration bag       | 191/192 | `renderer.shadowMap.enabled`      |
+ *      | scene           | not on the renderer at all     | 191/192 | `scene.backgroundIntensity 1 ->   |
+ *      |                 |                                |         | 0.6`                              |
+ *      | camera          | THE THIRD SUBJECT              | 191/192 | `camera.filmOffset 0 -> 0.6`, and |
+ *      |                 |                                |         | the two projection matrices       |
+ *      | cameraTransform | a VALUE OBJECT on that subject | 191/192 | `camera.position`, and the three  |
  *      |                 |                                |         | matrices derived from it          |
  *
  *    (A confound run carries one check more than a clean one, because it adds the check that the
@@ -195,9 +204,9 @@
  *
  * Usage:  node "packages/testbed/src/alive-toggles.selftest.mjs"
  *
- * It loads about seventy plates and takes ~3.5 minutes. That is the price of the pairwise sweep,
- * which is quadratic in the number of scene off-switches, and it is worth stating up front so a
- * slow run is not mistaken for a hang.
+ * It loads about ninety plates and takes ~3.5 minutes (measured 3:36 for the 191-check clean run
+ * at this commit). That is the price of the pairwise sweep, which is quadratic in the number of
+ * scene off-switches, and it is worth stating up front so a slow run is not mistaken for a hang.
  *
  * Exit codes follow tools/critic/measure.mjs, so a caller can tell a red gate from a broken tool:
  *   0 = every check green
@@ -396,7 +405,8 @@ const TOGGLES = [
     { query: 'backdrop=0x11151f', census: null, touches: [ 'mesh:backdrop' ] },
 
     // --- the rig ---------------------------------------------------------------------------------
-    // 🎯 The only TOGGLES row with a non-empty `rendererState`. `LightingRig.attachTo` flips
+    // 🎯 The only TOGGLES row that moves the RENDERER itself — the others that declare frame-subject
+    // state move the camera, the scene or a Stage member. `LightingRig.attachTo` flips
     // `renderer.shadowMap.enabled`, and the caster and its target leave the scene graph, so the
     // scene's own child count moves. Both were MEASURED by instrument 5 rather than reasoned out,
     // and writing them down is what turns "the renderer never moves" into a checkable claim.
@@ -424,6 +434,55 @@ const TOGGLES = [
     { query: 'scale=1', census: null, touches: [ 'pipeline' ], rendererState: [
         'camera.view.fullWidth', 'camera.view.fullHeight', 'camera.view.width', 'camera.view.height'
     ] },
+
+    // --- punch-list 3.10, the ground-truth occlusion --------------------------------------------
+    //
+    // 🎯 `?gtao=0` IS THE ONE ROW IN THIS BLOCK THAT MOVES A LIGHT, and that is the coupling the
+    // page's own header warns about stated as a checkable claim rather than as a paragraph. With
+    // 3.10 on, `LightingRig` is built `ambient: false` and the hemisphere term is re-evaluated per
+    // pixel inside the composite; take the effect away and the `HemisphereLight` goes BACK INTO THE
+    // SCENE. So the A side of 3.10 is not "the same frame minus an occlusion term" — it is a frame
+    // whose ambient is computed somewhere else, and anything attributed to `?gtao=0` is that sum.
+    //
+    // Measured, one plate against the baseline: the fingerprint grows a `light:ambient` entity that
+    // does not exist on the shipped plate (HemisphereLight, colour b9c4ea, intensity 0.561), the
+    // pipeline row goes `ambientOcclusion=quality:low,samples:8,…` -> `ambientOcclusion=none`,
+    // `scene.children` goes array(9) -> array(10) and `stage.ambientOcclusion` disappears. Nothing
+    // else on any of the three frame subjects moves.
+    //
+    // No census row: 3.10's counter is NESTED inside `censusOfShading` rather than top-level, and
+    // deliberately — see the comment at `census.ambientOcclusion` in alive.js. It reports `null`
+    // here rather than 0, and `null` is not what the census check below tests for.
+    { query: 'gtao=0', census: null, touches: [ 'light:ambient', 'pipeline' ],
+        rendererState: [ 'scene.children', 'stage.ambientOcclusion' ] },
+
+    // The six sub-flags, and their whole point is that they do NOT move the ambient the way the
+    // master switch does: each one changes one term inside the composite and leaves the rig, the
+    // meshes and all 184 frame-subject properties exactly where they were. Measured one plate each
+    // against the baseline — every one of them an entity diff of `pipeline` ALONE, and an empty
+    // frame-subject diff. That is the claim the punch list's separate A sides rest on: `?specocc=0`
+    // is the plastic look and nothing else, `?ambspec=0` is the G6 lever and nothing else.
+    //
+    // The values are chosen to be different from what ships, or the row would be inert and the
+    // gate would say so: `low`/`0.035`/`1` are the shipped quality, radius and strength.
+    { query: 'gtaoq=high', census: null, touches: [ 'pipeline' ] },
+    { query: 'bentnormal=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'specocc=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'ambspec=0', census: null, touches: [ 'pipeline' ] },
+    { query: 'gtaoradius=0.06', census: null, touches: [ 'pipeline' ] },
+    { query: 'gtaostrength=0', census: null, touches: [ 'pipeline' ] },
+
+    // 🎯 A ROW THAT IS NOT AN ATTRIBUTION, AND IT IS HERE FOR THE OPPOSITE REASON TO EVERY OTHER ONE.
+    // `?gtaoview=ao` does not switch a subsystem off — it REPLACES THE BEAUTY IMAGE with one of the
+    // effect's own intermediates, so nobody ever measures "shipped minus this plate" and attributes
+    // the difference to the flag. What this row asserts is the claim that DOES get made: that the
+    // diagnostic reads the shipped scene rather than a perturbed one. The radius sweep table in
+    // `render/GTAO.js` — five radii, five named boxes, code values to two decimals — was measured
+    // on `?gtaoview=ao` plates, so "the view flag moved a light, a material or the camera" would
+    // make every number in that table a measurement of a different figure.
+    //
+    // Measured: `pipeline` alone, and only the `view:off -> view:ao` field of it. Nothing else.
+    { query: 'gtaoview=ao', census: null, touches: [ 'pipeline' ] },
 
     // The grade's own parameters. Every one of them measured as an EMPTY diff until the fingerprint
     // learned to unwrap a TSL uniform — six live attribution knobs that the instrument was
@@ -632,7 +691,49 @@ const UNGATED = {
 
     grounddefect: { readHere: true, why:
         'KNOWN-BAD, the surface half of the above. Gated by GroundContact.selftest.mjs\'s ' +
-        'renderState() closure. Absent, plantGroundDefect returns null and touches nothing.' }
+        'renderState() closure. Absent, plantGroundDefect returns null and touches nothing.' },
+
+    // 🚩 THE THIRD KNOWN-BAD, AND A TOGGLES ROW FOR IT WOULD CERTIFY THE LABEL RATHER THAN THE
+    // DEFECT. It is the `?statedefect` shape one file over: it does not switch a subsystem off, it
+    // CORRUPTS one — the horizon search runs on normals put through `n*0.5+0.5`, confined to the
+    // positive octant, and the plate looks entirely plausible.
+    //
+    // The wrong-shape argument is a measurement rather than a preference. Loading
+    // `?gtaodefect=packed` moves exactly ONE thing in this file's instruments: the `pipeline` row's
+    // `defect:none -> defect:packed`, which is `createGroundTruthOcclusion`'s `describe()`
+    // REPEATING THE FLAG BACK. The uniform the defect actually rides on — `packedNormalDefect`, 0
+    // -> 1 — is inside the occlusion node, which nothing here walks. So a row asserting "it changes
+    // exactly the pipeline" would go green off the effect's own announcement of its name, and would
+    // stay green if the defect stopped being planted. That is the shape of gate this file exists
+    // because of.
+    gtaodefect: { readHere: true, why:
+        'PUNCH-LIST 3.10. KNOWN-BAD, the same shape as ?statedefect and ?grounddefect: it corrupts ' +
+        'the occlusion rather than removing it, and the only thing this file can see of it is ' +
+        'describe() echoing the flag\'s NAME back into the pipeline row — a TOGGLES row would ' +
+        'certify the label, not the defect. Gated by GTAO.selftest.mjs, whose rejection proof ' +
+        'measures the packed-normal search against the reference one. Absent, defect is \'none\' ' +
+        'and packedNormalDefect stays 0.' },
+
+    // 🚩 AN INSTRUMENT, NOT A SWITCH, AND THE ONE KEY ON THIS PAGE THAT INSTRUMENT 5 CANNOT SEE AT
+    // ALL. `?gputime=1` asks the ADAPTER for the `timestamp-query` feature at device creation. That
+    // request lands on `renderer.backend.trackTimestamp` — measured false -> true — and `backend`
+    // holds objects, so the walk records it as `object:WebGPUBackend` and descends no further, by
+    // the configuration-bag rule that keeps a per-frame counter inside `info` from making the
+    // instrument drift. `renderer.trackTimestamp` is not a property of the renderer at all.
+    //
+    // So every instrument in this file reports the flag as an EMPTY diff — measured: no entity, no
+    // frame-subject property, no census entry moves — and a TOGGLES row would be a row whose green
+    // is indistinguishable from the key having been deleted. That is exactly the trap the `?webgl`
+    // row used to be, so it gets the `?webgl` treatment: the claim the key exists to support is
+    // ASSERTED, in the GPU TIMESTAMP section below, on the page a timing is actually taken from.
+    gputime: { readHere: true, why:
+        'requests the timestamp-query device feature at adapter creation. Not a shading switch: it ' +
+        'changes no entity, no frame-subject property and no census entry — measured, all three ' +
+        'diffs empty — because the flag lands on renderer.backend.trackTimestamp, inside a ' +
+        'machinery object the walk records by constructor name. A TOGGLES row would therefore be ' +
+        'green whether the key worked or was deleted. What is asserted instead is the claim the ' +
+        'key exists to support — the timestamp RESOLVES with it and does not without it — in the ' +
+        'GPU TIMESTAMP section of this file.' }
 };
 
 /**
@@ -661,6 +762,25 @@ const WALKED_SUBJECTS = [ 'renderer', 'scene', 'camera' ];
 const UNWALKED_SUBJECTS = {
     canvas: 'the HTMLCanvasElement. Its only render-bearing state is its pixel size, and that IS ' +
         'walked, as renderer.canvasPixels. Walking a DOM node would drag in the element prototype.',
+
+    // 🎯 THE EIGHTH POST-STACK MEMBER, AND THE ONLY ONE WHOSE STATE IS NOT PART OF THE HOLE. It is
+    // deliberately NOT written as `POST STACK — …` like the seven below, because the sentence those
+    // seven share would be false of it: the pipeline row does not carry a hand-picked field or two
+    // of the occlusion, it carries `createGroundTruthOcclusion().describe()` WHOLE, thirteen fields
+    // serialised key:value — which is how all eight of 3.10's sub-flags (`?gtaoq`, `?bentnormal`,
+    // `?specocc`, `?ambspec`, `?gtaoradius`, `?gtaostrength`, `?gtaoview`, `?gtaodefect`) have any
+    // foothold in the fingerprint at all.
+    //
+    // `describe()` is still a list, and a list is not a closure — so the closure is checked rather
+    // than assumed, exactly as `GRADE_UNIFORMS` does for the Grade: `OCCLUSION_UNIFORMS` below
+    // holds the occlusion node to the exact set of live-mutable uniforms it is known to carry, and
+    // says of each one whether `describe()` reaches it. Four of the eight it does not, and the run
+    // prints that rather than implying closure.
+    ambientOcclusion: 'PUNCH-LIST 3.10 — identity only, and the identity is load-bearing: ' +
+        '`?gtao=0` shows up here as `stage.ambientOcclusion` disappearing. Its STATE reaches the ' +
+        'fingerprint whole, as the pipeline row\'s `ambientOcclusion=` field (describe(), 13 ' +
+        'key:value pairs), and the uniforms describe() does not reach are enumerated in ' +
+        'OCCLUSION_UNIFORMS.',
 
     renderPipeline: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
     scenePass: 'POST STACK — identity only; state via the fingerprint pipeline row (19 fields)',
@@ -712,6 +832,44 @@ const GRADE_UNIFORMS = {
 };
 
 /**
+ * 🎯 THE SAME QUESTION FOR PUNCH-LIST 3.10'S OCCLUSION NODE, AND IT DOES NOT COME OUT AS TIDY.
+ *
+ * `stage.ambientOcclusion` is identity-checked and not walked, so what the fingerprint knows about
+ * it is whatever `describe()` chooses to report. Measured at this commit rather than assumed: the
+ * node owns EIGHT live-mutable numeric uniforms, and `describe()` reaches FOUR of them —
+ *
+ *   radius              -> `radius:`,   moved by `?gtaoradius`
+ *   samples             -> `samples:`,  moved by `?gtaoq`
+ *   scale               -> `strength:`, moved by `?gtaostrength`
+ *   packedNormalDefect  -> `defect:`,   set by `?gtaodefect`
+ *
+ * — and the other four it does not. Those four are the search's shape constants. No url key sets
+ * any of them, which is why nothing has gone wrong yet and is NOT why they are safe: a confound
+ * planted on `thickness` after boot would change every crease in the frame and no instrument in
+ * this file would report a thing. That is a KNOWN OPEN HOLE of exactly the post-stack kind, it is
+ * printed on every run, and the check below is the half of it that can be closed from here: the day
+ * `GTAO.js` grows a ninth uniform, or a url key starts driving one of the four, this file goes red
+ * and the prompt is to carry it in `describe()` before attributing anything to it.
+ */
+const OCCLUSION_UNIFORMS = {
+    radius: 'describe(): radius — ?gtaoradius',
+    samples: 'describe(): samples — ?gtaoq',
+    scale: 'describe(): strength — ?gtaostrength',
+    packedNormalDefect: 'describe(): defect — ?gtaodefect',
+
+    thickness: 'NOT REACHED by describe(). How far behind a sample the search still calls it the ' +
+        'same surface; no url key drives it.',
+    distanceFallOff: 'NOT REACHED by describe(). Distance weighting of the march; no url key drives it.',
+    distanceExponent: 'NOT REACHED by describe(). Step spacing of the march; no url key drives it.',
+    _temporalDirection: 'NOT REACHED by describe(). The node\'s temporal jitter phase, and ' +
+        '`useTemporalFiltering` is false on this page, so nothing writes it.'
+};
+
+/** The uniforms `describe()` does NOT reach, so the open-hole line can count itself. */
+const UNCARRIED_OCCLUSION_UNIFORMS = Object.entries( OCCLUSION_UNIFORMS )
+    .filter( ( [ , why ] ) => why.startsWith( 'NOT REACHED' ) ).map( ( [ name ] ) => name );
+
+/**
  * Property paths the walk records as EXCLUDED rather than by value, checked below to be live: an
  * exclusion for a property that no longer exists is a line nobody will delete on their own.
  *
@@ -745,7 +903,16 @@ const EXPECTED_ZERO_AT_BASELINE = {
  * move this file exists to prevent, so it is not dropped: `GROUND_IS_A_BODY_FRAME_TOGGLE` below
  * asserts both halves of the excuse, that it is inert at portrait AND live at `?frame=body`.
  */
-const PIXEL_SWEEP = [ 'skin=0', 'eyes=0', 'eyeocc=0', 'cards=0', 'shadows=0', 'cavity=0', 'specaa=0' ];
+/*
+ * `?gtao=0` IS IN THE SWEEP, and it belongs there by this list's own definition rather than by
+ * analogy: it takes the composite out of the frame AND puts a `HemisphereLight` back into the
+ * scene, so it adds and removes scene content in the same move. `PIXEL_BASE` does not pin it —
+ * `pipeline:` is still true at `aa=msaa&grade=0` because the occlusion asks for it — so unlike the
+ * grade and resolve rows it is a live off-switch on the forward path. Measured before it was added:
+ * reproducible over two loads, different from the base plate, and all seven pairs different in both
+ * directions.
+ */
+const PIXEL_SWEEP = [ 'skin=0', 'eyes=0', 'eyeocc=0', 'cards=0', 'shadows=0', 'cavity=0', 'specaa=0', 'gtao=0' ];
 
 /**
  * ONE TOGGLE ABSORBS ANOTHER: adding `inner` to a plate that already has `outer` changes nothing,
@@ -1184,6 +1351,18 @@ async function loadPlate( page, baseUrl, query ) {
                 const member = globalThis.sugata.stage.grade[ key ];
                 return member !== null && typeof member === 'object' && typeof member.value === 'number';
 
+            } ).sort(),
+
+        // The same question for 3.10's occlusion node, which is the other Stage member instrument 5
+        // identity-checks rather than walks — see OCCLUSION_UNIFORMS. Read off `.occlusion`, the
+        // node itself, rather than off the effect wrapper: the wrapper's own fields are the
+        // constructor arguments and describe() reports every one of them.
+        occlusionUniforms: globalThis.sugata.stage.ambientOcclusion == null ? null
+            : Object.keys( globalThis.sugata.stage.ambientOcclusion.occlusion ).filter( ( key ) => {
+
+                const member = globalThis.sugata.stage.ambientOcclusion.occlusion[ key ];
+                return member !== null && typeof member === 'object' && typeof member.value === 'number';
+
             } ).sort()
     } ) );
 
@@ -1313,7 +1492,7 @@ try {
     );
 
     // A walk that found almost nothing would pass every check below for free, the same way a
-    // census of zeros would. 183 is what the shipped page measures; the floor is set under it so a
+    // census of zeros would. 184 is what the shipped page measures; the floor is set under it so a
     // three.js upgrade that renames a few fields does not fail this, while a walk that collapsed to
     // a handful of properties does — and so does a walk that quietly loses a whole SUBJECT, which
     // is the defect this round, because 150 is above what the renderer and the scene reach alone.
@@ -1387,7 +1566,9 @@ try {
         '            `pipeline` row, which is the same shape of instrument this file exists because of.\n' +
         '            Measured at this commit: no post-boot confound can be planted on the Grade, because\n' +
         '            every uniform it owns is either carried by that row or rewritten every frame. That\n' +
-        '            is a coincidence and the next check is what keeps it one.\n' );
+        '            is a coincidence and the next check is what keeps it one.\n' +
+        '            (stage.ambientOcclusion is an eighth post-stack member and is counted separately,\n' +
+        '            because the pipeline row carries its describe() WHOLE rather than a field or two.)\n' );
 
     // The checkable half. `Grade` is not walked, so the gate cannot see INTO it — what it can see is
     // whether it has grown a knob nobody carries.
@@ -1413,6 +1594,45 @@ try {
                         : null,
                     retiredUniforms.length > 0
                         ? `NO LONGER ON THE GRADE: ${ retiredUniforms.join( ', ' ) } — the row here is ` +
+                            'describing a field that is gone'
+                        : null
+                ].filter( ( line ) => line !== null ).join( '; ' )
+    );
+
+    // 🚩 AND THE SAME HOLE ON THE EIGHTH POST-STACK MEMBER, PRINTED FOR THE SAME REASON. Punch-list
+    // 3.10's occlusion node is identity-checked here and its state reaches the fingerprint only
+    // through `describe()`. Four of its eight live uniforms are outside that report.
+    console.log( `\n        ⚠️  KNOWN OPEN HOLE: ${ UNCARRIED_OCCLUSION_UNIFORMS.length } of the occlusion ` +
+        `node's uniforms (${ UNCARRIED_OCCLUSION_UNIFORMS.join( ', ' ) })\n` +
+        '            are not reported by describe(), so nothing here would see a confound planted on one.\n' +
+        '            No url key drives any of them today; the next check is what keeps that true.\n' );
+
+    // The checkable half, exactly as for the Grade: the gate cannot see INTO the node, but it can
+    // see whether the node has grown a knob nobody carries.
+    const occlusionUniforms = baseline.occlusionUniforms ?? [];
+    const uncarriedOcclusion = occlusionUniforms.filter( ( name ) => OCCLUSION_UNIFORMS[ name ] === undefined ).sort();
+    const retiredOcclusion = Object.keys( OCCLUSION_UNIFORMS )
+        .filter( ( name ) => occlusionUniforms.includes( name ) === false ).sort();
+
+    report(
+        'the occlusion node owns exactly the uniforms this file has classified',
+        baseline.occlusionUniforms !== null && uncarriedOcclusion.length === 0 && retiredOcclusion.length === 0,
+        baseline.occlusionUniforms === null
+            ? 'THERE IS NO OCCLUSION ON THE BASELINE PLATE — punch-list 3.10 ships ON, so without it ' +
+                'this check, the pipeline row\'s ambientOcclusion field and eight TOGGLES rows are all ' +
+                'reading nothing'
+            : uncarriedOcclusion.length === 0 && retiredOcclusion.length === 0
+                ? `${ occlusionUniforms.length } uniforms, ` +
+                    `${ occlusionUniforms.length - UNCARRIED_OCCLUSION_UNIFORMS.length } of them carried by ` +
+                    `describe() and therefore by the fingerprint's pipeline row: ${ occlusionUniforms.join( ', ' ) }`
+                : [
+                    uncarriedOcclusion.length > 0
+                        ? `THE OCCLUSION GREW A UNIFORM: ${ uncarriedOcclusion.join( ', ' ) } — instrument 5 ` +
+                            'does not walk the node, so unless describe() reports it, nothing does. Carry it ' +
+                            'there and classify it here before attributing anything to it'
+                        : null,
+                    retiredOcclusion.length > 0
+                        ? `NO LONGER ON THE NODE: ${ retiredOcclusion.join( ', ' ) } — the row here is ` +
                             'describing a field that is gone'
                         : null
                 ].filter( ( line ) => line !== null ).join( '; ' )
@@ -1632,7 +1852,8 @@ try {
     //
     // Asserted over EVERY plate rather than over the baseline alone, because "the boot path does
     // not touch the wardrobe" is a claim about all reachable configurations and one plate is a
-    // sample. 37 keys were swept; none of them may wake it.
+    // sample. 43 plates were swept on this commit — the run prints the count rather than trusting
+    // this line — and none of them may wake it.
     {
         const woken = [ ...plateWardrobes.entries() ]
             .filter( ( [ , worn ] ) => worn !== null )
@@ -1649,7 +1870,7 @@ try {
         );
 
         // 🚩 AND THE PROOF THAT THE CHECK ABOVE IS NOT SATISFIED BY A PAGE THAT HAS NO WARDROBE AT
-        // ALL. Thirty-five nulls are also what you get if `?wear` were deleted, if the dynamic
+        // ALL. Forty-three nulls are also what you get if `?wear` were deleted, if the dynamic
         // import silently failed, or if `sugata.wardrobe` were never exposed — so on its own the
         // check cannot tell "correctly inert" from "absent". One plate WITH the flag separates
         // them, and it is the cheap end of the flag: `?wear=` builds the wardrobe over the
@@ -1937,6 +2158,105 @@ try {
             tier === null
                 ? 'not checked — W1 is red'
                 : `${ tier.canvasPixels } drawing-buffer pixels; 45000 would be the 300x150 default`
+        );
+
+    }
+
+    // --- THE GPU TIMESTAMP: ?gputime=1 must WORK, not be excused --------------------------------
+    //
+    // 🚩 This section exists because `?gputime=1` is INVISIBLE TO EVERY OTHER INSTRUMENT IN THIS
+    // FILE. Measured: no fingerprint entity moves, no census entry moves, and not one of the
+    // frame-subject properties moves, because the flag lands on `renderer.backend.trackTimestamp`
+    // and `backend` holds objects — the walk records it as `object:WebGPUBackend` and stops. So a
+    // TOGGLES row for it would be an empty allowlist against an empty diff: green on a working
+    // flag, green on a flag somebody deleted, and green on a flag that silently stopped reaching
+    // the adapter. That is the `?webgl` failure exactly, so it gets the `?webgl` answer — the claim
+    // the key exists to support is asserted on a real plate instead.
+    //
+    // The claim is a NEGATIVE and a POSITIVE and it needs both halves. `alive.js` records that the
+    // feature cannot be turned on after `init()` — "0 of 200 samples valid" — which is the whole
+    // reason this is a url key; and the shipped plate must not be paying for a query nobody reads.
+    // One plate each way is what separates those two from "the timestamp never works here".
+    {
+
+        console.log( '\n--- ?gputime=1 buys a GPU timestamp, and the default plate pays nothing ------\n' );
+
+        /** Navigate, let a few frames go by, and ask the renderer what it can tell the caller. */
+        const timestampReport = async ( query ) => {
+
+            await page.goto( `${ server.baseUrl }/alive.html?${ query }`, { waitUntil: 'load' } );
+            await page.waitForFunction( () => globalThis.sugata?.session?.figure != null, null, { timeout: 120_000 } );
+            await page.waitForTimeout( 1500 );
+
+            return page.evaluate( async () => {
+
+                const renderer = globalThis.sugata.stage.renderer;
+
+                // `resolveTimestampsAsync` reports whichever frame is last in the pending set, so a
+                // single call can legitimately land between frames. Polled rather than sampled
+                // once: a retry loop makes a red result mean "no timestamp at all", which is the
+                // thing being asserted, rather than "asked at an unlucky moment".
+                let resolved;
+
+                for ( let attempt = 0; attempt < 10 && resolved === undefined; attempt ++ ) {
+
+                    await new Promise( ( done ) => setTimeout( done, 300 ) );
+                    resolved = await renderer.resolveTimestampsAsync( 'render' );
+
+                }
+
+                return {
+                    backendRequestedIt: renderer.backend?.trackTimestamp === true,
+                    backend: renderer.backend?.constructor?.name ?? 'none',
+                    resolved: resolved === undefined ? null : resolved,
+                    infoTimestamp: renderer.info?.render?.timestamp ?? null
+                };
+
+            } );
+
+        };
+
+        const withoutFlag = await timestampReport( BASE_QUERY );
+        const withFlag = await timestampReport( `${ BASE_QUERY }&gputime=1` );
+
+        report(
+            'T1 the shipped plate does NOT pay for a timestamp — no feature requested, nothing to resolve',
+            withoutFlag.backendRequestedIt === false && withoutFlag.resolved === null
+                && withoutFlag.infoTimestamp === 0,
+            `backend.trackTimestamp ${ withoutFlag.backendRequestedIt }, ` +
+                `resolveTimestampsAsync ${ withoutFlag.resolved === null ? 'undefined' : withoutFlag.resolved }, ` +
+                `info.render.timestamp ${ withoutFlag.infoTimestamp }` +
+                ( withoutFlag.backendRequestedIt === true
+                    ? ' — THE DEFAULT PLATE IS PAYING FOR QUERIES NOBODY READS'
+                    : '' )
+        );
+
+        report(
+            'T2 …and ?gputime=1 asks the ADAPTER for it, which is the half that cannot be done later',
+            withFlag.backendRequestedIt === true,
+            withFlag.backendRequestedIt === true
+                ? `backend.trackTimestamp false -> true on ${ withFlag.backend }. This is the one ` +
+                    'property the flag moves, and instrument 5 cannot see it: `backend` holds objects, ' +
+                    'so the walk records it by constructor name'
+                : `THE FLAG DID NOT REACH THE DEVICE — backend.trackTimestamp is still ` +
+                    `${ withFlag.backendRequestedIt } on ${ withFlag.backend }, so every timing quoted ` +
+                    'off ?gputime=1 came from somewhere other than a GPU query'
+        );
+
+        // 🚩 AND THE NUMBER ITSELF, because "the feature was requested" is not "the timestamp
+        // works". `render/GTAO.js` argues the shipping quality on four GPU p50s taken from this
+        // exact flag; if the resolve came back undefined, that table is a table of nothing.
+        const timing = withFlag.resolved;
+
+        report(
+            'T3 …and a render timestamp actually RESOLVES, so the 3.10 quality table is a table of measurements',
+            typeof timing === 'number' && Number.isFinite( timing ) && timing > 0
+                && withFlag.infoTimestamp === timing,
+            typeof timing === 'number' && Number.isFinite( timing ) && timing > 0
+                ? `resolveTimestampsAsync('render') = ${ timing } ms, and info.render.timestamp agrees`
+                : `NO TIMESTAMP CAME BACK (${ timing === null ? 'undefined' : timing }) after ten ` +
+                    'attempts over three seconds. The feature was requested and produced nothing, which ' +
+                    'is the state alive.js measured at 0 of 200 samples valid'
         );
 
     }

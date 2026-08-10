@@ -70,6 +70,7 @@ R8  dcd1968  2026-08-09  Lateral balance is a hip strategy, and the statistic wa
 R9  3bfc5e7  2026-08-09  The lighting gate asserts the SET of things a light does, not a list of remembered defects
 R10 3749d27  2026-08-09  The body was computing an emotion every frame and telling nobody
 R11 a90bca9  2026-08-09  The gate roster is quoted from the run that was clean at both ends
+R12 a20bfcb  2026-08-10  Forty gates pass on a tree that was clean at both ends, and one row was not a roster
 ```
 
 Rounds before R4 are not reconstructed. Resolved entries are pinned by their `filed-at` **commit**,
@@ -1489,9 +1490,15 @@ id:          REQ-060
 status:      OPEN
 target:      packages/core/src/material/EyeMaterial.js
 filed-by:    the R11 lighting agent (diffRequest 3 of 5)
-filed-round: R11
+filed-round: R12
 filed-at:    a90bca9
 first-filed: a90bca9, 2026-08-09
+carried:     R11 -> R12, FIRST carry, and re-read rather than waved through. R12 landed 3.10, which
+             adds an ambient specular term that did not exist on this tree at all and occludes it —
+             so the frame's specular response has just changed underneath this entry's premise. The
+             sclera re-solve is a two-variable fit against the rig, and re-solving it against a rig
+             whose specular half was rebuilt the same week would fit it to a transient. The right
+             owner is the round that judges 3.10's beauty plates, not the one that landed it.
 change:      Re-solve `SCLERA_BRIGHTNESS` — currently 1.47, itself re-solved from 1.26 against the
              shipped rig — so a WARM kicker can land in `render/LightingRig.js`. The rig change is
              two constants and is fully specified in that file's kicker comment block; it is
@@ -1533,9 +1540,16 @@ id:          REQ-061
 status:      OPEN
 target:      docs/PUNCHLIST.md
 filed-by:    the R11 lighting agent (diffRequest 4 of 5)
-filed-round: R11
+filed-round: R12
 filed-at:    a90bca9
 first-filed: a90bca9, 2026-08-09
+carried:     R11 -> R12, FIRST carry. The entry asks for the diagnosis to be carried onto 3.4, 3.5,
+             3.6 and Phase 9 — and 3.5/3.6 (hair) are the largest unstarted block in the document.
+             Writing their entries now would be writing them for whoever picks them up, which is the
+             thing the note under this request already argues against. ⚠️ It is also worth recording
+             that R12 did NOT close this by accident: 3.10 supplies ambient specular for the first
+             time, but specular occlusion REMOVES energy. Nothing landed this round can make a
+             highlight clip, and the entry's exclusions all still hold.
 change:      Carry the highlight-energy diagnosis onto the items that can actually act on it —
              3.4 (the eye catchlight cubemap), 3.5/3.6 (hair), and Phase 9's costume emissive and
              metal trim — rather than leaving it filed against the lighting rig, which has been
@@ -1569,12 +1583,22 @@ exclusions get re-derived from scratch next round, which is the cost this file e
 
 ```request
 id:          REQ-058
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/motion/Sway.js
 filed-by:    the BAP fix agent (diffRequest 6 of 8)
-filed-round: R11
 filed-at:    3749d27
 first-filed: 3749d27, 2026-08-09
+reason:      CONVERTED TO PUNCH-LIST 6.9, at R12, because its own note demanded a decision rather
+             than a third carry — "a third means the entry is not being decided, and the honest
+             action then is to reject it". Rejected as a REQUEST and kept as WORK: nothing in the
+             substance is withdrawn and the evidence below is carried onto the punch-list entry
+             verbatim, including the measured base of support.
+             The reason it was never going to be actioned as a request is structural rather than a
+             matter of priority. A request is a small correction to a file somebody is already
+             holding. This is a new degree of freedom on the balance model, it belongs to Phase 6,
+             and Phase 6 is unstarted — so every round it sat here it was competing for attention
+             with one-line fixes and losing to them, three rounds running. On the punch list it
+             competes with the work it actually belongs beside.
 carried:     R10 -> R11. CARRIED A SECOND TIME, and the reasoning below is unchanged and was
              re-read rather than assumed. R11 was a budget-constrained four-agent round whose brief
              forbade exploratory work and long captures; `sway.selftest.mjs` alone runs about seven
@@ -1610,12 +1634,22 @@ of the base of support.
 
 ```request
 id:          REQ-059
-status:      OPEN
+status:      REJECTED
 target:      tools/figure-pipeline/build_figure.py
 filed-by:    the R10 request pass, out of REQ-033's measurement
-filed-round: R11
 filed-at:    3749d27
 first-filed: 3749d27, 2026-08-09
+reason:      CONVERTED TO PUNCH-LIST 9.23, at R12, on the rule this entry's own carry note invoked
+             against itself — it warned there should not be a third carry, and R12 is where the
+             third would have been. Rejected as a REQUEST, kept as WORK, evidence carried verbatim.
+             It is also the right shape for a punch-list item and the wrong shape for a request. The
+             fix is one enumeration in `floor_candidates()`, but VERIFYING it means rebuilding the
+             wardrobe artefacts at three identities and re-running `decency.selftest.mjs` against
+             the g100 body — a rebuild-owning pass, which is exactly what a punch-list entry with a
+             gate is and exactly what a request handed to whoever is passing is not.
+             ⚠️ The distinction the entry itself draws is preserved and is the reason this is not
+             urgent: the runtime ray cast is green on all 48 reachable states. This is a hole in the
+             BUILD gate, not a figure anyone can undress into indecency.
 carried:     R10 -> R11, and NOT by omission — re-read and deliberately deferred. R11 rewrote
              `build_figure.py` twice (9.7's AO recovery and 9.8's hem roll) and rebuilt every
              wardrobe artefact at three identities. Changing the floor ENUMERATION in the same pass
@@ -1651,3 +1685,42 @@ verify:      tools/figure-pipeline/build_figure.py /DECENCY_SLOTS/
 The claim that the shells fit every identity *by construction* was an argument from the construction
 and it was checked at one identity; building the other two took forty seconds and turned up both a
 clearance that halves at the extremes and a gate that enumerates half its own domain.
+
+## REQ-062 — two shipped comments route a reader to a request that was never filed
+
+```request
+id:          REQ-062
+status:      OPEN
+target:      packages/testbed/src/wardrobe.js
+filed-by:    the R12 adversarial verifier, checking a claim in the shadowSide report
+filed-round: R12
+filed-at:    67e0db9
+first-filed: 67e0db9, 2026-08-10
+change:      Give `stageShadowProbe` a composite `garment-shadows` break that clears BOTH
+             `castShadow` and `receiveShadow` on every worn fragment in one call, beside the
+             existing `garment-cast` and `garment-receive`. That composite IS the round-10 defect;
+             the two halves the page exposes today are each one half of it.
+evidence:    The page's break vocabulary, read off `packages/testbed/src/wardrobe.js`, is
+             `none / garment-cast / garment-receive / body-receive / garment-ao`. There is no
+             composite. `tools/critic/rejudge.mjs` therefore picks a half per view — the CAST half
+             where a brim darkens a forehead, the RECEIVE half where a chin darkens a collar — and
+             records which in its `VIEWS` table. Both halves are the original bug and neither is
+             hypothetical, so the pair set is honest; it is just built from two defects instead of
+             the one that shipped.
+             ⚠️ The reason this is filed rather than done: it changes the page every shadow plate is
+             captured from, mid-round, while `shadow.selftest.mjs` was being extended against it.
+reason-filed-not-applied:
+             🚩 IT WAS FILED BECAUSE IT WAS ALREADY CITED. `tools/critic/rejudge.mjs` says at two
+             places — lines ~35 and ~170 — that "`docs/OPEN-REQUESTS.md` carries the request for
+             one". It did not. Both comments were committed at 9cf7967 with the claim already false,
+             and the R12 verifier caught it by running `grep -rn "garment-shadows" docs/` rather
+             than by trusting the sentence. This is LEARNINGS §1.25r's shape exactly and the second
+             instance in this repository: five code comments once routed readers to "the round
+             report", a document that has never existed here.
+             ⚠️ `tools/request-ledger.selftest.mjs` structurally CANNOT catch this class. It
+             adjudicates entries that exist; an unfiled request is invisible to it, and a comment
+             citing one is prose in a file it does not read. The instrument that caught it was an
+             adversary told to refute rather than to confirm.
+anchor:      packages/testbed/src/wardrobe.js /garment-receive/
+verify:      packages/testbed/src/wardrobe.js /garment-shadows/
+```

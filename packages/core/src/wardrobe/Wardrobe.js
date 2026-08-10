@@ -101,8 +101,17 @@
  * than with whoever remembered to traverse. `shadingOf()` reports the configuration and
  * `shadow.selftest.mjs` measures the consequence in rendered luma, because the flag is not the point —
  * the darkening under the brim is.
+ *
+ * ⚠️ **AND THE FLAGS WERE ONLY TWO THIRDS OF IT.** With both set, the ONLY contact that darkened
+ * was the forehead — a re-judge pair set measured a skirt hem casting onto the thigh below it as
+ * BIT-IDENTICAL with shadows on and off. The missing third is `material.shadowSide`, which decides
+ * which faces reach the shadow map at all; three's default writes a FrontSide garment's BACK faces,
+ * i.e. the far wall of the tube. `applyFragmentShading` now sets it, and `GARMENT_SHADOW_SIDE`
+ * carries the measurements. The lesson the file keeps re-learning: a configuration that reads
+ * correct is not a rendered consequence.
  */
 
+import { DoubleSide } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 /**
@@ -136,6 +145,71 @@ const HIDE_MASK_PREFIX = '_hide_';
 const GARMENT_TEXTURE_ANISOTROPY = 8;
 
 /**
+ * Which face of a worn garment is rendered into the shadow map — and it is NOT three's default.
+ *
+ * 🚩 **WITHOUT THIS LINE ONLY A HAT CASTS ANYTHING, AND THAT IS NOT A FIGURE OF SPEECH.** three
+ * leaves `material.shadowSide` at null, and both shadow paths then render the OPPOSITE of
+ * `material.side` into the map (`Renderer.js`: `_shadowSide[ FrontSide ] = BackSide`;
+ * `WebGLShadowMap.js` has the same table). Every garment fragment in `assets/wardrobe` is authored
+ * `doubleSided: false` — read off all 24 fragment GLBs, not assumed — so every one is FrontSide,
+ * so every one of them casts from its BACK faces only.
+ *
+ * For a hat brim the back face is the brim's underside, about two millimetres above the forehead,
+ * which is why the forehead was the ONE contact that worked and the one three blind judges named.
+ * For a TUBE — a sleeve, a cuff, a skirt — the back faces are the far wall, decimetres of depth
+ * behind the limb inside it, so the limb is never behind an occluder and nothing lands on it at all.
+ *
+ * Measured this session on `wardrobe.html`, close framing, shadows on against `garment-cast`
+ * cleared, changing nothing but this value:
+ *
+ *     view          shipped (null)                FrontSide          DoubleSide
+ *     hem-thigh     0.000% changed, peak 0.00000  1.335% / 0.33627   1.335% / 0.33627
+ *     cuff-wrist    0.332% / 0.30253              0.469% / 0.36107   0.469% / 0.36107
+ *     hat-forehead  5.941% / 0.46867              5.958% / 0.46867   5.958% / 0.46867
+ *
+ * The shipped plates are **bit-identical to BackSide** at every one of those views, which is the
+ * mechanism above stated as a sha256 rather than as a claim.
+ *
+ * ## Why DoubleSide and not FrontSide, which reads the same on the table
+ *
+ * DoubleSide is a strict superset: the depth test keeps the nearest surface either way, so the two
+ * agree wherever a light-facing face exists, and where one does NOT — an open shell whose only
+ * surface at that pixel points away from the light — FrontSide writes nothing and DoubleSide writes
+ * the far face. Measured: the two are byte-identical at four of five views and differ at the cuff,
+ * 55 pixels with a peak Δluma of 0.09636, every one of them darker under DoubleSide — all of it
+ * DoubleSide finding shadow FrontSide missed.
+ *
+ * It also cannot regress a garment authored `doubleSided: true`, because DoubleSide is exactly what
+ * three's own default gives such a material, while FrontSide would take shadow away from one. No
+ * garment in the catalogue is double-sided today, so that is a guard against the future rather than
+ * a fix for the present — but it costs nothing to hold.
+ *
+ * ## What it does NOT cost, measured rather than argued
+ *
+ * ACNE. Putting the depth on the lit surface is the classic self-shadow-acne configuration, and
+ * three's default exists to avoid it on solid closed meshes. A frame filled edge to edge with
+ * jacket cloth reads **0.000% of pixels changed** between the shipped value and this one, peak
+ * Δluma 0.02491, and its high-frequency energy (mean |Laplacian| of luma) moves from 0.004290 to
+ * 0.004290. There is no acne here because a garment is a THIN SHELL over a body that is itself an
+ * occluder — the body is left at three's default, which is right for a solid.
+ *
+ * PETER-PANNING. Under the skirt hem the shadow starts on the FIRST lit pixel below the cloth:
+ * mean darkening 0.18434 at +0 px, decaying smoothly to 0.08092 at +39 px, over 802 columns. No
+ * detached shadow, no lit gap.
+ *
+ * DRAW COST. 200 serialized renders, the same outfit, counted off `renderer.info`: **2,885 draw
+ * calls and 8,874,893 triangles, identical to the unit** at null, FrontSide and DoubleSide. The
+ * shadow pass submits the same geometry; only the rasterizer's cull state differs. Frame time is
+ * unmoved (median 8.300 ms in all three, p95 9.2–9.3 ms).
+ *
+ * ⚠️ **DO NOT "CLEAN THIS UP" AS A MYSTERIOUS ASSIGNMENT.** Delete it and `hem-thigh` goes back to
+ * bit-identical — a skirt hem, a cuff and a sleeve cast NOTHING onto the limb inside them, the
+ * flags still read true, and `shadingOf()` still says the fragment is configured. That is the
+ * shape of the defect this whole file already got caught by once.
+ */
+const GARMENT_SHADOW_SIDE = DoubleSide;
+
+/**
  * 🎯 Wardrobe's half of punch-list 3.9, and it is why nothing worn cast a shadow for a whole phase.
  *
  * three defaults `castShadow` and `receiveShadow` to FALSE on every Object3D. The testbed's
@@ -158,6 +232,14 @@ function applyFragmentShading( mesh ) {
     mesh.receiveShadow = true;
 
     for ( const material of materialsOf( mesh ) ) {
+
+        // 🚩 THE FLAGS ABOVE ARE NOT ENOUGH ON THEIR OWN, AND ROUND 11 SHIPPED BELIEVING THEY WERE.
+        // `castShadow` says the mesh is submitted to the shadow map; this says WHICH OF ITS FACES
+        // gets written there, and three's default writes the wrong one for a thin shell. With this
+        // line removed a skirt hem, a cuff and a sleeve cast nothing at all onto the limb inside
+        // them — the plates come back bit-identical — while every flag still reads true. See
+        // `GARMENT_SHADOW_SIDE` for the measurements and for why it is DoubleSide.
+        material.shadowSide = GARMENT_SHADOW_SIDE;
 
         for ( const value of Object.values( material ) ) {
 
@@ -533,6 +615,12 @@ export class Wardrobe {
                 id,
                 castShadow: mesh.castShadow,
                 receiveShadow: mesh.receiveShadow,
+                // Reported beside the flags because it is the third member of the same fix and the
+                // one with no visible symptom of its own: a fragment can read cast/receive true and
+                // still put its far wall in the shadow map. `null` here means three's default is in
+                // force, which for these FrontSide garments means BACK faces only.
+                shadowSide: materials.map( ( material ) => material.shadowSide ),
+                side: materials.map( ( material ) => material.side ),
                 textures: textures.length,
                 minAnisotropy: textures.length === 0 ? null
                     : Math.min( ...textures.map( ( texture ) => texture.anisotropy ) ),

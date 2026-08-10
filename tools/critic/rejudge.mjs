@@ -50,8 +50,10 @@
 // view whose two sides do not separate is REFUSED rather than shipped — see `MINIMUM_CHANGED`,
 // `MINIMUM_PEAK`, and the `--noise` mode that says what this page's frame-to-frame residue is.
 //
-// Three of the seven views REFUSE on the tree as it ships today, and the `VIEWS` comment carries
-// the measurement and the cause. That is the report, not a fault in the run.
+// ONE of the seven views refuses on the tree as it ships today — `sleeve-arm`, and the `VIEWS`
+// comment carries the measurement and the cause. Three refused when this tool was written; the
+// `material.shadowSide` defect it diagnosed has since been fixed in `Wardrobe.js`, and `hem-thigh`
+// and `cuff-wrist` publish. That is the report, not a fault in the run.
 //
 // ## The two guards, and the red proof each one has
 //
@@ -168,27 +170,49 @@ const CHANGED_THRESHOLD = 1 / 255;
  * hypothetical. `docs/OPEN-REQUESTS.md` carries the request for a composite `garment-shadows`
  * break that clears both at once, which is what a single pair per contact would rather use.
  *
- * ## The three views that are here and REFUSE, and why they stay in the file
+ * ## ✅ THE TUBE CONTACTS: WHAT THIS COMMENT USED TO SAY, AND WHAT IT SAYS NOW
  *
- * ⚠️ MEASURED THIS SESSION, ON THE TREE AS IT SHIPS: at the sleeve, the cuff and the skirt hem the
- * shipped library casts NOTHING. Not a weak shadow — nothing. `hem-thigh` reads 0.000% changed with
- * a max delta of 0.00000 against `garment-cast`, `garment-receive` AND `body-receive`: the two
- * plates are bit-identical, so no shadow of any kind reaches the thigh below that hem.
+ * This block used to record three refusals — the sleeve, the cuff and the skirt hem — and name
+ * `material.shadowSide` as the cause. **That diagnosis was reproduced independently and it was
+ * right, the fix has landed in `Wardrobe.js` (`GARMENT_SHADOW_SIDE`), and `hem-thigh` now
+ * publishes.** Measured this session, every number below re-derived rather than carried over:
  *
- * The cause is measurable and is not in the wardrobe's flags. Three leaves `material.shadowSide`
- * null, and `WebGLShadowMap` then renders the OPPOSITE of `material.side` into the shadow map — so
- * a FrontSide garment casts from its BACK faces only. For a hat brim the back face is the brim's
- * underside, two millimetres above the forehead, which is why the one contact that works is the one
- * the judges named. For a tube — a sleeve, a cuff, a skirt — the back faces are the FAR wall,
- * decimetres of depth behind the limb inside it, so the limb is never behind an occluder. Setting
- * `shadowSide` to FrontSide or DoubleSide on the worn materials and changing nothing else takes
- * `hem-thigh` from 0.000% to 1.810% changed, max delta 0.33598, in the same run.
+ *     view          before (shadowSide null)   after (DoubleSide)
+ *     hem-thigh     0.000% changed, peak 0.00000   1.335% changed, peak 0.33627   PUBLISHES
+ *     cuff-wrist    0.332% / 0.30253               0.469% / 0.36107   → reframed, see below
+ *     sleeve-arm    0.171% / 0.04856               0.182% / 0.06555   REFUSES
+ *     hat-forehead  5.941% / 0.46867               5.958% / 0.46867   PUBLISHES, as it always did
  *
- * They stay in the list, refusing, because a refusal with a number on it is the honest report and
- * because this file is then the standing measurement of how far the fix reaches. When the request
- * against `Wardrobe.js` lands, these three stop refusing and start producing pairs, with no edit
- * here. A non-zero exit from this tool means "some contacts still have nothing to judge", which is
- * exactly the state of the world it should be reporting.
+ * The mechanism, confirmed here rather than taken on trust: three leaves `material.shadowSide` null
+ * and both shadow paths then render the OPPOSITE of `material.side`, so a FrontSide garment cast
+ * from its BACK faces only — the far wall of a tube, decimetres behind the limb inside it. The
+ * proof is a sha256 rather than an argument: with `shadowSide` forced to BackSide the plates at
+ * every view in this file are BIT-IDENTICAL to the ones the shipped library produced.
+ *
+ * ## ⚠️ `cuff-wrist` WAS REFRAMED, AND THAT IS A CHANGE TO THE INSTRUMENT — SAID OUT LOUD
+ *
+ * At `heightM: 0.26` the fixed library read 0.469% changed against a 0.500% floor: refused by four
+ * thousandths of one per cent, on the AREA statistic. `heightM` is now 0.13. The peak delta did not
+ * move — 0.36107 both times, because a peak is a per-pixel quantity and framing cannot touch it —
+ * and the changed AREA went to 1.752%, a factor of 3.7 on a factor-of-4 change in magnification.
+ * So the shadow is the same shadow; what was wrong was that the contact filled a sixteenth of the
+ * frame, which is the under-fill this file's own preamble says every view exists to avoid.
+ *
+ * 🚩 **AND THE SAME TRICK WAS TRIED ON `sleeve-arm` AND MADE IT WORSE, WHICH IS WHY IT IS STILL AT
+ * 0.30.** `heightM: 0.15` took it from 0.182% to 0.042% changed — the frame filled with lit arm and
+ * left the contact in a corner. It is recorded here so a reader can see that the views were not
+ * zoomed until they agreed: one contact was under-framed and one is genuinely faint.
+ *
+ * ## The view that still REFUSES, and why it stays in the file
+ *
+ * `sleeve-arm` reads 0.182% changed with a peak of 0.06555 — seventeen 8-bit steps at its darkest
+ * pixel, so something real is there, over about 4,700 pixels of a 2.56 M-pixel plate. The casual
+ * suit's sleeve is SHORT and fitted, and its hem stands roughly a millimetre off the arm; that is
+ * the same physical limit `shadow.selftest.mjs` records for the 2.0 mm foundation shell, and it is
+ * not a shadow-map problem. It stays in the list, refusing, because a refusal with a number on it
+ * is the honest report and because this file is then the standing measurement of how far the fix
+ * reaches. A non-zero exit means "some contact still has nothing to judge", which is exactly the
+ * state of the world it should be reporting.
  *
  * ⚠️ THE TARGETS ARE READ OFF RENDERED PLATES, NOT OFF THE MANIFEST. The casual suit's sleeve is
  * SHORT — it ends mid-upper-arm — which the manifest's "long-sleeve dress shirt 0.25" clo row does
@@ -256,7 +280,7 @@ const VIEWS = [
         outfit: ELEGANT,
         breakage: 'garment-cast',
         target: [ 0.43, 1.04, 0.13 ],
-        heightM: 0.26,
+        heightM: 0.13,
         azimuthDeg: 30,
         elevationDeg: 14
     },

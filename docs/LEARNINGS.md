@@ -1972,6 +1972,80 @@ body and nobody compared them**.
 > **Bracket a threshold against the two things it has to separate, and write both measurements next
 > to it.**
 
+### 1.25ac 🎯 A GUARD THAT REFUSES TO JUDGE FOUND THE DEFECT THE JUDGES COULD NOT REPORT
+
+`tools/critic/rejudge.mjs` diffs every A/B pair **before** it blinds it and refuses to hand a judge
+a pair they could not separate. That guard was built for a boring reason: to stop wasting a judge's
+attention on a null comparison. It became the round's primary instrument. Three of seven views
+refused, and one of them — a skirt hem against the thigh below it — was **bit-identical**, byte for
+byte, with garment shadows on and off, and stayed bit-identical against all three break modes.
+
+**A blind judge is structurally incapable of reporting that finding.** You cannot describe a
+difference between two identical images; the honest verdict from a judge handed that pair is
+"indistinguishable", which reads as *the effect is subtle* rather than *the effect is absent*. Four
+rounds of judges had reported the symptom in its one visible instance (a hat) and none could have
+reported that it was the ONLY instance, because the evidence for that is the absence of a
+difference in an image they were never shown.
+
+The mechanism, since it is worth carrying: three leaves `material.shadowSide` at `null` and both
+shadow paths then render the OPPOSITE of `material.side` into the map. A FrontSide garment casts
+from its BACK faces. For a hat brim that is the brim's underside two millimetres above the
+forehead — so the one contact that worked is the one everybody named. For any TUBE it is the far
+wall, decimetres behind the limb inside it.
+
+> **Put a floor on every A/B pair before a judge sees it, and treat a refusal as a measurement
+> rather than as a failed capture.** The pairs that refuse are where an effect is absent, and
+> absence is the one thing subjective review cannot detect. Log what was refused and why; a harness
+> that silently drops under-separated pairs is discarding its most informative output.
+
+### 1.25ad A FIX CAN READ THROUGH A SIDE EFFECT RATHER THAN THROUGH THE THING IT ADDED
+
+9.8's rolled hem gives a foundation garment's open boundary a band of real faces so it stops
+tapering to nothing. When the red proof was built, the first version moved the band's 1,003
+vertices back onto the ring they came from and the measured statistic did not move **at all** —
+52.32% against 52.32%.
+
+The band was never what the camera saw. At a hem seen face-on the extrusion runs along the view
+direction and its projected area is nearly zero. What reads is the shell's **last ring of existing
+faces**, whose vertex normals the extrusion turned through most of a right angle. The visible
+effect is a normal change; the geometry is only how the normal change was caused.
+
+That matters for every pass downstream. A hard-edge split, custom split normals, a decimation or a
+re-export that preserves the band and re-authors its normals **loses the fix entirely** — while
+every face count, every boundary-edge count and every depth measurement stays exactly right, and
+the build's own describe-and-verify pass stays green.
+
+> **When a change lands, ask which of its consequences the measurement is actually reading.** If
+> the answer is a side effect rather than the thing you added, the gate has to assert the side
+> effect too, and the code comment has to say so — otherwise the fix is one refactor away from
+> silently reverting behind a green build.
+
+### 1.25ae A COMMENT CITING A DOCUMENT IS A CLAIM, AND THE LEDGER CANNOT CHECK IT — SECOND INSTANCE
+
+Two comments in `tools/critic/rejudge.mjs` told a reader that `docs/OPEN-REQUESTS.md` carried the
+request for a composite `garment-shadows` break. It did not. `grep -rn "garment-shadows" docs/`
+returned nothing against a ledger holding 61 entries, and both comments were **committed with the
+claim already false**.
+
+This is §1.25r's shape and the second instance in this repository — the first was five code
+comments routing readers to "the round report", a document that has never existed here. The
+recurrence is the point: it is not a mistake somebody made once.
+
+⚠️ **`tools/request-ledger.selftest.mjs` structurally cannot catch this class, and that is not a
+defect in it.** It adjudicates entries that exist, thoroughly — twelve clauses, fifteen red proofs.
+An **unfiled** request is invisible to it, and a comment citing one is prose in a file it does not
+read. The gate's domain is the ledger; the failure lives in the gap between the ledger and every
+file that points at it.
+
+What caught it was an adversary told to **refute rather than confirm**, which ran the grep instead
+of trusting the sentence — and it was checking a different claim at the time. See §1.5: adversarial
+verification pays for itself only if it re-executes, and this is the cheapest possible instance of
+re-executing.
+
+> **A cross-reference is an assertion. Verify it at the moment you write it — the grep costs a
+> second — and prefer citing an id you have just seen in the file over citing "the ledger".** The
+> fix here was to file the request, so the comments became true rather than being softened.
+
 ---
 
 ## Part 2 — Technical traps
