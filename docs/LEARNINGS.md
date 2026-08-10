@@ -2199,6 +2199,18 @@ quoted — *quote counts from a run that was clean at BOTH ends, or quote them w
 All sixteen rows reproduced unchanged between the two runs, which is worth one line of record: the
 dirty run was not wrong, it was unquotable.
 
+🎯 **RE-RUN AT R11 INTEGRATION, HEAD `72a6e85`, `tree: clean` at both ends** — 06:49:40Z and
+07:05:09Z, fifteen minutes. **40 gates, FAILING GATES: 0.** The fortieth is
+`packages/core/src/wardrobe/shadow.selftest.mjs` (11 assertions), and seven rows moved:
+`render/Grade` 65 → **68**, `render/TRAAPost` 11 → **15**, `render/LightingRig` 122 → **140**,
+`render/GroundContact` 77 → **78**, `wardrobe/wardrobe` 45 → **50**,
+`testbed/alive-toggles` 151 → **155**, `testbed/alive-capture-determinism` 49 → **61**. Everything
+else held, including `motion/sway` at **238**.
+⚠️ **Not one of R11's four build agents could have quoted any of these**, and all four said so:
+they ran concurrently, so every count each of them read came off a tree the other three were
+writing to. That is the runner header's rule doing its job rather than failing — the counts are
+quotable now because this run is, and they were correctly labelled DIRTY until it existed.
+
 🚩 **THE ROSTER IS 39 AND IT SAID 38, and the 38 was itself the number that replaced a remembered
 40 one round earlier.** `find . -name "*.selftest.mjs" -not -path "./node_modules/*"` returns
 **37**, plus the **2** the runner names explicitly because they do not match the glob —
@@ -2338,9 +2350,19 @@ plate WITH `?wear=` separates "correctly inert" from "absent".
 | `BodyIdle` 41 | `FacialIdle` 27 | `Gaze` 114 | `MotionStack` 47 |
 | `idle-motion` 106 | `ocular` 64 | `sway` 223 | `Grade` **65** |
 | `GroundContact` **55** | `LightingRig` **82** | `MorphVelocity` 16 | `TRAAPost` 11 |
-| `Toksvig` 9 | `prosody` 26 | `visemes` 59 | `alive-capture-determinism` **61** at R11 |
+| `Toksvig` 9 | `prosody` 26 | `visemes` 59 | `alive-capture-determinism` **49** |
 | `alive-toggles` **146** | `heatmap` **71** | `travel` **158** | `cornea_geometry` 40 |
 | `lut-bake` 32 | `critic/selftest` **244** | `wardrobe` **35** (new) | |
+
+⚠️ **AND A REQUEST TO EDIT THAT TABLE WAS APPLIED AND THEN WITHDRAWN, WHICH IS WORTH THE THREE
+LINES.** R11 carried a filed request to move its `alive-capture-determinism` row 49 → 61, alongside
+an explicit instruction to leave the `alive-toggles` **146** row alone as "a record of a past
+audit". Both rows are in the SAME table, and the table is the dated 2026-08-08 integration snapshot
+its own heading declares — `Grade` **65**, `LightingRig` **82**, `wardrobe` **35** (new). The
+request was right that 61 is the count today and wrong about where that belongs; the row was edited
+and is reverted here. **A historical snapshot updated in one row is no longer a snapshot and is not
+yet a roster** — it is a third thing that describes no run that ever happened. The live counts are
+in the R10 roster above, with R11's movements recorded beneath it.
 
 ⚠️ `measured-claims` FELL from 56 to 49, and a falling check count is exactly the shape of a gate
 going quiet, so it is called out rather than left to be noticed. The cause is benign and measured:
