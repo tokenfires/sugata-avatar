@@ -1056,6 +1056,59 @@ async function checkDressCycle( wardrobe ) {
 
 }
 
+// --- 3.9 wardrobe half: the fragment is shaded as it is adopted -----------------------------------
+
+/**
+ * 🚩 THE WEAK HALF, AND IT IS LABELLED ONE. A flag reading true says the fragment was configured;
+ * it does not say a shadow landed on a forehead. The defect this covers survived a whole phase
+ * because everything that looked at it looked at configuration, and `applyShading()` in the testbed
+ * was correctly configured — for the objects that existed when it ran.
+ *
+ * `packages/core/src/wardrobe/shadow.selftest.mjs` is the half that measures rendered luma. This one
+ * exists so that when the rendered gate goes red, one line separates "the flags were cleared" from
+ * "the light moved", and so that the flags cannot be dropped between rendered runs.
+ */
+async function checkFragmentShading( manifest ) {
+
+    console.log( '' );
+    console.log( '--- 3.9 wardrobe half: every fragment casts, receives, and filters ---' );
+
+    const figure = new Figure( await loadGltf( BODY_PATH ) );
+    const wardrobe = new Wardrobe( figure, manifest, { loadFragment: loadFragmentFromDisk } );
+
+    await wardrobe.dress( [ 'female_casualsuit01', 'shoes01', 'fedora01' ] );
+    const shading = wardrobe.shadingOf();
+
+    record( shading.length === 3, 'three garments were adopted', `${ shading.length }` );
+
+    // Both, separately, and named separately: `castShadow` alone gives the hat a shadow on the
+    // face and leaves the jacket beneath it lit as if the hat were not there.
+    const casting = shading.filter( ( entry ) => entry.castShadow === true );
+    record( casting.length === shading.length, 'every worn fragment casts',
+        `${ casting.length } / ${ shading.length }` );
+
+    const receiving = shading.filter( ( entry ) => entry.receiveShadow === true );
+    record( receiving.length === shading.length, 'every worn fragment receives',
+        `${ receiving.length } / ${ shading.length }` );
+
+    const filtered = shading.filter( ( entry ) => entry.minAnisotropy >= 8 );
+    record( filtered.length === shading.length, 'every garment texture samples at anisotropy >= 8',
+        shading.map( ( e ) => `${ e.id } ${ e.textures } tex @ ${ e.minAnisotropy }` ).join( '; ' ) );
+
+    // Not an assertion, because the AO half depends on a rebuilt fragment and the runtime must
+    // not require one. Reported so a reader can tell which build is on disk.
+    const withAo = shading.filter( ( entry ) => entry.hasAoMap );
+    console.log( `       AO maps present on ${ withAo.length } / ${ shading.length } fragments` +
+        ` (${ withAo.map( ( e ) => `${ e.id } uv1=${ e.hasUv1 }` ).join( ', ' ) || 'none' })` );
+
+    // 🚩 A fragment carrying an aoMap and no uv1 samples the wrong texels and darkens the wrong
+    // part of the garment, which is worse than no AO at all. This is the pairing gate on it.
+    const aoWithoutUv1 = withAo.filter( ( entry ) => entry.hasUv1 === false );
+    record( aoWithoutUv1.length === 0, 'no fragment carries an aoMap without a uv1 to sample it by',
+        aoWithoutUv1.map( ( e ) => e.id ).join( ', ' ) || 'none' );
+
+}
+
 // --- 9.8's hook ---------------------------------------------------------------------------------
 
 async function checkDecencyHook( manifest ) {
@@ -1113,6 +1166,7 @@ const { wardrobe, bakedSuitKept, bakedSuitOriented } = await checkRebuild( manif
 await checkRebuildRed( manifest, bakedSuitKept );
 await checkWindingRed( wardrobe, bakedSuitKept, bakedSuitOriented );
 await checkDressCycle( wardrobe );
+await checkFragmentShading( manifest );
 await checkDecencyHook( manifest );
 
 const failures = results.filter( ( result ) => result.ok === false );

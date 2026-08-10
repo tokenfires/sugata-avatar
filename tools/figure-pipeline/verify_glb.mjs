@@ -722,6 +722,40 @@ const OPAQUE_MATERIAL_PARTS = [
 ];
 const MASK_MATERIAL_PARTS = [/brow/i, /lash/i];
 const EXPECTED_ALPHA_CUTOFF = 0.5;
+
+/**
+ * 🎯 Punch-list 9.7's BUILD-SIDE HALF. Which garments must carry an `occlusionTexture`, and which
+ * must not.
+ *
+ * MPFB's `NodeWrapperGameEngine` wires diffuse, diffuse alpha and normal, and has no occlusion node
+ * at all, so every garment's hand-baked `aomapTexture` was read off disk by nobody.
+ * `build_figure.py`'s `wire_garment_ao_maps()` now feeds it to the exporter's Occlusion socket.
+ *
+ * 🚩 THIS CHECK EXISTS BECAUSE THE FIX WAS GATED ONLY BY A BROWSER. Reverting
+ * `wire_garment_ao_maps` to a no-op and rebuilding takes the rendered gate
+ * (`packages/core/src/wardrobe/shadow.selftest.mjs`) from 0.91% to exactly 0.00% — and leaves
+ * `wardrobe.selftest.mjs` at PASS and this file at PASS. A file-level fact that only a GPU can
+ * check is a file-level fact nobody checks on a machine without one.
+ *
+ * ⚠️ IT IS A PIN, NOT A DERIVATION, AND THAT IS A DELIBERATE LIMIT. The authority is the mhmat
+ * beside each mhclo, which lives in MPFB's asset tree and is reachable only from inside Blender —
+ * so this table cannot be read from the source here, and a garment ADDED to the catalogue with an
+ * AO map is invisible to this gate until somebody adds a row. Re-derive it with:
+ *
+ *     grep -l aomapTexture "$MPFB_CLOTHES"/<the garment>/*.mhmat
+ *
+ * ⚠️ AND THE COUNT IN 9.7 WAS WRONG WHEN IT WAS WRITTEN. The item said every CC0 garment declares
+ * one; measured, it is TWO OF FOUR — `female_casualsuit01` (2,153,148 bytes) and
+ * `female_elegantsuit01` (1,350,953 bytes) do, `shoes01` and `fedora01` do not. Both directions are
+ * asserted below, because a build that wired occlusion onto everything would be just as wrong as
+ * one that wired it onto nothing, and only the `false` rows can catch it.
+ */
+const GARMENT_OCCLUSION_EXPECTATIONS = new Map([
+  ["female_casualsuit01", true],
+  ["female_elegantsuit01", true],
+  ["shoes01", false],
+  ["fedora01", false]
+]);
 const THREE_FRONT_SIDE = 0;
 const THREE_DOUBLE_SIDE = 2;
 
@@ -781,6 +815,27 @@ function reportMaterials(gltfJson, threeMeshes, wardrobe) {
     console.log(`  ok   ${material.name.padEnd(28)} ${alphaMode.padEnd(6)} ` +
                 `${doubleSided ? "doubleSided" : "backface culled"}` +
                 `${garment !== null ? `   [manifest: ${garment.id}]` : ""}`);
+
+    // Punch-list 9.7. See GARMENT_OCCLUSION_EXPECTATIONS.
+    if (garment !== null && GARMENT_OCCLUSION_EXPECTATIONS.has(garment.id)) {
+      const shouldCarry = GARMENT_OCCLUSION_EXPECTATIONS.get(garment.id);
+      const carries = material.occlusionTexture !== undefined;
+
+      if (carries !== shouldCarry) {
+        const because = shouldCarry
+          ? "its mhmat declares an aomapTexture and the built material has no occlusionTexture — " +
+            "the AO recovery in build_figure.py's wire_garment_ao_maps() is not reaching the export"
+          : "its mhmat declares no aomapTexture, so an occlusionTexture here is sampling something " +
+            "the asset never supplied";
+        console.log(`  FAIL ${material.name}: ${because}`);
+        failures.push(`${garment.id} has the wrong occlusionTexture state`);
+        continue;
+      }
+
+      console.log(`  ok   ${garment.id.padEnd(28)} occlusion ` +
+                  `${carries ? `texture ${material.occlusionTexture.index}` : "absent, as declared"}` +
+                  `   [9.7]`);
+    }
   }
 
   failures.push(...reportRuntimeMaterials(threeMeshes, wardrobe));

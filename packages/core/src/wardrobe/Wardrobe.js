@@ -87,6 +87,20 @@
  * covering, which is exactly the condition under which the decency invariant is satisfied by that
  * garment instead. `occlusionOf()` reports it per garment so a gate can assert the pairing rather
  * than trust it, and a MASK or BLEND garment is refused the privilege — you can see through those.
+ *
+ * ## 🎯 Why adopting a fragment also SHADES it — punch-list 3.9's wardrobe half
+ *
+ * Three blind judges, given our render beside a reference and told nothing about the project, each
+ * put "nothing worn casts a shadow onto the body" in their top three and each named the same
+ * instance unprompted: the fedora sits directly over a fully lit forehead. It was a bug, not a
+ * missing feature — this class parented every fragment and left `castShadow` and `receiveShadow`
+ * at three's default of false, and the only code that set them (`applyShading()` in the testbed)
+ * traverses `figure.root` BEFORE the first `dress()` and never runs again.
+ *
+ * So `#adoptFragment` calls `applyFragmentShading`, and the flags travel with the fragment rather
+ * than with whoever remembered to traverse. `shadingOf()` reports the configuration and
+ * `shadow.selftest.mjs` measures the consequence in rendered luma, because the flag is not the point —
+ * the darkening under the brim is.
  */
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -109,6 +123,78 @@ const UNDER_MASK_PREFIX = '_under_';
 
 /** The prefix the BODY carries a garment's deleted region under. */
 const HIDE_MASK_PREFIX = '_hide_';
+
+/**
+ * Anisotropic filtering on every garment map, matched to `material/SkinMaterial.js`'s micro-normal.
+ *
+ * A garment's diffuse arrives through `GLTFLoader` at three's default of 1. On a torso seen at
+ * body framing the striped shirt is a texture viewed at a grazing angle over most of its area,
+ * which is the exact case isotropic mip selection gets wrong: it picks the mip for the LONG axis
+ * and the stripes alias into moire with red and blue fringing. 8 is what the skin already asks for
+ * and every desktop GPU supports 16, so this is not a capability question at the sampler.
+ */
+const GARMENT_TEXTURE_ANISOTROPY = 8;
+
+/**
+ * 🎯 Wardrobe's half of punch-list 3.9, and it is why nothing worn cast a shadow for a whole phase.
+ *
+ * three defaults `castShadow` and `receiveShadow` to FALSE on every Object3D. The testbed's
+ * `applyShading()` traverses `figure.root` and sets both — and it runs BEFORE `dress()`, so every
+ * fragment parented afterwards arrives with both flags false and there is no second traverse. The
+ * result reads exactly as three blind judges described it: a fedora over a fully lit forehead.
+ *
+ * ⚠️ **BOTH FLAGS, and the second one is the one that gets dropped.** `castShadow` alone gives the
+ * hat a shadow on the FACE and leaves the jacket beneath it lit as if the hat were not there — a
+ * garment has to receive what the body and the garments outside it cast, not only cast its own.
+ * The source assets agree: every CC0 mhmat in the catalogue declares `castShadows True` and
+ * `receiveShadows True`, and the game-engine material path threw both away with the AO map.
+ *
+ * Applied per fragment at adopt time rather than by a traverse the caller has to remember, because
+ * "the caller remembers" is the mechanism that failed.
+ */
+function applyFragmentShading( mesh ) {
+
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+
+    for ( const material of materialsOf( mesh ) ) {
+
+        for ( const value of Object.values( material ) ) {
+
+            if ( value === null || value?.isTexture !== true ) continue;
+
+            value.anisotropy = GARMENT_TEXTURE_ANISOTROPY;
+            value.needsUpdate = true;
+
+        }
+
+        // glTF's occlusion texture lands on `aoMap`, and three has historically sampled `aoMap`
+        // from UV channel 1. A garment exported from MPFB has exactly one UV set, so pointing
+        // channel 1 at it is what the asset means when its occlusion texture says `"texCoord": 0`.
+        //
+        // ⚠️ MEASURED AS DEFENSIVE, NOT LOAD-BEARING, on three r185's WebGPU path. With this line
+        // removed the jacket renders byte-identically — 0.26781 with the AO map and 0.27026
+        // without, the same two numbers to five decimals — so the node graph already falls back to
+        // `uv`. It is kept because the fallback is an implementation detail of one renderer and
+        // one version, and because a garment that ever does carry a second UV set would otherwise
+        // sample the AO map through the wrong one. `wardrobe.selftest.mjs` gates the pairing.
+        if ( material.aoMap != null && mesh.geometry.attributes.uv1 === undefined &&
+            mesh.geometry.attributes.uv !== undefined ) {
+
+            mesh.geometry.setAttribute( 'uv1', mesh.geometry.attributes.uv );
+
+        }
+
+    }
+
+}
+
+/** A mesh's materials as an array, so a multi-material fragment is not silently half-treated. */
+function materialsOf( mesh ) {
+
+    return Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ];
+
+}
 
 /** Every `_hide_*` / `_under_*` attribute on a geometry, keyed by its lowercased name. */
 function maskAttributesOf( geometry, prefix ) {
@@ -425,6 +511,39 @@ export class Wardrobe {
 
     }
 
+    /**
+     * Per worn garment: the shadow flags, the sampler anisotropy, and whether an AO map arrived.
+     *
+     * 🚩 This is the WEAK half of the gate on `applyFragmentShading` and it is labelled one. A flag
+     * being true says the fragment was configured; it does not say a shadow landed on anything, and
+     * the defect this reports on was invisible for a phase precisely because everybody looked at
+     * configuration. `shadow.selftest.mjs` measures the rendered luma; this exists so that when the
+     * rendered gate goes red a reader can tell a cleared flag from a moved light in one line.
+     */
+    shadingOf() {
+
+        return this.worn.map( ( id ) => {
+
+            const mesh = this.fragments.get( id ).mesh;
+            const materials = materialsOf( mesh );
+            const textures = materials.flatMap( ( material ) => Object.values( material )
+                .filter( ( value ) => value !== null && value?.isTexture === true ) );
+
+            return {
+                id,
+                castShadow: mesh.castShadow,
+                receiveShadow: mesh.receiveShadow,
+                textures: textures.length,
+                minAnisotropy: textures.length === 0 ? null
+                    : Math.min( ...textures.map( ( texture ) => texture.anisotropy ) ),
+                hasAoMap: materials.some( ( material ) => material.aoMap != null ),
+                hasUv1: mesh.geometry.attributes.uv1 !== undefined
+            };
+
+        } );
+
+    }
+
     /** Hide-mask attribute names the body actually carries, in the file's own spelling. */
     availableHideMasks() {
 
@@ -671,6 +790,11 @@ export class Wardrobe {
         // frustum volume; three's per-object cull would otherwise use the fragment's own bind-pose
         // bounds, which do not follow the pose.
         garmentMesh.frustumCulled = false;
+
+        // 🎯 Shadows, filtering and the AO channel. See `applyFragmentShading` — this call is the
+        // whole of punch-list 3.9's wardrobe half, and it is here rather than in the page because
+        // a page that forgets it produces a hat that floats over a lit forehead with no error.
+        applyFragmentShading( garmentMesh );
 
         return {
             mesh: garmentMesh,

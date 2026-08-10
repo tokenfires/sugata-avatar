@@ -56,6 +56,30 @@ const FIELD_OF_VIEW_DEGREES = 30;
 const FRAME_MARGIN = 1.12;
 const CAMERA_AZIMUTH_DEGREES = 14;
 
+// 🎯 Punch-list 3.9's wardrobe half, and why an ambient level is a named constant on this page.
+//
+// The defect three blind judges each put in their top three is that nothing worn casts a shadow
+// onto the body — the fedora sits over a fully lit forehead. `Wardrobe.js` now shades every
+// fragment as it adopts it, and `shadow.selftest.mjs` measures the consequence HERE, because this is
+// the wardrobe's own page and `alive.js` carries motion gates a light change would move.
+//
+// A shadow is a RATIO of lit to unlit, so the ambient sets the measurement's floor: at 1.6 the
+// darkening under a brim was there and small. 0.55 leaves the page perfectly readable and gives
+// the gate a signal that a threshold can be set against without the threshold being the noise.
+const AMBIENT_IRRADIANCE = 0.55;
+
+// The shadow map's frustum, in metres around the figure. A directional light's shadow camera is
+// orthographic and defaults to a 10 m box, which spends a 2048² map on nine metres of nothing.
+const SHADOW_RADIUS_M = 1.2;
+const SHADOW_MAP_SIZE = 2048;
+
+// 🚩 A hat brim is a few millimetres of geometry a few centimetres from the surface it darkens, so
+// the depth bias that stops a torso self-shadow-acneing is the same bias that erases the brim's
+// shadow entirely. Both are set here rather than left at three's defaults, and the normal bias
+// carries most of the load because it is measured in world units rather than in depth units.
+const SHADOW_BIAS = -0.00015;
+const SHADOW_NORMAL_BIAS = 0.004;
+
 /**
  * A stand-in for 9.11's `Dresser`, and it is labelled one everywhere it appears on the page.
  *
@@ -130,18 +154,27 @@ async function main() {
         fieldOfView: FIELD_OF_VIEW_DEGREES
     } );
 
-    stage.scene.add( new AmbientLight( 0xffffff, 1.6 ) );
+    stage.scene.add( new AmbientLight( 0xffffff, AMBIENT_IRRADIANCE ) );
 
     // Three plain directionals rather than the measured RectAreaLight rig. This page is about
     // geometry, and a light rig copied from the look spec would invite the plates to be read as
     // look plates, which they are not.
-    for ( const [ x, y, z, intensity ] of [ [ 2, 3, 3, 2.4 ], [ -3, 2, 1, 1.1 ], [ 0, 2, -4, 1.6 ] ] ) {
+    //
+    // 🎯 The FIRST one casts, and that is new. `shadow.selftest.mjs` measures the forehead under a hat
+    // brim against the same forehead with the brim's shadow switched off, so this page needs
+    // exactly one shadow caster — one, because two would light the brim's shadow back in from the
+    // side and the measurement would be of the rig rather than of the garment.
+    const lights = [ [ 2, 3, 3, 2.4 ], [ -3, 2, 1, 1.1 ], [ 0, 2, -4, 1.6 ] ].map(
+        ( [ x, y, z, intensity ] ) => {
 
-        const light = new DirectionalLight( 0xffffff, intensity );
-        light.position.set( x, y, z );
-        stage.scene.add( light );
+            const light = new DirectionalLight( 0xffffff, intensity );
+            light.position.set( x, y, z );
+            stage.scene.add( light );
+            return light;
 
-    }
+        } );
+
+    configureShadowCaster( stage, lights[ 0 ] );
 
     const [ figure, manifest ] = await Promise.all( [
         Figure.load( BODY_URL ),
@@ -149,6 +182,7 @@ async function main() {
     ] );
 
     stage.add( figure.root );
+    applyFigureShading( figure );
 
     // 🎯 9.8. The floor is a function on the foundation layer, handed to the wardrobe once. From
     // here there is no call that can put this figure on screen without it.
@@ -203,8 +237,13 @@ async function main() {
         },
         setMood: ( arousal ) => { pageMood = { ...pageMood, arousal }; return pageMood; },
         stats: () => wardrobe.stats(),
+        shading: () => wardrobe.shadingOf(),
         agencyState: () => agency.state()
     };
+
+    // 🎯 3.9's wardrobe half, measured rather than configured. See `stageShadowProbe`.
+    window.sugataWardrobe.stageShadowProbe = ( request ) =>
+        stageShadowProbe( { stage, figure, wardrobe }, request );
 
     document.getElementById( 'dress-all' ).addEventListener( 'click', () => {
 
@@ -569,6 +608,272 @@ function frameFigure( stage, figure ) {
         centre.y,
         centre.z + Math.cos( azimuth ) * distance );
     stage.camera.lookAt( centre );
+
+}
+
+/**
+ * Sets up ONE frame for `shadow.selftest.mjs` and hands back the screen boxes to measure it in.
+ *
+ * 🎯 The gate this serves does not ask whether a flag is set. It asks whether the forehead under a
+ * hat brim is DARKER than the same forehead with the brim's shadow switched off, in rendered
+ * pixels, and it asks the same of the thigh under a hem. That is the property three blind judges
+ * named, and it is the only property that survives someone re-introducing the bug.
+ *
+ * The page does not read pixels: Playwright screenshots the canvas and the gate crops it. What has
+ * to happen here is only what the page knows and node does not — put the outfit on, aim the camera
+ * the same way every time, project the probe boxes off the SKELETON so they follow the identity
+ * rather than being canvas fractions, and apply the requested `break`.
+ *
+ * `break` is the gate's red half, and both values break the same thing by different mechanisms:
+ *   'garment-cast'    — clears `castShadow` on every worn fragment. The original bug, exactly.
+ *   'body-receive'    — clears `receiveShadow` on the body. Cast perfectly, landing on nothing.
+ *   'garment-receive' — clears `receiveShadow` on every worn fragment. The half of the pair a
+ *                       hurried fix drops: the hat casts onto the face and the jacket beneath it
+ *                       is lit as though the hat were not there.
+ */
+async function stageShadowProbe( { stage, figure, wardrobe }, request ) {
+
+    const { outfit = [], break: breakage = 'none', probes = DEFAULT_PROBES } = request ?? {};
+
+    await wardrobe.dress( outfit );
+
+    // 🚩 THE PROBE ONLY EVER CLEARS A FLAG, NEVER SETS ONE, AND THE FIRST VERSION SET THEM.
+    //
+    // Written as `mesh.castShadow = breakage !== 'garment-cast'` this line repairs the library on
+    // its way past: with `applyFragmentShading` commented out of `Wardrobe.js` the flag gate went
+    // red exactly as it should and every luma reading stayed at 31.68%, green, on a build with the
+    // original bug fully reintroduced. Measured, not reasoned about.
+    //
+    // So the flags each object arrived with are snapshotted the first time it is seen — before any
+    // break has run — and every call restores from that snapshot before clearing. What the library
+    // set is what gets rendered.
+    // 🚩 THE BODY FIRST, AND THE WORN MESHES EXCLUDED FROM IT. A garment is parented to
+    // `body.parent`, which is inside `figure.root`, so a traverse of the figure visits the
+    // garments too. Written the other way round — garments, then a traverse that also touches
+    // them — the traverse's restore undid the break the loop had just applied, and the
+    // castShadow-cleared reading came back byte-identical to the shadowed one on a build where
+    // everything was correct. Measured, and it cost an hour of blaming the renderer.
+    const worn = new Set( wardrobe.wornMeshes.values() );
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true || worn.has( object ) ) return;
+
+        rememberShadowFlags( object );
+        if ( breakage === 'body-receive' ) object.receiveShadow = false;
+
+    } );
+
+    for ( const mesh of worn ) {
+
+        rememberShadowFlags( mesh );
+        if ( breakage === 'garment-cast' ) mesh.castShadow = false;
+        if ( breakage === 'garment-receive' ) mesh.receiveShadow = false;
+
+        // 🎯 9.7's own toggle. The AO map is a different mechanism from the shadow map — baked
+        // contact darkening in the cloth's own folds rather than a cast shadow — and its gate has
+        // to be able to switch it off, because "the occlusionTexture is in the GLB" says the build
+        // wrote it and nothing about whether the render reads it.
+        setAoMaps( mesh, breakage !== 'garment-ao' );
+
+    }
+
+    stage.renderer.shadowMap.needsUpdate = true;
+    stage.renderer.render( stage.scene, stage.camera );
+
+    return {
+        worn: [ ...wardrobe.worn ],
+        break: breakage,
+        canvas: [ stage.renderer.domElement.clientWidth, stage.renderer.domElement.clientHeight ],
+        boxes: projectProbeBoxes( stage, figure, probes )
+    };
+
+}
+
+/**
+ * The shadow flags each object had the first time the probe saw it, and a restore to them.
+ *
+ * The snapshot is taken once per object and never refreshed, so a break applied on an earlier call
+ * cannot become the thing a later call restores to.
+ */
+const shadowFlagsAsFound = new WeakMap();
+
+/** The `aoMap` each material arrived with, so `garment-ao` can put it back. */
+const aoMapsAsFound = new WeakMap();
+
+function setAoMaps( mesh, wanted ) {
+
+    for ( const material of Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] ) {
+
+        if ( aoMapsAsFound.has( material ) === false ) {
+
+            aoMapsAsFound.set( material, material.aoMap ?? null );
+
+        }
+
+        const found = aoMapsAsFound.get( material );
+        const next = wanted ? found : null;
+
+        if ( material.aoMap !== next ) {
+
+            material.aoMap = next;
+            material.needsUpdate = true;
+
+        }
+
+    }
+
+}
+
+function rememberShadowFlags( object ) {
+
+    const found = shadowFlagsAsFound.get( object );
+
+    if ( found === undefined ) {
+
+        shadowFlagsAsFound.set( object,
+            { cast: object.castShadow, receive: object.receiveShadow } );
+        return;
+
+    }
+
+    object.castShadow = found.cast;
+    object.receiveShadow = found.receive;
+
+}
+
+/**
+ * Where the gate measures, expressed the only way that survives a reframe: off the skeleton.
+ *
+ * Each entry is [name, bone-name fragment, metres along the figure's up axis from that bone's
+ * head, half the size of the box in metres]. The gate may override the list; these are the two the
+ * blind judges named.
+ */
+// ⚠️ The forehead offset is MEASURED, not guessed at. `head`'s bone head sits at the base of the
+// skull, and the gate swept 11 boxes from 10 mm to 90 mm above it, reading the darkening the hat
+// contributes and — separately — whether the box is pure skin in both outfits:
+//
+//     +10 to +66 mm   0.0% darkening   the brim's shadow does not reach this far down the face
+//     +74 mm         15.8%
+//     +82 mm         31.3%             <- taken
+//     +90 mm         44.2%             the deepest reading, and deliberately not the one taken
+//
+// At every one of the eleven, the hatted-not-casting reading equals the bareheaded reading to four
+// decimals, so the box is skin in both outfits and none of the delta is the hat's own albedo. +82
+// is taken rather than +90 because a constant sitting on the peak of its own sweep is a constant
+// fitted to a measurement, and the gate wants headroom on both sides.
+//
+// `torso` is 9.7's probe rather than 3.9's: a wide box over the jacket, where the CC0 suit's baked
+// AO map lives. It is deliberately large — baked occlusion is spread over every fold rather than
+// concentrated at one edge, so a small box would sit inside one fold or outside all of them.
+const DEFAULT_PROBES = [
+    [ 'forehead', 'head', 0.082, 0.016 ],
+    [ 'thigh', 'thigh', -0.075, 0.026 ],
+    [ 'torso', 'spine_02', 0.0, 0.090 ]
+];
+
+/**
+ * Where on screen to measure, in CSS pixels, derived from the figure's own bones.
+ *
+ * ⚠️ Bones rather than canvas fractions. A fraction of the canvas is a number that keeps working
+ * while it stops meaning anything — reframe the camera or build a taller identity and the
+ * "forehead" box lands on an ear, and every reading stays plausible. `shadow.selftest.mjs` refuses a
+ * box it cannot derive rather than falling back to one.
+ *
+ * The offsets are in metres along the figure's own up axis, from a bone head that is a measured
+ * anatomical landmark in MPFB's game_engine rig.
+ */
+function projectProbeBoxes( stage, figure, probes ) {
+
+    const skeleton = figure.skeleton ?? figure.body?.skeleton ?? null;
+    if ( skeleton === null ) return {};
+
+    const boneNamed = ( fragment ) => skeleton.bones.find(
+        ( bone ) => bone.name.toLowerCase().includes( fragment ) ) ?? null;
+
+    const boxes = {};
+
+    for ( const [ name, boneFragment, rise, halfSize ] of probes ) {
+
+        const bone = boneNamed( boneFragment );
+        if ( bone === null ) continue;
+
+        const centre = new Vector3().setFromMatrixPosition( bone.matrixWorld );
+        centre.y += rise;
+
+        const projected = centre.clone().project( stage.camera );
+
+        // 🚩 PAGE coordinates, not canvas coordinates. The canvas is one cell of a grid with a
+        // 460 px panel beside it, so a box in canvas space lands on the HUD — and it lands there
+        // consistently, which is worse, because two readings taken off the panel differ by a
+        // little and read as a shadow. Measured before this line existed: a "forehead" that was
+        // 0.003 encoded luma, i.e. black, reporting a plausible 46%.
+        const rect = stage.renderer.domElement.getBoundingClientRect();
+        const [ width, height ] = [ rect.width, rect.height ];
+
+        // The box is sized in WORLD metres and converted through the projection, so it covers the
+        // same patch of skin at any framing rather than the same count of pixels.
+        const edge = centre.clone();
+        edge.y += halfSize;
+        const radiusPx = Math.abs( edge.project( stage.camera ).y - projected.y ) * height / 2;
+
+        boxes[ name ] = [
+            Math.round( rect.left + ( projected.x * 0.5 + 0.5 ) * width - radiusPx ),
+            Math.round( rect.top + ( -projected.y * 0.5 + 0.5 ) * height - radiusPx ),
+            Math.max( 2, Math.round( radiusPx * 2 ) ),
+            Math.max( 2, Math.round( radiusPx * 2 ) )
+        ];
+
+    }
+
+    return boxes;
+
+}
+
+/**
+ * Makes one directional light the page's single shadow caster, aimed at where the figure stands.
+ *
+ * `Stage` sets `shadowMap.type` and leaves `enabled` alone, because `LightingRig.attachTo` is what
+ * turns it on for `alive.js` and this page does not use the rig. So this page turns it on itself.
+ */
+function configureShadowCaster( stage, light ) {
+
+    stage.renderer.shadowMap.enabled = true;
+
+    light.castShadow = true;
+    light.shadow.mapSize.setScalar( SHADOW_MAP_SIZE );
+    light.shadow.bias = SHADOW_BIAS;
+    light.shadow.normalBias = SHADOW_NORMAL_BIAS;
+
+    const camera = light.shadow.camera;
+    camera.left = -SHADOW_RADIUS_M;
+    camera.right = SHADOW_RADIUS_M;
+    camera.top = SHADOW_RADIUS_M;
+    camera.bottom = -SHADOW_RADIUS_M;
+    camera.near = 0.1;
+    camera.far = 12;
+    camera.updateProjectionMatrix();
+
+}
+
+/**
+ * Everything the figure ships with casts and receives — the body, the eyes, the brows, the lashes.
+ *
+ * 🎯 THE GARMENTS ARE DELIBERATELY NOT DONE HERE, and that is the whole point of 3.9's wardrobe
+ * half. `alive.js` has a traverse just like this one and it runs before the first `dress()`, which
+ * is exactly how every garment in the project came to be invisible to the shadow map. `Wardrobe`
+ * shades each fragment as it adopts it; if this function grew a re-traverse after `dress()` the
+ * page would paper over a regression in the library and `shadow.selftest.mjs` would go green on a bug.
+ */
+function applyFigureShading( figure ) {
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+        object.castShadow = true;
+        object.receiveShadow = true;
+
+    } );
 
 }
 

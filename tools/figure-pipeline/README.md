@@ -73,11 +73,29 @@ $BLENDER --background --python tools/figure-pipeline/build_figure.py --python-ex
   --garment female_casualsuit01
 ```
 
+🎯 **`--garment` ALSO RECOVERS THE GARMENT'S BAKED AO — punch-list 9.7.** MPFB's
+`NodeWrapperGameEngine` wires diffuse, diffuse alpha and normal and has no occlusion node at all, so
+each garment's hand-baked `aomapTexture` was read off disk by nobody. `wire_garment_ao_maps()` reads
+the mhmat directly and feeds the declared map to the exporter's Occlusion socket. ⚠️ **Only TWO of
+the four CC0 garments declare one** — `female_casualsuit01` and `female_elegantsuit01`; `shoes01`
+and `fedora01` do not, and the punch-list's claim that all of them did was wrong. It is not free:
+the casualsuit fragment grows **8.93 → 11.08 MB** and the elegantsuit **3.72 → 5.07 MB**, +3.5 MB of
+PNG, which lands squarely on 9.6's transcode item. `verify_glb.mjs` asserts the invariant in both
+directions, so a build that stopped wiring the node — or started wiring it onto everything — is
+caught without a GPU.
+
 Then:
 
 ```bash
 node packages/core/src/wardrobe/wardrobe.selftest.mjs
 ```
+
+⚠️ **`assets/wardrobe/**/*.glb` IS GITIGNORED BUILD OUTPUT AND R11 REBUILT ALL OF IT** — three
+identities × eight garments, plus the three bodies. Another checkout is measuring the PREVIOUS
+round's artefacts until these commands are re-run, and `wardrobe.selftest.mjs`,
+`decency.selftest.mjs`, `shadow.selftest.mjs` and `verify_glb.mjs` will all report on them without
+saying so. The two baked controls in `assets/wardrobe/baked/` were deliberately NOT rebuilt: the AO
+wiring does not touch geometry, and they are the reference the runtime rebuild is compared against.
 
 Measured on this machine, Blender 5.2.0 LTS `fbe6228777e7`, M5 Max:
 
@@ -96,8 +114,31 @@ three FLOAT32 masks over 14,517 vertices, which is §2.4's 58,068 bytes per garm
 
 🚩 **A foundation garment is generated from the figure's OWN SKIN rather than fitted from an
 mhclo.** `--foundation <id>` takes a region of body faces, refines it, offsets it 3 mm along its
-normals, tapers to 0.8 mm at the hem, low-pass filters the result so it behaves like cloth rather
-than paint, and reprojects. Because the shell is cut from the basemesh **at the requested
+normals, holds **2.0 mm at the hem** and then **FOLDS THE HEM BACK** as a band of real faces, low-pass
+filters the result so it behaves like cloth rather than paint, and reprojects.
+
+🚩 **THAT HEM USED TO TAPER TO 0.8 MM SO IT "MELTED INTO THE SKIN", AND THE MELT WAS THE DEFECT.**
+Three blind judges were pointed at `packages/testbed/src/wardrobe.html` as 9.8's own text asks, and
+**two ranked the foundation layer their single strongest tell that this was a render** — *"a texture
+region, not a garment"*, *"a jaggy texture boundary on bare skin"*. They were wrong about the
+mechanism, since there is not one texture byte on this layer, and right about the read: **a surface
+tapered to nothing at its edge has visibly no thickness.** `roll_the_hem()` extrudes the open
+boundary and turns it under, precisely so the edge IS visible. Do not restore the taper.
+
+    FOUNDATION_HEM_OFFSET_M      0.0020   (was 0.0008)  where the shell body ends
+    FOUNDATION_HEM_ROLL_M        0.0012                 how far the band folds back
+    FOUNDATION_HEM_ROLL_FLOOR_M  0.0008                 the standoff the fold lands at
+
+**The 2.0 mm offset is a measured ceiling, not a round number.** Swept at g000, the tightest
+perineal slot, reading the briefs' minimum clearance off the build: 0.8 mm → 0.22, 1.2 → 0.13,
+1.6 → 0.11, **2.0 → 0.14**, and **2.2 mm reads 0.049 mm and FAILS the build** against the 0.05 mm
+z-fight floor.
+
+⚠️ **`describe_foundation` now FAILS a shell with zero rolled faces**, so losing the band is a build
+failure rather than a line nobody reads. Per-garment roll faces at g050: bra 1,872, vest 1,904,
+briefs 1,000, boxer brief 780. The winding of those faces is asserted consistent on the exported
+triangles — a foundation garment exports OPAQUE and is backface culled, so a band built the other
+way round would be *invisible*, which is the defect it exists to fix with extra triangles. Because the shell is cut from the basemesh **at the requested
 identity**, it has **no fitting step and therefore nothing to drift** — unlike 9.4's mhclo garments,
 it can be regenerated for any `--gender` by re-running the command above.
 
@@ -134,6 +175,30 @@ above with `--gender 0`, `--gender 0.5` and `--gender 1`, **10.6–14.3 s each**
 All twelve fragments carry **ZERO images** and **0 vertices through the body**. The g050 column
 reproduces the numbers this table shipped with to the byte, which is what makes the other two
 columns comparable rather than merely present.
+
+⚠️ **THE FACE COUNTS AND THE LOWER CLEARANCES IN THAT TABLE ARE SUPERSEDED BY THE HEM ROLL** and are
+kept because the comparison across identities is still the point. Rebuilt at R11 with the roll, all
+three identities, all exit 0:
+
+| fragment | | g000 | g050 | g100 |
+|---|---|---:|---:|---:|
+| `foundation_bra` | faces | 11,270 | 10,828 | 10,508 |
+| | roll faces | 1,928 | 1,872 | 1,854 |
+| | standoff mm | 0.80–4.33 | 0.80–4.12 | 0.80–4.57 |
+| `foundation_vest` | faces | 14,266 | 14,038 | 13,870 |
+| | roll faces | 1,948 | 1,904 | 1,864 |
+| | standoff mm | 0.54–4.41 | 0.48–4.20 | **0.22**–4.81 |
+| `foundation_briefs` | faces | 6,054 | 6,072 | 6,228 |
+| | roll faces | 1,012 | 1,000 | 1,006 |
+| | standoff mm | **0.14**–4.57 | 0.77–4.18 | 0.50–4.29 |
+| `foundation_boxer_brief` | faces | 6,062 | 6,138 | 6,304 |
+| | roll faces | 816 | 780 | 738 |
+| | standoff mm | **0.14**–4.61 | 0.77–4.18 | 0.50–4.29 |
+
+🚩 **The clearance is now measured AFTER the roll, and that correction matters more than the
+numbers.** The first version measured before it and was therefore reporting on every vertex except
+the ones at risk. A worn floor pair costs **+5,744 triangles** over the pre-roll shells, on the one
+garment set that can never be taken off.
 
 ⚠️ **"0.48–4.20 mm clearance" was a g050 property and this table is why it is no longer written as
 a general one.** The nearest approach falls to **0.22 mm** on both lower garments at g000 — less
