@@ -539,6 +539,49 @@ report(
         'against silhouette hard% 11.4 -> 17.9 -> 47.0.'
 );
 
+{
+    // 🚩 `?bloom=0` DID NOT MEASURE BLOOM, AND THAT IS WHY THE PERF ROUND RECORDED IT AS FREE.
+    //
+    // `bloom( … )` builds twelve render passes — bright, five horizontal and five vertical
+    // separable blurs, and a composite — and it builds all twelve whether the strength uniform
+    // reads 0.30 or 0. Zero multiplies the composite, not the pass list. The round that
+    // attributed `Grade.js`'s cost therefore reported bloom at **+0.001 ms** while twelve passes
+    // went on rendering, and concluded the cost was elsewhere.
+    //
+    // With the structural bypass the same toggle on the same page moved 1080p portrait from
+    // 15.808 ms to 14.591 ms — 1.217 ms, 1200x the number it used to report. ⚠️ Measured before
+    // `TRAAPost`'s redundant-RTT removal landed; after it the pair fell inside run-to-run spread
+    // on a contended machine, so 1.217 is quoted as WHAT THE TOGGLE COULD NOT SEE and not as the
+    // bloom chain's cost on the current build.
+    //
+    // The correctness claim is the one that matters here and it is a pixel measurement, not an
+    // argument: `alive.html?bare&freeze&seed=1&capture&bloom=0` at 900x1200, 60 steps, is
+    // **BYTE-IDENTICAL** with the chain bypassed and with the chain built at strength 0 — 0 of
+    // 1,080,000 pixels differ. Multiplying by zero and not rendering are the same picture.
+    //
+    // 🚩 Proven red by rebuilding the defect: `this.bloomEnabled = true` — the shipped behaviour —
+    // turns both of the `strength 0` rows below red while leaving the default row green, which is
+    // exactly the asymmetry a gate that only checked the default would miss.
+    const { Grade } = await import( './Grade.js' );
+
+    for ( const [ label, options, expected ] of [
+        [ 'the shipped default', {}, true ],
+        [ 'an explicit spec strength', { bloomStrength: DEFAULT_BLOOM.strength }, true ],
+        [ 'strength 0', { bloomStrength: 0 }, false ]
+    ] ) {
+
+        const grade = new Grade( options );
+
+        report(
+            `${ label } builds the bloom chain: ${ expected }`,
+            grade.bloomEnabled === expected,
+            `bloomEnabled ${ grade.bloomEnabled }. A strength of exactly zero must not build twelve ` +
+                'render passes whose composite is then multiplied by nothing.'
+        );
+
+    }
+}
+
 report(
     'global saturation is inside the spec band',
     DEFAULT_SATURATION >= SATURATION_BAND[ 0 ] && DEFAULT_SATURATION <= SATURATION_BAND[ 1 ],

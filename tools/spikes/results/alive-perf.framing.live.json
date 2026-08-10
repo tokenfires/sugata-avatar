@@ -1,0 +1,451 @@
+{
+  "options": {
+    "suite": "framing",
+    "variants": [
+      "base"
+    ],
+    "repeats": 1,
+    "warmup": 90,
+    "samples": 200,
+    "liveSeconds": 8,
+    "warmupSeconds": 2.5,
+    "pace": null,
+    "live": true,
+    "overlays": false,
+    "playwrightPath": null
+  },
+  "rows": [
+    {
+      "key": "720p/portrait/base",
+      "sizeName": "720p",
+      "frameName": "portrait",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 1,
+        "drawingBuffer": [
+          1280,
+          720
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          844,
+          475
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084238,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 59.989542235109575,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 11.475741999999999,
+        "p90": 12.22598,
+        "p99": 13.476377,
+        "min": 9.847973999999997,
+        "max": 13.685832000000001,
+        "mean": 11.53545541666666
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 3,
+        "p90": 3.400000000372529,
+        "p99": 3.8999999994412065,
+        "min": 1,
+        "max": 4.5,
+        "mean": 2.913929313945965
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.699999999254942,
+        "p90": 17.90000000037253,
+        "p99": 18.800000000745058,
+        "min": 14.299999999813735,
+        "max": 19.200000000186265,
+        "mean": 16.670686070685296
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "key": "720p/body/base",
+      "sizeName": "720p",
+      "frameName": "body",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 1,
+        "drawingBuffer": [
+          1280,
+          720
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          844,
+          475
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084403,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 60.00209199053005,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 13.722203,
+        "p90": 14.162529000000003,
+        "p99": 14.541693999999998,
+        "min": 12.78089,
+        "max": 14.798569,
+        "mean": 13.731430093749996
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 2.8999999994412065,
+        "p90": 3.300000000745058,
+        "p99": 3.7999999998137355,
+        "min": 0.7000000001862645,
+        "max": 4,
+        "mean": 2.632224532217949
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.699999999254942,
+        "p90": 17.5,
+        "p99": 18.700000000186265,
+        "min": 13.400000000372529,
+        "max": 19.200000000186265,
+        "mean": 16.664864864864477
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "key": "1080p/portrait/base",
+      "sizeName": "1080p",
+      "frameName": "portrait",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 1,
+        "drawingBuffer": [
+          1920,
+          1080
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          1267,
+          712
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084238,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 60.00551556244367,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 16.059126999999997,
+        "p90": 16.525915000000005,
+        "p99": 17.236070999999995,
+        "min": 8.776200999999999,
+        "max": 21.126262999999994,
+        "mean": 16.035820143749998
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 2.3999999994412065,
+        "p90": 3.2999999998137355,
+        "p99": 3.6000000005587935,
+        "min": 0.599999999627471,
+        "max": 3.7999999998137355,
+        "mean": 2.1284823284528978
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.699999999254942,
+        "p90": 17.600000000558794,
+        "p99": 18.799999999813735,
+        "min": 13.799999999813735,
+        "max": 19.600000000558794,
+        "mean": 16.666528066529228
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "key": "1080p/body/base",
+      "sizeName": "1080p",
+      "frameName": "body",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 1,
+        "drawingBuffer": [
+          1920,
+          1080
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          1267,
+          712
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084321,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 60.028920430759015,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 17.601363000000003,
+        "p90": 18.375137,
+        "p99": 19.060454000000004,
+        "min": 5.648118,
+        "max": 19.961235999999996,
+        "mean": 16.328864552083346
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 2.5,
+        "p90": 3.2999999998137355,
+        "p99": 3.699999999254942,
+        "min": 0.7000000001862645,
+        "max": 4.199999999254942,
+        "mean": 2.349896049934387
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.700000000186265,
+        "p90": 17.800000000745058,
+        "p99": 18.799999999813735,
+        "min": 12.700000000186265,
+        "max": 20.700000000186265,
+        "mean": 16.65717255717372
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "key": "pageDefault/portrait/base",
+      "sizeName": "pageDefault",
+      "frameName": "portrait",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 2,
+        "drawingBuffer": [
+          3456,
+          2234
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          2280,
+          1474
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084238,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 59.98440975720836,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 26.391557000000006,
+        "p90": 26.794046999999996,
+        "p99": 29.473345000000002,
+        "min": 16.794538,
+        "max": 32.932706,
+        "mean": 25.93329369166667
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 2.2999999998137355,
+        "p90": 3,
+        "p99": 3.400000000372529,
+        "min": 1.099999999627471,
+        "max": 3.900000000372529,
+        "mean": 2.267151767126596
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.700000000186265,
+        "p90": 17.59999999962747,
+        "p99": 18.799999999813735,
+        "min": 13.799999999813735,
+        "max": 19.799999999813735,
+        "mean": 16.670686070687232
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "key": "pageDefault/body/base",
+      "sizeName": "pageDefault",
+      "frameName": "body",
+      "variantName": "base",
+      "environment": {
+        "backend": "webgpu",
+        "trackTimestamp": true,
+        "pixelRatio": 2,
+        "drawingBuffer": [
+          3456,
+          2234
+        ],
+        "resolutionScale": 0.66,
+        "scenePass": [
+          2280,
+          1474
+        ],
+        "pipeline": true,
+        "multisampled": false,
+        "refreshHz": 120.48192771084238,
+        "pace": 2
+      },
+      "drawCalls": 42,
+      "triangles": 86750,
+      "renderedFps": 59.999239312334105,
+      "contextsPerFrame": {
+        "count": 480,
+        "p50": 20,
+        "p90": 20,
+        "p99": 20,
+        "min": 20,
+        "max": 20,
+        "mean": 20
+      },
+      "gpuStats": {
+        "count": 480,
+        "p50": 25.593694000000006,
+        "p90": 28.348487,
+        "p99": 31.254562,
+        "min": 19.421038,
+        "max": 37.84551100000001,
+        "mean": 25.87585603333333
+      },
+      "cpuStats": {
+        "count": 481,
+        "p50": 2.400000000372529,
+        "p90": 3.199999999254942,
+        "p99": 3.5,
+        "min": 1.099999999627471,
+        "max": 4,
+        "mean": 2.3596673597041478
+      },
+      "wallStats": {
+        "count": 481,
+        "p50": 16.699999999254942,
+        "p90": 17.700000000186265,
+        "p99": 19,
+        "min": 14.299999999813735,
+        "max": 20.299999999813735,
+        "mean": 16.66216216216216
+      },
+      "cpuStepStats": {
+        "count": 0,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "min": null,
+        "max": null,
+        "mean": null
+      }
+    }
+  ]
+}

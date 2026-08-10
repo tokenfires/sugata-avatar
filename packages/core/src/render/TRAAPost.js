@@ -169,7 +169,35 @@ export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
     // exactly what the sharpen pass is here to bring back.
     const sharpenNode = strength === null ? null : sharpen( resolved, strength, false );
 
-    const node = sharpenNode ?? resolved;
+    // 🚩 THE RESOLVE IS HANDED OUT AS ITS TEXTURE, NOT AS THE NODE, AND THAT IS WORTH A FULL-
+    // RESOLUTION RENDER PASS PER FRAME.
+    //
+    // `TAAUNode` and `TRAANode` are `TempNode`s, so `node.isTextureNode` is undefined on both.
+    // Anything downstream that needs a texture-backed input — and `Grade.compose` does, because
+    // `BloomNode` samples its source — calls `convertToTexture()`, which does not recognise them
+    // and falls through to `rtt( node )`. That is a full-resolution HalfFloat render target and a
+    // full-resolution pass whose entire job is to copy `TAAUNode.resolve`, which is ALREADY a
+    // full-resolution HalfFloat texture. `RTTNode` defaults to `HalfFloatType` and so does
+    // `_resolveRenderTarget` (`TAAUNode.js:171`), so the copy is bit-exact and therefore
+    // bit-pointless.
+    //
+    // ATTRIBUTED BY TOGGLE, not by reading a per-pass timestamp — the per-pass numbers on this
+    // machine put the pass at 1.4 ms and the toggle puts it at four times that, and the toggle is
+    // the one that says what removing it is worth. `alive.html?bare&seed=1&capture`, 1920x1080
+    // portrait, 250 samples after 150 warm-up frames, three rounds alternating between the two
+    // arms on one tree in one session:
+    //
+    //   handing out the texture   10.371  10.292  11.218   ms p50
+    //   handing out the node      15.880  16.519  15.991   ms p50
+    //
+    // **5.62 ms at the medians, with no overlap between the two sets.** And it is free: the
+    // 3840x5120 plate is byte-identical across the change, 0 of 19,660,800 pixels differing, so
+    // every objective gate reads the same number it read before. Both nodes expose
+    // `getTextureNode()` (`TAAUNode.js:297`, `TRAANode.js:261`) and it returns the `passTexture`
+    // wrapper around exactly that target — and a `PassTextureNode` carries its owner into the
+    // builder's node properties (`PassNode.js:63`), so the resolve's `updateBefore` still runs.
+    // Handing that out instead of the node is the whole fix.
+    const node = ( sharpenNode ?? resolved ).getTextureNode();
 
     return {
 

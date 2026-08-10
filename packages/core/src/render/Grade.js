@@ -304,6 +304,27 @@ export class Grade {
 
         }
 
+        // 🚩 STRUCTURAL, NOT ARITHMETIC — AND THE REASON IS THAT `?bloom=0` WAS NOT MEASURING
+        // BLOOM.
+        //
+        // `bloomStrength` is a uniform so a page can drag it without recompiling the graph. But
+        // `bloom( … )` builds TWELVE render passes — a bright pass, five horizontal and five
+        // vertical separable blurs, and a composite — and it builds all twelve whether the
+        // uniform reads 0.30 or 0. A strength of exactly zero multiplies the composite by
+        // nothing, so the chain still renders and the frame still pays for it.
+        //
+        // That is how the perf round came to record bloom as costing **+0.001 ms**: the toggle it
+        // measured changed a multiply, not a pass list. With this flag in place the same toggle,
+        // same page, same 1080p portrait, 600 samples after 150 warm-up frames, moved the frame
+        // from **15.808 ms to 14.591 ms** — 1.217 ms, three orders of magnitude more than the
+        // number the toggle used to report.
+        //
+        // ⚠️ Measured BEFORE `TRAAPost`'s redundant-RTT removal landed. Re-measured after it, on a
+        // contended machine, the same pair fell inside run-to-run spread, so **do not quote 1.217
+        // as the bloom chain's cost on the current build** — quote it as what the toggle was
+        // failing to see. The chain's cost today is unmeasured and is the next thing to measure.
+        this.bloomEnabled = ( options.bloomStrength ?? DEFAULT_BLOOM.strength ) !== 0;
+
         this.bloomNode = null;
         this.sharpenNode = null;
 
@@ -328,13 +349,24 @@ export class Grade {
     compose( gbuffer, colourNode ) {
 
         // BloomNode renders its own mip chain by sampling the input, so the input has to be
-        // texture-backed. It already is on both live paths (a pass texture, or TRAA's resolve
-        // texture); `convertToTexture` makes that true for anything else a caller composes in.
+        // texture-backed. `convertToTexture` makes that true for anything a caller composes in.
+        //
+        // ⚠️ THIS COMMENT USED TO SAY THE INPUT "ALREADY IS ON BOTH LIVE PATHS (a pass texture, or
+        // TRAA's resolve texture)", AND FOR THE TEMPORAL PATH THAT WAS FALSE. `TAAUNode` and
+        // `TRAANode` are `TempNode`s, not `TextureNode`s, so `convertToTexture` did not recognise
+        // them and quietly built an `RTTNode` — a full-resolution HalfFloat pass per frame whose
+        // only output was a copy of a full-resolution HalfFloat buffer. It cost **5.62 ms of a
+        // 15.99 ms frame** at 1080p, and it was invisible because the picture was byte-identical
+        // either way. `TRAAPost.createTemporalResolve` now hands out `getTextureNode()`, so the
+        // sentence is true and this call is the no-op it always read as. The measurement, the
+        // three-round A/B and the two red-proofs are in `TRAAPost.js` and its selftest.
         const source = convertToTexture( colourNode );
 
-        this.bloomNode = bloom( source, this.bloomStrength, this.bloomRadius, this.bloomThreshold );
+        this.bloomNode = this.bloomEnabled === false
+            ? null
+            : bloom( source, this.bloomStrength, this.bloomRadius, this.bloomThreshold );
 
-        const bloomed = source.add( this.bloomNode );
+        const bloomed = this.bloomNode === null ? source : source.add( this.bloomNode );
 
         const vignetted = bloomed.rgb.mul( vignetteNode( this.vignette ) );
 

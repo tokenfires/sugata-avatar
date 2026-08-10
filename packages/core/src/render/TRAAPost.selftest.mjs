@@ -30,6 +30,9 @@
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
+import { PerspectiveCamera, Texture } from 'three/webgpu';
+import { texture } from 'three/tsl';
+
 import { createTemporalResolve, DEFAULT_SHARPNESS, TAAU_RESOLUTION_SCALE, TEMPORAL_AA_MODES } from './TRAAPost.js';
 
 let checks = 0;
@@ -109,6 +112,68 @@ report(
         '(FAIL), with neither 1.8893 (PASS) against the spec band 1.5-2.1. See the table in TRAAPost.js.'
 );
 
+
+console.log( '\n--- the resolve is handed out AS A TEXTURE, and that is worth 5.6 ms --------\n' );
+
+{
+    // 🚩 THE DEFECT THIS GATE EXISTS FOR IS INVISIBLE IN EVERY PIXEL AND COSTS A THIRD OF THE
+    // FRAME.
+    //
+    // `TAAUNode` and `TRAANode` are `TempNode`s, so `isTextureNode` is undefined on both.
+    // `Grade.compose` needs a texture-backed input because `BloomNode` samples its source, so it
+    // calls `convertToTexture()` — and that helper recognises `isSampleNode`, `isTextureNode` and
+    // `isPassNode`, none of which these are (`RTTNode.js:298`). It falls through to `rtt( node )`:
+    // a full-resolution HalfFloat render target and a full-resolution pass per frame whose entire
+    // output is a copy of `TAAUNode.resolve`, which is already a full-resolution HalfFloat
+    // texture (`TAAUNode.js:171`, and `RTTNode` defaults to the same type).
+    //
+    // Measured on `alive.html?bare&seed=1&capture` at 1920x1080 portrait, 250 samples after 150
+    // warm-up frames, three rounds alternating between the two arms on one tree in one session:
+    //
+    //   handing out the texture   10.371  10.292  11.218   ms p50
+    //   handing out the node      15.880  16.519  15.991   ms p50
+    //
+    // 5.62 ms of median frame at the medians, with no overlap between the two sets — and the
+    // 3840x5120 plate is BYTE-IDENTICAL across the change, 0 pixels of 19,660,800 differing, so
+    // all seven objective gates are unchanged by construction. It is a copy of a buffer, removed.
+    //
+    // 🚩 PROVEN RED TWICE, BY REBUILDING THE DEFECT RATHER THAN BY BELIEVING THE COMMENT:
+    //
+    //   1. `const node = sharpenNode ?? resolved` — the shipped defect. All FOUR rows below go
+    //      red: TRAANode, SharpenNode, TAAUNode, SharpenNode, `isTextureNode` undefined on each.
+    //   2. `const node = sharpenNode === null ? resolved.getTextureNode() : sharpenNode` — the
+    //      HALF fix, which is what a successor writes when they read the default path and stop.
+    //      The two `sharpness: null` rows stay green and the two `?sharp=` rows go red, which is
+    //      the whole reason this gate sweeps the sharpened branch it does not ship.
+    //
+    // The four combinations are swept rather than the shipped one asserted, because a gate that
+    // only covers the default cannot see defect 2 — and defect 2 is the likelier one.
+    const gbuffer = {
+        node: () => texture( new Texture() ),
+        depthNode: texture( new Texture() ),
+        velocityNode: texture( new Texture() )
+    };
+
+    for ( const mode of TEMPORAL_AA_MODES.filter( ( name ) => name !== 'off' ) ) {
+
+        for ( const sharpness of [ null, 1.2 ] ) {
+
+            const resolve = createTemporalResolve( { mode, gbuffer, camera: new PerspectiveCamera(), sharpness } );
+
+            report(
+                `${ mode } + sharpness ${ sharpness } hands out a texture node, not an RTT to build one from`,
+                resolve.node?.isTextureNode === true,
+                `${ resolve.node?.constructor?.name ?? 'null' }, isTextureNode ${ resolve.node?.isTextureNode }. ` +
+                    'Anything but true means convertToTexture() renders a full-resolution copy of a ' +
+                    'full-resolution buffer, once per frame, forever.'
+            );
+
+            resolve.dispose();
+
+        }
+
+    }
+}
 
 console.log( '\n--- the 3.12 blocker, re-checked against the installed three ---------------\n' );
 
