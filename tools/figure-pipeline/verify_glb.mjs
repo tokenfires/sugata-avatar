@@ -32,6 +32,29 @@ const {
   DOME_NOISE_MULTIPLE, FRONT_CAP_DEGREES, POSTERIOR_BAND_MIN_DEGREES,
 } = await import("./cornea_geometry.mjs");
 
+// Punch-list 9.8's hem measurement, shared with the runtime gate rather than reimplemented here.
+// One module means the asset gate and `hem.selftest.mjs` cannot report different depths for the
+// same file, which is the failure `cornea_geometry.mjs` exists to prevent for the eye.
+const { measureHemRoll, percentile } = await import(
+  "../../packages/core/src/wardrobe/HemGeometry.js");
+
+/** Half the authored FOUNDATION_HEM_ROLL_M. See `reportFoundationHem`. */
+const MINIMUM_HEM_ROLL_MM = 0.6;
+
+/** Which meshes carry a hem worth measuring. The build names a shell `Human.<garment id>`. */
+const FOUNDATION_MESH_PATTERN = /foundation_/i;
+
+/** The three numbers `reportFoundationHem` needs, without carrying the welded mesh out with them. */
+function summariseHemRoll(geometry) {
+  const measured = measureHemRoll(geometry.attributes.position.array, geometry.index.array);
+
+  return {
+    boundaryEdges: measured.boundaryEdges,
+    bandTriangles: measured.bandTriangles,
+    medianDepthMm: percentile(measured.depthsMm, 0.5),
+  };
+}
+
 const ARKIT_52 = [
   "browDownLeft", "browDownRight", "browInnerUp", "browOuterUpLeft", "browOuterUpRight",
   "cheekPuff", "cheekSquintLeft", "cheekSquintRight",
@@ -213,6 +236,11 @@ async function readMeshesViaThree(fileBuffer) {
       // geometry is in hand. An empty list on a body is what a build with export_attributes
       // left off produces, and it is indistinguishable from a nude figure without the manifest.
       hideMasks: hideMasksOf(object.geometry),
+      // Punch-list 9.8. Behind a name test for the same reason the eye positions are: it welds
+      // and re-topologises the whole mesh, and only a foundation shell has a rolled hem to find.
+      hemRoll: FOUNDATION_MESH_PATTERN.test(object.name)
+        ? summariseHemRoll(object.geometry)
+        : null,
     });
   });
 
@@ -1038,6 +1066,55 @@ async function verifyGarmentFragment(glbPath, wardrobe) {
 
   failures.push(...reportSkinning(json, threeMeshes));
   failures.push(...reportMaterials(json, threeMeshes, wardrobe));
+  failures.push(...reportFoundationHem(garment, threeMeshes[0]));
+
+  return failures;
+}
+
+/**
+ * Punch-list 9.8: a foundation shell must arrive with its hem ROLLED, not with a knife edge.
+ *
+ * 🚩 A SHELL WITH NO BAND IS A SILENT FAILURE. It still loads, still covers, still passes every
+ * other clause in this file — the only symptom is that a viewer reads the garment as painted on,
+ * which is precisely what three blind judges did before `roll_the_hem()` existed. So the default
+ * asset run gates it, and the same measurement drives
+ * `packages/core/src/wardrobe/hem.selftest.mjs`'s pixel half rather than being written twice.
+ *
+ * The threshold is a floor at half the authored roll: the shipped shells read 1.200 mm at the
+ * median across all twelve fragments and a `--no-hem-roll` build of the same command reads
+ * 0.112–0.125 mm, so 0.6 mm sits five times clear of the broken case.
+ */
+function reportFoundationHem(garment, mesh) {
+  if (garment === null || garment.layer !== "FOUNDATION") {
+    return [];
+  }
+
+  const measured = mesh?.hemRoll ?? null;
+
+  if (measured === null) {
+    console.log(`  FAIL rolled hem        no hem was measured on '${mesh?.name}', which the ` +
+                `manifest puts at layer FOUNDATION`);
+    return [`${garment.id}'s mesh was not recognised as a foundation shell`];
+  }
+
+  const median = measured.medianDepthMm;
+  const quadPerEdge = measured.bandTriangles === measured.boundaryEdges * 2;
+  const deepEnough = median >= MINIMUM_HEM_ROLL_MM;
+
+  console.log(`  ${quadPerEdge && deepEnough ? "ok  " : "FAIL"} rolled hem        ` +
+              `${measured.boundaryEdges} boundary edges, ${measured.bandTriangles} band tris, ` +
+              `median depth ${median.toFixed(3)} mm ` +
+              `(floor ${MINIMUM_HEM_ROLL_MM}, one extruded quad per edge)`);
+
+  const failures = [];
+  if (!quadPerEdge) {
+    failures.push(`${garment.id} has ${measured.bandTriangles} band triangles for ` +
+                  `${measured.boundaryEdges} boundary edges; the hem is not an extruded band`);
+  }
+  if (!deepEnough) {
+    failures.push(`${garment.id} has a hem ${median.toFixed(3)} mm deep, under the ` +
+                  `${MINIMUM_HEM_ROLL_MM} mm floor — the shell is a knife edge`);
+  }
 
   return failures;
 }

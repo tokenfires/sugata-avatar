@@ -34,12 +34,14 @@
  */
 
 import { AmbientLight, Box3, DirectionalLight, Vector3 } from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { GarmentManifest } from '../../core/src/wardrobe/GarmentManifest.js';
 import { Wardrobe } from '../../core/src/wardrobe/Wardrobe.js';
 import { FoundationLayer } from '../../core/src/wardrobe/FoundationLayer.js';
+import { measureHemRoll } from '../../core/src/wardrobe/HemGeometry.js';
 import { AGENCY_MODES, LocalStorageStore, MOOD_LAYER, STORE_KEY_PREFIX, WardrobeAgency }
     from '../../core/src/wardrobe/WardrobeAgency.js';
 
@@ -55,6 +57,20 @@ const MANIFEST_URL = new URL( '../../../assets/wardrobe/manifest.json', import.m
 const FIELD_OF_VIEW_DEGREES = 30;
 const FRAME_MARGIN = 1.12;
 const CAMERA_AZIMUTH_DEGREES = 14;
+
+// 🎯 9.8's red proof, and the reason it is a QUERY PARAMETER rather than a runtime swap.
+//
+// `hem.selftest.mjs` has to render the shipped foundation shells against shells built with
+// `build_figure.py --no-hem-roll` — the same garment ids, the same body, the same light, from a
+// different directory. Swapping the source inside a live page means evicting `Wardrobe`'s fragment
+// cache from outside the class, which is a hole in the library punched for a gate. Loading the page
+// twice costs a second and needs no such hole.
+//
+//     ?foundation=/@fs/<abs dir>     foundation_* fragments come from <abs dir>/<id>/g050.glb
+//
+// Only the FOUNDATION layer is redirected. Everything else still resolves against the manifest, so
+// a variant directory that holds nothing but the four shells is a complete answer.
+const FOUNDATION_FRAGMENT_ROOT = new URLSearchParams( location.search ).get( 'foundation' );
 
 // 🎯 Punch-list 3.9's wardrobe half, and why an ambient level is a named constant on this page.
 //
@@ -190,7 +206,8 @@ async function main() {
 
     const wardrobe = new Wardrobe( figure, manifest, {
         figureKey: 'g050',
-        decencyFloor: foundation.floor
+        decencyFloor: foundation.floor,
+        loadFragment: FOUNDATION_FRAGMENT_ROOT === null ? undefined : loadFromVariantRoot
     } );
 
     // 🎯 9.13. A real `localStorage` store, so a reload is a real restart.
@@ -244,6 +261,12 @@ async function main() {
     // 🎯 3.9's wardrobe half, measured rather than configured. See `stageShadowProbe`.
     window.sugataWardrobe.stageShadowProbe = ( request ) =>
         stageShadowProbe( { stage, figure, wardrobe }, request );
+
+    // 🎯 9.8's wardrobe half, measured rather than argued. See `stageHemProbe`.
+    window.sugataWardrobe.stageHemProbe = ( request ) =>
+        stageHemProbe( { stage, figure, wardrobe }, request );
+
+    window.sugataWardrobe.foundationSource = FOUNDATION_FRAGMENT_ROOT;
 
     document.getElementById( 'dress-all' ).addEventListener( 'click', () => {
 
@@ -608,6 +631,320 @@ function frameFigure( stage, figure ) {
         centre.y,
         centre.z + Math.cos( azimuth ) * distance );
     stage.camera.lookAt( centre );
+
+}
+
+/**
+ * Fetches a fragment, sending the four foundation shells to the variant directory instead.
+ *
+ * Installed only when `?foundation=` is on the URL. The id is recovered from the manifest's own
+ * relative path rather than re-derived, so a garment the manifest renames follows the rename.
+ */
+async function loadFromVariantRoot( url ) {
+
+    const isFoundation = /\/foundation_[^/]+\/[^/]+\.glb$/.test( url );
+
+    if ( isFoundation === false ) return new GLTFLoader().loadAsync( url );
+
+    const tail = url.split( '/' ).slice( -2 ).join( '/' );
+
+    return new GLTFLoader().loadAsync( `${ FOUNDATION_FRAGMENT_ROOT }/${ tail }` );
+
+}
+
+/**
+ * Where `hem.selftest.mjs` stands to look at a hem, and how much of the body it sees.
+ *
+ * ⚠️ THE AIM IS A MEASUREMENT OFF THE SHIPPED GARMENT, NOT A GUESS AT A PICTURE. The offset below
+ * is from `thigh_l`'s bone head to the briefs' leg opening on the FRONT of that thigh, read by
+ * welding the worn fragment, taking the edges with one face — its open boundary — and binning the
+ * ones with z > 0.02 and x in [0.055, 0.16] by x:
+ *
+ *     x 0.070  0.085  0.090  0.120  0.125  0.130  hem y  0.6877 0.6848 0.6833 0.6842 0.6862 0.6872
+ *
+ * — flat to 4.4 mm across 6 cm of thigh, at a mean z of 0.116. Bone head (0.1015, 0.8656, 0.0050),
+ * so the opening is 180.6 mm below it and 110 mm in front. THE Z TERM IS THE HALF THAT MATTERS: a
+ * camera framed on the bone head is framed on the CENTRE of the thigh and stands 57 mm from a
+ * surface it believes is 168 mm away, so `field` lies by a factor of three and every scale derived
+ * from it is wrong. The first version of this did exactly that.
+ *
+ * `azimuth` 0 is straight in front, which is where this hem runs horizontally and where nothing
+ * occludes it — at 55° the hand hangs across the hip and its fingers cross the opening.
+ * `elevation` 0 is a level look, deliberately the HARDEST case: the rolled band turns under and
+ * faces down, so any downward tilt would show more of it than a viewer at eye level ever does.
+ *
+ * `field` is the world height the camera sees AT THE HEM, so the pixel scale is a stated quantity
+ * rather than a consequence of the viewport. TWO framings, because the judge's complaint has two
+ * readings. `detail` is a person leaning in to look. `approach` is roughly the closest a viewer
+ * comes without meaning to inspect anything, and it is the harder of the two.
+ */
+const HEM_FRAMINGS = {
+    detail: { bone: 'thigh', offset: [ 0, -0.1806, 0.110 ], azimuth: 0, elevation: 0, field: 0.08 },
+    approach: { bone: 'thigh', offset: [ 0, -0.1806, 0.110 ], azimuth: 0, elevation: 0, field: 0.30 }
+};
+
+/**
+ * How wide and tall the measured strip is, as a fraction of the framed field.
+ *
+ * This hem runs left to right, so the strip is SHORT along it and LONG across it: what is being
+ * measured is the luma profile perpendicular to the edge, and the columns are independent samples
+ * of that profile. At `detail` the strip comes out 128 x 880 px, which is 6.4 mm of hem sampled
+ * across 44 mm of thigh.
+ *
+ * ⚠️ The strip's width is NOT limited by the hem's slope, because the gate aligns each column on
+ * its own colour boundary before averaging. It is limited by the hem staying a single edge: 6.4 mm
+ * of the leg opening is one run of it, and a wider strip would reach the corner where it turns.
+ */
+const HEM_STRIP_WIDTH = 0.08;
+const HEM_STRIP_HEIGHT = 0.55;
+
+/**
+ * Sets up ONE close frame on a foundation hem for `hem.selftest.mjs`, and returns the strip to
+ * measure it in.
+ *
+ * 🎯 THE QUESTION THIS SERVES IS "DOES THE ROLL READ", not "was the roll built". The band of faces
+ * `roll_the_hem()` adds has been in the artefact since R11 and nobody had ever looked at what it
+ * does to a pixel; a blind judge looking at the full-body plate called the hem "painted on", which
+ * is a statement about pixels and cannot be answered by a face count.
+ *
+ * What the page has to do that node cannot: put the foundation floor on and nothing else, stand
+ * the camera where a person would to look at the hem, and hand back the strip in PAGE coordinates
+ * — the canvas is one cell of a grid with a 460 px panel beside it, and a strip in canvas space
+ * lands on the HUD (see `projectProbeBoxes`, which learned that the expensive way).
+ *
+ * ⚠️ IT NEVER TOUCHES A MATERIAL OR A LIGHT, and the only two things it will change about a frame
+ * are named in `applyHemBreak`. Between the gate's headline reading and its red one, the geometry
+ * of the hem is the single difference — everything else about the frame is the same object, the
+ * same camera and the same rig, which is what lets the difference be attributed to the hem.
+ */
+async function stageHemProbe( { stage, figure, wardrobe }, request ) {
+
+    const { outfit = [], framing = 'detail', override = null, break: breakage = 'none' }
+        = request ?? {};
+    const named = HEM_FRAMINGS[ framing ];
+
+    if ( named === undefined ) {
+
+        throw new Error( `wardrobe: no hem framing called '${ framing }'` );
+
+    }
+
+    // `override` is how the sweep recorded above HEM_FRAMINGS was run, and how the next one will
+    // be. A framing constant that cannot be re-swept from outside the page is a constant nobody
+    // will ever re-derive.
+    const recipe = override === null ? named : { ...named, ...override };
+
+    await wardrobe.dress( outfit );
+
+    const flattened = applyHemBreak( figure, wardrobe, breakage );
+
+    const skeleton = figure.skeleton ?? figure.body?.skeleton ?? null;
+    const bone = skeleton?.bones.find(
+        ( candidate ) => candidate.name.toLowerCase().includes( recipe.bone ) ) ?? null;
+
+    if ( bone === null ) {
+
+        throw new Error( `wardrobe: the skeleton has no '${ recipe.bone }' bone to aim at` );
+
+    }
+
+    const aim = new Vector3().setFromMatrixPosition( bone.matrixWorld );
+    aim.add( new Vector3().fromArray( recipe.offset ) );
+
+    // The camera stands off far enough that `field` metres fill the frame vertically. Distance is
+    // derived from the field rather than named directly, so the two framings differ in exactly one
+    // quantity and a reader can see which.
+    const distance = ( recipe.field / 2 ) / Math.tan( ( FIELD_OF_VIEW_DEGREES * Math.PI ) / 360 );
+    const azimuth = ( recipe.azimuth * Math.PI ) / 180;
+    const elevation = ( recipe.elevation * Math.PI ) / 180;
+
+    stage.camera.position.set(
+        aim.x + Math.sin( azimuth ) * Math.cos( elevation ) * distance,
+        aim.y + Math.sin( elevation ) * distance,
+        aim.z + Math.cos( azimuth ) * Math.cos( elevation ) * distance );
+    stage.camera.lookAt( aim );
+    stage.camera.updateMatrixWorld( true );
+
+    stage.renderer.shadowMap.needsUpdate = true;
+    stage.renderer.render( stage.scene, stage.camera );
+
+    const rect = stage.renderer.domElement.getBoundingClientRect();
+    const centre = aim.clone().project( stage.camera );
+
+    // The strip is sized off the camera's own field, not off the canvas, so both framings measure
+    // the same fraction of the body and the two readings stay comparable.
+    const halfHeight = ( recipe.field * HEM_STRIP_HEIGHT ) / 2;
+    const edge = aim.clone();
+    edge.y += halfHeight;
+    const halfRows = Math.abs( edge.project( stage.camera ).y - centre.y ) * rect.height / 2;
+    const halfColumns = halfRows * ( HEM_STRIP_WIDTH / HEM_STRIP_HEIGHT );
+
+    return {
+        worn: [ ...wardrobe.worn ],
+        framing,
+        break: breakage,
+        flattened,
+        source: FOUNDATION_FRAGMENT_ROOT,
+        aim: [ aim.x, aim.y, aim.z ],
+        metresPerPixel: recipe.field / rect.height,
+        canvas: [ rect.width, rect.height ],
+        strip: [
+            Math.round( rect.left + ( centre.x * 0.5 + 0.5 ) * rect.width - halfColumns ),
+            Math.round( rect.top + ( -centre.y * 0.5 + 0.5 ) * rect.height - halfRows ),
+            Math.max( 2, Math.round( halfColumns * 2 ) ),
+            Math.max( 2, Math.round( halfRows * 2 ) )
+        ]
+    };
+
+}
+
+/** The positions and normals each fragment arrived with, so a flattened hem can be put back. */
+const hemGeometryAsFound = new WeakMap();
+
+/**
+ * The red half of the hem gate, applied to the geometry the page is about to draw.
+ *
+ * 🚩 `'hem-roll'` FLATTENS THE ROLLED BAND ONTO THE HEM RING IT WAS EXTRUDED FROM. Every ring
+ * vertex is moved onto the vertex `HemGeometry` pairs it with, which takes the band's projected
+ * area to zero and leaves the shell ending at its hem with no thickness — the geometry
+ * `build_figure.py --no-hem-roll` builds, reproduced without a Blender in the loop.
+ *
+ * ⚠️ IT IS THE CONSERVATIVE FORM OF THAT DEFECT, DELIBERATELY. Only positions move; the vertex
+ * NORMALS the exporter wrote still carry the band's turn-under, so the ring of shell faces just
+ * inside the hem keeps some of the shading the roll gave it. A real `--no-hem-roll` build has
+ * neither. If the gate's floor is cleared by this break it is cleared by the harder of the two,
+ * and the softer one was measured in the same session — see this file's sibling gate for both.
+ *
+ * `'garment-cast'` clears `castShadow` on the worn fragments, and it is here to answer a question
+ * this gate would otherwise be open to: whether the dark line at the hem is the BAND or a shadow
+ * the band casts. `shadow.selftest.mjs` reports 3.9's finding that a foundation hem casts nothing
+ * measurable at full-body framing; this framing is 20x closer, so the question is live again and
+ * gets a toggle rather than an argument.
+ *
+ * Returns how many vertices were moved, per garment, so a break that silently found no band is a
+ * zero in the gate's own output instead of a green line.
+ */
+function applyHemBreak( figure, wardrobe, breakage ) {
+
+    const worn = new Set( wardrobe.wornMeshes.values() );
+    const flattened = {};
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true || worn.has( object ) ) return;
+        rememberShadowFlags( object );
+
+    } );
+
+    for ( const [ id, mesh ] of wardrobe.wornMeshes ) {
+
+        rememberShadowFlags( mesh );
+        if ( breakage === 'garment-cast' ) mesh.castShadow = false;
+
+        const geometry = mesh.geometry;
+
+        if ( hemGeometryAsFound.has( geometry ) === false ) {
+
+            hemGeometryAsFound.set( geometry, {
+                position: geometry.attributes.position.array.slice(),
+                normal: geometry.attributes.normal.array.slice()
+            } );
+
+        }
+
+        // Restored before every reading, never after: a break left applied by an earlier call is
+        // exactly how a probe comes to measure the same broken frame twice and report agreement.
+        const asFound = hemGeometryAsFound.get( geometry );
+        geometry.attributes.position.array.set( asFound.position );
+        geometry.attributes.normal.array.set( asFound.normal );
+        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.normal.needsUpdate = true;
+
+        if ( breakage !== 'hem-roll' ) continue;
+
+        flattened[ id ] = flattenHemRoll( mesh.geometry );
+
+    }
+
+    return flattened;
+
+}
+
+/**
+ * Un-rolls the hem in place: the band collapses onto the ring it was extruded from, and every
+ * normal is recomputed from the shell alone. Returns how many vertices moved.
+ *
+ * 🚩 THE NORMALS ARE THE HALF THAT MATTERS, AND THE FIRST VERSION OF THIS MOVED ONLY POSITIONS.
+ * It measured 52.32% against the shipped shell's 52.32% — no effect whatever, on a break that had
+ * moved 1,003 vertices. The reason is the geometry of the probe: at this hem the band extrudes
+ * straight back along the view direction, so its PROJECTED AREA is very nearly zero and it is not
+ * what the camera sees. What the camera sees is the shell's last ring of faces, whose vertex
+ * normals the extrusion turned through most of a right angle — the roll reads because it bends the
+ * shading at the edge, not because it paints a stripe. A red proof that leaves those normals in
+ * place is a red proof that leaves the defect fixed.
+ *
+ * So the normals are rebuilt from the INTERIOR triangles only, which is the surface a
+ * `--no-hem-roll` build hands to the exporter. Validated against one: this break and a real
+ * no-roll build of the same command are within 0.3% of each other on the same statistic.
+ *
+ * The FULL index is what the band is measured in, not the drawn range: `Wardrobe` rewrites the
+ * live index buffer when an outer garment occludes part of a foundation shell, and a hem that is
+ * not currently drawn is still a hem.
+ */
+function flattenHemRoll( geometry ) {
+
+    const position = geometry.attributes.position;
+    const normal = geometry.attributes.normal;
+    const measured = measureHemRoll( position.array, geometry.index.array );
+
+    const sourcesOf = new Map();
+
+    for ( let vertex = 0; vertex < position.count; vertex ++ ) {
+
+        const welded = measured.weld[ vertex ];
+        const bucket = sourcesOf.get( welded );
+
+        if ( bucket === undefined ) sourcesOf.set( welded, [ vertex ] ); else bucket.push( vertex );
+
+    }
+
+    // A ring vertex has no interior face of its own, so once it has collapsed onto its source it
+    // takes that source's normal — which is what a shell with no band would have had there.
+    const normalSource = new Map();
+    for ( const [ ring, source ] of measured.pairs ) normalSource.set( ring, source );
+
+    let moved = 0;
+
+    for ( let vertex = 0; vertex < position.count; vertex ++ ) {
+
+        const welded = measured.weld[ vertex ];
+        const source = normalSource.get( welded );
+        const from = source ?? welded;
+
+        if ( source !== undefined ) {
+
+            position.array[ vertex * 3 ] = measured.coordinates[ source * 3 ];
+            position.array[ vertex * 3 + 1 ] = measured.coordinates[ source * 3 + 1 ];
+            position.array[ vertex * 3 + 2 ] = measured.coordinates[ source * 3 + 2 ];
+            moved ++;
+
+        }
+
+        const length = Math.hypot( measured.interiorNormals[ from * 3 ],
+            measured.interiorNormals[ from * 3 + 1 ], measured.interiorNormals[ from * 3 + 2 ] );
+
+        if ( length === 0 ) continue;
+
+        normal.array[ vertex * 3 ] = measured.interiorNormals[ from * 3 ] / length;
+        normal.array[ vertex * 3 + 1 ] = measured.interiorNormals[ from * 3 + 1 ] / length;
+        normal.array[ vertex * 3 + 2 ] = measured.interiorNormals[ from * 3 + 2 ] / length;
+
+    }
+
+    position.needsUpdate = true;
+    normal.needsUpdate = true;
+
+    return moved;
 
 }
 

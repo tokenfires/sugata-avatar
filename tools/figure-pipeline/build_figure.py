@@ -395,6 +395,14 @@ def parse_arguments():
                              "writes the three _decency_* regions onto the body, which is what "
                              "the coverage gate measures against. Known ids: " +
                              ", ".join(sorted(FOUNDATION_GARMENTS)) + ".")
+    parser.add_argument("--no-hem-roll", action="store_true",
+                        help="RED PROOF ONLY, NOT A SHIPPING OPTION. Build the foundation shells "
+                             "without `roll_the_hem`, i.e. as the knife-edged open surfaces that "
+                             "9.8's blind judges read as a texture mask rather than a garment. It "
+                             "exists so `packages/core/src/wardrobe/hem.selftest.mjs` can be shown "
+                             "to go red against artefacts that really lack the band, instead of "
+                             "against a defect simulated in the renderer. Write the output "
+                             "somewhere that is not assets/wardrobe.")
     parser.add_argument("--garment-fragment-dir", default=None, metavar="DIR",
                         help="Write each garment to DIR/<id>/g<NNN>.glb as a standalone fragment "
                              "and leave it out of the body GLB.")
@@ -1232,7 +1240,8 @@ def build_foundation_garments(basemesh, rig, marks, arguments, manifest_entries)
                              "vertices at this identity.")
 
         shell, standoff = cut_conformal_shell(basemesh, rig, garment_id, region, region_of,
-                                              marks, entry)
+                                              marks, entry,
+                                              roll_hem=not arguments.no_hem_roll)
         built.append((shell, "", garment_id))
         regions[garment_id] = region
         standoffs[garment_id] = standoff
@@ -1258,7 +1267,8 @@ def dominant_bone_per_vertex(basemesh, rig):
     return dominant
 
 
-def cut_conformal_shell(basemesh, rig, garment_id, region, region_of, marks, manifest_entry):
+def cut_conformal_shell(basemesh, rig, garment_id, region, region_of, marks, manifest_entry,
+                        roll_hem=True):
     """Duplicates the body, refines a patch of it, and cuts the garment out of the patch.
 
     Four steps, and each one is in the order it is for a reason:
@@ -1326,7 +1336,11 @@ def cut_conformal_shell(basemesh, rig, garment_id, region, region_of, marks, man
 
     # 🎯 9.8 reopened. The garment is a surface until here, and a surface has no thickness. See
     # FOUNDATION_HEM_ROLL_M — this is the band that gives the hem an edge a viewer can see.
-    rolled = roll_the_hem(shell, skin)
+    #
+    # `--no-hem-roll` skips it, and skipping it is the ONLY way to produce the defect honestly:
+    # the shells then export as the knife-edged open surfaces 9.8 shipped with, so a gate that
+    # claims to measure the roll can be pointed at a build that genuinely has none.
+    rolled = roll_the_hem(shell, skin) if roll_hem else 0
 
     # ⚠️ MEASURED AFTER THE ROLL, and the first version of this was not. The roll is the part of
     # the shell that comes CLOSEST to the skin by construction, so a clearance measured before it
@@ -1346,6 +1360,16 @@ def roll_the_hem(shell, skin):
     """Folds the open boundary of a shell back toward the skin as a band of real faces.
 
     Returns the number of faces added.
+
+    🚩 **WHAT MAKES THIS READ IS THE NORMALS IT INDUCES, NOT THE BAND'S OWN AREA**, and that was
+    measured rather than reasoned about at R12. Seen face-on — which is how anyone looks at a hem —
+    the band extrudes along the view direction and its projected area is very nearly zero. What
+    darkens is the shell's LAST RING OF FACES, whose vertex normals this extrusion turns through
+    most of a right angle. `packages/core/src/wardrobe/hem.selftest.mjs` reproduced the defect by
+    flattening the band's positions and leaving the exported normals alone: 1,003 vertices moved and
+    the rendered statistic did not change by a hundredth of a per cent. So any later pass that keeps
+    these faces but re-authors their normals — a hard-edge split, custom split normals, a decimation
+    — loses the fix while every face count in `describe_foundation` stays right.
 
     Three things this has to get right, and each of them fails silently if it does not:
 
@@ -1778,7 +1802,8 @@ def srgb_hex_to_linear(hex_colour):
                  for channel in channels)
 
 
-def describe_foundation(shells, regions, standoffs, marks, membership, manifest_entries):
+def describe_foundation(shells, regions, standoffs, marks, membership, manifest_entries,
+                        roll_hem=True):
     """Prints what each shell came out as, and fails the build on the ways it can silently go bad.
 
     🚩 **A uniform normal offset folds through itself wherever the surface is concave on a radius
@@ -1801,6 +1826,10 @@ def describe_foundation(shells, regions, standoffs, marks, membership, manifest_
     print("=== foundation layer (9.8) ===")
     print(f"landmarks       : {marks.describe()}")
 
+    if not roll_hem:
+        print("!!! --no-hem-roll: THESE SHELLS ARE THE KNOWN-BAD BUILD. The hem is a knife edge "
+              "with no thickness, which is the defect 9.8 reopened for. Do not ship them.")
+
     problems = []
 
     for shell, _path, garment_id in shells:
@@ -1818,7 +1847,7 @@ def describe_foundation(shells, regions, standoffs, marks, membership, manifest_
         # the shell still renders, still covers, still passes every clearance clause above. The
         # only symptom is that a viewer reads the garment as painted on. So the absence of the
         # band is a build failure rather than a note.
-        if standoff.rolled_faces == 0:
+        if standoff.rolled_faces == 0 and roll_hem:
             problems.append(f"{garment_id} has no rolled hem — the shell is an open surface with "
                             "a knife edge, which is what 9.8's critics read as a texture mask")
 
@@ -2570,7 +2599,8 @@ def main():
 
         foundation, regions, standoffs = build_foundation_garments(
             basemesh, rig, marks, arguments, manifest_entries)
-        describe_foundation(foundation, regions, standoffs, marks, membership, manifest_entries)
+        describe_foundation(foundation, regions, standoffs, marks, membership, manifest_entries,
+                            roll_hem=not arguments.no_hem_roll)
 
         for shell, _path, garment_id in foundation:
             force_alpha_mode(shell, manifest_entries[garment_id]["alphaMode"])
