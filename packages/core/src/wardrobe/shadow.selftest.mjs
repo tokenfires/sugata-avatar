@@ -196,6 +196,84 @@ const HEM_VIEW = { boneFragment: 'thigh', riseM: -0.315, heightM: 0.30, azimuthD
  */
 const MINIMUM_PROBE_LUMA = 0.15;
 
+/**
+ * --- THE SHIPPED RIG'S HALF OF THE SAME DEFECT ------------------------------------------------
+ *
+ * Everything above measures `wardrobe.html`, whose light is a `DirectionalLight` the page sets up
+ * itself. The avatar does not ship on that page. It ships on `alive.html`, lit by
+ * `packages/core/src/render/LightingRig.js`, and that rig set `shadow.normalBias = 0.020` — twenty
+ * millimetres of world-space step along the receiver's normal, against a shadow texel this round
+ * measured at 0.4512 mm portrait and 1.9623 mm at body framing, and against garment standoffs
+ * `tools/critic/rejudge.mjs --clearance` puts at a 2.660 mm median under the casual suit's sleeve.
+ * Every contact closer than 20 mm was stepped over. A blind critic looking at the hair on the same
+ * page reported the same thing from the other side: "the hair casts no shadow on anything ... the
+ * cheek is at full brightness right up to the card edge".
+ *
+ * So the clauses at the bottom of this file put the SHIPPED rig in front of the SAME question the
+ * rest of the file asks: does a worn thing darken the body under it, in rendered pixels. They are
+ * here rather than in `LightingRig.selftest.mjs` because this is the file that already knows how
+ * to ask it — a browser, a dressed figure and a luma probe — and because the defect class is the
+ * one this file exists for. `LightingRig.selftest.mjs`'s SHADOW BIAS clauses are the other half:
+ * they read the constant's arithmetic off the built lights in a millisecond and cannot tell you
+ * whether anything got darker. Neither substitutes for the other.
+ *
+ * ⚠️ THE GATE NEVER SETS THE BIAS ON THE GREEN ARM. It reads what the rig produced, exactly as
+ * this file never sets `castShadow` itself. It sets the bias only on the two RED arms, which are
+ * the pre-round constant and zero.
+ */
+// ⚠️ NO `/src` — `alive.html` sits at `packages/testbed/alive.html`, one level up from the twelve
+// browserchecks under `src/`, and vite's root is the testbed package. A wrong path here does not
+// 404 loudly; it serves the directory index, which boots nothing and reads as a hung page.
+const RIG_PAGE = '/alive.html?bare&frame=body&freeze&seed=1&aa=msaa&grade=0' +
+    '&wear=female_casualsuit01,shoes01';
+const RIG_WIDTH = 900;
+const RIG_HEIGHT = 1600;
+
+/** The constant the rig shipped with before this round, and the deepest a regression could go. */
+const REGRESSED_BIAS_METRES = 0.020;
+const ZERO_BIAS_METRES = 0;
+
+/**
+ * How much more contact shadow the shipped rig has to find than the constant it replaced.
+ *
+ * Measured this round on the page and outfit above: mean darkening over the contact band —
+ * bare skin within 12 px of drawn cloth, garments casting against the same frame with their
+ * `castShadow` cleared — reads 3.2196 of 255 at the rig's own bias and 2.6877 at 0.020 m. That is
+ * 1.198. The floor is 1.12, which is a little over half the measured margin and an order of
+ * magnitude clear of the 1.000 a straight revert would produce.
+ *
+ * ⚠️ A RATIO AND NOT A LEVEL, deliberately. The absolute darkening is a property of the rig's
+ * exposure and of what the figure is wearing, and both are somebody else's to change. The ratio
+ * asks only whether the bias is still buying the contact back, which is the claim.
+ */
+const MINIMUM_CONTACT_AGAINST_REGRESSION = 1.12;
+
+/**
+ * How much acne the shipped rig may pay for that contact, against the same reference arm.
+ *
+ * The other direction, and the reason this gate is two-sided: "the contact came back" is trivially
+ * satisfiable by setting the bias to zero, and zero is what makes the garment self-shadow. Acne
+ * here is the high-frequency energy the shadow map ADDS to the GARMENT's own surface over a
+ * shadow-free render of the same frame — the cloth, not the skin, because `Wardrobe.js` sets
+ * `material.shadowSide = DoubleSide` and cloth is the only caster on this page whose front faces
+ * reach the shadow map at all. Measured, in 255ths of luma, at body framing:
+ *
+ *     0.020 m   (10.19 texels)   0.0013     ← the reference arm
+ *     rig       ( 1.50 texels)   0.0043     ← 3.3x
+ *     0.001 m   ( 0.51 texels)   0.0869     ← 66.8x
+ *     0         ( 0.00 texels)   0.4076     ← 313x
+ *
+ * The ceiling is 8x: 2.4 times above what the shipped rig pays and 8.4 times below what the first
+ * acned setting costs. Both edges are measurements and neither is fitted to the value.
+ */
+const MAXIMUM_ACNE_AGAINST_REGRESSION = 8;
+
+/** Bare skin this close to drawn cloth is where a hem's own shadow can land. */
+const CONTACT_BAND_PIXELS = 12;
+
+/** The garment's own surface is eroded by this much, so a hem's silhouette is not read as acne. */
+const CLOTH_EROSION_PIXELS = 8;
+
 let checks = 0;
 let failures = 0;
 
@@ -399,6 +477,169 @@ function darkening( lit, shadowed ) {
 
     if ( lit.luma <= 0 ) return 0;
     return ( lit.luma - shadowed.luma ) / lit.luma;
+
+}
+
+// --- the shipped rig's probe --------------------------------------------------------------------
+
+/** One whole-frame plate of `alive.html`, decoded to a plane of encoded luma. */
+async function rigPlate( page ) {
+
+    // Three steps rather than one: `Stage` runs its own loop, so a screenshot taken the instant an
+    // evaluate resolves can land on the frame before the change. Stepping is the page's own
+    // capture barrier — `capture.mjs` drives it the same way.
+    await page.evaluate( () => { for ( let step = 0; step < 3; step += 1 ) globalThis.__SUGATA_STEP__( 1 / 60 ); } );
+
+    const decoded = decodePng( await page.screenshot( { timeout: 60000 } ) );
+    const luma = new Float64Array( decoded.width * decoded.height );
+
+    for ( let index = 0; index < luma.length; index += 1 ) {
+
+        const offset = index * 4;
+        luma[ index ] = encodedLuma( decoded.pixels[ offset ],
+            decoded.pixels[ offset + 1 ], decoded.pixels[ offset + 2 ] );
+
+    }
+
+    return { width: decoded.width, height: decoded.height, luma };
+
+}
+
+/**
+ * Grows a mask by `radius` pixels, four-connected.
+ *
+ * Used both ways: outward to find the skin a hem could darken, and — with the mask inverted —
+ * inward, to pull the acne reading off the garment's own edges.
+ */
+function grow( mask, width, height, radius ) {
+
+    let front = Uint8Array.from( mask );
+
+    for ( let step = 0; step < radius; step += 1 ) {
+
+        const next = Uint8Array.from( front );
+
+        for ( let y = 1; y < height - 1; y += 1 ) {
+
+            for ( let x = 1; x < width - 1; x += 1 ) {
+
+                const index = y * width + x;
+                if ( front[ index ] === 1 ) continue;
+                if ( front[ index - 1 ] || front[ index + 1 ] ||
+                    front[ index - width ] || front[ index + width ] ) next[ index ] = 1;
+
+            }
+
+        }
+
+        front = next;
+
+    }
+
+    return front;
+
+}
+
+/**
+ * Per-pixel high-frequency energy: the magnitude of a four-neighbour Laplacian of luma.
+ *
+ * Acne is a per-texel alternation and reads here; a soft contact shadow at `penumbra` 1 over a
+ * 4096² map is smooth and barely does. That asymmetry is the whole reason the acne clause can be
+ * measured on the same plates as the contact clause without the two reading each other.
+ */
+function highFrequency( plate ) {
+
+    const { width, height, luma } = plate;
+    const out = new Float64Array( width * height );
+
+    for ( let y = 1; y < height - 1; y += 1 ) {
+
+        for ( let x = 1; x < width - 1; x += 1 ) {
+
+            const index = y * width + x;
+            out[ index ] = Math.abs( 4 * luma[ index ] - luma[ index - 1 ] - luma[ index + 1 ]
+                - luma[ index - width ] - luma[ index + width ] ) / 4;
+
+        }
+
+    }
+
+    return out;
+
+}
+
+/** The mean of `values` over a mask, in 255ths of luma. */
+function meanOver( values, mask ) {
+
+    let total = 0;
+    let count = 0;
+
+    for ( let index = 0; index < mask.length; index += 1 ) {
+
+        if ( mask[ index ] !== 1 ) continue;
+        total += values[ index ]; count += 1;
+
+    }
+
+    return { mean255: count === 0 ? 0 : ( total / count ) * 255, count };
+
+}
+
+/**
+ * One arm of the rig probe: contact gained and acne paid, at whatever normal bias is on the rig.
+ *
+ * `biasMetres` null means "leave the rig alone" — that is the green arm, and it is the only one
+ * that measures the shipped configuration. The two red arms force a constant, which is exactly the
+ * defect being guarded against and is applied to the LIGHT rather than to any file.
+ */
+async function readRigArm( page, masks, biasMetres ) {
+
+    const applied = await page.evaluate( ( metres ) => {
+
+        const casters = globalThis.sugata.lights.units
+            .map( ( unit ) => unit.shadowCaster ).filter( ( caster ) => caster !== null );
+
+        if ( metres !== null ) for ( const caster of casters ) caster.shadow.normalBias = metres;
+
+        // Reported back rather than assumed, so a run states the bias it actually measured.
+        return casters.map( ( caster ) => caster.shadow.normalBias );
+
+    }, biasMetres );
+
+    await setRigCasting( page, true );
+    const lit = await rigPlate( page );
+
+    await setRigCasting( page, false );
+    const unworn = await rigPlate( page );
+
+    await setRigCasting( page, true );
+
+    const contact = new Float64Array( lit.luma.length );
+    for ( let index = 0; index < contact.length; index += 1 ) contact[ index ] = unworn.luma[ index ] - lit.luma[ index ];
+
+    const acne = highFrequency( lit );
+    for ( let index = 0; index < acne.length; index += 1 ) acne[ index ] -= masks.acneFloor[ index ];
+
+    return {
+        normalBiasMetres: applied[ 0 ],
+        contact: meanOver( contact, masks.band ),
+        acne: meanOver( acne, masks.cloth )
+    };
+
+}
+
+/** Whether the worn fragments cast into the shadow map. The BODY's own casting is never touched. */
+function setRigCasting( page, casting ) {
+
+    return page.evaluate( ( value ) => {
+
+        for ( const fragment of globalThis.sugata.wardrobe.fragments.values() ) {
+
+            if ( fragment.mesh != null ) fragment.mesh.castShadow = value;
+
+        }
+
+    }, casting );
 
 }
 
@@ -675,7 +916,181 @@ try {
         'RED PROOF 2 — clearing receiveShadow on the BODY removes the same darkening',
         `${ ( hemVersusReceive * 100 ).toFixed( 2 ) }%` );
 
+    // --- THE SHIPPED RIG: the same question, on the page the avatar actually runs on --------------
+    //
+    // See RIG_PAGE's block above for why this is here and not in `LightingRig.selftest.mjs`.
+
+    console.log( '\n--- the shipped LightingRig, on alive.html: contact gained against acne paid ---' );
+
+    // ⚠️ ITS OWN CONTEXT, AND THE WARDROBE PAGE IS CLOSED FIRST. Both pages run a live render loop
+    // against one GPU; measured, sharing a context left `alive.html` still booting after three
+    // minutes while the wardrobe page's loop held the device. This page also wants a different
+    // viewport, which a context-level setting cannot give it.
     await context.close();
+
+    const rigContext = await browser.newContext( {
+        viewport: { width: RIG_WIDTH, height: RIG_HEIGHT },
+        deviceScaleFactor: DEVICE_SCALE,
+        colorScheme: 'dark'
+    } );
+
+    const rigPage = await rigContext.newPage();
+    const rigErrors = [];
+
+    rigPage.on( 'pageerror', ( error ) => rigErrors.push( error.message ) );
+
+    await rigPage.goto( `${ server.baseUrl }${ RIG_PAGE }`, { waitUntil: 'domcontentloaded', timeout: 120000 } );
+    // Waited for in three steps rather than one, so a stall says WHICH of them never arrived —
+    // the step hook, the rig, or the dress. One conjunction would only ever say "timed out".
+    for ( const stage of [
+        { name: 'the step hook (__SUGATA_STEP__)', ready: () => typeof globalThis.__SUGATA_STEP__ === 'function' },
+        { name: 'the lighting rig (sugata.lights)', ready: () => globalThis.sugata?.lights !== undefined },
+        { name: 'the dress (sugata.wardrobe)', ready: () => globalThis.sugata?.wardrobe != null }
+    ] ) {
+
+        await rigPage.waitForFunction( stage.ready, null, { timeout: 180000 } )
+            .catch( () => toolError( `alive.html never reached ${ stage.name }.${ rigErrors.length === 0
+                ? '' : `\n  page errors: ${ rigErrors.join( '\n  ' ) }` }` ) );
+
+    }
+
+    // ⚠️ THE MASKS COME OFF SHADOW-FREE PLATES, so a pixel is classified for what is DRAWN there
+    // and never for being in shadow. A mask taken from a shadowed plate would move with the very
+    // thing being measured, and every reading below would be about the mask.
+    await rigPage.evaluate( () => {
+
+        for ( const unit of globalThis.sugata.lights.units ) {
+
+            if ( unit.shadowCaster !== null ) unit.shadowCaster.castShadow = false;
+
+        }
+
+    } );
+
+    const unshadowed = await rigPlate( rigPage );
+
+    await rigPage.evaluate( () => {
+
+        for ( const fragment of globalThis.sugata.wardrobe.fragments.values() ) {
+
+            if ( fragment.mesh != null ) fragment.mesh.visible = false;
+
+        }
+
+    } );
+
+    const undressed = await rigPlate( rigPage );
+
+    await rigPage.evaluate( () => {
+
+        for ( const fragment of globalThis.sugata.wardrobe.fragments.values() ) {
+
+            if ( fragment.mesh != null ) fragment.mesh.visible = true;
+
+        }
+
+        for ( const unit of globalThis.sugata.lights.units ) {
+
+            if ( unit.shadowCaster !== null ) unit.shadowCaster.castShadow = true;
+
+        }
+
+    } );
+
+    const pixelCount = unshadowed.luma.length;
+    const clothDrawn = new Uint8Array( pixelCount );
+    const bareSkin = new Uint8Array( pixelCount );
+
+    for ( let index = 0; index < pixelCount; index += 1 ) {
+
+        const onFigure = unshadowed.luma[ index ] > 0.06;
+        const covered = Math.abs( unshadowed.luma[ index ] - undressed.luma[ index ] ) > 1 / 255;
+
+        if ( onFigure && covered ) clothDrawn[ index ] = 1;
+        if ( onFigure && covered === false ) bareSkin[ index ] = 1;
+
+    }
+
+    const nearCloth = grow( clothDrawn, unshadowed.width, unshadowed.height, CONTACT_BAND_PIXELS );
+    const band = new Uint8Array( pixelCount );
+    for ( let index = 0; index < pixelCount; index += 1 ) {
+
+        if ( bareSkin[ index ] === 1 && nearCloth[ index ] === 1 ) band[ index ] = 1;
+
+    }
+
+    // Eroded by growing the COMPLEMENT: a hem's own silhouette is a step in luma and would read as
+    // acne on the panel it belongs to.
+    const notCloth = new Uint8Array( pixelCount );
+    for ( let index = 0; index < pixelCount; index += 1 ) notCloth[ index ] = clothDrawn[ index ] === 1 ? 0 : 1;
+
+    const nearEdge = grow( notCloth, unshadowed.width, unshadowed.height, CLOTH_EROSION_PIXELS );
+    const cloth = new Uint8Array( pixelCount );
+    for ( let index = 0; index < pixelCount; index += 1 ) {
+
+        if ( clothDrawn[ index ] === 1 && nearEdge[ index ] !== 1 ) cloth[ index ] = 1;
+
+    }
+
+    const masks = { band, cloth, acneFloor: highFrequency( unshadowed ) };
+
+    const shipped = await readRigArm( rigPage, masks, null );
+    const regressed = await readRigArm( rigPage, masks, REGRESSED_BIAS_METRES );
+    const zeroed = await readRigArm( rigPage, masks, ZERO_BIAS_METRES );
+
+    // Put the rig back, so nothing downstream inherits a red arm's state.
+    await readRigArm( rigPage, masks, shipped.normalBiasMetres );
+
+    console.log( `       ${ unshadowed.width }x${ unshadowed.height }, contact band ${ shipped.contact.count } px, ` +
+        `garment surface ${ shipped.acne.count } px` );
+    console.log( `       the rig produced ${ ( shipped.normalBiasMetres * 1000 ).toFixed( 4 ) } mm of normal bias ` +
+        'for this framing, unprompted' );
+    console.log( `       contact 255ths  rig ${ shipped.contact.mean255.toFixed( 4 ) }   ` +
+        `at ${ ( REGRESSED_BIAS_METRES * 1000 ).toFixed( 0 ) } mm ${ regressed.contact.mean255.toFixed( 4 ) }   ` +
+        `at 0 ${ zeroed.contact.mean255.toFixed( 4 ) }` );
+    console.log( `       acne 255ths     rig ${ shipped.acne.mean255.toFixed( 4 ) }   ` +
+        `at ${ ( REGRESSED_BIAS_METRES * 1000 ).toFixed( 0 ) } mm ${ regressed.acne.mean255.toFixed( 4 ) }   ` +
+        `at 0 ${ zeroed.acne.mean255.toFixed( 4 ) }` );
+
+    // 🚩 THE PROBE HAS TO BE ON SOMETHING. A band of zero pixels, or a frame that decoded black,
+    // makes every ratio below meaningless and every one of them pass.
+    report( shipped.contact.count > 2000 && shipped.acne.count > 2000
+        && regressed.contact.mean255 > 0.5,
+        'RIG CONTACT: the probe is on lit skin beside real cloth',
+        `${ shipped.contact.count } px of contact band and ${ shipped.acne.count } px of garment surface; ` +
+        `the reference arm reads ${ regressed.contact.mean255.toFixed( 4 ) } of 255 darkening, which is a shadow ` +
+        'and not a decode that has gone to zero' );
+
+    // 🎯 THE HEADLINE. The rig's own bias against the constant it replaced, same frame, same
+    // outfit, same camera, one field apart. A straight revert reads exactly 1.000 here.
+    const contactRatio = regressed.contact.mean255 === 0
+        ? 0 : shipped.contact.mean255 / regressed.contact.mean255;
+    report( contactRatio >= MINIMUM_CONTACT_AGAINST_REGRESSION,
+        'RIG CONTACT — the shipped bias finds more contact shadow than the 20 mm constant it replaced',
+        `${ contactRatio.toFixed( 3 ) }x against a ${ MINIMUM_CONTACT_AGAINST_REGRESSION }x floor ` +
+        `(${ shipped.contact.mean255.toFixed( 4 ) } of 255 against ${ regressed.contact.mean255.toFixed( 4 ) }). ` +
+        'A revert to a 20 mm constant reads 1.000' );
+
+    // The other direction, and the one that stops "more contact" being bought with zero bias.
+    const acneRatio = regressed.acne.mean255 === 0 ? Infinity : shipped.acne.mean255 / regressed.acne.mean255;
+    report( acneRatio <= MAXIMUM_ACNE_AGAINST_REGRESSION,
+        'RIG ACNE — and pays no more than 8x the reference arm\'s high-frequency energy for it',
+        `${ acneRatio.toFixed( 2 ) }x against a ${ MAXIMUM_ACNE_AGAINST_REGRESSION }x ceiling ` +
+        `(${ shipped.acne.mean255.toFixed( 4 ) } of 255 against ${ regressed.acne.mean255.toFixed( 4 ) })` );
+
+    // 🚩 RED PROOF, RUN EVERY TIME RATHER THAN DESCRIBED. Zero bias is the setting that maximises
+    // the contact reading, so the clause above it would wave it through; this is the clause that
+    // does not. If it ever fails, the acne ceiling has stopped separating anything and the number
+    // above it means nothing.
+    const zeroAcneRatio = regressed.acne.mean255 === 0 ? Infinity : zeroed.acne.mean255 / regressed.acne.mean255;
+    report( zeroAcneRatio > MAXIMUM_ACNE_AGAINST_REGRESSION,
+        'RED PROOF 3 — the acne ceiling is not vacuous: zero bias blows through it',
+        `${ zeroAcneRatio.toFixed( 1 ) }x against the same ${ MAXIMUM_ACNE_AGAINST_REGRESSION }x ceiling ` +
+        `(${ zeroed.acne.mean255.toFixed( 4 ) } of 255), while its contact reading ` +
+        `${ zeroed.contact.mean255.toFixed( 4 ) } is the HIGHEST of the three — which is exactly why ` +
+        'the contact clause alone would have shipped it' );
+
+    await rigContext.close();
 
 } catch ( error ) {
 

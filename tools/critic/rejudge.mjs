@@ -331,11 +331,23 @@ const CHANGED_THRESHOLD = 1 / 255;
  * judge", which is exactly the state of the world it should be reporting — the difference from R12
  * is that the reason is now measured.
  *
- * 🚩 AND THE SAME CONSTANT IS FIVE TIMES LARGER IN THE SHIPPED RIG.
- * `packages/core/src/render/LightingRig.js` sets `shadowCaster.shadow.normalBias = 0.02` — twenty
- * millimetres, against a whole-garment standoff whose median `--clearance` puts at 3.934 mm for the
- * casual suit. This page is the friendly case. Nothing in this file measures the shipped rig and
- * nothing here should be read as having done so, but the arithmetic is the same arithmetic.
+ * ✅ THE SAME CONSTANT WAS FIVE TIMES LARGER IN THE SHIPPED RIG, AND THAT HALF HAS BEEN FIXED.
+ * When this paragraph was written `packages/core/src/render/LightingRig.js` set
+ * `shadowCaster.shadow.normalBias = 0.02` — twenty millimetres, against a whole-garment standoff
+ * whose median `--clearance` puts at 3.934 mm for the casual suit. It no longer sets a distance at
+ * all: `SHADOW_NORMAL_BIAS_IN_TEXELS` makes it 1.5 of the rig's own shadow texel, written in
+ * `frameShadowCamera` beside the cone that decides how big a texel is, which comes out at 0.6768 mm
+ * at portrait framing and 2.9435 mm at body. The sweep behind the 1.5 is at that constant and the
+ * rendered-pixel gate on it is the RIG CONTACT probe in
+ * `packages/core/src/wardrobe/shadow.selftest.mjs`.
+ *
+ * ⚠️ THIS PAGE IS STILL AT 4.000 MM AND IS STILL THE FRIENDLY CASE, and `sleeve-arm` still refuses
+ * below for exactly the reason the sweep above gives. `SHADOW_NORMAL_BIAS` and `SHADOW_MAP_SIZE`
+ * live in `packages/testbed/src/wardrobe.js`, which is not this tool's to change. Nothing in this
+ * file measures the shipped rig and nothing here should be read as having done so — but the fix
+ * that landed there is the one this block argued for, and it is a count of texels rather than a
+ * smaller distance, because the shipped rig's texel is not a constant either: measured off the
+ * built lights, 0.4512 mm at portrait against 1.9623 mm at body framing.
  *
  * ⚠️ THE TARGETS ARE READ OFF RENDERED PLATES, NOT OFF THE MANIFEST. The casual suit's sleeve is
  * SHORT — it ends mid-upper-arm — which the manifest's "long-sleeve dress shirt 0.25" clo row does

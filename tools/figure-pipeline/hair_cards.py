@@ -152,9 +152,26 @@ CLAMP_OVERSHOOT = 1.50
 # by a few hairs rather than by a ribbon's straight edge.
 #
 # The strip set indexes `hair_texture.STRIP_RECIPES`: 0–2 dense, 3–5 mid, 6–7 wisps.
+#
+# 🎯 **THE `root` LAYER IS THE COVERAGE LAYER AND IT WAS PARTING WITH EVERYTHING ELSE.** A blind
+# critic saw a lit scalp at the parting; `verify_glb.mjs`'s new judge-view clause put a number on
+# it — 229.1 mm² of bare cranium visible from the front at (0.032, 1.633, 0.105), just to the
+# parting's own side of it. The cause is that every layer took the full part push, so at the part
+# plane even the innermost cards leaned away from it, and from the front a viewer looked straight
+# under them at skin. Real hair parts at the SURFACE; the hair underneath still lies across the
+# scalp, which is why a parting is a line and not a bald strip.
+#
+# So `root` takes a fraction of the part push (`part`) and is denser. It is the only layer that
+# gets either: `underlayer` outward is what the eye actually reads as a style, and a groom whose
+# every layer ignored the part would have no part.
+# How sharply the crown over-sampling concentrates on the faces that point straight up.
+# See `sample_roots`; 1 would spread it over the whole upper half of the skull.
+CROWN_BIAS_POWER = 2.0
+
 HAIR_LAYERS = [
-    {"name": "root", "cards": 64, "standoff": 0.0060, "length": 0.085,
-     "half_width": 0.0210, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08},
+    {"name": "root", "cards": 104, "standoff": 0.0060, "length": 0.085,
+     "half_width": 0.0210, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08,
+     "part": 0.20, "crown": 1.60},
     {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.150,
      "half_width": 0.0180, "strips": (2, 3), "gravity": 1.00, "jitter": 0.11},
     {"name": "body", "cards": 56, "standoff": 0.0165, "length": 0.195,
@@ -186,6 +203,17 @@ CAP_SHELL_OFFSETS_M = (0.0038, 0.0068)
 # rosettes reinforce into a visible kaleidoscope on the crown, which is the one part of the cap a
 # top-down view sees. Different counts put the two interference patterns out of phase, and the
 # whorl itself is set back (WHORL_SETBACK) so what is left sits behind the crown rather than on it.
+#
+# ⚠️ **THE WEDGE COUNT IS NOT THE LEVER ON THE "PATENT LEATHER" CROWN, AND IT WAS TRIED.** The
+# polar UV's azimuthal density is `wedges / (2π·r)`, which diverges at the whorl — so the strand
+# normal there is finer than a texel, the sampler averages it to flat, and a flat dark surface
+# under a key light is a mirror. Halving the wedges halves the radius of that collapsed zone, so
+# it should have helped. Measured on the `top` plate of `tools/figure-pipeline/hair_shots.mjs`,
+# largest connected blown-out blob: 2,280 px at (12, 7) against 2,185 px at (6, 5) — a 4% change,
+# bought with strands twice as wide in world space at the cap's rim, which is the "straw" failure
+# `hair_texture.py`'s header records. Not worth it. What DID move the crown is cards over it
+# (`crown` on the `root` layer, 2,817 px → 2,280 px); the residue is the cap's own shading and
+# belongs to whoever owns the strand BSDF, not to the UV.
 CAP_WEDGES_PER_SHELL = (12, 7)
 
 # The cap's radial UV runs 0 at the whorl to 1 at CAP_UV_REACH of the region's own radius. Under 1
@@ -473,7 +501,8 @@ def grow_layer(basemesh, frame, body, layer, arguments):
     # already unique.
     random = random_module.Random(arguments.hair_seed * 1000 + HAIR_LAYERS.index(layer))
 
-    roots = sample_roots(basemesh, frame, layer["cards"], random)
+    roots = sample_roots(basemesh, frame, layer["cards"], random,
+                         layer.get("crown", 0.0))
 
     cards = []
     for index, (position, normal) in enumerate(roots):
@@ -485,7 +514,7 @@ def grow_layer(basemesh, frame, body, layer, arguments):
     return cards
 
 
-def sample_roots(basemesh, frame, count, random):
+def sample_roots(basemesh, frame, count, random, crown_bias):
     """`count` root points on the scalp, area-weighted and spread by dart throwing.
 
     🚩 Uniform random sampling of a surface CLUMPS, and a clumped groom has bald patches next to
@@ -496,7 +525,24 @@ def sample_roots(basemesh, frame, count, random):
     """
     mesh = basemesh.data
     faces = frame.faces
-    weights = [polygon.area for polygon in faces]
+
+    # 🎯 **AREA-WEIGHTED ALONE PUTS THE FEWEST CARDS WHERE THE MOST ARE NEEDED.** Uniform density
+    # over the scalp is uniform density measured ON the scalp, and the scalp is not what a viewer
+    # sees. A card on the side of the head is seen edge-on and hides several times its own width;
+    # a card on the crown is seen face-on and hides its width and no more. So the crown needs more
+    # cards per square centimetre than the sides do, and area weighting gives it the same.
+    #
+    # The weight is the face's own UPWARDNESS, which needs no length scale and therefore fits every
+    # identity — and it is deliberately not a Gaussian about the whorl, which was the first version
+    # and which FAILED at g100: the whorl is set back by WHORL_SETBACK, so weighting about it pulls
+    # cards off the front of the crown, and `verify_glb.mjs`'s judge-view clause put 227.6 mm² of
+    # bare scalp at (0.038, 1.698, 0.112) — the top of the forehead on the largest skull in the
+    # sweep. Upwardness covers the whorl and the front of the crown alike.
+    #
+    # This is also what keeps the cap from being the visible surface at the whorl, where its polar
+    # UV converges and reads as the "patent leather" the generator's author flagged.
+    weights = [polygon.area * (1.0 + crown_bias * max(0.0, polygon.normal.normalized().z)
+                               ** CROWN_BIAS_POWER) for polygon in faces]
     total = sum(weights)
 
     cumulative = []
@@ -569,7 +615,7 @@ def root_direction(position, normal, frame, part_fraction, layer, random):
     part_x = part_fraction * frame.half_width
     from_part = position.x - part_x
     falloff = max(PART_FALLOFF * frame.half_width, 1e-6)
-    part_strength = math.exp(-(from_part / falloff) ** 2)
+    part_strength = math.exp(-(from_part / falloff) ** 2) * layer.get("part", 1.0)
 
     # Away from the plane, and toward the front where the part actually shows. `sign` is taken on
     # a nudged value so a root sitting exactly on the plane still picks a side rather than

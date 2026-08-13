@@ -42,7 +42,8 @@ const { measureHemRoll, percentile } = await import(
 // its own module so it can be pointed at shapes whose answer is known, and the thresholds live
 // here with the rest of the gate.
 const {
-  SurfaceGrid, connectedComponents, isRibbon, scalpTransmittance, uvExtentsPerComponent,
+  SurfaceGrid, connectedComponents, isRibbon, rayTriangle, scalpTransmittance,
+  uvExtentsPerComponent,
 } = await import("./hair_geometry.mjs");
 
 const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
@@ -1164,6 +1165,104 @@ const MINIMUM_SCALP_COVERAGE = 0.97;
 const SCALP_COVERAGE_REACH_M = 0.12;
 
 /**
+ * 🎯 **THIS CLAUSE READ 99.14–100.00% ON A GROOM WITH A VISIBLE BALD PATCH, AND THE THREE REASONS
+ * ARE THE THREE THINGS BELOW.** A blind critic looking at `packages/testbed/src/hair.html` saw a
+ * lit scalp at the parting and a split from crown to nape; this clause said the cranium was
+ * 100.00% hidden. A gate that passes a groom with a hole in it is not a slack threshold, it is
+ * three wrong questions, and raising the floor would have fixed none of them:
+ *
+ *   1. **IT ASKED 257 VERTICES.** The cranium's own vertices are 10–20 mm apart on this base mesh,
+ *      and a bald patch two centimetres across fits between them. Measured at g050 with the atlas
+ *      as shipped: every one of the 257 read covered, at the cutoff, with zero fully-open. The
+ *      target is now the cranium's SURFACE, sampled at SCALP_SAMPLE_SPACING_M.
+ *   2. **IT BLENDED WHERE THE RENDERER MASKS.** `1 - product(1 - alpha)` is the transmittance of
+ *      an alpha-BLENDED stack. The groom exports MASK at cutoff 0.5, so three cards at alpha 0.4
+ *      are three holes, and that arithmetic called them 78% covered. It now samples the cutoff.
+ *   3. **IT WAS A MEAN.** The floor of 0.97 tolerated 3% of the cranium bare, and 3% of a cranium
+ *      gathered into ONE PLACE is the hole. A hole is local by definition and no average can see
+ *      one, so the mean survives as a report and MAX_EXPOSED_PATCH_MM2 is the clause that fails.
+ *
+ * Spacing: 4 mm. Fine enough that a patch at the ceiling below is many samples across rather than
+ * one, coarse enough that the whole cranium is a few thousand rays against 7,224 triangles.
+ */
+const SCALP_SAMPLE_SPACING_M = 0.004;
+
+/**
+ * The biggest hole in the groom's cover that is not a defect, and how near two exposed samples
+ * have to be to count as the same hole.
+ *
+ * 50 mm² is about 8 mm across — the width of a parting, which is a hairstyle, against the 20 mm
+ * patch the critic saw, which is not. The link distance is 1.5× the sample spacing so that a run
+ * of adjacent samples joins up and two genuinely separate gaps do not.
+ */
+const MAX_EXPOSED_PATCH_MM2 = 50;
+const SCALP_PATCH_LINK_M = SCALP_SAMPLE_SPACING_M * 1.5;
+
+/**
+ * 🎯 **AND THE NORMAL RAY IS STILL NOT THE QUESTION A CRITIC ASKS.** With the surface sampled at
+ * 4 mm and the cutoff applied, g050 measured 99.87% covered and a worst patch of 37.5 mm² — under
+ * the ceiling — while the front plate showed a bald wedge at the parting you could not miss. Both
+ * numbers are true. They are answers to "is there hair over this bit of scalp", and a ray leaving
+ * the forehead along its own normal goes UP, through the cards lying over the crown. The critic
+ * was looking along a ray that goes FORWARD, between them.
+ *
+ * So the clause also asks the other question — can a viewer standing at one of the judge's five
+ * angles see skin — by casting from each sample toward each camera. The five directions are
+ * derived from the same azimuth/elevation pairs `packages/testbed/src/hair.js` builds its VIEWS
+ * from, so the gate and the page a human looks at cannot drift apart.
+ *
+ * ⚠️ Directional rather than perspective: the page's camera is 0.78 m from a 0.19 m head, so
+ * treating it as a direction is up to about 14° wrong at the silhouette. That error is in the
+ * conservative direction for a gate that is looking for holes near the middle of the frame.
+ */
+const SCALP_VIEW_ANGLES = [
+  { name: "front", azimuth: 0, elevation: 0.04 },
+  { name: "three-quarter", azimuth: 40, elevation: 0.05 },
+  { name: "side", azimuth: 90, elevation: 0.03 },
+  { name: "back", azimuth: 180, elevation: 0.05 },
+  { name: "top", azimuth: 0, elevation: 0.62 },
+];
+
+/**
+ * How squarely a sample has to face a camera before its skin counts as on show. cos 65°, so a
+ * patch raking away at the silhouette — where it is a few foreshortened pixels and where the
+ * directional approximation above is at its worst — does not fail a groom.
+ */
+const SCALP_VIEW_FACING = 0.42;
+
+/** How far toward the camera to look for a card. The groom's longest card is about 245 mm. */
+const SCALP_VIEW_REACH_M = 0.40;
+
+/** The biggest patch of skin a viewer may see through the groom, from any one of the five views. */
+const MAX_VISIBLE_SKIN_MM2 = 60;
+
+/**
+ * 🎯 **THE CARD BORDER, MEASURED WHERE IT IS DRAWN.** The blind critic's worst finding was a
+ * dead-straight card border running from the crown past the jaw, slicing the eyebrow, the eyelid
+ * and the cheekbone. Its diagnosis — "the alpha strand shapes exist only INSIDE the card; the
+ * card's own left border is untouched by them" — is a statement about the ATLAS, and it is exactly
+ * measurable off the one this GLB embeds. Two clauses, because the defect had two halves:
+ *
+ *   BORDER TEXELS. A card samples one atlas strip edge to edge, so an opaque texel in the strip's
+ *   outermost columns IS the quad's own edge, rendered. On the groom the critic saw, strip 1 —
+ *   the innermost, face-framing layer's strip — had 1,895 of its 2,048 border texels kept at the
+ *   cutoff, drawn there by the CAP strip's strands overflowing across the boundary.
+ *
+ *   BOUNDARY STRAIGHTNESS. Border texels alone are not enough: a strip whose outermost strands are
+ *   pinned parallel to the boundary has a straight silhouette a few texels in, which is the same
+ *   razor moved sideways. Strip 1 measured a standard deviation of 0.000 px over 1,020 of 1,024
+ *   rows. The floor is 3 px — enough that a straight edge cannot pass, low enough that a strip
+ *   which is simply narrow does not fail for being narrow.
+ *
+ * 🚩 **THE CAP STRIP IS EXEMPT FROM BOTH, and it has to be.** `hair_cards.cap_uv` tiles it around
+ * the whorl, so a transparent gutter there is a radial seam repeated twelve times across the
+ * crown and a wandering boundary is a wandering seam. It is checked from the other side instead —
+ * `hair_texture.CAP_STRIP_MIN_COVERAGE` fails a build whose cap does not cover.
+ */
+const CARD_BORDER_COLUMNS = 2;
+const MIN_STRIP_BOUNDARY_SD_PX = 3.0;
+
+/**
  * A groom must be mostly cards. The cap shells are the only components allowed not to be ribbons,
  * and there is one per shell — the number is not hard-coded, only the requirement that the
  * ribbons outnumber them heavily and that at least one cap exists.
@@ -1331,6 +1430,7 @@ function craniumTarget(figureGlb) {
   }
   eyeHeight /= eyePositions.length / 3;
 
+  const onCranium = new Uint8Array(vertexCount);
   const points = [];
   const pointNormals = [];
   for (let vertex = 0; vertex < vertexCount; vertex += 1) {
@@ -1345,14 +1445,363 @@ function craniumTarget(figureGlb) {
     if (best !== headJoint || moved[vertex] === 1 || positions[vertex * 3 + 1] <= eyeHeight) {
       continue;
     }
+    onCranium[vertex] = 1;
     points.push(positions[vertex * 3], positions[vertex * 3 + 1], positions[vertex * 3 + 2]);
     pointNormals.push(normals[vertex * 3], normals[vertex * 3 + 1], normals[vertex * 3 + 2]);
+  }
+
+  // The cranium's own SURFACE, not just its corners — every body triangle all three of whose
+  // corners are on the cranium. `scalpSurfaceSamples` spreads samples over these; see
+  // MAX_EXPOSED_PATCH_MM2 for why the vertices alone were never going to find a hole.
+  const faces = [];
+  for (let corner = 0; corner < indices.length; corner += 3) {
+    if (onCranium[indices[corner]] === 1 && onCranium[indices[corner + 1]] === 1
+        && onCranium[indices[corner + 2]] === 1) {
+      faces.push(indices[corner], indices[corner + 1], indices[corner + 2]);
+    }
   }
 
   return {
     scalp: { points: Float64Array.from(points), normals: Float64Array.from(pointNormals) },
     body: { positions, normals, indices },
+    craniumFaces: Uint32Array.from(faces),
     eyeHeight,
+  };
+}
+
+/**
+ * Points spread evenly over the cranium's triangles, at a stated spacing, each with the surface
+ * normal interpolated from its triangle's corners.
+ *
+ * A triangle gets ceil(area / (spacing²/2)) samples on a jittered barycentric lattice, and always
+ * at least its own centroid, so a triangle smaller than the spacing is still asked the question.
+ * The lattice is deterministic — index-derived, no RNG — because a gate whose sample set moves
+ * between runs reports a hole intermittently, which is worse than not reporting it.
+ */
+function scalpSurfaceSamples(cranium, spacingMetres) {
+  const { body, craniumFaces } = cranium;
+  const points = [];
+  const normals = [];
+  const areas = [];
+  const perSample = spacingMetres * spacingMetres * 0.5;
+
+  for (let face = 0; face < craniumFaces.length; face += 3) {
+    const a = craniumFaces[face] * 3;
+    const b = craniumFaces[face + 1] * 3;
+    const c = craniumFaces[face + 2] * 3;
+
+    const edge1 = [body.positions[b] - body.positions[a], body.positions[b + 1] - body.positions[a + 1],
+                   body.positions[b + 2] - body.positions[a + 2]];
+    const edge2 = [body.positions[c] - body.positions[a], body.positions[c + 1] - body.positions[a + 1],
+                   body.positions[c + 2] - body.positions[a + 2]];
+    const cross = [edge1[1] * edge2[2] - edge1[2] * edge2[1],
+                   edge1[2] * edge2[0] - edge1[0] * edge2[2],
+                   edge1[0] * edge2[1] - edge1[1] * edge2[0]];
+    const area = 0.5 * Math.hypot(cross[0], cross[1], cross[2]);
+
+    const wanted = Math.max(1, Math.ceil(area / perSample));
+    // A k×k barycentric lattice yields k² samples; pick the smallest k that reaches `wanted`.
+    const side = Math.max(1, Math.ceil(Math.sqrt(wanted)));
+
+    for (let row = 0; row < side; row += 1) {
+      for (let column = 0; column < side; column += 1) {
+        // Alternating up and down triangles of the subdivided lattice, which is what fills a
+        // triangle evenly rather than piling every sample into one corner.
+        const up = column <= row;
+        const u = up ? (row + 0.67 - column) / side : (row + 0.33 - column + 1) / side;
+        const v = up ? (column + 0.33) / side : (column - 0.33) / side;
+        if (u < 0 || v < 0 || u + v > 1) continue;
+
+        for (let axis = 0; axis < 3; axis += 1) {
+          points.push(body.positions[a + axis] + edge1[axis] * u + edge2[axis] * v);
+          normals.push(body.normals[a + axis] * (1 - u - v) + body.normals[b + axis] * u
+                       + body.normals[c + axis] * v);
+        }
+        areas.push(area / (side * side));
+      }
+    }
+  }
+
+  // Unit-length the interpolated normals; a barycentric blend of three unit vectors is not one.
+  for (let sample = 0; sample < points.length; sample += 3) {
+    const length = Math.hypot(normals[sample], normals[sample + 1], normals[sample + 2]) || 1;
+    normals[sample] /= length;
+    normals[sample + 1] /= length;
+    normals[sample + 2] /= length;
+  }
+
+  return {
+    points: Float64Array.from(points),
+    normals: Float64Array.from(normals),
+    areas: Float64Array.from(areas),
+  };
+}
+
+/**
+ * The atlas as the renderer sees it: a kept/dropped mask at the material's own cutoff, decoded
+ * from the GLB's embedded baseColorTexture rather than from the PNG beside it — the sidecar is a
+ * build artefact and the embedded copy is what ships.
+ */
+function albedoCutoutMask(glb, cutoff) {
+  const material = glb.json.materials[0];
+  const textureIndex = material.pbrMetallicRoughness?.baseColorTexture?.index;
+  if (textureIndex === undefined) {
+    return null;
+  }
+
+  const image = glb.json.images[glb.json.textures[textureIndex].source];
+  const view = glb.json.bufferViews[image.bufferView];
+  const bytes = glb.bin.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength);
+  const { width, height, pixels } = decodePng(bytes);
+
+  const kept = new Uint8Array(width * height);
+  for (let texel = 0; texel < width * height; texel += 1) {
+    kept[texel] = pixels[texel * 4 + 3] >= cutoff ? 1 : 0;
+  }
+
+  return { width, height, kept };
+}
+
+/**
+ * Per strip: how many of its border texels survive the cutoff, and how much its kept boundary
+ * moves from row to row. See CARD_BORDER_COLUMNS for what each half of this catches.
+ */
+function stripBorderReport(mask, stripCount) {
+  const { width, height, kept } = mask;
+  const stripWidth = Math.floor(width / stripCount);
+  const report = [];
+
+  for (let strip = 0; strip < stripCount; strip += 1) {
+    const left = strip * stripWidth;
+    let borderKept = 0;
+    const lefts = [];
+    const rights = [];
+
+    for (let row = 0; row < height; row += 1) {
+      const base = row * width + left;
+      for (let column = 0; column < CARD_BORDER_COLUMNS; column += 1) {
+        borderKept += kept[base + column];
+        borderKept += kept[base + stripWidth - 1 - column];
+      }
+
+      let first = -1;
+      let last = -1;
+      for (let column = 0; column < stripWidth; column += 1) {
+        if (kept[base + column] === 0) continue;
+        if (first === -1) first = column;
+        last = column;
+      }
+      if (first !== -1) {
+        lefts.push(first);
+        rights.push(last);
+      }
+    }
+
+    report.push({
+      strip,
+      borderKept,
+      rows: lefts.length,
+      leftSd: standardDeviation(lefts),
+      rightSd: standardDeviation(rights),
+    });
+  }
+
+  return report;
+}
+
+function standardDeviation(values) {
+  if (values.length === 0) {
+    return 0;
+  }
+  const mean = values.reduce((total, value) => total + value, 0) / values.length;
+  const variance = values.reduce((total, value) => total + (value - mean) ** 2, 0) / values.length;
+
+  return Math.sqrt(variance);
+}
+
+/**
+ * The card-border clause. Runs over the strips the groom's CARDS actually sample, taken from the
+ * UVs rather than from a list — a strip nobody uses is not a card border.
+ */
+function reportCardBorders(groom, glb, mesh) {
+  const mask = albedoCutoutMask(glb, groom.alphaCutoff);
+  if (mask === null) {
+    console.log("  FAIL card borders      no baseColorTexture to measure the atlas from");
+    return [`${groom.id} has no embedded atlas to measure its card borders on`];
+  }
+
+  const stripCount = groom.atlas.strips;
+  const components = connectedComponents(mesh.indices, mesh.vertexCount);
+  const extents = uvExtentsPerComponent(components, mesh.uvs, stripCount);
+
+  // The same floor-with-an-epsilon `uvExtentsPerComponent` uses to decide which strip an edge
+  // lands in, so the two cannot disagree about a card sitting exactly on a boundary.
+  const cardStrips = new Set();
+  extents.forEach((extent, index) => {
+    if (isRibbon(components[index])) {
+      cardStrips.add(Math.floor((extent.minU + 1e-6) * stripCount));
+    }
+  });
+
+  const report = stripBorderReport(mask, stripCount)
+    .filter((entry) => cardStrips.has(entry.strip) && entry.strip !== groom.atlas.capStrip);
+
+  const opaqueBorders = report.filter((entry) => entry.borderKept > 0);
+  const straight = report.filter((entry) =>
+    Math.min(entry.leftSd, entry.rightSd) < MIN_STRIP_BOUNDARY_SD_PX);
+
+  const worst = report.reduce((lowest, entry) =>
+    (lowest === null || Math.min(entry.leftSd, entry.rightSd)
+      < Math.min(lowest.leftSd, lowest.rightSd)) ? entry : lowest, null);
+
+  console.log(`  ${opaqueBorders.length === 0 ? "ok  " : "FAIL"} card borders     ` +
+              ` ${report.length} card strip(s), ` +
+              `${opaqueBorders.reduce((total, entry) => total + entry.borderKept, 0)} opaque texel(s) ` +
+              `in their outermost ${CARD_BORDER_COLUMNS} column(s) — a card's own quad edge`);
+  console.log(`  ${straight.length === 0 ? "ok  " : "FAIL"} border is hair   ` +
+              ` worst strip ${worst === null ? "n/a" : worst.strip} boundary sd ` +
+              `${worst === null ? "n/a" : Math.min(worst.leftSd, worst.rightSd).toFixed(3)} px ` +
+              `over ${worst === null ? 0 : worst.rows} rows (floor ${MIN_STRIP_BOUNDARY_SD_PX} px)`);
+
+  const failures = [];
+  if (opaqueBorders.length > 0) {
+    failures.push(`${groom.id} draws the atlas opaque at the border of strip(s) ` +
+                  `${opaqueBorders.map((entry) => entry.strip).join(", ")}, so every card ` +
+                  "carrying one shows its own quad edge as a straight line");
+  }
+  if (straight.length > 0) {
+    failures.push(`${groom.id} has a straight cutout boundary on strip(s) ` +
+                  `${straight.map((entry) => `${entry.strip} (sd ` +
+                    `${Math.min(entry.leftSd, entry.rightSd).toFixed(3)} px)`).join(", ")} — ` +
+                  "the card's silhouette there is a line rather than hairs");
+  }
+
+  return failures;
+}
+
+/**
+ * The unit vector from the head's centre toward a camera placed the way
+ * `packages/testbed/src/hair.js`'s `place()` places one. Kept in the same arithmetic so the
+ * gate's five angles and the page's five buttons are the same five angles.
+ */
+function viewDirection({ azimuth, elevation }) {
+  const angle = azimuth * Math.PI / 180;
+  const lift = elevation * 1.4;
+  const flat = Math.cos(Math.asin(Math.min(1, lift)));
+  const vector = [Math.sin(angle) * flat, lift, Math.cos(angle) * flat];
+  const length = Math.hypot(vector[0], vector[1], vector[2]);
+
+  return vector.map((value) => value / length);
+}
+
+/**
+ * Which cranium samples show bare skin to a camera in `direction`. A sample counts when it faces
+ * that camera at all and no card with an opaque texel stands between it and the camera.
+ */
+function skinVisibleFrom(samples, hair, opaqueAt, direction) {
+  const count = samples.areas.length;
+  const visible = new Array(count).fill(false);
+
+  for (let sample = 0; sample < count; sample += 1) {
+    const normal = [samples.normals[sample * 3], samples.normals[sample * 3 + 1],
+                    samples.normals[sample * 3 + 2]];
+    const facing = normal[0] * direction[0] + normal[1] * direction[1] + normal[2] * direction[2];
+    if (facing < SCALP_VIEW_FACING) continue;
+
+    const origin = [samples.points[sample * 3], samples.points[sample * 3 + 1],
+                    samples.points[sample * 3 + 2]];
+
+    let blocked = false;
+    for (let triangle = 0; triangle < hair.indices.length && !blocked; triangle += 3) {
+      const hit = rayTriangle(origin, direction, hair.positions, hair.indices, triangle);
+      if (hit === null || hit.distance > SCALP_VIEW_REACH_M) continue;
+
+      const uv = interpolateHairUv(hair.uvs, hair.indices, triangle, hit.bary);
+      if (opaqueAt(uv[0], uv[1]) > 0) blocked = true;
+    }
+
+    visible[sample] = !blocked;
+  }
+
+  return visible;
+}
+
+/** Barycentric UV at a hit. The same three-corner blend `hair_geometry.scalpTransmittance` uses. */
+function interpolateHairUv(uvs, indices, triangle, bary) {
+  let u = 0;
+  let v = 0;
+  for (let corner = 0; corner < 3; corner += 1) {
+    u += uvs[indices[triangle + corner] * 2] * bary[corner];
+    v += uvs[indices[triangle + corner] * 2 + 1] * bary[corner];
+  }
+
+  return [u, v];
+}
+
+/**
+ * The biggest CONNECTED run of exposed samples, in mm². Two exposed samples belong to the same
+ * hole when they are within `linkMetres` of each other — union-find over the exposed set.
+ */
+function largestExposedPatch(samples, exposed, linkMetres) {
+  const indices = [];
+  for (let sample = 0; sample < exposed.length; sample += 1) {
+    if (exposed[sample]) indices.push(sample);
+  }
+  if (indices.length === 0) {
+    return { area: 0, samples: 0, centre: null };
+  }
+
+  const parent = indices.map((_, position) => position);
+  const find = (node) => {
+    while (parent[node] !== node) {
+      parent[node] = parent[parent[node]];
+      node = parent[node];
+    }
+    return node;
+  };
+
+  const linkSquared = linkMetres * linkMetres;
+  for (let left = 0; left < indices.length; left += 1) {
+    const a = indices[left] * 3;
+    for (let right = left + 1; right < indices.length; right += 1) {
+      const b = indices[right] * 3;
+      const dx = samples.points[a] - samples.points[b];
+      const dy = samples.points[a + 1] - samples.points[b + 1];
+      const dz = samples.points[a + 2] - samples.points[b + 2];
+      if (dx * dx + dy * dy + dz * dz > linkSquared) continue;
+      const rootLeft = find(left);
+      const rootRight = find(right);
+      if (rootLeft !== rootRight) parent[rootRight] = rootLeft;
+    }
+  }
+
+  const area = new Map();
+  const count = new Map();
+  const centroid = new Map();
+  for (let position = 0; position < indices.length; position += 1) {
+    const root = find(position);
+    const sample = indices[position];
+    area.set(root, (area.get(root) ?? 0) + samples.areas[sample]);
+    count.set(root, (count.get(root) ?? 0) + 1);
+    const running = centroid.get(root) ?? [0, 0, 0];
+    running[0] += samples.points[sample * 3];
+    running[1] += samples.points[sample * 3 + 1];
+    running[2] += samples.points[sample * 3 + 2];
+    centroid.set(root, running);
+  }
+
+  let worst = null;
+  for (const [root, value] of area) {
+    if (worst === null || value > area.get(worst)) worst = root;
+  }
+
+  const members = count.get(worst);
+  const running = centroid.get(worst);
+
+  return {
+    area: area.get(worst) * 1e6,
+    samples: members,
+    centre: running.map((value) => value / members),
   };
 }
 
@@ -1383,6 +1832,7 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
 
   failures.push(...reportHairComponents(groom, mesh));
   failures.push(...reportHairUvs(groom, mesh, hair));
+  failures.push(...reportCardBorders(groom, glb, mesh));
   failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
   failures.push(...reportSkinning(glb.json, threeMeshes));
   failures.push(...reportHairSkinWeights(groom, glb, mesh));
@@ -1551,7 +2001,7 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   }
 
   const figure = readGlb(figurePath);
-  const { scalp, body } = craniumTarget(figure);
+  const { scalp, body, craniumFaces } = craniumTarget(figure);
 
   // 🚩 The fragment and the figure are separate exports, and a clearance measured across two
   // coordinate systems would be a large positive number for a groom buried in the skull. Assert
@@ -1589,27 +2039,75 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
               `(floor ${MINIMUM_HAIR_CLEARANCE_MM} mm)`);
 
   const alphaAt = albedoAlphaSampler(glb);
-  let coverage = null;
-  if (alphaAt !== null) {
-    const transmittance = scalpTransmittance(scalp, mesh, alphaAt, SCALP_COVERAGE_REACH_M);
-    coverage = 1 - transmittance.reduce((total, value) => total + value, 0) / transmittance.length;
-  }
-
-  const coverageOk = coverage !== null && coverage >= MINIMUM_SCALP_COVERAGE;
-  console.log(`  ${coverageOk ? "ok  " : "FAIL"} scalp coverage    ` +
-              `${coverage === null ? "no baseColorTexture to sample" : (coverage * 100).toFixed(2) + "%"}` +
-              ` of ${scalp.points.length / 3} cranium vertices hidden, through the CUTOUT ` +
-              `(floor ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}%)`);
-
   const failures = [];
   if (!clearanceOk) {
     failures.push(`${groom.id} reaches ${(nearest * 1000).toFixed(3)} mm of the body with ` +
                   `${through} vertices inside it`);
   }
+
+  if (alphaAt === null) {
+    console.log("  FAIL scalp coverage    no baseColorTexture to sample");
+    failures.push(`${groom.id} hides an unmeasurable fraction of the cranium`);
+    return failures;
+  }
+
+  // ⚠️ **THE RENDERER'S RULE, NOT A BLEND.** The groom is MASK at `groom.alphaCutoff`, so a texel
+  // under the cutoff is not a thin hair — it is a hole, and the pixel behind it is skin. Reading
+  // the raw alpha into a transmittance product asks "how much light gets through", which is the
+  // question an alpha-blended groom answers; this one answers "is there a texel here at all".
+  const opaqueAt = (u, v) => (alphaAt(u, v) >= groom.alphaCutoff ? 1 : 0);
+
+  const samples = scalpSurfaceSamples({ body, craniumFaces }, SCALP_SAMPLE_SPACING_M);
+  const transmittance = scalpTransmittance(samples, mesh, opaqueAt, SCALP_COVERAGE_REACH_M);
+  const coverage = 1 - transmittance.reduce((total, value) => total + value, 0) / transmittance.length;
+
+  const exposed = [...transmittance].map((value) => value > 0.5);
+  const patch = largestExposedPatch(samples, exposed, SCALP_PATCH_LINK_M);
+
+  // And the same question from where a judge stands. See SCALP_VIEW_ANGLES.
+  let worstView = { name: "none", area: 0, samples: 0, centre: null };
+  for (const angle of SCALP_VIEW_ANGLES) {
+    const visible = skinVisibleFrom(samples, mesh, opaqueAt, viewDirection(angle));
+    const seen = largestExposedPatch(samples, visible, SCALP_PATCH_LINK_M);
+    if (seen.area > worstView.area) {
+      worstView = { name: angle.name, ...seen };
+    }
+  }
+
+  const coverageOk = coverage >= MINIMUM_SCALP_COVERAGE;
+  const patchOk = patch.area <= MAX_EXPOSED_PATCH_MM2;
+  const viewOk = worstView.area <= MAX_VISIBLE_SKIN_MM2;
+
+  console.log(`  ${coverageOk ? "ok  " : "FAIL"} scalp coverage    ` +
+              `${(coverage * 100).toFixed(2)}% of ${samples.areas.length} cranium surface samples ` +
+              `at ${(SCALP_SAMPLE_SPACING_M * 1000).toFixed(0)} mm hidden, through the CUTOUT ` +
+              `(floor ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}%)`);
+  console.log(`  ${patchOk ? "ok  " : "FAIL"} no bald patch     ` +
+              `largest connected exposed patch ${patch.area.toFixed(1)} mm²` +
+              (patch.centre === null ? "" :
+                ` at (${patch.centre.map((value) => value.toFixed(3)).join(", ")})`) +
+              ` over ${patch.samples} sample(s) (ceiling ${MAX_EXPOSED_PATCH_MM2} mm²)`);
+  console.log(`  ${viewOk ? "ok  " : "FAIL"} no skin on show   ` +
+              `worst of ${SCALP_VIEW_ANGLES.length} judge views is '${worstView.name}' at ` +
+              `${worstView.area.toFixed(1)} mm² of bare cranium` +
+              (worstView.centre === null ? "" :
+                ` at (${worstView.centre.map((value) => value.toFixed(3)).join(", ")})`) +
+              ` (ceiling ${MAX_VISIBLE_SKIN_MM2} mm²)`);
+
   if (!coverageOk) {
-    failures.push(`${groom.id} hides ` +
-                  `${coverage === null ? "an unmeasurable fraction" : (coverage * 100).toFixed(2) + "%"}` +
-                  ` of the cranium, under the ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}% floor`);
+    failures.push(`${groom.id} hides ${(coverage * 100).toFixed(2)}% of the cranium, under the ` +
+                  `${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}% floor`);
+  }
+  if (!patchOk) {
+    failures.push(`${groom.id} leaves a ${patch.area.toFixed(1)} mm² hole in the cranium's cover ` +
+                  `at (${patch.centre.map((value) => value.toFixed(3)).join(", ")}), over the ` +
+                  `${MAX_EXPOSED_PATCH_MM2} mm² ceiling`);
+  }
+  if (!viewOk) {
+    failures.push(`${groom.id} shows ${worstView.area.toFixed(1)} mm² of bare cranium to the ` +
+                  `'${worstView.name}' view at ` +
+                  `(${worstView.centre.map((value) => value.toFixed(3)).join(", ")}), over the ` +
+                  `${MAX_VISIBLE_SKIN_MM2} mm² ceiling`);
   }
 
   return failures;

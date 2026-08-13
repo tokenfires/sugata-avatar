@@ -226,11 +226,23 @@
  *                   plates differ. Nothing said so, and a portrait A/B of this flag therefore
  *                   attributes zero to it and looks like a working control while being none.
  *                   Both halves are gated by `alive-toggles.selftest.mjs`.
- *   ?hair=1         PUNCH-LIST 3.5/3.6. Load `assets/hair/bob01/`'s groom for this bake and shade
- *                   it with `material/HairMaterial.js` — Karis' closed-form Marschner, three lobes.
+ *   ?hair=1         PUNCH-LIST 3.5/3.6. Load `assets/hair/bob01/`'s groom for this bake, shade it
+ *                   with `material/HairMaterial.js` — Karis' closed-form Marschner, three lobes —
+ *                   and put its fragments through `render/HairOIT.js`'s recommended arm.
  *                   OPT-IN; see `HAIR_GROOM_ID` for why the default plate still has no hair on it
  *                   and what the round that flips it owes. Absent this key nothing is fetched and
- *                   the four keys below are never consulted.
+ *                   the keys below are never consulted.
+ *   ?hairoit=       PUNCH-LIST 3.6, and it is the key that decides how a dozen overlapping cards
+ *                   resolve into one pixel. `blend` | `cutout` | `hash` | `wboit`; the default is
+ *                   `HairOIT.js`'s own `HAIR_OIT_DEFAULT_MODE` rather than a literal typed here, so
+ *                   the page and the shipping recommendation cannot drift apart. `blend` is the
+ *                   DEFECT arm and is the control every other one is measured against; `cutout` is
+ *                   what the groom's glTF asks for and what this page ran until this round; `wboit`
+ *                   is the best picture and needs the deferred path and an adapter that allows
+ *                   40 bytes per sample of colour attachment. See `attachHair` for what each arm
+ *                   costs ON THIS PAGE — every delta in `HairOIT.js`'s header was taken on
+ *                   `stage.html`, against a control frame a fraction of this one's, so none of
+ *                   them transfers. Re-measured here.
  *   ?hairbsdf=0     the groom with its shipped GLB material instead — the A side of 3.5 on its own,
  *                   holding the GEOMETRY constant. This is the plate that shows what a card looks
  *                   like under an isotropic lobe about its plane normal, which is the thing 3.5
@@ -300,6 +312,12 @@ import {
     curvatureMapUrlFor
 } from '../../core/src/material/SkinMaterial.js';
 import { HAIR_DEFECTS, createHairMaterial } from '../../core/src/material/HairMaterial.js';
+import {
+    HAIR_OIT_DEFAULT_MODE,
+    HAIR_OIT_MODES,
+    configureHairMaterial,
+    viewDepthExtent
+} from '../../core/src/render/HairOIT.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
 import { RestPose } from '../../core/src/figure/RestPose.js';
@@ -433,18 +451,22 @@ const WARDROBE_BODY_URL = new URL( '../../../assets/wardrobe/body/g050.glb', imp
  * The groom, and why `?hair` is OPT-IN on the page that carries every committed gate.
  *
  * Punch-list 3.6 built `assets/hair/bob01/` — five identity bakes of a 254-card groom plus a
- * four-sheet atlas — and 3.5 is the BSDF that shades it. Both landed in the same round as the
- * weighted-blended OIT that the groom's silhouette layer eventually needs, and OIT lives in
- * `render/**`, which is another agent's this round.
+ * four-sheet atlas — 3.5 is the BSDF that shades it, and `render/HairOIT.js` is how its fragments
+ * reach the frame buffer. All three now compose on this page behind the one key.
  *
- * 🚩 SO THE DEFAULT PLATE IS UNCHANGED, DELIBERATELY, AND THIS IS A STATEMENT OF STATUS RATHER
- * THAN A DESIGN. Adding a head of hair to the default `alive.html` moves G1 through G7, every
- * region rect in `regions.lighting-portrait.json`, the whole-scene fingerprint
- * `alive-toggles.selftest.mjs` walks, and the plates two other agents are measuring against right
- * now. Turning it on is one URL key and flipping the default is one line — but the round that
- * flips it owes a re-measurement of all seven gates, and doing that here would be publishing
- * numbers nobody re-derived. `?hair=1` is the plate 3.5 is measured on, and
- * `HairMaterial.selftest.mjs` takes every reading it reports from that plate.
+ * 🚩 AND THE DEFAULT PLATE IS STILL UNCHANGED, DELIBERATELY. This was RE-DECIDED this round rather
+ * than inherited, because the case for flipping it is real: a blind judge told to capture "the
+ * avatar" captures `alive.html`, and what they get is bald. It stays opt-in anyway, and the reason
+ * is that flipping it is not a one-line change to this file — it MOVES EVERY COMMITTED NUMBER IN
+ * THE REPOSITORY. G1 through G7, every region rect in `regions.lighting-portrait.json`, every
+ * recorded plate sha256, the whole-scene fingerprint `alive-toggles.selftest.mjs` walks, and the
+ * baselines other agents are measuring against concurrently. A round that flips the default owes a
+ * re-measurement of all seven gates on the new picture, and taking that unilaterally in the round
+ * that first composed the three pieces would be publishing numbers nobody re-derived — the exact
+ * failure this project keeps logging. It is filed as a request instead; see the round report.
+ *
+ * So `?hair=1` is the plate 3.5 and 3.6 are measured on, `HairMaterial.selftest.mjs` takes every
+ * reading it reports from that plate, and the judge's hair plates are captured by URL.
  *
  * ⚠️ ONE BAKE EXISTS PER IDENTITY AND THE NAMES MUST MATCH. The groom is generated per figure bake
  * because the scalp region is a vertex group over the basemesh and its crown height tracks the
@@ -686,6 +708,16 @@ async function boot() {
         radius: query.has( 'gtaoradius' ) ? Number( query.get( 'gtaoradius' ) ) : undefined
     };
 
+    // 🎯 PUNCH-LIST 3.5/3.6, AND THE READ IS HERE RATHER THAN BESIDE THE REST OF THE HAIR STATE
+    // BECAUSE THE OIT ARM IS A PROPERTY OF THE RENDER PASS. Only `wboit` allocates `hairAccum` and
+    // `hairWeight`, and an attachment set belongs to the render target the pass was built with —
+    // `Stage.create` is the last moment it can be chosen, and `Stage` refuses in words if the
+    // adapter cannot carry it. Reading it here also keeps the property `readHairRequest` documents:
+    // the sub-keys are consulted ONLY when `?hair=1` is present, so a bare plate's recorded toggle
+    // surface carries `hair` and nothing else.
+    const hairEnabled = query.get( 'hair' ) === '1';
+    const hairRequest = hairEnabled ? readHairRequest( query ) : null;
+
     const stage = new Stage();
     await stage.create( document.getElementById( 'stage' ), {
         fieldOfView: PORTRAIT_FIELD_OF_VIEW_DEGREES,
@@ -710,7 +742,13 @@ async function boot() {
         // large constant motion vector — and it is the cheapest possible rejection proof that the
         // fix is doing anything. `hold` and `exact` must agree exactly on a held morph, so a
         // disagreement between them is a frame lag off by one.
-        morphVelocity: query.get( 'morphvel' ) ?? undefined
+        morphVelocity: query.get( 'morphvel' ) ?? undefined,
+
+        // `undefined` on every plate that did not ask for hair, which is `Stage`'s own default of
+        // `'off'` — so the shipped plate allocates nothing, requests no device limit and carries no
+        // extra Stage member. Measured: `stage.hairOIT` stays null, so instrument 5's Stage-member
+        // walk in `alive-toggles.selftest.mjs` sees the same set it always did.
+        hairOIT: hairRequest?.oit
     } );
 
     if ( wantsGrade ) stage.setGrade( buildGrade( query ) );
@@ -722,10 +760,6 @@ async function boot() {
     // the figure renders black, which looks exactly like a broken material.
 
     const bare = query.has( 'bare' );
-
-    // Read once, before the session literal, because the four sub-keys of `?hair` must be
-    // consulted only when it is present. See `readHairRequest`.
-    const hairEnabled = query.get( 'hair' ) === '1';
 
     if ( bare ) {
 
@@ -797,13 +831,14 @@ async function boot() {
         cardsEnabled: query.get( 'cards' ) !== '0',
 
         // Punch-list 3.5 / 3.6. OPT-IN — see `HAIR_GROOM_ID` for why the default plate has no hair
-        // on it this round. This is the ONLY hair key read on a plate that did not ask for hair;
-        // the four below it are consulted inside `attachHair` and are therefore invisible to a
-        // bare plate's recorded toggle surface, which is the `?clockdefect` pattern and is
+        // on it this round. Both were read above `Stage.create`, because the OIT arm has to be
+        // chosen before the render pass exists; `?hair` is the ONLY hair key read on a plate that
+        // did not ask for hair, and the seven inside `readHairRequest` are therefore invisible to a
+        // bare plate's recorded toggle surface. That is the `?clockdefect` pattern and it is
         // deliberate: a key that can only change a plate containing a groom should not appear on
         // the surface of a plate that has none.
-        hairEnabled: hairEnabled,
-        hairRequest: hairEnabled ? readHairRequest( query ) : null,
+        hairEnabled,
+        hairRequest,
         multisampled,
         skin: null,
         eyes: null,
@@ -811,6 +846,11 @@ async function boot() {
         cards: [],
         hair: null,
         hairMaterial: null,
+
+        // The per-frame slab fit the `wboit` arm needs, or null on every other arm. Held on the
+        // session because `trackFigure` is what calls it — see the 🚩 in `attachHair` for the frame
+        // path that made `stage.onFrame` the wrong home for it.
+        hairSlabUpdate: null,
 
         // Phase 9. `?wear=female_casualsuit01,shoes01` dresses the figure; `?wear=` with nothing
         // after it loads the wardrobe and wears nothing, which is the way to see the body swap on
@@ -1081,6 +1121,13 @@ async function boot() {
     function trackFigure() {
 
         ground.update();
+
+        // Punch-list 3.6. Null on every arm but `wboit`, which fits its weight curve to the
+        // groom's own view-space depth slab and therefore has to be told where the groom is once
+        // per frame. It is HERE for this function's own stated reason: `?capture` bypasses
+        // `stage.onFrame` entirely, and a slab that stopped being fitted on exactly the plates a
+        // judge measures is the contact-shadow defect this function was written after.
+        session.hairSlabUpdate?.();
 
     }
 
@@ -1803,7 +1850,7 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     // AFTER the wardrobe, and only because that is the order that reads: the groom is skinned to
     // the head alone and no garment can move it, so the placement is order-independent. It is last
     // so that a hair failure cannot take the body off the page.
-    await attachHair( session, plan.figures[ 0 ].url );
+    await attachHair( session, plan.figures[ 0 ].url, stage );
 
 }
 
@@ -1812,10 +1859,10 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
  *
  * 🎯 Called ONLY when `?hair=1` is present, and that is a deliberate property rather than an
  * optimisation. `recordingQuery` makes this page state its own toggle surface from live reads, and
- * `alive-toggles.selftest.mjs` requires every observed key to be classified; four keys that can
- * only change a plate CONTAINING a groom have nothing to say about a plate that has none, and
- * appearing on its surface would be four rows gating nothing. `?clockdefect` and `?trace` are
- * classified the same way and for the same reason.
+ * `alive-toggles.selftest.mjs` requires every observed key to be classified; the seven keys read
+ * below can only change a plate CONTAINING a groom, so they have nothing to say about a plate that
+ * has none and appearing on its surface would be seven rows gating nothing. `?clockdefect` and
+ * `?trace` are classified the same way and for the same reason.
  */
 function readHairRequest( query ) {
 
@@ -1842,11 +1889,24 @@ function readHairRequest( query ) {
 
     }
 
+    // 🎯 THE DEFAULT IS THE MODULE'S OWN RECOMMENDATION AND NOT A LITERAL, so this page cannot ship
+    // an arm the measurements do not support. Until this round `alive.js` never imported `HairOIT`
+    // at all, so `createHairMaterial`'s `alphaTest = 0.5` stood and the shipped avatar ran CUTOUT —
+    // the arm 3.6 measured as the WORST under motion. `stage.js?hair=1` makes the same read.
+    const oit = query.get( 'hairoit' ) ?? HAIR_OIT_DEFAULT_MODE;
+
+    if ( HAIR_OIT_MODES.includes( oit ) === false ) {
+
+        throw new Error( `alive: ?hairoit must be one of ${ HAIR_OIT_MODES.join( ', ' ) } — got '${ oit }'.` );
+
+    }
+
     return {
         // The geometry stays, the shader goes. Holding the groom constant is what makes this the A
         // side of 3.5 rather than the A side of 3.6.
         bsdf: query.get( 'hairbsdf' ) !== '0',
         lobes,
+        oit,
         scatter: query.get( 'hairscatter' ) === '0' ? 0 : 1,
         sideVisibility: query.get( 'hairvis' ) === '0' ? 0 : 1,
         rootOcclusion: query.get( 'hairrootao' ) === '0' ? 1 : undefined,
@@ -1879,10 +1939,129 @@ function readHairRequest( query ) {
  * The import is dynamic for `dressFigure`'s reason: a plate with no `?hair=1` must not pay for the
  * module, the 2.67 MB GLB or the two sidecar sheets, which is what keeps the default plate the one
  * the seven gates are stated on.
+ *
+ * ## 🎯 And the third piece: how the fragments reach the frame buffer
+ *
+ * A groom is 254 cut-out ribbons and a dozen of them overlap any given pixel, so the BSDF is only
+ * half the picture — the other half is what a stack of overlapping cards resolves to.
+ * `render/HairOIT.js` owns that and `configureHairMaterial` is the seam. Until this round this file
+ * did not import it, so the material kept `HairMaterial`'s own `alphaTest = 0.5` and this page ran
+ * the CUTOUT arm without ever saying so.
+ *
+ * The arm is `?hairoit` and its default is `HAIR_OIT_DEFAULT_MODE`. `HairOIT.js`'s header carries
+ * the argument for that recommendation; what it CANNOT carry is what the arms cost HERE, because
+ * every number in it was taken on `stage.html`, whose control frame is a groom and three lights
+ * against this page's whole deferred stack. So both halves were re-measured on THIS page.
+ *
+ * ## What each arm costs on alive.html
+ *
+ * GPU timestamps, `?bare&freeze&seed=1&capture&gputime=1` at 1920x1080 dpr 1. Driven through
+ * `__SUGATA_STEP__( 0 )` — a frozen page rendered again and again — so one `resolveTimestampsAsync`
+ * corresponds to exactly one drawn frame. Polling a FREE-RUNNING rAF loop instead was tried first
+ * and is not a measurement: three logs `WebGPUTimestampQueryPool [render]: Maximum number of
+ * queries exceeded` and the samples come back as low as 4.03 ms on a frame that cannot be that
+ * cheap, with `hash` reading 2.4 ms FASTER than the same page carrying no groom at all. 100 samples
+ * after 60 warm-up steps.
+ *
+ *     | arm       | GPU p50 | GPU p95 | Δ p50   | Δ p95   |
+ *     |-----------|--------:|--------:|--------:|--------:|
+ *     | no `?hair`|  12.038 |  13.347 |       — |       — |
+ *     | `blend`   |  11.777 |  19.239 |  −0.261 |  +5.892 |
+ *     | `cutout`  |  12.799 |  14.311 |  +0.761 |  +0.964 |
+ *     | `hash`    |  13.267 |  15.308 |  +1.229 |  +1.961 |
+ *     | `wboit`   |  12.864 |  22.763 |  +0.826 |  +9.416 |
+ *
+ * ⚠️ THE NOISE FLOOR IS STATED BECAUSE TWO OF THOSE ROWS ARE INSIDE IT. The control was measured
+ * again at the END of the same run — 12.016 p50, 12.663 p95 — so p50 reproduces to 0.022 ms and p95
+ * to 0.684 ms across the run. `hash` was also measured twice (the second time as the default, with
+ * no `?hairoit` in the url): 15.308 and 14.713 p95. So read `hash` as costing roughly 1.4-2.0 ms of
+ * p95 and `blend`'s −0.261 p50 as zero.
+ *
+ * Against a 16.6 ms budget: `hash` lands at 15.3 ms p95 with about 1.3 ms in hand, and `wboit` at
+ * 22.8 — SIX MILLISECONDS OVER, on a page that has to carry the skin, the eyes, the occlusion and
+ * the grade as well. That is the same verdict `HairOIT.js` reached, on a much tighter margin: it
+ * was choosing against a control frame of about 2 ms and this one is 13.347, so the whole hair
+ * budget on the page that matters is the 3.25 ms the figure leaves.
+ *
+ * ## And what the cheapest arm costs in the picture, which is why `cutout` is not the default
+ *
+ * `?bare&seed=1&capture&grain=0` at 900x1200, the shipped TAAU path with the grade's frame-indexed
+ * grain removed (it is a per-frame random field that sits on every arm equally and would swamp the
+ * comparison). Motion stack LIVE — this page has no camera orbit, so the stimulus is head idle,
+ * which is the motion a judge actually sees. 60 warm-up steps at 1/60, then 20 frames accumulated
+ * with Welford per pixel; mean per-pixel temporal sigma in 8-bit code values.
+ *
+ * Two bands, because one threshold cannot separate the groom from what the groom changes AROUND
+ * itself: `mass` is the groom's own pixels (272,609 px, 25.24% of the frame), `touched` is every
+ * pixel it moves at all — its cast shadow, and the card wash the next section is about — at
+ * 475,209 px, 44.00%. Both bands are measured once and applied to every arm, so an arm that chews
+ * its own silhouette cannot shrink its own denominator.
+ *
+ *     | arm      | σ mass | σ touched | local grain, mass |
+ *     |----------|-------:|----------:|------------------:|
+ *     | `blend`  | 3.9825 |    3.7046 |            0.5971 |
+ *     | `cutout` | 6.4631 |    5.2545 |            1.2061 |
+ *     | `hash`   | 5.2204 |    4.6488 |            1.3045 |
+ *     | `wboit`  | 3.5387 |    3.4495 |            0.5404 |
+ *
+ * `cutout` is the least stable arm here, as it was on `stage.html`, and `hash` is 1.24x steadier
+ * than it for 1.0 ms more of p95. That is the trade this page takes, and it is why the default is
+ * not the arm that was shipping by accident.
+ *
+ * ## 🚩 AND WHAT LOOKING AT THE PLATE FOUND, WHICH NEITHER NUMBER ABOVE CONTAINS
+ *
+ * Moving off `cutout` puts a CARD-SHAPED WASH across the chest and shoulders — flat translucent
+ * slabs with straight edges, where the cut-out leaves clean skin. It is visible at a glance and no
+ * statistic in either table above reports it, which is the whole argument for capturing the plate
+ * and looking at it. `captures/hair-compose/ghost-chest-{hash,cutout}.png` is the pair.
+ *
+ * Measured on the 1200x1600 portrait plates, over region R — the lit body pixels the `cutout` arm
+ * leaves within 2/255 of the same plate with no hair at all, 830,020 px:
+ *
+ *     | arm      | mean Δ over R | worst Δ | pixels over 8/255      |
+ *     |----------|--------------:|--------:|------------------------|
+ *     | `cutout` |        0.1843 |     2.0 | 0 (0.000% of frame)    |
+ *     | `hash`   |        5.2190 |   164.9 | 221,203 (11.521%)      |
+ *     | `blend`  |        6.0944 |   117.1 | 237,436 (12.366%)      |
+ *     | `wboit`  |        6.0960 |   117.0 | 237,522 (12.371%)      |
+ *
+ * 🎯 THREE ARMS OUT OF FOUR SHOW IT AND THEY ARE THE THREE THAT KEEP PARTIAL COVERAGE, so it is NOT
+ * a property of hashed alpha testing and swapping arms cannot fix it. It is the GROOM's: a card's
+ * alpha is mip-filtered strand coverage, so at the minification a chest card is seen at, the whole
+ * quad carries a low but non-zero alpha, and every arm that does not throw that tail away renders
+ * the quad. `cutout` is the outlier — a binary test at 0.5 deletes the tail and, with it, the
+ * evidence. It was hiding an asset defect, which is the worst reason to keep a default.
+ *
+ * So the arm stays `hash` and the finding is filed against the groom rather than absorbed here:
+ * the cards extend past their strands and the atlas alpha needs coverage-preserving mips or
+ * trimmed cards. `?hair=1&hairoit=cutout` is the plate that hides it, from a URL, whenever somebody
+ * wants to see the difference again.
+ *
+ * 🎯 THE SAME MECHANISM EXPLAINS THE BALD CROWN THE BLIND CRITIC REPORTED, and that is the
+ * cheerful half of it. On `?hairoit=wboit` the lit patch at the parting is GONE — the low-alpha
+ * cards over the scalp are drawn instead of discarded, so they cover it — while on `cutout` and, to
+ * a lesser degree, `hash` it is still there. `captures/hair-compose/portrait-hair-wboit.png` beside
+ * `portrait-hair-cutout.png`. Some of what was read as a groom defect is a coverage defect, and it
+ * will move when the alpha tail does.
+ *
+ * 🚩 ONE OF `HairOIT.js`'s FINDINGS DOES NOT REPRODUCE HERE AND IS RECORDED RATHER THAN QUIETLY
+ * DROPPED. It measured `hash` as FINER-grained than the cut-out it replaces — 1.636 against 1.938
+ * on a converged still. On this page the ordering is the other way round: 1.3045 against 1.2061, so
+ * `hash` is 1.08x grainier, not 1.18x finer. The two are not the same measurement — that one was a
+ * static camera on a still, this one is the shipped temporal resolve over a moving head — but the
+ * honest reading is that the stipple `hash` hands the resolve is NOT integrated away here, which is
+ * exactly the caveat `HairOIT.js` flags: `getAlphaHashThreshold` takes no frame index, so the
+ * pattern is fixed in object space and reprojection preserves it. Giving the hash a per-frame seed
+ * remains the open item, and it belongs to whoever owns the capture contract.
  */
-async function attachHair( session, figureUrl ) {
+async function attachHair( session, figureUrl, stage ) {
 
     if ( session.hairEnabled !== true ) return;
+
+    // A gender swap runs this again over a fresh groom, so last bake's slab fit has to go before
+    // this one's is installed — otherwise a bake with no groom would keep fitting the slab to the
+    // box of a groom that is no longer in the scene.
+    session.hairSlabUpdate = null;
 
     const bake = bakeNameFrom( figureUrl );
     const groomUrl = HAIR_BAKES.get( bake );
@@ -1937,9 +2116,24 @@ async function attachHair( session, figureUrl ) {
         mesh.bind( new SkinSkeleton( bones, mesh.skeleton.boneInverses ), new Matrix4() );
         mesh.frustumCulled = false;
 
-        // Hair shadowing the forehead is a large part of why hair reads as hair. The key is the
-        // only shadow caster on this rig (3.8, at a measured 2.62 ms per caster), and the cutout
-        // reaches the depth pass because the material keeps its `alphaTest` there too.
+        // Hair shadowing the forehead is a large part of why hair reads as hair, and the key is the
+        // only shadow caster on this rig (3.8, at a measured 2.62 ms per caster).
+        //
+        // 🚩 BUT THE CUT-OUT DOES NOT REACH THE DEPTH PASS, AND THE COMMENT HERE USED TO SAY IT
+        // DID. Measured this round rather than reasoned about. three's shadow pass swaps in one
+        // shared material — `getShadowMaterial( light )`, `ShadowFilterNode.js`, whose `colorNode`
+        // is `vec4( 0, 0, 0, 1 )` — and `Renderer.js:3585` copies exactly two alpha fields onto it
+        // from the object's own material: `alphaTest` and `alphaMap`. `alphaHash` is not among
+        // them, and `HairMaterial` carries the strand coverage in its `colorNode` rather than in
+        // `alphaMap` — nothing in this file or in `configureHairMaterial` assigns one, and
+        // `sugata.session.hairMaterial.alphaMap` was read live off the page as null on the `cutout`
+        // and `hash` arms. The depth material therefore tests an alpha of 1 against the cutoff,
+        // discards nothing, and the groom casts the shadow of its CARD QUADS, not of its strands.
+        //
+        // That is a defect and it is not this file's to fix: the repair is `alphaMap` set beside
+        // the colour node in `packages/core/src/material/HairMaterial.js`, plus a floor for the
+        // arms that zero `alphaTest`. Filed as a request. It is arm-independent — it was true of
+        // the cut-out this page shipped before this round too.
         mesh.castShadow = true;
         mesh.receiveShadow = true;
 
@@ -1950,6 +2144,20 @@ async function attachHair( session, figureUrl ) {
     session.hair = { root: session.figure.root, meshes: skinned, bake };
 
     if ( request.bsdf === false ) {
+
+        // ⚠️ AND THE ARM DOES NOT REACH THIS PLATE, WHICH IS WORTH SAYING OUT LOUD RATHER THAN
+        // LEAVING AS A SURPRISE. `GLTFLoader` builds a `MeshStandardMaterial`; the WebGPU backend
+        // converts it to a node material internally and per render, so anything
+        // `configureHairMaterial` set on it would be set on an object the renderer discards. What
+        // this plate runs is the groom's own glTF `alphaMode: MASK` at cutoff 0.5 — which IS the
+        // `cutout` arm, so the A side of 3.5 is honest, and a `?hairoit` on it would be a lie.
+        if ( request.oit !== 'cutout' ) {
+
+            console.warn( `?hairoit=${ request.oit } is ignored under ?hairbsdf=0: the shipped GLB ` +
+                'material is a glTF MASK cutout and the backend rebuilds it every render, so no ' +
+                'OIT configuration survives on it. This plate is the cutout arm.' );
+
+        }
 
         console.log( `hair: ${ bake } groom on the page with its SHIPPED GLB material — ?hairbsdf=0, the A side of 3.5.` );
         return;
@@ -1972,11 +2180,62 @@ async function attachHair( session, figureUrl ) {
         }
     } );
 
+    // 🎯 THE THIRD PIECE, AND IT IS ONE CALL BECAUSE THAT IS WHAT THE SEAM IS FOR. `HairMaterial`
+    // decides what a hair pixel LOOKS like and leaves `alphaTest = 0.5` behind it; `HairOIT`
+    // decides how a dozen of them stack, and overwrites that. Nothing about the BSDF is visible
+    // from the OIT side — the accumulation reads `output`, which is whatever the material computed.
+    //
+    // `alphaToCoverage` is carried through rather than decided in either place: it is the CALLER's
+    // MSAA decision, it is inert without a multisampled target, and the shipped path is TAAU.
+    configureHairMaterial( material, request.oit, {
+        alphaToCoverage: session.multisampled,
+        slab: stage.hairOIT?.slab ?? null,
+        defect: null
+    } );
+
     for ( const mesh of skinned ) mesh.material = material;
 
     session.hairMaterial = material;
 
-    console.log( `hair: ${ bake } groom, ${ skinned.length } mesh(es), ` +
+    // The `wboit` arm's weight curve is fitted to the GROOM'S OWN depth slab rather than to the
+    // camera frustum — `HairOIT.js` measured the published curve as giving a head 3.7x-4.0x of
+    // front-to-back discrimination with the near plane setting the absolute weight — so the slab
+    // has to be told where the groom is. Every other arm allocates no slab and this stays null.
+    //
+    // 🚩 IT IS A CLOSURE ON THE SESSION AND NOT A `stage.onFrame` CALLBACK, and that is the whole
+    // reason `trackFigure` exists: `?capture` takes the frame loop away from requestAnimationFrame
+    // and calls `stage.draw()` directly, so registered frame callbacks stop firing — on precisely
+    // the plates a judge measures. This page has already shipped a contact shadow that stopped
+    // following the feet that way.
+    //
+    // ⚠️ THE BOX IS THE BIND-POSE ONE, and that is a deliberate approximation with a stated bound.
+    // `Box3.expandByObject` on a `SkinnedMesh` transforms the GEOMETRY's box by `matrixWorld` and
+    // does not skin it, so head idle — degrees, not radians — moves the real groom inside a box
+    // computed once. A slab slightly too wide only flattens the weight curve, and
+    // `HAIR_WEIGHT_RANGE`'s own sweep measured three thousand times that curve as worth about 1.5
+    // code values. What does have to be per frame is the VIEW transform, because `?frame=body` and
+    // any console `frame()` move the camera and the slab is expressed in view depth.
+    if ( stage.hairOIT !== null ) {
+
+        const bounds = new Box3();
+        const scratch = new Vector3();
+
+        for ( const mesh of skinned ) bounds.expandByObject( mesh );
+
+        session.hairSlabUpdate = () => {
+
+            // `viewDepthExtent` states that `matrixWorldInverse` must be current, and this runs
+            // BEFORE the draw that would refresh it. One 4x4 invert against a deferred frame.
+            stage.camera.updateMatrixWorld();
+
+            const extent = viewDepthExtent( bounds, stage.camera, scratch );
+            stage.hairOIT.setSlab( extent.near, extent.far );
+
+        };
+
+    }
+
+    console.log( `hair: ${ bake } groom, ${ skinned.length } mesh(es), oit ${ request.oit }, ` +
         `${ JSON.stringify( material.describe() ) }` );
 
 }
@@ -2603,12 +2862,20 @@ function censusOfShading( session, stage ) {
         // broken subsystem. `null` is "no groom in this frame at all", which is every plate that
         // did not ask for one; a groom present but unshaded — `?hairbsdf=0` — reports the shape
         // with `shadedMeshesInScene` at 0, and those two states are different pictures.
+        //
+        // `oit` says which arm the FRAGMENTS actually go through, which is not always the one the
+        // URL asked for — the reason the `multisampleSamples` entry below is read off the renderer.
+        // Under `?hairbsdf=0` the groom keeps its glTF `alphaMode: MASK` at cutoff 0.5, which IS
+        // the cutout arm however `?hairoit` was spelled, so that is what is reported; otherwise it
+        // comes off the STAGE, because `Stage` refuses `wboit` on an adapter that cannot carry the
+        // two attachments and a census echoing the request back would report a refused arm as live.
         hair: session.hair === null
             ? null
             : {
                 bake: session.hair.bake,
                 groomMeshes: session.hair.meshes.length,
                 shadedMeshesInScene: 0,
+                oit: session.hairMaterial === null ? 'cutout' : stage.hairOITMode,
                 ...( session.hairMaterial === null ? { shaded: false } : session.hairMaterial.describe() )
             },
 

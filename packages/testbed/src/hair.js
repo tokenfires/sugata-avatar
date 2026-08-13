@@ -3,13 +3,25 @@
  *
  * ## Why this page exists when `verify_glb.mjs` already passes
  *
- * The gate measures four things off the exported file: 254 quad-strip cards, two cap shells, zero
- * vertices inside the body with a 3.334 mm nearest approach, and 99.61% of the cranium hidden
+ * The gate measures the exported file: at g050 today, 294 quad-strip cards, two cap shells, zero
+ * vertices inside the body with a 3.117 mm nearest approach, and 99.98% of the cranium hidden
  * through the CUTOUT rather than through the triangles. Every one of those numbers is true of a
  * groom that looks like a helmet made of ribbons, and LEARNINGS §1.2 — the most-cited entry in
  * that file — is exactly this: a selftest proves the numbers and is structurally blind to whether
- * the picture is right. So this page draws the thing, from four fixed angles including the one
+ * the picture is right. So this page draws the thing, from five fixed angles including the one
  * that catches a bald crown, and prints the atlas beside it.
+ *
+ * 🎯 **AND THAT BLINDNESS WAS DEMONSTRATED, NOT ARGUED.** A blind critic shown this page named
+ * three launch blockers the gate had passed: a dead-straight card border slicing the eyebrow, a
+ * lit scalp at the parting, and a staircase at every strand tip. The coverage clause read
+ * 99.14–100.00% throughout, because it asked 257 cranium VERTICES along their own normals and
+ * blended the alpha where the material masks it. `verify_glb.mjs` now samples the cranium's
+ * surface at 4 mm, applies the cutoff, fails on the largest CONNECTED exposed patch rather than on
+ * a mean, and casts from the five camera angles this file's VIEWS define — which is the clause
+ * that found the parting, at 229.1 mm² seen from the front.
+ *
+ * Capture the five plates with:
+ *   node tools/figure-pipeline/hair_shots.mjs --out captures/hair
  *
  * ⚠️ **THIS IS NOT THE HAIR SHADER, and the page says so on screen.** Punch-list 3.5 owns the
  * anisotropic strand model, the transmission and the per-strand occlusion, and it runs after 3.6.
@@ -143,9 +155,27 @@ async function main() {
         rim.target.position.copy( centre );
         scene.add( key.target, rim.target );
 
-        renderer.renderAsync( scene, camera );
+        return renderer.renderAsync( scene, camera );
 
     }
+
+    /**
+     * The hook a capture script drives the page through, because clicking a button and guessing
+     * how long the render took is how a before/after pair ends up comparing two different frames.
+     * Awaits the actual `renderAsync`, so the canvas is finished when this resolves.
+     *
+     *   node tools/figure-pipeline/hair_shots.mjs --out /tmp/before
+     */
+    window.hairShot = async ( name ) => {
+
+        const wanted = VIEWS.find( ( candidate ) => candidate.name === name );
+        if ( wanted === undefined ) throw new Error( `no view named '${ name }'` );
+
+        view = wanted;
+        await place();
+        return { name, width: WIDTH, height: HEIGHT };
+
+    };
 
     const views = document.getElementById( 'views' );
     for ( const candidate of VIEWS ) {
@@ -221,6 +251,8 @@ async function main() {
     log( `GEOMETRY can be judged without a shader in front of it.` );
     log();
     log( `What to look for, in the order it goes wrong:` );
+    log( `  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a` );
+    log( `         card's own quad edge, and it is the defect this round was about.` );
     log( `  side   is the silhouette hair, or a helmet with ribbon edges?` );
     log( `  top    does the scalp show between the cards? That is what the cap is for.` );
     log( `  front  is the parting readable, and is hair across the eyes?` );

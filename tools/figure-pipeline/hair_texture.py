@@ -21,8 +21,9 @@ Four PNGs, one atlas layout, `STRIP_COLUMNS` vertical strips side by side. A car
 
 🚩 **The flow channel is not decorative and it is not derivable from the geometry.** A card's
 tangent is the card's own V axis, which is the direction of the BUNDLE. Individual strands wander
-off it by up to `STRAND_WANDER_PIXELS`, and a highlight computed from the card tangent alone
-therefore runs straight down a surface whose hairs do not — the tell that reads as "plastic wig".
+off it by the `wander px` column of `STRIP_RECIPES`, and a highlight computed from the card tangent
+alone therefore runs straight down a surface whose hairs do not — the tell that reads as
+"plastic wig".
 R and G carry the per-texel strand direction so the highlight follows the hair.
 
 ## The compositing order is the reason `depth` exists twice
@@ -92,13 +93,67 @@ STRIP_COLUMNS = 8
 CAP_STRIP = 0
 CAP_STRIP_MIN_COVERAGE = 0.97
 
+# 🎯 **THE CARD'S OWN BORDER IS A STRAIGHT LINE, AND THAT IS THIS FILE'S DEFECT RATHER THAN THE
+# RIBBONING'S.** A blind critic shown the groom in three-quarter view said a dead-straight card
+# border ran from the crown past the jaw and sliced the eyebrow, the eyelid and the cheekbone; its
+# diagnosis was that "the alpha strand shapes exist only INSIDE the card; the card's own left
+# border is untouched by them". Measured off the shipped `albedo.png` at the 0.5 cutoff it exports
+# with, that was exactly right and worse than it sounds:
+#
+#   strip 1  left boundary standard deviation 0.000 px over 1020 of 1024 rows
+#            1,895 of its 2,048 border texels KEPT
+#   strip 0  0.077 px / 0.031 px      strip 3  2.072 px      (strips 2, 4–7: 4.2–19.4 px)
+#
+# Strip 1 is the `root` layer's strip — the innermost, densest cards, the ones that frame the face
+# — and its cutout's left edge was a perfectly straight vertical line running 99.6% of the card's
+# length. Two separate mistakes made it, and both are fixed here:
+#
+#   1. THE OLD `strand_room` CLAMPED WANDER TO ZERO AT THE BOUNDARY. A strand rooted near the edge
+#      had no lateral room, so it was drawn dead straight — and it was drawn dead straight at
+#      precisely the u where a card shows its silhouette. The clamp was written to stop a strand
+#      being CUT by the card's u range, and it succeeded, by straightening it instead.
+#   2. THE ROOT LATTICE SPANNED THE WHOLE STRIP, so the outermost strand straddled the boundary
+#      and its border texels came out opaque — the quad's own edge, visible as a quad.
+#
+# The gutter fixes (2): no strand's feather may enter it, so a card's extreme u is transparent by
+# construction and there is no quad edge to see. `EDGE_BAND_PX` fixes (1): a strand rooted inside
+# the band is a WISP — narrower, covering a random span of the card's length rather than all of
+# it, and drifting INWARD across the card instead of running parallel to its edge. So the strip's
+# silhouette is a broken line of hairs falling across the bundle, which is what the edge of a real
+# hair card is, and it is measured rather than hoped for: `verify_glb.mjs`'s card-border clause
+# fails a groom whose strip boundary goes straight again.
+#
+# 🚩 **THE CAP STRIP TAKES NEITHER.** `cap_uv` tiles strip 0 `CAP_WEDGES` times around the whorl,
+# so a transparent gutter there is not a card border — it is a transparent radial seam repeated
+# twelve times across the crown, which is a worse artefact than the one being fixed. Strip 0 stays
+# edge-to-edge opaque and is the reason both of these are per-strip rather than global.
+STRIP_GUTTER_PX = 3.0
+EDGE_BAND_PX = 20.0
+
+#
+# ⚠️ **THE COUNTS ON STRIPS 1–5 PAY FOR THE GUTTER AND THE EDGE WISPS.** Those two cost a card
+# strip real coverage — the gutter is 6 of 128 texels outright and a wisp covers a fraction of the
+# card's length where a full strand covered all of it — and coverage is what keeps scalp from
+# showing between the cards. Measured at the 0.5 cutoff, per strip, before and after the counts
+# were raised:
+#
+#   strip           1      2      3      4      5      6      7
+#   as shipped   0.665  0.635  0.548  0.469  0.404  0.232  0.139
+#   with edges   0.548  0.504  0.474  0.395  0.318  0.193  0.126   <- the cost
+#   raised       0.592  0.550  0.507  0.437  0.381  0.175  0.121   <- what ships
+#
+# Strips 6 and 7 are NOT raised, and they still move: the strand plan draws from one RNG stream, so
+# changing an earlier strip's count changes every later strip's draw. Their figures are reported
+# because they were measured, not because they were aimed at. They are the wisps whose whole job is
+# to be mostly transparent so that the silhouette of a card carrying one is the outline of a few
+# hairs; making them cover more would undo the thing they exist for.
 STRIP_RECIPES = [
     (168, 2.4, 4.0, 0.20),
-    (58, 1.6, 10.0, 0.55),
-    (52, 1.5, 12.0, 0.60),
-    (46, 1.4, 14.0, 0.62),
-    (38, 1.3, 16.0, 0.68),
-    (32, 1.2, 18.0, 0.72),
+    (74, 1.6, 10.0, 0.55),
+    (66, 1.5, 12.0, 0.60),
+    (58, 1.4, 14.0, 0.62),
+    (48, 1.3, 16.0, 0.68),
+    (40, 1.2, 18.0, 0.72),
     (17, 1.1, 24.0, 0.84),
     (11, 1.0, 28.0, 0.90),
 ]
@@ -132,6 +187,50 @@ STRAND_VALUE_JITTER = 0.16
 # Alpha at the very tip of a strand. Not zero at the last texel but tapered over the last
 # TIP_FADE of the strip, because a hard end to a strand is a visible horizontal cut across a card.
 TIP_FADE = 0.22
+
+# 🎯 **A FADE CANNOT END A STRAND UNDER A MASK MATERIAL, AND THAT IS WHERE THE STAIRCASE CAME
+# FROM.** The groom exports as MASK at cutoff 0.5. An alpha that ramps linearly from 1 to 0 over
+# the last 22% of a strand crosses 0.5 at ONE row, across the strand's full width at once — so
+# every strand ends in a horizontal cut one or two texels tall, which is the 1–2 px staircase the
+# blind critic saw at every tip. Fading harder does not help; it moves the cut, it does not soften
+# it, because a cutoff has no soft.
+#
+# What ends a strand under a cutoff is its WIDTH. Over the last TIP_NEEDLE of a strand the
+# half-width is driven to zero, so the kept region converges to a point: 3 texels wide, then 2,
+# then 1, then nothing. That is a hair tip rather than a cut, and it is the shape the critic
+# already called the one AAA-grade thing in the groom — the CARD's taper — arriving at the scale
+# below it.
+TIP_NEEDLE = 0.30
+
+# And the last texels of a needle are still a small hard shape, so the coverage inside the needle
+# is broken up by a per-strand hash. Under the cutoff this turns the tip's last few texels into a
+# stipple rather than a wedge, which is what reads as fraying.
+#
+# ⚠️ **THE AMPLITUDE IS THE WHOLE RISK.** Dither an entire strand and the sheet turns to mush —
+# every hair becomes a dotted line and the bundle loses its body. This is applied ONLY inside the
+# needle and only to texels the taper has already brought near the cutoff.
+TIP_DITHER = 0.34
+
+# ⚠️ **AND THE HONEST SIZE OF WHAT THE TWO OF THEM BUY IS SMALL. MEASURED, BOTH WAYS.** The pair
+# was A/B'd on its own — same seed, same groom, `TIP_NEEDLE = TIP_DITHER = 0.0` against the values
+# above — and looked at in the three-quarter plate's strand-end region, 400–540 × 520–660:
+#
+#                        hair px   vertical runs   mean run   runs of 1–2 px
+#   needle + dither off     9,402            468    20.09 px   88  (18.8%)
+#   as shipped              8,439            466    18.11 px   98  (21.0%)
+#
+# So the tips fray by about a tenth of a strand's length and gain two points of one-to-two-pixel
+# dashes, and they cost a tenth of the tip region's coverage. On the SHEET the pair is invisible:
+# strand terminations there span 1.010 px on average either way, because a strand is only three
+# texels wide to begin with and there was never a wide cut to soften.
+#
+# 🚩 **WHICH IS THE ANSWER TO "CAN THE ATLAS CARRY SOFTER COVERAGE AT ITS TIPS": ONLY A LITTLE, AND
+# THE STAIRCASE IS NOT THE ATLAS'S.** The 1–2 px staircase a critic sees is at SCREEN resolution,
+# where a card is magnified several times over the sheet and a binary cutoff quantises its edge to
+# whole pixels. No amount of soft alpha in the texture survives `alphaMode: MASK`, by definition.
+# The lever is the transparency mode — `packages/core/src/render/HairOIT.js` — and it belongs to
+# whoever owns that, not here. The needle stays because it is the correct shape for a hair tip and
+# it does measurably help; it is not a fix for the staircase and is not claimed as one.
 
 # The default groom colour, sRGB. A dark ash brown rather than black: REQ-061 records that this
 # frame has NO highlight energy at all, and a black groom cannot make one — the specular lobe on
@@ -251,35 +350,82 @@ def plan_strands(random, count, column, strip_width, half_width, wander, taper):
     random. Pure uniform sampling clumps — with twenty-six strands in a 128 px strip, uniform
     placement leaves visible gaps and doubled hairs, and a bundle with a hole in it reads as two
     bundles.
+
+    The lattice is laid over the strip's USABLE span, inside the gutter, so no strand's feather can
+    reach a border texel. See `STRIP_GUTTER_PX` for what that border texel was doing to the render.
     """
+    is_cap = column == CAP_STRIP
+    gutter = 0.0 if is_cap else STRIP_GUTTER_PX
     left = column * strip_width
+
+    # ⚠️ **THE GUTTER IS A CONSTRAINT ON THE FOOTPRINT, NOT ON THE ROOT.** The first attempt at
+    # this inset only the root lattice, and the sheet still had alpha 1.000 inside the gutter of
+    # strips 1 and 6 — a strand rooted exactly on the gutter's inner edge is still `half_width + 1`
+    # texels wide about that root. So the lattice is inset by the widest strand this strip can
+    # draw plus its feather, which is what makes the border texels empty by construction rather
+    # than by hope. Costs strip 1 six texels a side of a hundred and twenty-eight; the counts above
+    # pay it back.
+    widest = 0.0 if is_cap else half_width * 1.3 + 1.0
+    lattice_left = left + gutter + widest
+    lattice_width = strip_width - 2.0 * (gutter + widest)
+
     lattice = (numpy.arange(count) + 0.5) / count
     jitter = (random.random(count) - 0.5) / count * 0.9
 
     planned = []
     for index in range(count):
-        root_x = left + (lattice[index] + jitter[index]) * strip_width
-        room = strand_room(root_x, left, strip_width, half_width)
+        root_x = lattice_left + (lattice[index] + jitter[index]) * lattice_width
+
+        # 1 at the very edge of the lattice, 0 once EDGE_BAND_PX in. Everything below that is a
+        # wisp is scaled by it, so the band has no boundary of its own to become the next straight
+        # line.
+        to_edge = min(root_x - lattice_left, lattice_left + lattice_width - root_x)
+        edge = 0.0 if is_cap else max(0.0, min(1.0, 1.0 - to_edge / EDGE_BAND_PX))
+
+        strand_half_width = half_width * (0.7 + 0.6 * random.random()) * (1.0 - 0.45 * edge)
+        room = strand_room(root_x, left + gutter, strip_width - 2.0 * gutter, strand_half_width)
+
+        # An interior strand runs nearly the whole card. A wisp covers a random SPAN of it, which
+        # is what breaks the silhouette into hairs: two neighbouring wisps end at different rows,
+        # so the strip's kept boundary is ragged in v as well as in u.
+        interior_length = 1.0 if is_cap else 0.80 + 0.20 * random.random()
+        wisp_length = 0.18 + 0.42 * random.random()
+        length = interior_length + (wisp_length - interior_length) * edge
+        start = edge * random.random() * max(0.0, 1.0 - length)
+
+        # The inward lean. A hair at the edge of a bundle falls ACROSS it; only a ribbon runs
+        # parallel to its own border. The sign is toward the middle of the strip, and the travel
+        # is a share of the room the strand actually has rather than a constant.
+        inward = 1.0 if root_x < left + strip_width * 0.5 else -1.0
+        free_drift = (random.random() - 0.5) * 2.0 * room * 0.35
+        lean_drift = inward * (0.25 + 0.65 * random.random()) * room
 
         planned.append({
             "root_x": root_x,
-            "half_width": half_width * (0.7 + 0.6 * random.random()),
+            "half_width": strand_half_width,
             # 🚩 EVERY STRAND IS CONTAINED IN ITS OWN STRIP, and the first sheet was not. A card
             # samples one strip, so a strand that wanders into the neighbour is CUT by the card's
             # u range — a hard vertical slice across a hair, repeated down every card edge in the
             # groom. `strand_room` is how much lateral travel this root has before it hits the
-            # strip boundary, and the wander and the drift share it.
+            # gutter, and the wander and the drift share it.
             "wander": min(wander * (0.5 + 1.0 * random.random()), room * 0.65),
             "wander_phase": random.random() * math.tau,
             "wander_turns": 0.6 + 1.4 * random.random(),
-            "drift": (random.random() - 0.5) * 2.0 * room * 0.35,
+            "drift": free_drift + (lean_drift - free_drift) * edge,
             "taper": taper,
             "value": 1.0 + (random.random() * 2.0 - 1.0) * STRAND_VALUE_JITTER,
-            # The cap strip runs the full height with no ragged ends and no tip fade. Its job is
-            # coverage, not silhouette: it is behind every card in the groom and its bottom edge is
-            # the crown of the head, which must not be a row of tapering points.
-            "length": 1.0 if column == CAP_STRIP else 0.80 + 0.20 * random.random(),
-            "tip_fade": 0.02 if column == CAP_STRIP else TIP_FADE,
+            # The cap strip runs the full height with no ragged ends, no tip fade and no needle.
+            # Its job is coverage, not silhouette: it is behind every card in the groom and its
+            # bottom edge is the crown of the head, which must not be a row of tapering points.
+            "length": length,
+            "start": start,
+            "tip_fade": 0.02 if is_cap else TIP_FADE,
+            "tip_needle": 0.0 if is_cap else TIP_NEEDLE,
+            # The strip this strand is confined to, and whether it wraps inside it or is clipped
+            # by it. See the containment clause in `draw_strand`.
+            "strip_left": left,
+            "strip_span": strip_width,
+            "wrap": is_cap,
             "depth": random.random(),
             "id": random.random(),
         })
@@ -287,15 +433,15 @@ def plan_strands(random, count, column, strip_width, half_width, wander, taper):
     return planned
 
 
-def strand_room(root_x, left, strip_width, half_width):
-    """How far this root can travel sideways before its strand crosses the strip boundary.
+def strand_room(root_x, usable_left, usable_width, half_width):
+    """How far this root can travel sideways before its strand crosses out of the usable span.
 
-    One texel of margin on top of the strand's own half-width, so the antialiasing feather stays
-    inside the strip too — a feathered edge clipped by the card's u range is a grey line, which is
-    less obvious than a cut hair and just as wrong.
+    One texel of margin on top of the strand's own half-width, because `draw_strand` rasterises a
+    texel past the half-width for the antialiasing feather — and a feathered edge clipped by the
+    card's u range is a grey line, which is less obvious than a cut hair and just as wrong.
     """
-    to_left = root_x - left - half_width - 1.0
-    to_right = left + strip_width - root_x - half_width - 1.0
+    to_left = root_x - usable_left - half_width - 1.0
+    to_right = usable_left + usable_width - root_x - half_width - 1.0
 
     return max(0.0, min(to_left, to_right))
 
@@ -308,18 +454,34 @@ def draw_strand(strand, v_of_row, base_rgb,
     wide and its centre moves: a full-width mask per row would be 1024 texels of which six matter.
     The inner slice is vectorised, which is where the work is.
     """
-    end_row = int(strand["length"] * (size - 1))
+    # `start` is where the strand's own root sits on the sheet. Zero for every interior strand —
+    # a hair grows out of the scalp, and the scalp is v = 0 — and non-zero only for the edge wisps,
+    # which read as hairs that have fallen across the bundle from somewhere else.
+    length = max(strand["length"], 1e-6)
+    start_row = int(strand["start"] * (size - 1))
+    end_row = min(size - 1, int((strand["start"] + strand["length"]) * (size - 1)))
 
-    for row in range(0, end_row + 1):
+    for row in range(start_row, end_row + 1):
         v = v_of_row[row]
-        along = v / max(strand["length"], 1e-6)
+        along = (v - strand["start"]) / length
 
         centre = (strand["root_x"]
                   + strand["drift"] * along
                   + strand["wander"] * math.sin(strand["wander_phase"]
                                                 + strand["wander_turns"] * math.tau * along))
 
-        width = strand["half_width"] * (1.0 - strand["taper"] * along)
+        # The needle: over the last TIP_NEEDLE of the strand the half-width goes to zero, so the
+        # cutout ends in a point rather than in a horizontal cut. See TIP_NEEDLE.
+        needle = 1.0
+        if strand["tip_needle"] > 0.0:
+            needle = min(1.0, max(0.0, (1.0 - along) / strand["tip_needle"]))
+
+        # A wisp that begins part-way down the sheet has a second end, and an unhandled second end
+        # is the same horizontal cut at the other end of the hair. It gets the same needle.
+        if strand["start"] > 0.0 and strand["tip_needle"] > 0.0:
+            needle = min(needle, max(0.0, along / strand["tip_needle"]))
+
+        width = strand["half_width"] * (1.0 - strand["taper"] * along) * needle
         if width <= 0.05:
             continue
 
@@ -333,13 +495,36 @@ def draw_strand(strand, v_of_row, base_rgb,
         flow_x = slope / direction_length
         flow_y = 1.0 / direction_length
 
-        first = max(0, int(math.floor(centre - width - 1.0)))
-        last = min(size - 1, int(math.ceil(centre + width + 1.0)))
+        first = int(math.floor(centre - width - 1.0))
+        last = int(math.ceil(centre + width + 1.0))
         if last < first:
             continue
 
         columns = numpy.arange(first, last + 1)
         offset = (columns - centre) / width
+
+        # 🚩 **A STRAND MAY ONLY EVER WRITE INSIDE ITS OWN STRIP, and until this clause existed the
+        # cap strip's strands wrote into strip 1.** Measured on the shipped sheet: 1,020 of strip
+        # 1's 1,024 left-border texels were opaque, standard deviation 0.000 px — a dead-straight
+        # vertical line down the whole card, drawn by a NEIGHBOUR. That is the razor edge the blind
+        # critic traced from the crown past the jaw, and no amount of work on strip 1's own strands
+        # could have moved it, because none of them were there.
+        #
+        # The cap strip WRAPS rather than clips. `hair_cards.cap_uv` tiles it CAP_WEDGES times
+        # around the whorl, so a strand leaving its right edge is the same strand arriving at its
+        # left edge one wedge round — clipping it would cut a hair at every wedge seam on the
+        # crown. Every other strip clips, and the gutter means nothing should reach the clip.
+        texels = columns
+        if strand["wrap"]:
+            texels = strand["strip_left"] + (columns - strand["strip_left"]) % strand["strip_span"]
+        else:
+            inside = ((columns >= strand["strip_left"])
+                      & (columns < strand["strip_left"] + strand["strip_span"]))
+            if not numpy.any(inside):
+                continue
+            columns = columns[inside]
+            offset = offset[inside]
+            texels = columns
 
         # Antialiasing is one texel of feather at the strand's edge, expressed in the strand's own
         # half-widths so a thin strand does not vanish: a hair 1.2 px across is mostly feather.
@@ -349,25 +534,32 @@ def draw_strand(strand, v_of_row, base_rgb,
 
         tip_alpha = numpy.clip((1.0 - along) / strand["tip_fade"], 0.0, 1.0)
         hit = hit * tip_alpha
+
+        # The stipple, inside the needle only. A hash of the strand's id and the row, so it is
+        # deterministic with the seed and decorrelated between neighbouring strands — two hairs
+        # that dithered in step would fray as one wide hair.
+        if needle < 1.0 and TIP_DITHER > 0.0:
+            noise = math.sin((strand["id"] * 733.0 + row) * 12.9898) * 43758.5453
+            hit = hit * (1.0 - TIP_DITHER * (1.0 - needle) * (noise - math.floor(noise)))
+
         if not numpy.any(hit > 0.0):
             continue
 
         value = strand["value"] * root_shading(v)
         colour = numpy.clip(base_rgb * value, 0.0, 1.0)
 
-        row_albedo = albedo[row, first:last + 1]
-        row_coverage = coverage[row, first:last + 1]
-
         # Standard over-compositing, back to front, so a wisp in front of a bundle tints it.
-        row_albedo *= (1.0 - hit)[:, None]
-        row_albedo += colour[None, :] * hit[:, None]
-        coverage[row, first:last + 1] = row_coverage + hit * (1.0 - row_coverage)
+        # Fancy-indexed rather than sliced, because `texels` is a wrapped or a clipped set of
+        # columns and neither is contiguous in general.
+        albedo[row, texels] = (albedo[row, texels] * (1.0 - hit)[:, None]
+                               + colour[None, :] * hit[:, None])
+        coverage[row, texels] = coverage[row, texels] + hit * (1.0 - coverage[row, texels])
 
         owned = hit > OPAQUE_ENOUGH
         if not numpy.any(owned):
             continue
 
-        owned_columns = columns[owned]
+        owned_columns = texels[owned]
 
         flow[row, owned_columns, 0] = flow_x
         flow[row, owned_columns, 1] = flow_y

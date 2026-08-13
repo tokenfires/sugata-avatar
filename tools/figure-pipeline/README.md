@@ -297,16 +297,24 @@ sweep, one command per identity, all five exit 0:
 | scalp verts after the cut | 337 | 337 | 337 | 337 | 337 |
 | scalp area above the hairline | 472.6 cm² | 492.1 | 513.2 | 535.9 | 561.0 |
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
-| nearest approach, build's instrument | 3.517 mm | 3.502 | 3.504 | 3.535 | 3.509 |
-| nearest approach, `verify_glb.mjs` | 3.294 mm | 3.387 | 3.223 | 3.420 | 3.169 |
-| cranium hidden through the cutout | 100.00% | 99.58 | 100.00 | 99.60 | 99.14 |
-| fragment bytes | 2,665,684 | 2,666,024 | 2,665,420 | 2,665,840 | 2,665,800 |
+| nearest approach, build's instrument | 3.509 mm | 3.501 | 3.504 | 3.510 | 3.502 |
+| nearest approach, `verify_glb.mjs` | 3.294 mm | 3.371 | 3.117 | 3.313 | 3.169 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 99.98 | 99.96 | 99.95 |
+| largest connected exposed patch | 0.0 mm² | 0.0 | 2.6 | 4.4 | 5.5 |
+| bare cranium seen from the worst judge view | 9.6 mm² | 5.8 | 6.3 | 9.0 | 10.1 |
+| fragment bytes | 2,638,028 | 2,638,364 | 2,637,760 | 2,638,180 | 2,638,144 |
 
-Every groom is **254 cards of 13 rings each + 2 cap shells of 564 triangles**, 7,256 verts, 7,224
-triangles. The four sheets are shared and written once per build: albedo 1,025,454 · normal
-1,201,299 · flow 365,090 · depth 62,683 bytes. g050's fragment is sha256 `0057c8367b566c69…`, and
-running the same command twice reproduces it byte for byte — which was not true until the seed bug
-below was found.
+Every groom is **294 cards of 13 rings each + 2 cap shells of 564 triangles**, 8,296 verts, 8,184
+triangles. The four sheets are shared and written once per build: albedo 979,435 · normal
+1,159,824 · flow 388,309 · depth 75,426 bytes. g050's fragment is sha256 `69516531a846a330…`, and
+running the same command twice reproduces it byte for byte — measured again this round, all five
+hashes identical across two consecutive `build.sh --hair bob01` runs.
+
+⚠️ **The coverage row is not comparable with the one this table used to carry.** It read
+99.14–100.00% then and it reads 99.95–100.00% now, and the two are different measurements: the old
+one asked 257 cranium VERTICES along their own normals and blended the alpha; this one samples the
+cranium's SURFACE at 4 mm and applies the material's cutoff. The old figure passed a groom with a
+bald patch you could not miss — see "the gate that passed on a hole" below.
 
 ### Six things that were silent failures while this was being built
 
@@ -340,13 +348,13 @@ failed, correctly, on a command that had passed minutes earlier. The layer's IND
 
 🚩 **BAKING TANGENT SHATTERS THE CARD TOPOLOGY, so the groom does not.** `docs/research/hair.md`
 §6.1 asks for the fibre direction as a baked vertex attribute. It was tried: `export_tangents=True`
-makes Blender's exporter split vertices at tangent discontinuities, and 254 clean quad-strip
+makes Blender's exporter split vertices at tangent discontinuities, and the 254 clean quad-strip
 components of 13 rings each plus 2 cap shells of 564 triangles came out as **284 ragged components
 with ring counts of 2/3/6/7/9/10/11/13/63 and the cap in 12 fragments**. That destroys the property
 the card-count gate stands on and buys nothing: a card's UV is axis-aligned **by construction**, so
 the UV tangent is exactly the card's U axis and the strand direction is its bitangent, with no
 degeneracy anywhere on the mesh. What has to be protected is that the UV *stays* axis-aligned, and
-`verify_glb.mjs` asserts exactly that instead — **254 of 254 cards on exactly two u columns**.
+`verify_glb.mjs` asserts exactly that instead — **294 of 294 cards on exactly two u columns**.
 
 ### The strand atlas
 
@@ -386,21 +394,24 @@ node tools/figure-pipeline/verify_glb.mjs /tmp/red/nocollide/bob01/g050.glb
 $BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
   --gender 0.5 --output /tmp/red/body.glb --hair bob01 --hair-dir /tmp/red/nocap --no-hair-cap
 node tools/figure-pipeline/verify_glb.mjs /tmp/red/nocap/bob01/g050.glb
-#   FAIL scalp cap      0 non-ribbon component(s)
-#   FAIL scalp coverage 94.27% of 257 cranium vertices hidden (floor 97%)
+#   FAIL scalp cap        0 non-ribbon component(s)
+#   ok   scalp coverage   98.53% of 5324 cranium surface samples at 4 mm hidden (floor 97%)
+#   FAIL no bald patch    largest connected exposed patch 226.7 mm² (ceiling 50 mm²)
+#   FAIL no skin on show  worst view 'back' at 309.7 mm² of bare cranium (ceiling 60 mm²)
 ```
 
-⚠️ **The coverage gap is 94.27% against 100.00%, and that is the measurement rather than a weak
-threshold.** 254
-cards over a scalp already hide most of it. Five points of bare crown is what a top-down render
-shows as thinning hair, which is exactly how the cap came to exist — see
-`packages/testbed/src/hair.html`, whose `top` view is the only one that could have found it.
+🎯 **READ THE THIRD LINE OF THAT OUTPUT: THE MEAN COVERAGE CLAUSE STILL PASSES A GROOM WITH NO
+SCALP CAP AT ALL.** 98.53% against a 97% floor, on a build whose top view is bare skin between the
+cards. That is not a threshold set too low — it is the wrong statistic. A hole is LOCAL, and no
+average over a whole cranium can see one; 3% of a cranium gathered into one place is the hole and
+3% spread evenly is a groom that is slightly thin everywhere. The mean survives as a report and the
+two clauses under it are what fail.
 
 The clauses the two flags do NOT reach — the card counter, the axis-aligned UV rule, and both
 instruments' own arithmetic — are proven against known answers, with no Blender and in 0.2 s:
 
 ```bash
-node tools/figure-pipeline/hair_geometry.selftest.mjs   # PASS — 20 assertions
+node tools/figure-pipeline/hair_geometry.selftest.mjs   # PASS — 22 assertions
 ```
 
 A signed distance is checked against a SPHERE, where the answer is `|p − centre| − r` exactly on
@@ -408,16 +419,58 @@ both sides; a transmittance against a stack of cards of known alpha, where the a
 and the card counter against a soup with a deliberate WELD in it, which is the failure neither
 build flag can produce.
 
+### The card border, and the gate that passed on a hole
+
+A blind critic shown `packages/testbed/src/hair.html` named three launch blockers that every
+number above had passed. Two of them were the atlas's and the third was the target's.
+
+🎯 **THE RAZOR ACROSS THE FACE WAS DRAWN BY A NEIGHBOURING STRIP.** In three-quarter view a
+dead-straight border ran from the crown past the jaw and sliced the eyebrow, the eyelid and the
+cheekbone. Measured off the shipped `albedo.png` at the 0.5 cutoff it exports with: **strip 1's
+left boundary had a standard deviation of 0.000 px over 1,020 of 1,024 rows, and 1,895 of its
+2,048 border texels were kept.** Strip 1 is the innermost, face-framing layer's strip and none of
+its own strands were there — the CAP strip's were, spilling across the boundary because
+`draw_strand` clamped its columns to the ATLAS rather than to the strand's own strip. Fixed at
+source three ways: per-strip containment (the cap wraps inside strip 0, everything else clips), a
+3 px gutter no strand's feather may enter, and a 20 px edge band whose strands are wisps that lean
+inward across the card. After: **0 border texels kept, worst card strip 7.210 px over 943 rows.**
+
+| clause | what breaks it at source | red | green |
+|---|---|---:|---:|
+| `card borders` | `"strip_span": strip_width * STRIP_COLUMNS` | 4,066 opaque texels | 0 |
+| `card borders` | `STRIP_GUTTER_PX = 0.0` | 234 opaque texels | 0 |
+| `border is hair` | `"strip_span": strip_width * STRIP_COLUMNS` | 0.000 px / 1,020 rows | 7.210 px / 943 |
+| `no bald patch` | `--no-hair-cap` | 226.7 mm² | 0.0–5.5 |
+| `no skin on show` | `--no-hair-cap` | 309.7 mm² ('back') | 5.8–10.1 |
+| `no skin on show` | `"part": 1.00, "crown": 0.00` on the `root` layer | 216.8 mm² ('front') | 5.8–10.1 |
+
+⚠️ **`border is hair` does NOT fire on `EDGE_BAND_PX = 0.0`** — that measures 4.507 px, above the
+3 px floor. Said plainly because a gate should be described by what it catches: the floor is set
+against the defect (0.000 px), not against every groom that is less good than this one.
+
+🚩 **AND THE COVERAGE CLAUSE HAD THREE HOLES, NOT A LOW THRESHOLD.** It read 99.14–100.00% on a
+groom with a lit scalp at the parting. It asked 257 cranium VERTICES, 10–20 mm apart on this base
+mesh, so a two-centimetre patch fit between them; it built a transmittance PRODUCT out of raw alpha
+where the material masks at 0.5, so three cards at alpha 0.4 read as 78% covered when the renderer
+draws three holes; and it was a MEAN, which cannot see a hole by construction. All three are fixed,
+and the fix found the defect immediately — **229.1 mm² of bare cranium at (0.032, 1.633, 0.105),
+seen from the front.** The clause that found it casts from the five camera angles
+`packages/testbed/src/hair.js`'s `VIEWS` defines, because the normal ray from a forehead sample
+goes UP through the cards over the crown and a critic is looking FORWARD between them.
+
 ### Looking at it
 
 ```bash
-npm run dev   #  http://localhost:5173/src/hair.html
+npm run dev                                            # http://localhost:5173/src/hair.html
+node tools/figure-pipeline/hair_shots.mjs --out captures/hair   # the same five plates as PNGs
 ```
 
-Five fixed angles and the four sheets. The gate proves 254 cards clear the skull; it is
+Five fixed angles and the four sheets. The gate proves 294 cards clear the skull; it is
 structurally blind to whether they read as hair, which is LEARNINGS §1.2 and is why the page
-exists. ⚠️ It is NOT the hair shader — punch-list 3.5 owns the anisotropic strand model and runs
-after this. What is drawn is the geometry under a plain Principled material.
+exists. `hair_shots.mjs` drives the page's own `window.hairShot`, which awaits `renderAsync`, so a
+before/after pair is two states of one framing rather than two framings. ⚠️ It is NOT the hair
+shader — punch-list 3.5 owns the anisotropic strand model and runs after this. What is drawn is the
+geometry under a plain Principled material.
 
 ### What was checked before any of this was built
 

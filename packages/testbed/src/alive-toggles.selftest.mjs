@@ -152,20 +152,22 @@
  *    recorded as MOVING THE CAMERA now say so out loud, so a plate captured at `?frame=body` is
  *    known to be a plate from a different viewpoint and not merely a wider lens.
  *
- *    🎯 AND THE PROOF, RUN FIVE WAYS, every number below re-derived against THIS file at 191 clean
- *    checks. Four of the five are caught by EXACTLY ONE check — the instrument-5 row for
- *    `?cards=0` — and that is the finding rather than a detail: instruments 1-4 stay green, so the
- *    confound really is invisible to everything that existed before this instrument.
+ *    🎯 AND THE PROOF, RUN FIVE WAYS, every number below RE-RUN against THIS file at 194 clean
+ *    checks — the counts moved when punch-list 3.5/3.6's groom added three, so they were measured
+ *    again rather than adjusted by arithmetic. Four of the five are caught by EXACTLY ONE check —
+ *    the instrument-5 row for `?cards=0` — and that is the finding rather than a detail:
+ *    instruments 1-4 stay green, so the confound really is invisible to everything that existed
+ *    before this instrument.
  *
  *      | --confound      | mechanism                      | result  | what fires                        |
  *      |-----------------|--------------------------------|---------|-----------------------------------|
- *      | exposure        | renderer scalar                | 190/192 | instrument 5 AND the pipeline row |
- *      | shadowmap       | nested configuration bag       | 191/192 | `renderer.shadowMap.enabled`      |
- *      | scene           | not on the renderer at all     | 191/192 | `scene.backgroundIntensity 1 ->   |
+ *      | exposure        | renderer scalar                | 193/195 | instrument 5 AND the pipeline row |
+ *      | shadowmap       | nested configuration bag       | 194/195 | `renderer.shadowMap.enabled`      |
+ *      | scene           | not on the renderer at all     | 194/195 | `scene.backgroundIntensity 1 ->   |
  *      |                 |                                |         | 0.6`                              |
- *      | camera          | THE THIRD SUBJECT              | 191/192 | `camera.filmOffset 0 -> 0.6`, and |
+ *      | camera          | THE THIRD SUBJECT              | 194/195 | `camera.filmOffset 0 -> 0.6`, and |
  *      |                 |                                |         | the two projection matrices       |
- *      | cameraTransform | a VALUE OBJECT on that subject | 191/192 | `camera.position`, and the three  |
+ *      | cameraTransform | a VALUE OBJECT on that subject | 194/195 | `camera.position`, and the three  |
  *      |                 |                                |         | matrices derived from it          |
  *
  *    (A confound run carries one check more than a clean one, because it adds the check that the
@@ -204,8 +206,8 @@
  *
  * Usage:  node "packages/testbed/src/alive-toggles.selftest.mjs"
  *
- * It loads about ninety plates and takes ~3.5 minutes (measured 3:36 for the 191-check clean run
- * at this commit). That is the price of the pairwise sweep, which is quadratic in the number of
+ * It loads about ninety plates and takes ~3.7 minutes (measured 220.26 s for the 194-check clean
+ * run at this commit, and 218.43 s for the run before it — the spread is the machine, not the file). That is the price of the pairwise sweep, which is quadratic in the number of
  * scene off-switches, and it is worth stating up front so a slow run is not mistaken for a hang.
  *
  * Exit codes follow tools/critic/measure.mjs, so a caller can tell a red gate from a broken tool:
@@ -218,6 +220,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+
+// The recommended transparency arm, IMPORTED rather than typed here. A literal would let the page
+// and the module disagree and this file would certify the disagreement — which is exactly what
+// happened for a round, when `alive.js` did not import `HairOIT` at all and shipped the cutout arm
+// while `HairOIT.js` recommended `hash`. Verified importable under plain node: the module reaches
+// `three/webgpu` and `three/tsl`, both of which resolve from this repository's node_modules.
+import { HAIR_OIT_DEFAULT_MODE } from '../../core/src/render/HairOIT.js';
 
 const REPOSITORY_ROOT = path.resolve( fileURLToPath( new URL( '.', import.meta.url ) ), '../../..' );
 
@@ -713,6 +722,67 @@ const UNGATED = {
         'certify the label, not the defect. Gated by GTAO.selftest.mjs, whose rejection proof ' +
         'measures the packed-normal search against the reference one. Absent, defect is \'none\' ' +
         'and packedNormalDefect stays 0.' },
+
+    // --- PUNCH-LIST 3.5/3.6, THE GROOM. `?hair` is the `?wear` shape and the other seven are its
+    // sub-keys, read only on a plate that already asked for a groom.
+    //
+    // 🚩 THE GATE FOUND `?hair` BY ITSELF, exactly as it found `?wear`. Measured at the start of
+    // this round, before a line of it was written: `FAIL: 190/191 checks green`, and the one red
+    // was `UNCLASSIFIED: hair`. Nobody had to remember that a key had been added.
+    //
+    // ⚠️ AND A TOGGLES ROW WOULD BE THE WRONG SHAPE, FOR THE `?wear` REASON VERBATIM. Every key in
+    // that table changes how the SAME scene is shaded; `?hair` changes WHAT IS IN the scene — it
+    // adds a 254-card `SkinnedMesh` rebound to the figure's own skeleton, a shadow-casting mesh,
+    // the strand sheets it samples and, on the `wboit` arm, two G-buffer attachments and a resolve
+    // pass. "Changes exactly these entities and no others" has no honest allowlist for that: the
+    // entity SET grows.
+    // The declared-and-unchanged half of the row could not be satisfied either, because the new
+    // entities have no baseline signature to differ from.
+    //
+    // What this file IS entitled to say about it is the claim the shipped plate rests on — absent,
+    // it is inert — and that is asserted below rather than left as prose, on every plate this run
+    // loads, with one `?hair=1` plate to prove the nulls mean inert and not absent.
+    hair: { readHere: true, why:
+        'PUNCH-LIST 3.5/3.6. Not a shading switch: it changes what is IN the scene (a 254-card ' +
+        'groom rebound to the figure\'s skeleton, a shadow-casting mesh, the strand sheets, and on ' +
+        'the wboit arm two more G-buffer attachments), so no entity allowlist describes it — the ' +
+        'entity set itself grows. Gated by packages/core/src/material/HairMaterial.selftest.mjs ' +
+        'for the BSDF, packages/core/src/render/HairOIT.selftest.mjs for the transparency arm, and ' +
+        'tools/figure-pipeline/hair_geometry.selftest.mjs for the groom. What is checked HERE is ' +
+        'the only claim the shipped plate rests on: absent, it is inert.' },
+
+    // The seven sub-keys. `alive.js` consults every one of them inside `readHairRequest`, which is
+    // called ONLY when `?hair=1` is present — so on the ninety-odd plates this file loads without
+    // it, none of them is read at all. They are `readHere: true` rather than held out because ONE
+    // plate in this run does carry `?hair=1`, which is what makes them observable from here.
+    //
+    // None is a TOGGLES row and the reason is the same for all seven: they can only change a plate
+    // that CONTAINS a groom, and the baseline this file diffs against has none. A row would be
+    // comparing a hair plate to a bald one and calling the whole groom collateral.
+    hairoit: { readHere: true, why:
+        'PUNCH-LIST 3.6. Which of blend/cutout/hash/wboit the groom\'s fragments reach the frame ' +
+        'buffer through; default HAIR_OIT_DEFAULT_MODE. Inert without ?hair, and its own gate is ' +
+        'HairOIT.selftest.mjs, which measures order dependence directly by reversing the groom\'s ' +
+        'triangle order — a rejection proof no entity allowlist can express.' },
+    hairbsdf: { readHere: true, why:
+        'PUNCH-LIST 3.5. The A side of the Karis BSDF, holding the geometry constant: the groom ' +
+        'keeps its shipped GLB material. Inert without ?hair. Gated by HairMaterial.selftest.mjs.' },
+    hairlobes: { readHere: true, why:
+        'PUNCH-LIST 3.5. Which of R, TT and TRT are live, so the dual band can be measured as two ' +
+        'plates rather than inferred from their sum. Inert without ?hair.' },
+    hairscatter: { readHere: true, why:
+        'PUNCH-LIST 3.5. Removes slide 39\'s multiple-scattering term. Inert without ?hair.' },
+    hairvis: { readHere: true, why:
+        'PUNCH-LIST 3.5. Removes the card-scale side visibility — the plate that made the term ' +
+        'necessary, where the rim transmits through the head and the groom renders blue. Inert ' +
+        'without ?hair.' },
+    hairrootao: { readHere: true, why:
+        'PUNCH-LIST 3.5. Removes the root darkening. Inert without ?hair.' },
+    hairdefect: { readHere: true, why:
+        'KNOWN-BAD, the ?statedefect shape: a fixed view-space strand direction welds the ' +
+        'highlight to the screen and renders a plausible picture. It corrupts the anisotropy ' +
+        'rather than removing it, so a TOGGLES row would certify the label. Inert without ?hair; ' +
+        'gated by HairMaterial.selftest.mjs.' },
 
     // 🚩 AN INSTRUMENT, NOT A SWITCH, AND THE ONE KEY ON THIS PAGE THAT INSTRUMENT 5 CANNOT SEE AT
     // ALL. `?gputime=1` asks the ADAPTER for the `timestamp-query` feature at device creation. That
@@ -1314,11 +1384,25 @@ async function startVite() {
 
 }
 
-/** One page load. Returns everything the page can say about itself, plus the rendered bytes. */
-async function loadPlate( page, baseUrl, query ) {
+/**
+ * One page load. Returns everything the page can say about itself, plus the rendered bytes.
+ *
+ * `alsoReady` is an extra readiness predicate, shipped into the page and polled there, so it reads
+ * `globalThis.sugata` itself and takes no arguments. The default wait is for the figure, and
+ * everything that lands after it — the wardrobe, the groom — arrives inside the 1500 ms below on a
+ * warm cache and not always on a cold one. A plate read early is a plate of a page that has not
+ * finished, and a flaky check is worse than no check.
+ */
+async function loadPlate( page, baseUrl, query, alsoReady = null ) {
 
     await page.goto( `${ baseUrl }/alive.html?${ query }`, { waitUntil: 'load' } );
     await page.waitForFunction( () => globalThis.sugata?.session?.figure != null, null, { timeout: 120_000 } );
+
+    if ( alsoReady !== null ) {
+
+        await page.waitForFunction( alsoReady, null, { timeout: 120_000 } );
+
+    }
 
     // The figure lands before its materials have all compiled; a plate read too early is a plate
     // of a half-shaded figure and would make the census right and the pixels wrong.
@@ -1370,6 +1454,11 @@ async function loadPlate( page, baseUrl, query ) {
     // defined in THIS file and shipped into the page — see `frameSubjectState` for why that
     // is deliberate rather than awkward.
     state.rendererState = await page.evaluate( frameSubjectState );
+
+    // Punch-list 3.5/3.6's inertness claim, read off the census rather than fetched separately —
+    // `censusOfShading` already reports the groom as a SHAPE, null when the plate has none, and a
+    // second reading would be a second chance for the two to disagree.
+    state.hair = state.census.hair;
 
     state.pixels = await page.screenshot( { timeout: 60_000 } );
 
@@ -1449,6 +1538,11 @@ const observedSurface = new Set();
 // boot path does not touch the wardrobe" is a claim about every reachable configuration.
 const plateWardrobes = new Map();
 
+// The same bookkeeping for punch-list 3.5/3.6's groom, and for the same reason: `?hair` is opt-in
+// so that the plate the seven gates are stated on is a plate with no groom in it, and one plate is
+// a sample of that claim rather than the claim.
+const plateGrooms = new Map();
+
 try {
 
     console.log( '--- are the instruments usable at all? -------------------------------------\n' );
@@ -1460,6 +1554,8 @@ try {
 
     plateWardrobes.set( 'baseline', baseline.wardrobe );
     plateWardrobes.set( 'baseline (second load)', baselineAgain.wardrobe );
+    plateGrooms.set( 'baseline', baseline.hair );
+    plateGrooms.set( 'baseline (second load)', baselineAgain.hair );
 
     // A fingerprint that drifts between two loads of the same url reports every toggle as
     // collateral and the whole of instrument 2 becomes noise. Checked first so a drift is diagnosed
@@ -1728,6 +1824,7 @@ try {
         for ( const key of plate.surface ) observedSurface.add( key );
 
         plateWardrobes.set( `?${ toggle.query }`, plate.wardrobe );
+        plateGrooms.set( `?${ toggle.query }`, plate.hair );
 
         // Instrument 2, both directions. Exactly the declared entities, no more and no fewer.
         const changed = changedEntities( baseline.fingerprint, plate.fingerprint );
@@ -1803,6 +1900,7 @@ try {
     for ( const key of msaaPlate.surface ) observedSurface.add( key );
 
     plateWardrobes.set( `?${ MUTUALLY_EXCLUSIVE.query }`, msaaPlate.wardrobe );
+    plateGrooms.set( `?${ MUTUALLY_EXCLUSIVE.query }`, msaaPlate.hair );
 
     report(
         `?${ MUTUALLY_EXCLUSIVE.query } turns ${ MUTUALLY_EXCLUSIVE.turnsOn } ON`,
@@ -1888,6 +1986,73 @@ try {
                     'the decency floor, which is empty until 9.8 lands'
                 : 'sugata.wardrobe is STILL null with ?wear in the url — the check above proves nothing, ' +
                     'because it cannot distinguish an inert wardrobe from a missing one'
+        );
+    }
+
+    // 🎯 PUNCH-LIST 3.5/3.6's INERTNESS CLAIM, and it is the `?wear` block one file section down
+    // rather than a variation on it, because the two flags have the same shape and the same risk.
+    // `?hair` is opt-in SO THAT the plate every objective gate is measured on has no groom in it;
+    // that is a claim about the boot path, not about one plate, so it is asserted over every plate
+    // this run loaded. A groom waking up unasked would put a 254-card shadow-casting mesh and its
+    // sheets into the plate a judge captures, and move every recorded sha256 with it.
+    {
+        const grown = [ ...plateGrooms.entries() ]
+            .filter( ( [ , groom ] ) => groom !== null && groom !== undefined )
+            .map( ( [ label, groom ] ) => `${ label } -> ${ groom.bake } (${ groom.groomMeshes } mesh)` );
+
+        report(
+            'with ?hair absent the groom is never loaded, on ANY plate this file loads',
+            grown.length === 0,
+            grown.length === 0
+                ? `${ plateGrooms.size } plates, census.hair null on every one — no GLB fetched, no ` +
+                    'sheets, nothing added to the figure'
+                : `THE GROOM APPEARED UNASKED on ${ grown.join( '; ' ) } — the default plate is not the ` +
+                    'plate the seven gates are stated on'
+        );
+
+        // 🚩 AND THE SAME PROOF THE WARDROBE BLOCK NEEDS, FOR THE SAME REASON: a column of nulls is
+        // also what a deleted `?hair`, a silently-failed dynamic import or an unexposed
+        // `session.hair` produces, so on its own the check above cannot tell "correctly inert" from
+        // "absent". One plate WITH the flag separates them. There is no cheap end of this flag the
+        // way `?wear=` is the cheap end of the wardrobe — the groom is one GLB and its sheets,
+        // whole or not at all — so the extra plate is simply the price of the check meaning anything.
+        //
+        // It carries a second job. `readHairRequest` is called only when `?hair=1` is present, so
+        // this is the ONLY plate in the run on which the seven sub-keys are read at all, and their
+        // UNGATED rows would otherwise be excuses for keys the surface check never sees.
+        const hairPlate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&hair=1`,
+            () => globalThis.sugata?.session?.hair != null );
+
+        for ( const key of hairPlate.surface ) observedSurface.add( key );
+
+        const groom = hairPlate.hair;
+
+        report(
+            'and the same check SEES a groom when ?hair IS present, so the nulls above mean inert and not absent',
+            groom != null && groom.groomMeshes > 0 && groom.shadedMeshesInScene > 0,
+            groom == null
+                ? 'census.hair is STILL null with ?hair=1 in the url — the check above proves nothing, ' +
+                    'because it cannot distinguish an inert groom from a missing one'
+                : `?hair=1 put the ${ groom.bake } groom on the page: ${ groom.groomMeshes } mesh, ` +
+                    `${ groom.shadedMeshesInScene } of them wearing HairMaterial, oit '${ groom.oit }'`
+        );
+
+        // 🎯 AND THE ONE THING THIS ROUND ADDED THAT A NULL CANNOT CARRY: which transparency arm the
+        // groom actually runs. Until this round `alive.js` never imported `render/HairOIT.js`, so
+        // `createHairMaterial`'s own `alphaTest = 0.5` stood and this page ran the CUTOUT arm — the
+        // arm HairOIT.js measures as the worst under motion — while nothing anywhere said so. The
+        // census reads the arm off the STAGE, so this check fails if the wiring is removed again.
+        report(
+            'and the arm it runs is HairOIT.js\'s own recommendation, not whatever the material was left in',
+            groom != null && groom.oit === HAIR_OIT_DEFAULT_MODE,
+            groom == null
+                ? 'no groom on the plate — not checked'
+                : groom.oit === HAIR_OIT_DEFAULT_MODE
+                    ? `oit '${ groom.oit }' = HAIR_OIT_DEFAULT_MODE, read off stage.hairOITMode rather ` +
+                        'than echoed back from the url'
+                    : `THE PAGE IS RUNNING '${ groom.oit }' AND HairOIT.js RECOMMENDS ` +
+                        `'${ HAIR_OIT_DEFAULT_MODE }'. If that is 'cutout', the OIT wiring has been ` +
+                        'lost and the shipped avatar is back on the arm 3.6 measured as worst under motion'
         );
     }
 

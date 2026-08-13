@@ -819,6 +819,74 @@ const AMBIENT = {
     fractionOfKey: 0.22
 };
 
+/**
+ * How far the receiver's shadow lookup is stepped along its own normal, IN SHADOW-MAP TEXELS.
+ *
+ * ## Why this is a count of texels and not a distance in metres
+ *
+ * three r0.185.1 `ShadowNode` builds the lookup as `shadowPositionWorld + normalWorld * normalBias`
+ * — an unscaled world-space step. So a normal bias is a bet about how far apart two surfaces have
+ * to be before the map can tell them apart, and that distance is a property of the TEXEL, which on
+ * this rig is not a constant: `frameShadowCamera` sizes the cone to `shadowCoverageInHeights` of
+ * the FRAMED height, so the texel's world footprint scales with the framing. Measured this round
+ * on `alive.html` off the built lights (`2 * distance * tan( angle ) / mapSize`):
+ *
+ *     preset     framed m    cone half-extent m    map     texel mm
+ *     portrait     0.4200          0.9240         4096      0.4512
+ *     body         1.8267          4.0188         4096      1.9623
+ *
+ * **4.35x between the two presets the rig ships.** A single figure in metres is therefore wrong at
+ * one end whatever it is set to, which is what the 0.020 m this replaced was: 44.3 texels at
+ * portrait and 10.2 at body, against a floor measured below at ONE.
+ *
+ * ## The sweep this value comes from — rendered pixels, `alive.html`, nothing edited
+ *
+ * Driven at runtime through `sugata.lights`, body framing, `?wear=female_casualsuit01,shoes01`,
+ * `?bare&frame=body&freeze&seed=1&aa=msaa&grade=0`, 900x1600. CONTACT is the mean darkening over
+ * bare skin within 12 px of drawn cloth, with the garments casting against the same frame with
+ * their `castShadow` cleared. ACNE is the high-frequency energy the shadow map ADDS to the
+ * garment's own surface over a shadow-free render of the same frame, in 255ths of luma:
+ *
+ *     bias mm   texels    contact 255    acne mean    acne worst cell
+ *      20.00     10.19       2.6877        0.0013         0.1054      ← what this replaces
+ *       4.00      2.04       3.1983        0.0036         0.1657
+ *       2.94      1.50       3.2196        0.0043         0.2020      ← ships
+ *       2.00      1.02       3.2411        0.0091         0.2235
+ *       1.00      0.51       3.2706        0.0869         0.3272      ← acne, 20x the mean
+ *       0.00      0.00       3.3215        0.4076         1.1170      ← acne, 94x
+ *
+ * The knee is at ONE texel and it is sharp: 0.51 texels costs twenty times the acne of 1.02, and
+ * zero costs ninety-four. 1.5 texels sits half a texel above the knee and still collects 96.9% of
+ * the contact that zero bias collects (3.2196 of 3.3215) — and 19.8% MORE than the 0.020 m it
+ * replaces (2.6877). At grazing incidence, where acne appears first, the knee is in the same place
+ * and steeper: with the key driven to azimuth 75° elevation 5°, acne mean runs -0.0058 at 1.02
+ * texels, +0.0399 at 0.51 and +0.1653 at zero.
+ *
+ * ## ⚠️ THE FIGURE ITSELF CANNOT ACNE AT ALL, AND THAT IS NOT A REASON TO SET THIS TO ZERO
+ *
+ * Every mesh under `figure.root` leaves `material.shadowSide` null, and three r0.185.1
+ * (`three.webgpu.js`, the `isShadowPassMaterial` branch) then renders the shadow pass from
+ * `_shadowSide[ material.side ]` — BackSide for a FrontSide material — so the body casts from its
+ * FAR side and can never sample its own depth. Measured: with the shipped configuration, driving
+ * this to ZERO produced no acne at any of five cone widths (0.226 to 3.609 mm per texel) or four
+ * key aims out to azimuth 88° elevation 1°; the worst 40 px cell was 0.0397/255 at zero bias
+ * against 1.9934 at 0.020 m, i.e. the LARGE bias was the noisier picture.
+ *
+ * The acne in the table above is real and it is the GARMENTS' — `Wardrobe.js` sets
+ * `material.shadowSide = DoubleSide`, so cloth is the one surface here whose front faces reach the
+ * map. The rig cannot know what will be worn, so it is sized for the caster that can acne.
+ * Re-derivable: forcing `shadowSide` FrontSide on the figure's twelve materials at runtime made
+ * the body acne on the same knee — worst cell 0.0390 at 1.11 texels, 0.1450 at 0.44, 1.0857 at
+ * zero, and 1.4432 at zero with the key at grazing.
+ *
+ * 🚩 `shadow.bias` — the depth bias set beside this — MEASURED INERT on this path. Driving it
+ * 0 / -0.0002 / -0.001 with everything else held moved the contact reading 11.0451 / 11.0122 /
+ * 10.8802 and left both acne statistics identical to five decimal places (worst cell 1.9934 in all
+ * three). It is left at its value rather than removed because removing it is a separate change
+ * with its own fingerprint, but nothing here rests on it.
+ */
+const SHADOW_NORMAL_BIAS_IN_TEXELS = 1.5;
+
 // --- geometry --------------------------------------------------------------------------------
 
 const DEGREES = Math.PI / 180;
@@ -1874,7 +1942,12 @@ export class LightingRig {
         // curved everywhere, so a constant depth bias either leaves acne on the grazing parts or
         // detaches the contact shadow at the feet; offsetting the sample along the normal scales
         // with the geometry instead of with the depth range.
-        shadowCaster.shadow.normalBias = 0.02;
+        //
+        // 🎯 THE VALUE IS NOT SET HERE, because it is not a constant — it is
+        // `SHADOW_NORMAL_BIAS_IN_TEXELS` of whatever the shadow texel measures at the framing this
+        // rig is currently aimed at, and the framing is not known until `aimAt`. `solve()` writes
+        // it through `frameShadowCamera` on every aim, and `attachTo`, `rebuild` and `aimAt` all
+        // end in `solve()`, so no caster can reach a render without one.
         shadowCaster.shadow.bias = -0.0002;
 
         // The target must be in the graph for three to build the light's view matrix from it.
@@ -2035,12 +2108,24 @@ export class LightingRig {
      *
      * `near` is pulled in rather than left at three's 0.5 m default, which on a 1.09 m portrait
      * standoff would clip the front half of the head out of its own shadow map.
+     *
+     * 🎯 AND THE NORMAL BIAS IS WRITTEN HERE, for the reason the cone is: both are the same
+     * measurement. The cone decides how much world one texel covers, and the bias is a count of
+     * texels — see `SHADOW_NORMAL_BIAS_IN_TEXELS` for the sweep. Sizing them anywhere else lets
+     * them disagree, which is the state the rig shipped in: a 0.020 m bias against a 0.4512 mm
+     * portrait texel, 44 texels of standoff that nothing in the scene stands off by.
      */
     frameShadowCamera( shadowCaster, distance, framedHeightMetres ) {
 
         const halfExtent = framedHeightMetres * this.shadowCoverageInHeights;
 
         shadowCaster.angle = Math.atan2( halfExtent, distance );
+
+        // What one texel covers at the subject's own depth. The shadow camera is a perspective one
+        // whose field of view three derives from `light.angle`, so at `distance` its frustum spans
+        // exactly `2 * halfExtent` — the same quantity the cone was just sized by.
+        shadowCaster.shadow.normalBias =
+            SHADOW_NORMAL_BIAS_IN_TEXELS * ( 2 * halfExtent ) / this.shadowMapSize;
 
         const camera = shadowCaster.shadow.camera;
         // Bracketed on the SUBJECT's own depth, not on the cone's half-extent. The cone is now
