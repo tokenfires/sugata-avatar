@@ -38,6 +38,16 @@ const {
 const { measureHemRoll, percentile } = await import(
   "../../packages/core/src/wardrobe/HemGeometry.js");
 
+// Punch-list 3.6's groom measurements. Same arrangement as the two above: the arithmetic lives in
+// its own module so it can be pointed at shapes whose answer is known, and the thresholds live
+// here with the rest of the gate.
+const {
+  SurfaceGrid, connectedComponents, isRibbon, scalpTransmittance, uvExtentsPerComponent,
+} = await import("./hair_geometry.mjs");
+
+const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
+const { decodePng } = await import("../critic/png.mjs");
+
 /** Half the authored FOUNDATION_HEM_ROLL_M. See `reportFoundationHem`. */
 const MINIMUM_HEM_ROLL_MM = 0.6;
 
@@ -1119,6 +1129,504 @@ function reportFoundationHem(garment, mesh) {
   return failures;
 }
 
+// --- the hair clause (punch-list 3.6) ----------------------------------------------------------
+//
+// 🎯 **A GROOM IS THE ONE ASSET IN THIS REPOSITORY WHOSE FAILURES ARE ALL SILENT.** Hair that goes
+// through the skull still loads, still skins, still exports a valid glTF. Hair with a bald patch
+// passes every count. Hair whose cards straddle two atlas strips has perfect geometry. None of it
+// shows up in a file size, and only the last of them is visible in a wireframe.
+//
+// So this clause measures four things off the exported bytes, and three of the four need the FIGURE
+// as well as the fragment — a clearance has no meaning without the body it is clear of. The figure
+// is required rather than optional: a clause that quietly skips is the failure mode
+// `packages/testbed/pages.selftest.mjs`'s header is about.
+
+/** Minimum signed distance from any hair vertex to the body. Matches hair_cards.HAIR_CLEARANCE_M. */
+const MINIMUM_HAIR_CLEARANCE_MM = 3.0;
+
+/**
+ * How much of the cranium the groom has to hide, measured through the cutout rather than through
+ * the triangles.
+ *
+ * The floor is set from both directions of the red proof rather than from taste. Measured at g050:
+ * the shipped groom hides **99.61%** of the cranium and the same build with `--no-hair-cap` hides
+ * **94.43%**, so 0.97 sits 2.6 points below the good case and 2.6 above the broken one.
+ *
+ * ⚠️ **THE GAP IS SMALL, AND THAT IS THE MEASUREMENT RATHER THAN A WEAKNESS OF THE THRESHOLD.**
+ * 254 cards over a scalp already hide most of it; the cap is worth five points, and five points of
+ * bare crown is what a top-down render shows as thinning hair. The primary gate on the cap is
+ * `reportHairComponents`, which fails a groom with no non-ribbon component at all — this clause is
+ * the one that would catch a cap that existed and did not cover.
+ */
+const MINIMUM_SCALP_COVERAGE = 0.97;
+
+/** How far above the scalp a card can be and still count as covering it. */
+const SCALP_COVERAGE_REACH_M = 0.12;
+
+/**
+ * A groom must be mostly cards. The cap shells are the only components allowed not to be ribbons,
+ * and there is one per shell — the number is not hard-coded, only the requirement that the
+ * ribbons outnumber them heavily and that at least one cap exists.
+ */
+const MINIMUM_HAIR_CARDS = 100;
+
+/** Displacement at which an ARKit target counts as having moved a vertex, for the scalp target. */
+const FACE_MOTION_FLOOR_M = 0.00015;
+
+function readHairManifest(manifestPath) {
+  if (!fs.existsSync(manifestPath)) {
+    return null;
+  }
+  return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+}
+
+/**
+ * The manifest groom a material name resolves to, by EXACT name.
+ *
+ * Exact, for the reason the garment clause is exact: a `/hair/i` pattern would accept a groom
+ * nobody has described against the expectations of one somebody has.
+ */
+function groomForMaterial(materialName, hair) {
+  if (hair === null) {
+    return null;
+  }
+  return hair.grooms.find((groom) => groom.material === materialName) ?? null;
+}
+
+/** Whether a GLB is a hair fragment. One mesh, one material, and the manifest knows the name. */
+function looksLikeHairFragment(glbPath, hair) {
+  if (hair === null) {
+    return false;
+  }
+  const { json } = readGlbContainer(fs.readFileSync(glbPath));
+  const materials = json.materials ?? [];
+
+  return materials.length === 1 && groomForMaterial(materials[0].name, hair) !== null;
+}
+
+/** Every built groom fragment under assets/hair. */
+function hairTargets(hairDir) {
+  if (!fs.existsSync(hairDir)) {
+    return [];
+  }
+
+  const targets = [];
+  for (const entry of fs.readdirSync(hairDir).sort()) {
+    const candidate = path.join(hairDir, entry);
+    if (!fs.statSync(candidate).isDirectory()) {
+      continue;
+    }
+    for (const file of fs.readdirSync(candidate).sort()) {
+      if (file.endsWith(".glb")) {
+        targets.push(path.join(candidate, file));
+      }
+    }
+  }
+
+  return targets;
+}
+
+/** The single mesh of a fragment, read straight out of the container. */
+function readOnlyPrimitive(glb) {
+  if ((glb.json.meshes ?? []).length !== 1) {
+    throw new Error(`expected one mesh, found ${(glb.json.meshes ?? []).length}`);
+  }
+  const primitive = glb.json.meshes[0].primitives[0];
+
+  return {
+    positions: readAccessor(glb, primitive.attributes.POSITION).data,
+    normals: readAccessor(glb, primitive.attributes.NORMAL).data,
+    uvs: readAccessor(glb, primitive.attributes.TEXCOORD_0).data,
+    indices: readAccessor(glb, primitive.indices).data,
+    joints: readAccessor(glb, primitive.attributes.JOINTS_0).data,
+    weights: readAccessor(glb, primitive.attributes.WEIGHTS_0).data,
+    vertexCount: readAccessor(glb, primitive.attributes.POSITION).count,
+  };
+}
+
+/**
+ * Samples the groom's own embedded baseColorTexture. This is the ONLY honest way to ask whether
+ * a card is opaque at a point: the geometry says "yes, there is a quad here" everywhere.
+ */
+function albedoAlphaSampler(glb) {
+  const material = glb.json.materials[0];
+  const textureIndex = material.pbrMetallicRoughness?.baseColorTexture?.index;
+  if (textureIndex === undefined) {
+    return null;
+  }
+
+  const image = glb.json.images[glb.json.textures[textureIndex].source];
+  const view = glb.json.bufferViews[image.bufferView];
+  const bytes = glb.bin.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength);
+
+  const { width, height, pixels } = decodePng(bytes);
+
+  return (u, v) => {
+    // Nearest sample, wrapped. Bilinear would be more faithful to the renderer and would change
+    // a coverage figure in the fourth decimal on a 1024² sheet.
+    const x = Math.min(width - 1, Math.max(0, Math.floor((u - Math.floor(u)) * width)));
+    const y = Math.min(height - 1, Math.max(0, Math.floor((v - Math.floor(v)) * height)));
+
+    // ⚠️ `decodePng` returns NORMALISED floats, not bytes. Dividing by 255 here reported the
+    // sheet's mean alpha as 0.0020 and the groom's scalp coverage as 2.54%, which is the shape of
+    // a units bug rather than a hole in the hair — every ray was hitting a card and every card was
+    // reading as transparent.
+    return pixels[(y * width + x) * 4 + 3];
+  };
+}
+
+/**
+ * The cranium the groom is measured against, derived from the FIGURE and from a different source
+ * than the build used.
+ *
+ * 🚩 **Deliberately not the build's own `scalp` vertex group.** The build cuts its region from
+ * MakeHuman's group; if the gate read the same group it would be asking the groom to cover exactly
+ * what the groom was grown from, and a region that came out too small would move the target with
+ * it. This derives the target from the SKIN WEIGHTS and the ARKit morph deltas instead — head-
+ * dominant vertices that no face unit moves, above the eyes — which is the same independence
+ * `--foundation`'s decency regions have from its garment cuts.
+ */
+function craniumTarget(figureGlb) {
+  const json = figureGlb.json;
+  const body = json.meshes.find((mesh) => /base|body|^Human$/i.test(mesh.name));
+  if (body === undefined) {
+    throw new Error(`no body mesh in the figure; it has ${json.meshes.map((m) => m.name)}`);
+  }
+
+  const primitive = body.primitives[0];
+  const positions = readAccessor(figureGlb, primitive.attributes.POSITION).data;
+  const normals = readAccessor(figureGlb, primitive.attributes.NORMAL).data;
+  const joints = readAccessor(figureGlb, primitive.attributes.JOINTS_0).data;
+  const weights = readAccessor(figureGlb, primitive.attributes.WEIGHTS_0).data;
+  const indices = readAccessor(figureGlb, primitive.indices).data;
+  const vertexCount = readAccessor(figureGlb, primitive.attributes.POSITION).count;
+
+  const jointNames = json.skins[0].joints.map((node) => json.nodes[node].name);
+  const headJoint = jointNames.indexOf("head");
+
+  // Anything a facial action moves is face, not cranium — SkinRegions.js's argument, and the same
+  // one the build's hairline uses, reached from the other side of the export.
+  const moved = new Uint8Array(vertexCount);
+  const targetNames = body.extras?.targetNames ?? [];
+  targetNames.forEach((name, index) => {
+    if (!ARKIT_52.includes(name)) {
+      return;
+    }
+    const deltas = readAccessor(figureGlb, primitive.targets[index].POSITION).data;
+    for (let vertex = 0; vertex < vertexCount; vertex += 1) {
+      const size = Math.hypot(deltas[vertex * 3], deltas[vertex * 3 + 1], deltas[vertex * 3 + 2]);
+      if (size > FACE_MOTION_FLOOR_M) {
+        moved[vertex] = 1;
+      }
+    }
+  });
+
+  // Eye height, off the eyeball mesh, so "above the eyes" is measured rather than assumed. The
+  // glTF is Y-up, so height is the y component.
+  const eyes = json.meshes.find((mesh) => /high-poly|low-poly|eyeball/i.test(mesh.name));
+  const eyePositions = readAccessor(figureGlb, eyes.primitives[0].attributes.POSITION).data;
+  let eyeHeight = 0;
+  for (let vertex = 0; vertex < eyePositions.length; vertex += 3) {
+    eyeHeight += eyePositions[vertex + 1];
+  }
+  eyeHeight /= eyePositions.length / 3;
+
+  const points = [];
+  const pointNormals = [];
+  for (let vertex = 0; vertex < vertexCount; vertex += 1) {
+    let best = -1;
+    let bestWeight = 0;
+    for (let slot = 0; slot < 4; slot += 1) {
+      if (weights[vertex * 4 + slot] > bestWeight) {
+        bestWeight = weights[vertex * 4 + slot];
+        best = joints[vertex * 4 + slot];
+      }
+    }
+    if (best !== headJoint || moved[vertex] === 1 || positions[vertex * 3 + 1] <= eyeHeight) {
+      continue;
+    }
+    points.push(positions[vertex * 3], positions[vertex * 3 + 1], positions[vertex * 3 + 2]);
+    pointNormals.push(normals[vertex * 3], normals[vertex * 3 + 1], normals[vertex * 3 + 2]);
+  }
+
+  return {
+    scalp: { points: Float64Array.from(points), normals: Float64Array.from(pointNormals) },
+    body: { positions, normals, indices },
+    eyeHeight,
+  };
+}
+
+/** The figure a hair fragment was grown on: assets/hair/<id>/gNNN.glb -> figure_gNNN.glb. */
+function figureForFragment(glbPath, figuresDir) {
+  return path.join(figuresDir, `figure_${path.basename(glbPath, ".glb")}.glb`);
+}
+
+async function verifyHairFragment(glbPath, hair, figuresDir) {
+  console.log("");
+  console.log("=".repeat(78));
+  console.log(`${glbPath}   [hair groom]`);
+  console.log("=".repeat(78));
+
+  const failures = [];
+  const glb = readGlb(glbPath);
+  const fileBuffer = fs.readFileSync(glbPath);
+  const threeMeshes = await readMeshesViaThree(fileBuffer);
+
+  const groom = groomForMaterial(glb.json.materials[0].name, hair);
+  const mesh = readOnlyPrimitive(glb);
+
+  console.log(`file size       : ${fileBuffer.byteLength.toLocaleString()} bytes`);
+  console.log(`groom           : ${groom.id} — ${groom.description}`);
+  console.log(`geometry        : ${mesh.vertexCount.toLocaleString()} verts, ` +
+              `${(mesh.indices.length / 3).toLocaleString()} triangles`);
+
+
+  failures.push(...reportHairComponents(groom, mesh));
+  failures.push(...reportHairUvs(groom, mesh, hair));
+  failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
+  failures.push(...reportSkinning(glb.json, threeMeshes));
+  failures.push(...reportHairSkinWeights(groom, glb, mesh));
+  failures.push(...reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir));
+
+  return failures;
+}
+
+/**
+ * Card count and card SHAPE, off the index buffer.
+ *
+ * The build's own report says how many cards it grew. This does not read it — a count printed by
+ * the thing being measured is the weak half of every gate in this repository.
+ */
+function reportHairComponents(groom, mesh) {
+  console.log("");
+  console.log("--- assertions on the cards ---");
+
+  const components = connectedComponents(mesh.indices, mesh.vertexCount);
+  const ribbons = components.filter(isRibbon);
+  const patches = components.filter((component) => !isRibbon(component));
+
+  const ringCounts = new Set(ribbons.map((ribbon) => ribbon.vertices.length / 2));
+
+  console.log(`  ${ribbons.length >= MINIMUM_HAIR_CARDS ? "ok  " : "FAIL"} cards             ` +
+              `${ribbons.length} quad-strip components, ` +
+              `${[...ringCounts].sort((a, b) => a - b).join("/")} rings each ` +
+              `(floor ${MINIMUM_HAIR_CARDS})`);
+  console.log(`  ${patches.length >= 1 ? "ok  " : "FAIL"} scalp cap         ` +
+              `${patches.length} non-ribbon component(s), ` +
+              `${patches.map((patch) => patch.triangles.length).join("/")} triangles`);
+
+  const failures = [];
+  if (ribbons.length < MINIMUM_HAIR_CARDS) {
+    failures.push(`${groom.id} has ${ribbons.length} cards, under the ${MINIMUM_HAIR_CARDS} floor`);
+  }
+  if (patches.length < 1) {
+    failures.push(`${groom.id} carries no scalp cap — every component is a quad strip, so there ` +
+                  "is nothing under the cards and the scalp shows through the cutouts");
+  }
+
+  return failures;
+}
+
+/** Every UV inside the atlas, and every card inside ONE strip of it. */
+function reportHairUvs(groom, mesh, hair) {
+  const components = connectedComponents(mesh.indices, mesh.vertexCount);
+  const extents = uvExtentsPerComponent(components, mesh.uvs, groom.atlas.strips);
+
+  const outside = extents.filter((extent) => extent.minU < 0 || extent.maxU > 1 ||
+                                             extent.minV < 0 || extent.maxV > 1);
+  const straddling = extents.filter((extent, index) =>
+    isRibbon(components[index]) && extent.strips > 1);
+
+  // A card is a quad strip whose two rails sit on the strip's two edges, so exactly two distinct u
+  // values. See `uvExtentsPerComponent` for why the strand shader depends on it.
+  const skewed = extents.filter((extent, index) =>
+    isRibbon(components[index]) && extent.uColumns !== 2);
+
+  console.log(`  ${outside.length === 0 ? "ok  " : "FAIL"} UV bounds         ` +
+              `${extents.length} components, all within [0,1]` +
+              (outside.length === 0 ? "" : ` — ${outside.length} are NOT`));
+  console.log(`  ${straddling.length === 0 ? "ok  " : "FAIL"} one strip a card  ` +
+              `${straddling.length} card(s) straddle an atlas strip boundary ` +
+              `(${groom.atlas.strips} strips)`);
+  console.log(`  ${skewed.length === 0 ? "ok  " : "FAIL"} axis-aligned UV   ` +
+              `${extents.length - skewed.length - (extents.length - components.filter(isRibbon).length)}` +
+              ` of ${components.filter(isRibbon).length} cards sit on exactly two u columns ` +
+              `— the groom exports no TANGENT and the strand direction is this UV's bitangent`);
+
+  const failures = [];
+  if (outside.length > 0) {
+    failures.push(`${groom.id} has ${outside.length} components with UVs outside the atlas`);
+  }
+  if (straddling.length > 0) {
+    failures.push(`${groom.id} has ${straddling.length} cards spanning two atlas strips, which ` +
+                  "cuts a neighbouring bundle's strands down the card's edge");
+  }
+  if (skewed.length > 0) {
+    failures.push(`${groom.id} has ${skewed.length} cards whose UV is not axis-aligned; the ` +
+                  "strand direction derived from it would be rotated by an unknown angle");
+  }
+
+  return failures;
+}
+
+/** The cutout and the sidedness, against the manifest rather than against a name pattern. */
+function reportHairMaterial(groom, material, threeMesh) {
+  const cutoff = material.alphaCutoff ?? 0.5;
+  const problems = [];
+
+  if (material.alphaMode !== groom.alphaMode) {
+    problems.push(`alphaMode ${material.alphaMode}, expected ${groom.alphaMode}`);
+  }
+  if (Math.abs(cutoff - groom.alphaCutoff) > 1e-6) {
+    problems.push(`alphaCutoff ${cutoff}, expected ${groom.alphaCutoff}`);
+  }
+  if ((material.doubleSided === true) !== groom.doubleSided) {
+    problems.push(`doubleSided ${material.doubleSided === true}, expected ${groom.doubleSided}`);
+  }
+  if (threeMesh.side !== THREE_DOUBLE_SIDE) {
+    problems.push(`three.js side ${threeMesh.side}, expected DoubleSide`);
+  }
+
+  console.log(`  ${problems.length === 0 ? "ok  " : "FAIL"} material          ` +
+              `${material.alphaMode}, cutoff ${cutoff}, ` +
+              `${material.doubleSided ? "double sided" : "backface culled"}` +
+              (problems.length === 0 ? "" : ` — ${problems.join("; ")}`));
+
+  return problems.length === 0 ? [] : [`${groom.id}: ${problems.join("; ")}`];
+}
+
+/**
+ * Every vertex weighted, weights normalised, and weighted to the bone the manifest names.
+ *
+ * `reportSkinning` already fails a vertex with no weight at all. This is the other half: a groom
+ * weighted to `spine_01` would pass that and would stay behind when the head turned.
+ */
+function reportHairSkinWeights(groom, glb, mesh) {
+  const jointNames = glb.json.skins[0].joints.map((node) => glb.json.nodes[node].name);
+
+  const used = new Set();
+  let worstSum = 1;
+  for (let vertex = 0; vertex < mesh.vertexCount; vertex += 1) {
+    let sum = 0;
+    for (let slot = 0; slot < 4; slot += 1) {
+      const weight = mesh.weights[vertex * 4 + slot];
+      sum += weight;
+      if (weight > 0) {
+        used.add(jointNames[mesh.joints[vertex * 4 + slot]]);
+      }
+    }
+    worstSum = Math.min(worstSum, sum);
+  }
+
+  const bones = [...used].sort();
+  const onlyTheBone = bones.length === 1 && bones[0] === groom.bone;
+  const normalised = Math.abs(worstSum - 1) < 1e-4;
+
+  console.log(`  ${onlyTheBone && normalised ? "ok  " : "FAIL"} skin weights      ` +
+              `bones {${bones.join(", ")}}, worst weight sum ${worstSum.toFixed(6)} ` +
+              `(manifest bone '${groom.bone}')`);
+
+  const failures = [];
+  if (!onlyTheBone) {
+    failures.push(`${groom.id} is weighted to {${bones.join(", ")}}, not to '${groom.bone}'`);
+  }
+  if (!normalised) {
+    failures.push(`${groom.id} has a vertex whose weights sum to ${worstSum.toFixed(6)}`);
+  }
+
+  return failures;
+}
+
+/**
+ * The two measurements that need the body: does the groom go through the head, and does the head
+ * show through the groom.
+ */
+function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
+  const figurePath = figureForFragment(glbPath, figuresDir);
+
+  if (!fs.existsSync(figurePath)) {
+    console.log(`  FAIL clearance         no figure at ${figurePath}; the clearance and the ` +
+                "coverage have no body to be measured against");
+    return [`${groom.id} could not be measured against ${path.basename(figurePath)}`];
+  }
+
+  const figure = readGlb(figurePath);
+  const { scalp, body } = craniumTarget(figure);
+
+  // 🚩 The fragment and the figure are separate exports, and a clearance measured across two
+  // coordinate systems would be a large positive number for a groom buried in the skull. Assert
+  // they are in the same space before believing anything either of them says.
+  const hairCentroid = centroidOf(mesh.positions);
+  const scalpCentroid = centroidOf(scalp.points);
+  const apart = Math.hypot(hairCentroid[0] - scalpCentroid[0], hairCentroid[1] - scalpCentroid[1],
+                           hairCentroid[2] - scalpCentroid[2]);
+  if (apart > 0.15) {
+    console.log(`  FAIL shared space      the groom's centroid is ${(apart * 1000).toFixed(0)} mm ` +
+                "from the cranium's; these two files are not in the same coordinate system");
+    return [`${groom.id} and ${path.basename(figurePath)} are not in the same space`];
+  }
+
+  const grid = new SurfaceGrid(body.positions, body.normals, body.indices);
+
+  let nearest = Infinity;
+  let through = 0;
+  for (let vertex = 0; vertex < mesh.vertexCount; vertex += 1) {
+    const hit = grid.nearest([mesh.positions[vertex * 3], mesh.positions[vertex * 3 + 1],
+                              mesh.positions[vertex * 3 + 2]]);
+    if (hit === null) {
+      continue;
+    }
+    nearest = Math.min(nearest, hit.signed);
+    if (hit.signed < 0) {
+      through += 1;
+    }
+  }
+
+  const clearanceOk = through === 0 && nearest * 1000 >= MINIMUM_HAIR_CLEARANCE_MM - 1e-3;
+  console.log(`  ${clearanceOk ? "ok  " : "FAIL"} clearance         ` +
+              `nearest signed approach ${(nearest * 1000).toFixed(3)} mm, ` +
+              `${through} vertices inside the body ` +
+              `(floor ${MINIMUM_HAIR_CLEARANCE_MM} mm)`);
+
+  const alphaAt = albedoAlphaSampler(glb);
+  let coverage = null;
+  if (alphaAt !== null) {
+    const transmittance = scalpTransmittance(scalp, mesh, alphaAt, SCALP_COVERAGE_REACH_M);
+    coverage = 1 - transmittance.reduce((total, value) => total + value, 0) / transmittance.length;
+  }
+
+  const coverageOk = coverage !== null && coverage >= MINIMUM_SCALP_COVERAGE;
+  console.log(`  ${coverageOk ? "ok  " : "FAIL"} scalp coverage    ` +
+              `${coverage === null ? "no baseColorTexture to sample" : (coverage * 100).toFixed(2) + "%"}` +
+              ` of ${scalp.points.length / 3} cranium vertices hidden, through the CUTOUT ` +
+              `(floor ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}%)`);
+
+  const failures = [];
+  if (!clearanceOk) {
+    failures.push(`${groom.id} reaches ${(nearest * 1000).toFixed(3)} mm of the body with ` +
+                  `${through} vertices inside it`);
+  }
+  if (!coverageOk) {
+    failures.push(`${groom.id} hides ` +
+                  `${coverage === null ? "an unmeasurable fraction" : (coverage * 100).toFixed(2) + "%"}` +
+                  ` of the cranium, under the ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}% floor`);
+  }
+
+  return failures;
+}
+
+function centroidOf(points) {
+  const centroid = [0, 0, 0];
+  for (let point = 0; point < points.length; point += 3) {
+    centroid[0] += points[point];
+    centroid[1] += points[point + 1];
+    centroid[2] += points[point + 2];
+  }
+  const count = points.length / 3;
+
+  return centroid.map((value) => value / count);
+}
+
 /** Whether a GLB is a garment fragment rather than a figure. */
 function looksLikeGarmentFragment(glbPath, wardrobe) {
   if (wardrobe === null) {
@@ -1381,6 +1889,8 @@ async function main() {
     : path.resolve(argv[manifestFlag + 1]);
 
   const wardrobe = readWardrobeManifest(manifestPath);
+  const hairDir = path.join(repoRoot, "assets", "hair");
+  const hair = readHairManifest(path.join(hairDir, "manifest.json"));
 
   if (argv.includes("--selftest")) {
     const failures = [...runLipSealSelftest(), ...runGarmentClauseSelftest(wardrobe)];
@@ -1412,6 +1922,10 @@ async function main() {
     // default run would keep verifying only nude figures — which is how a clothed figure went
     // three rounds failing this gate by construction and nobody's default run ever saw it.
     targets.push(...wardrobeTargets(wardrobeDir));
+
+    // And every groom, for exactly the reason the wardrobe line above exists: a default run that
+    // only ever sees nude figures is how a clothed one went three rounds failing by construction.
+    targets.push(...hairTargets(hairDir));
   }
 
   if (targets.length === 0) {
@@ -1426,6 +1940,12 @@ async function main() {
   const allFailures = [];
   for (const target of targets) {
     const resolved = path.resolve(target);
+
+    if (looksLikeHairFragment(resolved, hair)) {
+      allFailures.push(...await verifyHairFragment(resolved, hair, figuresDir));
+      continue;
+    }
+
     allFailures.push(...(looksLikeGarmentFragment(resolved, wardrobe)
       ? await verifyGarmentFragment(resolved, wardrobe)
       : await verifyFigure(resolved, wardrobe)));

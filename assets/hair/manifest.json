@@ -1,0 +1,38 @@
+{
+  "_comment": [
+    "Punch-list 3.6. The authority on what a hair groom IS, read by the build, by the asset gate",
+    "and by the runtime — the same arrangement assets/wardrobe/manifest.json has, and for the same",
+    "reason: two files that each decide a garment's alphaMode independently will disagree, and the",
+    "disagreement is invisible until a judge looks at a plate.",
+    "",
+    "Hair is deliberately NOT in the wardrobe manifest. It has no clo rating, no layer, no",
+    "formality and cannot be taken off, so resolving it through the garment clause would make that",
+    "clause the authority on a thing with none of the fields it reads.",
+    "",
+    "The GLBs beside this file are BUILD OUTPUT and are gitignored. Rebuild with:",
+    "  blender --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \\",
+    "      --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01"
+  ],
+
+  "grooms": [
+    {
+      "id": "bob01",
+      "material": "hair_bob01",
+      "description": "Side-parted, face-framing, roughly to the collarbone. The default groom.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": { "file": "albedo.png", "embedded": true, "channels": "RGB sRGB + A coverage" },
+        "normal": { "file": "normal.png", "embedded": true, "channels": "tangent-space RGB" },
+        "flow": { "file": "flow.png", "embedded": false, "channels": "RG strand tangent, B root-to-tip, A strand id" },
+        "depth": { "file": "depth.png", "embedded": false, "channels": "grey, depth within the bundle" }
+      },
+      "atlas": { "size": 1024, "strips": 8, "capStrip": 0 }
+    }
+  ]
+}

@@ -122,6 +122,15 @@ export const BROWSERCHECKS = [
         gates: []
     },
     {
+        path: 'src/hair.html',
+        name: 'hair',
+        phase: 'Phase 3.6 · the groom',
+        blurb: 'The procedural hair cards, from five angles including the top-down one that ' +
+            'catches a bald crown. The gate proves 254 cards clear the skull and cannot tell ' +
+            'you whether they read as hair.',
+        gates: [ 'verify_glb hair clause' ]
+    },
+    {
         path: 'src/identity.html',
         name: 'identity',
         phase: 'Phase 10.1 / 10.2 · sculpting',

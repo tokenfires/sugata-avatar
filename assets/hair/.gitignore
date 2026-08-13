@@ -1,0 +1,12 @@
+# The groom and its strand atlas are BUILD OUTPUT, exactly like assets/wardrobe/*/*.glb and
+# assets/figures/*.glb, and for the same reason: they come out of headless Blender in about ten
+# seconds and re-derive byte-identically from the seed in manifest.json.
+#
+#   blender --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+#       --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01
+#
+# The manifest is NOT build output. It is authored, it is what the build, the runtime and
+# verify_glb.mjs all read the groom's alphaMode, cutoff, bone and map names from, and it is
+# committed.
+*/*.glb
+*/*.png

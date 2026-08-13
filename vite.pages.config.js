@@ -32,6 +32,7 @@ const PAGES = [
     'src/voice.html',
     'src/wardrobe.html',
     'src/fabric.html',
+    'src/hair.html',
     'src/identity.html',
     'src/affect.html'
 ];

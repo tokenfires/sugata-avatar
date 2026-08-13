@@ -266,6 +266,171 @@ built and was right every time.
 `assets/figures/figure_g050.glb` this round. Adding the attributes changes that file's sha256, and
 several measured gates in `docs/PROGRESS.md` were taken against it.
 
+## The hair groom — punch-list 3.6
+
+```bash
+BLENDER=/Applications/Blender.app/Contents/MacOS/Blender
+
+# one identity
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01
+
+# all five, because build.sh forwards its extra arguments
+tools/figure-pipeline/build.sh --hair bob01
+```
+
+Writes `assets/hair/bob01/g<NNN>.glb` plus the four strand sheets beside it. All of it is
+gitignored build output; `assets/hair/manifest.json` is authored and committed and is what the
+build, `verify_glb.mjs` and `packages/testbed/src/hair.js` all read the groom's alphaMode, cutoff,
+bone and map names from.
+
+🎯 **THE SCALP REGION IS MakeHuman's OWN `scalp` VERTEX GROUP, and this pipeline had never looked
+at it.** 376 body vertices on the cranium, authored by the base mesh, moving with every macro and
+modelling target — so the groom's region tracks the identity for the same reason `--foundation`'s
+shells fit it: derived from the body it sits on, with no fitting step to drift. `ears` is
+subtracted, and a further 39 vertices go to the ARKit brow targets' own reach, which is
+`SkinRegions.js`'s argument used on a region boundary rather than on a region. Measured across the
+sweep, one command per identity, all five exit 0:
+
+| | g000 | g025 | g050 | g075 | g100 |
+|---|---:|---:|---:|---:|---:|
+| scalp verts after the cut | 337 | 337 | 337 | 337 | 337 |
+| scalp area above the hairline | 472.6 cm² | 492.1 | 513.2 | 535.9 | 561.0 |
+| crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
+| nearest approach, build's instrument | 3.517 mm | 3.502 | 3.504 | 3.535 | 3.509 |
+| nearest approach, `verify_glb.mjs` | 3.294 mm | 3.387 | 3.223 | 3.420 | 3.169 |
+| cranium hidden through the cutout | 100.00% | 99.58 | 100.00 | 99.60 | 99.14 |
+| fragment bytes | 2,665,684 | 2,666,024 | 2,665,420 | 2,665,840 | 2,665,800 |
+
+Every groom is **254 cards of 13 rings each + 2 cap shells of 564 triangles**, 7,256 verts, 7,224
+triangles. The four sheets are shared and written once per build: albedo 1,025,454 · normal
+1,201,299 · flow 365,090 · depth 62,683 bytes. g050's fragment is sha256 `0057c8367b566c69…`, and
+running the same command twice reproduces it byte for byte — which was not true until the seed bug
+below was found.
+
+### Six things that were silent failures while this was being built
+
+🚩 **UNSIGNED DISTANCE IS NOT A CLEARANCE.** The first build tested `BVHTree.find_nearest`'s raw
+distance against a 3 mm floor and reported a nearest approach of **3.015 mm** while **161 vertices
+sat inside the skull** — a card that has travelled through the head is 17 mm from the nearest
+surface, comfortably outside the floor. `verify_glb.mjs` caught it off the exported file because
+its clause signs the distance with the body's own interpolated normal. This is the clearest case
+this repository has of why a gate reads the artefact and not the script.
+
+🚩 **THE BUILD AIMS AT 3.5 mm AND THE GATE ASKS FOR 3.0, AND THE HALF-MILLIMETRE IS NOT SLACK.**
+Blender's `BVHTree.FromPolygons` and the glTF exporter triangulate the base mesh's quads
+independently and do not always pick the same diagonal. Measured: a build that converged to
+3.015 mm by its own instrument read **2.737 mm** off the file.
+
+🚩 **A COVERAGE MEASUREMENT THAT IGNORES THE CUTOUT MEASURES NOTHING.** A hair card is a solid
+quad; its hair is in the alpha channel. The gate fires a ray along every cranium vertex's normal,
+samples the embedded albedo at each hit's barycentric UV, and multiplies the transmittances. The
+first version of the sampler divided `decodePng`'s output by 255 — it returns normalised floats —
+and reported the sheet's mean alpha as **0.0020** and the groom's coverage as **2.54%**.
+
+🚩 **`matrix_world` THEN `matrix_parent_inverse` IS BACKWARDS.** Blender composes world as
+parent · parent-inverse · basis, so setting the world matrix and then changing the parent inverse
+silently moves the object. Set the parent, set the inverse, set the world matrix last.
+
+🚩 **`hash()` ON A `str` IS SALTED PER PROCESS, and the layer seeds were derived from it.**
+`PYTHONHASHSEED` is random unless it is set, so the groom was a different groom every run while
+`assets/hair/manifest.json` claimed a seed reproduced it exactly. It surfaced as a rebuild of an
+identity that had cleared 3.517 mm coming out with a card **5.250 mm inside the skull** — the build
+failed, correctly, on a command that had passed minutes earlier. The layer's INDEX is stable.
+
+🚩 **BAKING TANGENT SHATTERS THE CARD TOPOLOGY, so the groom does not.** `docs/research/hair.md`
+§6.1 asks for the fibre direction as a baked vertex attribute. It was tried: `export_tangents=True`
+makes Blender's exporter split vertices at tangent discontinuities, and 254 clean quad-strip
+components of 13 rings each plus 2 cap shells of 564 triangles came out as **284 ragged components
+with ring counts of 2/3/6/7/9/10/11/13/63 and the cap in 12 fragments**. That destroys the property
+the card-count gate stands on and buys nothing: a card's UV is axis-aligned **by construction**, so
+the UV tangent is exactly the card's U axis and the strand direction is its bitangent, with no
+degeneracy anywhere on the mesh. What has to be protected is that the UV *stays* axis-aligned, and
+`verify_glb.mjs` asserts exactly that instead — **254 of 254 cards on exactly two u columns**.
+
+### The strand atlas
+
+`hair_texture.py`, numpy, no painting — the wardrobe's licence finding (`docs/BRIEF.md`, Fab EULA
+§6(b)(iii), every sampled listing `isAiForbidden: true`) applies to a hair texture exactly as it
+does to a garment. One 1024² sheet, eight vertical strips, four channels:
+
+| file | channels | in the GLB? |
+|---|---|---|
+| `albedo.png` | RGB sRGB + A coverage | embedded, `baseColorTexture` |
+| `normal.png` | tangent-space RGB, the strand's own cylinder | embedded, `normalTexture` |
+| `flow.png` | RG strand tangent, B root-to-tip, A strand id | sidecar — glTF has no socket for it |
+| `depth.png` | grey, depth within the bundle | sidecar |
+
+Coverage per strip, measured AFTER the 0.5 cutout the MASK material applies, at the shipped seed:
+**s0 0.997 · s1 0.665 · s2 0.635 · s3 0.548 · s4 0.469 · s5 0.404 · s6 0.232 · s7 0.139**. Strip 0
+is the scalp cap's and the build FAILS below 0.97 on it; strips 6–7 are the wisps that break the
+silhouette. ⚠️ Reporting a strip's MEAN alpha instead of its post-cutout coverage said the cap
+covered 99.6% of its texels when the renderer was going to keep 88%.
+
+### The two red-proof flags
+
+Both are `RED PROOF ONLY` and both write somewhere that is not `assets/hair`:
+
+    --no-hair-collision   the guide integrator's collision response and the final clamp, off.
+    --no-hair-cap         the groom without its scalp cap shells.
+
+```bash
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output /tmp/red/body.glb --hair bob01 --hair-dir /tmp/red/nocollide \
+  --no-hair-collision
+node tools/figure-pipeline/verify_glb.mjs /tmp/red/nocollide/bob01/g050.glb
+#   FAIL clearance      nearest signed approach -77.974 mm, 621 vertices inside the body
+```
+
+```bash
+$BLENDER --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \
+  --gender 0.5 --output /tmp/red/body.glb --hair bob01 --hair-dir /tmp/red/nocap --no-hair-cap
+node tools/figure-pipeline/verify_glb.mjs /tmp/red/nocap/bob01/g050.glb
+#   FAIL scalp cap      0 non-ribbon component(s)
+#   FAIL scalp coverage 94.27% of 257 cranium vertices hidden (floor 97%)
+```
+
+⚠️ **The coverage gap is 94.27% against 100.00%, and that is the measurement rather than a weak
+threshold.** 254
+cards over a scalp already hide most of it. Five points of bare crown is what a top-down render
+shows as thinning hair, which is exactly how the cap came to exist — see
+`packages/testbed/src/hair.html`, whose `top` view is the only one that could have found it.
+
+The clauses the two flags do NOT reach — the card counter, the axis-aligned UV rule, and both
+instruments' own arithmetic — are proven against known answers, with no Blender and in 0.2 s:
+
+```bash
+node tools/figure-pipeline/hair_geometry.selftest.mjs   # PASS — 20 assertions
+```
+
+A signed distance is checked against a SPHERE, where the answer is `|p − centre| − r` exactly on
+both sides; a transmittance against a stack of cards of known alpha, where the answer is a product;
+and the card counter against a soup with a deliberate WELD in it, which is the failure neither
+build flag can produce.
+
+### Looking at it
+
+```bash
+npm run dev   #  http://localhost:5173/src/hair.html
+```
+
+Five fixed angles and the four sheets. The gate proves 254 cards clear the skull; it is
+structurally blind to whether they read as hair, which is LEARNINGS §1.2 and is why the page
+exists. ⚠️ It is NOT the hair shader — punch-list 3.5 owns the anisotropic strand model and runs
+after this. What is drawn is the geometry under a plain Principled material.
+
+### What was checked before any of this was built
+
+MPFB2's asset packs **do** carry hair: `<user data>/hair/` holds eleven CC0 grooms — `afro01`,
+`bob01`, `bob02`, `braid01`, `long01`, `ponytail01`, `short01`–`short04` — each an `.obj` of 525 to
+4,237 card faces with a 2.3–4.8 MB painted diffuse, released CC0 in September 2020 by Data
+Collection AB / Joel Palmius / Jonas Hauquier. They are usable and they were not used, for one
+reason that is not licensing: **they carry a painted diffuse and nothing else.** No flow, no
+root-to-tip, no per-strand id, no depth — the four channels punch-list 3.5's shader needs and the
+only reason a card groom can carry an anisotropic highlight that follows the hair rather than the
+card. A generated sheet also re-derives for a colour, a seed or an atlas size nobody has asked for
+yet. The MakeHuman grooms remain a legitimate fallback if the procedural one is ever judged worse.
+
 ## Verifying
 
 ```bash

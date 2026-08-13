@@ -90,6 +90,11 @@ from mathutils import Vector
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mpfb_bridge import dynamic_import
 
+# Punch-list 3.6. A sibling module rather than more of this file: the groom is 500 lines of curve
+# integration and rasterisation that share nothing with MPFB, and `hair_cards` is importable and
+# runnable without a figure in the scene.
+import hair_cards
+
 HumanService = dynamic_import("mpfb.services.humanservice", "HumanService")
 TargetService = dynamic_import("mpfb.services.targetservice", "TargetService")
 FaceService = dynamic_import("mpfb.services.faceservice", "FaceService")
@@ -343,6 +348,13 @@ DEFAULT_WARDROBE_MANIFEST = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "assets", "wardrobe", "manifest.json")
 
+# Punch-list 3.6's output root. Hair is NOT in the wardrobe: it is not a garment, it has no clo
+# rating, it cannot be taken off, and resolving it against the wardrobe manifest would make
+# `verify_glb.mjs`'s garment clause the authority on a thing that has no layer.
+DEFAULT_HAIR_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    "assets", "hair")
+
 
 def parse_arguments():
     """Reads the arguments Blender passes through after the '--' separator."""
@@ -403,6 +415,35 @@ def parse_arguments():
                              "to go red against artefacts that really lack the band, instead of "
                              "against a defect simulated in the renderer. Write the output "
                              "somewhere that is not assets/wardrobe.")
+    parser.add_argument("--hair", default=None, metavar="STYLE",
+                        help="Punch-list 3.6. Grow a procedural hair CARD groom on the figure's "
+                             "own scalp and write it to <hair-dir>/STYLE/g<NNN>.glb with its "
+                             "generated strand atlas. STYLE names the output directory; the shape "
+                             "comes from --hair-part, --hair-seed and --hair-colour.")
+    parser.add_argument("--hair-dir", default=DEFAULT_HAIR_DIR, metavar="DIR",
+                        help="Where the groom and its strand atlas are written.")
+    parser.add_argument("--hair-seed", type=int, default=20260812,
+                        help="Seed for the root scatter, the per-card variation and the strand "
+                             "sheet. The same seed reproduces the groom exactly.")
+    parser.add_argument("--hair-colour", default=hair_cards.hair_texture.DEFAULT_HAIR_SRGB,
+                        metavar="#RRGGBB",
+                        help="Base hair colour, sRGB. Drawn into the albedo sheet.")
+    parser.add_argument("--hair-part", type=float, default=0.35, metavar="FRACTION",
+                        help="Where the part sits, as a fraction of the scalp's half-width. 0 is "
+                             "a centre part; ±1 is a hard side part above the temple.")
+    parser.add_argument("--no-hair-cap", action="store_true",
+                        help="RED PROOF ONLY, NOT A SHIPPING OPTION. Grow the groom WITHOUT the "
+                             "scalp cap shells, i.e. as the cards-only groom whose top-down view "
+                             "showed bare skin between the cutouts. It exists so verify_glb.mjs's "
+                             "scalp-coverage clause can be pointed at a build that genuinely has "
+                             "holes in it. Write the output somewhere that is not assets/hair.")
+    parser.add_argument("--no-hair-collision", action="store_true",
+                        help="RED PROOF ONLY, NOT A SHIPPING OPTION. Grow the groom with the "
+                             "guide integrator's collision response and the final clamp both "
+                             "disabled, so the cards pass straight through the skull. It exists "
+                             "so verify_glb.mjs's interpenetration clause can be pointed at a "
+                             "build that genuinely interpenetrates rather than at a simulated "
+                             "one. Write the output somewhere that is not assets/hair.")
     parser.add_argument("--garment-fragment-dir", default=None, metavar="DIR",
                         help="Write each garment to DIR/<id>/g<NNN>.glb as a standalone fragment "
                              "and leave it out of the body GLB.")
@@ -2605,7 +2646,29 @@ def main():
         for shell, _path, garment_id in foundation:
             force_alpha_mode(shell, manifest_entries[garment_id]["alphaMode"])
 
+    # 🎯 3.6. Grown at the same point in the build the foundation layer is cut at, and for exactly
+    # the same reason: the scalp region is a group over BODY vertices, so it has to be read after
+    # the helper strip and after the macro bake or it describes MakeHuman's genderless base rather
+    # than this figure. It comes after the foundation block because the collision BVH is built from
+    # the body, and a shell cut out of the body does not change the body.
+    hair_object = None
+    hair_report = None
+    if arguments.hair:
+        if rig is None:
+            raise SystemExit("Build failed: --hair weights the groom to the rig's head bone, and "
+                             "--rig none leaves no rig to weight it to.")
+
+        hair_object, _style, hair_report = hair_cards.build_hair(basemesh, rig, arguments)
+
+        # A hair card's silhouette lives entirely in its cutout and a card seen from behind is
+        # still hair, so the groom takes exactly the treatment the brows and lashes take.
+        force_alpha_mode(hair_object, "MASK")
+
     fragments = export_garment_fragments(rig, garments + foundation, arguments)
+
+    hair_fragment = None
+    if hair_object is not None:
+        hair_fragment = hair_cards.export_hair_fragment(rig, hair_object, arguments, export_glb)
 
     # A garment written as its own fragment is deliberately absent from the body GLB: the body
     # carries the hide masks for the whole catalogue and the garments arrive on demand.
@@ -2618,6 +2681,9 @@ def main():
     export_glb(body_hierarchy, output_path, arguments)
     describe_result(basemesh, body_hierarchy, output_path)
     describe_wardrobe(hide_masks, fragments, recovered_ao)
+
+    if hair_report is not None:
+        hair_report.describe(hair_fragment)
 
 
 def describe_wardrobe(hide_masks, fragments, recovered_ao=()):

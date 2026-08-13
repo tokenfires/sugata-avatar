@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — the procedural hair groom (3.6)</title>
+    <style>
+        :root {
+            --panel: rgba(12, 12, 15, 0.82);
+            --edge: rgba(255, 255, 255, 0.12);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            background: #050506;
+            color: var(--ink);
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* Sized in DEVICE pixels by the page, never by CSS — the same rule fabric.html and
+           lighting.html state. A CSS-stretched canvas hands a judge a resampled image, and the
+           silhouette of a hair card is exactly the thing a resampler destroys. */
+        #frame {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        canvas { display: block; background: #000; }
+
+        .panel {
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #hud { white-space: pre; max-width: 108ch; overflow-x: auto; }
+
+        h2 {
+            font: inherit;
+            font-weight: 600;
+            margin: 12px 0 4px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h2:first-child { margin-top: 0; }
+
+        .maps { display: flex; gap: 10px; flex-wrap: wrap; }
+        .maps figure { margin: 0; }
+        .maps img { display: block; width: 128px; height: 128px; image-rendering: pixelated; }
+        .maps figcaption { color: var(--dim); margin-top: 3px; }
+
+        .views { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+
+        button {
+            font: inherit;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--edge);
+            border-radius: 4px;
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+
+        button[aria-pressed="true"] { background: rgba(140, 180, 255, 0.22); }
+
+        a { color: #8cb4ff; }
+        .pass { color: #7fd1a0; }
+        .fail { color: #f2765a; }
+        .warn { color: #e8c46a; }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <div>
+            <div class="views" id="views"></div>
+            <canvas id="stage"></canvas>
+            <div class="panel" style="margin-top: 12px;">
+                <h2>the generated strand atlas</h2>
+                <div class="maps" id="maps"></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="panel" id="hud">booting…</div>
+        </div>
+    </div>
+
+    <script type="module" src="./hair.js"></script>
+</body>
+</html>
