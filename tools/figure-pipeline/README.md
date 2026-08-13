@@ -297,23 +297,36 @@ sweep, one command per identity, all five exit 0:
 | scalp verts after the cut | 337 | 337 | 337 | 337 | 337 |
 | scalp area above the hairline | 472.6 cm² | 492.1 | 513.2 | 535.9 | 561.0 |
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
-| nearest approach, build's instrument | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
-| nearest approach, `verify_glb.mjs` | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
-| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.95 |
-| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 0.0 | 4.5 |
-| bare cranium seen from the worst judge view | 0.0 mm² | 0.0 | 0.0 | 0.0 | 21.2 |
-| card tips over card roots (ceiling 0.95) | 0.830 | 0.825 | 0.846 | 0.763 | 0.831 |
-| a tip's height step to its 5 nearest | 6.6 mm | 6.5 | 6.8 | 6.7 | 6.8 |
-| fragment bytes | 3,064,248 | 3,064,584 | 3,063,980 | 3,064,396 | 3,064,364 |
+| nearest approach, build's instrument | 3.505 mm | 3.501 | 3.504 | 3.503 | 3.501 |
+| nearest approach, `verify_glb.mjs` | 3.505 mm | 3.501 | 3.504 | 3.503 | 3.501 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 99.98 | 99.98 |
+| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 5.0 | 5.0 |
+| bare cranium seen from the worst judge view | 6.2 mm² | 5.5 | 5.5 | 6.3 | 6.4 |
+| card tips over card roots (ceiling 0.95) | 0.791 | 0.766 | 0.798 | 0.748 | 0.771 |
+| a tip's height step to its 5 nearest | 5.5 mm | 5.4 | 5.3 | 5.5 | 5.4 |
+| fragment bytes | 3,483,796 | 3,484,136 | 3,483,532 | 3,483,948 | 3,483,916 |
 
-The g050 groom is **484 cards of 17 rings each + 2 cap shells of 564 triangles**, 17,108 verts,
-16,616 triangles, 3,063,980 bytes. The four sheets are shared and written once per build: albedo
-896,513 · normal 1,160,133 · flow 358,280 · depth 65,189 bytes. Running the same command twice
-reproduces a fragment byte for byte — measured again this round, sha256 `f33c1aa1…` from two
-consecutive builds of g050.
+The g050 groom is **648 cards of 17 rings each + 2 cap shells of 564 triangles**, 22,684 verts,
+21,864 triangles, 3,483,532 bytes. The four sheets are shared and written once per build: albedo
+1,090,362 · normal 1,064,393 · flow 348,510 · depth 63,001 bytes.
 
-🎯 **THE ROWS ABOVE ARE THE 484-CARD SWEEP, AND THE ROUND THAT MADE IT 484 RE-MEASURED ALL FIVE
-RATHER THAN THE ONE IT WAS LOOKING AT.** Punch-list 3.22 added the 84-card `mass` layer; the round
+🎯 **THE ROWS ABOVE ARE THE 648-CARD SWEEP AND EVERY ONE OF THEM WAS RE-MEASURED, because the round
+that made it 648 changed the atlas as well as the counts.** `hair_texture.py`'s strip 1 stopped
+being a solid rectangle — see its "sub-strands" header — and a card carrying it now transmits
+0.380 where it transmitted 0.163, so `mass`, `underlayer` and `veil` went 84/58/76 to 147/102/133
+to buy that opacity back by STACKING instead of by per-card alpha. Every `verify_glb.mjs` clause is
+green on all five: the gather ratio improved again to 0.748–0.798 against the 0.95 ceiling, the cut
+line tightened to 5.3–5.5 mm, cranium coverage is 99.98–100.00% and the worst judge view sees
+5.5–6.4 mm² of scalp against a 60 mm² ceiling.
+
+⚠️ **AND THE COST OF +31.6% TRIANGLES IS NOT MEASURED IN THIS TABLE.** `tools/spikes/alive-perf.mjs`
+refuses to report on this machine — *"trackTimestamp patch did not take — refusing to report wall
+clock as GPU cost"* — and the cost clause in `HairMaterial.selftest.mjs` runs on its own
+7,224-triangle scene rather than on the groom, so neither instrument answers the question. It is
+one draw call and no extra pass either way; the number is owed.
+
+🎯 **THE 484-CARD SWEEP THAT PRECEDED IT, KEPT BECAUSE THE PATTERN IS THE POINT — every round that
+added a layer re-measured all five bakes rather than the one it was looking at.** Punch-list 3.22 added the 84-card `mass` layer; the round
 after it added the 76-card `veil` and moved `underlayer`, `body` and `surface` one strip denser, all
 of it aimed at the SIDE CURTAIN (`hair_cards.HAIR_LAYERS`, and
 `tools/figure-pipeline/hair_opacity.mjs` C4 for what it is for). Re-measured across all five bakes

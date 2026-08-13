@@ -180,6 +180,48 @@
  * contention alone. `tools/run-selftests.sh` is serial for this reason; a reading taken next to a
  * fan-out is not a reading.
  *
+ * ## ROUND 19: THE BOUND SWEEP, AND THE TWO CLAUSES IN THIS FILE THAT COULD NOT FAIL
+ *
+ * Every numeric bound here was mutated to just inside its measured value and the gate re-run — one
+ * bundled run per direction, since separate `report()` calls attribute themselves. Six bounds are
+ * pinned by two REAL measured states and did not move: `MINIMUM_CONTACT` 2.0 breaks at the shipped
+ * 5.2020 above and at `noCast`'s 0.3132 below (2.6x either way, which is the best-pinned constant
+ * in the hair gates); `MAXIMUM_AREA_AGAINST_QUADS` 0.80 breaks at 0.6837 with the quads arm's
+ * 1.0000 above it by construction; `MINIMUM_ALPHA_RESPONSE` 1.5 breaks at 2.7362;
+ * `MINIMUM_SHIPPED_SHARE` 0.10 at 0.6837; `NO_CAST_CUTOFF` 1.5 at 1.0, where driving it to exactly
+ * 1 reproduces the R18 regression to the pixel (`noCast` reads the opaque mass: 2.4658 of contact
+ * over 16,575 px, RED PROOFS 2 and 3 both red).
+ *
+ * 🚩 **TWO DID NOT SURVIVE, AND BOTH FAILED IN THE SAME DIRECTION — THEY COULD NOT GO RED AT ALL.**
+ *
+ *   RED PROOF 1  Its tolerance was `Math.max( 200, 1% of the quads' area )` — **580 px this
+ *                session** — on a divergence that measures **0**. Mutated to −1 the clause still
+ *                passed, because the relative term dominated and the 200 was dead code. Now bounded
+ *                by an INSTRUMENT FLOOR: the shipped arm is captured a second time and the two
+ *                breaks must agree at least as well as one build agrees with itself. Measured this
+ *                session: floor 0 px, divergence 0 px, and no constant left in the clause.
+ *
+ *   DIRECTION    `MAXIMUM_CELL_BRIGHTENING` 0.5 has no state in this run that crosses it — all five
+ *                arms read −0.0026 at the same cell, 760,1160, to four decimals. RED PROOF 4 is the
+ *                repair and it renders nothing new: the same statistic over the same mask with the
+ *                QUADS plate as reference instead of bald reads **+14.9764**, so the instrument is
+ *                shown crossing its own ceiling on two pictures this gate already takes. ⚠️ The
+ *                ceiling is still 192x from its breaking value and that is stated rather than
+ *                fixed — what changed is that it is no longer vacuous.
+ *
+ * 🚩 THE SOURCE BREAK WAS RE-RUN AGAINST BOTH CHANGES, because a repaired proof that has not been
+ * shown red is not a proof. `material.maskShadowNode = null` at source in `configureHairMaterial`,
+ * one line, `HairOIT.js` restored afterwards to sha256
+ * `9fa71467a1e2fd576ad6d28dda36bc92ff9ec8161670028729c44a5d3d895533` and verified by `shasum`:
+ *
+ *     BROKEN   FAIL ALPHA RESPONSE 0.0000, FAIL NO QUAD SHADOW 1.0000 (58,058 px against 58,058 —
+ *              the plate against itself), FAIL RED PROOF 2 floor 1.0000, FAIL RED PROOF 3 6.7431,
+ *              FAIL RED PROOF 4
+ *              +0.0000 — the vacuity control correctly reports that it has become vacuous, because
+ *              with every arm collapsed onto one picture there is no second plate to read.
+ *              FAIL — 4 of 9
+ *     RESTORED PASS — 9 of 9
+ *
  * ⚠️ THAT AGREEMENT IS NOT A DETERMINISM CLAIM, and this comment used to make one. A sixth run, GPU
  * to itself, hours later in the same session, reads skin 248,046 px and ratio 0.6837 — outside the
  * four-run spread of exactly zero. Contention is one source of movement and elapsed time in a
@@ -285,8 +327,23 @@ const MINIMUM_ALPHA_RESPONSE = 1.5;
  * The direction lock the round's brief asks for. ⚠️ STATED HONESTLY: the defect does NOT fail this
  * clause — its worst cell reads −0.0026, i.e. every cell is darker — because the tiles are holes
  * in a shadow and not an inverted term. It is here because "never brighter" is the claim the human
- * owner and the critic both made, and a later term that genuinely inverts would land on it. Its
- * red arm is the nothing-casts arm, whose worst cell is reported beside the shipped one.
+ * owner and the critic both made, and a later term that genuinely inverts would land on it.
+ *
+ * 🚩 **ROUND 19: EVERY ARM IN THIS FILE READS THE SAME −0.0026 AND THE OLD SENTENCE HERE POINTED AT
+ * A RED ARM THAT DOES NOT EXIST.** It said "its red arm is the nothing-casts arm"; measured this
+ * session, `noCast`'s worst cell is −0.0026 too — the same cell, at 760,1160, to four decimals, on
+ * all five arms. So the clause had NO state in the run that could fail it, and a bound nothing can
+ * cross is worth exactly what LEARNINGS §1.25g says it is. Its pinning is the arithmetic of that:
+ * the ceiling breaks at −0.0026, 192x below where it sits, and no arm approaches it from above.
+ *
+ * 🎯 RED PROOF 4 IS THE REPAIR, AND IT IS TWO REAL PLATES RATHER THAN A SYNTHETIC ONE. The same
+ * statistic, the same mask, the same cells — read with the QUAD-SHADOW plate as the reference
+ * instead of the bald one. The shipped build genuinely is brighter than the build whose shadow pass
+ * makes no coverage decision, everywhere the quads darkened skin that the cards do not, so the
+ * instrument is shown crossing its own ceiling on a pair of pictures this gate already renders.
+ * ⚠️ WHAT THAT DOES AND DOES NOT PROVE: it proves the statistic, the mask and the ceiling can
+ * report a brightening. It does not prove any shipped-adjacent defect brightens skin against BALD,
+ * because none of the arms here does.
  */
 const MAXIMUM_CELL_BRIGHTENING = 0.5;
 
@@ -718,6 +775,11 @@ async function main() {
         { name: 'baldNoShadow', hair: false, query: 'shadows=0' },
         { name: 'hairNoShadow', hair: true, query: 'shadows=0' },
         { name: 'shipped', hair: true },
+        // 🚩 THE INSTRUMENT'S OWN FLOOR, and it is a plate rather than an argument: the shipped arm
+        // captured a second time, in a fresh context, with nothing changed. RED PROOF 1 bounds the
+        // divergence between two BREAKS by what the SAME build diverges from itself, so that clause
+        // carries no chosen tolerance at all. See it for the 580 px one it replaces.
+        { name: 'shippedRepeat', hair: true },
         { name: 'zero', hair: true, cutoff: 0 },
         { name: 'nomask', hair: true, clearMask: true },
         { name: 'opaqueOnly', hair: true, cutoff: 1 },
@@ -773,7 +835,7 @@ async function main() {
         `${ skinCount } px skin, ${ bandCount } px band, ${ masks.pureCells.length } cells` );
 
     const read = {};
-    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
+    for ( const name of [ 'shipped', 'shippedRepeat', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
 
         read[ name ] = readArm( masks, captured.bald.plate, captured[ name ] );
 
@@ -781,7 +843,7 @@ async function main() {
 
     console.log( '\n--- the groom against the same frame with no groom ---\n' );
     console.log( '  arm             contact 255   skin shadowed        worst cell brighter' );
-    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
+    for ( const name of [ 'shipped', 'shippedRepeat', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
 
         const arm = read[ name ];
         console.log( `  ${ name.padEnd( 14 ) } ${ arm.contact255.toFixed( 4 ).padStart( 10 ) }   ` +
@@ -827,12 +889,22 @@ async function main() {
     // against a 0.80 ceiling. The two proofs below are what make that statement worth anything —
     // that the two breaks really are one defect, and that the statistic has room to move in.
 
+    // 🚩 ROUND 19: THE TOLERANCE HERE WAS `max( 200, 1% of the quads' area )` — 580 px this session
+    // — ON A QUANTITY THAT MEASURES 0. That is a bound with nothing under it: mutated to −1 it still
+    // passed, because the relative term dominated and the 200 was dead code. What the clause wants
+    // to say is "these two pictures are the same", and the honest scale for "the same" is what the
+    // SAME BUILD differs from itself by, which is now captured rather than assumed.
+    const instrumentFloor = Math.abs( read.shippedRepeat.shadowedPixels - read.shipped.shadowedPixels );
     const divergence = Math.abs( read.nomask.shadowedPixels - read.zero.shadowedPixels );
-    report( divergence <= Math.max( 200, 0.01 * read.zero.shadowedPixels ),
+
+    report( divergence <= instrumentFloor,
         'RED PROOF 1 — the two breaks are one defect: nulling the mask node and zeroing the ' +
-        'cutoff render the same picture',
-        `${ divergence } px apart of ${ read.zero.shadowedPixels } ` +
-        `(contact ${ read.nomask.contact255.toFixed( 4 ) } against ${ read.zero.contact255.toFixed( 4 ) })` );
+        'cutoff render the same picture, to within what one build differs from itself by',
+        `${ divergence } px apart of ${ read.zero.shadowedPixels }, against an instrument floor of ` +
+        `${ instrumentFloor } px measured off the shipped arm captured twice ` +
+        `(contact ${ read.nomask.contact255.toFixed( 4 ) } against ${ read.zero.contact255.toFixed( 4 ) }; ` +
+        `the repeat reads ${ read.shippedRepeat.contact255.toFixed( 4 ) } against the shipped ` +
+        `${ read.shipped.contact255.toFixed( 4 ) })` );
 
     // 🚩 BOTH PROOFS BELOW USED THE `cutoff = 1` ARM AND BOTH WENT RED WHEN THE GROOM GAINED ITS
     // OPAQUE MASS — see the header. They now use `noCast`, whose cutoff is above the range of the
@@ -857,6 +929,23 @@ async function main() {
     report( read.noCast.contact255 < MINIMUM_CONTACT,
         'RED PROOF 3 — the contact floor is not vacuous: casting nothing at all fails it',
         `${ read.noCast.contact255.toFixed( 4 ) } of 255 against a floor of ${ MINIMUM_CONTACT }` );
+
+    // 🚩 RED PROOF 4 — THE VACUITY CONTROL ON `MAXIMUM_CELL_BRIGHTENING`, and it exists because the
+    // sweep found the ceiling had no state in this run that could cross it: all five arms read the
+    // same −0.0026 at the same cell. Same statistic, same mask, same cells, with the QUAD-SHADOW
+    // plate as the reference instead of the bald one — the shipped build IS brighter than the build
+    // that shadows with untested quads, wherever those quads darkened skin the cards leave alone.
+    // See `MAXIMUM_CELL_BRIGHTENING` for what this proves (the instrument) and what it does not
+    // (that any arm here brightens skin against bald — none does).
+    const againstQuads = readArm( masks, captured.zero.plate, captured.shipped );
+
+    report( againstQuads.worstCell.brightening > MAXIMUM_CELL_BRIGHTENING,
+        'RED PROOF 4 — the direction ceiling is not vacuous: the same statistic crosses it on two ' +
+        'plates this gate already renders',
+        `read against the quads arm instead of bald, the shipped build\'s worst cell is ` +
+        `+${ againstQuads.worstCell.brightening.toFixed( 4 ) } of 255 at ${ againstQuads.worstCell.x },` +
+        `${ againstQuads.worstCell.y }, past the ${ MAXIMUM_CELL_BRIGHTENING } ceiling — against the ` +
+        `${ read.shipped.worstCell.brightening.toFixed( 4 ) } every arm reads against bald` );
 
     console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' } — ${ checks - failures } of ${ checks }\n` );
 

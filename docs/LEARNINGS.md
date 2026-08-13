@@ -2046,6 +2046,73 @@ re-executing.
 > second — and prefer citing an id you have just seen in the file over citing "the ledger".** The
 > fix here was to file the request, so the comments became true rather than being softened.
 
+### 1.25af 🎯 A BOUND AND A LIVENESS CONTROL ON THE SAME CONSTANT CANNOT PIN IT — THEY ONLY BRACKET IT, AND THE BRACKET HERE WAS 74,700x WIDE
+
+`HairOIT.selftest.mjs` bounded the `cutout` arm's draw-order residue with
+`CUTOUT_TIE_SHARE = 0.01` (per cent of the frame), and paired it with A3b, a same-run liveness
+control in which the `blend` arm fails **the same constant** by 3,810x. That is the strongest shape
+this project had for "the bound is not vacuous", and an adversary refuted it in one edit: set the
+constant to **5.0**, five hundred times looser, and the file stayed green at 31/31 with the liveness
+control included.
+
+**The refutation generalises, and that is the finding.** A clause `measured <= B` paired with a
+control `defect > B` constrains `B` to the interval `(measured, defect)` and to nothing else. Every
+value in that interval passes both clauses, so the pair says only that `B` lies between two numbers
+the run already prints. Measured this round by mutation, four full runs of the gate:
+
+| `CUTOUT_TIE_SHARE` | A3 | A3b | what it means |
+|---|---|---|---|
+| 0.0004% | **FAIL** | pass | the shipped groom measures 2 px of 392,000 — 0.000510% |
+| 0.01% (shipped) | pass | pass | 19.6x above the measurement |
+| 5.0% (the adversary's) | pass | pass | 9,800x above it, still green |
+| 40% | pass | **FAIL** | `blend` measures 38.099% |
+
+⚠️ **THE TEMPTING REPAIR IS THE OTHER FAILURE MODE.** Tightening to 0.001% would have made the
+ratio 2x and the bound a fitted number — the measurement plus a margin, re-derived every time the
+groom moves, which is exactly what the round before had already been caught doing when it replaced
+`max <= 2` with this share. A bound needs a **derivation** or a **measured separation between two
+real states**, and a bimodal quantity with five orders of magnitude of daylight in the middle
+supports neither: it is a classifier, and a threshold dropped into the gap is arbitrary wherever it
+lands.
+
+**What worked was deleting the constant rather than choosing a better one.** Three replacements,
+none of which has a number an adversary can move:
+
+- **An instrument floor asserted rather than quoted.** The same arm at the same url, loaded twice,
+  differs in **0 pixels of 392,000** — measured on all five arms, twice. `=== 0` over a count has
+  no tolerance: its only looser value is 1.
+- **An ordering between three mechanisms measured in one run.** A depth-resolved arm can only move
+  where two admitted fragments tie EXACTLY in depth; an fp16 accumulation moves where its sum
+  reassociates; a draw-order accumulation moves wherever fragments overlap at all. Measured: 517 px
+  < 20,223 px < 195,303 px. The clause asserts the order.
+- **A statistic with resolution.** "Over 2 code values" reads **2 counts** on the shipped arm — a
+  share bound on two counts is a bound on nothing, and one extra tie crosses it. "Differs at all"
+  reads 237 on the same plates, with a floor of exactly 0 under it.
+
+🚩 **AND TWO NEGATIVE RESULTS THAT COST THE ROUND ITS FIRST TWO ANSWERS.** The clause's own title
+claimed "a depth test moves a countable set of tied pixels, an fp16 sum moves an AREA". Measured, by
+4-connected components: `cutout` 237 px in 127 components, mean 1.87 px; `wboit` 20,223 px in 9,703
+components, mean 2.08 px — **the same shape**, differing only in count, and only `blend` is an area
+(mean 130 px). A clause written on component structure would have passed the defect. Separately, the
+R18 header recorded the tie set moving between runs; two repeats of the whole comparison this
+session came back **bit-identical**, so that reading was two SITTINGS and not two runs — the same
+correction `HairShadow.selftest.mjs` had to make to its own four-run agreement.
+
+**The class is live elsewhere and the sweep is cheap.** Mutating every numeric bound in four hair
+gates to just inside its measured value — one bundled run per file, because separate `report()`
+calls attribute themselves — found the same shape twice more in one afternoon: `RED PROOF 1` in
+`HairShadow.selftest.mjs` allowed 580 px of divergence on a quantity that measures **0** (mutated to
+−1 it still passed, because a dead `Math.max( 200, … )` literal was being dominated by the relative
+term), and `MAXIMUM_CELL_BRIGHTENING` had **no arm in the run that could cross it** — all five read
+the same −0.0026. Both were repaired with the same move: bound the first by an instrument floor
+captured in the run, and give the second a control that reads the same statistic between two plates
+the gate already renders.
+
+> **Prove a bound by moving it until it breaks, and report the value at which it does. If the
+> breaking value is far away and nothing in the run approaches the bound from the other side, the
+> honest fix is usually to delete the constant — an in-run ordering, an asserted zero, or a
+> statistic with more resolution — not to tighten it onto today's reading.**
+
 ---
 
 ## Part 2 — Technical traps

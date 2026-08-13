@@ -2358,3 +2358,154 @@ evidence:    Measured this round with `tools/figure-pipeline/hair_tips.mjs`, por
 anchor:      packages/core/src/render/HairOIT.js /interleavedGradientNoise\( screenCoordinate\.xy \)/
 verify:      packages/core/src/render/HairOIT.js /HAIR_DITHER_BAND/
 ```
+
+## REQ-074 — three liveness clauses in the opacity gate cannot fail, and the round that measured it says which
+
+```request
+id:          REQ-074
+status:      OPEN
+target:      tools/figure-pipeline/hair_opacity.mjs
+filed-by:    the R19 gate-pinning agent
+filed-round: R12
+filed-at:    fe95109
+change:      Add a `maskshift` arm to `DEFECTS` that translates the rasterised hair footprint by a
+             fixed offset — 20 px is ample — before any statistic is computed, so that "outside the
+             footprint" contains real hair pixels and L1 has a state that crosses it:
+
+                 const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'maskshift', 'stripshift'];
+
+             `maskall` is the mask defect in the other direction (every pixel is hair) and it leaves
+             the OUTSIDE mask untouched, which is why it does not exercise L1 either — measured
+             below. The offset is the cheapest defect that puts hair inside the complement.
+evidence:    Measured this session, four `--defect` runs of this file on `alive.html` at 900x1200
+             dpr 1, portrait and rear three-quarter, plus a mutation sweep of every numeric bound
+             in the file. LIVENESS_FLOOR is 0.97 and every arm reads T = 1.0000 exactly:
+
+               arm                    L1 outside   over        L0 smallest mask
+               shipped                   1.0000    425,137 px    55,126 px   ok
+               --defect oneside          1.0000    425,137 px    55,126 px   ok
+               --defect stripshift       1.0000    425,137 px    55,126 px   ok
+               --defect maskall          1.0000    425,137 px   180,876 px   ok
+               --defect nostep           1.0000          6 px         6 px   L0 FAILS
+
+             🎯 THE `nostep` ROW IS THE FINDING. It is the defect L1 was written for — the header
+             says so — and L1 PASSES on it, at 1.0000 over SIX pixels, because the denominator floor
+             throws the frame away and the handful that survive agree perfectly. `MINIMUM_MASK_PIXELS`
+             is what catches that run, exactly as its own comment predicted, and L1/L2/L3 have no
+             state in this file that can make them red.
+
+             Their pinning, for the same reason, is one-sided and vacuous: mutated to 1.0001 all
+             three go red on both views, so the bound breaks at the measured 1.0000 and sits 1.03x
+             below it — the tightest ratio in the whole sweep — while nothing at all approaches it
+             from the other side. A perfectly pinned bound that nothing can cross is still a bound
+             that proves nothing, which is the pair of ideas this round exists to separate.
+
+             Every other bound in this file is pinned by two REAL measured states and needs no
+             change: C1 0.28 breaks at 0.1757 with `stripshift` at 0.3811 above it; C2 0.28 breaks
+             at 0.1735 with 0.3632 above; C3 0.10 breaks at 0.0462 with 0.2420 above; C4 0.35
+             breaks at 0.3248 with 0.5573 above. Ratios 1.59x, 1.61x, 2.16x, 1.08x.
+
+             Filed rather than done: this agent owns `packages/core/src/render/HairOIT.selftest.mjs`,
+             `packages/core/src/render/HairShadow.selftest.mjs` and `docs/LEARNINGS.md`. Another
+             agent is rewriting the atlas under `tools/figure-pipeline/**` this round.
+anchor:      tools/figure-pipeline/hair_opacity.mjs /const DEFECTS = \['none', 'oneside', 'nostep', 'maskall', 'stripshift'\];/
+verify:      tools/figure-pipeline/hair_opacity.mjs /maskshift/
+```
+
+## REQ-075 — a red proof in the hair-material gate is 0.8% from failing, and the constant it turns on has a same-run replacement
+
+```request
+id:          REQ-075
+status:      OPEN
+target:      packages/core/src/material/HairMaterial.selftest.mjs
+filed-by:    the R19 gate-pinning agent
+filed-round: R12
+filed-at:    fe95109
+change:      In the `🚩 RED PROOF — a pure GAIN on S moves the level and leaves the RANGE alone`
+             clause, replace the chosen multiplier with the arm the run already measures:
+
+                 Math.abs( gainRange / shippedRange - 1 ) < 0.05 && lobesRange > gainRange,
+
+             The clause's content is "a gain moves the level and not the range, and removing the
+             floor does the opposite". `gainRange` IS the gain arm's range, measured in the same
+             run on the same mask, so the comparison is between two rendered states rather than
+             against a number. Today it reads 2.0530 against 1.6036 — 1.28x of margin where the
+             shipped form has 0.8%.
+evidence:    Mutation sweep of every numeric bound in this file, one run per bound bundle, this
+             session, gate at sha256 `127d3e17…` and restored to it afterwards. The gate is RED BY
+             DESIGN at 38/42 and this entry does not touch any of the four disclosed misses.
+
+             🔴 `lobesRange > shippedRange * 1.3` MEASURES 1.310 AGAINST A BOUND OF 1.3. It is
+             0.8% from red, and mutating the multiplier to 1.32 turns it red, which is the whole
+             sweep result for that clause: breaking value 1.310, ratio 1.008x. A red proof that
+             drifts red does not read as drift — it reads as the proof failing, and the next agent
+             will spend the round on the wrong question.
+
+             Three further bounds in this file are unpinned in the sense standing rule 5 names —
+             their breaking value is far from where they sit and no state in the run approaches
+             them. Recorded here rather than filed as changes, because each needs a judgement about
+             what it should separate rather than a mechanical edit:
+
+               clause                                          shipped   breaks at    ratio
+               peakSecondary.value < peakPrimary.value * 0.1      0.1       0.00284     35x
+               Math.abs( radianceRatio - 1 ) < 0.05              0.05       0.0022      23x
+               hairMask.length > 40_000                       40,000     430,974     10.8x
+
+             ⚠️ AND THE `> 2 * CODE_VALUE` FLOORS ARE NOT IN THAT LIST ON PURPOSE, though their
+             ratios are 22x to 25x. They say "this band is measurable at all" and 2 code values is
+             derived from the plate's own 8-bit quantisation — the file argues it explicitly beside
+             the 1-code-value floor. A bound with a derivation is pinned by the derivation, not by
+             its distance from today's reading, and conflating the two would tighten four honest
+             floors onto the current groom.
+
+             Filed rather than done: `packages/core/src/material/**` is not this agent's file.
+anchor:      packages/core/src/material/HairMaterial.selftest.mjs /lobesRange > shippedRange \* 1\.3/
+verify:      packages/core/src/material/HairMaterial.selftest.mjs /lobesRange > gainRange/
+```
+
+## REQ-076 — two hair gates exit non-zero and the runner does not run them, so their red can never be declared
+
+```request
+id:          REQ-076
+status:      OPEN
+target:      tools/run-selftests.sh
+filed-by:    the R19 gate-pinning agent
+filed-round: R12
+filed-at:    fe95109
+change:      Name the two hair gates explicitly, beside the two files that are already named for
+             this exact reason:
+
+                 run_gate "tools/critic/selftest.mjs" node tools/critic/selftest.mjs
+                 run_gate "tools/figure-pipeline/verify_glb.mjs" node tools/figure-pipeline/verify_glb.mjs
+                 run_gate "tools/figure-pipeline/hair_opacity.mjs" node tools/figure-pipeline/hair_opacity.mjs
+                 run_gate "tools/figure-pipeline/hair_tips.mjs" node tools/figure-pipeline/hair_tips.mjs
+
+             ⚠️ WEIGH THE RUNTIME BEFORE APPLYING: both open a browser. `hair_opacity.mjs` takes
+             9 s wall on this machine, measured this session; `hair_tips.mjs` was not timed. Both
+             are GPU gates, and this runner is serial for the reason its own header gives, so they
+             add to a suite that already takes 19 minutes.
+evidence:    `tools/run-selftests.sh` collects `find . -name "*.selftest.mjs"` and then names two
+             further files by hand, with a 🚩 comment saying why: *"a runner that misses a gate is
+             worse than no runner"*. Two gates have been added since that do not match the glob and
+             are not named:
+
+               tools/figure-pipeline/hair_opacity.mjs   `process.exitCode = 1` on any red clause
+               tools/figure-pipeline/hair_tips.mjs      `process.exitCode = 1` on any red clause
+
+             Measured this session on the full 48-gate run at HEAD `ecb0c75`: `grep -c hair_opacity`
+             over the runner's output is **0**. It is not in the `exit=` roster, not in the
+             `FAILING GATES` block, and therefore not adjudicated against `docs/RED-GATES.md` in
+             either direction.
+
+             🎯 THAT IS THE FAILURE MODE `docs/RED-GATES.md` EXISTS FOR, ONE LEVEL OUT. Three
+             consecutive rounds shipped a summary with an undeclared red; the fix was to adjudicate
+             the declaration file against the runner's own list. A gate the runner never invokes
+             cannot appear in that list, so it can go red for a round and neither mechanism will
+             say so — and `hair_opacity.mjs` is the gate that carries the groom's opacity, which is
+             the defect the current round's blind critic ranks first.
+
+             Filed rather than done: this agent owns `packages/core/src/render/HairOIT.selftest.mjs`,
+             `packages/core/src/render/HairShadow.selftest.mjs` and `docs/LEARNINGS.md`.
+anchor:      tools/run-selftests.sh /run_gate "tools\/figure-pipeline\/verify_glb.mjs"/
+verify:      tools/run-selftests.sh /hair_opacity/
+```

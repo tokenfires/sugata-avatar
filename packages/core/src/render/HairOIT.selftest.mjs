@@ -18,7 +18,9 @@
  *                     the shading differs — only the sequence fragments arrive in. Order
  *                     independence IS the property that the two plates are the same picture, so the
  *                     RMS between them is the artefact in code values, with no reference render and
- *                     no judgement anywhere in it.
+ *                     no judgement anywhere in it. A THIRD plate per arm — the same url loaded
+ *                     again — is the instrument's own floor, and A3 asserts it is zero pixels, so
+ *                     the residue can be read as a count instead of through a visibility threshold.
  *
  *   MOTION            A still frame cannot show popping. The camera orbits 0.25 degrees per
  *                     simulated frame — small enough that the honest frame-to-frame change is a
@@ -329,9 +331,15 @@ console.log( '\n--- Listing 4, factor by factor --------------------------------
 
     // The literal is the real check and the reduction beside it is only a spelling of the loop, so
     // the literal is what caught a hand-derived 0.1177 in the first draft of this file. Keep both.
+    //
+    // ⚠️ THE TOLERANCE ON THE LITERAL IS ITS OWN LAST PLACE AND NOT A CHOSEN NUMBER. `0.106817` is
+    // written to six decimals, so a correct implementation can sit at most half a unit in that last
+    // place away from it — 5e-7. It was 5e-6 and the sweep this round found it breaking at the
+    // measured 3.82e-7, a ratio of 13x, which is a tolerance ten times looser than the digits it is
+    // checking justify. Tightened to what the literal says rather than to what the run reads.
     report(
         'the alpha recurrence dst.a <- dst.a x (1 - src.a) from a clear of 1 is the revealage product',
-        Math.abs( revealage - expected ) < 1e-12 && Math.abs( revealage - 0.106817 ) < 5e-6,
+        Math.abs( revealage - expected ) < 1e-12 && Math.abs( revealage - 0.106817 ) < 5e-7,
         `five cards of coverage ${ coverages.join( ', ' ) } leave ${ revealage.toFixed( 6 ) } of the ` +
             'background showing, so the composite mixes 89.3% hair over 10.7% face.'
     );
@@ -399,12 +407,36 @@ console.log( '\n--- the dither sequence, which is 3.21 in arithmetic -----------
     const frozen = Array.from( { length: 32 }, ( u, f ) => hairDitherOffsetValue( f, 0, 'frozen-dither' ) );
     const frozenElsewhere = hairDitherOffsetValue( 0, 977, 'frozen-dither' );
 
+    // ⚠️ THE SECOND HALF USED TO READ `> 0.05` AND THE SWEEP FOUND IT BREAKING AT 0.819 — 16x away,
+    // with nothing in the file approaching it from the other side. The 0.05 was never derived: what
+    // has to be true is that the two phases the RENDERED clause uses give different fields, and
+    // `frozen-dither` maps phase through the same golden sequence D2 has already bounded. So the
+    // clause now asserts the property instead of a distance — the phases are distinct, and 16 of
+    // them meet the same three-distance bound, which is stronger than any single gap and carries no
+    // number this file chose.
+    const frozenPhases = Array.from( { length: 16 }, ( u, phase ) =>
+        hairDitherOffsetValue( 0, phase, 'frozen-dither' ) );
+    const frozenSorted = [ ...frozenPhases ].sort( ( a, b ) => a - b );
+    let frozenGap = frozenSorted[ 0 ] + ( 1 - frozenSorted[ frozenSorted.length - 1 ] );
+
+    for ( let i = 1; i < frozenSorted.length; i ++ ) {
+
+        frozenGap = Math.max( frozenGap, frozenSorted[ i ] - frozenSorted[ i - 1 ] );
+
+    }
+
     report(
         'D3 frozen-dither does not advance with the frame, and DOES answer the phase',
-        new Set( frozen ).size === 1 && Math.abs( frozenElsewhere - frozen[ 0 ] ) > 0.05,
+        new Set( frozen ).size === 1
+            && frozenElsewhere !== frozen[ 0 ]
+            && new Set( frozenPhases ).size === frozenPhases.length
+            && frozenGap <= 1.6180339888 / frozenPhases.length + 1e-12,
         `32 frames give one value (${ frozen[ 0 ].toFixed( 6 ) }) and phase 977 gives ` +
-            `${ frozenElsewhere.toFixed( 6 ) }. Without the second half the red proof below would ` +
-            'compare a plate against itself and go green on the defect.'
+            `${ frozenElsewhere.toFixed( 6 ) }; 16 phases give 16 distinct fields whose largest gap ` +
+            `is ${ frozenGap.toFixed( 5 ) } against phi/16 = ${ ( 1.6180339887 / 16 ).toFixed( 5 ) }. ` +
+            'Without the second half the red proof below would compare a plate against itself and go ' +
+            'green on the defect — and a defect that answered the phase with a near-constant would ' +
+            'pass a distance test while still giving two observers nearly the same picture.'
     );
 
     report(
@@ -476,73 +508,94 @@ const MOTION_FRAMES = 60;
 const MOTION_KEEP = Array.from( { length: 20 }, ( unused, index ) => 41 + index );
 
 /**
- * The share of the frame the `cutout` arm may move under a draw-order reversal, in per cent.
+ * ## 🚩 ROUND 19: `CUTOUT_TIE_SHARE` IS GONE. A BOUND THAT COULD NOT BE PINNED WAS REMOVED RATHER
+ * THAN RE-DERIVED, AND THE MEASUREMENT THAT SAYS SO IS BELOW
  *
- * ## 🚩 ROUND 18: THIS CLAUSE USED TO READ `cutout.max <= 2` AND IT WENT RED AT 378 CARDS
+ * Round 18 replaced `cutout.max <= 2` with a SHARE — `cutout.overTwoPercent <= 0.01` — and paired
+ * it with a same-run liveness control, A3b, in which `blend` fails the same constant. An adversary
+ * then set that constant to 5.0, five hundred times looser, and the whole file stayed green with
+ * the liveness control included. **That refutation is correct and it generalises: a one-sided
+ * bound paired with a liveness control on the SAME constant does not pin the constant. It only
+ * says the constant lies somewhere between the shipped measurement and the defect measurement.**
  *
- * It went red on a worst pixel of 2.213, and the clause it was expressing — *"a depth test is
- * exact"* — is very nearly true and not quite. **`max` is a tail statistic over 392,000 samples
- * with no averaging in it, so one extra tied fragment crosses it.** What is actually claimed here
- * is a claim about AREA, and it is now written as one.
+ * Both edges were measured this session BY MUTATION, on this file at sha256 `18849da6…`, each one a
+ * full run of the gate:
  *
- * ## The deduction, which is what makes the bound a bound and not a fitted number
+ *     bound 0.0004%   A3 FAILS   — the shipped groom measures 2 px of 392,000, i.e. 0.000510%
+ *     bound 0.01%     both pass  — the shipped constant, 19.6x above the measurement
+ *     bound 5.0%      both pass  — the adversary's value
+ *     bound 40%       A3b FAILS  — `blend` measures 38.099%
  *
- * `configureHairMaterial`'s `cutout` branch leaves the material in the OPAQUE bucket with
- * `depthWrite = true` and a binary `alphaTest`. Under a strict depth test the fragment that
- * survives a pixel is the strictly-nearest admitted one, and "strictly nearest" is a property of
- * the SET of fragments, not of the sequence they arrive in. There is exactly one way draw order can
- * change such a pixel: two admitted fragments at EQUAL depth, where the `less` test rejects the
- * second whichever one is second, so the first drawn wins. Order dependence in this arm is
- * therefore, precisely, the count of tied-depth pixels — a countable set of card-card
- * coincidences, not a region. Packing 378 cards into the envelope 294 used to occupy makes more of
- * them, and that is a property of the groom rather than a defect in this file's subject.
+ * The pair admitted **every value across a 74,700x window** and the shipped constant sat near its
+ * logarithmic middle. That is a classifier for a bimodal quantity dressed as a threshold on a
+ * continuous one, and no value of it is defensible — including a tighter one, which would only be
+ * the measurement plus a margin.
  *
- * ## What was measured this session, and the instrument has no noise floor to hide in
+ * ## What replaced it, and why there is no number left in it to pin
  *
- * Two plates of the SAME arm at the SAME query, two fresh page loads apiece:
+ * 🎯 **THE INSTRUMENT HAS AN EXACT ZERO, AND A3 NOW ASSERTS IT INSTEAD OF QUOTING IT.** Two page
+ * loads of the SAME arm at the SAME query differ in **0 pixels of 392,000** — zero by count, not
+ * zero by a threshold — on all five arms, twice over. Every pixel the reversal moves is therefore
+ * an order effect. That clause has no tolerance to loosen: its only other value is 1 px.
  *
- *     cutout forward vs forward     rms 0.0000 cv   0 of 392,000 pixels differ at all
- *     wboit, ten consecutive loads  rms 0.0000 cv against the first, every one
+ * 🎯 **AND "DIFFERS AT ALL" HAS RESOLUTION WHERE THE OVER-2 SHARE HAS NONE.** Measured this
+ * session, whole frame, 560x700:
  *
- * So the plate instrument is bit-exact and every pixel that moves under `?cardorder=reverse` moves
- * because of the order. Under reversal the cutout arm reads:
+ *     arm            differs at all      over 2 cv      RMS cv
+ *     cutout               237 px            2 px       0.0161
+ *     hash                 384 px            9 px       0.0245
+ *     stochastic           517 px           16 px       0.0386
+ *     wboit             20,223 px          396 px       0.1877
+ *     blend            195,303 px      149,350 px      21.5900
  *
- *     294 pixels differ at all, 8 by more than 1 cv, 2 by more than 2 cv, worst 2.213 —
- *     and they are TWO CLUSTERS, at (483..484, 151..153) and (512, 313), not a wash.
+ * A share bound whose subject is 2 counts is a bound on nothing: one extra tie crosses it, which is
+ * exactly the reading that killed `max <= 2` one round earlier for the same reason in a different
+ * statistic. The ordering across the three MECHANISMS, however, is 39x and 10x apart, and it is a
+ * relation between three arms of one run rather than a number anybody chose.
  *
- * ⚠️ AND THE TIE SET IS NOT FIXED FROM RUN TO RUN. The gate's own run, same tree, same machine,
- * read 3 pixels and a worst of 2.7 where the probe above read 2 and 2.213. Three pixels is not a
- * quantity a `max` can be set against at all, which is the whole correction in one line.
+ * ⚠️ **THE TIE SET IS FIXED FROM RUN TO RUN AND THE R18 HEADER SAID IT WAS NOT.** Two repeats of
+ * the entire comparison this session came back bit-identical — 237 / 2 / 0.0161 / 2.7 both times,
+ * on every arm. The R18 pair that differed (2 px and 2.213 from a probe, 3 px and 2.7 from the
+ * gate) were different SITTINGS, which is the correction `HairShadow.selftest.mjs` had to make to
+ * its own four-run agreement. Within one session this pipeline is deterministic.
  *
- * 0.01% of the frame is 39 pixels. That is 13x above the 3 pixels the gate measures, 3,930x below
- * the `blend` arm that A3b holds it against in the same run, and it is stated as a share so that it
- * says the thing the deduction says: a handful of coincidences is a depth test, an area is not.
+ * 🚩 **THE SHAPE CLAIM IN A3's OLD TITLE WAS FALSE, AND IT IS NOT BEING CARRIED FORWARD.** It read
+ * *"a depth test moves a countable set of tied pixels, an fp16 sum moves an AREA"*. Measured, as
+ * 4-connected components of each arm's differing set:
  *
- * ⚠️ **RE-DERIVED, AND THAT IS THE DANGEROUS DIRECTION.** The old bound was crossed by a real
- * measurement and this one is not, so the honest question is what it still separates. Two answers,
- * both measured this session rather than argued:
+ *     cutout      237 px in   127 components, largest      74, mean 1.87 px, 1.283 4-neighbours
+ *     wboit    20,223 px in 9,703 components, largest     408, mean 2.08 px, 1.316 4-neighbours
+ *     blend   195,303 px in 1,498 components, largest 191,924, mean  130 px, 3.874 4-neighbours
  *
- *   A3b, EVERY RUN   `blend` resolves by accumulating in draw order and moves 39.297% of the frame
- *                    — 3,930x the bound. The clause is in the file so that a run in which the
- *                    statistic had stopped separating would say so instead of going quietly green.
+ * `wboit`'s residue has the SAME shape as `cutout`'s — scattered specks two pixels wide — and only
+ * `blend` is an area. The two arms differ in COUNT by 85x and in shape not at all, so a clause
+ * written on component structure would have gone green over the defect. It is recorded because it
+ * is the fix this round reached for first, and a negative result is a result.
  *
- *   THE SOURCE BREAK `material.depthWrite = false` added to `configureHairMaterial`'s `cutout`
- *                    branch, one line — the arm keeps its `alphaTest` and loses only the depth
- *                    resolution the deduction above rests on. `HairOIT.js` restored afterwards to
- *                    sha256 `739df70aa30e0b7c7788aa1c99790667c50d2187ae860101ab2b6a5f3e80164c`,
- *                    the digest it had before the break:
+ * ## What the new clauses are worth, and what was given up
  *
- *                        BROKEN   cutout 21.8293 cv RMS, 147,751 px over 2 cv — 37.6916% of the
- *                                 frame against the 0.01% bound
- *                                 FAIL A2, FAIL A3.  FAIL: 29/31
- *                        RESTORED cutout 0.0165 cv RMS, 3 px over 2 cv.  PASS: 31/31
+ * ⚠️ **A3b IS WEAKER THAN THE OLD BOUND IN A BAND, AND THAT IS THE TRADE.** A defect that took the
+ * cutout arm from 237 px to, say, 5,000 px would have crossed 0.01% and does not cross the
+ * ordering. What is bought for it is that nothing in the clause can be loosened by an adversary:
+ * there is no constant. The band is not empty and the next round should know it is there.
  *
- * 🚩 A3b STAYED GREEN UNDER THAT BREAK, and it is supposed to: it is the liveness control on the
- * BOUND, not on the cutout arm. Recorded because LEARNINGS §1.25g is about a clause that stayed
- * green under its own round's red proof and nobody asked why — here the answer is that A3b is
- * asserting something about `blend`, which the break does not touch.
+ * 🚩 THE SOURCE-LEVEL RED PROOF IS UNCHANGED IN KIND AND WAS RE-RUN THIS ROUND AGAINST THE NEW
+ * CLAUSES — `material.depthWrite = false` added to `configureHairMaterial`'s `cutout` branch, one
+ * line, the arm keeping its `alphaTest` and losing only the depth resolution the deduction rests
+ * on. `HairOIT.js` restored afterwards to sha256
+ * `9fa71467a1e2fd576ad6d28dda36bc92ff9ec8161670028729c44a5d3d895533`, the digest it had before the
+ * break, verified by `shasum` and not by eye:
+ *
+ *     BROKEN    cutout 21.8138 cv RMS, 179,265 px differ at all — past wboit's 20,223
+ *               FAIL A2 (cutout), FAIL A3b.  FAIL: 30/32
+ *     RESTORED  cutout 0.0161 cv RMS, 237 px differ at all.  PASS: 32/32
+ *
+ * ⚠️ **A3 STAYS GREEN UNDER THAT BREAK AND IT IS MEANT TO** — the same-url floor is still 0 px on
+ * every arm, because the break changes what the reversal does and not whether the renderer repeats
+ * itself. That is the R18 note about A3b staying green, kept and made true of the clause it now
+ * describes: A3 is a control on the INSTRUMENT, and the only thing that can make it red is the
+ * instrument.
  */
-const CUTOUT_TIE_SHARE = 0.01;
 
 console.log( '\n--- draw-order dependence, which is the defect itself ---------------------------\n' );
 
@@ -550,6 +603,7 @@ let server = null;
 let browser = null;
 
 const order = {};
+const floor = {};
 const motion = {};
 
 try {
@@ -586,6 +640,13 @@ try {
         // order check and nothing else.
         if ( arm !== 'defect' ) {
 
+            // THE INSTRUMENT'S OWN FLOOR, and it is a third plate rather than an argument: the same
+            // url, loaded again, stepped again. A3 requires it to be zero pixels, which is what
+            // licenses reading the reversal's residue as an order effect down to the last pixel.
+            const [ again ] = await plate( still, 40, [ 40 ] );
+
+            floor[ arm ] = frameDifference( forward, again );
+
             const clip = await plate(
                 `?hair=1&bare&oit=${ suffix }&orbit=0.25&w=${ WIDTH }&h=${ HEIGHT }`,
                 MOTION_FRAMES, MOTION_KEEP
@@ -609,7 +670,9 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
         console.log( `      ${ arm.padEnd( 8 ) } rms ${ value.rms.toFixed( 4 ).padStart( 9 ) } cv   ` +
             `worst pixel ${ value.max.toFixed( 1 ).padStart( 6 ) } cv   ` +
-            `${ value.overTwoPercent.toFixed( 3 ).padStart( 7 ) }% of pixels move by more than 2 cv` );
+            `${ String( value.differing ).padStart( 7 ) } px differ at all   ` +
+            `${ value.overTwoPercent.toFixed( 3 ).padStart( 7 ) }% of pixels move by more than 2 cv   ` +
+            `same-url floor ${ floor[ arm ] === undefined ? '  n/a' : String( floor[ arm ].differing ).padStart( 5 ) } px` );
 
     }
 
@@ -638,37 +701,67 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
     }
 
-    // A3 — and the residue is the right SHAPE, which is a statement about AREA and not about the
-    // worst pixel. See `CUTOUT_TIE_SHARE` for the round-18 correction and the deduction behind it:
-    // a depth-resolved arm can only move where two admitted fragments tie in depth, which is a
-    // countable set of pixels, while an fp16 sum reassociates everywhere it accumulates.
-    const cutoutTiedPixels = Math.round( order.cutout.overTwoPercent * WIDTH * HEIGHT / 100 );
-    const wboitMovedPixels = Math.round( order.wboit.overTwoPercent * WIDTH * HEIGHT / 100 );
+    // A3 — THE INSTRUMENT'S OWN ZERO. Everything from A1 to A4 is a difference between two plates,
+    // so the one thing that has to be established before any of it means anything is that two
+    // plates of the SAME thing are the same plate. It is asserted rather than quoted from a probe
+    // because a run in which it stopped holding would otherwise report the renderer's own churn as
+    // draw-order dependence and nothing would say so. ⚠️ THERE IS NO TOLERANCE HERE TO PIN: the
+    // clause is `=== 0` over a count, and its only looser value is 1.
+    const floorArms = Object.keys( floor );
+    const floorTotal = floorArms.reduce( ( total, arm ) => total + floor[ arm ].differing, 0 );
 
     report(
-        'A3 the residues have the right shape: a depth test moves a countable set of tied pixels, ' +
-            'an fp16 sum moves an area',
-        order.cutout.overTwoPercent <= CUTOUT_TIE_SHARE
-            && order.wboit.max > 2 && order.wboit.overTwoPercent < 0.5,
-        `cutout moves ${ cutoutTiedPixels } px of ${ WIDTH * HEIGHT } by more than 2 cv ` +
-            `(${ order.cutout.overTwoPercent.toFixed( 4 ) }%, bound ${ CUTOUT_TIE_SHARE }%) with a ` +
-            `worst pixel of ${ order.cutout.max.toFixed( 1 ) }; wboit moves ${ wboitMovedPixels } px ` +
-            `(${ order.wboit.overTwoPercent.toFixed( 3 ) }%) with a worst pixel of ` +
-            `${ order.wboit.max.toFixed( 1 ) } — ${ ( wboitMovedPixels / Math.max( 1, cutoutTiedPixels ) ).toFixed( 0 ) }x ` +
-            'as many pixels. Reassociation of a half-float sum, not a sorting artefact.'
+        'A3 the instrument has an exact zero — the same arm loaded twice is the same frame, pixel for pixel',
+        floorTotal === 0,
+        `forward against forward, two page loads apiece: ` +
+            floorArms.map( ( arm ) => `${ arm } ${ floor[ arm ].differing }` ).join( ', ' ) +
+            ` px differ of ${ WIDTH * HEIGHT }. Every pixel A3b counts is therefore an order effect ` +
+            'and not the renderer, down to the last one — this is why the residue can be read as a ' +
+            'COUNT rather than through a visibility threshold that has to be argued about.'
     );
 
-    // A3b — THE LIVENESS CONTROL ON A3's CUTOUT HALF, and it is an arm of this same run rather than
-    // a source break, so it is live on every invocation. LEARNINGS §1.25g: a bound that nothing in
-    // the run can violate is decoration. `blend` resolves by accumulating in draw order and not by
-    // a depth test, so it is the picture the cutout half claims cutout is not.
+    // A3b — THE SHAPE OF THE RESIDUE, AS AN ORDERING BETWEEN THREE MECHANISMS MEASURED IN ONE RUN.
+    //
+    // 🎯 THERE IS NO CONSTANT IN THIS CLAUSE, WHICH IS THE WHOLE OF ROUND 19'S CORRECTION TO IT.
+    // The three arms differ in how demanding the coincidence is that lets draw order change a
+    // pixel: `cutout`/`hash`/`stochastic` keep `depthWrite` and a coverage decision, so only an
+    // EXACT depth tie between two admitted fragments can flip one; `wboit` sums in fp16, so any
+    // pair whose ROUNDING differs flips one; `blend` accumulates in draw order, so any overlap at
+    // all does. Those three populations are ordered by construction, and the clause asserts the
+    // order rather than a threshold anybody chose. See the block above `HAIR_BAND` for the
+    // 74,700x window the constant it replaces was free to sit anywhere in.
+    const depthResolved = [ 'cutout', 'hash', 'stochastic' ];
+    const worstDepthResolved = depthResolved.reduce(
+        ( worst, arm ) => order[ arm ].differing > order[ worst ].differing ? arm : worst );
+
     report(
-        'A3b the tie bound is not vacuous: the blend arm, which has no depth decision, fails it',
-        order.blend.overTwoPercent > CUTOUT_TIE_SHARE,
-        `blend moves ${ order.blend.overTwoPercent.toFixed( 3 ) }% of the frame by more than 2 cv ` +
-            `against the ${ CUTOUT_TIE_SHARE }% bound cutout has to sit under — ` +
-            `${ ( order.blend.overTwoPercent / CUTOUT_TIE_SHARE ).toFixed( 0 ) }x over it. Same ` +
-            'geometry, same camera, same run; only how the fragments resolve.'
+        'A3b the residues are ordered by how demanding their coincidence is: depth tie < fp16 ' +
+            'rounding < any overlap',
+        order[ worstDepthResolved ].differing < order.wboit.differing
+            && order.wboit.differing < order.blend.differing,
+        `worst depth-resolved arm is ${ worstDepthResolved } at ${ order[ worstDepthResolved ].differing } px ` +
+            `of ${ WIDTH * HEIGHT }; wboit ${ order.wboit.differing } px ` +
+            `(${ ( order.wboit.differing / Math.max( 1, order[ worstDepthResolved ].differing ) ).toFixed( 0 ) }x); ` +
+            `blend ${ order.blend.differing } px ` +
+            `(${ ( order.blend.differing / Math.max( 1, order.wboit.differing ) ).toFixed( 0 ) }x). ` +
+            'cutout ' + order.cutout.differing + ', hash ' + order.hash.differing + ', stochastic ' +
+            order.stochastic.differing + '. 🚩 Under the source break — `material.depthWrite = false` ' +
+            'in configureHairMaterial\'s cutout branch — the cutout arm crosses wboit and this clause ' +
+            'goes red; the readings are in the block above `HAIR_BAND`.'
+    );
+
+    // A3c — and the fp16 arm's residue is REAL and is not a wash. Two bounds rather than none,
+    // because "wboit moves more pixels than a depth test does" is satisfied by an arm that moves a
+    // lot of invisible ones. ⚠️ BOTH ARE PINNED AND BOTH RATIOS ARE RECORDED: `max > 2` breaks at
+    // the measured 16.3 cv (8.2x) and `< 0.5%` breaks at the measured 0.101% (5.0x), and 2 cv is
+    // the same 8-bit quantisation step A2's ceiling is derived from rather than a third opinion.
+    report(
+        'A3c the fp16 arm\'s residue is visible somewhere and is nowhere an area',
+        order.wboit.max > 2 && order.wboit.overTwoPercent < 0.5,
+        `wboit's worst pixel moves ${ order.wboit.max.toFixed( 1 ) } cv — above the 2 cv a plate can ` +
+            `resolve — while only ${ order.wboit.overTwoPercent.toFixed( 3 ) }% of the frame moves that ` +
+            `far, against blend's ${ order.blend.overTwoPercent.toFixed( 3 ) }%. Reassociation of a ` +
+            'half-float sum, not a sorting artefact.'
     );
 
     // A4 — THE RED PROOF. The blend modes moved to the material, which is where they look like they
@@ -996,6 +1089,12 @@ function maskedDifference( a, b, pixels ) {
  * Whole-frame and not a rect: the face, the shoulders and the background are identical between the
  * two draw orders by construction, so they contribute exactly zero and dilute nothing that matters.
  * Choosing a rect would be choosing where to look for the artefact.
+ *
+ * 🎯 `differing` IS THE STATISTIC A3b IS BUILT ON, and it is a COUNT with no threshold in it. The
+ * `overTwo` share above it needs one, and on a depth-resolved arm that share is two or three counts
+ * — a quantity no bound can be set against, which is round 19's finding. `differing` reads 237 on
+ * the same arm and the same plates, and the same-url floor beside it is exactly 0, so the count is
+ * the artefact with nothing else in it.
  */
 function frameDifference( a, b ) {
 
@@ -1003,6 +1102,7 @@ function frameDifference( a, b ) {
     let count = 0;
     let max = 0;
     let overTwo = 0;
+    let differing = 0;
 
     for ( let y = 0; y < a.height; y ++ ) {
 
@@ -1016,12 +1116,13 @@ function frameDifference( a, b ) {
 
             if ( magnitude > max ) max = magnitude;
             if ( magnitude > 2 ) overTwo += 1;
+            if ( magnitude > 0 ) differing += 1;
 
         }
 
     }
 
-    return { rms: Math.sqrt( sumSquares / count ), max, overTwoPercent: ( 100 * overTwo ) / count };
+    return { rms: Math.sqrt( sumSquares / count ), max, differing, overTwoPercent: ( 100 * overTwo ) / count };
 
 }
 

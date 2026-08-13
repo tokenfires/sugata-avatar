@@ -232,7 +232,7 @@ HAIR_LAYERS = [
     # its ends stop short of the ones a viewer reads, `clump` high enough that it gathers into the
     # same sixteen locks rather than fanning between them, and `strips` the one strip in the sheet
     # that is near-opaque WITH a broken border (`hair_texture.INTERIOR_STRIP`).
-    {"name": "mass", "cards": 84, "standoff": 0.0135, "length": 0.290,
+    {"name": "mass", "cards": 147, "standoff": 0.0135, "length": 0.290,
      "half_width": 0.0175, "strips": (1,), "gravity": 1.06, "jitter": 0.10,
      "crown": 0.50, "cut": 0.84, "clump": 0.60, "tip_width": 0.26},
     # 🎯 **THE STRIPS ON THESE THREE MOVED ONE COLUMN DENSER, AND THAT IS THE OTHER HALF OF THE
@@ -253,7 +253,7 @@ HAIR_LAYERS = [
     # `flyaway` is the outermost layer, it is the silhouette a viewer reads against the background,
     # and it keeps (6, 7). What changes is the layers UNDER it, which are seen against skin rather
     # than against sky and whose thin third was buying nothing.
-    {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.200,
+    {"name": "underlayer", "cards": 102, "standoff": 0.0110, "length": 0.200,
      "half_width": 0.0180, "strips": (1, 2), "gravity": 1.00, "jitter": 0.11,
      "cut": 0.35, "clump": 0.45},
     {"name": "body", "cards": 68, "standoff": 0.0165, "length": 0.260,
@@ -347,7 +347,7 @@ HAIR_LAYERS = [
     # layer's ends were doing exactly that over the collarbone. Driven to 0.22 the card converges to
     # a point over its last third, so the coverage stays where the curtain is and the ends stop
     # being slabs. Measured: it costs nothing on C4 — see the run table at CEILINGS.
-    {"name": "veil", "cards": 76, "standoff": 0.0200, "length": 0.300,
+    {"name": "veil", "cards": 133, "standoff": 0.0200, "length": 0.300,
      "half_width": 0.0150, "strips": (1,), "gravity": 1.16, "jitter": 0.15,
      "crown": 0.35, "cut": 0.84, "clump": 0.70, "tip_width": 0.22},
 ]
