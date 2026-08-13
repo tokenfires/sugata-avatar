@@ -23,8 +23,8 @@
  */
 
 import {
-    SurfaceGrid, closestPointOnTriangle, connectedComponents, isRibbon, rayTriangle,
-    scalpTransmittance, uvExtentsPerComponent
+    SurfaceGrid, cardGathering, closestPointOnTriangle, connectedComponents, isRibbon,
+    rayTriangle, ribbonEnds, scalpTransmittance, uvExtentsPerComponent
 } from './hair_geometry.mjs';
 
 let checks = 0;
@@ -308,6 +308,75 @@ console.log( '--- transmittance through a stack of cards of known alpha ---' );
     // And the reach: a card beyond it is not covering anything.
     const far = scalpTransmittance( scalp, stack, () => 0.5, 0.005 );
     near( far[ 0 ], 1, 1e-9, 'cards beyond the reach do not count as coverage' );
+}
+
+// --- 5. the gathering measurement, against a fan and a lock whose ratios are arithmetic ---------
+
+console.log( '' );
+console.log( '--- cards gather, against shapes whose tip and root spacing is set by hand ---' );
+{
+    /**
+     * A ribbon whose root sits at `rootX` and whose tip sits at `tipX`, with the v axis running
+     * root to tip. `rings` is 3 because nothing here is about the middle of a card.
+     */
+    const leaning = ( rootX, tipX ) => {
+
+        const positions = [];
+        const uvs = [];
+        const indices = [];
+
+        for ( let ring = 0; ring < 3; ring ++ ) {
+
+            const v = ring / 2;
+            const x = rootX + ( tipX - rootX ) * v;
+            // y descends with v, so the tip is BELOW the root the way a fallen card's is.
+            positions.push( x - 0.001, - v, 0, x + 0.001, - v, 0 );
+            uvs.push( 0.1, v, 0.12, v );
+
+            if ( ring > 0 ) {
+
+                const a = ( ring - 1 ) * 2;
+                indices.push( a, a + 1, a + 3, a, a + 3, a + 2 );
+
+            }
+
+        }
+
+        return { positions, uvs, indices, vertexCount: 6 };
+
+    };
+
+    const endsOf = ( pieces ) => {
+
+        const soup = merge( pieces );
+        const ribbons = connectedComponents( soup.indices, soup.vertexCount ).filter( isRibbon );
+        return ribbonEnds( ribbons, soup.positions, soup.uvs );
+
+    };
+
+    // 🚩 The orientation first, because everything below is self-consistent if it is upside down.
+    // glTF writes v = 0 at the ROOT; a reading that takes max v as the root reports a groom
+    // growing out of the collarbone and every ratio it computes is still perfectly plausible.
+    const oneCard = endsOf( [ leaning( 0, 0.05 ) ] );
+    near( oneCard[ 0 ].root[ 1 ], 0, 1e-9, 'the root ring is the one at v = 0, not v = 1' );
+    near( oneCard[ 0 ].tip[ 1 ], - 1, 1e-9, 'the tip ring is the one at v = 1' );
+    near( oneCard[ 0 ].tip[ 0 ], 0.05, 1e-9, 'the tip centroid is where the card leans to' );
+
+    // A FAN: roots 10 mm apart, tips 20 mm apart. Every card walks away from its neighbours.
+    const fan = cardGathering( endsOf(
+        [ 0, 1, 2, 3 ].map( ( index ) => leaning( index * 0.010, index * 0.020 ) ) ), 2 );
+    near( fan.rootNearest, 0.010, 1e-9, 'a fan\'s roots are 10 mm apart' );
+    near( fan.tipNearest, 0.020, 1e-9, 'a fan\'s tips are 20 mm apart' );
+    near( fan.ratio, 2.0, 1e-9, 'a fan measures a ratio of 2 — twice as far apart at the tip' );
+
+    // A LOCK: the same roots, tips gathered to 4 mm. Same cards, opposite reading.
+    const lock = cardGathering( endsOf(
+        [ 0, 1, 2, 3 ].map( ( index ) => leaning( index * 0.010, index * 0.004 ) ) ), 2 );
+    near( lock.ratio, 0.4, 1e-9, 'a lock measures a ratio of 0.4 — gathered by the tip' );
+
+    // And the cut line: four cards ending on one level read a step of zero, one card 30 mm short
+    // of the others reads the step its two nearest tips see.
+    near( lock.tipStep, 0, 1e-9, 'tips on one level are a cut line, step 0 mm' );
 }
 
 console.log( '' );

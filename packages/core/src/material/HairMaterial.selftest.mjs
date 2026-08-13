@@ -68,6 +68,8 @@ import {
     longitudinalValue,
     modifiedIorValue,
     rootOcclusionValue,
+    scatterValue,
+    sideVisibilityValue,
     solidAngleValue,
     transmittedOffsetValue
 } from './HairMaterial.js';
@@ -85,6 +87,72 @@ function report( name, passed, detail ) {
 
 /** The hair's own linear base colour, from the published hex, computed rather than typed. */
 const BASE_COLOUR = [ 0x15, 0x0F, 0x17 ].map( ( byte ) => encodedToLinear( byte / 255 ) );
+
+/**
+ * 🎯 THE CEILING THE WHOLE ROUND TURNS ON: the largest value the SHIPPED combination of terms can
+ * take anywhere on the sphere, on a `#150F17` fibre.
+ *
+ * Shipped means all of it — R, TT, TRT, slide 39's multiple-scattering fake, and slide 47's
+ * occlusion over the three reflective terms — evaluated exactly as `HairLightingModel.scatter`
+ * assembles them, and searched over the three angles that matter: the view's inclination to the
+ * strand, the light's inclination, and the azimuth between them. Nothing here is a render; it is
+ * the mirror functions this file already asserts elsewhere, so it is only as good as they are.
+ *
+ * ⚠️ The previous version of this number sat inline in the CONTRAST section, swept θi ALONE at
+ * φ = 0 with the view fixed perpendicular to the strand, and summed R + TT + TRT while omitting
+ * the fake — one line through a three-parameter space, missing the term that carries roughly half
+ * the peak. It reported 0.0182 sr⁻¹. Re-derived here over the sphere and over the shipped
+ * combination it is above 0.03, so every "factor of N" quoted against 0.0182 in rounds 13 and 14
+ * was a property of that sweep and does not reproduce.
+ */
+const closedFormPeak = ( () => {
+
+    const tangent = [ 1, 0, 0 ];
+    const dot3 = ( a, b ) => a[ 0 ] * b[ 0 ] + a[ 1 ] * b[ 1 ] + a[ 2 ] * b[ 2 ];
+    let best = { total: 0 };
+
+    for ( let thetaR = 0; thetaR <= 70; thetaR += 5 ) {
+
+        const view = thetaR * Math.PI / 180;
+        const toView = [ Math.sin( view ), 0, Math.cos( view ) ];
+        const perpendicular = toView.map( ( v, i ) => v - tangent[ i ] * dot3( tangent, toView ) );
+        const scale = Math.hypot( ...perpendicular );
+        const fakeNormal = perpendicular.map( ( v ) => v / scale );
+
+        for ( let thetaI = - 89; thetaI <= 89; thetaI += 1 ) {
+
+            const inclination = thetaI * Math.PI / 180;
+
+            for ( let phi = 0; phi <= 180; phi += 1 ) {
+
+                const azimuth = phi * Math.PI / 180;
+                const toLight = [ Math.sin( inclination ),
+                    Math.cos( inclination ) * Math.sin( azimuth ),
+                    Math.cos( inclination ) * Math.cos( azimuth ) ];
+
+                const lobes = hairScatteringValue( tangent, toLight, toView, BASE_COLOUR );
+                const fake = scatterValue( dot3( fakeNormal, toLight ), BASE_COLOUR, 1 );
+                const occlusion = sideVisibilityValue( dot3( toLight, toView ) );
+
+                for ( let channel = 0; channel < 3; channel ++ ) {
+
+                    const total = ( lobes.r[ channel ] + lobes.trt[ channel ] + fake[ channel ] ) *
+                        occlusion + lobes.tt[ channel ];
+
+                    if ( total > best.total ) best = { total, thetaI, phi, thetaR, channel,
+                        r: lobes.r[ channel ], trt: lobes.trt[ channel ], scatter: fake[ channel ] };
+
+                }
+
+            }
+
+        }
+
+    }
+
+    return best;
+
+} )();
 
 // ==============================================================================================
 // THE WEAK HALF — arithmetic, on the CPU mirrors
@@ -517,6 +585,41 @@ console.log( '\n--- the rect-area path\'s solid angle --------------------------
     );
 }
 
+console.log( '\n--- the card-scale occlusion, and the property that keeps it honest -------------\n' );
+
+{
+    // 🚩 AN OCCLUSION THAT CAN EXCEED 1 IS NOT AN OCCLUSION, IT IS A TUNING FACTOR WEARING A NAME.
+    // Karis' slide-47 term is `saturate( ωi·ωr + 1 )` and the `saturate` is the whole of what makes
+    // it shippable here: it is 1 for every light on the viewer's side of the fragment, so it cannot
+    // brighten anything, and it falls to 0 only where a head would be in the way. Asserted as a
+    // bound over the interval rather than at three points, because the failure this guards against
+    // — somebody dropping the clamp to "recover energy" — is invisible at ωi·ωr = 0 and worth 2x at
+    // retro, which is exactly the size of the fudge this round was told not to ship.
+    let above = 0;
+    let below = 0;
+    let onePast = 0;
+
+    for ( let cosine = - 1; cosine <= 1.0001; cosine += 0.001 ) {
+
+        const value = sideVisibilityValue( cosine );
+
+        if ( value > 1 ) above ++;
+        if ( value < 0 ) below ++;
+        if ( cosine >= 0 && Math.abs( value - 1 ) > 1e-12 ) onePast ++;
+
+    }
+
+    report(
+        'slide 47\'s occlusion is an ATTENUATOR: never above 1, never below 0, exactly 1 on the viewer\'s side',
+        above === 0 && below === 0 && onePast === 0,
+        `over ωi·ωr ∈ [−1, 1] at 0.001: ${ above } samples above 1, ${ below } below 0, ${ onePast } of the ` +
+            `ωi·ωr ≥ 0 half not exactly 1.\n      Endpoints: F(−1) = ${ sideVisibilityValue( - 1 ).toFixed( 4 ) } ` +
+            `(exact backlight, fully occluded), F(−0.98) = ${ sideVisibilityValue( - 0.98 ).toFixed( 4 ) } (the rim at ` +
+            `−168°),\n      F(0) = ${ sideVisibilityValue( 0 ).toFixed( 4 ) } (a light across the view), F(0.74) = ` +
+            `${ sideVisibilityValue( 0.74 ).toFixed( 4 ) } (the key at +42°).`
+    );
+}
+
 console.log( '\n--- anisotropy, on the mirror: the highlight follows the TANGENT ----------------\n' );
 
 {
@@ -619,6 +722,11 @@ const ARMS = {
     panelZero:  `${ FORWARD }&hair=1&hairlobes=&hairscatter=0&ov=key.shadowFraction:0`,
     panelR:     `${ FORWARD }&hair=1&hairlobes=r&hairscatter=0&ov=key.shadowFraction:0`,
 
+    // The shipped BSDF on the DETERMINISTIC FORWARD path. It exists so the rendered scattering
+    // function can be inverted out of the plate — see the effective-BSDF section, which needs
+    // `zero`, `unit` and this one in the same transfer domain, and the grade is not one.
+    forward:    `${ FORWARD }&hair=1`,
+
     // The shipped path, for the numbers that are compared against a tone-mapped reference.
     shipped:    '&hair=1',
     plainCard:  '&hair=1&hairbsdf=0',
@@ -654,6 +762,30 @@ if ( plates.shipped !== undefined ) {
 
     const luma = ( plate, x, y ) => probe.lumaAt( plate, x, y );
 
+    /**
+     * Rec.709 luma in LINEAR light, which `probe.lumaAt` deliberately does not give: it reads the
+     * framebuffer, and on `&grade=0` the framebuffer is an sRGB encode of radiance. Only used where
+     * the question is "how much light is this", not "how bright does this look".
+     */
+    const linearLumaAt = ( plate, x, y ) => {
+
+        const index = ( y * plate.width + x ) * 4;
+
+        return 0.2126 * encodedToLinear( plate.data[ index ] ) +
+            0.7152 * encodedToLinear( plate.data[ index + 1 ] ) +
+            0.0722 * encodedToLinear( plate.data[ index + 2 ] );
+
+    };
+
+    const percentileOf = ( plate, mask ) => {
+
+        const values = mask.map( ( [ x, y ] ) => luma( plate, x, y ) ).sort( ( a, b ) => a - b );
+        const at = ( p ) => values[ Math.min( values.length - 1, Math.floor( p * values.length ) ) ];
+
+        return { p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ), max: values[ values.length - 1 ] };
+
+    };
+
     // --- the mask, which is itself a measurement ------------------------------------------------
     const hairMask = [];
 
@@ -676,13 +808,47 @@ if ( plates.shipped !== undefined ) {
             'was tried first and was mostly shadowed SKIN.'
     );
 
-    const percentiles = ( plate, mask ) => {
+    // --- 🔴 THE SECOND MASK, AND IT EXISTS BECAUSE THE FIRST ONE WAS MEASURING THE BACKDROP -----
+    //
+    // The mask above answers "is there hair here". It does not answer "is this pixel's VALUE hair",
+    // and for a percentile statistic that is the question. `?hairoit=hash` is stochastic alpha: a
+    // card texel below the hash threshold drops its sample, so a fringe pixel is part groom and
+    // part whatever is behind it — the backdrop card at 0.75 encoded, or lit forehead. Those pixels
+    // pass the mask test (they move between the two BSDF probes, because SOME of their coverage is
+    // hair) and then sit at the top of every percentile above p90 on their backdrop content alone.
+    //
+    // The discriminator is the zero-BSDF plate, which is free and already captured: with S ≡ 0 a
+    // fully covered hair pixel emits only the indirect term, and that is worth 0.0006 linear on
+    // this build (see `HairLightingModel.indirect`). Anything materially brighter than that is not
+    // hair, whatever the mask says. The floor is 0.01 LINEAR — sixteen times the measured indirect,
+    // so it cannot be excluding pixels for being brightly lit hair, and 0.089 in encoded luma.
+    const COVERAGE_FLOOR = 0.01;
+    const solidMask = hairMask.filter( ( [ x, y ] ) => linearLumaAt( plates.zero, x, y ) < COVERAGE_FLOOR );
 
-        const values = mask.map( ( [ x, y ] ) => luma( plate, x, y ) ).sort( ( a, b ) => a - b );
-        const at = ( p ) => values[ Math.min( values.length - 1, Math.floor( p * values.length ) ) ];
+    // 🎯 THE PREDICATE IS THE PROPERTY, NOT THE HEADCOUNT. What has to be true of a mask the
+    // contrast is measured on is that switching the BSDF OFF leaves it dark: a mask that reads
+    // 0.41 encoded at p95 with no hair shader in the graph is measuring something else, and no
+    // amount of it being "86.9% of the pixels" makes the top of its distribution hair. So the
+    // assertion is on the zero-BSDF plate's p95 over the mask, and 0.10 encoded is six times the
+    // measured value and a sixth of the contaminated one — it discriminates by a wide margin in
+    // both directions rather than sitting between two numbers that are nearly equal.
+    report(
+        '🚩 the CONTRAST mask excludes part-covered card texels, which is where the old number came from',
+        percentileOf( plates.zero, solidMask ).p95 < 0.10 &&
+            solidMask.length > 40_000 && solidMask.length / hairMask.length > 0.5,
+        `${ solidMask.length.toLocaleString() } of ${ hairMask.length.toLocaleString() } masked px are solid hair ` +
+            `(${ ( 100 * solidMask.length / hairMask.length ).toFixed( 1 ) }%).\n` +
+        `      🔴 WHAT THE OTHER ${ ( 100 - 100 * solidMask.length / hairMask.length ).toFixed( 1 ) }% WERE DOING TO THIS FILE'S HEADLINE NUMBER: on the ` +
+            `zero-BSDF plate — no lobes, no scatter, no BSDF of any kind —\n      the FULL mask reads p95 ` +
+            `${ percentileOf( plates.zero, hairMask ).p95.toFixed( 4 ) } encoded, i.e. ` +
+            `${ ( percentileOf( plates.zero, hairMask ).p95 / HAIR_CONTRAST.baseEncodedLuma ).toFixed( 2 ) } : 1 against ` +
+            `#150F17 with the hair shader switched off.\n      The solid mask reads ` +
+            `${ percentileOf( plates.zero, solidMask ).p95.toFixed( 4 ) } — ` +
+            `${ ( percentileOf( plates.zero, solidMask ).p95 / HAIR_CONTRAST.baseEncodedLuma ).toFixed( 2 ) } : 1. Every ` +
+            `contrast figure this file reported before this round was ~94% backdrop.`
+    );
 
-        return { p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ), max: values[ values.length - 1 ] };
-    };
+    const percentiles = percentileOf;
 
     // --- THE DUAL BAND, IN PIXELS ---------------------------------------------------------------
     {
@@ -880,15 +1046,15 @@ if ( plates.shipped !== undefined ) {
 
     // --- THE CONTRAST, on the shipped plate -----------------------------------------------------
     {
-        const shipped = percentiles( plates.shipped, hairMask );
-        const plain = percentiles( plates.plainCard, hairMask );
-        const unit = percentiles( plates.unit, hairMask );
-        const zero = percentiles( plates.zero, hairMask );
+        const shipped = percentiles( plates.shipped, solidMask );
+        const plain = percentiles( plates.plainCard, solidMask );
+        const unit = percentiles( plates.unit, solidMask );
+        const zero = percentiles( plates.zero, solidMask );
 
         const ratio = shipped.p95 / HAIR_CONTRAST.baseEncodedLuma;
         const target = HAIR_CONTRAST.encodedRatio;
 
-        console.log( `      arm                       p50      p90      p95      p99      max` );
+        console.log( `      arm                       p50      p90      p95      p99      max      (solid hair only)` );
         for ( const [ name, entry ] of [ [ 'shipped BSDF', shipped ], [ '?hairbsdf=0 (GLB card)', plain ],
             [ 'unit BSDF probe', unit ], [ 'zero BSDF', zero ] ] ) {
 
@@ -901,37 +1067,32 @@ if ( plates.shipped !== undefined ) {
         // value on a hair pixel is Σ(L_i·Ω_i)/4π over the five lights. Inverting it says what the
         // rig delivers to the groom, which is the only way to tell a dim BSDF from a dim rig — and
         // telling those two apart is precisely what REQ-061 asks for.
+        //
+        // ⚠️ TWO HONEST LIMITS ON THE ARITHMETIC BELOW, BOTH OF WHICH THE PREVIOUS ROUND'S VERSION
+        // STATED MORE CONFIDENTLY THAN IT WAS ENTITLED TO. (1) `unit.p95` and `shipped.p95` are rank
+        // statistics over the same mask, not the same PIXEL — the sentence "at the same p95 pixel"
+        // was wrong and is gone. (2) `requiredBsdf` inverts the sRGB transfer only; the shipped arm
+        // is graded, so the true linear scene value behind an encoded 0.675 is HIGHER than
+        // `encodedToLinear` says and the required BSDF is therefore a LOWER BOUND.
         const deliveredAtP95 = encodedToLinear( unit.p95 ) * 4 * Math.PI;
         const requiredBsdf = encodedToLinear( HAIR_CONTRAST.bandEncoded[ 1 ] ) / deliveredAtP95;
-        const peakBsdf = ( () => {
 
-            let best = 0;
-
-            for ( let degrees = - 89; degrees <= 89; degrees += 0.25 ) {
-
-                const angle = degrees * Math.PI / 180;
-                const value = hairScatteringValue( [ 1, 0, 0 ], [ Math.sin( angle ), 0, Math.cos( angle ) ],
-                    [ 0, 0, 1 ], BASE_COLOUR ).total[ 1 ];
-
-                best = Math.max( best, value );
-
-            }
-
-            return best;
-
-        } )();
+        // The ceiling, over the sphere and over the shipped combination. See `closedFormPeak`.
+        const peak = closedFormPeak;
 
         report(
             'the specular-to-albedo contrast reaches the look spec\'s measured 9.08–11.35 : 1 ENCODED band',
             ratio >= target[ 0 ] && ratio <= target[ 2 ],
-            `hair p95 ${ shipped.p95.toFixed( 4 ) } encoded over #150F17's ${ HAIR_CONTRAST.baseEncodedLuma } = ` +
+            `SOLID hair p95 ${ shipped.p95.toFixed( 4 ) } encoded over #150F17's ${ HAIR_CONTRAST.baseEncodedLuma } = ` +
                 `${ ratio.toFixed( 2 ) } : 1, against ${ target[ 0 ] }–${ target[ 2 ] } : 1.\n` +
-            `      🔴 DIAGNOSIS, and it is NOT the light level. The unit-BSDF probe reads ${ unit.p95.toFixed( 4 ) } ` +
-                `encoded at the same p95 pixel,\n      so the rig delivers Σ(L·Ω) = ${ deliveredAtP95.toFixed( 3 ) } sr·nits there. ` +
-                `Reaching the reference band would need a BSDF of\n      ${ requiredBsdf.toFixed( 3 ) } sr⁻¹; Karis' closed form on a ` +
-                `#150F17 fibre peaks at ${ peakBsdf.toFixed( 4 ) } sr⁻¹ — a factor of ${ ( requiredBsdf / peakBsdf ).toFixed( 1 ) }.\n` +
-            `      The model is implemented as read and the shortfall is in its MAGNITUDE on this rig, not in a\n` +
-                `      misread transfer domain and not in an exposure. Raising exposure is the move REQ-061 rules out.`
+            `      🔴 DIAGNOSIS. The unit-BSDF probe reads p95 ${ unit.p95.toFixed( 4 ) } encoded on the same mask, so the rig delivers\n` +
+                `      Σ(L·Ω) = ${ deliveredAtP95.toFixed( 3 ) } sr·nits to a hair pixel at that rank. Reaching the reference band needs at least\n` +
+                `      ${ requiredBsdf.toFixed( 4 ) } sr⁻¹. The shipped combination — R + TRT + slide 39's fake, under slide 47's occlusion —\n` +
+                `      peaks over the whole sphere at ${ peak.total.toFixed( 4 ) } sr⁻¹ (θi ${ peak.thetaI }°, φ ${ peak.phi }°, θr ${ peak.thetaR }°, channel ${ peak.channel };\n` +
+                `      R ${ peak.r.toFixed( 4 ) } + fake ${ peak.scatter.toFixed( 4 ) }), a factor of ${ ( requiredBsdf / peak.total ).toFixed( 2 ) } short before the rig is even consulted.\n` +
+            `      What this rules out: a misread transfer domain, and an exposure — raising exposure is the move REQ-061 rules out.\n` +
+            `      What it leaves: R is Fresnel-limited (F0 = ${ HAIR_F0.toFixed( 4 ) }) and its real peak lives at near-backlight grazing,\n` +
+                `      which slide 47's occlusion deliberately discards because the rim has no shadow map. REQ-063.`
         );
 
         // ⚠️ COMPARED AT p95 AND NOT AT p50, AND THE REASON IS WORTH A LINE. The two materials'
@@ -947,6 +1108,83 @@ if ( plates.shipped !== undefined ) {
                 `${ shipped.p90.toFixed( 4 ) } against ${ plain.p90.toFixed( 4 ) }.\n      ?hairbsdf=0 is the A side: ` +
                 'a MeshPhysical lobe about the card\'s PLANE NORMAL, which is brighter and is wrong in the way ' +
                 '`applyCardShading` spent a round documenting.'
+        );
+    }
+
+    // --- 🎯 THE EFFECTIVE BSDF, INVERTED OUT OF THE PLATE ---------------------------------------
+    //
+    // This is the section that makes "ship a multiplier until the gate goes green" impossible, and
+    // that is why it is here rather than in a scratch file. Three forward plates differ in exactly
+    // one thing, the scattering function:
+    //
+    //     zero      S ≡ 0            →  linear value = the indirect term alone
+    //     unit      S ≡ 1/4π         →  linear value = indirect + Σ(L·Ω)/4π
+    //     forward   S = the shipped closed form
+    //
+    // Subtracting the first from the other two leaves, per pixel and with no model in the way,
+    //
+    //     Σ(L·Ω)(x)  = ( unit − zero ) · 4π          the rig's delivery, measured not authored
+    //     S_eff(x)   = ( forward − zero ) / Σ(L·Ω)   the scattering function the SHADER computed
+    //
+    // and `S_eff` is directly comparable to the CPU mirror's own peak over the sphere. A shader
+    // that is doing what the closed form permits lands under that ceiling everywhere; a shader
+    // carrying a tuning factor lands above it, on some pixel, by exactly the factor. The check
+    // below is that ceiling, and it is the one gate in this file that gets stricter as the picture
+    // gets better.
+    {
+        const linearAt = ( plate, x, y ) => linearLumaAt( plate, x, y );
+
+        const delivery = [];
+        const effective = [];
+
+        for ( const [ x, y ] of solidMask ) {
+
+            const indirect = linearAt( plates.zero, x, y );
+            const delivered = ( linearAt( plates.unit, x, y ) - indirect ) * 4 * Math.PI;
+
+            // ⚠️ A PIXEL THE RIG BARELY REACHES DIVIDES A SMALL NUMBER BY A SMALL NUMBER, AND THE
+            // MAX OF THAT RATIO IS NOISE RATHER THAN A MEASUREMENT. The floor is ONE steradian-nit
+            // against a mask median of about four, which is the level below which a hair pixel is
+            // inside the key's shadow rather than lit by anything. It was 1e-3 for one run and the
+            // peak it reported moved by 14x between two captures of the SAME source, because the
+            // hashed-alpha coverage reshuffles the fringe of the mask from load to load.
+            if ( delivered <= 1 ) continue;
+
+            delivery.push( delivered );
+            effective.push( ( linearAt( plates.forward, x, y ) - indirect ) / delivered );
+
+        }
+
+        const rank = ( values ) => {
+
+            const sorted = values.slice().sort( ( a, b ) => a - b );
+            const at = ( p ) => sorted[ Math.min( sorted.length - 1, Math.floor( p * sorted.length ) ) ];
+
+            return { p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ), max: sorted[ sorted.length - 1 ] };
+
+        };
+
+        const measuredBsdf = rank( effective );
+        const measuredDelivery = rank( delivery );
+
+        console.log( `      quantity                  p50      p90      p95      p99      max` );
+        console.log( `      Σ(L·Ω) sr·nits          ${ measuredDelivery.p50.toFixed( 3 ) }    ${ measuredDelivery.p90.toFixed( 3 ) }    ` +
+            `${ measuredDelivery.p95.toFixed( 3 ) }    ${ measuredDelivery.p99.toFixed( 3 ) }    ${ measuredDelivery.max.toFixed( 3 ) }` );
+        console.log( `      S_eff sr⁻¹              ${ measuredBsdf.p50.toFixed( 5 ) }  ${ measuredBsdf.p90.toFixed( 5 ) }  ` +
+            `${ measuredBsdf.p95.toFixed( 5 ) }  ${ measuredBsdf.p99.toFixed( 5 ) }  ${ measuredBsdf.max.toFixed( 5 ) }` );
+
+        report(
+            '🎯 the RENDERED scattering function stays under the closed form\'s own ceiling — the anti-fudge gate',
+            measuredBsdf.max <= closedFormPeak.total * 1.05,
+            `over ${ effective.length.toLocaleString() } solid hair pixels the shader's measured S peaks at ` +
+                `${ measuredBsdf.max.toFixed( 5 ) } sr⁻¹\n      against the CPU mirror's ${ closedFormPeak.total.toFixed( 5 ) } sr⁻¹ over the whole sphere — ` +
+                `${ ( 100 * measuredBsdf.max / closedFormPeak.total ).toFixed( 1 ) }% of it. A shader carrying a tuning\n` +
+            `      multiplier lands ABOVE 100% by exactly the multiplier, which is what this check is for; the 5% ` +
+                `slack is 8-bit quantisation.\n` +
+            `      🔴 AND THE GAP AT p95 IS THE RIG, NOT THE MODEL: S peaks at ${ measuredBsdf.max.toFixed( 5 ) } but reads ` +
+                `${ measuredBsdf.p95.toFixed( 5 ) } at p95, because the four\n      panels sit at +42°, −52°, −168° and +166° and the ` +
+                `closed form's peak needs a light near the view axis. Moving the key there\n      (?ov=key.azimuthDegrees:12) is measured ` +
+                `in the DUAL BAND section above and it is a rig change, filed as REQ-064.`
         );
     }
 
@@ -998,12 +1236,19 @@ if ( plates.shipped !== undefined ) {
                 `${ ( hairClipped * 100 ).toFixed( 5 ) }%. Reference plates: 0.017–0.036%.\n` +
             `      🔴 THE HONEST MISS, WITH ITS DIAGNOSIS. REQ-061 recorded that this scene has nothing small and\n` +
                 `      bright enough to clip and named hair specular as the largest of the three candidates. Hair is now\n` +
-                `      in the frame and it does not clip either, for the reason the CONTRAST section measures: Karis'\n` +
-                `      closed form on a #150F17 fibre peaks around 0.018 sr⁻¹, and the rig delivers Σ(L·Ω) of order 1\n` +
-                `      to 7 sr·nits to the groom, so the product lands one to two stops below the tone curve's shoulder.\n` +
-                `      What this rules out: "the scene has no hair" is no longer the explanation. What it leaves open:\n` +
-                `      a specular lobe on a WET or oiled surface, the eye catchlight cubemap (3.4), and Phase 9's metal\n` +
-                `      trim — all three of which are small, bright and NOT governed by a fibre's absorption.`
+                `      in the frame and it does not clip either, for the reason the sections above measure: the shipped\n` +
+                `      combination peaks at ${ closedFormPeak.total.toFixed( 4 ) } sr⁻¹ over the whole sphere on a #150F17 fibre and the rig delivers\n` +
+                `      Σ(L·Ω) of order 4 to 6 sr·nits to the groom, so the product lands one to two stops below the tone\n` +
+                `      curve's shoulder. What this rules out: "the scene has no hair" is no longer the explanation, and\n` +
+                `      neither is a dim BSDF relative to its own model — the anti-fudge check above measures the shader\n` +
+                `      just under the closed form's own ceiling. What it leaves open: a specular lobe on a WET or oiled\n` +
+                `      surface, the eye catchlight cubemap (3.4), and Phase 9's metal trim — all three of which are\n` +
+                `      small, bright and NOT governed by a fibre's absorption.\n` +
+            `      ⚠️ AND THE TARGET BAND ITSELF DOES NOT REPRODUCE. docs/research/hair.md §0.2 re-measured the look\n` +
+                `      spec's 0.017% on overview_character.jpg and read 0.0137% (810 px of 5,891,200) under encodedLuma,\n` +
+                `      with four other plausible luma definitions giving 0.0040%, 0.0088% and 0.0719%. The reference\n` +
+                `      images are deliberately not in the repository, so this round could not re-measure them and the\n` +
+                `      0.017–0.036% band is left standing rather than quietly widened to whichever number passes.`
         );
     }
 

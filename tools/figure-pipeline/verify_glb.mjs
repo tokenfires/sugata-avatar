@@ -42,8 +42,8 @@ const { measureHemRoll, percentile } = await import(
 // its own module so it can be pointed at shapes whose answer is known, and the thresholds live
 // here with the rest of the gate.
 const {
-  SurfaceGrid, connectedComponents, isRibbon, rayTriangle, scalpTransmittance,
-  uvExtentsPerComponent,
+  SurfaceGrid, cardGathering, connectedComponents, isRibbon, rayTriangle, ribbonEnds,
+  scalpTransmittance, uvExtentsPerComponent,
 } = await import("./hair_geometry.mjs");
 
 const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
@@ -1269,6 +1269,55 @@ const MIN_STRIP_BOUNDARY_SD_PX = 3.0;
  */
 const MINIMUM_HAIR_CARDS = 100;
 
+/**
+ * 🎯 **THE CARDS HAVE TO GATHER, AND THE GROOM THAT SHIPPED FANNED.** The owner looked at the
+ * composed build and said the style "still looks odd, messy I suppose"; the generator's own author
+ * had already flagged that "the card ends are stringy"; a blind critic independently called it
+ * "a wet, matted black mop — the visual language of 'unwashed' rather than 'styled'". Three
+ * observers, one word, and no number in this file could see it — every clause above was green.
+ *
+ * The word turns out to be one ratio. Hair separates into LOCKS: neighbouring shafts touch and
+ * travel together, so a lock's tip is tighter than its root. Measured off the five shipped bakes,
+ * mean nearest-neighbour distance between card tips over the same between card roots:
+ *
+ *   | bake | as it shipped | with `clump` on the layers |
+ *   |------|---------------|----------------------------|
+ *   | g000 |     1.397     |           0.884            |
+ *   | g025 |     1.352     |           0.812            |
+ *   | g050 |     1.416     |           0.848            |
+ *   | g075 |     1.331     |           0.819            |
+ *   | g100 |     1.359     |           0.854            |
+ *
+ * So every card in the shipped groom ended 33–42% FURTHER from its neighbours than it started.
+ * That is a mop by construction, whatever any one card looks like, and it is what all three
+ * observers were describing.
+ *
+ * 🚩 **THE CEILING IS 0.95 BECAUSE 1.10 HAD NO RED PROOF, AND THE FIRST ONE RUN DID NOT FIRE.**
+ * 1.10 sits neatly between the shipped 1.331–1.416 and the new 0.812–0.884, and it is the wrong
+ * number, because the shipped groom differs from this one in TWO ways and the clause is only
+ * about one of them. Setting `clump: 0.0` on every entry of `hair_cards.HAIR_LAYERS` and leaving
+ * the cut in place rebuilds g050 at **1.055** — a groom with no locks in it at all, PASSING a
+ * ceiling of 1.10, because cutting to a plane removes most of the fan on its own. A gate whose
+ * red proof comes back green is not a gate. At 0.95 both proofs fire and both are quoted:
+ *
+ *   `clump: 0.0`, cut intact, g050          1.055   RED
+ *   the groom as it shipped before 3.6.1    1.331–1.416 over five bakes   RED
+ *   as it ships now                         0.812–0.884 over five bakes   ok
+ *
+ * The margin on the worst good bake is 7.5%, which is thinner than this file likes and is what the
+ * measurement supports rather than what would be comfortable.
+ *
+ * ⚠️ **AND THE CUT LINE IS REPORTED RATHER THAN GATED, ON PURPOSE.** The other half of "messy" was
+ * that the ends do not line up — per-layer tip spreads of 123–163 mm on a 172.8 mm scalp. It is
+ * fixed (`hair_cards.CUT_CORRECTIONS` and the layer `cut` values) and the local height step between
+ * neighbouring tips moved from 13.1–14.2 mm to 9.3–9.7 mm across the sweep. But a whole-groom
+ * spread cannot gate it: the layer stack is DELIBERATELY graduated, so most of any figure it
+ * produces is the graduation, and a threshold over that would be a number invented to fit. It is
+ * printed next to the ratio instead, which is what LEARNINGS §1.2 asks for when a property is real
+ * and the gate for it would not be.
+ */
+const MAX_TIP_SPREAD_RATIO = 0.95;
+
 /** Displacement at which an ARKit target counts as having moved a vertex, for the scalp target. */
 const FACE_MOTION_FLOOR_M = 0.00015;
 
@@ -1831,6 +1880,7 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
 
 
   failures.push(...reportHairComponents(groom, mesh));
+  failures.push(...reportCardGathering(groom, mesh));
   failures.push(...reportHairUvs(groom, mesh, hair));
   failures.push(...reportCardBorders(groom, glb, mesh));
   failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
@@ -1875,6 +1925,36 @@ function reportHairComponents(groom, mesh) {
   }
 
   return failures;
+}
+
+/**
+ * Whether the groom is locks or a mop. See MAX_TIP_SPREAD_RATIO for the measurement behind it.
+ *
+ * Off the exported file and off nothing else: the roots and tips come from the CARDS' own UV, so
+ * this clause knows nothing about layers, lock counts or clump weights, and a build that satisfied
+ * it by lying about any of those would still have to move the geometry.
+ */
+function reportCardGathering(groom, mesh) {
+  const ribbons = connectedComponents(mesh.indices, mesh.vertexCount).filter(isRibbon);
+  const gathering = cardGathering(ribbonEnds(ribbons, mesh.positions, mesh.uvs));
+  const ok = gathering.ratio <= MAX_TIP_SPREAD_RATIO;
+
+  console.log(`  ${ok ? "ok  " : "FAIL"} cards gather      tips sit ` +
+              `${gathering.ratio.toFixed(3)}x as far apart as roots ` +
+              `(${(gathering.tipNearest * 1000).toFixed(1)} mm vs ` +
+              `${(gathering.rootNearest * 1000).toFixed(1)} mm, ceiling ` +
+              `${MAX_TIP_SPREAD_RATIO}) — hair gathers into locks, a mop fans out`);
+  console.log(`  --   cut line         a card's tip sits ` +
+              `${(gathering.tipStep * 1000).toFixed(1)} mm off its 5 nearest tips in height ` +
+              "(reported, not gated — the layer stack is graduated on purpose)");
+
+  if (ok) {
+    return [];
+  }
+
+  return [`${groom.id}'s card tips sit ${gathering.ratio.toFixed(3)}x as far apart as its roots, ` +
+          `over the ${MAX_TIP_SPREAD_RATIO} ceiling — the cards fan out instead of gathering ` +
+          "into locks, which is what reads as a mop"];
 }
 
 /** Every UV inside the atlas, and every card inside ONE strip of it. */

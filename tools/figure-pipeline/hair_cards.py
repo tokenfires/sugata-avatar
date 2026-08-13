@@ -141,6 +141,12 @@ HAIR_CLEARANCE_M = 0.0035
 CLAMP_PASSES = 24
 CLAMP_OVERSHOOT = 1.50
 
+# How far the radial rescue may walk a vertex the passes could not free, in units of the
+# clamp's own overshoot. 24 is 126 mm, comfortably past the deepest fold on this body — the
+# ear — and the count is reported so a groom that needs many of them is visible rather than
+# quietly repaired. See `clamp_cards_off_the_body`.
+RESCUE_STEPS = 24
+
 # Layers, outermost last. Each is (cards, base standoff m, length m, root half-width m, strip set).
 #
 # 🚩 **A ONE-SHELL GROOM IS THE "HELMET MADE OF RIBBONS" FAILURE**, and it is the failure this
@@ -168,19 +174,99 @@ CLAMP_OVERSHOOT = 1.50
 # See `sample_roots`; 1 would spread it over the whole upper half of the skull.
 CROWN_BIAS_POWER = 2.0
 
+# 🎯 **"MESSY" IS TWO MEASURABLE PROPERTIES, AND `cut` AND `clump` ARE THEM.** The owner said the
+# groom "still looks odd, messy I suppose"; the generator's own author had already flagged "the card
+# ends are stringy"; a blind critic independently called it "a wet, matted black mop … the visual
+# language of 'unwashed' rather than 'styled'" and "brush strokes". Three observers, one word, so
+# the question was what the word IS. Measured off the shipped `assets/hair/bob01/g050.glb`:
+#
+#   1. **THE ENDS DO NOT LINE UP.** Card tips, per layer, spanned 123–163 mm from the 10th to the
+#      90th percentile — on a scalp region 172.8 mm tall. Over the whole groom the tip z p10→p90 was
+#      211 mm. A haircut IS a cut line; this had none anywhere, because a card's length was the
+#      layer's length times `0.80 + 0.40 · random()` and its tip therefore landed wherever its root
+#      happened to be, plus 20% either way. That is the "stringy tips" verbatim.
+#   2. **THE CARDS DIVERGE.** Nearest-neighbour distance between card TIPS was 16.3 mm against
+#      11.5 mm between their ROOTS — a ratio of 1.416, so every card ended 42% further from its
+#      neighbours than it started. Hair does the opposite: it gathers into locks and a lock's tip is
+#      tighter than its root. A groom whose cards fan apart is a mop by construction, whatever each
+#      individual card looks like.
+#
+# So `cut` is the drop below the hairline, as a fraction of the region's own height, that this
+# layer is cut to (`None` for the coverage layer, which is never seen from outside and must not be
+# shortened). And `clump` is how far this layer's cards are drawn into their lock by the tip.
+#
+# ⚠️ **THE COVERAGE LAYER TAKES ALMOST NO CLUMP, AND THAT IS THE CONSTRAINT ON THE WHOLE IDEA.**
+# Clumping is cards moving TOGETHER, which is cards moving AWAY from somewhere else, and the
+# somewhere else is the scalp the `root` layer exists to hide. `verify_glb.mjs`'s exposed-patch and
+# visible-skin clauses are what hold that line; `root` is at 0.15 because at 0.5 they go red.
+#
+# `length` is now the FIRST GUESS at the arc a card needs to reach its cut plane rather than the
+# length it ends up with — see `grow_to_cut`, which corrects it against where the card actually
+# landed. The guesses are roughly 1.35× the drop, which is what the wrap over the skull costs.
 HAIR_LAYERS = [
     {"name": "root", "cards": 104, "standoff": 0.0060, "length": 0.085,
      "half_width": 0.0210, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08,
-     "part": 0.20, "crown": 1.60},
-    {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.150,
-     "half_width": 0.0180, "strips": (2, 3), "gravity": 1.00, "jitter": 0.11},
-    {"name": "body", "cards": 56, "standoff": 0.0165, "length": 0.195,
-     "half_width": 0.0160, "strips": (3, 4), "gravity": 1.10, "jitter": 0.14},
-    {"name": "surface", "cards": 48, "standoff": 0.0225, "length": 0.225,
-     "half_width": 0.0140, "strips": (4, 5, 6), "gravity": 1.20, "jitter": 0.17},
-    {"name": "flyaway", "cards": 28, "standoff": 0.0285, "length": 0.245,
-     "half_width": 0.0110, "strips": (6, 7), "gravity": 1.30, "jitter": 0.22},
+     "part": 0.20, "crown": 1.60, "cut": None, "clump": 0.15},
+    {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.200,
+     "half_width": 0.0180, "strips": (2, 3), "gravity": 1.00, "jitter": 0.11,
+     "cut": 0.35, "clump": 0.45},
+    {"name": "body", "cards": 56, "standoff": 0.0165, "length": 0.260,
+     "half_width": 0.0160, "strips": (3, 4), "gravity": 1.10, "jitter": 0.14,
+     "cut": 0.62, "clump": 0.62},
+    {"name": "surface", "cards": 48, "standoff": 0.0225, "length": 0.300,
+     "half_width": 0.0140, "strips": (4, 5, 6), "gravity": 1.20, "jitter": 0.17,
+     "cut": 0.80, "clump": 0.75},
+    # ⚠️ `cut_scatter` multiplies the cut jitter, and the flyaway layer is the one place it is
+    # above 1. That layer exists to BREAK the silhouette — it carries the wispiest strips and it is
+    # the outermost thing a viewer sees against the background — so cutting it to a plane with
+    # everything else would take away the only thing it does. It is cut, so it hangs with the
+    # style; it is cut untidily, so the outline is a hairline rather than a hem.
+    {"name": "flyaway", "cards": 28, "standoff": 0.0285, "length": 0.320,
+     "half_width": 0.0110, "strips": (6, 7), "gravity": 1.30, "jitter": 0.22,
+     "cut": 0.88, "clump": 0.60, "cut_scatter": 2.4},
 ]
+
+# --- locks --------------------------------------------------------------------------------------
+#
+# 🎯 **THE FOLLICLES ARE EVEN AND THE SHAFTS ARE NOT, AND THAT IS WHY THE FIX IS NOT IN
+# `sample_roots`.** The obvious reading of "hair clumps" is "clump the roots", and it is wrong on
+# the head and wrong here. Follicles really are close to evenly distributed — `sample_roots`'s dart
+# throwing is right and stays — and a lock forms further down, where neighbouring shafts touch and
+# then travel together. Clumping the roots instead would move the bald patches around without
+# making a single lock, because two roots 3 mm apart still fly apart at the tip if nothing holds
+# them.
+#
+# So a lock is a shared ATTRACTOR CURVE. `LOCK_COUNT` centres are dart-thrown over the scalp once
+# for the whole groom, every layer grows its own guide from each centre with its own standoff and
+# length, and every card is drawn toward the guide of its nearest centre by a weight that is zero at
+# the root and `clump` at the tip.
+#
+# 🚩 **THE CENTRES ARE SHARED ACROSS THE LAYERS ON PURPOSE.** Per-layer locks were the first
+# arrangement and they are five independent grooms stacked: the surface layer's locks land between
+# the body layer's, so the mass has no through-line and reads as depth-sorted noise. One set of
+# centres means a lock is a column of hair from the scalp to the tip, which is what a lock is.
+#
+# 16 rather than 30: a bob shows on the order of a dozen locks, and 294 cards over 16 centres is
+# 18 a lock — on average 6.5 of the `root` layer's, down to 1.75 of the `flyaway` layer's, which is
+# enough for a lock to read as a mass in the layers that carry one and correctly leaves the
+# outermost wisps as individual hairs.
+LOCK_COUNT = 16
+LOCK_CROWN_BIAS = 0.80
+
+# How the clump weight climbs from root to tip. Above 1 so the roots stay where `sample_roots` put
+# them and the gathering happens down the shaft, which is where a lock forms.
+CLUMP_POWER = 1.7
+
+# How many times a blended guide is walked back out of the body. See `draw_into_lock`.
+CLUMP_CLEARANCE_PASSES = 3
+
+# 🎯 **AND THE SAME LOCK OWNS THE DEFLECTION, WHICH IS THE FRIZZ FIX.** Every card used to draw its
+# own direction jitter and its own curl, so two neighbours 8 mm apart disagreed by the full jitter
+# budget — measured as a direction coherence of 0.9373 (mean cosine between a card's root-to-tip
+# heading and its five nearest neighbours'). Neighbouring cards whose flow disagrees is the
+# definition of frizz. Most of the budget now belongs to the LOCK and is shared by every card in
+# it; what is left is the per-card residue that keeps a lock from being one wide ribbon.
+LOCK_DIRECTION_SHARE = 0.75
 
 # --- the scalp cap ------------------------------------------------------------------------------
 #
@@ -221,11 +307,60 @@ CAP_WEDGES_PER_SHELL = (12, 7)
 # with strand ends, and the hairline is the one edge of the cap a viewer can see.
 CAP_UV_REACH = 1.35
 
-# Segments per card. Twelve rings is 26 vertices and 24 triangles per card, and it is where the
-# curve stops looking faceted at conversational distance: the groom's tightest radius is the turn
-# over the crown, roughly 90 mm, and twelve segments over a 215 mm card put 18 mm between rings —
-# a 11.5 degree bend, under the ~15 degrees at which a silhouette reads as a polygon.
-GUIDE_SEGMENTS = 12
+# Segments per card. Sixteen segments is seventeen rings, 34 vertices and 32 triangles, and the
+# number is set by the ring SPACING rather than chosen: the groom's tightest radius is the turn over
+# the crown, roughly 90 mm, and a silhouette reads as a polygon somewhere past a ~15 degree bend per
+# ring, which is about 24 mm of arc at that radius.
+#
+# ⚠️ **TWELVE WAS RIGHT FOR A 215 mm CARD AND IS NOT RIGHT FOR THIS ONE.** Cutting to a plane means
+# a card rooted at the crown travels over the skull AND down to the cut. Measured over the five
+# bakes the median card is 187–202 mm and the 90th percentile 322–344 mm; twelve segments would put
+# 27–29 mm between rings at that percentile, over the 24 mm the crown's turn allows. Sixteen brings
+# it to 20–21 mm and costs 29% more triangles — 8,184 to 10,536.
+GUIDE_SEGMENTS = 16
+
+# --- the cut ------------------------------------------------------------------------------------
+#
+# 🎯 **A HAIRCUT IS A CUT, AND THE GROOM DID NOT HAVE ONE.** See HAIR_LAYERS for the measurement.
+# The cut plane for a layer is `frame.hairline_z - cut · frame.height`, so it is derived from the
+# region the same way every other number in this file is and lands correctly on an identity nobody
+# has built. Two mechanisms take a card to it, and both are needed:
+#
+#   THE LENGTH IS CORRECTED, not the curve. The naive fix is to grow every card long and trim the
+#   overshoot, and it deforms the SHAPE: the gravity bend and the attached phase are both functions
+#   of the arc fraction `s`, so a card grown to 400 mm and trimmed at 140 mm keeps only its first
+#   third — which is the part that is still lying flat against the skull. The card comes out as a
+#   curve that never falls. So the length is re-derived from where the card actually landed and the
+#   card is REGROWN at it, which keeps `s` meaning what it means.
+#
+#   THEN IT IS TRIMMED. The correction is a Newton step on a nearly-linear relation and it leaves a
+#   few millimetres; a few millimetres times 294 cards is a fuzzy line rather than a cut one.
+#
+# ⚠️ The upper bound is a runaway guard rather than a style choice. A card that leaves the crown
+# almost horizontally descends a few millimetres over its whole length, so `wanted / achieved` is
+# enormous and one Newton step asks for a metre of hair; measured, the first build with 2.60 in
+# here produced a 655 mm card against a 90th percentile of 322 mm.
+CUT_CORRECTIONS = 3
+CUT_LENGTH_BOUNDS = (0.45, 1.80)
+
+# 🚩 **A DEAD-FLAT CUT LINE IS A WIG, AND THIS IS THE ONLY THING BETWEEN THE TWO.** The defect
+# being fixed is 140 mm of scatter; the failure on the other side is 0 mm of it, which reads as a
+# plastic bob straight off a shelf. A real cut is point-cut: the stylist takes the line with the
+# scissors at an angle, so a LOCK sits a few millimetres off its neighbours and the hairs inside a
+# lock sit a few off each other. Both are fractions of the region's height, and the lock's is the
+# larger because a lock is what the eye resolves.
+CUT_LOCK_JITTER = 0.035
+CUT_CARD_JITTER = 0.030
+
+# How much longer the front is than the back, as a fraction of the region's height, across the
+# region's full depth. The style is "side-parted, FACE-FRAMING" — a bob that is level all the way
+# round is a helmet, and the face-framing read comes from the front of the cut hanging lower.
+CUT_GRADUATION = 0.09
+
+# The shortest a cut may leave a card, as a fraction of the layer's own first guess. A root at the
+# nape sits barely above the underlayer's cut plane, and without a floor its card is trimmed to a
+# stub whose ribbon is a triangle.
+CUT_MINIMUM_LENGTH = 0.35
 
 # How much of the card's root width survives to the tip. Hair narrows toward the ends; the alpha
 # in the strand sheet does most of that work, and this does the rest so the SILHOUETTE narrows too
@@ -237,7 +372,7 @@ TIP_WIDTH_FRACTION = 0.62
 # PART_FALLOFF); gravity at the root is deliberately small, because a root that already points
 # down cannot lie along the skull.
 RADIAL_WEIGHT = 1.00
-PART_WEIGHT = 1.05
+PART_WEIGHT = 1.45
 ROOT_GRAVITY_WEIGHT = 0.30
 
 # Width of the part's influence, as a fraction of the scalp half-width.
@@ -254,10 +389,18 @@ PART_FALLOFF = 1.10
 # 🚩 **THE FIRST VERSION EXPRESSED THIS PER METRE AND THE GROOM CAME OUT AS A SEA URCHIN.** The
 # heading is a UNIT vector; adding `2.30 · s^1.6 · step` to it with a 15.5 mm step adds 0.045 at
 # the tip, which is a 2.6° turn — over twelve segments the card left the scalp tangentially and
-# flew straight out. A bend is an angle and has to be authored as one: 0.55 at the tip is a 29°
+# flew straight out. A bend is an angle and has to be authored as one: 0.41 at the tip is a 22°
 # turn per segment, and the last third of a card ends up pointing at the floor.
-GRAVITY_PER_SEGMENT = 0.55
+#
+# ⚠️ **PER SEGMENT, SO IT MOVES WITH GUIDE_SEGMENTS.** The total turn is the sum over the segments,
+# so raising the count from twelve to sixteen would have bent the groom a third further for free.
+# 0.55 over twelve is 0.41 over sixteen for the same fall.
+GRAVITY_PER_SEGMENT = 0.41
 GRAVITY_POWER = 1.60
+
+# The curl's share of the layer's jitter budget. Per segment and cumulative, so it carries the same
+# GUIDE_SEGMENTS scaling the gravity bend does: 0.15 over twelve segments is 0.11 over sixteen.
+CURL_SHARE_OF_JITTER = 0.11
 
 # 🎯 **THE HUG, which is the whole difference between hair and a hedgehog.** A curve leaving a
 # convex skull along its tangent plane travels in a straight line and the skull curves away
@@ -267,12 +410,35 @@ GRAVITY_POWER = 1.60
 # `standoff` above the nearest surface, and the heading is re-derived from where it actually landed
 # rather than from where it was aimed.
 #
-#   ATTACH_END      the arc fraction at which the hair stops being supported and starts falling
+#   ATTACH_FADE     the band above the hairline over which support runs out, as a fraction of the
+#                   scalp region's own height
 #   ATTACH_STRENGTH how much of the gap is closed per segment while attached
 #   HUG_REACH       how far the surface can be and still hold the hair. Beyond this the nearest
 #                   body point is something the hair is merely passing — the cheek, the shoulder —
 #                   and hugging it would drag the fall onto the face.
-ATTACH_END = 0.62
+#
+# 🚩 **A HEIGHT, AND IT WAS AN ARC FRACTION — AND THE ARC FRACTION PUT THE FRINGE OVER AN EYE THE
+# FIRST TIME THE CARDS GOT LONGER.** At 0.62 of the arc the attached phase was 93 mm on a 150 mm
+# card and 152 mm on a 245 mm one, close enough to a fixed distance that nobody noticed. Cutting to
+# a plane made the longest card 463 mm, so 0.62 of it reached 287 mm — past the cheekbone — and
+# `HUG_REACH` duly pulled the sweep flat onto the face: the `front` plate showed hair over the left
+# eye and the nose bridge where the previous groom cleared both.
+#
+# ⚠️ **AND THE OBVIOUS REPAIR — MAKE IT AN ARC DISTANCE — IS WORSE, MEASURED.** A fixed 124 mm of
+# support releases a 463 mm card while it is still on TOP of the skull, and a card released on the
+# crown leaves along its tangent: the `front` plate grew a wing of hair standing
+# out horizontally to the figure's right and threw four cards diagonally across the nose. A
+# distance is no more the question than a fraction is. The question the header already asks is
+# "until the head stops supporting it", and the head stops at the HAIRLINE — which this file has
+# measured off the face's own motion since it was written. Above the hairline the skull is under
+# the hair however long the card is; at the hairline the next thing down is the cheek.
+#
+# The wing was seen on `packages/testbed/src/hair.html` through `hair_shots.mjs`, and no path to the
+# plate is quoted here on purpose: `captures/` is gitignored, so a comment pointing into it rots the
+# moment the directory is cleaned. Reproduce it instead by replacing the `attached` line in
+# `grow_guide` with `max(0.0, (0.72 * frame.height - along) / (0.72 * frame.height))`, `along`
+# accumulating `step`, and re-running the five plates.
+ATTACH_FADE = 0.30
 ATTACH_STRENGTH = 0.75
 HUG_REACH = 0.045
 
@@ -317,11 +483,12 @@ def build_hair(basemesh, rig, arguments):
     frame = ScalpFrame(basemesh, scalp)
 
     body = body_surface_of(basemesh)
+    locks = place_locks(basemesh, frame, arguments)
 
     cards = []
     per_layer = []
     for layer in HAIR_LAYERS:
-        grown = grow_layer(basemesh, frame, body if collide else None, layer, arguments)
+        grown = grow_layer(basemesh, frame, body if collide else None, layer, locks, arguments)
         per_layer.append((layer["name"], len(grown)))
         cards.extend(grown)
 
@@ -334,7 +501,8 @@ def build_hair(basemesh, rig, arguments):
     shells = [] if arguments.no_hair_cap else build_scalp_cap(basemesh, frame)
 
     hair_object = assemble_cards(basemesh, cards, shells, style)
-    clamped, nearest = clamp_cards_off_the_body(hair_object, body, collide)
+    clamped, rescued, nearest, nearest_at = clamp_cards_off_the_body(
+        hair_object, body, frame, collide)
     weight_to_head(hair_object, rig)
     bind_to_rig(hair_object, basemesh, rig)
 
@@ -344,7 +512,7 @@ def build_hair(basemesh, rig, arguments):
     assign_hair_material(hair_object, style, dict((name, path) for name, path, _ in maps))
 
     report = HairReport(style, frame, per_layer, hair_object, clamped, nearest, maps,
-                        texture_directory, collide, len(shells))
+                        texture_directory, collide, len(shells), cards, nearest_at, rescued)
 
     return hair_object, style, report
 
@@ -474,23 +642,178 @@ class ScalpFrame:
                 f"depth {self.depth * 1000:.1f} mm  half-width {self.half_width * 1000:.1f} mm")
 
 
-def body_surface_of(basemesh):
-    """A BVH of the whole shipped body, which is what the groom must stay outside of.
+class BodySurface:
+    """The body the groom must stay outside of, and everything a SIGNED distance to it needs.
 
     The WHOLE body rather than the head: a 215 mm card grown from the nape reaches the trapezius,
     and a groom that clears the skull and passes through a shoulder has solved the easy half.
-    """
-    mesh = basemesh.data
 
-    return BVHTree.FromPolygons([vertex.co.copy() for vertex in mesh.vertices],
-                                [list(polygon.vertices) for polygon in mesh.polygons])
+    🎯 **THE SAME TRIANGLES AND THE SAME SIGN RULE AS THE GATE, WHICH IS THE FIX FOR A MARGIN THIS
+    FILE USED TO PAY IN MILLIMETRES.** `HAIR_CLEARANCE_M`'s note records the build and
+    `verify_glb.mjs` disagreeing about the same vertex and answers it by aiming half a millimetre
+    high. The margin held until the cut made the cards long enough to reach the ear and the brow,
+    where the quads are small and curved. Both halves of the disagreement were then measured:
+
+      TRIANGULATION. `BVHTree.FromPolygons` over the mesh's QUADS picks its own diagonal; the glTF
+      exporter calls `blender_mesh.calc_loop_triangles()` and writes those — `io_scene_gltf2/
+      blender/exp/primitive_extract.py:393`. Build-side 3.504–3.519 mm came back as 3.273 / 3.091 /
+      3.247 / **2.945** / **2.584** mm off the five exported files, and g075 and g100 failed the
+      3 mm floor. Feeding the BVH `loop_triangles` instead brought four of the five to agreement in
+      the third decimal — 3.510/3.510, 3.503/3.503, 3.508/3.508, 3.504/3.504.
+
+      THE SIGN. The fifth did not: g000 read +3.502 mm here and **−5.267 mm** there, a vertex the
+      gate calls inside the body and this file called clear. `find_nearest` hands back the FACE
+      normal, and `hair_geometry.mjs` signs by the body's own INTERPOLATED VERTEX normal — the
+      standard smooth-mesh inside test, and the only one that agrees with itself across an edge.
+      Inside the fold of an ear the two point different ways. So this file signs the same way.
+
+    Widening the margin instead would have been guessing at a ceiling nobody had measured.
+    """
+
+    def __init__(self, basemesh):
+        mesh = basemesh.data
+        mesh.calc_loop_triangles()
+
+        self.points = [vertex.co.copy() for vertex in mesh.vertices]
+        self.normals = [vertex.normal.copy() for vertex in mesh.vertices]
+        self.triangles = [tuple(triangle.vertices) for triangle in mesh.loop_triangles]
+        self.tree = BVHTree.FromPolygons(self.points,
+                                         [list(corners) for corners in self.triangles])
+
+    def normal_at(self, triangle_index, location):
+        """The interpolated vertex normal at a point on one of the body's triangles."""
+        first, second, third = self.triangles[triangle_index]
+        corner = self.points[first]
+        along = self.points[second] - corner
+        across = self.points[third] - corner
+        offset = location - corner
+
+        # Barycentric by Cramer's rule on the triangle's own plane. A degenerate triangle has no
+        # interior to interpolate over, so its first corner's normal is as good an answer as any.
+        along_along = along.dot(along)
+        along_across = along.dot(across)
+        across_across = across.dot(across)
+        area = along_along * across_across - along_across * along_across
+        if abs(area) < 1e-18:
+            return self.normals[first].copy()
+
+        offset_along = offset.dot(along)
+        offset_across = offset.dot(across)
+        second_weight = (across_across * offset_along - along_across * offset_across) / area
+        third_weight = (along_along * offset_across - along_across * offset_along) / area
+        first_weight = 1.0 - second_weight - third_weight
+
+        normal = (self.normals[first] * first_weight
+                  + self.normals[second] * second_weight
+                  + self.normals[third] * third_weight)
+
+        return normal.normalized() if normal.length > 1e-9 else self.normals[first].copy()
+
+
+def body_surface_of(basemesh):
+    """The collision surface for this build. See `BodySurface` for why it is not just a BVH."""
+    return BodySurface(basemesh)
+
+
+# --- locks --------------------------------------------------------------------------------------
+
+
+class Lock:
+    """One lock of hair: the centre every layer's nearest cards are drawn toward, and its habits.
+
+    A lock owns three random draws and each of them used to belong to a card. The point of moving
+    them here is that a lock is what the eye resolves: sixteen locks that each lean, curl and end
+    slightly differently reads as a style, where 294 cards that each do reads as frizz. See
+    LOCK_DIRECTION_SHARE for the measurement that says which one the groom was.
+    """
+
+    def __init__(self, position, normal, random):
+        self.position = position
+        self.normal = normal
+
+        # Unit-cube draws rather than metres or radians: they are scaled by the LAYER's own jitter
+        # and cut budgets at the point of use, so one lock leans the same WAY at every depth while
+        # the outer layers still lean further than the inner ones do.
+        self.direction_bias = Vector((random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0),
+                                      random.uniform(-1.0, 1.0)))
+        self.curl_bias = Vector((random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0),
+                                 random.uniform(-1.0, 1.0)))
+        self.cut_bias = random.uniform(-1.0, 1.0)
+
+        # Filled in per layer by `grow_layer`: the attractor curve this lock's cards converge on.
+        self.guides = {}
+
+
+def place_locks(basemesh, frame, arguments):
+    """The groom's lock centres, dart-thrown over the scalp once and shared by every layer.
+
+    Its own RNG stream, seeded off the groom seed and deliberately not off any layer's index, so
+    that changing a layer's card count cannot move the locks — the layers would then all re-lock
+    around a different set of centres and a one-line change to `flyaway` would rebuild the whole
+    style. See LOCK_COUNT for why the centres are shared at all.
+    """
+    import random as random_module
+
+    random = random_module.Random(arguments.hair_seed * 1000 + 900)
+    centres = sample_roots(basemesh, frame, LOCK_COUNT, random, LOCK_CROWN_BIAS)
+
+    if not centres:
+        raise SystemExit("Build failed: no lock centre landed on the scalp, so there is nothing "
+                         "for the cards to gather into.")
+
+    return [Lock(position, normal, random) for position, normal in centres]
+
+
+def nearest_lock(locks, position):
+    """The lock a root belongs to. Straight-line nearest — the scalp is convex at this scale."""
+    return min(locks, key=lambda lock: (lock.position - position).length_squared)
+
+
+def draw_into_lock(guide, lock_guide, tightness, body, standoff):
+    """Blends a card's own curve toward its lock's, by a weight that is 0 at the root.
+
+    Index-wise rather than by arc length: both curves carry GUIDE_SEGMENTS + 1 points and both are
+    resampled uniformly by `grow_to_cut`, so index i is the same fraction along either one.
+
+    🚩 **THE BLEND BREAKS THE CLEARANCE THE INTEGRATOR ESTABLISHED, AND IT BROKE THE BUILD.** Both
+    curves are clear of the body; the straight line between them is not, because the body is not
+    convex — a card on one side of the jaw drawn toward a lock on the other passes THROUGH it. The
+    first build with clumping in it wrote g025 at 3.061 mm and g100 at **−5.250 mm**, a vertex
+    inside the skull, and `HairReport.describe` failed both. So the blend restores what it took:
+    the same push-out `grow_guide` applies at every step, run over the blended curve. Three passes
+    for the reason `clamp_cards_off_the_body` runs twenty-four — one pass out of a concave crease
+    lands nearer a neighbouring triangle — and the final clamp is still there behind it, because a
+    ribbon's corners are half a width off the curve and were never checked here.
+    """
+    if tightness <= 0.0:
+        return guide
+
+    blended = []
+    for index, point in enumerate(guide):
+        s = index / (len(guide) - 1)
+        blended.append(point.lerp(lock_guide[index], tightness * s ** CLUMP_POWER))
+
+    if body is None:
+        return blended
+
+    for _pass in range(CLUMP_CLEARANCE_PASSES):
+        moved = False
+        for index, point in enumerate(blended):
+            location, normal, distance = signed_distance_to(body, point)
+            if location is not None and distance < standoff:
+                blended[index] = location + normal * standoff
+                moved = True
+        if not moved:
+            break
+
+    return blended
 
 
 # --- growing a layer ----------------------------------------------------------------------------
 
 
-def grow_layer(basemesh, frame, body, layer, arguments):
-    """One shell of cards: sample roots, grow a guide from each, ribbon each guide."""
+def grow_layer(basemesh, frame, body, layer, locks, arguments):
+    """One shell of cards: sample roots, grow a guide from each, gather them into locks, ribbon."""
     import random as random_module
 
     # 🚩 **`hash()` ON A str IS SALTED PER PROCESS, and the first version used it.** `PYTHONHASHSEED`
@@ -501,17 +824,46 @@ def grow_layer(basemesh, frame, body, layer, arguments):
     # already unique.
     random = random_module.Random(arguments.hair_seed * 1000 + HAIR_LAYERS.index(layer))
 
+    # This layer's attractor curve for each lock, grown BEFORE any card so that every card in the
+    # layer has one to converge on. Grown with the lock's own bias and no card residue at all: it
+    # is the lock's canonical curve, not one more card.
+    for lock in locks:
+        lock.guides[layer["name"]] = grow_to_cut(
+            lock.position, lock.normal, frame, body, layer, arguments,
+            deflection=layer["jitter"] * lock.direction_bias,
+            curl=layer["jitter"] * CURL_SHARE_OF_JITTER * lock.curl_bias,
+            cut_z=cut_height(frame, layer, lock.position, lock.cut_bias, 0.0))
+
     roots = sample_roots(basemesh, frame, layer["cards"], random,
                          layer.get("crown", 0.0))
 
     cards = []
     for index, (position, normal) in enumerate(roots):
-        direction = root_direction(position, normal, frame, arguments.hair_part, layer, random)
-        guide = grow_guide(position, normal, direction, body, frame, layer, random)
+        lock = nearest_lock(locks, position)
+
+        guide = grow_to_cut(
+            position, normal, frame, body, layer, arguments,
+            deflection=layer["jitter"] * shared_with_lock(lock.direction_bias, random),
+            curl=(layer["jitter"] * CURL_SHARE_OF_JITTER
+                  * shared_with_lock(lock.curl_bias, random)),
+            cut_z=cut_height(frame, layer, position, lock.cut_bias,
+                             random.uniform(-1.0, 1.0)))
+
+        guide = draw_into_lock(guide, lock.guides[layer["name"]], layer["clump"],
+                               body, layer["standoff"])
+
         strip = layer["strips"][index % len(layer["strips"])]
         cards.append(ribbon_of(guide, frame, layer, strip, random))
 
     return cards
+
+
+def shared_with_lock(lock_bias, random):
+    """The lock's deflection plus this card's own residue. See LOCK_DIRECTION_SHARE."""
+    own = Vector((random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0),
+                  random.uniform(-1.0, 1.0)))
+
+    return lock_bias * LOCK_DIRECTION_SHARE + own * (1.0 - LOCK_DIRECTION_SHARE)
 
 
 def sample_roots(basemesh, frame, count, random, crown_bias):
@@ -605,8 +957,12 @@ def random_point_on(mesh, polygon, random):
     return a + (b - a) * u + (c - a) * v
 
 
-def root_direction(position, normal, frame, part_fraction, layer, random):
-    """Which way the hair leaves the scalp at this root. See "The growth field" in the header."""
+def root_direction(position, normal, frame, part_fraction, layer, deflection):
+    """Which way the hair leaves the scalp at this root. See "The growth field" in the header.
+
+    `deflection` is the already-scaled random lean, passed in rather than drawn here: most of it
+    belongs to the card's LOCK and is shared with its neighbours. See LOCK_DIRECTION_SHARE.
+    """
     radial = position - frame.whorl
     radial = tangent_component(radial, normal)
     if radial.length < 1e-6:
@@ -627,10 +983,7 @@ def root_direction(position, normal, frame, part_fraction, layer, random):
                  + part_push * PART_WEIGHT
                  + tangent_component(Vector((0.0, 0.0, -1.0)), normal) * ROOT_GRAVITY_WEIGHT)
 
-    jitter = layer["jitter"]
-    direction += Vector((random.uniform(-jitter, jitter),
-                         random.uniform(-jitter, jitter),
-                         random.uniform(-jitter, jitter)))
+    direction += deflection
 
     direction = tangent_component(direction, normal)
     if direction.length < 1e-6:
@@ -644,22 +997,124 @@ def tangent_component(vector, normal):
     return vector - normal * vector.dot(normal)
 
 
-def grow_guide(root, root_normal, direction, body, frame, layer, random):
-    """Integrates one guide curve from the scalp outward, sliding over whatever is in the way."""
+def cut_height(frame, layer, root, lock_bias, card_bias):
+    """The z this card is cut at, or None for a layer that is not cut. See "the cut" above.
+
+    Every term is a fraction of the region's own height, so the cut travels with the identity the
+    way the hairline and the whorl already do.
+    """
+    cut = layer.get("cut")
+    if cut is None:
+        return None
+
+    scatter = layer.get("cut_scatter", 1.0)
+    drop = (cut
+            + CUT_LOCK_JITTER * scatter * lock_bias
+            + CUT_CARD_JITTER * scatter * card_bias)
+
+    # Face-framing: the front of the cut hangs lower. The face is at −Y on this mesh, so a root
+    # toward the back has the larger y and the higher cut.
+    front_to_back = (root.y - (frame.low.y + frame.high.y) * 0.5) / max(frame.depth, 1e-6)
+    drop -= CUT_GRADUATION * front_to_back
+
+    return frame.hairline_z - drop * frame.height
+
+
+def grow_to_cut(root, root_normal, frame, body, layer, arguments, deflection, curl, cut_z):
+    """Grows one guide and lands its tip on the cut plane. See "the cut" for why in two stages.
+
+    Returns GUIDE_SEGMENTS + 1 points, uniformly spaced along the curve's own arc.
+    """
+    direction = root_direction(root, root_normal, frame, arguments.hair_part, layer, deflection)
+
+    length = layer["length"]
+    guide = grow_guide(root, root_normal, direction, body, frame, layer, curl, length)
+
+    if cut_z is None:
+        return guide
+
+    low, high = CUT_LENGTH_BOUNDS
+    floor = layer["length"] * CUT_MINIMUM_LENGTH
+
+    for _correction in range(CUT_CORRECTIONS):
+        achieved = guide[0].z - guide[-1].z
+        wanted = guide[0].z - cut_z
+        # A root already at or below its own cut plane has nothing to correct toward, and a card
+        # that has not descended at all — one lying flat over the crown — would divide by nothing.
+        if achieved <= 1e-4 or wanted <= 0.0:
+            break
+
+        corrected = min(max(length * wanted / achieved,
+                            layer["length"] * low), layer["length"] * high)
+        if abs(corrected - length) < 1e-4:
+            break
+
+        length = corrected
+        guide = grow_guide(root, root_normal, direction, body, frame, layer, curl, length)
+
+    return resample(guide, max(floor, arc_length_at_height(guide, cut_z)))
+
+
+def arc_length_at_height(points, cut_z):
+    """How far along a polyline its first descent through `cut_z` is. Its whole length if never."""
+    travelled = 0.0
+    for index in range(1, len(points)):
+        before, after = points[index - 1], points[index]
+        span = (after - before).length
+        if after.z <= cut_z < before.z:
+            drop = before.z - after.z
+            return travelled + span * (before.z - cut_z) / max(drop, 1e-9)
+        travelled += span
+
+    return travelled
+
+
+def resample(points, length):
+    """The first `length` metres of a polyline, as GUIDE_SEGMENTS + 1 uniformly spaced points.
+
+    Uniform in arc rather than keeping the integrator's own steps: the correction above changes a
+    card's length by up to 2.6×, and a ribbon whose rings bunch at one end has its texture bunched
+    there too — the strand sheet's root darkening would land halfway down the hair.
+    """
+    spans = [(points[index] - points[index - 1]).length for index in range(1, len(points))]
+    total = sum(spans)
+    if total < 1e-9:
+        return [point.copy() for point in points]
+
+    length = min(max(length, 1e-4), total)
+
+    resampled = [points[0].copy()]
+    segment = 0
+    walked = 0.0
+    for ring in range(1, GUIDE_SEGMENTS + 1):
+        target = length * ring / GUIDE_SEGMENTS
+        while segment < len(spans) - 1 and walked + spans[segment] < target:
+            walked += spans[segment]
+            segment += 1
+
+        along = (target - walked) / max(spans[segment], 1e-9)
+        resampled.append(points[segment].lerp(points[segment + 1], min(max(along, 0.0), 1.0)))
+
+    return resampled
+
+
+def grow_guide(root, root_normal, direction, body, frame, layer, curl, length):
+    """Integrates one guide curve from the scalp outward, sliding over whatever is in the way.
+
+    `curl` is a constant nudge added at every segment, so a card bows one way over its length
+    rather than wobbling. Scaled small at the call site: it is added to a UNIT heading sixteen
+    times, so a fraction of the layer's jitter is already a visible curve by the tip. Most of it
+    belongs to the card's lock — see LOCK_DIRECTION_SHARE.
+    """
     standoff = layer["standoff"]
-    step = layer["length"] / GUIDE_SEGMENTS
+    step = length / GUIDE_SEGMENTS
 
     point = root + root_normal * standoff
     points = [point.copy()]
 
-    # A per-guide length scale so the layer's cards do not all end on the same line, which is a
-    # horizontal edge across the groom and the second most obvious card artefact after the ribbon.
-    length_scale = 0.80 + 0.40 * random.random()
-    # A constant per-guide nudge added at every segment, so a card bows one way over its length
-    # rather than wobbling. Scaled small: this is added to a UNIT heading twelve times, so 0.15 of
-    # the layer's jitter is already a visible curve by the tip.
-    curl = Vector((random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0),
-                   random.uniform(-1.0, 1.0))) * layer["jitter"] * 0.15
+    # The band the skull's support runs out over. Full above it, nothing at the hairline — see
+    # ATTACH_FADE for the eye this cost when it was a fraction of the arc instead.
+    band = max(ATTACH_FADE * frame.height, 1e-6)
 
     for segment in range(GUIDE_SEGMENTS):
         s = (segment + 1) / GUIDE_SEGMENTS
@@ -668,14 +1123,14 @@ def grow_guide(root, root_normal, direction, body, frame, layer, random):
         bend = GRAVITY_PER_SEGMENT * layer["gravity"] * (s ** GRAVITY_POWER)
         direction = (direction + Vector((0.0, 0.0, -1.0)) * bend + curl).normalized()
 
-        point = point + direction * step * length_scale
+        point = point + direction * step
 
         if body is None:
             points.append(point.copy())
             continue
 
         location, surface_normal, distance = signed_distance_to(body, point)
-        attached = max(0.0, (ATTACH_END - s) / ATTACH_END)
+        attached = min(1.0, max(0.0, (point.z - frame.hairline_z) / band))
 
         if location is not None and distance < standoff:
             point = location + surface_normal * standoff
@@ -879,12 +1334,12 @@ def assemble_cards(basemesh, cards, shells, style):
     return hair_object
 
 
-def clamp_cards_off_the_body(hair_object, body, collide=True):
+def clamp_cards_off_the_body(hair_object, body, frame, collide=True):
     """Final repair: no hair vertex closer to the body than HAIR_CLEARANCE_M.
 
     The guide integrator already keeps the CURVE clear, but a card is the curve plus half a width
     either side, and a corner of a card leaning into the neck was never checked by the integrator.
-    Returns (vertices moved, nearest approach after the repair, in metres).
+    Returns (vertices moved, nearest approach after the repair, where it is).
 
     `collide=False` measures without repairing, which is `--no-hair-collision`: the distances are
     still reported so the red proof can quote how far INTO the skull the broken groom reaches.
@@ -896,8 +1351,22 @@ def clamp_cards_off_the_body(hair_object, body, collide=True):
     falling card lands — the repaired position is closer to a neighbouring triangle than it was to
     the one that moved it. Repeating the repair walks the vertex out of the crease; the loop stops
     when nothing moves, and the caller fails the build if the floor is still violated.
+
+    🚩 **AND REPEATING IT DOES NOT ALWAYS WORK, WHICH THE EAR PROVED.** A crease is two faces at an
+    angle and walking out of it terminates; a SLIVER is two faces back to back a few millimetres
+    apart, and pushing a vertex `target` off the front of the pinna puts it behind the back of the
+    pinna, which pushes it back. The clamp oscillates and twenty-four passes change nothing. It is
+    diagnosable from the number alone: g100 failed at exactly **−5.250 mm**, which is
+    `HAIR_CLEARANCE_M · CLAMP_OVERSHOOT` with the sign flipped — the vertex was sitting exactly
+    where the repair had just put it, measured against the other face, at (0.088, −0.030, 1.617),
+    which is the top of the ear. Longer cards reach the ear; the shorter groom never got there.
+
+    So a vertex the passes cannot free is walked RADIALLY OUT of the head instead. That direction
+    is the one thing a fold cannot be re-entered along, it terminates by construction, and it is
+    where the hair should have gone anyway — hair goes around an ear, not into it.
     """
     moved = 0
+    rescued = 0
     target = HAIR_CLEARANCE_M * CLAMP_OVERSHOOT
     if collide:
         for _pass in range(CLAMP_PASSES):
@@ -913,15 +1382,38 @@ def clamp_cards_off_the_body(hair_object, body, collide=True):
             if moved_this_pass == 0:
                 break
 
+        for vertex in hair_object.data.vertices:
+            _location, _normal, distance = signed_distance_to(body, vertex.co)
+            if distance is None or distance >= HAIR_CLEARANCE_M:
+                continue
+
+            outward = vertex.co - frame.head_centre
+            if outward.length < 1e-9:
+                continue
+            outward.normalize()
+
+            for _step in range(RESCUE_STEPS):
+                vertex.co = vertex.co + outward * target
+                _location, _normal, distance = signed_distance_to(body, vertex.co)
+                if distance is not None and distance >= HAIR_CLEARANCE_M:
+                    break
+
+            rescued += 1
+
+    # The WORST vertex and where it is, not just how bad it is. A clearance failure is always one
+    # place on the body — a crease the repair oscillates in — and "3.061 mm" sends the next reader
+    # looking at the whole groom where "(0.071, 1.492, 0.043)" sends them to the jaw.
     nearest = None
+    at = None
     for vertex in hair_object.data.vertices:
         _location, _normal, distance = signed_distance_to(body, vertex.co)
         if distance is not None and (nearest is None or distance < nearest):
             nearest = distance
+            at = vertex.co.copy()
 
     hair_object.data.update()
 
-    return moved, nearest
+    return moved, rescued, nearest, at
 
 
 def signed_distance_to(body, point):
@@ -934,14 +1426,15 @@ def signed_distance_to(body, point):
     the head. `verify_glb.mjs` caught it off the exported file, which is the whole argument for
     measuring the artefact rather than the script that wrote it.
 
-    The sign is the face normal at the closest point dotted with the direction out to the query.
-    A face normal rather than an interpolated one because that is what `BVHTree.find_nearest`
-    hands back, and the disagreement between the two only matters within a fraction of a
-    millimetre of the surface — where the clamp is going to move the vertex anyway.
+    The sign is the body's own INTERPOLATED VERTEX normal at the closest point, dotted with the
+    direction out to the query — `hair_geometry.mjs`'s rule exactly, and `BodySurface` records the
+    g000 vertex that read +3.502 mm under the face normal and −5.267 mm under this one.
     """
-    location, normal, _index, distance = body.find_nearest(point)
+    location, _face_normal, index, distance = body.tree.find_nearest(point)
     if location is None:
         return None, None, None
+
+    normal = body.normal_at(index, location)
 
     return location, normal, math.copysign(distance, (point - location).dot(normal) or 1.0)
 
@@ -1052,11 +1545,44 @@ def export_hair_fragment(rig, hair_object, arguments, export_glb):
     return path
 
 
+def tip_statistics_per_layer(cards):
+    """Where each layer's cards END, in z. The build-side view of the cut line.
+
+    See "the cut" above and the `cut` field on each entry of HAIR_LAYERS.
+
+    ⚠️ **PRE-CLAMP, and that is why this is a diagnostic and not the gate.** These are the ribbon
+    positions `ribbon_of` produced; `clamp_cards_off_the_body` runs afterwards and walks whatever
+    landed inside the body back out, which moves some tips. The clause that FAILS a groom whose
+    ends do not line up is `verify_glb.mjs`'s, measured off the exported file — the same split, and
+    for the same reason, as the clearance floor above.
+    """
+    per_layer = {}
+    for card in cards:
+        left, right, _s = card["rings"][-1]
+        per_layer.setdefault(card["layer"], []).append((left.z + right.z) * 0.5)
+
+    statistics = {}
+    for name, tips in per_layer.items():
+        mean = sum(tips) / len(tips)
+        variance = sum((tip - mean) ** 2 for tip in tips) / len(tips)
+        ordered = sorted(tips)
+        statistics[name] = {
+            "mean": mean,
+            "sd": math.sqrt(variance),
+            # p10 to p90 rather than min to max: one card that snagged on a shoulder is not the
+            # cut line, and the cut line is what a viewer reads along the bottom of the groom.
+            "spread": ordered[int(len(ordered) * 0.9)] - ordered[int(len(ordered) * 0.1)],
+        }
+
+    return statistics
+
+
 class HairReport:
     """What the groom actually came out as, and the checks that fail the build rather than ship."""
 
     def __init__(self, style, frame, per_layer, hair_object, clamped, nearest, maps,
-                 texture_directory, collide=True, shells=0):
+                 texture_directory, collide=True, shells=0, cards=(), nearest_at=None,
+                 rescued=0):
         self.collide = collide
         self.shells = shells
         self.style = style
@@ -1064,8 +1590,11 @@ class HairReport:
         self.per_layer = per_layer
         self.clamped = clamped
         self.nearest = nearest
+        self.nearest_at = nearest_at
+        self.rescued = rescued
         self.maps = maps
         self.texture_directory = texture_directory
+        self.tips = tip_statistics_per_layer(cards)
 
         mesh = hair_object.data
         self.vertices = len(mesh.vertices)
@@ -1077,13 +1606,23 @@ class HairReport:
         self.lowest = min(lows)
         self.highest = max(lows)
 
+    def where(self):
+        """The worst vertex's position, for a failure message that names a place."""
+        if self.nearest_at is None:
+            return "(nowhere — no body to measure against)"
+        return "(" + ", ".join(f"{axis:.3f}" for axis in self.nearest_at) + ")"
+
     def describe(self, fragment_path):
         print("")
         print("=== hair (punch-list 3.6) ===")
         print(f"style           : {self.style}")
         print(f"region          : {self.frame.describe()}")
         for name, count in self.per_layer:
-            print(f"layer           : {name:11s} {count:3d} cards")
+            tips = self.tips.get(name)
+            print(f"layer           : {name:11s} {count:3d} cards"
+                  + ("" if tips is None else
+                     f"   tip z {tips['mean']:.4f} ± {tips['sd'] * 1000:5.1f} mm, "
+                     f"spread {tips['spread'] * 1000:5.1f} mm"))
         print(f"cards           : {self.cards}")
         print(f"scalp cap       : {self.shells} shell(s) at "
               f"{', '.join(f'{offset * 1000:.1f}' for offset in CAP_SHELL_OFFSETS_M[:self.shells])}"
@@ -1092,8 +1631,10 @@ class HairReport:
               f"{self.triangles:,} triangles")
         print(f"extent          : z {self.lowest:.4f} to {self.highest:.4f} "
               f"({(self.highest - self.lowest) * 1000:.1f} mm tall)")
-        print(f"clearance       : {self.clamped} vertices clamped, nearest approach "
-              f"{self.nearest * 1000:.3f} mm (floor {HAIR_CLEARANCE_M * 1000:.1f} mm)"
+        print(f"clearance       : {self.clamped} vertices clamped, {self.rescued} walked out "
+              f"of a fold, nearest approach "
+              f"{self.nearest * 1000:.3f} mm at {self.where()} "
+              f"(floor {HAIR_CLEARANCE_M * 1000:.1f} mm)"
               f"{'' if self.collide else '   [--no-hair-collision: RED PROOF BUILD]'}")
         for name, path, size in self.maps:
             embedded = "embedded" if name in EMBEDDED_MAPS else "sidecar"
@@ -1105,7 +1646,8 @@ class HairReport:
         # which is why they stop the build rather than print a warning nobody reads.
         if self.collide and self.nearest is not None and self.nearest < HAIR_CLEARANCE_M - 1e-6:
             raise SystemExit(
-                f"Build failed: a hair vertex sits {self.nearest * 1000:.3f} mm from the body, "
+                f"Build failed: a hair vertex sits {self.nearest * 1000:.3f} mm from the body "
+                f"at {self.where()}, "
                 f"inside the {HAIR_CLEARANCE_M * 1000:.1f} mm floor. The clamp did not converge.")
         if self.cards < 100:
             raise SystemExit(f"Build failed: {self.cards} cards is not a groom. The dart throwing "

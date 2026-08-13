@@ -50,8 +50,16 @@ const SPIKE_RUNS = [
   { name: 'morph-cost', page: 'morph-cost.html', query: '' },
   { name: 'morph-cost-with-normals', page: 'morph-cost.html', query: 'normals=1' },
   { name: 'rectarea-cost-720p', page: 'rectarea-cost.html', query: 'width=1280&height=720' },
-  { name: 'rectarea-cost-1080p', page: 'rectarea-cost.html', query: 'width=1920&height=1080' }
+  { name: 'rectarea-cost-1080p', page: 'rectarea-cost.html', query: 'width=1920&height=1080' },
+  { name: 'hair-motion', page: 'hair-motion.html', query: '' }
 ];
+
+// Which field of a measurement names the variant, per spike. Only the summary printer needs it.
+const VARIANT_KEY = {
+  'morph-cost': 'morphTargets',
+  'rectarea-cost': 'rectAreaLights',
+  'hair-motion': 'variant'
+};
 
 main().catch( ( error ) => {
   console.error( '\nrun.mjs failed:', error );
@@ -183,7 +191,29 @@ function printSummary( name, result ) {
     console.log( '  *** SOFTWARE RASTERISER DETECTED — these numbers are not usable as a budget ***' );
   }
 
-  const variableKey = result.spike === 'morph-cost' ? 'morphTargets' : 'rectAreaLights';
+  const variableKey = VARIANT_KEY[ result.spike ] ?? 'rectAreaLights';
+
+  // hair-motion's headline is a COMPUTE timestamp, not a render one, so it prints its own row.
+  if ( result.spike === 'hair-motion' ) {
+    for ( const measurement of result.measurements ) {
+      console.log(
+        `  ${ String( measurement.variant ).padEnd( 44 ) }  ` +
+        `compute ${ formatOrDash( measurement.computeMedianMs ) } ms   ` +
+        `per pass ${ formatOrDash( measurement.computeMsPerPass ) } ms   ` +
+        `render ${ formatOrDash( measurement.renderMedianMs ) } ms   ` +
+        `(n=${ measurement.computeSampleCount })`
+      );
+    }
+    for ( const baseline of result.cpuBaselines ?? [] ) {
+      console.log(
+        `  ${ String( baseline.solver ).padEnd( 44 ) }  ` +
+        `cpu     ${ formatOrDash( baseline.medianMs ) } ms   ` +
+        `p95 ${ formatOrDash( baseline.p95Ms ) } ms`
+      );
+    }
+    return;
+  }
+
   for ( const measurement of result.measurements ) {
     const gpu = measurement.gpuMedianMs;
     const delta = measurement.gpuDeltaVsZeroMs;

@@ -86,6 +86,13 @@
  *   `wboit`   McGuire & Bavoil weighted-blended OIT, Listing 4 form. Two extra attachments, one
  *             extra full-screen resolve, no sorting, no discard.
  *
+ * 🚩 **AND THE MODE DOES NOT DECIDE THE SHADOW, WHICH IT DID UNTIL THIS ROUND.** Three of those
+ * four clear `material.alphaTest`, and `alphaTest` is one of exactly two alpha fields three's
+ * shadow override copies from the drawn material — so on three arms out of four the groom cast
+ * from its untextured card QUADS and laid straight-edged slabs across the forehead, the neck and
+ * the chest. `HAIR_SHADOW_ALPHA_CUTOFF` is the coverage decision the shadow pass now makes for
+ * itself, on every arm; `HairShadow.selftest.mjs` is the pixel gate on it.
+ *
  * ## The primary artefact, read in this session and not quoted from a summary
  *
  * Morgan McGuire & Louis Bavoil, *Weighted Blended Order-Independent Transparency*, JCGT Vol. 2
@@ -253,7 +260,7 @@ import {
     ZeroFactor
 } from 'three/webgpu';
 
-import { float, mix, mrt, output, positionView, rtt, uniform, vec3, vec4 } from 'three/tsl';
+import { float, mix, mrt, nodeObject, output, positionView, rtt, uniform, vec3, vec4 } from 'three/tsl';
 
 /**
  * The four ways a hair card can reach the frame buffer. `blend` is the defect and is only ever the
@@ -490,6 +497,115 @@ export function publishedWeightValue( viewDepth, alpha, near, far ) {
 // --- the material side ------------------------------------------------------------------------
 
 /**
+ * The card alpha below which a hair fragment casts no shadow.
+ *
+ * ## 🚩 THE DEFECT THIS CONSTANT EXISTS BECAUSE OF: THE GROOM CAST FROM ITS QUADS
+ *
+ * A blind critic on the composed build reported *"hard-edged pale-tan rectangles ... on the
+ * forehead, the neck, both clavicles and across the chest — blocky, stair-stepped, axis-aligned
+ * tiles"* and read them as an occlusion term with the sign flipped. They are not an occlusion
+ * term. They are the hair's own cast shadow, cast from the UNTEXTURED CARD QUADS: flat slabs with
+ * straight edges and ninety-degree corners, and the skin between two slabs — which is at exactly
+ * its bald value, measured bit-identical at (420, 1060) — is what reads as a brighter tile.
+ *
+ * The sign is the reader's, not the renderer's. On the defect plate at (548, 1064) the skin is
+ * BIT-IDENTICAL to the same pixel with no groom at all — Δ0.0000 of luma — while 90 px to its left
+ * at (458, 1064) it is darkened by 27.4476. The tile is not brighter than it should be. It is a
+ * HOLE in a shadow whose surroundings are correctly darkened, and a hole with straight edges and
+ * ninety-degree corners reads as a tile.
+ *
+ * The mechanism is a hole in three r0.185.1's shadow override and it is four lines long:
+ *
+ *   1. `Renderer._renderObjectDirect` (`three/src/renderers/common/Renderer.js`:3585-3586) copies
+ *      exactly two alpha fields from the drawn material onto the shadow override material —
+ *      `alphaTest` and `alphaMap`. **`alphaHash` is not one of them, and neither is
+ *      `alphaTestNode`.**
+ *   2. `configureHairMaterial` sets `material.alphaTest = 0` on every arm but `cutout`, because
+ *      the binary test is exactly what the other three arms exist to avoid.
+ *   3. `NodeMaterial.setupDiffuseColor` (`:869`, `:890`) discards only when `alphaTest > 0` or
+ *      `this.alphaHash === true`, and on the override both are false.
+ *   4. So the shadow pass keeps every fragment of every card, and 254 opaque quads reach the map.
+ *
+ * ⚠️ It is not a property of `hash`. `blend` and `wboit` clear `alphaTest` too and show the same
+ * slabs; `cutout` is the ONE arm that does not, because 0.5 is the one value that crosses. The
+ * groom's own alpha DOES reach the shadow pass — `_getShadowNodes` (`:3384`) multiplies
+ * `material.colorNode.a` into the override's colour — it is simply never tested.
+ *
+ * ## The sweep this value comes from — rendered pixels, `alive.html`, nothing edited
+ *
+ * `?bare&freeze&seed=1&capture&hair=1` at 900x1200, 60 steps, one fresh page load per arm, the
+ * cutoff driven through `material.hairShadowCutoff` before the first step. CONTACT is the mean
+ * darkening against the same frame with no groom at all, over visible skin within 24 px of drawn
+ * groom; AREA is the count of visible skin pixels darkened by more than 3/255, of 340,808. "Visible
+ * skin" is measured rather than drawn by hand — the lit body of the bald plate, minus every pixel
+ * the groom changes in a pair of plates rendered with `?shadows=0`, so the mask contains no groom
+ * and no guesswork. `HairShadow.selftest.mjs` builds the same mask the same way.
+ *
+ *     | cutoff | contact 255ths |  area px | area % |
+ *     |--------|---------------:|---------:|-------:|
+ *     | 0      |         8.3484 |  109,031 |  31.99 |  ← the quads. `maskShadowNode` null reads the same
+ *     | 0.01   |         6.0320 |   75,179 |  22.06 |
+ *     | 0.02   |         5.7947 |   72,919 |  21.40 |
+ *     | 0.03   |         5.6347 |   71,117 |  20.87 |
+ *     | 0.05   |         5.3652 |   67,242 |  19.73 |  ← ships
+ *     | 0.10   |         4.8294 |   58,198 |  17.08 |
+ *     | 0.20   |         4.0602 |   45,419 |  13.33 |
+ *     | 0.35   |         3.1402 |   32,163 |   9.44 |
+ *     | 0.50   |         2.3689 |   23,417 |   6.87 |  ← the groom's own `alphaMode: MASK` cutoff
+ *     | 1.00   |         0.1449 |        0 |   0.00 |  ← nothing casts
+ *
+ * 🎯 **THE WHOLE DEFECT IS THE FIRST ROW'S GAP.** Admitting alpha below 0.01 adds 2.3164 of
+ * contact and 33,852 px of shadowed skin; the entire per cent above it adds 0.2373 and 2,260 px.
+ * **The last one per cent of alpha carries nearly ten times the shadow of the one per cent above
+ * it**, which is not a coverage curve — it is a quad. Every other step in the table is smooth.
+ *
+ * 0.05 is five times clear of that knee and keeps 88.9% of the contact the smallest safe cutoff
+ * buys (5.3652 of 6.0320), against the 39.3% left by the groom's own 0.5. It is not set AT the
+ * knee because the shadow map samples the atlas at its own minification — 4096 texels across
+ * 2 x 0.924 m at portrait against the camera's 0.35 mm/px — so the alpha a quad carries there is
+ * not the alpha it carries in the picture, and a cutoff sitting on the edge of the discontinuity
+ * would be a bet about mip selection at every framing this rig ships.
+ *
+ * ⚠️ **THE ABSOLUTE COLUMNS MOVE WHEN THE GROOM'S SHADING MOVES, and they moved inside the session
+ * that measured them.** An earlier sweep on the same page an hour before read 4.1953 and 54,694 px
+ * at 0.05, because `material/HairMaterial.js` changed what the groom draws in between and the
+ * measured skin mask went from 311,871 px to 340,808. The SHAPE of the table — the knee at zero,
+ * the smooth curve above it — reproduced exactly. That is why `HairShadow.selftest.mjs`'s headline
+ * clause is a ratio between two arms of one run and not a level.
+ *
+ * ⚠️ **`cutout` keeps its own 0.5 and that is not an oversight.** Its `alphaTest` crosses to the
+ * override as well, and the stricter of the two decides, so that arm's shadow is still the cut-out
+ * silhouette. The other three arms had no decision at all and now have this one.
+ */
+export const HAIR_SHADOW_ALPHA_CUTOFF = 0.05;
+
+/**
+ * The coverage decision the SHADOW pass makes, which is not the one the beauty pass makes.
+ *
+ * `maskShadowNode` is read only by `Renderer._getShadowNodes` (`:3347`, `:3392`), which wraps the
+ * override's colour in `maskNode.not().discard()`. It is therefore the one hook that reaches the
+ * shadow pass without touching what the beauty pass draws — which is the whole requirement here,
+ * since which arm is selected must not change how much light a card blocks.
+ *
+ * @param {NodeMaterial} material - must already carry the card alpha in `colorNode.a`.
+ * @param {Node<float>} cutoff
+ * @returns {?Node<bool>} `null` when the material carries no alpha to test. That is the
+ *   `?hairbsdf=0` arm, whose material is the groom's own GLB one and carries its alpha in `map`
+ *   rather than in `colorNode`. ⚠️ RECORDED AS A MEASUREMENT AND NOT AS AN ARGUMENT: that plate was
+ *   captured this round and shows NO slabs on the chest, so the arm does not carry the defect and
+ *   is not covered by this mask. Why it does not is not established here.
+ */
+function shadowCoverageMask( material, cutoff ) {
+
+    const colour = material.colorNode;
+
+    if ( colour === null || colour === undefined || colour.isNode !== true ) return null;
+
+    return nodeObject( colour ).a.greaterThanEqual( cutoff );
+
+}
+
+/**
  * Puts one hair material into one of the four modes.
  *
  * This is the seam punch-list 3.5 attaches to: `material/HairMaterial.js` builds the Karis BSDF and
@@ -506,6 +622,10 @@ export function publishedWeightValue( viewDepth, alpha, near, far ) {
  * @param {'blend'|'cutout'|'hash'|'wboit'} mode
  * @param {Object} [options]
  * @param {number} [options.alphaTest=0.5] - Used by `cutout`. The groom's own glTF says 0.5.
+ * @param {number} [options.shadowAlphaCutoff=HAIR_SHADOW_ALPHA_CUTOFF] - The card alpha below
+ *   which a fragment casts no shadow, on EVERY arm. See that constant for the defect and the
+ *   sweep; it is a parameter only so a caller measuring the sweep again does not have to edit
+ *   this file.
  * @param {boolean} [options.alphaToCoverage=false] - The caller's MSAA decision, carried through
  *   rather than decided here. Inert without MSAA, and MSAA is not the shipped path.
  * @param {?{ near: Node, far: Node, range: Node }} [options.slab] - The uniforms from
@@ -554,6 +674,17 @@ export function configureHairMaterial( material, mode, options = {} ) {
     // `THREE.WebGPURenderer: Invalid blending: undefined` once, after which the pipeline is built
     // with no blend at all — a transparent arm that draws opaque. Measured on the first run.
     material.blending = NormalBlending;
+
+    // The shadow pass's own coverage decision. Set BEFORE the mode branches, and for every arm,
+    // because the shadow map is not one of the four arms: which way a stack of cards resolves into
+    // one pixel is a beauty-pass question, and how much light gets past a card is not. Three of
+    // the four arms had no such decision at all — see `HAIR_SHADOW_ALPHA_CUTOFF` for the slabs
+    // that produced and for the sweep behind the value.
+    //
+    // A uniform rather than a literal, so a gate can drive it to zero and watch the quads come
+    // back without editing this file. `HairShadow.selftest.mjs` is that gate.
+    material.hairShadowCutoff = uniform( options.shadowAlphaCutoff ?? HAIR_SHADOW_ALPHA_CUTOFF );
+    material.maskShadowNode = shadowCoverageMask( material, material.hairShadowCutoff );
 
     if ( mode === 'cutout' ) {
 

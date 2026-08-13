@@ -8,9 +8,13 @@ answers a question and writes **no production code**.
 | `morph-cost.html` | 0.8 | What does a 69-shape ARKit + viseme rig cost per frame on a 13.7k-vertex head? |
 | `rectarea-cost.html` | 0.10 | Where does a RectAreaLight portrait rig start to hurt? |
 | `fabric-weave.mjs` | **9.16** | **Can fabric appearance be GENERATED from `{weave, ends, picks, tex, gsm}` instead of sampled — and can the twill angle be recovered to prove it?** |
+| `hair-motion.html` | **6.6 / 9.14** | **Can the groom's guide curves be simulated at 60 Hz on the GPU inside the frame budget — and does a CPU spring chain fit anyway?** |
 
 Supporting files: `spike-harness.js` (shared measurement plumbing), `spike-page.css`,
 `run.mjs` (headless runner), `results/` (scraped JSON + page screenshots).
+`hair-motion.html` additionally imports `hair-dftl.js` (the TSL compute solver) and
+`hair-groom.js` (a stand-in groom regrown from `hair_cards.py`'s own constants, so the spike does
+not depend on a gitignored Blender bake).
 
 `fabric-weave.mjs` has no harness and no results directory: it is dependency-free, side-effect-free
 on import, and prints its own gate. Its rendered half is `packages/testbed/src/fabric.html`, which
@@ -30,12 +34,16 @@ Then open:
 
 - <http://localhost:5173/tools/spikes/morph-cost.html>
 - <http://localhost:5173/tools/spikes/rectarea-cost.html>
+- <http://localhost:5173/tools/spikes/hair-motion.html>
 
 Each page renders a live table and, when the sweep finishes, publishes the same data to
 `window.__SPIKE_RESULTS__` and logs one console line prefixed `SPIKE_RESULT `.
 
-Query parameters (both pages): `repeats`, `frames`, `warmup`, `passes`, `width`, `height`,
+Query parameters (all three pages): `repeats`, `frames`, `warmup`, `passes`, `width`, `height`,
 `forceWebGL=1`. `morph-cost.html` also takes `normals=1` to include morph normals.
+`hair-motion.html` also takes `cpuIterations`, `checkFrames`, and **`breakFtl=1`**, which removes
+the Follow-The-Leader projection and nothing else so the segment-length check can be watched
+going red.
 
 ### Headlessly
 
@@ -275,6 +283,144 @@ Consequences:
 - **DPR > 1.** Pixel ratio is pinned to 1. A Retina 2× target multiplies lit pixels by 4, which
   the cost model above extends to directly.
 - **RectAreaLight against a real skin material.** See point 4 above.
+
+---
+
+# 6.6 / 9.14 — HAIR MOTION
+
+**Measured 2026-08-13**, `tools/spikes/results/hair-motion.json`. Same machine and launcher as the
+Phase 0 spikes above: Chromium 149 headless via Playwright 1.61.1, `channel: chromium`, WebGPU
+adapter `apple / metal-3`, `compatibilityMode false`, three.js r185, canvas 512×512 at dpr 1, GPU
+timestamps active on the **COMPUTE** pool. 3 repeats × 200 sampled frames after 60 warmup, 8 whole
+simulation frames per tick, **n = 597** GPU samples per variant.
+
+⚠️ **Measured against the R14 groom**, i.e. after `hair_cards.GUIDE_SEGMENTS` went 12 → 16. That
+change landed mid-session and every number here was re-taken after it; the 13-ring figures appear
+only under Reproducibility, labelled.
+
+## The groom, measured off the artefact
+
+`assets/hair/bob01/g050.glb` is one mesh of **10,648 vertices and 10,536 triangles** whose index
+buffer decomposes into **296 connected components: 294 of exactly 34 vertices and 2 of 326** (the
+scalp shells). 294 × 34 = 9,996, + 652 = 10,648. So the groom is **294 cards of 17 rings**, and the
+guide layer a simulation needs is **4,998 particles** — 155× fewer than TressFX's published 776k
+short-hair scene. ⚠️ The round brief's "254 cards" does not reproduce; `hair_cards.py`'s
+`HAIR_LAYERS` sums to 104 + 58 + 56 + 48 + 28 = **294**. That is REQ-067's finding, independently
+re-measured here off the same artefact.
+
+## The headline
+
+| configuration | compute median | compute p95 | share of 16.6 ms |
+|---|---:|---:|---:|
+| **294 chains, 2 substeps, ONE compute pass** | **0.01361 ms** | **0.01398 ms** | **0.082%** |
+| 294 chains, 2 substeps, a compute pass per dispatch | 0.13096 ms | 0.13171 ms | 0.79% |
+| 1 chain, 2 substeps, one pass — the submission floor | 0.00930 ms | 0.00945 ms | 0.056% |
+| CPU DFTL, JS, 2 substeps, same groom | 0.314 ms | 0.324 ms | 1.89% |
+| CPU VRM spring chain, JS, 60 Hz fixed, same groom | 0.144 ms | 0.158 ms | 0.87% |
+
+**The hair's own arithmetic is 0.00431 ms.** Everything else in the GPU column is the cost of
+submitting the work.
+
+## 🎯 The finding that actually matters: a `renderer.compute()` call costs 31–54 µs of pass, whatever is in it
+
+`Renderer.compute()` opens one WebGPU compute pass per call (`Renderer.js:2765` —
+`backend.beginCompute`, loop over the list, `backend.finishCompute` at `:2807`). Handing it an
+**array** runs every dispatch inside a single pass, and WebGPU tracks the read-after-write hazards
+between dispatches in a pass itself, so a sequential solver still gets the ordering it needs.
+
+| dispatches / frame | a pass each | ms / pass | one pass | ratio |
+|---:|---:|---:|---:|---:|
+| 2 (1 substep + rebuild) | 0.07133 ms | 0.03567 | 0.00842 ms | 8.5× |
+| 3 (2 substeps + rebuild) | 0.13096 ms | 0.04365 | 0.01361 ms | 9.6× |
+| 5 (4 substeps + rebuild) | 0.24996 ms | 0.04999 | 0.02386 ms | 10.5× |
+| 9 (8 substeps + rebuild) | 0.48689 ms | 0.05410 | 0.02417 ms | 20.1× |
+
+Across the whole table the left column costs **30.8–54.1 µs per compute pass** and barely moves
+with the work inside it. Inside one pass an extra dispatch costs **≈2.3–5.1 µs**, an order less.
+⚠️ **The 9-dispatch one-pass cell is the one unstable measurement in this spike** — p95 0.04487 ms
+against a 0.02417 ms median, and the repeat run read 0.03128 ms, so read that ratio as **15.6–20.1×**
+rather than as a value. Every other cell agrees between runs to under 2%.
+
+The left-hand figure lands beside the 31.7 µs Safari/Metal/M2 dispatch overhead
+`research/rendering-stack.md` cites in its "architectural verdict" section from arXiv 2604.02344 —
+that paper's figure was **not** re-verified here, but the agreement is worth noticing.
+
+## Chain-count sweep, 2 substeps, one pass
+
+| chains | particles | compute median | Δ vs 1 chain |
+|---:|---:|---:|---:|
+| 1 | 17 | 0.00930 ms | — |
+| **294** | **4,998** | **0.01361 ms** | **0.00431 ms** |
+| 1,024 | 17,408 | 0.01452 ms | 0.00522 ms |
+| 4,096 | 69,632 | 0.00978 ms | 0.00048 ms |
+| 16,384 | 278,528 | 0.01328 ms | 0.00398 ms |
+| 65,536 | 1,114,112 | 0.10280 ms | 0.09350 ms |
+
+⚠️ **Not monotonic below 65,536, and it should not be read as one.** 4,096 measures *cheaper* than
+294, which is this README's own documented clock-drift failure mode showing up in a column where
+every value except the last is within 5 µs of the submission floor. The honest statement is:
+**up to ~280k particles the solver is indistinguishable from the cost of asking for it**, and the
+first variant where real work is visible is 65,536 chains — 1,114,112 particles, 1.4× TressFX's
+published 776k short-hair scene, at 0.094 ms of marginal cost.
+
+## Correctness, read back off the solver's buffer
+
+600 frames of a fixed head shake at the shipped size, positions read back with
+`getArrayBufferAsync`:
+
+| check | measured | expected | |
+|---|---:|---:|---|
+| worst segment-length error | **0.00002 mm** | ≤ 0.01 mm | PASS |
+| worst tip lag behind the rigid pose | 229.14 mm | > 5 mm | PASS |
+| deepest penetration into the skull collider | 0.000 mm | ≤ 0.10 mm | PASS |
+| non-finite components | 0 | 0 | PASS |
+
+**Red proof** (`tools/spikes/results/hair-motion.breakftl.json`, `?breakFtl=1`, which removes the
+Follow-The-Leader projection and nothing else): the length row goes **0.00002 mm → 21.48883 mm,
+FAIL**, and the other three stay PASS. Restoring is a query-string change; the source is
+byte-identical between the two runs.
+
+🚩 **The readback needed a stride of 4, not 3.** `WebGPUAttributeUtils.js:113` pads every
+itemSize-3 **storage** attribute out to vec4 — WGSL has no packed vec3 in a storage buffer — and it
+rewrites `bufferAttribute.itemSize` in place (lines 143–146). Read at stride 3, the first strand
+looks nearly right and everything after it walks off by a float per particle: the first version of
+this check reported a 379.12 mm length error and 88.0 mm of skull penetration, both entirely an
+artefact of the reader.
+
+## Reproducibility
+
+Two full runs of the identical configuration on an idle machine, both this session:
+`hair-motion.json` and `hair-motion.run2.json`. Headline **0.01361 / 0.01370 ms**, a-pass-each
+**0.13096 / 0.13172 ms**, floor **0.00930 / 0.00918 ms**, CPU DFTL **0.314 / 0.314 ms**, CPU spring
+chain **0.144 / 0.146 ms**. Every variant agrees to under 2% except the 9-dispatch one-pass cell
+noted above.
+
+An earlier pair of full runs against the **13-ring** groom, before `GUIDE_SEGMENTS` changed under
+this session, both read **0.0111 ms** for the same headline variant at 3,822 particles (0.01107 ms
+in the run whose JSON was read at full precision; those files were overwritten by the re-take).
+Consistent with the 17-ring figure once the particle count is accounted for, and quoted only to
+show the two grooms behave the same way.
+
+🚩 **A run taken while `tools/run-selftests.sh` was executing in another process is not in
+`results/` and is quoted here only as the warning it is:** headline **0.0057 ms median with a
+0.0289 ms p95**, i.e. the median *halved* while the p95 quintupled, and the whole table's
+median-to-p95 gap went from ~2% to ~5×. Concurrent GPU work does not simply add time to this
+measurement, it changes the clock state the samples are drawn from. **Take these numbers on an
+otherwise idle machine or do not take them.**
+
+## What was not measured
+
+- **The real groom's curves.** `hair-groom.js` regrows the guides from `hair_cards.py`'s own
+  constants over an analytic skull, because the GLBs are gitignored build output. Card count, ring
+  count and half-widths are the shipped ones; the curves are not, and R14's cut plane
+  (`grow_to_cut`) and clumping (`draw_into_lock`) are not modelled at all.
+- **The real hair material.** The card mesh in the viewport is untextured `MeshBasicNodeMaterial`.
+  Nothing here says what `HairMaterial` plus `HairOIT` cost on top.
+- **Interaction with skinning.** The head transform is a uniform matrix, not the rig.
+- **Anything but Chromium on Apple Metal.** Compute-pass overhead is exactly the quantity that
+  differs most between browsers, and it is 93% of the ungrouped cost.
+- **Local shape (bend) constraints, hair–hair repulsion, wind, SDF collision.** The collider is one
+  sphere and one capsule.
 
 ---
 

@@ -125,6 +125,11 @@ export async function probeTimestampSupport( renderer, scene, camera, environmen
  * @param {number} options.sampleFrames - Frames rendered while sampling.
  * @param {number} options.passesPerFrame - Renders per tick; see below.
  * @param {boolean} options.collectGpuTimestamps
+ * @param {boolean} [options.collectComputeTimestamps=false] - Also resolve the COMPUTE pool.
+ *   three.js keeps a separate timestamp pool per pass type, so a spike that dispatches compute
+ *   from `onBeforeFrame` gets nothing back from the RENDER pool. ⚠️ A frame in which no compute
+ *   ran resolves to the pool's *previous* value rather than zero, so a variant that dispatches
+ *   nothing must not be measured this way — give the sweep a smallest-nonzero variant instead.
  * @returns {Promise<Object>} Raw per-sample arrays, normalised to one render pass.
  */
 export function measureConfiguration( options ) {
@@ -136,13 +141,15 @@ export function measureConfiguration( options ) {
     warmupFrames,
     sampleFrames,
     passesPerFrame = 1,
-    collectGpuTimestamps
+    collectGpuTimestamps,
+    collectComputeTimestamps = false
   } = options;
 
   return new Promise( ( resolve ) => {
     const cpuSamples = [];
     const wallSamples = [];
     const gpuSamples = [];
+    const computeSamples = [];
 
     let frameIndex = 0;
     let previousFrameStart = 0;
@@ -181,11 +188,20 @@ export function measureConfiguration( options ) {
       }
 
       if ( collectGpuTimestamps ) {
+        const pending = [ renderer.resolveTimestampsAsync( THREE.TimestampQuery.RENDER ) ];
+        if ( collectComputeTimestamps ) {
+          pending.push( renderer.resolveTimestampsAsync( THREE.TimestampQuery.COMPUTE ) );
+        }
+
         resolveInFlight = true;
-        renderer.resolveTimestampsAsync( THREE.TimestampQuery.RENDER ).then( ( duration ) => {
+        Promise.all( pending ).then( ( [ renderDuration, computeDuration ] ) => {
           resolveInFlight = false;
-          if ( sampling && typeof duration === 'number' && duration > 0 ) {
-            gpuSamples.push( duration / passesPerFrame );
+          if ( sampling === false ) return;
+          if ( typeof renderDuration === 'number' && renderDuration > 0 ) {
+            gpuSamples.push( renderDuration / passesPerFrame );
+          }
+          if ( typeof computeDuration === 'number' && computeDuration > 0 ) {
+            computeSamples.push( computeDuration / passesPerFrame );
           }
         } );
       }
@@ -196,6 +212,7 @@ export function measureConfiguration( options ) {
         renderer.setAnimationLoop( null );
         resolve( {
           gpu: gpuSamples,
+          gpuCompute: computeSamples,
           cpuSubmit: cpuSamples,
           wallFrame: wallSamples,
           framesRendered: frameIndex
@@ -236,12 +253,15 @@ export async function runSweep( options ) {
     sampleFrames,
     passesPerFrame = 1,
     collectGpuTimestamps,
+    collectComputeTimestamps = false,
     onProgress
   } = options;
 
   const collected = new Map();
   for ( const variant of variants ) {
-    collected.set( variant, { gpu: [], cpuSubmit: [], wallFrame: [], framesRendered: 0 } );
+    collected.set( variant, {
+      gpu: [], gpuCompute: [], cpuSubmit: [], wallFrame: [], framesRendered: 0
+    } );
   }
 
   for ( let repeat = 0; repeat < repeats; repeat ++ ) {
@@ -260,11 +280,13 @@ export async function runSweep( options ) {
         warmupFrames,
         sampleFrames,
         passesPerFrame,
-        collectGpuTimestamps
+        collectGpuTimestamps,
+        collectComputeTimestamps
       } );
 
       const bucket = collected.get( variant );
       bucket.gpu.push( ...samples.gpu );
+      bucket.gpuCompute.push( ...samples.gpuCompute );
       bucket.cpuSubmit.push( ...samples.cpuSubmit );
       bucket.wallFrame.push( ...samples.wallFrame );
       bucket.framesRendered += samples.framesRendered;
@@ -276,6 +298,7 @@ export async function runSweep( options ) {
     return {
       variant,
       gpu: summarise( bucket.gpu ),
+      gpuCompute: summarise( bucket.gpuCompute ),
       cpuSubmit: summarise( bucket.cpuSubmit ),
       wallFrame: summarise( bucket.wallFrame ),
       framesRendered: bucket.framesRendered

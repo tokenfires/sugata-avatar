@@ -297,18 +297,30 @@ sweep, one command per identity, all five exit 0:
 | scalp verts after the cut | 337 | 337 | 337 | 337 | 337 |
 | scalp area above the hairline | 472.6 cm² | 492.1 | 513.2 | 535.9 | 561.0 |
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
-| nearest approach, build's instrument | 3.509 mm | 3.501 | 3.504 | 3.510 | 3.502 |
-| nearest approach, `verify_glb.mjs` | 3.294 mm | 3.371 | 3.117 | 3.313 | 3.169 |
-| cranium hidden through the cutout | 100.00% | 100.00 | 99.98 | 99.96 | 99.95 |
-| largest connected exposed patch | 0.0 mm² | 0.0 | 2.6 | 4.4 | 5.5 |
-| bare cranium seen from the worst judge view | 9.6 mm² | 5.8 | 6.3 | 9.0 | 10.1 |
-| fragment bytes | 2,638,028 | 2,638,364 | 2,637,760 | 2,638,180 | 2,638,144 |
+| nearest approach, build's instrument | 3.501 mm | 3.503 | 3.504 | 3.503 | 3.501 |
+| nearest approach, `verify_glb.mjs` | 3.501 mm | 3.503 | 3.504 | 3.503 | 3.501 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.71 |
+| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 0.0 | 31.2 |
+| bare cranium seen from the worst judge view | 6.2 mm² | 0.0 | 0.0 | 9.0 | 21.2 |
+| card tips over card roots (ceiling 0.95) | 0.884 | 0.812 | 0.848 | 0.819 | 0.854 |
+| a tip's height step to its 5 nearest | 9.3 mm | 9.5 | 9.4 | 9.6 | 9.7 |
+| fragment bytes | 2,774,456 | 2,774,788 | 2,774,184 | 2,774,604 | 2,774,568 |
 
-Every groom is **294 cards of 13 rings each + 2 cap shells of 564 triangles**, 8,296 verts, 8,184
+Every groom is **294 cards of 17 rings each + 2 cap shells of 564 triangles**, 10,648 verts, 10,536
 triangles. The four sheets are shared and written once per build: albedo 979,435 · normal
-1,159,824 · flow 388,309 · depth 75,426 bytes. g050's fragment is sha256 `69516531a846a330…`, and
-running the same command twice reproduces it byte for byte — measured again this round, all five
-hashes identical across two consecutive `build.sh --hair bob01` runs.
+1,159,824 · flow 388,309 · depth 75,426 bytes. Running the same command twice reproduces a fragment
+byte for byte.
+
+🎯 **THE TWO CLEARANCE ROWS ARE NOW THE SAME ROW, AND THEY USED TO DIFFER BY UP TO 0.9 mm.** The
+build aimed at 3.5 mm against a 3.0 mm gate floor to cover a disagreement between its own
+instrument and the gate's; when 3.6.1's cut made the cards long enough to reach the ear and the
+brow the disagreement outgrew the margin and g075 and g100 failed the floor at **2.945** and
+**2.584 mm**. Both halves were then found and removed rather than budgeted for: `BVHTree.
+FromPolygons` was being handed the base mesh's QUADS and picking its own diagonals where the
+exporter writes `calc_loop_triangles()`, and `find_nearest`'s FACE normal decides the sign of a
+distance differently from the gate's interpolated vertex normal inside the fold of an ear (g000
+read +3.502 mm one way and −5.267 mm the other). `hair_cards.BodySurface` now uses the exporter's
+triangles and the gate's sign rule, and the two instruments agree in the third decimal on all five.
 
 ⚠️ **The coverage row is not comparable with the one this table used to carry.** It read
 99.14–100.00% then and it reads 99.95–100.00% now, and the two are different measurements: the old
@@ -325,10 +337,11 @@ surface, comfortably outside the floor. `verify_glb.mjs` caught it off the expor
 its clause signs the distance with the body's own interpolated normal. This is the clearest case
 this repository has of why a gate reads the artefact and not the script.
 
-🚩 **THE BUILD AIMS AT 3.5 mm AND THE GATE ASKS FOR 3.0, AND THE HALF-MILLIMETRE IS NOT SLACK.**
-Blender's `BVHTree.FromPolygons` and the glTF exporter triangulate the base mesh's quads
-independently and do not always pick the same diagonal. Measured: a build that converged to
-3.015 mm by its own instrument read **2.737 mm** off the file.
+🚩 **THE BUILD AIMED AT 3.5 mm AGAINST A 3.0 mm FLOOR, AND THE HALF-MILLIMETRE WAS COVERING A BUG
+RATHER THAN BUYING SLACK.** Blender's `BVHTree.FromPolygons` over the base mesh's QUADS and the
+glTF exporter's `calc_loop_triangles()` do not always pick the same diagonal — measured: a build
+that converged to 3.015 mm by its own instrument read **2.737 mm** off the file. 3.6.1 removed it
+at source; see the two identical clearance rows in the table above and `hair_cards.BodySurface`.
 
 🚩 **A COVERAGE MEASUREMENT THAT IGNORES THE CUTOUT MEASURES NOTHING.** A hair card is a solid
 quad; its hair is in the alpha channel. The gate fires a ray along every cranium vertex's normal,
@@ -348,9 +361,9 @@ failed, correctly, on a command that had passed minutes earlier. The layer's IND
 
 🚩 **BAKING TANGENT SHATTERS THE CARD TOPOLOGY, so the groom does not.** `docs/research/hair.md`
 §6.1 asks for the fibre direction as a baked vertex attribute. It was tried: `export_tangents=True`
-makes Blender's exporter split vertices at tangent discontinuities, and the 254 clean quad-strip
-components of 13 rings each plus 2 cap shells of 564 triangles came out as **284 ragged components
-with ring counts of 2/3/6/7/9/10/11/13/63 and the cap in 12 fragments**. That destroys the property
+makes Blender's exporter split vertices at tangent discontinuities, and the clean quad-strip
+components — 254 of 13 rings each at the time, plus 2 cap shells of 564 triangles — came out as
+**284 ragged components with ring counts of 2/3/6/7/9/10/11/13/63 and the cap in 12 fragments**. That destroys the property
 the card-count gate stands on and buys nothing: a card's UV is axis-aligned **by construction**, so
 the UV tangent is exactly the card's U axis and the strand direction is its bitangent, with no
 degeneracy anywhere on the mesh. What has to be protected is that the UV *stays* axis-aligned, and

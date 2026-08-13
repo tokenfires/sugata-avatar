@@ -408,6 +408,44 @@ directional occlusion such as bent cones we could make less assumptions about wh
 blocked."* We have the bent cone. The `saturate(ωi·ωr + 1)` fudge is the thing our GTAO term
 replaces, and that is a genuine upgrade over what UE4 shipped rather than a shortcut.
 
+#### 🎯 1.9a `saturate(ωi·ωr + 1)` is also the right term for the DIRECT lights on a rig whose panels cast no shadow, and this was measured [M]
+
+Read the rationale above once more without the word *environment* in it: *"We don't have shadowing
+from shadow maps so we need to artificially shadow paths that would likely be blocked by a volume
+of hair."* That sentence describes our four `RectAreaLight`s exactly — three r185 has had no
+rect-area shadow since 2018 (issue #14161), so the portrait rig's rim at irradiance 16 reaches hair
+on the **front** of the head at full strength and the R lobe, whose attenuation is achromatic, takes
+its `#0f30ff`.
+
+`material/HairMaterial.js` originally answered that with `saturate(fake normal · ωi)`, which is not
+in the deck. Measured 2026-08-12 on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` at 900×1200, over
+260,402 solid hair pixels, with the scattering function inverted out of the plate by the
+`?hairdefect=unit-bsdf` probe (so each figure is a BSDF, not a brightness):
+
+| occlusion term over R, TRT and the slide-39 fake | S p95 sr⁻¹ | S peak sr⁻¹ | top 2% hue / sat |
+|---|---:|---:|---|
+| `saturate(n·ωi)` — invented | 0.00789 | 0.01473 | 341° / 0.247 |
+| `saturate(ωi·ωr + 1)` — slide 47 | 0.01644 | 0.02794 | 332° / 0.233 |
+| none (`?hairvis=0`) | 0.02011 | 0.03163 | **261° / 0.429** |
+| none, rim irradiance forced to 0 | 0.01678 | 0.02858 | 321° / 0.232 |
+
+Rows 2 and 4 agree to 2%: slide 47's form removes the rim from front-facing hair and **nothing
+else**. Row 3 is the blue-hair defect at the rim's own hue. The cosine in row 1 was charging every
+light in the frame 2.08× at p95 for a fault that belonged to one of them.
+
+> **Karis applies it to R alone and only in the environment path.** Using it on the direct lights,
+> and on TRT and the fake as well, is an EXTENSION — recorded as one. All three are reflective and
+> all three take the rim at full strength without it. `saturate` is what keeps it honest: it clamps
+> at 1, so it is an attenuator and can never be read as a way to add energy.
+
+⚠️ **What it costs, and it is the largest single number in this section.** R's real peak is not at
+retro. Swept over the sphere on a `#150F17` fibre with the mirrors in `HairMaterial.js`, R reaches
+**0.1128 sr⁻¹ at near-backlight grazing** against **0.0178 at retro** — a factor of 6.3, and it is
+just Schlick going to 1 as the half-angle opens. Both occlusion forms discard all of it, because
+neither can tell a light behind the HEAD from a light behind the CARD. Only a shadow map can, which
+is why the rim wanting one is filed as `docs/OPEN-REQUESTS.md` REQ-063 rather than argued around in
+the shader.
+
 ### 1.10 🎯 Which lobes a CARD can carry — the question 3.5 has to answer before a line is written
 
 The BSDF needs a **fibre tangent `u`** and a **fibre-relative geometry**, not a surface normal. A

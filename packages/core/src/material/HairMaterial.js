@@ -265,6 +265,15 @@ export const HAIR_DEFAULTS = {
     scatter: 1,
 
     /**
+     * Karis slide 47's card-scale occlusion, as a blend against "no occlusion at all". 1 ships it;
+     * 0 is `?hairvis=0`, the arm on which the groom renders blue. It is a `mix` weight rather than
+     * a boolean so a plate can sit between the two, and it is in this table because it was NOT —
+     * `createHairMaterial` read `settings.sideVisibility` off an object that had no such key, so
+     * every caller that did not pass one built `uniform( undefined )`. `alive.js` always passes.
+     */
+    sideVisibility: 1,
+
+    /**
      * How fast the baked bundle depth is turned into slide 44's exponential shadow. `Shadow` runs
      * `exp( −density · depth )`, so 0 is "every texel fully lit" and the term's colour shift
      * vanishes. 3.0 puts the deepest baked texel at e⁻³ = 0.050.
@@ -291,10 +300,21 @@ export const HAIR_DEFAULTS = {
     rootOcclusionLength: 0.15,
 
     /**
-     * Per-strand jitter of the cuticle tilt, driven by `flow.png`'s per-strand id. Marschner's
-     * eccentricity is what Karis explicitly does not model (slide 17); at card scale the visible
-     * consequence of eccentricity is that neighbouring fibres do not put their highlight in
-     * exactly the same place, and this is the cheapest honest stand-in for that. In Karis' α units.
+     * 🔴 DECLARED AND NOT CONSUMED. GREPPED THIS ROUND: `shiftJitter` appears exactly once in this
+     * repository, on this line.
+     *
+     * What it was written for is real and the bake already carries it — `hair_texture.py`'s own
+     * channel table reads *"`flow.png` | R,G tangent · B root→tip · **A strand id**"*, and the
+     * alpha channel exists for nothing else. What it would do is jitter the cuticle tilt per
+     * strand, so neighbouring fibres do not put their highlight in exactly the same place; that is
+     * the card-scale stand-in for the eccentricity Karis explicitly does not model (slide 17). The
+     * shader samples `flowMap.rg` and `flowMap.b` and never `.a`.
+     *
+     * It is left here rather than deleted because deleting it also deletes the only record that a
+     * baked channel is going unread. It is NOT implemented on the round that found it, and the
+     * reason is a measurement: jitter spreads the band, and this round's whole result is a 2.08x
+     * recovery of band energy that has not yet been looked at by a human. Widening it the same
+     * afternoon would confound the two. In Karis' α units when somebody does wire it.
      */
     shiftJitter: 0.04
 };
@@ -532,6 +552,23 @@ export function scatterValue( dotFakeNormalLight, colour, shadow, settings = {} 
 }
 
 /**
+ * The card-scale occlusion stand-in, Karis slide 47: `saturate( ωi·ωr + 1 )`.
+ *
+ * One argument, because that is all the term has: the cosine between the incident and the outgoing
+ * direction. It is 1 for every light on the viewer's side of the fragment and rolls to 0 only at
+ * exact backlight, which is the geometry a head is in the way of. `saturate` is what makes it an
+ * attenuator rather than a shaping term — see `HairLightingModel.scatter` for the A/B that chose it
+ * over the cosine-against-the-fake-normal it replaced.
+ *
+ * @param {number} dotIncidentView - `ωi · ωr`, both unit and both pointing away from the fragment.
+ */
+export function sideVisibilityValue( dotIncidentView ) {
+
+    return Math.min( 1, Math.max( 0, dotIncidentView + 1 ) );
+
+}
+
+/**
  * The exact solid angle a rectangle subtends at a point, by spherical excess.
  *
  * van Oosterom & Strackee, "The solid angle of a plane triangle", IEEE Trans. Biomed. Eng. BME-30
@@ -615,6 +652,13 @@ const fresnelNode = /*@__PURE__*/ Fn( ( [ cosine, f0 ] ) => {
     const clamped = cosine.saturate();
 
     return f0.add( float( 1 ).sub( f0 ).mul( clamped.oneMinus().pow( 5 ) ) );
+
+} );
+
+/** Karis slide 47's occlusion, in TSL. Mirrored by `sideVisibilityValue`. */
+const sideVisibilityNode = /*@__PURE__*/ Fn( ( [ toLight, toView ] ) => {
+
+    return toLight.dot( toView ).add( 1 ).saturate();
 
 } );
 
@@ -815,18 +859,44 @@ export class HairLightingModel extends LightingModel {
         // MEASURED before this term existed: the whole groom rendered at hue ~250°, i.e. the rim's,
         // against the base colour's 285° violet.
         //
-        // What is applied is the fibre-scale statement of the same constraint: a REFLECTIVE lobe
-        // (R, TRT) can only reach the eye if the light is on the viewer's side of the fibre, which
-        // is `dot( fake normal, ωi )` — and the fake normal is the one direction perpendicular to
-        // the strand that this model does define. TT is deliberately LEFT ALONE, because it is the
-        // transmission lobe: light through the hair is exactly the thing that is supposed to arrive
-        // from behind, and `D_TT = exp(−3.65 cosφ − 3.98)` already confines it to that geometry.
+        // 🎯 THE FORM IS KARIS' OWN AND IT USED TO BE A HOME-MADE COSINE, WHICH COST HALF THE
+        // HIGHLIGHT. Slide 47 hits precisely this problem in the environment path and answers it
+        // with `saturate( ωi·ωr + 1 )` — his note: *"We don't have shadowing from shadow maps so we
+        // need to artificially shadow paths that would likely be blocked by a volume of hair. These
+        // are primarily those that are coming from the opposite side."* `saturate` clamps at 1, so
+        // it is a pure attenuator: every light on the viewer's side of the fragment passes at full
+        // strength and only the last 90° — a light coming back at the camera through the head — is
+        // rolled off. The term this replaced was `saturate( fake normal · ωi )`, which is not in the
+        // deck, and a cosine against a synthesised normal charges every light in the frame for a
+        // fault that belongs to one of them.
         //
-        // This is the card penalty the research round named — "a per-card depth/thickness channel
-        // must substitute for fibre self-shadowing" — arriving as a per-light term rather than as a
-        // baked one, because the baked sheet knows depth within the BUNDLE and not which side of
-        // the HEAD a light is on. `?hairvis=0` is its A side.
-        const lightSide = this.fakeNormal.dot( toLight ).saturate();
+        // The A/B, on 260,402 solid hair pixels of `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1`,
+        // measured this session with `render/SourcePatchProbe.mjs` so the two arms differ in this
+        // one expression and nothing else, effective BSDF from the unit-BSDF probe:
+        //
+        //   | arm                                    | p95 sr⁻¹ | peak sr⁻¹ | top 2% hue / sat |
+        //   |----------------------------------------|---------:|----------:|------------------|
+        //   | `saturate( n·ωi )`, what shipped       |  0.00789 |   0.01473 | 341° / 0.247     |
+        //   | `saturate( ωi·ωr + 1 )`, slide 47      |  0.01644 |   0.02794 | 332° / 0.233     |
+        //   | no term at all (`?hairvis=0`)          |  0.02011 |   0.03163 | **261° / 0.429** |
+        //   | no term, rim irradiance forced to 0    |  0.01678 |   0.02858 | 321° / 0.232     |
+        //
+        // Read the last two rows together: switching the term off and switching the RIM off land
+        // within 2% of each other, so the rim is the whole of what this term exists to remove — and
+        // slide 47's form reproduces "rim removed" to 2% while the cosine it replaced was a further
+        // 2.08x down at p95. That factor was not buying anything; row 3 is the blue-hair defect and
+        // rows 2 and 4 are not.
+        //
+        // TT is deliberately LEFT ALONE, because it is the transmission lobe: light through the
+        // hair is exactly the thing that is supposed to arrive from behind, and
+        // `D_TT = exp(−3.65 cosφ − 3.98)` already confines it to that geometry.
+        //
+        // ⚠️ Karis applies this to R alone and only in the environment path. Applying it to the
+        // direct lights, and to TRT and the scatter fake as well, is an EXTENSION: those three are
+        // all reflective, they all take the rim at full strength without it, and the rig has no
+        // rect-area shadow to do the job properly. A shadow caster on the rim is what retires it —
+        // `docs/OPEN-REQUESTS.md` REQ-063 — and with one, this whole term becomes `1`.
+        const lightSide = sideVisibilityNode( toLight, positionViewDirection );
         const visibility = mix( float( 1 ), lightSide, nodes.sideVisibility );
 
         // --- the multiple-scattering hack ------------------------------------------------------
@@ -914,9 +984,22 @@ export class HairLightingModel extends LightingModel {
      * 3.10's composite using this material's FAKE NORMAL and the roughness it writes to `normal.w`,
      * which is an isotropic approximation of an anisotropic lobe.
      *
+     * 🔴 AND THE GAP IS NOT SMALL, WHICH IS NEW THIS ROUND AND IS A MEASUREMENT RATHER THAN A
+     * SUSPICION. `?hairlobes=&hairscatter=0` renders the groom with S identically zero, so whatever
+     * a hair pixel reads on that plate IS its entire indirect term. Over 224,104 solid hair pixels
+     * of `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` it reads **0.00063 linear at p50 and 0.00126
+     * at p95** — 0.016 and 0.019 in encoded luma, against the same plate's shipped hair at 0.1165
+     * and 0.1926. 3.10's composite is running and hair is in its G-buffer; the term it computes on
+     * a `#150F17` diffuse albedo with a dielectric F0 of 0.04 is simply worth about a code value.
+     * So the environment contributes ~1% of what the groom emits and Karis' slide-47 path is
+     * genuinely MISSING energy rather than duplicating energy that is already there.
+     *
      * Karis' own note on slide 47 is that bent cones would replace his fudge; 3.10 already built
      * bent cones, so the right version of this is better than UE4's and it is a `render/**` change,
-     * which is not this file's to make. Filed rather than half-built.
+     * which is not this file's to make. `docs/OPEN-REQUESTS.md` REQ-065. Filed rather than
+     * half-built — and note that half-building it HERE is not available: the rig is constructed
+     * with `ambient: false` when GTAO is installed, so there is no ambient light in the forward
+     * pass for this method to read even if it wanted to.
      */
     indirect() {}
 

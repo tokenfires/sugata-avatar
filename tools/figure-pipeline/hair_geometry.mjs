@@ -480,6 +480,126 @@ function interpolateUv( uvs, indices, triangle, bary ) {
 }
 
 /**
+ * Where each ribbon starts and ends: the centroid of its root ring and of its tip ring.
+ *
+ * 🚩 **THE ROOT IS MIN v AND THE TIP IS MAX v, AND GETTING THAT BACKWARDS IS SILENT.** Blender's
+ * UV origin is the bottom-left and glTF's is the top-left, so the exporter writes `v_gltf = s` —
+ * `hair_cards.assemble_cards` lays the card out as `1 − s` and the export flips it back. A reading
+ * taken the other way up reports roots hanging below tips, which is a groom growing out of the
+ * collarbone, and every number derived from it is still perfectly self-consistent.
+ *
+ * @param {{vertices:number[]}[]} ribbons - the quad-strip components, `isRibbon` true.
+ * @param {ArrayLike<number>} positions
+ * @param {ArrayLike<number>} uvs
+ * @returns {{root:number[], tip:number[]}[]} one entry per ribbon.
+ */
+export function ribbonEnds( ribbons, positions, uvs ) {
+
+    return ribbons.map( ( ribbonComponent ) => {
+
+        let lowest = Infinity;
+        let highest = - Infinity;
+        for ( const vertex of ribbonComponent.vertices ) {
+
+            lowest = Math.min( lowest, uvs[ vertex * 2 + 1 ] );
+            highest = Math.max( highest, uvs[ vertex * 2 + 1 ] );
+
+        }
+
+        const ringCentre = ( atV ) => {
+
+            const centre = [ 0, 0, 0 ];
+            let counted = 0;
+            for ( const vertex of ribbonComponent.vertices ) {
+
+                if ( Math.abs( uvs[ vertex * 2 + 1 ] - atV ) > 1e-6 ) continue;
+                for ( let axis = 0; axis < 3; axis ++ ) centre[ axis ] += positions[ vertex * 3 + axis ];
+                counted += 1;
+
+            }
+
+            return counted === 0 ? centre : centre.map( ( value ) => value / counted );
+
+        };
+
+        return { root: ringCentre( lowest ), tip: ringCentre( highest ) };
+
+    } );
+
+}
+
+/**
+ * Whether the cards GATHER on their way down, and by how much they miss the same height locally.
+ *
+ * 🎯 **A MOP AND A HAIRSTYLE DIFFER IN ONE MEASURABLE WAY AND THIS IS IT.** Hair separates into
+ * locks: neighbouring shafts touch, travel together, and a lock's tip is TIGHTER than its root.
+ * A groom whose cards each go their own way ends with its tips further apart than its roots, and
+ * that is what "messy", "stringy" and "a wet, matted mop" all describe from outside.
+ *
+ * `ratio` is the mean nearest-neighbour distance between tips over the same between roots, so it
+ * needs no length scale and holds at every identity. `tipStep` is the mean height difference to a
+ * card's nearest tips — the local cut line, reported rather than gated because the layer stack is
+ * deliberately graduated and a whole-groom spread measures the graduation instead.
+ *
+ * @param {{root:number[], tip:number[]}[]} ends - from `ribbonEnds`.
+ * @param {number} neighbours - how many nearest tips the height step is averaged over.
+ */
+export function cardGathering( ends, neighbours = 5 ) {
+
+    const distance = ( a, b ) => Math.hypot( a[ 0 ] - b[ 0 ], a[ 1 ] - b[ 1 ], a[ 2 ] - b[ 2 ] );
+
+    const meanNearest = ( points ) => {
+
+        let total = 0;
+        for ( let index = 0; index < points.length; index ++ ) {
+
+            let best = Infinity;
+            for ( let other = 0; other < points.length; other ++ ) {
+
+                if ( other === index ) continue;
+                best = Math.min( best, distance( points[ index ], points[ other ] ) );
+
+            }
+
+            total += best;
+
+        }
+
+        return total / points.length;
+
+    };
+
+    const roots = ends.map( ( entry ) => entry.root );
+    const tips = ends.map( ( entry ) => entry.tip );
+
+    const rootNearest = meanNearest( roots );
+    const tipNearest = meanNearest( tips );
+
+    let step = 0;
+    for ( let index = 0; index < tips.length; index ++ ) {
+
+        const near = tips
+            .map( ( tip, other ) => ( { other, d: distance( tips[ index ], tip ) } ) )
+            .filter( ( entry ) => entry.other !== index )
+            .sort( ( a, b ) => a.d - b.d )
+            .slice( 0, neighbours );
+
+        step += near.reduce(
+            ( sum, entry ) => sum + Math.abs( tips[ index ][ 1 ] - tips[ entry.other ][ 1 ] ), 0 )
+            / Math.max( near.length, 1 );
+
+    }
+
+    return {
+        rootNearest,
+        tipNearest,
+        ratio: rootNearest > 0 ? tipNearest / rootNearest : Infinity,
+        tipStep: step / tips.length
+    };
+
+}
+
+/**
  * The u and v extents of every component, and how many atlas strips each one touches.
  *
  * A card must live in ONE strip. `strips` is computed from the u range rather than from the

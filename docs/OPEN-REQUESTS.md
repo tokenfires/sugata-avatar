@@ -1724,3 +1724,209 @@ reason-filed-not-applied:
 anchor:      packages/testbed/src/wardrobe.js /garment-receive/
 verify:      packages/testbed/src/wardrobe.js /garment-shadows/
 ```
+
+## REQ-063 — the rim has no shadow, and hair pays for it with half its highlight
+
+```request
+id:          REQ-063
+status:      OPEN
+target:      packages/core/src/render/LightingRig.js
+filed-by:    the R14 hair-highlight agent (diffRequest 1 of 3)
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      Give the portrait rim a shadow caster the way the key has one — a non-zero
+             `shadowFraction` on the `rim` placement, which the file's own energy-split machinery
+             already implements — or state in the placement's comment that it deliberately has
+             none and that hair compensates. Either way the rim's `shadowFraction: 0` needs to stop
+             being invisible to the reader: it is currently the single largest constraint on
+             `material/HairMaterial.js`, and nothing in this file says so.
+evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` at 900x1200,
+             on 260,402 solid hair pixels, with the scattering function inverted out of the plate
+             by the `?hairdefect=unit-bsdf` probe so every number is a BSDF and not a brightness.
+             The rim is a `RectAreaLight` at irradiance 16 with `shadowFraction: 0`, so it reaches
+             hair on the FRONT of the head at full strength; `HairMaterial` therefore carries
+             Karis' slide-47 occlusion `saturate(wi.wr + 1)` to throw it away. Switching that
+             occlusion off and switching the RIM off land within 2% of each other — effective BSDF
+             p95 0.02011 against 0.01678, peak 0.03163 against 0.02858 — so the occlusion is doing
+             nothing except undoing the rim. What it costs is the R lobe's real Fresnel peak: the
+             CPU mirror puts R at 0.1128 sr^-1 at near-backlight grazing against 0.0178 at retro,
+             a factor of 6.3, and that geometry is exactly the one the occlusion has to discard
+             because a light behind the head cannot be told from a light behind the CARD without a
+             shadow. With a rim shadow, `HAIR_DEFAULTS.sideVisibility` goes to 0 and the largest
+             single term the model has stops being unreachable.
+             ⚠️ three has had no rect-area shadow since 2018 (issue #14161), so this is a
+             `shadowFraction` split into a co-located `SpotLight`, which is what `key` already does
+             and what this file's header derives at length.
+anchor:      packages/core/src/render/LightingRig.js /irradiance: 16,/
+verify:      packages/core/src/render/LightingRig.js /rim carries a shadow caster/
+```
+
+## REQ-064 — the portrait rig contains no geometry the retroreflective lobe can fire in
+
+```request
+id:          REQ-064
+status:      OPEN
+target:      packages/core/src/render/LightingRig.js
+filed-by:    the R14 hair-highlight agent (diffRequest 2 of 3)
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      Add a small, low-irradiance practical on the CAMERA AXIS to the portrait preset — a
+             fifth placement at `azimuthDegrees` equal to `CAMERA_AZIMUTH_DEGREES` — or record in
+             the preset's comment that the rig deliberately has none and that the secondary hair
+             band is therefore not available on it. This is the rig's decision, not the hair
+             material's, which is why it is filed here rather than worked around in the shader.
+evidence:    Measured this session, same plates and same inversion as REQ-063. TRT's azimuthal
+             distribution is `exp(17 cos phi - 16.78)`: it is appreciable only where the light is
+             azimuthally near the view, and the four panels sit at +42, -52, -168 and +166 degrees.
+             Moving the key alone to the camera axis with `?ov=key.azimuthDegrees:12` and changing
+             nothing else raises the whole groom's effective BSDF from p95 0.00740 to 0.01258 and
+             its peak from 0.01474 to 0.02253 — 1.70x and 1.53x off a light MOVE, no parameter
+             touched — and takes the TRT lobe's own band from 0.02 code values to 0.9.
+             ⚠️ The gain is NOT mostly TRT. On a `#150F17` fibre TRT's absorption `C^(0.8/cos)` is
+             0.022, so the lobe peaks near 0.0014 sr^-1 whatever you point at it; most of the 1.7x
+             is the R lobe and slide 39's fake being handed a better geometry. Do not file this as
+             "the secondary band needs a practical" — file it as "the rig never presents the model
+             its peak", which is the measurement.
+anchor:      packages/core/src/render/LightingRig.js /azimuthDegrees: 42,/
+verify:      packages/core/src/render/LightingRig.js /camera-axis practical/
+```
+
+## REQ-065 — hair receives 1% of its own emission as environment light, and Karis' path for it cannot be written where it belongs
+
+```request
+id:          REQ-065
+status:      OPEN
+target:      packages/core/src/render/GTAO.js
+filed-by:    the R14 hair-highlight agent (diffRequest 3 of 3)
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      Give 3.10's composite a hair branch, keyed off the G-buffer, that evaluates Karis'
+             slide-47 environment path instead of the isotropic split-sum one: sample the ambient
+             in the fake-normal direction the hair material already writes to `normal`, treat it as
+             a directional light, multiply by pi, run R with `saturate(wi.wr + 1)`, drop TT, and add
+             0.2 to each beta. Karis' own note is that bent cones would replace that last fudge and
+             this file already computes one, so the version that lands here is better than UE4's
+             rather than a port of it.
+evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` at 900x1200.
+             `?hairlobes=&hairscatter=0` renders the groom with S identically zero, so whatever a
+             hair pixel reads on that plate IS its entire indirect term. Over 224,104 solid hair
+             pixels it reads 0.00063 linear at p50 and 0.00126 at p95 — 0.016 and 0.019 encoded —
+             against the same plate's shipped hair at 0.1165 and 0.1926 encoded. The composite is
+             running and hair is in its G-buffer; the term it computes on a `#150F17` diffuse
+             albedo with a dielectric F0 of 0.04 is simply worth about one code value. So the
+             environment is contributing roughly 1% of what the groom emits, and Karis' path is
+             MISSING energy rather than duplicating energy already present.
+             ⚠️ It cannot be written in `material/HairMaterial.js` where `indirect()` is waiting for
+             it. With this effect installed the rig is constructed `ambient: false`, so there is no
+             ambient light in the forward pass for a lighting model to read at all. That is why
+             this is a request against the composite and not a gap in the material.
+anchor:      packages/core/src/render/GTAO.js /ambientSpecular = true,/
+verify:      packages/core/src/render/GTAO.js /slide-47 environment path/
+```
+
+## REQ-066 — a capture manifest cannot say which shadow cutoff its plate was taken at
+
+```request
+id:          REQ-066
+status:      OPEN
+target:      packages/core/src/material/HairMaterial.js
+filed-by:    the R14 hair-occlusion agent
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      Add one line to `material.describe()`, beside `alphaToCoverage`:
+             `shadowAlphaCutoff: material.hairShadowCutoff?.value ?? null,`
+             `configureHairMaterial` runs after `createHairMaterial` and writes that uniform onto
+             the material, and `describe` is a closure over `material`, so it reads the live value
+             at call time with no ordering hazard. The `?? null` is load-bearing: a page that never
+             calls `configureHairMaterial` must report null rather than throw.
+evidence:    `HAIR_SHADOW_ALPHA_CUTOFF` (`render/HairOIT.js`) is now the single number that decides
+             whether the groom casts strand shadows or opaque card-quad slabs, and the sweep beside
+             it moves the contact reading over a 57x range — 8.3484 of 255 at cutoff 0 down to
+             0.1449 at 1.0, measured this session at 900x1200. `sugata.report()`'s hair census
+             already records `oit`, the three lobe weights, the shifts, the roughnesses, `scatter`,
+             `sideVisibility`, `rootOcclusion` and `alphaToCoverage` — every other knob that moves
+             the picture — and `captures/hair-compose/manifest.json` copies that object verbatim
+             into every plate it writes. So two plates taken a round apart at different cutoffs are
+             indistinguishable from their manifests, which is the exact failure the census exists
+             to prevent. Not filed against `render/HairOIT.js` because the census spreads
+             `session.hairMaterial.describe()` and that function lives in the material file.
+anchor:      packages/core/src/material/HairMaterial.js /alphaToCoverage: material.alphaToCoverage/
+verify:      packages/core/src/material/HairMaterial.js /shadowAlphaCutoff/
+```
+
+## REQ-067 — the groom's card and triangle census, quoted in four files that all predate 3.6.1
+
+```request
+id:          REQ-067
+status:      OPEN
+target:      packages/core/src/render/HairOIT.js
+filed-by:    the R14 hair-groom (messiness) agent
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      Four files quote a card count and a geometry census that the groom has now outgrown
+             twice. Measured this session off the rebuilt `assets/hair/bob01/g050.glb`:
+             **294 quad-strip cards of 17 rings, 2 cap shells of 564 triangles each, 10,648
+             vertices, 10,536 triangles** — of which the cards are 9,408 and the shells 1,128.
+             `verify_glb.mjs` prints all of it. The four:
+               1. `packages/core/src/render/HairOIT.js:4` "A groom is 254 cards" -> 294 cards.
+               2. `packages/core/src/render/HairOIT.js:15` "254 cards, 7,224 triangles" ->
+                  "294 cards, 9,408 triangles". ⚠️ Everything measured in that header is a
+                  DRAW-ORDER measurement on a groom that is now 29% more triangles; the numbers
+                  themselves are not invalidated by a card count, but the sentence naming the
+                  artefact should name the one that exists.
+               3. `packages/core/src/render/HairOIT.js:237` "its 254 cards could be re-sorted" ->
+                  294.
+               4. `packages/testbed/src/alive.js:453` "a 254-card groom" -> "a 294-card groom",
+                  `packages/testbed/pages.js:129` "The gate proves 254 cards clear the skull" ->
+                  294, and the three "254-card" strings in
+                  `packages/testbed/src/alive-toggles.selftest.mjs` (:735, :746, :1996) — one of
+                  which is an asserted literal of alive.js's own toggle description, so those two
+                  must move together or the selftest goes red.
+evidence:    The groom has been 294 cards since punch-list 3.6 shipped the five-layer stack
+             (104+58+56+48+28); "254" was the count of an earlier build and has never been true of
+             any committed artefact. 3.6.1 then raised `hair_cards.GUIDE_SEGMENTS` from 12 to 16 —
+             cutting every card to a plane makes a crown-rooted card 350-400 mm rather than 215, and
+             twelve rings would put 30 mm between them, over the ~24 mm at which the turn over the
+             crown reads as a polygon. So the vertex and triangle counts moved this round as well:
+             8,296 -> 10,648 verts and 8,184 -> 10,536 triangles, +28.7%, which is a real change to
+             the overdraw this file's own arm is chosen against and is worth the OIT owner knowing.
+             Filed rather than fixed: `packages/core/**` and `alive.js` are not this agent's files.
+anchor:      packages/core/src/render/HairOIT.js /254 cards, 7,224 triangles/
+verify:      packages/core/src/render/HairOIT.js /294 cards, 9,408 triangles/
+```
+
+## REQ-068 — the motion spike's transcribed groom constants describe a 13-ring card
+
+```request
+id:          REQ-068
+status:      OPEN
+target:      tools/spikes/hair-groom.js
+filed-by:    the R14 hair-groom (messiness) agent
+filed-round: R12
+filed-at:    98303cd
+first-filed: 98303cd, 2026-08-12
+change:      `tools/spikes/hair-groom.js` transcribes `hair_cards.py`'s constants and verifies its
+             own arithmetic against the shipped GLB in a header comment. Both are now one round
+             stale. Change `export const GUIDE_SEGMENTS = 12;` to `16`, and the header's closure to
+             "294 of exactly 34 vertices and 2 of 326 (the scalp cap shells). 294 x 34 = 9,996;
+             + 652 = 10,648." The same three numbers appear in `tools/spikes/hair-motion.html:12-14`
+             as "294 cards of 13 rings ... 8,296 vertices ... 294 of exactly 26 and 2 scalp shells
+             of 326" and become "294 cards of 17 rings ... 10,648 vertices ... 294 of exactly 34
+             and 2 scalp shells of 326". Its "3,822 particles" for the guide layer becomes 294 x 17
+             = **4,998**.
+evidence:    Measured this session off the rebuilt `assets/hair/bob01/g050.glb` with
+             `hair_geometry.connectedComponents`: 296 components, 294 ribbons of 17 rings, 10,648
+             vertices, and `verify_glb.mjs` prints "294 quad-strip components, 17 rings each". The
+             spike's arithmetic still closes exactly (10,648 - 9,996 = 652), which is what makes the
+             stale version so easy to keep believing. `GUIDE_SEGMENTS` is the one that matters: a
+             solver sized for 13 points a chain against a 17-point groom is a spike that measured
+             the wrong problem size, and it is the file's own stated purpose to size it.
+             Filed rather than fixed: `tools/spikes/**` is not this agent's file.
+anchor:      tools/spikes/hair-groom.js /294 × 26 = 7,644/
+verify:      tools/spikes/hair-groom.js /294 × 34 = 9,996/
+```

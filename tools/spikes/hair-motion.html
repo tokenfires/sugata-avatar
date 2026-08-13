@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <title>Sugata spike 6.6/9.14 — hair motion cost</title>
+  <link rel="stylesheet" href="./spike-page.css">
+</head>
+<body>
+  <h1>Spike 6.6/9.14 — can the groom move, at 60&nbsp;Hz, inside the frame budget?</h1>
+  <p class="lede">
+    The shipped groom is <strong>294 cards of 17 rings</strong> (measured off
+    <code>assets/hair/bob01/g050.glb</code>: 10,648 vertices, 296 connected components — 294 of
+    exactly 34 and 2 scalp shells of 326). Every card is already a ribbon around a guide curve,
+    so the guide layer this simulation needs is <em>4,998 particles</em>, not the 776k TressFX
+    reports for a strand groom. This page runs a real
+    <strong>Dynamic Follow-The-Leader</strong> solver in a TSL compute pass and asks three
+    separate questions with three separate numbers:
+  </p>
+  <ol class="lede">
+    <li><strong>Where does the cost live?</strong> Sweep the chain count from 1 to 65,536 at a
+      fixed substep count. A chain count of 1 is not a groom — it is the price of the dispatch
+      itself, and the slope above it is the price of the hair.</li>
+    <li><strong>What do substeps cost?</strong> Sweep 1&ndash;8 substeps at the shipped chain
+      count. Each substep is another dispatch, so this is the fixed cost measured a second way.</li>
+    <li><strong>Does it matter how the dispatches are submitted?</strong> Every variant runs
+      twice: once with <code>renderer.compute()</code> called per kernel, which opens a WebGPU
+      compute pass each time, and once with the whole frame handed over as one array, which
+      three.js runs inside a single pass. WebGPU tracks the read-after-write hazards between
+      dispatches in a pass itself, so the ordering DFTL needs survives either way.</li>
+    <li><strong>Does the GPU earn its place?</strong> The same solver, and a VRM-faithful spring
+      chain, run on the CPU at the shipped size. If the CPU number fits, the compute path is a
+      complication rather than a capability.</li>
+  </ol>
+  <div id="status">starting…</div>
+
+  <h2>Environment</h2>
+  <div id="environment"></div>
+
+  <h2>1 &amp; 2 — GPU compute cost</h2>
+  <div id="results"></div>
+  <p class="caveat">
+    <strong>Read the compute column.</strong> The render column is here only to show that the
+    card mesh really is being drawn from the simulated buffer; it is a 512&times;512 viewport of
+    untextured ribbons and it is not the renderer this project ships.
+    <strong>&Delta; vs 1 chain</strong> subtracts the submission floor from a variant with the
+    <em>same</em> grouping, so it is the hair's own cost and nothing else. Every figure is a GPU
+    timestamp from the <code>COMPUTE</code> pool, divided by the passes per tick.
+  </p>
+
+  <h2>Correctness, read back off the solver's own buffer</h2>
+  <div id="checks"></div>
+  <p class="caveat">
+    A cost is only worth reading if the thing being costed is doing its job. After 600 simulated
+    frames of the head shake, the positions are read back from the GPU and checked against what
+    DFTL claims: <strong>every segment still its rest length</strong> (that is the whole point of
+    Follow-The-Leader — one pass, exact, no iteration count to tune), <strong>the tips actually
+    moved</strong>, and <strong>nothing is inside the skull</strong>. Append
+    <code>?breakFtl=1</code> to remove the projection line and nothing else; the length row goes
+    red and the other two do not, which is what makes this a check rather than a decoration.
+  </p>
+
+  <h2>3 — CPU baselines at the shipped groom size</h2>
+  <div id="cpu-results"></div>
+  <p class="caveat">
+    Wall-clock over the solve only, <code>performance.now()</code>, no rendering. The spring-bone
+    row is the <code>three-vrm</code> update transcribed to flat arrays — inertia
+    <code>(1 − dragForce)</code>, stiffness along the bone axis, gravity, then the bone-length
+    normalisation that <em>is</em> its distance constraint — with the fixed 60&nbsp;Hz timestep
+    punch-list 6.6 asks for and <code>three-vrm</code> does not have.
+  </p>
+
+  <h2>Does it look right?</h2>
+  <p class="caveat">
+    The viewport below runs live at whatever rate the display gives it, with the head shaking on
+    a fixed path. This is the half of the question a millisecond cannot answer.
+  </p>
+  <canvas id="viewport"></canvas>
+
+  <script type="module">
+    import * as THREE from 'three/webgpu';
+    import { vertexIndex } from 'three/tsl';
+    import {
+      createSpikeRenderer,
+      probeTimestampSupport,
+      runSweep,
+      summarise,
+      formatMs,
+      publishResults,
+      publishFailure,
+      setStatus,
+      renderTable,
+      renderEnvironment,
+      readNumberParam,
+      readFlagParam,
+      looksLikeSoftwareRenderer
+    } from './spike-harness.js';
+    import { createDftlSolver } from './hair-dftl.js';
+    import {
+      growGroom, buildCardIndices, POINTS_PER_CHAIN, SHIPPED_CARD_COUNT, SKULL_RADIUS
+    } from './hair-groom.js';
+
+    // 294 is the shipped groom, measured. The rest of the sweep exists to separate the fixed
+    // cost of a dispatch from the marginal cost of a chain, and to find the cliff if there is
+    // one. 16,384 chains is 278,528 particles — 36% of TressFX's published short-hair scene,
+    // and far past anything a card groom would ever ask for.
+    const CHAIN_SWEEP = [ 1, SHIPPED_CARD_COUNT, 1024, 4096, 16384, 65536 ];
+    const SUBSTEP_SWEEP = [ 1, 2, 4, 8 ];
+    const REFERENCE_SUBSTEPS = 2;
+
+    const SIMULATION_HZ = 60;
+
+    const canvasWidth = readNumberParam( 'width', 512 );
+    const canvasHeight = readNumberParam( 'height', 512 );
+    const warmupFrames = readNumberParam( 'warmup', 60 );
+    const sampleFrames = readNumberParam( 'frames', 200 );
+    const repeats = readNumberParam( 'repeats', 3 );
+    // 4,998 particles is far below the timer's noise floor on this hardware. Eight whole
+    // simulation frames per tick lifts it clear; results are divided back down to one.
+    const passesPerFrame = readNumberParam( 'passes', 8 );
+    const cpuIterations = readNumberParam( 'cpuIterations', 2000 );
+    const checkFrames = readNumberParam( 'checkFrames', 600 );
+    // The red proof: removes the FTL projection and nothing else.
+    const breakFtl = readFlagParam( 'breakFtl' );
+    const forceWebGL = readFlagParam( 'forceWebGL' );
+
+    // Inextensibility is exact in DFTL, so the tolerance is float32 noise over 16 segments of a
+    // ~0.015 m step, not a physical slack budget. 0.01 mm is two orders above the noise and four
+    // below anything a viewer could see.
+    const LENGTH_TOLERANCE_MM = 0.01;
+
+    main().catch( ( error ) => {
+      setStatus( 'FAILED: ' + error.message );
+      publishFailure( 'hair-motion', error );
+    } );
+
+    async function main() {
+      const canvas = document.getElementById( 'viewport' );
+      const { renderer, environment } = await createSpikeRenderer( {
+        canvas, width: canvasWidth, height: canvasHeight, forceWebGL
+      } );
+
+      renderEnvironment( 'environment', environment );
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color( 0x101014 );
+      const camera = new THREE.PerspectiveCamera( 30, canvasWidth / canvasHeight, 0.05, 10 );
+      // Framed for the R14 groom, whose longest layer is a 0.32 m arc off a 0.092 m skull — the
+      // 13-ring framing cut the tips off the bottom of the plate, which is the half of the
+      // question the plate exists to answer.
+      camera.position.set( 0.55, - 0.04, 0.78 );
+      camera.lookAt( 0, - 0.15, 0 );
+
+      const probeMesh = new THREE.Mesh( new THREE.BoxGeometry(), new THREE.MeshNormalNodeMaterial() );
+      scene.add( probeMesh );
+      setStatus( 'probing GPU timestamp support…' );
+      const timestampsAvailable = await probeTimestampSupport( renderer, scene, camera, environment );
+      scene.remove( probeMesh );
+      probeMesh.geometry.dispose();
+      probeMesh.material.dispose();
+      renderEnvironment( 'environment', environment );
+
+      if ( timestampsAvailable === false ) {
+        throw new Error( 'GPU timestamps unavailable; this spike has nothing to report without them.' );
+      }
+
+      // A skull to collide against and to see the groom sitting on.
+      const skull = new THREE.Mesh(
+        new THREE.SphereGeometry( SKULL_RADIUS, 48, 32 ),
+        new THREE.MeshBasicNodeMaterial( { color: 0x2a2a33 } )
+      );
+      scene.add( skull );
+
+      const grooms = new Map();
+      let active = null;
+
+      /** Builds (and caches) the groom, solver and card mesh for one chain count. */
+      function useGroom( chainCount ) {
+        if ( grooms.has( chainCount ) === false ) {
+          const groom = growGroom( chainCount );
+          const solver = createDftlSolver( groom );
+
+          const geometry = new THREE.BufferGeometry();
+          geometry.setAttribute( 'position', new THREE.BufferAttribute(
+            new Float32Array( chainCount * POINTS_PER_CHAIN * 2 * 3 ), 3
+          ) );
+          geometry.setIndex( new THREE.BufferAttribute( buildCardIndices( chainCount ), 1 ) );
+          geometry.boundingSphere = new THREE.Sphere( new THREE.Vector3(), 1 );
+
+          // The same storage node the rebuild kernel writes, read from the vertex stage. Do NOT
+          // call `toReadOnly()` on it here: `setAccess` mutates the node rather than returning a
+          // view, so a read-only material makes the compute kernel that fills it fail to compile
+          // with "cannot store into a read-only type". three.js already emits the right access
+          // qualifier per stage.
+          const material = new THREE.MeshBasicNodeMaterial( { side: THREE.DoubleSide } );
+          material.positionNode = solver.cardVertexBuffer.element( vertexIndex );
+          material.colorNode = solver.cardVertexBuffer.element( vertexIndex ).mul( 2.2 ).add( 0.45 );
+
+          const mesh = new THREE.Mesh( geometry, material );
+          mesh.frustumCulled = false;
+
+          grooms.set( chainCount, { groom, solver, mesh } );
+        }
+
+        const next = grooms.get( chainCount );
+        if ( active !== null && active !== next ) scene.remove( active.mesh );
+        if ( active !== next ) scene.add( next.mesh );
+        active = next;
+        return next;
+      }
+
+      // --- the head's motion -----------------------------------------------------------------
+      //
+      // A fixed path, not user input, so a sweep measures the same motion every time. Two
+      // frequencies: a slow turn that the global shape constraint should follow, and a fast
+      // shake that it should not, because the fast one is where inextensibility shows.
+      const headMatrix = new THREE.Matrix4();
+      const headPosition = new THREE.Vector3();
+      const headQuaternion = new THREE.Quaternion();
+      const headScale = new THREE.Vector3( 1, 1, 1 );
+      const euler = new THREE.Euler();
+
+      function poseHead( solver, seconds ) {
+        euler.set(
+          0.18 * Math.sin( seconds * 1.7 ),
+          0.85 * Math.sin( seconds * 0.6 ),
+          0.12 * Math.sin( seconds * 2.9 )
+        );
+        headQuaternion.setFromEuler( euler );
+        headPosition.set( 0.05 * Math.sin( seconds * 1.1 ), 0.03 * Math.sin( seconds * 2.3 ), 0 );
+        headMatrix.compose( headPosition, headQuaternion, headScale );
+
+        solver.uniforms.headMatrix.value.copy( headMatrix );
+        solver.uniforms.headCentre.value.copy( headPosition );
+        solver.uniforms.skull.value.set( headPosition.x, headPosition.y, headPosition.z, SKULL_RADIUS );
+        solver.uniforms.capsuleA.value.set( headPosition.x - 0.14, headPosition.y - 0.20, headPosition.z );
+        solver.uniforms.capsuleB.value.set( headPosition.x + 0.14, headPosition.y - 0.20, headPosition.z );
+
+        skull.position.copy( headPosition );
+        skull.quaternion.copy( headQuaternion );
+      }
+
+      // `renderer.compute()` opens and closes a whole WebGPU compute pass per call, so a frame
+      // of S substeps plus a rebuild is S+1 passes. Handing it the array instead runs the same
+      // dispatches inside ONE pass — WebGPU tracks the read-after-write hazards between
+      // dispatches in a pass itself, so the ordering the solver needs is still guaranteed.
+      // The array instance has to be stable: three keys its timestamp UID off the object.
+      const groupedPasses = new Map();
+      function groupedPassFor( solver, substeps ) {
+        const key = `${ solver.chainCount }:${ substeps }`;
+        if ( groupedPasses.has( key ) === false ) {
+          const group = [];
+          for ( let substep = 0; substep < substeps; substep ++ ) group.push( solver.solveKernel );
+          group.push( solver.skinKernel );
+          groupedPasses.set( key, group );
+        }
+        return groupedPasses.get( key );
+      }
+
+      /** One whole simulation frame: `substeps` solver dispatches, then one rebuild. */
+      function stepSimulation( solver, substeps, grouped ) {
+        solver.uniforms.deltaTime.value = 1 / ( SIMULATION_HZ * substeps );
+
+        if ( grouped ) {
+          renderer.compute( groupedPassFor( solver, substeps ) );
+          return;
+        }
+
+        for ( let substep = 0; substep < substeps; substep ++ ) {
+          renderer.compute( solver.solveKernel );
+        }
+        renderer.compute( solver.skinKernel );
+      }
+
+      // --- sweeps ------------------------------------------------------------------------------
+
+      const configurationOf = new Map();
+      const label = ( chains, substeps, grouped ) =>
+        `${ chains } chains × ${ substeps } substeps, ${ grouped ? 'one pass' : 'a pass each' }`;
+
+      for ( const grouped of [ false, true ] ) {
+        for ( const chains of CHAIN_SWEEP ) {
+          configurationOf.set( label( chains, REFERENCE_SUBSTEPS, grouped ),
+            { chains, substeps: REFERENCE_SUBSTEPS, grouped } );
+        }
+        for ( const substeps of SUBSTEP_SWEEP ) {
+          configurationOf.set( label( SHIPPED_CARD_COUNT, substeps, grouped ),
+            { chains: SHIPPED_CARD_COUNT, substeps, grouped } );
+        }
+      }
+
+      const variants = [ ...configurationOf.keys() ];
+
+      const results = await runSweep( {
+        renderer,
+        scene,
+        camera,
+        variants,
+        repeats,
+        warmupFrames,
+        sampleFrames,
+        passesPerFrame,
+        collectGpuTimestamps: true,
+        collectComputeTimestamps: true,
+        onProgress: setStatus,
+        prepareVariant: async ( variant ) => {
+          const { chains } = configurationOf.get( variant );
+          const { solver } = useGroom( chains );
+
+          // Snap back to the rest pose before every variant. Without this a variant inherits
+          // whatever state the previous one left, and a settled groom and a swinging one are
+          // not the same workload.
+          poseHead( solver, 0 );
+          solver.uniforms.resetPositions.value = 1;
+          renderer.compute( solver.solveKernel );
+          solver.uniforms.resetPositions.value = 0;
+        },
+        onBeforeFrame: ( frameIndex, variant ) => {
+          const { chains, substeps, grouped } = configurationOf.get( variant );
+          const { solver } = grooms.get( chains );
+
+          // The whole frame's simulation work, `passesPerFrame` times, so the divide the
+          // harness applies to the render passes applies to the compute passes as well.
+          for ( let pass = 0; pass < passesPerFrame; pass ++ ) {
+            poseHead( solver, ( frameIndex * passesPerFrame + pass ) / SIMULATION_HZ );
+            stepSimulation( solver, substeps, grouped );
+          }
+        }
+      } );
+
+      // One floor per grouping. Comparing a grouped variant against an ungrouped 1-chain
+      // baseline would subtract two extra compute passes and report negative hair.
+      const floorOf = new Map();
+      for ( const grouped of [ false, true ] ) {
+        floorOf.set( grouped, results.find(
+          ( result ) => result.variant === label( 1, REFERENCE_SUBSTEPS, grouped )
+        ).gpuCompute.median );
+      }
+
+      const measurements = results.map( ( result ) => {
+        const { chains, substeps, grouped } = configurationOf.get( result.variant );
+        const computeMedian = result.gpuCompute.median;
+        const floor = floorOf.get( grouped );
+        const passes = grouped ? 1 : substeps + 1;
+        return {
+          variant: result.variant,
+          chains,
+          substeps,
+          grouped,
+          particles: chains * POINTS_PER_CHAIN,
+          dispatchesPerFrame: substeps + 1,
+          computePassesPerFrame: passes,
+          computeMedianMs: computeMedian,
+          computeP95Ms: result.gpuCompute.p95,
+          computeSampleCount: result.gpuCompute.count,
+          computeMsPerPass: computeMedian === null ? null : computeMedian / passes,
+          computeDeltaVsOneChainMs: computeMedian === null || floor === null
+            ? null : computeMedian - floor,
+          renderMedianMs: result.gpu.median,
+          cpuSubmitMedianMs: result.cpuSubmit.median,
+          framesRendered: result.framesRendered
+        };
+      } );
+
+      renderTable( 'results', RESULT_COLUMNS, measurements.map( toTableRow ) );
+
+      // --- correctness, off the buffer the solver wrote --------------------------------------
+
+      setStatus( 'checking the solver against what DFTL claims…' );
+      const checks = await checkSolver( SHIPPED_CARD_COUNT, checkFrames );
+      renderTable( 'checks', CHECK_COLUMNS, checks.map( ( check ) => ( {
+        check: check.check,
+        value: check.value,
+        expected: check.expected,
+        verdict: check.pass ? 'PASS' : 'FAIL'
+      } ) ) );
+
+      /**
+       * Runs the shipped-size groom for `frames` frames and reads the positions back. Everything
+       * here is measured off the returned buffer, not off the code that filled it.
+       */
+      async function checkSolver( chainCount, frames ) {
+        const { groom, solver } = useGroom( chainCount );
+
+        solver.uniforms.ftlEnabled.value = breakFtl ? 0 : 1;
+        poseHead( solver, 0 );
+        solver.uniforms.resetPositions.value = 1;
+        await renderer.computeAsync( solver.solveKernel );
+        solver.uniforms.resetPositions.value = 0;
+
+        for ( let frame = 0; frame < frames; frame ++ ) {
+          poseHead( solver, frame / SIMULATION_HZ );
+          stepSimulation( solver, REFERENCE_SUBSTEPS, true );
+          // The timestamp pool is 2048 queries deep and only a resolve returns them; a loop
+          // this long exhausts it and starts warning. Nothing here is being timed, so drain it.
+          if ( frame % 256 === 255 ) await renderer.resolveTimestampsAsync( THREE.TimestampQuery.COMPUTE );
+        }
+        poseHead( solver, frames / SIMULATION_HZ );
+
+        // 🚩 `WebGPUAttributeUtils.js:113` pads every itemSize-3 STORAGE attribute out to 4,
+        // because WGSL has no packed vec3 in a storage buffer — and it rewrites
+        // `bufferAttribute.itemSize` in place while doing it. So the stride of what comes back
+        // is whatever the attribute says NOW, not the 3 it was created with. Reading it as 3
+        // returns coherent-looking nonsense: the first strand is nearly right and everything
+        // after it walks off by a float per particle.
+        const stride = solver.positionBuffer.value.itemSize;
+        const raw = await renderer.getArrayBufferAsync( solver.positionBuffer.value );
+        const packed = new Float32Array( raw );
+        const positions = new Float32Array( solver.particleCount * 3 );
+        for ( let particle = 0; particle < solver.particleCount; particle ++ ) {
+          positions[ particle * 3 + 0 ] = packed[ particle * stride + 0 ];
+          positions[ particle * 3 + 1 ] = packed[ particle * stride + 1 ];
+          positions[ particle * 3 + 2 ] = packed[ particle * stride + 2 ];
+        }
+        solver.uniforms.ftlEnabled.value = 1;
+
+        const points = POINTS_PER_CHAIN;
+        let worstLengthErrorMm = 0;
+        let worstTipTravelMm = 0;
+        let smallestTipTravelMm = Infinity;
+        let deepestPenetrationMm = 0;
+        let nonFinite = 0;
+
+        const skullCentre = solver.uniforms.skull.value;
+
+        for ( let chain = 0; chain < chainCount; chain ++ ) {
+          const base = chain * points * 3;
+          const restLength = Math.hypot(
+            groom.restPositions[ base + 3 ] - groom.restPositions[ base ],
+            groom.restPositions[ base + 4 ] - groom.restPositions[ base + 1 ],
+            groom.restPositions[ base + 5 ] - groom.restPositions[ base + 2 ]
+          );
+
+          for ( let point = 0; point < points; point ++ ) {
+            const index = base + point * 3;
+            const x = positions[ index ], y = positions[ index + 1 ], z = positions[ index + 2 ];
+            if ( Number.isFinite( x ) === false || Number.isFinite( y ) === false || Number.isFinite( z ) === false ) {
+              nonFinite ++;
+              continue;
+            }
+
+            if ( point > 0 ) {
+              const measured = Math.hypot(
+                x - positions[ index - 3 ], y - positions[ index - 2 ], z - positions[ index - 1 ]
+              );
+              worstLengthErrorMm = Math.max( worstLengthErrorMm, Math.abs( measured - restLength ) * 1000 );
+            }
+
+            const penetration = ( skullCentre.w - Math.hypot(
+              x - skullCentre.x, y - skullCentre.y, z - skullCentre.z
+            ) ) * 1000;
+            deepestPenetrationMm = Math.max( deepestPenetrationMm, penetration );
+          }
+
+          // The tip, against where the head-transform alone would have put it. Anything less
+          // than that difference is the groom riding along rigidly, which is today's behaviour.
+          const tip = base + ( points - 1 ) * 3;
+          const rigid = new THREE.Vector3(
+            groom.restPositions[ tip ], groom.restPositions[ tip + 1 ], groom.restPositions[ tip + 2 ]
+          ).applyMatrix4( solver.uniforms.headMatrix.value );
+          const travel = Math.hypot(
+            positions[ tip ] - rigid.x, positions[ tip + 1 ] - rigid.y, positions[ tip + 2 ] - rigid.z
+          ) * 1000;
+          worstTipTravelMm = Math.max( worstTipTravelMm, travel );
+          smallestTipTravelMm = Math.min( smallestTipTravelMm, travel );
+        }
+
+        return [
+          {
+            check: 'worst segment-length error after ' + frames + ' frames',
+            value: worstLengthErrorMm.toFixed( 5 ) + ' mm',
+            expected: '≤ ' + LENGTH_TOLERANCE_MM + ' mm',
+            pass: worstLengthErrorMm <= LENGTH_TOLERANCE_MM,
+            worstLengthErrorMm
+          },
+          {
+            check: 'worst tip lag behind the rigid pose',
+            value: worstTipTravelMm.toFixed( 2 ) + ' mm',
+            expected: '> 5 mm (it has to actually move)',
+            pass: worstTipTravelMm > 5,
+            worstTipTravelMm,
+            smallestTipTravelMm
+          },
+          {
+            check: 'deepest penetration into the skull collider',
+            value: deepestPenetrationMm.toFixed( 3 ) + ' mm',
+            expected: '≤ 0.10 mm',
+            pass: deepestPenetrationMm <= 0.10,
+            deepestPenetrationMm
+          },
+          {
+            check: 'non-finite components',
+            value: String( nonFinite ),
+            expected: '0',
+            pass: nonFinite === 0,
+            nonFinite
+          }
+        ];
+      }
+
+      // --- CPU baselines -----------------------------------------------------------------------
+
+      setStatus( 'measuring CPU baselines…' );
+      const cpuBaselines = measureCpuBaselines( SHIPPED_CARD_COUNT, cpuIterations );
+      renderTable( 'cpu-results', CPU_COLUMNS, cpuBaselines.map( ( row ) => ( {
+        solver: row.solver,
+        chains: String( row.chains ),
+        particles: String( row.particles ),
+        median: formatMs( row.medianMs ),
+        p95: formatMs( row.p95Ms ),
+        iterations: String( row.iterations )
+      } ) ) );
+
+      publishResults( {
+        spike: 'hair-motion',
+        punchlistItem: '6.6/9.14',
+        generatedAt: new Date().toISOString(),
+        environment,
+        softwareRendererSuspected: looksLikeSoftwareRenderer( environment.adapter ),
+        configuration: {
+          shippedCardCount: SHIPPED_CARD_COUNT,
+          pointsPerChain: POINTS_PER_CHAIN,
+          simulationHz: SIMULATION_HZ,
+          referenceSubsteps: REFERENCE_SUBSTEPS,
+          chainSweep: CHAIN_SWEEP,
+          substepSweep: SUBSTEP_SWEEP,
+          warmupFrames, sampleFrames, repeats, passesPerFrame, cpuIterations, checkFrames,
+          ftlProjectionDisabled: breakFtl,
+          canvas: [ canvasWidth, canvasHeight ]
+        },
+        measurements,
+        checks,
+        cpuBaselines
+      } );
+
+      // --- live viewport -------------------------------------------------------------------------
+
+      setStatus( 'done — the viewport below is live at the shipped groom size' );
+      const live = useGroom( SHIPPED_CARD_COUNT );
+      live.solver.uniforms.resetPositions.value = 1;
+      renderer.compute( live.solver.solveKernel );
+      live.solver.uniforms.resetPositions.value = 0;
+
+      const startedAt = performance.now();
+      let liveFrame = 0;
+      renderer.setAnimationLoop( () => {
+        poseHead( live.solver, ( performance.now() - startedAt ) / 1000 );
+        stepSimulation( live.solver, REFERENCE_SUBSTEPS, true );
+        renderer.render( scene, camera );
+
+        // `trackTimestamp` is on for the sweeps and the pool does not recycle by itself.
+        if ( ( liveFrame ++ % 128 ) === 127 ) {
+          renderer.resolveTimestampsAsync( THREE.TimestampQuery.COMPUTE );
+          renderer.resolveTimestampsAsync( THREE.TimestampQuery.RENDER );
+        }
+      } );
+    }
+
+    const RESULT_COLUMNS = [
+      { key: 'variant', label: 'variant' },
+      { key: 'particles', label: 'particles' },
+      { key: 'dispatches', label: 'dispatches / frame' },
+      { key: 'passes', label: 'compute passes / frame' },
+      { key: 'computeMedian', label: 'compute median ms' },
+      { key: 'computeP95', label: 'compute p95 ms' },
+      { key: 'perPass', label: 'ms / compute pass' },
+      { key: 'computeDelta', label: 'Δ vs 1 chain, same grouping' },
+      { key: 'renderMedian', label: 'render median ms' },
+      { key: 'samples', label: 'compute samples' }
+    ];
+
+    const CHECK_COLUMNS = [
+      { key: 'check', label: 'check' },
+      { key: 'value', label: 'measured' },
+      { key: 'expected', label: 'expected' },
+      { key: 'verdict', label: '' }
+    ];
+
+    const CPU_COLUMNS = [
+      { key: 'solver', label: 'solver' },
+      { key: 'chains', label: 'chains' },
+      { key: 'particles', label: 'particles' },
+      { key: 'median', label: 'median ms / frame' },
+      { key: 'p95', label: 'p95 ms / frame' },
+      { key: 'iterations', label: 'frames timed' }
+    ];
+
+    function toTableRow( measurement ) {
+      return {
+        variant: measurement.variant,
+        particles: String( measurement.particles ),
+        dispatches: String( measurement.dispatchesPerFrame ),
+        passes: String( measurement.computePassesPerFrame ),
+        computeMedian: formatMs( measurement.computeMedianMs ),
+        computeP95: formatMs( measurement.computeP95Ms ),
+        perPass: formatMs( measurement.computeMsPerPass ),
+        computeDelta: formatMs( measurement.computeDeltaVsOneChainMs ),
+        renderMedian: formatMs( measurement.renderMedianMs ),
+        samples: String( measurement.computeSampleCount )
+      };
+    }
+
+    // -------------------------------------------------------------------------------------------
+    // CPU baselines
+    //
+    // Both of these are the honest cheap options, and the spike is not worth much unless it
+    // measures them beside the compute path rather than assuming they lose.
+    // -------------------------------------------------------------------------------------------
+
+    function measureCpuBaselines( chainCount, iterations ) {
+      const groom = growGroom( chainCount );
+      return [
+        measureOne( 'DFTL, JS, 2 substeps', makeCpuDftl( groom, 2 ), chainCount, iterations ),
+        measureOne( 'VRM spring chain, JS, 60 Hz fixed', makeCpuSpringChain( groom ), chainCount, iterations )
+      ];
+
+      // `performance.now()` is clamped to 100 µs in Chrome, and a frame of this solver lands
+      // near that clamp — timing one frame at a time reports 0.1, 0.2, 0.3 and nothing between,
+      // which is a quantiser and not a measurement. Each sample is a BATCH of frames divided by
+      // the batch size, which puts the resolution well under a microsecond.
+      function measureOne( name, step, chains, count ) {
+        const batch = 50;
+        const batches = Math.max( 1, Math.round( count / batch ) );
+
+        for ( let warm = 0; warm < 200; warm ++ ) step( warm / SIMULATION_HZ );
+
+        const samples = [];
+        let frame = 200;
+        for ( let index = 0; index < batches; index ++ ) {
+          const began = performance.now();
+          for ( let inner = 0; inner < batch; inner ++ ) step( ( frame ++ ) / SIMULATION_HZ );
+          samples.push( ( performance.now() - began ) / batch );
+        }
+
+        const stats = summarise( samples );
+        return {
+          solver: name,
+          chains,
+          particles: chains * POINTS_PER_CHAIN,
+          medianMs: stats.median,
+          p95Ms: stats.p95,
+          framesPerSample: batch,
+          iterations: batches * batch
+        };
+      }
+    }
+
+    /** The same DFTL step the compute kernel runs, in scalar JS over flat arrays. */
+    function makeCpuDftl( groom, substeps ) {
+      const { chainCount, restPositions } = groom;
+      const points = POINTS_PER_CHAIN;
+      const positions = new Float32Array( restPositions );
+      const velocities = new Float32Array( restPositions.length );
+      const corrections = new Float32Array( restPositions.length );
+      const restLengths = new Float32Array( chainCount );
+
+      for ( let chain = 0; chain < chainCount; chain ++ ) {
+        const base = chain * points * 3;
+        restLengths[ chain ] = Math.hypot(
+          restPositions[ base + 3 ] - restPositions[ base ],
+          restPositions[ base + 4 ] - restPositions[ base + 1 ],
+          restPositions[ base + 5 ] - restPositions[ base + 2 ]
+        );
+      }
+
+      const matrix = new THREE.Matrix4();
+      const quaternion = new THREE.Quaternion();
+      const euler = new THREE.Euler();
+      const translation = new THREE.Vector3();
+      const one = new THREE.Vector3( 1, 1, 1 );
+      const scratch = new THREE.Vector3();
+
+      return function step( seconds ) {
+        euler.set( 0.18 * Math.sin( seconds * 1.7 ), 0.85 * Math.sin( seconds * 0.6 ), 0.12 * Math.sin( seconds * 2.9 ) );
+        quaternion.setFromEuler( euler );
+        translation.set( 0.05 * Math.sin( seconds * 1.1 ), 0.03 * Math.sin( seconds * 2.3 ), 0 );
+        matrix.compose( translation, quaternion, one );
+
+        const dt = 1 / ( SIMULATION_HZ * substeps );
+        const gravity = - 9.81 * dt * dt;
+        const stiffness = 0.30;
+        const damping = 0.9;
+
+        for ( let substep = 0; substep < substeps; substep ++ ) {
+          for ( let chain = 0; chain < chainCount; chain ++ ) {
+            const base = chain * points * 3;
+            const restLength = restLengths[ chain ];
+
+            scratch.set( restPositions[ base ], restPositions[ base + 1 ], restPositions[ base + 2 ] )
+              .applyMatrix4( matrix );
+            positions[ base ] = scratch.x; positions[ base + 1 ] = scratch.y; positions[ base + 2 ] = scratch.z;
+
+            let previousX = scratch.x, previousY = scratch.y, previousZ = scratch.z;
+
+            for ( let point = 1; point < points; point ++ ) {
+              const index = base + point * 3;
+              const x = positions[ index ], y = positions[ index + 1 ], z = positions[ index + 2 ];
+
+              let px = x + velocities[ index ] * dt;
+              let py = y + velocities[ index + 1 ] * dt + gravity;
+              let pz = z + velocities[ index + 2 ] * dt;
+
+              scratch.set( restPositions[ index ], restPositions[ index + 1 ], restPositions[ index + 2 ] )
+                .applyMatrix4( matrix );
+              px += ( scratch.x - px ) * stiffness;
+              py += ( scratch.y - py ) * stiffness;
+              pz += ( scratch.z - pz ) * stiffness;
+
+              const dx = px - previousX, dy = py - previousY, dz = pz - previousZ;
+              const separation = Math.max( Math.hypot( dx, dy, dz ), 1e-6 );
+              const factor = restLength / separation;
+              const projectedX = previousX + dx * factor;
+              const projectedY = previousY + dy * factor;
+              const projectedZ = previousZ + dz * factor;
+
+              corrections[ index ] = projectedX - px;
+              corrections[ index + 1 ] = projectedY - py;
+              corrections[ index + 2 ] = projectedZ - pz;
+
+              positions[ index ] = projectedX;
+              positions[ index + 1 ] = projectedY;
+              positions[ index + 2 ] = projectedZ;
+              velocities[ index ] = ( projectedX - x ) / dt;
+              velocities[ index + 1 ] = ( projectedY - y ) / dt;
+              velocities[ index + 2 ] = ( projectedZ - z ) / dt;
+
+              previousX = projectedX; previousY = projectedY; previousZ = projectedZ;
+            }
+
+            for ( let point = 1; point < points - 1; point ++ ) {
+              const index = base + point * 3;
+              const successor = index + 3;
+              velocities[ index ] -= damping * corrections[ successor ] / dt;
+              velocities[ index + 1 ] -= damping * corrections[ successor + 1 ] / dt;
+              velocities[ index + 2 ] -= damping * corrections[ successor + 2 ] / dt;
+            }
+          }
+        }
+      };
+    }
+
+    /**
+     * three-vrm's `VRMSpringBoneJoint.update`, transcribed to flat arrays and given the fixed
+     * 60 Hz timestep punch-list 6.6 asks for. Positions are tails rather than joint rotations,
+     * because the arithmetic is identical and the quaternion is only how VRM writes it back
+     * into a hierarchy this spike does not have.
+     *
+     * Defaults are the library's own (VRMSpringBoneJoint.ts constructor): stiffness 1.0,
+     * dragForce 0.4, gravityPower 0.0, gravityDir (0,−1,0). gravityPower is raised here because
+     * hair with no gravity does not fall, and the library's default of 0 is a scene-authoring
+     * choice, not an algorithmic one.
+     */
+    function makeCpuSpringChain( groom ) {
+      const { chainCount, restPositions } = groom;
+      const points = POINTS_PER_CHAIN;
+      const current = new Float32Array( restPositions );
+      const previous = new Float32Array( restPositions );
+      const boneLengths = new Float32Array( chainCount * points );
+
+      for ( let chain = 0; chain < chainCount; chain ++ ) {
+        for ( let point = 1; point < points; point ++ ) {
+          const index = ( chain * points + point ) * 3;
+          boneLengths[ chain * points + point ] = Math.hypot(
+            restPositions[ index ] - restPositions[ index - 3 ],
+            restPositions[ index + 1 ] - restPositions[ index - 2 ],
+            restPositions[ index + 2 ] - restPositions[ index - 1 ]
+          );
+        }
+      }
+
+      const matrix = new THREE.Matrix4();
+      const quaternion = new THREE.Quaternion();
+      const euler = new THREE.Euler();
+      const translation = new THREE.Vector3();
+      const one = new THREE.Vector3( 1, 1, 1 );
+      const scratch = new THREE.Vector3();
+
+      const stiffness = 1.0;
+      const dragForce = 0.4;
+      const gravityPower = 0.6;
+      const delta = 1 / SIMULATION_HZ;
+
+      return function step( seconds ) {
+        euler.set( 0.18 * Math.sin( seconds * 1.7 ), 0.85 * Math.sin( seconds * 0.6 ), 0.12 * Math.sin( seconds * 2.9 ) );
+        quaternion.setFromEuler( euler );
+        translation.set( 0.05 * Math.sin( seconds * 1.1 ), 0.03 * Math.sin( seconds * 2.3 ), 0 );
+        matrix.compose( translation, quaternion, one );
+
+        for ( let chain = 0; chain < chainCount; chain ++ ) {
+          const base = chain * points * 3;
+
+          scratch.set( restPositions[ base ], restPositions[ base + 1 ], restPositions[ base + 2 ] )
+            .applyMatrix4( matrix );
+          current[ base ] = scratch.x; current[ base + 1 ] = scratch.y; current[ base + 2 ] = scratch.z;
+          let parentX = scratch.x, parentY = scratch.y, parentZ = scratch.z;
+
+          for ( let point = 1; point < points; point ++ ) {
+            const index = base + point * 3;
+            const boneLength = boneLengths[ chain * points + point ];
+
+            // The bone axis in world space: where the joint would point with no forces at all.
+            scratch.set(
+              restPositions[ index ] - restPositions[ index - 3 ],
+              restPositions[ index + 1 ] - restPositions[ index - 2 ],
+              restPositions[ index + 2 ] - restPositions[ index - 1 ]
+            ).applyQuaternion( quaternion ).normalize();
+
+            // inertia + stiffness + gravity, exactly the three terms VRM adds
+            let tailX = current[ index ] + ( current[ index ] - previous[ index ] ) * ( 1 - dragForce )
+              + scratch.x * stiffness * delta;
+            let tailY = current[ index + 1 ] + ( current[ index + 1 ] - previous[ index + 1 ] ) * ( 1 - dragForce )
+              + scratch.y * stiffness * delta - gravityPower * delta;
+            let tailZ = current[ index + 2 ] + ( current[ index + 2 ] - previous[ index + 2 ] ) * ( 1 - dragForce )
+              + scratch.z * stiffness * delta;
+
+            // "normalize bone length" — VRM's distance constraint, and the reason a spring
+            // chain does in fact keep its segment lengths.
+            const dx = tailX - parentX, dy = tailY - parentY, dz = tailZ - parentZ;
+            const separation = Math.max( Math.hypot( dx, dy, dz ), 1e-6 );
+            const factor = boneLength / separation;
+            tailX = parentX + dx * factor;
+            tailY = parentY + dy * factor;
+            tailZ = parentZ + dz * factor;
+
+            previous[ index ] = current[ index ];
+            previous[ index + 1 ] = current[ index + 1 ];
+            previous[ index + 2 ] = current[ index + 2 ];
+            current[ index ] = tailX;
+            current[ index + 1 ] = tailY;
+            current[ index + 2 ] = tailZ;
+
+            parentX = tailX; parentY = tailY; parentZ = tailZ;
+          }
+        }
+      };
+    }
+  </script>
+</body>
+</html>

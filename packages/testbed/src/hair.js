@@ -3,22 +3,30 @@
  *
  * ## Why this page exists when `verify_glb.mjs` already passes
  *
- * The gate measures the exported file: at g050 today, 294 quad-strip cards, two cap shells, zero
- * vertices inside the body with a 3.117 mm nearest approach, and 99.98% of the cranium hidden
- * through the CUTOUT rather than through the triangles. Every one of those numbers is true of a
- * groom that looks like a helmet made of ribbons, and LEARNINGS §1.2 — the most-cited entry in
- * that file — is exactly this: a selftest proves the numbers and is structurally blind to whether
- * the picture is right. So this page draws the thing, from five fixed angles including the one
- * that catches a bald crown, and prints the atlas beside it.
+ * The gate measures the exported file: at g050 today, 294 quad-strip cards of 17 rings, two cap
+ * shells, zero vertices inside the body with a 3.504 mm nearest approach, and 100.00% of the
+ * cranium hidden through the CUTOUT rather than through the triangles. Every one of those numbers
+ * is true of a groom that looks like a helmet made of ribbons, and LEARNINGS §1.2 — the most-cited
+ * entry in that file — is exactly this: a selftest proves the numbers and is structurally blind to
+ * whether the picture is right. So this page draws the thing, from five fixed angles including the
+ * one that catches a bald crown, and prints the atlas beside it.
  *
- * 🎯 **AND THAT BLINDNESS WAS DEMONSTRATED, NOT ARGUED.** A blind critic shown this page named
- * three launch blockers the gate had passed: a dead-straight card border slicing the eyebrow, a
- * lit scalp at the parting, and a staircase at every strand tip. The coverage clause read
+ * 🎯 **AND THAT BLINDNESS WAS DEMONSTRATED, NOT ARGUED — TWICE.** A blind critic shown this page
+ * named three launch blockers the gate had passed: a dead-straight card border slicing the eyebrow,
+ * a lit scalp at the parting, and a staircase at every strand tip. The coverage clause read
  * 99.14–100.00% throughout, because it asked 257 cranium VERTICES along their own normals and
  * blended the alpha where the material masks it. `verify_glb.mjs` now samples the cranium's
  * surface at 4 mm, applies the cutoff, fails on the largest CONNECTED exposed patch rather than on
  * a mean, and casts from the five camera angles this file's VIEWS define — which is the clause
  * that found the parting, at 229.1 mm² seen from the front.
+ *
+ * Then the owner looked at the composed build and said the style "still looks odd, messy I
+ * suppose", with every clause green over the top of it. That one turned out to be measurable after
+ * all: the cards FANNED, ending 33–42% further from their neighbours than they started, where hair
+ * gathers into locks and ends tighter. `verify_glb.mjs`'s `cards gather` clause is that ratio and
+ * `hair_cards.HAIR_LAYERS` carries the `clump` and `cut` values that answer it. Which is the
+ * pattern rather than the exception: the page finds it, and then somebody works out what number
+ * the page was seeing.
  *
  * Capture the five plates with:
  *   node tools/figure-pipeline/hair_shots.mjs --out captures/hair
@@ -252,11 +260,14 @@ async function main() {
     log();
     log( `What to look for, in the order it goes wrong:` );
     log( `  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a` );
-    log( `         card's own quad edge, and it is the defect this round was about.` );
-    log( `  side   is the silhouette hair, or a helmet with ribbon edges?` );
+    log( `         card's own quad edge.` );
+    log( `  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass` );
+    log( `         separate into LOCKS, or is every card going its own way? A fan reads as a mop.` );
     log( `  top    does the scalp show between the cards? That is what the cap is for.` );
-    log( `  front  is the parting readable, and is hair across the eyes?` );
-    log( `  back   do the cards end in a line, or in a ragged edge?` );
+    log( `  front  is the parting readable, and is hair across the EYES? A groom may cross the` );
+    log( `         temple and must not cross an eye — this page is a face.` );
+    log( `  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends` );
+    log( `         are what three separate observers called "messy", "stringy" and "unwashed".` );
     log();
     log( `The numbers are gated elsewhere and none of them can answer any of the above:` );
     log( `  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb` );
