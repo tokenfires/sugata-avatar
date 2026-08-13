@@ -36,12 +36,22 @@
  *   `only=a,b`   restrict the cost sweep to named variants
  *   `w=&h=`      pin the drawing buffer
  *   `passes`, `warmup`, `frames`, `repeats` tune the sweep as the Phase 0 spikes do
+ *
+ * ## And one arm that is not the G-buffer browsercheck at all
+ *
+ * `?hair=1` replaces the synthetic scene with the real groom and the four transparency arms of
+ * punch-list 3.6. It lives on this page rather than on `src/hair.html` because two of those arms are
+ * G-buffer attachments and one is a resolve pass, and `hair.html` is deliberately a bare
+ * `WebGPURenderer` with no pass, no MRT and no temporal resolve — measuring OIT there would measure
+ * a renderer this project does not ship. See `runHairArm` for its own parameter list.
  */
 
 import {
     AmbientLight,
     Bone,
+    Box3,
     BoxGeometry,
+    Color,
     CylinderGeometry,
     DirectionalLight,
     Float32BufferAttribute,
@@ -62,10 +72,19 @@ import {
 
 import { diffuseColor, float, mrt, normalView, output, pass, renderOutput, roughness, vec4, velocity } from 'three/tsl';
 
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 import { scheduleTask } from './frame-clock.js';
 
 import { Stage } from '../../core/src/render/Stage.js';
 import { GBUFFER_CHANNELS, markAsSkin } from '../../core/src/render/GBuffer.js';
+import {
+    configureHairMaterial,
+    HAIR_OIT_DEFAULT_MODE,
+    HAIR_OIT_MODES,
+    HAIR_WEIGHT_RANGE,
+    viewDepthExtent
+} from '../../core/src/render/HairOIT.js';
 
 // The Phase 0 spikes already solved "how do you get a trustworthy GPU number in a browser".
 // Reuse their statistics and reporting rather than growing a second dialect of the same thing.
@@ -88,6 +107,29 @@ const VIEW_MODES = [
 // these numbers can be added together without a conversion step.
 const PERF_WIDTH = 1920;
 const PERF_HEIGHT = 1080;
+
+// --- punch-list 3.6, the hair arm ---------------------------------------------------------------
+//
+// Declared up here rather than beside `runHairArm` because `main()` is invoked during module
+// evaluation: a `const` further down the file is still in its temporal dead zone when the arm runs,
+// which fails as `Cannot access 'HAIR_CAMERA_NEAR' before initialization` and looks like a missing
+// asset rather than a hoisting mistake. Measured by execution, once.
+
+/** The hair arm's frustum. `HairOIT.js` computes equation (10) at exactly these two numbers. */
+export const HAIR_CAMERA_NEAR = 0.05;
+export const HAIR_CAMERA_FAR = 20;
+
+const HAIR_ORBIT_RADIUS = 0.66;
+const HAIR_ORBIT_HEIGHT = 0.02;
+
+// ⚠️ The literal path has to sit INSIDE `new URL( …, import.meta.url )` for vite to see it. Vite
+// rewrites that exact syntactic form into a served asset URL, and `assets/` is outside the dev
+// root (`packages/testbed`); with the path in a variable the rewrite does not happen, the browser
+// resolves it against the origin, and the loader is handed `index.html` — which fails as
+// `Unexpected token '<' … is not valid JSON` from inside `GLTFLoader.parse`, naming neither the
+// file nor the reason. Measured by execution.
+const HAIR_GLB = new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href;
+const FIGURE_GLB = new URL( '../../../assets/figures/figure_g050.glb', import.meta.url ).href;
 
 const status = document.getElementById( 'status' );
 
@@ -116,6 +158,18 @@ async function main() {
     const pinnedSize = ( forcedWidth > 0 || layoutIsLive === false )
         ? { width: forcedWidth || 1280, height: forcedHeight || 720 }
         : null;
+
+    // `?hair=1` replaces the synthetic G-buffer scene with the real groom, for punch-list 3.6.
+    // It is on THIS page and not on `src/hair.html` because 3.6's four arms are properties of the
+    // deferred pipeline — two of them are G-buffer attachments — and `hair.html` is deliberately a
+    // bare `WebGPURenderer` with no pass, no MRT and no temporal resolve. Measuring OIT there would
+    // measure a renderer this project does not ship.
+    if ( readFlagParam( 'hair' ) ) {
+
+        await runHairArm( canvas, pinnedSize );
+        return;
+
+    }
 
     // `?forward=1` brings the same scene up on the OLD forward path — no pass, no MRT, no
     // composite. It is the control for attributing any renderer warning to the deferred path
@@ -1495,5 +1549,426 @@ async function describeAdapter( renderer, usingWebGPU ) {
     const debugInfo = gl.getExtension( 'WEBGL_debug_renderer_info' );
     if ( ! debugInfo ) return gl.getParameter( gl.RENDERER );
     return gl.getParameter( debugInfo.UNMASKED_RENDERER_WEBGL );
+
+}
+
+// ---------------------------------------------------------------------------
+// Punch-list 3.6 — hair order-independent transparency
+// ---------------------------------------------------------------------------
+
+/**
+ * The real groom, on the real deferred pipeline, with the four OIT arms A/B-able from a query
+ * parameter and from buttons on the page.
+ *
+ * ## Why the artefact is measured as DRAW-ORDER DEPENDENCE
+ *
+ * "Sorting artefact" is easy to assert and hard to photograph: a groom rendered wrong looks like a
+ * groom. So this page can render the identical frame with the hair's TRIANGLE ORDER REVERSED
+ * (`?cardorder=reverse`), which changes nothing about the geometry, the camera, the lights or the
+ * shading — only the sequence the fragments arrive in. Order independence is exactly the property
+ * that the two plates are the same picture, so the difference between them IS the artefact, in code
+ * values, with no reference render and no judgement involved.
+ *
+ * Reversal is by triangle rather than by card because it is the strongest permutation available and
+ * needs no topology analysis: every card's triangles AND every card come back in the opposite
+ * sequence. Winding inside each triangle is preserved, so back-face culling and normals are
+ * untouched — verified by the `cutout` arm, whose two orders must come back byte-identical.
+ *
+ * ## Query parameters
+ *
+ *   `hair=1`             this arm
+ *   `oit=`               `blend` | `cutout` | `hash` | `wboit` (default `HAIR_OIT_DEFAULT_MODE`)
+ *   `cardorder=reverse`  reverse the groom's triangle order — the permutation control
+ *   `aa=`                `off` | `traa` | `taau` (default `taau`, the shipped resolve)
+ *   `orbit=`             degrees of azimuth per simulated frame (default 0.25)
+ *   `azimuth=`           starting azimuth in degrees (default 34, the judge's three-quarter)
+ *   `range=`             `HAIR_WEIGHT_RANGE`, the one free parameter of the `wboit` arm
+ *   `figure=0`           groom only, no body — isolates hair-on-hair overlap from hair-on-skin
+ *   `nohair=1`           load the groom and do NOT add it — the control every cost delta is against
+ *   `oitdefect=material-blend`  the red proof: OIT blend modes on the material, where three never
+ *                        reads them. The `wboit` arm must go back to being order dependent.
+ *   `bare`               hide the panel, so a plate is only the render
+ *   `gputime=1`          request GPU timestamp queries; read `__SUGATA_GPU_MS__()`
+ *   `capture`            stop the frame loop and hand the clock to `__SUGATA_STEP__`
+ */
+async function runHairArm( canvas, pinnedSize ) {
+
+    const query = new URLSearchParams( location.search );
+
+    // The default is the module's measured recommendation rather than a literal, so the page and
+    // the shipping decision cannot drift apart.
+    const mode = query.get( 'oit' ) ?? HAIR_OIT_DEFAULT_MODE;
+
+    if ( HAIR_OIT_MODES.includes( mode ) === false ) {
+
+        throw new Error( `?oit must be one of ${ HAIR_OIT_MODES.join( ', ' ) }` );
+
+    }
+
+    const aa = query.get( 'aa' ) ?? 'taau';
+    const reversed = query.get( 'cardorder' ) === 'reverse';
+    const orbitDegrees = query.has( 'orbit' ) ? Number( query.get( 'orbit' ) ) : 0.25;
+    const weightRange = query.has( 'range' ) ? Number( query.get( 'range' ) ) : HAIR_WEIGHT_RANGE;
+    const wantsFigure = query.get( 'figure' ) !== '0';
+
+    const stage = new Stage();
+
+    await stage.create( canvas, {
+        pipeline: true,
+        temporalAA: aa === 'off' ? 'off' : aa,
+        hairOIT: mode,
+
+        // 🚩 `?oitdefect=material-blend` is the rejection proof for the whole pass-level-blending
+        // finding, live on the page. It is not a debug view: with it the `wboit` arm must go back to
+        // being order dependent, and `HairOIT.selftest.mjs` fails if it does not.
+        hairOITDefect: query.get( 'oitdefect' ),
+        maxPixelRatio: 1,
+        fieldOfView: 32,
+
+        // Asked for at DEVICE CREATION, not at read time. `renderer.info.render.timestamp` stays at
+        // exactly 0.000 for every frame without it, which reads as a free pass rather than as an
+        // instrument that was never armed — measured, four arms of 0.000 ms, before this line.
+        trackTimestamp: query.get( 'gputime' ) === '1',
+
+        // A head fills the frame at 0.7 m, so the frustum is pulled in hard. It is not cosmetic:
+        // `HairOIT.js`'s header computes equation (10) at exactly this near/far to show the
+        // published weight curve is clamped flat over a groom, and `HairOIT.selftest.mjs` re-derives
+        // it from these two numbers.
+        near: HAIR_CAMERA_NEAR,
+        far: HAIR_CAMERA_FAR,
+        ...( pinnedSize === null ? {} : pinnedSize )
+    } );
+
+    // `?capture` has to take the clock BEFORE anything loads, so the frames a stepping tool counts
+    // are the frames the renderer draws. `alive.js` and `post.js` both do this and say why.
+    const advanceRendererFrame = query.has( 'capture' ) ? takeOverHairFrameLoop( stage.renderer ) : null;
+
+    stage.scene.background = new Color( 0x0b0d11 );
+
+    // Three lights, no environment, and the rim is the one that matters: a hair silhouette is only
+    // legible when something separates a card's edge from the mass behind it, and an OIT arm that
+    // is measured on an unlit groom is measured on a black shape.
+    const key = new DirectionalLight( 0xfff2e4, 2.6 );
+    const rim = new DirectionalLight( 0xcfe0ff, 3.4 );
+    const fill = new AmbientLight( 0x66707f, 0.55 );
+    stage.scene.add( key, rim, fill, key.target, rim.target );
+
+    const loader = new GLTFLoader();
+
+    const hairAsset = await loader.loadAsync( HAIR_GLB );
+
+    // `?nohair=1` loads the groom and then does NOT add it, which is the control row every cost
+    // number below is a delta against. Loading it anyway keeps the two arms identical in everything
+    // except the draw — same textures resident, same decode work, same GPU memory — so the
+    // difference is the groom's rendering and not its residency.
+    const wantsHair = query.get( 'nohair' ) !== '1';
+
+    if ( wantsHair ) stage.add( hairAsset.scene );
+
+    if ( wantsFigure ) {
+
+        const figureAsset = await loader.loadAsync( FIGURE_GLB );
+        stage.add( figureAsset.scene );
+
+    }
+
+    const hairMeshes = [];
+
+    hairAsset.scene.traverse( ( object ) => { if ( object.isMesh === true ) hairMeshes.push( object ); } );
+
+    if ( hairMeshes.length === 0 ) throw new Error( 'the groom GLB contains no mesh' );
+
+    let triangles = 0;
+
+    for ( const mesh of hairMeshes ) {
+
+        if ( reversed ) reverseTriangleOrder( mesh.geometry );
+
+        triangles += mesh.geometry.index.count / 3;
+
+        // The GLTF material is replaced rather than adjusted. `GLTFLoader` builds a
+        // `MeshStandardMaterial`, which the WebGPU backend converts to a node material internally
+        // and per-render — so `material.mrtNode`, which is the whole `wboit` mechanism, would be
+        // set on an object the renderer throws away. Building the node material here is the only
+        // way the accumulation outputs survive to the shader.
+        mesh.material = configureHairMaterial(
+            hairNodeMaterial( mesh.material ),
+            mode,
+            { slab: stage.hairOIT?.slab, defect: query.get( 'oitdefect' ) }
+        );
+
+    }
+
+    const hairBounds = new Box3().setFromObject( hairAsset.scene );
+    const focus = hairBounds.getCenter( new Vector3() );
+    const scratch = new Vector3();
+
+    stage.hairOIT?.setWeightRange( weightRange );
+
+    let azimuthDegrees = query.has( 'azimuth' ) ? Number( query.get( 'azimuth' ) ) : 34;
+
+    const place = () => {
+
+        const angle = azimuthDegrees * Math.PI / 180;
+
+        stage.camera.position.set(
+            focus.x + Math.sin( angle ) * HAIR_ORBIT_RADIUS,
+            focus.y + HAIR_ORBIT_HEIGHT,
+            focus.z + Math.cos( angle ) * HAIR_ORBIT_RADIUS
+        );
+        stage.camera.lookAt( focus );
+        stage.camera.updateMatrixWorld( true );
+
+        key.position.copy( stage.camera.position ).add( new Vector3( 0.5, 0.6, 0.2 ) );
+        rim.position.copy( focus ).addScaledVector(
+            scratch.copy( stage.camera.position ).sub( focus ).normalize(), - 1 );
+        rim.position.y += 0.9;
+        key.target.position.copy( focus );
+        rim.target.position.copy( focus );
+
+        // The weight curve is fitted to the groom's own depth extent, which changes every frame of
+        // an orbit. Recomputed from the eight world-space corners in VIEW space, because a
+        // world-axis-aligned box is not view-axis-aligned and its raw z extent under-reports the
+        // slab at every angle except dead-on.
+        if ( stage.hairOIT !== null ) {
+
+            const extent = viewDepthExtent( hairBounds, stage.camera, scratch );
+            stage.hairOIT.setSlab( extent.near, extent.far );
+
+        }
+
+    };
+
+    const advance = ( deltaSeconds ) => {
+
+        // Per SIMULATED FRAME, not per second: the artefact this page exists to measure is a
+        // frame-to-frame pop, so the step has to be the same angular amount whatever the machine's
+        // frame rate is. A rate in degrees per second would make the measurement a property of the
+        // GPU it ran on.
+        if ( deltaSeconds > 0 ) azimuthDegrees += orbitDegrees;
+        place();
+
+    };
+
+    advance( 0 );
+
+    if ( query.has( 'capture' ) === false ) stage.onFrame( advance );
+
+    globalThis.__SUGATA_ENV__ = () => ( {
+        ...stage.stats,
+        oit: mode,
+        oitDefect: query.get( 'oitdefect' ),
+        cardOrder: reversed ? 'reverse' : 'forward',
+        aa,
+        weightRange,
+        hairTriangles: triangles,
+        azimuthDegrees
+    } );
+
+    globalThis.__SUGATA_STEP__ = async ( deltaSeconds = 1 / 60 ) => {
+
+        advance( deltaSeconds );
+
+        if ( advanceRendererFrame !== null ) {
+
+            advanceRendererFrame( deltaSeconds );
+            stage.draw();
+
+            await stage.renderer.backend?.device?.queue?.onSubmittedWorkDone();
+            await hairNextPaint();
+
+        }
+
+        return true;
+
+    };
+
+    globalThis.__SUGATA_GPU_MS__ = async () => {
+
+        if ( query.has( 'gputime' ) === false ) return null;
+
+        // 🚩 `info.render.timestamp` reads 0 until the query resolves, and a plausible zero reads
+        // as a free frame. `post.js` carries the same warning for the same reason.
+        await stage.renderer.resolveTimestampsAsync( 'render' );
+
+        return stage.renderer.info.render.timestamp;
+
+    };
+
+    globalThis.__stage = stage;
+
+    if ( query.has( 'bare' ) ) {
+
+        // Both halves, and the second one is the half that bit. `stage.html`'s body is a grid of
+        // `minmax(0, 1fr) 460px`, so hiding the panel leaves its 460 px COLUMN behind: on a 560 px
+        // capture the canvas came back 100 px wide and the plate was 82% black. A bare plate has to
+        // collapse the track, not just the element in it.
+        document.getElementById( 'panel' ).style.display = 'none';
+        document.body.style.gridTemplateColumns = '100%';
+        return;
+
+    }
+
+    buildHairPanel( stage, { mode, aa, reversed, weightRange, triangles, cards: hairMeshes.length } );
+
+}
+
+/**
+ * A node material carrying the groom's own sheets, because the loader's `MeshStandardMaterial` is
+ * converted internally and any `mrtNode` set on it is discarded with the original.
+ *
+ * `map` carries coverage in its alpha — that is what the atlas is, an RGB strand colour and an A
+ * cut-out — and three's `setupDiffuseColor` multiplies the map's alpha into `diffuseColor.a`, which
+ * is the `α` every arm below reads. Nothing here is punch-list 3.5's shading model; 3.5 replaces
+ * this material wholesale and `configureHairMaterial` is the seam it attaches to.
+ */
+function hairNodeMaterial( source ) {
+
+    const material = new MeshPhysicalNodeMaterial();
+
+    material.name = 'hair-oit-placeholder';
+    material.map = source.map ?? null;
+    material.normalMap = source.normalMap ?? null;
+    material.color.set( 0xffffff );
+    material.roughness = 0.32;
+    material.metalness = 0;
+    material.side = source.side;
+
+    return material;
+
+}
+
+/**
+ * Reverses the order triangles are submitted in, leaving the geometry itself bit-identical.
+ *
+ * Each triangle's three indices keep their relative order, so winding — and therefore culling and
+ * the geometric normal — is unchanged. Only the SEQUENCE changes, which is precisely the variable
+ * an order-independent method is supposed to be insensitive to.
+ */
+function reverseTriangleOrder( geometry ) {
+
+    const index = geometry.index;
+    const source = index.array;
+    const swapped = source.slice();
+    const triangles = source.length / 3;
+
+    for ( let triangle = 0; triangle < triangles; triangle ++ ) {
+
+        const from = ( triangles - 1 - triangle ) * 3;
+        const to = triangle * 3;
+
+        swapped[ to ] = source[ from ];
+        swapped[ to + 1 ] = source[ from + 1 ];
+        swapped[ to + 2 ] = source[ from + 2 ];
+
+    }
+
+    index.array.set( swapped );
+    index.needsUpdate = true;
+
+}
+
+/** Two rAFs, so the screenshot that follows sees the frame that was just submitted. */
+function hairNextPaint() {
+
+    return new Promise( ( resolve ) => {
+
+        requestAnimationFrame( () => requestAnimationFrame( resolve ) );
+
+    } );
+
+}
+
+/**
+ * The same frame-loop takeover `post.js` and `alive.js` use, duplicated for the reason `post.js`
+ * gives: two browsercheck pages that import each other's internals stop being independently
+ * readable, and a drift shows up as a temporal measurement that does not reproduce.
+ */
+function takeOverHairFrameLoop( renderer ) {
+
+    const nodeFrame = renderer._nodes?.nodeFrame;
+
+    if ( typeof renderer._animation?.stop === 'function' && typeof nodeFrame?.update === 'function' ) {
+
+        renderer._animation.stop();
+
+        let elapsedSeconds = 0;
+
+        return ( deltaSeconds ) => {
+
+            nodeFrame.update();
+
+            elapsedSeconds += deltaSeconds;
+            nodeFrame.deltaTime = deltaSeconds;
+            nodeFrame.time = elapsedSeconds;
+
+        };
+
+    }
+
+    console.warn( 'stage: could not reach renderer._animation / _nodes.nodeFrame; rAF still owns the frame.' );
+
+    return null;
+
+}
+
+/**
+ * The A/B toggle, built from script rather than from markup because this arm shares a page with the
+ * G-buffer browsercheck and the two have nothing else in common.
+ *
+ * Each button RELOADS with a different `?oit=`. That is deliberate: `wboit` allocates two extra
+ * G-buffer attachments, an attachment set belongs to the render target the pass was built with, and
+ * a live swap would mean tearing the pipeline down under a running frame loop. Reloading also means
+ * every arm boots through exactly the same code path, which is what makes a pair of judge plates
+ * comparable.
+ */
+function buildHairPanel( stage, { mode, aa, reversed, weightRange, triangles, cards } ) {
+
+    const panel = document.getElementById( 'panel' );
+    panel.textContent = '';
+
+    const heading = document.createElement( 'h1' );
+    heading.textContent = 'Hair OIT — punch-list 3.6';
+    panel.appendChild( heading );
+
+    const swap = ( key, value ) => {
+
+        const next = new URLSearchParams( location.search );
+        next.set( key, value );
+        location.search = next.toString();
+
+    };
+
+    const row = ( label, options, current, key ) => {
+
+        const title = document.createElement( 'h2' );
+        title.textContent = label;
+        panel.appendChild( title );
+
+        for ( const option of options ) {
+
+            const button = document.createElement( 'button' );
+            button.textContent = option;
+            button.setAttribute( 'aria-pressed', String( String( option ) === String( current ) ) );
+            button.addEventListener( 'click', () => swap( key, option ) );
+            panel.appendChild( button );
+
+        }
+
+    };
+
+    row( 'transparency arm', HAIR_OIT_MODES, mode, 'oit' );
+    row( 'card draw order', [ 'forward', 'reverse' ], reversed ? 'reverse' : 'forward', 'cardorder' );
+    row( 'temporal resolve', [ 'off', 'traa', 'taau' ], aa, 'aa' );
+
+    const notes = document.createElement( 'p' );
+    notes.className = 'note';
+    notes.textContent =
+        `${ cards } hair mesh(es), ${ triangles.toLocaleString() } triangles. ` +
+        `weight range ${ weightRange }. ` +
+        `G-buffer ${ stage.gbuffer.bytesPerPixel } B/px. ` +
+        'blend is the DEFECT and is the control arm: switch card draw order with it selected and ' +
+        'the picture changes, which is the artefact this item exists to remove.';
+    panel.appendChild( notes );
 
 }

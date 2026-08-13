@@ -226,6 +226,35 @@
  *                   plates differ. Nothing said so, and a portrait A/B of this flag therefore
  *                   attributes zero to it and looks like a working control while being none.
  *                   Both halves are gated by `alive-toggles.selftest.mjs`.
+ *   ?hair=1         PUNCH-LIST 3.5/3.6. Load `assets/hair/bob01/`'s groom for this bake and shade
+ *                   it with `material/HairMaterial.js` — Karis' closed-form Marschner, three lobes.
+ *                   OPT-IN; see `HAIR_GROOM_ID` for why the default plate still has no hair on it
+ *                   and what the round that flips it owes. Absent this key nothing is fetched and
+ *                   the four keys below are never consulted.
+ *   ?hairbsdf=0     the groom with its shipped GLB material instead — the A side of 3.5 on its own,
+ *                   holding the GEOMETRY constant. This is the plate that shows what a card looks
+ *                   like under an isotropic lobe about its plane normal, which is the thing 3.5
+ *                   exists to replace.
+ *   ?hairlobes=r    which of R, TT and TRT are live, comma separated. DEFAULT `r,trt` — TT ships
+ *                   OFF, see `HAIR_DEFAULTS.weightTT` for the measurement, and `?hairlobes=r,tt,trt`
+ *                   is the plate that shows why.
+ *                   🎯 THIS IS HOW THE DUAL BAND IS MEASURED SEPARATELY. `?hairlobes=r` is the
+ *                   primary band alone and `?hairlobes=trt` the secondary alone, so their
+ *                   longitudinal separation is a measurement over two plates rather than an
+ *                   inference from one. A gate that only ever saw their sum could not tell a dual
+ *                   band from one wide one.
+ *   ?hairscatter=0  remove slide 39's multiple-scattering term, which Karis calls "a giant
+ *                   artistic hack and not physically based in the slightest"
+ *   ?hairvis=0      remove the card-scale side visibility. 🚩 THE PLATE THIS PRODUCES IS THE ONE
+ *                   THAT MADE THE TERM NECESSARY: with no shadow on the rim panel, an unoccluded
+ *                   Marschner lobe takes the rim's #0f30ff at full strength on every hair pixel in
+ *                   the frame, including the cards in front of the head, and the groom renders
+ *                   BLUE. `HairLightingModel.scatter` carries the measurement.
+ *   ?hairrootao=0   remove the root darkening
+ *   ?hairdefect=constant-tangent
+ *                   🚩 the rejection proof for the anisotropy: a fixed VIEW-space strand direction
+ *                   for every fragment, so the highlight is welded to the screen instead of running
+ *                   across the strand. It renders a plausible picture. See `HAIR_DEFECTS`.
  *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
  *   ?gputime=1      request GPU timestamp queries at device creation, so
  *                   `renderer.resolveTimestampsAsync('render')` and `info.render.timestamp` work.
@@ -241,10 +270,15 @@
 
 import {
     Color,
+    Matrix4,
     Mesh,
     MeshPhysicalNodeMaterial,
     MeshStandardNodeMaterial,
     PlaneGeometry,
+    // three's own skinning `Skeleton`, ALIASED because this file already imports the project's
+    // `figure/Skeleton.js` — a different class with the same name, which walks a figure's bones for
+    // the pose system. Importing both unaliased would silently shadow one of them.
+    Skeleton as SkinSkeleton,
     Vector3
 } from 'three/webgpu';
 import { max, texture, vec3, vec4 } from 'three/tsl';
@@ -265,6 +299,7 @@ import {
     createSkinMaterial,
     curvatureMapUrlFor
 } from '../../core/src/material/SkinMaterial.js';
+import { HAIR_DEFECTS, createHairMaterial } from '../../core/src/material/HairMaterial.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
 import { RestPose } from '../../core/src/figure/RestPose.js';
@@ -391,6 +426,70 @@ const BACKDROP_DISTANCE_METRES = 1.9;
  * identity range is worse than one that says which fifth it has.
  */
 const WARDROBE_BODY_URL = new URL( '../../../assets/wardrobe/body/g050.glb', import.meta.url ).href;
+
+// --- the hair ------------------------------------------------------------------------------
+
+/**
+ * The groom, and why `?hair` is OPT-IN on the page that carries every committed gate.
+ *
+ * Punch-list 3.6 built `assets/hair/bob01/` — five identity bakes of a 254-card groom plus a
+ * four-sheet atlas — and 3.5 is the BSDF that shades it. Both landed in the same round as the
+ * weighted-blended OIT that the groom's silhouette layer eventually needs, and OIT lives in
+ * `render/**`, which is another agent's this round.
+ *
+ * 🚩 SO THE DEFAULT PLATE IS UNCHANGED, DELIBERATELY, AND THIS IS A STATEMENT OF STATUS RATHER
+ * THAN A DESIGN. Adding a head of hair to the default `alive.html` moves G1 through G7, every
+ * region rect in `regions.lighting-portrait.json`, the whole-scene fingerprint
+ * `alive-toggles.selftest.mjs` walks, and the plates two other agents are measuring against right
+ * now. Turning it on is one URL key and flipping the default is one line — but the round that
+ * flips it owes a re-measurement of all seven gates, and doing that here would be publishing
+ * numbers nobody re-derived. `?hair=1` is the plate 3.5 is measured on, and
+ * `HairMaterial.selftest.mjs` takes every reading it reports from that plate.
+ *
+ * ⚠️ ONE BAKE EXISTS PER IDENTITY AND THE NAMES MUST MATCH. The groom is generated per figure bake
+ * because the scalp region is a vertex group over the basemesh and its crown height tracks the
+ * identity (1.5912 m at g000 to 1.7291 m at g100); a g050 groom on a g100 head sits inside the
+ * skull. The file is resolved from the same bake name the curvature and cavity maps are, so a
+ * `?gender` the groom has no bake for fails in words rather than rendering a sunken cap.
+ */
+const HAIR_GROOM_ID = 'bob01';
+
+/**
+ * Keyed on the FIGURE's bake name — what `bakeNameFrom` returns — because that is the only name the
+ * load path has in hand, and mapped to a RESOLVED URL rather than to a file name.
+ *
+ * 🚩 EVERY ENTRY IS A LITERAL INSIDE `new URL( …, import.meta.url )` AND THAT IS NOT VERBOSITY.
+ * `IDENTITY_CATALOGUE_URL` below records the rule: a URL built by string concatenation is invisible
+ * to rollup, so `vite build` emits no asset and the built page 404s on data the dev server served
+ * happily. This table was written the concise way FIRST — one directory URL plus
+ * `${ directory }${ bake }.glb` — and it 404'd on the DEV server too, because vite's asset rewrite
+ * fires only on a static string and a trailing-slash directory is not one. The failure arrives as
+ * `SyntaxError: Unexpected token '<'` out of `GLTFLoader.parse`, which is `index.html` being parsed
+ * as glTF, and it names neither this file nor the missing asset.
+ *
+ * A bake with no groom is therefore a MISS in this map rather than a 404 discovered at fetch time,
+ * so `attachHair` can refuse in words before it requests anything.
+ */
+const HAIR_BAKES = new Map( [
+    [ 'figure_g000', new URL( '../../../assets/hair/bob01/g000.glb', import.meta.url ).href ],
+    [ 'figure_g025', new URL( '../../../assets/hair/bob01/g025.glb', import.meta.url ).href ],
+    [ 'figure_g050', new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href ],
+    [ 'figure_g075', new URL( '../../../assets/hair/bob01/g075.glb', import.meta.url ).href ],
+    [ 'figure_g100', new URL( '../../../assets/hair/bob01/g100.glb', import.meta.url ).href ]
+] );
+
+/**
+ * The two SIDECAR sheets, which no GLB carries.
+ *
+ * `albedo.png` and `normal.png` are embedded in every groom bake; `flow.png` (strand tangent, root
+ * →tip parameter, strand id) and `depth.png` (depth within the bundle) are not, because glTF has no
+ * socket for either. They are shared across all five bakes — one atlas, one seed — so they are
+ * named once here rather than derived per identity.
+ */
+const HAIR_SHEET_URLS = {
+    flow: new URL( '../../../assets/hair/bob01/flow.png', import.meta.url ).href,
+    depth: new URL( '../../../assets/hair/bob01/depth.png', import.meta.url ).href
+};
 
 // Phase 10. Written as a bundler-visible `new URL(..., import.meta.url)` for the reason
 // `IdentityTargets.js`'s own region table gives: a URL built by string concatenation is invisible
@@ -624,6 +723,10 @@ async function boot() {
 
     const bare = query.has( 'bare' );
 
+    // Read once, before the session literal, because the four sub-keys of `?hair` must be
+    // consulted only when it is present. See `readHairRequest`.
+    const hairEnabled = query.get( 'hair' ) === '1';
+
     if ( bare ) {
 
         for ( const id of [ 'controls', 'hud', 'trace' ] ) {
@@ -692,11 +795,22 @@ async function boot() {
         eyesEnabled: query.get( 'eyes' ) !== '0',
         eyeOcclusionEnabled: query.get( 'eyeocc' ) !== '0',
         cardsEnabled: query.get( 'cards' ) !== '0',
+
+        // Punch-list 3.5 / 3.6. OPT-IN — see `HAIR_GROOM_ID` for why the default plate has no hair
+        // on it this round. This is the ONLY hair key read on a plate that did not ask for hair;
+        // the four below it are consulted inside `attachHair` and are therefore invisible to a
+        // bare plate's recorded toggle surface, which is the `?clockdefect` pattern and is
+        // deliberate: a key that can only change a plate containing a groom should not appear on
+        // the surface of a plate that has none.
+        hairEnabled: hairEnabled,
+        hairRequest: hairEnabled ? readHairRequest( query ) : null,
         multisampled,
         skin: null,
         eyes: null,
         eyeOcclusion: null,
         cards: [],
+        hair: null,
+        hairMaterial: null,
 
         // Phase 9. `?wear=female_casualsuit01,shoes01` dresses the figure; `?wear=` with nothing
         // after it loads the wardrobe and wears nothing, which is the way to see the body swap on
@@ -1686,6 +1800,185 @@ async function swapFigure( session, stack, stage, lights, backdrop, ground ) {
     // keeps `?wear` from moving the camera relative to a nude plate.
     await dressFigure( session );
 
+    // AFTER the wardrobe, and only because that is the order that reads: the groom is skinned to
+    // the head alone and no garment can move it, so the placement is order-independent. It is last
+    // so that a hair failure cannot take the body off the page.
+    await attachHair( session, plan.figures[ 0 ].url );
+
+}
+
+/**
+ * The hair-shading request, read off the URL in one place.
+ *
+ * 🎯 Called ONLY when `?hair=1` is present, and that is a deliberate property rather than an
+ * optimisation. `recordingQuery` makes this page state its own toggle surface from live reads, and
+ * `alive-toggles.selftest.mjs` requires every observed key to be classified; four keys that can
+ * only change a plate CONTAINING a groom have nothing to say about a plate that has none, and
+ * appearing on its surface would be four rows gating nothing. `?clockdefect` and `?trace` are
+ * classified the same way and for the same reason.
+ */
+function readHairRequest( query ) {
+
+    // ⚠️ THE DEFAULT IS `r,trt` AND NOT `r,tt,trt`. TT is the transmission lobe and it ships OFF;
+    // `HAIR_DEFAULTS.weightTT` carries the measurement, and the short version is that a rim light
+    // with no shadow map transmits straight through the head and renders the groom blue.
+    // `?hairlobes=r,tt,trt` is the plate that shows it.
+    const lobes = ( query.get( 'hairlobes' ) ?? 'r,trt' )
+        .split( ',' ).map( ( name ) => name.trim().toLowerCase() ).filter( ( name ) => name !== '' );
+
+    const unknown = lobes.filter( ( name ) => [ 'r', 'tt', 'trt' ].includes( name ) === false );
+
+    if ( unknown.length > 0 ) {
+
+        throw new Error( `alive: ?hairlobes must be a comma-separated subset of r,tt,trt — got '${ unknown.join( ',' ) }'.` );
+
+    }
+
+    const defect = query.get( 'hairdefect' ) ?? 'none';
+
+    if ( Object.hasOwn( HAIR_DEFECTS, defect ) === false ) {
+
+        throw new Error( `alive: ?hairdefect must be one of ${ Object.keys( HAIR_DEFECTS ).join( ', ' ) }.` );
+
+    }
+
+    return {
+        // The geometry stays, the shader goes. Holding the groom constant is what makes this the A
+        // side of 3.5 rather than the A side of 3.6.
+        bsdf: query.get( 'hairbsdf' ) !== '0',
+        lobes,
+        scatter: query.get( 'hairscatter' ) === '0' ? 0 : 1,
+        sideVisibility: query.get( 'hairvis' ) === '0' ? 0 : 1,
+        rootOcclusion: query.get( 'hairrootao' ) === '0' ? 1 : undefined,
+        defect
+    };
+
+}
+
+/**
+ * Loads the groom for the bake that has just landed, rebinds it to the figure's live skeleton and
+ * puts `HairMaterial` on it.
+ *
+ * ## Why the groom is REBOUND rather than added beside the figure
+ *
+ * `assets/hair/bob01/g050.glb` carries the whole 53-bone rig — `hair_cards.py` exports through the
+ * same MPFB2 path the body does — but every one of the groom's 7,256 vertices is weighted 1.000 to
+ * `head` and nothing else (verified by `verify_glb.mjs`, worst weight sum 1.000000, zero unweighted
+ * vertices). Its own rig is therefore a copy of the bind pose that would sit motionless while the
+ * body's head turned. What is kept is its `boneInverses`; what is thrown away is its bones. The
+ * mesh is then reparented under `figure.root`, so `?nudge`, the rest pose and every head-idle
+ * degree the motion stack writes reach the hair for free and cannot drift out of step with the
+ * face by construction.
+ *
+ * 🚩 `frustumCulled` GOES OFF. A `SkinnedMesh`'s bounding sphere is computed in BIND pose and three
+ * does not refit it as the skeleton moves; at portrait framing the groom is most of the frame, and
+ * a head turn that took the bind-pose sphere off screen would delete the hair rather than crop it.
+ * The cost is one draw call that is never rejected, on a mesh that is on screen in every frame this
+ * page renders.
+ *
+ * The import is dynamic for `dressFigure`'s reason: a plate with no `?hair=1` must not pay for the
+ * module, the 2.67 MB GLB or the two sidecar sheets, which is what keeps the default plate the one
+ * the seven gates are stated on.
+ */
+async function attachHair( session, figureUrl ) {
+
+    if ( session.hairEnabled !== true ) return;
+
+    const bake = bakeNameFrom( figureUrl );
+    const groomUrl = HAIR_BAKES.get( bake );
+
+    if ( groomUrl === undefined ) {
+
+        console.warn( `?hair=1 is ignored on ${ bake }: the '${ HAIR_GROOM_ID }' groom is baked per ` +
+            `identity and only ${ [ ...HAIR_BAKES.keys() ].join( ', ' ) } have one. Run ` +
+            'tools/figure-pipeline/build_figure.py --hair for this bake.' );
+
+        return;
+
+    }
+
+    const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
+    const groom = await new GLTFLoader().loadAsync( groomUrl );
+
+    const request = session.hairRequest;
+    const skinned = [];
+
+    groom.scene.traverse( ( object ) => {
+
+        if ( object.isSkinnedMesh === true ) skinned.push( object );
+
+    } );
+
+    if ( skinned.length === 0 ) throw new Error( `alive: ${ groomUrl } carries no SkinnedMesh — the groom did not export skinned.` );
+
+    // The rebind. Missing bones are reported by NAME rather than by count, because the failure this
+    // guards against is a rig rename in the figure pipeline, and "3 bones missing" would send the
+    // next reader to the wrong file.
+    const figureBones = new Map();
+    session.figure.root.traverse( ( object ) => {
+
+        if ( object.isBone === true ) figureBones.set( object.name, object );
+
+    } );
+
+    for ( const mesh of skinned ) {
+
+        const absent = mesh.skeleton.bones.filter( ( bone ) => figureBones.has( bone.name ) === false );
+
+        if ( absent.length > 0 ) {
+
+            throw new Error( `alive: the groom is skinned to ${ absent.map( ( bone ) => bone.name ).join( ', ' ) }, ` +
+                'which this figure\'s rig does not have. The groom and the figure are out of step.' );
+
+        }
+
+        const bones = mesh.skeleton.bones.map( ( bone ) => figureBones.get( bone.name ) );
+
+        mesh.bind( new SkinSkeleton( bones, mesh.skeleton.boneInverses ), new Matrix4() );
+        mesh.frustumCulled = false;
+
+        // Hair shadowing the forehead is a large part of why hair reads as hair. The key is the
+        // only shadow caster on this rig (3.8, at a measured 2.62 ms per caster), and the cutout
+        // reaches the depth pass because the material keeps its `alphaTest` there too.
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+
+        session.figure.root.add( mesh );
+
+    }
+
+    session.hair = { root: session.figure.root, meshes: skinned, bake };
+
+    if ( request.bsdf === false ) {
+
+        console.log( `hair: ${ bake } groom on the page with its SHIPPED GLB material — ?hairbsdf=0, the A side of 3.5.` );
+        return;
+
+    }
+
+    const material = await createHairMaterial( {
+        flowMapUrl: HAIR_SHEET_URLS.flow,
+        depthMapUrl: HAIR_SHEET_URLS.depth,
+        alphaMap: skinned[ 0 ].material?.map ?? null,
+        multisampled: session.multisampled,
+        defect: request.defect,
+        settings: {
+            weightR: request.lobes.includes( 'r' ) ? 1 : 0,
+            weightTT: request.lobes.includes( 'tt' ) ? 1 : 0,
+            weightTRT: request.lobes.includes( 'trt' ) ? 1 : 0,
+            scatter: request.scatter,
+            sideVisibility: request.sideVisibility,
+            ...( request.rootOcclusion === undefined ? {} : { rootOcclusion: request.rootOcclusion } )
+        }
+    } );
+
+    for ( const mesh of skinned ) mesh.material = material;
+
+    session.hairMaterial = material;
+
+    console.log( `hair: ${ bake } groom, ${ skinned.length } mesh(es), ` +
+        `${ JSON.stringify( material.describe() ) }` );
+
 }
 
 /**
@@ -2303,6 +2596,22 @@ function censusOfShading( session, stage ) {
             ? null
             : { ...stage.ambientOcclusion.describe(), hemisphereLightsInScene: 0 },
 
+        // Punch-list 3.5/3.6, reported as a SHAPE and NESTED, for the reason recorded on
+        // `ambientOcclusion` immediately above: `alive-toggles.selftest.mjs` requires every
+        // TOP-LEVEL census counter to be non-zero on the shipped plate, and the shipped plate has
+        // no hair on it by design (see `HAIR_GROOM_ID`). A top-level zero here would read as a
+        // broken subsystem. `null` is "no groom in this frame at all", which is every plate that
+        // did not ask for one; a groom present but unshaded — `?hairbsdf=0` — reports the shape
+        // with `shadedMeshesInScene` at 0, and those two states are different pictures.
+        hair: session.hair === null
+            ? null
+            : {
+                bake: session.hair.bake,
+                groomMeshes: session.hair.meshes.length,
+                shadedMeshesInScene: 0,
+                ...( session.hairMaterial === null ? { shaded: false } : session.hairMaterial.describe() )
+            },
+
         // Read off the renderer rather than off `session.multisampled`, so it says what the
         // frame-buffer IS rather than what the URL asked for.
         //
@@ -2334,6 +2643,12 @@ function censusOfShading( session, stage ) {
         if ( name === 'sugata.eye.globe' || name === 'sugata.eye.cornea' ) census.eyeMaterial ++;
         if ( name === 'sugata.eye.occlusion' || name === 'sugata.eye.lacrimal' ) census.eyeOcclusion ++;
         if ( name.startsWith( 'sugata.card.' ) ) census.cardShading ++;
+
+        // 3.5, counted off the SCENE by material name, so the entry says what the plate CONTAINS
+        // rather than what the URL asked for. `?hairbsdf=0` leaves the groom in the frame with its
+        // GLB material and this correctly reports zero shaded meshes for it, which is the whole
+        // point of that toggle.
+        if ( census.hair !== null && name === 'sugata.hair' ) census.hair.shadedMeshesInScene ++;
 
     } );
 
@@ -3118,10 +3433,19 @@ function disposeShading( session ) {
     session.skin?.dispose();
     for ( const card of session.cards ) card.dispose();
 
+    // The groom's meshes are children of `figure.root`, so the figure's own dispose takes their
+    // geometry and their embedded textures. What it cannot take is this material and the two
+    // SIDECAR sheets, which were fetched here and are not on any mesh the figure knows about.
+    session.hairMaterial?.hairUniforms.flowMap?.value?.dispose();
+    session.hairMaterial?.hairUniforms.depthMap?.value?.dispose();
+    session.hairMaterial?.dispose();
+
     session.eyeOcclusion = null;
     session.eyes = null;
     session.skin = null;
     session.cards = [];
+    session.hair = null;
+    session.hairMaterial = null;
 
 }
 

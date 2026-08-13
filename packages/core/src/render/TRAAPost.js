@@ -128,6 +128,15 @@ export const HALTON_JITTER_PERIOD = 31;
  * @param {GBuffer} options.gbuffer - Supplies beauty, depth and velocity.
  * @param {Camera} options.camera - The same camera the scene pass renders with. The node writes
  *   a per-frame view offset onto it, so it must not be a copy.
+ * @param {?Node} [options.beauty] - What the resolve treats as the scene colour. Defaults to the
+ *   G-buffer's `output` attachment, which is the shipping path. Punch-list 3.6 passes the hair OIT
+ *   resolve here instead, because the temporal filter has to see the composited groom: 3.12
+ *   measured this resolve as the project's best card antialiaser, and hair is the most
+ *   aliasing-prone geometry in the repository. **Whatever is passed must already be a texture
+ *   node** — `taau()` and `traa()` wrap their input in `convertToTexture` (`TAAUNode.js:835`), which
+ *   does not recognise a computed node and falls through to a full-resolution `rtt()`; see the
+ *   block below on why that is worth 5.62 ms and why it also gives TAAU an input whose size
+ *   disagrees with the depth and velocity it reads beside it.
  * @param {?number} [options.sharpness] - RCAS strength, 0 = maximum and 2 = none. `null` skips
  *   the sharpen pass entirely, which is now the default — see `DEFAULT_SHARPNESS` for the G4
  *   table that decided it. `taau` callers should pass a number; `traa` callers should not.
@@ -146,7 +155,7 @@ export const HALTON_JITTER_PERIOD = 31;
  *
  * @returns {{ node: Node, mode: string, dispose: function(): void, setVelocityConfidence: function(number): void, resetFrameEpoch: function(): void, frameEpoch: function(): Object }}
  */
-export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
+export function createTemporalResolve( { mode, gbuffer, camera, sharpness, beauty: beautyOverride = null } ) {
 
     if ( mode !== 'traa' && mode !== 'taau' ) {
 
@@ -154,7 +163,7 @@ export function createTemporalResolve( { mode, gbuffer, camera, sharpness } ) {
 
     }
 
-    const beauty = gbuffer.node( 'output' );
+    const beauty = beautyOverride ?? gbuffer.node( 'output' );
     const depth = gbuffer.depthNode;
     const velocity = gbuffer.velocityNode;
 

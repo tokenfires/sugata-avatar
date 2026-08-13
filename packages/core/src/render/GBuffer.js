@@ -16,6 +16,14 @@
  * | `normal`       | RGBA16F  | every material        | GTAO -> bent normals + spec occ (3.10)   |
  * | `velocity`     | RG16F    | every material        | TRAA and TAAU (3.12)                     |
  * | `sssMask`      | R8       | skin material only    | pre-integrated skin (3.2)                |
+ * | `hairAccum`    | RGBA16F  | hair material only *  | the OIT resolve (3.6) — opt-in           |
+ * | `hairWeight`   | R16F     | hair material only *  | the OIT resolve (3.6) — opt-in           |
+ *
+ * \* "hair material only" in the sense that only hair writes a NON-ZERO value. Every material in
+ * the pass writes those two attachments, because the blend state that makes them an accumulation
+ * buffer is pass state and cannot be varied per material — see the constructor, and `HairOIT.js`
+ * for the arithmetic that shows a zero write is a no-op. They exist only when the pass is built
+ * with `{ hairOIT: true }`, so a page with no groom pays nothing.
  *
  * Three decisions in that table are load-bearing and easy to get wrong later:
  *
@@ -79,6 +87,8 @@ import {
     velocity
 } from 'three/tsl';
 
+import { HAIR_OIT_CHANNELS, hairAccumBlendMode, hairWeightBlendMode } from './HairOIT.js';
+
 /**
  * The channel table above, in the form the code actually consumes.
  *
@@ -133,12 +143,17 @@ export class GBuffer {
      *
      * @param {PassNode} scenePass - The pass returned by `pass( scene, camera )`.
      */
-    constructor( scenePass ) {
+    constructor( scenePass, options = {} ) {
 
         this.pass = scenePass;
         this.textures = {};
+        this.hasHairOIT = options.hairOIT === true;
 
-        for ( const channel of GBUFFER_CHANNELS ) {
+        const channels = this.hasHairOIT
+            ? [ ...GBUFFER_CHANNELS, ...HAIR_OIT_CHANNELS ]
+            : GBUFFER_CHANNELS;
+
+        for ( const channel of channels ) {
 
             const texture = scenePass.getTexture( channel.name );
 
@@ -158,7 +173,7 @@ export class GBuffer {
 
         this.textures.output = scenePass.getTexture( 'output' );
 
-        scenePass.setMRT( mrt( {
+        const outputs = {
             output,
             diffuseColor,
             normal: vec4( normalView, roughness ),
@@ -167,7 +182,38 @@ export class GBuffer {
             // Written by every material so the channel is never undefined; the skin material
             // replaces it via its own `mrtNode`. See `markAsSkin()`.
             sssMask: float( 0 )
-        } ) );
+        };
+
+        if ( this.hasHairOIT ) {
+
+            // 🚩 EVERY MATERIAL IN THE PASS WRITES THESE, AND THAT IS THE DESIGN RATHER THAN AN
+            // OVERSIGHT. Per-attachment blend state is read from `renderObject.context.mrt`
+            // (`WebGPUPipelineUtils.js:132`), which `RenderContexts.js:74` fills from
+            // `Renderer.setMRT()` — i.e. from THIS node — so the OIT blend rules apply to every
+            // draw in the pass whether or not it is hair, and there is no per-material escape.
+            // A source of zero is exactly a no-op under those rules: the accumulation adds nothing,
+            // and the revealage multiplies by `1 − 0`. `HairOIT.js` writes the arithmetic out.
+            // The hair material overrides only these two VALUES via `material.mrtNode`, which is
+            // the half of `MRTNode.merge()` that works.
+            outputs.hairAccum = vec4( 0 );
+            outputs.hairWeight = float( 0 );
+
+        }
+
+        const passMRT = mrt( outputs );
+
+        // 🚩 `hairOITDefect: 'material-blend'` withholds the pass-level blend modes so the hair
+        // material can carry them instead — the placement that reads as correct and is not. It is
+        // the red proof for `HairOIT.selftest.mjs` and nothing else; see `configureHairMaterial`.
+        if ( this.hasHairOIT && options.hairOITDefect !== 'material-blend' ) {
+
+            passMRT
+                .setBlendMode( 'hairAccum', hairAccumBlendMode() )
+                .setBlendMode( 'hairWeight', hairWeightBlendMode() );
+
+        }
+
+        scenePass.setMRT( passMRT );
 
     }
 
@@ -229,7 +275,8 @@ export class GBuffer {
             + 4       // diffuseColor RGBA8
             + 8       // normal   RGBA16F
             + 4       // velocity RG16F
-            + 1;      // sssMask  R8
+            + 1       // sssMask  R8
+            + ( this.hasHairOIT ? 8 + 2 : 0 );   // hairAccum RGBA16F + hairWeight R16F (3.6)
 
     }
 

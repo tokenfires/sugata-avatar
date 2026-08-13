@@ -59,6 +59,7 @@ import {
 import { pass, renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
 
 import { channelDisplayNode, channelGridNode, GBuffer } from './GBuffer.js';
+import { createHairOIT, HAIR_OIT_MINIMUM_ATTACHMENT_BYTES, HAIR_OIT_MODES } from './HairOIT.js';
 import { installMorphVelocity, MORPH_VELOCITY_MODES, setMorphVelocityMode } from './MorphVelocity.js';
 import { createTemporalResolve, TAAU_RESOLUTION_SCALE, TEMPORAL_AA_MODES } from './TRAAPost.js';
 
@@ -97,6 +98,15 @@ export class Stage {
         this.temporal = null;
         this.ambientOcclusion = null;
         this.grade = null;
+
+        // Punch-list 3.6. `off` for every page that has no groom; the mode is fixed at `create()`
+        // because only `wboit` allocates the two extra attachments and an attachment set belongs to
+        // the render target the pass was built with. There is deliberately no setter — a page A/B-ing
+        // the arms reloads with a different `?oit=`, which is also what makes two judge plates
+        // comparable, since every arm then boots through the same code path.
+        this.hairOITMode = 'off';
+        this.hairOITDefect = null;
+        this.hairOIT = null;
         this.multisampled = false;
         this.morphVelocity = 'off';
 
@@ -158,6 +168,12 @@ export class Stage {
      *   a large constant motion vector; `render/MorphVelocity.js` has the mechanism and the
      *   measurements. `off` is three's behaviour and exists as the rejection proof. Inert on the
      *   forward path, where nothing binds a velocity attachment.
+     * @param {'off'|'blend'|'cutout'|'hash'|'wboit'} [options.hairOIT='off'] - Punch-list 3.6, how
+     *   hair cards reach the frame buffer. `blend` is the naive control and is the DEFECT; the
+     *   other three are order independent. Only `wboit` changes this Stage — it adds two
+     *   attachments and one resolve pass and therefore implies `pipeline: true`; the other modes
+     *   are entirely properties of the hair material and are recorded here so `stats.hairOIT` can
+     *   name the arm a plate was captured on. See `render/HairOIT.js`.
      * @param {number} [options.maxPixelRatio=2] - Upper bound on devicePixelRatio.
      * @param {number} [options.fieldOfView=35] - Vertical FOV in degrees. Portrait range is 24-40.
      * @param {number} [options.near=0.01]
@@ -204,6 +220,30 @@ export class Stage {
 
         this.multisampled = options.antialias === true;
 
+        // Punch-list 3.6. Fixed here and not settable later: only `wboit` allocates `hairAccum` and
+        // `hairWeight`, and an attachment set belongs to the render target the pass was built with.
+        // A page A/B-ing the four arms reloads with a different `?oit=` — which is also what makes
+        // a judge plate honest, since every arm then boots from the same code path.
+        this.hairOITMode = options.hairOIT ?? 'off';
+
+        // Carried rather than acted on here: `GBuffer` withholds the pass-level blend modes and the
+        // caller's `configureHairMaterial` puts them on the material instead. The two halves have to
+        // agree or the "defect" is not the defect. `HairOIT.selftest.mjs` owns it.
+        this.hairOITDefect = options.hairOITDefect ?? null;
+
+        if ( this.hairOITMode !== 'off' && HAIR_OIT_MODES.includes( this.hairOITMode ) === false ) {
+
+            throw new Error( `Stage: hairOIT must be 'off' or one of ${ HAIR_OIT_MODES.join( ', ' ) }.` );
+
+        }
+
+        if ( this.hairOITMode === 'wboit' && options.pipeline !== true && ( options.temporalAA ?? 'off' ) === 'off' ) {
+
+            throw new Error( 'Stage: hairOIT "wboit" needs the deferred path — its two accumulation ' +
+                'attachments are G-buffer attachments. Pass pipeline: true.' );
+
+        }
+
         // Installed before any material compiles, because it is a vertex-stage assignment and a
         // material built earlier would keep three's broken previous position for its whole life.
         this.morphVelocity = options.morphVelocity ?? 'exact';
@@ -219,11 +259,26 @@ export class Stage {
 
         const wantsWebGPU = options.forceWebGL !== true && this.isWebGPUAvailable();
 
+        // 🚩 The `wboit` arm takes the pass over WebGPU's DEFAULT colour-attachment budget, and the
+        // failure is per-pipeline and names the material rather than the attachment set — see
+        // `HairOIT.js`'s HAIR_OIT_MINIMUM_ATTACHMENT_BYTES. The limit is raised to the adapter's own
+        // maximum rather than to a constant, because a constant would be a guess about hardware
+        // this project has never run on, and asking for exactly what the adapter reports cannot be
+        // refused. `WebGPUBackend` passes `requiredLimits` straight into `requestDevice` (:243).
+        const requiredLimits = { ...( options.requiredLimits ?? {} ) };
+
+        if ( this.hairOITMode === 'wboit' && wantsWebGPU ) {
+
+            await this.raiseColorAttachmentBudget( requiredLimits );
+
+        }
+
         this.renderer = new WebGPURenderer( {
             canvas,
             antialias: this.multisampled,
             forceWebGL: wantsWebGPU === false,
-            trackTimestamp: options.trackTimestamp === true
+            trackTimestamp: options.trackTimestamp === true,
+            requiredLimits
         } );
 
         this.renderer.toneMapping = ACESFilmicToneMapping;
@@ -259,6 +314,8 @@ export class Stage {
         // WebGL2 backend if adapter acquisition throws, and the caller needs to know.
         this.backendName = this.renderer.backend.isWebGPUBackend === true ? 'webgpu' : 'webgl2';
 
+        if ( this.hairOITMode === 'wboit' ) this.requireIndependentBlending();
+
         this.camera = new PerspectiveCamera(
             options.fieldOfView ?? 35,
             1,
@@ -276,7 +333,17 @@ export class Stage {
 
             this.buildPipeline( options.resolutionScale ?? defaultScale );
 
+            // Between the pass and the resolve, in that order and for a reason: the two OIT
+            // attachments have to exist before the composite can sample them, and the composite
+            // has to exist before the temporal resolve can be built on top of it.
+            if ( this.hairOITMode === 'wboit' ) {
+
+                this.hairOIT = createHairOIT( { gbuffer: this.gbuffer, resolutionScale: this.resolutionScale } );
+
+            }
+
             if ( temporalAA !== 'off' ) this.setTemporalAA( temporalAA, { sharpness: options.sharpness } );
+            else this.refreshOutputNode();
 
         }
 
@@ -367,6 +434,11 @@ export class Stage {
         this.resolutionScale = scale;
         this.scenePass.setResolutionScale( scale );
 
+        // The OIT resolve reads the scene pass's attachments at their own texel centres, so it has
+        // to be exactly the same size. `TAAUNode` also reads the input dimensions off this node
+        // (`:398`), so a mismatch here is a mis-scaled upscale rather than a visible tear.
+        this.hairOIT?.setResolutionScale( scale );
+
     }
 
     /**
@@ -409,7 +481,11 @@ export class Stage {
                 mode,
                 gbuffer: this.gbuffer,
                 camera: this.camera,
-                sharpness: options.sharpness
+                sharpness: options.sharpness,
+
+                // The groom reaches the temporal filter already composited, so hair is antialiased
+                // by the same resolve as everything else. `null` on every page without a groom.
+                beauty: this.hairOIT === null ? null : this.hairOIT.beautyNode
             } );
 
         }
@@ -499,6 +575,7 @@ export class Stage {
             msaa: this.multisampled,
             temporalAA: this.temporal === null ? 'off' : this.temporal.mode,
             ambientOcclusion: this.ambientOcclusion === null ? 'off' : this.ambientOcclusion.quality,
+            hairOIT: this.hairOITMode,
             morphVelocity: this.morphVelocity,
             graded: this.grade !== null,
             resolutionScale: this.resolutionScale,
@@ -533,6 +610,13 @@ export class Stage {
 
         }
 
+        if ( this.hairOIT !== null ) {
+
+            this.hairOIT.dispose();
+            this.hairOIT = null;
+
+        }
+
         this.grade = null;
         this.renderPipeline = null;
         this.scenePass = null;
@@ -563,7 +647,10 @@ export class Stage {
     buildPipeline( resolutionScale ) {
 
         this.scenePass = pass( this.scene, this.camera );
-        this.gbuffer = new GBuffer( this.scenePass );
+        this.gbuffer = new GBuffer( this.scenePass, {
+            hairOIT: this.hairOITMode === 'wboit',
+            hairOITDefect: this.hairOITDefect
+        } );
 
         if ( resolutionScale !== 1 ) {
 
@@ -607,7 +694,12 @@ export class Stage {
             // scene pass -> temporal resolve -> ambient occlusion -> composeOutput -> grade ->
             // tone map + transfer. Nothing may blur or bloom before the temporal resolve; see the
             // file header, and `setAmbientOcclusion` for why 3.10 sits where it does.
-            let colour = this.temporal === null ? gbuffer.node( 'output' ) : this.temporal.node;
+            // Without a temporal resolve the OIT composite IS the scene colour; with one, the
+            // resolve was already built on top of it (`setTemporalAA`) and re-inserting it here
+            // would composite the groom twice.
+            const sceneColour = this.hairOIT === null ? gbuffer.node( 'output' ) : this.hairOIT.beautyNode;
+
+            let colour = this.temporal === null ? sceneColour : this.temporal.node;
 
             if ( this.ambientOcclusion !== null ) colour = this.ambientOcclusion.compose( gbuffer, colour );
 
@@ -701,6 +793,96 @@ export class Stage {
             this.windowStartedAtMs = timeMs;
 
         }
+
+    }
+
+    /**
+     * Refuses the `wboit` arm on a backend that cannot give each attachment its own blend state.
+     *
+     * 🚩 **The failure this prevents is silent and it produces a plausible picture.** Weighted-blended
+     * OIT is two attachments with two DIFFERENT blend functions — additive on the sums, multiplicative
+     * on the revealage. Given one blend for both, the accumulation buffer still fills, the resolve
+     * still divides, and the groom still renders; it is simply wrong, and wrong in a way that looks
+     * like a shading choice.
+     *
+     * Two backends, two mechanisms, both source-verified at r185:
+     *
+     *   - **WebGPU in compatibility mode.** `WebGPUPipelineUtils.js` checks
+     *     `this.backend.compatibilityMode !== true` before it consults the MRT at all, and otherwise
+     *     `warnOnce`s and applies the material's blending to every target. `compatibilityMode` is
+     *     itself derived — `WebGPUBackend.js` sets it from `! device.features.has(
+     *     'core-features-and-limits' )` — so it is a property of the adapter and not of a flag we
+     *     pass.
+     *   - **WebGL2.** `WebGLState.setMRTBlending()` returns early with the same warning unless
+     *     `OES_draw_buffers_indexed` is present (`WebGLBackend.js:272`).
+     *
+     * ⚠️ **And this is the half of punch-list 3.6 that the measurements corrected.** 3.6 reads
+     * "weighted-blended on WebGL2, tile-binned on WebGPU". It is the other way round: weighted
+     * blended is the arm that needs the MORE capable backend, because it is the one that needs
+     * independent per-attachment blending, and WebGL2 is where it is least likely to be available.
+     * A `warnOnce` in a console is not a fallback, so this throws.
+     */
+    requireIndependentBlending() {
+
+        if ( this.backendName === 'webgl2' ) {
+
+            const gl = this.renderer.backend.gl;
+            const indexed = gl?.getExtension?.( 'OES_draw_buffers_indexed' ) ?? null;
+
+            if ( indexed === null ) {
+
+                throw new Error( 'Stage: the hair "wboit" arm needs per-attachment blending, and this ' +
+                    'WebGL2 context has no OES_draw_buffers_indexed. three would apply one blend to ' +
+                    'both accumulation targets and warn once, which is a wrong picture rather than a ' +
+                    'downgrade. Use hairOIT: "hash".' );
+
+            }
+
+            return;
+
+        }
+
+        if ( this.renderer.backend.compatibilityMode === true ) {
+
+            throw new Error( 'Stage: the hair "wboit" arm needs per-attachment blending, and this ' +
+                'WebGPU device came up in compatibility mode (no core-features-and-limits), where ' +
+                'WebGPUPipelineUtils applies the material blending to every render target. ' +
+                'Use hairOIT: "hash".' );
+
+        }
+
+    }
+
+    /**
+     * Asks this machine's adapter for its whole colour-attachment budget, so the seven-attachment
+     * G-buffer the `wboit` arm needs can be bound at all.
+     *
+     * The adapter is requested here and then requested AGAIN inside `WebGPUBackend.init()`, which
+     * looks wasteful and is deliberate: three does not expose the adapter it chose, and the
+     * alternative is creating the device ourselves and handing it over, which would also make this
+     * file responsible for every feature `WebGPUBackend.js:227–242` enumerates. Two adapter requests
+     * cost microseconds and one of them is the honest question "what can this machine do".
+     *
+     * A refusal is loud and names the reason. An adapter at the spec floor of 32 cannot run the arm,
+     * and a viewer meeting that as a black frame with seven pipeline-creation errors would go
+     * looking in the material.
+     */
+    async raiseColorAttachmentBudget( requiredLimits ) {
+
+        const adapter = await navigator.gpu.requestAdapter( { featureLevel: 'compatibility' } );
+
+        const available = adapter?.limits?.maxColorAttachmentBytesPerSample ?? 0;
+
+        if ( available < HAIR_OIT_MINIMUM_ATTACHMENT_BYTES ) {
+
+            throw new Error( 'Stage: this adapter reports maxColorAttachmentBytesPerSample ' +
+                `${ available }, and the hair "wboit" arm needs at least ` +
+                `${ HAIR_OIT_MINIMUM_ATTACHMENT_BYTES } for the seven-attachment G-buffer. ` +
+                'Use hairOIT: "hash" or "cutout", which need no attachments at all.' );
+
+        }
+
+        requiredLimits.maxColorAttachmentBytesPerSample = available;
 
     }
 
