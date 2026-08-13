@@ -873,7 +873,25 @@ export function hairDitherThresholdNode( offset ) {
  *     | 0.20   |         4.0602 |   45,419 |  13.33 |
  *     | 0.35   |         3.1402 |   32,163 |   9.44 |
  *     | 0.50   |         2.3689 |   23,417 |   6.87 |  ← the groom's own `alphaMode: MASK` cutoff
- *     | 1.00   |         0.1449 |        0 |   0.00 |  ← nothing casts
+ *     | 1.00   |         0.1449 |        0 |   0.00 |  ← nothing casts. ⚠️ NOT ANY MORE — see below
+ *
+ * 🚩 **THE LAST ROW EXPIRED WHEN THE GROOM GAINED ITS OPAQUE MASS, AND IT TOOK TWO GATE CLAUSES
+ * WITH IT.** The whole table is a 294-card measurement. At 378 cards `assets/hair/bob01/albedo.png`
+ * carries alpha exactly 1.0 on 413,202 of its 1,048,576 texels — **39.406%**, measured off the
+ * atlas — because the `mass` layer is authored at strip mean alpha 0.838 with its strands run to
+ * full strip length. So `cutoff = 1.00` no longer means "nothing casts": it admits two fifths of
+ * the groom and reads 2.6721 of contact over 18,485 px of skin, measured this session on the same
+ * page at the same framing.
+ *
+ * `HairShadow.selftest.mjs` had built two of its red proofs on that row's promise and both went red
+ * — undeclared — the round the layer landed. They now use a cutoff of 1.5, which is ABOVE the range
+ * of a texture sample and is therefore a statement about the mask rather than about the atlas. The
+ * lesson is in the constant that fixed it: a reference arm defined by a value the data can reach is
+ * a reference arm with an expiry date on it.
+ *
+ * ⚠️ THE OTHER NINE ROWS ARE NOT RE-MEASURED and the shape argument below rests on them. The knee
+ * at zero is what picks 0.05, and nothing in the mass layer's placement is a reason for that knee
+ * to have moved — but that is an argument, not a reading, and the sweep is due a re-run.
  *
  * 🎯 **THE WHOLE DEFECT IS THE FIRST ROW'S GAP.** Admitting alpha below 0.01 adds 2.3164 of
  * contact and 33,852 px of shadowed skin; the entire per cent above it adds 0.2373 and 2,260 px.

@@ -2286,3 +2286,75 @@ evidence:    `grep -c hair packages/testbed/src/alive-capture-determinism.selfte
 anchor:      packages/testbed/src/alive-capture-determinism.selftest.mjs /const RECIPES = \[/
 verify:      packages/testbed/src/alive-capture-determinism.selftest.mjs /hair=1/
 ```
+
+## REQ-073 — the shipped coverage arm stipples the whole card, not only its edge
+
+```request
+id:          REQ-073
+status:      OPEN
+target:      packages/core/src/render/HairOIT.js
+filed-by:    the R19 hair-curtain agent
+filed-round: R12
+filed-at:    fe95109
+change:      Confine `hairDitherThresholdNode`'s threshold to a band around 0.5 instead of letting
+             it span the whole of (0, 1], behind a named exported constant so the trade is a
+             number a reader can move:
+
+                 export const HAIR_DITHER_BAND = 0.5;
+
+                 return interleavedGradientNoise( screenCoordinate.xy ).add( offset ).fract()
+                     .mul( HAIR_DITHER_BAND ).add( 0.5 - HAIR_DITHER_BAND * 0.5 )
+                     .clamp( 1e-6, 1 );
+
+             At 0.5 every fragment under alpha 0.25 is discarded and every one over 0.75 is kept,
+             deterministically, and only the band between them is a coin flip. ⚠️ THIS IS A REAL
+             TRADE AND IT IS YOURS TO WEIGH, NOT MINE: it stops the arm being an unbiased coverage
+             estimator in the tails, which is exactly the property the arm was chosen for. If the
+             answer is that the bias is worse than the stipple, REJECT with that as the reason —
+             the measurement below stands either way, and the alternative it points at is that
+             `blend` beats `stochastic` fourfold on the statistic and the arm choice is due a
+             re-derivation against it.
+evidence:    Measured this round with `tools/figure-pipeline/hair_tips.mjs`, portrait on
+             `alive.html` at 900x1200 dpr 1, 24 converged steps of
+             `?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=<arm>`, one page
+             load per arm. The statistic is the share of a region whose pixels differ from the mean
+             of their own 3x3 by more than 8 code values, over masks cut from a CPU raster of the
+             meshes' own triangles and intersected with a geometric-stability test so that no
+             number is about a silhouette:
+
+               region (px)                              stochastic   cutout    blend
+               tips, 1 card deep over sky (11,539)          5.00%     2.57%    1.16%
+               curtain, 1-2 deep over skin (115,377)       16.03%    12.47%    4.08%
+               mass, 3+ deep over skin (195,885)            6.56%     4.66%    1.12%
+               bare skin, no hair over it (314,590)         1.20%     1.20%    1.20%
+               empty backdrop (225,478)                     0.31%     0.31%    0.31%
+
+             The bare-skin row is 1.20% on all three arms to three figures, which is the control
+             that makes the rest of the table the coverage decision's and nothing else's — same
+             geometry, same atlas, same framing, same 24 steps.
+
+             🎯 THE MASS ROW IS THE ONE THAT NAMES THE MECHANISM. 6.56% against blend's 1.12% where
+             the groom is THREE OR MORE cards deep is not an edge artefact; it is the interior of
+             the groom being stippled, which is what a threshold spanning (0, 1] does — a fragment
+             at alpha 0.9 is discarded on 10% of pixels and one at 0.1 is kept on 10%. 39.406% of
+             `assets/hair/bob01/albedo.png` is exactly alpha 1.0 (this file's own measurement) and
+             every one of those texels is currently a coin flip that TAAU has to average out.
+
+             A blind critic named the visible half of it twice, as two artefacts: "the tips are
+             dither confetti" and "there is a circuit-board texture artifact sitting on the cheek at
+             portrait range". They are one artefact. Cropped at 6x from the two plates, the same
+             card over the cheek reads as clean diagonal strand stripes under `blend` and as an
+             axis-aligned dot pattern under `stochastic`. It is not a periodic lattice, measured:
+             an edge-discounted autocorrelation reads 0.014 over the curtain against 0.59-0.98 for
+             a planted 4 px checkerboard control.
+
+             ⚠️ AND THE COVERAGE PATH IS NOT ALL OF IT. `--defect flat` — the groom opaque with no
+             atlas at all — still reads 3.81% at the tips and 10.47% at the curtain, so a third of
+             the curtain's speckle is the cards' own edges and shading at portrait magnification
+             and no transparency arm can reach it.
+
+             Filed rather than done: this agent owns `tools/figure-pipeline/**`, `assets/hair/**`
+             and the hair testbed page. `HairOIT.js` is not its file.
+anchor:      packages/core/src/render/HairOIT.js /interleavedGradientNoise\( screenCoordinate\.xy \)/
+verify:      packages/core/src/render/HairOIT.js /HAIR_DITHER_BAND/
+```

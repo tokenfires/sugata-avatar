@@ -97,6 +97,74 @@
  * picture, to the pixel, that the runtime `nomask` and `zero` arms produce on the fixed tree. The
  * runtime break is the source break, measured rather than assumed.
  *
+ * ## ROUND 18: THE SAME BREAK, RE-RUN, BECAUSE THE TWO REPAIRED PROOFS HAVE TO FAIL UNDER IT
+ *
+ * A repaired red proof that cannot go red is worse than the red one it replaced. `maskShadowNode`
+ * nulled at source in `configureHairMaterial`, one line, and `HairOIT.js` restored afterwards to
+ * sha256 `9fa71467a1e2fd576ad6d28dda36bc92ff9ec8161670028729c44a5d3d895533` — the digest it had
+ * before the break:
+ *
+ *     BROKEN   FAIL ALPHA RESPONSE  0.0000 of 255 against a floor of 1.5
+ *              FAIL NO QUAD SHADOW  1.0000 against a ceiling of 0.8 (57,124 px against 57,124)
+ *              FAIL RED PROOF 2     floor 1.0000 (57,124 px) against a bound of 0.02
+ *              FAIL RED PROOF 3     6.7228 of 255 against a floor of 2
+ *              FAIL — 4 of 8
+ *     RESTORED PASS — 8 of 8, floor 0.0000 (0 px), noCast contact 0.3240, shipped ratio 0.7140
+ *
+ * 🎯 And FIVE arms collapse onto one picture now rather than four — 57,124 px, contact 6.7228 —
+ * `noCast` among them, which is the point: with the mask gone nothing consults the cutoff, so the
+ * arm that is supposed to render nothing renders the quads instead and both proofs go red.
+ *
+ * ⚠️ `noCast` READS 0.3240 OF CONTACT AND NOT 0.0000, AND THAT IS NOT SLOP. Its shadowed AREA is
+ * exactly 0 px — no skin pixel is darkened past 3/255 — but the mean over the band is not zero,
+ * because a groom that casts no shadow still occludes ambient. The area statistic is the one the
+ * gate leans on for that reason, and the contact floor of 2.0 sits well clear of it.
+ *
+ * ⚠️ **THE MARGIN ON `NO QUAD SHADOW` HAS THINNED AND THE NEXT ROUND SHOULD KNOW IT.** The two runs
+ * recorded above read 0.6155 and 0.5109 against the 0.80 ceiling; four consecutive clean runs
+ * earlier this session read **0.7140**, and a fifth taken hours later, after the suite had been
+ * round-tripped twice, reads **0.6837** — skin 248,046 px, shipped 39,695, quads 58,058.
+ *
+ * 🚩 SO "BIT-IDENTICAL" IS TRUE WITHIN A SITTING AND FALSE ACROSS ONE, and the correction matters
+ * more than the number. The four-run agreement was read as the instrument being deterministic; what
+ * it actually shows is that nothing changed in those twenty minutes. The skin mask moved 0.7%
+ * (246,338 -> 248,046 px) and the ratio 0.03 between sittings, with two other agents editing
+ * `tools/figure-pipeline/**` and `packages/testbed/src/hair.js` in the tree throughout. A repeat
+ * count is evidence about the interval it spans and nothing wider.
+ *
+ * The trend still holds and is the part to act on: 0.5109 -> 0.6155 -> ~0.69 against a fixed 0.80,
+ * moving toward the ceiling because a denser groom's own alpha admits a larger share of what its
+ * bare quads would. ~0.11 of margin is one more coverage layer.
+ *
+ * ## 🚩 ROUND 18: THE `cutoff = 1` ARM STOPPED BEING A "NOTHING CASTS" ARM, AND THAT IS THE GROOM
+ *
+ * Both red proofs below went red the round the groom went 294 -> 378 cards, and neither of them is
+ * about the shadow code. They both referenced `opaqueOnly` — `hairShadowCutoff = 1`, chosen because
+ * "as close to nothing-casts as this rig can be driven" was TRUE of the atlas it was written
+ * against. It is not true of this one. Measured this session, straight off
+ * `assets/hair/bob01/albedo.png`, 1024x1024, alpha channel:
+ *
+ *     mean alpha 0.4993     alpha exactly 1.0 on 413,202 of 1,048,576 texels — 39.406%
+ *
+ * **Two fifths of the atlas is now fully opaque**, because last round added a `mass` coverage layer
+ * for the length authored at strip mean alpha 0.838 with its strands run to full strip length. So
+ * `a >= 1` admits two fifths of the groom, and the arm the gate used as its zero reference casts a
+ * substantial shadow: 2.6721 of contact over 18,485 px of skin, measured this session. That clears
+ * `MINIMUM_CONTACT`, so RED PROOF 3 — "the floor is not vacuous because this arm fails it" — was
+ * false; and it puts a finite number under RED PROOF 2's ratio, which had returned `Infinity` on
+ * every green run this file has ever had, because the arm's area used to be 0 px.
+ *
+ * 🎯 THE FIX IS NOT TO MOVE A THRESHOLD. It is that "nothing casts" must be a statement about the
+ * MASK and not about the atlas. `noCast` drives the cutoff to 1.5: card alpha lives in [0,1], so
+ * `a >= 1.5` is unsatisfiable, every hair fragment is discarded from the shadow pass, and the groom
+ * casts nothing — whatever the atlas contains now or later. That arm cannot be aged by a groom
+ * change the way `cutoff = 1` was.
+ *
+ * `opaqueOnly` is KEPT and re-read for what it now is: the shadow the opaque mass alone casts. That
+ * is the reference `MINIMUM_ALPHA_RESPONSE` wants — `contact( shipped ) − contact( mass )` is
+ * exactly "how much of the shadow comes through partial coverage" — and it is a more demanding one
+ * than it used to be, which is why that clause is still green with margin at 2.5610.
+ *
  * ⚠️ **THE ABSOLUTE READINGS MOVED BETWEEN THOSE RUNS AND IT WAS NOT THIS FILE.** Two other agents
  * were editing `material/HairMaterial.js` and `tools/figure-pipeline/hair_cards.py` in the same
  * session, so the groom's shading and the measured skin mask changed underneath the gate: three
@@ -104,6 +172,19 @@
  * 🎯 THE CONTACT MOVED BY 24% AND THE RATIO BY 0.0001. That is the entire argument for the headline
  * clause being a RATIO between two arms of one run: a gate pinned to an absolute area would have
  * gone red on somebody else's correct work, twice, in one afternoon, and this one did not move.
+ *
+ * ⚠️ **AND DO NOT RUN THIS GATE BESIDE ANOTHER GPU GATE.** Four consecutive runs with the GPU to
+ * itself agree to the pixel — skin 246,338 px, shipped 40,788, quads 57,124, ratio 0.7140, every
+ * one. A fifth taken while another browser gate was finishing read a skin mask of 264,451 px and a
+ * ratio of 0.6096: a 7% move in the measured mask and 0.10 in the headline statistic, from
+ * contention alone. `tools/run-selftests.sh` is serial for this reason; a reading taken next to a
+ * fan-out is not a reading.
+ *
+ * ⚠️ THAT AGREEMENT IS NOT A DETERMINISM CLAIM, and this comment used to make one. A sixth run, GPU
+ * to itself, hours later in the same session, reads skin 248,046 px and ratio 0.6837 — outside the
+ * four-run spread of exactly zero. Contention is one source of movement and elapsed time in a
+ * shared tree is another, so the rule to take from here is narrow: read the arms of ONE run against
+ * each other, and do not carry an absolute across runs on the strength of a repeat count.
  *
  *     node packages/core/src/render/HairShadow.selftest.mjs
  */
@@ -142,12 +223,16 @@ const STEPS = 60;
  * How much of the skin beside it the groom must darken, in 255ths of luma, against the same frame
  * with no groom at all.
  *
- * ⚠️ AUTHORED AS A FLOOR AND NOT FITTED. This gate's two green runs read 5.4025 and 4.3862; the arm
- * where only fully-opaque card texels cast — `hairShadowCutoff = 1`, i.e. as close to "the groom
- * casts nothing" as this rig can be driven without touching the lights — reads 0.1454 and 0.1461.
- * 2.0 sits an order of magnitude above the nothing-casts arm and a factor of 2.2 below the lower of
- * the two shipped readings, so it separates "there is a shadow" from "there is not" without pinning
- * the groom's density — which, per the header, is somebody else's to change and did change.
+ * ⚠️ AUTHORED AS A FLOOR AND NOT FITTED, AND NOT RE-DERIVED IN ROUND 18. This gate's earlier green
+ * runs read 5.4025 and 4.3862 and this session reads 5.2330, all against the same 2.0. What changed
+ * is which arm proves the floor separates: the `cutoff = 1` arm used to read 0.1454 and now reads
+ * 2.6721, because two fifths of the atlas is opaque — see the header. `noCast` is the arm that
+ * still reads nothing (0.3240), and RED PROOF 3 is the clause that says so.
+ *
+ * 2.0 therefore still sits where it was authored: below every shipped reading by a factor of 2.2 or
+ * better, and above an arm that casts nothing at all. It does NOT separate the shipped build from
+ * the opaque mass alone any more — nothing about a presence check ever did — and that separation is
+ * `MINIMUM_ALPHA_RESPONSE`'s job, which is why the two clauses are paired.
  */
 const MINIMUM_CONTACT = 2.0;
 
@@ -160,6 +245,19 @@ const MINIMUM_CONTACT = 2.0;
  * against IS that build — measured, in the source-level red proof in the header. 0.80 is 1.30x
  * above the worse of the two green readings and 1.25x below the broken one; both edges are
  * measurements and the value sits between them rather than beside either.
+ *
+ * 🚩 **THE MARGIN HAS THINNED AND NOBODY DECLARED THAT EITHER.** This session reads **0.7140** on
+ * four consecutive clean runs and **0.6837** on a sixth hours later, so 0.80 is now 1.12x to 1.17x
+ * above the reading rather than 1.30x — take the worse. It is the groom that moved, and it moved
+ * toward the ceiling: the denser the authored coverage, the larger the share of its bare quads'
+ * shadow that survives the alpha test, and the closer the ratio climbs to the 1.0000 a build with
+ * no coverage decision reads. **One more layer like the last one puts this clause red on merit.**
+ *
+ * ⚠️ THE VALUE IS NOT BEING RAISED TO BUY ROOM. A ceiling that retreats ahead of the measurement it
+ * bounds is not a ceiling, and the direction of travel is information the next round needs rather
+ * than a nuisance to absorb. If the groom densifies again the honest options are to accept the red
+ * and re-derive against what the shipped build should be, or to change what the shadow pass admits
+ * — not to move this number.
  */
 const MAXIMUM_AREA_AGAINST_QUADS = 0.80;
 
@@ -167,10 +265,17 @@ const MAXIMUM_AREA_AGAINST_QUADS = 0.80;
  * How much of the shipped build's contact has to be coming through the alpha test, in 255ths.
  *
  * The other side of the same question, and the clause that catches the cutoff regressing UPWARDS:
- * `contact( shipped ) − contact( cutoff 1 )`. The two green runs read 5.2570 and 4.2401. The floor
- * is 1.5, which a build at the groom's own 0.5 MASK cutoff would still clear — the cutoff sweep
- * beside `HAIR_SHADOW_ALPHA_CUTOFF` puts that arm at 2.3689 − 0.1449 = 2.2240 — and a build that
- * casts nothing cannot.
+ * `contact( shipped ) − contact( cutoff 1 )`. The two earlier green runs read 5.2570 and 4.2401 and
+ * this session reads 2.5610 against the same 1.5 floor — the drop is the mass, which now casts on
+ * the subtrahend arm and did not before, so the difference is measuring a smaller and more honest
+ * thing: the shadow that comes through PARTIAL coverage specifically.
+ *
+ * ⚠️ THE FLOOR WAS NOT MOVED TO ACCOMMODATE THAT, and the margin it leaves is now 1.7x rather than
+ * 2.8x. It stays at 1.5 because the number was derived from what it has to separate, not from the
+ * readings: a build at the groom's own 0.5 MASK cutoff must still clear it, and a build that casts
+ * nothing must not. ⚠️ The arithmetic behind that — the cutoff sweep beside
+ * `HAIR_SHADOW_ALPHA_CUTOFF` — was taken on the 294-card atlas and its `cutoff 1.00` row no longer
+ * holds; the sweep is due a re-run and that constant says so.
  */
 const MINIMUM_ALPHA_RESPONSE = 1.5;
 
@@ -184,6 +289,51 @@ const MINIMUM_ALPHA_RESPONSE = 1.5;
  * red arm is the nothing-casts arm, whose worst cell is reported beside the shipped one.
  */
 const MAXIMUM_CELL_BRIGHTENING = 0.5;
+
+/**
+ * The cutoff that makes the groom cast NOTHING, and it is unsatisfiable rather than merely strict.
+ *
+ * `shadowCoverageMask` in `HairOIT.js` builds `colorNode.a >= cutoff` and `_getShadowNodes` discards
+ * where that is false. Card alpha is a texture sample in [0, 1], so no fragment can reach 1.5 and
+ * every one of them is discarded from the shadow pass — the beauty pass untouched, the lights
+ * untouched, the geometry untouched.
+ *
+ * 🎯 THIS IS THE ARM `cutoff = 1` USED TO BE AND IS NOT ANY MORE. A cutoff of exactly 1 is a
+ * statement about the ATLAS — it means "nothing casts" only while nothing in the atlas is fully
+ * opaque, which stopped being true when the `mass` layer landed. A cutoff above the range is a
+ * statement about the MASK, and no groom edit can age it. See the header for the 39.406%.
+ *
+ * ⚠️ NOT ASSUMED — the run below prints this arm's contact and area beside every other arm's, and
+ * two clauses assert they are zero. A mask node that was quietly dropped from the pipeline would
+ * show up here as this arm rendering the quads, which is exactly RED PROOF 2 and 3 going red.
+ */
+const NO_CAST_CUTOFF = 1.5;
+
+/**
+ * The two ends of RED PROOF 2, which is the vacuity control on `MAXIMUM_AREA_AGAINST_QUADS`.
+ *
+ * The area clause is a ratio against the quads arm, so it reads 1.0000 on a build that makes no
+ * coverage decision. That only means something if the ratio can also be SMALL, and the arm that
+ * proves it can is `noCast`: a groom discarded entirely from the shadow pass darkens no skin, so
+ * the statistic's floor is zero and its ceiling is one, and the shipped build has to sit inside.
+ *
+ * ⚠️ NEITHER BOUND IS FITTED TO A READING, and the shape of the clause is why. The floor arm's
+ * honest answer is EXACTLY 0 px — with the groom casting nothing, its plate differs from bald only
+ * where the groom is drawn, and every such pixel is outside the eroded skin mask by construction.
+ * 0.02 is therefore not a tolerance on a measurement, it is room for temporal-resolve residue on a
+ * quantity whose expected value is zero. 0.10 on the other side is the same kind of statement from
+ * the other end: a shipped build that darkened under a tenth of the skin the quads do would not be
+ * casting a hair shadow, it would be casting almost nothing, and `MINIMUM_CONTACT` should have
+ * caught it first — this is the clause that says the two agree.
+ *
+ * 🎯 WHAT MAKES THEM LIVE: both go red under the file's own documented source break. With
+ * `material.maskShadowNode` nulled, the cutoff is not consulted by anything, so `noCast` renders
+ * the quads picture, the floor reads 1.0000 against a 0.02 bound and the clause fails. The old
+ * form of this proof could not fail at all — its arm's area was 0 px on every green run this file
+ * ever had, so the ratio it reported was `Infinity` every single time.
+ */
+const MAXIMUM_NO_CAST_SHARE = 0.02;
+const MINIMUM_SHIPPED_SHARE = 0.10;
 
 /** A skin pixel is SHADOWED by the groom when it is this much darker than the same pixel bald. */
 const SHADOWED_255 = 3;
@@ -570,7 +720,8 @@ async function main() {
         { name: 'shipped', hair: true },
         { name: 'zero', hair: true, cutoff: 0 },
         { name: 'nomask', hair: true, clearMask: true },
-        { name: 'opaqueOnly', hair: true, cutoff: 1 }
+        { name: 'opaqueOnly', hair: true, cutoff: 1 },
+        { name: 'noCast', hair: true, cutoff: NO_CAST_CUTOFF }
     ];
 
     const captured = {};
@@ -622,7 +773,7 @@ async function main() {
         `${ skinCount } px skin, ${ bandCount } px band, ${ masks.pureCells.length } cells` );
 
     const read = {};
-    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly' ] ) {
+    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
 
         read[ name ] = readArm( masks, captured.bald.plate, captured[ name ] );
 
@@ -630,7 +781,7 @@ async function main() {
 
     console.log( '\n--- the groom against the same frame with no groom ---\n' );
     console.log( '  arm             contact 255   skin shadowed        worst cell brighter' );
-    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly' ] ) {
+    for ( const name of [ 'shipped', 'zero', 'nomask', 'opaqueOnly', 'noCast' ] ) {
 
         const arm = read[ name ];
         console.log( `  ${ name.padEnd( 14 ) } ${ arm.contact255.toFixed( 4 ).padStart( 10 ) }   ` +
@@ -646,7 +797,8 @@ async function main() {
     report( read.shipped.contact255 >= MINIMUM_CONTACT,
         'CONTACT — the groom darkens the skin beside it',
         `${ read.shipped.contact255.toFixed( 4 ) } of 255 against a floor of ${ MINIMUM_CONTACT } ` +
-        `(nothing-casts arm reads ${ read.opaqueOnly.contact255.toFixed( 4 ) })` );
+        `(the nothing-casts arm reads ${ read.noCast.contact255.toFixed( 4 ) }, the opaque mass ` +
+        `alone ${ read.opaqueOnly.contact255.toFixed( 4 ) })` );
 
     const response = read.shipped.contact255 - read.opaqueOnly.contact255;
     report( response >= MINIMUM_ALPHA_RESPONSE,
@@ -682,19 +834,29 @@ async function main() {
         `${ divergence } px apart of ${ read.zero.shadowedPixels } ` +
         `(contact ${ read.nomask.contact255.toFixed( 4 ) } against ${ read.zero.contact255.toFixed( 4 ) })` );
 
-    const dynamicRange = read.opaqueOnly.shadowedPixels === 0
+    // 🚩 BOTH PROOFS BELOW USED THE `cutoff = 1` ARM AND BOTH WENT RED WHEN THE GROOM GAINED ITS
+    // OPAQUE MASS — see the header. They now use `noCast`, whose cutoff is above the range of the
+    // quantity it tests, so what they assert is a property of the MASK and cannot be aged by an
+    // atlas edit. Neither threshold moved.
+
+    const noCastRatio = read.zero.shadowedPixels === 0
         ? Infinity
-        : read.zero.shadowedPixels / read.opaqueOnly.shadowedPixels;
+        : read.noCast.shadowedPixels / read.zero.shadowedPixels;
+    const shippedRatio = read.zero.shadowedPixels === 0
+        ? Infinity
+        : read.shipped.shadowedPixels / read.zero.shadowedPixels;
 
-    report( dynamicRange > 8,
-        'RED PROOF 2 — the area statistic is not saturated: quads against opaque-only spans it',
-        `${ Number.isFinite( dynamicRange ) ? `${ dynamicRange.toFixed( 1 ) }x` : 'unbounded' } ` +
-        `(${ read.zero.shadowedPixels } px against ${ read.opaqueOnly.shadowedPixels }), ` +
-        `shipped sits at ${ read.shipped.shadowedPixels }` );
+    report( noCastRatio <= MAXIMUM_NO_CAST_SHARE && shippedRatio >= MINIMUM_SHIPPED_SHARE,
+        'RED PROOF 2 — the area statistic is not saturated: it has a measured floor at nothing ' +
+        'and a measured ceiling at the quads, and the shipped build is strictly between them',
+        `floor ${ noCastRatio.toFixed( 4 ) } (${ read.noCast.shadowedPixels } px), ceiling 1.0000 ` +
+        `(${ read.zero.shadowedPixels } px by construction), shipped ${ shippedRatio.toFixed( 4 ) } ` +
+        `(${ read.shipped.shadowedPixels } px) — bounds ${ MAXIMUM_NO_CAST_SHARE } and ` +
+        `${ MINIMUM_SHIPPED_SHARE }` );
 
-    report( read.opaqueOnly.contact255 < MINIMUM_CONTACT,
-        'RED PROOF 3 — the contact floor is not vacuous: casting only from opaque texels fails it',
-        `${ read.opaqueOnly.contact255.toFixed( 4 ) } of 255 against a floor of ${ MINIMUM_CONTACT }` );
+    report( read.noCast.contact255 < MINIMUM_CONTACT,
+        'RED PROOF 3 — the contact floor is not vacuous: casting nothing at all fails it',
+        `${ read.noCast.contact255.toFixed( 4 ) } of 255 against a floor of ${ MINIMUM_CONTACT }` );
 
     console.log( `\n${ failures === 0 ? 'PASS' : 'FAIL' } — ${ checks - failures } of ${ checks }\n` );
 

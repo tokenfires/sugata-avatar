@@ -235,14 +235,32 @@ HAIR_LAYERS = [
     {"name": "mass", "cards": 84, "standoff": 0.0135, "length": 0.290,
      "half_width": 0.0175, "strips": (1,), "gravity": 1.06, "jitter": 0.10,
      "crown": 0.50, "cut": 0.84, "clump": 0.60, "tip_width": 0.26},
+    # 🎯 **THE STRIPS ON THESE THREE MOVED ONE COLUMN DENSER, AND THAT IS THE OTHER HALF OF THE
+    # CURTAIN FIX.** See `veil` at the bottom of this list for the measurement that forced it. The
+    # short version: 17,312 px of the portrait's face is under EXACTLY ONE card and nothing else,
+    # that card transmits 0.70, and no layer added behind it can help because those cards are the
+    # frontier of the groom — an interior shell placed inboard of them missed by 4 points of reach
+    # and one placed outboard missed entirely, leaving the face-conditioned raster byte-identical to
+    # the build before it. What is left is the card itself, and a card's opacity is its strip.
+    #
+    # So each of the three layers that actually lie across the face gives up its thinnest strip and
+    # takes the next one down the sheet. Coverage at the 0.5 cutoff, from `hair_texture`'s own
+    # table: strip 1 0.592, 2 0.550, 3 0.507, 4 0.437, 5 0.381, 6 0.175, 7 0.121.
+    #
+    # 🚩 **`flyaway` IS NOT IN THIS AND MUST NOT BE.** Strips 6 and 7 are the wisps, and
+    # `hair_texture.STRIP_RECIPES` is explicit that making them cover more would undo the one thing
+    # they exist for — a card carrying one has the outline of a few hairs rather than of a ribbon.
+    # `flyaway` is the outermost layer, it is the silhouette a viewer reads against the background,
+    # and it keeps (6, 7). What changes is the layers UNDER it, which are seen against skin rather
+    # than against sky and whose thin third was buying nothing.
     {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.200,
-     "half_width": 0.0180, "strips": (2, 3), "gravity": 1.00, "jitter": 0.11,
+     "half_width": 0.0180, "strips": (1, 2), "gravity": 1.00, "jitter": 0.11,
      "cut": 0.35, "clump": 0.45},
-    {"name": "body", "cards": 56, "standoff": 0.0165, "length": 0.260,
-     "half_width": 0.0160, "strips": (3, 4), "gravity": 1.10, "jitter": 0.14,
+    {"name": "body", "cards": 68, "standoff": 0.0165, "length": 0.260,
+     "half_width": 0.0160, "strips": (2, 3), "gravity": 1.10, "jitter": 0.14,
      "cut": 0.62, "clump": 0.62},
-    {"name": "surface", "cards": 48, "standoff": 0.0225, "length": 0.300,
-     "half_width": 0.0140, "strips": (4, 5, 6), "gravity": 1.20, "jitter": 0.17,
+    {"name": "surface", "cards": 66, "standoff": 0.0225, "length": 0.300,
+     "half_width": 0.0140, "strips": (3, 4, 5), "gravity": 1.20, "jitter": 0.17,
      "cut": 0.80, "clump": 0.75},
     # ⚠️ `cut_scatter` multiplies the cut jitter, and the flyaway layer is the one place it is
     # above 1. That layer exists to BREAK the silhouette — it carries the wispiest strips and it is
@@ -252,6 +270,86 @@ HAIR_LAYERS = [
     {"name": "flyaway", "cards": 28, "standoff": 0.0285, "length": 0.320,
      "half_width": 0.0110, "strips": (6, 7), "gravity": 1.30, "jitter": 0.22,
      "cut": 0.88, "clump": 0.60, "cut_scatter": 2.4},
+    # 🎯 **`veil` IS `mass` FOR THE OUTER ENVELOPE, AND THE CRITIC'S NUMBER ONE IS WHY.** *"Through
+    # the character's-right curtain at portrait range I can read, unambiguously: the full eyebrow
+    # arc, the eyelid crease, individual eyelashes, the nostril wing, the corner of the mouth, and
+    # the jawline. Not hinted — legible enough that I could trace them."*
+    #
+    # 🚩 **AND THE PARAGRAPHS BELOW OVERSTATE WHAT THIS LAYER DID FOR THAT SENTENCE. MEASURED, BY
+    # DELETING IT.** Standing rule 2's cycle run on this entry alone — the three-line dict removed,
+    # `g050.glb` rebuilt, `hair_opacity.mjs` run, the entry restored and the groom confirmed
+    # byte-identical at sha256 `f33c1aa1…`:
+    #
+    #   |               |     C4 the curtain |  C3 the mass |  C1 mean |
+    #   |---------------|-------------------:|-------------:|---------:|
+    #   | with `veil`   |             0.3248 |       0.0462 |   0.1757 |
+    #   | without it    |             0.3301 |       0.0763 |   0.2269 |
+    #
+    # **76 cards move C4 by 0.0053 and C3 by 0.0301.** Against a ceiling of 0.35 and a pre-round
+    # curtain of 0.3781, this layer is a twentieth of the distance travelled; the STRIP CHANGE three
+    # entries up is the rest of it, and that one is red-proven at source — putting the three tuples
+    # back reads C4 0.3590 and takes C1, C2 and C3 with it not at all.
+    #
+    # So the layer stays, because 0.030 on the mass and 0.051 on the mean for 76 cards is a real
+    # contribution and the picture is better for it, but it is a MASS layer that happens to sit
+    # outboard, not the curtain fix its own heading claims. The heading is left standing with this
+    # correction under it rather than rewritten, because the reasoning below is what produced the
+    # placement and a reader who only sees the conclusion cannot check it.
+    #
+    # `mass` above made the MASS opaque and it did: the far-side ear reads transmittance 0.0006
+    # through it. It did not touch this, because the side curtains are somewhere `mass` does not
+    # go. Measured this session on `alive.html` at 900x1200 by `hair_opacity.mjs`, over the pixels
+    # where the groom is 1–2 cards deep AND the nearest surface behind it is head — the CURTAIN,
+    # 53,570 px of the portrait — and split by which atlas strip is in front:
+    #
+    #   | region of the curtain                        |     px | transmittance |
+    #   |----------------------------------------------|-------:|--------------:|
+    #   | `hair_texture.INTERIOR_STRIP` reaches it      | 26,631 |    **0.1377** |
+    #   | it does not                                   | 26,939 |    **0.6159** |
+    #
+    # 🎯 **HALF THE CURTAIN IS ONE MID-TO-WISP CARD AND NOTHING ELSE BEHIND IT, AND THAT HALF IS
+    # THE PICTURE THE CRITIC DESCRIBED.** The heatmap says exactly where: the temple-to-cheek sweep
+    # on the character's right, the inner edge of the far curtain, and the arc where the curtain
+    # crosses the jaw. All three are places where `surface` and `flyaway` swing PAST the head's own
+    # silhouette and hang over the face, and where the layers with any coverage — `root`, `mass`,
+    # `underlayer` — have already curved back in against the skull and are not there.
+    #
+    # Which is last round's own conclusion arriving one layer out: *"an interior layer that is long
+    # must ride the same envelope as the layers around it; interiority is standoff and gravity, not
+    # shortness."* `mass` rides `underlayer`'s envelope, so it backs up `underlayer`. Nothing backs
+    # up `surface` and `flyaway`, so wherever those two are the only cards over a pixel, the pixel
+    # is a window.
+    #
+    # 🚩 **AND IT DOES NOT EXTEND THE GROOM, WHICH IS THE WHOLE REASON IT IS SAFE.** Last round's
+    # two failed attempts put an opaque curtain over the FACE and lost an eye. This layer is placed
+    # strictly INSIDE `surface` — standoff 0.0200 against 0.0225, gravity 1.16 against 1.20 — so
+    # every card it draws lands under cards that are already there. It makes the existing footprint
+    # opaque; it does not reach one pixel further across the face than `surface` already does, and
+    # `surface` and `flyaway` are still outboard of it and still the ones that break the silhouette.
+    #
+    # `crown` 0.35 rather than `mass`'s 0.50 because the defect is at the SIDES: `sample_roots`
+    # weights a face by its own upwardness, so a lower bias moves roots off the crown, which is the
+    # one part of the head this layer is not needed on.
+    #
+    # ⚠️ **APPENDED RATHER THAN INSERTED IN STANDOFF ORDER, AND THAT IS DELIBERATE.**
+    # `grow_layer` seeds its RNG with `HAIR_LAYERS.index(layer)`, so inserting an entry re-rolls
+    # every layer below it and the groom that came out could not be attributed to this layer rather
+    # than to the re-draw. Appended, the other five are byte-identical to the build before it —
+    # confirmed by sha256 on `g050.glb` — and the only difference in the asset is these cards. The
+    # "outermost last" comment at the top of this list is about the ENVELOPE and this entry breaks
+    # it; nothing reads the order except the seed and the vertex-buffer order, and the groom is
+    # drawn depth-tested out of one opaque bucket, so neither is visible.
+    # ⚠️ `tip_width` 0.22 — NARROWER THAN `mass`'s, and it is the one number here that is about the
+    # LOOK rather than about the transmittance. Strip 1 is 300 strands at a 3-texel half width in a
+    # 128-texel column, which is fourteen strands deep: it is a solid sheet, not a bundle, and that
+    # is deliberate — `hair_texture.INTERIOR_STRIP` exists to be near-opaque. A card carrying it
+    # therefore reads as a flat grey ribbon wherever it is wide enough to see, and at 0.40 this
+    # layer's ends were doing exactly that over the collarbone. Driven to 0.22 the card converges to
+    # a point over its last third, so the coverage stays where the curtain is and the ends stop
+    # being slabs. Measured: it costs nothing on C4 — see the run table at CEILINGS.
+    {"name": "veil", "cards": 76, "standoff": 0.0200, "length": 0.300,
+     "half_width": 0.0150, "strips": (1,), "gravity": 1.16, "jitter": 0.15,
+     "crown": 0.35, "cut": 0.84, "clump": 0.70, "tip_width": 0.22},
 ]
 
 # --- locks --------------------------------------------------------------------------------------
@@ -274,8 +372,8 @@ HAIR_LAYERS = [
 # the body layer's, so the mass has no through-line and reads as depth-sorted noise. One set of
 # centres means a lock is a column of hair from the scalp to the tip, which is what a lock is.
 #
-# 16 rather than 30: a bob shows on the order of a dozen locks, and 378 cards over 16 centres is
-# 23 a lock — on average 6.5 of the `root` layer's, down to 1.75 of the `flyaway` layer's, which is
+# 16 rather than 30: a bob shows on the order of a dozen locks, and 484 cards over 16 centres is
+# 30 a lock — on average 6.5 of the `root` layer's, down to 1.75 of the `flyaway` layer's, which is
 # enough for a lock to read as a mass in the layers that carry one and correctly leaves the
 # outermost wisps as individual hairs.
 LOCK_COUNT = 16
@@ -363,7 +461,7 @@ GUIDE_SEGMENTS = 16
 #   card is REGROWN at it, which keeps `s` meaning what it means.
 #
 #   THEN IT IS TRIMMED. The correction is a Newton step on a nearly-linear relation and it leaves a
-#   few millimetres; a few millimetres times 378 cards is a fuzzy line rather than a cut one.
+#   few millimetres; a few millimetres times 484 cards is a fuzzy line rather than a cut one.
 #
 # ⚠️ The upper bound is a runaway guard rather than a style choice. A card that leaves the crown
 # almost horizontally descends a few millimetres over its whole length, so `wanted / achieved` is
@@ -761,7 +859,7 @@ class Lock:
 
     A lock owns three random draws and each of them used to belong to a card. The point of moving
     them here is that a lock is what the eye resolves: sixteen locks that each lean, curl and end
-    slightly differently reads as a style, where 378 cards that each do reads as frizz. See
+    slightly differently reads as a style, where 484 cards that each do reads as frizz. See
     LOCK_DIRECTION_SHARE for the measurement that says which one the groom was.
     """
 

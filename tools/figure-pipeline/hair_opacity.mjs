@@ -43,6 +43,11 @@
 //   C1  mean T over the hair's screen footprint
 //   C2  the share of that footprint with T > 0.5 — "you can read what is behind it here"
 //   C3  mean T where the groom is three or more cards deep — THE MASS, as opposed to its outline
+//   C4  mean T where the groom is one or two cards deep AND the nearest surface behind it is the
+//       HEAD — THE SIDE CURTAIN, which is the region a critic read an eyebrow through while C3 was
+//       green over the top of it. See CURTAIN_CROSSINGS for why a low-crossing clause is legitimate
+//       here when a global one was not, and CEILINGS.curtainTransmittance for its table and for the
+//       red proof it needed that this file did not already have.
 //   L0  every mask above has to hold pixels at all. See MINIMUM_MASK_PIXELS.
 //
 // ⚠️ **C3 WAS `T AT ONE CARD CROSSING` FOR ONE ROUND AND THAT CLAUSE WAS MEASURING THE WRONG
@@ -56,6 +61,13 @@
 //   L1  T outside the footprint must be 1.0. If it is not, the probe is not measuring a step.
 //   L2  T over the footprint with the GROOM HIDDEN must be 1.0. If it is not, the mask is not
 //       where the hair is.
+//   L3  L2 again over C4's own mask, because that mask is built from a different tag.
+//   L5  the face tag must reach BELOW the teeth's own lowest pixel. C4's mask is "hair over the
+//       head", and the head is taken off the rig — the `head` bone's own vertices on the body mesh,
+//       plus the facial parts, which are separate meshes. If that selection ever collapses to the
+//       facial parts alone, the tag stops at the eyes, C4 quietly measures a band that excludes the
+//       jaw the curtain actually crosses, and every clause stays green. The teeth are inside the
+//       mouth, so the chin is necessarily below them and the anchor needs no chosen number.
 //
 // 🚩 L1 and L2 are the answer to §1.25g. C1–C3 are all ratios against the same denominator, so a
 // probe that silently stopped stepping anything would make numerator and denominator agree at 0/0
@@ -89,9 +101,22 @@ const { decodePng, encodePng } = await import(
  * camera-relative lighting rig exactly as shipped; orbiting the camera instead would light the back
  * of the head from the front and measure a picture nobody will ever see.
  */
+/**
+ * `curtain` says whether C4 is a clause on this view or a reported number.
+ *
+ * ⚠️ **IT IS FALSE ON THE REAR THREE-QUARTER BECAUSE THERE IS NO CURTAIN THERE, AND THAT IS
+ * MEASURED RATHER THAN ASSUMED.** With the figure yawed 145° the face points away from the camera
+ * and the whole "hair 1–2 cards deep over the head" mask comes to **512 px**, against 53,570 on the
+ * portrait — 0.12% of that view's own hair footprint. A statistic over 512 px is what
+ * `MINIMUM_MASK_PIXELS` exists to refuse, and forcing the clause on anyway would either lower that
+ * floor for every mask in the file or leave a permanent red that says nothing about the groom.
+ * The number is still PRINTED on that view; what it is not is gated, and L0 stops asking the
+ * curtain to hold pixels there. C3 is the clause that carries the rear three-quarter, as its own
+ * header already says.
+ */
 const VIEWS = [
-  { name: 'portrait', yaw: 0 },
-  { name: 'rear34', yaw: 145 }
+  { name: 'portrait', yaw: 0, curtain: true },
+  { name: 'rear34', yaw: 145, curtain: false }
 ];
 
 /**
@@ -144,11 +169,66 @@ const DENOMINATOR_FLOOR = 0.01;
 const CEILINGS = {
   meanTransmittance: 0.28,
   shareOverHalf: 0.28,
-  massTransmittance: 0.10
+  massTransmittance: 0.10,
+
+  /**
+   * C4's ceiling, and every number behind it is off a run in this table.
+   *
+   * Portrait, `alive.html` 900x1200 dpr 1, 24 converged steps, same query as the C1–C3 table:
+   *
+   *   |                                  | C4 the curtain | C3 the mass | C1 mean |
+   *   |----------------------------------|---------------:|------------:|--------:|
+   *   | the groom as the critic saw it   |     **0.3781** |      0.0807 |  0.2488 |
+   *   | `--defect maskall`               |     **0.8101** |      0.0462 |  0.6023 |
+   *   | `--defect stripshift`            |     **0.5573** |      0.2420 |  0.3811 |
+   *   | source red: the three strips back |    **0.3590** |           — |       — |
+   *   | `--defect oneside`               |       0.3251   |      0.0606 |  0.1949 |
+   *   | as fixed                         |     **0.3248** |      0.0462 |  0.1757 |
+   *
+   * Every row but the first is on the shipped asset, sha256 `f33c1aa1…`, and the first is the
+   * build this round started from. The "source red" row is standing rule 2's cycle rather than a
+   * `--defect`: `hair_cards.HAIR_LAYERS` had its three strip tuples put back to the thinner column,
+   * the groom was rebuilt, C4 read 0.3590 and went red; restoring produced a groom byte-identical
+   * to the one above it and C4 came back to 0.3248.
+   *
+   * 0.35 sits between the fix and the state the critic described, 0.025 above one and 0.033 below
+   * the other, and it also catches the source red at 0.3590. It is not widened past 0.3781, because
+   * a ceiling above the defect this clause was written for is a clause that cannot fail.
+   *
+   * 🚩 **AND READ THE `oneside` ROW: IT IS 0.0003 FROM THE FIX, SO THIS FILE'S EXISTING RED PROOF
+   * DOES NOT EXERCISE C4 AT ALL.** That is standing rule 5 arriving on a new clause, caught before
+   * it shipped rather than after. `oneside` removes the groom's back faces, which halves the MASS —
+   * C3 duly moves 0.0462 -> 0.0606 — and changes nothing at one and two crossings, because the
+   * card nearest the camera over the cheek is the one facing it either way. `stripshift` is the
+   * proof that had to be written for this clause: it gives every card the next thinner strip on
+   * the sheet, which is the exact inverse of the change that fixed C4, applied to the live mesh's
+   * UVs so no rebuild is in the loop. `maskall` is the second, one axis over, and it is the
+   * standing-rule-4 control: 0.8101 is what this statistic reads when its mask stops being the
+   * curtain.
+   */
+  curtainTransmittance: 0.35
 };
 
 /** Crossings at or above which the groom is a MASS rather than an outline. See C3's note. */
 const MASS_CROSSINGS = 3;
+
+/**
+ * Crossings at or below which hair over the face is a CURTAIN. C4's other half.
+ *
+ * 🎯 **C3's HEADER SAYS A LOW-CROSSING CLAUSE IS THE WRONG CLAUSE, AND THE FACE TAG IS WHAT MAKES
+ * THIS ONE THE RIGHT ONE.** Read that note first: it retired a one-crossing clause because a pixel
+ * with one card in front of it is at the SILHOUETTE, where a wisp strip is supposed to transmit —
+ * the outline of a card has to be the outline of a few hairs or the groom has a hem. That argument
+ * is entirely about hair over the BACKDROP. `faceNearest` is the discriminator the retired clause
+ * did not have: a card one deep over black is an outline and is excluded here, while a card one
+ * deep over the cheekbone is the thing a critic read an eyebrow through, and is all this measures.
+ *
+ * 2 rather than 1 because the critic's own description is "one to two cards deep", and because the
+ * per-crossing table below shows the two depths behaving identically over the face while 3+ is a
+ * different population — the mass, which C3 already owns and which must not be double-counted into
+ * a clause whose fix is somewhere else.
+ */
+const CURTAIN_CROSSINGS = 2;
 
 /** How near 1.0 a liveness control has to read. */
 const LIVENESS_FLOOR = 0.97;
@@ -184,6 +264,11 @@ const MINIMUM_MASK_PIXELS = 20000;
  *   `maskall` the footprint mask is every pixel in the frame rather than the groom's own. The
  *             statistic is then mostly backdrop, which transmits perfectly — the standing-rule-4
  *             failure, planted.
+ *   `stripshift`
+ *             every card samples the next strip along `hair_texture`'s sheet, which is the next
+ *             thinner one — the whole groom given up one column of strand density, on the live
+ *             mesh's UVs. This is C4's proof and it exists because `oneside` is not one: see
+ *             CEILINGS.curtainTransmittance, where the two rows differ by 0.0002.
  *
  * 🚩 **`material.alphaTest` IS NOT A HANDLE ON THIS GROOM, AND THE FIRST VERSION OF `oneside` WAS
  * ONE.** Setting `hair.material.alphaTest = 0.995` — which should discard almost every hair
@@ -194,7 +279,7 @@ const MINIMUM_MASK_PIXELS = 20000;
  * cannot fail; this one is kept in the header rather than deleted, because the next person to
  * reach for `alphaTest` here will reach for it for the same reason.
  */
-const DEFECTS = ['none', 'oneside', 'nostep', 'maskall'];
+const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'stripshift'];
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
@@ -265,6 +350,8 @@ async function measureView(page, view, options) {
   const pixels = width * height;
   const inFront = Buffer.from(raster.inFront, 'base64');
   const total = Buffer.from(raster.total, 'base64');
+  const faceNearest = Buffer.from(raster.faceNearest, 'base64');
+  const stripMask = Buffer.from(raster.stripMask, 'base64');
 
   const plates = {};
   for (const hairOn of [true, false]) {
@@ -313,13 +400,49 @@ async function measureView(page, view, options) {
     mass[index] = footprint[index] && inFront[index] >= MASS_CROSSINGS ? 1 : 0;
   }
 
+  // C4's mask. `overFace` is every hair pixel whose nearest surface is head; `curtain` narrows it
+  // to the depths a curtain actually is. See CURTAIN_CROSSINGS.
+  const overFace = new Uint8Array(pixels);
+  const curtain = new Uint8Array(pixels);
+  for (let index = 0; index < pixels; index += 1) {
+    overFace[index] = footprint[index] && faceNearest[index] ? 1 : 0;
+    curtain[index] = overFace[index] && inFront[index] <= CURTAIN_CROSSINGS ? 1 : 0;
+  }
+
+  // How far down the frame the tag reaches, against the mouth's own anchor. See L5.
+  let faceBottom = -1;
+  for (let index = 0; index < pixels; index += 1) {
+    if (faceNearest[index]) faceBottom = Math.max(faceBottom, Math.floor(index / width));
+  }
+
   writeHeatmap(path.join(options.out, `${view.name}-transmittance.png`),
     width, height, footprint, numerator, denominator);
+  writeHeatmap(path.join(options.out, `${view.name}-curtain.png`),
+    width, height, curtain, numerator, denominator);
+
+  // 🎯 The diagnosis picture: the curtain MINUS everywhere `hair_texture.INTERIOR_STRIP` reaches.
+  // The strip table says that complement is where the transmittance lives, and this is where it is.
+  const noInterior = new Uint8Array(pixels);
+  for (let index = 0; index < pixels; index += 1) {
+    noInterior[index] = curtain[index] && (stripMask[index] & 0b10) === 0 ? 1 : 0;
+  }
+  writeHeatmap(path.join(options.out, `${view.name}-curtain-nointerior.png`),
+    width, height, noInterior, numerator, denominator);
 
   return {
     footprintPixels: countOf(footprint),
     all: summarise(footprint, numerator, denominator),
     mass: summarise(mass, numerator, denominator),
+    overFace: summarise(overFace, numerator, denominator),
+    curtain: summarise(curtain, numerator, denominator),
+    curtainHidden: summarise(curtain, hidden, new Float64Array(pixels).fill(1)),
+    curtainByCrossing: byCrossing(overFace, inFront, numerator, denominator),
+    curtainByStrip: byStrip(curtain, stripMask, numerator, denominator),
+    curtainNoInterior: summarise(noInterior, numerator, denominator),
+    noInteriorByStrip: byStrip(noInterior, stripMask, numerator, denominator),
+    noInteriorByCrossing: byCrossing(noInterior, inFront, numerator, denominator),
+    faceBottom,
+    teethBottom: raster.teethBottom,
     outside: summarise(outside, denominator, denominator),
     hidden: summarise(footprint, hidden, new Float64Array(pixels).fill(1)),
     byCrossing: byCrossing(footprint, inFront, numerator, denominator)
@@ -369,6 +492,31 @@ function byCrossing(mask, inFront, numerator, denominator) {
     });
 }
 
+/**
+ * Mean T over the pixels each atlas strip appears in front of, with the share of the mask it
+ * reaches. A strip is present in many pixels at once, so the shares do not sum to 1 — the point is
+ * WHICH strips reach a region, not how they divide it.
+ */
+function byStrip(mask, stripMask, numerator, denominator) {
+  const rows = [];
+  for (let strip = 0; strip < 8; strip += 1) {
+    const values = [];
+    for (let index = 0; index < mask.length; index += 1) {
+      if (mask[index] && (stripMask[index] & (1 << strip))) {
+        values.push(numerator[index] / denominator[index]);
+      }
+    }
+    if (values.length === 0) continue;
+    rows.push({
+      strip,
+      pixels: values.length,
+      share: values.length / countOf(mask),
+      mean: values.reduce((total, value) => total + value, 0) / values.length
+    });
+  }
+  return rows;
+}
+
 function report(view, measured) {
   const failures = [];
   const clause = (ok, line) => console.log(`  ${ok ? 'ok  ' : 'FAIL'} ${line}`);
@@ -379,9 +527,12 @@ function report(view, measured) {
     'front of a surface that carries the step');
 
   // L0 first, because every clause under it is a statistic over one of these masks.
-  const smallest = Math.min(measured.all.pixels, measured.mass.pixels, measured.outside.pixels);
+  const gatedMasks = [measured.all.pixels, measured.mass.pixels, measured.outside.pixels];
+  if (view.curtain) gatedMasks.push(measured.curtain.pixels);
+  const smallest = Math.min(...gatedMasks);
   const l0 = smallest >= MINIMUM_MASK_PIXELS;
-  clause(l0, `L0 masks hold pixels  smallest of footprint/mass/outside is ` +
+  clause(l0, `L0 masks hold pixels  smallest of footprint/mass/outside` +
+    `${view.curtain ? '/curtain' : ''} is ` +
     `${smallest.toLocaleString()} px (floor ${MINIMUM_MASK_PIXELS.toLocaleString()})`);
   if (l0 === false) {
     failures.push(`${view.name} liveness L0: a clause below is computed over ` +
@@ -416,9 +567,45 @@ function report(view, measured) {
       'itself is see-through, not just its outline');
   }
 
+  const c4 = measured.curtain.mean <= CEILINGS.curtainTransmittance;
+  const c4Line = `C4 the curtain        T ${measured.curtain.mean.toFixed(4)} where the groom is ` +
+    `1-${CURTAIN_CROSSINGS} cards deep OVER THE FACE, over ` +
+    `${measured.curtain.pixels.toLocaleString()} px ` +
+    `(ceiling ${CEILINGS.curtainTransmittance})`;
+  if (view.curtain === false) {
+    console.log(`  --   ${c4Line} — NOT GATED on this view, see VIEWS`);
+  } else {
+    clause(c4, c4Line);
+  }
+  if (view.curtain && c4 === false) {
+    failures.push(`${view.name} transmits ${measured.curtain.mean.toFixed(4)} through the side ` +
+      `curtain — hair 1-${CURTAIN_CROSSINGS} cards deep over the face — past the ` +
+      `${CEILINGS.curtainTransmittance} ceiling, which is a viewer reading the eyebrow through it`);
+  }
+
+  console.log(`  --   over the face      T ${measured.overFace.mean.toFixed(4)} at every depth, ` +
+    `over ${measured.overFace.pixels.toLocaleString()} px`);
+  console.log(`  --   curtain, no interior strip   T ` +
+    `${measured.curtainNoInterior.mean.toFixed(4)} over ` +
+    `${measured.curtainNoInterior.pixels.toLocaleString()} px — the half of the curtain ` +
+    '`root` and `mass` never reach');
+  for (const row of measured.curtainByStrip) {
+    const bare = measured.noInteriorByStrip.find((entry) => entry.strip === row.strip);
+    console.log(`  --   curtain strip ${row.strip}    reaches ${(row.share * 100).toFixed(1)}% of ` +
+      `the curtain (${row.pixels.toLocaleString()} px), T ${row.mean.toFixed(4)} there` +
+      (bare === undefined ? '' : `  |  of the no-interior half ${(bare.share * 100).toFixed(1)}%` +
+        `, T ${bare.mean.toFixed(4)}`));
+  }
+  for (const row of measured.noInteriorByCrossing) {
+    console.log(`  --   no-interior, ${row.crossings} crossing(s)   T ${row.mean.toFixed(4)} over ` +
+      `${row.pixels.toLocaleString()} px`);
+  }
   for (const row of measured.byCrossing) {
+    const face = measured.curtainByCrossing.find((entry) => entry.crossings === row.crossings);
     console.log(`  --   ${row.crossings} crossing(s)      T ${row.mean.toFixed(4)} over ` +
-      `${row.pixels.toLocaleString()} px, implied card alpha ${row.impliedAlpha.toFixed(4)}`);
+      `${row.pixels.toLocaleString()} px, implied card alpha ${row.impliedAlpha.toFixed(4)}` +
+      (face === undefined ? '' : `  |  over the face T ${face.mean.toFixed(4)} over ` +
+        `${face.pixels.toLocaleString()} px, implied ${face.impliedAlpha.toFixed(4)}`));
   }
 
   const l1 = measured.outside.mean >= LIVENESS_FLOOR;
@@ -436,6 +623,27 @@ function report(view, measured) {
   if (l2 === false) {
     failures.push(`${view.name} liveness L2: with the groom hidden the footprint only reads ` +
       `${measured.hidden.mean.toFixed(4)}, so the mask is not where the hair is`);
+  }
+
+  const l3 = measured.curtainHidden.mean >= LIVENESS_FLOOR;
+  if (view.curtain) {
+    clause(l3, `L3 curtain is on hair T ${measured.curtainHidden.mean.toFixed(4)} over the ` +
+      `curtain with the groom hidden (floor ${LIVENESS_FLOOR}) — L2 one mask in`);
+  }
+  if (view.curtain && l3 === false) {
+    failures.push(`${view.name} liveness L3: with the groom hidden the curtain mask only reads ` +
+      `${measured.curtainHidden.mean.toFixed(4)}, so C4 is a ratio against nothing`);
+  }
+
+  // L5's number is the teeth's own lowest pixel and not a chosen one — see the raster.
+  const l5 = measured.faceBottom > measured.teethBottom;
+  clause(l5, `L5 the tag reaches the jaw  face tag ends at y ${measured.faceBottom}, below the ` +
+    `teeth's own lowest pixel at y ${Math.round(measured.teethBottom)} — the curtain crosses the ` +
+    'jaw, so a tag that stopped at the eyes would gate the wrong band');
+  if (l5 === false) {
+    failures.push(`${view.name} liveness L5: the face tag ends at y ${measured.faceBottom}, at or ` +
+      `above the teeth at y ${Math.round(measured.teethBottom)} — the head-bone selection has ` +
+      'collapsed to the feature meshes and C4 is measuring the eyes rather than the curtain');
   }
 
   return failures;
@@ -477,6 +685,22 @@ async function installProbe(page, defect) {
     if (plantedDefect === 'oneside') {
       hair.material.side = 0; // THREE.FrontSide, without importing three into this page
       hair.material.needsUpdate = true;
+    }
+
+    // 🚩 `stripshift`: every card samples the next strip along the sheet, which is the next THINNER
+    // one. `hair_texture.py` lays the atlas out as eight columns of descending strand density and
+    // `hair_cards.ribbon_of` gives a card exactly one of them, so adding an eighth to u is "every
+    // layer gives up its strip and takes the wispier one" — the exact inverse of the change that
+    // fixed C4, applied to the live mesh. Cards already on the last strip are left alone rather
+    // than clamped, because squashing them into the sheet's right edge would distort a card
+    // instead of thinning it, and because wrapping would land them on `CAP_STRIP`, which is the
+    // most OPAQUE texel on the sheet — a "defect" that made the groom denser.
+    if (plantedDefect === 'stripshift') {
+      const uv = hair.geometry.attributes.uv;
+      for (let vertex = 0; vertex < uv.count; vertex += 1) {
+        if (uv.array[vertex * 2] < 0.875) uv.array[vertex * 2] += 0.125;
+      }
+      uv.needsUpdate = true;
     }
 
     globalThis.__hairOpacity = {
@@ -564,26 +788,118 @@ async function installProbe(page, defect) {
                 const w1 = ((cx - px) * (ay - py) - (cy - py) * (ax - px)) / area;
                 const w2 = 1 - w0 - w1;
                 if (w0 < 0 || w1 < 0 || w2 < 0) continue;
-                visit(y * width + x, w0 * az + w1 * bz + w2 * cz);
+                visit(y * width + x, w0 * az + w1 * bz + w2 * cz, triangle);
               }
             }
           }
         };
 
+        /**
+         * Which vertices of a behind-mesh belong to the HEAD, taken off the rig rather than off a
+         * box drawn round the face.
+         *
+         * The body is one skinned mesh from the scalp to the feet, so "the face" cannot be a mesh
+         * name; it is the part of that mesh the `head` bone drives. Every OTHER non-hair mesh in
+         * this scene is a facial part already — cornea, globe, brow card, lash card, teeth, tongue,
+         * the eye occlusion and lacrimal shells — so those are head in full. The backdrop and the
+         * ground are the two that are not, and they are named.
+         *
+         * A triangle counts as head only if all three of its vertices do, so the tag stops at the
+         * jaw rather than smearing a bone weight across the neck.
+         */
+        const headVertices = (mesh) => {
+          if (mesh.name === 'backdrop' || mesh.name === 'ground') return null;
+          if (mesh.isSkinnedMesh !== true) return 'all';
+
+          const headBone = mesh.skeleton.bones.findIndex((bone) => bone.name === 'head');
+          if (headBone < 0) throw new Error('hair_opacity: the rig has no `head` bone.');
+          const skinIndex = mesh.geometry.attributes.skinIndex;
+          const skinWeight = mesh.geometry.attributes.skinWeight;
+          if (skinIndex === undefined) return 'all';
+
+          const isHead = new Uint8Array(skinIndex.count);
+          for (let index = 0; index < skinIndex.count; index += 1) {
+            let weight = 0;
+            for (const channel of ['getX', 'getY', 'getZ', 'getW']) {
+              if (skinIndex[channel](index) === headBone) weight += skinWeight[channel](index);
+            }
+            isHead[index] = weight >= 0.5 ? 1 : 0;
+          }
+          return isHead;
+        };
+
         const behindZ = new Float32Array(width * height).fill(Infinity);
+        // 🎯 The face tag: 1 where the NEAREST non-hair surface is head. Written by the same depth
+        // comparison that fills `behindZ`, so a pixel where the shoulder wins over the jaw is
+        // tagged shoulder — which is what decides whether hair over it is a curtain or an end.
+        const faceNearest = new Uint8Array(width * height);
+        // The anchor L5 asserts the tag reaches: the teeth are inside the mouth, so the chin is
+        // necessarily below their lowest pixel and no number has to be chosen for it.
+        let teethBottom = -1;
+
         for (const mesh of behind) {
           // The ground plane is under the figure and behind nothing; rasterising it would only
           // cost time.
           if (mesh.name === 'ground') continue;
           const screen = project(mesh);
-          rasterise(screen, mesh, (index, z) => { if (z < behindZ[index]) behindZ[index] = z; });
+          const head = headVertices(mesh);
+          const indices = mesh.geometry.index;
+          const headTriangle = (triangle) => {
+            if (head === null) return 0;
+            if (head === 'all') return 1;
+            const a = indices ? indices.getX(triangle * 3) : triangle * 3;
+            const b = indices ? indices.getX(triangle * 3 + 1) : triangle * 3 + 1;
+            const c = indices ? indices.getX(triangle * 3 + 2) : triangle * 3 + 2;
+            return head[a] && head[b] && head[c] ? 1 : 0;
+          };
+          rasterise(screen, mesh, (index, z, triangle) => {
+            if (z >= behindZ[index]) return;
+            behindZ[index] = z;
+            faceNearest[index] = headTriangle(triangle);
+          });
+          if (mesh.name === 'Humanteeth_base') {
+            for (let vertex = 0; vertex < screen.length / 3; vertex += 1) {
+              teethBottom = Math.max(teethBottom, screen[vertex * 3 + 1]);
+            }
+          }
         }
+
+        /**
+         * Which of the atlas's eight strips each hair triangle samples, from its own UVs.
+         *
+         * `hair_texture.py` lays the sheet out as eight vertical strips and `hair_cards.ribbon_of`
+         * gives a card exactly one of them, so `floor(u * 8)` is the strip and the strip names the
+         * LAYERS that can have produced the card — 1 is `hair_texture.INTERIOR_STRIP`, carried only
+         * by `root` and `mass`, and 6–7 are the wisps. Nothing here is gated; it is the diagnosis
+         * that says whether a transparent region is thin because the cards are thin or because the
+         * dense layers never reached it.
+         */
+        const stripOfTriangle = (mesh) => {
+          const uv = mesh.geometry.attributes.uv;
+          const indices = mesh.geometry.index;
+          const count = (indices ? indices.count : uv.count) / 3;
+          const strips = new Uint8Array(count);
+          for (let triangle = 0; triangle < count; triangle += 1) {
+            let u = 0;
+            for (let corner = 0; corner < 3; corner += 1) {
+              const vertex = indices ? indices.getX(triangle * 3 + corner) : triangle * 3 + corner;
+              u += uv.getX(vertex);
+            }
+            strips[triangle] = Math.max(0, Math.min(7, Math.floor((u / 3) * 8)));
+          }
+          return strips;
+        };
 
         const total = new Uint8Array(width * height);
         const inFront = new Uint8Array(width * height);
-        rasterise(project(hair), hair, (index, z) => {
+        // One bit per atlas strip present in front of the pixel — eight strips, eight bits.
+        const stripMask = new Uint8Array(width * height);
+        const hairStrips = stripOfTriangle(hair);
+        rasterise(project(hair), hair, (index, z, triangle) => {
           if (total[index] < 255) total[index] += 1;
-          if (z < behindZ[index] && inFront[index] < 255) inFront[index] += 1;
+          if (z >= behindZ[index]) return;
+          if (inFront[index] < 255) inFront[index] += 1;
+          stripMask[index] |= 1 << hairStrips[triangle];
         });
 
         const encode = (bytes) => {
@@ -595,7 +911,11 @@ async function installProbe(page, defect) {
           return btoa(binary);
         };
 
-        return { width, height, total: encode(total), inFront: encode(inFront) };
+        return {
+          width, height, teethBottom,
+          total: encode(total), inFront: encode(inFront), faceNearest: encode(faceNearest),
+          stripMask: encode(stripMask)
+        };
       }
     };
   }, defect);

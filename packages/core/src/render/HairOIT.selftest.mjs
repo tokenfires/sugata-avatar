@@ -475,6 +475,75 @@ const HAIR_BAND = { x: 320, y: 110, width: 180, height: 350 };
 const MOTION_FRAMES = 60;
 const MOTION_KEEP = Array.from( { length: 20 }, ( unused, index ) => 41 + index );
 
+/**
+ * The share of the frame the `cutout` arm may move under a draw-order reversal, in per cent.
+ *
+ * ## 🚩 ROUND 18: THIS CLAUSE USED TO READ `cutout.max <= 2` AND IT WENT RED AT 378 CARDS
+ *
+ * It went red on a worst pixel of 2.213, and the clause it was expressing — *"a depth test is
+ * exact"* — is very nearly true and not quite. **`max` is a tail statistic over 392,000 samples
+ * with no averaging in it, so one extra tied fragment crosses it.** What is actually claimed here
+ * is a claim about AREA, and it is now written as one.
+ *
+ * ## The deduction, which is what makes the bound a bound and not a fitted number
+ *
+ * `configureHairMaterial`'s `cutout` branch leaves the material in the OPAQUE bucket with
+ * `depthWrite = true` and a binary `alphaTest`. Under a strict depth test the fragment that
+ * survives a pixel is the strictly-nearest admitted one, and "strictly nearest" is a property of
+ * the SET of fragments, not of the sequence they arrive in. There is exactly one way draw order can
+ * change such a pixel: two admitted fragments at EQUAL depth, where the `less` test rejects the
+ * second whichever one is second, so the first drawn wins. Order dependence in this arm is
+ * therefore, precisely, the count of tied-depth pixels — a countable set of card-card
+ * coincidences, not a region. Packing 378 cards into the envelope 294 used to occupy makes more of
+ * them, and that is a property of the groom rather than a defect in this file's subject.
+ *
+ * ## What was measured this session, and the instrument has no noise floor to hide in
+ *
+ * Two plates of the SAME arm at the SAME query, two fresh page loads apiece:
+ *
+ *     cutout forward vs forward     rms 0.0000 cv   0 of 392,000 pixels differ at all
+ *     wboit, ten consecutive loads  rms 0.0000 cv against the first, every one
+ *
+ * So the plate instrument is bit-exact and every pixel that moves under `?cardorder=reverse` moves
+ * because of the order. Under reversal the cutout arm reads:
+ *
+ *     294 pixels differ at all, 8 by more than 1 cv, 2 by more than 2 cv, worst 2.213 —
+ *     and they are TWO CLUSTERS, at (483..484, 151..153) and (512, 313), not a wash.
+ *
+ * ⚠️ AND THE TIE SET IS NOT FIXED FROM RUN TO RUN. The gate's own run, same tree, same machine,
+ * read 3 pixels and a worst of 2.7 where the probe above read 2 and 2.213. Three pixels is not a
+ * quantity a `max` can be set against at all, which is the whole correction in one line.
+ *
+ * 0.01% of the frame is 39 pixels. That is 13x above the 3 pixels the gate measures, 3,930x below
+ * the `blend` arm that A3b holds it against in the same run, and it is stated as a share so that it
+ * says the thing the deduction says: a handful of coincidences is a depth test, an area is not.
+ *
+ * ⚠️ **RE-DERIVED, AND THAT IS THE DANGEROUS DIRECTION.** The old bound was crossed by a real
+ * measurement and this one is not, so the honest question is what it still separates. Two answers,
+ * both measured this session rather than argued:
+ *
+ *   A3b, EVERY RUN   `blend` resolves by accumulating in draw order and moves 39.297% of the frame
+ *                    — 3,930x the bound. The clause is in the file so that a run in which the
+ *                    statistic had stopped separating would say so instead of going quietly green.
+ *
+ *   THE SOURCE BREAK `material.depthWrite = false` added to `configureHairMaterial`'s `cutout`
+ *                    branch, one line — the arm keeps its `alphaTest` and loses only the depth
+ *                    resolution the deduction above rests on. `HairOIT.js` restored afterwards to
+ *                    sha256 `739df70aa30e0b7c7788aa1c99790667c50d2187ae860101ab2b6a5f3e80164c`,
+ *                    the digest it had before the break:
+ *
+ *                        BROKEN   cutout 21.8293 cv RMS, 147,751 px over 2 cv — 37.6916% of the
+ *                                 frame against the 0.01% bound
+ *                                 FAIL A2, FAIL A3.  FAIL: 29/31
+ *                        RESTORED cutout 0.0165 cv RMS, 3 px over 2 cv.  PASS: 31/31
+ *
+ * 🚩 A3b STAYED GREEN UNDER THAT BREAK, and it is supposed to: it is the liveness control on the
+ * BOUND, not on the cutout arm. Recorded because LEARNINGS §1.25g is about a clause that stayed
+ * green under its own round's red proof and nobody asked why — here the answer is that A3b is
+ * asserting something about `blend`, which the break does not touch.
+ */
+const CUTOUT_TIE_SHARE = 0.01;
+
 console.log( '\n--- draw-order dependence, which is the defect itself ---------------------------\n' );
 
 let server = null;
@@ -569,17 +638,37 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
     }
 
-    // A3 — and the residue is the right SHAPE. `cutout` and `hash` decide per fragment with a depth
-    // test, so their two orders should be bit-identical up to the temporal resolve's own dither;
-    // `wboit` sums in fp16, and floating-point addition is not associative, so a handful of pixels
-    // must differ and the rest must not. A wboit residue that was uniformly zero would mean the
-    // accumulation is not accumulating.
+    // A3 — and the residue is the right SHAPE, which is a statement about AREA and not about the
+    // worst pixel. See `CUTOUT_TIE_SHARE` for the round-18 correction and the deduction behind it:
+    // a depth-resolved arm can only move where two admitted fragments tie in depth, which is a
+    // countable set of pixels, while an fp16 sum reassociates everywhere it accumulates.
+    const cutoutTiedPixels = Math.round( order.cutout.overTwoPercent * WIDTH * HEIGHT / 100 );
+    const wboitMovedPixels = Math.round( order.wboit.overTwoPercent * WIDTH * HEIGHT / 100 );
+
     report(
-        'A3 the residues have the right shape: a depth test is exact, an fp16 sum is not',
-        order.cutout.max <= 2 && order.wboit.max > 2 && order.wboit.overTwoPercent < 0.5,
-        `cutout's worst pixel moves ${ order.cutout.max.toFixed( 1 ) } cv and wboit's ` +
-            `${ order.wboit.max.toFixed( 1 ) }, but only on ${ order.wboit.overTwoPercent.toFixed( 3 ) }% ` +
-            'of the frame — reassociation of a half-float sum, not a sorting artefact.'
+        'A3 the residues have the right shape: a depth test moves a countable set of tied pixels, ' +
+            'an fp16 sum moves an area',
+        order.cutout.overTwoPercent <= CUTOUT_TIE_SHARE
+            && order.wboit.max > 2 && order.wboit.overTwoPercent < 0.5,
+        `cutout moves ${ cutoutTiedPixels } px of ${ WIDTH * HEIGHT } by more than 2 cv ` +
+            `(${ order.cutout.overTwoPercent.toFixed( 4 ) }%, bound ${ CUTOUT_TIE_SHARE }%) with a ` +
+            `worst pixel of ${ order.cutout.max.toFixed( 1 ) }; wboit moves ${ wboitMovedPixels } px ` +
+            `(${ order.wboit.overTwoPercent.toFixed( 3 ) }%) with a worst pixel of ` +
+            `${ order.wboit.max.toFixed( 1 ) } — ${ ( wboitMovedPixels / Math.max( 1, cutoutTiedPixels ) ).toFixed( 0 ) }x ` +
+            'as many pixels. Reassociation of a half-float sum, not a sorting artefact.'
+    );
+
+    // A3b — THE LIVENESS CONTROL ON A3's CUTOUT HALF, and it is an arm of this same run rather than
+    // a source break, so it is live on every invocation. LEARNINGS §1.25g: a bound that nothing in
+    // the run can violate is decoration. `blend` resolves by accumulating in draw order and not by
+    // a depth test, so it is the picture the cutout half claims cutout is not.
+    report(
+        'A3b the tie bound is not vacuous: the blend arm, which has no depth decision, fails it',
+        order.blend.overTwoPercent > CUTOUT_TIE_SHARE,
+        `blend moves ${ order.blend.overTwoPercent.toFixed( 3 ) }% of the frame by more than 2 cv ` +
+            `against the ${ CUTOUT_TIE_SHARE }% bound cutout has to sit under — ` +
+            `${ ( order.blend.overTwoPercent / CUTOUT_TIE_SHARE ).toFixed( 0 ) }x over it. Same ` +
+            'geometry, same camera, same run; only how the fragments resolve.'
     );
 
     // A4 — THE RED PROOF. The blend modes moved to the material, which is where they look like they

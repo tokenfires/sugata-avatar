@@ -3,7 +3,7 @@
  *
  * ## Why this page exists when `verify_glb.mjs` already passes
  *
- * The gate measures the exported file: at g050 today, 378 quad-strip cards of 17 rings, two cap
+ * The gate measures the exported file: at g050 today, 484 quad-strip cards of 17 rings, two cap
  * shells, zero vertices inside the body with a 3.500 mm nearest approach, and 100.00% of the
  * cranium hidden through the CUTOUT rather than through the triangles. Every one of those numbers
  * is true of a groom that looks like a helmet made of ribbons, and LEARNINGS §1.2 — the most-cited
@@ -18,6 +18,27 @@
  * reads the exported bytes. The instrument for it is
  * `tools/figure-pipeline/hair_opacity.mjs`, which measures how much of the light from behind the
  * groom still reaches the camera; this page is where you look at what it measured.
+ *
+ * 🎯 **AND IT HAPPENED AGAIN ONE REGION OVER, WITH `hair_opacity.mjs` ITSELF GREEN OVER THE TOP.**
+ * The round after 3.22 made the MASS opaque — the far-side ear reads 0.0006 through it — the same
+ * critic's number one was the SIDE CURTAIN: *"Through the character's-right curtain at portrait
+ * range I can read, unambiguously: the full eyebrow arc, the eyelid crease, individual eyelashes,
+ * the nostril wing, the corner of the mouth, and the jawline."* C1, C2 and C3 were all green on
+ * that build. They could not have caught it: C3's mask is the groom three or more cards deep and
+ * the curtain is one or two, and C1's is the whole footprint, a third of which is silhouette that
+ * is supposed to transmit. C4 is the clause that was missing, and its mask is the discriminator
+ * the other three lack — hair one to two cards deep whose NEAREST SURFACE BEHIND IT IS THE HEAD.
+ * A card one deep over black is an outline; a card one deep over the cheekbone is a window.
+ *
+ * 🎯 **AND THE SAME REGION HAS A SECOND DEFECT THAT IS NOT ABOUT WHERE THE CARDS ARE AT ALL.** The
+ * critic's other two complaints — *"the tips are dither confetti"* and *"there is a circuit-board
+ * texture artifact sitting on the cheek at portrait range"* — are one artefact, and it is the
+ * coverage decision rather than the groom. `tools/figure-pipeline/hair_tips.mjs` measures it as the
+ * share of a region disagreeing with its own 3x3 by more than 8 code values: over the curtain, the
+ * shipped `stochastic` arm reads 16.03% against sorted alpha's 4.08% on the same geometry at the
+ * same framing, while bare skin reads 1.20% on both. A groom can be opaque and still hand a viewer
+ * salt and pepper, and C4 above cannot see that — which is this page's own §1.2 lesson arriving a
+ * third time. REQ-073 carries the fix to `HairOIT.js`.
  *
  * 🎯 **AND THAT BLINDNESS WAS DEMONSTRATED, NOT ARGUED — TWICE.** A blind critic shown this page
  * named three launch blockers the gate had passed: a dead-straight card border slicing the eyebrow,
@@ -444,6 +465,12 @@ async function main() {
     log( `  top    does the scalp show between the cards? That is what the cap is for.` );
     log( `  front  is the parting readable, and is hair across the EYES? A groom may cross the` );
     log( `         temple and must not cross an eye — this page is a face.` );
+    log( `  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow` );
+    log( `         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one` );
+    log( `         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.` );
+    log( `  front  and zoom the cheek where a card lies over skin: do the strand stripes read as` );
+    log( `         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not` );
+    log( `         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.` );
     log( `  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends` );
     log( `         are what three separate observers called "messy", "stringy" and "unwashed".` );
     log();

@@ -299,27 +299,36 @@ sweep, one command per identity, all five exit 0:
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
 | nearest approach, build's instrument | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
 | nearest approach, `verify_glb.mjs` | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
-| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.93 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.95 |
 | largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 0.0 | 4.5 |
 | bare cranium seen from the worst judge view | 0.0 mm² | 0.0 | 0.0 | 0.0 | 21.2 |
-| card tips over card roots (ceiling 0.95) | 0.884 | 0.843 | 0.871 | 0.810 | 0.845 |
-| a tip's height step to its 5 nearest | 7.8 mm | 7.9 | 7.7 | 8.1 | 8.1 |
-| fragment bytes | 2,856,488 | 2,856,824 | 2,856,220 | 2,856,636 | 2,856,604 |
+| card tips over card roots (ceiling 0.95) | 0.830 | 0.825 | 0.846 | 0.763 | 0.831 |
+| a tip's height step to its 5 nearest | 6.6 mm | 6.5 | 6.8 | 6.7 | 6.8 |
+| fragment bytes | 3,064,248 | 3,064,584 | 3,063,980 | 3,064,396 | 3,064,364 |
 
-The g050 groom is **378 cards of 17 rings each + 2 cap shells of 564 triangles**, 13,504 verts,
-13,224 triangles, 2,856,220 bytes. The four sheets are shared and written once per build: albedo
+The g050 groom is **484 cards of 17 rings each + 2 cap shells of 564 triangles**, 17,108 verts,
+16,616 triangles, 3,063,980 bytes. The four sheets are shared and written once per build: albedo
 896,513 · normal 1,160,133 · flow 358,280 · depth 65,189 bytes. Running the same command twice
-reproduces a fragment byte for byte.
+reproduces a fragment byte for byte — measured again this round, sha256 `f33c1aa1…` from two
+consecutive builds of g050.
 
-🎯 **THE ROWS ABOVE ARE THE 378-CARD SWEEP AND THE `mass` LAYER MOVED THREE OF THEM.** Punch-list
-3.22 added an 84-card interior layer (`hair_cards.HAIR_LAYERS`, and
-`tools/figure-pipeline/hair_opacity.mjs` for what it is for). Re-measured across all five bakes
-after the rebuild: the cut line TIGHTENED, 9.3–9.7 mm to 7.7–8.1 mm, because the new layer's tips
-land on their own plane inside the others; the gather ratio moved within its band and stayed under
-the ceiling everywhere; and g100's bare-crown figures IMPROVED — the largest exposed patch went
-31.2 mm² to 4.5 mm² and four of the five bakes now show no bare cranium from any judge view at all.
-The build's own clearance instrument still agrees with the gate's to the last digit on all five
-bakes, which is the property the next block is about.
+🎯 **THE ROWS ABOVE ARE THE 484-CARD SWEEP, AND THE ROUND THAT MADE IT 484 RE-MEASURED ALL FIVE
+RATHER THAN THE ONE IT WAS LOOKING AT.** Punch-list 3.22 added the 84-card `mass` layer; the round
+after it added the 76-card `veil` and moved `underlayer`, `body` and `surface` one strip denser, all
+of it aimed at the SIDE CURTAIN (`hair_cards.HAIR_LAYERS`, and
+`tools/figure-pipeline/hair_opacity.mjs` C4 for what it is for). Re-measured across all five bakes
+this round, every clause green on every bake:
+
+  - the cut line tightened again, 7.7–8.1 mm to **6.5–6.8 mm**, for the reason 3.22's did — another
+    layer whose tips land on their own plane inside the others.
+  - the gather ratio IMPROVED on all five, 0.810–0.884 to **0.763–0.846** against the same 0.95
+    ceiling: `veil` clumps at 0.70, so it pulls its cards into the sixteen shared locks harder than
+    the layers whose place it takes in the stack.
+  - g100 is unchanged where it matters — cranium hidden 99.93% to 99.95%, largest exposed patch
+    4.5 mm² either way, worst judge view 21.2 mm² either way, all far inside their ceilings. That
+    bake is the one an interior layer historically breaks, and this one does not touch it.
+  - clearance is 3.500–3.505 mm on all five and the build's instrument still agrees with the gate's
+    to the last digit, which is the property the next block is about.
 
 🎯 **THE TWO CLEARANCE ROWS ARE NOW THE SAME ROW, AND THEY USED TO DIFFER BY UP TO 0.9 mm.** The
 build aimed at 3.5 mm against a 3.0 mm gate floor to cover a disagreement between its own
@@ -377,7 +386,7 @@ components — 254 of 13 rings each at the time, plus 2 cap shells of 564 triang
 the card-count gate stands on and buys nothing: a card's UV is axis-aligned **by construction**, so
 the UV tangent is exactly the card's U axis and the strand direction is its bitangent, with no
 degeneracy anywhere on the mesh. What has to be protected is that the UV *stays* axis-aligned, and
-`verify_glb.mjs` asserts exactly that instead — **378 of 378 cards on exactly two u columns**.
+`verify_glb.mjs` asserts exactly that instead — **484 of 484 cards on exactly two u columns**.
 
 ### The strand atlas
 
@@ -487,9 +496,10 @@ goes UP through the cards over the crown and a critic is looking FORWARD between
 npm run dev                                            # http://localhost:5173/src/hair.html
 node tools/figure-pipeline/hair_shots.mjs --out captures/hair   # the same five plates as PNGs
 node tools/figure-pipeline/hair_opacity.mjs            # is the mass opaque? on alive.html
+node tools/figure-pipeline/hair_tips.mjs --arms stochastic,cutout,blend   # does it RESOLVE?
 ```
 
-Five fixed angles and the four sheets. The gate proves 378 cards clear the skull; it is
+Five fixed angles and the four sheets. The gate proves 484 cards clear the skull; it is
 structurally blind to whether they read as hair, which is LEARNINGS §1.2 and is why the page
 exists.
 
@@ -507,6 +517,43 @@ triangles. Measured on the shipped groom before the fix: **0.3989 mean transmitt
 before/after pair is two states of one framing rather than two framings. ⚠️ It is NOT the hair
 shader — punch-list 3.5 owns the anisotropic strand model and runs after this. What is drawn is the
 geometry under a plain Principled material.
+
+🎯 **AND `hair_opacity.mjs` IS ITSELF BLIND TO ONE THING, WHICH IS WHY `hair_tips.mjs` EXISTS.** It
+asks how much of what is behind the groom reaches the camera, which is a question about WHERE THE
+CARDS ARE. The same critic's other two complaints are not that question: *"the tips are dither
+confetti"* and *"there is a circuit-board texture artifact sitting on the cheek at portrait range"*
+are about how a card's coverage RESOLVES, and a groom can be perfectly opaque and still hand a
+viewer salt and pepper. `hair_tips.mjs` high-passes the converged plate — a pixel minus the mean of
+its own 3x3 — and counts the share of a region that disagrees with its neighbourhood by more than
+8 code values, over masks cut from the same CPU raster, at one page load per `?hairoit` arm.
+
+Measured this session, portrait, 24 converged steps, masks intersected with a geometric-stability
+test so that no statistic is about a silhouette:
+
+| region (px)                       | `stochastic`, ships | `cutout` | `blend` |
+|-----------------------------------|--------------------:|---------:|--------:|
+| tips — 1 card deep over sky, 11,539 |          **5.00%** |   2.57%  |  1.15%  |
+| curtain — 1–2 deep over skin, 115,377 |      **16.02%** |  12.47%  |  4.08%  |
+| mass — 3+ deep over skin, 195,885 |          **6.56%** |   4.66%  |  1.12%  |
+| skin — no hair over it, 314,590   |               1.20% |   1.20%  |  1.20%  |
+| backdrop — nothing at all, 225,478 |              0.31% |   0.31%  |  0.31%  |
+
+🚩 **THE `skin` ROW IS 1.20% ON ALL THREE ARMS TO THREE FIGURES, AND IT IS WHAT MAKES THE OTHER
+ROWS MEAN SOMETHING.** Bare skin does not care which transparency arm the groom is drawn through.
+So the four-to-six-fold spread everywhere hair IS belongs to the coverage decision and to nothing
+else — same geometry, same atlas, same framing, same 24 steps. The shipped arm is the worst of the
+three in every row that contains hair, and the worst region is not the tips: it is the CURTAIN, the
+one-to-two-card layer lying over the cheek, at 16.02% against sorted alpha's 4.08%. Crop that
+region at 6x from the two plates and the two named artefacts turn out to be one: under `blend` the
+card reads as clean diagonal strand stripes, and under `stochastic` the same stripes are quantised
+into an axis-aligned dot pattern — which is what "circuit board on the cheek" and "dither confetti"
+are both describing.
+
+⚠️ **THE FIX IS NOT IN THIS DIRECTORY.** The coverage decision is `packages/core/src/render/
+HairOIT.js`'s, and `--defect flat` says the atlas is not the whole story either: an opaque,
+texture-free groom still reads 3.81% at the tips and 10.47% at the curtain, so a third of the
+curtain's speckle survives with no atlas at all. What this tool contributes is the number, the
+attribution and a red proof; `docs/RED-GATES.md` carries the rest.
 
 ### What was checked before any of this was built
 
