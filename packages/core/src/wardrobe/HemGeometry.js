@@ -133,41 +133,8 @@ export function measureHemRoll( positions, indices ) {
     const mesh = weldPositions( positions, indices );
     const { coordinates, triangles, triangleCount, vertexCount } = mesh;
 
-    // Edge -> how many triangles use it. One means an open boundary; more than two means the weld
-    // merged two surfaces that only looked coincident, which is reported rather than corrected.
-    const edgeUse = new Map();
-    const edgeKey = ( a, b ) => ( a < b ? `${ a }_${ b }` : `${ b }_${ a }` );
-
-    for ( let face = 0; face < triangleCount; face ++ ) {
-
-        const a = triangles[ face * 3 ];
-        const b = triangles[ face * 3 + 1 ];
-        const c = triangles[ face * 3 + 2 ];
-
-        for ( const [ from, to ] of [ [ a, b ], [ b, c ], [ c, a ] ] ) {
-
-            const key = edgeKey( from, to );
-            edgeUse.set( key, ( edgeUse.get( key ) ?? 0 ) + 1 );
-
-        }
-
-    }
-
-    const boundary = new Set();
-    let boundaryEdges = 0;
-    let nonManifoldEdges = 0;
-
-    for ( const [ key, uses ] of edgeUse ) {
-
-        if ( uses > 2 ) nonManifoldEdges ++;
-        if ( uses !== 1 ) continue;
-
-        boundaryEdges ++;
-        const [ from, to ] = key.split( '_' );
-        boundary.add( Number( from ) );
-        boundary.add( Number( to ) );
-
-    }
+    const edgeUse = edgeUseOf( triangles, triangleCount );
+    const { boundary, boundaryEdges, nonManifoldEdges } = boundaryOf( edgeUse );
 
     // The band is every triangle touching the ring, and the interior is everything else. The
     // interior is what the surface normal has to be computed from: a normal averaged over the band
@@ -264,6 +231,74 @@ export function measureHemRoll( positions, indices ) {
 
 }
 
+/**
+ * Every separate opening in a mesh, as a group of welded boundary vertices with the box it spans.
+ *
+ * ## The defect this exists because of
+ *
+ * `measureHemRoll` treats "the boundary" as one thing, which is true of a foundation shell —
+ * `extrude_edge_only` leaves exactly one open ring — and false of everything else in the wardrobe.
+ * `female_casualsuit01` has SEVEN open boundaries: two trouser hems, two sleeve hems, a neck, and
+ * the two rings of its own waist seam. R13 was asked how far the SLEEVE hem stands off the arm, and
+ * a statistic pooled over all seven would have averaged a sleeve against a trouser leg and reported
+ * a number belonging to neither.
+ *
+ * The grouping is connected components over the boundary graph — two boundary vertices are in the
+ * same opening when a boundary edge joins them. That is topology, not a spatial cluster with a
+ * radius in it: a sleeve hem and the arm hole it is nowhere near are separated by the mesh's own
+ * connectivity, and two openings that pass within a millimetre of each other still come back
+ * separate.
+ *
+ * Loops are returned largest first, and each carries `vertices` in welded indices so a caller can
+ * pull coordinates out of the same `mesh` this returns — the welded indices are meaningless against
+ * the source positions.
+ *
+ * @param {ArrayLike<number>} positions - Flat xyz triples in metres.
+ * @param {ArrayLike<number>} indices - Triangle list.
+ */
+export function findBoundaryLoops( positions, indices ) {
+
+    const mesh = weldPositions( positions, indices );
+    const edgeUse = edgeUseOf( mesh.triangles, mesh.triangleCount );
+    const { boundaryEdges, nonManifoldEdges, boundaryAdjacency } = boundaryOf( edgeUse );
+
+    const visited = new Set();
+    const loops = [];
+
+    for ( const start of boundaryAdjacency.keys() ) {
+
+        if ( visited.has( start ) ) continue;
+
+        const pending = [ start ];
+        const vertices = [];
+        visited.add( start );
+
+        while ( pending.length > 0 ) {
+
+            const vertex = pending.pop();
+            vertices.push( vertex );
+
+            for ( const neighbour of boundaryAdjacency.get( vertex ) ) {
+
+                if ( visited.has( neighbour ) ) continue;
+
+                visited.add( neighbour );
+                pending.push( neighbour );
+
+            }
+
+        }
+
+        loops.push( describeLoop( vertices, mesh.coordinates ) );
+
+    }
+
+    loops.sort( ( first, second ) => second.vertices.length - first.vertices.length );
+
+    return { mesh, loops, boundaryEdges, nonManifoldEdges };
+
+}
+
 /** The p-th percentile of an already-sorted array, by nearest rank. */
 export function percentile( sorted, fraction ) {
 
@@ -276,7 +311,8 @@ export function percentile( sorted, fraction ) {
 }
 
 /**
- * The closest any of the named vertices comes to a triangulated surface, in millimetres.
+ * How far EACH of the named points sits from a triangulated surface, in millimetres, in the order
+ * they were given.
  *
  * A uniform grid over the surface's triangles, sized so a query only ever tests the cells its own
  * search radius reaches. Brute force is 26,756 body triangles against 1,900 band vertices per
@@ -286,29 +322,158 @@ export function percentile( sorted, fraction ) {
  * build applied. At a convex ridge it is shorter — `build_figure.py`'s own note measures the vest's
  * 0.8 mm hem crossing the collarbone at 0.40 mm perpendicular. A reader comparing this to
  * FOUNDATION_HEM_ROLL_FLOOR_M is comparing two different quantities.
+ *
+ * ⚠️ UNSIGNED. A point that has sunk THROUGH the surface reads the same as one hovering the same
+ * distance above it. On a foundation shell that cannot happen by construction; on an outer garment
+ * fitted over a body it can, at a fold or a crease, and a caller that needs to tell the two apart
+ * has to test containment itself.
+ *
+ * ## Why the distribution and not just the minimum
+ *
+ * `nearestApproachMm` below reduces this to the single closest approach, which is the right
+ * statistic for "does the shell touch the skin anywhere". It is the WRONG statistic for "how far
+ * off the body does this hem stand", because one vertex at a seam decides the whole answer. R13
+ * needed the second question — how wide a shadow a sleeve hem can physically cast — and a minimum
+ * would have answered a question nobody asked. Percentiles need every distance, so this returns
+ * every distance and lets the caller reduce.
+ */
+export function approachDistancesMm( queryPoints, surfacePositions, surfaceIndices ) {
+
+    const grid = buildTriangleGrid( surfacePositions, surfaceIndices );
+    const count = queryPoints.length / 3;
+    const millimetres = new Float64Array( count );
+
+    for ( let query = 0; query < count; query ++ ) {
+
+        const point = [ queryPoints[ query * 3 ],
+            queryPoints[ query * 3 + 1 ], queryPoints[ query * 3 + 2 ] ];
+
+        millimetres[ query ] = nearestTriangleDistance( point, grid ) * 1000;
+
+    }
+
+    return millimetres;
+
+}
+
+/**
+ * The closest any of the named vertices comes to a triangulated surface, in millimetres.
+ *
+ * A thin reduction over `approachDistancesMm` rather than a second traversal, so the two can never
+ * disagree about what "distance to the surface" means.
  */
 export function nearestApproachMm( queryPoints, surfacePositions, surfaceIndices ) {
 
-    const grid = buildTriangleGrid( surfacePositions, surfaceIndices );
+    const distances = approachDistancesMm( queryPoints, surfacePositions, surfaceIndices );
 
     let nearest = Infinity;
     let nearestAt = -1;
 
-    for ( let query = 0; query < queryPoints.length / 3; query ++ ) {
+    for ( let query = 0; query < distances.length; query ++ ) {
 
-        const point = [ queryPoints[ query * 3 ],
-            queryPoints[ query * 3 + 1 ], queryPoints[ query * 3 + 2 ] ];
-        const distance = nearestTriangleDistance( point, grid );
-
-        if ( distance < nearest ) { nearest = distance; nearestAt = query; }
+        if ( distances[ query ] < nearest ) { nearest = distances[ query ]; nearestAt = query; }
 
     }
 
-    return { millimetres: nearest * 1000, atVertex: nearestAt };
+    return { millimetres: nearest, atVertex: nearestAt };
 
 }
 
 // --- helpers ---------------------------------------------------------------------------------
+
+/**
+ * Edge -> how many triangles use it. One means an open boundary; more than two means the weld
+ * merged two surfaces that only looked coincident, which is reported rather than corrected.
+ */
+function edgeUseOf( triangles, triangleCount ) {
+
+    const edgeUse = new Map();
+    const edgeKey = ( a, b ) => ( a < b ? `${ a }_${ b }` : `${ b }_${ a }` );
+
+    for ( let face = 0; face < triangleCount; face ++ ) {
+
+        const a = triangles[ face * 3 ];
+        const b = triangles[ face * 3 + 1 ];
+        const c = triangles[ face * 3 + 2 ];
+
+        for ( const [ from, to ] of [ [ a, b ], [ b, c ], [ c, a ] ] ) {
+
+            const key = edgeKey( from, to );
+            edgeUse.set( key, ( edgeUse.get( key ) ?? 0 ) + 1 );
+
+        }
+
+    }
+
+    return edgeUse;
+
+}
+
+/**
+ * Which welded vertices sit on an open boundary, and — for a caller that has to tell one opening
+ * from another — which of them are joined to which along boundary edges.
+ *
+ * Shared by `measureHemRoll`, which wants the flat set because a foundation shell has exactly one
+ * opening, and by `findBoundaryLoops`, which wants the adjacency because an outer garment has
+ * seven. One traversal so the two can never disagree about what a boundary is.
+ */
+function boundaryOf( edgeUse ) {
+
+    const boundary = new Set();
+    const boundaryAdjacency = new Map();
+    let boundaryEdges = 0;
+    let nonManifoldEdges = 0;
+
+    for ( const [ key, uses ] of edgeUse ) {
+
+        if ( uses > 2 ) nonManifoldEdges ++;
+        if ( uses !== 1 ) continue;
+
+        boundaryEdges ++;
+
+        const separator = key.indexOf( '_' );
+        const from = Number( key.slice( 0, separator ) );
+        const to = Number( key.slice( separator + 1 ) );
+
+        boundary.add( from );
+        boundary.add( to );
+
+        if ( boundaryAdjacency.has( from ) === false ) boundaryAdjacency.set( from, [] );
+        if ( boundaryAdjacency.has( to ) === false ) boundaryAdjacency.set( to, [] );
+
+        boundaryAdjacency.get( from ).push( to );
+        boundaryAdjacency.get( to ).push( from );
+
+    }
+
+    return { boundary, boundaryAdjacency, boundaryEdges, nonManifoldEdges };
+
+}
+
+/** One opening's vertices, where its middle is, and the box it spans — all in metres. */
+function describeLoop( vertices, coordinates ) {
+
+    const centroid = [ 0, 0, 0 ];
+    const minimum = [ Infinity, Infinity, Infinity ];
+    const maximum = [ -Infinity, -Infinity, -Infinity ];
+
+    for ( const vertex of vertices ) {
+
+        for ( let axis = 0; axis < 3; axis ++ ) {
+
+            const value = coordinates[ vertex * 3 + axis ];
+
+            centroid[ axis ] += value / vertices.length;
+            minimum[ axis ] = Math.min( minimum[ axis ], value );
+            maximum[ axis ] = Math.max( maximum[ axis ], value );
+
+        }
+
+    }
+
+    return { vertices, centroid, minimum, maximum };
+
+}
 
 function adjacencyOf( edgeUse, vertexCount ) {
 

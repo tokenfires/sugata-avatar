@@ -55,6 +55,16 @@
 // `material.shadowSide` defect it diagnosed has since been fixed in `Wardrobe.js`, and `hem-thigh`
 // and `cuff-wrist` publish. That is the report, not a fault in the run.
 //
+// ## A refusal has to say WHY, and the why has to be re-derivable
+//
+// R12 refused `sleeve-arm` and wrote a cause into `VIEWS` that it had inferred rather than
+// measured — that the sleeve hem stood about a millimetre off the arm, a physical limit. R13
+// measured it: 2.660 mm at the median, and the cause is the shadow map's normal bias instead. The
+// wrong reason had sat in this file looking exactly like a right one, because nothing in the tool
+// could check it. So the geometry the refusal rests on is now an instrument rather than a
+// sentence: `--clearance` reads the shipped garment GLBs and prints the standoff distribution at
+// every opening, and the numbers in `VIEWS` are that mode's output.
+//
 // ## The two guards, and the red proof each one has
 //
 // Both are measurements of rendered pixels, not readings of a flag — the strong half.
@@ -78,6 +88,7 @@
 //   node tools/critic/rejudge.mjs --only hat-forehead # one view
 //   node tools/critic/rejudge.mjs --no-blind          # capture and measure, skip the blinding
 //   node tools/critic/rejudge.mjs --noise             # the same side twice: the residue floor
+//   node tools/critic/rejudge.mjs --clearance         # how far each contact stands off the body
 //   node tools/critic/rejudge.mjs --list              # the views, without launching anything
 //
 // The pairs land in <out>/blind/<sessionId>/{a,b}.png and the answer key one level ABOVE them, at
@@ -101,6 +112,19 @@ const CRITIC_DIR = path.dirname( THIS_FILE );
 const REPOSITORY_ROOT = path.resolve( CRITIC_DIR, '..', '..' );
 
 const DEFAULT_OUT = path.join( REPOSITORY_ROOT, 'captures', 'rejudge-shadows' );
+
+// Where `--clearance` reads its geometry from. Declared up here with the other module constants
+// rather than beside `reportClearances`, because the entry point below runs at module evaluation
+// and a `const` declared after it is still in its temporal dead zone when it is called.
+const WARDROBE_DIR = path.join( REPOSITORY_ROOT, 'assets', 'wardrobe' );
+
+/**
+ * The figure the wardrobe page dresses, and therefore the only one whose fragments these views ever
+ * render. Read off `packages/testbed/src/wardrobe.js` — `new Wardrobe( ..., { figureKey: 'g050' } )`
+ * — rather than assumed, because a fragment cut for a different identity is a different garment and
+ * `--clearance` would be measuring one the judge never saw.
+ */
+const FIGURE_KEY = 'g050';
 
 const GPU_FLAGS = [ '--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars' ];
 
@@ -203,16 +227,115 @@ const CHANGED_THRESHOLD = 1 / 255;
  * left the contact in a corner. It is recorded here so a reader can see that the views were not
  * zoomed until they agreed: one contact was under-framed and one is genuinely faint.
  *
- * ## The view that still REFUSES, and why it stays in the file
+ * ## ❌ THE VIEW THAT STILL REFUSES — AND THE REASON THIS COMMENT GAVE FOR IT WAS WRONG
  *
- * `sleeve-arm` reads 0.182% changed with a peak of 0.06555 — seventeen 8-bit steps at its darkest
- * pixel, so something real is there, over about 4,700 pixels of a 2.56 M-pixel plate. The casual
- * suit's sleeve is SHORT and fitted, and its hem stands roughly a millimetre off the arm; that is
- * the same physical limit `shadow.selftest.mjs` records for the 2.0 mm foundation shell, and it is
- * not a shadow-map problem. It stays in the list, refusing, because a refusal with a number on it
- * is the honest report and because this file is then the standing measurement of how far the fix
- * reaches. A non-zero exit means "some contact still has nothing to judge", which is exactly the
- * state of the world it should be reporting.
+ * `sleeve-arm` reads 0.182% changed over 4,654 pixels of a 2.56 M-pixel plate, with a peak of
+ * 0.06555. It fails ONE of the two floors: the peak is seventeen 8-bit steps and clears 0.05 with
+ * room to spare, and it is the AREA that comes up short against 0.500%. Something real is there
+ * and there is not enough of it.
+ *
+ * 🚩 R12 WROTE HERE, FLAGGING IT AS AN INFERENCE IT HAD NOT MEASURED, that the sleeve hem "stands
+ * roughly a millimetre off the arm" and that this was a physical limit like the 2.0 mm foundation
+ * shell's. R13 MEASURED IT. BOTH HALVES ARE WRONG.
+ *
+ * **THE CLEARANCE**, off the shipped `assets/wardrobe/female_casualsuit01/g050.glb` against
+ * `assets/wardrobe/body/g050.glb`, one distance per boundary vertex of the sleeve's own opening.
+ * `node tools/critic/rejudge.mjs --clearance` re-derives every number in this block:
+ *
+ *     +X sleeve hem, 21 verts   min 0.565  p05 0.736  median 2.660  p95 7.509  max 7.827 mm
+ *
+ * The hem stands 2.660 mm off the arm at the median — LOOSER than the 2.0 mm foundation shell it
+ * was compared to, not tighter, and nowhere near "roughly a millimetre".
+ *
+ * **THE ACTUAL SUPPRESSOR IS THE SHADOW MAP'S NORMAL BIAS, WHICH IS LARGER THAN THE CLEARANCE IT
+ * HAS TO RESOLVE.** `packages/testbed/src/wardrobe.js` sets `light.shadow.normalBias = 0.004` —
+ * four millimetres, in WORLD UNITS. Read off the primary artefact rather than remembered: three
+ * r0.185.1 `src/nodes/lighting/ShadowNode.js` lines 508-517 build the receiver's shadow lookup as
+ * `shadowPositionWorld + normalWorld * normalBias`, an unscaled world-space step along the
+ * receiver's own normal. A patch of arm 2.660 mm under the hem has its sample point displaced 4 mm
+ * out along that normal, which puts it ABOVE the hem, and it reads lit.
+ *
+ * Measured by driving `light.shadow.normalBias` from a Playwright session with NO FILE EDITED —
+ * same camera, same outfit, same `none`-against-`garment-cast` pair this tool captures:
+ *
+ *     normalBias mm    4.0     3.0     2.0     1.5     1.0     0.5     0.0
+ *     changed %       0.182   0.229   0.339   0.502   1.353   5.754  12.559
+ *     peak Δluma     0.06555 0.10505 0.16558 0.17425 0.18325 0.21070 0.24096
+ *
+ * Not one vertex moved. Sixty-nine times the changed area and 3.7 times the peak came out of one
+ * renderer constant, so this is not a limit on how wide a shadow the sleeve can cast.
+ *
+ * ## The ladder that makes the bias the explanation rather than a coincidence
+ *
+ * The three views where a garment's OWN HEM is the occluder and the skin immediately under it is
+ * the receiver, so the hem's clearance IS the occluder-to-receiver distance the bias is compared
+ * against. Clearances from `--clearance`, separations re-measured this round:
+ *
+ *     view          the opening it looks at    median clearance    changed %
+ *     hem-thigh     elegant skirt hem              73.023 mm         1.335   publishes
+ *     cuff-wrist    elegant cuff                    6.640 mm         1.752   publishes
+ *     sleeve-arm    casual sleeve hem               2.660 mm         0.182   REFUSES
+ *
+ * ⚠️ The changed-% column is NOT comparable down the page — `cuff-wrist` is framed at 0.13 m and
+ * the other two at 0.30 m, so it is magnified 2.3 times. The clearance column is the one to read.
+ * The publish/refuse line falls between 6.640 mm and 2.660 mm, and the page's normal bias is 4.000
+ * mm — inside that gap. Nothing else in the three views' configuration separates them that way.
+ *
+ * 🚩 AND THE STATISTIC IS OCCLUDER-TO-RECEIVER DISTANCE, NOT "THE OPENING'S CLEARANCE" — the
+ * fedora is the case that proves the difference and it would have been easy to misread. Its one
+ * opening, the sweatband ring, measures 2.157 mm at the median, UNDER the bias, and yet
+ * `hat-forehead` is the strongest pair in the file. Nothing is wrong: the sweatband is not what
+ * darkens the forehead. The BRIM is, and the brim's own standoff is the whole-mesh figure —
+ * min 0.076, median 15.577, p95 29.472, max 41.293 mm — because a brim is an overhang and stands
+ * off by its overhang. `chin-collar` is the same trap read the other way round: its occluder is
+ * the CHIN and its receiver the collar, centimetres apart, and the collar opening's 2.503 mm has
+ * nothing to do with it. Read `--clearance`'s per-view line only where a hem darkens the limb it
+ * is wrapped around; everywhere else it is reporting the wrong pair of surfaces, and the "cm off
+ * target" it prints beside each match is the warning that it might be.
+ *
+ * ## ⚠️ WHICH IS NOT AN ARGUMENT FOR TURNING THE BIAS DOWN, AND THE MEASUREMENT SAYS WHY
+ *
+ * Below the bias the page acnes, because the bias is what stops a curved skinned body
+ * self-shadowing across its own shadow-map texels. Measured by diffing the SHIPPED side against
+ * the shipped side at the page's own 4.0 mm — at 3.0 and 2.0 mm the change stays inside the
+ * contact band (0.080% and 0.195% of frame, a 160 x 72 mm box on the sleeve); at 1.0 mm it covers
+ * 1,132 rows of the plate and at 0.5 mm 1,294, spread over the whole figure. That is acne. So at
+ * this page's 2048² map over a 2.4 m frustum — 1.1719 mm per texel — the bias cannot go low enough
+ * to resolve a 2.660 mm standoff before it stops being a bias.
+ *
+ * 🎯 IT IS THE TEXEL, NOT THE STANDOFF. The bias that buys a given acne margin scales with the
+ * texel's world footprint, so shrinking the texel buys the standoff back. Measured on the same
+ * page, same runtime-only driving, map size against bias — SEPARATION is the pair this tool
+ * judges, DRIFT is the shipped side against the page's 2048/4.0 mm baseline:
+ *
+ *     map    texel mm    bias mm    separation %   peak      drift %
+ *     2048    1.1719       4.0         0.182      0.06555     0.000   ← as it ships
+ *     2048    1.1719       0.5         5.754      0.21070     5.617   ← acned
+ *     8192    0.2930       1.0         0.317      0.26079     0.182
+ *     8192    0.2930       0.5         0.504      0.25941     0.369   ← separates, drift at the contact
+ *
+ * At a quarter the texel the sleeve clears the area floor at 0.5 mm of bias, with a drift SMALLER
+ * than the separation and confined to the same contact band the 4 mm pair already darkens — that
+ * is recovered shadow, not acne. So the contact is recoverable and the cost is shadow-map
+ * resolution.
+ *
+ * ## Why the view stays in the file, refusing
+ *
+ * Because on the tree as it ships it refuses, and 0.182% is the honest number for that tree. The
+ * fix is not this tool's to make: `SHADOW_NORMAL_BIAS` and `SHADOW_MAP_SIZE` live in
+ * `packages/testbed/src/wardrobe.js`, changing them moves every other view's recorded figures and
+ * `shadow.selftest.mjs`'s along with them, and an 8192² shadow map is a decision about the budget
+ * rather than about this pair. R13 filed it as a request in its round report rather than writing
+ * it into `docs/OPEN-REQUESTS.md`, which R13 did not own; a reader who cannot find it there should
+ * assume it was never granted an id. A non-zero exit means "some contact still has nothing to
+ * judge", which is exactly the state of the world it should be reporting — the difference from R12
+ * is that the reason is now measured.
+ *
+ * 🚩 AND THE SAME CONSTANT IS FIVE TIMES LARGER IN THE SHIPPED RIG.
+ * `packages/core/src/render/LightingRig.js` sets `shadowCaster.shadow.normalBias = 0.02` — twenty
+ * millimetres, against a whole-garment standoff whose median `--clearance` puts at 3.934 mm for the
+ * casual suit. This page is the friendly case. Nothing in this file measures the shipped rig and
+ * nothing here should be read as having done so, but the arithmetic is the same arithmetic.
  *
  * ⚠️ THE TARGETS ARE READ OFF RENDERED PLATES, NOT OFF THE MANIFEST. The casual suit's sleeve is
  * SHORT — it ends mid-upper-arm — which the manifest's "long-sleeve dress shirt 0.25" clo row does
@@ -323,6 +446,13 @@ if ( chosen.length === 0 ) {
     console.error( `rejudge.mjs: no view matches --only ${ options.only.join( ',' ) }. ` +
         `Known: ${ VIEWS.map( ( view ) => view.id ).join( ', ' ) }` );
     process.exit( 2 );
+
+}
+
+if ( options.clearance ) {
+
+    await reportClearances( chosen );
+    process.exit( 0 );
 
 }
 
@@ -515,6 +645,407 @@ console.log( refused === 0
       'with the number it was refused on. That is a report, not a crash.' );
 
 process.exit( refused === 0 ? 0 : 1 );
+
+// --- the geometry behind a refusal ----------------------------------------------------------------
+
+/**
+ * 🚩 THE OTHER WAY (docs/LEARNINGS.md §1.1) — drives the clearance instrument with a shape whose
+ * answer is arithmetic, before it is allowed to print a number about a real garment.
+ *
+ * The measurement below replaced a WRONG INFERENCE with a number, and a number from an unchecked
+ * instrument is just a better-dressed inference. Everything `--clearance` prints on the shipped
+ * garments is self-consistent by construction: the loops come from the same weld the distances are
+ * measured in, so an instrument that mis-grouped the openings or mis-measured the gaps would print
+ * a tidy table of wrong figures and nothing in the run would notice.
+ *
+ * So: a faceted cylinder for a limb, and an OPEN TUBE around it whose axis is deliberately OFFSET,
+ * which is what makes this a test of the distribution rather than of one number — the clearance
+ * then varies all the way round the ring between `gap - offset` and `gap + offset`, and every
+ * vertex's right answer is `hypot( x, z ) - radius` in closed form. Two things are checked:
+ *
+ *   TOPOLOGY  the tube is open at both ends, so exactly TWO loops of exactly the ring's vertex
+ *             count. This is what fails if the boundary is pooled instead of split by connectivity
+ *             — the two ends come back as one loop of twice the size, and every per-opening figure
+ *             in the table becomes an average over openings that are nowhere near each other.
+ *
+ *   DISTANCE  every vertex's measured clearance against its closed form, worst case. This is what
+ *             fails if the distances collapse to the nearest approach, which is the reduction
+ *             `nearestApproachMm` performs and the one `approachDistancesMm` exists to avoid.
+ *
+ * ⚠️ The cylinder is INSCRIBED in the circle its vertices sit on, so its facets sag inward by
+ * `radius * ( 1 - cos( π / segments ) )` and every measured distance is longer than the closed
+ * form by up to that much. At 256 segments on a 50 mm limb that is 0.00038 mm, three orders under
+ * the tolerance, which is why the segment count is 256 and not 32.
+ *
+ * ## Both clauses have a red proof, taken by breaking `HemGeometry.js` at source
+ *
+ * Green, and this is what the run prints today:
+ *
+ *     ok  two openings of 64 vertices — found 2 of 64, 64
+ *     ok  every vertex within 0.01 mm — worst 0.00376 mm over a spread of 1.500 to 3.500 mm
+ *
+ * TOPOLOGY. `findBoundaryLoops`'s flood fill was made to walk every boundary vertex rather than the
+ * component's own neighbours — the pooled boundary `measureHemRoll` uses, which is correct for a
+ * shell with one opening and wrong for a garment with seven:
+ *
+ *     FAIL two openings of 64 vertices — found 1 of 128
+ *
+ * DISTANCE. `approachDistancesMm` was made to return `fill( min( ... ) )`, which is the reduction
+ * `nearestApproachMm` performs and the exact defect having a per-point export avoids:
+ *
+ *     FAIL every vertex within 0.01 mm — worst 2.00000 mm over a spread of 1.500 to 1.500 mm
+ *
+ * Both took the whole mode down with exit 2 rather than printing a table. `HemGeometry.js` was
+ * restored byte-identically after each — sha256 383edcf1… before and after — and read green again.
+ */
+function verifyClearanceInstrument( { findBoundaryLoops, approachDistancesMm } ) {
+
+    const LIMB_RADIUS_M = 0.05;
+    const LIMB_SEGMENTS = 256;
+    const SLEEVE_SEGMENTS = 64;
+    const GAP_M = 0.0025;
+
+    // Eccentric on purpose — see the note above. 1 mm of offset on a 2.5 mm gap makes the right
+    // answer a 1.5 mm to 3.5 mm spread rather than a single repeated value.
+    const OFFSET_M = 0.001;
+
+    // How far apart a measured clearance and its closed form may read, in millimetres. Three
+    // orders over the faceting bias and two under anything this mode reports.
+    const TOLERANCE_MM = 0.01;
+
+    const limbPositions = [];
+    const limbIndices = [];
+    const limbRings = [];
+
+    // The limb runs well past both ends of the tube, so the nearest surface to a ring vertex is
+    // always the side wall and never the limb's own open end.
+    for ( let y = -0.1; y <= 0.5001; y += 0.02 ) limbRings.push( y );
+
+    for ( const y of limbRings ) {
+
+        for ( let step = 0; step < LIMB_SEGMENTS; step ++ ) {
+
+            const angle = ( step / LIMB_SEGMENTS ) * Math.PI * 2;
+            limbPositions.push( Math.cos( angle ) * LIMB_RADIUS_M, y,
+                Math.sin( angle ) * LIMB_RADIUS_M );
+
+        }
+
+    }
+
+    for ( let ring = 0; ring < limbRings.length - 1; ring ++ ) {
+
+        for ( let step = 0; step < LIMB_SEGMENTS; step ++ ) {
+
+            const next = ( step + 1 ) % LIMB_SEGMENTS;
+            const low = ring * LIMB_SEGMENTS;
+            const high = ( ring + 1 ) * LIMB_SEGMENTS;
+
+            limbIndices.push( low + step, high + next, low + next );
+            limbIndices.push( low + step, high + step, high + next );
+
+        }
+
+    }
+
+    const sleevePositions = [];
+    const sleeveIndices = [];
+    const sleeveRings = [ 0.1, 0.2, 0.3 ];
+    const sleeveRadius = LIMB_RADIUS_M + GAP_M;
+
+    for ( const y of sleeveRings ) {
+
+        for ( let step = 0; step < SLEEVE_SEGMENTS; step ++ ) {
+
+            const angle = ( step / SLEEVE_SEGMENTS ) * Math.PI * 2;
+            sleevePositions.push( OFFSET_M + Math.cos( angle ) * sleeveRadius, y,
+                Math.sin( angle ) * sleeveRadius );
+
+        }
+
+    }
+
+    for ( let ring = 0; ring < sleeveRings.length - 1; ring ++ ) {
+
+        for ( let step = 0; step < SLEEVE_SEGMENTS; step ++ ) {
+
+            const next = ( step + 1 ) % SLEEVE_SEGMENTS;
+            const low = ring * SLEEVE_SEGMENTS;
+            const high = ( ring + 1 ) * SLEEVE_SEGMENTS;
+
+            sleeveIndices.push( low + step, high + next, low + next );
+            sleeveIndices.push( low + step, high + step, high + next );
+
+        }
+
+    }
+
+    const { mesh, loops } = findBoundaryLoops( sleevePositions, sleeveIndices );
+
+    const topologyHolds = loops.length === 2 &&
+        loops.every( ( loop ) => loop.vertices.length === SLEEVE_SEGMENTS );
+
+    const points = [];
+    const expected = [];
+
+    for ( const loop of loops ) {
+
+        for ( const vertex of loop.vertices ) {
+
+            const x = mesh.coordinates[ vertex * 3 ];
+            const y = mesh.coordinates[ vertex * 3 + 1 ];
+            const z = mesh.coordinates[ vertex * 3 + 2 ];
+
+            points.push( x, y, z );
+            expected.push( ( Math.hypot( x, z ) - LIMB_RADIUS_M ) * 1000 );
+
+        }
+
+    }
+
+    const measured = approachDistancesMm( Float64Array.from( points ), limbPositions, limbIndices );
+
+    let worst = 0;
+    let low = Infinity;
+    let high = -Infinity;
+
+    for ( let index = 0; index < measured.length; index ++ ) {
+
+        worst = Math.max( worst, Math.abs( measured[ index ] - expected[ index ] ) );
+        low = Math.min( low, measured[ index ] );
+        high = Math.max( high, measured[ index ] );
+
+    }
+
+    const distanceHolds = worst < TOLERANCE_MM;
+
+    console.log( 'THE INSTRUMENT, on a shape whose answer is arithmetic — an open tube of radius ' +
+        `${ ( ( LIMB_RADIUS_M + GAP_M ) * 1000 ).toFixed( 1 ) } mm,` );
+    console.log( `offset ${ ( OFFSET_M * 1000 ).toFixed( 1 ) } mm, around a ` +
+        `${ ( LIMB_RADIUS_M * 1000 ).toFixed( 1 ) } mm limb:` );
+    console.log( `  ${ topologyHolds ? 'ok  ' : 'FAIL' } two openings of ${ SLEEVE_SEGMENTS } ` +
+        `vertices — found ${ loops.length } of ` +
+        `${ loops.map( ( loop ) => loop.vertices.length ).join( ', ' ) }` );
+    console.log( `  ${ distanceHolds ? 'ok  ' : 'FAIL' } every vertex within ` +
+        `${ TOLERANCE_MM } mm of hypot( x, z ) - radius — worst ${ worst.toFixed( 5 ) } mm ` +
+        `over a measured spread of ${ low.toFixed( 3 ) } to ${ high.toFixed( 3 ) } mm ` +
+        `(closed form ${ ( ( GAP_M - OFFSET_M ) * 1000 ).toFixed( 3 ) } to ` +
+        `${ ( ( GAP_M + OFFSET_M ) * 1000 ).toFixed( 3 ) })` );
+
+    if ( topologyHolds && distanceHolds ) { console.log( '' ); return; }
+
+    console.error( '\nTOOL ERROR: the clearance instrument does not recover a known answer. ' +
+        'Nothing below it would be worth reading, so nothing below it runs.\n' );
+    process.exit( 2 );
+
+}
+
+/**
+ * How far each contact's garment opening stands off the body underneath it, in millimetres.
+ *
+ * ## Which half of this repository's rule this is
+ *
+ * THE STRONG HALF. Nothing here reads a flag, a manifest row or a build log. It welds the shipped
+ * `<garment>/g050.glb`, finds the mesh's open boundaries by counting how many triangles use each
+ * edge, splits them into separate openings by their own connectivity, and measures every boundary
+ * vertex's perpendicular distance to the triangulated `body/g050.glb` that ships beside it. The
+ * bytes a judge's plate was rendered from are the bytes this reads.
+ *
+ * ## Why it exists at all — the defect, in this tool's own history
+ *
+ * `sleeve-arm` has refused since R12, and R12 wrote a CAUSE into `VIEWS` that it had reasoned to
+ * rather than measured: that the sleeve hem stood about a millimetre off the arm and no shadow
+ * could be wider than that. It stood 2.660 mm, and the cause was the shadow map's normal bias. The
+ * wrong reason was indistinguishable from a right one for a whole round because nothing in the
+ * tool could be pointed at it. Now it can, and a reader who doubts the number in `VIEWS` runs this.
+ *
+ * ## Why the whole distribution and not the closest approach
+ *
+ * A hem is a ring around a limb and it is not concentric with it — the +X sleeve opening runs from
+ * 0.565 mm to 7.827 mm around its own circumference. A minimum is one vertex at the tightest point
+ * and it decides nothing about how wide a shadow the hem throws; a median is what the shadow's
+ * width is set by. Both are printed, along with the tails, so nobody has to take a summary's word
+ * for the shape.
+ *
+ * ⚠️ PERPENDICULAR DISTANCE TO THE DRAWN BODY, WHICH IS UNSIGNED — see `approachDistancesMm`. A
+ * fold that has sunk through the skin reads the same as one hovering the same distance above it.
+ * On these garments the whole-mesh minimum is 0.003 mm, which is a garment vertex sitting ON the
+ * body, so the low tail of any of these figures should be read as "touching", not as "0.003 mm of
+ * air".
+ */
+async function reportClearances( views ) {
+
+    // The GLTFLoader is a browser module. Same two shims `hem.selftest.mjs` uses to run it under
+    // node: it reaches for `self` at import and for `createImageBitmap` when a texture arrives.
+    globalThis.self ??= globalThis;
+    globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {} } );
+
+    const { GLTFLoader } = await import( pathToFileURL( path.join( REPOSITORY_ROOT,
+        'node_modules', 'three', 'examples', 'jsm', 'loaders', 'GLTFLoader.js' ) ).href );
+    const geometry = await import(
+        pathToFileURL( path.join( REPOSITORY_ROOT, 'packages', 'core', 'src', 'wardrobe',
+            'HemGeometry.js' ) ).href );
+    const { findBoundaryLoops, approachDistancesMm, percentile } = geometry;
+
+    verifyClearanceInstrument( geometry );
+
+    const loadMesh = async ( filePath ) => {
+
+        const file = fs.readFileSync( filePath );
+        const bytes = file.buffer.slice( file.byteOffset, file.byteOffset + file.byteLength );
+        const gltf = await new Promise( ( resolve, reject ) =>
+            new GLTFLoader().parse( bytes, '', resolve, reject ) );
+
+        // The largest mesh, which on a fragment is the garment and on a body is the skin — the
+        // same rule `hem.selftest.mjs` uses, so the two gates cannot pick different geometry.
+        let largest = null;
+
+        gltf.scene.traverse( ( object ) => {
+
+            if ( object.isMesh !== true ) return;
+            if ( largest === null || object.geometry.attributes.position.count >
+                largest.geometry.attributes.position.count ) largest = object;
+
+        } );
+
+        return largest;
+
+    };
+
+    const bodyPath = path.join( WARDROBE_DIR, 'body', `${ FIGURE_KEY }.glb` );
+
+    if ( fs.existsSync( bodyPath ) === false ) {
+
+        console.error( `\nTOOL ERROR: no body at ${ bodyPath }. ` +
+            'See tools/figure-pipeline/README.md.\n' );
+        process.exit( 2 );
+
+    }
+
+    const body = await loadMesh( bodyPath );
+    const skinPositions = body.geometry.attributes.position.array;
+    const skinIndices = body.geometry.index.array;
+
+    console.log( `body ${ FIGURE_KEY }: ` +
+        `${ ( skinIndices.length / 3 ).toLocaleString() } triangles, the surface everything below ` +
+        'is measured against' );
+    console.log( 'MEASURED off the shipped GLBs — no flag, no manifest row, no build log.\n' );
+
+    const garmentIds = [ ...new Set( views.flatMap( ( view ) => view.outfit ) ) ];
+    const openings = [];
+
+    for ( const id of garmentIds ) {
+
+        const fragmentPath = path.join( WARDROBE_DIR, id, `${ FIGURE_KEY }.glb` );
+
+        if ( fs.existsSync( fragmentPath ) === false ) {
+
+            console.log( `--- ${ id } — no ${ FIGURE_KEY } fragment, skipped ---\n` );
+            continue;
+
+        }
+
+        const mesh = await loadMesh( fragmentPath );
+        const { mesh: welded, loops, boundaryEdges, nonManifoldEdges } = findBoundaryLoops(
+            mesh.geometry.attributes.position.array, mesh.geometry.index.array );
+
+        console.log( `--- ${ id } ${ FIGURE_KEY } — ` +
+            `${ welded.vertexCount.toLocaleString() } welded verts, ` +
+            `${ welded.triangleCount.toLocaleString() } tris, ` +
+            `${ boundaryEdges } boundary edges, ${ nonManifoldEdges } non-manifold, ` +
+            `${ loops.length } opening${ loops.length === 1 ? '' : 's' } ---` );
+
+        for ( const loop of loops ) {
+
+            const points = new Float64Array( loop.vertices.length * 3 );
+
+            for ( const [ slot, vertex ] of loop.vertices.entries() ) {
+
+                points[ slot * 3 ] = welded.coordinates[ vertex * 3 ];
+                points[ slot * 3 + 1 ] = welded.coordinates[ vertex * 3 + 1 ];
+                points[ slot * 3 + 2 ] = welded.coordinates[ vertex * 3 + 2 ];
+
+            }
+
+            const sorted = approachDistancesMm( points, skinPositions, skinIndices ).sort();
+
+            openings.push( { id, loop, sorted } );
+
+            console.log( `    ${ String( loop.vertices.length ).padStart( 3 ) } verts  centre ` +
+                `${ loop.centroid.map( ( n ) => n.toFixed( 3 ) ).join( ', ' ) }  ` +
+                `clearance mm  min ${ sorted[ 0 ].toFixed( 3 ) }  ` +
+                `p05 ${ percentile( sorted, 0.05 ).toFixed( 3 ) }  ` +
+                `median ${ percentile( sorted, 0.5 ).toFixed( 3 ) }  ` +
+                `p95 ${ percentile( sorted, 0.95 ).toFixed( 3 ) }  ` +
+                `max ${ sorted[ sorted.length - 1 ].toFixed( 3 ) }` );
+
+        }
+
+        // The whole mesh, not just its openings — the standoff a reader needs before comparing any
+        // of this to a shadow bias, which applies to every receiver under the garment and not only
+        // to the ones under a hem.
+        const all = Float64Array.from( welded.coordinates );
+        const whole = approachDistancesMm( all, skinPositions, skinIndices ).sort();
+
+        console.log( `    WHOLE MESH  min ${ whole[ 0 ].toFixed( 3 ) }  ` +
+            `p05 ${ percentile( whole, 0.05 ).toFixed( 3 ) }  ` +
+            `median ${ percentile( whole, 0.5 ).toFixed( 3 ) }  ` +
+            `p95 ${ percentile( whole, 0.95 ).toFixed( 3 ) }  ` +
+            `max ${ whole[ whole.length - 1 ].toFixed( 3 ) }\n` );
+
+    }
+
+    // 🚩 THE OPENING IS MATCHED TO THE VIEW BY THE VIEW'S OWN CAMERA TARGET, not by a name typed
+    // here. A hand-written mapping would go stale the moment somebody re-aimed a view — which
+    // `cuff-wrist` had already had done to it once — and it would go stale silently, reporting a
+    // sleeve's clearance beside a wrist's separation. The target is where the eye is pointed, so
+    // the nearest opening centre to it is what the plate is a picture of.
+    //
+    // ⚠️ AND THE MATCH IS PRINTED WITH ITS OWN DISTANCE BECAUSE IT IS SOMETIMES MEANINGLESS. This
+    // finds the nearest OPENING, and an opening is only the occluder when a hem darkens the limb
+    // it wraps. `hat-forehead` matches the fedora's sweatband 5.3 cm from its target and the
+    // sweatband darkens nothing — the brim does, from its own overhang. `collar-chest` matches
+    // 18.0 cm away, which is the tool saying it has not found the contact at all. A line with a
+    // large offset, or a view whose breakage is `garment-receive`, is a line to disregard.
+    console.log( 'THE OPENING EACH VIEW IS AIMED AT — nearest opening centre to the view\'s own ' +
+        'camera target.\nRead it only where a hem darkens the limb it wraps: see the note above ' +
+        'this list in the source.\n' );
+
+    for ( const view of views ) {
+
+        const reachable = openings.filter( ( entry ) => view.outfit.includes( entry.id ) );
+
+        if ( reachable.length === 0 ) { console.log( `  ${ view.id.padEnd( 14 ) } no openings` ); continue; }
+
+        let nearest = null;
+        let nearestMetres = Infinity;
+
+        for ( const entry of reachable ) {
+
+            const away = Math.hypot( entry.loop.centroid[ 0 ] - view.target[ 0 ],
+                entry.loop.centroid[ 1 ] - view.target[ 1 ],
+                entry.loop.centroid[ 2 ] - view.target[ 2 ] );
+
+            if ( away < nearestMetres ) { nearestMetres = away; nearest = entry; }
+
+        }
+
+        console.log( `  ${ view.id.padEnd( 14 ) } ${ nearest.id } opening at ` +
+            `${ nearest.loop.centroid.map( ( n ) => n.toFixed( 3 ) ).join( ', ' ) }, ` +
+            `${ ( nearestMetres * 100 ).toFixed( 1 ) } cm off target — ` +
+            `median clearance ${ percentile( nearest.sorted, 0.5 ).toFixed( 3 ) } mm ` +
+            `(min ${ nearest.sorted[ 0 ].toFixed( 3 ) }, ` +
+            `max ${ nearest.sorted[ nearest.sorted.length - 1 ].toFixed( 3 ) })` );
+
+    }
+
+    console.log( '\nAn occluder standing off its receiver by less than the shadow map\'s normal ' +
+        'bias is one the\nlookup steps over: three offsets the receiver\'s sample by ' +
+        '`normalWorld * normalBias` in world\nunits. The wardrobe page\'s bias is 4.000 mm. See ' +
+        'the VIEWS comment for the sweep that measured\nwhat that costs at the sleeve, and for ' +
+        'why the fedora is unharmed by it.' );
+
+}
 
 // --- the harness --------------------------------------------------------------------------------
 
@@ -729,6 +1260,7 @@ function parseArguments( argv ) {
         defect: null,
         blind: true,
         noise: false,
+        clearance: false,
         list: false,
         help: false
     };
@@ -741,6 +1273,7 @@ function parseArguments( argv ) {
         else if ( argument === '--list' ) parsed.list = true;
         else if ( argument === '--no-blind' ) parsed.blind = false;
         else if ( argument === '--noise' ) { parsed.noise = true; parsed.blind = false; }
+        else if ( argument === '--clearance' ) parsed.clearance = true;
         else if ( argument === '--out' ) { index += 1; parsed.out = path.resolve( argv[ index ] ); }
         else if ( argument === '--shipped' ) { index += 1; parsed.shipped = argv[ index ]; }
         else if ( argument === '--defect' ) { index += 1; parsed.defect = argv[ index ]; }
@@ -769,7 +1302,7 @@ function usageText() {
         'Usage:',
         '  node tools/critic/rejudge.mjs [--only <id,...>] [--out <dir>]',
         '                               [--shipped <break>] [--defect <break>]',
-        '                               [--no-blind] [--noise] [--list]',
+        '                               [--no-blind] [--noise] [--clearance] [--list]',
         '',
         `Default out:  ${ DEFAULT_OUT }`,
         'Default defect: each view\'s own, because a contact can only show the half of the',
@@ -785,6 +1318,10 @@ function usageText() {
         '',
         '--noise captures the SHIPPED side twice and diffs it. That is the residue the separation',
         '        floor has to clear, and running it is how you find out the floor is still honest.',
+        '',
+        '--clearance launches nothing. It welds the shipped g050 garment GLBs, finds every open',
+        '        boundary, and measures each one\'s distance to the shipped g050 body — the geometry',
+        '        a refusal rests on, so it can be checked rather than believed. Honours --only.',
         ''
     ].join( '\n' );
 
