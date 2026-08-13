@@ -70,6 +70,23 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `packages/core/src/render/HairOIT.selftest.mjs` — INTERMITTENT, 31/32 on **2 of 10 runs** this
+  session and 32/32 on the other eight. Not a decision and not yet a located defect: the failing
+  clause is above the 20 lines `run-selftests.sh` tails, and on the standalone run where it first
+  appeared the output was overwritten before it was read. What R20 does know is that on the suite
+  run that reproduced it, B1/B2/B3 and C1/C2/C3 all printed PASS with their usual numbers, so the
+  failure is in the **A block** — the order-independence and instrument-zero clauses. A1–A3 include
+  `A3`, which asserts an EXACT zero over 392,000 px for five arms loaded twice apiece; ten pairs of
+  renders required to be bit-identical is the shape of thing that fails one run in five.
+  🚩 **NEXT AGENT: capture the FAIL line before anything else** — run it in a loop redirecting to
+  distinct files until one goes red. Owned by `packages/core/src/render/**`.
+  ⚠️ **AND THIS ENTRY EXPOSES A GAP IN THIS FILE'S OWN MACHINERY.** An intermittent gate cannot be
+  declared cleanly in either direction: on a run where it passes, this line reads as a `STALE
+  DECLARATION` and the runner will say so. That is the adjudicator behaving correctly on an input it
+  was not designed for — it assumes a gate's colour is a function of the tree. A stale marker on
+  THIS line means "it passed this time", not "the declaration was wrong", and deleting the line on
+  that basis would be the rubber stamp the file exists to refuse.
+
 - `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, 38/42. The four failing
   clauses are the ones the current groom cannot satisfy: they encode the density and opacity target
   the round is working toward, and turning them green is the work item rather than a repair to the
@@ -80,6 +97,26 @@ directions, which is the clause worth keeping when this check is next edited.
 
 Entries are not deleted, for `docs/OPEN-REQUESTS.md`'s reason: a file that forgets cannot show a
 pattern, and the pattern here is what the round was fixing.
+
+- `packages/core/src/motion/HairDynamics.selftest.mjs` — was 30/31 at R19, and the FIRST red this
+  file's machinery caught on its own. Clause X applied a 0.25 ms budget — 1.5% of 16.6 ms, a real
+  derivation — to `p95` of 120 single-frame COMPUTE timestamps. GATE WRONG, and the threshold did
+  not move. The solver got CHEAPER (p50 0.02746–0.02837 ms over six sittings, against the 0.06554 ms
+  the ceiling was derived against); what changed is that this pool used to quantise to 65.536 µs, so
+  `p95` could only ever report one or two ticks, and headless Chromium now resolves it to the
+  nanosecond — turning `p95` into a reading of the machine's scheduling of a fixed workload. Proved
+  with a second pool the solver does not touch: on the slowest tenth of frames by COMPUTE the RENDER
+  pool looked 8.37x–14.03x slower too, against a null of 1.0. Re-derived onto `p50`.
+
+  ⚠️ **AND THAT COMMON-MODE CONTROL WAS THEN WITHDRAWN, after it went red in two consecutive full
+  suite runs.** Re-measured on the same shipped build it reads 9.24x, 1.14x and 0.57x — the last one
+  below its own null — so it is weather, not a property of the build, and the four agreeing sittings
+  behind it were one sitting's worth of evidence. It is printed as a diagnostic now and asserted by
+  nothing. What licenses `p50` instead was already in the run: `__HAIR_GPU_COST__` measures the
+  dispatch arithmetic directly at 0.01807–0.01848 ms a frame, a 2.3% spread across every sitting,
+  so a 0.38 ms frame cannot be that arithmetic. Clause Xb now asserts the one exactly-reproducible
+  precondition — every frame ran the same substep count. Both clauses red-proved at source. Green
+  32/32 at R20. LEARNINGS §1.25ag.
 
 - `packages/core/src/render/HairOIT.selftest.mjs` — was 29/30 from R17 to R18, undeclared. Clause
   A3 bounded the `cutout` arm's draw-order residue with `max <= 2` code values, a worst-single-pixel

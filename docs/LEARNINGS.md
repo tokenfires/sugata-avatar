@@ -2115,6 +2115,117 @@ the gate already renders.
 
 ---
 
+### 1.25ag A THRESHOLD CAN AGE BECAUSE THE CLOCK GOT BETTER, AND THE STATISTIC IS WHAT ROTS FIRST
+
+`HairDynamics.selftest.mjs` clause X — *"the whole solver costs under 0.25 ms of COMPUTE a frame"* —
+went red in R19 and reached the round summary undeclared. It was the first thing `docs/RED-GATES.md`
+caught, which is the machinery working, and the diagnosis was the opposite of the obvious one. The
+`p95` form is the one the file was born with, at `5a08e7e` in R16 — `git log -S` on the assertion
+returns that single commit — so it stood for three rounds before the clock it was calibrated on
+stopped being the clock it ran on.
+
+**The solver did not get more expensive; it got cheaper.** Measured over six sittings of the same
+page this session, `p50` reads **0.02746–0.02837 ms** — a 3.3% spread, and less than half the
+0.06554 ms the ceiling was derived against. The amortised dispatch arithmetic reads 0.0182 ms. What
+failed was `p95`, at **0.28849–0.32682 ms**, over the ceiling on all six sittings. Not flaky: red
+every time.
+
+🚩 **THE CEILING WAS CALIBRATED ON A CLOCK THAT COULD NOT SEE A TAIL.** ⚠️ *Inherited, not measured
+this session — the figures in this paragraph are quoted from `packages/testbed/src/hair.js`'s own
+`__HAIR_GPU_COST__` header and from `describeQuantum`'s, which recorded them when the threshold was
+written.* That record says the pool quantised to **65.536 µs**, that one frame read 0.06554 ms p50
+and 0.13107 ms p95, and that those are exactly one and two ticks — two ticks being the coarsest
+thing 120 samples of a sub-tick workload could produce. What *is* measured this session is the other
+end: the gate's own derived-per-run quantum comes back at **0.000001 ms**, so headless Chromium
+resolves this pool to the nanosecond, and `p95` has stopped being "two ticks" and become *the 114th
+slowest of 120 frames on a laptop*. Same code, same page, same 294 chains; a better clock turned a
+tautology into a measurement of the machine.
+
+🚩 **THREE CONTROLS WERE TRIED TO PROVE THE TAIL IS THE MACHINE AND ALL THREE FAILED — THIS IS THE
+PART OF THE ROUND WORTH READING.** "It is just noise" is the cheapest thing in this repo to assert
+and never check.
+
+1. **A 64-copy pass is more *stable* than a single frame** (relative spread 13.7–17.6x against
+   2.6–3.2x). Discarded at once: that is equally consistent with independent per-dispatch variance,
+   which would shrink relative spread by √64 ≈ 8x — measured 7.1x. It discriminates nothing.
+2. **The RENDER pool as a common-mode control.** `__HAIR_GPU_MS__` resolves COMPUTE and RENDER
+   separately; split the run at the compute decile and read RENDER on both halves. If the solver
+   made those frames slow the ratio reads **1.0**; if the machine stalled, well above it. Six probe
+   sittings gave 8.37x, 8.81x, 11.01x, 14.03x — and the 64x-substep defect gave **1.96x**, which
+   looked like a clean separation between two real states. It was gated at twice the null.
+3. ⚠️ **AND IT DID NOT REPRODUCE.** On later runs of the *same shipped build* the same statistic read
+   9.24x, then 1.14x, then **0.57x** — below the null, the render pool *faster* on the slow-compute
+   frames. Two full suite runs went red on it. The ratio is not a property of the build; it is a
+   property of whatever the machine was doing in that half-second.
+
+**So the clause was withdrawn and the number is now printed as a diagnostic, asserted by nothing.**
+Four readings in one sitting are not a distribution, and the round nearly shipped a gate on them —
+the same mistake in a new costume as the one it was sent to fix.
+
+🎯 **WHAT ACTUALLY LICENSES p50 NEEDED NO SECOND POOL AT ALL, and it was in the run the whole time.**
+`__HAIR_GPU_COST__` measures the dispatch arithmetic *directly* — 64 copies inside one pass — and it
+reads **0.01807–0.01848 ms** a frame on every run this session, a 2.3% spread across sittings hours
+apart, on a busy machine and a quiet one alike. A single frame reads 0.0242–0.0284 ms. The solver's
+arithmetic is therefore ~0.018 ms and the remainder of a single-frame reading is one pass opening,
+which research doc §0.3 independently puts at 30.8–54.1 µs. **A frame that reads 0.38 ms cannot be
+arithmetic that measures 0.018 ms to within 2%** — that is the argument, and it rests on a quantity
+with a measured 2% spread rather than one with a measured 25x spread.
+
+**The repair keeps the number and changes the statistic.** 0.25 ms is 1.5% of 16.6 ms — a bound with
+a derivation stays where it is (§1.25z) — and it now binds `p50`. `p95` and the worst frame are
+PRINTED and bounded by nothing, an absence the detail string states out loud rather than leaving to
+be inferred, because the round measured that no ceiling on the tail would hold. Clause Xb asserts the
+one precondition that makes `p50` mean anything and is exactly reproducible: **every frame ran the
+same number of substeps**, so every frame dispatched the same kernels over the same chain count.
+Both are red-proved at source. Raising the substep rate 64x (`SUBSTEP_SECONDS` 1/120 → 1/7680, cap
+4 → 200) sends `p50` to **1.44254 ms** and fails X; making the substep period stop dividing the frame
+(1/120 → 1/100) makes the counts come back `{2, 1}` and fails Xb. Pinned by mutation: the budget
+breaks at **0.0279**, 8.96x below where it sits and 5.8x below the defect's 1.44254 — a bound with a
+derivation, sitting between two measured states.
+
+⚠️ **HOW THE BAD CONTROL GOT CAUGHT, which is the process lesson.** It passed every standalone run it
+was given — six probe sittings and two full 32/32 runs — and went red inside the *suite*, twice, on a
+machine whose load history differed. **A timing gate's environment is part of its input, and running
+it alone is a different experiment from running it forty-nine gates deep.** Anyone debugging a timing
+clause by running it on its own is sampling one corner of its input space and calling it the answer.
+
+> **When a gate goes red, ask what the STATISTIC can see before asking what the code did. A
+> threshold is calibrated against an instrument as much as against a subject, and an instrument
+> that gets better is a silent change to every bound that was quoted off it. The tell is a
+> statistic that swings across samples the code cannot distinguish — 120 frames that dispatch
+> identical work have nothing to say to each other, so assert the order statistic that holds still.
+> And before gating a CONTROL, measure the control itself as many times as you measured the
+> subject: four agreeing readings in one sitting are not a distribution, and a control whose own
+> spread is 25x cannot license anything about a subject whose spread is 2%.**
+
+⚠️ **A COROLLARY THAT COST FOUR MORE STALE NUMBERS.** The same session re-measured every bound in
+`HairOIT.selftest.mjs` and `HairShadow.selftest.mjs` and found the *thresholds* all sound — R18 and
+R19 had done that work — while the **readings recorded beside them had rotted under the R19 atlas
+rewrite**. A3c's pinning ratios were written as 8.2x and 5.0x and re-measure at 4.05x and 13.9x;
+`MINIMUM_ALPHA_RESPONSE` reads 3.9483 where its comment says 2.5610. A recorded ratio is a
+measurement with a date on it, and a pinning note that is never re-run is the same rubber stamp the
+declaration file exists to refuse.
+
+⚠️ **AN UNRESOLVED OBSERVATION, RECORDED RATHER THAN TIDIED AWAY.** `HairOIT.selftest.mjs` failed
+**twice in ten runs** this session at 31/32 and passed 32/32 on the other eight. It is declared in
+`docs/RED-GATES.md` and localised as far as this round could take it — on the reproduction, every
+B and C clause printed PASS with its usual numbers, so the failure is in the A block, which is where
+`A3` asserts an exact zero over 392,000 px for five arms loaded twice each. The exact clause is
+still unknown because **the runner tails only 20 lines and the FAIL line sits above them**, and on
+the first occurrence the standalone output had already been overwritten.
+
+🚩 **TWO PROCESS FAILURES THERE, both mine and both cheap to avoid.** Redirect every run of a gate
+you are hunting a flake in to its OWN file, and never re-run over the evidence. And note that an
+intermittent gate breaks the declaration machinery's core assumption — that a gate's colour is a
+function of the tree — so it reads as `STALE DECLARATION` on every run where it passes. That is not
+a defect in the adjudicator so much as an input class it has no verdict for, and it is worth a
+third status alongside declared and stale. It is written down here because a
+gate that is red one run in eight is a gate whose green runs mean less than they look, and the next
+agent to see a stray `31/32` there should treat it as this observation recurring rather than as a
+fresh regression — and should capture the FAIL line before doing anything else.
+
+---
+
 ## Part 2 — Technical traps
 
 ### three.js (verified at r185)

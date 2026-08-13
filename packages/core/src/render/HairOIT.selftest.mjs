@@ -752,9 +752,29 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
     // A3c — and the fp16 arm's residue is REAL and is not a wash. Two bounds rather than none,
     // because "wboit moves more pixels than a depth test does" is satisfied by an arm that moves a
-    // lot of invisible ones. ⚠️ BOTH ARE PINNED AND BOTH RATIOS ARE RECORDED: `max > 2` breaks at
-    // the measured 16.3 cv (8.2x) and `< 0.5%` breaks at the measured 0.101% (5.0x), and 2 cv is
-    // the same 8-bit quantisation step A2's ceiling is derived from rather than a third opinion.
+    // lot of invisible ones. `max > 2` uses the same 8-bit quantisation step A2's ceiling is
+    // derived from rather than a third opinion.
+    //
+    // ⚠️ THE RECORDED RATIOS HERE WENT STALE UNDER THE R19 ATLAS REWRITE, which is the reason a
+    // pinning ratio has to be re-measured rather than inherited. They read "16.3 cv (8.2x)" and
+    // "0.101% (5.0x)"; re-measured this session on the strand atlas, `max` breaks at 8.1 cv (4.05x)
+    // and the share breaks at 0.036% (13.9x). Neither bound moved and neither should.
+    //
+    // 🚩 HOW THOSE TWO BREAKING VALUES WERE OBTAINED, because it is not the same method the
+    // HairDynamics budget was pinned by and the difference matters to anyone rechecking them: both
+    // clauses compare a MEASURED SCALAR against a literal, so the breaking value is that scalar and
+    // it is read off the run rather than found by moving the bound. No mutation run stands behind
+    // the 4.05x and 13.9x. That is sound for a direct comparison and is NOT sound for a compound
+    // condition — where a second term can dominate, only an actual mutation finds the real edge,
+    // which is exactly how `RED PROOF 1` in `HairShadow.selftest.mjs` was found to be carrying a
+    // dead `Math.max( 200, … )` literal in R19.
+    //
+    // 🎯 WHAT PINS THE SHARE IS A SEPARATION BETWEEN TWO ARMS IN THIS RUN, not its distance from
+    // one of them. `blend` — the same statistic on the arm that has no order independence at all —
+    // reads 36.140% against wboit's 0.036%, three orders of magnitude apart, and 0.5% sits inside
+    // that gap nearer the green end. A bound between two measured states is pinned by the pair; the
+    // 13.9x is what it costs to be on the safe side of a classifier, not slack to be tightened out.
+    // LEARNINGS §1.25z — do not refit this onto 0.036%.
     report(
         'A3c the fp16 arm\'s residue is visible somewhere and is nowhere an area',
         order.wboit.max > 2 && order.wboit.overTwoPercent < 0.5,

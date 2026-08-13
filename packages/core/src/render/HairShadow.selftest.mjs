@@ -275,6 +275,10 @@ const STEPS = 60;
  * better, and above an arm that casts nothing at all. It does NOT separate the shipped build from
  * the opaque mass alone any more — nothing about a presence check ever did — and that separation is
  * `MINIMUM_ALPHA_RESPONSE`'s job, which is why the two clauses are paired.
+ *
+ * R20, re-measured rather than inherited: shipped **4.7033**, `noCast` **0.2516**, `opaqueOnly`
+ * **0.7550**. The floor sits 2.35x below the shipped reading and 7.9x above the arm that casts
+ * nothing, so it is pinned from both sides by plates this run already renders.
  */
 const MINIMUM_CONTACT = 2.0;
 
@@ -288,9 +292,12 @@ const MINIMUM_CONTACT = 2.0;
  * above the worse of the two green readings and 1.25x below the broken one; both edges are
  * measurements and the value sits between them rather than beside either.
  *
- * 🚩 **THE MARGIN HAS THINNED AND NOBODY DECLARED THAT EITHER.** This session reads **0.7140** on
- * four consecutive clean runs and **0.6837** on a sixth hours later, so 0.80 is now 1.12x to 1.17x
- * above the reading rather than 1.30x — take the worse. It is the groom that moved, and it moved
+ * 🚩 **THE MARGIN HAS THINNED AND NOBODY DECLARED THAT EITHER.** R19 read **0.7140** on four
+ * consecutive clean runs and **0.6837** on a sixth hours later; R20 re-measures **0.7110**, so 0.80
+ * is 1.12x to 1.17x above the reading rather than 1.30x — take the worse. ⚠️ Note that R19 to R20
+ * left this statistic within run-to-run distance of where it was over the same rounds that moved
+ * `MINIMUM_ALPHA_RESPONSE` by 54%; WHY the two responded differently is not measured here and is
+ * not asserted. It is the groom that moved, and it moved
  * toward the ceiling: the denser the authored coverage, the larger the share of its bare quads'
  * shadow that survives the alpha test, and the closer the ratio climbs to the 1.0000 a build with
  * no coverage decision reads. **One more layer like the last one puts this clause red on merit.**
@@ -307,14 +314,25 @@ const MAXIMUM_AREA_AGAINST_QUADS = 0.80;
  * How much of the shipped build's contact has to be coming through the alpha test, in 255ths.
  *
  * The other side of the same question, and the clause that catches the cutoff regressing UPWARDS:
- * `contact( shipped ) − contact( cutoff 1 )`. The two earlier green runs read 5.2570 and 4.2401 and
- * this session reads 2.5610 against the same 1.5 floor — the drop is the mass, which now casts on
- * the subtrahend arm and did not before, so the difference is measuring a smaller and more honest
+ * `contact( shipped ) − contact( cutoff 1 )`. Three earlier green runs read 5.2570, 4.2401 and
+ * 2.5610 against the same 1.5 floor — the drop to 2.5610 was the mass, which now casts on the
+ * subtrahend arm and did not before, so the difference is measuring a smaller and more honest
  * thing: the shadow that comes through PARTIAL coverage specifically.
  *
- * ⚠️ THE FLOOR WAS NOT MOVED TO ACCOMMODATE THAT, and the margin it leaves is now 1.7x rather than
- * 2.8x. It stays at 1.5 because the number was derived from what it has to separate, not from the
- * readings: a build at the groom's own 0.5 MASK cutoff must still clear it, and a build that casts
+ * 🎯 R20 RE-MEASURES IT AT **3.9483**, so the margin has gone the other way — 2.63x, back near the
+ * 2.83x of the second green run rather than the 1.71x R19 recorded — and the DIRECTION is worth
+ * more than the margin. It is the contact that survives when the fully-opaque arm is subtracted out,
+ * which is the shadow cast by PARTIAL coverage, and it rose 54% across the round that rewrote the
+ * strand atlas. That is one number on the atlas-to-screen chain this round is arguing about, taken
+ * off a rendered plate rather than off the sheet.
+ * ⚠️ TWO LIMITS ON READING IT THAT WAY. It is a SHADOW-pass number and says nothing about what the
+ * beauty pass does with the same gaps, which is where the critic is looking. And the atlas is not
+ * the only thing that moved between the two readings — this round did not isolate the change, so
+ * the correlation is reported and the cause is not asserted.
+ *
+ * ⚠️ THE FLOOR WAS NOT MOVED IN EITHER DIRECTION, which is the point of recording all four
+ * readings. It stays at 1.5 because the number was derived from what it has to separate, not from
+ * the readings: a build at the groom's own 0.5 MASK cutoff must still clear it, and one that casts
  * nothing must not. ⚠️ The arithmetic behind that — the cutoff sweep beside
  * `HAIR_SHADOW_ALPHA_CUTOFF` — was taken on the 294-card atlas and its `cutoff 1.00` row no longer
  * holds; the sweep is due a re-run and that constant says so.
