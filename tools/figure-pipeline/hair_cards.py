@@ -207,6 +207,34 @@ HAIR_LAYERS = [
     {"name": "root", "cards": 104, "standoff": 0.0060, "length": 0.085,
      "half_width": 0.0210, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08,
      "part": 0.20, "crown": 1.60, "cut": None, "clump": 0.15},
+    # 🎯 **`mass` IS THE COVERAGE LAYER FOR THE LENGTH, AND ITS ABSENCE IS WHY A BLIND CRITIC CALLED
+    # THE GROOM A STOCKING.** *"You can see the bald skull's silhouette through it, you can see her
+    # far-side ear through it, and from a rear three-quarter you can read her nose and eye socket."*
+    #
+    # The groom already had a coverage layer and a coverage texel — `root` above and
+    # `hair_texture.CAP_STRIP` — and both stop at the scalp. `root` is `cut: None`, so its tips sit
+    # at z 1.5411 ± 56.7 mm against a hairline at 1.4970: it is a hat. Everything below the hairline
+    # — the fringe over the forehead, the side masses past the jaw, the ends over the collarbone —
+    # was covered only by `underlayer`, `body`, `surface` and `flyaway`, which carry strips 2–7,
+    # whose mean alpha runs 0.55 down to 0.12.
+    #
+    # Measured on `alive.html` this session, per hair-covered pixel, as the share of the light from
+    # behind the groom that still reaches the camera (`tools/figure-pipeline/hair_opacity.mjs`):
+    # **0.8229 at one card crossing, 0.6487 at two, 0.4240 at three** — an effective per-card alpha
+    # of 0.18–0.25 where the strips say 0.38–0.59, because the layers a viewer's ray meets first are
+    # the thin ones. The transmittance map is green over the crown, where `root` and the cap are,
+    # and red everywhere they are not.
+    #
+    # 🚩 **IT IS AN INTERIOR LAYER AND EVERY NUMBER IN IT IS CHOSEN TO KEEP IT ONE.** A layer that
+    # made the mass opaque and then showed its own quad edge at the silhouette would trade this
+    # defect for the one `STRIP_GUTTER_PX` was written for. So: `standoff` inside `underlayer`'s,
+    # `gravity` below every visible layer's so it swings less far out, `cut` above `surface`'s so
+    # its ends stop short of the ones a viewer reads, `clump` high enough that it gathers into the
+    # same sixteen locks rather than fanning between them, and `strips` the one strip in the sheet
+    # that is near-opaque WITH a broken border (`hair_texture.INTERIOR_STRIP`).
+    {"name": "mass", "cards": 84, "standoff": 0.0135, "length": 0.290,
+     "half_width": 0.0175, "strips": (1,), "gravity": 1.06, "jitter": 0.10,
+     "crown": 0.50, "cut": 0.84, "clump": 0.60, "tip_width": 0.26},
     {"name": "underlayer", "cards": 58, "standoff": 0.0110, "length": 0.200,
      "half_width": 0.0180, "strips": (2, 3), "gravity": 1.00, "jitter": 0.11,
      "cut": 0.35, "clump": 0.45},
@@ -246,8 +274,8 @@ HAIR_LAYERS = [
 # the body layer's, so the mass has no through-line and reads as depth-sorted noise. One set of
 # centres means a lock is a column of hair from the scalp to the tip, which is what a lock is.
 #
-# 16 rather than 30: a bob shows on the order of a dozen locks, and 294 cards over 16 centres is
-# 18 a lock — on average 6.5 of the `root` layer's, down to 1.75 of the `flyaway` layer's, which is
+# 16 rather than 30: a bob shows on the order of a dozen locks, and 378 cards over 16 centres is
+# 23 a lock — on average 6.5 of the `root` layer's, down to 1.75 of the `flyaway` layer's, which is
 # enough for a lock to read as a mass in the layers that carry one and correctly leaves the
 # outermost wisps as individual hairs.
 LOCK_COUNT = 16
@@ -316,7 +344,8 @@ CAP_UV_REACH = 1.35
 # a card rooted at the crown travels over the skull AND down to the cut. Measured over the five
 # bakes the median card is 187–202 mm and the 90th percentile 322–344 mm; twelve segments would put
 # 27–29 mm between rings at that percentile, over the 24 mm the crown's turn allows. Sixteen brings
-# it to 20–21 mm and costs 29% more triangles — 8,184 to 10,536.
+# it to 20–21 mm and costs 29% more triangles — 8,184 to 10,536, measured on the 294-card groom
+# this number was taken from. The `mass` layer has since taken the same groom to 13,224.
 GUIDE_SEGMENTS = 16
 
 # --- the cut ------------------------------------------------------------------------------------
@@ -334,7 +363,7 @@ GUIDE_SEGMENTS = 16
 #   card is REGROWN at it, which keeps `s` meaning what it means.
 #
 #   THEN IT IS TRIMMED. The correction is a Newton step on a nearly-linear relation and it leaves a
-#   few millimetres; a few millimetres times 294 cards is a fuzzy line rather than a cut one.
+#   few millimetres; a few millimetres times 378 cards is a fuzzy line rather than a cut one.
 #
 # ⚠️ The upper bound is a runaway guard rather than a style choice. A card that leaves the crown
 # almost horizontally descends a few millimetres over its whole length, so `wanted / achieved` is
@@ -365,6 +394,15 @@ CUT_MINIMUM_LENGTH = 0.35
 # How much of the card's root width survives to the tip. Hair narrows toward the ends; the alpha
 # in the strand sheet does most of that work, and this does the rest so the SILHOUETTE narrows too
 # — alpha alone leaves a card whose transparent corners still occlude nothing but still exist.
+#
+# 🎯 **A LAYER MAY OVERRIDE IT, AND THE `mass` LAYER HAS TO.** 0.62 is the right taper for a card
+# whose atlas strip is 40% opaque: it ends as a soft, half-transparent wedge among five other
+# cards. The interior strip is 84% opaque, so the same wedge ends as a STRAP — and at the bottom of
+# the bob, where only two or three cards remain, each strap is separately readable. Rendered at
+# portrait with `mass` at 0.62 the ends over the collarbone read as a row of flat ribbons with
+# black tips, which is a different failure from the one this round is fixing and not an improvement
+# on it. The override is on the layer rather than on the strip because the WIDTH is geometry and
+# the strip is texture; a card can carry an opaque texel and still come to a point.
 TIP_WIDTH_FRACTION = 0.62
 
 # Weights of the three root-direction terms, before the tangent projection. Radial dominates
@@ -723,7 +761,7 @@ class Lock:
 
     A lock owns three random draws and each of them used to belong to a card. The point of moving
     them here is that a lock is what the eye resolves: sixteen locks that each lean, curl and end
-    slightly differently reads as a style, where 294 cards that each do reads as frizz. See
+    slightly differently reads as a style, where 378 cards that each do reads as frizz. See
     LOCK_DIRECTION_SHARE for the measurement that says which one the groom was.
     """
 
@@ -1183,8 +1221,9 @@ def ribbon_of(guide, frame, layer, strip, random):
         angle = twist * s
         across = (across * math.cos(angle) + outward * math.sin(angle)).normalized()
 
+        tip_width = layer.get("tip_width", TIP_WIDTH_FRACTION)
         half = (layer["half_width"] * width_scale
-                * (1.0 - (1.0 - TIP_WIDTH_FRACTION) * s))
+                * (1.0 - (1.0 - tip_width) * s))
 
         rings.append((point - across * half, point + across * half, s))
 

@@ -93,6 +93,47 @@ STRIP_COLUMNS = 8
 CAP_STRIP = 0
 CAP_STRIP_MIN_COVERAGE = 0.97
 
+# 🎯 **THE SHEET HAS A COVERAGE TEXEL FOR THE SCALP AND HAD NONE FOR THE LENGTH, AND THAT IS WHY
+# THE GROOM WAS A STOCKING.** A blind critic on the composed portrait: *"Neither hair nor a wig — a
+# stocking… you can see the bald skull's silhouette through it, you can see her far-side ear through
+# it."* Measured on `alive.html` this session — an emissive step on everything that is NOT hair,
+# differenced in linear light inside the hair's own screen footprint, against the same step with the
+# groom hidden as the denominator — the shipped groom transmits **0.8229 of what is behind it at
+# ONE card crossing**, so a card is 17.7% opaque. Not 59%, which is what strip 1's mean alpha says:
+# the pixels a viewer's ray reaches first are the layers carrying strips 4–7, and the dense strips
+# never get below the hairline (`hair_cards.HAIR_LAYERS`'s `root` layer is `cut: None`).
+#
+# `CAP_STRIP` was already the answer to the same question one axis over: the crown needed a texel
+# that is hair rather than a hole, and it got one. `INTERIOR_STRIP` is that texel for the LENGTH,
+# and `hair_cards.HAIR_LAYERS`'s `mass` layer is what carries it.
+#
+# 🚩 **IT IS NOT A SECOND CAP STRIP, AND THE DIFFERENCE IS THE BORDER.** Strip 0 is edge-to-edge
+# opaque because the cap tiles it radially and a transparent gutter there would be twelve radial
+# seams across the crown. A CARD carrying an edge-to-edge opaque strip is the straight quad border
+# a critic already found once (see STRIP_GUTTER_PX). So the interior strip keeps the gutter and the
+# edge-wisp band exactly as every other card strip has them, and buys its opacity in the middle:
+# more strands, wider strands, and — the term that actually moves it — strands that run the FULL
+# length of the sheet instead of stopping at 80–100% of it and then tapering to a needle over the
+# last 30%. Measured per strip, mean alpha: shipped strip 1 0.5898, this recipe 0.8380. The bottom
+# third of the old strip was the thinnest part of it, and the bottom third of a card is the part
+# that hangs over the collarbone — which is exactly where the transmittance map was red.
+#
+# ⚠️ **0.84 IS THE CEILING THE EDGE BAND SETS, AND IT WAS PUSHED AT.** `EDGE_BAND_PX` is 20 of a
+# ~110 px lattice on each side, and everything in it is a short wisp by construction. Sweeping the
+# recipe further buys almost nothing and costs the border: (300, 3.0) reads 0.8380 with a left-
+# boundary sd of 6.304 px, (420, 3.4) reads 0.8557 at 4.795 px, (560, 3.8) reads 0.8505 at 4.519 px
+# — a fifth of a point of alpha for a quarter of the raggedness `verify_glb.mjs`'s `border is hair`
+# clause exists to hold. Two overlapping `mass` cards at 0.838 transmit 0.026, which is the number
+# the groom actually needs; a third of a point on one card is not.
+INTERIOR_STRIP = 1
+
+# The interior strip's tips. Short of the cap's 0.02/0.0 because a `mass` card is cut ABOVE the
+# visible layers rather than being hidden by a whole head, so its last rows can be seen edge-on;
+# short of the wisp strips' 0.22/0.30 because a needle over the last third is a third of the card
+# spent going transparent, and this strip exists to not do that.
+INTERIOR_TIP_FADE = 0.10
+INTERIOR_TIP_NEEDLE = 0.10
+
 # 🎯 **THE CARD'S OWN BORDER IS A STRAIGHT LINE, AND THAT IS THIS FILE'S DEFECT RATHER THAN THE
 # RIBBONING'S.** A blind critic shown the groom in three-quarter view said a dead-straight card
 # border ran from the crown past the jaw and sliced the eyebrow, the eyelid and the cheekbone; its
@@ -147,12 +188,24 @@ EDGE_BAND_PX = 20.0
 # because they were measured, not because they were aimed at. They are the wisps whose whole job is
 # to be mostly transparent so that the silhouette of a card carrying one is the outline of a few
 # hairs; making them cover more would undo the thing they exist for.
+#
+# 🎯 **AND STRIP 1 IS NOW THE INTERIOR STRIP, WHICH IS A DIFFERENT JOB FROM THE ONE IT HAD.** It
+# used to be the densest of the seven CARD strips and it was still a 59% texel. See
+# `INTERIOR_STRIP`: its count and width are now the cap's rather than a card's, its strands run the
+# full sheet, and the layers that carry it (`root` and `mass`) are the two that never show an edge.
 STRIP_RECIPES = [
     (168, 2.4, 4.0, 0.20),
-    (74, 1.6, 10.0, 0.55),
+    (300, 3.0, 3.5, 0.12),
     (66, 1.5, 12.0, 0.60),
     (58, 1.4, 14.0, 0.62),
-    (48, 1.3, 16.0, 0.68),
+    # 🚩 49 rather than 48, and the extra strand buys nothing about strip 4 — it re-draws the RNG.
+    # The header two blocks up already says why: the strand plan is one stream, so strip 1's new
+    # count changes every later strip's draw. At 48 this sheet's strip 4 came back with a RIGHT
+    # boundary sd of 2.381 px against `verify_glb.mjs`'s 3 px floor — a straight card edge, by
+    # accident of the draw rather than by any property of the recipe. At 49 the worst boundary on
+    # the whole sheet is 7.799 px. Recorded as a re-draw, not as a fix, because calling it a fix
+    # would be a claim that 48 was wrong.
+    (49, 1.3, 16.0, 0.68),
     (40, 1.2, 18.0, 0.72),
     (17, 1.1, 24.0, 0.84),
     (11, 1.0, 28.0, 0.90),
@@ -355,6 +408,10 @@ def plan_strands(random, count, column, strip_width, half_width, wander, taper):
     reach a border texel. See `STRIP_GUTTER_PX` for what that border texel was doing to the render.
     """
     is_cap = column == CAP_STRIP
+    # The interior strip keeps every BORDER treatment a card strip has — gutter, edge band, edge
+    # wisps — and takes the cap's treatment of the strand's own LENGTH. See `INTERIOR_STRIP`: the
+    # two are separable and conflating them is what would put a straight quad edge back.
+    is_interior = column == INTERIOR_STRIP
     gutter = 0.0 if is_cap else STRIP_GUTTER_PX
     left = column * strip_width
 
@@ -388,7 +445,7 @@ def plan_strands(random, count, column, strip_width, half_width, wander, taper):
         # An interior strand runs nearly the whole card. A wisp covers a random SPAN of it, which
         # is what breaks the silhouette into hairs: two neighbouring wisps end at different rows,
         # so the strip's kept boundary is ragged in v as well as in u.
-        interior_length = 1.0 if is_cap else 0.80 + 0.20 * random.random()
+        interior_length = 1.0 if (is_cap or is_interior) else 0.80 + 0.20 * random.random()
         wisp_length = 0.18 + 0.42 * random.random()
         length = interior_length + (wisp_length - interior_length) * edge
         start = edge * random.random() * max(0.0, 1.0 - length)
@@ -419,8 +476,8 @@ def plan_strands(random, count, column, strip_width, half_width, wander, taper):
             # bottom edge is the crown of the head, which must not be a row of tapering points.
             "length": length,
             "start": start,
-            "tip_fade": 0.02 if is_cap else TIP_FADE,
-            "tip_needle": 0.0 if is_cap else TIP_NEEDLE,
+            "tip_fade": 0.02 if is_cap else (INTERIOR_TIP_FADE if is_interior else TIP_FADE),
+            "tip_needle": 0.0 if is_cap else (INTERIOR_TIP_NEEDLE if is_interior else TIP_NEEDLE),
             # The strip this strand is confined to, and whether it wraps inside it or is clipped
             # by it. See the containment clause in `draw_strand`.
             "strip_left": left,

@@ -276,6 +276,14 @@
  *                   🚩 the rejection proof for the anisotropy: a fixed VIEW-space strand direction
  *                   for every fragment, so the highlight is welded to the screen instead of running
  *                   across the strand. It renders a plausible picture. See `HAIR_DEFECTS`.
+ *   ?hairmotion=0   PUNCH-LIST 6.6. The A side of the hair DYNAMICS, which ship ON with `?hair=1`.
+ *                   `motion/HairDynamics.js` — DFTL on the card centrelines, one WebGPU compute
+ *                   pass a frame — reads the head bone the idle stack is already turning and moves
+ *                   the groom's card centrelines behind it. `?hairmotion=0` leaves the groom a rigid
+ *                   SkinnedMesh welded to the head, which is what every plate before this round
+ *                   was, and it is the control every judged plate needs. See `attachHairDynamics`
+ *                   for what the toggle is worth on a STILL plate, which is the property that makes
+ *                   it a control rather than a second stimulus.
  *   ?shadows=0      build the rig without its shadow-casting half (2.62 ms, measured)
  *   ?gputime=1      request GPU timestamp queries at device creation, so
  *                   `renderer.resolveTimestampsAsync('render')` and `info.render.timestamp` work.
@@ -459,7 +467,16 @@ const WARDROBE_BODY_URL = new URL( '../../../assets/wardrobe/body/g050.glb', imp
 /**
  * The groom, and why `?hair` is OPT-IN on the page that carries every committed gate.
  *
- * Punch-list 3.6 built `assets/hair/bob01/` — five identity bakes of a 254-card groom plus a
+ * ⚠️ NO CARD COUNT IS WRITTEN IN THIS FILE ANY MORE, and the omission is deliberate. It said "254"
+ * for two rounds after the groom stopped being 254, REQ-067 was filed to say so, and while THIS
+ * round's wiring was being measured the generator rebuilt `g050.glb` again: `verify_glb.mjs` read
+ * it as **294 cards / 10,648 verts at 2,774,184 bytes** early in the session and as **370 cards /
+ * 13,232 verts at 2,840,540 bytes** an hour later, with the other four bakes still at 294. The
+ * bakes are gitignored build products, so a clean tree is no evidence about them.
+ * `tools/figure-pipeline/verify_glb.mjs` prints the census of whatever is on disk; nothing here
+ * repeats it, and nothing here should.
+ *
+ * Punch-list 3.6 built `assets/hair/bob01/` — five identity bakes of the groom plus a
  * four-sheet atlas — 3.5 is the BSDF that shades it, and `render/HairOIT.js` is how its fragments
  * reach the frame buffer. All three now compose on this page behind the one key.
  *
@@ -861,6 +878,15 @@ async function boot() {
         // path that made `stage.onFrame` the wrong home for it.
         hairSlabUpdate: null,
 
+        // Punch-list 6.6. The DFTL solver, or null on a plate with no groom or with
+        // `?hairmotion=0`. Two handles rather than one because they have different readers:
+        // `hairDynamics` is the solver itself — `reset()`, `stepsTaken`, `readCentrelines()`, all
+        // of which a capture driver and a gate need — and `hairMotionUpdate` is the per-frame
+        // closure, which lives beside `hairSlabUpdate` for the same reason it does: `trackFigure`
+        // is the only per-frame path both halves of this page share.
+        hairDynamics: null,
+        hairMotionUpdate: null,
+
         // Phase 9. `?wear=female_casualsuit01,shoes01` dresses the figure; `?wear=` with nothing
         // after it loads the wardrobe and wears nothing, which is the way to see the body swap on
         // its own. See `WARDROBE_BODY_URL` for why this is opt-in and what it costs when it is on.
@@ -1126,8 +1152,13 @@ async function boot() {
      * loop away from requestAnimationFrame, so a `stage.onFrame` callback stops firing and a
      * contact shadow silently stops following the feet — on precisely the plates a judge
      * measures. Anything per-frame and figure-shaped belongs here, not in the callback.
+     *
+     * @param {number} deltaSeconds - the frame's step. It takes one now because punch-list 6.6's
+     *   solver is a fixed-timestep integrator with an accumulator, and a layer advanced once per
+     *   FRAME rather than per fixed step has a trajectory that depends on the frame rate
+     *   (LEARNINGS §1.13). Both call sites already know the number; nothing else here reads it.
      */
-    function trackFigure() {
+    function trackFigure( deltaSeconds ) {
 
         ground.update();
 
@@ -1138,6 +1169,18 @@ async function boot() {
         // judge measures is the contact-shadow defect this function was written after.
         session.hairSlabUpdate?.();
 
+        // 🎯 PUNCH-LIST 6.6, and it is HERE rather than in the rAF callback for the reason this
+        // whole function exists — `?capture` bypasses `stage.onFrame`, and hair that stopped
+        // simulating on exactly the plates a judge measures is the defect this round is repairing
+        // one level up.
+        //
+        // ⚠️ IT RUNS UNDER `?freeze` TOO, deliberately. Frozen means the motion stack does not
+        // advance, so the head does not move, so the solver is the identity — and running it there
+        // is what makes the frozen plate a real test of the wiring rather than a plate the
+        // subsystem was switched off for. If that identity ever stops holding, every gate plate in
+        // the repository moves, which is the loudest possible way to find out.
+        session.hairMotionUpdate?.( deltaSeconds );
+
     }
 
     stage.onFrame( ( deltaSeconds ) => {
@@ -1146,7 +1189,7 @@ async function boot() {
 
         if ( frozen === false ) advanceSimulation( deltaSeconds );
 
-        trackFigure();
+        trackFigure( deltaSeconds );
 
         if ( bare ) return;
 
@@ -1165,6 +1208,28 @@ async function boot() {
     const advanceRendererFrame = query.has( 'capture' )
         ? takeOverFrameLoop( stage, query.get( 'clockdefect' ) ?? 'none' )
         : null;
+
+    // PUNCH-LIST 6.6's leg of the same epoch. `takeOverFrameLoop` puts the RENDERER's frame state
+    // at a known value; the solver's state is its own — a GPU storage buffer and a step counter,
+    // both invisible to `alive-capture-determinism.selftest.mjs`, which reads renderer counters.
+    // AFTER the takeover and not before, because `renderer._animation.stop()` is what stops
+    // `stage.onFrame` firing and a reset taken ahead of it would be undone by the next rAF tick.
+    // Keyed off `?capture` rather than off `advanceRendererFrame`, which is also null on the
+    // fallback path where the renderer internals could not be reached — that path has already lost
+    // bit-exactness and does not need a second reason for it.
+    //
+    // ⚠️ AND ON THIS PAGE, TODAY, IT IS A NO-OP. Said out loud rather than left looking
+    // load-bearing. REQ-069 asked for it on the grounds that rAF runs during the async boot, so
+    // "without this the first captured frame carries a count of how many frames the machine fitted
+    // into loading a GLB" — which is exactly true of `nodeFrame.frameId` and is NOT true of the
+    // solver here: nothing drives it until `stage.onFrame` is registered thirty lines up, and the
+    // path from that registration to `takeOverFrameLoop` contains no `await`, so no rAF task can
+    // interleave. Measured rather than reasoned out: with this line deleted,
+    // `HairDynamics.selftest.mjs`'s A4 still read `hairSteps` 120 and 120 from boot epochs 15 and
+    // 106. It stays because it is one call and because the ordering it relies on is three
+    // statements that a future edit could put an `await` between — a GUARD, not a fix, and it is
+    // not quoted as one anywhere.
+    if ( query.has( 'capture' ) ) session.hairDynamics?.reset();
 
     /**
      * Advances the motion stack by exactly `deltaSeconds`, draws one frame, and resolves once
@@ -1208,7 +1273,7 @@ async function boot() {
 
         }
 
-        trackFigure();
+        trackFigure( deltaSeconds );
 
         // The renderer's per-frame internal tick, which normally rides on rAF. Skinning is
         // updated here, so skipping it renders a live simulation onto a frozen pose — see
@@ -1314,7 +1379,7 @@ async function boot() {
         // SHOULD be after N steps rather than only whether two runs happen to agree. Two runs
         // agreeing is cross-observer agreement and it is blind to anything wrong the same way for
         // both of them — LEARNINGS §1.25g — and `frozen-frame` below is exactly that shape.
-        captureClock: () => readCaptureClock( stage ),
+        captureClock: () => readCaptureClock( stage, session ),
         frame: ( heightMetres, mode = session.frameMode ) => {
 
             const framed = frameFigure( stage, session.figure, { mode, heightMetres } );
@@ -1577,7 +1642,7 @@ function startingFrameIdFor( defect ) {
  * observers agree exactly. The gate reads this and compares it against values derived from the
  * step count, which is a different kind of check from a pixel diff and catches a different half.
  */
-function readCaptureClock( stage ) {
+function readCaptureClock( stage, session ) {
 
     const nodeFrame = stage.renderer._nodes?.nodeFrame ?? null;
     const resolveClock = stage.temporal?.frameEpoch?.() ?? null;
@@ -1589,7 +1654,19 @@ function readCaptureClock( stage ) {
         jitterIndex: resolveClock?.jitterIndex ?? null,
         jitterPeriod: resolveClock?.jitterPeriod ?? null,
         historyWidth: resolveClock?.historyWidth ?? null,
-        bootFrameId: captureBootFrameId
+        bootFrameId: captureBootFrameId,
+
+        // 🎯 PUNCH-LIST 6.6's COUNTER, and it belongs in this object rather than beside it for the
+        // reason the object exists: `frameId` is here because a per-frame counter the capture does
+        // not pin is a plate nobody can reproduce, and the hair solver's step count is exactly
+        // that kind of counter — it advances on every rAF tick of the boot and it is invisible to
+        // every renderer statistic. `null` on a plate with no groom or with `?hairmotion=0`, which
+        // is a different reading from 0 and has to be.
+        //
+        // The oracle a gate can state against it is exact: after N captured steps at 1/60 the
+        // solver has run 2N substeps of 1/120, because `1/60 − 1/120 − 1/120` is exactly zero in
+        // binary floating point. See `HairDynamics.update`.
+        hairSteps: session?.hairDynamics?.stepsTaken ?? null
     };
 
 }
@@ -1910,10 +1987,32 @@ function readHairRequest( query ) {
 
     }
 
+    // 🎯 PUNCH-LIST 6.6, AND IT DEFAULTS **ON** RATHER THAN OFF, WHICH IS A DEPARTURE FROM THE
+    // REQUEST THAT ASKED FOR IT (REQ-069 asked for `?hairmotion=1`).
+    //
+    // The reason is the blind critic's reading of the shipped build — *"nothing moves, and I can
+    // say that from the data rather than by squinting"* — and the shape of every other A/B key on
+    // this page: `?gtao=0`, `?specocc=0`, `?morphvel=off` all name the DEFECT side, because the
+    // plate a judge captures should be the shipped one and the control should cost a flag. A
+    // solver reachable only from `?hairmotion=1` is the round-13 HairOIT failure again: a working
+    // subsystem that no judged plate contains.
+    //
+    // It is only safe to default on because the solver is a CONTROL-PRESERVING toggle with the head
+    // still — see `attachHairDynamics` for what that is worth in pixels on this page — so `?freeze`
+    // plates, which is every gate plate in the repository, do not move.
+    const motion = query.get( 'hairmotion' ) ?? '1';
+
+    if ( [ '0', '1' ].includes( motion ) === false ) {
+
+        throw new Error( `alive: ?hairmotion must be 0 or 1 — got '${ motion }'.` );
+
+    }
+
     return {
         // The geometry stays, the shader goes. Holding the groom constant is what makes this the A
         // side of 3.5 rather than the A side of 3.6.
         bsdf: query.get( 'hairbsdf' ) !== '0',
+        motion: motion === '1',
         lobes,
         oit,
         scatter: query.get( 'hairscatter' ) === '0' ? 0 : 1,
@@ -1951,7 +2050,7 @@ function readHairRequest( query ) {
  *
  * ## 🎯 And the third piece: how the fragments reach the frame buffer
  *
- * A groom is 254 cut-out ribbons and a dozen of them overlap any given pixel, so the BSDF is only
+ * A groom is a few hundred cut-out ribbons and a dozen of them overlap any given pixel, so the BSDF is only
  * half the picture — the other half is what a stack of overlapping cards resolves to.
  * `render/HairOIT.js` owns that and `configureHairMaterial` is the seam. Until this round this file
  * did not import it, so the material kept `HairMaterial`'s own `alphaTest = 0.5` and this page ran
@@ -2098,8 +2197,12 @@ async function attachHair( session, figureUrl, stage ) {
 
     // A gender swap runs this again over a fresh groom, so last bake's slab fit has to go before
     // this one's is installed — otherwise a bake with no groom would keep fitting the slab to the
-    // box of a groom that is no longer in the scene.
+    // box of a groom that is no longer in the scene. The solver is dropped for the same reason and
+    // it matters more: it holds a rest pose derived from the OLD groom's vertex buffer, and a
+    // solver left running across a bake swap would drive the new groom from the old one's chains.
     session.hairSlabUpdate = null;
+    session.hairMotionUpdate = null;
+    session.hairDynamics = null;
 
     const bake = bakeNameFrom( figureUrl );
     const groomUrl = HAIR_BAKES.get( bake );
@@ -2197,6 +2300,19 @@ async function attachHair( session, figureUrl, stage ) {
 
         }
 
+        // 🚩 AND THE SOLVER CANNOT RUN ON THIS PLATE EITHER, FOR THE SAME MECHANISM ONE LINE UP.
+        // `HairDynamics` delivers its answer as a `positionNode`, and a node set on the GLB's
+        // `MeshStandardMaterial` is set on an object the WebGPU backend rebuilds every render. So
+        // `?hairbsdf=0&hairmotion=1` would be a plate that says it simulates and does not, which is
+        // worse than one that refuses. It refuses, in words.
+        if ( request.motion === true ) {
+
+            console.warn( '?hairmotion is ignored under ?hairbsdf=0: the solver drives the groom ' +
+                'through material.positionNode, and the shipped GLB material is rebuilt by the ' +
+                'backend every render, so no node survives on it. This plate is a RIGID groom.' );
+
+        }
+
         console.log( `hair: ${ bake } groom on the page with its SHIPPED GLB material — ?hairbsdf=0, the A side of 3.5.` );
         return;
 
@@ -2247,6 +2363,11 @@ async function attachHair( session, figureUrl, stage ) {
         defect: null
     } );
 
+    // Punch-list 6.6, and it runs BEFORE the material is handed to the meshes on purpose: it sets
+    // `material.positionNode`, and a node added to a material the renderer has already drawn with
+    // needs the program rebuilt. Nothing has drawn with this one yet.
+    if ( request.motion === true ) await attachHairDynamics( session, stage, skinned, material );
+
     for ( const mesh of skinned ) mesh.material = material;
 
     session.hairMaterial = material;
@@ -2290,7 +2411,168 @@ async function attachHair( session, figureUrl, stage ) {
     }
 
     console.log( `hair: ${ bake } groom, ${ skinned.length } mesh(es), oit ${ request.oit }, ` +
+        `motion ${ session.hairDynamics === null ? 'off' : 'on' }, ` +
         `${ JSON.stringify( material.describe() ) }` );
+
+}
+
+/**
+ * PUNCH-LIST 6.6 — puts `motion/HairDynamics.js` on the groom this page just rebound.
+ *
+ * ## Why this exists as its own function and why the round it landed in matters
+ *
+ * The solver landed a round before this wiring did, gated at 25/25 by
+ * `packages/core/src/motion/HairDynamics.selftest.mjs`, and was reachable only from
+ * `packages/testbed/src/hair.html?motion=1` — a page nobody judges. **That is the second time this
+ * project has built a working piece that never reached the acceptance page**: round 13 shipped
+ * `render/HairOIT.js` with `alive.js` not importing it at all, so the judged plate ran the CUTOUT
+ * arm while the module recommended something else, and both times only an adversarial pass found
+ * it. The blind critic's reading of the build this replaces is the cost of that:
+ * *"Nothing moves, and I can say that from the data rather than by squinting."*
+ *
+ * ## The coupling, in one sentence
+ *
+ * The groom is skinned 1.000 to `head` and nothing else, so its skinned position is
+ * `mesh.matrixWorld · head.matrixWorld · boneInverse[head] · restLocal` — ONE rigid transform, which
+ * is why `setHeadMatrix` is the entire input to the simulation and why `MotionStack`'s head idle,
+ * gaze and sway reach the hair without any of them knowing the hair exists.
+ *
+ * ⚠️ `boneInverse[head]` IS THE GROOM'S OWN, and it survives the rebind by reference rather than by
+ * being kept aside: `attachHair` calls `mesh.bind( new SkinSkeleton( bones, mesh.skeleton.boneInverses ), … )`,
+ * so the new skeleton is the FIGURE's bones with the GROOM's inverses, and reading
+ * `mesh.skeleton.boneInverses[ i ]` after the rebind reads the same matrix it would have before.
+ * The bone at the same index is now the figure's `head`, which is exactly the other half this needs.
+ *
+ * ## 🎯 WHY IT IS SAFE TO DEFAULT ON: the toggle is a CONTROL, not a second stimulus
+ *
+ * `HairDynamics.selftest.mjs`'s clause E measures the solver against the rigid pose with the head
+ * STILL and requires them to agree to 0.01 mm; the run that gated it read 0.000132 mm over 4,998
+ * particles. Every objective gate in this repository captures `?freeze`, where the head does not
+ * move — so those plates get a groom the solver reproduces rather than a groom it perturbs. The
+ * pixel half of that claim is measured on THIS page rather than inherited, in the ALIVE section of
+ * `HairDynamics.selftest.mjs`.
+ *
+ * ## What is NOT fixed by this, named so its absence is not read as a claim
+ *
+ * The TANGENT. `HairMaterial` reads a baked tangent (`hair.md` §6.1) and a card that has moved is
+ * shaded off a strand direction that no longer points along the strand. The rebuild kernel already
+ * computes the live one; deciding how it reaches the BSDF is the shading owner's, and it is REQ-070
+ * in `docs/OPEN-REQUESTS.md`.
+ *
+ * The SHADOW is not in that list, and it was expected to be: r185's `Renderer._getShadowNodes`
+ * reads `material.positionNode` (`node_modules/three/src/renderers/common/Renderer.js:3416-3418`)
+ * and assigns it to the shadow override material (`:3610`), so the groom casts from where the
+ * solver put it. Read out of the renderer source rather than assumed, because the neighbouring
+ * comment in `attachHair` records the opposite finding for `alphaHash`, which is NOT copied.
+ *
+ * @param {Object} session - the live session; the two handles are installed on it.
+ * @param {Stage} stage - for `stage.renderer`, which the solver submits its own compute pass on.
+ * @param {Array} meshes - the groom's skinned meshes, already rebound to the figure's skeleton.
+ * @param {Object} material - the `HairMaterial` the solver's `positionNode` is installed on.
+ */
+async function attachHairDynamics( session, stage, meshes, material ) {
+
+    // `deriveCardGroom` reads ONE geometry, and a two-mesh groom would need one solver each with a
+    // shared collider fit. The shipped bakes are one mesh; a refusal in words is the honest answer
+    // to a groom that is not, rather than a solver silently driving the first mesh of two.
+    if ( meshes.length !== 1 ) {
+
+        console.warn( `?hairmotion: the solver needs one SkinnedMesh and this groom has ` +
+            `${ meshes.length }. The groom is RIGID on this plate.` );
+
+        return;
+
+    }
+
+    const mesh = meshes[ 0 ];
+    const boneIndex = mesh.skeleton.bones.findIndex( ( bone ) => bone.name === 'head' );
+
+    if ( boneIndex < 0 ) {
+
+        console.warn( '?hairmotion: the groom\'s skeleton has no `head` bone to hang the solver on. ' +
+            'The groom is RIGID on this plate.' );
+
+        return;
+
+    }
+
+    const headBone = mesh.skeleton.bones[ boneIndex ];
+    const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
+
+    // The fit below reads world matrices off the figure, and `attachHair` has just reparented the
+    // groom under it. Nothing has rendered since, so nothing has refreshed them.
+    session.figure.root.updateMatrixWorld( true );
+
+    // Dynamic for `attachHair`'s own reason one function up: a plate that did not ask for hair must
+    // not fetch a module it cannot use. Everything expensive in `HairDynamics.js` is inside
+    // `createHairDynamics`, so the import itself is the module graph and nothing else.
+    const { createHairDynamics } = await import( '../../core/src/motion/HairDynamics.js' );
+
+    const dynamics = createHairDynamics( { renderer: stage.renderer, geometry: mesh.geometry } );
+
+    dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+
+    // The shoulder capsule. `fitColliders` sizes it by the same rule it sizes the skull by — the
+    // largest radius the REST pose does not already violate — because a collider the rest pose
+    // violates pushes the groom out of one shape and into the other on frame one, and that is what
+    // would stop the still plate being a control. `HairDynamics.fitColliders` carries the afternoon
+    // that measurement cost.
+    const bones = new Map();
+    session.figure.root.traverse( ( object ) => {
+
+        if ( object.isBone === true ) bones.set( object.name, object );
+
+    } );
+
+    const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
+    const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
+    const leftShoulder = new Vector3();
+    const rightShoulder = new Vector3();
+
+    const colliders = dynamics.fitColliders( {
+        shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
+        shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
+    } );
+
+    // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
+    // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
+    // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
+    // 326-vertex scalp cap shells — which are head, not hair — keep their skinning. The choice is
+    // one `select` on `vertexIndex` inside `HairDynamics`, not a second dispatch here.
+    material.positionNode = dynamics.positionNode;
+
+    session.hairDynamics = dynamics;
+
+    session.hairMotionUpdate = ( deltaSeconds ) => {
+
+        // The bones moved in `advanceSimulation` and the renderer will not refresh their world
+        // matrices until it draws, which is after this. `advanceSimulation` does this walk itself
+        // — but only when the eye rig is live, so `?eyes=0` and `?freeze` both reach here with
+        // matrices from the previous frame, and the hair would lag the head by one frame on
+        // exactly the plates that are hardest to notice it on.
+        session.figure.root.updateMatrixWorld( true );
+
+        dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+
+        // The skull rides the head matrix above; the capsule does not, because it hangs off the
+        // clavicles and `Sway` moves the whole column.
+        if ( clavicleLeft !== null && clavicleRight !== null ) {
+
+            dynamics.setShoulders(
+                clavicleLeft.getWorldPosition( leftShoulder ),
+                clavicleRight.getWorldPosition( rightShoulder ) );
+
+        }
+
+        return dynamics.update( deltaSeconds );
+
+    };
+
+    console.log( `hair: DFTL on ${ dynamics.groom.chainCount } chains x ` +
+        `${ dynamics.groom.pointsPerChain } rings = ${ dynamics.groom.particleCount } particles, ` +
+        `skull r=${ ( colliders.skullRadius * 1000 ).toFixed( 1 ) } mm, ` +
+        `capsule r=${ ( colliders.capsuleRadius * 1000 ).toFixed( 1 ) } mm. ` +
+        '?hairmotion=0 is the rigid control.' );
 
 }
 
@@ -2923,6 +3205,12 @@ function censusOfShading( session, stage ) {
         // the cutout arm however `?hairoit` was spelled, so that is what is reported; otherwise it
         // comes off the STAGE, because `Stage` refuses `wboit` on an adapter that cannot carry the
         // two attachments and a census echoing the request back would report a refused arm as live.
+        // `motion` is punch-list 6.6 and it is the field a plate is identified by: a still frame
+        // cannot show whether the groom is simulated, and until this round the answer was "no" on
+        // every plate ever captured off this page. `null` is a RIGID groom — `?hairmotion=0`, or
+        // `?hairbsdf=0`, which cannot carry a `positionNode` at all — and the shape reports the
+        // problem size and the step count rather than a boolean, because a solver that is present
+        // and not being stepped reads identically to one that is absent in every other instrument.
         hair: session.hair === null
             ? null
             : {
@@ -2930,6 +3218,16 @@ function censusOfShading( session, stage ) {
                 groomMeshes: session.hair.meshes.length,
                 shadedMeshesInScene: 0,
                 oit: session.hairMaterial === null ? 'cutout' : stage.hairOITMode,
+                motion: session.hairDynamics === null
+                    ? null
+                    : {
+                        chains: session.hairDynamics.groom.chainCount,
+                        pointsPerChain: session.hairDynamics.groom.pointsPerChain,
+                        particles: session.hairDynamics.groom.particleCount,
+                        substepSeconds: session.hairDynamics.substepSeconds,
+                        steps: session.hairDynamics.stepsTaken,
+                        computeCallsLastFrame: session.hairDynamics.computeCallsLastFrame
+                    },
                 ...( session.hairMaterial === null ? { shaded: false } : session.hairMaterial.describe() )
             },
 

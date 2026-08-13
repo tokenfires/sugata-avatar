@@ -105,6 +105,20 @@ OPEN entry against a round number that stopped moving:
   headroom before the fence itself goes red. The backstop works — it is simply not there yet.
 - The commit that is HEAD names itself *"Round 15"* in its own first line.
 
+🔁 **RE-COUNTED at HEAD `5a08e7e` by the R16 hair-wiring agent, and the headroom has shrunk by one.**
+The gate prints `current round R12 opened at a20bfcb, HEAD is 11 commits past it` — against a
+`ROUND_COMMIT_CEILING` of 14, that is **three commits of headroom**, not four, and this round's own
+commit will make it two. Ten entries are OPEN. The audit below is otherwise unchanged and its
+diagnosis still holds; this line exists so the number in it is not read as current.
+
+⚠️ **And REQ-071 and REQ-072, filed this round, carry `filed-by: the R16 …` beside
+`filed-round: R12` — the eighth and ninth instances of the relabelling the first bullet above
+names.** It is not carelessness and it is not a choice: the EXPIRED clause requires an OPEN entry's
+`filed-round` to be the newest round in the fence, so with the fence stale there is no other legal
+value, and writing `R16` would turn both entries red on filing. The two fields disagreeing is the
+fence's staleness showing through, and the agent that declares the next round should read
+`filed-by` rather than `filed-round` when deciding what a request's real age is.
+
 **The fix is step 3 of the integrator's pass above, and it is deliberately not taken here.**
 Declaring R13 turns all 8 remaining OPEN entries `EXPIRED` at once — that is the mechanism working
 exactly as designed, and every one of them needs a change in `packages/core/**` or
@@ -1875,7 +1889,7 @@ verify:      packages/core/src/render/GTAO.js /slide-47 environment path/
 
 ```request
 id:          REQ-066
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/material/HairMaterial.js
 filed-by:    the R14 hair-occlusion agent
 filed-round: R12
@@ -1901,6 +1915,21 @@ evidence:    `HAIR_SHADOW_ALPHA_CUTOFF` (`render/HairOIT.js`) is now the single 
 anchor:      packages/core/src/material/HairMaterial.js /alphaToCoverage: material.alphaToCoverage/
 verify:      packages/core/src/material/HairMaterial.js /shadowAlphaCutoff/
 ```
+
+Landed while the ledger still read OPEN — the `OPEN-STALE` shape the header describes, and the one
+violation `tools/request-ledger.selftest.mjs` reported at 25/26 when this round opened. Flipped by
+the R16 hair-wiring agent after checking the discrimination in both directions rather than trusting
+the status: `packages/core/src/material/HairMaterial.js:1240` reads
+`shadowAlphaCutoff: material.hairShadowCutoff?.value ?? null` at HEAD, and
+`git show 98303cd:packages/core/src/material/HairMaterial.js | grep -c shadowAlphaCutoff` returns
+**0**, so the `verify` really does separate `filed-at` from HEAD. The `anchor` still matches at
+HEAD, which is legal for an APPLIED entry and is only a coincidence of the change being an
+insertion beside the anchored line rather than a replacement of it.
+
+⚠️ The census this entry adds a field to has grown a second one since, from a different subsystem:
+`censusOfShading`'s `hair` object now carries `motion` (punch-list 6.6) beside the material's own
+`describe()`. Same argument, same place — a plate cannot say from its pixels whether the groom was
+simulated any more than it can say what cutoff it cast at.
 
 ## REQ-067 — the groom's card and triangle census, quoted in four files that all predate 3.6.1
 
@@ -1943,6 +1972,36 @@ evidence:    The groom has been 294 cards since punch-list 3.6 shipped the five-
 anchor:      packages/core/src/render/HairOIT.js /254 cards, 7,224 triangles/
 verify:      packages/core/src/render/HairOIT.js /294 cards, 9,408 triangles/
 ```
+
+🚩 **STILL OPEN, AND ITS OWN PRESCRIBED NUMBER WENT STALE WHILE THIS ROUND WAS RUNNING — which is
+the finding, not a footnote.** The R16 hair-wiring agent set out to apply item 4 (the two literals
+in `packages/testbed/src/alive.js` and the three in `packages/testbed/src/alive-toggles.selftest.mjs`,
+both files it owns) and measured the artefact first. `tools/figure-pipeline/verify_glb.mjs` read
+`assets/hair/bob01/g050.glb` **three different ways in one session**:
+
+| when | file size | cards | verts | triangles |
+|---|---:|---:|---:|---:|
+| start of the wiring work | 2,774,184 | 294 | 10,648 | 10,536 |
+| an hour later            | 2,840,540 | 370 | 13,232 | 12,968 |
+| at the final gate run    | 2,856,220 | 378 | 13,504 | 13,224 |
+
+The other four bakes (`g000`, `g025`, `g075`, `g100`) read 294 throughout, so the groom is
+**mid-rebuild by another agent in this same round** and the five bakes do not currently agree with
+each other. ⚠️ **The bakes are gitignored** (`assets/hair/.gitignore:11`, `*/*.glb`), so
+`git status` clean is no evidence about them at all and `tools/run-selftests.sh`'s clean-at-both-ends
+rule cannot see this class of change.
+
+So item 4 was applied in a form the request did not ask for: **the counts were deleted from those
+two files rather than updated to 294.** Writing 294 today would have been wrong for `g050` within
+the hour, and this entry exists precisely because a transcribed census goes stale. `alive.js` now
+carries the table above and a pointer to `verify_glb.mjs` in place of a number.
+
+Items 1–3 (`packages/core/src/render/HairOIT.js`) are untouched and are why this entry is still
+OPEN. **Whoever takes them should delete the counts too rather than move them to 294** — the same
+argument applies one file over, and `HairOIT.js:15`'s "254 cards, 7,224 triangles" is naming the
+artefact a draw-order measurement was taken on, which is a claim about a build rather than about a
+number. `packages/testbed/pages.js:129`'s "the gate proves 254 cards clear the skull" is the same
+shape a third time.
 
 ## REQ-068 — the motion spike's transcribed groom constants describe a 13-ring card
 
@@ -2011,7 +2070,7 @@ correct state five times over, and it is documented here rather than left lookin
 
 ```request
 id:          REQ-069
-status:      OPEN
+status:      APPLIED
 target:      packages/testbed/src/alive.js
 filed-by:    the R15 hair-motion agent
 filed-round: R12
@@ -2054,6 +2113,55 @@ anchor:      packages/testbed/src/alive.js /session.hairSlabUpdate\?\.\(\);/
 verify:      packages/testbed/src/alive.js /hairDynamics/
 ```
 
+Applied by the R16 hair-wiring agent, with **two deliberate departures from the request and one of
+its four clauses measured to be inert.** All three are recorded here rather than in a commit
+message, because a request applied differently from how it was written is a request the next reader
+will otherwise believe was applied as written.
+
+1. **`?hairmotion` defaults ON, not off.** The request asked for `?hairmotion=1`; the page ships
+   `?hairmotion=0` as the A side, the shape `?gtao=0`, `?specocc=0` and `?morphvel=off` all use. A
+   solver reachable only from an opt-in flag is round 13's `HairOIT` failure again — a working
+   subsystem no judged plate contains — and this request exists because that happened twice. It is
+   only safe because the toggle is control-preserving: measured on `alive.html`, `?bare&freeze&
+   seed=1&capture&aa=msaa&grade=0&hair=1&hairoit=cutout` at 450x600, 24 steps, the solver-on and
+   solver-off plates differ on **1,713 of 1,080,000 samples (0.1586%), worst 35/255**, with the
+   groom's particles sitting 0.002658 mm from the rigid pose. Not zero, and not claimed to be: the
+   coverage test is a step function and the rebuild reaches the same vertex by a different
+   arithmetic path than the skinning does. Two loads of the ON plate are byte-identical
+   (0 of 1,080,000), so that 0.1586% is the toggle and not the weather.
+2. **Clause (3)'s `reset()` is a NO-OP on this page and is kept as a guard, not as a fix.** The
+   request's rationale — rAF frames during the async boot leak into the first captured frame — is
+   exactly true of `nodeFrame.frameId` and is not true of the solver here: nothing drives it until
+   `stage.onFrame` is registered, and the path from that registration to `takeOverFrameLoop`
+   contains no `await`, so no rAF task can interleave. Measured by deleting the line: the new A4
+   check still read `hairSteps` **120 and 120** from boot epochs **15 and 106**. It is kept because
+   the ordering it depends on is three statements a future edit could separate, and `alive.js` says
+   so at the call rather than implying the line is load-bearing.
+3. Clause (4) is done in `alive.js` — `material.positionNode = dynamics.positionNode` on the
+   material `createHairMaterial` returned — so REQ-070 is **not** a blocker for the wiring. It is
+   still open on its own terms, and its second half (the TANGENT) is the live defect: a card that
+   has moved is shaded off a baked strand direction that no longer points along it.
+
+Measured at HEAD `5a08e7e` after the wiring, `packages/core/src/motion/HairDynamics.selftest.mjs`
+**31/31** (was 25/25; the six new checks are its ALIVE block, taken on `alive.html` rather than on
+`hair.html`), `packages/testbed/src/alive-toggles.selftest.mjs` **197/197** (was 194/194),
+`packages/testbed/src/alive-capture-determinism.selftest.mjs` **61/61**. The groom moves behind the
+shipped idle stack with no stimulus written for the test: **2.6009 mm peak mean / 11.3155 mm peak
+worst tip lag** behind the rigid pose over 120 captured frames, against **0.002658 mm** on the same
+instrument with `?freeze` — a factor of 4,257. Cost re-measured with everything on at 1080x1920,
+`?gputime=1`, 120 captured frames: the solver is **0.0740 ms p50 / 0.1144 ms p95 on the COMPUTE
+pool** (0.45% of a 16.6 ms budget) and the RENDER pool reads **8.568 ms p50 with it on against
+8.907 ms with `?hairmotion=0`** — the wrong sign, i.e. its effect there is under the run-to-run
+spread. ⚠️ Every number in this paragraph is on the 378-chain `g050.glb` of 09:1xZ; see REQ-067 for
+why that qualifier is load-bearing today.
+
+⚠️ **And the critic's own instrument still reads zero, which is correct.** The report this round
+answers says *"its position attribute's upload version stayed at 0 across every frame I stepped"*.
+It still does and always will: the solver writes a GPU storage buffer that the material samples
+through `positionNode`, and `geometry.attributes.position` is the bind pose for the life of the
+page. The honest forms of that question are the storage buffer (A2) and the rendered pixels (A6),
+and both are now gated.
+
 ## REQ-070 — `HairMaterial` has no way to read a simulated vertex buffer
 
 ```request
@@ -2090,4 +2198,91 @@ evidence:    Measured this round: `NodeMaterial.setupPosition` runs `skinning( o
              Filed rather than done: `packages/core/src/material/**` is not this agent's file.
 anchor:      packages/core/src/material/HairMaterial.js /const defect = options.defect \?\? 'none';/
 verify:      packages/core/src/material/HairMaterial.js /positionNode/
+```
+
+**REQ-070 is no longer a blocker for the wiring, and its second half is now LIVE.** The R16
+hair-wiring agent applied REQ-069 without it: `material.positionNode = dynamics.positionNode` is set
+in `alive.js` on the material `createHairMaterial` returned, which needs no change to
+`HairMaterial.js` at all. What that leaves is the half this entry marks with ⚠️ — the TANGENT — and
+it stopped being hypothetical the moment the shipped page started moving cards. Two lines of it are
+still worth having (the option in `createHairMaterial` is tidier than an assignment at the call
+site), so the entry stands as filed; the tangent is the part somebody has to decide.
+
+🎯 **And one thing this entry expects is measurably NOT true, which is good news and is recorded so
+nobody re-derives it.** A `positionNode` on a `SkinnedMesh` was expected to leave the SHADOW pass
+behind — the neighbouring finding in `alive.js`'s `attachHair` is that `Renderer.js` copies only
+`alphaTest` and `alphaMap` onto the shadow override material, so `alphaHash` never reaches it. Read
+out of r185's source this round rather than assumed: `Renderer._getShadowNodes` takes
+`material.castShadowPositionNode ?? material.positionNode`
+(`node_modules/three/src/renderers/common/Renderer.js:3414-3418`) and assigns it to the override at
+`:3610`. The groom therefore casts from where the solver put it, with no work.
+
+## REQ-071 — a capture manifest cannot say whether the groom was simulated
+
+```request
+id:          REQ-071
+status:      OPEN
+target:      tools/critic/capture.mjs
+filed-by:    the R16 hair-wiring agent
+filed-round: R12
+filed-at:    5a08e7e
+change:      `buildManifest` records the URL, the seed, the resolution, the environment, the source
+             fingerprint, the liveness block and the determinism block — and nothing the PAGE knows
+             about itself. Add one field beside `environment`:
+             `subsystems: await page.evaluate( () => globalThis.sugata?.subsystems?.() ?? null )`,
+             captured once beside the other page reads in `captureOneSeed` and carried into
+             `buildManifest` whole. `?? null` is load-bearing: `capture.mjs` is pointed at pages
+             other than `alive.html` and only that one exposes `sugata.subsystems`.
+evidence:    This is REQ-066 one subsystem over and the same argument closes it. Punch-list 6.6
+             landed this round and `alive.html?hair=1` now runs a DFTL solver on the groom by
+             default, with `?hairmotion=0` as the rigid control — and NOTHING a capture writes
+             distinguishes the two. Measured on the pair at 450x600, `?bare&freeze&seed=1&capture&
+             aa=msaa&grade=0&hair=1&hairoit=cutout`, 24 steps: 1,846 of 1,080,000 samples differ,
+             0.1709%, worst 35/255. That is by design — the toggle is meant to be a control on a
+             still plate — and it is exactly what makes the manifest the only place the difference
+             can live. On a MOVING plate the same pair differs by 11.3060 mm of peak worst tip lag,
+             so two clips a round apart are two different pictures with identical manifests.
+             `censusOfShading` already reports it: `subsystems().hair.motion` is null for a rigid
+             groom and carries `{ chains, pointsPerChain, particles, substepSeconds, steps,
+             computeCallsLastFrame }` for a simulated one, and the whole census is one page read.
+             Filed rather than done: `tools/critic/**` is not this agent's file.
+anchor:      tools/critic/capture.mjs /    environment: capture.environment,/
+verify:      tools/critic/capture.mjs /subsystems/
+```
+
+## REQ-072 — the capture-determinism gate has no recipe containing hair
+
+```request
+id:          REQ-072
+status:      OPEN
+target:      packages/testbed/src/alive-capture-determinism.selftest.mjs
+filed-by:    the R16 hair-wiring agent
+filed-round: R12
+filed-at:    5a08e7e
+change:      Add one row to `RECIPES`, in the shape the dressed recipe already uses:
+             `{ name: 'hair (groom + DFTL solver)', query: 'hair=1', resolve: true }`.
+             It costs one R pair and one O pair per step count. ⚠️ Do NOT add `&hairmotion=0`
+             beside it as a second row — the rigid arm is the CHEAP half and the solver is the half
+             with state, so a row that runs both is a row that spends twice as long to test the
+             same page once.
+evidence:    `grep -c hair packages/testbed/src/alive-capture-determinism.selftest.mjs` returns 0 at
+             HEAD: the gate that owns "a seeded run reproduces frame for frame" has never loaded a
+             plate with a groom on it, and as of this round that plate carries a stateful GPU solver
+             whose step count advances on every rAF tick. The class the gate is stated against —
+             *any renderer-side per-frame counter that `?capture` does not put at a known value* —
+             now has a member that is not renderer-side, which is why `readCaptureClock` grew
+             `hairSteps` this round.
+             It is not a hole this agent could leave unmeasured, so it is measured in a file it does
+             own: `HairDynamics.selftest.mjs`'s ALIVE block, checks A4 and A5, loads two `?hair=1`
+             captures with the second one's GLB held back 400 ms — the `BOOT_DELAY_MS` mechanism
+             borrowed from THIS gate — and asserts the step count against an oracle rather than
+             against a second observer. Measured at HEAD 5a08e7e: `hairSteps` 120 and 120 after 60
+             steps at 1/60, from boot epochs 15 and 109, and 0.00000000 mm of worst tip difference
+             on a run carrying 1.631 mm of mean tip lag. What that block CANNOT do is compare
+             PIXELS across the pair on the shipped default path, which is this gate's R check and
+             its whole point.
+             Filed rather than done: this agent's ownership is `alive.js`,
+             `alive-toggles.selftest.mjs`, `motion/HairDynamics*` and this ledger.
+anchor:      packages/testbed/src/alive-capture-determinism.selftest.mjs /const RECIPES = \[/
+verify:      packages/testbed/src/alive-capture-determinism.selftest.mjs /hair=1/
 ```

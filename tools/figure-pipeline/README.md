@@ -297,19 +297,29 @@ sweep, one command per identity, all five exit 0:
 | scalp verts after the cut | 337 | 337 | 337 | 337 | 337 |
 | scalp area above the hairline | 472.6 cm² | 492.1 | 513.2 | 535.9 | 561.0 |
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
-| nearest approach, build's instrument | 3.501 mm | 3.503 | 3.504 | 3.503 | 3.501 |
-| nearest approach, `verify_glb.mjs` | 3.501 mm | 3.503 | 3.504 | 3.503 | 3.501 |
-| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.71 |
-| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 0.0 | 31.2 |
-| bare cranium seen from the worst judge view | 6.2 mm² | 0.0 | 0.0 | 9.0 | 21.2 |
-| card tips over card roots (ceiling 0.95) | 0.884 | 0.812 | 0.848 | 0.819 | 0.854 |
-| a tip's height step to its 5 nearest | 9.3 mm | 9.5 | 9.4 | 9.6 | 9.7 |
-| fragment bytes | 2,774,456 | 2,774,788 | 2,774,184 | 2,774,604 | 2,774,568 |
+| nearest approach, build's instrument | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
+| nearest approach, `verify_glb.mjs` | 3.505 mm | 3.503 | 3.500 | 3.503 | 3.501 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 100.00 | 99.93 |
+| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 0.0 | 4.5 |
+| bare cranium seen from the worst judge view | 0.0 mm² | 0.0 | 0.0 | 0.0 | 21.2 |
+| card tips over card roots (ceiling 0.95) | 0.884 | 0.843 | 0.871 | 0.810 | 0.845 |
+| a tip's height step to its 5 nearest | 7.8 mm | 7.9 | 7.7 | 8.1 | 8.1 |
+| fragment bytes | 2,856,488 | 2,856,824 | 2,856,220 | 2,856,636 | 2,856,604 |
 
-Every groom is **294 cards of 17 rings each + 2 cap shells of 564 triangles**, 10,648 verts, 10,536
-triangles. The four sheets are shared and written once per build: albedo 979,435 · normal
-1,159,824 · flow 388,309 · depth 75,426 bytes. Running the same command twice reproduces a fragment
-byte for byte.
+The g050 groom is **378 cards of 17 rings each + 2 cap shells of 564 triangles**, 13,504 verts,
+13,224 triangles, 2,856,220 bytes. The four sheets are shared and written once per build: albedo
+896,513 · normal 1,160,133 · flow 358,280 · depth 65,189 bytes. Running the same command twice
+reproduces a fragment byte for byte.
+
+🎯 **THE ROWS ABOVE ARE THE 378-CARD SWEEP AND THE `mass` LAYER MOVED THREE OF THEM.** Punch-list
+3.22 added an 84-card interior layer (`hair_cards.HAIR_LAYERS`, and
+`tools/figure-pipeline/hair_opacity.mjs` for what it is for). Re-measured across all five bakes
+after the rebuild: the cut line TIGHTENED, 9.3–9.7 mm to 7.7–8.1 mm, because the new layer's tips
+land on their own plane inside the others; the gather ratio moved within its band and stayed under
+the ceiling everywhere; and g100's bare-crown figures IMPROVED — the largest exposed patch went
+31.2 mm² to 4.5 mm² and four of the five bakes now show no bare cranium from any judge view at all.
+The build's own clearance instrument still agrees with the gate's to the last digit on all five
+bakes, which is the property the next block is about.
 
 🎯 **THE TWO CLEARANCE ROWS ARE NOW THE SAME ROW, AND THEY USED TO DIFFER BY UP TO 0.9 mm.** The
 build aimed at 3.5 mm against a 3.0 mm gate floor to cover a disagreement between its own
@@ -367,7 +377,7 @@ components — 254 of 13 rings each at the time, plus 2 cap shells of 564 triang
 the card-count gate stands on and buys nothing: a card's UV is axis-aligned **by construction**, so
 the UV tangent is exactly the card's U axis and the strand direction is its bitangent, with no
 degeneracy anywhere on the mesh. What has to be protected is that the UV *stays* axis-aligned, and
-`verify_glb.mjs` asserts exactly that instead — **294 of 294 cards on exactly two u columns**.
+`verify_glb.mjs` asserts exactly that instead — **378 of 378 cards on exactly two u columns**.
 
 ### The strand atlas
 
@@ -476,11 +486,24 @@ goes UP through the cards over the crown and a critic is looking FORWARD between
 ```bash
 npm run dev                                            # http://localhost:5173/src/hair.html
 node tools/figure-pipeline/hair_shots.mjs --out captures/hair   # the same five plates as PNGs
+node tools/figure-pipeline/hair_opacity.mjs            # is the mass opaque? on alive.html
 ```
 
-Five fixed angles and the four sheets. The gate proves 294 cards clear the skull; it is
+Five fixed angles and the four sheets. The gate proves 378 cards clear the skull; it is
 structurally blind to whether they read as hair, which is LEARNINGS §1.2 and is why the page
-exists. `hair_shots.mjs` drives the page's own `window.hairShot`, which awaits `renderAsync`, so a
+exists.
+
+🎯 **AND `verify_glb.mjs` IS BLIND TO ONE THING IN PARTICULAR, WHICH IS WHY `hair_opacity.mjs`
+EXISTS.** Punch-list 3.22's blind critic: *"Neither hair nor a wig — a stocking… you can see the
+bald skull's silhouette through it, you can see her far-side ear through it."* Every clause in this
+section was green over the top of that, because opacity is a property of the rendered frame and
+every clause here reads the exported bytes — the cranium-coverage clause comes closest and casts
+only at the SCALP, so it never sees the two thirds of the groom that hang below the hairline.
+`hair_opacity.mjs` steps the emissive of everything that is NOT hair on `alive.html` and measures
+how much of the step survives the groom, per pixel, inside a mask rasterised from the groom's own
+triangles. Measured on the shipped groom before the fix: **0.3989 mean transmittance at portrait,
+37.17% of the hair's screen area passing more than half of what is behind it.** After: 0.2488 and
+24.30%, and 0.0807 through the mass proper against 0.2476. `hair_shots.mjs` drives the page's own `window.hairShot`, which awaits `renderAsync`, so a
 before/after pair is two states of one framing rather than two framings. ⚠️ It is NOT the hair
 shader — punch-list 3.5 owns the anisotropic strand model and runs after this. What is drawn is the
 geometry under a plain Principled material.

@@ -30,6 +30,27 @@
  *   | D  dt-invariant               | 60 Hz against 120 Hz, same clock     | `hairstep=perframe`    |
  *   | X  one compute pass           | COMPUTE-pool ms per frame            | `hairsubmit=perkernel` |
  *
+ * ## And the ALIVE block, which is six checks on a DIFFERENT page and the reason is a defect
+ *
+ * Everything above is measured on `packages/testbed/src/hair.html`, and for one round that was the
+ * only page the solver was on — gated at 25/25, invisible to every plate anybody judges. The blind
+ * critic read the shipped build as *"nothing moves, and I can say that from the data rather than by
+ * squinting."* Round 13 had already shipped the same shape once, with `render/HairOIT.js`. So the
+ * A checks are taken on `alive.html` itself:
+ *
+ *   | A1 | the solver is constructed on the acceptance page, one compute call a frame |
+ *   | A2 | it MOVES behind the shipped `MotionStack`, no stimulus written for the test |
+ *   | A3 | ...and reads ~zero on a `?freeze` plate — A2's liveness control                |
+ *   | A4 | `?capture` reaches it: 60 steps leave exactly 120 substeps, from two boot epochs |
+ *   | A5 | ...and those two loads reach the same pose, tip for tip                       |
+ *   | A6 | `?hairmotion=0` is a real rigid control, and what it costs a still plate in pixels |
+ *
+ * ⚠️ **The critic's own instrument reads 0 on this build too, and it is correct that it does.**
+ * `geometry.attributes.position.version` counts uploads of the CPU-side attribute; this solver
+ * writes a GPU storage buffer that the material samples through `positionNode`, so the attribute
+ * stays the bind pose forever. A2 reads the buffer the vertex stage actually samples and A6 reads
+ * rendered pixels, which are the honest forms of the same question.
+ *
  * 🚩 **AND CLAUSE P CARRIES ITS OWN MASK CHECK, which is the one thing the spike got wrong.**
  * `tools/spikes/results/hair-motion.json`'s correctness table reports *0.000 mm of skull
  * penetration* in its green run AND in its `?breakFtl=1` red run. Both numbers are true and neither
@@ -39,11 +60,18 @@
  *
  * ## What is NOT gated here, so its absence is not read as a claim
  *
- * The PICTURE. This file measures geometry off the buffer; whether a swinging bob reads as hair is
- * a thing somebody has to look at, and the round report carries that judgement with plates. The
- * shading is not here either — `?motion=1` draws through a plain `MeshStandardNodeMaterial`, not
- * `HairMaterial`, because this agent does not own that file and wiring the solver onto the
- * acceptance page is filed as a request rather than done.
+ * The PICTURE. This file measures geometry off the buffer and one pixel share; whether a swinging
+ * bob reads as hair is a thing somebody has to look at, and the round report carries that judgement
+ * with plates.
+ *
+ * The TANGENT. `HairMaterial` reads a baked strand direction, so a card that has moved is shaded
+ * off a tangent that no longer points along it. The rebuild kernel already computes the live one
+ * and how it should reach the BSDF is the shading owner's call — REQ-070 in `docs/OPEN-REQUESTS.md`.
+ * Nothing here measures it, and that is an absence rather than a clean bill.
+ *
+ * The SHADING on `hair.html`: `?motion=1` draws through a plain `MeshStandardNodeMaterial` rather
+ * than `HairMaterial`, because that file is not this one's. The ALIVE block below is the one place
+ * the two meet, and it runs the shipped material.
  *
  * Usage:  node "packages/core/src/motion/HairDynamics.selftest.mjs"
  *         node "packages/core/src/motion/HairDynamics.selftest.mjs" --quick   forward checks only
@@ -58,6 +86,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+
+// The ALIVE section compares two rendered plates, which is the only instrument that can say what
+// the A/B toggle costs a picture. Same decoder every other pixel gate in the repo uses.
+import { decodePng } from '../../../../tools/critic/png.mjs';
 
 const REPOSITORY_ROOT = path.resolve( fileURLToPath( new URL( '.', import.meta.url ) ), '../../../..' );
 
@@ -88,6 +120,122 @@ const SHAKE_FRAMES = 120;
 const SETTLE_FRAMES = 360;
 const QUIESCENCE_FRAMES = 15;
 const STEP_SECONDS = 1 / 60;
+
+/**
+ * The ALIVE section's recipes, and every flag in them is load-bearing.
+ *
+ * `bare` and `seed=1` are what every gate plate in this repository carries. `capture` is what makes
+ * the clock this file's rather than the machine's. There is deliberately NO `freeze` in the base:
+ * the whole question is whether the SHIPPED idle stack reaches the hair, and a frozen page answers
+ * a different one — check A3 loads that page separately as the control.
+ *
+ * The pixel recipe adds `aa=msaa&grade=0`, which is the deterministic forward path. The shipped
+ * default is known non-reproducible to about 1 code value on under 0.001% of samples (see
+ * `alive.js`'s `takeOverFrameLoop`), so a pixel comparison taken there could not tell a toggle from
+ * a quantiser. `hairoit=cutout` because the shipped `stochastic` arm refuses alpha-to-coverage and
+ * `alive.js` would fall back to cutout anyway with a warning — naming it keeps the recipe honest.
+ */
+const ALIVE_BASE = 'bare&seed=1&capture';
+const ALIVE_PIXEL_BASE = `${ ALIVE_BASE }&freeze&aa=msaa&grade=0&hairoit=cutout`;
+
+/**
+ * How long the second load of the A4 pair is made to wait for its GLB.
+ *
+ * Borrowed wholesale from `alive-capture-determinism.selftest.mjs`'s `BOOT_DELAY_MS`, and for its
+ * reason: two back-to-back loads against a warm vite boot in the SAME number of rAF frames, so a
+ * pair taken without this would agree even with the reset deleted, and the check would be measuring
+ * "two warm loads agreed" — a thing the defect also does. A4 asserts the two epochs really did
+ * differ before it is allowed to mean anything.
+ */
+const ALIVE_BOOT_DELAY_MS = 400;
+
+/** 450x600 rather than the 900x1200 the lighting gates use: the ALIVE checks are geometric and one
+ *  pixel share, none of them is a code value against a reference band, and a quarter of the samples
+ *  is a quarter of the screenshot time on a section that loads six plates. */
+const ALIVE_WIDTH = 450;
+const ALIVE_HEIGHT = 600;
+
+/**
+ * The whole ALIVE measurement, as ONE function shipped into the page.
+ *
+ * It has to be self-contained — Playwright serialises the source and there is no closure on the
+ * other side — and it reads the buffer the VERTEX STAGE samples rather than any bookkeeping the
+ * page keeps about itself, which is the only reading that cannot be faked by a counter.
+ *
+ * `positionVersion` is the blind critic's own instrument, carried so the run can say out loud that
+ * it reads 0 and why that is correct rather than leaving the next reader to rediscover it.
+ */
+const ALIVE_MEASURE = async () => {
+
+    const session = globalThis.sugata.session;
+    const dynamics = session.hairDynamics;
+
+    if ( dynamics === null || dynamics === undefined ) return null;
+
+    // 🚩 A SOLVER THAT WAS BUILT AND NEVER STEPPED HAS NO GPU BUFFER TO READ, and `getArrayBufferAsync`
+    // throws on it rather than returning zeros. That is precisely the state a `trackFigure` which
+    // dropped its call leaves behind, so it is REPORTED rather than allowed to become a tool error:
+    // exit 2 means "the harness broke", and this is the gate catching the thing it was written for.
+    let read = null;
+
+    try {
+
+        read = await dynamics.readCentrelines();
+
+    } catch ( error ) {
+
+        return { neverRan: true, reason: error.message, steps: dynamics.stepsTaken, tips: [] };
+
+    }
+
+    const groom = dynamics.groom;
+    const head = read.headMatrix;
+
+    let maxTipMm = 0;
+    let sumTipMm = 0;
+    let nonFinite = 0;
+    const tips = [];
+
+    for ( let particle = 0; particle < groom.particleCount; particle ++ ) {
+
+        const x = read.positions[ particle * 3 ];
+        const y = read.positions[ particle * 3 + 1 ];
+        const z = read.positions[ particle * 3 + 2 ];
+
+        if ( Number.isFinite( x ) === false || Number.isFinite( y ) === false ||
+            Number.isFinite( z ) === false ) { nonFinite ++; continue; }
+
+        if ( particle % groom.pointsPerChain !== groom.pointsPerChain - 1 ) continue;
+
+        // Where the head transform ALONE would have put this tip. The difference is the simulation.
+        const rx = groom.restCentres[ particle * 3 ];
+        const ry = groom.restCentres[ particle * 3 + 1 ];
+        const rz = groom.restCentres[ particle * 3 + 2 ];
+
+        const distance = Math.hypot(
+            x - ( head[ 0 ] * rx + head[ 4 ] * ry + head[ 8 ] * rz + head[ 12 ] ),
+            y - ( head[ 1 ] * rx + head[ 5 ] * ry + head[ 9 ] * rz + head[ 13 ] ),
+            z - ( head[ 2 ] * rx + head[ 6 ] * ry + head[ 10 ] * rz + head[ 14 ] ) ) * 1000;
+
+        sumTipMm += distance;
+        if ( distance > maxTipMm ) maxTipMm = distance;
+        tips.push( x, y, z );
+
+    }
+
+    // The CPU-side attribute the critic stepped. It is the bind pose for the life of the page.
+    const attribute = session.hair.meshes[ 0 ].geometry.getAttribute( 'position' );
+
+    return {
+        steps: read.steps,
+        meanTipMm: sumTipMm / groom.chainCount,
+        maxTipMm,
+        nonFinite,
+        positionVersion: attribute.version,
+        tips
+    };
+
+};
 
 /**
  * The thresholds, each one stated against the measurement it separates.
@@ -127,7 +275,26 @@ const THRESHOLDS = {
     computeBudgetMs: 0.25,
 
     /** Two fresh page loads, same URL, same step sequence: the tips must agree. */
-    reproducibilityMm: 0.001
+    reproducibilityMm: 0.001,
+
+    /** ALIVE. Peak mean tip lag over 120 captured frames of the SHIPPED idle stack, against the
+     *  same instrument on a `?freeze` plate where the head does not move. Measured 2026-08-13 on
+     *  `alive.html?bare&seed=1&capture&hair=1&preroll=2`: **2.6009 mm peak mean / 11.3155 mm peak
+     *  worst tip against 0.002658 mm frozen**, a factor of 4,257 between the two. (The same pair on
+     *  the bake an hour earlier read 3.2177 / 14.5249 against 0.004067 — see the warning below.)
+     *
+     *  ⚠️ THE GROOM MOVED UNDER THIS MEASUREMENT THREE TIMES IN ONE SESSION and the floors are set
+     *  wide because of it: `assets/hair/bob01/g050.glb` read 294 chains, then 370, then 378 while
+     *  these checks were being written, because the generator is being iterated in the same round.
+     *  The bakes are gitignored, so `git status` clean says nothing about them. The floor is under
+     *  half the smallest green reading seen across those three grooms and 250x the frozen one; a
+     *  tighter one would be a threshold tuned on one bake of an artefact that is still moving. */
+    aliveMeanTipMm: 1.0,
+    aliveStillTipMm: 0.1,
+
+    /** ALIVE. What the A/B toggle costs a STILL plate, as a share of samples, on the deterministic
+     *  forward path. Not zero and it is not claimed to be — see check A5. */
+    aliveControlSampleShare: 0.005
 };
 
 let checks = 0;
@@ -702,6 +869,7 @@ try {
         // statistic's own noise on this machine, and a gate row over a straddling statistic is a
         // coin flip wearing a check's clothes.
         console.log( `      (the same pair by TIME, not a check: p50 ${ perkernel.p50.toFixed( 5 ) } / ` +
+
             `p95 ${ perkernel.p95.toFixed( 5 ) } ms per-kernel against ${ cost.p50.toFixed( 5 ) } / ` +
             `${ cost.p95.toFixed( 5 ) } one-pass, and amortised ` +
             `${ perkernel.batchPerFrameMs.toFixed( 5 ) } against ${ cost.batchPerFrameMs.toFixed( 5 ) }. ` +
@@ -711,6 +879,157 @@ try {
             'the COUNT above is the check and this line is printed rather than asserted.)' );
 
     }
+
+    console.log( '\n--- A: the ACCEPTANCE PAGE, which is the only page a judge captures ---------\n' );
+
+    // 🚩 EVERY CHECK ABOVE IS TAKEN ON `hair.html`, AND THAT IS THE DEFECT THIS BLOCK EXISTS FOR.
+    //
+    // The solver passed all of them a round before anything on `alive.html` called it, and the
+    // blind critic read the shipped build as *"nothing moves, and I can say that from the data
+    // rather than by squinting… not one hair, strand, dynamic or sim bone in the list… its position
+    // attribute's upload version stayed at 0 across every frame I stepped."* Round 13 shipped the
+    // same shape with `render/HairOIT.js`. A gate on a page nobody judges is a gate on a page
+    // nobody judges, so these five checks are taken on `alive.html` itself.
+    //
+    // ⚠️ AND THE CRITIC'S OWN INSTRUMENT STILL READS ZERO, WHICH IS WORTH SAYING BEFORE THE
+    // NUMBERS RATHER THAN AFTER. `geometry.attributes.position.version` is the upload counter for
+    // the CPU-side attribute, and this solver never touches it: it writes a GPU storage buffer and
+    // the material reads it through `positionNode`, so the attribute is the BIND POSE for the life
+    // of the page and its version stays 0 whatever the hair is doing. A2 below reads the buffer the
+    // vertex stage actually samples — the honest form of the same question — and A5 reads the
+    // rendered pixels, which is the form no bookkeeping can fake.
+
+    const aliveMoving = await runAliveCapture( browser, server.baseUrl,
+        `${ ALIVE_BASE }&hair=1&preroll=2`, { sampleEvery: 6, frames: 120 } );
+
+    report(
+        'A1 the solver is ON alive.html — the page a judge captures runs punch-list 6.6',
+        aliveMoving.census?.motion != null &&
+            aliveMoving.census.motion.particles ===
+                aliveMoving.census.motion.chains * aliveMoving.census.motion.pointsPerChain &&
+            aliveMoving.census.motion.computeCallsLastFrame === 1,
+        aliveMoving.census?.motion == null
+            ? 'census.hair.motion is null on ?hair=1 — the acceptance page is running a RIGID groom ' +
+                'and every check above is about a page nobody judges'
+            : `${ aliveMoving.census.motion.chains } chains x ${ aliveMoving.census.motion.pointsPerChain } ` +
+                `rings = ${ aliveMoving.census.motion.particles } particles, ` +
+                `${ aliveMoving.census.motion.computeCallsLastFrame } renderer.compute() call a frame, ` +
+                `oit '${ aliveMoving.census.oit }'`
+    );
+
+    report(
+        `A2 ...and the groom MOVES behind the shipped idle stack — mean tip lag over ` +
+            `${ THRESHOLDS.aliveMeanTipMm } mm`,
+        aliveMoving.peakMeanTipMm > THRESHOLDS.aliveMeanTipMm,
+        aliveMoving.neverRan !== null
+            ? `THE SOLVER WAS BUILT AND NEVER STEPPED — its storage buffer has no GPU allocation ` +
+                `after ${ aliveMoving.clock.hairSteps } steps ("${ aliveMoving.neverRan }"). Nothing ` +
+                'on the page is calling it per frame, which is the exact state the acceptance page ' +
+                'was in before this round.'
+            : `${ aliveMoving.peakMeanTipMm.toFixed( 4 ) } mm peak mean / ` +
+            `${ aliveMoving.peakMaxTipMm.toFixed( 4 ) } mm peak worst tip over ` +
+            `${ aliveMoving.census?.motion?.chains ?? 0 } chains, measured ` +
+            'against where the head transform ALONE would have put each tip — so head idle, gaze and ' +
+            'sway are subtracted out and what is left is the simulation. Nothing on this page drives ' +
+            'the head on purpose: it is `MotionStack` doing what it does on every plate. ' +
+            `⚠️ geometry.attributes.position.version reads ${ aliveMoving.positionVersion } throughout, ` +
+            'and always will — see this block\'s header.'
+    );
+
+    // 🚩 A2'S LIVENESS CONTROL, and standing rule 5 is why it is here rather than assumed. A2 reads
+    // a distance between two buffers, and a page whose head never moves must read ~zero on the SAME
+    // instrument — otherwise A2 could be measuring readback noise, a mis-indexed rest buffer or a
+    // solver that jitters in place, all of which would look like hair.
+    const aliveStill = await runAliveCapture( browser, server.baseUrl,
+        `${ ALIVE_BASE }&freeze&hair=1`, { sampleEvery: 12, frames: 24 } );
+
+    report(
+        `A3 ...and the same instrument reads under ${ THRESHOLDS.aliveStillTipMm } mm on a ?freeze plate, ` +
+            'so A2 is measuring the head and not the meter',
+        // ⚠️ THE MOVING HALF IS IN THIS PREDICATE ON PURPOSE. A control that reads zero because
+        // NOTHING ran is not a control, and the red proof for this section (deleting the
+        // `hairMotionUpdate` call from `trackFigure`) left an earlier version of this clause GREEN
+        // at 0.000000 mm against 0.0000 mm — §1.25g, in the file that quotes §1.25g.
+        aliveStill.peakMaxTipMm < THRESHOLDS.aliveStillTipMm && aliveStill.census?.motion != null &&
+            aliveMoving.peakMaxTipMm > THRESHOLDS.aliveMeanTipMm,
+        aliveStill.census?.motion == null
+            ? 'the frozen plate has no solver on it, so this is not a control'
+            : `${ aliveStill.peakMaxTipMm.toFixed( 6 ) } mm worst against ` +
+                `${ aliveMoving.peakMaxTipMm.toFixed( 4 ) } mm moving, a factor of ` +
+                `${ ( aliveMoving.peakMaxTipMm / Math.max( aliveStill.peakMaxTipMm, 1e-9 ) ).toFixed( 0 ) }. ` +
+                'The solver ran on both — same substeps, same dispatch — and the head is the only ' +
+                'difference between them.'
+    );
+
+    // 🎯 THE CAPTURE EPOCH, which is the leg `alive-capture-determinism.selftest.mjs` cannot see:
+    // that gate reads RENDERER counters, and the solver's step count is neither a renderer counter
+    // nor a pixel. Two loads, one of them with its GLB held back so it provably boots at a
+    // different rAF epoch, and the assertion is on the STEP COUNT and the TIPS rather than on two
+    // observers agreeing (§1.25g).
+    const epochA = await runAliveCapture( browser, server.baseUrl, `${ ALIVE_BASE }&hair=1&preroll=2`,
+        { frames: 60 } );
+    const epochB = await runAliveCapture( browser, server.baseUrl, `${ ALIVE_BASE }&hair=1&preroll=2`,
+        { frames: 60, bootDelayMs: ALIVE_BOOT_DELAY_MS } );
+
+    report(
+        'A4 the capture epoch reaches the solver: 60 steps at 1/60 leave it at exactly 120 substeps, ' +
+            'on two loads that booted at different rAF epochs',
+        epochA.clock.hairSteps === 120 && epochB.clock.hairSteps === 120 &&
+            epochA.clock.bootFrameId !== epochB.clock.bootFrameId,
+        `hairSteps ${ epochA.clock.hairSteps } and ${ epochB.clock.hairSteps } against an oracle of 120 ` +
+            `(1/60 − 1/120 − 1/120 is exactly zero in binary), from boot epochs ` +
+            `${ epochA.clock.bootFrameId } and ${ epochB.clock.bootFrameId }. ` +
+            ( epochA.clock.bootFrameId === epochB.clock.bootFrameId
+                ? '🚩 THE TWO EPOCHS ARE EQUAL, so this check is not testing what it says it is — the ' +
+                    'GLB hold-back did not perturb the boot and the pair proves only that two warm ' +
+                    'loads agree.'
+                : 'The two loads booted at different epochs, so `reset()` at the takeover is what ' +
+                    'makes the counts equal rather than luck.' )
+    );
+
+    report(
+        'A5 ...and they reach the same pose, tip for tip',
+        // Both halves, for the reason A3 carries: two runs that never simulated agree perfectly, and
+        // "0.00000000 mm" over two empty buffers is the degenerate input §1.3 is about.
+        worstTipTravelMm( epochA.tips, epochB.tips ) < THRESHOLDS.reproducibilityMm &&
+            epochA.tips.length > 0 && epochA.peakMeanTipMm > THRESHOLDS.aliveMeanTipMm,
+        `${ worstTipTravelMm( epochA.tips, epochB.tips ).toFixed( 8 ) } mm worst tip difference over ` +
+            `${ epochA.tips.length / 3 } tips, on a run carrying ` +
+            `${ epochA.peakMeanTipMm.toFixed( 3 ) } mm of mean tip lag — so the pair is reproducible ` +
+            'AND was simulating, which is the pairing §1.3 asks for.'
+    );
+
+    // 🎯 WHAT THE A/B TOGGLE COSTS A STILL PLATE, IN PIXELS, AND IT IS NOT ZERO.
+    //
+    // Every objective gate in this repository captures `?freeze`, so if `?hairmotion=1` moved those
+    // plates it would move every recorded number with them. `HairDynamics`'s clause E says the
+    // solver is the identity to 0.000132 mm with the head still — but that is a claim about a
+    // buffer, and the claim that matters is about a picture. Measured here, on the deterministic
+    // forward path, and reported as a share rather than asserted to be zero: the rebuild reaches
+    // the same vertex by a different arithmetic path than the skinning does, and a MASK cutout
+    // turns a sub-micron disagreement into a coverage flip on the texels sitting on the threshold.
+    const stillOn = await runAliveCapture( browser, server.baseUrl, `${ ALIVE_PIXEL_BASE }&hair=1`,
+        { frames: 24, screenshot: true } );
+    const stillOff = await runAliveCapture( browser, server.baseUrl,
+        `${ ALIVE_PIXEL_BASE }&hair=1&hairmotion=0`, { frames: 24, screenshot: true } );
+
+    const control = comparePlates( stillOn.pixels, stillOff.pixels );
+
+    report(
+        `A6 ?hairmotion is a CONTROL: on a still plate it moves under ` +
+            `${ ( THRESHOLDS.aliveControlSampleShare * 100 ).toFixed( 2 ) }% of samples`,
+        stillOff.census?.motion === null && control.share < THRESHOLDS.aliveControlSampleShare,
+        stillOff.census?.motion !== null
+            ? '?hairmotion=0 did NOT remove the solver, so there is no rigid control plate and no A ' +
+                'side for anything measured with the hair on'
+            : `${ control.differing } of ${ control.samples } samples ` +
+                `(${ ( control.share * 100 ).toFixed( 4 ) }%) differ, worst ` +
+                `${ ( control.worst * 255 ).toFixed( 0 ) }/255, on a groom whose particles sit ` +
+                `${ stillOn.peakMaxTipMm.toFixed( 6 ) } mm from the rigid pose. NOT zero: the coverage ` +
+                'test is a step function and the two paths reach the same vertex by different ' +
+                'arithmetic. Two loads of the ON plate are byte-identical, so this is the toggle and ' +
+                'not the weather.'
+    );
 
 } catch ( error ) {
 
@@ -835,6 +1154,152 @@ function describeQuantum( quantumMs ) {
 
     return `⚠️ EVERY SAMPLE IS AN INTEGER MULTIPLE OF ${ quantumMs.toFixed( 6 ) } ms, so this clock ` +
         'is counting ticks rather than resolving a duration and the reading is an upper bound.';
+
+}
+
+/**
+ * One captured run of `alive.html`, with the solver measured off the buffer the vertex stage reads.
+ *
+ * `bootDelayMs` holds the GLB back, which is a cold cache rather than a synthetic perturbation and
+ * is what makes the A4 pair a pair of loads that provably booted at different rAF epochs.
+ */
+async function runAliveCapture( browser, baseUrl, query,
+    { frames = 60, sampleEvery = 0, bootDelayMs = 0, screenshot = false } = {} ) {
+
+    const context = await browser.newContext( {
+        viewport: { width: ALIVE_WIDTH, height: ALIVE_HEIGHT }, deviceScaleFactor: 1 } );
+    const page = await context.newPage();
+    page.setDefaultTimeout( 300_000 );
+
+    const errors = [];
+    page.on( 'pageerror', ( error ) => errors.push( error.message ) );
+    page.on( 'console', ( message ) => {
+
+        if ( message.type() !== 'error' ) return;
+        if ( message.text().startsWith( 'Failed to load resource' ) ) return;
+        errors.push( message.text() );
+
+    } );
+
+    if ( bootDelayMs > 0 ) {
+
+        await page.route( '**/*.glb', async ( route ) => {
+
+            await new Promise( ( resolve ) => setTimeout( resolve, bootDelayMs ) );
+            await route.continue();
+
+        } );
+
+    }
+
+    try {
+
+        await page.goto( `${ baseUrl }/alive.html?${ query }`, { waitUntil: 'load' } );
+        await page.waitForFunction( () => globalThis.sugata?.session?.figure != null, null,
+            { timeout: 120_000 } );
+        await page.waitForFunction( () => globalThis.sugata?.session?.hair != null, null,
+            { timeout: 120_000 } );
+
+        // The groom lands before its material has compiled, and a plate read early is a plate of a
+        // page that has not finished. Same 1500 ms `alive-toggles.selftest.mjs` waits.
+        await page.waitForTimeout( 1500 );
+
+        let peakMeanTipMm = 0;
+        let peakMaxTipMm = 0;
+        let positionVersion = null;
+        let stepped = 0;
+
+        const advance = ( count ) => page.evaluate( async ( n ) => {
+
+            for ( let frame = 0; frame < n; frame ++ ) await globalThis.__SUGATA_STEP__( 1 / 60 );
+
+        }, count );
+
+        let neverRan = null;
+
+        const sample = async () => {
+
+            const reading = await page.evaluate( ALIVE_MEASURE );
+            if ( reading === null ) return;
+
+            if ( reading.neverRan === true ) { neverRan = reading.reason; return; }
+
+            peakMeanTipMm = Math.max( peakMeanTipMm, reading.meanTipMm );
+            peakMaxTipMm = Math.max( peakMaxTipMm, reading.maxTipMm );
+            positionVersion = reading.positionVersion;
+
+        };
+
+        const block = sampleEvery > 0 ? sampleEvery : frames;
+
+        while ( stepped < frames ) {
+
+            const count = Math.min( block, frames - stepped );
+            await advance( count );
+            stepped += count;
+            if ( sampleEvery > 0 ) await sample();
+
+        }
+
+        const final = await page.evaluate( ALIVE_MEASURE );
+
+        if ( final !== null && final.neverRan !== true ) {
+
+            peakMeanTipMm = Math.max( peakMeanTipMm, final.meanTipMm );
+            peakMaxTipMm = Math.max( peakMaxTipMm, final.maxTipMm );
+            positionVersion = final.positionVersion;
+
+        }
+
+        if ( final?.neverRan === true ) neverRan = final.reason;
+
+        return {
+            clock: await page.evaluate( () => globalThis.sugata.captureClock() ),
+            census: await page.evaluate( () => globalThis.sugata.subsystems().hair ),
+            pixels: screenshot === true ? await page.screenshot( { timeout: 120_000 } ) : null,
+            tips: final?.tips ?? [],
+            nonFinite: final?.nonFinite ?? 0,
+            neverRan,
+            peakMeanTipMm,
+            peakMaxTipMm,
+            positionVersion,
+            errors
+        };
+
+    } finally {
+
+        await context.close();
+
+    }
+
+}
+
+/** Two PNGs, sample for sample. `decodePng` returns normalised channels, so `worst` is a fraction. */
+function comparePlates( a, b ) {
+
+    const left = decodePng( a );
+    const right = decodePng( b );
+
+    if ( left.width !== right.width || left.height !== right.height ) {
+
+        throw new Error( 'HairDynamics: the two alive plates are different sizes.' );
+
+    }
+
+    let differing = 0;
+    let worst = 0;
+
+    for ( let sample = 0; sample < left.pixels.length; sample ++ ) {
+
+        const delta = Math.abs( left.pixels[ sample ] - right.pixels[ sample ] );
+        if ( delta === 0 ) continue;
+
+        differing ++;
+        if ( delta > worst ) worst = delta;
+
+    }
+
+    return { samples: left.pixels.length, differing, share: differing / left.pixels.length, worst };
 
 }
 

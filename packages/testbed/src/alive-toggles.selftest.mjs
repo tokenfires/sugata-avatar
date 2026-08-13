@@ -732,7 +732,7 @@ const UNGATED = {
     //
     // ⚠️ AND A TOGGLES ROW WOULD BE THE WRONG SHAPE, FOR THE `?wear` REASON VERBATIM. Every key in
     // that table changes how the SAME scene is shaded; `?hair` changes WHAT IS IN the scene — it
-    // adds a 254-card `SkinnedMesh` rebound to the figure's own skeleton, a shadow-casting mesh,
+    // adds a several-hundred-card `SkinnedMesh` rebound to the figure's own skeleton, a shadow-casting mesh,
     // the strand sheets it samples and, on the `wboit` arm, two G-buffer attachments and a resolve
     // pass. "Changes exactly these entities and no others" has no honest allowlist for that: the
     // entity SET grows.
@@ -743,7 +743,7 @@ const UNGATED = {
     // it is inert — and that is asserted below rather than left as prose, on every plate this run
     // loads, with one `?hair=1` plate to prove the nulls mean inert and not absent.
     hair: { readHere: true, why:
-        'PUNCH-LIST 3.5/3.6. Not a shading switch: it changes what is IN the scene (a 254-card ' +
+        'PUNCH-LIST 3.5/3.6. Not a shading switch: it changes what is IN the scene (a several-hundred-card ' +
         'groom rebound to the figure\'s skeleton, a shadow-casting mesh, the strand sheets, and on ' +
         'the wboit arm two more G-buffer attachments), so no entity allowlist describes it — the ' +
         'entity set itself grows. Gated by packages/core/src/material/HairMaterial.selftest.mjs ' +
@@ -783,6 +783,32 @@ const UNGATED = {
         'highlight to the screen and renders a plausible picture. It corrupts the anisotropy ' +
         'rather than removing it, so a TOGGLES row would certify the label. Inert without ?hair; ' +
         'gated by HairMaterial.selftest.mjs.' },
+
+    // 🚩 THE EIGHTH SUB-KEY, AND IT IS THE `?gputime` SHAPE RATHER THAN THE OTHER SEVEN'S. Punch-
+    // list 6.6's DFTL solver ships ON with `?hair=1`, and `?hairmotion=0` is its rigid control.
+    //
+    // A TOGGLES row would be wrong twice over and both halves are measured rather than argued.
+    // First, the baseline this file diffs against has no groom, so a row would be comparing a hair
+    // plate to a bald one and calling the whole groom collateral — the seven sub-keys' reason
+    // verbatim. Second, and this is the `?gputime` half: the solver's output is a
+    // `positionNode`, so on a plate where the head is not moving the flag moves NOTHING an
+    // entity fingerprint can see except the node graph of one material, and its whole design goal
+    // is that it moves no PIXELS either (`HairDynamics.selftest.mjs` clause E: 0.000132 mm from the
+    // rigid pose with the head still). A row asserting "it changes exactly the hair mesh" would be
+    // green whether the solver ran or was deleted.
+    //
+    // So it gets the `?webgl`/`?gputime` treatment: the claim the key exists to support is
+    // ASSERTED, in the HAIR MOTION block below, on the page a judge captures — the solver is on the
+    // plate, it is being stepped, and `?hairmotion=0` takes it away.
+    hairmotion: { readHere: true, why:
+        'PUNCH-LIST 6.6. The A side of the hair dynamics, which ship ON with ?hair=1: it decides ' +
+        'whether the groom is a DFTL-simulated set of card centrelines or a rigid SkinnedMesh ' +
+        'welded to the head. Not a shading switch — it moves vertices, through ' +
+        'material.positionNode — and on a still plate it is designed to move almost no pixels, so ' +
+        'an entity allowlist would be green whether the solver ran or was deleted. Gated by ' +
+        'packages/core/src/motion/HairDynamics.selftest.mjs, whose ALIVE section drives this page. ' +
+        'What is asserted HERE is that the wiring is present and being stepped on the plate ?hair=1 ' +
+        'produces, and that ?hairmotion=0 removes it.' },
 
     // 🚩 AN INSTRUMENT, NOT A SWITCH, AND THE ONE KEY ON THIS PAGE THAT INSTRUMENT 5 CANNOT SEE AT
     // ALL. `?gputime=1` asks the ADAPTER for the `timestamp-query` feature at device creation. That
@@ -1993,7 +2019,7 @@ try {
     // rather than a variation on it, because the two flags have the same shape and the same risk.
     // `?hair` is opt-in SO THAT the plate every objective gate is measured on has no groom in it;
     // that is a claim about the boot path, not about one plate, so it is asserted over every plate
-    // this run loaded. A groom waking up unasked would put a 254-card shadow-casting mesh and its
+    // this run loaded. A groom waking up unasked would put a several-hundred-card shadow-casting mesh and its
     // sheets into the plate a judge captures, and move every recorded sha256 with it.
     {
         const grown = [ ...plateGrooms.entries() ]
@@ -2053,6 +2079,70 @@ try {
                     : `THE PAGE IS RUNNING '${ groom.oit }' AND HairOIT.js RECOMMENDS ` +
                         `'${ HAIR_OIT_DEFAULT_MODE }'. If that is 'cutout', the OIT wiring has been ` +
                         'lost and the shipped avatar is back on the arm 3.6 measured as worst under motion'
+        );
+
+        // 🎯 PUNCH-LIST 6.6, AND IT IS THE `?hairoit` CHECK ABOVE ONE ROUND LATER AND ONE SUBSYSTEM
+        // OVER. That check exists because a working module — `render/HairOIT.js` — shipped without
+        // `alive.js` importing it, so the judged plate ran an arm nobody chose. `motion/HairDynamics.js`
+        // then did the same thing: gated at 25/25, wired onto `hair.html` only, and the blind critic
+        // read the shipped build as *"nothing moves, and I can say that from the data rather than by
+        // squinting"*. Two instances is a pattern, so this is a check and not a comment.
+        //
+        // ⚠️ THE STEP COUNT IS READ TWICE, AND THAT IS THE WHOLE CHECK. A solver that is CONSTRUCTED
+        // and never stepped satisfies every other instrument here identically — the census shape is
+        // there, the material carries the node, the entity fingerprint moves — and it is precisely
+        // what a `trackFigure` that dropped the call would leave behind. `steps` advancing between
+        // two reads separated by real rAF frames is the liveness control, and it is the same
+        // question the critic asked of the position attribute's upload version.
+        const motionBefore = await page.evaluate( () => globalThis.sugata.subsystems().hair.motion );
+        await page.waitForTimeout( 500 );
+        const motionAfter = await page.evaluate( () => globalThis.sugata.subsystems().hair.motion );
+
+        report(
+            'and the groom it puts there is SIMULATED — punch-list 6.6\'s solver is on the plate a judge captures',
+            motionAfter != null && motionAfter.chains > 0 && motionAfter.particles ===
+                motionAfter.chains * motionAfter.pointsPerChain,
+            motionAfter == null
+                ? 'census.hair.motion is null with ?hair=1 and no ?hairmotion=0 — the solver is NOT ' +
+                    'wired to this page and the shipped groom is a rigid SkinnedMesh welded to the head'
+                : `${ motionAfter.chains } chains x ${ motionAfter.pointsPerChain } rings = ` +
+                    `${ motionAfter.particles } particles at a ${ motionAfter.substepSeconds.toFixed( 6 ) } s ` +
+                    `substep, ${ motionAfter.computeCallsLastFrame } renderer.compute() call last frame`
+        );
+
+        report(
+            '...and it is being STEPPED, which is the half a constructed-but-unstepped solver would also pass',
+            motionAfter != null && motionBefore != null && motionAfter.steps > motionBefore.steps,
+            motionAfter == null || motionBefore == null
+                ? 'no solver on the plate — not checked'
+                : `${ motionBefore.steps } -> ${ motionAfter.steps } fixed steps over 500 ms of rAF. ` +
+                    'A solver built and never driven reads identically to this one in the census shape, ' +
+                    'in the material node graph and in the entity fingerprint.'
+        );
+
+        // The control half. Without it the two checks above cannot tell "correctly wired" from "the
+        // flag was deleted and the solver is unconditional" — and an A/B key nobody can switch off
+        // is not a control, which is the whole thing this file exists to protect.
+        const rigidPlate = await loadPlate( page, server.baseUrl, `${ BASE_QUERY }&hair=1&hairmotion=0`,
+            () => globalThis.sugata?.session?.hair != null );
+
+        for ( const key of rigidPlate.surface ) observedSurface.add( key );
+
+        report(
+            'and ?hairmotion=0 takes the solver away, so the A/B toggle is a control and not a label',
+            // ⚠️ `motionAfter != null` is in this predicate, not decoration. Without it the clause
+            // is green on a page where the solver was never wired at all — a null on both sides —
+            // which is §1.25g and is the exact state this whole block exists to catch.
+            motionAfter != null && rigidPlate.hair != null && rigidPlate.hair.motion === null &&
+                rigidPlate.hair.shadedMeshesInScene > 0,
+            rigidPlate.hair == null
+                ? 'no groom at all on ?hair=1&hairmotion=0 — the control plate lost the hair, not the motion'
+                : rigidPlate.hair.motion === null
+                    ? `the groom is still there (${ rigidPlate.hair.shadedMeshesInScene } shaded mesh, oit ` +
+                        `'${ rigidPlate.hair.oit }') and census.hair.motion is null — a RIGID groom, which ` +
+                        'is what every plate captured off this page before punch-list 6.6 contained'
+                    : 'census.hair.motion is NOT null under ?hairmotion=0 — the key does not switch the ' +
+                        'solver off, so no plate in this repository is a rigid control'
         );
     }
 
