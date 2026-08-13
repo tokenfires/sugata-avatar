@@ -168,12 +168,15 @@ export class Stage {
      *   a large constant motion vector; `render/MorphVelocity.js` has the mechanism and the
      *   measurements. `off` is three's behaviour and exists as the rejection proof. Inert on the
      *   forward path, where nothing binds a velocity attachment.
-     * @param {'off'|'blend'|'cutout'|'hash'|'wboit'} [options.hairOIT='off'] - Punch-list 3.6, how
-     *   hair cards reach the frame buffer. `blend` is the naive control and is the DEFECT; the
-     *   other three are order independent. Only `wboit` changes this Stage — it adds two
-     *   attachments and one resolve pass and therefore implies `pipeline: true`; the other modes
-     *   are entirely properties of the hair material and are recorded here so `stats.hairOIT` can
-     *   name the arm a plate was captured on. See `render/HairOIT.js`.
+     * @param {'off'|'blend'|'cutout'|'hash'|'stochastic'|'wboit'} [options.hairOIT='off'] -
+     *   Punch-list 3.6/3.21, how hair cards reach the frame buffer. `blend` is the naive control
+     *   and is the DEFECT; the other four are order independent. Only `wboit` changes this Stage —
+     *   it adds two attachments and one resolve pass and therefore implies `pipeline: true`; the
+     *   other modes are entirely properties of the hair material and are recorded here so
+     *   `stats.hairOIT` can name the arm a plate was captured on. See `render/HairOIT.js`.
+     *   ⚠️ `stochastic` is the shipped arm and its estimate is only integrated by a TEMPORAL
+     *   resolve — on `temporalAA: 'off'` it renders a one-sample stipple, which is the arm working
+     *   as specified and not a defect. `HairOIT.js`'s ## THE COVERAGE DECISION carries the numbers.
      * @param {number} [options.maxPixelRatio=2] - Upper bound on devicePixelRatio.
      * @param {number} [options.fieldOfView=35] - Vertical FOV in degrees. Portrait range is 24-40.
      * @param {number} [options.near=0.01]

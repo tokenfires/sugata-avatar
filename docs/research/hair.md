@@ -19,7 +19,7 @@ number and either re-derived or marked unreproduced.
 
 ---
 
-## 0. The five findings that decide this phase
+## 0. The six findings that decide this phase
 
 ### 🎯 0.1 The `~10:1` spec-to-albedo contrast is an **encoded-luma** ratio. In linear light it is **57:1 to 93:1**. [M]
 
@@ -134,6 +134,34 @@ AFTER  passMRT.merge( hairMRT ):
 `material.mrtNode`** — which is the mechanism `render/GBuffer.js` documents for the skin material's
 `sssMask`. So: **set OIT blend modes on the pass-level MRT, never on `material.mrtNode`.** Full
 consequences in §4.3.
+
+### 🎯 0.6 The `~10:1` contrast is **floor-limited, and the floor is in the numerator**. [M]
+
+§0.1 fixed the *domain* of the spec's ratio. This fixes what it is a ratio *of*. Its denominator is
+a constant — `#150F17`'s 0.0661 — so measured on a plate it is an **absolute brightness**, and any
+term that lifts the whole distribution walks it toward green. Slide 39's multiple-scattering fake is
+exactly that term: bandless by construction, and **65% of everything the groom emits above its
+indirect floor**.
+
+Swept 0 → 4, the fake drives the spec ratio from 2.92 : 1 to 7.97 : 1 **and** the plate's own
+p95/p50 from 3.00 down to 1.22 — monotone, in opposite directions, on the same pixels of the same
+plate. `scatter ≈ 2.4` therefore buys a green contrast gate and a picture flatter than the one the
+blind critic already called *"flat matte with a plum cast"*.
+
+> **A specular-to-albedo figure is only a contrast if the same plate shows both ends of it.** Quote
+> the plate's own p95/p50 beside it, in radiance, always. The pair cannot be bought by any scalar:
+> a gain moves the level and not the range (measured: `S` × 2 → 1.945× level, +2.9% range), a floor
+> moves them opposite ways. Full sweep, and the albedo sweep that rules out lightening the fibre,
+> in §9.
+
+The located cause, and it is not in the material: with slide 39's fake off, **moving the key onto
+the camera axis takes the range from 1.87 to 4.29**, and **tightening `β_R` from the middle of
+Marschner's band to its tight end takes it to 6.03**. A light move and an in-band lobe width. §9.4.
+
+⚠️ And §9.1 is the reason the numbers in this section can be trusted at all: **`?grade=0` is not
+linear in radiance** — `Stage.js` sets ACESFilmic on the renderer and the no-grade branch still ends
+in `renderOutput()` — so three arms that must sum to their composite only did once ACES was
+inverted (0.79 → 1.01). Every arm subtraction this project made before this round was 21% wrong.
 
 ---
 
@@ -1011,6 +1039,179 @@ groom to the measurement rather than sizing the measurement to the groom.
 - **Card count.** §6.2 is derived arithmetic, not a production figure. No published count exists.
 - **Every performance number in §7** is quoted from elsewhere and re-derivable in an hour with
   `?gputime=1`. None of it was measured here, because there is no hair to measure.
+
+---
+
+## 9. The floor — why the specular-to-albedo number cannot be fixed by making it bigger
+
+Everything in this section was measured in one session on `alive.html`, 900×1200, frame 6 at a zero
+simulation step, `?bare&freeze&seed=1`, with `packages/core/src/render/SourcePatchProbe.mjs` used
+wherever a knob has no URL (it rewrites the module vite serves and writes nothing to the tree).
+Masks and their sizes are stated per table; the mask is always *"pixels on which `?hairdefect=
+unit-bsdf` and a zero BSDF disagree, minus those the zero-BSDF plate leaves bright"*.
+
+### 9.1 🔴 `?grade=0` is not linear in radiance, and three rounds of arm subtraction were wrong
+
+`render/Stage.js` sets `renderer.toneMapping = ACESFilmicToneMapping` **on the renderer**, and
+the no-grade branch of `Stage.updatePipeline` still ends in `renderPipeline.outputNode =
+renderOutput( colour )` — the node that applies exactly that. So `?grade=0` removes `render/Grade.js`
+and leaves ACES standing, and the sRGB-decoded framebuffer that every gate in this project calls
+"linear" is display-linear, not radiance.
+
+It is not a pedantic distinction. Three plates that differ only in which terms of `S` are live —
+R+TRT alone, slide 39's fake alone, and both — must sum to the composite:
+
+| domain | `(R+TRT − zero) + (fake − zero)` as a multiple of `(shipped − zero)` |
+|---|---|
+| sRGB-decoded framebuffer | **0.7914** (second capture: 0.7734) |
+| three's ACES inverted out | **1.0118** (second capture: 1.0045) |
+
+A fifth of the composite was disappearing into the curve. A wrong inverse cannot reassemble three
+independent renders into their own sum, so that table is the evidence the inverse is right — the
+code reading only says where to look. `HairMaterial.selftest.mjs` now carries the mirror
+(transcribed from `three/src/nodes/display/ToneMappingFunctions.js:87–133`), its analytic inverse,
+a round-trip check exact to machine precision between the two clamps, and the additivity check
+itself as a gate.
+
+**Consequence for the record:** every effective-BSDF figure this project printed before this round
+was the display-linear quantity and reads low by about 1.85×, and `HairMaterial.js`'s note that the
+environment path supplies *"~1% of what the groom emits"* divided a linear number by an encoded one.
+Re-measured in radiance the indirect term is **4.53e−3 at p50** against shipped hair's **4.65e−2** —
+**9.7%**, not 1%. REQ-065's evidence block carries the old figure and is not this agent's file.
+
+### 9.2 The sweep: the gate's dial and the picture's contrast are anti-correlated
+
+Slide 39's multiple-scattering scalar swept 0 → 4 on the **shipped (graded)** path, 255,850 solid
+hair px, encoded luma:
+
+| scatter | p05 | p50 | p95 | p95 / 0.0661 (the gate) | p95 / p50 (the picture) |
+|--------:|----:|----:|----:|------------------------:|------------------------:|
+| 0.00 | 0.0008 | 0.0644 | 0.1932 | 2.92 : 1 | **3.000** |
+| 0.25 | 0.0163 | 0.0958 | 0.2215 | 3.35 : 1 | 2.313 |
+| 0.50 | 0.0299 | 0.1257 | 0.2489 | 3.77 : 1 | 1.980 |
+| 1.00 | 0.0566 | 0.1825 | 0.3007 | **4.55 : 1** | 1.648 |
+| 2.00 | 0.1028 | 0.2839 | 0.3903 | 5.91 : 1 | 1.375 |
+| 4.00 | 0.1792 | 0.4306 | 0.5267 | 7.97 : 1 | 1.223 |
+
+**The two right-hand columns are monotone in opposite directions.** The specular-to-albedo gate
+divides by a CONSTANT — the look spec's assumed albedo, 0.0661 — so it is an absolute level wearing
+a ratio's clothes, and anything that lifts the whole distribution walks it toward green.
+Extrapolating, `scatter ≈ 2.4` buys a green 9.08 : 1 at a dynamic range of about 1.33: a plate whose
+95th percentile is a third above its median, which is the arithmetic of the critic's *"flat matte
+with a plum cast"*.
+
+So the answer to *peak-limited or floor-limited* is **floor-limited, and the floor is in the
+numerator**. Note the first row too: with the fake removed the median solid hair pixel reads 0.0644
+encoded against the spec's assumed base of 0.0661, 2.6% apart. The spec's 10 : 1 presumes hair's
+shadow value **is** its albedo; the shipped build puts it at 2.83× that, and the excess is the hack.
+
+### 9.3 What the bandless term is actually worth
+
+In radiance, as a share of the groom's whole rise above its indirect floor:
+
+| | whole solid mask | brightest 5% |
+|---|---:|---:|
+| slide 39's fake | **65.4%** | **42.1%** |
+| R + TRT | 35.0% | 55.5% |
+
+(265,261 px; a second capture over 255,850 px read 65.8 / 35.4 / 46.2 — `?hairoit=hash` reshuffles
+the fringe of the mask between loads, so read these to a couple of points.) The term's entire
+angular dependence is `(n·ωi + 1)/4π`: a wrap-around cosine, no shift, no width, no azimuth. Every
+unit of energy it carries is energy that cannot form a band, and it is carrying two thirds of them.
+
+### 9.4 The pair, and why it cannot be gamed
+
+Measured, not argued, on two arms that differ from the shipped one by exactly one thing each:
+
+| arm | median rise above indirect | radiance p95/p50 |
+|---|---:|---:|
+| shipped | 1.000× | 1.872 |
+| **whole of `S` × 2**, patched into the served module | **1.945×** | **1.926** (+2.9%) |
+| `?hairscatter=0` — the floor removed | 0.33× | **3.286** (+76%) |
+
+A multiplier moves the level and not the range; a floor moves them in opposite directions; only a
+term that is bright where the lobe fires and dark elsewhere moves the level while holding the range.
+That is the property a highlight has and a hack does not, and it is why the contrast gate is now a
+**pair** — absolute level against the spec's band, and the plate's own p95/p50 — with both red.
+
+**And the range gate is not a wall.** A floor nothing can clear measures nothing, so the green side
+was measured too, on a capture that landed on the same 265,261 px mask:
+
+| arm | radiance p95/p50 |
+|---|---:|
+| shipped | 1.872 |
+| fake off, key on the camera axis (`?ov=key.azimuthDegrees:12`) | **4.291** |
+| fake off, `β_R` 0.26 → 0.1745, the tight end of §1.7's Marschner band | **6.030** |
+| both together | 8.015 |
+| fake off, `β_R` → 0.13, deliberately *below* the band | 9.869 |
+
+Neither of the two green rows is a fudge: one is a light move and one is the tight end of the
+published band the shipped 0.26 sits in the middle of. **The gate is red because of a rig with no
+light near the view axis and a lobe authored mid-band, and it clears on either fix alone.**
+
+### 9.5 The albedo is not the constraint
+
+Sphere sweep of the CPU mirror over lighter fibres, lobes only (slide 39 removed):
+
+| base | R peak sr⁻¹ | TRT peak sr⁻¹ | lobes' ceiling sr⁻¹ |
+|---|---:|---:|---:|
+| `#150F17` (shipped) | 0.01860 | 0.00023 | 0.01883 |
+| `#2E2230` | 0.01785 | 0.00169 | 0.01954 |
+| `#5A4460` | 0.01745 | 0.00580 | 0.02325 |
+| `#9F8FA5` (near grey) | 0.01578 | 0.02188 | 0.03765 |
+
+**R's peak FALLS as the hair lightens** — it never enters the fibre, so it is pure Fresnel and the
+colour cannot touch it. TRT gains 95× and the total still only doubles. Against a measured
+requirement of ~0.059 sr⁻¹ at the rig's delivered `Σ(L·Ω)`, even near-grey hair is 1.6× short.
+Lightening the fibre does not buy the band; it only grows the fake, whose `√C` rises with it.
+
+### 9.6 🔴 The pipeline is sub-linear above hair levels, and it is not ACES
+
+`?hairdefect=unit-bsdf` returns the constant `1/4π`, so patching that constant to `k/4π` multiplies
+the hair pixel's radiance by exactly `k`. It does not come back that way. Recovered radiance p50 as
+a multiple of the `k = 1` arm's, 255,850 px:
+
+| k | 0.25 | 0.5 | 1 | 2 |
+|---|---:|---:|---:|---:|
+| measured | 0.328 | 0.599 | 1.000 | 1.487 |
+| required | 0.25 | 0.5 | 1 | 2 |
+
+Excluded this session: **the ACES stage** (the mirror round-trips to 1e−16 over 0.005–0.8, and the
+additivity table above is its independent confirmation); **clipping** (brightest channel 0.9765 of 1
+on the `k = 2` plate, no pixel at the clamp); **the mask** (sweeping the coverage floor over 7× in
+radiance — 0.0603 → 0.008 — moves the mask 259,161 → 255,664 px and these ratios in the fourth
+decimal).
+
+🚩 **But that table does not survive its own control, and the correction is the more useful
+finding.** The gate now loads the unchanged probe URL a *second* time and compares: **1.00000×** —
+within one browser session the hash seeds from position, every arm is registered pixel for pixel,
+and there is no per-load coverage noise at all. Re-run inside a session with that floor beside it,
+the departures are much smaller and still real:
+
+| test | measured | wanted | at radiance |
+|---|---:|---:|---:|
+| `S` × 2 in the **shader** | 1.945× | 2 | 0.05 (where the groom lives) |
+| probe constant halved | 0.514× | 0.5 | 0.36 |
+| **same URL twice** | **1.00000×** | 1 | — |
+
+So the pipeline is *mildly* sub-linear and more so the brighter the pixel — 2.7% at hair levels,
+2.8% at 4× that — not the 20–26% the cross-session table shows. **Cross-session plates are not
+comparable on this build**: three scratch captures agreed with each other at masks of 296,081 /
+255,850 px and both gate runs agreed with each other at 274,086 / 265,261, with no source change
+between them. A number here may be compared with another number from the same run and must not be
+compared with one from a different run.
+
+Both conclusions survive: every `Σ(L·Ω)` is a **lower bound**, so the contrast shortfall is
+understated rather than overstated. The operator is somewhere in `render/**` and was not located.
+
+### 9.7 What this rules out, and what is left
+
+Ruled out this round, each with the measurement above: a misread transfer domain (§9.1, and it was
+real — but it makes the shader *brighter*, not dimmer), an exposure, the base colour (§9.5), and
+slide 39's scalar in either direction (§9.2). Left standing, and all three are `render/**` or
+`LightingRig.js`: the rim's missing shadow map (REQ-063), the absence of any light near the view
+axis for the retroreflective TRT lobe to fire in (REQ-064), and the environment path (REQ-065,
+whose measured size is 9.7% and not the 1% its evidence block records).
 
 ---
 

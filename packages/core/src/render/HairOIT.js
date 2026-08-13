@@ -66,10 +66,12 @@
  * than averaging it away — the noise is stable, not integrated. Measured as mean |pixel − 3x3 mean|
  * over the hair band on a converged still: `wboit` 0.689, `blend` 0.961, `hash` 1.636, `cutout`
  * 1.938 code values. So `hash` is grainier than the accumulation arm and finer-grained than the
- * cut-out it replaces, and 3.5 should expect visible strand-scale stipple in the interior. Giving
- * the hash a per-frame seed would make it converge and is a one-line change to a three.js internal;
- * it is NOT made here because it would interact with `alive-capture-determinism.selftest.mjs`, and
- * that is a decision for whoever owns the capture contract.
+ * cut-out it replaces, and 3.5 should expect visible strand-scale stipple in the interior.
+ *
+ * 🎯 **THAT PARAGRAPH IS 3.21'S WHOLE SUBJECT AND IT IS NOW FIXED. See ## THE COVERAGE DECISION
+ * below**, which carries the measurement, the arm, and the one thing the paragraph got wrong: the
+ * per-frame seed does NOT collide with `alive-capture-determinism.selftest.mjs`, because `?capture`
+ * pins `nodeFrame.frameId` to the step count and a seed derived from it is pinned with it.
  *
  * ## The four modes, and why each one is in the tree
  *
@@ -83,8 +85,165 @@
  *             Stochastic, order independent, depth-tested, and it hands the integration to the
  *             temporal resolve — which punch-list 3.12 measured as this project's BEST card
  *             antialiaser (TAAU 27.1% hard transitions against alpha-to-coverage's 44.5%).
+ *   `stochastic`
+ *             3.21, and the shipping arm. The same opaque bucket and the same depth write as
+ *             `hash`, with the threshold taken from an interleaved-gradient-noise field in SCREEN
+ *             space advanced by the golden-ratio conjugate every frame — so the temporal resolve
+ *             is handed a fresh sample of the coverage each frame instead of the same pattern
+ *             reprojected. ## THE COVERAGE DECISION is the measurement.
  *   `wboit`   McGuire & Bavoil weighted-blended OIT, Listing 4 form. Two extra attachments, one
  *             extra full-screen resolve, no sorting, no discard.
+ *
+ * ## 🎯 THE COVERAGE DECISION — punch-list 3.21, and what a blind critic called the number one
+ *
+ * The critic on the composed portrait: *"the flat untextured grey rectangles and the dithered
+ * speckle edge are the same defect wearing two hats — coverage is being resolved per-card rather
+ * than per-strand"*. Half of that is right, one half is not, and the half that is right is fixed
+ * here. Everything below was measured this session on `alive.html` at 900x1200 dpr 1 — the page a
+ * judge captures, at the framing the defect is visible at — and nothing is copied from `docs/`.
+ *
+ * ### What the shader's alpha tap actually contains
+ *
+ * Measured off the real groom by projecting every one of its 10,536 triangles with the live camera
+ * and comparing screen-space area in RENDER pixels against UV area in atlas texels — geometry off
+ * the artefact, not a reading of the asset. At portrait the scene pass is 594x792 (900x1200 at
+ * `resolutionScale` 0.66) and the groom covers 3,171,274 drawn pixels of it, so about 6.7 cards
+ * deep per pixel:
+ *
+ *     area-weighted texels per render pixel   p5 1.876   p50 2.844   p75 3.651   p95 5.654
+ *     screen area minified at all (>1)        99.70%
+ *     screen area past mip 1 (>2)             92.23%
+ *     footprint anisotropy                    median 2.21   p90 5.38
+ *
+ * **The groom is sampled at a median mip of 1.51, and that is what decides everything else.**
+ * Sampling the atlas alpha at each visible pixel's own uv and lod, against the same pixels at
+ * mip 0:
+ *
+ *     | statistic over the groom's visible area | at mip 0 | at the picked lod |
+ *     |-----------------------------------------|---------:|------------------:|
+ *     | alpha standard deviation, area-weighted |   0.3259 |            0.2648 |
+ *     | share with alpha > 0.9  (opaque)        |   35.03% |            25.44% |
+ *     | share with 0.05 < alpha < 0.9 (partial) |   20.57% |        **41.24%** |
+ *
+ * 🎯 **THE MIP CHAIN DOUBLES THE PARTIAL-COVERAGE BAND, from 20.57% to 41.24% of the groom.** Two
+ * fifths of the hair on screen arrives at the coverage decision as a fraction, and both stochastic
+ * arms resolve a fraction by a coin flip. `hash` flips it with a threshold that is **fixed in
+ * object space** and quantised to power-of-two cells (Wyman & McGuire's scale discretisation), so
+ * the temporal resolve reprojects one pattern for ever. That is the speckle, and at 4x on the
+ * fringe it is not grain but BLOCKS — which is also why a 3x3 local-grain statistic under-reports
+ * it, since a block agrees with its own neighbours (`hash` 2.1258 against `stochastic` 2.2250 on
+ * the same converged plate, while the plates look nothing alike).
+ *
+ * ### The statistic that does see it, and it is the file's own instrument one axis over
+ *
+ * A1–A4 measure draw-order dependence by rendering the same frame twice with only the order
+ * changed. 3.21 renders the same converged frame twice with only the dither's STARTING PHASE
+ * changed. If the coverage has been integrated the picture is a function of the coverage and the
+ * two plates agree; if the pattern has only been reprojected the picture is a function of the seed.
+ * `?bare&freeze&seed=1&grain=0&hair=1&capture`, 128 steps of zero seconds, phases 0 and 977, RMS
+ * over the 498,090 px the groom moves against the same page with no groom on it:
+ *
+ *     | dither                    | seed RMS | worst px | % over 2 cv |
+ *     |---------------------------|---------:|---------:|------------:|
+ *     | shipped (golden step)     | **3.7620** |    72.3 |      29.50% |
+ *     | `white-dither`            |   5.2034 |     91.6 |      41.14% |
+ *     | `frozen-dither`           |  14.3079 |    134.3 |      54.60% |
+ *
+ * The frozen field is **3.80x** the shipped one and does not improve with frames (14.9888 at 64,
+ * 14.2590 at 128, 14.2529 at 192 — flat); the shipped one falls (5.1076 → 3.7534 → 3.7067). That
+ * is the difference between a pattern and an estimate, measured.
+ *
+ * ### And the local grain, on a frozen page, as the resolve is given more frames
+ *
+ * Mean |pixel − 3x3 mean| over the same mask, `?bare&freeze&seed=1&grain=0`, steps of zero seconds:
+ *
+ *     | arm          |      4 |      8 |     16 |     32 |     64 |    128 |
+ *     |--------------|-------:|-------:|-------:|-------:|-------:|-------:|
+ *     | `blend`      | 1.6264 | 1.5306 | 1.4534 | 1.3882 | 1.3373 | 1.3207 |
+ *     | `cutout`     | 2.4511 | 2.2547 | 2.0835 | 1.9714 | 1.8723 | 1.8451 |
+ *     | `hash`       | 4.2808 | 3.5453 | 2.8624 | 2.4030 | 2.2224 | **2.2075** |
+ *     | `stochastic` | 5.5040 | 4.6538 | 3.9171 | 3.0902 | 2.3331 | **1.9636** |
+ *
+ * `hash` is FLAT from 64 to 128 (2.2224 → 2.2075, 0.7%): it has reached its own permanent pattern
+ * and no further frame will remove it. `stochastic` is still falling at 128 (2.3331 → 1.9636, 16%)
+ * and is already below the floor `hash` cannot pass. It is the slower arm for the first ~80 frames
+ * and the only one with anywhere to go.
+ *
+ * ### ⚠️ AND WHAT IT DOES NOT BUY, WHICH IS MOST OF WHAT IT COULD
+ *
+ * Under the SHIPPED stimulus — head idle live, `?bare&seed=1&grain=0`, 60 warm-up steps at 1/60
+ * then 20 frames — the two arms are indistinguishable on grain and the gain is only in stability:
+ *
+ *     | arm          | local grain | temporal sigma |
+ *     |--------------|------------:|---------------:|
+ *     | `blend`      |      0.5764 |         3.7434 |
+ *     | `cutout`     |      0.9417 |         4.8938 |
+ *     | `hash`       |      1.1551 |         4.6060 |
+ *     | `stochastic` |      1.1555 |     **4.3292** |
+ *
+ * Seed dependence live, 80 frames: 3.1347 against `frozen-dither`'s 3.6799 — 1.17x, where the
+ * converged still gives 3.80x. **The estimator is right and the integrator is the bottleneck**, and
+ * the mechanism is readable in `TAAUNode.js:678`: `isDisocclusion = closestDepth − previousDepth >
+ * 0.0005` clears `hasValidHistory`, which sets `currentWeight` to 1 and throws the history away for
+ * that pixel. A stochastic alpha test writes DEPTH from its coin flip, so at every partial-coverage
+ * pixel the depth alternates between the card and what is behind it and the resolve reads its own
+ * dither as a disocclusion. `currentFrameWeight` is 0.025 — a 40-frame accumulator that would crush
+ * any per-frame field to 2.5% if it were allowed to run. Filed as a request against
+ * `render/TRAAPost.js`; it is not this file's to fix and it caps what this file can buy.
+ *
+ * ### 🚩 AND THE OTHER HALF OF THE CRITIC'S HAT IS NOT THIS FILE'S DEFECT — MEASURED, NOT ARGUED
+ *
+ * The flat untextured rectangles are NOT cards whose coverage collapsed to one blend. Taking the
+ * 42 cards the atlas gives real structure to (alpha sd > 0.25 over the pixels they own, ≥500 px
+ * each) and measuring the rendered luma's high-pass sd over those same pixels, the number of cards
+ * that render flat (< 1 code value) is **2 of 42 on `hash`, 0 of 42 on `stochastic`, 1 of 42 on
+ * `cutout`, 2 of 42 on `blend`** — 0.70% of their area at worst. There is no coverage collapse to
+ * find. What there IS:
+ *
+ *   1. **25.44% of the groom's visible area is sampled at alpha > 0.9** — genuinely opaque, and no
+ *      transparency arm can or should make it otherwise. At mip 0 it is 35.03%, so minification is
+ *      REDUCING the opaque share: the flatness is in the asset. The atlas's dense sheets are solid
+ *      white over most of their length and only separate into strands near the tips.
+ *   2. **`material/HairMaterial.js` gives every hair fragment the same `baseColour` uniform** — one
+ *      `uniform( new Vector3( … ) )` built from `HAIR_BASE_COLOUR_HEX` inside `createHairMaterial`
+ *      — and deliberately does not sample the atlas RGB ("its RGB is deliberately NOT used as
+ *      albedo: hair's colour comes from the lobes", in that file's own `alphaMap` @param). Cited by
+ *      grep rather than by line because another round is editing that file as this one lands. An
+ *      opaque region therefore has nothing but the lighting to vary across it.
+ *   3. The atlas's first 128-texel column is a **solid alpha = 254.14/255 (sd 11.58) block with no
+ *      strands at all**, and exactly 2 of the groom's 296 cards use it. Those two are the scalp
+ *      cap and the head hides almost all of it, so they are not the rectangles either — recorded
+ *      because it was the first hypothesis and excluding it by execution cost a measurement.
+ *
+ * So an opaque card with a constant albedo reads as a flat lilac slab bounded by its own quad
+ * edges, and that is a groom and a BSDF finding. Filed against `tools/figure-pipeline/**` (the
+ * atlas and the UV assignment) and `packages/core/src/material/HairMaterial.js` (strand-scale
+ * albedo variation). 3.21 fixes the speckle and leaves the slabs, and saying otherwise would be a
+ * claim this file cannot support.
+ *
+ * ### Cost, re-measured this session, including the wboit re-test the round asked for
+ *
+ * `?bare&freeze&seed=1&capture&gputime=1` at 1920x1080 dpr 1, driven through `__SUGATA_STEP__(0)`,
+ * 100 samples after 60 warm-up steps:
+ *
+ *     | arm                      | GPU p50 | GPU p95 |
+ *     |--------------------------|--------:|--------:|
+ *     | no `?hair` (control)     |  12.148 |  14.621 |
+ *     | `cutout`                 |  11.936 |  15.586 |
+ *     | `hash`                   |  12.695 |  17.777 |
+ *     | `stochastic`             |  13.573 |  17.706 |
+ *     | `wboit`                  |  13.921 |  26.060 |
+ *     | no `?hair` (control, again) | 11.995 | 12.349 |
+ *
+ * ⚠️ **Read p50 and distrust p95 here.** The control was taken twice around the run and p50
+ * reproduces to 0.153 ms while p95 moves by 2.272 — so the p95 column separates `wboit` from
+ * everything else and separates nothing else from anything. `stochastic` costs **+0.878 ms of p50
+ * over `hash`**, which is more than an interleaved-gradient-noise tap can explain and is the only
+ * number in this section without a mechanism attached to it.
+ *
+ * 🎯 **AND `wboit` IS RE-REJECTED ON THE PAGE THAT MATTERS.** 26.060 ms p95 against a 16.6 ms
+ * budget, +11.4 over the control's own p95 and +1.8 on p50. The round asked for this to be
+ * re-measured rather than inherited, and it was; the answer did not move.
  *
  * 🚩 **AND THE MODE DOES NOT DECIDE THE SHADOW, WHICH IT DID UNTIL THIS ROUND.** Three of those
  * four clear `material.alphaTest`, and `alphaTest` is one of exactly two alpha fields three's
@@ -260,21 +419,42 @@ import {
     ZeroFactor
 } from 'three/webgpu';
 
-import { float, mix, mrt, nodeObject, output, positionView, rtt, uniform, vec3, vec4 } from 'three/tsl';
+import {
+    float,
+    interleavedGradientNoise,
+    mix,
+    mrt,
+    nodeObject,
+    output,
+    positionView,
+    renderGroup,
+    rtt,
+    screenCoordinate,
+    uniform,
+    vec3,
+    vec4
+} from 'three/tsl';
 
 /**
- * The four ways a hair card can reach the frame buffer. `blend` is the defect and is only ever the
- * control arm; the other three are all order independent, by three different mechanisms.
+ * The five ways a hair card can reach the frame buffer. `blend` is the defect and is only ever the
+ * control arm; the other four are all order independent, by four different mechanisms.
+ *
+ * `stochastic` was added in punch-list 3.21 and is the shipping arm — see `HAIR_OIT_DEFAULT_MODE`
+ * and the ## THE COVERAGE DECISION section below. `hash` is kept unchanged as its A side, because
+ * the two differ in exactly one term and that term is the whole of 3.21's argument.
  */
-export const HAIR_OIT_MODES = [ 'blend', 'cutout', 'hash', 'wboit' ];
+export const HAIR_OIT_MODES = [ 'blend', 'cutout', 'hash', 'stochastic', 'wboit' ];
 
 /**
- * The mode a groom should ship in, and it is a measurement rather than a preference: order
- * independent to 0.0104 code values, 1.34x more temporally stable than the cut-out it replaces, and
- * +1.775 ms of p95 against a hair budget of roughly 2.6 — the only arm in the header's table that
- * is both correct and affordable. `wboit` wins on picture and loses on cost by 1.9x.
+ * The mode a groom should ship in.
+ *
+ * Was `hash` for two rounds and is `stochastic` from 3.21. Both are stochastic alpha tests in the
+ * opaque bucket, order independent by the depth test, at the same cost; they differ only in what
+ * seeds the threshold, and that one term decides whether the temporal resolve can integrate the
+ * coverage or is handed a frozen pattern to reproject. The measurements are in
+ * ## THE COVERAGE DECISION, and `HairOIT.selftest.mjs`'s C-clauses are the gate.
  */
-export const HAIR_OIT_DEFAULT_MODE = 'hash';
+export const HAIR_OIT_DEFAULT_MODE = 'stochastic';
 
 /**
  * 🚩 **THE CONSTRAINT THAT ALMOST KILLED THIS ARM, FOUND BY EXECUTION AND NOT BY READING.**
@@ -494,6 +674,147 @@ export function publishedWeightValue( viewDepth, alpha, near, far ) {
 
 }
 
+// --- the coverage dither -------------------------------------------------------------------------
+
+/**
+ * How far the dither's threshold field slides per frame, as a fraction of the unit interval.
+ *
+ * 🎯 **This is the golden-ratio conjugate and the choice is the whole of why one extra term fixes
+ * a symptom two rounds of arms could not.** A stochastic alpha test is an estimator: a fragment of
+ * coverage α survives iff its threshold τ is below α, so ONE frame gives a Bernoulli draw and the
+ * picture is dust. The temporal resolve is what turns draws into an estimate — but only if the
+ * draws differ, and only well if they are spread rather than random.
+ *
+ * φ⁻¹ = 0.6180339887… generates the additive-recurrence (R₁) low-discrepancy sequence: after N
+ * frames the N thresholds at one pixel are spread through 0..1 with a gap ratio bounded by the
+ * worst-approximable irrational, so the running mean of the survive/die indicator converges as
+ * O(1/N) instead of white noise's O(1/√N). `hairDitherOffsetValue`'s own gate asserts that
+ * discrepancy directly, and `HAIR_DITHER_WHITE_STEP` is the rejection proof beside it.
+ *
+ * ⚠️ It must be IRRATIONAL for the same reason `Grade.js`'s `GRAIN_SEED_STEP` must be: a rational
+ * p/q repeats every q frames, so the estimate stops improving at q samples and the residue is a
+ * fixed pattern again — the exact defect this term exists to remove, arriving q frames later.
+ */
+export const HAIR_DITHER_GOLDEN_STEP = 0.6180339887498949;
+
+/** The unit fractional part, spelled once because three of the four branches below need it. */
+function unitFraction( value ) {
+
+    return value - Math.floor( value );
+
+}
+
+/**
+ * The named ways the per-frame offset can be wrong.
+ *
+ * ⚠️ **Every one of them takes the PHASE as well as the frame index, and that is what makes them
+ * usable as red proofs rather than merely as A sides.** The gate's headline clause renders the
+ * same converged frame under two phases and requires the two plates to agree; a defect that
+ * ignored the phase would produce two IDENTICAL plates and pass that clause trivially, which is
+ * LEARNINGS §1.25g's "pinned to a constant makes both observers agree" in a new costume.
+ */
+export const HAIR_DITHER_STEP_DEFECTS = {
+
+    /**
+     * 🚩 THE DEFECT THE `stochastic` ARM EXISTS TO REMOVE. The offset does not advance: the
+     * threshold field is fixed on the screen for the whole run, so the temporal resolve reprojects
+     * one pattern instead of averaging many. That is `hash`'s failure mode isolated — `hash` freezes
+     * its pattern in OBJECT space and this freezes it in SCREEN space, but neither converges, and
+     * this is the one that can be A/B'd against the shipped arm with nothing else changed.
+     */
+    'frozen-dither': ( frameIndex, phase ) => unitFraction( phase * HAIR_DITHER_GOLDEN_STEP ),
+
+    /**
+     * 🚩 The rejection proof for the golden step itself: white noise per frame instead of a
+     * stratified sequence. It exists because "the offset changes every frame" is NOT the property
+     * that matters — white noise changes every frame too and converges √N times slower, so a gate
+     * that only asserted movement would be green on this.
+     */
+    'white-dither': ( frameIndex, phase ) =>
+        unitFraction( Math.sin( ( frameIndex + phase + 1 ) * 12.9898 ) * 43758.5453 )
+
+};
+
+/**
+ * The dither's per-frame offset, as a CPU mirror of the uniform the shader reads.
+ *
+ * A `...Value` mirror for the reason `hairWeightValue` is one and `GTAO.js` says at length: a
+ * sequence that only exists inside an `onRenderUpdate` closure is a sequence nobody can assert a
+ * discrepancy bound about. The gate checks THIS one; the shader adds it to a per-pixel field and
+ * takes the fractional part, which is the only arithmetic that happens on the GPU side.
+ *
+ * ⚠️ **The fract is taken HERE, in doubles, and that is not tidiness.** `frameId` reaches five
+ * digits inside a minute; `fract( frameId · φ⁻¹ )` evaluated in fp32 at frameId 60,000 has about
+ * eleven bits of the fraction left, so the sequence would quietly collapse onto a few hundred
+ * distinct offsets and the estimator would stop converging — with no symptom other than the grain
+ * coming back. Computed in double precision the offset is exact to 52 bits forever, and the
+ * uniform that carries it is always in 0..1.
+ *
+ * @param {number} frameIndex - `nodeFrame.frameId`. Under `?capture` this is pinned to the step
+ *   count (`alive-capture-determinism.selftest.mjs`'s O check), so the offset is pinned with it
+ *   and a seeded capture still reproduces frame for frame.
+ * @param {number} [phase=0] - whole frames added to the index, which starts the SAME estimator
+ *   somewhere else in its own sequence. `material.hairDitherPhase` is the live handle.
+ * @param {?string} [defect=null] - a key of `HAIR_DITHER_STEP_DEFECTS`, or null for the shipped
+ *   sequence.
+ * @returns {number} 0..1
+ */
+export function hairDitherOffsetValue( frameIndex, phase = 0, defect = null ) {
+
+    if ( defect !== undefined && defect !== null ) {
+
+        const broken = HAIR_DITHER_STEP_DEFECTS[ defect ];
+
+        if ( broken === undefined ) throw new Error( `HairOIT: unknown dither defect '${ defect }'.` );
+
+        return broken( frameIndex, phase );
+
+    }
+
+    return unitFraction( ( frameIndex + phase ) * HAIR_DITHER_GOLDEN_STEP );
+
+}
+
+/**
+ * The threshold a hair fragment's coverage is tested against: a low-discrepancy field in screen
+ * space, advanced by `hairDitherOffsetValue` in time.
+ *
+ * ## 🎯 WHY THIS IS SCREEN SPACE WHEN THREE'S OWN HASH IS OBJECT SPACE
+ *
+ * `getAlphaHashThreshold` seeds from `positionLocal` and discretises the noise scale to powers of
+ * two of the screen-space derivative (Wyman & McGuire 2017). That machinery buys ONE property:
+ * the pattern is welded to the surface, so it does not swim as the camera dollies. It is the right
+ * trade for a renderer with no temporal filter, and it is the wrong one here — a pattern welded to
+ * the surface is a pattern the reprojection carries forward unchanged, which is precisely how a
+ * dither survives a temporal resolve instead of being averaged by it. Measured, on the shipped
+ * page: `hash`'s local grain over the groom is 1.3045 code values against `blend`'s 0.5971.
+ *
+ * Once the estimate is integrated over frames the requirement inverts. What is wanted is a
+ * threshold that is uniform per pixel, decorrelated from its neighbours, and DIFFERENT next frame.
+ * Interleaved gradient noise is three's own (`nodes/utils/PostProcessingUtils.js`, Jimenez 2014)
+ * and is used here rather than re-derived: it is low discrepancy across a pixel neighbourhood, so
+ * even a single frame reads as a fine even stipple rather than as clumps, and it is two multiplies
+ * and two `fract`s.
+ *
+ * ⚠️ **The field is in RENDER pixels, not output pixels.** `screenCoordinate` is the fragment's
+ * coordinate in the target being drawn, which on the shipped path is the scene pass at
+ * `resolutionScale` 0.66. That is the correct space — the coverage decision is made once per
+ * render pixel and TAAU is what maps it to the output — but it does mean the stipple is 1.5x
+ * coarser on screen than the number of frames suggests, and it is why the convergence is measured
+ * on the OUTPUT plate rather than argued from the sample count.
+ *
+ * @param {Node<float>} offset - the uniform fed by `hairDitherOffsetValue`.
+ * @returns {Node<float>} a threshold in (0, 1].
+ */
+export function hairDitherThresholdNode( offset ) {
+
+    // Clamped away from zero for three's own reason at `getAlphaHashThreshold`'s last line: a
+    // threshold of exactly 0 admits a fragment of exactly no coverage, which is a hole in the
+    // silhouette rather than a rounding difference. The bias this costs is 1e-6 of coverage.
+    return interleavedGradientNoise( screenCoordinate.xy ).add( offset ).fract().clamp( 1e-6, 1 );
+
+}
+
 // --- the material side ------------------------------------------------------------------------
 
 /**
@@ -606,7 +927,7 @@ function shadowCoverageMask( material, cutoff ) {
 }
 
 /**
- * Puts one hair material into one of the four modes.
+ * Puts one hair material into one of the five modes.
  *
  * This is the seam punch-list 3.5 attaches to: `material/HairMaterial.js` builds the Karis BSDF and
  * hands the finished material here, and this file decides how its fragments reach the frame buffer.
@@ -619,7 +940,7 @@ function shadowCoverageMask( material, cutoff ) {
  * case — *"when rendering flat vegetation like grass sprites"*. A hair card is a grass sprite.
  *
  * @param {NodeMaterial} material - Mutated in place and returned, for chaining.
- * @param {'blend'|'cutout'|'hash'|'wboit'} mode
+ * @param {'blend'|'cutout'|'hash'|'stochastic'|'wboit'} mode
  * @param {Object} [options]
  * @param {number} [options.alphaTest=0.5] - Used by `cutout`. The groom's own glTF says 0.5.
  * @param {number} [options.shadowAlphaCutoff=HAIR_SHADOW_ALPHA_CUTOFF] - The card alpha below
@@ -627,11 +948,15 @@ function shadowCoverageMask( material, cutoff ) {
  *   sweep; it is a parameter only so a caller measuring the sweep again does not have to edit
  *   this file.
  * @param {boolean} [options.alphaToCoverage=false] - The caller's MSAA decision, carried through
- *   rather than decided here. Inert without MSAA, and MSAA is not the shipped path.
+ *   rather than decided here. Inert without MSAA, and MSAA is not the shipped path. ⚠️ REFUSED on
+ *   the `stochastic` arm — see that branch.
  * @param {?{ near: Node, far: Node, range: Node }} [options.slab] - The uniforms from
  *   `createHairOIT()`. Required for `wboit`, ignored otherwise.
- * @param {?'material-blend'} [options.defect=null] - 🚩 **The red proof, and it is a defect on
- *   purpose.** `material-blend` sets the two OIT blend modes on `material.mrtNode` — the placement
+ * @param {?('material-blend'|'frozen-dither'|'white-dither')} [options.defect=null] - 🚩 The red
+ *   proofs, and each one is a defect on purpose. `frozen-dither` and `white-dither` belong to the
+ *   `stochastic` arm, are documented at `HAIR_DITHER_STEP_DEFECTS`, and are only the STARTING value
+ *   of `material.hairDitherStep` — that field is the live handle a gate drives. `material-blend`
+ *   belongs to `wboit` and sets the two OIT blend modes on `material.mrtNode` — the placement
  *   that looks correct, that a reader who has only seen `docs/research/hair.md` §4.3(a) would
  *   expect to work once `MRTNode.merge()` is fixed, and that CANNOT work because
  *   `WebGPUPipelineUtils.js:132` never reads a material MRT. `GBuffer` must be built with the
@@ -656,6 +981,7 @@ export function configureHairMaterial( material, mode, options = {} ) {
     material.depthWrite = true;
     material.alphaTest = 0;
     material.alphaHash = false;
+    material.alphaTestNode = null;
     material.mrtNode = null;
 
     // Carried through rather than forced, because it is the CALLER's MSAA decision and not this
@@ -707,6 +1033,64 @@ export function configureHairMaterial( material, mode, options = {} ) {
         // head. Whether that decorrelates helpfully for the temporal resolve or crawls is exactly
         // what `HairOIT.selftest.mjs` measures rather than argues.
         material.alphaHash = true;
+        material.needsUpdate = true;
+        return material;
+
+    }
+
+    if ( mode === 'stochastic' ) {
+
+        // The same bucket, the same depth write, the same order independence — and a threshold
+        // that MOVES. See `hairDitherThresholdNode` for why the field is in screen space and
+        // `HAIR_DITHER_GOLDEN_STEP` for why the step is the golden-ratio conjugate.
+        //
+        // ⚠️ **`alphaToCoverage` is refused here rather than carried, and the reason is a silent
+        // change of meaning.** `NodeMaterial.setupDiffuseColor` (`:874`) branches on it and replaces
+        // the discard with `smoothstep( τ, τ + fwidth(α), α )` — an EDGE SOFTENER around the
+        // threshold. Fed a τ that is per-pixel noise, `fwidth( α )` no longer bounds anything the
+        // threshold does and the arm stops being an unbiased estimator of coverage while still
+        // producing a plausible picture. MSAA is not the shipped path and this arm needs the
+        // temporal resolve anyway, so the pair is refused in words instead of resolved quietly.
+        if ( options.alphaToCoverage === true ) {
+
+            throw new Error( 'HairOIT: the stochastic arm cannot run with alphaToCoverage — the ' +
+                'smoothstep branch in NodeMaterial replaces the coverage test with an edge softener ' +
+                'around a per-pixel-random threshold. Use MSAA with the cutout arm, or the temporal ' +
+                'resolve with this one.' );
+
+        }
+
+        material.alphaToCoverage = false;
+
+        // 🚩 THE RED PROOF IS A FIELD ON THE MATERIAL AND NOT A REBUILD, for the reason
+        // `HAIR_SHADOW_ALPHA_CUTOFF` gives about `material.hairShadowCutoff` one section up: a gate
+        // has to be able to break this without editing this file. `material.hairDitherStep` is read
+        // fresh on every render, so a driver flips it, steps the resolve clean, and measures the
+        // same GPU state twice — a tighter A/B than two page loads, because nothing else can have
+        // moved. `null` is the shipped sequence; the keys are `HAIR_DITHER_STEP_DEFECTS`.
+        material.hairDitherStep = options.defect ?? null;
+
+        /**
+         * 🎯 THE SEED CONTROL, AND IT IS NOT A DEFECT — it is the instrument the gate's headline
+         * clause is built on. Adding a whole number of frames starts the SAME estimator at a
+         * different place in its own sequence, so two runs draw two disjoint sample sets of the
+         * same coverage. An estimate that has been integrated agrees between them; a pattern that
+         * has merely been reprojected does not, and the RMS between the two plates is the dust in
+         * code values with no reference render anywhere in it. See `HairOIT.selftest.mjs` C1.
+         */
+        material.hairDitherPhase = 0;
+
+        // A uniform rather than three's own `frameId` node so the golden-ratio sequence is stepped
+        // in DOUBLE precision on the CPU — see `hairDitherOffsetValue`'s ⚠️. `renderGroup` and
+        // `onRenderUpdate` are copied from three's `frameId` (`nodes/utils/Timer.js`) so the value
+        // lands in the per-render bind group and is refreshed once per draw of the frame rather
+        // than once per object.
+        material.hairDitherOffset = uniform( 0 )
+            .setGroup( renderGroup )
+            .onRenderUpdate( ( frame ) => hairDitherOffsetValue(
+                frame.frameId, material.hairDitherPhase, material.hairDitherStep ) );
+
+        material.alphaTestNode = hairDitherThresholdNode( material.hairDitherOffset );
         material.needsUpdate = true;
         return material;
 

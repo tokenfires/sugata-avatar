@@ -34,6 +34,16 @@
  *   FILED-AT  ...and `filed-at` must be a REAL COMMIT THIS HISTORY DESCENDS FROM, for every
  *             status. See the next section: without this, the clause above is optional.
  *
+ *   PRE-IMAGE ...and when the target file is not IN that commit, the clause above passed for
+ *             free and the entry must say so with `pre-image: absent — <why>`. Same defect as
+ *             FILED-AT one level down: there the pre-image COMMIT was unreadable, here the
+ *             commit reads perfectly and the FILE is not in it. Both end at `before === null`,
+ *             which is the green side of the discrimination clause. The case is legitimate and
+ *             common — three entries here fulfilled their request BY creating the file, and a
+ *             fourth was applied to a file that had not been committed yet — so it is
+ *             declared rather than refused, and the declaration is itself adjudicated: claiming
+ *             absence over a file that was right there fails the same clause.
+ *
  *   OPEN      `verify` must NOT match at HEAD — an entry that was fixed incidentally by someone
  *             else is a STALE ENTRY, and a ledger of stale entries is worse than no ledger.
  *             `anchor` must MATCH at HEAD, so the request still points at code that exists.
@@ -120,6 +130,17 @@
  *                                               and it has no proof. It is the one line in this
  *                                               fix that is a seatbelt rather than a gate.
  *
+ * And the same three rows for PRE-IMAGE, measured the round it landed, against 26/26 green:
+ *
+ *   remove the undeclared half  24/26  exit 1   RED 16 goes NOT CAUGHT, and so does the check that
+ *                                               the two mechanisms are told apart
+ *   remove the declared half    24/26  exit 1   RED 17 goes NOT CAUGHT, symmetrically
+ *   believe the declaration     24/26  exit 1   `declaredAbsent = true` — 50 LIVE violations, so
+ *                                               this half is not merely proved, it is holding the
+ *                                               real ledger up: 50 of the 54 APPLIED entries have
+ *                                               a pre-image and would be excused from the clause
+ *                                               that reads it
+ *
  *   run: node tools/request-ledger.selftest.mjs
  */
 
@@ -147,9 +168,11 @@ const REJECTION_REASON_FLOOR = 40;
  * ⚠️ RAISE IT WHEN A ROUND ADDS ENTRIES, or the floor stops being a floor: entries are never
  * deleted, so a ledger that has grown to 34 and is still gated at 30 tolerates four disappearing.
  * 30 at R7, 34 at R8, 59 at R10 — the jump is the round that discovered the Fix phase runs after
- * integration, so five agents' 43 requests had no integrator to file them with.
+ * integration, so five agents' 43 requests had no integrator to file them with. 68 at the R15
+ * ledger pass, which added no entries and found the floor nine behind the count: the instruction
+ * above had not been followed for two rounds, and nine entries could have gone missing in silence.
  */
-const MIN_ENTRIES = 59;
+const MIN_ENTRIES = 68;
 
 /** See the header: 8, 8 and 8 commits in the last three rounds. */
 const ROUND_COMMIT_CEILING = 14;
@@ -264,8 +287,10 @@ function preImageVerdict( sha ) {
  * adjudicator validates `filed-at` before it gets here and so never reaches the throw; the throw
  * is a guard against the NEXT caller, who will not have read this comment.
  *
- * Reads are memoised because the red proofs below re-adjudicate the same 34 entries fourteen
- * times over, and git objects are immutable.
+ * Reads are memoised because every red proof below re-adjudicates the whole ledger — every entry,
+ * once per proof — and git objects are immutable. The run prints both counts rather than this
+ * comment carrying them: they were "34 entries, fourteen times" when the sentence was written and
+ * neither number survived two rounds, which is §1.25e happening inside the file about §1.25e.
  */
 const fileContents = new Map();
 
@@ -644,6 +669,45 @@ function adjudicate( text, { readHead = fileAtHead, readAt = fileAtCommit } = {}
 
                 }
 
+                // Clause 3: clause 2 has to have been EARNED, and when the target file is not at
+                // `filed-at` at all it was not. `before` is `null`, `matches` is false, and the
+                // anti-rubber-stamp clause returns its passing answer to a question no tree was
+                // asked — `/./` scores exactly as well as a surgical pattern. That is the R9 hole
+                // one level down: R9 was an unreadable COMMIT turning clause 2 off, this is a
+                // legitimately-read commit in which the FILE is simply absent.
+                //
+                // It is refused as a silent pass and permitted as a DECLARED one, because the case
+                // is real and common — three entries here fulfilled their request by creating the
+                // file (REQ-003 `run-selftests.sh`, REQ-009 `MorphVelocity.js`, REQ-023
+                // `frame-clock.js`) and no pattern can discriminate a tree that does not contain
+                // the file. `pre-image: absent` is the author saying so in the entry, where the
+                // next reader of that green tick will see it.
+                //
+                // ⚠️ The declaration is adjudicated in BOTH directions for the same reason every
+                // other field here is: a `pre-image: absent` on an entry whose file was right
+                // there at `filed-at` is a claim that the strongest clause in this gate did not
+                // apply, which is worth exactly as much scrutiny as the status field.
+                const declaredAbsent = /^absent\b/.test( entry[ 'pre-image' ] ?? '' );
+
+                if ( before === null && declaredAbsent === false ) {
+
+                    fail( id, 'PRE-IMAGE',
+                        `${ verify.path } does not exist at filed-at ${ filedAt }, so the ` +
+                        'anti-rubber-stamp clause passed this entry for free — any pattern at ' +
+                        'all discriminates an absent file. Declare it: `pre-image: absent — <why ' +
+                        'no tree in this history holds the pre-image>`' );
+
+                }
+
+                if ( before !== null && declaredAbsent === true ) {
+
+                    fail( id, 'PRE-IMAGE',
+                        `declares pre-image absent, but ${ verify.path } is present at filed-at ` +
+                        `${ filedAt } — the discrimination clause did run, and the declaration ` +
+                        'excuses it from a scrutiny it does not need' );
+
+                }
+
             }
 
         } else {
@@ -951,6 +1015,45 @@ const notAPinAtAll = redProof( 'filed-at is a moving reference rather than an im
     'FILED-AT',
     ( text ) => mutateField( text, anOpen.id, 'filed-at', 'HEAD' ) );
 
+// --- PRE-IMAGE, the R9 hole one level down ------------------------------------------------------
+//
+// 🚩 FILED-AT closed "the pre-image COMMIT is unreadable". It said nothing about "the commit reads
+// fine and the FILE is not in it", which reaches the identical end state: `before` is `null`,
+// `matches` is false, and APPLIED-VACUOUS returns its passing answer without having compared
+// anything. Measured on this ledger when the clause was added — three entries were taking that
+// free pass silently (REQ-003, REQ-009, REQ-023) and a fourth had just been flipped to APPLIED on
+// it (REQ-068, whose target `tools/spikes/hair-groom.js` was first committed by the same commit
+// that carried the fix). All four are legitimate; none of them was DECLARED, and a reader had no
+// way to tell them from an entry whose pattern had actually been tested against a real pre-image.
+//
+// Two mechanisms, in opposite directions, because the declaration is a claim like any other.
+
+const aBornAfterFiling = applied.find(
+    ( entry ) => /^absent\b/.test( entry[ 'pre-image' ] ?? '' ) );
+
+if ( aBornAfterFiling === undefined ) {
+
+    throw new Error( 'RED 16 needs an APPLIED entry declaring `pre-image: absent` and the ledger '
+        + 'has none — if the class has genuinely emptied, delete the proof AND the clause together '
+        + 'rather than leaving a clause with nothing behind it' );
+
+}
+
+// RED 16 — the silent free pass: the target postdates `filed-at` and the entry does not say so.
+// This is the shape REQ-068 shipped in for a round.
+const undeclaredAbsence = redProof(
+    'APPLIED whose target did not exist at filed-at, taking the free pass silently', 'PRE-IMAGE',
+    ( text ) => mutateField( text, aBornAfterFiling.id, 'pre-image',
+        'the twelve-segment version was right there' ) );
+
+// RED 17 — the inverse, and the reason the declaration is adjudicated rather than trusted: an
+// entry excusing itself from the strongest clause in this gate when the clause did in fact run.
+// Filed against RED 1–3's entry, whose target is present at its `filed-at` — proved by RED 1,
+// which reads that very tree and finds the pre-image in it.
+const falseAbsence = redProof(
+    'pre-image declared absent on an entry whose file was right there', 'PRE-IMAGE',
+    ( text ) => mutateField( text, anApplied.id, 'pre-image', 'absent' ) );
+
 // --- the four clauses that had no proof at all --------------------------------------------------
 //
 // Found by the coverage assertion below, not by inspection. That is the argument for deriving the
@@ -1097,6 +1200,22 @@ function clausesTheAdjudicatorCanEmit() {
     const told = ( proof, expected ) => expected.test( proof.diagnosis )
         && [ shape, resolution, ancestry ].filter(
             ( other ) => other !== expected && other.test( proof.diagnosis ) ).length === 0;
+
+    // The same standard on the clause this round added, and it is not ceremony: the two mechanisms
+    // ask the author for OPPOSITE edits — add the declaration, or delete it. A clause that reported
+    // one while meaning the other would send a reader to remove the only line telling them the
+    // discrimination never happened.
+    const absenceDiagnosis = /does not exist at filed-at/;
+    const presenceDiagnosis = /declares pre-image absent, but/;
+
+    check( 'PRE-IMAGE is proved red BOTH ways and tells them apart — an undeclared absence and a '
+        + 'declared absence that is not one ask for opposite edits',
+    absenceDiagnosis.test( undeclaredAbsence.diagnosis )
+        && presenceDiagnosis.test( undeclaredAbsence.diagnosis ) === false
+        && presenceDiagnosis.test( falseAbsence.diagnosis )
+        && absenceDiagnosis.test( falseAbsence.diagnosis ) === false,
+    `undeclared: ${ absenceDiagnosis.test( undeclaredAbsence.diagnosis ) ? 'absence' : 'WRONG' }, `
+        + `false-declaration: ${ presenceDiagnosis.test( falseAbsence.diagnosis ) ? 'presence' : 'WRONG' }` );
 
     check( 'FILED-AT tells the four mechanisms APART — one shape failure, two resolution failures '
         + 'and one ancestry failure, not one verdict wearing four hats',

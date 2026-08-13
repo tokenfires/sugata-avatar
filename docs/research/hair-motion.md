@@ -458,7 +458,7 @@ A ribbon has a width, and DFTL simulates a centreline. Three consequences, none 
 | `Fn(…)().compute( count, workgroupSize )` | `src/nodes/gpgpu/ComputeNode.js:291` | default workgroup size **`[64]`**, line 251 |
 | `renderer.compute( nodes, dispatchSize )` | `src/renderers/common/Renderer.js:2718` | accepts a node **or an array** |
 | `renderer.computeAsync` | `Renderer.js:2830` | awaits `init()` first |
-| `TimestampQuery.COMPUTE` | `src/constants.js:1671` | a **separate pool** from `RENDER` |
+| `TimestampQuery.COMPUTE` | `src/constants.js:1672` | a **separate pool** from `RENDER`. ⚠️ §6.1 read this as :1671 and it is :1672 at r185 — re-grepped 2026-08-13 |
 | compute-pass timestamps | `WebGPUBackend.js:1577` | `initTimestampQuery( TimestampQuery.COMPUTE, … )` |
 | `renderer.getArrayBufferAsync( attribute )` | `Renderer.js:1951` | GPU→CPU readback |
 | `Loop`, `If`, `Break` | `src/nodes/utils/LoopNode.js:331/349` | dynamic-bound loops with `type: 'uint'` |
@@ -707,6 +707,12 @@ sphere for hm08's head region.
 length really is constant along a chain — which is the assumption `hair-dftl.js` stores one float
 per chain on.
 
+> ⚠️ **THAT PARAGRAPH IS WRONG AND §10.1 IS THE MEASUREMENT THAT SAYS SO.** `resample` does return a
+> uniform curve; `draw_into_lock` then blends it toward its lock and pushes the result off the body
+> three times, and `clamp_cards_off_the_body` moves ribbon corners after that. Measured off the
+> shipped GLB, the within-card segment spread is a **median of 38.91%**. The runtime solver stores
+> one rest length **per segment**.
+
 ### 9.2 The correctness check, and its red proof [M]
 
 600 frames of a fixed head shake (±0.85 rad yaw at 0.6 Hz, ±0.18 rad pitch at 1.7 Hz, ±0.12 rad
@@ -751,6 +757,200 @@ card that the global shape constraint is holding, as intended.
 
 ---
 
+## 10. What building it found — corrections and additions from the runtime integration
+
+`packages/core/src/motion/HairDynamics.js` and its gate `HairDynamics.selftest.mjs` landed against
+this document. Everything below was measured **2026-08-13** on the shipped
+`assets/hair/bob01/g050.glb` (the 21:12 bake, 10,648 vertices, 294 cards of 17 rings), through
+`packages/testbed/src/hair.html?motion=1&capture`, headless Chromium via Playwright, WebGPU. The
+recommendation in §8.1 survived; four of its details did not.
+
+### 10.1 ✗ The guide curves are NOT uniformly resampled, so one rest length per chain is wrong [M]
+
+Ring midpoints per card, off the GLB's POSITION accessor:
+
+| within-card segment spread `(max−min)/max` | median | p90 | max |
+|---|---:|---:|---:|
+| 294 cards | **38.91%** | **72.49%** | **100.00%** |
+
+Individual segments inside one card run from **0.000 mm to 95.375 mm**. Card arcs run **76.8 mm to
+491.8 mm, median 187.1 mm**. §9.1's claim is corrected above; the cause is `draw_into_lock`'s blend
+and its `CLUMP_CLEARANCE_PASSES` push-outs, which run *after* `grow_to_cut`'s `resample`.
+
+A chain-level rest length would pull every card toward a straight, evenly-spaced curve on the first
+frame. One float per particle is 20 kB and exact.
+
+### 10.2 🎯 §8.3 is not needed: the generator does not have to change at all [M/D]
+
+§8.3 asks `hair_cards.py` to export the centreline, the per-ring half-width, the per-card twist, a
+card→guide index and a pinned flag. None of it is required. The card is a ribbon symmetric about its
+guide, so with the two edge vertices of ring `k` adjacent in the buffer,
+
+```
+centre[k] = ½( v[2k] + v[2k+1] )        offset[k] = ½( v[2k+1] − v[2k] )
+```
+
+recovers the guide and the half-width **vector** — the twist included, because the twist is already
+the direction of `offset`. The layout that makes this true is asserted rather than assumed: 296
+connected components, 294 of exactly 34 vertices as contiguous runs starting at vertex 652, and
+`{2k, 2k+1}` a triangle edge for every ring of every card. `deriveCardGroom` throws by name if a
+future bake reorders its vertices.
+
+**And the rebuild does not re-derive `ribbon_of`'s frame either**, which is what §5.2 warns about. It
+transports the authored offset by the **minimal rotation from the head-carried rest tangent to the
+current tangent** (two Householder reflections, no trigonometry). That rotation is exactly the
+identity when the chain has not moved, so the rebuilt groom is the authored groom at rest — measured
+at **0.000132 mm worst over 4,998 particles after 300 frames with the head still**, which is the
+property that makes the `?motion=1` A/B toggle a control rather than an approximation.
+
+### 10.3 🚩 §8.2's step order lets FTL undo the collision, and the spike's own table shows it [V/M]
+
+§8.1 orders the step colliders (4) then FTL (5). FTL then projects the particle back onto the sphere
+about its predecessor, which can put it straight back inside. The spike's correctness table (§9.2)
+reports **0.000 mm of skull penetration in the green run AND in the `?breakFtl=1` red run** — a
+statistic over a mask that never contained an event.
+
+Both constraints can be satisfied **exactly**. Two overlapping spheres meet in a circle, and every
+point of it is at `l₀` from the predecessor and at `R` from the collider centre. With `D = |C − A|`,
+
+```
+a = ( D² + l₀² − R² ) / 2D        r = √( l₀² − a² )        circle centre = A + â·a
+```
+
+and projecting the offending point onto that circle costs one normalize. Measured: **0.000 mm of
+penetration with the collider on over a mask of 25 live contacts, 6.4–17.8 mm with
+`?hairdefect=nocollide`, and 0.000107 mm of segment error either way.**
+
+Two collider bugs found on the way, both of which produce plausible-looking numbers:
+
+- **A collider left at a fixed world point.** The skull must ride the head matrix. Before it did,
+  every variant — including `?hairdefect=kinematic`, where nothing moves relative to the rigid pose
+  — reported a constant **9.709 mm** of penetration.
+- **Two colliders resolved in sequence.** The second pushes the particle back inside the first and
+  they trade it back and forth. Only the deepest violation is resolved per substep.
+- ⚠️ And the collider must be **fitted**, not typed. The head BONE's origin is 61 mm below the
+  cranium's centre, and the largest sphere centred there that clears the rest groom is **49.7 mm** —
+  a marble the hair can never reach. A least-squares sphere through the 294 card roots reads centre
+  (0.0044, 1.5761, 0.0382) and **radius 97.3 mm**; the largest radius about that centre no rest
+  particle violates is **76.1 mm**. The 21 mm gap is the bob's own tips hanging beside the cheek,
+  which is the measurement that says **one sphere cannot be a skull for this style** — §3.3's eight
+  ellipsoids are what that costs.
+
+### 10.4 ✗ `k_global = 0.30` with `range = 1.0` is invisible on this groom, and the pair is the wrong parameterisation [M]
+
+§8.1's starting parameters, applied to the shipped groom under a ±0.85 rad / 0.6 Hz head shake, move
+the worst tip **3.2 mm**. Nothing at portrait framing can see that. TressFX's other knob does not
+help: `globalShapeMatchingEffectiveRange` switches the constraint off at a ring boundary, which is a
+kink on a 17-ring card, and taking the hold to zero at all costs the style — with the hold ramped to
+zero over the whole chain the groom carried **86 mm of permanent sag** and the settled plate was a
+head with the bob hanging off the back of it. DFTL has no bending stiffness (§4.4), so the global
+constraint is the only thing holding a style.
+
+What shipped is a **root stiffness and a tip stiffness**, linearly interpolated, with the tip value
+swept:
+
+| tip | peak worst-tip lag | peak mean-tip lag | settled mean | 0.25 s quiescence |
+|---|---:|---:|---:|---:|
+| 0.10 | 15.8 mm | 3.8 mm | 1.05 mm | 0.0011 mm |
+| 0.05 | 26.7 mm | 11.5 mm | 2.06 mm | 0.0023 mm |
+| **0.03** | **56.6 mm** | **20.1 mm** | **3.38 mm** | **0.0283 mm** |
+| 0.02 | 69.1 mm | 24.7 mm | 4.97 mm | 0.0856 mm |
+| 0.01 | 97.4 mm | 32.0 mm | 9.15 mm | 0.9636 mm |
+
+Root 0.30 / tip 0.03. ⚠️ The table was taken at a uniform tip stiffness, before §10.6's per-card
+scaling was added; the shipped numbers are in the gate's own output.
+
+### 10.5 🎯 Gravity has to be applied as a DIFFERENCE, or the rest pose is not the equilibrium [D/M]
+
+The authored groom already hangs under gravity — `hair_cards.py:1123` bends every guide by
+`GRAVITY_PER_SEGMENT · layer.gravity · s^GRAVITY_POWER` (0.41 and 1.60 at :398–399). Adding the full
+9.81 m/s² on top of it leaves the global shape constraint as the only thing balancing it, so the
+groom settles at a permanent offset of about `g·h²/k`: measured, **10.5 mm of tip sag at a tip
+stiffness of 0.30 and 68 mm at 0.01**, with no setting that has both a soft tip and the authored
+silhouette.
+
+Gravity is therefore resolved into the head's rest frame once and subtracted back out through the
+head's current orientation: `g_effective = g_world − R_head · R_rest⁻¹ · g_world`. Head upright, it
+is exactly zero; head tilted 30°, it is the difference between two 9.81 m/s² vectors 30° apart,
+which is the force that actually makes hair fall sideways when you tip your head.
+`?hairdefect=fullgravity` is the red proof and reads **32.9 mm of sag with the head still** against
+0.000132 mm.
+
+### 10.6 🚩 One stiffness for the whole groom makes the mass slide as ONE PIECE [I/M]
+
+Seen, not measured first. With a single tip stiffness every card lags by nearly the same amount,
+because every card is held to its own rest by the same spring against the same rotation — so the
+groom slides as a cap and exposes the scalp shells at the crown. That is the blind critic's static
+complaint (*"nothing separates into a strand group"*) made louder by motion.
+
+The tip stiffness is now scaled per card by `median arc / this card's arc`, clamped to [0.3, 3]: a
+longer card is a heavier one and lags further, and the groom already carries a **6.4x** spread of
+arc length (§10.1). Deliberately not a random jitter — a per-card random number is state a capture
+has to reproduce and a seed somebody has to own, and length is the physically right variable.
+
+⚠️ **It helps the statistics and it does not fix the picture.** Peak worst-tip lag went 48.7 → 62.6
+mm and mean 14.7 → 15.7 mm at the same instant, and the side-view plate looks the same: the bulk of
+a bob is mid-length, so most cards get a scale near 1. The honest conclusion is that **differential
+lag has to come from the groom** — per-lock mass and clumping — **or from a bend constraint**, and
+neither is in this round.
+
+### 10.7 The substeps need a head pose each, or "fixed timestep" is not frame-rate invariance [M]
+
+The root is kinematic, so the head's path IS the simulation's input. A page that sets one head
+matrix per frame gives both 60 Hz substeps the same pose while a 120 Hz frame gets its own, and the
+two rates trace different root paths through the same motion. Measured to t = 2.0 s of the shake,
+60 Hz against 120 Hz: **4.20 mm mean / 31.10 mm worst** over the 294 tips, on a signal of 18.5 mm —
+23% of it.
+
+⚠️ And the fix cannot be one uniform rewritten between dispatches, because §0.3's rule puts every
+substep in a single `renderer.compute( array )` and a uniform is uploaded once per submission. Each
+substep is a distinct compute node with its own head matrix, filled by decompose–slerp–recompose
+between last frame's pose and this one. After that: **0.68–0.75 mm mean / 2.3–4.6 mm worst**, a 6.7x
+improvement, against **23.0–25.2 mm mean** for `?hairstep=perframe`.
+
+### 10.8 What it costs here, and what the clock was doing [M]
+
+`?gputime=1`, COMPUTE pool, 120 sampled frames after 60 warm-up, headless Chromium/Metal, one
+array-shaped `renderer.compute()` a frame carrying two DFTL substeps plus the card rebuild:
+
+| | p50 | p95 | share of 16.6 ms |
+|---|---:|---:|---:|
+| whole solver, per frame | **0.0227–0.0242 ms** | **0.0320–0.0518 ms** | 0.19–0.31% |
+| dispatch arithmetic alone, amortised over 64 copies in one pass | 0.0177–0.0193 ms | — | — |
+
+The difference between the two rows is the pass opening, and it is the same story §0.3 tells at
+30.8–54.1 µs on its own hardware.
+
+⚠️ **Two clock warnings, both measured.** In headless Chromium the pool resolves to the nanosecond
+(GCD of 120 samples = 0.000001 ms); in the Chrome behind the browser pane, **every sample was an
+exact multiple of 0.065536 ms** — one or two ticks, nothing between — so a per-frame cost quoted
+there is quoting the clock. And `WebGPUTimestampQueryPool._resolveQueries` sums durations into
+`framesDuration[frame]` keyed by `${name}:f${frame}` (r185, :203–222), so thirty-two
+`renderer.compute()` calls in one frame collide on that key and the resolve reports ONE of them:
+32 passes read the same 0.06554 ms as 1. Amortisation has to be `n` copies of the dispatches inside
+**one** pass, not `n` passes.
+
+### 10.9 🎯 The solver does not have to unskin the groom, and §8.2's dilemma dissolves [V]
+
+§8.2 says the armature and the solver must not both move the same vertices, and offers two
+contracts: unskin the groom, or solve in head-local space. r185 settles it —
+`NodeMaterial.setupPosition` runs `skinning( object )` and **then overwrites** `positionLocal` with
+`positionNode` (`NodeMaterial.js:776`, `:804`). A card vertex takes the solver's answer and never
+sees the skin matrix; a scalp-cap vertex — head, not hair — keeps its skinning untouched, chosen by
+one `select` on `vertexIndex` rather than by a third dispatch. The rebuild emits mesh-local
+positions directly (one `worldToObject` multiply in compute, which runs once per vertex per FRAME
+rather than once per vertex per PASS).
+
+### 10.10 The one WGSL trap that cost an hour [V]
+
+`from` and `to` are **reserved keywords in WGSL**, and `Fn(...).setLayout({ inputs: [...] })` passes
+a parameter name straight through to the generated signature. Naming them that way compiles to
+`'from' is a reserved keyword`, which surfaces as a pipeline validation error a hundred frames deep
+in the console — the kernel silently writes nothing, every buffer reads back zeros, and the groom
+renders as its scalp caps alone. A CPU mirror of the same arithmetic would have scored it green.
+
+---
+
 ## Appendix — primary artefacts used, and where each number came from
 
 | artefact | how obtained | what was taken |
@@ -767,3 +967,9 @@ card that the global shape constraint is holding, as intended.
 | `tools/figure-pipeline/hair_cards.py` | this repository | §5.2, §8.3, §9.1 |
 | `tools/spikes/results/hair-motion{,.run2,.breakftl}.json` | produced by this session's runs | every millisecond in this file |
 | Unreal groom docs | `dev.epicgames.com`, two pages | §5.1 only; no numbers were available [✗] |
+
+⚠️ **§10 was added in a later session and its artefacts are its own.** Everything in it came from
+`assets/hair/bob01/g050.glb` read directly, from `packages/testbed/src/hair.html?motion=1&capture`
+driven through headless Chromium, from `node_modules/three` @ 0.185.1, and from
+`tools/figure-pipeline/hair_cards.py`. `packages/core/src/motion/HairDynamics.selftest.mjs` prints
+every number in §10.1–10.8 on a clean run; nothing there is copied from §0–§9.

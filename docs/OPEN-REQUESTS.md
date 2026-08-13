@@ -27,6 +27,7 @@ adjudicates it against the real file, in both directions:
 | status | what the gate proves |
 |---|---|
 | **APPLIED** | `verify` matches the target **at HEAD** — *and does not match it at the entry's `filed-at` commit*. The second clause is the anti-rubber-stamp clause: a pattern that matches both trees cannot tell you the change landed, so it is refused even when the change really did land. ⚠️ **It is only as strong as `filed-at`, so `filed-at` is gated to the same standard as a round sha** — hex shape, resolves, is a **commit**, and HEAD descends from it. Until R9 nothing checked it, and an unreadable pre-image did not weaken this clause, it switched it OFF in the green direction: `filed-at: deadbee` with a `verify` matching 195 lines at HEAD ran `PASS: 11/11, exit 0`. A moving reference — `HEAD`, `main`, `<sha>^` — is refused for the same reason: it is not a pin, so the pre-image drifts until the clause compares HEAD with itself. |
+| **APPLIED, target born later** | ...and when the target file is **not in the `filed-at` tree at all**, the clause above passed for free — an absent file is discriminated by *any* pattern, `/./` included — so the entry must declare `pre-image: absent — <why no tree in this history holds the pre-image>`. This is FILED-AT's defect one level down: there the pre-image *commit* was unreadable, here it reads perfectly and the *file* is not in it, and both end at the green side of the discrimination clause. Legitimate and common — REQ-003, REQ-009 and REQ-023 fulfilled their request **by creating the file**, and REQ-068 was applied to a file that had not been committed yet — so it is declared, not refused. The declaration is adjudicated in both directions: `pre-image: absent` on a file that *was* there fails the same clause. |
 | **OPEN** | `verify` does **not** match at HEAD (an entry fixed incidentally by someone else is a stale entry, and a ledger of stale entries is worse than no ledger), `anchor` **does** match at HEAD (the request still points at code that exists), and `filed-round` is the **current** round. |
 | **REJECTED** | `verify` does not match at HEAD, `anchor` does, and `reason` is a written sentence rather than a word — 40 characters, which is about one clause of English. |
 
@@ -57,6 +58,14 @@ re-anchor it, do not delete it. An `OPEN-STALE` means somebody fixed it while yo
 flip it to APPLIED and check the `verify` still discriminates against `filed-at`. REQ-030 landed
 that way *while this ledger was being written* and is annotated as such.
 
+⚠️ **And the third shape, which is the two above firing TOGETHER — read it as one finding, not
+two.** `OPEN-STALE` + `ANCHOR` on the same id means the request was **carried out in full**: the
+`verify` matched because the change landed, and the `anchor` died because the text it pointed at is
+what the change replaced. Do **not** re-anchor — the entry is APPLIED and its anchor is now
+history, which is the normal end state (of the 8 APPLIED entries carrying an `anchor`, **5 no
+longer match at HEAD**). REQ-068 shipped in exactly this state for a round; the pair is diagnostic
+and neither half is a puzzle on its own.
+
 ## The rounds
 
 `R<n>  <commit the round opened at>  <date>  <what the commit was>`
@@ -77,6 +86,35 @@ Rounds before R4 are not reconstructed. Resolved entries are pinned by their `fi
 which is exact, and carry no round number — inventing one would be the same tidy fiction §1.25e is
 about. `filed-round` is required of OPEN entries only, because that is the field the expiry clause
 reads.
+
+### 🔴 THIS FENCE IS STALE, AND THAT IS WHY THE EXPIRY CLAUSE HAS NOT FIRED IN THREE ROUNDS
+
+Audited at HEAD `5937e2c`, and it is the largest finding of the R15 ledger pass. **The fence's
+newest declaration is R12 at `a20bfcb`, 2026-08-10, and the round reports have run past it without
+declaring.** The gate is green on the expiry clause only because the clause is comparing every
+OPEN entry against a round number that stopped moving:
+
+- **`filed-by` and `filed-round` no longer agree, in six entries.** REQ-063 through REQ-068 read
+  `filed-by: the R14 <name> agent` beside `filed-round: R12`. The agents knew which round they were
+  in; the field the gate reads did not.
+- **Two entries have already survived a boundary by relabelling.** REQ-060 and REQ-061 carry
+  `filed-by: the R11 lighting agent` and `first-filed: a90bca9` — which this fence declares to be
+  **R11's own opening commit** — and `filed-round: R12`. The fence closed the loophole at the round
+  level; it reopened at the field level, because nothing checks `filed-round` against `filed-at`.
+- **HEAD is 10 commits past `a20bfcb` against a `ROUND_COMMIT_CEILING` of 14.** Four commits of
+  headroom before the fence itself goes red. The backstop works — it is simply not there yet.
+- The commit that is HEAD names itself *"Round 15"* in its own first line.
+
+**The fix is step 3 of the integrator's pass above, and it is deliberately not taken here.**
+Declaring R13 turns all 8 remaining OPEN entries `EXPIRED` at once — that is the mechanism working
+exactly as designed, and every one of them needs a change in `packages/core/**` or
+`packages/testbed/**`, which the agent that wrote this section does not own. Resolve them and
+declare the round in the same pass.
+
+**The clause that would have caught the relabelling**, offered rather than shipped for the same
+reason: `filed-round` must name the newest round whose sha is an ancestor-or-self of `filed-at`.
+Measured blast radius on this ledger today — **exactly two entries, REQ-060 and REQ-061**, both of
+which the audit above finds by hand.
 
 ---
 
@@ -159,6 +197,8 @@ status:      APPLIED
 target:      tools/run-selftests.sh
 filed-by:    re-measurement agent (LEARNINGS Part 3)
 filed-at:    2ec7db9
+pre-image:   absent — the request WAS "create this file", and `50546e5` created it. There is no
+             tree in this history holding a `run-selftests.sh` for a pattern to discriminate.
 change:      Create the runner. Its one non-obvious line is the explicit call to
              `tools/critic/selftest.mjs`, whose name does NOT match `*.selftest.mjs` and which every
              glob that assumes it does will silently skip.
@@ -268,6 +308,8 @@ status:      APPLIED
 target:      packages/core/src/render/MorphVelocity.js
 filed-by:    the render agent, via `render/TRAAPost.js`
 filed-at:    4a8dab3
+pre-image:   absent — `MorphVelocity.js` is the new module the fix arrived as, created by `4a03f06`.
+             Nothing at `filed-at` for the pattern to be wrong about.
 change:      A previous-weights path in the morph node, so the velocity buffer differences two
              morphed positions instead of a morphed one against an un-morphed one.
 evidence:    `Morph.js` adds its offsets into `positionLocal` and touches `positionPrevious`
@@ -556,6 +598,8 @@ filed-by:    the lighting agent, then independently the fabric agent
 filed-round: R7
 filed-at:    7936f37
 first-filed: 7936f37, 2026-08-07
+pre-image:   absent — the `verify` names `frame-clock.js`, the module the three copies were hoisted
+             into, and `de0c39d` created it. The `anchor` on `stage.js` is where the pre-image was.
 change:      Export `scheduleTask` (the MessageChannel macrotask pump) from `packages/testbed/src/
              stage.js`, then delete the copies in `packages/testbed/src/lighting.js` and
              `packages/testbed/src/fabric.js` and import it.
@@ -1904,12 +1948,16 @@ verify:      packages/core/src/render/HairOIT.js /294 cards, 9,408 triangles/
 
 ```request
 id:          REQ-068
-status:      OPEN
+status:      APPLIED
 target:      tools/spikes/hair-groom.js
 filed-by:    the R14 hair-groom (messiness) agent
 filed-round: R12
 filed-at:    98303cd
 first-filed: 98303cd, 2026-08-12
+pre-image:   absent — `tools/spikes/hair-groom.js` was first COMMITTED by 5937e2c, the same commit
+             that carries the fix, so no tree in this history holds the 12-segment version. The
+             discrimination clause passes here because the file is not at `filed-at` at all, not
+             because the pattern is a good one. See the note below the fence.
 change:      `tools/spikes/hair-groom.js` transcribes `hair_cards.py`'s constants and verifies its
              own arithmetic against the shipped GLB in a header comment. Both are now one round
              stale. Change `export const GUIDE_SEGMENTS = 12;` to `16`, and the header's closure to
@@ -1929,4 +1977,117 @@ evidence:    Measured this session off the rebuilt `assets/hair/bob01/g050.glb` 
              Filed rather than fixed: `tools/spikes/**` is not this agent's file.
 anchor:      tools/spikes/hair-groom.js /294 × 26 = 7,644/
 verify:      tools/spikes/hair-groom.js /294 × 34 = 9,996/
+```
+
+Applied inside the round it was filed in, and then left OPEN — **§1.25r exactly, and the gate
+caught it**: `OPEN-STALE` and `ANCHOR` both fired, together, on the one entry.
+
+🚩 **And the record is better than the brief that sent this pass says it is, which is worth writing
+down because the correction runs the other way for once.** The claim inherited here was that the
+red went undeclared by three round summaries. Read off the primary artefact rather than the
+summary: `5937e2c`'s own commit body closes with *"request-ledger 22/23 — REQ-068 applied but left
+OPEN, which is exactly the §1.25r failure the ledger exists to catch. Closed next."* The round that
+shipped the red **named it, diagnosed it correctly, and deferred it explicitly**. The two earlier
+reports (`98303cd`, `fd746c2`) could not have declared it: `tools/spikes/hair-groom.js` was created
+during the round `5937e2c` closed, so there was nothing to go red about when they were written —
+`git log --diff-filter=A -- tools/spikes/hair-groom.js` returns `5937e2c` and nothing else. The
+defect is real and it is one commit deep, not three. §1.25s: a summariser is not a source.
+
+Measured at HEAD `5937e2c` before the status was flipped: `tools/spikes/hair-groom.js:35` reads `export const GUIDE_SEGMENTS = 16;`, `:31` reads
+`294 × 34 = 9,996; + 652 = 10,648.`, and `294 × 26 = 7,644` — the `anchor` — occurs nowhere in the
+tree (`grep -rn "7,644" tools/ packages/ docs/`, no hits outside this ledger). The request's other
+half landed too, which `verify` cannot see because it names one file: `tools/spikes/hair-motion.html`
+reads `294 cards of 17 rings` at :12, `10,648 vertices, 296 connected components — 294 of exactly 34
+and 2 scalp shells of 326` at :13–14, and `4,998 particles` at :15.
+
+⚠️ **The `anchor` is left as filed and is now false, which is the normal end state of an applied
+entry** — applying REQ-025 through REQ-028 *was* deleting the text their anchors point at. Measured
+over this ledger: of the 8 APPLIED entries carrying an `anchor`, **5 no longer match at HEAD**
+(REQ-023, 025, 026, 027, 028) and 3 still do (REQ-022, 029, 031). That is why the gate reads
+`anchor` for OPEN and REJECTED only; a clause holding APPLIED anchors to HEAD would fail the
+correct state five times over, and it is documented here rather than left looking like an oversight.
+
+## REQ-069 — the hair solver exists and the acceptance page does not run it
+
+```request
+id:          REQ-069
+status:      OPEN
+target:      packages/testbed/src/alive.js
+filed-by:    the R15 hair-motion agent
+filed-round: R12
+filed-at:    5937e2c
+change:      `packages/core/src/motion/HairDynamics.js` landed this round and is gated at 25/25 by
+             `HairDynamics.selftest.mjs`, but it is only wired onto `packages/testbed/src/hair.html`
+             — the page nobody judges. Wire it onto `alive.html` behind `?hairmotion=1`, four calls:
+             (1) in `attachHair`, after `mesh.bind(...)`, build it —
+             `const dynamics = createHairDynamics( { renderer: stage.renderer, geometry: mesh.geometry } );`
+             then `dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse )`
+             (the groom's OWN `boneInverses[ index of 'head' ]`, kept before the rebind) and
+             `dynamics.fitColliders( { shoulderLeft, shoulderRight } )` with the two clavicle world
+             positions. Keep the handle on `session.hairDynamics`.
+             (2) in `trackFigure`, beside `session.hairSlabUpdate?.()`, call `setHeadMatrix` again
+             and then `session.hairDynamics?.update( deltaSeconds )` — `trackFigure` is the right
+             place for exactly the reason its own comment gives, that `?capture` bypasses
+             `stage.onFrame`. It needs the frame's delta, which `trackFigure` does not currently
+             take; pass it through from both call sites.
+             (3) ⚠️ **in `takeOverFrameLoop`, call `session.hairDynamics?.reset()`.** The solver
+             holds state and rAF runs during the async boot, so without this the first captured
+             frame carries a count of how many frames the machine fitted into loading a GLB — which
+             is precisely the class `alive-capture-determinism.selftest.mjs` exists to close, in a
+             subsystem that gate cannot see because it reads renderer counters. Add
+             `hairSteps: session.hairDynamics?.stepsTaken ?? null` to `readCaptureClock` so the
+             oracle can assert it, the way it asserts `frameId`.
+             (4) `material.positionNode = dynamics.positionNode;` after `createHairMaterial` — see
+             REQ-070, which is the half of this that is not in this file.
+evidence:    Measured this round on `hair.html?motion=1&capture`, headless Chromium, WebGPU, the
+             shipped `assets/hair/bob01/g050.glb` (294 chains x 17 rings = 4,998 particles): worst
+             segment-length error **0.000107 mm**, peak mean tip lag behind the rigid pose **20.6
+             mm**, deepest skull penetration **0.000 mm over a mask of 25 live contacts**, tip
+             travel a quarter second after six seconds of held head **0.0328 mm**, 60 Hz against
+             120 Hz **0.75 mm mean**, and two independent page loads **0.000000 mm** apart. Cost on
+             the COMPUTE pool, one array-shaped `renderer.compute()` a frame: **0.0242 ms p50 /
+             0.0518 ms p95**, 0.31% of a 16.6 ms budget. With the head STILL the solver is the
+             identity to **0.000132 mm**, so `?hairmotion=1` is a control-preserving toggle and a
+             still plate does not move.
+             Filed rather than done: `packages/testbed/src/alive.js` is not this agent's file.
+anchor:      packages/testbed/src/alive.js /session.hairSlabUpdate\?\.\(\);/
+verify:      packages/testbed/src/alive.js /hairDynamics/
+```
+
+## REQ-070 — `HairMaterial` has no way to read a simulated vertex buffer
+
+```request
+id:          REQ-070
+status:      OPEN
+target:      packages/core/src/material/HairMaterial.js
+filed-by:    the R15 hair-motion agent
+filed-round: R12
+filed-at:    5937e2c
+change:      Accept an optional `positionNode` in `createHairMaterial( options )` and assign it to
+             the material — two lines, beside the existing `options.defect` read:
+             `if ( options.positionNode !== undefined ) material.positionNode = options.positionNode;`
+             Nothing else in the file has to change. The node handed in is `hairDynamics.positionNode`
+             and it already resolves to the mesh's own local space, so it drops straight into
+             `positionLocal`.
+             ⚠️ **And the TANGENT is the second half of this, which this request does NOT specify a
+             fix for because the shading is not this agent's to design.** `hair.md` §6.1 has the
+             material reading a BAKED tangent; a groom whose cards move needs a computed one, and
+             the solver's rebuild kernel already has it — the card's own centreline tangent, per
+             ring. Whoever owns the BSDF should decide whether that arrives as a second storage
+             buffer read in the vertex stage or as a recomputed `dFdx` in the fragment stage. Until
+             it does, a moving groom is shaded off a tangent that no longer points along the strand,
+             and `hair.md` §8's "alpha-hash seed stability under skinning" becomes live at the same
+             time.
+evidence:    Measured this round: `NodeMaterial.setupPosition` runs `skinning( object )` at
+             `node_modules/three/src/materials/nodes/NodeMaterial.js:774` and THEN overwrites
+             `positionLocal` with `positionNode` at `:802`, so a `positionNode` on a `SkinnedMesh`
+             replaces the skinned position rather than composing with it — which is exactly the
+             contract the solver wants, and it means `hair-motion.md` §8.2's "the armature modifier
+             and the solver must not both move the same vertices" needs no unskinning and no
+             head-local rewrite. Proven by execution on `hair.html?motion=1`: card vertices take the
+             solver's answer and the two 326-vertex scalp cap shells keep their skinning, chosen by
+             one `select` on `vertexIndex`.
+             Filed rather than done: `packages/core/src/material/**` is not this agent's file.
+anchor:      packages/core/src/material/HairMaterial.js /const defect = options.defect \?\? 'none';/
+verify:      packages/core/src/material/HairMaterial.js /positionNode/
 ```

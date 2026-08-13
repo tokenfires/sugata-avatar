@@ -32,11 +32,22 @@
  *                 practicals), and it is asserted on the mirror because a plate cannot separate
  *                 the two lobes' hues without lights of two different colours in two known places.
  *
- *   CONTRAST      Specular-to-albedo, on the rendered plate, in the ENCODED domain the look spec
- *                 was measured in — and the LINEAR figure beside it, because a build that writes
- *                 `specular = albedo × 10` into a linear shader lands six to nine times too dim.
- *                 🔴 THIS ONE FAILS ON THE SHIPPED BUILD AND THE FAILURE IS THE RESULT. See the
- *                 diagnosis printed by the section itself.
+ *   CONTRAST      🎯 A PAIR, AND IT IS A PAIR BECAUSE EITHER HALF ALONE CAN BE BOUGHT. The first is
+ *                 specular-to-albedo on the rendered plate, in the ENCODED domain the look spec was
+ *                 measured in — but its denominator is a CONSTANT, the spec's assumed albedo, so it
+ *                 is an absolute level and anything that lifts the whole distribution walks it
+ *                 toward green. The second is the plate's OWN p95/p50 over the same pixels, which a
+ *                 gain cannot move and a floor destroys. MEASURED: sweeping slide 39's bandless term
+ *                 0 → 4 drives the first from 2.92 to 7.97 : 1 and the second from 3.00 to 1.22.
+ *                 🔴 BOTH FAIL ON THE SHIPPED BUILD AND THAT IS THE RESULT — they fail in opposite
+ *                 directions, which is what says the gap is a floor and not a missing peak.
+ *
+ *   TRANSFER      🔴 `?grade=0` IS NOT LINEAR IN RADIANCE AND THIS FILE SPENT THREE ROUNDS ASSUMING
+ *                 IT WAS. `Stage.js` sets ACESFilmic on the renderer and the no-grade branch still
+ *                 ends in `renderOutput()`. Three arms that differ only in which terms of S are live
+ *                 fail to add up by 21% in the sRGB-decoded domain and add to 1.2% once ACES is
+ *                 inverted, which is the evidence the inverse is right — and every effective-BSDF
+ *                 figure this file printed before this round was 1.85x low.
  *
  *   ENERGY        REQ-061's number: the share of frame above 0.90 luma and above the bloom
  *                 threshold, with hair and without. Reported, not tuned to.
@@ -104,6 +115,15 @@ const BASE_COLOUR = [ 0x15, 0x0F, 0x17 ].map( ( byte ) => encodedToLinear( byte 
  * the peak. It reported 0.0182 sr⁻¹. Re-derived here over the sphere and over the shipped
  * combination it is above 0.03, so every "factor of N" quoted against 0.0182 in rounds 13 and 14
  * was a property of that sweep and does not reproduce.
+ *
+ * 🔴 AND THE SEARCH NOW SWEEPS `Shadow` TOO, BECAUSE FIXING IT AT 1 UNDERSTATED THE CEILING BY 1.4x
+ * AND THE ANTI-FUDGE GATE IS MEASURED AGAINST IT. Slide 39's tint is `(C / Luma(C))^(1 − Shadow)`,
+ * and on `#150F17` the per-channel ratio `C / Luma(C)` is (1.243, 0.885, 1.420) — so the BLUE
+ * channel's fake is 1.42x brighter in full self-shadow than in none, and a search pinned at
+ * `Shadow = 1` reports a ceiling the shipped shader can legitimately exceed. It did: the rendered
+ * S measured 113% of the `Shadow = 1` ceiling this session, which reads as a shader carrying a
+ * tuning multiplier and is nothing of the kind. Three values are enough — the tint is monotone in
+ * `Shadow` per channel, so the extremes bracket it and 0.5 is a witness that nothing folds.
  */
 const closedFormPeak = ( () => {
 
@@ -131,16 +151,21 @@ const closedFormPeak = ( () => {
                     Math.cos( inclination ) * Math.cos( azimuth ) ];
 
                 const lobes = hairScatteringValue( tangent, toLight, toView, BASE_COLOUR );
-                const fake = scatterValue( dot3( fakeNormal, toLight ), BASE_COLOUR, 1 );
                 const occlusion = sideVisibilityValue( dot3( toLight, toView ) );
 
-                for ( let channel = 0; channel < 3; channel ++ ) {
+                for ( const shadow of [ 0, 0.5, 1 ] ) {
 
-                    const total = ( lobes.r[ channel ] + lobes.trt[ channel ] + fake[ channel ] ) *
-                        occlusion + lobes.tt[ channel ];
+                    const fake = scatterValue( dot3( fakeNormal, toLight ), BASE_COLOUR, shadow );
 
-                    if ( total > best.total ) best = { total, thetaI, phi, thetaR, channel,
-                        r: lobes.r[ channel ], trt: lobes.trt[ channel ], scatter: fake[ channel ] };
+                    for ( let channel = 0; channel < 3; channel ++ ) {
+
+                        const total = ( lobes.r[ channel ] + lobes.trt[ channel ] + fake[ channel ] ) *
+                            occlusion + lobes.tt[ channel ];
+
+                        if ( total > best.total ) best = { total, thetaI, phi, thetaR, channel, shadow,
+                            r: lobes.r[ channel ], trt: lobes.trt[ channel ], scatter: fake[ channel ] };
+
+                    }
 
                 }
 
@@ -668,9 +693,156 @@ console.log( '\n--- anisotropy, on the mirror: the highlight follows the TANGENT
 // both are compared against numbers measured on a tone-mapped reference plate and reading them off
 // an ungraded buffer would be comparing two different transfer functions.
 
+// ==============================================================================================
+// 🔴 THE TRANSFER, AND IT IS NOT WHAT THIS FILE SPENT THREE ROUNDS ASSUMING
+// ==============================================================================================
+//
+// Every rendered section below reads pixels and calls the sRGB-decoded value "linear". It is not.
+// `render/Stage.js` sets `renderer.toneMapping = ACESFilmicToneMapping` on the renderer itself,
+// unconditionally, and the `?grade=0` branch of `Stage.updatePipeline` finishes with
+// `renderPipeline.outputNode = renderOutput( colour )` — and `renderOutput` is exactly the node
+// that applies the renderer's tone mapping and output colour space. GREPPED THIS SESSION: the
+// string `ACESFilmicToneMapping` appears once in `Stage.js` and `renderOutput(` appears on the
+// no-grade branch. So `?grade=0` removes `render/Grade.js` and leaves ACES standing.
+//
+// That matters because two of this file's sections SUBTRACT one arm from another and treat the
+// difference as energy. Under a nonlinear transfer that subtraction is not a decomposition, and
+// the size of the error is not small. MEASURED THIS SESSION over 255,850 solid hair pixels, with
+// three arms that differ in exactly which terms of S are live:
+//
+//     (R+TRT alone − zero) + (fake alone − zero)  =  0.7914 × (shipped − zero)   sRGB-decoded
+//     the same three plates, with ACES inverted   =  1.0118 × (shipped − zero)
+//
+// A fifth of the composite was going missing into the curve, and the recovered domain is additive
+// to about a percent — which is the only evidence that the inverse below is the right one, since a
+// wrong inverse would not reassemble three independent renders into their own sum. The floor
+// section re-measures both numbers on its own capture and prints them; they move by a point or two
+// between loads, because `?hairoit=hash` reshuffles the fringe of the mask from load to load and
+// the mask has come out anywhere from 255,850 to 265,261 px on this build in one afternoon.
+//
+// ⚠️ THE INVERSE IS EXACT ONLY BETWEEN THE TWO CLAMPS. `RRTAndODTFit(0) = −9.05e−5`, so a channel
+// dark enough is mapped to a negative number and then clamped to zero by three's own `clamp()`,
+// and the same happens at the top when a channel reaches 1. Between them the CPU round trip below
+// is exact to machine precision, and the check asserts that rather than asserting it in prose.
+
+const ACES_INPUT_MATRIX = [
+    [ 0.59719, 0.35458, 0.04823 ],
+    [ 0.07600, 0.90834, 0.01566 ],
+    [ 0.02840, 0.13383, 0.83777 ]
+];
+
+const ACES_OUTPUT_MATRIX = [
+    [ 1.60475, - 0.53108, - 0.07367 ],
+    [ - 0.10208, 1.10813, - 0.00605 ],
+    [ - 0.00327, - 0.07276, 1.07602 ]
+];
+
+const applyMatrix = ( matrix, v ) => matrix.map( ( row ) => row[ 0 ] * v[ 0 ] + row[ 1 ] * v[ 1 ] + row[ 2 ] * v[ 2 ] );
+
+/** Cramer, on 3x3. Both ACES matrices are inverted rather than typed, for the usual reason. */
+const invertMatrix = ( m ) => {
+
+    const [ [ a, b, c ], [ d, e, f ], [ g, h, i ] ] = m;
+    const determinant = a * ( e * i - f * h ) - b * ( d * i - f * g ) + c * ( d * h - e * g );
+
+    return [
+        [ ( e * i - f * h ) / determinant, ( c * h - b * i ) / determinant, ( b * f - c * e ) / determinant ],
+        [ ( f * g - d * i ) / determinant, ( a * i - c * g ) / determinant, ( c * d - a * f ) / determinant ],
+        [ ( d * h - e * g ) / determinant, ( b * g - a * h ) / determinant, ( a * e - b * d ) / determinant ]
+    ];
+
+};
+
+const ACES_INPUT_INVERSE = invertMatrix( ACES_INPUT_MATRIX );
+const ACES_OUTPUT_INVERSE = invertMatrix( ACES_OUTPUT_MATRIX );
+
+/** three r185, `nodes/display/ToneMappingFunctions.js` line 87, transcribed operation for operation. */
+const rrtAndOdtFit = ( x ) =>
+    ( x * ( x + 0.0245786 ) - 0.000090537 ) / ( x * ( ( x + 0.4329510 ) * 0.983729 ) + 0.238081 );
+
+/**
+ * The same rational function solved for its argument. Cross-multiplying leaves a quadratic:
+ * `(1 − 0.983729y)x² + (0.0245786 − 0.983729·0.4329510·y)x − (0.000090537 + 0.238081y) = 0`, and
+ * the physical root is the one that is positive for y > 0.
+ */
+const rrtAndOdtFitInverse = ( y ) => {
+
+    const a = 1 - 0.983729 * y;
+    const b = 0.0245786 - 0.983729 * 0.4329510 * y;
+    const c = - ( 0.000090537 + 0.238081 * y );
+
+    if ( Math.abs( a ) < 1e-12 ) return - c / b;
+
+    return ( - b + Math.sqrt( Math.max( b * b - 4 * a * c, 0 ) ) ) / ( 2 * a );
+
+};
+
+const acesFilmicValue = ( rgb ) => applyMatrix( ACES_OUTPUT_MATRIX,
+    applyMatrix( ACES_INPUT_MATRIX, rgb.map( ( channel ) => channel / 0.6 ) ).map( rrtAndOdtFit ) )
+    .map( ( channel ) => Math.min( 1, Math.max( 0, channel ) ) );
+
+const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
+    applyMatrix( ACES_OUTPUT_INVERSE, rgb ).map( rrtAndOdtFitInverse ) ).map( ( channel ) => channel * 0.6 );
+
+{
+    let worst = 0;
+    let tested = 0;
+
+    // 🚩 THE TRANSCRIPTION CHECK, AND IT IS HERE BECAUSE THE OTHER TWO DO NOT CATCH WHAT IT CATCHES.
+    // Proved this session by breaking each in turn: perturbing the RRT constant in the INVERSE only
+    // takes the round trip below from 9.71e−16 to 1.47e−2 (red, correctly), but perturbing the ACES
+    // INPUT MATRIX leaves it at 8.54e−16 — the inverse is computed from the same matrix, so it
+    // round-trips against a forward model that is wrong. And additivity does not catch it either:
+    // re-run over the saved plates with `ACESInputMat` row 0 moved from (0.59719, 0.35458) to
+    // (0.68719, 0.26458), the ratio goes 1.0118 → 1.0117. Both matrices are grey-preserving, so
+    // their error is second order in a luma statistic and neither instrument can see it.
+    //
+    // What DOES see it is the property that makes them grey-preserving in the first place: every
+    // row sums to one, to five decimals, in both matrices. A single mistyped digit breaks that.
+    const rowSums = [ ...ACES_INPUT_MATRIX, ...ACES_OUTPUT_MATRIX ]
+        .map( ( row ) => row[ 0 ] + row[ 1 ] + row[ 2 ] );
+    const worstRowSum = Math.max( ...rowSums.map( ( sum ) => Math.abs( sum - 1 ) ) );
+
+    report(
+        'both ACES matrices are transcribed rather than remembered — every row sums to one',
+        worstRowSum < 2e-5,
+        `six rows of two 3x3s from three/src/nodes/display/ToneMappingFunctions.js:110-121, worst |row sum - 1| = ` +
+            `${ worstRowSum.toExponential( 2 ) }.\n      They map sRGB to AP1 and back, so grey must survive the pair; a ` +
+            `mistyped digit breaks this and breaks NEITHER of the two\n      checks that follow, which was measured rather ` +
+            `than assumed — see the comment above.`
+    );
+
+    for ( const level of [ 0.005, 0.02, 0.05, 0.1, 0.26, 0.4, 0.52, 0.8 ] ) {
+
+        const radiance = [ level, level * 0.7, level * 1.3 ];
+        const encoded = acesFilmicValue( radiance );
+
+        // A clamped channel carries no information to invert, so it is excluded rather than
+        // counted as an error of the inverse. Neither clamp fires in this range on this triple.
+        if ( encoded.some( ( channel ) => channel <= 0 || channel >= 0.9999 ) ) continue;
+
+        tested += 1;
+        worst = Math.max( worst, ...acesFilmicInverse( encoded )
+            .map( ( channel, index ) => Math.abs( channel - radiance[ index ] ) / radiance[ index ] ) );
+
+    }
+
+    report(
+        'the ACES inverse is an inverse — round trip exact between the two clamps',
+        tested === 8 && worst < 1e-9,
+        `three r185's ACESFilmic mirrored from nodes/display/ToneMappingFunctions.js and inverted analytically; ` +
+            `${ tested } radiance levels from 0.005 to 0.8,\n      worst relative round-trip error ` +
+            `${ worst.toExponential( 2 ) }. This is what licenses reading the plates below as RADIANCE rather than as ` +
+            `sRGB-decoded\n      framebuffer, and the two are 21% apart on the arm subtraction this file's ` +
+            `effective-BSDF section is built on.`
+    );
+
+}
+
 console.log( '\n--- the rendered gate ------------------------------------------------------------\n' );
 
 const probe = await import( '../render/MotionProbe.mjs' );
+const patchedProbe = await import( '../render/SourcePatchProbe.mjs' );
 
 const WIDTH = 900;
 const HEIGHT = 1200;
@@ -691,6 +863,37 @@ const plates = {};
 
 const FORWARD = '&aa=msaa&grade=0';
 
+/**
+ * 🚩 A PURE GAIN ON S, APPLIED TO THE SERVED MODULE AND NOT TO THE WORKING TREE.
+ *
+ * This is the red proof for the DYNAMIC RANGE half of the contrast pair, and it has to be a gain
+ * that nothing in the URL surface can express — `?hairscatter` and `?hairlobes` both change the
+ * SHAPE of S, and the whole claim of that gate is that a change of shape and a change of scale
+ * look different to it. `render/SourcePatchProbe.mjs` rewrites the module vite serves, throws if
+ * its anchor is not found, and writes nothing anywhere; the restore is byte-identical because
+ * there is nothing to restore.
+ */
+const GAIN_PATCH = {
+    urlPattern: '**/HairMaterial.js*',
+    anchor: 'return lobeR.add( lobeTRT ).add( scatter ).mul( visibility ).add( lobeTT ).mul( this.occlusion );',
+    replacement: 'return lobeR.add( lobeTRT ).add( scatter ).mul( visibility ).add( lobeTT ).mul( this.occlusion ).mul( 2 );'
+};
+
+/**
+ * 🚩 THE UNIT PROBE AT HALF ITS CONSTANT, AND IT IS A CALIBRATION OF THE PIPELINE RATHER THAN OF
+ * THE MATERIAL.
+ *
+ * `?hairdefect=unit-bsdf` returns the constant 1/4π, so halving that constant halves the hair
+ * pixel's radiance by construction — no geometry, no lobe, no light change. Anything the plate
+ * does other than halve is the pipeline, and the answer decides whether `Σ(L·Ω)` inverted out of
+ * the probe is a measurement or a bound. It is a bound.
+ */
+const HALF_UNIT_PATCH = {
+    urlPattern: '**/HairMaterial.js*',
+    anchor: 'vec3( 1 / ( 4 * Math.PI ) )',
+    replacement: 'vec3( 0.5 / ( 4 * Math.PI ) )'
+};
+
 const ARMS = {
     // The deterministic forward path, for the band geometry and the red proof.
     zero:       `${ FORWARD }&hair=1&hairlobes=&hairscatter=0`,
@@ -698,6 +901,14 @@ const ARMS = {
     primary:    `${ FORWARD }&hair=1&hairlobes=r&hairscatter=0`,
     secondary:  `${ FORWARD }&hair=1&hairlobes=trt&hairscatter=0`,
     defect:     `${ FORWARD }&hair=1&hairlobes=r&hairscatter=0&hairdefect=constant-tangent`,
+
+    // 🎯 THE THREE ARMS THE FLOOR SECTION IS BUILT ON, and each is one term of S switched off or
+    // one scalar applied, so no two of them differ in more than the thing being attributed.
+    lobesOnly:  `${ FORWARD }&hair=1&hairscatter=0`,        // R + TRT, slide 39's fake removed
+    fakeOnly:   `${ FORWARD }&hair=1&hairlobes=`,           // slide 39's fake alone, no lobes
+    gained:     `${ FORWARD }&hair=1`,                      // the shipped S times two, see GAIN_PATCH
+    unitHalf:   `${ FORWARD }&hair=1&hairdefect=unit-bsdf`, // the probe at half its constant
+    unitRepeat: `${ FORWARD }&hair=1&hairdefect=unit-bsdf`, // 🚩 the SAME url again, see the repeatability check
 
     // 🎯 THE HEADLAMP ARM, and it exists because of a finding rather than for convenience. TRT's
     // azimuthal distribution is `exp(17 cosφ − 16.78)`: it is a RETROREFLECTIVE lobe, appreciable
@@ -729,9 +940,13 @@ const ARMS = {
 
     // The shipped path, for the numbers that are compared against a tone-mapped reference.
     shipped:    '&hair=1',
+    shippedNoFake: '&hair=1&hairscatter=0',   // the same picture with the bandless term removed
     plainCard:  '&hair=1&hairbsdf=0',
     bald:       ''
 };
+
+/** Which arms carry a source patch. Everything else is served exactly as the tree holds it. */
+const PATCHED_ARMS = { gained: GAIN_PATCH, unitHalf: HALF_UNIT_PATCH };
 
 try {
 
@@ -740,13 +955,19 @@ try {
 
     for ( const [ name, query ] of Object.entries( ARMS ) ) {
 
-        const shot = await probe.capturePlates( {
+        const patch = PATCHED_ARMS[ name ] ?? null;
+
+        const shot = await patchedProbe.capturePatchedPlates( {
             browser, baseUrl: server.baseUrl, page: '/alive.html',
             query: `?bare&freeze&seed=1${ query }`,
-            width: WIDTH, height: HEIGHT, frames: FRAME, stepSeconds: 0, keep: [ FRAME ]
+            width: WIDTH, height: HEIGHT, frames: FRAME, stepSeconds: 0, keep: [ FRAME ], patch
         } );
 
         if ( shot.errors.length > 0 ) throw new Error( `${ name }: ${ shot.errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+        // A patch that never matched is a clean run of the SHIPPED source wearing a defect's name,
+        // and `capturePatchedPlates` throws on it — asserted again here so the reason is local.
+        if ( patch !== null && shot.patchesApplied === 0 ) throw new Error( `${ name }: the source patch never applied` );
 
         plates[ name ] = shot.frames.get( FRAME );
 
@@ -762,29 +983,56 @@ if ( plates.shipped !== undefined ) {
 
     const luma = ( plate, x, y ) => probe.lumaAt( plate, x, y );
 
-    /**
-     * Rec.709 luma in LINEAR light, which `probe.lumaAt` deliberately does not give: it reads the
-     * framebuffer, and on `&grade=0` the framebuffer is an sRGB encode of radiance. Only used where
-     * the question is "how much light is this", not "how bright does this look".
-     */
-    const linearLumaAt = ( plate, x, y ) => {
+    const rgbAt = ( plate, x, y ) => {
 
         const index = ( y * plate.width + x ) * 4;
 
-        return 0.2126 * encodedToLinear( plate.data[ index ] ) +
-            0.7152 * encodedToLinear( plate.data[ index + 1 ] ) +
-            0.0722 * encodedToLinear( plate.data[ index + 2 ] );
+        return [ encodedToLinear( plate.data[ index ] ), encodedToLinear( plate.data[ index + 1 ] ),
+            encodedToLinear( plate.data[ index + 2 ] ) ];
 
     };
 
-    const percentileOf = ( plate, mask ) => {
+    /**
+     * Rec.709 luma of the sRGB-DECODED framebuffer. Display-linear, not radiance — see the transfer
+     * section above. It is kept because the coverage floor below is a threshold on how much light a
+     * pixel emits with the BSDF switched off, and a threshold is a threshold in any monotone domain;
+     * it is deliberately NOT used for anything that subtracts one arm from another.
+     */
+    const displayLumaAt = ( plate, x, y ) => {
 
-        const values = mask.map( ( [ x, y ] ) => luma( plate, x, y ) ).sort( ( a, b ) => a - b );
-        const at = ( p ) => values[ Math.min( values.length - 1, Math.floor( p * values.length ) ) ];
+        const [ r, g, b ] = rgbAt( plate, x, y );
 
-        return { p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ), max: values[ values.length - 1 ] };
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
     };
+
+    /**
+     * Rec.709 luma in RADIANCE — the quantity the shader actually computed, recovered by inverting
+     * three's ACES. This is the only domain in which arm subtraction means anything, and the
+     * additivity check below is what earns it the name.
+     */
+    const radianceLumaAt = ( plate, x, y ) => {
+
+        const [ r, g, b ] = acesFilmicInverse( rgbAt( plate, x, y ) );
+
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+    };
+
+    const rankOf = ( values ) => {
+
+        const sorted = values.slice().sort( ( a, b ) => a - b );
+        const at = ( p ) => sorted[ Math.min( sorted.length - 1, Math.floor( p * sorted.length ) ) ];
+
+        return { p05: at( 0.05 ), p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ),
+            max: sorted[ sorted.length - 1 ] };
+
+    };
+
+    const percentileOf = ( plate, mask ) => rankOf( mask.map( ( [ x, y ] ) => luma( plate, x, y ) ) );
+
+    /** The same ranks, in the radiance the shader computed. See the transfer section. */
+    const radianceOf = ( plate, mask ) => rankOf( mask.map( ( [ x, y ] ) => radianceLumaAt( plate, x, y ) ) );
 
     // --- the mask, which is itself a measurement ------------------------------------------------
     const hairMask = [];
@@ -818,12 +1066,25 @@ if ( plates.shipped !== undefined ) {
     // hair) and then sit at the top of every percentile above p90 on their backdrop content alone.
     //
     // The discriminator is the zero-BSDF plate, which is free and already captured: with S ≡ 0 a
-    // fully covered hair pixel emits only the indirect term, and that is worth 0.0006 linear on
-    // this build (see `HairLightingModel.indirect`). Anything materially brighter than that is not
-    // hair, whatever the mask says. The floor is 0.01 LINEAR — sixteen times the measured indirect,
-    // so it cannot be excluding pixels for being brightly lit hair, and 0.089 in encoded luma.
+    // fully covered hair pixel emits only the indirect term. Anything materially brighter than that
+    // is not hair, whatever the mask says.
+    //
+    // ⚠️ THE FLOOR'S VALUE WAS STATED IN THE WRONG DOMAIN AND IT TURNED OUT NOT TO MATTER, WHICH IS
+    // WORTH BOTH HALVES OF THE SENTENCE. It was introduced as "0.01 LINEAR, sixteen times the
+    // measured indirect of 0.0006" — but that reading was sRGB-decoded framebuffer, and ACES near
+    // zero has slope 0.172, so 0.01 there is a RADIANCE of 0.058 and the indirect it was sixteen
+    // times is a radiance of 0.0045. The ratio survived; the two numbers did not.
+    //
+    // 🎯 What makes the mask trustworthy is not the constant, it is that the constant does not
+    // matter. MEASURED THIS SESSION by sweeping the floor over a factor of seven in radiance —
+    // 0.0603, 0.030, 0.020, 0.015, 0.012, 0.010, 0.008 — the mask went 259,161 / 255,853 / 255,850 /
+    // 255,850 / 255,850 / 255,826 / 255,664 px and the unit-probe proportionality test below moved
+    // in the fourth decimal. There is no population of partly-covered pixels sitting between those
+    // thresholds, so the mask is not a tuning surface. The floor stays in the display-linear domain
+    // it was authored in, with the conversion written down, rather than being restated to a new
+    // number that means the same thing.
     const COVERAGE_FLOOR = 0.01;
-    const solidMask = hairMask.filter( ( [ x, y ] ) => linearLumaAt( plates.zero, x, y ) < COVERAGE_FLOOR );
+    const solidMask = hairMask.filter( ( [ x, y ] ) => displayLumaAt( plates.zero, x, y ) < COVERAGE_FLOOR );
 
     // 🎯 THE PREDICATE IS THE PROPERTY, NOT THE HEADCOUNT. What has to be true of a mask the
     // contrast is measured on is that switching the BSDF OFF leaves it dark: a mask that reads
@@ -838,14 +1099,19 @@ if ( plates.shipped !== undefined ) {
             solidMask.length > 40_000 && solidMask.length / hairMask.length > 0.5,
         `${ solidMask.length.toLocaleString() } of ${ hairMask.length.toLocaleString() } masked px are solid hair ` +
             `(${ ( 100 * solidMask.length / hairMask.length ).toFixed( 1 ) }%).\n` +
-        `      🔴 WHAT THE OTHER ${ ( 100 - 100 * solidMask.length / hairMask.length ).toFixed( 1 ) }% WERE DOING TO THIS FILE'S HEADLINE NUMBER: on the ` +
-            `zero-BSDF plate — no lobes, no scatter, no BSDF of any kind —\n      the FULL mask reads p95 ` +
-            `${ percentileOf( plates.zero, hairMask ).p95.toFixed( 4 ) } encoded, i.e. ` +
+        `      On the zero-BSDF plate — no lobes, no scatter, no BSDF of any kind — the FULL mask reads p95 ` +
+            `${ percentileOf( plates.zero, hairMask ).p95.toFixed( 4 ) } encoded,\n      ` +
             `${ ( percentileOf( plates.zero, hairMask ).p95 / HAIR_CONTRAST.baseEncodedLuma ).toFixed( 2 ) } : 1 against ` +
-            `#150F17 with the hair shader switched off.\n      The solid mask reads ` +
+            `#150F17 with the hair shader switched off, and the solid mask reads ` +
             `${ percentileOf( plates.zero, solidMask ).p95.toFixed( 4 ) } — ` +
-            `${ ( percentileOf( plates.zero, solidMask ).p95 / HAIR_CONTRAST.baseEncodedLuma ).toFixed( 2 ) } : 1. Every ` +
-            `contrast figure this file reported before this round was ~94% backdrop.`
+            `${ ( percentileOf( plates.zero, solidMask ).p95 / HAIR_CONTRAST.baseEncodedLuma ).toFixed( 2 ) } : 1.\n` +
+        `      ⚠️ AND ON THIS BUILD THOSE TWO NUMBERS ARE NEARLY EQUAL, WHICH IS NOT WHAT THIS CHECK WAS WRITTEN AGAINST. When\n` +
+            `      the filter landed, the full mask read 3.9 : 1 on the zero plate and the solid one 0.23 : 1 — the ` +
+            `contaminated\n      94% this text used to be about. The filter is discarding little today; the shadow and OIT work ` +
+            `two rounds\n      running has made the backdrop behind the fringe dark enough to pass the floor on its own. The ` +
+            `check is kept and\n      the sentence is corrected rather than the other way round: what has to hold is that the ` +
+            `mask is dark with the\n      BSDF off, and it does. A filter that is not currently binding is not a filter that was ` +
+            `never needed.`
     );
 
     const percentiles = percentileOf;
@@ -1032,6 +1298,16 @@ if ( plates.shipped !== undefined ) {
         // noise. A 1.1-code-value MEAN is a solid measurement even though a 1.1-code-value PIXEL
         // would not be. What it also means is that the secondary band is invisible to a human on
         // this plate, and that is a statement about the picture rather than about the arithmetic.
+        //
+        // 🔴 AND IT IS RED BY 1.6%, WHICH IS THE MOST ANNOYING WIDTH A FAILURE CAN HAVE, SO THE ONE
+        // THING THAT LOOKS LIKE ITS CAUSE HAS BEEN RULED OUT RATHER THAN ARGUED ABOUT. TRT peaks at
+        // 0.984 code values against a floor of 1.0. This round swapped every capture in this file
+        // from `MotionProbe.capturePlates` to `SourcePatchProbe.capturePatchedPlates`, which is
+        // exactly the kind of change that moves a knife-edge, so both were run against these two
+        // arms in one browser: mask 274,086 both ways, peak 0.003859 both ways, row 416 both ways —
+        // byte-identical. The 1.6% is the rig, not the instrument. Left red rather than widened:
+        // the check's whole content is that the secondary band is measurable, and 0.98 of a code
+        // value is the honest answer to whether it is.
         report(
             'THE DUAL BAND, MEASURED SEPARATELY AND IN PIXELS, with a light the secondary lobe can fire in',
             headPeakR.value > 2 * CODE_VALUE && headPeakTRT.value > 1 * CODE_VALUE && headSeparation >= 20,
@@ -1068,14 +1344,18 @@ if ( plates.shipped !== undefined ) {
         // rig delivers to the groom, which is the only way to tell a dim BSDF from a dim rig — and
         // telling those two apart is precisely what REQ-061 asks for.
         //
-        // ⚠️ TWO HONEST LIMITS ON THE ARITHMETIC BELOW, BOTH OF WHICH THE PREVIOUS ROUND'S VERSION
-        // STATED MORE CONFIDENTLY THAN IT WAS ENTITLED TO. (1) `unit.p95` and `shipped.p95` are rank
+        // ⚠️ THREE HONEST LIMITS ON THE ARITHMETIC BELOW. (1) `unit.p95` and `shipped.p95` are rank
         // statistics over the same mask, not the same PIXEL — the sentence "at the same p95 pixel"
-        // was wrong and is gone. (2) `requiredBsdf` inverts the sRGB transfer only; the shipped arm
-        // is graded, so the true linear scene value behind an encoded 0.675 is HIGHER than
-        // `encodedToLinear` says and the required BSDF is therefore a LOWER BOUND.
-        const deliveredAtP95 = encodedToLinear( unit.p95 ) * 4 * Math.PI;
-        const requiredBsdf = encodedToLinear( HAIR_CONTRAST.bandEncoded[ 1 ] ) / deliveredAtP95;
+        // was wrong and is gone. (2) The reference band's 0.675 is an encoded reading off a plate
+        // whose transfer nobody here knows; converting it with OUR ACES assumes the two agree, and
+        // that assumption is stated rather than hidden — it is the only step in this file that
+        // needs it. (3) The unit probe sits an order of magnitude above the groom's own radiance
+        // and the pipeline is measurably sub-linear up there, so `delivered` is a LOWER bound; see
+        // the linearity check in the floor section.
+        const deliveredAtP95 = radianceOf( plates.unit, solidMask ).p95 * 4 * Math.PI;
+        const bandRadiance = acesFilmicInverse( [ 1, 1, 1 ].map( () =>
+            encodedToLinear( HAIR_CONTRAST.bandEncoded[ 1 ] ) ) )[ 1 ];
+        const requiredBsdf = bandRadiance / deliveredAtP95;
 
         // The ceiling, over the sphere and over the shipped combination. See `closedFormPeak`.
         const peak = closedFormPeak;
@@ -1085,14 +1365,21 @@ if ( plates.shipped !== undefined ) {
             ratio >= target[ 0 ] && ratio <= target[ 2 ],
             `SOLID hair p95 ${ shipped.p95.toFixed( 4 ) } encoded over #150F17's ${ HAIR_CONTRAST.baseEncodedLuma } = ` +
                 `${ ratio.toFixed( 2 ) } : 1, against ${ target[ 0 ] }–${ target[ 2 ] } : 1.\n` +
-            `      🔴 DIAGNOSIS. The unit-BSDF probe reads p95 ${ unit.p95.toFixed( 4 ) } encoded on the same mask, so the rig delivers\n` +
-                `      Σ(L·Ω) = ${ deliveredAtP95.toFixed( 3 ) } sr·nits to a hair pixel at that rank. Reaching the reference band needs at least\n` +
-                `      ${ requiredBsdf.toFixed( 4 ) } sr⁻¹. The shipped combination — R + TRT + slide 39's fake, under slide 47's occlusion —\n` +
-                `      peaks over the whole sphere at ${ peak.total.toFixed( 4 ) } sr⁻¹ (θi ${ peak.thetaI }°, φ ${ peak.phi }°, θr ${ peak.thetaR }°, channel ${ peak.channel };\n` +
-                `      R ${ peak.r.toFixed( 4 ) } + fake ${ peak.scatter.toFixed( 4 ) }), a factor of ${ ( requiredBsdf / peak.total ).toFixed( 2 ) } short before the rig is even consulted.\n` +
-            `      What this rules out: a misread transfer domain, and an exposure — raising exposure is the move REQ-061 rules out.\n` +
-            `      What it leaves: R is Fresnel-limited (F0 = ${ HAIR_F0.toFixed( 4 ) }) and its real peak lives at near-backlight grazing,\n` +
-                `      which slide 47's occlusion deliberately discards because the rim has no shadow map. REQ-063.`
+            `      🔴 DIAGNOSIS. The unit-BSDF probe puts Σ(L·Ω) = ${ deliveredAtP95.toFixed( 3 ) } sr·nits on a hair pixel at that rank, so the\n` +
+                `      reference band's 0.675 encoded — radiance ${ bandRadiance.toFixed( 4 ) } through our own ACES — needs ` +
+                `${ requiredBsdf.toFixed( 4 ) } sr⁻¹.\n` +
+                `      The shipped combination — R + TRT + slide 39's fake under slide 47's occlusion — peaks over the whole\n` +
+                `      sphere at ${ peak.total.toFixed( 4 ) } sr⁻¹ (θi ${ peak.thetaI }°, φ ${ peak.phi }°, θr ${ peak.thetaR }°, Shadow ${ peak.shadow }, channel ${ peak.channel }; ` +
+                `R ${ peak.r.toFixed( 4 ) } + fake ${ peak.scatter.toFixed( 4 ) }),\n      a factor of ${ ( requiredBsdf / peak.total ).toFixed( 2 ) } short before the rig is even consulted.\n` +
+            `      🎯 AND THE ALBEDO IS NOT THE CONSTRAINT, WHICH IS NEW AND IS A SWEEP RATHER THAN AN OPINION. Re-running the\n` +
+                `      sphere search on lighter fibres — #150F17, #2E2230, #5A4460, #9F8FA5 — the LOBES' own ceiling goes\n` +
+                `      0.01883 / 0.01954 / 0.02325 / 0.03765 sr⁻¹, and R's own peak FALLS across that range (0.01860 →\n` +
+                `      0.01578) because R never enters the fibre and is pure Fresnel. Even at a near-grey #9F8FA5 the lobes\n` +
+                `      stay ${ ( requiredBsdf / 0.03765 ).toFixed( 2 ) }x under what the band needs. Lightening the hair cannot buy this; it only grows the fake.\n` +
+            `      What this rules out: a misread transfer domain, an exposure, and the base colour.\n` +
+            `      What it leaves: the rig. R's real peak lives at near-backlight grazing, which slide 47's occlusion\n` +
+                `      deliberately discards because the rim has no shadow map (REQ-063), and TRT needs a light near the\n` +
+                `      view axis that the four panels do not supply (REQ-064).`
         );
 
         // ⚠️ COMPARED AT p95 AND NOT AT p50, AND THE REASON IS WORTH A LINE. The two materials'
@@ -1111,14 +1398,292 @@ if ( plates.shipped !== undefined ) {
         );
     }
 
+    // ==========================================================================================
+    // 🔴 THE FLOOR — WHY THE CONTRAST NUMBER ABOVE CANNOT BE FIXED BY MAKING IT BIGGER
+    // ==========================================================================================
+    //
+    // The check above divides a p95 by a CONSTANT: `#150F17`'s encoded luma, 0.0661, which is what
+    // the look spec says unlit hair reads. So it is not a contrast measurement at all — it is an
+    // absolute brightness measurement wearing a ratio's clothes, and anything that lifts the whole
+    // distribution moves it toward green. The bandless term does exactly that.
+    //
+    // MEASURED THIS SESSION with slide 39's scalar swept through `render/SourcePatchProbe.mjs` on
+    // the SHIPPED (graded) path, one capture, 255,850 solid hair px, encoded luma. The two endpoints
+    // — 0.00 and 1.00 — are re-measured live by the checks below, so a reader can see how far this
+    // table's own load has drifted from theirs; the four interior points are this capture only.
+    //
+    //   | scatter | p05    | p50    | p95    | p95 / 0.0661 | p95 / p50 |
+    //   |--------:|-------:|-------:|-------:|-------------:|----------:|
+    //   |    0.00 | 0.0008 | 0.0644 | 0.1932 |     2.92 : 1 |     3.000 |
+    //   |    0.25 | 0.0163 | 0.0958 | 0.2215 |     3.35 : 1 |     2.313 |
+    //   |    0.50 | 0.0299 | 0.1257 | 0.2489 |     3.77 : 1 |     1.980 |
+    //   |    1.00 | 0.0566 | 0.1825 | 0.3007 |     4.55 : 1 |     1.648 |
+    //   |    2.00 | 0.1028 | 0.2839 | 0.3903 |     5.91 : 1 |     1.375 |
+    //   |    4.00 | 0.1792 | 0.4306 | 0.5267 |     7.97 : 1 |     1.223 |
+    //
+    // 🎯 THE TWO COLUMNS ARE MONOTONE IN OPPOSITE DIRECTIONS, and that is the round's result. The
+    // only dial the diagnosis nominated drives the gate's number from 2.92 toward 9.08 and drives
+    // the picture's own dynamic range from 3.00 down to 1.22 — a plate whose 95th percentile is
+    // 22% above its median, which is the arithmetic of the critic's "flat matte with a plum cast".
+    // Extrapolating the left column, scatter ≈ 2.4 buys a GREEN contrast gate at a range of about
+    // 1.33. That is the shape of a number bought with a magic number, and it is why this file now
+    // measures both halves and requires them of the same plate.
+    //
+    // Note the first row too: with the fake removed the median solid hair pixel reads 0.0644
+    // encoded against the look spec's assumed base of 0.0661 — 2.6% apart. The spec's 10:1 presumes
+    // hair's shadow value IS its albedo, and on the shipped build the fake puts it at 2.83x that.
+    {
+        const shipped = radianceOf( plates.shipped, solidMask );
+        const rows = [
+            [ 'indirect only (S = 0)', 'zero' ],
+            [ 'R + TRT, no fake', 'lobesOnly' ],
+            [ 'slide 39 fake alone', 'fakeOnly' ],
+            [ 'shipped S', 'forward' ],
+            [ 'shipped S x 2 (patched)', 'gained' ]
+        ];
+
+        console.log( `      arm                       p05        p50        p95        max        p95/p50   (RADIANCE, solid hair)` );
+
+        const measured = {};
+
+        for ( const [ label, arm ] of rows ) {
+
+            const entry = radianceOf( plates[ arm ], solidMask );
+
+            measured[ arm ] = entry;
+            console.log( `      ${ label.padEnd( 24 ) }${ entry.p05.toExponential( 3 ) }  ${ entry.p50.toExponential( 3 ) }  ` +
+                `${ entry.p95.toExponential( 3 ) }  ${ entry.max.toExponential( 3 ) }  ${ ( entry.p95 / entry.p50 ).toFixed( 3 ) }` );
+
+        }
+
+        // --- the additivity proof, which is what licenses every subtraction in this file ---------
+        let displaySum = 0, displayComposite = 0, radianceSum = 0, radianceComposite = 0;
+
+        for ( const [ x, y ] of solidMask ) {
+
+            const displayZero = displayLumaAt( plates.zero, x, y );
+            displayComposite += displayLumaAt( plates.forward, x, y ) - displayZero;
+            displaySum += ( displayLumaAt( plates.lobesOnly, x, y ) - displayZero ) +
+                ( displayLumaAt( plates.fakeOnly, x, y ) - displayZero );
+
+            const radianceZero = radianceLumaAt( plates.zero, x, y );
+            radianceComposite += radianceLumaAt( plates.forward, x, y ) - radianceZero;
+            radianceSum += ( radianceLumaAt( plates.lobesOnly, x, y ) - radianceZero ) +
+                ( radianceLumaAt( plates.fakeOnly, x, y ) - radianceZero );
+
+        }
+
+        const displayRatio = displaySum / displayComposite;
+        const radianceRatio = radianceSum / radianceComposite;
+
+        report(
+            '🎯 the plates ADD UP once ACES is inverted, and do not before — the licence for every arm subtraction here',
+            Math.abs( radianceRatio - 1 ) < 0.05 && Math.abs( displayRatio - 1 ) > 0.10,
+            `three renders differing only in which terms of S are live, summed over ${ solidMask.length.toLocaleString() } solid hair px:\n` +
+            `      (R+TRT − zero) + (fake − zero) = ${ radianceRatio.toFixed( 4 ) } x (shipped − zero) in recovered RADIANCE, ` +
+                `and ${ displayRatio.toFixed( 4 ) } x sRGB-decoded.\n` +
+            `      A wrong inverse cannot reassemble three independent renders into their own sum, so this is the ` +
+                `evidence — not the code reading.\n      The ${ ( 100 * ( 1 - displayRatio ) ).toFixed( 1 ) }% that used to go missing was ` +
+                `three's ACESFilmic, which \`?grade=0\` does not remove: Stage.js sets it on the\n      renderer and the ` +
+                `no-grade branch still finishes with renderOutput().`
+        );
+
+        // --- what the two terms are actually worth, now that the domain is additive --------------
+        const ordered = solidMask.map( ( [ x, y ] ) => {
+
+            const base = radianceLumaAt( plates.zero, x, y );
+
+            return {
+                all: radianceLumaAt( plates.forward, x, y ) - base,
+                fake: radianceLumaAt( plates.fakeOnly, x, y ) - base,
+                lobes: radianceLumaAt( plates.lobesOnly, x, y ) - base
+            };
+
+        } ).sort( ( a, b ) => b.all - a.all );
+
+        const sumOf = ( list, key ) => list.reduce( ( total, entry ) => total + entry[ key ], 0 );
+        const brightest = ordered.slice( 0, Math.floor( ordered.length * 0.05 ) );
+
+        const fakeShare = sumOf( ordered, 'fake' ) / sumOf( ordered, 'all' );
+        const fakeShareTop = sumOf( brightest, 'fake' ) / sumOf( brightest, 'all' );
+
+        // 🚩 THE DIAGNOSIS FOR "FLAT MATTE WITH A PLUM CAST", AS A SHARE OF ENERGY RATHER THAN AS A
+        // PERCENTILE. Slide 39's term is bandless by construction — its whole angular dependence is
+        // `(n·ωi + 1)/4π`, a wrap-around cosine with no shift, no width and no azimuth — so every
+        // unit of energy it carries is energy that cannot form a band. It is not a failing gate on
+        // its own; it is the number the two gates below have to be read against.
+        // ⚠️ THE PREDICATE IS ON THE TOP 5% AND NOT ON THE MASK, AND THE FIRST VERSION OF THIS CHECK
+        // ASSERTED `Number.isFinite` ON BOTH — a check that cannot go red, which is a line in the
+        // tally and nothing else. What is actually assertable is a property of a HIGHLIGHT: whatever
+        // the bandless term does to the median, the brightest pixels in the frame have to be made
+        // mostly of lobes, or the thing the eye reads as the highlight is the hack. It holds today
+        // by 8 points and it is the check that goes red if the fake is ever turned up to buy the
+        // contrast gate above — at scatter 2 it would not.
+        report(
+            'the brightest hair in the frame is made of LOBES and not of slide 39\'s fake, which is the weaker half of that claim',
+            fakeShareTop < 0.5 && Number.isFinite( fakeShare ),
+            `of the groom's whole rise above its indirect floor, in radiance: the fake carries ` +
+                `${ ( 100 * fakeShare ).toFixed( 1 ) }% and R+TRT ` +
+                `${ ( 100 * sumOf( ordered, 'lobes' ) / sumOf( ordered, 'all' ) ).toFixed( 1 ) }%.\n` +
+            `      Over the brightest 5% of solid hair — where a highlight would be — the fake is still ` +
+                `${ ( 100 * fakeShareTop ).toFixed( 1 ) }% of it.\n      Karis' own words on that section of the deck are "a giant ` +
+                `artistic hack and not physically based in the slightest… derived by\n      looking at photos", and it is ` +
+                `dominating a frame whose brief is a dual band.`
+        );
+
+        // --- 🚩 THE UN-GAMEABILITY PROOF, AND IT IS THE RED PROOF FOR THE GATE THAT FOLLOWS ------
+        //
+        // A dynamic range is worth having only if it separates a change of SCALE from a change of
+        // SHAPE, and that is an empirical claim about this plate rather than a theorem: percentile
+        // ratios are invariant under a gain only where the pipeline is linear, and the pipeline
+        // measurably is not at every level. So it is measured, on two arms that differ from the
+        // shipped one by exactly one thing each.
+        //
+        //   `gained`     the whole of S multiplied by 2 in the SERVED MODULE (see GAIN_PATCH)
+        //   scatter 0    the same picture with the bandless term removed by URL
+        //
+        // If the range gate could be bought with a multiplier, the first arm would move it.
+        const gainRange = measured.gained.p95 / measured.gained.p50;
+        const shippedRange = measured.forward.p95 / measured.forward.p50;
+        const lobesRange = measured.lobesOnly.p95 / measured.lobesOnly.p50;
+
+        // Subtracting the indirect term first: it is not scaled by the patch, so leaving it in
+        // charges the gain arm for a pedestal it never touched. It is worth ~10% of the median.
+        const gainAtMedian = ( measured.gained.p50 - measured.zero.p50 ) / ( measured.forward.p50 - measured.zero.p50 );
+
+        // The same question asked of the probe rather than of the material: halving a constant that
+        // is the whole BSDF must halve the radiance, and this is by how much it does not.
+        const halfUnit = radianceOf( plates.unitHalf, solidMask );
+        const fullUnit = radianceOf( plates.unit, solidMask );
+        const probeHalving = ( halfUnit.p50 - measured.zero.p50 ) / ( fullUnit.p50 - measured.zero.p50 );
+
+        // 🚩 AND THE CONTROL FOR IT, WHICH IS THE SAME URL LOADED TWICE, AND IT DID NOT SAY WHAT IT
+        // WAS ADDED TO SAY.
+        //
+        // It was added expecting noise: `?hairoit=hash` is stochastic alpha and `HairOIT.js`'s own
+        // header records that the arm does not converge, so the obvious reading was that two arms
+        // of any comparison are not the same pixels and a few per cent of "non-linearity" is that.
+        // MEASURED, it comes back at 1.000 — the hash seeds from position and a second load of the
+        // same url is the same picture, so WITHIN one browser session every arm here is registered
+        // pixel for pixel and a 2.8% departure is a 2.8% departure.
+        //
+        // What does move is bigger and is ACROSS SESSIONS: three scratch captures this session, on
+        // separate browser launches of the same source, agreed with each other at 296,081 / 255,850
+        // px and both gate runs agreed with each other at 274,086 / 265,261, a 3.7% difference in
+        // the mask and up to 18% in the probe statistics derived from it. No source changed between
+        // them. So a number in this file may be compared with another number in the SAME run and
+        // must not be compared with one in a different run, which is a stricter rule than anything
+        // this project has written down and is why the control is kept rather than deleted for
+        // having reported a one.
+        const repeatUnit = radianceOf( plates.unitRepeat, solidMask );
+        const repeatability = ( repeatUnit.p50 - measured.zero.p50 ) / ( fullUnit.p50 - measured.zero.p50 );
+
+        report(
+            '🚩 RED PROOF — a pure GAIN on S moves the level and leaves the RANGE alone; removing the floor does the opposite',
+            Math.abs( gainRange / shippedRange - 1 ) < 0.05 && lobesRange > shippedRange * 1.3,
+            `S x 2 patched into the served module: the median rise above indirect goes ${ gainAtMedian.toFixed( 3 ) }x — a gain, ` +
+                `measured — while\n      p95/p50 moves ${ shippedRange.toFixed( 4 ) } → ${ gainRange.toFixed( 4 ) }, ` +
+                `${ ( 100 * Math.abs( gainRange / shippedRange - 1 ) ).toFixed( 2 ) }%. The same statistic under ?hairscatter=0 goes ` +
+                `${ shippedRange.toFixed( 4 ) } → ${ lobesRange.toFixed( 4 ) }.\n` +
+            `      So the pair (absolute level, dynamic range) cannot both be bought by any scalar: a multiplier moves ` +
+                `the first and not the\n      second, a floor moves them in opposite directions, and only a term that is ` +
+                `bright where the lobe fires and dark\n      elsewhere moves the first while holding the second. That is ` +
+                `the property a highlight has and a hack does not.\n` +
+            `      ⚠️ IT ALSO BOUNDS THE TRANSFER, AND IT COMES WITH ITS OWN NOISE FLOOR, WHICH IS THE PART THAT MAKES IT ` +
+                `READABLE.\n      Loading the UNCHANGED probe url a second time returns ` +
+                `${ repeatability.toFixed( 5 ) }x of itself: within one browser session the arms of\n      every comparison in ` +
+                `this file are registered pixel for pixel, hashed alpha and all. Against that floor —\n` +
+            `        S x 2 in the SHADER          → ${ gainAtMedian.toFixed( 3 ) }x  (want 2, off by ` +
+                `${ ( 100 * Math.abs( gainAtMedian / 2 - 1 ) ).toFixed( 1 ) }%, at the radiance the groom lives at)\n` +
+            `        probe constant halved        → ${ probeHalving.toFixed( 3 ) }x  (want 0.5, off by ` +
+                `${ ( 100 * Math.abs( probeHalving / 0.5 - 1 ) ).toFixed( 1 ) }%, at radiance ${ fullUnit.p50.toFixed( 3 ) }, ` +
+                `4x higher)\n` +
+            `      Both are real departures rather than noise, both are small, and both go the same way: the pipeline is ` +
+                `mildly\n      SUB-LINEAR and more so the brighter the pixel. So every Σ(L·Ω) in this file is a LOWER bound ` +
+                `and every shortfall\n      it diagnoses is understated. Excluded this session: clipping (brightest channel ` +
+                `0.9765 of 1 on the probe's plate,\n      no pixel at the clamp) and the mask (the sweep moves in the fourth ` +
+                `decimal over a 7x coverage-floor sweep). The\n      operator is in render/** and was not found; carried to the ` +
+                `integrator as a diff request rather than given a REQ\n      number this file cannot verify — the ledger's ids ` +
+                `are gated against the round fence and REQ-066 is taken.\n` +
+            `      🔴 AND ONE NUMBER IS WITHDRAWN. A scratch capture earlier this session, on a separate browser launch, ran ` +
+                `the probe\n      constant at 0.25 / 0.5 / 1 / 2 and read 0.328 / 0.599 / 1.000 / 1.487 — a 20-26% compression, ` +
+                `five times what this\n      run measures. Nothing in the source changed between them. Cross-session plates are ` +
+                `NOT comparable on this build\n      and that is the finding; the in-run pair above is what stands.`
+        );
+
+        // --- THE OTHER HALF OF THE CONTRAST, AND IT IS THE ONE THE CRITIC IS LOOKING AT ----------
+        //
+        // 🎯 THE TARGET IS THE LOOK SPEC'S OWN BAND, READ AS THE RATIO IT ACTUALLY IS. The spec puts
+        // the highlight at 0.60–0.75 encoded and unlit hair at 0.0661, and that pair is only a
+        // 9.08–11.35 : 1 contrast if the SAME PLATE shows both — i.e. if the hair's own dark value
+        // is its albedo. So the honest restatement of the spec on a rendered plate is a ratio taken
+        // WITHIN the mask, and it is stated in radiance because a ratio of radiances is the half of
+        // the pair a gain cannot touch.
+        //
+        // ⚠️ THE FLOOR OF 4.0 IS NOT THE SPEC'S 9.08 AND SAYING WHY MATTERS. p95 and p50 are not the
+        // spec's two points: its highlight band is the top of a highlight and its 0.0661 is fully
+        // shadowed hair, so the spec's own pair sits nearer p99-over-p05 than p95-over-p50, and this
+        // file has no reference plate to calibrate the rank pair against. `reference/stellar-blade/`
+        // holds 205 outfit plates and CHECKED THIS SESSION with `sips` they are thumbnails: 115 at
+        // 200x434, 52 at 203x440, and the largest in the directory 488x410. A head is a few dozen
+        // pixels and a hair highlight is one or two. The plates §0.2 measured are not in the
+        // repository and this round did not fetch them.
+        //
+        // So the floor is set from the plate's own evidence rather than from the reference: R + TRT
+        // ALONE, with no fake at all, already clear 3.2 on this mask, so 4.0 asks for a picture
+        // whose highlight stands somewhat further above its own shadow than the lobes manage
+        // unaided on the shipped rig. The shipped build fails it and the fake-free build fails it
+        // too, which is the correct answer to "is the remaining gap the lobes or the floor" — it is
+        // both, and the fake is the larger half.
+        //
+        // 🚩 THE GREEN PROOF, WHICH A RED GATE NEEDS MORE THAN A GREEN ONE DOES. A floor nothing can
+        // clear is not a measurement, it is a wall. Measured this session on a scratch capture that
+        // came out on the SAME 265,261 px mask this gate reports, so the rows are directly
+        // comparable — radiance p95/p50 over solid hair:
+        //
+        //   | arm                                                          | p95/p50 |
+        //   |--------------------------------------------------------------|--------:|
+        //   | shipped                                                       |   1.872 |
+        //   | fake off, key on the camera axis (`?ov=key.azimuthDegrees:12`)|   4.291 |
+        //   | fake off, β_R 0.26 → 0.1745 (Marschner's own tight end)        |   6.030 |
+        //   | both of those together                                        |   8.015 |
+        //   | fake off, β_R → 0.13 (deliberately BELOW Marschner's band)     |   9.869 |
+        //
+        // Two of those are legitimate and neither is a fudge: moving a light is a rig change, and
+        // 0.1745 is the tight end of the band §1.7 derives from Marschner Table 1 — the shipped 0.26
+        // is mid-band, not a floor. So this gate is red because of a rig with no light near the view
+        // axis and a lobe authored at the middle of its own range, and it clears its floor on either
+        // fix alone. That is a located cause, which is the outcome this round was asked for.
+        const CONTRAST_RANGE_FLOOR = 4.0;
+        const shippedEncodedRange = percentileOf( plates.shipped, solidMask ).p95 /
+            percentileOf( plates.shipped, solidMask ).p50;
+        const noFakeEncodedRange = percentileOf( plates.shippedNoFake, solidMask ).p95 /
+            percentileOf( plates.shippedNoFake, solidMask ).p50;
+
+        report(
+            '🔴 the hair\'s OWN dynamic range reaches 4.0 : 1 — the half of the contrast a floor cannot buy',
+            shippedRange >= CONTRAST_RANGE_FLOOR,
+            `shipped plate, solid hair, RADIANCE p95/p50 = ${ shippedRange.toFixed( 3 ) } : 1 against a floor of ` +
+                `${ CONTRAST_RANGE_FLOOR.toFixed( 1 ) }; R+TRT alone reach ${ lobesRange.toFixed( 3 ) }.\n      On the graded path in ` +
+                `encoded luma the same ratio is ${ shippedEncodedRange.toFixed( 3 ) }, and with slide 39 removed it is ` +
+                `${ noFakeEncodedRange.toFixed( 3 ) } — the term costs\n      ` +
+                `${ ( 100 * ( 1 - shippedEncodedRange / noFakeEncodedRange ) ).toFixed( 0 ) }% of the picture's ` +
+                `contrast to buy ${ ( 100 * ( percentileOf( plates.shipped, solidMask ).p95 / percentileOf( plates.shippedNoFake, solidMask ).p95 - 1 ) ).toFixed( 0 ) }% of its brightness.\n` +
+            `      🔴 THIS IS THE ROUND'S ANSWER TO "PEAK-LIMITED OR FLOOR-LIMITED". It is floor-limited, and the floor is in the\n` +
+                `      NUMERATOR: the statistic above this one divides by an assumed albedo, so raising the bandless term walks it\n` +
+                `      toward green while walking this one toward 1. Both are measured on the same pixels of the same plate and\n` +
+                `      they cannot both be satisfied by a scalar. Neither is green; the pair is the instrument, the red is the result.`
+        );
+    }
+
     // --- 🎯 THE EFFECTIVE BSDF, INVERTED OUT OF THE PLATE ---------------------------------------
     //
     // This is the section that makes "ship a multiplier until the gate goes green" impossible, and
     // that is why it is here rather than in a scratch file. Three forward plates differ in exactly
     // one thing, the scattering function:
     //
-    //     zero      S ≡ 0            →  linear value = the indirect term alone
-    //     unit      S ≡ 1/4π         →  linear value = indirect + Σ(L·Ω)/4π
+    //     zero      S ≡ 0            →  radiance = the indirect term alone
+    //     unit      S ≡ 1/4π         →  radiance = indirect + Σ(L·Ω)/4π
     //     forward   S = the shipped closed form
     //
     // Subtracting the first from the other two leaves, per pixel and with no model in the way,
@@ -1131,16 +1696,34 @@ if ( plates.shipped !== undefined ) {
     // carrying a tuning factor lands above it, on some pixel, by exactly the factor. The check
     // below is that ceiling, and it is the one gate in this file that gets stricter as the picture
     // gets better.
+    //
+    // 🔴 IT IS READ IN RADIANCE NOW AND IT WAS NOT BEFORE, AND THE DIFFERENCE IS NOT COSMETIC. A
+    // subtraction of two plates is a subtraction of energy only in a domain the pipeline is linear
+    // in; in the sRGB-decoded framebuffer this file used to read, the same three plates fail to add
+    // up by ~22% (see the floor section's additivity check). Every S_eff number rounds 13 and 14
+    // quoted was that quantity, and it reads LOW; both domains are computed below so the size of
+    // the correction is on the page rather than in this comment.
     {
-        const linearAt = ( plate, x, y ) => linearLumaAt( plate, x, y );
-
         const delivery = [];
         const effective = [];
+        const effectiveDisplay = [];
 
         for ( const [ x, y ] of solidMask ) {
 
-            const indirect = linearAt( plates.zero, x, y );
-            const delivered = ( linearAt( plates.unit, x, y ) - indirect ) * 4 * Math.PI;
+            const indirect = radianceLumaAt( plates.zero, x, y );
+            const delivered = ( radianceLumaAt( plates.unit, x, y ) - indirect ) * 4 * Math.PI;
+
+            // The same quotient in the domain rounds 13 and 14 read, carried alongside so the
+            // correction is a measurement rather than a claim. Its own floor is applied in its own
+            // domain, for the reason the radiance floor below is applied in this one.
+            const displayIndirect = displayLumaAt( plates.zero, x, y );
+            const displayDelivered = ( displayLumaAt( plates.unit, x, y ) - displayIndirect ) * 4 * Math.PI;
+
+            if ( displayDelivered > 1 ) {
+
+                effectiveDisplay.push( ( displayLumaAt( plates.forward, x, y ) - displayIndirect ) / displayDelivered );
+
+            }
 
             // ⚠️ A PIXEL THE RIG BARELY REACHES DIVIDES A SMALL NUMBER BY A SMALL NUMBER, AND THE
             // MAX OF THAT RATIO IS NOISE RATHER THAN A MEASUREMENT. The floor is ONE steradian-nit
@@ -1151,21 +1734,13 @@ if ( plates.shipped !== undefined ) {
             if ( delivered <= 1 ) continue;
 
             delivery.push( delivered );
-            effective.push( ( linearAt( plates.forward, x, y ) - indirect ) / delivered );
+            effective.push( ( radianceLumaAt( plates.forward, x, y ) - indirect ) / delivered );
 
         }
 
-        const rank = ( values ) => {
-
-            const sorted = values.slice().sort( ( a, b ) => a - b );
-            const at = ( p ) => sorted[ Math.min( sorted.length - 1, Math.floor( p * sorted.length ) ) ];
-
-            return { p50: at( 0.5 ), p90: at( 0.9 ), p95: at( 0.95 ), p99: at( 0.99 ), max: sorted[ sorted.length - 1 ] };
-
-        };
-
-        const measuredBsdf = rank( effective );
-        const measuredDelivery = rank( delivery );
+        const measuredBsdf = rankOf( effective );
+        const measuredDelivery = rankOf( delivery );
+        const measuredBsdfDisplay = rankOf( effectiveDisplay );
 
         console.log( `      quantity                  p50      p90      p95      p99      max` );
         console.log( `      Σ(L·Ω) sr·nits          ${ measuredDelivery.p50.toFixed( 3 ) }    ${ measuredDelivery.p90.toFixed( 3 ) }    ` +
@@ -1181,6 +1756,14 @@ if ( plates.shipped !== undefined ) {
                 `${ ( 100 * measuredBsdf.max / closedFormPeak.total ).toFixed( 1 ) }% of it. A shader carrying a tuning\n` +
             `      multiplier lands ABOVE 100% by exactly the multiplier, which is what this check is for; the 5% ` +
                 `slack is 8-bit quantisation.\n` +
+            `      ⚠️ Both sides of that comparison moved this round and in opposite directions, which is why the gate ` +
+                `passes now and\n      would not have. Reading the plates in RADIANCE raised the measured S — the same ` +
+                `pixels give p50 ${ measuredBsdfDisplay.p50.toFixed( 5 ) } sRGB-decoded\n      and ` +
+                `${ measuredBsdf.p50.toFixed( 5 ) } in radiance, a factor of ` +
+                `${ ( measuredBsdf.p50 / measuredBsdfDisplay.p50 ).toFixed( 2 ) }. And sweeping \`Shadow\` in the ceiling ` +
+                `search raised the ceiling, because slide 39's\n      tint \`(C/Luma(C))^(1−Shadow)\` reaches 1.42 in blue on ` +
+                `#150F17 and the search used to pin Shadow at 1 — pinned, the same\n      rendered S measures 113% of the ` +
+                `ceiling and this gate reads as a fudge that is not there.\n` +
             `      🔴 AND THE GAP AT p95 IS THE RIG, NOT THE MODEL: S peaks at ${ measuredBsdf.max.toFixed( 5 ) } but reads ` +
                 `${ measuredBsdf.p95.toFixed( 5 ) } at p95, because the four\n      panels sit at +42°, −52°, −168° and +166° and the ` +
                 `closed form's peak needs a light near the view axis. Moving the key there\n      (?ov=key.azimuthDegrees:12) is measured ` +

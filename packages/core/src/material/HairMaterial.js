@@ -261,6 +261,31 @@ export const HAIR_DEFAULTS = {
     /**
      * Slide 39's multiple-scattering fake, as a scalar over the whole term. Karis calls the
      * section a hack; this is the dial that removes it from a plate.
+     *
+     * 🔴 IT SHIPS AT 1 AND IT IS THE LARGEST TERM IN THE GROOM, WHICH IS THE DIAGNOSIS FOR "FLAT
+     * MATTE WITH A PLUM CAST" AND IS NOT A REASON TO CHANGE THIS NUMBER HERE.
+     *
+     * Measured in RADIANCE on `?bare&freeze&seed=1&aa=msaa&grade=0`, as a share of the groom's whole
+     * rise above its indirect floor: the fake carries **65.4%** and R + TRT together **35.0%** over
+     * 265,261 solid hair pixels; even over the brightest 5% of solid hair the fake is **42.1%**. A
+     * second capture the same session, over a mask of 255,850 px, read 65.8 / 35.4 / 46.2 — the
+     * hashed-alpha coverage reshuffles the fringe of the mask from load to load, so read these to a
+     * couple of points and not further. The conclusion is not close to that margin.
+     *
+     * The term is bandless by construction — its entire angular dependence is `(n·ωi + 1)/4π`, a
+     * wrap-around cosine with no shift, no width and no azimuth — so every unit of energy it
+     * carries is energy that cannot form a band.
+     *
+     * 🚩 AND TURNING IT DOWN IS NOT THE FIX, WHICH IS WHY THIS IS A COMMENT AND NOT AN EDIT. The
+     * shipped contrast gate divides p95 by an ASSUMED albedo, so the fake is the only dial that
+     * moves it toward its target: swept 0 → 4 on the shipped plate it walks the gate from 2.92 to
+     * 7.97 : 1 while walking the picture's own p95/p50 from 3.00 down to 1.22. The two numbers are
+     * monotone in opposite directions and neither is green at any setting of this scalar, so there
+     * is no value of it that is the answer. What the sweep locates is a MISSING PEAK: at the rig's
+     * measured delivery the lobes cannot reach the reference band on any base colour (see the
+     * albedo sweep in the selftest's contrast diagnosis), and the fake was standing in for it.
+     * `docs/research/hair.md` §9 carries the sweep; REQ-063/064 carry the rig changes that would
+     * let the lobes do the work this term is doing.
      */
     scatter: 1,
 
@@ -984,15 +1009,23 @@ export class HairLightingModel extends LightingModel {
      * 3.10's composite using this material's FAKE NORMAL and the roughness it writes to `normal.w`,
      * which is an isotropic approximation of an anisotropic lobe.
      *
-     * 🔴 AND THE GAP IS NOT SMALL, WHICH IS NEW THIS ROUND AND IS A MEASUREMENT RATHER THAN A
-     * SUSPICION. `?hairlobes=&hairscatter=0` renders the groom with S identically zero, so whatever
-     * a hair pixel reads on that plate IS its entire indirect term. Over 224,104 solid hair pixels
-     * of `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` it reads **0.00063 linear at p50 and 0.00126
-     * at p95** — 0.016 and 0.019 in encoded luma, against the same plate's shipped hair at 0.1165
-     * and 0.1926. 3.10's composite is running and hair is in its G-buffer; the term it computes on
-     * a `#150F17` diffuse albedo with a dielectric F0 of 0.04 is simply worth about a code value.
-     * So the environment contributes ~1% of what the groom emits and Karis' slide-47 path is
-     * genuinely MISSING energy rather than duplicating energy that is already there.
+     * 🔴 AND THE GAP IS REAL BUT IT IS TEN TIMES SMALLER THAN THIS PARAGRAPH USED TO SAY.
+     * `?hairlobes=&hairscatter=0` renders the groom with S identically zero, so whatever a hair
+     * pixel reads on that plate IS its entire indirect term. The previous version of this note
+     * called it "~1% of what the groom emits" by dividing a LINEAR reading (0.00063) by an ENCODED
+     * one (0.1165) — two different transfer functions, and the ratio meant nothing.
+     *
+     * Re-measured in RADIANCE, over 255,850 solid hair pixels of
+     * `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1`, with three's ACES inverted out of the plate
+     * (`HairMaterial.selftest.mjs` carries the mirror and the additivity proof that licenses it):
+     * the indirect term reads **4.53e−3 at p50 and 6.66e−3 at p95**, against the same plate's
+     * shipped hair at **4.65e−2 and 7.98e−2**. So the environment contributes **9.7% of the
+     * groom's median radiance**, not 1%.
+     *
+     * The conclusion survives the correction and the number that changed is the size of the prize:
+     * 3.10's composite is running and hair is in its G-buffer, but the term it computes on a
+     * `#150F17` diffuse albedo with a dielectric F0 of 0.04 is a tenth of what the groom emits and
+     * Karis' slide-47 path is genuinely MISSING energy rather than duplicating energy already there.
      *
      * Karis' own note on slide 47 is that bent cones would replace his fudge; 3.10 already built
      * bent cones, so the right version of this is better than UE4's and it is a `render/**` change,
@@ -1195,7 +1228,16 @@ export async function createHairMaterial( options = {} ) {
             depth: depthMap !== null,
             alpha: options.alphaMap != null
         },
-        alphaToCoverage: material.alphaToCoverage
+        alphaToCoverage: material.alphaToCoverage,
+
+        // REQ-066. `HAIR_SHADOW_ALPHA_CUTOFF` is the single number deciding whether the groom casts
+        // strand shadows or opaque card slabs, and the census already carries every other knob that
+        // moves the picture — so two plates taken a round apart at different cutoffs used to be
+        // indistinguishable from their manifests. `configureHairMaterial` runs AFTER this function
+        // and writes the uniform onto the material; `describe` is a closure over `material`, so it
+        // reads the live value at call time. The `?? null` is load-bearing: a page that never calls
+        // `configureHairMaterial` must report null rather than throw.
+        shadowAlphaCutoff: material.hairShadowCutoff?.value ?? null
     } );
 
     return material;

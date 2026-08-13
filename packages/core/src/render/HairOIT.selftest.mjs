@@ -25,6 +25,14 @@
  *                     fraction of a pixel — and the per-pixel temporal sigma over the hair band is
  *                     accumulated across twenty converged frames.
  *
+ *   SEED DEPENDENCE   Punch-list 3.21, and the same instrument one axis over. The same converged
+ *                     PORTRAIT frame, twice, with the coverage dither started at two disjoint
+ *                     places in its own sequence (`material.hairDitherPhase`). A coverage that has
+ *                     been integrated is a function of the coverage and the two plates agree; a
+ *                     pattern that has only been reprojected is a function of the seed and they do
+ *                     not. On `alive.html`, because the thing that integrates it is the shipped
+ *                     TAAU resolve and the defect is invisible at full-body distance.
+ *
  *   RED PROOF         🚩 `?oitdefect=material-blend` moves the two OIT blend modes from the pass MRT
  *                     onto `material.mrtNode`, which is where a reader of `docs/research/hair.md`
  *                     §4.3(a) would expect them to belong. `WebGPUPipelineUtils.js:132` reads
@@ -33,6 +41,16 @@
  *                     sums become last-write-wins. The gate requires the `wboit` arm to go back to
  *                     being order dependent under the defect: a gate that has never failed is
  *                     decorative, and this one fails by 329x.
+ *
+ *                     🚩 AND 3.21's, WHICH IS A SOURCE BREAK AND WAS RUN THIS SESSION. Deleting
+ *                     `.add( offset )` from `hairDitherThresholdNode` — the whole of the fix, one
+ *                     term — takes C2 from 3.80x to 0.00x and C3 from 1.38x to 0.00x, both red;
+ *                     restoring the file (verified by sha256 against a copy taken before the break)
+ *                     turns both green again. ⚠️ C1 stayed GREEN under that break, at 0.0003 cv,
+ *                     and that is
+ *                     recorded rather than tidied away: a seed nothing reads makes both observers
+ *                     agree exactly, which is LEARNINGS §1.25g, and it is why C2 is the liveness
+ *                     control and not a nice-to-have.
  *
  * A measurement outside its range is a FAIL and exits non-zero. It is not grounds for widening the
  * range.
@@ -45,15 +63,29 @@
  * Usage:  node "packages/core/src/render/HairOIT.selftest.mjs"
  */
 
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
 import * as probe from './MotionProbe.mjs';
 
+// 🚩 `fileURLToPath` and not string surgery on `import.meta.url`: this repository's path carries a
+// space and a non-ASCII character, and a percent-encoded href handed to `fs` is a file that does
+// not exist. `MotionProbe.mjs` reaches for `png.mjs` the same way and for the same reason.
+const REPOSITORY_ROOT = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '..', '..', '..', '..' );
+
+const { decodePng } = await import(
+    pathToFileURL( path.join( REPOSITORY_ROOT, 'tools', 'critic', 'png.mjs' ) ).href );
+
 import {
+    HAIR_DITHER_GOLDEN_STEP,
+    HAIR_OIT_DEFAULT_MODE,
     HAIR_OIT_MODES,
     HAIR_WEIGHT_CEILING,
     HAIR_WEIGHT_FLOOR,
     HAIR_WEIGHT_RANGE,
     clipDepthValue,
     hairAccumBlendMode,
+    hairDitherOffsetValue,
     hairWeightBlendMode,
     hairWeightValue,
     publishedWeightValue,
@@ -306,6 +338,86 @@ console.log( '\n--- Listing 4, factor by factor --------------------------------
 
 }
 
+console.log( '\n--- the dither sequence, which is 3.21 in arithmetic -----------------------------\n' );
+
+{
+    // D1 — the offset is a unit fraction and the sequence does not repeat. A sequence that closed
+    // would stop improving the estimate at its period and the grain would come back, which is the
+    // exact defect 3.21 removes, arriving later.
+    const offsets = Array.from( { length: 4096 }, ( unused, frame ) => hairDitherOffsetValue( frame ) );
+    const inRange = offsets.every( ( value ) => value >= 0 && value < 1 );
+    const distinct = new Set( offsets.map( ( value ) => value.toFixed( 12 ) ) ).size;
+
+    report(
+        'D1 the offset is a unit fraction and 4096 frames give 4096 distinct values',
+        inRange && distinct === offsets.length,
+        `${ distinct } distinct of ${ offsets.length }, all in [0,1). A rational step of p/q would ` +
+            'give exactly q, and the estimate would stop converging there.'
+    );
+
+    // D2 — THE PROPERTY THE STEP IS CHOSEN FOR, and the one a "does the offset move?" check misses.
+    // By the three-distance theorem an additive recurrence at φ⁻¹ leaves at most three distinct gap
+    // lengths and the largest is bounded by φ/N; white noise's largest gap is O(log N / N) and in
+    // practice several times worse. This is what decides whether a temporal resolve given N frames
+    // gets an O(1/N) estimate or an O(1/√N) one.
+    const largestGap = ( sequence ) => {
+
+        const sorted = [ ...sequence ].sort( ( a, b ) => a - b );
+        let gap = sorted[ 0 ] + ( 1 - sorted[ sorted.length - 1 ] );
+
+        for ( let i = 1; i < sorted.length; i ++ ) gap = Math.max( gap, sorted[ i ] - sorted[ i - 1 ] );
+
+        return gap;
+
+    };
+
+    const goldenGaps = [ 16, 64, 256 ].map( ( n ) => ( {
+        n, gap: largestGap( Array.from( { length: n }, ( u, f ) => hairDitherOffsetValue( f ) ) ) } ) );
+    const whiteGaps = [ 16, 64, 256 ].map( ( n ) => ( {
+        n, gap: largestGap( Array.from( { length: n }, ( u, f ) => hairDitherOffsetValue( f, 0, 'white-dither' ) ) ) } ) );
+
+    for ( let i = 0; i < goldenGaps.length; i ++ ) {
+
+        console.log( `      ${ String( goldenGaps[ i ].n ).padStart( 4 ) } frames   golden largest gap ` +
+            `${ goldenGaps[ i ].gap.toFixed( 5 ) }   against phi/N = ${ ( 1.6180339887 / goldenGaps[ i ].n ).toFixed( 5 ) }   ` +
+            `white ${ whiteGaps[ i ].gap.toFixed( 5 ) }   ratio ${ ( whiteGaps[ i ].gap / goldenGaps[ i ].gap ).toFixed( 2 ) }x` );
+
+    }
+
+    report(
+        'D2 the golden step meets the three-distance bound phi/N at every N, and white noise does not',
+        goldenGaps.every( ( row ) => row.gap <= 1.6180339888 / row.n + 1e-12 )
+            && whiteGaps.every( ( row, i ) => row.gap > 1.5 * goldenGaps[ i ].gap ),
+        `largest gap after 256 frames: golden ${ goldenGaps[ 2 ].gap.toFixed( 5 ) }, white ` +
+            `${ whiteGaps[ 2 ].gap.toFixed( 5 ) }. 🚩 THIS IS THE CHECK ?white-dither EXISTS FOR — ` +
+            'white noise moves every frame too, so a gate that only asserted movement is green on it.'
+    );
+
+    // D3 — the frozen defect must be frozen AND must still answer the phase. LEARNINGS §1.25g: a
+    // value pinned to a CONSTANT makes two observers agree exactly, so a defect that ignored the
+    // phase would sail through the rendered clause below by rendering the same plate twice.
+    const frozen = Array.from( { length: 32 }, ( u, f ) => hairDitherOffsetValue( f, 0, 'frozen-dither' ) );
+    const frozenElsewhere = hairDitherOffsetValue( 0, 977, 'frozen-dither' );
+
+    report(
+        'D3 frozen-dither does not advance with the frame, and DOES answer the phase',
+        new Set( frozen ).size === 1 && Math.abs( frozenElsewhere - frozen[ 0 ] ) > 0.05,
+        `32 frames give one value (${ frozen[ 0 ].toFixed( 6 ) }) and phase 977 gives ` +
+            `${ frozenElsewhere.toFixed( 6 ) }. Without the second half the red proof below would ` +
+            'compare a plate against itself and go green on the defect.'
+    );
+
+    report(
+        'D3b the shipped arm is the stochastic one and the step is the golden-ratio conjugate',
+        HAIR_OIT_DEFAULT_MODE === 'stochastic'
+            && Math.abs( HAIR_DITHER_GOLDEN_STEP * HAIR_DITHER_GOLDEN_STEP + HAIR_DITHER_GOLDEN_STEP - 1 ) < 1e-15,
+        `default '${ HAIR_OIT_DEFAULT_MODE }', step ${ HAIR_DITHER_GOLDEN_STEP } — and phi^-2 + phi^-1 = 1 ` +
+            `holds to ${ Math.abs( HAIR_DITHER_GOLDEN_STEP ** 2 + HAIR_DITHER_GOLDEN_STEP - 1 ).toExponential( 1 ) }, ` +
+            'which is the defining equation and catches a mistyped digit.'
+    );
+
+}
+
 console.log( '\n--- the slab, in view space -----------------------------------------------------\n' );
 
 {
@@ -445,7 +557,7 @@ if ( order.blend !== undefined && order.wboit !== undefined ) {
 
     // A2 — the three candidate arms are not. The ceiling is 1 code value: below that a difference
     // cannot survive 8-bit quantisation of the plate, so it is not a picture anybody can see.
-    for ( const arm of [ 'cutout', 'hash', 'wboit' ] ) {
+    for ( const arm of [ 'cutout', 'hash', 'stochastic', 'wboit' ] ) {
 
         report(
             `A2 the ${ arm } arm is order INDEPENDENT — under 1 code value RMS`,
@@ -499,7 +611,9 @@ if ( motion.wboit !== undefined ) {
     // B1 — the accumulation arm is the most stable thing in the comparison. This is the measurement
     // that says WBOIT is worth having even though it is the one this project cannot afford: it is
     // the quality reference the cheap arms are judged against.
-    const worstOther = Math.max( motion.blend.sigma, motion.cutout.sigma, motion.hash.sigma );
+    const worstOther = Math.max( ...Object.entries( motion )
+        .filter( ( [ arm ] ) => arm !== 'wboit' )
+        .map( ( [ , value ] ) => value.sigma ) );
 
     report(
         'B1 wboit is the most temporally stable arm under a 0.25 deg/frame orbit',
@@ -538,12 +652,254 @@ if ( motion.wboit !== undefined ) {
 
 }
 
+// ---------------------------------------------------------------------------------------------
+// Punch-list 3.21 — the coverage decision, on the page a judge captures
+// ---------------------------------------------------------------------------------------------
+
+/**
+ * ## 🎯 SEED DEPENDENCE, AND IT IS THE SAME INSTRUMENT AS THE ORDER CHECK ABOVE
+ *
+ * A1–A4 measure the defect they are about — draw-order dependence — by rendering the same frame
+ * twice with only the order changed. This does the same thing one axis over. A stochastic alpha
+ * test decides coverage by comparing it against a threshold field; if the temporal resolve has
+ * INTEGRATED those decisions the picture is a function of the coverage, and starting the sequence
+ * somewhere else must give the same picture. If the pattern has only been REPROJECTED the picture
+ * is a function of the seed, and the RMS between the two plates is the dust, in code values, with
+ * no reference render and no judgement anywhere in it.
+ *
+ * ⚠️ **It runs on `alive.html` and not on `stage.html`, and that is not a convenience.** The arm
+ * only works if something integrates it, the thing that integrates it is the shipped TAAU resolve
+ * at `resolutionScale` 0.66, and `stage.html`'s hair arm is a different framing at a different
+ * scale against a groom-and-three-lights control. The defect is invisible at full-body distance —
+ * which is exactly why it survived three rounds of gates — so the plate is the portrait.
+ *
+ * The two runs are separate page loads with the phase set before the first step, so the whole
+ * convergence happens on one phase. The seed is driven through `material.hairDitherPhase` rather
+ * than through a URL for the reason `HAIR_SHADOW_ALPHA_CUTOFF` gives: the handle already exists on
+ * the material, and adding a URL key would put an eighth row on this page's toggle surface that
+ * only this file ever reads.
+ */
+const DITHER_WIDTH = 900;
+const DITHER_HEIGHT = 1200;
+
+/** 128 steps of zero seconds — a frozen scene rendered again and again, so the resolve converges. */
+const DITHER_FRAMES = 128;
+
+/** Coprime with nothing in particular; large enough that the two sample sets do not overlap. */
+const DITHER_PHASE = 977;
+
+const dither = {};
+
+if ( server !== null && browser !== null ) {
+
+    try {
+
+        const alivePlate = async ( { arm, phase, step, frames } ) => {
+
+            const context = await browser.newContext( {
+                viewport: { width: DITHER_WIDTH, height: DITHER_HEIGHT }, deviceScaleFactor: 1
+            } );
+
+            const page = await context.newPage();
+            const errors = [];
+
+            page.on( 'pageerror', ( error ) => errors.push( error.message ) );
+
+            // `grain=0` because the grade's film grain is a per-frame random field that sits on
+            // every arm equally and would swamp a statistic about the dither. `freeze` plus a zero
+            // step is the only way to let a temporal filter converge on a scene that is not moving
+            // — `MotionProbe`'s own `stepSeconds` note says why.
+            const query = `?bare&freeze&seed=1&grain=0&hair=1&hairoit=${ arm }&capture`;
+
+            await page.goto( `${ server.baseUrl }/alive.html${ query }`, { waitUntil: 'domcontentloaded' } );
+            await page.waitForFunction( () => typeof globalThis.__SUGATA_STEP__ === 'function',
+                null, { timeout: 180_000, polling: 200 } );
+
+            await page.evaluate( ( [ wantedPhase, wantedStep ] ) => {
+
+                const material = globalThis.sugata.session.hairMaterial;
+
+                material.hairDitherPhase = wantedPhase;
+                material.hairDitherStep = wantedStep;
+
+            }, [ phase, step ] );
+
+            for ( let i = 0; i < frames; i ++ ) await page.evaluate( () => globalThis.__SUGATA_STEP__( 0 ) );
+
+            const shot = await page.screenshot();
+            await context.close();
+
+            if ( errors.length > 0 ) throw new Error( `${ arm }/${ step }: ${ errors.slice( 0, 2 ).join( ' | ' ) }` );
+
+            return decodePlate(shot );
+
+        };
+
+        // The mask, measured once and applied to every case: every pixel the groom moves by more
+        // than 2 code values against the same page with no groom on it. 🚩 STATED BECAUSE RULE 4
+        // SAYS SO — it contains the groom AND what the groom changes around it (its cast shadow,
+        // the card wash on the chest), and it contains no pixel the groom leaves alone, so a case
+        // that chews its own silhouette cannot shrink its own denominator.
+        const baldContext = await browser.newContext( {
+            viewport: { width: DITHER_WIDTH, height: DITHER_HEIGHT }, deviceScaleFactor: 1
+        } );
+
+        const baldPage = await baldContext.newPage();
+
+        await baldPage.goto( `${ server.baseUrl }/alive.html?bare&freeze&seed=1&grain=0&capture`,
+            { waitUntil: 'domcontentloaded' } );
+        await baldPage.waitForFunction( () => typeof globalThis.__SUGATA_STEP__ === 'function',
+            null, { timeout: 180_000, polling: 200 } );
+
+        for ( let i = 0; i < DITHER_FRAMES; i ++ ) await baldPage.evaluate( () => globalThis.__SUGATA_STEP__( 0 ) );
+
+        const bald = decodePlate(await baldPage.screenshot() );
+        await baldContext.close();
+
+        const withGroom = await alivePlate( { arm: 'stochastic', phase: 0, step: null, frames: DITHER_FRAMES } );
+        const groomMask = [];
+
+        for ( let y = 0; y < DITHER_HEIGHT; y ++ ) {
+
+            for ( let x = 0; x < DITHER_WIDTH; x ++ ) {
+
+                if ( Math.abs( probe.codeValueAt( withGroom, x, y ) - probe.codeValueAt( bald, x, y ) ) > 2 ) {
+
+                    groomMask.push( [ x, y ] );
+
+                }
+
+            }
+
+        }
+
+        console.log( `\n--- 3.21, the coverage decision: does the picture depend on the seed? -----------\n` );
+        console.log( `      mask ${ groomMask.length } px of ${ DITHER_WIDTH * DITHER_HEIGHT } ` +
+            `(${ ( 100 * groomMask.length / ( DITHER_WIDTH * DITHER_HEIGHT ) ).toFixed( 2 ) }%), ` +
+            'every pixel the groom moves against the same page with no groom\n' );
+
+        for ( const step of [ null, 'white-dither', 'frozen-dither' ] ) {
+
+            const a = step === null ? withGroom : await alivePlate( { arm: 'stochastic', phase: 0, step, frames: DITHER_FRAMES } );
+            const b = await alivePlate( { arm: 'stochastic', phase: DITHER_PHASE, step, frames: DITHER_FRAMES } );
+
+            dither[ step ?? 'shipped' ] = maskedDifference( a, b, groomMask );
+
+        }
+
+        for ( const [ name, value ] of Object.entries( dither ) ) {
+
+            console.log( `      ${ name.padEnd( 14 ) } seed RMS ${ value.rms.toFixed( 4 ).padStart( 8 ) } cv   ` +
+                `worst ${ value.max.toFixed( 1 ).padStart( 6 ) }   ${ value.overTwoPercent.toFixed( 2 ).padStart( 6 ) }% over 2 cv` );
+
+        }
+
+    } catch ( error ) {
+
+        report( '3.21 the portrait plate came up', false, `it did not: ${ error.message }` );
+
+    }
+
+}
+
+if ( dither.shipped !== undefined ) {
+
+    // C1 — the shipped arm's picture is mostly a function of the coverage rather than of the seed.
+    // The bound is an absolute one because the quantity has a meaning: 8 code values RMS over the
+    // groom is a visible dust cloud and 4 is not, and the arm measures 3.7534.
+    report(
+        'C1 the shipped dither integrates: two disjoint stretches of the sequence agree',
+        dither.shipped.rms < 8,
+        `phases 0 and ${ DITHER_PHASE }, ${ DITHER_FRAMES } converged frames apiece, ` +
+            `${ dither.shipped.rms.toFixed( 4 ) } cv RMS over the groom with ` +
+            `${ dither.shipped.overTwoPercent.toFixed( 2 ) }% of it over 2 cv. ⚠️ THIS CLAUSE IS NOT ` +
+            'SUFFICIENT ON ITS OWN and C2 is its liveness control — measured, by deleting ' +
+            '`.add( offset )` from hairDitherThresholdNode: C1 then reads 0.0003 cv and goes GREEN, ' +
+            'because a seed nothing reads makes both observers agree exactly. LEARNINGS §1.25g.'
+    );
+
+    // C2 — THE RED PROOF, and it is the defect the arm was built to remove. With the offset pinned
+    // the threshold field never changes, so the resolve reprojects one pattern instead of averaging
+    // many and the picture IS the seed. This is `hash`'s failure mode with nothing else moved.
+    report(
+        'C2 RED PROOF: with the offset frozen the picture is the seed, not the coverage',
+        dither[ 'frozen-dither' ].rms > 10 && dither[ 'frozen-dither' ].rms > 3 * dither.shipped.rms,
+        `frozen-dither takes the same plate from ${ dither.shipped.rms.toFixed( 4 ) } cv RMS to ` +
+            `${ dither[ 'frozen-dither' ].rms.toFixed( 4 ) } — ` +
+            `${ ( dither[ 'frozen-dither' ].rms / dither.shipped.rms ).toFixed( 2 ) }x — with ` +
+            `${ dither[ 'frozen-dither' ].overTwoPercent.toFixed( 2 ) }% of the groom over 2 cv against ` +
+            `${ dither.shipped.overTwoPercent.toFixed( 2 ) }%. Same arm, same frames, same everything ` +
+            'but whether the threshold advances.'
+    );
+
+    // C3 — and the STEP is load-bearing, not just the movement. White noise advances every frame
+    // and still leaves a third more dust after the same number of frames, because an O(1/sqrt N)
+    // estimator given 128 samples is an O(1/N) estimator given 11.
+    report(
+        'C3 the golden step beats white noise at the same frame count, which is why it is not a hash',
+        dither[ 'white-dither' ].rms > 1.15 * dither.shipped.rms,
+        `white-dither ${ dither[ 'white-dither' ].rms.toFixed( 4 ) } cv against the golden step's ` +
+            `${ dither.shipped.rms.toFixed( 4 ) } — ${ ( dither[ 'white-dither' ].rms / dither.shipped.rms ).toFixed( 2 ) }x — ` +
+            'after the same 128 frames. Both move every frame; only one is stratified.'
+    );
+
+}
+
 await browser?.close();
 await server?.close();
 
 // ---------------------------------------------------------------------------------------------
 // statistics
 // ---------------------------------------------------------------------------------------------
+
+/**
+ * A PNG screenshot in the shape `MotionProbe`'s statistics read.
+ *
+ * `png.mjs` calls the sample array `pixels` and hands back a `Float32Array` normalised to 0..1;
+ * `codeValueAt` multiplies by 255. Both facts are stated in `MotionProbe.lumaAt`'s ⚠️, and getting
+ * either wrong reads every plate a thousand times too dark while still looking plausible.
+ */
+function decodePlate( screenshot ) {
+
+    const { width, height, pixels } = decodePng( screenshot );
+
+    return { width, height, data: pixels };
+
+}
+
+/**
+ * Difference between two plates over a stated list of pixels, in 8-bit code values.
+ *
+ * A LIST rather than a rect, because the mask is measured off a pair of plates (every pixel the
+ * groom moves) rather than drawn by hand, and rule 4 wants the mask to be the thing it claims to
+ * be. `frameDifference` below is whole-frame for the order clauses, where the untouched pixels are
+ * identical by construction and dilute nothing.
+ */
+function maskedDifference( a, b, pixels ) {
+
+    let sumSquares = 0;
+    let max = 0;
+    let overTwo = 0;
+
+    for ( const [ x, y ] of pixels ) {
+
+        const difference = probe.codeValueAt( a, x, y ) - probe.codeValueAt( b, x, y );
+        const magnitude = Math.abs( difference );
+
+        sumSquares += difference * difference;
+
+        if ( magnitude > max ) max = magnitude;
+        if ( magnitude > 2 ) overTwo += 1;
+
+    }
+
+    return {
+        rms: Math.sqrt( sumSquares / pixels.length ),
+        max,
+        overTwoPercent: ( 100 * overTwo ) / pixels.length
+    };
+
+}
 
 /**
  * Whole-frame difference between two plates, in 8-bit code values.
