@@ -335,6 +335,11 @@ import {
     configureHairMaterial,
     viewDepthExtent
 } from '../../core/src/render/HairOIT.js';
+import {
+    HAIR_VELOCITY_DEFAULT_MODE,
+    HAIR_VELOCITY_MODES,
+    installHairVelocity
+} from '../../core/src/render/HairVelocity.js';
 import { Figure } from '../../core/src/figure/Figure.js';
 import { Identity } from '../../core/src/figure/Identity.js';
 import { RestPose } from '../../core/src/figure/RestPose.js';
@@ -2008,11 +2013,25 @@ function readHairRequest( query ) {
 
     }
 
+    // 3.22's A/B. `off` is three's behaviour — the solver overwrites `positionLocal` and nothing
+    // assigns `positionPrevious`, so the groom reports its displacement from the skinned rest pose
+    // as a per-frame velocity — and it is the control every number in `render/HairVelocity.js`'s
+    // header is stated against. It names the DEFECT side for `?hairmotion`'s reason: the plate a
+    // judge captures should be the shipped one.
+    const velocity = query.get( 'hairvel' ) ?? HAIR_VELOCITY_DEFAULT_MODE;
+
+    if ( HAIR_VELOCITY_MODES.includes( velocity ) === false ) {
+
+        throw new Error( `alive: ?hairvel must be one of ${ HAIR_VELOCITY_MODES.join( ', ' ) } — got '${ velocity }'.` );
+
+    }
+
     return {
         // The geometry stays, the shader goes. Holding the groom constant is what makes this the A
         // side of 3.5 rather than the A side of 3.6.
         bsdf: query.get( 'hairbsdf' ) !== '0',
         motion: motion === '1',
+        velocity,
         lobes,
         oit,
         scatter: query.get( 'hairscatter' ) === '0' ? 0 : 1,
@@ -2540,6 +2559,15 @@ async function attachHairDynamics( session, stage, meshes, material ) {
     // 326-vertex scalp cap shells — which are head, not hair — keep their skinning. The choice is
     // one `select` on `vertexIndex` inside `HairDynamics`, not a second dispatch here.
     material.positionNode = dynamics.positionNode;
+
+    // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT, which for two rounds did not. Overwriting
+    // `positionLocal` without also assigning `positionPrevious` does not leave the groom with no
+    // velocity — it leaves it reporting the whole displacement from its skinned rest pose as this
+    // frame's motion, measured at p90 259.9 px/frame against `TAAUNode.maxVelocityLength` 128, on a
+    // groom that is geometrically static. `render/HairVelocity.js` carries the measurement and the
+    // six knobs that exclude the resolve. It is a `render/**` repair rather than a solver one for
+    // the same reason `MorphVelocity.js` is: the defect is in what the velocity buffer contains.
+    installHairVelocity( material, session.hairRequest?.velocity ?? HAIR_VELOCITY_DEFAULT_MODE );
 
     session.hairDynamics = dynamics;
 

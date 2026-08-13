@@ -810,6 +810,25 @@ const UNGATED = {
         'What is asserted HERE is that the wiring is present and being stepped on the plate ?hair=1 ' +
         'produces, and that ?hairmotion=0 removes it.' },
 
+    // 🚩 THE NINTH SUB-KEY, AND IT IS `?morphvel`'S SHAPE ONE SUBSYSTEM OVER. Punch-list 3.22.
+    //
+    // `?hairvel=off` is three r185 unpatched for the solver path: `material.positionNode` overwrites
+    // `positionLocal` and nothing assigns `positionPrevious`, so the groom reports its whole
+    // displacement from the skinned rest pose as this frame's motion. It cannot be a TOGGLES row for
+    // the seven sub-keys' reason — no groom in the baseline — and it could not be one anyway, for
+    // `?morphvel`'s: the key writes into the G-buffer's `velocity` attachment, which no entity
+    // fingerprint reads and which is not in the picture at all until a temporal resolve reprojects
+    // through it. On a still plate it moves 6,272 px of 1,080,000 by at most 5 code values.
+    hairvel: { readHere: true, why:
+        'PUNCH-LIST 3.22. Whether the groom assigns positionPrevious to the position the DFTL ' +
+        'solver just wrote (hold, shipped) or leaves three\'s default in place (off), which reports ' +
+        'the displacement from the skinned rest pose as a per-frame velocity — measured at p90 ' +
+        '259.9 px/frame against TAAUNode.maxVelocityLength 128. Not a shading switch: it writes the ' +
+        'G-buffer velocity attachment, which is not in the picture until the temporal resolve ' +
+        'reprojects through it, so an entity allowlist would be green either way. Inert without ' +
+        '?hair. Gated by packages/core/src/render/HairVelocity.selftest.mjs, which reads the ' +
+        'attachment back rather than the frame.' },
+
     // 🚩 AN INSTRUMENT, NOT A SWITCH, AND THE ONE KEY ON THIS PAGE THAT INSTRUMENT 5 CANNOT SEE AT
     // ALL. `?gputime=1` asks the ADAPTER for the `timestamp-query` feature at device creation. That
     // request lands on `renderer.backend.trackTimestamp` — measured false -> true — and `backend`

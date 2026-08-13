@@ -2509,3 +2509,46 @@ evidence:    `tools/run-selftests.sh` collects `find . -name "*.selftest.mjs"` a
 anchor:      tools/run-selftests.sh /run_gate "tools\/figure-pipeline\/verify_glb.mjs"/
 verify:      tools/run-selftests.sh /hair_opacity/
 ```
+
+## REQ-077 — the groom can say where it IS and not where it WAS, so its motion vector is a pose error
+
+```request
+id:          REQ-077
+status:      OPEN
+target:      packages/core/src/motion/HairDynamics.js
+filed-by:    the R22 hair-dither agent
+filed-round: R12
+filed-at:    b0c58a1
+first-filed: b0c58a1, 2026-08-13
+change:      Keep last frame's card vertices and expose them, so `render/HairVelocity.js` can assign
+             the REAL previous position instead of the current one. Concretely: a second
+             `instancedArray( groom.cardVertexCount, 'vec3' )` beside `cardVertexBuffer`, a copy of
+             the old value at the TOP of `skinKernel` before the two `assign`s at :863-864 (the
+             kernel already visits every card vertex, so this is a read and a write on a buffer that
+             is already resident, not a new dispatch), and a `positionPreviousNode` on the returned
+             object built with the same `select( vertexIndex.greaterThanEqual( … ) )` shape as
+             `positionNode` — falling through to `positionLocal` for the two scalp-cap shells, whose
+             skinning already assigns their own previous position correctly.
+             `HAIR_VELOCITY_MODES` then gains `exact` and the shipped default moves to it.
+evidence:    Measured this session by reading the G-buffer's `velocity` attachment (RG16F, decoded
+             from half-float bits) back on the CPU, `alive.html?bare&freeze&seed=1&grain=0&hair=1&
+             capture` at 900x1200, 96 steps, the figure yawed 35 degrees so the solver has actually
+             displaced the groom. `material.positionNode` overwrites `positionLocal` and nothing
+             assigns `positionPrevious`, so `VelocityNode` differences the solver's answer against
+             the SKINNED REST POSE and the groom reports **p50 68.3, p90 258.0, max 299.2 px/frame**
+             — against `TAAUNode.maxVelocityLength` 128 — on geometry that is static to within the
+             resolve's own noise floor (`?hairoit=blend` reads a temporal sd of 0.8818 cv on the same
+             plate). At rest the two agree and the buffer reads 0.0003 px/frame, which is why every
+             frozen gate plate in the repository was green while the shipped page threw its whole
+             40-frame accumulator away on every hair pixel of any turn.
+             `render/HairVelocity.js` lands the half of the repair that a `render/**` file can reach:
+             `positionPrevious = positionLocal`, so the groom reports NO velocity of its own. That
+             takes the four-consecutive-frame temporal sd over the hair band from 5.1757 cv to
+             0.6106 cv (8.48x) and is gated with a red proof by
+             `packages/core/src/render/HairVelocity.selftest.mjs`, 5/5. What it CANNOT do is
+             reproject a swinging lock, because the previous position it assigns is the current one.
+             This request is the difference between `MorphVelocity.js`'s `hold` arm and its `exact`
+             one, and that file ships both for exactly this reason.
+anchor:      packages/core/src/motion/HairDynamics.js /const cardVertexBuffer = instancedArray\(/
+verify:      packages/core/src/motion/HairDynamics.js /positionPreviousNode/
+```

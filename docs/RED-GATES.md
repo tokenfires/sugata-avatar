@@ -70,6 +70,39 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `tools/figure-pipeline/verify_glb.mjs` — RED BY ARRIVAL, and the clause is NEW this round:
+  `locks not a shell`, red on **all five bakes at 3.12, 3.19, 3.44, 3.50 and 4.59 mm of coherent
+  lock relief against a 5.0 mm floor.** It is the geometry half of round 20's conclusion given a
+  number, and R22 could not clear it — nor could any groom R22 built. Every other clause in the
+  file is green.
+  🎯 **WHAT IT MEASURES AND WHY THE CLAUSE NEXT DOOR COULD NOT.** `cards gather` is one scalar over
+  the whole tip set, so a shell squeezed 15% and sixteen real locks are the same input to it — it
+  reads 0.796–0.858 here and is green. `hair_locks.mjs` measures the outer envelope's azimuthal
+  corrugation, detrended of the skull's own harmonics 0–3, and splits it into the part that runs
+  down the head as a RIDGE and the part that is per-card scatter, by correlating vertically adjacent
+  height bands. The operator is pinned against a cylinder, an oval, a lobed shell, a lobed shell
+  with flyaways, a ring with a quarter missing and a lobed shell buried in scatter of equal variance
+  — 38 assertions in `hair_locks.selftest.mjs`, all arithmetic rather than tolerance.
+  🚩 **THE REASON IT IS RED IS A MEASUREMENT, NOT A MISSING FEATURE, AND IT IS THE ROUND'S RESULT.**
+  This groom's outer surface is **10.03–11.69 mm of radius between its p50 and its p85 inside a
+  single 3°×30 mm bin** — an eleven-millimetre-thick cloud of cards — and a lock has to be louder than that
+  before a viewer can see a groove between two of them. Swept by building it, a PURE sixteen-lobe
+  corrugation at full amplitude on every non-root layer, all three on a 404-card variant: none reads
+  3.11 mm of ridge, ±25 mm reads 4.13, ±45 mm reads 6.22. **The floor is reachable and the last of those is the proof — it is the
+  gate's green side, run on a real artefact — but ±45 mm is a 90 mm peak-to-trough on a head 142 mm
+  across, it FAILS `cards gather` at 0.981, and rendered at portrait and three-quarter it reads as
+  storm damage.** So the lever is not the relief. It is the scatter, and thinning the shell is what
+  the next round has to do. `tools/figure-pipeline/README.md` carries the round that chased it,
+  including the 404-card variant that improved every transmittance clause and took
+  `HairDynamics.selftest.mjs` from 32/32 to 30/32 — built, measured, looked at and PUT BACK, so the
+  groom at HEAD is byte-identical to the one R21 shipped (`g050.glb` sha256 `5de7300e…`).
+  ⚠️ Bound pinned by mutation, file restored byte-identically afterwards at sha256 `9700123a…`:
+  on the 404-card variant, **green at a floor of 3.10 on all five, first red at 3.12, all five red
+  at 4.46**; on the shipped groom the same sweep runs 3.12 to 4.59. The shipped 5.0 is `7.29/√2` — the shipped groom's own envelope relief at the correlation where ridge and scatter
+  are equal — rather than a number chosen to sit above the measurements.
+  **NEXT AGENT:** do not lower this floor to clear it. Re-deriving a threshold to make its own gate
+  green is what `hair_alpha` below is being carried for. Owned by `tools/figure-pipeline/**`.
+
 - `tools/figure-pipeline/hair_alpha.selftest.mjs` — RED BY CORRECTION, 18 of 19, and the sheet did
   not move. `hair_alpha.SAMPLED_LOD` was 1.492 for two rounds, taken from a Jacobian `hair_lod.mjs`
   measured in **CSS pixels** while the page ships TAAU at `resolutionScale` 0.66 — so the gate was

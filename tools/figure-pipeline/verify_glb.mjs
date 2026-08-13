@@ -46,6 +46,10 @@ const {
   scalpTransmittance, uvExtentsPerComponent,
 } = await import("./hair_geometry.mjs");
 
+// The lock-structure operator, validated against a cylinder, an oval, a lobed shell and a lobed
+// shell buried in scatter before it is pointed at anything. See `hair_locks.selftest.mjs`.
+const { measureGroom: measureLockStructure, envelopeProfile } = await import("./hair_locks.mjs");
+
 const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
 const { decodePng } = await import("../critic/png.mjs");
 
@@ -1370,6 +1374,35 @@ const MINIMUM_HAIR_CARDS = 100;
  */
 const MAX_TIP_SPREAD_RATIO = 0.95;
 
+/**
+ * 🎯 **AND THE RATIO ABOVE READS THE SAME FOR SIXTEEN LOCKS AND FOR A SHELL SQUEEZED 15%, WHICH IS
+ * WHY THIS CLAUSE EXISTS.** `cardGathering` is a single scalar over the whole tip set: uniform
+ * compression and clustering are the same input to it. It turned a mop into a haircut and it cannot
+ * see the next defect, which is that the haircut is a SHELL. Standing rule 4.
+ *
+ * `hair_locks.mjs` measures the property a viewer actually reads — the outer envelope's azimuthal
+ * corrugation, detrended of the skull's own harmonics 0–3 — and splits it into the part that is a
+ * RIDGE running down the head and the part that is per-card scatter, by correlating vertically
+ * adjacent height bands. `coherentReliefMm` is the ridge's own RMS, and it is invariant to how loud
+ * the scatter is: the operator's selftest buries a 4 mm ridge in scatter of equal variance and
+ * reads the ridge back to 0.25 mm.
+ *
+ * 🚩 **THE FLOOR IS 5.0 mm BECAUSE THAT IS WHERE THE RIDGE STOPS LOSING TO THE SCATTER, MEASURED ON
+ * THIS GROOM RATHER THAN CHOSEN.** The shipped 462-card groom's total envelope relief is 7.29 mm
+ * RMS; ridge and scatter are equal when the correlation is ½, which puts the ridge at
+ * 7.29/√2 = 5.15 mm. Below that a viewer is looking at more noise than lock, which is the
+ * *"unbroken flat wall"* every critic in this phase has described.
+ *
+ * ⚠️ **IT IS RED AT HEAD ON ALL FIVE BAKES AND THE ROUND THAT WROTE IT COULD NOT CLEAR IT.** See
+ * `docs/RED-GATES.md` for the measurements and `tools/figure-pipeline/README.md` for the round that
+ * chased it: the groom's own surface is 10.03–11.69 mm thick in radius inside a single 3°×30 mm bin,
+ * so a lock relief small enough to look like hair is smaller than the shell it has to corrugate.
+ * Measured response of a PURE sixteen-lobe corrugation applied to every layer, one build each: none
+ * 3.11 mm, ±25 mm 4.13 mm, ±45 mm 6.22 mm. The floor is reachable — the last of those clears it —
+ * and not at any amplitude that is a hairstyle. The fix is the scatter, not the relief.
+ */
+const MIN_COHERENT_LOCK_RELIEF_MM = 5.0;
+
 /** Displacement at which an ARKit target counts as having moved a vertex, for the scalp target. */
 const FACE_MOTION_FLOOR_M = 0.00015;
 
@@ -1983,6 +2016,7 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
 
   failures.push(...reportHairComponents(groom, mesh));
   failures.push(...reportCardGathering(groom, mesh));
+  failures.push(...reportLockSeparation(groom, mesh));
   failures.push(...reportHairUvs(groom, mesh, hair));
   failures.push(...reportCardBorders(groom, glb, mesh));
   failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
@@ -2057,6 +2091,52 @@ function reportCardGathering(groom, mesh) {
   return [`${groom.id}'s card tips sit ${gathering.ratio.toFixed(3)}x as far apart as its roots, ` +
           `over the ${MAX_TIP_SPREAD_RATIO} ceiling — the cards fan out instead of gathering ` +
           "into locks, which is what reads as a mop"];
+}
+
+/**
+ * Whether the mass reads as LOCKS or as a shell. See MIN_COHERENT_LOCK_RELIEF_MM.
+ *
+ * Off the exported positions and nothing else — no layer names, no lock count, no clump weight —
+ * so a build cannot satisfy this by declaring locks it did not put in the geometry.
+ */
+function reportLockSeparation(groom, mesh) {
+  const reading = measureLockStructure(mesh.positions);
+  const ok = reading.coherentReliefMm >= MIN_COHERENT_LOCK_RELIEF_MM;
+
+  // How thick the hair is in RADIUS inside one bin — the noise floor any ridge has to clear.
+  const outer = envelopeProfile(mesh.positions, {});
+  const middle = envelopeProfile(mesh.positions, { percentile: 0.5 });
+  let spread = 0;
+  let counted = 0;
+  for (let band = 1; band < outer.bands.length - 1; band += 1) {
+    for (let bin = 0; bin < outer.settings.azimuthBins; bin += 1) {
+      const high = outer.bands[band].profile[bin];
+      const low = middle.bands[band].profile[bin];
+      if (Number.isFinite(high) && Number.isFinite(low)) {
+        spread += high - low;
+        counted += 1;
+      }
+    }
+  }
+
+  console.log(`  ${ok ? "ok  " : "FAIL"} locks not a shell  ` +
+              `${reading.coherentReliefMm.toFixed(2)} mm of ridge running down the head ` +
+              `(floor ${MIN_COHERENT_LOCK_RELIEF_MM}) — ${reading.reliefMm.toFixed(2)} mm of ` +
+              `envelope relief at ${reading.coherence.toFixed(3)} vertical coherence, ` +
+              `${reading.ridgePeaks} ridges over ${reading.bandsUsed} bands`);
+  console.log(`  --   shell thickness   the groom spans ` +
+              `${(spread / Math.max(counted, 1) * 1000).toFixed(2)} mm of radius between its p50 ` +
+              `and p85 inside one 3°x30 mm bin, over ${counted} bins (reported — this is the ` +
+              "scatter a lock has to be louder than)");
+
+  if (ok) {
+    return [];
+  }
+
+  return [`${groom.id} carries ${reading.coherentReliefMm.toFixed(2)} mm of coherent lock relief, ` +
+          `under the ${MIN_COHERENT_LOCK_RELIEF_MM} mm floor — its outer surface is ` +
+          `${reading.reliefMm.toFixed(2)} mm of corrugation at ${reading.coherence.toFixed(3)} ` +
+          "vertical coherence, which is card scatter and not locks: the mass reads as a shell"];
 }
 
 /** Every UV inside the atlas, and every card inside ONE strip of it. */

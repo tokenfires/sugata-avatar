@@ -559,6 +559,44 @@ const FORM_LIGHTS = [
  *     28% to 30%. Both spec clauses cannot be met at once from a `RectAreaLight` through ACES; the
  *     rig ships the saturation half (1.03× skin) and fails the luma half (0.88×), and that is a
  *     recorded loss rather than a tuned-away one.
+ *
+ * ## 🔴 REQ-063 AND REQ-064 ASKED THIS FILE FOR THE HAIR HIGHLIGHT, AND THE RIG IS NOT THE LEVER
+ *
+ * Both are filed against this file and both are testable through `?ov=` without a line of code,
+ * because `shadowFraction` and `azimuthDegrees` are already overridable. Measured this session on
+ * `alive.html?bare&freeze&seed=1&aa=msaa&grade=0&hair=1&capture` at 900x1200, 8 steps, over a mask
+ * fixed once from the shipped pair — the pixels the groom moves against the same page with no groom
+ * on it, eroded by one pixel, **438,122 px** (unefroded it is 498,116, which is `HairOIT.js`'s own
+ * 498,090 to within the fringe). Linear-luma percentiles on that mask, the mask held constant
+ * across the arms so a rig change is read on the same pixels:
+ *
+ *     | arm                                  |      p50 |      p95 |     peak |
+ *     |--------------------------------------|---------:|---------:|---------:|
+ *     | shipped                              | 0.004805 | 0.170629 | 0.304219 |
+ *     | `?ov=rim.shadowFraction:0.5`         | 0.004761 | 0.170629 | 0.304219 |
+ *     | `?ov=rim.irradiance:0` — rim deleted | 0.004719 | 0.170629 | 0.304219 |
+ *     | `?ov=kicker.azimuthDegrees:12`       | 0.012643 | 0.221121 | 0.348107 |
+ *
+ *   - **REQ-063 buys nothing this file can deliver, and the third row is why.** Deleting the rim
+ *     ENTIRELY moves the groom's median by 1.8%; giving it the shadow caster REQ-063 asks for moves
+ *     it by 0.9%. That is not a refutation of REQ-063, it is a confirmation of its own evidence —
+ *     `material/HairMaterial.js` carries Karis' `saturate(wi.wr + 1)` precisely to discard the rim,
+ *     so a rim shadow is worth zero until `HAIR_DEFAULTS.sideVisibility` changes in a file this one
+ *     does not own. **The two changes have to land together or neither is measurable.**
+ *   - **REQ-064's camera-axis light lands on the FLOOR, not on the band.** Moving the kicker to
+ *     azimuth 12 raises the groom's median 2.63x and its peak 1.14x — the wrong ratio for a
+ *     highlight, and `docs/research/hair.md` §9.3 says why in advance: slide 39's multiple-
+ *     scattering fake carries 65.4% of the groom's rise and its whole angular dependence is a
+ *     wrap-around cosine, so a better geometry feeds the fake before it feeds the lobe. §9.4's own
+ *     green row for a camera-axis key was measured with **the fake off**; with it on, this is what
+ *     the same move is worth.
+ *
+ * ⚠️ **State the operator's limit rather than the ratio.** `p95` is identical to six decimal places
+ * across three of the four arms, which means the 95th percentile of this mask is not a hair pixel
+ * responding to the rig — the mask is built by difference and includes skin the groom shadowed. So
+ * `p95/p50` off this mask is NOT `hair.md` §9.4's 1.872 and is not quoted; `p50` moves sensibly and
+ * is. Neither change is made here: a rig change that shifts every plate in the repository needs a
+ * statistic that can see the thing it is meant to improve, and this one cannot.
  */
 const EDGE_LIGHTS = {
 

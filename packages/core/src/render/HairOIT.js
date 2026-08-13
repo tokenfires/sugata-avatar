@@ -191,6 +191,20 @@
  * any per-frame field to 2.5% if it were allowed to run. Filed as a request against
  * `render/TRAAPost.js`; it is not this file's to fix and it caps what this file can buy.
  *
+ * 🔴 **THAT ATTRIBUTION IS WRONG WHEREVER IT HAS BEEN TESTED, AND THE TEST IS IN
+ * `render/HairVelocity.js`.** The paragraph above names a mechanism from a reading of
+ * `TAAUNode.js`; punch-list 3.22 mutated that exact line and five others in the resolve, in flight,
+ * on the plate where the defect is largest — 35 degrees of figure yaw, where a 4x crop is nothing
+ * but dither. Setting `depthThreshold` from 5e-4 to 1e9, which makes `isDisocclusion` unreachable,
+ * moved the hair band's four-frame temporal sd from 5.8333 cv to **5.8420** — it did not move.
+ * Neither did `maxVelocityLength`, `currentFrameWeight` at zero, the variance clip, the lock, or
+ * `hasValidHistory` forced true. Forcing the reprojection VELOCITY to zero moved it to 0.6669, and
+ * the cause is that the DFTL solver's `positionNode` overwrites `positionLocal` without assigning
+ * `positionPrevious`, so the groom reported p90 258 px/frame of a displacement it was not making.
+ * The paragraph is kept rather than deleted because the round-16 measurement behind it is real and
+ * the mechanism may still bite at some other framing — but it is NOT what caps this file, and
+ * `?hairvel=off` is the flag that restores the defect if anyone wants to re-test it.
+ *
  * ### 🚩 AND THE OTHER HALF OF THE CRITIC'S HAT IS NOT THIS FILE'S DEFECT — MEASURED, NOT ARGUED
  *
  * The flat untextured rectangles are NOT cards whose coverage collapsed to one blend. Taking the

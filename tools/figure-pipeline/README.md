@@ -311,6 +311,64 @@ The g050 groom is **462 cards of 17 rings each + 2 cap shells of 564 triangles**
 15,912 triangles, 3,118,972 bytes. The four sheets are shared and written once per build: albedo
 1,090,362 · normal 1,064,393 · flow 348,510 · depth 63,001 bytes.
 
+### R22 — the geometry half, and why it did not ship
+
+🚩 **R22 BUILT THE GROOM R21 ASKED FOR, MEASURED IT, LOOKED AT IT, AND PUT IT BACK.** The ask was
+*fewer, wider, more opaque cards in visible locks*. Everything except the last word landed, the last
+word is the one the round was for, and the trade that came with it was not worth making blind. The
+whole thing is recorded here because the next round should not pay for it twice.
+
+**What the variant was.** 462 → **404 cards**, every layer 4% wider, `surface` (2,3) → **(1,2)** —
+the last strip on a face-framing layer whose mean alpha starts with a 3 — `TIP_WIDTH_FRACTION`
+0.62 → **0.42**, `CLUMP_POWER` 1.7 → 1.55, `clump` up 0.06–0.08 on every visible layer, and a new
+per-lock radial relief (`hair_cards.LOCK_RELIEF_M`). Measured this session on g050, both builds,
+same commands:
+
+| | 462 cards | 404-card variant |
+|---|---:|---:|
+| cards deep, worst judge view p50 / p90 (`verify_glb.mjs`) | 14 / 25 | **13 / 22** |
+| card tips over card roots (ceiling 0.95) | 0.829 | **0.817** |
+| a tip's height step to its 5 nearest | 6.4 mm | 7.1 mm |
+| bare cranium, worst judge view (ceiling 60 mm²) | 4.9 mm² | 9.2 mm² |
+| C1 mean transmittance (ceiling 0.28) | 0.2148 | **0.1973** |
+| C2 share over T > 0.5 (ceiling 28%) | 20.55% | **18.72%** |
+| C3 the mass (ceiling 0.10) | 0.0812 | **0.0809** |
+| C4 the curtain (ceiling 0.35, RED both ways) | 0.4103 | **0.4013** |
+| coherent lock relief (`hair_locks.mjs`, floor 5.0 mm) | 3.12 mm | 3.11 mm |
+| `HairDynamics.selftest.mjs` | **32/32** | **30/32** |
+| triangles | 15,912 | 14,056 |
+
+⚠️ **ALL FOUR TRANSMITTANCE CLAUSES IMPROVED WHILE 58 CARDS LEFT** — the opposite of R21's honest
+cost, and bought by the strip move. **AND IT TOOK A GREEN PHYSICS GATE RED.** `HairDynamics`
+clause S (*the worst tip moves under 0.5 mm in the quarter second after 6 s of held head*) reads
+**2.7212 mm**, and its own `hairdefect=kinematic` control reads 2.518 mm against 24.02 mm green.
+Isolated by rebuilding one lever at a time, 30/32 on every one of them: **not the lock relief**
+(built at 0), **not the clump** (built at R21's values), **not the tip taper** (built at 0.62). What
+is left is the card count and width themselves — the change the round exists to make. That is where
+the next agent starts, and it is one build from an answer.
+
+🚩 **AND THE LOCKS NEVER ARRIVED, IN EITHER BUILD.** `tools/figure-pipeline/hair_locks.mjs` measures
+the outer envelope's azimuthal corrugation and separates the ridge that runs down the head from the
+per-card scatter. **The groom's outer surface is 10.03–11.69 mm of radius between its p50 and its
+p85 inside one 3°×30 mm bin** — an eleven-millimetre-thick cloud of cards — and no lock relief that
+looks like hair is louder than that. Built and measured, a pure sixteen-lobe corrugation on every
+non-root layer: none 3.11 mm of ridge, ±25 mm 4.13, ±45 mm 6.22. The last clears the 5.0 mm floor,
+fails `cards gather` at 0.981, and renders as storm damage. **The lever for the next round is the
+SCATTER, not the relief.** `docs/RED-GATES.md` carries the declaration.
+
+⚠️ **TWO EARLIER VARIANTS WERE REJECTED BY EYE AND THEIR NUMBERS WERE BETTER.** 384 cards at +8%
+width with `clump` to 0.85 and `CLUMP_POWER` 1.35 measured better depth and better gathering and
+turned the hem into hard vertical slabs with square ends — the tapering tips, the one thing every
+blind critic in this phase has praised, were gone. A wider card keeping the same fraction of its
+width at the tip is a wider STRAP, and clumping stacks the straps; that is what forced
+`TIP_WIDTH_FRACTION` to 0.42 in the variant above. R21's own bound arriving on a different lever,
+third round running.
+
+```bash
+node tools/figure-pipeline/hair_locks.selftest.mjs          # PASS — 38 assertions
+node tools/figure-pipeline/hair_locks.mjs --map             # the field, looked at
+```
+
 🎯 **THIS IS THE 462-CARD SWEEP AND THE ROUND THAT MADE IT DID NOT TOUCH THE ATLAS — 28.7% FEWER
 CARDS, 12–18% WIDER, AND THE FOUR SHEETS ARE BYTE-IDENTICAL TO THE 648-CARD BUILD's.** Round 20
 proved the sheet's strand structure cannot survive the sampler at this card size and redirected the
