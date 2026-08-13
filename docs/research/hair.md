@@ -19,7 +19,17 @@ number and either re-derived or marked unreproduced.
 
 ---
 
-## 0. The six findings that decide this phase
+## 0. The findings that decide this phase
+
+### 🔴 0.0 The rendered runs-per-card statistic is a **coverage** statistic and cannot see shading. [M]
+
+Round 20 built `hair_screen.mjs` to answer "can the alpha channel carry a strand to the frame", and
+it answered it: no. Round 21 was then set the same number as the target for a change in the
+SHADING, and that is a category error — measured, not argued. Injecting a sinusoid of known
+amplitude into the shipped plate at the shipped lock frequency moves the statistic by 12% for
+**twenty code values** of across-strand contrast and needs about **36** to reach the atlas's 3.637,
+because the median hair pixel sits 59.4 code values above the face→hair cutoff a run has to cross.
+Full table and reconstruction in §10.5. Quote it for coverage; do not quote it for shading.
 
 ### 🎯 0.1 The `~10:1` spec-to-albedo contrast is an **encoded-luma** ratio. In linear light it is **57:1 to 93:1**. [M]
 
@@ -1212,6 +1222,201 @@ slide 39's scalar in either direction (§9.2). Left standing, and all three are 
 `LightingRig.js`: the rim's missing shadow map (REQ-063), the absence of any light near the view
 axis for the retroreflective TRT lobe to fire in (REQ-064), and the environment path (REQ-065,
 whose measured size is 9.7% and not the 1% its evidence block records).
+
+---
+
+## 10. The strand frequency, moved into the shading
+
+Round 20 proved the alpha channel cannot carry a strand at this card size: the sheet offers 3.637
+runs per card width at the width a card actually covers and the frame delivers 0.786, because the
+structure is authored at the sampling limit and the trilinear filter is as wide as the run. That
+result ends an approach, not the goal. This section is the goal taken through the other carrier.
+
+Everything below was measured in one session, on the shipped groom, at 900×1200. Rendered figures
+come off `alive.html?bare&freeze&capture&seed=1&grain=0&hair=1`; sheet figures off
+`assets/hair/bob01/`; geometry figures off the LIVE page rather than off the GLB, because it is the
+live skinning and the live camera that the shader divides by.
+
+### 10.1 The amplitude is not invented — it is what the mip chain deletes
+
+`hair_texture.py` bakes a per-texel strand direction into `flow.png`'s R and G. Decoding it through
+`HairMaterial`'s own reconstruction — `atan2( r, g )` after the ±1 remap — and differencing against
+a box filter of the width the scene pass reads at gives the part of that direction the sampler
+removes, per strip, as a standard deviation of the in-plane strand angle:
+
+| strip | removed at lod 1 | at lod 2 | at lod 3 | hair px on the shipped plate |
+|------:|-----------------:|---------:|---------:|-----------------------------:|
+|     0 |            0.6°  |    0.9°  |    1.1°  |                          100 |
+|     1 |            6.8°  |   10.4°  |   13.8°  |                      161,945 |
+|     2 |           11.3°  |   15.6°  |   18.2°  |                       45,170 |
+|     3 |           11.1°  |   15.0°  |   17.1°  |                       62,901 |
+|     4 |           12.9°  |   17.2°  |   19.4°  |                       50,756 |
+|     5 |           13.4°  |   17.5°  |   19.5°  |                       57,716 |
+|     6 |           11.5°  |   15.4°  |   17.5°  |                       60,937 |
+|     7 |            9.4°  |   12.7°  |   14.2°  |                      100,879 |
+
+Round 20 measured the lod the scene pass samples at as all-strip p50 **2.011**, so the lod-2 column
+applies; weighted by the pixel counts beside it the groom loses **0.2403 rad, 13.8°** of strand
+direction between the file and the frame. `HAIR_DEFAULTS.strandTangentJitter` is that number.
+
+The sign of the argument is what makes it a derivation rather than a dial: had the residual come
+out at 2° there would have been nothing here worth restoring. It is a **statistical** reinstatement
+— the sheet's individual strand positions are not recoverable from a filtered read — so what comes
+back is the amplitude and the frequency band, not the hairs.
+
+⚠️ And `flow.png`'s fourth channel stays unread, now with a reason rather than a TODO. Its own
+channel table promises *"A strand id"*, and an id is a **label**: the mean of two labels is not a
+label, so the one channel whose entire purpose is per-strand decorrelation is the one channel a
+filter cannot carry at all. That is not fixable in the bake.
+
+### 10.2 The frequency is set by the pass, and it takes three measurements
+
+1. **The card's physical width.** Inverting the UV Jacobian per triangle, `|∂P/∂u|` reads p10
+   0.1201, **p50 0.2299**, p90 0.3466 m per unit atlas u over 15,912 triangles. A strip is an
+   eighth of u, so a card is **28.7 mm** wide. Measured twice and agreeing to the digit: on the live
+   page with skinning applied, in view space, and off `g050.glb`'s bind pose in local space — so the
+   figure carries no scale and the shader's `|∂P/∂u|` is metres of scalp with nothing in between.
+   ⚠️ `hair_texture.py`'s header says "roughly 30 mm" in one paragraph and "a 42 mm card" in
+   another. Anything sized off either is out by up to 1.5×.
+2. **The card's screen width.** `hair_screen.mjs` prints **55.3 CSS pixels** early in the session
+   and **59.6** after a groom re-bake landed in the tree from another agent mid-round; at
+   `resolutionScale` 0.66 those are **36.5 and 39.4 scene-pass pixels** — the rate that decides
+   everything, because coverage and shading are computed once per one of those. One scene-pass
+   pixel is 0.79 mm of scalp, or 0.73 after the re-bake.
+3. **The band limit is then one division.** A field of *n* locks per card runs at *n*/36.5 cycles
+   per scene-pass pixel. Nyquist at 0.5 admits 18.3 locks; the fade opens at 0.25, admitting 9.1 on
+   the narrower groom and 9.9 on the wider.
+
+So the shipped pitch is the finest one the pass carries whole at the narrower framing: 28.7 mm over
+9.1 is **3.15 mm**, four scene-pass pixels a lock, and it is inside the fade on both grooms — 0.249
+cycles a pixel on the first and 0.231 on the second. The 0.3% margin on the first is the definition
+rather than an accident; a groom whose cards get narrower on screen moves the limit, and the
+selftest clause is tight enough to go red when it does.
+
+🚩 **And the sheet's own lane pitch sits just OUTSIDE that limit, which is round 20 restated in
+millimetres.** `hair_texture.py`'s strip 1 is 13 lanes over 112 texels of a card — a 2.4 mm lane on
+the 28.7 mm card the page draws, i.e. **0.39 cycles per scene-pass pixel, 78% of Nyquist**. The
+alpha channel is authored just under the limit and then asked to survive a trilinear filter as
+well. The shading is authored one fade-band inside it and has no filter to survive. That is the
+whole difference between the two carriers, in one comparison.
+
+### 10.3 🔴 The measurement found a latent defect that had been shipping for rounds
+
+`strandTangentNode`'s cotangent frame guarded its UV Jacobian with
+`determinant + sign(determinant)·1e-4 + 1e-4`. Measured on the live page over 15,912 hair triangles
+in render-target pixels, that determinant reads p10 4.42e−6, **p50 1.109e−5**, p90 5.72e−5 — a strip
+is a 128th of the atlas across and a card is hundreds of pixels long, so the product of two small
+gradients is genuinely tiny. **The guard was eighteen times the thing it was guarding**, and ∂P/∂u
+came out roughly twenty times short.
+
+It never showed, because until this round both cotangents went straight into `normalize` and a
+common positive factor is exactly what normalising removes. The moment `|∂P/∂u|` is read as a
+LENGTH the same expression is wrong, and the first measurement of the strand field came back at
+**1 cycle per card against the 14 it was authored for** — `det/(det + 2e−4)` at the measured p50 is
+0.053, which is that ratio. The guard now clamps the magnitude and keeps the sign, so a workable
+determinant passes untouched; a degenerate quad lands on a huge but finite cotangent and is then
+removed by the Nyquist fade on its own, because a huge `|∂P/∂u|` is a huge screen frequency.
+
+### 10.4 The pitch, pinned by mutation
+
+Swept on the shipped arm against `?hairdefect=no-strand-jitter`, which changes exactly one rotation
+and leaves the flow sheet, the card frame, every lobe and the scatter fake alone. The statistic is
+the standard deviation of the per-pixel difference over 540,404 hair pixels, in code values:
+
+| pitch | locks per card | cycles per scene-pass pixel | fade | delivered sd (cv) |
+|------:|---------------:|----------------------------:|-----:|------------------:|
+| 1.2 mm |          23.9 |                       0.656 | 0.00 |             4.80 |
+| 2.05 mm|          14.0 |                       0.384 | 0.45 |             7.02 |
+| 3.0 mm |           9.6 |                       0.262 | 1.00 |             8.05 |
+| 4.0 mm |           7.2 |                       0.197 | 1.00 |             9.43 |
+| 6.0 mm |           4.8 |                       0.131 | 1.00 |             9.46 |
+| 9.0 mm |           3.2 |                       0.087 | 1.00 |             9.89 |
+
+**The 1.2 mm arm is DOWN, and that is the fade working rather than a defect** — its own band limit
+has removed it. The breaking value is exact: at the median card the field is entirely retired at
+**1.58 mm**, where its period reaches two render-target pixels. From the other side, a 4× crop of
+the 6 mm arm reads as fat ribbons rather than as locks, so the sweep is bounded in both directions
+and 3.15 mm is the derived point between them, not the biggest number available.
+
+### 10.5 🔴 The assigned headline statistic is a COVERAGE statistic, and it has a 25 code-value dead zone
+
+`hair_screen.mjs`'s runs-per-card is the number the round was asked to move. It did not move:
+**0.813 → 0.818** on the flat base, A/B through `?hairdefect=no-strand-jitter` on one tree with one
+set of assets.
+
+⚠️ **Only the same-tree pair is quotable, and the reason is worth recording.** A groom re-bake
+landed in this working tree mid-session from another agent — `assets/hair/bob01/` is untracked, so
+`git status` says nothing about it — and it moved the card's screen width from 55.3 to 59.6 CSS
+pixels and the atlas figure from 3.637 to 4.089 runs per card. The earlier 0.786 reading is against
+a groom that no longer exists on disk and must not be differenced against anything here. The
+sheets themselves came through unchanged: `flow.png`'s strand-scale residual and `albedo.png`'s
+per-strip run counts re-measure identical to the digit after the re-bake, so §10.1's amplitude
+stands as read.
+
+Standing rule 4 says to check what a statistic can see, so it was calibrated directly. The statistic
+was reconstructed off the plate and mask `hair_screen.mjs` writes (reconstruction 1.012 against its
+printed 0.786 — the per-pixel card width is the one input the mask PNG does not carry, and is
+approximated by its per-strip mean), and a sinusoid of known amplitude was injected into the hair
+mass at the shipped lock frequency:
+
+| injected amplitude (cv) | runs per card width | as % of the atlas's 3.637 |
+|------------------------:|--------------------:|--------------------------:|
+|                       0 |               1.012 |                     27.8% |
+|                       8 |               1.027 |                     28.2% |
+|                      16 |               1.068 |                     29.4% |
+|                      20 |               1.129 |                     31.0% |
+|                      25 |               1.586 |                     43.6% |
+|                      30 |               2.725 |                     74.9% |
+|                      40 |               4.345 |                    119.5% |
+
+**Twenty code values of across-strand shading contrast buys 12% of the statistic. It needs about
+25 before it moves at all and about 36 before it reaches the atlas's figure.** The reason is in the
+plate: on the shipped frame the median hair pixel sits at *t* = 1.215 on the face→hair axis, i.e.
+**59.4 code values above the 0.5 cutoff on an axis 83.1 code values long**. A run only ends where a
+pixel stops being more hair than face, so the statistic counts *gaps*, and a shading change that
+respects the hair's own dynamic range cannot open one. It is the right statistic for the question
+round 20 asked — can alpha carry a strand — and the wrong one for the question round 21 was set.
+
+🎯 **What it would take, stated so the next round can decide rather than rediscover.** 25–36 code
+values of lock-to-lock swing is a real number and it is not unreachable in principle: the same
+plate's own p95 sits about 66 code values above its p50. It requires the band's energy to be
+concentrated into the locks rather than spread across the card — which is what §9 measured as
+missing, and which the three open rig requests (REQ-063 rim shadow, REQ-064 a light near the view
+axis, REQ-065 the environment path) are the levers on. The strand field is the mechanism that would
+concentrate it; the peak it would concentrate does not exist yet.
+
+### 10.6 What the shading DOES deliver, on an operator that can see it
+
+The A/B difference is the honest read, because everything that did not change — card silhouettes,
+dither, alpha — is identical in the two arms and subtracts out. Read instead as "how much structure
+does the shipped arm have", the number is dominated by what did not change and moves about a
+percent, which is the shape of a statistic pointed at the wrong thing.
+
+Measured over 540,404 hair pixels on the shipped arm at the shipped pitch: **mean −0.59, sd 8.05
+code values, |Δ| p90 12.3, p99 28.8**. On the deterministic forward path the same subtraction is
+reported by `HairMaterial.selftest.mjs` against an instrument zero taken in the same run by
+capturing one url twice.
+
+The spectral operator behind it was validated on shapes whose answer was known before it was
+pointed at a plate — a flat field returns 0.0000, a sinusoid of amplitude 0.050 returns 0.0500 in
+its own bin and nothing in its neighbours, a square wave returns 0.0636 = 4/π × 0.05, and a
+**card-scale step returns 0.0036 in the strand band**, which is the case that caught round 20's
+false positive. The delivered difference is broadband below the lock frequency rather than a tone,
+which is what one-dimensional value noise is: its energy is flat from DC to the lattice and rolls
+off above it. That is also what hair is.
+
+Looked at rather than only measured: at 4× on the cheek crossing, portrait, the A side is the
+critic's *"unbroken flat mauve wall"* and the B side carries vertical locks of alternating tone
+across the card. On the full-resolution cutout arm — no TAAU, no stochastic coverage — the same
+crop shows the locks clearly; on the shipped arm they are softer, which is the 0.66 resolve costing
+what round 20 measured it costing.
+
+⚠️ **The three-quarter crop is NOT a usable read, and that is a finding about the build rather than
+about this change.** At 35° of figure yaw the 4× crop is dominated by a coarse stochastic-coverage
+dither that the temporal resolve does not integrate away: stepped 16 frames and again at **96**, the
+pattern is unchanged and it is present identically in both arms. It is `render/**`'s — the
+stochastic OIT arm plus TAAU at 0.66 — and at that framing it is a much larger defect than anything
+the shading is doing. Flagged for the OIT owner; nothing here is quoted from those plates.
 
 ---
 

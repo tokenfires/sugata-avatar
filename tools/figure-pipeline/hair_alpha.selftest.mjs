@@ -20,6 +20,10 @@
  *
  *   A  RUNS AT THE SAMPLED LOD. How many separate strands a row crosses at the scale the camera
  *      reads, which is the only scale anybody sees. This is the clause the slab fails.
+ *      🚩 **AND IT IS RED AT HEAD**, because `hair_alpha.SAMPLED_LOD` was corrected this round from
+ *      1.492 to 1.925 — the old figure took its Jacobian in CSS pixels and the page ships TAAU at
+ *      0.66. The sheet did not move; the scale it is read at did. Declared in `docs/RED-GATES.md`,
+ *      with the reason and the mutation that pins it under MIN_RUNS_AT_LOD below.
  *   B  GAPS IN THE INTERIOR. A run count can be bought with a border wisp, so this asks whether the
  *      middle of the card is open anywhere. ⚠️ Standing rule 4 and the reason the inset exists:
  *      14.635% of the shipped strip 1 was under alpha 0.15 and **0.911% of its interior was**.
@@ -60,30 +64,40 @@ const STRIPS = 8;
 const CAP_STRIP = 0;
 
 /**
- * 🎯 **CLAUSE A's FLOOR, AND IT IS PINNED FROM BOTH SIDES BY MUTATION RATHER THAN BY ARGUMENT.**
- * Runs per row at `SAMPLED_LOD`, measured this session on both sheets:
+ * 🎯 **CLAUSE A's FLOOR, AND IT IS RED AT HEAD.** See `docs/RED-GATES.md`; the reason is one line of
+ * arithmetic and it is not a regression in the sheet. `hair_alpha.SAMPLED_LOD` was 1.492 for two
+ * rounds, taken from a Jacobian measured in CSS PIXELS while the page ships TAAU at
+ * `resolutionScale` 0.66 — so the gate was reading the atlas 0.599 of a mip FINER than the hardware
+ * does, which flatters the exact statistic this clause exists to refuse. Corrected, the same sheet
+ * that read 3.96 at its worst strip reads 1.90.
  *
- *   | strip                    |  0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |
- *   |--------------------------|---:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
- *   | as the critic saw it     | 1.00 | **1.15** | 4.78 | 5.49 | 6.63 | 6.82 | 5.91 | 4.21 |
- *   | this round               | 1.00 | **4.13** | 5.54 | 4.90 | 6.61 | 7.26 | 5.70 | 3.96 |
+ * Runs per row at `SAMPLED_LOD`, off `assets/hair/bob01/albedo.png`, which is unchanged this round —
+ * the two rows are ONE SHEET read at two scales, so every difference between them is the constant:
  *
- * Both rows are off a sheet built this session: the second from `hair_texture.py` as it stands, the
- * first from `git show HEAD:tools/figure-pipeline/hair_texture.py` rebuilt into a scratch directory,
- * which is also this gate's source red proof — all three clauses go red on it and ONLY strip 1 is
- * named, so the red is the defect and not the sheet.
+ *   | strip                       |    0 |    1 |    2 |    3 |    4 |    5 |    6 |        7 |
+ *   |-----------------------------|-----:|-----:|-----:|-----:|-----:|-----:|-----:|---------:|
+ *   | at lod 1.492, as it was read | 1.00 | 4.13 | 5.54 | 4.90 | 6.61 | 7.26 | 5.70 | **3.96** |
+ *   | at lod 1.925, as it is read  | 1.00 | 3.58 | 3.84 | 3.36 | 4.42 | 5.47 | 3.53 | **1.90** |
+ *
+ * 🚩 **AND WHAT THE RED NAMES IS THE WISP STRIP, WHICH IS THE OPPOSITE OF WHAT THE CLAUSE WAS
+ * WRITTEN FOR.** Strip 7 is 88.4% transparent and its runs are 1.12 texels wide at the sampled lod;
+ * the board this clause was written against was 96.4% opaque in 33.55-texel runs. Both read "few
+ * runs per row" and only one of them is a defect. Clause C is what separates them and it says so:
+ * the widest run on the sheet is strip 1's at 5.97 against a ceiling of 20. ⚠️ **THAT IS AN
+ * OBSERVATION AND NOT A LICENCE TO EXEMPT THE WISPS.** Re-deriving this clause to clear its own red
+ * is the failure mode the threshold exists to prevent, so the red is declared and carried, and the
+ * re-derivation — if it is the right answer — belongs to a round that can red-prove the replacement
+ * against a wisp strip AND against a board.
  *
  * 🚩 **PINNED BY MUTATION IN BOTH DIRECTIONS, WHICH IS THE ONLY WAY A BOUND IS PINNED.** Moved and
- * re-run, this session, one edit at a time and the file restored byte-identically after each:
+ * re-run, this session, one edit at a time and the file restored byte-identically after each
+ * (`shasum -a 256` confirmed):
  *
- *   floor 3.50, 3.90   green      floor 3.96, 4.00   RED (strip 7)
- *   floor 1.20 on the sheet the critic saw   RED (strip 1 at 1.15)
+ *   floor 1.85, 1.89   green      floor 1.90, 1.91, 1.95   RED (strip 7, whose own figure is 1.90)
  *
- * So the live range is 1.16 to 3.95 and 3.0 sits in it: 22% under the worst strip that has to pass
- * and 161% over the defect it was written for. ⚠️ At 1.15 or below the board goes green, because
- * 1.15 is the board's own number — a floor is only a floor above the thing it refuses. The previous
- * round of this project shipped a bound an adversary loosened FIVE HUNDREDFOLD without turning the
- * gate red; this one has 1.3x of slack on one side and there is nowhere for it to hide.
+ * So the sheet goes green only at 1.89 or below, and the shipped floor of 3.0 is 1.58× above that —
+ * there is no width of slack in which this red could be hiding a second defect, and nothing under
+ * 1.90 could refuse the board at 1.15 that the clause was written for.
  */
 const MIN_RUNS_AT_LOD = 3.0;
 
@@ -97,26 +111,38 @@ const MIN_RUNS_AT_LOD = 3.0;
  *   | this round               | **16.95%** | 26.92 | 30.22 | 37.52 | 48.04 | 72.12 | 83.35 |
  *
  * 12% is 29% under the worst strip that has to pass and thirteen times the defect. Pinned by
- * mutation, same discipline as clause A: **green at 15%, green at 16.9%, RED at 17%** — which is
- * strip 1's own 16.95%, so the live range is 0.92% to 16.94% and there is 1.4x of slack.
+ * mutation, same discipline as clause A, re-run this session with the file restored byte-identically
+ * after each edit: **green at 16.9%, RED at 17.0%** — 17.0% is strip 1's own 16.95% — so the live
+ * range is 0.92% to 16.9% and there is 1.41× of slack.
+ *
+ * ⚠️ **THIS CLAUSE IS MEASURED AT MIP 0 AND IS THEREFORE THE ONE THING IN THIS FILE THE `SAMPLED_LOD`
+ * CORRECTION DID NOT MOVE.** A gap either exists in the file or it does not; whether the sampler can
+ * resolve it is clause A's question. Both figures above are unchanged from the round before.
  */
 const MIN_GAP_SHARE = 0.12;
 
 /**
  * Clause C's ceiling: the mean width of one above-cutoff run at the sampled lod, in texels. A card
- * strip is 128 texels, so 45.5 at the sampled lod — a run of 33 of them is the board.
+ * strip is 128 texels, so 33.7 at the sampled lod — a run of 29 of them is the board, and the cap
+ * strip on this very sheet measures exactly that (clause L).
  *
- *   | strip                    |     1 |    2 |    3 |    4 |    5 |    6 |    7 |
- *   |--------------------------|------:|-----:|-----:|-----:|-----:|-----:|-----:|
- *   | as the critic saw it     | **33.55** | 5.38 | 4.38 | 3.14 | 2.54 | 1.35 | 1.17 |
- *   | this round               |  **7.04** | 4.79 | 5.05 | 3.22 | 2.41 | 1.35 | 1.11 |
+ *   | strip                       |     1 |    2 |    3 |    4 |    5 |    6 |    7 |
+ *   |-----------------------------|------:|-----:|-----:|-----:|-----:|-----:|-----:|
+ *   | at lod 1.492, as it was read | **7.04** | 4.79 | 5.05 | 3.22 | 2.41 | 1.35 | 1.11 |
+ *   | at lod 1.925, as it is read  | **5.97** | 5.20 | 5.52 | 3.60 | 2.40 | 1.25 | 1.12 |
  *
- * 20 texels is 44% of a strip and it is the number a run has to be UNDER. Pinned by mutation:
- * **green at 10.0, green at 7.04, RED at 7.0** — 7.04 is strip 1's own figure — and on the sheet
- * the critic saw it is red at anything under 33.55. So the live range is 7.05 to 33.54 and 20 is
- * near the middle of it in the log. It must stay well above 7, because a run five texels wide at
- * the sampled lod is a LOCK and locks are what a card carries: this is a refusal of the board, not
- * a second frequency clause.
+ * ⚠️ **THE CORRECTION MOVED THIS CLAUSE THE SAFE WAY AND THAT IS WORTH READING TWICE.** A coarser
+ * filter makes runs FEWER (clause A, red) and, on this sheet, slightly NARROWER at the cutoff, so
+ * clause C got easier at the same moment clause A got harder. A ceiling that eases when the reading
+ * is corrected is a ceiling that was never the binding constraint; do not read C's green as evidence
+ * about A's red.
+ *
+ * 20 texels is 59% of a strip at this lod and it is the number a run has to be UNDER. Pinned by
+ * mutation this session, file restored byte-identically after each edit: **green at 5.98, RED at
+ * 5.96** — 5.97 is strip 1's own figure — so the live range is 5.98 to 29.42, where the top of the
+ * range is the cap strip that clause L requires to fail, and 20 sits near the middle of it in the
+ * log. It must stay well above 6, because a run five texels wide at the sampled lod is a LOCK and
+ * locks are what a card carries: this is a refusal of the board, not a second frequency clause.
  */
 const MAX_STRAND_TEXELS_AT_LOD = 20.0;
 
@@ -177,27 +203,49 @@ near(gapShare(fence), 0.5, 1e-12, 'and half its interior is open');
 
 // 🎯 **THE CALIBRATION OF THE "TWO TEXELS AT THE SAMPLED LOD" RULE THE WHOLE SHEET IS AUTHORED
 // AGAINST, ON SHAPES WHOSE ANSWER IS KNOWN.** A ladder of fences of increasing bar width, each one
-// resampled to the lod the camera reads, and what the mid band does as the bar crosses two texels:
+// resampled to the lod the camera reads, and what the mid band does as the bar crosses two texels.
+// Re-measured this session at the corrected `SAMPLED_LOD` of 1.925 (÷3.80):
 //
-//   bar at mip 0     2     3     4     5     6     8    12
-//   bar at the lod  0.71  1.07  1.42  1.78  2.13  2.84  4.27
-//   mid band       87.0% 63.0% 43.5% 32.6% 30.4% 21.7% 15.2%
+//   bar at mip 0      2     3     4     5     6     8    12    16
+//   bar at the lod   0.53  0.79  1.05  1.32  1.58  2.11  3.16  4.21
+//   mid band       100.0% 88.2% 64.7% 50.0% 44.1% 29.4% 20.6% 11.8%
+//
+// ⚠️ A 20-texel rung was tried and DROPPED: it reads 11.8% too, so the fall is strictly monotonic
+// only up to 16 and a ladder that ties there would have needed the clause below relaxed to `<=`.
+// The floor is the resample's own quantisation — the strip is 34 output texels wide at this lod —
+// and a rung that measures the instrument's floor rather than the filter is not a known answer.
+//
+// 🚩 **THE LADDER GREW TWO RUNGS WHEN THE CONSTANT WAS CORRECTED, AND THAT IS NOT A THRESHOLD BEING
+// MOVED TO CLEAR A RED.** Every rung is a bar width in MIP-0 texels and every claim below is about
+// a bar width AT THE LOD, so a coarser lod slides the whole ladder left: the 12-texel rung that used
+// to be 4.27 texels at the lod is 3.16 now, and asserting "4 texels arrives with its edges" against
+// it would be asserting it against 3.16 texels. The 16-texel rung is 4.21 at the lod, which is what
+// the old 12 was, and it is what the clause below reads. The CLAIM is unchanged; only which fence
+// embodies it has moved, because the fences are quoted in the units the sheet is drawn in.
 //
 // ⚠️ **AND THE RUN COUNT IS NOT THE STATISTIC THAT SEES THIS, WHICH IS WORTH KNOWING BEFORE ANYONE
-// USES IT ALONE.** A perfectly periodic fence keeps its runs all the way down to a 0.71-texel bar,
+// USES IT ALONE.** A perfectly periodic fence keeps its runs all the way down to a half-texel bar,
 // because the resample's integer footprints keep landing wholly inside a bar and the pattern is in
 // phase with itself on every row. It is the MID BAND that reports the wash, monotonically, and it
 // crosses 30% at almost exactly two texels — which is where the rule came from. Clause A finds the
-// board and this finds the smear; neither one does the other's job.
-const ladder = [2, 3, 4, 5, 6, 8, 12].map((bar) =>
+// board and this finds the smear; neither one does the other's job. 🎯 **IT IS ALSO WHY COARSENING
+// A STRIP DOES NOT SHOW UP AS A RUN COUNT**: measured this session on candidate sheets, strip 5 at
+// 24 lanes and at 14 lanes read 4.41 and 4.29 runs at the lod — indistinguishable — while their mid
+// band read 40.8% and 31.8%. A round that judges a coarsening by clause A will conclude it bought
+// nothing.
+const LADDER_BARS = [2, 3, 4, 5, 6, 8, 12, 16];
+const FOUR_TEXELS_AT_LOD = 7; // the 16-texel rung: 4.21 texels once minified
+const ladder = LADDER_BARS.map((bar) =>
   midBandShare(areaResample(comb(128, 256, bar * 2, bar), 2 ** SAMPLED_LOD)));
 report(ladder.every((share, index) => index === 0 || share < ladder[index - 1]),
   'the mid band at the sampled lod falls monotonically as a bar widens',
   ladder.map((share) => `${(share * 100).toFixed(1)}%`).join(' > '));
-report(ladder[0] > 0.8, 'a bar 0.71 texels wide at the sampled lod arrives as a wash',
+report(ladder[0] > 0.8,
+  `a bar ${(LADDER_BARS[0] / 2 ** SAMPLED_LOD).toFixed(2)} texels wide at the sampled lod arrives as a wash`,
   `${(ladder[0] * 100).toFixed(1)}% mid band, from 0.0% at mip 0 where it is a hard-edged fence`);
-report(ladder[6] < 0.2, 'and a bar 4.27 texels wide arrives with its edges',
-  `${(ladder[6] * 100).toFixed(1)}% mid band`);
+report(ladder[FOUR_TEXELS_AT_LOD] < 0.2,
+  `and a bar ${(LADDER_BARS[FOUR_TEXELS_AT_LOD] / 2 ** SAMPLED_LOD).toFixed(2)} texels wide arrives with its edges`,
+  `${(ladder[FOUR_TEXELS_AT_LOD] * 100).toFixed(1)}% mid band`);
 
 // And a coarse fence keeps its runs through the same resample, which is what the sheet aims at.
 const coarse = areaResample(comb(128, 256, 24, 12), 2 ** SAMPLED_LOD);

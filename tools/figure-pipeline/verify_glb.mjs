@@ -1237,6 +1237,58 @@ const SCALP_VIEW_REACH_M = 0.40;
 const MAX_VISIBLE_SKIN_MM2 = 60;
 
 /**
+ * 🎯 **THE MEDIAN NUMBER OF CARDS A VIEWER'S RAY CROSSES, AND WHY A GROOM NEEDS A CEILING ON IT.**
+ * Round 20 traced the atlas's strand structure from the sheet to the pixel and found it arriving at
+ * 21.6% of what the file offers. Two links ate it, and the larger was not the sampler: the groom is
+ * a median NINE cards deep between the eye and the face, each about 62% opaque, so **64.51% of
+ * front-most hair pixels are more than 0.99 opaque THROUGH THE STACK** and a gap in the front card
+ * is a window onto the next card of the same albedo. Nothing authored into the alpha can survive
+ * that, and the fill cost is paid nine times over for it.
+ *
+ * ⚠️ **AND TRADING COUNT FOR WIDTH DOES NOT MOVE IT, WHICH IS THE ARITHMETIC THIS CEILING EXISTS TO
+ * KEEP HONEST.** Expected depth is total card AREA over the groom's footprint, so halving the count
+ * and doubling the width is exactly neutral. Only the area moving moves this number, and a round
+ * that widens cards to buy a finer lod can convince itself it thinned the groom when it did not.
+ *
+ * Measured this session, `cardsDeepFrom` over the five judge views, worst view of the five:
+ *
+ *   | build                     | cards | g000 | g025 | g050 | g075 | g100 |
+ *   |---------------------------|------:|-----:|-----:|-----:|-----:|-----:|
+ *   | shipped before this round |   648 |   20 |   18 |   17 |   17 |   17 |
+ *   | this round                |   462 |   16 |   14 |   14 |   13 |   13 |
+ *
+ * ⚠️ **AND IT DOES NOT READ THE SAME AS THE ON-SCREEN FIGURE — 14 HERE AGAINST 8 THERE ON THE SAME
+ * BUILD — WHICH IS THE FIRST THING TO KNOW BEFORE QUOTING EITHER.** `hair_layers.mjs` counts cards
+ * per HAIR PIXEL of a rendered portrait; this counts cards per RAY FROM A CRANIUM SAMPLE. The two
+ * masks are different objects. Half the hair a viewer sees is the curtain and the ends hanging past
+ * the jaw, where the stack is thin and no cranium sample fires a ray at all, so the screen figure is
+ * pulled down by pixels this clause never visits; conversely every card of the shell around the
+ * skull is on some ray here, including the ones a camera would never see through. **They agree on
+ * the DIRECTION and the SIZE OF THE MOVE and not on the level** — 648→462 cards reads 9→8 on screen
+ * and 17→14 here, a fifth off both — and that is what a ceiling can be set against. Quote them
+ * separately or not at all.
+ *
+ * ⚠️ **AND TRADING COUNT FOR WIDTH DOES NOT MOVE EITHER OF THEM, WHICH IS THE ARITHMETIC THIS
+ * CEILING EXISTS TO KEEP HONEST.** Expected depth is total card AREA over the groom's footprint, so
+ * halving the count and doubling the width is exactly neutral. Only the area moving moves this
+ * number, and a round that widens cards to buy a finer lod can convince itself it thinned the groom
+ * when it did not.
+ *
+ * 🚩 **THE CEILING IS ON THE MEDIAN RATHER THAN ON THE MAXIMUM, DELIBERATELY.** A groom has a few
+ * rays that graze many cards edge-on — the p90 here is 22–27 — and a maximum would be a reading of
+ * the worst grazing angle in the scatter rather than of the shell's depth. The median is what the
+ * mass is.
+ *
+ * 🎯 **18 IS A RATCHET AND IS HONEST ABOUT BEING ONE.** There is no derivation that says a groom
+ * needs at most N cards on a ray; what there is, is a measured 20 that the phase has agreed is too
+ * many and a measured 16 that this round reached. 18 sits between them: it refuses the groom that
+ * shipped and it leaves this one 12.5% of room. It is a floor under a regression, not a target, and
+ * the target is lower — see the STACKED-runs column of `hair_layers.mjs`, which is what the depth
+ * is being spent to buy back.
+ */
+const MAX_CARDS_DEEP_P50 = 18;
+
+/**
  * 🎯 **THE CARD BORDER, MEASURED WHERE IT IS DRAWN.** The blind critic's worst finding was a
  * dead-straight card border running from the crown past the jaw, slicing the eyebrow, the eyelid
  * and the cheekbone. Its diagnosis — "the alpha strand shapes exist only INSIDE the card; the
@@ -1744,6 +1796,56 @@ function viewDirection({ azimuth, elevation }) {
 }
 
 /**
+ * 🎯 **HOW MANY CARDS DEEP THE GROOM IS, ALONG THE RAYS THE SKIN CLAUSES ALREADY FIRE.** Same
+ * geometry, same cutoff, one extra number: rather than stopping at the first opaque texel, count
+ * every one the ray crosses. That is the DEPTH COMPLEXITY, and it is the statistic round 20 proved
+ * governs whether any of the atlas's authored structure can reach a viewer — behind a gap in the
+ * front card is the next card of the same albedo, not skin, so the groom's own stack erases its own
+ * cutout. It is also the fill cost, since every one of those crossings is a shaded fragment.
+ *
+ * ⚠️ **WHAT THIS STATISTIC CAN AND CANNOT SEE, BECAUSE THE LAST THREE ROUNDS EACH SHIPPED ONE THAT
+ * COULD NOT SEE ITS DEFECT.** It counts cards along a ray from a CRANIUM sample, so it is a
+ * measurement of the shell over the SKULL and is blind to the curtain hanging past the jaw and to
+ * the ends over the collarbone, where no cranium sample fires a ray — which is half of what a
+ * viewer of a portrait is looking at. It reads 14 on a build `hair_layers.mjs` reads 8 on for that
+ * reason, and `MAX_CARDS_DEEP_P50` carries the comparison in full. What it IS good for is that it
+ * needs no browser, no GPU and no page: it is the same rays the skin clauses already fire, so a
+ * build that thickens its shell cannot reach `assets/` without saying so.
+ *
+ * Returns the per-sample crossing counts for the samples that face the camera at all.
+ */
+function cardsDeepFrom(samples, hair, opaqueAt, direction) {
+  const deep = [];
+
+  for (let sample = 0; sample < samples.areas.length; sample += 1) {
+    const normal = [samples.normals[sample * 3], samples.normals[sample * 3 + 1],
+                    samples.normals[sample * 3 + 2]];
+    const facing = normal[0] * direction[0] + normal[1] * direction[1] + normal[2] * direction[2];
+    if (facing < SCALP_VIEW_FACING) continue;
+
+    const origin = [samples.points[sample * 3], samples.points[sample * 3 + 1],
+                    samples.points[sample * 3 + 2]];
+
+    // A card is two triangles and a ray can cross both, so the hits are counted per QUAD by the
+    // triangle's own index — the exporter emits a card's two triangles consecutively, which
+    // `reportHairUvs` already relies on. Counting triangles would report a groom twice as deep as
+    // it is and the ceiling would be a number about the tessellation.
+    const cards = new Set();
+    for (let triangle = 0; triangle < hair.indices.length; triangle += 3) {
+      const hit = rayTriangle(origin, direction, hair.positions, hair.indices, triangle);
+      if (hit === null || hit.distance > SCALP_VIEW_REACH_M) continue;
+
+      const uv = interpolateHairUv(hair.uvs, hair.indices, triangle, hit.bary);
+      if (opaqueAt(uv[0], uv[1]) > 0) cards.add(Math.floor(triangle / 6));
+    }
+
+    deep.push(cards.size);
+  }
+
+  return deep;
+}
+
+/**
  * Which cranium samples show bare skin to a camera in `direction`. A sample counts when it faces
  * that camera at all and no card with an opaque texel stands between it and the camera.
  */
@@ -2144,19 +2246,31 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   const exposed = [...transmittance].map((value) => value > 0.5);
   const patch = largestExposedPatch(samples, exposed, SCALP_PATCH_LINK_M);
 
-  // And the same question from where a judge stands. See SCALP_VIEW_ANGLES.
+  // And the same question from where a judge stands. See SCALP_VIEW_ANGLES. The depth-complexity
+  // walk rides the same rays: it is the same cutoff and the same reach, counting crossings instead
+  // of stopping at the first one. See `cardsDeepFrom` and `MAX_CARDS_DEEP_P50`.
   let worstView = { name: "none", area: 0, samples: 0, centre: null };
+  let deepestView = { name: "none", p50: 0, p90: 0, rays: 0 };
   for (const angle of SCALP_VIEW_ANGLES) {
-    const visible = skinVisibleFrom(samples, mesh, opaqueAt, viewDirection(angle));
+    const direction = viewDirection(angle);
+    const visible = skinVisibleFrom(samples, mesh, opaqueAt, direction);
     const seen = largestExposedPatch(samples, visible, SCALP_PATCH_LINK_M);
     if (seen.area > worstView.area) {
       worstView = { name: angle.name, ...seen };
+    }
+
+    const deep = cardsDeepFrom(samples, mesh, opaqueAt, direction).sort((a, b) => a - b);
+    if (deep.length === 0) continue;
+    const p50 = deep[Math.floor(deep.length * 0.5)];
+    if (p50 > deepestView.p50) {
+      deepestView = { name: angle.name, p50, p90: deep[Math.floor(deep.length * 0.9)], rays: deep.length };
     }
   }
 
   const coverageOk = coverage >= MINIMUM_SCALP_COVERAGE;
   const patchOk = patch.area <= MAX_EXPOSED_PATCH_MM2;
   const viewOk = worstView.area <= MAX_VISIBLE_SKIN_MM2;
+  const depthOk = deepestView.p50 <= MAX_CARDS_DEEP_P50;
 
   console.log(`  ${coverageOk ? "ok  " : "FAIL"} scalp coverage    ` +
               `${(coverage * 100).toFixed(2)}% of ${samples.areas.length} cranium surface samples ` +
@@ -2173,6 +2287,11 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
               (worstView.centre === null ? "" :
                 ` at (${worstView.centre.map((value) => value.toFixed(3)).join(", ")})`) +
               ` (ceiling ${MAX_VISIBLE_SKIN_MM2} mm²)`);
+  console.log(`  ${depthOk ? "ok  " : "FAIL"} cards deep        ` +
+              `deepest of ${SCALP_VIEW_ANGLES.length} judge views is '${deepestView.name}' at p50 ` +
+              `${deepestView.p50} cards crossed per ray (p90 ${deepestView.p90}, over ` +
+              `${deepestView.rays} rays, ceiling ${MAX_CARDS_DEEP_P50}) — every crossing is a ` +
+              `shaded fragment and a card the atlas's own cutout cannot see past`);
 
   if (!coverageOk) {
     failures.push(`${groom.id} hides ${(coverage * 100).toFixed(2)}% of the cranium, under the ` +
@@ -2188,6 +2307,11 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
                   `'${worstView.name}' view at ` +
                   `(${worstView.centre.map((value) => value.toFixed(3)).join(", ")}), over the ` +
                   `${MAX_VISIBLE_SKIN_MM2} mm² ceiling`);
+  }
+  if (!depthOk) {
+    failures.push(`${groom.id} is ${deepestView.p50} cards deep at the median ray of the ` +
+                  `'${deepestView.name}' view, over the ${MAX_CARDS_DEEP_P50} ceiling — the stack ` +
+                  `is opaque before the atlas's cutout is reached and every layer of it is fill`);
   }
 
   return failures;

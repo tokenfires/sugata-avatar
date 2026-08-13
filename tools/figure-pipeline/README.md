@@ -299,19 +299,60 @@ sweep, one command per identity, all five exit 0:
 | crown z | 1.5912 | 1.6255 | 1.6594 | 1.6936 | 1.7291 |
 | nearest approach, build's instrument | 3.505 mm | 3.501 | 3.504 | 3.503 | 3.501 |
 | nearest approach, `verify_glb.mjs` | 3.505 mm | 3.501 | 3.504 | 3.503 | 3.501 |
-| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 99.98 | 99.98 |
-| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 5.0 | 5.0 |
-| bare cranium seen from the worst judge view | 6.2 mm² | 5.5 | 5.5 | 6.3 | 6.4 |
-| card tips over card roots (ceiling 0.95) | 0.791 | 0.766 | 0.798 | 0.748 | 0.771 |
-| a tip's height step to its 5 nearest | 5.5 mm | 5.4 | 5.3 | 5.5 | 5.4 |
-| fragment bytes | 3,483,796 | 3,484,136 | 3,483,532 | 3,483,948 | 3,483,916 |
+| cranium hidden through the cutout | 100.00% | 100.00 | 100.00 | 99.98 | 99.95 |
+| largest connected exposed patch | 0.0 mm² | 0.0 | 0.0 | 5.0 | 5.5 |
+| bare cranium seen from the worst judge view | 0.0 mm² | 10.6 | 4.9 | 11.0 | 5.9 |
+| **cards deep, p50 on the worst judge view (ceiling 18)** | **16** | **14** | **14** | **13** | **13** |
+| card tips over card roots (ceiling 0.95) | 0.866 | 0.856 | 0.829 | 0.812 | 0.847 |
+| a tip's height step to its 5 nearest | 6.4 mm | 6.4 | 6.4 | 6.6 | 6.7 |
+| fragment bytes | 3,119,236 | 3,119,572 | 3,118,972 | 3,119,388 | 3,119,352 |
 
-The g050 groom is **648 cards of 17 rings each + 2 cap shells of 564 triangles**, 22,684 verts,
-21,864 triangles, 3,483,532 bytes. The four sheets are shared and written once per build: albedo
+The g050 groom is **462 cards of 17 rings each + 2 cap shells of 564 triangles**, 16,360 verts,
+15,912 triangles, 3,118,972 bytes. The four sheets are shared and written once per build: albedo
 1,090,362 · normal 1,064,393 · flow 348,510 · depth 63,001 bytes.
 
-🎯 **THE ROWS ABOVE ARE THE 648-CARD SWEEP AND EVERY ONE OF THEM WAS RE-MEASURED, because the round
-that made it 648 changed the atlas as well as the counts.** `hair_texture.py`'s strip 1 stopped
+🎯 **THIS IS THE 462-CARD SWEEP AND THE ROUND THAT MADE IT DID NOT TOUCH THE ATLAS — 28.7% FEWER
+CARDS, 12–18% WIDER, AND THE FOUR SHEETS ARE BYTE-IDENTICAL TO THE 648-CARD BUILD's.** Round 20
+proved the sheet's strand structure cannot survive the sampler at this card size and redirected the
+phase: alpha's remaining job is the silhouette and the wisps, so the cards get to be fewer, wider
+and more opaque and the strand frequency moves into the shading. A card's width is the lever on both
+halves of the collapse — the lod a strip is read at is `log2(128 / its scene-pass width)`, and the
+stack's depth is total card AREA over the footprint, which only falls when the area does. Measured
+on `alive.html` at the shipped framing, before and after:
+
+| | 648 cards | 462 cards |
+|---|---:|---:|
+| cards deep between the eye and the face, p50 / p90 (`hair_layers.mjs`) | 9 / 64 | **8 / 48** |
+| lod the sampler reads, portrait p50 (`hair_lod.mjs`, scene pass) | 2.011 | **1.925** |
+| one card's width, CSS / scene-pass px | 55.3 / 36.5 | **59.6 / 39.4** |
+| C4 the curtain, transmittance where 1–2 cards deep over the face (ceiling 0.35) | 0.4516 | **0.4098** |
+| C3 the mass, transmittance where 3+ deep (ceiling 0.10) | 0.0943 | **0.0808** |
+| C1 mean transmittance (ceiling 0.28) | 0.2060 | 0.2144 |
+| C2 share over T > 0.5 (ceiling 28%) | 19.44% | 20.56% |
+| triangles | 21,864 | **15,912** |
+
+⚠️ **C1 AND C2 WENT THE WRONG WAY BY A POINT AND STAYED GREEN, AND THAT IS THE HONEST COST.** Fewer
+cards is less coverage at the thin edges of the groom. What paid for the rest is the strip
+reassignment in `hair_cards.HAIR_LAYERS` — `body` (2,3) → (1,2) and `surface` (3,4,5) → (2,3) — so
+the two layers that are the frontier over the cheek no longer carry a strip whose mean alpha starts
+with a 3. **C4 IS STILL RED AGAINST ITS 0.35 CEILING** and was red before this round at 0.4516; it
+moved 0.042 the right way and is reported rather than widened.
+
+🚩 **AND THE FIRST ATTEMPT WENT TWICE AS FAR AND WAS REJECTED BY EYE.** 336 cards at 1.36× the width
+measures better on every number in the table above — depth 7/40, lod 1.664, 49.6 scene-pass pixels a
+card, and the best delivered structure any build has recorded at 0.734 STACKED runs per card against
+the shipped 0.599 — and at 49.6 px a card's own QUAD becomes a readable shape: the crown grows
+hard-edged bright parallelograms two to three times the shipped groom's, and a dead-straight card
+border runs from the crown past the jaw, which is verbatim the launch blocker a blind critic named
+at 3.6. The facets exist in all three builds — they are cards catching the key light — so the bound
+is not "wide cards make facets", it is that a card's edge treatment is a fixed share of its
+128-texel strip, so magnifying the card magnifies the facet with it. `verify_glb.mjs`'s card-border
+clause cannot see this: it measures the boundary's raggedness on the ATLAS, in texels, and the atlas
+did not change. `hair_cards.HAIR_LAYERS` carries the table.
+
+🎯 **THE 648-CARD SWEEP THAT PRECEDED IT, KEPT BECAUSE THE PATTERN IS THE POINT. Every one of its
+rows was re-measured too, because the round that made it 648 changed the atlas as well as the
+counts.** `hair_texture.py`'s strip 1 stopped
 being a solid rectangle — see its "sub-strands" header — and a card carrying it now transmits
 0.380 where it transmitted 0.163, so `mass`, `underlayer` and `veil` went 84/58/76 to 147/102/133
 to buy that opacity back by STACKING instead of by per-card alpha. Every `verify_glb.mjs` clause is

@@ -39,6 +39,17 @@
 // the wisps ride the outermost cards which are edge-on and tiny. Authoring the sheet against one
 // median would over-resolve one end of it and smear the other.
 //
+// 🚩 **THE JACOBIAN IS TAKEN IN SCENE-PASS PIXELS, AND FOR TWO ROUNDS IT WAS NOT.** The page ships
+// TAAU at `stage.resolutionScale` 0.66, so the sampler's screen derivatives are taken over a raster
+// 0.66 as wide as the CSS canvas and its footprint is 1/0.66 wider — `log2(1/0.66)` = +0.599 mip.
+// The first version of this tool projected to `clientWidth` and reported the CSS figure, which is
+// the lod the page WOULD sample at full resolution and is not the lod anybody's frame is drawn at.
+// The constant it produced, `hair_alpha.SAMPLED_LOD = 1.492`, was therefore 0.6 of a mip optimistic,
+// and the alpha gate had been reading the atlas at a scale finer than the one the hardware uses —
+// which flatters exactly the statistic the gate exists to refuse. `hair_layers.mjs` measured it the
+// other way independently and the two now agree; correcting it turns clause A red, and that red is
+// the truth about the sheet rather than a regression in it. See `docs/RED-GATES.md`.
+//
 //   node tools/figure-pipeline/hair_lod.mjs
 //   node tools/figure-pipeline/hair_lod.mjs --out captures/hair-lod --aniso 4
 //
@@ -119,9 +130,10 @@ function report(view, measured, aniso) {
   const shift = Math.log2(aniso);
 
   console.log('');
-  console.log(`${view.name}  yaw ${view.yaw}°  ${measured.width}x${measured.height}  ` +
-    `atlas ${measured.atlasSize}²  ${measured.total.toLocaleString()} hair px in front  ` +
-    `aniso ${aniso}`);
+  console.log(`${view.name}  yaw ${view.yaw}°  ${measured.width}x${measured.height} CSS  ` +
+    `scene pass ${measured.sceneWidth}x${measured.sceneHeight} (resolutionScale ` +
+    `${measured.resolutionScale})  atlas ${measured.atlasSize}²  ` +
+    `${measured.total.toLocaleString()} hair px in front  aniso ${aniso}`);
   console.log('  strip        px      p10      p50      p90     mean   texels/strand-width-1px');
 
   for (let strip = -1; strip < 8; strip += 1) {
@@ -191,6 +203,11 @@ async function installProbe(page) {
         const canvas = stage.renderer.domElement;
         const width = canvas.clientWidth || canvas.width;
         const height = canvas.clientHeight || canvas.height;
+
+        // The raster stays CSS-sized — the histogram is weighted by pixels a viewer looks at, and
+        // that weighting is a ratio the scale cannot change — but the Jacobian below is taken over
+        // the SCENE PASS, which is the raster the sampler's derivatives are actually computed on.
+        const resolutionScale = stage.resolutionScale ?? 1;
         const viewProjection = new Matrix4().multiplyMatrices(
           camera.projectionMatrix, camera.matrixWorldInverse);
 
@@ -272,10 +289,10 @@ async function installProbe(page) {
           const b = indices ? indices.getX(triangle * 3 + 1) : triangle * 3 + 1;
           const c = indices ? indices.getX(triangle * 3 + 2) : triangle * 3 + 2;
 
-          const e1x = hairScreen[b * 3] - hairScreen[a * 3];
-          const e1y = hairScreen[b * 3 + 1] - hairScreen[a * 3 + 1];
-          const e2x = hairScreen[c * 3] - hairScreen[a * 3];
-          const e2y = hairScreen[c * 3 + 1] - hairScreen[a * 3 + 1];
+          const e1x = (hairScreen[b * 3] - hairScreen[a * 3]) * resolutionScale;
+          const e1y = (hairScreen[b * 3 + 1] - hairScreen[a * 3 + 1]) * resolutionScale;
+          const e2x = (hairScreen[c * 3] - hairScreen[a * 3]) * resolutionScale;
+          const e2y = (hairScreen[c * 3 + 1] - hairScreen[a * 3 + 1]) * resolutionScale;
           const determinant = e1x * e2y - e1y * e2x;
           if (determinant === 0) continue;
 
@@ -312,7 +329,11 @@ async function installProbe(page) {
           total += 1;
         });
 
-        return { width, height, atlasSize, histograms, total };
+        return {
+          width, height, atlasSize, histograms, total, resolutionScale,
+          sceneWidth: Math.round(width * resolutionScale),
+          sceneHeight: Math.round(height * resolutionScale)
+        };
       }
     };
   }, { fallbackAtlasSize: FALLBACK_ATLAS_SIZE, binFrom: BIN_FROM, binWidth: BIN_WIDTH, binCount: BIN_COUNT });

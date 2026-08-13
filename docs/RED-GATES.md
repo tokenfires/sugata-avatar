@@ -70,6 +70,38 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `tools/figure-pipeline/hair_alpha.selftest.mjs` — RED BY CORRECTION, 18 of 19, and the sheet did
+  not move. `hair_alpha.SAMPLED_LOD` was 1.492 for two rounds, taken from a Jacobian `hair_lod.mjs`
+  measured in **CSS pixels** while the page ships TAAU at `resolutionScale` 0.66 — so the gate was
+  reading the atlas `log2(1/0.66)` = 0.599 of a mip FINER than the hardware does, which flatters the
+  exact statistic clause A exists to refuse. Corrected at source this round: the tool now takes its
+  Jacobian on the scene pass and reads **2.075 where it read 1.492 on the same 648-card groom**, a
+  shift of +0.583 against the +0.599 the arithmetic predicts (the histogram's bins are 0.05 wide),
+  and `hair_layers.mjs` reads 2.011 for the same quantity by an independent per-pixel route. On this
+  round's wider cards the constant measures **1.925**, and at 1.925 clause A names exactly one
+  strip: **strip 7 at 1.90 runs per row against a floor of 3.00.**
+  🚩 **AND WHAT IS RED IS THE WISP STRIP, WHICH IS THE OPPOSITE OF THE DEFECT CLAUSE A WAS WRITTEN
+  FOR.** Strip 7 is 88.4% transparent in runs 1.12 texels wide; the board the clause was written
+  against was 96.4% opaque in runs of 33.55. Clause C separates them and reports the widest run on
+  the sheet at 5.97 against its ceiling of 20. That is an observation, not a licence: re-deriving A
+  to clear its own red is precisely the failure mode the threshold exists to prevent, so the red is
+  carried. **NEXT AGENT:** the replacement, if there is one, has to be red-proved against a wisp
+  strip AND against a board — the cap strip on this very sheet is the second of those and clause L
+  already uses it. Bound pinned by mutation this session, file restored byte-identically after each
+  edit: green at floor 1.85 and 1.89, RED at 1.90, 1.91 and 1.95. Owned by `tools/figure-pipeline/**`.
+
+- `tools/request-ledger.selftest.mjs` — 25 of 26, and the failing clause is the ROUNDS clause rather
+  than any entry: *"R12 — HEAD is 15 commits past the newest declared round, ceiling is 14. Declare
+  the new round — which is what expires the OPEN entries below."* It went red AT THE MOMENT R20's own
+  commit landed, because that commit is the fifteenth, so the round that caused it could not have
+  seen it in its own pre-commit run. It is a clock, not a dropped request: 14 OPEN entries are being
+  carried on a round number that no longer describes the tree. **THE FIX IS ONE LINE IN
+  `docs/OPEN-REQUESTS.md`** — declare the current round and its opening commit, in the form the
+  ROUNDS clause parses — and that file is outside `tools/figure-pipeline/**`, so R21 declared the red
+  rather than editing it. ⚠️ The 14 OPEN entries EXPIRE when that line is written, so whoever writes
+  it has to adjudicate them in the same edit; declaring the round alone will turn one red into
+  fourteen. Owned by whoever owns `docs/OPEN-REQUESTS.md`.
+
 - `packages/core/src/render/HairOIT.selftest.mjs` — INTERMITTENT, 31/32 on **2 of 10 runs** this
   session and 32/32 on the other eight. Not a decision and not yet a located defect: the failing
   clause is above the 20 lines `run-selftests.sh` tails, and on the standalone run where it first

@@ -3,8 +3,8 @@
  *
  * ## Why this page exists when `verify_glb.mjs` already passes
  *
- * The gate measures the exported file: at g050 today, 484 quad-strip cards of 17 rings, two cap
- * shells, zero vertices inside the body with a 3.500 mm nearest approach, and 100.00% of the
+ * The gate measures the exported file: at g050 today, 462 quad-strip cards of 17 rings, two cap
+ * shells, zero vertices inside the body with a 3.501 mm nearest approach, and 100.00% of the
  * cranium hidden through the CUTOUT rather than through the triangles. Every one of those numbers
  * is true of a groom that looks like a helmet made of ribbons, and LEARNINGS §1.2 — the most-cited
  * entry in that file — is exactly this: a selftest proves the numbers and is structurally blind to

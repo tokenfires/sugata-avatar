@@ -72,6 +72,8 @@ import {
     HAIR_DEFAULTS,
     HAIR_F0,
     HAIR_IOR,
+    HAIR_STRAND_PITCH,
+    STRAND_NOISE_SD,
     azimuthalValues,
     encodedToLinear,
     fresnelValue,
@@ -82,6 +84,10 @@ import {
     scatterValue,
     sideVisibilityValue,
     solidAngleValue,
+    strandFadeValue,
+    strandHashValue,
+    strandJitterValue,
+    strandNoiseValue,
     transmittedOffsetValue
 } from './HairMaterial.js';
 
@@ -839,6 +845,120 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
 
 }
 
+// --- THE STRAND FIELD, ON THE MIRROR --------------------------------------------------------
+//
+// The round's claim is that the strand frequency the alpha channel cannot carry can live in the
+// shading instead. That claim has two halves and they fail in different ways, so they are checked
+// separately: the field has to have the AMPLITUDE it says it has, and it has to have a BAND LIMIT
+// it actually respects. A field with the right amplitude and no band limit is crawling noise, and
+// a field with a band limit and the wrong amplitude is nothing at all.
+{
+
+    // The closed form in `STRAND_NOISE_SD` against the field it claims to describe. This is the
+    // "shape whose answer is known" for the whole section: if the analytic sd is wrong then the
+    // jitter uniform stops being a standard deviation in radians and becomes an arbitrary gain,
+    // and every number quoted about the amplitude means nothing.
+    const samples = [];
+    for ( let index = 0; index < 200_000; index ++ ) samples.push( strandNoiseValue( index * 0.0137 + 0.5 ) );
+    const mean = samples.reduce( ( a, b ) => a + b, 0 ) / samples.length;
+    const noiseSd = Math.sqrt( samples.reduce( ( a, b ) => a + ( b - mean ) ** 2, 0 ) / samples.length );
+
+    report(
+        'the strand field is normalised by a DERIVATION and not by a fitted constant',
+        Math.abs( noiseSd - 1 ) < 0.02 && Math.abs( mean ) < 0.1,
+        `STRAND_NOISE_SD = 2√(26/420) = ${ STRAND_NOISE_SD.toFixed( 6 ) }, from E[s] = 1/2 and E[s²] = 13/35 over the ` +
+            `smoothstep interpolant.\n      Sampled over 200,000 points the field reads sd ${ noiseSd.toFixed( 5 ) }, ` +
+            `mean ${ mean.toFixed( 5 ) }. The sd is the load-bearing one — it is what makes\n      ` +
+            `HAIR_DEFAULTS.strandTangentJitter = ${ HAIR_DEFAULTS.strandTangentJitter } READ AS RADIANS, which is the unit ` +
+            `the 13.8° measured off flow.png is in.`
+    );
+
+    // The hash under it, and the discriminating half is the CORRELATION rather than the histogram.
+    // A hash that is uniform but ordered — the mixing steps deleted, leaving `fract( x · 0.1031 )`,
+    // which is one line's worth of edit away — has a perfect histogram and neighbouring cells that
+    // differ by a constant, so the field it drives is a sawtooth: a strand pattern that marches
+    // across every card in the same direction instead of a decorrelated one.
+    //
+    // 🔴 AND THE FIRST VERSION OF THIS CLAUSE DID NOT SEPARATE THEM. It asserted uniformity plus
+    // five distinct values at phase 400, on the stated grounds that the sine hash "stops being one"
+    // at a large argument — and red-proved against `fract( sin(x) · 43758.5453 )` it PASSED, because
+    // the argument that breaks the sine hash is f32 precision on a GPU and this mirror computes
+    // Math.sin in f64 before rounding. The mirror cannot see that defect, so the claim is a comment
+    // and not an assertion, and what is asserted is what the mirror can actually discriminate.
+    // 🚩 SAMPLED AT INTEGERS, BECAUSE THAT IS THE ONLY PLACE THE SHADER EVER EVALUATES IT — the
+    // field asks for cell `floor( phase )` and cell `floor( phase ) + 1` and nothing between. A
+    // correlation measured on a fractional stride is a statement about a function the groom never
+    // calls, and it reads differently.
+    const hashes = [];
+    for ( let index = 0; index < 200_000; index ++ ) hashes.push( strandHashValue( index ) );
+    const hashMean = hashes.reduce( ( a, b ) => a + b, 0 ) / hashes.length;
+    const hashSd = Math.sqrt( hashes.reduce( ( a, b ) => a + ( b - hashMean ) ** 2, 0 ) / hashes.length );
+    let covariance = 0;
+    for ( let index = 1; index < hashes.length; index ++ ) {
+        covariance += ( hashes[ index ] - hashMean ) * ( hashes[ index - 1 ] - hashMean );
+    }
+    const correlation = covariance / ( hashes.length - 1 ) / ( hashSd * hashSd );
+
+    report(
+        'the hash DECORRELATES, which is the half of it that a uniform histogram does not prove',
+        Math.abs( hashMean - 0.5 ) < 0.01 && Math.abs( hashSd - 1 / Math.sqrt( 12 ) ) < 0.005 &&
+            Math.abs( correlation ) < 0.10,
+        `Hoskins hash11 in emulated f32 over 200,000 integer cells: mean ${ hashMean.toFixed( 5 ) } against 0.5, ` +
+            `sd ${ hashSd.toFixed( 5 ) } against 1/√12 = ${ ( 1 / Math.sqrt( 12 ) ).toFixed( 5 ) },\n      ` +
+            `lag-1 correlation ${ correlation.toFixed( 5 ) } against a bound of 0.10. Strip the two mixing lines ` +
+            `— one edit — and the first two numbers are UNCHANGED\n      at 0.49955 and 0.28868 while this one goes ` +
+            `to **+0.44519**: a per-strand decorrelation that is perfectly ordered, which is a sawtooth wearing a\n      ` +
+            `noise's histogram. The bound sits 4.3x above the shipped reading and 4.5x below the broken one rather ` +
+            `than between two nearly equal numbers.`
+    );
+
+    // THE BAND LIMIT, as a property rather than as a comment. `strandFadeStart` and `strandFadeEnd`
+    // are cycles per RENDER-TARGET pixel and 0.5 is Nyquist, so what has to be true is that the
+    // field is gone at and above it and untouched well below it, with nothing in between that is
+    // not monotone.
+    const fades = [ 0, 0.1, 0.2, 0.25, 0.3, 0.375, 0.45, 0.5, 0.7, 1.5 ].map( ( c ) => strandFadeValue( c ) );
+    const monotone = fades.every( ( value, index ) => index === 0 || value <= fades[ index - 1 ] + 1e-12 );
+
+    report(
+        '🎯 the strand field is REMOVED at Nyquist, which is the difference between detail and crawl',
+        fades[ 3 ] === 1 && fades[ 7 ] === 0 && fades[ 9 ] === 0 && monotone &&
+            strandJitterValue( 0.31, 0.5 ) === 0,
+        `fade over cycles-per-render-target-pixel: ${ fades.map( ( v, i ) => `${ [ 0, 0.1, 0.2, 0.25, 0.3, 0.375, 0.45, 0.5, 0.7, 1.5 ][ i ] }→${ v.toFixed( 3 ) }` ).join( '  ' ) }.\n      ` +
+            `Open to ${ HAIR_DEFAULTS.strandFadeStart }, shut at ${ HAIR_DEFAULTS.strandFadeEnd } = Nyquist, monotone between. ` +
+            `A field that survived past 0.5 would not be finer hair,\n      it would be a pattern the temporal resolve ` +
+            `cannot hold still, which is the failure mode this clause exists to refuse.`
+    );
+
+    // 🎯 THE PITCH AGAINST THE FRAMING IT WAS DERIVED FROM. Both numbers are measurements from this
+    // session — the card's own width in view space off the live page, and its width on the shipped
+    // plate off `hair_screen.mjs` — and the pitch is the quotient. Asserting it here is what stops
+    // the constant drifting away from the two readings that produced it.
+    const CARD_METRES = 0.2299 / 8;              // |∂P/∂u| p50, live page and GLB bind pose alike
+    // 🚩 THE NARROWER OF THE TWO GROOMS MEASURED THIS SESSION, on purpose: `hair_screen.mjs` read
+    // 55.3 CSS px and then 59.6 after a re-bake landed in the tree from another agent mid-round, and
+    // a band limit has to hold at the framing where the card is SMALLEST. 55.3 at resolutionScale
+    // 0.66 is this.
+    const CARD_SCENE_PIXELS = 36.5;
+    const locksPerCard = CARD_METRES / HAIR_STRAND_PITCH;
+    const cyclesPerPixel = locksPerCard / CARD_SCENE_PIXELS;
+
+    report(
+        'the shipped pitch is the finest one the scene pass carries WHOLE, not the finest one nameable',
+        cyclesPerPixel <= HAIR_DEFAULTS.strandFadeStart + 1e-6 &&
+            cyclesPerPixel > HAIR_DEFAULTS.strandFadeStart * 0.85,
+        `${ ( HAIR_STRAND_PITCH * 1000 ).toFixed( 2 ) } mm on a ${ ( CARD_METRES * 1000 ).toFixed( 1 ) } mm card is ` +
+            `${ locksPerCard.toFixed( 2 ) } locks a card; over ${ CARD_SCENE_PIXELS } scene-pass pixels that is ` +
+            `${ cyclesPerPixel.toFixed( 4 ) } cycles a pixel,\n      against a fade that opens at ` +
+            `${ HAIR_DEFAULTS.strandFadeStart }. Finer than this and the field pays the fade rather than buying detail: ` +
+            `swept on the shipped arm the delivered\n      per-pixel difference read sd 4.80 / 7.02 / 8.05 / 9.43 code ` +
+            `values at 1.2 / 2.05 / 3.0 / 4.0 mm, and 1.2 mm is DOWN because its own band limit ate it.\n      ` +
+            `⚠️ The clause has a LOWER bound as well, and that is the half that would catch someone ` +
+            `"fixing" a soft picture by coarsening: at 6 mm this reads 0.13 cycles\n      a pixel — inside the fade with ` +
+            `room to spare, and a 4x crop of it is fat ribbons rather than locks.`
+    );
+
+}
+
 console.log( '\n--- the rendered gate ------------------------------------------------------------\n' );
 
 const probe = await import( '../render/MotionProbe.mjs' );
@@ -894,7 +1014,34 @@ const HALF_UNIT_PATCH = {
     replacement: 'vec3( 0.5 / ( 4 * Math.PI ) )'
 };
 
+/**
+ * 🚩 THE STRAND PITCH DRIVEN UNDER ITS OWN BAND LIMIT, AND IT IS THE MUTATION PROOF FOR THE FADE.
+ *
+ * `strandFadeEnd` claims the field is removed once its period falls under two render-target pixels.
+ * The only way to test that claim is to author a pitch that IS under it and require the delivered
+ * structure to collapse — a clause that would pass just as happily on a shader that ignored the
+ * fade entirely could not tell a band limit from a comment. 0.8 mm on a 28.7 mm card is 36 locks a
+ * card against a card that is about 60 plate pixels wide, i.e. 0.6 cycles a pixel, past Nyquist.
+ *
+ * It has to be a source patch rather than a URL key: the pitch is not on this page's toggle surface,
+ * and adding it there would be an edit to `alive.js`, which this round does not own.
+ */
+const FINE_PITCH_PATCH = {
+    urlPattern: '**/HairMaterial.js*',
+    anchor: 'export const HAIR_STRAND_PITCH = 0.00315;',
+    replacement: 'export const HAIR_STRAND_PITCH = 0.0008;'
+};
+
 const ARMS = {
+    // 🎯 THE STRAND A/B, ON THE DETERMINISTIC FORWARD PATH ON PURPOSE. The shipped arm is TAAU at
+    // 0.66 plus stochastic coverage, and both are estimators that a temporal resolve integrates —
+    // two captures of it differ from each other by more than this difference is, so an A/B taken
+    // there measures the resolve. `&aa=msaa` makes the two plates reproducible and the subtraction
+    // therefore attributable.
+    strandOn:   `${ FORWARD }&hair=1`,
+    strandOff:  `${ FORWARD }&hair=1&hairdefect=no-strand-jitter`,
+    strandFine: `${ FORWARD }&hair=1`,                      // the same URL at a pitch past Nyquist
+
     // The deterministic forward path, for the band geometry and the red proof.
     zero:       `${ FORWARD }&hair=1&hairlobes=&hairscatter=0`,
     unit:       `${ FORWARD }&hair=1&hairdefect=unit-bsdf`,
@@ -946,7 +1093,7 @@ const ARMS = {
 };
 
 /** Which arms carry a source patch. Everything else is served exactly as the tree holds it. */
-const PATCHED_ARMS = { gained: GAIN_PATCH, unitHalf: HALF_UNIT_PATCH };
+const PATCHED_ARMS = { gained: GAIN_PATCH, unitHalf: HALF_UNIT_PATCH, strandFine: FINE_PITCH_PATCH };
 
 try {
 
@@ -1112,6 +1259,59 @@ if ( plates.shipped !== undefined ) {
             `check is kept and\n      the sentence is corrected rather than the other way round: what has to hold is that the ` +
             `mask is dark with the\n      BSDF off, and it does. A filter that is not currently binding is not a filter that was ` +
             `never needed.`
+    );
+
+    // --- THE STRAND FIELD, ON THE PLATE ---------------------------------------------------------
+    //
+    // 🎯 THE A/B IS THE MEASUREMENT AND THE ARM'S OWN SPECTRUM IS NOT. `?hairdefect=no-strand-jitter`
+    // changes exactly one rotation and leaves the flow sheet, the card frame, every lobe and the
+    // scatter fake alone, so the two plates subtract to the strand field and to nothing else. Read
+    // instead as "how much structure does the shipped arm have", the number is dominated by
+    // everything that did not change — the card silhouettes, the dither, the alpha — and moves by
+    // about a percent when the field is switched off, which is the shape of a statistic that cannot
+    // see what it is pointed at.
+    const strandSd = ( a, b ) => {
+
+        const differences = solidMask.map( ( [ x, y ] ) => ( luma( a, x, y ) - luma( b, x, y ) ) * 255 );
+        const centre = differences.reduce( ( p, q ) => p + q, 0 ) / differences.length;
+
+        return Math.sqrt( differences.reduce( ( p, q ) => p + ( q - centre ) ** 2, 0 ) / differences.length );
+
+    };
+
+    // The instrument's own zero, on the same run and over the same pixels: two captures of ONE url.
+    // Without it a delivered difference of a code value or two is a claim about the shader that is
+    // really a claim about the capture.
+    const instrumentZero = strandSd( plates.unit, plates.unitRepeat );
+    const delivered = strandSd( plates.strandOn, plates.strandOff );
+    const pastNyquist = strandSd( plates.strandFine, plates.strandOff );
+
+    report(
+        '🎯 the strand field ARRIVES — the shading carries structure the alpha channel could not',
+        delivered > 2.0 && delivered > instrumentZero * 8,
+        `over ${ solidMask.length.toLocaleString() } solid hair px the strand field moves the plate by ` +
+            `sd ${ delivered.toFixed( 3 ) } code values,\n      against an instrument zero of ` +
+            `${ instrumentZero.toFixed( 4 ) } cv measured this run by capturing one url twice. The floor is two code ` +
+            `values —\n      twice the buffer's own quantisation step — because a structure delivered below the ` +
+            `quantum is not delivered.\n      ` +
+            `⚠️ AND THIS IS NOT THE ROUND'S HEADLINE NUMBER. hair_screen.mjs's runs-per-card is, and it moved 0.813 → ` +
+            `0.818.\n      Calibrated by injecting a sinusoid of known amplitude into the shipped plate at the shipped ` +
+            `lock frequency, that\n      statistic needs 25 code values before it moves at all and 36 before it reaches ` +
+            `the atlas's 3.637 — it is a COVERAGE\n      statistic with a 25 cv dead zone, and no shading change inside ` +
+            `the hair's own dynamic range can move it. See §10.5 of docs/research/hair.md.`
+    );
+
+    report(
+        '🚩 and it OBEYS ITS OWN BAND LIMIT — the field collapses when authored past Nyquist',
+        pastNyquist < delivered * 0.5,
+        `the same subtraction with HAIR_STRAND_PITCH source-patched from ${ ( HAIR_STRAND_PITCH * 1000 ).toFixed( 2 ) } mm ` +
+            `to 0.80 mm — 36 locks on a 28.7 mm card, 0.6 cycles per pixel, past Nyquist —\n      reads ` +
+            `${ pastNyquist.toFixed( 3 ) } cv against the shipped ${ delivered.toFixed( 3 ) }, a ratio of ` +
+            `${ ( pastNyquist / delivered ).toFixed( 3 ) }. A shader that ignored `+
+            `strandFadeEnd would read ABOVE the shipped\n      arm here rather than below it, because a finer field is a ` +
+            `bigger per-pixel difference until something removes it. That is what this clause separates.\n      ` +
+            `⚠️ It does not go to zero and must not be expected to: |∂P/∂u| spans 0.120–0.347 across the groom, so the ` +
+            `narrowest cards are still inside the limit at 0.80 mm.`
     );
 
     const percentiles = percentileOf;

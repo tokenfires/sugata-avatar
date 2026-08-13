@@ -170,6 +170,54 @@ RESCUE_STEPS = 24
 # So `root` takes a fraction of the part push (`part`) and is denser. It is the only layer that
 # gets either: `underlayer` outward is what the eye actually reads as a style, and a groom whose
 # every layer ignored the part would have no part.
+#
+# 🎯 **ROUND 21: FEWER AND WIDER, AND THE REASON IS THE SAMPLING RATE RATHER THAN THE FILL BUDGET.**
+# Round 20 traced the strand from the sheet to the pixel and proved it cannot survive: the atlas
+# offers 3.637 runs per card width and the frame delivers 0.786. Two links ate it, and a card's
+# WIDTH is the lever on both.
+#
+#   1. **THE LOD.** The lod a card is sampled at is `log2(128 / its scene-pass width)` — a strip is
+#      128 texels wide however wide the quad is — so a card 40% wider is read half a mip finer and
+#      the same sheet arrives with more of its structure intact. Measured on the shipped groom at
+#      the shipped framing: 55.3 CSS px per card, 36.5 on the scene pass, lod 2.011.
+#   2. **THE STACK.** Median NINE cards between the eye and the face, and 64.51% of front-most hair
+#      pixels over 0.99 opaque through that stack, so a gap in the front card is a window onto the
+#      next card of the same albedo. Expected depth is TOTAL CARD AREA over the groom's footprint,
+#      which is the arithmetic that says what does and does not move it: trading count for width at
+#      constant area moves it NOT AT ALL. Depth falls only when the area falls.
+#
+# So every layer's count is cut harder than its width is raised — the area comes down, the cards
+# come up in size, and the opacity that the removed layers were providing is bought back by moving
+# the layers that lie across the face onto DENSER STRIPS instead (`body` and `surface` below).
+#
+# 🚩 **AND THE FIRST ATTEMPT WENT TWICE AS FAR AND WAS REJECTED BY EYE, WHICH IS THE BOUND ON THIS
+# WHOLE IDEA AND IS WHY IT IS RECORDED RATHER THAN DELETED.** Built, rendered at portrait and
+# three-quarter on `alive.html` and on `hair.html`, and looked at:
+#
+#   |                                | cards | half-width | depth p50/p90 | scene card px | lod p50 |
+#   |--------------------------------|------:|-----------:|--------------:|--------------:|--------:|
+#   | shipped before this round      |   648 |      1.00× |          9/64 |          36.5 |   2.011 |
+#   | attempt 1, rejected            |   336 |      1.36× |          7/40 |          49.6 |   1.664 |
+#   | this list                      |   462 |      1.18× |          8/48 |          39.4 |   1.962 |
+#
+# **EVERY NUMBER IN ATTEMPT 1's ROW IS BETTER AND THE PICTURE IS WORSE.** Its delivered structure
+# was the best any build has measured — STACKED runs per card 0.734 against the shipped 0.599, and
+# the atlas arriving at 3.681 sampled runs against 3.496 — and at 49.6 scene-pass pixels a card's
+# own QUAD becomes a readable shape: the crown grows hard-edged bright parallelograms two to three
+# times the size of the shipped groom's, and a dead-straight card border runs from the crown past
+# the jaw, which is verbatim the defect a blind critic named at round 18 and `STRIP_GUTTER_PX` was
+# written for. The facets are present in all three builds — they are the cards catching the key
+# light — so the bound is not "wide cards make facets", it is that **a card's edge treatment is a
+# fixed share of its 128-texel strip, so magnifying the card magnifies the facet with it.** 39 px
+# is inside the shipped groom's own facet size and 50 px is not. `verify_glb.mjs`'s card-border
+# clause cannot see this: it measures the boundary's raggedness on the ATLAS, in texels, and the
+# atlas did not change.
+#
+# ⚠️ **`flyaway` IS UNTOUCHED, AND THAT IS THE ONE ENTRY IN THIS LIST THAT MUST STAY THAT WAY.** It
+# is the outermost layer, it carries strips 6 and 7, and the tapering tips it draws are the one part
+# of this groom every blind critic has praised. The round's thesis is that alpha's remaining job is
+# the silhouette and the wisps; this layer IS that job.
+#
 # How sharply the crown over-sampling concentrates on the faces that point straight up.
 # See `sample_roots`; 1 would spread it over the whole upper half of the skull.
 CROWN_BIAS_POWER = 2.0
@@ -204,8 +252,8 @@ CROWN_BIAS_POWER = 2.0
 # length it ends up with — see `grow_to_cut`, which corrects it against where the card actually
 # landed. The guesses are roughly 1.35× the drop, which is what the wrap over the skull costs.
 HAIR_LAYERS = [
-    {"name": "root", "cards": 104, "standoff": 0.0060, "length": 0.085,
-     "half_width": 0.0210, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08,
+    {"name": "root", "cards": 78, "standoff": 0.0060, "length": 0.085,
+     "half_width": 0.0235, "strips": (1, 2), "gravity": 0.85, "jitter": 0.08,
      "part": 0.20, "crown": 1.60, "cut": None, "clump": 0.15},
     # 🎯 **`mass` IS THE COVERAGE LAYER FOR THE LENGTH, AND ITS ABSENCE IS WHY A BLIND CRITIC CALLED
     # THE GROOM A STOCKING.** *"You can see the bald skull's silhouette through it, you can see her
@@ -232,8 +280,8 @@ HAIR_LAYERS = [
     # its ends stop short of the ones a viewer reads, `clump` high enough that it gathers into the
     # same sixteen locks rather than fanning between them, and `strips` the one strip in the sheet
     # that is near-opaque WITH a broken border (`hair_texture.INTERIOR_STRIP`).
-    {"name": "mass", "cards": 147, "standoff": 0.0135, "length": 0.290,
-     "half_width": 0.0175, "strips": (1,), "gravity": 1.06, "jitter": 0.10,
+    {"name": "mass", "cards": 100, "standoff": 0.0135, "length": 0.290,
+     "half_width": 0.0200, "strips": (1,), "gravity": 1.06, "jitter": 0.10,
      "crown": 0.50, "cut": 0.84, "clump": 0.60, "tip_width": 0.26},
     # 🎯 **THE STRIPS ON THESE THREE MOVED ONE COLUMN DENSER, AND THAT IS THE OTHER HALF OF THE
     # CURTAIN FIX.** See `veil` at the bottom of this list for the measurement that forced it. The
@@ -247,20 +295,33 @@ HAIR_LAYERS = [
     # takes the next one down the sheet. Coverage at the 0.5 cutoff, from `hair_texture`'s own
     # table: strip 1 0.592, 2 0.550, 3 0.507, 4 0.437, 5 0.381, 6 0.175, 7 0.121.
     #
+    # 🎯 **ROUND 21 SHIFTED THEM A SECOND COLUMN, AND THIS IS HOW THE ROUND PAYS FOR ITS MISSING
+    # CARDS.** `body` goes (2,3) → (1,2) and `surface` goes (3,4,5) → (2,3), so the two layers that
+    # are the frontier over the cheek no longer carry a strip whose mean alpha starts with a 3. It
+    # is the same argument one column further and it is what keeps the transmittance clauses from
+    # regressing when a third of the cards leave: MEASURED, whole change together, portrait —
+    #
+    #   C4 the curtain 0.4516 → **0.4098** (ceiling 0.35, red both ways)   C3 the mass 0.0943 →
+    #   **0.0808** (ceiling 0.1)   C1 0.2060 → 0.2144   C2 19.44% → 20.56% (ceilings 0.28, 28%)
+    #
+    # ⚠️ C1 and C2 went the WRONG way by a point and stayed green: fewer cards is less coverage at
+    # the thin edges of the groom, and that is the honest cost of the trade. C4 and C3 — the mass
+    # and the curtain, which are where a viewer reads a face through hair — went the right way.
+    #
     # 🚩 **`flyaway` IS NOT IN THIS AND MUST NOT BE.** Strips 6 and 7 are the wisps, and
     # `hair_texture.STRIP_RECIPES` is explicit that making them cover more would undo the one thing
     # they exist for — a card carrying one has the outline of a few hairs rather than of a ribbon.
     # `flyaway` is the outermost layer, it is the silhouette a viewer reads against the background,
     # and it keeps (6, 7). What changes is the layers UNDER it, which are seen against skin rather
     # than against sky and whose thin third was buying nothing.
-    {"name": "underlayer", "cards": 102, "standoff": 0.0110, "length": 0.200,
-     "half_width": 0.0180, "strips": (1, 2), "gravity": 1.00, "jitter": 0.11,
+    {"name": "underlayer", "cards": 70, "standoff": 0.0110, "length": 0.200,
+     "half_width": 0.0205, "strips": (1, 2), "gravity": 1.00, "jitter": 0.11,
      "cut": 0.35, "clump": 0.45},
-    {"name": "body", "cards": 68, "standoff": 0.0165, "length": 0.260,
-     "half_width": 0.0160, "strips": (2, 3), "gravity": 1.10, "jitter": 0.14,
+    {"name": "body", "cards": 48, "standoff": 0.0165, "length": 0.260,
+     "half_width": 0.0185, "strips": (1, 2), "gravity": 1.10, "jitter": 0.14,
      "cut": 0.62, "clump": 0.62},
-    {"name": "surface", "cards": 66, "standoff": 0.0225, "length": 0.300,
-     "half_width": 0.0140, "strips": (3, 4, 5), "gravity": 1.20, "jitter": 0.17,
+    {"name": "surface", "cards": 48, "standoff": 0.0225, "length": 0.300,
+     "half_width": 0.0165, "strips": (2, 3), "gravity": 1.20, "jitter": 0.17,
      "cut": 0.80, "clump": 0.75},
     # ⚠️ `cut_scatter` multiplies the cut jitter, and the flyaway layer is the one place it is
     # above 1. That layer exists to BREAK the silhouette — it carries the wispiest strips and it is
@@ -347,8 +408,8 @@ HAIR_LAYERS = [
     # layer's ends were doing exactly that over the collarbone. Driven to 0.22 the card converges to
     # a point over its last third, so the coverage stays where the curtain is and the ends stop
     # being slabs. Measured: it costs nothing on C4 — see the run table at CEILINGS.
-    {"name": "veil", "cards": 133, "standoff": 0.0200, "length": 0.300,
-     "half_width": 0.0150, "strips": (1,), "gravity": 1.16, "jitter": 0.15,
+    {"name": "veil", "cards": 90, "standoff": 0.0200, "length": 0.300,
+     "half_width": 0.0175, "strips": (1,), "gravity": 1.16, "jitter": 0.15,
      "crown": 0.35, "cut": 0.84, "clump": 0.70, "tip_width": 0.22},
 ]
 

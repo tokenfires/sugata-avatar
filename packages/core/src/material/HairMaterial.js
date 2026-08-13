@@ -88,6 +88,44 @@
  *   3. **The root is not occluded by anything the renderer can see.** A baked root→tip mask
  *      (`flow.png` B) ramps a measured occlusion over the first fraction of strand length.
  *
+ * ## The strand frequency lives HERE now, because the alpha channel cannot carry it
+ *
+ * Round 20 traced a strand run from the atlas to the frame buffer and proved it cannot survive: the
+ * sheet offers 3.637 runs per card width at the width a card actually covers and the frame delivers
+ * 0.786, because a 128-texel strip covers about 35 scene-pass pixels, so an authored strand run is
+ * under two pixels and the trilinear filter at the sampled lod is as wide as the run itself. The
+ * filter is RIGHT to remove it — keeping it would alias — and no sheet authored against a texel
+ * grid can win that argument. Alpha's remaining job is the silhouette and the wisps.
+ *
+ * 🎯 **SO THE STRAND FREQUENCY MOVES INTO THE SHADING, WHERE THERE IS NO MIP CHAIN.** A tangent
+ * perturbation evaluated per fragment is not sampled from anything; it is a function of `uv` and of
+ * the fragment's own screen derivatives, so the only band limit it has is the one it is given, and
+ * it can be given exactly the right one. `strandTangentNode` adds a one-dimensional value-noise
+ * rotation of the strand direction, across the strand, with two halves that are separately measured:
+ *
+ *   AMPLITUDE  is not invented — it is the strand-scale tangent variation `flow.png` ALREADY
+ *              CARRIES AND THE SAMPLER ALREADY DELETES. Measured this session on the shipped sheet,
+ *              per strip, as the standard deviation of the in-plane strand angle left over after a
+ *              box filter of the width the scene pass reads at: 10.4° on strip 1 and 15.0–17.5° on
+ *              strips 2–5. Weighted by the hair pixels each strip actually occupies in the shipped
+ *              portrait, **0.2403 rad — 13.8°**. `HAIR_DEFAULTS.strandTangentJitter` is that number,
+ *              so the change reinstates a measured quantity rather than adding a new one. It is a
+ *              STATISTICAL reinstatement and not a reconstruction: the sheet's own strand positions
+ *              are not recoverable from a filtered read, so what is restored is the amplitude and
+ *              the frequency band, not the individual hairs.
+ *
+ *   FREQUENCY  is set by the SCENE PASS and by nothing else. The pitch is authored in millimetres of
+ *              scalp and converted per fragment through `|∂P/∂u|`, which the cotangent frame already
+ *              computes, so a card carries the same physical lock spacing wherever it sits and
+ *              whatever its own width is. `dFdx( uv )` is taken in render-target pixels, which is
+ *              the rate the coverage decision is made at — 0.66 of a CSS pixel on this page — so the
+ *              Nyquist fade is automatically in the units round 20 found the CPU gate had wrong.
+ *
+ * ⚠️ **THE JITTER REACHES THE G-BUFFER, AND THAT IS DELIBERATE.** `normalNode` is Karis' fake normal
+ * built from this same tangent, so the strand structure lands in the normal buffer that `GTAO.js`
+ * and the specular occlusion read. Making the two disagree would put the highlight on one strand
+ * field and the occlusion on another.
+ *
  * ## The multiple-scattering term is a hack and is labelled as one
  *
  * Slide 39's term is Square Enix's from Agni's Philosophy, and Karis' own words on that section of
@@ -126,22 +164,27 @@ import {
     Fn,
     abs,
     atan,
+    cos,
     cross,
     dFdx,
     dFdy,
     dot,
     float,
+    floor,
+    fract,
     length,
     mix,
     normalize,
     positionView,
     positionViewDirection,
     pow,
+    sin,
     smoothstep,
     sqrt,
     texture,
     uniform,
     uv,
+    vec2,
     vec3,
     vec4
 } from 'three/tsl';
@@ -191,6 +234,69 @@ export const HAIR_CONTRAST = {
     encodedRatio: [ 9.08, 10.21, 11.35 ],
     linearRatio: [ 56.6, 73.4, 92.8 ]
 };
+
+/**
+ * THE STRAND PITCH, in metres of scalp, and it is the frequency half of the shading's strand
+ * structure. See the header for why the amplitude and the frequency come from different places.
+ *
+ * A pitch cannot be authored in texels here — there are none — so it is authored in the one unit
+ * the groom and the eye agree on and converted per fragment through the card's own `|∂P/∂u|`.
+ * Three measurements this session fix it, all off the LIVE page rather than off a file, because it
+ * is the live page's skinning and the live page's camera that the shader divides by:
+ *
+ *   1. The card's PHYSICAL width, from the hair mesh's own POSITION and TEXCOORD_0 by inverting the
+ *      UV Jacobian per triangle: `|∂P/∂u|` p10 0.1201, **p50 0.2299**, p90 0.3466 m per unit atlas
+ *      u over 15,912 triangles. A strip is an eighth of u, so a card is **28.7 mm** wide.
+ *      🎯 Measured TWICE and they agree to the digit: on the live page with the skinning applied and
+ *      taken into VIEW space, which is the space `positionView` is in, and off `g050.glb`'s bind
+ *      pose in its own local space. So the figure carries no scale and the shader's `|∂P/∂u|` is
+ *      metres of scalp with nothing in between.
+ *      ⚠️ `hair_texture.py`'s header says "roughly 30 mm" in one paragraph and "a 42 mm card" in
+ *      another; neither is this number and the sizing that depends on either is out by up to 1.5x.
+ *   2. The card's SCREEN width on the shipped plate, from `hair_screen.mjs`: **55.3 CSS pixels**
+ *      early in the session and **59.6** after a groom re-bake landed in the tree from another
+ *      agent mid-round. The page renders at `resolutionScale` 0.66, so those are **36.5 and 39.4
+ *      scene-pass pixels** — and the scene pass is the rate that decides anything, because the
+ *      coverage and the shading are computed once per one of those. One scene-pass pixel is
+ *      therefore 0.79 mm of scalp at portrait framing, or 0.73 after the re-bake.
+ *   3. The band limit follows from those two alone, and it is one division: a field of `n` locks per
+ *      card runs at `n / 36.5` cycles per scene-pass pixel, so `strandFadeStart` at 0.25 admits
+ *      **9.1 locks a card** at the narrower of the two and 9.9 at the wider.
+ *
+ * 🎯 SO THE PITCH IS THE FINEST ONE THE PASS CARRIES WHOLE AT THE NARROWER FRAMING: 28.7 mm over
+ * 9.1 is **3.15 mm**, four scene-pass pixels a lock, and it is inside the fade on both grooms —
+ * 0.249 cycles a pixel on the first and 0.231 on the second, against a fade that opens at 0.25. The
+ * margin on the first is 0.3% and that is not an accident, it is the definition: any coarser and
+ * the pitch is not the finest one carried whole. ⚠️ A groom whose cards get NARROWER on screen
+ * moves the limit, and the selftest clause is deliberately tight enough to go red when it does.
+ * Going finer does not buy finer hair, it buys the fade — swept on the
+ * shipped arm this session against the `no-strand-jitter` arm, the delivered per-pixel difference
+ * over 540,404 hair pixels reads sd 4.80 / 7.02 / 8.05 / 9.43 code values at 1.2 / 2.05 / 3.0 /
+ * 4.0 mm, and the 1.2 mm arm is DOWN because at 0.66 resolution scale its own band limit has
+ * removed it. Coarser than about 4 mm the 4x crop stops reading as locks and starts reading as fat
+ * ribbons, which is where the sweep is bounded from the other side.
+ *
+ * 🚩 AND THE SHEET'S OWN LANE PITCH IS INSIDE THAT LIMIT RATHER THAN OUTSIDE IT, WHICH IS ROUND 20
+ * RESTATED IN MILLIMETRES. `hair_texture.py`'s strip 1 is 13 lanes over 112 texels of a card, i.e.
+ * a 2.4 mm lane on the 28.7 mm card the page actually draws — **0.39 cycles per scene-pass pixel,
+ * 78% of Nyquist**. The alpha channel is authored just under the limit and then asked to survive a
+ * trilinear filter as well; the shading is authored one fade-band inside it and has no filter to
+ * survive. That is the whole difference between the two carriers, in one comparison.
+ */
+export const HAIR_STRAND_PITCH = 0.00315;
+
+/**
+ * The standard deviation of `strandNoiseValue`, in closed form, so the jitter uniform is the
+ * jitter's own standard deviation IN RADIANS rather than the amplitude of some unnamed wave.
+ *
+ * One-dimensional value noise is `mix( h0, h1, s )` with `h ~ U[0,1]` independent per lattice cell
+ * and `s = f²(3−2f)`. For fixed `f` the variance is `Var(h)·((1−s)² + s²)`; averaged over `f`
+ * uniform on the cell, `E[s] = 1/2` and `E[s²] = 13/35`, so the variance is `(26/35)/12` and the
+ * field mapped to [−1,1] has sd `2√(26/420) = 0.49761`. Written as the expression rather than as the
+ * literal, because a literal here would silently stop being the right number the moment the
+ * interpolant changed.
+ */
+export const STRAND_NOISE_SD = 2 * Math.sqrt( 26 / 420 );
 
 /**
  * The lobe parameters, in Karis' variable.
@@ -325,23 +431,61 @@ export const HAIR_DEFAULTS = {
     rootOcclusionLength: 0.15,
 
     /**
-     * 🔴 DECLARED AND NOT CONSUMED. GREPPED THIS ROUND: `shiftJitter` appears exactly once in this
-     * repository, on this line.
+     * 🎯 THE STRAND JITTER, AS THE STANDARD DEVIATION OF THE IN-PLANE STRAND ANGLE IN RADIANS, AND
+     * IT IS THE ROUND'S WHOLE CLAIM. This is what the round before last declared as `shiftJitter`
+     * and never wired; it is wired now, through the TANGENT rather than through the cuticle tilt,
+     * and at a number that was measured rather than guessed.
      *
-     * What it was written for is real and the bake already carries it — `hair_texture.py`'s own
-     * channel table reads *"`flow.png` | R,G tangent · B root→tip · **A strand id**"*, and the
-     * alpha channel exists for nothing else. What it would do is jitter the cuticle tilt per
-     * strand, so neighbouring fibres do not put their highlight in exactly the same place; that is
-     * the card-scale stand-in for the eccentricity Karis explicitly does not model (slide 17). The
-     * shader samples `flowMap.rg` and `flowMap.b` and never `.a`.
+     * 🚩 IT IS NOT A NEW QUANTITY. IT IS THE ONE `flow.png` ALREADY CARRIES AND THE SAMPLER ALREADY
+     * DELETES. `hair_texture.py` bakes a per-texel strand direction into the sheet's R and G, and
+     * the mip chain averages it away in exactly the band a strand lives in. Measured this session
+     * on the shipped `assets/hair/bob01/flow.png`, decoded through this material's own
+     * reconstruction (`atan2( r, g )` after the ±1 remap) and differenced against a box filter of
+     * the width the scene pass reads at — the residual IS what the filter removes:
      *
-     * It is left here rather than deleted because deleting it also deletes the only record that a
-     * baked channel is going unread. It is NOT implemented on the round that found it, and the
-     * reason is a measurement: jitter spreads the band, and this round's whole result is a 2.08x
-     * recovery of band energy that has not yet been looked at by a human. Widening it the same
-     * afternoon would confound the two. In Karis' α units when somebody does wire it.
+     *   | strip | removed at lod 1 | at lod 2 | at lod 3 | hair px on the shipped plate |
+     *   |------:|-----------------:|---------:|---------:|-----------------------------:|
+     *   |     0 |            0.6°  |    0.9°  |    1.1°  |                          100 |
+     *   |     1 |            6.8°  |   10.4°  |   13.8°  |                      161,945 |
+     *   |     2 |           11.3°  |   15.6°  |   18.2°  |                       45,170 |
+     *   |     3 |           11.1°  |   15.0°  |   17.1°  |                       62,901 |
+     *   |     4 |           12.9°  |   17.2°  |   19.4°  |                       50,756 |
+     *   |     5 |           13.4°  |   17.5°  |   19.5°  |                       57,716 |
+     *   |     6 |           11.5°  |   15.4°  |   17.5°  |                       60,937 |
+     *   |     7 |            9.4°  |   12.7°  |   14.2°  |                      100,879 |
+     *
+     * Round 20 measured the lod the scene pass actually samples at — all-strip p50 **2.011** — so
+     * the lod-2 column is the one that applies, and weighted by the pixel counts beside it the
+     * groom loses **0.2403 rad, 13.8°**, of strand direction on the way to the frame. That is this
+     * number. Restoring it is a correction, not an embellishment, and the sign of the argument is
+     * what matters: if the measurement had come out at 2° there would be nothing here to do.
+     *
+     * ⚠️ AND `flow.png`'s FOURTH CHANNEL STAYS UNREAD, NOW WITH A REASON RATHER THAN A TODO. The
+     * sheet's channel table promises *"A strand id"*, and a strand id is a LABEL: the mean of two
+     * labels is not a label, so the one channel whose whole purpose is per-strand decorrelation is
+     * the one channel a filter cannot carry at all. That is not a defect in the bake and it is not
+     * fixable in the bake; it is why the decorrelation is generated here instead.
      */
-    shiftJitter: 0.04
+    strandTangentJitter: 0.2403,
+
+    /** Metres of scalp between strand locks. See `HAIR_STRAND_PITCH` for the three measurements. */
+    strandPitch: HAIR_STRAND_PITCH,
+
+    /**
+     * Where the jitter starts and finishes fading out, in CYCLES PER SCENE-PASS PIXEL, and the
+     * second number is not a taste: **0.5 is Nyquist**. A lock period under two pixels cannot be
+     * carried by the pass at all, so past that the field is not detail, it is noise that the
+     * temporal resolve will crawl. The fade opens one octave earlier, at 0.25, because value noise
+     * puts energy above its own lattice frequency and an abrupt cut at Nyquist would let the first
+     * sidelobe through. Both are pinned by mutation in the selftest, which reports the value at
+     * which the rendered structure stops surviving the resolve.
+     *
+     * 🎯 THE UNITS ARE THE POINT. `dFdx` in the fragment shader is per RENDER-TARGET pixel, and this
+     * page ships `resolutionScale` 0.66, so this limit is in the same units the coverage decision is
+     * made in — which is the correction round 20 found the CPU-side lod gate was missing.
+     */
+    strandFadeStart: 0.25,
+    strandFadeEnd: 0.5
 };
 
 /** The named A/B defects, reachable from the page. See `HairLightingModel.strandTangent`. */
@@ -353,6 +497,12 @@ export const HAIR_DEFECTS = {
         'the band is measured against the strand direction.',
     'no-flow': 'the card\'s own ∂P/∂v, with the per-texel flow rotation removed. Weaker than ' +
         'constant-tangent: it isolates the flow SHEET rather than the card frame.',
+    'no-strand-jitter': '🎯 THE A SIDE OF THIS ROUND, and the two arms differ in one rotation. ' +
+        'The per-fragment strand field is removed and everything else — the flow sheet, the card ' +
+        'frame, every lobe, the scatter fake — is left exactly as it ships, so a pixel that moves ' +
+        'between the arms moved because of the strand structure and for no other reason. It is ' +
+        'ORTHOGONAL to no-flow: that one removes the baked sheet and keeps the jitter, this one ' +
+        'removes the jitter and keeps the sheet.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -542,6 +692,86 @@ export function hairScatteringValue( tangent, toLight, toView, colour, settings 
 }
 
 /**
+ * The strand field's hash, and it is Hoskins' `hash11` transcribed operation for operation
+ * (`www.shadertoy.com/view/4djSRW`, the one-in one-out row) rather than the `fract(sin(x)·43758.5)`
+ * everybody reaches for first. The reason is arithmetic and it matters here: `sin` of a large
+ * argument loses most of its mantissa in 32-bit float, and this hash's argument is an ARC LENGTH IN
+ * PITCH UNITS — a couple of hundred by the far edge of the atlas — which is exactly the regime
+ * where the sine version starts repeating.
+ *
+ * ⚠️ `Math.fround` AFTER EVERY OPERATION, AND IT IS NOT DECORATION. The shader runs this in f32 and
+ * JavaScript would run it in f64; the two diverge into completely different hash values within
+ * three multiplies, so a mirror computed in double precision would be a mirror of a different
+ * function. The emulation is still not a bit-exact promise — a backend is free to contract a
+ * multiply-add — so the selftest asserts the field's PROPERTIES rather than its samples.
+ */
+export function strandHashValue( x ) {
+
+    const f32 = Math.fround;
+
+    let p = f32( f32( x ) * f32( 0.1031 ) );
+    p = f32( p - Math.floor( p ) );
+    p = f32( p * f32( p + f32( 33.33 ) ) );
+    p = f32( p * f32( p + p ) );
+
+    return f32( p - Math.floor( p ) );
+
+}
+
+/**
+ * One-dimensional value noise on the strand axis, normalised to unit standard deviation.
+ *
+ * 🚩 THE INTERPOLANT IS WHY THIS IS VALUE NOISE AND NOT A LATTICE OF RANDOM NUMBERS, and it is the
+ * whole band-limiting argument. `floor` of the phase would be a strand id — the right idea and an
+ * infinite-bandwidth signal, which on a screen is a staircase that crawls. Smoothstepping between
+ * neighbouring cells puts the field's energy at and below the lattice frequency instead, which is
+ * the property that lets `strandFadeValue` retire it cleanly against Nyquist.
+ *
+ * @param {number} phase - across-strand arc length in units of `strandPitch`.
+ * @returns {number} mean 0, standard deviation 1, band-limited at the lattice frequency.
+ */
+export function strandNoiseValue( phase ) {
+
+    const cell = Math.floor( phase );
+    const offset = phase - cell;
+    const weight = offset * offset * ( 3 - 2 * offset );
+    const low = strandHashValue( cell );
+    const high = strandHashValue( cell + 1 );
+
+    return ( ( low + ( high - low ) * weight ) * 2 - 1 ) / STRAND_NOISE_SD;
+
+}
+
+/**
+ * How much of the strand field survives at this sampling rate. 1 where the lock is comfortably
+ * resolved, 0 where its period has fallen under two pixels of the pass that is drawing it.
+ *
+ * @param {number} cyclesPerPixel - the field's own screen frequency, per RENDER-TARGET pixel.
+ */
+export function strandFadeValue( cyclesPerPixel, settings = {} ) {
+
+    const options = { ...HAIR_DEFAULTS, ...settings };
+
+    return 1 - smoothstepValue( options.strandFadeStart, options.strandFadeEnd, cyclesPerPixel );
+
+}
+
+/**
+ * The strand rotation itself, in radians, as the shader applies it to the tangent.
+ *
+ * @param {number} phase - across-strand arc length in units of `strandPitch`.
+ * @param {number} cyclesPerPixel - the field's screen frequency, per render-target pixel.
+ */
+export function strandJitterValue( phase, cyclesPerPixel, settings = {} ) {
+
+    const options = { ...HAIR_DEFAULTS, ...settings };
+
+    return options.strandTangentJitter * strandFadeValue( cyclesPerPixel, options ) *
+        strandNoiseValue( phase );
+
+}
+
+/**
  * Root occlusion as a linear multiplier over the whole scattering result.
  *
  * @param {number} rootToTip - 0 at the scalp, 1 at the tip. `flow.png`'s blue channel.
@@ -670,6 +900,14 @@ export function encodedToLinear( encoded ) {
 const EPSILON = 1e-4;
 
 /**
+ * The floor on the UV Jacobian's determinant, and it is a DIFFERENT number from `EPSILON` for a
+ * measured reason — see `strandTangentNode`. The determinant's own p50 on the live page is 1.109e−5,
+ * so a guard has to sit orders of magnitude below that or it stops being a guard and becomes a
+ * divisor. 1e−12 is below anything a non-degenerate quad can produce and above f32's denormals.
+ */
+const DEGENERATE_DETERMINANT = 1e-12;
+
+/**
  * Schlick, in TSL. `f0` is a node so a defect plate can move it without a recompile.
  */
 const fresnelNode = /*@__PURE__*/ Fn( ( [ cosine, f0 ] ) => {
@@ -684,6 +922,29 @@ const fresnelNode = /*@__PURE__*/ Fn( ( [ cosine, f0 ] ) => {
 const sideVisibilityNode = /*@__PURE__*/ Fn( ( [ toLight, toView ] ) => {
 
     return toLight.dot( toView ).add( 1 ).saturate();
+
+} );
+
+/** Hoskins' `hash11`, in TSL. Mirrored by `strandHashValue`, which emulates this one's f32. */
+const strandHashNode = /*@__PURE__*/ Fn( ( [ x ] ) => {
+
+    const p = fract( x.mul( 0.1031 ) ).toVar();
+    p.mulAssign( p.add( 33.33 ) );
+    p.mulAssign( p.add( p ) );
+
+    return fract( p );
+
+} );
+
+/** One-dimensional value noise on the strand axis, unit sd. Mirrored by `strandNoiseValue`. */
+const strandNoiseNode = /*@__PURE__*/ Fn( ( [ phase ] ) => {
+
+    const cell = floor( phase );
+    const offset = phase.sub( cell );
+    const weight = offset.mul( offset ).mul( float( 3 ).sub( offset.mul( 2 ) ) );
+
+    return mix( strandHashNode( cell ), strandHashNode( cell.add( 1 ) ), weight )
+        .mul( 2 ).sub( 1 ).div( STRAND_NOISE_SD );
 
 } );
 
@@ -1156,6 +1417,10 @@ export async function createHairMaterial( options = {} ) {
         shadowDensity: uniform( settings.shadowDensity ),
         rootOcclusion: uniform( settings.rootOcclusion ),
         rootOcclusionLength: uniform( settings.rootOcclusionLength ),
+        strandTangentJitter: uniform( settings.strandTangentJitter ),
+        strandPitch: uniform( settings.strandPitch ),
+        strandFadeStart: uniform( settings.strandFadeStart ),
+        strandFadeEnd: uniform( settings.strandFadeEnd ),
 
         // Only read on the defect path. View space, pointing up-and-right across the frame, so a
         // reader who sees the plate can tell at a glance that the band is welded to the screen.
@@ -1223,6 +1488,16 @@ export async function createHairMaterial( options = {} ) {
         scatter: nodes.scatter.value,
         sideVisibility: nodes.sideVisibility.value,
         rootOcclusion: nodes.rootOcclusion.value,
+
+        // The strand field, in the census for `shadowAlphaCutoff`'s reason: it is a knob that moves
+        // the picture, and two plates taken a round apart at different pitches would otherwise be
+        // indistinguishable from their manifests. The pitch is reported in millimetres because that
+        // is the unit it is authored and argued in.
+        strand: {
+            jitterRadians: nodes.strandTangentJitter.value,
+            pitchMillimetres: nodes.strandPitch.value * 1000,
+            fade: [ nodes.strandFadeStart.value, nodes.strandFadeEnd.value ]
+        },
         sheets: {
             flow: flowMap !== null,
             depth: depthMap !== null,
@@ -1260,34 +1535,100 @@ function strandTangentNode( nodes ) {
 
     if ( nodes.defect === 'constant-tangent' ) return normalize( nodes.constantTangent );
 
-    // The cotangent frame. `determinant` is the UV Jacobian's; a degenerate quad makes it zero, and
-    // the guard keeps that fragment on the card's own direction rather than on a NaN that would
-    // propagate into the G-buffer normal and out into GTAO.
+    // The cotangent frame, from the fragment's own screen derivatives. `determinant` is the UV
+    // Jacobian's, and dividing by it is what makes the result ∂P/∂u and ∂P/∂v rather than something
+    // proportional to them — which used not to matter and now does. See the guard below.
     const positionDx = dFdx( positionView );
     const positionDy = dFdy( positionView );
     const uvDx = dFdx( uv() );
     const uvDy = dFdy( uv() );
 
+    // 🔴 THE GUARD USED TO BE `determinant + sign(determinant)·1e-4 + 1e-4` AND IT WAS EIGHTEEN
+    // TIMES THE THING IT WAS GUARDING. Measured on the live page this session, over 15,912 hair
+    // triangles rasterised with the shipped camera and the shipped skinning, the UV Jacobian's
+    // determinant in RENDER-TARGET pixels reads p10 4.42e−6, **p50 1.109e−5**, p90 5.72e−5 — a
+    // strip is a 128th of the atlas across and a card is hundreds of pixels long, so the product of
+    // two small gradients is genuinely tiny and there is nothing wrong with that. Adding 2e−4 to it
+    // divided ∂P/∂u by roughly twenty.
+    //
+    // It never showed, because until this round BOTH cotangents went straight into `normalize` and
+    // a common positive factor is exactly what normalising removes. The moment `|∂P/∂u|` is read as
+    // a LENGTH — which the strand pitch below does, because a pitch in millimetres has to be
+    // divided by metres per unit u — the same expression is off by that factor, and the first
+    // measurement of the strand field came back at 1 cycle per card against the 14 it was authored
+    // for. That ratio IS the epsilon: `det/(det + 2e−4)` at the measured p50 is 0.053.
+    //
+    // The replacement clamps the MAGNITUDE and keeps the sign, so a determinant of any workable size
+    // passes through untouched and a degenerate quad lands on a huge but finite cotangent rather
+    // than on a NaN. A fragment that lands there is then removed by the Nyquist fade on its own,
+    // because a huge `|∂P/∂u|` is a huge screen frequency — the guard and the band limit agree
+    // without being told to.
     const determinant = uvDx.x.mul( uvDy.y ).sub( uvDy.x.mul( uvDx.y ) );
-    const safeDeterminant = determinant.add( determinant.sign().mul( EPSILON ) ).add( EPSILON );
+    const magnitude = abs( determinant ).max( DEGENERATE_DETERMINANT );
+    const safeDeterminant = determinant.lessThan( 0 ).select( magnitude.negate(), magnitude );
 
     // ∂P/∂v and ∂P/∂u, from [∂P/∂x ∂P/∂y] = [∂P/∂u ∂P/∂v] · J, inverted.
     const alongStrand = positionDy.mul( uvDx.x ).sub( positionDx.mul( uvDy.x ) ).div( safeDeterminant );
     const acrossStrand = positionDx.mul( uvDy.y ).sub( positionDy.mul( uvDx.y ) ).div( safeDeterminant );
 
     const cardTangent = normalize( alongStrand );
-
-    if ( nodes.flowMap === null || nodes.defect === 'no-flow' ) return cardTangent;
-
-    // The flow sheet's RG is a direction in the card's own (u, v) basis, stored 0..1. It is applied
-    // as a rotation WITHIN the card plane so the result can never leave the surface — a flow map
-    // that tilted the strand off the card would put the highlight in front of or behind the
-    // geometry it belongs to. The ε keeps a texel of exactly (0.5, 0.5) — an unwritten one — from
-    // normalising a zero vector.
-    const flow = nodes.flowMap.sample( uv() ).rg.mul( 2 ).sub( 1 );
     const across = normalize( acrossStrand );
 
-    return normalize( cardTangent.mul( flow.g ).add( across.mul( flow.r ) ).add( cardTangent.mul( EPSILON ) ) );
+    // The strand direction as a pair of weights in the card's own (across, along) basis. The flow
+    // sheet's RG is exactly that, stored 0..1; with no sheet the strand is the card's own axis. Two
+    // weights rather than a vector because the strand field below is a ROTATION of them, and a
+    // rotation of two coefficients is two multiplies where a rotation of a vector is a matrix.
+    //
+    // 🚩 THEY ARE REBOUND IN JAVASCRIPT AND NOT WITH `assign`. This function runs at material
+    // construction time to build `normalNode`, which is OUTSIDE any `Fn()` stack, and TSL's
+    // `assign` needs one — it throws "No stack defined for assign operation" and the page loads
+    // with no groom at all. Reassigning the JavaScript binding builds the same expression tree
+    // without asking the node graph for a mutable variable.
+    const sheeted = nodes.flowMap !== null && nodes.defect !== 'no-flow';
+    const flow = sheeted ? nodes.flowMap.sample( uv() ).rg.mul( 2 ).sub( 1 ) : vec2( 0, 1 );
+    let alongWeight = flow.g;
+    let acrossWeight = flow.r;
+
+    if ( nodes.defect !== 'no-strand-jitter' ) {
+
+        // THE STRAND FIELD. See the header: the amplitude is the strand-scale tangent variation the
+        // mip chain deletes from `flow.png`, and the frequency is whatever this pass can carry.
+        //
+        // `acrossStrand` is ∂P/∂u in VIEW space, which is a rigid transform of world, so its length
+        // is metres of scalp per unit atlas u and needs no scale factor. `u · |∂P/∂u|` is therefore
+        // the arc length across the strand, in metres, from the atlas's own u origin — and dividing
+        // by the pitch turns it into a lock count. That the origin is the ATLAS's rather than the
+        // card's is the useful accident: a card sitting at strip 5 starts five strips along the
+        // phase, and cards of different widths advance through it at different rates, so no two
+        // cards put their locks in the same place and the groom cannot read as corrugation.
+        const acrossMetres = length( acrossStrand );
+        const phase = uv().x.mul( acrossMetres ).div( nodes.strandPitch );
+
+        // The field's own screen frequency. `|∇u|` comes off the Jacobian already in hand rather
+        // than out of a second derivative of `phase` — a derivative of a derivative is constant
+        // across a 2x2 quad and backends disagree about what it means.
+        const cyclesPerPixel = length( vec2( uvDx.x, uvDy.x ) ).mul( acrossMetres ).div( nodes.strandPitch );
+        const fade = float( 1 ).sub( smoothstep( nodes.strandFadeStart, nodes.strandFadeEnd, cyclesPerPixel ) );
+
+        const angle = strandNoiseNode( phase ).mul( nodes.strandTangentJitter ).mul( fade );
+        const turn = cos( angle );
+        const swing = sin( angle );
+
+        // An in-plane rotation of the two weights. Doing it here rather than to the assembled vector
+        // is what keeps the strand ON the card: the result is a combination of ∂P/∂v and ∂P/∂u and
+        // can no more leave the surface than the flow sheet's own rotation can.
+        const rotatedAlong = alongWeight.mul( turn ).sub( acrossWeight.mul( swing ) );
+        const rotatedAcross = alongWeight.mul( swing ).add( acrossWeight.mul( turn ) );
+        alongWeight = rotatedAlong;
+        acrossWeight = rotatedAcross;
+
+    }
+
+    // The ε keeps a flow texel of exactly (0.5, 0.5) — an unwritten one — from normalising a zero
+    // vector, and it is added along the card's own axis so the fallback is the card rather than a
+    // NaN that would propagate into the G-buffer normal and out into GTAO.
+    return normalize( cardTangent.mul( alongWeight ).add( across.mul( acrossWeight ) )
+        .add( cardTangent.mul( EPSILON ) ) );
 
 }
 

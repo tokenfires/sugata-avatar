@@ -31,10 +31,17 @@
 // Both are run through `hair_alpha.runsPerRow` against the same 0.5 cutoff the gate uses, so the
 // three numbers — atlas, front card on screen, stacked on screen — are ONE comparison.
 //
-// 🚩 **THE LOD IS TAKEN IN SCENE-PASS PIXELS AND `hair_lod.mjs` TAKES IT IN CSS PIXELS.** The page
-// ships TAAU at `resolutionScale` 0.66, so the sampler sees a footprint 1/0.66 wider than that tool
-// reports and the true lod is 0.599 higher than the 1.492 the atlas is authored against. Measured
-// here rather than assumed: the scene-pass size is read off the stage.
+// 🚩 **THE LOD IS TAKEN IN SCENE-PASS PIXELS, AND FOR TWO ROUNDS `hair_lod.mjs` TOOK IT IN CSS
+// PIXELS.** The page ships TAAU at `resolutionScale` 0.66, so the sampler sees a footprint 1/0.66
+// wider — `log2(1/0.66)` = +0.599 mip. This tool was right and the other one was not, which is how
+// the discrepancy was found; `hair_lod.mjs` was corrected at source in round 21 and the two now
+// agree on the same build to within one of its 0.05-wide histogram bins (2.075 there, 2.011 here,
+// on the 648-card groom). Measured rather than assumed either way: the scene-pass size is read off
+// the stage.
+//
+// ⚠️ **AND THAT MEANS EVERY LOD IN THIS TOOL'S OUTPUT BEFORE ROUND 21 WAS CORRECT WHILE THE ATLAS
+// IT WAS BEING COMPARED AGAINST WAS AUTHORED 1.51× TOO FINE.** If a reading here disagrees with a
+// constant in `hair_alpha.mjs` or `hair_texture.py`, re-measure before trusting the constant.
 //
 //   node tools/figure-pipeline/hair_layers.mjs
 //   node tools/figure-pipeline/hair_layers.mjs --arm 'aa=off'

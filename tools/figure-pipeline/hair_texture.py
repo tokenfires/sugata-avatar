@@ -90,22 +90,32 @@ STRIP_COLUMNS = 8
 # THAT SIZES EVERYTHING BELOW.** `tools/figure-pipeline/hair_lod.mjs` was written for this round and
 # evaluates the hardware's own trilinear rule — `log2(max(|∂uv/∂x|, |∂uv/∂y|)·1024)` — per hair
 # triangle, rasterised with the live camera and the live skinning, weighted by the pixels a viewer
-# actually looks at. Measured on `alive.html` at 900x1200 this session:
+# actually looks at, ON THE SCENE PASS the sampler's derivatives are really taken over rather than
+# on the CSS canvas. Measured on `alive.html` at 900x1200 CSS / 594x792 scene pass this session, on
+# this round's 462-card groom:
 #
-#   | framing              | all strips p10 / p50 / p90 | strip 1 p50 | strip 5 p50 |
+#   | framing              | all strips p10 / p50 / p90 | strip 1 p50 | strip 3 p50 |
 #   |----------------------|---------------------------:|------------:|------------:|
-#   | portrait             |     0.735 / **1.492** / 2.695 |   1.683 |   1.131 |
-#   | three-quarter, 35°   |     0.427 / **1.149** / 2.638 |   1.264 |   0.750 |
+#   | portrait             |     1.225 / **1.925** / 3.125 |   1.925 |   1.675 |
+#   | three-quarter, 35°   |     0.825 / **1.575** / 3.125 |   1.525 |   1.375 |
 #
-# **At the portrait median the sampler reads 2.81 mip-0 texels per screen pixel.** A card strip is
-# 128 texels, so a card carrying one is about 46 screen pixels across, and a feature authored n
-# texels wide arrives n/2.81 pixels wide. Round 17 proved the box mip chain conserves mean alpha
-# exactly (re-measured this session: 0.4993 at mip 0, 1, 2, 3 and 4 of the shipped sheet), so
-# minification cannot lose coverage — what it does is turn a hard edge into a mid-alpha wash.
+# **At the portrait median the sampler reads 3.80 mip-0 texels per screen pixel.** A card strip is
+# 128 texels, so a card carrying one is about 34 screen pixels across, and a feature authored n
+# texels wide arrives n/3.80 pixels wide. Round 17 proved the box mip chain conserves mean alpha
+# exactly (re-measured: 0.4993 at mip 0, 1, 2, 3 and 4 of the shipped sheet), so minification
+# cannot lose coverage — what it does is turn a hard edge into a mid-alpha wash.
 # **A sub-strand under about 2 texels at the sampled lod is a grey smear rather than a strand**, so
-# nothing finer than ~5.6 mip-0 texels is worth authoring, and 5.6 of 128 on a 42 mm card is
-# 1.8 mm. That is the floor the sheet is against, and it is a property of the FRAMING rather than
-# of the atlas.
+# nothing finer than ~7.6 mip-0 texels is worth authoring, and 7.6 of 128 on a 42 mm card is
+# 2.5 mm. That is the floor the sheet is against, and it is a property of the FRAMING and of the
+# CARD WIDTHS rather than of the atlas.
+#
+# ⚠️ **THE TABLE READ 0.735 / 1.492 / 2.695 FOR TWO ROUNDS AND EVERY ROW OF IT WAS 0.6 OF A MIP
+# OPTIMISTIC.** See `SAMPLED_LOD` below: the Jacobian was taken in CSS pixels and the page ships
+# TAAU at 0.66, so the sheet has been authored 1.51× finer than the rate it is read at, and the
+# "2 texels at the sampled lod" floor in the paragraph above was really 1.3 texels. THE LANE COUNTS
+# IN `STRIP_RECIPES` HAVE NOT BEEN RE-SOLVED AGAINST THE CORRECTED FIGURE — this round spent itself
+# on the card geometry, which is the other lever on the same quantity, and the sheet is unchanged.
+# That is the open work item and `docs/RED-GATES.md` carries the red it leaves behind.
 #
 # ⚠️ **WHICH IS THE ANSWER TO "SHOULD THE ATLAS BE BIGGER": NO, AND IT IS NOT CLOSE.** Doubling to
 # 2048² adds exactly 1.0 to every lod in the table above, because lod is measured in texels and the
@@ -118,7 +128,15 @@ CAP_STRIP_MIN_COVERAGE = 0.97
 # The lod the sheet is authored against, from the table above: the portrait median over every strip.
 # Everything that has to survive minification is quoted in texels AT THIS LOD, which is mip-0 texels
 # divided by `2 ** SAMPLED_LOD`.
-SAMPLED_LOD = 1.492
+#
+# 🚩 **IT USED TO READ 1.492, WHICH IS THE CSS-PIXEL FIGURE AND NOT THE SAMPLED ONE.** The page
+# ships TAAU at `resolutionScale` 0.66, so the sampler's derivatives are taken over a raster 0.66 as
+# wide and its footprint is `log2(1/0.66)` = 0.599 of a mip wider. `hair_lod.mjs` now takes its
+# Jacobian on the scene pass: on the SHIPPED 648-card groom it reads 2.075 where it read 1.492, a
+# shift of +0.583 against the +0.599 the arithmetic predicts, and `hair_layers.mjs` reads 2.011 for
+# the same quantity by a per-pixel route. On this round's wider cards the same tool reads 1.925.
+# `hair_alpha.SAMPLED_LOD` carries the same number; the two must not drift apart.
+SAMPLED_LOD = 1.925
 
 # One texel of antialiasing at a strand's edge, and one texel exactly.
 #
