@@ -204,13 +204,127 @@ export const HAIR_IOR = 1.55;
 export const HAIR_F0 = Math.pow( ( 1 - HAIR_IOR ) / ( 1 + HAIR_IOR ), 2 );
 
 /**
- * The look spec's published base albedo, `#150F17` — "base albedo is essentially black —
- * luma 0.067". Measured here from the hex rather than quoted: encoded Rec.709 luma **0.0661**,
- * linear luma **0.005629**, hue 285°. `alive.js`'s `CARD_ALBEDO_FLOOR` is the same hex and its
- * comment names this item as the thing that should re-derive it; see `HAIR_CONTRAST` for what
- * actually changed.
+ * The absorption cross-sections of the two pigments that colour every human hair, per sRGB
+ * channel. **NOT ours and not fitted here:** d'Eon, François, Hill, Letteri & Aubry, *An
+ * Energy-Conserving Hair Reflectance Model*, EGSR 2011, §6.1 — *"The values we found are
+ * σa,e = {0.419, 0.697, 1.37} and σa,p = {0.187, 0.4, 1.05}"*, obtained by integrating Donner &
+ * Jensen's spectral melanin absorption over 40 bands against D65 and fitting the RGB equivalent.
+ *
+ * 🎯 THE ONLY PROPERTY THIS FILE USES IS THE ORDERING, AND IT IS THE WHOLE OF ROUND 23. Both
+ * pigments absorb blue harder than red — 3.270x for eumelanin and 5.615x for pheomelanin, computed
+ * from the rows above — so a fibre's transmitted colour
+ * `exp(−k σa)` has **R > G > B at every concentration** — there is no melanin mixture, and no
+ * amount of either pigment, that produces a hair with more blue in it than red. An albedo with
+ * B > R is not a dark hair colour; it is a dark colour that no hair has.
  */
-export const HAIR_BASE_COLOUR_HEX = 0x150F17;
+export const HAIR_MELANIN_ABSORPTION = {
+    eumelanin: [ 0.419, 0.697, 1.37 ],
+    pheomelanin: [ 0.187, 0.4, 1.05 ]
+};
+
+/**
+ * 🔴 THE LOOK SPEC'S `#150F17` IS R21 G15 B23 — MORE BLUE THAN RED — AND THAT IS THE DEFECT FIVE
+ * BLIND CRITICS REPORTED ACROSS FIVE ROUNDS AS "lavender", "mauve", "aubergine", "grey-lilac" and
+ * "purple blob". It was read as taste every time. It is not taste; it is a channel ordering that
+ * no pigment produces, and it is one constant.
+ *
+ * ## What was measured before this constant moved
+ *
+ * On `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` at 900x1200, over the 483,378 px solid hair mask
+ * this file's gate already builds, the rendered mass read CIELAB **hue 334.3°, C\* 15.62, b\*
+ * −6.77, with 97.8% of hair pixels on the cool side of neutral**. The same measurement with this
+ * constant's chromaticity removed and nothing else changed — `#121212`, same luma, zero chroma —
+ * read **hue 16.5°, b\* +1.19, cool share 29.1%**. The albedo is not a contributor to the cast; it
+ * is the cast. `docs/research/hair.md` §0.00 carries the attribution of the other four suspects,
+ * each measured alone on the same run: the grade moves the hue 3.5° and in the WARM direction, the
+ * rim and kicker carry about half what the albedo does, and TRT — the `C^(0.8/cosθd)` path that
+ * would exaggerate any cast the albedo has — contributes 0.6% of the mass's lightness on this rig,
+ * because it is retroreflective and the portrait rig has no light near the view axis.
+ *
+ * ## The derivation, which has one free parameter and it is not free
+ *
+ * Two of the three CIELAB coordinates are the shipped value's own, unchanged:
+ *
+ *   **L\*** — the spec's *"base albedo is essentially black, luma 0.067"* is the one clause in that
+ *   entry with a measurement behind it, and holding L\* holds the linear Rec.709 luma exactly
+ *   (L\* is a function of Y alone). 5.0851, i.e. Y = 5.6294e−3.
+ *
+ *   **C\*** — 5.6464, kept because nothing measured this round says the AMOUNT of colour is wrong.
+ *   The rendered mass carries C\* 15.6 against the reference's own recorded hair chroma of 2.97 at
+ *   the fringe p50 and 14.40 at its p99 (`docs/research/hair.md` §2.1, re-derived into CIELAB this
+ *   round); that is the right order of magnitude. What is wrong is where it points.
+ *
+ *   **h** — 26.4886°, and this is the derived half. It is the CIELAB hue of the eumelanin
+ *   transmittance `exp(−k σa,e)` at the concentration `k = 9.2174` that lands that transmittance on
+ *   the spec's own luma. So the direction comes from the pigment and the brightness comes from the
+ *   measurement, and there is no third input.
+ *
+ * The result is a **70.2° hue rotation and nothing else**: `#150F17` → `#1A0E0C`, linear
+ * (1.05058e−2, 4.36057e−3, 3.83671e−3), R > G > B at last.
+ *
+ * ⚠️ **THE PURE-PIGMENT COLOUR ITSELF WAS TRIED FIRST AND IT IS WRONG, WHICH IS WHY THE ROTATION
+ * KEEPS `#150F17`'s CHROMA.** `exp(−9.2174 σa,e)` is (2.102e−2, 1.621e−3, 3.279e−6) — `#280500`,
+ * C\* 17.73, blue extinguished — and it is *physically* the transmittance of black hair, which is
+ * genuinely deep red-orange held to a light. Rendered, it reads **hue 29.8°, C\* 44.30**: a vivid
+ * rust head of hair, three times the reference's recorded chroma, and unusable. The reason is
+ * slide 39's multiple-scattering fake, which carries 65% of the groom's energy and paints the whole
+ * mass in `sqrt(colour)`; on this shader the albedo's chromaticity is broadcast rather than
+ * confined to a lobe. That is a finding about the FAKE and it is filed as one — the albedo's job
+ * here is to point warm, not to carry the mass's colour, which is what the look spec has said all
+ * along: *"near-black albedo whose apparent colour comes almost entirely from the specular lobes."*
+ *
+ * ⚠️ `alive.js`'s `CARD_ALBEDO_FLOOR` is still the OLD hex and it is the eyelash and eyebrow
+ * floor, not this groom. It was chosen for being the spec's published value, so it follows this
+ * constant; that file is not this round's to edit.
+ */
+export const HAIR_BASE_COLOUR_HEX = 0x1A0E0C;
+
+/**
+ * The derivation above, executed rather than trusted, so `HAIR_BASE_COLOUR_HEX` is checkable and
+ * the material can use the exact linear triple instead of its 8-bit rounding — which costs 0.15 of
+ * C\* and 2.9° of hue, small against the 4.5° the plate itself moves between harnesses, but free
+ * to avoid.
+ *
+ * @param {number[]} [absorption] - a pigment's per-channel cross-section. Eumelanin by default;
+ *   pheomelanin is offered so the selftest can show the ordering claim does not rest on one row.
+ * @returns {{ linear:number[], hex:number, hue:number, concentration:number, lightness:number, chroma:number }}
+ */
+export function baseColourDerivation( absorption = HAIR_MELANIN_ABSORPTION.eumelanin ) {
+
+    const specified = [ 0x15, 0x0F, 0x17 ].map( ( byte ) => encodedToLinear( byte / 255 ) );
+    const [ lightness, a, b ] = linearToLabValue( specified );
+    const chroma = Math.hypot( a, b );
+    const luma = ( colour ) => 0.2126 * colour[ 0 ] + 0.7152 * colour[ 1 ] + 0.0722 * colour[ 2 ];
+
+    // The concentration that puts the pigment's own transmittance on the spec's measured luma.
+    // Bisection rather than a solve: the luma is strictly decreasing in k, so 200 halvings of
+    // [0,60] pin it to well under a float's worth of the answer, and the code says what it means.
+    let low = 0;
+    let high = 60;
+
+    for ( let step = 0; step < 200; step ++ ) {
+
+        const middle = ( low + high ) / 2;
+
+        if ( luma( absorption.map( ( sigma ) => Math.exp( - middle * sigma ) ) ) > luma( specified ) ) low = middle;
+        else high = middle;
+
+    }
+
+    const concentration = ( low + high ) / 2;
+    const pigmentLab = linearToLabValue( absorption.map( ( sigma ) => Math.exp( - concentration * sigma ) ) );
+    const hue = ( Math.atan2( pigmentLab[ 2 ], pigmentLab[ 1 ] ) * 180 / Math.PI + 360 ) % 360;
+
+    const linear = labToLinearValue( [ lightness,
+        chroma * Math.cos( hue * Math.PI / 180 ), chroma * Math.sin( hue * Math.PI / 180 ) ] );
+
+    const hex = linear
+        .map( ( channel ) => Math.round( Math.min( 1, Math.max( 0, linearToEncoded( channel ) ) ) * 255 ) )
+        .reduce( ( packed, byte ) => ( packed << 8 ) | byte, 0 );
+
+    return { linear, hex, hue, concentration, lightness, chroma };
+
+}
 
 /**
  * 🚩 THE MOST EXPENSIVE MISREADING AVAILABLE IN 3.5, WRITTEN DOWN SO IT CANNOT BE MADE AGAIN.
@@ -226,6 +340,13 @@ export const HAIR_BASE_COLOUR_HEX = 0x150F17;
  *
  * Both numbers are carried, named for their domain, and the selftest asserts they describe the
  * same band rather than two different claims.
+ *
+ * ⚠️ `baseEncodedLuma` STAYS `#150F17`'s 0.0661 NOW THAT THE SHIPPED ALBEDO IS `#1A0E0C`, AND THAT
+ * IS NOT AN OVERSIGHT. This ratio benchmarks our band against the REFERENCE's albedo — the spec's
+ * own published 0.067 — and that measurement did not change when ours did. Round 23's rotation held
+ * the linear luma exactly, so the two hexes differ by 0.0018 in the encoded domain (0.0643 against
+ * 0.0661): under a tenth of the gap the contrast clause is failing by, and in the conservative
+ * direction.
  */
 export const HAIR_CONTRAST = {
     baseEncodedLuma: 0.0661,
@@ -894,6 +1015,119 @@ export function encodedToLinear( encoded ) {
 
 }
 
+/** sRGB OETF. Only needed to state a derived linear colour back as the hex a spec entry can carry. */
+export function linearToEncoded( linear ) {
+
+    return linear <= 0.0031308 ? linear * 12.92 : 1.055 * Math.pow( linear, 1 / 2.4 ) - 0.055;
+
+}
+
+// --- the warm/cool axis, in the one space where it is a straight line ---------------------------
+//
+// 🎯 THE OPERATOR IS HERE RATHER THAN IN THE GATE BECAUSE THE CONSTANT BELOW IS DERIVED WITH IT.
+// A hue asserted in the gate and a hue used to author the albedo have to be the same function or
+// the assertion is about the gate. `tools/critic/color.mjs` was read first and carries HSV, which
+// is the wrong tool for this question twice over: HSV's hue is a hexagonal coordinate on the
+// ENCODED triple with no perceptual spacing, and its "saturation" of a near-black is dominated by
+// the ratio of two single-digit code values. CIELAB's a* and b* are Cartesian, so a set of pixels
+// can be averaged without the wraparound that makes a mean of hue ANGLES report the colour
+// opposite the one it is, and b*'s sign IS the warm/cool axis by construction.
+
+const LAB_WHITE = [ 0.9504559271, 1.0, 1.0890577508 ];
+
+const LINEAR_RGB_TO_XYZ = [
+    [ 0.4123907993, 0.3575843394, 0.1804807884 ],
+    [ 0.2126390059, 0.7151686788, 0.0721923154 ],
+    [ 0.0193308187, 0.1191947798, 0.9505321522 ]
+];
+
+const XYZ_TO_LINEAR_RGB = [
+    [ 3.2409699419, - 1.5373831776, - 0.4986107603 ],
+    [ - 0.9692436363, 1.8759675015, 0.0415550574 ],
+    [ 0.0556300797, - 0.2039769589, 1.0569715142 ]
+];
+
+/**
+ * CIELAB (D65) of a LINEAR sRGB triple. Values above 1 are fine — the plate never has them, but the
+ * radiance behind it does.
+ *
+ * @returns {number[]} `[ L*, a*, b* ]`.
+ */
+export function linearToLabValue( linear ) {
+
+    const f = LINEAR_RGB_TO_XYZ
+        .map( ( row ) => row[ 0 ] * linear[ 0 ] + row[ 1 ] * linear[ 1 ] + row[ 2 ] * linear[ 2 ] )
+        .map( ( value, axis ) => {
+
+            const t = value / LAB_WHITE[ axis ];
+
+            return t > 216 / 24389 ? Math.cbrt( t ) : ( 841 / 108 ) * t + 4 / 29;
+
+        } );
+
+    return [ 116 * f[ 1 ] - 16, 500 * ( f[ 0 ] - f[ 1 ] ), 200 * ( f[ 1 ] - f[ 2 ] ) ];
+
+}
+
+/** The inverse, so a colour can be authored at a stated lightness, chroma and hue. */
+export function labToLinearValue( [ lightness, a, b ] ) {
+
+    const fy = ( lightness + 16 ) / 116;
+    const f = [ fy + a / 500, fy, fy - b / 200 ];
+    const inverse = ( t ) => t > 6 / 29 ? t * t * t : 3 * ( 6 / 29 ) ** 2 * ( t - 4 / 29 );
+    const xyz = f.map( ( value, axis ) => inverse( value ) * LAB_WHITE[ axis ] );
+
+    return XYZ_TO_LINEAR_RGB.map( ( row ) => row[ 0 ] * xyz[ 0 ] + row[ 1 ] * xyz[ 1 ] + row[ 2 ] * xyz[ 2 ] );
+
+}
+
+/**
+ * The chroma-weighted mean colour of a set of sRGB samples, as CIELAB, plus the share of them on
+ * the COOL side of neutral.
+ *
+ * 🚩 THE MEAN IS TAKEN IN a* AND b*, NEVER IN DEGREES, and the cool share is reported beside it
+ * because a mean is exactly the statistic that cannot tell a uniformly slightly-warm mass from one
+ * that is half warm and half violet. Both are asserted; that pair is the round-4 lesson applied to
+ * a colour instead of to a silhouette.
+ *
+ * @param {Iterable<number[]>} samples - sRGB triples in 0..1, display-encoded.
+ * @returns {{ lightness:number, a:number, b:number, hue:number, chroma:number, coolShare:number, count:number }}
+ */
+export function meanLabValue( samples ) {
+
+    let sumLightness = 0;
+    let sumA = 0;
+    let sumB = 0;
+    let cool = 0;
+    let count = 0;
+
+    for ( const sample of samples ) {
+
+        const [ lightness, a, b ] = linearToLabValue( sample.map( encodedToLinear ) );
+
+        sumLightness += lightness;
+        sumA += a;
+        sumB += b;
+        if ( b < 0 ) cool += 1;
+        count += 1;
+
+    }
+
+    if ( count === 0 ) return { lightness: 0, a: 0, b: 0, hue: NaN, chroma: 0, coolShare: 0, count: 0 };
+
+    const a = sumA / count;
+    const b = sumB / count;
+
+    return {
+        lightness: sumLightness / count, a, b,
+        hue: ( Math.atan2( b, a ) * 180 / Math.PI + 360 ) % 360,
+        chroma: Math.hypot( a, b ),
+        coolShare: cool / count,
+        count
+    };
+
+}
+
 // --- the GPU side -------------------------------------------------------------------------------
 
 /** `1e-4` guards, named once so the CPU mirror and the shader cannot drift on the value. */
@@ -1395,7 +1629,14 @@ export async function createHairMaterial( options = {} ) {
     const flowMap = flowUrl == null ? null : await loadDataSheet( flowUrl );
     const depthMap = depthUrl == null ? null : await loadDataSheet( depthUrl );
 
-    const colour = new Color().setHex( options.baseColourHex ?? HAIR_BASE_COLOUR_HEX, SRGBColorSpace );
+    // A caller that names a hex gets that hex; the default is the DERIVATION rather than its 8-bit
+    // rounding, because the rounding is only there so a spec entry and `alive.js` have something to
+    // carry. `Color` is still used for the caller's path so the sRGB decode stays three's.
+    const derived = baseColourDerivation().linear;
+
+    const colour = options.baseColourHex === undefined
+        ? { r: derived[ 0 ], g: derived[ 1 ], b: derived[ 2 ] }
+        : new Color().setHex( options.baseColourHex, SRGBColorSpace );
 
     const nodes = {
         defect,

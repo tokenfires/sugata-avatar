@@ -70,38 +70,52 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
-- `tools/figure-pipeline/verify_glb.mjs` — RED BY ARRIVAL, and the clause is NEW this round:
-  `locks not a shell`, red on **all five bakes at 3.12, 3.19, 3.44, 3.50 and 4.59 mm of coherent
-  lock relief against a 5.0 mm floor.** It is the geometry half of round 20's conclusion given a
-  number, and R22 could not clear it — nor could any groom R22 built. Every other clause in the
-  file is green.
+- `tools/figure-pipeline/verify_glb.mjs` — RED FOR THE THIRD ROUND, `locks not a shell`, on **all
+  five bakes at 3.27, 3.10, 3.25, 3.74 and 4.71 mm of coherent lock relief against a 5.0 mm floor.**
+  Every other clause in the file is green on all five. R23 did not clear it either, and R23's result
+  is that **the prescription R22 left for clearing it cannot work, which is a located cause rather
+  than another failed attempt.**
   🎯 **WHAT IT MEASURES AND WHY THE CLAUSE NEXT DOOR COULD NOT.** `cards gather` is one scalar over
   the whole tip set, so a shell squeezed 15% and sixteen real locks are the same input to it — it
-  reads 0.796–0.858 here and is green. `hair_locks.mjs` measures the outer envelope's azimuthal
+  reads 0.841–0.882 here and is green. `hair_locks.mjs` measures the outer envelope's azimuthal
   corrugation, detrended of the skull's own harmonics 0–3, and splits it into the part that runs
   down the head as a RIDGE and the part that is per-card scatter, by correlating vertically adjacent
   height bands. The operator is pinned against a cylinder, an oval, a lobed shell, a lobed shell
-  with flyaways, a ring with a quarter missing and a lobed shell buried in scatter of equal variance
-  — 38 assertions in `hair_locks.selftest.mjs`, all arithmetic rather than tolerance.
-  🚩 **THE REASON IT IS RED IS A MEASUREMENT, NOT A MISSING FEATURE, AND IT IS THE ROUND'S RESULT.**
-  This groom's outer surface is **10.03–11.69 mm of radius between its p50 and its p85 inside a
-  single 3°×30 mm bin** — an eleven-millimetre-thick cloud of cards — and a lock has to be louder than that
-  before a viewer can see a groove between two of them. Swept by building it, a PURE sixteen-lobe
-  corrugation at full amplitude on every non-root layer, all three on a 404-card variant: none reads
-  3.11 mm of ridge, ±25 mm reads 4.13, ±45 mm reads 6.22. **The floor is reachable and the last of those is the proof — it is the
-  gate's green side, run on a real artefact — but ±45 mm is a 90 mm peak-to-trough on a head 142 mm
-  across, it FAILS `cards gather` at 0.981, and rendered at portrait and three-quarter it reads as
-  storm damage.** So the lever is not the relief. It is the scatter, and thinning the shell is what
-  the next round has to do. `tools/figure-pipeline/README.md` carries the round that chased it,
-  including the 404-card variant that improved every transmittance clause and took
-  `HairDynamics.selftest.mjs` from 32/32 to 30/32 — built, measured, looked at and PUT BACK, so the
-  groom at HEAD is byte-identical to the one R21 shipped (`g050.glb` sha256 `5de7300e…`).
-  ⚠️ Bound pinned by mutation, file restored byte-identically afterwards at sha256 `9700123a…`:
-  on the 404-card variant, **green at a floor of 3.10 on all five, first red at 3.12, all five red
-  at 4.46**; on the shipped groom the same sweep runs 3.12 to 4.59. The shipped 5.0 is `7.29/√2` — the shipped groom's own envelope relief at the correlation where ridge and scatter
-  are equal — rather than a number chosen to sit above the measurements.
+  with flyaways, a ring with a quarter missing, a lobed shell buried in scatter of equal variance, a
+  uniform slab and a two-standoff cloud — **45 assertions** in `hair_locks.selftest.mjs`, all
+  arithmetic rather than tolerance.
+  🚩 **R22 SAID "THE LEVER IS THE SCATTER". R23 MEASURED THE SCATTER AND IT IS NOT MADE OF WHAT R22
+  THOUGHT, AND IT COULD NOT MOVE THIS NUMBER EVEN IF IT WERE.** Two findings, both measured, both in
+  `tools/figure-pipeline/README.md` under "R23":
+    1. **A SINGLE SHELL IS ALREADY THE WHOLE CLOUD.** Read one layer at a time off the shipped R22
+       file — every card at exactly one standoff, no ladder at all — `veil`'s 90 cards read
+       **6.919 mm of scatter against the seven-layer groom's 6.588**, and six of the seven shells
+       individually read more than the stack does together. Halving the visible layers' standoff
+       span (17.5 mm of ladder to 8.8) and rebuilding moved the scatter by **0.12 mm** and took the
+       ridge DOWN, 3.123 to 2.620. The eleven-millimetre cloud is one shell's own thickness, because
+       a card's radius inside a 30 mm band is set by how far along its own fall it is.
+    2. **AND SCATTER IS ALGEBRAICALLY ABSENT FROM THIS GATE.** `coherentReliefMm` is `rms·√r`, which
+       is the RIDGE's own RMS; clause 6 of the selftest pins it by handing a lobe amplitude back out
+       of a mixture with equal-variance scatter, to the micrometre. Removing scatter lowers `rms`,
+       raises `r`, and leaves the product alone. **Only a louder ridge moves this number**, and R22
+       already measured that the amplitude which clears the floor (±45 mm) renders as storm damage.
+       So either the ridge is authored to be visibly louder, or this gate stays red — and "thin the
+       cloud until the locks show" is a claim about the EYE that this gate does not measure.
+  ⚠️ **THE ONE MECHANISM THAT SHOULD HAVE WORKED, MEASURED AND NOT SHIPPED.** A per-lock STANDOFF —
+  the cards of one lock standing further off the skull than the cards of the next, which is what a
+  real bob does and is not R22's global `cos 16θ` displacement — was worth **+0.73 mm of ridge at
+  g050** (3.123 → 3.849 with three per-card levers under it). It is non-monotonic in amplitude
+  (10 mm reads 3.849, **24 mm reads 3.245**) and the g050 gain **reversed on three of the five
+  bakes**: sweep-mean coherent relief 3.568 shipped, **3.405 with the whole lever set in**. Tuned on
+  one bake, lost on the sweep, and reverted for that reason. The README carries how to rebuild it.
+  ⚠️ Bound pinned by mutation at R22 and NOT re-run this round: on that round's 404-card variant,
+  green at a floor of 3.10 on all five, first red at 3.12, all five red at 4.46. The shipped 5.0 is
+  `7.29/√2` — the R21 groom's own envelope relief at the correlation where ridge and scatter are
+  equal — rather than a number chosen to sit above the measurements.
   **NEXT AGENT:** do not lower this floor to clear it. Re-deriving a threshold to make its own gate
-  green is what `hair_alpha` below is being carried for. Owned by `tools/figure-pipeline/**`.
+  green is what `hair_alpha` below is being carried for. And do not spend another round thinning the
+  envelope for this clause: finding 2 above says the arithmetic will not pay you. Owned by
+  `tools/figure-pipeline/**`.
 
 - `tools/figure-pipeline/hair_alpha.selftest.mjs` — RED BY CORRECTION, 18 of 19, and the sheet did
   not move. `hair_alpha.SAMPLED_LOD` was 1.492 for two rounds, taken from a Jacobian `hair_lod.mjs`
@@ -152,11 +166,25 @@ directions, which is the clause worth keeping when this check is next edited.
   THIS line means "it passed this time", not "the declaration was wrong", and deleting the line on
   that basis would be the rubber stamp the file exists to refuse.
 
-- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, 38/42. The four failing
-  clauses are the ones the current groom cannot satisfy: they encode the density and opacity target
-  the round is working toward, and turning them green is the work item rather than a repair to the
-  gate. Owned by `packages/core/src/material/**`. Do not re-derive these thresholds to clear them —
-  that is the failure mode the whole gate exists to prevent.
+- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, **56/60** at R23, and it
+  is the SAME FOUR failing clauses it carried at 38/42: the two halves of the contrast pair, the
+  plain-card comparison, and the clipped-highlight share. They encode the density and brightness
+  target the phase is working toward, they are floor-limited for round 16's reason, and turning
+  them green is the work item rather than a repair to the gate. Owned by
+  `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
+  failure mode the whole gate exists to prevent.
+  🎯 **R23 ADDED EIGHTEEN CHECKS AND ALL EIGHTEEN ARE GREEN** — the colour clause and its operator.
+  Four of them run on the plate: the mass's mean CIELAB chromaticity must sit in the warm quadrant
+  (a\* > 0 and b\* > 0), fewer than half its pixels may sit at b\* < 0, the same measurement with
+  the pigment's absorption ordering reversed at source must FAIL both, and the rotation must leave
+  p95 and p95/p50 where it found them. Nothing that was green went red.
+  ⚠️ Red-proved at source and restored byte-identically (sha256 `bb7c41fb…` before and after):
+  with the material's default colour hard-coded back to `#150F17`'s linear triple in the TREE, the
+  run reads **54/60** and the two colour clauses are the pair that moved — mass a\* +14.17,
+  b\* −7.22, hue 333.0°, cool share 97.8%. Bound pinned by mutation on the deterministic forward
+  path, albedo hue swept at constant L\* and C\*: **green at albedo hue 345° (cool share 48.8%) and
+  110°, first red at 340° (64.5%) and at 120° (rendered hue 91.6°, a\* negative).** The shipped
+  26.5° sits 74° and 94° from the two edges.
 
 ## Resolved, kept as the record
 

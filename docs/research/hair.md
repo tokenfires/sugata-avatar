@@ -21,6 +21,66 @@ number and either re-derived or marked unreproduced.
 
 ## 0. The findings that decide this phase
 
+### 🔴 0.00 The hair rendered on the **cool** side of neutral for five rounds, and it was ONE CONSTANT. [M]
+
+Measured 2026-08-13 on `alive.html?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` at 900×1200, over the
+**415,337 px** solid hair mask `HairMaterial.selftest.mjs` builds from the disagreement between
+`?hairdefect=unit-bsdf` and a zero BSDF. Reported in CIELAB, because the question is a hue and
+CIELAB is where the warm/cool axis is a straight line — b\*'s sign — rather than a wrapping angle:
+
+| plate | a\* | b\* | hue | C\* | L\* | pixels at b\* < 0 |
+|---|---:|---:|---:|---:|---:|---:|
+| the tree at `#150F17` | +14.17 | **−7.22** | 333.0° | 15.90 | 24.85 | **97.8%** |
+| the tree at `#1A0E0C` | +18.69 | **+7.96** | 23.1° | 20.31 | 25.76 | **6.9%** |
+
+Every measured reference hair pixel this document records has **R above B** — fringe p50 `#120c10`,
+p99 `#96757e` (§2.1), ponytail band `#ab512f` at b\* +36.7 (§0.3) — and the shipped albedo had
+**B above R**. Five blind critics reported "lavender", "mauve", "aubergine", "grey-lilac" and
+"purple blob" across five rounds and all five were read as taste. They were reporting this.
+
+🎯 **THE OTHER FOUR SUSPECTS WERE MEASURED, NOT REASONED ABOUT**, each alone, on the same run, over
+the same mask, in one process, on one groom (`g050.glb` sha256 `db5e216c…`, checked before and after
+the run; the table above is a later pair on `ffc00234…` — see the caveat below):
+
+| what was changed, and nothing else | mass b\* | mass hue | mass L\* |
+|---|---:|---:|---:|
+| nothing — the shipped forward plate | −6.77 | 334.3° | 25.18 |
+| the grade, i.e. the shipped path instead of `?grade=0` | −5.67 | 337.8° | 24.69 |
+| rim and kicker irradiance forced to 0 | −3.24 | 345.9° | 24.86 |
+| **the albedo's chromaticity removed (`#121212`, same luma)** | **+1.19** | **16.5°** | **25.32** |
+| slide 39's fake alone (`?hairlobes=`) | −6.62 | 336.0° | 16.55 |
+| R alone (`?hairlobes=r&hairscatter=0`) | −2.17 | 323.6° | 10.09 |
+| TRT alone — the `C^(0.8/cosθd)` path | −0.32 | 290.8° | **0.16** |
+| the indirect floor alone (`?hairlobes=&hairscatter=0`) | −0.32 | 289.6° | **0.15** |
+
+Read that column and the round is decided. **The grade is innocent** — it moves the hue by 3.5° and
+in the WARM direction. **The rim carries about half as much as the albedo** and it is already
+attenuated by slide 47's side-visibility term (without which the mass reads b\* −33.08). **The
+Karis absorption path carries essentially nothing on this rig**: TRT is retroreflective,
+`exp(17 cosφ − 16.78)` needs a light near the view axis, and the portrait rig has none — 0.16 of
+25.18 in L\*, i.e. 0.6%. The exponential that "will exaggerate whatever cast the albedo has" is
+real optics and it is not firing here.
+
+🚩 **WHAT BROADCASTS THE ALBEDO IS SLIDE 39's FAKE, and that is the finding underneath the finding.**
+The fake carries 66% of the mass's lightness and, measured alone, 98% of its b\* deficit. Its
+colour is `sqrt(colour)` — see `HairMaterial.js` — so the albedo's chromaticity is smeared across
+the whole mass instead of being confined to a lobe. **Tried and rejected by measurement:** the
+physically-correct pure-eumelanin transmittance at this luma, `exp(−9.2174 σa,e)` = `#280500`,
+renders at hue 29.8° and **C\* 44.30** — vivid rust, three times the reference's own recorded hair
+chroma. So the albedo is corrected by a **pure hue rotation at constant L\* and C\*** (§2.1a) and
+the fake's over-broadcasting is left standing as a separate, named defect.
+
+⚠️ **REPRODUCIBILITY, MEASURED BEFORE ANY OF THE ABOVE WAS CONCLUDED.** The forward path is
+bit-identical across processes: five separate `node` runs read hue 337.811 / C\* 14.640 to three
+decimals. The SHIPPED path is not — the same arm's p95 luma read 0.3394 and 0.5159 in two
+processes, which is TAAU at 0.66 plus stochastic coverage being an estimator, exactly as §9 says.
+Two different harnesses on the forward path also differ by about **4.5°** of hue, so nothing here
+is quoted to better than a degree. ⚠️ **AND THE GROOM CHANGED THREE TIMES UNDER THIS SESSION** —
+another agent was rebuilding `hair_cards.py`, and `g050.glb` went `5de7300e…` → `db5e216c…` →
+`ffc00234…` while these plates were being taken. Every table above is internally consistent (one
+process, one groom, sha checked before and after), and the conclusion is invariant across all three
+grooms; the absolute L\* and mask sizes are not comparable between tables taken at different times.
+
 ### 🔴 0.0 The rendered runs-per-card statistic is a **coverage** statistic and cannot see shading. [M]
 
 Round 20 built `hair_screen.mjs` to answer "can the alpha channel carry a strand to the frame", and
@@ -43,6 +103,12 @@ Re-derived here with that same module:
 | quantity | encoded | linear |
 |---|---:|---:|
 | `#150F17` base albedo | **0.0661** | **0.005629** |
+
+⚠️ **The denominator stays `#150F17`'s 0.0661 after round 23 replaced the shipped albedo with
+`#1A0E0C` (§2.1a), and deliberately.** This ratio benchmarks our band against the REFERENCE's
+albedo, which has not changed as a measurement; the rotation held the linear luma, so the two hexes
+differ by 0.0018 in encoded luma (0.0643 against 0.0661) and by nothing that matters here.
+
 | band peak, spec's low end 0.60 | 0.60 | 0.3185 |
 | band peak, spec's high end 0.75 | 0.75 | 0.5225 |
 | **contrast** | **9.1 : 1 – 11.4 : 1** | **57 : 1 – 93 : 1** |
@@ -148,7 +214,8 @@ consequences in §4.3.
 ### 🎯 0.6 The `~10:1` contrast is **floor-limited, and the floor is in the numerator**. [M]
 
 §0.1 fixed the *domain* of the spec's ratio. This fixes what it is a ratio *of*. Its denominator is
-a constant — `#150F17`'s 0.0661 — so measured on a plate it is an **absolute brightness**, and any
+a constant — the REFERENCE albedo's 0.0661, see §0.1 — so measured on a plate it is an
+**absolute brightness**, and any
 term that lifts the whole distribution walks it toward green. Slide 39's multiple-scattering fake is
 exactly that term: bandless by construction, and **65% of everything the groom emits above its
 indirect floor**.
@@ -527,7 +594,14 @@ card-vs-strand difference is elsewhere:
 spec-to-albedo contrast, broad soft dual bands, root AO 0.35–0.5."* Four claims. Here is where each
 came from and whether it survives.
 
-### 2.1 `#150F17` — **traced, and it survives** [V/M]
+### 2.1 `#150F17` — **traced, and it does NOT survive. Round 23 overturned this section; §2.1a is the correction.** [V/M]
+
+🔴 **READ §2.1a FIRST.** Everything below is round 19's reasoning and it reached the wrong verdict
+from the right numbers. It is kept whole, because the way it went wrong is the interesting part:
+the HSV hue of a near-black is a coordinate on two single-digit code values, and comparing 320° to
+285° in it hides the only thing that mattered — that `#120c10` has **R above B** and `#150F17` has
+**B above R**. The tool was `tools/critic/color.mjs`, which offers HSV and no perceptual space, and
+the question was asked in the only vocabulary it had.
 
 Origin: `stellar-blade-look-spec.md` §2 *Hair* **[M/I]**, *"Base albedo is essentially black — luma
 0.067 (`#150F17`), slightly violet"*, and §5's block `baseColor (sRGB) #150F17 → #1A1218`. It is
@@ -552,6 +626,55 @@ Independent check against the artefact rather than the doc — fringe mass on
 
 `#120c10` at hue 320° against a published `#150F17` at hue 285°: same magnitude, same violet
 family, measured on lit hair rather than as an albedo. **The published hex is defensible.** Ship it.
+
+### 🎯 2.1a `#150F17` → `#1A0E0C` — the correction, and it is a rotation rather than a new colour [M/D]
+
+**The table above is the evidence AGAINST the verdict under it**, once its hexes are re-derived in a
+space where "warm" and "cool" are opposite directions instead of adjacent angles. Re-derived this
+session in CIELAB (D65) from the same hexes — the arithmetic is mine, the hexes are round 19's read
+of `overview_character.jpg`, which is not in the repository and could not be re-measured here:
+
+| colour | R,G,B | Lab hue | C\* | **b\*** |
+|---|---|---:|---:|---:|
+| `#09040a` reference fringe p05 | 9, 4, 10 | 319.8° | 2.80 | −1.81 |
+| `#120c10` reference fringe p50 | 18, 12, **16** | 337.1° | 2.97 | −1.16 |
+| `#96757e` reference fringe p99 | 150, 117, **126** | 0.1° | 14.40 | +0.03 |
+| `#ab512f` reference ponytail band p50 (§0.3) | 171, 81, **47** | 46.8° | 50.32 | **+36.68** |
+| `#150F17` the published albedo | 21, 15, **23** | 316.3° | 5.65 | −3.90 |
+
+Four reference reads, four with **R above B**, and the published albedo is the only entry in the
+table with more blue in it than red. The reference's hair is near-neutral where it is unlit and
+swings hard warm where light hits it (b\* +36.7); ours could not go warm anywhere, because its
+albedo could not.
+
+**[D] The direction is a physical constant, not a preference.** d'Eon, François, Hill, Letteri &
+Aubry, *An Energy-Conserving Hair Reflectance Model*, EGSR 2011 §6.1, read off the paper this
+session: *"The values we found are σa,e = {0.419, 0.697, 1.37} and σa,p = {0.187, 0.4, 1.05}"* —
+per-sRGB-channel absorption cross-sections for eumelanin and pheomelanin, fitted to Donner &
+Jensen's spectral melanin over 40 bands under D65. Both absorb blue harder than red — **3.270×** for eumelanin and **5.615×** for pheomelanin — so
+`exp(−k σa)` is **R > G > B at every k**. There is no melanin mixture that produces `#150F17`.
+
+**[D] The magnitude is this document's own measurement, unspent.** L\* is a function of Y alone, so
+holding `#150F17`'s L\* = 5.0851 holds its linear luma 5.629e−3 exactly — the spec's *"luma 0.067"*
+survives the change. C\* = 5.6464 is held too, because nothing measured this round says the AMOUNT
+of colour is wrong. What moves is the hue, onto **26.4886°** — the CIELAB hue of `exp(−k σa,e)` at
+the concentration k = 9.2174 that lands eumelanin's own transmittance on that same luma.
+
+> **`#150F17` → `#1A0E0C`. A 70.2° rotation, L\* and C\* unchanged, linear
+> (1.05058e−2, 4.36057e−3, 3.83671e−3).** The upper end of §5's range rotates the same way at its
+> own luma: `#1A1218` → `#1D1210`, hue 29.1708° at L\* 6.4874.
+
+⚠️ **[✗] THE PIGMENT'S OWN COLOUR WAS TRIED AND IT IS WRONG HERE.** `exp(−9.2174 σa,e)` is
+`#280500`, C\* 17.73 with blue extinguished — physically what black hair transmits, and the
+"orange in the under-layer" the reference shows. Rendered on this shader it reads hue 29.8° at
+**C\* 44.30**: a vivid rust head of hair, 3× the reference's own recorded hair chroma and nothing
+like near-black. §0.00 has the mechanism — slide 39's fake takes `sqrt(colour)` and carries 66% of
+the mass, so this shader broadcasts the albedo's chromaticity instead of confining it. The
+rotation ships; the pure pigment does not; the fake is filed as the separate defect it is.
+
+⚠️ `CARD_ALBEDO_FLOOR = 0x150F17` in `packages/testbed/src/alive.js` is the **eyelash and eyebrow**
+floor and still carries the old hex. It was chosen for being the spec's published value, so it
+should follow this constant to `0x1A0E0C`; that file was not round 23's to edit.
 
 ### 2.2 `~10:1 spec-to-albedo contrast` — **traced, and it needs the correction in §0.1** [M]
 

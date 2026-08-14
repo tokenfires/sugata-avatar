@@ -42,7 +42,7 @@
 
 import {
     HEAD_HARMONICS, PROFILE_DEFAULTS, corrugation, cylindrical, detrendCircular, envelopeProfile,
-    fieldMap, measureGroom
+    envelopeSpread, fieldMap, measureGroom
 } from './hair_locks.mjs';
 
 let checks = 0;
@@ -344,6 +344,147 @@ console.log( '--- 6. sixteen ridges vs. 462 cards at their own standoffs ---' );
     near( both.coherentReliefMm, A * 1000 / Math.SQRT2, 0.25,
         'and the ridge amplitude comes back out of the mixture' );
     near( both.ridgePeaks, 16, 0, 'the sixteen ridges survive the band average; the scatter does not' );
+}
+
+// --- 7. the scatter half, and the thickness of the cloud it comes from ------------------------
+//
+// 🚩 **BOTH OPERATORS IN THIS CLAUSE ARE NEW AND ONE OF THEM IS BLIND IN A WAY THAT IS ASSERTED
+// RATHER THAN FOOTNOTED.** `scatterReliefMm` is the `√(1−r)` twin of `coherentReliefMm` and it
+// falls out of arithmetic clause 6 already pinned. `envelopeSpread` is the number R22's finding was
+// quoted in — p85 minus p50 inside a cell — and a percentile GAP cannot see a cloud whose two
+// halves sit on opposite sides of the median. The uniform slab below has a closed-form answer; the
+// two-standoff shell below it has a closed-form answer of ZERO on a cloud that is genuinely thick,
+// and that is the shape a reader has to know about before quoting the statistic.
+console.log( '' );
+console.log( '--- 7. the scatter half, and the thickness of the cloud ---' );
+{
+    const R = 0.095;
+    const A = 0.004;
+    const BANDS = 12;
+    const LOW = 1.30;
+    const HIGH = 1.66;
+    const window = { azimuthBins: 128, axis: [ 0, 0 ], low: LOW, high: HIGH, heightBands: BANDS };
+
+    // The two halves of one variance, on clause 6's own mixture: r = 1/2 puts exactly A/√2 in each.
+    let state = 12345;
+    const draw = () => { state = ( state * 1103515245 + 12345 ) & 0x7fffffff; return state / 0x7fffffff; };
+    const gaussian = () => Math.sqrt( - 2 * Math.log( draw() + 1e-12 ) ) * Math.cos( 2 * Math.PI * draw() );
+
+    const span = ( HIGH - LOW ) / BANDS;
+    const mixture = [];
+    for ( let band = 0; band < BANDS; band ++ ) {
+
+        for ( let bin = 0; bin < 128; bin ++ ) {
+
+            const theta = 2 * Math.PI * ( bin + 0.5 ) / 128 - Math.PI;
+            const radius = R + A * Math.cos( 16 * theta ) + ( A / Math.SQRT2 ) * gaussian();
+            for ( let level = 0; level < 4; level ++ ) {
+
+                const y = LOW + span * ( band + ( level + 0.5 ) / 4 );
+                for ( let repeat = 0; repeat < 6; repeat ++ ) positions_push( mixture, radius, theta, y );
+
+            }
+
+        }
+
+    }
+
+    const both = measureGroom( mixture, window );
+    near( both.scatterReliefMm, A * 1000 / Math.SQRT2, 0.25,
+        'the scatter half of an equal mixture is A/√2, the same as the ridge half' );
+    near( Math.hypot( both.coherentReliefMm, both.scatterReliefMm ), both.reliefMm, 1e-9,
+        'and the two halves are the legs of the total in quadrature, by construction' );
+
+    // 🚩 **THE EQUAL MIXTURE CANNOT TELL THE TWO HALVES APART, WHICH THE RED PROOF FOUND.** At
+    // r = 1/2, `√r` and `√(1−r)` are the same number, so a `scatterReliefMm` wired to the RIDGE
+    // formula passes both assertions above. It takes an UNEQUAL mixture to separate them, and pure
+    // scatter is the cleanest one there is: the ridge half must go to zero and the scatter half
+    // must come back as the whole relief.
+    const noRidge = measureGroom( ( () => {
+
+        state = 999;
+        const rows = [];
+        for ( let band = 0; band < BANDS; band ++ ) {
+
+            for ( let bin = 0; bin < 128; bin ++ ) {
+
+                const theta = 2 * Math.PI * ( bin + 0.5 ) / 128 - Math.PI;
+                const radius = R + A * gaussian();
+                for ( let level = 0; level < 4; level ++ ) {
+
+                    const y = LOW + span * ( band + ( level + 0.5 ) / 4 );
+                    for ( let repeat = 0; repeat < 6; repeat ++ ) positions_push( rows, radius, theta, y );
+
+                }
+
+            }
+
+        }
+
+        return rows;
+
+    } )(), window );
+
+    near( noRidge.coherentReliefMm, 0, 1.2, 'a shell of pure scatter has no ridge half at all' );
+    near( noRidge.scatterReliefMm, noRidge.reliefMm, 0.4,
+        'and its scatter half IS the whole relief — the clause an equal mixture cannot make' );
+
+    // A UNIFORM SLAB: 21 radii evenly spaced over T in every cell. `envelopeProfile` ranks at
+    // `round(p·(n−1))`, so p50 is index 10 and p85 is index 17 — the answer is exactly 7T/20.
+    const THICKNESS = 0.012;
+    const slab = [];
+    for ( let band = 0; band < BANDS; band ++ ) {
+
+        for ( let bin = 0; bin < 128; bin ++ ) {
+
+            const theta = 2 * Math.PI * ( bin + 0.5 ) / 128 - Math.PI;
+            const y = LOW + span * ( band + 0.5 );
+            for ( let sample = 0; sample < 21; sample ++ ) {
+
+                positions_push( slab, R + THICKNESS * sample / 20, theta, y );
+
+            }
+
+        }
+
+    }
+
+    const slabRead = envelopeSpread( slab, window );
+    near( slabRead.spreadMm, THICKNESS * 1000 * 7 / 20, 1e-9,
+        'a uniform slab 12 mm thick reads exactly 7/20 of it — 4.2 mm — at p85 over p50' );
+    near( slabRead.p85Mm - slabRead.p50Mm, slabRead.spreadMm, 1e-9,
+        'and the two reported radii differ by the reported spread' );
+
+    // 🚩 THE BLIND SPOT, ASSERTED. Two standoffs 12 mm apart, equally populated: the median and the
+    // 85th percentile both land on the OUTER one, so the gap reads zero on a genuinely thick cloud.
+    const twoStandoffs = [];
+    for ( let band = 0; band < BANDS; band ++ ) {
+
+        for ( let bin = 0; bin < 128; bin ++ ) {
+
+            const theta = 2 * Math.PI * ( bin + 0.5 ) / 128 - Math.PI;
+            const y = LOW + span * ( band + 0.5 );
+            for ( let sample = 0; sample < 50; sample ++ ) {
+
+                positions_push( twoStandoffs, R, theta, y );
+                positions_push( twoStandoffs, R + THICKNESS, theta, y );
+
+            }
+
+        }
+
+    }
+
+    near( envelopeSpread( twoStandoffs, window ).spreadMm, 0, 1e-9,
+        'a cloud split evenly between two standoffs 12 mm apart reads ZERO — the statistic ' +
+        'measures the outer half, not the depth of the stack' );
+}
+
+/** One point on a shell, appended as an xyz triple. Clause 7 builds four shapes out of this. */
+function positions_push( into, radius, theta, y ) {
+
+    into.push( radius * Math.cos( theta ), y, radius * Math.sin( theta ) );
+
 }
 
 // --- the look -------------------------------------------------------------------------------

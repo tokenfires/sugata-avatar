@@ -311,6 +311,161 @@ The g050 groom is **462 cards of 17 rings each + 2 cap shells of 564 triangles**
 15,912 triangles, 3,118,972 bytes. The four sheets are shared and written once per build: albedo
 1,090,362 · normal 1,064,393 · flow 348,510 · depth 63,001 bytes.
 
+### R23 — the scatter is ONE SHELL's own thickness, and the standoff ladder was never the lever
+
+🚩 **R22 LEFT THIS ROUND ONE INSTRUCTION — "the lever is the SCATTER, thin the shell" — AND THE
+FIRST THING R23 DID WAS MEASURE WHETHER THE SHELL IS WHAT THE SCATTER IS MADE OF. IT IS NOT.**
+Everything below is measured on the shipped R22 groom (`g050.glb` sha256 `5de7300e…`, rebuilt
+byte-identically from `hair_cards.py` sha256 `8ebad215…` before anything was touched).
+
+**The instrument first.** `hair_locks.measureGroom` already split its relief into a coherent ridge
+`rms·√r`; the twin `rms·√(1−r)` is the SCATTER and nobody had ever printed it. It is one line and it
+is now a column. `hair_locks.envelopeSpread` is the p85-minus-p50 gap R22's finding was quoted in,
+which existed only as a one-off script and as fifteen open-coded lines inside `verify_glb.mjs` —
+both now call the one function, which carries five arithmetic assertions including the one that
+says what it CANNOT see. `hair_locks.selftest.mjs` runs 45.
+
+```bash
+node tools/figure-pipeline/hair_locks.selftest.mjs   # PASS — 45 assertions
+node tools/figure-pipeline/hair_locks.mjs            # the five bakes, six columns
+```
+
+🎯 **AND THEN THE GROOM WAS READ ONE LAYER AT A TIME, WHICH IS THE ROUND.** Card vertices are
+emitted layer by layer, so a subset of the shipped file IS a single shell — every card at exactly
+one standoff, no ladder at all. Read about the whole groom's axis and height window so the seven
+readings are comparable:
+
+| layer, on the shipped g050 | cards | relief mm | coherence | LOCK mm | **SCATTER mm** | p85−p50 mm |
+|---|---:|---:|---:|---:|---:|---:|
+| `root` | 78 | 4.911 | −0.034 | 0.000 | **4.911** | 4.506 |
+| `mass` | 100 | 7.102 | 0.254 | 3.581 | **6.133** | 7.571 |
+| `underlayer` | 70 | 4.808 | −0.106 | 0.000 | **4.808** | 4.810 |
+| `body` | 48 | 6.237 | 0.022 | 0.926 | **6.168** | 7.202 |
+| `surface` | 48 | 5.310 | 0.469 | 3.637 | **3.869** | 6.017 |
+| `flyaway` | 28 | 13.260 | −0.533 | 0.000 | **13.260** | 7.719 |
+| `veil` | 90 | 6.919 | −0.003 | 0.000 | **6.919** | 8.255 |
+| **all seven together** | **462** | 7.291 | 0.183 | 3.123 | **6.588** | 11.399 |
+
+🚩 **`veil` IS NINETY CARDS AT ONE STANDOFF AND IT READS 6.919 mm OF SCATTER AGAINST THE WHOLE
+GROOM'S 6.588.** Six of the seven shells individually read more scatter than the seven-shell stack
+reads together. The eleven-millimetre cloud is not seven standoffs seen at once; it is what a single
+shell of long curved ribbons measures, because a card's radius inside a 30 mm height band is set by
+how far along its own fall it happens to be — a card rooted at the crown crosses that band having
+swung out, and one rooted at the temple crosses it still hugging. The standoff is not the variable.
+
+⚠️ **AND THE PRESCRIPTION WAS BUILT ANYWAY, BECAUSE AN ARGUMENT IS NOT A MEASUREMENT.** The visible
+layers' standoff span was halved — 11.0/13.5/16.5/20.0/22.5/28.5 mm to 14.5/15.8/17.3/19.0/20.3/
+23.3, 17.5 mm of ladder down to 8.8 — and rebuilt:
+
+| g050 | relief mm | coherence | LOCK mm | SCATTER mm | p85−p50 mm |
+|---|---:|---:|---:|---:|---:|
+| shipped, 462 cards | 7.291 | 0.183 | 3.123 | 6.588 | 11.399 |
+| **ladder halved** | 6.976 | 0.141 | **2.620** | **6.466** | 9.966 |
+| per-card levers (twist 0.35→0.16, lock share 0.75→0.90, width spread ±25%→±15%) | 7.526 | 0.238 | **3.673** | 6.569 | 11.554 |
+| + per-lock standoff, 10 mm | 7.816 | 0.243 | **3.849** | 6.802 | 10.725 |
+| + per-lock standoff, 24 mm | 7.360 | 0.194 | **3.245** | 6.607 | 10.686 |
+
+**Halving the ladder moved the scatter by 0.12 mm and made the LOCK WORSE.** Five grooms, four of
+them built this round, and `SCATTER` sits in 6.47–6.80 mm on every one of them — invariant under a
+change that removed half the standoff structure and under a change that more than halved the
+per-card twist. That is the negative result, and it is the useful half of the round.
+
+🎯 **AND THE GATE CANNOT BE CLEARED BY TIGHTENING THE ENVELOPE EVEN IN PRINCIPLE, WHICH FOLLOWS FROM
+ITS OWN ARITHMETIC.** `coherentReliefMm` is `rms·√r` = the RIDGE's own RMS, and
+`hair_locks.selftest.mjs` clause 6 pins exactly that: a lobed shell buried in scatter of equal
+variance reads back its lobe amplitude to the micrometre. Removing scatter lowers `rms` and raises
+`r` and leaves the product where it was. So "thin the cloud until the locks show" is a statement
+about the EYE, and this gate is not measuring the eye — it is measuring ridge amplitude, and only a
+louder ridge moves it. R22 found the amplitude that clears it (±45 mm) renders as storm damage.
+
+🚩 **THE PER-LOCK STANDOFF IS THE ONE IDEA THAT SHOULD HAVE WORKED AND DID NOT SURVIVE THE SWEEP.**
+Unlike R22's global `cos 16θ` displacement it re-seats whole BUNDLES — the cards of one lock stand
+further off the skull than the cards of the next, which is what a real bob does — and at g050 it was
+worth +0.73 mm of ridge. It is **non-monotonic in amplitude** (10 mm reads 3.849, 24 mm reads 3.245:
+the cut correction re-lengthens every card and the 0–3 detrend absorbs more of a louder, broader
+lobe) and the g050 gain **reversed on three of the five bakes**, which is what took the whole lever
+set out of the shipped groom. Reproduce it by threading a per-lock offset through
+`grow_to_cut`/`grow_guide` and adding it to the standoff the hug and the push-out are measured
+against, faded in as `s^0.70`.
+
+⚠️ **THE LESSON THAT COST THE MOST TIME: FOUR LEVERS WERE TUNED ON g050 ALONE AND THREE OF THE FIVE
+BAKES DISAGREED.** Coherent lock relief per bake, g000 → g100, and the mean of each row:
+
+| coherent lock relief, floor 5.0 mm | g000 | g025 | g050 | g075 | g100 | mean |
+|---|---:|---:|---:|---:|---:|---:|
+| R22's shipped groom, 462 cards | 3.437 | 3.193 | 3.123 | 3.501 | 4.586 | **3.568** |
+| whole lever set + a 44-card fringe, 506 cards | 3.138 | 3.119 | **3.425** | **3.789** | 3.552 | **3.405** |
+| a 44-card fringe alone, 506 cards | 3.443 | 2.849 | 3.052 | 3.534 | 4.837 | **3.543** |
+| **a 34-card fringe alone, 496 cards — SHIPPED** | 3.272 | 3.096 | 3.253 | 3.741 | 4.710 | **3.414** |
+
+The lever set is +0.30 at the bake it was tuned on and a **loss over the sweep**, which is why it is
+in this README and not in `hair_cards.py`. `build.sh --hair bob01` is 110 seconds for all five.
+Tune on the sweep. Every fringe row is inside 0.15 mm of R22's, which is the honest reading of a
+change that alters the SHAPE of the front of the head and touches the envelope nowhere.
+
+⚠️ **THE FRINGE WENT 44 CARDS TO 34 BECAUSE OF A CLAUSE THAT IS NOT THIS ONE.** At 44 the `cards
+deep` clause read **p50 18 on g000 against a ceiling of 18** — green by nothing, on the bake with
+the smallest skull, where the same card count is packed into the least area. R22's groom reads 16
+there. 34 reads 17, and the row it costs is the one above: mean coherent relief 3.543 → 3.414. A
+gate at its ceiling is a gate that goes red on the next round's unrelated change, and the fringe's
+opacity is not what makes the front of the head opaque — `mass` and `veil` are still under it.
+
+### R23 — the fringe, which is the part that shipped
+
+🎯 **OBSERVATION 4 OF THE REFERENCE — "a flat plane at its own angle from the side masses, with a
+clean lower edge at eyebrow level" — AND THIS GROOM HAD NO FRINGE AT ALL.** Every layer grew from
+one field, that field runs radially forward from the whorl and is then swept sideways by the part,
+and what the front of the head had was the front of the side masses. Three keys make it its own
+element, all on the appended `fringe` entry in `HAIR_LAYERS`:
+
+  - **`front`** restricts `sample_roots` to the frontmost 34% of the region's depth AND to faces at
+    or above `frame.forehead_z`. The second half matters: a root on the TEMPLE is inside the front
+    third and is not in the fringe, and a card grown down from one lands on the cheekbone.
+  - **`fringe`** replaces the radial and part terms in `root_direction` with down-plus-forward
+    (`FRINGE_FORWARD` 0.45). It is the only layer that does not use the growth field.
+  - **`graduation: 0.0`** with `cut_scatter: 0.12` gives it the one deliberate edge in the groom.
+
+🚩 **`frame.hairline_z` IS NOT THE FOREHEAD HAIRLINE, AND THE FIRST TWO FRINGE BUILDS WERE DESTROYED
+BY ASSUMING IT WAS.** It is `low.z + HAIRLINE_LIFT · height` over the WHOLE scalp region, and the
+region reaches the NAPE — so at g050 it is **1.4970 while the figure's own `eyebrow001` mesh spans
+1.5568–1.5672**. The plane every layer's cut is measured from sits 60 mm BELOW the brow, at the
+level of the nose bridge. Harmless for a layer cut 0.35–0.88 of the region's height below it,
+because those numbers were fitted against that plane; fatal for a fringe. Cut 0.13 below it, the
+plate showed a curtain across both eyes and down to the mouth. `ScalpFrame.forehead_z` is the
+lowest the region reaches at the FRONT and is the hairline in the sense a hairdresser means it:
+**1.5615 at g050, which lands on the eyebrow mesh**, and it is derived from the region so it travels
+the identity axis like everything else here. It is printed on the `region` line of every build.
+
+| the fringe's own cut line, g050 | tips |
+|---|---|
+| first build, `cut` 0.13 below `hairline_z`, graduation and jitter live | z 1.5356 ± 35.3 mm, spread 95.7 mm — over both eyes |
+| graduation off, jitter to 0.12 | z 1.4828 ± 7.9 mm — a clean line, still at the mouth |
+| **`cut` 0.02 below `forehead_z` — shipped** | **z 1.5688 ± 12.0 mm at 44 cards, 1.5697 ± 13.3 at the 34 that ship — the brow** |
+
+The whole sweep's fringe lands on its own identity's brow without a constant being touched: tips at
+**1.4970 / 1.5343 / 1.5697 / 1.6010 / 1.6355** for g000 → g100, against `forehead_z` of
+**1.4954 / 1.5287 / 1.5615 / 1.5946 / 1.6290** — the derivation travels, which is the whole reason
+it is taken off the region rather than typed in.
+
+Rendered at `front`, `three-quarter`, `side`, `back` and `top` on `packages/testbed/src/hair.html`
+at every one of those three, which is the only reason the second one was caught: **its numbers were
+better than the third's** — a 7.9 mm tip band against 12.0 — and it was a blindfold.
+
+⚠️ **WHAT THE FRINGE DID NOT FIX, NAMED SO THE NEXT ROUND DOES NOT RE-DISCOVER IT.** The portrait
+plate still carries (a) a hard-edged card slab across the character's-right cheekbone, (b) a tangle
+of straps crossing the THROAT where the two sides' cards sweep round the jaw and meet, and (c) the
+patent-leather crown. None of them is a lock-relief problem and none of them is measured by any
+clause in `verify_glb.mjs`. (b) is the strongest tell at portrait range.
+
+🚩 **AND THE `back` PLATE IS THE WORST OF THE FIVE, WHICH IS OBSERVATION 6 UNADDRESSED AND A GATE
+BLINDNESS UNDER IT.** The reference says volume at the crown falling to a tucked-under line at the
+neck. This groom does the opposite: the back mass is one flat swept slab crossed by a single long
+diagonal card, and there is **bare neck visible through a hole beside the nape**. `no skin on show`
+is green on all five bakes at 0.0–3.1 mm², because that clause casts at the CRANIUM — it is the
+scalp-coverage measurement wearing a judge's camera, and the nape is below the region it samples.
+So the one plate with a hole in it is the one plate no clause can see. Whoever takes observation 6
+needs a back-view clause that samples the NECK before they need a tuck.
+
 ### R22 — the geometry half, and why it did not ship
 
 🚩 **R22 BUILT THE GROOM R21 ASKED FOR, MEASURED IT, LOOKED AT IT, AND PUT IT BACK.** The ask was

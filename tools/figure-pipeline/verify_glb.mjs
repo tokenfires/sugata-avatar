@@ -48,7 +48,7 @@ const {
 
 // The lock-structure operator, validated against a cylinder, an oval, a lobed shell and a lobed
 // shell buried in scatter before it is pointed at anything. See `hair_locks.selftest.mjs`.
-const { measureGroom: measureLockStructure, envelopeProfile } = await import("./hair_locks.mjs");
+const { measureGroom: measureLockStructure, envelopeSpread } = await import("./hair_locks.mjs");
 
 const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
 const { decodePng } = await import("../critic/png.mjs");
@@ -2104,30 +2104,22 @@ function reportLockSeparation(groom, mesh) {
   const ok = reading.coherentReliefMm >= MIN_COHERENT_LOCK_RELIEF_MM;
 
   // How thick the hair is in RADIUS inside one bin — the noise floor any ridge has to clear.
-  const outer = envelopeProfile(mesh.positions, {});
-  const middle = envelopeProfile(mesh.positions, { percentile: 0.5 });
-  let spread = 0;
-  let counted = 0;
-  for (let band = 1; band < outer.bands.length - 1; band += 1) {
-    for (let bin = 0; bin < outer.settings.azimuthBins; bin += 1) {
-      const high = outer.bands[band].profile[bin];
-      const low = middle.bands[band].profile[bin];
-      if (Number.isFinite(high) && Number.isFinite(low)) {
-        spread += high - low;
-        counted += 1;
-      }
-    }
-  }
+  // 🎯 **THIS USED TO BE FIFTEEN LINES OF THE SAME ARITHMETIC OPEN-CODED HERE.** It is
+  // `hair_locks.envelopeSpread` now, which is the same measurement with five arithmetic assertions
+  // under it (`hair_locks.selftest.mjs` clause 7) including the one that says what it CANNOT see.
+  // Two copies of a statistic is two statistics as soon as one of them is edited.
+  const spread = envelopeSpread(mesh.positions);
 
   console.log(`  ${ok ? "ok  " : "FAIL"} locks not a shell  ` +
               `${reading.coherentReliefMm.toFixed(2)} mm of ridge running down the head ` +
               `(floor ${MIN_COHERENT_LOCK_RELIEF_MM}) — ${reading.reliefMm.toFixed(2)} mm of ` +
               `envelope relief at ${reading.coherence.toFixed(3)} vertical coherence, ` +
               `${reading.ridgePeaks} ridges over ${reading.bandsUsed} bands`);
-  console.log(`  --   shell thickness   the groom spans ` +
-              `${(spread / Math.max(counted, 1) * 1000).toFixed(2)} mm of radius between its p50 ` +
-              `and p85 inside one 3°x30 mm bin, over ${counted} bins (reported — this is the ` +
-              "scatter a lock has to be louder than)");
+  console.log(`  --   shell thickness   the groom spans ${spread.spreadMm.toFixed(2)} mm of ` +
+              `radius between its p50 and p85 inside one 3°x30 mm bin (worst band ` +
+              `${spread.worstBandMm.toFixed(2)}), over ${spread.cells} bins — and ` +
+              `${reading.scatterReliefMm.toFixed(2)} mm of the relief above is SCATTER rather ` +
+              "than ridge (reported — this is what a lock has to be louder than)");
 
   if (ok) {
     return [];

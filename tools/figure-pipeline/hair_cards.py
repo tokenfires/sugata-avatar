@@ -115,6 +115,12 @@ HAIRLINE_LIFT = 0.06
 # fringe and the nape get the same treatment, which reads as a bowl.
 WHORL_SETBACK = 0.34
 
+# The share of the region's depth that counts as "the front" — the band the fringe is rooted in and
+# the band `ScalpFrame.forehead_z` is taken over. One constant rather than a per-layer key, because
+# the cut reference and the root set have to be the SAME band or the fringe is cut to a line it was
+# never grown from.
+FOREHEAD_FRACTION = 0.34
+
 
 # --- the groom ----------------------------------------------------------------------------------
 
@@ -411,6 +417,42 @@ HAIR_LAYERS = [
     {"name": "veil", "cards": 90, "standoff": 0.0200, "length": 0.300,
      "half_width": 0.0175, "strips": (1,), "gravity": 1.16, "jitter": 0.15,
      "crown": 0.35, "cut": 0.84, "clump": 0.70, "tip_width": 0.22},
+    # 🎯 **THE FRINGE IS A SEPARATE STRUCTURAL ELEMENT AND UNTIL R23 THIS GROOM DID NOT HAVE ONE.**
+    # The reference is unambiguous about it: a flat plane at its own angle from the side masses,
+    # with a clean lower edge at eyebrow level. Every layer above grows from one field, and that
+    # field runs radially forward from the whorl and is then swept sideways by the part — so what
+    # the front of this groom had was the front of the side masses, which is why a blind critic
+    # could read an eyebrow through it and why the portrait plate carries a card slab across the
+    # cheek. `fringe` and `front` are the two keys that make this its own element: `front`
+    # restricts the roots to the frontmost third of the region, `fringe` replaces the radial and
+    # part terms with down-and-forward. See `root_direction` and `sample_roots`.
+    #
+    # ⚠️ **SHORT, AND THAT IS NOT THE MISTAKE ROUND 19 MADE.** Its finding — an interior layer that
+    # is long must ride the same envelope as its neighbours; interiority is standoff and gravity,
+    # not shortness — is about a layer hiding INSIDE the mass. This one is the outermost thing on
+    # the front of the head and it is short because a fringe is cut short; the cut is what a viewer
+    # reads.
+    #
+    # ⚠️ **`cut` IS MEASURED FROM `frame.forehead_z` AND NOT FROM `frame.hairline_z` — SEE
+    # `ScalpFrame` FOR WHY, AND IT COST TWO BUILDS.** 0.02 of the region's height below the front
+    # edge of the region lands the tips at z 1.5697 ± 13.3 mm at g050, against an `eyebrow001` mesh
+    # spanning 1.5568–1.5672. `graduation: 0.0` and `cut_scatter: 0.12` are what make that a LINE:
+    # at the layer defaults the same 0.02 runs from 14 mm to 41 mm of drop and 41 mm is the eye.
+    #
+    # ⚠️ **34 CARDS AND NOT 44, AND THE REASON IS `cards deep` RATHER THAN ANYTHING HERE.** At 44
+    # that clause reads p50 18 against its ceiling of 18 on g000 — the smallest skull, so the most
+    # cards per square centimetre. 34 reads 17 and costs 0.13 mm of the sweep's mean coherent lock
+    # relief. A gate sitting on its ceiling goes red on the next round's unrelated change, and the
+    # fringe is not what makes the front of the head opaque: `mass` and `veil` are still under it.
+    #
+    # ⚠️ **APPENDED, FOR THE REASON `veil` IS APPENDED.** `grow_layer` seeds its RNG with
+    # `HAIR_LAYERS.index(layer)`, so an entry inserted in envelope order re-rolls every layer below
+    # it and the groom that came out could not be attributed to this layer rather than to the
+    # re-draw.
+    {"name": "fringe", "cards": 34, "standoff": 0.0185, "length": 0.070,
+     "half_width": 0.0160, "strips": (1, 2), "gravity": 1.00, "jitter": 0.09,
+     "front": FOREHEAD_FRACTION, "fringe": True, "cut": 0.02, "clump": 0.30,
+     "tip_width": 0.45, "cut_scatter": 0.12, "graduation": 0.0},
 ]
 
 # --- locks --------------------------------------------------------------------------------------
@@ -454,6 +496,12 @@ CLUMP_CLEARANCE_PASSES = 3
 # definition of frizz. Most of the budget now belongs to the LOCK and is shared by every card in
 # it; what is left is the per-card residue that keeps a lock from being one wide ribbon.
 LOCK_DIRECTION_SHARE = 0.75
+
+# How far forward the fringe leans as it leaves the hairline, against one unit of straight down.
+# It is what stops the plane from lying on the forehead: at 0 the tangent projection at a front
+# hairline root still points down the brow, and the standoff is then the only thing holding the
+# cards off the face. See the `fringe` entry in HAIR_LAYERS and `root_direction`.
+FRINGE_FORWARD = 0.45
 
 # --- the scalp cap ------------------------------------------------------------------------------
 #
@@ -817,6 +865,26 @@ class ScalpFrame:
                              f"HAIRLINE_LIFT is {HAIRLINE_LIFT} of a {self.height * 1000:.1f} mm "
                              "region.")
 
+        # 🚩 **`hairline_z` IS NOT THE FOREHEAD HAIRLINE AND R23 LOST A BUILD TO ASSUMING IT WAS.**
+        # It is `low.z + HAIRLINE_LIFT · height`, and `low.z` is the minimum over the WHOLE region —
+        # which reaches the NAPE. Measured at g050: `hairline_z` is 1.4970 and the figure's own
+        # eyebrow mesh spans 1.5568–1.5672, so the plane every layer's cut is measured from sits
+        # 60 mm BELOW the brow, at the level of the nose bridge. That is harmless for a layer whose
+        # cut is a drop of 0.35–0.88 of the region's height, because the number was fitted against
+        # the plane it uses. It is fatal for a fringe: the first build put `cut` 0.13 below it and
+        # the plate showed a curtain across both eyes and down to the mouth.
+        #
+        # So the fringe gets its own reference, taken the same way everything else here is — off the
+        # region. `forehead_z` is the lowest the region reaches at the FRONT, which is the hairline
+        # in the sense a hairdresser means, and it lands just above the brow on any identity because
+        # the region's front edge is trimmed by the brow targets' own reach (FACE_MOTION_TARGETS).
+        front_cutoff = self.low.y + FOREHEAD_FRACTION * self.depth
+        forehead = [polygon for polygon in self.faces if polygon.center.y <= front_cutoff]
+        if not forehead:
+            raise SystemExit(f"Build failed: no scalp face is inside the front {FOREHEAD_FRACTION} "
+                             "of the region, so the fringe has no hairline to be cut from.")
+        self.forehead_z = min(polygon.center.z for polygon in forehead)
+
         self.area = sum(polygon.area for polygon in self.faces)
         self.vertex_count = len(region)
         self.face_count = len(self.faces)
@@ -835,7 +903,8 @@ class ScalpFrame:
     def describe(self):
         return (f"scalp {self.vertex_count} verts, {self.face_count} faces above the hairline, "
                 f"{self.area * 1e4:.1f} cm²  |  crown z {self.crown.z:.4f}  "
-                f"hairline z {self.hairline_z:.4f}  height {self.height * 1000:.1f} mm  "
+                f"hairline z {self.hairline_z:.4f}  forehead z {self.forehead_z:.4f}  "
+                f"height {self.height * 1000:.1f} mm  "
                 f"depth {self.depth * 1000:.1f} mm  half-width {self.half_width * 1000:.1f} mm")
 
 
@@ -1032,7 +1101,7 @@ def grow_layer(basemesh, frame, body, layer, locks, arguments):
             cut_z=cut_height(frame, layer, lock.position, lock.cut_bias, 0.0))
 
     roots = sample_roots(basemesh, frame, layer["cards"], random,
-                         layer.get("crown", 0.0))
+                         layer.get("crown", 0.0), layer.get("front"))
 
     cards = []
     for index, (position, normal) in enumerate(roots):
@@ -1063,7 +1132,7 @@ def shared_with_lock(lock_bias, random):
     return lock_bias * LOCK_DIRECTION_SHARE + own * (1.0 - LOCK_DIRECTION_SHARE)
 
 
-def sample_roots(basemesh, frame, count, random, crown_bias):
+def sample_roots(basemesh, frame, count, random, crown_bias, front=None):
     """`count` root points on the scalp, area-weighted and spread by dart throwing.
 
     🚩 Uniform random sampling of a surface CLUMPS, and a clumped groom has bald patches next to
@@ -1071,9 +1140,29 @@ def sample_roots(basemesh, frame, count, random, crown_bias):
     minimum separation derived from the region's own area is the cheapest fix that does not need a
     relaxation pass: `radius` is 80% of the spacing a perfect hexagonal packing of `count` discs
     over this area would have, so the target count is reachable but the packing is still even.
+
+    `front` restricts the region to the frontmost fraction of its own depth, which is what makes a
+    FRINGE a separate structural element rather than the front of the same shell — see the `fringe`
+    entry in HAIR_LAYERS. The face is at −Y on this mesh, so the front of the region is its low y.
+    Everything downstream — the area, the dart radius, the weights — is recomputed over the
+    restricted set, so the fringe's 34 cards are 34 cards packed across the front hairline rather
+    than 34 cards' worth of dart spacing thrown at the whole scalp and mostly rejected.
     """
     mesh = basemesh.data
     faces = frame.faces
+    area = frame.area
+
+    if front is not None:
+        cutoff = frame.low.y + front * frame.depth
+        # At and above the forehead edge as well as in front of the cutoff: a root on the TEMPLE is
+        # in the front third and is not in the fringe, and a card grown down from one lands on the
+        # cheek — which is the slab across the cheekbone the portrait plate has carried all phase.
+        faces = [polygon for polygon in faces
+                 if polygon.center.y <= cutoff and polygon.center.z >= frame.forehead_z]
+        if not faces:
+            raise SystemExit(f"Build failed: no scalp face is inside the front {front:.2f} of the "
+                             "region, so the fringe would have no roots.")
+        area = sum(polygon.area for polygon in faces)
 
     # 🎯 **AREA-WEIGHTED ALONE PUTS THE FEWEST CARDS WHERE THE MOST ARE NEEDED.** Uniform density
     # over the scalp is uniform density measured ON the scalp, and the scalp is not what a viewer
@@ -1100,7 +1189,7 @@ def sample_roots(basemesh, frame, count, random, crown_bias):
         running += weight
         cumulative.append(running / total)
 
-    radius = math.sqrt(frame.area / (count * math.pi)) * 0.80
+    radius = math.sqrt(area / (count * math.pi)) * 0.80
 
     accepted = []
     attempts = 0
@@ -1160,6 +1249,23 @@ def root_direction(position, normal, frame, part_fraction, layer, deflection):
     `deflection` is the already-scaled random lean, passed in rather than drawn here: most of it
     belongs to the card's LOCK and is shared with its neighbours. See LOCK_DIRECTION_SHARE.
     """
+    # 🎯 **THE FRINGE DOES NOT LEAVE THE SCALP THE WAY THE REST OF THE GROOM DOES, WHICH IS THE
+    # WHOLE OF OBSERVATION 4.** Every other layer's root direction is radial from the whorl plus the
+    # part push, and on the front of the head that field runs FORWARD and then sideways — an earlier
+    # round learned that the hard way and PART_FALLOFF is 1.10 precisely so the front sweeps past
+    # the cheek instead of down it. A fringe is the opposite: it falls straight down in its own
+    # plane, at its own angle, and stops at a clean line. So it takes down-and-forward, no radial
+    # term and no part term at all, and it is the ONLY layer that does.
+    if layer.get("fringe"):
+        fringe = (Vector((0.0, 0.0, -1.0))
+                  + Vector((0.0, -1.0, 0.0)) * FRINGE_FORWARD
+                  + deflection)
+        fringe = tangent_component(fringe, normal)
+        if fringe.length < 1e-6:
+            fringe = tangent_component(Vector((0.0, -1.0, -1.0)), normal)
+
+        return fringe.normalized()
+
     radial = position - frame.whorl
     radial = tangent_component(radial, normal)
     if radial.length < 1e-6:
@@ -1211,10 +1317,18 @@ def cut_height(frame, layer, root, lock_bias, card_bias):
 
     # Face-framing: the front of the cut hangs lower. The face is at −Y on this mesh, so a root
     # toward the back has the larger y and the higher cut.
+    #
+    # ⚠️ **THE FRINGE TURNS THIS OFF, AND THE FIRST BUILD WITH A FRINGE IN IT SHOWS WHY.** The
+    # graduation and the two jitters are all measured from the same 0.13 drop, so on the front of
+    # the head they ran the fringe's cut from 0.079 to 0.24 of the region's height — 14 mm to 41 mm
+    # below the hairline — and 41 mm below the hairline is the EYE. Rendered, the plate showed a
+    # fringe hanging over the character's right eye while the left brow stayed bare. A fringe's
+    # lower edge is the one line in this groom that is deliberate; see observations 4 and 5.
     front_to_back = (root.y - (frame.low.y + frame.high.y) * 0.5) / max(frame.depth, 1e-6)
-    drop -= CUT_GRADUATION * front_to_back
+    drop -= CUT_GRADUATION * layer.get("graduation", 1.0) * front_to_back
 
-    return frame.hairline_z - drop * frame.height
+    reference = frame.forehead_z if layer.get("fringe") else frame.hairline_z
+    return reference - drop * frame.height
 
 
 def grow_to_cut(root, root_normal, frame, body, layer, arguments, deflection, curl, cut_z):

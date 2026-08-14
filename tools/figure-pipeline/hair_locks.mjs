@@ -207,6 +207,87 @@ export function envelopeProfile( positions, options = {} ) {
 }
 
 /**
+ * How THICK the outer half of the card cloud is, in the same (band, bin) cells the profile uses:
+ * the radius at the 85th percentile minus the radius at the 50th.
+ *
+ * 🎯 **THIS IS THE NUMBER R22's FINDING WAS QUOTED IN AND IT DID NOT EXIST AS CODE.** That round
+ * reported "10.03–11.69 mm between p50 and p85 inside a single 3°×30 mm bin" off a one-off script,
+ * and a finding measured by a script nobody can re-run is a claim. It is a function now, so the
+ * next round can move it and say by how much.
+ *
+ * ⚠️ **IT MEASURES THE OUTER HALF ON PURPOSE, AND IT IS BLIND TO WHAT IS UNDER THAT.** p50 is not
+ * the scalp — it is the middle of the stack — so a coverage layer lying on the skull contributes
+ * nothing here however deep it sits, which is right: nobody sees it. The cost of that choice is a
+ * real blind spot and `hair_locks.selftest.mjs` clause 7 asserts it rather than hiding it — a cloud
+ * split into two equally populated standoffs reads a spread of ZERO, because both percentiles land
+ * on the outer one. Read this next to `scatterReliefMm`, which is a variance and cannot be fooled
+ * that way; this one says how far apart the standoffs are, that one says how loud the result is.
+ *
+ * @param {ArrayLike<number>} positions - xyz triples.
+ * @param {object} [options] - overrides for PROFILE_DEFAULTS, plus `inner` (default 0.5).
+ * @returns {{spreadMm:number, worstBandMm:number, p50Mm:number, p85Mm:number, cells:number}}
+ */
+export function envelopeSpread( positions, options = {} ) {
+
+    const settings = { ...PROFILE_DEFAULTS, inner: 0.5, ...options };
+    const outer = envelopeProfile( positions, settings );
+    const inner = envelopeProfile( positions, { ...settings, percentile: settings.inner } );
+
+    // The same interior slice `measureGroom` averages over: the crown band has no lock in it yet
+    // and the last band is a handful of tapering tips.
+    const perBand = [];
+    for ( let band = 1; band < outer.bands.length - 1; band ++ ) {
+
+        const gaps = [];
+        for ( let bin = 0; bin < settings.azimuthBins; bin ++ ) {
+
+            const high = outer.bands[ band ].profile[ bin ];
+            const low = inner.bands[ band ].profile[ bin ];
+            if ( Number.isFinite( high ) && Number.isFinite( low ) ) gaps.push( high - low );
+
+        }
+
+        if ( gaps.length > 0 ) perBand.push( gaps );
+
+    }
+
+    const cells = perBand.reduce( ( total, gaps ) => total + gaps.length, 0 );
+    if ( cells === 0 ) return { spreadMm: NaN, worstBandMm: NaN, p50Mm: NaN, p85Mm: NaN, cells: 0 };
+
+    const meanOf = ( gaps ) => gaps.reduce( ( total, gap ) => total + gap, 0 ) / gaps.length;
+    const bandMeans = perBand.map( meanOf );
+
+    const radiusMean = ( profiles ) => {
+
+        let total = 0;
+        let counted = 0;
+        for ( let band = 1; band < profiles.length - 1; band ++ ) {
+
+            for ( const value of profiles[ band ].profile ) {
+
+                if ( Number.isFinite( value ) ) { total += value; counted += 1; }
+
+            }
+
+        }
+
+        return counted > 0 ? total / counted : NaN;
+
+    };
+
+    // Band means rather than a mean over cells, so a band that happens to be measured in more
+    // directions than its neighbours does not out-vote them.
+    return {
+        spreadMm: meanOf( bandMeans ) * 1000,
+        worstBandMm: Math.max( ...bandMeans ) * 1000,
+        p50Mm: radiusMean( inner.bands ) * 1000,
+        p85Mm: radiusMean( outer.bands ) * 1000,
+        cells
+    };
+
+}
+
+/**
  * The profile with the head taken out of it: `r(θ)` minus its own least-squares fit of harmonics
  * 0..`harmonics`, computed over the bins that are not NaN.
  *
@@ -501,6 +582,7 @@ export function measureGroom( positions, options = {} ) {
     }
 
     const reliefMm = mean( ( row ) => row.rms ) * 1000;
+    const clamped = Math.max( 0, Math.min( 1, coherence ) );
 
     return {
         rows,
@@ -509,7 +591,14 @@ export function measureGroom( positions, options = {} ) {
         bandsUsed: interior.length,
         reliefMm,
         coherence,
-        coherentReliefMm: reliefMm * Math.sqrt( Math.max( 0, Math.min( 1, coherence ) ) ),
+        coherentReliefMm: reliefMm * Math.sqrt( clamped ),
+        // 🎯 **THE OTHER HALF OF THE SAME DECOMPOSITION, AND THE ONE THIS ROUND IS ABOUT.**
+        // `rms² = var(s) + var(n)` and `r = var(s)/rms²`, so `rms·√(1−r)` is the RMS of the
+        // per-card SCATTER alone exactly as `rms·√r` is the RMS of the ridge. It costs one line
+        // because the arithmetic was already done and only the ridge half was being reported —
+        // which is why four rounds pushed on the relief and nobody had a number for the noise it
+        // was competing against. R22's conclusion, "the lever is the scatter", is this column.
+        scatterReliefMm: reliefMm * Math.sqrt( 1 - clamped ),
         ridgePeaks: corrugation( ridge, settings.prominenceM ).peaks,
         peaks: mean( ( row ) => row.peaks ),
         peakToTroughMm: mean( ( row ) => row.peakToTrough ) * 1000
@@ -589,7 +678,8 @@ if ( isMain ) {
     console.log( 'hair_locks.mjs — the outer envelope\'s azimuthal corrugation, detrended of ' +
                  `harmonics 0..${ HEAD_HARMONICS }` );
     console.log( '' );
-    console.log( 'file                                   bands   relief mm   coherence   LOCK mm   ridges' );
+    console.log( 'file                                   bands   relief mm   coherence   LOCK mm   ' +
+                 'SCATTER mm   p85-p50 mm   worst band   ridges' );
 
     for ( const file of files ) {
 
@@ -597,12 +687,16 @@ if ( isMain ) {
         const primitive = glb.json.meshes[ 0 ].primitives[ 0 ];
         const positions = readAccessor( glb, primitive.attributes.POSITION ).data;
         const reading = measureGroom( positions );
+        const spread = envelopeSpread( positions );
 
         console.log( `${ path.relative( REPO_ROOT, file ).padEnd( 38 ) }` +
                      `${ String( reading.bandsUsed ).padStart( 5 ) }` +
                      `${ reading.reliefMm.toFixed( 3 ).padStart( 12 ) }` +
                      `${ reading.coherence.toFixed( 3 ).padStart( 12 ) }` +
                      `${ reading.coherentReliefMm.toFixed( 3 ).padStart( 10 ) }` +
+                     `${ reading.scatterReliefMm.toFixed( 3 ).padStart( 13 ) }` +
+                     `${ spread.spreadMm.toFixed( 3 ).padStart( 13 ) }` +
+                     `${ spread.worstBandMm.toFixed( 3 ).padStart( 13 ) }` +
                      `${ String( reading.ridgePeaks ).padStart( 9 ) }` );
 
         if ( wantsMap ) {

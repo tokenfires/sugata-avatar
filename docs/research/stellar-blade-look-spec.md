@@ -146,8 +146,32 @@ hard alpha-clipped tips; DF notes shimmer/breakup; UE4.26 Groom was beta and not
 perf target; and **[V]** the DLC grooms were outsourced to Airship Interactive, whose published
 pipeline is explicitly hair-cards with flow maps and anisotropic shading.
 
-🎯 **Base albedo is essentially black — luma 0.067 (`#150F17`), slightly violet. Anisotropic
-highlight bands peak at luma 0.60–0.75. Specular-to-albedo contrast ≈ 10:1.**
+🎯 **Base albedo is essentially black — reference luma 0.067 encoded — and it is WARM. Ship
+`#1A0E0C`: the same LINEAR luma to four figures (5.629e−3), encoded 0.0643, R > G > B. Anisotropic
+highlight bands peak at luma 0.60–0.75. Specular-to-albedo contrast ≈ 10:1, and its denominator
+stays the reference's 0.0661 because that is the number being benchmarked against.**
+
+🔴 **CORRECTED IN ROUND 23, AND THE OLD VALUE IS PRINTED HERE RATHER THAN DELETED.** This entry
+read *"luma 0.067 (`#150F17`), slightly violet"* for the whole project and the hex was wrong: R21
+G15 B23 has **more blue in it than red**, and no concentration of eumelanin or pheomelanin produces
+a fibre like that — both pigments absorb blue harder than red, 3.270x and 5.615x respectively
+(d'Eon et al., EGSR 2011, §6.1), so a hair colour is R > G > B at every darkness. This document's own reference
+readings agree and were mis-summarised: §2.1 of `docs/research/hair.md` records the fringe mass of
+`overview_character.jpg` at p50 `#120c10` and p99 `#96757e`, **both of which have R above B**, and
+the ponytail band at `#ab512f`, CIELAB b\* +36.7 — warm. Only the published hex was violet.
+
+**What it cost:** five blind critics across five rounds reported the rendered hair as "lavender",
+"mauve", "aubergine", "grey-lilac" and "purple blob", and each report was read as taste. Measured
+in round 23 on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=1` over 415,337 solid hair pixels, the
+groom rendered at CIELAB **hue 333.0°, b\* −7.22, with 97.8% of hair pixels on the cool side of
+neutral**. The critics were reporting a chromaticity error.
+
+**The replacement is a 70.2° hue rotation of the same colour and nothing else** — L\* 5.0851 and
+C\* 5.6464 are `#150F17`'s own, so the luma this entry measured is preserved exactly and the amount
+of colour is unchanged; only the direction moves, onto the CIELAB hue of eumelanin's transmittance
+at that luma. Derived and asserted in `packages/core/src/material/HairMaterial.js`
+(`baseColourDerivation`), gated on the plate by its selftest. Same measurement after: hue 23.1°,
+b\* +7.96, cool share 6.9%, with p95 luma and p95/p50 unmoved to three decimals.
 
 > **Do not author brown hair as brown albedo.** It is near-black albedo whose apparent colour
 > comes almost entirely from the specular lobes. That ratio, not the albedo, is what makes the
@@ -289,7 +313,11 @@ transmission          strong at ears/alae/fingers — target #755052 @ S 0.41
 
 ```
 representation        alpha-blended sorted cards; strand grooms baked to cards
-baseColor (sRGB)      #150F17 → #1A1218    // near-black, faint violet
+baseColor (sRGB)      #1A0E0C → #1D1210    // near-black, WARM. R > G > B, always — see §2 Hair.
+                                           // was #150F17 → #1A1218 "faint violet"; corrected R23 by
+                                           // rotating each end onto the melanin hue at ITS OWN luma
+                                           // (26.49° at L* 5.0851, 29.17° at L* 6.4874). Luma and
+                                           // chroma unchanged at both ends; only the direction moved.
 spec:albedo contrast  ~10 : 1
 
 Primary (R) lobe      shift +0.02…+0.05 toward root, roughness 0.25, tint = light colour

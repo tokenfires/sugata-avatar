@@ -68,14 +68,20 @@
  */
 
 import {
+    HAIR_BASE_COLOUR_HEX,
     HAIR_CONTRAST,
     HAIR_DEFAULTS,
     HAIR_F0,
     HAIR_IOR,
+    HAIR_MELANIN_ABSORPTION,
     HAIR_STRAND_PITCH,
     STRAND_NOISE_SD,
     azimuthalValues,
+    baseColourDerivation,
     encodedToLinear,
+    labToLinearValue,
+    linearToLabValue,
+    meanLabValue,
     fresnelValue,
     hairScatteringValue,
     longitudinalValue,
@@ -102,8 +108,14 @@ function report( name, passed, detail ) {
 
 }
 
-/** The hair's own linear base colour, from the published hex, computed rather than typed. */
-const BASE_COLOUR = [ 0x15, 0x0F, 0x17 ].map( ( byte ) => encodedToLinear( byte / 255 ) );
+/**
+ * The hair's own linear base colour — the shipped DERIVATION, not its 8-bit rounding and not a
+ * literal, so every mirror below is evaluated on the colour the shader is actually handed.
+ */
+const BASE_COLOUR = baseColourDerivation().linear;
+
+/** The colour that shipped for five rounds, kept because several checks are about the difference. */
+const VIOLET_COLOUR = [ 0x15, 0x0F, 0x17 ].map( ( byte ) => encodedToLinear( byte / 255 ) );
 
 /**
  * 🎯 THE CEILING THE WHOLE ROUND TURNS ON: the largest value the SHIPPED combination of terms can
@@ -473,7 +485,125 @@ console.log( '\n--- the colour split, which is what makes the two bands DIFFEREN
         'the secondary band\'s channel ORDER is the base colour\'s, so it reads as this hair',
         order( perChannel.map( ( e ) => e.trt ) ) === order( BASE_COLOUR ),
         `base colour order ${ order( BASE_COLOUR ) }, N_TRT order ${ order( perChannel.map( ( e ) => e.trt ) ) } ` +
-            `(0 = R, 1 = G, 2 = B; the published #150F17 is violet at hue 285°)`
+            `(0 = R, 1 = G, 2 = B; the shipped colour is warm, so B is darkest and R brightest)`
+    );
+}
+
+console.log( '\n--- the warm/cool axis, and the operator that reads it ---------------------------\n' );
+
+// 🎯 THE OPERATOR IS VALIDATED AGAINST SHAPES WHOSE ANSWER IS ARITHMETIC BEFORE IT IS POINTED AT A
+// PLATE. Five rounds of this project were spent on statistics that could not see their own defect,
+// and a hue is the easiest of all of them to get wrong: the mean of a set of ANGLES that straddles
+// 0/360 reports the colour opposite the one the set is. Three shapes, three exact answers.
+{
+    const grey = meanLabValue( [ [ 0.5, 0.5, 0.5 ] ] );
+
+    report(
+        'a neutral grey has EXACTLY no chroma, so the operator invents none',
+        grey.chroma < 1e-6,
+        `#808080 reads C* ${ grey.chroma.toExponential( 2 ) } at L* ${ grey.lightness.toFixed( 3 ) }`
+    );
+
+    // CIELAB's own published landmark: sRGB red sits at hue 40° and L* 53.24. If this drifts, the
+    // matrices or the white point are wrong and every hue below is wrong with them.
+    const red = meanLabValue( [ [ 1, 0, 0 ] ] );
+
+    report(
+        'sRGB red lands on CIELAB\'s published 40.0° / L* 53.24, so the transform is the standard one',
+        Math.abs( red.hue - 40.0 ) < 0.3 && Math.abs( red.lightness - 53.24 ) < 0.05,
+        `#FF0000 reads hue ${ red.hue.toFixed( 3 ) }°, L* ${ red.lightness.toFixed( 3 ) }, C* ${ red.chroma.toFixed( 2 ) }`
+    );
+
+    // 🚩 THE WRAPAROUND REJECTION. A colour and its EXACT Lab opposite, at one lightness. Their mean
+    // chromaticity is zero by construction; a mean taken in degrees would answer 40° or 220°
+    // depending on which way it walked, and either answer is a colour neither sample is.
+    // ⚠️ L* 60 at ±20 rather than a bolder pair, because both members have to be INSIDE the sRGB
+    // gamut. The first version of this check used ±25 and read C* 0.4434 — not a wraparound
+    // artefact but a clamp: Lab(60, −25, −25) has a negative red channel, and clipping it to the
+    // cube moved the sample it was supposed to be the mirror of.
+    const warmSample = labToLinearValue( [ 60, 20, 20 ] );
+    const coolSample = labToLinearValue( [ 60, - 20, - 20 ] );
+    const encode = ( linear ) => linear.map( ( v ) => v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow( v, 1 / 2.4 ) - 0.055 );
+    const opposed = meanLabValue( [ encode( warmSample ), encode( coolSample ) ] );
+
+    report(
+        '🚩 a colour and its exact Lab opposite average to NO hue, not to a third one',
+        opposed.chroma < 1e-6,
+        `hue 45° at C* 28.3 and hue 225° at C* 28.3 average to C* ${ opposed.chroma.toFixed( 4 ) } ` +
+            `(a mean of the two ANGLES would answer 135°, which is green, and neither sample is)`
+    );
+
+    // And the split it exists to catch: a mean that looks warm over a set that is half violet.
+    const halfViolet = meanLabValue( [ encode( warmSample ), encode( warmSample ), encode( coolSample ) ] );
+
+    report(
+        'the cool SHARE sees a split the mean flatters — two warm samples and one violet',
+        halfViolet.b > 0 && Math.abs( halfViolet.coolShare - 1 / 3 ) < 1e-9,
+        `mean b* ${ halfViolet.b.toFixed( 2 ) } says warm; cool share ${ ( 100 * halfViolet.coolShare ).toFixed( 1 ) }% ` +
+            'says a third of it is not. Both are asserted on the plate for this reason.'
+    );
+}
+
+console.log( '\n--- the base colour, derived from the pigment rather than typed ------------------\n' );
+
+{
+    const derived = baseColourDerivation();
+    const pheomelanin = baseColourDerivation( HAIR_MELANIN_ABSORPTION.pheomelanin );
+
+    report(
+        'HAIR_BASE_COLOUR_HEX is the derivation\'s own 8-bit rounding, not a literal beside it',
+        derived.hex === HAIR_BASE_COLOUR_HEX,
+        `derivation gives #${ derived.hex.toString( 16 ).toUpperCase().padStart( 6, '0' ) }, ` +
+            `the constant carries #${ HAIR_BASE_COLOUR_HEX.toString( 16 ).toUpperCase().padStart( 6, '0' ) }. ` +
+            `Eumelanin at concentration ${ derived.concentration.toFixed( 4 ) } lands on the spec's luma and ` +
+            `puts the hue at ${ derived.hue.toFixed( 3 ) }°.`
+    );
+
+    // 🎯 THE CLAIM THAT MAKES THE WHOLE ROUND MORE THAN A TASTE CALL. It is not "warm looks better",
+    // it is that B > R is a channel ordering no pigment produces at any concentration.
+    const ordered = ( colour ) => colour[ 0 ] > colour[ 1 ] && colour[ 1 ] > colour[ 2 ];
+
+    report(
+        '🎯 the base colour is R > G > B, which is the only ordering melanin can produce',
+        ordered( BASE_COLOUR ) && ordered( pheomelanin.linear ) && ordered( VIOLET_COLOUR ) === false,
+        `shipped ${ BASE_COLOUR.map( ( v ) => v.toExponential( 3 ) ).join( ' ' ) } — ordered. ` +
+            `Pheomelanin's rotation #${ pheomelanin.hex.toString( 16 ).toUpperCase() } at hue ` +
+            `${ pheomelanin.hue.toFixed( 2 ) }° is ordered too, so the claim does not rest on one pigment.\n` +
+        `      The five-round #150F17 is ${ VIOLET_COLOUR.map( ( v ) => v.toExponential( 3 ) ).join( ' ' ) } — ` +
+            'B above R, and no melanin mixture reaches it.'
+    );
+
+    // The spec's luma is the one measured clause in its hair entry, and the rotation is not allowed
+    // to spend it. L* is a function of Y alone, so holding L* holds the linear luma exactly.
+    const lumaOf = ( colour ) => 0.2126 * colour[ 0 ] + 0.7152 * colour[ 1 ] + 0.0722 * colour[ 2 ];
+    const drift = Math.abs( lumaOf( BASE_COLOUR ) - lumaOf( VIOLET_COLOUR ) ) / lumaOf( VIOLET_COLOUR );
+
+    report(
+        'the rotation spends NO luma — the spec\'s own measured 0.067 survives it',
+        drift < 1e-3,
+        `linear luma ${ lumaOf( BASE_COLOUR ).toExponential( 5 ) } against #150F17's ` +
+            `${ lumaOf( VIOLET_COLOUR ).toExponential( 5 ) }, ${ ( drift * 100 ).toFixed( 4 ) }% apart. ` +
+            `Encoded Rec.709 luma ${ ( 0.2126 * 0x1A + 0.7152 * 0x0E + 0.0722 * 0x0C ).toFixed( 2 ) }/255 = ` +
+            `${ ( ( 0.2126 * 0x1A + 0.7152 * 0x0E + 0.0722 * 0x0C ) / 255 ).toFixed( 4 ) }, against the spec's 0.067.`
+    );
+
+    // Chroma is held too, so the change is a rotation and the picture's chroma is not being bought.
+    const chromaOf = ( colour ) => {
+
+        const [ , a, b ] = linearToLabValue( colour );
+
+        return Math.hypot( a, b );
+
+    };
+
+    const rotation = ( ( derived.hue - 316.2996 ) % 360 + 360 ) % 360;
+
+    report(
+        'the change is a HUE ROTATION and nothing else — L* and C* are #150F17\'s own',
+        Math.abs( chromaOf( BASE_COLOUR ) - chromaOf( VIOLET_COLOUR ) ) < 1e-6 &&
+            Math.abs( linearToLabValue( BASE_COLOUR )[ 0 ] - linearToLabValue( VIOLET_COLOUR )[ 0 ] ) < 1e-6,
+        `L* ${ linearToLabValue( BASE_COLOUR )[ 0 ].toFixed( 4 ) } and C* ${ chromaOf( BASE_COLOUR ).toFixed( 4 ) } ` +
+            `both unchanged; the hue moved ${ rotation.toFixed( 1 ) }°, from 316.3° to ${ derived.hue.toFixed( 1 ) }°.`
     );
 }
 
@@ -1032,6 +1162,23 @@ const FINE_PITCH_PATCH = {
     replacement: 'export const HAIR_STRAND_PITCH = 0.0008;'
 };
 
+/**
+ * 🚩 THE PIGMENT'S ORDERING REVERSED — the rejection proof for the colour clause, and it is aimed
+ * at the CLAIM rather than at the constant.
+ *
+ * Swapping the eumelanin cross-sections end for end makes blue the least-absorbed channel, which
+ * is a fibre no head has ever grown. `baseColourDerivation` then rotates the albedo to the hue that
+ * pigment implies — back into the violet the round removed — while every other input stays exactly
+ * where it is: same luma, same chroma, same lights, same groom, same grade. If the rendered clause
+ * still passes on this arm it is not reading the hair's colour, and the numbers below say by how
+ * much it fails instead.
+ */
+const REVERSED_PIGMENT_PATCH = {
+    urlPattern: '**/HairMaterial.js*',
+    anchor: 'eumelanin: [ 0.419, 0.697, 1.37 ],',
+    replacement: 'eumelanin: [ 1.37, 0.697, 0.419 ],'
+};
+
 const ARMS = {
     // 🎯 THE STRAND A/B, ON THE DETERMINISTIC FORWARD PATH ON PURPOSE. The shipped arm is TAAU at
     // 0.66 plus stochastic coverage, and both are estimators that a temporal resolve integrates —
@@ -1085,6 +1232,10 @@ const ARMS = {
     // `zero`, `unit` and this one in the same transfer domain, and the grade is not one.
     forward:    `${ FORWARD }&hair=1`,
 
+    // 🎯 THE COLOUR CLAUSE'S REJECTION ARM. Same URL as `forward`; the pigment is reversed at
+    // source, so the two plates differ in the albedo's HUE and in nothing else at all.
+    violet:     `${ FORWARD }&hair=1`,
+
     // The shipped path, for the numbers that are compared against a tone-mapped reference.
     shipped:    '&hair=1',
     shippedNoFake: '&hair=1&hairscatter=0',   // the same picture with the bandless term removed
@@ -1093,7 +1244,8 @@ const ARMS = {
 };
 
 /** Which arms carry a source patch. Everything else is served exactly as the tree holds it. */
-const PATCHED_ARMS = { gained: GAIN_PATCH, unitHalf: HALF_UNIT_PATCH, strandFine: FINE_PITCH_PATCH };
+const PATCHED_ARMS = { gained: GAIN_PATCH, unitHalf: HALF_UNIT_PATCH, strandFine: FINE_PITCH_PATCH,
+    violet: REVERSED_PIGMENT_PATCH };
 
 try {
 
@@ -1136,6 +1288,21 @@ if ( plates.shipped !== undefined ) {
 
         return [ encodedToLinear( plate.data[ index ] ), encodedToLinear( plate.data[ index + 1 ] ),
             encodedToLinear( plate.data[ index + 2 ] ) ];
+
+    };
+
+    /**
+     * The same pixel, still DISPLAY-ENCODED. `meanLabValue` undoes the transfer itself, so handing it
+     * the decoded triple above would linearise twice — which reads every plate as darker and, worse,
+     * as less chromatic than it is, since a second decode compresses the channel ratios that ARE the
+     * hue. Kept as its own named function rather than as an inline index, because that mistake is
+     * invisible in a diff.
+     */
+    const rgbEncodedAt = ( plate, x, y ) => {
+
+        const index = ( y * plate.width + x ) * 4;
+
+        return [ plate.data[ index ], plate.data[ index + 1 ], plate.data[ index + 2 ] ];
 
     };
 
@@ -1313,6 +1480,98 @@ if ( plates.shipped !== undefined ) {
             `⚠️ It does not go to zero and must not be expected to: |∂P/∂u| spans 0.120–0.347 across the groom, so the ` +
             `narrowest cards are still inside the limit at 0.80 mm.`
     );
+
+    // --- THE COLOUR OF THE MASS, WHICH IS THE ONE DEFECT FIVE HUMAN CRITICS SAW AND NO GATE DID --
+    //
+    // 🎯 THE GAP THIS CLOSES IS NOT A THRESHOLD, IT IS AN AXIS. Every rendered clause in this file
+    // before it — contrast, dual band, strand structure, energy, cost — is a statement about LUMA
+    // or about a difference of lumas, and a luma is blind to hue by construction. Five blind
+    // critics over five rounds reported "lavender", "mauve", "aubergine", "grey-lilac" and "purple
+    // blob", and every one of those reports was read as taste, because the instrument had nothing
+    // to say about it. This is the instrument.
+    //
+    // ⚠️ REPRODUCIBILITY, MEASURED BEFORE ANYTHING WAS CONCLUDED FROM IT. The forward path is
+    // bit-identical: five separate node processes read hue 337.811 / C* 14.640 to three decimals on
+    // one groom. The SHIPPED path is not — TAAU at 0.66 plus stochastic coverage moved the same
+    // arm's p95 luma between 0.34 and 0.52 across processes — which is why the clause is judged
+    // here and reported there. Across DIFFERENT harnesses in one session the forward reading also
+    // moved about 4.5°, so the bands below are set an order of magnitude wider than that.
+    {
+        const massOf = ( plate ) => meanLabValue( solidMask.map( ( [ x, y ] ) => rgbEncodedAt( plate, x, y ) ) );
+
+        const shippedMass = massOf( plates.forward );
+        const violetMass = massOf( plates.violet );
+        const litMass = ( plate ) => {
+
+            const ranked = solidMask
+                .map( ( [ x, y ] ) => [ luma( plate, x, y ), rgbEncodedAt( plate, x, y ) ] )
+                .sort( ( a, b ) => a[ 0 ] - b[ 0 ] );
+
+            return meanLabValue( ranked.slice( Math.floor( ranked.length * 0.9 ) ).map( ( row ) => row[ 1 ] ) );
+
+        };
+
+        report(
+            '🎯 the rendered hair mass is on the WARM side of neutral, in both CIELAB chromatic axes',
+            shippedMass.a > 0 && shippedMass.b > 0,
+            `over ${ solidMask.length.toLocaleString() } solid hair px: a* ${ shippedMass.a.toFixed( 2 ) }, ` +
+                `b* ${ shippedMass.b.toFixed( 2 ) }, hue ${ shippedMass.hue.toFixed( 1 ) }°, C* ` +
+                `${ shippedMass.chroma.toFixed( 2 ) }, L* ${ shippedMass.lightness.toFixed( 2 ) }.\n` +
+            `      The lit decile reads hue ${ litMass( plates.forward ).hue.toFixed( 1 ) }° at C* ` +
+                `${ litMass( plates.forward ).chroma.toFixed( 2 ) } — reported, not asserted, because on the shipped ` +
+                `transfer path\n      that decile is contaminated by warm skin read through the fringe and would pass ` +
+                `on a violet groom too.\n      ` +
+            `⚠️ THE SIGN IS THE CLAUSE AND THE MAGNITUDE IS NOT, deliberately. b* > 0 is the definition of the warm ` +
+                `half of CIELAB,\n      not a number anybody chose; the reference's own recorded hair reads b* +36.7 ` +
+                `on the ponytail band and −1.2 on the\n      unlit fringe (docs/research/hair.md §0.3, §2.1, ` +
+                `re-derived into CIELAB this round), so a magnitude taken from it would\n      be a magnitude taken ` +
+                `from two very different pixels.`
+        );
+
+        report(
+            '🚩 and it is not a warm MEAN over a violet mass — the cool-side share is a minority',
+            shippedMass.coolShare < 0.5,
+            `${ ( 100 * shippedMass.coolShare ).toFixed( 1 ) }% of hair pixels sit at b* < 0. The mean above cannot ` +
+                `see a split and this can:\n      a groom half at hue 40° and half at hue 280° averages to something ` +
+                `plausible and reads as two-tone. 50% is "most of it",\n      which is the whole of what the clause ` +
+                `claims, and the build clears it by ${ ( 0.5 / Math.max( 1e-6, shippedMass.coolShare ) ).toFixed( 1 ) }x ` +
+                `rather than by a percent — while the reversed-pigment arm below reads ` +
+                `${ ( 100 * violetMass.coolShare ).toFixed( 1 ) }%.`
+        );
+
+        report(
+            '🚩 THE REJECTION PROOF: reverse the pigment and this clause GOES RED, on the same groom',
+            violetMass.b < 0 && violetMass.coolShare > 0.5,
+            `with HAIR_MELANIN_ABSORPTION.eumelanin source-patched from [0.419, 0.697, 1.37] to ` +
+                `[1.37, 0.697, 0.419] — blue\n      the least-absorbed channel, a fibre no head grows — the ` +
+                `derivation rotates the albedo back into the violet and the\n      mass reads a* ` +
+                `${ violetMass.a.toFixed( 2 ) }, b* ${ violetMass.b.toFixed( 2 ) }, hue ` +
+                `${ violetMass.hue.toFixed( 1 ) }°, C* ${ violetMass.chroma.toFixed( 2 ) }, cool share ` +
+                `${ ( 100 * violetMass.coolShare ).toFixed( 1 ) }%.\n      ` +
+            `The luma is untouched by the mutation — L* ${ violetMass.lightness.toFixed( 2 ) } against the shipped ` +
+                `${ shippedMass.lightness.toFixed( 2 ) } — which is what says this\n      clause is reading a hue and ` +
+                `not a brightness, and is why the mutation is a ROTATION rather than a darker or lighter colour.`
+        );
+
+        // 🎯 THE INTERACTION ROUND 16 WARNED ABOUT, MEASURED RATHER THAN ASSUMED. Colour and contrast
+        // meet in the multiple-scattering fake, which carries 65% of the groom's rise above its
+        // indirect floor and takes `sqrt(colour)`. A hue rotation at constant L* and C* is the one
+        // change to the albedo that cannot move the contrast, and this prints the proof of it beside
+        // the clause rather than in a document nobody reads next to the number.
+        const rank = percentileOf( plates.forward, solidMask );
+        const violetRank = percentileOf( plates.violet, solidMask );
+
+        report(
+            'the rotation costs the contrast NOTHING — p95 and p95/p50 are unmoved by it',
+            Math.abs( rank.p95 - violetRank.p95 ) < 0.01 &&
+                Math.abs( rank.p95 / rank.p50 - violetRank.p95 / violetRank.p50 ) < 0.05,
+            `shipped p50 ${ rank.p50.toFixed( 4 ) } p95 ${ rank.p95.toFixed( 4 ) } ratio ` +
+                `${ ( rank.p95 / rank.p50 ).toFixed( 3 ) }; reversed-pigment p50 ${ violetRank.p50.toFixed( 4 ) } ` +
+                `p95 ${ violetRank.p95.toFixed( 4 ) } ratio ${ ( violetRank.p95 / violetRank.p50 ).toFixed( 3 ) }.\n` +
+            `      Both contrast clauses further down are unaffected by round 23 and stay red for round 16's reason: ` +
+                `the floor, not the hue.`
+        );
+    }
 
     const percentiles = percentileOf;
 
