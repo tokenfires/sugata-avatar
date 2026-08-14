@@ -2224,6 +2224,41 @@ gate that is red one run in eight is a gate whose green runs mean less than they
 agent to see a stray `31/32` there should treat it as this observation recurring rather than as a
 fresh regression — and should capture the FAIL line before doing anything else.
 
+### 1.25ah 🎯 THE INSTRUMENT THAT NEVER JUDGED A KNOWN-GOOD ARTEFACT, AND THE GATE THAT COULD NOT TERMINATE
+
+Eleven hair rounds each produced a genuine, sourced, red-proven finding and the picture never moved.
+The cause was not any of them. **No control had ever been built:** a known-good hair asset had never
+been through this judging path, so nobody could say whether the judges were reporting our defects or
+reporting the bar. Every round moved the groom AND the shading, and measured the result.
+
+The control — `tools/critic/control-frostbitten/`, full result in `docs/CHECKPOINT.md` §4 — put the
+published reference implementation of Frostbite's hair system through the identical path, blind, at
+our framing and background, with its purple neutralised. **Three of three judges called it "not
+same-tier."**
+
+Three things came out of that, and the order matters:
+
+1. **The instrument's DIAGNOSTIC half works and its VERDICT half does not.** The judges refused to
+   say "blunt slabs" or "card edges" about a renderer that has neither, while saying both about
+   ours — so they discriminate. They then failed a competent implementation on the overall verdict.
+   **A gate that a known-good artefact cannot pass is a gate that cannot terminate**, and eleven
+   rounds pushed against it.
+2. **A control splits the finding list in half, which is the whole return on it.** Six complaints,
+   three unique to us (hem, card edges, dither speckle) and three shared with an 11.4k-strand
+   renderer (lock hierarchy, a highlight that desaturates instead of warming, no hair→skin
+   occlusion). Without the control every one of the six looked like our bug. Three of them are not.
+3. ⚠️ **A judge's DESCRIPTION is evidence; its ATTRIBUTION TO MECHANISM is not.** One control judge
+   reported *"the alpha dithering… a regular diagonal cross-hatch checkerboard… the transparency
+   solution showing through"* about a renderer whose coverage is **analytic**, with no dither and no
+   alpha texture anywhere. A real observation with a confabulated cause welded on. Same failure
+   class as §1.25g and as the five structurally-blind statistics listed in `docs/CHECKPOINT.md` §5,
+   but on the critic side of the loop rather than the instrument side.
+
+**THE RULE.** Before the fourth round of authoring against any subjective instrument, ask *"what
+known-good artefact can I put through this unchanged?"* It is the cheapest question available and it
+is the one this phase never asked. Two identical failures means the approach is wrong; eleven means
+the FRAME is.
+
 ---
 
 ## Part 2 — Technical traps

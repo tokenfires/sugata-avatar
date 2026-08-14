@@ -1,4 +1,4 @@
-# Checkpoint — 2026-08-13, the hair phase paused
+# Checkpoint — the hair phase paused 2026-08-13, control run 2026-08-14
 
 **Written so a successor with none of this conversation can resume without re-deriving it.**
 
@@ -28,6 +28,9 @@ library any agent can embed, which is requirement R7 in `docs/BRIEF.md`.
 ---
 
 ## 2. 🚩 The hair phase, paused after eight rounds — read this before touching hair
+
+> **Read §4 first.** The control has since been run and it settles two of the three structural
+> suspects below. Nothing in this section is retracted, but §4 tells you which parts of it matter.
 
 Rounds 13–23 built hair from zero: a procedural card groom (`assets/hair/bob01`, 462 cards,
 `tools/figure-pipeline/hair_cards.py` + `hair_texture.py`), Karis' closed-form Marschner with a
@@ -127,25 +130,69 @@ design, not an implementation of anything patented.
 
 ---
 
-## 4. ⏭️ The next move, decided but not yet run
+## 4. ✅ The control was run on 2026-08-14, and it landed on neither predicted outcome
 
-**One hour, no code, and it can falsify everything above.**
+Harness, reproduction steps and licensing: **`tools/critic/control-frostbitten/README.md`.**
+Plates: `captures/control-frostbitten/` (gitignored, local only).
 
-Capture the hosted frostbitten demo at our portrait framing and capture resolution — **with its
-purple neutralised to a plausible dark brown and its cyan background removed** — and put it blind in
-front of the same critics with the same prompt used for eight rounds.
+Six blind judges, three per arm. Each saw ONE arm, in a randomly-named directory with PNG metadata
+stripped, and was never told the other arm existed. Both arms 720×900, background measured
+identical at RGB(20,22,26), round-23 brief verbatim minus `MOTION` (dropped from BOTH arms, since
+the headless path renders one frame).
 
-- They call it hair → the judges are calibrated, the defect is ours, and the strand direction is
-  worth costing out. Then run the second control: export our own Blender groom curves as `.tfx`
-  (`scripts/tfx_exporter.py`, MIT, 238 lines, needs 4–64 points per strand, power of two) and render
-  OUR groom in THEIR renderer. That separates "our groom's shape is wrong" from "our card/alpha/
-  dither path is wrong" — the experiment no round has ever run.
-- They reach for *"flat sheets," "veil," "dither confetti"* about a renderer with no cards, no alpha
-  texture, no dither and no TAA → **all three suspects are dead**, and the fault is in the judging
-  loop, the capture path, the lighting rig or the colour. That would explain eight rounds of real
-  findings and no progress better than any structural theory.
+### 🎯 Six of six said "not same-tier" — including all three shown frostbitten
 
-Neither outcome needs a decision about strands versus cards first.
+The control is the published reference implementation of Frostbite's hair system: 11.4k strands,
+171k segments, analytic coverage, no cards, no alpha texture, no dither, no TAA. Its three judges
+called it *"a wig, and a cheap one"* (two of them in almost exactly those words), *"a generation
+behind"*, *"good geometry wearing a broken shader"*.
+
+### What the judges DISCRIMINATED, which is how we know the instrument works
+
+| complaint | ours, 3 judges | frostbitten, 3 judges |
+|---|---|---|
+| hem is blunt slabs / card rectangles | **3/3 yes** | **3/3 explicitly NO** — *"the strongest part"*, *"tapers to single-pixel points"*, *"no blunt slabs, no card edges"* |
+| card edges visible AS edges in the silhouette | **3/3 yes** (one names four instances) | **3/3 explicitly NO** — *"deliberate and clean"*, *"no card edges, no flat facets"* |
+| dither speckle scattered over skin | **3/3 yes**, measured as literal isolated pixels | 1/3 — and see the caution below |
+| uniform shell, no lock hierarchy | **3/3 yes** | **3/3 yes** |
+| desaturates to grey as it lightens instead of warming | **3/3 yes** | **3/3 yes** |
+| no hair→skin occlusion | **3/3 yes**, measured 1–3% | **3/3 yes**, measured |
+
+### The three conclusions, in order of what they cost
+
+1. **Suspect (B) — the card is the wrong primitive — is CONFIRMED, and BOUNDED.** Moving to strands
+   demonstrably buys the hem and the silhouette: the two complaints all three of our judges make and
+   all three of theirs explicitly refuse to make. It buys **nothing else**.
+2. **The three complaints that SURVIVE the primitive change are the real work, and two are cheap.**
+   Lock hierarchy, the desaturating highlight ramp, and hair→skin occlusion are all present in a
+   competent strand renderer at 11.4k strands. 🚩 Ours measures **1–3% skin darkening under a full
+   curtain of hair** — three judges sampled it independently and one called it *"the biggest
+   structural failure"*. That is a bug, it is independent of cards versus strands, and it is the
+   cheapest item on this list. The desaturating ramp is our slide-39 `sqrt(colour)` finding — and
+   frostbitten has it too, so it is a limitation of the cheap multiple-scattering fake rather than
+   our error.
+3. 🚩 **The completion gate cannot terminate as currently operationalised.** "Same-tier" as this
+   prompt asks for it is refused for the published reference implementation of Frostbite's hair
+   system. Eleven rounds pushed against a bar that would have rejected a known-good asset. The gate
+   in `docs/PROGRESS.md` is the project's own decision and stands; what needs rewriting is the
+   BRIEF the judges are given, which currently invites a verdict no real-time hair renderer earns.
+
+### ⚠️ A judge's DESCRIPTION is reliable; its ATTRIBUTION TO MECHANISM is not
+
+Control judge 3 reported *"the alpha dithering… a regular diagonal cross-hatch checkerboard… the
+transparency solution showing through as texture"* — about a renderer whose coverage is analytic and
+which has **no dither and no alpha texture at all.** A real observation with a confabulated cause
+attached. This is the same failure class as the five blind statistics in §5, on the critic side:
+take what a judge SEES as evidence, never what a judge says is CAUSING it.
+
+### ⏭️ The second control is much cheaper than this file previously costed it
+
+It does not need a Blender → `.tfx` round-trip through `scripts/tfx_exporter.py`.
+`tools/figure-pipeline/hair_cards.py` already integrates guide curves in `GUIDE_SEGMENTS = 16`
+steps, and `grow_to_cut` returns 17 points **uniformly spaced along the curve's own arc** — which
+resamples to the 16-point `.tfx` frostbitten already ships. Rendering OUR groom in THEIR renderer
+separates "our groom's shape is wrong" from "our card/alpha/dither path is wrong", and after the
+result above it is the one remaining question about the groom itself.
 
 ---
 
