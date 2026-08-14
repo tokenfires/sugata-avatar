@@ -727,6 +727,17 @@ Start at the centre of Marschner's own bands —
 α_TRT = +0.39   β_TRT = 0.52     // −3α_R/2, 2β_R
 ```
 
+🎯 **ROUND 26 DID THE SOLVE THIS PROPOSAL DEFERRED, AND ONLY FOR `β_R`.** The centre was a starting
+point, not an answer — the sentence below says so — and it stood unmeasured from R13 to R25.
+`tools/critic/hair-lobe-sweep.mjs` swept six widths on 216,745 gated hair pixels of the judged URL,
+reading R alone against the mass rendered at the SAME width: R's 99th percentile over the mass mean
+goes 0.814 / 1.026 / 1.256 / **1.390** / 1.789 / 2.243 across β_K 0.349066 / 0.26 / 0.20 / 0.174533 /
+0.12 / 0.08. The shipped value is now **0.174533**, the band's narrow end, which is the largest
+primary-lobe contrast Table 1 permits; the last two rows are outside the band and are not candidates.
+`α_R` is untouched and still sits at the centre. ⚠️ And the two rows below the band carry the round's
+real limit: **no width inside Marschner's band puts a single pixel above 4× R's own mean**, so
+narrowing the lobe is not the whole of the missing highlight.
+
 — and treat `α_R` and `β_R` as the two knobs, solved against a measured band width. One observation
 does survive from the look spec: its TRT:R roughness ratio is 0.45/0.25 = **1.8×**, against
 Marschner's **2×**. The two agree to 10% on the only thing they can be compared on, which is mild
@@ -1281,6 +1292,16 @@ was measured too, on a capture that landed on the same 265,261 px mask:
 Neither of the two green rows is a fudge: one is a light move and one is the tight end of the
 published band the shipped 0.26 sits in the middle of. **The gate is red because of a rig with no
 light near the view axis and a lobe authored mid-band, and it clears on either fix alone.**
+
+🎯 **ROUND 26 SHIPPED THE `β_R` ROW AND THE GATE DID NOT CLEAR — the row's own caveat is why.** Every
+green row above is measured **with the fake off**; the gate reads the shipped plate, where slide 39
+carries 59% of the mass. Red-proved in a same-run pair on the identical mask, the two builds
+differing in one constant: RADIANCE p95/p50 **1.587 → 1.898** (+19.6%) and lobes-alone **2.191 →
+3.035** (+38.5%), against a floor of 4.0. So the β_R change is worth what §9.4 says a shape change is
+worth — the range moved while the mass mean moved 4.0% — and it is not worth 4.0 on its own. ⚠️ The
+1.872 in the table above does not reproduce on this build; it predates the `#1A0E0C` albedo and the
+lock tilt, and the file's own contrast clause already records that cross-session plates are not
+comparable here. **The same-run pair is what stands.** The remaining red is the fake and REQ-064.
 
 ### 9.5 The albedo is not the constraint
 

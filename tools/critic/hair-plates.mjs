@@ -99,6 +99,38 @@ async function main() {
         manifest.census = await page.evaluate( () => globalThis.sugata.subsystems() );
         manifest.hair = await page.evaluate( () => globalThis.sugata.session?.hairMaterial?.describe?.() ?? null );
 
+        // 🚩 PROVENANCE, IN THE SIDECAR RATHER THAN IN A README A READER HAS TO TRUST.
+        //
+        // The whole reason this file exists is that `captures/hair-r23-*` came off `hair.html`,
+        // where `renderer.shadowMap.enabled` is false, there is no `LightingRig` and the groom wears
+        // a `MeshStandardNodeMaterial` — and a control was invalidated a round later because nothing
+        // beside those plates said so. The header explains that; it did not RECORD it. These three
+        // reads are the recording: the material CLASS on the groom, the shadow-map flag, and the
+        // light count. A plate whose sidecar says `MeshStandardNodeMaterial` is not a plate of this
+        // renderer, and now that is a fact about the file rather than a fact about the reader.
+        manifest.provenance = await page.evaluate( () => {
+
+            const stage = globalThis.sugata.stage;
+            let hairMaterialClass = null;
+            let lights = 0;
+
+            stage.scene.traverse( ( object ) => {
+
+                if ( object.material?.name === 'sugata.hair' ) hairMaterialClass = object.material.constructor.name;
+                if ( object.isLight === true ) lights ++;
+
+            } );
+
+            return {
+                hairMaterialClass,
+                shadowMapEnabled: stage.renderer.shadowMap.enabled,
+                lights,
+                environment: stage.scene.environment === null ? null : 'set',
+                toneMappingExposure: stage.renderer.toneMappingExposure
+            };
+
+        } );
+
         await step( page, options.steps );
         manifest.plates.portrait = await shoot( page, path.join( options.out, 'portrait.png' ) );
 

@@ -29,6 +29,11 @@ library any agent can embed, which is requirement R7 in `docs/BRIEF.md`.
 
 ## 2. 🚩 The hair phase, paused after eight rounds — read this before touching hair
 
+> 🚩 **READ §9 BEFORE ANYTHING ELSE IN THIS SECTION.** R26 refuted the light-path hypothesis on
+> pixels, measured all three of REQ-063/064/065, and found the missing highlight in a lobe width
+> that had been authored at the middle of its range by default since R13. §8's closing pointer to
+> "REQ-063/064/065 come before any further lock work" is superseded by §9's measurements.
+>
 > **Read §7 first, then §4.** The control has been run — and §7 records that §4 judged the WRONG
 > PLATES, so §4's hair→skin occlusion row is WITHDRAWN. Its hem and card-edge rows survive.
 > Nothing in this section is retracted, but §4 and §7 together tell you which parts of it matter.
@@ -419,3 +424,158 @@ UNDECLARED RED 0. Four reds, all pre-existing and declared. `HairMaterial.selfte
 63/67, seven new clauses all green, the same four pre-existing failures. Provenance clean: every
 plate in the round carries an `alive.html?…&hair=1…` URL in its manifest, and the live census shows
 `HairNodeMaterial`, which `hair.html` could not produce.
+
+---
+
+## 9. 🚩 R26 — every light DOES reach the hair, and the missing highlight was a lobe authored mid-band by default
+
+**§8's closing pointer — *"REQ-063/064/065 come before any further lock work"* — is now measured and
+it was only a third right.** All three were swept on pixels this round. None of them was the lever.
+
+### The leading hypothesis was REFUTED before anything was changed
+
+The round opened believing 77% of the rig's energy was stranded, on the theory that a custom TSL
+`LightingModel` never receives a `RectAreaLight`. Read from installed three r185 source and then
+from pixels: `HairLightingModel.directRectArea` **is** implemented and it **does** fire. Hair and
+the skin 105 px beside it receive the same light in the same proportions — RectAreaLights carry
+66–73% of a hair pixel against 62–66% of the skin pixel, the absolute ratio being albedo and BSDF.
+Red-proved by renaming the method: the hair darkens 3.51× and reads 82.58% key-SpotLight, while
+skin is untouched digit for digit. **Nothing is missing from the hair light path. Do not look again.**
+
+### 🎯 The fifth instance of §1.25r, and it was inside the diagnosis that named this round's lever
+
+The diagnosis reported `HAIR_DEFAULTS.roughnessR` as *"0.26 rad = 14.9° against Marschner's β_R of
+5–10°"* and filed it as a defect. **That defect does not exist.** `HairMaterial.js`'s own header
+derives the conversion: M_p's argument is `sinθi + sinθr`, not Marschner's half-angle, so
+`β_K = 2 β_M`. The shipped 0.26 was **β_M = 7.4485°, the middle of Table 1's band**, and
+`HAIR_DEFAULTS`' own docstring said "mid-band of 0.1745…0.3491" two lines from the value. Reading
+β_K as β_M is a factor of two. `tools/critic/hair-lobe-sweep.mjs --selftest` is now the clause that
+catches it, and `describe()` reports β in **both** variables so a manifest cannot be misread either.
+
+### What the lever actually was: β_R was never solved, only defaulted
+
+`docs/research/hair.md` §2.3 proposed starting at the centre of Marschner's bands and solving α_R and
+β_R against a measured band width. The solve was never done; the centre shipped from R13 to R25.
+It has now been done, on 216,745 gated hair pixels of the judged URL, reading R alone against the
+mass **rendered at the same width**:
+
+| β_K | β_M | R p99 | mass mean | **R p99 / mass** | >4× R's own mean |
+|---|---|---:|---:|---:|---:|
+| 0.349066 | 10.000° | 5.146e-2 | 6.320e-2 | 0.814 | 0.0000% |
+| 0.26 | 7.448° | 6.785e-2 | 6.612e-2 | **1.026** | 0.0000% |
+| 0.20 | 5.730° | 8.560e-2 | 6.814e-2 | 1.256 | 0.0000% |
+| **0.174533** | **5.000°** | 9.585e-2 | 6.896e-2 | **1.390** | 0.0000% |
+| 0.12 | 3.438° | 1.260e-1 | 7.045e-2 | 1.789 | 0.8978% |
+| 0.08 | 2.292° | 1.594e-1 | 7.106e-2 | 2.243 | 4.9136% |
+
+**Shipped: `HAIR_BETA_R` = 0.174533, the narrow end of Marschner's measured band.** β_TT, β_TRT and
+`material.roughness` follow by the paper's own ratios, so it is one free parameter. On the judged
+plate the mass gets **4.0% brighter and 19.0% wider in range** (p95/p50 1.5867 → 1.8879), and on the
+project's own declared contrast gate, same mask, same run, two builds differing in that one
+constant: radiance p95/p50 **1.587 → 1.898** and lobes-alone **2.191 → 3.035**. A shape change, by
+§9.4's own discriminator — *a multiplier moves the level and not the range.*
+
+### ⚠️ The two knobs that were NOT it, and why, because both look like wins on a ratio
+
+* `scatter` 1 → 0.25 reads p99/mass 1.735 **by darkening the whole groom 40.9%** while R's own p99
+  stays byte-identical across all three arms. CHECKPOINT §2's floor-limited contrast, with the floor
+  in the numerator, appearing on the specular side. It is a brightness cut wearing a contrast ratio.
+* `weightR` 1 → 4 reads 1.932 by making R 74.1% of the mass. Karis gives no such scalar.
+* REQ-063 is **not** a highlight lever: `sideVisibilityValue` is 1.000 for both the key and the fill,
+  so the slide-47 occlusion touches only rim and kicker, which are 0.02–0.87% of a hair pixel. It
+  survives as a documentation request. REQ-064 **is** real and is now the strongest of the three,
+  and a narrower lobe makes it worth more rather than less. REQ-065's term measures 3.54% of the mass.
+
+### ⏭️ The forward finding, which is a stated limit and not a plan
+
+**No width inside Marschner's band puts a single pixel of 216,745 above 4× R's own mean.** The first
+arm where a shape statistic sees a band at all is β_M 3.438°, smoother than any fibre in Table 1. So
+this round bought the largest primary-lobe contrast the source permits and **the rest of the missing
+highlight is elsewhere.** The standing candidate is the groom's own tangent spread inside a pixel —
+R26 measured removing the strand jitter, the flow sheet or the lock tilt as worth ≤0.02× of
+peak/mass-mean **each**, which says the groom never turns into the lobe's peak rather than that the
+lobe is too wide. That is §2's eleven-millimetre cloud arriving on the specular side.
+
+### Suite
+
+Full suite, tree DIRTY (multi-agent round — read the caveat in `run-selftests.sh`'s header):
+**FAILING GATES 4, UNDECLARED RED 0, STALE DECLARATIONS 1.** The four reds are `HairMaterial`
+(76/80, declared, red by design), `hair_alpha` 18/19, `request-ledger` 25/26 (the ROUNDS clause —
+R12 declared, HEAD 23 commits past it, nothing to do with this round) and `verify_glb`. The one
+stale declaration is `HairOIT`, which passed 32/32 this run and whose own `docs/RED-GATES.md` entry
+predicts exactly this: it is the documented intermittent, and the entry says in as many words that
+an intermittent gate reads as STALE on a run where it passes. `HairMaterial.selftest` **76/80** —
+up from 70/74, six new clauses all green, the same four pre-existing declared failures.
+`tools/quoted-numbers.mjs` 15 verified / 0 failed, with six of the fifteen new this round: the
+conversions this section argues from are now re-derived by a gate rather than typed. `alive-toggles.selftest` 197/197 with two new keys
+classified. `GTAO.selftest` 27/27, which is the check that `material.roughness` following β_TRT to
+0.349066 did not disturb the specular occlusion. Provenance: `hair-plates.mjs` now writes a
+`provenance` block read off the live page into every manifest — `hairMaterialClass`,
+`shadowMapEnabled`, light count, environment — so a plate taken off `hair.html` would say so in its
+own sidecar instead of in a README a reader has to trust.
+
+---
+
+## 9. R26 — the lights all arrive, the lobe is drowned not missing, and β_R had never been solved
+
+### 🔴 The leading hypothesis was REFUTED, and it was mine
+
+"77% of the rig is carried by RectAreaLights and a custom TSL LightingModel does not receive them"
+is **false for this material**. `HairLightingModel` implements `directRectArea()` at
+`HairMaterial.js:2129`. Verified in three r185 source (`RectAreaLightNode.js:89` →
+`AnalyticLightNode.js:183/276/286` → `LightsNode.js:324`) *and* on pixels: RectAreaLights carry
+**66–73% of a hair pixel and 62–66% of the skin pixel 105 px away.** Hair and skin receive the same
+light in the same proportions. Nothing is stranded.
+
+⚠️ `indirect()` IS empty — deliberately — but it costs nothing here: `alive.js:944` builds the rig
+with `ambient: occlusion.enabled === false`, GTAO is on, so **there is no HemisphereLight in the
+scene at all.** Hair's ambient arrives through the GTAO composite and measures 3.54%.
+
+### 🎯 The real diagnosis: a CONTRAST failure, not a light-path failure
+
+The primary R lobe is present and carries **39.36% of the mass** — and its p99 over 207,947 hair
+pixels is 6.80e-2 against a mass mean of 6.78e-2. **A ratio of 1.00.** It rides on a **59.03%
+multiple-scattering pedestal**. On the crown the split is worse: **R 6.95%, scatter 87.39%.**
+TRT is 0.10%, peak 0.04× the mass mean; with the key on the camera axis it reaches only 1.30%,
+which confirms REQ-064's own warning that *"the gain is NOT mostly TRT"*.
+
+**None of REQ-063/064/065 was the answer, and all three were measured rather than reasoned about.**
+They are brightness levers: peak/mass-mean moves 1.08× → 1.28× → 1.23× → 1.39×, with **0.0000% of
+the groom above 4× in every arm.** REQ-063's occlusion turns out to do nothing to the two lights
+carrying 66–73% of a hair pixel — `sideVisibility` is **1.000** for both key and fill on the rig's
+real directions; it only attenuates rim and kicker, which are 0.02–0.87% of a hair pixel.
+
+### What shipped, and it is the first non-null in three rounds
+
+`HAIR_DEFAULTS.roughnessR` (β_R) moved from the **middle** of Marschner 2003 Table 1's measured band
+to its **narrow end**: 0.174533 = β_M 5.000°. **It had been sitting at a taste default since R13 and
+the solve `docs/research/hair.md` §2.3 proposed had never been run.** Measured on the judged plate:
+dynamic range **p95/p50 1.5867 → 1.8879, +19.0%**, for a 4.0% change in brightness — a shape change
+by the project's own discriminator, on one free parameter, from a source with a band.
+
+**The blind judge: not a null.** 38% of each frame changed, mean |dRGB| 5.6–6.1, and **skin, eyes,
+lips, brows, shoulder and background are bit-identical** — a clean internal control. Macro form
+contrast p95/p50 1.29→1.40 portrait, 1.33→1.50 three-quarter. Its words: *"The mass now reads as
+having a light direction where before it read as a tinted cutout."*
+
+⚠️ **And its verdict is the thing to carry forward: "REAL CHANGE, WRONG MECHANISM. Keep it, then do
+the actual work."** There is still no specular highlight — what arrived is a broad fibre-aligned
+diffuse/wrap gain. **The pedestal is the target.** Slide 39's fake is 59% of the mass and 87% on the
+crown, and no lobe can peak through it. That is now the named next problem.
+
+### The comment-number gate, and the perfect demonstration of its limits
+
+`tools/quoted-numbers.mjs` + selftest (25/25) landed, wired in by `run-selftests.sh`'s own
+`*.selftest.mjs` glob with **no edit to the runner**. A tagged claim names the number *and* the
+command that produces it; the gate runs it and compares. It goes red on a real historical instance.
+
+🔴 **And the round shipped a false number anyway, which its own new gate certified green.**
+`HairMaterial.js` said narrowing β raises the peak by **1.4897×**. The true answer is **1.500000× by
+construction** — Marschner's band is [2·sin 5°, 2·sin 10°], so its midpoint is exactly 1.5× its
+narrow end and no plate is involved. 1.4897 is `0.26 / 0.174533`, the ratio against the *old taste
+default*, not against the band midpoint the sentence names. **Fifth instance of §1.25r.**
+
+It survived because **the sentence was not tagged.** Which is the finding: `quoted-numbers` reports
+**9 tagged claims against 23,497 numerals in comment prose — 0.038%** — and prints that fraction on
+every run, precisely so a green result is never mistaken for a checked tree. **A gate's coverage is
+part of its verdict.** Now tagged.

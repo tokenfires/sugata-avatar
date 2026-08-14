@@ -771,7 +771,23 @@ const UNGATED = {
         'PUNCH-LIST 3.5. Which of R, TT and TRT are live, so the dual band can be measured as two ' +
         'plates rather than inferred from their sum. Inert without ?hair.' },
     hairscatter: { readHere: true, why:
-        'PUNCH-LIST 3.5. Removes slide 39\'s multiple-scattering term. Inert without ?hair.' },
+        'PUNCH-LIST 3.5. Scales slide 39\'s multiple-scattering term; 0 removes it. Inert ' +
+        'without ?hair.' },
+
+    // 🎯 ROUND 26'S TWO NEW SUB-KEYS, AND THEY ARE THE `?hairscatter` SHAPE RATHER THAN A TOGGLES
+    // ROW'S. All three are the BSDF's contrast budget — the three numbers that set how far the
+    // primary lobe's bright end sits above the mass mean, which R26 measured at a ratio of 1.00 —
+    // and none of them appears on the judged URL. They are inert without ?hair for the seven
+    // sub-keys' reason verbatim, and their values reach a plate's manifest through
+    // `material.describe()`, so a swept plate states its own arm.
+    hairbeta: { readHere: true, why:
+        'PUNCH-LIST 3.5, round 26. The R lobe\'s longitudinal width, HAIR_DEFAULTS.roughnessR, in ' +
+        'KARIS\' variable — beta_K = 2 beta_Marschner, so Table 1\'s 5-10 degrees is 0.174533 to ' +
+        '0.349066 here. beta_TT and beta_TRT follow by Marschner\'s ratios, so it is one free ' +
+        'parameter. Inert without ?hair; gated by HairMaterial.selftest.mjs.' },
+    hairweightr: { readHere: true, why:
+        'PUNCH-LIST 3.5, round 26. Scales the R lobe, composing with ?hairlobes rather than ' +
+        'replacing it. Inert without ?hair.' },
     hairvis: { readHere: true, why:
         'PUNCH-LIST 3.5. Removes the card-scale side visibility — the plate that made the term ' +
         'necessary, where the rim transmits through the head and the groom renders blue. Inert ' +

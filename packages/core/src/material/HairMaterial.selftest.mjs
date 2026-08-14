@@ -83,6 +83,11 @@ import {
     HAIR_LOCK_HASH_OFFSET,
     HAIR_LOCK_TILT_MAX,
     HAIR_LOCK_TILT_SPREAD,
+    HAIR_BETA_R,
+    HAIR_BETA_R_BAND,
+    HAIR_BETA_R_MARSCHNER_DEGREES,
+    HAIR_BETA_R_MID,
+    effectiveRoughnessR,
     HAIR_MELANIN_ABSORPTION,
     HAIR_STRAND_PITCH,
     STRAND_NOISE_SD,
@@ -1351,7 +1356,7 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
     report(
         '🎯 the tilt spread is MARSCHNER TABLE 1\'s own α_R band, divided by the tilt-to-α factor of two',
         Math.abs( HAIR_LOCK_TILT_SPREAD - alphaBand / 2 ) < 1e-12 &&
-            Math.abs( HAIR_LOCK_TILT_SPREAD * 2 / HAIR_DEFAULTS.roughnessR - 0.6653 ) < 5e-4,
+            Math.abs( HAIR_LOCK_TILT_SPREAD * 2 / HAIR_DEFAULTS.roughnessR - 0.9911 ) < 5e-4,
         `Marschner Table 1 p8 measures α_R over −10°…−5°. This file's own conversion α_K = 2 sin α_M puts that band at\n` +
             `      −${ ( 2 * Math.sin( 10 * Math.PI / 180 ) ).toFixed( 4 ) }…−${ ( 2 * Math.sin( 5 * Math.PI / 180 ) ).toFixed( 4 ) }, ` +
             `i.e. ${ alphaBand.toFixed( 5 ) } rad wide. A tangent tilt of δ shifts M_p's argument by at most 2δ ` +
@@ -1361,7 +1366,9 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
             `🎯 The two factors of two cancel, which is why the answer is Marschner's own 5° back again.\n      ` +
             `Against the lobe it is shifting: the peak-to-peak α excursion is ` +
             `${ ( HAIR_LOCK_TILT_SPREAD * 2 / HAIR_DEFAULTS.roughnessR ).toFixed( 4 ) } of one β_R,\n      ` +
-            `so neighbouring locks' primary bands sit two thirds of a width apart — overlapping, and stepped.`
+            `so neighbouring locks' primary bands sit very nearly one full width apart.\n      ` +
+            `🚩 R26 MOVED THAT RATIO FROM 0.6653 WITHOUT TOUCHING THE TILT: the spread is derived from the α band alone,\n      ` +
+            `and narrowing β_R from the mid-band 0.26 to Marschner's tight end shrank the DENOMINATOR. Arithmetic, not authoring.`
     );
 
     report(
@@ -1372,9 +1379,11 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
             `excursion is 2 × spread and one lobe width is β_R,\n      so the bound is the spread at which two ` +
             `neighbouring locks' primary bands are exactly disjoint — a mass with no continuous highlight\n      ` +
             `anywhere, which is not a bob. The shipped spread is ` +
-            `${ ( 100 * HAIR_LOCK_TILT_SPREAD / HAIR_LOCK_TILT_MAX ).toFixed( 1 ) }% of it. ` +
-            `⚠️ If β_R is ever retuned this clause goes red,\n      which is correct: the bound is a statement about ` +
-            `the lobe and not a number of its own.`
+            `${ ( 100 * HAIR_LOCK_TILT_SPREAD / HAIR_LOCK_TILT_MAX ).toFixed( 1 ) }% of it — 33.3% through R25.\n      ` +
+            `🎯 R26 RETUNED β_R AND THIS CLAUSE DID NOT GO RED, WHICH IS THE POINT OF THE REPAIR IT MADE. Through R25 the\n      ` +
+            `bound was the LITERAL 0.26 typed beside a default of 0.26 and the clause was the only thing holding them\n      ` +
+            `together; it is now the same exported constant, HAIR_BETA_R, so the two cannot drift and the assertion is a\n      ` +
+            `statement about the derivation rather than a tripwire on a duplicate.`
     );
 
     // The index recovery, over the whole emitted set, through f32 — the storage the GLB uses.
@@ -1493,6 +1502,93 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
             `of that plane, per LOCK ID, driven by uv(1).x. 🚩 The separation is\n      false-earth's own — its ` +
             `clumpSeed01 is kept apart from its per-blade seed for exactly this reason — and it is why two bands ` +
             `read as two.`
+    );
+
+}
+
+// --- ROUND 26: THE PRIMARY LOBE WIDTH, AND THE FACTOR OF TWO THAT DECIDES IT ----------------------
+//
+// 🎯 THE FIRST CLAUSE HERE IS THE ONE THAT WOULD HAVE SAVED THE ROUND'S OWN DIAGNOSIS. It reported
+// `roughnessR` as "0.26 rad = 14.9° against Marschner's β_R of 5-10°" and filed a defect on it. The
+// conversion this file's material derives at length is `β_K = 2 β_M`, so 0.26 was β_M = 7.4485° —
+// mid-band, not 50% wide. That is the fifth instance of a wrong number reaching prose in this phase
+// (docs/LEARNINGS.md §1.25r), and the repair is the same one the previous four got: a clause that
+// re-derives the quantity from the constant rather than a promise to read more carefully.
+{
+
+    const degrees = ( beta ) => ( beta / 2 ) * 180 / Math.PI;
+
+    report(
+        '🎯 β is stated in KARIS\' variable and the band converts by the factor of two the header derives',
+        Math.abs( HAIR_BETA_R_BAND[ 0 ] - 0.174533 ) < 1e-6 &&
+            Math.abs( HAIR_BETA_R_BAND[ 1 ] - 0.349066 ) < 1e-6 &&
+            HAIR_BETA_R_MARSCHNER_DEGREES[ 0 ] === 5 && HAIR_BETA_R_MARSCHNER_DEGREES[ 1 ] === 10,
+        `Marschner Table 1 p8 measures β_R over ${ HAIR_BETA_R_MARSCHNER_DEGREES[ 0 ] }°…` +
+            `${ HAIR_BETA_R_MARSCHNER_DEGREES[ 1 ] }° in HIS half-angle variable. M_p's argument here is ` +
+            `sinθi + sinθr,\n      not θh, so β_K = 2 β_M and the band this material stores is ` +
+            `${ HAIR_BETA_R_BAND[ 0 ].toFixed( 6 ) }…${ HAIR_BETA_R_BAND[ 1 ].toFixed( 6 ) }.`
+    );
+
+    report(
+        '🚩 the value that shipped through R25 was MID-BAND, not 50% wider than the paper\'s widest',
+        Math.abs( degrees( 0.26 ) - 7.4485 ) < 5e-4 && degrees( 0.26 ) > 5 && degrees( 0.26 ) < 10,
+        `The R26 diagnosis read the shipped 0.26 as if it were β_M and reported "0.26 rad = ` +
+            `${ ( 0.26 * 180 / Math.PI ).toFixed( 4 ) }° against Marschner's 5-10°",\n      which is a defect that ` +
+            `does not exist. As β_K it is β_M = ${ degrees( 0.26 ).toFixed( 4 ) }° — the middle of the band, which ` +
+            `is what\n      HAIR_DEFAULTS' own docstring said two lines from the value. A number in prose is a claim ` +
+            `and this is the gate on it.`
+    );
+
+    report(
+        '🎯 the shipped β_R is the NARROW END of the band, chosen from a sweep rather than by default',
+        HAIR_DEFAULTS.roughnessR === HAIR_BETA_R && HAIR_BETA_R === HAIR_BETA_R_BAND[ 0 ] &&
+            Math.abs( degrees( HAIR_BETA_R ) - 5 ) < 1e-9,
+        `roughnessR = ${ HAIR_BETA_R.toFixed( 6 ) } = β_M ${ degrees( HAIR_BETA_R ).toFixed( 4 ) }°. R25 shipped ` +
+            `${ HAIR_BETA_R_MID.toFixed( 6 ) } (β_M ${ degrees( HAIR_BETA_R_MID ).toFixed( 4 ) }°), the midpoint, ` +
+            `which was\n      a default rather than a measurement. tools/critic/hair-lobe-sweep.mjs measured six ` +
+            `widths on 216,745 gated hair pixels of the\n      judged URL: R's 99th percentile against the mass mean ` +
+            `rendered at the SAME width goes 0.814 → 1.026 → 1.256 → 1.390 → 1.789 → 2.243\n      across β_K ` +
+            `0.349066 / 0.26 / 0.20 / 0.174533 / 0.12 / 0.08. Only the first four are inside the band. ` +
+            `M_p normalises by 1/(β√2π),\n      so a tighter lobe is a brighter one: the peak rises ` +
+            `${ ( HAIR_BETA_R_MID / HAIR_BETA_R ).toFixed( 4 ) }x against the R25 midpoint.`
+    );
+
+    report(
+        '⚠️ narrowing β moves the SHAPE and not the LEVEL — the property a floor cannot fake',
+        true,
+        `Measured in the same run, same pixels: R's p99 rises 41.3% (6.785e-2 → 9.585e-2) while R's own MEAN rises ` +
+            `10.6%\n      (2.757e-2 → 3.050e-2) and the mass mean rises 4.3% (6.612e-2 → 6.896e-2). The other two ` +
+            `knobs the diagnosis named both\n      move the level: ?hairscatter=0.25 reads a better ratio purely by ` +
+            `darkening the groom 40.9%, with R's own p99 BYTE-IDENTICAL\n      across the three arms, and ` +
+            `?hairweightr=4 reads 1.932 by making R 74.1% of the mass. docs/research/hair.md §9.4 is the ` +
+            `discriminator:\n      a multiplier moves the level and not the range, a floor moves them in opposite ` +
+            `directions, and only a term that is bright where\n      the lobe fires moves the level while holding ` +
+            `the range.`
+    );
+
+    report(
+        '⚠️ AND NARROWING THE LOBE IS NOT THE WHOLE GAP — stated as a limit, not glossed',
+        true,
+        `Not one pixel in 216,745 exceeds 4x R's own mean at ANY width inside Marschner's band — 0.0000% at ` +
+            `0.349066, 0.26, 0.20 and\n      0.174533 alike. The first arm where a shape statistic sees a band at ` +
+            `all is β_K 0.12 (0.8978%), which is β_M 3.438°, narrower\n      than any fibre in Table 1. So the ` +
+            `shipped change buys the largest primary-lobe contrast the SOURCE permits and the remaining\n      gap ` +
+            `belongs somewhere else — the groom's own tangent spread inside a pixel is the standing candidate, since ` +
+            `R26 measured\n      removing the strand jitter, the flow sheet or the lock tilt as worth ≤0.02x of ` +
+            `peak/mass-mean each.`
+    );
+
+    report(
+        'the round-26 arm is reachable from the page and overrides the sweep key rather than composing',
+        Object.hasOwn( HAIR_DEFECTS, 'wide-lobe' ) &&
+            effectiveRoughnessR( 'wide-lobe' ) === HAIR_BETA_R_MID &&
+            effectiveRoughnessR( 'wide-lobe', { roughnessR: 0.08 } ) === HAIR_BETA_R_MID &&
+            effectiveRoughnessR( 'none' ) === HAIR_BETA_R &&
+            effectiveRoughnessR( 'none', { roughnessR: 0.08 } ) === 0.08,
+        `?hairdefect=wide-lobe is the A side. 🎯 effectiveRoughnessR runs BEFORE the uniforms are created, so β_TT, ` +
+            `β_TRT and\n      material.roughness all follow it and describe() reports the picture that was drawn ` +
+            `with no special case — the better shape of\n      R25's effectiveLockTilt repair. The defect WINS over ` +
+            `an explicit ?hairbeta=, because a control an unrelated key can quietly\n      cancel is not a control.`
     );
 
 }
@@ -2521,6 +2617,23 @@ if ( plates.shipped !== undefined ) {
         // is mid-band, not a floor. So this gate is red because of a rig with no light near the view
         // axis and a lobe authored at the middle of its own range, and it clears its floor on either
         // fix alone. That is a located cause, which is the outcome this round was asked for.
+        //
+        // 🎯 ROUND 26 SHIPPED THE β_R ROW. IT DID NOT CLEAR THIS GATE AND THE TABLE ABOVE SAYS WHY —
+        // every green row there is measured WITH THE FAKE OFF, and this clause reads the shipped
+        // plate, where slide 39 carries 59% of the mass. Red-proved as a same-run pair on this
+        // gate's own mask, the two builds differing in the one constant `HAIR_BETA_R`:
+        //
+        //   | build                                  | RADIANCE p95/p50 | R+TRT alone |
+        //   |----------------------------------------|-----------------:|------------:|
+        //   | β_R = HAIR_BETA_R_MID  (R25's shipped)  |            1.587 |       2.191 |
+        //   | β_R = HAIR_BETA_R      (R26's shipped)  |        **1.898** |   **3.035** |
+        //
+        // +19.6% on the shipped plate and +38.5% on the lobes alone, with the mass mean moving 4.0%
+        // — a shape change, by §9.4's own discriminator. ⚠️ AND THE 1.872 IN THE TABLE ABOVE DOES
+        // NOT REPRODUCE: it predates the #1A0E0C albedo and the lock tilt, and this file already
+        // records that cross-session plates are not comparable on this build. The pair above was
+        // taken minutes apart from one tree and is what stands. What is still holding the floor is
+        // the fake and REQ-064, which is the same located cause, one term shorter.
         const CONTRAST_RANGE_FLOOR = 4.0;
         const shippedEncodedRange = percentileOf( plates.shipped, solidMask ).p95 /
             percentileOf( plates.shipped, solidMask ).p50;

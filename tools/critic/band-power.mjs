@@ -77,6 +77,19 @@
 // The two mask plates are `?hairdefect=unit-bsdf` and `?hairlobes=&hairscatter=0` at the same
 // framing — see `solidHairMask`. Without them it measures the whole frame and says so.
 // `bandPower()` and `measureDelivered()` are the API a gate asserts on.
+//
+// ## 🎯 TAGGED CLAIMS — the step-edge reading above, checked against the run that produces it
+//
+// The three numbers in the blind-spot paragraph are the whole reason that paragraph is credible, and
+// until now nothing re-read them. `tools/quoted-numbers.mjs` runs the command named below and
+// compares each against the line it names; a drift turns the suite red. The other numbers in this
+// header — 13.39% / 13.69% of a plate, the 2.77 / 4.49 / 11.29 and 3.97 / 9.70 / 7.39 A/Bs, the
+// 88.1 mm and 0.652 mm/px derivation — have no command that produces them and are NOT tagged. That
+// is most of them, and `quoted-numbers.mjs` prints the ratio rather than implying otherwise.
+//
+// @claim 0.0049 :: node tools/critic/band-power.selftest.mjs :: step edge: #1
+// @claim 0.0125 :: node tools/critic/band-power.selftest.mjs :: step edge: #2
+// @claim 0.0980 :: node tools/critic/band-power.selftest.mjs :: step edge: #3
 
 import fs from 'node:fs';
 import path from 'node:path';

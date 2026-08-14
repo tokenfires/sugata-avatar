@@ -1816,6 +1816,17 @@ evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=
              ⚠️ three has had no rect-area shadow since 2018 (issue #14161), so this is a
              `shadowFraction` split into a co-located `SpotLight`, which is what `key` already does
              and what this file's header derives at length.
+             🔴 R26 MEASURED THIS ON PIXELS AND IT IS SMALLER THAN THE ENTRY CLAIMS. Read off the
+             LIVE rig rather than guessed, `sideVisibilityValue` is 1.000 for the key and 1.000 for
+             the fill — the two lights carrying 66-73% of a hair pixel — so the slide-47 occlusion
+             does NOTHING to them. It attenuates only rim (0.121) and kicker (0.035), which are
+             0.02-0.87% of a hair pixel. The mechanism reproduces (R's max under the rim is 5.03x
+             the key's, against the 6.3 claimed for a slightly different pair of geometries) but
+             5x of 0.87% is not a highlight: with `?hairvis=0`, the state a rim shadow would
+             license, R's mean rises 31.4% and its peak/mass-mean goes 1.08x to 1.28x, with
+             0.0000% of the groom above 4x R's own mean in either arm. **The request stands — the
+             rim's `shadowFraction: 0` should still stop being invisible to the reader — but it is
+             a documentation request now, not the highlight lever it was filed as.**
 anchor:      packages/core/src/render/LightingRig.js /irradiance: 16,/
 verify:      packages/core/src/render/LightingRig.js /rim carries a shadow caster/
 ```
@@ -1847,6 +1858,15 @@ evidence:    Measured this session, same plates and same inversion as REQ-063. T
              is the R lobe and slide 39's fake being handed a better geometry. Do not file this as
              "the secondary band needs a practical" — file it as "the rig never presents the model
              its peak", which is the measurement.
+             ✅ R26 CONFIRMED THE ⚠️ ABOVE INDEPENDENTLY AND THIS IS NOW THE STRONGEST OF THE THREE.
+             On 207,947 gated hair pixels, `?ov=key.azimuthDegrees:12` raises TRT from 0.10% of the
+             mass to 1.30% with a peak of 0.06x the mass mean — so the gain is indeed not TRT — and
+             raises R's mean 10.2% for a peak/mass-mean of 1.23x. The whole groom brightens 12.9%.
+             🎯 AND R26's OWN LEVER MAKES THIS ONE MORE VALUABLE RATHER THAN LESS. β_R now sits at
+             Marschner's narrow end, so M_p's peak is 1.4897x what it was; a rig that presented
+             the model its peak would be handing a tighter lobe a better geometry. The two were
+             measured as the only two arms that clear the contrast gate's range floor (6.030 and
+             4.291, both with slide 39 off, `docs/research/hair.md` §9.4) and they are independent.
 anchor:      packages/core/src/render/LightingRig.js /azimuthDegrees: 42,/
 verify:      packages/core/src/render/LightingRig.js /camera-axis practical/
 ```
@@ -1881,6 +1901,14 @@ evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=
              it. With this effect installed the rig is constructed `ambient: false`, so there is no
              ambient light in the forward pass for a lighting model to read at all. That is why
              this is a request against the composite and not a gap in the material.
+             🔵 R26 RE-MEASURED THE TERM AND IT IS THE SMALLEST OF THE THREE HIGHLIGHT LEVERS. The
+             GTAO composite's indirect contribution reads 3.54% of the groom's mass mean over
+             194,884 gated hair pixels — a firmer number than the entry's "roughly 1%", and still
+             the smallest thing on the list. Also confirmed from three r185's source: `indirect()`
+             costs exactly zero in the forward pass on this page because `alive.js` builds the rig
+             `ambient: occlusion.enabled === false` and GTAO is on, so there is no HemisphereLight
+             in the scene at all, and `scene.environment`, `scene.environmentNode` and
+             `scene.backgroundNode` are all null. The entry's ⚠️ is correct and now measured.
 anchor:      packages/core/src/render/GTAO.js /ambientSpecular = true,/
 verify:      packages/core/src/render/GTAO.js /slide-47 environment path/
 ```

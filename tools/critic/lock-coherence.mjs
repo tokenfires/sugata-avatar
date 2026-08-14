@@ -112,6 +112,20 @@
 //
 // `lockCoherence()` is the API a gate asserts on. `tools/critic/lock-coherence.selftest.mjs` is the
 // gate on this file and every number in it is predicted from the Dirichlet kernel first.
+//
+// ## 🎯 TAGGED CLAIMS — the five numbers this comment got wrong once, now checked by a gate
+//
+// R25 shipped this header with **five wrong numbers in it** — 0.110 / 0.823 / 7.5 / 0.0139 / 55.5
+// against the true values below — while the selftest two directories away printed the right ones on
+// every run. `docs/CHECKPOINT.md` §8, fourth instance of the same failure. The lines below name each
+// number and the command that produces it, and `tools/quoted-numbers.mjs` runs that command and
+// compares. A number here that drifts from its producer now turns the SUITE red.
+//
+// @claim 0.830304 :: node tools/critic/lock-coherence.selftest.mjs :: single fine box: 53 px #2
+// @claim 0.119454 :: node tools/critic/lock-coherence.selftest.mjs :: single fine box: 53 px #4
+// @claim 6.9508 :: node tools/critic/lock-coherence.selftest.mjs :: single fine box: 53 px #5
+// @claim 0.014152 :: node tools/critic/lock-coherence.selftest.mjs :: gain at 53 px #4
+// @claim 54.6314 :: node tools/critic/lock-coherence.selftest.mjs :: gain at 53 px #5
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -152,6 +166,16 @@ export const COHERENCE_DEFAULTS = {
  * and goes red if it drifts. Change a width and this constant is wrong until the selftest says
  * otherwise — the floor falls roughly as 1/wTensor (measured 0.3079 / 0.1715 / 0.0899 / 0.0619 at
  * wTensor 27 / 53 / 105 / 159, i.e. ×1.80, ×1.91, ×1.45 against width ratios ×1.96, ×1.98, ×1.51).
+ *
+ * 🎯 A STOCHASTIC CLAIM, SO ITS TOLERANCE IS THE PRODUCER'S OWN SCATTER RATHER THAN A NUMBER
+ * CHOSEN HERE. `±#2` reads the second number on the matched line — the ± the selftest prints beside
+ * the floor over its eight seeds — so this tag cannot be made to pass by widening it.
+ * @claim 0.1715 ±#2 :: node tools/critic/lock-coherence.selftest.mjs :: coherence floor #1
+ *
+ * ⚠️ The other three floors quoted above (0.3079, 0.0899, 0.0619) are NOT tagged: the selftest's
+ * §3c line prints 0.3093 / 0.1728 / 0.0911 from a different sitting and carries no scatter of its
+ * own, so checking them would need a tolerance invented here — which is the failure mode one level
+ * down from the one being fixed. They stay unchecked and are counted as such.
  */
 export const DEFAULT_NOISE_FLOOR = 0.1715;
 

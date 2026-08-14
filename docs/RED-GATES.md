@@ -166,13 +166,30 @@ directions, which is the clause worth keeping when this check is next edited.
   THIS line means "it passed this time", not "the declaration was wrong", and deleting the line on
   that basis would be the rubber stamp the file exists to refuse.
 
-- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, **63/67** at R24 (56/60 at
-  R23), and it is the SAME FOUR failing clauses it carried at 38/42: the two halves of the contrast
+- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, **76/80** at R26 (70/74 at
+  R25, 63/67 at R24, 56/60 at R23), and it is the SAME FOUR failing clauses it carried at 38/42:
+  the two halves of the contrast
   pair, the plain-card comparison, and the clipped-highlight share. They encode the density and brightness
   target the phase is working toward, they are floor-limited for round 16's reason, and turning
   them green is the work item rather than a repair to the gate. Owned by
   `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
   failure mode the whole gate exists to prevent.
+  🎯 **R26 ADDED SIX CHECKS AND ALL SIX ARE GREEN** — the primary lobe width. The discriminating one
+  re-derives Marschner Table 1's β_R band in Karis' variable and asserts that the value which
+  shipped from R13 to R25 reads **7.4485° as β_M — inside the paper's 5–10°** — because R26's own
+  commissioning diagnosis reported it as "0.26 rad = 14.9°, wider than the paper's widest" and filed
+  a defect that does not exist. `β_K = 2 β_M`; the material's header derives that conversion at
+  length and the prose beside the constant still got it wrong. Fifth instance of §1.25r.
+  🎯 **AND THE RANGE HALF OF THE CONTRAST PAIR MOVED FOR THE FIRST TIME.** β_R now ships at the
+  band's narrow end, chosen from a six-arm sweep on 216,745 gated hair pixels rather than from the
+  mid-band default. Red-proved as a same-run pair on this gate's own mask with the one constant
+  swapped in the TREE: radiance p95/p50 **1.587 → 1.898**, lobes alone **2.191 → 3.035**, mass mean
+  +4.0%, and the run reads **74/80** broken against 76/80 restored with exactly the two β-dependent
+  clauses moving and nothing that was green going red. It does not clear the 4.0 floor and was not
+  expected to — every green row in the clause's own proof table is measured with slide 39 OFF, and
+  slide 39 carries 59% of the mass. ⚠️ Do NOT read the restored 1.898 against the 1.872 written in
+  that table: it predates the `#1A0E0C` albedo and the lock tilt, and the file already records that
+  cross-session plates are not comparable on this build. The same-run pair is the measurement.
   🎯 **R24 ADDED SEVEN CHECKS AND ALL SEVEN ARE GREEN** — the lock-scale albedo band, its Voronoi
   field and its two arms. The discriminating one is the field's own autocorrelation against a
   decorrelated control with the identical histogram (0.9601 at 0.1 cells against −0.0039), which is

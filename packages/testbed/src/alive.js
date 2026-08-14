@@ -265,7 +265,15 @@
  *                   inference from one. A gate that only ever saw their sum could not tell a dual
  *                   band from one wide one.
  *   ?hairscatter=0  remove slide 39's multiple-scattering term, which Karis calls "a giant
- *                   artistic hack and not physically based in the slightest"
+ *                   artistic hack and not physically based in the slightest". ROUND 26: it now
+ *                   takes any scalar in [0,8], so the pedestal can be SWEPT and not only removed.
+ *   ?hairbeta=0.2   PUNCH-LIST 3.5, round 26. The R lobe's longitudinal width, `roughnessR`.
+ *                   🚩 IT IS IN KARIS' VARIABLE, β_K = 2 β_Marschner. Marschner Table 1's measured
+ *                   β_R of 5°…10° is 0.174533…0.349066 HERE, and reading 0.26 as "14.9°" is the
+ *                   unit error that sent one round looking for a defect that was not there.
+ *                   β_TT and β_TRT follow by Marschner's ratios, so this is ONE free parameter.
+ *   ?hairweightr=4  scale the R lobe. Composes with `?hairlobes=` rather than replacing it.
+ *                   ⚠️ THESE THREE ARE THE CONTRAST BUDGET AND NONE OF THEM IS ON THE JUDGED URL.
  *   ?hairvis=0      remove the card-scale side visibility. 🚩 THE PLATE THIS PRODUCES IS THE ONE
  *                   THAT MADE THE TERM NECESSARY: with no shadow on the rim panel, an unoccluded
  *                   Marschner lobe takes the rim's #0f30ff at full strength on every hair pixel in
@@ -2026,6 +2034,40 @@ function readHairRequest( query ) {
 
     }
 
+    // 🎯 ROUND 26'S THREE SWEEP KNOBS, AND THEY EXIST BECAUSE THE DIAGNOSIS COULD NOT BE TESTED
+    // WITHOUT THEM. R26 measured the primary lobe's 99th percentile over 207,947 gated hair pixels
+    // at 6.80e-2 against a shipped mass mean of 6.78e-2 — the specular term's bright end landing on
+    // the AVERAGE brightness of the mass it is meant to sit on top of — and named the three numbers
+    // that set that ratio: `roughnessR`, `weightR` and `scatter`. Every other hair term on this page
+    // already had a key; these three could only be changed by editing the module, which means no
+    // round could sweep them and every claim about them was a CPU-mirror inference.
+    //
+    // ⚠️ ALL THREE DEFAULT TO `HAIR_DEFAULTS` AND NONE OF THEM CHANGES THE SHIPPED PLATE. They are
+    // measuring instruments in the sense `?hairlobes=` is: the judged URL carries none of them, and
+    // a plate that does carries it in its manifest through `describe()`.
+    //
+    // `?hairbeta=` is in KARIS' VARIABLE, β_K, which is the one `HAIR_DEFAULTS.roughnessR` holds and
+    // is TWICE Marschner's β_M — see this material's header for the conversion, and read the band as
+    // 0.174533…0.349066 rather than as 5…10. A key named in the wrong variable is exactly how R26's
+    // own diagnosis came to report the shipped 0.26 as "14.9° against Marschner's 5–10°".
+    const number = ( key, fallback, lowest, highest ) => {
+
+        const raw = query.get( key );
+
+        if ( raw === null ) return fallback;
+
+        const value = Number( raw );
+
+        if ( Number.isFinite( value ) === false || value < lowest || value > highest ) {
+
+            throw new Error( `alive: ?${ key } must be a number in [${ lowest }, ${ highest }] — got '${ raw }'.` );
+
+        }
+
+        return value;
+
+    };
+
     return {
         // The geometry stays, the shader goes. Holding the groom constant is what makes this the A
         // side of 3.5 rather than the A side of 3.6.
@@ -2034,7 +2076,17 @@ function readHairRequest( query ) {
         velocity,
         lobes,
         oit,
-        scatter: query.get( 'hairscatter' ) === '0' ? 0 : 1,
+
+        // `?hairscatter=0` is unchanged and every tool that passes it keeps working; what is new is
+        // that it now accepts any scalar, so the pedestal can be swept rather than only removed.
+        scatter: number( 'hairscatter', 1, 0, 8 ),
+
+        // Upper bounds are generous on purpose: these are probes, and a probe that clamps silently
+        // is worse than one that refuses. β_K is bounded BELOW at 1e-3 because `longitudinalNode`
+        // clamps at EPSILON and a caller asking for zero would get the clamp rather than an error.
+        roughnessR: number( 'hairbeta', undefined, 1e-3, 2 ),
+        weightRScale: number( 'hairweightr', 1, 0, 16 ),
+
         sideVisibility: query.get( 'hairvis' ) === '0' ? 0 : 1,
         rootOcclusion: query.get( 'hairrootao' ) === '0' ? 1 : undefined,
         defect
@@ -2344,12 +2396,20 @@ async function attachHair( session, figureUrl, stage ) {
         multisampled: session.multisampled,
         defect: request.defect,
         settings: {
-            weightR: request.lobes.includes( 'r' ) ? 1 : 0,
+            // `?hairlobes=` decides whether R is live at all and `?hairweightr=` scales it, so the
+            // two compose: `?hairlobes=trt&hairweightr=4` is still R off. Multiplying rather than
+            // replacing is what keeps the existing key's meaning intact.
+            weightR: ( request.lobes.includes( 'r' ) ? 1 : 0 ) * request.weightRScale,
             weightTT: request.lobes.includes( 'tt' ) ? 1 : 0,
             weightTRT: request.lobes.includes( 'trt' ) ? 1 : 0,
             scatter: request.scatter,
             sideVisibility: request.sideVisibility,
-            ...( request.rootOcclusion === undefined ? {} : { rootOcclusion: request.rootOcclusion } )
+            ...( request.rootOcclusion === undefined ? {} : { rootOcclusion: request.rootOcclusion } ),
+
+            // `undefined` is the "not asked for" signal rather than a sentinel value: the spread
+            // below is over `HAIR_DEFAULTS`, and writing `roughnessR: undefined` into it would
+            // overwrite the default with undefined and take β_TT and β_TRT down with it.
+            ...( request.roughnessR === undefined ? {} : { roughnessR: request.roughnessR } )
         }
     } );
 

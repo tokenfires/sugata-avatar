@@ -599,6 +599,146 @@ export const HAIR_LOCK_ALBEDO_SPREAD = 1.26;
  */
 export const HAIR_LOCK_SPREAD_MAX = 2;
 
+// --- the LOBE WIDTH, round 26 --------------------------------------------------------------------
+//
+// 🎯 R26'S ONE LEVER, AND IT IS A CHOICE **INSIDE** MARSCHNER'S BAND RATHER THAN A NEW NUMBER.
+//
+// The round opened with a blind judge answering "is the specular one broad band or broken across
+// bundles?" with a third option — *"there is no lobe"* — and a decomposition then measured why.
+// Over 216,745 gated hair pixels of the judged URL, with the primary lobe isolated and the mass
+// measured on the same arm, R's 99th percentile was **1.026x the mass mean** and its single
+// brightest pixel **1.107x**. The specular term's bright end was landing on the AVERAGE brightness
+// of the mass it is meant to sit on top of. Not missing — measured at 41.7% of the mass — but flat.
+//
+// ## 🚩 THE UNIT ERROR THAT NEARLY SENT THIS ROUND SOMEWHERE ELSE, AND IT IS THE FIFTH INSTANCE
+//
+// The diagnosis that commissioned this change reported the shipped width as *"`roughnessR` is 0.26
+// rad = 14.9° against Marschner's β_R of 5–10°"* and filed it as a defect. **It is not one.** This
+// file's own header derives the conversion at length: M_p's argument in Karis' form is
+// `sinθi + sinθr`, not Marschner's half-angle θh, so a width converts as `β_K = 2 β_M`. The shipped
+// 0.26 is `β_M = 0.130000 rad = 7.4485°` — the MIDDLE of Table 1's 5–10° — and `HAIR_DEFAULTS`
+// already said "mid-band of 0.1745…0.3491" two lines from the value. Reading β_K as β_M is a factor
+// of two, and it turned "authored mid-band" into "50% wider than the paper's widest sample".
+// `docs/LEARNINGS.md` §1.25r, fifth instance: **a number in prose is a claim and nothing in the
+// tree checks it.** `tools/critic/hair-lobe-sweep.mjs --selftest` is now the clause that does.
+//
+// So the lever is not "the lobe is wider than physics allows". It is that **β_R is one of this
+// model's two free parameters and it was authored at the middle of its range by default rather
+// than by measurement**, and the measurement now exists.
+//
+// ## THE SWEEP, ON PIXELS, ON THE JUDGED URL
+//
+// `tools/critic/hair-lobe-sweep.mjs`, 216,745 pixels that are inside the twice-eroded groom mask,
+// below the hair-shaded gate and invertible in all 21 arms. Every row reads R alone against the
+// mass **rendered at the same β**, so the ratio is a property of that arm and not of last round's
+// plate. Rendered at `toneMappingExposure` 4 and inverted at 4, because a single lobe on a #1A0E0C
+// fibre lands at code 2–12 and the 8-bit floor would otherwise discard most of the groom.
+//
+//   | β_K      | β_M      | R p99     | mass mean | **R p99 / mass** | R peak / mass | >2x R's own mean |
+//   |----------|----------|-----------|-----------|------------------|---------------|------------------|
+//   | 0.349066 | 10.000°  | 5.146e-2  | 6.320e-2  | 0.814            | 0.862         |  3.228%          |
+//   | 0.26     |  7.448°  | 6.785e-2  | 6.612e-2  | **1.026**        | 1.107         |  8.548%          |
+//   | 0.20     |  5.730°  | 8.560e-2  | 6.814e-2  | 1.256            | 1.392         | 12.822%          |
+//   | 0.174533 |  5.000°  | 9.585e-2  | 6.896e-2  | **1.390**        | 1.584         | 14.852%          |
+//   | 0.12     |  3.438°  | 1.260e-1  | 7.045e-2  | 1.789            | 2.266         | 18.095%          |
+//   | 0.08     |  2.292°  | 1.594e-1  | 7.106e-2  | 2.243            | 3.354         | 20.656%          |
+//
+// The last two rows are **outside Marschner's band** and are not candidates — nothing in either
+// source licenses a fibre smoother than the smoothest one measured. They are there so the trend has
+// a shape, and they carry the round's real forward finding: a band that a shape statistic can see
+// at all (0.90% and 4.91% of the groom above 4x R's own mean, against **0.0000% at every setting
+// inside the band**) only appears below 5°. **Narrowing the lobe is not the whole gap.**
+//
+// ## WHY THE OTHER TWO KNOBS THE DIAGNOSIS NAMED ARE NOT THIS
+//
+// Both were swept in the same run, on the same pixels, and both fail on the same test — they move
+// the LEVEL and not the SHAPE, which is `docs/research/hair.md` §9.4's own discriminator:
+//
+//   * `scatter` 1 → 0.25 reads a better ratio (p99/mass 1.735) by **darkening the whole groom 40.9%**
+//     (mass mean 6.612e-2 → 3.910e-2) while R's own p99 stays at 6.785e-2 to every printed digit —
+//     the three plates are BYTE-IDENTICAL, which is the run's own null control. That is
+//     CHECKPOINT §2's floor-limited contrast with the floor in the numerator, and it is a
+//     brightness cut wearing a contrast ratio.
+//   * `weightR` 1 → 4 reads 1.932 by making R 74.1% of the mass. Karis gives no such scalar; 1 is
+//     the form. Multiplying a flat term by four gives a brighter flat term.
+//
+// Narrowing β does neither: R's p99 rises **41.3%** while R's own MEAN rises **10.6%** and the mass
+// mean rises **4.3%**. Same energy, more concentrated. That is what a lobe is — M_p normalises by
+// `1/(β√2π)`, so moving from the band's midpoint 0.261799 to its narrow end raises the lobe's PEAK
+// by exactly the WIDTH RATIO, `HAIR_BETA_R_MID / HAIR_BETA_R` = **1.500000x**, while conserving the
+// term's energy — which is the arithmetic behind the whole table.
+//
+// 🔴 THAT NUMBER READ 1.4897x WHEN THIS ROUND SHIPPED IT, AND THIS ROUND'S OWN NEW GATE PASSED IT.
+// 1.4897 is `0.26 / 0.174533` — the ratio against the value β_R happened to hold BEFORE this change
+// (a taste default from R13), not against the band midpoint the sentence names. The true answer is
+// **1.5 by construction and not by measurement**: Marschner's band is [2·sin 5°, 2·sin 10°] in the
+// Karis convention, so its midpoint is exactly 1.5× its narrow end and no plate is involved.
+//
+// Fifth instance of LEARNINGS §1.25r, and the informative part is HOW IT SURVIVED: the gate built
+// in this very round to catch exactly this only checks TAGGED claims, and this sentence was not
+// tagged. It is now. **A gate's coverage is part of its verdict** — `quoted-numbers` reports 9
+// tagged claims against 23,497 numerals in comment prose, 0.038%, and prints that fraction on every
+// run precisely so a green result is never mistaken for a checked tree.
+//
+// ## 🎯 TAGGED CLAIMS — the six numbers above that a gate now re-derives
+//
+// This block exists because the round it belongs to began with a wrong number in prose, so the five
+// conversions it argues from are tagged for `tools/quoted-numbers.mjs`: it runs the producer and
+// compares. The measured table above is NOT tagged and cannot be — its producer is a 21-arm capture
+// against a live GPU — and saying so is the point of the gate's own coverage line. What is checked
+// is every number that is arithmetic.
+//
+// @claim 0.174533 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  band in Karis variable #1
+// @claim 0.349066 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  band in Karis variable #2
+// @claim 0.261799 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  band in Karis variable #3
+// @claim 5.000 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  shipped width in Marschner degrees #1
+// @claim 7.4485 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  shipped width in Marschner degrees #2
+// @claim 1.4897 :: node tools/critic/hair-lobe-sweep.mjs --selftest :: derived  peak ratio, previous midpoint over shipped width #1
+
+/** Marschner 2003 Table 1 p8's measured β_R, in HIS variable, in degrees. The source, verbatim. */
+export const HAIR_BETA_R_MARSCHNER_DEGREES = [ 5, 10 ];
+
+/**
+ * The same band in KARIS' variable, which is the one this material stores and shades with.
+ *
+ * `β_K = 2 β_M` — see the header. Written as the expression rather than as `[0.174533, 0.349066]`
+ * for `STRAND_NOISE_SD`'s reason: a literal here would silently stop being the right number the day
+ * the conversion or the table was re-read, and this file has now watched exactly that mistake made
+ * in prose by a round that had the header in front of it.
+ */
+export const HAIR_BETA_R_BAND = HAIR_BETA_R_MARSCHNER_DEGREES.map( ( d ) => 2 * d * Math.PI / 180 );
+
+/**
+ * 🎯 THE SHIPPED PRIMARY LOBE WIDTH: **the NARROW end of Marschner's measured band**, 0.174533.
+ *
+ * The band is a measurement across SAMPLES — different heads of hair — so choosing inside it is
+ * choosing whose cuticle this groom has, and that is an authored identity decision that has to be
+ * made from something. It is made from the sweep above: it is the largest primary-lobe contrast the
+ * source permits, at a 4.3% change in the mass's brightness.
+ *
+ * **It is also the fix a red gate already nominated for itself.** `docs/research/hair.md` §9.4 and
+ * the green proof inside this file's own contrast clause both record `β_R 0.26 → 0.1745` taking the
+ * plate's radiance p95/p50 from 1.872 to **6.030** against a floor of 4.0 — one of only two arms
+ * measured that clear it, the other being REQ-064's light move — and both say in as many words that
+ * the gate is red partly because *"a lobe authored at the middle of its own range"*. This is that
+ * sentence acted on.
+ *
+ * ⚠️ **AND IT IS ONE FREE PARAMETER, NOT FOUR.** `β_TT = β_R/2` and `β_TRT = 2 β_R` follow by
+ * Marschner's own ratios, and `material.roughness` — the isotropic summary written to the G-buffer
+ * — follows β_TRT. TT ships OFF (`weightTT` 0) so its width is inert on the judged plate; TRT is
+ * 0.10% of the mass, measured. What moves the picture is R.
+ */
+export const HAIR_BETA_R = HAIR_BETA_R_BAND[ 0 ];
+
+/**
+ * The A side: the middle of the band, which is what shipped from round 13 through round 25.
+ *
+ * Reached by `?hairdefect=wide-lobe`. It is 0.261799 rather than the 0.26 literal the file carried,
+ * because the literal was a rounding of this expression and the arm should be the DERIVED midpoint
+ * — the two differ by 0.7%, which is 0.05° of β_M and below anything the sweep resolves.
+ */
+export const HAIR_BETA_R_MID = ( HAIR_BETA_R_BAND[ 0 ] + HAIR_BETA_R_BAND[ 1 ] ) / 2;
+
 // --- the LOCK TILT, round 25 ---------------------------------------------------------------------
 //
 // 🎯 R24's DURABLE FINDING IS THAT ALBEDO IS THE WRONG QUANTITY, AND THIS IS THE RIGHT ONE.
@@ -665,11 +805,22 @@ export const HAIR_LOCK_SPREAD_MAX = 2;
  * written as that expression rather than as `0.086492` for the reason `STRAND_NOISE_SD` is: a
  * literal here would silently stop being the right number the day the band was re-read.
  *
- * **What it is worth against the lobe it is shifting.** `HAIR_DEFAULTS.roughnessR` is 0.26, so the
- * peak-to-peak α excursion of 0.17299 is **0.665 of one lobe width**. Two neighbouring locks at
- * opposite ends of the band put their primary bands two thirds of a width apart — overlapping, so
- * the mass still reads as one head of hair, and offset, so the band has a step in it at every lock
- * boundary. That ratio is the whole design and it is the number to argue with, not the radians.
+ * **What it is worth against the lobe it is shifting.** `HAIR_DEFAULTS.roughnessR` is
+ * `HAIR_BETA_R` = 0.174533, so the peak-to-peak α excursion of 0.172985 is **0.9911 of one lobe
+ * width**. Two neighbouring locks at opposite ends of the band put their primary bands very nearly
+ * one full width apart. That ratio is the whole design and it is the number to argue with, not the
+ * radians.
+ *
+ * 🚩 **AND ROUND 26 MOVED IT, WHICH IS A COUPLING AND NOT A SECOND KNOB.** Through R25 this read
+ * 0.6653 against a mid-band β_R of 0.26; narrowing β_R to Marschner's tight end left the tilt
+ * spread untouched — it is derived from the α band and nothing else — and raised the RATIO to
+ * 0.9911, i.e. from 33.3% of `HAIR_LOCK_TILT_MAX` to 49.56%. That is arithmetic, not authoring, and
+ * the round measured what it costs rather than arguing it: with the lock tilt removed at the new β
+ * (`?hairdefect=no-lock-tilt`) the groom's mass mean and R's peak/mass-mean move by less than the
+ * run's own re-render drift. The tilt was worth ≤0.02x of peak/mass-mean at the old width and it is
+ * worth no more at the new one, so a ratio that has grown by half has not brought a second free
+ * variable with it. Stated here because a reader arriving at 0.9911 would otherwise reasonably
+ * conclude the tilt had been re-authored.
  *
  * ⚠️ **AND IT IS A SPREAD, NOT AN OFFSET.** The hash is centred by subtracting 0.5, so the MEAN
  * tilt over the sixteen locks is within a few thousandths of zero (measured: hash mean 0.5192 over
@@ -684,15 +835,19 @@ export const HAIR_LOCK_TILT_SPREAD = Math.sin( 10 * Math.PI / 180 ) - Math.sin( 
  * neighbouring locks' primary bands are separated by exactly one full lobe width.**
  *
  * The α excursion is `2 × spread`, and one lobe width is `β_R`, so the bound is `spread = β_R` =
- * `HAIR_DEFAULTS.roughnessR` = 0.26 — asserted equal in the selftest so the two cannot drift apart.
+ * `HAIR_DEFAULTS.roughnessR` = `HAIR_BETA_R` — and it is now the SAME CONSTANT rather than a
+ * literal asserted equal to one. R26 changed β_R and this bound had to follow it; a second literal
+ * would have been a silent drift of exactly the kind the assertion was written to catch, so the
+ * assertion stays and the duplication goes.
  * At that setting the mass has no continuous highlight anywhere: every lock's band is disjoint from
  * its neighbour's, which is what a groom made of sixteen separate cylinders would look like and is
  * not a bob. Reached by `?hairdefect=lock-tilt-max`, and its job is the same as
  * `HAIR_LOCK_SPREAD_MAX`'s was — if the picture does not move at the structural maximum then no
  * setting of the shipped constant can move it, and the hypothesis is refused by arithmetic rather
- * than by taste. The shipped value is 33.3% of it.
+ * than by taste. The shipped value is 49.56% of it — 33.3% through R25, moved by R26's narrowing of
+ * β_R and not by any change to the tilt. See `HAIR_LOCK_TILT_SPREAD`.
  */
-export const HAIR_LOCK_TILT_MAX = 0.26;
+export const HAIR_LOCK_TILT_MAX = HAIR_BETA_R;
 
 /**
  * `hair_cards.py`'s hash offset for the lock seed, and the one degenerate input it avoids.
@@ -729,7 +884,14 @@ export const STRAND_NOISE_SD = 2 * Math.sqrt( 26 / 420 );
  *     α_TT  +0.0873 … +0.1743      β_TT   0.0873 … 0.1745
  *     α_TRT +0.2611 … +0.5176      β_TRT  0.3491 … 0.6981
  *
- * and the two shipped values below sit mid-band. **α_R and β_R are 3.5's two free parameters** and
+ * 🚩 **α_R STILL SITS MID-BAND; β_R NO LONGER DOES, AND THAT IS ROUND 26.** `shiftR` is −0.26, the
+ * middle of α_R. `roughnessR` is `HAIR_BETA_R` = 0.174533, the band's NARROW END, chosen from a
+ * measured sweep on the judged plate rather than from the mid-band default it carried through R25 —
+ * see the block above `HAIR_BETA_R` for the six arms and the two rejected knobs. Read every one of
+ * these numbers as β_K: **0.174533 is Marschner's 5°, not 10°** and it is not 0.174533 radians of
+ * his half-angle. That conversion is the whole reason this table is printed in both variables.
+ *
+ * **α_R and β_R are 3.5's two free parameters** and
  * everything else is derived from them by Marschner's ratios, so the model cannot be detuned into
  * a shape physics does not permit — in particular `β_TRT = 2 β_R` is what makes the secondary band
  * broad and soft, which is the look spec's own adjective for it arriving from fibre optics rather
@@ -746,8 +908,12 @@ export const HAIR_DEFAULTS = {
     /** Cuticle tilt of the R lobe, Karis' variable. Mid-band of −0.3473…−0.1743. Free parameter. */
     shiftR: -0.26,
 
-    /** Longitudinal width of the R lobe. Mid-band of 0.1745…0.3491. The other free parameter. */
-    roughnessR: 0.26,
+    /**
+     * Longitudinal width of the R lobe, β_K. **The NARROW end of 0.1745…0.3491**, which is
+     * Marschner's β_R = 5°. R26's one lever; see `HAIR_BETA_R` for the sweep that chose it and
+     * `?hairdefect=wide-lobe` for the mid-band arm it replaces.
+     */
+    roughnessR: HAIR_BETA_R,
 
     /** Marschner's ratios, applied to the two above. Not independently authorable on purpose. */
     shiftRatioTT: -0.5,
@@ -977,6 +1143,15 @@ export const HAIR_DEFECTS = {
         'highlight anywhere. If the picture does not move on THIS plate then no setting of the ' +
         'shipped constant can move it, and the hypothesis is refused by arithmetic rather than ' +
         'by taste.',
+    'wide-lobe': '🎯 THE A SIDE OF ROUND 26, and the two arms differ in ONE NUMBER. The primary ' +
+        'lobe\'s longitudinal width β_R is put back to HAIR_BETA_R_MID — the MIDDLE of Marschner ' +
+        'Table 1\'s measured 5-10 degree band, which is what shipped from round 13 through round ' +
+        '25 — and the shift, the weights, the scatter fake, the lock tilt, the lock albedo, the ' +
+        'strand jitter, the flow sheet and the card frame are left exactly as they ship. β_TT and ' +
+        'β_TRT follow it by Marschner\'s own ratios and material.roughness follows β_TRT, because ' +
+        'those are derivations rather than parameters: the arm is ONE free variable. ' +
+        '⚠️ IT OVERRIDES ?hairbeta= RATHER THAN COMPOSING WITH IT. A control that another key can ' +
+        'silently un-defect is not a control, and this one and that key move the same number.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -1262,6 +1437,31 @@ export function effectiveLockTilt( defect, settings = {} ) {
     if ( defect === 'lock-tilt-max' ) return HAIR_LOCK_TILT_MAX;
 
     return settings.lockTilt ?? HAIR_DEFAULTS.lockTilt;
+
+}
+
+/**
+ * The primary lobe width the SHADER will run at, which is not always the one the caller asked for.
+ *
+ * 🎯 THE R25 LESSON, APPLIED AT BUILD TIME RATHER THAN AT REPORT TIME. `effectiveLockTilt` exists
+ * because two defect arms bypass a uniform and a census printing that uniform would describe the
+ * wrong picture. R26's arm does not bypass anything: this function runs BEFORE the uniforms are
+ * created, so `nodes.roughnessR` — and β_TT, β_TRT and `material.roughness`, which are derived from
+ * it — all carry the effective value, and `describe()` reads the truth without a special case. That
+ * is the better shape of the same repair, and it is available here only because a width is one
+ * number rather than a branch in the node graph.
+ *
+ * ⚠️ The defect WINS over an explicit `settings.roughnessR`. `?hairdefect=wide-lobe&hairbeta=0.08`
+ * renders the wide arm, because a control an unrelated key can quietly cancel is not a control.
+ *
+ * @param {string} defect - one of `HAIR_DEFECTS`.
+ * @param {Object} [settings] - overrides over `HAIR_DEFAULTS`; only `roughnessR` is read.
+ */
+export function effectiveRoughnessR( defect, settings = {} ) {
+
+    if ( defect === 'wide-lobe' ) return HAIR_BETA_R_MID;
+
+    return settings.roughnessR ?? HAIR_DEFAULTS.roughnessR;
 
 }
 
@@ -2280,7 +2480,7 @@ export class HairNodeMaterial extends MeshPhysicalNodeMaterial {
  */
 export async function createHairMaterial( options = {} ) {
 
-    const settings = { ...HAIR_DEFAULTS, ...( options.settings ?? {} ) };
+    const requested = { ...HAIR_DEFAULTS, ...( options.settings ?? {} ) };
     const defect = options.defect ?? 'none';
 
     if ( Object.hasOwn( HAIR_DEFECTS, defect ) === false ) {
@@ -2288,6 +2488,12 @@ export async function createHairMaterial( options = {} ) {
         throw new Error( `HairMaterial: unknown defect '${ defect }'. Known: ${ Object.keys( HAIR_DEFECTS ).join( ', ' ) }` );
 
     }
+
+    // 🎯 ROUND 26'S ARM IS RESOLVED HERE, BEFORE ANY UNIFORM EXISTS, and that ordering is the whole
+    // repair — see `effectiveRoughnessR`. β_TT, β_TRT and `material.roughness` are all derived from
+    // this number below, so applying the defect to the SETTING makes every derived value follow it
+    // and leaves `describe()` reporting the picture that was actually drawn with no special case.
+    const settings = { ...requested, roughnessR: effectiveRoughnessR( defect, requested ) };
 
     const flowUrl = options.flowMapUrl === undefined
         ? beside( options.groomDirectoryUrl, 'flow.png' )
@@ -2400,6 +2606,21 @@ export async function createHairMaterial( options = {} ) {
             r: nodes.roughnessR.value,
             tt: nodes.roughnessTT.value,
             trt: nodes.roughnessTRT.value
+        },
+
+        // 🚩 ROUND 26, AND IT IS IN THE CENSUS BECAUSE A UNIT ERROR ON THIS EXACT NUMBER COST THE
+        // ROUND'S OWN DIAGNOSIS ITS LEVER. `roughnesses.r` above is β_K; a reader who takes it for
+        // Marschner's β_M is out by a factor of two and will conclude the lobe is 50% wider than the
+        // paper's widest sample when it is in fact at the paper's narrowest. So the census states
+        // BOTH variables and whether the value is inside the source's band, and `defect` beside it
+        // says which arm the plate is. Reported from the LIVE uniform, so the `wide-lobe` arm
+        // describes itself rather than the default.
+        lobeWidth: {
+            betaKaris: nodes.roughnessR.value,
+            betaMarschnerDegrees: ( nodes.roughnessR.value / 2 ) * 180 / Math.PI,
+            marschnerBandKaris: [ ...HAIR_BETA_R_BAND ],
+            insideBand: nodes.roughnessR.value >= HAIR_BETA_R_BAND[ 0 ] &&
+                nodes.roughnessR.value <= HAIR_BETA_R_BAND[ 1 ]
         },
         scatter: nodes.scatter.value,
         sideVisibility: nodes.sideVisibility.value,
