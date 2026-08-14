@@ -599,6 +599,112 @@ export const HAIR_LOCK_ALBEDO_SPREAD = 1.26;
  */
 export const HAIR_LOCK_SPREAD_MAX = 2;
 
+// --- the LOCK TILT, round 25 ---------------------------------------------------------------------
+//
+// 🎯 R24's DURABLE FINDING IS THAT ALBEDO IS THE WRONG QUANTITY, AND THIS IS THE RIGHT ONE.
+// Grass clumps genuinely differ in albedo — different plants, different age, different dryness —
+// which is why false-earth's `clumpSeed01` into base colour works there. **Every fibre on one head
+// shares one melanin.** A lock reads as a lock because of SHADING: self-shadow, tilt, and the
+// highlight breaking across it. Measured at the physical maximum, the albedo term read as PATCHY
+// DYE and a blind judge could not tell the two arms apart at 1:1, 4x or 5x. `docs/CHECKPOINT.md` §7.
+//
+// The judges' own first mechanism, in their own order, was **the highlight breaking across locks**:
+// *"one broad band"* where hair has one band per lock. That is a statement about M_p's argument,
+// and M_p's argument is a function of the TANGENT.
+//
+// ## 🚩 AND THE LOCK ID IS NOW A VERTEX ATTRIBUTE RATHER THAN A FIELD RE-DERIVED IN SPACE
+//
+// R24 hashed a Voronoi over `positionGeometry.xz` because the GLB carried no lock id to read. R25's
+// `hair_cards.py` emits the membership `nearest_lock()` has computed since R22 into **TEXCOORD_1**,
+// which `GLTFLoader.js:2228` maps to the geometry attribute `uv1` and TSL's `uv(1)` reads — both
+// verified against the installed three r185 rather than assumed. `u1` is `(index + 0.5)/16`,
+// CONSTANT over a whole card, and `v1` is the Voronoi edge distance at the card's root.
+//
+// That is a different KIND of quantity from R24's field and the difference is the round:
+//
+//   * it is the GENERATOR'S OWN membership, not a re-derivation that happens to be at lock scale;
+//   * it is a LABEL, so it is piecewise constant with hard boundaries — which is what "the highlight
+//     BREAKS at a lock boundary" requires and what a smooth field cannot produce;
+//   * it does not change down a card that wanders horizontally, which R24 recorded as the one place
+//     its spatial retarget diverged from the generator.
+//
+// ## THE MECHANISM: A PER-LOCK TILT OF THE STRAND, WHICH IS AN α SHIFT IN DISGUISE
+//
+// Marschner's α is the cuticle tilt: the scale surfaces sit at an angle to the fibre axis, and the
+// specular cone shifts because of it. A tilt of the FIBRE about an axis perpendicular to itself
+// does the same thing to the same term, so the round's change is one rotation of `this.tangent`,
+// out of the card's plane, by an angle that is constant across a lock and discontinuous between
+// locks.
+
+/**
+ * 🎯 THE AMPLITUDE, AS THE PEAK-TO-PEAK TILT IN RADIANS, AND IT IS MARSCHNER'S OWN MEASURED BAND
+ * RATHER THAN A TASTE VALUE.
+ *
+ * **The source.** Marschner, Jensen, Cammarano, Worley, Hanrahan, SIGGRAPH 2003, Table 1, page 8:
+ * `α_R` is measured across their samples at **−10° … −5°**, a 5° band. `docs/research/hair.md`
+ * carries the table and `HAIR_DEFAULTS` carries this file's conversion into Karis' variable,
+ * `α_K = 2 sin α_M`, which puts the same band at `−0.3473 … −0.1743` — **0.17299 rad wide**.
+ *
+ * **The equivalence, which is what makes a tilt an α.** M_p's argument is `sinθi + sinθr` and the
+ * shift enters as `(sinθi + sinθr) − α`. Rotating the tangent `t` by a small angle δ about an axis
+ * `a ⊥ t` moves it by `δ(a × t)`, so
+ *
+ *     Δ( sinθi + sinθr )  =  δ · (a × t) · (ωi + ωr)
+ *
+ * whose magnitude is at most `2δ`, since `|ωi + ωr| ≤ 2`, and is exactly `2δ` in the aligned limit
+ * `ωi = ωr` with `a` chosen in the longitudinal plane. **So a tangent tilt of δ is an α shift of up
+ * to 2δ**, and a peak-to-peak tilt spread of `W/2` spans an α band of width `W`.
+ *
+ * **The solve.** Setting the α band this term spans equal to the band Marschner MEASURED:
+ *
+ *     spread = 0.17299 / 2 = **0.086492 rad = 4.956°**
+ *
+ * 🎯 AND THE TWO FACTORS OF TWO CANCEL, WHICH IS WHY THE ANSWER IS MARSCHNER'S 5° BACK AGAIN. The
+ * ×2 in `α_K = 2 sin α_M` and the ×2 in the tilt-to-α equivalence divide out, so the shipped tilt
+ * spread is `sin 10° − sin 5°` — the small-angle image of the very 5° band the paper reports. It is
+ * written as that expression rather than as `0.086492` for the reason `STRAND_NOISE_SD` is: a
+ * literal here would silently stop being the right number the day the band was re-read.
+ *
+ * **What it is worth against the lobe it is shifting.** `HAIR_DEFAULTS.roughnessR` is 0.26, so the
+ * peak-to-peak α excursion of 0.17299 is **0.665 of one lobe width**. Two neighbouring locks at
+ * opposite ends of the band put their primary bands two thirds of a width apart — overlapping, so
+ * the mass still reads as one head of hair, and offset, so the band has a step in it at every lock
+ * boundary. That ratio is the whole design and it is the number to argue with, not the radians.
+ *
+ * ⚠️ **AND IT IS A SPREAD, NOT AN OFFSET.** The hash is centred by subtracting 0.5, so the MEAN
+ * tilt over the sixteen locks is within a few thousandths of zero (measured: hash mean 0.5192 over
+ * indices 1…16, i.e. a residual bias of 0.0017 rad = 0.10°). The groom's overall highlight position
+ * is therefore unmoved; only its continuity changes. A term that shifted the whole band would be a
+ * change to `shiftR` wearing a lock's name.
+ */
+export const HAIR_LOCK_TILT_SPREAD = Math.sin( 10 * Math.PI / 180 ) - Math.sin( 5 * Math.PI / 180 );
+
+/**
+ * The bound on the tilt, and it is geometric rather than arbitrary: **the spread at which two
+ * neighbouring locks' primary bands are separated by exactly one full lobe width.**
+ *
+ * The α excursion is `2 × spread`, and one lobe width is `β_R`, so the bound is `spread = β_R` =
+ * `HAIR_DEFAULTS.roughnessR` = 0.26 — asserted equal in the selftest so the two cannot drift apart.
+ * At that setting the mass has no continuous highlight anywhere: every lock's band is disjoint from
+ * its neighbour's, which is what a groom made of sixteen separate cylinders would look like and is
+ * not a bob. Reached by `?hairdefect=lock-tilt-max`, and its job is the same as
+ * `HAIR_LOCK_SPREAD_MAX`'s was — if the picture does not move at the structural maximum then no
+ * setting of the shipped constant can move it, and the hypothesis is refused by arithmetic rather
+ * than by taste. The shipped value is 33.3% of it.
+ */
+export const HAIR_LOCK_TILT_MAX = 0.26;
+
+/**
+ * `hair_cards.py`'s hash offset for the lock seed, and the one degenerate input it avoids.
+ *
+ * `strandHashValue( 0 )` is **exactly 0** — `fract(0 · 0.1031)` is 0 and every operation after it
+ * multiplies by zero — so hashing the raw index would hand lock 0 the extreme end of the band by
+ * construction rather than by chance. Offsetting by 1 gives sixteen seeds spanning 0.051…0.942 with
+ * a mean of 0.5192, measured. `strandNoiseValue` has the same zero and does not care, because its
+ * lattice cell 0 is one cell of thousands; here it would be one lock of sixteen.
+ */
+export const HAIR_LOCK_HASH_OFFSET = 1;
+
 /**
  * The standard deviation of `strandNoiseValue`, in closed form, so the jitter uniform is the
  * jitter's own standard deviation IN RADIANS rather than the amplitude of some unnamed wave.
@@ -814,7 +920,20 @@ export const HAIR_DEFAULTS = {
      */
     lockSpread: HAIR_LOCK_ALBEDO_SPREAD,
     lockCell: HAIR_LOCK_CELL_M,
-    lockBlend: HAIR_LOCK_BLEND_FRACTION
+    lockBlend: HAIR_LOCK_BLEND_FRACTION,
+
+    /**
+     * 🎯 THE LOCK TILT, AND IT IS THE ONLY NEW TERM IN ROUND 25. See `HAIR_LOCK_TILT_SPREAD` for
+     * the Marschner Table 1 derivation, and the block above it for why the lock id is now a vertex
+     * attribute rather than a field re-derived in space.
+     *
+     * It is kept STRICTLY separate from both terms already here, which is the same discipline R24
+     * applied and for the same reason. `strandTangentJitter` rotates the tangent IN the card's
+     * plane, per FRAGMENT, at filament frequency. `lockSpread` multiplies the base COLOUR, per
+     * spatial cell. This one rotates the tangent OUT of the card's plane, per LOCK ID, and shares
+     * no uniform, no coordinate and no expression with either.
+     */
+    lockTilt: HAIR_LOCK_TILT_SPREAD
 };
 
 /** The named A/B defects, reachable from the page. See `HairLightingModel.strandTangent`. */
@@ -844,6 +963,20 @@ export const HAIR_DEFECTS = {
         'be before a lock goes negative, i.e. locks running 0x to 2x the base colour. If the ' +
         'lock band does not move on THIS plate then no setting of the shipped constant can move ' +
         'it, and the hypothesis is refused by arithmetic rather than by taste.',
+    'no-lock-tilt': '🎯 THE A SIDE OF ROUND 25, and the two arms differ in ONE ROTATION. The ' +
+        'per-lock tangent tilt is removed — `lockTilt` goes to zero, so every lock shades on the ' +
+        'card\'s own strand direction and the primary band runs smoothly across the whole mass — ' +
+        'and the flow sheet, the per-fragment strand jitter, the lock albedo field, the card ' +
+        'frame, every lobe and the scatter fake are left exactly as they ship. It is ORTHOGONAL ' +
+        'to no-strand-jitter and to no-lock-albedo: those remove a FILAMENT-band rotation and a ' +
+        'LOCK-band colour, this removes a LOCK-band rotation, and no expression is shared by any ' +
+        'two of the three.',
+    'lock-tilt-max': '🎯 THE BOUND ON ROUND 25, and it is a probe rather than a defect. The tilt ' +
+        'spread is forced to HAIR_LOCK_TILT_MAX — the spread at which two neighbouring locks\' ' +
+        'primary bands are separated by one full lobe width, i.e. a mass with no continuous ' +
+        'highlight anywhere. If the picture does not move on THIS plate then no setting of the ' +
+        'shipped constant can move it, and the hypothesis is refused by arithmetic rather than ' +
+        'by taste.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -1080,6 +1213,61 @@ export function strandNoiseValue( phase ) {
     const high = strandHashValue( cell + 1 );
 
     return ( ( low + ( high - low ) * weight ) * 2 - 1 ) / STRAND_NOISE_SD;
+
+}
+
+/**
+ * THE PER-LOCK TILT ANGLE, in radians, mirrored by `lockTiltNode`.
+ *
+ * @param {number} identity - the emitted `uv1.x`, `(index + 0.5) / HAIR_LOCK_COUNT`.
+ * @param {Object} [settings] - overrides over `HAIR_DEFAULTS`; only `lockTilt` is read.
+ * @returns {number} centred on zero, inside ±spread/2 by construction.
+ */
+export function lockTiltValue( identity, settings = {} ) {
+
+    const spread = settings.lockTilt ?? HAIR_DEFAULTS.lockTilt;
+    const index = lockIndexValue( identity );
+
+    return ( strandHashValue( index + HAIR_LOCK_HASH_OFFSET ) - 0.5 ) * spread;
+
+}
+
+/**
+ * The lock index a shader recovers from the emitted `uv1.x`, and the recovery is EXACT.
+ *
+ * `(i + 0.5)/n` sits in the middle of its own `1/n` bin, so `floor(u · n)` returns `i` for every
+ * `i`; and at `n = 16` every emitted value is an odd multiple of 1/32, a binary fraction stored
+ * without error in f32. `tools/figure-pipeline/hair_lockid.selftest.mjs` sweeps the round trip over
+ * every index of every count from 2 to 64 through a `Float32Array`, which is the storage the GLB
+ * actually uses.
+ *
+ * 🚩 THE CLAMP IS NOT DEFENSIVE PADDING. The scalp CAP writes this channel per VERTEX rather than
+ * per face — `hair_cards.assemble_cards` explains why, and the short version is that a per-face
+ * value would shatter the cap into hundreds of components and take the card-count gate with it — so
+ * the cap's identity INTERPOLATES across a face and can land on exactly 1.0 at a shared corner.
+ * `floor(1.0 · 16)` is 16, one past the end.
+ */
+/**
+ * The tilt spread the SHADER will run at, which is not always the one the material was built with.
+ *
+ * Both R25 defect arms bypass the uniform — `no-lock-tilt` returns before the rotation and
+ * `lock-tilt-max` substitutes `HAIR_LOCK_TILT_MAX` — so a census that printed `nodes.lockTilt.value`
+ * would describe the wrong picture on exactly the two plates whose whole purpose is to be a
+ * different picture. R24's `lock.spread` has that shape and says so in its own comment; this is the
+ * repair rather than the repetition.
+ */
+export function effectiveLockTilt( defect, settings = {} ) {
+
+    if ( defect === 'no-lock-tilt' ) return 0;
+    if ( defect === 'lock-tilt-max' ) return HAIR_LOCK_TILT_MAX;
+
+    return settings.lockTilt ?? HAIR_DEFAULTS.lockTilt;
+
+}
+
+export function lockIndexValue( identity ) {
+
+    return Math.min( HAIR_LOCK_COUNT - 1, Math.max( 0, Math.floor( identity * HAIR_LOCK_COUNT ) ) );
 
 }
 
@@ -1627,6 +1815,33 @@ function lockAlbedoNode( nodes ) {
 
 }
 
+/**
+ * THE PER-LOCK TILT ANGLE, in TSL. Mirrored by `lockTiltValue`.
+ *
+ * 🎯 `uv(1)` IS THE GENERATOR'S OWN LOCK MEMBERSHIP AND NOT A RE-DERIVATION OF IT. `hair_cards.py`
+ * writes `(nearest_lock index + 0.5) / LOCK_COUNT` into TEXCOORD_1's `u`, constant over a whole
+ * card; `GLTFLoader.js:2228` maps TEXCOORD_1 to the `uv1` attribute; `nodes/accessors/UV.js`
+ * resolves `uv(1)` to it. `verify_glb.mjs`'s lock clause re-derives the index from the sixteen
+ * centres in the file's own extras and fails the build if under 90% of cards agree.
+ *
+ * 🚩 THE FIELD IS PIECEWISE CONSTANT WITH HARD BOUNDARIES, AND THAT IS THE POINT RATHER THAN A
+ * COMPROMISE. R24's lock term smoothstepped across its Voronoi edges precisely so it would not be
+ * broadband. This one must NOT: "the highlight breaks at a lock boundary" is a statement about a
+ * discontinuity, and a smoothed label is not a label. It costs no new aliasing class, because the
+ * only places it is discontinuous are card boundaries, and every card in this groom is already its
+ * own connected component with its own normal and its own UV — the discontinuity lands exactly
+ * where the geometry already has one.
+ */
+const lockTiltNode = /*@__PURE__*/ Fn( ( [ identity, spread ] ) => {
+
+    // `.min(...)` for the reason `lockIndexValue` gives: the CAP's identity interpolates and can
+    // reach exactly 1.0 at a shared corner, and `floor(1.0 · 16)` is one past the last lock.
+    const index = floor( identity.mul( HAIR_LOCK_COUNT ) ).min( HAIR_LOCK_COUNT - 1 ).max( 0 );
+
+    return strandHashNode( index.add( HAIR_LOCK_HASH_OFFSET ) ).sub( 0.5 ).mul( spread );
+
+} );
+
 /** M_p, in TSL. See `longitudinalValue` for what the normalisation means. */
 const longitudinalNode = /*@__PURE__*/ Fn( ( [ sinThetaSum, shift, roughness ] ) => {
 
@@ -2121,6 +2336,7 @@ export async function createHairMaterial( options = {} ) {
         lockSpread: uniform( settings.lockSpread ),
         lockCell: uniform( settings.lockCell ),
         lockBlend: uniform( settings.lockBlend ),
+        lockTilt: uniform( settings.lockTilt ),
 
         // Only read on the defect path. View space, pointing up-and-right across the frame, so a
         // reader who sees the plate can tell at a glance that the band is welded to the screen.
@@ -2208,6 +2424,21 @@ export async function createHairMaterial( options = {} ) {
             cellMillimetres: nodes.lockCell.value * 1000,
             blendCells: nodes.lockBlend.value,
             live: defect !== 'no-lock-albedo'
+        },
+
+        // Round 25, in the census for the same reason the two blocks above are: it is a knob that
+        // moves the picture, and two plates taken a round apart at different tilts would otherwise
+        // be indistinguishable from their manifests. `tiltRadians` reports the spread the material
+        // was BUILT with — read `live` and `defect` beside it to know which arm the plate is — and
+        // `alphaEquivalent` is the number the derivation is actually argued in: the peak-to-peak
+        // shift of M_p's argument, against `roughnessR` as one lobe width.
+        lockTilt: {
+            spreadRadians: effectiveLockTilt( defect, settings ),
+            spreadDegrees: effectiveLockTilt( defect, settings ) * 180 / Math.PI,
+            alphaEquivalent: effectiveLockTilt( defect, settings ) * 2,
+            lobeWidths: effectiveLockTilt( defect, settings ) * 2 / nodes.roughnessR.value,
+            built: nodes.lockTilt.value,
+            live: defect !== 'no-lock-tilt'
         },
         sheets: {
             flow: flowMap !== null,
@@ -2338,8 +2569,32 @@ function strandTangentNode( nodes ) {
     // The ε keeps a flow texel of exactly (0.5, 0.5) — an unwritten one — from normalising a zero
     // vector, and it is added along the card's own axis so the fallback is the card rather than a
     // NaN that would propagate into the G-buffer normal and out into GTAO.
-    return normalize( cardTangent.mul( alongWeight ).add( across.mul( acrossWeight ) )
+    const inPlane = normalize( cardTangent.mul( alongWeight ).add( across.mul( acrossWeight ) )
         .add( cardTangent.mul( EPSILON ) ) );
+
+    if ( nodes.defect === 'no-lock-tilt' ) return inPlane;
+
+    // 🎯 ROUND 25'S WHOLE CHANGE IS THIS ONE ROTATION, AND IT IS THE LAST THING THAT HAPPENS TO THE
+    // TANGENT. Everything above stays inside the card's plane — the flow sheet's rotation and the
+    // strand jitter are both combinations of ∂P/∂u and ∂P/∂v and can no more leave the surface than
+    // the sheet can. This one deliberately leaves it, because Marschner's α is a tilt of the
+    // scattering frame OUT of the fibre's own plane and an in-plane rotation is a change of azimuth
+    // rather than a change of shift. See `HAIR_LOCK_TILT_SPREAD` for the equivalence and its solve.
+    //
+    // 🚩 THE AXIS IS THE CARD'S PLANE NORMAL AND IT IS USED AS AN AXIS, NEVER AS A NORMAL. This
+    // file's header is explicit that the card's plane normal is a lie about a fibre bundle and is
+    // never shaded with; `normalNode` stays Karis' fake normal, rebuilt from the tilted tangent
+    // below by the caller. What is used here is only the DIRECTION `inPlane` is rotated toward, and
+    // `cross( across, cardTangent )` is exactly perpendicular to the plane both of them span, so
+    // the rotation is exact rather than approximately orthogonal.
+    const spread = nodes.defect === 'lock-tilt-max'
+        ? float( HAIR_LOCK_TILT_MAX )
+        : nodes.lockTilt;
+
+    const angle = lockTiltNode( uv( 1 ).x, spread );
+    const cardNormal = normalize( cross( across, cardTangent ) );
+
+    return normalize( inPlane.mul( cos( angle ) ).add( cardNormal.mul( sin( angle ) ) ) );
 
 }
 

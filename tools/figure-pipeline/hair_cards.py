@@ -497,6 +497,63 @@ CLUMP_CLEARANCE_PASSES = 3
 # it; what is left is the per-card residue that keeps a lock from being one wide ribbon.
 LOCK_DIRECTION_SHARE = 0.75
 
+# 🎯 **THE LOCK CHANNEL — R25. THE MEMBERSHIP `nearest_lock` ALREADY COMPUTES, CARRIED OUT OF THIS
+# FILE AND INTO THE MESH.**
+#
+# Everything above this line has existed since R22 and NONE of it reached the shader.
+# `assemble_cards` writes `u` = the atlas STRIP (one of eight, shared by every card on it) and
+# `v` = root-to-tip, and the exported GLB carried POSITION / NORMAL / TEXCOORD_0 / JOINTS_0 /
+# WEIGHTS_0 and nothing else. So the renderer had no lock id, no card id and no per-card UV offset
+# to derive one from, and `HairMaterial.js` re-derived a lock field in SPACE — a hashed-cell Voronoi
+# over `positionGeometry.xz` — because that was the only lock-scale coordinate available to it.
+# R24 measured what that cost: the re-derived field is a lock-scale FIELD and not lock MEMBERSHIP,
+# it changes down a card that wanders horizontally, and it agrees with this file's own Voronoi
+# nowhere in particular. See `docs/CHECKPOINT.md` §7.
+#
+# A SECOND UV LAYER IS THE CHANNEL, and the choice was verified rather than assumed:
+#
+#   * Blender's exporter writes one `TEXCOORD_i` per entry of `mesh.uv_layers`, in creation order,
+#     with no filter for "used by a material" — `io_scene_gltf2/blender/exp/primitive_extract.py:110`
+#     sets `tex_coord_max = len(self.blender_mesh.uv_layers)` under `gltf_texcoords` alone.
+#   * three r185's `GLTFLoader.js:2228` maps `TEXCOORD_1` → the geometry attribute `uv1`, and TSL's
+#     `nodes/accessors/UV.js` resolves `uv(1)` to `attribute('uv1','vec2')`. Both were read in the
+#     installed tree, not recalled.
+#
+# 🚩 **AND A CUSTOM `_LOCK` ATTRIBUTE WAS THE OTHER CANDIDATE AND IS WORSE HERE.** It works — the
+# `_HIDE_*` garment masks prove the path — but it needs `export_attributes=True`, which this build
+# only sets when a garment asked for it, and `GLTFLoader` lower-cases the name the exporter
+# upper-cases (LEARNINGS Part 2). Two spellings and a conditional export flag, against a channel
+# three already names.
+#
+# WHAT THE TWO FLOATS ARE:
+#
+#   u1  the LOCK INDEX, as `(index + 0.5) / LOCK_COUNT`. Recovered in the shader by
+#       `floor(u1 * LOCK_COUNT)`, which is exact: with LOCK_COUNT 16 every emitted value is an
+#       odd multiple of 1/32 and binary-exact in f32, and the +0.5 puts it in the middle of its
+#       bin so no rounding at either end can walk it into a neighbour. It is CONSTANT over a whole
+#       card — `nearest_lock` is evaluated once at the root, exactly as the groom's own clumping
+#       is — so it interpolates to itself and carries no seam.
+#
+#   v1  the VORONOI EDGE DISTANCE `(d2 − d1)`, normalised and clamped to [0,1]. Zero on a lock
+#       boundary, one at a lock core. This is false-earth's `centerFactor` input measured on the
+#       GENERATOR'S OWN sites rather than re-hashed from a grid, and it is what the two shading
+#       mechanisms this round did not ship would need: a card in a groove is the card whose root
+#       sits where two locks meet.
+#
+# 🚩 **THE SECOND-NEAREST IS COMPUTED, NOT ESTIMATED.** `lock_membership` sorts all sixteen centres
+# rather than taking a 3x3 neighbourhood, because sixteen sites over one scalp is not a grid and a
+# neighbourhood scan on a dart-thrown set can miss the true second-nearest. Sixteen is small enough
+# that the exact answer is free.
+LOCK_UV_LAYER = "LockMap"
+
+# The metre scale `(d2 − d1)` is divided by before it is clamped, and it is a division rather than
+# a taste: `LOCK_COUNT` centres spread over the scalp's own measured area give a cell of
+# `sqrt(area / LOCK_COUNT)` a side, which is the spacing between neighbouring centres and therefore
+# the largest `d2 − d1` a cell core can produce. Taken off `ScalpFrame.area` so it tracks the
+# identity like every other length in this file — 513.2 cm² at g050 gives 56.6 mm — and written
+# into the mesh's own extras so `verify_glb.mjs` can re-derive the channel instead of trusting it.
+# `lock_edge_scale` is the function, down with the other lock code.
+
 # How far forward the fringe leans as it leaves the hairline, against one unit of straight down.
 # It is what stops the plane from lying on the forehead: at 0 the tangent projection at a front
 # hairline root still points down the brow, and the standoff is then the only thing holding the
@@ -729,11 +786,13 @@ def build_hair(basemesh, rig, arguments):
 
     body = body_surface_of(basemesh)
     locks = place_locks(basemesh, frame, arguments)
+    edge_scale = lock_edge_scale(frame)
 
     cards = []
     per_layer = []
     for layer in HAIR_LAYERS:
-        grown = grow_layer(basemesh, frame, body if collide else None, layer, locks, arguments)
+        grown = grow_layer(basemesh, frame, body if collide else None, layer, locks, edge_scale,
+                           arguments)
         per_layer.append((layer["name"], len(grown)))
         cards.extend(grown)
 
@@ -745,7 +804,7 @@ def build_hair(basemesh, rig, arguments):
     # shells the groom is cards only, which is the state the top-down render showed bare skin in.
     shells = [] if arguments.no_hair_cap else build_scalp_cap(basemesh, frame)
 
-    hair_object = assemble_cards(basemesh, cards, shells, style)
+    hair_object = assemble_cards(basemesh, cards, shells, style, locks, edge_scale)
     clamped, rescued, nearest, nearest_at = clamp_cards_off_the_body(
         hair_object, body, frame, collide)
     weight_to_head(hair_object, rig)
@@ -757,7 +816,8 @@ def build_hair(basemesh, rig, arguments):
     assign_hair_material(hair_object, style, dict((name, path) for name, path, _ in maps))
 
     report = HairReport(style, frame, per_layer, hair_object, clamped, nearest, maps,
-                        texture_directory, collide, len(shells), cards, nearest_at, rescued)
+                        texture_directory, collide, len(shells), cards, nearest_at, rescued,
+                        edge_scale)
 
     return hair_object, style, report
 
@@ -1030,9 +1090,69 @@ def place_locks(basemesh, frame, arguments):
     return [Lock(position, normal, random) for position, normal in centres]
 
 
+def lock_membership(locks, position):
+    """Which lock a point belongs to, and how far it sits from that lock's boundary.
+
+    Returns `(index, nearest_distance, second_distance)`. One function for both because the two
+    numbers have to come from the same metric and the same tie-break: `nearest_lock` used to be a
+    separate `min()` and a second `min()` beside it would have been two chances to disagree.
+
+    Exact over all `LOCK_COUNT` centres rather than over a neighbourhood — see LOCK_UV_LAYER.
+    """
+    ordered = sorted(range(len(locks)),
+                     key=lambda index: (locks[index].position - position).length_squared)
+
+    nearest = ordered[0]
+    second = ordered[1] if len(ordered) > 1 else ordered[0]
+
+    return (nearest,
+            (locks[nearest].position - position).length,
+            (locks[second].position - position).length)
+
+
 def nearest_lock(locks, position):
     """The lock a root belongs to. Straight-line nearest — the scalp is convex at this scale."""
-    return min(locks, key=lambda lock: (lock.position - position).length_squared)
+    return locks[lock_membership(locks, position)[0]]
+
+
+def lock_edge_scale(frame):
+    """Metres of scalp per unit of the emitted edge channel. See LOCK_UV_LAYER."""
+    return math.sqrt(frame.area / LOCK_COUNT)
+
+
+def lock_channel(locks, position, edge_scale):
+    """The two floats that go into TEXCOORD_1 for a point. See LOCK_UV_LAYER for both.
+
+    `(index + 0.5) / LOCK_COUNT` and `clamp((d2 − d1) / edge_scale, 0, 1)`.
+    """
+    index, nearest, second = lock_membership(locks, position)
+
+    identity = (index + 0.5) / LOCK_COUNT
+    edge = min(max((second - nearest) / edge_scale, 0.0), 1.0)
+
+    return (identity, edge)
+
+
+def lock_uv(channel):
+    """The lock channel as it must be WRITTEN into a UV layer, which is not as it is meant.
+
+    🚩 **BLENDER'S glTF EXPORTER FLIPS `v` ON EVERY UV LAYER, AND THE FIRST BUILD OF THIS CHANNEL
+    SHIPPED THE EDGE DISTANCE INSIDE OUT.** glTF's UV origin is the top-left and Blender's is the
+    bottom-left, so `v_gltf = 1 − v_blender` for TEXCOORD_0 and for every layer after it. It was
+    caught by `verify_glb.mjs`, which read an edge p50 of 0.753 off the file against the 0.245 this
+    build's own report had just printed — the same number, the wrong way up, which is exactly the
+    shape of an unexamined convention.
+
+    Measured on the shipped file rather than recalled: TEXCOORD_0's root ring, which this file
+    writes at `v = 1`, arrives at **`v = 0`** with the root at y 1.5083 and the tip at y 1.4362.
+
+    The flip is applied HERE, at the write, so that the file — which is what the shader and the
+    gate both read — carries the channel the right way up and nothing downstream has to know this
+    paragraph exists. `u` is unaffected.
+    """
+    identity, edge = channel
+
+    return (identity, 1.0 - edge)
 
 
 def draw_into_lock(guide, lock_guide, tightness, body, standoff):
@@ -1078,7 +1198,7 @@ def draw_into_lock(guide, lock_guide, tightness, body, standoff):
 # --- growing a layer ----------------------------------------------------------------------------
 
 
-def grow_layer(basemesh, frame, body, layer, locks, arguments):
+def grow_layer(basemesh, frame, body, layer, locks, edge_scale, arguments):
     """One shell of cards: sample roots, grow a guide from each, gather them into locks, ribbon."""
     import random as random_module
 
@@ -1119,7 +1239,13 @@ def grow_layer(basemesh, frame, body, layer, locks, arguments):
                                body, layer["standoff"])
 
         strip = layer["strips"][index % len(layer["strips"])]
-        cards.append(ribbon_of(guide, frame, layer, strip, random))
+
+        # 🎯 THE LOCK CHANNEL IS READ AT THE ROOT, WHICH IS WHERE THE GROOM'S OWN MEMBERSHIP IS
+        # DECIDED. `nearest_lock(locks, position)` two statements above is the assignment that
+        # gathers this card; emitting anything measured further down the shaft would ship a
+        # membership the geometry does not have. See LOCK_UV_LAYER.
+        cards.append(ribbon_of(guide, frame, layer, strip, random,
+                               lock_channel(locks, position, edge_scale)))
 
     return cards
 
@@ -1460,7 +1586,7 @@ def grow_guide(root, root_normal, direction, body, frame, layer, curl, length):
     return points
 
 
-def ribbon_of(guide, frame, layer, strip, random):
+def ribbon_of(guide, frame, layer, strip, random, lock):
     """Turns a guide curve into a quad strip: positions, UVs and the strip it samples.
 
     The card's own frame is built from the curve tangent and an OUTWARD direction taken from the
@@ -1500,7 +1626,7 @@ def ribbon_of(guide, frame, layer, strip, random):
 
         rings.append((point - across * half, point + across * half, s))
 
-    return {"rings": rings, "strip": strip, "layer": layer["name"]}
+    return {"rings": rings, "strip": strip, "layer": layer["name"], "lock": lock}
 
 
 # --- assembly -----------------------------------------------------------------------------------
@@ -1580,7 +1706,7 @@ def cap_uv(offset, face_azimuth, radius, rotation, wedges):
     return (strip_left + (strip_right - strip_left) * across, 1.0 - v)
 
 
-def assemble_cards(basemesh, cards, shells, style):
+def assemble_cards(basemesh, cards, shells, style, locks, edge_scale):
     """Builds the one hair mesh out of every card and both cap shells, with their UVs.
 
     Cards share no vertices. That is deliberate and it is what makes the card count MEASURABLE off
@@ -1588,18 +1714,35 @@ def assemble_cards(basemesh, cards, shells, style):
     topology — and it is also correct: two cards that shared a vertex would share a UV, and their
     strips are different. The cap shells are the components that are NOT quad strips, which is how
     the gate tells them apart without being told how many of either to expect.
+
+    🚩 **THE SECOND UV LAYER IS WRITTEN PER VERTEX ON THE CAP AND PER CARD ON THE CARDS, AND THAT
+    ASYMMETRY IS WHAT PROTECTS THE COMPONENT COUNT.** A card owns its vertices outright, so a
+    per-card constant costs no splits. The cap's vertices are SHARED between faces, and Blender's
+    exporter de-duplicates on the whole attribute tuple — so writing a per-FACE lock id there would
+    split every shared cap vertex and shatter the cap into hundreds of components, which is exactly
+    the failure `export_hair_fragment` records for `export_tangents=True` and exactly what the
+    card-count gate is built on. A per-vertex value adds no split that TEXCOORD_0 did not already
+    cause. The cost is that the cap's lock id INTERPOLATES across a face; the cap is the opaque
+    shell underneath 496 cards, so what interpolates there is a shading term nobody can see.
     """
     mesh = bmesh.new()
     uv_layer = mesh.loops.layers.uv.new("UVMap")
 
+    # Created here rather than after the faces so that every loop carries it from the start — a
+    # layer added later leaves the existing loops on (0,0), which decodes as lock 0 everywhere.
+    lock_layer = mesh.loops.layers.uv.new(LOCK_UV_LAYER)
+
     for shell in shells:
         made = {index: mesh.verts.new(point) for index, point in shell["points"].items()}
+        shell_locks = {index: lock_uv(lock_channel(locks, point, edge_scale))
+                       for index, point in shell["points"].items()}
         for corners in shell["faces"]:
             # `faces.new` keeps the order it is given, so the loops come back in corner order and
             # the UVs can be zipped straight on.
             face = mesh.faces.new([made[index] for index, _uv in corners])
-            for loop, (_index, uv) in zip(face.loops, corners):
+            for loop, (index, uv) in zip(face.loops, corners):
                 loop[uv_layer].uv = uv
+                loop[lock_layer].uv = shell_locks[index]
 
     columns = hair_texture.STRIP_COLUMNS
     # One texel of inset either side of the strip, so bilinear filtering at the card's edge cannot
@@ -1624,6 +1767,7 @@ def assemble_cards(basemesh, cards, shells, style):
                     at_root = loop.vert in previous
                     loop[uv_layer].uv = (left_column if at_left else right_column,
                                          1.0 - (previous[2] if at_root else s))
+                    loop[lock_layer].uv = lock_uv(card["lock"])
 
             previous = (left, right, s)
 
@@ -1633,6 +1777,23 @@ def assemble_cards(basemesh, cards, shells, style):
     data = bpy.data.meshes.new(f"{HAIR_MATERIAL_PREFIX}{style}")
     mesh.to_mesh(data)
     mesh.free()
+
+    # 🎯 THE LOCK CENTRES TRAVEL WITH THE FILE, SO THE GATE RE-DERIVES THE CHANNEL RATHER THAN
+    # TRUSTING IT. `export_extras=True` is already set for `targetNames`, so mesh custom properties
+    # arrive as the primitive's `extras`. `verify_glb.mjs` reads these sixteen sites, finds the
+    # nearest one to every card's own exported root, and fails the build if the emitted index
+    # disagrees — the same "measure it off the file, never off the report" split every other clause
+    # in that gate is built on.
+    #
+    # 🚩 **CONVERTED TO glTF's Y-UP HERE, BECAUSE EXTRAS ARE NOT CONVERTED BY THE EXPORTER.**
+    # `export_yup=True` rotates POSITION and leaves custom properties exactly as written, so a
+    # centre stored in Blender's Z-up would be compared against Y-up vertices and every card would
+    # look mis-assigned. Blender (x, y, z) → glTF (x, z, −y).
+    data["sugata_lock_count"] = LOCK_COUNT
+    data["sugata_lock_edge_scale_m"] = edge_scale
+    data["sugata_lock_centres"] = [component for lock in locks
+                                   for component in (lock.position.x, lock.position.z,
+                                                     -lock.position.y)]
 
     hair_object = bpy.data.objects.new(f"Human.{HAIR_MATERIAL_PREFIX}{style}", data)
     basemesh.users_collection[0].objects.link(hair_object)
@@ -1894,7 +2055,16 @@ class HairReport:
 
     def __init__(self, style, frame, per_layer, hair_object, clamped, nearest, maps,
                  texture_directory, collide=True, shells=0, cards=(), nearest_at=None,
-                 rescued=0):
+                 rescued=0, edge_scale=None):
+        self.edge_scale = edge_scale
+        self.lock_histogram = {}
+        self.lock_edges = []
+        for card in cards:
+            identity, edge = card["lock"]
+            index = int(identity * LOCK_COUNT)
+            self.lock_histogram[index] = self.lock_histogram.get(index, 0) + 1
+            self.lock_edges.append(edge)
+
         self.collide = collide
         self.shells = shells
         self.style = style
@@ -1936,6 +2106,15 @@ class HairReport:
                      f"   tip z {tips['mean']:.4f} ± {tips['sd'] * 1000:5.1f} mm, "
                      f"spread {tips['spread'] * 1000:5.1f} mm"))
         print(f"cards           : {self.cards}")
+        if self.edge_scale is not None and self.lock_edges:
+            occupied = sorted(self.lock_histogram.items())
+            edges = sorted(self.lock_edges)
+            print(f"lock channel    : {len(occupied)} of {LOCK_COUNT} locks carry cards, "
+                  f"{min(count for _i, count in occupied)}–"
+                  f"{max(count for _i, count in occupied)} cards each; "
+                  f"edge scale {self.edge_scale * 1000:.1f} mm, "
+                  f"edge p10/p50/p90 {edges[len(edges) // 10]:.3f}/"
+                  f"{edges[len(edges) // 2]:.3f}/{edges[len(edges) * 9 // 10]:.3f}")
         print(f"scalp cap       : {self.shells} shell(s) at "
               f"{', '.join(f'{offset * 1000:.1f}' for offset in CAP_SHELL_OFFSETS_M[:self.shells])}"
               f" mm{'' if self.shells else '   [--no-hair-cap: RED PROOF BUILD]'}")

@@ -50,8 +50,38 @@ const {
 // shell buried in scatter before it is pointed at anything. See `hair_locks.selftest.mjs`.
 const { measureGroom: measureLockStructure, envelopeSpread } = await import("./hair_locks.mjs");
 
+// The lock CHANNEL's operators — R25. Validated against one site, two collinear sites, a square
+// lattice and an f32 round trip over every index of every count from 2 to 64, in
+// `hair_lockid.selftest.mjs`, before this file points them at a groom.
+const { cardRoot, componentLockSpread, decodeLockIndex, nearestTwoSites } =
+  await import("./hair_lockid.mjs");
+
 const { readAccessor, readGlb } = await import("../lut-bake/glb.mjs");
 const { decodePng } = await import("../critic/png.mjs");
+
+/**
+ * How many of a groom's cards must put their EXPORTED ROOT nearest the lock centre they claim.
+ *
+ * The gap from 100% is geometric and is explained at `reportLockChannel`: the generator assigns
+ * from the scalp root and the file carries the ribbon's first ring, `root + normal · standoff`,
+ * 3.8–30 mm off the surface. Measured over the five bakes on the shipped groom:
+ * **95.97 / 96.37 / 96.17 / 96.98 / 95.36%** at g000…g100. The floor is 90%, 5.4 points below the
+ * worst, for the reason the fringe row in `tools/figure-pipeline/README.md` gives: a gate set at
+ * its own measurement goes red on the next round's unrelated change and stops meaning anything.
+ * 🚩 A channel that had lost its meaning entirely reads 1/16 = 6.25% here, and the FIRST build of
+ * it — with the root ring taken off the wrong end of `v` — read 16–24%.
+ */
+const MINIMUM_LOCK_REDERIVATION = 0.90;
+
+/**
+ * How far the emitted edge distance may sit from the one re-derived off the same centres, at p90.
+ *
+ * Same standoff argument as above, in metres instead of in labels. Measured over the five bakes:
+ * **0.089 / 0.088 / 0.087 / 0.083 / 0.086**, i.e. under a tenth of the channel's full range. The
+ * ceiling is 0.15, 1.7x the worst. 🎯 THIS IS THE CLAUSE THAT CAUGHT THE EXPORTER'S V-FLIP: an
+ * edge channel written upside down reads about 0.5 here, and it left every other clause green.
+ */
+const MAX_EDGE_REDERIVATION_ERROR = 0.15;
 
 /** Half the authored FOUNDATION_HEM_ROLL_M. See `reportFoundationHem`. */
 const MINIMUM_HEM_ROLL_MM = 0.6;
@@ -1470,6 +1500,12 @@ function readOnlyPrimitive(glb) {
     positions: readAccessor(glb, primitive.attributes.POSITION).data,
     normals: readAccessor(glb, primitive.attributes.NORMAL).data,
     uvs: readAccessor(glb, primitive.attributes.TEXCOORD_0).data,
+    // R25's lock channel. Null rather than a throw, so the clause below can say WHICH thing is
+    // missing instead of the file failing to open at all.
+    lockUvs: primitive.attributes.TEXCOORD_1 === undefined
+      ? null
+      : readAccessor(glb, primitive.attributes.TEXCOORD_1).data,
+    extras: glb.json.meshes[0].extras ?? {},
     indices: readAccessor(glb, primitive.indices).data,
     joints: readAccessor(glb, primitive.attributes.JOINTS_0).data,
     weights: readAccessor(glb, primitive.attributes.WEIGHTS_0).data,
@@ -2018,6 +2054,7 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
   failures.push(...reportCardGathering(groom, mesh));
   failures.push(...reportLockSeparation(groom, mesh));
   failures.push(...reportHairUvs(groom, mesh, hair));
+  failures.push(...reportLockChannel(groom, mesh));
   failures.push(...reportCardBorders(groom, glb, mesh));
   failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
   failures.push(...reportSkinning(glb.json, threeMeshes));
@@ -2168,6 +2205,150 @@ function reportHairUvs(groom, mesh, hair) {
   if (skewed.length > 0) {
     failures.push(`${groom.id} has ${skewed.length} cards whose UV is not axis-aligned; the ` +
                   "strand direction derived from it would be rotated by an unknown angle");
+  }
+
+  return failures;
+}
+
+/**
+ * 🎯 THE LOCK CHANNEL — R25 — RE-DERIVED OFF THE FILE RATHER THAN READ OFF IT.
+ *
+ * `hair_cards.py` has assigned every card to one of `LOCK_COUNT` dart-thrown scalp centres since
+ * R22 and shipped none of it: the GLB carried POSITION / NORMAL / TEXCOORD_0 / JOINTS_0 /
+ * WEIGHTS_0, and TEXCOORD_0's `u` is the ATLAS STRIP, one of eight, shared by every card on it.
+ * R25 adds TEXCOORD_1 — `(index + 0.5)/count` and the Voronoi edge distance — plus the sixteen
+ * centres in the mesh's own `extras`.
+ *
+ * 🚩 **AND THE CENTRES ARE THE POINT OF THE CLAUSE.** A gate that checked the channel was "present
+ * and in range" would pass a build that wrote lock 0 to all 496 cards, and would pass one whose
+ * Y-up conversion was wrong — both are exactly the structurally-blind statistic this project keeps
+ * finding. So the clause finds the nearest centre to each card's OWN EXPORTED ROOT and compares.
+ *
+ * ⚠️ **THE RE-DERIVATION IS NOT EXACT AND THE REASON IS GEOMETRIC.** The generator assigns from the
+ * scalp root; the file carries the ribbon's first ring, which `grow_guide` starts at
+ * `root + normal · standoff` — 3.8 to 30 mm off the surface by layer — and which
+ * `clamp_cards_off_the_body` may have moved again. Sliding a point along a curved surface's normal
+ * does not preserve nearest-site ORDER for a point already close to a Voronoi boundary. So the
+ * clause is two-sided: a match rate floor, AND every mismatch confined to a small emitted edge
+ * distance, which is the channel's own statement that this root sits near a boundary. A mismatch
+ * at a lock CORE is an index that is simply wrong, and that is worth failing a build over.
+ */
+function reportLockChannel(groom, mesh) {
+  console.log("");
+  console.log("--- assertions on the lock channel (R25) ---");
+
+  const failures = [];
+
+  if (mesh.lockUvs === null) {
+    console.log("  FAIL lock channel     no TEXCOORD_1 — the groom's lock identity does not " +
+                "reach the shader");
+    return [`${groom.id} exports no TEXCOORD_1; HairMaterial's per-lock terms have nothing to read`];
+  }
+
+  const count = mesh.extras.sugata_lock_count;
+  const edgeScale = mesh.extras.sugata_lock_edge_scale_m;
+  const centres = mesh.extras.sugata_lock_centres;
+
+  if (count === undefined || edgeScale === undefined || centres === undefined) {
+    console.log("  FAIL lock extras      the mesh carries no sugata_lock_* extras, so the " +
+                "channel cannot be re-derived and would only be read back");
+    return [`${groom.id} carries TEXCOORD_1 but no lock centres in extras`];
+  }
+
+  const components = connectedComponents(mesh.indices, mesh.vertexCount);
+  const cards = components.filter(isRibbon);
+
+  // 1. Every card's channel is a LABEL: constant over the whole card. A value that interpolated
+  //    would sweep `floor(u1 · count)` through indices that are not the card's own.
+  let notConstant = 0;
+  const histogram = new Map();
+  const readings = [];
+
+  for (const card of cards) {
+    const spread = componentLockSpread(card.vertices, mesh.lockUvs);
+    if (spread.identitySpread !== 0 || spread.edgeSpread !== 0) {
+      notConstant += 1;
+    }
+
+    const index = decodeLockIndex(spread.identity, count);
+    histogram.set(index, (histogram.get(index) ?? 0) + 1);
+    readings.push({ card, index, edge: spread.edge });
+  }
+
+  // 2. The re-derivation, off the centres and the exported root. Both halves of the channel, not
+  //    just the index: an edge distance that came out inside-out would leave the index clause
+  //    entirely green, and the first build of this channel did exactly that.
+  let matched = 0;
+  const edgeErrors = [];
+
+  for (const reading of readings) {
+    const root = cardRoot(reading.card.vertices, mesh.positions, mesh.uvs);
+    const found = nearestTwoSites(centres, root.point);
+
+    if (found.index === reading.index) {
+      matched += 1;
+    }
+
+    const rederived = Math.min(Math.max((found.second - found.nearest) / edgeScale, 0), 1);
+    edgeErrors.push(Math.abs(rederived - reading.edge));
+  }
+
+  edgeErrors.sort((a, b) => a - b);
+  const edgeError = edgeErrors[Math.floor(edgeErrors.length * 0.9)];
+
+  const rate = matched / readings.length;
+  const edges = readings.map((reading) => reading.edge).sort((a, b) => a - b);
+  const inRange = readings.filter((reading) => reading.edge >= 0 && reading.edge <= 1).length;
+
+  const constantOk = notConstant === 0;
+  const occupancyOk = histogram.size === count;
+  const rateOk = rate >= MINIMUM_LOCK_REDERIVATION;
+  const edgeOk = edgeError <= MAX_EDGE_REDERIVATION_ERROR;
+  const rangeOk = inRange === readings.length;
+
+  console.log(`  ${constantOk ? "ok  " : "FAIL"} one lock a card   ` +
+              `${cards.length - notConstant} of ${cards.length} cards carry a CONSTANT ` +
+              "TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise");
+  console.log(`  ${occupancyOk ? "ok  " : "FAIL"} every lock used   ` +
+              `${histogram.size} of ${count} locks carry cards, ` +
+              `${Math.min(...histogram.values())}–${Math.max(...histogram.values())} each ` +
+              "(a build that wrote one index everywhere reads 1 here)");
+  console.log(`  ${rangeOk ? "ok  " : "FAIL"} edge distance     ` +
+              `${inRange} of ${readings.length} in [0,1]; p10/p50/p90 ` +
+              `${edges[Math.floor(edges.length * 0.1)].toFixed(3)}/` +
+              `${edges[Math.floor(edges.length * 0.5)].toFixed(3)}/` +
+              `${edges[Math.floor(edges.length * 0.9)].toFixed(3)} ` +
+              `at ${(edgeScale * 1000).toFixed(1)} mm a unit`);
+  console.log(`  ${rateOk ? "ok  " : "FAIL"} re-derived index  ` +
+              `${matched} of ${readings.length} cards (${(rate * 100).toFixed(2)}%) put their ` +
+              `exported root nearest the centre they claim (floor ` +
+              `${(MINIMUM_LOCK_REDERIVATION * 100).toFixed(0)}%)`);
+  console.log(`  ${edgeOk ? "ok  " : "FAIL"} re-derived edge   ` +
+              `p90 |emitted − re-derived| = ${edgeError.toFixed(3)} ` +
+              `(ceiling ${MAX_EDGE_REDERIVATION_ERROR}) — this is the clause that catches an ` +
+              "edge channel written upside down");
+
+  if (!constantOk) {
+    failures.push(`${groom.id} has ${notConstant} cards whose TEXCOORD_1 is not constant, so the ` +
+                  "lock id interpolates across the card and hashes to noise");
+  }
+  if (!occupancyOk) {
+    failures.push(`${groom.id} uses ${histogram.size} of ${count} lock indices — the channel is ` +
+                  "not carrying the generator's own Voronoi");
+  }
+  if (!rangeOk) {
+    failures.push(`${groom.id} has ${readings.length - inRange} cards with an edge distance ` +
+                  "outside [0,1]");
+  }
+  if (!rateOk) {
+    failures.push(`${groom.id} re-derives only ${(rate * 100).toFixed(2)}% of its lock indices ` +
+                  `from the ${count} centres in its own extras; the channel does not describe ` +
+                  "this mesh (a wrong Y-up conversion reads like this)");
+  }
+  if (!edgeOk) {
+    failures.push(`${groom.id}'s edge channel disagrees with the one re-derived from its own ` +
+                  `centres by ${edgeError.toFixed(3)} at p90; a channel written upside down ` +
+                  "reads about 0.5 here and a correct one reads a fraction of that");
   }
 
   return failures;

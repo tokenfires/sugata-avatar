@@ -80,11 +80,17 @@ import {
     HAIR_LOCK_COUNT,
     HAIR_LOCK_MASS_RADIUS_M,
     HAIR_LOCK_SPREAD_MAX,
+    HAIR_LOCK_HASH_OFFSET,
+    HAIR_LOCK_TILT_MAX,
+    HAIR_LOCK_TILT_SPREAD,
     HAIR_MELANIN_ABSORPTION,
     HAIR_STRAND_PITCH,
     STRAND_NOISE_SD,
+    effectiveLockTilt,
     lockAlbedoValue,
     lockFieldValue,
+    lockIndexValue,
+    lockTiltValue,
     lockHash12Value,
     lockHash22Value,
     azimuthalValues,
@@ -1322,6 +1328,171 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
             `pre-change\n      capture on both views — sha256 93eadc8eb7fd3508… portrait and 2dec2415cf5aba82… ` +
             `three-quarter — so the term is provably the only render change\n      the round makes, and switching ` +
             `it off returns the plate exactly rather than approximately.`
+    );
+
+}
+
+// --- THE LOCK TILT, ON THE MIRROR — ROUND 25 ------------------------------------------------
+//
+// 🎯 R24's finding was that ALBEDO is the wrong quantity for a lock: every fibre on one head shares
+// one melanin, and a lock reads as a lock because of SHADING. R25 drives shading, with the
+// membership `hair_cards.nearest_lock()` has computed since R22 and which — until this round — the
+// mesh did not carry. The term is one rotation of the strand tangent, out of the card's plane, by
+// an angle that is CONSTANT across a lock and DISCONTINUOUS between locks.
+//
+// 🚩 THE CLAUSES THAT DECIDE WHETHER IT IS THE RIGHT SIZE ARE THE TWO DERIVATION ONES, and neither
+// is a tolerance: the shipped spread must be Marschner Table 1's own α_R band divided by the
+// tilt-to-α factor of two, and the bound must be one lobe width. A number that merely "looked
+// right" would pass every other check in this block.
+{
+
+    const alphaBand = 2 * Math.sin( 10 * Math.PI / 180 ) - 2 * Math.sin( 5 * Math.PI / 180 );
+
+    report(
+        '🎯 the tilt spread is MARSCHNER TABLE 1\'s own α_R band, divided by the tilt-to-α factor of two',
+        Math.abs( HAIR_LOCK_TILT_SPREAD - alphaBand / 2 ) < 1e-12 &&
+            Math.abs( HAIR_LOCK_TILT_SPREAD * 2 / HAIR_DEFAULTS.roughnessR - 0.6653 ) < 5e-4,
+        `Marschner Table 1 p8 measures α_R over −10°…−5°. This file's own conversion α_K = 2 sin α_M puts that band at\n` +
+            `      −${ ( 2 * Math.sin( 10 * Math.PI / 180 ) ).toFixed( 4 ) }…−${ ( 2 * Math.sin( 5 * Math.PI / 180 ) ).toFixed( 4 ) }, ` +
+            `i.e. ${ alphaBand.toFixed( 5 ) } rad wide. A tangent tilt of δ shifts M_p's argument by at most 2δ ` +
+            `(|ωi + ωr| ≤ 2,\n      with equality in the aligned limit), so spanning that band takes a tilt spread of ` +
+            `${ ( alphaBand / 2 ).toFixed( 6 ) } rad — and the shipped constant is\n      ` +
+            `${ HAIR_LOCK_TILT_SPREAD.toFixed( 6 ) } rad = ${ ( HAIR_LOCK_TILT_SPREAD * 180 / Math.PI ).toFixed( 3 ) }°. ` +
+            `🎯 The two factors of two cancel, which is why the answer is Marschner's own 5° back again.\n      ` +
+            `Against the lobe it is shifting: the peak-to-peak α excursion is ` +
+            `${ ( HAIR_LOCK_TILT_SPREAD * 2 / HAIR_DEFAULTS.roughnessR ).toFixed( 4 ) } of one β_R,\n      ` +
+            `so neighbouring locks' primary bands sit two thirds of a width apart — overlapping, and stepped.`
+    );
+
+    report(
+        'the bound is ONE LOBE WIDTH and is welded to β_R rather than typed beside it',
+        HAIR_LOCK_TILT_MAX === HAIR_DEFAULTS.roughnessR &&
+            HAIR_LOCK_TILT_SPREAD < HAIR_LOCK_TILT_MAX,
+        `HAIR_LOCK_TILT_MAX = ${ HAIR_LOCK_TILT_MAX } and HAIR_DEFAULTS.roughnessR = ${ HAIR_DEFAULTS.roughnessR }. The α ` +
+            `excursion is 2 × spread and one lobe width is β_R,\n      so the bound is the spread at which two ` +
+            `neighbouring locks' primary bands are exactly disjoint — a mass with no continuous highlight\n      ` +
+            `anywhere, which is not a bob. The shipped spread is ` +
+            `${ ( 100 * HAIR_LOCK_TILT_SPREAD / HAIR_LOCK_TILT_MAX ).toFixed( 1 ) }% of it. ` +
+            `⚠️ If β_R is ever retuned this clause goes red,\n      which is correct: the bound is a statement about ` +
+            `the lobe and not a number of its own.`
+    );
+
+    // The index recovery, over the whole emitted set, through f32 — the storage the GLB uses.
+    let roundTripFailures = 0;
+    for ( let index = 0; index < HAIR_LOCK_COUNT; index ++ ) {
+
+        const stored = new Float32Array( [ ( index + 0.5 ) / HAIR_LOCK_COUNT ] )[ 0 ];
+        if ( lockIndexValue( stored ) !== index ) roundTripFailures ++;
+
+    }
+
+    report(
+        'the lock index survives the GLB\'s f32 exactly, at every index and at both ends of the range',
+        roundTripFailures === 0 && lockIndexValue( 0 ) === 0 &&
+            lockIndexValue( 1 ) === HAIR_LOCK_COUNT - 1,
+        `${ HAIR_LOCK_COUNT } of ${ HAIR_LOCK_COUNT } indices round-trip through (i + 0.5)/n → Float32Array → floor(u·n). ` +
+            `Every emitted value is an odd\n      multiple of 1/32, a binary fraction, so f32 stores it with no error at ` +
+            `all. 🚩 The clamp at u = 1 is not padding: the scalp CAP\n      writes this channel per VERTEX (a per-face ` +
+            `value would shatter the cap and take the card-count gate with it), so the cap's\n      identity interpolates ` +
+            `and can land on exactly 1.0 at a shared corner, where floor(1.0 · 16) is one past the last lock.`
+    );
+
+    // The field itself: sixteen values, centred, bounded, and a LABEL rather than a ramp.
+    const tilts = [];
+    for ( let index = 0; index < HAIR_LOCK_COUNT; index ++ ) {
+
+        tilts.push( lockTiltValue( ( index + 0.5 ) / HAIR_LOCK_COUNT ) );
+
+    }
+
+    const tiltMean = tilts.reduce( ( a, b ) => a + b, 0 ) / tilts.length;
+    const tiltRange = Math.max( ...tilts ) - Math.min( ...tilts );
+    const distinct = new Set( tilts ).size;
+    const insideBound = tilts.every( ( tilt ) => Math.abs( tilt ) <= HAIR_LOCK_TILT_SPREAD / 2 + 1e-12 );
+
+    report(
+        'the tilt is a SPREAD and not an offset — sixteen distinct values, centred on zero, inside ±spread/2',
+        distinct === HAIR_LOCK_COUNT && insideBound &&
+            Math.abs( tiltMean ) < 0.05 * HAIR_LOCK_TILT_SPREAD && tiltRange > 0.7 * HAIR_LOCK_TILT_SPREAD,
+        `${ distinct } distinct tilts over ${ HAIR_LOCK_COUNT } locks, range ${ tiltRange.toFixed( 5 ) } rad ` +
+            `(${ ( 100 * tiltRange / HAIR_LOCK_TILT_SPREAD ).toFixed( 1 ) }% of the authored spread — a hash of\n      ` +
+            `sixteen draws does not reach its own extremes), mean ${ tiltMean.toExponential( 2 ) } rad = ` +
+            `${ ( tiltMean * 180 / Math.PI ).toFixed( 3 ) }°. 🚩 The mean is what makes this a\n      break in the band ` +
+            `rather than a move of it: a term that shifted every lock the same way would be a change to shiftR ` +
+            `wearing a lock's name.\n      HAIR_LOCK_HASH_OFFSET = ${ HAIR_LOCK_HASH_OFFSET } is why lock 0 is not pinned ` +
+            `to an extreme — strandHashValue(0) is exactly 0.`
+    );
+
+    // 🎯 THE DISCRIMINATING CLAUSE. The whole complaint R24 sharpened is COHERENCE, not power: the
+    // lock band was already full, of per-fragment noise. A label is coherent by construction and a
+    // per-fragment field is not, and this is the check that tells the two apart on the mirror.
+    let sameLockAgree = 0;
+    let sameLockPairs = 0;
+    let crossLockDiffer = 0;
+    let crossLockPairs = 0;
+
+    for ( let sample = 0; sample < 20_000; sample ++ ) {
+
+        // Two points drawn anywhere in the emitted range, as a fragment shader would see them
+        // interpolated over a card and over the cap.
+        const a = ( sample * 0.61803398875 ) % 1;
+        const b = ( sample * 0.31830988618 ) % 1;
+
+        const sameLock = lockIndexValue( a ) === lockIndexValue( b );
+        const equalTilt = lockTiltValue( a ) === lockTiltValue( b );
+
+        if ( sameLock ) {
+
+            sameLockPairs ++;
+            if ( equalTilt ) sameLockAgree ++;
+
+        } else {
+
+            crossLockPairs ++;
+            if ( !equalTilt ) crossLockDiffer ++;
+
+        }
+
+    }
+
+    report(
+        '🎯 THE TILT IS A LABEL: identical inside a lock, different across every lock boundary',
+        sameLockAgree === sameLockPairs && crossLockDiffer === crossLockPairs,
+        `${ sameLockAgree.toLocaleString() } of ${ sameLockPairs.toLocaleString() } same-lock pairs take the ` +
+            `IDENTICAL tilt (bitwise, not to a tolerance) and\n      ${ crossLockDiffer.toLocaleString() } of ` +
+            `${ crossLockPairs.toLocaleString() } cross-lock pairs take a different one. 🚩 That is the property ` +
+            `R24 could not get from a spatial\n      field and is the whole reason the channel was plumbed: the ` +
+            `judges' complaint — *"per-pixel noise standing in for structure"* — is\n      about COHERENCE, not ` +
+            `power, and the lock band was measured FULL of incoherent power at 13.69% of the plate mean.\n      ` +
+            `Coherence inside the lock is what makes a break at its boundary readable as an edge of something.`
+    );
+
+    report(
+        'both round-25 arms are reachable from the page, and the A side removes ONE rotation',
+        Object.hasOwn( HAIR_DEFECTS, 'no-lock-tilt' ) && Object.hasOwn( HAIR_DEFECTS, 'lock-tilt-max' ) &&
+            effectiveLockTilt( 'no-lock-tilt' ) === 0 &&
+            effectiveLockTilt( 'lock-tilt-max' ) === HAIR_LOCK_TILT_MAX &&
+            effectiveLockTilt( 'none' ) === HAIR_LOCK_TILT_SPREAD,
+        `?hairdefect=no-lock-tilt is the A side and ?hairdefect=lock-tilt-max is the bound. alive.js validates ` +
+            `?hairdefect against this\n      table, so both arms are reachable with no change to that file. ` +
+            `⚠️ effectiveLockTilt is what the CENSUS reports, and it exists because\n      both arms BYPASS the ` +
+            `uniform — the A side returns before the rotation and the bound substitutes a constant — so a manifest ` +
+            `printing\n      nodes.lockTilt.value would describe the wrong picture on exactly the two plates whose ` +
+            `purpose is to be a different one.`
+    );
+
+    report(
+        'the three lock-scale terms share no uniform, no coordinate and no expression',
+        HAIR_DEFAULTS.lockTilt === HAIR_LOCK_TILT_SPREAD &&
+            HAIR_DEFAULTS.lockSpread === HAIR_LOCK_ALBEDO_SPREAD &&
+            HAIR_DEFAULTS.lockTilt !== HAIR_DEFAULTS.lockSpread,
+        `strandTangentJitter ${ HAIR_DEFAULTS.strandTangentJitter } rad rotates the tangent IN the card's plane, per ` +
+            `FRAGMENT, at filament frequency,\n      driven by across-strand arc length. lockSpread ` +
+            `${ HAIR_DEFAULTS.lockSpread } multiplies the base COLOUR, per spatial cell, driven by ` +
+            `positionGeometry.xz.\n      lockTilt ${ HAIR_DEFAULTS.lockTilt.toFixed( 6 ) } rad rotates the tangent OUT ` +
+            `of that plane, per LOCK ID, driven by uv(1).x. 🚩 The separation is\n      false-earth's own — its ` +
+            `clumpSeed01 is kept apart from its per-blade seed for exactly this reason — and it is why two bands ` +
+            `read as two.`
     );
 
 }

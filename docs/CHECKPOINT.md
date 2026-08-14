@@ -342,3 +342,80 @@ SHADING with it rather than albedo, is the next experiment** — and it needs no
   instance of §1.25r; found by the verifier re-measuring both rects on all three plate pairs. Fixed,
   with the error recorded in place. **Numbers in a justification comment are claims and nothing in
   the tree checks them.**
+
+---
+
+## 8. R25 — the lock id reaches the GPU, and it is shading a highlight that does not exist
+
+### 🎯 The finding, and it reorders everything downstream
+
+The blind judge was asked whether the specular is one broad band or broken across bundles, and
+answered with a third option: **there is no band.** *"It is not one broad band and it is not broken
+across bundles — there is no lobe."* The highlight pixel sets are **bit-identical** between the two
+arms at every threshold: crown at L>0.25 both blobs=8 px=33 top=[9,9,5,3]; at L>0.4 both blobs=7
+px=22; left fall both blobs=12 px=8323.
+
+**R25 built correct machinery for breaking a highlight across locks, and pointed it at a term that
+is not rendering.** That is the round's result and it is not a small one — it says the ordering was
+wrong, not the mechanism. `docs/CHECKPOINT.md` §2 already established *"TRT is not firing… 0.6%"*,
+and REQ-063/064/065 are the three highlight levers (rim shadow map, view-axis light, environment
+path) sitting open in `docs/OPEN-REQUESTS.md`. **Those come before any further lock work.**
+
+### What stands, and it is real infrastructure
+
+The lock id is **plumbed end to end and verified four independent ways by the adversary**, including
+reading it off the running GPU and proving consumption by mutating the live buffer:
+
+- `hair_cards.py` now emits `TEXCOORD_1`: `u1` = (lock index + 0.5)/16 constant over a card,
+  `v1` = the Voronoi **F2−F1 edge distance** at the card root, scaled by
+  `sqrt(ScalpFrame.area / LOCK_COUNT)` — a division, not a taste value, 54.4–59.2 mm across the
+  identity sweep, written into mesh extras so a gate can re-derive it.
+- ⚠️ **The cap/card asymmetry is load-bearing**: per-CARD on cards, per-VERTEX on the cap, because
+  Blender de-duplicates on the whole attribute tuple and a per-face value on the cap's shared
+  vertices would shatter it into hundreds of components. Same failure `export_hair_fragment` already
+  records for `export_tangents=True`. Verified: 17,516 verts / 17,000 tris unchanged, 496 quad-strip
+  components + 2 cap patches, +141,352 bytes a bake.
+- `TEXCOORD_1` chosen over a custom `_LOCK` attribute and **verified in both installed trees**
+  rather than assumed: Blender's exporter sets `tex_coord_max` from `len(mesh.uv_layers)` with no
+  material filter, and three r185 maps it to `uv1` at `GLTFLoader.js:2228`.
+- The tangent shift in `HairMaterial.js` derives its amplitude from Marschner 2003 Table 1:
+  `sin(10°) − sin(5°)` = 0.086492 rad. The two factors of two cancel — the ×2 in the Karis alpha
+  conversion and the ×2 in the tilt-to-alpha equivalence — which is why the answer is Marschner's
+  own 5° band again. Shipped at 33.3% of the bound where neighbouring locks' bands go disjoint.
+
+### 🔴 The eighth structurally-blind statistic, caught in the same round it was written
+
+`coherentLock = coherence × rms(band) / mean` **is band contrast wearing a coherence hat.** Injecting
+orientation-free lock-scale noise into the real `hair-r24-before` plate through the same mask gives
+×1.0255 at ±3%, ×1.0491 at ±6%, ×1.0897 at ±12%. R25's shipped term read ×1.0212 / ×1.0502 and its
+bound ×1.1270 / ×1.1920 — **every reading sits inside the range pure isotropic noise produces.**
+`coherence` itself FALLS on that noise (×0.9544), and the headline rose anyway because the amplitude
+factor carried it.
+
+🎯 **The lesson is sharper than the previous seven.** This operator was written *specifically because*
+band power could not tell structure from noise — and it reintroduced the identical flaw by
+multiplying the ratio back by the amplitude. **A normalised ratio cannot count photons; multiplying
+it by photons does not make it a structure measure, it makes it a contrast measure with a ratio
+attached.** `coherence`, `alignment` and `orientationDeg` survive their own validations and are the
+numbers to score with. The file now carries the refutation in place.
+
+⚠️ **And there is a stated next step for the discriminator nobody has measured yet:** a lock's
+brightness varies ACROSS the flow while strand jitter varies ALONG it. **The two are 90° apart**, and
+`orientationDeg` is already reported per band — run the tool at lock widths and at filament widths
+and the angle between them is the discriminator. Nothing in R25 measured that, so nothing claims it.
+
+### The recurring failure recurred — fourth instance
+
+**Five wrong numbers in one justification comment** in `lock-coherence.mjs`: 0.110/0.823/7.5×/0.0139/
+55.5× against true values 0.119454/0.830304/6.9508×/0.014152/54.6314×. **The file's own selftest
+prints the right values two lines from the label carrying the wrong ones.** Fixed. Fourth instance
+of §1.25r, and the pattern is now unambiguous: **numbers written into prose during authoring are
+never re-derived, and nothing in the tree checks them.** A gate that re-derives quoted constants from
+their own selftest output is worth building.
+
+### Suite
+
+UNDECLARED RED 0. Four reds, all pre-existing and declared. `HairMaterial.selftest` 70/74 — up from
+63/67, seven new clauses all green, the same four pre-existing failures. Provenance clean: every
+plate in the round carries an `alive.html?…&hair=1…` URL in its manifest, and the live census shows
+`HairNodeMaterial`, which `hair.html` could not produce.

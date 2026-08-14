@@ -311,6 +311,71 @@ The g050 groom is **462 cards of 17 rings each + 2 cap shells of 564 triangles**
 15,912 triangles, 3,118,972 bytes. The four sheets are shared and written once per build: albedo
 1,090,362 · normal 1,064,393 · flow 348,510 · depth 63,001 bytes.
 
+### R25 — the lock id now leaves this file, in TEXCOORD_1
+
+🎯 **THE GROOM HAS HAD A REAL LOCK IDENTITY SINCE R22 AND NONE OF IT REACHED THE SHADER.**
+`LOCK_COUNT = 16` dart-thrown scalp centres shared by every layer, every card assigned by
+`nearest_lock(root)` — a Voronoi on the scalp — and `LOCK_DIRECTION_SHARE = 0.75` giving the lock
+three quarters of a card's deflection and curl. But `assemble_cards` wrote `u` = the atlas STRIP
+(one of eight, shared by every card on it) and `v` = root-to-tip, and the GLB carried
+POSITION / NORMAL / TEXCOORD_0 / JOINTS_0 / WEIGHTS_0 and nothing else. R24 spent a round hashing a
+lock-scale field out of `positionGeometry.xz` because that was the only lock-scale coordinate a
+shader could reach.
+
+A **second UV layer** is the channel, and the choice was verified in the installed trees rather
+than assumed: `io_scene_gltf2/blender/exp/primitive_extract.py:110` sets
+`tex_coord_max = len(mesh.uv_layers)` with no "used by a material" filter, and three r185's
+`GLTFLoader.js:2228` maps `TEXCOORD_1` to the `uv1` attribute that TSL's `uv(1)` reads.
+
+| | meaning | written |
+|---|---|---|
+| `u1` | `(nearest_lock index + 0.5) / 16` | per CARD, constant over the whole card |
+| `v1` | `clamp((d2 − d1) / lock_edge_scale, 0, 1)` — the Voronoi edge distance at the root | per CARD |
+
+plus `sugata_lock_count`, `sugata_lock_edge_scale_m` and the sixteen `sugata_lock_centres` in the
+mesh's own extras, converted to glTF's Y-up because `export_yup=True` rotates POSITION and leaves
+custom properties exactly as written.
+
+🚩 **THE CAP IS WRITTEN PER VERTEX AND THE CARDS PER CARD, AND THE ASYMMETRY PROTECTS THE
+COMPONENT COUNT.** Blender's exporter de-duplicates on the whole attribute tuple, so a per-FACE
+value on the cap — whose vertices are shared — would split every one of them and shatter the cap
+into hundreds of components, which is the exact failure `export_hair_fragment` records for
+`export_tangents=True` and is what the card-count gate is built on. Measured: the groom is
+**17,516 verts / 8,500 quads / 17,000 triangles before and after**, and `verify_glb.mjs` still reads
+496 quad-strip components and 2 cap patches. The channel costs **141,352 bytes a bake** — 3,185,880
+to 3,327,232 at g000 — which is 17,516 vec2s of f32 plus the accessor, and nothing else.
+
+**The gate RE-DERIVES the channel rather than reading it back**, which is why the centres travel
+with the file: `reportLockChannel` finds the nearest centre to every card's own exported root and
+compares. Over the five bakes it agrees on **95.97 / 96.37 / 96.17 / 96.98 / 95.36%** of cards, and
+the emitted edge distance sits **0.083–0.089** (p90) from the re-derived one. The gap is geometric
+and is not slack: the generator assigns from the scalp root and the file carries the ribbon's first
+ring, `root + normal · standoff`, 3.8–30 mm off the surface. `hair_lockid.selftest.mjs` pins the
+operator on one site, two collinear sites, a square lattice and an f32 index round trip first —
+36 assertions.
+
+🔴 **TWO DEFECTS WERE FOUND BY THAT GATE AND BOTH WERE IN THE NEW CODE.**
+1. **Blender's exporter flips `v` on EVERY UV layer**, so the first build shipped the edge distance
+   inside out — the gate read p50 0.753 off the file against the 0.245 the build had just printed,
+   the same number the wrong way up. `lock_uv()` applies the flip at the write, and the gate's
+   edge clause is what catches it in either direction.
+2. **The gate's own root-ring pick was on the wrong end of the card**, for the same reason read from
+   the other side: `assemble_cards` writes the root at `v = 1` and the FILE carries it at `v = 0`.
+   Reading the source and stopping there re-derived 23% of the indices and looked like a broken
+   channel. Measured on `g050.glb`: the `v = 0` ring sits at y 1.5083 and the `v = 1` ring at
+   y 1.4362, and the scalp is the higher of the two.
+
+**And the groom itself did not move.** `hair_cards.py` was reverted to HEAD and all five bakes
+rebuilt: every sha256 came back identical to the pre-round record (g000 `2b81e0ba…`, g025
+`969e29c8…`, g050 `0daf4978…`, g075 `8ee63065…`, g100 `e83adc64…`), as did all four atlas sheets.
+The coherent-lock-relief row is unchanged at 3.27 / 3.10 / 3.25 / 3.74 / 4.71 mm, which is the
+declared red this file has carried for three rounds and is not this round's to clear.
+
+```bash
+node tools/figure-pipeline/hair_lockid.selftest.mjs   # PASS — 36 assertions
+node tools/figure-pipeline/verify_glb.mjs             # the lock clause, five bakes
+```
+
 ### R23 — the scatter is ONE SHELL's own thickness, and the standoff ladder was never the lever
 
 🚩 **R22 LEFT THIS ROUND ONE INSTRUCTION — "the lever is the SCATTER, thin the shell" — AND THE
