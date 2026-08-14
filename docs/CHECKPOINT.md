@@ -185,6 +185,28 @@ which has **no dither and no alpha texture at all.** A real observation with a c
 attached. This is the same failure class as the five blind statistics in §5, on the critic side:
 take what a judge SEES as evidence, never what a judge says is CAUSING it.
 
+### ⏭️ WHAT TO DO NEXT, after the source sweep of the same day
+
+Read `docs/research/source-sweep-2026-08-14.md` before picking anything up. In priority order:
+
+1. **The light-path split measurement — half a day, and NOTHING should be built before it.** Our
+   1–3% skin darkening is what you get when the occlusion term attenuates direct diffuse and leaves
+   other paths untouched. We already have one confirmed unattenuated term and it is not IBL:
+   `LightingRig.js:424` `shadowFraction: 0.45`, so **55% of the key sits in a `RectAreaLight` which
+   in three cannot cast a shadow at all**, plus ambient on top. ⚠️ The obvious hypothesis is already
+   REFUTED — `alive.js:2297` sets `castShadow`/`receiveShadow` and `maskShadowNode` gets strand
+   coverage into the depth pass, so this is NOT the R11 garment defect recurring. Split the skin
+   path into direct diffuse / direct specular / IBL / ambient / non-shadowing area light and find
+   what is unattenuated. If the floor dominates, **no shadowing algorithm can fix this** and a deep
+   shadow map would be aimed at the wrong term.
+2. **Lock-scale ALBEDO — an afternoon, on the cards we already have.** One hash, one varying, one
+   multiply, ported from false-earth (MIT, three.js TSL, our exact stack). The judges' complaint was
+   *"per-pixel noise standing in for structure"*, which is a FREQUENCY complaint: we vary at
+   filament scale and mass scale with nothing at lock scale. A clean control either way.
+3. **The judging brief.** Six of six said "not same-tier" including the Frostbite reference, and
+   none of the five sources contains any evaluation methodology. This gates whether any other work
+   can be scored.
+
 ### ⏭️ The second control is much cheaper than this file previously costed it
 
 It does not need a Blender → `.tfx` round-trip through `scripts/tfx_exporter.py`.
