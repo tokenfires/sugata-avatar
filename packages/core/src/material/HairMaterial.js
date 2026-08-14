@@ -175,6 +175,7 @@ import {
     length,
     mix,
     normalize,
+    positionGeometry,
     positionView,
     positionViewDirection,
     pow,
@@ -406,6 +407,198 @@ export const HAIR_CONTRAST = {
  */
 export const HAIR_STRAND_PITCH = 0.00315;
 
+// --- the LOCK band, round 24 ---------------------------------------------------------------------
+//
+// 🎯 THE COMPLAINT IS A FREQUENCY COMPLAINT AND THE ANSWER IS A SECOND BAND. Six blind judges —
+// three shown our groom and three shown an independent 11.4k-strand renderer — said the mass has no
+// lock hierarchy, in these words: *"one flow field, one scale, no hierarchy"*, *"a single combed
+// sheaf with PER-PIXEL NOISE STANDING IN FOR STRUCTURE"*, *"missing every intermediate level
+// between one mass and individual filaments"*. `docs/CHECKPOINT.md` §4.
+//
+// The mechanism is `momentchan/false-earth` (MIT, three.js TSL, WebGPU compute — our exact stack),
+// `src/components/grass/core/grassCompute.ts`, `getClumpInfo` lines 187–224. A 3x3 scan over hashed
+// cell points tracks BOTH the nearest and the second-nearest site — `minD2`/`bestID` and
+// `secondMinD2`/`secondBestID` — and blends the clump's attributes by the F2−F1 edge distance:
+//
+//     centerFactor = smoothstep( 0, uClumpBlendSmoothness, d2 − d1 )
+//     blendFactor  = mix( 0.5, 1.0, centerFactor )
+//
+// It then multiplies base colour by `mix( uClumpSeedRange.x, .y, vClumpSeed )` SEPARATELY from its
+// per-blade seed term. **That separation is the whole point: two independent frequency bands.**
+//
+// ## 🚩 WHAT THE GROOM'S LOCK IDENTITY ACTUALLY IS, READ OFF THE GENERATOR RATHER THAN ASSUMED
+//
+// `tools/figure-pipeline/hair_cards.py` has a real one and it is not in the mesh:
+//
+//   - `LOCK_COUNT = 16` centres are dart-thrown over the scalp ONCE and shared by every layer, so
+//     "a lock is a column of hair from the scalp to the tip" — the file's own words, and it records
+//     that per-layer locks were tried first and read as five independent grooms stacked.
+//   - every card is assigned by `nearest_lock( locks, root )` — a VORONOI ON THE SCALP — and is
+//     drawn toward that centre's guide by `clump · s^1.7`, so cards of one lock are spread over
+//     their Voronoi cell at the root and coincident at the tip.
+//   - `LOCK_DIRECTION_SHARE = 0.75`: three quarters of a card's deflection and curl belong to the
+//     LOCK, not to the card.
+//
+// 🔴 **AND NONE OF IT REACHES THE SHADER.** `assemble_cards` writes a UV whose `u` is the card's
+// ATLAS STRIP (`left_column`/`right_column`, one of eight) and whose `v` is root-to-tip. Every card
+// on a strip carries the same `u`. The GLB's attributes are POSITION / NORMAL / TEXCOORD_0 /
+// JOINTS_0 / WEIGHTS_0 and nothing else — there is no lock id, no card id, and no per-card UV
+// offset to derive one from. `flow.png`'s fourth channel promises *"a strand id"* and cannot carry
+// one, for the reason `strandTangentJitter` already records: the mean of two labels is not a label.
+//
+// 🎯 **SO THE LOCK IDENTITY IS RE-DERIVED IN SPACE, WHICH IS WHERE THE GENERATOR PUT IT.** The
+// generator's membership test is nearest-centre over the scalp; the retarget is a hashed-cell
+// Voronoi over `positionGeometry.xz` — the BIND-POSE horizontal plane — which is false-earth's flat
+// XZ root grid with the ground swapped for the head's own axis. That gives cells which are vertical
+// COLUMNS, which is what the generator says a lock is, and it has three properties a per-card
+// random value does not:
+//
+//   1. **Neighbouring cards share it.** Two cards 10 mm apart are in the same cell whatever strip,
+//      layer or width they have. A per-card hash would decorrelate them, which is the definition of
+//      the frizz `LOCK_DIRECTION_SHARE` exists to prevent — and it is why the round brief refuses a
+//      per-card value as "filament noise at a coarser scale".
+//   2. **It is stable.** `positionGeometry` is the pre-skinning, pre-morph attribute, so the field
+//      is welded to the groom rather than to the camera, the frame or the pose.
+//   3. **It spans the layers.** The `root`, `mass`, `body`, `surface` and `flyaway` cards at one
+//      azimuth get ONE value, which is the shared-centres property the generator went out of its
+//      way to build.
+//
+// ⚠️ **AND THE ONE PLACE IT DIVERGES FROM THE GENERATOR, STATED.** A card that wanders horizontally
+// — the crown, where hair radiates before it falls — crosses cells along its own length, so its
+// lock value changes down the shaft. The generator's does not. This is the same limitation the
+// source sweep names in false-earth: *"Root-space membership only… a hair strand is a curve"*. The
+// honest reading is that this term is a lock-scale FIELD, not a per-strand lock membership, and the
+// experiment is a test of whether a field at that frequency is what the judges were missing.
+
+/** `hair_cards.py`'s own `LOCK_COUNT`. Not a parameter here — a fact about the groom being shaded. */
+export const HAIR_LOCK_COUNT = 16;
+
+/**
+ * The horizontal radius the groom's mass actually sits at, in metres, measured off the shipped
+ * `assets/hair/bob01/g050.glb`: the p50 of every vertex's distance from the groom's own vertical
+ * axis (the median of x and z over 17,516 vertices, which lands at x −43.6 mm, z +49.5 mm).
+ *
+ * p10 44.8 mm, **p50 88.1 mm**, p85 131.6 mm, p99 156.1 mm. The p50 is used because it is the
+ * radius at which the MASS is, and the mass is what carries a lock a viewer can read; the p85 and
+ * beyond are the `flyaway` layer, whose whole job is to break the silhouette.
+ */
+export const HAIR_LOCK_MASS_RADIUS_M = 0.0881;
+
+/**
+ * THE LOCK CELL, in metres, and it is a division rather than a taste.
+ *
+ * A lock is a column, so what a viewer resolves is the AZIMUTHAL spacing between columns at the
+ * radius the mass sits at — which is exactly the coordinate `tools/figure-pipeline/hair_locks.mjs`
+ * argues in, and for its stated reason: *"locks catch the key light on their crowns and go dark in
+ * the grooves between them"*, so the geometric property under the read is ridges running down the
+ * outer surface. Sixteen of them around a circle of radius `HAIR_LOCK_MASS_RADIUS_M`:
+ *
+ *     2π × 88.1 mm / 16 = **34.6 mm**
+ *
+ * 🚩 **AND AT OUR CAPTURE SCALE THAT IS 53 PIXELS, WHICH IS ABOVE THE 10–40 px THE ROUND NOMINATED
+ * AS THE LOCK BAND.** A card is 28.7 mm of scalp and 44 px of a 720-wide portrait, so 1 px is
+ * 0.652 mm. The groom's own lock level is therefore COARSER than one card and coarser than the band
+ * the brief guessed at. That is a finding about the brief rather than a number to tune: the groom
+ * has sixteen locks because `hair_cards.py` chose sixteen, and shading a different count would be
+ * shading a lock structure the geometry does not have.
+ *
+ * A second derivation lands in the same place and is worth recording because it uses a different
+ * measurement: the groom's horizontal FOOTPRINT, by 2 mm grid occupancy over the same vertices, is
+ * 28,684 mm² (equivalent circle radius 95.6 mm), and `√(28684/16)` is **42.3 mm**. The two bracket
+ * the answer at 34.6–42.3 mm; the smaller is shipped because the azimuthal one is the coordinate
+ * the eye reads and the footprint one counts the crown, where locks converge rather than tile.
+ */
+export const HAIR_LOCK_CELL_M = 2 * Math.PI * HAIR_LOCK_MASS_RADIUS_M / HAIR_LOCK_COUNT;
+
+/**
+ * false-earth's `uClumpBlendSmoothness`, in CELL units, and the derivation is a band-limit argument
+ * rather than a look.
+ *
+ * `d2 − d1` is zero on a cell boundary and grows to roughly half a cell at a cell core, so a
+ * smoothstep over `[0, f]` puts the whole seed transition inside a strip `f` cells wide. At `f = 0`
+ * the field is piecewise constant — a Voronoi with hard edges — and **a step is broadband**: it
+ * would deposit energy in the filament band this term is supposed to leave alone, and it would
+ * alias under motion the way `strandNoiseValue`'s header says a `floor` of the phase would.
+ *
+ * 0.5 is the largest value that still leaves a cell core: the transition then spans half a cell
+ * either side of every boundary and the field has no spatial content above its OWN cell frequency.
+ * That is the property that makes this a BAND rather than a new source of broadband noise, which is
+ * the entire claim the round is testing.
+ */
+export const HAIR_LOCK_BLEND_FRACTION = 0.5;
+
+/**
+ * 🎯 THE AMPLITUDE, AS THE PEAK-TO-PEAK MULTIPLICATIVE SPREAD OF THE LOCK'S BASE COLOUR, SOLVED
+ * FROM TWO MEASUREMENTS RATHER THAN CHOSEN. Every number below was measured this round on
+ * `?bare&freeze&seed=1&hair=1&aa=msaa&grade=0` at 720x900 through `tools/critic/band-power.mjs`,
+ * over the eroded solid-hair mask that file builds.
+ *
+ * **The rule.** The round's hypothesis is that a band is MISSING, so the non-arbitrary amount to
+ * put into it is what already reaches that band by another route. The existing per-fragment strand
+ * field — isolated by `?hairdefect=no-strand-jitter`, so the two arms differ in one rotation and
+ * nothing else — is that route, and matching it is the rule: **this term delivers into the lock
+ * band exactly what the incoherent strand field already delivers there.** Below that the new
+ * structure is quieter than the noise it is meant to replace; above it, the term is louder than any
+ * texture term this project has accepted.
+ *
+ * 🔴 **AND THE FIRST MEASUREMENT PARTLY REFUTES THE HYPOTHESIS AS THE ROUND STATED IT.** "We vary
+ * at filament scale and mass scale with NOTHING at lock scale" is false: the strand field delivers
+ * **13.39% of the plate's mean in the filament band and 13.69% in the lock band** (portrait, 5/41
+ * px boxes, 120,069 px). One-dimensional value noise is FLAT below its own lattice frequency and
+ * its phase is decorrelated card to card, so it fills the lock band with noise. What is absent at
+ * lock scale is not power — it is COHERENCE, power that neighbouring cards share. That is what this
+ * term adds and it is the sharpened claim.
+ *
+ * **The band split had to be corrected before the solve, and that is a finding too.** The round
+ * nominated 10–40 px as the lock band. The groom's own lock cell is `HAIR_LOCK_CELL_M` = 34.6 mm =
+ * **53 px** at this framing, which is OUTSIDE that band and coarser than a card. Read with 5/41 px
+ * boxes this term lands mostly in the MASS band (0.98 / 1.09 / 2.63 filament / lock / mass at
+ * s = 0.30) and looks like a failure; read with 11/121 px boxes, whose lock band actually contains
+ * 53 px, it lands where it was aimed (1.03 / 2.11 / 1.61). Same plates, same operator, one
+ * parameter — see `tools/critic/band-power.mjs`, whose validation is analytic at any box width.
+ *
+ * **The transfer, which is why an image-domain amplitude lands three times short.** An albedo
+ * multiplied by `m = 1 + ε` does not move the plate by `ε`, because two of the four terms carrying
+ * the groom's radiance never read the albedo:
+ *
+ *   | term                                              | share of median radiance | response to `m` |
+ *   |---------------------------------------------------|-------------------------:|-----------------|
+ *   | indirect (3.10's composite; `indirect()` is empty) | 9.7 %                    | none            |
+ *   | slide 39's multiple-scattering fake                | 59.0 %                   | `√m`            |
+ *   | R                                                  | 31.1 %                   | none — R never enters the fibre |
+ *   | TRT                                                | 0.5 %                    | `m^(0.8/cosθd)` ≈ `m^0.85` |
+ *
+ * Shares are this file's own: 9.7% from `indirect()`'s note, 65.4/35.0 of the remainder from
+ * `HAIR_DEFAULTS.scatter`'s, TRT's 0.6% of lightness from `HAIR_BASE_COLOUR_HEX`'s. So
+ * `dL/L ≈ 0.590·(ε/2) + 0.005·0.85ε = 0.300 ε`.
+ *
+ * **The solve.** The delivered fraction that lands inside a band has no closed form — it depends on
+ * the Voronoi's spectrum against the box widths — so it was measured at a nominal `s = 0.30` and
+ * scaled, the response being linear in `s` to first order:
+ *
+ *   | view          | strand field, lock band | this term at s = 0.30 | solved s | px     |
+ *   |---------------|------------------------:|----------------------:|---------:|-------:|
+ *   | portrait      | 10.595 %                | 2.114 %               | 1.504    |  4,779 |
+ *   | three-quarter |  7.141 %                | 1.719 %               | 1.246    | 61,741 |
+ *
+ * Weighted by measured pixels — the portrait's mask is small because an 11/121 decomposition erodes
+ * 60 px and the portrait's hair is narrower — the solve is **1.26**, which is shipped.
+ *
+ * ⚠️ **AND THE BOUND IS 2.** `HAIR_LOCK_SPREAD_MAX` is the widest a multiplicative albedo can be
+ * before a lock goes negative, so this constant sits at 63% of the arithmetic ceiling. There is no
+ * headroom argument left: if a louder lock band were wanted it would have to come from a different
+ * quantity than the albedo.
+ */
+export const HAIR_LOCK_ALBEDO_SPREAD = 1.26;
+
+/**
+ * The widest a MULTIPLICATIVE albedo spread can be, and it is arithmetic: the multiplier is
+ * `1 ± s/2`, so `s = 2` is locks running 0x to 2x the base colour and anything above it asks for a
+ * negative albedo. Reached by `?hairdefect=lock-albedo-max`, and its whole job is to bound the
+ * hypothesis — a lock band that does not move at the physical maximum cannot be moved by tuning.
+ */
+export const HAIR_LOCK_SPREAD_MAX = 2;
+
 /**
  * The standard deviation of `strandNoiseValue`, in closed form, so the jitter uniform is the
  * jitter's own standard deviation IN RADIANS rather than the amplitude of some unnamed wave.
@@ -606,7 +799,22 @@ export const HAIR_DEFAULTS = {
      * made in — which is the correction round 20 found the CPU-side lod gate was missing.
      */
     strandFadeStart: 0.25,
-    strandFadeEnd: 0.5
+    strandFadeEnd: 0.5,
+
+    /**
+     * 🎯 THE LOCK BAND, AND IT IS DELIBERATELY THE ONLY NEW TERM IN ROUND 24. See
+     * `HAIR_LOCK_ALBEDO_SPREAD` for the amplitude's two measurements and its solve,
+     * `HAIR_LOCK_CELL_M` for the cell's division, and the block above `HAIR_LOCK_COUNT` for why
+     * this is a spatial field rather than a per-card value.
+     *
+     * It is kept STRICTLY separate from `strandTangentJitter`: that one rotates the TANGENT per
+     * fragment and this one multiplies the base COLOUR per lock. They share no code, no uniform and
+     * no frequency, which is the separation false-earth's `clumpSeed01` has from its per-blade seed
+     * and is the whole reason its two bands read as two bands.
+     */
+    lockSpread: HAIR_LOCK_ALBEDO_SPREAD,
+    lockCell: HAIR_LOCK_CELL_M,
+    lockBlend: HAIR_LOCK_BLEND_FRACTION
 };
 
 /** The named A/B defects, reachable from the page. See `HairLightingModel.strandTangent`. */
@@ -624,6 +832,18 @@ export const HAIR_DEFECTS = {
         'between the arms moved because of the strand structure and for no other reason. It is ' +
         'ORTHOGONAL to no-flow: that one removes the baked sheet and keeps the jitter, this one ' +
         'removes the jitter and keeps the sheet.',
+    'no-lock-albedo': '🎯 THE A SIDE OF ROUND 24, and the two arms differ in ONE MULTIPLY. The ' +
+        'lock-scale albedo field is removed — `lockSpread` goes to zero, so every lock takes the ' +
+        'same base colour — and the per-fragment strand jitter, the flow sheet, the card frame, ' +
+        'every lobe and the scatter fake are left exactly as they ship. It is ORTHOGONAL to ' +
+        'no-strand-jitter: that one removes the FILAMENT band and keeps the lock band, this one ' +
+        'removes the LOCK band and keeps the filament band. Both together are the groom with one ' +
+        'colour and one flow field, which is what six blind judges described.',
+    'lock-albedo-max': '🎯 THE BOUND ON ROUND 24, and it is a probe rather than a defect. The ' +
+        'lock spread is forced to HAIR_LOCK_SPREAD_MAX — the widest a MULTIPLICATIVE albedo can ' +
+        'be before a lock goes negative, i.e. locks running 0x to 2x the base colour. If the ' +
+        'lock band does not move on THIS plate then no setting of the shipped constant can move ' +
+        'it, and the hypothesis is refused by arithmetic rather than by taste.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -889,6 +1109,128 @@ export function strandJitterValue( phase, cyclesPerPixel, settings = {} ) {
 
     return options.strandTangentJitter * strandFadeValue( cyclesPerPixel, options ) *
         strandNoiseValue( phase );
+
+}
+
+/**
+ * Hoskins' `hash12` — two in, one out (`www.shadertoy.com/view/4djSRW`), transcribed operation for
+ * operation and run in f32 so the mirror is a mirror of the SHADER's function rather than of a
+ * double-precision one. See `strandHashValue` for why that matters at all.
+ *
+ * This is the LOCK's seed: one scalar per Voronoi cell, uniform on [0,1].
+ */
+export function lockHash12Value( x, y ) {
+
+    const f32 = Math.fround;
+    const p = [ f32( x * 0.1031 ), f32( y * 0.1031 ), f32( x * 0.1031 ) ].map( ( v ) => f32( v - Math.floor( v ) ) );
+    const shifted = [ f32( p[ 1 ] + 33.33 ), f32( p[ 2 ] + 33.33 ), f32( p[ 0 ] + 33.33 ) ];
+    const offset = f32( f32( f32( p[ 0 ] * shifted[ 0 ] ) + f32( p[ 1 ] * shifted[ 1 ] ) ) + f32( p[ 2 ] * shifted[ 2 ] ) );
+
+    const q = p.map( ( v ) => f32( v + offset ) );
+    const value = f32( f32( q[ 0 ] + q[ 1 ] ) * q[ 2 ] );
+
+    return f32( value - Math.floor( value ) );
+
+}
+
+/**
+ * Hoskins' `hash22` — two in, two out. This is the cell's SITE JITTER, i.e. where inside its cell
+ * each Voronoi point sits, which is what stops the field from being a square grid.
+ */
+export function lockHash22Value( x, y ) {
+
+    const f32 = Math.fround;
+    const scale = [ 0.1031, 0.1030, 0.0973 ];
+    const p = [ f32( x * scale[ 0 ] ), f32( y * scale[ 1 ] ), f32( x * scale[ 2 ] ) ]
+        .map( ( v ) => f32( v - Math.floor( v ) ) );
+
+    const shifted = [ f32( p[ 1 ] + 33.33 ), f32( p[ 2 ] + 33.33 ), f32( p[ 0 ] + 33.33 ) ];
+    const offset = f32( f32( f32( p[ 0 ] * shifted[ 0 ] ) + f32( p[ 1 ] * shifted[ 1 ] ) ) + f32( p[ 2 ] * shifted[ 2 ] ) );
+
+    const q = p.map( ( v ) => f32( v + offset ) );
+    const first = f32( f32( q[ 0 ] + q[ 1 ] ) * q[ 2 ] );
+    const second = f32( f32( q[ 0 ] + q[ 2 ] ) * q[ 1 ] );
+
+    return [ f32( first - Math.floor( first ) ), f32( second - Math.floor( second ) ) ];
+
+}
+
+/**
+ * THE LOCK FIELD, in cell units, and it is false-earth's `getClumpInfo` with the grass's ground
+ * plane swapped for the head's own horizontal plane.
+ *
+ * A 3x3 scan over hashed cell points tracking the nearest (F1) AND the second-nearest (F2), then
+ * blending the two seeds by the F2−F1 edge distance. The blend is the part that is easy to drop and
+ * is the reason the field reads as locks rather than as tiling: at a cell boundary `d2 − d1` is
+ * zero, so the two neighbours' seeds meet at 50/50 and the boundary itself carries no step.
+ *
+ * @param {number} x - horizontal position in CELL units (metres divided by `HAIR_LOCK_CELL_M`).
+ * @param {number} y - the other horizontal axis, same units.
+ * @returns {{ seed:number, nearest:number, second:number, centre:number }} `seed` is the blended
+ *   lock value on [0,1]; `centre` is false-earth's `centerFactor`, 0 on a boundary and 1 at a core.
+ */
+export function lockFieldValue( x, y, settings = {} ) {
+
+    const options = { ...HAIR_DEFAULTS, ...settings };
+
+    const cellX = Math.floor( x );
+    const cellY = Math.floor( y );
+
+    let nearest = Infinity;
+    let second = Infinity;
+    let nearestSeed = 0;
+    let secondSeed = 0;
+
+    for ( let dy = - 1; dy <= 1; dy ++ ) {
+
+        for ( let dx = - 1; dx <= 1; dx ++ ) {
+
+            const neighbourX = cellX + dx;
+            const neighbourY = cellY + dy;
+            const jitter = lockHash22Value( neighbourX, neighbourY );
+            const distance = Math.hypot( x - ( neighbourX + jitter[ 0 ] ), y - ( neighbourY + jitter[ 1 ] ) );
+            const seed = lockHash12Value( neighbourX, neighbourY );
+
+            if ( distance < nearest ) {
+
+                second = nearest;
+                secondSeed = nearestSeed;
+                nearest = distance;
+                nearestSeed = seed;
+
+            } else if ( distance < second ) {
+
+                second = distance;
+                secondSeed = seed;
+
+            }
+
+        }
+
+    }
+
+    const centre = smoothstepValue( 0, options.lockBlend, second - nearest );
+
+    return { seed: secondSeed + ( nearestSeed - secondSeed ) * ( 0.5 + 0.5 * centre ), nearest, second, centre };
+
+}
+
+/**
+ * The lock's albedo multiplier: the field mapped to `[1 − spread/2, 1 + spread/2]`.
+ *
+ * 🚩 IT IS A MULTIPLIER ON THE BASE COLOUR AND NOT AN ADDITION TO THE RESULT, which is
+ * false-earth's own choice and is the one that keeps the term physical: a lock that is lighter is a
+ * lock with less pigment in it, so it is lighter in the terms that read pigment (the
+ * multiple-scattering fake and TRT) and IDENTICAL in the one that does not (R, which never enters
+ * the fibre). Adding a scalar to the output would have lifted the primary highlight too, which no
+ * amount of melanin does.
+ */
+export function lockAlbedoValue( x, y, settings = {} ) {
+
+    const options = { ...HAIR_DEFAULTS, ...settings };
+    const { seed } = lockFieldValue( x, y, options );
+
+    return 1 - options.lockSpread / 2 + options.lockSpread * seed;
 
 }
 
@@ -1182,6 +1524,109 @@ const strandNoiseNode = /*@__PURE__*/ Fn( ( [ phase ] ) => {
 
 } );
 
+/** Hoskins' `hash12`, in TSL. Mirrored by `lockHash12Value`. One scalar per lock cell. */
+const lockHash12Node = /*@__PURE__*/ Fn( ( [ point ] ) => {
+
+    const p = fract( vec3( point.x, point.y, point.x ).mul( 0.1031 ) ).toVar();
+    p.addAssign( dot( p, vec3( p.y, p.z, p.x ).add( 33.33 ) ) );
+
+    return fract( p.x.add( p.y ).mul( p.z ) );
+
+} );
+
+/** Hoskins' `hash22`, in TSL. Mirrored by `lockHash22Value`. The cell's site jitter. */
+const lockHash22Node = /*@__PURE__*/ Fn( ( [ point ] ) => {
+
+    const p = fract( vec3( point.x, point.y, point.x ).mul( vec3( 0.1031, 0.1030, 0.0973 ) ) ).toVar();
+    p.addAssign( dot( p, vec3( p.y, p.z, p.x ).add( 33.33 ) ) );
+
+    return fract( vec2( p.x.add( p.y ), p.x.add( p.z ) ).mul( vec2( p.z, p.y ) ) );
+
+} );
+
+/**
+ * THE LOCK FIELD, in TSL. Mirrored by `lockFieldValue`.
+ *
+ * 🚩 THE 3x3 SCAN IS UNROLLED IN JAVASCRIPT AND THE MIN-TRACKING IS BRANCHLESS, and both are
+ * deliberate. Nine iterations of a compile-time loop emit nine straight-line blocks the backend can
+ * schedule; a TSL `Loop` with an `If` inside it emits real control flow around a texture-free
+ * arithmetic kernel, for no benefit. And the four `select`s below all read the PRE-UPDATE values —
+ * every `assign` happens after all four are computed — which is the one thing a hand-written F1/F2
+ * tracker gets wrong.
+ *
+ * @param {Node} point - horizontal position in CELL units.
+ * @param {Node} blend - `HAIR_LOCK_BLEND_FRACTION`, in cell units.
+ */
+const lockFieldNode = /*@__PURE__*/ Fn( ( [ point, blend ] ) => {
+
+    const cell = floor( point ).toVar();
+
+    const nearest = float( 1e9 ).toVar();
+    const second = float( 1e9 ).toVar();
+    const nearestSeed = float( 0 ).toVar();
+    const secondSeed = float( 0 ).toVar();
+
+    for ( let dy = - 1; dy <= 1; dy ++ ) {
+
+        for ( let dx = - 1; dx <= 1; dx ++ ) {
+
+            const neighbour = cell.add( vec2( dx, dy ) ).toVar();
+            const site = neighbour.add( lockHash22Node( neighbour ) );
+            const distance = length( point.sub( site ) ).toVar();
+            const seed = lockHash12Node( neighbour ).toVar();
+
+            const closer = distance.lessThan( nearest );
+
+            const nextSecond = closer.select( nearest, second.min( distance ) ).toVar();
+            const nextSecondSeed = closer
+                .select( nearestSeed, distance.lessThan( second ).select( seed, secondSeed ) ).toVar();
+            const nextNearest = nearest.min( distance ).toVar();
+            const nextNearestSeed = closer.select( seed, nearestSeed ).toVar();
+
+            second.assign( nextSecond );
+            secondSeed.assign( nextSecondSeed );
+            nearest.assign( nextNearest );
+            nearestSeed.assign( nextNearestSeed );
+
+        }
+
+    }
+
+    // false-earth's `centerFactor` / `blendFactor`, verbatim in shape: zero on a cell boundary,
+    // one at a cell core, and the seed meets its neighbour's at 50/50 exactly on the boundary.
+    const centre = smoothstep( float( 0 ), blend, second.sub( nearest ) );
+
+    return mix( secondSeed, nearestSeed, mix( float( 0.5 ), float( 1 ), centre ) );
+
+} );
+
+/**
+ * The lock's albedo multiplier, in TSL. Mirrored by `lockAlbedoValue`.
+ *
+ * 🎯 `positionGeometry` IS THE COORDINATE AND THE CHOICE IS LOAD-BEARING. It is the raw POSITION
+ * attribute — before skinning, before morphs — so the field is welded to the groom rather than to
+ * the pose, the camera or the frame. `positionLocal` would drift with the head; `positionWorld`
+ * would slide the locks across the hair every time the figure moved; a screen-space coordinate
+ * would put the judges' word "noise" back with a bigger cell.
+ *
+ * 🚩 AND IT IS `.xz` BECAUSE A LOCK IS A COLUMN. The glTF export is Y-up, so xz is the head's
+ * horizontal plane and the cells are vertical prisms — which is `hair_cards.py`'s own definition of
+ * a lock, *"a column of hair from the scalp to the tip"*, and is false-earth's flat XZ root grid
+ * with the ground swapped for the head.
+ */
+function lockAlbedoNode( nodes ) {
+
+    if ( nodes.defect === 'no-lock-albedo' ) return float( 1 );
+
+    const spread = nodes.defect === 'lock-albedo-max' ? float( HAIR_LOCK_SPREAD_MAX ) : nodes.lockSpread;
+
+    const point = vec2( positionGeometry.x, positionGeometry.z ).div( nodes.lockCell );
+    const seed = lockFieldNode( point, nodes.lockBlend );
+
+    return float( 1 ).sub( spread.mul( 0.5 ) ).add( spread.mul( seed ) );
+
+}
+
 /** M_p, in TSL. See `longitudinalValue` for what the normalisation means. */
 const longitudinalNode = /*@__PURE__*/ Fn( ( [ sinThetaSum, shift, roughness ] ) => {
 
@@ -1245,7 +1690,18 @@ export class HairLightingModel extends LightingModel {
         // that faces the viewer. It is also what this material writes to the G-buffer.
         this.fakeNormal = normalize( this.perpendicularR ).toVar( 'hairFakeNormal' );
 
-        this.colour = nodes.baseColour.toVar( 'hairColour' );
+        // 🎯 ROUND 24'S WHOLE CHANGE IS THIS ONE MULTIPLY. The lock field modulates the BASE COLOUR,
+        // so it reaches the two terms that read pigment — slide 39's fake and TRT — and correctly
+        // does not reach R, which never enters the fibre. It is separate from the strand jitter by
+        // construction: that one is a rotation of `this.tangent` above, this one is a scalar on the
+        // colour, and no expression is shared between them.
+        //
+        // ⚠️ IT IS APPLIED HERE AND NOT TO `material.colorNode`. `colorNode` is the G-buffer's
+        // `diffuseColor` guide that the denoise and the grade read; leaving it unmodulated means
+        // the A/B between this arm and `?hairdefect=no-lock-albedo` differs in the LIGHTING and in
+        // nothing else, which is what makes the measured delta attributable. A term in both places
+        // would be two changes wearing one name.
+        this.colour = nodes.baseColour.mul( lockAlbedoNode( nodes ) ).toVar( 'hairColour' );
 
         // Slide 44's exponential, standing on the baked bundle depth. See the header, penalty 2.
         const depth = nodes.depthMap === null ? float( 0 ) : nodes.depthMap.sample( uv() ).r;
@@ -1662,6 +2118,9 @@ export async function createHairMaterial( options = {} ) {
         strandPitch: uniform( settings.strandPitch ),
         strandFadeStart: uniform( settings.strandFadeStart ),
         strandFadeEnd: uniform( settings.strandFadeEnd ),
+        lockSpread: uniform( settings.lockSpread ),
+        lockCell: uniform( settings.lockCell ),
+        lockBlend: uniform( settings.lockBlend ),
 
         // Only read on the defect path. View space, pointing up-and-right across the frame, so a
         // reader who sees the plate can tell at a glance that the band is welded to the screen.
@@ -1738,6 +2197,17 @@ export async function createHairMaterial( options = {} ) {
             jitterRadians: nodes.strandTangentJitter.value,
             pitchMillimetres: nodes.strandPitch.value * 1000,
             fade: [ nodes.strandFadeStart.value, nodes.strandFadeEnd.value ]
+        },
+
+        // Round 24, in the census for the same reason the strand block is: it is a knob that moves
+        // the picture, and two plates taken a round apart at different spreads would otherwise be
+        // indistinguishable from their manifests. `defect === 'no-lock-albedo'` reports the spread
+        // the material was BUILT with, so the census also records the arm — read `defect` beside it.
+        lock: {
+            spread: nodes.lockSpread.value,
+            cellMillimetres: nodes.lockCell.value * 1000,
+            blendCells: nodes.lockBlend.value,
+            live: defect !== 'no-lock-albedo'
         },
         sheets: {
             flow: flowMap !== null,

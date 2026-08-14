@@ -166,13 +166,21 @@ directions, which is the clause worth keeping when this check is next edited.
   THIS line means "it passed this time", not "the declaration was wrong", and deleting the line on
   that basis would be the rubber stamp the file exists to refuse.
 
-- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, **56/60** at R23, and it
-  is the SAME FOUR failing clauses it carried at 38/42: the two halves of the contrast pair, the
-  plain-card comparison, and the clipped-highlight share. They encode the density and brightness
+- `packages/core/src/material/HairMaterial.selftest.mjs` — RED BY DESIGN, **63/67** at R24 (56/60 at
+  R23), and it is the SAME FOUR failing clauses it carried at 38/42: the two halves of the contrast
+  pair, the plain-card comparison, and the clipped-highlight share. They encode the density and brightness
   target the phase is working toward, they are floor-limited for round 16's reason, and turning
   them green is the work item rather than a repair to the gate. Owned by
   `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
   failure mode the whole gate exists to prevent.
+  🎯 **R24 ADDED SEVEN CHECKS AND ALL SEVEN ARE GREEN** — the lock-scale albedo band, its Voronoi
+  field and its two arms. The discriminating one is the field's own autocorrelation against a
+  decorrelated control with the identical histogram (0.9601 at 0.1 cells against −0.0039), which is
+  what separates a lock from "a per-card random value at a coarser scale". Red-proved at source and
+  restored byte-identically (sha256 `85905876…` before and after): with `lockFieldValue`'s blended
+  Voronoi seed replaced by a rehash of its own coordinates — the per-card defect, same histogram —
+  the run reads **62/67** and the coherence clause is the one that moves, to −0.0039 / −0.0167 /
+  −0.0098. Nothing that was green went red.
   🎯 **R23 ADDED EIGHTEEN CHECKS AND ALL EIGHTEEN ARE GREEN** — the colour clause and its operator.
   Four of them run on the plate: the mass's mean CIELAB chromaticity must sit in the warm quadrant
   (a\* > 0 and b\* > 0), fewer than half its pixels may sit at b\* < 0, the same measurement with

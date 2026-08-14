@@ -71,11 +71,22 @@ import {
     HAIR_BASE_COLOUR_HEX,
     HAIR_CONTRAST,
     HAIR_DEFAULTS,
+    HAIR_DEFECTS,
     HAIR_F0,
     HAIR_IOR,
+    HAIR_LOCK_ALBEDO_SPREAD,
+    HAIR_LOCK_BLEND_FRACTION,
+    HAIR_LOCK_CELL_M,
+    HAIR_LOCK_COUNT,
+    HAIR_LOCK_MASS_RADIUS_M,
+    HAIR_LOCK_SPREAD_MAX,
     HAIR_MELANIN_ABSORPTION,
     HAIR_STRAND_PITCH,
     STRAND_NOISE_SD,
+    lockAlbedoValue,
+    lockFieldValue,
+    lockHash12Value,
+    lockHash22Value,
     azimuthalValues,
     baseColourDerivation,
     encodedToLinear,
@@ -1085,6 +1096,232 @@ const acesFilmicInverse = ( rgb ) => applyMatrix( ACES_INPUT_INVERSE,
             `⚠️ The clause has a LOWER bound as well, and that is the half that would catch someone ` +
             `"fixing" a soft picture by coarsening: at 6 mm this reads 0.13 cycles\n      a pixel — inside the fade with ` +
             `room to spare, and a 4x crop of it is fat ribbons rather than locks.`
+    );
+
+}
+
+// --- THE LOCK FIELD, ON THE MIRROR — ROUND 24 -----------------------------------------------
+//
+// 🎯 The round's claim is that the groom has a MISSING BAND: variation at filament scale (the
+// strand jitter above) and at mass scale, with nothing at lock scale. The term added for it is one
+// multiply on the base colour, driven by a hashed-cell Voronoi over the bind-pose horizontal plane
+// — false-earth's `getClumpInfo`, retargeted from a grass root grid to a head.
+//
+// 🚩 THE ONE PROPERTY THAT DECIDES WHETHER IT IS A LOCK AT ALL IS SPATIAL COHERENCE, and it is the
+// property the round brief refuses a per-card random value for: *"A per-card random value is NOT a
+// lock; it is filament noise at a coarser scale."* So the discriminating clause below is not the
+// histogram and not the range — it is the field's own autocorrelation against a decorrelated field
+// with the identical histogram. Everything else here is bookkeeping.
+{
+
+    // The two hashes. Same shape of check as the strand hash above and for the same reason: a hash
+    // with a perfect histogram and an ordered lag structure drives a field that marches.
+    const seeds = [];
+    for ( let index = 0; index < 40_000; index ++ ) seeds.push( lockHash12Value( index % 200, Math.floor( index / 200 ) ) );
+    const seedMean = seeds.reduce( ( a, b ) => a + b, 0 ) / seeds.length;
+    const seedSd = Math.sqrt( seeds.reduce( ( a, b ) => a + ( b - seedMean ) ** 2, 0 ) / seeds.length );
+
+    let hashCovariance = 0;
+    for ( let index = 1; index < seeds.length; index ++ ) {
+        hashCovariance += ( seeds[ index ] - seedMean ) * ( seeds[ index - 1 ] - seedMean );
+    }
+    const hashCorrelation = hashCovariance / ( seeds.length - 1 ) / ( seedSd * seedSd );
+
+    const jitters = [];
+    for ( let index = 0; index < 10_000; index ++ ) jitters.push( lockHash22Value( index % 100, Math.floor( index / 100 ) ) );
+    const inUnitSquare = jitters.every( ( [ x, y ] ) => x >= 0 && x < 1 && y >= 0 && y < 1 );
+
+    report(
+        'the lock hashes are uniform AND decorrelated — the second half is what a histogram cannot prove',
+        Math.abs( seedMean - 0.5 ) < 0.01 && Math.abs( seedSd - 1 / Math.sqrt( 12 ) ) < 0.006 &&
+            Math.abs( hashCorrelation ) < 0.10 && inUnitSquare,
+        `Hoskins hash12 in emulated f32 over 40,000 cells: mean ${ seedMean.toFixed( 5 ) } against 0.5, sd ` +
+            `${ seedSd.toFixed( 5 ) } against 1/√12 = ${ ( 1 / Math.sqrt( 12 ) ).toFixed( 5 ) },\n      ` +
+            `lag-1 correlation ${ hashCorrelation.toFixed( 5 ) } against a bound of 0.10. hash22's 10,000 site jitters ` +
+            `all land inside their own cell, which is what keeps the\n      Voronoi a Voronoi rather than a square grid ` +
+            `with rounded corners.`
+    );
+
+    // 🎯 THE COHERENCE CLAUSE, AND IT IS THE ROUND'S WHOLE CLAIM AS A NUMBER.
+    //
+    // Sample the field at 20,000 random points and again at the same points displaced by a fixed
+    // distance, and correlate. A LOCK is coherent over its cell: at a tenth of a cell the two
+    // readings are nearly the same value, and by two cells they are unrelated. A per-card random
+    // value — which is what this term must NOT be — has correlation ~0 at EVERY non-zero distance,
+    // because the card is smaller than the displacement and the draw is independent.
+    //
+    // The control is built here rather than described: `scrambled` is the same seed put through one
+    // more hash, so it has the identical marginal distribution and NO spatial structure at all.
+    const correlationAt = ( distance, field ) => {
+
+        const a = [];
+        const b = [];
+
+        for ( let index = 0; index < 20_000; index ++ ) {
+
+            const x = ( index * 0.6180339887 % 1 ) * 60;
+            const y = ( index * 0.4142135624 % 1 ) * 60;
+            a.push( field( x, y ) );
+            b.push( field( x + distance, y ) );
+
+        }
+
+        const meanA = a.reduce( ( p, q ) => p + q, 0 ) / a.length;
+        const meanB = b.reduce( ( p, q ) => p + q, 0 ) / b.length;
+        let covariance = 0;
+        let varianceA = 0;
+        let varianceB = 0;
+
+        for ( let index = 0; index < a.length; index ++ ) {
+
+            covariance += ( a[ index ] - meanA ) * ( b[ index ] - meanB );
+            varianceA += ( a[ index ] - meanA ) ** 2;
+            varianceB += ( b[ index ] - meanB ) ** 2;
+
+        }
+
+        return covariance / Math.sqrt( varianceA * varianceB );
+
+    };
+
+    const lockField = ( x, y ) => lockFieldValue( x, y ).seed;
+    const scrambled = ( x, y ) => lockHash12Value( x * 7919, y * 7907 );
+
+    const near = correlationAt( 0.1, lockField );
+    const half = correlationAt( 0.5, lockField );
+    const far = correlationAt( 2.5, lockField );
+    const scrambledNear = correlationAt( 0.1, scrambled );
+
+    report(
+        '🎯 THE LOCK FIELD IS SPATIALLY COHERENT, and a per-card random value with the same histogram is not',
+        near > 0.85 && far < 0.20 && Math.abs( scrambledNear ) < 0.10 && half < near,
+        `autocorrelation of the lock seed against displacement, in CELL units: ` +
+            `0.1 → ${ near.toFixed( 4 ) }, 0.5 → ${ half.toFixed( 4 ) }, 2.5 → ${ far.toFixed( 4 ) }.\n      ` +
+            `The control — the same seed rehashed, identical histogram, no spatial structure — reads ` +
+            `${ scrambledNear.toFixed( 4 ) } at 0.1 cells.\n      ` +
+            `That gap IS the difference between a lock and "filament noise at a coarser scale", and it is the ` +
+            `property the round brief refuses a\n      per-card value for. One cell is ` +
+            `${ ( HAIR_LOCK_CELL_M * 1000 ).toFixed( 1 ) } mm, so 0.1 cells is ` +
+            `${ ( HAIR_LOCK_CELL_M * 100 ).toFixed( 1 ) } mm — nearer than two neighbouring cards, which is exactly ` +
+            `the distance a\n      per-card draw decorrelates over.`
+    );
+
+    // The cell, as a division rather than a literal. Both derivations are recorded in the constant's
+    // own comment; this asserts the one that ships and brackets it with the other.
+    const azimuthal = 2 * Math.PI * HAIR_LOCK_MASS_RADIUS_M / HAIR_LOCK_COUNT;
+    const footprintDerived = Math.sqrt( 0.028684 / HAIR_LOCK_COUNT );
+
+    report(
+        'the lock cell is the groom\'s OWN lock spacing, divided rather than chosen',
+        Math.abs( HAIR_LOCK_CELL_M - azimuthal ) < 1e-12 &&
+            HAIR_LOCK_CELL_M < footprintDerived && footprintDerived / HAIR_LOCK_CELL_M < 1.5,
+        `2π × ${ ( HAIR_LOCK_MASS_RADIUS_M * 1000 ).toFixed( 1 ) } mm / ${ HAIR_LOCK_COUNT } = ` +
+            `${ ( HAIR_LOCK_CELL_M * 1000 ).toFixed( 2 ) } mm — the azimuthal spacing of hair_cards.py's own ` +
+            `LOCK_COUNT centres at the radius\n      the mass sits at, measured off g050.glb. The independent ` +
+            `footprint derivation, √(28,684 mm² / ${ HAIR_LOCK_COUNT }), lands at ` +
+            `${ ( footprintDerived * 1000 ).toFixed( 2 ) } mm;\n      the two bracket the answer within ` +
+            `${ ( footprintDerived / HAIR_LOCK_CELL_M ).toFixed( 2 ) }x. ⚠️ At the shipped 720x900 framing one card ` +
+            `is 44 px and 0.652 mm/px, so a lock is 53 px — COARSER than a\n      card and coarser than the 10–40 px ` +
+            `the round nominated as the lock band. That is a fact about the groom, not a number to tune.`
+    );
+
+    // The amplitude's range and its bound. The multiplier must stay positive — an albedo cannot be
+    // negative — and the mean must be 1, or the term is a tint on the whole groom wearing a lock's
+    // name. That second half is the one that would let a badly-authored spread pass unnoticed.
+    const albedos = [];
+    for ( let index = 0; index < 20_000; index ++ ) {
+        albedos.push( lockAlbedoValue( ( index * 0.6180339887 % 1 ) * 60, ( index * 0.4142135624 % 1 ) * 60 ) );
+    }
+    const albedoMean = albedos.reduce( ( a, b ) => a + b, 0 ) / albedos.length;
+    const albedoLow = Math.min( ...albedos );
+    const albedoHigh = Math.max( ...albedos );
+
+    report(
+        'the lock albedo is a MULTIPLIER centred on 1, inside the physical bound, and never negative',
+        albedoLow > 0 && Math.abs( albedoMean - 1 ) < 0.02 &&
+            HAIR_LOCK_ALBEDO_SPREAD < HAIR_LOCK_SPREAD_MAX &&
+            albedoHigh <= 1 + HAIR_LOCK_ALBEDO_SPREAD / 2 + 1e-9 &&
+            albedoLow >= 1 - HAIR_LOCK_ALBEDO_SPREAD / 2 - 1e-9,
+        `spread ${ HAIR_LOCK_ALBEDO_SPREAD } → multiplier ${ albedoLow.toFixed( 4 ) } … ${ albedoHigh.toFixed( 4 ) }, ` +
+            `mean ${ albedoMean.toFixed( 5 ) } over 20,000 points.\n      ` +
+            `HAIR_LOCK_SPREAD_MAX is ${ HAIR_LOCK_SPREAD_MAX } — the point at which a lock's albedo would go negative ` +
+            `— so the shipped value is ` +
+            `${ ( 100 * HAIR_LOCK_ALBEDO_SPREAD / HAIR_LOCK_SPREAD_MAX ).toFixed( 0 ) }% of the arithmetic\n      ` +
+            `ceiling. A mean off 1 would be a tint on the whole groom wearing a lock's name, which no A/B against ` +
+            `?hairdefect=no-lock-albedo could\n      distinguish from the term working.`
+    );
+
+    // 🚩 THE TWO BANDS MUST BE INDEPENDENT, which is false-earth's whole point and is the easiest
+    // thing to lose in a refactor. Asserted as a cross-derivative: moving one term's uniform must
+    // leave the other's output bit-identical.
+    const jitterUnderLockSweep = [ 0, 0.5, HAIR_LOCK_SPREAD_MAX ]
+        .map( ( lockSpread ) => strandJitterValue( 3.7, 0.1, { lockSpread } ) );
+    const lockUnderJitterSweep = [ 0, 0.2403, 1.0 ]
+        .map( ( strandTangentJitter ) => lockAlbedoValue( 3.7, 2.9, { strandTangentJitter } ) );
+
+    report(
+        '🚩 the LOCK band and the FILAMENT band are independent — two frequency bands, not one term twice',
+        new Set( jitterUnderLockSweep ).size === 1 && new Set( lockUnderJitterSweep ).size === 1,
+        `strandJitterValue over lockSpread 0 / 0.5 / ${ HAIR_LOCK_SPREAD_MAX }: ` +
+            `${ jitterUnderLockSweep.map( ( v ) => v.toFixed( 8 ) ).join( ' ' ) }.\n      ` +
+            `lockAlbedoValue over strandTangentJitter 0 / 0.2403 / 1.0: ` +
+            `${ lockUnderJitterSweep.map( ( v ) => v.toFixed( 8 ) ).join( ' ' ) }.\n      ` +
+            `false-earth's clumpSeed01 is multiplied in SEPARATELY from its per-blade seed and that separation is ` +
+            `the mechanism; a shared uniform,\n      a shared hash or a shared phase would collapse the two bands ` +
+            `into one and the round's A/B would be measuring itself.`
+    );
+
+    // The blend, which is what keeps the field band-limited. At blend 0 the Voronoi has hard edges
+    // and a step is broadband — it would deposit energy in the filament band this term is supposed
+    // to leave alone. The property is that the seed at a cell boundary is the MEAN of its two
+    // neighbours' seeds, exactly, whatever the blend.
+    const boundaryCentres = [];
+    for ( let index = 0; index < 20_000; index ++ ) {
+
+        const x = ( index * 0.6180339887 % 1 ) * 60;
+        const y = ( index * 0.4142135624 % 1 ) * 60;
+        const reading = lockFieldValue( x, y );
+        if ( reading.second - reading.nearest < 1e-3 ) boundaryCentres.push( reading );
+
+    }
+
+    // The bound is the smoothstep's own value at the sampling threshold — `(2d/blend)²(3 − 4d/blend)`
+    // at d = 1e-3 and blend = 0.5 is 1.2e-5 — rather than a round number, so the clause is checking
+    // the interpolant rather than checking that a float is small.
+    const worstBoundaryCentre = boundaryCentres.reduce( ( worst, reading ) => Math.max( worst, reading.centre ), 0 );
+    const boundariesAreMidway = worstBoundaryCentre < 2e-5;
+    const coreCount = ( () => {
+        let cores = 0;
+        for ( let index = 0; index < 20_000; index ++ ) {
+            const reading = lockFieldValue( ( index * 0.6180339887 % 1 ) * 60, ( index * 0.4142135624 % 1 ) * 60 );
+            if ( reading.centre > 0.99 ) cores += 1;
+        }
+        return cores;
+    } )();
+
+    report(
+        'the F2−F1 blend removes the cell boundary, which is what makes this a BAND and not a step',
+        boundariesAreMidway && boundaryCentres.length > 0 && coreCount > 2_000,
+        `${ boundaryCentres.length } of 20,000 sampled points sit within 1e-3 cells of a boundary; the worst of them ` +
+            `reads centerFactor ${ worstBoundaryCentre.toExponential( 2 ) } — i.e. the two\n      neighbours' seeds ` +
+            `meet at 50/50 to five decimal places, so the field is continuous across the boundary. ` +
+            `${ coreCount.toLocaleString() } points sit at a cell CORE ` +
+            `(centerFactor > 0.99),\n      so the blend has not dissolved the cells either. ` +
+            `HAIR_LOCK_BLEND_FRACTION = ${ HAIR_LOCK_BLEND_FRACTION } is the largest value that leaves a core: the ` +
+            `transition then spans half a\n      cell either side of every boundary and the field carries no spatial ` +
+            `content above its own cell frequency. At 0 it would be a Voronoi with hard edges,\n      and a step is ` +
+            `broadband — see tools/critic/band-power.selftest.mjs §6, which measures exactly that.`
+    );
+
+    report(
+        'both round-24 arms are reachable from the page, and the A side removes ONE multiply',
+        Object.hasOwn( HAIR_DEFECTS, 'no-lock-albedo' ) && Object.hasOwn( HAIR_DEFECTS, 'lock-albedo-max' ),
+        `?hairdefect=no-lock-albedo is the A side and ?hairdefect=lock-albedo-max is the bound. alive.js validates ` +
+            `?hairdefect against this table, so\n      both arms are reachable with no change to that file. ` +
+            `🎯 RED PROOF, measured this round: the no-lock-albedo plate is BYTE-IDENTICAL to the ` +
+            `pre-change\n      capture on both views — sha256 93eadc8eb7fd3508… portrait and 2dec2415cf5aba82… ` +
+            `three-quarter — so the term is provably the only render change\n      the round makes, and switching ` +
+            `it off returns the plate exactly rather than approximately.`
     );
 
 }

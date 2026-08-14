@@ -9,7 +9,7 @@
 //
 // Two arms, one of which is not ours:
 //   * frostbitten — Scthe/frostbitten-hair-webgpu rendered headless via src/index.control.ts
-//   * sugata      — captures/hair-r23-after, our own shipped groom
+//   * sugata      — captures/hair-r24-before, from alive.html?hair=1 — see the ARMS comment
 //
 // Both arms are 720x900, background RGB(20,22,26) measured identical, portrait and
 // three-quarter, PNG metadata stripped. A judge given one arm has no way to tell which
@@ -36,9 +36,23 @@ if (!FB) throw new Error('set FB_DIR to your frostbitten clone — see README.md
 
 const OUT = process.env.OUT_DIR ?? path.join(REPO, 'captures', 'control-frostbitten', 'blind');
 
+// 🚩 THE "sugata" ARM MUST COME FROM alive.html?hair=1 AND NOTHING ELSE. This line shipped once
+// pointing at `captures/hair-r23-after/`, and that was wrong in a way that invalidated a whole
+// judged complaint. Those plates are written by `tools/figure-pipeline/hair_shots.mjs` driving
+// `packages/testbed/src/hair.html`, which is a GEOMETRY-judging page: read live off it,
+// `renderer.shadowMap.enabled === false`, three lights with `castShadow` false on all three,
+// 8 meshes with 0 casters and 0 receivers, `scene.environment === null`, `toneMapping === 0`. It
+// never constructs LightingRig, GTAO, HairOIT or the grade. **Hair→skin occlusion on that page is
+// zero BY CONSTRUCTION** — hiding the groom moves groom-free skin by 3.022e-4 of one code value.
+// So when three blind judges reported "no hair→skin occlusion" they were right about the PLATE and
+// said nothing about this renderer, where the same measurement runs at 96–100% of the rig's ceiling.
+//
+// `captures/hair-r24-before/` comes from
+// `alive.html?bare&freeze&seed=1&hair=1&capture&aa=msaa&grade=0` — the deterministic forward path
+// on the page every objective gate already measures. That is the arm.
 const ARMS = [
   { arm: 'frostbitten', portrait: `${FB}/portrait.png`, threeQuarter: `${FB}/tq.png` },
-  { arm: 'sugata', portrait: `${REPO}/captures/hair-r23-after/front.png`, threeQuarter: `${REPO}/captures/hair-r23-after/three-quarter.png` },
+  { arm: 'sugata', portrait: `${REPO}/captures/hair-r24-before/portrait.png`, threeQuarter: `${REPO}/captures/hair-r24-before/three-quarter.png` },
 ];
 
 // A pair that does not separate would make the whole run a null result nobody can read, so

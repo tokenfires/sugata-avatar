@@ -29,8 +29,9 @@ library any agent can embed, which is requirement R7 in `docs/BRIEF.md`.
 
 ## 2. 🚩 The hair phase, paused after eight rounds — read this before touching hair
 
-> **Read §4 first.** The control has since been run and it settles two of the three structural
-> suspects below. Nothing in this section is retracted, but §4 tells you which parts of it matter.
+> **Read §7 first, then §4.** The control has been run — and §7 records that §4 judged the WRONG
+> PLATES, so §4's hair→skin occlusion row is WITHDRAWN. Its hem and card-edge rows survive.
+> Nothing in this section is retracted, but §4 and §7 together tell you which parts of it matter.
 
 Rounds 13–23 built hair from zero: a procedural card groom (`assets/hair/bob01`, 462 cards,
 `tools/figure-pipeline/hair_cards.py` + `hair_texture.py`), Karis' closed-form Marschner with a
@@ -240,3 +241,104 @@ result above it is the one remaining question about the groom itself.
   `reference/` was never committed in any of them — verified across the whole history.
 - Reference imagery (Stellar Blade plates, and hairstyle references the owner supplied) is
   **gitignored, never committed, never shipped**. Parameters extracted, pixels never copied.
+
+---
+
+## 7. 🚩 R24 — both experiments returned CLEAN NEGATIVES, and one of them invalidated §4
+
+Commit: see `git log`. Adversarial verifier: *"the most reproducible pair of reports I have audited
+in this repository"* — every one of ~40 re-derived figures landed on the digit.
+
+### 🔴 The §4 control judged the wrong plates. That is a correction to this file, not a footnote.
+
+`control-blind.mjs:41` sourced the "sugata" arm from `captures/hair-r23-after/`. Those plates come
+from `hair_shots.mjs` driving `packages/testbed/src/hair.html`, a GEOMETRY-judging page. Read live
+off it: **`renderer.shadowMap.enabled === false`**, three lights with `castShadow` false on all
+three, 8 meshes with 0 casters and 0 receivers, `scene.environment === null`, `toneMapping === 0`.
+No LightingRig, no GTAO, no HairOIT, no grade. **Hair→skin occlusion there is zero by construction**
+— hiding the groom moves groom-free skin by 3.022e-4 of one code value.
+
+So the judges were **right about the plate and said nothing about this renderer.** §4's row "no
+hair→skin occlusion, ours 3/3 yes" is withdrawn. The frostbitten arm stands (rendered on its own
+full rig); the hem, card-edge and dither rows concern geometry and coverage and survive, but
+**anything in §4 that depends on lighting must be re-run.** `control-blind.mjs` now points at
+`captures/hair-r24-before/`, from `alive.html?hair=1`, and carries a 🚩 comment saying why.
+
+### The light path: hypothesis CONFIRMED as arithmetic, REFUTED as an explanation
+
+At the forehead under the fringe, hair off, total scene luminance 5.3333e-1:
+
+| term | share | shadowable |
+|---|---|---|
+| key RectAreaLight | 27.00% | **no** — three.js RectAreaLight has no shadow code |
+| fill RectAreaLight | **50.01%** | **no** |
+| rim + kicker RectArea | 0.01% | no |
+| ambient (Hemisphere, via GTAO) | 5.79% | partly — GTAO takes 0.98 pp |
+| **key SpotLight** | **17.55%** | **yes — this is the entire shadowable budget** |
+| IBL / environment | **0.00%** | measured, not assumed: `scene.environment` and `environmentNode` are both null |
+
+Closure: sum 5.3523e-1 against measured 5.3333e-1, +0.36%.
+
+**81.83% of the light at the forehead is beyond the reach of any shadowing algorithm.** That is the
+authored energy split (`shadowFraction` 0.45 on the key, 0 on fill/rim/kicker), not a defect.
+
+🎯 **AND THE OCCLUSION IS ALREADY SATURATED.** Ceiling at P1 = 17.55 + 0.98 = **18.54%**; the groom
+removes **17.82%** — 96.1%. At the chest, ceiling 26.17%, measured 26.20% — **100.1%**, with the
+shadowing term reading exactly 0.0000e+0. Corroborated on a second arithmetic: the key-spot term
+collapses 9.3614e-2 → 3.7905e-3. Null controls on open skin read 0.00%, which is what proves the
+statistic is not simply reporting the ceiling back.
+
+**⛔ DO NOT BUILD a deep shadow map, an opacity shadow map or a light-view transmittance stack for
+hair→skin occlusion.** There are 0.7 percentage points left in it — about a third of one code value.
+If deeper hair shadow is wanted the lever is `shadowFraction`, it is one number, and its price is
+G2: the sweep goes red at the first step above 0.45. ⚠️ State the margin honestly — the shipped
+plate reads saturationRatio 1.361 against a ceiling of 1.362, so G2 was already 0.001 inside its
+clause and `shadowFraction` is not solely causing that red.
+
+⚠️ **The "1–3%" was the SIXTH structurally-blind statistic, this time on the judges' side.** Averaged
+over all visible groom-free skin the shipped plate reads 0.96% — reproducing their number — because
+most of that skin has no hair between it and any light. Restricted to skin the curtain is actually
+in front of, the same plates read **18–28%**. A whole-face mean cannot tell a missing shadow from a
+present shadow over a small area. The related claim that the forehead is the brightest skin in the
+frame does not reproduce: it ranks 479 of 709 tiles, 67th percentile.
+
+### Lock-scale albedo: the hypothesis was wrong in its premise AND its lever
+
+🔴 **"Nothing at lock scale" is FALSE, measured.** The existing per-fragment strand jitter already
+delivers 13.39% of the plate's mean into the filament band and **13.69% into the LOCK band**. Its
+lattice period is 4.8 px and 1-D value noise is flat below its own lattice frequency. **The lock
+band is already full — of noise.** The judges' words were more precise than the hypothesis derived
+from them: *"per-pixel noise standing in for structure"* is a complaint about **COHERENCE, not
+power**. Score future work on coherence.
+
+🔴 **The band definition was a guess and it did not fit.** 10–40 px was nominated blind; the groom's
+own lock is `LOCK_COUNT` 16 at a mass radius of 88.1 mm = 34.6 mm = **53 px**, coarser than a card
+(44 px) and outside the band.
+
+🔴 **Albedo is the wrong QUANTITY for hair, and this is the durable finding.** Grass clumps genuinely
+differ in albedo — different plants, age, dryness — which is why false-earth's `clumpSeed01` into
+base colour works there. **Every fibre on one head shares one melanin.** A lock reads as a lock
+because of *shading* — self-shadow, tilt, and the highlight breaking across it — not because it is a
+different colour. At the solved spread the term is invisible; at its physical maximum it reads as
+**patchy dye**, not locks. The blind judge could not tell the two sets apart at 1:1, 4x or 5x.
+
+🎯 **The groom HAS a real lock identity and none of it reaches the shader.** `hair_cards.py` carries
+`LOCK_COUNT = 16` dart-thrown scalp centres, assigns every card by `nearest_lock()` — a Voronoi on
+the scalp — and gives the lock 75% of a card's deflection and curl. But `assemble_cards` writes
+`u` = atlas strip and `v` = root-to-tip, and the GLB carries no lock id, no card id, and no per-card
+UV offset to derive one from. **Plumbing the existing lock id through to the shader, and driving
+SHADING with it rather than albedo, is the next experiment** — and it needs no new groom.
+
+### New instruments, both validated against arithmetic before use
+
+- `tools/critic/band-power.mjs` — three-band separable **box**-filter decomposition, chosen because a
+  box's response to a discrete sinusoid is the closed-form Dirichlet kernel, so every reading is
+  known on paper first. Four required validations print exactly: flat 0/0/0; filament grating
+  0.070711/0.001725/0.001725 against A/√2 and A/(41√2); lock grating; and their sum. Separation 375.8×.
+  Its step-edge blind spot is a **measured clause**, not a caveat.
+- `tools/critic/lightpath-probe.mjs` — leave-one-out light decomposition through a closed-form
+  inverse of three's ACES. ⚠️ Its `buildGroomMask` docstring shipped a **false number** — 24.33/255
+  attributed to P1 when it belongs to a discarded rect, spliced against P1's own clean 11.06. Third
+  instance of §1.25r; found by the verifier re-measuring both rects on all three plate pairs. Fixed,
+  with the error recorded in place. **Numbers in a justification comment are claims and nothing in
+  the tree checks them.**
