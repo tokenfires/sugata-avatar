@@ -904,6 +904,80 @@ export const STRAND_NOISE_SD = 2 * Math.sqrt( 26 / 420 );
  * ratio: 0.45/0.25 = 1.8× against Marschner's 2×, agreeing to 10%, which is mild evidence they
  * were eyeballed off a render rather than invented.
  */
+// ================================================================================================
+// 🔴 ROUND 27: THE PHYSICALLY DERIVED REPLACEMENT FOR THE MULTIPLE-SCATTERING TERM IS
+// INDISTINGUISHABLE FROM TURNING `HAIR_DEFAULTS.scatter` DOWN, AND THAT IS THE ROUND'S RESULT.
+//
+// `?hairdefect=zinke-transmittance` rebuilds the multiple-scattering term as Zinke Eq.5's
+// per-channel forward transmittance — the ENERGY half slide 39 discards by dividing out Luma(C) —
+// with every constant derived and none chosen (`scatterValue` carries the derivation). Measured on
+// 230,277 gated hair pixels of the judged URL `?bare&freeze&seed=1&hair=1&capture&aa=msaa&grade=0`,
+// in radiance at exposure 4 above the indirect floor, against a control captured by the same
+// pipeline on the same run:
+//
+//   | arm                                              | pedestal share | p95/p50 | graded gate |    sat |
+//   |--------------------------------------------------|---------------:|--------:|------------:|-------:|
+//   | slide 39, what ships                             |         57.40% |   2.020 |        6.02 | 0.5649 |
+//   | Zinke T_f, the probe                             |         11.49% |   2.829 |        4.67 | 0.2542 |
+//   | slide 39 at ?hairscatter=0.09658, LEVEL MATCHED  |              — |   2.804 |        4.61 | 0.2844 |
+//
+// ⚠️ REPRODUCED ON A SECOND, INDEPENDENT CAPTURE RUN with different URLs on the same tree: every
+// figure in the table landed to three significant figures, and the gate itself moved by 30 pixels
+// of 230,277 because the stochastic OIT reshuffles the mask's fringe from load to load. Read these
+// to three figures and not further.
+//
+// The third row is the control and it is SOLVED, NOT CHOSEN: `hair-transmittance.mjs` captures the
+// A-side term at five scalars, interpolates the one whose mean mass rise equals the probe's, then
+// captures at it and confirms the match landed to -0.00%.
+//
+// 🎯 THE DISCRIMINATOR. A level-matched CONSTANT moves radiance p95/p50 by 38.8%; the depth
+// dependence adds 0.9% on top of that. Spearman between the two arms is 0.9763 over the same
+// pixels, and the crown crops — `captures/hair-r27-crops/disc-crown-mass-tf.png` against
+// `disc-crown-ctl.png`, nearest-neighbour at 3x — are the same picture. THE GAIN IS A BRIGHTNESS
+// CUT WEARING A CONTRAST RATIO, which is CHECKPOINT §9's own warning about `scatter` 1 -> 0.25,
+// landing this time on a term that had a published derivation behind it.
+//
+// ⚠️ AND BOTH SIDES OF THE TRAP MOVED THE WAY CHECKPOINT §2 SAYS THEY DO. The graded contrast gate
+// falls 6.02 -> 4.67 while the plate's own dynamic range rises. Neither arm is green, and the
+// probe's mass saturation collapses 0.5649 -> 0.2542 — the direction six blind judges complained
+// about — because the pedestal was the only warm term under an achromatic R lobe.
+//
+// 🚩 WHY, AND IT IS THE FORWARD FINDING. `Shadow` is exp(-3 * depth.png at the CARD'S OWN ATLAS UV)
+// and that sheet is `random.random()` per strand (`tools/figure-pipeline/hair_texture.py:791`) — a
+// per-strand uniform random in TEXTURE space, which cannot vary with light direction, head
+// orientation, or how many other cards lie between the fragment and a light. Giving a correct FORM
+// a white-noise INPUT buys a per-pixel wobble (B/C luminance ratio p10 0.55, p90 1.31) and no
+// structure. THE INPUT COMES BEFORE THE FORM. The signal Karis' own slide 44 names is the shadow
+// map this build already casts into, and wiring it is `render/**`.
+//
+// ⚠️ NOT MEASURED BY THIS FILE OR ITS GATE, AND ATTRIBUTED RATHER THAN RESTATED: the same round's
+// pixel probe (`tools/critic/hair-pedestal.mjs`, `captures/hair-r27-pedestal/`) scored the shipped
+// `Shadow` against a CPU ray-cast count of cards between the fragment and each light and read it
+// UNCORRELATED WITH THE SIGN BACKWARDS. Read that number there, where its instrument is.
+//
+// Every figure above is tagged. The producer is an arithmetic selftest that prints a
+// MACHINE-WRITTEN record of the capture, because `/captures/` is gitignored and a producer that
+// read the plates would go red on a clean tree — `hair-transmittance.mjs`'s header states that
+// limit in full, including what it therefore does NOT prove.
+//
+// @claim 230,277 :: node tools/critic/hair-transmittance.selftest.mjs :: gate size #1
+// @claim 57.40 :: node tools/critic/hair-transmittance.selftest.mjs :: pedestal share #2
+// @claim 11.49 :: node tools/critic/hair-transmittance.selftest.mjs :: pedestal share #3
+// @claim 2.020 :: node tools/critic/hair-transmittance.selftest.mjs :: radiance dynamic range #4
+// @claim 2.829 :: node tools/critic/hair-transmittance.selftest.mjs :: radiance dynamic range #5
+// @claim 2.804 :: node tools/critic/hair-transmittance.selftest.mjs :: radiance dynamic range #6
+// @claim 6.02 :: node tools/critic/hair-transmittance.selftest.mjs :: graded contrast gate #2
+// @claim 4.67 :: node tools/critic/hair-transmittance.selftest.mjs :: graded contrast gate #3
+// @claim 4.61 :: node tools/critic/hair-transmittance.selftest.mjs :: graded contrast gate #4
+// @claim 0.5649 :: node tools/critic/hair-transmittance.selftest.mjs :: mass saturation #2
+// @claim 0.2542 :: node tools/critic/hair-transmittance.selftest.mjs :: mass saturation #3
+// @claim 0.2844 :: node tools/critic/hair-transmittance.selftest.mjs :: mass saturation #4
+// @claim 0.09658 :: node tools/critic/hair-transmittance.selftest.mjs :: the level match solved at hairscatter #1
+// @claim 0.9763 :: node tools/critic/hair-transmittance.selftest.mjs :: Spearman between the two arms #1
+// @claim 38.8 :: node tools/critic/hair-transmittance.selftest.mjs :: level-matched CONSTANT moves radiance #3
+// @claim 0.9 :: node tools/critic/hair-transmittance.selftest.mjs :: level-matched CONSTANT moves radiance #4
+// ================================================================================================
+
 export const HAIR_DEFAULTS = {
     /** Cuticle tilt of the R lobe, Karis' variable. Mid-band of −0.3473…−0.1743. Free parameter. */
     shiftR: -0.26,
@@ -978,6 +1052,10 @@ export const HAIR_DEFAULTS = {
      * albedo sweep in the selftest's contrast diagnosis), and the fake was standing in for it.
      * `docs/research/hair.md` §9 carries the sweep; REQ-063/064 carry the rig changes that would
      * let the lobes do the work this term is doing.
+     *
+     * 🔴 AND ROUND 27 PROVED THE SAME THING ABOUT THE PHYSICS. The block above this table measures
+     * a derived, published replacement for the term against a level-matched constant multiple of
+     * this scalar, and they are the same picture. Read it before spending a round here.
      */
     scatter: 1,
 
@@ -992,8 +1070,16 @@ export const HAIR_DEFAULTS = {
 
     /**
      * How fast the baked bundle depth is turned into slide 44's exponential shadow. `Shadow` runs
-     * `exp( −density · depth )`, so 0 is "every texel fully lit" and the term's colour shift
-     * vanishes. 3.0 puts the deepest baked texel at e⁻³ = 0.050.
+     * `exp( −density · depth )`, so 0 is "every texel fully lit" and the depth dependence vanishes.
+     * 3.0 puts the deepest baked texel at e⁻³ = 0.050.
+     *
+     * 🎯 ROUND 27 GAVE THIS NUMBER A SECOND, SHARPER READING AND DID NOT CHANGE IT. Because
+     * `Shadow` is Beer–Lambert, `density · depth` IS the optical path length in units of one
+     * attenuation event — i.e. Zinke Eq.5's `n`, the count of fibres between the fragment and the
+     * light. So 3.0 is now also the assertion that the deepest baked texel sits behind three
+     * forward-scattering events, and `scatterValue` reads it that way rather than as a curve shape.
+     * It stays at 3.0 because moving it would be a second free variable in the round that changed
+     * what the exponent means.
      */
     shadowDensity: 3.0,
 
@@ -1152,6 +1238,22 @@ export const HAIR_DEFECTS = {
         'those are derivations rather than parameters: the arm is ONE free variable. ' +
         '⚠️ IT OVERRIDES ?hairbeta= RATHER THAN COMPOSING WITH IT. A control that another key can ' +
         'silently un-defect is not a control, and this one and that key move the same number.',
+    'zinke-transmittance': '🔴 ROUND 27\'S EXPERIMENT, AND IT IS A NEGATIVE RESULT KEPT REACHABLE ' +
+        'RATHER THAN A DEFECT. The multiple-scattering term is rebuilt as Zinke Eq.5\'s ' +
+        'per-channel forward transmittance √C^(1+n) — the ENERGY half slide 39 discards by ' +
+        'dividing out Luma(C) — with ā_f = √C taken from this material\'s own absorbTT at h = 0 ' +
+        'and n = shadowDensity·depth taken from slide 44\'s own exponent, so no constant is ' +
+        'chosen anywhere and at n = 0 the two arms are bit-identical. Everything else — the ' +
+        'lobes, the lock albedo, the lock tilt, the strand jitter, the flow sheet, the card ' +
+        'frame, the side visibility, the root occlusion — is untouched, and both arms read the ' +
+        'same shadowDensity uniform off the same sheet, so a census of that uniform describes ' +
+        'both arms and no effective value differs from the written one. ' +
+        '🚩 WHY IT DID NOT SHIP: it makes the pedestal collapse and both contrast statistics rise, ' +
+        'and a LEVEL-MATCHED CONSTANT multiple of the term it replaces does the same thing on the ' +
+        'same pixels — the two arms are the same picture by rank and by eye. The depth dependence ' +
+        'is not the lever while the signal it depends on is white noise in atlas space. The ' +
+        'measurement, with every figure tagged, is the comment on HAIR_DEFAULTS.scatter; the ' +
+        'instrument is tools/critic/hair-transmittance.mjs and the plates are captures/hair-r27-tf/.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -1637,23 +1739,133 @@ export function rootOcclusionValue( rootToTip, settings = {} ) {
 }
 
 /**
- * Slide 39's multiple-scattering fake, per channel.
+ * The multiple-scattering term, per channel. **What SHIPS is slide 39 verbatim**; the alternative
+ * below it is round 27's derived replacement, reachable at `?hairdefect=zinke-transmittance` and
+ * **measured, refused, and kept only as a probe.** Read `HAIR_DEFECTS['zinke-transmittance']` for
+ * the refusal before spending a round on this line again.
  *
- * `S_scatter = √C · (n·ωi + 1)/4π · (C / Luma(C))^(1 − Shadow)`
+ *   shipped   `S = √C · (n̂·ωi + 1)/4π · (C / Luma(C))^(1 − Shadow)`
+ *   probe     `S = ā_f^(1 + n) · (n̂·ωi + 1)/4π`,  `ā_f = √C`,  `n = −ln(Shadow) = shadowDensity · depth`
  *
- * The last factor is what the term is for: as `Shadow` falls the result is pushed toward the hair's
- * own CHROMATICITY, so deep hair goes saturated rather than grey. `Shadow` is slide 44's
- * exponential — a path-length estimate, not a binary visibility — and on this build it comes out
- * of the baked bundle-depth sheet rather than out of a shadow map we do not have.
+ * ## Why the probe was built, and the diagnosis stands even though the fix did not
+ *
+ * Round 27 measured slide 39's third factor over its whole `Shadow` range on the shipped albedo and
+ * it is **ISOLUMINANT AND POINTED THE WRONG WAY** — it gets BRIGHTER as it deepens, because
+ * dividing by `Luma(C)` is exactly what removes the level from a per-channel attenuation and leaves
+ * only its chromaticity. The tagged block below this docstring carries the ratio. **A floor that cannot
+ * get darker anywhere is a floor no lobe can peak through**, and CHECKPOINT §9 measured R's p99
+ * against the mass mean at a ratio of 1.00 for that reason. Karis concedes the term's status in the
+ * speaker notes `docs/research/hair.md` §1.8 already transcribes: *"a giant artistic hack and not
+ * physically based in the slightest… derived by looking at photos, not ground truth renders."*
+ *
+ * Zinke, Yuksel, Weber & Keyser, *Dual Scattering Approximation for Fast Multiple Scattering in
+ * Hair*, SIGGRAPH 2008, §3.1 Eq.5, is the published form of the same quantity:
+ *
+ *   `T_f(x, ω_d) = d_f(x, ω_d) · Π_{k=1..n} ā_f(θ_d^k)`
+ *
+ * — a PER-CHANNEL product over the `n` fibres on the shadow path, so it darkens geometrically as
+ * `ā_f^n` while its channel ratio sharpens as `(ā_f,R / ā_f,B)^n`. Level and chroma are driven by
+ * ONE variable and they move together. §3.1.1 sets `T_f = 1` at `n = 0`.
+ *
+ * ## Where the amplitude comes from, and it introduces NO new constant
+ *
+ * **`ā_f = √C` is this material's own fibre, not a fit.** `HairLightingModel.scatter`'s TT lobe
+ * already carries the fibre's transmittance as `absorbTT = C^( √(1 − h²a²) / (2 cosθ_d) )`. At the
+ * ray through the fibre's centre (`h = 0`) at normal incidence (`cosθ_d = 1`) that is exactly
+ * `C^(1/2)`. So `√C` — the factor Karis already writes and gives no derivation for — IS the
+ * shortest-path transmittance of one of our own fibres, which is what Zinke's `ā_f` is an average
+ * of. It is the LEAST attenuating choice available (it drops the `(1−F)²` Fresnel loss and the
+ * fraction scattered outside the forward cone), so it errs bright.
+ *
+ * **`n = −ln(Shadow)` is Karis' own slide 44 inverted.** `Shadow = exp(−shadowDensity · depth)` is
+ * Beer–Lambert, so its own exponent IS the optical path length in units of one attenuation event.
+ * No constant is chosen here: the shader multiplies `depth` by `shadowDensity` and this mirror
+ * takes the logarithm, and `hair-transmittance.selftest.mjs` §A asserts the two agree to 1e-12.
+ *
+ * **The exponent is `1 + n` and not `n`, and the `1` is `Ψ^G`'s own scattering event.** `T_f` is
+ * the transmittance of the light on its way TO the shading point; the light then has to scatter
+ * once more to leave. That single traverse is Karis' original `√C`, so at `n = 0` the probe returns
+ * `√C · wrap` — **bit for bit what the shipped branch returns there** — and Zinke §3.1.1's
+ * `T_f = 1` at `n = 0` holds exactly. The A/B is zero on the fully-lit boundary and grows with
+ * depth, which is the only place a depth term is entitled to act, and it is what makes a moved
+ * pixel attributable. `hair-transmittance.selftest.mjs` §B asserts the equality to 1e-15.
+ *
+ * **`d_f` is deliberately NOT applied.** Zinke ships a density factor of 0.7 (§6 calls it the
+ * method's only user-adjustable term). It is a CONSTANT multiplier on the pedestal, and a constant
+ * multiplier on the pedestal is `HAIR_DEFAULTS.scatter` — the knob CHECKPOINT §2's trap is about
+ * and the one free variable round 27 was explicitly not spending. Applying it would also break
+ * the `n = 0` boundary equality above.
+ *
+ * 🚩 **THE INPUT IS THE WRONG COORDINATE AND THIS EXPRESSION DOES NOT FIX THAT — WHICH IS WHY IT
+ * IS A PROBE.** `Shadow` reads `depth.png` at the CARD'S OWN ATLAS UV, and
+ * `tools/figure-pipeline/hair_texture.py:791` bakes that sheet as `random.random()` per strand.
+ * Measured against a CPU ray-cast count of cards between the fragment and each light — by the same
+ * round's pixel probe, `tools/critic/hair-pedestal.mjs`, not by this file's own gate — the shipped
+ * `Shadow` is UNCORRELATED and the sign is backwards. Fixing the FORM of a depth
+ * dependence whose SIGNAL is white noise buys a per-pixel wobble and nothing else, which is exactly
+ * what round 27 went on to measure. The signal needs a light-view path length (slide 44's actual
+ * shadow map), which is `render/**` plumbing and not this file's. See
+ * `docs/research/hair-multiple-scattering.md` for the sheet measurements.
+ *
+ * @param {number} dotFakeNormalLight - `n̂ · ωi`, Karis' synthesised normal against the light.
+ * @param {number[]} colour - the fragment's linear albedo, after the lock field.
+ * @param {number} shadow - slide 44's exponential, `exp(−shadowDensity · depth)`, in (0, 1].
  */
+// The two terms' response to their own depth input, on the shipped albedo. ⚠️ EACH IS QUOTED OVER
+// ITS OWN DOMAIN AND THE TWO DOMAINS ARE NOT THE SAME, so the numbers are NOT a ratio of each
+// other: slide 39's luminance RISES by 1.0927 as `Shadow` sweeps 0 → 1, and Zinke's `T_f` FALLS by
+// 1927.5 as the fibre count `n` sweeps 0 → 3. What the probe tested is the SIGN, which is opposite,
+// and the sign is domain-independent. The magnitudes are not comparable and must never be divided.
+//
+// 🔴 THIS SENTENCE ONCE READ AS THOUGH BOTH NUMBERS SHARED ONE DOMAIN — "over the full range the
+// shipped `shadowDensity` can produce" — which is true of the first and false of the second. SIXTH
+// instance of LEARNINGS §1.25r, and the informative part is that **the gate passed it**: both
+// numbers ARE what their tagged command prints, because `hair-transmittance.selftest.mjs:105-106`
+// computes them over the two different domains too. **A gate that re-derives a number from its
+// producer cannot catch an error the producer shares** — it checks transcription, not meaning. That
+// is a real and permanent limit of `quoted-numbers`, and it belongs beside its 0.038% coverage
+// figure as the second half of what its green result does not mean.
+//
+// @claim 1.0927 :: node tools/critic/hair-transmittance.selftest.mjs :: slide 39 luminance, Shadow 0 → 1 #4
+// @claim 1927.5 :: node tools/critic/hair-transmittance.selftest.mjs :: Zinke T_f luminance, n 0 → 3 #3
 export function scatterValue( dotFakeNormalLight, colour, shadow, settings = {} ) {
 
     const options = { ...HAIR_DEFAULTS, ...settings };
-    const luma = Math.max( 0.2126 * colour[ 0 ] + 0.7152 * colour[ 1 ] + 0.0722 * colour[ 2 ], 1e-5 );
     const wrap = ( dotFakeNormalLight + 1 ) / ( 4 * Math.PI );
+
+    if ( options.defect === 'zinke-transmittance' ) {
+
+        const events = forwardScatteringEvents( shadow );
+
+        return colour.map( ( channel ) =>
+            options.scatter * wrap * Math.pow( Math.sqrt( channel ), 1 + events ) );
+
+    }
+
+    const luma = Math.max( 0.2126 * colour[ 0 ] + 0.7152 * colour[ 1 ] + 0.0722 * colour[ 2 ], 1e-5 );
 
     return colour.map( ( channel ) =>
         options.scatter * Math.sqrt( channel ) * wrap * Math.pow( channel / luma, 1 - shadow ) );
+
+}
+
+/**
+ * `n`, the number of forward-scattering events on the path to the light, out of slide 44's
+ * exponential. `Shadow = exp(−n)` is Beer–Lambert, so `n = −ln(Shadow)` is an inversion and not a
+ * model — the shader never runs it, because it holds `shadowDensity · depth` directly.
+ *
+ * Clamped at the bottom because `Shadow = 0` is `n = ∞`. The floor is this file's own `EPSILON`,
+ * and the clamp exists only so a caller handing this function a zero gets a number rather than an
+ * infinity — see the tagged block below for where it lands.
+ */
+// EPSILON is 1e-4, so `n` is capped at 9.210340. The shipped sheet's deepest texel is
+// `n = shadowDensity = 3.0`, which puts the clamp 3.07x outside anything the groom can produce.
+//
+// @claim 9.210340 :: node tools/critic/hair-transmittance.selftest.mjs :: events clamp at EPSILON #2
+// @claim 3.07 :: node tools/critic/hair-transmittance.selftest.mjs :: events clamp at EPSILON #3
+export function forwardScatteringEvents( shadow ) {
+
+    return - Math.log( Math.max( shadow, EPSILON ) );
 
 }
 
@@ -2081,6 +2293,7 @@ export class HairLightingModel extends LightingModel {
         this.perpendicularR = null;
         this.cosThetaR = null;
         this.shadow = null;
+        this.forwardEvents = null;
         this.occlusion = null;
 
     }
@@ -2119,8 +2332,14 @@ export class HairLightingModel extends LightingModel {
         this.colour = nodes.baseColour.mul( lockAlbedoNode( nodes ) ).toVar( 'hairColour' );
 
         // Slide 44's exponential, standing on the baked bundle depth. See the header, penalty 2.
+        //
+        // 🎯 ROUND 27 KEEPS BOTH HALVES OF THE SAME QUANTITY, and that is not redundancy. `Shadow`
+        // is `exp(−n)` and `n` is the optical path length in units of one attenuation event, so the
+        // exponent IS the fibre count Zinke's Eq.5 is a product over. `scatterValue` takes `Shadow`
+        // and inverts it; the shader has `n` already and must never pay for a log to get it back.
         const depth = nodes.depthMap === null ? float( 0 ) : nodes.depthMap.sample( uv() ).r;
-        this.shadow = depth.mul( nodes.shadowDensity ).negate().exp().toVar( 'hairShadow' );
+        this.forwardEvents = depth.mul( nodes.shadowDensity ).toVar( 'hairForwardEvents' );
+        this.shadow = this.forwardEvents.negate().exp().toVar( 'hairShadow' );
 
         this.occlusion = this.rootOcclusion().toVar( 'hairRootOcclusion' );
 
@@ -2290,13 +2509,33 @@ export class HairLightingModel extends LightingModel {
         const lightSide = sideVisibilityNode( toLight, positionViewDirection );
         const visibility = mix( float( 1 ), lightSide, nodes.sideVisibility );
 
-        // --- the multiple-scattering hack ------------------------------------------------------
-        const luma = this.colour.dot( vec3( 0.2126, 0.7152, 0.0722 ) ).max( 1e-5 );
+        // --- the multiple-scattering term ------------------------------------------------------
+        //
+        // 🔴 ROUND 27 BUILT THE PHYSICALLY DERIVED REPLACEMENT FOR THIS TERM, MEASURED IT, AND DID
+        // NOT SHIP IT. The `else` branch is what ships and is unchanged from round 26. The
+        // `zinke-transmittance` branch is the experiment, kept reachable so the next round inherits
+        // a plate rather than a paragraph — `scatterValue` carries the derivation and
+        // `HAIR_DEFECTS['zinke-transmittance']` carries the measurement that refused it.
         const wrap = this.fakeNormal.dot( toLight ).add( 1 ).div( 4 * Math.PI );
-        const scatter = sqrt( this.colour )
-            .mul( wrap )
-            .mul( pow( this.colour.div( luma ), vec3( this.shadow.oneMinus() ) ) )
-            .mul( nodes.scatter );
+
+        let scatter;
+
+        if ( nodes.defect === 'zinke-transmittance' ) {
+
+            scatter = pow( sqrt( this.colour ), vec3( this.forwardEvents.add( 1 ) ) )
+                .mul( wrap )
+                .mul( nodes.scatter );
+
+        } else {
+
+            const luma = this.colour.dot( vec3( 0.2126, 0.7152, 0.0722 ) ).max( 1e-5 );
+
+            scatter = sqrt( this.colour )
+                .mul( wrap )
+                .mul( pow( this.colour.div( luma ), vec3( this.shadow.oneMinus() ) ) )
+                .mul( nodes.scatter );
+
+        }
 
         // R, TRT and the multiple-scattering fake are all REFLECTIVE — they return light on the side
         // it arrived from — so all three take the visibility. TT alone does not: it is the

@@ -579,3 +579,83 @@ It survived because **the sentence was not tagged.** Which is the finding: `quot
 **9 tagged claims against 23,497 numerals in comment prose — 0.038%** — and prints that fraction on
 every run, precisely so a green result is never mistaken for a checked tree. **A gate's coverage is
 part of its verdict.** Now tagged.
+
+---
+
+## 10. R27 — the pedestal's depth input is white noise, so depth cannot be the lever yet
+
+**Nothing shipped in the picture.** `captures/hair-r27-after` is byte-identical to `hair-r26-after`.
+Sixth clean negative of the week, and it closes a line cheaply.
+
+### 🎯 The forward finding: the input comes before the form
+
+`Shadow` in the slide-39 term is `exp(−3 · depth.png sampled at uv())` — **the CARD's own atlas
+coordinate.** One baked number per texel, shared by all 462 cards, and `hair_texture.py` fills that
+sheet with `random.random()` per strand. **It cannot vary with light direction, head orientation, or
+how many other cards lie between the fragment and a light.**
+
+Zinke's `n` counts fibres along the **shadow path**. Ours counts depth **within one card's bundle**.
+Right histogram, wrong spatial referent. 🚩 **Depth-modulating the pedestal is not the lever while
+its input is noise** — and that is why the correctly-derived Zinke term was indistinguishable from a
+scalar: a level-matched constant multiple of the hack it replaced produced the same moves, the same
+rank order (ρ 0.9763) and the same crop. **The gain was 38.8% brightness and 0.9% physics.**
+
+### The literature settled both hypotheses, and one of them was mine
+
+🔴 **Hypothesis (B) — "`sqrt(albedo)` is backwards" — REFUTED AS STATED.** `sqrt(C)` is not the
+term's colour model; it is the **Shadow = 1 boundary value** of a term whose per-channel chromaticity
+exponent is `(1.5 − Shadow)`. Criticising the sqrt alone mistakes an endpoint for the function.
+
+**But the judges were right anyway, and the literature backs them.** Chiang et al. EGSR 2016 §4.2:
+lower azimuthal roughness → more forward scattering → **darker AND more saturated**; higher →
+"brighter and less saturated." **Brightness and saturation are anti-correlated and both set by
+penetration depth.** Six blind judges said *"it desaturates toward grey as it lightens instead of
+warming toward copper"* and that is a real, sourced defect.
+
+⚠️ **Karis offers no justification for the sqrt anywhere.** His own speaker notes call the whole
+thing *"a giant artistic hack and not physically based in the slightest"*, derived from photographs
+rather than ground-truth renders. Our citation of slides 39/44 is faithful; the slides just do not
+claim what a reader might assume.
+
+### What the fix would actually require, from Zinke et al. SIGGRAPH 2008 (verified verbatim)
+
+`Ψ^G ≈ T_f · S_f` with `T_f = d_f · Π_{k=1..n} ā_f(θ_d^k)` (Eq. 4–5), `d_f = 0.7` in [0.6, 0.8], and
+`T_f = 1` when `n = 0`. Spread widens with depth too: `σ̄_f² = Σ β̄_f²` (Eq. 8). The GPU form stores
+`T_f` and `σ̄_f` **per RGB channel**, so chromaticity sharpens *geometrically* with depth — that is
+the anti-correlation, and it is Beer-Lambert.
+
+🚩 **And our rig bounds which tier is reachable.** Every real-time source derives depth from the
+**light's view** — Zinke §4.1.3 and Frostbite slide 27 both use deep opacity maps. We can only do
+that for the key SpotLight: three's `RectAreaLight` has no shadow code, and RectAreaLights carry
+**66–73% of a hair pixel**. So **Frostbite's own Tier-3 fallback fits this rig and deep opacity maps
+do not**: `T_f = d_f · exp(−σ_hair · l)`, per channel, on a *geometric* path length. Frostbite states
+its limitation plainly — it will not adapt to actual changes in hair volume.
+
+**Licences:** Zinke read-only, no code, ACM personal-use preprint. Karis' slides are published course
+notes (already cited); UE source is EULA-bound and must not be vendored. d'Eon read-only.
+
+### 🔴 The sixth false number — and it exposes a permanent limit of last round's gate
+
+`HairMaterial.js` quoted slide 39 rising by **1.0927** and Zinke's `T_f` falling by **1927.5**
+*"over the full range the shipped `shadowDensity` can produce"* — as though one domain. It is two:
+`1.0927` sweeps `Shadow` 0 → 1, `1927.5` sweeps `n` 0 → 3. **The magnitudes are not comparable and
+must never be divided.** Only the *sign* difference is domain-independent, and the sign is what the
+probe tested.
+
+🎯 **The gate passed it, and this time not because the claim was untagged.** Both numbers ARE what
+their tagged command prints — because `hair-transmittance.selftest.mjs` computed and printed them
+over the two domains too. **A gate that re-derives a number from its producer cannot catch an error
+the producer shares: it checks transcription, not meaning.** That is a permanent limit of
+`quoted-numbers` and it belongs beside its 0.038% coverage figure as the second half of what a green
+result does not mean. Both the producer and the comment are now fixed, and the producer prints the
+two domains on separate lines so they cannot be conflated again.
+
+### ⏭️ Next, in order
+
+1. **Give the pedestal a real depth input before touching its form.** The candidates are a light-view
+   path length for the key, and a *geometric* per-fragment path length through the groom envelope for
+   the RectAreaLights that cannot have a shadow map. Until `Shadow` stops being noise, no shading
+   change to this term is attributable.
+2. Then the per-channel chromaticity (Chiang §4.2's anti-correlation), which is the judges' sentence.
+3. `hair_texture.py`'s `depth.png` is `random.random()` per strand — that sheet is the actual root
+   and it is a **generator** fix, not a shader one.

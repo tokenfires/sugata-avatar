@@ -1,0 +1,39 @@
+{
+  "capturedFrom": "captures/hair-r27-tf",
+  "gatedPixels": 230277,
+  "starScatter": 0.09657961556132723,
+  "pedestalShare": {
+    "slide39": 57.40453670462362,
+    "zinke": 11.493399977874017
+  },
+  "radianceP95OverP50": {
+    "slide39": 2.0201399658843675,
+    "zinke": 2.829617960009638,
+    "levelMatched": 2.804053726448639
+  },
+  "radianceP90OverP10": {
+    "zinke": 29.620712119459665,
+    "levelMatched": 17.286686108276992
+  },
+  "rP99OverMassMean": {
+    "slide39": 1.4604258822549976,
+    "zinke": 2.930499297790923
+  },
+  "gradedGateRatio": {
+    "slide39": 6.024880130397519,
+    "zinke": 4.66550473200716,
+    "levelMatched": 4.613428766610265
+  },
+  "saturation": {
+    "slide39": 0.5648901129009148,
+    "zinke": 0.2542116187845681,
+    "levelMatched": 0.28436015061392406
+  },
+  "hueDegrees": {
+    "slide39": 1.2878769233032585,
+    "zinke": 334.9617816737151,
+    "levelMatched": 338.22949340466926
+  },
+  "spearmanZinkeVsLevelMatched": 0.9763394832166952,
+  "meanAbsDeltaRgb": 0.0035344508439139905
+}
