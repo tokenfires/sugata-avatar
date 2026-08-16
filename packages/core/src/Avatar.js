@@ -397,7 +397,39 @@ export class Avatar {
             heightOverride: Number.isFinite( options.framedHeightMetres ) ? options.framedHeightMetres : null
         } );
 
-        await avatar.build();
+        // 🚩 THE MOST LIKELY PRODUCTION FAILURE IS A MISSING GLB, AND WITHOUT THIS IT LEAKED A WHOLE
+        // GPU SESSION EVERY TIME.
+        //
+        // `build()` awaits four times and the first is `Figure.load` of an 11.5 MB bake. By then
+        // `Stage.create` has already constructed the `WebGPURenderer` AND started the rAF loop
+        // (`Stage.js:357`), the rig is attached and the grade is installed. If the fetch throws, the
+        // caller gets a rejected promise and **no handle**, so `dispose()` is unreachable and the
+        // renderer plus its live animation chain stay alive for the lifetime of the page.
+        //
+        // Measured by an adversarial verifier before this block existed, driving a real `build()`
+        // with `Figure.load` throwing a 404:
+        //
+        //     create() rejected with: GLTFLoader: 404 on figure_g050.glb
+        //     Stage.create calls: 1   Stage.dispose calls: 0
+        //     LightingRig attachTo: 1  LightingRig dispose: 0
+        //     Grade installed: 1       Grade disposed: 0
+        //
+        // ⚠️ AND THE 404 IS NOT HYPOTHETICAL: `assets/figures/*.glb` is gitignored, so a fresh clone
+        // has no bake at all and EVERY `create()` on it took this path. Retrying in a loop — which
+        // is what a page with a reconnect does — leaked one renderer per attempt.
+        //
+        // `dispose()` is idempotent and tolerant of a half-built avatar by construction, which is
+        // what makes it safe to call on an object whose `build()` did not finish.
+        try {
+
+            await avatar.build();
+
+        } catch ( error ) {
+
+            avatar.dispose();
+            throw error;
+
+        }
 
         return avatar;
 
@@ -435,6 +467,10 @@ export class Avatar {
         // --- the render side ---
         this.stage = null;
         this.lights = null;
+
+        // Held rather than handed away — see the 🚩 at the `setGrade` call for why a
+        // handle that never lands on `this` is invisible to `leakedHandles()`.
+        this.grade = null;
         this.ground = null;
         this.backdrop = null;
         this.unsubscribeFrame = null;
@@ -540,9 +576,27 @@ export class Avatar {
         }
 
         // STEP 3 — after the pipeline exists; `setGrade` throws without it.
+        //
+        // 🚩 THE GRADE IS HELD ON `this` DELIBERATELY, AND THE LINE THAT USED TO BE HERE PASSED IT
+        // STRAIGHT INTO `setGrade` WITHOUT KEEPING IT. That leaked, and worse, it leaked INVISIBLY:
+        // `leakedHandles()` walks `Object.entries( this )`, so a handle never assigned to `this` is
+        // outside its reach BY CONSTRUCTION. The disposal clause read green while a render target
+        // went unreleased on every create/destroy cycle of the two tiers that ship a grade.
+        //
+        // `Grade.dispose()` exists (`Grade.js:407-415`) and frees the bloom and sharpen render
+        // targets; repo-wide it had NO CALLER. `Stage.dispose()` sets `this.grade = null` at
+        // `Stage.js:623` without disposing it, unlike the `ambientOcclusion` three lines above at
+        // `:609-612` — so nothing anywhere was going to free it.
+        //
+        // 🎯 The lesson is about the INSTRUMENT, not the leak: a deny-by-default walk is only
+        // deny-by-default over the things it can see. `leakedHandles()` is an own-property walk, so
+        // "every handle this file acquires is released" is true only of handles this file KEEPS.
+        // Anything handed to a subsystem and forgotten is invisible to it — which is the same shape
+        // as this repo's structurally-blind statistics, on the disposal side.
         if ( this.tierSettings.grade === true ) {
 
-            this.stage.setGrade( new Grade( { sharpness: this.tierSettings.gradeSharpness } ) );
+            this.grade = new Grade( { sharpness: this.tierSettings.gradeSharpness } );
+            this.stage.setGrade( this.grade );
 
         }
 
@@ -1230,6 +1284,11 @@ export class Avatar {
 
         this.lights?.dispose();
         this.lights = null;
+
+        // Before the stage: `Stage.dispose()` sets `this.grade = null` WITHOUT disposing
+        // it (`Stage.js:623`), so releasing after would drop the only reference first.
+        this.grade?.dispose();
+        this.grade = null;
 
         // Last, and it takes the renderer, the pipeline, the temporal resolve, the ambient
         // occlusion and the rAF chain with it.
