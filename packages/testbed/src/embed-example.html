@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — embed example</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: #0b0b0d;
+            color: #e6e6e6;
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+            overscroll-behavior: none;
+        }
+
+        /* CSS owns canvas layout; `Stage` only sizes the drawing buffer to match. */
+        #stage {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        /*
+         * Hidden until something throws. It is the only element on this page that is not the
+         * avatar, and it exists because the alternative — a black canvas and a line in a console
+         * nobody opened — is the single most expensive failure mode this repository has logged
+         * against a page that boots asynchronously.
+         */
+        #failure {
+            position: fixed;
+            inset: 12px;
+            margin: 0;
+            padding: 12px 16px;
+            border: 1px solid #7f1d1d;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fca5a5;
+            white-space: pre-wrap;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="stage"></canvas>
+    <pre id="failure" hidden></pre>
+
+    <script type="module">
+        /**
+         * The smallest page that produces a living avatar — R7's acceptance gate, executable.
+         *
+         * ## What is being claimed
+         *
+         * ONE call, one required option, and the figure that comes back is already breathing,
+         * blinking, gazing, lit, framed and standing in a rest pose rather than a bind pose. Every
+         * other line in this file is either CSS, a failure message, or a console handle — none of
+         * them is load-bearing for the claim, and deleting all three leaves a page that still works.
+         *
+         * That is the whole point of the page. `packages/testbed/src/alive.js` composes the same
+         * subsystems in a `boot()` spanning `:615-1406` because it is an INSTRUMENT — it has to be
+         * able to plant a defect, pin a clock, and attribute a number to a subsystem. An embedder
+         * needs none of that, and if embedding cost anything like eight hundred lines then
+         * `Avatar.js` would have failed at the thing it exists to do.
+         *
+         * ## Why the one call is not wrapped in a try/catch, and why there are TWO listeners
+         *
+         * A listener registered before the call catches everything a `try` would — including a
+         * failure that arrives LATER, from inside the frame loop, which a `try` around `create()`
+         * would not see at all. So the line that is the point of the page keeps no brace around it.
+         *
+         * 🚩 BOTH `unhandledrejection` AND `error` ARE NEEDED, AND THAT WAS MEASURED RATHER THAN
+         * ASSUMED. With only the rejection listener, this page was run against a bundled build in
+         * which the baked skin maps resolve to `/assets/undefined` (see the README's build note).
+         * `Avatar.create` really did reject — `SkinMaterial: could not load the baked map at …` —
+         * and the banner STAYED HIDDEN: an unhandled rejection of a module's own top-level `await`
+         * is reported to the page as an `error` event, not as `unhandledrejection`. One listener
+         * therefore covered every failure except the one that had actually happened, which is the
+         * exact shape of a reporting path nobody has fired.
+         *
+         * ## What this page deliberately does not do
+         *
+         * No HUD, no dials, no keyboard bindings, no query parameters. `avatar.report()` is the
+         * data any of those would be drawn from and it is one call away in the console. A page that
+         * demonstrated the API by wrapping it in a UI would be demonstrating the UI.
+         *
+         *     npm run dev  →  http://localhost:5173/src/embed-example.html
+         *
+         * ⚠️ The default path is WebGPU. On a browser without it the avatar comes up on WebGL2 at
+         * the `fallback` tier — MSAA instead of the temporal resolve — which is a DOWNGRADE and not
+         * a failure, and `avatar.report().quality` is where it says so. See the README.
+         */
+
+        import { Avatar } from '../../core/src/Avatar.js';
+
+        addEventListener( 'unhandledrejection', ( event ) => showFailure( event.reason ) );
+        addEventListener( 'error', ( event ) => showFailure( event.error ?? event.message ) );
+
+        // THE ONE CALL. `canvas` is the only required option; everything else on `Avatar.create`
+        // refines a figure that is already alive without it.
+        const avatar = await Avatar.create( { canvas: document.getElementById( 'stage' ) } );
+
+        // Not part of the claim, and worth the one line: it is what makes this page checkable BY
+        // HAND rather than only by a gate. From the console —
+        //
+        //     avatar.feel( 'joy', 0.8 )        // the face and the body, from one label
+        //     avatar.report().quality          // which tier and which backend actually won
+        //     avatar.report().subsystems       // the census, read off the scene graph
+        //     await avatar.setIdentity( { gender: 1 } )
+        //     avatar.dispose()
+        window.avatar = avatar;
+
+        /** Puts a thrown message where a reader is already looking, rather than in the console. */
+        function showFailure( reason ) {
+
+            const failure = document.getElementById( 'failure' );
+
+            failure.textContent = reason instanceof Error
+                ? `${ reason.message }\n\n${ reason.stack }`
+                : String( reason );
+
+            failure.hidden = false;
+
+        }
+    </script>
+</body>
+</html>

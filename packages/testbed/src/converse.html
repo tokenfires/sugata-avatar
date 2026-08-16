@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>姿 — converse</title>
+<style>
+    :root { color-scheme: dark; }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+        background: #08080a;
+        color: #d8dae0;
+        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow: hidden;
+    }
+
+    #stage { display: block; width: 100vw; height: 100vh; }
+
+    #hud, #transcript, #composer {
+        position: fixed;
+        padding: 10px 12px;
+        background: rgba( 8, 8, 12, 0.72 );
+        border: 1px solid rgba( 255, 255, 255, 0.10 );
+        border-radius: 6px;
+    }
+
+    #hud { top: 12px; left: 12px; max-width: 44vw; white-space: pre; }
+
+    /* The transcript is the page's record of the session and it has to survive a long one, so it
+       scrolls rather than growing the layout. Column-reverse would pin it to the bottom for free
+       but reverses selection order, so the newest line is scrolled to explicitly instead. */
+    #transcript {
+        top: 12px;
+        right: 12px;
+        width: 340px;
+        max-height: calc( 100vh - 120px );
+        overflow-y: auto;
+    }
+
+    #transcript .turn { margin: 0 0 10px; }
+    #transcript .who { opacity: 0.5; }
+    #transcript .you .said { color: #d8dae0; }
+    #transcript .avatar .said { color: #7fd4ff; }
+    #transcript .note { opacity: 0.55; }
+    #transcript .refused { color: #ffb37f; }
+    #transcript .failed { color: #ff8f8f; }
+
+    #composer {
+        left: 12px;
+        right: 376px;
+        bottom: 12px;
+        /* ?bare and a narrow window both letterbox the body into a centred grid, and
+           `place-items: center` reaches fixed boxes too — voice.html and affect.html both record
+           this. Opt back out explicitly. */
+        place-self: end stretch;
+    }
+
+    #composer .row { display: flex; gap: 6px; align-items: center; }
+
+    #say {
+        flex: 1;
+        font: inherit;
+        color: inherit;
+        background: rgba( 255, 255, 255, 0.06 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-radius: 4px;
+        padding: 6px 8px;
+    }
+
+    #composer button {
+        font: inherit;
+        color: inherit;
+        background: rgba( 255, 255, 255, 0.08 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border-radius: 4px;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+    #composer button:hover { background: rgba( 255, 255, 255, 0.16 ); }
+    #composer button:disabled { opacity: 0.4; cursor: default; }
+
+    #composer .options { margin-top: 6px; opacity: 0.65; display: flex; gap: 14px; flex-wrap: wrap; }
+    #composer .options label { cursor: pointer; }
+
+    #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="stage"></canvas>
+<div id="boot">booting…</div>
+
+<div id="hud"></div>
+
+<div id="transcript"></div>
+
+<div id="composer">
+    <div class="row">
+        <input id="say" type="text" autocomplete="off" spellcheck="false"
+            placeholder="say something — the avatar appraises it, feels it, and answers">
+        <button id="send">send</button>
+        <button id="release">release</button>
+    </div>
+    <div class="options">
+        <label><input id="mouth" type="checkbox" checked> mouth: synthetic viseme timeline (NOT this text's phonemes — 4.3 is open)</label>
+    </div>
+</div>
+
+<script type="module" src="./converse.js"></script>
+</body>
+</html>

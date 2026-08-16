@@ -34,7 +34,9 @@ const PAGES = [
     'src/fabric.html',
     'src/hair.html',
     'src/identity.html',
-    'src/affect.html'
+    'src/affect.html',
+    'src/converse.html',
+    'src/embed-example.html'
 ];
 
 export default mergeConfig( base, defineConfig( {
