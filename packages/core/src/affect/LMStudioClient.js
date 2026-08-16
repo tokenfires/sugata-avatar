@@ -118,6 +118,42 @@ export const DEFAULT_ENDPOINT = 'http://127.0.0.1:1234';
 export const DEFAULT_MODEL = 'qwen/qwen3.6-35b-a3b';
 
 /**
+ * 🚩 THE ENDPOINT A BROWSER PAGE MUST USE, AND THE REASON THE DEFAULT ABOVE IS NOT IT.
+ *
+ * Measured 2026-08-16 against the live host, three probes:
+ *
+ *   GET  /v1/models             + Origin  -> 200, and NO `Access-Control-Allow-Origin` header
+ *   OPTIONS /v1/chat/completions          -> **400 Bad Request**, no CORS headers at all
+ *   POST /v1/chat/completions   + Origin  -> 200, and again no allow-origin header
+ *
+ * A POST carrying `Content-Type: application/json` is not a CORS-simple request, so a browser MUST
+ * preflight it — that is the 400 — and would refuse to read the reply anyway for want of the
+ * allow-origin header. **`DEFAULT_ENDPOINT` works from Node and cannot work from a page.**
+ *
+ * ⚠️ AND THIS FILE'S OWN GATE IS BLIND TO THAT. Every transport clause in
+ * `LMStudioClient.selftest.mjs` runs under Node's `fetch`, which does not implement CORS, so 55 of
+ * 55 green says nothing whatever about the browser the avatar runs in. The gate now asserts the
+ * PROXY AGREEMENT instead, which is the part a script can actually see.
+ *
+ * `vite.config.js`'s `server.proxy` maps this path to the host, so the call is same-origin from
+ * the page and no preflight is ever sent. A BUILT page has no dev server and therefore no proxy:
+ * an embedder passes their own same-origin path or a CORS-enabled gateway to `endpoint`.
+ */
+export const LM_STUDIO_PROXY_PATH = '/lmstudio';
+
+/**
+ * The endpoint to use from wherever this is running.
+ *
+ * Deliberately a function of the ENVIRONMENT rather than a build flag: the same bundle is loaded by
+ * a page and by a gate, and a constant chosen at build time would be wrong for one of them.
+ */
+export function defaultEndpointFor( { isBrowser = typeof window !== 'undefined' } = {} ) {
+
+    return isBrowser ? LM_STUDIO_PROXY_PATH : DEFAULT_ENDPOINT;
+
+}
+
+/**
  * Per-utterance ceiling. Deliberately far below the 22.285 s cold load measured above: a cold model
  * must time out INTO TIER 1 rather than hold a conversation still, and `warm()` is the supported
  * way to pay that cost once, up front, where it is invisible.

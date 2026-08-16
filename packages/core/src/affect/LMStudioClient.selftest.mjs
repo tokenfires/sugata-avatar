@@ -50,10 +50,11 @@
  * A measurement outside its range prints FAIL and the process exits non-zero.
  */
 
+import { readFile } from 'node:fs/promises';
 import {
-    DEFAULT_ENDPOINT, DEFAULT_MODEL, LMStudioClient, NEUTRAL_PRIMARY, PAD_SYSTEM_PROMPT,
-    REFUSAL, TIMEOUT_MS, buildAffectSchema, isRepetitionCollapsed, readCompletionChannel,
-    validateAffect
+    DEFAULT_ENDPOINT, DEFAULT_MODEL, LMStudioClient, LM_STUDIO_PROXY_PATH, NEUTRAL_PRIMARY,
+    PAD_SYSTEM_PROMPT, REFUSAL, TIMEOUT_MS, buildAffectSchema, defaultEndpointFor,
+    isRepetitionCollapsed, readCompletionChannel, validateAffect
 } from './LMStudioClient.js';
 import { WASABI_ANCHORS } from './ExpressionMap.js';
 
@@ -437,6 +438,47 @@ function reasoningMessage( payload ) {
     let badTimeout = false;
     try { clientWith( stubFetch(), { timeoutMs: 0 } ); } catch { badTimeout = true; }
     check( 'TIMEOUT  a non-positive timeout throws at construction', badTimeout );
+}
+
+// --- CORS ----------------------------------------------------------------------------------------
+
+{
+    // 🚩 THE SECTION THAT EXISTS BECAUSE EVERY OTHER SECTION IS BLIND TO THE FAILURE IT DESCRIBES.
+    //
+    // Node's `fetch` does not implement CORS. All 54 clauses above therefore pass against a host
+    // that a browser cannot talk to at all, and the browser is where the avatar runs. Measured
+    // 2026-08-16: LM Studio answers the preflight with 400 and sends no allow-origin header on any
+    // response. What a SCRIPT can still check is that the proxy which works around that is
+    // actually declared, and that the page and the vite config agree on the string.
+    const viteConfig = await readFile(
+        new URL( '../../../../vite.config.js', import.meta.url ), 'utf8' );
+
+    check( '🎯 CORS  vite.config.js declares a dev-server proxy for the LM Studio path',
+        viteConfig.includes( `'${ LM_STUDIO_PROXY_PATH }'` ),
+        `looking for '${ LM_STUDIO_PROXY_PATH }' in server.proxy` );
+
+    check( '🎯 CORS  the proxy targets the endpoint this module names, not a second literal',
+        viteConfig.includes( `target: '${ DEFAULT_ENDPOINT }'` ),
+        `looking for target: '${ DEFAULT_ENDPOINT }'` );
+
+    check( 'CORS  the proxy rewrites the prefix away, so /v1/... reaches the host unprefixed',
+        /rewrite:.*replace\(.*lmstudio/s.test( viteConfig ) );
+
+    // The environment split is the whole point: one bundle, two correct answers.
+    check( '🎯 CORS  defaultEndpointFor returns the PROXY PATH in a browser',
+        defaultEndpointFor( { isBrowser: true } ) === LM_STUDIO_PROXY_PATH );
+
+    check( '🎯 CORS  defaultEndpointFor returns the DIRECT HOST under node',
+        defaultEndpointFor( { isBrowser: false } ) === DEFAULT_ENDPOINT );
+
+    // A relative endpoint has to survive the client's own trailing-slash normalisation, because
+    // `''` and `'/'` are both plausible mistakes and both produce a broken URL.
+    const relative = clientWith( stubFetch( { message: reasoningMessage( GOOD ) } ),
+        { endpoint: LM_STUDIO_PROXY_PATH } );
+    await relative.appraise( 'anything' );
+    check( '🎯 CORS  a relative endpoint produces a same-origin URL with exactly one slash',
+        relative.fetchImpl.calls[ 0 ].url === '/lmstudio/v1/chat/completions',
+        relative.fetchImpl.calls[ 0 ].url );
 }
 
 // --- LIVE ----------------------------------------------------------------------------------------
