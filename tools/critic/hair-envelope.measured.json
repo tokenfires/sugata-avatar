@@ -1,0 +1,157 @@
+{
+  "writtenBy": "tools/critic/hair-envelope.mjs --models",
+  "groom": "assets/hair/bob01",
+  "envelope": {
+    "centre": [
+      -0.04094624228393038,
+      1.4902560510354592,
+      0.07745022295375098
+    ],
+    "radii": [
+      0.12351200143252895,
+      0.20636867768040656,
+      0.10463463875265058
+    ],
+    "outer": [
+      0.1573615152506926,
+      0.26292576788831684,
+      0.13331065087485078
+    ],
+    "inner": [
+      0.07091887708744143,
+      0.1184940306801642,
+      0.06007975742212959
+    ],
+    "residual": 0.3852730609170131,
+    "quantiles": [
+      0.02,
+      0.98
+    ],
+    "vertexCount": 17516
+  },
+  "energyLights": [
+    "key",
+    "key-shadow",
+    "fill"
+  ],
+  "regression": {
+    "sumPathTimesCards": 12300.431119159695,
+    "sumPathSquared": 164.55407761957616,
+    "pairs": 23739
+  },
+  "perLight": {
+    "key": {
+      "sumPathTimesCards": 3905.9638455569548,
+      "sumPathSquared": 47.10410899984175,
+      "samples": 7913
+    },
+    "key-shadow": {
+      "sumPathTimesCards": 3905.9638455569548,
+      "sumPathSquared": 47.10410899984175,
+      "samples": 7913
+    },
+    "fill": {
+      "sumPathTimesCards": 4488.503428045786,
+      "sumPathSquared": 70.34585961989266,
+      "samples": 7913
+    },
+    "rim": {
+      "sumPathTimesCards": 38067.27018049015,
+      "sumPathSquared": 215.76948870457505,
+      "samples": 7913
+    },
+    "kicker": {
+      "sumPathTimesCards": 21231.72884643764,
+      "sumPathSquared": 181.04733349382278,
+      "samples": 7913
+    }
+  },
+  "verdict": {
+    "writtenBy": "tools/critic/hair-envelope.mjs --verdict",
+    "gatePixels": 225126,
+    "oneExpressionMovedPixels": 160646,
+    "oneExpressionMovedFraction": 0.7135826159572861,
+    "keyPositions": {
+      "a": [
+        0.8402076056488441,
+        1.8152256268749916,
+        0.6104465578574426
+      ],
+      "b": [
+        -0.14453874114069235,
+        1.8152256268749916,
+        1.028446582424011
+      ]
+    },
+    "meanEventsTowardKey": {
+      "a": 4.750737413570536,
+      "b": 4.0653819436098555
+    },
+    "fragments": 7913,
+    "pedestalShape": {
+      "ped-sheet-a1": 1.4478309704636705,
+      "ped-env-a1": 1.444853852194936,
+      "ped-env-nmatched": 1.4554134868738733,
+      "ped-fix-a1": 1.4349065174251328,
+      "ped-z27-a1": 5.818720589767259,
+      "ped-z27deep-a1": null,
+      "ped-envz-a1": 56.7318674211508
+    },
+    "massContrast": {
+      "mass-sheet": {
+        "p99OverMass": 1.4063481543872105,
+        "massP95OverP50": 1.9753264012106362,
+        "above4": 0
+      },
+      "mass-env": {
+        "p99OverMass": 1.3704984130800624,
+        "massP95OverP50": 1.95112583367459,
+        "above4": 0
+      },
+      "mass-fix": {
+        "p99OverMass": 1.3621575826710428,
+        "massP95OverP50": 1.9470650476859808,
+        "above4": 0
+      },
+      "mass-zinke27": {
+        "p99OverMass": 2.739180290636415,
+        "massP95OverP50": 2.68821208595209,
+        "above4": 0
+      },
+      "mass-envz": {
+        "p99OverMass": 3.0126080347843156,
+        "massP95OverP50": 2.8349004049957,
+        "above4": 0
+      },
+      "mass-z27-matched": {
+        "p99OverMass": 1.5148701745933655,
+        "massP95OverP50": 2.784201139450947,
+        "above4": 0
+      },
+      "mass-envz-matched": {
+        "p99OverMass": 1.4846447041323998,
+        "massP95OverP50": 4.138387161158318,
+        "above4": 0
+      },
+      "mass-env-nmatched": {
+        "p99OverMass": 1.427466732413021,
+        "massP95OverP50": 1.9817706584711152,
+        "above4": 0
+      },
+      "mass-z27deep-matched": {
+        "p99OverMass": 2.4804215641125014,
+        "massP95OverP50": 2.95078045663888,
+        "above4": 0
+      }
+    },
+    "pedestalP50": {
+      "ped-sheet-a1": 0.0371909223465898,
+      "ped-env-a1": 0.03917071685255969,
+      "ped-env-nmatched": 0.03628087500030124,
+      "ped-fix-a1": 0.03956272148081978,
+      "ped-z27-a1": 0.0020515514701914374,
+      "ped-z27deep-a1": 0,
+      "ped-envz-a1": 0.000014338379013295599
+    }
+  }
+}

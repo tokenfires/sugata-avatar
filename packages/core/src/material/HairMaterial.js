@@ -154,6 +154,7 @@ import {
     Color,
     DoubleSide,
     LightingModel,
+    Matrix4,
     MeshPhysicalNodeMaterial,
     SRGBColorSpace,
     TextureLoader,
@@ -164,6 +165,7 @@ import {
     Fn,
     abs,
     atan,
+    cameraViewMatrix,
     cos,
     cross,
     dFdx,
@@ -873,6 +875,460 @@ export const HAIR_LOCK_HASH_OFFSET = 1;
  */
 export const STRAND_NOISE_SD = 2 * Math.sqrt( 26 / 420 );
 
+// ================================================================================================
+// 🎯 ROUND 28 — THE PEDESTAL'S DEPTH INPUT BECOMES GEOMETRY, BECAUSE THE SHEET IT READ IS NOISE
+//
+// R27's forward finding, and it is the only reason anything below exists: slide 44's `Shadow` is
+// `exp(−shadowDensity · depth.png sampled at uv())` — THE CARD'S OWN ATLAS COORDINATE. One baked
+// number per texel, shared by all 462 cards, and `tools/figure-pipeline/hair_texture.py` fills that
+// sheet with `random.random()` per strand. It cannot vary with light direction, with head
+// orientation, or with how many other cards lie between the fragment and a light. Zinke & Weber's
+// `n` (EG 2008 Eq. 4-5) counts fibres along the SHADOW PATH; ours counted depth WITHIN ONE CARD'S
+// BUNDLE. Right histogram, wrong spatial referent.
+//
+// 🚩 AND THE RIG BOUNDS WHICH REPLACEMENT IS REACHABLE. Every real-time source derives that depth
+// from the LIGHT'S VIEW — Zinke §4.1.3, Frostbite slide 27, deep opacity maps — and this rig can
+// only do that for the key SpotLight: three's `RectAreaLight` has no shadow code at all and
+// RectAreaLights carry 66-73% of a hair pixel (CHECKPOINT §9). So deep opacity maps do NOT fit and
+// Frostbite's own Tier-3 fallback does: `T_f = d_f · exp(−σ_hair · l)`, per channel, on a
+// GEOMETRIC path length. Frostbite states its own limitation plainly and it is inherited here in
+// full: it will not adapt to actual changes in hair volume.
+//
+// WHAT `l` IS HERE. The groom is not a surface — CHECKPOINT §2 measured its outer envelope as an
+// ELEVEN-MILLIMETRE CLOUD (p85−p50 of 10.03-11.69 mm inside one 3°×30 mm bin) — but a cloud still
+// has a fitted shape, and hair occupies the SHELL between the scalp and that shape. A ray from a
+// fragment toward a light behind the head crosses that shell twice and the skull in between, where
+// there are no fibres. So
+//
+//     l = (chord inside the OUTER ellipsoid, forward of the fragment)
+//       − (chord inside the INNER ellipsoid, forward of the fragment)
+//
+// which is two quadratics, no loop, no map, and no shadow pass — and therefore available to the
+// four RectAreaLights that can never have one.
+//
+// 🎯 MEASURED AGAINST THE ONE THING THAT IS GROUND TRUTH HERE, which is R27's CPU ray cast: the
+// number of hair cards the segment from the visible fragment to each light actually crosses.
+// `tools/critic/hair-envelope.mjs --geometry` re-ran that cast on this tree (its per-light means
+// reproduce R27's to three figures: key 3.68 vs 3.665, fill 4.29 vs 4.286, rim 29.53 vs 29.673) and
+// scored both inputs against it over 7,913 sampled pixels of the judged URL:
+//
+//   | input to `n`                        | ρ vs ray cast, key | fill  | rim   | POOLED, 3 energy lights |
+//   |-------------------------------------|-------------------:|------:|------:|------------------------:|
+//   | `depth.png` at the card's atlas uv  |             0.0207 | 0.1156| −0.0339|                  0.0598 |
+//   | the envelope shell path length      |             0.5804 | 0.6525|  0.1339|                  0.6118 |
+//
+// The pooled column is over `key`, `key-shadow` and `fill`, which is where the energy is: CHECKPOINT
+// §9 measured rim and kicker at 0.02-0.87% of a hair pixel. **A tenfold rise in rank correlation
+// with the quantity the term is supposed to be a function of.**
+//
+// ⚠️ AND THE HONEST HALF OF THE SAME TABLE: the rim reads 0.13. An ellipsoid fitted to a bob has an
+// RMS residual of 0.385 in its own radial coordinate, so the model is a poor description of the
+// silhouette a back light rakes along, and it is not claimed to be better than that.
+//
+// ------------------------------------------------------------------------------------------------
+// 🔴 AND THE ROUND IS A NEGATIVE ON THE PICTURE. NOTHING BELOW SHIPS. THE SHIPPED PLATE IS
+// BYTE-IDENTICAL TO HEAD's — same SHA-256, same URL, same page, the two materials swapped under it.
+//
+// The input was the mandate and the input is fixed and PROVEN directional. Three legs, and the
+// first is the one R27 asked for by name:
+//
+//   1. ONE TOKEN APART, ON PIXELS. `?hairdefect=envelope-depth` and
+//      `?hairdefect=envelope-fixed-direction` share every line of this file — the same fitted shell,
+//      the same σ, the same two chords, the same slide-39 form around them — and differ only in
+//      whether the chord is taken toward the light. **160,646 of 225,126 gated hair pixels move
+//      (71.36%)**, max |ΔRGB| p50 2.223e-3, p90 8.860e-3, against a noise floor of EXACTLY ZERO
+//      measured on two loads of one URL. The shipped input cannot produce a single moved pixel on
+//      that A/B, because it has no direction in its expression.
+//   2. ARITHMETIC, NO PLATE. Moving the key from azimuth 42° to −20° with the camera fixed, over
+//      the 7,913 fragments the ray cast measured: `n` toward the key goes **mean 4.7507 → 4.0654**,
+//      |Δn| p50 1.5381, p90 4.5439, and only 0.45% of fragments are unchanged. For the sheet the
+//      same move gives |Δn| = 0 at every percentile, by construction.
+//   3. The plate-ratio form of R27's own operator agrees, at 2.86× the shipped arm and 2.44× the
+//      fixed-direction control — reported with its quantisation caveat rather than as a headline.
+//
+// 🎯 AND THE PICTURE DOES NOT MOVE, FOR A REASON THAT IS IN THE ALGEBRA RATHER THAN IN THE INPUT,
+// AND THAT HAS A HARD CEILING. Slide 39 spends `Shadow` on ONE thing: the chromaticity exponent
+// `(C/Luma(C))^(1−Shadow)`. Sweeping that exponent across its WHOLE domain moves the term's
+// luminance by **1.0927×** — measured by running `scatterValue`, the shipped CPU mirror, over
+// `Shadow` ∈ [0, 1] (`HairEnvelope.selftest.mjs` §F2), and independently the same 1.0927 R27's
+// `hair-transmittance.selftest.mjs` produced from plates. **That is the ceiling on what ANY depth
+// input can buy inside this form**, however correct the input is, and R26 bought 1.19× of dynamic
+// range from one lobe-width constant. R27 had already measured it from the third side: pedestal
+// mean at shadowDensity 0 / 3 / 12 is 3.4916e-2 / 3.7420e-2 / 3.9466e-2, a 13.03% swing across a
+// twelvefold change in the input.
+//
+// 🔴 ⚠️ AND THE TEMPTING ONE-LINE VERSION OF THAT ARGUMENT IS FALSE. "The factor divides the colour
+// by its own luminance, so it is luminance-preserving and cannot change brightness" is true of the
+// FACTOR — exactly 1 at both ends, checked to twelve decimals — and false of the TERM, because the
+// factor multiplies `√C` CHANNEL BY CHANNEL and the two are positively correlated: the exponent
+// boosts precisely the channel `√C` is already largest in, and `Luma(a ⊙ b) ≠ Luma(a)·Luma(b)`.
+// R28's own gate shipped that wrong claim for one run, printed 0.00%, and was corrected by
+// measuring the term instead of arguing about the factor. Both statements are now clauses.
+//
+// Measured on 225,126 gated hair pixels of the judged URL, at exposure 4, above the indirect floor.
+// The last column is the pedestal ALONE, whose percentile RATIO is exactly invariant to `scatter`
+// and therefore cannot be flattered by a level match — there is no level left in it to cut:
+//
+//   | arm                                          | R p99 / mass | mass p95/p50 | pedestal p95/p50 |
+//   |----------------------------------------------|-------------:|-------------:|-----------------:|
+//   | shipped — slide 39 on the baked sheet        |       1.4063 |       1.9753 |           1.4478 |
+//   | slide 39 on the envelope path, σ 74.75       |       1.3705 |       1.9511 |           1.4449 |
+//   | slide 39 on the envelope path, σ mean-matched|       1.4275 |       1.9818 |           1.4554 |
+//   | 🔴 the same path toward a FIXED direction    |       1.3622 |       1.9471 |           1.4349 |
+//
+// **The pedestal's own shape moves by 0.21%.** `>4× R's own mean` is **0.0000% in every arm**, which
+// is where R26 and R27 left it. The third row is the honest best case — σ set so the geometric `n`
+// carries the SHIPPED `n`'s mean (1.1890 events, recovered off the plate pair with R27's operator),
+// so the arms differ in the input's STRUCTURE and not in its level — and it is +1.5% on one
+// statistic and +0.3% on the other. That is not a shipping case, and R26's own bar says why: it
+// bought +19.0% on the same statistic from one constant.
+//
+// ⏭️ SO THE NEXT LEVER IS THE FORM, AND FOR THE FIRST TIME IT CAN BE TESTED — but not at this σ.
+// Zinke's `√C^(1+n)` does spend `n` on energy, and with `n` at the card-crossing rate (mean 7.55
+// over all five lights) the product ANNIHILATES the term: the pedestal reads p50 **1.434e-5** and
+// p10 **0** against the shipped 3.719e-2, i.e. at and below what an 8-bit plate can carry, so its
+// contrast statistics are a near-zero term amplified by a scalar of 248 and are not quoted as
+// contrast. ⚠️ THE CONTROL SAYS THE SAME THING FROM THE OTHER SIDE: the SHEET input driven to the
+// SAME mean `n` (`shadowDensity` 3 → 19.0483) annihilates it harder — pedestal mean 1.841e-5
+// against the envelope input's 1.418e-4, a factor of 7.7 — which is the geometric input's structure
+// showing through, and both arms are past the point where the form is measurable.
+//
+// ⚠️ `ā_f = √C` is 0.1016/0.0663/0.0606 — R27 took it from this material's own `absorbTT` at h = 0 —
+// and the exponent the term raises it to is `1 + n` ≈ 8.5, which is nothing. The noise input hid it because it never drove
+// `n` past ~1.6. **`ā_f` is the next untested constant in this term, and R28's contribution to the
+// form question is that it is now the one that is obviously wrong.** No value is asserted here:
+// Zinke Eq. 4-5 gives `d_f = 0.7` in [0.6, 0.8] and does not state ā_f's magnitude, and this
+// project does not invent numbers.
+//
+// 🚩 CANDIDATE (B) IS REFUSED BY THIS MEASUREMENT RATHER THAN BY PREFERENCE, and no line of
+// `tools/figure-pipeline/hair_texture.py` was touched. Baking a real per-card depth into
+// `depth.png` in place of `random.random()` would still be ONE NUMBER PER FRAGMENT, so it is
+// strictly weaker than the arm measured above — and that arm, a correct per-fragment per-LIGHT
+// depth, moves the pedestal's shape by 0.21%. A weaker input into the same form cannot do more. The
+// generator fix is worth making when the form can spend depth on energy, and not before.
+//
+// @claim 71.36 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: directional A/B fraction #1
+// @claim 4.7507 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: n toward the key #1
+// @claim 4.0654 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: n toward the key #2
+// @claim 1.4478 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: pedestal shape, shipped input #1
+// @claim 1.4449 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: pedestal shape, envelope input #1
+// ================================================================================================
+
+/**
+ * The two quantiles of the groom's own radial coordinate that define the hair shell.
+ *
+ * 🚩 THEY ARE QUANTILES AND NOT LENGTHS, AND THAT IS FORCED BY CHECKPOINT §2. The groom's outer
+ * envelope is an eleven-millimetre cloud of cards at seven standoffs, so no single surface IS the
+ * envelope and any threshold on it is a quantile of a spread. p02/p98 puts the two boundaries
+ * outside 96% of the groom's own vertices, which is what "the envelope of a cloud" has to mean.
+ *
+ * ⚠️ FIXED BEFORE THE SCORES WERE READ, and `hair-envelope.mjs --models` prints the sweep that says
+ * so: p10/p90 and p25/p75 trade the key and fill down (pooled ρ 0.6118 → 0.5521 → 0.5046) to buy
+ * the rim up (0.1339 → 0.1508 → 0.2171). p02/p98 is kept because the rim and kicker are 0.02-0.87%
+ * of a hair pixel and the key and fill are two thirds of it — not because it scored best.
+ */
+export const HAIR_ENVELOPE_QUANTILES = [ 0.02, 0.98 ];
+
+/**
+ * σ_hair — the extinction of the groom, in forward-scattering events per METRE of path.
+ *
+ * 🎯 MEASURED, NOT CHOSEN, AND THE MEASUREMENT IS A REGRESSION AGAINST THE RAY CAST. `n` has to come
+ * out in the units slide 44's exponent is already in: `HAIR_DEFAULTS.shadowDensity`'s own docstring
+ * reads `density · depth` as "the optical path length in units of one attenuation event", i.e.
+ * Zinke's fibre count. So the conversion from metres to events is the least-squares slope through
+ * the origin of the ray-cast CARD CROSSINGS on the shell path length, over 23,739 (pixel, light)
+ * pairs on the three lights that carry ~99% of a hair pixel:
+ *
+ *     74.75 card crossings per metre        (key alone 82.9, fill alone 63.8)
+ *
+ * ⚠️ ONE CARD IS NOT ONE FIBRE AND THIS NUMBER IS THEREFORE A FLOOR. A card is a drawn bundle of
+ * strands, so a crossing is at least one forward-scattering event and probably many. Taking one
+ * card as one event is the conservative reading and it is stated here rather than buried: the true
+ * σ_hair of this groom is ≥ this, and nothing downstream may quote it as the fibre count.
+ *
+ * @claim 74.75 :: node packages/core/src/material/HairEnvelope.selftest.mjs :: sigma from the ray cast #1
+ */
+export const HAIR_ENVELOPE_EXTINCTION = 74.75;
+
+/**
+ * The three arms that evaluate the geometric path length. Named once, because the test appears in
+ * four places — the shader's per-fragment frame, the per-light `n`, the census and the fit hook —
+ * and four copies of a three-way `||` is how a fifth arm gets added to three of them.
+ */
+export function isEnvelopeArm( defect ) {
+
+    return defect === 'envelope-depth' ||
+        defect === 'envelope-zinke' ||
+        defect === 'envelope-fixed-direction';
+
+}
+
+/**
+ * Where a ray leaves an axis-aligned ellipsoid, in the ray's own units.
+ *
+ * The ellipsoid is `|(p − c)/r| = 1`, so substituting `p = o + t·d` gives a plain quadratic in `t`
+ * whose roots are already in world units — which is the reason no distance is ever measured in the
+ * normalised space and no `length()` of a scaled vector appears anywhere below.
+ *
+ * @param {number[]} origin - the ray's start, in the ellipsoid's own frame.
+ * @param {number[]} direction - unit, same frame.
+ * @param {number[]} radii - the three semi-axes.
+ * @returns {?number[]} `[tEnter, tExit]`, or null when the ray misses.
+ */
+export function ellipsoidSpanValue( origin, direction, radii ) {
+
+    const ox = origin[ 0 ] / radii[ 0 ];
+    const oy = origin[ 1 ] / radii[ 1 ];
+    const oz = origin[ 2 ] / radii[ 2 ];
+    const dx = direction[ 0 ] / radii[ 0 ];
+    const dy = direction[ 1 ] / radii[ 1 ];
+    const dz = direction[ 2 ] / radii[ 2 ];
+
+    const a = dx * dx + dy * dy + dz * dz;
+    const b = 2 * ( ox * dx + oy * dy + oz * dz );
+    const c = ox * ox + oy * oy + oz * oz - 1;
+
+    const discriminant = b * b - 4 * a * c;
+
+    if ( discriminant <= 0 || a === 0 ) return null;
+
+    const root = Math.sqrt( discriminant );
+
+    return [ ( - b - root ) / ( 2 * a ), ( - b + root ) / ( 2 * a ) ];
+
+}
+
+/**
+ * The part of a span that lies FORWARD of the fragment. Everything behind it is light that has
+ * already arrived; only `t > 0` is between the fragment and the light.
+ */
+export function forwardChordValue( span ) {
+
+    if ( span === null ) return 0;
+
+    return Math.max( 0, Math.max( 0, span[ 1 ] ) - Math.max( 0, span[ 0 ] ) );
+
+}
+
+/**
+ * 🎯 THE MODEL. Metres of hair shell between a fragment and a light.
+ *
+ * Mirrors `envelopePathNode` expression for expression, and the two are held together by
+ * `HairEnvelope.selftest.mjs`, which runs this one and reads the other's own arithmetic.
+ *
+ * @param {number[]} origin - the fragment, in the envelope's frame (centre already subtracted).
+ * @param {number[]} direction - toward the light, unit, same frame.
+ * @param {{outer:number[], inner:number[]}} envelope - the two sets of semi-axes.
+ * @returns {number} metres.
+ */
+export function shellPathValue( origin, direction, envelope ) {
+
+    const outer = forwardChordValue( ellipsoidSpanValue( origin, direction, envelope.outer ) );
+    const inner = forwardChordValue( ellipsoidSpanValue( origin, direction, envelope.inner ) );
+
+    return Math.max( 0, outer - inner );
+
+}
+
+/**
+ * The least-squares quadric through a point cloud, as a centred axis-aligned ellipsoid.
+ *
+ * Fits `A x² + B y² + C z² + D x + E y + F z = 1` by normal equations — six unknowns, one 6×6 solve
+ * — then completes the square to recover a centre and three semi-axes.
+ *
+ * 🔴 THE FIT RUNS ON MEAN-CENTRED POINTS AND THAT IS NOT TIDINESS. The groom sits at y ≈ 1.5 m with
+ * a 0.1 m radius, so the raw design matrix carries a `y²` column of ~2.25 beside an `x²` column of
+ * ~0.01 — and normal equations SQUARE the condition number. Fitted raw, this solve returned a
+ * NEGATIVE squared coefficient (a hyperboloid) on a cloud that was an ellipsoid by construction.
+ * `HairEnvelope.selftest.mjs` carries that as a red proof rather than as a comment.
+ *
+ * @param {ArrayLike<number>} points - xyz triples.
+ * @returns {{centre:number[], radii:number[], residual:number}} `residual` is the RMS of the
+ *   quadric's own value minus 1 — unitless, and the honest statement of how badly an ellipsoid
+ *   describes a bob. It reads 0.385 on the shipped groom.
+ */
+export function fitEllipsoidValue( points ) {
+
+    const count = points.length / 3;
+    const mean = [ 0, 0, 0 ];
+
+    for ( let i = 0; i < count; i ++ ) {
+
+        mean[ 0 ] += points[ i * 3 ];
+        mean[ 1 ] += points[ i * 3 + 1 ];
+        mean[ 2 ] += points[ i * 3 + 2 ];
+
+    }
+
+    for ( let d = 0; d < 3; d ++ ) mean[ d ] /= count;
+
+    const normal = new Float64Array( 36 );
+    const rhs = new Float64Array( 6 );
+    const row = new Float64Array( 6 );
+
+    for ( let i = 0; i < count; i ++ ) {
+
+        const x = points[ i * 3 ] - mean[ 0 ];
+        const y = points[ i * 3 + 1 ] - mean[ 1 ];
+        const z = points[ i * 3 + 2 ] - mean[ 2 ];
+
+        row[ 0 ] = x * x; row[ 1 ] = y * y; row[ 2 ] = z * z;
+        row[ 3 ] = x; row[ 4 ] = y; row[ 5 ] = z;
+
+        for ( let r = 0; r < 6; r ++ ) {
+
+            rhs[ r ] += row[ r ];
+            for ( let c = 0; c < 6; c ++ ) normal[ r * 6 + c ] += row[ r ] * row[ c ];
+
+        }
+
+    }
+
+    const [ a, b, c, d, e, f ] = solveSixBySix( normal, rhs );
+
+    if ( a <= 0 || b <= 0 || c <= 0 ) {
+
+        throw new Error( 'HairMaterial: the groom\'s quadric fit is not an ellipsoid — a squared ' +
+            'coefficient came out non-positive, which means the point cloud is not shell-shaped.' );
+
+    }
+
+    const local = [ - d / ( 2 * a ), - e / ( 2 * b ), - f / ( 2 * c ) ];
+    const k = 1 + ( d * d ) / ( 4 * a ) + ( e * e ) / ( 4 * b ) + ( f * f ) / ( 4 * c );
+
+    let sum = 0;
+
+    for ( let i = 0; i < count; i ++ ) {
+
+        const x = points[ i * 3 ] - mean[ 0 ];
+        const y = points[ i * 3 + 1 ] - mean[ 1 ];
+        const z = points[ i * 3 + 2 ] - mean[ 2 ];
+        const value = a * x * x + b * y * y + c * z * z + d * x + e * y + f * z;
+
+        sum += ( value - 1 ) ** 2;
+
+    }
+
+    return {
+        centre: [ local[ 0 ] + mean[ 0 ], local[ 1 ] + mean[ 1 ], local[ 2 ] + mean[ 2 ] ],
+        radii: [ Math.sqrt( k / a ), Math.sqrt( k / b ), Math.sqrt( k / c ) ],
+        residual: Math.sqrt( sum / count )
+    };
+
+}
+
+/** Gaussian elimination with partial pivoting. Six unknowns; no library earns its supply chain. */
+function solveSixBySix( matrix, vector ) {
+
+    const n = 6;
+    const m = Float64Array.from( matrix );
+    const v = Float64Array.from( vector );
+
+    for ( let col = 0; col < n; col ++ ) {
+
+        let pivot = col;
+
+        for ( let r = col + 1; r < n; r ++ ) {
+
+            if ( Math.abs( m[ r * n + col ] ) > Math.abs( m[ pivot * n + col ] ) ) pivot = r;
+
+        }
+
+        if ( pivot !== col ) {
+
+            for ( let c = 0; c < n; c ++ ) {
+
+                const t = m[ col * n + c ];
+                m[ col * n + c ] = m[ pivot * n + c ];
+                m[ pivot * n + c ] = t;
+
+            }
+
+            const t = v[ col ]; v[ col ] = v[ pivot ]; v[ pivot ] = t;
+
+        }
+
+        const diagonal = m[ col * n + col ];
+
+        if ( Math.abs( diagonal ) < 1e-18 ) throw new Error( 'HairMaterial: singular normal equations.' );
+
+        for ( let r = col + 1; r < n; r ++ ) {
+
+            const factor = m[ r * n + col ] / diagonal;
+
+            if ( factor === 0 ) continue;
+
+            for ( let c = col; c < n; c ++ ) m[ r * n + c ] -= factor * m[ col * n + c ];
+
+            v[ r ] -= factor * v[ col ];
+
+        }
+
+    }
+
+    const out = new Float64Array( n );
+
+    for ( let r = n - 1; r >= 0; r -- ) {
+
+        let sum = v[ r ];
+
+        for ( let c = r + 1; c < n; c ++ ) sum -= m[ r * n + c ] * out[ c ];
+
+        out[ r ] = sum / m[ r * n + r ];
+
+    }
+
+    return out;
+
+}
+
+/**
+ * The groom's own hair shell, fitted to its vertices and scaled to `HAIR_ENVELOPE_QUANTILES`.
+ *
+ * One fit, two scales. A single least-squares quadric over a filled cloud lands in the MIDDLE of
+ * it rather than on either boundary, which is exactly what is wanted here: the two boundaries are
+ * then the same shape at two measured radial quantiles, so the shell has one orientation and one
+ * aspect ratio and cannot end up with an inner surface poking through its outer one.
+ *
+ * @param {ArrayLike<number>} points - the groom's vertices, xyz triples, in one frame.
+ * @param {number[]} [quantiles] - inner and outer radial quantiles.
+ * @returns {Object} centre, the fitted radii, the two scaled sets, and the fit's own diagnostics.
+ */
+export function hairEnvelopeValue( points, quantiles = HAIR_ENVELOPE_QUANTILES ) {
+
+    const fit = fitEllipsoidValue( points );
+    const count = points.length / 3;
+    const radial = new Float64Array( count );
+
+    for ( let i = 0; i < count; i ++ ) {
+
+        const x = ( points[ i * 3 ] - fit.centre[ 0 ] ) / fit.radii[ 0 ];
+        const y = ( points[ i * 3 + 1 ] - fit.centre[ 1 ] ) / fit.radii[ 1 ];
+        const z = ( points[ i * 3 + 2 ] - fit.centre[ 2 ] ) / fit.radii[ 2 ];
+
+        radial[ i ] = Math.sqrt( x * x + y * y + z * z );
+
+    }
+
+    const sorted = Float64Array.from( radial ).sort();
+    const at = ( q ) => sorted[ Math.min( sorted.length - 1, Math.max( 0, Math.round( q * ( sorted.length - 1 ) ) ) ) ];
+
+    const innerScale = at( quantiles[ 0 ] );
+    const outerScale = at( quantiles[ 1 ] );
+
+    return {
+        centre: fit.centre,
+        radii: fit.radii,
+        residual: fit.residual,
+        innerScale,
+        outerScale,
+        inner: fit.radii.map( ( r ) => r * innerScale ),
+        outer: fit.radii.map( ( r ) => r * outerScale ),
+        vertexCount: count
+    };
+
+}
+
 /**
  * The lobe parameters, in Karis' variable.
  *
@@ -1084,6 +1540,17 @@ export const HAIR_DEFAULTS = {
     shadowDensity: 3.0,
 
     /**
+     * σ_hair, in forward-scattering events per metre of geometric path through the groom's shell.
+     * Read `HAIR_ENVELOPE_EXTINCTION` for the regression that produced it and for the reason it is
+     * a FLOOR rather than a fibre count.
+     *
+     * ⚠️ It is only reached on the `envelope-*` arms. The shipped path still takes `n` from
+     * `shadowDensity · depth.png`, because R28 measured the swap and the measurement — not this
+     * table — decides which one ships. See `HAIR_DEFECTS`.
+     */
+    envelopeExtinction: HAIR_ENVELOPE_EXTINCTION,
+
+    /**
      * Root occlusion, as a LINEAR multiplier, and the restatement is the point.
      *
      * The punch-list says "root AO 0.35–0.5". That clause has no rect, no procedure and no
@@ -1254,6 +1721,28 @@ export const HAIR_DEFECTS = {
         'is not the lever while the signal it depends on is white noise in atlas space. The ' +
         'measurement, with every figure tagged, is the comment on HAIR_DEFAULTS.scatter; the ' +
         'instrument is tools/critic/hair-transmittance.mjs and the plates are captures/hair-r27-tf/.',
+    'envelope-depth': '🎯 THE A SIDE OF ROUND 28, AND THE TWO ARMS DIFFER IN ONE INPUT. Slide 39\'s ' +
+        'form is untouched, byte for byte; what changes is where its `Shadow` comes from. Instead ' +
+        'of exp(−shadowDensity · depth.png at the CARD\'S OWN ATLAS UV) — one baked ' +
+        'random.random() per strand, shared by all 462 cards, which cannot vary with light ' +
+        'direction at all — `n` becomes envelopeExtinction × the GEOMETRIC path length through the ' +
+        'groom\'s fitted shell, from this fragment toward THIS LIGHT. Every lobe, the lock albedo, ' +
+        'the lock tilt, the strand jitter, the flow sheet, the side visibility and the root ' +
+        'occlusion are left exactly as they ship. Scored against R27\'s CPU ray cast the new input ' +
+        'reads Spearman 0.6118 where the sheet reads 0.0598 — see HAIR_ENVELOPE_EXTINCTION.',
+    'envelope-zinke': '🎯 R27\'s FORM ON R28\'s INPUT, and it is the arm the two rounds were built ' +
+        'to make possible. Zinke Eq.5\'s per-channel √C^(1+n), exactly as `zinke-transmittance` ' +
+        'evaluates it, with `n` taken from the envelope path length rather than from the sheet. ' +
+        'R27 could not tell its own form apart from a scalar BECAUSE the input was white noise; ' +
+        'this is the same form with an input that has a spatial referent, and it is the only arm ' +
+        'in which a depth-dependent term can attenuate ENERGY rather than only chromaticity.',
+    'envelope-fixed-direction': '🔴 THE FALSIFICATION ARM FOR ROUND 28, AND IT IS THE ONE THAT ' +
+        'DECIDES WHETHER ANYTHING WAS ACHIEVED. The envelope path length is evaluated toward a ' +
+        'CONSTANT view-space direction instead of toward each light, so the term keeps every other ' +
+        'property it has — per-fragment, geometric, ellipsoid-derived — and loses ONLY its ' +
+        'dependence on where the light is. R27 killed the previous attempt by showing it was a ' +
+        'scalar in disguise; if `envelope-depth` and this arm render the same picture, R28 is one ' +
+        'too, and the round is a negative by its own instrument rather than by argument.',
     'unit-bsdf': '🎯 THE IRRADIANCE PROBE, and it is a measuring instrument rather than a defect. ' +
         'S is replaced by the constant 1/4π — the BSDF of a perfectly diffusing sphere — so the ' +
         'rendered LINEAR value on a hair pixel is exactly Σ(L_i · Ω_i) / 4π over the five lights ' +
@@ -2254,6 +2743,35 @@ const lockTiltNode = /*@__PURE__*/ Fn( ( [ identity, spread ] ) => {
 
 } );
 
+/**
+ * The forward chord of an axis-aligned ellipsoid, in TSL. Mirrors `ellipsoidSpanValue` composed
+ * with `forwardChordValue`, and `HairEnvelope.selftest.mjs` holds the two together.
+ *
+ * ⚠️ THE MISS CASE IS A SELECT AND NOT A BRANCH, because a discriminant that goes negative is the
+ * COMMON case here rather than the exceptional one: most fragments face most lights across open
+ * air. `disc.max(0).sqrt()` keeps the square root defined on every lane and the select then throws
+ * the result away, which is what a GPU does anyway with a branch that both sides of a warp take.
+ */
+const forwardChordNode = /*@__PURE__*/ Fn( ( [ origin, direction, radii ] ) => {
+
+    const o = origin.div( radii );
+    const d = direction.div( radii );
+
+    const a = d.dot( d );
+    const b = o.dot( d ).mul( 2 );
+    const c = o.dot( o ).sub( 1 );
+
+    const discriminant = b.mul( b ).sub( a.mul( c ).mul( 4 ) );
+    const root = discriminant.max( 0 ).sqrt();
+    const scale = float( 0.5 ).div( a.max( EPSILON ) );
+
+    const enter = b.negate().sub( root ).mul( scale ).max( 0 );
+    const exit = b.negate().add( root ).mul( scale ).max( 0 );
+
+    return discriminant.greaterThan( 0 ).select( exit.sub( enter ).max( 0 ), float( 0 ) );
+
+} );
+
 /** M_p, in TSL. See `longitudinalValue` for what the normalisation means. */
 const longitudinalNode = /*@__PURE__*/ Fn( ( [ sinThetaSum, shift, roughness ] ) => {
 
@@ -2295,6 +2813,10 @@ export class HairLightingModel extends LightingModel {
         this.shadow = null;
         this.forwardEvents = null;
         this.occlusion = null;
+
+        // Round 28. The groom's fitted shell, brought into the space the lights already live in.
+        this.envelopeOrigin = null;
+        this.envelopeAxes = null;
 
     }
 
@@ -2341,9 +2863,85 @@ export class HairLightingModel extends LightingModel {
         this.forwardEvents = depth.mul( nodes.shadowDensity ).toVar( 'hairForwardEvents' );
         this.shadow = this.forwardEvents.negate().exp().toVar( 'hairShadow' );
 
+        // 🎯 ROUND 28. THE GROOM'S OWN SHELL, IN VIEW SPACE, COMPUTED ONCE PER FRAGMENT.
+        //
+        // 🚩 AND NOT COMPUTED AT ALL ON THE SHIPPED PATH. Four `mat4 × vec4` products and three dot
+        // products per fragment is not free, and R28 did not earn them: its measurement is a
+        // negative on the picture (see `HAIR_ENVELOPE_EXTINCTION`). `envelopeArm` is resolved from a
+        // constant at build time, so the shipped shader contains none of this — which is the
+        // condition under which "R28 costs the default build exactly nothing" is a fact about the
+        // emitted code rather than a hope about the optimiser.
+        //
+        // The envelope is fitted in WORLD space and tracked to the head bone (`applyHairMaterial`),
+        // but every light this model sees arrives in VIEW space — `direct()` is handed a view-space
+        // direction and `directRectArea()` builds one out of `positionView`. Rather than lift the
+        // fragment and five directions into world space, the ellipsoid's frame is brought down
+        // here: `cameraViewMatrix` is world→view, so it moves the centre as a POINT (w = 1) and the
+        // three axes as DIRECTIONS (w = 0). Four matrix products per fragment, none per light.
+        //
+        // ⚠️ THE AXES ARE ORTHONORMAL, SO A DOT PRODUCT IS THE CHANGE OF BASIS. `applyHairMaterial`
+        // ships unit, mutually perpendicular axes because the head bone's world matrix is rigid;
+        // if that ever stops being true the projection below silently stops being a rotation, which
+        // is why the gate asserts orthonormality on the uniforms rather than trusting the source.
+        if ( isEnvelopeArm( nodes.defect ) ) {
+
+            const centreView = cameraViewMatrix.mul( vec4( nodes.envelopeCentre, 1 ) ).xyz;
+            const axisX = cameraViewMatrix.mul( vec4( nodes.envelopeAxisX, 0 ) ).xyz.toVar( 'hairEnvelopeAxisX' );
+            const axisY = cameraViewMatrix.mul( vec4( nodes.envelopeAxisY, 0 ) ).xyz.toVar( 'hairEnvelopeAxisY' );
+            const axisZ = cameraViewMatrix.mul( vec4( nodes.envelopeAxisZ, 0 ) ).xyz.toVar( 'hairEnvelopeAxisZ' );
+
+            this.envelopeAxes = [ axisX, axisY, axisZ ];
+
+            const offset = positionView.sub( centreView );
+            this.envelopeOrigin = vec3( offset.dot( axisX ), offset.dot( axisY ), offset.dot( axisZ ) )
+                .toVar( 'hairEnvelopeOrigin' );
+
+        }
+
         this.occlusion = this.rootOcclusion().toVar( 'hairRootOcclusion' );
 
         super.start( builder );
+
+    }
+
+    /**
+     * 🎯 `n` FOR ONE LIGHT — the whole of round 28, and the only quantity in this material that is
+     * a function of BOTH the fragment and the light direction.
+     *
+     * `l` is the metres of hair shell on the segment from this fragment toward this light: the
+     * forward chord of the outer ellipsoid minus the forward chord of the inner one, because a ray
+     * to a light behind the head crosses the shell twice and the skull in between, where there are
+     * no fibres. `n = σ_hair · l` puts it in the units slide 44's exponent is already written in.
+     *
+     * 🚩 THE DEGENERATE CASE IS EXACTLY ZERO AND THAT IS BY CONSTRUCTION. `createHairMaterial`
+     * initialises both radii to the same vector, so before `applyHairMaterial` fits the groom the
+     * two chords are the same expression on the same numbers and their difference is 0 — which
+     * makes `Shadow` exactly 1 and the term identical to a build with no depth sheet at all. A
+     * material that never meets a mesh therefore degrades to a defined picture rather than to a
+     * NaN, and no `if` is needed anywhere on the GPU to say so.
+     *
+     * @param {Node} toLight - unit, view space, exactly as the two light paths supply it.
+     * @returns {Node} `n`, in forward-scattering events.
+     */
+    envelopeEvents( toLight ) {
+
+        const nodes = this.nodes;
+        const [ axisX, axisY, axisZ ] = this.envelopeAxes;
+
+        // 🔴 THE FALSIFICATION ARM. Everything else about the term survives — it is still a
+        // per-fragment chord through the fitted shell — and only the direction stops being the
+        // light's. If the two arms render the same picture then this term is a scalar in disguise,
+        // which is precisely the verdict R27 returned on its own predecessor.
+        const toward = nodes.defect === 'envelope-fixed-direction'
+            ? normalize( nodes.constantTangent )
+            : toLight;
+
+        const direction = vec3( toward.dot( axisX ), toward.dot( axisY ), toward.dot( axisZ ) );
+
+        const outer = forwardChordNode( this.envelopeOrigin, direction, nodes.envelopeOuter );
+        const inner = forwardChordNode( this.envelopeOrigin, direction, nodes.envelopeInner );
+
+        return outer.sub( inner ).max( 0 ).mul( nodes.envelopeExtinction );
 
     }
 
@@ -2518,11 +3116,35 @@ export class HairLightingModel extends LightingModel {
         // `HAIR_DEFECTS['zinke-transmittance']` carries the measurement that refused it.
         const wrap = this.fakeNormal.dot( toLight ).add( 1 ).div( 4 * Math.PI );
 
+        // 🎯 ROUND 28 SPLITS THE TERM INTO AN INPUT AND A FORM, WHICH IS WHAT R27's CLOSING LINE
+        // ASKED FOR: *"Until `Shadow` stops being noise, no shading change to this term is
+        // attributable."* The two axes are now independent and named separately, so a plate can
+        // hold one fixed and move the other.
+        //
+        //   INPUT   `n`, the forward-scattering events on the path to the light. Either the baked
+        //           sheet — `shadowDensity · depth.png` at the CARD'S OWN ATLAS UV, which is one
+        //           random.random() per strand and cannot vary with light direction — or R28's
+        //           geometric chord through the groom's fitted shell, which is a function of the
+        //           fragment AND the light.
+        //   FORM    slide 39's chromaticity exponent `(C/Luma(C))^(1−Shadow)`, or Zinke Eq.5's
+        //           per-channel transmittance `√C^(1+n)`. See `scatterValue` for both derivations.
+        //
+        // ⚠️ THE SHIPPED PATH IS UNTOUCHED. With no defect named, `events` IS `this.forwardEvents`
+        // and `shadow` IS `this.shadow` — the same node objects the previous round built in
+        // `start()` — so the emitted expression is the one round 26 shipped, and R28 costs the
+        // default build exactly nothing.
+        const geometric = isEnvelopeArm( nodes.defect );
+
+        const events = geometric ? this.envelopeEvents( toLight ) : this.forwardEvents;
+        const shadow = geometric ? events.negate().exp() : this.shadow;
+
+        const transmittance = nodes.defect === 'zinke-transmittance' || nodes.defect === 'envelope-zinke';
+
         let scatter;
 
-        if ( nodes.defect === 'zinke-transmittance' ) {
+        if ( transmittance ) {
 
-            scatter = pow( sqrt( this.colour ), vec3( this.forwardEvents.add( 1 ) ) )
+            scatter = pow( sqrt( this.colour ), vec3( events.add( 1 ) ) )
                 .mul( wrap )
                 .mul( nodes.scatter );
 
@@ -2532,7 +3154,7 @@ export class HairLightingModel extends LightingModel {
 
             scatter = sqrt( this.colour )
                 .mul( wrap )
-                .mul( pow( this.colour.div( luma ), vec3( this.shadow.oneMinus() ) ) )
+                .mul( pow( this.colour.div( luma ), vec3( shadow.oneMinus() ) ) )
                 .mul( nodes.scatter );
 
         }
@@ -2785,13 +3407,52 @@ export async function createHairMaterial( options = {} ) {
 
         // Only read on the defect path. View space, pointing up-and-right across the frame, so a
         // reader who sees the plate can tell at a glance that the band is welded to the screen.
-        constantTangent: uniform( new Vector3( 0.6, 0.8, 0 ) )
+        // `envelope-fixed-direction` reads it too, for the same reason and in the same space.
+        constantTangent: uniform( new Vector3( 0.6, 0.8, 0 ) ),
+
+        // 🎯 ROUND 28's ENVELOPE. Written by `applyHairMaterial` from the groom's own vertices and
+        // then tracked to the head bone, so these are LIVE uniforms rather than authored constants.
+        //
+        // 🚩 THE INITIAL VALUES ARE A DEGENERATE SHELL AND THAT IS THE FALLBACK. `outer` and
+        // `inner` start EQUAL, so `envelopeEvents` computes the same chord twice and returns
+        // exactly 0 — `Shadow` = 1, the term collapses to its no-depth boundary value, and a
+        // material that is never applied to a mesh renders a defined picture instead of a NaN. The
+        // radius is 1 m rather than 0 so the quadratic is well-conditioned while it waits.
+        envelopeCentre: uniform( new Vector3( 0, 0, 0 ) ),
+        envelopeAxisX: uniform( new Vector3( 1, 0, 0 ) ),
+        envelopeAxisY: uniform( new Vector3( 0, 1, 0 ) ),
+        envelopeAxisZ: uniform( new Vector3( 0, 0, 1 ) ),
+        envelopeOuter: uniform( new Vector3( 1, 1, 1 ) ),
+        envelopeInner: uniform( new Vector3( 1, 1, 1 ) ),
+        envelopeExtinction: uniform( settings.envelopeExtinction )
     };
 
     const material = new HairNodeMaterial( nodes );
 
     material.name = 'sugata.hair';
     material.metalness = 0;
+
+    // 🎯 ROUND 28's ENVELOPE HOOK, and it is an OBJECT update rather than a render one for a reason
+    // that cost this round a smoke run: it needs `frame.object`, which is the mesh being drawn, and
+    // that is the only place the material meets its groom on the shipped page. See
+    // `ensureHairEnvelope`. The fit inside it runs at most once; after that the callback is a
+    // matrix multiply and four vector transforms.
+    //
+    // ⚠️ INSTALLED ONLY ON AN ENVELOPE ARM, for the same reason `start()` skips the frame there: the
+    // fit walks 17,516 skinned vertices, and a default page must not pay for a term it does not
+    // evaluate. `describe().envelope.fitted` therefore reads FALSE on the shipped arm, with `live`
+    // false beside it — the census says which arm it is rather than implying a failure.
+    if ( isEnvelopeArm( defect ) ) {
+
+        nodes.envelopeCentre.onObjectUpdate( ( frame ) => {
+
+            ensureHairEnvelope( material, frame.object );
+
+            return trackHairEnvelope( material );
+
+        } );
+
+    }
 
     // Written to the G-buffer's `normal.w` and read by 3.10's specular occlusion. β_TRT is the
     // widest lobe this material carries, so it is the honest isotropic summary of the shape.
@@ -2904,6 +3565,34 @@ export async function createHairMaterial( options = {} ) {
             flow: flowMap !== null,
             depth: depthMap !== null,
             alpha: options.alphaMap != null
+        },
+
+        // 🎯 ROUND 28, in the census for the reason every block above it is: it is a knob that
+        // moves the picture, and two plates taken a round apart on different grooms would
+        // otherwise be indistinguishable from their manifests. `fitted` is the one to read first —
+        // false means `applyHairMaterial` never saw a mesh, the shell is degenerate, and any
+        // `envelope-*` arm on that plate rendered with `n` identically zero. `residual` is how
+        // badly an ellipsoid describes this groom and it belongs beside the radii rather than in a
+        // README: 0.385 on `bob01`.
+        envelope: {
+            fitted: material.hairEnvelope != null,
+            centre: [ nodes.envelopeCentre.value.x, nodes.envelopeCentre.value.y, nodes.envelopeCentre.value.z ],
+            outerMillimetres: [
+                nodes.envelopeOuter.value.x * 1000,
+                nodes.envelopeOuter.value.y * 1000,
+                nodes.envelopeOuter.value.z * 1000
+            ],
+            innerMillimetres: [
+                nodes.envelopeInner.value.x * 1000,
+                nodes.envelopeInner.value.y * 1000,
+                nodes.envelopeInner.value.z * 1000
+            ],
+            extinctionPerMetre: nodes.envelopeExtinction.value,
+            quantiles: [ ...HAIR_ENVELOPE_QUANTILES ],
+            residual: material.hairEnvelope?.residual ?? null,
+            vertexCount: material.hairEnvelope?.vertexCount ?? null,
+            tracksBone: material.hairEnvelopeBone ?? null,
+            live: isEnvelopeArm( defect )
         },
         alphaToCoverage: material.alphaToCoverage,
 
@@ -3062,12 +3751,26 @@ function strandTangentNode( nodes ) {
  * Puts the material on every mesh under a groom root, and hands back the base-colour maps it found
  * so the caller can wire the cutout.
  *
- * @returns {{ meshes:number, alphaMap:?Object }}
+ * 🎯 IT ALSO FITS ROUND 28's ENVELOPE, WHEN AN ENVELOPE ARM IS LIVE. `createHairMaterial` never
+ * sees a mesh — it takes URLs — so the groom's own shape first exists here. Fitting it from the
+ * vertices rather than authoring it means a different identity, a different `--hair-length` or a
+ * regenerated groom carries its own envelope with no constant to update, which is the same
+ * discipline `hair_cards.py` applies by cutting the cap from the scalp region itself.
+ *
+ * ⚠️ THIS IS NOT THE ONLY PATH ONTO A GROOM AND IT IS NOT THE ONE THE PAGE TAKES. `alive.js:2513`
+ * assigns the material to its meshes directly, so the fit ALSO runs from the node graph — see
+ * `ensureHairEnvelope`, which is where that cost this round a smoke run.
+ *
+ * @returns {{ meshes:number, alphaMap:?Object, envelope:?Object }} `envelope` is null on the
+ *   shipped arm, which does not evaluate one.
  */
 export function applyHairMaterial( root, material ) {
 
     let meshes = 0;
     let alphaMap = null;
+    const positions = [];
+
+    root.updateMatrixWorld( true );
 
     root.traverse( ( object ) => {
 
@@ -3075,12 +3778,194 @@ export function applyHairMaterial( root, material ) {
 
         if ( alphaMap === null && object.material?.map != null ) alphaMap = object.material.map;
 
+        collectWorldPositions( object, positions );
+
         object.material = material;
         meshes ++;
 
     } );
 
-    return { meshes, alphaMap };
+    // ⚠️ AND ONLY ON AN ENVELOPE ARM, so this function and the node graph's own hook agree about
+    // when the fit exists. Fitting here on the shipped arm would leave `describe()` reporting
+    // `fitted true, tracksBone head` on a material whose uniforms nothing updates — a census that
+    // describes a shell the picture does not have, which is worse than one that says "not fitted".
+    const envelope = isEnvelopeArm( material.hairDefect )
+        ? installHairEnvelope( material, root, positions )
+        : null;
+
+    return { meshes, alphaMap, envelope };
+
+}
+
+/**
+ * A mesh's vertices in WORLD space, skinned if it is skinned.
+ *
+ * ⚠️ `applyBoneTransform` IS USED RATHER THAN THE RAW ATTRIBUTE, and the two are only the same at
+ * bind pose. `tools/critic/hair-envelope.mjs` reads the live figure exactly this way, so the
+ * envelope this function fits and the envelope that tool scores against the ray cast are the same
+ * surface — which is what makes the correlation in `HAIR_ENVELOPE_EXTINCTION` a statement about
+ * what ships rather than about a lookalike.
+ */
+function collectWorldPositions( mesh, into ) {
+
+    const attribute = mesh.geometry?.attributes?.position;
+
+    if ( attribute == null ) return;
+
+    const skinned = mesh.isSkinnedMesh === true &&
+        mesh.skeleton != null &&
+        mesh.geometry.attributes.skinIndex != null;
+
+    const point = new Vector3();
+
+    for ( let i = 0; i < attribute.count; i ++ ) {
+
+        point.fromBufferAttribute( attribute, i );
+
+        if ( skinned ) mesh.applyBoneTransform( i, point );
+
+        point.applyMatrix4( mesh.matrixWorld );
+
+        into.push( point.x, point.y, point.z );
+
+    }
+
+}
+
+/**
+ * Fits the groom's shell and wires it to the head bone.
+ *
+ * 🚩 THE ENVELOPE IS FITTED ONCE AND THEN TRACKED, NOT REFITTED. Refitting per frame would cost a
+ * pass over 17,516 vertices every render and would also be wrong: the shell is a property of the
+ * GROOM, and a head that turns moves it rigidly rather than reshaping it. So the fit is taken once,
+ * the head bone's world matrix is recorded beside it, and each render the uniforms are the fitted
+ * shell carried through whatever rigid motion that bone has made since. That is the property
+ * CHECKPOINT §10 named as missing — *"it cannot vary with light direction, head orientation…"* —
+ * and it is the half of it that costs one matrix multiply.
+ *
+ * ⚠️ AND THE LIMIT IS STATED RATHER THAN HIDDEN: the groom is skinned to more than one bone, so a
+ * strong neck or jaw motion deforms the cards inside a shell that only the head bone moves. This is
+ * Frostbite's own stated Tier-3 limitation in our own geometry — *it will not adapt to actual
+ * changes in hair volume* — and it is accepted here for the reason Frostbite accepts it: the
+ * alternative needs a pass this budget does not have.
+ *
+ * @returns {?Object} the fitted envelope, or null when there were not enough vertices to fit one.
+ */
+function installHairEnvelope( material, root, positions ) {
+
+    const nodes = material.hair;
+
+    if ( nodes == null || positions.length < 3 * 6 ) return null;
+
+    const envelope = hairEnvelopeValue( positions );
+
+    nodes.envelopeCentre.value.set( ...envelope.centre );
+    nodes.envelopeOuter.value.set( ...envelope.outer );
+    nodes.envelopeInner.value.set( ...envelope.inner );
+    nodes.envelopeAxisX.value.set( 1, 0, 0 );
+    nodes.envelopeAxisY.value.set( 0, 1, 0 );
+    nodes.envelopeAxisZ.value.set( 0, 0, 1 );
+
+    material.hairEnvelope = envelope;
+    material.hairEnvelopeBone = null;
+
+    const bone = findHeadBone( root );
+
+    if ( bone !== null ) {
+
+        material.hairEnvelopeBone = bone.name;
+        material.hairEnvelopeTracking = {
+            bone,
+            restInverse: bone.matrixWorld.clone().invert(),
+            restCentre: new Vector3( ...envelope.centre ),
+            motion: new Matrix4()
+        };
+
+    }
+
+    return envelope;
+
+}
+
+/**
+ * 🔴 THE LAZY FIT, AND IT EXISTS BECAUSE THE SHIPPED PAGE NEVER CALLS `applyHairMaterial`.
+ *
+ * `alive.js:2513` assigns the material to its meshes directly — `for ( const mesh of skinned )
+ * mesh.material = material;` — so the documented apply path is one of two ways the material reaches
+ * a groom and the shipped page takes the other one. The first version of this round shipped the fit
+ * only in `applyHairMaterial` and every live plate came back with `envelope.fitted false`, i.e.
+ * `n` identically zero on every envelope arm. It was caught by the capture tool's own provenance
+ * check on the first smoke run, which is the entire reason that check reads `describe()` rather
+ * than trusting the URL.
+ *
+ * So the fit also runs from the node graph's OBJECT update, where `frame.object` IS the mesh being
+ * drawn. That hook is reached however the material got onto the mesh, which makes the envelope a
+ * property of the material rather than of the caller's manners.
+ *
+ * @param {Object} material - the hair material.
+ * @param {?Object3D} object - the object currently being drawn.
+ */
+function ensureHairEnvelope( material, object ) {
+
+    if ( material.hairEnvelope != null || object == null || object.isMesh !== true ) return;
+
+    const positions = [];
+
+    object.updateMatrixWorld( true );
+    collectWorldPositions( object, positions );
+
+    // The root for the bone search is the mesh itself: a `SkinnedMesh` carries its own skeleton, so
+    // the traversal in `findHeadBone` finds the head from here exactly as it would from the groom's
+    // parent.
+    installHairEnvelope( material, object, positions );
+
+}
+
+/**
+ * Carries the fitted shell through whatever rigid motion the head bone has made since the fit.
+ *
+ * 🚩 ONE HOOK UPDATES ALL FOUR UNIFORMS, AND THAT IS DELIBERATE RATHER THAN LAZY. The centre and the
+ * three axes are ONE rigid transform; giving each its own callback would build the same matrix and
+ * take the same inverse four times per draw for four thirds of a vector each. The callback returns
+ * the centre — `UniformNode.onUpdate` assigns a returned value to `.value` — and writes the axes as
+ * it goes, which is why the hook sits on `envelopeCentre` and not on an arbitrary member of the
+ * four.
+ */
+function trackHairEnvelope( material ) {
+
+    const tracking = material.hairEnvelopeTracking;
+    const nodes = material.hair;
+
+    if ( tracking == null ) return nodes.envelopeCentre.value;
+
+    const motion = tracking.motion.multiplyMatrices( tracking.bone.matrixWorld, tracking.restInverse );
+
+    nodes.envelopeAxisX.value.set( 1, 0, 0 ).transformDirection( motion );
+    nodes.envelopeAxisY.value.set( 0, 1, 0 ).transformDirection( motion );
+    nodes.envelopeAxisZ.value.set( 0, 0, 1 ).transformDirection( motion );
+
+    return nodes.envelopeCentre.value.copy( tracking.restCentre ).applyMatrix4( motion );
+
+}
+
+/** The bone the groom hangs from, by name, off whichever skinned mesh under the root has one. */
+function findHeadBone( root ) {
+
+    let found = null;
+
+    root.traverse( ( object ) => {
+
+        if ( found !== null || object.isSkinnedMesh !== true || object.skeleton == null ) return;
+
+        for ( const bone of object.skeleton.bones ) {
+
+            if ( bone.name === 'head' ) { found = bone; return; }
+
+        }
+
+    } );
+
+    return found;
 
 }
 
