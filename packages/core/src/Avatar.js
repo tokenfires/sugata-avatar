@@ -1060,6 +1060,95 @@ export class Avatar {
     }
 
     /**
+     * One frame, and the promise resolves only once the pixels are actually on the screen.
+     *
+     * 🚩 THIS EXISTS BECAUSE `update()` CANNOT BE USED BY A CAPTURE HARNESS AND THE FAILURE LOOKS
+     * LIKE A BROKEN RENDER.
+     *
+     * `draw()` SUBMITS work. It does not wait for the GPU, and it does not wait for the compositor.
+     * A screenshot taken straight after `update()` returns is a separate process asking the
+     * compositor for the canvas, and it sometimes wins that race and gets the PREVIOUS frame — or,
+     * on the first frame, no frame at all. Measured while verifying this API: a screenshot taken
+     * immediately after `update()` came back BLACK while `renderer.info.render` reported
+     * `drawCalls 43, triangles 86,751` for that very step. The draw had happened. The paint had not.
+     * I diagnosed that as a render failure before measuring it, which is exactly the trap.
+     *
+     * ⚠️ AND THE MIS-CAPTURE IS USUALLY INVISIBLE RATHER THAN BLACK. `alive.js:1305-1314` closes the
+     * same race in `__SUGATA_STEP__` and its comment records why it had to be closed in code: on
+     * millimetre-scale idle motion a one-frame slip is "a fraction of a percent of pixels along lash
+     * and lid edges". A capture harness would produce plates that are wrong in a way no reviewer
+     * would ever spot by eye.
+     *
+     * Two barriers, in order, because each closes a different half:
+     *   1. `onSubmittedWorkDone()` — the GPU has finished the frame. WebGL2 has no equivalent, so
+     *      the fallback tier keeps the race and says so rather than pretending.
+     *   2. `nextPaint()` — the compositor has painted it. GPU-done is not enough on its own.
+     *
+     * @param {number} deltaSeconds - fixed simulation step, e.g. 1/60.
+     * @returns {Promise<void>} resolves when the caller may safely read the canvas back.
+     */
+    async step( deltaSeconds ) {
+
+        this.update( deltaSeconds );
+
+        await this.stage.renderer.backend?.device?.queue?.onSubmittedWorkDone();
+        await nextPaint();
+
+    }
+
+    /**
+     * Re-frames the camera and re-aims the rig between portrait and body.
+     *
+     * 🚩 WITHOUT THIS, `frame` WAS CREATE-TIME ONLY AND ONE OF THIS PROJECT'S OWN GATES WAS
+     * UNREACHABLE THROUGH THE API. Punch-list 5.7 requires its critic plates at body framing, in as
+     * many words: "a portrait crop cannot show a 14° trunk lean or a 334 mm hand span, and every
+     * affect plate this project has captured so far was a portrait." An embedder who wanted both
+     * had to dispose the avatar and rebuild it, which throws away the motion state that makes a
+     * before/after pair comparable at all.
+     *
+     * ⚠️ THE RIG IS RE-AIMED, NOT RE-ATTACHED. `LightingRig.attachTo()` THROWS on a second call
+     * (`LightingRig.js:1672`), and the presets are authored per framing rather than scaled from one
+     * — the portrait rim azimuth measures one pixel of band on a full-body thigh. So this calls
+     * `setPreset()` and re-aims; it never rebuilds the rig, and it never touches the motion stack,
+     * so the simulation clock runs straight through the change.
+     *
+     * @param {'portrait'|'body'} mode
+     * @param {number} [heightMetres] - override the framed height; omitted uses the preset's own.
+     */
+    setFraming( mode, heightMetres = undefined ) {
+
+        this.requireLive( 'setFraming' );
+
+        if ( FRAME_MODES.includes( mode ) === false ) {
+
+            throw new TypeError(
+                `Avatar.setFraming: mode must be one of ${ FRAME_MODES.join( ', ' ) }, got '${ mode }'.` );
+
+        }
+
+        this.frameMode = mode;
+        if ( heightMetres !== undefined ) this.heightOverride = heightMetres;
+
+        // The rig's preset moves FIRST, because `aimRigAt` aims whatever preset is current and
+        // aiming the portrait preset at a body focus is the "rim reads 1 px of band on a thigh"
+        // failure `LightingRig` records against scaling one preset into the other.
+        this.lights.setPreset( mode );
+
+        this.framedHeightMetres = framedHeightFor( this.figure, mode, this.heightOverride );
+
+        const { focus } = frameFigure( this.stage, this.figure, {
+            mode,
+            heightMetres: this.framedHeightMetres
+        } );
+
+        aimRigAt( this.lights, this.eyes, focus, this.framedHeightMetres, this.stage );
+
+        this.backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+        this.ground?.sizeTo?.( { focus, subjectHeightMetres: this.framedHeightMetres } );
+
+    }
+
+    /**
      * Swap the bake — R8's gender axis, live.
      *
      * 🚩 TRAP (a) IS THE WHOLE REASON THIS IS ASYNC AND NOT A SETTER. `createMotionTarget` SNAPSHOTS
@@ -1802,6 +1891,25 @@ export function resolveAgainstBase( url, base, folder ) {
     const fileName = url.slice( url.lastIndexOf( '/' ) + 1 );
 
     return new URL( folder === '' ? fileName : `${ folder }/${ fileName }`, root ).href;
+
+}
+
+/**
+ * Resolves after the browser has PAINTED, which takes two animation frames: the first callback runs
+ * before the paint it was scheduled for, the second only after that paint has happened.
+ *
+ * This is a BARRIER rather than a clock, so a throttled or hidden tab makes `step()` slow and never
+ * wrong. ⚠️ In a hidden tab rAF may not fire at all, so `step()` will not resolve until the tab is
+ * visible — which is correct behaviour for a call whose contract is "the pixels are on the screen",
+ * and is worth knowing before using it in a background page.
+ */
+function nextPaint() {
+
+    return new Promise( ( resolve ) => {
+
+        requestAnimationFrame( () => requestAnimationFrame( () => resolve() ) );
+
+    } );
 
 }
 

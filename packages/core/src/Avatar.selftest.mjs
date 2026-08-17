@@ -139,6 +139,37 @@ const FAKE_CANVAS = { getContext: () => null };
         both ?? 'DID NOT REJECT' );
 }
 
+// --- FRAMING AND STEP -----------------------------------------------------------------------------
+
+{
+    // Both landed after a browser found them missing: `update()` had no GPU barrier, so a capture
+    // harness raced it and screenshotted an unpainted frame; and `frame` was create-time only, which
+    // put punch-list 5.7's body-framed critic plates out of reach of the API entirely.
+    check( 'FRAMING  setFraming and step are on the prototype',
+        typeof Avatar.prototype.setFraming === 'function'
+            && typeof Avatar.prototype.step === 'function' );
+
+    check( '🎯 FRAMING  step is async — its whole contract is that the pixels are on the screen',
+        Avatar.prototype.step.constructor.name === 'AsyncFunction' );
+
+    // The mode is validated against the same exported table `create()` uses, not a second literal.
+    let message = null;
+    try { Avatar.prototype.setFraming.call( { requireLive() {} }, 'sideways' ); }
+    catch ( error ) { message = error.message; }
+
+    check( '🎯 FRAMING  setFraming rejects an unknown mode, naming the value and the accepted set',
+        message !== null && message.includes( 'sideways' )
+            && FRAME_MODES.every( ( mode ) => message.includes( mode ) ),
+        message ?? 'DID NOT REJECT' );
+
+    // ⚠️ A disposed avatar must refuse, not half-reframe. requireLive is called FIRST, which this
+    // asserts by handing it a stub that throws and checking the mode check never ran.
+    let refused = false;
+    try { Avatar.prototype.setFraming.call( { requireLive() { throw new Error( 'disposed' ); } }, 'body' ); }
+    catch ( error ) { refused = error.message === 'disposed'; }
+    check( '🎯 FRAMING  setFraming checks liveness BEFORE it validates the mode', refused );
+}
+
 // --- TIERS ---------------------------------------------------------------------------------------
 
 {
