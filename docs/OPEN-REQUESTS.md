@@ -2631,6 +2631,65 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              side-to-side difference SHRANK by 12 deg, for the same reason. Any operator used on
              this must restrict to the cool population and be validated on a shape whose answer is
              arithmetic first.
+             🎯 **R29 ADDS THE ARITHMETIC THAT MAKES THIS DECIDABLE, and it says the hue is not
+             the lever either.** Read off the LIVE rig on 2026-08-17, every light in the shipped
+             portrait scene:
+
+               | light      | colour    | intensity |
+               |------------|-----------|----------:|
+               | key        | `#ffeeda` |      2.18 |
+               | key-shadow | `#ffeeda` |      1.37 |
+               | fill       | `#f2d2c6` |      1.17 |
+               | **rim**    | `#0f30ff` | **434.61** |
+               | kicker     | `#ffd7b0` |      1.86 |
+
+             The rim runs at **234x the warm kicker** that is supposed to oppose it. Setting the rim
+             to zero on the live page removes the violet ENTIRELY — confirmed on a render — and also
+             removes all separation from the background, so deleting it is not the answer.
+
+             🚩 **AND EVERY "LESS BLUE" HUE CANDIDATE IS A NO-OP, WHICH IS WHY A HUE SWEEP WOULD
+             HAVE WASTED A ROUND.** sRGB→linear, computed rather than eyeballed:
+
+               | hex        | linear R, G, B         | ordering  | rel. luma |
+               |------------|------------------------|-----------|----------:|
+               | `#0f30ff`  | 0.0048, 0.0296, 1.0000 | B > G > R |    0.0944 |
+               | `#4a3cff`  | 0.0685, 0.0452, 1.0000 | B > R > G |    0.1191 |
+               | `#8899ff`  | 0.2462, 0.3185, 1.0000 | B > G > R |    0.3524 |
+               | `#4a3cc0`  | 0.0685, 0.0452, 0.5271 | B > R > G |    0.0849 |
+               | `#ffeeda`  | 1.0000, 0.8550, 0.7011 | R > G > B |    0.8747 |
+
+             **Any hex ending `ff` has linear blue of exactly 1.0.** So `#0f30ff`, `#4a3cff` and
+             `#8899ff` deliver IDENTICAL blue energy at the same intensity; they differ only by
+             adding red and green. Reducing the blue requires dropping the blue channel below 255.
+
+             🎯 **AND THE ROOT CAUSE IS A LUMINANCE TRAP.** `#0f30ff` has relative luminance 0.0944
+             against the key's 0.8747 — a near-monochromatic blue is intrinsically ~9x less luminous
+             — so the rig had to reach E 434.61 to make it read as a rim at all. That enormous
+             intensity is what saturates the blue channel across the whole back hemisphere. The
+             violet outline is the DOWNSTREAM CONSEQUENCE of choosing a hue with almost no
+             luminance, not an independent choice.
+
+             ⚠️ **WHICH SURFACES A REAL CONFLICT INSIDE THE LOOK SPEC, and it needs a human call.**
+             `docs/research/stellar-blade-look-spec.md` asks for three things at once — rim/kicker
+             "hue-opposed to key", "≈1.0–1.5x key-lit skin luma", and "MUCH higher chroma … do not
+             blow it out". A near-monochromatic blue cannot satisfy all three, because its luminance
+             sits ~9x under the key. Something has to give, and which one is a look decision:
+               (a) keep the chroma, cut the blue channel (`#4a3cc0` family), accept a dimmer rim;
+               (b) hit the luma target by desaturating (`#8899ff` family), against "higher chroma";
+               (c) attack COVERAGE instead of hue — the judges said "tracing the whole SILHOUETTE",
+                   and the rim sits at azimuth −168°, 12° off directly-behind, as a large area light
+                   at 0.65 heights. A backlight that centred and that close wraps both sides by
+                   construction. Moving it off-axis or shrinking it confines the rim to one side and
+                   gives the warm/cool split the spec wants. 🚩 Note the header records that −134°
+                   was TRIED and withdrawn for producing three regressions at once, so this is a
+                   narrower move than that one, not a repeat of it.
+             R29 did not apply any of them: the file's own header states a rig change "shifts every
+             plate in the repository", and (a) versus (b) versus (c) is a taste call on a public
+             repo, not a measurement.
+             ⚠️ Also note the spec's own statement of what "cool" looks like in this look is
+             **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
+             shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
+             costs no blue energy and is the cheapest thing on this list.
 anchor:      packages/core/src/render/LightingRig.js /colour: 0x0f30ff/
 verify:      tools/critic/violet.mjs /sideSeparationCool/
 ```
