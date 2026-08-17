@@ -92,10 +92,42 @@
 import { Quaternion, Vector3 } from 'three';
 
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
+import { restRotationRelativeToRig, toBoneDeltaFrame } from './Breath.js';
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
 
 const DEGREES_TO_RADIANS = Math.PI / 180;
+
+/**
+ * Rig-space anatomical axes, the same convention `affect/PostureLayer.js` and `motion/Sway.js`
+ * verified on figure_g050 and gate by measurement rather than by comment: +X is the character's
+ * left-right axis, +Y is up, +Z is forward. So a SAGITTAL rotation (forward/back) is about +X and
+ * a FRONTAL one (arm out to the side) is about +Z, and
+ *
+ *   +θ about +X carries +Y toward +Z, so a positive sagittal angle tips the top FORWARD;
+ *   +θ about +Z carries −Y toward +X, so a positive frontal angle swings a hanging limb toward +X.
+ */
+const RIG_SAGITTAL_AXIS = new Vector3( 1, 0, 0 );
+const RIG_FRONTAL_AXIS = new Vector3( 0, 0, 1 );
+
+/**
+ * 🚩 AND THE SIGN TRAP THAT COST THIS FILE A ROUND, WRITTEN OUT SO NOBODY RE-DERIVES IT WRONG.
+ *
+ * The convention above — "+θ about +X tips the top FORWARD" — was derived for the TRUNK, which
+ * extends UPWARD from its joint. An arm hangs, so its distal end sits at −Y from the shoulder, and
+ * the same +θ about +X therefore carries the hand toward **−Z, backward**. The rule is identical;
+ * the limb points the other way.
+ *
+ * Measured on the raw bind pose: with a positive sagittal angle the right hand travelled −71.9 mm
+ * in Z while the toes sit +116.8 mm of Z from the ankle. The arm was swinging BEHIND the figure.
+ *
+ * ⚠️ The direction gate did not catch it, because the gate compared `Math.abs( travel.z )` against
+ * `Math.abs( travel.x )` — a magnitude test on a property whose whole content is a SIGN. A backward
+ * swing is sagittal, so the clause passed while the arm went the wrong way. `Gesture.selftest.mjs`
+ * now derives "forward" by measuring the toes off the rig and checks the signed component against
+ * it, which is the same measure-don't-transcribe rule `PostureLayer` applies to the arm sides.
+ */
+const HANGING_LIMB_SAGITTAL_SIGN = -1;
 
 // --- the sourced constants --------------------------------------------------------------------
 
@@ -176,6 +208,26 @@ export const SPATIAL_EXTENT_RANGE = Object.freeze( { min: 0.5, max: 1.5 } );
  * thing for a blind critic to move. It is one constant, in one place, for exactly that reason.
  */
 export const BEAT_EXCURSION = 0.35;
+
+/**
+ * 🎯 HOW THE STROKE SPLITS BETWEEN THE TWO PLANES, AND WHY IT IS NOT ALL FRONTAL.
+ *
+ * The first version of this file rotated the arm about the frontal axis alone, which is pure
+ * ad/abduction — the arm swings out sideways like a wing. Seen at the stroke peak on a live render
+ * (2026-08-17, activation 1.000, shoulder 15.72°) that reads as a shrug rather than as a beat, and
+ * the node gate was structurally blind to it because it measures the excursion's MAGNITUDE in
+ * degrees and never its DIRECTION. REQ-084.
+ *
+ * Co-speech beats are mostly sagittal. Research §5 measures the rhythm as "co-speech ARM movement"
+ * with acoustic peaks landing "just before maximum EXTENSION", and extension is a forward quantity;
+ * eBMLController keeps `shoulderRaise` and a DIRECTED motion default of 0.2 m as separate controls
+ * for the same reason. So the stroke is mostly forward flexion with a lateral component that keeps
+ * the hand off the thigh.
+ *
+ * 🚩 THE SPLIT ITSELF IS AUTHORED. The literature says beats are sagittal; no source in this
+ * record states a ratio. Named here, like `BEAT_EXCURSION`, so a critic can move one number.
+ */
+export const SAGITTAL_SHARE = 0.75;
 
 /**
  * How much of the shoulder's excursion the elbow carries. Research §5's "mass matters" finding is
@@ -557,6 +609,8 @@ export class GestureLayer extends Layer {
      *   beat overrides an angry body's clamped arms.
      * @param {boolean} [options.dominanceDrivesAmplitude=true] - Read dominance off the live
      *   affect state each frame. 🚩 Off is the snapshot defect; see `effectiveSpatialExtent`.
+     * @param {number} [options.sagittalShare=SAGITTAL_SHARE] - 🚩 Gate fodder. 0 is REQ-084's
+     *   all-lateral wing.
      */
     constructor( options = {} ) {
 
@@ -576,6 +630,10 @@ export class GestureLayer extends Layer {
         this.temporalExtent = clampUnit( options.temporalExtent ?? 0 );
         this.yieldToPosture = options.yieldToPosture !== false;
 
+        // 🚩 Gate fodder. 0 is REQ-084's defect exactly — an all-frontal stroke, the arm out
+        // sideways like a wing. Kept reachable so the direction gate has something to go red on.
+        this.sagittalShare = Number.isFinite( options.sagittalShare ) ? options.sagittalShare : SAGITTAL_SHARE;
+
         // 🚩 Gate fodder. False is the defect where amplitude is frozen at schedule time and
         // every sentence gestures at the amplitude of the sentence before it.
         this.dominanceDrivesAmplitude = options.dominanceDrivesAmplitude !== false;
@@ -589,7 +647,83 @@ export class GestureLayer extends Layer {
             shoulderDegrees: 0, elbowDegrees: 0 };
 
         this.scratchQuaternion = new Quaternion();
-        this.scratchAxis = new Vector3();
+        this.scratchSagittal = new Quaternion();
+        this.scratchFrontal = new Quaternion();
+        this.scratchShoulder = new Vector3();
+        this.scratchElbow = new Vector3();
+        this.scratchSpine = new Vector3();
+
+        // 🚩 MEASURED AT BIND, NOT TRANSCRIBED. Which way is "away from the midline" for each arm
+        // depends on how the rig was authored, and a mirrored rig flips it. The first version of
+        // this file hard-coded `left: +1, right: −1`, which is the exact mistake
+        // `affect/PostureLayer.js` refuses — research §3 records three sign problems in the
+        // published Coulson data and that file solves them by measuring the rig instead. Same
+        // measurement here, and the same reason: a comment cannot fail, a bind can.
+        this.armSides = { left: 1, right: -1 };
+        this.armSidesMeasured = false;
+
+        // 🚩 EACH BONE'S REST ORIENTATION RELATIVE TO THE RIG, CACHED AT BIND.
+        //
+        // `MotionContribution.rotateBone` states a delta in the BONE'S LOCAL SPACE, and an arm bone
+        // points down and outward — its local axes are nowhere near the rig's. Handing a rig-space
+        // axis straight to `rotateBoneEuler` therefore does not rotate the arm in the plane the axis
+        // names, which is how the first attempt at REQ-084 produced a stroke that went forward even
+        // with the sagittal share set to zero: the "frontal" rotation was not frontal.
+        //
+        // `Breath.toBoneDeltaFrame` is the conversion and `PostureLayer` already runs every one of
+        // its channels through it. Same here.
+        this.restFrames = new Map();
+        this.scratchRigRotation = new Quaternion();
+        this.scratchBoneDelta = new Quaternion();
+
+    }
+
+    /**
+     * Measures which way each arm abducts, off the bound figure.
+     *
+     * Idempotent, because `Layer.onBind`'s contract says it runs again on rebind and on
+     * `MotionStack.reset()`. It reads only rest geometry — the shoulder's offset from the spine —
+     * so unlike `PostureLayer`'s adduction budget there is nothing of this layer's own to subtract.
+     */
+    onBind( context ) {
+
+        const target = context?.target ?? context?.stack?.target ?? null;
+        if ( target === null || typeof target.getBone !== 'function' ) return;
+
+        const spine = target.getBone( HUMANOID_TO_FIGURE_BONE.spine );
+        if ( spine === null || spine === undefined ) return;
+
+        spine.updateWorldMatrix( true, false );
+        this.scratchSpine.setFromMatrixPosition( spine.matrixWorld );
+
+        let measured = 0;
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const shoulder = target.getBone( this.bones[ `${ side }UpperArm` ] );
+            if ( shoulder === null || shoulder === undefined ) continue;
+
+            shoulder.updateWorldMatrix( true, false );
+            this.scratchShoulder.setFromMatrixPosition( shoulder.matrixWorld );
+
+            // +θ about +Z swings a hanging limb toward +X, so the arm on the +X side of the spine
+            // abducts on a POSITIVE frontal angle and the other one on a negative.
+            this.armSides[ side ] = Math.sign( this.scratchShoulder.x - this.scratchSpine.x ) || this.armSides[ side ];
+            measured += 1;
+
+        }
+
+        // Every driven bone's rest orientation in rig space, so `update()` can convert.
+        this.restFrames.clear();
+
+        for ( const boneName of Object.values( this.bones ) ) {
+
+            const bone = target.getBone( boneName );
+            if ( bone !== null && bone !== undefined ) this.restFrames.set( boneName, restRotationRelativeToRig( bone ) );
+
+        }
+
+        this.armSidesMeasured = measured === 2;
 
     }
 
@@ -704,19 +838,30 @@ export class GestureLayer extends Layer {
 
         const sides = active.hand === 'both' ? [ 'left', 'right' ] : [ active.hand ];
 
+        // The stroke is mostly forward, with enough lateral to keep the hand off the thigh. See
+        // SAGITTAL_SHARE for why, and REQ-084 for what it looked like when it was all lateral.
+        const sagittalRadians = shoulderRadians * this.sagittalShare;
+        const frontalRadians = shoulderRadians * ( 1 - this.sagittalShare );
+
         for ( const side of sides ) {
 
-            const sign = side === 'left' ? 1 : -1;
+            // Measured at bind. Only the FRONTAL half is mirrored — both arms swing forward
+            // together, and mirroring the sagittal half would send one hand behind the figure.
+            const mirror = this.armSides[ side ];
 
-            // Shoulder: abduction away from the trunk, about the bone's local Z, mirrored.
-            this.contribution.rotateBoneEuler(
-                this.bones[ `${ side }UpperArm` ], 0, 0, sign * shoulderRadians
-            );
+            this.scratchSagittal.setFromAxisAngle(
+                RIG_SAGITTAL_AXIS, HANGING_LIMB_SAGITTAL_SIGN * sagittalRadians );
+            this.scratchFrontal.setFromAxisAngle( RIG_FRONTAL_AXIS, mirror * frontalRadians );
 
-            // Elbow: flexion only, same direction on both arms.
-            this.contribution.rotateBoneEuler(
-                this.bones[ `${ side }LowerArm` ], 0, 0, sign * elbowRadians
-            );
+            // Composed rather than written as one euler: two axis-angle rotations do not commute,
+            // and an euler triple hides which order was meant.
+            this.scratchRigRotation.copy( this.scratchSagittal ).multiply( this.scratchFrontal );
+            this.writeRigRotation( this.bones[ `${ side }UpperArm` ], this.scratchRigRotation );
+
+            // Elbow: flexion only, and flexion is sagittal on both arms, so no mirror.
+            this.scratchRigRotation.setFromAxisAngle(
+                RIG_SAGITTAL_AXIS, HANGING_LIMB_SAGITTAL_SIGN * elbowRadians );
+            this.writeRigRotation( this.bones[ `${ side }LowerArm` ], this.scratchRigRotation );
 
         }
 
@@ -752,6 +897,23 @@ export class GestureLayer extends Layer {
         const dominance = context?.shared?.affect?.pad?.dominance;
 
         return Number.isFinite( dominance ) ? clampUnit( dominance ) : this.spatialExtent;
+
+    }
+
+    /**
+     * States a RIG-SPACE rotation on a bone, converting it into that bone's local delta frame.
+     *
+     * Without the conversion an arm bone receives the rotation in its own tilted local axes and
+     * moves in a plane nobody asked for; see `restFrames`. A bone with no cached rest frame — one
+     * the figure does not have — is skipped rather than written in the wrong space.
+     */
+    writeRigRotation( boneName, rigRotation ) {
+
+        const restFrame = this.restFrames.get( boneName );
+        if ( restFrame === undefined ) return;
+
+        toBoneDeltaFrame( rigRotation, restFrame, this.scratchBoneDelta );
+        this.contribution.rotateBone( boneName, this.scratchBoneDelta );
 
     }
 
@@ -796,6 +958,9 @@ export class GestureLayer extends Layer {
             temporalExtent: this.temporalExtent,
             strokeSeconds: strokeDurationFor( this.temporalExtent ),
             yieldToPosture: this.yieldToPosture,
+            sagittalShare: this.sagittalShare,
+            armSidesMeasured: this.armSidesMeasured,
+            armSides: { ...this.armSides },
             applied: { ...this.applied },
             schedule: this.schedule === null ? null : {
                 count: this.schedule.gestures.length,

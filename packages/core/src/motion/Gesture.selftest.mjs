@@ -29,14 +29,20 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { Vector3 } from 'three';
+
 import {
     BEAT_EXCURSION, BEAT_HZ, ELBOW_RAISE_FULL_DEGREES, GESTURE_PHASES, GESTURE_RATE_PER_MINUTE, GestureLayer,
     PREPARATION_SECONDS, SHOULDER_RAISE_FULL_DEGREES, SPATIAL_EXTENT_RANGE, STROKE_LEAD_SECONDS,
     STROKE_SD_SECONDS, STROKE_SECONDS, amplitudeFor, gestureEnvelope, planGestures, postureYield,
-    rateForArousal, strokeDurationFor, syntheticSpeechPlan
+    SAGITTAL_SHARE, rateForArousal, strokeDurationFor, syntheticSpeechPlan
 } from './Gesture.js';
 import { MOTION_ORDER, MotionStack } from './MotionStack.js';
 import { MotionRandom } from './Signals.js';
+
+// GLTFLoader reaches for `self` when it resolves texture sources. Five other gates in this
+// directory carry the same line for the same reason.
+globalThis.self ??= globalThis;
 
 const results = [];
 
@@ -859,6 +865,172 @@ check(
     'BodyIdle also declares the arm bones, so this is a DECLARED overlap the stack can name',
     fs.readFileSync( path.join( here, 'BodyIdle.js' ), 'utf8' ).includes( 'boneChannels' ),
     'idle sway and a beat genuinely both want the arm; the stack composing them is the mechanism'
+);
+
+// ================================================================================================
+section( 'DIRECTION — REQ-084, and the plane the old gate could not see' );
+// ================================================================================================
+
+/**
+ * 🎯 THE CLAUSE THAT NEEDED A FIGURE.
+ *
+ * Every check above measures the excursion in DEGREES, so all 86 of them stayed green while the
+ * arm swung out sideways like a wing. REQ-084 was found by looking at a render, not by running the
+ * gate, and a defect a gate cannot observe is one it will ship again. So this section binds the
+ * real skeleton and asks where the HAND actually went.
+ *
+ * Research §5 puts the rhythm on "co-speech ARM movement" with acoustic peaks landing "just before
+ * maximum EXTENSION" — a forward quantity — and eBMLController keeps `shoulderRaise` separate from
+ * its DIRECTED motion default for the same reason. Beats are mostly sagittal.
+ */
+const { Figure } = await import( '../figure/Figure.js' );
+const { createMotionTarget } = await import( './MotionStack.js' );
+
+const figureBytes = fs.readFileSync( path.join( repoRoot, 'assets/figures/figure_g050.glb' ) );
+const figure = await Figure.parse(
+    figureBytes.buffer.slice( figureBytes.byteOffset, figureBytes.byteOffset + figureBytes.byteLength ) );
+
+figure.root.updateMatrixWorld( true );
+
+/** Where the hand goes at the stroke peak, in rig space, relative to where it rested. */
+function handTravelAtStrokePeak( layerOptions = {} ) {
+
+    // A fresh scene per measurement: the stack commits to the figure, so a second run would start
+    // from the pose the first one left behind.
+    const bytes = fs.readFileSync( path.join( repoRoot, 'assets/figures/figure_g050.glb' ) );
+    return Figure.parse( bytes.buffer.slice( bytes.byteOffset, bytes.byteOffset + bytes.byteLength ) )
+        .then( ( fresh ) => {
+
+            fresh.root.updateMatrixWorld( true );
+
+            const stack = new MotionStack( { seed: 7 } );
+            const layer = new GestureLayer( layerOptions );
+            stack.add( layer );
+            stack.bind( createMotionTarget( fresh.root ) );
+
+            const hand = fresh.root.getObjectByName( 'hand_r' );
+            const rest = hand.getWorldPosition( new Vector3() ).clone();
+
+            layer.speak( syntheticSpeechPlan( CORPUS[ 0 ] ), { arousal: 0 } );
+
+            let best = -1;
+            let travel = null;
+
+            for ( let i = 0; i < 720; i++ ) {
+
+                stack.update( 1 / 60 );
+
+                // The right hand only moves on a right-handed gesture; measure at ITS peak.
+                if ( layer.applied.hand !== 'right' && layer.applied.hand !== 'both' ) continue;
+
+                if ( layer.applied.activation > best ) {
+
+                    best = layer.applied.activation;
+                    fresh.root.updateMatrixWorld( true );
+                    const now = hand.getWorldPosition( new Vector3() );
+                    travel = { x: now.x - rest.x, y: now.y - rest.y, z: now.z - rest.z };
+
+                }
+
+            }
+
+            return { travel, peakActivation: best, armSidesMeasured: layer.armSidesMeasured,
+                armSides: { ...layer.armSides } };
+
+        } );
+
+}
+
+/**
+ * 🚩 WHICH WAY IS FORWARD, MEASURED OFF THE RIG RATHER THAN ASSUMED TO BE +Z.
+ *
+ * The toes point forward by anatomy, so `ball_r − foot_r` in Z is the rig's own answer and it
+ * survives a rig that was authored facing the other way. Same measure-don't-transcribe rule
+ * `PostureLayer` applies to the arm sides, and the same rule this gate FAILED to apply below.
+ */
+const toeAnchor = figure.root.getObjectByName( 'foot_r' ).getWorldPosition( new Vector3() );
+const toeTip = figure.root.getObjectByName( 'ball_r' ).getWorldPosition( new Vector3() );
+const forwardSign = Math.sign( toeTip.z - toeAnchor.z ) || 1;
+
+check(
+    'the rig states which way is forward, and it is measured off the toes',
+    Math.abs( toeTip.z - toeAnchor.z ) > 0.05,
+    `ball_r sits ${ ( ( toeTip.z - toeAnchor.z ) * 1000 ).toFixed( 1 ) } mm of Z from foot_r, so forward is ` +
+    `${ forwardSign > 0 ? '+Z' : '−Z' } on this bake`
+);
+
+const shipped = await handTravelAtStrokePeak();
+
+check(
+    'the layer measured both arm sides off the bound rig rather than transcribing them',
+    shipped.armSidesMeasured === true,
+    `left ${ shipped.armSides.left }, right ${ shipped.armSides.right } — a mirrored rig flips these, ` +
+    'which is why PostureLayer measures them too'
+);
+
+check(
+    'the stroke peak was reached on the bound figure',
+    shipped.peakActivation > 0.9 && shipped.travel !== null,
+    `activation ${ shipped.peakActivation.toFixed( 3 ) }`
+);
+
+// 🚩 SIGNED, NOT ABSOLUTE, AND THIS IS THE WHOLE LESSON OF REQ-084's SECOND HALF.
+//
+// The first version of this clause compared `Math.abs( travel.z )` against `Math.abs( travel.x )`.
+// It passed — while the arm swung 71.9 mm BEHIND the figure, because a backward swing is sagittal
+// and an absolute value cannot tell the two apart. The property being tested is a DIRECTION and it
+// was being measured as a magnitude. Found by measuring the toes, not by running the gate.
+const forward = shipped.travel.z * forwardSign;
+const lateral = Math.abs( shipped.travel.x );
+
+check(
+    'REQ-084: the hand travels FORWARD, in the direction the toes point',
+    forward > 0,
+    `${ ( forward * 1000 ).toFixed( 1 ) } mm along the rig's own forward. A magnitude test passes on ` +
+    'a backward swing too, which is exactly what this file shipped for one round'
+);
+
+check(
+    'and it travels forward further than it travels sideways',
+    forward > lateral,
+    `forward ${ ( forward * 1000 ).toFixed( 1 ) } mm against lateral ${ ( lateral * 1000 ).toFixed( 1 ) } mm ` +
+    `(${ ( forward / lateral ).toFixed( 2 ) }x) — beats are sagittal`
+);
+
+check(
+    'and the hand rises rather than dropping, which is what an accent does',
+    shipped.travel.y > 0,
+    `${ ( shipped.travel.y * 1000 ).toFixed( 1 ) } mm up`
+);
+
+check(
+    'and it still travels sideways enough to keep the hand off the thigh',
+    lateral * 1000 > 5,
+    `${ ( lateral * 1000 ).toFixed( 1 ) } mm of lateral, from a ${ ( 1 - SAGITTAL_SHARE ).toFixed( 2 ) } frontal share`
+);
+
+// 🚩 THE DEFECT, REPRODUCED. This is what the file shipped before REQ-084 — an all-frontal stroke.
+const wing = await handTravelAtStrokePeak( { sagittalShare: 0 } );
+const wingForward = wing.travel.z * forwardSign;
+const wingLateral = Math.abs( wing.travel.x );
+
+check(
+    'sagittalShare 0 reproduces the wing, and this clause goes red on it',
+    wingLateral > wingForward,
+    `defect: lateral ${ ( wingLateral * 1000 ).toFixed( 1 ) } mm against forward ` +
+    `${ ( wingForward * 1000 ).toFixed( 1 ) } mm — the shape seen on the live render, now gated`
+);
+
+check(
+    'the shipped split moves the hand markedly further forward than the defect does',
+    forward > Math.abs( wingForward ) * 2,
+    `${ ( forward * 1000 ).toFixed( 1 ) } mm against ${ ( wingForward * 1000 ).toFixed( 1 ) } mm`
+);
+
+check(
+    'SAGITTAL_SHARE is declared authored, like every other ratio here',
+    /🚩 THE SPLIT ITSELF IS AUTHORED/.test( fs.readFileSync( path.join( here, 'Gesture.js' ), 'utf8' ) ),
+    `${ SAGITTAL_SHARE } — the literature says beats are sagittal; no source states a ratio`
 );
 
 // ================================================================================================

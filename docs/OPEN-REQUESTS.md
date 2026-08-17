@@ -2741,7 +2741,7 @@ verify:      tools/figure-pipeline/verify_glb.mjs /boneScaleIsUnit/
 
 ```request
 id:          REQ-084
-status:      OPEN
+status:      APPLIED
 target:      packages/core/src/motion/Gesture.js
 filed-by:    the 6.3 gesture agent
 filed-round: R12
@@ -2764,8 +2764,28 @@ evidence:    Seen on a live render, not derived. Driven to the stroke peak in th
              convention has to be measured on the rig at bind — `PostureLayer` records three sign
              problems in the published Coulson data and solves this by measuring rather than
              transcribing, which is the pattern to copy here.
+applied:     The stroke now composes a sagittal and a frontal rotation at SAGITTAL_SHARE 0.75,
+             both converted into each bone's local delta frame through `Breath.toBoneDeltaFrame`,
+             with the arm sides measured at bind instead of transcribed.
+             🚩 TWO FURTHER DEFECTS SURFACED WHILE APPLYING IT, NEITHER VISIBLE TO THE GATE.
+             (1) `rotateBone` states a delta in the BONE'S LOCAL space and an arm bone points down
+             and outward, so handing it a rig-space axis rotates the arm in a plane the axis does
+             not name. Before the conversion the "all-frontal" defect still read 27.0 mm forward
+             against 25.4 mm lateral — the two configurations were barely distinguishable, which is
+             what a wrong frame looks like from inside a magnitude test.
+             (2) The rig convention "+θ about +X tips the top FORWARD" was derived for the TRUNK,
+             which extends UPWARD. An arm HANGS, so its distal end is at −Y and the same rotation
+             carries the hand BACKWARD. Measured: −71.9 mm of Z against toes sitting +116.8 mm of Z
+             from the ankle. The arm was swinging behind the figure.
+             🚩 AND THE DIRECTION GATE PASSED THROUGH BOTH, because it compared
+             `Math.abs( travel.z )` against `Math.abs( travel.x )` — a magnitude test on a property
+             whose entire content is a sign. A backward swing IS sagittal. The gate now measures
+             which way is forward off the toes and checks the signed component against it.
+             Measured after the fix, gesture isolated: node bind pose 54.3 mm forward / 12.1 mm
+             lateral / 74.5 mm up; live page 106.1 mm forward / 21.0 mm lateral / 28.4 mm up. The
+             `sagittalShare: 0` defect now reads 44.7 mm lateral against 20.7 mm forward.
 anchor:      packages/core/src/motion/Gesture.js /sign \* shoulderRadians/
-verify:      packages/core/src/motion/Gesture.js /sagittal/
+verify:      packages/core/src/motion/Gesture.js /HANGING_LIMB_SAGITTAL_SIGN/
 ```
 
 ## REQ-085 — A3 asks two page loads to agree bit for bit, and the instrument's noise floor is not zero
