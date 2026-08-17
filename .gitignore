@@ -13,7 +13,11 @@ dist-pages/
 *.reference.png
 __pycache__/
 tools/figure-pipeline/.cache/
-assets/figures/*.glb
+
+# The figure bakes USED to be ignored here as build output. They are committed through git-LFS now,
+# and the reason is the whole point of the runtime API: an embedder cannot run headless Blender, so
+# "regenerable" is true for this machine and useless to anyone else. A clone with no body cannot
+# call Avatar.create(). See .gitattributes.
 
 # Capture output — regenerable, large. Keep the tool, not the artifacts.
 /captures/

@@ -8,4 +8,5 @@
 #
 # The manifest is NOT build output. It is authored, it is the authority the build, the runtime and
 # the asset gate all read alphaMode and layer order from, and it is committed.
-*/*.glb
+# ⚠️ REVERSED, for the reason recorded in assets/hair/.gitignore: regenerable-in-a-second is a
+# statement about this machine's toolchain, not about a consumer's. Committed through git-LFS.

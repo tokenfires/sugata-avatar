@@ -1,0 +1,4 @@
+assets/hair/*/*.png filter=lfs diff=lfs merge=lfs -text
+assets/wardrobe/*/*.glb filter=lfs diff=lfs merge=lfs -text
+assets/figures/*.glb filter=lfs diff=lfs merge=lfs -text
+assets/hair/*/*.glb filter=lfs diff=lfs merge=lfs -text

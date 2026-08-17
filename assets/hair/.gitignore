@@ -8,5 +8,7 @@
 # The manifest is NOT build output. It is authored, it is what the build, the runtime and
 # verify_glb.mjs all read the groom's alphaMode, cutoff, bone and map names from, and it is
 # committed.
-*/*.glb
-*/*.png
+# ⚠️ THE POLICY ABOVE IS REVERSED AND THE REASONING IS KEPT BECAUSE IT IS STILL CORRECT ABOUT THE
+# BUILD. The groom really is regenerable in about ten seconds. What changed is who is reading this
+# repository: a public consumer has no Blender and no MPFB2, so a regenerable asset they cannot
+# regenerate is a missing asset. Committed through git-LFS instead. See .gitattributes.
