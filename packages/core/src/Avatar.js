@@ -126,6 +126,7 @@ import { BodyIdle } from './motion/BodyIdle.js';
 import { Breath } from './motion/Breath.js';
 import { FacialIdle } from './motion/FacialIdle.js';
 import { Gaze } from './motion/Gaze.js';
+import { GestureLayer, syntheticSpeechPlan } from './motion/Gesture.js';
 import { HandIdle } from './motion/HandIdle.js';
 import { IdleMotion } from './motion/IdleMotion.js';
 import { MotionStack, createMotionTarget } from './motion/MotionStack.js';
@@ -504,6 +505,7 @@ export class Avatar {
 
         // --- speech ---
         this.viseme = null;
+        this.gesture = null;
 
         // 🎯 THE SPEECH CLOCK IS SIMULATION TIME, NOT WALL CLOCK, AND NOT `AudioContext.currentTime`.
         // `VisemeSchedule` takes its clock as an argument precisely so the host can choose; this one
@@ -800,6 +802,21 @@ export class Avatar {
         this.stack.add( this.expression );
         this.stack.add( this.posture );
 
+        // 🎯 HOW A BEAT LEARNS THAT THE BODY IS ANGRY. `GestureLayer` scales itself down when the
+        // posture has drawn the arms IN, and it reads that off the shared bag rather than off a
+        // direct reference, because the alternative is a layer holding a pointer to another layer
+        // and going stale on every rebuild. `MotionStack`'s `shared` exists for exactly this and
+        // its docstring names affect as the case. Published here, beside the layer it belongs to,
+        // so a stack built without affect simply has no `posture` key and gesture reads "no claim".
+        this.stack.context.shared.posture = this.posture;
+
+        // And the state itself, which `GestureLayer` reads EVERY FRAME for dominance rather than
+        // snapshotting it. `AffectState.push()` sets a target that `pad` integrates toward, so a
+        // value read at `say()` time is the PREVIOUS utterance's emotion — measured live on
+        // 2026-08-17 as `feel({ dominance: +0.9 })` reading back −0.892. `Gesture.js`'s
+        // `effectiveSpatialExtent` carries the full finding.
+        this.stack.context.shared.affect = this.affectState;
+
         // Tier 1. Valence from the text, arousal from the acoustics — `ReflexAffect`'s two halves
         // never touch, and `say()` is its only caller here.
         this.reflex = new ReflexAffect();
@@ -825,6 +842,27 @@ export class Avatar {
 
         this.viseme = new VisemeLayer( { clock: () => this.clockSeconds } );
         this.stack.add( this.viseme );
+
+        // 🎯 AND THE ARMS, WHICH DO NOT WAIT FOR A TTS ENGINE THE WAY THE MOUTH HAS TO.
+        //
+        // This looks like an inconsistency with the paragraph above — the mouth refuses to move
+        // without real timing, the arms move on generated timing — so here is the measurement that
+        // separates them, because without it this is just a double standard.
+        //
+        // A viseme timeline runs at roughly ten events a second and lipsync error is judged against
+        // the phoneme it lands on, so a synthetic one is visibly wrong: research §3's AV-sync
+        // asymmetry is measured in tens of milliseconds. A gesture schedule runs at 9 to 26 events
+        // a MINUTE, and research §5 puts the perceptual tolerance on gesture-speech asynchrony at
+        // ±600 ms, with recall declining only past 400 ms of stroke delay. Uniform 150 wpm word
+        // spacing sits inside that tolerance for a beat and nowhere near it for a viseme. So the
+        // arms get a generated plan and the mouth does not, and the reason is a two-order-of-
+        // magnitude difference in the tolerance rather than a preference.
+        //
+        // ⚠️ The plan is still flagged `synthetic: true` and `report().speech.gesture.schedule
+        // .syntheticTiming` republishes it. Punch-list 4.3 replaces it with real word onsets and
+        // stress marks, and `say({ speechPlan })` already takes them.
+        this.gesture = new GestureLayer();
+        this.stack.add( this.gesture );
 
     }
 
@@ -960,6 +998,10 @@ export class Avatar {
      *   actually start at, not "now", or the mouth is early by the lead and late by the scheduling
      *   delay at the same time.
      * @param {Array<Object>} [options.prosody] - `voice/Prosody.js` readings, for the arousal axis.
+     * @param {Object} [options.speechPlan] - Word onsets and stress marks for the gesture
+     *   scheduler; see `motion/Gesture.js`. Absent, one is GENERATED from the text at 150 wpm and
+     *   flagged `synthetic`. Unlike the viseme timeline, a generated plan is inside the measured
+     *   perceptual tolerance for a beat — `attachSpeech()` carries the numbers.
      * @returns {Promise<Object>} resolves when the utterance finishes, with what it did.
      */
     async say( text, options = {} ) {
@@ -985,6 +1027,41 @@ export class Avatar {
         // A second utterance while one is in flight supersedes it. The previous promise is settled
         // rather than dropped, because a caller awaiting it would otherwise wait forever.
         this.settleUtterance( 'superseded' );
+
+        // 🎯 THE ARMS START HERE, ABOVE THE TIMELINE CHECK, AND THE PLACEMENT IS THE POINT.
+        //
+        // Everything below this line is conditional on a TTS timeline the host may not have. If
+        // gesture were scheduled down there with the mouth, `say()` without a timeline would return
+        // a figure that had silently done nothing but change expression — which is precisely the
+        // "emotes from the eyebrows up" failure the whole body half of this project exists to
+        // refuse. See `attachSpeech()` for why generated word timing is defensible for a beat and
+        // is not defensible for a viseme.
+        //
+        // The rate rides on arousal rather than on a constant; `rateForArousal` maps the measured
+        // 9-to-26/min band and research §5 reads the spread as register rather than personality.
+        //
+        // 🎯 AND THE AMPLITUDE RIDES ON DOMINANCE, WHICH IS A CONTRACT THIS FILE INHERITED RATHER
+        // THAN A CHOICE MADE HERE. `AffectState.faceInput()` carries the finding it is built on —
+        // Arellano et al. (AMDO 2014), n=109, "dominance not at all" from a static face — and
+        // states the consequence as structural: *"dominance must be carried by posture, gaze
+        // policy, interruption behaviour and GESTURE AMPLITUDE, never by the face."* `bodyInput()`
+        // then says in one line who is supposed to consume it: *"All three axes, for posture, gaze
+        // policy and gesture amplitude. Phase 6 consumes this."* This is Phase 6 consuming it.
+        //
+        // So dominance reaches the body twice, through two different mechanisms, and that is the
+        // design rather than a duplication: `PostureLayer` puts it in the TRUNK as a static lean
+        // (anger +17.99° forward, fear −3.53° back), and gesture puts it in the SIZE of every
+        // movement. A still frame carries the first; a moving figure carries both.
+        // ⚠️ THE TARGET, NOT `pad`, AND THE DIFFERENCE IS A MEASURED BUG RATHER THAN A NICETY.
+        // `push()` above set a target that `pad` integrates toward over subsequent frames, so `pad`
+        // at this instant still holds the PREVIOUS utterance's emotion. A schedule has to fix its
+        // refractory once, when it is built, so it reads the target — which is immediate and is
+        // what this speaker is becoming. Gesture AMPLITUDE has no such constraint and is read live
+        // by the layer every frame; `Gesture.js`'s `effectiveSpatialExtent` carries that half.
+        this.gesture?.speak(
+            options.speechPlan ?? syntheticSpeechPlan( text ),
+            { arousal: this.affectState?.target?.arousal ?? 0 }
+        );
 
         const timeline = options.timeline ?? null;
 
@@ -1262,7 +1339,13 @@ export class Avatar {
                 speaking: this.viseme?.speaking ?? false,
                 timelineSupplied: this.utterance === null ? null : this.utterance.timelineSupplied,
                 utteranceEndsAt: this.utterance?.endsAt ?? null,
-                clockSeconds: this.clockSeconds
+                clockSeconds: this.clockSeconds,
+
+                // 🚩 Reported beside `timelineSupplied` on purpose. The two answer the same question
+                // for two different body parts and they routinely disagree: the mouth needs a TTS
+                // timeline and stays shut without one, the arms run on generated word timing and
+                // say so. `schedule.syntheticTiming` is the flag that rides on the data.
+                gesture: this.gesture?.report() ?? null
             },
 
             identity: {
@@ -1389,6 +1472,7 @@ export class Avatar {
         this.affectState = null;
         this.reflex = null;
         this.viseme = null;
+        this.gesture = null;
 
         const leaked = this.leakedHandles();
 
@@ -1463,7 +1547,11 @@ export class Avatar {
         const utterance = this.utterance;
         this.utterance = null;
 
-        if ( outcome !== 'finished' ) this.viseme?.stop();
+        // The arms are stopped alongside the mouth, and for the same reason: an utterance that was
+        // superseded or disposed must not leave a schedule running against a clock nobody is
+        // advancing toward an end nobody is waiting for. A `say()` that follows immediately calls
+        // `gesture.speak()` right after this, which reloads the schedule from zero.
+        if ( outcome !== 'finished' ) { this.viseme?.stop(); this.gesture?.stop(); }
 
         utterance.resolve( {
             text: utterance.text,
