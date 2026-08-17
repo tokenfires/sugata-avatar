@@ -6,9 +6,21 @@
  * the transport was split out of `AppraisalAffect`: a gate that can only run when a 37 GB model
  * happens to be resident is a gate that gets skipped, and a skipped gate is not a gate.
  *
- * The LIVE section at the bottom is the exception. It probes the real host and, when the host is
- * not there, records SKIP — never PASS. A skip that reads as a pass is how a transport claim
- * survives its own transport being broken.
+ * The LIVE section at the bottom is the exception. It probes the real host and records SKIP — never
+ * PASS — when the host cannot serve. A skip that reads as a pass is how a transport claim survives
+ * its own transport being broken.
+ *
+ * ⚠️ AND "CANNOT SERVE" IS BROADER THAN "IS NOT THERE", WHICH THIS FILE LEARNED THE EXPENSIVE WAY.
+ * `/v1/models` answering 200 says the SERVER is up and says nothing about whether a 37.75 GB model
+ * can be loaded. Measured with the machine under memory pressure: models 200, completion **400,
+ * "Model loading was stopped due to insufficient system resources."** The clause read that as a
+ * failure of this client and went red, which put an UNDECLARED RED into an unrelated round's suite
+ * summary. `docs/RED-GATES.md` exists so a red is never unnoticed; spending it on a resource
+ * ceiling is spending it on nothing.
+ *
+ * The line is narrow on purpose, because a gate that cannot fail is decorative:
+ *   TRANSPORT / TIMEOUT / HTTP  ->  the host could not serve. Environmental. SKIP.
+ *   anything else               ->  the host DID serve and the payload was wrong. FAIL.
  *
  *
  * WHAT EACH SECTION CLAIMS, AND HOW IT CAN FAIL
@@ -44,8 +56,8 @@
  *                produces a promise that hangs forever and every other clause here would still pass.
  *
  *   LIVE         One real call if the host answers. Records the channel finding 1 predicts as a
- *                MEASUREMENT of this run rather than as a constant, and SKIPs when the host is
- *                absent.
+ *                MEASUREMENT of this run rather than as a constant. SKIPs when the host is absent
+ *                OR up-but-unable-to-serve; still FAILS when it serves a bad vector.
  *
  * A measurement outside its range prints FAIL and the process exits non-zero.
  */
@@ -69,6 +81,18 @@ function check( name, condition, detail = '' ) {
 /** The label set every clause below derives from, rather than from a list typed here. */
 const PRIMARIES = Object.keys( WASABI_ANCHORS );
 const KNOWN = new Set( [ ...PRIMARIES, NEUTRAL_PRIMARY ] );
+
+/**
+ * The refusals that mean THE MACHINE could not serve, rather than that this client is broken.
+ *
+ * Derived from `REFUSAL` rather than typed, so a new transport reason cannot silently become a
+ * spurious red. Everything NOT in this set — a parse failure, a degenerate vector, an unknown
+ * label — means the host answered and the payload was wrong, which is exactly what this client
+ * exists to catch and must still fail on.
+ */
+const ENVIRONMENTAL_REFUSALS = Object.freeze( new Set( [
+    REFUSAL.TRANSPORT, REFUSAL.TIMEOUT, REFUSAL.HTTP
+] ) );
 
 /** A well-formed vector, used as the base every known-bad is a single mutation of. */
 const GOOD = Object.freeze( {
@@ -529,9 +553,35 @@ const live = [];
                   + 'failure; it means LM Studio fixed the channel split and the fallback order '
                   + 'in readCompletionChannel is now the load-bearing half.' );
 
+        } else if ( ENVIRONMENTAL_REFUSALS.has( result.reason ) ) {
+
+            // 🚩 REACHABLE IS NOT USABLE, AND THIS CLAUSE USED TO CONFLATE THEM.
+            //
+            // `/v1/models` answering 200 says the SERVER is up. It says nothing about whether a
+            // 37.75 GB model can be loaded. Measured on the night this was written, with the
+            // machine under memory pressure from concurrent work:
+            //
+            //     GET  /v1/models           -> 200
+            //     POST /v1/chat/completions -> 400  "Failed to load model … Model loading was
+            //                                        stopped due to insufficient system resources."
+            //
+            // The old clause read that as a FAILURE OF THIS CLIENT and went red, which put an
+            // UNDECLARED RED into an unrelated round's suite summary — a gate reporting on the
+            // machine while wearing the name of the code. `docs/RED-GATES.md` exists to stop a red
+            // going unnoticed, and a red that is about a resource ceiling spends that mechanism on
+            // nothing.
+            //
+            // ⚠️ THE LINE IS DELIBERATE AND NARROW, because a gate that cannot fail is decorative:
+            //   TRANSPORT / TIMEOUT / HTTP -> the host could not serve. Environmental. SKIP.
+            //   anything else -> the host DID serve and the payload was wrong. That is this
+            //   client's job and it still FAILS.
+            live.push( `SKIP — the host is up but could not serve: ${ result.reason } `
+                + `(${ result.detail }). That is the machine, not this client. The offline sections `
+                + 'above are the gate.' );
+
         } else {
 
-            check( 'LIVE  the reachable host returned a usable vector', false,
+            check( '🎯 LIVE  a host that SERVED returned a usable vector', false,
                 `refused: ${ result.reason } — ${ result.detail }` );
 
         }
