@@ -16,14 +16,19 @@ Suite: 49 gates, 5 red, all declared in `docs/RED-GATES.md`, UNDECLARED RED 0.
 | 3 Rendering | skin, eyes, lighting, AA/grade, GTAO done. **Hair paused — see §2** |
 | 4 Speech | viseme timeline, prosody landed |
 | 5 Affect | PAD, WASABI, LM Studio, body actuation landed |
-| **6 Body motion** | **unstarted** (6.9 added from REQ-058) |
-| **7 Runtime API** | **unstarted — and this is R7, arguably the brief's core requirement** |
+| **6 Body motion** | **foundation landed 2026-08-17.** 6.1 was always done and the file said otherwise. `motion/IKSolver.js` 106/106 and `physics/SpringBones.js` 86/86 now ship; 6.3 gesture, 6.4, 6.7, 6.8, 6.9 open |
+| **7 Runtime API** | ✅ **DONE 2026-08-16.** `Avatar.create({canvas})` produces a living avatar. 7.1–7.5 all landed |
 | 8 Blind critic loops | running continuously; the mechanism that finds everything |
 | 9 Wardrobe | plumbing, foundation, agency, shadows, hem done; 9.9 capsule and 9.10 cultural dress open |
 | 10 Identity sculpting | catalogue and targets landed; the human–AI coherence loop unbuilt |
 
-**The two largest unstarted blocks are Phase 6 and Phase 7.** Phase 7 is the one that makes this a
-library any agent can embed, which is requirement R7 in `docs/BRIEF.md`.
+🚩 **THIS PARAGRAPH SAID "THE TWO LARGEST UNSTARTED BLOCKS ARE PHASE 6 AND PHASE 7" AND BOTH HALVES
+ARE NOW FALSE.** Phase 7 is done — `Avatar.create({canvas})` is one call and it was verified on
+pixels. Phase 6 was never fully unstarted: 6.1 had been built for months behind a stale `[ ]`, and
+its foundation landed 2026-08-17.
+
+✅ **AND THE REPOSITORY IS PUBLIC.** `https://github.com/tokenfires/sugata-avatar`, MIT, assets
+through git-LFS. See §5.
 
 ---
 
@@ -670,3 +675,73 @@ two domains on separate lines so they cannot be conflated again.
 2. Then the per-channel chromaticity (Chiang §4.2's anti-correlation), which is the judges' sentence.
 3. `hair_texture.py`'s `depth.png` is `random.random()` per strand — that sheet is the actual root
    and it is a **generator** fix, not a shader one.
+
+---
+
+## 11. R28 — the pedestal's input is FIXED and proven to read the light, and the picture did not move
+
+**Seventh clean negative. Nothing shipped in the picture** — the plate is byte-identical to HEAD's,
+same SHA-256 `15b919a2…`, because the new path is gated behind `?hairdefect=` arms. New gate
+`HairEnvelope.selftest.mjs` 29/29 with six red proofs. `HairMaterial` unmoved at its declared 76/80.
+
+### 🎯 §10's instruction was carried out, and it was the right instruction
+
+R27 closed with *"Until `Shadow` stops being noise, no shading change to this term is
+attributable."* It is no longer noise. An ellipsoid envelope fit gives a per-fragment, per-LIGHT
+chord, proven to read the light three independent ways:
+
+- **On pixels**: `?hairdefect=envelope-depth` against `envelope-fixed-direction` — identical shell,
+  σ, chords and slide-39 form, differing ONLY in whether the chord is taken toward the light — moved
+  **160,646 of 225,126 gated hair pixels (71.36%)** against a noise floor of **exactly zero**.
+- **Arithmetically**: key azimuth 42° → −20°, camera fixed, `n` goes **4.7507 → 4.0654** mean over
+  R27's own 7,913 ray-cast fragments. **The shipped input gives |Δn| = 0 by construction.**
+- **Against ground truth**: Spearman **0.6118** for the envelope path against **0.0598** for
+  `depth.png`. Honest halves: the rim reads 0.13, and the ellipsoid's RMS residual on a bob is
+  0.385 mm.
+
+Candidate (B), the `hair_texture.py` generator fix, was **refused by measurement**: a correct
+per-fragment per-light depth moves the pedestal's shape by 0.21%, so a per-card baked value cannot
+do more inside the same form. §10.3's "that sheet is the actual root" is therefore **superseded** —
+the sheet is a bad input to a form that cannot spend a good one.
+
+### 🔴 The ceiling, and it is arithmetic rather than a tuning problem
+
+Slide 39 spends `Shadow` ONLY on `(C/Luma(C))^(1−Shadow)`, and sweeping that exponent across its
+**entire domain** moves the term's luminance by **1.0927×** — measured on the shipped mirror, and
+independently the same 1.0927 R27 obtained from plates. R26 bought **1.19×** from a single
+lobe-width constant. **So no depth input, however correct, can buy more than 1.0927× inside this
+form.** `> 4× R's own mean` stays **0.0000% in every arm**.
+
+⏭️ **The next obviously-wrong constant is named and deliberately not replaced:** `ā_f = √C`
+(0.1016/0.0663/0.0606, R27's pick from `absorbTT` at h=0) raised to `1+n ≈ 8.5`. At the card-crossing
+rate the product annihilates the pedestal (p50 1.434e-5 against a shipped 3.719e-2). Zinke Eq. 4-5
+gives `d_f = 0.7` and **does not state ā_f's magnitude**, so no value is asserted here.
+
+### 🚩 The strategic position, because two independent lines now say the same thing
+
+R28's blind judge, on its own plates: *"There is no specular highlight in the sense of a readable
+band."* At plate scale the groom *"reads as a mass of overlapping flat slabs with hard straight
+silhouettes and rectangular notches"*, and boosting the crown 2.2× makes it unambiguous — *"the
+bright regions are card facets, and their edges are card outlines."*
+
+**That is §4's conclusion arriving from a second direction.** The frostbitten control already
+CONFIRMED and BOUNDED "the card is the wrong primitive": moving to strands demonstrably buys the hem
+and the silhouette and **buys nothing else**. Now a judge looking only at our own plates, with no
+control beside it, independently reports card facets as the thing it sees.
+
+🎯 **So the open question is no longer a shading question.** Rounds 26, 27 and 28 each improved a
+term correctly and the picture did not move, and R28 measured WHY the third one could not. The
+decision in front of this project is whether to change the primitive — §3 records that
+`Scthe/frostbitten-hair-webgpu` is MIT, runs headless, and that its `HairFinePass` alone costs
+~3.3 ms on an RTX 3060 against our whole ~3 ms hair budget. **That is a spike and a budget decision,
+not another constant.** It should be taken deliberately rather than by drifting into a ninth
+shading round.
+
+### A defect caught by provenance rather than by looking
+
+🔴 `alive.js:2513` assigns the hair material directly and **never calls `applyHairMaterial`**. R28's
+first version fitted the envelope only there, so every live plate came back `envelope.fitted false`
+with `n` identically zero. Caught on the FIRST smoke run by the capture tool's `describe()`
+provenance check — which reads the material off the live page instead of trusting the URL, and which
+exists because this project once judged plates from the wrong page for eleven rounds. **Filed, not
+fixed: R28 does not own `alive.js`.**
