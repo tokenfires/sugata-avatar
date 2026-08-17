@@ -589,6 +589,56 @@ const UNGATED = {
         'the resolve at once, so no entity allowlist describes it. What is asserted instead is the ' +
         'claim the tier exists to support — it RENDERS — in the WEBGL2 TIER section of this file.' },
 
+    // 🚩 REQ-060, AND IT IS IN THIS TABLE RATHER THAN IN TOGGLES BECAUSE THE GATE REFUSED THE
+    // TOGGLES ROW AND WAS RIGHT TO. The row was written first — `{ query: 'sclera=1.65', census:
+    // null, touches: [ 'mesh:Humanhigh-poly' ] }` — and this file returned
+    //
+    //     FAIL  ?sclera=1.65 changes exactly mesh:Humanhigh-poly
+    //           DECLARED BUT UNCHANGED mesh:Humanhigh-poly — either the toggle stopped working,
+    //           or this row is padded
+    //
+    // Both halves of that were then measured on the page rather than argued about, and the answer
+    // is the second one. THE TOGGLE WORKS: on `?bare&freeze&seed=1&sclera=1.65`,
+    // `sugata.session.eyes.scleraBrightnessUniform.value` reads **1.65** against **1.47** on the
+    // same plate without the key, `session.scleraBrightness` reads 1.65 against null, and `sclera`
+    // appears in `toggleSurface()` on both. THE INSTRUMENT IS BLIND: the globe's whole signature is
+    // byte-identical across the pair, 1,393 characters both times.
+    //
+    // 🎯 AND THE CAUSE IS A HOLE IN INSTRUMENT 2 THAT IS NOT ABOUT THIS KEY AT ALL. `nodeSignature`
+    // recurses into every own property whose value has `isNode === true`. A TSL `JoinNode` — what
+    // `vec4( albedo, 1 )` compiles to — holds its inputs in an ARRAY, and an array is not a node, so
+    // the walk stops there. Read off the shipped plate:
+    //
+    //     colorNode=VarNode(node:JoinNode)
+    //
+    // That is the ENTIRE recorded signature of the eye's colour graph. Everything under it — the
+    // sclera brightness, the sclera chroma blend, the limbal ring darkness, the iris caustic scale,
+    // the catchlight intensity, both texture samples — is unreachable, and `nodesWalked` still says
+    // `within budget` because nothing was truncated: the walk simply had nowhere to go. This file's
+    // own header says "the eye's `colorNode` is the deepest measured at 7"; at HEAD it terminates at
+    // depth 1, and `NODE_SIGNATURE_MAX_DEPTH` is not what is stopping it.
+    //
+    // ⚠️ THE FIX IS ONE CLAUSE IN `nodeSignature` — recurse into arrays whose entries are nodes —
+    // AND IT IS DELIBERATELY NOT TAKEN HERE. It deepens the signature of every material carrying a
+    // `JoinNode`, which is most of them, so it is an instrument change that has to be landed
+    // against a re-measured table rather than slipped in beside a url key. Filed rather than done.
+    // Until it lands, a TOGGLES row for this key would go green off an equality between two
+    // signatures that cannot see the thing being toggled — the `?gtaodefect` shape exactly, where
+    // a row certifies the label instead of the defect.
+    //
+    // What DOES gate it today, and it is the gate that matters for what the key is for:
+    // `tools/critic/measure.mjs`'s G2 on a `?sclera=` plate. G2 has four clauses over the sclera
+    // against the cheek, three of them chromatic, and it is the reason the constant is a
+    // two-dimensional solve rather than a dial.
+    sclera: { readHere: true, why:
+        'REQ-060. Overrides EyeMaterial\'s SCLERA_BRIGHTNESS per plate so the two-clause G2 solve ' +
+        'can be swept without a rebuild. NOT ungated by choice — a TOGGLES row was written, this ' +
+        'gate reported DECLARED BUT UNCHANGED, and the cause was measured: shadingFingerprint\'s ' +
+        'node walk cannot enter a JoinNode\'s array, so the eye\'s whole colour graph reads as ' +
+        '`colorNode=VarNode(node:JoinNode)` and no uniform under it is visible. See the block above ' +
+        'for the proof that the toggle itself works. Its real gate is measure.mjs G2 on a ?sclera= ' +
+        'plate; instrument 2 gets it back when nodeSignature learns to walk arrays.' },
+
     clockdefect: { readHere: false, why:
         'read only inside the `?capture` branch, and this file drives the free-running clock. ' +
         'alive-capture-determinism.selftest.mjs is what exercises it.' },

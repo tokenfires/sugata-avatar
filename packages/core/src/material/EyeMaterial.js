@@ -253,16 +253,59 @@ const IRIS_PLANE_FIT_FRACTION = 0.78;
 // above the 0.92 floor and chroma 1.2523 sits 0.598 of a half-band above the 1.2052 floor.
 // Anyone re-solving one clause alone will push the other out — measure both or move neither.
 //
-// ⚠️ **1.47 IS OUTSIDE research §6's "Sclera Brightness 0.9-1.3", and the band does not transfer.**
+// 🎯 **RE-SOLVED AGAIN, 1.47 → 1.45, BECAUSE THE RIG THIS CONSTANT IS A FUNCTION OF MOVED.**
+// REQ-060: `render/LightingRig.js`'s portrait kicker stopped being the rim's `#0f30ff` at E 7 and
+// became `#ffd7b0` at E 0.07. That is not a small change to this ratio's DENOMINATOR — the blue
+// kicker was actively DESATURATING the cheek G2 measures the sclera against, and taking it off
+// walks the cheek from HSV saturation **0.1805 to 0.2051**, i.e. onto the look spec's own
+// reference cheek at 0.2133 rather than 15% under it. Both of G2's chroma numbers move even
+// though nothing in this file did, and they move in the direction the spec wants.
+//
+// Swept with `alive.html?…&sclera=` — the URL override REQ-060 asked for, which resolves to this
+// constant when absent — at 900x1200, 1 step, `--plate` bit-identical at every point, against
+// `tools/critic/regions.lighting-portrait.json`. Margins are stated in units of 0.0032, the
+// largest amount `measure.mjs`'s own `G2_RECIPE_SENSITIVITIES` records the capture recipe ALONE
+// can move G2 — under 1x it stamps the verdict unentitled. ⚠️ That rule reads `ratioEncoded` and
+// nothing else, so the chroma column below applies the tool's yardstick to a clause the tool does
+// not yet apply it to. Stated rather than assumed, because it is the column that decides this:
+//
+//   | brightness | G2 luma ratio | G2 chroma ratio | nearer edge, luma / chroma |
+//   |------------|--------------:|----------------:|----------------------------|
+//   | 1.41       |        0.9323 |          1.2473 |  3.8x / 13.1x              |
+//   | 1.44       |        0.9375 |          1.2311 |  5.5x /  8.1x              |
+//   | **1.45**   |    **0.9392** |      **1.2255** | **6.0x / 6.3x — balanced** |
+//   | 1.47       |        0.9425 |          1.2185 |  7.0x /  4.1x              |
+//   | 1.55       |        0.9551 |          1.1823 | 11.0x / RED, chroma low    |
+//
+// 1.45 is the same equal-margin construction 1.47 was, re-run against the new denominator: the
+// two ABSOLUTE margins meet at 1.452 and 1.45 is that at this file's own precision. It is not a
+// dimming of the eye — the sclera's rendered luma is barely touched — it is the cheek that moved.
+// G1 reads 1.5635 on every row: an 11x6 px patch on a 900x1200 face cannot reach a key:shadow
+// ratio, so this constant is answerable for G2 and for nothing else.
+//
+// 🚩 **AND 1.47 WAS ONE HUNDREDTH FROM RED ON THE OLD RIG, WHICH NOTHING RECORDED.** On the blue
+// kicker at this framing G2's chroma ratio read **1.3615** against a **1.362440** ceiling — a
+// margin of 0.00094, which is **0.29 of one recipe sensitivity**. Nothing said so: the marginality
+// rule watches the luma ratio, where 1.47 sat a comfortable 5.9x clear, and the clause actually
+// deciding the plate had no such rule pointed at it. It is not an interpolation that the
+// next step down is red: same rig, `?sclera=1.46` reads **1.3674** and `?sclera=1.45` reads
+// **1.3737**, both over the ceiling. The equal-margin table above this line was measured on
+// `eye.html` and at 2160x2700, where the balance genuinely is centred; on the page that SHIPS, at
+// the size the gate is read at, 1.47 was parked on an edge. The re-solve below is therefore not
+// only a response to the rig — the new value clears its nearer edge by 6.0x instead of 0.29x.
+// Anyone re-deriving it must do so on `alive.html` at the framing
+// `regions.lighting-portrait.json` was authored for, not on `eye.html`.
+//
+// ⚠️ **1.45 IS OUTSIDE research §6's "Sclera Brightness 0.9-1.3", and the band does not transfer.**
 // That is HDRP's slider range on an HDRP-authored sclera map; the multiplicand here is MakeHuman's
 // `brown_eye.png`, whose sclera is sRGB (160,153,145) — encoded luma 0.6036, a mid-grey rather
 // than a sclera white — so the same rendered result needs a larger number in front of it (§1.7: a
 // published number carries a frame of reference; ask what it was measured ON). The constraint that
 // does transfer is physical, and it is close enough to be worth stating: the pink tint's red gain
-// is 1.6476, so the red albedo reaches unit reflectance at brightness **1.727**. At 1.47 the sclera
-// albedo is linear (0.851, 0.385, 0.355), under 1.0 in every channel with 15% of headroom. Past
+// is 1.6476, so the red albedo reaches unit reflectance at brightness **1.727**. At 1.45 the sclera
+// albedo is linear (0.839, 0.380, 0.350), under 1.0 in every channel with 16% of headroom. Past
 // 1.73 this stops being a reflectance and starts being an emission, and no gate would say so.
-const SCLERA_BRIGHTNESS = 1.47;
+const SCLERA_BRIGHTNESS = 1.45;
 
 /**
  * 🎯 The sclera's CHROMA, which is the half of the look spec no gate was measuring.

@@ -619,7 +619,11 @@ const EDGE_LIGHTS = {
             distanceInHeights: 0.865,
             widthInHeights: 0.0831,   // 0.24 × 0.865/2.5
             heightInHeights: 0.2942,  // 0.85 × 0.865/2.5
-            irradiance: 7,
+
+            // 🎯 SEVEN HUNDREDTHS, AND THE DECIMAL POINT IS THE MEASUREMENT — see the solve below.
+            // A warm panel is not a blue panel dimmed; it is a different light on skin entirely,
+            // and 0.07 is the largest one the seven gates leave room for.
+            irradiance: 0.07,
             // ⚠️ ~~Same hue as the rim, deliberately.~~ The reasoning that put
             // the kicker on the rim's hue is quoted below because it is still correct about the
             // thing it was answering, and it created a worse defect than the one it fixed:
@@ -631,7 +635,8 @@ const EDGE_LIGHTS = {
             //    power, which is what separates them in a real studio."
             //
             // Placement and power did NOT separate them. `−158°` and `+154°` are near-mirror
-            // azimuths, so two lights of the same hue at 16 and 7 put the SAME cool band down
+            // azimuths, so two lights of the same hue at 16 and 7 — the irradiances of the day —
+            // put the SAME cool band down
             // both sides of the figure — and what three independent judges then reported, with no
             // project context, was "a constant-width saturated violet outline tracing the whole
             // silhouette at uniform intensity regardless of surface angle", two of them calling it
@@ -639,49 +644,140 @@ const EDGE_LIGHTS = {
             // outline. The rim's job is to separate the subject from the backdrop on the SHADOW
             // side; a key-side kicker is a hair light, and in a real studio a hair light is warm.
             //
-            // Measured on `lighting.html?bare` at 900×1200 against a `?figure=0` mask, everything
-            // else at the values above, key-side outer-8 px band against interior key-side skin:
+            // ⚠️ ~~Measured on `lighting.html?bare` at 900×1200 against a `?figure=0` mask, key-side
+            // outer-8 px band against interior key-side skin: `#0f30ff` E 7 gives 1.60% cool
+            // subject px at −39.4°, `#ffd7b0` E 2.5 gives 0.83% at −18.6°.~~ **NEITHER PAIR
+            // REPRODUCES AND NO FILE EVER STATED THE OPERATOR** — band definition, interior
+            // reference depth, weighting and cool arc are all free, so "−39.4°" was a number
+            // without a method. `tools/critic/violet.mjs` now states all four and re-measures the
+            // same three arms; its table is the one at the bottom of this block. The cool-share
+            // half also disagrees with THIS FILE's own azimuth table at line ~533 (1.11%), which
+            // is the pair that predates the rim azimuth −158 → −168 and standoff 2.6 → 0.9.
             //
-            //   | portrait kicker        | cool subject px | key-side band hue vs skin |
-            //   |------------------------|----------------:|--------------------------:|
-            //   | `#0f30ff` E 7 (was)    |           1.60% |                    −39.4° |
-            //   | **`#ffd7b0` E 2.5**    |       **0.83%** |                **−18.6°** |
+            // ⚠️ ~~E 2.5, off the sweep 7 / 4 / 2.5 / 1.5, because `#ffd7b0` carries 9.6× the
+            // relative luminance of `#0f30ff` and 2.5 therefore delivers about a third of what 7
+            // did.~~ **THE LUMINANCE RATIO IS 7.73×, NOT 9.6×, AND IT IS THE WRONG CURRENCY BY AN
+            // ORDER OF MAGNITUDE ANYWAY.** E 2.5 takes THREE gates red — G1 1.2506, G2 luma 0.8836,
+            // G4 out of band — and the sweep that follows says why the arithmetic could not
+            // predict it. The shipped value is **E 0.07**, solved below.
             //
-            // E 7 → 2.5 is not a dimming: `irradiance` is authored as a scalar and the COLOUR
-            // multiplies it, and `#ffd7b0` carries 9.6× the relative luminance of `#0f30ff`, so
-            // 2.5 delivers about a third of what 7 did on the old hue. It was chosen off the
-            // sweep (7 / 4 / 2.5 / 1.5) for the smallest subject footprint that still reads.
+            // 📋 **THE PRIOR ROUND'S RECORD, KEPT BECAUSE ITS NEGATIVES STILL HOLD.** Measured at
+            // 3840×5120 rather than the 900×1200 everything below uses, so the ABSOLUTES do not
+            // transfer — only the attributions do. Reverting one field at a time from the E 2.5
+            // warm rig: rim azimuth −168 → −158 gives G1 1.2298 / G2 0.8856, rim standoff 0.9 →
+            // 2.6 gives 1.2325 / 0.8856, kicker azimuth 166 → 154 gives 1.2217 / 0.8839, and
+            // kicker colour+E → `#0f30ff` E 7 gives **1.5512 / 0.9526** against 1.2331 / 0.8855
+            // with nothing reverted. The rim's two fields are worth 0.003 of G1 between them and
+            // the kicker's colour is the whole of the rest — which the matched-luminance table
+            // below now explains rather than merely records. Also still true, and not re-run here:
+            // kicker elevation −6 → 24 → 34 → 44 moves G1 by 0.027 and G2 by 0.003, and trading
+            // the kicker against the fill (2.20 → 1.80 → 1.55 → 1.35) reaches G1 1.4519 while
+            // taking G2 the WRONG way to 0.8793. Elevation and the fill are both dead ends.
             //
-            // 🔴 **AND IT IS NOT SHIPPED, BECAUSE IT TAKES TWO OF THE SEVEN OBJECTIVE GATES RED AND
-            // THE FIX IS NOT IN THIS FILE.** Measured on `alive.html?bare&freeze&seed=1&capture` at
-            // 3840×5120, shipped default, three loads, one value per gate — attributed by reverting
-            // one field at a time from the warm-kicker rig, which is what makes it an attribution
-            // rather than a coincidence:
+            // 🚩 **PANEL LUMINANCE IS NOT WHAT A GATE MEASURES. LUMA DELIVERED TO SKIN IS, AND
+            // BLUE DELIVERS ALMOST NONE OF IT.** Every arm below carries the SAME panel luminance
+            // of 0.500 (Rec.709 linear luma of the colour × E), so the 7.73× is already divided
+            // out and any remaining difference is the hue alone. `alive.html?bare&freeze&seed=1&
+            // capture`, 900×1200, 1 step, `--plate` bit-identical, `regions.lighting-portrait.json`,
+            // `SCLERA_BRIGHTNESS` 1.47 throughout:
             //
-            //   | one field reverted           | G1     | G2     |
-            //   |------------------------------|-------:|-------:|
-            //   | nothing (warm kicker, E 2.5) | 1.2331 | 0.8855 |
-            //   | rim azimuth −168 → −158      | 1.2298 | 0.8856 |
-            //   | rim standoff 0.9 → 2.6       | 1.2325 | 0.8856 |
-            //   | kicker azimuth 166 → 154     | 1.2217 | 0.8839 |
-            //   | **kicker colour+E → #0f30ff, 7** | **1.5512** | **0.9526** |
+            //   | kicker colour | E for luminance 0.500 | G1     | faceShadow linear | G2 chroma |
+            //   |---------------|----------------------:|-------:|------------------:|----------:|
+            //   | none (E 0)    |                     — | 1.5748 |            0.3906 |    1.2771 |
+            //   | `#0f30ff`     |                 5.299 | 1.5689 |        **0.3923** |    1.3295 |
+            //   | `#ffffff`     |                 0.500 | 1.5015 |        **0.4143** |    1.1237 |
+            //   | `#ffe8d5`     |                 0.597 | 1.4901 |            0.4184 |    1.1120 |
+            //   | `#ffd7b0`     |                 0.685 | 1.4799 |            0.4222 |    1.1028 |
+            //   | `#ffb060`     |                 0.941 | 1.4477 |            0.4346 |    1.0952 |
+            //   | `#ff8c20`     |                 1.246 | 1.4058 |            0.4514 |    1.1148 |
+            //   | `#ff5a1e`     |                 1.744 | 1.3408 |            0.4793 |    1.1578 |
             //
-            // The rim's two changes are worth 0.003 of G1 between them; the kicker's hue is the
-            // whole of it. The mechanism is the one this file's own irradiance convention makes
-            // easy to miss: `irradiance` is a scalar and the COLOUR multiplies it, and `#ffd7b0`
-            // carries **7.73×** the relative luminance of `#0f30ff`. A blue kicker of this size and
-            // this proximity was always a broad key-side wash; it passed a LUMA gate only because
-            // its hue contributes almost no luma. Warm it and G1 notices immediately.
+            // At equal panel luminance the blue lifts the shadow cheek by 0.0017 and NEUTRAL WHITE
+            // lifts it by 0.0237 — **14×** — on top of the 7.73× the luminance ratio already
+            // explains. Skin reflects almost no blue, so `#0f30ff` at E 7 was a light the gates
+            // could not see: it paints the backdrop and the near-black silhouette and leaves the
+            // face alone. That is the whole reason it was affordable, and it is why the fix is not
+            // a smaller version of the same light. ⚠️ Note row 3: a light with NO warmth at all
+            // costs within 2% of `#ffd7b0` on every clause. The expensive property is **not blue**,
+            // not "warm" — so no choice of warm hue buys the cost back, and the saturated end of
+            // the axis is worse, not better (`#ff5a1e` costs 0.23 of G1 against white's 0.07).
             //
-            // Swept and none of it recovers both gates: kicker E 2.5 → 1.6 → 1.2 → 0.9 walks G1
-            // back to 1.4461 and leaves G2 at 0.9022, still under its 0.92 floor; elevation −6 →
-            // 24 → 34 → 44 moves G1 by 0.027 and G2 by 0.003; trading it against the fill
-            // (2.20 → 1.80 → 1.55 → 1.35) reaches G1 1.4519 and takes G2 the WRONG way, to 0.8793.
-            // G2 is `SCLERA_BRIGHTNESS`, which PROGRESS records as re-solved from 1.26 to 1.47
-            // against the shipped rig — a rig-dependent constant in `material/EyeMaterial.js`, and
-            // this file may not move it. Filed as a diff request; the numbers above are the sweep
-            // whoever takes it needs, so it does not have to be re-run.
-            colour: 0x0f30ff,
+            // 🎯 **THE FEASIBLE REGION, WHICH IS A SLIVER AGAINST ZERO.** `SCLERA_BRIGHTNESS` is
+            // free here — it moves the SCLERA side of G2's two ratios while E moves the CHEEK side
+            // — so each row is the best brightness at that E, and the margin column is the nearer
+            // band edge divided by 0.0032, the largest amount `measure.mjs` records that the
+            // capture recipe ALONE can move G2 (its `G2_RECIPE_SENSITIVITIES`, the anti-aliasing
+            // mode). Below 1× the tool stamps the verdict unentitled; this file wants 5×.
+            //
+            //   | kicker E | panel luma | best sclera |     G1 | G2 luma | G2 chroma | worst margin |
+            //   |----------|-----------:|-------------|-------:|--------:|----------:|-------------:|
+            //   | 0        |      0     | 1.52        | 1.5748 |  0.9561 |    1.2526 |        11.3× |
+            //   | 0.05     |      0.037 | 1.45        | 1.5667 |  0.9408 |    1.2406 |         6.5× |
+            //   | **0.07** |  **0.051** | **1.45**    | 1.5635 |  0.9392 |    1.2255 |     **6.0×** |
+            //   | 0.09     |      0.066 | 1.44        | 1.5605 |  0.9361 |    1.2175 |         3.8× |
+            //   | 0.137    |      0.100 | 1.41        | 1.5534 |  0.9269 |    1.2156 |         2.2× |
+            //   | 0.18     |      0.131 | 1.40        | 1.5474 |  0.9217 |    1.2054 |        0.05× |
+            //   | 0.219    |      0.160 | none        | 1.5417 |       — |         — |   infeasible |
+            //   | 2.5      |      1.824 | none        | 1.2506 |  0.8836 |    1.2555 | G1 G2 G4 red |
+            //
+            // The two G2 clauses close on each other, and both edges were measured rather than
+            // interpolated. At E 0.137 the window is 0.065 of brightness wide — 1.37 fails luma at
+            // 0.9197 and 1.435 fails chroma at 1.2026. At E 0.18 it is a slit: the row above PASSES
+            // on both clauses and clears its nearer edge by **0.05 of one recipe sensitivity**, so
+            // `measure.mjs` stamps that verdict unentitled and it is a coincidence rather than a
+            // solve. By E 0.219 it is shut, and that is bracketed on both sides: brightness 1.365
+            // fails luma at 0.9129 and 1.41 fails chroma at 1.1892, with nothing between them.
+            // ⚠️ G1 never binds first — it still reads 1.5417 at the E where G2 has already closed
+            // — which corrects the sweep quoted above: "kicker E 2.5 → 0.9 walks G1 back to 1.4461
+            // and leaves G2 at 0.9022" was reading a *single* brightness against a window that had
+            // moved underneath it.
+            //
+            // Two more levers were measured and neither opens it:
+            //   1. **The rim, which the previous sweep never tried.** Raising it does exactly what
+            //      the mechanism predicts on the clause it was aimed at — with the warm kicker at
+            //      E 0.685, rim 16 → 20 → 24 → 32 walks the cheek's saturation 0.2174 → 0.2071 →
+            //      0.1982 → 0.1837 and G2 chroma 1.1028 → 1.1435 → 1.1822 → **1.2440**, back over
+            //      its 1.2052 floor. It moves the LUMA clause the wrong way at the same time
+            //      (0.9056 → 0.8977) and spends G1 (1.4799 → 1.4582), and no brightness closes the
+            //      remaining 0.021 of chroma. Doubling the blue to pay for a warm light also
+            //      doubles the thing three judges named.
+            //   2. **`SCLERA_CHROMA` 1.0 → 1.20**, measured in the tree and reverted. It lifts the
+            //      rendered sclera saturation 0.2398 → 0.2569 and moves the feasible edge from
+            //      E 0.18 to about E 0.38 — and it takes the SHIPPED rig's own chroma ratio to
+            //      1.4620 against a 1.3624 ceiling, so the eye would only be legal while this
+            //      light is. Two constants that can no longer be reverted independently is a worse
+            //      trade than the 0.2° of band separation it buys.
+            //
+            // 🎯 **AND THE PRIZE IS ALMOST ENTIRELY IN CEASING TO BE BLUE, NOT IN BEING WARM.**
+            // `tools/critic/violet.mjs` on `lighting.html?bare` at 900×1200, `?figure=0` mask —
+            // 644,648 px on every arm, so the columns are read over identical pixels:
+            //
+            //   | portrait kicker      | cool subject px | side separation | key-side rotation |
+            //   |----------------------|----------------:|----------------:|------------------:|
+            //   | `#0f30ff` E 7        |         1.0806% |         1.6978° |         −28.2127° |
+            //   | E 0 — deleted        |         0.5006% |        13.7966° |         −15.8943° |
+            //   | **`#ffd7b0` E 0.07** |     **0.5004%** |    **13.8758°** |     **−15.8182°** |
+            //   | `#ffd7b0` E 0.20     |         0.4995% |        14.0118° |         −15.6846° |
+            //   | `#ffd7b0` E 2.5      |         0.4744% |        15.1957° |         −14.4848° |
+            //
+            // Side separation is the angle between the two sides' circular mean band hues, and 0°
+            // is the defect stated as a number: both back lights the same blue. **89.6% of the
+            // whole swing is the kicker no longer sharing the rim's hue**; the warm half is worth
+            // 1.4° of 13.5° at the E that breaks three gates and 0.2° at the E that does not.
+            //
+            // 🚩 So why keep a light this small instead of writing `irradiance: 0`, which scores
+            // better on every gate margin and 99.5% as well on the statistic above? Because the
+            // statistic cannot see the light's JOB — the jaw and shoulder line — and E 0.07 is not
+            // a token. Mean Δ linear luma over the whole frame against a kicker-at-zero plate, both
+            // plates at the shipped brightness: `#0f30ff` E 7 moves it **0.001403** over 16.12% of
+            // the frame, and **`#ffd7b0` E 0.07 moves it 0.000632 over 10.44%** — 45% of the light
+            // it replaces, peaking on the same key-side silhouette at (486, 556). For scale, E
+            // 0.219 moves it 0.002028 and E 0.685 moves it 0.006349, so this is a real point on a
+            // real curve and not a rounding of zero. ⚠️ That is an energy argument and not a
+            // beauty one: nothing in this block has looked at a crop, and no statistic here can
+            // see whether the jaw still READS. If a judge says it does not, `irradiance: 0` is one
+            // line, every margin in the table above improves, and the row for it is already there.
+            colour: 0xffd7b0,
             shadowFraction: 0
         }
     ],
@@ -783,8 +879,51 @@ const EDGE_LIGHTS = {
             distanceInHeights: 0.65,
             widthInHeights: 0.1393,   // 0.30 × 0.65/1.4
             heightInHeights: 0.4411,  // 0.95 × 0.65/1.4
-            irradiance: 10,           // warm at 3.5 was measured and withdrawn — see the portrait kicker
-            colour: 0x0f30ff,
+            // ⚠️ ~~10, and warm at 3.5 was measured and withdrawn — see the portrait kicker.~~
+            // 🎯 **THE PORTRAIT KICKER WENT WARM AND THIS ONE HAD TO FOLLOW, AND A GATE IS WHY.**
+            // `LightingRig.selftest.mjs` asserts that the two presets differ in EXACTLY the fields
+            // the tables above document — `fill.irradiance` and five geometry fields plus
+            // `irradiance` on each of the rim and the kicker, and nothing else. Warming only the
+            // portrait kicker adds `kicker.colour` to that set and the clause goes red, correctly:
+            // its whole purpose is that a preset may not quietly diverge from its own prose. The
+            // defect three judges named — rim and kicker on ONE hue, near-mirror azimuths, an
+            // outline that closes all the way round — is a property of the DESIGN, not of the
+            // portrait framing, so fixing it in one preset and not the other was never coherent.
+            //
+            // **0.10 is derived rather than swept**, because body framing has nothing to solve it
+            // against: `regions.lighting-body.json` omits G2 by design (the eye is ~8 px across),
+            // and G1 has 3.5 of headroom here where portrait had 0.13. So this value keeps the
+            // kicker's authored SHARE of its own preset's rim, which is the one relationship the
+            // two tables agree on: portrait 0.07 x 0.7300 ÷ (16 x 0.0944) = 0.0338 of the rim's
+            // delivered luminance, and 22 x 0.0944 x 0.0338 ÷ 0.7300 = **0.096**, i.e. 0.10 at
+            // this table's precision. It also preserves the authored 10:7 body:portrait ratio.
+            //
+            // Measured on `alive.html?frame=body&bare&freeze&seed=1&capture` at 900x1200, 1 step,
+            // `--plate`, against `regions.lighting-body.json`, with `violet.mjs` shooting
+            // `lighting.html` under the same `?frame=body`:
+            //
+            //   | body kicker          |     G1 | cool subject px | side separation |
+            //   |----------------------|-------:|----------------:|----------------:|
+            //   | `#0f30ff` E 10       | 1.7146 |        11.5626% |        36.9999° |
+            //   | E 0 — deleted        | 1.7199 |        10.3816% |        30.7332° |
+            //   | **`#ffd7b0` E 0.10** | 1.7113 |    **10.3638%** |        29.8920° |
+            //   | `#ffd7b0` E 0.40     | 1.6877 |        10.3121% |        27.5737° |
+            //   | `#ffd7b0` E 1.50     | 1.6150 |         9.7711% |        19.8622° |
+            //
+            // ⚠️ **READ THE THIRD COLUMN, NOT THE FOURTH, AT THIS FRAMING.** Body's cool share is
+            // 11.56% against portrait's 1.08%, and 10.38 pp of it survives deleting the kicker
+            // entirely — so at body framing the cool cast is the RIM at E 22, and the kicker is a
+            // second-order term. Side separation is 37° here BEFORE any change, so "0° is both
+            // back lights on one hue" simply is not the state body is in, and the column falling
+            // is not the portrait regression it would be. What this change is worth at body is
+            // 1.20 pp of cool share and no gate status moved in either direction.
+            //
+            // 🚩 G4 and G6 read RED on EVERY row above INCLUDING the `#0f30ff` E 10 control, so
+            // they are pre-existing and not attributable here. G4's own warning says why it cannot
+            // be read at 900 px against a band measured at 3840 px; G6 at body framing is a real
+            // open finding and belongs to whoever measures this preset properly.
+            irradiance: 0.10,
+            colour: 0xffd7b0,
             shadowFraction: 0
         }
     ]

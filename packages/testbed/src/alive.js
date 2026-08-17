@@ -161,6 +161,48 @@
  *                   occlusion, which darkens and SATURATES creases (lip seam, nostril, alar
  *                   crease, ear-to-skull gap, eye sockets) rather than greying them. `?cavity=0.5`
  *                   sweeps the strength.
+ *   ?sclera=1.65    REQ-060. `material/EyeMaterial.js`'s `SCLERA_BRIGHTNESS`, 1.47 on the shipped
+ *                   plate, overridden per plate so the G2 solve can be SWEPT from a capture driver
+ *                   instead of rebuilt per sample point. Absent, the material takes its own
+ *                   constant and the plate is unchanged.
+ *                   ⚠️ IT IS A TWO-DIMENSIONAL SOLVE AND NOT A DIAL. Brightening the sclera raises
+ *                   its luma AND desaturates it through ACES, so G2's luma clause wants ~1.65 and
+ *                   its chroma clause wants ~1.41; 1.47 is where the two normalised margins meet.
+ *                   A sweep that reports only `ratioEncoded` has solved nothing — G2 has four
+ *                   clauses and `measure.mjs` prints all of them.
+ *                   🔴 AND THE SWEEP IS RECORDED HERE SO IT NEED NOT BE RE-RUN, BECAUSE ITS ANSWER
+ *                   IS NO. Measured with this key on `?bare&freeze&seed=1&capture` at 900x1200,
+ *                   1 step, `--plate` (3 of 3 loads bit-identical at every point), against
+ *                   `regions.lighting-portrait.json`. The warm arm adds
+ *                   `&ov=kicker.colour:16766896,kicker.irradiance:2.5`, which is REQ-060's
+ *                   `#ffd7b0` at E 2.5:
+ *
+ *                     | sclera | shipped rig  G1 / G2 luma / G2 chroma | warm kicker  G1 / luma / chroma |
+ *                     |--------|--------------------------------------|---------------------------------|
+ *                     | 1.41   | 1.5676 / 0.9289 / 1.3937  chroma HIGH | —                               |
+ *                     | 1.47   | 1.5676 / 0.9390 / 1.3615  PASS        | 1.2506 / 0.8836 / 1.2555        |
+ *                     | 1.55   | 1.5676 / 0.9516 / 1.3211  PASS        | —                               |
+ *                     | 1.65   | 1.5676 / 0.9666 / 1.2756  PASS        | 1.2506 / 0.9022 / 1.1706        |
+ *                     | 1.75   | 1.5676 / 0.9796 / 1.2309  PASS        | 1.2506 / 0.9113 / 1.1290        |
+ *                     | 1.85   | 1.5676 / 0.9918 / 1.1889  chroma LOW  | 1.2506 / 0.9198 / 1.0853        |
+ *
+ *                   Two things fall out and both close a door REQ-060 believed was open.
+ *                   1. **G1 DOES NOT MOVE AT ALL** — 1.5676 at every sclera value on the shipped
+ *                      rig and 1.2506 at every value on the warm one. The eye is 11x6 px on a
+ *                      900x1200 face; it cannot reach a key:shadow ratio. So "blocked on this one
+ *                      number and on nothing else" is false: the warm kicker is ALSO blocked on
+ *                      G1's 1.43 floor, and no sclera constant can touch it.
+ *                   2. **THE TWO G2 CLAUSES DO NOT OVERLAP UNDER A WARM KICKER.** Chroma leaves
+ *                      its 1.2052 floor at about sclera 1.58; luma does not reach its 0.92 floor
+ *                      until about 1.85. There is no value between them. On the SHIPPED rig the
+ *                      window is real and wide — roughly 1.45 to 1.79 — which is why 1.47 looks
+ *                      like a dial with room in it and is not.
+ *                   ⚠️ Measured at 900x1200 / 1 step, where REQ-060's G1/G2 pair was measured at
+ *                   3840x5120. The shipped-rig control here reads G2 luma 0.9390 against the
+ *                   0.9547 `EyeMaterial.js` records, so the ABSOLUTES are framing-dependent and
+ *                   should not be quoted across. The two conclusions above are about SIGNS and
+ *                   about a gap of 0.27 of sclera brightness, and neither is close enough to a
+ *                   boundary for the framing to decide it.
  *   ?gtao=0         PUNCH-LIST 3.10. ON by default. Ground-truth ambient occlusion, the bent
  *                   normal fed to the ambient diffuse, and specular occlusion on the ambient
  *                   specular — `render/GTAO.js`. `?gtao=0` is the A side and is the pre-3.10
@@ -861,6 +903,18 @@ async function boot() {
         // captures, and every attribution for it came off skin.html. `?cavity=0` is the A side and
         // `?cavity=0.5` sweeps the strength.
         skinCavityStrength: query.has( 'cavity' ) ? Number( query.get( 'cavity' ) ) : undefined,
+        // REQ-060. `EyeMaterial`'s `SCLERA_BRIGHTNESS` as a URL override, in exactly the `?cavity=`
+        // shape: absent means undefined, and `EyeMaterial` then takes its own constant, so a plate
+        // that does not ask for it is unchanged.
+        //
+        // It exists because that constant is a TWO-CLAUSE solve rather than a dial — brightening
+        // the sclera raises its luma AND desaturates it through ACES, so G2's luma clause wants
+        // ~1.65 and its chroma clause wants ~1.41 and 1.47 is where the two margins meet — and a
+        // two-dimensional solve costs one plate per sample point. Editing the constant costs a
+        // rebuild per point; this costs a url. `EyeMaterial`'s own re-solve note records that the
+        // equivalence was PROVEN rather than assumed: the sweep's 1.26 plate came back
+        // byte-identical to the file-edited one.
+        scleraBrightness: query.has( 'sclera' ) ? Number( query.get( 'sclera' ) ) : undefined,
         // TWO switches, not one. The eye shader and the eye occlusion sheet are separate
         // subsystems — different meshes, different materials, opposite signs on G2 — and a
         // single switch over both made every number ever attributed to `?eyes=0` a sum of the
@@ -3192,7 +3246,13 @@ function applyEyeShading( session ) {
 
     try {
 
-        eyes = new EyeMaterial( { figure: session.figure } );
+        // `scleraBrightness` is undefined on every plate that did not ask for `?sclera=`, and
+        // `EyeMaterial` resolves undefined to its own `SCLERA_BRIGHTNESS` — so the default plate
+        // is byte-unchanged by the existence of the override. REQ-060.
+        eyes = new EyeMaterial( {
+            figure: session.figure,
+            scleraBrightness: session.scleraBrightness
+        } );
 
     } catch ( error ) {
 
