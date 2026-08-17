@@ -1545,7 +1545,25 @@ use the table and is now recorded beside them.
 
 ```request
 id:          REQ-060
-status:      OPEN
+status:      APPLIED
+applied-at:  3c2ba79
+applied-note: THE CHANGE THIS ENTRY ASKS FOR LANDED IN FULL AND DID NOT ACHIEVE ITS PURPOSE, which
+             is why it flips to APPLIED rather than being carried again. The kicker is
+             `0xffd7b0` and `SCLERA_BRIGHTNESS` moved 1.47 -> 1.45, so `verify` matches.
+             🔴 But this entry's own `evidence` states the defect as a PROPERTY — "one hue, constant
+             width, tracing the whole silhouette" — and a blind judge measured that property getting
+             WORSE: the two sides' remaining cool populations went from 15.39 deg apart to 3.52 deg
+             apart, chroma cover stayed at 100.0000%, and boundary cool coverage went from a
+             lopsided 60/36 to a symmetric 30/32. What improved is intensity and area, which this
+             entry explicitly wrote off in its own words. Carrying it a third time would be asking
+             again for a change that is already in the file.
+             🔴 AND ITS SANCTIONED LEVER IS REFUTED. "blocked on this one number and on nothing
+             else" is false: G1 does not move at ANY sclera value (1.5676 shipped / 1.2506 warm on
+             every swept point), so the warm kicker is also blocked on G1's 1.43 floor, which no
+             sclera constant can reach; and G2's two clauses do not overlap under a warm kicker,
+             chroma leaving its floor at ~1.58 while luma does not reach 0.92 until ~1.85. It takes
+             G4 red too, which this entry never recorded.
+             The surviving property problem is REQ-078.
 target:      packages/core/src/material/EyeMaterial.js
 filed-by:    the R11 lighting agent (diffRequest 3 of 5)
 filed-round: R12
@@ -2579,4 +2597,142 @@ evidence:    Measured this session by reading the G-buffer's `velocity` attachme
              one, and that file ships both for exactly this reason.
 anchor:      packages/core/src/motion/HairDynamics.js /const cardVertexBuffer = instancedArray\(/
 verify:      packages/core/src/motion/HairDynamics.js /positionPreviousNode/
+```
+
+## REQ-078 — the violet outline is now MORE uniform, and with the kicker off the rim is doing all of it
+
+```request
+id:          REQ-078
+status:      OPEN
+target:      packages/core/src/render/LightingRig.js
+filed-by:    the R28 integrator, from REQ-060's blind judge
+filed-round: R12
+filed-at:    3c2ba79
+first-filed: 3c2ba79, 2026-08-17
+change:      Break the property three blind judges named — "one hue, constant width, tracing the
+             whole silhouette" — which REQ-060's dimming did not. With the portrait kicker at
+             E 0.07 the RIM is the only back light of consequence, `0x0f30ff` at E 16, and a rim
+             light by construction traces the silhouette. So the lever is no longer the kicker and
+             is probably not an intensity at all: it is whether ONE hue is allowed to own the whole
+             outline. Do not start by sweeping the rim's energy; REQ-060 records that energy sweeps
+             on the other light produced a level change and no property change.
+evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 3/3 bit-identical,
+             with an operator validated on synthetic discs BEFORE it was pointed at a render (a
+             key-half-warmed disc gives 0% key coverage and zero cool band pixels, which is what a
+             real fix reads like). Share of the silhouette boundary carrying a cool pixel within
+             8 px: HEAD key 60.05% / shadow 35.98%, candidate key 30.23% / shadow 31.77%. Hue of
+             the cool pixels that remain: HEAD 253.74 deg key against 269.13 deg shadow, 15.39 deg
+             apart; candidate 265.07 deg against 268.59 deg, 3.52 deg apart. `chroma cover`
+             100.0000% on both. Depth falloff 0.9018x -> 0.8926x, i.e. band saturation RISES inward
+             in both plates rather than peaking at the edge, so "constant width" is untouched.
+             ⚠️ AND THE OBVIOUS STATISTIC IS BLIND HERE, twice over. Circular variance of band hue
+             INVERTS on a real plate because an 8 px band on a figure is ~4/5 skin; and
+             `violet.mjs`'s `band.sideSeparation` moved +12 deg while the cool line's own
+             side-to-side difference SHRANK by 12 deg, for the same reason. Any operator used on
+             this must restrict to the cool population and be validated on a shape whose answer is
+             arithmetic first.
+anchor:      packages/core/src/render/LightingRig.js /colour: 0x0f30ff/
+verify:      tools/critic/violet.mjs /sideSeparationCool/
+```
+
+## REQ-079 — the knee bend has no sourced amplitude, and it is fear's largest channel
+
+```request
+id:          REQ-079
+status:      OPEN
+target:      docs/research/body-motion-numbers.md
+filed-by:    the 6.2(a) agent
+filed-round: R12
+filed-at:    483de78
+first-filed: 483de78, 2026-08-17
+change:      Source an emotion -> KNEE JOINT ANGLE figure for standing posture, or record in writing
+             that none exists. `PostureLayer.KNEE_FULL_SCALE_DEGREES` ships at exactly 0 and the
+             mechanism is wired, gated and proven to deliver 0.000000 mm, so this is the only thing
+             between fear and its largest body channel.
+evidence:    `ExpressionMap.js:316` is `fearful: bap( { approach: -1.46, kneeActivation: 1.77 } )`
+             over `BAP_LOADING_SCALE = 2.07`, so fear asks for 0.855072 of knee against 0.705314 of
+             approach. The shipped rule for a full scale is "the smallest non-zero magnitude in the
+             Coulson Table 1 column that codes the channel", and `COULSON_COLUMNS` — now DERIVED
+             from the transcribed table rather than described in a comment — has six columns and no
+             knee. `grep -i knee docs/research/body-motion-numbers.md` returns zero. Wallbott 1998
+             carries three 1-3 quality scales and no angles. Coulson 2004 IS the static-posture
+             paper and its figure has no knee degree of freedom.
+             🚩 REJECTED IN WRITING, so nobody re-walks it: deriving the amplitude from IKSolver's
+             own 1.57-17.20 deg visibility band would be measuring THIS PROJECT'S rendering error,
+             not how far a frightened person bends.
+anchor:      docs/research/body-motion-numbers.md /Coulson/
+verify:      docs/research/body-motion-numbers.md /knee/
+```
+
+## REQ-080 — the knee's foot plant cannot compose, because POSTURE runs before SWAY
+
+```request
+id:          REQ-080
+status:      OPEN
+target:      packages/core/src/motion/Sway.js
+filed-by:    the 6.2(a) agent
+filed-round: R12
+filed-at:    483de78
+first-filed: 483de78, 2026-08-17
+change:      When a knee angle is sourced (REQ-079), the planted-knee correction must run AFTER
+             Sway, or Sway must take the commanded flexion itself. Sway already owns the pelvis, the
+             legs, the feet and the footprint clamp, so the second is probably the better shape and
+             is why this is filed against Sway rather than against a new layer.
+evidence:    `MOTION_ORDER.POSTURE` is 100 and `SWAY` is 300, so Sway's leg deltas post-multiply
+             onto the knee correction and move the ankle the correction was computed to keep still.
+             Measured on the real rig at a STATED 20 deg of flexion: ankle drift 0.1392 mm at
+             POSTURE, 0.0646 mm at GESTURE (2.2x better), and 0.000104 mm with Sway absent
+             altogether. That is composition, not arithmetic error.
+             ⚠️ AT THE SHIPPED SCALE OF ZERO ALL OF IT IS 0.000000 mm, so this is a PRECONDITION on
+             REQ-079 rather than a defect in the tree today. It is gated in `affect.selftest.mjs` as
+             a MEASURED LIMIT so it cannot be forgotten between the angle being sourced and the
+             ankle sliding.
+anchor:      packages/core/src/motion/Sway.js /MOTION_ORDER/
+verify:      packages/core/src/affect/PostureLayer.js /MEASURED LIMIT/
+```
+
+## REQ-081 — alive.js assigns the hair material directly and never calls applyHairMaterial
+
+```request
+id:          REQ-081
+status:      OPEN
+target:      packages/testbed/src/alive.js
+filed-by:    the R28 hair agent
+filed-round: R12
+filed-at:    f40b63e
+first-filed: f40b63e, 2026-08-17
+change:      Route the hair material assignment at `alive.js:2513` through `applyHairMaterial` so
+             per-material setup runs on the live page, instead of assigning the material directly
+             and skipping it.
+evidence:    R28's envelope fit was installed in `applyHairMaterial`, and every live plate came back
+             `envelope.fitted false` with the path length `n` identically zero — the shader ran with
+             the new code compiled in and no fit behind it. 🎯 CAUGHT ON THE FIRST SMOKE RUN by the
+             capture tool's `describe()` provenance block, which reads the material off the live
+             page rather than trusting the URL. That check exists because this project judged plates
+             from the wrong page for eleven rounds; this is the second time it has paid.
+anchor:      packages/testbed/src/alive.js /mesh.material = material;/
+verify:      packages/testbed/src/alive.js /applyHairMaterial/
+```
+
+## REQ-082 — 36 of 53 bones carry non-unit scale and verify_glb does not check it
+
+```request
+id:          REQ-082
+status:      OPEN
+target:      tools/figure-pipeline/verify_glb.mjs
+filed-by:    the 6.5 IK agent
+filed-round: R12
+filed-at:    1f1881f
+first-filed: 1f1881f, 2026-08-17
+change:      Assert unit bone scale, and anisotropy between axes, in `verify_glb.mjs`. Every IK
+             solver models a RIGID chain; a bone whose scale is not 1 makes the chain's length a
+             function of its pose, which no analytic solve represents.
+evidence:    Measured on `figure_g050.glb`: 36 of 53 bones carry non-unit scale, worst deviation
+             3.9339e-6 with 3.6955e-6 of ANISOTROPY on both thighs. That bounds any rigid-chain
+             solve at 3.16 microns over the 802.038 mm leg; the realised error is 0.32 microns, so
+             this is a bound worth knowing rather than a defect today. `IKSolver.selftest.mjs`
+             derives its own ankle tolerance FROM this number rather than picking one, which is why
+             it needs to stay measured rather than assumed.
+anchor:      tools/figure-pipeline/verify_glb.mjs /export/
+verify:      tools/figure-pipeline/verify_glb.mjs /boneScaleIsUnit/
 ```
