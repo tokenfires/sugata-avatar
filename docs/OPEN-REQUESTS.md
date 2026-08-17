@@ -2703,16 +2703,39 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              sits ~9x under the key. Something has to give, and which one is a look decision:
                (a) keep the chroma, cut the blue channel (`#4a3cc0` family), accept a dimmer rim;
                (b) hit the luma target by desaturating (`#8899ff` family), against "higher chroma";
-               (c) attack COVERAGE instead of hue — the judges said "tracing the whole SILHOUETTE",
-                   and the rim sits at azimuth −168°, 12° off directly-behind, as a large area light
-                   at 0.65 heights. A backlight that centred and that close wraps both sides by
-                   construction. Moving it off-axis or shrinking it confines the rim to one side and
-                   gives the warm/cool split the spec wants. 🚩 Note the header records that −134°
-                   was TRIED and withdrawn for producing three regressions at once, so this is a
-                   narrower move than that one, not a repeat of it.
+               (c) ~~attack COVERAGE instead of hue by moving the rim off-axis~~ **WITHDRAWN by
+                   its own author on the file's measured table — see below. Off-axis DOUBLES the
+                   cool coverage. Do not act on this.**
              R29 did not apply any of them: the file's own header states a rig change "shifts every
              plate in the repository", and (a) versus (b) versus (c) is a taste call on a public
              repo, not a measurement.
+             🚩 **R29 WITHDRAWS ITS OWN OPTION (c), ON THE FILE'S OWN MEASUREMENT.** "Move the rim
+             off-axis to confine it to one side" is exactly backwards, and `LightingRig.js`'s header
+             already carried the table that says so — body rim azimuth against subject pixels in a
+             cool hue at S > 0.10:
+
+               | body rim azimuth       | cool subject px | interior luma SD, torso |
+               |------------------------|----------------:|------------------------:|
+               | −134° (off-axis)       |      **32.65%** |                  0.0486 |
+               | the row labelled ship  |      **15.03%** |                  0.0676 |
+               | rim and kicker at zero |           0.71% |                  0.0734 |
+
+             Swinging the rim AWAY from directly-behind DOUBLES the cool coverage, because
+             `1 + cos φ` — the fraction of a limb's radius the band covers — rises as φ leaves 180°,
+             and on a torso of ~0.15 m radius thirty per cent of the radius is not a band, it is a
+             side key. That widening is recorded as having produced "a violet cast over a third of
+             the figure, a flattened interior and a floor lit 2.5x" all at once, and it was
+             withdrawn. The geometry lever is already at its good end. **So (a) and (b) are the only
+             live options, which is what the linear-blue arithmetic above independently concluded.**
+
+             🚩 **AND THE 15.03% DOES NOT DESCRIBE THE SHIPPED RIG.** That table's row is labelled
+             **−158° (shipped)** at `LightingRig.js:148`, and both presets ship **−168°**
+             (`:606` portrait, `:866` body). The one number in this repository that quantifies how
+             much of the figure the violet covers was measured 10° away from what ships, and nothing
+             re-runs it — the same shape as the +19.166 mm window row R29 corrected today, and the
+             reason `tools/critic/violet.mjs` is not in the `*.selftest.mjs` glob matters. Whoever
+             takes this item should re-measure coverage at −168° BEFORE choosing between (a) and (b),
+             because the size of the problem is currently unknown.
              ⚠️ Also note the spec's own statement of what "cool" looks like in this look is
              **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
              shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
