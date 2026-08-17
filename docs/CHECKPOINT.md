@@ -745,3 +745,62 @@ with `n` identically zero. Caught on the FIRST smoke run by the capture tool's `
 provenance check — which reads the material off the live page instead of trusting the URL, and which
 exists because this project once judged plates from the wrong page for eleven rounds. **Filed, not
 fixed: R28 does not own `alive.js`.**
+
+## 12. R29 — gesture lands, and two intermittents get measured instead of argued about
+
+### 6.3 ships, and the interesting part is what its own gate could not see
+
+`motion/Gesture.js` at 86/86, wired into `Avatar.js`, verified on a live figure. The mechanism is
+McNeill's one-sided synchrony rule made structural: strokes are placed BACKWARDS from their peak, so
+a candidate that will not fit is dropped rather than slid later. Full detail in the commit body and
+in punch-list 6.3.
+
+🎯 **Dominance now reaches the body twice.** `AffectState` had carried the finding and named the
+consumer since Phase 5 — Arellano (AMDO 2014, n=109), "dominance not at all" from a static face,
+therefore *"posture, gaze policy, interruption behaviour and gesture amplitude, never the face"* —
+and nothing had consumed the gesture half. Measured live, pleasure and arousal held fixed:
+
+| settled dominance | peak shoulder |
+|---:|---:|
+| **+0.958** | **15.55°** |
+| **−0.850** | **6.03°** |
+
+2.58x, and the two dominance channels can disagree: high dominance under an adducted posture
+gestures large-but-suppressed, which is a state neither the trunk nor the amplitude expresses alone.
+
+🚩 **The gate was green at 82/82 while every sentence gestured at the previous sentence's
+amplitude.** `AffectState.push()` sets a target that `pad` integrates toward, so reading `pad` at
+`say()` time returns the emotion before last — `feel({ dominance: +0.9 })` read back **−0.892** in
+the browser, and the submissive run came out LARGER than the dominant one. The gate could not see it
+because it set the extent directly and never went through an `AffectState` at all. This is the third
+time this project has shipped a defect that its own green gate was structurally unable to observe,
+and the pattern is identical each time: **the gate exercised the mechanism through a shortcut the
+product does not use.** The repair was to drive the gate through the shared bag, which is the
+shipped path.
+
+### `physics/SpringBones.js` is finished, correct, and unreachable
+
+Measured 2026-08-17: **86/86 gates, zero call sites.** The shipped rig carries 53 skinned joints and
+the hair GLB carries the identical 53 — a plain UE4-style skeleton with **no** breast, belly, glute,
+skirt, coat or accessory bone, and the wardrobe capsule has no skirt or coat either. There is
+nothing on this bake for it to drive, and wiring it to the groom would duplicate `HairDynamics`,
+which owns that phenomenon on a different primitive.
+
+So **6.8 is a bake-pipeline item, not a runtime one**: tissue bones plus skin weights in
+`tools/identity-pipeline/`, then a re-bake of five gender variants and the hair variants that share
+the skeleton, against a 232 MB LFS payload and a 1 GB/month ceiling. Schedule it as a phase.
+
+🎯 A green gate proves the algorithm and says nothing about reachability. 6.3 therefore ships with a
+WIRING section that asserts `Avatar.js` constructs, adds, drives, publishes, stops and reports its
+layer — cheap insurance against exactly this.
+
+### The `alive-toggles` intermittent did not reproduce, and that is the finding
+
+**Six consecutive clean runs on a quiet machine, 197/197 every time** — one inside the full suite,
+then five standalone repeats. Combined with the earlier observation that it wandered across the
+`PIXEL_BASE` family rather than sitting on one row (`?cavity=0`, then `?specaa=0`, then
+`?shadows=0`), the weight of evidence points at **machine load**, not at a defect in any toggle.
+
+⚠️ It is deliberately NOT declared in `docs/RED-GATES.md`. It is green, and declaring a green gate
+red is a false declaration in the direction that file exists to refuse. What is recorded instead is
+the measurement: 0 of 6 on a quiet machine, and the load hypothesis it supports.

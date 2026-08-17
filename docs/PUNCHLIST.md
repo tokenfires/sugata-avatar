@@ -1529,17 +1529,73 @@ attributable.
       co-activates `annoyed` at 0.38. That is the map being honest about where disgust sits in PAD;
       5.7 exempts disgust from the body gate for the reason research §3 gives — no disgust posture
       reaches 50% recognition from any viewpoint.
-- [ ] **6.3** `motion/Gesture.js` — BEAT rules. **Stroke onset 0–200 ms BEFORE the stressed
+- [x] **6.3** `motion/Gesture.js` — BEAT rules. **Stroke onset 0–200 ms BEFORE the stressed
       syllable, never after**; ~380 ms stroke; preparation starts 400–600 ms early. 9–26/min.
+      🎯 **SHIPPED at 86/86, wired into `Avatar.js`, verified on a live figure.** `planGestures`
+      places every stroke BACKWARDS from its peak so the one-sided rule is structural rather than
+      clamped after the fact, and a candidate whose preparation will not fit is **DROPPED, never
+      slid later** — sliding it later is the forbidden case, and §5 measures the cost as a sharp
+      recall decline past 400 ms. `dropped.tooEarly` is reported for that reason. Constants are
+      re-read out of research §5 at gate time rather than asserted against themselves.
+      🎯 **Dominance now reaches the body through a SECOND mechanism.** `AffectState.faceInput()`
+      already carried Arellano (AMDO 2014, n=109, "dominance not at all" from a static face) and
+      named gesture amplitude as a consumer; this is that consumer. Posture puts the axis in the
+      trunk as a static lean, gesture puts it in the SIZE of every movement. Measured live with
+      pleasure and arousal held fixed: **dominance +0.958 -> 15.55° peak shoulder, −0.850 -> 6.03°,
+      2.58x** (2.64x in node at ±0.9). The two can disagree — high dominance under an adducted
+      posture gestures large-but-suppressed — which is a state neither channel expresses alone.
+      🚩 **THE BUG THE NODE GATE COULD NOT SEE, and it was green at 82/82 throughout.** The first
+      version read `pad.dominance` once, at `say()`. `AffectState.push()` sets a TARGET that `pad`
+      integrates toward, so that read returns the PREVIOUS utterance's emotion — measured in the
+      browser as `feel({ dominance: +0.9 })` reading back **−0.892**, with the submissive run
+      gesturing LARGER than the dominant one. The gate set `spatialExtent` directly and never went
+      through an `AffectState`. Fixed by reading dominance every frame off `shared.affect`, which
+      also lets the tier-2 LLM vector move the arms mid-utterance instead of being ignored.
+      ⚠️ Rate stays a snapshot **by necessity** — a schedule is built once — so `say()` reads the
+      affect TARGET for it, which is immediate. Amplitude is continuous; rate is structural.
+      ⚠️ The synchrony rule is gated against the plan it is GIVEN. Word timing is synthetic at
+      150 wpm until 4.3 lands, flagged `synthetic: true` on the data. Generated timing is defensible
+      for a beat and not for a viseme, and the reason is two orders of magnitude of tolerance:
+      ±600 ms for gesture-speech asynchrony against tens of milliseconds for AV sync.
+      🚩 **REQ-084 — the excursion is LATERAL where co-speech beats are sagittal.** Seen on a live
+      render at the stroke peak; the gate measures the excursion's magnitude and never its
+      direction, so it is structurally blind to this.
 - [ ] **6.4** Expressivity: spend the budget on **Spatial Extent and Temporal Extent** — the other
       four GRETA parameters don't read (43.1% discrimination).
+      🎯 **BOTH DIALS SHIPPED WITH 6.3, and they are not in the same evidential position.**
+      *Temporal Extent* moves stroke duration by exactly one measured SD, so its full range is
+      0.24–0.52 s and every value inside it is a duration somebody was recorded producing; the gate
+      proves no setting can leave that range. *Spatial Extent* is an **authored** 0.5x–1.5x
+      multiplier — §5 establishes WHICH parameters read perceptually and no source in the record
+      states the metric span of one unit — so it is flagged `🚩 CHOSEN, NOT SOURCED` in the file and
+      the gate asserts the flag is still there.
+      What is left: the other four parameters are deliberately absent rather than stubbed, and the
+      item stays open until that decision is either taken or written down as final.
 - [ ] **6.5** IK — analytic two-bone per limb + constrained CCD/FABRIK spine + look-at.
       `CCDIKSolver.blendFactor` to blend against an animated pose. ⚠️ `iteration` defaults to 1.
 - [ ] **6.6** `physics/SpringBones.js` — VRM algorithm **plus a fixed 60 Hz timestep** (three-vrm
       has none, so it's framerate-dependent by construction) **plus depth-distribution curves**.
       Start `stiffness 0.75 / drag 0.05 / gravity 0`. Support `center`.
+      🚩 **THE FILE IS FINISHED AT 86/86 AND HAS NO CONSUMER ON THE SHIPPED BAKE.** Measured
+      2026-08-17: zero call sites outside its own selftest — not `Avatar.js`, not `alive.js`, not
+      `hair.js`. `assets/figures/figure_g050.glb` carries **53 skinned joints** and the hair GLB
+      carries the **identical 53**: a plain UE4-style skeleton (Root, pelvis, spine_01..03,
+      clavicle/upperarm/lowerarm/hand, 30 finger bones, neck_01, head, thigh/calf/foot/ball).
+      **Zero** breast, belly, glute, skirt, coat, tail or accessory joints. The wardrobe capsule is
+      suits, vest, bra, briefs, shoes and a fedora, so there is no garment consumer either.
+      ⚠️ Wiring it to the groom would be a DUPLICATE MODEL. `motion/HairDynamics.js` already owns
+      hair secondary motion as DFTL on card centrelines — a different primitive — and 6.2(b)
+      rejected a second ankle pendulum on exactly this ground.
+      🎯 **A green gate proves the algorithm and says nothing about reachability.** This is
+      `measure-the-frame-not-the-execution` in one file, and it is why 6.3 ships with a WIRING
+      section asserting that `Avatar.js` actually constructs and drives its layer.
 - [ ] **6.7** Collider pruning — VRoid ships 460–1362 checks/frame, past VRChat's "Poor" tier.
 - [ ] **6.8** Soft-tissue jiggle. Hair drag 0.4 (over-damped drape) vs tissue 0.05 (fast ring).
+      🚩 **BLOCKED, AND IT IS A BAKE-PIPELINE ITEM RATHER THAN A RUNTIME ONE.** There are no tissue
+      bones to spring; see 6.6 for the measurement. Unblocking it means adding bones AND skin
+      weights in `tools/identity-pipeline/`, then re-baking all five gender variants and the hair
+      variants that share the skeleton, against a 232 MB LFS payload and a 1 GB/month bandwidth
+      ceiling. That is a phase of work, not a wiring task, and it should be scheduled as one.
 - [ ] **6.9** 🎯 **Affect must reach the BALANCE model, not stop at the trunk bones.** Expose a
       fore-and-aft centre-of-pressure bias on `motion/Sway.js`'s pendulum so BAP's `approach`
       channel actuates weight shift. Coulson's weight column is a real degree of freedom — "weight

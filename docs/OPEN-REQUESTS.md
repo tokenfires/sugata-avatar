@@ -2736,3 +2736,34 @@ evidence:    Measured on `figure_g050.glb`: 36 of 53 bones carry non-unit scale,
 anchor:      tools/figure-pipeline/verify_glb.mjs /export/
 verify:      tools/figure-pipeline/verify_glb.mjs /boneScaleIsUnit/
 ```
+
+## REQ-084 — the beat excursion is lateral abduction where co-speech beats are sagittal
+
+```request
+id:          REQ-084
+status:      OPEN
+target:      packages/core/src/motion/Gesture.js
+filed-by:    the 6.3 gesture agent
+filed-round: R12
+filed-at:    79cc1d8
+first-filed: 2026-08-17
+change:      Give the stroke a forward component instead of rotating the arm out sideways only.
+             `GestureLayer.update` writes a single local-Z euler on each arm, which is pure
+             ad/abduction in the coronal plane.
+evidence:    Seen on a live render, not derived. Driven to the stroke peak in the browser on
+             2026-08-17 (`activation 1.000`, phase `stroke`, hand `right`, shoulder 15.72°, elbow
+             16.51°), the arm swings LATERALLY away from the trunk, which reads closer to a wing
+             than to a beat. Research §5's own framing points the same way — the rhythm it measures
+             is "co-speech ARM movement" with acoustic peaks "just before maximum extension", and
+             extension is a sagittal quantity; eBMLController separates `shoulderRaise` from the
+             DIRECTED motion default of 0.2 m for the same reason.
+             🚩 THIS IS A PERCEPTUAL CALL AND THE NODE GATE IS STRUCTURALLY BLIND TO IT.
+             `Gesture.selftest.mjs` measures the excursion's MAGNITUDE in degrees and never its
+             DIRECTION, so every check stays green whichever plane the arm moves in. Filed rather
+             than fixed because picking the plane split is a look decision, and because the axis
+             convention has to be measured on the rig at bind — `PostureLayer` records three sign
+             problems in the published Coulson data and solves this by measuring rather than
+             transcribing, which is the pattern to copy here.
+anchor:      packages/core/src/motion/Gesture.js /sign \* shoulderRadians/
+verify:      packages/core/src/motion/Gesture.js /sagittal/
+```
