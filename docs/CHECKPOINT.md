@@ -241,9 +241,20 @@ result above it is the one remaining question about the groom itself.
   cannot see shading; a relief statistic rated a NOISIER groom better than a lock-ier one. **Validate
   every new operator against a shape whose answer is arithmetic FIRST, and against a crop you have
   looked at.**
-- **The remote is not set up.** `origin` points at `robault/Sugata-`, which has never existed;
-  `robault/Sugata` is a DIFFERENT project (a 2D text avatar system). 70+ commits are local only.
-  `reference/` was never committed in any of them — verified across the whole history.
+- ✅ **THE REMOTE IS SET UP AND THE REPOSITORY IS PUBLIC, 2026-08-16.**
+  **`https://github.com/tokenfires/sugata-avatar`**, MIT, default branch `main`.
+  This bullet used to read *"the remote is not set up… 70+ commits are local only"* and that is
+  retracted. `origin` had pointed at `robault/Sugata-`, which was confirmed never to have existed
+  (`gh repo view` resolves nothing), and the `gh` CLI authenticates as **`tokenfires`** rather than
+  `robault`, which is why the repository is under that account.
+  🚩 **The assets ship now.** `assets/figures`, `assets/hair` and `assets/wardrobe` were gitignored
+  as build output; they are committed through **git-LFS**, 43 objects, 244 MB uploaded. A clone
+  without `git lfs install` gets pointer files and `Avatar.create()` fails on a missing bake.
+  ⚠️ GitHub's free LFS tier is 1 GB storage and 1 GB/month bandwidth, so roughly four full clones a
+  month exhausts the bandwidth. The wardrobe is 159 MB of the 232 and is the obvious first cut.
+  `reference/` is still gitignored and still was never committed in any commit — verified across
+  the whole history before publishing, and a research artefact that INVENTORIED it by absolute path
+  was stripped in `68bed11`.
 - Reference imagery (Stellar Blade plates, and hairstyle references the owner supplied) is
   **gitignored, never committed, never shipped**. Parameters extracted, pixels never copied.
 
