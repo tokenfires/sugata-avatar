@@ -79,7 +79,7 @@ globalThis.createImageBitmap ??= async () => ( { width: 1, height: 1, close() {}
 
 const { Figure } = await import( '../figure/Figure.js' );
 const { ARKIT_REGIONS, MAX_CORNER_OFFSET, OVR_VISEMES } = await import( '../figure/ExpressionBank.js' );
-const { MotionStack, createMotionTarget } = await import( '../motion/MotionStack.js' );
+const { MOTION_ORDER, MotionStack, createMotionTarget } = await import( '../motion/MotionStack.js' );
 const { VisemeLayer } = await import( '../voice/VisemeLayer.js' );
 
 const {
@@ -1200,9 +1200,11 @@ if ( fs.existsSync( figurePath ) === false ) {
     // correct and it was the actuation that did not exist.
 
     const {
-        COULSON_TABLE_1, CHANNEL_TO_COULSON_COLUMN, POSTURE_DEFECTS, POSTURE_FULL_SCALE_DEGREES,
-        PostureLayer, smallestListedMagnitude
+        COULSON_COLUMNS, COULSON_TABLE_1, CHANNEL_TO_COULSON_COLUMN, KNEE_FULL_SCALE_DEGREES,
+        POSTURE_DEFECTS, POSTURE_FULL_SCALE_DEGREES, PostureLayer, smallestListedMagnitude
     } = await import( './PostureLayer.js' );
+
+    const { flexionAtChainLength } = await import( '../motion/IKSolver.js' );
 
     const { RestPose } = await import( '../figure/RestPose.js' );
     const { HUMANOID_TO_FIGURE_BONE, Skeleton } = await import( '../figure/Skeleton.js' );
@@ -1218,6 +1220,21 @@ if ( fs.existsSync( figurePath ) === false ) {
     const postureSkeleton = new Skeleton( figure.root );
     const relaxedStanding = RestPose.load( 'relaxed-standing' );
     const bodyMass = new BodyMass();
+
+    // 🚩 PLATE ISOLATION, AND IT IS A BUG FIX RATHER THAN TIDINESS. `Skeleton.update()` rewrites
+    // every driven bone's QUATERNION and the hips' POSITION, and nothing else's position — so a
+    // layer that offsets any other bone leaves that offset on the rig, and the NEXT plate's
+    // `MotionStack.bind()` captures it as rest. `Sway` offsets both feet and 6.2(a)'s knee bend
+    // offsets the pelvis, so from here on a plate has to put every local position back. Measured
+    // without this: successive Sway plates drifted their own ankle rest by tenths of a millimetre,
+    // which is the same order as the numbers the knee clauses below are measuring.
+    const restLocalPositions = new Map();
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isBone === true ) restLocalPositions.set( object, object.position.clone() );
+
+    } );
 
     // Every bone below the neck the blocker was reported on, plus the head, so a plate that only
     // moves the face cannot pass by moving nothing.
@@ -1240,6 +1257,9 @@ if ( fs.existsSync( figurePath ) === false ) {
      */
     function posturePlate( pad, options = {} ) {
 
+        for ( const [ bone, position ] of restLocalPositions ) bone.position.copy( position );
+
+        postureSkeleton.reset();
         relaxedStanding.applyTo( postureSkeleton );
         postureSkeleton.update();
         figure.root.updateMatrixWorld( true );
@@ -1259,11 +1279,15 @@ if ( fs.existsSync( figurePath ) === false ) {
 
         if ( options.withPosture !== false ) {
 
+            // `postureOptions` is how a clause supplies the UNSOURCED knee amplitude, or moves the
+            // layer's order, without a second plate function that could drift from this one.
+            const postureOptions = { defects: options.postureDefects ?? {}, ...( options.postureOptions ?? {} ) };
+
             posture = options.unpairedState === true
                 // The mistake `ExpressionLayer.postureLayer()` exists to make unreachable: a layer
                 // built by hand, with neither the state nor the map passed.
-                ? new PostureLayer( { defects: options.postureDefects ?? {} } )
-                : expression.postureLayer( { defects: options.postureDefects ?? {} } );
+                ? new PostureLayer( postureOptions )
+                : expression.postureLayer( postureOptions );
 
             plateStack.add( posture );
 
@@ -1297,12 +1321,30 @@ if ( fs.existsSync( figurePath ) === false ) {
 
         }
 
+        // The realised knee flexion, read off WORLD positions of the three joints rather than off
+        // any quaternion — the same reading `IKSolver.selftest.mjs` uses, and the one a viewer
+        // sees. `flexionAtChainLength` is the solver's own inverse, so this cannot agree with the
+        // plan by sharing its arithmetic.
+        const kneeFlexion = {};
+
+        for ( const side of [ 'left', 'right' ] ) {
+
+            const hip = bones.get( HUMANOID_TO_FIGURE_BONE[ `${ side }UpperLeg` ] );
+            const knee = bones.get( HUMANOID_TO_FIGURE_BONE[ `${ side }LowerLeg` ] );
+            const ankle = bones.get( HUMANOID_TO_FIGURE_BONE[ `${ side }Foot` ] );
+
+            kneeFlexion[ side ] = flexionAtChainLength(
+                hip.distanceTo( knee ), knee.distanceTo( ankle ), hip.distanceTo( ankle ) ) * 180 / Math.PI;
+
+        }
+
         return {
             expression,
             posture,
             bones,
             headForward,
             armAbduction,
+            kneeFlexion,
             centreOfMass: bodyMass.centreOfMass( new Vector3() ),
             handSpan: Math.abs(
                 bones.get( HUMANOID_TO_FIGURE_BONE.leftHand ).x
@@ -1313,13 +1355,26 @@ if ( fs.existsSync( figurePath ) === false ) {
     }
 
     /** The largest world displacement of any watched bone between two plates, in millimetres. */
-    const worstBoneShift = ( a, b ) => {
+    const worstBoneShift = ( a, b ) => worstShiftAmong( BODY_BONES, a, b );
+
+    const worstShiftAmong = ( names, a, b ) => {
 
         let worst = 0;
-        for ( const name of BODY_BONES ) worst = Math.max( worst, a.bones.get( name ).distanceTo( b.bones.get( name ) ) );
+        for ( const name of names ) worst = Math.max( worst, a.bones.get( name ).distanceTo( b.bones.get( name ) ) );
         return worst * 1000;
 
     };
+
+    /**
+     * The pelvis and everything below it — the band 6.2(a)'s knee bend moves and nothing else in
+     * this layer touches. Kept separate from BODY_BONES so "the knee channel contributes exactly
+     * nothing" is a claim about the bones a knee bend would move, not one diluted by a trunk lean.
+     */
+    const LOWER_BODY_BONES = [
+        'hips', 'leftUpperLeg', 'leftLowerLeg', 'leftFoot', 'rightUpperLeg', 'rightLowerLeg', 'rightFoot'
+    ].map( ( humanoid ) => HUMANOID_TO_FIGURE_BONE[ humanoid ] );
+
+    const ANKLE_BONES = [ HUMANOID_TO_FIGURE_BONE.leftFoot, HUMANOID_TO_FIGURE_BONE.rightFoot ];
 
     // --- the derivation ---------------------------------------------------------------------
 
@@ -1337,8 +1392,17 @@ if ( fs.existsSync( figurePath ) === false ) {
     // 🎯 §1.25t: a gate built from remembered channels cannot cover the next one. This asserts the
     // SET — every key `body()` returns is either actuated by the layer or named as somebody else's.
     {
+        // 🚩 `kneeActivation` HAS MOVED OUT OF THIS TABLE, and the move is the point of 6.2(a).
+        // It used to read "punch-list 6.5, analytic two-bone IK — a knee bend must also lower the
+        // pelvis". 6.5 landed, so that reason is spent: the channel is ACTUATED now, and what it
+        // is missing is an angle rather than a mechanism. A third category is how the difference
+        // stays visible — a deferred channel has an owner elsewhere, an unsourced one has an
+        // actuator here and a full scale of zero.
+        const UNSOURCED_CHANNELS = {
+            kneeActivation: 'wired here; full scale 0 because Coulson Table 1 has no knee column'
+        };
+
         const DEFERRED_CHANNELS = {
-            kneeActivation: 'punch-list 6.5, analytic two-bone IK — a knee bend must also lower the pelvis',
             illustrative: 'punch-list 6.3, motion/Gesture.js — a gesture RATE, not a pose',
             gestureAmplitude: 'punch-list 6.4, GRETA Spatial Extent',
             temporalExtent: 'punch-list 6.4, GRETA Temporal Extent',
@@ -1354,12 +1418,15 @@ if ( fs.existsSync( figurePath ) === false ) {
             { pleasure: -0.8, arousal: 0.7, dominance: 0.7 } ) );
 
         const unaccounted = returned.filter( ( key ) =>
-            CHANNEL_TO_COULSON_COLUMN[ key ] === undefined && DEFERRED_CHANNELS[ key ] === undefined );
+            CHANNEL_TO_COULSON_COLUMN[ key ] === undefined && UNSOURCED_CHANNELS[ key ] === undefined
+            && DEFERRED_CHANNELS[ key ] === undefined );
 
         check( '🎯 POSTURE  every channel body() returns is either ACTUATED here or named elsewhere',
             unaccounted.length === 0,
             unaccounted.length === 0
-                ? `${ returned.length } channels: ${ Object.keys( CHANNEL_TO_COULSON_COLUMN ).length } actuated, ` +
+                ? `${ returned.length } channels: ${ Object.keys( CHANNEL_TO_COULSON_COLUMN ).length } actuated with a ` +
+                    `derived full scale, ${ Object.keys( UNSOURCED_CHANNELS ).length } actuated with NO source ` +
+                    `(${ Object.keys( UNSOURCED_CHANNELS ).join( ', ' ) }, gated at 0°), ` +
                     `${ Object.keys( DEFERRED_CHANNELS ).length } deferred with a named owner`
                 : `UNACCOUNTED: ${ unaccounted.join( ', ' ) } — a channel that is neither driven nor ` +
                     'deferred is the whole defect this section exists for, one channel smaller' );
@@ -1520,6 +1587,352 @@ if ( fs.existsSync( figurePath ) === false ) {
             `${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpreadRight.toFixed( 2 ) }°` );
     }
 
+    // --- 6.2(a): the knee, whose mechanism ships and whose amplitude is zero -------------------
+    //
+    // 🎯 WHAT GREEN MEANS HERE, because this block asserts a channel that does not move.
+    //
+    // `kneeActivation` is fear's LARGEST loading — 1.77 of a 2.07 normaliser — and it was deferred
+    // three times for one reason: a knee bend that does not lower the pelvis is a figure on stilts.
+    // 6.5 landed `motion/IKSolver.js` and that reason is spent. What is left is that **Coulson
+    // Table 1 has six columns and none of them is a knee**, so the rule every other full scale in
+    // this file is derived by cannot reach this one, and no other source in the record states an
+    // emotion's knee angle.
+    //
+    // So the claim under test is two-sided and both sides are measured on the real figure:
+    //   the MECHANISM is wired, and given an angle it bends the knees, drops the pelvis and leaves
+    //   both ankles exactly where they were;
+    //   the AMPLITUDE is zero, and zero here means 0.000000 mm of world displacement rather than
+    //   "small" — because a made-up angle in the most visible place on the figure is worse than a
+    //   channel that admits it has none.
+    //
+    // Every clause that needs an angle supplies one explicitly and PRINTS that it is unsourced.
+
+    const UNSOURCED_GATE_KNEE_DEGREES = 20;
+
+    /**
+     * The tolerance for "the ankle did not move", DERIVED rather than chosen — the same derivation
+     * `IKSolver.selftest.mjs` makes, re-run here rather than quoted. The shipped rig is not quite
+     * the rigid chain every two-bone solver models: its bones carry float32 quantisation of the
+     * exported node TRS in their scale, measured below, and a solve cannot agree with a skeleton
+     * more closely than the skeleton agrees with a rigid chain. It is a property of the ASSET, so
+     * a cleaner bake tightens every clause that uses it, automatically.
+     */
+    let worstBoneScale = 0;
+
+    figure.root.traverse( ( object ) => {
+
+        if ( object.isBone !== true ) return;
+
+        worstBoneScale = Math.max( worstBoneScale,
+            Math.abs( 1 - object.scale.x ), Math.abs( 1 - object.scale.y ), Math.abs( 1 - object.scale.z ) );
+
+    } );
+
+    const legLengthMetres =
+        neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.leftUpperLeg )
+            .distanceTo( neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.leftLowerLeg ) )
+        + neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.leftLowerLeg )
+            .distanceTo( neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.leftFoot ) );
+
+    const PLANTED_TOLERANCE_MM = worstBoneScale * legLengthMetres * 1000;
+
+    {
+        const drivenFear = posturePlate( EMOTION_PRESETS.fear,
+            { postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES } } );
+
+        // --- the derivation refuses, and the refusal is executed ------------------------------
+
+        let derivationError = null;
+
+        try {
+
+            smallestListedMagnitude( 'kneeBend' );
+
+        } catch ( error ) {
+
+            derivationError = error;
+
+        }
+
+        const kneeColumns = COULSON_COLUMNS.filter( ( column ) => /knee/i.test( column ) === true );
+
+        check( '🎯 POSTURE  the knee has NO derivable full scale, and the table says so in this process',
+            COULSON_COLUMNS.length === 6 && kneeColumns.length === 0
+                && derivationError !== null && POSTURE_FULL_SCALE_DEGREES.kneeActivation === 0
+                && KNEE_FULL_SCALE_DEGREES === 0,
+            `Coulson Table 1's ${ COULSON_COLUMNS.length } columns, read off the transcription rather than ` +
+            `counted by hand: ${ COULSON_COLUMNS.join( ', ' ) }. \`smallestListedMagnitude('kneeBend')\` ` +
+            `throws — "${ derivationError === null ? 'IT DID NOT THROW' : derivationError.message }". ` +
+            `Meanwhile fear prescribes ${ BAP_PRESCRIPTIONS.fearful.kneeActivation.toFixed( 4 ) } into this ` +
+            `channel (1.77 of BAP's 2.07 normaliser) — its LARGEST loading, larger than the ` +
+            `${ Math.abs( BAP_PRESCRIPTIONS.fearful.approach ).toFixed( 4 ) } it puts into approach — and the ` +
+            'full scale it multiplies is 0°. A loading with no scale is not an angle.' );
+
+        // --- the mechanism is wired, and measured off the rest pose ---------------------------
+
+        const declaredLegBones = LOWER_BODY_BONES
+            .filter( ( name ) => name !== HUMANOID_TO_FIGURE_BONE.leftFoot && name !== HUMANOID_TO_FIGURE_BONE.rightFoot );
+
+        const restFlexionDegrees = drivenFear.posture.kneeLegs.map(
+            ( leg ) => leg.restFlexionRadians * 180 / Math.PI );
+
+        // The hinge determination and the rest flexion reach the same angle by two independent
+        // routes — a cross product of the two segment VECTORS, and the law of cosines on the three
+        // joint DISTANCES — so their agreement is a real check on the chain rather than an
+        // identity. Measured residual 1.1e-10; the bound is an order above it and nine orders below
+        // the 0.1187 it is bounding, so a hinge read off a straight leg is nowhere near passing.
+        const HINGE_AGREEMENT_BOUND = 1e-9;
+
+        // `?? NaN` rather than a guard clause: a layer that resolved no legs at all has to FAIL this
+        // by name rather than crash the process before it prints which clause was measuring.
+        const hingeResidual = Math.abs( drivenFear.posture.kneeHingeDetermination
+            - Math.sin( drivenFear.posture.kneeLegs[ 0 ]?.restFlexionRadians ?? NaN ) );
+
+        check( '🎯 POSTURE  …and the MECHANISM is wired anyway: chain, hinge and pole measured at bind',
+            drivenFear.posture.kneeLegs.length === 2
+                && declaredLegBones.every( ( name ) => drivenFear.posture.boneChannels.includes( name ) )
+                && hingeResidual < HINGE_AGREEMENT_BOUND
+                && near( restFlexionDegrees[ 0 ], neutralPlate.kneeFlexion.left, 1e-9 ),
+            `both legs resolved, ${ declaredLegBones.length } leg/pelvis bones DECLARED ` +
+            `(${ declaredLegBones.join( ', ' ) }) so the stack owns them and would name a conflict with Sway. ` +
+            `The rest pose already carries ${ restFlexionDegrees.map( ( d ) => d.toFixed( 4 ) ).join( '°/' ) || 'NO' }° of ` +
+            `knee, so the hinge is well determined at ${ drivenFear.posture.kneeHingeDetermination.toFixed( 9 ) } — ` +
+            `which is sin(that angle) to ${ hingeResidual.toExponential( 2 ) }, i.e. the axis is read off a real ` +
+            'bend rather than off noise, by two routes that do not share arithmetic. The chain is read from ' +
+            "the stack's REST pose and still matches the posed rig's own knee to " +
+            `${ Math.abs( ( restFlexionDegrees[ 0 ] ?? NaN ) - neutralPlate.kneeFlexion.left ).toExponential( 2 ) }°. The pole ` +
+            `is the leg's own patella direction, measured at ` +
+            `${ drivenFear.posture.kneePoleOffForwardDegrees.toFixed( 2 ) }° off rig-forward; ozz's +Y default ` +
+            'would sit 1.16° off the LEG AXIS, which is the singular case (IKSolver.js header).' );
+
+        // --- the pole, which is the one input a naive port gets from a default --------------
+
+        const ozzPole = posturePlate( EMOTION_PRESETS.fear, {
+            postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES },
+            postureDefects: { ozzDefaultKneePole: true }
+        } );
+
+        check( '🎯 POSTURE  the knee pole is MEASURED off the patella, and ozz\'s own default is the singularity here',
+            drivenFear.posture.kneePoleConditioning > 0.99 && ozzPole.posture.kneePoleConditioning < 0.05,
+            `a two-bone solve leaves the chain free to spin about the hip→ankle line and the pole is what ` +
+            `removes that freedom, so |t̂ × p̂| is how well removed it is: ` +
+            `${ drivenFear.posture.kneePoleConditioning.toFixed( 6 ) } for the leg's own measured patella ` +
+            `direction against ${ ozzPole.posture.kneePoleConditioning.toFixed( 6 ) } for ozz's +Y default ` +
+            `(\`ik_two_bone_job.h:85\`) — ${ ( drivenFear.posture.kneePoleConditioning / ozzPole.posture.kneePoleConditioning ).toFixed( 0 ) }×. ` +
+            'A standing leg\'s hip→ankle axis IS −Y, which is the fifth degenerate case in IKSolver.js\'s ' +
+            'header: at 2% of unit length the plane normal is set by whatever lean the rest pose happens ' +
+            'to carry. ⚠️ The 1.000000 is 1 BY CONSTRUCTION — the measured pole is the knee\'s offset from ' +
+            'the leg axis with the axial component projected out, so it is exactly square to the axis. That ' +
+            'is the point of measuring it rather than naming a direction: a mirrored rig, a stance pose or a ' +
+            'turned-out foot all come out maximally conditioned without anyone editing a vector.' );
+
+        // --- and it contributes exactly nothing at the shipped scale --------------------------
+
+        let worstLowerBody = 0;
+        let worstLowerBodyPreset = '';
+
+        for ( const [ name, plate ] of platesByPreset ) {
+
+            const shift = worstShiftAmong( LOWER_BODY_BONES, neutralPlate, plate );
+
+            if ( shift > worstLowerBody ) { worstLowerBody = shift; worstLowerBodyPreset = name; }
+
+        }
+
+        check( '🎯 POSTURE  at the shipped scale the knee moves the lower body by EXACTLY zero',
+            worstLowerBody === 0,
+            `seven presets, ${ LOWER_BODY_BONES.length } bones from the pelvis down, worst world ` +
+            `displacement against neutral ${ worstLowerBody.toFixed( 6 ) } mm` +
+            `${ worstLowerBodyPreset === '' ? '' : ` (worst on \`${ worstLowerBodyPreset }\`)` }. Not "under a ` +
+            'tolerance" — the write is skipped above the epsilon test, so the bones are bit-identical. ' +
+            `Fear's own HUD line says which zero this is: "${ platesByPreset.get( 'fear' ).posture.describe() }".` );
+
+        // --- given an angle, the same layer bends the knees and the pelvis follows -------------
+
+        const neutralPelvis = neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.hips );
+        const drivenPelvis = drivenFear.bones.get( HUMANOID_TO_FIGURE_BONE.hips );
+        const pelvisTravel = new Vector3().subVectors( drivenPelvis, neutralPelvis );
+
+        check( `🎯 POSTURE  given an UNSOURCED ${ UNSOURCED_GATE_KNEE_DEGREES }°, fear bends BOTH knees and the pelvis comes down to meet them`,
+            drivenFear.kneeFlexion.left > neutralPlate.kneeFlexion.left + 1
+                && drivenFear.kneeFlexion.right > neutralPlate.kneeFlexion.right + 1
+                && pelvisTravel.y < 0
+                && Math.abs( pelvisTravel.x ) < PLANTED_TOLERANCE_MM / 1000
+                && Math.abs( pelvisTravel.z ) < PLANTED_TOLERANCE_MM / 1000,
+            `⚠️ ${ UNSOURCED_GATE_KNEE_DEGREES }° IS SUPPLIED BY THIS GATE AND HAS NO SOURCE — it exists to ` +
+            `exercise the mechanism, and the shipped value is 0. At it, fear's ` +
+            `${ BAP_PRESCRIPTIONS.fearful.kneeActivation.toFixed( 3 ) } loading and its 0.25 WASABI base ` +
+            `intensity ask for ${ drivenFear.posture.appliedDegrees.kneeAdded.toFixed( 4 ) }° of ADDED flexion; ` +
+            `the knees read ${ neutralPlate.kneeFlexion.left.toFixed( 4 ) }° -> ` +
+            `${ drivenFear.kneeFlexion.left.toFixed( 4 ) }°/${ drivenFear.kneeFlexion.right.toFixed( 4 ) }° on the ` +
+            `real bones and the pelvis travels [${ pelvisTravel.toArray().map( ( v ) => ( v * 1000 ).toFixed( 4 ) ).join( ', ' ) }] mm ` +
+            '— down, and nowhere else. The two legs differ because one drop cannot deliver the same ' +
+            'commanded angle to two planted feet; the deeper leg wins and the other bends further.' );
+
+        check( '🎯 POSTURE  …and both ankles stay EXACTLY where they were, which is the whole of 6.2(a)',
+            worstShiftAmong( ANKLE_BONES, neutralPlate, drivenFear ) < PLANTED_TOLERANCE_MM,
+            `worst ankle displacement ${ worstShiftAmong( ANKLE_BONES, neutralPlate, drivenFear ).toFixed( 6 ) } mm ` +
+            `against a tolerance of ${ PLANTED_TOLERANCE_MM.toFixed( 6 ) } mm — DERIVED, not chosen: this bake's ` +
+            `worst bone scale is ${ worstBoneScale.toExponential( 4 ) } off unity over a ` +
+            `${ ( legLengthMetres * 1000 ).toFixed( 3 ) } mm leg, so a rigid-chain solve and this skeleton cannot ` +
+            'agree more closely than that however exact the arithmetic. A cleaner bake tightens this ' +
+            'clause by itself. `Sway` still owns the feet and the footprint clamp; the plan holds the ' +
+            'ankles precisely so that clamp stays valid.' );
+
+        // --- only fear, because only fear has the loading -------------------------------------
+
+        const drivenByPreset = new Map();
+
+        for ( const [ name, pad ] of Object.entries( EMOTION_PRESETS ) ) {
+
+            if ( name === 'neutral' ) continue;
+
+            drivenByPreset.set( name, posturePlate( pad,
+                { postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES } } ) );
+
+        }
+
+        const bentPresets = [ ...drivenByPreset.entries() ]
+            .filter( ( [ , plate ] ) => Math.abs( plate.kneeFlexion.left - neutralPlate.kneeFlexion.left ) > 0.01 )
+            .map( ( [ name ] ) => name );
+
+        check( '🎯 POSTURE  …and ONLY fear bends, because only fear carries a kneeActivation loading',
+            bentPresets.length === 1 && bentPresets[ 0 ] === 'fear',
+            [ ...drivenByPreset.entries() ]
+                .map( ( [ name, plate ] ) => `${ name } ${ ( plate.kneeFlexion.left - neutralPlate.kneeFlexion.left ).toFixed( 3 ) }°` )
+                .join( '   ' ) +
+            '   — six presets at exactly 0.000° with the amplitude supplied, because `BAP_PRESCRIPTIONS` ' +
+            'gives the knee to fear alone. The channel is not a global crouch with an emotion filter ' +
+            'in front of it.' );
+
+        // --- idempotence: the chain is read from rest, so a reset re-plans the same bend -------
+
+        {
+            for ( const [ bone, position ] of restLocalPositions ) bone.position.copy( position );
+
+            postureSkeleton.reset();
+            relaxedStanding.applyTo( postureSkeleton );
+            postureSkeleton.update();
+            figure.root.updateMatrixWorld( true );
+
+            const cycledTarget = createMotionTarget( figure.root );
+            const cycledStack = new MotionStack( { seed: 1 } );
+
+            cycledStack.bind( cycledTarget );
+
+            const cycledExpression = new ExpressionLayer();
+            const cycledPosture = cycledExpression.postureLayer(
+                { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES } );
+
+            cycledStack.add( cycledExpression );
+            cycledStack.add( cycledPosture );
+
+            const settleAndRun = () => {
+
+                cycledExpression.state.push( EMOTION_PRESETS.fear );
+                for ( let step = 0; step < 300; step ++ ) cycledExpression.state.update( 0.01 );
+                cycledStack.update( 1 / 60 );
+                figure.root.updateMatrixWorld( true );
+
+                return {
+                    drop: cycledPosture.appliedDegrees.pelvisDropMillimetres,
+                    knee: cycledPosture.appliedDegrees.kneeLeft,
+                    restFlexion: cycledPosture.kneeLegs[ 0 ]?.restFlexionRadians ?? NaN,
+                    pelvis: boneAt( HUMANOID_TO_FIGURE_BONE.hips ),
+                    ankle: boneAt( HUMANOID_TO_FIGURE_BONE.leftFoot )
+                };
+
+            };
+
+            const before = settleAndRun();
+
+            // 🚩 `MotionStack.reset()` calls `layer.reset()` then `layer.onBind()` and does NOT
+            // re-commit, so `onBind` runs against a figure still standing in the bend this layer
+            // wrote. A chain read off `matrixWorld` there measures its own knee bend as the rest
+            // pose and plans the next one from the wrong place. Reading the stack's captured rest
+            // instead makes the measurement a fact about the rig rather than about the frame.
+            cycledStack.reset();
+
+            const after = settleAndRun();
+
+            check( '🎯 POSTURE  a stack reset re-plans the SAME knee bend, from a figure already bent',
+                near( before.drop, after.drop, 1e-12 ) && near( before.knee, after.knee, 1e-12 )
+                    && near( before.restFlexion, after.restFlexion, 1e-15 )
+                    && before.pelvis.distanceTo( after.pelvis ) < 1e-12
+                    && before.ankle.distanceTo( after.ankle ) < 1e-12,
+                `pelvis drop ${ before.drop.toFixed( 6 ) } mm before the reset and ${ after.drop.toFixed( 6 ) } mm ` +
+                `after it; the rest flexion the plan adds to reads ` +
+                `${ ( before.restFlexion * 180 / Math.PI ).toFixed( 6 ) }° both times, off a figure whose knees ` +
+                `were held at ${ before.knee.toFixed( 4 ) }° when the second measurement ran; pelvis moved ` +
+                `${ ( before.pelvis.distanceTo( after.pelvis ) * 1e9 ).toFixed( 3 ) } nm between the two.` );
+
+            cycledStack.dispose();
+
+            // 🚩 THE RED PROOF FOR THE CLAUSE ABOVE, and it is one line of the layer changed: read
+            // the chain from `matrixWorld` like every IK sample does. Same reset, same emotion.
+            for ( const [ bone, position ] of restLocalPositions ) bone.position.copy( position );
+
+            postureSkeleton.reset();
+            relaxedStanding.applyTo( postureSkeleton );
+            postureSkeleton.update();
+            figure.root.updateMatrixWorld( true );
+
+            const liveChainStack = new MotionStack( { seed: 1 } );
+            liveChainStack.bind( createMotionTarget( figure.root ) );
+
+            const liveChainExpression = new ExpressionLayer();
+            const liveChainPosture = liveChainExpression.postureLayer( {
+                kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES,
+                defects: { kneeChainFromLivePose: true }
+            } );
+
+            liveChainStack.add( liveChainExpression );
+            liveChainStack.add( liveChainPosture );
+
+            const runLiveChain = () => {
+
+                liveChainExpression.state.push( EMOTION_PRESETS.fear );
+                for ( let step = 0; step < 300; step ++ ) liveChainExpression.state.update( 0.01 );
+                liveChainStack.update( 1 / 60 );
+                figure.root.updateMatrixWorld( true );
+
+                return {
+                    drop: liveChainPosture.appliedDegrees.pelvisDropMillimetres,
+                    restFlexion: ( liveChainPosture.kneeLegs[ 0 ]?.restFlexionRadians ?? NaN ) * 180 / Math.PI,
+                    knee: liveChainPosture.appliedDegrees.kneeLeft
+                };
+
+            };
+
+            const liveBefore = runLiveChain();
+
+            liveChainStack.reset();
+
+            const liveAfter = runLiveChain();
+
+            // The assertion is WHAT it read rather than by how much it was wrong: the second bind's
+            // "rest" flexion IS the angle the first frame committed. That is the defect named
+            // exactly, and it needs no chosen factor.
+            check( '🚩 POSTURE  REJECTED: kneeChainFromLivePose — a reset re-plans from the bend already on the figure',
+                near( liveAfter.restFlexion, liveBefore.knee, 0.01 )
+                    && liveAfter.drop > liveBefore.drop + PLANTED_TOLERANCE_MM
+                    && near( before.drop, liveBefore.drop, 1e-9 ),
+                `read off \`matrixWorld\`, the second bind measures the rest flexion as ` +
+                `${ liveAfter.restFlexion.toFixed( 4 ) }° instead of ${ liveBefore.restFlexion.toFixed( 4 ) }° — ` +
+                `which is the ${ liveBefore.knee.toFixed( 4 ) }° the FIRST frame committed, to ` +
+                `${ Math.abs( liveAfter.restFlexion - liveBefore.knee ).toExponential( 2 ) }°, i.e. it is looking ` +
+                'at its own knee bend and calling it rest — so the same fear drops the pelvis ' +
+                `${ liveAfter.drop.toFixed( 4 ) } mm instead of ${ liveBefore.drop.toFixed( 4 ) } mm and the knee ` +
+                `goes to ${ liveAfter.knee.toFixed( 3 ) }° instead of ${ liveBefore.knee.toFixed( 3 ) }°. The figure ` +
+                'sinks a little further every time the stack is reset, which is a defect that needs a ' +
+                'SECOND clip to appear — the shape LEARNINGS §1.25j is about. On the FIRST bind the two ' +
+                'reads agree exactly, which is why nothing but a reset can see this.' );
+
+            liveChainStack.dispose();
+
+        }
+    }
+
     // --- it composes with the motion stack rather than fighting it ---------------------------
 
     {
@@ -1544,6 +1957,71 @@ if ( fs.existsSync( figurePath ) === false ) {
             `difference of ${ ( Math.abs( underSway - postureAlone ) * 1000 ).toFixed( 3 ) } mm. The two ` +
             'layers share the lumbar and the contributions ADD, which is the stack working; a layer that ' +
             'wrote an absolute rotation would have discarded one of them.' );
+
+        // --- 6.2(a) where it meets the layer that owns the pelvis, the legs and the feet -------
+        //
+        // 🚩 `Sway` OWNS ALL OF THEM AND IS NOT EDITED HERE. It declares the pelvis, both legs and
+        // both feet, offsets the pelvis along its pendulum arc and pins both ankles. The knee bend
+        // needs the pelvis to drop, so the two have to share it — and the answer is different for
+        // the two halves of what the plan writes, which is why they are two clauses.
+
+        const swayFrames = 600;
+
+        const kneeAtOrder = ( order, kneeFullScaleDegrees ) => posturePlate( EMOTION_PRESETS.fear, {
+            postureOptions: { order, kneeFullScaleDegrees },
+            extraLayers: [ new Sway() ],
+            frames: swayFrames
+        } );
+
+        const shippedUnderSway = kneeAtOrder( MOTION_ORDER.POSTURE, undefined );
+        const drivenUnderSway = kneeAtOrder( MOTION_ORDER.POSTURE, UNSOURCED_GATE_KNEE_DEGREES );
+
+        check( `🎯 POSTURE  at the shipped scale the knee half is a no-op under ${ swayFrames } frames of live sway`,
+            worstShiftAmong( LOWER_BODY_BONES, shippedUnderSway,
+                posturePlate( EMOTION_PRESETS.fear, { withPosture: false, extraLayers: [ new Sway() ], frames: swayFrames } ) ) === 0,
+            `${ swayFrames } frames of Sway with the posture layer running and with it removed entirely, and ` +
+            `all ${ LOWER_BODY_BONES.length } bones from the pelvis down are BIT-IDENTICAL. The layer declares ` +
+            'the pelvis and both legs and writes nothing to them, so the stack skips it and Sway commits ' +
+            'alone — which is what a channel gated at zero has to mean if the word is to be worth anything.' );
+
+        const pelvisUnderSway = new Vector3().subVectors(
+            drivenUnderSway.bones.get( HUMANOID_TO_FIGURE_BONE.hips ),
+            shippedUnderSway.bones.get( HUMANOID_TO_FIGURE_BONE.hips ) );
+
+        check( '🎯 POSTURE  the pelvis drop ADDS to Sway\'s own pelvis authority, to the nanometre',
+            Math.abs( -pelvisUnderSway.y * 1000 - drivenUnderSway.posture.appliedDegrees.pelvisDropMillimetres ) < 1e-6
+                && Math.abs( pelvisUnderSway.x ) < 1e-9 && Math.abs( pelvisUnderSway.z ) < 1e-9,
+            `after ${ swayFrames } frames the pelvis sits ` +
+            `${ ( -pelvisUnderSway.y * 1000 ).toFixed( 6 ) } mm below where Sway alone put it, against a plan ` +
+            `that asked for ${ drivenUnderSway.posture.appliedDegrees.pelvisDropMillimetres.toFixed( 6 ) } mm — ` +
+            `and ${ ( pelvisUnderSway.x * 1e9 ).toFixed( 2 ) } / ${ ( pelvisUnderSway.z * 1e9 ).toFixed( 2 ) } nm ` +
+            'sideways. `MotionContribution.offsetBone` states a translation FROM REST and the stack SUMS ' +
+            'offsets across layers, so the drop and the pendulum arc superpose with no interaction and ' +
+            'nothing had to be taken away from Sway. This is the half that composes.' );
+
+        // 🚩 AND THIS IS THE HALF THAT DOES NOT, MEASURED RATHER THAN ARGUED. `IKSolver.js`: "A layer
+        // must be the LAST writer of the bones it IKs… an IK layer therefore belongs at GESTURE
+        // (400) or later." This layer is at POSTURE (100) for a reason its own header gives, so
+        // Sway's leg deltas post-multiply onto the knee correction and act in a frame it turned,
+        // while Sway's foot-plant correction is built from cumulative rotations that cannot see it.
+        const driftAtPosture = worstShiftAmong( ANKLE_BONES, shippedUnderSway, drivenUnderSway );
+
+        const driftAtGesture = worstShiftAmong( ANKLE_BONES,
+            kneeAtOrder( MOTION_ORDER.GESTURE, undefined ),
+            kneeAtOrder( MOTION_ORDER.GESTURE, UNSOURCED_GATE_KNEE_DEGREES ) );
+
+        check( '🚩 POSTURE  MEASURED LIMIT: under live sway the foot plant is an ORDER problem, not a solve problem',
+            driftAtPosture > driftAtGesture * 2 && driftAtGesture > PLANTED_TOLERANCE_MM,
+            `worst ankle displacement over ${ swayFrames } frames, driven at the same unsourced ` +
+            `${ UNSOURCED_GATE_KNEE_DEGREES }°: ${ driftAtPosture.toFixed( 4 ) } mm with the layer where it ` +
+            `ships (POSTURE, 100) and ${ driftAtGesture.toFixed( 4 ) } mm with the SAME solve moved to GESTURE ` +
+            `(400, after Sway) — ${ ( driftAtPosture / driftAtGesture ).toFixed( 1 ) }×. With no Sway at all the ` +
+            `same bend plants to ${ worstShiftAmong( ANKLE_BONES, neutralPlate, posturePlate( EMOTION_PRESETS.fear, { postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES } } ) ).toFixed( 6 ) } mm, ` +
+            `so the residue is composition and not arithmetic. ⚠️ At the SHIPPED scale both numbers are ` +
+            '0.000000 mm, so this is a precondition on sourcing the angle rather than a defect in the ' +
+            'tree: whoever lands the number must move the knee half to a layer at or after GESTURE that ' +
+            're-reads the composed chain, or hand the commanded flexion to Sway, which already owns the ' +
+            'legs and the footprint clamp. Filed as a request — Sway.js was not edited.' );
 
         check( '🎯 POSTURE  and it touches no morph, so 5.5\'s mouth guarantee is untouched by it',
             platesByPreset.get( 'anger' ).posture.morphChannels.length === 0
@@ -1793,6 +2271,181 @@ if ( fs.existsSync( figurePath ) === false ) {
             `${ worstBoneShift( neutralPlate, hateSkipping ).toFixed( 1 ) } mm of body movement ` +
             'respectively. Closing the blocker makes the OBVIOUS gate for it decorative, which is why ' +
             'class 2 exists at all — LEARNINGS §1.25a.' );
+
+        // CLASS 3 — 6.2(a)'s own three, plus the rest-frame read this file shipped until 6.2(a).
+        // Every one of them bends knees and moves bones, so the clauses above cannot see any of
+        // them, and two of the three are only visible in a number nobody was printing.
+
+        const drivenFear = posturePlate( EMOTION_PRESETS.fear,
+            { postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES } } );
+
+        const stilts = posturePlate( EMOTION_PRESETS.fear, {
+            postureOptions: { kneeFullScaleDegrees: UNSOURCED_GATE_KNEE_DEGREES },
+            postureDefects: { kneeWithoutPelvisDrop: true }
+        } );
+
+        const ankleRise = ANKLE_BONES.map( ( name ) =>
+            stilts.bones.get( name ).y - neutralPlate.bones.get( name ).y );
+
+        check( '🚩 POSTURE  REJECTED: kneeWithoutPelvisDrop — the punch-list\'s own words, as a figure on stilts',
+            ankleRise.every( ( rise ) => rise * 1000 > PLANTED_TOLERANCE_MM * 100 )
+                && Math.abs( stilts.bones.get( HUMANOID_TO_FIGURE_BONE.hips ).y
+                    - neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.hips ).y ) === 0,
+            `both ankles LEAVE THE FLOOR, by ${ ankleRise.map( ( rise ) => ( rise * 1000 ).toFixed( 4 ) ).join( ' and ' ) } mm ` +
+            `= ${ ankleRise.map( ( rise ) => ( rise * 1000 * 1200 / 1825.4 ).toFixed( 2 ) ).join( ' and ' ) } px at the ` +
+            `repo's own 0.6574 px/mm, while the pelvis does not move at all. Shipped, the same bend plants ` +
+            `to ${ worstShiftAmong( ANKLE_BONES, neutralPlate, drivenFear ).toFixed( 6 ) } mm. This is the ` +
+            'sentence 6.2(a) was deferred on three times — "a knee bend that does not also lower the pelvis ' +
+            'is a figure on stilts" — measured instead of quoted, and it is exactly the drop the plan ' +
+            'computed, which is why the drop is not optional.' );
+
+        const absoluteFive = posturePlate( EMOTION_PRESETS.fear, {
+            postureOptions: { kneeFullScaleDegrees: 5 },
+            postureDefects: { kneeIgnoresRestFlexion: true }
+        } );
+
+        const additiveFive = posturePlate( EMOTION_PRESETS.fear, { postureOptions: { kneeFullScaleDegrees: 5 } } );
+
+        const pelvisY = ( plate ) => ( plate.bones.get( HUMANOID_TO_FIGURE_BONE.hips ).y
+            - neutralPlate.bones.get( HUMANOID_TO_FIGURE_BONE.hips ).y ) * 1000;
+
+        check( '🚩 POSTURE  REJECTED: kneeIgnoresRestFlexion — a small fear STRAIGHTENS the leg and lifts the pelvis',
+            absoluteFive.kneeFlexion.left < neutralPlate.kneeFlexion.left && pelvisY( absoluteFive ) > 0
+                && additiveFive.kneeFlexion.left > neutralPlate.kneeFlexion.left && pelvisY( additiveFive ) < 0,
+            `this rig STANDS with ${ neutralPlate.kneeFlexion.left.toFixed( 4 ) }° of knee flexion in it. Reading ` +
+            `the command as an ABSOLUTE joint angle takes the knee to ${ absoluteFive.kneeFlexion.left.toFixed( 3 ) }° ` +
+            `and RAISES the pelvis ${ pelvisY( absoluteFive ).toFixed( 4 ) } mm; adding it to what the pose carries ` +
+            `takes the knee to ${ additiveFive.kneeFlexion.left.toFixed( 3 ) }° and LOWERS it ` +
+            `${ Math.abs( pelvisY( additiveFive ) ).toFixed( 4 ) } mm. The sign of the thing inverted, on a channel whose ` +
+            'whole content is "bend". `PlannedLeg.restFlexionRadians` exists in the solver for this, and both ' +
+            'readings move bones by millimetres, so nothing above this line can tell them apart.' );
+
+        const invented = posturePlate( EMOTION_PRESETS.fear, { postureDefects: { inventedKneeFullScale: true } } );
+
+        check( '🚩 POSTURE  REJECTED: inventedKneeFullScale — an angle with no table behind it, in the most visible place',
+            invented.posture.kneeFullScaleDegrees > 0 && POSTURE_FULL_SCALE_DEGREES.kneeActivation === 0
+                && invented.kneeFlexion.left > neutralPlate.kneeFlexion.left + 1
+                && worstShiftAmong( LOWER_BODY_BONES, neutralPlate, invented ) > 1,
+            `the defect takes the full scale to ${ invented.posture.kneeFullScaleDegrees }° — "the same 20° the ` +
+            `trunk got" — and fear's knees bend to ${ invented.kneeFlexion.left.toFixed( 3 ) }°, its pelvis drops ` +
+            `${ ( -pelvisY( invented ) ).toFixed( 3 ) } mm and ` +
+            `${ worstShiftAmong( LOWER_BODY_BONES, neutralPlate, invented ).toFixed( 1 ) } mm of lower body moves. ` +
+            'It LOOKS like the channel working, every clause in this section about the mechanism stays green ' +
+            'on it, and the number cannot be produced by the rule the other three full scales are gated on: ' +
+            '`smallestListedMagnitude` throws for every knee-shaped column name because Coulson has none. ' +
+            'That is the entire difference between a derived amplitude and an invented one, and it is not ' +
+            'visible in the picture — only here.' );
+
+        // 🚩 THE FOURTH, AND IT IS THE LINE THIS FILE SHIPPED. `Breath.restRotationRelativeToRig`
+        // composes a bone's rest frame from whatever is on the bones RIGHT NOW, which is the rest
+        // pose only until a frame has been committed — and `onBind` runs again on every
+        // `MotionStack.reset()`, by which point the figure is standing in this layer's own pose.
+        {
+            const runResetCycle = ( defects ) => {
+
+                for ( const [ bone, position ] of restLocalPositions ) bone.position.copy( position );
+
+                postureSkeleton.reset();
+                relaxedStanding.applyTo( postureSkeleton );
+                postureSkeleton.update();
+                figure.root.updateMatrixWorld( true );
+
+                const cycledStack = new MotionStack( { seed: 1 } );
+                cycledStack.bind( createMotionTarget( figure.root ) );
+
+                const cycledExpression = new ExpressionLayer();
+                const cycledPosture = cycledExpression.postureLayer( { defects } );
+
+                cycledStack.add( cycledExpression );
+                cycledStack.add( cycledPosture );
+
+                const settle = () => {
+
+                    cycledExpression.state.push( EMOTION_PRESETS.anger );
+                    for ( let step = 0; step < 300; step ++ ) cycledExpression.state.update( 0.01 );
+                    cycledStack.update( 1 / 60 );
+                    figure.root.updateMatrixWorld( true );
+
+                    return {
+                        pose: BODY_BONES.map( ( name ) => boneAt( name ) ),
+                        frames: new Map( [ ...cycledPosture.restFrames ].map( ( [ name, frame ] ) => [ name, frame.clone() ] ) ),
+                        budget: { ...cycledPosture.maxAdductionRadians },
+                        applied: { ...cycledPosture.appliedDegrees }
+                    };
+
+                };
+
+                const before = settle();
+
+                cycledStack.reset();
+
+                const after = settle();
+
+                let worstPose = 0;
+                for ( let index = 0; index < before.pose.length; index ++ ) {
+
+                    worstPose = Math.max( worstPose, before.pose[ index ].distanceTo( after.pose[ index ] ) );
+
+                }
+
+                // ⚠️ COMPONENTWISE, NOT `angleTo`. Two bit-identical unit quaternions come back
+                // 3e-6° apart through `angleTo`, because it is `2·acos(|dot|)` and `acos` loses half
+                // its precision at 1 — so an angle cannot express "these are the same object".
+                // The component delta can, and the claim here is identity rather than closeness.
+                let worstFrame = 0;
+                let worstFrameAngle = 0;
+
+                for ( const [ name, frame ] of before.frames ) {
+
+                    const other = after.frames.get( name );
+
+                    worstFrame = Math.max( worstFrame, Math.abs( frame.x - other.x ), Math.abs( frame.y - other.y ),
+                        Math.abs( frame.z - other.z ), Math.abs( frame.w - other.w ) );
+
+                    worstFrameAngle = Math.max( worstFrameAngle, frame.angleTo( other ) );
+
+                }
+
+                cycledStack.dispose();
+
+                return {
+                    poseShiftMillimetres: worstPose * 1000,
+                    frameComponentDelta: worstFrame,
+                    frameDriftDegrees: worstFrameAngle * 180 / Math.PI,
+                    budgetDriftDegrees: Math.abs( before.budget.leftUpperArm - after.budget.leftUpperArm ) * 180 / Math.PI,
+                    appliedDriftDegrees: Math.abs( before.applied.armSpreadLeft - after.applied.armSpreadLeft )
+                };
+
+            };
+
+            const shippedCycle = runResetCycle( {} );
+            const liveFrameCycle = runResetCycle( { restFramesFromLivePose: true } );
+
+            check( '🚩 POSTURE  REJECTED: restFramesFromLivePose — the same anger lands somewhere else after a reset',
+                liveFrameCycle.poseShiftMillimetres > 1 && liveFrameCycle.frameComponentDelta > 0.01
+                    && shippedCycle.frameComponentDelta === 0
+                    && shippedCycle.poseShiftMillimetres < liveFrameCycle.poseShiftMillimetres / 1e5,
+                `with the frames read off the bones — the line this file shipped until 6.2(a) — one ` +
+                `\`MotionStack.reset()\` drifts them ${ liveFrameCycle.frameDriftDegrees.toFixed( 2 ) }° and lands ` +
+                `the SAME settled anger ${ liveFrameCycle.poseShiftMillimetres.toFixed( 2 ) } mm ` +
+                `(${ ( liveFrameCycle.poseShiftMillimetres * 1200 / 1825.4 ).toFixed( 1 ) } px) away from where it ` +
+                `landed first, over ${ BODY_BONES.length } bones in world space. Read from the stack's captured ` +
+                `rest instead and the frames are BIT-IDENTICAL — component delta ` +
+                `${ shippedCycle.frameComponentDelta.toFixed( 1 ) } — because the snapshot the deltas are measured ` +
+                `against is the same object whether a frame has run or not. The ` +
+                `${ shippedCycle.poseShiftMillimetres.toExponential( 1 ) } mm that remains is not the frames: it is ` +
+                `the ADDUCTION BUDGET's own arctangent residual (${ shippedCycle.budgetDriftDegrees.toExponential( 2 ) }° ` +
+                'here, and the clause above measures the same thing) coming back through the arm angle, which is ' +
+                'the same order as an arm length times that angle.' );
+
+            check( '🚩 POSTURE  …and the adduction-budget clause above stays GREEN through all of it',
+                liveFrameCycle.budgetDriftDegrees < 0.001 && liveFrameCycle.appliedDriftDegrees < 0.001,
+                `with the defect on, the budget drifts ${ liveFrameCycle.budgetDriftDegrees.toExponential( 2 ) }° and ` +
+                `the applied arm angle ${ liveFrameCycle.appliedDriftDegrees.toExponential( 2 ) }° — both inside the ` +
+                '0.001° the idempotence clause allows, so the gate written for "does a reset re-measure the same ' +
+                'budget?" passes while the figure moves 4.6 mm. A budget is not a pose, which is why this ' +
+                'clause measures BODY_BONES in world space instead.' );
+        }
     }
 }
 

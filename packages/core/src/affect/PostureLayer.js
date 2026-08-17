@@ -1,5 +1,5 @@
 /**
- * PostureLayer — the actuator for `ExpressionMap.body()`. Punch-list 6.2's affect half.
+ * PostureLayer — the actuator for `ExpressionMap.body()`. Punch-list 6.2's affect half, and 6.2(a).
  *
  * 🚩 WHY THIS FILE EXISTS, STATED AS THE DEFECT IT CLOSES.
  * `ExpressionMap.body()` has computed a BAP prescription on every frame since 5.4 landed, and
@@ -12,16 +12,16 @@
  *
  * WHAT IT DRIVES, AND WHAT IT DELIBERATELY DOES NOT
  * ------------------------------------------------
- * `body()` returns nine numbers. Three of them are postures and this layer owns them; the rest
+ * `body()` returns nine numbers. Four of them are postures and this layer owns them; the rest
  * belong to layers that do not exist yet, and naming their owners here is how it stays visible
  * that they were considered rather than forgotten:
  *
  *   approach        ✅ trunk carried forward or back, hinged at the lumbar
  *   armSpread       ✅ shoulder abduction / adduction
  *   headTiltUp      ✅ head pitch
- *   kneeActivation  ❌ a knee bend that does not also lower the pelvis is a figure standing on
- *                      stilts. Doing it right is a two-link solve plus a pelvis offset plus a foot
- *                      re-plant, which is punch-list 6.5's analytic two-bone IK. Left to 6.5.
+ *   kneeActivation  ⚠️ WIRED, AND ITS AMPLITUDE IS ZERO BECAUSE NO TABLE GIVES ONE. The mechanism
+ *                      is complete — planted two-bone solve, pelvis drop, both ankles left where
+ *                      they were — and the full scale is 0°. See THE KNEE, below.
  *   illustrative    ❌ a gesture RATE, not a pose. Punch-list 6.3, `motion/Gesture.js`.
  *   gestureAmplitude, temporalExtent   ❌ 6.4's two GRETA parameters.
  *   headAlignment, gazeAwayFraction*   ❌ gaze policy, `motion/Gaze.js`.
@@ -61,7 +61,8 @@
  * so there is no reading of that table that is self-consistent. This layer therefore takes
  * MAGNITUDE from Coulson and DIRECTION from BAP, and resolves left-versus-right by MEASURING
  * which side of the spine each arm is on at bind. A rig that mirrors, or a pose that crosses the
- * arms, gets the right answer without anyone editing a sign.
+ * arms, gets the right answer without anyone editing a sign. The knee's hinge and the direction
+ * its patella points are measured the same way, off the rest chain, for the same reason.
  *
  * ⚠️ ADDUCTION IS CLAMPED BY ANATOMY AND THE LIMIT IS MEASURED, NOT PICKED. On `figure_g050` in
  * `relaxed-standing` the upper arms already hang 10.18° (left) and 11.94° (right) from vertical,
@@ -71,18 +72,116 @@
  * the trunk instead.
  *
  *
+ * 🎯 THE KNEE — 6.2(a). THE MECHANISM SHIPS; THE AMPLITUDE IS ZERO AND SAYS WHY
+ * -----------------------------------------------------------------------------
+ * `kneeActivation` was deferred three times with one stated reason — *"a knee bend that does not
+ * also lower the pelvis is a figure on stilts; doing it right is 6.5's analytic two-bone solve
+ * plus a pelvis offset plus a foot re-plant"* — and 6.5 landed. `motion/IKSolver.js` exports
+ * exactly that, built as this item's deliverable: `planPlantedKneeBend()` takes a commanded
+ * flexion per leg and returns a root translation plus two corrections per leg, with both ankles
+ * left where they were. That reason is now closed and this layer drives it.
+ *
+ * 🚩 AND THE ITEM IS STILL NOT FINISHABLE, FOR A DIFFERENT REASON, WHICH IS WHY THE FULL SCALE IS
+ * ZERO RATHER THAN A NUMBER.
+ *
+ * The rule above needs a Coulson column. **Coulson Table 1 has six columns and none of them is a
+ * knee** — `COULSON_COLUMNS` is derived from the transcribed table below, so the gate re-runs that
+ * claim rather than trusting this sentence, and `smallestListedMagnitude( 'kneeBend' )` THROWS.
+ * `grep -in knee docs/research/body-motion-numbers.md` returns nothing; `docs/research/
+ * ik-and-springbones.md` §2.5 records the same gap independently and files it as research, not
+ * implementation. `BAP_PRESCRIPTIONS.fearful.kneeActivation` is 1.77/2.07 — a normalised factor
+ * loading, a RELATIVE weight with no full scale to weight.
+ *
+ * So the honest thing is a channel that is wired, gated, and set to zero pending a number:
+ *
+ *   • every bone the bend needs is DECLARED, so the stack owns it and a conflict would be named
+ *   • the chain, the hinge and the pole are MEASURED off the rest pose at bind
+ *   • the solve, the pelvis drop and the re-plant run the instant an amplitude exists
+ *   • `KNEE_FULL_SCALE_DEGREES` is 0, so on the shipped tree this contributes EXACTLY nothing —
+ *     not "nearly nothing": the write is skipped above the epsilon test and measured at 0.000000
+ *     mm of body displacement over 600 frames of live sway
+ *
+ * `kneeFullScaleDegrees` is the constructor option that supplies one anyway. It is not a tuning
+ * knob, it is a declaration that the caller is supplying an UNSOURCED angle, and every gate that
+ * uses it prints the angle it supplied. A made-up number in the most visible place on the figure
+ * is the one thing worse than a channel that does not move.
+ *
+ * ⚠️ THE COMMAND IS AN ADDITION TO WHAT THE POSE ALREADY CARRIES, AND THAT IS NOT PEDANTRY.
+ * `figure_g050` in `relaxed-standing` stands with 6.8176° of knee flexion already in it. Reading an
+ * affect command as an ABSOLUTE joint angle makes a small fear bend STRAIGHTEN the leg and lift the
+ * pelvis: at an unsourced 5° full scale the absolute reading takes the knee to 1.069° and RAISES the
+ * pelvis 1.3841 mm, where adding to the pose takes it to 7.889° and lowers it 0.4806 mm. That is the
+ * sign of the thing inverted on a channel whose whole content is "bend".
+ * `PlannedLeg.restFlexionRadians` exists in the solver for exactly this, and
+ * `kneeIgnoresRestFlexion` is the defect that proves it red.
+ *
+ * ⚠️ WHAT THE DROP COSTS WHERE IT MEETS `Sway`, MEASURED, BECAUSE `Sway` OWNS THE PELVIS.
+ * Two different answers, and only the first is good news:
+ *
+ *   THE PELVIS COMPOSES EXACTLY. `MotionContribution.offsetBone` states a translation from rest
+ *   and the stack SUMS offsets across layers (`Layer.js:261-263`), so this layer's drop and
+ *   `Sway`'s pendulum travel add with no interaction. Measured over 600 frames of live sway: the
+ *   pelvis sits the plan's full travel below where Sway alone put it — 2.340819 mm asked,
+ *   2.340819 mm delivered, and 0.08 nm sideways. Nothing had to be taken away from `Sway`, and
+ *   `Sway.js` was not edited.
+ *
+ *   THE FOOT PLANT DOES NOT. `Sway` also rotates both legs and pins both feet, using cumulative
+ *   rotations of its own that cannot see this layer's knee correction — and `MOTION_ORDER` puts
+ *   POSTURE (100) BEFORE SWAY (300), so `Sway`'s leg deltas post-multiply onto ours and act in a
+ *   frame our correction has already turned. `IKSolver.js`'s header states the obligation the
+ *   other way round: *"A layer must be the LAST writer of the bones it IKs… an IK layer therefore
+ *   belongs at GESTURE (400) or later."* Measured over 600 frames on `figure_g050`, worst ankle
+ *   displacement against the same run with the knee at the shipped scale:
+ *
+ *       the knee half AS SHIPPED (full scale 0°)                    0.000000 mm  bit-identical
+ *       fear at an unsourced 20°, at POSTURE (100), where this is   0.1392 mm
+ *       the same solve moved to GESTURE (400), after Sway           0.0646 mm    2.2× better
+ *       the same bend with no Sway underneath it at all             0.000104 mm
+ *
+ *   The first row is the shipped tree, so this is a measured PRECONDITION on sourcing the angle
+ *   rather than a defect in what runs today — and the last row says the residue is COMPOSITION and
+ *   not arithmetic. Whoever lands the number has to move the knee half to a layer at or after
+ *   GESTURE that re-reads the composed chain, or hand the commanded flexion to `Sway`, which
+ *   already owns the legs, the feet and the footprint clamp. Filed as a request; `Sway.js` is not
+ *   this file's to edit.
+ *
+ *
+ * 🚩 REST FRAMES ARE READ FROM THE POSE THE DELTAS ARE MEASURED AGAINST, NOT FROM THE BONES
+ * -----------------------------------------------------------------------------------------
+ * `MotionStack` commits `bone.quaternion = restQuaternion × δ₁ × δ₂ × …`, where `restQuaternion`
+ * was snapshotted at `bind()`. A delta that means "rotate by θ about rig +X" is therefore
+ * `restFrame⁻¹ · R · restFrame` with `restFrame` composed from THAT snapshot — and
+ * `Breath.restRotationRelativeToRig()` composes it from whatever is on the bones right now, which
+ * is the same thing only until a frame has run.
+ *
+ * `onBind` runs again on `MotionStack.reset()` and on a re-add, by which point the bones hold the
+ * pose this layer committed. Measured, with the live read: the rest frames drift **18.54°** and the
+ * SAME anger lands **4.60 mm** away from where it landed the first time. The adduction-budget
+ * check in the gate stayed green through all of it, because a budget is not a pose.
+ *
+ * So the frames here are composed from `stack.restRotationOf()` where a bone is declared, and from
+ * the bone's own local transform where it is not — and that fallback is exactly right rather than
+ * a compromise: an undeclared bone is one no layer writes, so its live local transform IS its rest.
+ * It is also immune to the stale-world-matrix trap below, because it reads local transforms and
+ * never a `matrixWorld`. `restFramesFromLivePose` is the defect that proves the difference.
+ *
+ *
  * WHY IT SITS AT MOTION_ORDER.POSTURE
  * -----------------------------------
  * "The pose everything else is a deviation from." Breath, sway, idle, gaze and gesture are all
  * deviations from the stance a person is holding, and an emotional stance is a stance. Running
  * first also means the head channel composes UNDER gaze rather than over it, so the eyes still
- * aim where the gaze layer asked from whatever attitude the posture put the head in.
+ * aim where the gaze layer asked from whatever attitude the posture put the head in. The knee is
+ * the one channel that wants the opposite, and the measurement above is what that costs.
  */
 
-import { Quaternion, Vector3 } from 'three';
+import { Matrix4, Quaternion, Vector3 } from 'three';
 
 import { HUMANOID_TO_FIGURE_BONE } from '../figure/Skeleton.js';
 import { restRotationRelativeToRig, toBoneDeltaFrame } from '../motion/Breath.js';
+import {
+    PlantedKneeBendPlan, TwoBoneSetup, flexionAtChainLength, planPlantedKneeBend, toBoneOffsetFrame
+} from '../motion/IKSolver.js';
 import { Layer } from '../motion/Layer.js';
 import { MOTION_ORDER } from '../motion/MotionStack.js';
 import { AffectState } from './AffectState.js';
@@ -99,9 +198,17 @@ const DEGREES_TO_RADIANS = Math.PI / 180;
  *   +θ about +X carries +Y toward +Z, so a positive sagittal angle tips the top FORWARD.
  *   +θ about +Z carries −Y toward +X, so a positive frontal angle swings a hanging limb toward +X.
  * Both are asserted by measurement in `affect.selftest.mjs`, because a comment cannot fail.
+ *
+ * `RIG_DOWN_AXIS` is the direction the pelvis travels when the knees bend, and it is a UNIT
+ * TRANSLATION rather than a rotation axis — `planPlantedKneeBend` intersects it with the sphere
+ * each planted ankle allows. Down is −Y for the same measured reason up is +Y.
  */
 const RIG_SAGITTAL_AXIS = new Vector3( 1, 0, 0 );
 const RIG_FRONTAL_AXIS = new Vector3( 0, 0, 1 );
+const RIG_DOWN_AXIS = new Vector3( 0, -1, 0 );
+
+/** Rig +Z, kept apart from `RIG_FRONTAL_AXIS` because one is a direction and one is an axis. */
+const RIG_FORWARD_DIRECTION = new Vector3( 0, 0, 1 );
 
 /**
  * Coulson (2004) Table 1, transcribed from `docs/research/body-motion-numbers.md` §3. Degrees, and
@@ -121,12 +228,27 @@ export const COULSON_TABLE_1 = Object.freeze( {
 } );
 
 /**
+ * 🚩 EVERY DEGREE OF FREEDOM COULSON MEASURED, READ OFF THE TABLE RATHER THAN COUNTED BY HAND.
+ *
+ * This exists so that "there is no knee column" is a statement the gate re-derives from the data
+ * in this file, in this process, instead of a claim in a comment that a later edit could falsify
+ * silently. Six columns: abdomen twist, chest bend, head bend, shoulder ad/abduction, shoulder
+ * swing, elbow bend. None of them is a knee, and that is the whole reason `kneeActivation` ships
+ * with a full scale of zero.
+ */
+export const COULSON_COLUMNS = Object.freeze( Object.keys( COULSON_TABLE_1.anger ) );
+
+/**
  * Which Coulson column codes which BAP channel. One line, so the mapping is a statement rather
  * than something spread across the file.
  *
  *   approach   -> chest bend. The trunk carried forward or back of neutral.
  *   armSpread  -> shoulder ad/abduction. The arm's angle away from the trunk.
  *   headTiltUp -> head bend. The head's pitch.
+ *
+ * ⚠️ `kneeActivation` is deliberately ABSENT rather than mapped to something adjacent. There is no
+ * defensible column for it and the nearest ones code the trunk, so a mapping here would be an
+ * invention wearing the derivation's clothes.
  */
 export const CHANNEL_TO_COULSON_COLUMN = Object.freeze( {
     approach: 'chestBend',
@@ -134,13 +256,59 @@ export const CHANNEL_TO_COULSON_COLUMN = Object.freeze( {
     headTiltUp: 'headBend'
 } );
 
+/**
+ * 🚩 THE UNSOURCED AMPLITUDE, WRITTEN AS ZERO AND NAMED AS A GAP.
+ *
+ * Not "a small value to be safe" and not "disabled": zero is the only number that is honest here.
+ * The derivation rule this file is gated on needs a Coulson column and there is none (see
+ * `COULSON_COLUMNS`), BAP gives a loading rather than a scale, and no other source in this
+ * repository's record states a knee angle for an emotion. Every other route considered and
+ * rejected, so nobody re-walks them:
+ *
+ *   • Wallbott (1998) — three movement-QUALITY scales rated 1–3 (`body-motion-numbers.md` §4). A
+ *     gain on amplitude, and no amplitude to gain.
+ *   • the visibility band in `IKSolver.js` — 1.57° to 17.2° of added flexion is where a MISSING
+ *     PELVIS DROP starts to show. That is a threshold on this file's own error, not a statement
+ *     about how far a frightened person bends their knees, and using it would be circular.
+ *   • Coulson's stimulus set itself — six degrees of freedom, legs straight in all of them.
+ *
+ * The consequence, stated plainly: on the shipped tree `fear` prescribes its LARGEST loading into
+ * a channel that moves nothing. That is visible in `describe()` and in the gate, and it stays
+ * visible until somebody sources an angle.
+ */
+export const KNEE_FULL_SCALE_DEGREES = 0;
+
+/**
+ * 🚩 Defect fodder: the number somebody reaches for when the table has no column — "use the same
+ * 20° the trunk got". It is the shape of the mistake this file exists to refuse, so it is named
+ * and gated rather than left as a thing a future edit might do quietly. See POSTURE_DEFECTS.
+ */
+const INVENTED_KNEE_FULL_SCALE_DEGREES = 20;
+
 /** The derived full scales. See the header for the rule; `smallestListedMagnitude` IS the rule. */
-export const POSTURE_FULL_SCALE_DEGREES = Object.freeze(
-    Object.fromEntries( Object.entries( CHANNEL_TO_COULSON_COLUMN )
-        .map( ( [ channel, column ] ) => [ channel, smallestListedMagnitude( column ) ] ) ) );
+export const POSTURE_FULL_SCALE_DEGREES = Object.freeze( {
+
+    ...Object.fromEntries( Object.entries( CHANNEL_TO_COULSON_COLUMN )
+        .map( ( [ channel, column ] ) => [ channel, smallestListedMagnitude( column ) ] ) ),
+
+    // Not derived, because the rule cannot reach it. Carried here anyway so that the set of
+    // channels this layer ACTUATES is one object rather than three plus a special case.
+    kneeActivation: KNEE_FULL_SCALE_DEGREES
+
+} );
 
 /** Below this an angle is not worth a quaternion, and the layer stays out of the conflict report. */
 const POSTURE_EPSILON_RADIANS = 1e-6;
+
+/**
+ * The two legs, as the three joints a two-bone solve needs. The ankle is READ and never written —
+ * it is the chain's end point and the thing the plan holds still — so it is deliberately not in
+ * `bones` and therefore not a declared channel. Same shape as the arm code's elbow read.
+ */
+const KNEE_LEGS = Object.freeze( [
+    Object.freeze( { key: 'left', hip: 'leftUpperLeg', knee: 'leftLowerLeg', ankle: 'leftFoot' } ),
+    Object.freeze( { key: 'right', hip: 'rightUpperLeg', knee: 'rightLowerLeg', ankle: 'rightFoot' } )
+] );
 
 export class PostureLayer extends Layer {
 
@@ -151,6 +319,11 @@ export class PostureLayer extends Layer {
      * @param {ExpressionMap} [options.map] - Likewise.
      * @param {number} [options.amplitude=1] - One art-direction multiplier over every channel. The
      *   per-channel degrees stay readable as the statement of intent they are.
+     * @param {number} [options.kneeFullScaleDegrees=KNEE_FULL_SCALE_DEGREES] - ⚠️ AN UNSOURCED
+     *   ANGLE. The shipped value is 0 and it is 0 because no published table in this repository's
+     *   record states a knee angle for an emotion — see `KNEE_FULL_SCALE_DEGREES`. Passing a number
+     *   here is supplying one anyway, and whoever passes it owns it: say where it came from at the
+     *   call site, because this file cannot.
      * @param {Object} [options.bones] - Overrides for the humanoid names this drives.
      * @param {Object} [options.defects] - 🚩 Gate fodder only. See POSTURE_DEFECTS.
      */
@@ -161,6 +334,16 @@ export class PostureLayer extends Layer {
             head: HUMANOID_TO_FIGURE_BONE.head,
             leftUpperArm: HUMANOID_TO_FIGURE_BONE.leftUpperArm,
             rightUpperArm: HUMANOID_TO_FIGURE_BONE.rightUpperArm,
+
+            // The knee half. Declared even at a full scale of zero: declaration is how the stack
+            // takes ownership and how it would name a conflict with `Sway`, and a channel that
+            // appears only once an amplitude is supplied is a channel nobody has ever tested.
+            hips: HUMANOID_TO_FIGURE_BONE.hips,
+            leftUpperLeg: HUMANOID_TO_FIGURE_BONE.leftUpperLeg,
+            leftLowerLeg: HUMANOID_TO_FIGURE_BONE.leftLowerLeg,
+            rightUpperLeg: HUMANOID_TO_FIGURE_BONE.rightUpperLeg,
+            rightLowerLeg: HUMANOID_TO_FIGURE_BONE.rightLowerLeg,
+
             ...( options.bones ?? {} )
         };
 
@@ -180,6 +363,13 @@ export class PostureLayer extends Layer {
 
         this.defects = { ...POSTURE_DEFECTS_OFF, ...( options.defects ?? {} ) };
 
+        // Read out of `POSTURE_FULL_SCALE_DEGREES` rather than off `KNEE_FULL_SCALE_DEGREES`
+        // directly, so that one object is the whole statement of what every actuated channel is
+        // scaled by and `update()` has no channel that gets its scale from somewhere else.
+        this.kneeFullScaleDegrees = this.defects.inventedKneeFullScale === true
+            ? INVENTED_KNEE_FULL_SCALE_DEGREES
+            : options.kneeFullScaleDegrees ?? POSTURE_FULL_SCALE_DEGREES.kneeActivation;
+
         /**
          * ⚠️ This layer never advances the affect state. `ExpressionLayer` does, and two clocks over
          * one state doubles its rate — the defect that layer's own header warns about. It also
@@ -194,15 +384,52 @@ export class PostureLayer extends Layer {
          * Last frame's angles in degrees, for a HUD and for the gates. `armSpread` is what the
          * prescription ASKED for and the two per-side numbers are what anatomy allowed, kept apart
          * so a reader can see the adduction clamp bite instead of wondering why the arms stopped.
+         * The knee reports the same way: what was ADDED, what each leg realised, and how far the
+         * pelvis had to come down to keep both feet on the floor.
+         *
+         * ⚠️ `kneeLeft`/`kneeRight` are ABSOLUTE joint angles when the layer wrote a bend, and 0 when
+         * it wrote nothing — 0 means "this layer contributed no knee", not "the leg is straight".
+         * The rig stands at 6.8176° with nothing written at all, which is exactly the confusion
+         * `kneeIgnoresRestFlexion` is built out of.
          */
-        this.appliedDegrees = {
-            approach: 0, armSpread: 0, armSpreadLeft: 0, armSpreadRight: 0, headTiltUp: 0
-        };
+        this.appliedDegrees = { ...NOTHING_APPLIED };
 
-        /** Filled in by `onBind`. Rest frames, plus the two things that must be measured per rig. */
+        /** Filled in by `onBind`. Rest frames, plus the things that must be measured per rig. */
         this.restFrames = new Map();
         this.armSides = { leftUpperArm: 1, rightUpperArm: -1 };
         this.maxAdductionRadians = { leftUpperArm: 0, rightUpperArm: 0 };
+
+        /**
+         * The two leg chains as they stand in the REST pose, in the order of `KNEE_LEGS`, plus the
+         * flexion each one already carries. Empty when this figure has no legs, or when its rest
+         * pose is too straight to read a hinge off — see `bindKneeChains`.
+         *
+         * @type {Array<{ setup: TwoBoneSetup, flexionRadians: number, restFlexionRadians: number }>}
+         */
+        this.kneeLegs = [];
+        this.kneeRequest = { legs: this.kneeLegs, travelAxis: RIG_DOWN_AXIS };
+        this.kneePlan = new PlantedKneeBendPlan();
+
+        /**
+         * How well determined the knee hinge was, as `|sin(flexion)|` of the rest pose. 0 means the
+         * rest pose is straight, the axis is numerical noise, and the knee half refuses to run.
+         * Measured 0.1187 on `figure_g050` in `relaxed-standing` — the sine of its 6.8176°.
+         */
+        this.kneeHingeDetermination = 0;
+
+        /** How far the measured knee pole sits off rig-forward, degrees. Reported, never assumed. */
+        this.kneePoleOffForwardDegrees = 0;
+
+        /**
+         * `|t̂ × p̂|` for the worst leg: 1 is a pole square to the hip→ankle axis, 0 is the
+         * singularity where the chain plane has no normal and the knee's direction is set by
+         * whatever noise the rest pose carries. ozz defaults the pole to +Y and a standing leg's
+         * axis IS −Y, which is why this is measured and gated rather than assumed.
+         */
+        this.kneePoleConditioning = 0;
+
+        /** The pelvis's parent frame, for `toBoneOffsetFrame`. On this rig `Root`, −90° about X. */
+        this.pelvisParentRestFrame = new Quaternion();
 
         /**
          * What this layer put on each arm last frame, signed, positive for abduction. Read by
@@ -215,31 +442,45 @@ export class PostureLayer extends Layer {
         this.scratchShoulder = new Vector3();
         this.scratchElbow = new Vector3();
         this.scratchSpine = new Vector3();
+        this.scratchPelvisOffset = new Vector3();
 
     }
 
     /**
-     * Resolves rest frames, and measures the two rig facts the model refuses to assume: which side
-     * of the spine each arm is on, and how much adduction that arm has before it is inside the
-     * ribcage.
+     * Resolves rest frames, and measures the rig facts the model refuses to assume: which side of
+     * the spine each arm is on, how much adduction that arm has before it is inside the ribcage,
+     * and — for each leg — the two-bone chain, the hinge the knee turns about and the direction its
+     * patella points.
      */
     onBind( context ) {
 
-        const target = context.stack.target;
+        const stack = context.stack;
+        const target = stack.target;
 
         this.restFrames.clear();
 
         for ( const boneName of Object.values( this.bones ) ) {
 
             const bone = target.getBone( boneName );
-            if ( bone === null || bone === undefined ) continue;
+            if ( isMissing( bone ) === true ) continue;
 
-            this.restFrames.set( boneName, restRotationRelativeToRig( bone ) );
+            this.restFrames.set( boneName, this.measureRestFrame( bone, stack ) );
 
         }
 
+        this.bindArmBudget( target );
+        this.bindKneeChains( target, stack );
+
+    }
+
+    /**
+     * The arm's adduction budget: which way is "away from the midline", and how far each humerus
+     * can travel toward the trunk before it is where the ribs are.
+     */
+    bindArmBudget( target ) {
+
         const spine = target.getBone( this.bones.spine );
-        if ( spine === null || spine === undefined ) return;
+        if ( isMissing( spine ) === true ) return;
 
         // 🚩 REFRESH BEFORE READING, and this line is a bug fix rather than defensiveness. `onBind`
         // runs when the layer joins the stack, which is normally the instant after a rest pose was
@@ -257,7 +498,7 @@ export class PostureLayer extends Layer {
             const elbow = target.getBone( HUMANOID_TO_FIGURE_BONE[
                 humanoid === 'leftUpperArm' ? 'leftLowerArm' : 'rightLowerArm' ] );
 
-            if ( shoulder === null || shoulder === undefined || elbow === null || elbow === undefined ) continue;
+            if ( isMissing( shoulder ) === true || isMissing( elbow ) === true ) continue;
 
             elbow.updateWorldMatrix( true, false );
             this.scratchShoulder.setFromMatrixPosition( shoulder.matrixWorld );
@@ -289,19 +530,135 @@ export class PostureLayer extends Layer {
 
     }
 
+    /**
+     * 🎯 The knee half's whole bind: both leg chains, read out of the REST pose rather than off the
+     * bones, with the hinge and the pole MEASURED from the bend the rest pose is already in.
+     *
+     * Reading rest rather than live is what makes this idempotent — `onBind` runs again after
+     * frames have committed, and a chain read off a figure already holding a knee bend would plan
+     * the next bend from the wrong place. It is also what makes it immune to the stale-world-matrix
+     * trap the arm budget has to defend against by hand: nothing here touches a `matrixWorld`.
+     *
+     * ⚠️ TWO WAYS THIS LEGITIMATELY REFUSES, both of which leave the knee channel dead rather than
+     * wrong. A figure with no legs — the rig variants are not all complete — and a rig authored
+     * with the legs dead straight, where `readMidAxisFromPose` returns a determination of 0 and the
+     * hinge it just wrote is numerical noise. `IKSolver.js` says to check that number rather than
+     * assume it, so it is checked and reported.
+     */
+    bindKneeChains( target, stack ) {
+
+        this.kneeLegs.length = 0;
+        this.kneeHingeDetermination = 0;
+        this.kneePoleOffForwardDegrees = 0;
+        this.kneePoleConditioning = 0;
+
+        const pelvis = target.getBone( this.bones.hips );
+        if ( isMissing( pelvis ) === true || isMissing( pelvis.parent ) === true ) return;
+
+        restRotationInRigSpace( pelvis.parent, stack, this.pelvisParentRestFrame );
+
+        let worstDetermination = Infinity;
+        let worstPoleOffForward = 0;
+        let worstPoleConditioning = Infinity;
+
+        for ( const leg of KNEE_LEGS ) {
+
+            const hip = target.getBone( this.bones[ leg.hip ] );
+            const knee = target.getBone( this.bones[ leg.knee ] );
+            const ankle = target.getBone( HUMANOID_TO_FIGURE_BONE[ leg.ankle ] );
+
+            if ( isMissing( hip ) === true || isMissing( knee ) === true || isMissing( ankle ) === true ) {
+
+                this.kneeLegs.length = 0;
+                return;
+
+            }
+
+            const chain = this.readLegMatrices( hip, knee, ankle, stack );
+            const setup = new TwoBoneSetup().readChain( chain.hip, chain.knee, chain.ankle );
+
+            worstDetermination = Math.min( worstDetermination, setup.readMidAxisFromPose() );
+
+            // 🚩 `ozzDefaultKneePole` keeps ozz's own default instead of measuring, which is the
+            // fifth degenerate case in `IKSolver.js`'s header rather than a taste difference.
+            if ( this.defects.ozzDefaultKneePole === true ) {
+
+                setup.poleVector.set( 0, 1, 0 );
+                worstPoleOffForward = Math.max( worstPoleOffForward,
+                    setup.poleVector.angleTo( RIG_FORWARD_DIRECTION ) / DEGREES_TO_RADIANS );
+
+            } else {
+
+                worstPoleOffForward = Math.max( worstPoleOffForward, measureKneePole( setup ) );
+
+            }
+
+            worstPoleConditioning = Math.min( worstPoleConditioning, measurePoleConditioning( setup ) );
+
+            const upperLength = setup.startPosition.distanceTo( setup.midPosition );
+            const lowerLength = setup.midPosition.distanceTo( setup.endPosition );
+            const restDistance = setup.startPosition.distanceTo( setup.endPosition );
+
+            this.kneeLegs.push( {
+                setup,
+                flexionRadians: 0,
+                restFlexionRadians: flexionAtChainLength( upperLength, lowerLength, restDistance )
+            } );
+
+        }
+
+        this.kneeHingeDetermination = worstDetermination === Infinity ? 0 : worstDetermination;
+        this.kneePoleOffForwardDegrees = worstPoleOffForward;
+        this.kneePoleConditioning = worstPoleConditioning === Infinity ? 0 : worstPoleConditioning;
+
+        // A rest pose with no measurable bend has no hinge to turn about, and a hinge read from
+        // noise rotates the whole chain plane, which snaps the knee sideways. Refuse, visibly.
+        if ( this.kneeHingeDetermination <= 0 ) this.kneeLegs.length = 0;
+
+    }
+
+    /**
+     * The three matrices one leg's chain is read from.
+     *
+     * 🚩 `kneeChainFromLivePose` is the other way to write this and it is wrong twice over: after a
+     * frame has committed, `matrixWorld` holds this layer's OWN knee bend, so a re-bind plans the
+     * next bend from a figure already bent; and before any world matrix has been recomputed — which
+     * is how `alive.js` binds — it holds the GLB's bind pose rather than the rest pose that was just
+     * written into the local quaternions. The rest read has neither problem because it composes
+     * local transforms out of the stack's snapshot and never reads a world matrix at all.
+     */
+    readLegMatrices( hip, knee, ankle, stack ) {
+
+        if ( this.defects.kneeChainFromLivePose === true ) {
+
+            for ( const bone of [ hip, knee, ankle ] ) bone.updateWorldMatrix( true, false );
+
+            return { hip: hip.matrixWorld, knee: knee.matrixWorld, ankle: ankle.matrixWorld };
+
+        }
+
+        return {
+            hip: restWorldMatrixOf( hip, stack, scratchHipMatrix ),
+            knee: restWorldMatrixOf( knee, stack, scratchKneeMatrix ),
+            ankle: restWorldMatrixOf( ankle, stack, scratchAnkleMatrix )
+        };
+
+    }
+
     reset() {
 
         this.prescription = null;
         this.activations = [];
-        this.appliedDegrees = {
-            approach: 0, armSpread: 0, armSpreadLeft: 0, armSpreadRight: 0, headTiltUp: 0
-        };
+        this.appliedDegrees = { ...NOTHING_APPLIED };
 
         // 🚩 `appliedArmRadians` IS DELIBERATELY NOT CLEARED HERE. It is not layer state; it is a
         // record of what is on the BONES at this instant, and `MotionStack.reset()` calls
         // `layer.reset()` and then `layer.onBind()` WITHOUT re-committing — so the figure is still
         // standing in the last pose this layer wrote. Zeroing it here would make `onBind`
         // re-measure a settled anger's adduction budget as zero and pin the arms for good.
+        //
+        // The knee needs no such record: its chain is read from the stack's rest pose, which is
+        // the same pose whether a frame has run or not.
 
     }
 
@@ -326,6 +683,12 @@ export class PostureLayer extends Layer {
 
         const armSpread = POSTURE_FULL_SCALE_DEGREES.armSpread * DEGREES_TO_RADIANS
             * this.prescription.armSpread * drive;
+
+        // ⚠️ ZERO ON THE SHIPPED TREE, AND ZERO EXACTLY. `kneeFullScaleDegrees` is 0 because no
+        // table gives one, so this product is 0 whatever fear prescribes and `writeKneeBend`
+        // returns before it plans anything. See KNEE_FULL_SCALE_DEGREES.
+        const kneeFlexion = this.kneeFullScaleDegrees * DEGREES_TO_RADIANS
+            * this.prescription.kneeActivation * drive;
 
         let wrote = false;
 
@@ -355,15 +718,86 @@ export class PostureLayer extends Layer {
 
         }
 
-        this.appliedDegrees = {
-            approach: approach / DEGREES_TO_RADIANS,
-            armSpread: armSpread / DEGREES_TO_RADIANS,
-            armSpreadLeft: limited.leftUpperArm / DEGREES_TO_RADIANS,
-            armSpreadRight: limited.rightUpperArm / DEGREES_TO_RADIANS,
-            headTiltUp: headTiltUp / DEGREES_TO_RADIANS
-        };
+        if ( this.writeKneeBend( kneeFlexion ) ) wrote = true;
+
+        this.appliedDegrees.approach = approach / DEGREES_TO_RADIANS;
+        this.appliedDegrees.armSpread = armSpread / DEGREES_TO_RADIANS;
+        this.appliedDegrees.armSpreadLeft = limited.leftUpperArm / DEGREES_TO_RADIANS;
+        this.appliedDegrees.armSpreadRight = limited.rightUpperArm / DEGREES_TO_RADIANS;
+        this.appliedDegrees.headTiltUp = headTiltUp / DEGREES_TO_RADIANS;
 
         return wrote ? this.contribution : null;
+
+    }
+
+    /**
+     * 🎯 6.2(a), as five lines of writing and one call to the solver.
+     *
+     * The command is ADDED to what the rest pose already carries, per leg, because a joint angle is
+     * measured from a straight limb and this rig stands with 6.8176° of knee in it. The plan then
+     * decides how far the pelvis must come down for the DEEPEST leg's ankle to stay put, drops it,
+     * and solves both legs against the ankles it started with — so the other leg bends further than
+     * commanded rather than lifting its foot. That asymmetry is the geometry being honest and
+     * `PlannedLeg.solution.flexionRadians` reports it.
+     *
+     * @param {number} addedRadians - Flexion to add to each leg's rest flexion. 0 writes nothing.
+     * @returns {boolean} Whether anything was written.
+     */
+    writeKneeBend( addedRadians ) {
+
+        this.appliedDegrees.kneeAdded = 0;
+        this.appliedDegrees.kneeLeft = 0;
+        this.appliedDegrees.kneeRight = 0;
+        this.appliedDegrees.pelvisDropMillimetres = 0;
+
+        if ( this.kneeLegs.length === 0 ) return false;
+        if ( Math.abs( addedRadians ) <= POSTURE_EPSILON_RADIANS ) return false;
+
+        for ( const leg of this.kneeLegs ) {
+
+            // 🚩 `kneeIgnoresRestFlexion` reads the command as an ABSOLUTE joint angle, which is the
+            // obvious thing to write and inverts the sign for every command below the rest flexion.
+            const wanted = this.defects.kneeIgnoresRestFlexion === true
+                ? addedRadians
+                : leg.restFlexionRadians + addedRadians;
+
+            // A leg cannot extend past straight. The solver clamps its own cosines, but clamping
+            // here keeps `PlannedLeg.commandedFlexionRadians` honest about what was asked for.
+            leg.flexionRadians = Math.max( wanted, 0 );
+
+        }
+
+        planPlantedKneeBend( this.kneeRequest, this.kneePlan );
+
+        // 🚩 `kneeWithoutPelvisDrop` is the punch-list's own words as a defect: the knees bend, the
+        // pelvis stays, and the figure stands on stilts with both ankles in the air.
+        if ( this.defects.kneeWithoutPelvisDrop !== true ) {
+
+            toBoneOffsetFrame( this.kneePlan.rootOffset, this.pelvisParentRestFrame, this.scratchPelvisOffset );
+
+            this.contribution.offsetBone( this.bones.hips,
+                this.scratchPelvisOffset.x, this.scratchPelvisOffset.y, this.scratchPelvisOffset.z );
+
+        }
+
+        for ( let index = 0; index < KNEE_LEGS.length; index ++ ) {
+
+            const solution = this.kneePlan.legs[ index ].solution;
+
+            // Both corrections are already LOCAL post-multiply rotations — that is ozz's output
+            // contract and it is exactly a `MotionStack` delta, so there is no conversion here and
+            // there must not be one. `IKSolver.selftest.mjs` §5.2 proves the alternative red.
+            this.contribution.rotateBone( this.bones[ KNEE_LEGS[ index ].hip ], solution.startCorrection );
+            this.contribution.rotateBone( this.bones[ KNEE_LEGS[ index ].knee ], solution.midCorrection );
+
+        }
+
+        this.appliedDegrees.kneeAdded = addedRadians / DEGREES_TO_RADIANS;
+        this.appliedDegrees.kneeLeft = this.kneePlan.legs[ 0 ].solution.flexionRadians / DEGREES_TO_RADIANS;
+        this.appliedDegrees.kneeRight = this.kneePlan.legs[ 1 ].solution.flexionRadians / DEGREES_TO_RADIANS;
+        this.appliedDegrees.pelvisDropMillimetres = this.kneePlan.travelDistance * 1000;
+
+        return true;
 
     }
 
@@ -376,11 +810,48 @@ export class PostureLayer extends Layer {
 
         return `approach ${ signedDegrees( approach ) }   ·   arms ${ signedDegrees( armSpreadLeft ) }/` +
             `${ signedDegrees( armSpreadRight ) }${ clamped ? ` (asked ${ signedDegrees( armSpread ) })` : '' }` +
-            `   ·   head ${ signedDegrees( headTiltUp ) }`;
+            `   ·   head ${ signedDegrees( headTiltUp ) }   ·   ${ this.describeKnee() }`;
+
+    }
+
+    /**
+     * The knee's own segment, and it says which of the two zeros it is looking at. A HUD that
+     * printed `knees +0.0°` while fear prescribes its LARGEST loading would be hiding the gap this
+     * channel ships with, so an unsourced scale prints the loading and the word.
+     */
+    describeKnee() {
+
+        const asked = this.prescription === null ? 0 : this.prescription.kneeActivation;
+
+        if ( this.kneeLegs.length === 0 ) return 'knees n/a (no chain)';
+
+        if ( this.kneeFullScaleDegrees === 0 ) {
+
+            return asked === 0 ? 'knees +0.0°' : `knees UNSOURCED (asks ${ asked.toFixed( 3 ) })`;
+
+        }
+
+        return `knees ${ signedDegrees( this.appliedDegrees.kneeLeft ) }/` +
+            `${ signedDegrees( this.appliedDegrees.kneeRight ) } ` +
+            `(pelvis ${ this.appliedDegrees.pelvisDropMillimetres.toFixed( 1 ) } mm)`;
 
     }
 
     // --- helpers -----------------------------------------------------------------------------
+
+    /**
+     * A bone's rest rotation relative to the rig, taken from the pose the stack's deltas are
+     * measured against. See the header: the live read drifts 18.54° across a `reset()`.
+     */
+    measureRestFrame( bone, stack ) {
+
+        // 🚩 The defect IS the line this file used to ship: compose the frame out of whatever is on
+        // the bones right now, which is the rest pose only until a frame has been committed.
+        if ( this.defects.restFramesFromLivePose === true ) return restRotationRelativeToRig( bone );
+
+        return restRotationInRigSpace( bone, stack, new Quaternion() );
+
+    }
 
     writeSagittal( boneName, radians ) {
 
@@ -416,27 +887,62 @@ export class PostureLayer extends Layer {
  * rather than against an argument. LEARNINGS §1.25a: a gate proved only against the known-bad its
  * author had in mind is decorative, so each of these attacks the same class from a different
  * direction and every one of them still MOVES BONES — a gate that counted moved bones, which is
- * the obvious gate to write for the defect this file closes, says all three are fine.
+ * the obvious gate to write for the defect this file closes, says all of them are fine.
  *
- *     ignoreIntensity     the prescription's shape applied at full commitment, so WASABI's
- *                         "reluctant" fear (base 0.25) stands like a saturated anger.
- *     unclampedAdduction  "arms drawn in" driven past the measured anatomical limit, so the
- *                         humerus travels through the ribcage. This one SHIPPED for an hour: the
- *                         limit was measured off stale world matrices and read 30°+ instead of
- *                         10.18°, which is the same failure with none of the code changed.
+ *     ignoreIntensity        the prescription's shape applied at full commitment, so WASABI's
+ *                            "reluctant" fear (base 0.25) stands like a saturated anger.
+ *     unclampedAdduction     "arms drawn in" driven past the measured anatomical limit, so the
+ *                            humerus travels through the ribcage. This one SHIPPED for an hour: the
+ *                            limit was measured off stale world matrices and read 30°+ instead of
+ *                            10.18°, which is the same failure with none of the code changed.
+ *     restFramesFromLivePose the rest frames composed from the bones instead of from the stack's
+ *                            snapshot — the line this file shipped until 6.2(a). Costs 18.54° of
+ *                            frame drift and 4.60 mm of pose after one `MotionStack.reset()`.
+ *     inventedKneeFullScale  a knee amplitude with no table behind it, wearing the derivation's
+ *                            clothes. 20°, because that is the number to hand from `approach`.
+ *     kneeWithoutPelvisDrop  the punch-list item's own words: a knee bend that does not lower the
+ *                            pelvis, so the figure stands on stilts with both feet off the floor.
+ *     kneeIgnoresRestFlexion the command read as an ABSOLUTE joint angle, so every command below
+ *                            this rig's own 6.8176° of standing flexion STRAIGHTENS the leg.
+ *     kneeChainFromLivePose  the chain read off `matrixWorld` instead of the stack's rest snapshot,
+ *                            so a re-bind plans the next bend from the bend already on the figure.
+ *     ozzDefaultKneePole     ozz's +Y pole kept rather than measured. A standing leg's hip→ankle
+ *                            axis is −Y, so the chain plane's normal is 2% of unit length and the
+ *                            knee's direction is decided by the rest pose's noise.
  *
- * The third member of the class is `ExpressionMap.DEFECTS.bapDenominatorSkipsUnlisted`, because it
- * is a mapping error rather than an actuation one.
+ * The remaining member of the class is `ExpressionMap.DEFECTS.bapDenominatorSkipsUnlisted`, because
+ * it is a mapping error rather than an actuation one.
  */
 export const POSTURE_DEFECTS = Object.freeze( {
     ignoreIntensity: 'every emotion commits fully, so a reluctant fear stands like a settled anger',
-    unclampedAdduction: 'adduction driven past vertical, so the arm enters the ribcage'
+    unclampedAdduction: 'adduction driven past vertical, so the arm enters the ribcage',
+    restFramesFromLivePose: 'rest frames read off the posed bones, so the same emotion lands elsewhere after a reset',
+    inventedKneeFullScale: 'a knee angle with no source, presented as if the derivation produced it',
+    kneeWithoutPelvisDrop: 'knees bent with the pelvis held, so the figure stands on stilts',
+    kneeIgnoresRestFlexion: 'the knee command read as absolute, so a small bend straightens the leg',
+    kneeChainFromLivePose: 'the leg chain read off matrixWorld, so a re-bind plans from its own bend',
+    ozzDefaultKneePole: 'ozz\'s +Y pole kept, which on a standing leg is the plane singularity'
 } );
 
 const POSTURE_DEFECTS_OFF = Object.freeze(
     Object.fromEntries( Object.keys( POSTURE_DEFECTS ).map( ( key ) => [ key, false ] ) ) );
 
+/** Every reported angle at rest. One object so `reset()` and the constructor cannot disagree. */
+const NOTHING_APPLIED = Object.freeze( {
+    approach: 0, armSpread: 0, armSpreadLeft: 0, armSpreadRight: 0, headTiltUp: 0,
+    kneeAdded: 0, kneeLeft: 0, kneeRight: 0, pelvisDropMillimetres: 0
+} );
+
 // --- local helpers ------------------------------------------------------------------------------
+
+// Bind-time scratch. `onBind` is not a frame, but it runs on every `MotionStack.reset()`, so it
+// still has no business allocating four matrices per leg per call.
+const scratchHipMatrix = new Matrix4();
+const scratchKneeMatrix = new Matrix4();
+const scratchAnkleMatrix = new Matrix4();
+const scratchLocalMatrix = new Matrix4();
+const scratchLegAxis = new Vector3();
+const scratchKneeDirection = new Vector3();
 
 function coulsonRow( abdomenTwist, chestBend, headBend, shoulderAdAbduct, shoulderSwing, elbowBend ) {
 
@@ -454,6 +960,10 @@ function coulsonRow( abdomenTwist, chestBend, headBend, shoulderAdAbduct, should
 /**
  * The derivation rule, as code. The smallest non-zero magnitude any emotion's row lists in a
  * column — the least exaggerated level of that degree of freedom the study actually measured.
+ *
+ * 🚩 It throws for a column Coulson does not have, and that throw is load-bearing rather than
+ * defensive: it is how `kneeActivation`'s missing full scale is a fact the gate can execute
+ * instead of a sentence in a comment.
  */
 export function smallestListedMagnitude( column ) {
 
@@ -461,7 +971,18 @@ export function smallestListedMagnitude( column ) {
 
     for ( const row of Object.values( COULSON_TABLE_1 ) ) {
 
-        for ( const degrees of row[ column ] ) {
+        const levels = row[ column ];
+
+        if ( levels === undefined ) {
+
+            throw new Error(
+                `PostureLayer: Coulson Table 1 has no column '${ column }'. It has ${ COULSON_COLUMNS.length }: ` +
+                `${ COULSON_COLUMNS.join( ', ' ) } — none of them a knee, which is why kneeActivation ` +
+                'has no derived full scale.' );
+
+        }
+
+        for ( const degrees of levels ) {
 
             const magnitude = Math.abs( degrees );
             if ( magnitude > 0 && magnitude < smallest ) smallest = magnitude;
@@ -477,6 +998,154 @@ export function smallestListedMagnitude( column ) {
     }
 
     return smallest;
+
+}
+
+/**
+ * A bone's rest rotation relative to the rig, composed from the pose `MotionStack` measures deltas
+ * against rather than from the live bones.
+ *
+ * The fallback is the interesting half and it is exact rather than approximate: `restRotationOf`
+ * returns null for a bone NO LAYER DECLARES, and a bone no layer declares is a bone nothing writes,
+ * so its live local rotation is its rest rotation. Declared or not, this reads the right thing.
+ *
+ * Normalised for the reason `Breath.restRotationRelativeToRig` gives: the GLB stores quaternions to
+ * six decimals, `Quaternion.invert()` is a conjugate, and the error would compound through every
+ * frame's composition.
+ */
+function restRotationInRigSpace( bone, stack, target = new Quaternion() ) {
+
+    target.set( 0, 0, 0, 1 );
+
+    for ( let node = bone; isMissing( node ) === false; node = node.parent ) {
+
+        target.premultiply( stack.restRotationOf( node.name ) ?? node.quaternion );
+
+    }
+
+    return target.normalize();
+
+}
+
+/**
+ * A bone's world matrix as it stands in the REST pose — the same composition three.js performs for
+ * `matrixWorld`, with each ancestor's local transform taken from the stack's snapshot where it has
+ * one. See `restRotationInRigSpace` for why the fallback is exact.
+ *
+ * This is the read the knee chain is built from, and it is deliberately NOT `bone.matrixWorld`: a
+ * world matrix is whatever the last commit left behind, and on a re-bind that is this layer's own
+ * knee bend.
+ */
+function restWorldMatrixOf( bone, stack, target = new Matrix4() ) {
+
+    const chain = [];
+
+    for ( let node = bone; isMissing( node ) === false; node = node.parent ) chain.push( node );
+
+    target.identity();
+
+    for ( let index = chain.length - 1; index >= 0; index -- ) {
+
+        const node = chain[ index ];
+
+        scratchLocalMatrix.compose(
+            stack.restPositionOf( node.name ) ?? node.position,
+            stack.restRotationOf( node.name ) ?? node.quaternion,
+            node.scale );
+
+        target.multiply( scratchLocalMatrix );
+
+    }
+
+    return target;
+
+}
+
+/**
+ * 🎯 WHICH WAY THE KNEE POINTS, MEASURED OFF THE REST POSE, WRITTEN INTO `setup.poleVector`.
+ *
+ * A two-bone solve fixes the interior angle and leaves the chain free to spin about the hip→ankle
+ * line; the pole is what removes that freedom. ozz defaults it to +Y and a standing leg's hip→ankle
+ * axis IS −Y, so the default is 1.16° off parallel on this rig — the singular case, where the plane
+ * normal is 2% of unit length and the knee's direction is set by whatever the rest pose's noise
+ * happens to be (`IKSolver.js` header, measured: conditioning 0.0203 against 0.9998 for forward).
+ *
+ * The pole this writes is the leg's OWN patella direction: the knee's offset from the hip→ankle
+ * line, normalised. That is a measurement rather than a transcription — a mirrored rig, a stance
+ * pose or a turned-out foot all get the right answer — and it makes the plane rotation a near
+ * no-op, which is the correct behaviour for a bend that should not swing the knee sideways.
+ *
+ * 🎯 IT IS ALSO MAXIMALLY CONDITIONED BY CONSTRUCTION, WHICH IS THE POINT. The axial component is
+ * projected out, so `|t̂ × p̂|` is exactly 1 rather than merely large — against 0.020292 for ozz's
+ * default on this rig, both measured in `affect.selftest.mjs`. Naming a direction (rig +Z, say)
+ * would land near 1 on this bake and near 0 on a rig whose legs are authored splayed; measuring
+ * cannot.
+ *
+ * Falls back to rig-forward when the leg is dead straight, where there is no patella direction to
+ * measure; `readMidAxisFromPose`'s determination is the number that catches that case properly.
+ *
+ * @returns {number} How far the measured pole sits off rig-forward, in degrees. Reported so a rig
+ *   whose knees point somewhere unexpected is visible rather than silently accommodated.
+ */
+function measureKneePole( setup ) {
+
+    const axis = scratchLegAxis.subVectors( setup.endPosition, setup.startPosition );
+    const axisLength = axis.length();
+
+    if ( axisLength === 0 ) {
+
+        setup.poleVector.copy( RIG_FORWARD_DIRECTION );
+        return 0;
+
+    }
+
+    axis.divideScalar( axisLength );
+
+    const toKnee = scratchKneeDirection.subVectors( setup.midPosition, setup.startPosition );
+    toKnee.addScaledVector( axis, -toKnee.dot( axis ) );
+
+    const lateral = toKnee.length();
+
+    if ( lateral === 0 ) {
+
+        setup.poleVector.copy( RIG_FORWARD_DIRECTION );
+        return 0;
+
+    }
+
+    setup.poleVector.copy( toKnee ).divideScalar( lateral );
+
+    return setup.poleVector.angleTo( RIG_FORWARD_DIRECTION ) / DEGREES_TO_RADIANS;
+
+}
+
+/**
+ * 🎯 HOW WELL THE POLE FIXES THE CHAIN PLANE: `|t̂ × p̂|`, the sine of the angle between the
+ * hip→ankle axis and the pole.
+ *
+ * The same number `TwoBoneSolution.poleConditioning` reports per solve, measured here at bind so
+ * the gate can reject a bad pole before any frame runs. 1 is square to the leg and 0 is the
+ * singularity, where `cross()` has no direction and the knee's direction comes out of whatever the
+ * rest pose happened to carry. Measured on `figure_g050` in `relaxed-standing`: exactly 1 for the
+ * measured patella pole — see `measureKneePole`, it is square by construction — against 0.020292
+ * for ozz's +Y default, a factor of 49.
+ */
+function measurePoleConditioning( setup ) {
+
+    const axis = scratchLegAxis.subVectors( setup.endPosition, setup.startPosition );
+    const axisLength = axis.length();
+
+    if ( axisLength === 0 ) return 0;
+
+    axis.divideScalar( axisLength );
+
+    return scratchKneeDirection.copy( setup.poleVector ).normalize().cross( axis ).length();
+
+}
+
+function isMissing( value ) {
+
+    return value === null || value === undefined;
 
 }
 
