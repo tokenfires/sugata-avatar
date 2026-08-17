@@ -234,6 +234,11 @@ const SYNTHETIC = {
     skinKeySide: [ 231, 175, 154 ], // 7 x (33,25,22). The same hue and saturation, 1.1667x the value
     blueRim: [ 15, 48, 255 ],       // 0x0f30ff, the shipped portrait rim. hue 231.75°, S 0.9412
     warmRim: [ 255, 135, 15 ],      // hue 30°, S 0.9412 — the same saturation, deliberately
+    magentaRim: [ 255, 15, 195 ],   // 🚩 hue 315.0000°, S 0.9412 — the SAME saturation again, and
+                                    // it sits between the wide arc's 300° edge and the widest
+                                    // arc's 330°. It exists to make the arc boundary FAIL a
+                                    // check rather than surprise somebody on a render; see
+                                    // §VALIDATION's arc-sensitivity clauses and REQ-078.
     size: 240,
     radius: 80,
     narrowRadius: 3
@@ -649,6 +654,25 @@ export function measureViolet( plate, background, settings = {} ) {
     const keyInterior = circularHueStatistics( plate, keySideInterior );
     const spill = circularHueStatistics( plate, outerBand );
 
+    // 🎯 THE POPULATION IS THE BAND, AND THAT IS THE WHOLE POINT OF THESE FOUR LINES.
+    //
+    // `subject.coolShare` below is computed over every subject pixel — 222,400 of them on a body
+    // plate against 58,949 in the band, so it is about three quarters INTERIOR SKIN. A statistic
+    // dominated by pixels that cannot carry the defect moves when the skin moves and barely moves
+    // when the rim does. That is the same failure as the circular-variance operator REQ-078 records,
+    // and as `sideSeparation`, and as the two before those: five operators, one mechanism.
+    //
+    // Measured 2026-08-17 on the shipped rig against a warm kicker at E 3: `subject.coolShare`
+    // reported 10.36% -> 3.05%, a 3.4x improvement, while the two plates side by side were
+    // INDISTINGUISHABLE on the figure and differed only in how brightly the floor was lit. The band
+    // count over the same pair reads 11.68% -> 10.07%, which is what the eye reports.
+    const bandCool = ( indices ) => ( {
+        coolShare: coolShare( plate, indices, COOL_HUE_ARC ),
+        coolShareByArc: COOL_HUE_ARCS.map( ( entry ) => ( {
+            name: entry.name, share: coolShare( plate, indices, entry.arc )
+        } ) )
+    } );
+
     return {
         settings: { bandRadius, interiorDepth, move },
         frame: { width, height, bandRadiusAsFrameHeight: bandRadius / height },
@@ -663,11 +687,19 @@ export function measureViolet( plate, background, settings = {} ) {
         key,
         band: {
             ...band,
-            keySide: keyBand,
-            shadowSide: shadowBand,
+            ...bandCool( innerBand ),
+            keySide: { ...keyBand, ...bandCool( keySideBand ) },
+            shadowSide: { ...shadowBand, ...bandCool( shadowSideBand ) },
             keySideInterior: keyInterior,
             // The two headline asymmetry numbers. `sideSeparation` is the whole thesis of REQ-060 in
             // one figure: it is 0 when both back lights share a hue and grows as one side warms.
+            // 🚩 KEPT, AND DEMOTED, WITH ITS REFUTATION BESIDE IT. `sideSeparation` has a TWO-SIDED
+            // ZERO: it reads ~0 when both back lights carry one hue AND when the outline has gone
+            // warm entirely, so it cannot tell the defect from the fix. Measured across seven rig
+            // configurations on 2026-08-17 it correlates with the defect at Pearson r = +0.9510 —
+            // REQ-060 set out to RAISE this number, and raising it raises the violet. Read
+            // `band.coolShareByArc` instead; this stays only so the old rounds' figures remain
+            // reproducible.
             sideSeparation: keyBand.meanHue === null || shadowBand.meanHue === null
                 ? null
                 : Math.abs( signedHueRotation( shadowBand.meanHue, keyBand.meanHue ) ),
@@ -1113,7 +1145,14 @@ export function runValidations() {
         'fix reduces the first faster than it creates the second. V IS NOT THE FIX\'S GATE.',
         diluteSplitMeasured.band.circularVariance < diluteUniformMeasured.band.circularVariance );
 
-    check( '🎯 and sideSeparation moves the RIGHT way on the same pair, which is why it is the headline',
+    // 🚩 IT MOVES THE RIGHT WAY HERE AND THE WRONG WAY ON A RENDER, WHICH IS WHY THIS CLAUSE NOW
+    // CARRIES ITS OWN REFUTATION. On the synthetic pair, warming one side genuinely separates the
+    // two sides' hues. On seven real rig configurations measured 2026-08-17, `sideSeparation`
+    // correlates with the DEFECT at Pearson r = +0.9510, because its zero is two-sided: it reads
+    // ~0 for one violet outline and ~0 again for no outline at all. A synthetic shape cannot show
+    // that, because a synthetic shape never reaches the both-sides-warm end of the range. This is
+    // the exact hazard §VALIDATION exists to hedge and did not catch. See the arc clauses below.
+    check( '🚩 sideSeparation moves the right way HERE, and anti-correlates on a real rig (r = +0.951)',
         `uniform ${ diluteUniformMeasured.band.sideSeparation.toFixed( 4 ) }° -> split ` +
         `${ diluteSplitMeasured.band.sideSeparation.toFixed( 4 ) }°`,
         diluteSplitMeasured.band.sideSeparation > diluteUniformMeasured.band.sideSeparation + 1
@@ -1128,6 +1167,78 @@ export function runValidations() {
             - hsvOf( SYNTHETIC.skin ).saturation ) < 1e-6
             && Math.abs( uniformMeasured.band.depthProfile[ SYNTHETIC.narrowRadius ].meanSaturation
                 - hsvOf( SYNTHETIC.blueRim ).saturation ) < 1e-6 );
+
+    // --- §BAND COOL: the operator that replaces both of the refuted ones ------------------------
+    //
+    // The defect three blind judges named is "one hue, constant width, tracing the whole silhouette".
+    // That is a statement about the BAND, and it is ONE-SIDED: more cool band pixels is worse, fewer
+    // is better, with no value at which the meaning flips. `sideSeparation` had a two-sided zero and
+    // `subject.coolShare` is three quarters interior skin. This is neither.
+
+    // `unrimmed` / `unrimmedMeasured` are already built above; reused rather than rebuilt so the
+    // two sections cannot drift onto different shapes.
+    const wideArcOf = ( measured, scope ) => measured.band[ scope ] === undefined
+        ? measured.band.coolShareByArc.find( ( a ) => a.name.startsWith( 'widest' ) ).share
+        : measured.band[ scope ].coolShareByArc.find( ( a ) => a.name.startsWith( 'widest' ) ).share;
+
+    check( 'band cool share is 1 on a disc rimmed in ONE blue all the way round',
+        `measured ${ uniformMeasured.band.coolShare.toFixed( 6 ) } over ` +
+        `${ uniformMeasured.band.pixels } band px — the defect at its maximum`,
+        Math.abs( uniformMeasured.band.coolShare - 1 ) < 1e-9 );
+
+    check( '…and 0 on the same disc with no rim at all',
+        `measured ${ unrimmedMeasured.band.coolShare.toFixed( 6 ) } — bare skin carries no cool hue, ` +
+        'so the statistic bottoms out where the defect does',
+        unrimmedMeasured.band.coolShare < 1e-9 );
+
+    check( '🎯 ONE-SIDED, which sideSeparation is not: the two ends of the range are 1 and 0, not 0 and 0',
+        `rimmed ${ uniformMeasured.band.coolShare.toFixed( 4 ) } vs unrimmed ` +
+        `${ unrimmedMeasured.band.coolShare.toFixed( 4 ) }, against sideSeparation's ` +
+        `${ diluteUniformMeasured.band.sideSeparation.toFixed( 2 ) }° and ` +
+        `${ unrimmedMeasured.band.sideSeparation === null ? 'null' : unrimmedMeasured.band.sideSeparation.toFixed( 2 ) + '°' } ` +
+        'for the same two shapes',
+        uniformMeasured.band.coolShare > 0.99 && unrimmedMeasured.band.coolShare < 0.01 );
+
+    check( 'warming ONE side halves it, and the halves land on the RIGHT sides',
+        `whole band ${ splitMeasured.band.coolShare.toFixed( 4 ) }; key side ` +
+        `${ splitMeasured.band.keySide.coolShare.toFixed( 4 ) }, shadow side ` +
+        `${ splitMeasured.band.shadowSide.coolShare.toFixed( 4 ) }`,
+        Math.abs( splitMeasured.band.coolShare - 0.5 ) < 0.02
+            && splitMeasured.band.keySide.coolShare < 0.02
+            && splitMeasured.band.shadowSide.coolShare > 0.98 );
+
+    // 🚩 THE ARC BOUNDARY, MADE INTO A CHECK RATHER THAN LEFT AS A SURPRISE.
+    //
+    // A magenta rim at hue 315° is every bit as much a violet outline to look at, and it falls
+    // OUTSIDE the wide arc's 300° edge. Measured on a real render 2026-08-17: raising the warm
+    // kicker to E 3 rotated the shipped rim across that edge, and the wide arc reported a 3.4x
+    // improvement while the plates were indistinguishable on the figure. The two arcs MUST disagree
+    // here, and a reader who sees only one column MUST be wrong.
+    const magenta = syntheticStudio( ( x, y, centre, depth ) => depth <= BAND_RADIUS ? SYNTHETIC.magentaRim : null );
+    const magentaMeasured = measureViolet( magenta.plate, magenta.background );
+    const magentaWide = magentaMeasured.band.coolShareByArc.find( ( a ) => a.name.startsWith( 'wide ' ) ).share;
+    const magentaWidest = magentaMeasured.band.coolShareByArc.find( ( a ) => a.name.startsWith( 'widest' ) ).share;
+
+    check( '🚩 a MAGENTA rim at 315° is invisible to the wide arc and total to the widest',
+        `wide [150,300) ${ magentaWide.toFixed( 6 ) } vs widest [150,330) ${ magentaWidest.toFixed( 6 ) } — ` +
+        'an outline that is plainly there and that the headline arc scores at zero',
+        magentaWide < 1e-9 && magentaWidest > 0.99 );
+
+    check( '…so any single-arc reading of this statistic is refused, and the report carries all three',
+        `${ COOL_HUE_ARCS.map( ( a ) => a.name ).join( ' | ' ) } — REQ-078 records three rounds spent ` +
+        'on operators that were read one column at a time',
+        magentaMeasured.band.coolShareByArc.length === COOL_HUE_ARCS.length
+            && magentaMeasured.band.coolShareByArc.some( ( a ) => a.share < 1e-9 )
+            && magentaMeasured.band.coolShareByArc.some( ( a ) => a.share > 0.99 ) );
+
+    check( '🎯 and the BAND count discriminates where the SUBJECT-wide one is diluted',
+        `rimmed -> unrimmed: band ${ uniformMeasured.band.coolShare.toFixed( 4 ) } -> ` +
+        `${ unrimmedMeasured.band.coolShare.toFixed( 4 ) } (full range); subject ` +
+        `${ uniformMeasured.subject.coolShare.toFixed( 4 ) } -> ` +
+        `${ unrimmedMeasured.subject.coolShare.toFixed( 4 ) } (a fraction of it, because a subject is ` +
+        'mostly interior)',
+        ( uniformMeasured.band.coolShare - unrimmedMeasured.band.coolShare )
+            > ( uniformMeasured.subject.coolShare - unrimmedMeasured.subject.coolShare ) * 2 );
 
     const failed = results.filter( ( row ) => row.passed === false ).length;
     console.log( `\n  ${ failed === 0 ? 'VALIDATION PASS' : 'VALIDATION FAIL' }: ` +

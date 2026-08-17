@@ -2810,12 +2810,57 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              `COOL_HUE_ARCS` exists in `violet.mjs` for exactly this sensitivity check — "how much of
              the answer is the arc and how much is the picture" — and reading only its first column
              is how three rounds have now been spent on a statistic that does not track the defect.
+             🎯 **R30 ROUND 3: THERE IS NOW A VALID OPERATOR, AND THE PROBLEM HAS A SIZE.**
+             `band.coolShare` / `band.coolShareByArc` restrict the count to the SILHOUETTE BAND —
+             58,949 px against 222,400 subject px — which is the population that can carry the
+             defect. Validated 25/25 on synthetic shapes, including three clauses that exist only
+             because of this request's history: it reads exactly 1 on a uniformly rimmed disc and
+             exactly 0 on an unrimmed one (**one-sided**, where `sideSeparation` reads 0.00° for
+             BOTH), it splits 0.5 / key 0.0 / shadow 1.0 when one side is warmed, and a MAGENTA rim
+             at hue 315° scores **0.000000 on [150,300) and 1.000000 on [150,330)** — the arc
+             artefact turned into a check. The band count also uses the full range where the
+             subject-wide one uses 24% of it (1.0000 -> 0.0000 against 0.2419 -> 0.0000).
+
+             Re-measured off the eight plates already captured, no re-shooting:
+
+               | rim az / kicker                  | BAND widest | BAND wide | subject wide |
+               |----------------------------------|------------:|----------:|-------------:|
+               | −134°, warm E0.10                |      48.40% |    44.07% |       14.69% |
+               | −158°, violet E10 (pre-060)      |      40.74% |    35.77% |       12.17% |
+               | −158°, warm E0.10 (post-060)     |      35.88% |    32.38% |       10.98% |
+               | **−168°, warm E0.10 (SHIPPED)**  |  **33.54%** |    30.06% |       10.36% |
+               | −168°, warm E1                   |      33.25% |    29.37% |       10.13% |
+               | −168°, warm E3                   |      29.76% |  **7.24%** |        3.05% |
+               | −168°, warm E10                  |   **8.85%** |     5.89% |        2.30% |
+
+             1. 🎯 **THE SHIPPED RIG PUTS A COOL HUE ON 33.54% OF ITS SILHOUETTE BAND.** A third of
+                the outline. That number did not exist before today and it is what "one hue tracing
+                the whole silhouette" is worth numerically.
+             2. 🚩 **E3 IS NEARLY WORTHLESS AND THE OLD ARC SAID IT WAS A CURE.** 33.54% -> 29.76%
+                is an 11% relative reduction; the [150,300) arc claimed 30.06% -> 7.24%, a 76% one.
+                The two arcs disagree by **4.1x on that row** — worse on the band than on the
+                subject — because the rim rotated into magenta rather than going away.
+             3. ⚠️ **E10 IS A PARTIAL REDUCTION AT A LARGE COST, NOT A FIX.** 33.54% -> 8.85% with
+                both arcs agreeing (5.89 vs 8.85), which is the signature of a real change rather
+                than a rotation. But 8.85% of 58,949 px is still thousands of cool pixels and the
+                plate shows it: the outline is visibly reduced and plainly still present on head,
+                shoulders, arms, hips and feet, while the FLOOR is heavily flooded — the defect the
+                −134° round was withdrawn for. R30 said "E10 is a real fix" before looking at the
+                plate and withdraws that.
+             4. 🎯 **AZIMUTH IS MONOTONIC AND NEARLY EXHAUSTED**: −134° 48.40% -> −158° 35.88% ->
+                −168° 33.54%. Closer to directly-behind is better, the shipped value is already
+                near the end of it, and the remaining headroom to 180° is a couple of points at most.
+             **So no configuration measured escapes the outline/floor trade, and the honest summary
+             is that this is a rig REDESIGN rather than a parameter, which is why it is still TK's.**
+             🚩 `tools/critic/violet.selftest.mjs` now exists, so these validations run in the suite
+             instead of when somebody remembers. Six sibling critic tools already had a companion and
+             this one did not, which is why three refuted operators reached three separate rounds.
              ⚠️ Also note the spec's own statement of what "cool" looks like in this look is
              **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
              shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
              costs no blue energy and is the cheapest thing on this list.
 anchor:      packages/core/src/render/LightingRig.js /colour: 0x0f30ff/
-verify:      tools/critic/violet.mjs /sideSeparationCool/
+verify:      packages/core/src/render/LightingRig.js /band coolShare/
 ```
 
 ## REQ-079 — the knee bend has no sourced amplitude, and it is fear's largest channel
@@ -3039,4 +3084,44 @@ evidence:    The rail is `POSTURE_OFFSET_MEAN_SHIFTS x shiftAmplitude` = 2.0 x 1
              whoever raises that amplitude — which is exactly who will not re-derive it.
 anchor:      packages/core/src/motion/Sway.js /affectBiasLimit = POSTURE_OFFSET_MEAN_SHIFTS/
 verify:      packages/core/src/motion/Sway.js /rearward rail/
+```
+
+## REQ-087 — violet.mjs had no suite companion, so three refuted operators reached three rounds
+
+```request
+id:          REQ-087
+status:      APPLIED
+target:      tools/critic/violet.mjs
+filed-by:    the R30 violet measurement round
+filed-round: R12
+filed-at:    910b40a
+first-filed: 2026-08-17
+change:      Give `violet.mjs` a band-restricted cool-hue statistic, validate it, and add the
+             `*.selftest.mjs` companion that puts its validations in front of the suite runner.
+evidence:    Six sibling tools in `tools/critic/` — band-power, hair-pedestal, hair-transmittance,
+             heatmap, lock-coherence, travel — each ship a `*.selftest.mjs` companion and are picked
+             up by `run-selftests.sh`'s glob. `violet.mjs` shipped 18 validations behind a
+             `--selftest` flag that nothing invoked, for no recorded reason.
+             🚩 THE COST WAS THREE REFUTED OPERATORS ACROSS THREE ROUNDS, every one caught by a human
+             looking at plates rather than by a run: circular variance of band hue (inverts on a real
+             render, an 8 px band is ~4/5 skin); `band.sideSeparation` (TWO-SIDED ZERO — reads ~0 for
+             one violet outline AND for no outline at all; measured Pearson r = +0.9510 against the
+             defect across seven rig configurations, so REQ-060 aimed to raise the very thing that
+             raises the violet); and `subject.coolShare` read on its headline arc (three quarters
+             interior skin, plus a boundary artefact that reported a 3.4x improvement for a change
+             that moved nothing visible, because the rim rotated into magenta at 300-330 deg).
+applied:     `band.coolShare` and `band.coolShareByArc` restrict the count to the silhouette band,
+             58,949 px against 222,400 subject px, with per-side splits. Validations 18 -> 25:
+             exactly 1 on a uniformly rimmed disc and exactly 0 on an unrimmed one (ONE-SIDED, where
+             sideSeparation reads 0.00 deg for both); 0.5 / key 0.0 / shadow 1.0 when one side is
+             warmed; and a magenta rim at hue 315 deg scoring 0.000000 on [150,300) against 1.000000
+             on [150,330), which is the arc artefact turned into a check. The band count spans the
+             full range where the subject-wide one spans 24% of it. `sideSeparation` is kept and
+             DEMOTED with its refutation beside it so the old rounds' figures stay reproducible.
+             `tools/critic/violet.selftest.mjs` runs the synthetic validations only — no browser, no
+             GPU — and says out loud that a green there does not mean the operator tracks the defect
+             on a render, because clause 1 above is exactly a statistic that passed its synthetic
+             checks and inverted anyway.
+anchor:      tools/critic/violet.mjs /const COOL_HUE_ARCS/
+verify:      tools/critic/violet.mjs /THE POPULATION IS THE BAND/
 ```
