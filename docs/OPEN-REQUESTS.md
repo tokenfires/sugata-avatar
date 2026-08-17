@@ -2736,6 +2736,42 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              reason `tools/critic/violet.mjs` is not in the `*.selftest.mjs` glob matters. Whoever
              takes this item should re-measure coverage at −168° BEFORE choosing between (a) and (b),
              because the size of the problem is currently unknown.
+             🎯 **R30 MEASURED IT, AND REQ-060 MOVED ITS OWN HEADLINE STATISTIC THE WRONG WAY.**
+             `tools/critic/violet.mjs`, validated 18/18 immediately before use, four shoots on
+             `lighting.html` at body framing 900x1200, each with its own `?figure=0` mask taken under
+             the SAME query so the mask matches the rig being measured:
+
+               | body rim azimuth / kicker        | coolShare | side separation |
+               |----------------------------------|----------:|----------------:|
+               | −134°, warm kicker               |    14.69% |          52.72° |
+               | −158°, `#0f30ff` E10 (pre-060)   |    12.17% |      **43.86°** |
+               | −158°, warm kicker (post-060)    |    10.98% |      **37.07°** |
+               | **−168°, warm kicker (SHIPPED)** | **10.36%** |      **29.89°** |
+
+             🚩 **WARMING THE KICKER LOWERED SIDE SEPARATION BY 6.79°, at matched azimuth.** This
+             file's own thesis is that separation "is 0 when both back lights carry one hue", so
+             warming one of them was supposed to RAISE it. It fell. The reason is that REQ-060 was
+             not only a hue change: it cut the body kicker from E 10 to E 0.10, a hundredfold, and at
+             E 0.10 the kicker contributes almost nothing — so both sides are lit by the RIM's wrap
+             alone and become MORE alike. The energy cut dominated the hue change and inverted the
+             intended effect. That is why REQ-060 "was applied and did not achieve its purpose": not
+             because it was too small, but because its sign was wrong on the statistic it targeted.
+             🚩 **AND THE AZIMUTH MOVE COST ANOTHER 7.18°.** −158° to −168° took separation from
+             37.07° to 29.89°. So the SHIPPED rig is the most uniform outline of every configuration
+             measured — 29.89° against the pre-REQ-060 rig's 43.86° — and two successive changes each
+             made it more uniform while neither was measured against that property at the time. "One
+             hue, constant width, tracing the whole silhouette" is the accumulated result.
+             ⚠️ **THE HEADER TABLE'S MAGNITUDES DO NOT REPRODUCE AND MUST NOT BE USED TO SIZE THIS.**
+             It claims 32.65% at −134° and 15.03% at the row it labels shipped; `violet.mjs` reads
+             14.69% and 12.17% for the same rigs. Restoring the pre-REQ-060 kicker closes only 1.19
+             of the 4.05 pp gap, so the residue is an operator difference, not a rig difference — the
+             header never states its hue arc, and `violet.mjs` uses [150, 300) at S > 0.10. The two
+             numbers are not comparable. What DOES reproduce is the direction, and one figure exactly:
+             the header's "side separation is 37° here BEFORE any change" against 37.07° measured at
+             −158°, which pins that table's vintage to the azimuth the code has since left.
+             🎯 **SO THE LEVER IS THE KICKER'S ENERGY, NOT ITS HUE.** The one measured intervention
+             that RAISES separation is a kicker with enough energy to actually light a side. That is
+             a fifth option, and it is the only one with a measured sign behind it.
              ⚠️ Also note the spec's own statement of what "cool" looks like in this look is
              **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
              shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
