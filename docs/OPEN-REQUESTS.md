@@ -2767,3 +2767,34 @@ evidence:    Seen on a live render, not derived. Driven to the stroke peak in th
 anchor:      packages/core/src/motion/Gesture.js /sign \* shoulderRadians/
 verify:      packages/core/src/motion/Gesture.js /sagittal/
 ```
+
+## REQ-085 — A3 asks two page loads to agree bit for bit, and the instrument's noise floor is not zero
+
+```request
+id:          REQ-085
+status:      OPEN
+target:      packages/core/src/render/HairOIT.selftest.mjs
+filed-by:    the R29 intermittent hunt
+filed-round: R12
+filed-at:    7d3a188
+first-filed: 2026-08-17
+change:      Re-state `A3` against the instrument's own smallest signal instead of against an exact
+             zero. The clause exists so `A3b`'s residue can be read as a count, so what it has to
+             establish is that the renderer's own reload-to-reload noise is negligible RELATIVE TO
+             the smallest residue A3b reports — not that it is identically zero. Derive the bound
+             from `A3b`'s minimum arm (cutout, 296 px) rather than from whatever noise a run
+             happened to show, and print the observed floor either way so a drift in it is visible.
+evidence:    12 runs to distinct log files, 2026-08-17, quiet machine. 3 red, and every one of them
+             is `A3` alone — B and C blocks green in all twelve, which confirms R20's reasoning from
+             a partial log. The differing arm WANDERS: `hash` 19 px on run 7, `wboit` 2 px on run 8,
+             `wboit` 5 px on run 12, with `blend`, `cutout` and `stochastic` at a clean zero
+             throughout. An arm-specific defect cannot move between arms.
+             🎯 The worst observed noise, 19 px of 392,000, is **15.6x below** A3b's smallest real
+             residue (cutout 296 px) and ~10,900x below blend's 206,459 px, so every conclusion A3b
+             draws survives untouched. What fails is the exactness, not the purpose.
+             🚩 NOT repaired in place on purpose: loosening a red gate's threshold until it goes
+             green is what `docs/RED-GATES.md` refuses two entries below this one, and the same file
+             already records that an intermittent cannot be declared cleanly in either direction.
+anchor:      packages/core/src/render/HairOIT.selftest.mjs /the instrument has an exact zero/
+verify:      packages/core/src/render/HairOIT.selftest.mjs /noise floor/
+```

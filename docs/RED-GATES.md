@@ -149,16 +149,35 @@ directions, which is the clause worth keeping when this check is next edited.
   it has to adjudicate them in the same edit; declaring the round alone will turn one red into
   fourteen. Owned by whoever owns `docs/OPEN-REQUESTS.md`.
 
-- `packages/core/src/render/HairOIT.selftest.mjs` — INTERMITTENT, 31/32 on **2 of 10 runs** this
-  session and 32/32 on the other eight. Not a decision and not yet a located defect: the failing
-  clause is above the 20 lines `run-selftests.sh` tails, and on the standalone run where it first
-  appeared the output was overwritten before it was read. What R20 does know is that on the suite
-  run that reproduced it, B1/B2/B3 and C1/C2/C3 all printed PASS with their usual numbers, so the
-  failure is in the **A block** — the order-independence and instrument-zero clauses. A1–A3 include
-  `A3`, which asserts an EXACT zero over 392,000 px for five arms loaded twice apiece; ten pairs of
-  renders required to be bit-identical is the shape of thing that fails one run in five.
-  🚩 **NEXT AGENT: capture the FAIL line before anything else** — run it in a loop redirecting to
-  distinct files until one goes red. Owned by `packages/core/src/render/**`.
+- `packages/core/src/render/HairOIT.selftest.mjs` — INTERMITTENT, and **now characterised**. R20
+  reasoned from a partial log that the failure had to be in the A block and probably in `A3`. That
+  was right, and R29 captured it: **12 runs to distinct files, 3 red, every one of them `A3` and
+  nothing else.**
+
+  | run | arm that differed | px of 392,000 |
+  |---|---|---:|
+  | 7 | `hash` | **19** |
+  | 8 | `wboit` | **2** |
+  | 12 | `wboit` | **5** |
+  | the other 9 | — | 0 |
+
+  🎯 **IT WANDERS BETWEEN ARMS, SO IT IS NOT AN ARM-SPECIFIC DEFECT.** `hash` once and `wboit` twice,
+  with `blend`, `cutout` and `stochastic` at a clean zero in all twelve. Two independent page loads
+  of the same arm are being asked to agree bit for bit, and on a GPU that is a stronger requirement
+  than anything WebGPU guarantees. What R29 measured is the instrument's own noise floor, and the
+  floor is not exactly zero.
+
+  ⚠️ **A3's PURPOSE SURVIVES; ONLY ITS EXACTNESS DOES NOT.** The clause exists so that `A3b`'s
+  residue can be read as a COUNT rather than through a visibility threshold somebody has to argue
+  about. The worst noise seen — 19 px — sits **15.6x below A3b's smallest real residue** (cutout at
+  296 px) and about 10,900x below blend's 206,459 px. So every conclusion A3b draws is intact.
+
+  🚩 **NOT REPAIRED HERE, DELIBERATELY.** The obvious repair is to loosen the exact zero, and
+  loosening a red gate's threshold until it goes green is the exact move this file refuses two
+  entries down (*"do not re-derive these thresholds to clear them"*). The change has to be argued on
+  the instrument's own smallest signal rather than on the noise that happened to be observed, so it
+  is filed as **REQ-085** against the gate's owner instead. Owned by
+  `packages/core/src/render/**`.
   ⚠️ **AND THIS ENTRY EXPOSES A GAP IN THIS FILE'S OWN MACHINERY.** An intermittent gate cannot be
   declared cleanly in either direction: on a run where it passes, this line reads as a `STALE
   DECLARATION` and the runner will say so. That is the adjudicator behaving correctly on an input it
