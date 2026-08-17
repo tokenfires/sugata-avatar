@@ -1596,7 +1596,7 @@ attributable.
       weights in `tools/identity-pipeline/`, then re-baking all five gender variants and the hair
       variants that share the skeleton, against a 232 MB LFS payload and a 1 GB/month bandwidth
       ceiling. That is a phase of work, not a wiring task, and it should be scheduled as one.
-- [ ] **6.9** 🎯 **Affect must reach the BALANCE model, not stop at the trunk bones.** Expose a
+- [x] **6.9** 🎯 **Affect must reach the BALANCE model, not stop at the trunk bones.** Expose a
       fore-and-aft centre-of-pressure bias on `motion/Sway.js`'s pendulum so BAP's `approach`
       channel actuates weight shift. Coulson's weight column is a real degree of freedom — "weight
       forwards" for anger, "backwards" for fear and disgust — and it is the one channel of the
@@ -1615,6 +1615,45 @@ attributable.
       1996). This item is the A/P half only; do not let it acquire the lateral half by proximity.
       Gate: the emotion must be readable in the CoP trace with the trunk bones frozen, which is
       what proves the channel reached balance rather than being read off the chest bend twice.
+      ---
+      ✅ **DONE. The mechanism ships wired, gated and reachable — AT AN AMPLITUDE OF ZERO**, which is
+      the `KNEE_FULL_SCALE_DEGREES` pattern this project has already paid for and documented as
+      correct. `PostureLayer` publishes `centreOfPressureBiasMetres` with a frame stamp; `Sway`
+      reads it off the shared bag, clamps it at 34.000 mm and composes it into `displacement` as a
+      third term; `alive.js` publishes `shared.posture`, **which it never did** — without that line
+      the bias reads 0 on the exact page a judge captures. Gate: `sway.selftest.mjs` AFFECT →
+      BALANCE, **42 clauses green**, five defect toggles plus an unsigned-operator proof, both
+      trunk freezes, signed statistic. At an
+      unsourced 20 mm exercise scale, trunk frozen, the SIGNED anger-minus-fear separation is
+      **+17.7253 mm** (anger **+14.1989**, fear **−3.5264**, realised/commanded 0.99972 / 0.99995).
+      🚩 **FOUR OF THIS ENTRY'S OWN SENTENCES WERE RE-MEASURED AND THREE DO NOT SURVIVE. They are
+      left above verbatim and corrected here, because an item that quietly edits its own brief to
+      match what was built cannot be audited.**
+      1. **"weight forwards for anger, backwards for fear and disgust" is two thirds right.**
+         Sourced for anger and fear (BAP +1.96 / −1.46, and Coulson's Table 1 agrees). **Disgust
+         comes out FORWARD**, `approach = +0.321015`, and the reason is cited rather than
+         accidental: `BAP_PRESCRIPTIONS.disliking` is an EXPLICIT EMPTY ROW, cited to Coulson's own
+         recognition ceilings — no disgust posture reached 50% from any viewpoint — so the `disgust`
+         preset is carried entirely by its co-active `annoyed` row. BAP's cited zero outranks
+         Coulson's categorical level; the sentence needs fixing, not the prescription.
+         ⚠️ And Coulson's own PROSE contradicts his own table on the other two: anger is "weight
+         forward **or backward**", fear "backward **or forward**".
+      2. **"drives three of the nine BAP channels" — four are wired**, `kneeActivation` at a full
+         scale of 0°.
+      3. **"the base of support is already modelled" is FALSE for the A/P axis.** `Sway.js` reads no
+         vertex fore-and-aft, ever; its A/P clamp measures **34.000 mm on all five bakes** whose rear
+         footprints span 44.60 to 65.37 mm. The M/L half is modelled and never binds. "179.4 / 54.4
+         mm" reproduces **exactly**, but only on `figure_g050` and only under the undeformed-vertex
+         protocol (skinned: 189.99 / 57.92), and the 51.1 mm margin is a STATIC-PLATE margin
+         measured with no `Sway` in the stack.
+      🚩 **AND THE ITEM'S REAL PRECONDITION, WHICH NOBODY HAD MEASURED: THIS AXIS HAS NO MILLIMETRES
+      TO SPEND.** On the shipped tree, no bias at all, 900 s × 12 seeds: `fear`'s centre of mass
+      reaches **−50.958 mm** on `figure_g000` against a rear footprint of −44.60 mm raw and −49.00
+      skinned. **Outside its own base of support on both protocols**, and outside the raw one on
+      g025. That is the first of the two reasons the amplitude is 0 — the second being that no
+      source in this record states one — and it is a measurement rather than a literature judgement.
+      Declared as its own red in `docs/RED-GATES.md`; it is **older than this item and not caused by
+      it**, and it is a `Sway` balance-model problem rather than an affect one.
 
 ## Phase 7 — Runtime API and testbed
 

@@ -1659,11 +1659,28 @@ exclusions get re-derived from scratch next round, which is the cost this file e
 
 ```request
 id:          REQ-058
-status:      REJECTED
+status:      APPLIED
 target:      packages/core/src/motion/Sway.js
 filed-by:    the BAP fix agent (diffRequest 6 of 8)
 filed-at:    3749d27
 first-filed: 3749d27, 2026-08-09
+applied:     PUNCH-LIST 6.9 LANDED, so the status is what is true about the FILE rather than what
+             was true about the routing. `Sway.js` now carries `affectCentreOfPressureBias`,
+             `affectDisplacement` and `affectCentreOfPressureBiasOf( context )`;
+             `affect/PostureLayer.js` publishes `centreOfPressureBiasMetres` with a frame stamp;
+             `testbed/src/alive.js` publishes `shared.posture`, which it never did. Gated by
+             `sway.selftest.mjs`'s AFFECT → BALANCE section, 42 clauses green, five defect
+             toggles in `SWAY_DEFECTS` plus an unsigned-operator proof, both trunk freezes run.
+             ⚠️ THE AMPLITUDE SHIPPED AT ZERO and that is the deliverable rather than a shortfall:
+             `CENTRE_OF_PRESSURE_FULL_SCALE_METRES = 0`, flagged and argued in the file, for two
+             independent measured reasons — no source in this record states an emotional
+             centre-of-pressure amplitude, AND the axis is already overdrawn (see the note below).
+             🚩 AND IT SURFACED A PRE-EXISTING DEFECT IT DOES NOT CAUSE. Measured on the SHIPPED
+             tree with no bias in it, 900 s x 12 seeds: `fear`'s centre of mass reaches -50.958 mm
+             behind the ankle midpoint on `figure_g000`, whose rear footprint is -44.60 mm raw and
+             -49.00 mm skinned. Outside its own base of support on both protocols, and outside the
+             raw one on g025 too. Declared in `docs/RED-GATES.md` as its own red rather than folded
+             into 6.9's green.
 reason:      CONVERTED TO PUNCH-LIST 6.9, at R12, because its own note demanded a decision rather
              than a third carry — "a third means the entry is not being decided, and the honest
              action then is to reject it". Rejected as a REQUEST and kept as WORK: nothing in the
@@ -1692,6 +1709,16 @@ evidence:    `PostureLayer` drives three of the nine BAP channels and `approach`
              this bake's own mesh, 179.4 mm forward and 54.4 mm behind the ankle midpoint, tightest
              margin 51.1 mm across all seven presets. The quantity the request needs therefore
              exists and is measured; what does not exist is a way for affect to move it.
+             ⚠️ THREE OF THOSE FOUR SENTENCES WERE RE-MEASURED WHILE APPLYING THIS AND TWO DO NOT
+             SURVIVE, recorded here rather than silently corrected. FOUR BAP channels are wired,
+             not three (`kneeActivation` is wired at a full scale of 0°). "179.4 / 54.4 mm"
+             reproduces EXACTLY, but only on `figure_g050` and only under the undeformed-vertex
+             protocol; the skinned read is 189.99 / 57.92 and the other four bakes span 44.60 to
+             65.37 mm at the rear. And "the base of support is already modelled" is FALSE for the
+             antero-posterior axis: `Sway.js` reads no vertex fore-and-aft, and its A/P clamp
+             measures 34.000 mm on all five bakes regardless of their feet. The 51.1 mm margin is a
+             STATIC-PLATE margin measured with no `Sway` in the stack, and it does not survive the
+             composite — which is the defect named in `applied:` above.
 anchor:      packages/core/src/motion/Sway.js /export class Sway/
 verify:      packages/core/src/motion/Sway.js /affectCentreOfPressureBias/
 ```
@@ -2876,4 +2903,43 @@ evidence:    12 runs to distinct log files, 2026-08-17, quiet machine. 3 red, an
              already records that an intermittent cannot be declared cleanly in either direction.
 anchor:      packages/core/src/render/HairOIT.selftest.mjs /the instrument has an exact zero/
 verify:      packages/core/src/render/HairOIT.selftest.mjs /noise floor/
+```
+
+## REQ-086 — the affect CoP rail is symmetric on a base of support that is 3.3x deeper forward than back
+
+```request
+id:          REQ-086
+status:      OPEN
+target:      packages/core/src/motion/Sway.js
+filed-by:    the 6.9 adversarial pass
+filed-round: R12
+filed-at:    db4eb78
+first-filed: 2026-08-17
+change:      Make `affectBiasLimit` asymmetric, or derive its rearward half from the measured rear
+             footprint rather than from Duarte's weight-shift amplitude alone. The forward half is
+             fine and can stay where it is.
+evidence:    The rail is `POSTURE_OFFSET_MEAN_SHIFTS x shiftAmplitude` = 2.0 x 17 mm = 34.000 mm,
+             measured identical on all five bakes, and it reads no rig geometry at all. The base of
+             support does: measured against the ankle midpoint, g000 is -44.60 mm rear / +166.19 mm
+             forward and g050 is -54.43 / +179.40 — a forward:rear ratio of 3.73x and 3.30x. So one
+             symmetric number is generous forward and nearly the whole budget rearward.
+             🎯 TWO INDEPENDENT SYMPTOMS, BOTH MEASURED, AND NEITHER WAS VISIBLE BEFORE R29.
+             (1) Driven to the rail with the trunk LIVE, 300 s x 12 seeds through the product stack,
+             the deepest rear centre of mass is -78.77 mm on g000 — 29.78 mm BEHIND the skinned rear
+             edge. The rail's own value stands the figure outside its own footprint.
+             (2) The toes PARK. `writeToeLift` takes `Math.max( -displacement.z, 0 )`, so the floor
+             only touches zero while the balance band can still swing the centre of pressure forward
+             PAST neutral. That band is Duarte's 17 mm shift amplitude and the rail is 34 mm — twice
+             it — so beyond the cliff the toes never come down. `sway.selftest.mjs` now bisects for
+             that cliff and prints it, and gates that the rail sits beyond it.
+             🚩 HOW THIS WAS HIDDEN: the clause asserting "the toes do NOT park" was fed a column
+             labelled "at the clamp" that passed `affectBiasLimit` (34 mm, a limit on the BIAS) in as
+             `fullScaleMm` (the amplitude the prescription multiplies INTO). For fear those differ by
+             5.7x, so the column ran at a realised bias of -5.995 mm and the clamp never bound.
+             Correcting the label turned the clause red on the first run.
+             ⚠️ NOTHING IS BROKEN ON THE SHIPPED TREE: `CENTRE_OF_PRESSURE_FULL_SCALE_METRES` is 0,
+             so no bias is produced at all. This is a property of the rail, and it matters only to
+             whoever raises that amplitude — which is exactly who will not re-derive it.
+anchor:      packages/core/src/motion/Sway.js /affectBiasLimit = POSTURE_OFFSET_MEAN_SHIFTS/
+verify:      packages/core/src/motion/Sway.js /rearward rail/
 ```

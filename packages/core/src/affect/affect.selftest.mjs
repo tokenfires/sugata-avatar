@@ -1200,7 +1200,8 @@ if ( fs.existsSync( figurePath ) === false ) {
     // correct and it was the actuation that did not exist.
 
     const {
-        COULSON_COLUMNS, COULSON_TABLE_1, CHANNEL_TO_COULSON_COLUMN, KNEE_FULL_SCALE_DEGREES,
+        CENTRE_OF_PRESSURE_FULL_SCALE_METRES, COULSON_COLUMNS, COULSON_TABLE_1,
+        COULSON_WEIGHT_COLUMN, CHANNEL_TO_COULSON_COLUMN, KNEE_FULL_SCALE_DEGREES,
         POSTURE_DEFECTS, POSTURE_FULL_SCALE_DEGREES, PostureLayer, smallestListedMagnitude
     } = await import( './PostureLayer.js' );
 
@@ -1573,7 +1574,15 @@ if ( fs.existsSync( figurePath ) === false ) {
             `bake's own mesh; tightest margin ${ ( worstMargin * 1000 ).toFixed( 1 ) } mm on \`${ worstName }\`. ` +
             'A sustained lean puts the centre of pressure under the centre of mass (BodyMass.js), so a ' +
             'projection outside the feet is a figure falling over — this is the check that stops a full ' +
-            'scale being raised for legibility.' );
+            'scale being raised for legibility. ' +
+            '🚩 AND IT IS A STATIC-PLATE MARGIN, WHICH IS LESS THAN IT SOUNDS. There is no `Sway` in ' +
+            'this stack, so what is measured is a figure holding a pose rather than a figure ' +
+            'standing. Measured with `Sway` live over 900 s, `fear` on `figure_g000` reaches ' +
+            '−50.958 mm against a −49.00 mm skinned rear edge — OUTSIDE. That composite is gated by ' +
+            '`motion/sway.selftest.mjs`\'s COMPOSITE FOOTPRINT section and is DECLARED RED in ' +
+            '`docs/RED-GATES.md`; this clause and that one are two halves and only their sum is the ' +
+            'physical claim. Also: the vertices here are UNDEFORMED, read through the mesh world ' +
+            'matrix, so this is the BIND-pose foot — the skinned heel reaches 3-4 mm further back.' );
 
         check( '🎯 POSTURE  no emotion drives an arm past vertical into the ribcage',
             [ ...platesByPreset.values() ].every( ( plate ) =>
@@ -1585,6 +1594,86 @@ if ( fs.existsSync( figurePath ) === false ) {
             `anger asks for ${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpread.toFixed( 1 ) }° ` +
             `and is held at ${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpreadLeft.toFixed( 2 ) }°/` +
             `${ platesByPreset.get( 'anger' ).posture.appliedDegrees.armSpreadRight.toFixed( 2 ) }°` );
+    }
+
+    // --- 6.9: the centre-of-pressure bias, whose mechanism ships and whose amplitude is zero ----
+    //
+    // 🎯 THE SECOND CHANNEL IN THIS FILE TO SHIP AT ZERO, AND THE FIRST WITH TWO REASONS.
+    //
+    // `approach` is BAP's "forward whole-body movement" and this layer actuates it as ONE BONE, the
+    // trunk hinging at the lumbar. Coulson measured SEVEN degrees of freedom and the seventh is a
+    // WEIGHT TRANSFER, which is not a joint at all — so punch-list 6.9 gives that half a route into
+    // `motion/Sway.js`'s pendulum, in centre-of-pressure metres.
+    //
+    // What is gated HERE is only the half this file owns: that the amplitude is zero and that the
+    // derivation rule REFUSES to supply one, executed in this process rather than claimed in a
+    // comment. The mechanism, the sign, the clamp, the staleness stamp and the reachability are
+    // gated by `motion/sway.selftest.mjs`'s AFFECT → BALANCE section, which is where the pendulum
+    // and the base of support live.
+
+    {
+        let weightDerivationError = null;
+
+        try {
+
+            smallestListedMagnitude( 'weight' );
+
+        } catch ( error ) {
+
+            weightDerivationError = error;
+
+        }
+
+        const weightInTable = COULSON_COLUMNS.filter( ( column ) => /weight/i.test( column ) === true );
+
+        const weightLevels = Object.values( COULSON_WEIGHT_COLUMN ).flatMap( ( levels ) => levels );
+        const everyLevelIsALabel = weightLevels.every( ( level ) => typeof level === 'string' );
+
+        check( '🎯 POSTURE  6.9 — Coulson\'s WEIGHT column is CATEGORICAL, so it cannot supply a scale',
+            weightInTable.length === 0 && weightDerivationError !== null
+                && everyLevelIsALabel && CENTRE_OF_PRESSURE_FULL_SCALE_METRES === 0,
+            `\`COULSON_WEIGHT_COLUMN\` carries ${ Object.keys( COULSON_WEIGHT_COLUMN ).length } rows and ` +
+            `${ new Set( weightLevels ).size } distinct levels — ${ [ ...new Set( weightLevels ) ].join( ', ' ) } — ` +
+            'every one of them a LABEL where every other column is degrees. It is deliberately NOT in ' +
+            `COULSON_TABLE_1 (${ COULSON_COLUMNS.length } numeric columns, none of them weight), so ` +
+            `\`smallestListedMagnitude('weight')\` throws — "${ weightDerivationError === null
+                ? 'IT DID NOT THROW' : weightDerivationError.message.slice( 0, 96 ) }". ` +
+            'BAP gives the DIRECTION (anger +1.96, fear −1.46) and no magnitude; Coulson gives a ' +
+            'direction that his own prose then contradicts, and no magnitude. Direction from BAP, ' +
+            'magnitude ABSENT — this file\'s usual rule inverted with the magnitude half missing.' );
+
+        // The plates, through the same `posturePlate` every other clause here uses, so this is a
+        // statement about the shipped construction rather than about a constant.
+        const worstBias = Math.max( ...[ ...platesByPreset.values() ]
+            .map( ( plate ) => Math.abs( plate.posture.centreOfPressureBiasMetres ) ) );
+
+        check( '🎯 POSTURE  6.9 — and the published bias is EXACTLY zero on every preset',
+            worstBias === 0 && [ ...platesByPreset.values() ].every(
+                ( plate ) => plate.posture.centreOfPressureFullScaleMetres === 0 ),
+            `worst |bias| across ${ platesByPreset.size } presets: ${ worstBias.toFixed( 9 ) } m. Not "small": ` +
+            'CENTRE_OF_PRESSURE_FULL_SCALE_METRES is 0, so the product is 0 whatever the prescription ' +
+            `asks for — and anger asks for ${ platesByPreset.get( 'anger' ).posture.prescription.approach.toFixed( 6 ) } ` +
+            `and fear for ${ platesByPreset.get( 'fear' ).posture.prescription.approach.toFixed( 6 ) }. ` +
+            'The SECOND reason for the zero is not in this file and is not a literature judgement: ' +
+            'the antero-posterior axis is already OVERDRAWN. Measured with `Sway` live over 900 s, ' +
+            '`fear` on `figure_g000` puts the centre of mass 1.963 mm outside its own skinned ' +
+            'footprint with no bias at all — see `docs/RED-GATES.md`.' );
+
+        // 🚩 AND THE DEFECT, because a zero with no named alternative is a zero nobody can argue
+        // with. `inventedCentreOfPressureFullScale` reaches for Duarte's 17 mm — the one
+        // antero-posterior displacement in metres that IS in this codebase — and it is a VOLUNTARY
+        // weight shift measured over thirty unconstrained minutes with no emotion in the protocol.
+        // It is also already spent: it is the quantity `Sway`'s own A/P clamp is anchored on.
+        const invented = posturePlate( EMOTION_PRESETS.anger,
+            { postureDefects: { inventedCentreOfPressureFullScale: true } } );
+
+        check( '🚩 POSTURE  6.9 REJECTED: Duarte\'s VOLUNTARY 17 mm shift read as an emotional amplitude',
+            invented.posture.centreOfPressureBiasMetres > 0.010
+                && POSTURE_DEFECTS.inventedCentreOfPressureFullScale !== undefined,
+            `the defect publishes ${ ( invented.posture.centreOfPressureBiasMetres * 1000 ).toFixed( 4 ) } mm ` +
+            'of emotional lean out of a number that measures how far a bored person shifts their ' +
+            'weight over half an hour. It is the shape of the mistake this zero refuses, so it is ' +
+            'named and built rather than left as something a future edit might do quietly.' );
     }
 
     // --- 6.2(a): the knee, whose mechanism ships and whose amplitude is zero -------------------

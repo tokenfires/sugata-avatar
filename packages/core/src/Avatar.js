@@ -782,9 +782,14 @@ export class Avatar {
      * `AffectState.update( dt )` once per frame off the same delta the rig is on. Nothing in this
      * file ever calls `this.affectState.update()` — searching for that string is the check — because
      * two clocks over one state advance the attack and decay at double rate, and that failure looks
-     * exactly like a tuning problem rather than like a bug. `PostureLayer.update()` takes no
-     * arguments and never advances it (`PostureLayer.js:184-188`), so adding the body half cannot
-     * introduce a second owner.
+     * exactly like a tuning problem rather than like a bug. `PostureLayer.update()` never
+     * advances it — `grep -n 'state.update' packages/core/src/affect/PostureLayer.js` returns
+     * nothing, which is the check, and it is a grep rather than a line number on purpose. This
+     * paragraph used to say "takes no arguments and never advances it (`PostureLayer.js:184-188`)",
+     * and punch-list 6.9 falsified BOTH halves of that citation without touching this file: the
+     * signature is now `update( deltaSeconds, context )`, and :184-188 is prose about head-channel
+     * composition. The safety property held throughout; only the evidence trail rotted. A claim
+     * pinned to a line number ages every time somebody edits above it, so pin it to a search.
      *
      * The body half is built through `expression.postureLayer()` rather than constructed alongside,
      * because that constructor hands the new layer THIS layer's own state and map — a `PostureLayer`

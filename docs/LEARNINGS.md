@@ -2259,6 +2259,117 @@ known-good artefact can I put through this unchanged?"* It is the cheapest quest
 is the one this phase never asked. Two identical failures means the approach is wrong; eleven means
 the FRAME is.
 
+### 1.31 🎯 TWO GREEN GATES, ONE OVER EACH HALF, AND THE COMPOSITE OF THE HALVES IS WHAT FAILS
+
+Punch-list 6.9 asked for an affect-driven fore-and-aft centre-of-pressure bias. Before adding one,
+the obvious precondition — *does this axis have millimetres to spend?* — was measured, and it does
+not. On the **shipped tree, with no bias in it at all**, `fear`'s centre of mass reaches
+**−50.958 mm** behind the ankle midpoint on `figure_g000`, whose rear footprint is **−44.60 mm** raw
+and **−49.00 mm** skinned. Outside its own base of support on both protocols; outside the raw one on
+g025 too. 900 s × 12 seeds, whole-body centre of mass against each bake's own mesh.
+
+Two gates already asserted exactly this property and both were green:
+
+- `affect.selftest.mjs` — *"every emotion leaves the centre of mass INSIDE the measured footprint"*,
+  measured on a **STATIC PLATE with no `Sway` in the stack**. A figure holding a pose, not standing.
+- `sway.selftest.mjs`'s own footprint clauses — measured with **no affect in the stack**.
+
+Neither instrument is wrong. Each is a correct measurement of one half, and **the gap between them
+had never been measured by anything**. What leaves the feet is `Sway`'s deepest rearward drift plus
+`PostureLayer`'s fear chest bend (−9.393 mm of centre of mass) — two mechanisms, each individually
+inside its own budget, summing outside the base of support.
+
+> **WHEN TWO LAYERS WRITE THE SAME PHYSICAL QUANTITY, THE GATE BELONGS ON THE SUM.** Ownership
+> boundaries are a property of the code and not of the body. Ask, for every gate: *what else moves
+> the number I am bounding, and is it in this stack?* This is §1.25a's "measure the frame, not the
+> execution" one level up — the frame here was one layer at a time.
+
+⚠️ **AND THE WINDOW IS PART OF THE MEASUREMENT.** Duarte's antero-posterior drift lattice turns over
+every **319 s**, and the deepest excursion on g000 is at **t = 373.4 s** — past the end of any
+window a person reaches for by default. The same measurement, same twelve seeds (`SWAY_SEEDS`), same
+bake, same preset, at four window lengths, reported as skinned margin — every row now PRINTED BY THE
+GATE as a prefix of the trace the red clause reads:
+
+| window | skinned margin | verdict |
+|---|---|---|
+| 60 s | **+4.584 mm** | comfortable |
+| 120 s | +4.197 mm | tight |
+| 300 s | +4.197 mm | tight |
+| 900 s | **−1.963 mm** | **OUTSIDE** |
+
+A 60 s run says there is 4.6 mm of room. There is −2 mm. The window buys **6.547 mm** of headroom
+that does not exist, which is enough to flip the sign of the verdict. *A margin quoted without a
+window length says nothing*, and the honest form of the finding is the table rather than any row of
+it. §1.4 again, on a process slower than anyone's default window — and note that 120 s and 300 s
+AGREE, which is exactly the kind of stability that makes a short window feel converged.
+
+🚩 **AND THE 60 s ROW OF THIS VERY TABLE WAS WRONG FOR A ROUND, WHICH IS THE SHARPER LESSON.** It
+read **−29.830 mm / +19.166 mm** — "comfortable" by 19 mm — in this file, in `docs/RED-GATES.md`
+and in `PostureLayer.js`, and **no clause anywhere computed it**. Two adversarial passes re-measured
+it independently and then the gate confirmed them: +4.584 mm. The qualitative claim survived; the
+evidence for it did not. A table replicated into three documents is not three witnesses, it is one
+witness quoted three times, and prose is not a measurement no matter how many files it appears in.
+The repair was not to correct the number — it was to make the gate emit the table.
+
+### 1.32 "NO SOURCE" AND "NO HEADROOM" ARE DIFFERENT BLOCKERS, AND AN UNSOURCED CONSTANT CAN HAVE BOTH
+
+`KNEE_FULL_SCALE_DEGREES = 0` established the pattern this repo now reaches for: ship the mechanism,
+wire it, gate it, reach it, and set the amplitude to zero with the gap named in the file. 6.9's
+`CENTRE_OF_PRESSURE_FULL_SCALE_METRES = 0` is the second, and it is the first to carry **two
+independent reasons** — and separating them turned out to matter more than either.
+
+The literature reason is the familiar one: Coulson's weight column is **categorical** (Forwards /
+Backwards / Neutral, three labels where every other column is degrees), BAP gives a normalised
+loading with no scale, and Duarte's 17 mm is a **voluntary** weight shift already spent as `Sway`'s
+own clamp. The physical reason is §1.31: there is nowhere for the millimetres to go.
+
+They point the same way today and they do **not** expire together. Someone will eventually find a
+force-plate study of emotional stance — and on the day they do, the literature blocker lifts and the
+axis is still overdrawn. A file that recorded only "no source" would then read as an invitation.
+
+> **WHEN A CONSTANT IS ZERO, WRITE DOWN EVERY REASON, NOT THE FIRST SUFFICIENT ONE.** A blocker
+> list is what tells the next agent whether their new evidence actually unblocks anything.
+
+🚩 **AND NAME THE NUMBER SOMEBODY WILL REACH FOR.** The knee's defect is `inventedKneeFullScale = 20°`
+— "the same 20° the trunk got". 6.9's is subtler and therefore worth more: nobody invents a
+centre-of-pressure amplitude from nothing, they reach for **the one antero-posterior displacement in
+metres that is already in the codebase**, which is Duarte's 17 mm. Both are built as defects and
+proved red. An unsourced zero with no named alternative is a zero nobody can argue with.
+
+⚠️ **A design phase can hand you sources that are not in the record, and they are not evidence.**
+Three off-record studies were nominated with specific millimetre figures. `grep -rn` over `docs/`
+returned nothing for any of them, so their numbers could not be checked by anyone reading the file
+they would have been cited in. They are named in `PostureLayer.js` **without numbers**, with the
+instruction that they land in `docs/research/` first. *Transcribing a figure out of another agent's
+summary is the one thing this project's evidence rule forbids outright*, and the shape it arrives in
+is a helpful bullet list of citations that all look real.
+
+### 1.33 A RED PROOF WHOSE DISCRIMINATOR YOU HAVE NOT RUN IS A GUESS
+
+6.9's design specified that a defect reading the balance command off `appliedDegrees.approach` —
+Coulson's CHEST BEND column, degrees silently read as millimetres — would "die the moment the trunk
+is frozen", because that freeze leaves `appliedDegrees` reporting an angle no bone received.
+
+**It does not.** Measured: under both trunk freezes `appliedDegrees.approach` still reads exactly
+14.2029°, because `PostureLayer.update()` sets it unconditionally at the end of the frame whatever
+the bones did with it. The two readings are byte-identical under every freeze — and, at the gate's
+20 mm exercise amplitude, byte-identical **full stop**, because 20° of Coulson and 20 mm of floor
+are the same number times the same prescription.
+
+What actually separates them is that the wrong one **cannot follow the amplitude**: double
+`centreOfPressureFullScaleMetres` and the real channel doubles while the chest-bend read stays
+pinned at 14.2029. So the discriminating clause is a **linearity check in the supplied full scale**,
+which nothing in the design had asked for.
+
+> **RUN THE RED PROOF'S DISCRIMINATOR BEFORE WRITING THE CLAUSE AROUND IT.** A defect that is
+> indistinguishable at the one amplitude your gate happens to use is a defect your gate does not
+> catch, and the plausible-sounding reason it *should* have been caught is exactly what stops anyone
+> checking. The same round produced a second one: an unsigned-reading red proof whose known-bad was
+> `anger + fear`, which is **algebraically identical** to `|anger| − |fear|` whenever fear is
+> negative — a proof that could not fail, caught only by running it and seeing two clauses print the
+> same number. The replacement inverts the axis convention, which leaves the magnitude untouched to
+> 0.000238 mm and flips the sign, so the signed clause is the only reading that rejects it.
+
 ---
 
 ## Part 2 — Technical traps

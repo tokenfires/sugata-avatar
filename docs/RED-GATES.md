@@ -70,6 +70,55 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `packages/core/src/motion/sway.selftest.mjs` — RED ON ONE NEW CLAUSE, `every emotion stays inside
+  the SKINNED footprint`, at **−1.963 mm on `figure_g000` / `fear`**. Every other clause in the file
+  is green, including all 42 of punch-list 6.9's own.
+  🚩 **THE DEFECT IS OLDER THAN THE CLAUSE AND OLDER THAN 6.9, AND 6.9 DID NOT CAUSE IT.** The
+  measurement is of the SHIPPED stack — `ExpressionLayer` + `PostureLayer` + `Sway`, affect
+  centre-of-pressure full scale 0, no bias anywhere. 6.9's brief was to give affect a route into the
+  balance model; the first question it had to answer was whether that axis has millimetres to spend,
+  and the answer is that it is already overdrawn. Measured, 900 s × 12 seeds, whole-body centre of
+  mass against each bake's own base of support read off its own mesh, ankle midpoint as origin:
+
+  | bake | rear edge raw / skinned | `fear` deepest rear CoM | margin raw / skinned |
+  |---|---|---|---|
+  | g000 | −44.60 / −49.00 mm | **−50.958 mm** | **−6.357 / −1.963  OUTSIDE BOTH** |
+  | g025 | −49.34 / −53.15 mm | −50.153 mm | **−0.818** / +2.996  outside raw |
+  | g050 | −54.43 / −57.92 mm | −49.147 mm | +5.284 / +8.769 |
+  | g075 | −59.83 / −63.54 mm | −48.141 mm | +11.685 / +15.397 |
+  | g100 | −65.37 / −69.58 mm | −46.896 mm | +18.476 / +22.687 |
+
+  `neutral` is inside on every bake (worst +3.037 mm, g000). What leaves the feet is `Sway`'s own
+  deepest rearward drift plus `PostureLayer`'s fear chest bend (−9.393 mm of centre of mass) — two
+  mechanisms, each individually inside budget, summing outside. **The gate is stated against the
+  SKINNED protocol, which is the more forgiving of the two**, so the red is not an artefact of the
+  strict read.
+  🎯 **WHY NOTHING CAUGHT IT, WHICH IS THE INSTRUMENT LESSON WORTH MORE THAN THE FIX.**
+  `affect.selftest.mjs` makes exactly this claim and is green because it measures a STATIC PLATE
+  with no `Sway`. `sway.selftest.mjs`'s own footprint clauses are green for the mirror reason: no
+  affect. Two green gates, one over each half, and the composite of the halves is what leaves the
+  base of support. Neither instrument was wrong; the gap between them had never been measured.
+  ⚠️ **THE WINDOW IS PART OF THE MEASUREMENT, AND A SHORT ONE INVERTS THE VERDICT.** Duarte's
+  antero-posterior drift lattice turns over every 319 s, and the deepest excursion is seed 1234 at
+  **t = 373.4 s**. Same twelve seeds (`SWAY_SEEDS`), same bake, same preset, skinned margin:
+  **60 s → +4.584 mm**, 120 s → +4.197, 300 s → +4.197, **900 s → −1.963**. A short window buys
+  **6.547 mm** of headroom that is not there — enough to flip the sign of the verdict — and 120 s
+  and 300 s AGREE with each other, which is exactly the stability that makes a short window feel
+  converged. This clause runs at `TRACE_SECONDS` for that reason; **do not shorten it to save two
+  minutes.**
+  🚩 **THE 60 s FIGURE READ +19.166 mm UNTIL R29 AND NO CLAUSE COMPUTED IT.** The table was prose,
+  replicated verbatim into three files, and it was the headline evidence for shipping the affect
+  amplitude at zero. Two independent adversarial re-measurements and then the gate itself all read
+  +4.584. The window table is now emitted by `sway.selftest.mjs` as prefixes of the same trace this
+  clause reads, so the two cannot disagree and neither can age.
+  **NEXT AGENT: do not clear this by lowering the affect amplitude — it is already 0.** Two real
+  candidates, both balance-model changes and neither belonging to 6.9: clamp the antero-posterior
+  weight shift against the measured REAR footprint rather than against Duarte's amplitude alone
+  (`resolvePostureLimits` reads no vertex fore-and-aft — measured 34.000 mm on all five bakes, whose
+  rear edges span 44.60 to 65.37 mm), or give the pendulum a footprint-aware saturation. And do not
+  restate this clause against the raw protocol to make g025 the only failure; the skinned read is
+  the geometry a viewer sees. Owned by whoever next owns `motion/Sway.js`.
+
 - `tools/figure-pipeline/verify_glb.mjs` — RED FOR THE THIRD ROUND, `locks not a shell`, on **all
   five bakes at 3.27, 3.10, 3.25, 3.74 and 4.71 mm of coherent lock relief against a 5.0 mm floor.**
   Every other clause in the file is green on all five. R23 did not clear it either, and R23's result

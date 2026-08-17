@@ -169,6 +169,15 @@ const { Blink } = await import( './Blink.js' );
 const { FacialIdle } = await import( './FacialIdle.js' );
 const { Pupil } = await import( './Pupil.js' );
 
+// 🚩 THE AFFECT HALF, imported for punch-list 6.9's AFFECT → BALANCE section. The presets come from
+// `testbed/src/affect-presets.js` rather than being restated, for the reason `affect.selftest.mjs`
+// gives at its own import: that module exists because `alive.html` and `affect.html` must pose the
+// SAME PAD points, and a gate with a private copy is a third table to disagree with the other two.
+const { ExpressionLayer } = await import( '../affect/ExpressionLayer.js' );
+const { CENTRE_OF_PRESSURE_FULL_SCALE_METRES, COULSON_WEIGHT_COLUMN } =
+    await import( '../affect/PostureLayer.js' );
+const { EMOTION_PRESETS, settleAffect } = await import( '../../../testbed/src/affect-presets.js' );
+
 // The capture tool's postural nomination — which seeds it will hand a judge, and what it claims is
 // in them. Imported rather than restated so that the claim and its proof cannot drift apart: this
 // file re-measures every number in that table on every run. capture.mjs only runs its main() when
@@ -1061,6 +1070,83 @@ const CENTRE_OF_MASS_WORST_FRAME_LIMIT_MM = 1.5;
 const STATURE_FRACTION_TOLERANCE = 0.03;
 const TRUNK_SPAN_TOLERANCE = 0.096;
 
+// ================================================================================================
+// PUNCH-LIST 6.9 — affect reaching the balance model. Constants, all of them stated here so the
+// section below reads as one argument rather than as numbers appearing mid-loop.
+// ================================================================================================
+
+/**
+ * 🚩 THE EXERCISE AMPLITUDE, AND IT HAS NO SOURCE. Read this before reading any millimetre the
+ * AFFECT → BALANCE section prints.
+ *
+ * `PostureLayer.CENTRE_OF_PRESSURE_FULL_SCALE_METRES` is **0** on the shipped tree, for two
+ * independent measured reasons set out in that constant. A mechanism at zero cannot be measured, so
+ * this file supplies an amplitude of its own to drive it with — exactly as `affect.selftest.mjs`
+ * supplies `UNSOURCED_GATE_KNEE_DEGREES = 20` to exercise a knee whose full scale is also zero,
+ * and for the same reason and with the same warning.
+ *
+ * 20 mm is ARBITRARY. It is not a claim about how far an angry person's centre of pressure moves;
+ * no such number exists in this repository's record. It is chosen only to be large enough to
+ * measure against a 4.9 mm balance band and small enough to stay inside the 34.000 mm clamp, so
+ * that the clamp is exercised by a separate clause rather than by every clause. Every gate that
+ * uses it prints it.
+ */
+const UNSOURCED_GATE_COP_FULL_SCALE_MM = 20;
+
+/**
+ * A second exercise amplitude, used by ONE clause: the full-scale linearity check, which is the
+ * only thing that separates the real channel from `affectBiasFromChestBend`. Twice the first, so
+ * the expected answer is exactly 2x and the arithmetic is checkable by eye.
+ */
+const UNSOURCED_GATE_COP_DOUBLE_SCALE_MM = 2 * UNSOURCED_GATE_COP_FULL_SCALE_MM;
+
+/**
+ * The seeds and window the affect clauses run over.
+ *
+ * Six of the twelve, at 60 s: the statistic is a PAIRED same-seed difference, whose measured
+ * standard deviation across seeds is 0.0037 mm against an effect of 14+ mm, so the seed count is
+ * not what decides any verdict here. The composite footprint clause below is the opposite case and
+ * runs all twelve at 900 s, because there the window IS the measurement.
+ */
+const AFFECT_SEEDS = SWAY_SEEDS.slice( 0, 6 );
+const AFFECT_SECONDS = 60;
+
+/**
+ * How closely the realised centre of mass must follow the commanded bias, trunk frozen.
+ *
+ * A QUARTER of `CENTRE_OF_MASS_CLOSURE_TOLERANCE`, derived rather than picked, and tighter than it
+ * for a stated reason. That constant tolerates linearisation residue across the WHOLE range the
+ * runtime reaches, sampled as an RMS over a noisy trace. This statistic is a paired difference of
+ * MEANS at a sustained offset, where the linearisation error is nearly constant and mostly cancels
+ * between the two runs — so the same tolerance would be four times looser than the measurement
+ * needs. Measured on `figure_g050`: 0.99972 (anger) and 0.99995 (fear), i.e. the realised residue
+ * is 0.028% against a 0.5% band, so the band is not what decides this clause.
+ */
+const AFFECT_CLOSURE_TOLERANCE = CENTRE_OF_MASS_CLOSURE_TOLERANCE / 4;
+
+/**
+ * The bakes the composite footprint clause reads. All five, because the defect it measures is a
+ * function of the FOOT the bake was built with — the rear footprint runs 44.60 mm (g000) to
+ * 65.37 mm (g100) — and it is red on the small feet and green on the large ones.
+ */
+const FOOTPRINT_BAKES = [ 'g000', 'g025', 'g050', 'g075', 'g100' ];
+
+/**
+ * The prefixes the footprint trace reports its deepest excursion at. 900 must be the last and
+ * must equal `TRACE_SECONDS`, so the final row of the window table IS the row the red gate reads.
+ * Duarte's A/P drift lattice turns over every 319 s, so anything under that samples one phase of
+ * it and reports whatever headroom that phase happens to have.
+ */
+const FOOTPRINT_WINDOWS_SECONDS = [ 60, 120, 300, 900 ];
+
+/**
+ * g050's rear footprint edge behind the ankle midpoint, in mm, raw. Quoted in the clamp section's
+ * red proof so that clause can say what it is comparing against. The COMPOSITE FOOTPRINT section
+ * re-measures this off the mesh every run and prints it, so a drift shows up there rather than
+ * silently ageing inside a sentence.
+ */
+const REAR_FOOTPRINT_G050_MM = -54.4;
+
 const results = [];
 
 /**
@@ -1148,9 +1234,69 @@ const MARKERS = [
 const SEGMENT_ORDER = [ 'head', 'pelvis', 'kneeLeft', 'ankleLeft' ];
 const PLANTED_MARKERS = [ 'ankleLeft', 'ankleRight', 'toeLeft', 'toeRight' ];
 
+/**
+ * 🚩 THE OTHER FOUR BAKES, parsed and posed here because `Figure.parse` is async and every
+ * `measure*` function below is not.
+ *
+ * COMPOSITE FOOTPRINT is the one section in this file that cannot be stated about a single figure.
+ * What it measures is a centre of mass against a BASE OF SUPPORT, and the base of support is the
+ * one quantity that changes materially between bakes: the rear footprint runs 44.60 mm on g000 to
+ * 65.37 mm on g100, while the sway trace that has to fit inside it is nearly the same on all five.
+ * So the defect it finds is red on the small feet and green on the large ones, and a run against
+ * the default figure alone would report the wrong verdict for four fifths of the shipped figures.
+ *
+ * Each entry carries its own rest pose, snapshotted after `relaxed-standing` and before anything
+ * has run, for exactly the reason `buildStack` restores one: `MotionStack` captures its rest from
+ * whatever the rig is in at bind, so binding a second stack to an already-driven figure captures a
+ * displaced rest and every absolute measurement after it is off by the last frame of the last run.
+ */
+const footprintBakes = new Map();
+
+for ( const bake of FOOTPRINT_BAKES ) {
+
+    const bakePath = path.join( repoRoot, `assets/figures/figure_${ bake }.glb` );
+
+    if ( fs.existsSync( bakePath ) === false ) continue;
+
+    // The figure under test is already parsed and posed; re-parsing it would double the cost and
+    // then measure a different object than every other section in the file.
+    if ( path.resolve( bakePath ) === path.resolve( figurePath ) ) {
+
+        footprintBakes.set( bake, { figure, restPose } );
+        continue;
+
+    }
+
+    const bakeBytes = fs.readFileSync( bakePath );
+    const bakeFigure = await Figure.parse(
+        bakeBytes.buffer.slice( bakeBytes.byteOffset, bakeBytes.byteOffset + bakeBytes.byteLength ) );
+
+    bakeFigure.root.updateMatrixWorld( true );
+
+    const bakeSkeleton = new Skeleton( bakeFigure.root );
+    RestPose.load( 'relaxed-standing' ).applyTo( bakeSkeleton );
+    bakeSkeleton.update();
+    bakeFigure.root.updateMatrixWorld( true );
+
+    const bakeRestPose = new Map();
+
+    bakeFigure.root.traverse( ( object ) => {
+
+        bakeRestPose.set( object, {
+            quaternion: object.quaternion.clone(),
+            position: object.position.clone()
+        } );
+
+    } );
+
+    footprintBakes.set( bake, { figure: bakeFigure, restPose: bakeRestPose } );
+
+}
+
 console.log( `\nfigure: ${ path.relative( repoRoot, figurePath ) }` );
 console.log( `stature: ${ stature.toFixed( 4 ) } m, posed into relaxed-standing` );
-console.log( `sampling: ${ SAMPLE_RATE_HZ } Hz, ${ SWAY_SEEDS.length } seeds x ${ TRACE_SECONDS } s\n` );
+console.log( `sampling: ${ SAMPLE_RATE_HZ } Hz, ${ SWAY_SEEDS.length } seeds x ${ TRACE_SECONDS } s` );
+console.log( `footprint bakes: ${ [ ...footprintBakes.keys() ].join( ', ' ) }\n` );
 
 // --- the run ------------------------------------------------------------------------------------
 
@@ -1183,6 +1329,8 @@ measureTheOtherWay();
 measureFrameRateInvariance();
 measureVariableFrameTime();
 measureDeterminism();
+measureAffectBalance();
+measureCompositeFootprint();
 
 report();
 
@@ -1275,8 +1423,17 @@ function measureRig() {
 
     gate( 'posture clamp ML (mm)', layer.medioLateral.limit * 1000, 20, 90,
         '2 x Duarte ML 22 mm; the half-stance ceiling would allow 77.7 and does not bind' );
+    // 🚩 THE SOURCE NOTE ON THIS LINE USED TO READ "inside the 50 mm rear footprint measured on this
+    // figure", AND THAT IS THE SAFETY ARGUMENT THE COMPOSITE FOOTPRINT SECTION FALSIFIES. Three
+    // things are wrong with it. The clamp reads no rig geometry fore-and-aft at all — measured
+    // 34.000 mm on all five bakes, whose rear footprints run 44.60 to 65.37 mm — so it is not
+    // "measured on this figure" in the way the lateral one is. "50 mm" is roughly g050's and is
+    // 5.4 mm past g000's. And the clamp is only one of three terms in `displacement.z`: adding the
+    // balance band and `PostureLayer`'s chest bend takes `fear` OUTSIDE the base of support on two
+    // of the five bakes. A margin argued term-by-term is not a margin.
     gate( 'posture clamp AP (mm)', layer.anteroPosterior.limit * 1000, 10, 60,
-        '2 x Duarte AP 17 mm; inside the 50 mm rear footprint measured on this figure' );
+        '2 x Duarte AP 17 mm, and it reads NO rig geometry — see COMPOSITE FOOTPRINT for what the ' +
+        'sum of the three antero-posterior terms actually does to the base of support' );
 
     stack.dispose();
 
@@ -6941,6 +7098,776 @@ function measureDeterminism() {
 
 }
 
+/**
+ * ================================================================================================
+ * PUNCH-LIST 6.9 — AFFECT REACHES THE BALANCE MODEL, NOT JUST THE TRUNK BONES
+ * ================================================================================================
+ *
+ * 🎯 WHAT THIS SECTION CLAIMS, AND WHAT GREEN MEANS HERE, BECAUSE IT ASSERTS A CHANNEL THAT DOES
+ * NOT MOVE ON THE SHIPPED TREE.
+ *
+ * `affect/PostureLayer.js` actuates BAP's `approach` as one bone: `writeSagittal( bones.spine )`.
+ * Coulson measured SEVEN degrees of freedom and the seventh is a WEIGHT TRANSFER — forwards or
+ * backwards — which is not a joint at all. 6.9 gives that half a route into `Sway`'s pendulum, in
+ * the unit `Sway` is rooted in, and it ships at an amplitude of ZERO because no source in this
+ * repository's record states one and because the axis has no headroom left. So:
+ *
+ *   • the SHIPPED clauses assert the bias is EXACTLY 0.000000 mm on every preset — not "nearly";
+ *   • the MECHANISM clauses supply `UNSOURCED_GATE_COP_FULL_SCALE_MM` and drive the thing, and
+ *     every one of them prints the amplitude it supplied;
+ *   • the REACHABILITY clauses prove the product's own pages reach it, because 86/86 with zero
+ *     call sites is a failure this project has already paid for.
+ *
+ *
+ * 🚩 THE PROPERTY IS SIGNED. THIS IS THE HIGHEST-PROBABILITY REPEAT IN THE WHOLE ITEM.
+ *
+ * Paid-for failure #2 was a gate that measured a MAGNITUDE for a property whose content is a SIGN —
+ * `Math.abs()` on a direction — and it stayed green while an arm swung backwards. This property is
+ * literally named "Forwards / Backwards". There is no RMS here, no sway area, no ellipse and no
+ * absolute value: the clause asserts an ORDERED SIGNED TRIPLE, `anger > 0 > fear`, and
+ * `affectBiasUnsigned` below is that mistake rebuilt so the file can show it passing.
+ *
+ *
+ * 🚩 THE OPERATOR IS A PAIRED SAME-SEED DIFFERENCE, AND AN UNPAIRED ONE MEASURES THE WRONG PROCESS.
+ *
+ * Measured on `figure_g050`, 6 seeds x 60 s:
+ *
+ *     unpaired mean realised centre of mass, neutral   mean 5.228 mm, SD ACROSS SEEDS 6.8286 mm
+ *     paired anger-minus-neutral, same seeds           SD 0.1108 mm
+ *     paired, bias live, trunk frozen                  SD 0.0037 mm
+ *
+ * The unpaired spread is Duarte's 319 s drift lattice, which has nothing to do with affect and is
+ * three orders of magnitude louder than what is being measured. Subtracting the SAME SEED's neutral
+ * run removes it exactly, because `Sway`'s processes are a function of the seed and never read the
+ * centre of mass back.
+ *
+ *
+ * 🚩 THE TRUNK IS FROZEN, TWO DIFFERENT WAYS, AND SURVIVING BOTH IS THE POINT.
+ *
+ * The punch-list's own words: *"the emotion must be readable in the CoP trace with the TRUNK BONES
+ * FROZEN, which is what proves the channel reached balance rather than being read off the chest
+ * bend twice."* With the trunk live, anger's chest bend alone moves the centre of mass 35.5867 mm —
+ * twice the effect being measured — so a gate that skipped the freeze would score a large green
+ * number on today's tree with no 6.9 in it at all. Four candidate freezes were measured and two
+ * were rejected:
+ *
+ *     mechanism                  separation today   posture.update() ran   verdict
+ *     trunk live (shipped)          +35.5867 mm            yes             the contamination
+ *     posture.weight = 0              0.0000 mm            yes             ✅ every bone released
+ *     bones: { spine: <missing> }     0.0000 mm            yes             ✅ the trunk channel only
+ *     posture.enabled = false         0.0000 mm            NO              ❌ kills the hand-off
+ *     posture.amplitude = 0           0.0000 mm            yes             ❌ kills the signal
+ *
+ * `enabled = false` is disqualified because it removes the very hand-off under test — it is
+ * `affectBiasIgnoresFrameStamp`'s red proof, not a freeze. `amplitude = 0` zeroes `drive`, and
+ * `drive` is what the bias is scaled by, so it silences the thing being measured rather than the
+ * thing being excluded. The two survivors fail differently, so running both is what proves the
+ * reading is neither the chest bend nor any other bone this layer writes.
+ *
+ * ⚠️ COLLATERAL EFFECT OF THE SECOND FREEZE, MEASURED, so nobody quotes an arm number out of it:
+ * renaming the spine also zeroes arm adduction — `bindArmBudget` returns early on a missing spine —
+ * so anger's `armSpreadLeft` reads 0.0000° under it instead of −10.1796°. Harmless for a
+ * fore-and-aft gate, a lie if repeated anywhere else.
+ */
+function measureAffectBalance() {
+
+    section( 'AFFECT → BALANCE — punch-list 6.9, the CoP bias, TRUNK FROZEN' );
+
+    note( 'shipped full scale (mm)', ( CENTRE_OF_PRESSURE_FULL_SCALE_METRES * 1000 ).toFixed( 6 ),
+        'PostureLayer.CENTRE_OF_PRESSURE_FULL_SCALE_METRES — authored 0, two measured reasons' );
+    note( 'UNSOURCED amplitude this gate supplies (mm)', UNSOURCED_GATE_COP_FULL_SCALE_MM,
+        '🚩 arbitrary. Nothing here says how far an angry person\'s centre of pressure moves' );
+    note( 'seeds x window', `${ AFFECT_SEEDS.length } x ${ AFFECT_SECONDS } s`,
+        `seeds ${ AFFECT_SEEDS.join( ', ' ) }` );
+
+    // --- the rig facts, MEASURED, because an assumed axis is paid-for failure #4 ---------------
+    //
+    // "Positive is forward" is the whole sign convention of this item, and the failure it repeats
+    // is an axis derived for the TRUNK (which extends up) applied to something that does not.
+    // Two independent reads, neither of which trusts a constant's name.
+
+    const ankleMid = new Vector3();
+    const toeMid = new Vector3();
+    const scratch = new Vector3();
+
+    restoreRestPose();
+
+    for ( const side of [ 'left', 'right' ] ) {
+
+        ankleMid.add( scratch.setFromMatrixPosition(
+            figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE[ `${ side }Foot` ] ).matrixWorld ) );
+        toeMid.add( scratch.setFromMatrixPosition(
+            figure.root.getObjectByName( HUMANOID_TO_FIGURE_BONE[ `${ side }Toes` ] ).matrixWorld ) );
+
+    }
+
+    const toesForwardOfAnkles = ( toeMid.z - ankleMid.z ) / 2 * 1000;
+
+    gate( 'FORWARD is +Z — read off this rig\'s own toes (mm)', toesForwardOfAnkles, 50, Infinity,
+        'ball joints minus ankle joints, mean of both feet. NOT assumed: paid-for failure #4' );
+
+    // --- the shipped tree: exactly zero, and exactly is the word --------------------------------
+
+    const shipped = {};
+
+    for ( const preset of [ 'anger', 'fear', 'disgust' ] ) {
+
+        shipped[ preset ] = pairedAffectTrace( preset, { freeze: 'weight', fullScaleMm: 0 } );
+
+    }
+
+    gate( 'SHIPPED  the bias is EXACTLY zero on every preset (mm)',
+        Math.max( ...Object.values( shipped ).flatMap(
+            ( r ) => [ Math.abs( r.bias ), Math.abs( r.sample.finalBias ) ] ) ), 0, 0,
+        'not "small": CENTRE_OF_PRESSURE_FULL_SCALE_METRES is 0, so the product is 0. Both the ' +
+        'window mean AND the last frame, so this cannot pass by averaging a sign change away' );
+
+    gate( 'SHIPPED  and the commanded displacement is bit-identical to neutral (mm)',
+        Math.max( ...Object.values( shipped ).map( ( r ) => Math.abs( r.commanded ) ) ), 0, 0,
+        'paired anger/fear/disgust minus neutral, same seeds, `sway.displacement.z`' );
+
+    // 🎯 AND THE STRONGER FORM OF THE SAME CLAIM: 6.9 changed NOTHING on the shipped tree. The whole
+    // mechanism switched off must reproduce the composed trace to the last bit, which is what says
+    // the `.add( this.affectDisplacement )` in `update()` is a no-op at the shipped amplitude
+    // rather than a small perturbation nobody would notice in a tolerance band.
+    {
+        const withMechanism = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'live', fullScaleMm: 0 } );
+        const without = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'live', fullScaleMm: 0,
+            swayOptions: { affectBiasEnabled: false } } );
+
+        gate( 'SHIPPED  the trace is bit-identical with the mechanism switched off (mm)',
+            Math.abs( withMechanism.realised - without.realised ), 0, 0,
+            '`affectBiasEnabled: false` — every trace in this file predates 6.9 and must still' );
+    }
+
+    // --- the prescription, through the product's own construction -------------------------------
+    //
+    // Reported rather than gated, because these are `ExpressionMap`'s numbers and `affect.selftest`
+    // owns them. They are printed here because every millimetre below is one of them times the
+    // supplied amplitude, and a reader who cannot see the multiplicand cannot check the product.
+    //
+    // ⚠️ READ AT FRAME 1, after `settleAffect`. `disgust` is the one preset whose prescription is
+    // NOT stationary — see the decay note below — so a value read at the end of the window would
+    // not be the multiplicand any other line here is using.
+
+    for ( const preset of [ 'anger', 'fear', 'disgust', 'neutral' ] ) {
+
+        const sample = affectTrace( preset, AFFECT_SEEDS[ 0 ], {
+            freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, seconds: FRAME_SECONDS } );
+
+        note( `prescription  ${ preset }  (frame 1)`,
+            `${ sample.approach >= 0 ? '+' : '' }${ sample.approach.toFixed( 6 ) }`,
+            `intensity ${ sample.intensity.toFixed( 4 ) }   chest bend ` +
+            `${ sample.applied.toFixed( 4 ) }°   bias ${ sample.finalBias.toFixed( 4 ) } mm   ` +
+            `Coulson weight column: ${ ( COULSON_WEIGHT_COLUMN[ preset ] ?? [ '—' ] ).join( '/' ) }` );
+
+    }
+
+    // --- RED 1: the channel does not reach balance. Free, and red by construction ---------------
+    //
+    // `affectBiasNotComposed` IS the state of this file before 6.9: the claim is read, reported,
+    // and reaches nothing. It is the item's premise, proved rather than asserted.
+
+    const notComposed = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM,
+        swayOptions: { defects: { affectBiasNotComposed: true } } } );
+
+    gate( '🚩 RED  affectBiasNotComposed reaches the pendulum with NOTHING (mm)',
+        Math.abs( notComposed.realised ), 0, 1e-9,
+        'the tree before 6.9: the bias is reported and composed into nothing. Paid-for failure #5' );
+
+    gate( '🚩 RED  …and it still REPORTS the full bias, which is why reporting is not reaching (mm)',
+        notComposed.bias, UNSOURCED_GATE_COP_FULL_SCALE_MM * 0.7, UNSOURCED_GATE_COP_FULL_SCALE_MM,
+        'anger\'s prescription x intensity x the supplied amplitude — a field a HUD would show' );
+
+    // --- the contamination the freeze exists to remove ------------------------------------------
+
+    const trunkLive = pairedAffectTrace( 'anger', { freeze: 'live', fullScaleMm: 0 } );
+
+    gate( 'the CHEST BEND alone moves the centre of mass this far (mm)',
+        trunkLive.realised, 20, 60,
+        'with NO 6.9 at all. A gate without the freeze would score this and call it success' );
+
+    for ( const freeze of [ 'weight', 'bones' ] ) {
+
+        gate( `the ${ freeze } freeze releases every bone — separation at full scale 0 (mm)`,
+            Math.abs( pairedAffectTrace( 'anger', { freeze, fullScaleMm: 0 } ).realised ), 0, 1e-9,
+            'exactly zero, or the freeze is not a freeze and every number below is the trunk' );
+
+    }
+
+    // --- the mechanism, both freezes ------------------------------------------------------------
+
+    const measured = { weight: {}, bones: {} };
+
+    for ( const freeze of [ 'weight', 'bones' ] ) {
+
+        for ( const preset of [ 'anger', 'fear', 'disgust' ] ) {
+
+            measured[ freeze ][ preset ] = pairedAffectTrace( preset, {
+                freeze, fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM } );
+
+        }
+
+        const { anger, fear, disgust } = measured[ freeze ];
+
+        note( `freeze=${ freeze }  realised CoM (mm)`,
+            `${ anger.realised.toFixed( 4 ) } / ${ fear.realised.toFixed( 4 ) }`,
+            `anger / fear, SD across seeds ${ anger.realisedSd.toFixed( 4 ) } / ` +
+            `${ fear.realisedSd.toFixed( 4 ) }; disgust ${ disgust.realised.toFixed( 4 ) }` );
+
+        // 🚩 SIGNED. No Math.abs anywhere in this clause. See the header.
+        gate( `freeze=${ freeze }  anger carries the weight FORWARD (mm)`,
+            anger.realised, 1, Infinity,
+            'BAP approach +1.96; Coulson\'s weight column says Forwards. SIGNED, never a magnitude' );
+
+        gate( `freeze=${ freeze }  fear carries the weight BACK (mm)`,
+            fear.realised, -Infinity, -0.1,
+            'BAP approach -1.46; Coulson\'s weight column says Backwards, Neutral' );
+
+        gate( `freeze=${ freeze }  the SIGNED anger-minus-fear separation (mm)`,
+            anger.realised - fear.realised, 1, Infinity,
+            'the ordered triple anger > 0 > fear, stated as one number a reader can check' );
+
+        // The loop closure, with affect live. This is what makes the seam a centre-of-pressure
+        // command rather than a lean: the realised centre of mass must land where `displacement`
+        // said it would, and `affectBiasOnLeanNotDisplacement` is the version that does not.
+        gate( `freeze=${ freeze }  realised / commanded, anger`,
+            anger.realised / anger.commanded,
+            1 - AFFECT_CLOSURE_TOLERANCE, 1 + AFFECT_CLOSURE_TOLERANCE,
+            'the bias is a CoP command, so BodyMass must find the mass where it was commanded' );
+
+    }
+
+    gate( 'the two freezes agree to four decimal places (mm)',
+        Math.abs( measured.weight.anger.realised - measured.bones.anger.realised ), 0, 1e-4,
+        'they fail differently, so agreement is evidence the reading is neither bone' );
+
+    // --- 🚩 DISGUST IS A KNOWN-WRONG DIRECTION, AND IT IS CITED RATHER THAN SURPRISING ----------
+    //
+    // The punch-list sentence — "'weight forwards' for anger, 'backwards' for fear and disgust" —
+    // is NOT achievable from `prescription.approach`, and this is the one place the item's own text
+    // is falsified by the code rather than by the record. Measured: disgust's approach is +0.321015,
+    // FORWARD, against Coulson's Backwards.
+    //
+    // The cause is `BAP_PRESCRIPTIONS.disliking`, an EXPLICIT EMPTY ROW, cited to Coulson's own
+    // recognition ceilings: no disgust posture reached 50% from any viewpoint, and the research doc
+    // concludes disgust cannot be conveyed by posture at all. The `disgust` preset therefore
+    // activates `disliking 0.75` alongside `annoyed 0.3847`, and the only non-empty row in the
+    // normaliser is anger's: 0.946860 x 0.3847 / 1.1347 = 0.321015.
+    //
+    // DECISION: accept it and gate it as a cited expectation. BAP's cited zero for disgust outranks
+    // Coulson's categorical level. Manufacturing an `approach` loading for `disliking` would invent
+    // a number in two places at once — a magnitude BAP never reported, to satisfy a source that has
+    // no magnitude. It is the punch-list sentence that needs fixing, not the prescription.
+
+    gate( '🚩 disgust goes FORWARD, against Coulson, for a cited reason (mm)',
+        measured.weight.disgust.realised, 0.1, Infinity,
+        'BAP_PRESCRIPTIONS.disliking is an explicit empty row (Coulson: no disgust posture ' +
+        'reached 50%), so the disgust preset is carried by its co-active annoyed row' );
+
+    gate( '…and smaller than anger\'s, which is the arithmetic that says why (ratio)',
+        measured.weight.disgust.realised / measured.weight.anger.realised, 0.05, 0.60,
+        'anger\'s own loading, diluted by disliking\'s zero in the normaliser' );
+
+    // ⚠️ AND DISGUST'S PRESCRIPTION IS NOT STATIONARY, which nothing in the design phase predicted
+    // and which a single-frame reading would have hidden. `disgust` is the one preset with a
+    // `trigger`, so its activation DECAYS: measured at frame 1 the bias is 4.8152 mm and its mean
+    // over 60 s is 4.0964 mm. Reported rather than gated — it belongs to `ExpressionMap` — but a
+    // reader comparing this section's numbers against a one-frame plate needs it.
+    {
+        const firstFrame = affectTrace( 'disgust', AFFECT_SEEDS[ 0 ],
+            { freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, seconds: 1 / 60 } );
+
+        note( 'disgust decays — frame 1 vs 60 s mean (mm)',
+            `${ firstFrame.bias.toFixed( 4 ) } -> ${ measured.weight.disgust.commanded.toFixed( 4 ) }`,
+            'the only preset with a trigger, so its activation is not stationary' );
+    }
+
+    // --- RED 2: the balance command sourced from the CHEST BEND ---------------------------------
+    //
+    // 🚩 AND THE DISCRIMINATOR THE DESIGN PHASE PROPOSED FOR THIS DOES NOT WORK. That design said
+    // the chest-bend read "dies the moment the trunk is frozen under `bones: { spine: … }`, because
+    // that freeze leaves `appliedDegrees` reporting an angle no bone received". Measured: under
+    // BOTH freezes `appliedDegrees.approach` still reads 14.2029°, because `update()` sets it
+    // unconditionally at the end of the frame whatever the bones did. The two reads are identical
+    // under every freeze.
+    //
+    // What actually separates them is a UNIT ERROR. `appliedDegrees.approach` is
+    // `POSTURE_FULL_SCALE_DEGREES.approach` — 20°, the smallest magnitude in Coulson's CHEST BEND
+    // column — times the same prescription and drive. Reading it as millimetres is a joint-angle
+    // table silently supplying a floor distance at 1 mm per degree, and at a 20 mm exercise scale
+    // the two are NUMERICALLY IDENTICAL. It is only visible when the supplied amplitude changes:
+    // the real channel follows it and the chest-bend read cannot.
+
+    const single = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM } );
+    const doubled = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_DOUBLE_SCALE_MM } );
+
+    gate( 'the bias is LINEAR in the supplied full scale (ratio)',
+        doubled.commanded / single.commanded, 2 - 1e-6, 2 + 1e-6,
+        `${ UNSOURCED_GATE_COP_DOUBLE_SCALE_MM } mm over ${ UNSOURCED_GATE_COP_FULL_SCALE_MM } mm ` +
+        'must be exactly 2 — the clause that separates the channel from a joint angle' );
+
+    const chestBendSingle = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM,
+        swayOptions: { defects: { affectBiasFromChestBend: true } } } );
+    const chestBendDoubled = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_DOUBLE_SCALE_MM,
+        swayOptions: { defects: { affectBiasFromChestBend: true } } } );
+
+    gate( '🚩 RED  affectBiasFromChestBend is INDISTINGUISHABLE at one amplitude (mm)',
+        Math.abs( chestBendSingle.commanded - single.commanded ), 0, 1e-9,
+        'recorded, not tolerated: 20° of Coulson and 20 mm of floor are the same number' );
+
+    gate( '🚩 RED  …and the linearity clause is what catches it (ratio)',
+        chestBendDoubled.commanded / chestBendSingle.commanded, 0.999, 1.001,
+        'pinned at 1: a chest-bend read cannot follow centreOfPressureFullScaleMetres' );
+
+    // --- RED 3: the staleness stamp -------------------------------------------------------------
+
+    const disableFrame = Math.round( AFFECT_SECONDS * SAMPLE_RATE_HZ / 2 );
+
+    const guarded = affectTrace( 'anger', AFFECT_SEEDS[ 0 ], {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, disableAt: disableFrame } );
+
+    const unguarded = affectTrace( 'anger', AFFECT_SEEDS[ 0 ], {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, disableAt: disableFrame,
+        swayOptions: { defects: { affectBiasIgnoresFrameStamp: true } } } );
+
+    note( 'posture disabled mid-run, final prescription',
+        `${ guarded.approach.toFixed( 6 ) }`,
+        `and appliedDegrees ${ guarded.applied.toFixed( 4 ) }° — BOTH STALE, the layer never ran again` );
+
+    gate( 'a DISABLED posture layer commands nothing (mm)', Math.abs( guarded.finalBias ), 0, 0,
+        'the frame stamp, which is the guard `enabled` alone cannot be' );
+
+    gate( '🚩 RED  affectBiasIgnoresFrameStamp keeps commanding it for ever (mm)',
+        unguarded.finalBias, 1, Infinity,
+        'a layer the stack skipped, still steering the balance model' );
+
+    // --- RED 4: the bias on the LEAN rather than on the displacement ----------------------------
+    //
+    // The alternative seam. It produces the same centre-of-mass trace — measuring the figure cannot
+    // tell them apart — and it breaks the loop closure, which is the only check in this file that
+    // can catch a wrong lever. That is the whole argument for where 6.9 landed.
+
+    const onLean = pairedAffectTrace( 'anger', {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM,
+        swayOptions: { defects: { affectBiasOnLeanNotDisplacement: true } } } );
+
+    gate( '🚩 RED  affectBiasOnLeanNotDisplacement moves the body the SAME way (mm)',
+        Math.abs( onLean.realised - measured.weight.anger.realised ), 0, 0.05,
+        'recorded, not tolerated: the centre-of-mass trace cannot discriminate the seam, so ' +
+        `both land at ${ onLean.realised.toFixed( 3 ) } mm` );
+
+    gate( '🚩 RED  …and the LOOP CLOSURE rejects it — commanded / realised',
+        onLean.commanded / onLean.realised, -1e-6, 1e-6,
+        `commanded ${ onLean.commanded.toFixed( 6 ) } mm against realised ` +
+        `${ onLean.realised.toFixed( 3 ) } mm: the pendulum went somewhere nothing asked it to go` );
+
+    // --- RED 5: the unsigned reading. Paid-for failure #2, and #4 supplying the known-bad --------
+    //
+    // 🚩 THE DEFECT LIVES IN THE GATE'S OPERATOR RATHER THAN IN `Sway.js`, which is why it is not in
+    // SWAY_DEFECTS: paid-for failure #2 was `Math.abs()` on a direction, and it stayed green while
+    // an arm swung backwards. The known-bad it has to reject is supplied by paid-for failure #4 —
+    // an INVERTED SIGN CONVENTION, which is exactly what a full scale derived with the axis the
+    // wrong way round produces, and which is why "forward is +Z" is measured off the toes above
+    // rather than asserted anywhere.
+    //
+    // Under inversion, fear leans FORWARD. Its MAGNITUDE is untouched — bit-identical — so any
+    // operator built on |bias|, RMS, sway area or an ellipse reports success. The signed clause is
+    // the only reading of this property that is about the property.
+
+    const invertedConvention = pairedAffectTrace( 'fear', {
+        freeze: 'weight', fullScaleMm: -UNSOURCED_GATE_COP_FULL_SCALE_MM } );
+
+    // ⚠️ NOT bit-identical, and the residue is worth stating rather than tolerating: an inverted
+    // lean is not the exact mirror of the one it replaces, because the pendulum rotates a body
+    // whose mass distribution is not symmetric fore and aft. The residue is what that costs. It is
+    // three orders of magnitude below the effect, which is the whole point — it is far too small
+    // for any magnitude operator to separate an inverted convention from a correct one.
+    const magnitudeResidue = Math.abs( Math.abs( invertedConvention.realised )
+        - Math.abs( measured.weight.fear.realised ) );
+
+    gate( '🚩 RED  an inverted axis convention leaves the MAGNITUDE where it was (mm)',
+        magnitudeResidue, 0, 0.01,
+        'recorded, not tolerated: |bias| cannot see it, and neither can an RMS or a sway area. ' +
+        `Residue ${ magnitudeResidue.toFixed( 6 ) } mm against a ` +
+        `${ Math.abs( measured.weight.fear.realised ).toFixed( 3 ) } mm effect` );
+
+    gate( '🚩 RED  …and it is the SIGNED clause that rejects it (mm)',
+        invertedConvention.realised, 0.1, Infinity,
+        'fear now leans FORWARD, so the "fear carries the weight BACK" clause above goes red. ' +
+        'That clause requires < -0.1 and this is the value it would have been handed' );
+
+    // --- the clamp -------------------------------------------------------------------------------
+
+    const overdriven = affectTrace( 'anger', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: 200 } );
+
+    gate( 'the clamp is 2.0 mean AP weight shifts (mm)', overdriven.limit, 33.999, 34.001,
+        'POSTURE_OFFSET_MEAN_SHIFTS x SHIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES — Duarte, same rule ' +
+        'and same scale as the weight-shift clamp beside it, on a separate signal' );
+
+    gate( 'and it BINDS at an absurd amplitude (mm)', overdriven.finalBias, 33.999, 34.001,
+        `driven at 200 mm; clamped flag ${ overdriven.clamped }` );
+
+    // 🚩 THE RED PROOF RUNS ON `fear`, AND THE PRESET IS THE WHOLE POINT OF THE CLAUSE.
+    //
+    // The first version ran `anger` and justified itself with "the rear footprint on this bake is
+    // 54 mm". anger's `approach` is POSITIVE — it leans FORWARD — so the proof was exercising the
+    // clamp in the one direction where this figure has room to spare. Measured on g050 at that
+    // configuration: furthest forward centre of mass +159.657 mm against a forward edge of +179.396
+    // raw / +189.987 skinned, INSIDE by 19.7 / 30.3 mm. The clause was green and its stated
+    // consequence was false.
+    //
+    // The base of support is 3.3x to 3.7x deeper forward than backward — g050 is +179.396 forward
+    // against -54.431 rear — so the rail only ever earns its keep on the REAR side, and `fear` is
+    // the preset whose `approach` is negative. Same class of error as the beat that swung backwards:
+    // a signed quantity checked on the wrong side of zero.
+    const unclamped = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: 800,
+        swayOptions: { defects: { affectBiasUnclamped: true } } } );
+
+    gate( '🚩 RED  affectBiasUnclamped walks the figure off its own feet, REARWARD (mm)',
+        unclamped.finalBias, -Infinity, -100,
+        `no rail at all, and the rear footprint on this bake is ${ REAR_FOOTPRINT_G050_MM } mm. ` +
+        'Negative is rearward, which is the only side where the rail matters: this base of support ' +
+        'is over three times deeper forward than back' );
+
+    // --- THE SIDE EFFECT ON THE TOES, which is a docstring claim made re-runnable ----------------
+    //
+    // 🚩 `TOE_COP_REFERENCE_EXCURSION_METRES`'s docstring used to call 48.7 mm "the rearmost centre
+    // of pressure this layer can produce". 6.9 falsified that — `writeToeLift` reads
+    // `this.displacement.z`, which now carries a third term with its own 34 mm clamp on top — and
+    // the corrected docstring states the consequence in degrees. These clauses are that statement,
+    // measured, so it cannot go stale the way the header's lever numbers did.
+
+    const toeAt = ( fullScaleMm ) => {
+
+        const traces = AFFECT_SEEDS.map(
+            ( seed ) => affectTrace( 'fear', seed, { freeze: 'weight', fullScaleMm } ) );
+
+        return {
+            mean: traces.reduce( ( total, t ) => total + t.toeLiftMeanDegrees, 0 ) / traces.length,
+            floor: Math.max( ...traces.map( ( t ) => t.toeLiftFloorDegrees ) )
+        };
+
+    };
+
+    const toeOff = toeAt( 0 );
+    const toeDriven = toeAt( UNSOURCED_GATE_COP_FULL_SCALE_MM );
+
+    // 🚩 A FULL SCALE IS NOT A BIAS, AND THE FIRST VERSION OF THIS LINE CONFLATED THEM.
+    //
+    // It passed `affectBiasLimit` — 34 mm, a limit on the realised BIAS — straight in as
+    // `fullScaleMm`, which is the amplitude the prescription is multiplied INTO. The two are equal
+    // only when `prescription x drive` is 1, and for fear it is about 0.176: a 34 mm full scale
+    // realises a bias of -5.995 mm, 5.7x short of the clamp. The column was labelled "at the clamp"
+    // and the clamp never bound in it, understating the published consequence about sevenfold.
+    //
+    // So the scale is DERIVED from a probe rather than assumed: measure the bias this preset
+    // realises per millimetre of full scale, then solve for the scale that reaches the rail. That
+    // also survives a change to the prescription or the drive, which a hardcoded 193 would not.
+    const probe = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: 100 } );
+    const biasPerMm = Math.abs( probe.finalBias ) / 100;
+    const clampReachingFullScaleMm = Math.round( ( probe.limit / biasPerMm ) * 1.02 );
+
+    const toeAtClamp = toeAt( clampReachingFullScaleMm );
+    const clampCheck = affectTrace( 'fear', AFFECT_SEEDS[ 0 ], { freeze: 'weight', fullScaleMm: clampReachingFullScaleMm } );
+
+    gate( 'the "at the clamp" column really does reach the clamp (mm)',
+        Math.abs( clampCheck.finalBias ), probe.limit - 0.001, probe.limit + 0.001,
+        `full scale ${ clampReachingFullScaleMm } mm derived from a measured ${ biasPerMm.toFixed( 6 ) } ` +
+        `mm of bias per mm of scale, clamped flag ${ clampCheck.clamped }. A full scale is not a bias` );
+
+    note( 'both-feet toe lift, fear, mean (deg)',
+        `${ toeOff.mean.toFixed( 4 ) } / ${ toeDriven.mean.toFixed( 4 ) } / ${ toeAtClamp.mean.toFixed( 4 ) }`,
+        `at 0 / ${ UNSOURCED_GATE_COP_FULL_SCALE_MM } / 34 mm of affect full scale — the last is the ` +
+        'clamp. A REARWARD bias holds the forefoot lighter on BOTH feet at once' );
+
+    gate( 'a rearward bias RAISES the fore-and-aft toe signal (ratio at the clamp)',
+        toeAtClamp.mean / toeOff.mean, 2, Infinity,
+        'the consequence TOE_COP_REFERENCE_EXCURSION_METRES\'s docstring now states, re-measured ' +
+        'here so it cannot go stale' );
+
+    // 🚩 THE TOES DO PARK, AND FINDING THAT OUT IS WHAT FIXING THE MISLABELLED COLUMN BOUGHT.
+    //
+    // This clause used to assert the opposite — "the FLOOR must still touch zero, because the
+    // balance band carries the centre of pressure forward of neutral often enough that
+    // `Math.max( -displacement.z, 0 )` reaches 0 even at the clamp" — and it PASSED, because the
+    // column feeding it was labelled "at the clamp" while running a full scale 5.7x short of it.
+    // Correcting that label turned this clause red immediately, which is the whole argument for
+    // correcting labels.
+    //
+    // The reasoning was right and the arithmetic was never checked against it. The floor touches
+    // zero only while the balance band can still swing the centre of pressure forward PAST neutral,
+    // and that band is Duarte's weight-shift amplitude — 17 mm. A sustained rearward bias larger
+    // than the band's own forward reach can never be cancelled, so beyond that the toes never come
+    // down. The rail is 34 mm. It is twice the band.
+    //
+    // ⚠️ NONE OF THIS HAPPENS ON THE SHIPPED TREE, because the affect full scale is 0 — which is
+    // why this is a property of the RAIL rather than a defect, and why the clause below asserts the
+    // shipped configuration is clean AND reports where the cliff is. Whoever raises the amplitude
+    // needs the second number, not a reassurance derived at a scale nobody will use.
+    gate( 'the SHIPPED configuration does not park the toes (deg)', toeOff.floor, 0, 0,
+        'affect full scale 0: the toes touch down on every seed, as they must with no bias at all' );
+
+    // Where the floor leaves zero, found by bisection on the realised bias rather than on the full
+    // scale, so the number is in the unit the rail is in.
+    const parkingBiasMm = ( () => {
+
+        let clean = 0;
+        let parked = Math.round( new Sway().affectBiasLimit * 1000 );
+
+        for ( let step = 0; step < 8; step ++ ) {
+
+            const midBias = ( clean + parked ) / 2;
+            const scale = midBias / biasPerMm;
+            const floor = toeAt( Math.round( scale ) ).floor;
+
+            if ( floor > 0 ) parked = midBias; else clean = midBias;
+
+        }
+
+        return parked;
+
+    } )();
+
+    note( 'rearward bias at which the toes PARK (mm)', parkingBiasMm.toFixed( 2 ),
+        `against a rail of ${ ( new Sway().affectBiasLimit * 1000 ).toFixed( 1 ) } mm and Duarte's ` +
+        `${ ( new Sway().anteroPosterior.settings.shiftAmplitude * 1000 ).toFixed( 0 ) } mm shift ` +
+        'amplitude — ' +
+        'past this the balance band can no longer carry the centre of pressure forward of neutral' );
+
+    gate( 'and the rail sits BEYOND that cliff, which is why it is too permissive rearward (mm)',
+        new Sway().affectBiasLimit * 1000 - parkingBiasMm, 0.001, Infinity,
+        'REQ-086: a symmetric rail on a base of support 3.3x to 3.7x deeper forward than back. ' +
+        'Recorded rather than repaired — narrowing the rear rail is a design change and the shipped ' +
+        'full scale is 0, so nothing is broken today' );
+
+    // --- REACHABILITY. Correctness is not reachability ------------------------------------------
+    //
+    // Paid-for failure #5: a module that passed 86/86 of its own gates and had ZERO call sites.
+    // Four clauses, escalating, and the third is the one that would have caught the real gap.
+
+    const sourceClaims = [
+        [ 'Avatar.js publishes the posture', 'packages/core/src/Avatar.js',
+            'this.stack.context.shared.posture = this.posture' ],
+        [ 'alive.js publishes the posture', 'packages/testbed/src/alive.js',
+            'stack.context.shared.posture = posture' ],
+        [ 'PostureLayer.js states the claim', 'packages/core/src/affect/PostureLayer.js',
+            'this.centreOfPressureBiasMetres =' ],
+        [ 'PostureLayer.js stamps the frame', 'packages/core/src/affect/PostureLayer.js',
+            'this.centreOfPressureFrame = context?.frame' ],
+        [ 'Sway.js reads it off the context', 'packages/core/src/motion/Sway.js',
+            'affectCentreOfPressureBiasOf( context, this.defects )' ],
+        [ 'Sway.js composes it into the sum', 'packages/core/src/motion/Sway.js',
+            '.add( this.affectDisplacement )' ]
+    ];
+
+    for ( const [ label, relative, needle ] of sourceClaims ) {
+
+        const source = fs.readFileSync( path.join( repoRoot, relative ), 'utf8' );
+
+        gate( `REACHABILITY  ${ label }`, source.includes( needle ) ? 1 : 0, 1, 1, `"${ needle }"` );
+
+    }
+
+    // 🚩 THE CLAUSE THAT WOULD HAVE CAUGHT THE REAL GAP. `alive.js` added the PostureLayer to the
+    // stack and never published it to `shared`, so before 6.9 the bias read 0 on the exact page the
+    // seven objective gates are measured on and a judge captures. Building the identical stack with
+    // the publish omitted turns that defect into a permanent tripwire.
+    const unpublished = affectTrace( 'anger', AFFECT_SEEDS[ 0 ], {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, publish: false, seconds: 5 } );
+
+    gate( 'REACHABILITY  an UNPUBLISHED posture layer commands exactly nothing (mm)',
+        Math.abs( unpublished.finalBias ), 0, 0,
+        'the configuration alive.js shipped before 6.9 — layer added, bag not written' );
+
+    const noPosture = affectTrace( 'anger', AFFECT_SEEDS[ 0 ], {
+        freeze: 'weight', fullScaleMm: UNSOURCED_GATE_COP_FULL_SCALE_MM, withPosture: false, seconds: 5 } );
+
+    gate( 'REACHABILITY  a stack with NO affect at all reads "no claim" (mm)',
+        Math.abs( noPosture.finalBias ), 0, 0,
+        '`hair.js` builds a bare `new Sway()`; 0 must be the correct reading, not an accident' );
+
+    // --- WHAT THIS GATE CANNOT SEE. Printed on every run ----------------------------------------
+
+    note( '⚠️ cannot see 1', 'no amplitude',
+        `the shipped full scale is 0; the ${ UNSOURCED_GATE_COP_FULL_SCALE_MM } mm above is supplied ` +
+        'by this file and has NO SOURCE' );
+    note( '⚠️ cannot see 2', 'direction contested',
+        'BAP gives anger +1.96 / fear -1.46 and Coulson\'s table agrees; Coulson\'s own PROSE says ' +
+        '"forward or backward" for anger and "backward or forward" for fear' );
+    note( '⚠️ cannot see 3', 'disgust is wrong',
+        'FORWARD, against Coulson\'s Backwards, for the cited reason gated above' );
+    note( '⚠️ cannot see 4', 'no force plate',
+        'nothing here is validated against a plate reading an actor; the record holds no ' +
+        'emotion -> centre-of-pressure amplitude at all' );
+    note( '⚠️ cannot see 5', 'A/P-is-ankle is conditional',
+        'Winter\'s tandem row swaps both axes\' owners. This figure stands at 18.6° included foot ' +
+        'angle so the intermediate row applies; a re-posed figure invalidates the routing' );
+    note( '⚠️ cannot see 6', 'the CoP leads the CoM',
+        'BodyMass is a CoM instrument and a SUSTAINED CoP offset is a CoM offset (Sway.js header). ' +
+        'During a transient they separate by a few mm, zero-mean, so a paired mean is safe and a ' +
+        'single frame is not' );
+    note( '⚠️ cannot see 7', 'one bake, one window',
+        `${ path.basename( figurePath ) } at ${ AFFECT_SECONDS } s. The footprint section below is ` +
+        'the one that varies both, and it is where this axis\'s real limit lives' );
+
+}
+
+/**
+ * ================================================================================================
+ * COMPOSITE FOOTPRINT — ⚠️ THIS SECTION IS RED, AND THE DEFECT IS OLDER THAN 6.9
+ * ================================================================================================
+ *
+ * 🚩 READ THIS BEFORE READING THE FAILURE. Nothing below is caused by punch-list 6.9 and nothing
+ * below is fixed by it. This is a measurement of the SHIPPED tree — `ExpressionLayer` +
+ * `PostureLayer` + `Sway`, affect full scale 0, no bias anywhere — and it is 6.9's PRECONDITION:
+ * the item asks for an affect-driven fore-and-aft bias, and the first question anybody should have
+ * asked is whether this axis has millimetres to spend. It does not. It is already overdrawn.
+ *
+ * WHAT IT MEASURES. Every emotion's whole-body centre of mass over 900 s of live sway, against the
+ * bake's own base of support read off its own mesh. A body that is not accelerating has no net
+ * moment, so a SUSTAINED centre-of-pressure offset sits under the centre of mass — `Sway.js`'s own
+ * root — and a centre of mass outside the feet is a figure falling over.
+ *
+ * 🎯 WHY THE EXISTING GATE CANNOT SEE IT, WHICH IS THE INSTRUMENT LESSON. `affect.selftest.mjs`
+ * makes exactly this claim — *"every emotion leaves the centre of mass INSIDE the measured
+ * footprint"* — and is green, because it measures a STATIC PLATE with no `Sway` in the stack. Its
+ * tightest margin is a real number about a figure that is not swaying. Sway's own footprint gates
+ * are green for the mirror-image reason: they run with no affect in the stack. Two green gates,
+ * one over each half, and the composite of the two halves is what leaves the feet. Neither
+ * instrument is wrong; the gap between them was never measured.
+ *
+ * ⚠️ TWO PROTOCOLS ARE PRINTED AND THE VERDICT CAN FLIP BETWEEN THEM, so neither is quoted alone.
+ * RAW pushes the mesh's undeformed vertices through the mesh's world matrix, which is what
+ * `affect.selftest.mjs` does today and which reads the figure in its BIND pose. SKINNED pushes each
+ * vertex through its own bone matrices, which is where the mesh actually is once `relaxed-standing`
+ * has been applied. The skinned foot is 3-4 mm longer at the heel on every bake. **The gate is
+ * stated against SKINNED**, because that is the geometry a viewer sees and the more forgiving of
+ * the two — a red under the forgiving protocol is not an artefact of the strict one.
+ *
+ * ⚠️ AND THE WINDOW IS ITSELF A GATE PARAMETER (§1.4). Duarte's antero-posterior drift lattice turns
+ * over every 319 s, so the deepest rearward excursion of a 900 s trace is not in its first 120 s:
+ * measured, the worst frame across every bake and both presets is seed 1234 at t = 373.4 s. A
+ * margin quoted without a window length says nothing, which is why this runs at TRACE_SECONDS.
+ *
+ * **NEXT AGENT: do not fix this by lowering the affect full scale — it is already 0.** The two
+ * mechanisms that sum outside are `Sway`'s own rearward drift (neutral reaches -41.565 mm on g000,
+ * inside by 3.037 mm raw) and `PostureLayer`'s fear chest bend (-9.393 mm of centre of mass). Both
+ * are individually inside budget and neither is unsourced. The real candidates are: clamp the
+ * antero-posterior weight shift against the measured REAR footprint rather than against Duarte's
+ * amplitude alone (`resolvePostureLimits` reads no vertex fore-and-aft — measured 34.000 mm on all
+ * five bakes whose rear edges span 44.60 to 65.37 mm); or give the pendulum a footprint-aware
+ * saturation. Both are balance-model changes and neither belongs to 6.9.
+ */
+function measureCompositeFootprint() {
+
+    section( 'COMPOSITE FOOTPRINT — ⚠️ RED, and older than 6.9: CoM vs the base of support, Sway LIVE' );
+
+    note( 'window x seeds', `${ TRACE_SECONDS } s x ${ SWAY_SEEDS.length }`,
+        'Duarte\'s AP drift lattice turns over every 319 s, so a short window over-reports headroom' );
+
+    let worstSkinnedMargin = Infinity;
+    let worstLabel = '';
+    let bakesMeasured = 0;
+
+    // 🚩 THE WINDOW TABLE, AND WHY IT IS COLLECTED RATHER THAN WRITTEN DOWN. See
+    // `measureBakeFootprint`. Keyed `bake/preset` so the shortening effect is visible per row.
+    const windowRows = [];
+
+    for ( const bake of FOOTPRINT_BAKES ) {
+
+        const measured = measureBakeFootprint( bake );
+
+        if ( measured === null ) {
+
+            note( `bake ${ bake }`, 'absent', 'not in assets/figures — skipped, not passed' );
+            continue;
+
+        }
+
+        bakesMeasured += 1;
+
+        for ( const [ preset, deepest ] of Object.entries( measured.deepestRear ) ) {
+
+            const rawMargin = deepest - measured.raw.rear;
+            const skinnedMargin = deepest - measured.skinned.rear;
+
+            note( `${ bake } ${ preset }  deepest rear CoM (mm)`, deepest.toFixed( 3 ),
+                `rear edge ${ measured.raw.rear.toFixed( 2 ) } raw / ${ measured.skinned.rear.toFixed( 2 ) } ` +
+                `skinned  ->  margin ${ rawMargin.toFixed( 3 ) } / ${ skinnedMargin.toFixed( 3 ) }` );
+
+            if ( skinnedMargin < worstSkinnedMargin ) {
+
+                worstSkinnedMargin = skinnedMargin;
+                worstLabel = `${ bake } / ${ preset }`;
+
+            }
+
+            windowRows.push( { label: `${ bake } ${ preset }`, rear: measured.skinned.rear,
+                windows: measured.windowRear[ preset ] } );
+
+        }
+
+    }
+
+    // --- the window table, measured -------------------------------------------------------
+
+    let worstShorteningGainMm = -Infinity;
+    let shorteningLabel = '';
+
+    for ( const row of windowRows ) {
+
+        const cells = FOOTPRINT_WINDOWS_SECONDS
+            .map( ( w ) => `${ w }s ${ ( row.windows[ w ] - row.rear ).toFixed( 3 ) }` ).join( '   ' );
+
+        note( `${ row.label }  skinned margin by window (mm)`, cells, '' );
+
+        const shortest = row.windows[ FOOTPRINT_WINDOWS_SECONDS[ 0 ] ] - row.rear;
+        const longest = row.windows[ FOOTPRINT_WINDOWS_SECONDS[ FOOTPRINT_WINDOWS_SECONDS.length - 1 ] ] - row.rear;
+
+        if ( shortest - longest > worstShorteningGainMm ) {
+
+            worstShorteningGainMm = shortest - longest;
+            shorteningLabel = row.label;
+
+        }
+
+    }
+
+    // 🎯 THE CLAIM THE PROSE USED TO MAKE, NOW EXECUTED. "A margin quoted without a window length is
+    // meaningless" is only worth writing down if a short window really does over-report headroom, so
+    // that is what is gated: the shortest window must claim materially more room than the longest.
+    // If this ever went to zero the whole window caveat would be decoration, and three documents
+    // would still be repeating it.
+    gate( 'a 60 s window over-reports headroom against 900 s (mm)', worstShorteningGainMm, 1, 100,
+        `worst row: ${ shorteningLabel }. Duarte's A/P drift lattice turns over every 319 s, so a ` +
+        'window under that samples one phase of it. This is measured off the same trace the red ' +
+        'clause below reads, so the two cannot disagree' );
+
+    // 🚩 THE DEGENERATE INPUT, AND WHY THIS CLAUSE EXISTS AT ALL.
+    //
+    // `worstSkinnedMargin` starts at Infinity and is only lowered inside the loop, so with no bake
+    // present the red clause below reads `Infinity >= 0 && Infinity <= Infinity` — TRUE — and this
+    // file's one declared red silently turns green. That is not hypothetical: the figure bakes are
+    // 232 MB of git-LFS objects, and a clone without LFS gets pointer files, which is the single
+    // most likely way somebody runs this suite. LEARNINGS §1.3: ask what a degenerate input scores.
+    gate( 'the footprint bakes were actually present and measured', bakesMeasured,
+        FOOTPRINT_BAKES.length, FOOTPRINT_BAKES.length,
+        `${ bakesMeasured } of ${ FOOTPRINT_BAKES.length }. Without this, a partial LFS checkout ` +
+        'passes the red clause below at Infinity rather than failing it' );
+
+    gate( 'every emotion stays inside the SKINNED footprint (mm)', worstSkinnedMargin, 0, Infinity,
+        `tightest: ${ worstLabel }. ⚠️ PRE-EXISTING — measured on the shipped tree with the affect ` +
+        'full scale at 0. Declared in docs/RED-GATES.md; see this section\'s header for why the ' +
+        'two green gates either side of it cannot see this' );
+
+}
+
 // --- rig / stack plumbing -------------------------------------------------------------------------
 
 /**
@@ -7064,6 +7991,358 @@ function headLeverMetres( layer ) {
 function predictedSegmentRatio( layer, height ) {
 
     return layer.anklePendulumShare * ( height - layer.pivot.y ) / headLeverMetres( layer );
+
+}
+
+// --- punch-list 6.9: the affect harness -----------------------------------------------------------
+
+/**
+ * 🎯 THE PRODUCT'S OWN CONSTRUCTION, and nothing shorter, because a hand-built layer is paid-for
+ * failure #1 with extra steps.
+ *
+ * `new ExpressionLayer()` -> `trigger()` -> `state.push( pad )` -> `settleAffect( state )` ->
+ * `stack.add( layer )` -> `stack.add( layer.postureLayer() )` -> publish `shared.posture` ->
+ * `stack.add( new Sway() )`. That is the sequence `Avatar.js` and `alive.js` both run, in that
+ * order, and driving it from a PAD PRESET rather than by writing to any field of `Sway` is what
+ * makes this a measurement of the shipped path.
+ *
+ * ⚠️ `settleAffect` IS NOT A BACK DOOR — it is the same arithmetic the frame loop runs, at a 10 ms
+ * step for 3 s, which is fifteen attack time constants. One frame would be worse than useless here:
+ * `ExpressionMap.activate()` re-labels mid-attack, so the prescription is not monotonic in time and
+ * an early frame is a different emotion.
+ *
+ * @param {string} preset - A key of `EMOTION_PRESETS`.
+ * @param {number} seed
+ * @param {Object} [options]
+ * @param {'live'|'weight'|'bones'} [options.freeze='live'] - Which trunk freeze, if any. See the
+ *   section header for the four that were measured and why two are refused.
+ * @param {number} [options.fullScaleMm=0] - 🚩 THE UNSOURCED AMPLITUDE, in millimetres, supplied by
+ *   the caller. 0 is the shipped tree.
+ * @param {number} [options.seconds=AFFECT_SECONDS]
+ * @param {Object} [options.swayOptions={}] - Passed to `new Sway`, which is where SWAY_DEFECTS go.
+ * @param {boolean} [options.publish=true] - Whether `shared.posture` is written. false rebuilds the
+ *   configuration `alive.js` shipped before 6.9.
+ * @param {boolean} [options.withPosture=true] - false builds a stack with no affect at all.
+ * @param {number|null} [options.disableAt=null] - Frame at which `posture.enabled` goes false.
+ */
+function affectTrace( preset, seed, options = {} ) {
+
+    const {
+        freeze = 'live', fullScaleMm = 0, seconds = AFFECT_SECONDS,
+        swayOptions = {}, publish = true, withPosture = true, disableAt = null
+    } = options;
+
+    restoreRestPose();
+
+    const stack = new MotionStack( { seed } );
+    stack.bind( createMotionTarget( figure.root ) );
+
+    const pad = EMOTION_PRESETS[ preset ];
+    const expression = new ExpressionLayer();
+
+    if ( pad.trigger !== undefined ) expression.trigger( pad.trigger );
+
+    expression.state.push( { pleasure: pad.pleasure, arousal: pad.arousal, dominance: pad.dominance } );
+    settleAffect( expression.state );
+
+    stack.add( expression );
+
+    let posture = null;
+
+    if ( withPosture === true ) {
+
+        // The two surviving freezes, and each is one option. `weight: 0` releases every bone this
+        // layer writes while `update()` still runs; `bones: { spine: <missing> }` releases only the
+        // trunk channel. Neither touches `enabled`, which would remove the hand-off under test.
+        const freezeOptions = freeze === 'weight' ? { weight: 0 }
+            : freeze === 'bones' ? { bones: { spine: '__affect_gate_no_such_bone__' } }
+                : {};
+
+        posture = expression.postureLayer( {
+            centreOfPressureFullScaleMetres: fullScaleMm / 1000,
+            ...freezeOptions
+        } );
+
+        stack.add( posture );
+
+        if ( publish === true ) stack.context.shared.posture = posture;
+
+    }
+
+    const sway = stack.add( new Sway( swayOptions ) );
+
+    figure.root.updateMatrixWorld( true );
+
+    const rest = bodyMass.centreOfMass( new Vector3() );
+    const centreOfMass = new Vector3();
+
+    const frames = Math.max( 1, Math.round( seconds * SAMPLE_RATE_HZ ) );
+
+    let realisedSum = 0;
+    let commandedSum = 0;
+    let biasSum = 0;
+
+    // The BOTH-FEET toe lift, which is the fore-and-aft mechanism's own signal. `writeToeLift`
+    // takes `Math.max` of a per-foot lateral unload and a shared fore-and-aft reading, and the
+    // lateral one already saturates `TOE_UNLOAD_LIFT_DEGREES` on whichever foot is free — so the
+    // MINIMUM over the two feet is the part a centre-of-pressure bias can move.
+    let toeSum = 0;
+    let toeFloor = Infinity;
+
+    for ( let frame = 0; frame < frames; frame ++ ) {
+
+        if ( disableAt !== null && frame === disableAt && posture !== null ) posture.enabled = false;
+
+        stack.update( FRAME_SECONDS );
+        figure.root.updateMatrixWorld( true );
+        bodyMass.centreOfMass( centreOfMass );
+
+        realisedSum += ( centreOfMass.z - rest.z ) * 1000;
+        commandedSum += sway.displacement.z * 1000;
+        biasSum += sway.affectCentreOfPressureBias * 1000;
+        const bothFeetLift =
+            Math.min( sway.toeLiftRadians.left, sway.toeLiftRadians.right ) * 180 / Math.PI;
+
+        toeSum += bothFeetLift;
+        toeFloor = Math.min( toeFloor, bothFeetLift );
+
+    }
+
+    const trace = {
+        realised: realisedSum / frames,
+        commanded: commandedSum / frames,
+        bias: biasSum / frames,
+        toeLiftMeanDegrees: toeSum / frames,
+        toeLiftFloorDegrees: toeFloor,
+        finalBias: sway.affectCentreOfPressureBias * 1000,
+        limit: sway.affectBiasLimit * 1000,
+        clamped: sway.affectBiasClamped,
+        approach: posture === null ? 0 : posture.prescription.approach,
+        intensity: posture === null ? 0 : posture.prescription.intensity,
+        applied: posture === null ? 0 : posture.appliedDegrees.approach
+    };
+
+    stack.dispose();
+
+    return trace;
+
+}
+
+/**
+ * 🚩 THE STATISTIC: a PAIRED same-seed difference against a neutral run, averaged over seeds.
+ *
+ * Not an absolute mean. Measured on `figure_g050`, 6 seeds x 60 s: the unpaired neutral mean has a
+ * standard deviation of 6.8286 mm ACROSS SEEDS, against an effect of 14 mm — so an absolute-mean
+ * band would be a band on Duarte's 319 s drift lattice wearing an emotion's name. Pairing removes
+ * it exactly, because `Sway`'s processes are a pure function of the seed and never read the centre
+ * of mass back: the paired standard deviation is 0.0037 mm, a reduction of about 1800x.
+ */
+function pairedAffectTrace( preset, options = {} ) {
+
+    const differences = AFFECT_SEEDS.map( ( seed ) => {
+
+        const emotion = affectTrace( preset, seed, options );
+        const neutral = affectTrace( 'neutral', seed, options );
+
+        return {
+            realised: emotion.realised - neutral.realised,
+            commanded: emotion.commanded - neutral.commanded,
+            bias: emotion.bias - neutral.bias,
+            sample: emotion
+        };
+
+    } );
+
+    const meanOf = ( key ) =>
+        differences.reduce( ( total, d ) => total + d[ key ], 0 ) / differences.length;
+
+    const realised = meanOf( 'realised' );
+
+    const realisedSd = Math.sqrt( differences
+        .reduce( ( total, d ) => total + ( d.realised - realised ) ** 2, 0 ) / differences.length );
+
+    return {
+        realised,
+        realisedSd,
+        commanded: meanOf( 'commanded' ),
+        bias: meanOf( 'bias' ),
+        sample: differences[ 0 ].sample
+    };
+
+}
+
+/**
+ * One bake's base of support, and the deepest rearward centre of mass the SHIPPED stack reaches in
+ * it. Loads its own figure, because the defect this measures is a function of the FOOT the bake was
+ * built with and the module-level figure is only one of five.
+ *
+ * ⚠️ BOTH FOOTPRINT PROTOCOLS, and they are not the same measurement. RAW pushes the geometry's
+ * undeformed vertices through the mesh's world matrix — what `affect.selftest.mjs` does today, and
+ * a read of the BIND pose. SKINNED pushes each vertex through its own bone matrices, which is where
+ * the mesh is once `relaxed-standing` is applied. Measured, the skinned heel reaches 3-4 mm further
+ * back on every bake, so quoting one protocol without naming it can move a verdict.
+ *
+ * Returns `null` when the bake is not present, which is reported rather than passed.
+ */
+function measureBakeFootprint( bake ) {
+
+    // `Figure.parse` is async and every `measure*` function in this file is synchronous, so the
+    // five bakes are parsed and posed once up front by `loadFootprintBakes()` and read out here.
+    const loaded = footprintBakes.get( bake ) ?? null;
+
+    if ( loaded === null ) return null;
+
+    const root = loaded.figure.root;
+    const bakeRest = loaded.restPose;
+
+    // 🚩 REST FIRST, AND THIS IS A BUG FIX RATHER THAN TIDINESS. The bake under test is the SAME
+    // object every other section in this file has been driving, so without this the footprint is
+    // read off whatever pose the last trace left behind. Measured: the g050 rear edge read -54.41
+    // mm posed against -54.43 mm at rest, and the deepest centre of mass moved 0.018 mm with it —
+    // small, and exactly the order of the margins this section reports.
+    const restoreBake = () => {
+
+        for ( const [ object, rest ] of bakeRest ) {
+
+            object.quaternion.copy( rest.quaternion );
+            object.position.copy( rest.position );
+
+        }
+
+        root.updateMatrixWorld( true );
+
+    };
+
+    restoreBake();
+
+    const boneAt = ( name, into ) =>
+        into.setFromMatrixPosition( root.getObjectByName( name ).matrixWorld );
+
+    const ankleMid = boneAt( HUMANOID_TO_FIGURE_BONE.leftFoot, new Vector3() )
+        .add( boneAt( HUMANOID_TO_FIGURE_BONE.rightFoot, new Vector3() ) ).multiplyScalar( 0.5 );
+
+    const footprintOf = ( skinned ) => {
+
+        let rear = Infinity;
+        let forward = -Infinity;
+
+        const local = new Vector3();
+        const world = new Vector3();
+
+        root.traverse( ( object ) => {
+
+            if ( object.isMesh !== true && object.isSkinnedMesh !== true ) return;
+
+            const positions = object.geometry?.attributes?.position;
+            if ( positions === undefined ) return;
+
+            for ( let index = 0; index < positions.count; index ++ ) {
+
+                local.fromBufferAttribute( positions, index );
+
+                if ( skinned === true && object.isSkinnedMesh === true ) {
+
+                    object.applyBoneTransform( index, local );
+
+                }
+
+                world.copy( local ).applyMatrix4( object.matrixWorld );
+
+                if ( world.y > ankleMid.y ) continue;
+
+                rear = Math.min( rear, world.z - ankleMid.z );
+                forward = Math.max( forward, world.z - ankleMid.z );
+
+            }
+
+        } );
+
+        return { rear: rear * 1000, forward: forward * 1000 };
+
+    };
+
+    const raw = footprintOf( false );
+    const skinned = footprintOf( true );
+
+    const bakeMass = new BodyMass().bind( { getBone: ( name ) => root.getObjectByName( name ) ?? null } );
+
+    const deepestRear = {};
+    const windowRear = {};
+
+    // neutral and fear only: fear is the one preset whose `approach` is NEGATIVE, so it is the one
+    // that composes with a rearward drift, and neutral is what says how much of the excursion is
+    // Sway's alone. anger and disgust both lean forward and are reported by the AFFECT section.
+    for ( const preset of [ 'neutral', 'fear' ] ) {
+
+        let deepest = Infinity;
+
+        // 🚩 THE WINDOW PREFIXES ARE MEASURED HERE, NOT QUOTED IN PROSE, AND THAT IS A REPAIR.
+        //
+        // The first version of this section stated a window-dependence table in three separate
+        // documents and had no gate behind any of it. Two independent adversarial passes re-measured
+        // the 60 s row and got +4.58 mm where the prose claimed +19.166 mm — a number no run
+        // reproduces at any seed count, carrying one of the two stated reasons the affect full scale
+        // ships at zero. A claim replicated into three files with nothing executing it is exactly the
+        // failure `run-selftests.sh`'s header describes: information that was never missing and was
+        // read by nobody.
+        //
+        // Every window here is a PREFIX of the trace that is already running, so the whole table
+        // costs one comparison per frame and cannot drift from the 900 s row beneath it.
+        const deepestAtWindow = new Map( FOOTPRINT_WINDOWS_SECONDS.map( ( w ) => [ w, Infinity ] ) );
+
+        for ( const seed of SWAY_SEEDS ) {
+
+            restoreBake();
+
+            const stack = new MotionStack( { seed } );
+            stack.bind( createMotionTarget( root ) );
+
+            const pad = EMOTION_PRESETS[ preset ];
+            const expression = new ExpressionLayer();
+
+            if ( pad.trigger !== undefined ) expression.trigger( pad.trigger );
+
+            expression.state.push( { pleasure: pad.pleasure, arousal: pad.arousal, dominance: pad.dominance } );
+            settleAffect( expression.state );
+
+            stack.add( expression );
+
+            const posture = stack.add( expression.postureLayer() );
+            stack.context.shared.posture = posture;
+            stack.add( new Sway() );
+
+            const centreOfMass = new Vector3();
+            const frames = Math.round( TRACE_SECONDS * SAMPLE_RATE_HZ );
+
+            for ( let frame = 0; frame < frames; frame ++ ) {
+
+                stack.update( FRAME_SECONDS );
+                root.updateMatrixWorld( true );
+                bakeMass.centreOfMass( centreOfMass );
+
+                const rear = ( centreOfMass.z - ankleMid.z ) * 1000;
+                deepest = Math.min( deepest, rear );
+
+                const elapsed = ( frame + 1 ) / SAMPLE_RATE_HZ;
+
+                for ( const window of FOOTPRINT_WINDOWS_SECONDS ) {
+
+                    if ( elapsed <= window ) deepestAtWindow.set( window, Math.min( deepestAtWindow.get( window ), rear ) );
+
+                }
+
+            }
+
+            stack.dispose();
+
+        }
+
+        deepestRear[ preset ] = deepest;
+        windowRear[ preset ] = Object.fromEntries( deepestAtWindow );
+
+    }
+
+    return { raw, skinned, deepestRear, windowRear };
 
 }
 

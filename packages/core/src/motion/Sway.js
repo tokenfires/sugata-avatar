@@ -91,8 +91,12 @@
  * swaying as a near-rigid inverted pendulum moves its head at least as far as its centre of
  * pressure. That inequality is true, and the file then used it backwards: setting head excursion
  * EQUAL to the published centre-of-pressure figure under-moves the head by exactly the lever
- * ratio it had just identified. Measured on this rig at bind, the effective levers are 1.298 m of
- * head travel and 0.785 m of centre-of-mass travel per radian of lean — a ratio of 1.653.
+ * ratio it had just identified. Measured on `figure_g050` at bind — re-run while wiring 6.9, and
+ * all three digits had gone stale, so do not carry the numbers this line used to quote (1.298 /
+ * 0.785 / 1.653) — the effective levers are 1.2743 m of head travel and 0.7612 m of
+ * centre-of-mass travel per radian of lean, a ratio of 1.6740. They are read off
+ * `layer.headLever` / `layer.centreOfMassLever` at bind and this file solves against the measured
+ * values rather than against anything written here.
  *
  * The weight shifts had the same error, larger and in the other direction. They carried a
  * hand-set coefficient, POSTURE_HEAD_TRANSFER = 0.20, for "the fraction of a weight shift that
@@ -117,6 +121,34 @@
  * the centre of mass — that is how balance is corrected at all — and the two separate by a few
  * millimetres over a sway cycle. The separation is zero-mean, so it does not bias anything here,
  * but a critic comparing a single frame against a force plate needs to know it is there.
+ *
+ *
+ * 🎯 AND THAT ROOTING IS WHY AFFECT ENTERS HERE AT ALL — PUNCH-LIST 6.9 (was REQ-058)
+ *
+ * BAP's `approach` channel is "forward whole-body movement". `affect/PostureLayer.js` realises the
+ * half of it that is a JOINT ROTATION — the trunk hinging at the lumbar, which Coulson codes in
+ * degrees — and stopped there, so an emotion that is supposed to move a person's weight moved only
+ * their chest. Coulson's seventh degree of freedom is a WEIGHT TRANSFER, forwards or backwards, and
+ * that one belongs to balance rather than to any joint.
+ *
+ * Because every amplitude in this file is already a centre-of-pressure amplitude, that channel
+ * arrives as a THIRD term in exactly the same unit as the other two, and `update()` composes it in
+ * one line: `balanceDisplacement + postureDisplacement + affectDisplacement`. Nothing downstream
+ * had to change. `PostureLayer` publishes `centreOfPressureBiasMetres` onto `MotionStack`'s shared
+ * bag with the frame it was computed on; `affectCentreOfPressureBiasOf` reads it here, refuses a
+ * stale stamp, and clamps it at `affectBiasLimit`.
+ *
+ * ⚠️ IT IS THE ANTERO-POSTERIOR HALF ONLY, and that is Winter's two-mechanism split rather than a
+ * scope cut: A/P is an ankle pendulum and M/L is a hip load/unload strategy, so a lateral emotional
+ * bias is a different actuator with a different clamp and a different source. `affectDisplacement.x`
+ * is never assigned.
+ *
+ * 🚩 AND ITS AMPLITUDE IS ZERO ON THE SHIPPED TREE. `PostureLayer.CENTRE_OF_PRESSURE_FULL_SCALE_METRES`
+ * is 0 for two independent measured reasons — no source states an emotional centre-of-pressure
+ * amplitude, and this axis has no millimetres left to spend — so `affectCentreOfPressureBias` reads
+ * exactly 0.000000 for every preset and every trace in this file is bit-identical to the one before
+ * 6.9. Read that constant before raising it; the second reason is a measurement on this rig's own
+ * footprint and it is already negative on two of the five bakes.
  *
  *
  * HOW THE SPECTRUM IS BUILT
@@ -889,11 +921,36 @@ const TOE_UNLOAD_LIFT_DEGREES = 2.5;
  * more push geometry through the floor than the unload lift can.
  *
  * ⚠️ THE AMPLITUDE IS TUNING AND IS DELIBERATELY NOT A NEW MAGNITUDE. It is stated as a gain that
- * reaches `TOE_UNLOAD_LIFT_DEGREES` — the ceiling already argued above — at the rearmost centre of
- * pressure this layer can produce: the antero-posterior posture clamp (2.0 mean shifts = 34 mm on
- * this figure) plus three standard deviations of the balance band (3 x 4.9 = 14.7 mm), so 48.7 mm.
+ * reaches `TOE_UNLOAD_LIFT_DEGREES` — the ceiling already argued above — at a REFERENCE rearward
+ * centre of pressure: the antero-posterior posture clamp (2.0 mean shifts = 34 mm on this figure)
+ * plus three standard deviations of the balance band (3 x 4.9 = 14.7 mm), so 48.7 mm.
  * Nothing here claims a published toe angle; it claims that the fore-and-aft mechanism should reach
  * the same ceiling the lateral one does, at the extreme each of them can reach.
+ *
+ * 🚩 IT IS NO LONGER "THE REARMOST CENTRE OF PRESSURE THIS LAYER CAN PRODUCE", AND THAT SENTENCE
+ * USED TO BE HERE. Punch-list 6.9 added a THIRD term to `displacement` — `affectDisplacement`,
+ * clamped at its own 34.000 mm — so the reachable rear extreme is 48.7 + up to another 34 mm and
+ * this constant bounds none of it. `writeToeLift` reads `this.displacement.z` directly, so a
+ * sustained REARWARD affect bias raises the fore-and-aft toe signal on BOTH feet at once.
+ *
+ * Measured on `figure_g050`, fear (the rearward preset), 60 s x 6 seeds, trunk frozen so only the
+ * balance channel is moving. The BOTH-FEET minimum is the fore-and-aft mechanism's own signal,
+ * because the lateral unload only ever lifts the free foot:
+ *
+ *     affect full scale        0 mm      20 mm      34 mm (the clamp)
+ *     both-feet mean       0.0566°    0.1352°    0.2118°
+ *     both-feet floor      0.0000°    0.0000°    0.0000°
+ *     per-foot peak, lateral mechanism OFF   0.7932°  0.9742°  1.1010°
+ *
+ * ⚠️ TWO THINGS THAT SOUND LIKE THE SAME CLAIM AND ARE NOT. The mean nearly QUADRUPLES at the
+ * clamp, which is the real consequence. But the toes are NOT parked: the floor stays exactly
+ * 0.0000° at every scale, because the balance band still carries the centre of pressure forward of
+ * neutral and `Math.max( -displacement.z, 0 )` takes the lift to zero when it does. And the
+ * per-foot PEAK does not move at all with the lateral mechanism on — it is already pinned at
+ * `TOE_UNLOAD_LIFT_DEGREES` by a full unload, and `Math.max`-of-two-readings cannot exceed it.
+ *
+ * None of this is live on the shipped tree — the affect full scale is 0 and every column above is
+ * bit-identical there — but it is what anybody raising that full scale inherits.
  */
 const TOE_COP_REFERENCE_EXCURSION_METRES =
     POSTURE_OFFSET_MEAN_SHIFTS * SHIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES
@@ -1136,9 +1193,99 @@ const ANTERO_POSTERIOR_SETTINGS = {
 /**
  * The clamp used when the rig has no feet to read a base of support from. Metres, and the same
  * two numbers the hand-set version of this file used, so a footless rig behaves as it used to.
+ *
+ * 🚩 UNREACHABLE ON THE ANTERO-POSTERIOR AXIS TODAY, found while wiring 6.9 and left as it is
+ * because repairing it is a different item's change. `resolvePostureLimits` overwrites BOTH limits
+ * unconditionally from `POSTURE_OFFSET_MEAN_SHIFTS` before its `pendulumPlanted === false` return,
+ * so the antero-posterior fallback is dead and the medio-lateral one is only reachable as a
+ * CEILING that never binds. Whoever writes the degenerate-rig case should not trust this comment's
+ * neighbours: measured, `anteroPosterior.limit` reads 34.000 mm on all five bakes, footless or not.
  */
 const FALLBACK_POSTURE_LIMIT_MEDIO_LATERAL_METRES = 0.030;
 const FALLBACK_POSTURE_LIMIT_ANTERO_POSTERIOR_METRES = 0.022;
+
+/**
+ * 🚩 PUNCH-LIST 6.9's KNOWN-BADS, and this bag exists so its red proofs run through the SAME call
+ * path the product does rather than through a hand-built copy of it.
+ *
+ * §1.1 of LEARNINGS: a gate that has never failed is not known to work. Every entry here is a way
+ * of wiring an affect-driven centre-of-pressure bias that LOOKS right and is not, three of them
+ * drawn from failures this project has already paid for:
+ *
+ *   affectBiasNotComposed          the state of this file before 6.9 — the claim is read and
+ *                                  reported and never reaches `displacement`. Paid-for failure #5:
+ *                                  correctness is not reachability.
+ *   affectBiasFromChestBend        the balance command sourced from `appliedDegrees.approach`,
+ *                                  which is Coulson's CHEST BEND column in degrees, read as
+ *                                  millimetres at a silent 1:1. Reads identically at one exercise
+ *                                  scale and cannot follow a change in the full scale.
+ *   affectBiasIgnoresFrameStamp    a disabled or unrun `PostureLayer`'s last opinion accepted for
+ *                                  ever, because `enabled` alone cannot say WHEN a value was set.
+ *   affectBiasOnLeanNotDisplacement  the bias added to the solved lean instead of to the
+ *                                  centre-of-pressure command. Indistinguishable in the centre-of-
+ *                                  mass trace and it breaks the loop closure, which is the only
+ *                                  gate in this file that can catch a wrong lever.
+ *   affectBiasUnclamped            no limit at all, so an unsourced full scale walks the figure
+ *                                  off its own feet.
+ *
+ * The two ways of getting the SIGN wrong are not in here, and deliberately: an unsigned READING is
+ * a defect in the gate's operator rather than in this file (paid-for failure #2, `Math.abs` on a
+ * direction), and an inverted CONVENTION is caught by measuring the rig's toes rather than by a
+ * toggle (paid-for failure #4). Both live in `sway.selftest.mjs`.
+ */
+export const SWAY_DEFECTS = Object.freeze( {
+    affectBiasNotComposed: 'the affect bias is reported but never reaches the pendulum',
+    affectBiasFromChestBend: 'the balance command read off a Coulson joint angle, degrees as mm',
+    affectBiasIgnoresFrameStamp: 'a disabled posture layer still commands balance, for ever',
+    affectBiasOnLeanNotDisplacement: 'the bias added to the solved lean, bypassing the loop closure',
+    affectBiasUnclamped: 'no limit on the affect bias, so an unsourced full scale leaves the feet'
+} );
+
+const SWAY_DEFECTS_OFF = Object.freeze(
+    Object.fromEntries( Object.keys( SWAY_DEFECTS ).map( ( key ) => [ key, false ] ) ) );
+
+/**
+ * 🎯 PUNCH-LIST 6.9 — the affect layer's centre-of-pressure claim, read off `MotionStack`'s shared
+ * bag. Returns 0 — "no claim" — for a stack with no posture layer in it, which is the correct
+ * reading rather than a fallback: `hair.js` builds a bare `new Sway()` and must stay bit-identical.
+ *
+ * Modelled on `Gesture.js`'s `armSpreadOf( context )`, which is this repository's one existing
+ * working precedent for a motion layer reading affect. A live re-read every frame rather than a
+ * snapshot, for the reason `Avatar.js` records in the shipped code: `AffectState.push()` sets a
+ * TARGET that `pad` integrates toward, so a value cached at `say()` time is the previous
+ * utterance's emotion — measured live as `feel({ dominance: +0.9 })` reading back −0.892.
+ * `MOTION_ORDER.POSTURE` (100) is less than `SWAY` (300) and `MotionStack.add()` sorts by order, so
+ * the posture layer has always run THIS frame before this reads it.
+ */
+function affectCentreOfPressureBiasOf( context, defects ) {
+
+    const posture = context?.shared?.posture;
+
+    if ( posture === undefined || posture === null ) return 0;
+
+    // 🚩 THE STALENESS GUARD. A layer the stack skipped keeps its last numbers for ever. Measured
+    // on figure_g050 with `posture.enabled = false` set at frame 60: `prescription.approach` still
+    // reads 0.946860 and `appliedDegrees.approach` still reads 14.2029° sixty frames later. This
+    // also catches the case `enabled` cannot see — a posture layer published to `shared` and never
+    // added to any stack, whose stamp is the -1 its constructor set.
+    if ( defects.affectBiasIgnoresFrameStamp !== true
+        && posture.centreOfPressureFrame !== context.frame ) return 0;
+
+    // 🚩 THE KNOWN-BAD. `appliedDegrees.approach` is `POSTURE_FULL_SCALE_DEGREES.approach` — the
+    // smallest magnitude in Coulson's CHEST BEND column, 20° — times the same prescription and
+    // drive. Reading it as millimetres is a joint-angle table silently supplying a floor distance,
+    // and at the gate's 20 mm exercise scale the two are numerically IDENTICAL. What separates them
+    // is that this one cannot follow `centreOfPressureFullScaleMetres`; see the gate's linearity
+    // clause, which is the only thing that tells them apart.
+    if ( defects.affectBiasFromChestBend === true ) {
+
+        return ( posture.appliedDegrees?.approach ?? 0 ) * 0.001;
+
+    }
+
+    return posture.centreOfPressureBiasMetres ?? 0;
+
+}
 
 export class Sway extends Layer {
 
@@ -1209,6 +1356,12 @@ export class Sway extends Layer {
      * @param {Object} [options.bones] - Overrides for the figure bone behind any humanoid name
      *   in SWAY_CHAIN, e.g. `{ hips: 'root_hips' }`. Everything not named keeps the standard
      *   mapping.
+     * @param {boolean} [options.affectBiasEnabled=true] - Punch-list 6.9. Turn off to run the
+     *   balance model with no affect claim on it at all, which is what every trace measured before
+     *   6.9 was. ⚠️ This is NOT the knob that makes affect do nothing on the shipped tree — the
+     *   amplitude does that, and it is 0. See `affect/PostureLayer.js`'s
+     *   `CENTRE_OF_PRESSURE_FULL_SCALE_METRES`.
+     * @param {Object} [options.defects] - 🚩 Gate fodder only. See SWAY_DEFECTS.
      */
     constructor( options = {} ) {
 
@@ -1305,14 +1458,67 @@ export class Sway extends Layer {
 
         this.elapsedSeconds = 0;
 
-        // The three signals, all in CENTRE-OF-PRESSURE metres — where this body's centre of mass
+        // The THREE signals, all in CENTRE-OF-PRESSURE metres — where this body's centre of mass
         // is being asked to stand, which is the quantity every paper behind this file measured.
-        // Kept apart because the two processes are gated against different papers measured under
+        // Kept apart because the processes are gated against different papers measured under
         // different protocols, and because a critic reading "the avatar drifted 30 mm" needs to
-        // know which process did it.
+        // know which process did it. The third arrived with punch-list 6.9 and is the first one
+        // that is not physiology: it is what the CONVERSATION is asking the body to do.
         this.balanceDisplacement = new Vector3();  // continuous, Quijoux's quiet-standing spectrum
         this.postureDisplacement = new Vector3();  // fidget + shift + drift, Duarte's processes
+        this.affectDisplacement = new Vector3();   // 6.9, BAP's `approach` — .z ONLY, never .x
         this.displacement = new Vector3();         // the sum, which is what gets posed
+
+        /**
+         * 🎯 PUNCH-LIST 6.9 — the reported half, which is what a gate and a HUD read.
+         *
+         * ⚠️ THESE ARE REPORTED FIELDS AND NOT SETTERS, and that is the item's answer to paid-for
+         * failure #1 (a gate that drove a mechanism through a setter the product bypasses, green at
+         * 82/82 over a broken shipped path). `affectCentreOfPressureBias` is recomputed from the
+         * context every frame by `readAffectCentreOfPressureBias`; writing to it does nothing that
+         * survives a frame. The only way to move it is to move the affect state.
+         *
+         * Metres, rig +Z, POSITIVE = CENTRE OF PRESSURE FORWARD, TOWARD THE TOES. Same unit and
+         * same sign as `balanceDisplacement.z` / `postureDisplacement.z` / `displacement.z`.
+         *
+         * 🚩 AND "FORWARD IS +Z" IS A MEASUREMENT ON THIS RIG, NOT A CONVENTION THIS FILE ASSERTS.
+         * Paid-for failure #4 is an axis derived for the trunk (which extends UP) applied to
+         * something that hangs. `sway.selftest.mjs` derives the direction twice and neither read
+         * trusts a name: the ball joints sit +105.07 mm (g000) to +122.26 mm (g100) forward of the
+         * ankle joints in rig z, so +Z is toward the toes; and a +20 mm command moves the whole-body
+         * centre of mass +19.9967 mm on g050, ratio 0.99984, which closes the loop the other way.
+         */
+        this.affectCentreOfPressureBias = 0;
+
+        /**
+         * How far the affect bias may travel, metres. Bounded by THE SAME PUBLISHED QUANTITY, AT
+         * THE SAME SCALE, BY THE SAME RULE as the antero-posterior weight-shift clamp beside it —
+         * `POSTURE_OFFSET_MEAN_SHIFTS` mean shifts of Duarte's own antero-posterior amplitude, so
+         * the stance may accumulate about two average weight shifts' worth of emotional lean and no
+         * more. Measured: 34.000 mm.
+         *
+         * ⚠️ A SEPARATE LIMIT ON A SEPARATE SIGNAL RATHER THAN A SHARE OF THE EXISTING ONE, and the
+         * reasoning is worth keeping. Folding the bias into `advanceAxis`'s `total` would have been
+         * the obvious reading of "compose with the existing clamp" and costs two things. It lands
+         * inside `postureDisplacement`, which is gated on `weightShiftsEnabled` — and
+         * `idle-motion.selftest.mjs` and much of `sway.selftest.mjs` construct
+         * `new Sway({ weightShiftsEnabled: false })` to isolate the balance band, so affect would be
+         * SILENTLY DROPPED in every one of those configurations: a green gate over a dead channel.
+         * And it would make an avatar that has just shifted its weight refuse to express an
+         * emotion, which is a coupling no source supports and nobody asked for.
+         *
+         * 🚩 IT READS NO RIG GEOMETRY, which is the honest statement of the punch-list claim that
+         * "the base of support is already modelled". Medio-laterally it is: `resolvePostureLimits`
+         * takes the half-stance off the ankles. Fore-and-aft this file reads no vertex, ever, and
+         * measures 34.000 mm on all five bakes whose rear footprints run from 44.60 to 65.37 mm.
+         */
+        this.affectBiasLimit = POSTURE_OFFSET_MEAN_SHIFTS * ANTERO_POSTERIOR_SETTINGS.shiftAmplitude;
+
+        /** Whether the clamp above bound on the frame just run. Reported so a gate can print it. */
+        this.affectBiasClamped = false;
+
+        this.affectBiasEnabled = options.affectBiasEnabled ?? true;
+        this.defects = { ...SWAY_DEFECTS_OFF, ...( options.defects ?? {} ) };
 
         // What is left for the pendulum once the contrapposto blend has delivered its share.
         this.pendulumDisplacement = new Vector3();
@@ -1491,9 +1697,14 @@ export class Sway extends Layer {
 
     }
 
-    update( deltaSeconds, context ) { // eslint-disable-line no-unused-vars
+    update( deltaSeconds, context ) {
 
         this.elapsedSeconds += deltaSeconds;
+
+        // 🎯 6.9. Read FIRST, before anything is summed, so that the composite below is one line
+        // that names its three terms rather than an arithmetic order a reader has to reconstruct.
+        // This is the frame's only look at the context; `Sway` read nothing from it before 6.9.
+        this.readAffectCentreOfPressureBias( context );
 
         this.balanceDisplacement.set(
             this.sampleBalanceBand( this.balanceNoise.medioLateral, this.balanceRmsMedioLateral ),
@@ -1516,7 +1727,17 @@ export class Sway extends Layer {
             this.weightShiftsEnabled ? this.anteroPosterior.displacement : 0
         );
 
-        this.displacement.copy( this.balanceDisplacement ).add( this.postureDisplacement );
+        // 🎯 THE SEAM PUNCH-LIST 6.9 LANDS ON, and it is one `.add` because the bias is the same
+        // KIND of quantity as the other two: a centre-of-pressure command in metres. Everything
+        // downstream of this line is already correct for it and none of it needed editing —
+        // `solveStanceBlend` reads `.x` only, `resolvePendulumDisplacement` carries `.z` into the
+        // pendulum, `writePose` solves the lean out of it, and `writeToeLift` reads it as the
+        // fore-and-aft pressure on the forefoot. That is the test of the seam: a bias added HERE is
+        // a centre-of-pressure offset in every reading this layer already publishes, where a bias
+        // added to the solved lean would be one in none of them.
+        this.displacement.copy( this.balanceDisplacement )
+            .add( this.postureDisplacement )
+            .add( this.affectDisplacement );
 
         // The contrapposto delivers the lateral part of the weight shift as an articulated
         // pose; whatever it does not deliver — all of the balance band, and the fore-and-aft
@@ -1531,14 +1752,62 @@ export class Sway extends Layer {
 
     }
 
+    /**
+     * 🎯 PUNCH-LIST 6.9 — this frame's affect claim, clamped, in centre-of-pressure metres.
+     *
+     * ⚠️ `.z` AND ONLY `.z`. `affectDisplacement.x` is never assigned. The antero-posterior axis is
+     * an ANKLE PENDULUM and the medio-lateral one is a HIP LOAD/UNLOAD strategy — Winter, Prince,
+     * Frank, Powell & Zabjek 1996, quoted at the top of this file — so they are two mechanisms
+     * rather than two components of one, and 6.9 is the antero-posterior half. The lateral half is
+     * not deferred by omission: it would enter through `solveStanceBlend`'s contrapposto and would
+     * need its own source, its own clamp against the half-stance, and `MEDIO_LATERAL_ANKLE_SHARE`
+     * re-derived. That is a different item and it should not acquire this one by proximity.
+     *
+     * 🚩 AND THE AXIS NAMES IN THIS FILE READ TRANSPOSED AGAINST THE ROTATION CONSTANTS, which is
+     * the single easiest way to write the wrong line here. `displacement.z` is the ANTERO-POSTERIOR
+     * channel and its lean is a rotation about `RIG_MEDIO_LATERAL_AXIS` (+X); `displacement.x` is
+     * the MEDIO-LATERAL channel and its lean rotates about `RIG_FORWARD_AXIS` (+Z). See
+     * `composeRigRotation`. Touch `.z`.
+     */
+    readAffectCentreOfPressureBias( context ) {
+
+        const wanted = this.affectBiasEnabled === false
+            ? 0
+            : affectCentreOfPressureBiasOf( context, this.defects );
+
+        const limited = this.defects.affectBiasUnclamped === true
+            ? wanted
+            : Math.min( Math.max( wanted, -this.affectBiasLimit ), this.affectBiasLimit );
+
+        this.affectBiasClamped = limited !== wanted;
+        this.affectCentreOfPressureBias = limited;
+
+        // 🚩 THE TWO KNOWN-BADS THAT LIVE ON THIS LINE. `affectBiasNotComposed` is the state of this
+        // file before 6.9 — the claim is read and reported and reaches nothing, which is paid-for
+        // failure #5 wearing a new name. `affectBiasOnLeanNotDisplacement` moves it to `writePose`
+        // instead, where it produces the same centre-of-mass trace and breaks the loop closure.
+        const composed = this.defects.affectBiasNotComposed !== true
+            && this.defects.affectBiasOnLeanNotDisplacement !== true;
+
+        this.affectDisplacement.set( 0, 0, composed ? limited : 0 );
+
+    }
+
     reset() {
 
         this.elapsedSeconds = 0;
 
         this.balanceDisplacement.set( 0, 0, 0 );
         this.postureDisplacement.set( 0, 0, 0 );
+        this.affectDisplacement.set( 0, 0, 0 );
         this.displacement.set( 0, 0, 0 );
         this.pendulumDisplacement.set( 0, 0, 0 );
+
+        // 6.9's reported half goes back to "no claim". The LIMIT does not, for the same reason the
+        // posture clamps do not: it is derived from a published amplitude rather than accumulated,
+        // and rebuilding it here could only ever reproduce the same number or lose it.
+        this.affectCentreOfPressureBias = 0;
+        this.affectBiasClamped = false;
 
         this.stanceBlend = 0;
 
@@ -1880,7 +2149,17 @@ export class Sway extends Layer {
 
     }
 
-    /** Whatever head displacement the contrapposto did not deliver is the pendulum's to produce. */
+    /**
+     * Whatever head displacement the contrapposto did not deliver is the pendulum's to produce.
+     *
+     * ⚠️ THE LATERAL MECHANISM TAKES A LITTLE ANTERO-POSTERIOR AWAY, and that is pre-existing,
+     * correct, and worth a line so nobody rediscovers it as a 6.9 bug. The `.z` subtraction below
+     * removes the fore-and-aft component of the contrapposto's own centre-of-mass response — a
+     * weight-left pose does not move the mass purely sideways — so the residue handed to the
+     * pendulum is not a pure function of the antero-posterior command. The loop still closes,
+     * because `displacement` is what the closure is stated against and the pose delivers the part
+     * that was taken off it.
+     */
     resolvePendulumDisplacement() {
 
         this.pendulumDisplacement.copy( this.displacement );
@@ -2453,7 +2732,19 @@ export class Sway extends Layer {
      */
     writePose() {
 
-        const leanAnteroPosterior = this.pendulumDisplacement.z / this.centreOfMassLever.anteroPosterior;
+        // 🚩 `affectBiasOnLeanNotDisplacement` — the ALTERNATIVE SEAM FOR 6.9, BUILT HERE AS THE
+        // KNOWN-BAD RATHER THAN CHOSEN AS THE DESIGN. Adding the bias to the solved lean produces a
+        // centre-of-mass trace indistinguishable from the real thing, so no amount of measuring the
+        // figure can tell them apart. What separates them is that it contradicts this file's stated
+        // root — every amplitude is a centre-of-pressure amplitude and the lean is a SOLVED OUTPUT
+        // — and therefore bypasses the LOOP CLOSURE gate, which is the only check in the suite that
+        // can catch a wrong lever. Off, it contributes exactly 0.
+        const affectLean = this.defects.affectBiasOnLeanNotDisplacement === true
+            ? this.affectCentreOfPressureBias / this.centreOfMassLever.anteroPosterior
+            : 0;
+
+        const leanAnteroPosterior =
+            this.pendulumDisplacement.z / this.centreOfMassLever.anteroPosterior + affectLean;
         const leanMedioLateral = -this.pendulumDisplacement.x / this.centreOfMassLever.medioLateral;
 
         this.buildPendulumRotations( leanAnteroPosterior, leanMedioLateral );

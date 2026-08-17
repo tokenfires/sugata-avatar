@@ -33,8 +33,19 @@
  * that keeps them standable. Building a second ankle pendulum here would be a duplicate model
  * that cannot see the first one's clamp, so what this layer realises is the part that is a JOINT
  * ROTATION rather than a balance problem: the trunk hinging at the lumbar, which Coulson codes
- * as its own degree of freedom and gives in degrees. The whole-body half is filed against
- * `Sway` — see `docs/OPEN-REQUESTS.md`.
+ * as its own degree of freedom and gives in degrees.
+ *
+ * 🎯 PUNCH-LIST 6.9 CLOSED THE OTHER HALF, AND IT IS A PUBLISHED NUMBER RATHER THAN A SECOND
+ * PENDULUM. `centreOfPressureBiasMetres` below states, in centre-of-pressure metres, how far
+ * forward or back of neutral this emotion wants to stand; `motion/Sway.js` reads it off
+ * `MotionStack`'s shared bag and composes it into the SAME `displacement` its balance band and
+ * Duarte's weight shifts already sum into, so the one ankle pendulum, the one footprint clamp and
+ * the one toe-lift reading all see it. This layer therefore still writes no leg bone for
+ * `approach`; what it added is a claim, in the unit `Sway` was rooted in.
+ *
+ * ⚠️ AND ITS FULL SCALE IS ZERO, for a reason with two independent halves — no source states an
+ * emotional centre-of-pressure amplitude, AND the axis has no millimetres left to spend. See
+ * `CENTRE_OF_PRESSURE_FULL_SCALE_METRES`.
  *
  *
  * WHERE THE ANGLES COME FROM — Coulson (2004), research `body-motion-numbers.md` §3
@@ -228,6 +239,38 @@ export const COULSON_TABLE_1 = Object.freeze( {
 } );
 
 /**
+ * 🚩 COULSON'S SEVENTH COLUMN, AND IT IS DELIBERATELY NOT IN THE TABLE ABOVE.
+ *
+ * Coulson measured 7 degrees of freedom — "weight transfer + 6 joint rotations"
+ * (`body-motion-numbers.md` §3) — and the seventh is the one punch-list 6.9 is about. It is kept
+ * out of `COULSON_TABLE_1` because that table is transcribed for MAGNITUDES, `coulsonRow` takes six
+ * numeric arrays, and `smallestListedMagnitude` reduces a column by `Math.abs`. This column has no
+ * numbers in it at all:
+ *
+ *     Anger  Forwards   ·   Disgust  Backwards   ·   Fear  Backwards, Neutral
+ *     Happiness  Forwards, Neutral   ·   Sadness  Backwards, Neutral   ·   Surprise  Backwards
+ *
+ * Three NOMINAL levels where every other column is degrees. Putting a label into a magnitude table
+ * would break the derivation rule the knee's own zero is proved by, so it lives here and is used
+ * for exactly one thing: CROSS-CHECKING THE SIGN that BAP supplies. It can never supply a scale.
+ *
+ * ⚠️ AND COULSON'S OWN PROSE CONTRADICTS HIS OWN TABLE, ON EXACTLY THE TWO ROWS 6.9 NAMES. The
+ * verbal summary in the same section reads anger as "weight forward **or backward**" and fear as
+ * "weight backward **or forward**" — ambiguous precisely where the table is not, and unusable as a
+ * direction for either. So the direction here comes from BAP as everywhere else in this file, and
+ * this column is the corroborating read rather than the source. §3 of the research doc already
+ * carries four other places that paper contradicts itself; this is the fifth.
+ */
+export const COULSON_WEIGHT_COLUMN = Object.freeze( {
+    anger: Object.freeze( [ 'Forwards' ] ),
+    disgust: Object.freeze( [ 'Backwards' ] ),
+    fear: Object.freeze( [ 'Backwards', 'Neutral' ] ),
+    happiness: Object.freeze( [ 'Forwards', 'Neutral' ] ),
+    sadness: Object.freeze( [ 'Backwards', 'Neutral' ] ),
+    surprise: Object.freeze( [ 'Backwards' ] )
+} );
+
+/**
  * 🚩 EVERY DEGREE OF FREEDOM COULSON MEASURED, READ OFF THE TABLE RATHER THAN COUNTED BY HAND.
  *
  * This exists so that "there is no knee column" is a statement the gate re-derives from the data
@@ -285,6 +328,107 @@ export const KNEE_FULL_SCALE_DEGREES = 0;
  */
 const INVENTED_KNEE_FULL_SCALE_DEGREES = 20;
 
+/**
+ * 🚩 PUNCH-LIST 6.9'S AMPLITUDE, WRITTEN AS ZERO AND NAMED AS A GAP — THE SECOND CONSTANT IN THIS
+ * FILE TO SHIP AT ZERO, AND THE FIRST ONE TO HAVE **TWO** INDEPENDENT REASONS.
+ *
+ * How far, in metres of centre of pressure, a fully-committed emotion at `approach = ±1` wants to
+ * stand forward of or behind neutral. `motion/Sway.js` composes it into the same `displacement` its
+ * balance band and Duarte's weight shifts sum into. Positive is FORWARD, toward the toes — and
+ * "forward is +Z" is not asserted here, it is MEASURED off this rig's own toe joints by the gate
+ * (paid-for failure #4: an axis convention derived for a trunk that extends UP, applied to
+ * something that does not).
+ *
+ * REASON 1 — THE AXIS IS ALREADY OVER-BUDGET, AND THIS ONE IS A MEASUREMENT RATHER THAN A READING
+ * OF THE LITERATURE. Measured this session on the SHIPPED tree, with no 6.9 in it at all:
+ * `ExpressionLayer + PostureLayer + Sway`, 900 s × 12 seeds (`SWAY_SEEDS`), whole-body centre of mass against each
+ * bake's own footprint read off its own mesh, ankle midpoint as origin:
+ *
+ *     bake   rear edge raw / skinned    fear's deepest rear CoM    margin raw / skinned
+ *     g000      -44.60 / -49.00 mm            -50.958 mm           -6.357 / -1.963   OUTSIDE BOTH
+ *     g025      -49.34 / -53.15 mm            -50.153 mm           -0.818 / +2.996   OUTSIDE RAW
+ *     g050      -54.43 / -57.92 mm            -49.147 mm           +5.284 / +8.769
+ *     g075      -59.83 / -63.54 mm            -48.141 mm          +11.685 / +15.397
+ *     g100      -65.37 / -69.58 mm            -46.896 mm          +18.476 / +22.687
+ *
+ * Neutral is inside on every bake (worst +3.037 mm, g000). It is fear's chest bend — −9.393 mm of
+ * centre of mass, measured — landing on top of `Sway`'s deepest rearward drift, both individually
+ * inside budget and summing outside. **There is no millimetre on this axis to spend**, and adding
+ * one to the rear would deepen an excursion that is already out of the base of support. That is a
+ * precondition on sourcing an amplitude, not an argument about which source to use.
+ *
+ * ⚠️ AND THE MARGIN IS A FUNCTION OF THE SAMPLING WINDOW, because Duarte's antero-posterior drift
+ * lattice turns over every 319 s and the deepest excursion on g000 is at t = 373.4 s. Same twelve
+ * seeds, same bake, same preset, skinned margin — every figure below is PRINTED BY THE GATE as a
+ * prefix of the trace the red clause reads, rather than quoted here:
+ *
+ *     60 s  +4.584 mm      120 s  +4.197 mm      300 s  +4.197 mm      900 s  -1.963 mm
+ *
+ * A short window buys 6.547 mm of headroom that is not there, which flips the sign of the verdict.
+ * Any margin quoted without a window length is meaningless, and note that 120 s and 300 s AGREE —
+ * which is the stability that makes a short window feel converged when it is not.
+ *
+ * 🚩 THIS ROW READ +19.166 mm UNTIL R29 AND NO CLAUSE COMPUTED IT. It was prose here, in
+ * `docs/RED-GATES.md` and in `docs/LEARNINGS.md`, and it was REASON 1's headline evidence for the
+ * zero below. Two adversarial re-measurements and then the gate all read +4.584. The conclusion
+ * held and its evidence did not, which is the more dangerous of the two failures.
+ *
+ * REASON 2 — NO SOURCE IN THIS REPOSITORY'S RECORD STATES A MAGNITUDE. Every candidate that IS in
+ * the record is the wrong construct, and each one is cited to the document that carries it:
+ *
+ *   • Coulson's weight column — CATEGORICAL. Three nominal levels, no unit, `body-motion-numbers.md`
+ *     §3. See `COULSON_WEIGHT_COLUMN`, which exists to make that a fact in the file, not a claim.
+ *   • BAP's loadings (+1.96 anger, −1.46 fear, `ExpressionMap.BAP_PRESCRIPTIONS`) — a normalised
+ *     factor loading. This file's header already names that correctly: a RELATIVE weight with no
+ *     full scale to weight.
+ *   • Duarte & Zatsiorsky's 17 ± 15 mm antero-posterior shift (`body-motion-numbers.md` §7) — a
+ *     VOLUNTARY change of stance over thirty minutes of unconstrained standing, with no emotion in
+ *     the protocol. And already spent: it IS the clamp `Sway.resolvePostureLimits` derives.
+ *   • Quijoux's 4.9 mm antero-posterior RMS (§7, force-plate column) — the quiet-stance balance
+ *     BAND, which `Sway` already authors, and an elderly cohort at that. Not an offset.
+ *
+ * ⚠️ 🚩 AND THE RECORD'S OWN GAP NOTE APPLIES HERE VERBATIM. §7 ends: *"No young-adult COP RMS in
+ * millimetres was found to substitute. Nothing here is an estimate of one, and none should be
+ * invented."* That is written about the balance band. The emotional OFFSET is a strictly smaller
+ * literature than the band, and this repository holds no document that states one at all.
+ *
+ * ⚠️ THREE OFF-RECORD CANDIDATES WERE NOMINATED BY THE DESIGN PASS AND ARE NOT CITED HERE, because
+ * `grep -rn 'Lemay\|Lebert\|Sloot' docs/` returns nothing — no document in this repository carries
+ * them, so their numbers cannot be checked by anyone reading this file, and transcribing a figure
+ * from another agent's summary is the one thing this project's evidence rule forbids outright.
+ * They are named without numbers so the next agent can go and read them rather than rediscover
+ * them: a maximal-voluntary-lean study, a normalised functional base-of-support study, and an
+ * observer-response study whose anger is reported BACKWARD. If any of them is brought in, it lands
+ * in `docs/research/` first and this constant is derived from the document, not from this comment.
+ *
+ * So the honest shape is DIRECTION FROM BAP, MAGNITUDE ABSENT — which is not this file's usual
+ * "magnitude from Coulson, direction from BAP" rule but its exact inverse with the magnitude half
+ * missing. The consequence, stated plainly: on the shipped tree `affectCentreOfPressureBias` reads
+ * EXACTLY 0.000000 on every preset, and 6.9 ships a wired, gated, reachable mechanism at zero — the
+ * `KNEE_FULL_SCALE_DEGREES` pattern, which this repository has already paid for and documented.
+ *
+ * `centreOfPressureFullScaleMetres` is the constructor option that supplies one anyway. It is not a
+ * tuning knob; it is a declaration that the caller is supplying an UNSOURCED amplitude, and every
+ * gate that uses it prints the value it supplied.
+ *
+ * ⚠️ NOT IN `POSTURE_FULL_SCALE_DEGREES`, and that is a unit statement rather than an oversight.
+ * Everything in that object is a joint angle in degrees derived by `smallestListedMagnitude`. This
+ * is a length, on the floor, in metres, derived by nothing. Putting it in that table would make the
+ * table's own gate — "every full scale is re-derived from Coulson Table 1 by the stated rule" — a
+ * lie about one of its rows.
+ */
+export const CENTRE_OF_PRESSURE_FULL_SCALE_METRES = 0;
+
+/**
+ * 🚩 Defect fodder, and the mistake here is a subtler one than the knee's. Nobody reaching for an
+ * emotional centre-of-pressure amplitude invents a number from nothing — they reach for the one
+ * antero-posterior displacement in metres that IS in this codebase, Duarte & Zatsiorsky's 17 mm
+ * mean weight shift, and it is a VOLUNTARY shift of stance measured over thirty minutes of
+ * unconstrained standing with no emotion in the protocol at all. It is also already spent: it is
+ * the quantity `Sway`'s own antero-posterior clamp is anchored on. See POSTURE_DEFECTS.
+ */
+const INVENTED_CENTRE_OF_PRESSURE_FULL_SCALE_METRES = 0.017;
+
 /** The derived full scales. See the header for the rule; `smallestListedMagnitude` IS the rule. */
 export const POSTURE_FULL_SCALE_DEGREES = Object.freeze( {
 
@@ -324,6 +468,10 @@ export class PostureLayer extends Layer {
      *   record states a knee angle for an emotion — see `KNEE_FULL_SCALE_DEGREES`. Passing a number
      *   here is supplying one anyway, and whoever passes it owns it: say where it came from at the
      *   call site, because this file cannot.
+     * @param {number} [options.centreOfPressureFullScaleMetres=CENTRE_OF_PRESSURE_FULL_SCALE_METRES]
+     *   - ⚠️ AN UNSOURCED CENTRE-OF-PRESSURE AMPLITUDE, and the same declaration as the knee's.
+     *   The shipped value is 0 for two independent measured reasons; see
+     *   `CENTRE_OF_PRESSURE_FULL_SCALE_METRES`. Metres, positive FORWARD.
      * @param {Object} [options.bones] - Overrides for the humanoid names this drives.
      * @param {Object} [options.defects] - 🚩 Gate fodder only. See POSTURE_DEFECTS.
      */
@@ -370,6 +518,13 @@ export class PostureLayer extends Layer {
             ? INVENTED_KNEE_FULL_SCALE_DEGREES
             : options.kneeFullScaleDegrees ?? POSTURE_FULL_SCALE_DEGREES.kneeActivation;
 
+        // Punch-list 6.9's amplitude, and 0 on the shipped tree for two measured reasons. Read
+        // straight off the constant rather than out of `POSTURE_FULL_SCALE_DEGREES`, because it is
+        // metres of floor rather than degrees of joint — see the constant.
+        this.centreOfPressureFullScaleMetres = this.defects.inventedCentreOfPressureFullScale === true
+            ? INVENTED_CENTRE_OF_PRESSURE_FULL_SCALE_METRES
+            : options.centreOfPressureFullScaleMetres ?? CENTRE_OF_PRESSURE_FULL_SCALE_METRES;
+
         /**
          * ⚠️ This layer never advances the affect state. `ExpressionLayer` does, and two clocks over
          * one state doubles its rate — the defect that layer's own header warns about. It also
@@ -393,6 +548,38 @@ export class PostureLayer extends Layer {
          * `kneeIgnoresRestFlexion` is built out of.
          */
         this.appliedDegrees = { ...NOTHING_APPLIED };
+
+        /**
+         * 🎯 PUNCH-LIST 6.9 — WHAT THIS LAYER PUBLISHES TO THE BALANCE MODEL, IN METRES OF CENTRE
+         * OF PRESSURE, POSITIVE FORWARD.
+         *
+         * It is deliberately NOT in `appliedDegrees`: that object is degrees of joint and this is
+         * metres of floor, and 6.9's own second red proof is somebody sourcing the balance command
+         * from `appliedDegrees.approach` — a Coulson CHEST-BEND column standing in for a
+         * centre-of-pressure amplitude, at a silent one-millimetre-per-degree. Keeping the two
+         * quantities in different objects is what makes that read look as wrong as it is.
+         *
+         * `motion/Sway.js`'s `affectCentreOfPressureBiasOf( context )` reads this off
+         * `MotionStack.context.shared.posture` every frame. There is no setter anywhere in the
+         * chain: this is recomputed from `this.state.pad` on every `update()` and never stored by
+         * the consumer, so a gate cannot drive the mechanism through a path the product bypasses.
+         */
+        this.centreOfPressureBiasMetres = 0;
+
+        /**
+         * 🚩 THE STALENESS STAMP, AND IT CLOSES A HOLE `enabled` CANNOT.
+         *
+         * A layer `MotionStack` skipped this frame keeps last frame's numbers for ever — `update()`
+         * simply did not run. Measured on `figure_g050`, anger, with `posture.enabled = false` set
+         * at frame 60: `prescription.approach` still reads 0.946860 and `appliedDegrees.approach`
+         * still reads 14.2029° sixty frames later, BOTH STALE. A consumer that reads either one
+         * without asking WHEN it was written is reading a disabled layer's opinion.
+         *
+         * So the frame this was computed on is published beside it, and `Sway` refuses any value
+         * that is not this frame's. That also catches the case `enabled` misses entirely: a
+         * `PostureLayer` published to `shared` and never added to the stack at all.
+         */
+        this.centreOfPressureFrame = -1;
 
         /** Filled in by `onBind`. Rest frames, plus the things that must be measured per rig. */
         this.restFrames = new Map();
@@ -651,6 +838,13 @@ export class PostureLayer extends Layer {
         this.activations = [];
         this.appliedDegrees = { ...NOTHING_APPLIED };
 
+        // 6.9's published claim goes back to "no claim", and its stamp goes back to a frame number
+        // `MotionStack` never issues — `frame` starts at 0 and is incremented BEFORE the layers run,
+        // so the first frame is 1. -1 rather than 0 so that a consumer reading a reset layer on
+        // frame 0 (which is only reachable before any update) still sees a mismatch.
+        this.centreOfPressureBiasMetres = 0;
+        this.centreOfPressureFrame = -1;
+
         // 🚩 `appliedArmRadians` IS DELIBERATELY NOT CLEARED HERE. It is not layer state; it is a
         // record of what is on the BONES at this instant, and `MotionStack.reset()` calls
         // `layer.reset()` and then `layer.onBind()` WITHOUT re-committing — so the figure is still
@@ -662,7 +856,18 @@ export class PostureLayer extends Layer {
 
     }
 
-    update() {
+    /**
+     * @param {number} [deltaSeconds] - Unused. This layer never advances the affect state; see the
+     *   note on `prescription` for why.
+     * @param {Object} [context] - `MotionStack`'s frame context. Read for `frame` alone, which
+     *   stamps 6.9's published centre-of-pressure claim. `MotionStack.update` has always passed
+     *   both arguments (`MotionStack.js` — `layer.update( dt, this.context )`); this signature just
+     *   stopped throwing them away. ⚠️ A direct `layer.update( 1/60 )` with no context — which
+     *   `affect.selftest.mjs` does on purpose — leaves the stamp at -1, so the claim reads as
+     *   "no claim" rather than as this frame's. That is the correct answer for a layer nobody is
+     *   running a frame for.
+     */
+    update( deltaSeconds, context ) { // eslint-disable-line no-unused-vars
 
         this.activations = this.map.activate( this.state.pad );
         this.prescription = this.map.body( this.activations, this.state.bodyInput() );
@@ -719,6 +924,22 @@ export class PostureLayer extends Layer {
         }
 
         if ( this.writeKneeBend( kneeFlexion ) ) wrote = true;
+
+        // 🎯 6.9. The SAME `drive` the chest bend above is scaled by, so the two halves of
+        // `approach` cannot drift apart: one emotion, one intensity, two actuators.
+        //
+        // ⚠️ INCLUDING `intensity` IS DELIBERATE and it is the channel's existing treatment rather
+        // than a new decision. Fear ships at WASABI base intensity 0.25 because the paper calls it
+        // "reluctant", against anger's 0.75 — measured through the product path, that makes fear's
+        // bias 4.03x smaller than anger's, which happens to be conservative on the direction with
+        // less headroom. See `CENTRE_OF_PRESSURE_FULL_SCALE_METRES` reason 1.
+        //
+        // ⚠️ ZERO ON THE SHIPPED TREE, AND ZERO EXACTLY, for the same reason the knee is: the full
+        // scale is 0, so this product is 0 whatever the prescription asks for.
+        this.centreOfPressureBiasMetres =
+            this.centreOfPressureFullScaleMetres * this.prescription.approach * drive;
+
+        this.centreOfPressureFrame = context?.frame ?? -1;
 
         this.appliedDegrees.approach = approach / DEGREES_TO_RADIANS;
         this.appliedDegrees.armSpread = armSpread / DEGREES_TO_RADIANS;
@@ -808,9 +1029,16 @@ export class PostureLayer extends Layer {
 
         const clamped = Math.abs( armSpreadLeft - armSpread ) > 1e-6 || Math.abs( armSpreadRight - armSpread ) > 1e-6;
 
+        // 🎯 6.9's published claim is reported in the SAME string as the chest bend, because the two
+        // are one channel with two actuators and a HUD that shows only the bone half is the exact
+        // reading of `approach` this item exists to correct. `+0.0 mm` on the shipped tree.
+        const bias = `${ this.centreOfPressureBiasMetres >= 0 ? '+' : '' }` +
+            `${ ( this.centreOfPressureBiasMetres * 1000 ).toFixed( 1 ) } mm`;
+
         return `approach ${ signedDegrees( approach ) }   ·   arms ${ signedDegrees( armSpreadLeft ) }/` +
             `${ signedDegrees( armSpreadRight ) }${ clamped ? ` (asked ${ signedDegrees( armSpread ) })` : '' }` +
-            `   ·   head ${ signedDegrees( headTiltUp ) }   ·   ${ this.describeKnee() }`;
+            `   ·   head ${ signedDegrees( headTiltUp ) }   ·   ${ this.describeKnee() }` +
+            `   ·   weight ${ bias }`;
 
     }
 
@@ -918,6 +1146,8 @@ export const POSTURE_DEFECTS = Object.freeze( {
     unclampedAdduction: 'adduction driven past vertical, so the arm enters the ribcage',
     restFramesFromLivePose: 'rest frames read off the posed bones, so the same emotion lands elsewhere after a reset',
     inventedKneeFullScale: 'a knee angle with no source, presented as if the derivation produced it',
+    inventedCentreOfPressureFullScale:
+        'Duarte\'s VOLUNTARY 17 mm weight shift read as an emotional centre-of-pressure amplitude',
     kneeWithoutPelvisDrop: 'knees bent with the pelvis held, so the figure stands on stilts',
     kneeIgnoresRestFlexion: 'the knee command read as absolute, so a small bend straightens the leg',
     kneeChainFromLivePose: 'the leg chain read off matrixWorld, so a re-bind plans from its own bend',

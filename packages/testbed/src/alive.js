@@ -3121,7 +3121,30 @@ async function attachAffect( stack, session ) {
     // Built from the expression layer rather than constructed alongside it, so the two cannot end
     // up holding different states and rendering two different emotions.
     const posture = session.affectBodyEnabled ? layer.postureLayer() : null;
-    if ( posture !== null ) stack.add( posture );
+
+    if ( posture !== null ) {
+
+        stack.add( posture );
+
+        // 🚩 AND PUBLISHED, WHICH THIS PAGE DID NOT DO AND `Avatar.js` HAS DONE ALL ALONG.
+        //
+        // `MotionStack`'s shared bag is how a motion layer reads affect without holding a pointer
+        // to another layer, and until punch-list 6.9 there was exactly ONE assignment to
+        // `shared.posture` in the whole repository — `Avatar.js`, beside the layer it belongs to.
+        // This file added the layer and never published it, which cost nothing while the only
+        // reader was `Gesture.js`'s `armSpreadOf` (this page builds no `GestureLayer`) and costs
+        // everything now that `Sway` reads a balance command off the same key: `alive.html` is the
+        // page the seven objective gates are measured on, the page a judge captures, and the page
+        // that carries `?affect=<preset>`, and it builds its own `new Sway(...)`.
+        //
+        // Measured while wiring 6.9: without this line every `affectCentreOfPressureBias` on this
+        // page reads 0.0000 mm at any full scale, which is paid-for failure #5 — a mechanism that
+        // passes its own gates and is unreachable on the page it is validated against. The
+        // reachability clause in `sway.selftest.mjs` greps this file for this assignment for
+        // exactly that reason, and its unpublished-bag clause is the permanent tripwire.
+        stack.context.shared.posture = posture;
+
+    }
 
     console.log( `affect: ${ session.affectRequest } settled at PAD ` +
         `(${ pad.pleasure }, ${ pad.arousal }, ${ pad.dominance })` +
