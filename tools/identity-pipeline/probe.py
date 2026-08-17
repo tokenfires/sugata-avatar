@@ -10,7 +10,7 @@ import argparse, json, os, struct, sys
 
 import bpy
 
-sys.path.insert(0, "/Users/robault/Documents/GitHub/Sugata 姿/tools/figure-pipeline")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "figure-pipeline"))
 from mpfb_bridge import dynamic_import
 
 HumanService = dynamic_import("mpfb.services.humanservice", "HumanService")
