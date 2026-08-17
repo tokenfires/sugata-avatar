@@ -2772,6 +2772,44 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              🎯 **SO THE LEVER IS THE KICKER'S ENERGY, NOT ITS HUE.** The one measured intervention
              that RAISES separation is a kicker with enough energy to actually light a side. That is
              a fifth option, and it is the only one with a measured sign behind it.
+             🚩 **R30 ROUND 2: BOTH STATISTICS THIS REQUEST HAS EVER USED ARE INVALID, AND THE
+             PICTURE BARELY MOVES.** Seven configurations, `violet.mjs` validated 18/18 before use,
+             body framing 900x1200, each with its own matched `?figure=0` mask:
+
+               | rim az / kicker      | cool [150,300) | cool [150,330) | sideSep |
+               |----------------------|---------------:|---------------:|--------:|
+               | −158, violet E10     |         12.17% |              — |  43.86° |
+               | −158, warm E0.10     |         10.98% |              — |  37.07° |
+               | −158, warm E10       |          3.00% |              — |   4.56° |
+               | **−168, warm E0.10 (SHIPPED)** | **10.36%** | **11.68%** | **29.89°** |
+               | −168, warm E1        |         10.13% |              — |  23.35° |
+               | −168, warm E3        |      **3.05%** |     **10.07%** |  12.61° |
+               | −168, warm E10       |          2.30% |          3.45% |   1.60° |
+
+             1. 🚩 **`sideSeparation` IS ANTI-USEFUL. Pearson r = +0.9510 against `coolShare` across
+                all seven rows.** Its zero is TWO-SIDED — it reads ~0 when both sides are violet AND
+                when both sides are warm — so it cannot tell "one violet outline" from "no violet
+                outline". REQ-060 set out to RAISE it. Raising it raises the violet. The target was
+                pointed backwards, which is a better explanation of that round than any of the
+                energy arguments in the entry above.
+             2. 🚩 **`coolShare`'s HEADLINE ARC HAS A BOUNDARY ARTEFACT.** At E3 the [150,300) arc
+                reports 3.05% and the [150,330) arc reports 10.07% — a 3.3x disagreement. Raising
+                the warm kicker does not remove the violet, it ROTATES it into magenta (300–330°),
+                straight across the arc edge, where it stops being counted. Subject pixels
+                (222400 -> 222315) and band pixels (58949 -> 58935) are unchanged, so this is hue
+                rotation and not a mask or framing effect.
+             🎯 **AND THE PLATES CONFIRM THE WIDEST ARC, NOT THE HEADLINE ONE.** Shipped against E3,
+             viewed side by side, the outline is unchanged — same width, same saturation, head to
+             feet. What visibly changes is the FLOOR, which E3 lights considerably. 11.68% -> 10.07%
+             is what the eye reports; 10.36% -> 3.05% is not.
+             ⚠️ So the only configuration measured to genuinely remove the outline is **warm E10**
+             (widest arc 11.68% -> 3.45%), and that is also the one that floods the floor — which is
+             the defect the −134° round was withdrawn for. The energy lever trades the outline for
+             the floor, and no row here escapes both.
+             🎯 **WHAT TO USE NEXT TIME: the [150,330) arc, or better, a band-restricted count.**
+             `COOL_HUE_ARCS` exists in `violet.mjs` for exactly this sensitivity check — "how much of
+             the answer is the arc and how much is the picture" — and reading only its first column
+             is how three rounds have now been spent on a statistic that does not track the defect.
              ⚠️ Also note the spec's own statement of what "cool" looks like in this look is
              **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
              shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
