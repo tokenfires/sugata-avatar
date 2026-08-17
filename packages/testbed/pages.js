@@ -106,6 +106,24 @@ export const BROWSERCHECKS = [
         gates: [ 'affect' ]
     },
     {
+        path: 'src/converse.html',
+        name: 'converse',
+        phase: 'Phase 7.1 / 7.3 · the runtime API, live',
+        blurb: 'Type at it and it answers, with a face and a body that moved before the words ' +
+            'did. The only page whose whole figure comes from one Avatar.create() call, and the ' +
+            'only one that needs LM Studio running.',
+        gates: [ 'Avatar', 'LMStudioClient' ]
+    },
+    {
+        path: 'src/embed-example.html',
+        name: 'embed-example',
+        phase: 'Phase 7.5 · the one-call claim, executable',
+        blurb: 'The smallest page that produces a living avatar — the README\'s headline claim in ' +
+            'runnable form. If this file ever needs a second call to work, the API regressed and ' +
+            'this page is where it shows.',
+        gates: [ 'Avatar' ]
+    },
+    {
         path: 'src/wardrobe.html',
         name: 'wardrobe',
         phase: 'Phase 9 · garments',

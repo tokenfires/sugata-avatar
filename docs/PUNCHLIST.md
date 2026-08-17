@@ -1460,8 +1460,32 @@ attributable.
 
 ## Phase 6 — Body motion
 
-- [ ] **6.1** `motion/MotionStack.js` — layered blend. Bone masking by **filtering `clip.tracks`**
+- [x] **6.1** `motion/MotionStack.js` — layered blend. Bone masking by **filtering `clip.tracks`**
       (three.js normalises per-bone; the `_propertyBindings` hack will break).
+      🚩 **THIS ITEM READ `[ ]` UNTIL 2026-08-16 AND HAD BEEN BUILT FOR MONTHS.** `MotionStack.js`
+      is 1,150 lines, `MotionStack.selftest.mjs` reads **47 passed, 0 failed**, and the shipped page
+      drives it end to end — `alive.js:1018` constructs it, `:1914` builds the target, `:1918` binds,
+      `:1055` adds ten layers, `:1107` updates it every frame. **Thirteen production `Layer`
+      subclasses extend the contract.** Corrected by execution during the Phase 7 recon, not by
+      reading this file. It is recorded rather than quietly ticked because an unstarted-looking item
+      that is actually finished is how a round gets spent rebuilding something, and because
+      `docs/CHECKPOINT.md` §1 names Phase 6 as one of "the two largest unstarted blocks" on the
+      strength of this line.
+      ⚠️ **What 6.1 does NOT contain, and this is why the line was believable:** there is no
+      `AnimationClip` blending in it at all. The stack composes PROCEDURAL layers — quaternion
+      deltas from the normalised rest pose, morphs summed then clamped — and the `clip.tracks`
+      sentence describes a technique for authored clips that nothing has needed yet. 6.3's gesture
+      work is the first item that will want it. **The bone-masking mechanism that DID ship is
+      channel declaration**: a layer states which bones and morphs it writes, and the stack refuses
+      any write outside that set.
+      ⚠️ **Three ordering traps the gate does not state and a consumer will hit** (all measured in
+      the same recon): `createMotionTarget` SNAPSHOTS the scene graph at call time with no
+      invalidate (`MotionStack.js:754-777`), so a figure swap needs a new target and a re-`bind()`;
+      `remove( layer )` DISPOSES the layer (`:205`), so remove-then-re-add hands back a dead object;
+      and a disabled layer's contribution is never cleared, because `update()` skips at `:260`
+      before the clear at `:262`. `HandIdle` is a fourth: it does not declare channels at all, it
+      writes `owner.fingersEnabled = false` on the sibling layer named by `claimFingersFrom`
+      (`HandIdle.js:415`), so `bodyIdle` must be in the stack under that name.
 - [ ] **6.2** `motion/Posture.js` — BAP loadings: anger forward-lean +1.96 / fear backward +1.46 /
       joy broad symmetric arms + head up / sadness arms drawn in. **This is where dominance
       becomes visible.**
