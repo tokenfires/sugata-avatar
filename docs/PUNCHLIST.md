@@ -2734,7 +2734,7 @@ sky, written in TSL, targeting `WebGPURenderer`, driven by five uniforms — shi
 `three/webgpu` and its `fromScene()` works after `renderer.init()`. The most expensive part of an
 outdoor scene is free, in our exact stack. Reuse before build.
 
-- [ ] **11.1** `render/Scene.js` — the scene description, the resolver, and `studio` re-expressed as
+- [x] **11.1** ✅ **DONE 2026-08-17.** `render/Scene.js` — the scene description, the resolver, and `studio` re-expressed as
       a scene. No new look; this is the shape that everything after it hangs on. A scene is a plain
       object of numbers and names: `sun`, `lights` (the schema `LightingRig.FORM_LIGHTS` already
       uses), `ground`, `air`, `exposure`, and either `sky` or `room`.
