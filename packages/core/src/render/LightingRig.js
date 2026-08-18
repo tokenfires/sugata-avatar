@@ -1134,6 +1134,91 @@ export function silhouetteBandPixels( azimuthDegrees, limbRadiusMetres, framedHe
 
 }
 
+/**
+ * What an attached rig's PANELS deliver to one point on one receiver, split by which side of the
+ * subject each panel physically stands on, and summed per channel so the answer carries a HUE
+ * rather than a magnitude.
+ *
+ * 🚩 **PUBLISHED BECAUSE THERE WERE ALREADY THREE HAND-TYPED COPIES OF THIS ARITHMETIC AND A FOURTH
+ * WAS ABOUT TO BE WRITTEN.** Two in `LightingRig.selftest.mjs`, one in `GroundContact.selftest.mjs`,
+ * and `Avatar.selftest.mjs`'s look clause needs it too — a gate on a copy is a gate on a copy, and
+ * the copies are exactly the thing that drifts in silence. ⚠️ **The three existing copies are NOT
+ * yet routed through this function** — that is a change inside two gates this round did not own —
+ * so the consolidation is half done and saying so is the point of this paragraph. This one is a
+ * verbatim lift of `LightingRig.selftest.mjs:861-916` and reproduces its published anchors exactly:
+ * shipped 1.7862 / 2.5144, rim el 75° 3.3593 / 4.1026, key+fill `#0f30ff` 209.3384, `#b0c0ff`
+ * 6.2939, `#e8ecff` 3.4167, `#d8e0ff` 4.0077.
+ *
+ * Both halves read the `RectAreaLight` instances the renderer will use — `unit.area.position` and
+ * `unit.area.color` — rather than the placement table those were built from. A rig whose lights
+ * disagree with the table it publishes is then measured as it actually is, which is the difference
+ * between testing the graph and testing a copy of the numbers that made it.
+ *
+ * ⚠️ **THE PARTITION IS GEOMETRY AND NOTHING ELSE.** Not the name — a rename is free and the old
+ * name-based list scored 0.00 under one. Not the colour either — `b > r` is a binary test on a
+ * continuous quantity and it condemns a daylight-balanced key that renders clean. Which side of the
+ * subject a panel physically stands on is neither opinion nor threshold.
+ *
+ * ⚠️ **PANELS ONLY.** The `SpotLight` shadow halves are not summed, and that exclusion is a premise
+ * about a rig whose casters share their panel's colour rather than a conservative bound — see the
+ * "SHADOW-CASTER half" block in `LightingRig.selftest.mjs`, which gates the premise as well as the
+ * arithmetic.
+ *
+ * @param {LightingRig} rig - already attached and aimed.
+ * @param {Object} shot
+ * @param {import('three').Vector3} shot.point - the receiver point, in world space.
+ * @param {import('three').Vector3} shot.normal - the receiver's normal.
+ * @param {import('three').Vector3} shot.focus - where the rig is aimed.
+ * @param {import('three').Vector3} shot.cameraPosition
+ * @returns {{ behindToFront: number, blueToRed: number, channels: number[] }}
+ */
+export function environmentSpillAt( rig, { point, normal, focus, cameraPosition } ) {
+
+    // The camera axis, pointing away from the viewer. A panel is BEHIND the subject when it is on
+    // the far side of the plane through the focus perpendicular to this.
+    const viewAxis = focus.clone().sub( cameraPosition ).normalize();
+
+    let behind = 0;
+    let inFront = 0;
+    const channels = [ 0, 0, 0 ];
+
+    for ( const unit of rig.units ) {
+
+        const panel = unit.area.position;
+        const aim = focus.clone().sub( panel ).normalize();
+        const toPoint = point.clone().sub( panel );
+        const distance = toPoint.length();
+        const direction = toPoint.clone().normalize();
+
+        const cosPanel = aim.dot( direction );
+        const cosReceiver = normal.dot( direction.clone().negate() );
+
+        // A RectAreaLight emits into its FRONT hemisphere only, so a receiver behind the panel's
+        // plane gets nothing — that clamp is not a guard, it is half the mechanism the shipped
+        // standoff relies on.
+        const irradiance = ( cosPanel <= 0 || cosReceiver <= 0 )
+            ? 0
+            : unit.area.intensity * unit.area.width * unit.area.height
+                * cosPanel * cosReceiver / ( distance * distance );
+
+        if ( panel.clone().sub( focus ).dot( viewAxis ) > 0 ) behind += irradiance;
+        else inFront += irradiance;
+
+        // `Color` holds LINEAR working space here — `ColorManagement.enabled` is true — so these
+        // are the same units the irradiance is in and the product is a real per-channel irradiance
+        // rather than a display value.
+        const colour = unit.area.color;
+
+        channels[ 0 ] += irradiance * colour.r;
+        channels[ 1 ] += irradiance * colour.g;
+        channels[ 2 ] += irradiance * colour.b;
+
+    }
+
+    return { behindToFront: behind / inFront, blueToRed: channels[ 2 ] / channels[ 0 ], channels };
+
+}
+
 // --- what three actually reads ---------------------------------------------------------------
 //
 // 🚩 THIS SECTION EXISTS BECAUSE THREE ROUNDS OF THIS GATE WERE A LIST OF NAMED MECHANISMS.

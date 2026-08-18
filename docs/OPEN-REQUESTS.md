@@ -3125,3 +3125,84 @@ applied:     `band.coolShare` and `band.coolShareByArc` restrict the count to th
 anchor:      tools/critic/violet.mjs /const COOL_HUE_ARCS/
 verify:      tools/critic/violet.mjs /THE POPULATION IS THE BAND/
 ```
+
+## REQ-088 — `hair: false` still ships 16.26 MiB of grooms into every production build
+
+```request
+id:          REQ-088
+status:      OPEN
+target:      packages/core/src/Avatar.js
+filed-by:    the R30 runtime-API round
+filed-round: R12
+filed-at:    b379a33
+first-filed: 2026-08-17
+change:      Move `HAIR_BAKES` and `HAIR_SHEET_URLS` behind the dynamic import that already loads the
+             groom, so a build that never asks for hair does not emit it.
+evidence:    Both are module-scope `new URL( …, import.meta.url )` literals, so vite resolves them
+             eagerly and emits every asset regardless of the dynamic import behind them. Measured by
+             building ONLY `packages/testbed/src/embed-example.html` — whose entire script is
+             `Avatar.create({ canvas })`, with hair defaulting to false — using the repo's own vite
+             8.2.1 and vite.config.js: five grooms at ~3.33 MB each plus a 348,510 B flow sheet and a
+             depth sheet, 17,047,971 B (16.26 MiB) in total, all unreachable at runtime.
+             🚩 `AVATAR_DEFAULTS.hair`'s own reason #2 cites this asset weight as a reason the
+             default is off, and the default does not avoid it. The stated justification for the
+             default is therefore not delivered by the default.
+anchor:      packages/core/src/Avatar.js /const HAIR_BAKES/
+verify:      packages/core/src/Avatar.js /emitted only when a groom is asked for/
+```
+
+## REQ-089 — the Avatar gate proves call sites exist in source text, not that options reach the frame
+
+```request
+id:          REQ-089
+status:      OPEN
+target:      packages/core/src/Avatar.selftest.mjs
+filed-by:    the R30 runtime-API round
+filed-round: R12
+filed-at:    b379a33
+first-filed: 2026-08-17
+change:      Drive the LIVE setter path in the gate, and make the two red proofs that cannot go red
+             actually call the resolver they name.
+evidence:    Three independent findings, all reproduced by execution rather than by reading.
+             (1) Every LOOKS clause builds `new LightingRig( { preset, overrides } )` — the
+             CONSTRUCTOR path, where overrides land correctly because `attachTo` builds units from
+             freshly resolved placements. `Avatar.setLighting` reaches the rig through `override()`
+             instead, and grep for `.override(` in the gate returns ZERO hits. That is failure #1
+             from this project's own ledger — a gate on a path the product does not take — and it
+             cost a shipped `setLighting` that changed nothing in the frame at all.
+             (2) A1's "an unknown light inside a look is refused" and A4's "refused by the
+             deny-by-default walk" both re-implement the check inline and never call `resolveLook`.
+             PROVEN: deleting the `LOOK_ENTRY_KEYS` walk, and separately deleting both
+             `requireKnownLight` calls, each left the gate printing 102 passed, 0 failed.
+             (3) The block headed REACHABILITY (C0–C8) is entirely regexes over `Avatar.js`. Its own
+             clause E4 is honest about this, but the category name is not, and the one option with no
+             visible effect — `background.colour` before R30 fixed it — passed C1 cleanly.
+anchor:      packages/core/src/Avatar.selftest.mjs /function rigFor/
+verify:      packages/core/src/Avatar.selftest.mjs /drives the LIVE setter path/
+```
+
+## REQ-090 — `report().scene.lighting` reads the placement table rather than the lights
+
+```request
+id:          REQ-090
+status:      OPEN
+target:      packages/core/src/Avatar.js
+filed-by:    the R30 runtime-API round
+filed-round: R12
+filed-at:    b379a33
+first-filed: 2026-08-17
+change:      Read the reported lighting off `lights.units[].area` — the objects that light the scene —
+             rather than off `lights.placements`, the table that says what they were asked to be.
+evidence:    Measured live before R30 fixed the underlying inertness: after `setLighting('dramatic')`
+             `report().scene.lighting.placements` returned key `{ elevationDegrees: 30,
+             azimuthDegrees: 52 }` and rim `irradiance: 27.5`, while
+             `lights.units.find(u => u.placement.name === 'key').area.position` was still at
+             elevation 18 / azimuth 54 and `area.intensity` was unchanged.
+             🚩 `report()`'s own header states the rule this breaks: "Reporting the options back
+             would be a tautology: it would report a subsystem that failed to attach as present."
+             The placement table is one step nearer the truth than the options and is still not the
+             scene. R30 fixed the mechanism so the two now agree — which is exactly when this stops
+             being visible and starts being a trap for the next change.
+anchor:      packages/core/src/Avatar.js /placements: /
+verify:      packages/core/src/Avatar.js /read off the LIGHTS/
+```

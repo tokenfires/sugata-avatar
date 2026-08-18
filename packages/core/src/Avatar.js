@@ -77,12 +77,18 @@
  *   - **`?webgl`, `?gputime`, `?preroll`, `?freeze`, `?pose=bind`, and the per-knob grade sweeps.**
  *     A/B levers. The tier system covers the one of these a consumer needs — see `QUALITY_TIERS`.
  *
- * Deferred rather than dropped, and named so the omission is visible: **hair** (3.5/3.6/6.6),
- * **the wardrobe** (Phase 9) and **identity detail targets** (Phase 10). All three are opt-in on
- * `alive.js` for reasons that still hold — the wardrobe has fragments for one bake only, the groom
- * moves every committed number in the repository, and 10.7/10.9 are open so eyes and skeleton do
- * not follow the skin. Adding them here would be publishing four subsystems through a one-call API
- * on the strength of a wiring nobody has judged. They are `Avatar`'s next options, not its first.
+ * **HAIR IS NO LONGER ON THAT LIST, AND THE SHIPPED RUNTIME FIGURE IS NO LONGER BALD.** The
+ * paragraph that stood here deferred the groom on the grounds that it "moves every committed number
+ * in the repository", which is an argument for `hair: false` being the DEFAULT and was being used as
+ * an argument for the option not existing. Those are different things, and the second one made
+ * `Avatar` a runtime API that could not put hair on a head at all — the single most visible gap
+ * between this file and `alive.js`. `hair: 'bob01'` is opt-in, it is off by default, and §THE GROOM
+ * below carries the three measured reasons it stays off.
+ *
+ * Still deferred rather than dropped, and named so the omission is visible: **the wardrobe**
+ * (Phase 9) and **identity detail targets** (Phase 10). Both are opt-in on `alive.js` for reasons
+ * that still hold — the wardrobe has fragments for one bake only, and 10.7/10.9 are open so eyes and
+ * skeleton do not follow the skin.
  *
  * ⚠️ THIS FILE DOES NOT IMPORT FROM `packages/testbed`, EVER. `core` must not depend on the
  * testbed. Where a helper was needed it was READ and reimplemented here, and every constant lifted
@@ -91,9 +97,10 @@
  * and a gate on their agreement is what keeps the liability visible instead of latent.
  */
 
-import { Box3, SRGBColorSpace } from 'three';
+import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
 import {
     Color,
+    Group,
     Mesh,
     MeshPhysicalNodeMaterial,
     MeshStandardNodeMaterial,
@@ -108,7 +115,7 @@ import { ExpressionLayer } from './affect/ExpressionLayer.js';
 import { ReflexAffect } from './affect/ReflexAffect.js';
 
 import { Figure } from './figure/Figure.js';
-import { Identity } from './figure/Identity.js';
+import { Identity, LIVE_PREVIEW } from './figure/Identity.js';
 import { RestPose } from './figure/RestPose.js';
 import { Skeleton } from './figure/Skeleton.js';
 
@@ -136,7 +143,7 @@ import { Sway } from './motion/Sway.js';
 import { Grade, TEMPORAL_RECOVERY_SHARPNESS } from './render/Grade.js';
 import { GroundContact } from './render/GroundContact.js';
 import { GTAO_SHIPPING_QUALITY, createGroundTruthOcclusion } from './render/GTAO.js';
-import { LightingRig } from './render/LightingRig.js';
+import { EXPOSURE_CALIBRATION, LightingRig } from './render/LightingRig.js';
 import { Stage } from './render/Stage.js';
 
 import { VisemeLayer } from './voice/VisemeLayer.js';
@@ -195,6 +202,322 @@ const DEFAULT_REST_POSE = 'relaxed-standing';
  */
 const BACKDROP_EMISSIVE = 0x070a0e;
 const BACKDROP_DISTANCE_METRES = 1.9;
+
+/** The scene clear colour the shipped plate is measured on. `Avatar.js`'s own literal, named. */
+const SCENE_CLEAR_COLOUR = 0x08080a;
+
+// --- the scene: what an embedder may change about the light and the room -------------------------
+//
+// 🚩 UNTIL THIS ROUND `Avatar.create()` TOOK ELEVEN OPTIONS AND NOT ONE OF THEM TOUCHED LIGHTING,
+// BACKGROUND, EXPOSURE OR ENVIRONMENT. An agent embedding this avatar got a figure in a room it
+// could not change, on a page whose own chrome it chose. That is the gap this section closes, and
+// the shape of the closure is the same one `QUALITY_TIERS` uses: a small set of named, MEASURED
+// configurations, plus one escape hatch that is validated at this boundary because the subsystem
+// behind it validates nothing.
+
+/**
+ * The look presets, as what each one MOVES rather than as a table of absolutes.
+ *
+ * ## 🚩 A LOOK IS NOT A `LightingRig` PRESET, AND CONFLATING THEM BREAKS `setFraming`
+ *
+ * `LightingRig`'s `preset` is `'portrait' | 'body'` — a FRAMING concept, already driven by
+ * `Avatar.setFraming`. A look preset has to ride on `overrides` instead, or `setFraming('body')`
+ * silently changes the look as well as the crop.
+ *
+ * ## 🎯 AND A LOOK IS A MULTIPLIER, RE-RESOLVED PER FRAMING. MEASURED WHY
+ *
+ * `LightingRig.setPreset()` re-runs `resolvePlacements()`, which re-merges `this.overrides` OVER
+ * the new framing's authored table. So an ABSOLUTE override computed at portrait survives into body
+ * and destroys it. Measured through the real class on 2026-08-17:
+ *
+ *     soft@portrait rim override = 11.2000   (portrait authored 16 x 0.70)
+ *     soft@body     rim override = 15.4000   (body     authored 22 x 0.70)
+ *     NOT re-resolved -> body rim 11.2000    RE-resolved -> body rim 15.4000    error 27.27%
+ *
+ * `scales` is therefore a factor on whatever the CURRENT framing's table authored, read back off
+ * `LightingRig` itself rather than copied here, and `setFraming` re-resolves before `setPreset`.
+ *
+ * ## 🚩 THE ONE RULE THAT MAKES LOOKS SAFE: NO LOOK MAY MOVE `key.irradiance` OR `fill.irradiance`
+ *
+ * That pair is the G1 axis and `LightingRig.selftest.mjs:698-703` gates it; that gate's own
+ * KNOWN-BAD at `:707-714` is exactly the 4:1 rig a "cinematic" preset would reach for. A look that
+ * moved it would be a look that differs mainly in whether it passes G1. So looks differ on COLOUR,
+ * KEY GEOMETRY and EDGE-LIGHT ENERGY only, and clause A2 of the gate holds every (look, framing)
+ * pair BIT-EQUAL to its framing's own baseline.
+ *
+ * Measured through the real class at both framings on 2026-08-17, against the two ceilings
+ * `LightingRig.selftest.mjs` publishes (behind:front <= 3.0, blue:red <= 4.5):
+ *
+ *     | look       | keyToFill portrait | keyToFill body | behind:front | blue:red |
+ *     |------------|-------------------:|---------------:|-------------:|---------:|
+ *     | `studio`   |             1.3636 |         2.5000 |       1.7862 |   2.5144 |
+ *     | `warm`     |             1.3636 |         2.5000 |       1.7862 |   2.3319 |
+ *     | `cool`     |             1.3636 |         2.5000 |       1.7862 |   3.3409 |
+ *     | `soft`     |             1.3636 |         2.5000 |       1.5018 |   2.2325 |
+ *     | `dramatic` |             1.3636 |         2.5000 |       1.7060 |   2.4218 |
+ *
+ * Every ratio is bit-equal to its framing's baseline; all ten pairs clear both ceilings.
+ *
+ * ⚠️ `cool` IS THE DANGEROUS DIRECTION AND IT IS DELIBERATELY PARKED SHORT OF THE KNEE. 3.3409 sits
+ * under the gate's own MUST-PASS row `#e8ecff` (3.4167, which renders 0.058% of the frame blue —
+ * LESS than shipped). One step further, `#b0c0ff` — a tint that reads as white in a swatch — scores
+ * 6.2939 and renders 57.37% of the frame saturated blue.
+ *
+ * ⚠️ AND NO LOOK MOVES THE AMBIENT. See `AMBIENT_MULTIPLIER_RANGE` for the one-code-value window
+ * that makes it the most gate-fragile lever on this whole surface.
+ */
+export const SCENE_LOOKS = Object.freeze( {
+
+    /**
+     * The default, and it IS the shipped rig: zero overrides. Every committed gate number in this
+     * repository is stated on this configuration, so an agent that says nothing gets the frame the
+     * critic has judged.
+     */
+    studio: Object.freeze( { fields: Object.freeze( {} ), scales: Object.freeze( {} ) } ),
+
+    /**
+     * A companion or assistant presence on a dark or neutral host UI. Key ~4300 K instead of
+     * ~5000 K; kicker up 20% so the jaw edge survives the warmer key. blue:red FALLS to 2.3319 —
+     * further from the ceiling than shipped.
+     */
+    warm: Object.freeze( {
+        fields: Object.freeze( {
+            key: Object.freeze( { colour: 0xffe3c0 } ),
+            fill: Object.freeze( { colour: 0xf7cdb8 } )
+        } ),
+        scales: Object.freeze( { kicker: Object.freeze( { irradiance: 1.20 } ) } )
+    } ),
+
+    /**
+     * An avatar inside a technical or product UI with cool chrome, so the figure does not read as
+     * pasted-in warm. The dangerous direction — see the ⚠️ above.
+     */
+    cool: Object.freeze( {
+        fields: Object.freeze( {
+            key: Object.freeze( { colour: 0xeef2ff } ),
+            fill: Object.freeze( { colour: 0xdfe6f4 } )
+        } ),
+        scales: Object.freeze( {} )
+    } ),
+
+    /**
+     * An always-on avatar, small in the corner of a UI. The key drops to 10° so the nose shadow
+     * does not cross the lip at 120 px; rim and kicker at 70% so the separation does not alias.
+     * Lowest environment spill of the five.
+     */
+    soft: Object.freeze( {
+        fields: Object.freeze( { key: Object.freeze( { elevationDegrees: 10 } ) } ),
+        scales: Object.freeze( {
+            rim: Object.freeze( { irradiance: 0.70 } ),
+            kicker: Object.freeze( { irradiance: 0.70 } )
+        } )
+    } ),
+
+    /**
+     * A beat: a reveal, an emphatic reply, a "listening" portrait state. The key raised and swung
+     * wider deepens the far-cheek modelling without touching the ratio; rim up 25% holds the
+     * silhouette against the deeper shadow.
+     */
+    dramatic: Object.freeze( {
+        fields: Object.freeze( {
+            key: Object.freeze( { elevationDegrees: 30, azimuthDegrees: 52 } )
+        } ),
+        scales: Object.freeze( { rim: Object.freeze( { irradiance: 1.25 } ) } )
+    } )
+
+} );
+
+/** The look names `lighting.look` accepts. */
+export const SCENE_LOOK_NAMES = Object.freeze( Object.keys( SCENE_LOOKS ) );
+
+/** The only two keys a look entry may carry. Deny-by-default; see clause A4's red proof. */
+const LOOK_ENTRY_KEYS = Object.freeze( [ 'fields', 'scales' ] );
+
+/**
+ * The four lights the rig has, and the fields the escape hatch may reach — with the range each one
+ * has to be inside for the scene graph to hold a finite number.
+ *
+ * 🚩 **`Avatar` VALIDATES WHERE THE RIG DOES NOT, AND THAT IS THIS TABLE'S WHOLE JOB.** Measured
+ * through the real `LightingRig` constructor on 2026-08-17 — NOTHING throws:
+ *
+ *     | override                    | result                                          |
+ *     |-----------------------------|-------------------------------------------------|
+ *     | `key.irradiance: -3`        | key E **-2.5500** — negative light               |
+ *     | `fill.irradiance: 0`        | designedKeyToFill **Infinity**                   |
+ *     | `key.shadowFraction: 2`     | `1 - f` negative -> panel radiance **-3.9599**   |
+ *     | `key.widthInHeights: 0`     | panel radiance **Infinity**                      |
+ *     | `key.distanceInHeights: 0`  | **NaN** into the scene graph                     |
+ *     | `{ fifth: { … } }`          | silently dropped — 4 placements, no throw        |
+ *     | `{ key: { irradianceX: 9 } }`| silently merged and ignored                     |
+ *     | `preset: 'cinematic'`       | **THROWS** — the one validated field             |
+ *
+ * The last row is the shape the other seven should have had. Deny-by-default on BOTH the light name
+ * and the field name is what closes the two silent-drop rows, and the gate's B1 asserts both
+ * directions: `Avatar` throws, and the rig handed the same value does not.
+ *
+ * ⚠️ `name` IS NOT REACHABLE and that is deliberate rather than an oversight. `aimRigAt` finds the
+ * key by `placement.name === 'key'` to hand the eye shader its direction, and
+ * `LightingRig.selftest.mjs`'s spill partition uses the names as its expected ANSWER. A rename is
+ * free at the rig and breaks both.
+ */
+const RIG_LIGHT_NAMES = Object.freeze( [ 'key', 'fill', 'rim', 'kicker' ] );
+
+const PLACEMENT_FIELDS = Object.freeze( {
+    azimuthDegrees: Object.freeze( { kind: 'number', min: -360, max: 360 } ),
+    elevationDegrees: Object.freeze( { kind: 'number', min: -90, max: 90 } ),
+    distanceInHeights: Object.freeze( { kind: 'number', min: 1e-3, max: 100 } ),
+    widthInHeights: Object.freeze( { kind: 'number', min: 1e-4, max: 100 } ),
+    heightInHeights: Object.freeze( { kind: 'number', min: 1e-4, max: 100 } ),
+    irradiance: Object.freeze( { kind: 'number', min: 0, max: 1000 } ),
+    shadowFraction: Object.freeze( { kind: 'number', min: 0, max: 0.999 } ),
+    colour: Object.freeze( { kind: 'colour', min: 0, max: 0xffffff } )
+} );
+
+/**
+ * `lighting.exposure`, as a RELATIVE multiplier on `EXPOSURE_CALIBRATION` (0.85).
+ *
+ * Measured: exposure is ratio-neutral — at x0.5 / x1 / x2 the designed key:fill is **1.3636 at all
+ * three** while key irradiance goes 1.2750 / 2.5500 / 5.1000. But `LightingRig.js:240-256`'s own
+ * table shows it is NOT neutral to G1 in the rendered frame: at 0.35 a 1.47:1 design MEASURES
+ * 2.04:1 and fails, because ACES has more gradient down there. So it is offered, it is relative, and
+ * `report().scene.lighting.calibrated` goes false the moment it moves.
+ */
+const EXPOSURE_MULTIPLIER_RANGE = Object.freeze( { min: 0.25, max: 4 } );
+
+/**
+ * `lighting.ambient`, as a RELATIVE multiplier on the rig's own `AMBIENT.fractionOfKey` (0.22).
+ *
+ * ⚠️ **THIS IS THE MOST GATE-FRAGILE LEVER ON THE WHOLE SURFACE AND NO SHIPPED LOOK TOUCHES IT.**
+ * Gate G6 wants whole-image p0.1 luma in 0.004–0.016; the shipped backdrop measures portrait
+ * **0.00420** (0.0002 above the floor) and body **0.01597** (0.00003 under the ceiling) — see
+ * `BACKDROP_EMISSIVE`. The one measured lever of comparable size, `alive.js`'s `?ambspec=0`, moves
+ * body to **0.01989**, out of band. `LightingRig.js:989-991` says it in one line: *"if G6 goes red
+ * the suspect is here, not the grade."*
+ *
+ * A one-code-value window is not a knob. It is exposed because an embedder compositing over their
+ * own chrome has a legitimate reason to want it, and it is exposed with this paragraph attached.
+ */
+const AMBIENT_MULTIPLIER_RANGE = Object.freeze( { min: 0.5, max: 2 } );
+
+/**
+ * The three background presets, by name.
+ *
+ * 🔴 **`transparent` IS DECLARED, DOCUMENTED AND CURRENTLY REFUSED, AND THE REFUSAL IS THE HONEST
+ * RESULT OF THIS ROUND RATHER THAN AN OMISSION.** It is the option an embedder actually asks for —
+ * an avatar composited over a host page's own chrome — and it does not work today for a reason that
+ * is not in this file. Measured in a real GPU chromium on 2026-08-17, against a magenta page behind
+ * the canvas (100% magenta with no canvas at all, as the control):
+ *
+ *     | configuration                          | page shows through | figure     |
+ *     |----------------------------------------|-------------------:|------------|
+ *     | `studio`, `high`                        |              0.00% | correct    |
+ *     | `transparent`, `high`   (TAAU + GTAO)   |              0.00% | BLACK      |
+ *     | `transparent`, `balanced` (TAAU)        |              0.00% | correct    |
+ *     | `transparent`, `fallback` (MSAA + GTAO) |             41.63% | BLACK      |
+ *
+ * Two independent blockers, both isolated by moving one dial at a time:
+ *
+ *   1. **THE TEMPORAL RESOLVE FORCES ALPHA TO 1.** With the grade returning `vec4( vec3( alpha ), 1 )`
+ *      — the alpha displayed as a picture — `fallback` reads 41.63% at alpha 0 and 57.80% at alpha 1,
+ *      exactly right; `high` reads **100% at alpha 1**. `Grade.compose` carries and premultiplies the
+ *      alpha correctly and `Grade.selftest.mjs` is 68/68 on the change; `TAAUNode`/`TRAANode` are
+ *      three's and do not carry `.a` through the resolve. So no tier with a temporal resolve can
+ *      present a transparent canvas.
+ *   2. **GROUND-TRUTH OCCLUSION BLACKS OUT A FRAME WITH NOTHING AT BACKGROUND DEPTH.** Isolated to
+ *      the CARD alone: `backdrop: 0x000000` — a black card, same pixels to the eye — renders the
+ *      figure perfectly, and `backdrop: false` renders the WHOLE FRAME black on both tiers that
+ *      carry GTAO. It is not the card's presence in the draw list either: scaling it to 0.001 and
+ *      moving it off-screen reproduces the black frame exactly. `balanced`, the one tier with
+ *      `occlusion: false`, renders correctly with no card at all.
+ *
+ * `fallback` has no temporal resolve and `balanced` has no occlusion, and there is no tier with
+ * neither — so `transparent` is refused at `create()` rather than shipping an option that returns an
+ * opaque black rectangle. `backdrop: false` on its own IS supported, and resolves `quality: 'auto'`
+ * to `balanced` for blocker 2.
+ */
+export const BACKGROUND_PRESETS = Object.freeze( {
+    studio: Object.freeze( { colour: SCENE_CLEAR_COLOUR, backdrop: BACKDROP_EMISSIVE, ground: true } ),
+    transparent: Object.freeze( { colour: null, backdrop: false, ground: false } ),
+    void: Object.freeze( { colour: 0x000000, backdrop: false, ground: true } )
+} );
+
+/** The background names `background` accepts as a shorthand string. */
+export const BACKGROUND_PRESET_NAMES = Object.freeze( Object.keys( BACKGROUND_PRESETS ) );
+
+// --- the groom -----------------------------------------------------------------------------------
+
+/** The one groom that exists. `assets/hair/manifest.json` declares exactly this id. */
+const HAIR_GROOM_ID = 'bob01';
+
+/** The style names `hair` accepts, beside `false`. One entry, and it is a list on purpose. */
+export const HAIR_STYLES = Object.freeze( [ HAIR_GROOM_ID ] );
+
+/**
+ * The groom's five bakes, keyed on the FIGURE bake they belong to.
+ *
+ * 🚩 **THESE MUST STAY STATIC LITERALS INSIDE `new URL( …, import.meta.url )`, AND THAT IS WHY THIS
+ * TABLE EXISTS AT ALL RATHER THAN A DIRECTORY AND A JOIN.** vite's asset rewrite fires only on a
+ * static literal, so a URL assembled from a directory 404s in dev AND emits no asset in a build —
+ * arriving as `SyntaxError: Unexpected token '<'` out of `GLTFLoader.parse`, which is `index.html`
+ * being parsed as glTF and names neither the file nor the asset. `HairMaterial.js:3329-3332` carries
+ * the same rule against its own `groomDirectoryUrl` convenience, and `resolveAgainstBase` carries it
+ * for the figures. `figure/Identity.js:72-77` is the shape this copies.
+ *
+ * ⚠️ ONE GROOM PER IDENTITY BAKE, AND THE NAMES MUST MATCH. The groom is generated per figure bake
+ * because a bob is cut to a skull and the five skulls differ by centimetres. A bake with no groom is
+ * a MISS in this map rather than a 404 discovered at fetch time, so `attachHair` can refuse in words
+ * before it requests anything.
+ *
+ * Measured 2026-08-17, all five bakes: **53 groom joints, 0 absent from the figure rig**, `head` /
+ * `clavicle_l` / `clavicle_r` present on every one; material `hair_bob01`, `alphaMode: MASK`, cutoff
+ * default 0.5, doubleSided, 17,516 vertices, 2 embedded images, exactly one skinned mesh. So the
+ * rebind cannot fail on the shipped asset set — it is still checked BY NAME and refused in words,
+ * because the failure it guards is a rig rename in the figure pipeline.
+ */
+const HAIR_BAKES = new Map( [
+    [ 'figure_g000', new URL( '../../../assets/hair/bob01/g000.glb', import.meta.url ).href ],
+    [ 'figure_g025', new URL( '../../../assets/hair/bob01/g025.glb', import.meta.url ).href ],
+    [ 'figure_g050', new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href ],
+    [ 'figure_g075', new URL( '../../../assets/hair/bob01/g075.glb', import.meta.url ).href ],
+    [ 'figure_g100', new URL( '../../../assets/hair/bob01/g100.glb', import.meta.url ).href ]
+] );
+
+/**
+ * The two SIDECAR sheets. `albedo.png` and `normal.png` are embedded in every groom bake and are
+ * taken off the mesh's own material instead, so the material and the groom can never disagree about
+ * which bake they are. Same static-literal rule as `HAIR_BAKES`.
+ */
+const HAIR_SHEET_URLS = Object.freeze( {
+    flow: new URL( '../../../assets/hair/bob01/flow.png', import.meta.url ).href,
+    depth: new URL( '../../../assets/hair/bob01/depth.png', import.meta.url ).href
+} );
+
+/**
+ * Which order-independent-transparency arm each tier gets, and whether the DFTL solver runs.
+ *
+ * Measured hair cost at 1920x1080 dpr 1, 100 samples after 60 warm-up, control 12.038 p50 /
+ * 13.347 p95: `cutout` +0.761/+0.964, `hash` +1.229/+1.961, `wboit` +0.826/**+9.416**.
+ *
+ * 🚩 `fallback` REFUSES BOTH THE SHIPPED ARM AND THE SOLVER, AND ALL THREE REASONS ARE STRUCTURAL
+ * RATHER THAN BUDGET:
+ *
+ *   1. `stage.multisampled === true` on that tier, so `createHairMaterial` sets `alphaToCoverage`,
+ *      and `configureHairMaterial( …, 'stochastic', { alphaToCoverage: true } )` **THROWS**
+ *      (`HairOIT.js:1086-1093`) — it would swap the coverage test for an edge softener around a
+ *      per-pixel-random threshold and stop being an unbiased estimator while still drawing a
+ *      plausible picture.
+ *   2. `stochastic` is an estimator only a temporal resolve integrates, and this tier is
+ *      `temporalAA: 'off'`. Without one it is a one-sample stipple.
+ *   3. The tier exists because the renderer came up on WebGL2, whose compute is transform feedback —
+ *      one output set per invocation — while `HairDynamics`' solve kernel writes 17 and its rebuild
+ *      writes 2. ⚠️ **(3) IS A STRUCTURAL READ OF TWO SOURCES AND IS NOT BROWSER-VERIFIED**, which
+ *      is why it is written down here rather than left as the reason nobody can find later.
+ */
+const HAIR_BY_TIER = Object.freeze( {
+    high: Object.freeze( { oit: 'stochastic', solver: true } ),
+    balanced: Object.freeze( { oit: 'stochastic', solver: true } ),
+    fallback: Object.freeze( { oit: 'cutout', solver: false } )
+} );
 
 // --- the eyelash and eyebrow cards -------------------------------------------------------------
 
@@ -309,7 +632,39 @@ export const AVATAR_DEFAULTS = Object.freeze( {
     autoStart: true,
     pose: DEFAULT_REST_POSE,
     assetBaseUrl: null,
-    bakedMapBaseUrl: null
+    bakedMapBaseUrl: null,
+
+    /**
+     * 🎯 THE DEFAULTS ARE THE SHIPPED BEHAVIOUR, AND THAT IS AN ASSERTION RATHER THAN A COMMENT.
+     * `lighting: 'studio'` resolves to zero rig overrides; `background: 'studio'` resolves to the
+     * three literals this file already had — `SCENE_CLEAR_COLOUR`, `BACKDROP_EMISSIVE` and a ground
+     * plane. Clause D2 of the gate holds each of the three, so changing any literal without changing
+     * this table goes red.
+     */
+    lighting: 'studio',
+    background: 'studio',
+
+    /**
+     * 🚩 OFF, AND THE THREE REASONS ARE MEASURED RATHER THAN CAUTIOUS.
+     *
+     *   1. **One groom exists.** `assets/hair/manifest.json` declares one (`bob01`) and
+     *      `assets/hair/` holds one directory. A default that names the only entry in a list of one
+     *      is a default that has to be renamed the day a second lands.
+     *   2. **Cost.** The groom is 19,202,726 B (18.313 MiB) of assets on top of the 11.5 MB bake,
+     *      of which 3,327,232 B is a third `await` inside `swapFigure`; and it adds a measured
+     *      **+2.0 ms at p50**. 🚩 NOT p95: the round that measured this states in docs/API.md that
+     *      "p95 does not resolve — the spread between two runs of the SAME configuration is larger
+     *      than the difference between configurations", and its own p95 column runs the wrong way
+     *      (haired 18.8 against bald 29.6 on one repetition). p50 is the number that survived.
+     *   3. **Two process-wide mutations that a library must not make behind a caller's back.**
+     *      `createHairDynamics` returns NO `dispose` (957 kB plus five compute pipelines per swap),
+     *      and `installHairVelocity` MONKEY-PATCHES `NodeMaterial.prototype.setupPosition` globally
+     *      with no uninstall (`HairVelocity.js:162-183`). Both are benign on a testbed page and
+     *      both are process-wide in a library. `leakedHandles()` is an own-property walk and
+     *      **cannot see a prototype patch** — the same structural blindness the `setGrade` 🚩
+     *      already documents — so both are declared in `report().hair` instead of being hidden.
+     */
+    hair: false
 } );
 
 export class Avatar {
@@ -341,6 +696,15 @@ export class Avatar {
      *   are served from. Null uses `SkinMaterial`'s own resolution.
      * @param {number} [options.framedHeightMetres] - Override the framed height, in metres. 0.18 is
      *   an eyes-only crop; absent, portrait uses 0.42 and body measures the figure.
+     * @param {string|Object} [options.lighting='studio'] - A `SCENE_LOOKS` name, or
+     *   `{ look, exposure, ambient, shadows, lights }`. `exposure` and `ambient` are RELATIVE
+     *   multipliers; `lights` is the per-light escape hatch and is validated field by field. See
+     *   `SCENE_LOOKS` and `setLighting`.
+     * @param {string|number|Object} [options.background='studio'] - A `BACKGROUND_PRESETS` name, a
+     *   plain hex for the clear colour alone, or `{ colour, backdrop, ground }`. `colour: null` is
+     *   a transparent canvas — read `setBackground` before shipping one.
+     * @param {false|string} [options.hair=false] - `'bob01'`, or `false` for no groom. See
+     *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
      * @returns {Promise<Avatar>}
      */
     static async create( options = {} ) {
@@ -384,18 +748,47 @@ export class Avatar {
 
         }
 
+        // The three scene options are resolved and refused HERE, beside `quality`/`frame`/`seed`
+        // and before any GPU work, for the same reason those are: the subsystems behind them do
+        // not validate, and the failure arrives as `NaN` in a scene graph or as a light that is
+        // silently dropped. Each resolver throws a `TypeError` naming the field AND the range.
+        const lighting = resolveLightingOption( options.lighting ?? AVATAR_DEFAULTS.lighting );
+        const background = resolveBackgroundOption( options.background ?? AVATAR_DEFAULTS.background );
+        const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
+
+        const identity = new Identity( options.identity ?? AVATAR_DEFAULTS.identity );
+
+        // 🚩 REFUSED RATHER THAN LEFT TO BE DISCOVERED. `Identity` in `LIVE_PREVIEW` mode resolves
+        // to TWO bakes (`Identity.js:245-246`) and `swapFigure` takes `plan.figures[0].url` only, so
+        // a cross-faded identity would get the LOWER bake's groom on the UPPER bake's head — a
+        // sunken cap, at an offset that is centimetres at the extremes. `Avatar` ships `NEAREST`, so
+        // this is latent rather than live; a latent defect behind a new option is exactly the kind
+        // this repository has paid for twice.
+        if ( hairStyle !== null && identity.mode === LIVE_PREVIEW ) {
+
+            throw new TypeError(
+                `Avatar.create: hair '${ hairStyle }' cannot run with identity mode '${ LIVE_PREVIEW }'. ` +
+                'The groom is baked per figure and a cross-faded identity resolves to two bakes, so ' +
+                'the groom would sit on a head it was not cut for. Use the default nearest mode, or ' +
+                'hair: false.' );
+
+        }
+
         const avatar = new Avatar( {
             canvas,
             requestedQuality,
             frameMode,
             seed,
-            identity: new Identity( options.identity ?? AVATAR_DEFAULTS.identity ),
+            identity,
             affectEnabled: options.affect ?? AVATAR_DEFAULTS.affect,
             autoStart: options.autoStart ?? AVATAR_DEFAULTS.autoStart,
             poseName: options.pose === undefined ? AVATAR_DEFAULTS.pose : options.pose,
             assetBaseUrl: options.assetBaseUrl ?? AVATAR_DEFAULTS.assetBaseUrl,
             bakedMapBaseUrl: options.bakedMapBaseUrl ?? AVATAR_DEFAULTS.bakedMapBaseUrl,
-            heightOverride: Number.isFinite( options.framedHeightMetres ) ? options.framedHeightMetres : null
+            heightOverride: Number.isFinite( options.framedHeightMetres ) ? options.framedHeightMetres : null,
+            lighting,
+            background,
+            hairStyle
         } );
 
         // 🚩 THE MOST LIKELY PRODUCTION FAILURE IS A MISSING GLB, AND WITHOUT THIS IT LEAKED A WHOLE
@@ -458,6 +851,14 @@ export class Avatar {
         this.bakedMapBaseUrl = session.bakedMapBaseUrl;
         this.heightOverride = session.heightOverride;
 
+        // --- the scene, as resolved and validated by `create()` ---
+        this.lighting = session.lighting;
+        this.background = session.background;
+
+        // The style id, or null. Named `hairStyle` rather than `hair` so the option and the live
+        // groom handle below cannot be confused for one another in `report()` or in a leak walk.
+        this.hairStyle = session.hairStyle;
+
         // --- resolved at build ---
         this.tier = null;
         this.tierSettings = null;
@@ -487,6 +888,30 @@ export class Avatar {
         this.eyeOcclusion = null;
         this.cards = [];
         this.framedHeightMetres = PORTRAIT_HEIGHT_METRES;
+
+        // Where the camera and the rig are currently pointed. Kept because `setLighting` has to
+        // RE-AIM and `aimAt` takes the focus — see the 🚩 in `applyLighting` for why re-aiming is
+        // not optional after an override.
+        this.focus = new Vector3();
+
+        // --- the groom, all rebuilt per bake ---
+        //
+        // Four handles rather than one because they have four different readers and three different
+        // lifetimes. `hairRoot` is the Group under `figure.root`; `hairMaterial` carries a `dispose`
+        // and is therefore VISIBLE to `leakedHandles()`; `hairDynamics` carries NONE and is
+        // therefore invisible to it, which is why it is declared in `report().hair` instead; and
+        // `hairUpdate` is the per-frame closure `advanceFrame` calls.
+        this.hairRoot = null;
+        this.hairMaterial = null;
+        this.hairDynamics = null;
+        this.hairUpdate = null;
+        this.hairArm = 'off';
+        this.hairVelocityRepaired = null;
+
+        // The GLB's OWN materials, kept only so their textures can be freed. `applyHairMaterial`
+        // replaces `object.material`, which orphans them — and three's `Material.dispose()` frees no
+        // textures, so the 1024x1024 embedded albedo and normal would survive every swap otherwise.
+        this.hairSourceMaterials = [];
 
         // A fast sequence of `setIdentity` calls starts several loads; only the newest may land.
         // `alive.js` calls this `loadToken` and the mechanism is the same.
@@ -535,22 +960,54 @@ export class Avatar {
         // would put the ambient in the frame twice — a uniform lift that reads as an exposure
         // mistake rather than as a double count.
         this.stage = new Stage();
-        this.tier = await resolveTier( this.requestedQuality, this.stage );
+
+        this.tier = await resolveTier( this.requestedQuality, this.stage, {
+            hair: this.hairStyle !== null,
+            backdropless: this.background.backdrop === false
+        } );
+
         this.tierSettings = QUALITY_TIERS[ this.tier ];
+
+        // 🔴 REFUSED HERE RATHER THAN RENDERED BLACK, AND THE TWO HALVES REACH THIS POINT FROM
+        // DIFFERENT PLACES — `background` is the caller's and `occlusion` is the tier's, so this is
+        // the first line at which both are known. `auto` never lands here (it resolves to
+        // `balanced` for exactly this), so the only way in is an EXPLICIT tier that carries GTAO.
+        if ( this.background.backdrop === false && this.tierSettings.occlusion === true ) {
+
+            throw new TypeError(
+                `Avatar.create: background.backdrop: false cannot run on quality '${ this.tier }', ` +
+                'which carries ground-truth occlusion. Measured 2026-08-17 in a GPU chromium: with ' +
+                'nothing at background depth the occlusion pass renders the WHOLE FRAME black — ' +
+                'isolated to the card alone, because backdrop: 0x000000 renders the figure ' +
+                'perfectly and scaling the card to 0.001 off-screen reproduces the black frame. ' +
+                "Use quality: 'balanced' (occlusion off) or 'auto', which resolves to it, or keep " +
+                'the card and set its level instead: background: { backdrop: 0x000000 }.' );
+
+        }
 
         const occlusionEnabled = this.tierSettings.occlusion;
         const wantsGrade = this.tierSettings.grade;
         const temporalAA = this.tierSettings.temporalAA;
 
+        this.hairArm = this.hairStyle === null ? 'off' : HAIR_BY_TIER[ this.tier ].oit;
+
         // STEP 2 — the pipeline is asked for explicitly. Grade and GTAO both need the deferred path
         // and neither implies it inside `Stage`; temporal AA does imply it, and asking anyway is
         // one term rather than a dependency a reader has to know.
+        //
+        // 🚩 `hairOIT` IS PASSED EVEN THOUGH ONLY `wboit` CHANGES ANYTHING IN `Stage`, AND THE
+        // REASON IS THE CENSUS RATHER THAN THE RENDER. `Stage.stats.hairOIT` reads
+        // `this.hairOITMode` (`Stage.js:581`), so an `Avatar` shipping `stochastic` without telling
+        // `Stage.create` would report `'off'` on a page that is running hair — and
+        // `report().subsystems` is what a gate reads. A frame that is right and a census that is
+        // wrong is the failure mode this whole file's `censusOfShading` exists to refuse.
         await this.stage.create( this.canvas, {
             fieldOfView: PORTRAIT_FIELD_OF_VIEW_DEGREES,
             near: 0.01,
             far: 50,
             antialias: this.tierSettings.antialias,
             temporalAA,
+            hairOIT: this.hairArm,
             pipeline: temporalAA !== 'off' || wantsGrade || occlusionEnabled
         } );
 
@@ -602,16 +1059,39 @@ export class Avatar {
 
         }
 
-        this.stage.scene.background = new Color( 0x08080a );
-        this.backdrop = buildBackdrop( this.stage );
+        // 🚩 WRITE #1 OF THE FOUR THAT DECIDE WHETHER `background: 'transparent'` MEANS ANYTHING,
+        // AND IT IS ONE LINE AND DECISIVE. `Background.js:71-76` — ANY `isColor` background sets
+        // `_clearColor.a = 1` and `forceClear = true`, so a scene with a colour background can never
+        // present a transparent canvas no matter what the renderer was constructed with. `null`
+        // falls through to `:65-68` and the renderer's own alpha-0 clear, which
+        // `Renderer.js:465`/`:473` already computes (`alphaClear = this.alpha === true ? 0 : 1`, and
+        // `alpha` defaults to true) and which `WebGPUBackend.js:349` already configures the canvas
+        // for (`alphaMode = parameters.alpha ? 'premultiplied' : 'opaque'`).
+        //
+        // Writes #2 and #3 are the emissive card and the ground plane, both below. Write #4 is
+        // `Grade.compose`'s final node, which returned a LITERAL alpha of 1 and survived fixing the
+        // other three — see `Grade.js`.
+        this.stage.scene.background = this.background.colour === null
+            ? null
+            : new Color( this.background.colour );
+
+        this.backdrop = this.background.backdrop === false
+            ? null
+            : buildBackdrop( this.stage, this.background.backdrop );
 
         // STEP 4 — `attachTo` is where the linearly-transformed-cosine tables are installed. Without
         // them every RectAreaLight contributes nothing and the figure renders black, which looks
         // exactly like a broken material.
+        //
+        // The look reaches the rig as `overrides`, resolved against THIS framing's authored table —
+        // never as a `preset`, which is the framing axis `setFraming` owns. See `SCENE_LOOKS`.
         this.lights = new LightingRig( {
             preset: this.frameMode,
-            shadows: this.tierSettings.shadows,
-            ambient: this.tierSettings.occlusion === false
+            shadows: this.lighting.shadows ?? this.tierSettings.shadows,
+            ambient: this.tierSettings.occlusion === false,
+            exposure: EXPOSURE_CALIBRATION * this.lighting.exposure,
+            ambientFractionOfKey: shippedAmbientFractionOfKey() * this.lighting.ambient,
+            overrides: this.lightOverridesFor( this.frameMode )
         } );
 
         this.lights.attachTo( this.stage.scene, this.stage.renderer );
@@ -635,8 +1115,18 @@ export class Avatar {
         // shadow at all (three.js #14161). `GroundContact` occludes the hemisphere in closed form
         // instead, using spheres whose radii are measured off the bake that is actually loaded —
         // which is why `fitTo` re-runs on every identity swap rather than once here.
-        this.ground = new GroundContact( { occlusion: true } );
-        this.ground.attachTo( this.stage.scene );
+        //
+        // ⚠️ **`background.ground: false` IS A DOCUMENTED DOWNGRADE, NOT A FREE WIN.** The paragraph
+        // above is the reason: take the plane away and the figure floats, because the analytic
+        // occlusion has nothing to darken. It is offered because an opaque 20 m plane fills a
+        // transparent frame and there is no way to composite around that; a shadow-catcher that
+        // writes alpha is the follow-up, and it is NOT claimed here.
+        if ( this.background.ground === true ) {
+
+            this.ground = new GroundContact( { occlusion: true } );
+            this.ground.attachTo( this.stage.scene );
+
+        }
 
         // STEP 6.
         this.stack = new MotionStack( { seed: this.seed } );
@@ -1211,6 +1701,15 @@ export class Avatar {
         this.frameMode = mode;
         if ( heightMetres !== undefined ) this.heightOverride = heightMetres;
 
+        // 🚩 THE LOOK IS RE-RESOLVED AGAINST THE NEW FRAMING **BEFORE** `setPreset`, AND THE ORDER
+        // IS THE WHOLE OF CLAUSE C5. `setPreset` re-runs `resolvePlacements()`, which re-merges
+        // `this.overrides` OVER the new framing's authored table — so a look resolved once at create
+        // is a set of ABSOLUTE numbers taken from the OTHER framing. Measured: `soft` resolved at
+        // portrait leaves the body rim reading **11.2000** where the body preset authored
+        // **15.4000**, 27.27% under, and nothing reports it. Assigned rather than pushed through
+        // `override()` because `setPreset` is what re-resolves on this path.
+        this.lights.overrides = this.lightOverridesFor( mode );
+
         // The rig's preset moves FIRST, because `aimRigAt` aims whatever preset is current and
         // aiming the portrait preset at a body focus is the "rim reads 1 px of band on a thigh"
         // failure `LightingRig` records against scaling one preset into the other.
@@ -1223,10 +1722,205 @@ export class Avatar {
             heightMetres: this.framedHeightMetres
         } );
 
+        this.focus.copy( focus );
+
         aimRigAt( this.lights, this.eyes, focus, this.framedHeightMetres, this.stage );
 
-        this.backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+        this.backdrop?.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
         this.ground?.sizeTo?.( { focus, subjectHeightMetres: this.framedHeightMetres } );
+
+    }
+
+    /**
+     * Change the light without rebuilding the avatar.
+     *
+     *     avatar.setLighting( 'dramatic' );
+     *     avatar.setLighting( { exposure: 1.2 } );
+     *     avatar.setLighting( { lights: { rim: { irradiance: 20 } } } );
+     *
+     * A PARTIAL MERGE over whatever is current, so `{ exposure: 1.2 }` keeps the look and
+     * `'dramatic'` keeps the exposure. Every field is re-validated at this boundary — see
+     * `PLACEMENT_FIELDS` for the seven pathologies the rig accepts in silence.
+     *
+     * 🚩 **IT RE-AIMS, AND WITHOUT THAT LINE THE EYES LOOK AT A KEY THAT IS NO LONGER THERE.**
+     * `LightingRig.override()` calls `solve()` and NEVER `aimAt()` (`LightingRig.js:1894-1905`), so
+     * an override that moves the key's azimuth or elevation — which `soft` and `dramatic` both do —
+     * moves the panel and leaves `eyes.keyLightDirectionUniform` (`EyeMaterial.js:625`) pointing
+     * where the key used to be. The iris caustic is computed against that one direction.
+     *
+     * @param {string|Object} request - a `SCENE_LOOKS` name, or a partial lighting object.
+     * @returns {Avatar} this, so calls chain.
+     */
+    setLighting( request ) {
+
+        this.requireLive( 'setLighting' );
+
+        this.lighting = resolveLightingOption( mergeLightingRequest( this.lighting, request ) );
+        this.applyLighting();
+
+        return this;
+
+    }
+
+    /**
+     * Change the room without rebuilding the avatar.
+     *
+     *     avatar.setBackground( 'transparent' );
+     *     avatar.setBackground( 0x101820 );
+     *     avatar.setBackground( { ground: false } );
+     *
+     * ⚠️ **THE GROUND PLANE AND THE CARD ARE ONE-WAY AT RUNTIME: THIS CAN REMOVE THEM AND CANNOT
+     * PUT THEM BACK.** Rebuilding either needs the figure's own measured occluder radii
+     * (`GroundContact.fitTo`) and the current focus, which is a swap rather than a setter, and a
+     * half-rebuilt contact shadow is exactly the state that produces a plate nobody can reproduce.
+     * Asking for one back is refused in words rather than silently ignored. Pass it to `create()`.
+     *
+     * @param {string|number|Object} request - a `BACKGROUND_PRESETS` name, a hex, or a partial.
+     * @returns {Avatar} this, so calls chain.
+     */
+    setBackground( request ) {
+
+        this.requireLive( 'setBackground' );
+
+        const wanted = resolveBackgroundOption( mergeBackgroundRequest( this.background, request ) );
+
+        if ( wanted.backdrop !== false && this.backdrop === null ) {
+
+            throw new Error( 'Avatar.setBackground: this avatar was built without a backdrop card, ' +
+                'and one cannot be added live — it is positioned from the framing focus and its ' +
+                'level is what gate G6 measures. Pass `background` to Avatar.create instead.' );
+
+        }
+
+        // The same correctness constraint `build()` enforces, at the other door. See `resolveTier`.
+        if ( wanted.backdrop === false && this.tierSettings.occlusion === true ) {
+
+            throw new Error(
+                `Avatar.setBackground: removing the card cannot run on quality '${ this.tier }', ` +
+                'which carries ground-truth occlusion — with nothing at background depth the ' +
+                'occlusion pass renders the whole frame black. Set the card\'s level instead ' +
+                '(background: { backdrop: 0x000000 }), or build the avatar on the balanced tier.' );
+
+        }
+
+        if ( wanted.ground === true && this.ground === null ) {
+
+            throw new Error( 'Avatar.setBackground: this avatar was built without a ground plane, ' +
+                'and one cannot be added live — `GroundContact.fitTo` measures its occluder radii ' +
+                'off the loaded bake. Pass `background` to Avatar.create instead.' );
+
+        }
+
+        this.background = wanted;
+
+        this.stage.scene.background = wanted.colour === null ? null : new Color( wanted.colour );
+
+        if ( wanted.backdrop === false && this.backdrop !== null ) {
+
+            this.backdrop.removeFromParent();
+            this.backdrop.geometry.dispose();
+            this.backdrop.material.dispose();
+            this.backdrop = null;
+
+        } else if ( this.backdrop !== null ) {
+
+            this.backdrop.material.emissive.setHex( wanted.backdrop, SRGBColorSpace );
+
+        }
+
+        if ( wanted.ground === false && this.ground !== null ) {
+
+            this.ground.dispose();
+            this.ground = null;
+
+        }
+
+        return this;
+
+    }
+
+    /**
+     * Pushes the current `this.lighting` onto the live rig, in the one order that leaves nothing
+     * stale. Shared by `setLighting` and by nothing else; `build()` goes through the constructor.
+     */
+    applyLighting() {
+
+        const overrides = this.lightOverridesFor( this.frameMode );
+
+        // Set before the re-solve below, because `solve()` reads both.
+        this.lights.exposure = EXPOSURE_CALIBRATION * this.lighting.exposure;
+        this.lights.ambientFractionOfKey = shippedAmbientFractionOfKey() * this.lighting.ambient;
+
+        const wantsShadows = this.lighting.shadows ?? this.tierSettings.shadows;
+        const shadowsMoved = this.lights.shadowsEnabled !== wantsShadows;
+        this.lights.shadowsEnabled = wantsShadows;
+
+        // 🚩 REPLACED RATHER THAN ACCUMULATED. `override()` MERGES into whatever is already there,
+        // so a previous look's key colour would survive a change to a look that does not name the
+        // key — `dramatic` then `studio` would leave the key at 30° of elevation for ever.
+        this.lights.overrides = {};
+
+        // One call per light, EMPTY OBJECT INCLUDED, because `override()` is the only public entry
+        // that re-runs `resolvePlacements()` — and a look that names nothing (`studio`) still has to
+        // undo the one before it. Four spreads and four solves; the alternative is reaching into
+        // `resolvePlacements()`, which is not public.
+        for ( const name of RIG_LIGHT_NAMES ) this.lights.override( name, overrides[ name ] ?? {} );
+
+        // 🚩 UNCONDITIONAL, AND MAKING IT CONDITIONAL IS WHY `setLighting` DID NOTHING AT ALL.
+        //
+        // The paragraph above assumed `override()` was enough because it re-runs
+        // `resolvePlacements()`. It re-runs it, and the result never reaches the lights. Traced on
+        // 2026-08-17: `override()` (`LightingRig.js:1981-1986`) replaces `this.placements` with a
+        // FRESH ARRAY and calls `solve()`; `solve()` (`:2288`) iterates `this.units` and reads
+        // `unit.placement` — the object bound into the unit back at `buildUnit` (`:2169`) — so it
+        // faithfully re-solves the OLD placements. And `solve()` never assigns `area.color` on any
+        // path, so a look that only changes a hue could not have worked even with fresh placements.
+        //
+        // Measured: `Avatar.create({})` then `setLighting('dramatic')` rendered a plate PIXEL-FOR-
+        // PIXEL identical to plain studio (19.07% of pixels moved, mean 0.009176 — the same figures
+        // two builds of the SAME configuration differ by), while `dramatic` passed at create time
+        // differed at 52.85% / 0.024517. All four non-default looks were inert through the setter.
+        //
+        // `rebuild()` (`:2227`) disposes the units and rebuilds them from `this.placements`, which
+        // IS the freshly resolved array, so it is the only call that carries both geometry and
+        // colour through. It runs on every apply rather than on a guess about what moved: this is
+        // called from `setLighting` and `setFraming`, never per frame, and a wrong guess here is
+        // silent while an extra teardown of four lights is not.
+        this.lights.rebuild();
+
+        // See the 🚩 in `setLighting`. `override()` solves and never aims.
+        aimRigAt( this.lights, this.eyes, this.focus, this.framedHeightMetres, this.stage );
+
+        // 🚩 AND THE AMBIENT SNAPSHOT, WHICH IS THE HALF THAT WOULD HAVE GONE WRONG SILENTLY ON THE
+        // DEFAULT TIER. On `high` the rig is built `ambient: false` and the hemisphere term is
+        // handed to the composite as a CREATE-TIME SNAPSHOT — `describeAmbient()` at build,
+        // `uniform( ambient.intensity )` at `GTAO.js:882`. Without the setter this call reaches,
+        // `setLighting({ exposure })` would scale the four direct lights and leave the ambient
+        // frozen at its build value, changing the very key:ambient balance the file is calibrated
+        // on, invisibly. `setAmbientIntensity` was added to `createGroundTruthOcclusion`'s return
+        // for this line; the `?.` is for the tiers that have no occlusion to tell.
+        this.stage.ambientOcclusion?.setAmbientIntensity?.( this.lights.describeAmbient().intensity );
+
+    }
+
+    /**
+     * The rig overrides this avatar's lighting resolves to at one framing: the look, then the
+     * caller's own `lights` escape hatch merged over it, field by field.
+     *
+     * Separate from `applyLighting` because `setFraming` needs the ANSWER without the side effects —
+     * it hands the table to `setPreset`, which re-resolves it itself.
+     */
+    lightOverridesFor( preset ) {
+
+        const merged = resolveLook( this.lighting.look, preset );
+
+        for ( const [ name, fields ] of Object.entries( this.lighting.lights ) ) {
+
+            merged[ name ] = { ...( merged[ name ] ?? {} ), ...fields };
+
+        }
+
+        return merged;
 
     }
 
@@ -1298,6 +1992,97 @@ export class Avatar {
             },
 
             subsystems: this.censusOfShading(),
+
+            /**
+             * The room and the light, READ OFF THE SCENE GRAPH rather than off the options that
+             * were supposed to put them there — this object's own rule, written after a census that
+             * reported a subsystem that failed to attach as present. `background` is the scene's
+             * actual background object; `backdrop` and `ground` are whether the handles exist;
+             * every lighting number comes off the live `LightingRig`.
+             */
+            scene: {
+                background: this.stage?.scene?.background == null
+                    ? null
+                    : `#${ this.stage.scene.background.getHexString() }`,
+                backdrop: this.backdrop === null
+                    ? null
+                    : `#${ this.backdrop.material.emissive.getHexString() }`,
+                ground: this.ground !== null,
+
+                lighting: this.lights === null ? null : {
+                    look: this.lighting.look,
+                    exposure: this.lights.exposure,
+                    ambientFractionOfKey: this.lights.ambientFractionOfKey,
+
+                    // 🚩 False the moment `exposure` or `ambient` moves off 1. Both are exposed and
+                    // both invalidate every committed G1/G4/G5/G6 number, so a plate captured at
+                    // anything but `true` is not comparable with the ones the critic has judged.
+                    calibrated: this.lights.exposure === EXPOSURE_CALIBRATION
+                        && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey(),
+
+                    designedKeyToFill: this.lights.designedKeyToFill,
+                    shadowsEnabled: this.lights.shadowsEnabled,
+                    placements: this.lights.placements.map( ( placement ) => ( {
+                        name: placement.name,
+                        azimuthDegrees: placement.azimuthDegrees,
+                        elevationDegrees: placement.elevationDegrees,
+                        irradiance: placement.irradiance,
+                        colour: `#${ new Color( placement.colour ).getHexString( SRGBColorSpace ) }`
+                    } ) )
+                }
+            },
+
+            /**
+             * The groom. Null when none was asked for; an object with `attached: false` when one was
+             * asked for and did not land, which is the case a boolean could not carry.
+             *
+             * 🚩 `undisposable` IS NOT DECORATION AND IS NOT A TODO. `dispose()`'s central claim is
+             * "every handle this file acquires is released, and that is CHECKED rather than
+             * asserted" — by `leakedHandles()`, an own-property walk. Two things hair does are
+             * outside what such a walk can ever see, so they are published here instead: a solver
+             * with no `dispose` (dropped by reference; five compute pipelines and ~957 kB), and a
+             * process-wide patch of `NodeMaterial.prototype.setupPosition` with no uninstall. Both
+             * are the reason `hair` defaults to false.
+             */
+            hair: this.hairStyle === null ? null : {
+                style: this.hairStyle,
+                attached: this.hairRoot !== null,
+                meshes: this.hairRoot === null
+                    ? 0
+                    : this.hairRoot.children.filter( ( child ) => child.isMesh === true ).length,
+                oit: this.hairArm,
+                stageReportsOit: this.stage?.hairOITMode ?? null,
+                solver: this.hairDynamics === null ? null : {
+                    chains: this.hairDynamics.groom.chainCount,
+                    particles: this.hairDynamics.groom.particleCount,
+                    steps: this.hairDynamics.stepsTaken
+                },
+                // 🚩 Clause C4's readable half, and it is `hasHairVelocity( material )`'s own answer
+                // rather than "we called the function": that helper reads the module's `WeakSet`,
+                // which is what the prototype patch actually consults. Recorded at attach because
+                // `HairVelocity.js` is a dynamic import and `report()` is synchronous.
+                velocityRepaired: this.hairVelocityRepaired,
+
+                // ⚠️ `high` fits with under a millisecond in hand — ~15.9 p95 against 16.6 — and
+                // that is a warning rather than a refusal, because the number was measured on one
+                // machine. `quality: 'auto'` resolves to `balanced` when hair is on for this reason,
+                // and that is a STRUCTURAL fact ("hair is on") rather than a frame budget, so it
+                // does not violate `QUALITY_TIERS`' "auto is never a timing" rule.
+                frameBudgetWarning: this.tier === 'high'
+                    // 🚩 p50, and it used to say p95. The measuring round retracted its own p95 in
+                    // docs/API.md — "p95 does not resolve" — and this string quoted it anyway, to an
+                    // embedder, as a runtime fact. A retracted measurement is not a smaller
+                    // measurement.
+                    ? 'hair adds a measured +2.0 ms at p50; p95 did not resolve, see docs/API.md'
+                    : null,
+
+                undisposable: Object.freeze( [
+                    'HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ' +
+                        '~957 kB of instancedArray storage per attach, dropped by reference',
+                    'HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition ' +
+                        'process-wide with no uninstall (HairVelocity.js:162-183)'
+                ] )
+            },
 
             motion: {
                 seed: this.seed,
@@ -1435,6 +2220,11 @@ export class Avatar {
 
         this.disposeShading();
 
+        // Before the figure, for `swapFigure`'s reason: the groom is parented under `figure.root`
+        // and `Figure.dispose()` is a traverse, so leaving it there would dispose geometry this file
+        // owns and call `dispose()` on the hair material twice.
+        this.disposeHair();
+
         if ( this.figure !== null ) {
 
             this.stage?.scene.remove( this.figure.root );
@@ -1520,7 +2310,14 @@ export class Avatar {
 
         if ( this.eyes !== null ) this.eyes.update();
 
-        this.ground.update();
+        this.ground?.update();
+
+        // 🎯 ONE LINE, BECAUSE `Avatar` HAS THE PROPERTY `alive.js` HAD TO WORK FOR: ONE FRAME PATH.
+        // The stage callback and `update( dt )` both come through `advanceFrame`, so the
+        // `trackFigure` / `stage.onFrame` split that page needed — and that once let its contact
+        // shadow stop following the feet on exactly the plates a judge measures — does not exist
+        // here. Null on every avatar without a groom and on the `fallback` tier, which is rigid.
+        this.hairUpdate?.( deltaSeconds );
 
         this.clockSeconds += deltaSeconds;
 
@@ -1624,6 +2421,19 @@ export class Avatar {
 
         this.disposeShading();
 
+        // 🚩 THE GROOM COMES OFF BEFORE THE OLD FIGURE DOES, AND BOTH HALVES OF THAT ARE LOAD-BEARING.
+        //
+        // The SOLVER first, for `alive.js:2328-2330`'s reason: it holds a rest pose derived from the
+        // OLD groom's vertex buffer, and a solver left running across a bake swap drives the new
+        // groom from the old one's chains.
+        //
+        // ⚠️ AND THE MESHES, EXPLICITLY, BECAUSE `Figure.dispose()` WOULD OTHERWISE TAKE THEM AND
+        // TAKE THE SHARED MATERIAL WITH THEM. `Figure.dispose()` (`Figure.js:309-330`) is a
+        // `root.traverse` and the groom is parented UNDER `figure.root`, so it disposes geometry
+        // this file owns and calls `dispose()` on a `HairNodeMaterial` that `disposeHair` is about
+        // to dispose again. Removing first makes the ownership match the disposal.
+        this.disposeHair();
+
         if ( this.figure !== null ) {
 
             this.stage.scene.remove( this.figure.root );
@@ -1672,21 +2482,42 @@ export class Avatar {
             heightMetres: this.framedHeightMetres
         } );
 
+        this.focus.copy( focus );
+
         aimRigAt( this.lights, this.eyes, focus, this.framedHeightMetres, this.stage );
 
         // The card is emissive, so distance costs it nothing; at 8 x 6 m it still fills a full-body
         // frame from 1.9 m behind the subject.
-        this.backdrop.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+        this.backdrop?.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
 
-        const unfitted = this.ground.fitTo( figure.root );
+        if ( this.ground !== null ) {
 
-        if ( unfitted.length > 0 ) {
+            const unfitted = this.ground.fitTo( figure.root );
 
-            console.warn( `Avatar: ground contact — this figure has no ${ unfitted.join( ', ' ) }.` );
+            if ( unfitted.length > 0 ) {
+
+                console.warn( `Avatar: ground contact — this figure has no ${ unfitted.join( ', ' ) }.` );
+
+            }
+
+            this.ground.sizeTo( { focus, subjectHeightMetres: this.framedHeightMetres } );
 
         }
 
-        this.ground.sizeTo( { focus, subjectHeightMetres: this.framedHeightMetres } );
+        // 🎯 THE GROOM GOES LAST, AND ALL FOUR REASONS WERE READ OR MEASURED RATHER THAN PREFERRED.
+        //
+        //   1. **AFTER THE REST POSE.** `HairDynamics`' first `setHeadMatrix` captures the gravity
+        //      rest frame PERMANENTLY (`HairDynamics.js:963-969`). Calling it at a T-pose head and
+        //      then posing puts a permanent gravity offset into a groom that should be at
+        //      equilibrium.
+        //   2. **AFTER `stack.bind()` and `updateMatrixWorld( true )`.** `fitColliders` reads
+        //      `headMatrix` off the POSED rig (`HairDynamics.js:1044-1047`), and the skull and
+        //      shoulder radii are sized to the largest the rest pose does not already violate.
+        //   3. **LAST, so a hair failure cannot take the body off the page.** `alive.js:2006`'s
+        //      reason, unchanged: a groom that 404s should cost the page its hair, not its figure.
+        //   4. **Inside `swapFigure`, not `build()`.** The groom is per bake — five files keyed on
+        //      the same name the baked skin maps are keyed on.
+        await this.attachHair( figure, bakeName, token );
 
     }
 
@@ -1762,6 +2593,419 @@ export class Avatar {
 
     }
 
+    // --- the groom ------------------------------------------------------------------------
+
+    /**
+     * PUNCH-LIST 3.5 / 3.6 / 6.6 — the groom, on the runtime API rather than on a testbed page.
+     *
+     * ## 🚩 THE ONE ORDERING RULE THAT IS A CLIFF RATHER THAN A PREFERENCE
+     *
+     * `material.positionNode = dynamics.positionNode` must be set BEFORE the material reaches any
+     * mesh, and `installHairVelocity( material )` must accompany it in the same function. Each half
+     * has its own measured failure:
+     *
+     *   - **Assign `positionNode` and never run `update()`:** `cardVertexBuffer` is
+     *     `instancedArray( cardVertexCount, 'vec3' )` — a ZERO-FILLED Float32Array — and
+     *     `positionNode` routes every vertex at or above `cardVertexBase` to it. All **16,864 card
+     *     vertices collapse to mesh-local (0,0,0)** while the two 326-vertex scalp caps keep their
+     *     skinning: the hair vanishes off the head and a black shard appears at the figure origin,
+     *     in the beauty pass, the G-buffer normal, the velocity buffer AND the shadow map.
+     *   - **Omit `installHairVelocity`:** not a collapse — the picture is right and the RESOLVE is
+     *     wrong. p90 **259.9 px/frame** of reported velocity against `TAAUNode.maxVelocityLength`
+     *     **128**, on a geometrically static groom. That shipped for two rounds.
+     *
+     * ## 🎯 AND IT GOES ON THROUGH `applyHairMaterial`, WHICH HAD ZERO CALL SITES ANYWHERE
+     *
+     * Measured 2026-08-17: `applyHairMaterial` is called **0 times in `Avatar.js`, 0 in `alive.js`,
+     * 0 in `hair.js`, 0 in `stage.js`.** `alive.js:2504` assigns `mesh.material = material` in a
+     * loop instead — which skips the vertex collection and `installHairEnvelope`, which is why every
+     * live plate came back `envelope.fitted false` and forced a SECOND path into existence
+     * (`ensureHairEnvelope`, `HairMaterial.js:3908-3922`). This is failure #5 from the brief, live
+     * and shipped: a module passing its own gates with no reachable caller. Clause C3 of the gate
+     * asserts the assignment loop does not appear on this path.
+     *
+     * ⚠️ Note the ordering conflict the apply path creates and how it is resolved: `createHairMaterial`
+     * needs `alphaMap` AT CONSTRUCTION while `applyHairMaterial` only collects it during assignment,
+     * so the map is read off `skinned[0].material?.map` first, as `alive.js:2449` does.
+     *
+     * @param {Figure} figure - the bake that has just landed and been posed and bound.
+     * @param {string} bakeName - `figure_g050`; the groom is keyed on it.
+     * @param {number} token - `swapFigure`'s load token. This function awaits twice more.
+     */
+    async attachHair( figure, bakeName, token ) {
+
+        if ( this.hairStyle === null ) return;
+
+        // `setIdentity({ mode })` can reach a cross-fade after `create()` refused one. Refused in
+        // words and skipped rather than thrown, because a throw here rejects `setIdentity` and
+        // takes the whole swap with it — and the body half of the swap has already succeeded.
+        if ( this.identity.mode === LIVE_PREVIEW ) {
+
+            console.warn( `Avatar: hair is off while identity mode is '${ LIVE_PREVIEW }' — the groom ` +
+                'is baked per figure and a cross-fade resolves to two bakes, so it would sit on a ' +
+                'head it was not cut for.' );
+
+            return;
+
+        }
+
+        const groomUrl = HAIR_BAKES.get( bakeName );
+
+        if ( groomUrl === undefined ) {
+
+            console.warn( `Avatar: hair '${ this.hairStyle }' is ignored on ${ bakeName } — the groom ` +
+                `is baked per identity and only ${ [ ...HAIR_BAKES.keys() ].join( ', ' ) } have one. ` +
+                'Run tools/figure-pipeline/build_figure.py --hair for this bake.' );
+
+            return;
+
+        }
+
+        // Dynamic, and it is not a style choice: `material/HairMaterial.js` is four thousand lines
+        // and `render/HairOIT.js`, `render/HairVelocity.js` and `motion/HairDynamics.js` are behind
+        // it. An avatar with `hair: false` must not carry any of that in its module graph, and
+        // `installHairVelocity` in particular patches `NodeMaterial.prototype` — a module that is
+        // never imported cannot be a module that patches a prototype.
+        const [ { GLTFLoader }, { createHairMaterial, applyHairMaterial }, { configureHairMaterial } ] =
+            await Promise.all( [
+                import( 'three/examples/jsm/loaders/GLTFLoader.js' ),
+                import( './material/HairMaterial.js' ),
+                import( './render/HairOIT.js' )
+            ] );
+
+        const groom = await new GLTFLoader().loadAsync(
+            resolveAgainstBase( groomUrl, this.assetBaseUrl, `hair/${ this.hairStyle }` ) );
+
+        // ⚠️ A THIRD `await` ON A 3,327,232 B FILE INSIDE `swapFigure`, SO THE TOKEN GUARD HAS TO
+        // COVER IT. A fast gender-slider drag races this otherwise, and the loser would add its
+        // groom to a figure the winner has already replaced. Every early exit from here on frees
+        // what this attempt has already built — the same discipline `swapFigure`'s own guards keep.
+        if ( token !== this.loadToken ) { disposeGroomScene( groom.scene ); return; }
+
+        const skinned = [];
+        groom.scene.traverse( ( object ) => { if ( object.isSkinnedMesh === true ) skinned.push( object ); } );
+
+        if ( skinned.length === 0 ) {
+
+            console.warn( `Avatar: ${ groomUrl } carries no SkinnedMesh — the groom did not export ` +
+                'skinned. The figure has no hair on this bake.' );
+
+            disposeGroomScene( groom.scene );
+            return;
+
+        }
+
+        // The rebind, by NAME rather than by count, because the failure it guards against is a rig
+        // rename in the figure pipeline and "3 bones missing" would send the next reader to the
+        // wrong file. Measured across all five bakes: 53 joints, 0 absent — so this cannot fail on
+        // the shipped asset set, and it is checked anyway for the day the pipeline moves.
+        const figureBones = new Map();
+        figure.root.traverse( ( object ) => { if ( object.isBone === true ) figureBones.set( object.name, object ); } );
+
+        for ( const mesh of skinned ) {
+
+            const absent = mesh.skeleton.bones
+                .filter( ( bone ) => figureBones.has( bone.name ) === false )
+                .map( ( bone ) => bone.name );
+
+            if ( absent.length > 0 ) {
+
+                console.warn( `Avatar: the groom is skinned to ${ absent.join( ', ' ) }, which this ` +
+                    'figure\'s rig does not have. The groom and the figure are out of step; the ' +
+                    'figure has no hair on this bake.' );
+
+                disposeGroomScene( groom.scene );
+                return;
+
+            }
+
+            const bones = mesh.skeleton.bones.map( ( bone ) => figureBones.get( bone.name ) );
+
+            // ⚠️ THE GROOM'S OWN `boneInverses`, CARRIED BY REFERENCE. The new skeleton is the
+            // FIGURE's bones with the GROOM's inverses, which is exactly what `HairDynamics` reads
+            // back at the head index — the bone is the figure's and the inverse is the groom's.
+            mesh.bind( new SkinSkeleton( bones, mesh.skeleton.boneInverses ), new Matrix4() );
+            mesh.frustumCulled = false;
+
+            // Hair shadowing the forehead is a large part of why hair reads as hair, and the key is
+            // the only shadow caster on this rig. ⚠️ `alive.js:2388-2402` records that the cut-out
+            // does NOT reach the depth pass on the arms that carry coverage in `colorNode` — that is
+            // a `HairMaterial` repair and is not fixed here; `configureHairMaterial` installs
+            // `maskShadowNode`, which is the half that does reach it.
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+
+        }
+
+        // A Group of this file's own rather than reparenting straight onto `figure.root`, and it is
+        // a disposal decision rather than a scene-graph one: the groom is not the figure's, so
+        // `disposeHair` needs one handle to remove and `Figure.dispose`'s traverse needs the meshes
+        // gone before it runs. Identity transform, so `mesh.matrixWorld` — which is the solver's
+        // entire input — is what it would have been parented directly.
+        const hairRoot = new Group();
+        hairRoot.name = `hair.${ this.hairStyle }`;
+        for ( const mesh of skinned ) hairRoot.add( mesh );
+        figure.root.add( hairRoot );
+        figure.root.updateMatrixWorld( true );
+
+        // Rebased alongside the groom, not beside it: the two sidecar sheets live in the same
+        // directory as the five GLBs, so `assetBaseUrl` has to move all seven together or a
+        // self-hosted groom loads with a constant-1 shadow and no flow rotation — which is a
+        // DIFFERENT PICTURE and not an error.
+        const groomFolder = `hair/${ this.hairStyle }`;
+
+        const material = await createHairMaterial( {
+            flowMapUrl: resolveAgainstBase( HAIR_SHEET_URLS.flow, this.assetBaseUrl, groomFolder ),
+            depthMapUrl: resolveAgainstBase( HAIR_SHEET_URLS.depth, this.assetBaseUrl, groomFolder ),
+
+            // Read HERE, before `applyHairMaterial` would have collected it, because
+            // `createHairMaterial` needs the cutout at construction. See the ⚠️ in the header.
+            alphaMap: skinned[ 0 ].material?.map ?? null,
+            multisampled: this.stage.multisampled
+        } );
+
+        // Everything this attempt built, released together, so a losing load leaves nothing behind.
+        const abandon = () => {
+
+            hairRoot.removeFromParent();
+            disposeGroomScene( hairRoot );
+            material.hair?.flowMap?.value?.dispose?.();
+            material.hair?.depthMap?.value?.dispose?.();
+            material.dispose();
+
+        };
+
+        if ( token !== this.loadToken ) { abandon(); return; }
+
+        // `slab` is `wboit`'s own depth range and is null on every arm this file ships; the slab
+        // closure `alive.js` installs is therefore not reproduced here, and saying so is cheaper
+        // than a reader looking for it.
+        configureHairMaterial( material, this.hairArm, {
+            alphaToCoverage: this.stage.multisampled,
+            slab: this.stage.hairOIT?.slab ?? null,
+            defect: null
+        } );
+
+        // BEFORE the material reaches any mesh — see the cliff in this function's header. Nothing
+        // has drawn with this material yet, so adding a `positionNode` costs no program rebuild.
+        //
+        // 🚩 IT RETURNS ITS HANDLES RATHER THAN WRITING THEM ONTO `this`, AND THAT IS THE RACE
+        // GUARD RATHER THAN A STYLE. A losing load that assigned `this.hairDynamics` from inside
+        // that call would clobber the WINNER's solver — which has already been installed by then,
+        // because the winner's `swapFigure` ran its `disposeHair()` and its own attach first — and
+        // the loser's own token check afterwards would then null the winner's. Nothing is written
+        // to `this` until every await is behind us.
+        const solver = HAIR_BY_TIER[ this.tier ].solver === true
+            ? await this.buildHairDynamics( figure, skinned, material )
+            : null;
+
+        if ( token !== this.loadToken ) { abandon(); return; }
+
+        // Captured before `applyHairMaterial` orphans them — see `hairSourceMaterials`.
+        this.hairSourceMaterials = skinned
+            .flatMap( ( mesh ) => ( Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] ) )
+            .filter( ( entry ) => entry !== null && entry !== undefined );
+
+        // 🎯 THE APPLY PATH, NOT THE ASSIGNMENT LOOP. See the header.
+        const applied = applyHairMaterial( hairRoot, material );
+
+        this.hairRoot = hairRoot;
+        this.hairMaterial = material;
+        this.hairDynamics = solver?.dynamics ?? null;
+        this.hairUpdate = solver?.update ?? null;
+        this.hairVelocityRepaired = solver?.velocityRepaired ?? null;
+
+        console.log( `Avatar: hair '${ this.hairStyle }' on ${ bakeName } — ${ applied.meshes } mesh(es), ` +
+            `arm ${ this.hairArm }, solver ${ this.hairDynamics === null ? 'off' : 'on' }.` );
+
+    }
+
+    /**
+     * PUNCH-LIST 6.6 — the DFTL solver on the groom that has just been rebound.
+     *
+     * The coupling in one sentence: the groom is skinned 1.000 to `head` and nothing else, so its
+     * skinned position is ONE rigid transform — which is why `setHeadMatrix` is the entire input to
+     * the simulation, and why `MotionStack`'s head idle, gaze and sway reach the hair without any of
+     * them knowing the hair exists.
+     *
+     * 🚩 **NEITHER `positionNode` NOR `installHairVelocity` MAY BE SEPARATED FROM THE OTHER, AND
+     * THAT IS WHY BOTH LINES ARE IN THIS ONE FUNCTION.** A gate that checks one is the gate that let
+     * this ship for two rounds — clause C4.
+     *
+     * @returns {?{ dynamics, update: function, velocityRepaired: boolean }} null when the groom's
+     *   shape refuses a solver. Returned rather than assigned — see the 🚩 at the call site.
+     */
+    async buildHairDynamics( figure, meshes, material ) {
+
+        // `deriveCardGroom` reads ONE geometry, and a two-mesh groom would need one solver each with
+        // a shared collider fit. The shipped bakes are one mesh; a refusal in words is the honest
+        // answer to a groom that is not, rather than a solver silently driving the first of two.
+        if ( meshes.length !== 1 ) {
+
+            console.warn( `Avatar: the hair solver needs one SkinnedMesh and this groom has ` +
+                `${ meshes.length }. The groom is RIGID.` );
+
+            return null;
+
+        }
+
+        const mesh = meshes[ 0 ];
+        const boneIndex = mesh.skeleton.bones.findIndex( ( bone ) => bone.name === 'head' );
+
+        if ( boneIndex < 0 ) {
+
+            console.warn( 'Avatar: the groom\'s skeleton has no `head` bone to hang the solver on. ' +
+                'The groom is RIGID.' );
+
+            return null;
+
+        }
+
+        const headBone = mesh.skeleton.bones[ boneIndex ];
+        const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
+
+        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity } ] = await Promise.all( [
+            import( './motion/HairDynamics.js' ),
+            import( './render/HairVelocity.js' )
+        ] );
+
+        const dynamics = createHairDynamics( {
+            renderer: this.stage.renderer,
+            geometry: mesh.geometry
+        } );
+
+        // The first call captures the gravity rest frame permanently, which is reason 1 for this
+        // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
+        dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+
+        const bones = new Map();
+        figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
+
+        const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
+        const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
+        const leftShoulder = new Vector3();
+        const rightShoulder = new Vector3();
+
+        dynamics.fitColliders( {
+            shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
+            shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
+        } );
+
+        // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
+        // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
+        // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
+        // 326-vertex scalp cap shells — which are head, not hair — keep their skinning.
+        material.positionNode = dynamics.positionNode;
+
+        // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT. Overwriting `positionLocal` without also
+        // assigning `positionPrevious` leaves the groom reporting its whole displacement from the
+        // skinned rest pose as this frame's motion — p90 259.9 px/frame against a 128 px ceiling.
+        installHairVelocity( material );
+
+        // Read back rather than assumed, and read back through the module's own predicate. See the
+        // 🚩 on `report().hair.velocityRepaired`.
+        const velocityRepaired = hasHairVelocity( material );
+
+        const update = ( deltaSeconds ) => {
+
+            // The bones moved in `advanceFrame` and the renderer will not refresh their world
+            // matrices until it draws, which is after this. Idempotent against the walk
+            // `advanceFrame` already did — and required, because that walk runs before the eye
+            // update and this closure runs after `ground.update()` has moved nothing.
+            figure.root.updateMatrixWorld( true );
+
+            dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+
+            // The skull rides the head matrix above; the capsule does not, because it hangs off the
+            // clavicles and `Sway` moves the whole column.
+            if ( clavicleLeft !== null && clavicleRight !== null ) {
+
+                dynamics.setShoulders(
+                    clavicleLeft.getWorldPosition( leftShoulder ),
+                    clavicleRight.getWorldPosition( rightShoulder ) );
+
+            }
+
+            return dynamics.update( deltaSeconds );
+
+        };
+
+        // `HairDynamics.js:1189` grants one step while `resetPending`, which is exactly what a fresh
+        // attach wants: the first frame runs from the rest pose rather than from whatever the
+        // buffers held.
+        dynamics.reset();
+
+        return { dynamics, update, velocityRepaired };
+
+    }
+
+    /**
+     * Drops the groom. Called before every bake swap and from `dispose()`, and safe on an avatar
+     * that never had one.
+     *
+     * ⚠️ **`Material.dispose()` IN THREE ONLY DISPATCHES AN EVENT — IT FREES NO TEXTURES.** The
+     * GLB's embedded base-colour map is 1024x1024 RGBA8 = 4.00 MB on the GPU (5.33 MB with mips) and
+     * is referenced by the hair material's cutout; the two SIDECAR sheets `createHairMaterial`
+     * decodes are another two. None of the three is reachable from `HairNodeMaterial.dispose()`,
+     * which is not overridden, so all three are disposed by name here.
+     *
+     * 🚩 **AND ONE THING THIS FUNCTION CANNOT UNDO, DECLARED RATHER THAN HIDDEN.**
+     * `createHairDynamics` returns no `dispose` — its five compute pipelines and ~957 kB of
+     * `instancedArray` storage are dropped by reference and freed only when three's own bookkeeping
+     * gets to them — and `installHairVelocity` patched `NodeMaterial.prototype.setupPosition`
+     * process-wide with no uninstall. `leakedHandles()` is an own-property walk and can see neither.
+     * `report().hair.undisposable` is where they are stated.
+     */
+    disposeHair() {
+
+        this.hairUpdate = null;
+        this.hairDynamics = null;
+
+        // Cleared with the solver it describes. Left set, `report().hair.velocityRepaired` would
+        // answer for the PREVIOUS groom on a swap where this one failed to land — which is exactly
+        // the shape of report this file's census rule exists to refuse.
+        this.hairVelocityRepaired = null;
+
+        if ( this.hairRoot !== null ) {
+
+            this.hairRoot.removeFromParent();
+            this.hairRoot.traverse( ( object ) => {
+
+                if ( object.isMesh === true ) object.geometry.dispose();
+
+            } );
+
+            this.hairRoot = null;
+
+        }
+
+        for ( const source of this.hairSourceMaterials ) {
+
+            // By name, because `Material.dispose()` frees none of them and the embedded pair is
+            // 1024x1024 RGBA8 apiece. The base-colour map is ALSO the hair material's cutout, so it
+            // is freed here exactly once rather than in both places.
+            source.map?.dispose?.();
+            source.normalMap?.dispose?.();
+            source.dispose?.();
+
+        }
+
+        this.hairSourceMaterials = [];
+
+        if ( this.hairMaterial !== null ) {
+
+            const nodes = this.hairMaterial.hair ?? {};
+
+            nodes.flowMap?.value?.dispose?.();
+            nodes.depthMap?.value?.dispose?.();
+
+            this.hairMaterial.dispose();
+            this.hairMaterial = null;
+
+        }
+
+    }
+
     /** Drops whatever the previous bake was wearing. Called before the figure itself is disposed. */
     disposeShading() {
 
@@ -1794,6 +3038,14 @@ export class Avatar {
             eyeMaterial: 0,
             eyeOcclusion: 0,
             cardShading: 0,
+
+            // Counted off the graph like the four above, and deliberately NOT the same question as
+            // `report().hair.attached`: that one reads a handle this file kept, this one reads how
+            // many meshes in the scene are actually wearing the groom's material. A groom that
+            // loaded, rebound and then failed to take the material reads `attached: true` here and
+            // `hairMaterial: 0` — which is exactly the disagreement a census exists to expose.
+            hairMaterial: 0,
+
             shadowCastingLights: 0,
             temporalResolve: this.stage?.temporal == null ? 0 : 1,
             grade: this.stage?.grade == null ? 0 : 1,
@@ -1815,6 +3067,7 @@ export class Avatar {
                     if ( material === null || material === undefined ) continue;
                     if ( this.skin !== null && material === this.skin ) census.skinMaterial ++;
                     if ( this.cards.includes( material ) ) census.cardShading ++;
+                    if ( this.hairMaterial !== null && material === this.hairMaterial ) census.hairMaterial ++;
 
                     // Identity against the two shells `EyeMaterial` builds, not a name test. An
                     // honest limit inherited from `alive.js`'s census: this reads 0 both when the
@@ -1923,21 +3176,49 @@ export class Avatar {
  * exactly the two whose failure mode is silent: a tier that resolves wrong still renders, and a
  * rebased asset URL 404s at fetch time with a message that names neither this file nor the asset.
  *
+ * 🎯 **HAIR MOVES `auto` FROM `high` TO `balanced`, AND THAT IS STILL NOT A FRAME BUDGET.** The
+ * input is a STRUCTURAL fact the caller has already stated — hair is on — rather than a timing this
+ * machine was measured at. The measurement behind the choice is elsewhere and was taken once, and
+ * 🚩 IT IS WEAKER THAN THE SENTENCE THAT STOOD HERE. Hair costs a measured **+2.0 ms at p50**; the
+ * same round's p95 column DID NOT RESOLVE — docs/API.md states it outright, and its two bald
+ * repetitions differ by more (21.5 against 29.6) than bald differs from haired. So "a hair-bearing
+ * `high` fits with under a millisecond in hand" was arithmetic on a number its own author had
+ * withdrawn, and it is gone.
+ *
+ * What survives is enough to keep the demotion, as a CONSERVATIVE choice rather than a measured
+ * necessity: +2.0 ms of p50 is real, `high` has the least headroom of the three tiers, and an `auto`
+ * caller has by definition expressed no preference, so it gets the configuration with room in it.
+ * `quality: 'high'` still gets `high` for a caller who wants it, and
+ * `report().hair.frameBudgetWarning` says what that costs in the units that resolved.
+ *
  * @param {string} requested - One of `QUALITY_REQUESTS`.
  * @param {Stage} stage - Asked only for `isWebGPUAvailable()`; not yet created.
+ * 🔴 **AND `backdrop: false` FORCES `balanced`, WHICH IS A CORRECTNESS CONSTRAINT RATHER THAN A
+ * BUDGET.** Measured in a GPU chromium: ground-truth occlusion with NOTHING at background depth
+ * renders the WHOLE FRAME black, on `high` and on `fallback` alike, and `balanced` — the one tier
+ * with `occlusion: false` — renders correctly. Isolated to the card alone: `backdrop: 0x000000`
+ * renders the figure perfectly and `backdrop: false` does not, and scaling the card to 0.001 and
+ * moving it off-screen reproduces the black frame, so it is the card's PIXELS at background depth
+ * and not its presence in the draw list. `BACKGROUND_PRESETS` carries the table.
+ *
+ * @param {Object} [structural] - Facts the caller has already stated that change what `auto` means.
+ * @param {boolean} [structural.hair=false] - whether a groom will be attached.
+ * @param {boolean} [structural.backdropless=false] - whether the emissive card is off.
  * @returns {Promise<string>} a key of `QUALITY_TIERS`.
  */
-export async function resolveTier( requested, stage ) {
+export async function resolveTier( requested, stage, structural = {} ) {
 
     if ( requested !== 'auto' ) return requested;
 
     if ( stage.isWebGPUAvailable() === false ) return 'fallback';
 
+    const withRoom = structural.hair === true || structural.backdropless === true ? 'balanced' : 'high';
+
     try {
 
         const adapter = await navigator.gpu.requestAdapter();
 
-        return adapter === null || adapter === undefined ? 'fallback' : 'high';
+        return adapter === null || adapter === undefined ? 'fallback' : withRoom;
 
     } catch ( error ) {
 
@@ -1947,6 +3228,468 @@ export async function resolveTier( requested, stage ) {
         return 'fallback';
 
     }
+
+}
+
+// --- the scene options: resolution and refusal ---------------------------------------------------
+//
+// All four functions below are EXPORTED and all four are pure, because the gate has to be able to
+// drive them without a canvas and a consumer has to be able to see what a shorthand expands to.
+
+/**
+ * The shipped ambient fraction of key, read off `LightingRig` rather than copied.
+ *
+ * `AMBIENT.fractionOfKey` (0.22) is module-private in that file, and `lighting.ambient` is a
+ * RELATIVE multiplier on it — so the number has to come from somewhere. A bare `new LightingRig()`
+ * builds no lights and touches no scene; it resolves its placement table and stops. Reading the
+ * default off the class means the multiplier tracks the file that owns the value, which is exactly
+ * what a copied `0.22` would not do.
+ */
+let cachedAmbientFractionOfKey = null;
+
+export function shippedAmbientFractionOfKey() {
+
+    if ( cachedAmbientFractionOfKey === null ) {
+
+        cachedAmbientFractionOfKey = new LightingRig( {} ).ambientFractionOfKey;
+
+    }
+
+    return cachedAmbientFractionOfKey;
+
+}
+
+/** The authored placement table for one framing, keyed by name. Read off the real class. */
+function authoredPlacements( preset ) {
+
+    const table = new Map();
+
+    for ( const placement of new LightingRig( { preset } ).placements ) table.set( placement.name, placement );
+
+    return table;
+
+}
+
+/**
+ * One look, resolved into absolute per-light overrides against ONE framing's authored table.
+ *
+ * Exported because it is the function `setFraming` has to re-run and the function clause A2 drives:
+ * a gate that asserted a copy of these numbers would be a gate on a copy.
+ *
+ * @param {string} look - a key of `SCENE_LOOKS`.
+ * @param {'portrait'|'body'} preset
+ * @returns {Object} `{ [lightName]: { field: value } }`, ready for `LightingRig`'s `overrides`.
+ */
+export function resolveLook( look, preset ) {
+
+    const entry = SCENE_LOOKS[ look ];
+
+    if ( entry === undefined ) {
+
+        throw new TypeError(
+            `Avatar: unknown look '${ look }'. Known: ${ SCENE_LOOK_NAMES.join( ', ' ) }.` );
+
+    }
+
+    // 🚩 DENY-BY-DEFAULT ON THE LOOK ENTRY ITSELF, AND THIS IS CLAUSE A4'S RED PROOF HOOK. A look
+    // that carried an `ambientScale` would move the one lever with a ONE-CODE-VALUE window — G6
+    // wants whole-image p0.1 luma in 0.004–0.016 and the shipped backdrop measures portrait 0.00420
+    // and body 0.01597 — and it would move it invisibly, because nothing else in this resolution
+    // path would notice a key it does not read. See `AMBIENT_MULTIPLIER_RANGE`.
+    for ( const key of Object.keys( entry ) ) {
+
+        if ( LOOK_ENTRY_KEYS.includes( key ) === false ) {
+
+            throw new TypeError( `Avatar: look '${ look }' declares '${ key }', and a look may only ` +
+                `declare ${ LOOK_ENTRY_KEYS.join( ' and ' ) }. A look must not move the ambient — G6's ` +
+                'window is one code value wide (LightingRig.js:989-991), and it must not move ' +
+                'key.irradiance or fill.irradiance, which is the G1 axis.' );
+
+        }
+
+    }
+
+    const authored = authoredPlacements( preset );
+    const overrides = {};
+
+    for ( const [ light, fields ] of Object.entries( entry.fields ) ) {
+
+        requireKnownLight( light, `look '${ look }'` );
+        overrides[ light ] = { ...fields };
+
+    }
+
+    for ( const [ light, scaled ] of Object.entries( entry.scales ) ) {
+
+        requireKnownLight( light, `look '${ look }'` );
+
+        const base = authored.get( light );
+
+        // A look naming a light this framing's preset does not carry cannot be scaled against
+        // anything. `resolvePlacements` would drop it in SILENCE — measured: `{ fifth: {…} }`
+        // leaves 4 placements and throws nothing.
+        if ( base === undefined ) {
+
+            throw new TypeError( `Avatar: look '${ look }' scales '${ light }', which the '${ preset }' ` +
+                'preset does not carry. LightingRig would drop that override without a word.' );
+
+        }
+
+        const merged = overrides[ light ] ?? ( overrides[ light ] = {} );
+
+        for ( const [ field, factor ] of Object.entries( scaled ) ) merged[ field ] = base[ field ] * factor;
+
+    }
+
+    return overrides;
+
+}
+
+/** Deny-by-default on the light NAME. Half of what closes the rig's two silent-drop rows. */
+function requireKnownLight( name, source ) {
+
+    if ( RIG_LIGHT_NAMES.includes( name ) === false ) {
+
+        throw new TypeError( `Avatar: ${ source } names a light '${ name }'. ` +
+            `Accepted: ${ RIG_LIGHT_NAMES.join( ', ' ) }. LightingRig drops an unknown name in silence.` );
+
+    }
+
+}
+
+/**
+ * `lighting`, from any accepted shorthand into the one shape the rest of this file reads.
+ *
+ * @param {string|Object} request
+ * @returns {{ look: string, exposure: number, ambient: number, shadows: ?boolean, lights: Object }}
+ */
+export function resolveLightingOption( request ) {
+
+    if ( typeof request === 'string' ) return resolveLightingOption( { look: request } );
+
+    if ( request === null || typeof request !== 'object' ) {
+
+        throw new TypeError( 'Avatar: lighting must be a look name or an object — ' +
+            `one of ${ SCENE_LOOK_NAMES.join( ', ' ) }, or { look, exposure, ambient, shadows, lights }.` );
+
+    }
+
+    const known = [ 'look', 'exposure', 'ambient', 'shadows', 'lights' ];
+
+    for ( const key of Object.keys( request ) ) {
+
+        if ( known.includes( key ) === false ) {
+
+            throw new TypeError( `Avatar: lighting has no option '${ key }'. Accepted: ${ known.join( ', ' ) }.` );
+
+        }
+
+    }
+
+    const look = request.look ?? 'studio';
+
+    if ( SCENE_LOOKS[ look ] === undefined ) {
+
+        throw new TypeError(
+            `Avatar: lighting.look must be one of ${ SCENE_LOOK_NAMES.join( ', ' ) }, got '${ look }'.` );
+
+    }
+
+    const exposure = request.exposure ?? 1;
+    const ambient = request.ambient ?? 1;
+
+    requireInRange( 'lighting.exposure', exposure, EXPOSURE_MULTIPLIER_RANGE,
+        'a RELATIVE multiplier on the calibrated exposure; it cannot move any ratio but it does ' +
+        'move G1 in the rendered frame (LightingRig.js:240-256)' );
+
+    requireInRange( 'lighting.ambient', ambient, AMBIENT_MULTIPLIER_RANGE,
+        'a RELATIVE multiplier on the rig\'s ambient fraction of key. ⚠️ G6\'s window is one code ' +
+        'value wide — shipped portrait 0.00420, body 0.01597, band 0.004–0.016' );
+
+    if ( request.shadows !== undefined && request.shadows !== null
+        && typeof request.shadows !== 'boolean' ) {
+
+        throw new TypeError( 'Avatar: lighting.shadows must be true, false, or null to let the ' +
+            `quality tier decide; got ${ typeof request.shadows }.` );
+
+    }
+
+    return Object.freeze( {
+        look,
+        exposure,
+        ambient,
+        shadows: request.shadows ?? null,
+        lights: resolveLightOverrides( request.lights ?? null )
+    } );
+
+}
+
+/**
+ * The escape hatch, validated field by field.
+ *
+ * 🚩 THIS IS THE FUNCTION THE SEVEN MEASURED PATHOLOGIES DIE IN. See `PLACEMENT_FIELDS` for the
+ * table of what each one does to a rig that accepts it — negative light, `Infinity` panel radiance,
+ * `NaN` into the scene graph, and two overrides silently discarded.
+ */
+export function resolveLightOverrides( lights ) {
+
+    if ( lights === null || lights === undefined ) return Object.freeze( {} );
+
+    if ( typeof lights !== 'object' ) {
+
+        throw new TypeError( 'Avatar: lighting.lights must be an object keyed by light name — ' +
+            `${ RIG_LIGHT_NAMES.join( ', ' ) }.` );
+
+    }
+
+    const resolved = {};
+
+    for ( const [ name, fields ] of Object.entries( lights ) ) {
+
+        requireKnownLight( name, 'lighting.lights' );
+
+        if ( fields === null || typeof fields !== 'object' ) {
+
+            throw new TypeError( `Avatar: lighting.lights.${ name } must be an object of placement ` +
+                `fields — ${ Object.keys( PLACEMENT_FIELDS ).join( ', ' ) }.` );
+
+        }
+
+        const out = {};
+
+        for ( const [ field, value ] of Object.entries( fields ) ) {
+
+            const spec = PLACEMENT_FIELDS[ field ];
+
+            // Deny-by-default on the FIELD name. `{ key: { irradianceX: 9 } }` is merged into the
+            // placement and ignored by every reader — measured, no throw, no warning.
+            if ( spec === undefined ) {
+
+                throw new TypeError( `Avatar: lighting.lights.${ name } has no field '${ field }'. ` +
+                    `Accepted: ${ Object.keys( PLACEMENT_FIELDS ).join( ', ' ) }. LightingRig merges ` +
+                    'an unknown field and ignores it, in silence.' );
+
+            }
+
+            requireInRange( `lighting.lights.${ name }.${ field }`, value, spec,
+                spec.kind === 'colour' ? 'an sRGB hex' : 'a finite number' );
+
+            // 🚩 ZERO IS LEGAL FOR AN EDGE LIGHT AND ILLEGAL FOR A FORM LIGHT, AND THE ASYMMETRY IS
+            // THE G1 AXIS RATHER THAN A STYLE RULE. `rim: { irradiance: 0 }` is an honest way to
+            // say "no rim". `fill: { irradiance: 0 }` makes `designedKeyToFill` **Infinity** —
+            // measured through the real rig, no throw — and `key: { irradiance: 0 }` makes it 0.
+            // Either one takes the ratio the whole lighting spec is stated in out of the reals, and
+            // every downstream reader of it (`describe()`, `report()`, gate G1) inherits that.
+            if ( field === 'irradiance' && value === 0 && ( name === 'key' || name === 'fill' ) ) {
+
+                throw new TypeError( `Avatar: lighting.lights.${ name }.irradiance is 0. The key and ` +
+                    'the fill are the two halves of the designed key:fill ratio — the G1 axis — so a ' +
+                    'zero in either takes it to 0 or Infinity. Accepted range ( 0, ' +
+                    `${ PLACEMENT_FIELDS.irradiance.max } ]. An edge light may be 0; these two may not.` );
+
+            }
+
+            out[ field ] = value;
+
+        }
+
+        resolved[ name ] = Object.freeze( out );
+
+    }
+
+    return Object.freeze( resolved );
+
+}
+
+/** One numeric refusal, with the field named AND the accepted range printed. */
+function requireInRange( label, value, range, meaning ) {
+
+    if ( Number.isFinite( value ) === false ) {
+
+        throw new TypeError( `Avatar: ${ label } must be ${ meaning }; got ${ String( value ) }. ` +
+            `Accepted range [${ range.min }, ${ range.max }].` );
+
+    }
+
+    if ( value < range.min || value > range.max ) {
+
+        throw new TypeError( `Avatar: ${ label } is ${ value }, outside [${ range.min }, ${ range.max }] — ` +
+            `${ meaning }.` );
+
+    }
+
+}
+
+/**
+ * `background`, from any accepted shorthand into `{ colour, backdrop, ground }`.
+ *
+ * `'transparent'` resolves to `{ colour: null, backdrop: false, ground: false }` and all three
+ * halves are needed: the clear alpha is decided by `scene.background`, the 8x6 m emissive card fills
+ * a portrait frame regardless of the clear, and the ground plane is a unit plane scaled to twelve
+ * subject heights — about 20 m square at body framing, and opaque.
+ */
+export function resolveBackgroundOption( request ) {
+
+    if ( typeof request === 'string' ) {
+
+        const preset = BACKGROUND_PRESETS[ request ];
+
+        if ( preset === undefined ) {
+
+            throw new TypeError( `Avatar: background must be one of ${ BACKGROUND_PRESET_NAMES.join( ', ' ) }, ` +
+                `a colour hex, or { colour, backdrop, ground }; got '${ request }'.` );
+
+        }
+
+        // Re-entered through the object path rather than returned, so a preset cannot be a second
+        // door past the validation the long form goes through. `'transparent'` is exactly that
+        // case today: the preset is declared and the refusal below is what it resolves to.
+        return resolveBackgroundOption( { ...preset } );
+
+    }
+
+    // A bare hex is the clear colour ALONE — the card and the ground are kept, because an embedder
+    // tinting the room to match their chrome has not asked to lose the contact shadow.
+    if ( typeof request === 'number' ) return resolveBackgroundOption( { colour: request } );
+
+    if ( request === null || typeof request !== 'object' ) {
+
+        throw new TypeError( 'Avatar: background must be a preset name, a colour hex, or ' +
+            '{ colour, backdrop, ground }.' );
+
+    }
+
+    const known = [ 'colour', 'backdrop', 'ground' ];
+
+    for ( const key of Object.keys( request ) ) {
+
+        if ( known.includes( key ) === false ) {
+
+            throw new TypeError( `Avatar: background has no option '${ key }'. Accepted: ${ known.join( ', ' ) }. ` +
+                ( key === 'color' ? 'This project spells it `colour`.' : '' ) );
+
+        }
+
+    }
+
+    const colour = request.colour === undefined ? BACKGROUND_PRESETS.studio.colour : request.colour;
+    const ground = request.ground === undefined ? BACKGROUND_PRESETS.studio.ground : request.ground;
+
+    // 🚩 THE CARD FOLLOWS THE COLOUR, AND NOT DOING SO MADE THIS WHOLE OPTION INVISIBLE.
+    //
+    // `scene.background` is the CLEAR colour, and the emissive backdrop card stands in front of it
+    // at every ordinary aspect ratio, so a caller who set only `colour` changed a pixel nobody could
+    // see. Measured in a GPU chromium on 2026-08-17, top-left patch, tier `high`, one avatar per
+    // page load: `background: 'studio'` -> [2.69, 2.95, 3.98]; `0xffffff` -> [2.69, 2.96, 3.98];
+    // `0xff0000` -> [2.69, 2.96, 3.98]. White, red and the default were IDENTICAL to two decimals,
+    // and `report().scene.background` cheerfully echoed back the colour that was not in the frame.
+    // The control that proved the mechanism: `{ colour: 0xffffff, backdrop: false }` -> [238.20,
+    // 238.18, 238.17]. The wiring was always fine; the card was simply in front.
+    //
+    // So an explicit `colour` with no explicit `backdrop` sets BOTH. That is what "tint the room to
+    // match your chrome" means, and it keeps the ground plane — the comment on the bare-hex path
+    // above is right that an embedder tinting the room has not asked to lose the contact shadow.
+    // A caller who wants them to differ still says so; `{ colour: X, backdrop: Y }` is untouched.
+    //
+    // ⚠️ THE CARD IS EMISSIVE, so this is a light source as well as a backdrop, and a bright colour
+    // lights the room. That is the honest behaviour of an emissive backdrop rather than a defect —
+    // `BACKDROP_EMISSIVE` is near-black for exactly that reason — and it is stated in docs/API.md
+    // so a caller who wants a bright background and a dark room knows to pass `backdrop` too.
+    const backdrop = request.backdrop !== undefined ? request.backdrop
+        : ( request.colour !== undefined ? request.colour : BACKGROUND_PRESETS.studio.backdrop );
+
+    // 🔴 REFUSED, WITH THE MEASUREMENT, RATHER THAN SHIPPED BROKEN. See `BACKGROUND_PRESETS` for
+    // the table and the two isolations. An option that returns an opaque black rectangle is worse
+    // than an option that says why it cannot exist yet, because the first one gets shipped.
+    if ( colour === null ) {
+
+        throw new TypeError( 'Avatar: background.colour: null (a transparent canvas) is not ' +
+            'supported yet, and it is refused rather than presented as an opaque black rectangle. ' +
+            'Measured 2026-08-17 in a GPU chromium: the TEMPORAL RESOLVE forces the frame alpha to ' +
+            '1, so no tier with one can present a transparent canvas — with the grade displaying ' +
+            'its own alpha, tier fallback reads 41.63% at alpha 0 and tier high reads 100% at alpha ' +
+            '1. render/Grade.js already carries and premultiplies the alpha correctly; the repair ' +
+            'is in the TAAU/TRAA resolve. Use background: { colour: 0x08080a } and composite ' +
+            'against that, or a solid colour that matches your page.' );
+
+    }
+
+    requireInRange( 'background.colour', colour, PLACEMENT_FIELDS.colour, 'an sRGB hex' );
+    if ( backdrop !== false ) requireInRange( 'background.backdrop', backdrop, PLACEMENT_FIELDS.colour, 'an sRGB hex' );
+
+    if ( typeof ground !== 'boolean' ) {
+
+        throw new TypeError( `Avatar: background.ground must be true or false, got ${ typeof ground }. ` +
+            '⚠️ false is a documented downgrade: 60% of the light landing beside a sole comes from ' +
+            'two RectAreaLights that cannot cast a shadow at all, which is why GroundContact ' +
+            'occludes analytically. Without the plane the figure floats.' );
+
+    }
+
+    return Object.freeze( { colour, backdrop, ground } );
+
+}
+
+/**
+ * `hair`, from any accepted shorthand into a style id or null.
+ *
+ * ⚠️ `true` IS ACCEPTED AND WARNS RATHER THAN BEING THE PRIMARY FORM. A boolean cannot name a style
+ * and there will be a second groom; a caller who wrote `hair: true` today would be a caller whose
+ * avatar silently changed its hairstyle on the day one lands.
+ */
+export function resolveHairOption( request ) {
+
+    if ( request === false || request === null || request === undefined ) return null;
+
+    if ( request === true ) {
+
+        console.warn( `Avatar: hair: true is an alias for the first groom in the manifest — ` +
+            `'${ HAIR_STYLES[ 0 ] }' today. Name the style instead: hair: '${ HAIR_STYLES[ 0 ] }'.` );
+
+        return HAIR_STYLES[ 0 ];
+
+    }
+
+    if ( HAIR_STYLES.includes( request ) === false ) {
+
+        throw new TypeError( `Avatar: hair must be false or one of ${ HAIR_STYLES.join( ', ' ) }, ` +
+            `got '${ String( request ) }'.` );
+
+    }
+
+    return request;
+
+}
+
+/** A partial `setLighting` request, merged over what is live. Shorthands expand first. */
+function mergeLightingRequest( current, request ) {
+
+    const partial = typeof request === 'string' ? { look: request } : request;
+
+    if ( partial === null || typeof partial !== 'object' ) {
+
+        throw new TypeError( 'Avatar.setLighting: pass a look name or a partial lighting object.' );
+
+    }
+
+    return { ...current, ...partial };
+
+}
+
+/** A partial `setBackground` request, merged over what is live. */
+function mergeBackgroundRequest( current, request ) {
+
+    if ( typeof request === 'string' ) return BACKGROUND_PRESETS[ request ] ?? request;
+    if ( typeof request === 'number' ) return { ...current, colour: request };
+
+    if ( request === null || typeof request !== 'object' ) {
+
+        throw new TypeError( 'Avatar.setBackground: pass a preset name, a colour hex, or a partial ' +
+            '{ colour, backdrop, ground }.' );
+
+    }
+
+    return { ...current, ...request };
 
 }
 
@@ -2039,6 +3782,35 @@ function nearestAnchorTo( pad, points ) {
 
 }
 
+/**
+ * Frees a loaded groom's own GPU-side resources.
+ *
+ * Used on every early exit from `attachHair` — a losing load token, a groom with no skinned mesh, a
+ * rig that has moved under it. ⚠️ `Material.dispose()` frees no textures, so the two embedded
+ * 1024x1024 sheets are named rather than left to the material.
+ */
+function disposeGroomScene( root ) {
+
+    root.traverse( ( object ) => {
+
+        if ( object.isMesh !== true ) return;
+
+        object.geometry.dispose();
+
+        for ( const material of ( Array.isArray( object.material ) ? object.material : [ object.material ] ) ) {
+
+            if ( material === null || material === undefined ) continue;
+
+            material.map?.dispose?.();
+            material.normalMap?.dispose?.();
+            material.dispose();
+
+        }
+
+    } );
+
+}
+
 /** True for anything that carries a `dispose` method. Used by the leak walk. */
 function hasDispose( value ) {
 
@@ -2052,11 +3824,11 @@ function hasDispose( value ) {
  * Named because anything keying on mesh names would otherwise file it under `mesh:anonymous`, which
  * is a bucket rather than an identity and collides with the next unnamed mesh anybody adds.
  */
-function buildBackdrop( stage ) {
+function buildBackdrop( stage, emissive = BACKDROP_EMISSIVE ) {
 
     const material = new MeshStandardNodeMaterial( {
         color: 0x000000,
-        emissive: BACKDROP_EMISSIVE,
+        emissive,
         emissiveIntensity: 1,
         roughness: 1,
         metalness: 0

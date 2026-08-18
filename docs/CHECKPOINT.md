@@ -804,3 +804,68 @@ then five standalone repeats. Combined with the earlier observation that it wand
 ⚠️ It is deliberately NOT declared in `docs/RED-GATES.md`. It is green, and declaring a green gate
 red is a false declaration in the direction that file exists to refuse. What is recorded instead is
 the measurement: 0 of 6 on a quiet machine, and the load hypothesis it supports.
+
+## 13. R30 — the runtime API grows hair, and the handoff for hairstyle variety
+
+### The gap this round closed, and how long it had been open
+
+`Avatar.js` — the API any embedding agent uses — **did not load hair at all**, and said so at its own
+line 80: *"Deferred rather than dropped, and named so the omission is visible: hair (3.5/3.6/6.6)."*
+Every screenshot in this project's record is bald because that is what shipped. Hair existed only on
+testbed pages. Alongside it, `Avatar.create()` took eleven options and **not one controlled lighting,
+background or exposure**; `docs/API.md` mentioned those words zero times. The capability existed
+internally — `lighting.html` drives every light through `?ov=` — and was never exposed.
+
+🚩 **AND THAT IS WHY THE BLIND CRITIC HAD BEEN PRODUCING LIGHTING NITS FOR ROUNDS.** It was being
+shown stills of a bald, nude figure. It cannot comment on hair (none in the API), on motion (a
+still), or on wardrobe (unclothed). Skin and lighting are the only things in frame, so those are the
+findings it returned — and four rounds were spent on a violet rim that changed no pixels. The critic
+was accurate; the FRAME it was given manufactured the priorities. Re-point it only after the subject
+has hair, clothes and movement in it.
+
+### Hair, verified on a real page by two independent lenses
+
+Attaches through `Avatar.create({ hair: 'bob01' })`, skinned to the FIGURE's own bones (53/53
+identical bone objects, so the head carries it), 496 chains / 8,432 particles, no divergence over 600
+frames, survives an identity swap and five concurrent ones, and `dispose()` leaves `leakedHandles()`
+empty across ten build/dispose cycles. It fits every tier's frame budget on this machine at a
+measured **+2.0 ms p50**.
+
+⚠️ **p95 DOES NOT RESOLVE** and three places shipped a p95 claim anyway, one of them as a runtime
+string an embedder reads. The measuring round retracted it in `docs/API.md` — the two bald
+repetitions differ by more than bald differs from haired — and R30 removed every quotation of it.
+
+### 🎯 THE HANDOFF: a second hairstyle is twelve numbers, not a modelling job
+
+Measured this round with a silhouette-IoU tool built for the question, and with the control that
+makes it answerable — **the same haircut on a different head**:
+
+| pair | front IoU | side | top | outline area |
+|---|---:|---:|---:|---:|
+| **CONTROL** bob01 g050 vs g000, same style different bake | 0.8329 | 0.5956 | 0.5591 | 0.92x |
+| CLI knobs only — `--hair-part` / `--hair-seed` / `--hair-colour` | **0.8352** | 0.8995 | 0.8819 | 1.04x |
+| **12-line patch** of `HAIR_LAYERS` `cut` + `length` | **0.4811** | 0.4887 | 0.3662 | **2.05–2.54x** |
+
+🚩 **THE CLI KNOBS ARE NOT A SECOND STYLE.** They move the outline LESS than a gender bake does —
+496 cards, 17,516 verts, per-layer tip z within 1.5 mm of bob01. That is bob01 with a different hair
+colour, and anything that ships it as a style is shipping one haircut twice.
+
+The real lever is `tools/figure-pipeline/hair_cards.py`'s **module-level globals**: eight layer dicts
+in `HAIR_LAYERS` plus ~30 constants (`CUT_*`, `PART_*`, `GRAVITY_*`, `LOCK_*`, `CAP_*`, `ATTACH_*`,
+`FRINGE_FORWARD`, `TIP_WIDTH_FRACTION`, `HAIRLINE_LIFT`, `WHORL_SETBACK`). **`--hair STYLE` is an ID
+STRING AND NOTHING ELSE** — `hair_cards.py:782`, used only for the output directory and the material
+name. There is no style table; that is the thing to build. A bake is **20.43 s wall** and reproduced
+the committed LFS object byte for byte (sha256 98ca6c23…), so iteration is cheap. `hair_texture.py`'s
+`write_strand_atlas` takes no geometry, so the atlas is separable and need not be rebuilt per style.
+
+⚠️ **AND `verify_glb.mjs` HAS CLAUSES TUNED TO A COLLARBONE BOB.** On the long groom, `cards gather`
+reads 1.197 against a 0.95 ceiling and `shared space` fails at 162 mm — and the first FAILS WITH THE
+WRONG DIAGNOSIS and then silently skips the five clauses that would catch a real defect. Generalise
+those before adding styles, or every new style arrives red for reasons that are about bob01.
+
+### What is still open, filed rather than carried
+
+REQ-088 (`hair: false` still emits 16.26 MiB — module-scope `new URL()` literals defeat the dynamic
+import), REQ-089 (the Avatar gate proves call sites exist in source text, not that options reach the
+frame; two red proofs cannot go red), REQ-090 (`report().scene.lighting` reads the placement table
+rather than the lights).

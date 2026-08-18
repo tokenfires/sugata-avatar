@@ -49,6 +49,22 @@ Alongside the modules, four files per avatar have to be reachable over HTTP:
 **11.9 MiB for one avatar**, and five bakes exist (`figure_g000` … `figure_g100`, 55 MB in total)
 because `identity.gender` snaps to the nearest of them.
 
+With `hair: 'bob01'`, nine more files under `assets/hair/bob01/` become reachable — five per-identity
+grooms and four shared sheets, of which two are embedded in the GLBs and two are sidecars the
+material fetches separately. Measured on disk:
+
+| what | bytes |
+|---|---:|
+| `g000.glb` … `g100.glb` — one groom per figure bake | 3,327,232 / 3,327,560 / 3,326,956 / 3,327,368 / 3,327,344 |
+| `flow.png` — strand tangent, root-to-tip, strand id | 348,510 |
+| `depth.png` — depth within the bundle | 63,001 |
+| `albedo.png`, `normal.png` — reference copies; both are **embedded** in every groom GLB | 1,090,362 / 1,064,393 |
+
+**19,202,726 B = 18.313 MiB for the directory**, of which one avatar fetches 3,327,232 B (its groom)
+plus 411,511 B (the two sidecars). `assetBaseUrl` moves all seven together — the sheets have to
+travel with the grooms or a self-hosted avatar loads with a constant-1 shadow and no flow rotation,
+which is a *different picture* rather than an error.
+
 ⚠️ **The three baked maps must be siblings in one directory, and the curvature file must still
 be named `*-curvature.png`.** `SkinMaterial` derives the region and cavity URLs by string-replacing
 `-curvature` in the curvature URL. A renamed curvature file does not fail — the replacement
@@ -56,10 +72,13 @@ misses, both derived URLs come back null, and the roughness/thickness/lip and ca
 simply vanish from the skin. A file that is named right and 404s is the loud failure; a file that
 is named wrong is the quiet one.
 
-The three baked maps are committed — all fifteen of them, one set per bake. **The GLBs are not:**
-`assets/figures/*.glb` is gitignored and has to be rebuilt with `npm run figure`, which needs
-Blender and takes about six seconds per figure. A fresh clone therefore has the maps and no bodies,
-and `Avatar.create` fails on the GLB fetch until that command has been run once.
+The three baked maps are committed — all fifteen of them, one set per bake. 🚩 **So are the GLBs, and
+the sentence that stood here said the opposite.** Verified at HEAD: `git ls-files assets/figures`
+returns all five bodies and `git ls-files assets/hair` returns all five grooms and all four sheets;
+`.gitattributes` routes `assets/figures/*.glb`, `assets/hair/*/*.glb` and `assets/hair/*/*.png`
+through LFS. A fresh clone with LFS therefore has everything `Avatar.create` needs. `npm run figure`
+rebuilds them through Blender — it is how you change them, not how you obtain them — and it moves
+sha256-bearing gate inputs when it runs.
 
 To serve them from somewhere else — a CDN, a `/static/` path — pass the two base options. Both
 accept a root-relative path and resolve it against the document, the way an `<img src>` does:
@@ -86,19 +105,175 @@ const avatar = await Avatar.create( {
     pose: 'relaxed-standing',      // null for the untouched bind pose, which is a T-pose
     assetBaseUrl: null,
     bakedMapBaseUrl: null,
-    framedHeightMetres: undefined  // override the crop; 0.18 is eyes-only
+    framedHeightMetres: undefined, // override the crop; 0.18 is eyes-only
+
+    lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
+    background: 'studio',          // 'studio'|'void', a hex, or the object below
+    hair: false                    // 'bob01' | false
 } );
 ```
 
-`AVATAR_DEFAULTS`, `QUALITY_TIERS`, `QUALITY_REQUESTS` and `FRAME_MODES` are exported beside
-`Avatar`, so the defaults are readable rather than described. The three tiers move switches this
-repository has already priced — `high` is TAAU + grade + GTAO + shadows and is exactly the
+`AVATAR_DEFAULTS`, `QUALITY_TIERS`, `QUALITY_REQUESTS`, `FRAME_MODES`, `SCENE_LOOKS`,
+`SCENE_LOOK_NAMES`, `BACKGROUND_PRESETS`, `BACKGROUND_PRESET_NAMES` and `HAIR_STYLES` are exported
+beside `Avatar`, so the defaults are readable rather than described. The three tiers move switches
+this repository has already priced — `high` is TAAU + grade + GTAO + shadows and is exactly the
 configuration every committed gate number was measured on; `balanced` gives back the +0.845 ms p50
 that ground-truth occlusion costs; `fallback` swaps the temporal resolve for MSAA and moves
 nothing else.
 
 Bad arguments are refused in words before any GPU work happens: a missing or non-canvas `canvas`,
 an unknown `quality` or `frame`, and a non-finite `seed` each throw a `TypeError` naming the fix.
+
+### The scene — light, room and hair
+
+These three are the options an *agent* embedding itself actually reaches for, because they are the
+ones that decide whether the avatar looks like it belongs on the host page.
+
+```js
+lighting: {
+    look: 'studio',      // 'studio' | 'warm' | 'cool' | 'soft' | 'dramatic'
+    exposure: 1,         // RELATIVE multiplier on the calibrated exposure. Refused outside [0.25, 4]
+    ambient: 1,          // RELATIVE multiplier on the rig's ambient fraction of key. [0.5, 2]
+    shadows: null,       // null lets the quality tier decide; true/false wins over it
+    lights: null         // escape hatch: { key: {…}, fill: {…}, rim: {…}, kicker: {…} }
+},
+background: {
+    colour: 0x08080a,    // scene clear colour. 🔴 null (transparent) is REFUSED — see below
+    backdrop: 0x070a0e,  // the emissive card's level. false => no card, and forces the balanced tier
+    ground: true         // the floor plane + contact occlusion. false => no plane
+}
+```
+
+**The five looks, and what each is for.** A look changes colour, key geometry and edge-light energy
+— and *nothing else*. Measured through the real `LightingRig` at both framings on 2026-08-17,
+against the two environment-spill ceilings `LightingRig.selftest.mjs` publishes:
+
+| look | what it moves | key:fill portrait | key:fill body | behind:front | blue:red | for |
+|---|---|---:|---:|---:|---:|---|
+| `studio` | nothing — zero overrides | 1.3636 | 2.5000 | 1.7862 | 2.5144 | the default; the plate every gate number is stated on |
+| `warm` | key `#ffe3c0`, fill `#f7cdb8`, kicker ×1.20 | 1.3636 | 2.5000 | 1.7862 | 2.3319 | a companion on a dark or neutral host UI |
+| `cool` | key `#eef2ff`, fill `#dfe6f4` | 1.3636 | 2.5000 | 1.7862 | 3.3409 | an avatar inside cool product chrome |
+| `soft` | key elevation 18°→10°, rim ×0.70, kicker ×0.70 | 1.3636 | 2.5000 | 1.5018 | 2.2325 | always-on, small in a corner |
+| `dramatic` | key elevation 18°→30°, azimuth 42°→52°, rim ×1.25 | 1.3636 | 2.5000 | 1.7060 | 2.4218 | a reveal, an emphatic reply, a listening state |
+
+🎯 **Every key:fill is bit-equal to its framing's own baseline, and that is the rule rather than an
+outcome.** A look may not move `key.irradiance` or `fill.irradiance`: that pair is the G1 axis, and
+a look that moved it would be a look that differs mainly in whether it passes the gate. Looks are
+also *multipliers re-resolved per framing*, not absolutes — resolve `soft` once at portrait and the
+body rim reads 11.2000 where the body preset authored 15.4000, 27.27% under, with nothing reporting
+it. `setFraming` re-resolves before it moves the preset.
+
+⚠️ **`cool` is deliberately parked short of a knee.** 3.3409 sits under `LightingRig.selftest.mjs`'s
+own MUST-PASS row `#e8ecff` (3.4167, which renders 0.058% of the frame blue — *less* than shipped).
+One step further, `#b0c0ff` — a tint that reads as white in a swatch — scores 6.2939 and renders
+**57.37% of the frame saturated blue**. If you want a cooler avatar, reach for `lights` and measure.
+
+⚠️ **`exposure` and `ambient` are exposed, and moving either invalidates every committed gate
+number.** `report().scene.lighting.calibrated` goes `false` the moment they leave 1, so a plate
+captured at anything but `true` is not comparable with the ones the critic has judged. `ambient` in
+particular is the most fragile lever on the surface: gate G6 wants whole-image p0.1 luma in
+0.004–0.016 and the shipped backdrop measures portrait **0.00420** and body **0.01597** — a
+one-code-value window at both ends.
+
+**`lights` is an escape hatch and `Avatar` validates it because the rig does not.** Measured through
+the real `LightingRig` constructor — every one of these is accepted *in silence*:
+
+| override | what the rig does with it |
+|---|---|
+| `key.irradiance: -3` | key E **−2.5500** — negative light |
+| `fill.irradiance: 0` | designed key:fill **Infinity** |
+| `key.shadowFraction: 2` | panel radiance **−3.9599** |
+| `key.widthInHeights: 0` | panel radiance **Infinity** |
+| `key.distanceInHeights: 0` | **NaN** into the scene graph |
+| `{ fifth: {…} }` | silently dropped — 4 placements, no throw |
+| `{ key: { irradianceX: 9 } }` | silently merged and ignored |
+
+All seven are refused at `Avatar.create` with a `TypeError` naming the field *and* the accepted
+range, deny-by-default on both the light name and the field name.
+
+**Hair is `false` by default and that is not caution.** Three measured reasons: one groom exists;
+it adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
+two of its mechanisms have no undo — `createHairDynamics` returns no `dispose()`, and
+`installHairVelocity` patches `NodeMaterial.prototype.setupPosition` **process-wide**. Both are
+declared in `report().hair.undisposable` rather than hidden, because `disposal.leaked` is an
+own-property walk and structurally cannot see either.
+
+With `hair: 'bob01'`, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
+decision (hair is on), not a frame budget. `quality: 'high'` still gets `high` and
+`report().hair.frameBudgetWarning` says what it costs. The `fallback` tier gets a **static** groom
+on the `cutout` arm: `configureHairMaterial` genuinely *throws* on `stochastic` + `alphaToCoverage`,
+a stochastic arm needs a temporal resolve to integrate it, and WebGL2's compute cannot run the
+solver's kernels. ⚠️ The third of those is a structural read of two sources and is **not**
+browser-verified.
+
+**What it actually costs, measured here rather than quoted.** In a GPU Chromium on 2026-08-17, tier
+`high`, 1280×1600 dpr 1, submit-to-GPU-idle, 400 samples after 120 warm-up, bald and haired
+*interleaved* three times each so session drift cancels:
+
+| | p50 | p95 |
+|---|---:|---:|
+| bald | 10.7 / 9.9 | 21.5 / 29.6 |
+| haired | 12.9 / 11.4 | 27.7 / 18.8 |
+
+**≈ +2.0 ms at p50.** ⚠️ **p95 does not resolve** — the spread between two runs of the *same*
+configuration is larger than the difference between configurations, so no p95 claim is made here.
+The first bald repetition (p50 1.0) is a warm-up artefact and is excluded. Loading the groom costs
+about **+150 ms** of `create()` (107.9 ms bald against 255.2 ms haired at 400×520), which is the
+3.3 MB fetch, the rebind, the material and the solver's five compute pipelines.
+
+Hair is also refused with `identity: { mode: 'live-preview' }`: a cross-faded identity resolves to
+two bakes and the groom is cut per skull, so it would sit on a head it was not made for.
+
+### 🔴 Transparent background — declared, diagnosed, and currently refused
+
+```js
+await Avatar.create( { canvas, background: 'transparent' } );
+// TypeError: Avatar: background.colour: null (a transparent canvas) is not supported yet, and it
+// is refused rather than presented as an opaque black rectangle. …
+```
+
+This is the option an embedder actually asks for, and it does **not** work today. It is refused with
+the measurement attached rather than shipped returning a black rectangle. The renderer was always
+configured for it — `alpha` defaults true, the clear alpha is already 0, the canvas is already
+`premultiplied` — and `Grade.compose` now carries and premultiplies the frame alpha correctly
+(`Grade.selftest.mjs` 68/68 on the change). Two *further* blockers were then found by rendering, in
+a GPU Chromium on 2026-08-17, against a magenta page behind the canvas with a no-canvas control at
+100% magenta:
+
+| configuration | page shows through | figure |
+|---|---:|---|
+| `studio`, `high` | 0.00% | correct |
+| `transparent`, `high` (TAAU + GTAO) | 0.00% | **black** |
+| `transparent`, `balanced` (TAAU) | 0.00% | correct |
+| `transparent`, `fallback` (MSAA + GTAO) | **41.63%** | **black** |
+
+1. **The temporal resolve forces the frame alpha to 1.** Measured by making the grade *display* its
+   own alpha: `fallback` reads 41.63% of the frame at alpha 0 and 57.80% at alpha 1 — exactly right
+   — while `high` reads **100% at alpha 1**. The repair is in `TAAUNode`/`TRAANode`, which are
+   three's; `render/Grade.js` is ready for the day it lands.
+2. **Ground-truth occlusion blacks out a frame with nothing at background depth.** Isolated to the
+   card alone: `backdrop: 0x000000` — a black card — renders the figure perfectly, and
+   `backdrop: false` renders the *whole frame* black on both tiers that carry GTAO. Not the card's
+   presence in the draw list either: scaling it to 0.001 and moving it off-screen reproduces the
+   black frame exactly.
+
+`fallback` has no temporal resolve and `balanced` has no occlusion; there is no tier with neither.
+
+**What you can do today:** `background: { backdrop: false }` *is* supported and renders correctly —
+it resolves `quality: 'auto'` to `balanced` for blocker 2, and refuses an explicit `high`/`fallback`
+in words. Set the clear colour to whatever your page uses (`background: 0x101820`) and composite
+against that.
+
+⚠️ **`ground: false` is a documented downgrade, not a free win.** 60% of the light landing beside a
+sole comes from two `RectAreaLight`s that cannot cast a shadow at all, which is why `GroundContact`
+occludes analytically. Remove the plane and the figure floats. A shadow-catcher that writes alpha is
+a follow-up item and is not claimed here.
+
+⚠️ **Composite before you judge, when it does land.** `tools/critic/measure.mjs` refuses a plate
+where more than 1% of pixels are not opaque — *"which makes the grade gates (G5, G6) meaningless."*
+So a transparent capture must be composited over `#08080a` before the critic runs, and the
+transparent plate and the studio plate are then compared on the same pixels. That rule is declared
+now, ahead of the option, so the two cannot arrive in different rounds.
 
 ### The verbs
 
@@ -110,14 +285,20 @@ an unknown `quality` or `frame`, and a non-finite `seed` each throw a `TypeError
 | `await avatar.say( text, { timeline, at, prosody } )` | …and the mouth, from a TTS viseme timeline. |
 | `avatar.update( dt )` | One simulation frame plus one render. **Only under `autoStart: false`** — it throws otherwise rather than let the simulation advance twice per displayed frame. |
 | `await avatar.setIdentity( { gender: 1 } )` | Swap the bake live. Async because a new bake means a new motion target, and the layers keep their phase so nothing visibly restarts. |
+| `avatar.setFraming( 'body' )` | Re-frame the camera and re-aim the rig between portrait and body, without touching the motion stack. Re-resolves the look against the new framing first. Chains. |
+| `avatar.setLighting( 'dramatic' )` | Change the look live. Partial-merges over what is current, so `{ exposure: 1.2 }` keeps the look. Re-aims the rig — `LightingRig.override()` solves and never aims, so the eye shader would otherwise keep pointing at where the key used to be. Chains. |
+| `avatar.setBackground( 0x101820 )` | Change the room live: clear colour, card level, card and ground removal. ⚠️ One-way for the card and the plane — it can remove them and cannot put them back, and asking is refused in words rather than ignored. Removing the card is refused on a tier carrying ground-truth occlusion, for the reason below. Chains. |
 | `avatar.report()` | The census, the affect state, the tier, the framing and the leak check, as a plain object. |
 | `avatar.dispose()` | Releases the GPU, the layers and the frame loop. Idempotent; every verb afterwards throws by name. |
 
 `report()` is what a HUD and a gate both read. `quality.backend` is read off the renderer rather
 than off the request; `subsystems` is counted off the scene graph rather than off the options that
-were supposed to put things there, so a subsystem that failed to attach reports as absent; and
-`disposal.leaked` is a deny-by-default walk of the instance's own handles, empty after a clean
-`dispose()`.
+were supposed to put things there, so a subsystem that failed to attach reports as absent; `scene`
+reads the background, the card's emissive level and every lighting number off the live scene graph
+and the live rig for the same reason; `hair` is `null` when none was asked for and carries
+`attached: false` when one was asked for and did not land, which is the case a boolean could not
+carry; and `disposal.leaked` is a deny-by-default walk of the instance's own handles, empty after a
+clean `dispose()`.
 
 ### The limits, plainly
 
@@ -170,10 +351,19 @@ because it rewrites nothing. `docs/LEARNINGS.md` records this hazard as handled 
 correct about the *emission* and wrong about the *lookup*. The durable fix belongs in
 `material/SkinMaterial.js`: key the maps on the identity, not on a filename that a bundler owns.
 
-**Not wired into `Avatar` yet, and named so the absence is visible:** hair (3.5/3.6/6.6), the
-wardrobe (Phase 9) and identity detail targets (Phase 10). All three exist and are gated; all
-three are opt-in on `alive.html` for reasons that still hold. They are `Avatar`'s next options,
-not its first.
+**Not wired into `Avatar` yet, and named so the absence is visible:** the wardrobe (Phase 9) and
+identity detail targets (Phase 10). Both exist and are gated; both are opt-in on `alive.html` for
+reasons that still hold.
+
+**What the node gate cannot see about the three scene options, said plainly.**
+`packages/core/src/Avatar.selftest.mjs` drives the real `LightingRig` and the real resolvers, and it
+prints its blind spots on every run. Four of them belong to this section: whether the alpha is
+actually correct on the canvas (a node graph cannot be compiled under node, and whether
+`TAAUNode`/`TRAANode` preserve `.a` through the temporal resolve was **read, not executed**);
+whether the premultiply matches the premultiplied canvas in a real composite; the numeric half of
+the re-aim clause, which needs an eye material; and whether the groom *renders* at all. The groom's
+rig mapping was measured out-of-band — 53 joints, 0 absent from the figure rig, on all five bakes —
+but the picture was not.
 
 ### How the section above was checked
 
@@ -246,7 +436,7 @@ node packages/core/src/wardrobe/shadow.selftest.mjs
 | `tools/critic/` | The measurement harness — objective gates, blind A/B pairing, capture. |
 | `tools/figure-pipeline/` | Blender-side asset build and GLB verification. |
 | `tools/lut-bake/out/` | The baked curvature, region and cavity maps — committed, and served as-is. |
-| `assets/` | Built artefacts. Gitignored; rebuild with `npm run figure`. |
+| `assets/` | Built artefacts — figures, grooms, wardrobe. **Committed, through git-lfs**; rebuild with `npm run figure`. |
 | `reference/` | Comparison imagery. **Gitignored, never committed, never shipped.** |
 
 ## The documents, and the order to read them

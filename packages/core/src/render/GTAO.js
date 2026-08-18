@@ -988,6 +988,29 @@ export function createGroundTruthOcclusion( {
         ambientSpecularEnabled: ambientSpecular,
         defect,
 
+        /**
+         * Moves the hemisphere term's level after the composite has been built.
+         *
+         * 🚩 **WITHOUT THIS, THE AMBIENT WAS A CREATE-TIME SNAPSHOT AND A RUNTIME EXPOSURE CHANGE
+         * WOULD HAVE DESYNCHRONISED IT SILENTLY, ON THE DEFAULT TIER.** The `ambient` argument is
+         * `LightingRig.describeAmbient()`, whose `intensity` is derived from the KEY's irradiance
+         * and the rig's exposure — both of which a caller can move at runtime through
+         * `Avatar.setLighting`. `uniform( ambient.intensity )` above reads it once; before this
+         * setter existed nothing could read it again, so scaling the four direct lights would have
+         * left the ambient where it was and changed the very key:ambient balance this file is
+         * calibrated on. Nothing in the frame would have reported it.
+         *
+         * The uniform is already held in this closure, which is why the repair is a setter here
+         * rather than a rebuild at the caller.
+         *
+         * @param {number} value - the new hemisphere intensity, in the rig's own irradiance units.
+         */
+        setAmbientIntensity( value ) {
+
+            intensity.value = value;
+
+        },
+
         /** What the composite believes it is doing. Read by the census, so a plate can say. */
         describe() {
 

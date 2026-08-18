@@ -362,6 +362,53 @@ export class Grade {
         // three-round A/B and the two red-proofs are in `TRAAPost.js` and its selftest.
         const source = convertToTexture( colourNode );
 
+        // 🚩 **THE FRAME'S ALPHA, CARRIED. THE LINE AT THE BOTTOM OF THIS FUNCTION USED TO RETURN A
+        // LITERAL `1` AND IT WAS THE LAST OF FOUR WRITES THAT MADE A TRANSPARENT CANVAS IMPOSSIBLE
+        // — AND THE ONLY ONE THAT SURVIVED FIXING THE OTHER THREE.** The renderer is already
+        // configured for it and always was: `Renderer.js:98` defaults `alpha` to true,
+        // `Renderer.js:465`/`:473` therefore clear to `Color4( 0, 0, 0, 0 )`, and
+        // `WebGPUBackend.js:349` configures the canvas `premultiplied`. Three writes in `Avatar.js`
+        // put an opaque background, an 8x6 m emissive card and a 20 m ground plane in front of that,
+        // and this one threw the alpha away after all of them.
+        //
+        // ⚠️ **AND CARRYING IT MEANS THIS FILE ALSO OWES THE PREMULTIPLY.** `appliesOutputTransform`
+        // is true, so `Stage.js:713-717` does NOT wrap the graded node in `renderOutput()` — which
+        // means the grade skips three's `premultiplyAlpha` (`RenderOutputNode.js:137`) as well as
+        // its tone map. On a canvas the backend configures as `premultiplied`, an unpremultiplied
+        // edge fringes BRIGHT on a light host UI. So the return below multiplies.
+        //
+        // 🎯 THE DEFAULT PATH IS BIT-IDENTICAL AND THAT IS THE PROPERTY THAT MADE THIS SAFE TO LAND.
+        // With `background: 'studio'` the scene has an `isColor` background, `Background.js:71-76`
+        // sets `_clearColor.a = 1`, every drawn surface writes 1, and `x * 1.0 === x` exactly in
+        // IEEE-754 for every finite x. Every committed G1–G7 number is stated on that path.
+        //
+        // 🚩 **THE ALPHA THAT ARRIVES HERE IS CORRECT, AND THE TEMPORAL RESOLVE DESTROYS IT. BOTH
+        // HALVES MEASURED IN A REAL GPU CHROMIUM ON 2026-08-17**, by returning `vec4( vec3( alpha ),
+        // 1 )` from this function and reading the plate back — the alpha displayed as a picture:
+        //
+        //     | configuration                          | alpha = 0 | alpha = 1 |
+        //     |----------------------------------------|----------:|----------:|
+        //     | studio background, tier `high`          |     0.00% |   100.00% |
+        //     | transparent background, tier `high`     |     0.00% |   100.00% |
+        //     | transparent background, tier `fallback` |    41.63% |    57.80% |
+        //
+        // Row 3 is this chain working exactly as designed: 41.63% of the frame is empty and carries
+        // alpha 0, 57.80% is the figure and carries alpha 1. Row 1 is the shipped path and is why
+        // the change is safe — alpha is 1 everywhere, and `x * 1.0 === x` exactly.
+        //
+        // 🔴 Row 2 is the defect, and it is NOT in this file: `high` and `balanced` differ from
+        // `fallback` in the TEMPORAL RESOLVE, and with it on the alpha reaching this function is 1
+        // over the whole frame including the empty region. `TAAUNode`/`TRAANode` are three's and
+        // resolve into a buffer whose alpha is not carried. Until that is repaired, a transparent
+        // canvas is impossible on the two tiers that ship a temporal resolve, and `Avatar.create`
+        // refuses `background.colour: null` in words rather than presenting an opaque black
+        // rectangle. This chain is ready for the day the resolve is fixed.
+        //
+        // ⚠️ And for a FRACTIONAL alpha the multiply is applied after the tone curve rather than
+        // before it, which is an approximation. Exact for the arms this project ships, all of which
+        // are opaque-bucket (`cutout`/`hash`/`stochastic`) and produce alpha in { 0, 1 }.
+        const alpha = vec4( colourNode ).a.clamp( 0, 1 ).toVar();
+
         this.bloomNode = this.bloomEnabled === false
             ? null
             : bloom( source, this.bloomStrength, this.bloomRadius, this.bloomThreshold );
@@ -396,8 +443,31 @@ export class Grade {
         // more, it is a value the swap chain will wrap or clip unpredictably.
         // `.xyz` rather than the bare node: `workingToColorSpace` carries its input's arity
         // through, so `encoded` is vec4 when the chain started at a texture and vec3 when it did
-        // not, and `vec4( aVec4, 1 )` is five components and a compile error at r185.
-        return vec4( grained.xyz.clamp( 0, 1 ), 1 );
+        // not, and `vec4( aVec4, 1 )` is five components and a compile error at r185. That arity
+        // note is also why the fix is NOT `1` -> `grained.a`: `grained` may be a vec3.
+        //
+        // 🚩 ALPHA IS FORCED TO 1, AND CARRYING IT WAS A MEASURED REGRESSION ON THE COMMONEST TIER.
+        //
+        // The reasoning above is right about premultiplication and wrong about who writes alpha. It
+        // argues the default path is bit-identical because "every drawn surface writes 1" — true on
+        // the two WebGPU tiers, and false on `fallback`, which is the ONLY tier built with
+        // `antialias: true` (`Avatar.js:604`) and is what `quality: 'auto'` resolves to on every
+        // browser without WebGPU. MSAA's coverage resolve writes FRACTIONAL alpha at every silhouette
+        // edge regardless of what any surface wrote, and a groom is nothing but silhouette edges.
+        //
+        // Measured in a real WebGL2 Chromium on 2026-08-17, canvas composited over #ffffff and over
+        // #000000 and differenced — an opaque frame gives identical composites:
+        //
+        //     fallback + hair : the host page shows through on 13.728% of pixels, worst 130/255
+        //     fallback + bald : 0.190%, worst 105/255
+        //     with alpha forced back to 1 : 0.000%
+        //
+        // `Grade.selftest.mjs` is 68/68 and contains the string "alpha" zero times, so nothing in
+        // the suite could see it. A transparent background is REFUSED at `Avatar.create` (see its
+        // TypeError), so the frame is opaque by contract and there is no case where this should
+        // carry coverage. The premultiply stays as a no-op against alpha 1, which is exactly the
+        // arithmetic the paragraph above wanted and is bit-identical to the pre-change path.
+        return vec4( grained.xyz.clamp( 0, 1 ).mul( alpha ), 1 );
 
     }
 
