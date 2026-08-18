@@ -869,3 +869,98 @@ REQ-088 (`hair: false` still emits 16.26 MiB — module-scope `new URL()` litera
 import), REQ-089 (the Avatar gate proves call sites exist in source text, not that options reach the
 frame; two red proofs cannot go red), REQ-090 (`report().scene.lighting` reads the placement table
 rather than the lights).
+
+
+---
+
+## 14. The night of 2026-08-17/18 — hairstyles, and the avatar goes outdoors
+
+**Five commits. Read them in order; the bodies carry the measurements.** `39d6ce0` scene
+requirement, `7007f39` source sweep + viewer, `18a348a` hairstyle targets, `a12dcf6` Phase 11.1-11.3,
+`4e0d8b6` the scene look round, `44f41f4` seven grooms.
+
+### 🎯 What a person can SEE that they could not yesterday
+
+1. **`bob02` is a bob.** The owner supplied reference and said the shipped bob was "still very
+   different" from it. He was right and it is now arithmetic: the jaw plane on `figure_g050` is
+   **z 1.4350** (midline profile in 10 mm bands; forward-y steps −86.9 → −136.9 between 1.430 and
+   1.440 — the chin coming off the throat) and bob01's longest cards reach **1.3279**, **107 mm
+   below the jaw** and 14.6 mm below the collarbone. bob02's tips land **10-14 mm above the jaw**,
+   inside the ±15 mm the reference plates themselves span.
+2. **Seven grooms out of one generator**, selectable: `bob01 bob02 crop01 quiff01 long01 pixie01
+   lob01`. `hair.html?groom=<id>&bake=<g000..g100>`.
+3. **The avatar can stand outdoors.** `Avatar.create({ scene: 'beach' | 'park' })`. IBL went from a
+   measured **0.00%** of a forehead pixel to **25.92%** (beach) and **38.22%** (park).
+
+### 🚩 Read these before touching anything
+
+- **`bob01` IS THE CONTROL AND MUST NOT BE "FIXED".** It bakes to
+  `98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c` and every committed number in
+  this project was measured on it. bob02 is the corrected cut. Same argument as `studio`, which is
+  byte-identical at `fac62c50d56590fb` and is the calibration reference for every scene.
+- **THE GLBs FOR THE SIX NEW STYLES ARE NOT COMMITTED.** `assets/` is 276 MB against git-LFS's free
+  1 GB storage and 1 GB/month bandwidth; six styles × five bakes is ~90 MB more. The generator and
+  manifest ARE committed and a bake is 20 s. **This is an open product decision, deliberately left
+  to the owner.**
+- **THE ROUND FENCE IS 58 COMMITS PAST A CEILING OF 14.** `docs/OPEN-REQUESTS.md` declares R12 at
+  `a20bfcb`. Declaring the new round is overdue and expires ~90 open entries, which is what it is
+  for. Not done unilaterally.
+
+### 🔴 The three things that are wrong, ranked
+
+1. **EVERY SHORT STYLE FAILS AND EVERY LONG STYLE WORKS.** `crop01`, `quiff01`, `pixie01` render as
+   separate dark shingles with scalp between them. The generalised gate finds it independently —
+   `no bald patch` 109.7 mm² and `no skin on show` 158.4 mm² at the temple — and the obvious fix was
+   tested and refused: rebuilt at bob01's card widths and 682 cards, coverage improves and it is
+   still not a haircut.
+   🎯 **The diagnosis is the PRIMITIVE, and this is the third independent road to it.** §4 got it
+   from a blind control against frostbitten; §11 from a judge on our own plates; this round names a
+   REGIME rather than a defect — **cards are fine for a bob and unusable for a crop**, because a
+   40 mm card carrying a strand atlas reads as a flake when its own outline is a large fraction of
+   its area. Men's short hair does not become good by tuning.
+2. **A BEACH DOES NOT READ AS A BEACH AT PORTRAIT FRAMING.** A blind judge shown six unlabelled
+   plates named three: both studio plates and beach at BODY framing ("a beach or a wide flat shore,
+   sea behind her, late morning to midday" — correct, declared sun 52°). It could not name `park` at
+   either framing. 🚩 **The two exterior portrait backdrops are the same picture** — mean |Δ| 2.42
+   code values over a sky-only rect, against 150.12 versus studio and 31.79 over the two faces. The
+   scenes light the SUBJECT differently by an order of magnitude more than they distinguish the
+   WORLD. 11.6's own gate fails on four of six plates.
+3. **`park` still looks worse than `studio`, and `beach` is close but not past it.** The skin repair
+   was real — the defect was traced to b* collapsing 10.98 → 1.26 while a* never moved (a blue
+   illuminant, not a tone curve; exposure was measured and REFUTED as the cause) — and hue came back
+   6.4° → 44.9° against the control's 47.2°. But held at matched lightness, all six chroma patches
+   still sit BELOW the control. `park`'s ground renders **navy** (hue 218.7 against a declared grass
+   at 92.1) and reads blind as dark water; `beach`'s floor is mauve-grey (hue 271.0 against sand at
+   40.0). Both are rim-poisoned and nobody has repaired the floor.
+
+### ⚠️ Method failures this round, because they cost more than the code
+
+- **A READER MUST TAKE A PINNED REVISION.** I ran the source sweep concurrently with the build round
+  that was rewriting `hair_cards.py`. The readers took the working tree, the builders replaced it
+  underneath them, and the synthesis's premise went stale mid-flight with every line citation ~240
+  lines off. Disjoint FILE OWNERSHIP does not protect a moving READ. Use `git show <sha>:path` and
+  state the sha.
+- **A BACKGROUND WORKER THAT CAN STALL NEEDS A LIVENESS CHECK THAT IS NOT ITS OWN COMPLETION
+  CALLBACK.** The hair verification fan-out hung: last write 22:16, still nominally running at
+  02:47. The loop's fallback heartbeat is what surfaced it.
+- **§1.25r reached its NINTH instance, twice inside notes written to prevent the previous one.**
+  (7) a hand-fitted linear triple no colour curve produces; (8) a gate table committed under the
+  words "re-measured AFTER the last edit" that was an intermediate batch, plus one figure matching
+  no batch anywhere; (9) "the post-retune shares are in the round note below" pointing at numbers
+  that were nowhere in the tree. Also **RETRACTED**: "an exterior plate is a MODE" — it does not
+  reproduce (`bitident 10/10 worst=0 px=0` on all four exterior configurations, checked three ways),
+  and it mattered because it had established a noise budget that licensed the stale figures.
+  🎯 **The lesson is narrower than "re-measure": this round DID re-measure and then edited again. A
+  table is only as fresh as the last write to the file it describes.** REQ-091 is the repair — the
+  probe must EMIT the markdown rather than have it retyped.
+
+### ⏭️ Next, in the order I would take them
+
+1. **Fix `park`'s navy ground and `beach`'s mauve floor.** Diagnosed (the rim), unrepaired, and it is
+   the loudest thing in the one scene a judge could name.
+2. **Decide the primitive question for SHORT hair.** It is now a regime statement, not a hunch, and
+   it blocks the entire men's set. A scalp-shell surface with strand detail is the candidate nobody
+   has costed.
+3. **Make a scene read as a place at portrait framing** — 11.8's set silhouettes, pulled forward,
+   because 11.6's gate cannot pass without them.
+4. Then 11.4 interior, 11.6 the remaining ten scenes, 11.7 the legibility gates.
