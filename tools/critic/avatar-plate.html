@@ -64,6 +64,24 @@
          *                        this is what makes the temporal resolve converge on ONE picture
          *                        rather than on a picture plus N steps of idle motion.
          *   ?scene=<id>          the 11.1 scene id, once one exists. Absent, `background` alone.
+         *   ?sceneover=<json>    merged over `SCENES[scene]` — a partial would resolve from `studio`.
+         *
+         * ## The defect injections, and they are the reason this page is an instrument
+         *
+         *   ?noenv               null `scene.environment` after the build. 11.2's red proof.
+         *   ?noenvground         drop the ground disc from the environment bake. 11.3's.
+         *   ?noair               11.5's: null `scene.fogNode` AND shrink the ground plane back to
+         *                        `GROUND_EXTENT_IN_HEIGHTS`. The two halves of one change, so the
+         *                        arm is the whole control rather than half of it.
+         *   ?reframe=<mode>      build at `frame`, then `setFraming(mode)`. Not a defect — the GATE
+         *                        for one: `sizeTo` has two call sites and a closure wired into only
+         *                        one of them is invisible to any plate taken at a single framing.
+         *   ?staleclosure        with `?reframe`, hold the air's closure radius at the PREVIOUS
+         *                        framing's. That exact bug was written and caught this round.
+         *
+         * ⚠️ **EVERY ONE OF THESE REACHES PAST THE PUBLIC API, ON PURPOSE.** A library whose public
+         * API can delete the light or the air from a shipped avatar is a liability; an instrument
+         * that cannot produce its own control is not an instrument.
          *
          * 🚩 WHY THE CLOCK IS TAKEN OVER HERE RATHER THAN LEFT TO `avatar.step()`.
          * `Avatar.js`'s own header records the limit in as many words: `update( dt )` gives a fixed
@@ -118,6 +136,49 @@
                 // along the same sun, the ground plane still has the scene's albedo. What changes
                 // is one property.
                 avatar.stage.scene.environment = null;
+
+            }
+
+            // 11.5's RED PROOF, and it is a defect injection for the same reason the two above are:
+            // it puts the tree back to the picture it had BEFORE the air existed, on the SAME
+            // build, in the same run. `?noair` nulls the aerial node and shrinks the ground plane
+            // back to `GROUND_EXTENT_IN_HEIGHTS` — the two halves of one change, so the arm it
+            // produces is the honest control rather than half of it.
+            //
+            // ⚠️ IT EXISTS BECAUSE A PLATE TAKEN BEFORE ANOTHER AGENT'S EDIT IS NOT A CONTROL.
+            // The `beach` entry was retuned WHILE this round's first baseline was being measured,
+            // which is `docs/LEARNINGS.md` §1.25r's shape exactly. An arm that can be taken in the
+            // same minute as its treatment cannot go stale between them.
+            if ( query.has( 'noair' ) ) {
+
+                avatar.stage.scene.fogNode = null;
+
+                const studioExtent = avatar.framedHeightMetres * 12;
+                avatar.ground?.mesh.scale.set( studioExtent, studioExtent, 1 );
+
+            }
+
+            // 11.5's OTHER red proof, and the one that catches a defect no single-framing plate can
+            // see. `setFraming` re-sizes the ground plane, and the air closes the horizon at a
+            // radius it is TOLD — so a closure wired into only one of `sizeTo`'s two call sites
+            // leaves the seam back across the frame after a reframe and nowhere else. Build at one
+            // framing, reframe to the other, and the plate must match the one built there directly.
+            if ( query.has( 'reframe' ) ) {
+
+                const closureBefore = avatar.ground?.halfExtentMetres ?? null;
+
+                await avatar.setFraming( query.get( 'reframe' ) );
+
+                // 🔴 …and `?staleclosure` IS that bug, injected. The plane is re-sized by
+                // `applyFraming` either way; what the defect drops is the one line that tells the
+                // air about it, so the closure keeps the PREVIOUS framing's radius. Written as an
+                // arm rather than trusted to a comment, because "the gate would have caught it" is
+                // a claim like any other.
+                if ( query.has( 'staleclosure' ) && closureBefore !== null ) {
+
+                    avatar.skyEnvironment?.setGroundClosure( avatar.ground.centre, closureBefore );
+
+                }
 
             }
 

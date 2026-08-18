@@ -115,8 +115,21 @@ import {
     MeshStandardNodeMaterial,
     PMREMGenerator,
     Scene as BakeScene,
+    Vector2,
     Vector3
 } from 'three/webgpu';
+
+import {
+    backgroundBlurriness,
+    backgroundIntensity,
+    cameraPosition,
+    fog,
+    pmremTexture,
+    positionView,
+    positionWorld,
+    smoothstep,
+    uniform
+} from 'three/tsl';
 
 import { SkyMesh } from 'three/examples/jsm/objects/SkyMesh.js';
 
@@ -218,6 +231,79 @@ export const PMREM_CUBE_SIZE = 256;
  */
 const BAKE_EYE_HEIGHT_METRES = 1.5;
 const GROUND_DISC_RADIUS_METRES = 500;
+
+// --- the air, punch-list 11.5 ---------------------------------------------------------------------
+
+/**
+ * 🎯 **THE AIR IS ONE NODE AND IT CARRIES TWO TERMS THAT ARE NOT THE SAME KIND OF THING.** Naming
+ * them apart is the whole of why this block is legible, and conflating them is how a geometry
+ * repair gets shipped as physics.
+ *
+ * **1. `haze` — the scene's own air, `scene.air.haze`, 11.5's deliverable.** Distance extinction
+ * toward the sky, in the `exp( −(kd)² )` form three's own `densityFogFactor` uses. It is what puts
+ * DEPTH between the subject and the background, and it is zero in every scene that does not ask
+ * for it — so a scene with `haze: 0` gets exactly the picture it had before this term existed,
+ * everywhere except the closure below.
+ *
+ * **2. `closure` — the ground plane's outer margin, and it is a TRUNCATION REPAIR, not weather.**
+ * `GroundContact`'s plane is finite. Its far edge against the sky is the *"hard aliased matte
+ * line"* HEAD's own commit body reports — measured on the shipped `beach` body plate at 100 code
+ * values across ONE row (x=120, y=737→738, (159,182,191) → (59,89,117)), sloping 8 px across the
+ * frame because the plane is a square standing at the camera's own 12° azimuth. **A coastline is
+ * not a step function and no amount of haze fixes an edge the haze does not reach**, so the plane
+ * dissolves into the sky over its own outer margin and its edge is never drawn. This term exists
+ * whenever the ground meets a sky, at `haze: 0` as much as at `haze: 1`.
+ *
+ * 🚩 **AND THE COLOUR IS NOT A CHOSEN COLOUR — IT IS THE BACKDROP ITSELF, READ BACK.** The obvious
+ * implementation is a horizon colour computed on the CPU and handed in as a uniform, and it is
+ * wrong for a reason the plate shows: the sky's own horizon varies 43 code values ACROSS THE FRAME
+ * on `beach` (x=120 reads (159,182,191) and x=800 reads (116,144,160), same 30-row band above the
+ * seam), because it brightens toward the sun. One uniform closes the seam at one azimuth and opens
+ * it everywhere else. So the fog colour is `pmremTexture()` of `solarTarget` — the SAME texture
+ * `scene.background` is drawn from, sampled along the same view direction, through the same
+ * `backgroundIntensity` and `backgroundBlurriness` three multiplies the backdrop by
+ * (`Background.js:91-94`, r185). Fully hazed ground and the sky behind it are then the same
+ * expression of the same texture, so **the seam closes by construction rather than by tuning** and
+ * it stays closed when the sun moves, when the exposure moves, and at any width.
+ *
+ * ✅ **AND THE BACKDROP ITSELF CANNOT BE FOGGED, BY THREE'S OWN CONSTRUCTION RATHER THAN BY LUCK.**
+ * The obvious worry about a scene-wide fog node is that it eats the sky it is supposed to blend
+ * into — a fog that replaces the background with a reading of the background is a feedback loop
+ * waiting for a rounding error. It cannot happen: `Background.js:125` sets `nodeMaterial.fog =
+ * false` on the background mesh, and `NodeMaterial.setupOutput` gates the whole fog step on
+ * `this.fog === true` (`NodeMaterial.js:1188`). Confirmed on plates as well as in the source — the
+ * `sky-high` mask (620,480,240,60) reads (165.12, 197.62, 209.03) to five figures both with the
+ * aerial node installed and with `?noair`.
+ *
+ * ⚠️ **THE SUBJECT IS UNTOUCHED AT `haze: 0`, EXACTLY, AND THAT IS DELIBERATE.** The closure is a
+ * `smoothstep` on horizontal distance from the ground plane's own centre, and the figure stands at
+ * that centre — so its factor is a hard zero and `mix( output, sky, 0 )` returns `output`. This
+ * round does not own the light on the skin and must not move it. Verified as a measurement, not as
+ * an argument: see the ROUND NOTE at the foot of `GroundContact.js`.
+ */
+
+/**
+ * Distance at which `haze: 1` leaves the ground 95% dissolved into the sky. Extinction is LINEAR in
+ * `haze`, so 0.5 doubles it to 50 m and 0.2 gives 125 m — i.e. the field reads as "how much air",
+ * and the metres it buys are one multiplication away rather than hidden in a curve.
+ *
+ * 25 m is chosen so that the shipped `air.haze` range [0, 1] spans "a clean day at this framing"
+ * to "you cannot see the far end of the ground plane", which is the range a scene author needs.
+ */
+export const HAZE_95_PERCENT_METRES_AT_FULL = 25;
+
+/** `(k·d)² = 3` is `1 − e^−3` = 0.9502. The constant that makes the line above true. */
+const HAZE_95_PERCENT_EXPONENT = Math.sqrt( 3 );
+
+/**
+ * Where the ground's dissolve begins, as a fraction of the plane's half-extent.
+ *
+ * 0.45 rather than something later: the closure has to be a GRADIENT and not a soft edge. At 0.8
+ * the plate still reads a band; at 0.45 the ground shades into the sky over most of its far half,
+ * which is what a hazy coastline looks like. Measured on plates, not chosen from a curve — the
+ * ROUND NOTE carries the seam figures at both.
+ */
+const CLOSURE_START_FRACTION = 0.45;
 
 // --- the sun model -------------------------------------------------------------------------------
 
@@ -434,6 +520,7 @@ export class SkyEnvironment {
      * @param {Object} options.sun - `{ elevationDegrees, azimuthDegrees, occlusion }`.
      * @param {Object} options.sky - `{ turbidity, rayleigh, mieCoefficient, mieDirectionalG }`.
      * @param {Object} options.ground - `{ enabled, albedo, roughness }` from the scene.
+     * @param {Object} [options.air] - `{ haze }` from the scene. 11.5. Absent is no air.
      * @param {number} [options.size=PMREM_CUBE_SIZE]
      */
     constructor( options ) {
@@ -441,7 +528,18 @@ export class SkyEnvironment {
         this.sun = options.sun;
         this.sky = options.sky;
         this.ground = options.ground;
+        this.air = options.air ?? { haze: 0 };
         this.size = options.size ?? PMREM_CUBE_SIZE;
+
+        // The air's four numbers, as uniforms rather than as node constants, because three keys its
+        // material pipeline cache on the node GRAPH: rebuilding the fog node to change a number
+        // recompiles every material in the scene, which is the same 43–56 ms this file already
+        // refuses to pay for a swapped environment texture. `setAir` and `setGroundClosure` write
+        // through them, and both are callable every frame without costing anything.
+        this.hazeDensity = uniform( 0 );
+        this.closureStart = uniform( 1e9 );
+        this.closureEnd = uniform( 1e9 );
+        this.closureCentre = uniform( new Vector2( 0, 0 ) );
 
         // Everything below is acquired in `attachTo` and released in `dispose`. Declared here so
         // `dispose()` has one object to walk and so a half-built environment is still disposable —
@@ -501,7 +599,94 @@ export class SkyEnvironment {
 
         this.bake();
 
+        // 11.5. AFTER the bake, because the fog node samples `solarTarget` and that target does not
+        // exist until `bake()` has run once. Installed on `scene.fogNode` rather than `scene.fog`
+        // so the colour can be the backdrop texture instead of a `Color` three would have to be
+        // told: `NodeManager.getFogNode` reads `scene.fogNode` FIRST and only falls back to the
+        // `Fog`/`FogExp2` translation (`NodeManager.js:576`, r185).
+        //
+        // ⚠️ A STUDIO SCENE NEVER REACHES THIS LINE. `environmentRequestOf` returns null without a
+        // sky, so `Avatar` never constructs a `SkyEnvironment` for `studio`, `void` or
+        // `transparent`, and `scene.fogNode` stays `undefined` on the calibration control.
+        this.scene.fogNode = this.buildAerialNode();
+
+        this.setAir( this.air );
+
         return this;
+
+    }
+
+    /**
+     * The scene's air, live. `haze` is `scene.air.haze` — 0 is a clean day, 1 is 95% dissolved at
+     * `HAZE_95_PERCENT_METRES_AT_FULL`.
+     *
+     * @param {Object} air - `{ haze }`.
+     */
+    setAir( air ) {
+
+        this.air = air;
+        this.hazeDensity.value = ( air.haze ?? 0 ) * HAZE_95_PERCENT_EXPONENT / HAZE_95_PERCENT_METRES_AT_FULL;
+
+        return this;
+
+    }
+
+    /**
+     * Where the ground plane ends, so the air can close it before its edge is drawn.
+     *
+     * 🚩 **THIS IS PUSHED IN RATHER THAN READ OUT, AND THE REASON IS CONSTRUCTION ORDER.** The sky
+     * is built in `Avatar.build()` STEP 3b and the ground in STEP 5, and the plane is not SIZED
+     * until `swapFigure()` has framed the figure — three steps and one await later. An environment
+     * that reached for `avatar.ground.halfExtentMetres` at attach time would read `null` and close
+     * the horizon at the origin. `Avatar` calls this from the same place it calls `sizeTo`, so the
+     * two cannot fall out of step.
+     *
+     * @param {{ x: number, z: number }} centre - the plane's centre, world.
+     * @param {number} halfExtentMetres - half the plane's side. The dissolve completes here, which
+     *   is the plane's INSCRIBED circle — so the square's corners are already gone and no scene
+     *   ever shows one.
+     */
+    setGroundClosure( centre, halfExtentMetres ) {
+
+        this.closureCentre.value.set( centre.x, centre.z );
+        this.closureStart.value = halfExtentMetres * CLOSURE_START_FRACTION;
+        this.closureEnd.value = halfExtentMetres;
+
+        return this;
+
+    }
+
+    /**
+     * `fog( the backdrop itself, haze ⊕ closure )`.
+     *
+     * The two factors compose as independent extinctions — `1 − (1−a)(1−b)` — rather than as a
+     * `max`, so a hazy scene and a closing horizon do not fight over the last few metres and
+     * either one alone reduces to itself exactly.
+     */
+    buildAerialNode() {
+
+        // Distance from the camera PLANE, which is what `densityFogFactor` uses and what the
+        // temporal resolve's own depth is in. The difference from radial distance is a cosine and
+        // it is under 2% inside a 30° frame.
+        const viewDistance = positionView.z.negate();
+
+        const haze = viewDistance.mul( this.hazeDensity ).pow( 2 ).negate().exp().oneMinus();
+
+        // Horizontal distance from the ground plane's centre. `y` is deliberately absent: the
+        // closure is about how far across the FLOOR a point is, and the floor is flat.
+        const radius = positionWorld.xz.sub( this.closureCentre ).length();
+        const closure = smoothstep( this.closureStart, this.closureEnd, radius );
+
+        const factor = haze.oneMinus().mul( closure.oneMinus() ).oneMinus();
+
+        // The backdrop, re-read. Same texture, same rotation-free direction, same two scene
+        // uniforms three multiplies the background mesh by — see the block comment above
+        // `HAZE_95_PERCENT_METRES_AT_FULL` for why this is a texture read and not a colour.
+        const direction = positionWorld.sub( cameraPosition ).normalize();
+        const sky = pmremTexture( this.solarTarget.texture, direction, backgroundBlurriness )
+            .rgb.mul( backgroundIntensity );
+
+        return fog( sky, factor );
 
     }
 
@@ -600,6 +785,13 @@ export class SkyEnvironment {
             bakes: this.bakeCount,
             environmentIntensity: this.scene === null ? null : this.scene.environmentIntensity,
             groundInBake: this.groundDisc !== null,
+            haze: this.air.haze ?? 0,
+            hazeDensityPerMetre: this.hazeDensity.value,
+            haze95PercentMetres: this.hazeDensity.value === 0
+                ? null
+                : HAZE_95_PERCENT_EXPONENT / this.hazeDensity.value,
+            groundClosureStartMetres: this.closureStart.value,
+            groundClosureEndMetres: this.closureEnd.value,
             sunElevationDegrees: this.sun.elevationDegrees,
             sunAzimuthDegrees: this.sun.azimuthDegrees,
             sunColour: disc.colourHex,
@@ -627,6 +819,11 @@ export class SkyEnvironment {
             this.scene.background = null;
             this.scene.environmentIntensity = 1;
             this.scene.backgroundIntensity = 1;
+
+            // ⚠️ `null`, not `delete`. `NodeManager.getFogNode` is `scene.fogNode || …`, so either
+            // works for the read — but `describe()` and `Avatar.report()` state whether the air is
+            // attached, and a deleted property and a null one answer `hasOwnProperty` differently.
+            this.scene.fogNode = null;
 
         }
 

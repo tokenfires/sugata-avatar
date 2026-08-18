@@ -141,7 +141,7 @@ import { Pupil } from './motion/Pupil.js';
 import { Sway } from './motion/Sway.js';
 
 import { Grade, TEMPORAL_RECOVERY_SHARPNESS } from './render/Grade.js';
-import { GroundContact } from './render/GroundContact.js';
+import { EXTERIOR_GROUND_EXTENT_IN_HEIGHTS, GroundContact } from './render/GroundContact.js';
 import { GTAO_SHIPPING_QUALITY, createGroundTruthOcclusion } from './render/GTAO.js';
 import { EXPOSURE_CALIBRATION, LightingRig } from './render/LightingRig.js';
 import {
@@ -1314,10 +1314,19 @@ export class Avatar {
             // floor of its own colour, and the same two numbers went into the environment bake
             // above, so the plane the figure stands on and the light bouncing off it are one
             // statement rather than two that can drift.
+            // 🎯 AND PUNCH-LIST 11.5's HALF OF THE SAME LINE. A studio's floor runs out of frame
+            // and stops; an exterior's floor has to reach a HORIZON, and 12 heights puts its far
+            // edge 345 px above the soles as a hard matte line. The extent moves only for a scene
+            // that has a sky to meet — `this.skyEnvironment` is the exact condition, because it is
+            // also the object that closes the plane into that sky. See
+            // `EXTERIOR_GROUND_EXTENT_IN_HEIGHTS`: neither number is a fix without the other.
             this.ground = new GroundContact( {
                 occlusion: true,
                 albedo: this.scene.ground.albedo ?? undefined,
-                roughness: this.scene.ground.roughness ?? undefined
+                roughness: this.scene.ground.roughness ?? undefined,
+                ...( this.skyEnvironment === null
+                    ? {}
+                    : { extentInHeights: EXTERIOR_GROUND_EXTENT_IN_HEIGHTS } )
             } );
 
             this.ground.attachTo( this.stage.scene );
@@ -1923,7 +1932,33 @@ export class Avatar {
         aimRigAt( this.lights, this.eyes, focus, this.framedHeightMetres, this.stage );
 
         this.backdrop?.position.set( focus.x, focus.y, focus.z - this.scene.background.distanceMetres );
-        this.ground?.sizeTo?.( { focus, subjectHeightMetres: this.framedHeightMetres } );
+        this.sizeGroundTo( focus );
+
+    }
+
+    /**
+     * The ground plane's size AND the air's knowledge of it, in one call.
+     *
+     * 🚩 **ONE METHOD BECAUSE TWO CALL SITES FOR ONE FACT IS HOW THEY COME TO DISAGREE, AND THIS
+     * ROUND WROTE THE BUG BEFORE IT WROTE THE METHOD.** `sizeTo` is reached from `swapFigure` (an
+     * identity swap) and from `applyFraming` (`setFraming`), and 11.5's closure was first wired
+     * into only the first of them. The symptom would not have been subtle: `setFraming('body')`
+     * from portrait re-sizes the plane and leaves the air closing the horizon at the PREVIOUS
+     * framing's radius, which puts the matte line this item exists to remove straight back across
+     * the frame — and no still plate taken at one framing can see it. Same shape as `SCENE_LOOKS`'s
+     * own per-framing failure, one subsystem along.
+     *
+     * @param {import('three').Vector3} focus
+     */
+    sizeGroundTo( focus ) {
+
+        // ⚠️ The optional calls are inherited rather than added: `applyFraming` already guarded
+        // `sizeTo` this way, and a guard that is removed on a refactor is a throw in whatever
+        // harness needed it.
+        if ( this.ground?.sizeTo === undefined ) return;
+
+        this.ground.sizeTo( { focus, subjectHeightMetres: this.framedHeightMetres } );
+        this.skyEnvironment?.setGroundClosure( this.ground.centre, this.ground.halfExtentMetres );
 
     }
 
@@ -2140,6 +2175,46 @@ export class Avatar {
                 this.scene.sun, this.scene.sky, CAMERA_AZIMUTH_DEGREES );
 
             merged.key = { ...( merged.key ?? {} ), ...sunKey };
+
+        }
+
+        // 🎯 THE MULTIPLIER AXIS, RESOLVED AGAINST **THIS** FRAMING'S AUTHORED TABLE — punch-list
+        // 11.7's `scales`, and the reason a scene can finally touch an edge light at all. The base
+        // is whatever is in force at this point: the look's own value if the look moved the field,
+        // and otherwise the number `EDGE_LIGHTS`/`FORM_LIGHTS` authored for the LIVE preset. So the
+        // rim scale a scene writes is 16 x f at portrait and 22 x f at body, re-resolved every time
+        // `setFraming` calls this function, and never stored as an absolute.
+        //
+        // 🚩 IT SITS BEFORE THE CALLER'S OWN `lights` SO THAT AN ABSOLUTE ALWAYS WINS. An embedder
+        // who writes `lights.rim.irradiance = 4` means 4, not 4 x the scene's factor.
+        if ( Object.keys( this.lighting.scales ).length > 0 ) {
+
+            const authored = authoredPlacements( preset );
+
+            for ( const [ name, fields ] of Object.entries( this.lighting.scales ) ) {
+
+                const base = authored.get( name );
+
+                // A scale against a light this framing does not carry cannot be resolved against
+                // anything, and `resolvePlacements` would drop the override in SILENCE — measured
+                // through the real rig, see PLACEMENT_FIELDS.
+                if ( base === undefined ) {
+
+                    throw new TypeError( `Avatar: lighting.scales names '${ name }', which the ` +
+                        `'${ preset }' preset does not carry. LightingRig would drop that override ` +
+                        'without a word.' );
+
+                }
+
+                const into = merged[ name ] ?? ( merged[ name ] = {} );
+
+                for ( const [ field, factor ] of Object.entries( fields ) ) {
+
+                    into[ field ] = ( into[ field ] ?? base[ field ] ) * factor;
+
+                }
+
+            }
 
         }
 
@@ -2801,7 +2876,7 @@ export class Avatar {
 
             }
 
-            this.ground.sizeTo( { focus, subjectHeightMetres: this.framedHeightMetres } );
+            this.sizeGroundTo( focus );
 
         }
 
@@ -3675,7 +3750,7 @@ export function resolveLightingOption( request ) {
 
     }
 
-    const known = [ 'look', 'exposure', 'ambient', 'shadows', 'lights' ];
+    const known = [ 'look', 'exposure', 'ambient', 'shadows', 'lights', 'scales' ];
 
     for ( const key of Object.keys( request ) ) {
 
@@ -3720,8 +3795,82 @@ export function resolveLightingOption( request ) {
         exposure,
         ambient,
         shadows: request.shadows ?? null,
-        lights: resolveLightOverrides( request.lights ?? null )
+        lights: resolveLightOverrides( request.lights ?? null ),
+        scales: resolveLightScales( request.scales ?? null )
     } );
+
+}
+
+/**
+ * The MULTIPLIER half of the escape hatch — punch-list 11.7's `scales` axis, reached by a scene.
+ *
+ * 🎯 WHY THERE ARE TWO HATCHES AND NOT ONE. `lights` is absolute and `scales` is a factor on
+ * whatever the CURRENT framing authored, and the difference is `setFraming`: `EDGE_LIGHTS` differs
+ * between the presets (rim 16 at portrait, 22 at body), so a rim written absolutely at one crop is
+ * wrong at the other and nothing reports it. `SCENE_LOOKS` carries the measurement that established
+ * this for looks; `render/Scene.js`'s `SCENE_SCALE_FIELDS` carries it for scenes.
+ *
+ * ⚠️ VALIDATION IS `Scene.js`'S RANGES AND THIS FUNCTION'S NAMES. A factor is refused at zero and
+ * below there, because 0 and −1 are legal numbers and only become `NaN` in the scene graph after
+ * the multiply; here the LIGHT NAME and the FIELD are refused, because `LightingRig` drops an
+ * unknown name and merges an unknown field in silence — the same two rows `resolveLightOverrides`
+ * closes on the absolute path.
+ */
+export function resolveLightScales( scales ) {
+
+    if ( scales === null || scales === undefined ) return Object.freeze( {} );
+
+    if ( typeof scales !== 'object' ) {
+
+        throw new TypeError( 'Avatar: lighting.scales must be an object keyed by light name — ' +
+            `${ RIG_LIGHT_NAMES.join( ', ' ) } — whose values are FACTORS, not absolutes.` );
+
+    }
+
+    const resolved = {};
+
+    for ( const [ name, fields ] of Object.entries( scales ) ) {
+
+        requireKnownLight( name, 'lighting.scales' );
+
+        if ( fields === null || typeof fields !== 'object' ) {
+
+            throw new TypeError( `Avatar: lighting.scales.${ name } must be an object of factors.` );
+
+        }
+
+        const out = {};
+
+        for ( const [ field, factor ] of Object.entries( fields ) ) {
+
+            if ( PLACEMENT_FIELDS[ field ] === undefined || field === 'colour' ) {
+
+                throw new TypeError( `Avatar: lighting.scales.${ name } cannot scale '${ field }'. ` +
+                    'Scalable: every numeric placement field. ⚠️ `colour` is excluded because a hex ' +
+                    'is not a scalar — 0xffeeda x 0.5 is a different HUE, not a dimmer light.' );
+
+            }
+
+            if ( Number.isFinite( factor ) === false || factor <= 0 ) {
+
+                throw new TypeError( `Avatar: lighting.scales.${ name }.${ field } must be a ` +
+                    `POSITIVE finite factor; got ${ String( factor ) }. A factor of 0 or less ` +
+                    'multiplies into a negative irradiance or a zero distance, and LightingRig puts ' +
+                    'both into the scene graph without a word. For "no rim" write ' +
+                    'lighting.lights.rim.irradiance = 0, which is absolute and therefore means the ' +
+                    'same thing at both framings.' );
+
+            }
+
+            out[ field ] = factor;
+
+        }
+
+        resolved[ name ] = Object.freeze( out );
+
+    }
+
+    return Object.freeze( resolved );
 
 }
 

@@ -230,11 +230,49 @@ const RADIUS_PERCENTILE = 0.75;
  * then removed, because at the new standoff `specularIntensity` 1 → 0 moves saturation 0.2216 →
  * 0.1840 and is not worth a material class change). If the rim ever moves back out, the specular
  * share climbs with it and this constant will be fighting the same losing battle again.
+ *
+ * 🔴 **AND THE DIAL IN THAT LAST PARAGRAPH DOES NOT EXIST ON THIS MATERIAL. MEASURED 2026-08-18,
+ * WHILE TRYING TO USE IT.** `specularIntensity` is declared on `MeshPhysicalMaterial`
+ * (`MeshPhysicalMaterial.js:318`) and on `MeshPhysicalNodeMaterial`'s
+ * `specularIntensityNode` — it is **not a field of `MeshStandardMaterial` at three r185**, and
+ * this floor is a `MeshStandardNodeMaterial`. Constructing the shipped exterior ground with
+ * `specularIntensity: 0` sets a property JavaScript accepts and the shader never reads: the plate
+ * comes back **sha `f132f1b896b5687a`, bit-identical, 0 px moved** against the same plate without
+ * it (`beach`, body, 900×1200, 1 step, seed 1, 2 loads each). So the *"0.2216 → 0.1840"* row above
+ * cannot have been produced by setting this field on this material — either `?floorspec` swapped
+ * the material class before it was removed, or the row is another `docs/LEARNINGS.md` §1.25r.
+ * ⚠️ The CONCLUSION it supports is untouched and is not being relitigated: a material-class change
+ * was rejected, and nothing since has needed one. What is corrected is the belief that a reader
+ * can reach for that dial — they cannot, and the round that tried lost a capture finding out.
  */
 const FLOOR_ALBEDO = 0x968c34;
 
 /** Extent of the ground plane in framed subject heights. Large enough to leave frame at both. */
 const GROUND_EXTENT_IN_HEIGHTS = 12;
+
+/**
+ * 🔴 **AND FOR A SCENE WITH A HORIZON, 12 IS THE DEFECT.** Punch-list 11.5.
+ *
+ * "Large enough to leave frame at both" is true at portrait and FALSE at body framing the moment
+ * the backdrop card comes out and a sky goes in: 12 heights is a 21.6 m square, so its far edge
+ * stands about 10.5 m from the focus and lands **345 px above the sole line** on a 900×1200 body
+ * plate. That edge is the *"hard aliased matte line"* HEAD's commit body reports.
+ *
+ * 🎯 **THE NUMBER IS PICKED BY THE CAMERA'S FAR PLANE AND NOTHING ELSE, WHICH IS WHY IT IS
+ * DERIVED HERE RATHER THAN CHOSEN.** `Stage` builds its camera at `far = 100` (`Stage.js:326`).
+ * A square plane of half-extent E centred near the focus reaches `E·√2` at its CORNERS, and the
+ * camera stands ~4 m back, so the binding constraint is `E·√2 + 4 < 100` → `E < 67.9`. 36 heights
+ * is E = 32.4 m at the shipped 1.80 m framed height: corners at 45.8 m + 4 m = **49.8 m, half the
+ * far plane**, with the whole margin left for a taller framing or a longer lens.
+ *
+ * ⚠️ **IT IS NOT A FIX ON ITS OWN AND MUST NOT BE SHIPPED AS ONE.** A bigger plane MOVES the seam
+ * up toward the true horizon (10.5 m → 32.4 m is 345 px → 116 px above the soles); it does not
+ * soften it. The seam is closed by `SkyEnvironment`'s aerial node dissolving the plane into the
+ * sky before its edge, and the two are one change: without the dissolve this constant makes the
+ * matte line LONGER, and without the extra extent the dissolve finishes 345 px too low and the
+ * frame reads as a fog bank rather than as a distance. Both numbers are in the ROUND NOTE.
+ */
+export const EXTERIOR_GROUND_EXTENT_IN_HEIGHTS = 36;
 
 /**
  * One material field, reduced to a string a delta scan can compare across two instances.
@@ -459,12 +497,21 @@ export class GroundContact {
      * @param {number} [options.strength=1] - scales the occlusion the ground receives. 1 is the
      *   physical answer; the dial exists so a browsercheck can sweep past it and back.
      * @param {number} [options.roughness=0.9]
+     * @param {number} [options.extentInHeights=GROUND_EXTENT_IN_HEIGHTS] - how far the plane runs,
+     *   in framed subject heights. `EXTERIOR_GROUND_EXTENT_IN_HEIGHTS` for a scene with a horizon,
+     *   and read that constant before changing either — the two are one decision.
      */
     constructor( options = {} ) {
 
         this.albedo = options.albedo ?? FLOOR_ALBEDO;
         this.occlusionEnabled = options.occlusion !== false;
         this.strength = options.strength ?? 1;
+        this.extentInHeights = options.extentInHeights ?? GROUND_EXTENT_IN_HEIGHTS;
+
+        // Written by `sizeTo`, and null until it runs. `SkyEnvironment.setGroundClosure` is the one
+        // consumer: the air cannot close a horizon whose distance it does not know.
+        this.halfExtentMetres = null;
+        this.centre = new Vector3( 0, 0, 0 );
 
         this.mesh = new Mesh(
             new PlaneGeometry( 1, 1 ),
@@ -506,9 +553,12 @@ export class GroundContact {
     /** Sizes the plane to the shot. Same units the rig uses, so one number drives both. */
     sizeTo( { focus, subjectHeightMetres } ) {
 
-        const extent = subjectHeightMetres * GROUND_EXTENT_IN_HEIGHTS;
+        const extent = subjectHeightMetres * this.extentInHeights;
         this.mesh.scale.set( extent, extent, 1 );
         this.mesh.position.set( focus.x, 0, focus.z );
+
+        this.halfExtentMetres = extent / 2;
+        this.centre.set( focus.x, 0, focus.z );
 
         return this;
 
@@ -732,6 +782,8 @@ export class GroundContact {
             materialDeltas,
             uniforms: {
                 albedo: this.albedo,
+                extentInHeights: this.extentInHeights,
+                halfExtentMetres: this.halfExtentMetres,
                 occlusionEnabled: this.occlusionEnabled,
                 strength: this.strength,
                 strengthUniform: this.strengthUniform.value,
@@ -927,3 +979,156 @@ const _vertex = new Vector3();
 const _offset = new Vector3();
 const _axisScaled = new Vector3();
 const _matrix = new Matrix4();
+
+// 📋 --- ROUND NOTE: 11.5, the ground, the horizon and the air. Measured 2026-08-18 ----------------
+//
+/**
+ * 📋 **THREE DEFECTS WERE HANDED TO THIS ROUND FROM A PLATE. TWO ARE FIXED HERE AND ONE IS
+ * DIAGNOSED AND HANDED BACK, AND THE DIAGNOSIS IS THE MOST VALUABLE OF THE THREE.**
+ *
+ * Every figure below is `tools/critic/capture.mjs --plate --plate-loads 2` driving
+ * `tools/critic/avatar-plate.html` at 900×1200, 1 step at 60 fps, seed 1, frozen, quality `auto`,
+ * apple/metal-3 WebGPU. Every arm reproduced `bitident=1/1 worst=0 px=0`. Masks are stated beside
+ * every number, because **a whole-frame mean cannot see a horizon and cannot see a floor.**
+ *
+ * ⚠️ **AND THE CONTROL IS `?noair` ON THE SAME BUILD IN THE SAME BATCH, NOT A PLATE FROM EARLIER —
+ * BECAUSE THE FIRST TWO BATCHES OF THIS ROUND WERE INVALIDATED EXACTLY THAT WAY.** `beach`'s lights
+ * were retuned in the same working tree while this round's baseline plates were being taken, so the
+ * first A/B compared two different scenes and attributed the difference to this item. The published
+ * silhouette figures were re-derived and CHANGED because of it (1.043 → 1.2303 on the same band),
+ * and the sand albedo's hue was published here as 34.3° and is **40.0°**. Both were caught by
+ * re-measuring after the last edit, which is the only reason this note is not the eighth instance
+ * of `docs/LEARNINGS.md` §1.25r. Two mechanisms now stand against it: `?noair` puts the tree back
+ * to the pre-air picture ON the current build, and the batch script fingerprints `git diff` before
+ * and after every run so a tree that moves mid-batch is caught rather than averaged in. Every
+ * number below carries tree fingerprint **`3176b43c8f15b1bc`** unless it says otherwise.
+ *
+ * ## 1. 🔴 THE FLOOR IS LAVENDER — IT IS THE RIM, AND THIS IS THE INSTANCE THAT IS REAL
+ *
+ * Four commits in this repository have been spent on a violet rim that changed no pixels. This one
+ * changes them. Shipped `beach`, body framing, against the SAME plate with the rim's irradiance
+ * written to an absolute 0 and every other light held — on a tree that ALREADY carries
+ * `scales.rim.irradiance: 0.1625`, i.e. the rim cut from 16 to 2.6:
+ *
+ *   | mask                           | mean code                | HSV S  |  hue° | linear B:R |
+ *   |--------------------------------|--------------------------|-------:|------:|-----------:|
+ *   | `floor-lit` 620,1060,240,120   | (156.50, 147.87, 164.58) | 0.1015 | 271.0 |      1.117 |
+ *   | the same, rim at 0             | (156.13, 146.56, 138.52) | 0.1128 |  27.4 |      0.769 |
+ *   | `floor-shadow` 60,1010,220,110 | (131.31, 128.02, 160.08) | 0.2003 | 246.2 |      1.543 |
+ *   | the same, rim at 0             | (130.50, 126.00, 125.84) | 0.0357 |   2.1 |      0.924 |
+ *   | the DECLARED albedo `#a89f8d`  | (168, 159, 141)          | 0.1607 |  40.0 |      0.680 |
+ *
+ * 🎯 **Take the rim away and the lit floor lands at hue 27.4° beside the sand's own 40.0°, and the
+ * shadow stain's saturation collapses from 0.2003 to 0.0357 — a factor of 5.6.** In scene-linear
+ * the rim is **31.5% of the lit floor's blue** (0.3741 of which 0.2562 survives without it) and
+ * **40.9% of the shadow's blue**, against **0.5% of the lit floor's red**. The stain is this file's
+ * occlusion node doing exactly its job: it scales the ALBEDO, so where it darkens hardest the
+ * diffuse goes to nothing and what is left is a near-primary `#0f30ff` reflected with no albedo
+ * anywhere in the path — the header's own argument, one scene along.
+ *
+ * ⚠️ **AND THE KICKER IS NOT PART OF IT.** Rim-and-kicker at 0 against rim-only at 0 moves
+ * `floor-lit` by **1.32 codes**. Naming the pair would have been half wrong.
+ *
+ * ⏭️ **NOT FIXED HERE, AND THE REASON IS OWNERSHIP RATHER THAN DIFFICULTY.** It is a light. Even at
+ * 2.6 it is still the entire hue of the floor, which is the number the round that owns the lights
+ * needs. The two levers this file could have reached for are both refuted: the albedo is the
+ * scene's and its own hue is right, and `specularIntensity` **is not a field of this material
+ * class** — see the 🔴 correction in the header, which cost a capture to establish.
+ *
+ * ## 2. 🔴 THE HORIZON WAS A COMPOSITE SEAM. IT IS NOW UNDER TEN CODE VALUES
+ *
+ * Worst single-row step in mean code over the transition band y 600–800, four columns clear of the
+ * figure, `?noair` against shipped:
+ *
+ *   | scene   | x=60    | x=120   | x=780  | x=840   |
+ *   |---------|--------:|--------:|-------:|--------:|
+ *   | `beach` before | **97** |  99 | 72 |     100 |
+ *   | `beach` after  |  **8** |   6 |  6 |       7 |
+ *   | `park` before  | **122** | 124 | 91 |     117 |
+ *   | `park` after   |   **9** |   7 |  7 |       8 |
+ *
+ * The worst rows, so the step is a picture and not only a number: `beach` x=60 y 737→738 goes
+ * (151,175,185) → (54,83,110); `park` x=60 y 737→738 goes (156,176,183) → (34,56,66).
+ *
+ * **An order of magnitude on both scenes, with the same two constants and no per-scene tuning** —
+ * which is what makes it a mechanism rather than a fit. `park` was the worse of the two because
+ * grass under a 45%-occluded sun is darker than sand, and it needed nothing of its own.
+ *
+ * 🎯 **THE 2 px JOG IN HEAD'S REPORT WAS THE SQUARE PLANE'S OWN CORNER.** The seam's y walks 737 →
+ * 746 across the frame because the plane is a square standing at the camera's 12° world azimuth, so
+ * its far edge is oblique and its corner crosses the frame. Nothing was aliasing; the geometry was
+ * simply visible. That is why the repair is `EXTERIOR_GROUND_EXTENT_IN_HEIGHTS` plus a dissolve and
+ * not an anti-aliasing setting.
+ *
+ * ## 3. ✅ 11.5 — AIR, AND WHAT ITS OWN GATE TURNED OUT TO BE
+ *
+ * The punch list asks that *"figure-to-background separation at the silhouette improves by a stated
+ * margin at a stated haze … measure inside a band mask."* Measured inside a band mask, scene-linear
+ * luminance 3–9 px either side of the silhouette, edge FOUND per row rather than assumed, ratio
+ * stated as the larger over the smaller so a background that is brighter than the subject scores
+ * the same way as one that is darker:
+ *
+ *   | band                              | `beach` 0 → 0.25  | `park` 0 → 0.18   |
+ *   |-----------------------------------|------------------:|------------------:|
+ *   | left thigh vs ground, y 880–950   | 1.2303 → **1.2518** | 6.6746 → **6.0796** |
+ *   | right calf vs ground, y 1000–1070 | 1.2110 → **1.2125** | 1.7499 → **1.7136** |
+ *   | left knee vs ground, y 820–870    | 1.1305 → **1.2049** | 6.2602 → **5.2058** |
+ *
+ * 🚩 **THE GATE AS WRITTEN PASSES ON `beach` AND FAILS ON `park`, AND THAT IS A FINDING ABOUT THE
+ * GATE RATHER THAN ABOUT THE AIR.** Haze moves the background toward the SKY. Where the background
+ * is darker than the subject — park's grass at 0.035 against skin at 0.236 — that closes the gap
+ * and separation falls; where it is brighter, separation grows. So *"separation improves"* is not
+ * monotone in haze and cannot be a clause. **The clause that survives is a FLOOR, not an
+ * improvement**: park's 5.21 is hugely legible and its fall from 6.26 costs nothing, while beach's
+ * knee at **1.1305** was the one genuinely at risk and the air took it to 1.2049. 11.7 owns the
+ * legibility gates and this is the shape its silhouette clause has to have.
+ *
+ * ⚠️ **THE COST ON THE SUBJECT, QUOTED RATHER THAN OMITTED.** At `haze: 0` the closure is a hard
+ * zero at the plane's centre where the figure stands, and the arms prove it rather than argue it:
+ * `?noair` and `air: { haze: 0 }` read IDENTICALLY to five figures on `sky-high`, `floor-far`,
+ * `floor-mid`, `floor-lit`, `floor-shadow`, `skin-thigh` and `skin-chest`, and differ ONLY in
+ * `horizon-band` (168.43 → 94.98). At the shipped 0.25, flat thigh skin moves **1.32 codes**
+ * (118.12 → 119.44) and the chest **0.19** (199.93 → 199.74) — air between a camera and a person
+ * 4 m away, in the right direction and small.
+ *
+ * 🚩 **AND THE HAZE WAS CHOSEN OFF THE PLATE, NOT OFF THE TABLE.** `floor-far` (620,790,240,40)
+ * goes 60.31 → 63.28 → 68.29 → 79.33 → 97.81 across haze 0 / 0.15 / 0.25 / 0.40 / 0.60 against a
+ * sky reading 165.12 — monotone, and the statistic keeps improving all the way. **At 0.60 the plate
+ * has no horizon left in it at all**: the background is one milky wash and the figure floats in it,
+ * which is a worse picture than the one this item started from, and no row in that table says so.
+ *
+ * ## 🔴 THE RED PROOF, AND IT CAUGHT A BUG THIS ROUND HAD ALREADY WRITTEN
+ *
+ * `sizeTo` has TWO call sites — `swapFigure` and `applyFraming` — and 11.5's closure was first
+ * wired into only the first, so `setFraming` would have left the air closing the horizon at the
+ * previous framing's radius. `Avatar.sizeGroundTo` is the repair (one method, both sites), and
+ * `avatar-plate.html?reframe=body` is the gate: build at portrait, reframe, and the plate comes
+ * back **sha `1a86237f615a023e`, bit-identical to the plate built at body directly**.
+ * `?staleclosure` injects the defect on the fixed tree — **15.89% of the frame moves at a worst
+ * Δ127/255**, and the plate shows the ground dissolving at the figure's KNEES: no horizon, no sea
+ * band, a figure standing in a bright void with a floor only at her feet.
+ *
+ * 🚩 **AND THE SEAM STATISTIC GOES *GREENER* ON THE BROKEN PLATE — 4 code values against the
+ * correct plate's 6–8.** A gate written on the seam step alone would have passed the defect and
+ * called it an improvement. That is `docs/LEARNINGS.md` §1.2 arriving inside the item written to
+ * honour it: the number was right and the picture was wrong, and only opening the plate separated
+ * them.
+ *
+ * ## ⚠️ Portrait framing is untouched, which is a safety result AND a limit
+ *
+ * Whole-plate diff, `?noair` against shipped: **portrait moves 5.81% of pixels at a worst Δ1/255**.
+ * Body framing moves 5.54% at worst Δ152 with the closure alone (`haze: 0` — the horizon band and
+ * nothing else) and 50.05% at worst Δ127, mean Δ11.2, at the shipped 0.25. 🔴 So HEAD's fifth
+ * complaint — *"at portrait framing a beach does not read as a beach at all"* — **is not addressed
+ * here and cannot be**: the camera is pitched up and there is no ground in frame. 11.8 or a
+ * scene-owned camera pitch, and not the air.
+ *
+ * ## ⏭️ What the air is COVERING rather than fixing, named so it stays visible
+ *
+ * The far ground is lit by the sky and almost not at all by the sun, because the derived key is a
+ * `RectAreaLight` panel a few metres across whose inverse square runs out long before the horizon
+ * does. `floor-far` reads (60.31, 80.30, 104.24) at `haze: 0` where sand under a midday sun should
+ * be within a stop of the near floor's (156.37, 147.44, 164.25). The air now covers most of it —
+ * which is why `haze` earns its place beyond the seam — but it is a COVER, and the fix is a
+ * distant-sun term in `LightingRig` or an environment-lit ground, not another number here.
+ */

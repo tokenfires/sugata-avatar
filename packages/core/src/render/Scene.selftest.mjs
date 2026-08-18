@@ -69,6 +69,7 @@ import {
     SCENE_KINDS,
     SCENE_LIGHT_NAMES,
     SCENE_PLACEMENT_FIELDS,
+    SCENE_SCALE_FIELDS,
     backgroundRequestOf,
     environmentRequestOf,
     lightingRequestOf,
@@ -87,7 +88,8 @@ import {
     BACKGROUND_PRESETS,
     BACKGROUND_PRESET_NAMES,
     resolveBackgroundOption,
-    resolveLightingOption
+    resolveLightingOption,
+    resolveLook
 } from '../Avatar.js';
 
 const SCENE_SOURCE = readFileSync( new URL( './Scene.js', import.meta.url ), 'utf8' );
@@ -526,8 +528,8 @@ report( '🎯 G11  the sky schema is declared ONCE, in Scene.js, and SkyEnvironm
 // kicker) is authored per framing. So an absolute rim written into a scene survives
 // `setFraming('body')` into a preset that authored a different number — measured at 27.27% in
 // `SCENE_LOOKS`'s own note, with nothing reporting it. The escape hatch stays open for an embedder
-// who knows what they are doing; the SHIPPED scenes may not use it until 11.7 gives a scene the
-// per-framing `scales` axis a look already has.
+// who knows what they are doing; the SHIPPED scenes reach an edge light through `scales` instead,
+// which is a factor on whatever the LIVE framing authored — see G13.
 const edgeOverrides = SCENE_IDS.flatMap( ( id ) => Object.keys( SCENES[ id ].lights )
     .filter( ( name ) => name === 'rim' || name === 'kicker' )
     .map( ( name ) => `${ id }.${ name }` ) );
@@ -535,9 +537,88 @@ const edgeOverrides = SCENE_IDS.flatMap( ( id ) => Object.keys( SCENES[ id ].lig
 report( '🎯 G12  no shipped scene overrides an EDGE light, because an absolute would survive setFraming',
     edgeOverrides.length === 0,
     edgeOverrides.length === 0
-        ? 'scenes move key (derived from the sun) and fill (identical in both presets) only — ' +
-          'a rim override is a request for a `scales` axis, not a value to type here'
+        ? 'scenes move key (derived from the sun) and fill (identical in both presets) ' +
+          'ABSOLUTELY, and reach the rim through `scales`, which re-resolves per framing'
         : `found ${ edgeOverrides.join( ', ' ) } — these break body framing silently` );
+
+// 🎯 G13 IS THE ROUND'S NEW AXIS AND IT IS GATED ON ARITHMETIC RATHER THAN ON A RENDER. What
+// `scales` promises is one sentence — *the factor multiplies whatever THIS framing's table
+// authored* — and the whole reason it exists is that the two framings authored different numbers.
+// `resolveLook` reads the real `LightingRig` for the authored table, so the expected pair below is
+// derived from the rig at both presets rather than transcribed from a comment.
+const authoredRim = ( preset ) => new LightingRig( { preset } ).placements
+    .find( ( placement ) => placement.name === 'rim' ).irradiance;
+
+const scaleFactor = SCENES.beach.scales.rim.irradiance;
+const scaledRim = ( preset ) => authoredRim( preset ) * scaleFactor;
+
+report( '🎯 G13  a scene scales an edge light per framing, so one factor is two numbers',
+    Number.isFinite( scaleFactor )
+        && Math.abs( scaledRim( 'portrait' ) - 2.6 ) < 1e-9
+        && Math.abs( scaledRim( 'body' ) - 3.575 ) < 1e-9
+        && authoredRim( 'portrait' ) !== authoredRim( 'body' ),
+    `rim ${ authoredRim( 'portrait' ) } x ${ scaleFactor } = ${ scaledRim( 'portrait' ).toFixed( 4 ) } at portrait ` +
+    `and ${ authoredRim( 'body' ) } x ${ scaleFactor } = ${ scaledRim( 'body' ).toFixed( 4 ) } at body — ` +
+    'the same factor, two numbers, because EDGE_LIGHTS authored two. An absolute 2.6 written into ' +
+    '`lights` would have delivered 2.6 into a body preset that authored ' +
+    `${ authoredRim( 'body' ) }, ${ ( 100 - 2.6 / authoredRim( 'body' ) * 100 ).toFixed( 1 ) }% under, silently` );
+
+report( '🎯 G14  lightingRequestOf carries `scales`, so the axis reaches the rig at all',
+    SCENE_IDS.every( ( id ) => lightingRequestOf( SCENES[ id ] ).scales === SCENES[ id ].scales )
+        && Object.keys( lightingRequestOf( SCENES.studio ).scales ).length === 0
+        && resolveLightingOption( lightingRequestOf( SCENES.beach ) ).scales.rim.irradiance === scaleFactor,
+    'the projection carries the field and `resolveLightingOption` accepts it — a scene whose ' +
+    'scales were dropped between the table and the rig would render as the shipped rim and report ' +
+    'itself as scaled, which is the silent-drop shape this whole file is written against' );
+
+report( '🎯 G15  `colour` cannot be scaled, at either door',
+    SCENE_SCALE_FIELDS.includes( 'colour' ) === false
+        && SCENE_PLACEMENT_FIELDS.includes( 'colour' ) === true
+        && refusalFrom( () => resolveScene( { ...SCENES.beach, scales: { rim: { colour: 0.5 } } } ) ) !== null
+        && refusalFrom( () => resolveLightingOption( { scales: { rim: { colour: 0.5 } } } ) ) !== null,
+    '0xffeeda x 0.5 is 0x7f776d, which is a different HUE and not a dimmer light — and this ' +
+    "project's own matched-panel-luminance table moves the shadow cheek 14x between a blue and a " +
+    'neutral panel of the SAME luminance, so a hue arrived at by arithmetic is not a small error' );
+
+report( '🎯 G16  a look and a scene compose on the same light without either being lost',
+    ( () => {
+
+        // `dramatic` scales the rim by 1.25; `beach` scales it by 0.1625. Composed, the rim should
+        // carry BOTH — a scene that overwrote the look, or a look that ignored the scene, would
+        // read as one factor and there would be nothing to say which.
+        const look = resolveLook( 'dramatic', 'portrait' ).rim.irradiance;
+        const composed = ( look ?? authoredRim( 'portrait' ) ) * scaleFactor;
+
+        return Math.abs( look - authoredRim( 'portrait' ) * 1.25 ) < 1e-9
+            && Math.abs( composed - authoredRim( 'portrait' ) * 1.25 * scaleFactor ) < 1e-9;
+
+    } )(),
+    'the scene multiplies what the LOOK left in force, not the authored table under it — the two ' +
+    'axes are meant to compose (`lightingRequestOf` leaves `look` at the caller\'s value) and a ' +
+    'scene that re-based on the authored number would silently discard the look' );
+
+// 🔴 G17 IS A CORRECTION, AND IT IS HERE BECAUSE A COMMENT SAID THE OPPOSITE FOR A WHOLE PHASE.
+// `Scene.js` justified writing `fill.irradiance` as an ABSOLUTE with "FORM_LIGHTS is IDENTICAL in
+// both presets — that is the file's own load-bearing claim". `LightingRig.js`'s
+// `FORM_LIGHT_OVERRIDES_BY_PRESET` is `body: { fill: { irradiance: 1.20 } }`, so the claim is false
+// in exactly the field both exteriors were overriding. This clause reads the authored table off the
+// REAL class at both presets rather than believing either file, and refuses the absolute.
+const authoredFill = ( preset ) => new LightingRig( { preset } ).placements
+    .find( ( placement ) => placement.name === 'fill' ).irradiance;
+
+const absoluteFills = SCENE_IDS
+    .filter( ( id ) => SCENES[ id ].lights.fill?.irradiance !== undefined )
+    .map( ( id ) => `${ id }.fill.irradiance` );
+
+report( '🔴 G17  no shipped scene writes fill.irradiance absolutely — the body preset overrides it',
+    authoredFill( 'portrait' ) !== authoredFill( 'body' ) && absoluteFills.length === 0,
+    absoluteFills.length === 0
+        ? `the real rig authors the fill at ${ authoredFill( 'portrait' ) } at portrait and ` +
+          `${ authoredFill( 'body' ) } at body, so an absolute 0.70 is 0.318x one table and 0.583x ` +
+          'the other and setFraming moves the scene\'s key:fill by 1.83x in silence. The scenes ' +
+          'reach it through `scales`, which re-resolves. ⚠️ COLOUR, AZIMUTH AND ELEVATION on key ' +
+          'and fill ARE identical across the presets and stay absolute'
+        : `found ${ absoluteFills.join( ', ' ) } — these change key:fill at body framing silently` );
 
 console.log( '\n--- 🔴 RED PROOFS: the clauses above are re-run against KNOWN-BAD tables ------------\n' );
 console.log( '      LEARNINGS §1.1 — a gate that has never failed is not known to work. Each row\n' +
@@ -635,6 +716,49 @@ const knownBad = [
 
             return Math.abs( murky.irradiance - parkLit.irradiance * ( 1 - SCENES.park.sun.occlusion ) ) < 1e-12
                 && murky.colour === parkLit.colour;
+
+        }
+    },
+    {
+        clause: 'G12',
+        what: 'the rim solved as a NUMBER instead of as a factor (lights.rim.irradiance = 2.6)',
+        why: 'the fix the previous round measured and could not ship, written the obvious way. It ' +
+            'is right at portrait and 88.2% under at body, and no plate at one framing can see it.',
+        run: () => {
+
+            const absolute = resolveScene( { ...SCENES.beach,
+                lights: { ...SCENES.beach.lights, rim: { irradiance: 2.6 } } } );
+
+            return Object.keys( absolute.lights )
+                .filter( ( name ) => name === 'rim' || name === 'kicker' ).length === 0;
+
+        }
+    },
+    {
+        clause: 'G13',
+        what: 'a `scales` axis resolved against the PORTRAIT table at both framings',
+        why: 'the whole defect the axis exists against, one level up: a factor that is re-based ' +
+            'once and cached is an absolute wearing a multiplier\'s clothes, and it reads green on ' +
+            'every portrait plate this repository takes.',
+        run: () => {
+
+            const frozenBase = authoredRim( 'portrait' ) * SCENES.beach.scales.rim.irradiance;
+
+            return Math.abs( frozenBase - authoredRim( 'body' ) * SCENES.beach.scales.rim.irradiance ) < 1e-9;
+
+        }
+    },
+    {
+        clause: 'G17',
+        what: 'the fill written absolutely, the way this file justified for a whole phase',
+        why: 'not hypothetical — it is what `beach` SHIPPED, on a comment claiming FORM_LIGHTS is ' +
+            'identical at both framings. The rig says 2.20 and 1.20.',
+        run: () => {
+
+            const absolute = resolveScene( { ...SCENES.beach,
+                lights: { fill: { ...SCENES.beach.lights.fill, irradiance: 0.70 } } } );
+
+            return absolute.lights.fill?.irradiance === undefined;
 
         }
     },

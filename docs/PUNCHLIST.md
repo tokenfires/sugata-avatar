@@ -2840,6 +2840,30 @@ outdoor scene is free, in our exact stack. Reuse before build.
       structurally blind statistics were whole-frame means, and a scene system is exactly where a
       ninth would have been written. `scene-probe.mjs --selftest` proves the operator on a synthetic
       whose answer is arithmetic, including that red proof.
+      🔴 **AND THE FLOOR THIS ITEM SHADES WAS LAVENDER, WHICH IS NOT THE GROUND'S FAULT — MEASURED
+      2026-08-18 AND HANDED TO WHOEVER OWNS THE LIGHTS.** Four commits in this repository have been
+      spent on a violet rim that changed no pixels; this one changes them. `beach` body framing,
+      against the SAME plate with the rim's irradiance written to an absolute 0 and every other
+      light held, on the tree that ALREADY carries `scales.rim.irradiance: 0.1625` (16 → 2.6):
+
+      | mask | mean code | HSV S | hue° | linear B:R |
+      |---|---|---:|---:|---:|
+      | `floor-lit` 620,1060,240,120 | (156.50, 147.87, 164.58) | 0.1015 | **271.0** | 1.117 |
+      | the same, rim at 0 | (156.13, 146.56, 138.52) | 0.1128 | **27.4** | **0.769** |
+      | `floor-shadow` 60,1010,220,110 | (131.31, 128.02, 160.08) | **0.2003** | 246.2 | 1.543 |
+      | the same, rim at 0 | (130.50, 126.00, 125.84) | **0.0357** | 2.1 | 0.924 |
+      | the DECLARED albedo `#a89f8d` | (168, 159, 141) | 0.1607 | 40.0 | 0.680 |
+
+      Take the rim away and the lit floor lands at hue **27.4°** beside the sand's own **40.0°**,
+      and the shadow stain's saturation collapses 0.2003 → 0.0357, a factor of 5.6. In scene-linear
+      the rim is **31.5% of the lit floor's blue** and **40.9% of the shadow's blue** against **0.5%
+      of the lit floor's red**. ⚠️ The KICKER is not part of it — rim-and-kicker at 0 against
+      rim-only at 0 moves `floor-lit` by **1.32 codes**, so naming the pair would have been half
+      wrong. The
+      shadow stain is `GroundContact`'s occlusion node doing exactly its job: it scales the ALBEDO,
+      so where it darkens hardest the diffuse goes to nothing and what remains is a near-primary
+      `#0f30ff` with no albedo anywhere in the path — that file's own header, one scene along. The
+      two levers the ground could have reached for are refuted in `GroundContact.js`'s ROUND NOTE.
       ✅ **REPRODUCED ON THE SECOND SCENE**, which is what makes it a mechanism rather than one
       scene's coincidence — `--ground --scene park`, same four albedos at a fixed roughness 0.95 so
       albedo is the only variable: jaw 2.8203e-1 → 3.0856e-1 → 3.5805e-1 → 4.4127e-1, monotone,
@@ -2851,10 +2875,111 @@ outdoor scene is free, in our exact stack. Reuse before build.
       families, so an interior inherits time-of-day for free and the two cannot drift apart.
       Gate: **MEASURED** — moving `sunPosition` alone moves the interior's own key direction and
       colour, with the room geometry held; and a null control at a walled-off window.
-- [ ] **11.5** Air — one height-fog / haze depth cue, scene-parameterised.
-      Gate: **MEASURED** — figure-to-background separation at the silhouette improves by a stated
-      margin at a stated haze, with the ⚠️ that a whole-frame mean cannot see a silhouette; measure
-      inside a band mask.
+- [x] **11.5** ✅ **DONE 2026-08-18.** Air — `SkyEnvironment` installs one `scene.fogNode` carrying
+      two terms, `GroundContact` gains the exterior extent the horizon needs, and `scene.air.haze`
+      stops being a carried-and-ignored field. `beach` ships **0.25**, `park` **0.18**, `studio`
+      cannot have air at all.
+      🎯 **THE HAZE'S COLOUR IS THE BACKDROP ITSELF, RE-READ, AND THAT IS WHAT MAKES THE SEAM CLOSE
+      BY CONSTRUCTION RATHER THAN BY TUNING.** `pmremTexture()` of the SAME `solarTarget` that
+      `scene.background` is drawn from, along the same view direction, through the same
+      `backgroundIntensity` and `backgroundBlurriness` three multiplies the backdrop by
+      (`Background.js:91-94`, r185). A CPU-computed horizon colour was the obvious implementation
+      and is wrong: the sky's own horizon varies **43 code values across the frame** on `beach`
+      (x=120 reads (159,182,191) against x=800's (116,144,160) in the same 30-row band), because it
+      brightens toward the sun — so one uniform closes the seam at one azimuth and opens it
+      everywhere else.
+      🔴 **THE SEAM, WHICH IS 11.5 PAYING FOR AN ITEM IT WAS NOT FILED UNDER.** Worst single-row
+      step in mean code over the band y 600–800, four columns clear of the figure, `?noair` against
+      shipped on the SAME build in the same batch, 900×1200, 1 step, seed 1:
+
+      | scene | x=60 | x=120 | x=780 | x=840 |
+      |---|---:|---:|---:|---:|
+      | `beach` before | **97** | 99 | 72 | 100 |
+      | `beach` after | **8** | 6 | 6 | 7 |
+      | `park` before | **122** | 124 | 91 | 117 |
+      | `park` after | **9** | 7 | 7 | 8 |
+
+      The worst rows, so the step is a picture and not only a number: `beach` x=60 y 737→738 goes
+      (151,175,185) → (54,83,110); `park` x=60 y 737→738 goes (156,176,183) → (34,56,66).
+
+      An order of magnitude on both scenes with the same two constants and **no per-scene tuning**,
+      which is what makes it a mechanism rather than a fit. The *"2 px jog"* HEAD's commit body
+      reports was the square plane's own corner: the seam's y walks 737 → 746 across the frame
+      because the plane stands at the camera's 12° world azimuth, so its far edge is oblique.
+      Nothing was aliasing — the geometry was visible.
+      🎯 **GATE, AS SPECIFIED: MEASURED INSIDE A BAND MASK.** Scene-linear luminance 3–9 px either
+      side of the silhouette, edge FOUND per row rather than assumed, ratio stated as the larger
+      over the smaller so a background brighter than the subject scores like one that is darker:
+
+      | band | `beach` 0 → 0.25 | `park` 0 → 0.18 |
+      |---|---:|---:|
+      | left thigh vs ground, y 880–950 | 1.2303 → **1.2518** | 6.6746 → **6.0796** |
+      | right calf vs ground, y 1000–1070 | 1.2110 → **1.2125** | 1.7499 → **1.7136** |
+      | left knee vs ground, y 820–870 | 1.1305 → **1.2049** | 6.2602 → **5.2058** |
+
+      🚩 **THE GATE AS WRITTEN PASSES ON `beach` AND FAILS ON `park`, AND THAT IS A FINDING ABOUT
+      THE GATE RATHER THAN ABOUT THE AIR — HAND IT TO 11.7.** Haze moves the background toward the
+      SKY. Where the background is darker than the subject — park's grass at scene-linear 0.035
+      against skin at 0.236 — that CLOSES the gap and separation falls; where it is brighter,
+      separation grows. So *"separation improves"* is not monotone in haze and cannot be a clause.
+      **What survives is a FLOOR rather than an improvement**: park's 5.21 is hugely legible and its
+      fall from 6.26 costs nothing, while `beach`'s knee at **1.1305** was the one genuinely at risk
+      and the air took it to 1.2049. `docs/research/scene-system.md` §7's *"the silhouette separates
+      … on every side"* now has its first measurement, and its clause needs this shape.
+      ⚠️ **AND THE FIRST VERSION OF THIS ROW WAS WRONG BECAUSE THE PLATE UNDER IT WENT STALE.** It
+      published **1.043 → 1.31** on the thigh band, taken before `beach`'s lights were retuned in
+      the same working tree mid-round. Re-measured after the last edit it is 1.2303 → 1.2518. The
+      correction is recorded rather than quietly applied because it is `docs/LEARNINGS.md` §1.25r
+      happening live, and the two mechanisms that now stand against it are in
+      `GroundContact.js`'s ROUND NOTE: `avatar-plate.html?noair`, and a batch that fingerprints
+      `git diff` before and after itself.
+      ⚠️ **AND PORTRAIT FRAMING IS UNTOUCHED, WHICH IS BOTH A SAFETY RESULT AND A LIMIT.** Whole-plate
+      diff, `?noair` against shipped: portrait moves **5.81% of pixels at a worst Δ1/255** — the air
+      is a body-framing feature because the horizon is out of frame at portrait. Body framing moves
+      **5.54% at worst Δ152** with the closure alone (`haze: 0`, i.e. the horizon band and nothing
+      else) and **50.05% at worst Δ127, mean Δ11.2** at the shipped 0.25.
+      🔴 So HEAD's fifth complaint — *"at portrait framing a beach does not read as a beach at all"* —
+      **is not addressed by this item and the plate says so**: a bald figure against a smooth blue
+      gradient, no horizon, no sand, no sun. It cannot be: the camera is pitched up and there is
+      nothing of the ground in frame. That is 11.8 (set silhouettes) or a scene-owned camera pitch,
+      and it should not be attributed to the air.
+      ⚠️ **THE COST ON THE SUBJECT IS QUOTED, NOT OMITTED.** At `haze: 0` the closure is a hard zero
+      at the plane's centre where the figure stands, and the arms prove it rather than argue it:
+      `?noair` and shipped `haze: 0` read IDENTICALLY to five figures on `skin-thigh`, `skin-chest`,
+      `floor-lit`, `floor-mid`, `floor-far`, `floor-shadow` and `sky-high`, and differ only in
+      `horizon-band` (168.43 → 94.98). At the shipped 0.25 flat thigh skin moves **1.32 codes** and
+      the chest **0.19** — air between a camera and a person 4 m away, in the right direction.
+      🚩 **AND THE HAZE WAS CHOSEN OFF THE PLATE, NOT OFF THE TABLE.** `floor-far` (620,790,240,40)
+      goes 60.31 → 63.28 → 68.29 → 79.33 → 97.81 across haze 0 / 0.15 / 0.25 / 0.40 / 0.60 against a
+      sky of 165.12, monotone, and the statistic improves all the way — while **at 0.60 the plate
+      has no horizon left in it at all**, the background is one milky wash and the figure floats in
+      it. No number in that row says so. 0.25 keeps a darker distance under a hazy horizon, which on
+      a beach reads as the sea.
+      🔴 **RED PROOF, AND IT CAUGHT A REAL BUG THIS ROUND WROTE.** `sizeTo` has TWO call sites —
+      `swapFigure` (an identity swap) and `applyFraming` (`setFraming`) — and the closure was first
+      wired into only the first. `avatar-plate.html?reframe=body` builds at portrait and reframes,
+      and the fixed tree returns **sha `1a86237f615a023e`, bit-identical to the plate built at body
+      directly**. `?staleclosure` injects the defect (the plane re-sized, the air not told):
+      **15.89% of the frame moves at a worst Δ127/255**, and the plate shows the ground dissolving
+      at the figure's KNEES — no horizon, no sea band, a figure standing in a bright void with a
+      floor only at her feet.
+      🚩 **AND THE SEAM STATISTIC GOES *GREENER* ON THE BROKEN PLATE — 4 codes against the correct
+      plate's 6–8.** A gate written only on the seam step would have passed the defect and called it
+      an improvement. That is this project's own §1.2 arriving inside the item that was written to
+      honour it: the numbers were right and the picture was wrong, and only opening the plate
+      separated them.
+      ✅ **AND `studio` IS BYTE-IDENTICAL THROUGH BOTH DOORS, PROVEN AFTER THE LAST EDIT.**
+      `fence loads=10 sha=fac62c50d56590fb bitident=45/45 worst=0 px=0` through `background:
+      'studio'` AND through `scene: 'studio'` — the same digest the calibration control has carried
+      all along. It cannot acquire air by accident either: the aerial node is built inside
+      `SkyEnvironment.attachTo`, and `environmentRequestOf` returns null for a scene with no sky, so
+      no studio scene ever constructs the object that would install it.
+      ⏭️ **WHAT THE AIR IS COVERING RATHER THAN FIXING, NAMED SO IT IS VISIBLE.** The far ground is
+      lit by the sky and almost not at all by the sun, because the derived key is a `RectAreaLight`
+      panel a few metres across whose inverse square runs out long before the horizon does —
+      `floor-far` reads (60.31, 80.30, 104.24) where sand under a midday sun should be within a stop
+      of the near floor. That is a `LightingRig` request (a distant-sun term), not another number
+      here.
 - [ ] **11.6** The twelve scenes authored, and the API: `avatar.setScene( id )`,
       `avatar.scene.suggest()`, `avatar.scene.pin( id )` — mirroring the wardrobe's agency pattern
       from R18 rather than inventing a second idiom. Six ordinary (`bedroom-morning`, `kitchen`,

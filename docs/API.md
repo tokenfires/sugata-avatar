@@ -162,7 +162,7 @@ scene: {
     room: null,              // punch-list 11.4 — an emissive room box with a window onto the same sky
     lights: {},              // LightingRig's OWN placement schema: { key, fill, rim, kicker }
     ground: { enabled: true, albedo: null, roughness: null },
-    air: { haze: 0 },        // punch-list 11.5
+    air: { haze: 0 },        // ✅ 11.5 — 0 is a clean day; 1 dissolves the ground into the sky at 25 m
     exposure: 1,             // RELATIVE multiplier, same units as lighting.exposure
     background: { colour: 0x08080a, backdrop: 0x070a0e, distanceMetres: 1.9 },
     framing: null            // null leaves the caller's `frame` alone
@@ -248,9 +248,28 @@ placement fields, `name`, an unknown `kind`, a `kind: 'exterior'` with no sky an
 goes into the environment bake so the lower hemisphere of the image-based light is a floor rather
 than horizon sky. The second reading is the bounce that fills the underside of a jaw — measured
 monotone across four albedos with a null control that reads a span of exactly 1.0000×.
-⚠️ **`air.haze` and `room` are still carried and NOT consumed** (11.4, 11.5). They are named here
-rather than left to be discovered, because a field that is stored and ignored is a lie unless it
-says so.
+✅ **`air.haze` is now read too** (11.5), and `room` is still carried and NOT consumed (11.4) — it is
+named here rather than left to be discovered, because a field that is stored and ignored is a lie
+unless it says so.
+
+`haze` is an extinction toward the sky, LINEAR in the field: **`haze: 1` leaves the ground 95%
+dissolved into the sky at 25 m**, so 0.5 is 50 m, `beach`'s shipped 0.25 is 100 m and `park`'s 0.18
+is 139 m. It is installed as `scene.fogNode` — three's own hook — and only for a scene that has a
+sky, so `studio` can never have air and stays byte-identical.
+
+🎯 **And the haze's COLOUR is not a colour.** It is `scene.background` itself, re-read: the same
+PMREM, sampled along the same view direction, through the same `backgroundIntensity` and
+`backgroundBlurriness` three multiplies the backdrop by. Fully hazed ground and the sky behind it
+are then the same expression of the same texture, which is what closes the horizon **by
+construction** instead of by tuning — measured 96→9 and 122→9 code values across the seam on
+`beach` and `park`. A CPU-computed horizon colour cannot do this: the sky's own horizon varies 43
+code values across the frame because it brightens toward the sun.
+
+⚠️ **An exterior's ground plane is three times wider than a studio's** — 36 framed heights against
+12 — because a floor that has to reach a horizon is not the same object as a floor that only has to
+leave frame. The two are one change: the extra extent without the dissolve is a longer matte line,
+and the dissolve without the extent finishes 345 px too low. See
+`GroundContact.EXTERIOR_GROUND_EXTENT_IN_HEIGHTS`.
 
 ⚠️ **A scene may not usefully override `rim` or `kicker` today.** A scene's `lights` are ABSOLUTE
 numbers and `EDGE_LIGHTS` is authored per framing, so an absolute rim survives `setFraming('body')`
