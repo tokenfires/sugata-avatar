@@ -1,6 +1,11 @@
 {
   "_comment": [
     "Punch-list 3.6. The authority on what a hair groom IS, read by the build, by the asset gate",
+    "Every groom below is one entry in hair_cards.py's HAIR_STYLES table — `--hair <id>` selects a",
+    "SHAPE, not just an output directory. bob01 is the byte-identical control (sha256 98ca6c23...)",
+    "that the style refactor is verified against and the groom every committed measurement was taken",
+    "on; it is DELIBERATELY not the corrected bob. bob02 is. See docs/research/hairstyle-targets.md.",
+    "",
     "and by the runtime — the same arrangement assets/wardrobe/manifest.json has, and for the same",
     "reason: two files that each decide a garment's alphaMode independently will disagree, and the",
     "disagreement is invisible until a judge looks at a plate.",
@@ -13,7 +18,6 @@
     "  blender --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \\",
     "      --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01"
   ],
-
   "grooms": [
     {
       "id": "bob01",
@@ -27,12 +31,266 @@
       "seed": 20260812,
       "colour": "#3b2a20",
       "maps": {
-        "albedo": { "file": "albedo.png", "embedded": true, "channels": "RGB sRGB + A coverage" },
-        "normal": { "file": "normal.png", "embedded": true, "channels": "tangent-space RGB" },
-        "flow": { "file": "flow.png", "embedded": false, "channels": "RG strand tangent, B root-to-tip, A strand id" },
-        "depth": { "file": "depth.png", "embedded": false, "channels": "grey, depth within the bundle" }
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
       },
-      "atlas": { "size": 1024, "strips": 8, "capStrip": 0 }
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "bob02",
+      "material": "hair_bob02",
+      "description": "Chin-length graduated bob: tapered nape, occipital volume, front longer than back. The corrected bob — see docs/research/hairstyle-targets.md.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "crop01",
+      "material": "hair_crop01",
+      "description": "Men's short back-and-sides with length on top, faded through the cut field.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "quiff01",
+      "material": "hair_quiff01",
+      "description": "Men's short sides with real length on top, swept up and back.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "long01",
+      "material": "hair_long01",
+      "description": "Long and straight, past the shoulderblades.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "pixie01",
+      "material": "hair_pixie01",
+      "description": "Very short, textured, with a side-swept fringe.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
+    },
+    {
+      "id": "lob01",
+      "material": "hair_lob01",
+      "description": "Shoulder-length graduated cut with a centre part.",
+      "alphaMode": "MASK",
+      "alphaCutoff": 0.5,
+      "doubleSided": true,
+      "bone": "head",
+      "part": 0.35,
+      "seed": 20260812,
+      "colour": "#3b2a20",
+      "maps": {
+        "albedo": {
+          "file": "albedo.png",
+          "embedded": true,
+          "channels": "RGB sRGB + A coverage"
+        },
+        "normal": {
+          "file": "normal.png",
+          "embedded": true,
+          "channels": "tangent-space RGB"
+        },
+        "flow": {
+          "file": "flow.png",
+          "embedded": false,
+          "channels": "RG strand tangent, B root-to-tip, A strand id"
+        },
+        "depth": {
+          "file": "depth.png",
+          "embedded": false,
+          "channels": "grey, depth within the bundle"
+        }
+      },
+      "atlas": {
+        "size": 1024,
+        "strips": 8,
+        "capStrip": 0
+      }
     }
   ]
 }

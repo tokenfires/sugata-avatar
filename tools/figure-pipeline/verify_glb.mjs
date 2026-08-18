@@ -1192,10 +1192,26 @@ const MINIMUM_HAIR_CLEARANCE_MM = 3.0;
  * bare crown is what a top-down render shows as thinning hair. The primary gate on the cap is
  * `reportHairComponents`, which fails a groom with no non-ribbon component at all — this clause is
  * the one that would catch a cap that existed and did not cover.
+ *
+ * ⚠️ **IT IS A CLAUSE ABOUT THE SCALP, WHICH EVERY STYLE SHARES, SO IT TRAVELS — EXCEPT TO THE
+ * STYLES THAT LEAVE SCALP SHOWING ON PURPOSE.** An undercut, a shaved side, a receding hairline:
+ * there is no way to derive "should this patch be bare" from geometry, so a groom that means it
+ * declares `"scalpCoverage": "partial"` in `assets/hair/manifest.json` and this clause, the patch
+ * clause and the visible-skin clause stand down BY NAME in the run's output. Absent the key they
+ * all apply, which is what bob01 gets. Measured this session over seven bakes from 153 to 425 mm
+ * of card travel: 100.00% on every one of them, so length is not what this number reads.
  */
 const MINIMUM_SCALP_COVERAGE = 0.97;
 
-/** How far above the scalp a card can be and still count as covering it. */
+/**
+ * How far above the scalp a card can be and still count as covering it.
+ *
+ * ⚠️ A groom's LENGTH does not move this — the cards that cover the crown leave the crown — and
+ * seven bakes from 153 to 425 mm all read 100.00% coverage through it. A groom's STANDING OFF
+ * would: an afro or a bouffant whose whole mass sits more than 120 mm from the skull would report
+ * a bare cranium it does not have. Nothing in this repository stands off more than 30 mm, so that
+ * is a limit stated rather than a measurement made.
+ */
 const SCALP_COVERAGE_REACH_M = 0.12;
 
 /**
@@ -1264,8 +1280,37 @@ const SCALP_VIEW_ANGLES = [
  */
 const SCALP_VIEW_FACING = 0.42;
 
-/** How far toward the camera to look for a card. The groom's longest card is about 245 mm. */
-const SCALP_VIEW_REACH_M = 0.40;
+/**
+ * How far toward the camera to look for a card, and why it is now measured rather than typed.
+ *
+ * It was 0.40 — "the groom's longest card is about 245 mm", which is a fact about a collarbone bob
+ * and about nothing else. The number decides which crossings the two view clauses can SEE, and it
+ * is not conservative in one direction: a reach that stops short of the groom misses occluders, so
+ * `no skin on show` over-reports bare cranium AND `cards deep` under-reports the stack.
+ *
+ * So `viewReachFor` takes the groom's own bounding-sphere diameter — the furthest any ray can
+ * travel and still be inside this mesh. Measured this session: bob01 g050 reads 582 mm against the
+ * old 400, and the readings it produces are identical (`no skin on show` 0.0 mm², `cards deep` p50
+ * 15) because a ray leaving a cranium sample has left the bob long before 400 mm. A groom cut ×3
+ * spans 1,107 mm, and there the difference is real.
+ *
+ * The constant stays as the FLOOR, so a groom small enough to be measured in centimetres still
+ * gets the reach a bob had rather than one that stops inside the cards.
+ */
+const SCALP_VIEW_REACH_FLOOR_M = 0.40;
+
+/** The groom's own bounding-sphere diameter, floored. See SCALP_VIEW_REACH_FLOOR_M. */
+function viewReachFor(mesh) {
+  const centre = centroidOf(mesh.positions);
+  let radius = 0;
+  for (let vertex = 0; vertex < mesh.positions.length; vertex += 3) {
+    radius = Math.max(radius, Math.hypot(mesh.positions[vertex] - centre[0],
+                                         mesh.positions[vertex + 1] - centre[1],
+                                         mesh.positions[vertex + 2] - centre[2]));
+  }
+
+  return Math.max(SCALP_VIEW_REACH_FLOOR_M, radius * 2);
+}
 
 /** The biggest patch of skin a viewer may see through the groom, from any one of the five views. */
 const MAX_VISIBLE_SKIN_MM2 = 60;
@@ -1319,6 +1364,14 @@ const MAX_VISIBLE_SKIN_MM2 = 60;
  * shipped and it leaves this one 12.5% of room. It is a floor under a regression, not a target, and
  * the target is lower — see the STACKED-runs column of `hair_layers.mjs`, which is what the depth
  * is being spent to buy back.
+ *
+ * ⚠️ **AND IT IS A RATCHET THAT DOES NOT MOVE WITH LENGTH, WHICH IS WHY IT SURVIVES THIS ROUND
+ * UNCHANGED.** The obvious worry about a ratchet fitted to a bob is that a longer groom carries
+ * more card area and reads deeper. It does not: the rays this walks leave CRANIUM samples, and the
+ * cards a longer style adds hang below the jaw where no cranium sample fires. Measured this
+ * session at g050, worst of the five judge views: bob01 15, the same stack cut ×0.5 15, ×2 15, ×3
+ * 15, and the three `clump: 0.0` builds 14/14/15. A hairstyle that piles depth ONTO THE SKULL
+ * would move it, and that is the thing the ceiling is for.
  */
 const MAX_CARDS_DEEP_P50 = 18;
 
@@ -1401,8 +1454,54 @@ const MINIMUM_HAIR_CARDS = 100;
  * produces is the graduation, and a threshold over that would be a number invented to fit. It is
  * printed next to the ratio instead, which is what LEARNINGS §1.2 asks for when a property is real
  * and the gate for it would not be.
+ *
+ * 🔴 **AND EVERY NUMBER ABOVE IS A BOB'S. THE RAW RATIO READS THE GROOM'S LENGTH, NOT ITS LOCKS,
+ * AND THE 0.95 CEILING FAILS A LONG GROOM FOR BEING LONG.** Measured this session over seven
+ * scratch bakes at g050 — the shipped layer stack, the same stack with every `cut` and `length`
+ * scaled, and each of those with `clump: 0.0` on every layer as the red proof. `travel` is the
+ * mean root-to-tip distance, which is what "how long is this haircut" means in millimetres:
+ *
+ *   | build                  | travel mm | raw ratio | tip/root spread | INDEX |
+ *   |------------------------|----------:|----------:|----------------:|------:|
+ *   | x0.5 cut, clumped      |     153.3 |     0.836 |           1.143 | 0.782 |
+ *   | **bob01 as shipped**   |     215.8 | **0.857** |           1.438 | 0.715 |
+ *   | x2 cut, clumped        |     322.7 |     0.993 |           2.053 | 0.693 |
+ *   | x3 cut, clumped        |     424.6 | **1.242** |           2.766 | 0.747 |
+ *   | x0.5 cut, `clump: 0.0` |     151.8 |     0.990 |           1.166 | 0.917 |
+ *   | bob01, `clump: 0.0`    |     215.7 |     1.028 |           1.467 | 0.849 |
+ *   | x3 cut, `clump: 0.0`   |     422.3 |     1.486 |           2.782 | 0.891 |
+ *
+ * **The raw ratio moves 0.836 to 1.242 across those four IDENTICALLY CLUMPED builds** — a 45%
+ * drift bought with nothing but length — and the fourth of them scores WORSE than the bob with no
+ * locks in it at all. `hair_geometry.cardGathering`'s own docstring claimed the ratio "needs no
+ * length scale"; that claim is refuted by this table and has been corrected at source.
+ *
+ * 🎯 **SO THE GATED NUMBER IS THE RATIO DIVIDED BY THE SQUARE ROOT OF THE GROOM'S OWN SPREAD.**
+ * Tips further from their neighbours because the whole tip cloud is bigger is not a defect; tips
+ * further from their neighbours THAN THAT CLOUD'S OWN SIZE ACCOUNTS FOR is. `tip/root spread`
+ * above is the ratio of the two clouds' radius of gyration — RMS distance from their own centroid
+ * — and the square root is the exponent a sheet of points obeys: spread the same count over s
+ * times the area and its nearest-neighbour spacing grows as the square root of s, not as s.
+ *
+ * ⚠️ **THE EXPONENT IS ALSO WHAT THE FOUR CLUMPED BAKES MEASURE, WHICH IS WHY IT IS HALF AND NOT
+ * ONE.** Regressing ln(raw ratio) on ln(spread ratio) over those four gives **0.449**. One half is
+ * the nearest value with a geometric reading and it is what ships; 1 — the exponent an isotropic
+ * dilation obeys — over-corrects and drives the index DOWN with length (0.596 at the bob, 0.449 at
+ * x3 cut), which would let a long mop through.
+ *
+ * 🚩 **WHAT THIS INDEX CANNOT SEE, STATED RATHER THAN DISCOVERED LATER.** Validated on point sets
+ * whose answer is arithmetic (`runGroomIndexSelftest`): identical clouds read exactly 1.000, an
+ * isotropic dilation by s reads exactly root s, sixteen locks pulled 30/60/85% of the way in read
+ * 0.733/0.424/0.159, and a small jitter reads 0.991. The isotropic row is the limit: a groom whose
+ * mass grows ROUND rather than long — an afro, a bouffant — reads high here for a reason that is
+ * not a defect, and this clause needs its own measurement on one before it can judge it.
+ * Everything measured so far hangs.
+ *
+ * 🎯 **THE CEILING IS 0.81 AND BOTH PROOFS FIRE AT EVERY LENGTH, WHICH IS WHAT 0.95 STOPPED
+ * DOING.** Worst clumped build 0.782, best `clump: 0.0` build 0.849; 0.81 sits 3.6% above the one
+ * and 4.5% below the other. Three red proofs, at 153 mm, 216 mm and 422 mm of travel.
  */
-const MAX_TIP_SPREAD_RATIO = 0.95;
+const MAX_GATHER_INDEX = 0.81;
 
 /**
  * 🎯 **AND THE RATIO ABOVE READS THE SAME FOR SIXTEEN LOCKS AND FOR A SHELL SQUEEZED 15%, WHICH IS
@@ -1430,11 +1529,127 @@ const MAX_TIP_SPREAD_RATIO = 0.95;
  * Measured response of a PURE sixteen-lobe corrugation applied to every layer, one build each: none
  * 3.11 mm, ±25 mm 4.13 mm, ±45 mm 6.22 mm. The floor is reachable — the last of those clears it —
  * and not at any amplitude that is a hairstyle. The fix is the scatter, not the relief.
+ *
+ * 🔴 **AND 5.0 mm IS THE DERIVATION ABOVE EVALUATED ONCE, ON ONE GROOM, SO A LONGER GROOM WALKS
+ * THROUGH IT WITH THE SAME DEFECT.** Envelope relief grows with the mass: measured this session at
+ * g050 over the same seven scratch bakes MAX_GATHER_INDEX lists, `relief` is 5.51–7.55 mm on the
+ * bob-length builds and 10.91–11.25 mm on the ×3-cut ones, so the ridge grows with it and clears a
+ * fixed millimetre floor while carrying LESS of the envelope than the bob does:
+ *
+ *   | build              | relief | coherence | ridge | relief/√2 | at 5.0 mm | scale-free |
+ *   |--------------------|-------:|----------:|------:|----------:|-----------|------------|
+ *   | ×0.5 cut           |   5.65 |     0.248 |  2.81 |      4.00 | FAIL      | FAIL       |
+ *   | **bob01 shipped**  |   7.38 |     0.194 |  3.25 |      5.22 | **FAIL**  | **FAIL**   |
+ *   | ×2 cut             |   7.55 |     0.297 |  4.11 |      5.34 | FAIL      | FAIL       |
+ *   | ×3 cut             |  11.25 |     0.329 |  6.45 |      7.95 | **ok**    | FAIL       |
+ *   | ×3 cut, clump 0.0  |  10.91 |     0.219 |  5.10 |      7.71 | **ok**    | FAIL       |
+ *
+ * The last row is the one that matters: a groom with **no locks authored into it at all** passes a
+ * 5.0 mm floor by being long. That is a gate that cannot go red on the defect it exists for.
+ *
+ * 🎯 **SO THE FLOOR IS THE DERIVATION ITSELF RATHER THAN ITS VALUE ON ONE BAKE: the ridge must be
+ * at least as loud as the scatter it is competing with.** `hair_locks` splits the envelope so that
+ * `coherentRelief = relief·√coherence` and `scatterRelief = relief·√(1−coherence)`, so "ridge ≥
+ * relief/√2" is exactly "ridge ≥ scatter" is exactly "coherence ≥ ½" — which is the sentence the
+ * paragraph above already derived and the number 5.0 was standing in for. It is dimensionless, it
+ * travels to any style, and it leaves this repository's one declared red gate red: bob01 reads
+ * 3.25 against 5.22 and `docs/RED-GATES.md` still describes it correctly.
  */
-const MIN_COHERENT_LOCK_RELIEF_MM = 5.0;
+const MIN_RIDGE_SHARE_OF_RELIEF = Math.SQRT1_2;
 
 /** Displacement at which an ARKit target counts as having moved a vertex, for the scalp target. */
 const FACE_MOTION_FLOOR_M = 0.00015;
+
+/**
+ * 🚩 **THE ROSTER, AND IT EXISTS BECAUSE A FAILING CLAUSE USED TO TAKE FIVE OTHERS DOWN IN SILENCE.**
+ *
+ * `reportHairAgainstFigure` returned early when its centroid check failed, and the run printed
+ * seventeen clause lines instead of twenty-two with nothing to say which five were missing.
+ * Measured this session on a groom whose layers were cut three times as long
+ * (`--hair bob01`, scratch build, sha256 e12ef8c6…): the old gate printed `FAIL shared space`
+ * and then `clearance`, `scalp coverage`, `no bald patch`, `no skin on show` and `cards deep`
+ * simply were not there. A groom that goes through the skull would have exited 1 with the same
+ * output as one that does not, which is the failure `docs/RED-GATES.md` exists to refuse.
+ *
+ * So the clause names are declared here and reconciled against what actually printed. The check is
+ * two-sided on purpose: a roster name that never printed is a SKIP and a failure unless the clause
+ * that stood down said why, and a printed name that is not on the roster is also a failure, so a
+ * clause added later cannot arrive undeclared.
+ */
+const HAIR_CLAUSES = [
+  "cards", "scalp cap", "cards gather", "locks not a shell",
+  "UV bounds", "one strip a card", "axis-aligned UV",
+  "one lock a card", "every lock used", "edge distance", "re-derived index", "re-derived edge",
+  "card borders", "border is hair", "material", "skin weights",
+  "groom on the head", "clearance", "scalp coverage", "no bald patch", "no skin on show",
+  "cards deep",
+];
+
+/** The five clauses that need TEXCOORD_1 and the extras. Named once, so a stand-down cannot drift. */
+const LOCK_CHANNEL_CLAUSES = ["one lock a card", "every lock used", "edge distance",
+                              "re-derived index", "re-derived edge"];
+
+/**
+ * What printed, what did not, and whether the gap was deliberate.
+ *
+ * `say` is every gated clause's one line. `note` is the reported-not-gated line, which carries no
+ * verdict and is not on the roster. `standDown` is how a clause that CANNOT run says so out loud:
+ * it names the clauses it is taking with it and the reason, which is the difference between a gate
+ * that skipped and a gate that hid.
+ */
+class ClauseLedger {
+  constructor(roster) {
+    this.roster = roster;
+    this.printed = new Set();
+    this.declared = new Map();
+  }
+
+  say(name, ok, detail) {
+    this.printed.add(name);
+    console.log(`  ${ok ? "ok  " : "FAIL"} ${name.padEnd(17)} ${detail}`);
+    return ok;
+  }
+
+  note(name, detail) {
+    console.log(`  --   ${name.padEnd(17)} ${detail}`);
+  }
+
+  standDown(names, reason) {
+    for (const name of names) {
+      this.declared.set(name, reason);
+    }
+  }
+
+  /** The SKIP lines and the failures for the ones nobody owned up to. Call once, at the end. */
+  reconcile(groomId) {
+    const failures = [];
+
+    for (const name of this.roster) {
+      if (this.printed.has(name)) {
+        continue;
+      }
+      const reason = this.declared.get(name);
+      console.log(`  SKIP ${name.padEnd(17)} ${reason ?? "did not run, and no clause said why"}`);
+      if (reason === undefined) {
+        failures.push(`${groomId}: clause '${name}' never ran and nothing declared it skipped — ` +
+                      "the run reported fewer clauses than the roster has");
+      }
+    }
+
+    for (const name of this.printed) {
+      if (!this.roster.includes(name)) {
+        failures.push(`${groomId}: clause '${name}' printed a verdict but is not on HAIR_CLAUSES, ` +
+                      "so a run that skipped it would go unnoticed");
+      }
+    }
+
+    const ran = this.roster.filter((name) => this.printed.has(name)).length;
+    console.log(`  --   roster            ${ran} of ${this.roster.length} clauses ran, ` +
+                `${this.declared.size} stood down with a reason`);
+
+    return failures;
+  }
+}
 
 function readHairManifest(manifestPath) {
   if (!fs.existsSync(manifestPath)) {
@@ -1793,10 +2008,11 @@ function standardDeviation(values) {
  * The card-border clause. Runs over the strips the groom's CARDS actually sample, taken from the
  * UVs rather than from a list — a strip nobody uses is not a card border.
  */
-function reportCardBorders(groom, glb, mesh) {
+function reportCardBorders(ledger, groom, glb, mesh) {
   const mask = albedoCutoutMask(glb, groom.alphaCutoff);
   if (mask === null) {
-    console.log("  FAIL card borders      no baseColorTexture to measure the atlas from");
+    ledger.standDown(["card borders", "border is hair"],
+                     "no baseColorTexture — there is no atlas in this file to measure a border on");
     return [`${groom.id} has no embedded atlas to measure its card borders on`];
   }
 
@@ -1824,14 +2040,14 @@ function reportCardBorders(groom, glb, mesh) {
     (lowest === null || Math.min(entry.leftSd, entry.rightSd)
       < Math.min(lowest.leftSd, lowest.rightSd)) ? entry : lowest, null);
 
-  console.log(`  ${opaqueBorders.length === 0 ? "ok  " : "FAIL"} card borders     ` +
-              ` ${report.length} card strip(s), ` +
-              `${opaqueBorders.reduce((total, entry) => total + entry.borderKept, 0)} opaque texel(s) ` +
-              `in their outermost ${CARD_BORDER_COLUMNS} column(s) — a card's own quad edge`);
-  console.log(`  ${straight.length === 0 ? "ok  " : "FAIL"} border is hair   ` +
-              ` worst strip ${worst === null ? "n/a" : worst.strip} boundary sd ` +
-              `${worst === null ? "n/a" : Math.min(worst.leftSd, worst.rightSd).toFixed(3)} px ` +
-              `over ${worst === null ? 0 : worst.rows} rows (floor ${MIN_STRIP_BOUNDARY_SD_PX} px)`);
+  ledger.say("card borders", opaqueBorders.length === 0,
+             `${report.length} card strip(s), ` +
+             `${opaqueBorders.reduce((total, entry) => total + entry.borderKept, 0)} opaque ` +
+             `texel(s) in their outermost ${CARD_BORDER_COLUMNS} column(s) — a card's own quad edge`);
+  ledger.say("border is hair", straight.length === 0,
+             `worst strip ${worst === null ? "n/a" : worst.strip} boundary sd ` +
+             `${worst === null ? "n/a" : Math.min(worst.leftSd, worst.rightSd).toFixed(3)} px ` +
+             `over ${worst === null ? 0 : worst.rows} rows (floor ${MIN_STRIP_BOUNDARY_SD_PX} px)`);
 
   const failures = [];
   if (opaqueBorders.length > 0) {
@@ -1883,7 +2099,7 @@ function viewDirection({ azimuth, elevation }) {
  *
  * Returns the per-sample crossing counts for the samples that face the camera at all.
  */
-function cardsDeepFrom(samples, hair, opaqueAt, direction) {
+function cardsDeepFrom(samples, hair, opaqueAt, direction, reach) {
   const deep = [];
 
   for (let sample = 0; sample < samples.areas.length; sample += 1) {
@@ -1902,7 +2118,7 @@ function cardsDeepFrom(samples, hair, opaqueAt, direction) {
     const cards = new Set();
     for (let triangle = 0; triangle < hair.indices.length; triangle += 3) {
       const hit = rayTriangle(origin, direction, hair.positions, hair.indices, triangle);
-      if (hit === null || hit.distance > SCALP_VIEW_REACH_M) continue;
+      if (hit === null || hit.distance > reach) continue;
 
       const uv = interpolateHairUv(hair.uvs, hair.indices, triangle, hit.bary);
       if (opaqueAt(uv[0], uv[1]) > 0) cards.add(Math.floor(triangle / 6));
@@ -1918,7 +2134,7 @@ function cardsDeepFrom(samples, hair, opaqueAt, direction) {
  * Which cranium samples show bare skin to a camera in `direction`. A sample counts when it faces
  * that camera at all and no card with an opaque texel stands between it and the camera.
  */
-function skinVisibleFrom(samples, hair, opaqueAt, direction) {
+function skinVisibleFrom(samples, hair, opaqueAt, direction, reach) {
   const count = samples.areas.length;
   const visible = new Array(count).fill(false);
 
@@ -1934,7 +2150,7 @@ function skinVisibleFrom(samples, hair, opaqueAt, direction) {
     let blocked = false;
     for (let triangle = 0; triangle < hair.indices.length && !blocked; triangle += 3) {
       const hit = rayTriangle(origin, direction, hair.positions, hair.indices, triangle);
-      if (hit === null || hit.distance > SCALP_VIEW_REACH_M) continue;
+      if (hit === null || hit.distance > reach) continue;
 
       const uv = interpolateHairUv(hair.uvs, hair.indices, triangle, hit.bary);
       if (opaqueAt(uv[0], uv[1]) > 0) blocked = true;
@@ -2050,16 +2266,27 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
               `${(mesh.indices.length / 3).toLocaleString()} triangles`);
 
 
-  failures.push(...reportHairComponents(groom, mesh));
-  failures.push(...reportCardGathering(groom, mesh));
-  failures.push(...reportLockSeparation(groom, mesh));
-  failures.push(...reportHairUvs(groom, mesh, hair));
-  failures.push(...reportLockChannel(groom, mesh));
-  failures.push(...reportCardBorders(groom, glb, mesh));
-  failures.push(...reportHairMaterial(groom, glb.json.materials[0], threeMeshes[0]));
+  const ledger = new ClauseLedger(HAIR_CLAUSES);
+
+  failures.push(...reportHairComponents(ledger, groom, mesh));
+  failures.push(...reportCardGathering(ledger, groom, mesh));
+  failures.push(...reportLockSeparation(ledger, groom, mesh));
+  failures.push(...reportHairUvs(ledger, groom, mesh, hair));
+  failures.push(...reportLockChannel(ledger, groom, mesh));
+  failures.push(...reportCardBorders(ledger, groom, glb, mesh));
+  failures.push(...reportHairMaterial(ledger, groom, glb.json.materials[0], threeMeshes[0]));
+
+  // ⚠️ `reportSkinning` is the FIGURE path's clause, reused. It prints one line per skinned node
+  // under that node's own name, so it has no fixed roster name to reconcile against — and it needs
+  // none: it cannot stand down, because a fragment with no skinned node never reaches here
+  // (`readOnlyPrimitive` throws first). It is off HAIR_CLAUSES for that reason and no other.
   failures.push(...reportSkinning(glb.json, threeMeshes));
-  failures.push(...reportHairSkinWeights(groom, glb, mesh));
-  failures.push(...reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir));
+
+  failures.push(...reportHairSkinWeights(ledger, groom, glb, mesh));
+  failures.push(...reportHairAgainstFigure(ledger, groom, glb, mesh, glbPath, figuresDir));
+
+  // 🚩 Last, and it is the clause about the clauses. See ClauseLedger.
+  failures.push(...ledger.reconcile(groom.id));
 
   return failures;
 }
@@ -2070,7 +2297,7 @@ async function verifyHairFragment(glbPath, hair, figuresDir) {
  * The build's own report says how many cards it grew. This does not read it — a count printed by
  * the thing being measured is the weak half of every gate in this repository.
  */
-function reportHairComponents(groom, mesh) {
+function reportHairComponents(ledger, groom, mesh) {
   console.log("");
   console.log("--- assertions on the cards ---");
 
@@ -2080,13 +2307,13 @@ function reportHairComponents(groom, mesh) {
 
   const ringCounts = new Set(ribbons.map((ribbon) => ribbon.vertices.length / 2));
 
-  console.log(`  ${ribbons.length >= MINIMUM_HAIR_CARDS ? "ok  " : "FAIL"} cards             ` +
-              `${ribbons.length} quad-strip components, ` +
-              `${[...ringCounts].sort((a, b) => a - b).join("/")} rings each ` +
-              `(floor ${MINIMUM_HAIR_CARDS})`);
-  console.log(`  ${patches.length >= 1 ? "ok  " : "FAIL"} scalp cap         ` +
-              `${patches.length} non-ribbon component(s), ` +
-              `${patches.map((patch) => patch.triangles.length).join("/")} triangles`);
+  ledger.say("cards", ribbons.length >= MINIMUM_HAIR_CARDS,
+             `${ribbons.length} quad-strip components, ` +
+             `${[...ringCounts].sort((a, b) => a - b).join("/")} rings each ` +
+             `(floor ${MINIMUM_HAIR_CARDS})`);
+  ledger.say("scalp cap", patches.length >= 1,
+             `${patches.length} non-ribbon component(s), ` +
+             `${patches.map((patch) => patch.triangles.length).join("/")} triangles`);
 
   const failures = [];
   if (ribbons.length < MINIMUM_HAIR_CARDS) {
@@ -2101,44 +2328,81 @@ function reportHairComponents(groom, mesh) {
 }
 
 /**
- * Whether the groom is locks or a mop. See MAX_TIP_SPREAD_RATIO for the measurement behind it.
+ * Whether the groom is locks or a mop. See MAX_GATHER_INDEX for the measurement behind it, and
+ * for why the raw ratio is printed beside the gated number rather than instead of it.
  *
  * Off the exported file and off nothing else: the roots and tips come from the CARDS' own UV, so
  * this clause knows nothing about layers, lock counts or clump weights, and a build that satisfied
  * it by lying about any of those would still have to move the geometry.
  */
-function reportCardGathering(groom, mesh) {
+function reportCardGathering(ledger, groom, mesh) {
   const ribbons = connectedComponents(mesh.indices, mesh.vertexCount).filter(isRibbon);
-  const gathering = cardGathering(ribbonEnds(ribbons, mesh.positions, mesh.uvs));
-  const ok = gathering.ratio <= MAX_TIP_SPREAD_RATIO;
+  const reading = groomGathering(ribbonEnds(ribbons, mesh.positions, mesh.uvs));
+  const ok = reading.index <= MAX_GATHER_INDEX;
 
-  console.log(`  ${ok ? "ok  " : "FAIL"} cards gather      tips sit ` +
-              `${gathering.ratio.toFixed(3)}x as far apart as roots ` +
-              `(${(gathering.tipNearest * 1000).toFixed(1)} mm vs ` +
-              `${(gathering.rootNearest * 1000).toFixed(1)} mm, ceiling ` +
-              `${MAX_TIP_SPREAD_RATIO}) — hair gathers into locks, a mop fans out`);
-  console.log(`  --   cut line         a card's tip sits ` +
-              `${(gathering.tipStep * 1000).toFixed(1)} mm off its 5 nearest tips in height ` +
+  ledger.say("cards gather", ok,
+             `tips gather at ${reading.index.toFixed(3)} of the spacing their own cloud's size ` +
+             `accounts for (ceiling ${MAX_GATHER_INDEX}) — raw ratio ${reading.ratio.toFixed(3)}, ` +
+             `${(reading.tipNearest * 1000).toFixed(1)} mm between tips vs ` +
+             `${(reading.rootNearest * 1000).toFixed(1)} mm between roots, over a tip cloud ` +
+             `${reading.spread.toFixed(3)}x the roots' own spread`);
+  ledger.note("cut line",
+              `a card's tip sits ${(reading.tipStep * 1000).toFixed(1)} mm off its 5 nearest tips ` +
+              `in height, on ${(reading.travel * 1000).toFixed(1)} mm of mean root-to-tip travel ` +
               "(reported, not gated — the layer stack is graduated on purpose)");
 
   if (ok) {
     return [];
   }
 
-  return [`${groom.id}'s card tips sit ${gathering.ratio.toFixed(3)}x as far apart as its roots, ` +
-          `over the ${MAX_TIP_SPREAD_RATIO} ceiling — the cards fan out instead of gathering ` +
-          "into locks, which is what reads as a mop"];
+  return [`${groom.id}'s card tips gather at ${reading.index.toFixed(3)} of the spacing its own ` +
+          `tip cloud accounts for (raw ratio ${reading.ratio.toFixed(3)} over a spread of ` +
+          `${reading.spread.toFixed(3)}x), over the ${MAX_GATHER_INDEX} ceiling — the cards fan ` +
+          "out instead of gathering into locks, which is what reads as a mop"];
 }
 
 /**
- * Whether the mass reads as LOCKS or as a shell. See MIN_COHERENT_LOCK_RELIEF_MM.
+ * `cardGathering` plus the two numbers that make its ratio comparable between one haircut and
+ * another: how much bigger the tip cloud is than the root cloud, and how far a card actually
+ * travels. See MAX_GATHER_INDEX for the seven bakes these were derived from.
+ *
+ * It lives here rather than in `hair_geometry.mjs` because it is a THRESHOLD's arithmetic — the
+ * same arrangement the lock-channel floors have — and because `cardGathering` is shared with the
+ * build's own report, which quotes the raw ratio and should go on quoting it.
+ */
+function groomGathering(ends) {
+  const gathering = cardGathering(ends);
+  const spread = radiusOfGyration(ends.map((end) => end.tip))
+    / radiusOfGyration(ends.map((end) => end.root));
+
+  const travel = ends.reduce((total, end) => total + Math.hypot(
+    end.tip[0] - end.root[0], end.tip[1] - end.root[1], end.tip[2] - end.root[2]), 0) / ends.length;
+
+  return { ...gathering, spread, travel, index: gathering.ratio / Math.sqrt(spread) };
+}
+
+/** RMS distance of a point set from its own centroid. A cloud's size, in one number, any shape. */
+function radiusOfGyration(points) {
+  const centre = [0, 1, 2].map((axis) =>
+    points.reduce((total, point) => total + point[axis], 0) / points.length);
+
+  const variance = points.reduce((total, point) => total
+    + (point[0] - centre[0]) ** 2 + (point[1] - centre[1]) ** 2 + (point[2] - centre[2]) ** 2,
+  0) / points.length;
+
+  return Math.sqrt(variance);
+}
+
+/**
+ * Whether the mass reads as LOCKS or as a shell. See MIN_RIDGE_SHARE_OF_RELIEF.
  *
  * Off the exported positions and nothing else — no layer names, no lock count, no clump weight —
  * so a build cannot satisfy this by declaring locks it did not put in the geometry.
  */
-function reportLockSeparation(groom, mesh) {
+function reportLockSeparation(ledger, groom, mesh) {
   const reading = measureLockStructure(mesh.positions);
-  const ok = reading.coherentReliefMm >= MIN_COHERENT_LOCK_RELIEF_MM;
+  const floorMm = reading.reliefMm * MIN_RIDGE_SHARE_OF_RELIEF;
+  const ok = reading.coherentReliefMm >= floorMm;
 
   // How thick the hair is in RADIUS inside one bin — the noise floor any ridge has to clear.
   // 🎯 **THIS USED TO BE FIFTEEN LINES OF THE SAME ARITHMETIC OPEN-CODED HERE.** It is
@@ -2147,12 +2411,14 @@ function reportLockSeparation(groom, mesh) {
   // Two copies of a statistic is two statistics as soon as one of them is edited.
   const spread = envelopeSpread(mesh.positions);
 
-  console.log(`  ${ok ? "ok  " : "FAIL"} locks not a shell  ` +
-              `${reading.coherentReliefMm.toFixed(2)} mm of ridge running down the head ` +
-              `(floor ${MIN_COHERENT_LOCK_RELIEF_MM}) — ${reading.reliefMm.toFixed(2)} mm of ` +
-              `envelope relief at ${reading.coherence.toFixed(3)} vertical coherence, ` +
-              `${reading.ridgePeaks} ridges over ${reading.bandsUsed} bands`);
-  console.log(`  --   shell thickness   the groom spans ${spread.spreadMm.toFixed(2)} mm of ` +
+  ledger.say("locks not a shell", ok,
+             `${reading.coherentReliefMm.toFixed(2)} mm of ridge running down the head against a ` +
+             `floor of ${floorMm.toFixed(2)} mm, which is this groom's OWN ` +
+             `${reading.reliefMm.toFixed(2)} mm of envelope relief over root 2 — at ` +
+             `${reading.coherence.toFixed(3)} vertical coherence, ` +
+             `${reading.ridgePeaks} ridges over ${reading.bandsUsed} bands`);
+  ledger.note("shell thickness",
+              `the groom spans ${spread.spreadMm.toFixed(2)} mm of ` +
               `radius between its p50 and p85 inside one 3°x30 mm bin (worst band ` +
               `${spread.worstBandMm.toFixed(2)}), over ${spread.cells} bins — and ` +
               `${reading.scatterReliefMm.toFixed(2)} mm of the relief above is SCATTER rather ` +
@@ -2162,14 +2428,15 @@ function reportLockSeparation(groom, mesh) {
     return [];
   }
 
-  return [`${groom.id} carries ${reading.coherentReliefMm.toFixed(2)} mm of coherent lock relief, ` +
-          `under the ${MIN_COHERENT_LOCK_RELIEF_MM} mm floor — its outer surface is ` +
+  return [`${groom.id} carries ${reading.coherentReliefMm.toFixed(2)} mm of coherent lock relief ` +
+          `against a floor of ${floorMm.toFixed(2)} mm — its outer surface is ` +
           `${reading.reliefMm.toFixed(2)} mm of corrugation at ${reading.coherence.toFixed(3)} ` +
-          "vertical coherence, which is card scatter and not locks: the mass reads as a shell"];
+          "vertical coherence, so more of it is card scatter than is ridge: the mass reads as a " +
+          "shell"];
 }
 
 /** Every UV inside the atlas, and every card inside ONE strip of it. */
-function reportHairUvs(groom, mesh, hair) {
+function reportHairUvs(ledger, groom, mesh, hair) {
   const components = connectedComponents(mesh.indices, mesh.vertexCount);
   const extents = uvExtentsPerComponent(components, mesh.uvs, groom.atlas.strips);
 
@@ -2183,16 +2450,16 @@ function reportHairUvs(groom, mesh, hair) {
   const skewed = extents.filter((extent, index) =>
     isRibbon(components[index]) && extent.uColumns !== 2);
 
-  console.log(`  ${outside.length === 0 ? "ok  " : "FAIL"} UV bounds         ` +
-              `${extents.length} components, all within [0,1]` +
-              (outside.length === 0 ? "" : ` — ${outside.length} are NOT`));
-  console.log(`  ${straddling.length === 0 ? "ok  " : "FAIL"} one strip a card  ` +
-              `${straddling.length} card(s) straddle an atlas strip boundary ` +
-              `(${groom.atlas.strips} strips)`);
-  console.log(`  ${skewed.length === 0 ? "ok  " : "FAIL"} axis-aligned UV   ` +
-              `${extents.length - skewed.length - (extents.length - components.filter(isRibbon).length)}` +
-              ` of ${components.filter(isRibbon).length} cards sit on exactly two u columns ` +
-              `— the groom exports no TANGENT and the strand direction is this UV's bitangent`);
+  ledger.say("UV bounds", outside.length === 0,
+             `${extents.length} components, all within [0,1]` +
+             (outside.length === 0 ? "" : ` — ${outside.length} are NOT`));
+  ledger.say("one strip a card", straddling.length === 0,
+             `${straddling.length} card(s) straddle an atlas strip boundary ` +
+             `(${groom.atlas.strips} strips)`);
+  ledger.say("axis-aligned UV", skewed.length === 0,
+             `${extents.length - skewed.length - (extents.length - components.filter(isRibbon).length)}` +
+             ` of ${components.filter(isRibbon).length} cards sit on exactly two u columns ` +
+             "— the groom exports no TANGENT and the strand direction is this UV's bitangent");
 
   const failures = [];
   if (outside.length > 0) {
@@ -2233,15 +2500,16 @@ function reportHairUvs(groom, mesh, hair) {
  * distance, which is the channel's own statement that this root sits near a boundary. A mismatch
  * at a lock CORE is an index that is simply wrong, and that is worth failing a build over.
  */
-function reportLockChannel(groom, mesh) {
+function reportLockChannel(ledger, groom, mesh) {
   console.log("");
   console.log("--- assertions on the lock channel (R25) ---");
 
   const failures = [];
 
   if (mesh.lockUvs === null) {
-    console.log("  FAIL lock channel     no TEXCOORD_1 — the groom's lock identity does not " +
-                "reach the shader");
+    ledger.standDown(LOCK_CHANNEL_CLAUSES,
+                     "no TEXCOORD_1 — the groom's lock identity does not reach the shader, so " +
+                     "there is no channel to re-derive");
     return [`${groom.id} exports no TEXCOORD_1; HairMaterial's per-lock terms have nothing to read`];
   }
 
@@ -2250,8 +2518,9 @@ function reportLockChannel(groom, mesh) {
   const centres = mesh.extras.sugata_lock_centres;
 
   if (count === undefined || edgeScale === undefined || centres === undefined) {
-    console.log("  FAIL lock extras      the mesh carries no sugata_lock_* extras, so the " +
-                "channel cannot be re-derived and would only be read back");
+    ledger.standDown(LOCK_CHANNEL_CLAUSES,
+                     "the mesh carries no sugata_lock_* extras, so the channel cannot be " +
+                     "re-derived and would only be read back");
     return [`${groom.id} carries TEXCOORD_1 but no lock centres in extras`];
   }
 
@@ -2306,27 +2575,27 @@ function reportLockChannel(groom, mesh) {
   const edgeOk = edgeError <= MAX_EDGE_REDERIVATION_ERROR;
   const rangeOk = inRange === readings.length;
 
-  console.log(`  ${constantOk ? "ok  " : "FAIL"} one lock a card   ` +
-              `${cards.length - notConstant} of ${cards.length} cards carry a CONSTANT ` +
-              "TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise");
-  console.log(`  ${occupancyOk ? "ok  " : "FAIL"} every lock used   ` +
-              `${histogram.size} of ${count} locks carry cards, ` +
-              `${Math.min(...histogram.values())}–${Math.max(...histogram.values())} each ` +
-              "(a build that wrote one index everywhere reads 1 here)");
-  console.log(`  ${rangeOk ? "ok  " : "FAIL"} edge distance     ` +
-              `${inRange} of ${readings.length} in [0,1]; p10/p50/p90 ` +
-              `${edges[Math.floor(edges.length * 0.1)].toFixed(3)}/` +
-              `${edges[Math.floor(edges.length * 0.5)].toFixed(3)}/` +
-              `${edges[Math.floor(edges.length * 0.9)].toFixed(3)} ` +
-              `at ${(edgeScale * 1000).toFixed(1)} mm a unit`);
-  console.log(`  ${rateOk ? "ok  " : "FAIL"} re-derived index  ` +
-              `${matched} of ${readings.length} cards (${(rate * 100).toFixed(2)}%) put their ` +
-              `exported root nearest the centre they claim (floor ` +
-              `${(MINIMUM_LOCK_REDERIVATION * 100).toFixed(0)}%)`);
-  console.log(`  ${edgeOk ? "ok  " : "FAIL"} re-derived edge   ` +
-              `p90 |emitted − re-derived| = ${edgeError.toFixed(3)} ` +
-              `(ceiling ${MAX_EDGE_REDERIVATION_ERROR}) — this is the clause that catches an ` +
-              "edge channel written upside down");
+  ledger.say("one lock a card", constantOk,
+             `${cards.length - notConstant} of ${cards.length} cards carry a CONSTANT ` +
+             "TEXCOORD_1 — a lock id is a label, and a label that interpolates is noise");
+  ledger.say("every lock used", occupancyOk,
+             `${histogram.size} of ${count} locks carry cards, ` +
+             `${Math.min(...histogram.values())}–${Math.max(...histogram.values())} each ` +
+             "(a build that wrote one index everywhere reads 1 here)");
+  ledger.say("edge distance", rangeOk,
+             `${inRange} of ${readings.length} in [0,1]; p10/p50/p90 ` +
+             `${edges[Math.floor(edges.length * 0.1)].toFixed(3)}/` +
+             `${edges[Math.floor(edges.length * 0.5)].toFixed(3)}/` +
+             `${edges[Math.floor(edges.length * 0.9)].toFixed(3)} ` +
+             `at ${(edgeScale * 1000).toFixed(1)} mm a unit`);
+  ledger.say("re-derived index", rateOk,
+             `${matched} of ${readings.length} cards (${(rate * 100).toFixed(2)}%) put their ` +
+             "exported root nearest the centre they claim (floor " +
+             `${(MINIMUM_LOCK_REDERIVATION * 100).toFixed(0)}%)`);
+  ledger.say("re-derived edge", edgeOk,
+             `p90 |emitted − re-derived| = ${edgeError.toFixed(3)} ` +
+             `(ceiling ${MAX_EDGE_REDERIVATION_ERROR}) — this is the clause that catches an ` +
+             "edge channel written upside down");
 
   if (!constantOk) {
     failures.push(`${groom.id} has ${notConstant} cards whose TEXCOORD_1 is not constant, so the ` +
@@ -2355,7 +2624,7 @@ function reportLockChannel(groom, mesh) {
 }
 
 /** The cutout and the sidedness, against the manifest rather than against a name pattern. */
-function reportHairMaterial(groom, material, threeMesh) {
+function reportHairMaterial(ledger, groom, material, threeMesh) {
   const cutoff = material.alphaCutoff ?? 0.5;
   const problems = [];
 
@@ -2372,10 +2641,10 @@ function reportHairMaterial(groom, material, threeMesh) {
     problems.push(`three.js side ${threeMesh.side}, expected DoubleSide`);
   }
 
-  console.log(`  ${problems.length === 0 ? "ok  " : "FAIL"} material          ` +
-              `${material.alphaMode}, cutoff ${cutoff}, ` +
-              `${material.doubleSided ? "double sided" : "backface culled"}` +
-              (problems.length === 0 ? "" : ` — ${problems.join("; ")}`));
+  ledger.say("material", problems.length === 0,
+             `${material.alphaMode}, cutoff ${cutoff}, ` +
+             `${material.doubleSided ? "double sided" : "backface culled"}` +
+             (problems.length === 0 ? "" : ` — ${problems.join("; ")}`));
 
   return problems.length === 0 ? [] : [`${groom.id}: ${problems.join("; ")}`];
 }
@@ -2386,7 +2655,7 @@ function reportHairMaterial(groom, material, threeMesh) {
  * `reportSkinning` already fails a vertex with no weight at all. This is the other half: a groom
  * weighted to `spine_01` would pass that and would stay behind when the head turned.
  */
-function reportHairSkinWeights(groom, glb, mesh) {
+function reportHairSkinWeights(ledger, groom, glb, mesh) {
   const jointNames = glb.json.skins[0].joints.map((node) => glb.json.nodes[node].name);
 
   const used = new Set();
@@ -2407,9 +2676,9 @@ function reportHairSkinWeights(groom, glb, mesh) {
   const onlyTheBone = bones.length === 1 && bones[0] === groom.bone;
   const normalised = Math.abs(worstSum - 1) < 1e-4;
 
-  console.log(`  ${onlyTheBone && normalised ? "ok  " : "FAIL"} skin weights      ` +
-              `bones {${bones.join(", ")}}, worst weight sum ${worstSum.toFixed(6)} ` +
-              `(manifest bone '${groom.bone}')`);
+  ledger.say("skin weights", onlyTheBone && normalised,
+             `bones {${bones.join(", ")}}, worst weight sum ${worstSum.toFixed(6)} ` +
+             `(manifest bone '${groom.bone}')`);
 
   const failures = [];
   if (!onlyTheBone) {
@@ -2426,29 +2695,41 @@ function reportHairSkinWeights(groom, glb, mesh) {
  * The two measurements that need the body: does the groom go through the head, and does the head
  * show through the groom.
  */
-function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
+function reportHairAgainstFigure(ledger, groom, glb, mesh, glbPath, figuresDir) {
+  const bodyClauses = ["groom on the head", "clearance", "scalp coverage", "no bald patch",
+                       "no skin on show", "cards deep"];
   const figurePath = figureForFragment(glbPath, figuresDir);
 
   if (!fs.existsSync(figurePath)) {
-    console.log(`  FAIL clearance         no figure at ${figurePath}; the clearance and the ` +
-                "coverage have no body to be measured against");
+    ledger.standDown(bodyClauses,
+                     `no figure at ${path.basename(figurePath)} — six clauses need the body`);
     return [`${groom.id} could not be measured against ${path.basename(figurePath)}`];
   }
 
   const figure = readGlb(figurePath);
   const { scalp, body, craniumFaces } = craniumTarget(figure);
 
-  // 🚩 The fragment and the figure are separate exports, and a clearance measured across two
-  // coordinate systems would be a large positive number for a groom buried in the skull. Assert
-  // they are in the same space before believing anything either of them says.
-  const hairCentroid = centroidOf(mesh.positions);
-  const scalpCentroid = centroidOf(scalp.points);
-  const apart = Math.hypot(hairCentroid[0] - scalpCentroid[0], hairCentroid[1] - scalpCentroid[1],
-                           hairCentroid[2] - scalpCentroid[2]);
-  if (apart > 0.15) {
-    console.log(`  FAIL shared space      the groom's centroid is ${(apart * 1000).toFixed(0)} mm ` +
-                "from the cranium's; these two files are not in the same coordinate system");
-    return [`${groom.id} and ${path.basename(figurePath)} are not in the same space`];
+  // 🚩 **THE FRAGMENT AND THE FIGURE ARE SEPARATE EXPORTS AND THE FIVE CLAUSES BELOW ARE MEANINGLESS
+  // IF THEY ARE NOT IN THE SAME SPACE** — a groom buried in the skull reads as a large POSITIVE
+  // clearance when the two files disagree about where the origin is. So this asks the question
+  // first, and if it fails it says which clauses it is taking down with it rather than returning.
+  const rooted = groomOnTheHead(mesh, scalp);
+  const onTheHead = rooted.medianMm <= rooted.craniumRadiusMm;
+
+  ledger.say("groom on the head", onTheHead,
+             `${rooted.counted} card roots sit ${rooted.medianMm.toFixed(1)} mm from the nearest ` +
+             `of ${rooted.craniumVertices} cranium vertices at p50 and ` +
+             `${rooted.p90Mm.toFixed(1)} mm at p90, against a cranium radius of ` +
+             `${rooted.craniumRadiusMm.toFixed(1)} mm`);
+
+  if (!onTheHead) {
+    ledger.standDown(bodyClauses.filter((name) => name !== "groom on the head"),
+                     "the groom is not on this head, so nothing measured against it would mean " +
+                     "anything");
+    return [`${groom.id}'s card roots sit ${rooted.medianMm.toFixed(1)} mm from ` +
+            `${path.basename(figurePath)}'s cranium at the median, further than its own ` +
+            `${rooted.craniumRadiusMm.toFixed(1)} mm radius — the two files are not in the same ` +
+            "space, or the groom is not attached to this figure"];
   }
 
   const grid = new SurfaceGrid(body.positions, body.normals, body.indices);
@@ -2468,10 +2749,9 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   }
 
   const clearanceOk = through === 0 && nearest * 1000 >= MINIMUM_HAIR_CLEARANCE_MM - 1e-3;
-  console.log(`  ${clearanceOk ? "ok  " : "FAIL"} clearance         ` +
-              `nearest signed approach ${(nearest * 1000).toFixed(3)} mm, ` +
-              `${through} vertices inside the body ` +
-              `(floor ${MINIMUM_HAIR_CLEARANCE_MM} mm)`);
+  ledger.say("clearance", clearanceOk,
+             `nearest signed approach ${(nearest * 1000).toFixed(3)} mm, ` +
+             `${through} vertices inside the body (floor ${MINIMUM_HAIR_CLEARANCE_MM} mm)`);
 
   const alphaAt = albedoAlphaSampler(glb);
   const failures = [];
@@ -2481,9 +2761,24 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   }
 
   if (alphaAt === null) {
-    console.log("  FAIL scalp coverage    no baseColorTexture to sample");
-    failures.push(`${groom.id} hides an unmeasurable fraction of the cranium`);
+    ledger.standDown(["scalp coverage", "no bald patch", "no skin on show", "cards deep"],
+                     "the groom has no baseColorTexture, so its cutout cannot be sampled and " +
+                     "every coverage question is unanswerable");
+    failures.push(`${groom.id} hides an unmeasurable fraction of the cranium: no baseColorTexture`);
     return failures;
+  }
+
+  // 🚩 **THE THREE COVERAGE CLAUSES ASSUME A GROOM THAT COVERS, AND SAY SO RATHER THAN PRETENDING
+  // TO BE UNIVERSAL.** An undercut, a shaved side, a receding style: the cranium is deliberately
+  // bare there and a floor of 97% would fail the style for being the style. There is no way to
+  // derive "should this patch be bare" from geometry, so the manifest declares it — a groom with
+  // `"scalpCoverage": "partial"` stands these three down BY NAME, out loud, and the skip is
+  // visible in the run rather than inferred from a shorter clause list. bob01 declares nothing and
+  // gets the full three.
+  if ((groom.scalpCoverage ?? "full") !== "full") {
+    ledger.standDown(["scalp coverage", "no bald patch", "no skin on show"],
+                     `the manifest declares scalpCoverage '${groom.scalpCoverage}', so bare ` +
+                     "cranium is this style rather than a hole in it");
   }
 
   // ⚠️ **THE RENDERER'S RULE, NOT A BLEND.** The groom is MASK at `groom.alphaCutoff`, so a texel
@@ -2502,17 +2797,18 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   // And the same question from where a judge stands. See SCALP_VIEW_ANGLES. The depth-complexity
   // walk rides the same rays: it is the same cutoff and the same reach, counting crossings instead
   // of stopping at the first one. See `cardsDeepFrom` and `MAX_CARDS_DEEP_P50`.
+  const reach = viewReachFor(mesh);
   let worstView = { name: "none", area: 0, samples: 0, centre: null };
   let deepestView = { name: "none", p50: 0, p90: 0, rays: 0 };
   for (const angle of SCALP_VIEW_ANGLES) {
     const direction = viewDirection(angle);
-    const visible = skinVisibleFrom(samples, mesh, opaqueAt, direction);
+    const visible = skinVisibleFrom(samples, mesh, opaqueAt, direction, reach);
     const seen = largestExposedPatch(samples, visible, SCALP_PATCH_LINK_M);
     if (seen.area > worstView.area) {
       worstView = { name: angle.name, ...seen };
     }
 
-    const deep = cardsDeepFrom(samples, mesh, opaqueAt, direction).sort((a, b) => a - b);
+    const deep = cardsDeepFrom(samples, mesh, opaqueAt, direction, reach).sort((a, b) => a - b);
     if (deep.length === 0) continue;
     const p50 = deep[Math.floor(deep.length * 0.5)];
     if (p50 > deepestView.p50) {
@@ -2525,37 +2821,41 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   const viewOk = worstView.area <= MAX_VISIBLE_SKIN_MM2;
   const depthOk = deepestView.p50 <= MAX_CARDS_DEEP_P50;
 
-  console.log(`  ${coverageOk ? "ok  " : "FAIL"} scalp coverage    ` +
-              `${(coverage * 100).toFixed(2)}% of ${samples.areas.length} cranium surface samples ` +
-              `at ${(SCALP_SAMPLE_SPACING_M * 1000).toFixed(0)} mm hidden, through the CUTOUT ` +
-              `(floor ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}%)`);
-  console.log(`  ${patchOk ? "ok  " : "FAIL"} no bald patch     ` +
-              `largest connected exposed patch ${patch.area.toFixed(1)} mm²` +
-              (patch.centre === null ? "" :
-                ` at (${patch.centre.map((value) => value.toFixed(3)).join(", ")})`) +
-              ` over ${patch.samples} sample(s) (ceiling ${MAX_EXPOSED_PATCH_MM2} mm²)`);
-  console.log(`  ${viewOk ? "ok  " : "FAIL"} no skin on show   ` +
-              `worst of ${SCALP_VIEW_ANGLES.length} judge views is '${worstView.name}' at ` +
-              `${worstView.area.toFixed(1)} mm² of bare cranium` +
-              (worstView.centre === null ? "" :
-                ` at (${worstView.centre.map((value) => value.toFixed(3)).join(", ")})`) +
-              ` (ceiling ${MAX_VISIBLE_SKIN_MM2} mm²)`);
-  console.log(`  ${depthOk ? "ok  " : "FAIL"} cards deep        ` +
-              `deepest of ${SCALP_VIEW_ANGLES.length} judge views is '${deepestView.name}' at p50 ` +
-              `${deepestView.p50} cards crossed per ray (p90 ${deepestView.p90}, over ` +
-              `${deepestView.rays} rays, ceiling ${MAX_CARDS_DEEP_P50}) — every crossing is a ` +
-              `shaded fragment and a card the atlas's own cutout cannot see past`);
+  const covers = (groom.scalpCoverage ?? "full") === "full";
+  if (covers) {
+    ledger.say("scalp coverage", coverageOk,
+               `${(coverage * 100).toFixed(2)}% of ${samples.areas.length} cranium surface ` +
+               `samples at ${(SCALP_SAMPLE_SPACING_M * 1000).toFixed(0)} mm hidden, through the ` +
+               `CUTOUT (floor ${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}%)`);
+    ledger.say("no bald patch", patchOk,
+               `largest connected exposed patch ${patch.area.toFixed(1)} mm²` +
+               (patch.centre === null ? "" :
+                 ` at (${patch.centre.map((value) => value.toFixed(3)).join(", ")})`) +
+               ` over ${patch.samples} sample(s) (ceiling ${MAX_EXPOSED_PATCH_MM2} mm²)`);
+    ledger.say("no skin on show", viewOk,
+               `worst of ${SCALP_VIEW_ANGLES.length} judge views is '${worstView.name}' at ` +
+               `${worstView.area.toFixed(1)} mm² of bare cranium` +
+               (worstView.centre === null ? "" :
+                 ` at (${worstView.centre.map((value) => value.toFixed(3)).join(", ")})`) +
+               ` (ceiling ${MAX_VISIBLE_SKIN_MM2} mm², within ` +
+               `${(reach * 1000).toFixed(0)} mm of the sample)`);
+  }
+  ledger.say("cards deep", depthOk,
+             `deepest of ${SCALP_VIEW_ANGLES.length} judge views is '${deepestView.name}' at p50 ` +
+             `${deepestView.p50} cards crossed per ray (p90 ${deepestView.p90}, over ` +
+             `${deepestView.rays} rays, ceiling ${MAX_CARDS_DEEP_P50}) — every crossing is a ` +
+             "shaded fragment and a card the atlas's own cutout cannot see past");
 
-  if (!coverageOk) {
+  if (covers && !coverageOk) {
     failures.push(`${groom.id} hides ${(coverage * 100).toFixed(2)}% of the cranium, under the ` +
                   `${(MINIMUM_SCALP_COVERAGE * 100).toFixed(0)}% floor`);
   }
-  if (!patchOk) {
+  if (covers && !patchOk) {
     failures.push(`${groom.id} leaves a ${patch.area.toFixed(1)} mm² hole in the cranium's cover ` +
                   `at (${patch.centre.map((value) => value.toFixed(3)).join(", ")}), over the ` +
                   `${MAX_EXPOSED_PATCH_MM2} mm² ceiling`);
   }
-  if (!viewOk) {
+  if (covers && !viewOk) {
     failures.push(`${groom.id} shows ${worstView.area.toFixed(1)} mm² of bare cranium to the ` +
                   `'${worstView.name}' view at ` +
                   `(${worstView.centre.map((value) => value.toFixed(3)).join(", ")}), over the ` +
@@ -2568,6 +2868,72 @@ function reportHairAgainstFigure(groom, glb, mesh, glbPath, figuresDir) {
   }
 
   return failures;
+}
+
+/**
+ * 🎯 **WHETHER THE GROOM IS ON THIS HEAD, ASKED OF THE ONE PART OF A HAIRCUT THAT CANNOT MOVE.**
+ *
+ * The clause this replaces compared the groom's CENTROID with the cranium's and failed over 150 mm.
+ * A centroid is a fact about how long the hair is: measured this session, a groom whose layers were
+ * cut ×3 puts its centroid **177 mm** below the cranium's and was declared "not in the same
+ * coordinate system" — with a clearance of 3.501 mm to the body it was supposedly nowhere near.
+ *
+ * Card ROOTS do not move with the style. Every card starts on the scalp and is pushed out along the
+ * surface normal by its layer's standoff, 3.8–30 mm on the shipped stack, so the median root sits a
+ * couple of centimetres off the cranium for a crop, a bob or a waist-length groom alike. Measured
+ * this session over seven scratch bakes spanning 153–425 mm of card travel: p50 **18.7 mm** on six
+ * of them and 19.1 mm on the seventh, p90 34.0–34.3 mm on all seven. The centroid it replaces moved
+ * from 55 mm to 177 mm over the same set, against a ceiling of 150 — which is where a hairstyle
+ * two thirds again as long as a bob started being called a coordinate-system fault.
+ *
+ * The ceiling is the CRANIUM'S OWN RADIUS, read off the figure — a root further from the cranium
+ * than the cranium is wide is not a root. That is an order of magnitude away from what a real
+ * mismatch does. Both red proofs were run this session, by rewriting bob01 g050's POSITION values
+ * and nothing else: a missed Z-up/Y-up conversion — (x, y, z) to (x, −z, y) — reads **2,211.4 mm**
+ * at p50, and the same groom exported in centimetres reads **160,544.8 mm**, against a cranium
+ * radius of 95.3 mm. Both take the five clauses below down with them and both say so, by name.
+ *
+ * ⚠️ **IT MEASURES TO THE CRANIUM'S VERTICES RATHER THAN THROUGH `SurfaceGrid`, AND THE REASON IS
+ * THAT THE GRID CANNOT ANSWER THIS QUESTION AT ALL.** `SurfaceGrid.nearest` widens its search ring
+ * by ring and gives up after 64; a groom in the wrong space is outside every cell, so each of 496
+ * roots walks a 129³ shell before returning null. The first run of this clause against the Y-up
+ * proof did not fail — it did not finish in two minutes. A gate that hangs on the input it exists
+ * to reject is not a gate, so this walks the cranium's own 2,000-odd vertices instead. The cost is
+ * that a root reads as far as the nearest VERTEX rather than the nearest surface point, up to
+ * about 10–20 mm high on this base mesh — the vertex spacing SCALP_SAMPLE_SPACING_M's comment
+ * measures — which is nothing against a ceiling of a whole radius. There are 257 of them.
+ */
+function groomOnTheHead(mesh, scalp) {
+  const cards = connectedComponents(mesh.indices, mesh.vertexCount).filter(isRibbon);
+  const roots = ribbonEnds(cards, mesh.positions, mesh.uvs).map((end) => end.root);
+
+  const craniumCentre = centroidOf(scalp.points);
+  let craniumRadius = 0;
+  for (let point = 0; point < scalp.points.length; point += 3) {
+    craniumRadius = Math.max(craniumRadius, Math.hypot(scalp.points[point] - craniumCentre[0],
+                                                       scalp.points[point + 1] - craniumCentre[1],
+                                                       scalp.points[point + 2] - craniumCentre[2]));
+  }
+
+  const standoffs = roots.map((root) => {
+    let nearest = Infinity;
+    for (let point = 0; point < scalp.points.length; point += 3) {
+      nearest = Math.min(nearest, Math.hypot(root[0] - scalp.points[point],
+                                             root[1] - scalp.points[point + 1],
+                                             root[2] - scalp.points[point + 2]));
+    }
+    return nearest;
+  });
+
+  standoffs.sort((a, b) => a - b);
+
+  return {
+    counted: roots.length,
+    craniumVertices: scalp.points.length / 3,
+    medianMm: standoffs[Math.floor(standoffs.length * 0.5)] * 1000,
+    p90Mm: standoffs[Math.floor(standoffs.length * 0.9)] * 1000,
+    craniumRadiusMm: craniumRadius * 1000,
+  };
 }
 
 function centroidOf(points) {
@@ -2831,6 +3197,98 @@ function runGarmentClauseSelftest(wardrobe) {
   return failures;
 }
 
+/**
+ * 🚩 THE OTHER WAY, for the gather index (punch-list 3.6, docs/LEARNINGS.md §1.1).
+ *
+ * `MAX_GATHER_INDEX` is a ceiling on a number nothing else in this repository computes, and this
+ * project has shipped EIGHT statistics that could not see the defect they were written for. So the
+ * index is driven with point sets whose answer is arithmetic before it is pointed at a groom:
+ *
+ *   identity          tips exactly where the roots are          index is exactly 1
+ *   dilation by s     tips are the roots scaled about a point   index is exactly sqrt(s)
+ *   one-axis stretch  a sheet pulled out along x by s           NN grows as sqrt(s), Rg as
+ *                                                               sqrt((s^2+1)/2), so the index is
+ *                                                               sqrt(s) / ((s^2+1)/2)^(1/4)
+ *   locks             every point pulled toward one of sixteen  index falls, monotonically, and
+ *                     centres by a stated fraction              is well under 1 at every pull
+ *   jitter            every point displaced a little, at random index stays near 1
+ *
+ * The dilation row is the one that states the limit rather than the capability: a groom whose mass
+ * grows ROUND reads high here and that is not a defect. See MAX_GATHER_INDEX.
+ */
+function runGroomIndexSelftest() {
+  console.log("");
+  console.log("--- gather index: the operator against shapes whose answer is arithmetic ---");
+
+  // A fixed stream, not Math.random: a selftest whose input moves between runs reports a failure
+  // intermittently, which is worse than not reporting it.
+  let state = 12345;
+  const random = () => {
+    state = (state * 1103515245 + 12345) & 0x7fffffff;
+    return state / 0x7fffffff;
+  };
+
+  const count = 2000;
+  const roots = Array.from({ length: count }, () => [random(), random(), 0]);
+  const indexOf = (tips) => groomGathering(roots.map((root, at) => ({ root, tip: tips[at] }))).index;
+
+  const failures = [];
+  const check = (label, measured, expected, tolerance) => {
+    const ok = Math.abs(measured - expected) <= tolerance;
+    console.log(`  ${ok ? "ok  " : "FAIL"} ${label.padEnd(26)}${measured.toFixed(4)} ` +
+                `(expected ${expected.toFixed(4)} ±${tolerance})`);
+    if (!ok) {
+      failures.push(`gather index: ${label} read ${measured.toFixed(4)}, expected ` +
+                    `${expected.toFixed(4)} ±${tolerance}`);
+    }
+    return measured;
+  };
+
+  check("identity", indexOf(roots), 1, 1e-12);
+
+  for (const scale of [1.5, 2, 4]) {
+    check(`dilation x${scale}`, indexOf(roots.map((p) => [p[0] * scale, p[1] * scale, 0])),
+          Math.sqrt(scale), 1e-9);
+  }
+
+  // Finite-sample: the mean nearest-neighbour distance of `count` points has a spread of about
+  // 1/sqrt(count), so 4% is the honest tolerance on a 2,000-point sheet rather than a generous one.
+  for (const scale of [2, 4]) {
+    check(`one-axis stretch x${scale}`,
+          indexOf(roots.map((p) => [p[0] * scale, p[1], 0])),
+          Math.sqrt(scale) / ((scale * scale + 1) / 2) ** 0.25, 0.04);
+  }
+
+  const centres = Array.from({ length: 16 }, () => [random(), random(), 0]);
+  const nearestCentre = (point) => centres.reduce((best, centre) =>
+    Math.hypot(point[0] - centre[0], point[1] - centre[1]) <
+    Math.hypot(point[0] - best[0], point[1] - best[1]) ? centre : best, centres[0]);
+
+  let previous = 1;
+  for (const pull of [0.3, 0.6, 0.85]) {
+    const locked = roots.map((point) => {
+      const centre = nearestCentre(point);
+      return point.map((value, axis) => value + (centre[axis] - value) * pull);
+    });
+    const measured = indexOf(locked);
+    const ok = measured < previous && measured < 1;
+    console.log(`  ${ok ? "ok  " : "FAIL"} ${`locks pulled ${pull}`.padEnd(26)}` +
+                `${measured.toFixed(4)} (under ${previous.toFixed(4)}, and under 1)`);
+    if (!ok) {
+      failures.push(`gather index: locks pulled ${pull} read ${measured.toFixed(4)}, which is not ` +
+                    `below the ${previous.toFixed(4)} the looser pull read`);
+    }
+    previous = measured;
+  }
+
+  for (const size of [0.02, 0.05]) {
+    check(`jitter ${size}`, indexOf(roots.map((point) =>
+      [point[0] + (random() - 0.5) * size, point[1] + (random() - 0.5) * size, 0])), 1, 0.03);
+  }
+
+  return failures;
+}
+
 async function main() {
   const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(pipelineDir, "..", "..");
@@ -2848,10 +3306,12 @@ async function main() {
   const hair = readHairManifest(path.join(hairDir, "manifest.json"));
 
   if (argv.includes("--selftest")) {
-    const failures = [...runLipSealSelftest(), ...runGarmentClauseSelftest(wardrobe)];
+    const failures = [...runLipSealSelftest(), ...runGarmentClauseSelftest(wardrobe),
+                      ...runGroomIndexSelftest()];
     console.log("");
     console.log(failures.length === 0
-      ? "PASS — the lip-seal and garment gates reject known-bad input and accept good input."
+      ? "PASS — the lip-seal, garment and gather-index gates reject known-bad input and accept " +
+        "good input."
       : `FAIL — ${failures.length} problem(s): ${failures.join("; ")}`);
     process.exit(failures.length === 0 ? 0 : 1);
   }

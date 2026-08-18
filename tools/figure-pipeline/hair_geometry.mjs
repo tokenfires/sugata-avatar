@@ -537,7 +537,15 @@ export function ribbonEnds( ribbons, positions, uvs ) {
  * that is what "messy", "stringy" and "a wet, matted mop" all describe from outside.
  *
  * `ratio` is the mean nearest-neighbour distance between tips over the same between roots, so it
- * needs no length scale and holds at every identity. `tipStep` is the mean height difference to a
+ * needs no length scale to COMPUTE and holds at every identity.
+ *
+ * 🔴 **IT DOES NOT HOLD AT EVERY HAIRCUT, AND A ROUND OF `verify_glb.mjs` READ THIS SENTENCE AS IF
+ * IT DID.** The ratio rises with the groom's LENGTH at constant clumping: measured over four bakes
+ * of one layer stack whose `cut` and `length` were scaled 0.5x to 3x, it reads 0.836 / 0.857 /
+ * 0.993 / 1.242 over 153 to 425 mm of mean root-to-tip travel, and the longest of those scores
+ * WORSE than the same bob with `clump: 0.0` on every layer. A ceiling on this number alone is a
+ * ceiling on how long a haircut may be. `verify_glb.MAX_GATHER_INDEX` gates the ratio divided by
+ * the square root of the tip cloud's own spread instead, and quotes this one beside it. `tipStep` is the mean height difference to a
  * card's nearest tips — the local cut line, reported rather than gated because the layer stack is
  * deliberately graduated and a whole-groom spread measures the graduation instead.
  *

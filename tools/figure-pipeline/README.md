@@ -926,6 +926,39 @@ noise at the asset's own 0.24 mm floor must not manufacture one. `verify_glb.mjs
 stop at "no corneal shell" on both real known-bad figures, so without this the dome test itself
 would never have been run in the failing direction.
 
+### The hair clauses, and what a NEW STYLE has to satisfy (R31)
+
+A groom is verified against a roster — `verify_glb.HAIR_CLAUSES`, 22 named clauses — and the run
+reconciles what printed against it. A clause that cannot run says `SKIP <name> — <reason>`; one
+that goes missing without a reason is itself a failure, and so is one that prints under a name the
+roster does not carry. Before R31 a failing centroid check returned early and five clauses simply
+were not in the output.
+
+Three of the thresholds are derived from the groom rather than typed, so a style that is not a
+collarbone bob is judged on its own geometry:
+
+| clause | what it compares against |
+|---|---|
+| `cards gather` | the tip/root nearest-neighbour ratio **divided by √(tip cloud spread / root cloud spread)**, ceiling 0.81. The raw ratio rises with LENGTH at constant clumping — 0.836 → 1.242 over four bakes of one stack cut ×0.5 to ×3 — so a ceiling on it alone is a ceiling on how long a haircut may be. |
+| `locks not a shell` | the groom's OWN envelope relief over √2, i.e. the ridge must be at least as loud as the scatter. A fixed 5.0 mm floor passed a ×3-cut groom carrying `clump: 0.0`. |
+| `groom on the head` | card ROOTS against the cranium's own radius. Roots do not move with the style: p50 18.7 mm on six of seven bakes spanning 153–425 mm of card travel, against a 95.3 mm radius. The centroid check it replaces moved 55 → 177 mm over the same set and failed at 150. |
+
+The three coverage clauses (`scalp coverage`, `no bald patch`, `no skin on show`) are about the
+scalp, which every style shares — but a style that bares scalp ON PURPOSE (an undercut, a shaved
+side) declares `"scalpCoverage": "partial"` in `assets/hair/manifest.json` and they stand down by
+name in the output rather than failing the style for being the style.
+
+```bash
+node tools/figure-pipeline/verify_glb.mjs --selftest
+```
+
+drives the gather index with point sets whose answer is arithmetic before it is pointed at a groom:
+identical clouds read exactly 1, an isotropic dilation by *s* reads exactly √*s*, sixteen locks
+pulled 30/60/85% of the way in read 0.733/0.424/0.159, and small jitter reads 0.991. **The
+isotropic row is the stated limit** — a groom whose mass grows ROUND rather than long (an afro, a
+bouffant) reads high for a reason that is not a defect, and that clause needs its own measurement
+on one before it can judge it.
+
 ### The garment clause (punch-list 9.5)
 
 The gate used to **fail a clothed figure by construction**: `OPAQUE_MATERIAL_PARTS` was a
