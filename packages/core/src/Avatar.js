@@ -153,6 +153,7 @@ import {
     resolveScene
 } from './render/Scene.js';
 import { SkyEnvironment, keyPlacementForSun } from './render/SkyEnvironment.js';
+import { InteriorEnvironment, keyPlacementForInteriorSun } from './render/InteriorEnvironment.js';
 import { Stage } from './render/Stage.js';
 
 import { VisemeLayer } from './voice/VisemeLayer.js';
@@ -198,6 +199,18 @@ export {
     sunDirectionWorld,
     rigAzimuthForSun
 } from './render/SkyEnvironment.js';
+
+/**
+ * Punch-list 11.4. The interior half of the same model — a room, and a window that is a portal onto
+ * the SAME sky at the SAME sun. `keyPlacementForInteriorSun` is `keyPlacementForSun` with an
+ * aperture in front of it and nothing else, which is the claim the whole item rests on.
+ */
+export {
+    InteriorEnvironment,
+    keyPlacementForInteriorSun,
+    resolveRoomGeometry,
+    windowAdmittance
+} from './render/InteriorEnvironment.js';
 
 // --- framing -----------------------------------------------------------------------------------
 //
@@ -998,6 +1011,25 @@ export class Avatar {
          */
         this.skyEnvironment = null;
 
+        /**
+         * Punch-list 11.4's half of the same field. Held SEPARATELY from `skyEnvironment` rather
+         * than behind one polymorphic handle, because three call sites below are exterior-ONLY and
+         * would be silently wrong on a room: `setGroundClosure` (an interior has no horizon to close
+         * into), `EXTERIOR_GROUND_EXTENT_IN_HEIGHTS` (a 22 m floor inside a 4.2 m room), and the
+         * WebGL2 refusal's wording. `this.environment` below is the union, and every site that
+         * genuinely means "is there an image-based light" reads that one.
+         */
+        this.interiorEnvironment = null;
+
+        /**
+         * Whichever of the two is attached, or `null`. Declared HERE and not only in `build()`
+         * because `report()` and `dispose()` both read it and both are documented as tolerant of a
+         * half-built avatar — a field that only exists after step 3b is `undefined` on a build that
+         * threw at step 2, and `undefined === null` is false, so `report()` would call `describe()`
+         * on nothing.
+         */
+        this.environment = null;
+
         this.unsubscribeFrame = null;
 
         // --- the figure and its shading, all rebuilt per bake ---
@@ -1084,9 +1116,20 @@ export class Avatar {
         // mistake rather than as a double count.
         this.stage = new Stage();
 
+        // 🚩 **"BACKDROPLESS" MEANS *NOTHING AT BACKGROUND DEPTH*, AND UNTIL 11.4 THOSE WERE THE
+        // SAME SENTENCE.** The measured blocker is the occlusion pass with no geometry behind the
+        // figure — `backdrop: 0x000000` renders perfectly and `backdrop: false` renders the whole
+        // frame black, isolated to the card's PIXELS at background depth rather than to its presence
+        // in the draw list. An INTERIOR takes the card away and puts WALLS there instead, which is
+        // geometry at background depth by construction. So it is the room and not the card that this
+        // question is about, and the answer for a room is measured in this file's ROUND NOTE rather
+        // than assumed either way.
+        const nothingAtBackgroundDepth = this.background.backdrop === false
+            && this.scene.room === null;
+
         this.tier = await resolveTier( this.requestedQuality, this.stage, {
             hair: this.hairStyle !== null,
-            backdropless: this.background.backdrop === false
+            backdropless: nothingAtBackgroundDepth
         } );
 
         this.tierSettings = QUALITY_TIERS[ this.tier ];
@@ -1095,7 +1138,7 @@ export class Avatar {
         // DIFFERENT PLACES — `background` is the caller's and `occlusion` is the tier's, so this is
         // the first line at which both are known. `auto` never lands here (it resolves to
         // `balanced` for exactly this), so the only way in is an EXPLICIT tier that carries GTAO.
-        if ( this.background.backdrop === false && this.tierSettings.occlusion === true ) {
+        if ( nothingAtBackgroundDepth === true && this.tierSettings.occlusion === true ) {
 
             throw new TypeError(
                 `Avatar.create: background.backdrop: false cannot run on quality '${ this.tier }', ` +
@@ -1104,7 +1147,9 @@ export class Avatar {
                 'isolated to the card alone, because backdrop: 0x000000 renders the figure ' +
                 'perfectly and scaling the card to 0.001 off-screen reproduces the black frame. ' +
                 "Use quality: 'balanced' (occlusion off) or 'auto', which resolves to it, or keep " +
-                'the card and set its level instead: background: { backdrop: 0x000000 }.' );
+                'the card and set its level instead: background: { backdrop: 0x000000 }. ' +
+                '⚠️ An INTERIOR scene does not reach this refusal: its room is real geometry at ' +
+                'background depth, which is the thing the card was supplying.' );
 
         }
 
@@ -1230,17 +1275,38 @@ export class Avatar {
             if ( this.stage.backendName !== 'webgpu' ) {
 
                 throw new TypeError(
-                    `Avatar.create: scene '${ this.scene.id }' is an exterior and needs the sky, ` +
-                    `and the renderer came up on '${ this.stage.backendName }'. SkyMesh is written ` +
+                    `Avatar.create: scene '${ this.scene.id }' is a '${ this.scene.kind }' and ` +
+                    `needs the sky — an interior needs it too, because its window is a PORTAL onto ` +
+                    `the same sky — and the renderer came up on '${ this.stage.backendName }'. ` +
+                    'SkyMesh is written ' +
                     'in TSL and is WebGPURenderer-only by its own docstring. Use a studio scene on ' +
                     'this machine.' );
 
             }
 
-            this.skyEnvironment = new SkyEnvironment( environmentRequest );
-            this.skyEnvironment.attachTo( this.stage.scene, this.stage.renderer );
+            // 🎯 THE BRANCH IS ON THE **SHAPE** AND NOT ON `scene.kind`, which is what
+            // `environmentRequestOf`'s own header promised: a request that carries a `room` is a
+            // room. Both families carry a `sun` and a `sky` — that is the point of the design — so
+            // a branch on `sky` would have built a beach for a kitchen.
+            if ( environmentRequest.room === undefined ) {
+
+                this.skyEnvironment = new SkyEnvironment( environmentRequest );
+                this.skyEnvironment.attachTo( this.stage.scene, this.stage.renderer );
+
+            } else {
+
+                this.interiorEnvironment = new InteriorEnvironment( environmentRequest );
+                this.interiorEnvironment.attachTo( this.stage.scene, this.stage.renderer );
+
+            }
 
         }
+
+        /**
+         * The image-based light, whichever family produced it. Read by every site that means "is
+         * there an environment" rather than "is there a sky".
+         */
+        this.environment = this.skyEnvironment ?? this.interiorEnvironment;
 
         // STEP 4 — `attachTo` is where the linearly-transformed-cosine tables are installed. Without
         // them every RectAreaLight contributes nothing and the figure renders black, which looks
@@ -1263,7 +1329,7 @@ export class Avatar {
             // refuses an explicit occlusion tier — so no exterior scene reaches the GTAO path and
             // the question "does the composite occlude IBL or only the hemisphere it replaced"
             // is NOT answered here. The spike flagged it and did not measure it. 11.7 owns it.
-            ambient: this.tierSettings.occlusion === false && this.skyEnvironment === null,
+            ambient: this.tierSettings.occlusion === false && this.environment === null,
             exposure: EXPOSURE_CALIBRATION * this.lighting.exposure,
             ambientFractionOfKey: shippedAmbientFractionOfKey() * this.lighting.ambient,
             overrides: this.lightOverridesFor( this.frameMode )
@@ -1278,7 +1344,7 @@ export class Avatar {
         // handing the rig's own `exposure` in means the image-based half tracks exposure exactly as
         // the four direct lights do. `applyLighting` repeats this for the same reason it repeats
         // the GTAO ambient snapshot.
-        this.skyEnvironment?.setRigExposure( this.lights.exposure );
+        this.environment?.setRigExposure( this.lights.exposure );
 
         // STEP 5 — after the rig, because the composite needs the ambient the rig would have built.
         // `describeAmbient()` reports it whether or not the light was attached, which is what makes
@@ -2136,7 +2202,7 @@ export class Avatar {
         // scales the four direct lights through `this.lights.exposure`; an image-based light left at
         // the build-time scale would silently change the key-to-sky balance the scene's own
         // `exposure` was measured at. One call, same argument, same shape as the ambient snapshot.
-        this.skyEnvironment?.setRigExposure( this.lights.exposure );
+        this.environment?.setRigExposure( this.lights.exposure );
 
     }
 
@@ -2175,6 +2241,23 @@ export class Avatar {
                 this.scene.sun, this.scene.sky, CAMERA_AZIMUTH_DEGREES );
 
             merged.key = { ...( merged.key ?? {} ), ...sunKey };
+
+        }
+
+        // 🎯 PUNCH-LIST 11.4, AND THE WHOLE OF WHAT AN INTERIOR ADDS TO THE LINE ABOVE IS A WALL
+        // WITH A HOLE IN IT. `keyPlacementForInteriorSun` calls `keyPlacementForSun` and scales its
+        // IRRADIANCE by the fraction of the solar beam the window admits onto the subject. Azimuth,
+        // elevation and colour are the exterior's, unchanged, out of the same `Fex`.
+        //
+        // ⚠️ IT SCALES A SCALAR AND TOUCHES NO GEOMETRY FIELD, deliberately. `Scene.js`'s ROUND NOTE
+        // records that deriving the key's PANEL SIZE from a source's angular size grows an orange
+        // subsurface glow along the nose, lips and eyelids that no lighting statistic catches.
+        if ( this.interiorEnvironment !== null ) {
+
+            const windowKey = keyPlacementForInteriorSun(
+                this.scene.sun, this.scene.sky, this.scene.room, CAMERA_AZIMUTH_DEGREES );
+
+            merged.key = { ...( merged.key ?? {} ), ...windowKey };
 
         }
 
@@ -2344,7 +2427,7 @@ export class Avatar {
                  * the same reason every other field in this block is a read-back: a bake that threw
                  * would otherwise be reported as a working sky by the object that failed to make it.
                  */
-                environment: this.skyEnvironment === null ? null : this.skyEnvironment.describe(),
+                environment: this.environment === null ? null : this.environment.describe(),
 
                 /** The scene's own ground material, which 11.3 made a scene property. */
                 groundMaterial: this.ground === null ? null : {
@@ -2381,7 +2464,7 @@ export class Avatar {
                      */
                     calibrated: this.lights.exposure === EXPOSURE_CALIBRATION
                         && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey()
-                        && this.skyEnvironment === null,
+                        && this.environment === null,
 
                     designedKeyToFill: this.lights.designedKeyToFill,
 
@@ -2624,6 +2707,12 @@ export class Avatar {
         // as tolerant of a half-built avatar, so it can run on a scene that is still in use.
         this.skyEnvironment?.dispose();
         this.skyEnvironment = null;
+
+        // Same argument, same reason: two `RenderTarget`s, a `PMREMGenerator` and the room's own
+        // geometry and materials, none of which `Stage.dispose()` walks.
+        this.interiorEnvironment?.dispose();
+        this.interiorEnvironment = null;
+        this.environment = null;
 
         this.lights?.dispose();
         this.lights = null;
@@ -3579,7 +3668,10 @@ export class Avatar {
  *
  * @param {Object} [structural] - Facts the caller has already stated that change what `auto` means.
  * @param {boolean} [structural.hair=false] - whether a groom will be attached.
- * @param {boolean} [structural.backdropless=false] - whether the emissive card is off.
+ * @param {boolean} [structural.backdropless=false] - whether there is NOTHING at background
+ *   depth. ⚠️ Not the same as "the card is off" since 11.4: an interior scene removes the card
+ *   and puts a room there, so its caller passes `false`. The blocker is the occlusion pass
+ *   finding no geometry behind the figure, not the card's absence from the draw list.
  * @returns {Promise<string>} a key of `QUALITY_TIERS`.
  */
 export async function resolveTier( requested, stage, structural = {} ) {

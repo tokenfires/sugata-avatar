@@ -2870,11 +2870,78 @@ outdoor scene is free, in our exact stack. Reuse before build.
       **1.5647×**; null control **1.0000×** again; whole-frame mean 1.1650×. The span is smaller than
       the beach's because park's sun is 45% occluded, so the ground has less light to bounce — which
       is the right direction and is itself a check on the mechanism.
-- [ ] **11.4** The interior model — an emissive room box whose **window samples the same sky at the
-      same sun position**, plus fixtures at their own colour temperature. 🎯 One sun serves both
-      families, so an interior inherits time-of-day for free and the two cannot drift apart.
-      Gate: **MEASURED** — moving `sunPosition` alone moves the interior's own key direction and
-      colour, with the room geometry held; and a null control at a walled-off window.
+- [x] **11.4** ✅ **DONE 2026-08-18.** The interior model — `render/InteriorEnvironment.js`. A
+      procedural room (seven quads, per-face albedo, a window rectangle, fixtures at their own
+      colour temperature), baked to a cube and PMREM'd into `scene.environment`, with the room ALSO
+      standing in the live scene as the background. One authored interior, `kitchen`.
+      🎯 **THE WINDOW IS A PORTAL AND NOTHING ABOUT IT IS AUTHORED.** Its pixels are
+      `pmremTexture( solarTarget, normalize( positionWorld − cameraPosition ) )` — the sky at
+      infinity along the view ray. Every wall's radiance is that same PMREM read along the window's
+      outward normal, plus `solarDiscLight().irradianceRGB` through the aperture. The key is
+      `keyPlacementForSun()` — the exteriors' own function, unchanged — with its IRRADIANCE scaled by
+      the fraction of the solar beam the window admits onto the subject.
+      🎯 **GATE, AS SPECIFIED: `sun.elevationDegrees` MOVED ALONE, ROOM HELD, THROUGH `?sceneover`.**
+      900×1200, 1 step, seed 1; `admit` and `key irr` read back off `report()`, the rest masked
+      rects, scene-linear:
+
+      | elev | admit | key irr (rig) | key colour | near wall | far wall | forehead | frame |
+      |---:|---:|---:|---|---:|---:|---:|---:|
+      | 4 | 1.0000 | 0.1992 | `#ffa846` | 1.7051e-2 | 2.1626e-2 | 1.9356e-1 | 1.1091e-1 |
+      | 10 | 1.0000 | 0.5314 | `#ffce89` | 5.5088e-2 | 4.1849e-2 | 3.5982e-1 | 2.4539e-1 |
+      | **15** | 1.0000 | **0.7957** | `#ffd9a2` | 6.2646e-2 | 4.4028e-2 | 3.9282e-1 | 2.6525e-1 |
+      | 22 | 1.0000 | 1.1405 | `#ffe0b4` | 1.2223e-1 | 6.1342e-2 | 7.2404e-1 | 5.3080e-1 |
+      | 30 | 0.7481 | 1.1226 | `#ffe5c0` | 9.8435e-2 | 5.8159e-2 | 5.5851e-1 | 4.0521e-1 |
+      | 45 | 0.0000 | 0.0000 | `#ffe9ca` | 3.9944e-2 | 5.5430e-2 | 1.7916e-1 | 1.0821e-1 |
+      | 60 | 0.0000 | 0.0000 | `#ffeacf` | 4.1355e-2 | 5.8163e-2 | 1.8009e-1 | 1.0941e-1 |
+
+      The key moves 5.7× and its colour 1965 K → 5028 K; the near wall 7.2×, the far wall 2.8×, the
+      face 3.7×, the frame 4.8× — off one assignment, with nothing authored.
+      🎯 **The 30 → 45 row pair is what makes it a model rather than a gain**: the beam climbs above
+      the window head, `windowAdmittance` returns 0 and the key switches OFF, while the far wall
+      HOLDS (5.8159e-2 → 5.5430e-2 → 5.8163e-2) and the face falls 3.1×. The room keeps the sun's
+      flux after the beam stops reaching the subject.
+      🔴 **NULL CONTROL AT A WALLED-OFF WINDOW**, through the public schema (`?sceneover` with
+      `room.window.transmission: 0`, no instrument flag): the derived key goes **0.7957 → 0.0000**,
+      the far wall (54.6, 42.4, 32.5) → **(21.0, 6.3, 0.9)** and the frame mean 112.07 → 45.88
+      (−59.1%). 🔴 And removing the environment (`?noenv`) moves the frame 112.07 → 75.98 (−32.2%)
+      while the far wall moves 1.8%, which is the control inside the control — the walls are unlit
+      materials and `scene.environment` has no path to them.
+      🚩 **AND AN INTERIOR *IS* THE FIRST SCENE KIND THAT RUNS ON THE OCCLUSION TIERS — MEASURED.**
+      11.2's blocker is *nothing at background depth*, not *no card*, so `Avatar.build` now tests
+      `backdrop === false && scene.room === null`. `kitchen` renders on `high` (112.07 mean code,
+      **0.00% black**), `balanced` (106.67) and `fallback` (112.12); `auto` resolves to `high`;
+      `beach` on `high` is still refused in words. GTAO is doing work rather than being tolerated —
+      `high` against `balanced` moves 99.91% of the frame at a worst Δ31/255. 🔴 And `?noroom` on the
+      shipped tier reproduces the blackout EXACTLY (frame mean 0.00), so the room is the geometry
+      that pass needs.
+      🚩 **THE BACKDROP, IN THE UNIT §14's COMPLAINT WAS FILED IN.** Pairwise mean |Δ| over five
+      masked background rects: `beach` vs `park` **1.98** (the filed 2.42, reproduced), `studio` vs
+      `kitchen` 41.14, `beach` vs `kitchen` **120.08**, `park` vs `kitchen` **121.20**. The interior
+      is 61× further from `beach` than `park` is. ⚠️ Necessary, not sufficient — naming the place is
+      11.6's blind judge and this does not stand in for it. ⚠️ And the interior's WITHIN-plate span
+      is the smallest of the three places (1.4789× / 15.81 codes against `beach`'s 3.0868× / 75.06
+      and `studio`'s 1.2073× / 0.76): a wall lit by one window is a gentler gradient than a sky.
+      🚩 **AND THE ITEM'S OWN "THE ROOM IS THE BACKGROUND" IS TRUE WITH A FRAMING ATTACHED.** With
+      the occlusion out of the way, removing the live room moves **63.41% of a body plate at a worst
+      Δ46/255** and **32.80% of a portrait plate at a worst Δ4/255** — because `scene.background` is
+      the PMREM of the same bake, and at 2.6 m a cube lookup and a real wall agree to four code
+      values. The room is the background at both framings; its GEOMETRY is at body and its BAKE is at
+      portrait.
+      ⚠️ **EXPOSURE RE-ANCHORED ON THE PLATE AND NOT ON THE STATISTIC.** An interior at `exposure: 1`
+      is 2.09 stops under the `studio` control; matching the control is ≈3.2 and renders a CHALKY,
+      chroma-poor face that G5 clipping (**0** at every rung), the forehead ratio (0.96–1.07×) and
+      the cheek's C\* (all ABOVE the control) all called fine. Shipped **2.4**, 0.60 stops under, and
+      `calibrated` goes false as it does for both exteriors. ⚠️ `wall:face` is 0.1157 → 0.1012 across
+      the whole ladder — the far wall is 3.1 stops under the face and no stop moves it, because it is
+      geometry.
+      ✅ `studio` byte-identical after the last edit through BOTH doors:
+      `fence loads=2 sha=fac62c50d56590fb bitident=1/1 worst=0 px=0` on `?bg=studio` and on
+      `?scene=studio`.
+      🚩 **ONE INTERIOR PROVES A SPECIAL CASE.** `beach` and `park` are two on purpose. What the
+      second interior must vary — a window on a different WALL, a sun BELOW the horizon (where
+      `windowAdmittance` is 0 and the fixtures are the only light, a branch this scene never enters),
+      and a room whose walls are not warm — is written above `kitchen` in `Scene.js`. The remaining
+      five interiors are 11.6.
 - [x] **11.5** ✅ **DONE 2026-08-18.** Air — `SkyEnvironment` installs one `scene.fogNode` carrying
       two terms, `GroundContact` gains the exterior extent the horizon needs, and `scene.air.haze`
       stops being a carried-and-ignored field. `beach` ships **0.25**, `park` **0.18**, `studio`
@@ -2989,6 +3056,79 @@ outdoor scene is free, in our exact stack. Reuse before build.
       is uncanny in a way no shading quality repairs.
       Gate: **CRITIC** — a blind judge is shown one plate per scene, unlabelled, and asked to name
       the place and the hour. Scenes it cannot name are not scenes yet.
+      - [x] **11.6a** ✅ **THE SIX ORDINARY SCENES, 2026-08-18.** `bedroom-morning`, `desk`,
+            `living-room`, `bedside-night` and `street` authored; `kitchen` re-plated **byte for
+            byte unchanged** (`659afaf32efb8af0` portrait, `2b445a70e7c68dff` body) so 11.4's whole
+            table stays live. `SCENES` is now eleven entries and **no code path changed** — five
+            interiors and three exteriors run the same `InteriorEnvironment` / `SkyEnvironment` the
+            two proof scenes did.
+            ✅ `studio` byte-identical through BOTH doors after the last edit:
+            `fence loads=2 sha=fac62c50d56590fb bitident=1/1 worst=0 px=0` on `?scene=studio` and
+            on `?bg=studio`.
+            🎯 **WHAT THE NEW SCENES EXERCISE THAT THE TWO PROOF SCENES COULD NOT** — the three
+            axes `kitchen`'s own header said a second interior must vary, plus two more:
+            the window on the **+X wall** (`bedroom-morning`, rig key **+58°** against `kitchen`'s
+            −67°); a room whose walls are **not warm** (`desk`, `#c4c8c9` on `#4e5052`); a sun that
+            admits **nothing** so the **fixtures are the only light** (`living-room` and
+            `bedside-night`, `windowAdmittance` **0.0000** by the `elevation ≤ 0` branch); a window
+            that admits **part** of the beam (`desk`, **0.9147** — the first shipped scene where the
+            aperture takes a bite rather than all or none); and an **analytic key that is not the
+            sun** (`living-room`/`bedside-night`'s lamp, through the `lights` precedence
+            `Avatar.lightOverridesFor` already had).
+            🚩 **THE GATES, HONESTLY, AND THEY ARE NOT ALL GREEN.** `tools/critic/scene-gates.mjs`,
+            900×1200 portrait, seed 1, frozen:
+
+            | scene | L1 | L2 | L3 worst side | L4 | L5 | key side |
+            |---|---:|---:|---:|---:|---:|---|
+            | `studio` (control) | 0.8968 ✅ | 1.1456 ✅ | 0.9501 ✅ | 0.0000 ✅ | 4.4134 ✅ | right (rig 42°) |
+            | `bedroom-morning` | 0.7356 ✅ | 1.7590 ✅ | **0.0005 ❌** | 0.0000 ✅ | 4.8586 ✅ | right (rig 58°) |
+            | `kitchen` | 0.6266 ✅ | 1.5730 ✅ | **0.0000 ❌** | 0.0000 ✅ | 1.8099 ✅ | left (rig −67°) |
+            | `desk` | 0.7593 ✅ | 1.2601 ✅ | **0.0000 ❌** | 0.0000 ✅ | 1.9344 ✅ | left (rig −72°) |
+            | `living-room` | 0.8152 ✅ | 1.4340 ✅ | **0.0006 ❌** | 0.0000 ✅ | 3.9259 ✅ | right (rig 52°) |
+            | `bedside-night` | 0.7816 ✅ | 1.5291 ✅ | **0.0000 ❌** | 0.0000 ✅ | 5.6801 ✅ | right (rig 34°) |
+            | `street` | 0.8404 ✅ | 1.1395 ✅ | 0.1971 ✅ | 0.0000 ✅ | 4.8062 ✅ | right (rig 10°) |
+
+            ✅ **The key side agrees with the declared rig azimuth on all seven**, including both
+            signs and `desk`'s near-axial screen fill — two independent derivations, one from the
+            pixels and one from `report()`.
+            🔴 **ALL FIVE INTERIORS ARE RED ON L3, AND THE ROUND SPLIT THAT RED IN TWO.** Raising
+            the gate's matte tolerance from 2 to 28 code values (the figure's own bloom clears 2
+            codes over a dim wall, so the matte swallows background — the five interiors
+            shed 10–17 points of frame at 28 codes while `studio` 60.07 → 59.41% and `street`
+            59.95 → 59.72% do not move; `kitchen` is **80.02% → 63.07%**, `desk` **80.58 → 66.16%**) leaves
+            `living-room` **0.2010 ✅**, `bedside-night` **0.1754 ✅** and `street` **0.2089 ✅**,
+            and leaves `bedroom-morning` **0.0234 ❌**, `kitchen` **0.0020 ❌** and `desk`
+            **0.0024 ❌**. **Two of the five reds are the instrument; three are the scene.** ⚠️ GTAO
+            was ruled out first — the matte is 78.89% with `?quality=balanced`, so this is the
+            grade's bloom, not the occlusion pass.
+            🔴 **AND THE OBVIOUS REPAIR IS REFUTED IN BOTH DIRECTIONS.** A NEUTRAL rim (`#fff0dc`,
+            which is not the refuted *"recolour to the surround's hue"*) on `bedroom-morning`, on a
+            corrected matte: scale 0.02 → **0.0234**, 0.05 → **0.0247**, 0.12 → **0.0136**. It does
+            not help and past a point it hurts, because the rim's own bloom lifts the wall outside
+            the silhouette as much as the edge inside it. An edge light cannot separate a figure
+            from a background it is also lighting.
+            🔴 **RED PROOF FOR THE ONE CLAIM THESE SCENES ADD** — that with the sun on the horizon
+            the FIXTURES are the room. Through `?sceneover`, room otherwise held, on `wall:face`
+            (the far-wall rect over the forehead rect, scene-linear — a ratio the analytic lamp
+            cannot move): `living-room` shipped **0.1198**; `fixtures: []` **0.0231** (the wall
+            loses 81%); `window.transmission: 0` **0.1091** (the wall loses 9%).
+            `bedside-night` shipped **0.0393** → `fixtures: []` **0.0116**. The forehead moves
+            5.736e-1 → 5.125e-1 in the same arm, which is the control inside the control.
+            🔴 **AND THE DAYLIGHT PATH IS STILL LIVE ON AN EVENING SCENE**: `living-room`'s sun
+            elevation 0 → 15° alone takes the frame **128.50 → 162.01**, `wall:face`
+            **0.1198 → 0.2624** and the backdrop span **4.99 → 25.16** code values.
+            🚩 **G1–G7 ARE MOSTLY RED AND ALMOST NONE OF IT IS THE LIGHT** — which is 11.7's whole
+            argument arriving as six more data points. `regions.lighting-portrait.json` hard-codes
+            `faceKey` to the studio rig's RIGHT-hand key, so `kitchen` (0.3216) and `desk` (0.6061)
+            read G1 **inverted** — 3.11 and 1.65 the right way up. G6 is a black-point clause on
+            frames whose darkest 0.1% is a lit wall (`kitchen` 0.0949, `desk` 0.0974) or a sky
+            (`street` 0.00112, under the floor). Only `street` passes G1 (1.499) and no scene passes
+            G2. G5 clipping is **0.000** and G7 **0.000** on all six.
+            ⏭️ **NOT DONE HERE:** the six occasional scenes, the `setScene`/`suggest`/`pin` API, and
+            the blind judge. **Time of day is FILED, not wired** — the three things it needs, and
+            the measured reason a clock cannot reach night in this model (`SkyMesh`'s sun intensity
+            is exactly 0 below **−2.31°**, and `solarDiscLight` returns 2.8312e-2 at −2° and 0 at
+            −4°), are in `Scene.js`'s 11.6 ROUND NOTE.
 - [ ] **11.7** 🚩 **Scene legibility gates, and `studio` declared the calibration control.** Every
       committed gate assumes the studio rig, so scene gates must measure a property that holds in a
       studio, on a beach and by candlelight alike: **can you still read the person?** Face median

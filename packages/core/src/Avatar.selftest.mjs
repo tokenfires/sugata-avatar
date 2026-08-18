@@ -1052,13 +1052,38 @@ const FAKE_CANVAS = { getContext: () => null };
         'GTAO with nothing at background depth renders the whole frame black; balanced (occlusion ' +
         'off) renders it correctly. Isolated to the card: backdrop 0x000000 is fine, absent is not.' );
 
+    // 🚩 THIS CLAUSE USED TO ASSERT THE LITERAL EXPRESSION `this.background.backdrop === false &&
+    // this.tierSettings.occlusion === true`, AND 11.4 TOOK IT RED WHILE THE MECHANISM WAS WORKING
+    // PERFECTLY — the same failure `36ba35d` recorded against G13. The measured blocker was never
+    // "the card is off"; it is NOTHING AT BACKGROUND DEPTH, and an interior removes the card and
+    // puts walls there. So the clause now asserts the RELATION in two halves: the condition is
+    // computed from the card AND the room, and it is what gates the refusal. A clause pinned to a
+    // constant tests the constant.
     sourceClause(
-        '🔴 ALPHA  E1  create() refuses backdrop: false on a tier that carries ground-truth occlusion',
+        '🎯 ALPHA  E1  the blocker is NOTHING AT BACKGROUND DEPTH — the card AND the room decide it',
         AVATAR_SOURCE,
-        ( text ) => /this\.background\.backdrop === false && this\.tierSettings\.occlusion === true/.test( text ),
-        ( text ) => text.replace( 'if ( this.background.backdrop === false && this.tierSettings.occlusion === true ) {',
+        ( text ) => /const nothingAtBackgroundDepth = this\.background\.backdrop === false\s*\n\s*&& this\.scene\.room === null;/.test( text ),
+        ( text ) => text.replace( /const nothingAtBackgroundDepth = this\.background\.backdrop === false\s*\n\s*&& this\.scene\.room === null;/,
+            'const nothingAtBackgroundDepth = this.background.backdrop === false;' ),
+        'an interior scene supplies its own geometry behind the figure, measured: kitchen renders on ' +
+        'high at frame mean 112.07 with 0.00% black pixels, and ?noroom on the same tier is 0.00' );
+
+    sourceClause(
+        '🔴 ALPHA  E1  create() refuses NOTHING AT BACKGROUND DEPTH on a tier that carries ground-truth occlusion',
+        AVATAR_SOURCE,
+        ( text ) => /if \( nothingAtBackgroundDepth === true && this\.tierSettings\.occlusion === true \) \{/.test( text ),
+        ( text ) => text.replace( 'if ( nothingAtBackgroundDepth === true && this.tierSettings.occlusion === true ) {',
             'if ( false ) {' ),
         'and `auto` resolves to balanced for it, which is a STRUCTURAL fact rather than a timing' );
+
+    sourceClause(
+        '🎯 ALPHA  E1  resolveTier is asked the same question, from the same expression',
+        AVATAR_SOURCE,
+        ( text ) => /backdropless: nothingAtBackgroundDepth/.test( text ),
+        ( text ) => text.replace( 'backdropless: nothingAtBackgroundDepth',
+            'backdropless: this.background.backdrop === false' ),
+        'the tier decision and the refusal must read ONE condition, or an interior resolves to ' +
+        'balanced and is then told it may not have been' );
 
     sourceClause(
         '🔴 ALPHA  E1  resolveTier sends an auto caller with no card to balanced',

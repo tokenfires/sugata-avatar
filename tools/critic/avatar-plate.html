@@ -70,6 +70,10 @@
          *
          *   ?noenv               null `scene.environment` after the build. 11.2's red proof.
          *   ?noenvground         drop the ground disc from the environment bake. 11.3's.
+         *   ?noroom              remove an interior's LIVE room group, keeping its bake. 11.4's
+         *                        proof that the room is the background rather than only the light.
+         *                        ⚠️ Walling the WINDOW off needs no flag — it is `?sceneover` with
+         *                        the room's `window.transmission` at 0, i.e. the public schema.
          *   ?noair               11.5's: null `scene.fogNode` AND shrink the ground plane back to
          *                        `GROUND_EXTENT_IN_HEIGHTS`. The two halves of one change, so the
          *                        arm is the whole control rather than half of it.
@@ -179,6 +183,17 @@
                     avatar.skyEnvironment?.setGroundClosure( avatar.ground.centre, closureBefore );
 
                 }
+
+            }
+
+            // 11.4's red proof for "the room IS the background": take the live room group out
+            // and the frame behind the figure is whatever is left, which on an interior is the
+            // clear colour. The BAKE's copy is a separate set of meshes and is untouched, so this
+            // arm isolates the background half from the light half — which is the whole reason the
+            // two rooms are two instances rather than one.
+            if ( query.has( 'noroom' ) ) {
+
+                avatar.interiorEnvironment.liveRoom.removeFromParent();
 
             }
 

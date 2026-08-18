@@ -852,7 +852,7 @@ export class SkyEnvironment {
 
 }
 
-const BAKE_ORIGIN = new Vector3( 0, BAKE_EYE_HEIGHT_METRES, 0 );
+export const BAKE_ORIGIN = new Vector3( 0, BAKE_EYE_HEIGHT_METRES, 0 );
 
 /**
  * `SkyMesh`, with the uniforms a scene owns set and the one it must never be given left at zero.
@@ -862,7 +862,14 @@ const BAKE_ORIGIN = new Vector3( 0, BAKE_EYE_HEIGHT_METRES, 0 );
  * swaps the backend in when device creation fails after a successful adapter request), so an
  * exterior scene on that path is refused in `Avatar.build` rather than left to render a black box.
  */
-function buildSkyMesh( sky ) {
+// 🚩 THE THREE HELPERS BELOW ARE `export`ed FOR `render/InteriorEnvironment.js` (11.4) AND FOR
+// NOTHING ELSE, AND THAT IS A CLAIM ABOUT THE SUN RATHER THAN A CONVENIENCE. An interior's window
+// is a PORTAL onto this sky at this sun, so the interior needs the same `SkyMesh`, configured the
+// same way, at the same `sunPosition` radius, baked from the same eye height. A second copy of
+// `buildSkyMesh` in that file would be a second sky — six lines that could drift, in the one place
+// the whole design says nothing may. Nothing about the exterior path changed to make this possible:
+// the only edit was the word `export`.
+export function buildSkyMesh( sky ) {
 
     const mesh = new SkyMesh();
 
@@ -904,7 +911,7 @@ function buildGroundDisc( ground ) {
 }
 
 /** Sets `sunPosition` at RADIUS 1. See `SUN_POSITION_RADIUS` for why the magnitude is load-bearing. */
-function setSunUniform( skyMesh, sun ) {
+export function setSunUniform( skyMesh, sun ) {
 
     const direction = sunDirectionWorld( sun.elevationDegrees, sun.azimuthDegrees );
 

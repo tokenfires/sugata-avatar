@@ -307,8 +307,30 @@ const refusals = [
         () => resolveScene( { ...SCENES.beach, sky: { ...SCENES.beach.sky, cloudCoverage: 0.4 } } ), 'time' ],
     [ 'turbidity below the model\'s floor, where betaM goes negative',
         () => resolveScene( { ...SCENES.beach, sky: { ...SCENES.beach.sky, turbidity: 0 } } ), 'turbidity' ],
-    [ "kind 'interior' with no room — 11.4 does not exist yet",
-        () => resolveScene( { kind: 'interior' } ), '11.4' ],
+    [ "kind 'interior' with no room",
+        () => resolveScene( { kind: 'interior' } ), 'room' ],
+
+    // 🎯 THE THREE CLAUSES BELOW ARE 11.4's ONE IDEA AS A REFUSAL. An interior's window SAMPLES THE
+    // SAME SKY AT THE SAME SUN — that is the whole of why the corpus stays small — so a room with no
+    // sky, or with no sun, is a window whose light would have to be authored separately. That is the
+    // sky/key disagreement 11.2 exists to prevent, arriving one room further in, and it is refused
+    // at the table rather than left to render.
+    [ "kind 'interior' with a room but no sky",
+        () => resolveScene( { ...SCENES.kitchen, sky: null } ), 'SAME' ],
+    [ "kind 'interior' with a room but no sun",
+        () => resolveScene( { ...SCENES.kitchen, sun: null } ), 'SAME' ],
+    [ 'a room with a misspelled metric field — `Meters` for `Metres`',
+        () => resolveScene( { ...SCENES.kitchen,
+            room: { ...SCENES.kitchen.room, widthMeters: 4 } } ), 'Metres' ],
+    [ 'a room with no window at all — there is no daylight in this model without one',
+        () => resolveScene( { ...SCENES.kitchen,
+            room: { ...SCENES.kitchen.room, window: undefined } } ), 'window' ],
+    [ 'a room whose wall albedo is not a hex',
+        () => resolveScene( { ...SCENES.kitchen,
+            room: { ...SCENES.kitchen.room, wall: '#d8cfc2' } } ), 'wall' ],
+    [ 'a fixture with a colour temperature and no level',
+        () => resolveScene( { ...SCENES.kitchen,
+            room: { ...SCENES.kitchen.room, fixtures: [ { kelvin: 2700 } ] } } ), 'irradiance' ],
     [ 'an unknown kind', () => resolveScene( { kind: 'submarine' } ), 'submarine' ],
     [ 'a non-finite exposure', () => resolveScene( { exposure: NaN } ), 'exposure' ],
     [ 'haze outside [0, 1]', () => resolveScene( { air: { haze: 4 } } ), 'haze' ],
@@ -376,12 +398,33 @@ report( '🎯 F2  create() resolves a scene, and background/lighting still win o
         && /resolveLightingOption\( options\.lighting\s*\n?\s*\?\?/.test( AVATAR_SOURCE ),
     'the published options are first in every `??` chain — a new option may widen the API, never redefine it' );
 
-report( 'F3  the three kinds are declared; `studio` and `exterior` ship, `interior` does not',
+report( 'F3  all three kinds are declared AND all three now ship',
     SCENE_KINDS.length === 3
-        && SCENE_IDS.some( ( id ) => SCENES[ id ].kind === 'exterior' )
-        && SCENE_IDS.every( ( id ) => SCENES[ id ].kind !== 'interior' ),
-    `kinds ${ SCENE_KINDS.join( ', ' ) }; 11.2 landed exterior (${
-        SCENE_IDS.filter( ( id ) => SCENES[ id ].kind === 'exterior' ).join( ', ' ) }), 11.4 lands interior` );
+        && SCENE_KINDS.every( ( kind ) => SCENE_IDS.some( ( id ) => SCENES[ id ].kind === kind ) ),
+    `kinds ${ SCENE_KINDS.join( ', ' ) }; exterior ${
+        SCENE_IDS.filter( ( id ) => SCENES[ id ].kind === 'exterior' ).join( ', ' ) } (11.2), interior ${
+        SCENE_IDS.filter( ( id ) => SCENES[ id ].kind === 'interior' ).join( ', ' ) } (11.4)` );
+
+// 🎯 F4 IS THE ONE IDEA AS A GATE ON THE TABLE ITSELF, and it is separate from the refusal above on
+// purpose: a refusal proves the resolver rejects a bad description, this proves the SHIPPED
+// descriptions satisfy it. Every interior carries a sun and a sky, and its window's azimuth names a
+// real wall — because the window is a portal onto that sky and not a texture on that wall.
+report( '🎯 F4  every shipped interior carries a sun AND a sky — the window is a portal',
+    SCENE_IDS.filter( ( id ) => SCENES[ id ].kind === 'interior' ).length > 0
+        && SCENE_IDS.filter( ( id ) => SCENES[ id ].kind === 'interior' )
+            .every( ( id ) => SCENES[ id ].sun !== null && SCENES[ id ].sky !== null
+                && Number.isFinite( SCENES[ id ].room.window.azimuthDegrees ) ),
+    'one sun serves both families, so an interior inherits time-of-day for free' );
+
+// ⚠️ F5: `environmentRequestOf` BRANCHES ON THE SHAPE, and an interior carries a `sky` too — so a
+// consumer testing `sky` alone would build a BEACH for a kitchen: a sky backdrop, no walls, and a
+// report() that says kind 'interior' over an exterior. Measured against both families and the
+// control, because this is the one function that decides which engine a scene gets.
+report( '🎯 F5  environmentRequestOf returns a ROOM for an interior, a SKY for an exterior, null for studio',
+    environmentRequestOf( resolveScene( 'kitchen' ) ).room !== undefined
+        && environmentRequestOf( resolveScene( 'beach' ) ).room === undefined
+        && environmentRequestOf( resolveScene( 'studio' ) ) === null,
+    'the caller branches on the shape, and the calibration control still gets no environment at all' );
 
 console.log( '\n--- G: the sun, and the claim that a scene cannot have its sky and its key disagree ---\n' );
 
