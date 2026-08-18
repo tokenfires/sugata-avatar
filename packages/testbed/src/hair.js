@@ -126,10 +126,85 @@ import { restRotationRelativeToRig, toBoneDeltaFrame } from '../../core/src/moti
 const WIDTH = 720;
 const HEIGHT = 900;
 
-const FIGURE_URL = new URL( '../../../assets/figures/figure_g050.glb', import.meta.url ).href;
-const HAIR_URL = new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href;
+/**
+ * ⚠️ `?bake=` MOVES THE FIGURE TOO, AND THE FIRST VERSION OF THIS DID NOT.
+ * It put a `g100` groom on a `g050` body — a masculine cut on a feminine skull, which is precisely
+ * the comparison a men's style has to be judged on and precisely the one it would have silently
+ * refused to show. Caught by READING THE HUD, not by a gate: it printed `Groom: bob01 g100` and
+ * `Figure: figure_g050.glb` two lines apart.
+ *
+ * 🚩 FIVE LITERALS AND NOT ONE TEMPLATE, AND THAT IS VITE'S RULE RATHER THAN A STYLE CHOICE —
+ * MEASURED, because the template was written first and failed on the page. Vite statically rewrites
+ * `new URL( '<literal>', import.meta.url )` into a served asset URL at transform time. Give it a
+ * directory and a runtime-built filename and it rewrites NOTHING: the request escapes the testbed
+ * root, the dev server SPA-falls-back to `index.html`, and `GLTFLoader` reports
+ * `Unexpected token '<', "<!doctype "... is not valid JSON` — an error that names JSON while the
+ * actual fault is a 404 on a GLB. `alive.js:577-581` already carries this same five-entry map for
+ * the same reason.
+ *
+ * The GROOM path deliberately does NOT use this idiom and cannot: a style id is only known at
+ * runtime. It resolves against the fetched manifest's own response URL instead, which is a real
+ * served URL and therefore needs no bundler help. That asymmetry is the point — a bundler can only
+ * pre-resolve what is written down, and a style table is by definition not written down here.
+ */
+const FIGURE_BAKES = new Map( [
+    [ 'g000', new URL( '../../../assets/figures/figure_g000.glb', import.meta.url ).href ],
+    [ 'g025', new URL( '../../../assets/figures/figure_g025.glb', import.meta.url ).href ],
+    [ 'g050', new URL( '../../../assets/figures/figure_g050.glb', import.meta.url ).href ],
+    [ 'g075', new URL( '../../../assets/figures/figure_g075.glb', import.meta.url ).href ],
+    [ 'g100', new URL( '../../../assets/figures/figure_g100.glb', import.meta.url ).href ]
+] );
 const HAIR_MANIFEST_URL = new URL( '../../../assets/hair/manifest.json', import.meta.url ).href;
-const HAIR_DIRECTORY = new URL( '../../../assets/hair/bob01/', import.meta.url ).href;
+
+/**
+ * 🚩 THE GROOM IS SELECTED, NOT HARD-CODED, AND UNTIL 2026-08-17 IT WAS HARD-CODED.
+ *
+ * This page held `assets/hair/bob01/g050.glb` and `assets/hair/bob01/` as module constants while
+ * ALSO fetching the manifest and then reading `manifest.grooms[ 0 ]` off it — so the manifest
+ * described whichever groom the two literals happened to point at, and agreed with them only
+ * because there was exactly one entry. The moment `hair_cards.py` grew a style table, every style
+ * baked would have been a file on disk that no page in this repository could open.
+ *
+ * That is the failure `docs/CHECKPOINT.md` §13 records against the whole project — work that is
+ * correct and invisible — arriving in a new place. A style nobody can look at cannot be judged, and
+ * this project's own record says the visual judge finds what every measured gate misses.
+ *
+ * URLs resolve against the MANIFEST's own URL rather than against `import.meta.url`, which is the
+ * idiom `wardrobe/GarmentManifest.js` `fragmentUrl()` already uses for the same reason: a path
+ * built from a runtime id cannot be a bundler literal, and the manifest is the authority on where
+ * its own assets live. ⚠️ It also means a production `vite build` will not statically copy a
+ * groom — this is a dev-server page and `vite.config.js` serves the whole repo (`fs.allow`), which
+ * is how `hair_shots.mjs` captures it. Say so rather than discover it.
+ *
+ *   ?groom=<id>   an id from `assets/hair/manifest.json`. Default: the first entry.
+ *   ?bake=<key>   which identity bake, `g000`…`g100`. Default: `g050`, the one every plate in the
+ *                 record was taken on. A men's cut is worth looking at on `g100` and a long one on
+ *                 `g000`, and neither is reachable without this.
+ */
+const DEFAULT_BAKE = 'g050';
+
+function resolveGroom( manifest, manifestUrl, query ) {
+
+    const wanted = query.get( 'groom' );
+    const groom = wanted === null
+        ? manifest.grooms[ 0 ]
+        : manifest.grooms.find( ( entry ) => entry.id === wanted );
+
+    // Throws rather than falling back to entry zero. A silent fallback renders bob01 under a
+    // different style's name in the HUD, and a judge would be told it is looking at `crop01`.
+    if ( groom === undefined ) {
+
+        throw new Error( `hair.js: no groom '${ wanted }' in the manifest. It carries ` +
+            `${ manifest.grooms.map( ( entry ) => entry.id ).join( ', ' ) }.` );
+
+    }
+
+    const bake = query.get( 'bake' ) ?? DEFAULT_BAKE;
+    const directory = new URL( `${ groom.id }/`, manifestUrl ).href;
+
+    return { groom, bake, directory, url: `${ directory }${ bake }.glb` };
+
+}
 
 /**
  * The four angles, and each one is here because it catches something the others cannot.
@@ -169,8 +244,19 @@ async function main() {
 
     const query = new URLSearchParams( location.search );
 
-    const manifest = await ( await fetch( HAIR_MANIFEST_URL ) ).json();
-    const groom = manifest.grooms[ 0 ];
+    const manifestResponse = await fetch( HAIR_MANIFEST_URL );
+    const manifest = await manifestResponse.json();
+    const { groom, bake, directory: HAIR_DIRECTORY, url: HAIR_URL } =
+        resolveGroom( manifest, manifestResponse.url, query );
+    const FIGURE_URL = FIGURE_BAKES.get( bake );
+
+    if ( FIGURE_URL === undefined ) {
+
+        throw new Error( `hair.js: no figure bake '${ bake }'. This page carries ` +
+            `${ [ ...FIGURE_BAKES.keys() ].join( ', ' ) }.` );
+
+    }
+
 
     const canvas = document.getElementById( 'stage' );
     canvas.width = WIDTH;
@@ -441,7 +527,7 @@ async function main() {
     } );
 
     log( `Renderer            : ${ backend }` );
-    log( `Groom               : ${ groom.id } — ${ groom.description }` );
+    log( `Groom               : ${ groom.id } ${ bake } — ${ groom.description }` );
     log( `Figure              : ${ FIGURE_URL.split( '/' ).pop() }` );
     log();
     log( `geometry            : ${ vertices.toLocaleString() } verts, ` +
