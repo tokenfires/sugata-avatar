@@ -971,3 +971,65 @@ requirement, `7007f39` source sweep + viewer, `18a348a` hairstyle targets, `a12d
 3. **Make a scene read as a place at portrait framing** — 11.8's set silhouettes, pulled forward,
    because 11.6's gate cannot pass without them.
 4. Then 11.4 interior, 11.6 the remaining ten scenes, 11.7 the legibility gates.
+
+
+---
+
+## 15. 2026-08-18 morning — six rooms, and the naming gate still fails
+
+`745c39c`. Punch-list **11.4** (interior), **11.7** (legibility gates) and the first half of **11.6**
+(the six ORDINARY scenes). Nine scenes now exist: `studio`, `beach`, `park`, `street`,
+`kitchen`, `bedroom-morning`, `desk`, `living-room`, `bedside-night`.
+
+### 🎯 What is real
+
+**One sun, three consumers.** Moving `sun.elevationDegrees` alone moves the walls, the IBL and the
+key's direction, colour and level. The discriminator that proves it is a MODEL rather than a gain is
+elevation 30 → 45: the beam climbs above the window head, `windowAdmittance` goes to 0, the key
+switches OFF — and the far wall HOLDS (5.82e-2 → 5.54e-2 → 5.82e-2) while the face falls 3.1×. The
+room keeps the sun's flux through the aperture after the beam stops reaching the subject.
+
+**Backdrops finally differ.** Pairwise mean |Δ| over five masked background rects: beach vs park
+**1.98**, studio vs kitchen **41.14**, beach vs kitchen **120.08**. The interior is 61× further from
+beach than park is. ⚠️ Necessary, not sufficient.
+
+**At BODY framing the interiors give a corner, a ceiling line and a floor line** — which `beach` and
+`park` never had.
+
+### 🔴 What is wrong
+
+1. **11.6's naming gate FAILS and adding five rooms did not move it.** A blind judge took all 18
+   plates, randomised them, sealed the key, and named **3 of 18** — `studio` at both framings and
+   `beach` at body. **Interiors scored 0 of 10.** The hour reads on most; the place reads on none.
+   The rooms are coloured boxes with a floor line — no counter, no desk, no bed, no window.
+   ⏭️ **This is now the phase's blocking item and it is 11.8's job**: a scene needs an OBJECT in it.
+   Two rounds of light have taken this as far as light can take it.
+2. 🔴 **"The window is a portal" was wrong at the pixel and is corrected in place.** Hiding the live
+   pane changes **0 px on all six interior plates**. The window is an **APERTURE** — it admits flux,
+   it is not a hole you can see the sky through. The light model survives entirely; only the framing
+   of it was wrong. ⚠️ The tell was inside the same file: its own arithmetic rules a window out of a
+   portrait frame, and four lines later a sentence described seeing one.
+3. 🔴 **Two of the five legibility clauses are defective and are declared in the tool's header.**
+   L3 measures a **dither cloud** — a ~30 px speckled band ~100 px out in the wall, with the figure's
+   real edge unsampled — so it goes red on readable pictures. L4's denominator is that same
+   contaminated matte, inflated 1.21–1.29×, under-reporting clipping by 15–22%, **and its own guard
+   fires at 90% while the worst measured is 80.58%**. The repair is the matte, once, for all five.
+   ⚠️ The other three are near-inert: L1 reads 0.9907 GREEN on an arm where 42.30% of the subject is
+   clipped to white.
+
+### ✅ And the failure that did NOT recur
+
+The adversary **could not break reproduction**: all 14 plate digests, the 7-row elevation sweep, the
+9-scene gate table to four decimals, the exposure ladder and the backdrop table all came back digit
+for digit. **No measurement-before-a-later-edit in the rendered numbers** — the failure that hit the
+two previous rounds did not happen a third time. Both agents pinned and reported the sha they read,
+and one fingerprinted the dirty tree when `git show` could not see untracked deliverables. The
+briefing change worked.
+
+### ⏭️ Next
+
+1. **11.8 — put an object in the frame.** The naming gate cannot pass on light alone and two rounds
+   have now demonstrated that. A window reveal, a counter edge, a doorway, a lamp in shot.
+2. **Repair the matte**, which unblocks all five legibility clauses at once.
+3. The short-hair primitive question (§14), still the blocker for the men's set.
+4. 11.6's remaining six occasional scenes.
