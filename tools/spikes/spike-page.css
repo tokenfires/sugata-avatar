@@ -104,3 +104,29 @@ canvas {
   background: #1b1a16;
   color: var(--dim);
 }
+
+/* Added for sky-env.html: a spike whose headline is a verdict, not a curve. */
+
+p.ok,
+p.bad {
+  max-width: 78ch;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  background: #14201d;
+}
+
+p.bad {
+  border-left-color: #e35d5d;
+  background: #201414;
+}
+
+.tag {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border: 1px solid var(--warn);
+  border-radius: 3px;
+  color: var(--warn);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}

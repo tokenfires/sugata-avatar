@@ -1,0 +1,1115 @@
+{
+  "spike": "sky-env",
+  "punchlistItem": "11.2",
+  "generatedAt": "2026-08-18T06:13:21.963Z",
+  "environment": {
+    "backend": "webgpu",
+    "threeRevision": "185",
+    "canvasWidth": 1280,
+    "canvasHeight": 720,
+    "pixelRatio": 1,
+    "devicePixelRatio": 1,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "adapter": "apple / metal-3",
+    "compatibilityMode": false,
+    "timestampsAvailable": true,
+    "timestampNote": "GPU timestamp queries active."
+  },
+  "softwareRendererSuspected": false,
+  "configuration": {
+    "skyUniforms": {
+      "turbidity": 2,
+      "rayleigh": 1,
+      "mieCoefficient": 0.005,
+      "mieDirectionalG": 0.8,
+      "cloudCoverage": 0
+    },
+    "sun": {
+      "elevationDegrees": 22,
+      "azimuthDegrees": -38
+    },
+    "workingPmremSize": 256,
+    "probeSize": 640,
+    "canvas": [
+      1280,
+      720
+    ],
+    "sphereRoughness": [
+      0.05,
+      0.35,
+      0.85
+    ],
+    "figureLoaded": true,
+    "figureUrl": "/assets/figures/figure_g050.glb",
+    "bakeRepeats": 5,
+    "warmupFrames": 60,
+    "sampleFrames": 120,
+    "repeats": 3,
+    "passesPerFrame": 8,
+    "toneMappingDuringProbes": "NoToneMapping",
+    "shotExposure": 0.13859116319591613
+  },
+  "redProof": {
+    "arms": [
+      {
+        "arm": "null-control",
+        "frameMean": 0,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "arm": "env-only",
+        "frameMean": 0.10051938592987426,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 1.1748654407837216,
+            "sd": 0.31378694386090744,
+            "max": 2.149885892868042,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 1.2466808919688788,
+            "sd": 0.2966600841901926,
+            "max": 1.7958498001098633,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 1.2987841060656027,
+            "sd": 0.24058183535831884,
+            "max": 1.6570899486541748,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 1.301591398045786,
+            "sd": 0.26296567026485396,
+            "max": 1.8090323209762573,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "arm": "env + sky-bg",
+        "frameMean": 1.1930503472698184,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 1.1748654407837216,
+            "sd": 0.31378694386090744,
+            "max": 2.149885892868042,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 1.2466808919688788,
+            "sd": 0.2966600841901926,
+            "max": 1.7958498001098633,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 1.2987841060656027,
+            "sd": 0.24058183535831884,
+            "max": 1.6570899486541748,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 1.301591398045786,
+            "sd": 0.26296567026485396,
+            "max": 1.8090323209762573,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "arm": "sky-bg, env OFF",
+        "frameMean": 1.0925266725561231,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "arm": "pmrem-bg, env OFF",
+        "frameMean": 1.0938730185299936,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 0,
+            "sd": 0,
+            "max": 0,
+            "pixels": 4486
+          }
+        ]
+      }
+    ],
+    "verdict": {
+      "nullControlIsZero": true,
+      "environmentLightsSurfaces": true,
+      "skyBackgroundAloneDoesNot": true,
+      "frameMeanBrokenOverWorking": 0.9157423029600267,
+      "maskedMeanBrokenOverWorking": 0,
+      "passes": true
+    }
+  },
+  "rebakeSurvival": {
+    "baseline": 1.2987841060656027,
+    "steps": [
+      {
+        "step": "baseline (env assigned, nothing re-baked)",
+        "diffuseMean": 1.2987841060656027,
+        "atlasMean": 1.2195083870685453,
+        "firstRenderMs": 56.5
+      },
+      {
+        "step": "sun → 45°, re-baked INTO the live target",
+        "diffuseMean": 1.960223830189972,
+        "atlasMean": 2.163669546262517,
+        "firstRenderMs": 0.5
+      },
+      {
+        "step": "sun → 22°, re-baked into the live target again",
+        "diffuseMean": 1.2987841060656027,
+        "atlasMean": 1.2195083870685453,
+        "firstRenderMs": 0.3999999761581421
+      },
+      {
+        "step": "RED: baked from a scene the sky had been re-parented out of",
+        "diffuseMean": 0,
+        "atlasMean": 0,
+        "firstRenderMs": 45.900000005960464
+      },
+      {
+        "step": "sky re-parented back, same target re-baked",
+        "diffuseMean": 1.2987841060656027,
+        "atlasMean": 1.2195083870685453,
+        "firstRenderMs": 0.3999999761581421
+      },
+      {
+        "step": "restored for the sections that follow",
+        "diffuseMean": 1.2987841060656027,
+        "atlasMean": 1.2195083870685453,
+        "firstRenderMs": 43.599999994039536
+      }
+    ],
+    "rebakeIntoLiveTargetSurvives": true,
+    "rebakeTracksTheSun": true,
+    "orphanedSkyGoesRed": true,
+    "orphanRecoversOnReparent": true,
+    "passes": true
+  },
+  "bake": {
+    "rows": [
+      {
+        "size": 128,
+        "atlas": [
+          384,
+          512
+        ],
+        "firstSubmitMs": 15.099999994039536,
+        "firstIdleMs": 19,
+        "submitMs": 1,
+        "idleMs": 7,
+        "idleP95Ms": 7.399999976158142,
+        "bytesMeasured": 3932160,
+        "bytesArithmetic": 3145728,
+        "samples": 5
+      },
+      {
+        "size": 256,
+        "atlas": [
+          768,
+          1024
+        ],
+        "firstSubmitMs": 6.100000023841858,
+        "firstIdleMs": 12.800000011920929,
+        "submitMs": 0.9000000059604645,
+        "idleMs": 8.800000011920929,
+        "idleP95Ms": 29.69999998807907,
+        "bytesMeasured": 14155776,
+        "bytesArithmetic": 12582912,
+        "samples": 5
+      },
+      {
+        "size": 512,
+        "atlas": [
+          1536,
+          2048
+        ],
+        "firstSubmitMs": 6.600000023841858,
+        "firstIdleMs": 18.200000017881393,
+        "submitMs": 0.800000011920929,
+        "idleMs": 13.600000023841858,
+        "idleP95Ms": 15.400000005960464,
+        "bytesMeasured": 56623104,
+        "bytesArithmetic": 50331648,
+        "samples": 5
+      }
+    ],
+    "workingSize": 256
+  },
+  "rebake": {
+    "size": 256,
+    "perElevation": [
+      {
+        "elevationDegrees": 8,
+        "pingPongIdleMs": 8.599999994039536,
+        "diffuseMean": 0.612193283174871
+      },
+      {
+        "elevationDegrees": 22,
+        "pingPongIdleMs": 8,
+        "diffuseMean": 1.2987841060656027
+      },
+      {
+        "elevationDegrees": 40,
+        "pingPongIdleMs": 7.0999999940395355,
+        "diffuseMean": 1.828865986933811
+      },
+      {
+        "elevationDegrees": 60,
+        "pingPongIdleMs": 8.5,
+        "diffuseMean": 2.2850502488163436
+      }
+    ],
+    "medianReuseIdleMs": 8.5,
+    "freshTargetIdleMs": 8.5,
+    "diffuseAcrossElevations": [
+      0.612193283174871,
+      1.2987841060656027,
+      1.828865986933811,
+      2.2850502488163436
+    ]
+  },
+  "environmentRotation": {
+    "rows": [
+      {
+        "yawDegrees": 0,
+        "leftMean": 1.459132634358909,
+        "rightMean": 1.040516254162524,
+        "leftOverRight": 1.4023160412167854,
+        "discMean": 1.2466808919688788
+      },
+      {
+        "yawDegrees": 90,
+        "leftMean": 0.956404208000915,
+        "rightMean": 1.391350976121411,
+        "leftOverRight": 0.687392487168858,
+        "discMean": 1.1771437755514296
+      },
+      {
+        "yawDegrees": 180,
+        "leftMean": 0.5456905435993226,
+        "rightMean": 0.6457784921482077,
+        "leftOverRight": 0.8450119510547052,
+        "discMean": 0.596486116986773
+      },
+      {
+        "yawDegrees": 270,
+        "leftMean": 0.6849238143753369,
+        "rightMean": 0.5562842093986883,
+        "leftOverRight": 1.231247989432777,
+        "discMean": 0.619638007344009
+      }
+    ],
+    "ratioSwingAcrossYaw": 2.040051451525839,
+    "discMeanSwingAcrossYaw": 2.0900417569928518
+  },
+  "sunModel": {
+    "derivation": "ported from SkyMesh.js constants; see tools/spikes/sky-sun.js header",
+    "sunSolidAngleSteradians": 0.00006796702357283834,
+    "extraterrestrialKelvin": 5778,
+    "rigAzimuthConversion": {
+      "note": "LightingRig azimuth is CAMERA-relative (LightingRig.js:265); sky azimuth is world",
+      "worldSunAzimuthDegrees": -38,
+      "cameraOffsetFromFocus": {
+        "x": 0,
+        "z": 4
+      },
+      "rigAzimuthDegrees": -38
+    },
+    "rows": [
+      {
+        "elevationDegrees": -2,
+        "sunIntensity": 3.5737614275060947,
+        "transmittance": [
+          0.15675596636168318,
+          0.013986218362156846,
+          0.0000791840235620479
+        ],
+        "discRadiance": [
+          425.7584038472679,
+          37.98738985150874,
+          0.2150684549013932
+        ],
+        "irradiance": 0.028937531470621284,
+        "luminance": 0.007800691034623916,
+        "irradianceRGB": [
+          0.028937531470621284,
+          0.002301080730993456,
+          0.000011629383831586112
+        ],
+        "colourLinear": [
+          1,
+          0.07951890206424896,
+          0.000401878917812765
+        ],
+        "colourHex": 16732161,
+        "correlatedColourTemperature": 1832.449858538408,
+        "aboveHorizon": false,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": -2,
+          "irradiance": 0.0034556498590590894,
+          "irradianceUnscaled": 0.028937531470621284,
+          "colour": 16732161,
+          "colourLinear": [
+            1,
+            0.07951890206424896,
+            0.000401878917812765
+          ],
+          "correlatedColourTemperature": 1832.449858538408,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 0,
+        "sunIntensity": 26.49393029771996,
+        "transmittance": [
+          0.15675594471986742,
+          0.013986213850305615,
+          0.00007918396655971247
+        ],
+        "discRadiance": [
+          3156.3416156026724,
+          281.6178289080419,
+          1.5943998129548078
+        ],
+        "irradiance": 0.21452714499159747,
+        "luminance": 0.057830085232671274,
+        "irradianceRGB": [
+          0.21452714499159747,
+          0.017058959884783176,
+          0.0000862138867104515
+        ],
+        "colourLinear": [
+          1,
+          0.07951888739045744,
+          0.00040187868399511076
+        ],
+        "colourHex": 16732161,
+        "correlatedColourTemperature": 1832.449937175491,
+        "aboveHorizon": false,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 0,
+          "irradiance": 0.02561831160709737,
+          "irradianceUnscaled": 0.21452714499159747,
+          "colour": 16732161,
+          "colourLinear": [
+            1,
+            0.07951888739045744,
+            0.00040187868399511076
+          ],
+          "correlatedColourTemperature": 1832.449937175491,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 2,
+        "sunIntensity": 48.88688087449378,
+        "transmittance": [
+          0.3709317235666554,
+          0.10176582517307424,
+          0.006382664832768485
+        ],
+        "discRadiance": [
+          13781.608186756042,
+          3781.010466971287,
+          237.141717259444
+        ],
+        "irradiance": 0.9366948885008698,
+        "luminance": 0.36392940577669197,
+        "irradianceRGB": [
+          0.9366948885008698,
+          0.22903417063509154,
+          0.012822950040516045
+        ],
+        "colourLinear": [
+          1,
+          0.24451309967288123,
+          0.01368956978193667
+        ],
+        "colourHex": 16746527,
+        "correlatedColourTemperature": 1970.2338961441264,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 2,
+          "irradiance": 0.11185783288791028,
+          "irradianceUnscaled": 0.9366948885008698,
+          "colour": 16746527,
+          "colourLinear": [
+            1,
+            0.24451309967288123,
+            0.01368956978193667
+          ],
+          "correlatedColourTemperature": 1970.2338961441264,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 5,
+        "sunIntensity": 81.51422439408174,
+        "transmittance": [
+          0.5921807791075628,
+          0.29902506016256564,
+          0.06924106107765997
+        ],
+        "discRadiance": [
+          36686.07925162738,
+          18524.844848694327,
+          4289.539856376207
+        ],
+        "irradiance": 2.4934436132903737,
+        "luminance": 1.3495295080878913,
+        "irradianceRGB": [
+          2.4934436132903737,
+          1.1221398388413066,
+          0.23194803474808676
+        ],
+        "colourLinear": [
+          1,
+          0.4500361800283582,
+          0.09302317225533958
+        ],
+        "colourHex": 16757590,
+        "correlatedColourTemperature": 2811.150169217582,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 5,
+          "irradiance": 0.2977609917966397,
+          "irradianceUnscaled": 2.4934436132903737,
+          "colour": 16757590,
+          "colourLinear": [
+            1,
+            0.4500361800283582,
+            0.09302317225533958
+          ],
+          "correlatedColourTemperature": 2811.150169217582,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 10,
+        "sunIntensity": 133.42489970462955,
+        "transmittance": [
+          0.7533483024434655,
+          0.5206953341010532,
+          0.23612195892971477
+        ],
+        "discRadiance": [
+          76391.72048909096,
+          52800.02927411721,
+          23943.45700307597
+        ],
+        "irradiance": 5.1921178672517225,
+        "luminance": 3.4849773225304976,
+        "irradianceRGB": [
+          5.1921178672517225,
+          3.1983542547537267,
+          1.2946931332701233
+        ],
+        "colourLinear": [
+          1,
+          0.6160018583027027,
+          0.24935742338134298
+        ],
+        "colourHex": 16764553,
+        "correlatedColourTemperature": 3605.7788242929946,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 10,
+          "irradiance": 0.6200301291906078,
+          "irradianceUnscaled": 5.1921178672517225,
+          "colour": 16764553,
+          "colourLinear": [
+            1,
+            0.6160018583027027,
+            0.24935742338134298
+          ],
+          "correlatedColourTemperature": 3605.7788242929946,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 15,
+        "sunIntensity": 182.40170463550876,
+        "transmittance": [
+          0.8242510269450465,
+          0.6406061005598377,
+          0.3734356674078811
+        ],
+        "discRadiance": [
+          114262.04219538232,
+          88804.21000393562,
+          51767.62975324128
+        ],
+        "irradiance": 7.7660509153741994,
+        "luminance": 5.70068277751258,
+        "irradianceRGB": [
+          7.7660509153741994,
+          5.379302375602324,
+          2.7992279794259143
+        ],
+        "colourLinear": [
+          1,
+          0.692668955460116,
+          0.36044419614663786
+        ],
+        "colourHex": 16767394,
+        "correlatedColourTemperature": 4046.0989884913743,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 15,
+          "irradiance": 0.9274029741757508,
+          "irradianceUnscaled": 7.7660509153741994,
+          "colour": 16767394,
+          "colourLinear": [
+            1,
+            0.692668955460116,
+            0.36044419614663786
+          ],
+          "correlatedColourTemperature": 4046.0989884913743,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 22,
+        "sunIntensity": 246.354245420348,
+        "transmittance": [
+          0.8740884979769108,
+          0.7333928710413314,
+          0.5036746035317311
+        ],
+        "discRadiance": [
+          163654.9133857775,
+          137312.57997995784,
+          94302.60643674394
+        ],
+        "irradiance": 11.123137355901957,
+        "luminance": 8.682040316123585,
+        "irradianceRGB": [
+          11.123137355901957,
+          8.317689979490117,
+          5.0992192559095475
+        ],
+        "colourLinear": [
+          1,
+          0.7477827265233523,
+          0.458433541972211
+        ],
+        "colourHex": 16769204,
+        "correlatedColourTemperature": 4411.648571632291,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 22,
+          "irradiance": 1.3282980987939894,
+          "irradianceUnscaled": 11.123137355901957,
+          "colour": 16769204,
+          "colourLinear": [
+            1,
+            0.7477827265233523,
+            0.458433541972211
+          ],
+          "correlatedColourTemperature": 4411.648571632291,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 30,
+        "sunIntensity": 313.34072443189376,
+        "transmittance": [
+          0.9038048080018869,
+          0.7921195807575002,
+          0.5972334963478949
+        ],
+        "discRadiance": [
+          215231.1284960983,
+          188634.52568614477,
+          142224.55806448805
+        ],
+        "irradiance": 14.628619184102911,
+        "luminance": 11.83786614084827,
+        "irradianceRGB": [
+          14.628619184102911,
+          11.426509532590018,
+          7.690500109688206
+        ],
+        "colourLinear": [
+          1,
+          0.7811065001273214,
+          0.5257160647154969
+        ],
+        "colourHex": 16770496,
+        "correlatedColourTemperature": 4659.15544951048,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 30,
+          "irradiance": 1.746914240874223,
+          "irradianceUnscaled": 14.628619184102911,
+          "colour": 16770496,
+          "colourLinear": [
+            1,
+            0.7811065001273214,
+            0.5257160647154969
+          ],
+          "correlatedColourTemperature": 4659.15544951048,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 45,
+        "sunIntensity": 423.30975566244564,
+        "transmittance": [
+          0.9308459000200856,
+          0.8477947386094644,
+          0.6940528514224995
+        ],
+        "discRadiance": [
+          299467.47437763767,
+          272748.6355760363,
+          223287.50064388625
+        ],
+        "irradiance": 20.35391289032326,
+        "luminance": 17.01569013159181,
+        "irradianceRGB": [
+          20.35391289032326,
+          16.521709761636764,
+          12.073811805519522
+        ],
+        "colourLinear": [
+          1,
+          0.8117215520506419,
+          0.5931936463803823
+        ],
+        "colourHex": 16771530,
+        "correlatedColourTemperature": 4908.144185270033,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 45,
+          "irradiance": 2.4306149362517293,
+          "irradianceUnscaled": 20.35391289032326,
+          "colour": 16771530,
+          "colourLinear": [
+            1,
+            0.8117215520506419,
+            0.5931936463803823
+          ],
+          "correlatedColourTemperature": 4908.144185270033,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 60,
+        "sunIntensity": 515.6671587390184,
+        "transmittance": [
+          0.9431302759255057,
+          0.873796163075986,
+          0.7420107993263374
+        ],
+        "discRadiance": [
+          369619.39537751157,
+          342446.86839514173,
+          290799.2564881331
+        ],
+        "irradiance": 25.121930158601582,
+        "luminance": 21.312541660023054,
+        "irradianceRGB": [
+          25.121930158601582,
+          20.743670289887415,
+          15.724370983140636
+        ],
+        "colourLinear": [
+          1,
+          0.8257196066913243,
+          0.6259220881464284
+        ],
+        "colourHex": 16771791,
+        "correlatedColourTemperature": 5029.876492602685,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 60,
+          "irradiance": 3,
+          "irradianceUnscaled": 25.121930158601582,
+          "colour": 16771791,
+          "colourLinear": [
+            1,
+            0.8257196066913243,
+            0.6259220881464284
+          ],
+          "correlatedColourTemperature": 5029.876492602685,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      },
+      {
+        "elevationDegrees": 80,
+        "sunIntensity": 616.2229473236056,
+        "transmittance": [
+          0.9497969747444388,
+          0.8880934231597208,
+          0.7691308455569836
+        ],
+        "discRadiance": [
+          444817.8852634073,
+          415920.2955058268,
+          360206.61816023226
+        ],
+        "irradiance": 30.232947693318103,
+        "luminance": 25.853280391049925,
+        "irradianceRGB": [
+          30.232947693318103,
+          25.194312674777013,
+          19.477431142486815
+        ],
+        "colourLinear": [
+          1,
+          0.8333396045383065,
+          0.6442451903818692
+        ],
+        "colourHex": 16772050,
+        "correlatedColourTemperature": 5098.42152043426,
+        "aboveHorizon": true,
+        "rigPlacement": {
+          "azimuthDegrees": -38,
+          "elevationDegrees": 80,
+          "irradiance": 3.6103453240793133,
+          "irradianceUnscaled": 30.232947693318103,
+          "colour": 16772050,
+          "colourLinear": [
+            1,
+            0.8333396045383065,
+            0.6442451903818692
+          ],
+          "correlatedColourTemperature": 5098.42152043426,
+          "scaleToRigUnits": 0.11941757584151311
+        }
+      }
+    ]
+  },
+  "sunValidation": {
+    "elevationDegrees": 22,
+    "model": {
+      "elevationDegrees": 22,
+      "sunIntensity": 246.354245420348,
+      "transmittance": [
+        0.8740884979769108,
+        0.7333928710413314,
+        0.5036746035317311
+      ],
+      "discRadiance": [
+        163654.9133857775,
+        137312.57997995784,
+        94302.60643674394
+      ],
+      "irradiance": 11.123137355901957,
+      "luminance": 8.682040316123585,
+      "irradianceRGB": [
+        11.123137355901957,
+        8.317689979490117,
+        5.0992192559095475
+      ],
+      "colourLinear": [
+        1,
+        0.7477827265233523,
+        0.458433541972211
+      ],
+      "colourHex": 16769204,
+      "correlatedColourTemperature": 4411.648571632291,
+      "aboveHorizon": true
+    },
+    "arms": [
+      {
+        "name": "A  sky only (disc hidden)",
+        "frameMean": 0.10051938592987426,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 1.1748654407837216,
+            "sd": 0.31378694386090744,
+            "max": 2.149885892868042,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 1.2466808919688788,
+            "sd": 0.2966600841901926,
+            "max": 1.7958498001098633,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 1.2987841060656027,
+            "sd": 0.24058183535831884,
+            "max": 1.6570899486541748,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 1.301591398045786,
+            "sd": 0.26296567026485396,
+            "max": 1.8090323209762573,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "name": "B  sky + disc baked into the cube",
+        "frameMean": 0.1604639728710754,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 1.892652875341671,
+            "sd": 9.480373340174536,
+            "max": 536.787353515625,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 1.9484363362957748,
+            "sd": 0.6850930702880167,
+            "max": 6.5161237716674805,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 2.0978630863206997,
+            "sd": 0.5429813186483295,
+            "max": 3.04499888420105,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 2.2188236010935602,
+            "sd": 0.5233597146717407,
+            "max": 3.9193122386932373,
+            "pixels": 4486
+          }
+        ]
+      },
+      {
+        "name": "C  sky only + analytic key",
+        "frameMean": 0.1684522242363164,
+        "masks": [
+          {
+            "label": "sphere r=0.05",
+            "mean": 1.8470232999033862,
+            "sd": 0.9806040669542019,
+            "max": 42.13498306274414,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.35",
+            "mean": 2.052119505494945,
+            "sd": 0.626244014467298,
+            "max": 4.4807538986206055,
+            "pixels": 3196
+          },
+          {
+            "label": "sphere r=0.85",
+            "mean": 2.1789330646773224,
+            "sd": 0.46130066670885983,
+            "max": 2.8620474338531494,
+            "pixels": 3197
+          },
+          {
+            "label": "figure torso",
+            "mean": 2.3663204006993555,
+            "sd": 0.44915049782680355,
+            "max": 3.4170479774475098,
+            "pixels": 4486
+          }
+        ]
+      }
+    ],
+    "skyOnlyDiffuse": 1.2987841060656027,
+    "bakedDiscDiffuse": 2.0978630863206997,
+    "analyticKeyDiffuse": 2.1789330646773224,
+    "discEnergyCapturedByCube": 0.9078906160560636,
+    "analyticOverBaked": 1.1014542746835136
+  },
+  "backgroundFidelity": {
+    "elevationDegrees": 18,
+    "azimuthDegrees": -160,
+    "thresholds": [
+      100,
+      1000,
+      10000
+    ],
+    "arms": [
+      {
+        "arm": "SkyMesh drawn, disc shown",
+        "peak": 65504.0078125,
+        "mean": 36.572315231151876,
+        "footprint": [
+          228,
+          223,
+          213
+        ]
+      },
+      {
+        "arm": "the PMREM of it, as scene.background",
+        "peak": 65478.8125,
+        "mean": 42.444097281122374,
+        "footprint": [
+          528,
+          509,
+          381
+        ]
+      }
+    ],
+    "footprintRatioPmremOverSky": [
+      2.3157894736842106,
+      2.282511210762332,
+      1.7887323943661972
+    ],
+    "peakRatioSkyOverPmrem": 1.0003847857274444,
+    "peakIsClipped": true,
+    "meanRatioSkyOverPmrem": 0.8616584536813306
+  },
+  "frameCost": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "passesPerFrame": 8,
+    "measurements": [
+      {
+        "variant": "black",
+        "gpuMedianMs": 0.260948625,
+        "gpuP95Ms": 2.1707167500000004,
+        "gpuDeltaVsBlackMs": 0,
+        "cpuSubmitMedianMs": 0.04999999701976776,
+        "gpuSampleCount": 357
+      },
+      {
+        "variant": "sky-bg",
+        "gpuMedianMs": 0.532169125,
+        "gpuP95Ms": 2.48551925,
+        "gpuDeltaVsBlackMs": 0.27122050000000003,
+        "cpuSubmitMedianMs": 0.05000000074505806,
+        "gpuSampleCount": 357
+      },
+      {
+        "variant": "pmrem-bg",
+        "gpuMedianMs": 0.418249,
+        "gpuP95Ms": 2.6102520000000005,
+        "gpuDeltaVsBlackMs": 0.157300375,
+        "cpuSubmitMedianMs": 0.05000000074505806,
+        "gpuSampleCount": 357
+      },
+      {
+        "variant": "env",
+        "gpuMedianMs": 0.41530599999999995,
+        "gpuP95Ms": 3.20956525,
+        "gpuDeltaVsBlackMs": 0.15435737499999996,
+        "cpuSubmitMedianMs": 0.05000000074505806,
+        "gpuSampleCount": 357
+      },
+      {
+        "variant": "sky+env",
+        "gpuMedianMs": 0.61293825,
+        "gpuP95Ms": 2.555586,
+        "gpuDeltaVsBlackMs": 0.35198962500000003,
+        "cpuSubmitMedianMs": 0.05000000074505806,
+        "gpuSampleCount": 357
+      }
+    ]
+  }
+}

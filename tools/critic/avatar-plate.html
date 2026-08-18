@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sugata 姿 — Avatar plate target</title>
+    <style>
+        html, body { margin: 0; height: 100%; background: #000; overscroll-behavior: none; }
+        #stage { display: block; width: 100%; height: 100%; touch-action: none; }
+        #failure { position: fixed; inset: 8px; margin: 0; color: #fca5a5; font: 12px/1.4 monospace;
+                   background: rgba(0,0,0,.9); white-space: pre-wrap; overflow: auto; }
+    </style>
+</head>
+<body>
+    <canvas id="stage"></canvas>
+    <pre id="failure" hidden></pre>
+
+    <script type="module">
+        /**
+         * THE PLATE TARGET FOR `Avatar`, AND IT EXISTS BECAUSE `alive.html` CANNOT ANSWER FOR IT.
+         *
+         * Punch-list 11.1's gate is *"`Avatar.create({ background: 'studio' })` renders
+         * byte-identical to HEAD's plate through the new path"*. Every plate this repository has
+         * ever taken was taken on `packages/testbed/src/alive.html`, which composes the subsystems
+         * ITSELF and does not import `Avatar.js` at all — so a plate taken there is structurally
+         * blind to a refactor of `Avatar.js` and `render/Scene.js`. A gate that cannot go red
+         * proves nothing, and a plate on `alive.html` is exactly that gate.
+         *
+         * So this page is `alive.html`'s capture contract — `?capture`'s pinned clock and
+         * `window.__SUGATA_STEP__` — pointed at the runtime API instead of at the instrument.
+         * `tools/critic/capture.mjs --plate` drives it unchanged.
+         *
+         *     npm run dev               # the TESTBED server — see the 🚩 below, this matters
+         *     node tools/critic/capture.mjs --plate --plate-loads 3 --steps 1 --fps 60 \
+         *          --width 900 --height 1200 --seed 1 \
+         *          --url 'http://localhost:5173/@fs/<abs-repo-path>/tools/critic/avatar-plate.html?bg=studio&freeze&seed=1' \
+         *          --out captures/scene-studio
+         *
+         * 🚩 **SERVE THIS PAGE THROUGH `npm run dev` AND `/@fs/`, NOT THROUGH `npm run spikes`.**
+         * MEASURED 2026-08-17, and it cost an hour: vite rooted at the REPOSITORY
+         * (`vite.spikes.config.js`) STALLS 512 KiB into `assets/figures/figure_g050.glb` and never
+         * sends the rest. Two `curl -o /dev/null --max-time 30` against the same file, same
+         * machine, same minute:
+         *
+         *     repo-root vite        status=200  downloaded=    524288  time=30.001  (timed out)
+         *     testbed vite, /@fs/   status=200  downloaded=11567392  time= 0.028
+         *
+         * 524,288 B is exactly 512 KiB — one buffer — of an 11,567,392 B bake. The symptom on this
+         * page is `Avatar.create` never resolving with NO
+         * error anywhere — `Figure.load` awaiting a fetch that never completes — and
+         * `capture.mjs` reporting only *"page never exposed window.__SUGATA_STEP__ within 120s"*.
+         * `alive.html` fails the same way when it is served from the repo root, so this is the
+         * SERVER and not this page. `npm run dev` roots at `packages/testbed` and reaches the bake
+         * through `server.fs.allow`, which is the path that works — so this page is addressed
+         * through `/@fs/` rather than moved into the testbed, where it would owe `pages.js`,
+         * `vite.pages.config.js` and `pages.selftest.mjs` three edits it does not need.
+         *
+         * ## Query surface, and every one of them is part of the plate's identity
+         *
+         *   ?bg=<name|hex|json>   whatever `background` accepts. `studio` is the control.
+         *   ?quality=<tier>       `auto` by default, so the plate is of the SHIPPED default.
+         *   ?seed=<n>            `Avatar`'s motion seed.
+         *   ?frame=portrait|body
+         *   ?freeze              do not advance the simulation between steps. On a still plate
+         *                        this is what makes the temporal resolve converge on ONE picture
+         *                        rather than on a picture plus N steps of idle motion.
+         *   ?scene=<id>          the 11.1 scene id, once one exists. Absent, `background` alone.
+         *
+         * 🚩 WHY THE CLOCK IS TAKEN OVER HERE RATHER THAN LEFT TO `avatar.step()`.
+         * `Avatar.js`'s own header records the limit in as many words: `update( dt )` gives a fixed
+         * SIMULATION step and NOT a pinned renderer epoch, because stopping the rAF chain needs
+         * `renderer._animation.stop()`, a private. `Grade` seeds its film grain from
+         * `nodeFrame.frameId`, so an unpinned epoch means the grain differs by however many frames
+         * the machine fitted into loading an 11.5 MB GLB — which is a plate that cannot be
+         * compared with itself, never mind with another build. This is `alive.js`'s
+         * `takeOverFrameLoop`, reimplemented rather than imported because `core` and `tools` must
+         * not depend on `packages/testbed`.
+         */
+
+        import { Avatar, SCENES } from '../../packages/core/src/Avatar.js';
+
+        addEventListener( 'unhandledrejection', ( event ) => showFailure( event.reason ) );
+        addEventListener( 'error', ( event ) => showFailure( event.error ?? event.message ) );
+
+        // 🚩 NOT A TOP-LEVEL `await`. A module script with one defers the document's
+        // `DOMContentLoaded`, so Playwright's `goto(..., { waitUntil: 'domcontentloaded' })` times
+        // out at 30 s while an 11.5 MB bake is still in flight — measured on this page before this
+        // line changed. `boot()` is fired and not awaited, so the document is ready at once and
+        // `capture.mjs` waits on `__SUGATA_STEP__` appearing instead, which is the readiness
+        // signal that actually means the figure is up.
+        boot().catch( showFailure );
+
+        async function boot() {
+
+            const query = new URLSearchParams( location.search );
+            const frozen = query.has( 'freeze' );
+
+            const avatar = await Avatar.create( {
+                canvas: document.getElementById( 'stage' ),
+                autoStart: false,
+                seed: Number( query.get( 'seed' ) ?? 1 ),
+                quality: query.get( 'quality' ) ?? 'auto',
+                frame: query.get( 'frame' ) ?? 'portrait',
+                ...( query.has( 'scene' ) ? { scene: resolveSceneRequest( query ) } : {} ),
+                ...( query.has( 'bg' ) ? { background: parseBackground( query.get( 'bg' ) ) } : {} )
+            } );
+
+            // --- the two arms that make 11.2 and 11.3 falsifiable ---------------------------------
+            //
+            // Both reach past the public API on purpose. They are a defect injection on a working
+            // build, which is what `alive.js`'s own `?…defect` flags are, and they belong on an
+            // instrument rather than in `Avatar` — a library whose public API can delete the light
+            // from a shipped avatar is a liability.
+
+            if ( query.has( 'noenv' ) ) {
+
+                // ⚠️ AFTER the build, so every other term is bit-identical to the arm it is
+                // subtracted from: the sky is still the backdrop, the derived key is still aimed
+                // along the same sun, the ground plane still has the scene's albedo. What changes
+                // is one property.
+                avatar.stage.scene.environment = null;
+
+            }
+
+            if ( query.has( 'noenvground' ) ) {
+
+                avatar.skyEnvironment.groundDisc.removeFromParent();
+                avatar.skyEnvironment.groundDisc = null;
+                avatar.skyEnvironment.bake();
+
+            }
+
+            window.avatar = avatar;
+
+            // 🚩 `capture.mjs`'s `readEnvironment` reads `globalThis.sugata.stage.stats` and nothing
+            // else. Without this line the manifest records `backend: 'unknown'` and the tool prints
+            // *"BACKEND IS NOT WEBGPU … do not present them as a WebGPU capture"* over a capture
+            // that IS WebGPU — a warning that is wrong is worse than no warning, because the next
+            // reader learns to skip it. Measured: the same plate reports `unknown` without this and
+            // `webgpu` with it, byte-identical either way.
+            window.sugata = { stage: avatar.stage, avatar };
+
+            const advanceRendererFrame = takeOverFrameLoop( avatar.stage );
+
+            let elapsedSeconds = 0;
+
+            window.__SUGATA_STEP__ = async ( deltaSeconds ) => {
+
+                if ( avatar.figure === null ) return false;
+
+                // `?freeze` HOLDS UNDER CAPTURE — the standing constraint, and the reason `alive.js`
+                // carries the same guard: a "frozen plate" that walked one simulation step per
+                // screenshot was how a whole phase's gate numbers came to disagree with themselves.
+                if ( frozen === false ) avatar.advanceFrame( deltaSeconds );
+
+                elapsedSeconds += deltaSeconds;
+                advanceRendererFrame?.( deltaSeconds, elapsedSeconds );
+
+                avatar.stage.draw();
+
+                // Two barriers, in the order `Avatar.step()` documents: the GPU has finished the frame,
+                // and the compositor has painted it. Without the second, a screenshot taken straight
+                // after a submit comes back as the PREVIOUS frame — invisible on idle motion, fatal to
+                // a plate.
+                await avatar.stage.renderer.backend?.device?.queue?.onSubmittedWorkDone();
+                await new Promise( ( resolve ) => requestAnimationFrame(
+                    () => requestAnimationFrame( () => resolve() ) ) );
+
+                return true;
+
+            };
+
+        }
+
+        /**
+         * The scene request: a name, or a name with `?sceneover=<json>` merged over it.
+         *
+         * The merge is over `SCENES[ name ]` rather than over a partial, because `resolveScene`
+         * fills a partial from `studio` — so `{ id: 'beach-x', exposure: 0.8 }` alone would be a
+         * STUDIO at exposure 0.8 and would silently measure the wrong thing.
+         */
+        function resolveSceneRequest( query ) {
+
+            const name = query.get( 'scene' );
+
+            if ( query.has( 'sceneover' ) === false ) return name;
+
+            const base = SCENES[ name ];
+
+            if ( base === undefined ) throw new TypeError( `avatar-plate: no scene '${ name }'.` );
+
+            return { ...base, ...JSON.parse( query.get( 'sceneover' ) ) };
+
+        }
+
+        /** `background`, from a query string: a name, `0x…`/`#…` hex, or a JSON object. */
+        function parseBackground( raw ) {
+
+            if ( raw.startsWith( '{' ) ) return JSON.parse( raw );
+            if ( raw.startsWith( '0x' ) || raw.startsWith( '#' ) ) return Number( raw.replace( '#', '0x' ) );
+            return raw;
+
+        }
+
+        /**
+         * Stops the renderer's own rAF chain and pins its frame state, returning the per-frame tick.
+         * A straight port of `packages/testbed/src/alive.js`'s `takeOverFrameLoop` with the defect
+         * injections left out — those belong to the page that gates them.
+         */
+        function takeOverFrameLoop( stage ) {
+
+            const renderer = stage.renderer;
+            const nodeFrame = renderer._nodes?.nodeFrame;
+
+            if ( typeof renderer._animation?.stop !== 'function' || typeof nodeFrame?.update !== 'function' ) {
+
+                console.warn( 'avatar-plate: could not reach renderer._animation / _nodes.nodeFrame. ' +
+                    'Frames are correct but NOT bit-reproducible.' );
+                return null;
+
+            }
+
+            renderer._animation.stop();
+
+            nodeFrame.frameId = 0;
+            nodeFrame.time = 0;
+            nodeFrame.deltaTime = 0;
+            nodeFrame.lastTime = undefined;
+
+            stage.temporal?.resetFrameEpoch?.();
+
+            return ( deltaSeconds, elapsed ) => {
+
+                nodeFrame.update();
+                nodeFrame.deltaTime = deltaSeconds;
+                nodeFrame.time = elapsed;
+
+            };
+
+        }
+
+        function showFailure( reason ) {
+
+            const failure = document.getElementById( 'failure' );
+            failure.textContent = reason instanceof Error ? `${ reason.message }\n\n${ reason.stack }` : String( reason );
+            failure.hidden = false;
+
+        }
+    </script>
+</body>
+</html>

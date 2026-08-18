@@ -109,13 +109,15 @@ const avatar = await Avatar.create( {
 
     lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
     background: 'studio',          // 'studio'|'void', a hex, or the object below
+    scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
     hair: false                    // 'bob01' | false
 } );
 ```
 
 `AVATAR_DEFAULTS`, `QUALITY_TIERS`, `QUALITY_REQUESTS`, `FRAME_MODES`, `SCENE_LOOKS`,
-`SCENE_LOOK_NAMES`, `BACKGROUND_PRESETS`, `BACKGROUND_PRESET_NAMES` and `HAIR_STYLES` are exported
-beside `Avatar`, so the defaults are readable rather than described. The three tiers move switches
+`SCENE_LOOK_NAMES`, `BACKGROUND_PRESETS`, `BACKGROUND_PRESET_NAMES`, `SCENES`, `SCENE_IDS`,
+`SCENE_KINDS`, `resolveScene` and `HAIR_STYLES` are exported beside `Avatar`, so the defaults are
+readable rather than described. The three tiers move switches
 this repository has already priced — `high` is TAAU + grade + GTAO + shadows and is exactly the
 configuration every committed gate number was measured on; `balanced` gives back the +0.845 ms p50
 that ground-truth occlusion costs; `fallback` swaps the temporal resolve for MSAA and moves
@@ -143,6 +145,142 @@ background: {
     ground: true         // the floor plane + contact occlusion. false => no plane
 }
 ```
+
+### `scene` — the place, which is the wider form of `background`
+
+`background` says what is *behind* the figure. `scene` says *where the figure is*: the light, the
+backdrop, the ground, the air and the exposure, as one plain object of numbers and names. It is a
+**new, wider door and not a replacement** — `background` and `lighting` keep working exactly as
+documented above, and an explicit `background` or `lighting` **wins over** the scene's.
+
+```js
+scene: {
+    id: 'studio',
+    kind: 'studio',          // 'studio' | 'interior' | 'exterior'
+    sun: null,               // ✅ 11.2 — { elevationDegrees, azimuthDegrees, occlusion }, WORLD angles
+    sky: null,               // ✅ 11.2 — { turbidity, rayleigh, mieCoefficient, mieDirectionalG }
+    room: null,              // punch-list 11.4 — an emissive room box with a window onto the same sky
+    lights: {},              // LightingRig's OWN placement schema: { key, fill, rim, kicker }
+    ground: { enabled: true, albedo: null, roughness: null },
+    air: { haze: 0 },        // punch-list 11.5
+    exposure: 1,             // RELATIVE multiplier, same units as lighting.exposure
+    background: { colour: 0x08080a, backdrop: 0x070a0e, distanceMetres: 1.9 },
+    framing: null            // null leaves the caller's `frame` alone
+}
+```
+
+**Today the table has five entries.** Three are ports — `studio`, `void`, and the refused
+`transparent` — and `studio` is the **calibration control** whose numbers may not move. Two are
+authored exteriors: **`beach`** and **`park`** (punch-list 11.2/11.3). Two, not one, on purpose:
+they differ in sun elevation, sun side, disc occlusion, turbidity, ground albedo and exposure, and
+nothing about the code path differs between them, which is what proves the mechanism is parametric
+rather than a special case. The other ten of the design's twelve are 11.6.
+
+#### `kind: 'exterior'` — the sky, and the sun that is also the key
+
+An exterior needs BOTH a `sun` and a `sky`; either alone is refused, because the sky is drawn from
+the sun and the key light is derived from the same elevation, so one without the other is a scene
+whose backdrop and whose light cannot agree.
+
+```js
+scene: {
+    id: 'beach', kind: 'exterior',
+    sun:  { elevationDegrees: 52, azimuthDegrees: 58, occlusion: 0 },
+    sky:  { turbidity: 2.8, rayleigh: 1.0, mieCoefficient: 0.006, mieDirectionalG: 0.8 },
+    ground: { enabled: true, albedo: 0xa89f8d, roughness: 0.95 },
+    lights: { fill: { irradiance: 0.70, colour: 0xbcd6f7 } },
+    exposure: 1.28,
+    background: { colour: 0x8fb4d8, backdrop: false, distanceMetres: 1.9 }
+}
+```
+
+- **`sun.azimuthDegrees` is a WORLD azimuth** — about +Y from +Z, positive toward +X. ⚠️ It is *not*
+  `LightingRig`'s azimuth, which is measured from the camera so a rig follows it.
+  `rigAzimuthForSun()` converts; the camera stands at world azimuth 12°, so beach's 58° reaches the
+  rig as **+46°** and park's −46° as **−58°**.
+- **`sun.occlusion`** is the fraction of the solar *disc* hidden by local cover — leaves, an awning,
+  a passing cloud. It scales the derived key and leaves the sky alone, because what stands between
+  the subject and the sun does not stand between the subject and the rest of the hemisphere. `park`
+  runs at 0.45 and that is what "dappled" is as a number.
+- **The key's colour and irradiance are DERIVED, never declared.** A declared `sun.colour` is
+  refused: two statements of one star is how a sky and its key come to disagree. Both come from
+  `SkyMesh`'s own extinction — `solarDiscLight()` is a CPU port of the same `Fex` the sky is drawn
+  with, validated against arithmetic at the zenith and against pixels in `tools/spikes/sky-env.html`
+  §E (the analytic key and the baked solar disc agree to **90.8%** with no fitting).
+- **`sky.cloudCoverage` is refused.** `SkyMesh`'s clouds are driven by the TSL `time` node, so an
+  environment baked with them on is a different environment on every bake and no plate is
+  reproducible. Weather needs a decision about the clock first.
+- ⚠️ **An exterior sets `backdrop: false` and therefore runs on `balanced` only.** `quality: 'auto'`
+  resolves it there; an explicit `high` or `fallback` is refused, because ground-truth occlusion with
+  nothing at background depth renders the whole frame black — re-measured with the sky PMREM as the
+  background and it is still every pixel at code 0, so the sky does not rescue it.
+- ⚠️ **`SkyMesh` is `WebGPURenderer`-only.** An exterior on a WebGL2 backend is refused in words
+  rather than rendered as a black box.
+
+**Units.** `SkyMesh` emits its own absolute scale and a 60° sun delivers 25.12 there against the
+studio key's 3.0 — a factor of 8.37. `SKY_TO_RIG_SCALE` (0.11942) is the single conversion: the
+derived key carries it, and `scene.environmentIntensity` / `scene.backgroundIntensity` are set to it
+times the rig's own `exposure`, so the image-based half tracks exposure exactly as the four direct
+lights do. One scale for the light and the image means they cannot drift.
+
+🎯 **`scene: 'studio'` renders the same bytes `background: 'studio'` does, and that is measured
+rather than asserted.** 900×1200, 1 step at 60 fps, seed 1, frozen, through `Avatar.create` on
+`tools/critic/avatar-plate.html`:
+
+| arm | loads | sha256 | bitident | worst | px |
+|---|---:|---|---:|---:|---:|
+| `background: 'studio'`, before the refactor | 5 | `fac62c50d56590fb` | 10/10 | 0 | 0 |
+| `background: 'studio'`, after | 5 | `fac62c50d56590fb` | 10/10 | 0 | 0 |
+| `scene: 'studio'` — the new door | 3 | `fac62c50d56590fb` | 3/3 | 0 | 0 |
+
+`cmp` on the PNGs reports no difference. ⚠️ The control that makes those rows mean anything: the
+same plate with the card one code value brighter, `0x070a0e` → `0x070a0f`, reads `392bc43acbfc3f75`.
+
+⚠️ **`lights` is the rig's schema and nothing else.** A scene drives `LightingRig` through the
+`override()` path that already exists; there is no second lighting engine and a scene that needs a
+light the rig cannot express is a request against `LightingRig`. Unknown light names, unknown
+placement fields, `name`, an unknown `kind`, a `kind: 'exterior'` with no sky and a `kind:
+'interior'` with no room are all refused with a `TypeError` — deny-by-default, because
+`LightingRig` silently *drops* a fifth light and silently *ignores* a misspelled field.
+
+✅ **`ground.albedo` and `ground.roughness` are now read, and they are read TWICE** (11.3):
+`GroundContact` shades the plane the figure stands on with them, and a 500 m disc of the same albedo
+goes into the environment bake so the lower hemisphere of the image-based light is a floor rather
+than horizon sky. The second reading is the bounce that fills the underside of a jaw — measured
+monotone across four albedos with a null control that reads a span of exactly 1.0000×.
+⚠️ **`air.haze` and `room` are still carried and NOT consumed** (11.4, 11.5). They are named here
+rather than left to be discovered, because a field that is stored and ignored is a lie unless it
+says so.
+
+⚠️ **A scene may not usefully override `rim` or `kicker` today.** A scene's `lights` are ABSOLUTE
+numbers and `EDGE_LIGHTS` is authored per framing, so an absolute rim survives `setFraming('body')`
+into a preset that authored a different value — the same 27.27% error `SCENE_LOOKS` records. `key`
+and `fill` are safe because `FORM_LIGHTS` is identical in both presets. A scene that wants to move
+the edge lights is a request for the per-framing `scales` axis a look already has, and it belongs to
+11.7.
+
+❓ **Open, and not decided by this item: what a scene does to `report().scene.lighting.calibrated`.**
+That flag is `false` the moment exposure or ambient leave 1, which is correct and which will be
+`false` for every scene past `studio` — true, and useless, because a flag that is false for eleven
+of twelve scenes says nothing about which of them are in trouble. `docs/research/scene-system.md` §7
+proposes gating the subject's *legibility* (ratios, ranks and masked statistics) instead. That is
+punch-list 11.7's decision. `scene: 'studio'` reads exactly as the shipped default does.
+
+⚠️ **11.2 widened the flag by one term and it is a real change: `calibrated` is now also `false`
+whenever an image-based light is attached**, whatever the exposure resolved to. `docs/CHECKPOINT.md`
+§7 decomposed the committed numbers at IBL **0.00%**, and `beach` measures the same forehead at
+**27.03%** — so a scene that happened to resolve to exposure 1 would otherwise have reported `true`
+about a picture the critic has never seen. A flag that can be true about a frame it does not
+describe is worse than no flag.
+
+`report().scene` carries `id` and `kind` beside the existing light and room readings, plus
+`environment` (the sky's cube size, bake count, environment intensity, sun angles, derived sun
+colour and CCT, and `attached` read off `stage.scene.environment`), `groundMaterial` (the floor's
+actual albedo and roughness) and `lighting.ambientAttached` (whether the hemisphere light is in the
+scene at all — GTAO moves it into the composite, an image-based light REPLACES it). `background`
+reads `'sky-pmrem'` on an exterior, because what is behind the figure there is a texture and not a
+colour. ⚠️ `id` and `kind` are the **description** — what the caller asked for — while everything
+else in that block is read off the live scene graph.
 
 **The five looks, and what each is for.** A look changes colour, key geometry and edge-light energy
 — and *nothing else*. Measured through the real `LightingRig` at both framings on 2026-08-17,

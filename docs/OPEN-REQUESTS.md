@@ -3206,3 +3206,46 @@ evidence:    Measured live before R30 fixed the underlying inertness: after `set
 anchor:      packages/core/src/Avatar.js /placements: /
 verify:      packages/core/src/Avatar.js /read off the LIGHTS/
 ```
+
+## REQ-091 — a scene's photometry rows are transcribed into the punch list, and a retune leaves them behind
+
+```request
+id:          REQ-091
+status:      OPEN
+target:      tools/critic/scene-probe.mjs
+filed-by:    the Phase 11.2/11.3 landing round
+filed-round: R12
+filed-at:    18a348a
+first-filed: 2026-08-18
+change:      Have `scene-probe.mjs` EMIT its rows as the markdown block the punch list carries —
+             `--emit-markdown`, writing the table, the scene id, the recipe and the tree sha — and
+             have the punch list carry that block verbatim between markers. A row that is retyped
+             out of a terminal is a row nobody re-runs.
+evidence:    🚩 EVERY `beach` FIGURE IN 11.2 AND 11.3 WAS WRONG WHEN THE ITEMS WERE TICKED, and none
+             of them was wrong by a little. Published: forehead 2.7424e-1 / 2.0011e-1 / 27.03%, jaw
+             7.6341e-2 / 2.7038e-2 / 64.58%, ground span 2.0976x, null 1.5459e-1.
+             Re-measured on the shipped tree with the round's OWN instrument: forehead
+             6.0670e-1 / 4.3988e-1 / 27.50%, jaw 1.8245e-1 / 8.0184e-2 / **56.05%**, ground span
+             1.8885x, null 3.4477e-1. No absolute figure within a factor of two; the jaw share out
+             by 8.5 points.
+             🎯 AND THE DIAGNOSIS IS WHAT MAKES IT ACTIONABLE RATHER THAN EMBARRASSING: `park` and
+             `studio` reproduce to EVERY DIGIT on the same instrument in the same run, and the
+             G1-G7 gate table reproduces exactly on all three scenes. The instrument is sound. The
+             `beach` probes were run BEFORE the scene was retuned and never run again; `park` was
+             run after. The round's own evidence field says the PLATES were "taken AFTER every
+             change in this round" and says no such thing about the PROBES — the asymmetry is
+             written down in the artefact and nobody read it.
+             Reproduced three times: twice by an adversarial verifier, once with an independently
+             written inverse-ACES probe over separately captured plates, and once by the integrator.
+             Identical to every digit each time.
+             ⚠️ The MECHANISM survived the correction untouched — monotone in albedo, null control
+             exact at 1.0000x, mask 9-11x more sensitive than the frame mean. The conclusion was
+             never in doubt; the evidence for it was four numbers nobody re-ran. That is the same
+             shape as the +19.166 mm window table (three files, one witness, no clause computing
+             any row) and it wants the same repair: make something emit it.
+             ⚠️ `tools/quoted-numbers.mjs` CANNOT cover this and saying why is part of the request —
+             its contract is to re-run a command and compare, and this command needs a browser and a
+             dev server. So the emitter is the mechanism, not the checker.
+anchor:      tools/critic/scene-probe.mjs /IBL SHARE/
+verify:      tools/critic/scene-probe.mjs /emit-markdown/
+```

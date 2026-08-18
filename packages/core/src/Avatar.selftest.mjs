@@ -111,6 +111,13 @@ function refusalFrom( thunk ) {
 const AVATAR_SOURCE = readFileSync( new URL( './Avatar.js', import.meta.url ), 'utf8' );
 const GRADE_SOURCE = readFileSync( new URL( './render/Grade.js', import.meta.url ), 'utf8' );
 
+// 🚩 D2 USED TO READ THE TWO BACKDROP LITERALS OUT OF `Avatar.js`. Punch-list 11.1 moved them to
+// `render/Scene.js`, which owns the scene table they describe, so the clause follows them — and it
+// is STRICTER than it was rather than merely re-pointed: it now also asserts `Avatar.js` keeps NO
+// copy. A literal that moved and left a duplicate behind is exactly the drift the clause exists
+// against, and the old form could not have seen it.
+const SCENE_SOURCE = readFileSync( new URL( './render/Scene.js', import.meta.url ), 'utf8' );
+
 /**
  * The EXECUTABLE lines only — comments dropped.
  *
@@ -456,11 +463,15 @@ const FAKE_CANVAS = { getContext: () => null };
 
     const studio = resolveBackgroundOption( AVATAR_DEFAULTS.background );
 
-    check( '🎯 DEFAULTS  background: studio is the three literals Avatar.js already had',
+    check( '🎯 DEFAULTS  background: studio is the three literals, declared ONCE, in render/Scene.js',
         studio.colour === 0x08080a && studio.backdrop === 0x070a0e && studio.ground === true
-            && AVATAR_SOURCE.includes( 'const SCENE_CLEAR_COLOUR = 0x08080a' )
-            && AVATAR_SOURCE.includes( 'const BACKDROP_EMISSIVE = 0x070a0e' ),
-        `#${ studio.colour.toString( 16 ) } / #${ studio.backdrop.toString( 16 ) } / ground ${ studio.ground }` );
+            && SCENE_SOURCE.includes( 'export const SCENE_CLEAR_COLOUR = 0x08080a' )
+            && SCENE_SOURCE.includes( 'export const BACKDROP_EMISSIVE = 0x070a0e' )
+            && SCENE_SOURCE.includes( 'export const BACKDROP_DISTANCE_METRES = 1.9' )
+            && /^const (SCENE_CLEAR_COLOUR|BACKDROP_EMISSIVE|BACKDROP_DISTANCE_METRES)\s*=/m
+                .test( AVATAR_SOURCE ) === false,
+        `#${ studio.colour.toString( 16 ) } / #${ studio.backdrop.toString( 16 ) } / ground ${ studio.ground }` +
+        ' — and Avatar.js imports them rather than keeping a second copy' );
 
     check( '🎯 DEFAULTS  hair is OFF by default — one groom exists, and two mutations have no undo',
         AVATAR_DEFAULTS.hair === false && resolveHairOption( AVATAR_DEFAULTS.hair ) === null,

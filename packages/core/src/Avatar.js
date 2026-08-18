@@ -144,9 +144,60 @@ import { Grade, TEMPORAL_RECOVERY_SHARPNESS } from './render/Grade.js';
 import { GroundContact } from './render/GroundContact.js';
 import { GTAO_SHIPPING_QUALITY, createGroundTruthOcclusion } from './render/GTAO.js';
 import { EXPOSURE_CALIBRATION, LightingRig } from './render/LightingRig.js';
+import {
+    BACKDROP_EMISSIVE,
+    SCENES,
+    backgroundRequestOf,
+    environmentRequestOf,
+    lightingRequestOf,
+    resolveScene
+} from './render/Scene.js';
+import { SkyEnvironment, keyPlacementForSun } from './render/SkyEnvironment.js';
 import { Stage } from './render/Stage.js';
 
 import { VisemeLayer } from './voice/VisemeLayer.js';
+
+/**
+ * The scene surface, re-exported so an embedder has ONE import for the whole runtime API.
+ *
+ * `BACKGROUND_PRESETS` and `SCENE_LOOKS` are already published from this file; a scene table
+ * reachable only from `render/Scene.js` would have made "where the figure is" the one part of the
+ * API that lives at a different address. `render/Scene.js` stays the place the table is DEFINED —
+ * it imports nothing and is unit-testable on its own — and this is the door.
+ */
+export {
+    SCENES,
+    SCENE_IDS,
+    SCENE_KINDS,
+    SUN_FIELDS,
+    SKY_FIELDS,
+    SKY_DEFAULTS,
+    BACKDROP_DISTANCE_METRES,
+    BACKDROP_EMISSIVE,
+    SCENE_CLEAR_COLOUR,
+    backgroundRequestOf,
+    environmentRequestOf,
+    lightingRequestOf,
+    resolveScene
+} from './render/Scene.js';
+
+/**
+ * The sun model and the environment, re-exported for the same reason as the table above: an
+ * embedder authoring a scene needs to be able to ask what a given elevation MEANS before they
+ * render it, and a gate needs `solarDiscLight` without a GPU.
+ *
+ * `SKY_TO_RIG_SCALE` is published because it is the one number that reconciles SkyMesh's absolute
+ * scale with this rig's, and a reader comparing a scene's `exposure` against a studio plate needs
+ * to be able to see it rather than infer it.
+ */
+export {
+    SKY_TO_RIG_SCALE,
+    SkyEnvironment,
+    keyPlacementForSun,
+    solarDiscLight,
+    sunDirectionWorld,
+    rigAzimuthForSun
+} from './render/SkyEnvironment.js';
 
 // --- framing -----------------------------------------------------------------------------------
 //
@@ -184,27 +235,22 @@ const EYEBALL_MESH_PATTERN = /high-poly|low-poly|eyeball/i;
 const DEFAULT_REST_POSE = 'relaxed-standing';
 
 // --- the backdrop ------------------------------------------------------------------------------
-
-/**
- * The emissive card behind the figure, and its distance.
- *
- * The look spec wants a backdrop 1.5–2.0 stops under the subject: a black void is as wrong as a
- * blown one, because the silhouette then has nothing to separate from and the head reads as a
- * cut-out. Base colour BLACK with the whole value in `emissive`, so the card states its own
- * exposure and the rig cannot touch it — a RectAreaLight lights only the half-space in front of its
- * own plane, and across a large flat card the rim and kicker would draw a straight-edged wedge.
- *
- * ⚠️ `0x070a0e` IS A ONE-CODE-VALUE WINDOW AND SHOULD NOT BE READ AS A COMFORTABLE CONSTANT. Gate
- * G6 asks for a whole-image 0.1st-percentile luma of 0.004–0.016; measured one flag apart at
- * 900x1200, `0x050709` reads portrait 0.00393 (0.00007 UNDER the floor) and this value reads
- * portrait 0.00420 / body 0.01597, both in band, with body clearing the ceiling by 0.00003. The
- * full table is at `alive.js:420-450`.
- */
-const BACKDROP_EMISSIVE = 0x070a0e;
-const BACKDROP_DISTANCE_METRES = 1.9;
-
-/** The scene clear colour the shipped plate is measured on. `Avatar.js`'s own literal, named. */
-const SCENE_CLEAR_COLOUR = 0x08080a;
+//
+// 🚩 THE THREE LITERALS THAT DECIDE WHAT IS BEHIND THE FIGURE — `BACKDROP_EMISSIVE` 0x070a0e,
+// `BACKDROP_DISTANCE_METRES` 1.9 and `SCENE_CLEAR_COLOUR` 0x08080a — NOW LIVE IN
+// `render/Scene.js` AND ARE IMPORTED ABOVE. Punch-list 11.1: a scene is the description of a
+// PLACE, and those three numbers are the whole of the place this project currently ships, so the
+// scene table is their home and this file is their consumer.
+//
+// They are IMPORTED and never re-declared, which is the only thing that makes the 11.1 refactor
+// provable: `BACKGROUND_PRESETS` below is derived from `SCENES` by `backgroundRequestOf`, so the
+// preset an embedder passes and the scene the resolver produces cannot describe the room
+// differently. A second copy of any of the three would be a second claim with one gate on it, and
+// `Scene.selftest.mjs` clause A is that gate — it holds `SCENES.studio` to the literals AND holds
+// THIS FILE to having no copy of them.
+//
+// ⚠️ `BACKDROP_EMISSIVE` is still a ONE-CODE-VALUE WINDOW against gate G6 and the table that
+// measured it has moved with it. Read it there before touching it.
 
 // --- the scene: what an embedder may change about the light and the room -------------------------
 //
@@ -434,11 +480,26 @@ const AMBIENT_MULTIPLIER_RANGE = Object.freeze( { min: 0.5, max: 2 } );
  * neither — so `transparent` is refused at `create()` rather than shipping an option that returns an
  * opaque black rectangle. `backdrop: false` on its own IS supported, and resolves `quality: 'auto'`
  * to `balanced` for blocker 2.
+ *
+ * 🎯 **THE THREE ENTRIES ARE NOW DERIVED FROM `render/Scene.js` RATHER THAN TYPED HERE, AND THE
+ * DERIVATION IS THE POINT OF PUNCH-LIST 11.1.** A background and a scene are the same statement at
+ * two widths — "what is behind the figure" against "where the figure is" — and while they were two
+ * tables they could disagree. `backgroundRequestOf` projects a scene onto exactly the
+ * `{ colour, backdrop, ground }` an embedder types, so `background: 'studio'` and
+ * `scene: 'studio'` reach `resolveBackgroundOption` as the same object, go through the same
+ * validation, and hit the same refusals.
+ *
+ * ⚠️ THE KEY ORDER IS WRITTEN OUT RATHER THAN MAPPED OVER `SCENE_IDS`, and that is not styling.
+ * `BACKGROUND_PRESET_NAMES` is `Object.keys` of this object and it is printed inside two refusal
+ * messages, so the iteration order is part of a published string. Deriving it from the scene
+ * table's order would have changed `'studio, transparent, void'` to `'studio, void, transparent'`
+ * — a silent edit to an error message, which is the smallest possible version of the thing this
+ * item is not allowed to do.
  */
 export const BACKGROUND_PRESETS = Object.freeze( {
-    studio: Object.freeze( { colour: SCENE_CLEAR_COLOUR, backdrop: BACKDROP_EMISSIVE, ground: true } ),
-    transparent: Object.freeze( { colour: null, backdrop: false, ground: false } ),
-    void: Object.freeze( { colour: 0x000000, backdrop: false, ground: true } )
+    studio: Object.freeze( backgroundRequestOf( SCENES.studio ) ),
+    transparent: Object.freeze( backgroundRequestOf( SCENES.transparent ) ),
+    void: Object.freeze( backgroundRequestOf( SCENES.void ) )
 } );
 
 /** The background names `background` accepts as a shorthand string. */
@@ -645,6 +706,24 @@ export const AVATAR_DEFAULTS = Object.freeze( {
     background: 'studio',
 
     /**
+     * 🎯 THE WIDER DOOR, AND IT IS DELIBERATELY THE SAME WORD AS THE DEFAULT BESIDE IT.
+     *
+     * `scene` describes a PLACE — light, environment, backdrop, ground, air, exposure — where
+     * `background` describes only what is behind the figure. `'studio'` is entry one of
+     * `render/Scene.js`'s table and it holds exactly the values the two options above resolve to,
+     * so the default avatar is the same frame it has always been and the three defaults cannot
+     * disagree: `Scene.selftest.mjs` clause B holds `backgroundRequestOf( SCENES.studio )`
+     * bit-equal to `BACKGROUND_PRESETS.studio`.
+     *
+     * ⚠️ **`background` AND `lighting` WIN OVER `scene`, NOT THE OTHER WAY ROUND.** They are the
+     * published options (`docs/API.md`), an embedder may already be passing them, and a new option
+     * that silently overruled an old one would be a breaking change wearing a feature's clothes.
+     * The precedence is therefore: an explicit `background`/`lighting` first, then the scene's, then
+     * this table's.
+     */
+    scene: 'studio',
+
+    /**
      * 🚩 OFF, AND THE THREE REASONS ARE MEASURED RATHER THAN CAUTIOUS.
      *
      *   1. **One groom exists.** `assets/hair/manifest.json` declares one (`bob01`) and
@@ -703,6 +782,12 @@ export class Avatar {
      * @param {string|number|Object} [options.background='studio'] - A `BACKGROUND_PRESETS` name, a
      *   plain hex for the clear colour alone, or `{ colour, backdrop, ground }`. `colour: null` is
      *   a transparent canvas — read `setBackground` before shipping one.
+     * @param {string|Object} [options.scene='studio'] - A `SCENE_IDS` name, or a description
+     *   `{ id, kind, sun, sky, room, lights, ground, air, exposure, background, framing }`. The
+     *   WIDER form of `background`: a scene describes the PLACE — light, backdrop, ground, air and
+     *   exposure — where `background` describes only what is behind the figure. ⚠️ An explicit
+     *   `background` or `lighting` WINS over the scene's; see `AVATAR_DEFAULTS.scene`. Punch-list
+     *   11.1, `render/Scene.js`.
      * @param {false|string} [options.hair=false] - `'bob01'`, or `false` for no groom. See
      *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
      * @returns {Promise<Avatar>}
@@ -752,8 +837,26 @@ export class Avatar {
         // and before any GPU work, for the same reason those are: the subsystems behind them do
         // not validate, and the failure arrives as `NaN` in a scene graph or as a light that is
         // silently dropped. Each resolver throws a `TypeError` naming the field AND the range.
-        const lighting = resolveLightingOption( options.lighting ?? AVATAR_DEFAULTS.lighting );
-        const background = resolveBackgroundOption( options.background ?? AVATAR_DEFAULTS.background );
+        //
+        // 🎯 THE SCENE IS RESOLVED FIRST BECAUSE IT IS THE WIDER STATEMENT, AND IT IS RESOLVED
+        // THROUGH THE SAME TWO FUNCTIONS RATHER THAN AROUND THEM. `backgroundRequestOf` and
+        // `lightingRequestOf` project the scene onto the shapes these two resolvers already
+        // accept, so a scene gets the same field-by-field validation and the same measured
+        // refusals an embedder does — including `transparent`'s, which is thrown by
+        // `resolveBackgroundOption` and by nothing in `Scene.js`.
+        //
+        // ⚠️ THE `??` CHAIN IS THE PRECEDENCE AND IT IS LOAD-BEARING: an explicit `background` or
+        // `lighting` beats the scene's, because those two are published and this one is new. See
+        // `AVATAR_DEFAULTS.scene`.
+        const scene = resolveScene( options.scene ?? AVATAR_DEFAULTS.scene );
+
+        // The look comes from `AVATAR_DEFAULTS` and the exposure and per-light overrides come from
+        // the scene, spread in that order so a scene can move the light without owning the look —
+        // `lightingRequestOf`'s own comment says why the two axes are meant to compose rather than
+        // one overruling the other.
+        const lighting = resolveLightingOption( options.lighting
+            ?? { look: AVATAR_DEFAULTS.lighting, ...lightingRequestOf( scene ) } );
+        const background = resolveBackgroundOption( options.background ?? backgroundRequestOf( scene ) );
         const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
 
         const identity = new Identity( options.identity ?? AVATAR_DEFAULTS.identity );
@@ -786,6 +889,7 @@ export class Avatar {
             assetBaseUrl: options.assetBaseUrl ?? AVATAR_DEFAULTS.assetBaseUrl,
             bakedMapBaseUrl: options.bakedMapBaseUrl ?? AVATAR_DEFAULTS.bakedMapBaseUrl,
             heightOverride: Number.isFinite( options.framedHeightMetres ) ? options.framedHeightMetres : null,
+            scene,
             lighting,
             background,
             hairStyle
@@ -852,6 +956,12 @@ export class Avatar {
         this.heightOverride = session.heightOverride;
 
         // --- the scene, as resolved and validated by `create()` ---
+        //
+        // 🚩 `this.scene` IS THE DESCRIPTION AND `this.stage.scene` IS THE THREE.JS `Scene`. They
+        // are two different things one property name apart, which is a genuine hazard and is
+        // therefore stated here rather than left for a reader to trip over: `this.scene` is a
+        // frozen plain object of numbers and names from `render/Scene.js` and never a scene graph.
+        this.scene = session.scene;
         this.lighting = session.lighting;
         this.background = session.background;
 
@@ -875,6 +985,19 @@ export class Avatar {
         this.grade = null;
         this.ground = null;
         this.backdrop = null;
+
+        /**
+         * The sky, its two PMREMs and the ground disc that gives them a floor — or `null`, which is
+         * what every studio scene gets and what makes `studio` still the calibration control.
+         *
+         * 🚩 IT IS HELD ON `this` RATHER THAN HANDED TO `Stage` AND FORGOTTEN, and the reason is the
+         * one the `grade` handle five lines up records in full: `leakedHandles()` is an own-property
+         * walk, so a handle that never lands here is outside its reach BY CONSTRUCTION. This one
+         * owns two `RenderTarget`s and a `PMREMGenerator` — 27 MB of GPU texture at the shipped cube
+         * size — and `Stage.dispose()` would free none of it.
+         */
+        this.skyEnvironment = null;
+
         this.unsubscribeFrame = null;
 
         // --- the figure and its shading, all rebuilt per bake ---
@@ -1079,6 +1202,46 @@ export class Avatar {
             ? null
             : buildBackdrop( this.stage, this.background.backdrop );
 
+        // STEP 3b — THE SKY, AND IT GOES **BEFORE** THE RIG BECAUSE THE RIG READS IT TWICE.
+        //
+        // Punch-list 11.2. `environmentRequestOf` returns null for every studio scene, so this whole
+        // branch is unreachable on the calibration control and `scene.environment` stays exactly the
+        // `null` that `docs/CHECKPOINT.md` §7 measured IBL at 0.00% through. On an exterior it bakes
+        // `SkyMesh` twice — the sky with its disc for the backdrop and for the ground's own light,
+        // the sky without it for what lights the figure — and installs both on `stage.scene`.
+        //
+        // 🚩 THE RIG DEPENDS ON THE ANSWER IN TWO PLACES AND BOTH ARE SILENT IF THIS RUNS LATER:
+        //   1. `ambient:` below is `false` when an environment exists, because the hemisphere light
+        //      is a STAND-IN for exactly the sky that is now in the scene for real. Leaving both in
+        //      is the same double count Step 1 of the construction order exists to prevent, one
+        //      subsystem along — a uniform lift that reads as an exposure mistake.
+        //   2. `lightOverridesFor` derives the key's azimuth, elevation, colour and irradiance from
+        //      `this.skyEnvironment.sun`, so the rig cannot be constructed before it exists.
+        //
+        // ⚠️ REFUSED ON WebGL2 RATHER THAN RENDERED BLACK. `SkyMesh`'s material is a TSL
+        // `NodeMaterial` and its own docstring says it is `WebGPURenderer`-only; `Stage` can come up
+        // on a WebGL2 backend when device creation fails after a successful adapter request
+        // (`Stage.js:315-317`), and a scene that silently lost its sky there would report a `kind`
+        // it is not rendering.
+        const environmentRequest = environmentRequestOf( this.scene );
+
+        if ( environmentRequest !== null ) {
+
+            if ( this.stage.backendName !== 'webgpu' ) {
+
+                throw new TypeError(
+                    `Avatar.create: scene '${ this.scene.id }' is an exterior and needs the sky, ` +
+                    `and the renderer came up on '${ this.stage.backendName }'. SkyMesh is written ` +
+                    'in TSL and is WebGPURenderer-only by its own docstring. Use a studio scene on ' +
+                    'this machine.' );
+
+            }
+
+            this.skyEnvironment = new SkyEnvironment( environmentRequest );
+            this.skyEnvironment.attachTo( this.stage.scene, this.stage.renderer );
+
+        }
+
         // STEP 4 — `attachTo` is where the linearly-transformed-cosine tables are installed. Without
         // them every RectAreaLight contributes nothing and the figure renders black, which looks
         // exactly like a broken material.
@@ -1088,13 +1251,34 @@ export class Avatar {
         this.lights = new LightingRig( {
             preset: this.frameMode,
             shadows: this.lighting.shadows ?? this.tierSettings.shadows,
-            ambient: this.tierSettings.occlusion === false,
+
+            // 🚩 TWO WAYS TO LOSE THE HEMISPHERE AND THEY ARE DIFFERENT REASONS. With GTAO on it
+            // moves into the composite and is re-evaluated per pixel through the bent normal. With
+            // an image-based light attached it is REPLACED: the hemisphere term is an analytic
+            // stand-in for a sky, and 11.2 has just put a real one in `scene.environment`. Keeping
+            // both would count the sky twice, at roughly 0.22 of the key.
+            //
+            // ⚠️ AND THE TWO CANNOT BOTH BE TRUE TODAY, WHICH IS THE OPEN EDGE OF THIS ITEM. An
+            // exterior sets `backdrop: false`, which forces `quality: 'auto'` to `balanced` and
+            // refuses an explicit occlusion tier — so no exterior scene reaches the GTAO path and
+            // the question "does the composite occlude IBL or only the hemisphere it replaced"
+            // is NOT answered here. The spike flagged it and did not measure it. 11.7 owns it.
+            ambient: this.tierSettings.occlusion === false && this.skyEnvironment === null,
             exposure: EXPOSURE_CALIBRATION * this.lighting.exposure,
             ambientFractionOfKey: shippedAmbientFractionOfKey() * this.lighting.ambient,
             overrides: this.lightOverridesFor( this.frameMode )
         } );
 
         this.lights.attachTo( this.stage.scene, this.stage.renderer );
+
+        // 🎯 THE ONE LINE THAT PUTS THE SKY AND THE RIG IN THE SAME PHOTOMETRIC UNITS. `SkyMesh`
+        // emits its own absolute scale — a 60° sun delivers 25.12 there against the studio key's
+        // 3.0, a factor of 8.4 — so an environment installed at intensity 1 does not look outdoors,
+        // it looks blown. `SKY_TO_RIG_SCALE` is the conversion the derived key ALREADY carries, and
+        // handing the rig's own `exposure` in means the image-based half tracks exposure exactly as
+        // the four direct lights do. `applyLighting` repeats this for the same reason it repeats
+        // the GTAO ambient snapshot.
+        this.skyEnvironment?.setRigExposure( this.lights.exposure );
 
         // STEP 5 — after the rig, because the composite needs the ambient the rig would have built.
         // `describeAmbient()` reports it whether or not the light was attached, which is what makes
@@ -1123,7 +1307,19 @@ export class Avatar {
         // writes alpha is the follow-up, and it is NOT claimed here.
         if ( this.background.ground === true ) {
 
-            this.ground = new GroundContact( { occlusion: true } );
+            // ✅ PUNCH-LIST 11.3, AND THE TWO `??`s ARE WHAT KEEPS `studio` A CONTROL. A scene that
+            // declares no albedo gets `GroundContact`'s own `FLOOR_ALBEDO` and its own roughness —
+            // the values every committed plate was measured on — because `undefined` reaching that
+            // constructor is what its `??` defaults are for. A scene that DOES declare them gets a
+            // floor of its own colour, and the same two numbers went into the environment bake
+            // above, so the plane the figure stands on and the light bouncing off it are one
+            // statement rather than two that can drift.
+            this.ground = new GroundContact( {
+                occlusion: true,
+                albedo: this.scene.ground.albedo ?? undefined,
+                roughness: this.scene.ground.roughness ?? undefined
+            } );
+
             this.ground.attachTo( this.stage.scene );
 
         }
@@ -1726,7 +1922,7 @@ export class Avatar {
 
         aimRigAt( this.lights, this.eyes, focus, this.framedHeightMetres, this.stage );
 
-        this.backdrop?.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+        this.backdrop?.position.set( focus.x, focus.y, focus.z - this.scene.background.distanceMetres );
         this.ground?.sizeTo?.( { focus, subjectHeightMetres: this.framedHeightMetres } );
 
     }
@@ -1901,6 +2097,12 @@ export class Avatar {
         // for this line; the `?.` is for the tiers that have no occlusion to tell.
         this.stage.ambientOcclusion?.setAmbientIntensity?.( this.lights.describeAmbient().intensity );
 
+        // 🚩 AND THE ENVIRONMENT, FOR EXACTLY THE REASON ABOVE. `setLighting({ exposure: 1.2 })`
+        // scales the four direct lights through `this.lights.exposure`; an image-based light left at
+        // the build-time scale would silently change the key-to-sky balance the scene's own
+        // `exposure` was measured at. One call, same argument, same shape as the ambient snapshot.
+        this.skyEnvironment?.setRigExposure( this.lights.exposure );
+
     }
 
     /**
@@ -1913,6 +2115,33 @@ export class Avatar {
     lightOverridesFor( preset ) {
 
         const merged = resolveLook( this.lighting.look, preset );
+
+        // 🎯 THE KEY IS THE SUN, AND THIS IS THE LINE THAT SATISFIES 11.2's "a scene cannot have its
+        // sky and its key disagree." Azimuth, elevation, colour and irradiance all come out of the
+        // SAME `Fex` that `SkyMesh` is drawing the sky with — see `SkyEnvironment.solarDiscLight`.
+        // Nothing here is authored and nothing here is a ramp.
+        //
+        // 🚩 IT SITS BETWEEN THE LOOK AND THE CALLER'S OWN `lights`, WHICH IS A PRECEDENCE AND NOT
+        // AN ACCIDENT: a look may not overrule the sun (a look is a multiplier on a studio rig and
+        // has no opinion about where a star is), and an embedder's explicit `lights.key` MAY, because
+        // the escape hatch is the escape hatch. A scene's own `lights.key` also wins, which is how
+        // 11.6 will express "the sun is behind that building" without a second sun model.
+        //
+        // ⚠️ THE CAMERA'S WORLD AZIMUTH IS A CONSTANT IN THIS FILE AND THAT IS WHY IT IS READ RATHER
+        // THAN MEASURED OFF THE SCENE GRAPH. `frameFigure` places the camera at
+        // `CAMERA_AZIMUTH_DEGREES` at BOTH framings, and this function is called once before the
+        // camera has been placed at all (the rig is built at step 4, the figure loads at step 8) and
+        // again from `setFraming` after it has. Reading the live camera would make the derived key
+        // differ between those two calls; reading the constant cannot. `Avatar.selftest.mjs` holds
+        // `frameFigure` to the same constant so the two cannot drift.
+        if ( this.skyEnvironment !== null ) {
+
+            const sunKey = keyPlacementForSun(
+                this.scene.sun, this.scene.sky, CAMERA_AZIMUTH_DEGREES );
+
+            merged.key = { ...( merged.key ?? {} ), ...sunKey };
+
+        }
 
         for ( const [ name, fields ] of Object.entries( this.lighting.lights ) ) {
 
@@ -2001,13 +2230,52 @@ export class Avatar {
              * every lighting number comes off the live `LightingRig`.
              */
             scene: {
-                background: this.stage?.scene?.background == null
-                    ? null
-                    : `#${ this.stage.scene.background.getHexString() }`,
+                /**
+                 * 🚩 `id` AND `kind` ARE THE DESCRIPTION, NOT A READ-BACK, AND THAT IS SAID HERE
+                 * BECAUSE THIS BLOCK'S OWN RULE IS THE OPPOSITE. Everything else below is read off
+                 * the scene graph precisely so it cannot report a subsystem that failed to attach
+                 * as present. These two cannot be: a scene id is not a property of any object in
+                 * the graph, and until 11.2 puts a sky and a PMREM in `scene.environment` there is
+                 * nothing there to read it back from. So they are named for what they are — what
+                 * the caller asked for — and the fields beside them stay the evidence.
+                 *
+                 * ⚠️ AND `setBackground` CAN MOVE THE ROOM OUT FROM UNDER `id`. It changes the
+                 * clear colour, the card and the floor without touching the scene the avatar was
+                 * built with, so `id: 'studio'` beside `background: '#101820'` is not a
+                 * contradiction — it is the description and the evidence disagreeing, which is
+                 * exactly what a reader needs to see. `setScene` is punch-list 11.6 and is where
+                 * the two are reconciled.
+                 */
+                id: this.scene.id,
+                kind: this.scene.kind,
+
+                /**
+                 * ⚠️ AN EXTERIOR'S BACKGROUND IS A TEXTURE AND NOT A COLOUR, so this reads
+                 * `'sky-pmrem'` there rather than a hex. It is still a READ-BACK — the thing it
+                 * reports is what is actually on `stage.scene`, which is the whole point of this
+                 * block — and the string differs from every possible hex so a gate can tell them
+                 * apart without a type check.
+                 */
+                background: describeSceneBackground( this.stage?.scene?.background ),
                 backdrop: this.backdrop === null
                     ? null
                     : `#${ this.backdrop.material.emissive.getHexString() }`,
                 ground: this.ground !== null,
+
+                /**
+                 * The image-based light, or `null`. 11.2.
+                 *
+                 * `attached` is read off `stage.scene.environment` rather than off this handle, for
+                 * the same reason every other field in this block is a read-back: a bake that threw
+                 * would otherwise be reported as a working sky by the object that failed to make it.
+                 */
+                environment: this.skyEnvironment === null ? null : this.skyEnvironment.describe(),
+
+                /** The scene's own ground material, which 11.3 made a scene property. */
+                groundMaterial: this.ground === null ? null : {
+                    albedo: `#${ this.ground.mesh.material.color.getHexString( SRGBColorSpace ) }`,
+                    roughness: this.ground.mesh.material.roughness
+                },
 
                 lighting: this.lights === null ? null : {
                     look: this.lighting.look,
@@ -2017,10 +2285,37 @@ export class Avatar {
                     // 🚩 False the moment `exposure` or `ambient` moves off 1. Both are exposed and
                     // both invalidate every committed G1/G4/G5/G6 number, so a plate captured at
                     // anything but `true` is not comparable with the ones the critic has judged.
+                    /**
+                     * 🚩 False the moment `exposure` or `ambient` moves off 1 — and, as of 11.2,
+                     * false whenever an image-based light is attached.
+                     *
+                     * That third term is a REAL widening and it is deliberate. The flag means one
+                     * thing and has to keep meaning it: *"this frame is comparable with the numbers
+                     * the critic has judged."* `docs/CHECKPOINT.md` §7 measured IBL at **0.00%** of a
+                     * forehead pixel, so a frame with an environment is not that frame however
+                     * carefully its exposure was anchored — and a scene that happened to resolve to
+                     * exposure 1 would otherwise have reported `true` over a beach. A flag that can
+                     * be true about a picture it has never seen is worse than no flag.
+                     *
+                     * ❓ AND THE FLAG IS STILL THE WRONG SHAPE, WHICH IS 11.7's PROBLEM RATHER THAN
+                     * THIS ITEM'S. Every scene past `studio` will now read `false`, which is true and
+                     * useless: it says nothing about WHICH scenes are in trouble.
+                     * `docs/research/scene-system.md` §7 proposes gating the subject's LEGIBILITY —
+                     * ratios, ranks and masked statistics — instead, and that is a reporting-contract
+                     * decision this file does not get to make.
+                     */
                     calibrated: this.lights.exposure === EXPOSURE_CALIBRATION
-                        && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey(),
+                        && this.lights.ambientFractionOfKey === shippedAmbientFractionOfKey()
+                        && this.skyEnvironment === null,
 
                     designedKeyToFill: this.lights.designedKeyToFill,
+
+                    // 🚩 WHETHER THE HEMISPHERE IS IN THE SCENE AT ALL, reported because two
+                    // different subsystems can now take it out for two different reasons — GTAO
+                    // moves it into the composite, an image-based light REPLACES it — and a reader
+                    // looking at `ambientFractionOfKey: 0.22` beside a beach plate needs to be able
+                    // to see that no light in the scene is delivering it.
+                    ambientAttached: this.lights.describeAmbient().attached,
                     shadowsEnabled: this.lights.shadowsEnabled,
                     placements: this.lights.placements.map( ( placement ) => ( {
                         name: placement.name,
@@ -2248,6 +2543,12 @@ export class Avatar {
 
         this.ground?.dispose();
         this.ground = null;
+
+        // Before the stage, and it takes `stage.scene.environment` and `.background` back to null
+        // itself rather than leaving them pointing at a disposed texture — `dispose()` is documented
+        // as tolerant of a half-built avatar, so it can run on a scene that is still in use.
+        this.skyEnvironment?.dispose();
+        this.skyEnvironment = null;
 
         this.lights?.dispose();
         this.lights = null;
@@ -2488,7 +2789,7 @@ export class Avatar {
 
         // The card is emissive, so distance costs it nothing; at 8 x 6 m it still fills a full-body
         // frame from 1.9 m behind the subject.
-        this.backdrop?.position.set( focus.x, focus.y, focus.z - BACKDROP_DISTANCE_METRES );
+        this.backdrop?.position.set( focus.x, focus.y, focus.z - this.scene.background.distanceMetres );
 
         if ( this.ground !== null ) {
 
@@ -3824,6 +4125,23 @@ function hasDispose( value ) {
  * Named because anything keying on mesh names would otherwise file it under `mesh:anonymous`, which
  * is a bucket rather than an identity and collides with the next unnamed mesh anybody adds.
  */
+/**
+ * What is behind the figure, as one string, read off the live scene.
+ *
+ * Three cases and they are three different things: `null` is a transparent clear, a `Color` is the
+ * studio's flat clear, and a `Texture` is 11.2's sky PMREM. Returning a hex for the last one would
+ * have needed a colour that does not exist; returning `'sky-pmrem'` is a token no hex can collide
+ * with, so a gate can branch on it with a string compare.
+ */
+function describeSceneBackground( background ) {
+
+    if ( background == null ) return null;
+    if ( background.isColor === true ) return `#${ background.getHexString() }`;
+
+    return 'sky-pmrem';
+
+}
+
 function buildBackdrop( stage, emissive = BACKDROP_EMISSIVE ) {
 
     const material = new MeshStandardNodeMaterial( {

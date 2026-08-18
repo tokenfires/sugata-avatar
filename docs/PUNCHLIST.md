@@ -2741,24 +2741,111 @@ outdoor scene is free, in our exact stack. Reuse before build.
       Gate: **MEASURED** — `Avatar.create({ background: 'studio' })` renders **byte-identical** to
       HEAD's plate through the new path, same seed, same step count, quoted with `bitident=` per the
       standing plate rule. A refactor that changes a pixel is not this item.
-- [ ] **11.2** Sky and environment — `SkyMesh` → cube → `PMREMGenerator.fromScene()` →
-      `scene.environment` **and** `scene.background`, with the sun disc hidden during the env bake
-      exactly as `SkyMesh`'s own docstring instructs. The key light is aimed along the same
-      `sunPosition` and takes its colour and irradiance from the same elevation, so a scene cannot
-      have its sky and its key disagree.
-      🚩 **This is the largest missing term in the renderer, and it is missing to three decimal
-      places**: `docs/CHECKPOINT.md` §7 measures IBL at **0.00%** of a forehead pixel, because
-      `scene.environment` and `environmentNode` are both null. Every skin, eye and hair number in
-      this repository was measured with no image-based light at all.
-      Gate: **MEASURED + RED** — a light-path decomposition on the same probe §7 used shows IBL
-      taking a stated non-zero share; and a red proof that removing the PMREM changes the frame.
-      ⚠️ Re-run the eye and skin gates and state which move — they will, and that is the item's
-      cost, not a regression.
-- [ ] **11.3** Ground — a plane carrying the scene's own albedo and roughness, feeding bounce into
-      the figure, under the existing `GroundContact.js` shadow. The underside of the jaw is most of
-      what says "outdoors" and all of what says "beach".
-      Gate: **MEASURED** — mean luma of the jaw underside against ground albedo across three arms,
-      monotone, with a null control on a ground the figure does not stand over.
+- [x] **11.2** ✅ **DONE 2026-08-17.** Sky and environment — `render/SkyEnvironment.js`. `SkyMesh`
+      → `PMREMGenerator.fromScene()` → `scene.environment` **and** `scene.background`, sun disc
+      hidden in the environment bake exactly as `SkyMesh`'s docstring instructs. The key is aimed
+      along the same `sunPosition` and takes its colour and irradiance from the same `Fex`, so the
+      sky and the key are two readings of one model rather than two models.
+      🎯 **IBL WAS 0.00% AND IS NOW MEASURED.** `tools/critic/scene-probe.mjs --ibl`, scene `beach`,
+      900×1200, 1 step, seed 1, scene-linear luminance through `lightpath-probe.mjs`'s validated
+      inverse tone curve, over the same forehead skin `docs/CHECKPOINT.md` §7 used:
+
+      | probe | total | with `scene.environment` nulled | IBL share |
+      |---|---:|---:|---:|
+      | forehead (250,196,120,46) | 6.0670e-1 | 4.3988e-1 | **27.50%** |
+      | jaw underside (232,750,108,44) | 1.8245e-1 | 8.0184e-2 | **56.05%** |
+      | the SAME two probes on `studio` | 5.9640e-1 / 3.0368e-1 | identical | **0.00% / 0.00%** |
+      | forehead / jaw on `park` | 4.2741e-1 / 3.0220e-1 | 2.7577e-1 / 1.9553e-1 | **35.48% / 35.30%** |
+
+      🚩 **THE `beach` ROW ABOVE WAS WRONG WHEN THIS ITEM LANDED AND IS RE-MEASURED HERE — READ WHY,
+      BECAUSE THE WHY IS THE REPAIR.** It first shipped as 2.7424e-1 / 2.0011e-1 / 27.03% and
+      7.6341e-2 / 2.7038e-2 / **64.58%**. Not one absolute figure was within a factor of two of what
+      the tree produces, and the jaw share was out by 8.5 points. `park` and `studio` reproduced to
+      every digit on the same instrument in the same run, and the G1–G7 table below reproduces
+      exactly — so the instrument was never in question. **`beach` was probed BEFORE the scene was
+      retuned and never probed again**; `park` was probed after. Re-run three times since, twice by
+      an adversary with an independently written inverse-ACES probe over separately captured plates,
+      and once here: 56.05% / 27.50% / 18.57%, identical to every digit each time.
+      ⏭️ **The durable fix is not this correction.** It is REQ-091: a scene's photometry rows must be
+      EMITTED by the probe into the document rather than transcribed out of a terminal, because a
+      number that is retyped after a retune is a number nobody re-ran. See
+      `docs/LEARNINGS.md` §1.25r and the standing memory *repair the mechanism, not the number*.
+
+      🔴 **RED PROOF** — removing the PMREM and changing nothing else moves the whole frame's mean
+      scene-linear luminance 3.7286e-1 → 3.0361e-1, **18.57%**. And the `studio` row above is the
+      null control: the same instrument reads 0.00% on the scene that has no environment, which is
+      what proves it is not simply reporting a ceiling back.
+      🚩 **WHAT IT COST THE COMMITTED GATES, WHICH IS THE HONEST HALF.** `measure.mjs` with
+      `regions.lighting-portrait.json`, same plates, against the `studio` control taken through the
+      same page on the same night:
+
+      | gate | `studio` control | `beach` | `park` |
+      |---|---:|---:|---:|
+      | G1 key:shadow ratio | 1.5635 ✅ | 1.7135 ✅ | 0.5076 ❌ |
+      | G2 sclera:cheek luma | 0.9393 ✅ | 0.8285 ❌ | 0.6425 ❌ |
+      | G3 terminator saturation | 0.2598 ✅ | 0.1782 ❌ | 0.1968 ❌ |
+      | G4 flat-skin σ (900 px) | 1.6388 ✅ | 3.0033 ❌ | 3.0360 ❌ |
+      | G5 clipping | 0 ✅ | 0 ✅ | 0 ✅ |
+      | G6 black point p0.1 | 0.00755 ✅ | 0.00449 ✅ | 0.03613 ❌ |
+      | G7 card-band outliers | 0.00028 ✅ | 0.000785 ✅ | 0.000617 ✅ |
+
+      ⚠️ **AND TWO OF THOSE REDS ARE THE GATE'S FRAME, NOT THE SCENE'S LIGHT — WHICH IS 11.7's WHOLE
+      ARGUMENT ARRIVING AS DATA.** `park`'s G1 0.5076 is `1/1.970`: the sun is on the camera's LEFT
+      (rig azimuth −58°) and `regions.lighting-portrait.json`'s `faceKey` rect is hard-coded to the
+      studio rig's right-hand key, so the gate measured the ratio backwards. Inverted it is 1.970,
+      inside the 1.43–2.00 band by 0.030 — 60× G1's own retained fragility floor of 0.0005, so this
+      is headroom rather than noise, but it is close to the ceiling and a scene one step further off
+      axis will fail it for real. And `park`'s G6 0.03613 is a black-point gate on a frame with no
+      blacks in it: the sky fills the surround, so the darkest 0.1% of the picture is sky. Neither
+      clause can be repaired by re-lighting; both need the ratio/rank/masked form §7 specifies.
+      G4's rise IS attributable to this item and its own header predicts the direction — "one
+      unchanged micro-normal measured sigma 1.72 at fill 0.7 and 2.06 at fill 0.3" — and both
+      exteriors cut the analytic fill from 2.20 to 0.70/0.95 because the sky replaced it.
+      ✅ `studio` gained NO environment and is byte-identical: `fence loads=3 sha=fac62c50d56590fb
+      bitident=3/3 worst=0 px=0` through both `background: 'studio'` and `scene: 'studio'`, the same
+      digest HEAD's own plate carries.
+      🚩 **AND AN EXTERIOR DOES NOT RUN ON THE OCCLUSION TIERS. MEASURED, NOT ASSUMED.** An exterior
+      sets `backdrop: false`, and the sky background does NOT rescue GTAO from the measured
+      whole-frame blackout: forced onto `high` with `scene.background` carrying the sky PMREM, every
+      pixel of a 900×1200 plate is code 0 and both probes report "all clipped". So the blackout is
+      about depth and not about there being something to see, `quality: 'auto'` resolves an exterior
+      to `balanced`, and an explicit `high`/`fallback` is refused in words. Follow-up for 11.7.
+- [x] **11.3** ✅ **DONE 2026-08-17.** Ground — the scene's `ground.albedo` / `ground.roughness`
+      now reach `GroundContact` (the plane the figure stands on) **and** a 500 m disc inside the
+      environment bake, so the lower hemisphere of the image-based light stops being horizon sky and
+      becomes a floor. The second reading is the bounce, and it is the one that lands on a jaw.
+      🎯 `tools/critic/scene-probe.mjs --ground --scene beach`, jaw-underside mask (232,750,108,44),
+      4752 of 4752 pixels usable, scene-linear luminance:
+
+      | ground | linear Y | jaw, ground in the bake | jaw, NULL: ground OUT of the bake | whole frame |
+      |---|---:|---:|---:|---:|
+      | `#1a1a18` basalt | 0.0102 | 1.2794e-1 | 3.4477e-1 | 3.5634e-1 |
+      | `#6b6459` wet sand | 0.1296 | 1.4706e-1 | 3.4477e-1 | 3.6215e-1 |
+      | `#a89f8d` dry sand (shipped) | 0.3504 | 1.8245e-1 | 3.4477e-1 | 3.7286e-1 |
+      | `#e4dccb` white sand | 0.7199 | 2.4162e-1 | 3.4477e-1 | 3.9105e-1 |
+
+      **Monotone, span 1.8885× over a 70.28× albedo range.**
+      🚩 **THIS TABLE WAS ALSO STALE AND FOR THE SAME REASON** — it first shipped as
+      5.0038e-2 … 1.0496e-1 with a null of 1.5459e-1 and a headline span of **2.0976×**. Same cause,
+      same fix: the `beach` sweep predates the scene's final tuning. **The mechanism survived the
+      correction unchanged** — monotone, null control exact at 1.0000×, mask an order of magnitude
+      more sensitive than the frame mean — which is the distinction worth keeping: the *conclusion*
+      was never in doubt, the *evidence for it* was four numbers nobody re-ran.
+      🔴 **NULL CONTROL** — with the disc taken out of the bake and the plane kept, the same four
+      albedos read 1.5459e-1 to five figures, **span 1.0000×**. The albedo has no path to the jaw and
+      the statistic says so exactly. (It also reads BRIGHTER than any lit arm, correctly: with no
+      ground in the environment the lower hemisphere is horizon sky, which is brighter than sand.)
+      ⚠️ **AND THE WHOLE-FRAME MEAN OVER THE SAME SWEEP MOVES 1.0974× — a factor of 9 less than the
+      masked one.** It is printed beside every row deliberately: six of this project's eight
+      structurally blind statistics were whole-frame means, and a scene system is exactly where a
+      ninth would have been written. `scene-probe.mjs --selftest` proves the operator on a synthetic
+      whose answer is arithmetic, including that red proof.
+      ✅ **REPRODUCED ON THE SECOND SCENE**, which is what makes it a mechanism rather than one
+      scene's coincidence — `--ground --scene park`, same four albedos at a fixed roughness 0.95 so
+      albedo is the only variable: jaw 2.8203e-1 → 3.0856e-1 → 3.5805e-1 → 4.4127e-1, monotone,
+      **1.5647×**; null control **1.0000×** again; whole-frame mean 1.1650×. The span is smaller than
+      the beach's because park's sun is 45% occluded, so the ground has less light to bounce — which
+      is the right direction and is itself a check on the mechanism.
 - [ ] **11.4** The interior model — an emissive room box whose **window samples the same sky at the
       same sun position**, plus fixtures at their own colour temperature. 🎯 One sun serves both
       families, so an interior inherits time-of-day for free and the two cannot drift apart.

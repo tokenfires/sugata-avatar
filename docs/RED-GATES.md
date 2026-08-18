@@ -120,8 +120,17 @@ directions, which is the clause worth keeping when this check is next edited.
   the geometry a viewer sees. Owned by whoever next owns `motion/Sway.js`.
 
 - `tools/figure-pipeline/verify_glb.mjs` — RED FOR THE THIRD ROUND, `locks not a shell`, on **all
-  five bakes at 3.27, 3.10, 3.25, 3.74 and 4.71 mm of coherent lock relief against a 5.0 mm floor.**
-  Every other clause in the file is green on all five. R23 did not clear it either, and R23's result
+  five bakes at 3.27, 3.10, 3.25, 3.74 and 4.71 mm of coherent lock relief against per-bake floors
+  of 4.78, 4.99, 5.22, 4.99 and 5.82 mm.** Every other clause in the file is green on all five.
+  ⚠️ **THE FLOOR STOPPED BEING 5.0 mm IN R31 AND THE VERDICT DID NOT MOVE.** 5.0 was the clause's
+  own derivation — *ridge and scatter are equal when the correlation is ½, which puts the ridge at
+  relief/√2* — evaluated once, on one groom, at one length. Envelope relief grows with the mass, so
+  a groom whose layers were cut ×3 read 6.45 mm and PASSED a fixed 5.0 while carrying LESS ridge
+  than bob01 does (coherence 0.329 against a required ½), and the same groom with `clump: 0.0` on
+  every layer — no locks authored into it at all — passed at 5.10 mm. The floor is now
+  `relief/√2` per bake, which is the same sentence with nothing evaluated in advance, and is
+  identically "the ridge must be at least as loud as the scatter". All five bakes stay red; the
+  numbers above are this session's run of the whole default target list. R23 did not clear it either, and R23's result
   is that **the prescription R22 left for clearing it cannot work, which is a located cause rather
   than another failed attempt.**
   🎯 **WHAT IT MEASURES AND WHY THE CLAUSE NEXT DOOR COULD NOT.** `cards gather` is one scalar over

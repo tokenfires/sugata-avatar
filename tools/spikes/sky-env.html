@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <title>Sugata spike 11.2 — SkyMesh → PMREM → scene.environment</title>
+  <link rel="stylesheet" href="./spike-page.css">
+</head>
+<body>
+  <h1>Spike 11.2 — does <code>scene.environment</code> reach a surface under WebGPURenderer?</h1>
+  <p class="lede">
+    <code>docs/CHECKPOINT.md</code> §7 measures image-based light at <strong>0.00%</strong> of a
+    forehead pixel, because <code>scene.environment</code> and <code>environmentNode</code> are both
+    <code>null</code>. Every skin, eye and hair number in this repository was measured with no IBL
+    at all. Punch-list 11.2 proposes to change that with
+    <code>SkyMesh</code> → cube → <code>PMREMGenerator.fromScene()</code> →
+    <code>scene.environment</code>, which is unfamiliar in this stack and therefore gets a spike
+    before it gets a line inside <code>packages/</code>.
+  </p>
+  <p class="lede">
+    🚩 <strong>A sky drawn behind the figure proves nothing.</strong> The question this page exists
+    to answer is whether the environment reaches a <em>surface</em>, and the only proof of that is
+    turning the environment off and watching the surface go black while the sky stays bright. §A is
+    that proof, and it is deliberately reported next to the whole-frame mean that cannot see it.
+  </p>
+  <div id="status">starting…</div>
+
+  <h2>Environment</h2>
+  <div id="environment"></div>
+
+  <h2>§A — Does the environment reach a surface? <span class="tag">RED PROOF</span></h2>
+  <p class="caveat">
+    Every row is one arm rendered into a 640×640 linear half-float target with
+    <code>NoToneMapping</code>, so the numbers are scene-referred radiance and not a tone curve's
+    opinion of it. <em>disc mean</em> is the mean luma inside the analytically projected disc of one
+    sphere, at 0.75 of its screen radius; <em>frame mean</em> is the mean over the whole 640×640
+    target. Read the two columns against each other in the <code>sky-bg, env OFF</code> row.
+  </p>
+  <div id="proof"></div>
+  <div id="proof-verdict"></div>
+
+  <h2>§B — What does the bake cost?</h2>
+  <p class="caveat">
+    <em>submit</em> is wall time inside <code>fromScene()</code> — CPU work plus command encoding.
+    <em>to GPU idle</em> additionally awaits <code>device.queue.onSubmittedWorkDone()</code>, so it
+    is the number a scene change actually stalls for. <em>first</em> is the very first bake at that
+    size and carries the blur/GGX shader compile; every later bake is the steady-state figure.
+  </p>
+  <div id="bake"></div>
+
+  <h2>§C — What does it cost per frame?</h2>
+  <p class="caveat">
+    GPU timestamps, median over repeated interleaved passes, at the page's canvas size. The figure
+    is HIDDEN for this sweep so the sky covers close to the whole frame — a subject covering the
+    frame would understate the background's cost, and the worst case is what a budget needs.
+  </p>
+  <div id="frame"></div>
+
+  <h2>§D0 — Does the live environment survive a re-bake? <span class="tag">GOTCHA HUNT</span></h2>
+  <p class="caveat">
+    <code>suggest()</code> changes time of day at runtime, so re-baking into a live
+    <code>scene.environment</code> is not an edge case — it is the feature. Two columns per step:
+    <em>disc mean</em> is whether the sphere is lit, <em>atlas mean</em> is the PMREM render target
+    read straight back, so an empty environment map and a broken binding can be told apart. They
+    have opposite fixes, and the first three runs of this page chased the wrong one of them.
+  </p>
+  <div id="survival"></div>
+  <div id="survival-verdict"></div>
+
+  <h2>§D — Does the sun moving mean re-baking?</h2>
+  <div id="rebake"></div>
+  <div id="rotation"></div>
+
+  <h2>§E — The sun model, and whether the key agrees with the sky</h2>
+  <p class="caveat">
+    Derived in <code>sky-sun.js</code> from SkyMesh's own constants rather than chosen by eye. The
+    validation arms ask the only question that matters: does an analytic key light standing in for
+    the hidden solar disc put the same light on the subject that the disc itself would have?
+  </p>
+  <div id="sun"></div>
+  <div id="sun-validation"></div>
+
+  <h2>§F — Do <code>background</code> and <code>environment</code> want the same texture?</h2>
+  <p class="caveat">
+    A PMREM atlas can be assigned straight to <code>scene.background</code> — three routes it
+    through <code>pmremTexture()</code> (<code>NodeManager.updateBackground</code>, r185) — so the
+    tempting simplification is one texture for both jobs. This section puts the sun IN FRAME and
+    measures the frame's peak luma both ways. A prefiltered cube is a low-pass filter; the question
+    is how much of the sky it costs, and the answer depends entirely on whether the sky has anything
+    small in it.
+  </p>
+  <div id="background"></div>
+
+  <h2>Live view</h2>
+  <p class="caveat">
+    Tone-mapped (ACES) with the exposure §E measured, so this is the picture rather than the data.
+    <code>window.skyEnvShot( name )</code> switches arms for the headless screenshot runner.
+  </p>
+  <canvas id="viewport"></canvas>
+
+  <script type="module">
+    import * as THREE from 'three/webgpu';
+    import { SkyMesh } from 'three/addons/objects/SkyMesh.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    import {
+      createSpikeRenderer,
+      probeTimestampSupport,
+      runSweep,
+      formatMs,
+      publishResults,
+      publishFailure,
+      setStatus,
+      renderTable,
+      renderEnvironment,
+      readNumberParam,
+      readFlagParam,
+      looksLikeSoftwareRenderer
+    } from './spike-harness.js';
+
+    import {
+      solarDiscLight,
+      keyPlacementForSun,
+      rigAzimuthForSun,
+      sunDirectionWorld,
+      SUN_SOLID_ANGLE_STERADIANS,
+      EXTRATERRESTRIAL_KELVIN
+    } from './sky-sun.js';
+
+    // ---------------------------------------------------------------------------------------
+    // Scene constants. Metres, because the rest of the project is in metres and a subject height
+    // is what `LightingRig` parameterises against.
+    // ---------------------------------------------------------------------------------------
+
+    const SUBJECT_HEIGHT_METRES = 1.7;
+    const SPHERE_RADIUS = 0.22;
+    const SPHERE_CENTRE_HEIGHT = 1.15;
+
+    // Three roughnesses, chosen to separate the three things a PMREM has to carry: a near-mirror
+    // that shows the sky's STRUCTURE, a mid gloss that shows the prefilter's mip chain, and a
+    // near-diffuse that shows the irradiance term. One roughness would prove only one of them.
+    const SPHERE_ROUGHNESS = [ 0.05, 0.35, 0.85 ];
+    const SPHERE_X = [ -0.62, 0.0, 0.62 ];
+    const SPHERE_ALBEDO = 0xb4b4b4;
+
+    const FIGURE_URL = '/assets/figures/figure_g050.glb';
+    const FIGURE_X = 1.28;
+
+    // The camera is placed once and never moves. Every mask below is a projection through it, so a
+    // moved camera silently invalidates every statistic on the page.
+    const CAMERA_POSITION = [ 0.2, 1.05, 4.0 ];
+    const CAMERA_TARGET = [ 0.2, 1.0, 0.0 ];
+    const CAMERA_FOV = 45;
+
+    // The default sun for §A-§D. 22 degrees is a mid-morning sun: high enough that the disc is not
+    // dominated by extinction, low enough that its direction is unambiguous in a picture.
+    const DEFAULT_SUN = { elevationDegrees: 22, azimuthDegrees: -38 };
+
+    // ⚠️ CLOUDS ARE ON BY DEFAULT IN SkyMesh (`cloudCoverage` 0.4) AND THEY ARE ANIMATED BY `time`.
+    // An environment baked with clouds on is a different environment on every bake, which makes
+    // every number on this page unreproducible and would make a scene's look depend on how long the
+    // page had been open. Turned off here; a scene system that wants clouds has to decide what it
+    // does about the clock first.
+    const SKY_UNIFORMS = {
+      turbidity: 2.0,
+      rayleigh: 1.0,
+      mieCoefficient: 0.005,
+      mieDirectionalG: 0.8,
+      cloudCoverage: 0.0
+    };
+
+    const PMREM_SIZES = [ 128, 256, 512 ];
+    const WORKING_PMREM_SIZE = readNumberParam( 'pmrem', 256 );
+
+    const canvasWidth = readNumberParam( 'width', 1280 );
+    const canvasHeight = readNumberParam( 'height', 720 );
+    const probeSize = readNumberParam( 'probe', 640 );
+    const bakeRepeats = readNumberParam( 'bakes', 5 );
+    const warmupFrames = readNumberParam( 'warmup', 60 );
+    const sampleFrames = readNumberParam( 'frames', 120 );
+    const repeats = readNumberParam( 'repeats', 3 );
+
+    // 🚩 EIGHT PASSES PER TICK, AND THE DEFAULT WAS 1 UNTIL THE MEASUREMENT REJECTED IT. At one
+    // pass this whole scene is a fifth of a millisecond, and across three runs the BASELINE arm
+    // moved 0.053 -> 0.152 -> 0.234 ms — a drift larger than every delta being measured, which
+    // produced one run where the sky background appeared to cost -0.001 ms. That is not a small
+    // cost, it is no measurement at all. `spike-harness.js` already documents the fix in
+    // `measureConfiguration`: render the same scene N times per tick so the effect is lifted clear
+    // of the timer's floor and the GPU clocks stay pinned. The harness divides by the pass count,
+    // so the reported figure is still per frame.
+    const passesPerFrame = readNumberParam( 'passes', 8 );
+    const wantsFigure = readFlagParam( 'nofigure' ) === false;
+    const forceWebGL = readFlagParam( 'forceWebGL' );
+
+    // `?only=survival` runs one section instead of all of them. Not convenience: this page's own
+    // gotcha hunt needs to be re-run a dozen times while a hypothesis is narrowed, and a full pass
+    // is twenty minutes because every arm switch recompiles the figure's materials. The bake and
+    // the masks always run — everything else is measured against them.
+    const ONLY = ( new URLSearchParams( location.search ).get( 'only' ) ?? '' )
+      .split( ',' ).map( ( name ) => name.trim() ).filter( Boolean );
+    const wants = ( section ) => ONLY.length === 0 || ONLY.includes( section );
+
+    // ---------------------------------------------------------------------------------------
+
+    const state = {
+      renderer: null,
+      scene: null,
+      skyScene: null,
+      sky: null,
+      probeCamera: null,
+      shotCamera: null,
+      probeTarget: null,
+      pmrem: null,
+      environments: new Map(),   // label -> RenderTarget
+      spheres: [],
+      figure: null,
+      analyticKey: null,
+      masks: null
+    };
+
+    main().catch( ( error ) => {
+      setStatus( 'FAILED: ' + error.message );
+      console.error( error );
+      publishFailure( 'sky-env', error );
+    } );
+
+    async function main() {
+      const canvas = document.getElementById( 'viewport' );
+      const { renderer, environment } = await createSpikeRenderer( {
+        canvas,
+        width: canvasWidth,
+        height: canvasHeight,
+        forceWebGL
+      } );
+      state.renderer = renderer;
+      renderEnvironment( 'environment', environment );
+
+      if ( environment.backend !== 'webgpu' ) {
+        // SkyMesh's own docstring: "this class can only be used with WebGPURenderer". A WebGL2
+        // fallback would silently render a black box and the whole page would report zeroes that
+        // mean "wrong backend" rather than "no IBL".
+        throw new Error( 'sky-env requires the WebGPU backend; SkyMesh is WebGPU-only. Got ' + environment.backend );
+      }
+
+      buildScene();
+      await loadFigure();
+
+      state.pmrem = new THREE.PMREMGenerator( renderer );
+
+      setStatus( 'probing GPU timestamp support…' );
+      const timestampsAvailable = await probeTimestampSupport(
+        renderer, state.scene, state.shotCamera, environment
+      );
+      renderEnvironment( 'environment', environment );
+
+      // §B first, because §A needs an environment to test and this is where it gets made.
+      // measureBakeCost() installs the working environment into state.environments itself. It must
+      // not RETURN the RenderTarget: `publishResults` JSON-stringifies the payload, and a
+      // RenderTarget holds `textures[0].renderTarget` — a cycle, and a Texture three refuses to
+      // serialise. A spike that dies in its own reporting has measured nothing.
+      const bake = await measureBakeCost();
+
+      // Masks are built AFTER the first bake because the figure's mask is derived from pixels — a
+      // lit frame minus the same frame with the figure hidden — and that needs a light to exist.
+      await computeMasks();
+
+      const proof = await measureRedProof();
+      const rebakeSurvival = wants( 'survival' ) ? await diagnoseRebakeSurvival() : null;
+      const rebake = wants( 'rebake' ) ? await measureRebake() : null;
+      const rotation = wants( 'rotation' ) ? await measureEnvironmentRotation() : null;
+      const sun = wants( 'sun' ) ? buildSunModelTable() : null;
+      const validation = wants( 'sun' ) ? await validateSunAgainstSky() : null;
+      const background = wants( 'background' ) ? await measureBackgroundFidelity() : null;
+      const frame = wants( 'frame' ) ? await measureFrameCost( timestampsAvailable ) : null;
+
+      const exposure = chooseExposure( proof );
+      installShotMode( exposure );
+
+      setStatus( 'done' );
+
+      publishResults( {
+        spike: 'sky-env',
+        punchlistItem: '11.2',
+        generatedAt: new Date().toISOString(),
+        environment,
+        softwareRendererSuspected: looksLikeSoftwareRenderer( environment.adapter ),
+        configuration: {
+          skyUniforms: SKY_UNIFORMS,
+          sun: DEFAULT_SUN,
+          workingPmremSize: WORKING_PMREM_SIZE,
+          probeSize,
+          canvas: [ canvasWidth, canvasHeight ],
+          sphereRoughness: SPHERE_ROUGHNESS,
+          figureLoaded: state.figure !== null,
+          figureUrl: state.figure !== null ? FIGURE_URL : null,
+          bakeRepeats, warmupFrames, sampleFrames, repeats, passesPerFrame,
+          toneMappingDuringProbes: 'NoToneMapping',
+          shotExposure: exposure
+        },
+        redProof: proof,
+        rebakeSurvival,
+        bake,
+        rebake,
+        environmentRotation: rotation,
+        sunModel: sun,
+        sunValidation: validation,
+        backgroundFidelity: background,
+        frameCost: frame
+      } );
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // Scene construction
+    // ---------------------------------------------------------------------------------------
+
+    function buildScene() {
+      const scene = new THREE.Scene();
+      scene.background = null;
+      state.scene = scene;
+
+      // 🚩 THE SKY LIVES IN ITS OWN SCENE, AND THIS IS THE FIRST GOTCHA OF THE WHOLE APPROACH.
+      // `PMREMGenerator.fromScene( scene )` renders SIX CUBE FACES OF WHATEVER IS IN THAT SCENE
+      // from the origin. Hand it the live scene and the avatar, the ground and the backdrop card
+      // are all baked into the environment map that is then used to light the avatar — a feedback
+      // loop that reads on screen as "the skin has gone milky" and has no obvious cause. A second
+      // Scene holding nothing but the sky costs one object and removes the whole class of bug.
+      const skyScene = new THREE.Scene();
+      const sky = new SkyMesh();
+      sky.scale.setScalar( 10000 );
+      sky.turbidity.value = SKY_UNIFORMS.turbidity;
+      sky.rayleigh.value = SKY_UNIFORMS.rayleigh;
+      sky.mieCoefficient.value = SKY_UNIFORMS.mieCoefficient;
+      sky.mieDirectionalG.value = SKY_UNIFORMS.mieDirectionalG;
+      sky.cloudCoverage.value = SKY_UNIFORMS.cloudCoverage;
+      setSunPosition( sky, DEFAULT_SUN.elevationDegrees, DEFAULT_SUN.azimuthDegrees );
+      skyScene.add( sky );
+      state.skyScene = skyScene;
+      state.sky = sky;
+
+      for ( let index = 0; index < SPHERE_ROUGHNESS.length; index ++ ) {
+        const material = new THREE.MeshPhysicalNodeMaterial( {
+          color: SPHERE_ALBEDO,
+          roughness: SPHERE_ROUGHNESS[ index ],
+          metalness: 0.0
+        } );
+        const mesh = new THREE.Mesh( new THREE.SphereGeometry( SPHERE_RADIUS, 64, 48 ), material );
+        mesh.position.set( SPHERE_X[ index ], SPHERE_CENTRE_HEIGHT, 0 );
+        mesh.name = 'sphere-r' + SPHERE_ROUGHNESS[ index ];
+        scene.add( mesh );
+        state.spheres.push( mesh );
+      }
+
+      // The analytic key that stands in for the hidden solar disc. Built here, added only by the
+      // arm that wants it, because a light left in the scene is still a light.
+      state.analyticKey = new THREE.DirectionalLight( 0xffffff, 0 );
+      state.analyticKey.name = 'analytic-sun';
+
+      const aspect = canvasWidth / canvasHeight;
+      state.shotCamera = new THREE.PerspectiveCamera( CAMERA_FOV, aspect, 0.1, 200 );
+      state.probeCamera = new THREE.PerspectiveCamera( CAMERA_FOV, 1, 0.1, 200 );
+      for ( const camera of [ state.shotCamera, state.probeCamera ] ) {
+        camera.position.set( ...CAMERA_POSITION );
+        camera.lookAt( ...CAMERA_TARGET );
+        camera.updateMatrixWorld( true );
+      }
+
+      // Linear half-float, no colour-space transfer: the probe reads scene-referred radiance. A
+      // byte target would clip everything above 1.0, and the sky's own scale puts a lit sphere
+      // above 1.0 routinely — §E measures by how much.
+      state.probeTarget = new THREE.RenderTarget( probeSize, probeSize, {
+        type: THREE.HalfFloatType,
+        format: THREE.RGBAFormat,
+        colorSpace: THREE.NoColorSpace,
+        depthBuffer: true
+      } );
+    }
+
+    async function loadFigure() {
+      if ( wantsFigure === false ) return;
+
+      setStatus( 'loading ' + FIGURE_URL + '…' );
+      try {
+        const loader = new GLTFLoader();
+        const gltf = await loader.loadAsync( FIGURE_URL );
+        const root = gltf.scene;
+
+        // Normalise to the project's subject height and stand it on y = 0, so the framing does not
+        // depend on what the export happened to be scaled to.
+        root.updateMatrixWorld( true );
+        const box = new THREE.Box3().setFromObject( root );
+        const height = box.max.y - box.min.y;
+        const scale = height > 0 ? SUBJECT_HEIGHT_METRES / height : 1;
+        root.scale.setScalar( scale );
+        root.position.set( FIGURE_X, -box.min.y * scale, 0 );
+        root.updateMatrixWorld( true );
+
+        state.scene.add( root );
+        state.figure = root;
+        setStatus( 'figure loaded' );
+      } catch ( error ) {
+        // A missing or heavy GLB must not take the spike's actual question down with it.
+        console.warn( 'figure not loaded, continuing with spheres only:', error );
+        state.figure = null;
+      }
+    }
+
+    /**
+     * The masks every statistic on this page is restricted to.
+     *
+     * 🚩 THE MASK IS THE STATISTIC, AND A WHOLE-FRAME MEAN IS THE TRAP IT EXISTS TO AVOID. The arm
+     * that matters most — sky drawn, environment off — has a BRIGHTER frame than the working arm
+     * and a completely black subject. A frame mean does not merely miss that; it moves the wrong
+     * way. Only a mask restricted to the subject can see the subject go black, which is the entire
+     * finding. Six of this project's eight structurally blind statistics were whole-frame means;
+     * this page reports both columns side by side so the failure mode is a number rather than a
+     * warning.
+     *
+     * Spheres get an ANALYTIC disc: project the centre, project centre + cameraRight*radius, take
+     * 0.75 of the resulting screen radius so no silhouette antialiasing enters. Analytic because it
+     * is arithmetic anyone can re-derive, and the null-control arm proves it lands on the sphere —
+     * with no light and no environment it must read exactly 0.
+     *
+     * ⚠️ THE FIGURE'S MASK IS NOT ANALYTIC, BECAUSE THE FIRST VERSION OF IT WAS AND IT WAS WRONG.
+     * A projected chest rectangle read 0.219 in the arm where the subject is supposed to be black:
+     * the rectangle overhung the torso and was collecting sky. A mask that leaks background cannot
+     * distinguish "the subject is lit" from "the subject is not there", which is the one thing it
+     * was built to do. So the figure's mask is derived from PIXELS — the lit frame minus the same
+     * frame with the figure hidden, thresholded, then eroded by 3 px to drop the antialiased rim —
+     * and then intersected with a torso band so the cornea (a transmission material that shows the
+     * background straight through) is outside it.
+     */
+    async function computeMasks() {
+      const camera = state.probeCamera;
+      const masks = [];
+
+      for ( let index = 0; index < state.spheres.length; index ++ ) {
+        const sphere = state.spheres[ index ];
+        const centre = sphere.position.clone().project( camera );
+        const edge = sphere.position.clone()
+          .add( new THREE.Vector3().setFromMatrixColumn( camera.matrixWorld, 0 ).multiplyScalar( SPHERE_RADIUS ) )
+          .project( camera );
+
+        const cx = ( centre.x * 0.5 + 0.5 ) * probeSize;
+        const cy = ( 1 - ( centre.y * 0.5 + 0.5 ) ) * probeSize;
+        const ex = ( edge.x * 0.5 + 0.5 ) * probeSize;
+        const radiusPixels = Math.abs( ex - cx );
+
+        masks.push( {
+          label: 'sphere r=' + SPHERE_ROUGHNESS[ index ].toFixed( 2 ),
+          kind: 'disc',
+          centreX: cx,
+          centreY: cy,
+          radius: radiusPixels * 0.75,
+          radiusFull: radiusPixels
+        } );
+      }
+
+      state.masks = masks;
+
+      if ( state.figure === null ) return;
+
+      const figureMask = await buildFigureMaskByDifference();
+      if ( figureMask !== null ) masks.push( figureMask );
+      state.masks = masks;
+    }
+
+    /**
+     * Figure silhouette from a difference of two real renders. No override material and no ID pass:
+     * an override material on a skinned mesh is its own compatibility question, and the point here
+     * is to mask the pixels the figure ACTUALLY occupies in the path being measured.
+     */
+    async function buildFigureMaskByDifference() {
+      const arm = { environment: 'sky-only', background: 'none', analyticKey: false };
+
+      applyArm( arm );
+      const withFigure = await renderProbe();
+
+      applyArm( { ...arm, hideFigure: true } );
+      const withoutFigure = await renderProbe();
+
+      applyArm( arm );
+
+      const raw = new Uint8Array( probeSize * probeSize );
+      for ( let index = 0; index < raw.length; index ++ ) {
+        raw[ index ] = ( withFigure.luma[ index ] - withoutFigure.luma[ index ] ) > 0.02 ? 1 : 0;
+      }
+
+      // Erosion: keep only pixels whose whole 7x7 neighbourhood is inside. Three pixels is enough to
+      // clear the antialiased rim at this resolution and cheap enough not to matter.
+      const eroded = erode( raw, probeSize, probeSize, 3 );
+
+      // Torso band. The figure's projected vertical extent is found from the mask itself rather
+      // than from a bounding box, so it cannot disagree with the pixels.
+      let top = probeSize;
+      let bottom = -1;
+      for ( let y = 0; y < probeSize; y ++ ) {
+        for ( let x = 0; x < probeSize; x ++ ) {
+          if ( eroded[ y * probeSize + x ] === 1 ) {
+            if ( y < top ) top = y;
+            if ( y > bottom ) bottom = y;
+            break;
+          }
+        }
+      }
+      if ( bottom < top ) return null;
+
+      const height = bottom - top;
+      const bandTop = top + Math.round( height * 0.18 );      // below the chin
+      const bandBottom = top + Math.round( height * 0.36 );   // above the waist
+
+      const pixels = [];
+      for ( let y = bandTop; y <= bandBottom; y ++ ) {
+        for ( let x = 0; x < probeSize; x ++ ) {
+          if ( eroded[ y * probeSize + x ] === 1 ) pixels.push( y * probeSize + x );
+        }
+      }
+
+      if ( pixels.length < 200 ) return null;
+
+      return {
+        label: 'figure torso',
+        kind: 'pixels',
+        pixels: Int32Array.from( pixels ),
+        pixelCount: pixels.length,
+        projectedRows: [ top, bottom ]
+      };
+    }
+
+    function erode( mask, width, height, radius ) {
+      const out = new Uint8Array( mask.length );
+      for ( let y = radius; y < height - radius; y ++ ) {
+        for ( let x = radius; x < width - radius; x ++ ) {
+          let keep = 1;
+          for ( let dy = -radius; dy <= radius && keep === 1; dy ++ ) {
+            for ( let dx = -radius; dx <= radius; dx ++ ) {
+              if ( mask[ ( y + dy ) * width + ( x + dx ) ] === 0 ) { keep = 0; break; }
+            }
+          }
+          out[ y * width + x ] = keep;
+        }
+      }
+      return out;
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §A — the red proof
+    // ---------------------------------------------------------------------------------------
+
+    const ARMS = {
+      'null-control':   { environment: null,        background: 'none', analyticKey: false },
+      'env-only':       { environment: 'sky-only',  background: 'none', analyticKey: false },
+      'env + sky-bg':   { environment: 'sky-only',  background: 'sky',  analyticKey: false },
+      'sky-bg, env OFF':{ environment: null,        background: 'sky',  analyticKey: false },
+      'pmrem-bg, env OFF': { environment: null,     background: 'pmrem', analyticKey: false }
+    };
+
+    async function measureRedProof() {
+      const rows = [];
+
+      for ( const [ name, arm ] of Object.entries( ARMS ) ) {
+        setStatus( '§A — ' + name );
+        applyArm( arm );
+        const frame = await renderProbe();
+        rows.push( { arm: name, ...summariseFrame( frame ) } );
+      }
+
+      renderTable( 'proof', PROOF_COLUMNS, rows.flatMap( proofRowsFor ) );
+
+      const nullControl = rows.find( ( row ) => row.arm === 'null-control' );
+      const envOnly = rows.find( ( row ) => row.arm === 'env-only' );
+      const skyNoEnv = rows.find( ( row ) => row.arm === 'sky-bg, env OFF' );
+      const withSkyBackground = rows.find( ( row ) => row.arm === 'env + sky-bg' );
+
+      const verdict = {
+        nullControlIsZero: nullControl.masks.every( ( mask ) => mask.mean === 0 ),
+        environmentLightsSurfaces: envOnly.masks.every( ( mask ) => mask.mean > 0 ),
+        skyBackgroundAloneDoesNot: skyNoEnv.masks.every( ( mask ) => mask.mean === 0 ),
+        // 🚩 Not decoration. This turns "do not write a whole-frame mean" from a house rule into a
+        // number, and the arms are chosen so the comparison is fair: `env + sky-bg` and
+        // `sky-bg, env OFF` draw the SAME background and differ only in whether the subject is lit
+        // at all. Every scrap of light on the subject is removed, and the whole-frame mean barely
+        // notices — while the masked statistic goes to zero.
+        frameMeanBrokenOverWorking: skyNoEnv.frameMean / withSkyBackground.frameMean,
+        maskedMeanBrokenOverWorking: withSkyBackground.masks[ 2 ].mean > 0
+          ? skyNoEnv.masks[ 2 ].mean / withSkyBackground.masks[ 2 ].mean
+          : null
+      };
+      verdict.passes = verdict.nullControlIsZero
+        && verdict.environmentLightsSurfaces
+        && verdict.skyBackgroundAloneDoesNot;
+
+      document.getElementById( 'proof-verdict' ).innerHTML =
+        '<p class="' + ( verdict.passes ? 'ok' : 'bad' ) + '"><strong>' +
+        ( verdict.passes ? 'PROVEN' : 'NOT PROVEN' ) + '</strong> — null control reads exactly 0: ' +
+        verdict.nullControlIsZero + '; environment alone lights every mask: ' +
+        verdict.environmentLightsSurfaces + '; sky background alone lights nothing: ' +
+        verdict.skyBackgroundAloneDoesNot + '.<br>' +
+        'The trap, as a number, against the arm that draws the SAME sky: removing every scrap of ' +
+        'light from the subject multiplies the WHOLE-FRAME mean by ' +
+        verdict.frameMeanBrokenOverWorking.toFixed( 4 ) + '× and the MASKED mean by ' +
+        ( verdict.maskedMeanBrokenOverWorking === null ? '—' : verdict.maskedMeanBrokenOverWorking.toFixed( 2 ) ) +
+        '×. A whole-frame gate cannot see this failure at all.</p>';
+
+      return { arms: rows, verdict };
+    }
+
+    const PROOF_COLUMNS = [
+      { key: 'arm', label: 'arm' },
+      { key: 'mask', label: 'mask' },
+      { key: 'mean', label: 'disc mean luma' },
+      { key: 'sd', label: 'disc luma SD' },
+      { key: 'max', label: 'disc max' },
+      { key: 'frameMean', label: 'FRAME mean (blind)' }
+    ];
+
+    function proofRowsFor( row ) {
+      return row.masks.map( ( mask, index ) => ( {
+        arm: index === 0 ? row.arm : '',
+        mask: mask.label,
+        mean: mask.mean.toFixed( 6 ),
+        sd: mask.sd.toFixed( 6 ),
+        max: mask.max.toFixed( 6 ),
+        frameMean: index === 0 ? row.frameMean.toFixed( 6 ) : ''
+      } ) );
+    }
+
+    /**
+     * One arm, applied to the live scene.
+     *
+     * ⚠️ `background` and `environment` are set from DIFFERENT textures on purpose and the spike
+     * measures why. The environment wants the sun-disc-free, PMREM-convolved cube. The background
+     * wants the sky at full resolution WITH the disc — assign the PMREM texture to
+     * `scene.background` and three routes it through `pmremTexture()` (NodeManager's
+     * `updateBackground`, r185), so the backdrop you get is the roughness-convolved mip pyramid: a
+     * smear where the sky should be. The `pmrem-bg` arm exists to put a picture on that claim.
+     */
+    function applyArm( arm ) {
+      const scene = state.scene;
+
+      // A missing environment label means the section that bakes it was skipped by `?only=`.
+      // Falling back to null rather than throwing keeps a partial run useful; the arm is simply
+      // the environment-off arm, which is labelled as such wherever it lands.
+      const requested = arm.environment === null ? null : state.environments.get( arm.environment );
+      scene.environment = requested === undefined || requested === null ? null : requested.texture;
+
+      if ( arm.background === 'sky' ) {
+        if ( state.sky.parent !== scene ) scene.add( state.sky );
+        scene.background = null;
+      } else {
+        if ( state.sky.parent === scene ) scene.remove( state.sky );
+        const pmremBackground = state.environments.get( 'sky-only' );
+        scene.background = arm.background === 'pmrem' && pmremBackground !== undefined
+          ? pmremBackground.texture
+          : null;
+      }
+
+      if ( arm.analyticKey === true ) {
+        if ( state.analyticKey.parent !== scene ) scene.add( state.analyticKey );
+      } else if ( state.analyticKey.parent === scene ) {
+        scene.remove( state.analyticKey );
+      }
+
+      scene.environmentIntensity = arm.environmentIntensity ?? 1;
+      scene.environmentRotation.set( 0, arm.environmentYawRadians ?? 0, 0 );
+
+      if ( state.figure !== null ) state.figure.visible = arm.hideFigure !== true;
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §D0 — does a re-bake leave the live environment working?
+    // ---------------------------------------------------------------------------------------
+
+    /**
+     * 🚩 Walks the steps between "the environment lights the sphere" and "it does not", one at a
+     * time, so the culprit is a row in a table rather than a theory.
+     *
+     * The probe is the r=0.85 sphere's disc mean under `env-only` — the arm §A already proved
+     * non-zero — re-taken after each step. Every step is something a scene system would plausibly
+     * do when the sun moves, and the recovery steps at the end are the candidate fixes.
+     */
+    async function diagnoseRebakeSurvival() {
+      const device = state.renderer.backend.device;
+      const target = state.environments.get( 'sky-only' );
+      const steps = [];
+
+      // Two numbers per step, and the pair is what makes this diagnostic decisive rather than
+      // suggestive. `diffuseMean` says whether the SPHERE is lit. `atlasMean` reads the PMREM
+      // render target's own texels back, so it says whether the environment map CONTAINS anything.
+      // Sphere dark + atlas bright = the binding is broken. Both dark = the bake wrote nothing.
+      // One number could never tell those apart, and they have opposite fixes.
+      const probeDiffuse = async ( label, atlasTarget = null ) => {
+        const frame = await renderProbe();
+        const value = maskStatistics( frame, state.masks[ 2 ] ).mean;
+        const atlas = atlasTarget === null ? null : await readAtlasMean( atlasTarget );
+        steps.push( { step: label, diffuseMean: value, atlasMean: atlas, firstRenderMs: frame.submitMs } );
+        setStatus( '§D0 — ' + label + ' → ' + value.toFixed( 5 ) );
+        return value;
+      };
+
+      applyArm( ARMS[ 'env-only' ] );
+      const baseline = await probeDiffuse( 'baseline (env assigned, nothing re-baked)', target );
+
+      // 1. The thing `suggest()` will do a hundred times: move the sun and re-bake, straight into
+      //    the target that `scene.environment` already points at, with no detach and no swap.
+      setSunPosition( state.sky, 45, DEFAULT_SUN.azimuthDegrees );
+      await timeOneBake( device, WORKING_PMREM_SIZE, target );
+      await probeDiffuse( 'sun → 45°, re-baked INTO the live target', target );
+
+      // 2. And back, so the pair also shows the environment tracking the sun rather than merely
+      //    staying non-zero. A step that only ever checks "> 0" cannot see a stuck bake.
+      setSunPosition( state.sky, DEFAULT_SUN.elevationDegrees, DEFAULT_SUN.azimuthDegrees );
+      await timeOneBake( device, WORKING_PMREM_SIZE, target );
+      await probeDiffuse( 'sun → 22°, re-baked into the live target again', target );
+
+      // 3. 🚩 THE RED PROOF, and the gotcha this section was built to find. Orphan the SkyMesh the
+      //    way `Object3D.add()` does when the same instance is drawn as a backdrop, then bake. The
+      //    call succeeds, the target is valid, the atlas is EMPTY, and the subject renders black.
+      //    Nothing in the API reports a thing. See `withSkyInBakeScene()`.
+      const orphanedParent = state.sky.parent;
+      state.sky.removeFromParent();
+      const orphanedTarget = state.pmrem.fromScene( state.skyScene, 0, 0.1, 1000, {
+        size: WORKING_PMREM_SIZE
+      } );
+      state.scene.environment = orphanedTarget.texture;
+      await probeDiffuse( 'RED: baked from a scene the sky had been re-parented out of', orphanedTarget );
+
+      // 4. Put it back and bake again into that same orphaned target: if the target recovers, the
+      //    damage was never in the target or the renderer, only in what was in front of the camera.
+      if ( orphanedParent !== null ) orphanedParent.add( state.sky );
+      else state.skyScene.add( state.sky );
+      await timeOneBake( device, WORKING_PMREM_SIZE, orphanedTarget );
+      await probeDiffuse( 'sky re-parented back, same target re-baked', orphanedTarget );
+
+      // 5. Restore the working environment for everything that follows.
+      state.scene.environment = target.texture;
+      await timeOneBake( device, WORKING_PMREM_SIZE, target );
+      await probeDiffuse( 'restored for the sections that follow', target );
+      orphanedTarget.dispose();
+
+      renderTable( 'survival', [
+        { key: 'step', label: 'step' },
+        { key: 'value', label: 'r=0.85 disc mean' },
+        { key: 'ratio', label: '÷ baseline' },
+        { key: 'atlas', label: 'PMREM atlas mean' },
+        { key: 'render', label: 'first render() ms' }
+      ], steps.map( ( entry ) => ( {
+        step: entry.step,
+        value: entry.diffuseMean.toFixed( 5 ),
+        ratio: baseline > 0 ? ( entry.diffuseMean / baseline ).toFixed( 3 ) : '—',
+        atlas: entry.atlasMean === null ? '—' : entry.atlasMean.toFixed( 5 ),
+        render: formatMs( entry.firstRenderMs )
+      } ) ) );
+
+      // The verdict has two halves and both have to hold. A re-bake into the LIVE target must keep
+      // the environment alive AND must move it, or `suggest()` cannot change time of day. The
+      // orphan step must go red, or the clause watching for it is watching nothing.
+      const named = ( fragment ) => steps.find( ( entry ) => entry.step.includes( fragment ) );
+
+      const rebakeAlive = named( 'sun → 45°' ).diffuseMean > 0 && named( 'sun → 22°' ).diffuseMean > 0;
+      const rebakeMoved = Math.abs( named( 'sun → 45°' ).diffuseMean - baseline ) > baseline * 0.02;
+      const orphanWentRed = named( 'RED:' ).atlasMean === 0 && named( 'RED:' ).diffuseMean === 0;
+      const orphanRecovered = named( 're-parented back' ).diffuseMean > 0;
+      const passes = rebakeAlive && rebakeMoved && orphanWentRed && orphanRecovered;
+
+      document.getElementById( 'survival-verdict' ).innerHTML =
+        '<p class="' + ( passes ? 'ok' : 'bad' ) + '"><strong>' + ( passes ? 'ANSWERED' : 'NOT ANSWERED' ) +
+        '</strong> — re-baking straight into the live <code>scene.environment</code> target keeps it ' +
+        'lit: <strong>' + rebakeAlive + '</strong>, and moving the sun moves the light: <strong>' +
+        rebakeMoved + '</strong>. The deliberate orphan goes red — empty atlas, black subject, no ' +
+        'error anywhere: <strong>' + orphanWentRed + '</strong> — and re-parenting brings it back: ' +
+        '<strong>' + orphanRecovered + '</strong>.<br>🚩 The failure has no diagnostic of its own. ' +
+        'It was found by reading the PMREM ATLAS back, not the surface.</p>';
+
+      return {
+        baseline,
+        steps,
+        rebakeIntoLiveTargetSurvives: rebakeAlive,
+        rebakeTracksTheSun: rebakeMoved,
+        orphanedSkyGoesRed: orphanWentRed,
+        orphanRecoversOnReparent: orphanRecovered,
+        passes
+      };
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §B — bake cost
+    // ---------------------------------------------------------------------------------------
+
+    async function measureBakeCost() {
+      const renderer = state.renderer;
+      const device = renderer.backend.device;
+      const rows = [];
+      let working = null;
+
+      for ( const size of PMREM_SIZES ) {
+        setStatus( '§B — baking at ' + size + '…' );
+
+        const beforeTextures = renderer.info.memory.texturesSize;
+
+        // The first bake at a size carries the blur and GGX shader compiles and the ping-pong
+        // allocation. Quoting a steady-state median that includes it would understate the stall a
+        // user sees on the first scene change and overstate every one after.
+        const first = await timeOneBake( device, size );
+        const afterFirst = renderer.info.memory.texturesSize;
+
+        const samples = [];
+        for ( let repeat = 0; repeat < bakeRepeats; repeat ++ ) {
+          samples.push( await timeOneBake( device, size, first.target ) );
+        }
+
+        const width = 3 * Math.max( size, 16 * 7 );
+        const height = 4 * size;
+
+        rows.push( {
+          size,
+          atlas: [ width, height ],
+          firstSubmitMs: first.submitMs,
+          firstIdleMs: first.idleMs,
+          submitMs: median( samples.map( ( sample ) => sample.submitMs ) ),
+          idleMs: median( samples.map( ( sample ) => sample.idleMs ) ),
+          idleP95Ms: percentile( samples.map( ( sample ) => sample.idleMs ), 0.95 ),
+          // ⚠️ The measured delta runs ABOVE the arithmetic and the gap is not noise: at 256 and 512
+          // it is exactly 2 bytes per texel of ONE atlas, which is what the output target's depth
+          // attachment would cost — `_allocateTarget( true )` asks for one. Consistent with, not
+          // confirmed as: three's own accounting (`Info._getTextureMemorySize`) is what is being
+          // read here, and it is width x height x bytesPerPixel with no mip inflation while
+          // `generateMipmaps` is false. The 128 row runs higher still because it is the first bake
+          // of the session and its delta also collects one-off textures.
+          bytesMeasured: afterFirst - beforeTextures,
+          bytesArithmetic: width * height * 8 * 2,   // RGBA16F, output atlas + ping-pong
+          samples: samples.length
+        } );
+
+        if ( size === WORKING_PMREM_SIZE ) working = first.target;
+        else first.target.dispose();
+      }
+
+      if ( working === null ) {
+        // Requested working size was not in the sweep; bake it separately rather than silently
+        // using a different one from the one the rest of the page claims.
+        const extra = await timeOneBake( state.renderer.backend.device, WORKING_PMREM_SIZE );
+        working = extra.target;
+      }
+
+      renderTable( 'bake', BAKE_COLUMNS, rows.map( ( row ) => ( {
+        size: row.size + '³ (' + row.atlas[ 0 ] + '×' + row.atlas[ 1 ] + ' atlas)',
+        first: formatMs( row.firstIdleMs ) + ' (' + formatMs( row.firstSubmitMs ) + ' submit)',
+        submit: formatMs( row.submitMs ),
+        idle: formatMs( row.idleMs ),
+        idleP95: formatMs( row.idleP95Ms ),
+        bytes: ( row.bytesMeasured / 1048576 ).toFixed( 2 ) + ' MB measured / '
+             + ( row.bytesArithmetic / 1048576 ).toFixed( 2 ) + ' MB arithmetic',
+        verdict: row.idleMs < 40 ? 'fine at scene change' : 'noticeable stall'
+      } ) ) );
+
+      state.environments.set( 'sky-only', working );
+
+      return { rows, workingSize: WORKING_PMREM_SIZE };
+    }
+
+    const BAKE_COLUMNS = [
+      { key: 'size', label: 'cube size' },
+      { key: 'first', label: 'FIRST bake (incl. compile)' },
+      { key: 'submit', label: 'submit ms' },
+      { key: 'idle', label: 'to GPU idle ms' },
+      { key: 'idleP95', label: 'p95 ms' },
+      { key: 'bytes', label: 'texture memory' },
+      { key: 'verdict', label: 'verdict' }
+    ];
+
+    /**
+     * ⏭️ A DOUBLE-BUFFERED RE-BAKE WAS WRITTEN HERE AND IS RETIRED, because §D0 measured that it is
+     * not needed. The hypothesis was that writing into the RenderTarget currently assigned to
+     * `scene.environment` would invalidate it — plausible, and wrong. Measured: re-baking straight
+     * into the live target keeps the surface lit and moves it with the sun (disc mean 1.29878 at
+     * 22° → 1.96022 at 45° → 1.29878 back at 22°, to the digit). The symptom that suggested a
+     * front/back buffer had a different cause entirely; see `withSkyInBakeScene()`.
+     *
+     * Recorded rather than deleted so the next reader does not re-derive a second buffer from the
+     * same wrong hypothesis. One target, re-baked in place, is the shape.
+     */
+
+    /**
+     * One bake, timed twice.
+     *
+     * ⚠️ `showSunDisc` is cleared for the duration and restored afterwards, exactly as SkyMesh's own
+     * docstring instructs. §E measures what happens when it is not.
+     */
+    async function timeOneBake( device, size, renderTarget = null, options = {} ) {
+      const sky = state.sky;
+      const previousDisc = sky.showSunDisc.value;
+      sky.showSunDisc.value = options.showSunDisc ?? 0;
+
+      const previousParent = withSkyInBakeScene();
+
+      const start = performance.now();
+      const target = state.pmrem.fromScene( state.skyScene, 0, 0.1, 1000, { size, renderTarget } );
+      const submitted = performance.now();
+      await device.queue.onSubmittedWorkDone();
+      const idle = performance.now();
+
+      restoreSkyParent( previousParent );
+      sky.showSunDisc.value = previousDisc;
+
+      return { target, submitMs: submitted - start, idleMs: idle - start };
+    }
+
+    /**
+     * 🚩 THE GOTCHA THAT COST THIS SPIKE THREE RUNS, AND IT WILL COST 11.2 THE SAME IF IT IS NOT
+     * WRITTEN DOWN: ONE `SkyMesh` CANNOT BE BOTH THE BACKDROP AND THE BAKE SUBJECT.
+     *
+     * `Object3D.add()` RE-PARENTS. It does not share. So the moment the sky is added to the live
+     * scene to be drawn as a backdrop, it is removed from the scene `PMREMGenerator.fromScene()`
+     * is pointed at — and every subsequent bake renders an EMPTY scene into the cube.
+     *
+     * Nothing errors. `fromScene()` returns a perfectly valid RenderTarget, `scene.environment`
+     * accepts it, the material samples it, and the subject renders black. Measured: the PMREM
+     * atlas's own mean luma goes 1.21951 → 0.00000 while every API call still succeeds. It reads
+     * exactly like a broken material, and three of the four hypotheses it invites — stale texture
+     * version, destroyed GPU texture, a live target being written — are wrong.
+     *
+     * The atlas readback in §D0 is what separated it from those, and that is the transferable
+     * lesson: when an environment is dark, read the ENVIRONMENT MAP, not the surface.
+     *
+     * Two fixes, and 11.2 should take the second:
+     *   - re-parent for the duration of the bake, which is what this spike does; or
+     *   - keep TWO SkyMesh instances, one per scene, with the uniforms mirrored. One box mesh and
+     *     one material is nothing next to a class of bug that produces no diagnostic at all.
+     */
+    function withSkyInBakeScene() {
+      const previousParent = state.sky.parent;
+      if ( previousParent !== state.skyScene ) state.skyScene.add( state.sky );
+      return previousParent;
+    }
+
+    function restoreSkyParent( previousParent ) {
+      if ( previousParent === state.skyScene ) return;
+      if ( previousParent === null ) state.sky.removeFromParent();
+      else previousParent.add( state.sky );
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §C — per-frame cost
+    // ---------------------------------------------------------------------------------------
+
+    const FRAME_VARIANTS = [ 'black', 'sky-bg', 'pmrem-bg', 'env', 'sky+env' ];
+
+    const FRAME_ARMS = {
+      'black':    { environment: null,       background: 'none',  analyticKey: false, hideFigure: true },
+      'sky-bg':   { environment: null,       background: 'sky',   analyticKey: false, hideFigure: true },
+      'pmrem-bg': { environment: null,       background: 'pmrem', analyticKey: false, hideFigure: true },
+      'env':      { environment: 'sky-only', background: 'none',  analyticKey: false, hideFigure: true },
+      'sky+env':  { environment: 'sky-only', background: 'sky',   analyticKey: false, hideFigure: true }
+    };
+
+    async function measureFrameCost( timestampsAvailable ) {
+      const results = await runSweep( {
+        renderer: state.renderer,
+        scene: state.scene,
+        camera: state.shotCamera,
+        variants: FRAME_VARIANTS,
+        repeats,
+        warmupFrames,
+        sampleFrames,
+        passesPerFrame,
+        collectGpuTimestamps: timestampsAvailable,
+        onProgress: ( message ) => setStatus( '§C — ' + message ),
+        prepareVariant: async ( variant ) => { applyArm( FRAME_ARMS[ variant ] ); },
+        onBeforeFrame: () => {}
+      } );
+
+      const baseline = results[ 0 ].gpu.median;
+
+      const measurements = results.map( ( result ) => ( {
+        variant: result.variant,
+        gpuMedianMs: result.gpu.median,
+        gpuP95Ms: result.gpu.p95,
+        gpuDeltaVsBlackMs: ( result.gpu.median !== null && baseline !== null )
+          ? result.gpu.median - baseline : null,
+        cpuSubmitMedianMs: result.cpuSubmit.median,
+        gpuSampleCount: result.gpu.count
+      } ) );
+
+      renderTable( 'frame', FRAME_COLUMNS, measurements.map( ( measurement ) => ( {
+        variant: measurement.variant,
+        gpu: formatMs( measurement.gpuMedianMs ),
+        p95: formatMs( measurement.gpuP95Ms ),
+        delta: formatMs( measurement.gpuDeltaVsBlackMs ),
+        budget: measurement.gpuDeltaVsBlackMs === null ? '—'
+          : measurement.gpuDeltaVsBlackMs < 0.3 ? 'free at the hair budget'
+          : measurement.gpuDeltaVsBlackMs < 3.0 ? 'inside the ~3 ms hair budget'
+          : 'OVER a 3 ms budget on its own',
+        cpu: formatMs( measurement.cpuSubmitMedianMs ),
+        samples: String( measurement.gpuSampleCount )
+      } ) ) );
+
+      return { canvas: [ canvasWidth, canvasHeight ], passesPerFrame, measurements };
+    }
+
+    const FRAME_COLUMNS = [
+      { key: 'variant', label: 'variant' },
+      { key: 'gpu', label: 'GPU median ms' },
+      { key: 'p95', label: 'GPU p95 ms' },
+      { key: 'delta', label: 'Δ vs black' },
+      { key: 'budget', label: 'against ~3 ms' },
+      { key: 'cpu', label: 'CPU submit ms' },
+      { key: 'samples', label: 'samples' }
+    ];
+
+    // ---------------------------------------------------------------------------------------
+    // §D — re-baking when the sun moves, and the alternative that is free
+    // ---------------------------------------------------------------------------------------
+
+    async function measureRebake() {
+      const device = state.renderer.backend.device;
+      const elevations = [ 8, 22, 40, 60 ];
+      const rows = [];
+
+      const target = state.environments.get( 'sky-only' );
+
+      // ⚠️ Select the arm BEFORE probing. The first version of this function did not, inherited
+      // whatever §A left behind — `scene.environment = null` — and reported four re-bakes that all
+      // read 0.00000. The timings were real and the light column was measuring nothing; a section
+      // that only timed the bake would have shipped that without a symptom.
+      applyArm( ARMS[ 'env-only' ] );
+
+      // Straight into the live target — §D0 proved that safe. Each arm is probed as well as timed,
+      // because a re-bake that is fast and produces the SAME environment every time is not a
+      // re-bake; the diffuse column is what makes the timing mean something.
+      for ( const elevation of elevations ) {
+        setStatus( '§D — re-bake at elevation ' + elevation + '…' );
+        setSunPosition( state.sky, elevation, DEFAULT_SUN.azimuthDegrees );
+        const timed = await timeOneBake( device, WORKING_PMREM_SIZE, target );
+        const frame = await renderProbe();
+        rows.push( {
+          elevationDegrees: elevation,
+          pingPongIdleMs: timed.idleMs,
+          diffuseMean: maskStatistics( frame, state.masks[ 2 ] ).mean
+        } );
+      }
+
+      // A fresh allocation every time is what a naive implementation does. Its cost is the price of
+      // NOT keeping a back buffer — and it also leaks the old target unless something disposes it.
+      setStatus( '§D — re-bake into a freshly allocated target…' );
+      const fresh = await timeOneBake( device, WORKING_PMREM_SIZE );
+      fresh.target.dispose();
+
+      setSunPosition( state.sky, DEFAULT_SUN.elevationDegrees, DEFAULT_SUN.azimuthDegrees );
+      await timeOneBake( device, WORKING_PMREM_SIZE, target );
+
+      const median_ = median( rows.map( ( row ) => row.pingPongIdleMs ) );
+
+      renderTable( 'rebake', [
+        { key: 'what', label: 'what moved' },
+        { key: 'ms', label: 'to GPU idle ms' },
+        { key: 'lit', label: 'r=0.85 disc mean after' },
+        { key: 'note', label: 'note' }
+      ], [
+        ...rows.map( ( row ) => ( {
+          what: 'sun elevation → ' + row.elevationDegrees + '°, re-baked into the LIVE target',
+          ms: formatMs( row.pingPongIdleMs ),
+          lit: row.diffuseMean.toFixed( 5 ),
+          note: row.diffuseMean > 0 ? '' : 'DEAD — the swap did not hold'
+        } ) ),
+        {
+          what: 'a freshly ALLOCATED target each time',
+          ms: formatMs( fresh.idleMs ),
+          lit: '—',
+          note: 'allocation, and a leak unless disposed'
+        }
+      ] );
+
+      return {
+        size: WORKING_PMREM_SIZE,
+        perElevation: rows,
+        medianReuseIdleMs: median_,
+        freshTargetIdleMs: fresh.idleMs,
+        // The elevation sweep doubles as a check that the sky actually CHANGES with the sun: a
+        // re-bake that silently kept showing the 8-degree sky would read as four identical numbers
+        // here, and a timing column alone could never tell.
+        diffuseAcrossElevations: rows.map( ( row ) => row.diffuseMean )
+      };
+    }
+
+    /**
+     * 🎯 The finding that makes a moving sun cheap.
+     *
+     * A Preetham sky is rotationally symmetric about the zenith axis except for the sun itself, so
+     * a change of sun AZIMUTH at fixed elevation produces exactly the same environment rotated. And
+     * `scene.environmentRotation` is honoured on the node path (`MaterialProperties.js:42`, r185),
+     * so that rotation is free — no re-bake, no allocation, one Euler.
+     *
+     * ⚠️ THE STATISTIC HERE WAS SPECIFIED WRONG FIRST TIME AND THE MEASUREMENT CORRECTED IT. The
+     * claim written into this comment was "a mean cannot see a rotation, because rotating an
+     * environment leaves total irradiance unchanged". Measured, the gloss sphere's whole-disc mean
+     * moves 1.2467 → 0.5965 across the yaw sweep — a 2.09x swing — because a disc facing the camera
+     * sees ONE hemisphere of the sky, and the Preetham sky is far brighter on the sun's side even
+     * with the disc hidden. The mean is not blind at all.
+     *
+     * What survives is narrower and is still the reason the ratio is here: the mean says the amount
+     * of light CHANGED; only the LEFT/RIGHT ratio says the DIRECTION changed, and it inverts across
+     * the sphere (1.4023 at yaw 0 → 0.6874 at yaw 90). A gate watching the mean alone would be
+     * satisfied by an environment that merely got dimmer and never turned.
+     */
+    async function measureEnvironmentRotation() {
+      const yaws = [ 0, 90, 180, 270 ];
+      const rows = [];
+
+      for ( const yaw of yaws ) {
+        setStatus( '§D — environment rotation ' + yaw + '°…' );
+        applyArm( {
+          environment: 'sky-only', background: 'none', analyticKey: false,
+          environmentYawRadians: yaw * Math.PI / 180
+        } );
+        const frame = await renderProbe();
+        const mask = state.masks[ 1 ];   // the r=0.35 gloss sphere
+        const split = discHalves( frame, mask );
+        rows.push( {
+          yawDegrees: yaw,
+          leftMean: split.left,
+          rightMean: split.right,
+          leftOverRight: split.right > 0 ? split.left / split.right : null,
+          discMean: split.whole
+        } );
+      }
+
+      applyArm( ARMS[ 'env-only' ] );
+
+      renderTable( 'rotation', [
+        { key: 'yaw', label: 'scene.environmentRotation yaw' },
+        { key: 'left', label: 'left-half mean' },
+        { key: 'right', label: 'right-half mean' },
+        { key: 'ratio', label: 'left ÷ right' },
+        { key: 'whole', label: 'whole-disc mean (moves, but not directional)' }
+      ], rows.map( ( row ) => ( {
+        yaw: row.yawDegrees + '°',
+        left: row.leftMean.toFixed( 5 ),
+        right: row.rightMean.toFixed( 5 ),
+        ratio: row.leftOverRight === null ? '—' : row.leftOverRight.toFixed( 4 ),
+        whole: row.discMean.toFixed( 5 )
+      } ) ) );
+
+      const ratios = rows.map( ( row ) => row.leftOverRight );
+      return {
+        rows,
+        ratioSwingAcrossYaw: Math.max( ...ratios ) / Math.min( ...ratios ),
+        discMeanSwingAcrossYaw: Math.max( ...rows.map( ( r ) => r.discMean ) )
+                              / Math.min( ...rows.map( ( r ) => r.discMean ) )
+      };
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §E — the sun model
+    // ---------------------------------------------------------------------------------------
+
+    function buildSunModelTable() {
+      const elevations = [ -2, 0, 2, 5, 10, 15, 22, 30, 45, 60, 80 ];
+      const cameraOffset = {
+        x: CAMERA_POSITION[ 0 ] - CAMERA_TARGET[ 0 ],
+        z: CAMERA_POSITION[ 2 ] - CAMERA_TARGET[ 2 ]
+      };
+
+      const rows = elevations.map( ( elevation ) => {
+        const light = solarDiscLight( elevation, SKY_UNIFORMS );
+        const placement = keyPlacementForSun(
+          elevation, DEFAULT_SUN.azimuthDegrees, cameraOffset, { sky: SKY_UNIFORMS }
+        );
+        return { ...light, rigPlacement: placement };
+      } );
+
+      renderTable( 'sun', [
+        { key: 'elevation', label: 'sun elevation' },
+        { key: 'transmittance', label: 'Fex (SkyMesh) R,G,B' },
+        { key: 'irradiance', label: 'irradiance, sky units' },
+        { key: 'rigIrradiance', label: 'rig irradiance (key=3.0 @ 60°)' },
+        { key: 'cct', label: 'CCT K' },
+        { key: 'colour', label: 'colour' }
+      ], rows.map( ( row ) => ( {
+        elevation: row.elevationDegrees + '°',
+        transmittance: row.transmittance.map( ( component ) => component.toFixed( 4 ) ).join( ', ' ),
+        irradiance: row.irradiance.toFixed( 4 ),
+        rigIrradiance: row.rigPlacement.irradiance.toFixed( 4 ),
+        cct: Math.round( row.correlatedColourTemperature ),
+        colour: '#' + row.colourHex.toString( 16 ).padStart( 6, '0' )
+      } ) ) );
+
+      return {
+        derivation: 'ported from SkyMesh.js constants; see tools/spikes/sky-sun.js header',
+        sunSolidAngleSteradians: SUN_SOLID_ANGLE_STERADIANS,
+        extraterrestrialKelvin: EXTRATERRESTRIAL_KELVIN,
+        rigAzimuthConversion: {
+          note: 'LightingRig azimuth is CAMERA-relative (LightingRig.js:265); sky azimuth is world',
+          worldSunAzimuthDegrees: DEFAULT_SUN.azimuthDegrees,
+          cameraOffsetFromFocus: cameraOffset,
+          rigAzimuthDegrees: rigAzimuthForSun( DEFAULT_SUN.azimuthDegrees, cameraOffset )
+        },
+        rows
+      };
+    }
+
+    /**
+     * 🚩 The one measurement that decides whether 11.2's "the sky and the key cannot disagree" is a
+     * design statement or a wish.
+     *
+     * Three arms, one mask, same geometry:
+     *
+     *   A. environment baked with the solar disc HIDDEN — the sky term alone.
+     *   B. environment baked with the solar disc SHOWING — sky plus whatever of the disc a cube of
+     *      this resolution manages to capture.
+     *   C. arm A plus an analytic DirectionalLight carrying `solarDiscLight()`'s irradiance.
+     *
+     * If the model is right, C ≈ B + (whatever energy B lost to the cube's resolution). B is
+     * expected to UNDER-carry the sun: the disc is 0.53° across and one texel of a 256 cube face
+     * spans 0.35°, so the disc lands on a handful of texels and the prefilter smears it. Reporting
+     * B/A and C/A side by side is what turns that from an argument into a number.
+     */
+    async function validateSunAgainstSky() {
+      const device = state.renderer.backend.device;
+      const elevation = DEFAULT_SUN.elevationDegrees;
+      setSunPosition( state.sky, elevation, DEFAULT_SUN.azimuthDegrees );
+
+      const skyOnly = state.environments.get( 'sky-only' );
+      await timeOneBake( device, WORKING_PMREM_SIZE, skyOnly, { showSunDisc: 0 } );
+
+      const withDiscTarget = ( await timeOneBake( device, WORKING_PMREM_SIZE, null, { showSunDisc: 1 } ) ).target;
+      state.environments.set( 'with-disc', withDiscTarget );
+
+      const model = solarDiscLight( elevation, SKY_UNIFORMS );
+      const direction = sunDirectionWorld( elevation, DEFAULT_SUN.azimuthDegrees );
+      state.analyticKey.position.set( direction.x, direction.y, direction.z ).multiplyScalar( 50 );
+      state.analyticKey.target.position.set( 0, SPHERE_CENTRE_HEIGHT, 0 );
+      state.scene.add( state.analyticKey.target );
+      // colourLinear * irradiance reconstructs irradianceRGB exactly; see sky-sun.js.
+      state.analyticKey.color.setRGB( ...model.colourLinear );
+      state.analyticKey.intensity = model.irradiance;
+
+      const arms = [
+        { name: 'A  sky only (disc hidden)',        arm: { environment: 'sky-only', background: 'none', analyticKey: false } },
+        { name: 'B  sky + disc baked into the cube', arm: { environment: 'with-disc', background: 'none', analyticKey: false } },
+        { name: 'C  sky only + analytic key',        arm: { environment: 'sky-only', background: 'none', analyticKey: true } }
+      ];
+
+      const rows = [];
+      for ( const entry of arms ) {
+        setStatus( '§E — ' + entry.name );
+        applyArm( entry.arm );
+        const frame = await renderProbe();
+        rows.push( { name: entry.name, ...summariseFrame( frame ) } );
+      }
+
+      applyArm( ARMS[ 'env-only' ] );
+
+      const diffuseIndex = 2;   // the r=0.85 sphere: closest thing here to an irradiance probe
+      const a = rows[ 0 ].masks[ diffuseIndex ].mean;
+      const b = rows[ 1 ].masks[ diffuseIndex ].mean;
+      const c = rows[ 2 ].masks[ diffuseIndex ].mean;
+
+      renderTable( 'sun-validation', [
+        { key: 'arm', label: 'arm' },
+        { key: 'diffuse', label: 'r=0.85 disc mean' },
+        { key: 'ratio', label: '÷ arm A' },
+        { key: 'mirror', label: 'r=0.05 disc max' },
+        { key: 'frame', label: 'frame mean' }
+      ], rows.map( ( row ) => ( {
+        arm: row.name,
+        diffuse: row.masks[ diffuseIndex ].mean.toFixed( 5 ),
+        ratio: ( row.masks[ diffuseIndex ].mean / a ).toFixed( 4 ),
+        mirror: row.masks[ 0 ].max.toFixed( 4 ),
+        frame: row.frameMean.toFixed( 5 )
+      } ) ) );
+
+      return {
+        elevationDegrees: elevation,
+        model,
+        arms: rows,
+        skyOnlyDiffuse: a,
+        bakedDiscDiffuse: b,
+        analyticKeyDiffuse: c,
+        // Both ratios are guarded: if the analytic key adds nothing there is no denominator, and
+        // reporting Infinity as a finding is how a spike lies about itself.
+        discEnergyCapturedByCube: ( c - a ) > 1e-9 ? ( b - a ) / ( c - a ) : null,
+        analyticOverBaked: ( b - a ) > 1e-9 ? ( c - a ) / ( b - a ) : null
+      };
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // §F — one texture for the backdrop and the light, or two?
+    // ---------------------------------------------------------------------------------------
+
+    /**
+     * 🚩 THE STATISTIC HERE IS A FOOTPRINT, AND IT IS THE SECOND ONE THIS SECTION TRIED.
+     *
+     * A prefiltered cube and a full-resolution sky have almost the same AVERAGE — §A measured 1.093
+     * against 1.094 with the disc hidden, a 0.09% difference — because prefiltering conserves
+     * energy. What it destroys is structure. So a mean cannot see this and never could.
+     *
+     * The obvious replacement was the frame's PEAK luma, and it was measured and REJECTED. The
+     * SkyMesh arm returns 65504.0 — not a measurement, but `HalfFloatType`'s largest finite value —
+     * and the PMREM arm 65478.8, a hair under it. The solar disc's radiance in SkyMesh's own units
+     * is ~1.8e5 at this elevation, so the probe target clips it and the peak reports the FORMAT
+     * rather than the picture. The frame mean is contaminated by the same ceiling: the SkyMesh arm
+     * loses more energy to it than the smeared PMREM arm does, which is why its mean comes out
+     * LOWER (36.57 against 42.44) despite carrying the sharper sun. Both are quoted below and both
+     * are labelled as what they are, because a rejected statistic is evidence.
+     *
+     * What survives is the FOOTPRINT: how many pixels the sun's energy is spread across, counted at
+     * thresholds far below the ceiling. That is the structural claim, it cannot clip, and it is
+     * exactly the property a backdrop is judged on.
+     *
+     * The sun is swung to azimuth -160 so it is inside the frame; both arms are measured at the
+     * same sun, the same exposure and the same camera.
+     */
+    async function measureBackgroundFidelity() {
+      const device = state.renderer.backend.device;
+      const elevation = 18;
+      const azimuth = -160;
+
+      setStatus( '§F — sun into frame, baking a cube WITH the disc…' );
+      setSunPosition( state.sky, elevation, azimuth );
+
+      const discTarget = ( await timeOneBake( device, WORKING_PMREM_SIZE, null, { showSunDisc: 1 } ) ).target;
+      state.environments.set( 'with-disc-in-frame', discTarget );
+
+      const arms = [];
+
+      // Arm 1: the SkyMesh itself, drawn at full resolution with the disc showing.
+      state.sky.showSunDisc.value = 1;
+      applyArm( { environment: null, background: 'sky', analyticKey: false, hideFigure: true } );
+      arms.push( { arm: 'SkyMesh drawn, disc shown', ...( await peakOfFrame() ) } );
+
+      // Arm 2: the same sky, through the PMREM, as `scene.background`.
+      applyArm( { environment: null, background: 'none', analyticKey: false, hideFigure: true } );
+      state.scene.background = discTarget.texture;
+      arms.push( { arm: 'the PMREM of it, as scene.background', ...( await peakOfFrame() ) } );
+
+      // Restore the page's working state.
+      setSunPosition( state.sky, DEFAULT_SUN.elevationDegrees, DEFAULT_SUN.azimuthDegrees );
+      await timeOneBake( device, WORKING_PMREM_SIZE, state.environments.get( 'sky-only' ) );
+      applyArm( ARMS[ 'env-only' ] );
+
+      const peakRatio = arms[ 1 ].peak > 0 ? arms[ 0 ].peak / arms[ 1 ].peak : null;
+
+      renderTable( 'background', [
+        { key: 'arm', label: 'what draws the backdrop' },
+        { key: 'above100', label: 'px > 100' },
+        { key: 'above1k', label: 'px > 1 000' },
+        { key: 'above10k', label: 'px > 10 000' },
+        { key: 'peak', label: 'peak (CLIPPED at 65504)' },
+        { key: 'mean', label: 'frame mean (clipped, blind)' }
+      ], arms.map( ( entry ) => ( {
+        arm: entry.arm,
+        above100: String( entry.footprint[ 0 ] ),
+        above1k: String( entry.footprint[ 1 ] ),
+        above10k: String( entry.footprint[ 2 ] ),
+        peak: entry.peak.toFixed( 1 ),
+        mean: entry.mean.toFixed( 5 )
+      } ) ) );
+
+      return {
+        elevationDegrees: elevation,
+        azimuthDegrees: azimuth,
+        thresholds: FOOTPRINT_THRESHOLDS,
+        arms,
+        footprintRatioPmremOverSky: arms.map( ( entry, index ) => index === 0 ? null
+          : entry.footprint.map( ( count, slot ) => arms[ 0 ].footprint[ slot ] > 0
+            ? count / arms[ 0 ].footprint[ slot ] : null ) )[ 1 ],
+        // Retained and labelled rather than dropped: a rejected statistic is evidence too.
+        peakRatioSkyOverPmrem: peakRatio,
+        // `some`, not `every`: one arm at the ceiling is already enough to make the comparison
+        // meaningless, and only the sharp arm reaches it.
+        peakIsClipped: arms.some( ( entry ) => entry.peak >= 65504 ),
+        meanRatioSkyOverPmrem: arms[ 1 ].mean > 0 ? arms[ 0 ].mean / arms[ 1 ].mean : null
+      };
+    }
+
+    const FOOTPRINT_THRESHOLDS = [ 100, 1000, 10000 ];
+
+    async function peakOfFrame() {
+      const frame = await renderProbe();
+      const footprint = FOOTPRINT_THRESHOLDS.map( () => 0 );
+      let peak = 0;
+      let sum = 0;
+
+      for ( let index = 0; index < frame.luma.length; index ++ ) {
+        const value = frame.luma[ index ];
+        sum += value;
+        if ( value > peak ) peak = value;
+        for ( let slot = 0; slot < FOOTPRINT_THRESHOLDS.length; slot ++ ) {
+          if ( value > FOOTPRINT_THRESHOLDS[ slot ] ) footprint[ slot ] ++;
+        }
+      }
+
+      return { peak, mean: sum / frame.luma.length, footprint };
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // Probe plumbing
+    // ---------------------------------------------------------------------------------------
+
+    /**
+     * Renders the current arm into the linear probe target and reads it back.
+     *
+     * `NoToneMapping` for the duration: the point of the probe is scene-referred radiance, and ACES
+     * would compress exactly the differences being measured.
+     *
+     * ⚠️ `render()`, NOT `renderAsync()`. r185 deprecates the async form with a `warnOnce`; the
+     * synchronous call is safe here because `createSpikeRenderer` already awaited `renderer.init()`,
+     * and the readback below is itself a GPU sync point, so a first-use pipeline compile has landed
+     * by the time any pixel is read.
+     */
+    async function renderProbe() {
+      const renderer = state.renderer;
+      const previousToneMapping = renderer.toneMapping;
+      renderer.toneMapping = THREE.NoToneMapping;
+
+      renderer.setRenderTarget( state.probeTarget );
+      renderer.setClearColor( 0x000000, 1 );
+
+      // Timed, because the first render after an arm switch is not like the ones after it and the
+      // difference is a Phase 11 cost: toggling `scene.environment` between a texture and `null`
+      // changes every lit material's cache key, so the whole material set recompiles. Re-baking
+      // INTO the same texture does not. §D0 reports both.
+      const submitStart = performance.now();
+      renderer.render( state.scene, state.probeCamera );
+      const submitEnd = performance.now();
+      renderer.setRenderTarget( null );
+
+      const raw = await renderer.readRenderTargetPixelsAsync(
+        state.probeTarget, 0, 0, probeSize, probeSize
+      );
+      const readbackEnd = performance.now();
+
+      renderer.toneMapping = previousToneMapping;
+
+      const frame = decodeHalfFloatRGBA( raw, probeSize, probeSize );
+      frame.submitMs = submitEnd - submitStart;
+      frame.readbackMs = readbackEnd - submitEnd;
+      return frame;
+    }
+
+    /**
+     * Half-float RGBA readback → a Float32Array of linear luma, one entry per pixel.
+     *
+     * ⚠️ Two things here are not obvious and both are silent if got wrong.
+     * 1. `WebGPUTextureUtils.copyTextureToBuffer` pads each row to a 256-byte multiple. At RGBA16F
+     *    that is 32 pixels; `probeSize` is asserted to be a multiple of 32 so the padding is zero.
+     * 2. The returned typed array is a `Uint16Array` of raw IEEE-754 half bits — three has no
+     *    Float16 path here — so the decode is ours to do.
+     */
+    function decodeHalfFloatRGBA( raw, width, height ) {
+      if ( width % 32 !== 0 ) {
+        throw new Error( 'probe width must be a multiple of 32 so the 256-byte row padding is zero; got ' + width );
+      }
+      if ( raw.length < width * height * 4 ) {
+        throw new Error( 'readback returned ' + raw.length + ' components for ' + ( width * height * 4 ) );
+      }
+
+      const luma = new Float32Array( width * height );
+      for ( let pixel = 0; pixel < width * height; pixel ++ ) {
+        const base = pixel * 4;
+        const r = halfToFloat( raw[ base ] );
+        const g = halfToFloat( raw[ base + 1 ] );
+        const b = halfToFloat( raw[ base + 2 ] );
+        luma[ pixel ] = 0.2126729 * r + 0.7151522 * g + 0.0721750 * b;
+      }
+      return { luma, width, height };
+    }
+
+    /**
+     * Mean luma of a PMREM atlas, read straight off the render target.
+     *
+     * This is the control that separates "the environment map is empty" from "the environment map
+     * is fine and the material is not sampling it". The atlas is a 3:4 texture with the six faces
+     * packed at the top and the roughness mips beneath, so a whole-texture mean is a blunt
+     * instrument — but blunt is enough for a question whose answer is zero or not zero.
+     */
+    async function readAtlasMean( target ) {
+      const raw = await state.renderer.readRenderTargetPixelsAsync(
+        target, 0, 0, target.width, target.height
+      );
+
+      let sum = 0;
+      const texels = target.width * target.height;
+      for ( let index = 0; index < texels; index ++ ) {
+        const base = index * 4;
+        sum += 0.2126729 * halfToFloat( raw[ base ] )
+             + 0.7151522 * halfToFloat( raw[ base + 1 ] )
+             + 0.0721750 * halfToFloat( raw[ base + 2 ] );
+      }
+      return sum / texels;
+    }
+
+    function halfToFloat( bits ) {
+      const sign = ( bits & 0x8000 ) ? -1 : 1;
+      const exponent = ( bits >> 10 ) & 0x1f;
+      const fraction = bits & 0x03ff;
+
+      if ( exponent === 0 ) return sign * fraction * Math.pow( 2, -24 );
+      if ( exponent === 0x1f ) return fraction === 0 ? sign * Infinity : NaN;
+      return sign * ( 1 + fraction / 1024 ) * Math.pow( 2, exponent - 15 );
+    }
+
+    function summariseFrame( frame ) {
+      let frameSum = 0;
+      for ( let index = 0; index < frame.luma.length; index ++ ) frameSum += frame.luma[ index ];
+
+      return {
+        frameMean: frameSum / frame.luma.length,
+        masks: state.masks.map( ( mask ) => ( { label: mask.label, ...maskStatistics( frame, mask ) } ) )
+      };
+    }
+
+    function maskStatistics( frame, mask ) {
+      const values = collectMask( frame, mask );
+      if ( values.length === 0 ) return { mean: 0, sd: 0, max: 0, pixels: 0 };
+
+      let sum = 0;
+      let peak = 0;
+      for ( const value of values ) { sum += value; if ( value > peak ) peak = value; }
+      const mean = sum / values.length;
+
+      let variance = 0;
+      for ( const value of values ) variance += ( value - mean ) * ( value - mean );
+
+      return { mean, sd: Math.sqrt( variance / values.length ), max: peak, pixels: values.length };
+    }
+
+    function collectMask( frame, mask ) {
+      const values = [];
+
+      if ( mask.kind === 'pixels' ) {
+        for ( let index = 0; index < mask.pixels.length; index ++ ) {
+          values.push( frame.luma[ mask.pixels[ index ] ] );
+        }
+        return values;
+      }
+
+      if ( mask.kind === 'disc' ) {
+        const radiusSquared = mask.radius * mask.radius;
+        const y0 = Math.max( 0, Math.floor( mask.centreY - mask.radius ) );
+        const y1 = Math.min( frame.height - 1, Math.ceil( mask.centreY + mask.radius ) );
+        const x0 = Math.max( 0, Math.floor( mask.centreX - mask.radius ) );
+        const x1 = Math.min( frame.width - 1, Math.ceil( mask.centreX + mask.radius ) );
+
+        for ( let y = y0; y <= y1; y ++ ) {
+          for ( let x = x0; x <= x1; x ++ ) {
+            const dx = x + 0.5 - mask.centreX;
+            const dy = y + 0.5 - mask.centreY;
+            if ( dx * dx + dy * dy <= radiusSquared ) values.push( frame.luma[ y * frame.width + x ] );
+          }
+        }
+        return values;
+      }
+
+      for ( let y = Math.max( 0, mask.y0 ); y <= Math.min( frame.height - 1, mask.y1 ); y ++ ) {
+        for ( let x = Math.max( 0, mask.x0 ); x <= Math.min( frame.width - 1, mask.x1 ); x ++ ) {
+          values.push( frame.luma[ y * frame.width + x ] );
+        }
+      }
+      return values;
+    }
+
+    /** Left and right halves of one disc, which is what makes a rotation visible. */
+    function discHalves( frame, mask ) {
+      const left = [];
+      const right = [];
+      const radiusSquared = mask.radius * mask.radius;
+
+      for ( let y = Math.floor( mask.centreY - mask.radius ); y <= Math.ceil( mask.centreY + mask.radius ); y ++ ) {
+        for ( let x = Math.floor( mask.centreX - mask.radius ); x <= Math.ceil( mask.centreX + mask.radius ); x ++ ) {
+          if ( x < 0 || y < 0 || x >= frame.width || y >= frame.height ) continue;
+          const dx = x + 0.5 - mask.centreX;
+          const dy = y + 0.5 - mask.centreY;
+          if ( dx * dx + dy * dy > radiusSquared ) continue;
+          ( dx < 0 ? left : right ).push( frame.luma[ y * frame.width + x ] );
+        }
+      }
+
+      const mean = ( values ) => values.reduce( ( total, value ) => total + value, 0 ) / Math.max( values.length, 1 );
+      return { left: mean( left ), right: mean( right ), whole: mean( left.concat( right ) ) };
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // Shots — the live canvas, for the headless screenshot runner
+    // ---------------------------------------------------------------------------------------
+
+    const SHOTS = {
+      'env-on':        { environment: 'sky-only', background: 'sky',   analyticKey: false },
+      'env-off':       { environment: null,       background: 'sky',   analyticKey: false },
+      'env-on-black':  { environment: 'sky-only', background: 'none',  analyticKey: false },
+      'env-and-key':   { environment: 'sky-only', background: 'sky',   analyticKey: true },
+      'disc-baked':    { environment: 'with-disc', background: 'sky',  analyticKey: false },
+      'pmrem-as-bg':   { environment: 'sky-only', background: 'pmrem', analyticKey: false },
+      'env-yaw-180':   { environment: 'sky-only', background: 'sky',   analyticKey: false, environmentYawRadians: Math.PI },
+      // The data arms put the sun behind the camera, which is where a portrait key belongs and
+      // which means the disc is never in frame. This one swings it round to azimuth -160 so a
+      // reader can see the sun SkyMesh actually draws, disc and all.
+      'sun-in-frame':  { environment: 'sky-only', background: 'sky',   analyticKey: false, sunAzimuthDegrees: -160 }
+    };
+
+    /**
+     * Picks the tone-mapping exposure the live view uses.
+     *
+     * 🚩 THIS IS A REAL FINDING AND NOT PAGE FURNITURE. The sky's absolute scale has nothing to do
+     * with the studio rig's. `LightingRig`'s key delivers irradiance 3.0; §E's table shows the same
+     * sun delivering an order of magnitude more in SkyMesh's units. A scene that switches from the
+     * studio rig to sky IBL without re-anchoring exposure does not look outdoors, it looks white.
+     * The exposure is derived from the measured mid-grey rather than typed in, so it is a
+     * measurement of the mismatch as well as a way to see the picture.
+     */
+    function chooseExposure( proof ) {
+      const envOnly = proof.arms.find( ( row ) => row.arm === 'env-only' );
+      const diffuse = envOnly.masks[ 2 ].mean;
+      // Aim the 0.85-roughness grey sphere at 0.18 linear — a mid-grey card, the standard anchor.
+      return diffuse > 0 ? 0.18 / diffuse : 1;
+    }
+
+    function installShotMode( exposure ) {
+      const renderer = state.renderer;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = exposure;
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      globalThis.skyEnvShot = async ( name ) => {
+        const arm = SHOTS[ name ];
+        if ( arm === undefined ) throw new Error( 'unknown shot: ' + name );
+        applyArm( arm );
+
+        // ⚠️ A shot that moves the sun RE-BAKES. The first version only moved the backdrop, so the
+        // picture showed a sun on the left and a figure lit from the right — a plate that would
+        // have been read as the thing 11.2 exists to prevent, produced by the spike itself.
+        const elevation = arm.sunElevationDegrees ?? DEFAULT_SUN.elevationDegrees;
+        const azimuth = arm.sunAzimuthDegrees ?? DEFAULT_SUN.azimuthDegrees;
+        setSunPosition( state.sky, elevation, azimuth );
+
+        if ( arm.sunAzimuthDegrees !== undefined || arm.sunElevationDegrees !== undefined ) {
+          const target = state.environments.get( arm.environment );
+          if ( target !== undefined ) {
+            await timeOneBake( renderer.backend.device, WORKING_PMREM_SIZE, target );
+          }
+        }
+
+        state.sky.showSunDisc.value = 1;
+        renderer.render( state.scene, state.shotCamera );
+        return name;
+      };
+
+      // Only offer shots whose environment was actually baked in this run.
+      globalThis.skyEnvShotNames = Object.keys( SHOTS ).filter( ( name ) => {
+        const label = SHOTS[ name ].environment;
+        return label === null || state.environments.has( label );
+      } );
+
+      // Leave something on the canvas for a human who opens the page.
+      globalThis.skyEnvShot( 'env-on' );
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // Helpers
+    // ---------------------------------------------------------------------------------------
+
+    /**
+     * Elevation and azimuth in degrees onto SkyMesh's `sunPosition`, at RADIUS 1.
+     * The radius is load-bearing — see `sky-sun.js`'s `SUN_POSITION_RADIUS`.
+     */
+    function setSunPosition( sky, elevationDegrees, azimuthDegrees ) {
+      const direction = sunDirectionWorld( elevationDegrees, azimuthDegrees );
+      sky.sunPosition.value.set( direction.x, direction.y, direction.z );
+    }
+
+    function median( values ) {
+      return percentile( values, 0.5 );
+    }
+
+    function percentile( values, fraction ) {
+      if ( values.length === 0 ) return null;
+      const sorted = values.slice().sort( ( a, b ) => a - b );
+      const index = Math.min( sorted.length - 1, Math.floor( sorted.length * fraction ) );
+      return sorted[ index ];
+    }
+  </script>
+</body>
+</html>

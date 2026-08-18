@@ -9,9 +9,13 @@ answers a question and writes **no production code**.
 | `rectarea-cost.html` | 0.10 | Where does a RectAreaLight portrait rig start to hurt? |
 | `fabric-weave.mjs` | **9.16** | **Can fabric appearance be GENERATED from `{weave, ends, picks, tex, gsm}` instead of sampled — and can the twill angle be recovered to prove it?** |
 | `hair-motion.html` | **6.6 / 9.14** | **Can the groom's guide curves be simulated at 60 Hz on the GPU inside the frame budget — and does a CPU spring chain fit anyway?** |
+| `sky-env.html` | **11.2** | **Does `SkyMesh` → `PMREMGenerator.fromScene()` → `scene.environment` actually LIGHT a surface under `WebGPURenderer` — what does the bake cost, does a moving sun mean re-baking, and what does a key light have to take from the same sun so the two cannot disagree?** |
 
 Supporting files: `spike-harness.js` (shared measurement plumbing), `spike-page.css`,
 `run.mjs` (headless runner), `results/` (scraped JSON + page screenshots).
+`sky-env.html` imports `sky-sun.js` (the sun model, ported from SkyMesh's own constants) and has
+its own runner, `sky-env-run.mjs`, because its headline is a picture rather than a curve — see
+below.
 `hair-motion.html` additionally imports `hair-dftl.js` (the TSL compute solver) and
 `hair-groom.js` (a stand-in groom regrown from `hair_cards.py`'s own constants, so the spike does
 not depend on a gitignored Blender bake).
@@ -35,15 +39,25 @@ Then open:
 - <http://localhost:5173/tools/spikes/morph-cost.html>
 - <http://localhost:5173/tools/spikes/rectarea-cost.html>
 - <http://localhost:5173/tools/spikes/hair-motion.html>
+- <http://localhost:5173/tools/spikes/sky-env.html>
 
 Each page renders a live table and, when the sweep finishes, publishes the same data to
 `window.__SPIKE_RESULTS__` and logs one console line prefixed `SPIKE_RESULT `.
 
-Query parameters (all three pages): `repeats`, `frames`, `warmup`, `passes`, `width`, `height`,
+Query parameters (all four pages): `repeats`, `frames`, `warmup`, `passes`, `width`, `height`,
 `forceWebGL=1`. `morph-cost.html` also takes `normals=1` to include morph normals.
 `hair-motion.html` also takes `cpuIterations`, `checkFrames`, and **`breakFtl=1`**, which removes
 the Follow-The-Leader projection and nothing else so the segment-length check can be watched
 going red.
+`sky-env.html` also takes `pmrem=<128|256|512>` (which cube size the working environment uses),
+`probe=<n>` (the measurement target's size; must be a multiple of 32 — see the row-padding note in
+its readback helper), `bakes=<n>`, **`nofigure=1`**, which drops the 11.5 MB GLB and measures the
+spheres alone, and **`only=<sections>`** — a comma list drawn from `survival`, `rebake`, `rotation`,
+`sun`, `background`, `frame`. §A and the bake always run; everything else is opt-out, because
+narrowing a hypothesis needs a two-minute pass rather than a twenty-minute one.
+⚠️ Its `passes` defaults to **8**, not 1. At one pass the whole scene is a fifth of a millisecond
+and the baseline arm drifted 0.053 → 0.234 ms between runs — further than any delta it was meant to
+measure. See the constant's comment.
 
 ### Headlessly
 
@@ -58,7 +72,26 @@ node tools/spikes/run.mjs --playwright /tmp/pw/node_modules/playwright
 node tools/spikes/run.mjs --playwright /tmp/pw/node_modules/playwright --webgl   # fallback tier
 ```
 
-The runner starts vite itself, drives all four configurations, and writes a JSON file and a
+`sky-env.html` has its own runner because it needs pictures as well as numbers — the whole claim
+is "the object goes black when the environment is removed", and that is a statement about pixels:
+
+```
+node tools/spikes/sky-env-run.mjs                     # results/sky-env.json + results/sky-env-shots/
+node tools/spikes/sky-env-run.mjs --query "pmrem=512" --out /tmp/shots
+```
+
+It writes `page.png` (the whole instrument, tables and all) plus one canvas PNG per arm, so the red
+proof can be looked at rather than taken on trust. Expect it to take about twenty minutes, and most
+of that is not rendering: toggling `scene.environment` between a texture and `null` changes the
+material cache key, so every arm switch recompiles every lit material on the figure, transmission
+shader included. Measured on the page itself, §D0's `first render() ms` column — the first
+`render()` after `scene.environment` is pointed at a DIFFERENT texture takes **43.6-56.5 ms** across
+the three occurrences in one run, against **0.4-0.5 ms** when only that texture's CONTENTS changed.
+🎯 Which is the finding a scene system should take from this spike: keep ONE environment render
+target for the life of the renderer and re-bake into it. Allocating a target per scene buys a
+50 ms pipeline rebuild on every change and nothing else.
+
+The main runner starts vite itself, drives all four configurations, and writes a JSON file and a
 matching page screenshot to `results/` for each. `--mode headless|headed|auto` picks the browser
 mode; `--webgl` forces the WebGL2 backend and suffixes the output files `.webgl2`.
 
