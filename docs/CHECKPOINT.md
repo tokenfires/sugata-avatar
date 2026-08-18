@@ -956,8 +956,15 @@ requirement, `7007f39` source sweep + viewer, `18a348a` hairstyle targets, `a12d
 
 ### ⏭️ Next, in the order I would take them
 
-1. **Fix `park`'s navy ground and `beach`'s mauve floor.** Diagnosed (the rim), unrepaired, and it is
-   the loudest thing in the one scene a judge could name.
+1. ~~Fix `park`'s navy ground and `beach`'s mauve floor.~~ ✅ **DONE, `36ba35d`.** Attributed by
+   removing one light at a time: **the rim was the whole of it** — zeroing it takes park's floor from
+   hue 219 to 138 while nulling the ENVIRONMENT leaves it blue. It also explains why park was 5×
+   worse than beach: a fixed-irradiance blue light dominates a dark albedo more completely.
+   `scales.rim = { irradiance: 0.05, distanceInHeights: 0.5 }` on both exteriors; park hue
+   219.0 → 169.4, beach saturation 0.202 → 0.035. ⚠️ Beach's floor is now near-NEUTRAL rather than
+   sand-COLOURED — it stopped being lilac, which was the filed defect; warmth is a separate item.
+   ⚠️ And `layers` cannot do this: three's node path tests light-versus-CAMERA (`Renderer.js:973`),
+   not light-versus-object.
 2. **Decide the primitive question for SHORT hair.** It is now a regime statement, not a hunch, and
    it blocks the entire men's set. A scalp-shell surface with strand detail is the candidate nobody
    has costed.
