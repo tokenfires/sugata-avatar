@@ -2710,6 +2710,95 @@ declared passed by whoever built it. And there is no preset-per-ethnicity item: 
 deliberately blended midpoint, the three ethnicity weights are already in the Macro tier, and a
 shipped library of ethnic presets is a product decision this document has no measurement for.
 
+## Phase 11 — Scene setting
+
+The brief's **R20** (added 2026-08-17) asks that the AI and the user be able to give the avatar an
+environment: *"typical situations through someone's day"* first, and *"vacations, going to the
+beach, out to dinner"* second. The design, the measurements it rests on and the three constraints
+that were binding before any art live in [`research/scene-system.md`](research/scene-system.md).
+
+🎯 **The design's load-bearing claim, and it is what orders this phase: a scene is mostly LIGHT.**
+The pixels behind the avatar are a minority of the frame; the light falling on them is all of it.
+A beach is a hard high sun, a whole-sky blue fill and a warm bounce from sand at ~0.35 albedo — not
+sand pixels. So the phase spends its first four items on light and environment and its last on set
+dressing, and set dressing is the first thing to cut.
+
+⚠️ **Two constraints were binding before the first line of design.** `assets/` is 232 MB against
+git-LFS's free 1 GB/month, so **scenes are procedural or they do not ship**; and every gate number in
+this document was measured under the studio rig, so a scene that re-lights the figure silently
+retires the measured record. 11.7 is the answer to the second and it is not optional.
+
+🎯 **And the thing already installed that decided the architecture:** `SkyMesh` — a Preetham analytic
+sky, written in TSL, targeting `WebGPURenderer`, driven by five uniforms — ships inside
+`node_modules/three/examples/jsm/objects/SkyMesh.js` at r185, MIT. `PMREMGenerator` is exported from
+`three/webgpu` and its `fromScene()` works after `renderer.init()`. The most expensive part of an
+outdoor scene is free, in our exact stack. Reuse before build.
+
+- [ ] **11.1** `render/Scene.js` — the scene description, the resolver, and `studio` re-expressed as
+      a scene. No new look; this is the shape that everything after it hangs on. A scene is a plain
+      object of numbers and names: `sun`, `lights` (the schema `LightingRig.FORM_LIGHTS` already
+      uses), `ground`, `air`, `exposure`, and either `sky` or `room`.
+      Gate: **MEASURED** — `Avatar.create({ background: 'studio' })` renders **byte-identical** to
+      HEAD's plate through the new path, same seed, same step count, quoted with `bitident=` per the
+      standing plate rule. A refactor that changes a pixel is not this item.
+- [ ] **11.2** Sky and environment — `SkyMesh` → cube → `PMREMGenerator.fromScene()` →
+      `scene.environment` **and** `scene.background`, with the sun disc hidden during the env bake
+      exactly as `SkyMesh`'s own docstring instructs. The key light is aimed along the same
+      `sunPosition` and takes its colour and irradiance from the same elevation, so a scene cannot
+      have its sky and its key disagree.
+      🚩 **This is the largest missing term in the renderer, and it is missing to three decimal
+      places**: `docs/CHECKPOINT.md` §7 measures IBL at **0.00%** of a forehead pixel, because
+      `scene.environment` and `environmentNode` are both null. Every skin, eye and hair number in
+      this repository was measured with no image-based light at all.
+      Gate: **MEASURED + RED** — a light-path decomposition on the same probe §7 used shows IBL
+      taking a stated non-zero share; and a red proof that removing the PMREM changes the frame.
+      ⚠️ Re-run the eye and skin gates and state which move — they will, and that is the item's
+      cost, not a regression.
+- [ ] **11.3** Ground — a plane carrying the scene's own albedo and roughness, feeding bounce into
+      the figure, under the existing `GroundContact.js` shadow. The underside of the jaw is most of
+      what says "outdoors" and all of what says "beach".
+      Gate: **MEASURED** — mean luma of the jaw underside against ground albedo across three arms,
+      monotone, with a null control on a ground the figure does not stand over.
+- [ ] **11.4** The interior model — an emissive room box whose **window samples the same sky at the
+      same sun position**, plus fixtures at their own colour temperature. 🎯 One sun serves both
+      families, so an interior inherits time-of-day for free and the two cannot drift apart.
+      Gate: **MEASURED** — moving `sunPosition` alone moves the interior's own key direction and
+      colour, with the room geometry held; and a null control at a walled-off window.
+- [ ] **11.5** Air — one height-fog / haze depth cue, scene-parameterised.
+      Gate: **MEASURED** — figure-to-background separation at the silhouette improves by a stated
+      margin at a stated haze, with the ⚠️ that a whole-frame mean cannot see a silhouette; measure
+      inside a band mask.
+- [ ] **11.6** The twelve scenes authored, and the API: `avatar.setScene( id )`,
+      `avatar.scene.suggest()`, `avatar.scene.pin( id )` — mirroring the wardrobe's agency pattern
+      from R18 rather than inventing a second idiom. Six ordinary (`bedroom-morning`, `kitchen`,
+      `desk`, `living-room`, `street`, `bedside-night`) and six occasional (`beach`, `restaurant`,
+      `cafe`, `hotel-balcony`, `park`, `rooftop-evening`).
+      ⚠️ Time of day defaults to the **user's local clock**. An avatar in noon sunlight at 11 p.m.
+      is uncanny in a way no shading quality repairs.
+      Gate: **CRITIC** — a blind judge is shown one plate per scene, unlabelled, and asked to name
+      the place and the hour. Scenes it cannot name are not scenes yet.
+- [ ] **11.7** 🚩 **Scene legibility gates, and `studio` declared the calibration control.** Every
+      committed gate assumes the studio rig, so scene gates must measure a property that holds in a
+      studio, on a beach and by candlelight alike: **can you still read the person?** Face median
+      luma as a fraction of the frame's own exposure; key-to-fill ratio inside a legibility band;
+      silhouette separation on **every** side; clipping under G5's share; a catchlight present in
+      every scene.
+      ⚠️ **Every clause is a ratio, a rank, or masked.** Six of this project's eight structurally
+      blind statistics were whole-frame means, and a scene system is exactly where a seventh would
+      be written.
+      Gate: **RED** — each clause goes red on a deliberately unreadable scene, pasted.
+- [ ] **11.8** Set silhouettes — horizon line, table edge, window frame, doorway. Procedural,
+      defocused, at the right depth. The last 10% and the first thing to cut.
+      Gate: **CRITIC** — the judge's scene-naming rate from 11.6 improves, or the item is dropped.
+
+⚠️ **NOT in this phase, recorded so it is not relitigated:** no downloaded HDRIs or set meshes (the
+LFS constraint); no level editor, furniture library or navigable space (the camera frames a person);
+no weather simulation (overcast is `turbidity` and costs nothing; rain is particles and is a later
+phase if ever); no baked lighting; and **no second lighting engine** — a scene that needs a light
+`LightingRig` cannot express is a request against `LightingRig`, not a fork of it.
+
+---
+
 ---
 
 ## Standing constraints
