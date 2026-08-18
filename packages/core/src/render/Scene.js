@@ -568,7 +568,11 @@ export const SCENES = Object.freeze( {
              */
             fill: Object.freeze( { irradiance: 0.58 } ),
 
-            rim: Object.freeze( { irradiance: 0.1625 } )
+            rim: Object.freeze( { irradiance: 0.05, distanceInHeights: 0.5 } ),
+            // Same repair as `park.scales.rim` — read the measurement table there; this floor is
+            // sand at linear 0.35 rather than grass at 0.093, so the same fixed blue rim showed
+            // as lilac-grey instead of navy. One defect, two magnitudes.
+            kicker: Object.freeze( { distanceInHeights: 0.5 } )
         } ),
 
         /**
@@ -781,7 +785,55 @@ export const SCENES = Object.freeze( {
          */
         scales: Object.freeze( {
             fill: Object.freeze( { irradiance: 0.28 } ),
-            rim: Object.freeze( { irradiance: 0.1625 } )
+            /**
+             * 🎯 **THE RIM IS A SUBJECT LIGHT AND IT WAS PAINTING THE FLOOR. MEASURED 2026-08-18 BY
+             * REMOVING ONE LIGHT AT A TIME, `park`, body framing, a floor rect clear of the figure:**
+             *
+             *     arm                              floor RGB              hue     sat
+             *     shipped                          38.07 54.02 83.54     219.0   0.544
+             *     rim irradiance 0                 42.39 55.04 46.28   **138.4** 0.230
+             *     rim AND kicker 0                 40.78 53.83 45.68     142.5   0.242
+             *     `?noenv` (sky environment nulled, rim kept) 30.98 34.35 63.28   233.7   0.510
+             *
+             * **The rim is the whole of it.** Zeroing it takes the floor from navy to green;
+             * nulling the ENVIRONMENT leaves it blue, so the sky is not the cause. A blind judge
+             * called this ground *"dark water, or a hole in the frame"* and explicitly rejected
+             * grass, against a declared albedo at hue 92.1.
+             *
+             * 🎯 **AND IT EXPLAINS WHY `park` IS FIVE TIMES WORSE THAN `beach`, which nobody had
+             * accounted for.** The rim is a FIXED irradiance, so the darker the ground albedo the
+             * more completely it dominates: sand at linear 0.35 comes out mildly mauve, grass at
+             * 0.093 goes fully navy. One defect, two magnitudes, one cause.
+             *
+             * ⚠️ **`layers` CANNOT FIX THIS AND I CHECKED RATHER THAN ASSUMING.** three's node path
+             * tests `object.layers.test( camera.layers )` for LIGHTS (`Renderer.js:973`) — that is
+             * light-versus-CAMERA, not light-versus-object, so there is no per-object light mask.
+             * `LightingRig.js` already records `layers` as *"measured inert"*.
+             *
+             * So the levers are the two this file can reach, and BOTH are needed — measured, at
+             * `park` body, floor hue:
+             *
+             *     distance 0.65 (shipped) 219.0 | 0.45 210.8 | 0.32 198.3 | 0.22 179.8
+             *     at distance 0.32: irradiance 2.6 → 188.9 | 1.3 → 167.1 | 0.6 → 153.6 | 0 → 141.4
+             *
+             * Standoff alone gets halfway; level alone leaves the panel reaching a 36-height floor.
+             * ⚠️ The residual at rim-zero is hue 141 against a declared 92.1 and it is CORRECT — a
+             * green plane under an open blue sky reads cyan-green. That is the sky doing its job.
+             *
+             * 🎯 **AND CUTTING THE RIM OUTDOORS IS NOT A HACK, IT IS THE MORE PHYSICAL CHOICE.**
+             * There is no saturated blue panel on a beach. Outdoors the thing that rims a subject IS
+             * the sky, and 11.2 put it there — measured at 25.9–38.2% of a face pixel. The studio
+             * rim is a cinematic device with no outdoor referent, and a blind judge shown all six
+             * plates reported the loudest violet in the set is now on the CONTROL.
+             * ⚠️ Recolouring it was REFUTED last round (a desaturated rim puts more red through skin
+             * and grows an orange SSS glow), so the hue stays and only the level moves.
+             *
+             * LOOKED AT, both scenes, body framing, before and after: `beach`'s floor goes from
+             * lilac-grey to a warm sandy beige, `park`'s from navy to green, and the figure still
+             * separates cleanly against the sky in both.
+             */
+            rim: Object.freeze( { irradiance: 0.05, distanceInHeights: 0.5 } ),
+            kicker: Object.freeze( { distanceInHeights: 0.5 } )
         } ),
 
         // Summer grass: linear (0.058, 0.093, 0.041). Dark, and green-dominant with blue lowest —

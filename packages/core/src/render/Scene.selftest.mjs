@@ -553,15 +553,22 @@ const scaleFactor = SCENES.beach.scales.rim.irradiance;
 const scaledRim = ( preset ) => authoredRim( preset ) * scaleFactor;
 
 report( '🎯 G13  a scene scales an edge light per framing, so one factor is two numbers',
-    Number.isFinite( scaleFactor )
-        && Math.abs( scaledRim( 'portrait' ) - 2.6 ) < 1e-9
-        && Math.abs( scaledRim( 'body' ) - 3.575 ) < 1e-9
+    // 🔴 THIS CLAUSE USED TO ASSERT THE PRODUCTS 2.6 AND 3.575 AND IT WENT RED THE FIRST TIME THE
+    // FACTOR MOVED — which is the failure this repository counts (`docs/LEARNINGS.md` §1.25r) in
+    // gate form: a magic number transcribed from whatever the table said the day it was written.
+    // What G13 is FOR is the property — one factor, two products, each the framing's OWN authored
+    // value times that factor — and the property is what it now asserts. A clause pinned to a
+    // constant tests the constant; a clause pinned to the relation tests the mechanism.
+    Number.isFinite( scaleFactor ) && scaleFactor > 0
+        && Math.abs( scaledRim( 'portrait' ) - authoredRim( 'portrait' ) * scaleFactor ) < 1e-9
+        && Math.abs( scaledRim( 'body' ) - authoredRim( 'body' ) * scaleFactor ) < 1e-9
+        && Math.abs( scaledRim( 'portrait' ) - scaledRim( 'body' ) ) > 1e-9
         && authoredRim( 'portrait' ) !== authoredRim( 'body' ),
     `rim ${ authoredRim( 'portrait' ) } x ${ scaleFactor } = ${ scaledRim( 'portrait' ).toFixed( 4 ) } at portrait ` +
     `and ${ authoredRim( 'body' ) } x ${ scaleFactor } = ${ scaledRim( 'body' ).toFixed( 4 ) } at body — ` +
     'the same factor, two numbers, because EDGE_LIGHTS authored two. An absolute 2.6 written into ' +
-    '`lights` would have delivered 2.6 into a body preset that authored ' +
-    `${ authoredRim( 'body' ) }, ${ ( 100 - 2.6 / authoredRim( 'body' ) * 100 ).toFixed( 1 ) }% under, silently` );
+    '`lights` would have delivered the portrait number into a body preset that authored ' +
+    `${ authoredRim( 'body' ) }, ${ ( 100 - scaledRim( 'portrait' ) / authoredRim( 'body' ) * 100 ).toFixed( 1 ) }% under, silently` );
 
 report( '🎯 G14  lightingRequestOf carries `scales`, so the axis reaches the rig at all',
     SCENE_IDS.every( ( id ) => lightingRequestOf( SCENES[ id ] ).scales === SCENES[ id ].scales )
@@ -583,7 +590,7 @@ report( '🎯 G15  `colour` cannot be scaled, at either door',
 report( '🎯 G16  a look and a scene compose on the same light without either being lost',
     ( () => {
 
-        // `dramatic` scales the rim by 1.25; `beach` scales it by 0.1625. Composed, the rim should
+        // `dramatic` scales the rim by 1.25; `beach` scales it by its own factor. Composed, the rim should
         // carry BOTH — a scene that overwrote the look, or a look that ignored the scene, would
         // read as one factor and there would be nothing to say which.
         const look = resolveLook( 'dramatic', 'portrait' ).rim.irradiance;
