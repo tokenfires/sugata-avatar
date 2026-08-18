@@ -3249,3 +3249,49 @@ evidence:    🚩 EVERY `beach` FIGURE IN 11.2 AND 11.3 WAS WRONG WHEN THE ITEMS
 anchor:      tools/critic/scene-probe.mjs /IBL SHARE/
 verify:      tools/critic/scene-probe.mjs /emit-markdown/
 ```
+
+## REQ-092 — the subject matte is a difference of two plates, and bloom joins the figure to the wall
+
+```request
+id:          REQ-092
+status:      OPEN
+target:      tools/critic/scene-gates.mjs
+filed-by:    the Phase 11.4/11.7 landing round
+filed-round: R12
+filed-at:    8f4a8cd
+first-filed: 2026-08-18
+change:      Build the subject matte from GEOMETRY — an ID/stencil pass — rather than by
+             thresholding where two loads of the same frozen frame differ with the figure hidden.
+             All five legibility clauses share this one input, so it is one repair, not five.
+evidence:    Measured on the shipped tree by an adversary and confirmed by opening the overlays:
+             the matte is inflated 1.2140-1.2853x on the five interiors. L4's clipping share is
+             therefore under-reported by 15.2-22.2%, and ⚠️ ITS OWN GUARD FIRES AT A 90% MATTE SHARE
+             WHILE THE WORST MEASURED IS 80.58% (`desk`) — the clause written to fix a denominator
+             ships with a 28%-wrong denominator, under its own guard.
+             🔴 L3 is worse than inaccurate. The boundary it samples is a ~30 px speckled band
+             floating ~100 px OUT IN THE WALL with the figure's real edge unsampled, so a silhouette
+             clause is measuring a dither cloud and goes RED on pictures where the subject is plainly
+             readable. Read off `kitchen-overlay.png` and `living-room-overlay.png` by looking.
+             ⚠️ THE CAUSE WAS ALREADY WRITTEN DOWN IN THE SAME FILE, one paragraph from the code:
+             "A difference matte cannot survive a GLOBAL VEIL: the grade's bloom spreads the blown
+             figure over the whole plate, every background pixel moves by more than the 2-code
+             tolerance." It was documented and relied on anyway.
+             🔴 AND THE OBVIOUS REPAIR WAS TRIED AND DOES NOT WORK, which is why this is a request
+             rather than a fix. An `?matte` arm on `avatar-plate.html` that removes the ground,
+             the backdrop and the room, blacks the clear colour and drives every figure material to
+             `color` black / `emissive` white renders a COMPLETELY BLACK FRAME. The figure's
+             materials are custom TSL node materials (`SkinMaterial`, `EyeMaterial`,
+             `HairMaterial`) with their own output nodes, and `.emissive` is not a lever any of
+             them reads. A real ID pass has to go through the node graph — an `outputNode`
+             override, or an MRT attachment off `GBuffer.js`, which already runs on the deferred
+             path and already knows which fragments are the figure.
+             ⚠️ Two smaller traps found on the way, worth recording: this page is served through
+             vite's `/@fs/` and its INLINE module is not import-rewritten, so a bare specifier
+             (`three/webgpu`) throws before `create()` runs; and importing three by relative path
+             instead would load a second module instance whose material classes the live renderer
+             has never seen.
+             Until this lands, read L3's interior reds as UNKNOWN and L4's clipping share as a floor
+             rather than a value. Both are declared in `scene-gates.mjs`'s own header.
+anchor:      tools/critic/scene-gates.mjs /buildSubjectMask/
+verify:      tools/critic/scene-gates.mjs /ID pass/
+```
