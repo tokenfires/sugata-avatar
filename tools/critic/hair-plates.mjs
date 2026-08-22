@@ -96,9 +96,6 @@ async function main() {
         await page.waitForFunction( () => typeof globalThis.__SUGATA_STEP__ === 'function',
             null, { timeout: 120000 } );
 
-        manifest.census = await page.evaluate( () => globalThis.sugata.subsystems() );
-        manifest.hair = await page.evaluate( () => globalThis.sugata.session?.hairMaterial?.describe?.() ?? null );
-
         // 🚩 PROVENANCE, IN THE SIDECAR RATHER THAN IN A README A READER HAS TO TRUST.
         //
         // The whole reason this file exists is that `captures/hair-r23-*` came off `hair.html`,
@@ -132,6 +129,31 @@ async function main() {
         } );
 
         await step( page, options.steps );
+
+        // 🔴 THE CENSUS IS READ *AFTER* THE FIRST STEP, AND IT USED TO BE READ BEFORE.
+        //
+        // These two lines sat above the provenance block, immediately after
+        // `waitForFunction( typeof __SUGATA_STEP__ === 'function' )` — i.e. after the page had
+        // DEFINED its step function and before it had ever DRAWN. Anything the material initialises
+        // lazily, on its first object update, therefore reported as absent in a sidecar describing
+        // a plate that has it.
+        //
+        // 🚩 IT COST R31 A DIAGNOSIS. `describe().envelope.fitted` came back FALSE on
+        // `?hairdefect=envelope-depth` and on the new `tt-envelope` arm alike, which reads exactly
+        // like R28's filed defect ("every live plate came back `envelope.fitted false`, i.e. `n`
+        // identically zero") — a real bug wearing the same face. It was the census that was stale,
+        // not the shell: `HairMaterial.js`'s lazy fit hangs off `envelopeCentre.onObjectUpdate`,
+        // which fires during a draw, and no draw had happened yet.
+        //
+        // ⚠️ This is the exact inverse of the failure `HairMaterial.js` guards against where it
+        // refuses to fit on the shipped arm — "a census that describes a shell the picture does not
+        // have, which is worse than one that says 'not fitted'". Both directions are the same
+        // defect: the sidecar and the plate must describe the same instant. Provenance read before
+        // the subject exists can report ANY lazily-initialised state as missing, and this file
+        // exists because a control was invalidated for want of provenance.
+        manifest.census = await page.evaluate( () => globalThis.sugata.subsystems() );
+        manifest.hair = await page.evaluate( () => globalThis.sugata.session?.hairMaterial?.describe?.() ?? null );
+
         manifest.plates.portrait = await shoot( page, path.join( options.out, 'portrait.png' ) );
 
         // The orbit. `focus` is on the figure's own axis at the camera's own height — see
