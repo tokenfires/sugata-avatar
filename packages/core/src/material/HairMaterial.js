@@ -1786,7 +1786,25 @@ export const HAIR_DEFECTS = {
         + '\u23ed CANDIDATE REPAIR, NAMED AND NOT BUILT: apply the chord ONLY to lights that have no '
         + 'shadow map AND only where the model is in its saturation regime — rim and kicker — and let '
         + 'the key keep the shadow it already has. Kept reachable, like `zinke-transmittance`, so the '
-        + 'next round inherits the probe rather than the argument.',
+        + 'next round inherits the probe rather than the argument. '
+        + '\U0001F534 THE REPAIR WAS MADE AND THE LINE IS CLOSED ANYWAY, WHICH IS THE USEFUL PART. '
+        + 'Removing the double-count (`direct()` now passes attenuateTT false) takes TT survival '
+        + '0.18% -> 0.52% of its unattenuated luma and the plate does not move: still (90,50,50) '
+        + 'against shipped (90,50,49). The CEILING was then measured directly rather than argued: '
+        + 'with `?ov=rim.irradiance:0` the rim supplies 91.21% of everything TT delivers, and the '
+        + 'ray cast says only 0.48% of visible fragments have a CLEAR path to the rim (1.44% at '
+        + '<= 2 crossings). So annihilating rim TT is CORRECT PHYSICS, not a model artefact, and it '
+        + 'necessarily removes nine tenths of the lobe. What any repair can recover is the other '
+        + '8.79%, which is warm (R/B 2.075) and worth about 2% of the mass. '
+        + '\U0001F3AF TT IS THEREFORE NOT THE "MUDDY" FIX ON THIS RIG, AND THE REASON IS GEOMETRIC '
+        + 'RATHER THAN A BUG: there is no fragment with a thin path to a back light, so the only '
+        + 'lobe that could carry hair-coloured light forward has nothing to carry it from. The '
+        + 'remaining candidate is TRT, the other coloured lobe, which needs a light near the view '
+        + 'axis — REQ-064. \u26a0\ufe0f The residual gap between 0.52% and the 8.79% ceiling is '
+        + 'cause (1) still standing: the chord over-attenuates the UNSHADOWED front rect lights, '
+        + 'where the ray cast says the key is clear for 63.84% of fragments and the model says '
+        + 'p50 n = 3.62. That has no clean repair, because it is the model\'s distribution and not '
+        + 'a coefficient.',
     'envelope-fixed-direction': '🔴 THE FALSIFICATION ARM FOR ROUND 28, AND IT IS THE ONE THAT ' +
         'DECIDES WHETHER ANYTHING WAS ACHIEVED. The envelope path length is evaluated toward a ' +
         'CONSTANT view-space direction instead of toward each light, so the term keeps every other ' +
@@ -3047,7 +3065,7 @@ export class HairLightingModel extends LightingModel {
      * multiplying it by exactly that: `lightColor` for a punctual light (already an irradiance) and
      * `lightColor · Ω` for a panel.
      */
-    scatter( toLight ) {
+    scatter( toLight, attenuateTT = true ) {
 
         const nodes = this.nodes;
         const tangent = this.tangent;
@@ -3131,7 +3149,13 @@ export class HairLightingModel extends LightingModel {
         // pays nothing: with no defect named the two extra quadratics are never emitted. It composes
         // with `?hairlobes=` rather than forcing `weightTT`, so the two changes stay separable and
         // the A/B is `?hairlobes=r,tt,trt` against `?hairlobes=r,tt,trt&hairdefect=tt-envelope`.
-        if ( nodes.defect === 'tt-envelope' ) {
+        // 🔴 AND IT IS APPLIED ONLY WHERE THE LIGHT HAS NO SHADOW OF ITS OWN — `attenuateTT`.
+        // The first version applied it in `scatter()` unconditionally, which meant it also ran on
+        // the `direct()` path. That path carries the key's co-located shadow-casting `SpotLight`,
+        // whose own docstring records that `lightColor` arrives already attenuated "by distance, by
+        // the spot cone AND by the shadow map". Multiplying a MODELLED occlusion onto a MEASURED one
+        // is not a tuning error, it is counting the same photons twice. `direct()` passes false.
+        if ( nodes.defect === 'tt-envelope' && attenuateTT ) {
 
             lobeTT = lobeTT.mul( this.envelopeEvents( toLight ).negate().exp() );
 
@@ -3271,7 +3295,10 @@ export class HairLightingModel extends LightingModel {
      */
     direct( { lightDirection, lightColor, reflectedLight } ) {
 
-        reflectedLight.directSpecular.addAssign( this.scatter( lightDirection ).mul( lightColor ) );
+        // `false` — TT is NOT given the envelope attenuation here. This is the one light on the rig
+        // that already carries a real shadow map in its `lightColor`, so the modelled chord would
+        // double-count it. See `scatter()`'s `attenuateTT` for the measurement that found it.
+        reflectedLight.directSpecular.addAssign( this.scatter( lightDirection, false ).mul( lightColor ) );
 
     }
 
