@@ -58,7 +58,14 @@ where TRT vanishes.
 
 🎯 **Therefore, with `weightTT = 0`, the forward hemisphere contains R and nothing else, and R has no
 colour.** The quadrature confirms it independently: under reading B the shipped `ā_f` prints
-**identically in all three channels to twelve digits**.
+identically in all three channels to **ten** digits (relative spread 1.627e-10).
+⚠️ *An earlier draft said twelve, and attributed the residual to float noise. Both wrong: the
+residual is REAL — it is TRT leaking through the tent weight's tail into `cos Δ > 0`. The mechanism
+claim is unaffected, but the residual has a cause and it is not rounding.*
+
+🎯 **And the verifier put a size on what is switched off: TT carries 88.4% of the fibre's entire
+scattering energy on a white fibre.** `weightTT = 0` is not "a lobe is disabled" — it is most of the
+BSDF.
 
 ---
 
@@ -76,8 +83,12 @@ convergence is O(h) across it, and the selftest's V8 bar is deliberately 1e-3, n
 **As the frame ships, Zinke's Eq. 5 delivers essentially no chromatic sharpening — 1.0096× — because
 there is nothing chromatic in the integrand.** With TT on it delivers 11.72×.
 
-Stated so it cannot be misread: the ratio is 11.6× larger on tt-on, and its *departure from neutral*
-— the part that IS the effect — is **1112×** larger.
+⚠️ **DO NOT QUOTE THE 1112× DEPARTURE-FROM-NEUTRAL FIGURE ALONE.** The arithmetic is right and the
+quantity is nearly meaningless on its own: it is a ratio of departures of a ratio, of an energy that
+is **3.66e-12 (shipped) against 6.30e-8 (tt-on)** — *both invisible*. Detached from those magnitudes
+it is this repository's own "normalised ratio dressed as a physical quantity" defect, the class
+CHECKPOINT §8 catalogues. The honest statement is the ratio itself: **1.0096× against 11.72×**, on a
+term whose absolute level §3 shows is negligible in both arms.
 
 ---
 
