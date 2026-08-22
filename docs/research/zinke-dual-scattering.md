@@ -410,3 +410,250 @@ compute ā_f from the shipped BCSDF and let the pedestal fall where Eq. 5 puts i
 3. **Figure 9's β units are unprinted. [I] degrees.** If a build uses them, that assumption is load-bearing.
 4. **The paper never renders black hair. [I].** Darkest is RGB absorption `(0.3, 0.6, 1.2)`, Fig. 8.
    Our regime is outside every figure in the paper.
+
+---
+
+# 9. ā_f BY QUADRATURE OVER THE SHIPPED BSDF — the number, measured
+
+**Round:** quadrature build, 2026-08-22, appended by a second agent. Sections 0–8 above are the
+literature read and are not modified here.
+
+| | |
+|---|---|
+| Instrument | `tools/critic/hair-af.mjs` (new), gated by `tools/critic/hair-af.selftest.mjs` (new) |
+| `f_s` | `hairScatteringValue(...).total` from `packages/core/src/material/HairMaterial.js` |
+| Material sha256 | `09f748639e6078e56e8e0e043bbc5e8ffcabcc4b6d36ad80c84a04522882cd88` — **identical to the file at `5bba1bb`**, verified `git show 5bba1bb:packages/core/src/material/HairMaterial.js \| shasum -a 256` |
+| Colour | `baseColourDerivation().linear` = `(1.050578e-2, 4.360575e-3, 3.836711e-3)`, `#1A0E0C` |
+| Quadrature | midpoint, 180 × 360 in `(u = sin θ_o, Δ)`; `dω = du dφ` so there is no Jacobian to discretise |
+| Command | `node tools/critic/hair-af.mjs` · `node tools/critic/hair-af.selftest.mjs` |
+
+Every number in §9 is reproduced by those two commands. Nothing here is derived in prose.
+
+## 9.1 What was actually integrated, and the two readings that are both reported
+
+§2.2 above marks the meaning of the `1/π` **[D]** and tells a build agent to implement Eq. 6 as
+printed. Implementing it as printed exposes an ambiguity the paper never resolves: **is `Ω_f` fixed
+in the fibre frame, or defined relative to each incident azimuth `φ`?** Both are computed and both
+are reported, because picking one would be exactly the invention this file's §8 warns against.
+
+Since `f_s` depends only on the relative azimuth `Δ = φ_o − φ_i`, both collapse onto one 2-D
+quadrature with different azimuthal weights:
+
+```
+    ā(θ_d) = (cos θ_d / π) ∫_{-1}^{1} ∫_0^{2π} W(Δ) f_s(θ_d, θ_o, Δ) dΔ du,     u = sin θ_o
+
+    reading A  "fixed frame"     W_front(Δ) = π − |Δ − π|      (tent, peaks at forward)
+    reading B  "relative frame"  W_front(Δ) = π on (π/2, 3π/2), else 0
+```
+
+**[D]** Both carry the same total weight `∫W dΔ = π²`, so they agree exactly on any BSDF that is
+azimuthally flat and differ only in how that weight is distributed over `Δ`. **[D]** Reading B is
+the one consistent with Zinke's own `s̃_f` ("1/π for forward scattering directions and zero for
+backward", p. 4), which is unambiguously relative.
+
+**Which half is forward. [V] + [V].** `Δ = π` is straight-through transmission: Karis' TT azimuthal
+term as mirrored in `azimuthalValues`, `exp(−3.65 cos φ − 3.98)`, is maximal at `cos φ = −1`, and
+Zinke §3.1 p. 4 says "the strong TT component of hair fiber scattering is included in the front
+half-cone". So `Ω_f = {cos Δ < 0}`. Getting this backwards silently swaps `ā_f` and `ā_b`, which is
+why V5 below gates it.
+
+## 9.2 🔴 THE VALIDATIONS, RUN BEFORE THE REAL ONE. 14/14, exit 0
+
+Every expected value was written into the source before the run. All measured **[M]** this session
+by `node tools/critic/hair-af.selftest.mjs`.
+
+| # | Known answer | Expected | Actual | Tolerance |
+|---|---|---:|---:|---|
+| V1 | Eq. 6 on `f_s ≡ 1` returns `\|Ω_f\| = 2π` | 6.28318530718 | 6.28318530718 | 7.232e-10, derived as `8·N·ε·\|Ω_f\|` |
+| V2 | `∫ M_p dx = 1` over its own variable | 1 | 1.00000000000 | 1e-9 |
+| V3A | `f_s = 1/4π`, `θ_d = 0°` → `cos θ_d / 2` | 0.5 | 0.500000000000 | 1.151e-10 |
+| V3A | `f_s = 1/4π`, `θ_d = 60°` → `cos θ_d / 2` | 0.25 | 0.250000000000 | 1.151e-10 |
+| V3B | same, reading B, 0° / 60° | 0.5 / 0.25 | 0.5 / 0.25 | 1.151e-10 |
+| V4a | all lobes off → 0 | 0 | 0 | exact |
+| V4b | perfectly absorbing fibre (`C = 0`, R off) → 0 | 0 | 0 | exact |
+| V4c | **control:** R alone on a black fibre is NOT 0 | > 1e-6 | 3.187227e-2 | predicate |
+| V5A | `ā_f + ā_b` = the whole-sphere integral | 6.604304049e-2 | 6.604304049e-2 | 1e-12 |
+| V5B | same, reading B | 6.604304049e-2 | 6.604304049e-2 | 1e-12 |
+| V6 | `f_s` is reciprocal | 0 | 1.38778e-16 | 1e-15 |
+| V7 | `ā_f < 1` (Eq. 11/13 diverge at 1) | < 1 | 0.131159 max | — |
+| V8 | halving the step moves `ā_f` < 1e-3 relative | < 1e-3 | 8.559e-4 | — |
+
+**V3 is the load-bearing one.** For a constant `f_s = c`, Eq. 6 collapses to
+`ā_f = (cos θ_d/π)·c·2·π² = 2π c cos θ_d`, and at `c = 1/4π` — **this project's own
+`?hairdefect=unit-bsdf` probe constant, the BSDF of a perfect diffuser** — that is exactly
+`cos θ_d / 2`. It exercises the `1/π`, the `cos θ_d`, the measure and both `W`s end to end against a
+closed form, and it reproduces to twelve digits.
+
+**V4c is the clause that makes V4b mean anything.** Setting the base colour to black does *not*
+give `ā_f = 0`: R never enters the fibre, is achromatic, and survives at `3.187e-2`. "Perfectly
+absorbing" in this BSDF has to be spelled by disabling R as well. **[M]** — and that fact is the
+whole of §9.4.
+
+**Convergence. [M].** At 180 × 360 versus 360 × 720, the worst relative movement anywhere in the
+tables is **8.559e-4** (`shipped`/A/`θ_d = 80°`); typical rows move 1e-5 to 4e-5 and quarter their
+error per halving (O(h²)). The rows sitting on `W_B`'s step in `Δ` only halve it (O(h)), which is
+the honest order for a midpoint rule across a discontinuity. **Read every table below to three
+significant digits and no further.**
+
+## 9.3 ā_f, per RGB channel, over θ_d
+
+Grid 180 × 360. `#1A0E0C`. Three significant digits.
+
+**Arm `shipped` — `HAIR_DEFAULTS` exactly, i.e. `weightTT = 0`, TT OFF, as the frame renders today.**
+
+| θ_d° | ā_f.R (A) | ā_f.G (A) | ā_f.B (A) | R/B | ā_f (B), all three | R/B |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 3.2047e-2 | 3.2010e-2 | 3.2006e-2 | 1.0013 | 3.1872e-2 | 1.0000 |
+| 20 | 3.2143e-2 | 3.2106e-2 | 3.2102e-2 | 1.0013 | 3.2765e-2 | 1.0000 |
+| 40 | 2.5663e-2 | 2.5639e-2 | 2.5637e-2 | 1.0010 | 2.6984e-2 | 1.0000 |
+| 60 | 1.0204e-2 | 1.0194e-2 | 1.0194e-2 | 1.0010 | 1.0502e-2 | 1.0000 |
+| 80 | 2.0796e-3 | 2.0782e-3 | 2.0781e-3 | 1.0007 | 1.9251e-3 | 1.0000 |
+
+**Arm `tt-on` — the same with the forward lobe restored (`?hairlobes=r,tt,trt`).**
+
+| θ_d° | ā_f.R (A) | ā_f.G (A) | ā_f.B (A) | R/B | ā_f.R (B) | ā_f.G (B) | ā_f.B (B) | R/B |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 1.1662e-1 | 8.7474e-2 | 8.4170e-2 | 1.3855 | 1.3083e-1 | 9.6952e-2 | 9.3104e-2 | 1.4052 |
+| 20 | 1.0471e-1 | 7.8871e-2 | 7.5972e-2 | 1.3782 | 1.1761e-1 | 8.7590e-2 | 8.4216e-2 | 1.3966 |
+| 40 | 6.3702e-2 | 4.8183e-2 | 4.6530e-2 | 1.3691 | 7.1330e-2 | 5.3324e-2 | 5.1403e-2 | 1.3877 |
+| 60 | 1.8407e-2 | 1.4199e-2 | 1.3803e-2 | 1.3336 | 2.0014e-2 | 1.5153e-2 | 1.4695e-2 | 1.3620 |
+| 80 | 2.3357e-3 | 2.1678e-3 | 2.1551e-3 | 1.0838 | 2.2205e-3 | 2.0285e-3 | 2.0140e-3 | 1.1026 |
+
+`ā_b` at `θ_d = 0`, reading A: `shipped` `(3.3996, 3.3437, 3.3385)e-2`; `tt-on`
+`(4.9030, 4.3508, 4.2885)e-2`. Reading B: `shipped` `(3.4171, 3.3575, 3.3519)e-2`; `tt-on`
+`(3.4813, 3.4029, 3.3951)e-2`. **[M]**
+
+## 9.4 🎯 THE HEADLINE, AND IT IS A MECHANISM FINDING RATHER THAN A NUMBER
+
+**All of ā_f's chromaticity comes from TT, and TT ships off.**
+
+Under reading B the shipped `ā_f` is **exactly achromatic to twelve digits** — the three channels
+print identically. That is not a bug in the quadrature; it is the BSDF. With `weightTT = 0` only
+R and TRT remain, R is achromatic by construction (it never enters the fibre; `azimuthalValues`
+gives `N_R` no `colour` argument), and TRT's azimuthal term `exp(17 cos φ − 16.78)` evaluates to
+`exp(−33.78) ≈ 2e-15` at `cos φ = −1` — **TRT lives entirely in the BACK hemisphere.** So the
+shipped front hemisphere is R, and R has no colour. Reading A's `1.0013` is the small leak of TRT
+through the tent weight's tail into `cos Δ > 0`, and nothing else. **[M] + [D]**
+
+That is the answer to the round's headline question, and it is not the answer the round expected:
+**the chromaticity sharpening the six blind judges asked for is available from this BSDF, but only
+through the lobe that is currently disabled.**
+
+## 9.5 THE CONSEQUENCE: `T_f = d_f · ā_f^n` at `d_f = 0.7`, `θ_d = 0`
+
+`d_f = 0.7` is **[V]** (Zinke p. 4). The four `n` values are this project's own measurements,
+carried in from the brief that owns each. Reading A; reading B is in the tool's output and differs
+in the third digit for `shipped` and by ~10% for `tt-on`.
+
+**Arm `shipped` — `ā_f = (3.2047, 3.2010, 3.2006)e-2`, `ā_f.R/ā_f.B = 1.00127`**
+
+| n | T_f.R | T_f.G | T_f.B | **T_f.R / T_f.B** |
+|---:|---:|---:|---:|---:|
+| 0 (`T_f = 1`, [V] p. 4) | 1 | 1 | 1 | 1.0000 |
+| 1.1890 | 1.1708e-2 | 1.1692e-2 | 1.1690e-2 | **1.0015** |
+| 4.0654 | 5.8954e-7 | 5.8677e-7 | 5.8651e-7 | **1.0052** |
+| 4.7507 | 5.5787e-8 | 5.5480e-8 | 5.5451e-8 | **1.0061** |
+| 7.5500 | 3.6625e-12 | 3.6305e-12 | 3.6275e-12 | **1.0096** |
+
+**Arm `tt-on` — `ā_f = (1.1662, 0.87474, 0.84170)e-1`, `ā_f.R/ā_f.B = 1.38548`**
+
+| n | T_f.R | T_f.G | T_f.B | **T_f.R / T_f.B** |
+|---:|---:|---:|---:|---:|
+| 0 | 1 | 1 | 1 | 1.0000 |
+| 1.1890 | 5.4384e-2 | 3.8636e-2 | 3.6907e-2 | **1.4735** |
+| 4.0654 | 1.1248e-4 | 3.4947e-5 | 2.9883e-5 | **3.7641** |
+| 4.7507 | 2.5795e-5 | 6.5808e-6 | 5.4807e-6 | **4.7065** |
+| 7.5500 | 6.2965e-8 | 7.1826e-9 | 5.3706e-9 | **11.7239** |
+
+🎯 **THE CHROMATICITY SHARPENING, AS ONE NUMBER PER ARM AT THE DEEPEST MEASURED `n`:**
+**1.00964× as the frame ships, 11.7239× with TT on.** That ratio is the "warms as it deepens
+instead of desaturating toward grey" the judges asked for across five rounds. Stated two ways so
+neither can be misread: the ratio itself is **11.612×** larger on `tt-on`, and its *departure from
+neutral* — the part that is the effect — is **1112.5×** larger
+(`(11.7239 − 1) / (1.00964 − 1)`). Both figures print from
+`node -e` over `averageAttenuation(..., 'A-front')` at `θ_d = 0`, `n = 7.55`.
+
+## 9.6 THE VERDICT ON THE ROUND'S WORKING HYPOTHESIS — CONFIRMED, EMPHATICALLY
+
+**Does a physically-derived `ā_f` make the multiple-scattering term small for near-black hair? Yes,
+overwhelmingly, on both arms and both readings. [M]**
+
+`ā_f` peaks at **3.28e-2** (shipped) and **1.31e-1** (`tt-on`) across all `θ_d`. `T_f` is therefore
+already **1.17e-2** at the shallowest measured crossing count `n = 1.189` — a factor of 60 below
+`d_f` itself — and **3.66e-12** at `n = 7.55`. Compare the term this replaces: `HAIR_DEFAULTS.scatter`
+ships at 1 and carries a measured **65.4%** of the groom's rise above its indirect floor
+(`HAIR_DEFAULTS.scatter`'s own comment, `5bba1bb`). Zinke's Eq. 5 evaluated over this project's own
+`f_s` says the correct value of that term is **twelve orders of magnitude below the smallest number
+in the frame.** §6's `[D]` prediction — "for a strongly absorbing near-black fibre `f_s` is small
+everywhere, so `ā_f` is small, so `ā_f^n` collapses within a couple of crossings" — is confirmed with
+the numbers attached.
+
+🔴 **And that is a finding with a sharp edge on it, not a licence to ship.** The multiple-scattering
+*pedestal* is real physics and it is essentially zero here — but the **chromaticity sharpening the
+judges want is carried by the same term**, and at `ā_f ≈ 0.03` there is no energy left in it to
+carry anything. **Both arms make the pedestal vanish; only the `tt-on` arm makes it vanish
+COLOURFULLY.** If Eq. 5 replaces slide 39, `T_f` does not dim the groom slightly — it deletes 65%
+of it. Whatever fills that hole is the next round's question and this file does not answer it.
+
+## 9.7 β̄_f — **[D]**, and the derivation is mine, not the paper's
+
+§4.1 above records that β̄_f has **[X] no defining equation in the ten pages**. The weighting used
+here is stated in `forwardVariance`'s docstring and is a derivation:
+
+```
+    β̄_f²(θ_d) = Σ_p ā_f,p(θ_d) β_p²  /  Σ_p ā_f,p(θ_d)
+```
+
+— each lobe's own longitudinal width, weighted by that lobe's share of `ā_f`, i.e. Eq. 6 run three
+times, once per lobe. At `θ_d = 0`, reading B, **[M]**:
+
+| arm | β̄_f.R | β̄_f.G | β̄_f.B |
+|---|---:|---:|---:|
+| `shipped` | 0.174533 | 0.174533 | 0.174533 |
+| `tt-on` | 0.114809 | 0.122988 | 0.124243 |
+
+`shipped` returns `β_R` exactly (0.1745 rad) for the same reason §9.4 gives: R is the only lobe in
+the front hemisphere, so the weighted average of one thing is that thing. **[D]**
+
+⚠️ **THE VARIABLE IS LOAD-BEARING AND THE IDENTIFICATION IS [D].** Zinke's `g` is defined in
+`θ_d + θ_i` — a *sum* of angles, i.e. twice Marschner's half-angle. `HairMaterial` stores β in
+Karis' `sinθi + sinθr`, and `HAIR_BETA_R`'s own comment records `β_K = 2 β_M`. The two are the same
+variable to first order in the angles, so the widths above need no factor of two — **but that is a
+small-angle identification made here, not a quoted equivalence.** §8 item 3's warning about Figure
+9's unprinted units is untouched by this: no value from Figure 9 was used.
+
+## 9.8 🔴 TWO PROPERTIES OF THE SHIPPED BSDF THAT BOUND EVERY NUMBER ABOVE
+
+1. **`weightTT = 0`. TT ships off.** `HAIR_DEFAULTS.weightTT`'s comment at `5bba1bb` gives the
+   reason (the rim `RectAreaLight` casts no shadow, three has had no rect-area shadow since issue
+   #14161, and TT transmits it straight at camera, rendering the groom blue). This is not a defect
+   introduced by this round — it is what ships — but it means **the shipped `ā_f` is an `ā_f` with
+   the dominant forward lobe deleted**, and §9.4 is the price.
+
+2. **The shipped BSDF has no `1/cos²θ_d`.** Marschner 2003 §4 writes `S = M_p N_p / cos²θ_d`;
+   neither the CPU mirror nor the TSL twin carries the divisor (`grep` for a `cosThetaD*cosThetaD`
+   divide in `HairMaterial.js` returns nothing). Whether that is right is a shader question and out
+   of this file's scope, but `ā_f` is an integral of `f_s`, so it moves the answer. Priced **[M]**,
+   reading B, as the ratio `ā_f(with divisor) / ā_f(as shipped)`:
+
+   | arm | θ_d = 0° | 30° | 60° |
+   |---|---:|---:|---:|
+   | `shipped` | 1.0237 | 1.7027 | 5.5822 |
+   | `tt-on` | 1.0105 | 1.3883 | 4.2485 |
+
+   At `θ_d = 0` it is a 1–2% question; by 60° it is a factor of 4–6. **Every table in §9.3–9.6 is
+   the as-shipped BSDF.** If the divisor is ever restored, §9 must be re-run — the verdict in §9.6
+   survives it comfortably (`ā_f` stays well under 0.6 at every angle) but the numbers do not.
+
+## 9.9 WHAT §9 DOES NOT ESTABLISH
+
+- **[X] There is still no published `ā_f` to check these against.** §8 item 2 stands. The validation
+  here is against *arithmetic* (V1–V8), not against a literature value, because no literature value
+  exists. Behavioural validation against Zinke Fig. 8/13 has **not** been done.
+- **[X] The A-versus-B ambiguity is not resolved, only bounded.** The two readings differ by up to
+  12% on `tt-on`'s `ā_f` and by a factor of ~1.4 on `T_f` at `n = 7.55`. Nothing in the paper picks
+  one. Reading B is preferred **[I]** on the `s̃_f` argument in §9.1 and nothing stronger.
+- **[X] No render was made.** Every number is CPU quadrature over the mirror. The mirror is held to
+  the shader's properties by `HairMaterial.selftest.mjs`, which is not the same as being the shader.
+- **[I] The four `n` values were taken as given from the brief.** They were not re-measured here and
+  no plate was captured for them.
