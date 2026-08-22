@@ -863,7 +863,9 @@ name. There is no style table; that is the thing to build.
 > 🔴 **SUPERSEDED BY §14, AND THIS PARAGRAPH IS WHY A HANDOFF NEEDS AN EXPIRY.** §14 (`44f41f4`,
 > *"Seven grooms out of one generator"*) BUILT the style table this paragraph asks for. At HEAD
 > `HAIR_STYLES` carries seven entries — `bob01 bob02 crop01 quiff01 long01 pixie01 lob01` — and
-> `apply_style()` rebinds **30** `STYLE_PARAMETERS` over the module globals. So "an ID string and
+> `apply_style()` rebinds **32** `STYLE_PARAMETERS` over the module globals (`hair_cards.py:419-441`
+> at `5bba1bb`; counted by `ast.literal_eval` of the tuple literal — an earlier draft of this note
+> said 30, which was itself the defect it describes). So "an ID string and
 > nothing else" was true when written and false one section later, in the same file.
 >
 > ⚠️ **It cost something on 2026-08-22:** this round's own briefing quoted it as current, because a

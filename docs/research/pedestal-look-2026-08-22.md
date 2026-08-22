@@ -77,10 +77,25 @@ The matched-mask re-measurement landed the same day (`tools/critic/hair-referenc
 `docs/research/hair-reference-2026-08-22.md`). It refutes §1's headline on two independent grounds.
 
 **(i) hair.md §2.1's "fringe" rect is contaminated with SKIN.** Of the 771 pixels in the top 5% of
-rect `[1480,540]-[1700,610]`, **616 lie in x ∈ [1520,1560]** and 769 of 771 lie below y = 570 — two
-tight blobs, not a distribution. The rect's own published p99 hex **`#96757e` (R150 G117 B126) is
-lit forehead skin showing through the fringe tips.** With the skin excluded the same rect's range is
-**p95/p50 3.565, not 4.936 — 28% lower.**
+rect `[1480,540]-[1700,610]`, **616 lie in x ∈ [1520,1560]** and a further 141 in x ∈ [1660,1680] —
+two tight blobs, not a distribution. The rect's own published p99 hex **`#96757e` (R150 G117 B126)
+is lit forehead skin showing through the fringe tips**; the p99 pixel is at **(1544,591)**, inside
+the left blob. Both the blob structure and the p99 identification were reproduced by an adversarial
+verifier on an independent decode.
+
+> 🔴 **TWO NUMBERS THAT FIRST APPEARED HERE ARE WITHDRAWN, AND ONE OF THEM WAS A CONCLUSION.**
+>
+> - *"769 of 771 lie below y = 570"* is **inverted**. The top-5% y-histogram is
+>   `{550:2, 560:58, 570:97, 580:141, 590:192, 600:281}` — **711 of 771 lie at y ≥ 570**, and only
+>   60 below it.
+> - *"skin excluded, p95/p50 = 3.565"* is **not a skin-excluded number**. The contamination is
+>   distributed in **X** (the two blobs above); that figure was obtained by cutting in **Y**, and a
+>   6× crop shows the skin band running the full height of the rect. It is the same contaminated
+>   rect with its bottom cropped off.
+>
+> 🎯 **So the reference fringe rect has no published hair-only dynamic range, and this document
+> should not have implied one.** What the rect is worth is unknown until the mask is cut in the axis
+> the contamination actually lives in.
 
 **(ii) Fringe-versus-groom was the entire discrepancy.** The reference's OWN fringe-to-whole-hair
 p50 ratio is **4.13**. On matched whole-hair masks:
