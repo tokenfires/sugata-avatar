@@ -144,15 +144,15 @@ import {
     vec4
 } from 'three/tsl';
 
-import { createHairMaterial, HairLightingModel } from '../../core/src/material/HairMaterial.js';
-import { GBuffer } from '../../core/src/render/GBuffer.js';
-import { configureHairMaterial, HAIR_OIT_MODES } from '../../core/src/render/HairOIT.js';
-import { LightingRig } from '../../core/src/render/LightingRig.js';
+import { createHairMaterial, HairLightingModel } from '../../packages/core/src/material/HairMaterial.js';
+import { GBuffer } from '../../packages/core/src/render/GBuffer.js';
+import { configureHairMaterial, HAIR_OIT_MODES } from '../../packages/core/src/render/HairOIT.js';
+import { LightingRig } from '../../packages/core/src/render/LightingRig.js';
 import {
     createTemporalResolve,
     TAAU_RESOLUTION_SCALE,
     TEMPORAL_AA_MODES
-} from '../../core/src/render/TRAAPost.js';
+} from '../../packages/core/src/render/TRAAPost.js';
 
 
 // --- the file format ---------------------------------------------------------------------------

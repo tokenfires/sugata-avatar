@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //
-// strand-spike.mjs — the capture and correctness driver for `packages/testbed/src/strand-spike.js`.
+// strand-spike.mjs — the capture and correctness driver for `tools/spikes/strand-spike.js`.
 //
 // ## What this tool does, and the one thing it refuses to do
 //
@@ -28,8 +28,8 @@
 // ## Why the `.tfx` files are mounted rather than copied
 //
 // `tfx_export.py` writes to wherever it is told, and on this tree that is a scratchpad outside the
-// repository. vite's root is `packages/testbed` and its `fs.allow` is the repo, so the page cannot
-// reach them by path. Copying them in would put six binaries totalling 11 MB into a tree that owns
+// repository. vite's root is the REPO (see `configFile` below) and its `fs.allow` is the repo, so
+// the page cannot reach them by path. Copying them in would put six binaries totalling 11 MB into a tree that owns
 // none of them and would make "which export is this plate of" a question about a stale copy. So
 // the server grows one middleware, `/tfx/strands-<count>.tfx`, resolved against `--tfx` at request
 // time — the file the plate is of is the file on disk, always.
@@ -59,7 +59,7 @@ const REPOSITORY_ROOT = fileURLToPath(new URL('../..', import.meta.url));
 // plates that look right and mean nothing.
 const GPU_FLAGS = ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars'];
 
-const PAGE_PATH = '/src/strand-spike.html';
+const PAGE_PATH = '/tools/spikes/strand-spike.html';
 
 const TFX_HEADER_BYTES = 160;
 
@@ -573,8 +573,15 @@ async function startViteServer(exports_) {
     },
   };
 
+  // 🚩 `vite.spikes.config.js`, NOT `vite.config.js`, and the difference is why this page moved.
+  // The main config roots vite at `packages/testbed`, so a spike page had to live under
+  // `packages/testbed/src/` to be served — and a page there is a SHIPPING page: `pages.selftest.mjs`
+  // closes over that directory in both directions and went UNDECLARED RED the moment this one
+  // appeared, because it is in neither `pages.js` nor `vite.pages.config.js`'s PAGES. It should
+  // never have been in either. `vite.spikes.config.js` roots at the repo for exactly this reason
+  // and its own header says so: "the spike pages live outside packages/testbed".
   const server = await createServer({
-    configFile: path.join(REPOSITORY_ROOT, 'vite.config.js'),
+    configFile: path.join(REPOSITORY_ROOT, 'vite.spikes.config.js'),
     plugins: [mountTfx],
     server: { port: 5191, strictPort: false, hmr: false, watch: { ignored: ['**'] } },
     logLevel: 'warn',
