@@ -1052,3 +1052,130 @@ briefing change worked.
 2. **Repair the matte**, which unblocks all five legibility clauses at once.
 3. The short-hair primitive question (§14), still the blocker for the men's set.
 4. 11.6's remaining six occasional scenes.
+
+
+---
+
+## 16. R31, 2026-08-22 — the primitive is decided, and "muddy" was never the pedestal
+
+**17 agents across two workflows, 0 errors, every deliverable adversarially verified.** Read the
+commit bodies; they carry the measurements. New docs: `docs/research/no-coloured-lobe-2026-08-22.md`,
+`zinke-dual-scattering.md`, `hair-reference-2026-08-22.md`, `pedestal-look-2026-08-22.md`, and the
+spec at `docs/superpowers/specs/2026-08-22-hair-frame-design.md` **with its own addendum retracting
+half of its body.**
+
+### 🎯 THE PRIMITIVE IS DECIDED: (b). Do not reopen it without new measurement.
+
+Short styles move to strands; the bob keeps cards plus a strand flyaway shell. Applied against the
+**pre-registered 2.0 ms**, in p50, minus the same-session empty arm, GPU render-pool time:
+
+| arm | 720×900 | 1920×1080 |
+|---|---:|---:|
+| **crop01 8,832 + shadow** | **1.556** | **1.870** ← the number the decision rests on |
+| bob 4,960 + shadow | 1.785 | 2.696 |
+| bob 11,408 + shadow | 2.943 | 4.185 |
+
+**(a) is refuted robustly** — the bob at the density that reads exceeds *every* parity figure on the
+record (1.46 / 1.71 / 2.00 / 2.36) at both resolutions with and without the shadow caster.
+
+🚩 **AND THE ACCEPT HALF IS PROVISIONAL ON ONE MEASUREMENT.** Every strand figure is raster+shade on
+a bare page — no TAAU, no G-buffer, no velocity write, no OIT composite, and **no skinning and no
+dynamics** (verified: zero `skin`/`bone`/`morph` symbols in `strand-spike.js`'s 1,128 lines) —
+against a card cost that is a whole-frame delta on the shipped deferred stack with a skinned groom.
+The missing term is nameable: **141,312 skinned points per frame plus the ribbon rebuild**, and it
+is plausibly larger than the crop's 0.13 ms margin. The comparison is generous to the prototype,
+which is why the **refusal** of (a) is safe and the **acceptance** of (b) is not yet.
+**P0: ribbons inside `alive.html`, delta against no-hair, body framing.** Blocking.
+
+⚠️ **`frostbitten`'s 3.3 ms never bound us.** On this machine (Apple M5 Max, 40 GPU cores) their
+whole hair cost is 2.168 ms at 11,400 strands and their sw OIT rasterizer alone is 1.403 ms — and
+that rasterizer is a transparency architecture we would not adopt.
+
+### 🎯 "MUDDY" IS NOT THE PEDESTAL. THE BSDF HAS NO ACTIVE COLOUR-CARRYING LOBE.
+
+**R cannot carry colour by construction** (`azimuthalValues`' R branch takes no `colour` argument;
+measured R/B **1.0307** on the plate) and it is 62% of the brightest luminance decile — so bright
+pixels are grey pixels. **TT is the coloured forward lobe and `weightTT = 0`.** **TRT is absent from
+the forward hemisphere** — `exp(17cosφ − 16.78)` is 2.14e-15 at `cosφ = −1` — and measures 0.10% of
+the mass. So the only thing tinting our hair is slide 39's **hack**, which is why three rounds of
+adjusting that hack could not fix a colour problem.
+
+**TT carries 88.4% of the fibre's scattering energy.** `weightTT = 0` is not "a lobe is off".
+
+🔴 **AND TT-ON WAS TESTED THIS ROUND AND IS STILL VIOLET**, with the corrected `#1A0E0C` albedo:
+R/B **1.824 → 0.763**, hue 1.5° → 273.1°, 28.96% of the frame. The TT term alone measures hue
+237.4° / sat 0.921 against the rim light's **231.8° / 0.941** — agreement to **5.7°**, so TT is
+transmitting `#0f30ff` essentially unmodified. **The albedo fix did nothing for it. The cause is the
+unshadowed rim alone**, and `LightingRig.js:611-613` is untouched at HEAD (irradiance 16, `#0f30ff`,
+`shadowFraction 0`); §14's rim repair applied to the **exterior scenes only**.
+
+⏭️ **The fix is the envelope chord, and R28 already built it.** R27 measured the rim as the most
+occluded direction in the groom — p50 **30** card crossings, mean 34.42, **0.04%** of pixels with a
+clear path, against the key's p50 0 and 76.66% clear. Attenuating TT by `exp(−σ·ℓ)` along R28's
+per-fragment per-light chord annihilates rim-lit TT while leaving key-lit TT (`n ≈ 0.76`) nearly
+untouched. Frostbite's Tier-3 fallback, which §10 already named as the tier that fits this rig.
+⚠️ **An EXTENSION of Zinke, not Zinke** — his `T_f` attenuates the global multiple-scattering term,
+not a single-scattering lobe. **The plate pair above is its control**: any candidate must take R/B
+back above 1.0 *while keeping TT non-zero*.
+
+### 🔴 MULTIPLE SCATTERING SHOULD BE ~ZERO, AND THAT IS A TRAP AS WELL AS AN ANSWER
+
+`ā_f` is **not a constant of Zinke's paper** — §4.1.1 states it is precomputed by numerical
+integration of Eq. 6 over whatever BCSDF you ship. `tools/critic/hair-af.mjs` does that quadrature
+(14/14 clauses, analytic expected values; V3 reproduces the closed form `cosθ_d/2` to twelve digits
+under both readings of Ω_f). Result: **`ā_f ≤ 0.131` everywhere**, so `T_f = d_f·ā_f^n` is 1.17e-2 at
+n = 1.189 and **3.66e-12** at n = 7.55, against a shipped `scatter` of 1 carrying **65.4%** of the
+groom.
+
+🚩 **DO NOT SHIP THAT.** Substituting Eq. 5 does not dim the groom — it deletes two thirds of it,
+**and deletes the only colour with it**, because `ā_f` is achromatic with TT off. **TT comes first.**
+
+🔴 **And R28's annihilation was TWO errors stacked.** Eq. 5 is `T_f = d_f · Π_{k=1..n} ā_f` —
+exponent **n**, `d_f` outside the product — while `HairMaterial.js` evaluated `ā_f^(1+n)` at
+`ā_f = √C`. Both base and exponent wrong. Keeping R27's own (sound) exit-scatter argument, the
+corrected form is **`√C · ā_f^n`**.
+
+### 🔴 WHAT THIS ROUND RETRACTED, INCLUDING ITS OWN
+
+- **"Our hair is 3.43× too bright" — WITHDRAWN.** Matched whole-hair masks give **1.03×**.
+  `hair.md` §2.1's fringe rect is **skin-contaminated** — its p99 hex `#96757e` is lit forehead, p99
+  pixel (1544,591). The dynamic-range shortfall is real but **0.58× encoded / 0.38× radiance**.
+  ⚠️ §2.1a's "four reference reads, four with R above B" is really **three hair reads and one skin
+  read**; the albedo correction stands on those three plus d'Eon's physical constant.
+- **The 2×2 factorial in the spec is DEAD AS SPECIFIED** — its Zinke arms cannot produce a colour
+  effect the shipped BSDF is incapable of. Not running it is how the ninth shading round was avoided.
+- **`~2.6 ms headroom` does not reproduce.** `alive.html` is **bimodal** on this machine (no-hair p50
+  6.53–13.27 across rounds of the identical URL). Use p95 or min-of-rounds, never p50.
+- **The blunt hem is the GROOM's, not the primitive's** — it survives into the strand arm. Our arc
+  lengths are median 244.2 mm (max 531.1) against Sintel's 101.5 (max 248.0). A `tfx_export.py`
+  tip-randomisation fix; a primitive change will not repair it.
+
+### ⚠️ Method, and two of these are about this round's own work
+
+1. 🔴 **`captures/` HAS NEVER BEEN TRACKED**, so every plate, table and manifest backing every round
+   had no history and no protection from a `git clean`. Now the DATA is kept (496 KB) and the PLATES
+   stay ignored (36 MB). The pattern had to become `/captures/**` not `/captures/` — **git will not
+   descend into an excluded directory, so a `!` negation inside one is never evaluated.**
+2. 🔴 **And that rule almost committed the answer key to an unrun blind panel.** Same defect
+   `blind_ab.mjs` carried until it was repaired the same morning, arriving by a different route.
+   **A structural guard only protects the path it is on.**
+3. 🚩 **A pre-registered threshold was renegotiated — by me, in the conservative direction — and an
+   agent refused it.** *"Renegotiating in the conservative direction is still renegotiating, and it
+   establishes the precedent."* Correct. Apply the registered number; file the reproduction failure
+   separately.
+4. ⚠️ **A caveat written is not a caveat closed.** This round wrote "these masks are not comparable",
+   then quoted the number in a commit headline anyway. **A cross-artefact comparison is not quotable
+   until its masks are matched — not "quotable with a caveat".**
+5. §1.25r reached **instance ten**, in a file whose own header lectures about it.
+
+### ⏭️ Next, in order
+
+1. **P0** — ribbons in `alive.html`, delta against no-hair, body framing. Unblocks (b)'s acceptance
+   and fills the one cell that could still upgrade the bob to (a): whether a 4,960-strand bob clears
+   2.0 at shipped framing. ⚠️ Two documents disagree on whether 4,960 is an adequate bob density and
+   **neither notices**; that fork is the largest unresolved item in the round.
+2. **TT + envelope attenuation**, against the R31 plate pair as its control.
+3. **Then** the pedestal form, with `ā_f` finally chromatic (11.72× against 1.0096×).
+4. **Then** REQ-064's near-axis light — the only way to light TRT, the other coloured lobe.
+5. `tools/critic/hair-reference.mjs` **has no selftest** and two false numbers in its comments, and
+   it is the tool that would define the factorial's mask. Gate it first.
