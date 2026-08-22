@@ -35,6 +35,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { decodePng, encodePng } from './png.mjs';
 import { encodedLuma, srgbToLinear } from './color.mjs';
@@ -52,17 +53,29 @@ import { erodeMask } from './hair-lightpath.mjs';
 // --- the masks, all in full-resolution pixel coordinates of the named file -------------------
 
 /** §2.1's fringe rect, verbatim. Reproducing its published percentiles is the control. */
-const FRINGE_RECT = { name: 'fringe rect §2.1', x0: 1480, y0: 540, x1: 1700, y1: 610 };
+export const FRINGE_RECT = { name: 'fringe rect §2.1', x0: 1480, y0: 540, x1: 1700, y1: 610 };
 
 /**
- * ⚠️ §2.1's FRINGE RECT IS NOT ALL HAIR, and this changes what its numbers mean. Measured here:
- * of the 771 pixels in its top 5%, 616 lie in x ∈ [1520,1560], 141 in x ∈ [1660,1680] and 14 in
- * x ∈ [1640,1660], and 769 of the 771 lie below y = 570 — two patches of lit FOREHEAD SKIN showing
- * through the fringe tips, visible in a 4x crop. §2.1's own p99 hex `#96757e` is that skin. So the rect's p95 (and
- * therefore its p95/p50 of 4.936) is a skin-to-hair ratio wearing a hair-contrast label.
+ * ⚠️ §2.1's FRINGE RECT IS NOT ALL HAIR, and this changes what its numbers mean. The contamination
+ * is two patches of lit FOREHEAD SKIN showing through the fringe tips, and §2.1's own published p99
+ * hex `#96757e` (R150 G117 B126) is that skin. So the rect's p95 — and therefore its p95/p50 of
+ * 4.936 — is a skin-to-hair ratio wearing a hair-contrast label.
  *
- * `fringe rect, hair only` is the same rect's TOP 30 ROWS, which contain 2 of those 771 pixels.
- * It is the honest fringe population and its dynamic range is the one to quote.
+ * 🔴 THE CONTAMINATION LIVES IN X, NOT IN Y, AND AN EARLIER VERSION OF THIS COMMENT HAD IT BACKWARDS.
+ * It claimed "769 of the 771 lie below y = 570". Re-derived twice, independently: of the top 5% the
+ * y-histogram in 10 px bands is {550: 2, 560: 58, 570: 97, 580: 141, 590: 192, 600: 280}, so only
+ * **60 lie below y = 570 and 710 lie at or above it**. The x-histogram is where the structure is —
+ * 616 in x ∈ [1520,1560], 140 in x ∈ [1660,1680], 14 in x ∈ [1640,1660].
+ *
+ * 🚩 SO `fringe rect, hair only` IS NOT SKIN-EXCLUDED AND MUST NOT BE QUOTED AS IF IT WERE. It cuts
+ * the rect in Y — the axis the contamination does not live in — and keeps 60 of the contaminated
+ * pixels rather than 2. It is a smaller rect, not a cleaner population. **The reference fringe has
+ * no published hair-only dynamic range and this tool does not produce one**; cutting in X is the
+ * repair and nobody has done it. `whole-hair` below is the mask to compare our groom against.
+ *
+ * @claim 60 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% below y=570 #1
+ * @claim 710 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% at or above y=570 #1
+ * @claim 616 :: node tools/critic/hair-reference.selftest.mjs :: fringe top-5% in x 1520-1560 #1
  */
 const FRINGE_HAIR_RECT = { name: 'fringe rect, hair only', x0: 1480, y0: 540, x1: 1700, y1: 570 };
 
@@ -90,7 +103,7 @@ const SECOND_RECT = { name: 'second band §2.2', x0: 1400, y0: 290, x1: 1660, y1
  * over the cheeks; the blue hair ornament at the left temple; the silhouette transition band.
  * It is therefore the groom's INTERIOR, which is the population our own solid-hair mask is too.
  */
-const WHOLE_HAIR_POLYGON = [
+export const WHOLE_HAIR_POLYGON = [
   [1658, 223], [1756, 237], [1819, 297], [1854, 381], [1871, 472], [1868, 549],
   [1840, 591], [1777, 626], [1700, 640], [1630, 633], [1560, 626], [1497, 612],
   [1420, 598], [1375, 570], [1357, 500], [1361, 416], [1399, 332], [1462, 269],
@@ -98,20 +111,20 @@ const WHOLE_HAIR_POLYGON = [
 ];
 
 /** Erosion applied to the polygon, in pixels, and the conservative core it is checked against. */
-const EROSION = 3;
+export const EROSION = 3;
 const EROSION_CONSERVATIVE = 25;
 
 /** Our own frame's crown rect, verbatim from `hair-lightpath.mjs`'s `RECTS['H3 crown mass']`. */
 const OUR_CROWN_RECT = { name: 'our crown H3', x0: 250, y0: 80, x1: 290, y1: 120 };
 
 /** `hair-pedestal.mjs`'s own constants — our captures render at this exposure and this cut. */
-const OUR_EXPOSURE = 4;
-const HAIR_SHADED_MAX = 1.5e-2;
+export const OUR_EXPOSURE = 4;
+export const HAIR_SHADED_MAX = 1.5e-2;
 
 // --- statistics ------------------------------------------------------------------------------
 
 /** Percentiles by nearest-rank on a sorted copy. No interpolation, so a value is always a pixel. */
-function stats(values) {
+export function stats(values) {
   const sorted = Float64Array.from(values).sort();
   const at = (q) => sorted[Math.min(sorted.length - 1, Math.max(0, Math.round(q * (sorted.length - 1))))];
   let sum = 0;
@@ -128,7 +141,7 @@ function stats(values) {
 
 // --- mask construction -------------------------------------------------------------------------
 
-function rectMask(width, height, rect) {
+export function rectMask(width, height, rect) {
   const mask = new Uint8Array(width * height);
   for (let y = rect.y0; y < rect.y1; y += 1) {
     for (let x = rect.x0; x < rect.x1; x += 1) mask[y * width + x] = 1;
@@ -137,7 +150,7 @@ function rectMask(width, height, rect) {
 }
 
 /** Even-odd crossing test, the boring one. */
-function polygonMask(width, height, polygon) {
+export function polygonMask(width, height, polygon) {
   const mask = new Uint8Array(width * height);
   const xs = polygon.map((p) => p[0]);
   const ys = polygon.map((p) => p[1]);
@@ -160,7 +173,7 @@ function polygonMask(width, height, polygon) {
   return mask;
 }
 
-function maskIndices(mask) {
+export function maskIndices(mask) {
   const indices = [];
   for (let k = 0; k < mask.length; k += 1) if (mask[k] === 1) indices.push(k);
   return indices;
@@ -359,8 +372,15 @@ function main() {
   //   3. the floor plate's radiance below HAIR_SHADED_MAX — a groom-mask pixel whose no-lobe,
   //      no-pedestal value is bright is a pixel where something BEHIND the groom resolved, and
   //      counting it measures the background's dynamic range and calls it hair's.
-  // Filter 3 is worth 0.5668 -> 0.1932 on the scatter-0 arm's p95. It is the whole difference
-  // between reproducing §9.2 and not.
+  // 🔴 FILTER 3 IS WORTH 0.5719 -> 0.2854 ON THE SCATTER-0 ARM'S p95 (encoded luma, 257,215 px
+  // before and 235,564 after), re-derived here from `captures/hair-r27-pedestal/trapg-s0.png`.
+  // An earlier version of this comment said "0.5668 -> 0.1932 … the whole difference between
+  // reproducing §9.2 and not". **0.1932 is §9.2's PUBLISHED value, from a DIFFERENT CAPTURE**, and
+  // this filter does not land on it — it lands 47.7% above it. The filter matters and its size is
+  // real; what it cannot do is close a cross-capture gap, and hair.md §9.6 says in as many words
+  // that cross-session plates are not comparable on this build.
+  //
+  // @claim 0.2854 :: node tools/critic/hair-reference.selftest.mjs :: filter 3, scatter-0 p95 #1
   const floor = readPlate(path.join(ours, 'floor.png'));
   const solid = new Uint8Array(groom.length);
   for (let k = 0; k < groom.length; k += 1) {
@@ -414,4 +434,13 @@ function main() {
   }
 }
 
-main();
+// 🚩 GUARDED, AND IT WAS NOT. `main()` ran at module scope, so `import`ing this file to reuse one of
+// its operators executed the whole tool — which is why `hair-reference.selftest.mjs` could not exist
+// until now. `tools/figure-pipeline/build_figure.py` has the identical defect and R31's tfx exporter
+// had to work around it; this is the same trap in a second language.
+//
+// `fileURLToPath`, not string surgery on the URL: this repository's path contains a space and a
+// non-ASCII character, so `import.meta.url` arrives percent-encoded. `blind_ab.mjs` records the same.
+const THIS_FILE = fileURLToPath( import.meta.url );
+
+if ( process.argv[ 1 ] && THIS_FILE === path.resolve( process.argv[ 1 ] ) ) main();
