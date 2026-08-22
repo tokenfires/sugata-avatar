@@ -1,5 +1,12 @@
 # The pedestal sweep, LOOKED at — and the four adjectives split cleanly
 
+> 🔴 **§1 OF THIS DOCUMENT WAS REFUTED THE SAME DAY IT WAS WRITTEN, BY A MEASUREMENT THIS ROUND
+> COMMISSIONED. READ §1 AND §1a TOGETHER OR NOT AT ALL.** The "2.03× / 4.30× too bright" claim does
+> not survive: `docs/research/hair-reference-2026-08-22.md` matched the masks and found our shipped
+> median is **1.03×** the reference's, not 4.30×. §1 is kept whole rather than edited away, because
+> the way it went wrong is the useful part — see §1a. Everything in §0 and §2–§6 is measured on our
+> own plates alone and is untouched by the refutation.
+
 **Measured 2026-08-22 at `49332d2`.** No new render, no new code, no GPU. Every plate and every
 number below already existed on disk in `captures/hair-r27-pedestal/`.
 
@@ -61,6 +68,74 @@ and roughly half the missing range, and something else is the other half. §3 an
 them.** The reference figure is a fringe RECT against our whole-groom MASK, and a fringe is a
 shadowed region while a groom includes the lit crown. Treat every "vs reference" cell as indicative
 of direction and magnitude and not as a gate until the matched-mask re-measurement lands.
+
+---
+
+## 1a. 🔴 THE REFUTATION — the caveat above was the whole effect, and the rect is not even hair
+
+The matched-mask re-measurement landed the same day (`tools/critic/hair-reference.mjs`,
+`docs/research/hair-reference-2026-08-22.md`). It refutes §1's headline on two independent grounds.
+
+**(i) hair.md §2.1's "fringe" rect is contaminated with SKIN.** Of the 771 pixels in the top 5% of
+rect `[1480,540]-[1700,610]`, **616 lie in x ∈ [1520,1560]** and 769 of 771 lie below y = 570 — two
+tight blobs, not a distribution. The rect's own published p99 hex **`#96757e` (R150 G117 B126) is
+lit forehead skin showing through the fringe tips.** With the skin excluded the same rect's range is
+**p95/p50 3.565, not 4.936 — 28% lower.**
+
+**(ii) Fringe-versus-groom was the entire discrepancy.** The reference's OWN fringe-to-whole-hair
+p50 ratio is **4.13**. On matched whole-hair masks:
+
+| | reference | ours, shipped | ratio |
+|---|---:|---:|---:|
+| p50, encoded | 0.2195 | 0.2255 | **1.03×** |
+| p50, encoded, conservative 25 px core | 0.2496 | 0.2255 | 0.90× |
+| p95/p50, encoded | **2.965** | 1.716 | 0.58× |
+| p95/p50, "as-if-ours" radiance | 4.65 – 5.17 | 1.977 | 0.38× |
+
+🎯 **So our hair is approximately the RIGHT BRIGHTNESS at the median and roughly half the right
+DYNAMIC RANGE.** "Too bright" is dead; "too flat" is real, and is the only half that ever mattered.
+
+**What this does NOT touch, and it is most of the document:** §0's visual split, §2's saturation
+deciles, §3's missing TRT, §4's level-down-chroma-up argument and §6's ordering are all measured on
+our own plates against each other. None of them cites the reference. The refutation removes one
+supporting number and leaves the thesis standing.
+
+**And §9.2's real argument survives intact and is now better stated:** the reference's whole-hair
+p95/p50 of **2.965 sits ABOVE every arm of our scatter sweep including `scatter` 0's 2.768.** No
+setting of slide 39's scalar reaches the reference's dynamic range. That is hair.md §0.6's
+floor-limited finding arriving with a matched denominator for the first time.
+
+### 🚩 The mechanism of the error, which is worth more than the number
+
+**The caveat was written and then the number was quoted in a commit headline anyway.** §1 states
+plainly that a fringe rect and a whole-groom mask are different populations, marks every cell
+"indicative … not a gate" — and `344e8f6` still led with "2.03x too bright". Writing a caveat is not
+closing one. A number that needs a caveat to be read correctly will be quoted without it, including
+by the person who wrote the caveat, inside a document about not doing that.
+
+**Rule, for the round note:** a cross-artefact comparison is not quotable until its masks are
+matched. Not "quotable with a caveat" — **not quotable.**
+
+### ⚠️ A knock-on for hair.md §2.1a that is a correction, not a reversal
+
+`#96757e` appears in §2.1a's table as one of **four** reference reads supporting the `#150F17` →
+`#1A0E0C` rotation, on the argument that all four have R above B. **That one is skin.** The other
+three (`#09040a`, `#120c10`, `#ab512f`) are hair and still carry R above B, and the physical
+argument is independent and decisive: d'Eon et al. EGSR 2011 §6.1's melanin cross-sections make
+`exp(−k·σa)` R > G > B at *every* concentration, so no melanin mixture produces `#150F17`.
+**The albedo correction stands on three reads and a physical constant.** Its fourth citation should
+be struck.
+
+### ⚠️ And the reference's brightest hair is BLUE-dominant
+
+Pixel (1530,410) on the reference's lit crown reads **R 78, G 82, B 111** — the brightest hair in
+that frame is the same hue as the background behind it, which is why a colour-threshold hair mask
+was impossible and the whole-hair mask had to be a hand-drawn polygon.
+
+🎯 **That is R being achromatic and taking the LIGHT's colour, in the reference, exactly as §2 below
+measures it in ours.** It also means "warming toward copper" is NOT a statement about the frontal
+crown — §0.3's warm band is on the ponytail plate under teal practicals. Do not chase warmth in a
+region the reference itself renders cool.
 
 ---
 
@@ -179,11 +254,56 @@ remain open and this document does not choose between them:
    dual scattering exists to express, and it has been propped up by a gate that divides by a fixed
    albedo (hair.md §0.6, floor-limited with the floor in the numerator).
 
-§1's table is weak evidence for (2): with the pedestal entirely off we are still 2.03× too bright.
-A term that *should* be small is consistent with that. But it is not decisive, because §1 also shows
-the remaining over-brightness cannot be the pedestal's fault.
+🔴 **§1's over-brightness evidence for (2) is WITHDRAWN — see §1a.** Our median is 1.03× the
+reference's on matched masks, so there is no brightness surplus for a shrinking pedestal to explain
+away. **Reading (2) loses its supporting measurement here** and now rests only on the physical
+argument, which is genuinely strong but is not a plate.
+
+⚠️ **And the annihilation itself is no longer evidence for either reading**, because it was computed
+on a form that does not match the paper. Zinke Eq. 5 is `T_f = d_f · Π_{k=1..n} ā_f(θ_d^k)` —
+exponent **`n`, with `d_f` outside the product** — while `HairMaterial.js` evaluated
+`ā_f^(1+n)` at `ā_f = √C`. Both the base and the exponent were wrong. See
+`docs/research/zinke-dual-scattering.md` and §7 below.
 
 **The quadrature settles it, and it is running.** Both outcomes are useful; neither is assumed here.
+
+---
+
+## 7. 🎯 R28's annihilation was two errors stacked, and correcting them makes the term live
+
+`HairMaterial.js:2274` argues the exponent is `1 + n` *"and the `1` is `Ψ^G`'s own scattering
+event"*: `T_f` carries the light TO the shading point over `n` crossings, then it must scatter once
+more to leave, and that exit traverse is Karis' own `√C`. **That reasoning is sound and it buys a
+real design virtue** — at `n = 0` the probe returns `√C · wrap`, bit-for-bit what the shipped branch
+returns, so the A/B is exactly zero on the lit boundary and every moved pixel is attributable.
+
+🔴 **The error is narrower: it sets BOTH factors to `√C`.** That identification is the only thing
+that collapses `√C · ā_f^n` into `ā_f^(1+n)`, and Zinke Eq. 6 refutes it — `ā_f` is a
+front-hemisphere integral of the WHOLE BCSDF over 2π sr of outgoing directions and π rad of incident
+azimuth, not one TT path at `h = 0`.
+
+**So the corrected form keeps R27's entire argument and reads `√C · ā_f^n`.** Same `n = 0` boundary
+property, the paper's exponent, and a derived `ā_f`. Evaluated with this repository's own stand-in
+`ā_f = [0.9048, 0.8467, 0.7211]` (`hair-multiple-scattering.md`, Measurement C — flagged there as a
+stand-in for Eq. 6, not Eq. 6):
+
+| n | R28's `√C^(1+n)` | | corrected `√C · ā_f^n` | R/B |
+|---:|---|---:|---|---:|
+| 0 | 1.016e-1 / 6.63e-2 / 6.06e-2 | 1.68 | 1.016e-1 / 6.63e-2 / 6.06e-2 | 1.68 |
+| 1.189 | 6.71e-3 / 2.63e-3 / 2.17e-3 | 3.10 | 9.02e-2 / 5.44e-2 / 4.11e-2 | 2.20 |
+| 4.751 | 1.95e-6 / 1.67e-7 / 1.00e-7 | 19.5 | 6.32e-2 / 3.01e-2 / 1.28e-2 | 4.93 |
+| **7.55** | **3.24e-9 / 8.36e-11 / 3.91e-11** | 82.8 | **4.78e-2 / 1.89e-2 / 5.14e-3** | **9.30** |
+
+**R28's arm annihilates to 3e-9. The corrected arm is a live term** whose level falls 2.1× while its
+channel ratio rises 5.5×, 1.68 → 9.30. **Level down, chroma up**, which is §4's requirement.
+
+🎯 **And the DIRECTION is structurally guaranteed regardless of what the quadrature returns.** Any
+correctly-derived `ā_f` inherits `ā_f,R > ā_f,G > ā_f,B` from the fibre it integrates, because
+melanin absorbs blue hardest at every concentration (d'Eon §6.1). Only the RATE is in question.
+
+⚠️ `d_f = 0.7` is still deliberately not applied, for R27's own stated reason: a constant multiplier
+on the pedestal IS `HAIR_DEFAULTS.scatter`, and applying it would break the `n = 0` equality that
+makes the A/B attributable. That decision survives the correction.
 
 ---
 
