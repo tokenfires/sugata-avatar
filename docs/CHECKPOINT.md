@@ -43,7 +43,7 @@ through git-LFS. See §5.
 > PLATES, so §4's hair→skin occlusion row is WITHDRAWN. Its hem and card-edge rows survive.
 > Nothing in this section is retracted, but §4 and §7 together tell you which parts of it matter.
 
-Rounds 13–23 built hair from zero: a procedural card groom (`assets/hair/bob01`, 462 cards,
+Rounds 13–23 built hair from zero: a procedural card groom (`assets/hair/bob01`, ~~462~~ **496** cards,
 `tools/figure-pipeline/hair_cards.py` + `hair_texture.py`), Karis' closed-form Marschner with a
 per-fragment strand field (`material/HairMaterial.js`), five transparency arms
 (`render/HairOIT.js`, shipped `stochastic`), and DFTL dynamics in a compute pass
@@ -221,6 +221,10 @@ Read `docs/research/source-sweep-2026-08-14.md` before picking anything up. In p
 ### ⏭️ The second control is much cheaper than this file previously costed it
 
 It does not need a Blender → `.tfx` round-trip through `scripts/tfx_exporter.py`.
+⚠️ **2026-08-22: `scripts/tfx_exporter.py` IS NOT AND NEVER WAS A FILE IN THIS TREE.** That name is
+**frostbitten's OWN Blender exporter**, inside their repository — so this sentence declined a
+shortcut we never had. Ours was written this round as `tools/figure-pipeline/tfx_export.py`, and the
+rest of the paragraph is correct: it takes the guide curves directly and needs no Blender at all.
 `tools/figure-pipeline/hair_cards.py` already integrates guide curves in `GUIDE_SEGMENTS = 16`
 steps, and `grow_to_cut` returns 17 points **uniformly spaced along the curve's own arc** — which
 resamples to the 16-point `.tfx` frostbitten already ships. Rendering OUR groom in THEIR renderer
@@ -606,7 +610,7 @@ Sixth clean negative of the week, and it closes a line cheaply.
 ### 🎯 The forward finding: the input comes before the form
 
 `Shadow` in the slide-39 term is `exp(−3 · depth.png sampled at uv())` — **the CARD's own atlas
-coordinate.** One baked number per texel, shared by all 462 cards, and `hair_texture.py` fills that
+coordinate.** One baked number per texel, shared by all ~~462~~ **496** cards, and `hair_texture.py` fills that
 sheet with `random.random()` per strand. **It cannot vary with light direction, head orientation, or
 how many other cards lie between the fragment and a light.**
 
@@ -854,7 +858,20 @@ The real lever is `tools/figure-pipeline/hair_cards.py`'s **module-level globals
 in `HAIR_LAYERS` plus ~30 constants (`CUT_*`, `PART_*`, `GRAVITY_*`, `LOCK_*`, `CAP_*`, `ATTACH_*`,
 `FRINGE_FORWARD`, `TIP_WIDTH_FRACTION`, `HAIRLINE_LIFT`, `WHORL_SETBACK`). **`--hair STYLE` is an ID
 STRING AND NOTHING ELSE** — `hair_cards.py:782`, used only for the output directory and the material
-name. There is no style table; that is the thing to build. A bake is **20.43 s wall** and reproduced
+name. There is no style table; that is the thing to build.
+
+> 🔴 **SUPERSEDED BY §14, AND THIS PARAGRAPH IS WHY A HANDOFF NEEDS AN EXPIRY.** §14 (`44f41f4`,
+> *"Seven grooms out of one generator"*) BUILT the style table this paragraph asks for. At HEAD
+> `HAIR_STYLES` carries seven entries — `bob01 bob02 crop01 quiff01 long01 pixie01 lob01` — and
+> `apply_style()` rebinds **30** `STYLE_PARAMETERS` over the module globals. So "an ID string and
+> nothing else" was true when written and false one section later, in the same file.
+>
+> ⚠️ **It cost something on 2026-08-22:** this round's own briefing quoted it as current, because a
+> paragraph headed THE HANDOFF reads as the live instruction and nobody re-reconciles a handoff
+> against sections written after it. **A superseded handoff is more dangerous than a stale number**
+> — a number gets re-measured, an instruction gets obeyed.
+
+A bake is **20.43 s wall** and reproduced
 the committed LFS object byte for byte (sha256 98ca6c23…), so iteration is cheap. `hair_texture.py`'s
 `write_strand_atlas` takes no geometry, so the atlas is separable and need not be rebuilt per style.
 
