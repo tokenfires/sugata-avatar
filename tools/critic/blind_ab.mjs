@@ -6,8 +6,10 @@
 // which is which, and that knowledge contaminates the verdict in both directions — flattery and
 // overcorrection. So we take the knowledge away. Two images go in; they come out as a.png and
 // b.png in a scratch directory, in a random order, with their filenames gone and their metadata
-// stripped. The mapping is written OUTSIDE that directory so a critic that lists the folder
-// cannot stumble over the answer.
+// stripped. The mapping is written to a key root that is a SIBLING of the image root and never an
+// ancestor of it, so no amount of walking up from the images reaches the answer — see
+// DEFAULT_KEY_ROOT for the failure this repairs, and assertKeyOutsideJudgedTree for the clause
+// that keeps it repaired.
 //
 // The workflow is: pair -> critic records a verdict naming A or B -> only then, reveal.
 // Revealing before the verdict is recorded defeats the entire point.
@@ -29,6 +31,21 @@ import { decodePng, stripProvenanceChunks } from './png.mjs';
 const THIS_FILE = fileURLToPath(import.meta.url);
 
 const DEFAULT_ROOT = path.join(os.tmpdir(), 'sugata-blind-ab');
+
+// 🔴 THE KEY ROOT IS A SIBLING OF THE IMAGE ROOT, NOT ITS PARENT, AND THAT IS THE WHOLE POINT.
+//
+// This tool used to write the mapping to `<root>/<sessionId>.key.json` — one level above the
+// images — and its own usage text described that as a feature, on the reasoning that listing the
+// IMAGE directory reveals nothing. That reasoning is wrong about who the judge is here. A judge in
+// this project is a subagent with a shell, so "one level above the images" is one `ls ..` away, and
+// `tools/critic/JUDGE-BRIEF.md` had already filed it: *"the answer key lives outside the judged
+// tree, not one level above it the way blind_ab.mjs writes it."*
+//
+// `control-frostbitten/control-blind.mjs` has always done it correctly and its comment says why.
+// This brings the general tool up to the control's standard. `assertKeyOutsideJudgedTree` below
+// makes the old layout unreachable rather than merely unused: it refuses any --key-root that is an
+// ancestor of the images, so a future caller cannot reintroduce the defect by passing one flag.
+const DEFAULT_KEY_ROOT = path.join(os.tmpdir(), 'sugata-blind-ab-keys');
 
 // --- entry point ------------------------------------------------------------------------------
 
@@ -60,6 +77,13 @@ function runPair(options) {
 
   const sessionId = `${timestampSlug()}-${crypto.randomBytes(4).toString('hex')}`;
   const imagesDir = path.join(options.root, sessionId);
+
+  // Validate the layout BEFORE anything is created. A refused pair that had already written a.png
+  // and b.png would leave an orphan session on disk that `list` cannot see, because `list` reads
+  // the key root — a half-state is the wrong thing to leave behind in a tool whose entire job is
+  // knowing which image is which.
+  assertKeyOutsideJudgedTree(options.keyRoot, imagesDir);
+
   fs.mkdirSync(imagesDir, { recursive: true });
 
   const written = {
@@ -67,7 +91,9 @@ function runPair(options) {
     b: writeStrippedCopy(assignment.b, path.join(imagesDir, 'b.png')),
   };
 
-  const keyPath = path.join(options.root, `${sessionId}.key.json`);
+  fs.mkdirSync(options.keyRoot, { recursive: true });
+
+  const keyPath = path.join(options.keyRoot, `${sessionId}.key.json`);
   fs.writeFileSync(
     keyPath,
     JSON.stringify(
@@ -97,7 +123,7 @@ function runPair(options) {
     // writes metadata and B from the one that does not — the tell this command exists to remove.
     strippedChunkTotal: written.a.removedChunkCount + written.b.removedChunkCount,
     warnings: blindnessWarnings(written),
-    revealCommand: `node "${THIS_FILE}" reveal ${sessionId} --root "${options.root}"`,
+    revealCommand: `node "${THIS_FILE}" reveal ${sessionId} --key-root "${options.keyRoot}"`,
   };
 
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
@@ -110,10 +136,14 @@ function runReveal(options) {
 
   const keyPath = target.endsWith('.json')
     ? target
-    : path.join(options.root, `${target}.key.json`);
+    : path.join(options.keyRoot, `${target}.key.json`);
 
   if (!fs.existsSync(keyPath)) {
-    throw new Error(`No key file at ${keyPath}. Was this session created with a different --root?`);
+    throw new Error(
+      `No key file at ${keyPath}. Was this session created with a different --key-root? ` +
+        `Sessions paired before the key moved out of the image root have their key at ` +
+        `<root>/${target}.key.json; pass that path directly.`
+    );
   }
 
   process.stdout.write(`${fs.readFileSync(keyPath, 'utf8')}\n`);
@@ -121,7 +151,7 @@ function runReveal(options) {
 }
 
 function runList(options) {
-  if (!fs.existsSync(options.root)) {
+  if (!fs.existsSync(options.keyRoot)) {
     process.stdout.write('[]\n');
     return 0;
   }
@@ -129,10 +159,10 @@ function runList(options) {
   // Deliberately reports only session ids and labels, never the mapping — `list` has to be safe
   // to run in front of a critic that has not given its verdict yet.
   const sessions = fs
-    .readdirSync(options.root)
+    .readdirSync(options.keyRoot)
     .filter((name) => name.endsWith('.key.json'))
     .map((name) => {
-      const key = JSON.parse(fs.readFileSync(path.join(options.root, name), 'utf8'));
+      const key = JSON.parse(fs.readFileSync(path.join(options.keyRoot, name), 'utf8'));
       return { sessionId: key.sessionId, label: key.label, createdAt: key.createdAt, imagesDir: key.imagesDir };
     })
     .sort((left, right) => left.createdAt.localeCompare(right.createdAt));
@@ -173,8 +203,38 @@ function blindnessWarnings(written) {
   return warnings;
 }
 
+// The blind's structural guarantee, enforced rather than documented.
+//
+// A judge is handed the images directory and has a shell. So the only safe place for the mapping
+// is one no amount of walking UP from the images can reach — which means the key root must not be
+// the images directory, must not be its parent, and must not be any ancestor of it. Anything else
+// is a blind that holds only until someone runs `ls ..`.
+//
+// Checked with path separators appended so a sibling whose name merely PREFIXES the images root
+// (`/tmp/sugata-blind-ab-keys` against `/tmp/sugata-blind-ab`) is not mistaken for an ancestor —
+// a plain `startsWith` on these two defaults would reject the correct layout, which is exactly the
+// bug that would send someone back to the broken one.
+function assertKeyOutsideJudgedTree(keyRoot, imagesDir) {
+  const key = path.resolve(keyRoot) + path.sep;
+  const images = path.resolve(imagesDir) + path.sep;
+
+  if (images.startsWith(key)) {
+    throw new Error(
+      `--key-root ${keyRoot} is an ancestor of the images at ${imagesDir}, so a judge with a shell ` +
+        `can walk up to the answer key. The key must live outside the judged tree entirely. ` +
+        `See tools/critic/JUDGE-BRIEF.md and control-frostbitten/control-blind.mjs.`
+    );
+  }
+}
+
 function parseArguments(argv) {
-  const options = { command: null, arguments: [], root: DEFAULT_ROOT, label: '' };
+  const options = {
+    command: null,
+    arguments: [],
+    root: DEFAULT_ROOT,
+    keyRoot: DEFAULT_KEY_ROOT,
+    label: '',
+  };
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -182,6 +242,9 @@ function parseArguments(argv) {
     if (arg === '--root') {
       i += 1;
       options.root = path.resolve(argv[i]);
+    } else if (arg === '--key-root') {
+      i += 1;
+      options.keyRoot = path.resolve(argv[i]);
     } else if (arg === '--label') {
       i += 1;
       options.label = argv[i];
@@ -206,15 +269,18 @@ function usageText() {
     'blind_ab.mjs — blind A/B pairing so a critic cannot tell which render is ours.',
     '',
     'Usage:',
-    '  node blind_ab.mjs pair <first.png> <second.png> [--root <dir>] [--label <text>]',
-    '  node blind_ab.mjs reveal <sessionId|key.json> [--root <dir>]',
-    '  node blind_ab.mjs list [--root <dir>]',
+    '  node blind_ab.mjs pair <first.png> <second.png> [--root <dir>] [--key-root <dir>] [--label <text>]',
+    '  node blind_ab.mjs reveal <sessionId|key.json> [--key-root <dir>]',
+    '  node blind_ab.mjs list [--key-root <dir>]',
     '',
-    `Default root: ${DEFAULT_ROOT}`,
+    `Default image root: ${DEFAULT_ROOT}`,
+    `Default key root:   ${DEFAULT_KEY_ROOT}   (a SIBLING of the image root, never an ancestor)`,
     '',
     'pair    randomises the two images into <root>/<sessionId>/a.png and b.png, strips text and',
-    '        timestamp metadata, and writes the mapping to <root>/<sessionId>.key.json — one level',
-    '        ABOVE the images, so listing the image directory reveals nothing.',
+    '        timestamp metadata, and writes the mapping to <key-root>/<sessionId>.key.json —',
+    '        OUTSIDE the judged tree entirely, because a judge here is a subagent with a shell and',
+    '        anything reachable by walking up from the images is not a blind. Refuses to run if',
+    '        --key-root is an ancestor of the images.',
     'reveal  prints the mapping. Record the verdict first; revealing early defeats the purpose.',
     'list    session ids and labels only, never the mapping. Safe to run mid-experiment.',
     '',
