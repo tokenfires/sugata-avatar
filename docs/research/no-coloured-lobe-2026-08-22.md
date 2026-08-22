@@ -184,3 +184,48 @@ Each step is one arm, A/B-able against the last, with a null control. **Do not c
 - **No behavioural check against Zinke Fig. 8/13**, and there is no published `ā_f` magnitude
   anywhere to validate against — the validation is against arithmetic (V1–V8), because no literature
   value exists.
+
+---
+
+## 7. 🔴 THE EXPERIMENT WAS RUN, AND MY OWN HYPOTHESIS WAS REFUTED
+
+§4 speculated that TT's disabling reason might have expired, since the albedo has been corrected
+from `#150F17` (B > R) to `#1A0E0C` (R > B) since that measurement was taken. **It has not.**
+Measured this session, one variable, same session, provenance read off the live page:
+
+```
+node tools/critic/hair-plates.mjs --out captures/hair-r31-ttcontrol
+node tools/critic/hair-plates.mjs --out captures/hair-r31-tton --query '&hairlobes=r,tt,trt'
+```
+
+Both manifests report `hairMaterialClass: HairNodeMaterial`, `betaKaris 0.174533`, `scatter 1`,
+and differ in exactly one census field — `hair/lobes/tt` 0 against 1.
+
+**TT moves 187,677 px = 28.96% of the frame**, and it takes the groom across the exact boundary
+hair.md §0.00 identified as the original physical error:
+
+| | sRGB8 | hue | sat | **R/B** |
+|---|---|---:|---:|---:|
+| TT off — shipped | 90, 50, 49 | **1.5°** | 0.456 | **1.824** — warm, red over blue |
+| TT on | 96, 59, 126 | **273.1°** | 0.532 | **0.763** — violet, BLUE OVER RED |
+| **the TT term alone** | 6, 9, 76 | **237.4°** | 0.921 | **0.074** |
+
+🎯 **AND THE ATTRIBUTION IS AN IDENTIFICATION RATHER THAN A CORRELATION.** The rim light is
+`#0f30ff` — **hue 231.8°, saturation 0.941**. The TT term alone measures **hue 237.4°, saturation
+0.921**. **They agree to 5.7° of hue and 0.02 of saturation.** TT is transmitting the rim
+essentially unmodified, which is precisely what `weightTT`'s comment says it does, reproduced on
+the current tree seven rounds later.
+
+**So the albedo correction did nothing for TT, and the blue was never the albedo's fault here.**
+The cause is the unshadowed rim, alone, and it is untouched at HEAD.
+
+### ⏭️ What this changes about §4's plan — it strengthens it
+
+This is the ideal negative: it proves the mechanism AND proves the fix is mandatory rather than
+optional. **"Turn TT on" is refuted. "Turn TT on WITH the envelope-chord attenuation" is now a
+red-proved requirement**, and this plate pair is its control — any candidate attenuation must take
+the TT-on arm's R/B from 0.763 back above 1.0 while keeping TT's contribution non-zero.
+
+That is a gate, and it is falsifiable in both directions: an attenuation that kills the blue by
+killing TT entirely reproduces the shipped arm digit for digit and fails, because §2 needs TT's
+chromaticity in `ā_f`.
