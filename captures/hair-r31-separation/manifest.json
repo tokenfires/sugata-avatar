@@ -1,0 +1,172 @@
+{
+  "round": "r31-separation",
+  "question": "is the hem/silhouette/facet complaint a property of OUR GROOM or of OUR RENDERER",
+  "arms": {
+    "A_our_groom_our_renderer": {
+      "status": "pre-existing, NOT re-rendered",
+      "url": "http://localhost:62808/alive.html?bare&freeze&seed=1&hair=1&capture&aa=msaa&grade=0",
+      "manifest": "captures/hair-r24-before/manifest.json",
+      "plates": [
+        {
+          "file": "captures/hair-r24-before/portrait.png",
+          "sha256": "93eadc8eb7fd35080f115836c45cdb38082fe4c4fcc47e40ab37ba1b2f513270",
+          "bytes": 716883
+        },
+        {
+          "file": "captures/hair-r24-before/three-quarter.png",
+          "sha256": "2dec2415cf5aba829f2e5e977d51e4868792d30fcc0ee539d09d481786d69513",
+          "bytes": 642974
+        }
+      ],
+      "background_corner_rgb": "2,3,4 top / skin bottom \u2014 DIFFERENT from arms B and C"
+    },
+    "B_our_groom_their_renderer": {
+      "status": "NEW this round",
+      "renderer": "Scthe/frostbitten-hair-webgpu @ 4478dd1, not vendored, scratchpad clone",
+      "entrypoint": "src/index.armb.ts (index.control.ts + HAIRFILE/FIBER/MESHES env knobs)",
+      "strand_file": "sugata-bob01_g050.d23.reg.16points.tfx",
+      "strand_source": "tools/figure-pipeline/tfx_export.py --hair bob01 --gender 0.5 --strand-density 23",
+      "strands": 11408,
+      "points_per_strand": 16,
+      "tfx_scale": 1.0,
+      "registration_translation_metres": [
+        0.00161,
+        -0.01803,
+        -0.03996
+      ],
+      "fiberRadius": 0.0006,
+      "camera_portrait": {
+        "CX": 0,
+        "CY": 1.47,
+        "CZ": 1.07,
+        "YAW": 0,
+        "PITCH": 0,
+        "FOV": 30
+      },
+      "camera_three_quarter": {
+        "CX": 0.613727,
+        "CY": 1.47,
+        "CZ": 0.876493,
+        "YAW": -0.610865,
+        "PITCH": 0,
+        "FOV": 30
+      },
+      "plates": [
+        {
+          "file": "captures/hair-r31-separation/arm-b/portrait.png",
+          "sha256": "339a067afdba04cd1ad5d742c29355014f64fd7902f07edd65b7d75d97bc551e",
+          "bytes": 560650
+        },
+        {
+          "file": "captures/hair-r31-separation/arm-b/three-quarter.png",
+          "sha256": "6b32d3de337a7ed6ac7d401e9b462dd9ff48034bdcd64aeb3b3cb65221502dea",
+          "bytes": 545602
+        }
+      ],
+      "background_corner_rgb": "20,22,26 all four corners"
+    },
+    "B_supplementary_density_1": {
+      "status": "NEW, supplementary \u2014 496 strands, one strand per card of the shipping groom",
+      "strand_file": "sugata-bob01_g050.d1.reg.16points.tfx",
+      "strands": 496,
+      "plates": [
+        {
+          "file": "captures/hair-r31-separation/arm-b-d1/portrait.png",
+          "sha256": "5a22cd74007e151fb71353ceb1957a656607a37e2ebe0261841d0f0d18ff3719",
+          "bytes": 435747
+        },
+        {
+          "file": "captures/hair-r31-separation/arm-b-d1/three-quarter.png",
+          "sha256": "6a4fd5f8edf23998e818d14b016d768159b5466f602c82e548ebc2f0714be602",
+          "bytes": 453706
+        }
+      ]
+    },
+    "C_their_groom_their_renderer": {
+      "status": "pre-existing, NOT re-rendered",
+      "plates": [
+        {
+          "file": "captures/control-frostbitten/portrait.png",
+          "sha256": "e0b7e494e6a31e241ec61d1abb96a3650e295b0a1bbbdcbf94c3fbae650de466",
+          "bytes": 296435
+        },
+        {
+          "file": "captures/control-frostbitten/tq.png",
+          "sha256": "0dc50fe2cd1e997161887e81f3c0c88751529706926c2ae028bebc7af10fbcd7",
+          "bytes": 349983
+        }
+      ],
+      "camera_portrait_recovered": {
+        "CX": 0,
+        "CY": 1.47,
+        "CZ": 1.07,
+        "YAW": 0,
+        "PITCH": 0,
+        "FOV": 30,
+        "evidence": "re-render matches the shipped plate at 0.276% changed px, meanAbs 0.0078/255"
+      },
+      "camera_three_quarter": "NOT RECOVERED \u2014 see the note; ~400 renders of grid, random and coordinate-descent search floored at meanAbs 10.77/255",
+      "background_corner_rgb": "20,22,26 all four corners"
+    },
+    "C_companion": {
+      "status": "NEW \u2014 their groom at arm B's two cameras, so B vs C differs ONLY in the groom. Does NOT replace captures/control-frostbitten/.",
+      "plates": [
+        {
+          "file": "captures/hair-r31-separation/arm-c-companion/portrait.png",
+          "sha256": "c416dcbfb1ac8258636cb9084bc5585a8bcee6b3dd626e8bb1bf3cadcb6706f9",
+          "bytes": 296445
+        },
+        {
+          "file": "captures/hair-r31-separation/arm-c-companion/three-quarter.png",
+          "sha256": "394eef073bb5c3bfdf4a1c707df8f927bd938062d68dbdd51fdf48476b9859e9",
+          "bytes": 347707
+        }
+      ]
+    }
+  },
+  "bounding_boxes_metres": {
+    "their_groom_16points": {
+      "lo": [
+        -0.1161,
+        1.3957,
+        -0.1304
+      ],
+      "hi": [
+        0.1026,
+        1.6749,
+        0.1334
+      ],
+      "arc_median": 0.1015
+    },
+    "our_groom_d23_as_exported": {
+      "lo": [
+        -0.2481,
+        1.3238,
+        -0.0909
+      ],
+      "hi": [
+        0.1716,
+        1.6878,
+        0.1667
+      ],
+      "arc_median": 0.2451
+    }
+  },
+  "root_cloud_registration": {
+    "their_root_centroid": [
+      0.0015,
+      1.5906,
+      -0.0246
+    ],
+    "their_root_rms_radius": 0.0864,
+    "our_root_centroid": [
+      -0.0001,
+      1.6087,
+      0.0154
+    ],
+    "our_root_rms_radius": 0.0904,
+    "uniform_scale_that_matches_rms": 0.95654,
+    "chosen_tfx_scale": 1.0,
+    "why": "the two scalps agree to 4.6% in RMS radius, so 1.0 is inside the measurement and keeps our groom in its own metres"
+  }
+}

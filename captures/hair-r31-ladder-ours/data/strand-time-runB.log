@@ -1,0 +1,67 @@
+tfx       /private/tmp/claude-501/-Users-robault-Documents-GitHub-Sugata--/c30a31f2-1ae9-40e1-a56a-b9fda16bdd36/scratchpad/tfx-clean
+             496 strands  bob01_g050.tfx
+             992 strands  bob01_g050_d2.tfx
+            2480 strands  bob01_g050_d5.tfx
+            4960 strands  bob01_g050_d10.tfx
+           11408 strands  bob01_g050_d23.tfx
+           24800 strands  bob01_g050_d50.tfx
+vite      http://localhost:5193
+chromium  headless (channel=chromium)
+
+=== session 720x900 — 9 arms, one tab each ===
+arm       gate-open   720x900  tri   148,801  draws 2
+arm       empty       720x900  tri         1  draws 2
+arm       s496        720x900  tri    14,881  draws 2
+arm       s992        720x900  tri    29,761  draws 2
+arm       s2480       720x900  tri    74,401  draws 2
+arm       s4960       720x900  tri   148,801  draws 2
+arm       s11408      720x900  tri   342,241  draws 2
+arm       s24800      720x900  tri   744,001  draws 2
+arm       gate-close  720x900  tri   148,801  draws 2
+          round 5/15  gate 1.4690 ms
+          round 10/15  gate 1.5092 ms
+          round 15/15  gate 1.4456 ms
+
+================================================================================================
+720x900   rounds 15  CONTENTION GATE (fixed 4960-strand render at 720x900, in the same round-robin): min 1.3787  med 1.5245  max 1.5987 ms   spread 15.96% of min
+arm            strands   triangles    min ms    p05 ms    med ms    p95 ms   minus-empty   gate
+------------------------------------------------------------------------------------------------
+gate-open       4960     148,801    1.3787    1.5088    1.7002    1.9448        1.3587  1.379
+empty              0           1    0.0200    0.0218    0.0222    0.0233        0.0000  1.379
+s496             496      14,881    0.2517    0.3728    0.3756    0.3796        0.2317  1.379
+s992             992      29,761    0.3988    0.5950    0.6044    0.6423        0.3788  1.379
+s2480           2480      74,401    0.9249    0.9630    0.9819    1.1482        0.9049  1.379
+s4960           4960     148,801    1.3901    1.4822    1.6988    2.0329        1.3701  1.379
+s11408         11408     342,241    2.1898    2.3365    2.7335    3.2004        2.1698  1.379
+s24800         24800     744,001    3.7146    3.7940    4.4440    5.0641        3.6946  1.379
+gate-close      4960     148,801    1.4361    1.5461    1.6896    2.0254        1.4161  1.379
+
+=== session 1920x1080 — 9 arms, one tab each ===
+arm       gate-open   720x900  tri   148,801  draws 2
+arm       empty       1920x1080  tri         1  draws 2
+arm       s496        1920x1080  tri    14,881  draws 2
+arm       s992        1920x1080  tri    29,761  draws 2
+arm       s2480       1920x1080  tri    74,401  draws 2
+arm       s4960       1920x1080  tri   148,801  draws 2
+arm       s11408      1920x1080  tri   342,241  draws 2
+arm       s24800      1920x1080  tri   744,001  draws 2
+arm       gate-close  720x900  tri   148,801  draws 2
+          round 5/15  gate 1.5254 ms
+          round 10/15  gate 1.5390 ms
+          round 15/15  gate 1.5371 ms
+
+================================================================================================
+1920x1080   rounds 15  CONTENTION GATE (fixed 4960-strand render at 720x900, in the same round-robin): min 1.4192  med 1.5371  max 1.5932 ms   spread 12.26% of min
+arm            strands   triangles    min ms    p05 ms    med ms    p95 ms   minus-empty   gate
+------------------------------------------------------------------------------------------------
+gate-open       4960     148,801    1.4720    1.5390    1.6672    2.0533        1.4384  1.419
+empty              0           1    0.0336    0.0338    0.0451    0.0456        0.0000  1.419
+s496             496      14,881    0.3454    0.5176    0.5711    0.6219        0.3118  1.419
+s992             992      29,761    0.6692    0.8665    0.9480    1.0642        0.6355  1.419
+s2480           2480      74,401    1.5599    1.5924    1.7182    1.9036        1.5262  1.419
+s4960           4960     148,801    2.3216    2.3946    2.5436    2.7614        2.2880  1.419
+s11408         11408     342,241    3.6409    3.6889    3.8865    4.1831        3.6073  1.419
+s24800         24800     744,001    5.4200    5.4460    5.7184    6.2024        5.3864  1.419
+gate-close      4960     148,801    1.4192    1.5187    1.6911    2.0275        1.3856  1.419
+
+report    captures/hair-r31-ladder-ours/data/strand-time.json

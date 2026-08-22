@@ -20,4 +20,39 @@ tools/figure-pipeline/.cache/
 # call Avatar.create(). See .gitattributes.
 
 # Capture output — regenerable, large. Keep the tool, not the artifacts.
-/captures/
+#
+# ⚠️ THE PATTERN IS `/captures/**` AND NOT `/captures/`, AND THE DIFFERENCE IS LOAD-BEARING.
+# Git will not descend into an EXCLUDED DIRECTORY, so a `!` negation inside one is never evaluated
+# — "it is not possible to re-include a file if a parent directory of that file is excluded".
+# Excluding the CONTENTS instead leaves the directory walkable and makes the exceptions below work.
+# This was tried the wrong way round first and `git add` refused, which is how it was caught.
+/captures/**
+
+# ...EXCEPT the round's EVIDENCE, which is neither large nor reliably regenerable.
+#
+# 🔴 R31 found that every plate, table, manifest, blind key and crop backing a round's claims lives
+# under an ignored path with no history and no protection from another agent's `git clean` — the
+# round that discovered it had its entire evidentiary basis there. A capture is regenerable in
+# principle; the SESSION is not. Timings depend on machine load, a blind key is generated once, and
+# a manifest records what the live page actually was rather than what a URL claimed.
+#
+# So the DATA is kept (500 KB for R31) and the PLATES stay ignored (36 MB for the same round) —
+# re-excluded below, after the re-inclusion, because later rules win.
+#
+# Scoped to `hair-r31-*` deliberately rather than to all 242 capture directories: widening it is the
+# owner's call and not an agent's, and the narrow form is trivially reversible.
+!/captures/hair-r31-*/
+!/captures/hair-r31-*/**
+/captures/hair-r31-*/**/*.png
+/captures/hair-r31-*/**/*.jpg
+/captures/hair-r31-*/**/*.jpeg
+
+# 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
+# `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
+# BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact
+# defect `blind_ab.mjs` carried until it was repaired this same day, arriving by a completely
+# different route. A structural guard only protects the path it is on: that fix lives in the tool,
+# and this key was not written by that tool.
+*blind-KEY.json
+*.key.json
+/captures/**/blind/

@@ -1,0 +1,130 @@
+====================================================================================================
+/private/tmp/claude-501/-Users-robault-Documents-GitHub-Sugata--/c30a31f2-1ae9-40e1-a56a-b9fda16bdd36/scratchpad/ladder/l720.json   viewport 720x900   batch 40  repeats 7  (minima over 7 batches)
+CONTENTION GATE (fixed compute, unrelated to renderer): min 14.430  med 16.159  max 16.191 ms   spread 12.20% of min
+per-round gate ms: 15.71 16.14 16.17 14.43 16.15 16.16 16.19 16.19
+TRUE SCENE FLOOR (16-strand groom, mode3 lod0): 0.7832 ms  -- head+eyes+shadowmap+ao+present, no hair work
+
+groom        strands  whole+sim     sim   swOIT  binning  hw+shad  LOD0resid  hairTotal    gate
+-----------------------------------------------------------------------------------------------
+floor16           16     1.4627  0.2316  0.1341   0.3252  -0.0113     0.7832     0.3467   14.43
+bob496           496     1.9478  0.2070  0.3499   0.4885   0.0838     0.8186     0.8652   14.43
+bob992           992     2.1845  0.2007  0.4494   0.4803   0.1117     0.9425     0.9433   14.43
+bob2480         2480     2.9782  0.1954  0.7069   0.5917   0.3782     1.1060     1.5695   14.43
+bob4960         4960     4.2613  0.2504  0.8806   0.9323   0.6848     1.5132     2.3825   14.43
+bob11408       11408     7.1390  0.3560  1.1854   1.7377   1.3669     2.4929     4.2149   14.43
+bob24800       24800    12.8545  0.6931  1.3922   3.3815   2.7957     4.5920     7.4521   14.43
+sintel11400    11400     4.4608  0.3078  0.6813   0.7414   0.9406     1.7897     2.2349   14.43
+strat496         496     1.8759  0.1974  0.3517   0.4554   0.0374     0.8340     0.7464   14.43
+strat992         992     2.1360  0.1540  0.4981   0.4074   0.1362     0.9402     0.9367   14.43
+strat2480       2480     2.9216  0.2102  0.6829   0.5899   0.3096     1.1289     1.4840   14.43
+strat4960       4960     4.1897  0.2358  0.8757   0.9511   0.6363     1.4908     2.3356   14.43
+
+  whole+sim = mode0 sim1 lod100 (the shipped frame)
+  sim       = (mode0 sim1) - (mode0 sim0)
+  swOIT     = (mode0 sim0) - (mode1 sim0)   [hairTileSort + hairFine]
+  binning   = (mode1 sim0) - (mode3 sim0)   [clears + hairTiles + hairCombine]
+  hw+shad   = (mode3 lod100) - (mode3 lod0) [shadowmap-hair + hwHair, LOD-gated part]
+  LOD0resid = mode3 lod0: the scene floor PLUS hairShadingPass, which dispatches over
+              hairObject.strandsCount and is NOT LOD-gated (hairShadingPass.ts:57)
+  hairTotal = (mode0 sim0 lod100) - (mode0 sim0 lod0): all LOD-gated hair work,
+              with each groom differenced against ITSELF so the un-gated term cancels
+
+OUR GROOM: genuinely different .tfx exports at each density (NOT prefixes)
+  fit all 6 densities, mode0 sim0 whole frame  : 0.4272 ms per 1000 strands, intercept 1.6964 ms, R2 0.9982
+  fit >=992,            mode0 sim0 whole frame  : 0.4235 ms per 1000 strands, intercept 1.7633 ms, R2 0.9984
+  fit all 6 densities, LOD-gated hair only     : 0.2716 ms per 1000 strands, intercept 0.8612 ms, R2 0.9948
+  fit >=992,            LOD-gated hair only     : 0.2687 ms per 1000 strands, intercept 0.9134 ms, R2 0.9947
+
+PREFIX-LOD ARTEFACT: same strand count, prefix subsample vs spatially stratified
+   strands  prefix dMs   strat dMs  prefix/strat
+       496      0.4831      0.7464         0.647
+       992      0.5490      0.9367         0.586
+      2480      1.6832      1.4840         1.134
+      4960      2.2924      2.3356         0.981
+     11408      4.2149      4.2149         1.000   (same object; the two ladders meet here)
+  prefix ladder slope     0.3388 ms/1000 strands, intercept 0.4667, R2 0.9719
+  stratified ladder slope 0.3164 ms/1000 strands, intercept 0.6568, R2 0.9972
+  prefix slope is 1.071x the stratified slope
+
+FIXED-COST KNEE (our groom, mode0 sim0, minima):
+  true scene floor (16 strands)          1.2312 ms
+  0     -> 496   strands costs           0.5096 ms
+  496   -> 11408 strands costs           5.0421 ms
+  fixed share of the 11408 frame:        25.7% is reached by 496 strands
+  fraction of 0->11408 cost paid by first 496 strands: 9.2%
+
+OUR GROOM vs THEIR SINTEL GROOM at matched strand count (11408 vs 11400):
+                            sintel      ours     ratio
+  whole frame + sim         4.4608    7.1390     1.600x
+  sim                       0.3078    0.3560     1.157x
+  swOIT                     0.6813    1.1854     1.740x
+  binning                   0.7414    1.7377     2.344x
+  hw raster + shading       0.9406    1.3669     1.453x
+  LOD-0 residual            1.7897    2.4929     1.393x
+  LOD-gated hair total      2.2349    4.2149     1.886x
+
+====================================================================================================
+/private/tmp/claude-501/-Users-robault-Documents-GitHub-Sugata--/c30a31f2-1ae9-40e1-a56a-b9fda16bdd36/scratchpad/ladder/l1080.json   viewport 1920x1080   batch 40  repeats 7  (minima over 7 batches)
+CONTENTION GATE (fixed compute, unrelated to renderer): min 13.617  med 16.124  max 16.181 ms   spread 18.83% of min
+per-round gate ms: 13.62 14.38 16.14 14.61 16.12 15.25 16.18 16.16
+TRUE SCENE FLOOR (16-strand groom, mode3 lod0): 0.8955 ms  -- head+eyes+shadowmap+ao+present, no hair work
+
+groom        strands  whole+sim     sim   swOIT  binning  hw+shad  LOD0resid  hairTotal    gate
+-----------------------------------------------------------------------------------------------
+floor16           16     1.6829  0.1816  0.1492   0.4582  -0.0015     0.8955     0.4006   13.62
+bob496           496     2.3817  0.1654  0.4500   0.7002   0.1330     0.9331     1.1100   13.62
+bob992           992     2.5699  0.1350  0.5900   0.6767   0.1380     1.0301     1.2770   13.62
+bob2480         2480     3.4919  0.1603  0.8792   0.8761   0.3368     1.2395     1.9001   13.62
+bob4960         4960     4.9353  0.2599  1.0887   1.3061   0.6475     1.6331     2.8847   13.62
+bob11408       11408     8.0808  0.4216  1.3823   2.3191   1.3701     2.5877     4.9546   13.62
+bob24800       24800    14.1961  0.7165  1.7726   4.3987   2.8132     4.4951     8.7667   13.62
+sintel11400    11400     4.6980  0.3904  0.7104   0.8976   0.7676     1.9320     2.2045   13.62
+strat496         496     2.2988  0.1493  0.4597   0.5826   0.1885     0.9187     1.0343   13.62
+strat992         992     2.6558  0.1723  0.6788   0.6379   0.1440     1.0229     1.3087   13.62
+strat2480       2480     3.5132  0.2100  0.8609   0.8333   0.3511     1.2579     1.8966   13.62
+strat4960       4960     4.9484  0.3024  1.0866   1.3174   0.6111     1.6309     2.8760   13.62
+
+  whole+sim = mode0 sim1 lod100 (the shipped frame)
+  sim       = (mode0 sim1) - (mode0 sim0)
+  swOIT     = (mode0 sim0) - (mode1 sim0)   [hairTileSort + hairFine]
+  binning   = (mode1 sim0) - (mode3 sim0)   [clears + hairTiles + hairCombine]
+  hw+shad   = (mode3 lod100) - (mode3 lod0) [shadowmap-hair + hwHair, LOD-gated part]
+  LOD0resid = mode3 lod0: the scene floor PLUS hairShadingPass, which dispatches over
+              hairObject.strandsCount and is NOT LOD-gated (hairShadingPass.ts:57)
+  hairTotal = (mode0 sim0 lod100) - (mode0 sim0 lod0): all LOD-gated hair work,
+              with each groom differenced against ITSELF so the un-gated term cancels
+
+OUR GROOM: genuinely different .tfx exports at each density (NOT prefixes)
+  fit all 6 densities, mode0 sim0 whole frame  : 0.4625 ms per 1000 strands, intercept 2.1537 ms, R2 0.9980
+  fit >=992,            mode0 sim0 whole frame  : 0.4588 ms per 1000 strands, intercept 2.2202 ms, R2 0.9982
+  fit all 6 densities, LOD-gated hair only     : 0.3144 ms per 1000 strands, intercept 1.1168 ms, R2 0.9959
+  fit >=992,            LOD-gated hair only     : 0.3108 ms per 1000 strands, intercept 1.1818 ms, R2 0.9962
+
+PREFIX-LOD ARTEFACT: same strand count, prefix subsample vs spatially stratified
+   strands  prefix dMs   strat dMs  prefix/strat
+       496      0.5343      1.0343         0.517
+       992      0.6284      1.3087         0.480
+      2480      1.9503      1.8966         1.028
+      4960      2.7780      2.8760         0.966
+     11408      4.9546      4.9546         1.000   (same object; the two ladders meet here)
+  prefix ladder slope     0.4019 ms/1000 strands, intercept 0.5346, R2 0.9699
+  stratified ladder slope 0.3552 ms/1000 strands, intercept 0.9692, R2 0.9960
+  prefix slope is 1.131x the stratified slope
+
+FIXED-COST KNEE (our groom, mode0 sim0, minima):
+  true scene floor (16 strands)          1.5013 ms
+  0     -> 496   strands costs           0.7150 ms
+  496   -> 11408 strands costs           5.4428 ms
+  fixed share of the 11408 frame:        28.9% is reached by 496 strands
+  fraction of 0->11408 cost paid by first 496 strands: 11.6%
+
+OUR GROOM vs THEIR SINTEL GROOM at matched strand count (11408 vs 11400):
+                            sintel      ours     ratio
+  whole frame + sim         4.6980    8.0808     1.720x
+  sim                       0.3904    0.4216     1.080x
+  swOIT                     0.7104    1.3823     1.946x
+  binning                   0.8976    2.3191     2.584x
+  hw raster + shading       0.7676    1.3701     1.785x
+  LOD-0 residual            1.9320    2.5877     1.339x
+  LOD-gated hair total      2.2045    4.9546     2.247x
+

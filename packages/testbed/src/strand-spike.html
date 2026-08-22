@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — strand raster spike (ISOLATED, NOT INTEGRATED)</title>
+    <style>
+        :root {
+            --panel: rgba(12, 12, 15, 0.82);
+            --edge: rgba(255, 255, 255, 0.12);
+            --ink: #d9dde5;
+            --dim: #8d93a1;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            background: #050506;
+            color: var(--ink);
+            font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* Sized in DEVICE pixels by the page, never by CSS — the rule fabric.html, lighting.html
+           and hair.html all state. A CSS-stretched canvas hands a judge a resampled image, and a
+           one-pixel-wide ribbon is precisely what a resampler destroys. The silhouette IS the
+           measurement here, so this is load-bearing rather than tidy. */
+        #frame {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        canvas { display: block; background: #000; }
+
+        .panel {
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+        }
+
+        #hud { white-space: pre; max-width: 100ch; overflow-x: auto; }
+
+        .note { max-width: 72ch; color: var(--dim); margin-bottom: 12px; }
+        .note strong { color: #f2765a; }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <div>
+            <div class="panel note">
+                <strong>ISOLATED PROTOTYPE — not integrated into alive.js.</strong>
+                Camera-facing ribbons from a <code>.tfx</code> strand file, expanded in the vertex
+                stage and shaded with this project's own <code>HairMaterial</code>. It exists to
+                measure the raster-and-shade cost of many thin primitives, and it deliberately
+                carries no dynamics, no skinning, no OIT rewrite and no LOD.
+                <br><br>
+                <strong>Do not quote a timing off this page.</strong> This machine has swung 6.3&times;
+                on an identical workload under contention. <code>?gputime=1</code> is wired; the
+                numbers belong to a serialised phase with exclusive GPU access.
+            </div>
+            <canvas id="stage"></canvas>
+        </div>
+
+        <div>
+            <div class="panel" id="hud">booting…</div>
+        </div>
+    </div>
+
+    <script type="module" src="./strand-spike.js"></script>
+</body>
+</html>

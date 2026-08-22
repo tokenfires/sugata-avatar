@@ -1,0 +1,142 @@
+{
+  "sintel11400": {
+    "file": "SintelHairOriginal-sintel_hair.16points.tfx",
+    "strands": 11400,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.1031402700711219,
+    "minArcLengthMetres": 0.02513591308541617,
+    "maxArcLengthMetres": 0.2479856245703289,
+    "totalArcLengthMetres": 1175.7990788107898,
+    "meanSegmentLengthMetres": 0.00687601800474146,
+    "bboxMinMetres": [
+      -0.11609930545091629,
+      1.3956724405288696,
+      -0.13035845756530762
+    ],
+    "bboxMaxMetres": [
+      0.10258378088474274,
+      1.6748861074447632,
+      0.13344524800777435
+    ]
+  },
+  "bob496": {
+    "file": "sugata-bob01_g050.d1.reg.16points.tfx",
+    "strands": 496,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.23213710398080725,
+    "minArcLengthMetres": 0.02159869717949614,
+    "maxArcLengthMetres": 0.5311274252391517,
+    "totalArcLengthMetres": 115.1400035744804,
+    "meanSegmentLengthMetres": 0.015475806932053816,
+    "bboxMinMetres": [
+      -0.24779139459133148,
+      1.3099541664123535,
+      -0.11507175862789154
+    ],
+    "bboxMaxMetres": [
+      0.14681340754032135,
+      1.6687910556793213,
+      0.12618900835514069
+    ]
+  },
+  "bob992": {
+    "file": "sugata-bob01_g050.d2.reg.16points.tfx",
+    "strands": 992,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.23212851496068318,
+    "minArcLengthMetres": 0.021412708851652924,
+    "maxArcLengthMetres": 0.5022372283492701,
+    "totalArcLengthMetres": 230.2714868409977,
+    "meanSegmentLengthMetres": 0.015475234330712212,
+    "bboxMinMetres": [
+      -0.24675659835338593,
+      1.3073420524597168,
+      -0.12219405919313431
+    ],
+    "bboxMaxMetres": [
+      0.16513049602508545,
+      1.6688324213027954,
+      0.12640757858753204
+    ]
+  },
+  "bob2480": {
+    "file": "sugata-bob01_g050.d5.reg.16points.tfx",
+    "strands": 2480,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.23188009945947788,
+    "minArcLengthMetres": 0.016529349400908232,
+    "maxArcLengthMetres": 0.5314540063948413,
+    "totalArcLengthMetres": 575.0626466595052,
+    "meanSegmentLengthMetres": 0.015458673297298525,
+    "bboxMinMetres": [
+      -0.2484571784734726,
+      1.3087748289108276,
+      -0.12873773276805878
+    ],
+    "bboxMaxMetres": [
+      0.1629105806350708,
+      1.6696327924728394,
+      0.12615379691123962
+    ]
+  },
+  "bob4960": {
+    "file": "sugata-bob01_g050.d10.reg.16points.tfx",
+    "strands": 4960,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.2313256643576894,
+    "minArcLengthMetres": 0.016528869594968423,
+    "maxArcLengthMetres": 0.5020315057619028,
+    "totalArcLengthMetres": 1147.3752952141394,
+    "meanSegmentLengthMetres": 0.015421710957179292,
+    "bboxMinMetres": [
+      -0.24653297662734985,
+      1.3089710474014282,
+      -0.13096287846565247
+    ],
+    "bboxMaxMetres": [
+      0.16869407892227173,
+      1.6696327924728394,
+      0.12646155059337616
+    ]
+  },
+  "bob11408": {
+    "file": "sugata-bob01_g050.d23.reg.16points.tfx",
+    "strands": 11408,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.23201612324728832,
+    "minArcLengthMetres": 0.016530109675603824,
+    "maxArcLengthMetres": 0.5012948592324028,
+    "totalArcLengthMetres": 2646.839934005065,
+    "meanSegmentLengthMetres": 0.015467741549819222,
+    "bboxMinMetres": [
+      -0.2465161383152008,
+      1.3057605028152466,
+      -0.13087232410907745
+    ],
+    "bboxMaxMetres": [
+      0.17325414717197418,
+      1.6697592735290527,
+      0.12671659886837006
+    ]
+  },
+  "bob24800": {
+    "file": "sugata-bob01_g050.d50.reg.16points.tfx",
+    "strands": 24800,
+    "pointsPerStrand": 16,
+    "meanArcLengthMetres": 0.23152164778679998,
+    "minArcLengthMetres": 0.016529593699336997,
+    "maxArcLengthMetres": 0.5027033535680157,
+    "totalArcLengthMetres": 5741.73686511264,
+    "meanSegmentLengthMetres": 0.01543477651912,
+    "bboxMinMetres": [
+      -0.24812905490398407,
+      1.3042359352111816,
+      -0.13183149695396423
+    ],
+    "bboxMaxMetres": [
+      0.18085737526416779,
+      1.6698983907699585,
+      0.1299389749765396
+    ]
+  }
+}

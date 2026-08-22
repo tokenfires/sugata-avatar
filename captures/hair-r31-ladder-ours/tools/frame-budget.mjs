@@ -1,0 +1,326 @@
+#!/usr/bin/env node
+//
+// frame-budget.mjs — what the SHIPPED build costs today, with and without its card groom.
+//
+// The strand ladder next door answers "what would the new primitive cost". This answers the two
+// questions it has to be judged against, and both of them are currently quoted in the record from
+// measurements that no longer reproduce:
+//
+//   1. WHAT DO TODAY'S CARDS COST? The decision rule's clause is "parity with today's cards". Its
+//      number has been 2.03 ms and then 1.46-1.71 ms; the rule is applied at whatever this
+//      measures, because a rule that says parity cannot be applied at a stale parity.
+//   2. HOW MUCH HEADROOM IS THERE ACTUALLY? The 2.6 ms in the record is headroom on the NO-HAIR
+//      plate. The number that matters is the shipped frame WITH hair against 16.6 ms.
+//
+// Both arms are `alive.html` — the shipped page, the shipped groom, the shipped OIT default — and
+// they are round-robined inside one browser process with the SAME fixed contention gate the strand
+// ladder uses (`strand-spike.html` at 4,960 strands / 720x900), so a row here and a row there can
+// be read against one yardstick.
+//
+// 🔴 THE SAMPLER IS BURST-THEN-RESOLVE FOR THE REASON `strand-time.mjs` documents at length: a
+// harness that awaits a `mapAsync` between frames leaves the GPU idle half the time, it sits at
+// its base clock, and the rare boost lands on one arm and not another. Frames are submitted back
+// to back and the timestamps resolved once at the end of the burst.
+//
+//   node captures/hair-r31-ladder-ours/tools/frame-budget.mjs --out captures/hair-r31-ladder-ours
+//
+
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+import { createRequire } from 'node:module';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const REPOSITORY_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
+const GPU_FLAGS = ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars'];
+
+/** The frame budget the whole decision is against: 60 Hz with a little in hand. */
+const BUDGET_MS = 16.6;
+
+/** `alive.js`'s own timing header states this framing for the arms already in the record. */
+const VIEWPORT = { width: 1080, height: 1920 };
+
+const BASE_QUERY = 'bare&freeze&seed=1&frame=body&capture&gputime=1';
+
+async function main() {
+  const options = parseArguments(process.argv.slice(2));
+
+  const playwright = await loadPlaywright();
+  const server = await startViteServer(options.gateTfx);
+  const browser = await launchBrowser(playwright);
+
+  const arms = [
+    { key: 'gate', kind: 'gate', page: null,
+      url: `${server.baseUrl}/src/strand-spike.html?strands=4960&w=720&h=900&aa=off&gputime=1&frames=1`,
+      step: 'strand' },
+    { key: 'no-hair', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}`, step: 'alive' },
+    { key: 'hair', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}&hair=1`, step: 'alive' },
+    // The control repeated at the far end of the arm order. `alive.js`'s own header measured the
+    // no-hair arm twice for this reason and reported the pair; a single control cannot show drift.
+    { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}`, step: 'alive' },
+  ];
+
+  const context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
+
+  try {
+    for (const arm of arms) {
+      arm.page = await context.newPage();
+      arm.page.setDefaultTimeout(600_000);
+      arm.page.on('pageerror', (error) => console.error(`PAGEERROR ${arm.key}`, error.message));
+
+      await arm.page.goto(arm.url, { waitUntil: 'load' });
+
+      if (arm.step === 'alive') {
+        await arm.page.waitForFunction(
+          () => typeof globalThis.__SUGATA_STEP__ === 'function', null,
+          { timeout: 600_000, polling: 250 }
+        );
+      } else {
+        await arm.page.waitForFunction(
+          () => window.__STRAND_READY__ === true || window.__STRAND_ERROR__ !== undefined,
+          null, { timeout: 600_000 }
+        );
+      }
+
+      arm.info = await arm.page.evaluate((step) => {
+        if (step === 'strand') return { strandGate: true };
+        const renderer = globalThis.sugata?.stage?.renderer;
+        const canvas = renderer?.domElement;
+        return {
+          trackTimestamp: renderer?.trackTimestamp,
+          width: canvas?.width,
+          height: canvas?.height,
+          pixelRatio: renderer?.getPixelRatio?.(),
+        };
+      }, arm.step);
+
+      console.log(`arm       ${arm.key.padEnd(10)} ${JSON.stringify(arm.info)}`);
+      arm.samples = [];
+    }
+
+    for (let pass = 0; pass < options.warmup; pass += 1) {
+      for (const arm of arms) await takeSample(arm, options.batch, 1);
+    }
+    for (const arm of arms) arm.samples = [];
+
+    for (let round = 0; round < options.rounds; round += 1) {
+      for (const arm of arms) await takeSample(arm, options.batch, options.perVisit);
+      if ((round + 1) % 5 === 0) console.log(`          round ${round + 1}/${options.rounds}`);
+    }
+
+    const rows = arms.map((arm) => ({
+      key: arm.key,
+      kind: arm.kind,
+      url: arm.url,
+      info: arm.info,
+      samples: arm.samples.length,
+      minMs: Math.min(...arm.samples),
+      p05Ms: quantile(arm.samples, 0.05),
+      p50Ms: quantile(arm.samples, 0.5),
+      p95Ms: quantile(arm.samples, 0.95),
+      maxMs: Math.max(...arm.samples),
+      samplesMs: arm.samples,
+    }));
+
+    print(rows);
+
+    const file = path.join(options.outDirectory, 'data', 'frame-budget.json');
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, `${JSON.stringify({
+      tool: 'captures/hair-r31-ladder-ours/tools/frame-budget.mjs',
+      generatedAt: new Date().toISOString(),
+      headSha: options.headSha,
+      budgetMs: BUDGET_MS,
+      viewport: VIEWPORT,
+      rounds: options.rounds,
+      burstFramesPerSample: options.batch,
+      samplesPerVisit: options.perVisit,
+      rows,
+    }, null, 2)}\n`);
+    console.log(`\nreport    ${path.relative(REPOSITORY_ROOT, file)}`);
+  } finally {
+    await browser.close();
+    await server.close();
+  }
+}
+
+async function takeSample(arm, burst, perVisit) {
+  const values = await arm.page.evaluate(async ({ burst, perVisit, step }) => {
+    const out = [];
+
+    for (let visit = 0; visit < perVisit; visit += 1) {
+      if (step === 'alive') {
+        // 🔴 ONE RESOLVE PER FRAME ON THIS PAGE, AND THE FIRST VERSION OF THIS FILE GOT IT WRONG
+        // IN A WAY WORTH RECORDING. Burst-then-resolve — which is correct on `strand-spike.html` —
+        // reported 315 ms for the no-hair arm. It was not a slow frame: 315.686 / 24 = 13.15 ms,
+        // exactly the magnitude `alive.js`'s own header records. `resolveQueriesAsync` groups
+        // passes by the frame id in each context's uid and returns the LAST frame's total, and on
+        // this page a burst's twenty-four steps landed in ONE such group, so the "frame" it
+        // returned was twenty-four of them summed. The strand page does not do this (its burst and
+        // its per-frame designs agree to 3%), which is why the divergence had to be found here
+        // rather than assumed away.
+        //
+        // Resolving every frame is safe here for the reason it was NOT safe there: these frames
+        // are ~13 ms, so the resolve's own round trip is a few percent of the period rather than
+        // half of it, and the GPU never falls off its clock between them.
+        const renderer = globalThis.sugata.stage.renderer;
+        for (let frame = 0; frame < burst; frame += 1) {
+          await globalThis.__SUGATA_STEP__(0);
+          await renderer.resolveTimestampsAsync('render');
+          out.push(renderer.info.render.timestamp);
+        }
+      } else {
+        for (let frame = 0; frame < burst; frame += 1) await window.__STRAND_RENDER__();
+        out.push(await window.__STRAND_GPU_MS__());
+      }
+    }
+
+    return out;
+  }, { burst, perVisit, step: arm.step });
+
+  for (const value of values) {
+    if (typeof value === 'number' && Number.isFinite(value) && value > 0) arm.samples.push(value);
+  }
+}
+
+function print(rows) {
+  const control = rows.find((row) => row.key === 'no-hair');
+  const controlEnd = rows.find((row) => row.key === 'no-hair-2');
+  const hair = rows.find((row) => row.key === 'hair');
+  const gate = rows.find((row) => row.kind === 'gate');
+
+  console.log(`\n${'='.repeat(88)}`);
+  console.log(
+    `CONTENTION GATE (the strand ladder's own fixed 4,960-strand render at 720x900, ` +
+    `in this round-robin): min ${gate.minMs.toFixed(4)}  p50 ${gate.p50Ms.toFixed(4)}  ` +
+    `p95 ${gate.p95Ms.toFixed(4)} ms`
+  );
+  console.log('arm            n     min      p05      p50      p95      max');
+  console.log('-'.repeat(88));
+  for (const row of rows) {
+    console.log(
+      `${row.key.padEnd(12)} ${String(row.samples).padStart(4)} ` +
+      `${row.minMs.toFixed(3).padStart(8)} ${row.p05Ms.toFixed(3).padStart(8)} ` +
+      `${row.p50Ms.toFixed(3).padStart(8)} ${row.p95Ms.toFixed(3).padStart(8)} ` +
+      `${row.maxMs.toFixed(3).padStart(8)}`
+    );
+  }
+
+  console.log(
+    `\nCONTROL REPRODUCIBILITY (no-hair measured at both ends of the arm order): ` +
+    `p05 ${control.p05Ms.toFixed(3)} vs ${controlEnd.p05Ms.toFixed(3)}, ` +
+    `p50 ${control.p50Ms.toFixed(3)} vs ${controlEnd.p50Ms.toFixed(3)}, ` +
+    `p95 ${control.p95Ms.toFixed(3)} vs ${controlEnd.p95Ms.toFixed(3)}`
+  );
+  console.log(
+    `\nTODAY'S CARDS COST   Δp05 ${(hair.p05Ms - control.p05Ms).toFixed(3)}  ` +
+    `Δp50 ${(hair.p50Ms - control.p50Ms).toFixed(3)}  ` +
+    `Δp95 ${(hair.p95Ms - control.p95Ms).toFixed(3)} ms`
+  );
+  console.log(
+    `HEADROOM AGAINST ${BUDGET_MS} ms   with hair: ` +
+    `p50 ${(BUDGET_MS - hair.p50Ms).toFixed(3)}  p95 ${(BUDGET_MS - hair.p95Ms).toFixed(3)} ms   ` +
+    `| no hair: p50 ${(BUDGET_MS - control.p50Ms).toFixed(3)}  ` +
+    `p95 ${(BUDGET_MS - control.p95Ms).toFixed(3)} ms`
+  );
+}
+
+function quantile(values, q) {
+  const sorted = [...values].sort((a, b) => a - b);
+  const index = (sorted.length - 1) * q;
+  const low = Math.floor(index);
+  const high = Math.ceil(index);
+  if (low === high) return sorted[low];
+  return sorted[low] + (sorted[high] - sorted[low]) * (index - low);
+}
+
+async function startViteServer(gateTfx) {
+  const { createServer } = await import('vite');
+
+  const mountTfx = {
+    name: 'sugata-frame-budget-tfx',
+    configureServer(server) {
+      server.middlewares.use('/tfx', (request, response, next) => {
+        if (/^\/strands-4960\.tfx$/.test(request.url ?? '') === false) return next();
+        response.setHeader('Content-Type', 'application/octet-stream');
+        response.setHeader('Content-Length', String(fs.statSync(gateTfx).size));
+        fs.createReadStream(gateTfx).pipe(response);
+      });
+    },
+  };
+
+  const server = await createServer({
+    configFile: path.join(REPOSITORY_ROOT, 'vite.config.js'),
+    plugins: [mountTfx],
+    server: { port: 5195, strictPort: false, hmr: false, watch: { ignored: ['**'] } },
+    logLevel: 'warn',
+  });
+
+  await server.listen();
+  server.baseUrl = server.resolvedUrls.local[0].replace(/\/$/, '');
+  console.log(`vite      ${server.baseUrl}`);
+  return server;
+}
+
+async function launchBrowser(playwright) {
+  const browser = await playwright.chromium.launch({
+    channel: 'chromium', headless: true, args: GPU_FLAGS,
+  });
+  console.log('chromium  headless (channel=chromium)');
+  return browser;
+}
+
+async function loadPlaywright() {
+  const candidates = ['playwright'];
+  const cache = path.join(process.env.HOME ?? '', '.npm', '_npx');
+  if (fs.existsSync(cache)) {
+    candidates.push(
+      ...fs.readdirSync(cache)
+        .map((entry) => path.join(cache, entry, 'node_modules', 'playwright'))
+        .filter((candidate) => fs.existsSync(candidate))
+    );
+  }
+
+  const require = createRequire(import.meta.url);
+  for (const candidate of candidates) {
+    try {
+      const namespace = await import(pathToFileURL(require.resolve(candidate)).href);
+      if (namespace?.chromium) return namespace;
+      if (namespace?.default?.chromium) return namespace.default;
+    } catch { /* next */ }
+  }
+  throw new Error('playwright not resolvable');
+}
+
+function parseArguments(argv) {
+  const options = {
+    outDirectory: path.join(REPOSITORY_ROOT, 'captures', 'hair-r31-ladder-ours'),
+    gateTfx: null,
+    rounds: 15,
+    batch: 24,
+    perVisit: 4,
+    warmup: 2,
+    headSha: null,
+  };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const flag = argv[index];
+    const value = argv[index + 1];
+    switch (flag) {
+      case '--out': options.outDirectory = path.resolve(value); index += 1; break;
+      case '--gate-tfx': options.gateTfx = path.resolve(value); index += 1; break;
+      case '--rounds': options.rounds = Number(value); index += 1; break;
+      case '--batch': options.batch = Number(value); index += 1; break;
+      case '--pervisit': options.perVisit = Number(value); index += 1; break;
+      case '--warmup': options.warmup = Number(value); index += 1; break;
+      case '--sha': options.headSha = value; index += 1; break;
+      default: throw new Error(`unknown argument '${flag}'`);
+    }
+  }
+
+  if (options.gateTfx === null) throw new Error('--gate-tfx is required (the 4,960-strand export)');
+
+  return options;
+}
+
+await main();
