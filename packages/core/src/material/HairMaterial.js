@@ -1051,10 +1051,29 @@ export const HAIR_ENVELOPE_QUANTILES = [ 0.02, 0.98 ];
 export const HAIR_ENVELOPE_EXTINCTION = 74.75;
 
 /**
- * The three arms that evaluate the geometric path length. Named once, because the test appears in
- * four places — the shader's per-fragment frame, the per-light `n`, the census and the fit hook —
- * and four copies of a three-way `||` is how a fifth arm gets added to three of them.
+ * 🚩 TWO PREDICATES, AND THE SPLIT IS THE POINT — R31 ADDED THE FIFTH ARM THIS COMMENT PREDICTED.
+ *
+ * The previous version of this comment read: *"Named once, because the test appears in four places
+ * — the shader's per-fragment frame, the per-light `n`, the census and the fit hook — and four
+ * copies of a three-way `||` is how a fifth arm gets added to three of them."* The fifth arm
+ * (`tt-envelope`) arrived, and it needs the envelope in FOUR of those five places and must be kept
+ * out of the fifth. One predicate could not express that, so there are now two.
+ *
+ * - `usesEnvelopeGeometry` — does this arm need the shell FITTED and its frame BUILT? Gates the
+ *   per-fragment frame, both fit hooks and the census. Cheap to be wrong in the permissive
+ *   direction (a wasted fit); expensive in the strict direction (a null term that looks like a
+ *   measurement, which is exactly how R28's first version shipped `n` identically zero).
+ * - `isEnvelopeArm` — does the MULTIPLE-SCATTERING term take its `n` from the chord instead of from
+ *   the baked sheet? This one is narrow on purpose. `tt-envelope` deliberately does NOT appear
+ *   here: moving the pedestal's input and TT's attenuation in one arm would be two free variables
+ *   under one name, which is the error that cost this project eight rounds.
  */
+export function usesEnvelopeGeometry( defect ) {
+
+    return isEnvelopeArm( defect ) || defect === 'tt-envelope';
+
+}
+
 export function isEnvelopeArm( defect ) {
 
     return defect === 'envelope-depth' ||
@@ -1736,6 +1755,38 @@ export const HAIR_DEFECTS = {
         'R27 could not tell its own form apart from a scalar BECAUSE the input was white noise; ' +
         'this is the same form with an input that has a spatial referent, and it is the only arm ' +
         'in which a depth-dependent term can attenuate ENERGY rather than only chromaticity.',
+    'tt-envelope': '\U0001F3AF ROUND 31. TT ON, ATTENUATED BY R28\'s CHORD, AND IT IS THE ARM THAT ' +
+        'DECIDES WHETHER THE ONLY COLOURED FORWARD LOBE CAN SHIP. `weightTT` is 0 on the shipped ' +
+        'path because an unshadowed `#0f30ff` rim `RectAreaLight` transmits straight at the camera ' +
+        'and the groom renders blue — re-tested on this tree WITH the corrected albedo and still ' +
+        'violet (R/B 1.824 -> 0.763, and the TT term alone matches the rim\'s own hue to 5.7\u00b0). ' +
+        'This arm multiplies TT by `exp(-\u03c3_hair \u00b7 \u2113)` toward each light, which ' +
+        'discriminates by DEPTH rather than by direction: median transmittance 2.67e-2 toward the ' +
+        'key against 4.79e-6 toward the rim, a factor of 5,565. It composes with `?hairlobes=` ' +
+        'rather than forcing the weight, so the A/B is `?hairlobes=r,tt,trt` against ' +
+        '`?hairlobes=r,tt,trt&hairdefect=tt-envelope` and the two changes stay separable. ' +
+        '\u26a0\ufe0f It does NOT touch the multiple-scattering term\'s input \u2014 deliberately ' +
+        'not routed through `isEnvelopeArm`, because moving the pedestal and TT in one arm is the ' +
+        'two-free-variables error that cost this project eight rounds. THE GATE: R/B back above 1.0 ' +
+        'WHILE TT stays non-zero. An attenuation that kills the blue by killing TT reproduces the ' +
+        'shipped arm digit for digit and FAILS. '
+        + '\U0001F534 IT FAILED THAT GATE. Measured over the 187,677 px TT moves when unattenuated: '
+        + 'R/B is restored 0.763 -> 1.823 against shipped 1.824 and the violet is GONE — and TT '
+        + 'survives at 0.18% of its unattenuated luma, so the plate is the shipped arm to within one '
+        + 'code value of blue (90,50,50 against 90,50,49). The blue was killed BY killing TT, which '
+        + 'is the stated failure condition. TWO causes, both measured, neither a tuning problem: '
+        + '(1) THE MODEL\'s DISTRIBUTION IS WRONG WHERE ITS MEAN IS RIGHT. The ray cast puts the key '
+        + 'at p50 0 crossings with 76.66% of fragments on a CLEAR path; the chord puts it at p50 '
+        + 'n = 3.62, i.e. 97.3% blocked. Truth is bimodal, an ellipsoid is smooth, and sigma was fitted '
+        + 'by least squares through the origin — which matches the MEAN (3.68 against 4.74) and '
+        + 'guarantees nothing about the shape. The rim dies correctly because it is in saturation; the '
+        + 'front lights die wrongly. (2) IT DOUBLE-COUNTS THE ONE REAL SHADOW ON THE RIG: `direct()` '
+        + 'carries the key\'s SpotLight, whose `lightColor` already arrives attenuated by the shadow '
+        + 'map, so this term multiplies a modelled occlusion onto a measured one. '
+        + '\u23ed CANDIDATE REPAIR, NAMED AND NOT BUILT: apply the chord ONLY to lights that have no '
+        + 'shadow map AND only where the model is in its saturation regime — rim and kicker — and let '
+        + 'the key keep the shadow it already has. Kept reachable, like `zinke-transmittance`, so the '
+        + 'next round inherits the probe rather than the argument.',
     'envelope-fixed-direction': '🔴 THE FALSIFICATION ARM FOR ROUND 28, AND IT IS THE ONE THAT ' +
         'DECIDES WHETHER ANYTHING WAS ACHIEVED. The envelope path length is evaluated toward a ' +
         'CONSTANT view-space direction instead of toward each light, so the term keeps every other ' +
@@ -2883,7 +2934,7 @@ export class HairLightingModel extends LightingModel {
         // ships unit, mutually perpendicular axes because the head bone's world matrix is rigid;
         // if that ever stops being true the projection below silently stops being a rotation, which
         // is why the gate asserts orthonormality on the uniforms rather than trusting the source.
-        if ( isEnvelopeArm( nodes.defect ) ) {
+        if ( usesEnvelopeGeometry( nodes.defect ) ) {
 
             const centreView = cameraViewMatrix.mul( vec4( nodes.envelopeCentre, 1 ) ).xyz;
             const axisX = cameraViewMatrix.mul( vec4( nodes.envelopeAxisX, 0 ) ).xyz.toVar( 'hairEnvelopeAxisX' );
@@ -3037,10 +3088,54 @@ export class HairLightingModel extends LightingModel {
         const absorbTT = pow( this.colour, vec3(
             float( 1 ).sub( offsetTT.mul( offsetTT ).mul( a ).mul( a ) ).max( 0 ).sqrt().div( cosThetaD.mul( 2 ) ) ) );
         const distributionTT = cosPhi.mul( - 3.65 ).sub( 3.98 ).exp();
-        const lobeTT = absorbTT
+        let lobeTT = absorbTT
             .mul( fresnelTT.oneMinus().mul( fresnelTT.oneMinus() ).mul( distributionTT ) )
             .mul( longitudinalNode( sinThetaSum, nodes.shiftTT, nodes.roughnessTT ) )
             .mul( nodes.weightTT );
+
+        // 🎯 R31. TT's OWN TRANSMITTANCE TO THE LIGHT, WHICH IS THE TERM THAT LETS TT SHIP AT ALL.
+        //
+        // `weightTT` is 0 on the shipped path and its docstring records the measured reason: the rim
+        // is a `RectAreaLight` at irradiance 16 and colour `#0f30ff`, three has had no rect-area
+        // shadow since issue #14161, so it reaches cards in FRONT of the head at full strength, TT
+        // transmits it straight at the camera and the groom renders blue. Re-tested 2026-08-22 on
+        // this tree, WITH the corrected `#1A0E0C` albedo: still violet. R/B goes 1.824 -> 0.763 and
+        // hue 1.5° -> 273.1° over 28.96% of the frame, and the TT term alone measures hue 237.4° /
+        // sat 0.921 against the rim's own 231.8° / 0.941 — agreement to 5.7°, so TT is transmitting
+        // the rim essentially unmodified. **The albedo fix did nothing for it; the cause is the rim.**
+        //
+        // 🚩 AND SLIDE 47's `sideVisibility` CANNOT BE THE FIX, WHICH IS WHY TT IS EXEMPT FROM IT.
+        // `saturate(ωi·ωr + 1)` is ~0 wherever the light opposes the view — which is exactly the
+        // backlit geometry TT exists for. Applying it to TT would not tame TT, it would delete it.
+        // The exemption below at the `return` is correct and is not an oversight.
+        //
+        // The discriminator TT actually needs is DEPTH, not direction: a front-facing card has a
+        // whole head of hair between it and the rim, while a genuine backlit silhouette fragment has
+        // almost none. R28's per-fragment per-light chord is exactly that quantity, and Frostbite's
+        // Tier-3 fallback is the form CHECKPOINT §10 already named as the tier this rig can reach:
+        //
+        //     T_f = exp( −σ_hair · ℓ )      per channel, on a GEOMETRIC path length
+        //
+        // ⚠️ THE CHORD'S RANK CORRELATION AT THE RIM IS ONLY 0.13 (`envelope-reference.json`;
+        // key 0.58, fill 0.65), and it does not need to be better, because this is a SATURATION
+        // regime rather than a precision one. Measured over R28's own 7,913 sampled fragments at
+        // σ = 74.75: median `T` is 2.67e-2 toward the KEY and 4.79e-6 toward the RIM — a factor of
+        // **5,565×** — and only 0.82% of rim fragments retain T > 0.1 against 26.97% of key
+        // fragments. Ordering does not matter when everything on one side is annihilated.
+        //
+        // ⚠️ `σ_hair` is a FLOOR by its own derivation — it regresses CARD crossings, and a card is a
+        // bundle of strands — so the true attenuation is stronger than this and the error is in the
+        // safe direction.
+        //
+        // 🚩 GATED AT GRAPH-BUILD TIME, NOT BY A UNIFORM, so the shipped graph is byte-identical and
+        // pays nothing: with no defect named the two extra quadratics are never emitted. It composes
+        // with `?hairlobes=` rather than forcing `weightTT`, so the two changes stay separable and
+        // the A/B is `?hairlobes=r,tt,trt` against `?hairlobes=r,tt,trt&hairdefect=tt-envelope`.
+        if ( nodes.defect === 'tt-envelope' ) {
+
+            lobeTT = lobeTT.mul( this.envelopeEvents( toLight ).negate().exp() );
+
+        }
 
         // --- TRT -------------------------------------------------------------------------------
         // h is the constant √3/2, so √(1−h²) is exactly 0.5 and the Fresnel loses its azimuth.
@@ -3442,7 +3537,7 @@ export async function createHairMaterial( options = {} ) {
     // fit walks 17,516 skinned vertices, and a default page must not pay for a term it does not
     // evaluate. `describe().envelope.fitted` therefore reads FALSE on the shipped arm, with `live`
     // false beside it — the census says which arm it is rather than implying a failure.
-    if ( isEnvelopeArm( defect ) ) {
+    if ( usesEnvelopeGeometry( defect ) ) {
 
         nodes.envelopeCentre.onObjectUpdate( ( frame ) => {
 
@@ -3592,7 +3687,7 @@ export async function createHairMaterial( options = {} ) {
             residual: material.hairEnvelope?.residual ?? null,
             vertexCount: material.hairEnvelope?.vertexCount ?? null,
             tracksBone: material.hairEnvelopeBone ?? null,
-            live: isEnvelopeArm( defect )
+            live: usesEnvelopeGeometry( defect )
         },
         alphaToCoverage: material.alphaToCoverage,
 
@@ -3789,7 +3884,7 @@ export function applyHairMaterial( root, material ) {
     // when the fit exists. Fitting here on the shipped arm would leave `describe()` reporting
     // `fitted true, tracksBone head` on a material whose uniforms nothing updates — a census that
     // describes a shell the picture does not have, which is worse than one that says "not fitted".
-    const envelope = isEnvelopeArm( material.hairDefect )
+    const envelope = usesEnvelopeGeometry( material.hairDefect )
         ? installHairEnvelope( material, root, positions )
         : null;
 
