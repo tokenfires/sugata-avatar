@@ -301,3 +301,60 @@ Frostbite reference implementation.** Rewriting the brief has sat as item 3 on �
 4. The §6 factorial, one run, one mask, four arms plus level-matched twins.
 5. In parallel and independent: spike steps A–F (§3).
 6. Score per §7. Iterate at most three times, then stop and report the problem rather than churn.
+
+---
+
+# ADDENDUM — 2026-08-22 evening. §6's factorial is DEAD AS SPECIFIED, and the ordering inverts.
+
+The groundwork ran (12 agents, 0 errors, every deliverable adversarially verified). Three questions
+closed cheaply. One closed the wrong way and it reorders the whole plan.
+
+## What closed
+
+| question | answer | where |
+|---|---|---|
+| Is multiple scattering the lever? | **No — it should be ~zero.** `ā_f ≤ 0.131` everywhere; `T_f = d_f·ā_f^n` is 3.66e-12 at n = 7.55 against a shipped `scatter` of 1 carrying 65.4% of the groom | `no-coloured-lobe-2026-08-22.md` |
+| Is the simulation the binding cost at strand density? | **No, by three orders of magnitude.** 0.0646 ms at 182,400 particles = 0.39% of a 16.6 ms frame | dynamics chain |
+| Is our hair too bright against the reference? | **No — 1.03× on matched masks.** §1's 3.43× was a mask artefact and the reference rect is skin-contaminated | `hair-reference-2026-08-22.md` |
+
+## 🔴 §6's 2×2 IS A NULL BY CONSTRUCTION AND MUST NOT BE RUN AS WRITTEN
+
+The C and D arms replace slide 39 with Zinke's per-channel `T_f`. **`T_f`'s entire chromaticity
+payload is in `ā_f`, and `ā_f` is achromatic with TT off** — the shipped forward hemisphere is R
+alone, and R takes no colour argument. The Zinke arms would render at `T_f ≤ 1.17e-2` and
+`R/B = 1.0096`: near-black and grey.
+
+**A factorial cannot attribute a colour effect the shipped BSDF cannot produce.** Four arms, a day,
+and a null that says nothing about the form — the ninth consecutive "genuine finding, picture did not
+move." §8's promise not to open a ninth shading round is kept by NOT running this.
+
+## ⏭️ The corrected ordering
+
+1. **TT, attenuated per light along R28's envelope chord.** ⚠️ Not "turn TT on" — that was tested
+   this round and **refuted on pixels**: `?hairlobes=r,tt,trt` takes the groom's R/B from **1.824 to
+   0.763**, hue 1.5° → 273.1°, and the TT term alone measures hue 237.4°/sat 0.921 against the rim
+   light's 231.8°/0.941 — **agreement to 5.7°, so TT is transmitting `#0f30ff` essentially
+   unmodified.** The albedo correction did nothing for it; the cause is the unshadowed rim alone.
+   The mechanism is Frostbite's Tier-3 fallback, which CHECKPOINT §10 already identified as the tier
+   that fits this rig: `exp(−σ_hair · ℓ)`, per channel, on a geometric path length.
+   ⚠️ **This is an EXTENSION of Zinke, not Zinke.** His `T_f` attenuates the global multiple-
+   scattering term, not a single-scattering lobe. Record it as ours.
+2. **Then** the pedestal form, with `ā_f` finally chromatic (sharpening 11.72× against 1.0096×).
+3. **Then** whatever fills the energy hole. REQ-064's near-axis light is the standing candidate
+   because it is also the only way to light TRT, the other coloured lobe.
+
+## 🚩 Corrections to this spec's own body
+
+- **§1's "3.43× too bright" is WITHDRAWN.** Matched masks give 1.03×. The dynamic-range shortfall is
+  real but 0.58× encoded / 0.38× radiance, not 0.33×.
+- **§2's decision rule keeps its CLAUSE and updates its NUMBER.** The clause is "parity with today's
+  cards". Today's cards have been re-measured at **+1.46 to +1.71 ms**, not +2.03. Apply the rule at
+  measured parity — holding 2.0 once parity is known to be 1.7 would let a slower primitive pass a
+  rule that says parity.
+- **§2's "~2.6 ms headroom" does not reproduce.** `alive.html` is bimodal on this machine today
+  (no-hair p50 6.53–13.27 across rounds of the identical URL). Use p95 or min-of-rounds, never p50.
+- **§4's `ā_f` is derived and the answer is in.** `tools/critic/hair-af.mjs`, 14/14 clauses with
+  analytic expected values. Zinke states no magnitude for it anywhere, so validation is against
+  arithmetic — V3 reproduces the closed form `cosθ_d/2` to twelve digits under both readings.
+- **§7's scoring stands**, and `JUDGE-BRIEF.md` now carries the A/B protocol, the decoy-axis
+  requirement and the rule against naming the hypothesis in the prompt.
