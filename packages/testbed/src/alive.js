@@ -358,9 +358,12 @@ import {
     // `figure/Skeleton.js` — a different class with the same name, which walks a figure's bones for
     // the pose system. Importing both unaliased would silently shadow one of them.
     Skeleton as SkinSkeleton,
+    SkinnedMesh,
+    Uint16BufferAttribute,
+    Float32BufferAttribute,
     Vector3
 } from 'three/webgpu';
-import { max, texture, vec3, vec4 } from 'three/tsl';
+import { max, normalize, positionLocal, positionViewDirection, texture, vec3, vec4 } from 'three/tsl';
 import { Box3, SRGBColorSpace } from 'three';
 
 import { plantGroundDefect, plantLightDefect } from './light-defects.js';
@@ -379,6 +382,13 @@ import {
     curvatureMapUrlFor
 } from '../../core/src/material/SkinMaterial.js';
 import { HAIR_DEFECTS, createHairMaterial } from '../../core/src/material/HairMaterial.js';
+import {
+    buildRibbonGeometry,
+    DEFAULT_RIBBON_WIDTH_METRES,
+    loadTfx,
+    ribbonNodes,
+    RibbonHairLightingModel
+} from '../../core/src/material/HairRibbons.js';
 import {
     HAIR_OIT_DEFAULT_MODE,
     HAIR_OIT_MODES,
@@ -2127,6 +2137,32 @@ function readHairRequest( query ) {
         // side of 3.5 rather than the A side of 3.6.
         bsdf: query.get( 'hairbsdf' ) !== '0',
         motion: motion === '1',
+
+        // 🎯 R31's P0 ARM. `?hairribbons=<url>` swaps the CARD groom for a RIBBON groom built from a
+        // TressFX `.tfx`, skinned to the same head bone, inside this same deferred stack — which is
+        // the only way to compare a strand cost against a card cost without one of them being a
+        // bare-page lower bound. Write the file with `tools/figure-pipeline/build-tfx.sh`; it is
+        // not committed and does not need to be, because a fresh Blender run reproduces its sha256
+        // in about twenty seconds.
+        //
+        // ⚠️ A URL RATHER THAN A STYLE NAME, DELIBERATELY. There is no ribbon bake table and there
+        // should not be one yet: the primitive's ACCEPT half is still provisional on the very
+        // measurement this arm exists to take, and a style table would read as adoption.
+        ribbons: query.get( 'hairribbons' ),
+
+        // The ribbon's full width in metres. Defaults to frostbitten's own 1.2 mm — which is a
+        // measured comparability choice, not a taste one — and is exposed because a primitive whose
+        // across-extent is about two pixels needs a knob to tell "not drawing" apart from "drawing
+        // sub-pixel", and that distinction cost a diagnosis pass to make.
+        ribbonWidth: number( 'hairribbonwidth', undefined, 1e-5, 0.5 ),
+
+        // 🔴 THE DIAGNOSTIC ARM. `?hairribbonskin=0` builds the ribbons as a plain `Mesh` instead of
+        // a `SkinnedMesh`. It exists because three's `NodeMaterial.setupPosition` assigns
+        // `positionNode` AFTER `skinning( object )` and OVERWRITES it — read off
+        // `node_modules/three/src/materials/nodes/NodeMaterial.js:774-803` — so a ribbon groom that
+        // expands from `positionGeometry` discards its own skinning. This arm tells a skinning
+        // interaction apart from everything else that can make a groom invisible.
+        ribbonSkin: query.get( 'hairribbonskin' ) !== '0',
         velocity,
         lobes,
         oit,
@@ -2316,6 +2352,109 @@ function readHairRequest( query ) {
  * throws the history away at exactly the pixels that needed it. That is filed against
  * `render/TRAAPost.js` and it caps what the arm can buy here.
  */
+/**
+ * 🎯 R31's P0. The RIBBON groom, skinned to the figure's own head bone, inside the shipped stack.
+ *
+ * ## Why this exists, and what it is measuring
+ *
+ * R31 decided the primitive on a prototype that renders on a bare page — `aa=off`, no G-buffer, no
+ * velocity write, no OIT composite, and (verified: zero `skin`/`bone`/`morph` symbols in its 1,128
+ * lines) NO SKINNING AND NO DYNAMICS. Every card figure it was compared against is a whole-frame
+ * delta on this deferred stack with a `JOINTS_0/WEIGHTS_0` groom. So the comparison was a LOWER
+ * BOUND against a fully-integrated cost, generous to the prototype — which is why the round's
+ * REFUSAL of all-strand is safe and its ACCEPTANCE of short-hair-on-strands is not yet. The named
+ * missing term is 141,312 skinned points per frame, and this function is what closes it.
+ *
+ * ## The skinning is EXACT rather than an approximation, and that is a fact about the card groom
+ *
+ * `verify_glb.mjs` reports the shipped card groom's skinning as `bones {head}, worst weight sum
+ * 1.000000`. One bone, full weight, every vertex — hair is welded to the head and nothing else. So
+ * a ribbon groom is skinned the same way by construction: every vertex takes `skinIndex` 0 into a
+ * one-bone skeleton and `skinWeight` (1, 0, 0, 0). This is not a stand-in for the card rig; it IS
+ * the card rig, which is what makes the frame delta comparable rather than merely similar.
+ *
+ * ⚠️ NO DYNAMICS. `HairDynamics` drives cards through `material.positionNode`, and the ribbon path
+ * already owns that node for its camera-facing expansion. Solving both is a real piece of work and
+ * it is NOT done here — so this arm still under-reports against a `?hairmotion=1` card plate, and a
+ * comparison must hold motion off on BOTH sides. Stated rather than discovered later.
+ *
+ * @param {Object} session - the live session; its figure supplies the head bone.
+ * @param {string} tfxUrl - the strand file. `tools/figure-pipeline/build-tfx.sh` writes them.
+ * @returns {Promise<{mesh:SkinnedMesh, nodes:Object, census:Object}>}
+ */
+async function buildRibbonGroom( session, tfxUrl, widthMetres = DEFAULT_RIBBON_WIDTH_METRES, skin = true ) {
+
+    const tfx = await loadTfx( tfxUrl );
+    const built = buildRibbonGeometry( tfx );
+    const geometry = built.geometry;
+
+    // 🚩 THE HEAD BONE IS TAKEN FROM THE FIGURE, NOT FROM THE FILE. A `.tfx` carries positions and
+    // an is-movable flag and nothing else — no skeleton, no weights — so the binding cannot come
+    // from the asset. `findHeadBone`'s own convention is the bone literally named `head`, and
+    // `verify_glb` asserts the card groom binds to that one.
+    let headBone = null;
+    session.figure.root.traverse( ( object ) => {
+
+        if ( headBone === null && object.isBone === true && object.name === 'head' ) headBone = object;
+
+    } );
+
+    if ( headBone === null ) {
+
+        throw new Error( 'alive: ?hairribbons needs a bone named \'head\' on the figure to skin to, ' +
+            'and this rig has none. The card groom binds to the same bone — see verify_glb.mjs.' );
+
+    }
+
+    const vertexCount = geometry.getAttribute( 'position' ).count;
+    const skinIndex = new Uint16Array( vertexCount * 4 );
+    const skinWeight = new Float32Array( vertexCount * 4 );
+
+    for ( let i = 0; i < vertexCount; i += 1 ) skinWeight[ i * 4 ] = 1;
+
+    geometry.setAttribute( 'skinIndex', new Uint16BufferAttribute( skinIndex, 4 ) );
+    geometry.setAttribute( 'skinWeight', new Float32BufferAttribute( skinWeight, 4 ) );
+
+    // ⚠️ A PLACEHOLDER MATERIAL, NOT `null`. The real hair material is assigned below with the card
+    // path's own `for ( const mesh of skinned ) mesh.material = material`, but three reads
+    // `material.visible` while building the render list and a null there throws before the
+    // assignment ever happens. The GLB path never hits this because `GLTFLoader` supplies one.
+    const mesh = skin
+        ? new SkinnedMesh( geometry, new MeshStandardNodeMaterial() )
+        : new Mesh( geometry, new MeshStandardNodeMaterial() );
+
+    // The bone's own world matrix at bind time is the inverse this skeleton needs, and taking it
+    // HERE rather than from a file is what makes the groom sit where the exporter put it: the
+    // `.tfx` is in the same metres-at-head-height frame the GLB groom is.
+    headBone.updateMatrixWorld( true );
+
+    if ( skin ) mesh.bind( new SkinSkeleton( [ headBone ], [ headBone.matrixWorld.clone().invert() ] ), new Matrix4() );
+
+    // Same reason as the card groom's, one screenful up: a `SkinnedMesh`'s bounding sphere is
+    // computed in BIND pose and the head moves.
+    mesh.frustumCulled = false;
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    mesh.name = 'sugata.hair.ribbons';
+
+    return {
+        mesh,
+        nodes: ribbonNodes( widthMetres, { positionBasis: skin ? positionLocal : null } ),
+        census: {
+            tfxUrl,
+            strandCount: tfx.strandCount,
+            pointsPerStrand: tfx.pointsPerStrand,
+            skinnedPoints: tfx.strandCount * tfx.pointsPerStrand,
+            vertices: built.vertices,
+            triangles: built.triangles,
+            widthMetres,
+            skinnedTo: skin ? 'head' : null,
+            dynamics: false
+        }
+    };
+
+}
+
 async function attachHair( session, figureUrl, stage ) {
 
     if ( session.hairEnabled !== true ) return;
@@ -2342,13 +2481,37 @@ async function attachHair( session, figureUrl, stage ) {
 
     }
 
-    const { GLTFLoader } = await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
-    const groom = await new GLTFLoader().loadAsync( groomUrl );
-
     const request = session.hairRequest;
     const skinned = [];
 
-    groom.scene.traverse( ( object ) => {
+    // 🎯 R31's P0 ARM, AND IT SHORT-CIRCUITS THE GLB. Everything below this block — the material,
+    // the OIT arm, the shadow flags, the slab, the census — is shared with the card path on
+    // purpose: the whole point of measuring here rather than on the spike page is that the ribbons
+    // go through the SAME deferred stack, the same G-buffer, the same temporal resolve and the same
+    // composite that a card plate does. A separate code path would be a separate measurement.
+    let ribbonGroom = null;
+
+    if ( request.ribbons !== null ) {
+
+        ribbonGroom = await buildRibbonGroom( session, request.ribbons, request.ribbonWidth ?? DEFAULT_RIBBON_WIDTH_METRES, request.ribbonSkin );
+        session.figure.root.add( ribbonGroom.mesh );
+        skinned.push( ribbonGroom.mesh );
+        session.hair = { root: session.figure.root, meshes: skinned, bake, ribbons: ribbonGroom.census };
+
+        console.log( `hair: RIBBONS from ${ request.ribbons } — ` +
+            `${ ribbonGroom.census.strandCount.toLocaleString() } strands, ` +
+            `${ ribbonGroom.census.skinnedPoints.toLocaleString() } skinned points, ` +
+            `${ ribbonGroom.census.triangles.toLocaleString() } triangles. ` +
+            'No dynamics on this arm — hold ?hairmotion off on BOTH sides of a comparison.' );
+
+    }
+
+    const { GLTFLoader } = ribbonGroom !== null
+        ? { GLTFLoader: null }
+        : await import( 'three/examples/jsm/loaders/GLTFLoader.js' );
+    const groom = ribbonGroom !== null ? null : await new GLTFLoader().loadAsync( groomUrl );
+
+    if ( ribbonGroom === null ) groom.scene.traverse( ( object ) => {
 
         if ( object.isSkinnedMesh === true ) skinned.push( object );
 
@@ -2366,7 +2529,7 @@ async function attachHair( session, figureUrl, stage ) {
 
     } );
 
-    for ( const mesh of skinned ) {
+    for ( const mesh of ribbonGroom === null ? skinned : [] ) {
 
         const absent = mesh.skeleton.bones.filter( ( bone ) => figureBones.has( bone.name ) === false );
 
@@ -2407,7 +2570,7 @@ async function attachHair( session, figureUrl, stage ) {
 
     }
 
-    session.hair = { root: session.figure.root, meshes: skinned, bake };
+    if ( ribbonGroom === null ) session.hair = { root: session.figure.root, meshes: skinned, bake };
 
     if ( request.bsdf === false ) {
 
@@ -2444,8 +2607,19 @@ async function attachHair( session, figureUrl, stage ) {
     }
 
     const material = await createHairMaterial( {
-        flowMapUrl: HAIR_SHEET_URLS.flow,
-        depthMapUrl: HAIR_SHEET_URLS.depth,
+        // 🚩 THE SHEETS ARE THE CARD'S, AND A RIBBON HAS NONE. `flow.png` exists to give a card a
+        // per-texel strand direction the geometry does not carry; a ribbon's tangent IS its
+        // geometry. `depth.png` is slide 44's bundle depth, baked per card. Handing either to a
+        // ribbon groom would be shading it as though it were a card.
+        //
+        // ⚠️ AND `depthMapUrl: null` HAS A VISIBLE CONSEQUENCE THAT IS NOT A BUG HERE: slide 44's
+        // exponential collapses to a constant 1, so the multiple-scattering term loses its depth
+        // modulation and the mass renders paler than a card plate. R31's decision document flags
+        // it as "a card artefact with no ribbon equivalent, so the fix is a look decision, not a
+        // port". It is left alone deliberately — this arm exists to measure a FRAME TIME, and
+        // changing the look to make the plate prettier would change the fragment cost being timed.
+        flowMapUrl: ribbonGroom === null ? HAIR_SHEET_URLS.flow : null,
+        depthMapUrl: ribbonGroom === null ? HAIR_SHEET_URLS.depth : null,
         alphaMap: skinned[ 0 ].material?.map ?? null,
         multisampled: session.multisampled,
         defect: request.defect,
@@ -2490,6 +2664,37 @@ async function attachHair( session, figureUrl, stage ) {
 
     }
 
+    // 🎯 THE RIBBON'S OWN NODES, and this is the whole of what the primitive change costs the
+    // material. The Karis BSDF is untouched — R, TT, TRT and the multiple-scattering term all read
+    // a fibre tangent and never an interpolated surface normal, so the lobes do not know or care
+    // what drew them. What changes is where the tangent comes from and where the vertex goes.
+    if ( ribbonGroom !== null ) {
+
+        const nodes = ribbonGroom.nodes;
+
+        // The camera-facing expansion. `positionNode` is the same hook `HairDynamics` uses on the
+        // card path, which is why the two cannot both run yet — see `buildRibbonGroom`.
+        material.positionNode = nodes.positionNode;
+
+        // Karis' fake normal, rebuilt from the ribbon's tangent. `createHairMaterial` already
+        // assigned this expression from `strandTangentNode`; the formula is copied unchanged and
+        // only the tangent differs, so the G-buffer normal and the lit tangent stay one vector.
+        material.normalNode = normalize( positionViewDirection.sub(
+            nodes.tangentView.mul( nodes.tangentView.dot( positionViewDirection ) ) ) );
+
+        material.setupLightingModel = () => new RibbonHairLightingModel( material.hair, {
+            tangentView: nodes.tangentView,
+            geometric: true
+        } );
+
+        // Analytic across-ribbon coverage instead of the atlas's alpha — which is the term
+        // CHECKPOINT §2 measured as unable to carry a strand at card size. No texel, no mip chain,
+        // nothing for a trilinear filter to correctly remove.
+        material.colorNode = vec4( material.hair.baseColour, 1 );
+        material.opacityNode = nodes.coverage;
+
+    }
+
     configureHairMaterial( material, arm, {
         alphaToCoverage: session.multisampled,
         slab: stage.hairOIT?.slab ?? null,
@@ -2499,7 +2704,30 @@ async function attachHair( session, figureUrl, stage ) {
     // Punch-list 6.6, and it runs BEFORE the material is handed to the meshes on purpose: it sets
     // `material.positionNode`, and a node added to a material the renderer has already drawn with
     // needs the program rebuilt. Nothing has drawn with this one yet.
-    if ( request.motion === true ) await attachHairDynamics( session, stage, skinned, material );
+    // 🔴 AND NOT ON THE RIBBON ARM, WHICH COST A DIAGNOSIS PASS TO FIND. `HairDynamics` delivers its
+    // answer by assigning `material.positionNode`, and that is the SAME hook the ribbon's
+    // camera-facing expansion owns — three's `NodeMaterial.setupPosition` has exactly one
+    // `positionNode` slot and the last writer takes it. The solver won, so every ribbon collapsed to
+    // zero width, every triangle went degenerate, and the plate came back BALD rather than erroring:
+    // a silent failure that looks exactly like a placement bug and is not one.
+    //
+    // ⚠️ `?hairmotion` DEFAULTS ON, so this is the ordinary path rather than an exotic one, and the
+    // `?hairribbonskin=0` arm threw on `mesh.skeleton.bones` instead — which is how it was caught.
+    // `buildRibbonGroom`'s docstring already said "NO DYNAMICS" and a docstring is not a guard.
+    //
+    // Solving both is real work — the expansion would have to compose with the solved position
+    // rather than replace it — and it is P1's, not P0's. A comparison against a card plate must
+    // therefore hold motion off on BOTH sides, and this warns rather than silently differing.
+    if ( request.motion === true && ribbonGroom !== null ) {
+
+        console.warn( '?hairmotion is ignored on the ribbon arm: the solver and the ribbon ' +
+            'expansion both write material.positionNode, and the solver would silently flatten ' +
+            'every ribbon to zero width. This plate is a RIGID groom — hold motion off on the ' +
+            'card side too, or the comparison is not like for like.' );
+
+    }
+
+    if ( request.motion === true && ribbonGroom === null ) await attachHairDynamics( session, stage, skinned, material );
 
     for ( const mesh of skinned ) mesh.material = material;
 
@@ -3388,6 +3616,12 @@ function censusOfShading( session, stage ) {
                 bake: session.hair.bake,
                 groomMeshes: session.hair.meshes.length,
                 shadedMeshesInScene: 0,
+
+                // 🎯 R31's P0 arm. `null` on every card plate, so a sidecar says which PRIMITIVE it
+                // is a plate of rather than leaving a reader to infer it from the picture. This is
+                // the same argument as `provenance.hairMaterialClass`: a control was once
+                // invalidated because nothing beside the plates recorded what drew them.
+                ribbons: session.hair.ribbons ?? null,
                 oit: session.hairMaterial === null ? 'cutout' : stage.hairOITMode,
                 motion: session.hairDynamics === null
                     ? null

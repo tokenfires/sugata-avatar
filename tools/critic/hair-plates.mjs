@@ -93,8 +93,27 @@ async function main() {
         page.on( 'console', ( message ) => { if ( message.type() === 'error' ) problems.push( message.text() ); } );
 
         await page.goto( url, { waitUntil: 'load' } );
-        await page.waitForFunction( () => typeof globalThis.__SUGATA_STEP__ === 'function',
-            null, { timeout: 120000 } );
+
+        // 🔴 THE TIMEOUT USED TO HIDE ITS OWN CAUSE. `__SUGATA_STEP__` is defined at the END of the
+        // page's boot, so anything that throws on the way there leaves it undefined and this wait
+        // expires — reporting "Timeout 120000ms exceeded" and nothing else, while the actual
+        // TypeError sat unread in `problems` because the errors are only printed further down, on a
+        // path a timeout never reaches. Re-thrown with the page's own errors attached: the harness
+        // knows exactly why the page never booted and there is no reason to make a reader open a
+        // browser to find out.
+        try {
+
+            await page.waitForFunction( () => typeof globalThis.__SUGATA_STEP__ === 'function',
+                null, { timeout: 120000 } );
+
+        } catch ( error ) {
+
+            if ( problems.length === 0 ) throw error;
+
+            throw new Error( `${ url }\n  the page never defined __SUGATA_STEP__, and it reported:\n` +
+                problems.map( ( problem ) => `    ${ problem }` ).join( '\n' ) );
+
+        }
 
         // 🚩 PROVENANCE, IN THE SIDECAR RATHER THAN IN A README A READER HAS TO TRUST.
         //

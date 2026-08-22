@@ -417,7 +417,7 @@ export class RibbonHairLightingModel extends HairLightingModel {
  *
  * @param {number} widthMetres - the FULL ribbon width. Offsets are ±half of it.
  */
-export function ribbonNodes( widthMetres ) {
+export function ribbonNodes( widthMetres, { positionBasis = null } = {} ) {
 
     const halfWidth = uniform( widthMetres / 2 );
     const tangentLocal = attribute( 'strandTangent', 'vec3' );
@@ -427,8 +427,31 @@ export function ribbonNodes( widthMetres ) {
     // the geometry it describes: they cannot drift apart because there is nothing to drift.
     const side = uv().x.mul( 2 ).sub( 1 );
 
+    // 🔴 THE BASIS IS A PARAMETER, AND GETTING IT WRONG RENDERS A GROOM INSIDE THE SKULL.
+    //
+    // `positionGeometry` is the RAW attribute. That is right on an unskinned mesh — the spike's
+    // page has no figure and no bones — and WRONG on a skinned one, because three's
+    // `NodeMaterial.setupPosition` runs `skinning( object )` FIRST and then, unconditionally,
+    // `positionLocal.assign( positionNode )` (read off
+    // `node_modules/three/src/materials/nodes/NodeMaterial.js:774-803`). There is exactly one
+    // `positionNode` slot and the last writer takes it, so an expansion built on
+    // `positionGeometry` DISCARDS the skinning it was supposed to ride on: the groom renders at
+    // bind pose while the head has moved, and most of it ends up buried inside the head mesh.
+    // Measured on `alive.html` — the front third of a `crop01` groom vanished into the skull while
+    // the back stuck out, which reads as a sparse groom rather than as a displaced one.
+    //
+    // Passing `positionLocal` composes instead of replacing: skinning writes it, this reads it, and
+    // the expansion happens around the SKINNED point.
+    //
+    // ⚠️ THE TANGENT IS NOT SKINNED AND THAT IS A STATED LIMIT. `tangentView` below rotates
+    // `strandTangent` by the model-view matrix only, so under head rotation the fibre direction
+    // lags the geometry it belongs to. On this rig the groom is welded to ONE bone at weight 1, so
+    // the error is exactly the head's own rotation away from bind — nil on a `?freeze` plate and
+    // real in motion. Fixing it needs the bone matrix in the shader, which is P1's, not P0's.
+    const base = positionBasis ?? positionGeometry;
+
     const eyeLocal = modelWorldMatrixInverse.mul( vec4( cameraPosition, 1 ) ).xyz;
-    const toEye = normalize( eyeLocal.sub( positionGeometry ) );
+    const toEye = normalize( eyeLocal.sub( base ) );
 
     const across = cross( tangentLocal, toEye );
     const acrossUnit = across.div( length( across ).max( DEGENERATE_CROSS_FLOOR ) );
@@ -437,7 +460,7 @@ export function ribbonNodes( widthMetres ) {
 
         halfWidth,
 
-        positionNode: positionGeometry.add( acrossUnit.mul( side.mul( halfWidth ) ) ),
+        positionNode: base.add( acrossUnit.mul( side.mul( halfWidth ) ) ),
 
         // The fibre direction in VIEW space, which is the space `HairLightingModel` works in:
         // `positionViewDirection` is view-space and every light reaches `direct()` there. w = 0
