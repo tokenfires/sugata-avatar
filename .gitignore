@@ -47,6 +47,15 @@ tools/figure-pipeline/.cache/
 /captures/hair-r31-*/**/*.jpg
 /captures/hair-r31-*/**/*.jpeg
 
+# R32, same rule and same reason. REQ-064's refutation rests on a gated 236,792-pixel mask and a
+# fourteen-arm sweep; the PLATES regenerate from `tools/critic/hair-glint.mjs --masks --arms`, the
+# REPORT is the thing a reader needs beside the claim.
+!/captures/hair-r32-*/
+!/captures/hair-r32-*/**
+/captures/hair-r32-*/**/*.png
+/captures/hair-r32-*/**/*.jpg
+/captures/hair-r32-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact

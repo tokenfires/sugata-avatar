@@ -991,19 +991,59 @@ const EDGE_LIGHTS = {
  * Elevation 0 for the same reason: it is the lobe's peak by construction, not a taste choice, and
  * it leaves exactly one number — `irradiance` — to be solved against the gates.
  *
- * ⚠️ **`irradiance` IS UNSOLVED AT THE TIME OF WRITING.** The value below is the sweep's starting
- * point and is NOT a measured constant. `docs/superpowers/specs/2026-08-23-req-064-preregistration.md`
- * registers the three gates it has to be solved against; until that sweep lands and this comment
- * says otherwise, this number is a placeholder and must not be quoted as a result.
+ * ## 🔴 AND IT SHIPS AT ZERO, BECAUSE REQ-064 WAS REFUTED BY THE MEASUREMENT IT ASKED FOR
+ *
+ * The sweep ran against the gates pre-registered at `79c870e`, on 236,792 gated hair pixels, with
+ * a decoy at azimuth 180 confirming the statistic tracks geometry (ratio 0.004) and a drift control
+ * reading **0.0000** so a tenth of a code value is signal. Full table in
+ * `docs/research/req-064-refuted-2026-08-23.md`. The three numbers that decide it:
+ *
+ *   - **GATE 1, attribution: 1.048x against a registered floor of 2.0x.** The glint's whole
+ *     top-decile chroma gain is 0.1141 codes with TRT present and 0.1089 with TRT removed. TRT
+ *     contributes **4.6%** of the thing the light exists to produce.
+ *   - **GATE 2, visibility: 0.1141 codes against a registered floor of 1.0.** Nine times under the
+ *     8-bit quantisation floor — the change cannot be seen.
+ *   - **SLIDE 39'S FAKE CARRIES 88.8% OF IT.** `docs/research/hair.md` §9.3 predicted 65.4% for a
+ *     near-axis light and this file's own header named it the reason the previous attempt could not
+ *     be trusted. Measured, it is worse than predicted: take the fake away and the gain falls from
+ *     0.1141 to 0.0127. **A better geometry feeds the fake before it feeds the lobe**, exactly as
+ *     written, and now with a number.
+ *
+ * ⚠️ **THE LOBE IS NOT ABSENT — IT IS TINY EVERYWHERE, AND THAT IS A DIFFERENT FINDING.** The
+ * obvious objection to the gates is that a top-decile statistic might miss a narrow retroreflective
+ * band. Answered by a separate measurement rather than by moving the pre-registered statistic:
+ * across the whole gated mask TRT's per-pixel chroma contribution is **0.032 codes at the mean**,
+ * its **best single pixel reaches 2.12**, and **644 px of 236,792 — 0.272% — reach one code value.**
+ * So the lobe does fire; it fires on a scattering of individual pixels rather than on a band. The
+ * decile was never the limit.
+ *
+ * 🎯 **WHY THE ENTRY SURVIVES AT ZERO INSTEAD OF BEING DELETED.** Three things have to stay true:
+ * the shipped rig must not pay for a refuted light, the measurement must stay reproducible, and the
+ * reasoning must not have to be rebuilt by whoever tries this next. `buildLights` constructs nothing
+ * when `irradiance` is 0, so the shipped frame carries no extra light and no extra dot product;
+ * `?ov=glint.irradiance:0.05` rebuilds it, so `tools/critic/hair-glint.mjs` reproduces every arm
+ * above; and this block is the reasoning. Same argument as `INERT_BY_CLASS`'s empty tables — a
+ * table that exists is one somebody fills in.
+ *
+ * ⚠️ **WHAT WOULD CHANGE THE ANSWER IS THE FIBRE, NOT THE RIG.** `absorbTRT` is
+ * `pow(colour, 0.8/cosθd)` and on a `#150F17` fibre that is 0.022, so the lobe peaks near
+ * 0.0014 sr⁻¹ **whatever is pointed at it**. The sweep confirms the shape rather than contradicting
+ * it: reaching gate 2 needs E ≈ 2.0, which is two thirds of the KEY's 3.0 — not "a small
+ * low-irradiance practical" but a second key light, and at E 2 the CIELAB C* is already FALLING
+ * (18.4692 against 18.6926 at E 1) while luma climbs 34%. That is washing out, not colouring.
+ * **A near-axis light does not make black hair coloured. A lighter fibre would, and that is a
+ * different request.**
  */
 const GLINT_LIGHTS = {
 
     portrait: {
         name: 'glint',
-        azimuthDegrees: 0,
+        azimuthDegrees: 0,       // the camera axis. NOT CAMERA_AZIMUTH_DEGREES — see the frame note above.
         elevationDegrees: 0,
-        distanceInHeights: 1.0,   // direction only — a directional light's power is not distance-dependent
-        irradiance: 0.05,
+        distanceInHeights: 1.0,  // direction only — a directional light's power is not distance-dependent
+
+        // 🔴 ZERO IS THE MEASURED ANSWER, NOT AN UNSET DEFAULT. See the refutation above.
+        irradiance: 0,
         colour: 0xffffff
     }
 
@@ -2356,7 +2396,17 @@ export class LightingRig {
 
         const glint = this.glintPlacement();
 
-        if ( glint !== null ) {
+        // 🔴 `> 0`, AND IT IS WHAT KEEPS A REFUTED LIGHT FROM COSTING THE SHIPPED FRAME ANYTHING.
+        // REQ-064 measured out at 0.1141 codes of chroma against a registered floor of 1.0, so the
+        // portrait entry ships at `irradiance: 0` — see the refutation over `GLINT_LIGHTS`. A
+        // zero-intensity light is not free: it stays in three's light list and costs a dot product
+        // per fragment for a contribution that is exactly nothing. Building nothing is.
+        //
+        // ⚠️ The override layer is read in `glintPlacement()` ABOVE this test, so
+        // `?ov=glint.irradiance:0.05` still constructs the light and every arm in
+        // `tools/critic/hair-glint.mjs` still reproduces. That ordering is the whole reason the
+        // refutation stays checkable rather than becoming a paragraph about a deleted feature.
+        if ( glint !== null && glint.irradiance > 0 ) {
 
             // A directional light aims from its position at its target, so both have to be in the
             // graph before `solve()` can point it. Its `intensity` IS the authored irradiance:

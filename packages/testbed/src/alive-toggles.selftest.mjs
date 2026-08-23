@@ -355,19 +355,20 @@ const PIXEL_BASE = `${ BASE_QUERY }&aa=msaa&grade=0`;
  */
 
 /**
- * The SIX entities `LightingRig` re-aims when the framing changes. Named once; used four times.
+ * The five entities `LightingRig` re-aims when the framing changes. Named once; used four times.
  *
- * 🚩 IT WAS FIVE UNTIL REQ-064, AND THE HEADER ABOVE SAYS WIDENING THIS LIST IS ITSELF A FAILURE
- * MODE — *"or that somebody widened the list to quieten a red gate"*. So the evidence is here rather
- * than the edit being quiet. `light:glint` is `render/LightingRig.js`'s near-axis `DirectionalLight`,
- * and it is re-aimed by the identical arithmetic as the other five: `solve()` builds every
- * placement direction from the `toCamera` basis through `directionFor`, so a framing change moves
- * it for exactly the reason it moves the key. Measured, not reasoned: the gate reported it as
- * `COLLATERAL light:glint` on all four of `?frame=body`, `?height=0.3`, `?pose=bind` and
- * `?gender=1` — the same four, which is the signature of a re-aim rather than of a coupling.
+ * 🚩 IT WAS BRIEFLY SIX AND IS FIVE AGAIN, WHICH IS WORTH ONE PARAGRAPH BECAUSE THE HEADER ABOVE
+ * NAMES "somebody widened the list to quieten a red gate" AS A FAILURE MODE. REQ-064's near-axis
+ * `light:glint` was added here on evidence — the gate reported `COLLATERAL light:glint` on all four
+ * framing toggles, the signature of a re-aim — and then the request was REFUTED by its own
+ * measurement and the light now ships at `irradiance: 0`, which `buildLights` declines to
+ * construct. So the shipped rig has five lights again and this list is correct at five.
+ *
+ * ⚠️ **`?ov=glint.irradiance:0.05` STILL BUILDS IT**, and on such a plate this list is short by one.
+ * No plate this file loads passes that override, so nothing here is wrong; it is a limit of this
+ * gate rather than a property of the rig. `tools/critic/hair-glint.mjs` is what drives that arm.
  */
-const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker',
-    'light:glint' ];
+const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker' ];
 
 /**
  * 🎯 THE FOUR PROPERTIES `placeCamera` MOVES, and the fact nothing in this repo had written down:
@@ -519,22 +520,7 @@ const TOGGLES = [
     // --- framing and identity ----------------------------------------------------------------------
     // All four re-aim the rig, and nothing else. Gating them with an explicit five-light allowlist
     // says out loud that a plate captured at another framing carries a differently-aimed rig.
-    // 🔴 THE ONE TOGGLE THAT CHANGES THE LIGHT *SET* AND NOT ONLY ITS AIM, AND IT IS DECLARED RATHER
-    // THAN ABSORBED. `render/LightingRig.js`'s `GLINT_LIGHTS` has a `portrait` entry and NO `body`
-    // one, so `?frame=body` does not re-aim the glint — it removes it, together with its target
-    // object. Measured: `scene.children array(11) -> array(9)`, two objects, which is the light and
-    // the `Object3D` a `DirectionalLight` needs to have a direction at all.
-    //
-    // ⚠️ SO A BODY PLATE HAS NO NEAR-AXIS GLINT AND A PORTRAIT PLATE DOES. That is a real difference
-    // between the two framings' rigs and not a bug: REQ-064 asks for the portrait preset, and giving
-    // `body` a glint would mean authoring an irradiance for a framing nobody has measured — the rig
-    // solves body's edge lights separately for exactly this reason (rim 22 against portrait's 16,
-    // kicker 0.10 against 0.07). **Whether body wants one is OPEN and needs its own solve.**
-    //
-    // `scene.children` is listed here rather than the row being loosened, so the count is an
-    // assertion: if a future preset gains or loses a light, this number stops matching and says so.
-    { query: 'frame=body', census: null, touches: RIG_LIGHTS,
-        rendererState: [ ...CAMERA_PLACEMENT, 'scene.children' ] },
+    { query: 'frame=body', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
     { query: 'height=0.3', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
     { query: 'pose=bind', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
 

@@ -393,10 +393,53 @@ function report(out) {
     `      with it OFF              the glint buys ${gainNoFake.toFixed(4)} codes of chroma`
   );
 
-  const fakeShare = gainNoFake === 0 ? Infinity : gainShipped / gainNoFake;
+  // 🔴 STATED AS A SHARE, NOT A RATIO. An earlier version printed `gainShipped / gainNoFake` and
+  // read "the fake does not suppress it" for anything above 1 — technically true and it buries the
+  // finding, because the interesting case is not suppression, it is CARRIAGE. The share below is
+  // how much of the glint's whole chroma gain disappears when slide 39's fake is taken away, which
+  // is the quantity `LightingRig.js` predicted at 65.4%.
+  const carriedByFake = gainShipped === 0 ? 0 : 1 - (gainNoFake / gainShipped);
   console.log(
-    `      ratio ${Number.isFinite(fakeShare) ? fakeShare.toFixed(3) : 'n/a'} — ` +
-    `${fakeShare < 1 ? 'the fake SUPPRESSES the glint\'s colour' : 'the fake does not suppress it'}`
+    `      so slide 39's FAKE CARRIES ${(carriedByFake * 100).toFixed(1)}% of the glint's chroma gain ` +
+    `— LightingRig.js predicted 65.4% for a near-axis light and named it the reason the last ` +
+    `attempt could not be trusted`
+  );
+
+  // 🎯 THE FAIR CHALLENGE TO THIS FILE'S OWN STATISTIC, ANSWERED RATHER THAN LEFT OPEN.
+  //
+  // The gates read a TOP DECILE, and TRT is a narrow retroreflective band — so the obvious
+  // objection is that the lobe fires somewhere the decile does not look. That objection cannot be
+  // answered by moving the statistic, because the statistic is pre-registered and moving it after
+  // the data is in is the renegotiation the registration forbids. It CAN be answered by an extra
+  // measurement reported separately, which is what this is: TRT's per-pixel chroma contribution
+  // over the WHOLE gated mask, as the difference between the `r,trt` and `r` arms with the glint on.
+  //
+  // If even the best single pixel in the groom cannot reach one code value, the decile was never
+  // the limit.
+  console.log('\n  --- where TRT actually lands, over the whole mask (a DIAGNOSTIC, not a gate) ---\n');
+
+  const withTrt = readPlate(path.join(out, 'glint-rtrt.png'));
+  const noTrt = readPlate(path.join(out, 'glint-r.png'));
+  let seen = 0;
+  let best = 0;
+  let total = 0;
+  let overFloor = 0;
+
+  for (const k of pixels) {
+    const a = codesAt(withTrt, k * 4);
+    const b = codesAt(noTrt, k * 4);
+    if (isInvertible(a) === false || isInvertible(b) === false) continue;
+    const delta = chromaInCodes(...a) - chromaInCodes(...b);
+    seen += 1;
+    total += delta;
+    if (delta > best) best = delta;
+    if (delta >= 1.0) overFloor += 1;
+  }
+
+  console.log(
+    `      over ${seen.toLocaleString()} px: mean ${(total / seen).toFixed(5)} codes, ` +
+    `best single pixel ${best.toFixed(5)}, ` +
+    `${overFloor.toLocaleString()} px (${((overFloor / seen) * 100).toFixed(4)}%) reach the 1.0-code floor`
   );
 
   console.log('\n  --- brightness, reported and deciding NOTHING -----------------------------\n');

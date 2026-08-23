@@ -1880,7 +1880,7 @@ verify:      packages/core/src/render/LightingRig.js /rim carries a shadow caste
 
 ```request
 id:          REQ-064
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/render/LightingRig.js
 filed-by:    the R14 hair-highlight agent (diffRequest 2 of 3)
 filed-round: R12
@@ -1912,8 +1912,38 @@ evidence:    Measured this session, same plates and same inversion as REQ-063. T
              the model its peak would be handing a tighter lobe a better geometry. The two were
              measured as the only two arms that clear the contrast gate's range floor (6.030 and
              4.291, both with slide 39 off, `docs/research/hair.md` §9.4) and they are independent.
+             🔴 REFUTED 2026-08-23 BY THE MEASUREMENT THIS ENTRY ASKED FOR. Built as a
+             DirectionalLight (a fifth AREA light throws — MAX_AREA_LIGHTS is 4 and portrait spends
+             all four at 0.9543 ms each) and swept against gates pre-registered at 79c870e, on
+             236,792 gated hair pixels, decoy at azimuth 180 clean at ratio 0.004, drift 0.0000.
+             ATTRIBUTION 1.048x against a floor of 2.0x — the whole top-decile chroma gain is
+             0.1141 codes with TRT and 0.1089 without, so TRT is 4.6% of it. VISIBILITY 0.1141
+             codes against a floor of 1.0 — nine times under 8-bit quantisation.
+             🎯 SLIDE 39'S FAKE CARRIES 88.8%, which hair.md §9.3 predicted at 65.4% and named as
+             the reason the previous attempt could not be trusted. Take the fake away and the gain
+             falls 0.1141 -> 0.0127.
+             ⚠️ THE LOBE IS NOT ABSENT, IT IS TINY EVERYWHERE — over the whole mask TRT's mean
+             per-pixel chroma is 0.032 codes, its best pixel 2.12, and 644 px of 236,792 (0.272%)
+             reach one code value. So the top-decile statistic was not the limit.
+             🔴 AND THIS ENTRY'S `change:` NAMED THE WRONG FRAME. CAMERA_AZIMUTH_DEGREES is
+             Avatar.js:233, the camera's yaw in the CHARACTER frame; LightingRig's azimuth is
+             measured FROM the camera, so the camera axis is 0 and 12 is 12° off it — D_TRT 1.2461
+             against 0.85943, 31.0% of the peak discarded.
+             Reaching the visibility floor needs E ~ 2.0, two thirds of the KEY, and C* PEAKS AT
+             E 1.0 AND FALLS AT E 2.0 while luma climbs 34%. The ceiling is the fibre, not the rig:
+             absorbTRT is pow(colour, 0.8/cosθd) = 0.022 on #150F17 whatever is pointed at it.
+             Full table: docs/research/req-064-refuted-2026-08-23.md
 anchor:      packages/core/src/render/LightingRig.js /azimuthDegrees: 42,/
 verify:      packages/core/src/render/LightingRig.js /camera-axis practical/
+reason:      REJECTED BY ITS OWN MEASUREMENT, not by an argument. The near-axis light was built,
+             swept and gated against thresholds pre-registered before any arm was rendered, and it
+             failed both: attribution 1.048x against a floor of 2.0x, and 0.1141 codes of top-decile
+             chroma against a visibility floor of 1.0. Slide 39's multiple-scattering fake carries
+             88.8% of what little gain there is. The ceiling is the fibre rather than the rig —
+             pow(colour, 0.8/cosθd) is 0.022 on #150F17 whatever is pointed at it — so a near-axis
+             light cannot make this hair coloured at any affordable irradiance. The placement
+             survives at irradiance 0 so the refutation stays reproducible through
+             ?ov=glint.irradiance:0.05.
 ```
 
 ## REQ-065 — hair receives 1% of its own emission as environment light, and Karis' path for it cannot be written where it belongs

@@ -2426,6 +2426,19 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
         },
         { what: 'portrait, shadows off entirely', preset: 'portrait', overrides: {}, options: { shadows: false } },
         { what: 'body, ambient off', preset: 'body', overrides: {}, options: { ambient: false } },
+
+        // 🚩 THE ONLY CASE THAT BUILDS REQ-064's GLINT, AND WITHOUT IT THIS FILE'S GLINT
+        // DECLARATION IS A CLAUSE THAT CANNOT GO RED. The request was refuted by its own
+        // measurement and `GLINT_LIGHTS.portrait` now ships at `irradiance: 0`, which
+        // `buildLights` declines to construct — so every case above has no glint, the declaration
+        // in `declaredState` is skipped, and a whole light class would sit in the tables
+        // unexercised. `hair-reference.selftest.mjs`'s own warning is the shape to avoid: *"a
+        // roster with stood-down clauses is a PARTIAL verdict"*.
+        //
+        // The override is exactly the one `tools/critic/hair-glint.mjs` drives its arms with, so
+        // this case and the refutation's plates are the same configuration.
+        { what: 'portrait, REQ-064 glint forced on', preset: 'portrait',
+            overrides: { glint: { irradiance: 0.05 } }, options: {} },
         { what: 'body, a 1024 map and a 4-height cone', preset: 'body', overrides: {}, options: { shadowMapSize: 1024, shadowCoverageInHeights: 4 } }
     ];
 
