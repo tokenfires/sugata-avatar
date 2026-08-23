@@ -1345,3 +1345,175 @@ cores with nothing else running still gave a 67% gate spread, and batch 24 → 9
 - **A structural guard only protects the path it is on** — the `blind_ab.mjs` key fix did not stop
   `.gitignore` nearly committing a blind panel's answer key eight hours later.
 - **A caveat written is not a caveat closed.**
+
+---
+
+## 18. R32–R33, 2026-08-23 — three requests closed by measurement, and the rim is answered
+
+**Read §16 and §17 first, and read §17's retraction box before trusting anything in it.** HEAD
+`a770038`, nine commits past §17's `98bfc73`.
+
+**Suite at HEAD: FAILING GATES 6, UNDECLARED RED 0, STALE DECLARATIONS 1** — the six are
+`HairMaterial` (76/80, red by design), `sway` (the affect/footprint composite), `hair_alpha`,
+`quoted-numbers` (declared this session — red on a clean clone by construction), `request-ledger`
+(the ROUNDS clause) and `verify_glb`. The stale declaration is `HairOIT`, the documented
+intermittent that passes about nine runs in twelve, and deleting its declaration would be wrong.
+
+🚩 **THAT LINE IS COPIED FROM A FRESH RUN'S OWN OUTPUT**, at `23:38:55Z`, because §17's identical
+line was written from memory and was wrong in two independent ways. See the retraction box in §17.
+**Do not write this line from anything but a run.**
+
+This session closed the three requests the hair phase had been circling, each on a pre-registered
+rule applied as written, and none by argument. It also corrected four things in our own record — two
+of them from earlier the same day.
+
+### 🎯 THE HEADLINE: "muddy" is not a lighting problem, and now that is measured rather than argued
+
+Three independent routes to a lighting fix are closed, all bounded by plates:
+
+| request | asked for | verdict | the number that decided it |
+|---|---|---|---|
+| **REQ-064** | a near-axis light so TRT can fire | **REJECTED** | attribution **1.048×** against a registered 2.0×; slide 39's fake carries **88.8%** |
+| **REQ-078** | a different rim hue | **REJECTED** | the outline and the muddiness are different problems; hue is the lever for neither |
+| **REQ-063** | a shadow caster on the rim | **REJECTED** | shadowed rim and DELETED rim give the same p50 hair luma **to eight decimals** |
+
+**The coloured-lobe list is empty.** R cannot carry colour by construction (relative chroma exactly
+`0.0000` at every azimuth, re-derived this round from the BSDF's own CPU mirror). TT closed
+2026-08-22 on a geometric ceiling. TRT closes on an absorption ceiling that a rig cannot move.
+
+**And the rim is answered.** Its entire exposure to the hair is worth **2.508 codes** of mass-mean
+chroma — bounded by `captures/hair-r33-rimshadow/rim0.png`, not argued — while the muddiness is a
+**38% collapse** of the groom's saturation as it lightens, which survives deleting the rim entirely.
+
+So every remaining route runs through the **fibre** and the per-channel `T_f = d_f · Π ā_f(θ_d)` of
+`docs/superpowers/specs/2026-08-22-hair-frame-design.md` §5. That is a MATERIAL change, `ā_f` is
+already derived and bounded at ≤ 0.131, and it is where the frame design put it before any of these
+three rounds ran.
+
+### 🔴 REQ-064 — refuted by the measurement it asked for
+
+Full write-up `docs/research/req-064-refuted-2026-08-23.md`. Registered at `79c870e` before any arm
+was rendered; decoy at azimuth 180 clean at ratio 0.004; drift **0.0000**.
+
+Two things were wrong with the request before a pixel was drawn, and neither needed a measurement.
+Its change clause named `CAMERA_AZIMUTH_DEGREES` — `Avatar.js:233`, the camera's yaw in the
+**character** frame — while the rig's azimuth is measured **from** the camera, so the camera axis is
+**0** and 12 discards 31.0% of an `exp(17 cos φ)` peak. And it asked for a fifth AREA light, which
+`placements()` throws above at 0.9543 ms each against a 1.870 ms hair budget. It only became
+measurable as a `DirectionalLight`.
+
+⚠️ **It ships at `irradiance: 0`** and `buildLights` constructs nothing at zero, so the frame pays
+nothing while `?ov=glint.irradiance:0.05` rebuilds it and every arm reproduces.
+
+### 🔴 REQ-078 — rejected on plates, and it was two requests
+
+The plates that decided it had been committed since R31 and nobody had opened them.
+`hair-r31-shipcheck` against `hair-r31-norim-ttoff` separates the problems the entry had fused:
+the **violet outline** is 100% the rim's (cool pixels → 0.00% with the rim off), and **muddy is not**
+(the 38% collapse survives deletion). Its own "cheapest thing on the list" read a spec row about
+CAST SHADOW **pixels** and applied it to a **rim**, landing 16.5° further from the only applicable
+clause and within 3.1° of the violet this repo already withdrew.
+
+### 🔴 REQ-063 — and the bit-identical rows
+
+Registered at `55f1711`. `shadowFraction: 1` and `rim.irradiance: 0` give the same p50 hair luma —
+**0.06378722 both**. A fully shadowed rim delivers *nothing* to the hair, so the registered
+matched-luma bisection terminated at E = 0 and gate 1 read **0.994× against 2.0×**. One option is
+free; the other is a caster priced at **2.62 ms**, more than the whole groom.
+
+🎯 **And the entry's own "the two changes have to land together" is refuted.** The 2×2 had never been
+run: shadow alone +2.492, the pair +2.551, so `sideVisibility` on top of a shadow adds **0.059
+codes** — exactly what the physics predicts once the rim is occluded.
+
+✅ **A BY-PRODUCT WORTH RECORDING: §17's TT CLOSURE WAS INDEPENDENTLY CONFIRMED.** The R32 arms in
+`captures/hair-r32-glint/rim-shadow.md` ran TT **on** against a shadowed rim — the one combination
+nobody had tried, because `sideVisibility` exempts TT from the occlusion that discards the rim for R
+and TRT. Shadowing the rim **kills the violet outright**, R/B 0.886 → 2.019, so the physical repair
+works and the modelled occlusion succeeds where the envelope chord failed (§17 diagnosed that
+failure as *"truth is bimodal, an ellipsoid is smooth"*, and a shadow map is bimodal). **And TT is
+still worth +0.364 codes on top of the shadow alone.** So the closure holds for the reason §17 gave:
+when the occlusion is modelled, 91.21% of TT dies whatever colour it was. **Do not reopen TT on the
+strength of a rim repair — that experiment has now been run.**
+
+### ⚠️ FOUR CORRECTIONS TO OUR OWN RECORD
+
+1. **§17's `UNDECLARED RED 0` was not true, in two independent ways.** `alive-toggles` had been red
+   since `04fe601` — provable statically, `alive.js` reads `hairribbons` six times at `98bfc73` and
+   the gate matched it zero times — and `quoted-numbers` was green only because copyrighted
+   reference plates sat in **that session's scratchpad**. On a clean clone it is red. Both declared.
+2. **The REQ-064 refutation quoted a STALE FIBRE COLOUR through five sites.** `#150F17` is the
+   pre-correction albedo (§1: *"a physical error, now fixed"*); the shipped constant is
+   `HAIR_BASE_COLOUR_HEX = 0x1A0E0C`. Re-derived: TRT relative chroma **0.6712** (published 0.4981),
+   share of an on-axis light **25.9%** (19.0%), absorption ceiling **0.01669** (0.022).
+   🎯 **And the hue was backwards.** TRT on the shipped fibre is **7.1°, a red** — the copper the
+   judges asked for — where the stale fibre computes **283.7°, a violet**. The published claim was
+   correct and was reached from a computation saying the opposite. Every MEASURED number is
+   unaffected; the plates came off the shipped renderer.
+3. **`LightingRig.js`'s "REQ-063 buys nothing this file can deliver" was a LUMA assessment**, correct
+   on median and on the wrong quantity. Retracted in place.
+4. **My own P0 diagnosis is withdrawn** — see below.
+
+### 🔴 P0: the harness was timing a bald frame
+
+§17 said P0 needed the ladder's timing method because a 720×900 gate page cannot share a clock state
+with 1080×1920 arms. Sound, and **not what was breaking it**. Nothing in `frame-budget.mjs` ever
+proved an arm rendered what it claimed: `arm.info` collected every property of the RENDERER and none
+of the PICTURE, while `alive.js` had published `sugata.report().hair` with a full census since the
+arm landed, with no consumer.
+
+**With the census read, the `hair` arm attaches no groom** — `hairEnabled` true, `hairRequest` set,
+`report().hair` null after 600 s, one 404, no warning. So `hair` and `no-hair` were the same picture
+and the ribbon arms share that path. "Ribbons read faster than no hair" was a delta between
+identical frames.
+
+⚠️ **WHICH RESOURCE 404s IS STILL NOT NAMED.** `/assets/hair/bob01/g050.glb` serves 200 with its
+full 3,326,956 bytes, so the groom is reachable and the failure is elsewhere on the attach path.
+**This is the top open item and branch (b)'s ACCEPT half still rests on it.**
+
+Four silent readiness defects died on the way. The reusable one: **`waitForFunction` with an `async`
+predicate never waits** — an async arrow returns a Promise, a Promise is truthy on the first poll, so
+the wait reports success instantly. `tools/critic/hair-lightpath.mjs`'s `waitForFigure` is written
+that way, in the file whose own docstring warns about this hazard.
+
+### 🚩 THE PATTERN THIS SESSION ESTABLISHED: four colour questions answered with a luma operator
+
+REQ-064 assessed as a brightness lever **twice**. REQ-063's "buys nothing" on median luma. And the
+`sideVisibility` arm scoring the table's largest "improvement" on an **unsigned** chroma statistic
+while R/B collapsed to 0.932 — the violet wearing the statistic's clothes.
+
+Every one was *correctly found small* by an operator that could not see the property in the
+complaint. The rule this yields is sharper than "assert the stimulus": **the operator must be able
+to see the property the complaint names before it is allowed to answer it.** The next colour
+registration needs a SIGNED statistic — R/B, or chroma projected on the fibre's own hue axis (7.1°).
+
+🚩 **And a second, cheaper one:** the ceiling plate for every possible rim intervention was **already
+on disk** since R31. Three rounds argued about hue without opening it. Not *"is the stimulus
+present?"* but **"has this experiment already been run?"**
+
+### What is new in the tree
+
+- `tools/critic/hair-glint.mjs`, `tools/critic/hair-rimshadow.mjs` — two registered rounds, each
+  with a decoy, a drift control and gates that refuse to report when a control fails.
+- `chromaInCodes` / `cielabChroma` in `tools/critic/color.mjs`, with the unit defect in REQ-064's
+  own registration declared over them.
+- `assertArmRenders` in `frame-budget.mjs` — throws rather than warns, because a warning beside
+  fifteen rounds of scrolling timings is a warning nobody reads.
+- `GLINT_LIGHTS` in `LightingRig.js` — a `DirectionalLight` class the rig did not have, shipped at
+  zero, with `directionFor()` extracted so the camera-relative convention lives in a name rather
+  than inside a loop body. That convention living in a loop is how REQ-064 came to name a different
+  frame and nobody noticed for eleven days.
+- `docs/hair-way-forward-2026-08-23-review.md` — 38 claims from an outside review checked against
+  the tree: 24 confirmed, 7 misleading, 6 wrong, 1 unverifiable.
+
+### The open list, in the order I would take it
+
+1. **Name P0's 404.** Everything else about the harness is fixed and this is one unknown.
+2. **The fibre and the per-channel `T_f`.** The only surviving route to "muddy", and it is a
+   material change. `ā_f` is derived and bounded.
+3. **`rim.irradiance` per preset.** REQ-063's rejection defines this: the rim's *job* is backdrop
+   separation, its *cost* is a wash over the groom, and those are separable by a free constant.
+   An art-constant look-dev item, not a physics round.
+4. `crop01`'s scalp clearance — still the groom the parity figure rests on.
+5. The 4,960-vs-11,408 bob density fork.
+6. **Declare the round.** The fence is **101 commits past a ceiling of 14** — measured at HEAD, not
+   quoted, because §14's "58" was stale by 43 and read as present tense.
