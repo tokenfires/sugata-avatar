@@ -42,6 +42,20 @@ const VIEWPORT = { width: 1080, height: 1920 };
 
 const BASE_QUERY = 'bare&freeze&seed=1&frame=body&capture&gputime=1';
 
+/**
+ * The ribbon arms, named by the file `tools/figure-pipeline/build-tfx.sh` writes.
+ *
+ * `crop01` at 8,832 is the count the primitive decision's parity figure was measured at; the two
+ * `bob01` densities are the fork the round could not settle — one document reads 4,960 as adequate
+ * bob silhouette and another reads it as thin at the crown, and NEITHER NOTICES THE DISAGREEMENT.
+ * Both are timed here so the cost side of that fork is at least closed.
+ */
+const RIBBON_ARMS = [
+  { key: 'ribbons-crop-8832', file: 'crop01_g050_d23.tfx' },
+  { key: 'ribbons-bob-4960', file: 'bob01_g050_d10.tfx' },
+  { key: 'ribbons-bob-11408', file: 'bob01_g050_d23.tfx' },
+];
+
 async function main() {
   const options = parseArguments(process.argv.slice(2));
 
@@ -51,13 +65,31 @@ async function main() {
 
   const arms = [
     { key: 'gate', kind: 'gate', page: null,
-      url: `${server.baseUrl}/src/strand-spike.html?strands=4960&w=720&h=900&aa=off&gputime=1&frames=1`,
+      url: `${server.baseUrl}/tools/spikes/strand-spike.html?strands=4960&w=720&h=900&aa=off&gputime=1&frames=1`,
       step: 'strand' },
-    { key: 'no-hair', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}`, step: 'alive' },
-    { key: 'hair', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}&hair=1`, step: 'alive' },
+    { key: 'no-hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive' },
+    { key: 'hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}&hair=1`, step: 'alive' },
     // The control repeated at the far end of the arm order. `alive.js`'s own header measured the
     // no-hair arm twice for this reason and reported the pair; a single control cannot show drift.
-    { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/alive.html?${BASE_QUERY}`, step: 'alive' },
+
+    // 🎯 R31's P0. The SAME page, the SAME deferred stack, the SAME material — one query parameter
+    // apart from the card arm. That is the whole point: every strand figure on the record before
+    // this was raster-and-shade on a bare page with no G-buffer, no resolve, no OIT composite and
+    // no skinning, compared against a card cost that is a whole-frame delta. These arms close that.
+    //
+    // ⚠️ MOTION IS OFF ON EVERY ARM, INCLUDING THE CARDS. The ribbon expansion and `HairDynamics`
+    // both write `material.positionNode` and the solver wins, so `alive.js` refuses the pair and
+    // says so. A comparison that let the cards simulate and the ribbons not would be measuring the
+    // solver, not the primitive.
+    ...RIBBON_ARMS.map((arm) => ({
+      key: arm.key,
+      kind: 'frame',
+      url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}&hair=1`
+        + `&hairribbons=/tfx/${arm.file}`,
+      step: 'alive',
+    })),
+
+    { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive' },
   ];
 
   const context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
@@ -240,17 +272,30 @@ async function startViteServer(gateTfx) {
   const mountTfx = {
     name: 'sugata-frame-budget-tfx',
     configureServer(server) {
+      // Serves the gate's own file AND any export the ribbon arms name, resolved against the
+      // directory `--tfx` points at. Files rather than a copy, for `strand-spike.mjs`'s reason:
+      // the plate is then of the file on disk and not of a stale duplicate.
       server.middlewares.use('/tfx', (request, response, next) => {
-        if (/^\/strands-4960\.tfx$/.test(request.url ?? '') === false) return next();
+        const name = (request.url ?? '').replace(/^\//, '').split('?')[0];
+        const file = /^strands-4960\.tfx$/.test(name)
+          ? gateTfx
+          : path.join(path.dirname(gateTfx), name);
+        if (name === '' || fs.existsSync(file) === false) return next();
         response.setHeader('Content-Type', 'application/octet-stream');
-        response.setHeader('Content-Length', String(fs.statSync(gateTfx).size));
-        fs.createReadStream(gateTfx).pipe(response);
+        response.setHeader('Content-Length', String(fs.statSync(file).size));
+        fs.createReadStream(file).pipe(response);
       });
     },
   };
 
+  // 🚩 `vite.spikes.config.js`, NOT `vite.config.js`, AND R31's PAGE MOVE IS WHY. The main config
+  // roots vite at `packages/testbed`, which served `/src/strand-spike.html` — and the spike page
+  // moved to `tools/spikes/` when `pages.selftest.mjs` correctly went red over a prototype sitting
+  // in the SHIPPING page set. Under the main root that URL no longer resolves and the contention
+  // gate would 404 silently. The spikes config roots at the repo, so both pages are reachable by
+  // their real paths and the gate keeps working.
   const server = await createServer({
-    configFile: path.join(REPOSITORY_ROOT, 'vite.config.js'),
+    configFile: path.join(REPOSITORY_ROOT, 'vite.spikes.config.js'),
     plugins: [mountTfx],
     server: { port: 5195, strictPort: false, hmr: false, watch: { ignored: ['**'] } },
     logLevel: 'warn',
