@@ -101,3 +101,77 @@ export function meanEncodedRgb(pixels, indices) {
   const count = indices.length;
   return { r: r / count, g: g / count, b: b / count };
 }
+
+// --- chroma -------------------------------------------------------------------------------
+//
+// TWO STATISTICS, AND THE REASON THERE ARE TWO IS A DEFECT IN A PRE-REGISTRATION.
+//
+// `docs/superpowers/specs/2026-08-23-req-064-preregistration.md` registered its visibility floor
+// as "at least 1.0 encoded code value of increase in top-decile mean C*". Those are two different
+// units in one sentence: CIELAB C* runs on a roughly 0-130 perceptual scale and is not measured in
+// code values at all. The registration's NUMBER and its JUSTIFICATION ("below one code value of an
+// 8-bit plate the change cannot be seen") unambiguously describe a code-value quantity, so that is
+// the reading the gate is applied on — `chromaInCodes` below — and `cielabChroma` is reported
+// beside it so nothing is hidden by the choice.
+//
+// Writing the gate against the unit rather than against the name is the reading that BINDS; picking
+// whichever of the two the data happened to favour is the renegotiation that
+// `pre-registration-binds-the-registrant` is about. The lesson for the next registration is that a
+// threshold must carry the same unit as the statistic it gates, and this one did not.
+
+// D65 white point, CIE 1931 2-degree observer.
+const D65_X = 95.047;
+const D65_Y = 100.0;
+const D65_Z = 108.883;
+
+const LAB_EPSILON = 216 / 24389;
+const LAB_KAPPA = 24389 / 27;
+
+function labTransfer(t) {
+  return t > LAB_EPSILON ? Math.cbrt(t) : (LAB_KAPPA * t + 16) / 116;
+}
+
+/**
+ * CIELAB chroma C* = sqrt(a*^2 + b*^2) of an sRGB-encoded triple in [0,1].
+ *
+ * Zero for any neutral grey at any lightness, which is the property the measurement needs: the
+ * complaint REQ-064 addresses is that our bright hair pixels are GREY, and R takes the light's
+ * colour by construction, so a statistic that cannot separate "brighter" from "more coloured" is
+ * the wrong metric — which is exactly what `docs/research/pedestal-look-2026-08-22.md` §3 says
+ * about both prior assessments of REQ-064.
+ */
+export function cielabChroma(r, g, b) {
+  const lr = srgbToLinear(r);
+  const lg = srgbToLinear(g);
+  const lb = srgbToLinear(b);
+
+  // sRGB D65 primaries, scaled to a 0-100 Y.
+  const x = (0.4124564 * lr + 0.3575761 * lg + 0.1804375 * lb) * 100;
+  const y = (0.2126729 * lr + 0.7151522 * lg + 0.0721750 * lb) * 100;
+  const z = (0.0193339 * lr + 0.1191920 * lg + 0.9503041 * lb) * 100;
+
+  const fx = labTransfer(x / D65_X);
+  const fy = labTransfer(y / D65_Y);
+  const fz = labTransfer(z / D65_Z);
+
+  const aStar = 500 * (fx - fy);
+  const bStar = 200 * (fy - fz);
+
+  return Math.hypot(aStar, bStar);
+}
+
+/**
+ * Chroma as a distance in 8-BIT CODE VALUES: the norm of the triple's departure from its own grey.
+ *
+ * This is the quantity the pre-registration's "1.0 code value" floor is a threshold on. It is the
+ * Euclidean distance from (R,G,B) to the neutral axis point (m,m,m) where m is the channel mean, so
+ * it is zero for any grey, it is in the same units as the plate, and a value below 1 cannot survive
+ * the plate's own quantisation.
+ *
+ * Inputs are 0-255 code values, NOT the 0-1 floats the rest of this module takes, because the whole
+ * point of the statistic is that its unit is the plate's unit.
+ */
+export function chromaInCodes(r255, g255, b255) {
+  const mean = (r255 + g255 + b255) / 3;
+  return Math.hypot(r255 - mean, g255 - mean, b255 - mean);
+}

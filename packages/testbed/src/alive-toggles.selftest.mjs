@@ -354,8 +354,20 @@ const PIXEL_BASE = `${ BASE_QUERY }&aa=msaa&grade=0`;
  * have no counter and never did — which is the point: the fingerprint gates them anyway.
  */
 
-/** The five entities `LightingRig` re-aims when the framing changes. Named once; used four times. */
-const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker' ];
+/**
+ * The SIX entities `LightingRig` re-aims when the framing changes. Named once; used four times.
+ *
+ * 🚩 IT WAS FIVE UNTIL REQ-064, AND THE HEADER ABOVE SAYS WIDENING THIS LIST IS ITSELF A FAILURE
+ * MODE — *"or that somebody widened the list to quieten a red gate"*. So the evidence is here rather
+ * than the edit being quiet. `light:glint` is `render/LightingRig.js`'s near-axis `DirectionalLight`,
+ * and it is re-aimed by the identical arithmetic as the other five: `solve()` builds every
+ * placement direction from the `toCamera` basis through `directionFor`, so a framing change moves
+ * it for exactly the reason it moves the key. Measured, not reasoned: the gate reported it as
+ * `COLLATERAL light:glint` on all four of `?frame=body`, `?height=0.3`, `?pose=bind` and
+ * `?gender=1` — the same four, which is the signature of a re-aim rather than of a coupling.
+ */
+const RIG_LIGHTS = [ 'light:key', 'light:key-shadow', 'light:fill', 'light:rim', 'light:kicker',
+    'light:glint' ];
 
 /**
  * 🎯 THE FOUR PROPERTIES `placeCamera` MOVES, and the fact nothing in this repo had written down:
@@ -507,7 +519,22 @@ const TOGGLES = [
     // --- framing and identity ----------------------------------------------------------------------
     // All four re-aim the rig, and nothing else. Gating them with an explicit five-light allowlist
     // says out loud that a plate captured at another framing carries a differently-aimed rig.
-    { query: 'frame=body', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
+    // 🔴 THE ONE TOGGLE THAT CHANGES THE LIGHT *SET* AND NOT ONLY ITS AIM, AND IT IS DECLARED RATHER
+    // THAN ABSORBED. `render/LightingRig.js`'s `GLINT_LIGHTS` has a `portrait` entry and NO `body`
+    // one, so `?frame=body` does not re-aim the glint — it removes it, together with its target
+    // object. Measured: `scene.children array(11) -> array(9)`, two objects, which is the light and
+    // the `Object3D` a `DirectionalLight` needs to have a direction at all.
+    //
+    // ⚠️ SO A BODY PLATE HAS NO NEAR-AXIS GLINT AND A PORTRAIT PLATE DOES. That is a real difference
+    // between the two framings' rigs and not a bug: REQ-064 asks for the portrait preset, and giving
+    // `body` a glint would mean authoring an irradiance for a framing nobody has measured — the rig
+    // solves body's edge lights separately for exactly this reason (rim 22 against portrait's 16,
+    // kicker 0.10 against 0.07). **Whether body wants one is OPEN and needs its own solve.**
+    //
+    // `scene.children` is listed here rather than the row being loosened, so the count is an
+    // assertion: if a future preset gains or loses a light, this number stops matching and says so.
+    { query: 'frame=body', census: null, touches: RIG_LIGHTS,
+        rendererState: [ ...CAMERA_PLACEMENT, 'scene.children' ] },
     { query: 'height=0.3', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
     { query: 'pose=bind', census: null, touches: RIG_LIGHTS, rendererState: CAMERA_PLACEMENT },
 
@@ -588,6 +615,41 @@ const UNGATED = {
         'this tier. Not a shading switch: a backend swap moves the pipeline, the sample count and ' +
         'the resolve at once, so no entity allowlist describes it. What is asserted instead is the ' +
         'claim the tier exists to support — it RENDERS — in the WEBGL2 TIER section of this file.' },
+
+    // 🔴 R31'S THREE RIBBON KEYS, AND THIS GATE HAS BEEN RED SINCE THEY LANDED WITHOUT ANYBODY
+    // SAYING SO. They were added at `04fe601` and `docs/CHECKPOINT.md` §17 then reported
+    // `UNDECLARED RED 0` at `98bfc73`. Provable statically without running anything: at that
+    // commit `alive.js` reads `hairribbons` six times and this file matched it zero times. The
+    // claim was simply not true, and the gate had been printing `UNCLASSIFIED: hairribbons,
+    // hairribbonskin, hairribbonwidth` the whole time.
+    //
+    // ⚠️ THEY ARE NOT SHADING SWITCHES — `?hairribbons` swaps the PRIMITIVE. A ribbon groom is a
+    // different mesh with a different vertex count, a different material and a different
+    // `positionNode`, so it does not move a signature on an entity allowlist; it replaces the
+    // entity. That alone would put it here rather than in TOGGLES.
+    //
+    // 🚩 AND THE OPERATIVE REASON IS THE ASSET, WHICH IS THE HONEST ONE TO WRITE DOWN. `?hairribbons`
+    // takes a URL to a TressFX `.tfx` export. Those exports are deliberately NOT committed —
+    // `tools/figure-pipeline/build-tfx.sh` records the reasoning: 14 MB against an `assets/` tree
+    // already at 276 MB of a 1 GB LFS tier, and byte-reproducible in ~21 s a groom, so committing
+    // them would pre-empt an LFS decision `docs/CHECKPOINT.md` §14 leaves explicitly to the owner.
+    // This file serves `alive.html` off the repo root with no `/tfx` middleware, so there is no URL
+    // here that resolves to one. `captures/hair-r31-ladder-ours/tools/frame-budget.mjs` is what
+    // exercises these keys, and it stands up its own middleware to do it.
+    //
+    // **So this is a stated limit of THIS gate, not a claim the keys are safe.** Whoever gives this
+    // file a `/tfx` route should move all three into TOGGLES with a measured `touches`.
+    hairribbons: { readHere: true, why:
+        'swaps the CARD groom for a RIBBON groom built from a TressFX .tfx. Not a shading switch — '
+        + 'it replaces the mesh rather than moving a signature — and the .tfx exports are '
+        + 'deliberately uncommitted (build-tfx.sh), so no URL this file serves resolves to one. '
+        + 'Exercised by captures/hair-r31-ladder-ours/tools/frame-budget.mjs, which serves its own.' },
+    hairribbonwidth: { readHere: true, why:
+        'the ribbon half-width in metres. Inert unless ?hairribbons built a groom, which nothing '
+        + 'this file loads can do — see the hairribbons row.' },
+    hairribbonskin: { readHere: true, why:
+        'builds the ribbons as a plain Mesh instead of a SkinnedMesh, a diagnostic arm for the '
+        + 'skinning path. Inert unless ?hairribbons built a groom — see the hairribbons row.' },
 
     // 🚩 REQ-060, AND IT IS IN THIS TABLE RATHER THAN IN TOGGLES BECAUSE THE GATE REFUSED THE
     // TOGGLES ROW AND WAS RIGHT TO. The row was written first — `{ query: 'sclera=1.65', census:

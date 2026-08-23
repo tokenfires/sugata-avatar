@@ -201,6 +201,7 @@
 
 import {
     Color,
+    DirectionalLight,
     HemisphereLight,
     Object3D,
     RectAreaLight,
@@ -931,6 +932,84 @@ const EDGE_LIGHTS = {
 };
 
 /**
+ * REQ-064's near-axis glint — a `DirectionalLight`, and the class is the whole reason it fits.
+ *
+ * ## What it is for
+ *
+ * `material/HairMaterial.js`'s TRT lobe is the ONLY shipped lobe that multiplies by the hair's own
+ * colour (`pow(colour, 0.8/cosθd)`). R is pure Fresnel and takes the LIGHT's colour — measured R/B
+ * 1.031 — and TT ships at `weightTT` 0. So TRT is the only term that can put hair-coloured light
+ * into a highlight, and its azimuthal distribution `exp(17 cos φ − 16.78)` is retroreflective:
+ *
+ *   | φ (deg) |     D_TRT | what sits there |
+ *   |--------:|----------:|-----------------|
+ *   |       0 | 1.2461e+0 | **this light**  |
+ *   |      12 | 8.5943e-1 | REQ-064 as literally filed — see below |
+ *   |      42 | 1.5819e-2 | the key         |
+ *   |     168 | 3.0965e-15 | the rim        |
+ *
+ * A factor of 5.8e14 between the camera axis and the rim. **The lobe was never weak on this rig; it
+ * was unlit.** Nothing in the portrait preset sat inside two orders of magnitude of its peak.
+ *
+ * ## 🔴 REQ-064's own change clause names the wrong frame, and this table does not inherit it
+ *
+ * It asks for the glint at `azimuthDegrees` equal to `CAMERA_AZIMUTH_DEGREES`. That constant is
+ * `Avatar.js:233` and is the camera's yaw in the CHARACTER frame — `docs/PROGRESS.md:838`, "puts the
+ * camera on the character's left". The azimuth in THIS file is measured from the camera (see the
+ * `Placement` docstring, and `solve()` builds the direction on the `toCamera` basis), so the camera
+ * axis is **0**, and 12 is 12° off it — 31.0% of the lobe's peak thrown away for nothing. An
+ * `exp(17 cos φ)` lobe has no "near enough". `tools/critic/hair-lightpath.mjs:945` is where the
+ * collision became invisible: *"12 is `CAMERA_AZIMUTH_DEGREES`, read from the repo rather than
+ * picked"*. R26's and `hair.md` §9.4's measurements stand — they measured a light 12° off the view
+ * axis, and that is what they say.
+ *
+ * ## 🚩 Why this is NOT a fifth placement, which is what REQ-064 asked for
+ *
+ * `MAX_AREA_LIGHTS` is 4, `placements()` throws above it, and portrait already spends all four. The
+ * ceiling is measured rather than stylistic — `docs/PROGRESS.md` has 4 lights at 3.604 ms and 8 at
+ * 7.421 ms, i.e. **0.9543 ms per area light** against a whole hair budget of 1.870 ms. As filed,
+ * REQ-064 is un-shippable: half the hair's frame cost to light one lobe.
+ *
+ * A `DirectionalLight` is not in `placements`, so it does not touch that ceiling, and it costs a
+ * dot product rather than an LTC integration over a panel. `material/HairMaterial.js`'s header
+ * records that a lighting model overriding `direct()` sees the PUNCTUAL lights while the panels go
+ * through `directRectArea()`, and both paths are implemented there — so the receiving code already
+ * exists and this light arrives through the one that was written for the key's shadow half.
+ *
+ * ⚠️ It is directional rather than a `SpotLight` **because it has no shadow half.** The header's
+ * note on why the shadow caster is a spot is about matching a panel's inverse-square falloff, which
+ * only matters for a light that has to redistribute against one. This one does not redistribute.
+ *
+ * ## 🎯 NEUTRAL, and that is a measurement decision rather than an art one
+ *
+ * `colour: 0xffffff`. A warm glint would paint warmth onto the groom, and then the chroma this
+ * light is being evaluated on would be the LIGHT's rather than the FIBRE's — two free variables
+ * moved at once, which is the error `docs/CHECKPOINT.md` §16 was written to stop repeating. With a
+ * neutral source, every bit of chroma that appears in the highlight came out of
+ * `pow(colour, 0.8/cosθd)`, and the attribution is arithmetic rather than argued.
+ *
+ * Elevation 0 for the same reason: it is the lobe's peak by construction, not a taste choice, and
+ * it leaves exactly one number — `irradiance` — to be solved against the gates.
+ *
+ * ⚠️ **`irradiance` IS UNSOLVED AT THE TIME OF WRITING.** The value below is the sweep's starting
+ * point and is NOT a measured constant. `docs/superpowers/specs/2026-08-23-req-064-preregistration.md`
+ * registers the three gates it has to be solved against; until that sweep lands and this comment
+ * says otherwise, this number is a placeholder and must not be quoted as a result.
+ */
+const GLINT_LIGHTS = {
+
+    portrait: {
+        name: 'glint',
+        azimuthDegrees: 0,
+        elevationDegrees: 0,
+        distanceInHeights: 1.0,   // direction only — a directional light's power is not distance-dependent
+        irradiance: 0.05,
+        colour: 0xffffff
+    }
+
+};
+
+/**
  * The one FORM-light field the two presets disagree about, and the sweep that set it.
  *
  * 🎯 **G1 IS THE HIGHEST-LEVERAGE PARAMETER IN THE SPEC AND THE BODY PRESET WAS BELOW ITS BAND.**
@@ -1158,6 +1237,23 @@ export function silhouetteBandPixels( azimuthDegrees, limbRadiusMetres, framedHe
  * name-based list scored 0.00 under one. Not the colour either — `b > r` is a binary test on a
  * continuous quantity and it condemns a daylight-balanced key that renders clean. Which side of the
  * subject a panel physically stands on is neither opinion nor threshold.
+ *
+ * 🔴 **REQ-064'S GLINT IS A REAL LIGHT AND IT IS NOT IN THIS SUM.** It iterates `rig.units`, which
+ * is the area budget, and the glint is a `DirectionalLight` outside it — so this function's answer
+ * is now "what the PANELS deliver", which is what its name and its first line already said, and is
+ * no longer "what the RIG delivers". The distinction did not exist before there was a non-panel
+ * light on the front of the subject.
+ *
+ * It is left excluded DELIBERATELY rather than fixed, and the reason is that the six anchors above
+ * (shipped 1.7862 / 2.5144 and the four colour rows) are gate values measured on panels. Folding a
+ * fifth light in would move every one of them, which is a change to three selftests this round does
+ * not own — the same reason the three hand-typed copies above are still un-routed. **What it is
+ * worth is stated rather than left to be discovered: the glint's authored irradiance is 1.67% of
+ * the key's** (0.05 against 3.0), it is neutral, and it stands on the camera side, so its omission
+ * biases the FRONT half of the partition low by that fraction and cannot change a hue sign.
+ *
+ * Whoever routes the three copies through this function should fold the glint in at the same time,
+ * and re-anchor all six numbers in the same commit.
  *
  * ⚠️ **PANELS ONLY.** The `SpotLight` shadow halves are not summed, and that exclusion is a premise
  * about a rig whose casters share their panel's colour rather than a conservative bound — see the
@@ -1427,7 +1523,26 @@ const INERT_ON_ANY_LIGHT = {
 const INERT_BY_CLASS = {
     RectAreaLight: {},
     SpotLight: {},
-    HemisphereLight: {}
+    HemisphereLight: {},
+
+    DirectionalLight: {
+        // 🚩 THE ONLY CONDITIONAL CLASSIFICATION IN THIS FILE, AND THE CONDITION IS HELD RATHER
+        // THAN ASSERTED. `AnalyticLightNode.setup` reaches the shadow behind `if
+        // ( this.light.castShadow )` (three/src/nodes/lighting/AnalyticLightNode.js:259), and the
+        // glint has no shadow half — REQ-064 asks for a low-irradiance practical, not a fifth
+        // caster, and `LightingRig.selftest.mjs` already measures a caster at 2.62 ms.
+        //
+        // So `shadow` is genuinely unreachable here. What makes that safe to write down is that
+        // `castShadow` is a READ field on every light and the glint DECLARES it false, so the
+        // fingerprint fails the moment anyone turns it on — and whoever does will then have to
+        // classify a `DirectionalLightShadow`, whose camera is ORTHOGRAPHIC and therefore does not
+        // fit `SHADOW_CAMERA_NODE`'s perspective table (`fov`, `aspect`, `filmGauge`, `filmOffset`
+        // and `shadow.focus` are all absent on it). That work is deliberately not done in advance:
+        // a declaration for a shadow that does not exist could not be measured against anything.
+        shadow: 'unreachable while `castShadow` is false — `AnalyticLightNode.setup` tests the flag '
+            + 'before touching it (AnalyticLightNode.js:259). The flag is declared false and '
+            + 'fingerprinted, so this row is conditional on a condition the gate holds.'
+    }
 };
 
 /**
@@ -1489,14 +1604,23 @@ const READ_ON_ANY_LIGHT = [
 const READ_BY_CLASS = {
     RectAreaLight: [ 'width', 'height', 'quaternion', 'scale', 'isRectAreaLight' ],
     HemisphereLight: [ 'groundColor', 'isHemisphereLight' ],
-    SpotLight: [ 'distance', 'angle', 'penumbra', 'decay', 'map', 'target', 'shadow', 'isSpotLight' ]
+    SpotLight: [ 'distance', 'angle', 'penumbra', 'decay', 'map', 'target', 'shadow', 'isSpotLight' ],
+
+    // `DirectionalLightNode.setupDirect` is two lines and reads exactly two things: `colorNode`,
+    // and `lightTargetDirection( light )` — which is `lightPosition( light ).sub(
+    // lightTargetPosition( light ) )` (three/src/nodes/accessors/Lights.js:139). So `target` is
+    // load-bearing: a directional light's DIRECTION is the vector between the two matrices, and a
+    // light whose target sits at its own position has no direction and contributes nothing.
+    // Position itself is already in `READ_ON_ANY_LIGHT`.
+    DirectionalLight: [ 'target', 'isDirectionalLight' ]
 };
 
 /** Fields three reads that do not exist until somebody sets them. Absent is the declared state. */
 const READ_WHEN_PRESENT = {
     RectAreaLight: [ 'colorNode' ],
     SpotLight: [ 'colorNode', 'iesMap' ],
-    HemisphereLight: [ 'colorNode' ]
+    HemisphereLight: [ 'colorNode' ],
+    DirectionalLight: [ 'colorNode' ]
 };
 
 /** `LightShadow` fields that reach the picture, and the ones that cannot. */
@@ -1758,7 +1882,24 @@ export function lightRenderState( light ) {
     const unclassified = Object.keys( light )
         .filter( ( key ) => key in inert === false && readNames.includes( key ) === false );
 
-    if ( light.shadow !== undefined && light.shadow !== null ) {
+    // 🚩 GATED ON `castShadow`, WHICH IS THREE'S OWN CONDITION AND NOT A CONVENIENCE.
+    //
+    // `AnalyticLightNode.setup` reaches the shadow behind `if ( this.light.castShadow )`
+    // (three/src/nodes/lighting/AnalyticLightNode.js:259). A shadow on a light that does not cast
+    // therefore cannot reach the picture, and this instrument's contract is "every field that
+    // reaches the picture is declared" — so sweeping it would oblige `declaredState` to carry two
+    // dozen rows of state nothing reads, which is a declaration that could never be measured
+    // against anything. This file's own note on the shadow camera makes the opposite mistake
+    // memorable: seven hardcoded reads left 37 fields in neither list and two of them moved pixels.
+    //
+    // ⚠️ THIS IS NOT A WEAKENING, AND THE REASON IS THAT `castShadow` IS ITSELF READ AND
+    // FINGERPRINTED ON EVERY LIGHT. Turning it on fails the fingerprint before anything undeclared
+    // can render, which is what makes it safe for `INERT_BY_CLASS.DirectionalLight` to classify
+    // `shadow` as unreachable. It arrived with REQ-064's glint — a `DirectionalLight` whose
+    // `DirectionalLightShadow` holds an ORTHOGONAL camera that `SHADOW_CAMERA_NODE`'s perspective
+    // table does not describe (`fov`, `aspect`, `filmGauge`, `filmOffset` are absent; `left`,
+    // `right`, `top`, `bottom` are present and unlisted).
+    if ( light.castShadow === true && light.shadow !== undefined && light.shadow !== null ) {
 
         const shadow = light.shadow;
 
@@ -1869,6 +2010,13 @@ export class LightingRig {
         this.units = [];
         this.ambientLight = null;
 
+        // REQ-064's near-axis glint. Deliberately NOT a member of `units` — that array is the area
+        // budget, and the whole reason this light is affordable is that it is not in it.
+        /** @type {?DirectionalLight} */
+        this.glintLight = null;
+        /** @type {?Object3D} */
+        this.glintTarget = null;
+
         // Last aim, kept so a preset change or an override can re-solve without the caller having
         // to hand the framing back in.
         this.focus = new Vector3();
@@ -1902,19 +2050,7 @@ export class LightingRig {
 
         if ( this.renderer !== null && this.shadowsEnabled ) this.renderer.shadowMap.enabled = true;
 
-        for ( const placement of this.placements ) this.units.push( this.buildUnit( placement ) );
-
-        if ( this.ambientEnabled ) {
-
-            this.ambientLight = new HemisphereLight(
-                AMBIENT.skyColour,
-                AMBIENT.groundColour,
-                this.irradianceOf( 'key' ) * this.ambientFractionOfKey
-            );
-            this.ambientLight.name = 'ambient';
-            scene.add( this.ambientLight );
-
-        }
+        this.buildLights( scene );
 
         this.solve();
 
@@ -2010,6 +2146,16 @@ export class LightingRig {
 
         this.units.length = 0;
 
+        if ( this.glintLight !== null ) {
+
+            this.glintLight.removeFromParent();
+            this.glintLight.dispose();
+            this.glintTarget.removeFromParent();
+            this.glintLight = null;
+            this.glintTarget = null;
+
+        }
+
         if ( this.ambientLight !== null ) {
 
             this.ambientLight.removeFromParent();
@@ -2024,7 +2170,13 @@ export class LightingRig {
 
     // --- what the rig will tell you about itself -----------------------------------------
 
-    /** Every light in the rig, area halves and shadow halves alike. Read-only. */
+    /**
+     * Every light in the rig, area halves and shadow halves alike. Read-only.
+     *
+     * ⚠️ The glint is in here, and it must be: a capture manifest that lists four panels while the
+     * scene contains five lights is REQ-066's defect — two plates a round apart, indistinguishable
+     * from their own census. It is deliberately NOT in `units`, which is the AREA budget.
+     */
     get lights() {
 
         const all = [];
@@ -2035,6 +2187,8 @@ export class LightingRig {
             if ( unit.shadowCaster !== null ) all.push( unit.shadowCaster );
 
         }
+
+        if ( this.glintLight !== null ) all.push( this.glintLight );
 
         if ( this.ambientLight !== null ) all.push( this.ambientLight );
 
@@ -2165,6 +2319,76 @@ export class LightingRig {
 
     }
 
+    /**
+     * REQ-064's glint for the current preset, with caller overrides applied, or null if the preset
+     * has none.
+     *
+     * Same override layering as `placements()` so `?ov=glint.irradiance:<x>` and
+     * `?ov=glint.azimuthDegrees:180` reach it — the first is how its one unsolved number gets
+     * swept, and the second is the pre-registered DECOY arm, which puts the light where `D_TRT` is
+     * 2.1e-15 and must therefore move the statistic by nearly nothing. A decoy that cannot be
+     * expressed is a decoy nobody runs.
+     */
+    glintPlacement() {
+
+        const glint = GLINT_LIGHTS[ this.preset ];
+        if ( glint === undefined ) return null;
+
+        return { ...glint, ...( this.overrides[ glint.name ] ?? {} ) };
+
+    }
+
+    /**
+     * Every light this rig owns, constructed into `scene`.
+     *
+     * 🚩 ONE COPY, DELIBERATELY. `attachTo` and `rebuild` both need this and both used to carry
+     * their own transcription of it. That was survivable while the list was "the placements plus
+     * the ambient"; it stopped being survivable when REQ-064's glint made it three things, because
+     * a light added to one copy and not the other is a rig that is correct until someone changes
+     * a preset at runtime. This file's own header says it in as many words about `StateClosure`:
+     * *"two copies of a closure is how a closure comes to have a hole in it."*
+     *
+     * @param {import('three').Scene} scene
+     */
+    buildLights( scene ) {
+
+        for ( const placement of this.placements ) this.units.push( this.buildUnit( placement ) );
+
+        const glint = this.glintPlacement();
+
+        if ( glint !== null ) {
+
+            // A directional light aims from its position at its target, so both have to be in the
+            // graph before `solve()` can point it. Its `intensity` IS the authored irradiance:
+            // this file's irradiance convention is already stated in `DirectionalLight`'s own units
+            // (see the `Placement` docstring), so unlike a panel there is no solid angle to divide
+            // by, and with no shadow half there is no share to hold back either.
+            this.glintLight = new DirectionalLight( new Color( glint.colour ), 1 );
+            this.glintLight.name = glint.name;
+
+            this.glintTarget = new Object3D();
+            this.glintTarget.name = `${ glint.name }-target`;
+            this.glintLight.target = this.glintTarget;
+
+            scene.add( this.glintTarget );
+            scene.add( this.glintLight );
+
+        }
+
+        if ( this.ambientEnabled ) {
+
+            this.ambientLight = new HemisphereLight(
+                AMBIENT.skyColour,
+                AMBIENT.groundColour,
+                this.irradianceOf( 'key' ) * this.ambientFractionOfKey
+            );
+            this.ambientLight.name = 'ambient';
+            scene.add( this.ambientLight );
+
+        }
+
+    }
+
     /** One light: the area half, and the shadow half if this light carries any shadow energy. */
     buildUnit( placement ) {
 
@@ -2235,19 +2459,7 @@ export class LightingRig {
         this.scene = scene;
         this.renderer = renderer;
 
-        for ( const placement of this.placements ) this.units.push( this.buildUnit( placement ) );
-
-        if ( this.ambientEnabled ) {
-
-            this.ambientLight = new HemisphereLight(
-                AMBIENT.skyColour,
-                AMBIENT.groundColour,
-                this.irradianceOf( 'key' ) * this.ambientFractionOfKey
-            );
-            this.ambientLight.name = 'ambient';
-            scene.add( this.ambientLight );
-
-        }
+        this.buildLights( scene );
 
         this.solve();
 
@@ -2280,14 +2492,9 @@ export class LightingRig {
 
             const { placement, area, shadowCaster, target } = unit;
 
-            const azimuth = placement.azimuthDegrees * DEGREES;
-            const elevation = placement.elevationDegrees * DEGREES;
             const distance = placement.distanceInHeights * height;
 
-            _direction
-                .copy( toCamera ).multiplyScalar( Math.cos( azimuth ) * Math.cos( elevation ) )
-                .addScaledVector( right, Math.sin( azimuth ) * Math.cos( elevation ) )
-                .addScaledVector( _up, Math.sin( elevation ) );
+            directionFor( placement, toCamera, right, _direction );
 
             _position.copy( this.focus ).addScaledVector( _direction, distance );
 
@@ -2333,6 +2540,33 @@ export class LightingRig {
             shadowCaster.intensity = placement.shadowFraction * irradiance * distance * distance;
 
             this.frameShadowCamera( shadowCaster, distance, height );
+
+        }
+
+        if ( this.glintLight !== null ) {
+
+            const glint = this.glintPlacement();
+
+            directionFor( glint, toCamera, right, _direction );
+
+            // Position and target both, because a `DirectionalLight`'s direction is the vector
+            // between them and three reads it off the two matrices — a light left at the origin
+            // aiming at the origin has NO direction and silently contributes nothing.
+            //
+            // Distance is a placement, not a power: a directional light does not fall off, so
+            // `distanceInHeights` here only decides where the light object sits, and the aim it
+            // produces is identical for any positive value. It is scaled by subject height anyway
+            // so the rig stays scale-free, which is the property the whole placement type exists
+            // to preserve.
+            this.glintTarget.position.copy( this.focus );
+            this.glintLight.position
+                .copy( this.focus )
+                .addScaledVector( _direction, glint.distanceInHeights * height );
+
+            // No solid angle and no shadow share — see `buildLights`. The authored irradiance IS
+            // the intensity, so this is the one light in the rig whose power is the number written
+            // in its table times the global exposure.
+            this.glintLight.intensity = glint.irradiance * this.exposure;
 
         }
 
@@ -2409,3 +2643,31 @@ const _right = new Vector3();
 const _direction = new Vector3();
 const _position = new Vector3();
 const _up = new Vector3( 0, 1, 0 );
+
+/**
+ * The camera-relative placement convention, in one place.
+ *
+ * Azimuth is measured FROM the camera — 0° is a light sitting at the camera — and this function is
+ * the only statement of that anywhere in the file. It was inline in `solve()`'s unit loop until
+ * REQ-064's glint needed the same convention, and a second transcription of it is exactly how a
+ * rig comes to have two frames: `docs/OPEN-REQUESTS.md` REQ-064 asked for its light at
+ * `CAMERA_AZIMUTH_DEGREES`, which is `Avatar.js`'s camera yaw in the CHARACTER frame, and nobody
+ * caught it for eleven days because the convention lived inside a loop body rather than in a name.
+ *
+ * @param {{azimuthDegrees: number, elevationDegrees: number}} placement
+ * @param {Vector3} toCamera - unit, focus → camera, horizontal
+ * @param {Vector3} right - unit, `toCamera` rotated −90° about +Y
+ * @param {Vector3} out
+ * @returns {Vector3} `out`, a unit direction from the focus toward where the light belongs
+ */
+function directionFor( placement, toCamera, right, out ) {
+
+    const azimuth = placement.azimuthDegrees * DEGREES;
+    const elevation = placement.elevationDegrees * DEGREES;
+
+    return out
+        .copy( toCamera ).multiplyScalar( Math.cos( azimuth ) * Math.cos( elevation ) )
+        .addScaledVector( right, Math.sin( azimuth ) * Math.cos( elevation ) )
+        .addScaledVector( _up, Math.sin( elevation ) );
+
+}

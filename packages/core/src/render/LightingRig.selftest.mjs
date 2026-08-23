@@ -2220,6 +2220,54 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
 
         }
 
+        // REQ-064's glint. Declared from the same contract as everything above, and NOT from
+        // `rig.glintLight` — the whole value of this table is that it is an independent
+        // re-derivation, so reading the built object would make every row tautological.
+        const glint = rig.glintPlacement();
+
+        if ( glint !== null && rig.glintLight !== null ) {
+
+            const glintPosition = placementPosition( glint, rig, shot );
+
+            declared.set( glint.name, {
+                color: glint.colour,
+
+                // 🎯 THE ONE ROW THAT IS SHORTER THAN EVERY OTHER LIGHT'S, AND THE BREVITY IS THE
+                // POINT. A panel's intensity is `irradiance / projectedSolidAngle` and a caster's
+                // is `irradiance x distance²`; a directional light does not fall off and subtends
+                // nothing, so the authored irradiance IS the intensity. That is what makes it
+                // affordable — no LTC integration, and no place for a solid angle to be wrong.
+                intensity: glint.irradiance * rig.exposure,
+
+                position: [ glintPosition.x, glintPosition.y, glintPosition.z ],
+                visible: true,
+                layers: 1,
+
+                // 🚩 LOAD-BEARING, AND IT IS WHAT HOLDS THE ONE CONDITIONAL ROW IN
+                // `INERT_BY_CLASS`. `shadow` is classified inert on a `DirectionalLight` because
+                // `AnalyticLightNode.setup` tests this flag before touching it
+                // (AnalyticLightNode.js:259). If this ever reads true, that classification is a
+                // lie and THIS row is where it is caught — before an undeclared orthographic
+                // shadow camera reaches a plate.
+                castShadow: false,
+
+                isLight: true,
+                isDirectionalLight: true,
+                matrixAutoUpdate: true,
+                matrixWorldAutoUpdate: true,
+                pivot: null,
+                target: [ shot.focus.x, shot.focus.y, shot.focus.z ],
+                parentIsScene: true,
+                'optional.colorNode': null,
+
+                'target.matrixAutoUpdate': true,
+                'target.matrixWorldAutoUpdate': true,
+                'target.pivot': null,
+                'target.parentIsScene': true
+            } );
+
+        }
+
         if ( rig.ambientLight !== null ) {
 
             declared.set( rig.ambientLight.name, {

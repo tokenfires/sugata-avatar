@@ -70,12 +70,12 @@ import {
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
-const WIDTH = 720;
-const HEIGHT = 900;
-const STEPS = 8;
+export const WIDTH = 720;
+export const HEIGHT = 900;
+export const STEPS = 8;
 
 /** The shipped judged URL. Every plate in `captures/hair-r24-before` and r25 carries this shape. */
-const BASE_QUERY = 'bare&freeze&seed=1&capture&aa=msaa&grade=0';
+export const BASE_QUERY = 'bare&freeze&seed=1&capture&aa=msaa&grade=0';
 
 // --- the two new operators ---------------------------------------------------------------------
 
@@ -282,7 +282,7 @@ async function waitForFigure(page) {
   );
 }
 
-async function withPage(port, query, fn) {
+export async function withPage(port, query, fn) {
   const { chromium } = await loadPlaywright();
   // 🚩 `channel: 'chromium'` IS LOAD-BEARING AND ITS ABSENCE IS SILENT. Playwright's default
   // headless build is `headless_shell`, which has no GPU: the page still boots, still reports a
@@ -636,7 +636,7 @@ async function decompose(port, out, rects) {
  */
 const HAIR_SHADED_MAX = 1.5e-2;
 
-function loadMasks(out) {
+export function loadMasks(out) {
   const bald = readPlate(path.join(out, 'C-hairoff-noshadows.png'));
   const haired = readPlate(path.join(out, 'D-hairon-noshadows.png'));
   const dilated = buildGroomMask(bald, haired);
@@ -776,7 +776,7 @@ const LOBE_ARMS = [
  * the shipped arm at BOTH exposures and requires the recovered scene radiance to agree. That check
  * is what licenses the choice; without it this would be a premise in a comment.
  */
-const LOBE_EXPOSURE = 4;
+export const LOBE_EXPOSURE = 4;
 
 const SET_EXPOSURE = (value) => { window.sugata.stage.renderer.toneMappingExposure = value; };
 
