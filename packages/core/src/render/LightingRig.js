@@ -578,12 +578,30 @@ const FORM_LIGHTS = [
  *     | `?ov=rim.irradiance:0` — rim deleted | 0.004719 | 0.170629 | 0.304219 |
  *     | `?ov=kicker.azimuthDegrees:12`       | 0.012643 | 0.221121 | 0.348107 |
  *
- *   - **REQ-063 buys nothing this file can deliver, and the third row is why.** Deleting the rim
+ *   - ~~**REQ-063 buys nothing this file can deliver, and the third row is why.** Deleting the rim
  *     ENTIRELY moves the groom's median by 1.8%; giving it the shadow caster REQ-063 asks for moves
- *     it by 0.9%. That is not a refutation of REQ-063, it is a confirmation of its own evidence —
- *     `material/HairMaterial.js` carries Karis' `saturate(wi.wr + 1)` precisely to discard the rim,
- *     so a rim shadow is worth zero until `HAIR_DEFAULTS.sideVisibility` changes in a file this one
- *     does not own. **The two changes have to land together or neither is measurable.**
+ *     it by 0.9%.~~ 🔴 **RETRACTED 2026-08-23: "BUYS NOTHING" WAS A LUMA ASSESSMENT OF A COLOUR
+ *     QUESTION, AND IT IS THE THIRD TIME THIS FILE HAS MADE THAT ERROR.** The median numbers above
+ *     are correct and they are on the wrong quantity. Re-measured on CHROMA over the 236,792-px
+ *     gated hair mask — `chromaInCodes`, the norm of a pixel's departure from its own grey, zero
+ *     for any grey at any lightness — `?ov=rim.shadowFraction:1` is worth **+2.492 codes**
+ *     (33.506 -> 35.998), which is 2.5x the visibility floor registered for REQ-064, and it arrives
+ *     with **luma FALLING 1.4%**. Level down, chroma up. Controlled: skin over this file's own rects
+ *     moves **-0.837**, so the effect is hair-specific rather than a frame warming.
+ *   - 🎯 **AND THE MECHANISM IS THAT THE RIM IS NOT AN EDGE LIGHT ON THE HAIR.** It is an
+ *     unshadowed `RectAreaLight` firing through alpha-blended cards, so its contribution is a broad
+ *     wash over the WHOLE GROOM. This file's own "a light the gates could not see" is true of the
+ *     FACE gates and **false of the hair** — hair is the one surface that reads the rim across its
+ *     entire area. Bounded by `captures/hair-r31-norim-ttoff/portrait.png`, committed since R31 and
+ *     never opened until now: deleting the rim buys the hair ~8-14% saturation, shadowing it buys
+ *     +7.4%, so `shadowFraction` recovers most of the benefit WITHOUT losing the rim's separation
+ *     function. That is why REQ-078's recolour was rejected and REQ-063 revived.
+ *     ⚠️ The original claim's REASONING still holds for R and TRT: `saturate(wi.wr + 1)` does
+ *     discard the rim for those two lobes. What it does not cover is TT, which the occlusion
+ *     exempts — and nobody had run `shadowFraction` with TT on. **A lead, not a verdict**: one
+ *     capture, no decoy, and the groom casts CARD-QUAD shadows rather than strand shadows
+ *     (`alive.js:2555-2566`), so this over-occludes. Full tables:
+ *     `captures/hair-r32-glint/rim-shadow.md`.
  *   - **REQ-064's camera-axis light lands on the FLOOR, not on the band.** Moving the kicker to
  *     azimuth 12 raises the groom's median 2.63x and its peak 1.14x — the wrong ratio for a
  *     highlight, and `docs/research/hair.md` §9.3 says why in advance: slide 39's multiple-

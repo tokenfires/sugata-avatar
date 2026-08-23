@@ -1872,6 +1872,57 @@ evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=
              0.0000% of the groom above 4x R's own mean in either arm. **The request stands — the
              rim's `shadowFraction: 0` should still stop being invisible to the reader — but it is
              a documentation request now, not the highlight lever it was filed as.**
+             🎯 **R32 REVIVES THIS ON A CHROMA STATISTIC, AND THE PRIOR "BUYS NOTHING" WAS A
+             LUMA ASSESSMENT.** `LightingRig.js`'s header records `?ov=rim.shadowFraction:0.5` as
+             moving the groom's MEDIAN by 0.9% and concludes REQ-063 "buys nothing this file can
+             deliver". That measurement is correct and it is on the wrong quantity — the same error
+             REQ-064 suffered twice, making this the third colour question answered with a
+             brightness operator. Re-measured on chroma, on the 236,792-px gated hair mask REQ-064
+             was decided on, `chromaInCodes` (norm of a pixel's departure from its own grey, 8-bit,
+             zero for any grey at any lightness):
+
+               | arm                        | mean RGB  |   R/B | chroma | p50 linear |
+               |----------------------------|-----------|------:|-------:|-----------:|
+               | TT off, shipped rim        | `#5d3535` | 1.771 | 33.506 |   6.467e-2 |
+               | TT on, UNSHADOWED rim      | `#613c6e` | 0.886 | 53.859 |   8.368e-2 |
+               | TT on, rim shadowed        | `#5e362f` | 2.019 | 36.363 |   6.532e-2 |
+               | **TT off, rim shadowed**   | `#5d352e` | **2.022** | **35.998** | 6.379e-2 |
+
+             1. **THE SHADOW ALONE IS WORTH +2.492 CODES OF HAIR CHROMA** — 2.5x the 1.0-code
+                visibility floor registered for REQ-064 — and it arrives with luma FALLING 1.4%.
+                Level down, chroma up, which `pedestal-look-2026-08-22.md` §4 says a scalar cannot
+                produce.
+             2. **HAIR-SPECIFIC, AND CONTROLLED.** Same statistic over this file's own skin rects:
+                skin chroma 42.109 -> 41.272, i.e. **-0.837**, R/B 1.355 -> 1.349. A frame that were
+                simply warming would move both. It does not.
+             3. **SHADOWING THE RIM ALSO KILLS THE TT VIOLET OUTRIGHT** — R/B 0.886 -> 2.019 — and
+                the modelled occlusion succeeds where the envelope chord failed, because §17
+                diagnosed that failure as "truth is bimodal, an ellipsoid is smooth" and a shadow
+                map is bimodal. ⚠️ But TT is still worth only +0.364 codes on top, so **§17's TT
+                closure is CONFIRMED, not reopened**: modelling the occlusion kills 91.21% of TT
+                whatever colour it was.
+             🎯 **THE MECHANISM, WHICH IS WHY THREE ROUNDS OF HUE WORK MISSED IT.** The rim is not
+             an edge light on the hair. It is an unshadowed `RectAreaLight` firing through
+             alpha-blended cards, so its contribution is a broad wash over the WHOLE GROOM. This
+             file's own "a light the gates could not see" is true of the FACE gates and FALSE of the
+             hair — hair is the one surface that reads the rim across its entire area, being
+             thousands of alpha-blended layers with no occlusion between them and the light.
+             Bounded by plates committed since R31: `hair-r31-shipcheck` against
+             `hair-r31-norim-ttoff` gives cool [150,330) at S>0.10 of 6.80% -> 0.00% and mean
+             saturation 0.4497 -> 0.5106. So DELETING the rim buys the hair ~8-14% saturation and
+             SHADOWING it buys +7.4% — most of the benefit, without losing the rim's separation
+             function. That is the argument for `shadowFraction` over any recolour, and it is why
+             REQ-078 was REJECTED on 2026-08-23.
+             ⚠️ **STILL A LEAD, NOT A VERDICT, AND FOUR THINGS ARE UNSETTLED.** One capture per arm,
+             no pre-registration, no decoy. (i) `shadowFraction: 1` moves ALL the rim's irradiance
+             into a `SpotLight` and changes its specular character — the shipped value is a sweep,
+             not this endpoint. (ii) The groom casts the shadow of its CARD QUADS, not its strands
+             (`alive.js:2555-2566`, missing `alphaMap` on the depth material, already filed), so
+             this OVER-occludes and some of the +2.492 may be killing the blue by killing the light;
+             the 1.4% luma fall against a 7.4% chroma rise argues against that being the whole story
+             but does not settle it. (iii) No decoy — REQ-064's azimuth-180 arm is what made its
+             0.1141 codes trustworthy. (iv) G1, G2 and G7 have measured rim sensitivity.
+             Evidence and full tables: `captures/hair-r32-glint/rim-shadow.md`.
 anchor:      packages/core/src/render/LightingRig.js /irradiance: 16,/
 verify:      packages/core/src/render/LightingRig.js /rim carries a shadow caster/
 ```
@@ -2666,7 +2717,7 @@ verify:      packages/core/src/motion/HairDynamics.js /positionPreviousNode/
 
 ```request
 id:          REQ-078
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/render/LightingRig.js
 filed-by:    the R28 integrator, from REQ-060's blind judge
 filed-round: R12
@@ -2895,8 +2946,62 @@ evidence:    Measured 2026-08-17 by a blind judge on plates it captured itself, 
              **B > R > G** ("blue-dominant with slight magenta lean", the CAST SHADOW line), and the
              shipped rim is **B > G > R** — a cyan lean, the opposite. That is a one-line change that
              costs no blue energy and is the cheapest thing on this list.
+             🔴 **REJECTED 2026-08-23. THE REQUEST FUSES TWO PROBLEMS AND THE HUE IS NOT THE
+             LEVER FOR EITHER.** Decided on plates, not argument. Evidence:
+             `captures/hair-r32-glint/rim-shadow.md`.
+             1. **THE TWO PROBLEMS SEPARATE.** On `hair-r31-shipcheck` against
+                `hair-r31-norim-ttoff` — the same query with `?ov=rim.irradiance:0`, committed
+                since R31 — the VIOLET OUTLINE is 100% the rim's: cool [150,330) at S>0.10 goes
+                6.80% -> 0.00%. But MUDDY is not: with the rim DELETED, hair saturation still
+                collapses as it lightens, 0.5237 whole groom -> 0.3763 top decile -> 0.3250 top 1%,
+                a 38% fall. That is ACES over an achromatic R lobe. No rim change touches it. The
+                rim owns the outline and ~8-14% of the hair's chroma; the other ~38% is the BSDF
+                and the fibre, which is where REQ-064's refutation landed.
+             2. **THE "CHEAPEST THING ON THE LIST" IS NOT CONFORMANCE AND IS NOT CHEAP.** This
+                entry's closing ⚠️ reads the B>R>G ordering off the spec's CAST SHADOW row and
+                applies it to the RIM. CAST SHADOW is its own row and is a GRADE MEASUREMENT OF
+                RENDERED PIXELS (spec §3:250, pixel statistics over four graded frames) — the
+                residue after the key is blocked, not a property of an emitter. RIM/KICKER is a
+                different row three lines above and says nothing about ordering. The spec's only
+                rim-hue statement is RELATIONAL (complementary to key); the shipped rim at 231.75°
+                is already 19.32° past the key's exact complement, and `#300fff` lands at 248.25°
+                — 16.5° FURTHER from the only applicable clause, and within 3.1° of `#7a5bff`
+                (251.34°), the violet kicker this file withdrew after three blind judges called the
+                outline a bug.
+                It is also 13.2% DARKER (relative luminance 0.0819 against 0.0944), and it turns
+                seven clauses red across two selftests — measured by making the edit, not argued.
+             3. **(b) CHANGES THE HUE BY A THIRD OF A DEGREE.** `#8899ff` is at 231.43° against the
+                shipped 231.75° — 0.32° apart, dead centre of both of `violet.mjs`'s arcs, so it
+                cannot even fall out of the statistic. And the sweep is already run and recorded as
+                a loss at `LightingRig.js:556-562`: E 30/45/70 with progressively whiter blues
+                reaches 1.01x skin luma at 0.73x skin saturation — it buys the FAILING spec clause
+                by spending the PASSING one, at a measured exchange rate.
+             4. **(a) IS NOT SMALL EITHER.** It cuts blue radiance 41-47%, but delivers 3.31x the
+                R+G onto skin at unchanged E ((b) delivers 4.40x at matched luminance). The property
+                that made the shipped rim affordable is that the face gates could not see it, and
+                both options end that. A rim recolour has been attempted twice in this repo and
+                refuted twice.
+             5. **AND RECOLOURING WOULD BE WORSE THAN LEAVING IT.** REQ-078 is NOT the gate on TT:
+                the hue is the symptom that got TT caught, the gate is the unshadowed-ness plus the
+                0.48% clear-path geometry, and a hue change touches neither. It makes the same
+                physically impossible transport arrive in a different colour — the violet is
+                currently the only thing making the artefact VISIBLE.
+             🎯 **WHAT REPLACES IT IS REQ-063**, which owns `rim.shadowFraction` and now has a
+             measured, hair-specific, above-floor effect. See that entry.
+             🚩 **AND THE PROCESS FINDING: the ceiling plate for every possible rim intervention was
+             ALREADY ON DISK and nobody opened it.** `captures/hair-r31-norim-ttoff/portrait.png`
+             has been committed since R31 and bounds what ANY rim change can buy. Three rounds
+             argued about hue without looking at it.
 anchor:      packages/core/src/render/LightingRig.js /colour: 0x0f30ff/
 verify:      packages/core/src/render/LightingRig.js /band coolShare/
+reason:      REJECTED ON PLATES. The request fuses the violet outline (100% the rim's) with the
+             hair's muddiness (38% saturation collapse that survives deleting the rim entirely),
+             and hue is not the lever for either. Its own "cheapest" option reads a spec row about
+             CAST SHADOW pixels and applies it to a RIM, lands 16.5° further from the only
+             applicable clause, is 13.2% darker, and reconstructs the violet hue family this file
+             already withdrew. Option (b) moves the hue 0.32°. Option (a) puts 3.31x the R+G onto
+             skin. And recolouring an unshadowed rim hides a real defect rather than fixing it.
+             The lever with a measured effect is rim.shadowFraction, which is REQ-063.
 ```
 
 ## REQ-079 — the knee bend has no sourced amplitude, and it is fear's largest channel
