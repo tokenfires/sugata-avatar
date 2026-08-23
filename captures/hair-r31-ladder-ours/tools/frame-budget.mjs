@@ -31,6 +31,39 @@ import process from 'node:process';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+// 🔴 P0 IS NOT A CLOCK-STATE PROBLEM, AND THE DIAGNOSIS THAT SAID IT WAS IS WITHDRAWN.
+//
+// `docs/CHECKPOINT.md` §17 recorded that this harness "needs the ladder's timing method, not a
+// patch", on the reasoning that a bare 720x900 gate page cannot share a DVFS state with 1080x1920
+// deferred arms. That reasoning is sound and it is NOT what was producing the non-physical result
+// — ribbon arms reading FASTER than no hair at all. It was reached by elimination without ever
+// asking the cheaper question first: IS EACH ARM RENDERING WHAT IT CLAIMS?
+//
+// Nothing here could answer that. `arm.info` collected `trackTimestamp`, `width`, `height` and
+// `pixelRatio` — every property of the RENDERER and not one property of the PICTURE — while
+// `alive.js` had been publishing `sugata.report().hair` with a full ribbon census the whole time
+// and no consumer.
+//
+// Measured once the census was read, and it is worse than a timing artefact:
+//
+//   🔴 THE `hair` ARM — THE CARD BASELINE THE WHOLE PRIMITIVE DECISION IS COMPARED AGAINST —
+//      ATTACHES NO GROOM ON THIS SERVER. `hairEnabled` true, `hairRequest` set, `report().hair`
+//      null after 600 s, one 404 on the page and no warning from `attachHair`. So `hair` and
+//      `no-hair` were rendering the SAME PICTURE, and the ribbon arms sit on the same code path.
+//      A delta between identical frames is noise, and noise is exactly what it looked like.
+//
+// ⚠️ WHAT IS NOT YET NAMED IS WHICH RESOURCE 404s. `/assets/hair/bob01/g050.glb` serves 200 with
+// its full 3,326,956 bytes under this config, so the groom itself is reachable and the failure is
+// something else on the attach path. That is the open thread; the finding above does not depend on
+// it, because a bald arm is a bald arm whatever made it bald.
+//
+// FOUR READINESS DEFECTS WERE FIXED ON THE WAY TO IT, EACH SILENT — see `assertArmRenders` and the
+// wait loop in `main`. The one worth reading twice: `waitForFunction` with an ASYNC predicate never
+// waits, because an async arrow returns a Promise and a Promise is truthy on the first poll.
+// `tools/critic/hair-lightpath.mjs`'s `waitForFigure` — the function whose own docstring warns that
+// `__SUGATA_STEP__` exists before the figure does — is written that way and has been winning the
+// race rather than waiting for it.
+
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 const GPU_FLAGS = ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars'];
 
@@ -61,9 +94,9 @@ const BASE_QUERY = 'bare&freeze&seed=1&frame=body&capture&gputime=1&hairmotion=0
  * Both are timed here so the cost side of that fork is at least closed.
  */
 const RIBBON_ARMS = [
-  { key: 'ribbons-crop-8832', file: 'crop01_g050_d23.tfx' },
-  { key: 'ribbons-bob-4960', file: 'bob01_g050_d10.tfx' },
-  { key: 'ribbons-bob-11408', file: 'bob01_g050_d23.tfx' },
+  { key: 'ribbons-crop-8832', file: 'crop01_g050_d23.tfx', strands: 8832 },
+  { key: 'ribbons-bob-4960', file: 'bob01_g050_d10.tfx', strands: 4960 },
+  { key: 'ribbons-bob-11408', file: 'bob01_g050_d23.tfx', strands: 11408 },
 ];
 
 async function main() {
@@ -77,8 +110,10 @@ async function main() {
     { key: 'gate', kind: 'gate', page: null,
       url: `${server.baseUrl}/tools/spikes/strand-spike.html?strands=4960&w=720&h=900&aa=off&gputime=1&frames=1`,
       step: 'strand' },
-    { key: 'no-hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive' },
-    { key: 'hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}&hair=1`, step: 'alive' },
+    { key: 'no-hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive',
+      expect: { hair: false } },
+    { key: 'hair', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}&hair=1`, step: 'alive',
+      expect: { hair: true, ribbons: false } },
     // The control repeated at the far end of the arm order. `alive.js`'s own header measured the
     // no-hair arm twice for this reason and reported the pair; a single control cannot show drift.
 
@@ -95,9 +130,11 @@ async function main() {
       url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}&hair=1`
         + `&hairribbons=/tfx/${arm.file}`,
       step: 'alive',
+      expect: { hair: true, ribbons: true, strandCount: arm.strands },
     })),
 
-    { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive' },
+    { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive',
+      expect: { hair: false } },
   ];
 
   // ⚠️ `arms.slice()`, NOT `arms`. With no filter the two were the SAME ARRAY, so the
@@ -127,14 +164,89 @@ async function main() {
       arm.page = await context.newPage();
       arm.page.setDefaultTimeout(600_000);
       arm.page.on('pageerror', (error) => console.error(`PAGEERROR ${arm.key}`, error.message));
+      arm.page.on('requestfailed', (r) => console.error(`REQFAILED ${arm.key} ${r.url().slice(-70)} ${r.failure()?.errorText}`));
+      arm.page.on('response', (r) => { if (r.status() >= 400) console.error(`HTTP${r.status()} ${arm.key} ${r.url().slice(-70)}`); });
+      arm.page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.error(`PAGE-${m.type().toUpperCase()} ${arm.key}: ${m.text().slice(0, 200)}`); });
 
       await arm.page.goto(arm.url, { waitUntil: 'load' });
 
       if (arm.step === 'alive') {
-        await arm.page.waitForFunction(
-          () => typeof globalThis.__SUGATA_STEP__ === 'function', null,
-          { timeout: 600_000, polling: 250 }
-        );
+        // 🔴 THE RETURN VALUE, NOT THE FUNCTION'S EXISTENCE, AND THE DIFFERENCE IS THE WHOLE OF P0.
+        //
+        // This used to wait for `typeof globalThis.__SUGATA_STEP__ === 'function'`.
+        // `tools/critic/hair-lightpath.mjs` records what that is worth in as many words:
+        // *"`__SUGATA_STEP__` EXISTS BEFORE THE FIGURE DOES, AND IT RETURNS `false` UNTIL IT DOES"* —
+        // it once produced four uniform RGB(10,10,12) plates from exactly this mistake, and
+        // `capture.mjs:718` treats the same `false` as a hard error.
+        //
+        // 🎯 SO THE HARNESS BEGAN WARMING UP AND SAMPLING AGAINST PAGES THAT HAD NOT FINISHED
+        // BUILDING, AND THE ARMS DO NOT ALL TAKE THE SAME TIME TO BUILD. A ribbon arm has to fetch a
+        // .tfx, parse it, build ribbon geometry and skin it to the head bone; `no-hair` has none of
+        // that to do. An arm still building renders LESS, so it times FASTER — which is precisely
+        // the non-physical result this file produced and could not explain: ribbon arms reading
+        // faster than no hair at all. Adding geometry cannot make a frame cheaper; starting the
+        // clock before the geometry exists can.
+        //
+        // ⚠️ THIS WAS DIAGNOSED AS A DVFS PROBLEM AND THAT DIAGNOSIS WAS WRONG. `docs/CHECKPOINT.md`
+        // §17 says P0 "needs the ladder's timing method, not a patch", reasoning that a 720x900 gate
+        // page cannot share a clock state with 1080x1920 arms. That reasoning is still true and it
+        // is not what was breaking this. The clock-state argument was reached by elimination without
+        // ever asking the cheaper question — IS EACH ARM RENDERING WHAT IT CLAIMS — which no part of
+        // this harness could answer, because nothing here had ever read the census.
+        // 🔴 POLLED FROM NODE WITH `evaluate`, NOT HANDED TO `waitForFunction` AS AN ASYNC
+        // PREDICATE, AND THAT DISTINCTION IS A SECOND SILENT DEFECT FOUND ON THE WAY TO THE FIRST.
+        //
+        // The obvious repair is `waitForFunction(async () => (await __SUGATA_STEP__(0)) === true)`.
+        // It does not work and it does not fail either: `waitForFunction` tests the predicate's
+        // return value for TRUTHINESS, and an async arrow returns a Promise, which is truthy on the
+        // first poll whatever it would eventually resolve to. So the wait returns instantly and
+        // reports success. Measured: with that predicate the census still read
+        // `typeof __SUGATA_STEP__ === 'undefined'` immediately afterwards, and the page's own
+        // "Figure: this rig has no jaw..." warning arrived AFTER the census line rather than before.
+        //
+        // `page.evaluate` DOES await a returned promise, so the loop below asks the real question.
+        // ⚠️ `tools/critic/hair-lightpath.mjs`'s `waitForFigure` uses the async-predicate form and
+        // therefore carries the same defect — it has been winning the race rather than waiting.
+        // 🔴 AND `__SUGATA_STEP__( 0 ) === true` IS STILL NOT THE RIGHT QUESTION FOR A HAIR ARM.
+        // It means the FIGURE is renderable. `attachHair` is awaited further down the same async
+        // chain (`alive.js:2016`) and sets `session.hair` at its very end, so a page can step true
+        // with no groom in it — measured: `report().hair` was null on `?hair=1` with the step
+        // already returning true and no warning anywhere. WAIT FOR THE THING YOU ARE ABOUT TO
+        // ASSERT, which for a hair arm is the groom and not the body.
+        const wantsHair = arm.expect?.hair === true;
+        const deadline = Date.now() + Number(process.env.FB_READY_MS ?? 600_000);
+        for (;;) {
+          const ready = await arm.page.evaluate(async (needsGroom) => {
+            if (typeof globalThis.__SUGATA_STEP__ !== 'function') return false;
+            if ((await globalThis.__SUGATA_STEP__(0)) !== true) return false;
+            if (needsGroom !== true) return true;
+            return (globalThis.sugata?.report?.()?.hair ?? null) !== null;
+          }, wantsHair);
+          if (ready === true) break;
+          if (Date.now() > deadline) {
+            // 🚩 THE TIMEOUT CARRIES WHAT THE PAGE ACTUALLY CONTAINED. `tools/critic/hair-plates.mjs`
+            // spent a session reporting "Timeout 120000ms exceeded" with the real TypeError sitting
+            // unread beside it; a readiness timeout that cannot say what it was waiting on is a
+            // second bug on top of the first.
+            const seen = await arm.page.evaluate(() => {
+              const sess = globalThis.sugata?.session ?? null;
+              return {
+                step: typeof globalThis.__SUGATA_STEP__,
+                sugata: typeof globalThis.sugata,
+                hairEnabled: sess?.hairEnabled ?? null,
+                hairRequest: sess?.hairRequest === undefined ? 'undefined' : (sess?.hairRequest === null ? 'null' : 'set'),
+                hair: (globalThis.sugata?.report?.()?.hair ?? null) === null ? 'null' : 'present',
+                search: String(location.search),
+              };
+            }).catch((error) => ({ probeFailed: error.message }));
+            throw new Error(
+              `arm "${arm.key}": ${wantsHair ? 'no GROOM' : 'no figure'} before the deadline\n` +
+              `  url  ${arm.url}\n` +
+              `  page ${JSON.stringify(seen)}`
+            );
+          }
+          await new Promise((resolve) => setTimeout(resolve, 250));
+        }
       } else {
         await arm.page.waitForFunction(
           () => window.__STRAND_READY__ === true || window.__STRAND_ERROR__ !== undefined,
@@ -146,15 +258,26 @@ async function main() {
         if (step === 'strand') return { strandGate: true };
         const renderer = globalThis.sugata?.stage?.renderer;
         const canvas = renderer?.domElement;
+        const hair = globalThis.sugata?.report?.()?.hair ?? null;
         return {
           trackTimestamp: renderer?.trackTimestamp,
           width: canvas?.width,
           height: canvas?.height,
           pixelRatio: renderer?.getPixelRatio?.(),
+
+          // 🔴 WHAT THE ARM IS ACTUALLY DRAWING, WHICH THIS HARNESS NEVER ASKED FOR — see
+          // `assertArmRenders` for the defect that cost.
+          hair: hair === null ? null : {
+            groomMeshes: hair.groomMeshes ?? null,
+            strandCount: hair.ribbons?.strandCount ?? null,
+            skinnedPoints: hair.ribbons?.skinnedPoints ?? null,
+            triangles: hair.ribbons?.triangles ?? null,
+          },
         };
       }, arm.step);
 
-      console.log(`arm       ${arm.key.padEnd(10)} ${JSON.stringify(arm.info)}`);
+      console.log(`arm       ${arm.key.padEnd(18)} ${JSON.stringify(arm.info)}`);
+      assertArmRenders(arm);
       arm.samples = [];
     }
 
@@ -232,6 +355,71 @@ async function main() {
     await browser.close();
     await server.close();
   }
+}
+
+/**
+ * Every arm proves what it is DRAWING before any of its samples count.
+ *
+ * 🔴 THE DEFECT THIS CLOSES IS THAT THERE WAS NO SUCH CHECK AT ALL, AND THE HARNESS HAD ALREADY
+ * PRODUCED A NON-PHYSICAL RESULT — ribbon arms reading FASTER than the no-hair arm. Adding geometry
+ * cannot make a frame cheaper, so either the timing was wrong or the arms were not rendering what
+ * their URLs claimed, and nothing in this file could tell those two apart. `arm.info` collected
+ * `trackTimestamp`, `width`, `height` and `pixelRatio` — every property of the RENDERER and not one
+ * property of the PICTURE.
+ *
+ * 🚩 AND THE REPO HAD ALREADY BEEN BITTEN BY EXACTLY THIS, ONE ROUND EARLIER. `HairDynamics` and the
+ * ribbon expansion both write `material.positionNode`; the solver won, every ribbon collapsed to
+ * zero width, and the plate came back BALD RATHER THAN ERRORING. A silent wrong picture that looks
+ * like a placement bug is the most expensive shape a defect can take, and a timing harness with no
+ * census will time it happily and report a number.
+ *
+ * The census it reads is not new — `alive.js`'s `sugata.report().hair.ribbons` has carried
+ * `strandCount`, `skinnedPoints` and `triangles` since the ribbon arm landed. Nothing consumed it.
+ *
+ * ⚠️ THROWS RATHER THAN WARNS. A warning in a scrolling log beside fifteen rounds of timings is a
+ * warning nobody reads, and the whole point is that a mis-rendering arm must not be able to
+ * contribute a sample.
+ */
+function assertArmRenders(arm) {
+
+  if (arm.expect === undefined) return;
+
+  const seen = arm.info?.hair ?? null;
+  const wants = arm.expect;
+  const fail = (why) => {
+    throw new Error(
+      `ARM "${arm.key}" IS NOT RENDERING WHAT IT CLAIMS: ${why}\n` +
+      `  url    ${arm.url}\n` +
+      `  census ${JSON.stringify(seen)}\n` +
+      '  A timing taken on this arm would be a measurement of the wrong picture.'
+    );
+  };
+
+  if (wants.hair === false) {
+    if (seen !== null) fail('expected NO hair, and the page reports a groom');
+    return;
+  }
+
+  if (seen === null) fail('expected a groom, and the page reports none');
+
+  if (wants.ribbons === false && seen.strandCount !== null) {
+    fail(`expected CARDS, and the page reports ${seen.strandCount} ribbon strands`);
+  }
+
+  if (wants.ribbons === true) {
+    if (seen.strandCount === null) {
+      fail('expected RIBBONS, and the page reports a card groom — the .tfx did not load, and this '
+        + 'arm would have timed the card path under a ribbon label');
+    }
+    if (seen.strandCount !== wants.strandCount) {
+      fail(`expected ${wants.strandCount} strands, the page built ${seen.strandCount}`);
+    }
+    if (!(seen.triangles > 0)) {
+      fail(`built ${seen.strandCount} strands but ${seen.triangles} triangles — this is the `
+        + 'zero-width collapse, which renders BALD and does not throw');
+    }
+  }
+
 }
 
 async function takeSample(arm, burst, perVisit) {
