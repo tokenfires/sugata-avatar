@@ -40,7 +40,17 @@ const BUDGET_MS = 16.6;
 /** `alive.js`'s own timing header states this framing for the arms already in the record. */
 const VIEWPORT = { width: 1080, height: 1920 };
 
-const BASE_QUERY = 'bare&freeze&seed=1&frame=body&capture&gputime=1';
+// 🔴 `hairmotion=0` IS EXPLICIT, AND ITS ABSENCE MADE THE ARMS UNEQUAL. `?hairmotion` DEFAULTS ON,
+// so the CARD arm ran `HairDynamics` while every ribbon arm had it refused — `alive.js` will not let
+// the solver and the ribbon expansion both write `material.positionNode`. The comment beside the
+// ribbon arms claimed "MOTION IS OFF ON EVERY ARM" and it was false: motion was off on the ribbons
+// and ON for the cards, so the card arm was carrying a compute pass the others were not.
+//
+// ⚠️ The solver is ~0.018 ms and CANNOT account for the deltas seen — this is a correctness fix, not
+// the explanation. Recorded because a false claim in a comment beside a measurement is the defect
+// this project has caught ten times, and writing one while hunting a different bug is how eleven
+// happens.
+const BASE_QUERY = 'bare&freeze&seed=1&frame=body&capture&gputime=1&hairmotion=0';
 
 /**
  * The ribbon arms, named by the file `tools/figure-pipeline/build-tfx.sh` writes.
@@ -77,10 +87,8 @@ async function main() {
     // this was raster-and-shade on a bare page with no G-buffer, no resolve, no OIT composite and
     // no skinning, compared against a card cost that is a whole-frame delta. These arms close that.
     //
-    // ⚠️ MOTION IS OFF ON EVERY ARM, INCLUDING THE CARDS. The ribbon expansion and `HairDynamics`
-    // both write `material.positionNode` and the solver wins, so `alive.js` refuses the pair and
-    // says so. A comparison that let the cards simulate and the ribbons not would be measuring the
-    // solver, not the primitive.
+    // ⚠️ Motion is held off on EVERY arm by `BASE_QUERY`'s explicit `hairmotion=0` — see the note
+    // there for why that had to become explicit rather than assumed.
     ...RIBBON_ARMS.map((arm) => ({
       key: arm.key,
       kind: 'frame',
@@ -91,6 +99,26 @@ async function main() {
 
     { key: 'no-hair-2', kind: 'frame', url: `${server.baseUrl}/packages/testbed/alive.html?${BASE_QUERY}`, step: 'alive' },
   ];
+
+  // ⚠️ `arms.slice()`, NOT `arms`. With no filter the two were the SAME ARRAY, so the
+  // `arms.length = 0` below emptied the very list being spread back in and the run executed ZERO
+  // arms — completing all fifteen rounds in seconds and then throwing on a missing gate row. A
+  // silent no-op that looks like a fast success is the worst shape a harness bug can take, and this
+  // one was caught only because the report needed a row that was not there.
+  const selected = options.only === null
+    ? arms.slice()
+    : arms.filter((a) => options.only.includes(a.key));
+
+  if (selected.length !== arms.length) {
+    console.log(`arms      ${selected.length} of ${arms.length}: ${selected.map((a) => a.key).join(', ')}`);
+  }
+
+  if (selected.length === 0) {
+    throw new Error(`--only matched no arms. Known: ${arms.map((a) => a.key).join(', ')}`);
+  }
+
+  arms.length = 0;
+  arms.push(...selected);
 
   const context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1 });
 
@@ -135,8 +163,37 @@ async function main() {
     }
     for (const arm of arms) arm.samples = [];
 
+    // 🔴 THE ARM ORDER IS SHUFFLED EVERY ROUND, AND A FIXED ORDER WAS BIASING THE RESULT.
+    //
+    // The round-robin exists so that drift is common-mode. It was not: with a FIXED order inside
+    // each round, an arm inherits whatever GPU state the arm before it left, and that position
+    // effect is systematic rather than random. Measured on the first P0 run, where `no-hair` and
+    // `no-hair-2` are the SAME URL and differ only in cycle position — first against last:
+    //
+    //     min                 1.406  against  1.646   (+0.24)
+    //     fast-mode median   10.778  against 12.548   (+1.77)
+    //
+    // Every ribbon arm sat AFTER the card arm, so part of their apparent extra cost was position.
+    // A per-round shuffle turns that from a bias into noise the rounds average out, and the two
+    // no-hair arms become a real control on whether it worked: they should now converge.
+    //
+    // ⚠️ Deterministic by default so a run is reproducible. `--seed` changes it; the seed is
+    // recorded in the report, because a shuffle nobody can reproduce is a shuffle nobody can check.
+    let seed = options.seed;
+    const nextRandom = () => {
+      seed = (seed * 1664525 + 1013904223) >>> 0;
+      return seed / 0x100000000;
+    };
+
     for (let round = 0; round < options.rounds; round += 1) {
-      for (const arm of arms) await takeSample(arm, options.batch, options.perVisit);
+
+      const order = arms.slice();
+      for (let i = order.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(nextRandom() * (i + 1));
+        [ order[i], order[j] ] = [ order[j], order[i] ];
+      }
+
+      for (const arm of order) await takeSample(arm, options.batch, options.perVisit);
       if ((round + 1) % 5 === 0) console.log(`          round ${round + 1}/${options.rounds}`);
     }
 
@@ -167,6 +224,7 @@ async function main() {
       rounds: options.rounds,
       burstFramesPerSample: options.batch,
       samplesPerVisit: options.perVisit,
+      armOrderSeed: options.seed,
       rows,
     }, null, 2)}\n`);
     console.log(`\nreport    ${path.relative(REPOSITORY_ROOT, file)}`);
@@ -346,6 +404,8 @@ function parseArguments(argv) {
     perVisit: 4,
     warmup: 2,
     headSha: null,
+    only: null,
+    seed: 20260822,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -359,6 +419,15 @@ function parseArguments(argv) {
       case '--pervisit': options.perVisit = Number(value); index += 1; break;
       case '--warmup': options.warmup = Number(value); index += 1; break;
       case '--sha': options.headSha = value; index += 1; break;
+
+      // 🎯 THE RESIDENT-SET KNOB, AND IT EXISTS TO TEST A HYPOTHESIS RATHER THAN TO TUNE ONE.
+      // Every arm's page is opened up front and held live for the whole round-robin, so a seven-arm
+      // run keeps seven 1080x1920 WebGPU contexts resident. The strand ladder used the identical
+      // protocol and held its contention gate to ~1%; this held it to 67%, and the difference
+      // between them is page weight. `--only` runs a named subset so the gate's spread can be read
+      // against the number of live pages and the cause CONFIRMED before anything is rebuilt.
+      case '--only': options.only = value.split(',').map((k) => k.trim()); index += 1; break;
+      case '--seed': options.seed = Number(value); index += 1; break;
       default: throw new Error(`unknown argument '${flag}'`);
     }
   }
