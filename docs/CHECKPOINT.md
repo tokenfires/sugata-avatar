@@ -1187,7 +1187,31 @@ corrected form is **`√C · ā_f^n`**.
 
 **Read §16 first.** This is the same round after its groundwork, and it contains two RETRACTIONS of
 things §16 and I said earlier the same day. HEAD `d9773a0`. Suite at §16's state: FAILING GATES 5,
-**UNDECLARED RED 0**, one stale declaration (`HairOIT`, the documented intermittent).
+~~**UNDECLARED RED 0**~~, one stale declaration (`HairOIT`, the documented intermittent).
+
+> 🔴 **RETRACTED 2026-08-23 — "UNDECLARED RED 0" WAS NOT TRUE, IN TWO INDEPENDENT WAYS, AND ONE OF
+> THEM IS PROVABLE WITHOUT RUNNING ANYTHING.**
+>
+> 1. **`alive-toggles.selftest.mjs` was already red at `98bfc73`.** Its closure clause — *every url
+>    key the page read is classified in this file* — had been printing `UNCLASSIFIED: hairribbons,
+>    hairribbonskin, hairribbonwidth` since those keys landed at `04fe601`, in this same round.
+>    Statically checkable at that commit: `alive.js` reads `hairribbons` **six times** and
+>    `alive-toggles.selftest.mjs` matches it **zero times**. No measurement is needed to see it and
+>    none was done. The three keys now carry `UNGATED` rows with the reason.
+> 2. **`quoted-numbers.selftest.mjs` was green only because of a SESSION-LOCAL ASSET.** Four claims
+>    in `hair-reference.mjs` are verified by clauses that stand down without `--reference <dir>`,
+>    because the plates are SHIFT UP / SIE copyright and `.gitignore` refuses them. Those plates were
+>    in *that session's scratchpad*. A new session gets a new scratchpad, so on a clean clone — which
+>    is what every other reader and every future session has — the gate is **red**. Now declared in
+>    `docs/RED-GATES.md` with the repair named.
+>
+> 🎯 **THE LESSON IS ABOUT THE CLAIM, NOT THE GATES.** Both reds were being printed by
+> `tools/run-selftests.sh` at the time §17 was written. `docs/RED-GATES.md`'s own opening paragraph
+> says this exact failure happened three rounds running and that *"the information was never
+> missing — what was missing was a step that fails when the information goes unread."* §17 quoted a
+> summary line instead of the run. **A suite result is only as good as the environment it was taken
+> in, and "UNDECLARED RED 0" must never again be written from anything but a fresh run's own
+> output.** Related: `a-table-is-as-fresh-as-the-last-write`.
 
 ### 🎯 THE TT LINE IS CLOSED. Do not reopen it without a new light.
 

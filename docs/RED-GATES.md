@@ -70,6 +70,32 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `tools/quoted-numbers.selftest.mjs` — RED ON A CLEAN CLONE BY CONSTRUCTION, four claims, all in
+  `tools/critic/hair-reference.mjs` (lines 76, 77, 78 and 383). Their verifying clauses —
+  `hair-reference.selftest.mjs` C1, C2 and C3 — **stand down when `--reference <dir>` is absent**,
+  and the reason they stand down is that the plates are SHIFT UP / Sony Interactive Entertainment
+  copyright and `.gitignore` refuses them. So the clause prints a STOOD DOWN line instead of the
+  line carrying the number, `adjudicate` finds `selector "…" matched no output line`, and reports
+  `✗ 60 vs —`.
+
+  🔴 **THE GATE IS CONFLATING "UNVERIFIABLE HERE" WITH "WRONG", AND THOSE ARE DIFFERENT STATES.**
+  The four numbers are not disputed; nothing in this environment can reach the asset that would
+  confirm them.
+
+  🎯 **AND THE REASON IT SURFACED TODAY IS THE FINDING WORTH MORE THAN THE RED.** `docs/CHECKPOINT.md`
+  §17 reported `UNDECLARED RED 0` at `98bfc73`. That was true only because the reference plates were
+  sitting in **that session's scratchpad**. A new session gets a new scratchpad, so they are gone —
+  and the clean-clone case, which is what every other reader and every future session gets, is the
+  RED one. **The suite's greenness was environment-dependent and nothing said so.** A gate that
+  passes only when an uncommittable asset happens to be present is a gate that reads red for
+  everyone else. This entry exists so the next reader inherits that rather than rediscovering it.
+
+  ⚠️ **NOT REPAIRED BY WIDENING ANYTHING.** The repair is a THIRD state in `adjudicate` — a claim
+  whose producer stood the clause down is `unverified`, counted and printed loudly, neither pass nor
+  fail. Making it pass silently is how a quoted number rots, which is the entire defect this gate
+  was built to catch. Filed rather than done because it is a change to the claim protocol and
+  belongs with whoever owns it.
+
 - `packages/core/src/motion/sway.selftest.mjs` — RED ON ONE NEW CLAUSE, `every emotion stays inside
   the SKINNED footprint`, at **−1.963 mm on `figure_g000` / `fear`**. Every other clause in the file
   is green, including all 42 of punch-list 6.9's own.
