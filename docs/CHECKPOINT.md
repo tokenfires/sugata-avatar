@@ -1179,3 +1179,145 @@ corrected form is **`√C · ā_f^n`**.
 4. **Then** REQ-064's near-axis light — the only way to light TRT, the other coloured lobe.
 5. `tools/critic/hair-reference.mjs` **has no selftest** and two false numbers in its comments, and
    it is the tool that would define the factorial's mask. Gate it first.
+
+
+---
+
+## 17. R31 continued, 2026-08-22 evening — TT closed, ribbons in the shipped stack, P0 still open
+
+**Read §16 first.** This is the same round after its groundwork, and it contains two RETRACTIONS of
+things §16 and I said earlier the same day. HEAD `d9773a0`. Suite at §16's state: FAILING GATES 5,
+**UNDECLARED RED 0**, one stale declaration (`HairOIT`, the documented intermittent).
+
+### 🎯 THE TT LINE IS CLOSED. Do not reopen it without a new light.
+
+§16 named TT as the missing coloured lobe and the envelope chord as its fix. Both halves were built
+and measured, and the line closes:
+
+1. **TT on, unattenuated, is still violet** — re-tested WITH the corrected `#1A0E0C` albedo, so the
+   albedo fix did nothing for it. R/B **1.824 → 0.763**, hue 1.5° → 273.1°, 28.96% of the frame. The
+   TT term alone reads hue 237.4° / sat 0.921 against the rim light's own **231.8° / 0.941** —
+   agreement to **5.7°**, so TT transmits `#0f30ff` essentially unmodified. `?hairlobes=r,tt,trt`.
+2. **The envelope attenuation kills the blue and takes TT with it.** `?hairdefect=tt-envelope`
+   restores R/B to 1.823 against shipped 1.824 — and TT survives at 0.18%, i.e. the plate IS the
+   shipped arm to one code value. The arm's own pre-registered gate says that is a FAILURE.
+3. **The repair (`attenuateTT` false on `direct()`) is right and does not rescue it.** `direct()`
+   carries the key's SpotLight, whose `lightColor` already contains the shadow map, so the chord was
+   double-counting a real occlusion. Fixing it moves survival 0.18% → 0.52%. The plate does not move.
+
+🎯 **AND THE CEILING WAS MEASURED RATHER THAN ARGUED, WHICH IS WHAT CLOSES IT.** With
+`?ov=rim.irradiance:0` the **rim supplies 91.21%** of everything TT delivers, and the ray cast says
+only **0.48%** of visible fragments have a clear path to the rim (1.44% at ≤2 crossings, against the
+key's 63.84% at zero). So annihilating rim TT is CORRECT PHYSICS and necessarily removes nine tenths
+of the lobe. What any repair can recover is the other **8.79%**, which is warm (R/B 2.075) and worth
+about **2% of the mass**.
+
+> **TT is not the "muddy" fix on this rig, and the reason is geometric rather than a bug.** No
+> fragment has a thin path to a back light. The remaining coloured lobe is **TRT**, and it needs a
+> light near the view axis — **REQ-064**, which is now the only candidate left standing.
+
+⚠️ The chord does carry real signal at the thin end: at fragments the ray cast calls clear, 15.79%
+retain `T > 0.1` against a 0.82% baseline — a 19× enrichment with poor recall. It can tell a thin
+path from a thick one; it cannot tell WHICH thin path.
+
+### 🎯 RIBBONS RENDER IN THE SHIPPED DEFERRED STACK
+
+`?hairribbons=<url>` on `alive.html` swaps the card groom for a ribbon groom from a TressFX `.tfx`,
+**skinned to the figure's own head bone**, through the same G-buffer, rig, OIT, resolve and material.
+bob01 at 11,408 strands reads as a real head of hair — individually resolvable strands, feathered
+silhouette, no card facets. `packages/core/src/material/HairRibbons.js` holds the loader, the
+geometry builder, the lighting model and the node set; `tools/spikes/strand-spike.js` imports the
+same module, so there is one definition.
+
+**The skinning is EXACT, not an approximation:** `verify_glb` reports the card groom as
+`bones {head}, worst weight sum 1.000000`, so a ribbon groom takes `skinIndex` 0 into a one-bone
+skeleton and `skinWeight` (1,0,0,0). That IS the card rig. 141,312 skinned points for crop01 at
+8,832; 182,528 for bob01 at 11,408.
+
+⚠️ **NO DYNAMICS ON THE RIBBON ARM, ENFORCED RATHER THAN DOCUMENTED.** `HairDynamics` and the ribbon
+expansion both write `material.positionNode` and three has ONE such slot. The solver won, every
+ribbon collapsed to zero width, and the plate came back **BALD rather than erroring** — a silent
+failure that reads exactly like a placement bug. `?hairmotion` defaults ON, so this was the ordinary
+path. `alive.js` now refuses the pair and warns.
+
+⚠️ **AND THE EXPANSION MUST COMPOSE WITH SKINNING.** `NodeMaterial.setupPosition` runs
+`skinning( object )` and THEN assigns `positionNode` unconditionally
+(`node_modules/three/src/materials/nodes/NodeMaterial.js:774-803`), so an expansion built on
+`positionGeometry` discards the skinning. `ribbonNodes` now takes a position basis. At bind pose this
+changes nothing, which is why it did not show on a `?freeze` plate — it will show the first time the
+head turns. **The tangent is still unskinned**, a stated limit, not a discovery for later.
+
+⚠️ `crop01` LOSES ITS FRONT THIRD INSIDE THE SKULL on the shipped figure. The same `.tfx` renders as
+a full dense groom on the spike page, which has no head mesh. Short strands hug a scalp that sits
+inside the figure's head surface — a generator matter (`HAIRLINE_LIFT` / `ATTACH_*`), the same regime
+§14 files against every short style, and **crop01 is the groom the parity figure was measured on.**
+
+### 🔴 P0 IS NOT CLOSED, AND I WAS WRONG ABOUT WHY TWICE
+
+`frame-budget.mjs` now carries the ribbon arms and runs end to end. It does not produce a usable
+delta: `ribbons-bob-4960` reads **2.9 ms faster than rendering no hair at all**, which cannot be true.
+
+**Three real harness defects were found and fixed, and the fixes are verified:**
+
+1. **The round-robin was biased by POSITION.** A fixed arm order let each arm inherit the previous
+   arm's GPU state: `no-hair` and `no-hair-2` are the SAME URL and differed by **+1.77 ms** in
+   fast-mode median. Every ribbon arm sat after the card arm. Now shuffled per round with a recorded
+   seed — and the control proves it: the two arms converged to **13.004 vs 12.990, 0.014 ms apart.**
+2. **The arms were unequal on motion.** `?hairmotion` defaults on, so cards ran the solver and
+   ribbons had it refused, while a comment claimed motion was off on every arm. Now explicit.
+   ⚠️ ~0.018 ms — a correctness fix, never the explanation.
+3. 🔴 **A `--only` filter I added aliased its own array**, so a default run executed ZERO ARMS,
+   finished fifteen rounds in seconds and threw on a missing gate row. A silent no-op that looks
+   like a fast success is the worst shape a harness bug takes.
+
+🔴 **RETRACTION: "Δmin is the robust statistic" and "ribbons cost 1.5–2.3× the cards" are WITHDRAWN.**
+`captures/hair-r31-ladder-ours/tools/strand-time.mjs:317` already says why, and said it before I
+looked: *"a minimum-of-samples is NOT comparable ACROSS arms here: some rows would be quoting the
+boosted clock and some the base clock… That is the opposite of what a minimum is for."* Minima across
+arms compare **GPU clock states**, not workloads. The direction may still be right; there is no
+evidence for it.
+
+🎯 **THE DIAGNOSIS, and it is structural rather than a tuning problem.** The same header names the
+cause as **duty cycle**, and `frame-budget.mjs` violates it by construction: it round-robins a bare
+720×900 spike page (the gate) against 1080×1920 full-deferred pages. Those cannot sit in the same
+DVFS state, which is exactly the condition under which that header says cross-arm comparison is
+invalid. The strand ladder reached ~1% spread because **every one of its arms was the same page
+class.** Neither a quieter machine nor a better percentile fixes this — measured: load 2.15 on 18
+cores with nothing else running still gave a 67% gate spread, and batch 24 → 96 moved `no-hair` from
+12.991 to 13.017.
+
+### ⚠️ Two more retractions from this round
+
+- **§16's `hair-reference.mjs` figures.** Its "769 of 771 lie below y = 570" is INVERTED (60 below,
+  710 above) and — worse — `fringe rect, hair only` cuts the rect in **Y** while the skin
+  contamination lives in **X**. It keeps 60 contaminated pixels rather than 2. **It is a smaller
+  rect, not a cleaner population, and must not be quoted as skin-excluded.** The reference fringe has
+  no published hair-only dynamic range. Filter 3 is worth **0.5719 → 0.2854**, not `→ 0.1932`, which
+  is §9.2's value from a different capture. All three now gated by
+  `tools/critic/hair-reference.selftest.mjs` (18/18 with the reference present, stands down with a
+  reason without it — the plates are SIE copyright and gitignored).
+- **`hair-plates.mjs` read its census BEFORE the first draw**, so `describe().envelope.fitted` read
+  FALSE on plates whose shell was fitted. It reads exactly like §11's filed defect and cost a
+  diagnosis pass. Fixed; the control now reports `fitted true, residual 0.3852730609170131` matching
+  `envelope-reference.json` to the digit, **with the plate byte-identical across the change.**
+
+### ⏭️ Next, in order
+
+1. **P0's harness needs the ladder's timing method, not a patch.** Every arm must share a duty cycle:
+   either the gate becomes the same page class as the arms, or the arms are timed the way
+   `strand-time.mjs` times them. Until then branch (b)'s ACCEPT half is unmeasured.
+2. **`crop01`'s scalp clearance**, because crop01 is what the parity figure rests on.
+3. **REQ-064** — the only coloured-lobe candidate left after TT closed.
+4. `alive.html`'s **bimodal p50** is still unexplained and the record has been quoting a statistic
+   with two modes as though it had one.
+5. The 4,960-vs-11,408 bob density fork from §16 — two documents disagree and neither notices.
+
+### Method, and the two that are new
+
+- 🚩 **A DOCSTRING IS NOT A GUARD.** `buildRibbonGroom` said "NO DYNAMICS" and did not enforce it; the
+  solver silently flattened the groom.
+- 🚩 **A TIMEOUT MUST CARRY ITS CAUSE.** `hair-plates.mjs` reported "Timeout 120000ms exceeded" while
+  the real TypeError sat unread in a variable printed only on a path a timeout never reaches.
+- **A structural guard only protects the path it is on** — the `blind_ab.mjs` key fix did not stop
+  `.gitignore` nearly committing a blind panel's answer key eight hours later.
+- **A caveat written is not a caveat closed.**

@@ -1,0 +1,250 @@
+{
+  "url": "http://localhost:58555/alive.html?bare&freeze&seed=1&hair=1&capture&aa=msaa&grade=0&frame=body&hairribbons=/@fs/Users/robault/Documents/GitHub/Sugata 姿/tmp/tfx/bob01_g050_d10.tfx",
+  "width": 1080,
+  "height": 1920,
+  "azimuthDegrees": 35,
+  "steps": 8,
+  "plates": {
+    "portrait": {
+      "file": "captures/hair-r31-body-ribbons/portrait.png",
+      "sha256": "337c0e35535030848bb75fe9b203d4a8a804f1a1f8b47c7aa49cde74d4f34ccf",
+      "bytes": 1038225
+    },
+    "three-quarter": {
+      "file": "captures/hair-r31-body-ribbons/three-quarter.png",
+      "sha256": "0895a1e11d79248536036a60c60f0485b349f7de570f75b378cae4bbb018ae48",
+      "bytes": 987279
+    }
+  },
+  "provenance": {
+    "hairMaterialClass": "HairNodeMaterial",
+    "shadowMapEnabled": true,
+    "lights": 5,
+    "environment": null,
+    "toneMappingExposure": 1
+  },
+  "census": {
+    "skinMaterial": 1,
+    "eyeMaterial": 2,
+    "eyeOcclusion": 4,
+    "cardShading": 2,
+    "shadowCastingLights": 1,
+    "skinCavityStrength": 1,
+    "temporalResolve": 0,
+    "grade": 0,
+    "ambientOcclusion": {
+      "quality": "low",
+      "samples": 8,
+      "radius": 0.035,
+      "resolutionScale": 0.5,
+      "strength": 1,
+      "bentNormal": true,
+      "specularOcclusion": true,
+      "ambientSpecular": true,
+      "specularF0": 0.04,
+      "defect": "none",
+      "view": "off",
+      "skyColour": "b9c4ea",
+      "groundColour": "5a4038",
+      "intensity": 0.5609999999999999,
+      "hemisphereLightsInScene": 0
+    },
+    "hair": {
+      "bake": "figure_g050",
+      "groomMeshes": 1,
+      "shadedMeshesInScene": 1,
+      "ribbons": {
+        "tfxUrl": "/@fs/Users/robault/Documents/GitHub/Sugata 姿/tmp/tfx/bob01_g050_d10.tfx",
+        "strandCount": 4960,
+        "pointsPerStrand": 16,
+        "skinnedPoints": 79360,
+        "vertices": 158720,
+        "triangles": 148800,
+        "widthMetres": 0.0012,
+        "skinnedTo": "head",
+        "dynamics": false
+      },
+      "oit": "stochastic",
+      "motion": null,
+      "defect": "none",
+      "lobes": {
+        "r": 1,
+        "tt": 0,
+        "trt": 1
+      },
+      "shifts": {
+        "r": -0.26,
+        "tt": 0.13,
+        "trt": 0.39
+      },
+      "roughnesses": {
+        "r": 0.17453292519943295,
+        "tt": 0.08726646259971647,
+        "trt": 0.3490658503988659
+      },
+      "lobeWidth": {
+        "betaKaris": 0.17453292519943295,
+        "betaMarschnerDegrees": 5,
+        "marschnerBandKaris": [
+          0.17453292519943295,
+          0.3490658503988659
+        ],
+        "insideBand": true
+      },
+      "scatter": 1,
+      "sideVisibility": 1,
+      "rootOcclusion": 0.135,
+      "strand": {
+        "jitterRadians": 0.2403,
+        "pitchMillimetres": 3.15,
+        "fade": [
+          0.25,
+          0.5
+        ]
+      },
+      "lock": {
+        "spread": 1.26,
+        "cellMillimetres": 34.59678909765759,
+        "blendCells": 0.5,
+        "live": true
+      },
+      "lockTilt": {
+        "spreadRadians": 0.08649243491927217,
+        "spreadDegrees": 4.9556514806842396,
+        "alphaEquivalent": 0.17298486983854433,
+        "lobeWidths": 0.9911302961368481,
+        "built": 0.08649243491927217,
+        "live": true
+      },
+      "sheets": {
+        "flow": false,
+        "depth": false,
+        "alpha": false
+      },
+      "envelope": {
+        "fitted": false,
+        "centre": [
+          0,
+          0,
+          0
+        ],
+        "outerMillimetres": [
+          1000,
+          1000,
+          1000
+        ],
+        "innerMillimetres": [
+          1000,
+          1000,
+          1000
+        ],
+        "extinctionPerMetre": 74.75,
+        "quantiles": [
+          0.02,
+          0.98
+        ],
+        "residual": null,
+        "vertexCount": null,
+        "tracksBone": null,
+        "live": false
+      },
+      "alphaToCoverage": true,
+      "shadowAlphaCutoff": 0.05
+    },
+    "multisampleSamples": 4
+  },
+  "hair": {
+    "defect": "none",
+    "lobes": {
+      "r": 1,
+      "tt": 0,
+      "trt": 1
+    },
+    "shifts": {
+      "r": -0.26,
+      "tt": 0.13,
+      "trt": 0.39
+    },
+    "roughnesses": {
+      "r": 0.17453292519943295,
+      "tt": 0.08726646259971647,
+      "trt": 0.3490658503988659
+    },
+    "lobeWidth": {
+      "betaKaris": 0.17453292519943295,
+      "betaMarschnerDegrees": 5,
+      "marschnerBandKaris": [
+        0.17453292519943295,
+        0.3490658503988659
+      ],
+      "insideBand": true
+    },
+    "scatter": 1,
+    "sideVisibility": 1,
+    "rootOcclusion": 0.135,
+    "strand": {
+      "jitterRadians": 0.2403,
+      "pitchMillimetres": 3.15,
+      "fade": [
+        0.25,
+        0.5
+      ]
+    },
+    "lock": {
+      "spread": 1.26,
+      "cellMillimetres": 34.59678909765759,
+      "blendCells": 0.5,
+      "live": true
+    },
+    "lockTilt": {
+      "spreadRadians": 0.08649243491927217,
+      "spreadDegrees": 4.9556514806842396,
+      "alphaEquivalent": 0.17298486983854433,
+      "lobeWidths": 0.9911302961368481,
+      "built": 0.08649243491927217,
+      "live": true
+    },
+    "sheets": {
+      "flow": false,
+      "depth": false,
+      "alpha": false
+    },
+    "envelope": {
+      "fitted": false,
+      "centre": [
+        0,
+        0,
+        0
+      ],
+      "outerMillimetres": [
+        1000,
+        1000,
+        1000
+      ],
+      "innerMillimetres": [
+        1000,
+        1000,
+        1000
+      ],
+      "extinctionPerMetre": 74.75,
+      "quantiles": [
+        0.02,
+        0.98
+      ],
+      "residual": null,
+      "vertexCount": null,
+      "tracksBone": null,
+      "live": false
+    },
+    "alphaToCoverage": true,
+    "shadowAlphaCutoff": 0.05
+  },
+  "orbit": {
+    "radius": 3.9562291031117907,
+    "fromDegrees": 12,
+    "toDegrees": 46.99999999999999
+  },
+  "pageProblems": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+}
