@@ -1940,8 +1940,14 @@ reason:      REJECTED BY ITS OWN MEASUREMENT, not by an argument. The near-axis 
              failed both: attribution 1.048x against a floor of 2.0x, and 0.1141 codes of top-decile
              chroma against a visibility floor of 1.0. Slide 39's multiple-scattering fake carries
              88.8% of what little gain there is. The ceiling is the fibre rather than the rig —
-             pow(colour, 0.8/cosθd) is 0.022 on #150F17 whatever is pointed at it — so a near-axis
-             light cannot make this hair coloured at any affordable irradiance. The placement
+             pow(colour, 0.8/cosθd) is MAXIMISED at θd=0, so C^0.8 is a ceiling over every rig
+             geometry — 0.01669 mean on the shipped 0x1A0E0C, and the studio key already sits at
+             95.1% of it — so a near-axis light cannot make this hair coloured at any affordable
+             irradiance, and TRT's closure is NOT rig-relative.
+             🔴 CORRECTED 2026-08-23: this entry's own ⚠️ above quotes #150F17, which CHECKPOINT §1
+             records as "a physical error, now fixed"; the first version of this reason inherited
+             that stale hex and its 0.022. The corrected figure is smaller and the refutation is
+             stronger. Measured plate results are unaffected. The placement
              survives at irradiance 0 so the refutation stays reproducible through
              ?ov=glint.irradiance:0.05.
 ```

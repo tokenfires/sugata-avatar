@@ -1026,8 +1026,16 @@ const EDGE_LIGHTS = {
  * table that exists is one somebody fills in.
  *
  * ⚠️ **WHAT WOULD CHANGE THE ANSWER IS THE FIBRE, NOT THE RIG.** `absorbTRT` is
- * `pow(colour, 0.8/cosθd)` and on a `#150F17` fibre that is 0.022, so the lobe peaks near
- * 0.0014 sr⁻¹ **whatever is pointed at it**. The sweep confirms the shape rather than contradicting
+ * `pow(colour, 0.8/cosθd)`, and `cosθd` is in (0,1], so the exponent is MINIMISED and the absorption
+ * MAXIMISED at θd = 0. **`C^0.8` is therefore a ceiling over every rig geometry that exists — a rig
+ * can only move it down.** On the shipped `HAIR_BASE_COLOUR_HEX = 0x1A0E0C` the ceiling mean is
+ * **0.01669**, falling to 0.00897 / 0.00319 / 0.00032 at θd 30 / 45 / 60° — a 52× collapse by 60°.
+ * The studio key at elevation 18 already sits at θd ≈ 9°, **95.1% of that maximum**, so the whole
+ * headroom a new rig could buy here is +5 to +10% against gate 2's 9× shortfall.
+ * 🔴 ~~"on a `#150F17` fibre that is 0.022"~~ — the hex was stale, inherited from REQ-064's own
+ * entry text, which predates the albedo correction `docs/CHECKPOINT.md:66` records as a *physical
+ * error, now fixed*. The corrected figure makes the refutation STRONGER, and it removes the "but
+ * under a different rig…" reading: **TRT's closure is not rig-relative.** The sweep confirms the shape rather than contradicting
  * it: reaching gate 2 needs E ≈ 2.0, which is two thirds of the KEY's 3.0 — not "a small
  * low-irradiance practical" but a second key light, and at E 2 the CIELAB C* is already FALLING
  * (18.4692 against 18.6926 at E 1) while luma climbs 34%. That is washing out, not colouring.

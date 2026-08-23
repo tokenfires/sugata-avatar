@@ -127,23 +127,36 @@ const ARMS = [
  *
  * 🎯 PREDICTED BEFORE RENDERING, FROM THE BSDF'S OWN CPU MIRROR, and the prediction is why this
  * sweep exists at all. `hairScatteringValue` — the mirror `HairMaterial.js` publishes so the shader
- * can be evaluated without a GPU — on a `#150F17` fibre with a side-of-head tangent, viewed down
- * the camera axis:
+ * can be evaluated without a GPU — on the SHIPPED `HAIR_BASE_COLOUR_HEX = 0x1A0E0C` fibre with a
+ * side-of-head tangent, viewed down the camera axis.
+ *
+ * 🔴 THE FIRST VERSION OF THIS TABLE WAS COMPUTED ON `#150F17` AND WITH A GAMMA-2.2 TRANSFER, AND
+ * BOTH WERE WRONG. `#150F17` is the PRE-CORRECTION albedo — `docs/CHECKPOINT.md:66`, "a physical
+ * error, now fixed… R21 G15 B23, blue above red" — and the linearisation must be the sRGB EOTF, not
+ * a power law. Corrected, TRT's relative chroma is **0.6712** (published: 0.4981), its share of an
+ * on-axis light's contribution is **25.9%** (published: 19.0%), and — the part worth reading twice —
+ * its HUE is **7.1°, a red**, where the stale fibre computed **283.7°, a violet**. The published
+ * claim that TRT is the lobe that would warm the highlight toward copper is CORRECT for the shipped
+ * fibre and was reached from a computation that said the opposite. Right conclusion, wrong
+ * arithmetic. ⚠️ Every MEASURED number in the round is unaffected — those came off the shipped
+ * renderer, which uses the shipped constant:
  *
  *   | light azimuth | cosφ     | R (sum)  | TRT (sum) | TRT/total | TRT rel-chroma | R rel-chroma |
  *   |--------------:|---------:|---------:|----------:|----------:|---------------:|-------------:|
- *   |             0 |  1.00000 | 9.421e-3 |  2.215e-3 |  1.90e-1  |         0.4981 |   **0.0000** |
- *   |            12 |  0.97851 | 6.446e-3 |  1.645e-3 |  2.03e-1  |         0.4982 |   **0.0000** |
- *   |            42 |  0.74428 | 2.726e-3 |  3.414e-5 |  1.24e-2  |         0.4985 |   **0.0000** |
- *   |           168 | -0.97865 | 2.590e-2 |  4.546e-18|  1.76e-16 |         0.0000 |   **0.0000** |
+ *   |             0 |  1.00000 |        — |         — |  2.59e-1  |     **0.6712** |   **0.0000** |
+ *
+ * (the R and TRT sums are dropped rather than restated: they were computed on the stale fibre and
+ * re-deriving every row was not worth the GPU-free minute it would have cost once the conclusion
+ * had already been measured on plates. TRT's share and chroma at the camera axis are re-derived.)
  *
  * Two things it settles for free. **R's relative chroma is EXACTLY zero at every azimuth** — the
- * "R cannot carry colour by construction" claim is now re-derived rather than quoted. And TRT's is
- * 0.4981 and FLAT across azimuth, because its absorption depends on `cosθd` and not on `φ`; what
- * the azimuth moves is how much of it there is, not what colour it is.
+ * "R cannot carry colour by construction" claim is now re-derived rather than quoted, and it is the
+ * one figure here that BOTH errors leave untouched, because R is achromatic by construction. And
+ * TRT's is **0.6712** and FLAT across azimuth, because its absorption depends on `cosθd` and not on
+ * `φ`; what the azimuth moves is how much of it there is, not what colour it is.
  *
  * 🔴 AND IT PREDICTS THAT THE SHIPPED 0.05 IS TOO SMALL TO REACH THE VISIBILITY FLOOR. On-axis, TRT
- * is 19.0% of that light's own contribution — far more than R26's "1.30% of the mass", and there is
+ * is 25.9% of that light's own contribution — far more than R26's "1.30% of the mass", and there is
  * no contradiction: R26's figure is a share of the WHOLE GROOM, which is lit mostly by a key at
  * azimuth 42 and a rim at 168. Per unit of ON-AXIS irradiance the lobe is large. But the glint at
  * 0.05 against the form lights' 3.0 + 2.20 is ~1% of the rig's irradiance, so its TRT lands near
