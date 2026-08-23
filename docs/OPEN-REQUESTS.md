@@ -1832,7 +1832,7 @@ verify:      packages/testbed/src/wardrobe.js /garment-shadows/
 
 ```request
 id:          REQ-063
-status:      OPEN
+status:      REJECTED
 target:      packages/core/src/render/LightingRig.js
 filed-by:    the R14 hair-highlight agent (diffRequest 1 of 3)
 filed-round: R12
@@ -1923,8 +1923,64 @@ evidence:    Measured this session on `?bare&freeze&seed=1&aa=msaa&grade=0&hair=
              but does not settle it. (iii) No decoy — REQ-064's azimuth-180 arm is what made its
              0.1141 codes trustworthy. (iv) G1, G2 and G7 have measured rim sensitivity.
              Evidence and full tables: `captures/hair-r32-glint/rim-shadow.md`.
+             🔴 **REJECTED 2026-08-23 BY THE REGISTERED ROUND IT ASKED FOR.** Gates registered at
+             `55f1711` before any arm was rendered; measured in `captures/hair-r33-rimshadow`; full
+             write-up `docs/research/req-063-refuted-2026-08-23.md`.
+             CONTROLS FIRST: drift 0.0000 codes over one configuration captured twice; the null —
+             `kicker.shadowFraction:1`, the IDENTICAL code path on a light at irradiance 0.07 —
+             moved -0.0030, ratio 0.001, so the statistic reads the RIM and not "a shadow map was
+             added". The sweep is monotonic: +0.443 / +1.000 / +1.682 / **+2.492** codes of
+             mass-mean hair chroma at f = 0.25 / 0.5 / 0.75 / 1.0, and the lead reproduces exactly.
+             🔴 **AND THEN THE TWO ROWS THAT DECIDE IT ARE BIT-IDENTICAL.** `shadowFraction:1` and
+             `rim.irradiance:0` produce the SAME p50 luma to eight decimals — 0.06378722 both. So
+             the registered matched-luma bisection terminates at E = 0 exactly, luma matched to
+             0.00% against a +/-0.5% window, and **GATE 1 reads 0.994x against a floor of 2.0x.**
+             A fully shadowed rim delivers NOTHING to the hair — not less, nothing: the groom
+             occludes itself from a light directly behind it so completely that shadowing and
+             deleting are the same operation for every hair pixel. One is free; the other builds a
+             SpotLight with a 4096² map that `LightingRig.selftest.mjs` prices at **2.62 ms**, more
+             than the whole groom's 1.870.
+             ⚠️ This converts the registration's §8 caveat from a risk into a measurement: the
+             card-quad shadow (`alive.js:2555-2566`, no alphaMap on the depth material) does not
+             merely over-occlude, it over-occludes TOTALLY.
+             ✅ Gates 2 and 3 passed — 2.4917 codes against a 1.0 floor, and skin moved 0.8369
+             against hair's 2.4917 (0.336 of it, ceiling 0.5), so the effect was real and
+             hair-specific. ⚪ Gate 4 (cost) deliberately not run: all four had to pass, and timing
+             a caster already refused is GPU time on a foregone conclusion.
+             🎯 **AND THIS ENTRY'S OWN "the two changes have to land together" IS REFUTED.** The 2x2
+             had never been run. shadow alone +2.492; `sideVisibility` 0 alone +8.334 but with R/B
+             COLLAPSING 1.771 -> 0.932, i.e. the groom goes blue; the pair +2.551. **Removing
+             sideVisibility on top of a shadow adds 0.059 codes**, which is what the physics predicts
+             — with the rim occluded there is nothing left for `saturate(wi.wr + 1)` to discard.
+             🚩 **A BLIND SPOT IN THE ROUND'S OWN STATISTIC, RECORDED NOT REPAIRED.**
+             `chromaInCodes` is UNSIGNED, so the violet arm scored the largest "improvement" in the
+             table. It did not change this verdict (the winner is drawn from the sweep by
+             construction and R/B was registered as reporting-only), but it would have decided a
+             round whose arms included `vis0`. The next colour registration needs a SIGNED statistic
+             — R/B, or chroma projected on the fibre's own hue axis, 7.1° for `0x1A0E0C`. Repairing
+             it after seeing which arm it flattered is what pre-registration forbids.
+             ⚠️ **WHAT THE REGISTERED RULE DOES NOT SEE, stated rather than used as an escape:** gate
+             1 compares the options ON HAIR ONLY. Deleting the rim also removes the figure's
+             separation from the backdrop (R29 confirmed on a render); a shadowed rim keeps it. That
+             is real and it is not what this round measured, so it cannot rescue the verdict — it
+             defines the next question. The rim's job is backdrop separation and its cost is a wash
+             over the groom; those are separable, and the cheap separable lever is `rim.irradiance`
+             per PRESET, not a 2.62 ms caster.
+             🎯 **THE CEILING, FOR WHOEVER TAKES THAT ON: the hair's entire exposure to the rim is
+             worth 2.508 codes of mass-mean chroma.** Bounded by a plate (`rim0`), not argued.
 anchor:      packages/core/src/render/LightingRig.js /irradiance: 16,/
 verify:      packages/core/src/render/LightingRig.js /rim carries a shadow caster/
+reason:      REJECTED BY THE REGISTERED ROUND IT ASKED FOR, on gates fixed at 55f1711 before any arm
+             was rendered. A fully shadowed rim and a DELETED rim produce the same p50 hair luma to
+             eight decimals — 0.06378722 both — so the groom occludes itself from a light directly
+             behind it completely, and shadowing buys exactly what rim.irradiance:0 buys. Gate 1,
+             which asks whether a caster beats the free alternative at matched luma, reads 0.994x
+             against a floor of 2.0x. The caster costs 2.62 ms, more than the whole groom's 1.870.
+             The effect is real (2.4917 codes against a 1.0 floor) and hair-specific (skin 0.336 of
+             it), which is why it needed a control rather than a dismissal. This entry's own claim
+             that the shadow and sideVisibility must land together is also refuted: the second half
+             adds 0.059 codes. The rim's hair cost is separable from its backdrop job by irradiance
+             per preset; that is the surviving question and it is not a caster.
 ```
 
 ## REQ-064 — the portrait rig contains no geometry the retroreflective lobe can fire in

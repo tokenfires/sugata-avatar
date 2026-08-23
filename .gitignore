@@ -56,6 +56,14 @@ tools/figure-pipeline/.cache/
 /captures/hair-r32-*/**/*.jpg
 /captures/hair-r32-*/**/*.jpeg
 
+# R33, REQ-063's registered round. Same rule: the report and the write-up are what a reader needs
+# beside the claim; the eleven plates regenerate from `hair-rimshadow.mjs --masks --arms --dim`.
+!/captures/hair-r33-*/
+!/captures/hair-r33-*/**
+/captures/hair-r33-*/**/*.png
+/captures/hair-r33-*/**/*.jpg
+/captures/hair-r33-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact
