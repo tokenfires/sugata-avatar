@@ -1694,6 +1694,28 @@ timing again — the refusals are where the information is.
    is clean on **every** run: +0.011, −0.112, −0.110, −0.113, −0.124. It is N1/N2, which pair across
    pages, that fail.
 
+### 🎯 The schedule fix, and the one diagnosis that unifies the whole round
+
+Re-run at `49b2e13` with the confound broken: **all twelve nulls pass**, pooled and inside each clock
+state. N1 went from +0.316 / −0.301 / +0.303 and failing to −0.028 / −0.214 / −0.099 / −0.086 and
+green; N2 from five-of-six failing to **six of six passing**. One line of scheduling.
+
+**And every failure in this round is one defect wearing three hats — a pooled statistic used where a
+paired one was available:**
+
+| where | pooled | the paired replacement, which already exists |
+|---|---|---|
+| the retracted headline | pooled p50 across pages | the registered per-tick paired median |
+| gate **G1** | bins a pooled quantity, so effect size crosses the bin | within-pair state agreement at fixed workload |
+| **`REFERENCE_TOLERANCE`** | pooled median of a mixture | **N2 — already computed, passed 6/6** |
+
+Evidence for the third: across five identical pictures the pooled spread is **29.7%**, within the
+fast state **8.5%**, within the slow state **0.8%** — and the pooled ordering tracks fast share
+exactly. `cards-` vs `bald` reads −0.086 ms paired and 24% apart pooled.
+
+**A v3 would be a NARROWING** — deleting two uses of a statistic proven unfit — not a loosening.
+Deliberately not taken; it is the owner's call.
+
 ### The provisional numbers, which are NOT to be quoted as the answer
 
 One run, one clock, v1 §5's registered statistic, all pairs:
@@ -1706,7 +1728,12 @@ One run, one clock, v1 §5's registered statistic, all pairs:
 | bob11408 | 11,408 | +6.923 | [6.438, 7.442] | 100.0% | 6.623 |
 | **N3 null, identical path** | — | **+0.011** | [−0.123, 0.090] | 51.0% | — |
 
-🎯 **The one comparison the registered rule blesses:** `bob11408` vs `bob4960`, references **0.44%
+⚠️ **Superseded by the fixed-schedule run** (`data/frame-cost-all-49b2e13.json`): cards **+1.212**
+[1.019, 1.531], bob4960 **+3.380**, crop8832 **+4.775**, bob11408 **+8.268**. The ribbon figures are
+**not stable across runs** — crop8832 moved −26% and bob11408 +19% — so quote no ribbon cost better
+than "3–8 ms".
+
+🎯 **The one comparison the registered rule blessed on the OLD run:** `bob11408` vs `bob4960`, references **0.44%
 apart**. **2.30× the strands, 2.23× the cost.** Every other pair has references 13–29% apart and is
 refused, so **no parity call is made** and §2's "parity with today's cards" clause remains
 unevaluated.
