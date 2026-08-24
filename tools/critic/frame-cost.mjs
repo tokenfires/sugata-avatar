@@ -630,18 +630,44 @@ function assertArmMatchesItsLabel(arm, census) {
 }
 
 /**
- * The per-tick condition sequence, carrying both bias controls.
+ * The per-tick condition sequence, carrying the bias controls.
  *
- * 🔴 WITHIN-ARM ORDER ALTERNATES BY TICK PARITY so `shown` and `hidden` each occupy the
- * first-after-the-gap slot exactly half the time. A FIXED order is not a small effect: measured on
- * `frame-budget.mjs`, two captures of ONE configuration differing only in cycle position read
- * +1.77 ms apart.
+ * 🔴 THE ARM ORDER IS SHUFFLED PER TICK, NOT ROTATED, AND ROTATION WAS A MEASURED DEFECT.
  *
- * ARM ORDER ROTATES BY TICK so no arm permanently owns a position in the cycle either.
+ * The first version used `arms[(index + tick) % arms.length]`. That does spread each arm evenly over
+ * the positions in the cycle — mean global frame index came out 4.20-4.70 for all five conditions —
+ * so it looked like it worked. **But a rotation preserves ADJACENCY exactly.** Reconstructing all
+ * 200 ticks: every arm had exactly TWO possible predecessors, fixed by its index, in an 80/20 split,
+ * in every tick of every run:
+ *
+ *     bald     <- bob11408 160 / bob4960  39
+ *     cards    <- bald     160 / bob11408 40
+ *     crop8832 <- cards    160 / bald     40      …and so on
+ *
+ * 🚩 SO PAGE IDENTITY AND PREDECESSOR IDENTITY WERE PERFECTLY CONFOUNDED, and the confound is worth
+ * more than the effect. The natural experiment is in the record: between two runs, `crop8832`'s
+ * predecessor changed from a ONE-condition arm to a THREE-condition arm, and it is the one page
+ * whose hidden-frame cost moved 30 points while every other page moved 4-8. A whole finding —
+ * "the same picture costs 30% more depending on which page draws it" — rested on that confound and
+ * did not survive it.
+ *
+ * A seeded per-tick shuffle gives every arm every predecessor, so the confound becomes noise the
+ * ticks average out. Deterministic in the tick, so a run is reproducible and a reader can rebuild
+ * the exact schedule.
+ *
+ * ⚠️ WITHIN AN ARM the order still alternates by tick parity, exactly as before: `shown` and
+ * `hidden` each occupy the first-after-the-gap slot half the time. That control was never the
+ * problem — measured on `frame-budget.mjs`, a FIXED within-arm order was worth +1.77 ms between two
+ * captures of one configuration.
  */
 export function tickSchedule(arms, tick) {
-  const rotated = arms.map((_, index) => arms[(index + tick) % arms.length]);
-  return rotated.map((arm) => {
+  const order = arms.slice();
+  const random = makeRandom(tick * 2654435761 + 1);
+  for (let i = order.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order.map((arm) => {
     const conditions = arm.conditions.slice();
     if (tick % 2 === 1) conditions.reverse();
     return { arm: arm.key, steps: conditions.map((condition) => ({ ...condition })) };
@@ -672,8 +698,13 @@ async function main() {
   // a tick, and a comparable parity figure is worth more than an uncontended incomparable one.
   const definitions = options.arms === 'all'
     ? [
+      // 🔴 TWO CONDITIONS, BECAUSE A ONE-CONDITION ARM CANNOT BE SLOT-MATCHED TO ANY OTHER — and
+      // `bald` is the denominator of every cross-page comparison. With one frame it is the only
+      // condition whose read ALWAYS follows a page switch, while a three-condition arm's middle read
+      // never does. That is a systematic difference between the two ends of the comparison, and it
+      // was never controlled.
       { key: 'bald', url: alive(), wantsHair: false,
-        conditions: [{ key: 'bald', visible: null }] },
+        conditions: [{ key: 'bald', visible: null }, { key: 'bald-bis', visible: null }] },
       { key: 'cards', url: alive('&hair=1'), wantsHair: true, wantsRibbons: false,
         conditions: [
           { key: 'cards+', visible: true },
@@ -693,7 +724,7 @@ async function main() {
     : options.arms === 'ribbons'
     ? [
       { key: 'bald', url: alive(), wantsHair: false,
-        conditions: [{ key: 'bald', visible: null }] },
+        conditions: [{ key: 'bald', visible: null }, { key: 'bald-bis', visible: null }] },
       ...RIBBON_ARMS.map((ribbon) => ({
         key: ribbon.key,
         url: alive(`&hair=1&hairribbons=/tfx/${ribbon.file}`),
@@ -706,7 +737,7 @@ async function main() {
     ]
     : [
       { key: 'bald', url: alive(), wantsHair: false,
-        conditions: [{ key: 'bald', visible: null }] },
+        conditions: [{ key: 'bald', visible: null }, { key: 'bald-bis', visible: null }] },
       { key: 'cardsA', url: alive('&hair=1'), wantsHair: true, wantsRibbons: false,
         conditions: [
           { key: 'cardsA+', visible: true },

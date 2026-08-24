@@ -336,9 +336,37 @@ function testTheScheduleIsBalanced() {
     `cardsA+ leads ${leads.get('cardsA+')}, cardsA- leads ${leads.get('cardsA-')} of ${TICKS} — exact`);
 
   const counts = [...armFirst.values()];
-  record('no arm permanently owns the first position',
-    armFirst.size === arms.length && Math.max(...counts) - Math.min(...counts) === 0,
-    `${[...armFirst].map(([k, v]) => `${k}:${v}`).join(' ')} of ${TICKS} ticks`);
+  const imbalance = (Math.max(...counts) - Math.min(...counts)) / TICKS;
+  record('no arm permanently owns the first position', armFirst.size === arms.length && imbalance < 0.15,
+    `${[...armFirst].map(([k, v]) => `${k}:${v}`).join(' ')} of ${TICKS} — a seeded shuffle balances `
+    + `approximately, not exactly; worst imbalance ${(imbalance * 100).toFixed(1)}%`);
+
+  // 🔴 THE GATE THAT ROTATION SILENTLY FAILED, AND IT COST A WHOLE FINDING.
+  //
+  // `arms[(index + tick) % n]` spreads each arm evenly over the CYCLE POSITIONS — which is what the
+  // old gate checked, and it passed — but a rotation preserves ADJACENCY exactly, so every arm had
+  // exactly TWO possible predecessors in an 80/20 split forever. Page identity and predecessor
+  // identity were perfectly confounded, and "the same picture costs 30% more depending on which page
+  // draws it" rested on that confound. Position balance is not adjacency balance, and only one of
+  // them was gated.
+  const predecessors = new Map();
+  for (let tick = 0; tick < TICKS; tick += 1) {
+    const schedule = tickSchedule(arms, tick);
+    for (let i = 1; i < schedule.length; i += 1) {
+      const key = schedule[i].arm;
+      if (predecessors.has(key) === false) predecessors.set(key, new Map());
+      const seen = predecessors.get(key);
+      seen.set(schedule[i - 1].arm, (seen.get(schedule[i - 1].arm) ?? 0) + 1);
+    }
+  }
+  const others = arms.length - 1;
+  const everyArmSeesEveryPredecessor = [...predecessors.values()]
+    .every((seen) => seen.size >= others && Math.min(...seen.values()) >= TICKS / (others * 4));
+  record('🔴 every arm gets every predecessor, not two of them',
+    predecessors.size === arms.length && everyArmSeesEveryPredecessor,
+    `worst arm sees ${Math.min(...[...predecessors.values()].map((s) => s.size))} distinct `
+    + `predecessors of ${others}, rarest at ${Math.min(...[...predecessors.values()]
+      .flatMap((s) => [...s.values()]))} of ${TICKS} ticks — under rotation this was 2 and 80/20`);
 
   // 🎯 THE SCHEDULE GROUPS BY ARM SO EACH ARM'S CONDITIONS GO IN ONE `page.evaluate`. A pair split
   // across two round trips is a pair with a Node↔browser gap between its members, and on a machine
