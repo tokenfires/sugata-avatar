@@ -1534,7 +1534,7 @@ arm's census asserted before its samples counted:
    existing run becomes readable) and then to burst-and-divide, which the file's own comment already
    derived — *"315.686 / 24 = 13.15 ms"* — and then rejected.
 
-### 🎯 AND THE CARDS ARM IS NOW CLOSED — burst-and-divide removed the mixture at source
+### 🎯 AND THE CARDS ARM IMPROVES SHARPLY — but "closed" was too strong, corrected below
 
 Both halves of the repair went in. **Reporting per mode made it honest but did not fix it**: with the
 clock boundary fitted once on pooled samples, the control's own per-mode spread was ±0.4 ms — the
@@ -1564,6 +1564,33 @@ ms"*) and discarded as a bug rather than recognising as a mean. Measured, 48 sam
    no-hair's 97.9%. So their p50 is still a mixture and **their deltas are not yet comparable
    costs.** They are monotonic within `bob01` (4,960 → +4.024, 11,408 → +6.557), which is
    encouraging and is not the same as measured.
+
+> 🔴 **CORRECTED THE SAME DAY BY A VERIFICATION PASS I HAD NOT COLLECTED.** A parallel
+> investigation ran a cleaner protocol — **two resident pages, arms alternated ONE FRAME at a time**
+> rather than in 48-frame visits — and measured today's cards at **+1.61 and +1.59 ms**, two
+> replicates 1% apart, cards slower as physics requires. It also ran my harness at HEAD three times
+> and got **−1.570, +1.191 and +0.501 ms** for the same statistic, with the no-hair control
+> disagreeing by up to 20.9% at p50 within a single run.
+>
+> **So +0.461 is one draw from a swing that still includes negative values, and "the cards arm is
+> closed" is withdrawn.** Burst-and-divide is a real improvement — it collapsed the light arms from
+> 33.6% to 97.9% in one mode — and it is not sufficient. Three figures for the same quantity now
+> stand: 0.738 ms (`HairMaterial.selftest.mjs`, independent route), 0.461 (this harness, one run),
+> 1.61/1.59 (frame-granularity interleave, two replicates). **The last is the best-controlled.**
+>
+> 🎯 **AND IT INDEPENDENTLY CONFIRMED THE MECHANISM BURST-AND-DIVIDE RELIES ON.** Under `?capture`,
+> `takeOverFrameLoop` stops the animation loop and `Animation.js:75` is the only caller of
+> `info.reset()` — so `info.frame` is FROZEN, all 21 pass uids land in one group, and
+> `passSum === info.render.timestamp` exactly. That is precisely why the resolved value is the sum
+> over the whole burst and why dividing by the burst is correct. ⚠️ It also means
+> `info.render.drawCalls` and `.triangles` are CUMULATIVE on this page and must be diffed across one
+> step — read raw they are boot-to-now totals.
+>
+> **NEXT, AND IT IS CHEAP:** interleave at FRAME granularity between resident pages, and add a
+> **known-zero calibration gate** — the instrument must measure zero on a pair it knows is zero
+> (no-hair against no-hair) before it is allowed to report anything non-zero. That is the Verifier
+> idea applied to a timing harness, and this session produced three wrong timing conclusions that it
+> would have caught.
 
 🔴 **SO BRANCH (b)'S ACCEPT HALF IS STILL NOT SETTLED, AND THE TEMPTATION HERE IS THE ERROR.** The
 registered threshold is **+2.0 ms p50** and `ribbons-crop-8832` reads **+5.909**. Reading that as a
