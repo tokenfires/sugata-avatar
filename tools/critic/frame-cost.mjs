@@ -103,6 +103,24 @@ export const REPLICATE_TOLERANCE = 0.10;
 /** Bootstrap resamples for the CI on the paired median. Seeded; the seed is recorded. */
 export const BOOTSTRAP_RESAMPLES = 10_000;
 
+/**
+ * Significance level for the permutation drift test. Amendment 2 to the registration.
+ *
+ * 🔴 A NEW CONSTANT, NOT A LOOSENED ONE, AND THE DISTINCTION IS THE WHOLE POINT. N4 was registered
+ * as "hidden p50 of the first third against the last third", gated at `REFERENCE_TOLERANCE`. That
+ * operator cannot see drift: shuffling the tick labels destroys every time relationship while
+ * preserving the distribution exactly, and the gate STILL fails 9-15% of the time in the run's
+ * STABLE region — where the reference varies 0.9% end to end — and up to 38% in its unstable one.
+ * A p50 of thirteen samples from a bimodal distribution is not a stable location estimate, so
+ * comparing two of them detects its own sampling noise.
+ *
+ * `REFERENCE_TOLERANCE` is a tolerance on a RATIO OF TWO CLOCK STATES and was never a sampling
+ * distribution. It keeps its value and keeps gating comparability; it simply stops being asked a
+ * question it cannot answer.
+ */
+export const DRIFT_ALPHA = 0.05;
+export const DRIFT_PERMUTATIONS = 2000;
+
 // ================================================================================================
 // PURE STATISTICS — no page, no GPU, no clock. Everything below is exercised by the selftest
 // against distributions whose answer is known before the function runs.
@@ -249,6 +267,125 @@ export function comparable(referenceA, referenceB) {
   if (referenceA === null || referenceB === null) return { ok: false, gap: null };
   const gap = Math.abs(referenceA - referenceB) / Math.min(referenceA, referenceB);
   return { ok: gap <= REFERENCE_TOLERANCE, gap };
+}
+
+/**
+ * Cut a run into consecutive blocks of `blockTicks`, discarding a short tail.
+ *
+ * 🔴 WHY BLOCKS EXIST, AND THE HONEST VERSION OF IT. The first calibrated run VOIDED ITSELF on the
+ * drift gate — a hidden reference ran 13.078 → 12.821 over 200 ticks, 2.00% against a 2% ceiling.
+ * Amendment 1 to the registration named a rule in advance to decide whether that gate was
+ * mis-specified, and the rule **fired against the hypothesis**: split into thirds, the paired cost
+ * moved 40.7% and 15.4% while the reference moved 2.4%, so drift is NOT common-mode and the gate
+ * stays. The registered branch for that outcome is a shorter run.
+ *
+ * ⚠️ AND THAT RULE WAS UNDERPOWERED, WHICH IS RECORDED RATHER THAN USED TO OVERTURN IT. The three
+ * thirds' bootstrap intervals all OVERLAP — 0.5-1.2 ms wide against a point spread of 0.646 ms — so
+ * a 10% threshold on point estimates at n=66 could not have separated common-mode drift from
+ * sampling noise in either direction. The verdict stands because it was registered; the limitation
+ * stands because it is true. Both belong to the next registration, not to a re-reading of this one.
+ *
+ * 🎯 BLOCKING IS NOT A WAY AROUND THE GATE. Between-block drift is not ignored — it is moved from
+ * "void the run" to "partition the run by clock state", which is strictly MORE information and is
+ * what §3 of the registration already asks for: a cost without its clock state is not a number.
+ * Blocks whose references disagree are reported as separate costs at separate clocks, never averaged.
+ *
+ * Partitioning happens at ADJUDICATION, not at capture, so block size is an analysis parameter and
+ * one capture can be read at several. Nothing is re-sampled to make a gate pass.
+ */
+export function partitionIntoBlocks(ticks, blockTicks) {
+  const blocks = [];
+  for (let lo = 0; lo + blockTicks <= ticks; lo += blockTicks) {
+    blocks.push({ index: blocks.length, loTick: lo, hiTick: lo + blockTicks });
+  }
+  return blocks;
+}
+
+/**
+ * Group blocks into clock states: every member within `REFERENCE_TOLERANCE` of the cluster's floor.
+ *
+ * Deterministic and greedy from the lowest reference upward, so two readers cluster identically.
+ * Chaining is refused on purpose — membership is measured against the cluster's FLOOR rather than
+ * its neighbour, or a slow monotone drift would chain every block into one cluster spanning far
+ * more than the tolerance it claims to enforce.
+ */
+export function clusterByReference(blocks) {
+  const ordered = [...blocks].sort((a, b) => a.reference - b.reference);
+  const clusters = [];
+  for (const block of ordered) {
+    const open = clusters[clusters.length - 1];
+    if (open !== undefined && (block.reference - open.floor) / open.floor <= REFERENCE_TOLERANCE) {
+      open.blocks.push(block);
+      open.ceiling = block.reference;
+    } else {
+      clusters.push({ floor: block.reference, ceiling: block.reference, blocks: [block] });
+    }
+  }
+  return clusters.sort((a, b) => b.blocks.length - a.blocks.length);
+}
+
+/**
+ * Two-sample Kolmogorov-Smirnov statistic: the largest gap between two empirical CDFs.
+ *
+ * Rank-based, so a bimodal distribution does not degrade it, and sensitive to a change in SHAPE or
+ * MIXTURE rather than only in location — which is what the tick-140 event on this machine actually
+ * is. Its p50 barely moved there; its minimum fell from 12.73 to 4.04 ms.
+ */
+export function kolmogorovSmirnov(a, b) {
+  if (a.length === 0 || b.length === 0) return null;
+  const sortedA = [...a].sort((x, y) => x - y);
+  const sortedB = [...b].sort((x, y) => x - y);
+  let i = 0;
+  let j = 0;
+  let largest = 0;
+  while (i < sortedA.length && j < sortedB.length) {
+    const value = Math.min(sortedA[i], sortedB[j]);
+    while (i < sortedA.length && sortedA[i] <= value) i += 1;
+    while (j < sortedB.length && sortedB[j] <= value) j += 1;
+    largest = Math.max(largest, Math.abs(i / sortedA.length - j / sortedB.length));
+  }
+  return largest;
+}
+
+/**
+ * Drift as a PERMUTATION TEST: is the first half of a block distributed like the second half?
+ *
+ * 🎯 THE FALSE-POSITIVE RATE IS 5% BY CONSTRUCTION, WHICH IS THE ENTIRE REASON FOR THE CHANGE. The
+ * null is built from this block's OWN samples with their time order destroyed, so "how often does
+ * this fire when nothing is happening" is not an assumption — it is what a p-value means. The
+ * replaced operator's rate had to be discovered empirically, and it was 15%.
+ *
+ * ⚠️ `(count + 1) / (permutations + 1)` rather than `count / permutations`, so a p-value can never
+ * be exactly 0. An impossible-looking certainty from 2000 draws is an artefact of 2000 draws.
+ */
+export function driftByPermutation(samples, permutations = DRIFT_PERMUTATIONS, seed = 20260823) {
+  if (samples.length < 24) return null;
+  const ordered = [...samples].sort((a, b) => a.tick - b.tick).map((row) => row.ms);
+  const half = Math.floor(ordered.length / 2);
+  const observed = kolmogorovSmirnov(ordered.slice(0, half), ordered.slice(half));
+
+  const random = makeRandom(seed);
+  const pool = [...ordered];
+  let atLeastAsExtreme = 0;
+  for (let draw = 0; draw < permutations; draw += 1) {
+    for (let i = pool.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    if (kolmogorovSmirnov(pool.slice(0, half), pool.slice(half)) >= observed) atLeastAsExtreme += 1;
+  }
+
+  const p = (atLeastAsExtreme + 1) / (permutations + 1);
+  return {
+    statistic: observed,
+    p,
+    permutations,
+    // The head/tail medians are still REPORTED, because a reader wants to know which way it moved.
+    // They are simply no longer what DECIDES.
+    head: quantile(ordered.slice(0, half), 0.5),
+    tail: quantile(ordered.slice(half), 0.5),
+    passed: p >= DRIFT_ALPHA,
+  };
 }
 
 /**
@@ -486,27 +623,62 @@ async function main() {
       arm.census = opened.census;
     }
 
-    // Warm up every condition INCLUDING the toggles, so no first-toggle pipeline rebuild lands
-    // inside the measured set.
-    console.log(`warmup    ${options.warmup} ticks`);
-    for (let tick = 0; tick < options.warmup; tick += 1) {
-      for (const step of tickSchedule(definitions, tick)) {
-        await sampleOnce(definitions.find((arm) => arm.key === step.arm).page, step.visible);
+    // 🔴 THE WARM-UP IS ADAPTIVE, BECAUSE A FIXED ONE LET A CLOCK CHANGE LAND INSIDE THE SAMPLES.
+    //
+    // Measured on the 240-tick run: ticks 0-139 held a reference p50 of 12.97-13.09 with the
+    // minimum pinned at 12.64-12.76, and from tick 140 the minimum collapsed to 4.04 ms and the
+    // spread tripled. The GPU was BOOSTING, not throttling — sustained load finally raised the
+    // clock, a hundred ticks after a 40-tick warm-up had declared the machine ready.
+    //
+    // So the warm-up stops when the machine says so rather than when a constant does: sample in
+    // windows of 20 ticks and continue until two CONSECUTIVE windows agree within
+    // `REFERENCE_TOLERANCE` — the constant already registered for deciding whether two reference
+    // frames are the same clock state, used here for exactly that.
+    const probe = definitions.find((arm) => arm.key === 'bald') ?? definitions[0];
+    const probeCondition = probe.conditions.find((condition) => condition.key.endsWith('-'))
+      ?? probe.conditions[0];
+    let previousWindow = null;
+    let warmed = 0;
+    let settled = false;
+
+    for (let window = 0; window * WARMUP_WINDOW_TICKS < options.warmupCap; window += 1) {
+      const readings = [];
+      for (let tick = 0; tick < WARMUP_WINDOW_TICKS; tick += 1) {
+        for (const step of tickSchedule(definitions, warmed + tick)) {
+          const reading = await sampleOnce(pageOfDefinition(definitions, step.arm), step.visible);
+          if (step.key === probeCondition.key) readings.push(reading.ms);
+        }
       }
+      warmed += WARMUP_WINDOW_TICKS;
+      const reference = quantile(readings, 0.5);
+      const agreement = previousWindow === null ? null : comparable(previousWindow, reference);
+      console.log(`warmup    ${String(warmed).padStart(3)} ticks  ${probeCondition.key} p50 `
+        + `${reference.toFixed(3)}`
+        + (agreement === null ? '' : `  ${(agreement.gap * 100).toFixed(2)}% vs previous`));
+      if (agreement !== null && agreement.ok) { settled = true; break; }
+      previousWindow = reference;
+    }
+
+    if (settled === false) {
+      throw new Error(
+        `the machine never settled: ${warmed} warm-up ticks and two consecutive windows still `
+        + `disagree by more than ${(REFERENCE_TOLERANCE * 100).toFixed(0)}%.\n`
+        + '  Sampling now would straddle two clock states, which is the defect this warm-up exists '
+        + 'to prevent. Raise --warmup-cap, or take the machine off whatever else it is doing.');
     }
 
     const byCondition = new Map();
-    const pageOf = new Map(definitions.map((arm) => [arm.key, arm.page]));
 
     for (let tick = 0; tick < options.ticks; tick += 1) {
       for (const step of tickSchedule(definitions, tick)) {
-        const reading = await sampleOnce(pageOf.get(step.arm), step.visible);
+        const reading = await sampleOnce(pageOfDefinition(definitions, step.arm), step.visible);
         if (byCondition.has(step.key) === false) byCondition.set(step.key, []);
         byCondition.get(step.key).push({ tick, ...reading });
       }
       if ((tick + 1) % 25 === 0) console.log(`          tick ${tick + 1}/${options.ticks}`);
     }
 
+    options.warmedTicks = warmed;
     const report = adjudicate(byCondition, definitions, options);
     print(report);
 
@@ -520,6 +692,11 @@ async function main() {
     await server.close();
   }
 }
+
+/** Warm-up is measured in windows of this many ticks; two agreeing windows end it. */
+const WARMUP_WINDOW_TICKS = 20;
+
+const pageOfDefinition = (definitions, key) => definitions.find((arm) => arm.key === key).page;
 
 const RIBBON_ARMS = [
   { key: 'crop8832', file: 'crop01_g050_d23.tfx', strands: 8832 },
@@ -568,16 +745,29 @@ export function adjudicate(byCondition, definitions, options) {
       pairedByTick(samplesFor(base), samplesFor(key)), censusDeltasBetween(base, key)));
   }
 
+  // --- drift, checked PER BLOCK ------------------------------------------------------------------
+  //
+  // A whole run is not the unit any more. See `partitionIntoBlocks` for why, and for the fact that
+  // Amendment 1's rule fired AGAINST the hypothesis that motivated blocking — the branch taken here
+  // is the one the registration prescribed for that outcome, not a re-reading of the gate.
+  const blocks = partitionIntoBlocks(options.ticks, options.blockTicks);
+  const inBlock = (key, block) =>
+    samplesFor(key).filter((row) => row.tick >= block.loTick && row.tick < block.hiTick);
+
   const drifts = [];
   for (const key of [...hidden, ...(byCondition.has('bald') ? ['bald'] : [])]) {
-    const drift = driftAcrossRun(samplesFor(key));
-    if (drift !== null) drifts.push({ key, ...drift });
+    for (const block of blocks) {
+      const drift = driftByPermutation(inBlock(key, block));
+      if (drift !== null) drifts.push({ key, block: block.index, ...drift });
+    }
   }
 
   const calibration = {
     passed: nulls.every((entry) => entry.passed) && drifts.every((entry) => entry.passed),
     nulls,
     drifts,
+    blockTicks: options.blockTicks,
+    blocks: blocks.length,
     constants: { NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE, BOOTSTRAP_RESAMPLES },
   };
 
@@ -588,16 +778,47 @@ export function adjudicate(byCondition, definitions, options) {
     const hiddenCondition = arm.conditions.find((condition) => condition.key.endsWith('-'));
     if (shown === undefined || hiddenCondition === undefined) continue;
 
-    const differences = pairedByTick(samplesFor(hiddenCondition.key), samplesFor(shown.key));
+    const perBlock = blocks.map((block) => {
+      const reference = inBlock(hiddenCondition.key, block);
+      const differences = pairedByTick(reference, inBlock(shown.key, block));
+      return {
+        index: block.index,
+        reference: quantile(reference.map((row) => row.ms), 0.5),
+        differences,
+        ...summarisePair(differences),
+      };
+    }).filter((block) => block.reference !== null && block.n > 0);
+
+    // 🎯 THE CLOCK STATE PARTITIONS THE RUN; IT DOES NOT GET AVERAGED OUT. Blocks whose reference
+    // frames agree are one clock state and pool into one cost. Blocks that disagree are a DIFFERENT
+    // clock state and are reported separately, because §3 registered that a cost without its clock
+    // state is not a number — and because averaging across states is precisely how a 94% spread got
+    // published as one figure.
+    const clusters = clusterByReference(perBlock);
+    const main = clusters[0] ?? null;
+    const pooled = main === null ? [] : main.blocks.flatMap((block) => block.differences);
     const stimulus = censusDeltasBetween(hiddenCondition.key, shown.key);
+
     costs.push({
       arm: arm.key,
       census: arm.census,
-      reference: quantile(samplesFor(hiddenCondition.key).map((row) => row.ms), 0.5),
+      reference: main === null ? null : quantile(main.blocks.map((block) => block.reference), 0.5),
+      referenceRange: main === null ? null : { floor: main.floor, ceiling: main.ceiling },
+      blocksPooled: main === null ? 0 : main.blocks.length,
+      blocksTotal: perBlock.length,
+      // Every block's own figure, so a reader can see the spread the pooled number came from rather
+      // than taking the pooling on trust.
+      perBlock: perBlock.map(({ differences: _ignored, ...rest }) => rest),
+      otherClocks: clusters.slice(1).map((cluster) => ({
+        floor: cluster.floor,
+        ceiling: cluster.ceiling,
+        blocks: cluster.blocks.length,
+        p50: quantile(cluster.blocks.flatMap((block) => block.differences), 0.5),
+      })),
       stimulus,
       // A toggle that changes no draw is not a toggle, and it would time as a perfect null.
-      stimulusOk: stimulus.length > 0 && stimulus.every((d) => d.draws > 0 && d.triangles > 0),
-      ...summarisePair(differences),
+      stimulusOk: stimulus.length > 0 && stimulus.every((delta) => delta.draws > 0 && delta.triangles > 0),
+      ...summarisePair(pooled),
     });
   }
 
@@ -608,6 +829,8 @@ export function adjudicate(byCondition, definitions, options) {
     headSha: options.headSha,
     viewport: VIEWPORT,
     ticks: options.ticks,
+    blockTicks: options.blockTicks,
+    warmupTicks: options.warmedTicks ?? null,
     armSet: options.arms,
     calibration,
     costs,
@@ -634,10 +857,19 @@ function print(report) {
     for (const reason of entry.reasons) console.log(`      ${reason}`);
   }
 
-  console.log('\ndrift within run (hidden p50, first third vs last third):');
+  console.log(`\ndrift, PERMUTATION TEST per block of ${calibration.blockTicks} ticks `
+    + `(KS between halves, null from ${DRIFT_PERMUTATIONS} shuffles, α ${DRIFT_ALPHA}):`);
+  const byKey = new Map();
   for (const entry of calibration.drifts) {
-    console.log(`  ${entry.key.padEnd(14)} ${entry.head.toFixed(3)} -> ${entry.tail.toFixed(3)}  `
-      + `${(entry.gap * 100).toFixed(2)}%  ${entry.passed ? '✅' : '🔴 FAIL'}`);
+    if (byKey.has(entry.key) === false) byKey.set(entry.key, []);
+    byKey.get(entry.key).push(entry);
+  }
+  for (const [key, entries] of byKey) {
+    const worst = entries.reduce((a, b) => (b.p < a.p ? b : a));
+    const red = entries.filter((entry) => entry.passed === false);
+    console.log(`  ${key.padEnd(14)} ${entries.length} blocks, smallest p ${worst.p.toFixed(4)} `
+      + `(block ${worst.block}, KS ${worst.statistic.toFixed(3)}, ${worst.head.toFixed(2)} -> ${worst.tail.toFixed(2)})  `
+      + (red.length === 0 ? '✅' : `🔴 FAIL in ${red.length}: blocks ${red.map((e) => e.block).join(', ')}`));
   }
 
   if (calibration.passed === false) {
@@ -650,15 +882,31 @@ function print(report) {
 
   console.log(`\n${'='.repeat(96)}`);
   console.log('COST OF THE GROOM — paired within tick, so the clock-state mixture cancels.\n');
-  console.log('arm            n       p50      mean          95% CI        sign   reference   stim');
+  console.log('arm            n       p50      mean          95% CI        sign   reference  blocks  stim');
   console.log('-'.repeat(96));
   for (const entry of costs) {
     const ci = entry.ci === null ? '—' : `[${entry.ci.low.toFixed(3)}, ${entry.ci.high.toFixed(3)}]`;
     console.log(
       `${entry.arm.padEnd(13)} ${String(entry.n).padStart(4)} ${signed(entry.p50)} ${signed(entry.mean)} `
       + `${ci.padStart(18)} ${(entry.sign.fraction * 100).toFixed(1).padStart(6)}% `
-      + `${entry.reference.toFixed(3).padStart(9)} ${entry.stimulusOk ? '  ok' : ' 🔴'}`
+      + `${entry.reference.toFixed(3).padStart(9)}  ${String(entry.blocksPooled)}/${entry.blocksTotal}`.padEnd(9)
+      + `  ${entry.stimulusOk ? 'ok' : '🔴'}`
       + `${entry.spansZero ? '   ⚪ NOT RESOLVED — the interval includes no effect' : ''}`);
+
+    // The blocks the pooled figure is made of, so the spread is visible rather than trusted.
+    console.log(`               blocks at this clock: `
+      + entry.perBlock
+        .filter((block) => block.reference >= entry.referenceRange.floor
+          && block.reference <= entry.referenceRange.ceiling)
+        .map((block) => `${block.p50 >= 0 ? '+' : ''}${block.p50.toFixed(2)}`).join('  ')
+      + `   (reference ${entry.referenceRange.floor.toFixed(2)}-${entry.referenceRange.ceiling.toFixed(2)} ms)`);
+
+    // ⚠️ A DIFFERENT CLOCK IS A DIFFERENT NUMBER, PRINTED SEPARATELY AND NEVER FOLDED IN.
+    for (const other of entry.otherClocks) {
+      console.log(`               🕐 ALSO at reference ${other.floor.toFixed(2)}-${other.ceiling.toFixed(2)} ms: `
+        + `${other.p50 >= 0 ? '+' : ''}${other.p50.toFixed(3)} ms over ${other.blocks} block(s) — a `
+        + 'DIFFERENT clock state, reported apart because a cost without its clock is not a number');
+    }
   }
 
   console.log('\nCOMPARABILITY — two costs may be differenced only if their reference frames agree.\n');
@@ -744,8 +992,12 @@ function parseArguments(argv) {
     // arms are timed against the file on disk rather than a copy, for `strand-spike.mjs`'s reason:
     // a plate of a stale duplicate is a plate of the wrong thing.
     tfxDirectory: path.join(REPOSITORY_ROOT, 'tmp', 'tfx'),
-    ticks: 200,
-    warmup: 40,
+    ticks: 240,
+    // Blocks are an ANALYSIS parameter — the capture is continuous and partitioned afterwards — so
+    // one run can be read at several block sizes without re-sampling anything. 40 ticks is the
+    // smallest window `driftAcrossRun` can read thirds of and still clear its 24-sample floor.
+    blockTicks: 40,
+    warmupCap: 600,
     arms: 'cards',
     headSha: null,
   };
@@ -757,7 +1009,8 @@ function parseArguments(argv) {
       case '--out': options.outDirectory = path.resolve(value); index += 1; break;
       case '--tfx': options.tfxDirectory = path.resolve(value); index += 1; break;
       case '--ticks': options.ticks = Number(value); index += 1; break;
-      case '--warmup': options.warmup = Number(value); index += 1; break;
+      case '--block': options.blockTicks = Number(value); index += 1; break;
+      case '--warmup-cap': options.warmupCap = Number(value); index += 1; break;
       case '--arms': options.arms = value; index += 1; break;
       case '--sha': options.headSha = value; index += 1; break;
       default: throw new Error(`unknown argument '${flag}'`);

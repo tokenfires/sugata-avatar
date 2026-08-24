@@ -36,6 +36,8 @@ import {
   NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE,
   quantile, mean, makeRandom, pairedByTick, signTest, bootstrapMedianCI, summarisePair,
   evaluateNull, comparable, driftAcrossRun, tickSchedule,
+  partitionIntoBlocks, clusterByReference,
+  kolmogorovSmirnov, driftByPermutation, DRIFT_ALPHA,
 } from './frame-cost.mjs';
 
 const gates = [];
@@ -343,6 +345,136 @@ function testPairingIgnoresUnmatchedTicks() {
 }
 
 // ================================================================================================
+// §5b — the drift detector, calibrated / powered / specific
+// ================================================================================================
+
+function testKolmogorovSmirnovArithmetic() {
+  record('KS of a sample against itself is 0',
+    close(kolmogorovSmirnov([1, 2, 3, 4], [1, 2, 3, 4]), 0), 'identical CDFs never separate');
+  record('KS of disjoint samples is 1',
+    close(kolmogorovSmirnov([1, 2, 3], [8, 9, 10]), 1), 'one CDF reaches 1 before the other leaves 0');
+  // a = [1,2,3,4], b = [3,4,5,6]. At value 2: CDF_a = 0.5, CDF_b = 0. Largest gap = 0.5.
+  record('KS on a hand-computed pair', close(kolmogorovSmirnov([1, 2, 3, 4], [3, 4, 5, 6]), 0.5),
+    'at value 2 the CDFs are 0.50 and 0.00 — derived by hand, not read off the function');
+  record('KS refuses an empty side', kolmogorovSmirnov([], [1, 2]) === null, 'nothing to compare');
+}
+
+function testTheDriftDetectorIsCalibratedPoweredAndSpecific() {
+  // 🎯 THE PATHOLOGY, SYNTHESISED: a BIMODAL series, which is what defeated the p50-of-thirds
+  // operator. Both halves draw from the same two modes at the same mix, so there is NO drift — only
+  // the noise the old gate mistook for drift 9-15% of the time.
+  const random = makeRandom(2024);
+  const bimodal = (n, fastShare) => Array.from({ length: n }, (_, tick) =>
+    ({ tick, ms: random() < fastShare ? 6.6 + random() * 0.4 : 13.4 + random() * 0.8 }));
+
+  // (1) CALIBRATION — fires at about α on data with no time structure at all.
+  let fired = 0;
+  const TRIALS = 120;
+  for (let trial = 0; trial < TRIALS; trial += 1) {
+    const quiet = bimodal(80, 0.4);
+    if (driftByPermutation(quiet, 300, 500 + trial).passed === false) fired += 1;
+  }
+  const rate = fired / TRIALS;
+  record('🎯 the drift detector is CALIBRATED', rate <= 0.08,
+    `fires on ${(rate * 100).toFixed(1)}% of no-drift bimodal series, against a nominal `
+    + `${DRIFT_ALPHA * 100}% — the operator it replaces fired on 9-15% of SHUFFLED real samples`);
+
+  // (2) 🔴 POWER, ON THE REAL EVENT'S SHAPE — and the shape is the whole point.
+  //
+  // The measured tick-140 regime change did NOT move the median: `bald` read 13.04 -> 12.99 across
+  // it, 0.4% apart and comfortably inside the 2% the replaced operator allowed. What changed was the
+  // TAIL — the minimum fell from 12.73 to 4.04 ms as a fast mode appeared. The fast mode never
+  // reached half the mass, so no median could see it.
+  //
+  // ⚠️ Reproduced here as a mixture going 2% -> 32% fast, which is under the 50% line ON PURPOSE. A
+  // first draft of this gate used 10% -> 75%; that CROSSES the line, the median jumps modes, and the
+  // test then proves the opposite of what it claims. Real KS on the real event was 0.3167.
+  const stable = bimodal(80, 0.02);
+  const boosted = bimodal(80, 0.32).map((row) => ({ ...row, tick: row.tick + 80 }));
+  const caught = driftByPermutation([...stable, ...boosted], 2000, 7);
+  const medianGap = Math.abs(caught.head - caught.tail) / Math.min(caught.head, caught.tail);
+  record('🔴 the drift detector has POWER where medians do not',
+    caught.passed === false,
+    `KS ${caught.statistic.toFixed(3)}, p ${caught.p.toFixed(4)} on a 2%->32% mixture shift `
+    + '(real event: KS 0.3167)');
+  record('🎯 and the median really is the blind spot', medianGap <= REFERENCE_TOLERANCE,
+    `head ${caught.head.toFixed(2)} vs tail ${caught.tail.toFixed(2)} = ${(medianGap * 100).toFixed(2)}% `
+    + `apart — INSIDE the ${REFERENCE_TOLERANCE * 100}% the replaced operator allowed, so it would `
+    + 'have passed this run while the distribution changed underneath it');
+
+  // (3) SPECIFICITY — a merely noisy series is left alone.
+  const noisy = bimodal(120, 0.4);
+  record('the drift detector is SPECIFIC', driftByPermutation(noisy, 2000, 3).passed,
+    `p ${driftByPermutation(noisy, 2000, 3).p.toFixed(3)} on a series with no time structure`);
+}
+
+function testTheDriftPValueIsHonest() {
+  const extreme = [...Array.from({ length: 30 }, (_, tick) => ({ tick, ms: 1 })),
+    ...Array.from({ length: 30 }, (_, tick) => ({ tick: tick + 30, ms: 100 }))];
+  const verdict = driftByPermutation(extreme, 500, 1);
+  record('a p-value is never exactly zero', verdict.p > 0 && verdict.p <= 1 / 501 + 1e-12,
+    `p ${verdict.p.toFixed(6)} = 1/501 on a total separation — (count+1)/(permutations+1), because `
+    + 'an impossible-looking certainty from 500 draws is an artefact of 500 draws');
+  const again = driftByPermutation(extreme, 500, 1);
+  record('drift is reproducible under one seed', verdict.p === again.p, `p ${verdict.p.toFixed(6)} twice`);
+  record('drift refuses a short block', driftByPermutation(ticked([1, 2, 3]), 100, 1) === null,
+    'n=3 has no halves worth comparing');
+}
+
+// ================================================================================================
+// §6 — blocks, and the clock states they partition into
+// ================================================================================================
+
+function testBlocksPartitionCleanly() {
+  const blocks = partitionIntoBlocks(240, 40);
+  record('a run cuts into whole blocks',
+    blocks.length === 6 && blocks[0].loTick === 0 && blocks[5].hiTick === 240,
+    '240 ticks / 40 = 6 blocks, [0,40) ... [200,240)');
+
+  const ragged = partitionIntoBlocks(250, 40);
+  record('a short tail is discarded, not padded',
+    ragged.length === 6 && ragged[5].hiTick === 240,
+    '250 ticks gives 6 whole blocks and drops 10 — a part-block would carry a different n and a '
+    + 'different CI while looking like a peer of the others');
+
+  const contiguous = blocks.every((block, i) => i === 0 || block.loTick === blocks[i - 1].hiTick);
+  record('blocks are contiguous and non-overlapping', contiguous,
+    'an overlap would let one tick contribute to two "independent" blocks');
+}
+
+function testClusteringByClockState() {
+  const asBlocks = (references) => references.map((reference, index) => ({ index, reference }));
+
+  const tight = clusterByReference(asBlocks([13.00, 13.05, 13.10, 13.15]));
+  record('references at one clock form ONE cluster',
+    tight.length === 1 && tight[0].blocks.length === 4,
+    '13.00-13.15 spans 1.15%, inside the registered 2%');
+
+  const split = clusterByReference(asBlocks([8.40, 8.45, 13.00, 13.05, 13.10]));
+  record('two clock states form TWO clusters, largest first',
+    split.length === 2 && split[0].blocks.length === 3 && split[1].blocks.length === 2,
+    '8.4x and 13.0x are 55% apart — the exact shape of the three prior runs, which is how a 94% '
+    + 'spread got published as one number');
+
+  // 🔴 CHAINING IS THE FAILURE MODE THIS GUARDS. Each of these is within 2% of its NEIGHBOUR, so
+  // neighbour-chained clustering swallows all five into one cluster spanning 8.2% — four times the
+  // tolerance it claims to enforce. Membership is measured against the cluster FLOOR instead.
+  const creeping = clusterByReference(asBlocks([13.00, 13.20, 13.45, 13.70, 14.07]));
+  const widest = Math.max(...creeping.map((c) => (c.ceiling - c.floor) / c.floor));
+  record('🔴 a slow monotone drift does NOT chain into one cluster',
+    creeping.length > 1 && widest <= REFERENCE_TOLERANCE + 1e-9,
+    `${creeping.length} clusters, widest spans ${(widest * 100).toFixed(2)}% — every consecutive gap `
+    + 'is inside 2% yet the run spans 8.2%, and neighbour-chaining would have called it one clock');
+
+  record('clustering is deterministic under input order',
+    JSON.stringify(clusterByReference(asBlocks([13.10, 8.40, 13.00, 8.45, 13.05]).slice().reverse())
+      .map((c) => c.blocks.length))
+      === JSON.stringify(clusterByReference(asBlocks([8.40, 8.45, 13.00, 13.05, 13.10]))
+        .map((c) => c.blocks.length)),
+    'sorted by reference before walking, so two readers cluster identically');
+}
+
+// ================================================================================================
 
 function run() {
   testQuantileAndMean();
@@ -363,6 +495,13 @@ function run() {
 
   testTheScheduleIsBalanced();
   testPairingIgnoresUnmatchedTicks();
+
+  testKolmogorovSmirnovArithmetic();
+  testTheDriftDetectorIsCalibratedPoweredAndSpecific();
+  testTheDriftPValueIsHonest();
+
+  testBlocksPartitionCleanly();
+  testClusteringByClockState();
 
   const width = Math.max(...gates.map((gate) => gate.label.length));
   for (const gate of gates) {
