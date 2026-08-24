@@ -1652,3 +1652,76 @@ present?"* but **"has this experiment already been run?"**
 5. The 4,960-vs-11,408 bob density fork.
 6. **Declare the round.** The fence is **101 commits past a ceiling of 14** — measured at HEAD, not
    quoted, because §14's "58" was stale by 43 and read as present tense.
+
+---
+
+## §19 — R34, the stopwatch round (2026-08-24, overnight)
+
+**HEAD `fbb001d`.** Tool: `tools/critic/frame-cost.mjs`, 52 selftest gates. Registrations:
+`docs/superpowers/specs/2026-08-23-frame-cost-preregistration.md` (**closed VOID**) and
+`2026-08-24-frame-cost-v2-preregistration.md` (**voided on G1**). Findings:
+`captures/hair-r34-frame-cost/findings-2026-08-24.md`.
+
+**Seven calibrated runs. Seven refusals. No blessed cost.** Read the findings doc before touching
+timing again — the refusals are where the information is.
+
+### The three things a successor must not re-derive
+
+1. 🔴 **The same picture costs 30% more depending on which page draws it.** One run, one clock, the
+   groom-HIDDEN condition — identical picture — read 6.602 / 6.623 / 6.652 / 7.541 / **8.557** ms
+   across five pages. Six resident WebGPU contexts do not contend symmetrically. **This is why
+   cross-page differencing produced four wrong figures including a sign error**, and it is now a
+   number rather than a thesis.
+2. 🔴 **v2's pair-integrity gate G1 measures effect size, not clock stability.** Agreement falls
+   monotonically as the effect grows — 62.5% at +3.275 ms, 57.5% at +5.182, 45.5% at +7.513 —
+   while identical-workload pairs hold 81–88% regardless. **The bigger the real cost, the more
+   confidently the gate calls the measurement invalid.** Delete it in any v3; the workload-free
+   replacement (a second read of the *hidden* condition in the same batch) is already collected.
+3. ✅ **`visible = false` is licensed as equivalent to absence**, measured, census deltas 0/0 on
+   every run. The self-difference primitive stands. Its own null — N3, within page, same picture —
+   is clean on **every** run: +0.011, −0.112, −0.110, −0.113, −0.124. It is N1/N2, which pair across
+   pages, that fail.
+
+### The provisional numbers, which are NOT to be quoted as the answer
+
+One run, one clock, v1 §5's registered statistic, all pairs:
+
+| arm | strands | p50 | 95% CI | sign | reference |
+|---|---:|---:|---|---:|---:|
+| cards | — | +1.120 | [0.851, 1.288] | 81.0% | 7.541 |
+| bob4960 | 4,960 | +3.099 | [2.756, 3.581] | 98.0% | 6.652 |
+| crop8832 | 8,832 | +6.441 | [5.356, 7.613] | 100.0% | 8.557 |
+| bob11408 | 11,408 | +6.923 | [6.438, 7.442] | 100.0% | 6.623 |
+| **N3 null, identical path** | — | **+0.011** | [−0.123, 0.090] | 51.0% | — |
+
+🎯 **The one comparison the registered rule blesses:** `bob11408` vs `bob4960`, references **0.44%
+apart**. **2.30× the strands, 2.23× the cost.** Every other pair has references 13–29% apart and is
+refused, so **no parity call is made** and §2's "parity with today's cards" clause remains
+unevaluated.
+
+⚠️ Superseded: the cards figure has now been 2.03, then 1.46–1.71, then −3.974, then +0.461, then
+withdrawn. **Everything before R34 came through the cross-page channel item 1 retires.**
+
+### What replaced what
+
+- `captures/hair-r31-ladder-ours/tools/frame-budget.mjs` is superseded as the primitive-decision
+  instrument. It is kept: it diagnosed the mixture, and its per-mode table is the instrument that
+  found it.
+- §18's open item 1 ("report per clock mode, then burst-and-divide") is **closed and superseded**.
+  Per-mode reporting was tried and is not enough — conditioning on a state entangled with the
+  workload is item 2 above. The interleaved single-page design it asked for is what `frame-cost.mjs`
+  now is.
+
+### The open list, unchanged in order, with item 1 rewritten
+
+1. **A v3 registration, if the owner wants one** — §8 of the findings doc lists exactly four
+   changes. Do not write it as a third amendment; v1 was amended twice and closed void, and that is
+   the pattern pre-registration exists to prevent.
+2. **The fibre and the per-channel `T_f`** — still the only surviving route to "muddy", still a
+   material change, `ā_f` derived and bounded ≤ 0.131.
+3. **`rim.irradiance` per preset** — art-constant look-dev, defined by REQ-063's rejection.
+4. `crop01`'s scalp clearance.
+5. The 4,960-vs-11,408 bob density fork — **the cost side is now measured** (2.23× for 2.30× the
+   strands, comparable references). What remains is the silhouette judgement.
+6. **Declare the round.** The fence is past a ceiling of 14 by a wide margin; measure it at HEAD
+   rather than quoting §18.
