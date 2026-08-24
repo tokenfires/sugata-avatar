@@ -823,12 +823,24 @@ async function main() {
 
     options.warmedTicks = warmed;
     const report = adjudicate(byCondition, definitions, options);
-    print(report);
 
-    const file = path.join(options.outDirectory, `frame-cost-${options.arms}.json`);
+    // 🔴 WRITE BEFORE PRINTING, AND A CRASH IN `print` IS WHY. A null in one statistic threw inside
+    // the report formatter, `writeFileSync` never ran, and forty minutes of samples were destroyed
+    // by a `toFixed`. The samples are the expensive, irreplaceable part; the table is a view of them
+    // that can be regenerated from the file. Ordering them the other way round makes every future
+    // formatting bug a lost capture.
+    //
+    // 🚩 The filename is also stamped with the arm set AND the sha, because a capture that
+    // overwrites its own predecessor cannot support a claim quoted from the predecessor — four
+    // figures in R34's machine characterisation were quoted from a run this tool had already
+    // overwritten, and none of them could be checked.
+    const stamp = options.headSha === null ? 'nosha' : options.headSha;
+    const file = path.join(options.outDirectory, `frame-cost-${options.arms}-${stamp}.json`);
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, `${JSON.stringify(report, null, 2)}\n`);
     console.log(`\nreport    ${path.relative(REPOSITORY_ROOT, file)}`);
+
+    print(report);
     process.exitCode = report.calibration.passed ? 0 : 1;
   } finally {
     await browser.close();
@@ -900,9 +912,15 @@ export function adjudicate(byCondition, definitions, options) {
       nulls.push(evaluateAcrossStates(`N2 ${hidden[j]} vs ${hidden[i]}`, hidden[i], hidden[j]));
     }
   }
+  // ⚠️ THE STEM IS NOT ALWAYS `X-`. A `-bis` condition repeats whatever its arm's base condition is
+  // called, and `bald`'s base is `bald`, not `bald-`. Deriving the stem by string surgery alone
+  // yielded a name no condition has, which paired to n=0 and crashed the report. Resolve against the
+  // conditions that actually exist.
   for (const key of [...byCondition.keys()].filter((k) => k.endsWith('-bis'))) {
-    nulls.push(evaluateAcrossStates(`N3 ${key} vs ${key.replace(/-bis$/, '-')}`,
-      key.replace(/-bis$/, '-'), key));
+    const stem = [key.replace(/-bis$/, '-'), key.replace(/-bis$/, '')]
+      .find((candidate) => byCondition.has(candidate));
+    if (stem === undefined) continue;
+    nulls.push(evaluateAcrossStates(`N3 ${key} vs ${stem}`, stem, key));
   }
 
   // --- the costs -------------------------------------------------------------------------------
@@ -1013,7 +1031,8 @@ function print(report) {
   for (const entry of calibration.nulls) {
     const row = (label, state, item) => console.log(
       `${label.padEnd(30)} ${state.padEnd(7)} ${String(item.n).padStart(4)} ${signed(item.p50)} `
-      + `${(item.sign.fraction * 100).toFixed(1).padStart(6)}% ${item.sign.z.toFixed(2).padStart(6)} `
+      + `${item.sign.fraction === null ? '     —' : `${(item.sign.fraction * 100).toFixed(1)}%`.padStart(6)} `
+      + `${item.sign.z === null ? '     —' : item.sign.z.toFixed(2).padStart(6)} `
       + `${item.censusDeltas.map((d) => `${d.draws}/${d.triangles}`).join(',').padStart(7)}  `
       + `${item.passed ? '✅' : '🔴 FAIL'}`);
     row(entry.label, 'pooled', entry);

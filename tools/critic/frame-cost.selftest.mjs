@@ -383,6 +383,20 @@ function testTheScheduleIsBalanced() {
     `${everyKey.length} conditions, ${new Set(everyKey).size} distinct — a duplicate would pair a tick with itself`);
 }
 
+function testAStatisticOfNothingDoesNotCrashTheReport() {
+  // 🔴 THIS CRASHED A FORTY-MINUTE RUN AND DESTROYED ITS SAMPLES. `signTest([])` correctly returns
+  // {fraction: null, z: null} — a statistic of nothing must refuse — but the report formatter called
+  // `.toFixed` on it and threw, and `writeFileSync` ran AFTER `print`. The arithmetic was right and
+  // the ordering was wrong.
+  const empty = signTest([]);
+  record('a statistic of nothing returns null, not NaN',
+    empty.n === 0 && empty.fraction === null && empty.z === null, 'signTest([])');
+  const verdict = evaluateNull('empty', [], IDENTICAL);
+  record('an empty null FAILS rather than passing vacuously',
+    verdict.passed === false && verdict.reasons.some((r) => r.includes('no paired samples')),
+    'n=0 must not read as "no difference detected"');
+}
+
 function testPairingIgnoresUnmatchedTicks() {
   // An arm that failed to sample on some tick must drop that pair, not shift the alignment.
   const a = ticked([1, 2, 3, 4, 5]);
@@ -555,6 +569,7 @@ function run() {
   testComparabilityAgainstTheRealRuns();
 
   testTheScheduleIsBalanced();
+  testAStatisticOfNothingDoesNotCrashTheReport();
   testPairingIgnoresUnmatchedTicks();
 
   testKolmogorovSmirnovArithmetic();
