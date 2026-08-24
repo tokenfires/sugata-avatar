@@ -1667,11 +1667,23 @@ timing again — the refusals are where the information is.
 
 ### The three things a successor must not re-derive
 
-1. 🔴 **The same picture costs 30% more depending on which page draws it.** One run, one clock, the
-   groom-HIDDEN condition — identical picture — read 6.602 / 6.623 / 6.652 / 7.541 / **8.557** ms
-   across five pages. Six resident WebGPU contexts do not contend symmetrically. **This is why
-   cross-page differencing produced four wrong figures including a sign error**, and it is now a
-   number rather than a thesis.
+1. 🔴 **~~The same picture costs 30% more depending on which page draws it~~ — RETRACTED the same
+   day, by an adversarial pass over this round's own claims.** The arithmetic was exact; the causal
+   noun was wrong, and the section committed the error it indicted two paragraphs later — an
+   unpaired subtraction of one page from another, on a pooled statistic.
+
+   **What survives is narrower and stronger.** Two pages opened from the *identical URL*, with no
+   ribbon geometry and only three resident contexts, differ **22.56%** on a pooled median — and are
+   **indistinguishable when paired** (+0.148, sign 53.3%, CI [−0.159, +0.378], passing the
+   registered null). So cross-page *pooled* comparison is unreliable; the 30%, the noun "page
+   identity", and the mechanism "resident geometry" are all gone. Correlation of hidden p50 with
+   resident triangles is r = +0.175, and in one run the page holding **no geometry at all** is the
+   most expensive.
+
+   🚩 **The cause was a confound in the harness, now fixed.** `tickSchedule` rotated arm order, and
+   **a rotation preserves adjacency exactly** — every arm had exactly two possible predecessors in
+   an 80/20 split, forever, so page identity and predecessor identity could never be separated.
+   Position balance was gated; adjacency balance was not. See `findings-2026-08-24.md` §2R.
 2. 🔴 **v2's pair-integrity gate G1 measures effect size, not clock stability.** Agreement falls
    monotonically as the effect grows — 62.5% at +3.275 ms, 57.5% at +5.182, 45.5% at +7.513 —
    while identical-workload pairs hold 81–88% regardless. **The bigger the real cost, the more
