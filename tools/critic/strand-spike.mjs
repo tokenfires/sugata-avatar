@@ -583,7 +583,9 @@ async function startViteServer(exports_) {
   const server = await createServer({
     configFile: path.join(REPOSITORY_ROOT, 'vite.spikes.config.js'),
     plugins: [mountTfx],
-    server: { port: 5191, strictPort: false, hmr: false, watch: { ignored: ['**'] } },
+    // `open: false` explicitly, even though `vite.spikes.config.js` no longer sets `open` — this is
+    // a headless harness and it must not be one config edit away from launching a real browser.
+    server: { port: 5191, strictPort: false, hmr: false, watch: { ignored: ['**'] }, open: false },
     logLevel: 'warn',
   });
 

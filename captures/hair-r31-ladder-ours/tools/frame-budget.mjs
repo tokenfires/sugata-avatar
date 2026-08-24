@@ -547,10 +547,20 @@ async function startViteServer(gateTfx) {
   // in the SHIPPING page set. Under the main root that URL no longer resolves and the contention
   // gate would 404 silently. The spikes config roots at the repo, so both pages are reachable by
   // their real paths and the gate keeps working.
+  // 🚩 `open: false` IS NOT COSMETIC — WITHOUT IT THIS HARNESS OPENS A TAB IN THE OWNER'S REAL
+  // BROWSER ON EVERY RUN. `vite.spikes.config.js` ends with `server: { open: '/tools/spikes/' }`,
+  // which is correct for a human typing `npm run spikes` and wrong for anything programmatic:
+  // `createServer` inherits it from the config file, so a headless timing run launches Chrome or
+  // Safari at a bare directory with no `index.html`, which renders nothing.
+  //
+  // Reported by the owner, who reasonably wondered whether the blank tabs were something being
+  // measured. They are not — every measurement here drives its own Playwright Chromium and never
+  // touches that window, so the tabs were pure side effect. Any other tool that starts this config
+  // programmatically needs the same line.
   const server = await createServer({
     configFile: path.join(REPOSITORY_ROOT, 'vite.spikes.config.js'),
     plugins: [mountTfx],
-    server: { port: 5195, strictPort: false, hmr: false, watch: { ignored: ['**'] } },
+    server: { port: 5195, strictPort: false, hmr: false, watch: { ignored: ['**'] }, open: false },
     logLevel: 'warn',
   });
 
