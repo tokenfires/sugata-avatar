@@ -1461,14 +1461,60 @@ proved an arm rendered what it claimed: `arm.info` collected every property of t
 of the PICTURE, while `alive.js` had published `sugata.report().hair` with a full census since the
 arm landed, with no consumer.
 
-**With the census read, the `hair` arm attaches no groom** — `hairEnabled` true, `hairRequest` set,
-`report().hair` null after 600 s, one 404, no warning. So `hair` and `no-hair` were the same picture
-and the ribbon arms share that path. "Ribbons read faster than no hair" was a delta between
-identical frames.
+~~**With the census read, the `hair` arm attaches no groom** — `hairEnabled` true, `hairRequest` set,
+`report().hair` null after 600 s, one 404, no warning.~~
 
-⚠️ **WHICH RESOURCE 404s IS STILL NOT NAMED.** `/assets/hair/bob01/g050.glb` serves 200 with its
-full 3,326,956 bytes, so the groom is reachable and the failure is elsewhere on the attach path.
-**This is the top open item and branch (b)'s ACCEPT half still rests on it.**
+> 🔴 **RETRACTED THE SAME DAY, AND THE RETRACTION IS MINE TWICE OVER. THERE IS NO 404, AND THE ARM
+> WAS NEVER BALD.** `alive.js:1434`'s `report()` returns `defects`, `nudgeMillimetres`, `affect`,
+> `affectPostureDegrees`, `identity` and `foundation`. **It has no `hair` key at all** — `'hair' in
+> report()` is `false`. The hair census lives on **`sugata.subsystems()`**, which is
+> `censusOfShading( session, stage )` at `alive.js:3548`.
+>
+> So `report().hair` yielded `undefined`, my `?? null` coerced it, and `assertArmRenders` reported a
+> **fully attached groom as absent**. Measured on the harness's own server: every asset serves 200
+> (`figure_g050.glb`, `bob01/g050.glb`, `flow.png`, `depth.png`), **zero requests ≥ 400**, zero
+> swallowed rejections, and `session.hair` is SET. With the accessor corrected the harness runs end
+> to end and every arm's census matches its registered expectation exactly — cards
+> `groomMeshes: 1, strandCount: null`; ribbons at **8,832 / 4,960 / 11,408** strands with
+> 141,312 / 79,360 / 182,528 skinned points.
+>
+> 🚩 **THE GUARD I BUILT TO CATCH "NOTHING ASSERTED THE STIMULUS" ASSERTED THE STIMULUS AGAINST A
+> FIELD THAT DOES NOT EXIST.** It is the same defect class it was written to prevent, one level up,
+> and it produced a confident diagnosis that stood for a day. A `?? null` on an optional-chained read
+> cannot tell *"the page says no groom"* from *"I asked the wrong object"*.
+>
+> ⚠️ A first re-run at n=16 showed the control's two p50s 70% apart and I nearly wrote that down as
+> the finding. **At n=384 it converges to 0.7%** — 13.007 against 13.104 ms — so that spread was
+> small-sample, not clock state. Recorded because it was one paragraph away from becoming a third
+> wrong diagnosis of the same harness in one day.
+
+### P0 AT HEAD: the stimulus is verified, the control converges, and ONE arm is still anomalous
+
+Measured with the accessor fixed, 8 rounds × batch 24 × 2 per visit, **384 samples per arm**, every
+arm's census asserted before its samples counted:
+
+| arm | n | min | p05 | **p50** | p95 |
+|---|---:|---:|---:|---:|---:|
+| contention gate | 16 | 1.548 | 1.636 | 2.465 | 3.085 |
+| `no-hair` | 384 | 4.812 | 5.736 | **13.007** | 14.701 |
+| `hair` (cards) | 384 | 1.704 | 3.875 | **9.019** | 16.492 |
+| `ribbons-bob-4960` | 384 | 4.115 | 6.461 | **9.722** | 19.672 |
+| `ribbons-crop-8832` | 384 | 6.069 | 6.904 | **14.398** | 20.892 |
+| `ribbons-bob-11408` | 384 | 8.538 | 11.660 | **17.081** | 21.495 |
+| `no-hair-2` | 384 | 2.904 | 5.507 | **13.104** | 14.656 |
+
+1. ✅ **THE CONTROL REPRODUCES.** The same configuration at both ends of the arm order: p50 13.007
+   against 13.104 (**0.7%**), p05 5.736/5.507, p95 14.701/14.656. The harness is no longer
+   noise-dominated, which it demonstrably was before.
+2. ✅ **AND THE RIBBON LADDER IS MONOTONIC IN STRAND COUNT** — 4,960 → 9.722, 8,832 → 14.398,
+   11,408 → 17.081 ms. That is a physical curve and it is the first one this harness has produced.
+3. 🔴 **THE `no-hair` BASELINE IS THE ANOMALOUS ARM.** Cards read **3.99 ms FASTER** than no hair at
+   p50, and 3.1× faster at the minimum. Adding a groom cannot make a frame cheaper. **So the defect
+   is now localised to one arm rather than spread across the method** — which is a much smaller
+   question than the one §17 posed, and it is the next thing to name.
+
+⚠️ Branch (b)'s ACCEPT half still rests on this. It is closer than it has been: the stimulus is
+proven, the control holds, and the ladder is physical.
 
 Four silent readiness defects died on the way. The reusable one: **`waitForFunction` with an `async`
 predicate never waits** — an async arrow returns a Promise, a Promise is truthy on the first poll, so
@@ -1507,7 +1553,13 @@ present?"* but **"has this experiment already been run?"**
 
 ### The open list, in the order I would take it
 
-1. **Name P0's 404.** Everything else about the harness is fixed and this is one unknown.
+1. **P0's timing method.** The 404 is named — there was none; see the retraction above. The harness
+   now verifies every arm's stimulus, so what remains is the interleaved single-page design: toggle
+   the groom inside one running page, A/B/A/B, N cycles after M warm-up toggles, so both halves of a
+   pair share the immediately preceding clock state **by construction**. ⚠️ But take the smaller
+   question first: at 384 samples the control reproduces to 0.7% and the ribbon ladder is monotonic,
+   so the defect is localised to the **`no-hair` arm reading 3.99 ms slower than cards**. Name that
+   before rebuilding the method.
 2. **The fibre and the per-channel `T_f`.** The only surviving route to "muddy", and it is a
    material change. `ā_f` is derived and bounded.
 3. **`rim.irradiance` per preset.** REQ-063's rejection defines this: the rim's *job* is backdrop

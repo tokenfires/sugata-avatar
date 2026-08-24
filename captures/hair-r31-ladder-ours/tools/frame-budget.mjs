@@ -220,7 +220,7 @@ async function main() {
             if (typeof globalThis.__SUGATA_STEP__ !== 'function') return false;
             if ((await globalThis.__SUGATA_STEP__(0)) !== true) return false;
             if (needsGroom !== true) return true;
-            return (globalThis.sugata?.report?.()?.hair ?? null) !== null;
+            return (globalThis.sugata?.subsystems?.()?.hair ?? null) !== null;
           }, wantsHair);
           if (ready === true) break;
           if (Date.now() > deadline) {
@@ -235,7 +235,7 @@ async function main() {
                 sugata: typeof globalThis.sugata,
                 hairEnabled: sess?.hairEnabled ?? null,
                 hairRequest: sess?.hairRequest === undefined ? 'undefined' : (sess?.hairRequest === null ? 'null' : 'set'),
-                hair: (globalThis.sugata?.report?.()?.hair ?? null) === null ? 'null' : 'present',
+                hair: (globalThis.sugata?.subsystems?.()?.hair ?? null) === null ? 'null' : 'present',
                 search: String(location.search),
               };
             }).catch((error) => ({ probeFailed: error.message }));
@@ -258,7 +258,14 @@ async function main() {
         if (step === 'strand') return { strandGate: true };
         const renderer = globalThis.sugata?.stage?.renderer;
         const canvas = renderer?.domElement;
-        const hair = globalThis.sugata?.report?.()?.hair ?? null;
+        // 🔴 `subsystems()`, NOT `report()`, AND READING THE WRONG ONE COST A WHOLE DIAGNOSIS.
+        // `alive.js:1434`'s `report()` returns defects / nudgeMillimetres / affect /
+        // affectPostureDegrees / identity / foundation — it has NO `hair` key at all
+        // (`'hair' in report()` is false). The hair census lives on `subsystems()`, which is
+        // `censusOfShading( session, stage )` at `alive.js:3548`. Reading `report().hair` yields
+        // `undefined`, `?? null` turns that into `null`, and the guard below then reports a fully
+        // attached groom as absent. See the retraction in `docs/CHECKPOINT.md` §18.
+        const hair = globalThis.sugata?.subsystems?.()?.hair ?? null;
         return {
           trackTimestamp: renderer?.trackTimestamp,
           width: canvas?.width,

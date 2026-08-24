@@ -1,0 +1,42 @@
+vite      http://localhost:5195
+chromium  headless (channel=chromium)
+PAGE-ERROR gate: Failed to load resource: the server responded with a status of 404 (Not Found)
+arm       gate               {"strandGate":true}
+8:12:50 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING no-hair: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       no-hair            {"width":1080,"height":1920,"pixelRatio":1,"hair":null}
+8:12:50 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING hair: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       hair               {"width":1080,"height":1920,"pixelRatio":1,"hair":{"groomMeshes":1,"strandCount":null,"skinnedPoints":null,"triangles":null}}
+8:12:51 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING ribbons-crop-8832: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       ribbons-crop-8832  {"width":1080,"height":1920,"pixelRatio":1,"hair":{"groomMeshes":1,"strandCount":8832,"skinnedPoints":141312,"triangles":264960}}
+8:12:52 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING ribbons-bob-4960: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       ribbons-bob-4960   {"width":1080,"height":1920,"pixelRatio":1,"hair":{"groomMeshes":1,"strandCount":4960,"skinnedPoints":79360,"triangles":148800}}
+8:12:52 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING ribbons-bob-11408: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       ribbons-bob-11408  {"width":1080,"height":1920,"pixelRatio":1,"hair":{"groomMeshes":1,"strandCount":11408,"skinnedPoints":182528,"triangles":342240}}
+8:12:53 PM [vite] (client) [console.warn] Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+PAGE-WARNING no-hair-2: Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+arm       no-hair-2          {"width":1080,"height":1920,"pixelRatio":1,"hair":null}
+          round 5/8
+
+========================================================================================
+CONTENTION GATE (the strand ladder's own fixed 4,960-strand render at 720x900, in this round-robin): min 1.5477  p50 2.4649  p95 3.0852 ms
+arm            n     min      p05      p50      p95      max
+----------------------------------------------------------------------------------------
+gate           16    1.548    1.636    2.465    3.085    3.163
+no-hair       384    4.812    5.736   13.007   14.701   15.436
+hair          384    1.704    3.875    9.019   16.492   17.432
+ribbons-crop-8832  384    6.069    6.904   14.398   20.892   38.980
+ribbons-bob-4960  384    4.115    6.461    9.722   19.672   34.216
+ribbons-bob-11408  384    8.538   11.660   17.081   21.495   38.561
+no-hair-2     384    2.904    5.507   13.104   14.656   15.437
+
+CONTROL REPRODUCIBILITY (no-hair measured at both ends of the arm order): p05 5.736 vs 5.507, p50 13.007 vs 13.104, p95 14.701 vs 14.656
+
+TODAY'S CARDS COST   Δp05 -1.860  Δp50 -3.987  Δp95 1.791 ms
+HEADROOM AGAINST 16.6 ms   with hair: p50 7.581  p95 0.108 ms   | no hair: p50 3.593  p95 1.899 ms
+
+report    captures/hair-r31-ladder-ours/data/frame-budget.json
