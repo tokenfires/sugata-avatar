@@ -302,3 +302,71 @@ reference frames are the same clock state.
 them. What protects it from being a convenience is that the replacement is validated against a
 **pre-stated three-way test including a POWER requirement** — a merely permissive operator fails
 §A2.3(2) and is discarded.
+
+---
+
+# CLOSED — VOID. This registration never produced a cost, and it never will
+
+**Closed at `c988825`.** Three calibrated runs, three refusals. **No groom cost is reported from any
+of them**, and none is carried forward. That is what makes this a closure rather than a third
+amendment.
+
+## What it got right, and it is not nothing
+
+- **The nulls passed every time, on every run.** N1 read +0.081 / −0.151, then +0.044 / +0.029, then
+  +0.083 / +0.021 ms, with sign tests inside 1.8σ throughout and census deltas of exactly 0/0.
+  **`visible = false` is measurably indistinguishable from a page that never had a groom**, so §1's
+  primitive is licensed on hardware rather than by argument. N2 and N3 passed alongside it: cost is
+  not a property of which page is asked, and the instrument's own repeat noise is ~0.03 ms.
+- **The refusal fired, three times, exactly as registered.** A calibration gate that has never
+  refused is a decoration. This one is not.
+- **Amendment 2's replacement was validated on a pre-stated three-way test and passed** — 4–7% on
+  shuffled data against an 8% ceiling, p = 0.0005 on a real regime change, quiet on a stable region.
+
+## 🔴 Why it is void rather than amendable: the machine does not have a settled clock
+
+The premise under §3 and N4 was that the machine reaches a clock state and holds it, so a run can be
+placed inside one. **Measured, over 240 ticks, that premise is false.**
+
+```
+bald, one character per tick — F = fast (<10 ms), . = slow
+t  0  ...........................................................F
+t 60  F....FF.FF.FF......FFFF..FFF...F.F.FFF.F....................
+t120  ...........FFFF.FFF.F.......................................
+t180  ............................FFFF.F.F..........FF.FFF...F.F..
+```
+
+- **41 state changes in 240 ticks.** Fast runs are 2–4 ticks long (median 2); the machine never
+  settles for more than ~67 ticks at a stretch.
+- **17.5% of samples fast**, fast p50 **7.212** against slow **13.059** — a **1.81×** ratio.
+- The adaptive warm-up saw two consecutive windows agree to 0.73% and correctly declared the machine
+  settled. It switched anyway, because agreement between two windows is not persistence.
+
+**No warm-up can fix this, and no longer run averages it out.** A drift gate on the reference series
+is therefore not a gate that occasionally fails — it is a gate that will refuse every run this
+machine will ever produce. Keeping it means never reporting a number; loosening it means the third
+amendment in one night, each one after a failure, which is the pattern that empties a registration
+of meaning.
+
+## 🎯 And the characterisation hands over the gate that should have been there
+
+The registration gated on **reference stability**, which is a proxy. What a paired design actually
+requires is that the two members of a pair sit in the **same** clock state — and that is directly
+measurable:
+
+> **Within-pair state agreement, `cardsA-` against `cardsA+` at the same tick: 229/240 = 95.4%.**
+
+That is the property. It was never measured because it was never named, and it is available from
+samples already being collected. §5's median was quietly relying on it the whole time.
+
+⚠️ It also names the residual defect precisely. The 4.6% of pairs that **straddle** a state change
+carry a contamination of roughly the state gap — about 6 ms against a ~2 ms effect. A median
+survives that; a mean does not, and no amount of averaging removes it. **Straddling pairs should be
+detected and dropped, not tolerated.**
+
+## Disclosure carried into v2
+
+I have seen paired costs from the voided runs. **They are not reported here, not carried into v2,
+and v2 draws its numbers from fresh samples only.** What v2 inherits is the machine
+characterisation above — the switching behaviour, the 1.81× ratio, the 95.4% agreement — because
+that is a property of the hardware rather than a result about a groom.
