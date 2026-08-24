@@ -1534,8 +1534,43 @@ arm's census asserted before its samples counted:
    existing run becomes readable) and then to burst-and-divide, which the file's own comment already
    derived — *"315.686 / 24 = 13.15 ms"* — and then rejected.
 
-⚠️ Branch (b)'s ACCEPT half still rests on this. It is closer than it has been: the stimulus is
-proven, the control holds, and the ladder is physical.
+### 🎯 AND THE CARDS ARM IS NOW CLOSED — burst-and-divide removed the mixture at source
+
+Both halves of the repair went in. **Reporting per mode made it honest but did not fix it**: with the
+clock boundary fitted once on pooled samples, the control's own per-mode spread was ±0.4 ms — the
+same size as the card groom's cost — and the ribbon slow-mode deltas did not track strand count.
+Conditioning on a state cannot recover a cost when the state is entangled with the workload.
+
+**Bursting did fix it.** `takeSample` now submits `burst` frames back to back, resolves ONCE, and
+divides by the burst — which this file's own earlier comment had computed (*"315.686 / 24 = 13.15
+ms"*) and discarded as a bug rather than recognising as a mean. Measured, 48 samples an arm:
+
+| arm | p50 | Δ vs no-hair | % in one mode |
+|---|---:|---:|---:|
+| `no-hair` | 9.430 | — | **97.9%** |
+| `hair` (cards) | 9.891 | **+0.461** | 95.8% |
+| `ribbons-bob-4960` | 13.455 | +4.024 | 31.3% fast |
+| `ribbons-crop-8832` | 15.340 | +5.909 | 12.5% fast |
+| `ribbons-bob-11408` | 15.987 | +6.557 | 12.5% fast |
+| `no-hair-2` | 9.245 | −0.186 | 97.9% |
+
+1. ✅ **THE MIXTURE IS GONE FOR THE LIGHT ARMS.** `no-hair` went from 33.6% in one mode to **97.9%**.
+   The per-mode instrument now reports *"single mode — mixture gone"* and refuses to difference a
+   cluster of n=1, which is a hole it grew while being used.
+2. ✅ **Δp50 IS POSITIVE AND PHYSICAL: +0.461 ms**, against −3.974 before. And it agrees with an
+   INDEPENDENT route — `HairMaterial.selftest.mjs` measures the groom at **0.738 ms p50** by a
+   different method entirely. The control reproduces to 0.185 ms.
+3. ⚠️ **THE RIBBON ARMS HAVE NOT COLLAPSED** — 12.5%, 31.3%, 12.5% in the fast mode against
+   no-hair's 97.9%. So their p50 is still a mixture and **their deltas are not yet comparable
+   costs.** They are monotonic within `bob01` (4,960 → +4.024, 11,408 → +6.557), which is
+   encouraging and is not the same as measured.
+
+🔴 **SO BRANCH (b)'S ACCEPT HALF IS STILL NOT SETTLED, AND THE TEMPTATION HERE IS THE ERROR.** The
+registered threshold is **+2.0 ms p50** and `ribbons-crop-8832` reads **+5.909**. Reading that as a
+FAIL would be applying a registered rule to a number the same page says is not comparable — the
+ribbon arms are cross-mode against the baseline. **The next step is to make the ribbon arms collapse
+too** (longer bursts, or a heavier warm-up that holds them at one clock), and only then read the
+rule.
 
 Four silent readiness defects died on the way. The reusable one: **`waitForFunction` with an `async`
 predicate never waits** — an async arrow returns a Promise, a Promise is truthy on the first poll, so

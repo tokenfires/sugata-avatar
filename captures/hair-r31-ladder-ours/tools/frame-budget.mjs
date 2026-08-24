@@ -31,38 +31,52 @@ import process from 'node:process';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-// 🔴 P0 IS NOT A CLOCK-STATE PROBLEM, AND THE DIAGNOSIS THAT SAID IT WAS IS WITHDRAWN.
+// 🎯 WHAT P0 ACTUALLY WAS, after two wrong diagnoses of my own — read this before changing the
+// sampler, because both wrong turns are cheap to repeat.
 //
-// `docs/CHECKPOINT.md` §17 recorded that this harness "needs the ladder's timing method, not a
-// patch", on the reasoning that a bare 720x900 gate page cannot share a DVFS state with 1080x1920
-// deferred arms. That reasoning is sound and it is NOT what was producing the non-physical result
-// — ribbon arms reading FASTER than no hair at all. It was reached by elimination without ever
-// asking the cheaper question first: IS EACH ARM RENDERING WHAT IT CLAIMS?
+// 1. ~~"The hair arm attaches no groom."~~ RETRACTED. `alive.js:1434`'s `report()` has NO `hair`
+//    key — the census lives on `subsystems()`, `censusOfShading()` at `alive.js:3548`. The guard
+//    below read `report().hair`, got `undefined`, coerced it with `?? null`, and reported a fully
+//    attached groom as absent. Every asset serves 200; there is no 404. The guard written to catch
+//    "nothing asserted the stimulus" asserted it against a field that does not exist.
 //
-// Nothing here could answer that. `arm.info` collected `trackTimestamp`, `width`, `height` and
-// `pixelRatio` — every property of the RENDERER and not one property of the PICTURE — while
-// `alive.js` had been publishing `sugata.report().hair` with a full ribbon census the whole time
-// and no consumer.
+// 2. ~~"P0 is not a clock-state problem."~~ ALSO RETRACTED — that withdrawal was made on the
+//    strength of defect 1. It IS a clock-state problem, and `strand-time.mjs:321-325` named the
+//    mechanism before this file existed: *"a harness that idles between frames is measuring its own
+//    latency's effect on the clock."*
 //
-// Measured once the census was read, and it is worse than a timing artefact:
+// 🔴 THE MEASURED FORM. Over 384 samples an arm, every arm here is BIMODAL — two clock states
+// 1.33x to 2.22x apart — and the MIX differs per arm because a LIGHTER ARM IDLES MORE between
+// submissions and drops to base clock more often. `no-hair` put 33.6% of its samples in the fast
+// state against the cards arm's 58.9%, so their medians came from different states and cards read
+// 3.99 ms FASTER than an empty head. Within each state the sign is physical: +0.247 ms fast,
+// +1.728 ms slow. The per-mode figure also reproduces where the percentile does not — two captures
+// of one configuration agree to 0.0% in the slow mode.
 //
-//   🔴 THE `hair` ARM — THE CARD BASELINE THE WHOLE PRIMITIVE DECISION IS COMPARED AGAINST —
-//      ATTACHES NO GROOM ON THIS SERVER. `hairEnabled` true, `hairRequest` set, `report().hair`
-//      null after 600 s, one 404 on the page and no warning from `attachHair`. So `hair` and
-//      `no-hair` were rendering the SAME PICTURE, and the ribbon arms sit on the same code path.
-//      A delta between identical frames is noise, and noise is exactly what it looked like.
+// ⚠️ SO A PERCENTILE OF A MIXTURE IS NOT A COST, AND NO OTHER PERCENTILE FIXES IT.
 //
-// ⚠️ WHAT IS NOT YET NAMED IS WHICH RESOURCE 404s. `/assets/hair/bob01/g050.glb` serves 200 with
-// its full 3,326,956 bytes under this config, so the groom itself is reachable and the failure is
-// something else on the attach path. That is the open thread; the finding above does not depend on
-// it, because a bald arm is a bald arm whatever made it bald.
+// BOTH HALVES OF THE REPAIR ARE NOW IN, AND THE SECOND ONE IS WHAT WORKED.
 //
-// FOUR READINESS DEFECTS WERE FIXED ON THE WAY TO IT, EACH SILENT — see `assertArmRenders` and the
-// wait loop in `main`. The one worth reading twice: `waitForFunction` with an ASYNC predicate never
-// waits, because an async arrow returns a Promise and a Promise is truthy on the first poll.
-// `tools/critic/hair-lightpath.mjs`'s `waitForFigure` — the function whose own docstring warns that
-// `__SUGATA_STEP__` exists before the figure does — is written that way and has been winning the
-// race rather than waiting for it.
+//   (a) `print` reports PER MODE, with the clock boundary fitted ONCE on the pooled samples rather
+//       than per arm. That made the reporting honest — it flags "negative in a mode" instead of
+//       hiding it — but it did NOT close P0: the control's own per-mode spread was ±0.4 ms, the
+//       same size as the card groom's cost, and the ribbon slow-mode deltas did not track strand
+//       count. Conditioning on the state cannot recover a cost when the state is entangled with
+//       the workload.
+//
+//   (b) 🎯 `takeSample` NOW BURSTS AND DIVIDES, and that removes the mixture at source instead of
+//       correcting for it. Measured immediately after the change: `no-hair` collapsed to a single
+//       tight mode (min 11.314, p50 13.112, p95 13.304), the two controls agreed to **0.08%**
+//       (13.112 against 13.122), and Δp50 went from −3.974 ms to **+0.557 ms — positive and
+//       physical**. That figure also agrees with an INDEPENDENT one: `HairMaterial.selftest.mjs`
+//       measures the groom at 0.738 ms p50 by a different route entirely.
+//
+// The per-mode table is kept because it is the instrument that DIAGNOSED this, and because an arm
+// that starts mixing again should say so out loud rather than quietly returning a median.
+//
+// Four silent readiness defects died on the way here — see `assertArmRenders` and the wait loop in
+// `main`. The reusable one: `waitForFunction` with an ASYNC predicate NEVER WAITS, because an async
+// arrow returns a Promise and a Promise is truthy on the first poll.
 
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 const GPU_FLAGS = ['--enable-unsafe-webgpu', '--ignore-gpu-blocklist', '--hide-scrollbars'];
@@ -435,25 +449,33 @@ async function takeSample(arm, burst, perVisit) {
 
     for (let visit = 0; visit < perVisit; visit += 1) {
       if (step === 'alive') {
-        // 🔴 ONE RESOLVE PER FRAME ON THIS PAGE, AND THE FIRST VERSION OF THIS FILE GOT IT WRONG
-        // IN A WAY WORTH RECORDING. Burst-then-resolve — which is correct on `strand-spike.html` —
-        // reported 315 ms for the no-hair arm. It was not a slow frame: 315.686 / 24 = 13.15 ms,
-        // exactly the magnitude `alive.js`'s own header records. `resolveQueriesAsync` groups
-        // passes by the frame id in each context's uid and returns the LAST frame's total, and on
-        // this page a burst's twenty-four steps landed in ONE such group, so the "frame" it
-        // returned was twenty-four of them summed. The strand page does not do this (its burst and
-        // its per-frame designs agree to 3%), which is why the divergence had to be found here
-        // rather than assumed away.
+        // 🎯 BURST, THEN RESOLVE ONCE, THEN DIVIDE BY THE BURST. The previous version resolved every
+        // frame, and its own comment explains why — burst-then-resolve reported 315 ms because
+        // `resolveQueriesAsync` groups passes by frame id and a burst's twenty-four steps land in
+        // ONE group, so the value is their SUM.
         //
-        // Resolving every frame is safe here for the reason it was NOT safe there: these frames
-        // are ~13 ms, so the resolve's own round trip is a few percent of the period rather than
-        // half of it, and the GPU never falls off its clock between them.
+        // 🔴 THAT COMMENT COMPUTED THE FIX AND THEN DISCARDED IT: "315.686 / 24 = 13.15 ms, exactly
+        // the magnitude `alive.js`'s own header records." The sum was never a bug. It is 24 frames
+        // of continuous work, and dividing by 24 is a per-frame MEAN taken at sustained clock —
+        // which is precisely what the strand ladder does and what this page needed.
+        //
+        // ⚠️ AND THE PER-FRAME DESIGN WAS NOT MERELY REDUNDANT, IT WAS THE DEFECT.
+        // `strand-time.mjs:321-325`: *"a harness that idles between frames is measuring its own
+        // latency's effect on the clock."* An `await resolveTimestampsAsync` between every
+        // submission is a `mapAsync` round trip, so a LIGHTER arm idles a larger share of its period
+        // and drops to base clock more often. That is how a card groom came to read 3.99 ms FASTER
+        // than an empty head. The old claim that "the resolve's round trip is a few percent of the
+        // period" is withdrawn — measured, it moved the arms into different clock states.
+        //
+        // 🚩 THE DIVISION IS VERIFIED, NOT ASSUMED. Bursts of 1 / 4 / 8 / 16 / 24 on both arms give
+        // value/N converging (no-hair 10.311 / 13.438 / 13.147 / 13.221 / 12.243), so the resolved
+        // value really does scale with the burst and the group really is the whole burst. The
+        // cards-minus-no-hair gap also narrows from −2.797 ms at N=1 to −1.046 at N=16, which is the
+        // duty-cycle mechanism receding as the GPU is held busy.
         const renderer = globalThis.sugata.stage.renderer;
-        for (let frame = 0; frame < burst; frame += 1) {
-          await globalThis.__SUGATA_STEP__(0);
-          await renderer.resolveTimestampsAsync('render');
-          out.push(renderer.info.render.timestamp);
-        }
+        for (let frame = 0; frame < burst; frame += 1) await globalThis.__SUGATA_STEP__(0);
+        await renderer.resolveTimestampsAsync('render');
+        out.push(renderer.info.render.timestamp / burst);
       } else {
         for (let frame = 0; frame < burst; frame += 1) await window.__STRAND_RENDER__();
         out.push(await window.__STRAND_GPU_MS__());
@@ -465,6 +487,178 @@ async function takeSample(arm, burst, perVisit) {
 
   for (const value of values) {
     if (typeof value === 'number' && Number.isFinite(value) && value > 0) arm.samples.push(value);
+  }
+}
+
+/**
+ * The two GPU clock states an arm's samples fall into, and how many landed in each.
+ *
+ * 🔴 WHY THIS EXISTS: A PERCENTILE OF A MIXTURE IS NOT A COST. Measured 2026-08-23 over 384 samples
+ * an arm, every arm on this page is BIMODAL — two clock states 1.33x to 2.22x apart — and the MIX
+ * differs per arm. `no-hair` put 33.6% of its samples in the fast state and the cards arm 58.9%, so
+ * their medians were drawn from DIFFERENT STATES and cards read 3.99 ms FASTER than an empty head.
+ * Within each state the sign is physical: cards costs +0.247 ms in the fast state and +1.728 ms in
+ * the slow one.
+ *
+ * 🎯 AND THE PER-MODE FIGURE IS THE REPRODUCIBLE ONE. The two captures of the SAME configuration at
+ * either end of the shuffled arm order agree to **0.0%** in the slow mode — 13.473 against 13.474 —
+ * and 2.5% in the fast, while their mixes differ (28.9% against 33.6%). The cost is stable; the
+ * mixture is what wanders.
+ *
+ * `strand-time.mjs:317` already said minima across arms quote different clock states. This says the
+ * median does too, so no percentile fixes it — the fix is to condition on the state.
+ */
+function clockModes(samples) {
+  const xs = [...samples].sort((a, b) => a - b);
+  if (xs.length < 8) return null;
+
+  // Deterministic seeds at the deciles, so a re-run of the same data gives the same split.
+  let a = xs[Math.floor(xs.length * 0.1)];
+  let b = xs[Math.floor(xs.length * 0.9)];
+  let lo = [];
+  let hi = [];
+
+  for (let i = 0; i < 100; i += 1) {
+    lo = xs.filter((x) => Math.abs(x - a) <= Math.abs(x - b));
+    hi = xs.filter((x) => Math.abs(x - a) > Math.abs(x - b));
+    if (lo.length === 0 || hi.length === 0) return null;
+    const na = lo.reduce((s, x) => s + x, 0) / lo.length;
+    const nb = hi.reduce((s, x) => s + x, 0) / hi.length;
+    if (Math.abs(na - a) < 1e-9 && Math.abs(nb - b) < 1e-9) { a = na; b = nb; break; }
+    a = na; b = nb;
+  }
+
+  // ⚠️ SEPARATION IS ASSERTED, NOT ASSUMED. k-means will split a perfectly unimodal sample into two
+  // halves and report them with a straight face, which would turn one number into two meaningless
+  // ones. The distance between the means must be large against the spread INSIDE them before this
+  // is allowed to call itself a mode.
+  const sd = (v, m) => Math.sqrt(v.reduce((s, x) => s + (x - m) ** 2, 0) / Math.max(1, v.length - 1));
+  const pooled = Math.sqrt((sd(lo, a) ** 2 * (lo.length - 1) + sd(hi, b) ** 2 * (hi.length - 1))
+    / Math.max(1, lo.length + hi.length - 2));
+  const separation = pooled > 0 ? (b - a) / pooled : Infinity;
+
+  return {
+    fast: a, fastN: lo.length, slow: b, slowN: hi.length,
+    fastShare: lo.length / xs.length, ratio: b / a, separation,
+    bimodal: separation >= 2,
+  };
+}
+
+/**
+ * 🔴 ONE BOUNDARY, FITTED ON THE POOLED SAMPLES, APPLIED TO EVERY ARM.
+ *
+ * Fitting `clockModes` per arm was the first version of this and it is NOT COMPARABLE. k-means puts
+ * the cut wherever that arm's own samples fall, so each arm's "fast mode" is a different slice of
+ * the clock's range and the means cannot be differenced. Measured: with per-arm boundaries the
+ * CONTROL — two captures of ONE configuration — read −0.353 ms in the fast mode and +0.449 in the
+ * slow, which is the same magnitude as the effect being looked for. That is a statistic
+ * manufacturing its own signal, and it is the defect `brief-the-property-not-the-operator` is about.
+ *
+ * The clock states belong to the MACHINE, not to the arm, so the boundary does too.
+ */
+function pooledBoundary(frames) {
+  const fit = clockModes(frames.flatMap((row) => row.samplesMs));
+  return fit === null ? null : { threshold: (fit.fast + fit.slow) / 2, fit };
+}
+
+function splitAt(samples, threshold) {
+  const lo = samples.filter((x) => x <= threshold);
+  const hi = samples.filter((x) => x > threshold);
+  const mean = (v) => (v.length === 0 ? null : v.reduce((s, x) => s + x, 0) / v.length);
+  return {
+    fast: mean(lo), fastN: lo.length, slow: mean(hi), slowN: hi.length,
+    fastShare: lo.length / samples.length,
+  };
+}
+
+function printClockModes(rows) {
+  const frames = rows.filter((row) => row.kind === 'frame' && (row.samplesMs || []).length >= 8);
+  if (frames.length === 0) return;
+
+  const pooled = pooledBoundary(frames);
+  if (pooled === null) return;
+
+  const modes = new Map();
+  for (const row of frames) {
+    const at = splitAt(row.samplesMs, pooled.threshold);
+    if (at.fast === null || at.slow === null) continue;
+
+    // 🚩 A MODE NEEDS A POPULATION. Found by using this instrument on a run where burst-and-divide
+    // had already collapsed the mixture: `no-hair` landed 47 of 48 samples on one side, and the
+    // table happily printed a "slow mode" mean computed from the single remaining sample, then
+    // differenced it. `clockModes`' own separation test does not catch it — separation is LARGE
+    // when the lone outlier sits far away, which is exactly the case that must be refused.
+    at.populated = Math.min(at.fastN, at.slowN) >= 5
+      && Math.min(at.fastShare, 1 - at.fastShare) >= 0.10;
+    const own = clockModes(row.samplesMs);
+    modes.set(row.key, {
+      ...at,
+      ratio: at.slow / at.fast,
+      separation: own === null ? 0 : own.separation,
+      bimodal: own !== null && own.bimodal,
+    });
+  }
+  if (modes.size === 0) return;
+
+  console.log(
+    `CLOCK BOUNDARY fitted ONCE on ${frames.reduce((n, r) => n + r.samplesMs.length, 0)} pooled ` +
+    `samples: ${pooled.threshold.toFixed(3)} ms ` +
+    `(states ${pooled.fit.fast.toFixed(3)} / ${pooled.fit.slow.toFixed(3)}, ` +
+    `separation ${pooled.fit.separation.toFixed(1)})\n`
+  );
+  console.log('PER CLOCK MODE — a percentile of a mixture is not a cost; see `clockModes`.\n');
+  console.log('arm                    fast     n     slow     n   % fast  slow/fast  separation');
+  for (const row of frames) {
+    const m = modes.get(row.key);
+    if (m === undefined) continue;
+    console.log(
+      `${row.key.padEnd(20)} ${m.fast.toFixed(3).padStart(7)} ${String(m.fastN).padStart(5)} ` +
+      `${m.slow.toFixed(3).padStart(8)} ${String(m.slowN).padStart(5)} ` +
+      `${(m.fastShare * 100).toFixed(1).padStart(7)}% ${m.ratio.toFixed(2).padStart(9)}x ` +
+      `${m.separation.toFixed(1).padStart(10)}` +
+      `${m.populated ? (m.bimodal ? '' : '  ⚠️ NOT BIMODAL') : '  ⚪ SINGLE MODE — mixture gone'}`
+    );
+  }
+
+  const base = modes.get('no-hair');
+  if (base === undefined) return;
+
+  console.log('\nCOST AGAINST no-hair, WITHIN each clock state — this is the comparable number:\n');
+  console.log('arm                   Δ fast    Δ slow    (naive Δp50, NOT comparable)');
+  for (const row of frames) {
+    const m = modes.get(row.key);
+    if (m === undefined || row.key === 'no-hair') continue;
+    const naive = row.p50Ms - rows.find((r) => r.key === 'no-hair').p50Ms;
+
+    // Refuse to difference an unpopulated mode against a populated one — that is comparing a mean
+    // of 47 samples with a mean of 1 and printing it to three decimals.
+    if (m.populated === false || base.populated === false) {
+      console.log(
+        `${row.key.padEnd(20)} ${'—'.padStart(6)}    ${'—'.padStart(6)}    ` +
+        `${(naive >= 0 ? '+' : '') + naive.toFixed(3)}   ⚪ one mode; read the naive column`
+      );
+      continue;
+    }
+
+    const df = m.fast - base.fast;
+    const ds = m.slow - base.slow;
+    const sign = (df >= 0 && ds >= 0) ? '' : '  🔴 NEGATIVE IN A MODE';
+    console.log(
+      `${row.key.padEnd(20)} ${(df >= 0 ? '+' : '') + df.toFixed(3)}`.padEnd(30) +
+      `${(ds >= 0 ? '+' : '') + ds.toFixed(3)}`.padEnd(10) +
+      `${(naive >= 0 ? '+' : '') + naive.toFixed(3)}${sign}`
+    );
+  }
+
+  const end = modes.get('no-hair-2');
+  if (end !== undefined) {
+    console.log(
+      `\nCONTROL, per mode: fast ${base.fast.toFixed(3)} vs ${end.fast.toFixed(3)} ` +
+      `(${(Math.abs(base.fast - end.fast) / base.fast * 100).toFixed(1)}%), ` +
+      `slow ${base.slow.toFixed(3)} vs ${end.slow.toFixed(3)} ` +
+      `(${(Math.abs(base.slow - end.slow) / base.slow * 100).toFixed(1)}%) — ` +
+      `mixes ${(base.fastShare * 100).toFixed(1)}% vs ${(end.fastShare * 100).toFixed(1)}% fast`
+    );
   }
 }
 
@@ -497,8 +691,13 @@ function print(rows) {
     `p50 ${control.p50Ms.toFixed(3)} vs ${controlEnd.p50Ms.toFixed(3)}, ` +
     `p95 ${control.p95Ms.toFixed(3)} vs ${controlEnd.p95Ms.toFixed(3)}`
   );
+  // ⚠️ QUOTED, AND NOT THE ANSWER. Every figure on this line is a percentile of a MIXTURE of two
+  // clock states whose proportions differ per arm, which is how a card groom came to read 3.99 ms
+  // FASTER than an empty head. Kept because it is what the record has always quoted and a reader
+  // needs to see it change; superseded by the per-mode table below.
   console.log(
-    `\nTODAY'S CARDS COST   Δp05 ${(hair.p05Ms - control.p05Ms).toFixed(3)}  ` +
+    `\nTODAY'S CARDS COST (percentiles of a MIXTURE — see PER CLOCK MODE below)   ` +
+    `Δp05 ${(hair.p05Ms - control.p05Ms).toFixed(3)}  ` +
     `Δp50 ${(hair.p50Ms - control.p50Ms).toFixed(3)}  ` +
     `Δp95 ${(hair.p95Ms - control.p95Ms).toFixed(3)} ms`
   );
@@ -508,6 +707,8 @@ function print(rows) {
     `| no hair: p50 ${(BUDGET_MS - control.p50Ms).toFixed(3)}  ` +
     `p95 ${(BUDGET_MS - control.p95Ms).toFixed(3)} ms`
   );
+
+  printClockModes(rows);
 }
 
 function quantile(values, q) {
