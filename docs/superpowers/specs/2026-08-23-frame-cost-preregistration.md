@@ -169,3 +169,54 @@ yardstick.**
   **NOT COMPARABLE**, and no delta between them is printed.
 - CI spanning zero → **NOT RESOLVED**.
 - The five constants in §2–§3 moving after the first new sample → **the round is void.**
+
+---
+
+# Amendment 1 — a specification defect in §2's drift gate, and the rule that decides it
+
+**Written at `e7e02c7`, BEFORE the deciding measurement is taken.** Ordering is checkable in git:
+this amendment is committed on its own, and the analysis it authorises lands in a later commit.
+
+## What happened
+
+The first calibrated run (200 ticks, `cards` arm set) **voided itself**. All four nulls passed —
+N1 reads +0.081 and −0.151 ms, so `visible = false` is measurably indistinguishable from a page that
+never had a groom, and the primitive is licensed on hardware. N4 failed: `cardsA-`'s hidden p50 ran
+13.078 → 12.821 across the run, a **2.00%** drift against a 2% ceiling.
+
+## The defect
+
+`REFERENCE_TOLERANCE` was registered for one job and then used for two:
+
+1. **Cross-arm comparability.** Two arms measured against different clock states cannot be
+   differenced. 2% is the right ceiling and it stays.
+2. **Within-run drift, gating the PAIRED cost.** This is the misuse. **A paired statistic is
+   drift-immune by construction** — both members of a pair are one frame apart, so a slow wander in
+   the machine's clock is common-mode and cancels in the subtraction. Gating the paired cost on the
+   reference's stability re-imports the very confound the pairing was built to remove.
+
+Conflating them means the instrument refuses runs it is designed to survive.
+
+## 🔴 The rule, fixed before the numbers are read
+
+The claim "drift is common-mode, so the paired cost survives it" is testable **on the run that
+already voided**, and it decides the amendment:
+
+> Split the completed run into first, middle and last third. Compute the paired cost separately in
+> each. The reference is known to have moved 2.00% across those thirds.
+>
+> - **If the three thirds agree within `REPLICATE_TOLERANCE` (10%)** — drift is demonstrably
+>   common-mode, the paired cost is shown to be immune to it on real data, and the gate SPLITS:
+>   `REFERENCE_TOLERANCE` continues to gate cross-arm comparability, and within-run drift becomes
+>   **reported but not disqualifying** for a paired cost.
+> - **If they disagree by more than 10%** — drift is NOT common-mode, the gate was right, and the
+>   answer is a shorter run or a heavier warm-up. **The threshold does not move in this branch
+>   either.**
+
+Either way `NULL_MAX_MS`, `NULL_SIGN_Z`, `REFERENCE_TOLERANCE` and `REPLICATE_TOLERANCE` keep the
+values registered above. This amendment changes **what the drift number disqualifies**, not what
+counts as drift, and it is decided by a measurement rather than by preference.
+
+⚠️ **Disclosure.** I have seen that the run voided and on which gate. I have **not** looked at any
+cost from it — the tool computes costs into the JSON but refuses to print them when calibration
+fails, and I have not opened that file. The rule above is written against that ignorance on purpose.
