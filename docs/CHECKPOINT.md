@@ -1508,10 +1508,31 @@ arm's census asserted before its samples counted:
    noise-dominated, which it demonstrably was before.
 2. ✅ **AND THE RIBBON LADDER IS MONOTONIC IN STRAND COUNT** — 4,960 → 9.722, 8,832 → 14.398,
    11,408 → 17.081 ms. That is a physical curve and it is the first one this harness has produced.
-3. 🔴 **THE `no-hair` BASELINE IS THE ANOMALOUS ARM.** Cards read **3.99 ms FASTER** than no hair at
-   p50, and 3.1× faster at the minimum. Adding a groom cannot make a frame cheaper. **So the defect
-   is now localised to one arm rather than spread across the method** — which is a much smaller
-   question than the one §17 posed, and it is the next thing to name.
+3. ✅ **AND THE `no-hair` ANOMALY IS NAMED — it is a MIXTURE, not a cost.** Full analysis:
+   `captures/hair-r31-ladder-ours/data/no-hair-anomaly-2026-08-23.md`.
+
+   Every arm is **bimodal**, two GPU clock states 1.33–2.22× apart, fitted by k-means on the 384
+   samples. **Within each mode the sign is physical** — cards costs **+0.247 ms** in the fast mode
+   and **+1.728 ms** in the slow one. The p50 inverts only because **58.9%** of the cards samples
+   sit in the fast mode against **33.6%** of no-hair's, so the two medians are drawn from different
+   clock states. A median across a mixture that varies per arm reports which state the arm sat in,
+   not what it cost.
+
+   🎯 **The per-mode statistic is the reproducible one.** The control's two captures agree to
+   **0.0%** in the slow mode (13.473 vs 13.474) and 2.5% in the fast. It is the MIXTURE that
+   wanders — 28.9% against 33.6% for one configuration.
+
+   🔴 **THE MECHANISM IS DUTY CYCLE, AND THIS HARNESS REINTRODUCED A DESIGN THE LADDER HAD ALREADY
+   REFUTED.** `strand-time.mjs:321-325`, written first: *"a harness that idles between frames is
+   measuring its own latency's effect on the clock."* `frame-budget.mjs` resolves timestamps ONCE
+   PER FRAME — a `mapAsync` round trip between every submission — and **a lighter arm idles more**,
+   so it drops to base clock more often and reports the longer frame. Measured: bursting frames back
+   to back narrows the cards-vs-no-hair gap from **2.797 ms at N=1 to 1.046 ms at N=16**.
+
+   ⚠️ It does not fully invert at six reps, so duty cycle is confirmed as **a** cause and not yet
+   demonstrated to be the only one. The fix is to report **per mode** (no re-capture needed; the
+   existing run becomes readable) and then to burst-and-divide, which the file's own comment already
+   derived — *"315.686 / 24 = 13.15 ms"* — and then rejected.
 
 ⚠️ Branch (b)'s ACCEPT half still rests on this. It is closer than it has been: the stimulus is
 proven, the control holds, and the ladder is physical.
@@ -1556,10 +1577,10 @@ present?"* but **"has this experiment already been run?"**
 1. **P0's timing method.** The 404 is named — there was none; see the retraction above. The harness
    now verifies every arm's stimulus, so what remains is the interleaved single-page design: toggle
    the groom inside one running page, A/B/A/B, N cycles after M warm-up toggles, so both halves of a
-   pair share the immediately preceding clock state **by construction**. ⚠️ But take the smaller
-   question first: at 384 samples the control reproduces to 0.7% and the ribbon ladder is monotonic,
-   so the defect is localised to the **`no-hair` arm reading 3.99 ms slower than cards**. Name that
-   before rebuilding the method.
+   pair share the immediately preceding clock state **by construction**. ⚠️ But the cheap half comes
+   first and needs no re-capture: **report per clock mode.** The clusters are clean, the per-mode
+   control agrees to 0.0%, and the sign is already physical — the existing 384-sample run becomes
+   readable by changing the reporting alone. Then burst-and-divide.
 2. **The fibre and the per-channel `T_f`.** The only surviving route to "muddy", and it is a
    material change. `ā_f` is derived and bounded.
 3. **`rim.irradiance` per preset.** REQ-063's rejection defines this: the rim's *job* is backdrop
