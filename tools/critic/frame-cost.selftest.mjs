@@ -319,40 +319,40 @@ function testTheScheduleIsBalanced() {
   ];
   const TICKS = 120;
 
-  const firstSlot = new Map();
   const armFirst = new Map();
-  const beforeWithinArm = new Map();
+  const leads = new Map();
   for (let tick = 0; tick < TICKS; tick += 1) {
     const schedule = tickSchedule(arms, tick);
-    firstSlot.set(schedule[0].key, (firstSlot.get(schedule[0].key) ?? 0) + 1);
     armFirst.set(schedule[0].arm, (armFirst.get(schedule[0].arm) ?? 0) + 1);
-    for (const arm of arms) {
-      if (arm.conditions.length < 2) continue;
-      const own = schedule.filter((step) => step.arm === arm.key);
-      beforeWithinArm.set(own[0].key, (beforeWithinArm.get(own[0].key) ?? 0) + 1);
+    for (const group of schedule) {
+      leads.set(group.steps[0].key, (leads.get(group.steps[0].key) ?? 0) + 1);
     }
   }
 
   // 🔴 WITHIN AN ARM, `shown` AND `hidden` MUST EACH LEAD EXACTLY HALF THE TIME. This is the control
   // on the position effect that read +1.77 ms between two captures of one configuration.
-  const shownLeads = beforeWithinArm.get('cardsA+') ?? 0;
-  const hiddenLeads = beforeWithinArm.get('cardsA-') ?? 0;
   record('within an arm, shown and hidden each lead exactly half the ticks',
-    shownLeads === TICKS / 2 && hiddenLeads === TICKS / 2,
-    `cardsA+ leads ${shownLeads}, cardsA- leads ${hiddenLeads} of ${TICKS} — exact, not approximate`);
+    leads.get('cardsA+') === TICKS / 2 && leads.get('cardsA-') === TICKS / 2,
+    `cardsA+ leads ${leads.get('cardsA+')}, cardsA- leads ${leads.get('cardsA-')} of ${TICKS} — exact`);
 
-  // Arm rotation: each arm owns the first position an equal share.
   const counts = [...armFirst.values()];
   record('no arm permanently owns the first position',
     armFirst.size === arms.length && Math.max(...counts) - Math.min(...counts) === 0,
     `${[...armFirst].map(([k, v]) => `${k}:${v}`).join(' ')} of ${TICKS} ticks`);
 
-  // Every condition is sampled exactly once per tick, or the pairing is silently unbalanced.
+  // 🎯 THE SCHEDULE GROUPS BY ARM SO EACH ARM'S CONDITIONS GO IN ONE `page.evaluate`. A pair split
+  // across two round trips is a pair with a Node↔browser gap between its members, and on a machine
+  // that switches clock state every few ticks that gap is what breaks pair integrity.
   const oneTick = tickSchedule(arms, 0);
-  const unique = new Set(oneTick.map((step) => step.key));
+  record('an arm\'s conditions are grouped, not interleaved with other arms',
+    oneTick.length === 3 && oneTick.every((group) => group.steps.every((step) => step.key.startsWith(group.arm)
+      || group.arm === 'bald')),
+    `${oneTick.length} groups: ${oneTick.map((g) => `${g.arm}[${g.steps.map((s) => s.key).join(',')}]`).join(' ')}`);
+
+  const everyKey = oneTick.flatMap((group) => group.steps.map((step) => step.key));
   record('every condition appears exactly once per tick',
-    unique.size === oneTick.length && oneTick.length === 5,
-    `${oneTick.length} conditions, ${unique.size} distinct — a duplicate would pair a tick with itself`);
+    new Set(everyKey).size === everyKey.length && everyKey.length === 5,
+    `${everyKey.length} conditions, ${new Set(everyKey).size} distinct — a duplicate would pair a tick with itself`);
 }
 
 function testPairingIgnoresUnmatchedTicks() {

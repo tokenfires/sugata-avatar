@@ -474,24 +474,46 @@ export function driftByPermutation(samples, permutations = DRIFT_PERMUTATIONS, s
  * are read before and after ONE step and differenced. (The same freeze is why `info.frame` is
  * constant, which is why a burst's passes all land in one timestamp group.)
  */
-async function sampleOnce(page, visible) {
+/**
+ * Every condition an arm needs this tick, in ONE `page.evaluate`, as back-to-back frames.
+ *
+ * 🔴 ONE ROUND TRIP PER ARM, NOT ONE PER SAMPLE, AND THE DIFFERENCE IS PAIR INTEGRITY. A pair's two
+ * members must sit in the same GPU clock state for the pairing to buy anything, and this machine
+ * switches state every few ticks. With a separate `evaluate` per sample, the two members of a pair
+ * are separated by a full Node↔browser round trip; batched, they are adjacent frames on the page.
+ *
+ * ⚠️ Measured before the change: 82.9% integrity against an 85% floor, on a run whose fast state
+ * held ~45% of samples (an earlier run at 17.5% fast read 95.4%). The more the machine switches, the
+ * more the gap between a pair's two reads costs — so the gap is what shrinks.
+ *
+ * The census is still differenced across each individual step; `info.render.drawCalls` and
+ * `.triangles` are CUMULATIVE on this page, because `?capture` stops the animation loop and
+ * `Animation.js:75` is the only caller of `info.reset()`.
+ */
+async function sampleSequence(page, visibilities) {
   return page.evaluate(async (wanted) => {
     const renderer = globalThis.sugata.stage.renderer;
     const meshes = globalThis.sugata.session?.hair?.meshes ?? [];
-    if (wanted !== null) for (const mesh of meshes) mesh.visible = wanted;
+    const out = [];
 
-    const drawsBefore = renderer.info.render.drawCalls;
-    const trianglesBefore = renderer.info.render.triangles;
+    for (const visible of wanted) {
+      if (visible !== null) for (const mesh of meshes) mesh.visible = visible;
 
-    await globalThis.__SUGATA_STEP__(0);
-    await renderer.resolveTimestampsAsync('render');
+      const drawsBefore = renderer.info.render.drawCalls;
+      const trianglesBefore = renderer.info.render.triangles;
 
-    return {
-      ms: renderer.info.render.timestamp,
-      draws: renderer.info.render.drawCalls - drawsBefore,
-      triangles: renderer.info.render.triangles - trianglesBefore,
-    };
-  }, visible);
+      await globalThis.__SUGATA_STEP__(0);
+      await renderer.resolveTimestampsAsync('render');
+
+      out.push({
+        ms: renderer.info.render.timestamp,
+        draws: renderer.info.render.drawCalls - drawsBefore,
+        triangles: renderer.info.render.triangles - trianglesBefore,
+      });
+    }
+
+    return out;
+  }, visibilities);
 }
 
 /**
@@ -619,13 +641,11 @@ function assertArmMatchesItsLabel(arm, census) {
  */
 export function tickSchedule(arms, tick) {
   const rotated = arms.map((_, index) => arms[(index + tick) % arms.length]);
-  const schedule = [];
-  for (const arm of rotated) {
+  return rotated.map((arm) => {
     const conditions = arm.conditions.slice();
     if (tick % 2 === 1) conditions.reverse();
-    for (const condition of conditions) schedule.push({ arm: arm.key, ...condition });
-  }
-  return schedule;
+    return { arm: arm.key, steps: conditions.map((condition) => ({ ...condition })) };
+  });
 }
 
 async function main() {
@@ -701,9 +721,12 @@ async function main() {
     for (let window = 0; window * WARMUP_WINDOW_TICKS < options.warmupCap; window += 1) {
       const readings = [];
       for (let tick = 0; tick < WARMUP_WINDOW_TICKS; tick += 1) {
-        for (const step of tickSchedule(definitions, warmed + tick)) {
-          const reading = await sampleOnce(pageOfDefinition(definitions, step.arm), step.visible);
-          if (step.key === probeCondition.key) readings.push(reading.ms);
+        for (const group of tickSchedule(definitions, warmed + tick)) {
+          const values = await sampleSequence(pageOfDefinition(definitions, group.arm),
+            group.steps.map((step) => step.visible));
+          group.steps.forEach((step, index) => {
+            if (step.key === probeCondition.key) readings.push(values[index].ms);
+          });
         }
       }
       warmed += WARMUP_WINDOW_TICKS;
@@ -727,10 +750,13 @@ async function main() {
     const byCondition = new Map();
 
     for (let tick = 0; tick < options.ticks; tick += 1) {
-      for (const step of tickSchedule(definitions, tick)) {
-        const reading = await sampleOnce(pageOfDefinition(definitions, step.arm), step.visible);
-        if (byCondition.has(step.key) === false) byCondition.set(step.key, []);
-        byCondition.get(step.key).push({ tick, ...reading });
+      for (const group of tickSchedule(definitions, tick)) {
+        const values = await sampleSequence(pageOfDefinition(definitions, group.arm),
+          group.steps.map((step) => step.visible));
+        group.steps.forEach((step, index) => {
+          if (byCondition.has(step.key) === false) byCondition.set(step.key, []);
+          byCondition.get(step.key).push({ tick, ...values[index] });
+        });
       }
       if ((tick + 1) % 25 === 0) console.log(`          tick ${tick + 1}/${options.ticks}`);
     }
