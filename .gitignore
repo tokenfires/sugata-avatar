@@ -64,6 +64,16 @@ tools/figure-pipeline/.cache/
 /captures/hair-r33-*/**/*.jpg
 /captures/hair-r33-*/**/*.jpeg
 
+# R34, `frame-cost.mjs`. There are no plates here at all — this round is timings — so the rule is
+# the same one for a different reason: the JSON carries every raw sample, which is what lets a reader
+# recompute the paired medians, the sign tests and the state classification instead of trusting the
+# table. The write-up quotes numbers; the data is how they are checked.
+!/captures/hair-r34-*/
+!/captures/hair-r34-*/**
+/captures/hair-r34-*/**/*.png
+/captures/hair-r34-*/**/*.jpg
+/captures/hair-r34-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact

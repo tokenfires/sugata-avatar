@@ -1,0 +1,9044 @@
+{
+  "tool": "tools/critic/frame-cost.mjs",
+  "registration": "docs/superpowers/specs/2026-08-24-frame-cost-v2-preregistration.md",
+  "generatedAt": "2026-08-24T12:38:46.422Z",
+  "headSha": "40410a4",
+  "viewport": {
+    "width": 1080,
+    "height": 1920
+  },
+  "ticks": 200,
+  "warmupTicks": 80,
+  "armSet": "ribbons",
+  "calibration": {
+    "passed": false,
+    "boundary": {
+      "threshold": 12.292863236094702,
+      "fast": 7.598894892292499,
+      "slow": 16.986831579896904,
+      "separation": 3.310020840895266,
+      "ratio": 2.2354344704947184
+    },
+    "nulls": [
+      {
+        "label": "N1 crop8832- vs bald",
+        "n": 174,
+        "p50": 0.16932600000000253,
+        "mean": 0.11061609195402315,
+        "sign": {
+          "n": 174,
+          "positive": 103,
+          "fraction": 0.5919540229885057,
+          "z": 2.425913739452491
+        },
+        "ci": {
+          "low": 0.04557849999999952,
+          "high": 0.32808150000000014,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": false,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.87,
+        "straddled": 26,
+        "states": {
+          "fast": {
+            "label": "N1 crop8832- vs bald · fast",
+            "n": 171,
+            "p50": 0.17257300000000164,
+            "mean": 0.10862695321637444,
+            "sign": {
+              "n": 171,
+              "positive": 102,
+              "fraction": 0.5964912280701754,
+              "z": 2.5235730725761787
+            },
+            "ci": {
+              "low": 0.053614000000000495,
+              "high": 0.3300379999999983,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": false,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      },
+      {
+        "label": "N1 bob4960- vs bald",
+        "n": 176,
+        "p50": 0.07301899999999995,
+        "mean": -0.058064034090908836,
+        "sign": {
+          "n": 176,
+          "positive": 98,
+          "fraction": 0.5568181818181818,
+          "z": 1.5075567228888167
+        },
+        "ci": {
+          "low": -0.052519500000000274,
+          "high": 0.2027325000000011,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": true,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.88,
+        "straddled": 24,
+        "states": {
+          "fast": {
+            "label": "N1 bob4960- vs bald · fast",
+            "n": 175,
+            "p50": 0.07303900000000052,
+            "mean": -0.05678255428571404,
+            "sign": {
+              "n": 175,
+              "positive": 98,
+              "fraction": 0.56,
+              "z": 1.587450786638756
+            },
+            "ci": {
+              "low": -0.045749000000000706,
+              "high": 0.2059620000000013,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": true,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      },
+      {
+        "label": "N1 bob11408- vs bald",
+        "n": 178,
+        "p50": -0.11114699999999811,
+        "mean": -0.3627494943820224,
+        "sign": {
+          "n": 178,
+          "positive": 74,
+          "fraction": 0.4157303370786517,
+          "z": 2.248595066987584
+        },
+        "ci": {
+          "low": -0.2557505124999967,
+          "high": -0.02249899999999716,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": false,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.89,
+        "straddled": 22,
+        "states": {
+          "fast": {
+            "label": "N1 bob11408- vs bald · fast",
+            "n": 176,
+            "p50": -0.11874899999999489,
+            "mean": -0.3716687443181818,
+            "sign": {
+              "n": 176,
+              "positive": 72,
+              "fraction": 0.4090909090909091,
+              "z": 2.412090756622108
+            },
+            "ci": {
+              "low": -0.28963587499999943,
+              "high": -0.024585499999999705,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": false,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      },
+      {
+        "label": "N2 bob4960- vs crop8832-",
+        "n": 162,
+        "p50": 0.16760249999999832,
+        "mean": 0.19278169753086435,
+        "sign": {
+          "n": 162,
+          "positive": 92,
+          "fraction": 0.5679012345679012,
+          "z": 1.7284832429004489
+        },
+        "ci": {
+          "low": -0.0054209999999965675,
+          "high": 0.34390899999999913,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": true,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.81,
+        "straddled": 38,
+        "states": {
+          "fast": {
+            "label": "N2 bob4960- vs crop8832- · fast",
+            "n": 161,
+            "p50": 0.16982999999999748,
+            "mean": 0.1943752732919256,
+            "sign": {
+              "n": 161,
+              "positive": 92,
+              "fraction": 0.5714285714285714,
+              "z": 1.8126539343499308
+            },
+            "ci": {
+              "low": -0.004074524999999709,
+              "high": 0.34390899999999913,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": true,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      },
+      {
+        "label": "N2 bob11408- vs crop8832-",
+        "n": 162,
+        "p50": -0.10904050000000076,
+        "mean": -0.11578056790123459,
+        "sign": {
+          "n": 162,
+          "positive": 72,
+          "fraction": 0.4444444444444444,
+          "z": 1.4142135623730958
+        },
+        "ci": {
+          "low": -0.3674079999999984,
+          "high": 0.10245899999999963,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": true,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.81,
+        "straddled": 38,
+        "states": {
+          "fast": {
+            "label": "N2 bob11408- vs crop8832- · fast",
+            "n": 161,
+            "p50": -0.12150000000000016,
+            "mean": -0.1226111739130435,
+            "sign": {
+              "n": 161,
+              "positive": 71,
+              "fraction": 0.4409937888198758,
+              "z": 1.4974097718542914
+            },
+            "ci": {
+              "low": -0.3674079999999984,
+              "high": 0.09628999999999976,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": true,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      },
+      {
+        "label": "N2 bob11408- vs bob4960-",
+        "n": 172,
+        "p50": -0.0027919999999994616,
+        "mean": -0.008530127906976931,
+        "sign": {
+          "n": 172,
+          "positive": 85,
+          "fraction": 0.4941860465116279,
+          "z": 0.15249857033260494
+        },
+        "ci": {
+          "low": -0.18574599999999908,
+          "high": 0.13470249999999906,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": true,
+        "censusDeltas": [
+          {
+            "draws": 0,
+            "triangles": 0
+          }
+        ],
+        "passed": true,
+        "reasons": [],
+        "integrity": 0.86,
+        "straddled": 28,
+        "states": {
+          "fast": {
+            "label": "N2 bob11408- vs bob4960- · fast",
+            "n": 169,
+            "p50": -0.003295000000000492,
+            "mean": -0.015493769230769429,
+            "sign": {
+              "n": 169,
+              "positive": 83,
+              "fraction": 0.4911242603550296,
+              "z": 0.2307692307692305
+            },
+            "ci": {
+              "low": -0.19821000000000089,
+              "high": 0.11603500000000011,
+              "resamples": 10000,
+              "seed": 20260823
+            },
+            "spansZero": true,
+            "censusDeltas": [
+              {
+                "draws": 0,
+                "triangles": 0
+              }
+            ],
+            "passed": true,
+            "reasons": []
+          }
+        },
+        "passedEverywhere": true
+      }
+    ],
+    "drift": [
+      {
+        "key": "crop8832-",
+        "statistic": 0.09999999999999998,
+        "p": 0.7051474262868566,
+        "permutations": 2000,
+        "head": 7.0449755,
+        "tail": 7.3100135,
+        "passed": true
+      },
+      {
+        "key": "bob4960-",
+        "statistic": 0.11000000000000001,
+        "p": 0.5072463768115942,
+        "permutations": 2000,
+        "head": 7.058290500000001,
+        "tail": 7.025059000000001,
+        "passed": true
+      },
+      {
+        "key": "bob11408-",
+        "statistic": 0.1,
+        "p": 0.6411794102948526,
+        "permutations": 2000,
+        "head": 6.8540625,
+        "tail": 6.5442365,
+        "passed": true
+      },
+      {
+        "key": "bald",
+        "statistic": 0.15999999999999998,
+        "p": 0.1504247876061969,
+        "permutations": 2000,
+        "head": 7.1626635,
+        "tail": 7.2855789999999985,
+        "passed": true
+      }
+    ],
+    "integrityFloor": 0.455,
+    "nonPhysical": [],
+    "constants": {
+      "NULL_MAX_MS": 0.25,
+      "NULL_SIGN_Z": 3,
+      "REFERENCE_TOLERANCE": 0.02,
+      "REPLICATE_TOLERANCE": 0.1,
+      "PAIR_INTEGRITY_MIN": 0.85,
+      "STATE_MIN_PAIRS": 30,
+      "BOOTSTRAP_RESAMPLES": 10000
+    }
+  },
+  "costs": [
+    {
+      "arm": "crop8832",
+      "census": {
+        "hair": {
+          "groomMeshes": 1,
+          "strandCount": 8832,
+          "triangles": 264960
+        },
+        "togglableMeshes": 1
+      },
+      "integrity": 0.575,
+      "straddled": 85,
+      "considered": 200,
+      "states": {
+        "fast": {
+          "available": true,
+          "reference": 6.919687,
+          "n": 92,
+          "p50": 3.3484310000000006,
+          "mean": 3.5789391195652174,
+          "sign": {
+            "n": 92,
+            "positive": 92,
+            "fraction": 1,
+            "z": 9.591663046625438
+          },
+          "ci": {
+            "low": 3.037099000000001,
+            "high": 3.6625099999999984,
+            "resamples": 10000,
+            "seed": 20260823
+          },
+          "spansZero": false
+        },
+        "slow": {
+          "available": false,
+          "n": 23
+        }
+      },
+      "pooled": {
+        "reference": 7.212473999999999,
+        "n": 115,
+        "p50": 3.663447999999999,
+        "mean": 4.3163036,
+        "sign": {
+          "n": 115,
+          "positive": 115,
+          "fraction": 1,
+          "z": 10.723805294763608
+        },
+        "ci": {
+          "low": 3.347329000000003,
+          "high": 4.133599999999994,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": false
+      },
+      "stimulus": [
+        {
+          "draws": 2,
+          "triangles": 529920
+        }
+      ],
+      "stimulusOk": true
+    },
+    {
+      "arm": "bob4960",
+      "census": {
+        "hair": {
+          "groomMeshes": 1,
+          "strandCount": 4960,
+          "triangles": 148800
+        },
+        "togglableMeshes": 1
+      },
+      "integrity": 0.625,
+      "straddled": 75,
+      "considered": 200,
+      "states": {
+        "fast": {
+          "available": true,
+          "reference": 6.915647,
+          "n": 108,
+          "p50": 2.6247525000000014,
+          "mean": 2.6506372592592595,
+          "sign": {
+            "n": 108,
+            "positive": 108,
+            "fraction": 1,
+            "z": 10.392304845413264
+          },
+          "ci": {
+            "low": 2.3240084999999993,
+            "high": 2.7958779999999996,
+            "resamples": 10000,
+            "seed": 20260823
+          },
+          "spansZero": false
+        },
+        "slow": {
+          "available": false,
+          "n": 17
+        }
+      },
+      "pooled": {
+        "reference": 7.047851000000001,
+        "n": 125,
+        "p50": 2.5122839999999957,
+        "mean": 2.628420648,
+        "sign": {
+          "n": 125,
+          "positive": 123,
+          "fraction": 0.984,
+          "z": 10.822569011098981
+        },
+        "ci": {
+          "low": 2.233628000000004,
+          "high": 2.734372999999997,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": false
+      },
+      "stimulus": [
+        {
+          "draws": 2,
+          "triangles": 297600
+        }
+      ],
+      "stimulusOk": true
+    },
+    {
+      "arm": "bob11408",
+      "census": {
+        "hair": {
+          "groomMeshes": 1,
+          "strandCount": 11408,
+          "triangles": 342240
+        },
+        "togglableMeshes": 1
+      },
+      "integrity": 0.455,
+      "straddled": 109,
+      "considered": 200,
+      "states": {
+        "fast": {
+          "available": true,
+          "reference": 6.300025999999999,
+          "n": 76,
+          "p50": 4.943047,
+          "mean": 4.918223381578949,
+          "sign": {
+            "n": 76,
+            "positive": 76,
+            "fraction": 1,
+            "z": 8.717797887081348
+          },
+          "ci": {
+            "low": 4.6290949999999995,
+            "high": 5.295716000000002,
+            "resamples": 10000,
+            "seed": 20260823
+          },
+          "spansZero": false
+        },
+        "slow": {
+          "available": false,
+          "n": 15
+        }
+      },
+      "pooled": {
+        "reference": 6.692752500000001,
+        "n": 91,
+        "p50": 5.2936710000000025,
+        "mean": 5.94590335164835,
+        "sign": {
+          "n": 91,
+          "positive": 91,
+          "fraction": 1,
+          "z": 9.539392014169456
+        },
+        "ci": {
+          "low": 4.911839999999999,
+          "high": 5.3976239999999995,
+          "resamples": 10000,
+          "seed": 20260823
+        },
+        "spansZero": false
+      },
+      "stimulus": [
+        {
+          "draws": 2,
+          "triangles": 684480
+        }
+      ],
+      "stimulusOk": true
+    }
+  ],
+  "samples": {
+    "bald": [
+      {
+        "tick": 0,
+        "ms": 5.990450999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 1,
+        "ms": 4.542435000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 2,
+        "ms": 4.04223,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 3,
+        "ms": 7.303596999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 4,
+        "ms": 5.023006999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 5,
+        "ms": 6.5136519999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 6,
+        "ms": 8.11571,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 7,
+        "ms": 12.999842,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 8,
+        "ms": 4.656719999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 9,
+        "ms": 8.969283,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 10,
+        "ms": 6.255367000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 11,
+        "ms": 9.142691999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 12,
+        "ms": 6.545942000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 13,
+        "ms": 7.29739,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 14,
+        "ms": 6.042533,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 15,
+        "ms": 5.772829999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 16,
+        "ms": 10.332174999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 17,
+        "ms": 7.02965,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 18,
+        "ms": 5.619705000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 19,
+        "ms": 5.961366000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 20,
+        "ms": 14.260242,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 21,
+        "ms": 5.383836,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 22,
+        "ms": 5.722829000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 23,
+        "ms": 14.126576000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 24,
+        "ms": 4.63118,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 25,
+        "ms": 8.740118,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 26,
+        "ms": 13.771205,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 27,
+        "ms": 6.38511,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 28,
+        "ms": 9.10749,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 29,
+        "ms": 4.962253000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 30,
+        "ms": 5.806451999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 31,
+        "ms": 10.016101000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 32,
+        "ms": 5.938281999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 33,
+        "ms": 7.132143999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 34,
+        "ms": 6.963603,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 35,
+        "ms": 8.794825,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 36,
+        "ms": 8.525826,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 37,
+        "ms": 4.4661,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 38,
+        "ms": 4.4979770000000014,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 39,
+        "ms": 7.655461000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 40,
+        "ms": 11.856864000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 41,
+        "ms": 8.952447999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 42,
+        "ms": 8.828155000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 43,
+        "ms": 8.643949999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 44,
+        "ms": 11.214573999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 45,
+        "ms": 6.985021,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 46,
+        "ms": 9.952224,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 47,
+        "ms": 9.561815999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 48,
+        "ms": 9.602106000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 49,
+        "ms": 10.340428999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 50,
+        "ms": 7.079851999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 51,
+        "ms": 4.839800999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 52,
+        "ms": 5.187755,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 53,
+        "ms": 9.44198,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 54,
+        "ms": 8.320291000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 55,
+        "ms": 9.698598,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 56,
+        "ms": 11.276909000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 57,
+        "ms": 9.08357,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 58,
+        "ms": 9.663438000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 59,
+        "ms": 8.389707,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 60,
+        "ms": 11.746528000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 61,
+        "ms": 7.721760999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 62,
+        "ms": 6.690397,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 63,
+        "ms": 5.817373000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 64,
+        "ms": 5.945868,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 65,
+        "ms": 8.885780999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 66,
+        "ms": 6.121324999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 67,
+        "ms": 9.316816,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 68,
+        "ms": 6.476439,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 69,
+        "ms": 7.193183,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 70,
+        "ms": 9.128107999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 71,
+        "ms": 8.318454,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 72,
+        "ms": 8.985985000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 73,
+        "ms": 5.570537999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 74,
+        "ms": 7.3766359999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 75,
+        "ms": 9.013986,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 76,
+        "ms": 10.163138,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 77,
+        "ms": 4.493555,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 78,
+        "ms": 4.433680000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 79,
+        "ms": 10.520422999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 80,
+        "ms": 6.159620000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 81,
+        "ms": 4.8483860000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 82,
+        "ms": 5.002924999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 83,
+        "ms": 9.006528000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 84,
+        "ms": 4.1849750000000006,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 85,
+        "ms": 7.430763000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 86,
+        "ms": 4.847632,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 87,
+        "ms": 4.284812000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 88,
+        "ms": 5.075051,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 89,
+        "ms": 8.749076999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 90,
+        "ms": 5.573161000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 91,
+        "ms": 6.557525,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 92,
+        "ms": 4.502262999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 93,
+        "ms": 9.006241000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 94,
+        "ms": 5.847581999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 95,
+        "ms": 7.333054000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 96,
+        "ms": 8.908947,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 97,
+        "ms": 5.242423000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 98,
+        "ms": 3.526489,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 99,
+        "ms": 3.8139030000000007,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 100,
+        "ms": 3.5394009999999994,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 101,
+        "ms": 7.39197,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 102,
+        "ms": 12.749346,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 103,
+        "ms": 7.138057,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 104,
+        "ms": 7.408094,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 105,
+        "ms": 7.8956290000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 106,
+        "ms": 7.347929999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 107,
+        "ms": 9.301025,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 108,
+        "ms": 5.649950999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 109,
+        "ms": 4.380971999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 110,
+        "ms": 4.410721,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 111,
+        "ms": 5.747126,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 112,
+        "ms": 7.070436,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 113,
+        "ms": 11.439284,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 114,
+        "ms": 6.287611000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 115,
+        "ms": 8.005876,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 116,
+        "ms": 11.044374999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 117,
+        "ms": 9.009489000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 118,
+        "ms": 8.954654999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 119,
+        "ms": 6.9195590000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 120,
+        "ms": 7.498308,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 121,
+        "ms": 4.357727000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 122,
+        "ms": 4.285188,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 123,
+        "ms": 6.197445999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 124,
+        "ms": 11.728781000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 125,
+        "ms": 4.605804000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 126,
+        "ms": 4.043524000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 127,
+        "ms": 4.997054,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 128,
+        "ms": 13.361295,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 129,
+        "ms": 3.7503210000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 130,
+        "ms": 4.098102,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 131,
+        "ms": 7.730967,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 132,
+        "ms": 7.100023,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 133,
+        "ms": 4.233685,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 134,
+        "ms": 4.52089,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 135,
+        "ms": 4.871382,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 136,
+        "ms": 7.3640159999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 137,
+        "ms": 3.9619369999999994,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 138,
+        "ms": 4.763929,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 139,
+        "ms": 8.832152999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 140,
+        "ms": 5.707749000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 141,
+        "ms": 4.305769000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 142,
+        "ms": 3.6071539999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 143,
+        "ms": 4.169646999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 144,
+        "ms": 5.497744999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 145,
+        "ms": 5.0277959999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 146,
+        "ms": 9.81598,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 147,
+        "ms": 11.126166999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 148,
+        "ms": 6.547067999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 149,
+        "ms": 4.581229000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 150,
+        "ms": 3.849231,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 151,
+        "ms": 4.2665180000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 152,
+        "ms": 5.6611639999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 153,
+        "ms": 3.658693000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 154,
+        "ms": 4.293684000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 155,
+        "ms": 8.01625,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 156,
+        "ms": 8.898241000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 157,
+        "ms": 5.4548689999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 158,
+        "ms": 7.237849,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 159,
+        "ms": 11.085783000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 160,
+        "ms": 10.200263000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 161,
+        "ms": 9.292691,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 162,
+        "ms": 6.3144480000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 163,
+        "ms": 7.296391999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 164,
+        "ms": 14.395735,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 165,
+        "ms": 8.122001999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 166,
+        "ms": 9.103565999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 167,
+        "ms": 10.379463,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 168,
+        "ms": 9.091610999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 169,
+        "ms": 5.953365,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 170,
+        "ms": 6.970350999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 171,
+        "ms": 9.301778000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 172,
+        "ms": 10.428049000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 173,
+        "ms": 6.87144,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 174,
+        "ms": 16.696452999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 175,
+        "ms": 4.7385139999999994,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 176,
+        "ms": 4.050394,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 177,
+        "ms": 7.5382560000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 178,
+        "ms": 8.180750999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 179,
+        "ms": 11.127833000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 180,
+        "ms": 7.1987669999999975,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 181,
+        "ms": 4.330597999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 182,
+        "ms": 3.9636890000000014,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 183,
+        "ms": 4.1031450000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 184,
+        "ms": 7.274765999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 185,
+        "ms": 10.850126000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 186,
+        "ms": 8.888155999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 187,
+        "ms": 9.378275000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 188,
+        "ms": 9.888182999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 189,
+        "ms": 7.444759,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 190,
+        "ms": 8.456749999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 191,
+        "ms": 9.072111999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 192,
+        "ms": 9.189149,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 193,
+        "ms": 8.878904999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 194,
+        "ms": 7.4047600000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 195,
+        "ms": 6.981934000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 196,
+        "ms": 9.156524,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 197,
+        "ms": 12.422896000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 198,
+        "ms": 8.464787,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 199,
+        "ms": 8.134502000000001,
+        "draws": 43,
+        "triangles": 86751
+      }
+    ],
+    "crop8832+": [
+      {
+        "tick": 0,
+        "ms": 9.619686999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 1,
+        "ms": 21.059219,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 2,
+        "ms": 7.895586,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 3,
+        "ms": 16.65241,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 4,
+        "ms": 7.6203829999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 5,
+        "ms": 7.282594999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 6,
+        "ms": 14.393619,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 7,
+        "ms": 20.849597999999993,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 8,
+        "ms": 7.987295999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 9,
+        "ms": 8.685910000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 10,
+        "ms": 9.512229,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 11,
+        "ms": 20.969306,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 12,
+        "ms": 10.31893,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 13,
+        "ms": 12.533643000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 14,
+        "ms": 9.547270000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 15,
+        "ms": 11.121745,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 16,
+        "ms": 22.863904000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 17,
+        "ms": 11.155578999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 18,
+        "ms": 9.241066000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 19,
+        "ms": 11.324325000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 20,
+        "ms": 19.620743999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 21,
+        "ms": 14.046780999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 22,
+        "ms": 9.807934,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 23,
+        "ms": 21.535839999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 24,
+        "ms": 8.046625,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 25,
+        "ms": 9.079029,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 26,
+        "ms": 23.046398999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 27,
+        "ms": 14.542231000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 28,
+        "ms": 15.777345000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 29,
+        "ms": 12.096773999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 30,
+        "ms": 9.865727000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 31,
+        "ms": 21.719713000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 32,
+        "ms": 9.595981000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 33,
+        "ms": 9.835856000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 34,
+        "ms": 13.817663000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 35,
+        "ms": 14.334824000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 36,
+        "ms": 14.009331000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 37,
+        "ms": 21.590462,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 38,
+        "ms": 8.06542,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 39,
+        "ms": 19.496994,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 40,
+        "ms": 21.561587000000006,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 41,
+        "ms": 14.864643000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 42,
+        "ms": 13.462837,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 43,
+        "ms": 14.891316999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 44,
+        "ms": 22.174828999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 45,
+        "ms": 12.038399,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 46,
+        "ms": 14.445321999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 47,
+        "ms": 15.473180999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 48,
+        "ms": 16.669496999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 49,
+        "ms": 13.750332,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 50,
+        "ms": 9.209062,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 51,
+        "ms": 8.371579,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 52,
+        "ms": 8.731782,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 53,
+        "ms": 19.875569999999993,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 54,
+        "ms": 14.608149999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 55,
+        "ms": 14.329405000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 56,
+        "ms": 21.947787999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 57,
+        "ms": 12.338939,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 58,
+        "ms": 12.868388999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 59,
+        "ms": 15.101480000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 60,
+        "ms": 21.119844000000008,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 61,
+        "ms": 9.874643000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 62,
+        "ms": 9.984267999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 63,
+        "ms": 9.788350000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 64,
+        "ms": 10.661836000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 65,
+        "ms": 15.594214000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 66,
+        "ms": 9.140652999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 67,
+        "ms": 22.376162999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 68,
+        "ms": 9.773387,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 69,
+        "ms": 9.232776000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 70,
+        "ms": 16.894910000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 71,
+        "ms": 14.464314000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 72,
+        "ms": 13.565917000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 73,
+        "ms": 22.080911,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 74,
+        "ms": 14.934817000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 75,
+        "ms": 15.383015000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 76,
+        "ms": 21.584712000000007,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 77,
+        "ms": 21.149924,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 78,
+        "ms": 7.974213000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 79,
+        "ms": 20.181858000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 80,
+        "ms": 9.921602999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 81,
+        "ms": 22.052537000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 82,
+        "ms": 9.038235000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 83,
+        "ms": 21.147925,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 84,
+        "ms": 7.102603000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 85,
+        "ms": 7.085062,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 86,
+        "ms": 7.719010999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 87,
+        "ms": 7.923290999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 88,
+        "ms": 9.674942,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 89,
+        "ms": 13.703334,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 90,
+        "ms": 9.474065000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 91,
+        "ms": 13.794992000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 92,
+        "ms": 7.906547999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 93,
+        "ms": 7.843838999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 94,
+        "ms": 10.530508999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 95,
+        "ms": 14.720647999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 96,
+        "ms": 16.677325999999994,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 97,
+        "ms": 11.345913,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 98,
+        "ms": 6.333614000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 99,
+        "ms": 5.745746999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 100,
+        "ms": 6.706768999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 101,
+        "ms": 21.306339999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 102,
+        "ms": 20.793016000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 103,
+        "ms": 11.394696999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 104,
+        "ms": 10.709043999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 105,
+        "ms": 19.48219900000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 106,
+        "ms": 13.290920000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 107,
+        "ms": 18.658842000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 108,
+        "ms": 9.693895999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 109,
+        "ms": 15.393640999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 110,
+        "ms": 7.595923999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 111,
+        "ms": 12.312604999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 112,
+        "ms": 11.356989000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 113,
+        "ms": 10.134012999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 114,
+        "ms": 11.765697,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 115,
+        "ms": 13.816582999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 116,
+        "ms": 20.685475,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 117,
+        "ms": 15.998543000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 118,
+        "ms": 15.104226,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 119,
+        "ms": 13.855244999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 120,
+        "ms": 10.975248,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 121,
+        "ms": 21.693040999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 122,
+        "ms": 7.27143,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 123,
+        "ms": 16.780327000000007,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 124,
+        "ms": 21.941248,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 125,
+        "ms": 12.152896,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 126,
+        "ms": 7.730422,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 127,
+        "ms": 11.388576000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 128,
+        "ms": 20.549854999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 129,
+        "ms": 6.299988000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 130,
+        "ms": 7.133222999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 131,
+        "ms": 22.075995000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 132,
+        "ms": 11.771402,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 133,
+        "ms": 15.339932,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 134,
+        "ms": 7.291637000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 135,
+        "ms": 8.800655,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 136,
+        "ms": 15.398719999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 137,
+        "ms": 6.843648000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 138,
+        "ms": 8.252168,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 139,
+        "ms": 17.298526999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 140,
+        "ms": 9.686396000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 141,
+        "ms": 17.581394000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 142,
+        "ms": 5.997241000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 143,
+        "ms": 6.445196999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 144,
+        "ms": 14.457276,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 145,
+        "ms": 8.537328999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 146,
+        "ms": 18.333718,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 147,
+        "ms": 13.056885999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 148,
+        "ms": 11.380074999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 149,
+        "ms": 14.750106,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 150,
+        "ms": 6.836520000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 151,
+        "ms": 7.759882,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 152,
+        "ms": 11.812689999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 153,
+        "ms": 6.755523,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 154,
+        "ms": 9.960933000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 155,
+        "ms": 21.907457000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 156,
+        "ms": 14.110325999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 157,
+        "ms": 10.340136999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 158,
+        "ms": 10.7825,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 159,
+        "ms": 12.667980000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 160,
+        "ms": 17.539980999999994,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 161,
+        "ms": 10.548798000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 162,
+        "ms": 9.297939999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 163,
+        "ms": 17.802268000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 164,
+        "ms": 20.565059999999995,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 165,
+        "ms": 11.928398999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 166,
+        "ms": 14.476571000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 167,
+        "ms": 17.337818999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 168,
+        "ms": 15.190396000000005,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 169,
+        "ms": 21.869915999999996,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 170,
+        "ms": 12.146398000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 171,
+        "ms": 20.112442,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 172,
+        "ms": 21.663750999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 173,
+        "ms": 10.543673999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 174,
+        "ms": 17.127370000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 175,
+        "ms": 7.192099,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 176,
+        "ms": 7.044098,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 177,
+        "ms": 9.225943000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 178,
+        "ms": 13.944496000000003,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 179,
+        "ms": 14.51236,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 180,
+        "ms": 16.183840999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 181,
+        "ms": 16.411209999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 182,
+        "ms": 7.3242189999999985,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 183,
+        "ms": 8.653281000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 184,
+        "ms": 20.795721999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 185,
+        "ms": 12.834263000000004,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 186,
+        "ms": 15.729717999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 187,
+        "ms": 15.704015000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 188,
+        "ms": 20.481063000000002,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 189,
+        "ms": 11.861567999999997,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 190,
+        "ms": 13.842619999999998,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 191,
+        "ms": 16.433585,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 192,
+        "ms": 15.714306,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 193,
+        "ms": 21.628045,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 194,
+        "ms": 13.571921999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 195,
+        "ms": 13.519336000000001,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 196,
+        "ms": 19.38008199999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 197,
+        "ms": 11.5217,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 198,
+        "ms": 12.123778999999999,
+        "draws": 45,
+        "triangles": 616671
+      },
+      {
+        "tick": 199,
+        "ms": 13.015095,
+        "draws": 45,
+        "triangles": 616671
+      }
+    ],
+    "crop8832-": [
+      {
+        "tick": 0,
+        "ms": 6.836683999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 1,
+        "ms": 13.696501,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 2,
+        "ms": 4.906507,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 3,
+        "ms": 7.612044999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 4,
+        "ms": 4.094857000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 5,
+        "ms": 4.3866000000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 6,
+        "ms": 7.704546000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 7,
+        "ms": 14.435990000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 8,
+        "ms": 4.325723999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 9,
+        "ms": 5.480042,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 10,
+        "ms": 6.991268000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 11,
+        "ms": 10.249507999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 12,
+        "ms": 7.306471999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 13,
+        "ms": 7.498888000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 14,
+        "ms": 6.026658000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 15,
+        "ms": 6.634232999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 16,
+        "ms": 13.587879999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 17,
+        "ms": 7.083264000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 18,
+        "ms": 6.2454459999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 19,
+        "ms": 5.958740999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 20,
+        "ms": 6.021490999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 21,
+        "ms": 7.087603999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 22,
+        "ms": 7.000268,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 23,
+        "ms": 13.580958,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 24,
+        "ms": 5.316832999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 25,
+        "ms": 5.474958000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 26,
+        "ms": 5.726702000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 27,
+        "ms": 7.006686999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 28,
+        "ms": 11.994775000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 29,
+        "ms": 6.361359000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 30,
+        "ms": 6.127158,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 31,
+        "ms": 12.043191000000006,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 32,
+        "ms": 5.625496,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 33,
+        "ms": 5.651954999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 34,
+        "ms": 8.199915,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 35,
+        "ms": 8.702367999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 36,
+        "ms": 9.707809999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 37,
+        "ms": 12.878137000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 38,
+        "ms": 4.401972000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 39,
+        "ms": 9.617097999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 40,
+        "ms": 5.900579000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 41,
+        "ms": 6.866856000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 42,
+        "ms": 8.897906999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 43,
+        "ms": 8.232543999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 44,
+        "ms": 13.066674999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 45,
+        "ms": 6.150026999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 46,
+        "ms": 9.268151,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 47,
+        "ms": 9.734389,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 48,
+        "ms": 9.664314,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 49,
+        "ms": 10.034597999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 50,
+        "ms": 5.204838,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 51,
+        "ms": 4.8711769999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 52,
+        "ms": 5.5653690000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 53,
+        "ms": 9.312943,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 54,
+        "ms": 8.430290000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 55,
+        "ms": 9.142529,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 56,
+        "ms": 12.780516,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 57,
+        "ms": 6.049778000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 58,
+        "ms": 9.082113999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 59,
+        "ms": 8.555786000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 60,
+        "ms": 13.112338000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 61,
+        "ms": 6.262112,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 62,
+        "ms": 5.740246000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 63,
+        "ms": 5.591330000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 64,
+        "ms": 7.674172,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 65,
+        "ms": 9.778935,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 66,
+        "ms": 6.9934759999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 67,
+        "ms": 11.551154999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 68,
+        "ms": 5.821038000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 69,
+        "ms": 5.523081999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 70,
+        "ms": 9.376649000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 71,
+        "ms": 8.410538,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 72,
+        "ms": 10.223922999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 73,
+        "ms": 13.724667,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 74,
+        "ms": 10.177802999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 75,
+        "ms": 9.474565,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 76,
+        "ms": 11.911110999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 77,
+        "ms": 12.778265000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 78,
+        "ms": 5.177170000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 79,
+        "ms": 10.229305,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 80,
+        "ms": 6.343484999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 81,
+        "ms": 12.997385999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 82,
+        "ms": 6.070784,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 83,
+        "ms": 13.600375999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 84,
+        "ms": 3.755274,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 85,
+        "ms": 4.438431999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 86,
+        "ms": 4.369478000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 87,
+        "ms": 4.999214,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 88,
+        "ms": 6.690897000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 89,
+        "ms": 9.303148000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 90,
+        "ms": 5.316377999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 91,
+        "ms": 6.895231000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 92,
+        "ms": 4.658181,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 93,
+        "ms": 4.934923,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 94,
+        "ms": 7.531884000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 95,
+        "ms": 8.673912000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 96,
+        "ms": 12.543726,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 97,
+        "ms": 6.168451000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 98,
+        "ms": 3.476527,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 99,
+        "ms": 3.5277819999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 100,
+        "ms": 4.173604999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 101,
+        "ms": 12.597056000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 102,
+        "ms": 12.530807,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 103,
+        "ms": 7.172139,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 104,
+        "ms": 7.7381319999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 105,
+        "ms": 9.607019,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 106,
+        "ms": 7.568301000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 107,
+        "ms": 8.919782999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 108,
+        "ms": 5.498207,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 109,
+        "ms": 7.297471,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 110,
+        "ms": 4.736846000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 111,
+        "ms": 5.633125000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 112,
+        "ms": 7.197142999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 113,
+        "ms": 6.456358999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 114,
+        "ms": 6.848898,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 115,
+        "ms": 7.898834999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 116,
+        "ms": 5.877535999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 117,
+        "ms": 8.818739,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 118,
+        "ms": 9.066695999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 119,
+        "ms": 6.957101999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 120,
+        "ms": 9.013861999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 121,
+        "ms": 12.403017,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 122,
+        "ms": 4.670721,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 123,
+        "ms": 7.177181000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 124,
+        "ms": 12.829344000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 125,
+        "ms": 6.235317,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 126,
+        "ms": 4.488222,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 127,
+        "ms": 5.47225,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 128,
+        "ms": 5.542041000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 129,
+        "ms": 4.1719360000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 130,
+        "ms": 4.905592000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 131,
+        "ms": 11.838279000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 132,
+        "ms": 6.910059999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 133,
+        "ms": 9.095654000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 134,
+        "ms": 4.229896999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 135,
+        "ms": 4.404303000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 136,
+        "ms": 9.568311000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 137,
+        "ms": 4.4233899999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 138,
+        "ms": 5.500082999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 139,
+        "ms": 8.805821,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 140,
+        "ms": 5.967532000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 141,
+        "ms": 5.908200999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 142,
+        "ms": 3.7725640000000014,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 143,
+        "ms": 3.8334849999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 144,
+        "ms": 12.415018,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 145,
+        "ms": 4.952841999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 146,
+        "ms": 8.836577,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 147,
+        "ms": 12.865517,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 148,
+        "ms": 6.897886,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 149,
+        "ms": 7.3225560000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 150,
+        "ms": 3.9643170000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 151,
+        "ms": 4.027272000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 152,
+        "ms": 8.466077,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 153,
+        "ms": 4.235935999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 154,
+        "ms": 5.389124,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 155,
+        "ms": 10.300556,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 156,
+        "ms": 7.711379000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 157,
+        "ms": 7.379558,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 158,
+        "ms": 7.550925,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 159,
+        "ms": 7.345430999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 160,
+        "ms": 10.018261000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 161,
+        "ms": 5.623496,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 162,
+        "ms": 6.758063999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 163,
+        "ms": 9.116860000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 164,
+        "ms": 6.0840320000000006,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 165,
+        "ms": 5.212504,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 166,
+        "ms": 8.094124,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 167,
+        "ms": 9.021863000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 168,
+        "ms": 9.164482999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 169,
+        "ms": 11.248367000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 170,
+        "ms": 9.486108000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 171,
+        "ms": 14.481152000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 172,
+        "ms": 7.677138,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 173,
+        "ms": 6.359902,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 174,
+        "ms": 11.617828,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 175,
+        "ms": 4.386595999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 176,
+        "ms": 4.209389000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 177,
+        "ms": 4.961419999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 178,
+        "ms": 9.313270000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 179,
+        "ms": 7.675923999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 180,
+        "ms": 8.319002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 181,
+        "ms": 8.369996000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 182,
+        "ms": 4.138441,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 183,
+        "ms": 4.88951,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 184,
+        "ms": 14.254365000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 185,
+        "ms": 5.6781619999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 186,
+        "ms": 9.820934000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 187,
+        "ms": 9.598314,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 188,
+        "ms": 13.112424,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 189,
+        "ms": 6.493819,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 190,
+        "ms": 8.802614000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 191,
+        "ms": 9.011824000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 192,
+        "ms": 8.932198999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 193,
+        "ms": 11.130621,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 194,
+        "ms": 9.001947999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 195,
+        "ms": 7.187683999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 196,
+        "ms": 12.882593,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 197,
+        "ms": 6.320363000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 198,
+        "ms": 7.227805000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 199,
+        "ms": 6.919687,
+        "draws": 43,
+        "triangles": 86751
+      }
+    ],
+    "bob4960+": [
+      {
+        "tick": 0,
+        "ms": 10.331968000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 1,
+        "ms": 6.133572999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 2,
+        "ms": 6.076535000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 3,
+        "ms": 20.117817000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 4,
+        "ms": 6.522692000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 5,
+        "ms": 6.722145,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 6,
+        "ms": 10.224844,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 7,
+        "ms": 7.260510000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 8,
+        "ms": 7.074265,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 9,
+        "ms": 9.447773999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 10,
+        "ms": 16.406835000000004,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 11,
+        "ms": 10.74746,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 12,
+        "ms": 10.129508000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 13,
+        "ms": 12.842470999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 14,
+        "ms": 9.711101999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 15,
+        "ms": 12.608432,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 16,
+        "ms": 19.033876000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 17,
+        "ms": 12.938180000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 18,
+        "ms": 10.115134,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 19,
+        "ms": 13.862496000000004,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 20,
+        "ms": 9.978556999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 21,
+        "ms": 19.593159999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 22,
+        "ms": 7.429425000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 23,
+        "ms": 6.480528,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 24,
+        "ms": 7.136432000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 25,
+        "ms": 11.272787000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 26,
+        "ms": 12.943969000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 27,
+        "ms": 17.481067,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 28,
+        "ms": 19.328286,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 29,
+        "ms": 13.834787,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 30,
+        "ms": 7.641302,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 31,
+        "ms": 10.625043000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 32,
+        "ms": 8.928406,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 33,
+        "ms": 10.500673999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 34,
+        "ms": 10.538388999999995,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 35,
+        "ms": 13.290168000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 36,
+        "ms": 12.945716,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 37,
+        "ms": 6.680108,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 38,
+        "ms": 6.450988,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 39,
+        "ms": 14.303365999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 40,
+        "ms": 8.573988,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 41,
+        "ms": 18.114391,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 42,
+        "ms": 12.082234000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 43,
+        "ms": 14.980480000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 44,
+        "ms": 18.639131000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 45,
+        "ms": 13.145173000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 46,
+        "ms": 12.023609999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 47,
+        "ms": 13.801122,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 48,
+        "ms": 12.566597999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 49,
+        "ms": 12.593019000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 50,
+        "ms": 14.887896,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 51,
+        "ms": 7.05031,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 52,
+        "ms": 8.695991000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 53,
+        "ms": 13.454254999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 54,
+        "ms": 12.298184,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 55,
+        "ms": 15.089101,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 56,
+        "ms": 18.390387999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 57,
+        "ms": 12.230564000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 58,
+        "ms": 11.968736999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 59,
+        "ms": 14.789359000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 60,
+        "ms": 20.264650000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 61,
+        "ms": 8.064876000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 62,
+        "ms": 13.704750999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 63,
+        "ms": 8.681745000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 64,
+        "ms": 10.948127000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 65,
+        "ms": 13.382591000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 66,
+        "ms": 14.374615,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 67,
+        "ms": 10.231970999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 68,
+        "ms": 8.76774,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 69,
+        "ms": 10.162639,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 70,
+        "ms": 10.465254999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 71,
+        "ms": 12.568853000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 72,
+        "ms": 14.414235,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 73,
+        "ms": 8.729367000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 74,
+        "ms": 8.820909,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 75,
+        "ms": 14.166701999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 76,
+        "ms": 13.824914999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 77,
+        "ms": 6.687601999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 78,
+        "ms": 6.544359000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 79,
+        "ms": 8.368456000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 80,
+        "ms": 9.095319999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 81,
+        "ms": 6.421447000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 82,
+        "ms": 6.900312,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 83,
+        "ms": 6.305365999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 84,
+        "ms": 6.479857999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 85,
+        "ms": 7.245888999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 86,
+        "ms": 12.727641000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 87,
+        "ms": 7.589428,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 88,
+        "ms": 10.675251000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 89,
+        "ms": 11.102916,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 90,
+        "ms": 14.063448,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 91,
+        "ms": 18.456422000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 92,
+        "ms": 7.026851000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 93,
+        "ms": 8.729742,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 94,
+        "ms": 14.037036,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 95,
+        "ms": 15.850552999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 96,
+        "ms": 18.966417,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 97,
+        "ms": 13.474584,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 98,
+        "ms": 7.356928,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 99,
+        "ms": 5.728290000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 100,
+        "ms": 6.428856999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 101,
+        "ms": 7.834047,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 102,
+        "ms": 13.182549999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 103,
+        "ms": 10.158343,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 104,
+        "ms": 9.727023000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 105,
+        "ms": 13.652251999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 106,
+        "ms": 10.819665000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 107,
+        "ms": 19.712243,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 108,
+        "ms": 8.269703000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 109,
+        "ms": 20.553808999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 110,
+        "ms": 6.711895,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 111,
+        "ms": 20.379560999999995,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 112,
+        "ms": 8.697826000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 113,
+        "ms": 10.122260999999996,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 114,
+        "ms": 19.752573000000005,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 115,
+        "ms": 13.729705999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 116,
+        "ms": 8.506954000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 117,
+        "ms": 20.522643,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 118,
+        "ms": 13.734707999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 119,
+        "ms": 10.410505,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 120,
+        "ms": 11.780939999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 121,
+        "ms": 6.185699,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 122,
+        "ms": 6.605772000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 123,
+        "ms": 15.259390999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 124,
+        "ms": 19.819529,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 125,
+        "ms": 14.346451,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 126,
+        "ms": 6.530279,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 127,
+        "ms": 12.612221000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 128,
+        "ms": 7.0584739999999995,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 129,
+        "ms": 5.258002000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 130,
+        "ms": 5.768289,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 131,
+        "ms": 9.988135,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 132,
+        "ms": 12.847972,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 133,
+        "ms": 13.783329,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 134,
+        "ms": 6.294944000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 135,
+        "ms": 9.754679999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 136,
+        "ms": 20.447436,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 137,
+        "ms": 5.715616,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 138,
+        "ms": 5.828621999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 139,
+        "ms": 20.428191000000005,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 140,
+        "ms": 8.800236000000004,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 141,
+        "ms": 16.852078000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 142,
+        "ms": 7.890751,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 143,
+        "ms": 6.490398000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 144,
+        "ms": 20.971843000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 145,
+        "ms": 8.690956999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 146,
+        "ms": 7.657883000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 147,
+        "ms": 10.147721,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 148,
+        "ms": 10.446335000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 149,
+        "ms": 16.201753999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 150,
+        "ms": 6.94881,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 151,
+        "ms": 7.660844999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 152,
+        "ms": 15.167179999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 153,
+        "ms": 5.960371,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 154,
+        "ms": 5.890745,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 155,
+        "ms": 15.780092999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 156,
+        "ms": 14.295071,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 157,
+        "ms": 9.385899000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 158,
+        "ms": 8.180368999999999,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 159,
+        "ms": 15.840171999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 160,
+        "ms": 19.040917999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 161,
+        "ms": 9.942806999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 162,
+        "ms": 15.610511999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 163,
+        "ms": 18.526465,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 164,
+        "ms": 9.716309,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 165,
+        "ms": 11.151868999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 166,
+        "ms": 12.011404999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 167,
+        "ms": 13.334044000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 168,
+        "ms": 16.5522,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 169,
+        "ms": 19.241082999999996,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 170,
+        "ms": 8.240787999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 171,
+        "ms": 17.743145000000005,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 172,
+        "ms": 9.944514000000002,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 173,
+        "ms": 8.991694000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 174,
+        "ms": 10.699002999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 175,
+        "ms": 6.230530000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 176,
+        "ms": 6.1094469999999985,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 177,
+        "ms": 11.467071000000004,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 178,
+        "ms": 11.088210999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 179,
+        "ms": 12.789427999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 180,
+        "ms": 13.106051,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 181,
+        "ms": 18.516802,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 182,
+        "ms": 6.1068229999999994,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 183,
+        "ms": 8.376869,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 184,
+        "ms": 19.781279999999995,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 185,
+        "ms": 13.391209,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 186,
+        "ms": 18.633215999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 187,
+        "ms": 13.202298999999996,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 188,
+        "ms": 18.740502000000006,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 189,
+        "ms": 13.091926,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 190,
+        "ms": 13.137592000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 191,
+        "ms": 14.686027,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 192,
+        "ms": 13.729161000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 193,
+        "ms": 15.818428999999998,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 194,
+        "ms": 10.343551000000001,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 195,
+        "ms": 15.102060000000003,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 196,
+        "ms": 19.242742999999997,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 197,
+        "ms": 14.727778,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 198,
+        "ms": 18.681048999999994,
+        "draws": 45,
+        "triangles": 384351
+      },
+      {
+        "tick": 199,
+        "ms": 15.832597,
+        "draws": 45,
+        "triangles": 384351
+      }
+    ],
+    "bob4960-": [
+      {
+        "tick": 0,
+        "ms": 9.054987999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 1,
+        "ms": 4.69997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 2,
+        "ms": 4.056732,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 3,
+        "ms": 13.614546000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 4,
+        "ms": 4.389186,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 5,
+        "ms": 4.716344,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 6,
+        "ms": 9.592391999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 7,
+        "ms": 4.835011999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 8,
+        "ms": 5.062169,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 9,
+        "ms": 5.645416999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 10,
+        "ms": 14.430613000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 11,
+        "ms": 7.294347,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 12,
+        "ms": 6.9574750000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 13,
+        "ms": 7.314969000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 14,
+        "ms": 5.983243,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 15,
+        "ms": 7.105102,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 16,
+        "ms": 6.050160000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 17,
+        "ms": 6.951640000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 18,
+        "ms": 6.693859000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 19,
+        "ms": 7.414554000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 20,
+        "ms": 5.572164,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 21,
+        "ms": 10.110555,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 22,
+        "ms": 5.810535000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 23,
+        "ms": 5.270839,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 24,
+        "ms": 5.209252000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 25,
+        "ms": 6.776271,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 26,
+        "ms": 9.076863,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 27,
+        "ms": 9.053570000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 28,
+        "ms": 6.133113000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 29,
+        "ms": 7.315886000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 30,
+        "ms": 5.611371000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 31,
+        "ms": 7.156433,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 32,
+        "ms": 5.732370999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 33,
+        "ms": 6.737355000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 34,
+        "ms": 7.600801000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 35,
+        "ms": 7.875254,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 36,
+        "ms": 12.536147000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 37,
+        "ms": 4.624305999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 38,
+        "ms": 4.116187,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 39,
+        "ms": 9.007654,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 40,
+        "ms": 6.070408999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 41,
+        "ms": 8.996951,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 42,
+        "ms": 9.353239,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 43,
+        "ms": 9.026905000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 44,
+        "ms": 5.5659980000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 45,
+        "ms": 7.05806,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 46,
+        "ms": 9.451393999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 47,
+        "ms": 9.785807,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 48,
+        "ms": 8.927408000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 49,
+        "ms": 9.382689999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 50,
+        "ms": 12.842805000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 51,
+        "ms": 5.0245429999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 52,
+        "ms": 7.254135999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 53,
+        "ms": 8.976484999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 54,
+        "ms": 9.077236000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 55,
+        "ms": 9.512392999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 56,
+        "ms": 5.525876,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 57,
+        "ms": 6.940478,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 58,
+        "ms": 9.355897,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 59,
+        "ms": 9.031446000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 60,
+        "ms": 5.928076,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 61,
+        "ms": 5.682539000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 62,
+        "ms": 10.484170999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 63,
+        "ms": 5.901827,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 64,
+        "ms": 10.875415,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 65,
+        "ms": 9.696766,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 66,
+        "ms": 13.753995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 67,
+        "ms": 6.977520999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 68,
+        "ms": 6.534276,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 69,
+        "ms": 7.058521000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 70,
+        "ms": 7.747586,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 71,
+        "ms": 8.425626,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 72,
+        "ms": 13.295463,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 73,
+        "ms": 5.572125,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 74,
+        "ms": 5.559660000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 75,
+        "ms": 9.272447,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 76,
+        "ms": 11.905690000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 77,
+        "ms": 4.584763999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 78,
+        "ms": 4.4428930000000015,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 79,
+        "ms": 5.7393279999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 80,
+        "ms": 7.861921999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 81,
+        "ms": 4.921385,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 82,
+        "ms": 3.9704800000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 83,
+        "ms": 4.947470000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 84,
+        "ms": 4.166642,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 85,
+        "ms": 4.625511999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 86,
+        "ms": 13.490502,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 87,
+        "ms": 4.734008000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 88,
+        "ms": 8.018087999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 89,
+        "ms": 7.126895000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 90,
+        "ms": 10.293677,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 91,
+        "ms": 9.109070000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 92,
+        "ms": 4.840297,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 93,
+        "ms": 5.3322140000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 94,
+        "ms": 12.833385000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 95,
+        "ms": 10.039973999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 96,
+        "ms": 5.929909,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 97,
+        "ms": 7.323218000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 98,
+        "ms": 4.471056999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 99,
+        "ms": 3.6382400000000006,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 100,
+        "ms": 5.89037,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 101,
+        "ms": 5.491953,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 102,
+        "ms": 12.467023,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 103,
+        "ms": 6.746318,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 104,
+        "ms": 6.93656,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 105,
+        "ms": 9.391487000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 106,
+        "ms": 7.302180999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 107,
+        "ms": 11.375035000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 108,
+        "ms": 6.1124040000000015,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 109,
+        "ms": 9.322525999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 110,
+        "ms": 4.002187999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 111,
+        "ms": 9.830974999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 112,
+        "ms": 5.979909,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 113,
+        "ms": 5.821202,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 114,
+        "ms": 5.957536,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 115,
+        "ms": 8.733116999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 116,
+        "ms": 6.574610000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 117,
+        "ms": 9.702518999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 118,
+        "ms": 9.220028000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 119,
+        "ms": 7.450679000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 120,
+        "ms": 9.268656000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 121,
+        "ms": 4.984805,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 122,
+        "ms": 4.2975210000000015,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 123,
+        "ms": 9.470813,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 124,
+        "ms": 5.7470360000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 125,
+        "ms": 7.512385,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 126,
+        "ms": 4.4189750000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 127,
+        "ms": 7.0124759999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 128,
+        "ms": 4.393556000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 129,
+        "ms": 3.889272,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 130,
+        "ms": 3.370573,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 131,
+        "ms": 5.688078999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 132,
+        "ms": 10.194516,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 133,
+        "ms": 9.269483000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 134,
+        "ms": 4.2818510000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 135,
+        "ms": 5.542250000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 136,
+        "ms": 13.065134999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 137,
+        "ms": 4.222269999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 138,
+        "ms": 4.068857,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 139,
+        "ms": 14.939893999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 140,
+        "ms": 6.566608,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 141,
+        "ms": 7.993086,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 142,
+        "ms": 3.93115,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 143,
+        "ms": 4.594556000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 144,
+        "ms": 5.2989169999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 145,
+        "ms": 5.233758000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 146,
+        "ms": 5.960408,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 147,
+        "ms": 7.037642000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 148,
+        "ms": 6.625941000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 149,
+        "ms": 8.575159,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 150,
+        "ms": 3.943565,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 151,
+        "ms": 4.371181,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 152,
+        "ms": 12.931845999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 153,
+        "ms": 3.8941079999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 154,
+        "ms": 3.921855,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 155,
+        "ms": 10.384630000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 156,
+        "ms": 12.882556000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 157,
+        "ms": 5.7260370000000025,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 158,
+        "ms": 4.982381,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 159,
+        "ms": 9.260854,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 160,
+        "ms": 14.164448000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 161,
+        "ms": 7.141514000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 162,
+        "ms": 13.195002999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 163,
+        "ms": 10.259345000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 164,
+        "ms": 5.657911,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 165,
+        "ms": 6.940139,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 166,
+        "ms": 7.854926,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 167,
+        "ms": 9.716564000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 168,
+        "ms": 9.073279000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 169,
+        "ms": 13.129632999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 170,
+        "ms": 5.506415000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 171,
+        "ms": 11.191497000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 172,
+        "ms": 6.881972,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 173,
+        "ms": 6.1478649999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 174,
+        "ms": 7.677134999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 175,
+        "ms": 4.158106,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 176,
+        "ms": 4.249897000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 177,
+        "ms": 6.346782,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 178,
+        "ms": 8.981406,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 179,
+        "ms": 8.800866999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 180,
+        "ms": 8.036836,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 181,
+        "ms": 12.206024,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 182,
+        "ms": 4.027896000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 183,
+        "ms": 5.075342000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 184,
+        "ms": 6.163822000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 185,
+        "ms": 7.088471000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 186,
+        "ms": 20.101196999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 187,
+        "ms": 9.412441000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 188,
+        "ms": 6.150989000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 189,
+        "ms": 7.251222000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 190,
+        "ms": 9.216903,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 191,
+        "ms": 9.660306999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 192,
+        "ms": 11.069287000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 193,
+        "ms": 10.916042999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 194,
+        "ms": 8.524829999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 195,
+        "ms": 9.401065,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 196,
+        "ms": 5.821414999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 197,
+        "ms": 8.896238000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 198,
+        "ms": 10.841794000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 199,
+        "ms": 6.915647,
+        "draws": 43,
+        "triangles": 86751
+      }
+    ],
+    "bob11408+": [
+      {
+        "tick": 0,
+        "ms": 21.148381999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 1,
+        "ms": 8.381416000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 2,
+        "ms": 8.819327000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 3,
+        "ms": 11.519153,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 4,
+        "ms": 8.626285999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 5,
+        "ms": 10.235594999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 6,
+        "ms": 23.293267999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 7,
+        "ms": 21.117801000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 8,
+        "ms": 9.976384,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 9,
+        "ms": 16.220423000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 10,
+        "ms": 23.517097000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 11,
+        "ms": 14.880066,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 12,
+        "ms": 13.247545999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 13,
+        "ms": 26.3931,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 14,
+        "ms": 11.732323000000006,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 15,
+        "ms": 11.169789999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 16,
+        "ms": 11.595742000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 17,
+        "ms": 25.784443999999993,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 18,
+        "ms": 11.520157999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 19,
+        "ms": 11.233415000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 20,
+        "ms": 12.242439999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 21,
+        "ms": 11.074956,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 22,
+        "ms": 10.463422000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 23,
+        "ms": 18.325511,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 24,
+        "ms": 9.876598000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 25,
+        "ms": 23.291561999999992,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 26,
+        "ms": 21.47971500000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 27,
+        "ms": 11.532325999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 28,
+        "ms": 11.937071000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 29,
+        "ms": 23.728305000000006,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 30,
+        "ms": 10.753458000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 31,
+        "ms": 14.316611,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 32,
+        "ms": 11.694656,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 33,
+        "ms": 23.36626800000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 34,
+        "ms": 15.300482,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 35,
+        "ms": 23.712008999999988,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 36,
+        "ms": 26.888337999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 37,
+        "ms": 8.960405,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 38,
+        "ms": 9.10007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 39,
+        "ms": 11.334657,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 40,
+        "ms": 12.442019000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 41,
+        "ms": 18.926795,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 42,
+        "ms": 18.299391000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 43,
+        "ms": 16.095966,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 44,
+        "ms": 11.908653000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 45,
+        "ms": 24.522416999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 46,
+        "ms": 16.820491,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 47,
+        "ms": 18.219471,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 48,
+        "ms": 18.939333999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 49,
+        "ms": 17.760811999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 50,
+        "ms": 26.548388000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 51,
+        "ms": 10.08776,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 52,
+        "ms": 15.129850999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 53,
+        "ms": 18.696175000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 54,
+        "ms": 17.443899000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 55,
+        "ms": 17.459445,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 56,
+        "ms": 12.207978000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 57,
+        "ms": 25.665274000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 58,
+        "ms": 17.99227,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 59,
+        "ms": 16.415453000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 60,
+        "ms": 11.327363,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 61,
+        "ms": 13.75892,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 62,
+        "ms": 25.924687999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 63,
+        "ms": 11.570693,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 64,
+        "ms": 22.954817999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 65,
+        "ms": 18.569214000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 66,
+        "ms": 23.062769999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 67,
+        "ms": 15.497967,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 68,
+        "ms": 11.877568,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 69,
+        "ms": 19.16575000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 70,
+        "ms": 15.660425000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 71,
+        "ms": 25.855228000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 72,
+        "ms": 28.174859000000005,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 73,
+        "ms": 11.484699999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 74,
+        "ms": 12.04182,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 75,
+        "ms": 25.366739999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 76,
+        "ms": 22.414698999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 77,
+        "ms": 9.971598000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 78,
+        "ms": 9.210941,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 79,
+        "ms": 13.367379999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 80,
+        "ms": 15.123353,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 81,
+        "ms": 8.716866,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 82,
+        "ms": 9.516768,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 83,
+        "ms": 14.832192999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 84,
+        "ms": 8.19596,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 85,
+        "ms": 12.614768000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 86,
+        "ms": 23.972340999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 87,
+        "ms": 9.187863000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 88,
+        "ms": 23.501016,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 89,
+        "ms": 19.219746,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 90,
+        "ms": 23.043983,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 91,
+        "ms": 10.871623999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 92,
+        "ms": 9.426850999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 93,
+        "ms": 14.442862000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 94,
+        "ms": 11.899817999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 95,
+        "ms": 18.251638000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 96,
+        "ms": 11.59707,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 97,
+        "ms": 23.387388,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 98,
+        "ms": 8.043665999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 99,
+        "ms": 6.463438999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 100,
+        "ms": 12.949386999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 101,
+        "ms": 14.406984000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 102,
+        "ms": 28.507731999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 103,
+        "ms": 24.085257000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 104,
+        "ms": 14.294869000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 105,
+        "ms": 21.41733900000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 106,
+        "ms": 14.586281000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 107,
+        "ms": 18.200015999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 108,
+        "ms": 12.366185999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 109,
+        "ms": 8.838365999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 110,
+        "ms": 8.364502,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 111,
+        "ms": 10.580799,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 112,
+        "ms": 12.090898,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 113,
+        "ms": 17.972766,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 114,
+        "ms": 10.887666,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 115,
+        "ms": 19.805236999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 116,
+        "ms": 13.14888,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 117,
+        "ms": 18.391303999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 118,
+        "ms": 18.212095,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 119,
+        "ms": 21.320214999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 120,
+        "ms": 21.579919000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 121,
+        "ms": 8.168206999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 122,
+        "ms": 8.644410999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 123,
+        "ms": 9.850019999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 124,
+        "ms": 11.701406,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 125,
+        "ms": 23.376977000000007,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 126,
+        "ms": 9.472278999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 127,
+        "ms": 9.850098000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 128,
+        "ms": 9.256064,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 129,
+        "ms": 7.352138,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 130,
+        "ms": 8.187209000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 131,
+        "ms": 13.639749999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 132,
+        "ms": 24.833534999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 133,
+        "ms": 22.850777,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 134,
+        "ms": 8.521452,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 135,
+        "ms": 8.426784000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 136,
+        "ms": 24.439417000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 137,
+        "ms": 8.050419999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 138,
+        "ms": 8.067207,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 139,
+        "ms": 15.853339,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 140,
+        "ms": 16.232962999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 141,
+        "ms": 9.510602000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 142,
+        "ms": 7.068929999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 143,
+        "ms": 7.6172119999999985,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 144,
+        "ms": 10.237342000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 145,
+        "ms": 10.345714000000005,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 146,
+        "ms": 13.839579,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 147,
+        "ms": 17.024446999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 148,
+        "ms": 14.469326,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 149,
+        "ms": 27.700616999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 150,
+        "ms": 8.039542,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 151,
+        "ms": 8.374246,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 152,
+        "ms": 25.067199,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 153,
+        "ms": 7.516138999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 154,
+        "ms": 8.328703999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 155,
+        "ms": 14.132289000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 156,
+        "ms": 27.309707000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 157,
+        "ms": 10.826539,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 158,
+        "ms": 12.943884,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 159,
+        "ms": 16.298546,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 160,
+        "ms": 23.350271000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 161,
+        "ms": 17.383814999999995,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 162,
+        "ms": 23.265187,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 163,
+        "ms": 14.260530999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 164,
+        "ms": 12.374355000000001,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 165,
+        "ms": 20.261276999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 166,
+        "ms": 17.074285000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 167,
+        "ms": 21.058221,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 168,
+        "ms": 18.835420999999993,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 169,
+        "ms": 11.093416,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 170,
+        "ms": 11.257870000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 171,
+        "ms": 30.178037999999997,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 172,
+        "ms": 15.376597999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 173,
+        "ms": 13.034173000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 174,
+        "ms": 15.963003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 175,
+        "ms": 23.96601,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 176,
+        "ms": 8.456783999999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 177,
+        "ms": 21.720377000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 178,
+        "ms": 16.466252,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 179,
+        "ms": 24.913078000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 180,
+        "ms": 17.191739999999992,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 181,
+        "ms": 9.417894,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 182,
+        "ms": 7.977581,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 183,
+        "ms": 8.848946000000002,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 184,
+        "ms": 13.178175,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 185,
+        "ms": 27.811035000000004,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 186,
+        "ms": 18.893962,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 187,
+        "ms": 18.393511999999998,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 188,
+        "ms": 11.867905,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 189,
+        "ms": 24.414544000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 190,
+        "ms": 16.295706000000003,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 191,
+        "ms": 23.112398999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 192,
+        "ms": 20.481939999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 193,
+        "ms": 22.65294699999999,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 194,
+        "ms": 16.663331,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 195,
+        "ms": 16.236751999999996,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 196,
+        "ms": 12.239312,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 197,
+        "ms": 26.439176,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 198,
+        "ms": 24.786206999999994,
+        "draws": 45,
+        "triangles": 771231
+      },
+      {
+        "tick": 199,
+        "ms": 15.611883999999998,
+        "draws": 45,
+        "triangles": 771231
+      }
+    ],
+    "bob11408-": [
+      {
+        "tick": 0,
+        "ms": 13.658206000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 1,
+        "ms": 4.176521000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 2,
+        "ms": 4.375271,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 3,
+        "ms": 5.111924000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 4,
+        "ms": 4.385890999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 5,
+        "ms": 4.759761999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 6,
+        "ms": 7.943085999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 7,
+        "ms": 8.168170000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 8,
+        "ms": 4.634221000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 9,
+        "ms": 6.96302,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 10,
+        "ms": 5.534293999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 11,
+        "ms": 7.334764999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 12,
+        "ms": 7.408930999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 13,
+        "ms": 9.604392000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 14,
+        "ms": 5.991912,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 15,
+        "ms": 5.555664,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 16,
+        "ms": 6.300025999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 17,
+        "ms": 12.373474,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 18,
+        "ms": 5.137166000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 19,
+        "ms": 5.8936150000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 20,
+        "ms": 7.788010999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 21,
+        "ms": 5.280587,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 22,
+        "ms": 5.6900390000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 23,
+        "ms": 10.479634,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 24,
+        "ms": 4.949425000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 25,
+        "ms": 9.033693000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 26,
+        "ms": 13.850086000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 27,
+        "ms": 5.591038999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 28,
+        "ms": 5.56037,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 29,
+        "ms": 12.549145999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 30,
+        "ms": 6.745105000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 31,
+        "ms": 6.593189000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 32,
+        "ms": 6.301700000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 33,
+        "ms": 8.948235000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 34,
+        "ms": 7.708294999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 35,
+        "ms": 9.411901000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 36,
+        "ms": 12.849427,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 37,
+        "ms": 4.33131,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 38,
+        "ms": 4.305390999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 39,
+        "ms": 5.484501,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 40,
+        "ms": 7.7253419999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 41,
+        "ms": 9.49773,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 42,
+        "ms": 9.091318999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 43,
+        "ms": 9.31319,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 44,
+        "ms": 6.224528,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 45,
+        "ms": 9.049611,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 46,
+        "ms": 9.364441,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 47,
+        "ms": 8.933198,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 48,
+        "ms": 8.267332999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 49,
+        "ms": 8.813575,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 50,
+        "ms": 8.572660999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 51,
+        "ms": 4.720010000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 52,
+        "ms": 9.648186999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 53,
+        "ms": 8.795117,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 54,
+        "ms": 8.215703999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 55,
+        "ms": 9.097899000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 56,
+        "ms": 5.462792,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 57,
+        "ms": 9.620896000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 58,
+        "ms": 9.130734,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 59,
+        "ms": 8.608655999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 60,
+        "ms": 5.577912000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 61,
+        "ms": 6.204151999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 62,
+        "ms": 7.179474999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 63,
+        "ms": 6.067909,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 64,
+        "ms": 9.042153999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 65,
+        "ms": 10.308468000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 66,
+        "ms": 5.396006000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 67,
+        "ms": 7.124688999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 68,
+        "ms": 6.1868620000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 69,
+        "ms": 7.174132,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 70,
+        "ms": 8.442326,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 71,
+        "ms": 11.145748999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 72,
+        "ms": 13.085717,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 73,
+        "ms": 6.128363,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 74,
+        "ms": 6.973514,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 75,
+        "ms": 9.588772000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 76,
+        "ms": 12.703219999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 77,
+        "ms": 4.6779269999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 78,
+        "ms": 3.9966099999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 79,
+        "ms": 5.765702,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 80,
+        "ms": 9.178982,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 81,
+        "ms": 4.615887,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 82,
+        "ms": 4.823683,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 83,
+        "ms": 5.861621,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 84,
+        "ms": 4.320436,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 85,
+        "ms": 5.535457999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 86,
+        "ms": 5.332415000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 87,
+        "ms": 4.703803999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 88,
+        "ms": 8.890118,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 89,
+        "ms": 9.282732,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 90,
+        "ms": 5.7294990000000015,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 91,
+        "ms": 5.912702999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 92,
+        "ms": 4.376644,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 93,
+        "ms": 5.703909000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 94,
+        "ms": 5.653754,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 95,
+        "ms": 7.920509,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 96,
+        "ms": 5.930531999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 97,
+        "ms": 14.110995999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 98,
+        "ms": 3.460115000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 99,
+        "ms": 3.4062819999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 100,
+        "ms": 8.349036,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 101,
+        "ms": 5.489664000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 102,
+        "ms": 13.514754000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 103,
+        "ms": 12.727971000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 104,
+        "ms": 10.188677999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 105,
+        "ms": 9.872474999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 106,
+        "ms": 6.770105000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 107,
+        "ms": 8.427583,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 108,
+        "ms": 7.125522000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 109,
+        "ms": 4.698099999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 110,
+        "ms": 4.2808969999999995,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 111,
+        "ms": 4.574634999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 112,
+        "ms": 6.640400000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 113,
+        "ms": 8.533369999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 114,
+        "ms": 6.2389850000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 115,
+        "ms": 8.474372000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 116,
+        "ms": 6.3426919999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 117,
+        "ms": 9.591392999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 118,
+        "ms": 9.666770999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 119,
+        "ms": 8.983034,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 120,
+        "ms": 11.133785,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 121,
+        "ms": 4.358886999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 122,
+        "ms": 4.346387999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 123,
+        "ms": 4.93818,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 124,
+        "ms": 5.429790000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 125,
+        "ms": 14.989562000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 126,
+        "ms": 4.324187,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 127,
+        "ms": 4.545971999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 128,
+        "ms": 4.523227,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 129,
+        "ms": 3.6886110000000003,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 130,
+        "ms": 3.9479400000000004,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 131,
+        "ms": 5.502333,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 132,
+        "ms": 9.745184999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 133,
+        "ms": 10.848622000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 134,
+        "ms": 4.487725,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 135,
+        "ms": 4.775842000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 136,
+        "ms": 5.315628,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 137,
+        "ms": 3.9917690000000006,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 138,
+        "ms": 3.864486,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 139,
+        "ms": 6.034991000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 140,
+        "ms": 5.681076999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 141,
+        "ms": 16.537373000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 142,
+        "ms": 3.7329399999999993,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 143,
+        "ms": 3.575654,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 144,
+        "ms": 5.1386699999999985,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 145,
+        "ms": 5.0773850000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 146,
+        "ms": 6.448073,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 147,
+        "ms": 8.742284,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 148,
+        "ms": 6.252781000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 149,
+        "ms": 13.156673999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 150,
+        "ms": 3.430572999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 151,
+        "ms": 3.9703099999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 152,
+        "ms": 6.050619,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 153,
+        "ms": 4.07073,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 154,
+        "ms": 4.422640000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 155,
+        "ms": 5.371624999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 156,
+        "ms": 7.134596,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 157,
+        "ms": 5.428915000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 158,
+        "ms": 5.548496,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 159,
+        "ms": 8.741410999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 160,
+        "ms": 5.656038999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 161,
+        "ms": 7.383432000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 162,
+        "ms": 6.006198000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 163,
+        "ms": 8.060292999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 164,
+        "ms": 5.636330000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 165,
+        "ms": 9.50136,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 166,
+        "ms": 9.546147000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 167,
+        "ms": 8.603617999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 168,
+        "ms": 8.973904000000005,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 169,
+        "ms": 5.760502000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 170,
+        "ms": 6.405732999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 171,
+        "ms": 8.959486000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 172,
+        "ms": 6.364023000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 173,
+        "ms": 5.931622,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 174,
+        "ms": 8.943947,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 175,
+        "ms": 13.146297999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 176,
+        "ms": 4.809928999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 177,
+        "ms": 9.532940000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 178,
+        "ms": 8.335830999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 179,
+        "ms": 14.528694999999997,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 180,
+        "ms": 8.152871,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 181,
+        "ms": 18.005387999999996,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 182,
+        "ms": 4.455184000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 183,
+        "ms": 4.31906,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 184,
+        "ms": 5.788913000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 185,
+        "ms": 9.128359000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 186,
+        "ms": 9.056322000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 187,
+        "ms": 9.050614000000001,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 188,
+        "ms": 5.755995999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 189,
+        "ms": 9.695392,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 190,
+        "ms": 9.237405,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 191,
+        "ms": 11.282494,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 192,
+        "ms": 9.373272000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 193,
+        "ms": 13.672293999999999,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 194,
+        "ms": 7.905209,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 195,
+        "ms": 7.607848000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 196,
+        "ms": 6.429817999999998,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 197,
+        "ms": 10.305843,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 198,
+        "ms": 8.971698000000002,
+        "draws": 43,
+        "triangles": 86751
+      },
+      {
+        "tick": 199,
+        "ms": 8.113752,
+        "draws": 43,
+        "triangles": 86751
+      }
+    ]
+  }
+}

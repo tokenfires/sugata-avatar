@@ -661,7 +661,36 @@ async function main() {
 
   // The arm set. `bald` and `cardsB` are not optional extras — they ARE nulls N1 and N2, and the
   // registration voids the round without them.
-  const definitions = options.arms === 'ribbons'
+  // 🎯 `all` EXISTS BECAUSE PARITY CANNOT BE ASKED ACROSS TWO RUNS. Measured: a cards run sat at a
+  // reference of 9.1-11.2 ms and a ribbon run at 6.7-7.2, which `REFERENCE_TOLERANCE` correctly
+  // refuses to difference — the machine was in a different clock state on each night. The decision
+  // rule is "parity with today's cards", so cards and ribbons have to share one clock, which means
+  // one run and one fitted boundary.
+  //
+  // ⚠️ It costs six resident 1080x1920 WebGPU pages. That is the contention the ladder's own gate
+  // measured at 67% spread, and it is accepted here deliberately: contention is common-mode inside
+  // a tick, and a comparable parity figure is worth more than an uncontended incomparable one.
+  const definitions = options.arms === 'all'
+    ? [
+      { key: 'bald', url: alive(), wantsHair: false,
+        conditions: [{ key: 'bald', visible: null }] },
+      { key: 'cards', url: alive('&hair=1'), wantsHair: true, wantsRibbons: false,
+        conditions: [
+          { key: 'cards+', visible: true },
+          { key: 'cards-', visible: false },
+          { key: 'cards-bis', visible: false },
+        ] },
+      ...RIBBON_ARMS.map((ribbon) => ({
+        key: ribbon.key,
+        url: alive(`&hair=1&hairribbons=/tfx/${ribbon.file}`),
+        wantsHair: true, wantsRibbons: true, strands: ribbon.strands,
+        conditions: [
+          { key: `${ribbon.key}+`, visible: true },
+          { key: `${ribbon.key}-`, visible: false },
+        ],
+      })),
+    ]
+    : options.arms === 'ribbons'
     ? [
       { key: 'bald', url: alive(), wantsHair: false,
         conditions: [{ key: 'bald', visible: null }] },
@@ -1116,8 +1145,8 @@ function parseArguments(argv) {
     }
   }
 
-  if (['cards', 'ribbons'].includes(options.arms) === false) {
-    throw new Error(`--arms must be 'cards' or 'ribbons', got '${options.arms}'`);
+  if (['cards', 'ribbons', 'all'].includes(options.arms) === false) {
+    throw new Error(`--arms must be 'cards', 'ribbons' or 'all', got '${options.arms}'`);
   }
   return options;
 }
