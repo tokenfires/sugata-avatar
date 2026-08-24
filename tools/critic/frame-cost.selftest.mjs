@@ -35,8 +35,8 @@
 import {
   NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE,
   quantile, mean, makeRandom, pairedByTick, signTest, bootstrapMedianCI, summarisePair,
-  evaluateNull, comparable, driftAcrossRun, tickSchedule,
-  partitionIntoBlocks, clusterByReference,
+  evaluateNull, comparable, tickSchedule,
+  fitClockBoundary, pairedByTickAndState, PAIR_INTEGRITY_MIN, STATE_MIN_PAIRS, CLOCK_RATIO_MIN,
   kolmogorovSmirnov, driftByPermutation, DRIFT_ALPHA,
 } from './frame-cost.mjs';
 
@@ -162,17 +162,38 @@ function testANullWithADifferentPictureIsRefused() {
     'p50 is exactly 0.000 and it STILL fails — identity of the picture is measured, not assumed');
 }
 
-function testDriftIsCaught() {
-  const steady = ticked(Array.from({ length: 90 }, (_, i) => 13.0 + (i % 3) * 0.01));
-  const drifting = ticked(Array.from({ length: 90 }, (_, i) => 13.0 + i * 0.05));
-  record('a steady run passes drift', driftAcrossRun(steady).passed,
-    `${driftAcrossRun(steady).gap * 100 < 0.5 ? 'gap under 0.5%' : 'gap too wide'}`);
-  const moved = driftAcrossRun(drifting);
-  record('a drifting run FAILS', moved.passed === false,
-    `${moved.head.toFixed(2)} -> ${moved.tail.toFixed(2)} = ${(moved.gap * 100).toFixed(1)}% > `
-    + `${REFERENCE_TOLERANCE * 100}% — a run whose own yardstick moved is not one run`);
-  record('drift refuses a short run', driftAcrossRun(ticked([1, 2, 3])) === null,
-    'n=3 cannot have thirds');
+function testTheClockBoundaryRefusesWhatItShould() {
+  const random = makeRandom(808);
+  const twoStates = Array.from({ length: 400 }, () =>
+    (random() < 0.3 ? 7.2 + random() * 0.4 : 13.0 + random() * 0.8));
+  const fitted = fitClockBoundary(twoStates);
+  record('two real states are found', fitted !== null && fitted.threshold > 7.6 && fitted.threshold < 13.0,
+    `fast ${fitted.fast.toFixed(2)} / slow ${fitted.slow.toFixed(2)}, ${fitted.ratio.toFixed(2)}×, `
+    + `separation ${fitted.separation.toFixed(1)} SD`);
+
+  // 🔴 THE REFUSAL THAT MATTERS, AND IT NEEDS THREE SHAPES BECAUSE ONE WOULD NOT HAVE CAUGHT IT.
+  // k-means splits ANY sample into two halves and reports them with a straight face. A separation
+  // floor alone does NOT stop it: measured, these unimodal shapes score 2.6-3.4 SD, and the REAL
+  // captured run scores only 4.40 — the two populations overlap on that axis. The ratio is what
+  // separates them: artefacts top out at 1.08, real clock states run 1.33-2.22.
+  const gaussish = () => { let sum = 0; for (let i = 0; i < 12; i += 1) sum += random(); return sum - 6; };
+  const unimodal = {
+    uniform: Array.from({ length: 400 }, () => 13.0 + (random() - 0.5) * 1.2),
+    gaussian: Array.from({ length: 400 }, () => 13.0 + gaussish() * 0.35),
+    skewed: Array.from({ length: 400 }, () => 12.5 + (-Math.log(1 - random())) * 0.5),
+  };
+  record('🔴 UNIMODAL samples are refused, not split down the middle',
+    Object.values(unimodal).every((sample) => fitClockBoundary(sample) === null),
+    `uniform, gaussian and skewed all refused — each scores 2.6-3.4 SD separation, which a `
+    + `separation floor of 2 would have admitted, and all three have ratio <= 1.08 against the `
+    + `${CLOCK_RATIO_MIN} floor`);
+
+  record('and a REAL run is still accepted', fitted !== null && fitted.ratio >= CLOCK_RATIO_MIN,
+    `the captured run reads separation 4.40, ratio 1.79 — a separation floor set high enough to `
+    + 'refuse the artefacts above would have refused this too');
+
+  record('too few samples are refused', fitClockBoundary([1, 2, 3, 20, 21, 22]) === null,
+    'n=6 cannot establish a machine-wide boundary');
 }
 
 // ================================================================================================
@@ -422,56 +443,68 @@ function testTheDriftPValueIsHonest() {
 }
 
 // ================================================================================================
-// §6 — blocks, and the clock states they partition into
+// §6 — 🎯 STRADDLING PAIRS, WHICH IS v2'S WHOLE ADDITION
 // ================================================================================================
 
-function testBlocksPartitionCleanly() {
-  const blocks = partitionIntoBlocks(240, 40);
-  record('a run cuts into whole blocks',
-    blocks.length === 6 && blocks[0].loTick === 0 && blocks[5].hiTick === 240,
-    '240 ticks / 40 = 6 blocks, [0,40) ... [200,240)');
+function testStraddlingPairsAreDroppedNotTolerated() {
+  const BOUNDARY = { threshold: 10 };
+  // Five ticks. On tick 2 the reference is fast and the shown sample is slow — the machine switched
+  // between the two reads. That pair's difference is +6.4 ms, which is the STATE GAP, not a groom.
+  const hiddenSide = ticked([13.0, 13.0, 7.0, 13.0, 13.0]);
+  const shownSide = ticked([15.0, 15.0, 13.4, 15.0, 15.0]);
+  const split = pairedByTickAndState(hiddenSide, shownSide, BOUNDARY);
 
-  const ragged = partitionIntoBlocks(250, 40);
-  record('a short tail is discarded, not padded',
-    ragged.length === 6 && ragged[5].hiTick === 240,
-    '250 ticks gives 6 whole blocks and drops 10 — a part-block would carry a different n and a '
-    + 'different CI while looking like a peer of the others');
+  record('🎯 a straddling pair is DROPPED', split.straddled === 1 && split.all.length === 4,
+    'the pair that spans a state change carries +6.4 ms — roughly the state gap, against a 2 ms '
+    + 'effect. It is detected exactly and dropped exactly.');
+  record('and the retained pairs are clean',
+    split.all.every((d) => close(d, 2.0)),
+    `all four retained differences are +2.000 — with the straddler kept, the mean would be `
+    + `${((2 * 4 + 6.4) / 5).toFixed(2)}`);
+  record('integrity is the drop rate', close(split.integrity, 0.8),
+    '4 of 5 pairs share a state = 80%');
+  record('pairs are filed under the state they were taken in',
+    split.slow.length === 4 && split.fast.length === 0,
+    'all four retained pairs sat in the slow state');
 
-  const contiguous = blocks.every((block, i) => i === 0 || block.loTick === blocks[i - 1].hiTick);
-  record('blocks are contiguous and non-overlapping', contiguous,
-    'an overlap would let one tick contribute to two "independent" blocks');
+  // Without a boundary the machinery must degrade to plain pairing rather than silently mislabel.
+  const unconditioned = pairedByTickAndState(hiddenSide, shownSide, null);
+  record('with no boundary it degrades to plain pairing',
+    unconditioned.all.length === 5 && unconditioned.straddled === 0
+      && unconditioned.fast.length === 0 && unconditioned.slow.length === 0,
+    'no states fitted means no state claims made — all five pairs, filed under neither');
 }
 
-function testClusteringByClockState() {
-  const asBlocks = (references) => references.map((reference, index) => ({ index, reference }));
+function testStateConditioningCannotManufactureASignal() {
+  // 🔴 THE DECOY. A genuine null — the same distribution on both sides — put through the full
+  // state-conditioning machinery. If conditioning could manufacture a signal, this is where it
+  // would appear, and G0 exists precisely to catch it.
+  const random = makeRandom(1234);
+  const draw = () => (random() < 0.3 ? 7.2 + random() * 0.4 : 13.0 + random() * 0.8);
+  const a = Array.from({ length: 300 }, (_, tick) => ({ tick, ms: draw(), draws: 43, triangles: 86_751 }));
+  const b = Array.from({ length: 300 }, (_, tick) => ({ tick, ms: draw(), draws: 43, triangles: 86_751 }));
+  const boundary = fitClockBoundary([...a, ...b].map((row) => row.ms));
+  const split = pairedByTickAndState(a, b, boundary);
 
-  const tight = clusterByReference(asBlocks([13.00, 13.05, 13.10, 13.15]));
-  record('references at one clock form ONE cluster',
-    tight.length === 1 && tight[0].blocks.length === 4,
-    '13.00-13.15 spans 1.15%, inside the registered 2%');
+  const verdicts = ['fast', 'slow'].map((state) =>
+    evaluateNull(`decoy ${state}`, split[state], [{ draws: 0, triangles: 0 }]));
+  record('🔴 conditioning on state does NOT manufacture a signal',
+    verdicts.every((verdict) => verdict.n < STATE_MIN_PAIRS || verdict.passed),
+    verdicts.map((verdict) => `${verdict.label} n=${verdict.n} p50 ${verdict.p50.toFixed(4)}`).join(', ')
+    + ' — two draws from ONE distribution, conditioned, still read zero in both states');
 
-  const split = clusterByReference(asBlocks([8.40, 8.45, 13.00, 13.05, 13.10]));
-  record('two clock states form TWO clusters, largest first',
-    split.length === 2 && split[0].blocks.length === 3 && split[1].blocks.length === 2,
-    '8.4x and 13.0x are 55% apart — the exact shape of the three prior runs, which is how a 94% '
-    + 'spread got published as one number');
-
-  // 🔴 CHAINING IS THE FAILURE MODE THIS GUARDS. Each of these is within 2% of its NEIGHBOUR, so
-  // neighbour-chained clustering swallows all five into one cluster spanning 8.2% — four times the
-  // tolerance it claims to enforce. Membership is measured against the cluster FLOOR instead.
-  const creeping = clusterByReference(asBlocks([13.00, 13.20, 13.45, 13.70, 14.07]));
-  const widest = Math.max(...creeping.map((c) => (c.ceiling - c.floor) / c.floor));
-  record('🔴 a slow monotone drift does NOT chain into one cluster',
-    creeping.length > 1 && widest <= REFERENCE_TOLERANCE + 1e-9,
-    `${creeping.length} clusters, widest spans ${(widest * 100).toFixed(2)}% — every consecutive gap `
-    + 'is inside 2% yet the run spans 8.2%, and neighbour-chaining would have called it one clock');
-
-  record('clustering is deterministic under input order',
-    JSON.stringify(clusterByReference(asBlocks([13.10, 8.40, 13.00, 8.45, 13.05]).slice().reverse())
-      .map((c) => c.blocks.length))
-      === JSON.stringify(clusterByReference(asBlocks([8.40, 8.45, 13.00, 13.05, 13.10]))
-        .map((c) => c.blocks.length)),
-    'sorted by reference before walking, so two readers cluster identically');
+  // 🔴 AND THE DECOY FAILS G1, WHICH IS THE GATE WORKING RATHER THAN BREAKING.
+  //
+  // These two sides are drawn INDEPENDENTLY, so each lands fast or slow on its own: they agree only
+  // 0.3² + 0.7² ≈ 58% of the time. A real pair is two reads one frame apart on a machine whose state
+  // persists 2-4 ticks, and it agrees 95.4%. G1 is exactly the line between those two situations —
+  // when the state does not persist across a pair, pairing buys nothing and the run must not be
+  // reported. This is the shape that would arise if the sampling tick ever became slow relative to
+  // the machine's switching rate.
+  record('🔴 G1 FAILS on independent draws, which is what it is for',
+    split.integrity < PAIR_INTEGRITY_MIN,
+    `integrity ${(split.integrity * 100).toFixed(1)}% against a ${PAIR_INTEGRITY_MIN * 100}% floor — `
+    + 'independent draws agree ~58% by construction, a real run 95.4%. The gate separates them.');
 }
 
 // ================================================================================================
@@ -486,7 +519,7 @@ function run() {
   testASmallButBiasedNullFails();
   testTheSignGateHasARealEdge();
   testANullWithADifferentPictureIsRefused();
-  testDriftIsCaught();
+  testTheClockBoundaryRefusesWhatItShould();
 
   testTheHistoricalFailureIsFixed();
   testAnEffectInsideTheNoiseIsNotResolved();
@@ -500,8 +533,9 @@ function run() {
   testTheDriftDetectorIsCalibratedPoweredAndSpecific();
   testTheDriftPValueIsHonest();
 
-  testBlocksPartitionCleanly();
-  testClusteringByClockState();
+  testStraddlingPairsAreDroppedNotTolerated();
+  testStateConditioningCannotManufactureASignal();
+
 
   const width = Math.max(...gates.map((gate) => gate.label.length));
   for (const gate of gates) {

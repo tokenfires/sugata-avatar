@@ -122,6 +122,48 @@ export const DRIFT_ALPHA = 0.05;
 export const DRIFT_PERMUTATIONS = 2000;
 
 // ================================================================================================
+// v2 (docs/superpowers/specs/2026-08-24-frame-cost-v2-preregistration.md). v1 closed VOID: three
+// runs, three refusals, no cost reported. Its premise — that the machine reaches a clock state and
+// holds it — is measurably false. 41 state changes in 240 ticks, fast runs 2-4 ticks long, 17.5%
+// fast at 7.212 ms against 13.059 slow. No warm-up prevents that and no run length averages it out.
+//
+// 🎯 SO v2 STOPS HOLDING THE CLOCK STILL AND MEASURES INSIDE IT. What a paired design needs is not a
+// stable reference — it is both members of a pair in the SAME state, which reads 95.4% on real
+// samples. That is the property, it was never gated because it was never named, and the median was
+// quietly relying on it the whole time.
+// ================================================================================================
+
+/** The fraction of pairs whose two members share a clock state. Measured 95.4%; this is the floor. */
+export const PAIR_INTEGRITY_MIN = 0.85;
+
+/**
+ * Retained pairs a state needs before its cost is reported at all.
+ *
+ * 🚩 `frame-budget.mjs` printed a "slow mode" mean computed from ONE sample and then differenced it
+ * to three decimals. Its own separation test could not catch that — separation is LARGE when the
+ * lone outlier sits far away, which is exactly the case that must be refused.
+ */
+export const STATE_MIN_PAIRS = 30;
+
+/**
+ * How far apart two fitted "clock states" must be, as a ratio, before they are believed.
+ *
+ * 🔴 SEPARATION IN STANDARD DEVIATIONS CANNOT DO THIS JOB, AND MEASURING IT IS WHY. A 2-means split
+ * of a UNIMODAL sample already yields separation 2.6 (gaussian), 3.4 (uniform), 3.4 (skewed) — so a
+ * separation floor of 2 admits pure artefacts. And the REAL captured run scores only 4.40, because
+ * real modes carry wide within-mode spread. The two populations overlap on that axis.
+ *
+ * 🎯 THE RATIO SEPARATES THEM CLEANLY, AND IT IS THE PHYSICALLY MEANINGFUL QUANTITY: two GPU clock
+ * states differ by a frequency factor, not by a few percent. Measured, unimodal artefacts top out at
+ * **1.08**; real states read **1.79** here and **1.33-2.22** across everything in the record. 1.25
+ * sits in that gap, biased toward refusing.
+ *
+ * Both floors apply: the ratio says "these are two clocks", the separation says "and they are
+ * resolvable".
+ */
+export const CLOCK_RATIO_MIN = 1.25;
+
+// ================================================================================================
 // PURE STATISTICS — no page, no GPU, no clock. Everything below is exercised by the selftest
 // against distributions whose answer is known before the function runs.
 // ================================================================================================
@@ -270,58 +312,89 @@ export function comparable(referenceA, referenceB) {
 }
 
 /**
- * Cut a run into consecutive blocks of `blockTicks`, discarding a short tail.
+ * The clock-state boundary, fitted ONCE on every sample the run collected.
  *
- * 🔴 WHY BLOCKS EXIST, AND THE HONEST VERSION OF IT. The first calibrated run VOIDED ITSELF on the
- * drift gate — a hidden reference ran 13.078 → 12.821 over 200 ticks, 2.00% against a 2% ceiling.
- * Amendment 1 to the registration named a rule in advance to decide whether that gate was
- * mis-specified, and the rule **fired against the hypothesis**: split into thirds, the paired cost
- * moved 40.7% and 15.4% while the reference moved 2.4%, so drift is NOT common-mode and the gate
- * stays. The registered branch for that outcome is a shorter run.
+ * 🔴 ONE BOUNDARY, POOLED, APPLIED TO EVERY ARM — AND FITTING IT PER ARM IS A MEASURED DEFECT.
+ * k-means puts the cut wherever that arm's own samples fall, so each arm's "fast mode" becomes a
+ * different slice of the clock's range and the means cannot be differenced. With per-arm boundaries
+ * `frame-budget.mjs`'s CONTROL — two captures of ONE configuration — read −0.353 ms in the fast mode
+ * and +0.449 in the slow, the same magnitude as the effect being looked for. The clock states belong
+ * to the MACHINE, not to the arm, so the boundary does too.
  *
- * ⚠️ AND THAT RULE WAS UNDERPOWERED, WHICH IS RECORDED RATHER THAN USED TO OVERTURN IT. The three
- * thirds' bootstrap intervals all OVERLAP — 0.5-1.2 ms wide against a point spread of 0.646 ms — so
- * a 10% threshold on point estimates at n=66 could not have separated common-mode drift from
- * sampling noise in either direction. The verdict stands because it was registered; the limitation
- * stands because it is true. Both belong to the next registration, not to a re-reading of this one.
- *
- * 🎯 BLOCKING IS NOT A WAY AROUND THE GATE. Between-block drift is not ignored — it is moved from
- * "void the run" to "partition the run by clock state", which is strictly MORE information and is
- * what §3 of the registration already asks for: a cost without its clock state is not a number.
- * Blocks whose references disagree are reported as separate costs at separate clocks, never averaged.
- *
- * Partitioning happens at ADJUDICATION, not at capture, so block size is an analysis parameter and
- * one capture can be read at several. Nothing is re-sampled to make a gate pass.
+ * Seeded at the deciles so a re-fit of the same data gives the same split, and it REFUSES rather
+ * than splitting a unimodal sample down the middle — k-means will happily do that and report two
+ * meaningless numbers with a straight face.
  */
-export function partitionIntoBlocks(ticks, blockTicks) {
-  const blocks = [];
-  for (let lo = 0; lo + blockTicks <= ticks; lo += blockTicks) {
-    blocks.push({ index: blocks.length, loTick: lo, hiTick: lo + blockTicks });
+export function fitClockBoundary(allSamples) {
+  const xs = [...allSamples].sort((a, b) => a - b);
+  if (xs.length < 32) return null;
+
+  let low = xs[Math.floor(xs.length * 0.1)];
+  let high = xs[Math.floor(xs.length * 0.9)];
+  let fastSide = [];
+  let slowSide = [];
+
+  for (let iteration = 0; iteration < 100; iteration += 1) {
+    fastSide = xs.filter((x) => Math.abs(x - low) <= Math.abs(x - high));
+    slowSide = xs.filter((x) => Math.abs(x - low) > Math.abs(x - high));
+    if (fastSide.length === 0 || slowSide.length === 0) return null;
+    const nextLow = mean(fastSide);
+    const nextHigh = mean(slowSide);
+    if (Math.abs(nextLow - low) < 1e-9 && Math.abs(nextHigh - high) < 1e-9) break;
+    low = nextLow;
+    high = nextHigh;
   }
-  return blocks;
+
+  const spread = (values, centre) => Math.sqrt(
+    values.reduce((sum, x) => sum + (x - centre) ** 2, 0) / Math.max(1, values.length - 1));
+  const pooled = Math.sqrt(
+    (spread(fastSide, low) ** 2 * (fastSide.length - 1) + spread(slowSide, high) ** 2 * (slowSide.length - 1))
+    / Math.max(1, fastSide.length + slowSide.length - 2));
+  const separation = pooled > 0 ? (high - low) / pooled : Infinity;
+
+  // ⚠️ BOTH FLOORS, AND NEITHER ALONE IS ENOUGH. k-means will split any sample into two halves and
+  // report them with a straight face; conditioning on states that are really two halves of ONE
+  // distribution would manufacture exactly the signal being looked for. Separation alone admits
+  // unimodal artefacts (measured at 2.6-3.4) and would reject the real run (4.40). See
+  // `CLOCK_RATIO_MIN`.
+  const ratio = high / low;
+  if (separation < 2 || ratio < CLOCK_RATIO_MIN) return null;
+
+  return { threshold: (low + high) / 2, fast: low, slow: high, separation, ratio };
 }
 
 /**
- * Group blocks into clock states: every member within `REFERENCE_TOLERANCE` of the cluster's floor.
+ * Pair by tick AND by clock state, dropping pairs whose members straddle a state change.
  *
- * Deterministic and greedy from the lowest reference upward, so two readers cluster identically.
- * Chaining is refused on purpose — membership is measured against the cluster's FLOOR rather than
- * its neighbour, or a slow monotone drift would chain every block into one cluster spanning far
- * more than the tolerance it claims to enforce.
+ * 🎯 THIS IS v2'S WHOLE ADDITION. The machine switches state every few ticks, so 4.6% of pairs have
+ * one member each side of a switch. Such a pair's difference carries roughly the STATE GAP — about
+ * 6 ms against a ~2 ms effect — and no statistic removes that; a median merely survives it. Here
+ * they are detected exactly and dropped exactly, and the drop rate is itself a gate (G1).
  */
-export function clusterByReference(blocks) {
-  const ordered = [...blocks].sort((a, b) => a.reference - b.reference);
-  const clusters = [];
-  for (const block of ordered) {
-    const open = clusters[clusters.length - 1];
-    if (open !== undefined && (block.reference - open.floor) / open.floor <= REFERENCE_TOLERANCE) {
-      open.blocks.push(block);
-      open.ceiling = block.reference;
-    } else {
-      clusters.push({ floor: block.reference, ceiling: block.reference, blocks: [block] });
-    }
+export function pairedByTickAndState(samplesA, samplesB, boundary) {
+  const stateOf = (ms) => (boundary === null ? 'all' : (ms <= boundary.threshold ? 'fast' : 'slow'));
+  const byTickA = new Map(samplesA.map((row) => [row.tick, row]));
+  const kept = { fast: [], slow: [], all: [] };
+  let straddled = 0;
+  let considered = 0;
+
+  for (const row of samplesB) {
+    const other = byTickA.get(row.tick);
+    if (other === undefined) continue;
+    considered += 1;
+    const state = stateOf(other.ms);
+    if (state !== stateOf(row.ms)) { straddled += 1; continue; }
+    const difference = row.ms - other.ms;
+    kept.all.push(difference);
+    if (state !== 'all') kept[state].push(difference);
   }
-  return clusters.sort((a, b) => b.blocks.length - a.blocks.length);
+
+  return {
+    ...kept,
+    considered,
+    straddled,
+    integrity: considered === 0 ? null : (considered - straddled) / considered,
+  };
 }
 
 /**
@@ -386,22 +459,6 @@ export function driftByPermutation(samples, permutations = DRIFT_PERMUTATIONS, s
     tail: quantile(ordered.slice(half), 0.5),
     passed: p >= DRIFT_ALPHA,
   };
-}
-
-/**
- * Drift within one run: the hidden condition's p50 over the first third of ticks against the last.
- *
- * The three prior runs show this happening BETWEEN runs — bald frames of 8.424 against 13.06 — and
- * nothing stops it happening inside one. A run whose own yardstick moved is not one run.
- */
-export function driftAcrossRun(samples) {
-  if (samples.length < 24) return null;
-  const ordered = [...samples].sort((a, b) => a.tick - b.tick);
-  const third = Math.floor(ordered.length / 3);
-  const head = quantile(ordered.slice(0, third).map((row) => row.ms), 0.5);
-  const tail = quantile(ordered.slice(-third).map((row) => row.ms), 0.5);
-  const check = comparable(head, tail);
-  return { head, tail, gap: check.gap, passed: check.ok };
 }
 
 // ================================================================================================
@@ -722,114 +779,123 @@ export function adjudicate(byCondition, definitions, options) {
     return [...seen.values()];
   };
 
-  // --- the nulls ---------------------------------------------------------------------------------
+  // 🔴 ONE BOUNDARY, FITTED ON EVERY SAMPLE THE RUN COLLECTED. See `fitClockBoundary` for the
+  // measured reason it is not fitted per arm.
+  const boundary = fitClockBoundary([...byCondition.values()].flat().map((row) => row.ms));
+
+  /** A pair of conditions, adjudicated pooled AND inside each clock state. G0. */
+  const evaluateAcrossStates = (label, a, b) => {
+    const split = pairedByTickAndState(samplesFor(a), samplesFor(b), boundary);
+    const census = censusDeltasBetween(a, b);
+    const pooled = evaluateNull(label, split.all, census);
+    const states = {};
+    for (const state of ['fast', 'slow']) {
+      if (split[state].length >= STATE_MIN_PAIRS) {
+        states[state] = evaluateNull(`${label} · ${state}`, split[state], census);
+      }
+    }
+    return {
+      ...pooled,
+      integrity: split.integrity,
+      straddled: split.straddled,
+      states,
+      // A null passes only if it passes POOLED AND in every state populated enough to judge.
+      passedEverywhere: pooled.passed && Object.values(states).every((entry) => entry.passed),
+    };
+  };
+
   const nulls = [];
   const hidden = [...byCondition.keys()].filter((key) => key.endsWith('-'));
-
   if (byCondition.has('bald')) {
-    for (const key of hidden) {
-      nulls.push(evaluateNull(`N1 ${key} vs bald`, pairedByTick(samplesFor('bald'), samplesFor(key)),
-        censusDeltasBetween('bald', key)));
-    }
+    for (const key of hidden) nulls.push(evaluateAcrossStates(`N1 ${key} vs bald`, 'bald', key));
   }
   for (let i = 0; i < hidden.length; i += 1) {
     for (let j = i + 1; j < hidden.length; j += 1) {
-      nulls.push(evaluateNull(`N2 ${hidden[j]} vs ${hidden[i]}`,
-        pairedByTick(samplesFor(hidden[i]), samplesFor(hidden[j])),
-        censusDeltasBetween(hidden[i], hidden[j])));
+      nulls.push(evaluateAcrossStates(`N2 ${hidden[j]} vs ${hidden[i]}`, hidden[i], hidden[j]));
     }
   }
   for (const key of [...byCondition.keys()].filter((k) => k.endsWith('-bis'))) {
-    const base = key.replace(/-bis$/, '-');
-    nulls.push(evaluateNull(`N3 ${key} vs ${base}`,
-      pairedByTick(samplesFor(base), samplesFor(key)), censusDeltasBetween(base, key)));
+    nulls.push(evaluateAcrossStates(`N3 ${key} vs ${key.replace(/-bis$/, '-')}`,
+      key.replace(/-bis$/, '-'), key));
   }
 
-  // --- drift, checked PER BLOCK ------------------------------------------------------------------
-  //
-  // A whole run is not the unit any more. See `partitionIntoBlocks` for why, and for the fact that
-  // Amendment 1's rule fired AGAINST the hypothesis that motivated blocking — the branch taken here
-  // is the one the registration prescribed for that outcome, not a re-reading of the gate.
-  const blocks = partitionIntoBlocks(options.ticks, options.blockTicks);
-  const inBlock = (key, block) =>
-    samplesFor(key).filter((row) => row.tick >= block.loTick && row.tick < block.hiTick);
-
-  const drifts = [];
-  for (const key of [...hidden, ...(byCondition.has('bald') ? ['bald'] : [])]) {
-    for (const block of blocks) {
-      const drift = driftByPermutation(inBlock(key, block));
-      if (drift !== null) drifts.push({ key, block: block.index, ...drift });
-    }
-  }
-
-  const calibration = {
-    passed: nulls.every((entry) => entry.passed) && drifts.every((entry) => entry.passed),
-    nulls,
-    drifts,
-    blockTicks: options.blockTicks,
-    blocks: blocks.length,
-    constants: { NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE, BOOTSTRAP_RESAMPLES },
-  };
-
-  // --- the costs, which are only computed if the instrument earned the right to compute them ------
+  // --- the costs -------------------------------------------------------------------------------
   const costs = [];
   for (const arm of definitions) {
     const shown = arm.conditions.find((condition) => condition.key.endsWith('+'));
     const hiddenCondition = arm.conditions.find((condition) => condition.key.endsWith('-'));
     if (shown === undefined || hiddenCondition === undefined) continue;
 
-    const perBlock = blocks.map((block) => {
-      const reference = inBlock(hiddenCondition.key, block);
-      const differences = pairedByTick(reference, inBlock(shown.key, block));
-      return {
-        index: block.index,
-        reference: quantile(reference.map((row) => row.ms), 0.5),
-        differences,
-        ...summarisePair(differences),
-      };
-    }).filter((block) => block.reference !== null && block.n > 0);
-
-    // 🎯 THE CLOCK STATE PARTITIONS THE RUN; IT DOES NOT GET AVERAGED OUT. Blocks whose reference
-    // frames agree are one clock state and pool into one cost. Blocks that disagree are a DIFFERENT
-    // clock state and are reported separately, because §3 registered that a cost without its clock
-    // state is not a number — and because averaging across states is precisely how a 94% spread got
-    // published as one figure.
-    const clusters = clusterByReference(perBlock);
-    const main = clusters[0] ?? null;
-    const pooled = main === null ? [] : main.blocks.flatMap((block) => block.differences);
+    const reference = samplesFor(hiddenCondition.key);
+    const split = pairedByTickAndState(reference, samplesFor(shown.key), boundary);
     const stimulus = censusDeltasBetween(hiddenCondition.key, shown.key);
+    const referenceIn = (state) => quantile(
+      reference.filter((row) => boundary === null || (row.ms <= boundary.threshold) === (state === 'fast'))
+        .map((row) => row.ms), 0.5);
+
+    const states = {};
+    for (const state of ['fast', 'slow']) {
+      states[state] = split[state].length < STATE_MIN_PAIRS
+        ? { available: false, n: split[state].length }
+        : { available: true, reference: referenceIn(state), ...summarisePair(split[state]) };
+    }
 
     costs.push({
       arm: arm.key,
       census: arm.census,
-      reference: main === null ? null : quantile(main.blocks.map((block) => block.reference), 0.5),
-      referenceRange: main === null ? null : { floor: main.floor, ceiling: main.ceiling },
-      blocksPooled: main === null ? 0 : main.blocks.length,
-      blocksTotal: perBlock.length,
-      // Every block's own figure, so a reader can see the spread the pooled number came from rather
-      // than taking the pooling on trust.
-      perBlock: perBlock.map(({ differences: _ignored, ...rest }) => rest),
-      otherClocks: clusters.slice(1).map((cluster) => ({
-        floor: cluster.floor,
-        ceiling: cluster.ceiling,
-        blocks: cluster.blocks.length,
-        p50: quantile(cluster.blocks.flatMap((block) => block.differences), 0.5),
-      })),
+      integrity: split.integrity,
+      straddled: split.straddled,
+      considered: split.considered,
+      states,
+      // Reported last and labelled: the mixture is a property of this run's fast share, not of the
+      // groom. It is here because the record has always quoted one number and a reader needs to see
+      // it beside the two that supersede it.
+      pooled: { reference: quantile(reference.map((row) => row.ms), 0.5), ...summarisePair(split.all) },
       stimulus,
-      // A toggle that changes no draw is not a toggle, and it would time as a perfect null.
       stimulusOk: stimulus.length > 0 && stimulus.every((delta) => delta.draws > 0 && delta.triangles > 0),
-      ...summarisePair(pooled),
     });
   }
 
+  // ⚠️ DRIFT IS REPORTED, NOT GATED, AND v2 §2 SAYS WHY. The machine switches state every few ticks
+  // indefinitely, so a drift gate on the reference refuses every run it will ever produce. The
+  // detector is kept because it is validated and a reader wants to know whether the run moved — it
+  // simply no longer decides. What decides is pair integrity, the property that actually threatens
+  // a paired measurement.
+  const drift = [...hidden, ...(byCondition.has('bald') ? ['bald'] : [])]
+    .map((key) => ({ key, ...(driftByPermutation(samplesFor(key)) ?? { p: null }) }))
+    .filter((entry) => entry.p !== null);
+
+  const integrityFloor = Math.min(...costs.map((entry) => entry.integrity ?? 1), 1);
+  // G3: an impossible answer means the instrument is at fault. Negative-inside-the-noise is NOT
+  // RESOLVED rather than void — a point estimate inside the noise is not evidence either way.
+  const nonPhysical = costs.flatMap((entry) => ['fast', 'slow']
+    .filter((state) => entry.states[state].available
+      && entry.states[state].p50 < 0 && entry.states[state].spansZero === false)
+    .map((state) => `${entry.arm} · ${state}: ${entry.states[state].p50.toFixed(3)} ms with a CI excluding zero`));
+
+  const calibration = {
+    passed: nulls.every((entry) => entry.passedEverywhere)
+      && integrityFloor >= PAIR_INTEGRITY_MIN
+      && nonPhysical.length === 0
+      && boundary !== null,
+    boundary,
+    nulls,
+    drift,
+    integrityFloor,
+    nonPhysical,
+    constants: {
+      NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE,
+      PAIR_INTEGRITY_MIN, STATE_MIN_PAIRS, BOOTSTRAP_RESAMPLES,
+    },
+  };
+
   return {
     tool: 'tools/critic/frame-cost.mjs',
-    registration: 'docs/superpowers/specs/2026-08-23-frame-cost-preregistration.md',
+    registration: 'docs/superpowers/specs/2026-08-24-frame-cost-v2-preregistration.md',
     generatedAt: new Date().toISOString(),
     headSha: options.headSha,
     viewport: VIEWPORT,
     ticks: options.ticks,
-    blockTicks: options.blockTicks,
     warmupTicks: options.warmedTicks ?? null,
     armSet: options.arms,
     calibration,
@@ -840,87 +906,99 @@ export function adjudicate(byCondition, definitions, options) {
 
 function print(report) {
   const { calibration, costs } = report;
+  const { boundary } = calibration;
 
-  console.log(`\n${'='.repeat(96)}`);
-  console.log('CALIBRATION — the instrument reads zero on pairs that ARE zero, or it does not speak.\n');
-  console.log(`registered: |p50| <= ${NULL_MAX_MS} ms   sign within ${NULL_SIGN_Z}σ of a coin   `
-    + `reference within ${(REFERENCE_TOLERANCE * 100).toFixed(0)}%\n`);
-  console.log('null                          n      p50      mean    sign      z   census  verdict');
-  console.log('-'.repeat(96));
-  for (const entry of calibration.nulls) {
-    const census = entry.censusDeltas.map((d) => `${d.draws}/${d.triangles}`).join(',');
-    console.log(
-      `${entry.label.padEnd(28)} ${String(entry.n).padStart(4)} `
-      + `${signed(entry.p50)} ${signed(entry.mean)} `
-      + `${(entry.sign.fraction * 100).toFixed(1).padStart(6)}% ${entry.sign.z.toFixed(2).padStart(6)} `
-      + `${census.padStart(7)}  ${entry.passed ? '✅' : '🔴 FAIL'}`);
-    for (const reason of entry.reasons) console.log(`      ${reason}`);
-  }
-
-  console.log(`\ndrift, PERMUTATION TEST per block of ${calibration.blockTicks} ticks `
-    + `(KS between halves, null from ${DRIFT_PERMUTATIONS} shuffles, α ${DRIFT_ALPHA}):`);
-  const byKey = new Map();
-  for (const entry of calibration.drifts) {
-    if (byKey.has(entry.key) === false) byKey.set(entry.key, []);
-    byKey.get(entry.key).push(entry);
-  }
-  for (const [key, entries] of byKey) {
-    const worst = entries.reduce((a, b) => (b.p < a.p ? b : a));
-    const red = entries.filter((entry) => entry.passed === false);
-    console.log(`  ${key.padEnd(14)} ${entries.length} blocks, smallest p ${worst.p.toFixed(4)} `
-      + `(block ${worst.block}, KS ${worst.statistic.toFixed(3)}, ${worst.head.toFixed(2)} -> ${worst.tail.toFixed(2)})  `
-      + (red.length === 0 ? '✅' : `🔴 FAIL in ${red.length}: blocks ${red.map((e) => e.block).join(', ')}`));
-  }
-
-  if (calibration.passed === false) {
-    console.log(`\n${'='.repeat(96)}`);
-    console.log('🔴 THE ROUND IS VOID. An instrument that cannot read zero on a pair it knows is zero');
-    console.log('   has not earned the right to report a pair it does not know. No costs printed —');
-    console.log('   see §8 of the registration, which registered this refusal in advance.');
+  console.log(`\n${'='.repeat(100)}`);
+  if (boundary === null) {
+    console.log('🔴 NO CLOCK STATES COULD BE FITTED — the samples are unimodal, or too few.');
+    console.log('   v2 conditions on state, so without states it has nothing to condition on.');
     return;
   }
 
-  console.log(`\n${'='.repeat(96)}`);
-  console.log('COST OF THE GROOM — paired within tick, so the clock-state mixture cancels.\n');
-  console.log('arm            n       p50      mean          95% CI        sign   reference  blocks  stim');
-  console.log('-'.repeat(96));
-  for (const entry of costs) {
-    const ci = entry.ci === null ? '—' : `[${entry.ci.low.toFixed(3)}, ${entry.ci.high.toFixed(3)}]`;
-    console.log(
-      `${entry.arm.padEnd(13)} ${String(entry.n).padStart(4)} ${signed(entry.p50)} ${signed(entry.mean)} `
-      + `${ci.padStart(18)} ${(entry.sign.fraction * 100).toFixed(1).padStart(6)}% `
-      + `${entry.reference.toFixed(3).padStart(9)}  ${String(entry.blocksPooled)}/${entry.blocksTotal}`.padEnd(9)
-      + `  ${entry.stimulusOk ? 'ok' : '🔴'}`
-      + `${entry.spansZero ? '   ⚪ NOT RESOLVED — the interval includes no effect' : ''}`);
+  console.log(`CLOCK STATES, fitted ONCE on every sample in the run: fast ${boundary.fast.toFixed(3)} / `
+    + `slow ${boundary.slow.toFixed(3)} ms  (${boundary.ratio.toFixed(2)}×, separation `
+    + `${boundary.separation.toFixed(1)} SD, boundary ${boundary.threshold.toFixed(3)})\n`);
 
-    // The blocks the pooled figure is made of, so the spread is visible rather than trusted.
-    console.log(`               blocks at this clock: `
-      + entry.perBlock
-        .filter((block) => block.reference >= entry.referenceRange.floor
-          && block.reference <= entry.referenceRange.ceiling)
-        .map((block) => `${block.p50 >= 0 ? '+' : ''}${block.p50.toFixed(2)}`).join('  ')
-      + `   (reference ${entry.referenceRange.floor.toFixed(2)}-${entry.referenceRange.ceiling.toFixed(2)} ms)`);
-
-    // ⚠️ A DIFFERENT CLOCK IS A DIFFERENT NUMBER, PRINTED SEPARATELY AND NEVER FOLDED IN.
-    for (const other of entry.otherClocks) {
-      console.log(`               🕐 ALSO at reference ${other.floor.toFixed(2)}-${other.ceiling.toFixed(2)} ms: `
-        + `${other.p50 >= 0 ? '+' : ''}${other.p50.toFixed(3)} ms over ${other.blocks} block(s) — a `
-        + 'DIFFERENT clock state, reported apart because a cost without its clock is not a number');
+  console.log('CALIBRATION — every null pooled AND inside each state (G0).\n');
+  console.log(`registered: |p50| <= ${NULL_MAX_MS} ms   sign within ${NULL_SIGN_Z}σ   `
+    + `integrity >= ${PAIR_INTEGRITY_MIN}   a state needs ${STATE_MIN_PAIRS} pairs\n`);
+  console.log('null                            state      n      p50    sign      z   census  verdict');
+  console.log('-'.repeat(100));
+  for (const entry of calibration.nulls) {
+    const row = (label, state, item) => console.log(
+      `${label.padEnd(30)} ${state.padEnd(7)} ${String(item.n).padStart(4)} ${signed(item.p50)} `
+      + `${(item.sign.fraction * 100).toFixed(1).padStart(6)}% ${item.sign.z.toFixed(2).padStart(6)} `
+      + `${item.censusDeltas.map((d) => `${d.draws}/${d.triangles}`).join(',').padStart(7)}  `
+      + `${item.passed ? '✅' : '🔴 FAIL'}`);
+    row(entry.label, 'pooled', entry);
+    for (const [state, item] of Object.entries(entry.states)) row('', state, item);
+    for (const reason of entry.reasons) console.log(`      ${reason}`);
+    for (const item of Object.values(entry.states)) {
+      for (const reason of item.reasons) console.log(`      ${item.label}: ${reason}`);
     }
   }
 
-  console.log('\nCOMPARABILITY — two costs may be differenced only if their reference frames agree.\n');
-  for (let i = 0; i < costs.length; i += 1) {
-    for (let j = i + 1; j < costs.length; j += 1) {
-      const check = comparable(costs[i].reference, costs[j].reference);
-      const delta = costs[j].p50 - costs[i].p50;
-      const spread = Math.abs(delta) / Math.min(Math.abs(costs[i].p50), Math.abs(costs[j].p50));
+  console.log(`\npair integrity (G1): worst ${(calibration.integrityFloor * 100).toFixed(1)}% of pairs `
+    + `share a clock state, floor ${(PAIR_INTEGRITY_MIN * 100).toFixed(0)}%  `
+    + `${calibration.integrityFloor >= PAIR_INTEGRITY_MIN ? '✅' : '🔴 FAIL'}`);
+  for (const reason of calibration.nonPhysical) console.log(`🔴 NON-PHYSICAL (G3): ${reason}`);
+  console.log('reference drift (REPORTED, not gated — v2 §2): '
+    + calibration.drift.map((entry) => `${entry.key} p=${entry.p.toFixed(3)}`).join('  '));
+
+  if (calibration.passed === false) {
+    console.log(`\n${'='.repeat(100)}`);
+    console.log('🔴 THE ROUND IS VOID. No costs printed — §6 of the v2 registration registered this');
+    console.log('   refusal in advance.');
+    return;
+  }
+
+  console.log(`\n${'='.repeat(100)}`);
+  console.log('COST OF THE GROOM — paired within tick AND within clock state.\n');
+  console.log('arm          state      n       p50           95% CI        sign   reference   integrity');
+  console.log('-'.repeat(100));
+  for (const entry of costs) {
+    for (const state of ['fast', 'slow']) {
+      const item = entry.states[state];
+      if (item.available === false) {
+        console.log(`${entry.arm.padEnd(12)} ${state.padEnd(6)} ${String(item.n).padStart(4)}   `
+          + `⚪ UNAVAILABLE — ${item.n} retained pairs, ${STATE_MIN_PAIRS} required`);
+        continue;
+      }
       console.log(
-        `  ${costs[j].arm} vs ${costs[i].arm}: references ${(check.gap * 100).toFixed(2)}% apart — `
-        + (check.ok
-          ? `COMPARABLE. Δ ${signed(delta).trim()} ms (${(spread * 100).toFixed(1)}% apart`
-            + `${spread <= REPLICATE_TOLERANCE ? '' : ', 🔴 OUTSIDE the registered 10%'})`
-          : '🔴 NOT COMPARABLE — different clock states; no delta printed, by §8.'));
+        `${entry.arm.padEnd(12)} ${state.padEnd(6)} ${String(item.n).padStart(4)} ${signed(item.p50)} `
+        + `${`[${item.ci.low.toFixed(3)}, ${item.ci.high.toFixed(3)}]`.padStart(18)} `
+        + `${(item.sign.fraction * 100).toFixed(1).padStart(6)}% ${item.reference.toFixed(3).padStart(9)} `
+        + `${(entry.integrity * 100).toFixed(1).padStart(9)}%`
+        + `${item.spansZero ? '  ⚪ NOT RESOLVED' : ''}`);
+    }
+    // ⚠️ THE MIXTURE IS A PROPERTY OF THIS RUN, NOT OF THE GROOM. Quoted because the record has
+    // always quoted one number, and superseded by the two rows above it.
+    console.log(`${''.padEnd(12)} ${'(mix)'.padEnd(6)} ${String(entry.pooled.n).padStart(4)} `
+      + `${signed(entry.pooled.p50)} ${`[${entry.pooled.ci.low.toFixed(3)}, ${entry.pooled.ci.high.toFixed(3)}]`.padStart(18)} `
+      + `${(entry.pooled.sign.fraction * 100).toFixed(1).padStart(6)}% ${entry.pooled.reference.toFixed(3).padStart(9)}`
+      + '   ⚠️ a mixture of the two rows above, weighted by this run\'s fast share');
+    console.log(`${''.padEnd(12)} stimulus ${entry.stimulus.map((d) => `+${d.draws} draws +${d.triangles} tris`).join(', ')}`
+      + ` ${entry.stimulusOk ? '' : '🔴'}  ·  ${entry.straddled} of ${entry.considered} pairs dropped as straddling`);
+  }
+
+  console.log('\nCOMPARABILITY — two costs may be differenced only if their reference frames agree.\n');
+  for (const state of ['fast', 'slow']) {
+    const usable = costs.filter((entry) => entry.states[state].available);
+    for (let i = 0; i < usable.length; i += 1) {
+      for (let j = i + 1; j < usable.length; j += 1) {
+        const a = usable[i].states[state];
+        const b = usable[j].states[state];
+        const check = comparable(a.reference, b.reference);
+        const delta = b.p50 - a.p50;
+        const spread = Math.abs(delta) / Math.min(Math.abs(a.p50), Math.abs(b.p50));
+        console.log(`  [${state}] ${usable[j].arm} vs ${usable[i].arm}: references `
+          + `${(check.gap * 100).toFixed(2)}% apart — `
+          + (check.ok
+            ? `COMPARABLE. Δ ${delta >= 0 ? '+' : ''}${delta.toFixed(3)} ms `
+              + `(${(spread * 100).toFixed(1)}% apart`
+              + `${spread <= REPLICATE_TOLERANCE ? ', ✅ inside the registered 10%' : ', 🔴 OUTSIDE the registered 10%'})`
+            : '🔴 NOT COMPARABLE — different clock states; no delta printed.'));
+      }
     }
   }
 }
@@ -993,10 +1071,6 @@ function parseArguments(argv) {
     // a plate of a stale duplicate is a plate of the wrong thing.
     tfxDirectory: path.join(REPOSITORY_ROOT, 'tmp', 'tfx'),
     ticks: 240,
-    // Blocks are an ANALYSIS parameter — the capture is continuous and partitioned afterwards — so
-    // one run can be read at several block sizes without re-sampling anything. 40 ticks is the
-    // smallest window `driftAcrossRun` can read thirds of and still clear its 24-sample floor.
-    blockTicks: 40,
     warmupCap: 600,
     arms: 'cards',
     headSha: null,
@@ -1009,7 +1083,6 @@ function parseArguments(argv) {
       case '--out': options.outDirectory = path.resolve(value); index += 1; break;
       case '--tfx': options.tfxDirectory = path.resolve(value); index += 1; break;
       case '--ticks': options.ticks = Number(value); index += 1; break;
-      case '--block': options.blockTicks = Number(value); index += 1; break;
       case '--warmup-cap': options.warmupCap = Number(value); index += 1; break;
       case '--arms': options.arms = value; index += 1; break;
       case '--sha': options.headSha = value; index += 1; break;
