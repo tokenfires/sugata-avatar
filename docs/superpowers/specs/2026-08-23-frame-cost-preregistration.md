@@ -220,3 +220,85 @@ counts as drift, and it is decided by a measurement rather than by preference.
 ⚠️ **Disclosure.** I have seen that the run voided and on which gate. I have **not** looked at any
 cost from it — the tool computes costs into the JSON but refuses to print them when calibration
 fails, and I have not opened that file. The rule above is written against that ignorance on purpose.
+
+---
+
+# Amendment 2 — the drift operator cannot see drift, measured by permutation
+
+**Written at `40bd0d1`+, BEFORE the replacement is built.** The validation in §A2.3 is stated here so
+it cannot be chosen after the replacement's behaviour is known.
+
+## A2.1 The evidence: a 15% false-positive rate on data with no time axis
+
+N4 was registered as *"hidden p50 over the first third of ticks vs the last third"*, gated at
+`REFERENCE_TOLERANCE`. Two runs later it has voided both. The question is whether it is seeing drift
+or seeing noise, and that is directly measurable: **shuffle the tick labels**, which destroys every
+time relationship while preserving the distribution exactly, and re-run the gate. A drift detector
+must then fire at ~0%.
+
+Measured, 400 shuffles per cell, on the run's own samples:
+
+| region | key | block n | shuffles failing the 2% gate | worst gap |
+|---|---|---:|---:|---:|
+| **stable** (ticks 0–139) | `bald` | 40 | **9%** | 4.6% |
+| **stable** | `cardsA-` | 40 | **15%** | 5.1% |
+| **stable** | `cardsB-` | 40 | 0% | 1.8% |
+| unstable (ticks 140–239) | `cardsA-` | 40 | **38%** | 5.6% |
+| unstable | `bald` | 70 | 28% | 6.9% |
+
+A p50 of ~13 samples drawn from a bimodal distribution is not a stable location estimate, so
+comparing two of them detects its own sampling noise. **This is a defect in the operator, in the same
+category as reading `report().hair` — the code does not compute the property the prose names.** It is
+not the threshold being inconvenient, and the threshold is not what changes.
+
+## A2.2 And there is a REAL regime change, which the fix must still catch
+
+The same run shows the machine genuinely changing state at tick ~140. Ticks 0–139 hold a p50 of
+12.97–13.09 with the minimum pinned at 12.64–12.76. From tick 140 the minimum collapses to **4.04 ms**
+and the spread triples. The GPU is **boosting**, not throttling — sustained load finally raised the
+clock, long after the 40-tick warm-up ended.
+
+So the replacement must have **both** properties. A detector that never fires is not a fix.
+
+## A2.3 🔴 The replacement, and the validation it must pass FIRST
+
+**Operator:** two-sample **Kolmogorov–Smirnov** between the first and second half of a block's
+samples, with its null obtained by **permutation** of the pooled values. Rank-based, so bimodality
+does not degrade it; sensitive to changes in *shape and mixture*, not only location, which is what
+the tick-140 event actually is.
+
+```
+DRIFT_ALPHA = 0.05      permutation p-value below this = drift detected = block excluded
+DRIFT_PERMUTATIONS = 2000
+```
+
+⚠️ `DRIFT_ALPHA` is a **new** constant, not a loosened one. `NULL_MAX_MS`, `NULL_SIGN_Z`,
+`REFERENCE_TOLERANCE` and `REPLICATE_TOLERANCE` keep the values registered in §2–§3 and continue to
+gate what they always gated. What changes is that N4 stops using `REFERENCE_TOLERANCE`, because
+`REFERENCE_TOLERANCE` is a tolerance on a *ratio of two clock states* and was never a sampling
+distribution.
+
+**The replacement is used only if it passes all three, on the run already captured:**
+
+1. **Calibration** — on shuffled samples (time axis destroyed), it fires at **≤ 8%**. Nominal is 5%;
+   the allowance is for permutation-p granularity, and it is stated now rather than after.
+2. **Power** — on `bald` over the full ticks 0–239, which contains the documented regime change, it
+   **fires**.
+3. **Specificity** — on `bald` over the stable ticks 0–139, it **does not fire**.
+
+Fail any of the three and the replacement is discarded, N4 stands as registered, and the answer is a
+protocol change alone.
+
+## A2.4 The protocol change, which happens regardless
+
+The regime change at tick 140 is a **warm-up failure**: 40 ticks was not enough to reach the terminal
+clock state, so the sampling window straddled two. Fixed warm-up is replaced by an **adaptive** one —
+sample in windows of 20 ticks and continue until two consecutive windows agree within
+`REFERENCE_TOLERANCE`, up to a cap. That targets the cause rather than the symptom, and it reuses an
+already-registered constant for exactly the job it was registered for: deciding whether two
+reference frames are the same clock state.
+
+⚠️ **Full disclosure.** This amendment is written after two voided runs, knowing which gate voided
+them. What protects it from being a convenience is that the replacement is validated against a
+**pre-stated three-way test including a POWER requirement** — a merely permissive operator fails
+§A2.3(2) and is discarded.
