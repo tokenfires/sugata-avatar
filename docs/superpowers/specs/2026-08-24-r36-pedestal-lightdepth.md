@@ -90,3 +90,37 @@ verdict, owned by the owner; and no claim about other presets or grooms.
 Gates or constants moving after the first captured arm → void. G-DECOY failing → the finding is the
 re-opened decomposition, reported as such. The blind panel's verdict is reported as returned,
 including if it prefers `shipped`.
+
+---
+
+# Amendment 1 — the decoy as written cannot be level-matched, measured twice, re-derived once
+
+**Written after the depth arm matched (X=1.7183, luma gap −0.010%) and before the decoy was
+re-rendered.** Disclosure: the raw (unmatched) saturation numbers have been seen — base 0.8290,
+depth 0.3523, rim0 0.8866 — and are in the capture log. This amendment touches only the decoy's
+LEVEL mechanics; no gate threshold moves.
+
+## The defect
+
+§3 defined the decoy as the constants "forced to their weighted mean." Resolved to the arithmetic
+mean (9.5) before capture; **measured: the pedestal is annihilated** (√C^10.5 ≈ 10⁻¹¹) and the
+level-match bisection found p50 bit-identical at every scalar — the tool's pin-guard refused, as
+built. The registration's other reading, the delivery-weighted mean (computed from R35's cache:
+key 40.9% + key-shadow 25.7% at n=0, fill 16.3% at n=1, rim 16.3% at n=26, kicker 0.9% at n=11 →
+**4.487**), also annihilates (√C^5.5 ≈ 3×10⁻⁶). **No mean-flavoured constant yields a readable
+G-DECOY**, because the form is exponential and the mean of exponents does not preserve the mass.
+
+## The re-derivation, by the property the decoy must have
+
+The decoy exists to be **light-blind at the same level**. The constant with that property is the
+level-equivalent events:
+
+```
+n* = ln( Σᵢ wᵢ · a^{nᵢ} ) / ln(a),   a = luma(√C) = 0.0736,  wᵢ = delivery shares above
+   = ln(0.6775) / ln(0.0736) = 0.1492
+```
+
+**Strictness direction: harder, not easier.** At n = 9.5 the decoy was a strawman — trivially
+different from the real arm. At n* = 0.1492 it is nearly the same machinery at the same level,
+differing only in per-light differentiation — precisely the property under test. G-DECOY's ≤30%
+share threshold is unchanged.

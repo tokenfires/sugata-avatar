@@ -1838,11 +1838,14 @@ export const HAIR_DEFECTS = {
         '⚠️ 0.68× luma on the term — LEVEL-MATCH before judging, or the A/B is the two-variables ' +
         'mistake. Registered: docs/superpowers/specs/2026-08-24-r36-pedestal-lightdepth.md.',
     'pedestal-lightdepth-flat': '🔴 R36\'s DECOY: the identical machinery with every light\'s ' +
-        'constant forced to the arithmetic mean (9.5) — LIGHT-BLIND BY CONSTRUCTION, level-matched ' +
-        'by the same procedure. If this scores like the real arm, per-light differentiation is not ' +
-        'the cause and R35\'s decomposition is re-opened. (The registration wrote "weighted mean"; ' +
-        'resolved to the arithmetic mean BEFORE any capture, recorded here — the level-match ' +
-        'scalar absorbs the level either way, so the choice moves nothing the decoy tests.)',
+        'constant forced to n* = 0.1492 — LIGHT-BLIND at the SAME LEVEL, per Amendment 1 of the ' +
+        'registration. Both mean readings (arithmetic 9.5, delivery-weighted 4.487) annihilate the ' +
+        'exponential term and made G-DECOY unreadable: the level-match bisection measured p50 ' +
+        'bit-identical at every scalar and the pin-guard refused. n* is the level-equivalent ' +
+        'events, ln(sum wi a^ni)/ln(a) with a = luma(sqrt C), derived from R35\'s delivery ' +
+        'shares — strictly HARDER than a mean, because the decoy becomes the same machinery at ' +
+        'the same level differing only in per-light differentiation, which is the property under ' +
+        'test. If this scores like the real arm, R35\'s decomposition is re-opened.',
     'envelope-fixed-direction': '🔴 THE FALSIFICATION ARM FOR ROUND 28, AND IT IS THE ONE THAT ' +
         'DECIDES WHETHER ANYTHING WAS ACHIEVED. The envelope path length is evaluated toward a ' +
         'CONSTANT view-space direction instead of toward each light, so the term keeps every other ' +
@@ -3074,9 +3077,14 @@ export class HairLightingModel extends LightingModel {
 
         if ( nodes.defect === 'pedestal-lightdepth-flat' ) {
 
-            const mean = HAIR_PEDESTAL_LIGHT_DEPTH
-                .reduce( ( sum, entry ) => sum + entry.events, 0 ) / HAIR_PEDESTAL_LIGHT_DEPTH.length;
-            return float( mean );
+            // 🔴 THE LEVEL-EQUIVALENT CONSTANT, NOT A MEAN — R36 Amendment 1. Both mean readings
+            // (arithmetic 9.5, delivery-weighted 4.487) ANNIHILATE the term (√C^n is exponential;
+            // the mean of exponents does not preserve mass) and the level-match bisection measured
+            // p50 bit-identical at every scalar. The decoy must be light-blind AT THE SAME LEVEL,
+            // and the constant with that property is n* = ln(Σ wᵢ·a^nᵢ)/ln(a) with a = luma(√C):
+            // 0.1492 on the R35 delivery shares. Strictly HARDER than a mean — the decoy becomes
+            // the same machinery at the same level, differing only in per-light differentiation.
+            return float( 0.1492 );
 
         }
 
