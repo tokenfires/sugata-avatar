@@ -1051,6 +1051,29 @@ export const HAIR_ENVELOPE_QUANTILES = [ 0.02, 0.98 ];
 export const HAIR_ENVELOPE_EXTINCTION = 74.75;
 
 /**
+ * R35's per-light depth constants: each light's MEDIAN ray-cast card-crossing count, from R28's
+ * 7,913-sample ground truth on the portrait rig.
+ *
+ * 🎯 WHY FOUR CONSTANTS AND NOT A SIGNAL — MEASURED, NOT ARGUED. R35 fed the chromatic pedestal the
+ * TRUE per-(pixel, light) count and decomposed the +109% fibre-axis saturation ceiling: destroying
+ * pixel placement kept 103% of it, the light-blind sheet kept 1.5%, and these four medians alone
+ * kept 70%. The property is per-light AGGREGATE depth. A per-pixel signal would buy the last ~30
+ * points at the cost of a `render/**` round, and R35's registration refused that trade.
+ *
+ * ⚠️ PORTRAIT-RIG, `bob01` CONSTANTS, MEASURED PER RIG — NOT AUTHORED, NOT TRANSFERABLE. A
+ * different preset or groom re-derives them from its own ray cast
+ * (`tools/critic/hair-envelope.mjs --models`). Positions are the lights' world positions at
+ * capture, verified against the live rig to 1 mm by `hair-tf-ceiling.mjs` before R35 reported.
+ * `key-shadow` is co-located with `key` and needs no entry: max-dot matching sends it to `key`.
+ */
+export const HAIR_PEDESTAL_LIGHT_DEPTH = [
+    { name: 'key', position: [ 0.840208, 1.815226, 0.610447 ], events: 0 },
+    { name: 'fill', position: [ - 0.620555, 1.511492, 0.739548 ], events: 1 },
+    { name: 'rim', position: [ - 0.138186, 1.643483, - 0.310372 ], events: 26 },
+    { name: 'kicker', position: [ 0.012610, 1.439804, - 0.361090 ], events: 11 },
+];
+
+/**
  * 🚩 TWO PREDICATES, AND THE SPLIT IS THE POINT — R31 ADDED THE FIFTH ARM THIS COMMENT PREDICTED.
  *
  * The previous version of this comment read: *"Named once, because the test appears in four places
@@ -1805,6 +1828,21 @@ export const HAIR_DEFECTS = {
         + 'where the ray cast says the key is clear for 63.84% of fragments and the model says '
         + 'p50 n = 3.62. That has no clean repair, because it is the model\'s distribution and not '
         + 'a coefficient.',
+    'pedestal-lightdepth': '🎯 ROUND 36. THE FOUR-CONSTANTS PEDESTAL: the multiple-scattering ' +
+        'term takes its depth from `HAIR_PEDESTAL_LIGHT_DEPTH` — each light\'s MEASURED median ' +
+        'crossing count, matched to the incoming direction by max-dot against the lights\' world ' +
+        'positions — through the untouched zinke-transmittance FORM. R35 measured the mechanism: ' +
+        'the shipped pedestal is LIGHT-BLIND, so the #0f30ff rim pollutes 65.4% of the groom\'s ' +
+        'energy through 26 cards of hair; per-light depth annihilates it (√C^27) while the key ' +
+        '(n=0) and fill (n=1) survive warm. Ceiling +109%, four constants +77%, the sheet +1.5%. ' +
+        '⚠️ 0.68× luma on the term — LEVEL-MATCH before judging, or the A/B is the two-variables ' +
+        'mistake. Registered: docs/superpowers/specs/2026-08-24-r36-pedestal-lightdepth.md.',
+    'pedestal-lightdepth-flat': '🔴 R36\'s DECOY: the identical machinery with every light\'s ' +
+        'constant forced to the arithmetic mean (9.5) — LIGHT-BLIND BY CONSTRUCTION, level-matched ' +
+        'by the same procedure. If this scores like the real arm, per-light differentiation is not ' +
+        'the cause and R35\'s decomposition is re-opened. (The registration wrote "weighted mean"; ' +
+        'resolved to the arithmetic mean BEFORE any capture, recorded here — the level-match ' +
+        'scalar absorbs the level either way, so the choice moves nothing the decoy tests.)',
     'envelope-fixed-direction': '🔴 THE FALSIFICATION ARM FOR ROUND 28, AND IT IS THE ONE THAT ' +
         'DECIDES WHETHER ANYTHING WAS ACHIEVED. The envelope path length is evaluated toward a ' +
         'CONSTANT view-space direction instead of toward each light, so the term keeps every other ' +
@@ -2391,7 +2429,11 @@ export function scatterValue( dotFakeNormalLight, colour, shadow, settings = {} 
     const options = { ...HAIR_DEFAULTS, ...settings };
     const wrap = ( dotFakeNormalLight + 1 ) / ( 4 * Math.PI );
 
-    if ( options.defect === 'zinke-transmittance' ) {
+    // R36's arms use the identical FORM with a different events source; on the CPU mirror the
+    // caller supplies `shadow = exp(−n_light)` directly, so the branch is shared.
+    if ( options.defect === 'zinke-transmittance'
+        || options.defect === 'pedestal-lightdepth'
+        || options.defect === 'pedestal-lightdepth-flat' ) {
 
         const events = forwardScatteringEvents( shadow );
 
@@ -3015,6 +3057,58 @@ export class HairLightingModel extends LightingModel {
     }
 
     /**
+     * R36: the per-light constant depth, matched to the incoming light by max-dot.
+     *
+     * The shader has no light IDENTITY — `scatter()` receives only a view-space direction — so the
+     * table's world positions are transformed per fragment and the entry whose direction best
+     * agrees with `toLight` wins. The rig's four lights are far apart angularly (the closest pair,
+     * rim and kicker, differ by ~20° from the head), so max-dot is unambiguous everywhere on the
+     * groom; the CPU selftest asserts the matcher on representative directions.
+     *
+     * `pedestal-lightdepth-flat` — the registered DECOY — returns the arithmetic mean instead:
+     * light-blind by construction, same machinery, same form, same level-match procedure.
+     */
+    lightDepthEvents( toLight ) {
+
+        const nodes = this.nodes;
+
+        if ( nodes.defect === 'pedestal-lightdepth-flat' ) {
+
+            const mean = HAIR_PEDESTAL_LIGHT_DEPTH
+                .reduce( ( sum, entry ) => sum + entry.events, 0 ) / HAIR_PEDESTAL_LIGHT_DEPTH.length;
+            return float( mean );
+
+        }
+
+        let bestDot = null;
+        let bestEvents = null;
+
+        for ( const entry of nodes.lightDepthTable ) {
+
+            const positionInView = cameraViewMatrix.mul( vec4( entry.position, 1 ) ).xyz;
+            const directionInView = normalize( positionInView.sub( positionView ) );
+            const agreement = directionInView.dot( toLight );
+
+            if ( bestDot === null ) {
+
+                bestDot = agreement;
+                bestEvents = float( entry.events );
+
+            } else {
+
+                const better = agreement.greaterThan( bestDot );
+                bestEvents = better.select( float( entry.events ), bestEvents );
+                bestDot = better.select( agreement, bestDot );
+
+            }
+
+        }
+
+        return bestEvents;
+
+    }
+
+    /**
      * THE STRAND DIRECTION, and the whole anisotropy claim rests on this function.
      *
      * 🎯 It is derived from the CARD, not from the screen and not from a vertex attribute. The
@@ -3254,10 +3348,16 @@ export class HairLightingModel extends LightingModel {
         // default build exactly nothing.
         const geometric = isEnvelopeArm( nodes.defect );
 
-        const events = geometric ? this.envelopeEvents( toLight ) : this.forwardEvents;
-        const shadow = geometric ? events.negate().exp() : this.shadow;
+        // R36's third INPUT source, through the same split R28 built: per-light constant events.
+        const perLightDepth = nodes.defect === 'pedestal-lightdepth'
+            || nodes.defect === 'pedestal-lightdepth-flat';
 
-        const transmittance = nodes.defect === 'zinke-transmittance' || nodes.defect === 'envelope-zinke';
+        const events = perLightDepth ? this.lightDepthEvents( toLight )
+            : geometric ? this.envelopeEvents( toLight ) : this.forwardEvents;
+        const shadow = ( geometric || perLightDepth ) ? events.negate().exp() : this.shadow;
+
+        const transmittance = nodes.defect === 'zinke-transmittance'
+            || nodes.defect === 'envelope-zinke' || perLightDepth;
 
         let scatter;
 
@@ -3531,6 +3631,14 @@ export async function createHairMaterial( options = {} ) {
         // reader who sees the plate can tell at a glance that the band is welded to the screen.
         // `envelope-fixed-direction` reads it too, for the same reason and in the same space.
         constantTangent: uniform( new Vector3( 0.6, 0.8, 0 ) ),
+
+        // R36's per-light depth table. Only the two `pedestal-lightdepth*` defects reference these,
+        // so the shipped graph never sees them; uniforms so a probe can sweep them without a
+        // rebuild. See `HAIR_PEDESTAL_LIGHT_DEPTH` for the measurement and the per-rig warning.
+        lightDepthTable: HAIR_PEDESTAL_LIGHT_DEPTH.map( ( entry ) => ( {
+            position: uniform( new Vector3( ...entry.position ) ),
+            events: uniform( entry.events ),
+        } ) ),
 
         // 🎯 ROUND 28's ENVELOPE. Written by `applyHairMaterial` from the groom's own vertices and
         // then tracked to the head bone, so these are LIVE uniforms rather than authored constants.
