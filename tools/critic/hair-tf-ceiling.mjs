@@ -29,7 +29,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import {
-  HAIR_DEFAULTS, scatterValue, forwardScatteringEvents,
+  HAIR_DEFAULTS, scatterValue, baseColourDerivation,
 } from '../../packages/core/src/material/HairMaterial.js';
 
 const REPOSITORY_ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -214,9 +214,18 @@ async function main() {
     });
   }
 
-  const colour = live.fibreLinear;
+  // 🔴 THE FIBRE COMES FROM THE MATERIAL'S OWN DERIVATION, NOT FROM A PAGE READ — the node
+  // material exposes no `.color`, and the first run read back WHITE, degenerated the axis to zero,
+  // and printed a page of zeros that LOOKED like a measured null. The guard below is the second
+  // half of the fix: a probe whose axis is degenerate must refuse, not report.
+  const colour = baseColourDerivation().linear;
+  const axisNorm = Math.hypot(...fibreAxis(colour));
+  if (!(axisNorm > 0.999)) {
+    throw new Error(`the fibre axis is degenerate (norm ${axisNorm.toFixed(4)}) — a grey fibre has `
+      + 'no hue axis and every statistic below would be a page of well-formatted zeros');
+  }
   console.log(`fibre     linear [${colour.map((v) => v.toFixed(4)).join(', ')}]  `
-    + `axis [${fibreAxis(colour).map((v) => v.toFixed(3)).join(', ')}]`);
+    + `axis [${fibreAxis(colour).map((v) => v.toFixed(3)).join(', ')}]  (baseColourDerivation)`);
 
   const head = cache.headBonePosition;
   const samples = [];
@@ -249,6 +258,14 @@ async function main() {
   // --- the measurement ---------------------------------------------------------------------------
   const ordered = scoreSamples(samples, colour);
   const decoy = scoreSamples(shuffledCopy(samples), colour);
+  // 🎯 THE ARM THE DECOY RESULT DEMANDS: the EXISTING baked sheet's own value, through the
+  // chromatic form, same n for every light (that is all a per-fragment sheet can do). If the decoy
+  // says the marginal is what matters, this arm says whether the marginal ALREADY ON DISK is close
+  // enough — i.e. whether the chroma gain is available today, with no plumbing at all.
+  const sheetArm = scoreSamples(samples.map((sample) => ({
+    ...sample,
+    events: sample.events.map(() => -Math.log(Math.max(sample.shadowSheet, 1e-6))),
+  })), colour);
   const decoyShare = Math.abs(decoy.relativeGain) / Math.max(Math.abs(ordered.relativeGain), 1e-12);
 
   // Sensitivity: the fake-normal approximation only enters through wrap. Re-run with wrap ≡ 1.
@@ -273,16 +290,56 @@ async function main() {
   console.log(`  luma ratio (the level cost):           ${ordered.lumaRatio.toFixed(4)}× the shipped pedestal`);
   console.log(`  wrap-sensitivity (wrap ≡ 1):           gain ${(noWrap.relativeGain * 100).toFixed(2)}% — `
     + `${Math.sign(noWrap.relativeGain) === Math.sign(ordered.relativeGain) ? 'same sign, the normal approximation is not deciding' : '🔴 SIGN FLIPS on the wrap model; NOT RESOLVED'}`);
+  // ⚠️ THE SHUFFLE MOVES EACH SAMPLE'S PER-LIGHT VECTOR WHOLE, so it destroys PIXEL placement and
+  // preserves LIGHT structure. The registration's parenthetical called this "the shipped sheet's
+  // own failure mode" and that was imprecise — the sheet has no light structure at all, and its own
+  // arm below is the true test of that null. The two together are what decompose the property.
   console.log(`\nG-DECOY   shuffled n: gain ${(decoy.relativeGain * 100).toFixed(2)}% = `
     + `${(decoyShare * 100).toFixed(1)}% of ordered (ceiling ${DECOY_MAX_SHARE * 100}%)  `
-    + `${decoyShare <= DECOY_MAX_SHARE ? '✅ the signal is doing the work' : '🔴 FAIL — shuffled n buys what ordered n buys; R27\'s diagnosis is wrong'}`);
+    + `${decoyShare <= DECOY_MAX_SHARE ? '✅ pixel placement is doing the work'
+      : '🔴 registered FAIL — pixel placement contributes ~nothing; read it with the sheet arm below'}`);
+
+  // 🎯 THE FIVE-CONSTANTS ARM, demanded by the decoy + sheet results together: pixel placement is
+  // worth nothing (shuffle: 103% of the gain survives) and light-blindness is worth nothing (the
+  // sheet: 1.5%), so the whole property may be PER-LIGHT AGGREGATE depth — five numbers. Each
+  // light's per-sample n is replaced by that light's own MEDIAN true n. If this lands near the
+  // ceiling, the shippable change is five uniforms through the existing zinke branch, no signal
+  // plumbing at all.
+  const medians = lights.map((light) => {
+    const sorted = [...light.truth].sort((a, b) => a - b);
+    return sorted[Math.floor(sorted.length / 2)];
+  });
+  const fiveConstants = scoreSamples(samples.map((sample) => ({
+    ...sample, events: medians,
+  })), colour);
+  console.log(`\nFIVE-CONSTANTS ARM  per-light MEDIAN n only [${medians.join(', ')}]: gain `
+    + `${(fiveConstants.relativeGain * 100).toFixed(2)}%  luma ${fiveConstants.lumaRatio.toFixed(4)}× — `
+    + `${(Math.abs(fiveConstants.relativeGain) / Math.max(Math.abs(ordered.relativeGain), 1e-9) * 100).toFixed(0)}% `
+    + 'of the full-signal ceiling, from five numbers');
+
+  console.log(`\nSHEET ARM  the existing random sheet through the chromatic form: gain `
+    + `${(sheetArm.relativeGain * 100).toFixed(2)}%  luma ${sheetArm.lumaRatio.toFixed(4)}× — `
+    + 'what is available TODAY, with no plumbing, if a plate round confirms it');
 
   const opens = ordered.relativeGain >= CEILING_FLOOR && decoyShare <= DECOY_MAX_SHARE && boundaryGap < 1e-12;
-  console.log(`\nG-CEILING ${(ordered.relativeGain * 100).toFixed(2)}% against the ${(CEILING_FLOOR * 100).toFixed(1)}% floor — `
-    + (opens
-      ? '✅ ABOVE: the signal-plumbing round is licensed. The decision is made on this arithmetic.'
-      : '🔴 BELOW: the pedestal line CLOSES, the way TT closed — a perfect signal cannot recover a '
-        + 'quarter of the named collapse, so no real signal can either.'));
+  console.log('');
+  if (decoyShare > DECOY_MAX_SHARE) {
+    console.log(`G-CEILING 🎯 THE DECOY IS THE FINDING (registration §6): gain ${(ordered.relativeGain * 100).toFixed(1)}% `
+      + `and a pixel-SHUFFLED signal delivers ${(decoyShare * 100).toFixed(0)}% of it, while the `
+      + 'light-blind sheet delivers ~1% — so the property is PER-LIGHT AGGREGATE depth, pixel '
+      + 'placement is worth nothing, and the per-light-CONSTANTS arm above carries most of the '
+      + 'ceiling. The expensive per-pixel plumbing is NOT licensed because it is NOT NEEDED; the '
+      + 'successor is a plate round on the constants arm. (The sheet arm CONFIRMS R27: a light-blind '
+      + 'random input buys nothing. What R27 could not see is that light-STRUCTURED depth was the '
+      + 'missing property, not pixel-structured depth.)');
+  } else if (opens) {
+    console.log(`G-CEILING ${(ordered.relativeGain * 100).toFixed(2)}% ≥ ${(CEILING_FLOOR * 100).toFixed(1)}% floor `
+      + '✅ ABOVE, decoy clean: the signal-plumbing round is licensed.');
+  } else {
+    console.log(`G-CEILING ${(ordered.relativeGain * 100).toFixed(2)}% against the ${(CEILING_FLOOR * 100).toFixed(1)}% floor — `
+      + '🔴 BELOW: the pedestal line CLOSES, the way TT closed — a perfect signal cannot recover a '
+      + 'quarter of the named collapse, so no real signal can either.');
+  }
 
   const sha = process.argv.includes('--sha') ? process.argv[process.argv.indexOf('--sha') + 1] : 'nosha';
   const outFile = path.join(REPOSITORY_ROOT, 'captures', 'hair-r35-tf-ceiling', 'data', `ceiling-${sha}.json`);
@@ -294,7 +351,7 @@ async function main() {
     cache: CACHE_FILE.replace(REPOSITORY_ROOT, ''),
     constants: { CEILING_FLOOR, DECOY_MAX_SHARE, POSITION_TOLERANCE },
     fibreLinear: colour,
-    ordered, decoy, decoyShare, noWrap, boundaryGap, opens,
+    ordered, decoy, decoyShare, sheetArm, fiveConstants, medians, noWrap, boundaryGap, opens,
   }, null, 2)}\n`);
   console.log(`\nreport    ${path.relative(REPOSITORY_ROOT, outFile)}`);
 }

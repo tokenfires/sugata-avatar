@@ -1799,3 +1799,32 @@ clauses — and the refusal found the mechanism.** `findings-2026-08-24.md` §9 
    2.30× strands ≈ 2.2× cost, and the whole class is 3–7× cards).
 5. Declare the round fence in `docs/OPEN-REQUESTS.md` (long overdue; the ledger gate stays red until
    someone adjudicates the 14 OPEN entries in the same edit).
+
+
+---
+
+## §21 — R35: the muddiness has a mechanism (2026-08-24)
+
+**Tool:** `tools/critic/hair-tf-ceiling.mjs` on R28's ray-cast cache. **Findings:**
+`captures/hair-r35-tf-ceiling/findings-2026-08-24.md`. No shipped file changed; no plate rendered.
+
+🎯 **The muddiness is the light-blind pedestal.** The term carrying 65.4% of the groom's energy
+cannot tell a front light from a back one, so the blue rim pollutes it through 26 cards of hair.
+Measured on 7,913 samples with the TRUE per-light ray-cast depth through the already-existing
+chromatic form (`zinke-transmittance`):
+
+| arm | gain (signed, fibre-axis saturation) |
+|---|---:|
+| full per-(pixel,light) signal | **+109.2%** |
+| pixel-shuffled (light structure kept) | +112.2% — placement is worth NOTHING |
+| **per-light constants** `[key 0, fill 1, rim 26, kicker 11]` | **+76.8% — four numbers, 70% of the ceiling** |
+| the existing sheet (light-blind) | +1.5% — CONFIRMS R27 |
+
+The expensive per-pixel plumbing is not licensed because it is not needed. R27 stands for what it
+tested; its probe never had a per-light input to try.
+
+⚠️ Term arithmetic, not a plate: luma cost 0.68× on the term (≈ −21% groom) means the successor
+**must level-match before judging** — the two-variables trap is the recorded eight-round mistake.
+
+**Next: R36, the constants arm on plates** — defect arm, level-matched, blind-judged with a decoy
+axis. §5 of the findings carries the shape. The open list otherwise stands as §20 left it.

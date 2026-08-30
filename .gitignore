@@ -74,6 +74,14 @@ tools/figure-pipeline/.cache/
 /captures/hair-r34-*/**/*.jpg
 /captures/hair-r34-*/**/*.jpeg
 
+# R35, the tf-ceiling probe. Same rule as R34: no plates, just the findings and the JSON whose raw
+# per-arm numbers let a reader recompute the table instead of trusting it.
+!/captures/hair-r35-*/
+!/captures/hair-r35-*/**
+/captures/hair-r35-*/**/*.png
+/captures/hair-r35-*/**/*.jpg
+/captures/hair-r35-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact

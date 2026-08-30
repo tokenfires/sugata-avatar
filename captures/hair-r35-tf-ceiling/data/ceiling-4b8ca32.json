@@ -1,0 +1,65 @@
+{
+  "tool": "tools/critic/hair-tf-ceiling.mjs",
+  "registration": "docs/superpowers/specs/2026-08-24-r35-chromatic-pedestal-ceiling.md",
+  "generatedAt": "2026-08-30T18:30:37.237Z",
+  "cache": "captures/hair-r28-envelope/ground-truth-cache.json",
+  "constants": {
+    "CEILING_FLOOR": 0.095,
+    "DECOY_MAX_SHARE": 0.2,
+    "POSITION_TOLERANCE": 0.001
+  },
+  "fibreLinear": [
+    0.010505784538312107,
+    0.004360574652180827,
+    0.0038367111648802705
+  ],
+  "ordered": {
+    "n": 7913,
+    "satShipped": 0.38436706544756327,
+    "satCeiling": 0.8041005697065046,
+    "relativeGain": 1.0920121466967956,
+    "p50Delta": 0.31477972599021065,
+    "lumaRatio": 0.5743767645898836
+  },
+  "decoy": {
+    "n": 7913,
+    "satShipped": 0.38436706544756327,
+    "satCeiling": 0.815574972999833,
+    "relativeGain": 1.1218648690677078,
+    "p50Delta": 0.3221085951996304,
+    "lumaRatio": 0.5091569212463847
+  },
+  "decoyShare": 1.0273373537659019,
+  "sheetArm": {
+    "n": 7913,
+    "satShipped": 0.38436706544756327,
+    "satCeiling": 0.3900836950289066,
+    "relativeGain": 0.014872839260270124,
+    "p50Delta": 0,
+    "lumaRatio": 0.6332151012619978
+  },
+  "fiveConstants": {
+    "n": 7913,
+    "satShipped": 0.38436706544756327,
+    "satCeiling": 0.6794329677267609,
+    "relativeGain": 0.7676669746291037,
+    "p50Delta": 0.207268319094088,
+    "lumaRatio": 0.6822492200558443
+  },
+  "medians": [
+    0,
+    1,
+    26,
+    11
+  ],
+  "noWrap": {
+    "n": 7913,
+    "satShipped": -1.0262788029583345,
+    "satCeiling": 0.8318848252918688,
+    "relativeGain": 1.810583657086058,
+    "p50Delta": 1.4583146315844178,
+    "lumaRatio": 0.3328706575290262
+  },
+  "boundaryGap": 0,
+  "opens": false
+}
