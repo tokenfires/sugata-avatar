@@ -1764,3 +1764,38 @@ withdrawn. **Everything before R34 came through the cross-page channel item 1 re
    strands, comparable references). What remains is the silhouette judgement.
 6. **Declare the round.** The fence is past a ceiling of 14 by a wide margin; measure it at HEAD
    rather than quoting §18.
+
+
+---
+
+## §20 — R34 closes; the timing question is answered at the precision it earned (2026-08-24)
+
+**HEAD at writing: see this commit.** v3 (owner-approved) ran once and **voided on 1 of 24
+clauses — and the refusal found the mechanism.** `findings-2026-08-24.md` §9 has the full closure.
+
+- 🔴 **Frame-to-frame carry-over is worth 1–2 ms**: a frame's measured time depends on what the
+  previous frame drew. Reversal cannot balance it for an odd-length batch (the middle is a fixed
+  point), so `cards-` held the middle slot forever and the `-bis` null caught the bias. Fifth
+  appearance of the adjacency confound; first time a gate caught it before publication.
+- **The frame-cost instrument family is CLOSED per v3 §4 — no v4, no re-runs-until-pass.** Nothing
+  is blessed. Next instrument, if ever: cyclic rotation not reversal, CI-gated nulls, washout frames.
+- 🎯 **What stands: cards ≈ 1.0–1.2 ms** (three runs; a range by the registered rule, never one
+  number). **Ribbons +3 to +8 ms** by density. **Ribbons are roughly 3–7× cards — the parity clause
+  fails under any reading**, and the remaining question is look-dev budget, not timing.
+- ✅ The six hairstyle asset packs are committed — **by the owner himself**, `2087931`, LFS. New open
+  item below.
+
+### The open list
+
+1. **🎨 THE FIBRE AND PER-CHANNEL `T_f` — ACTIVE, owner-directed 2026-08-24** ("2 color"). The only
+   surviving route to "muddy" after REQ-063/064/078 all closed. `2026-08-22-hair-frame-design.md`
+   §5; `ā_f` derived and bounded ≤ 0.131. ⚠️ Lesson from REQ-063 §6 binds: the registration must use
+   a SIGNED colour statistic (R/B or projection onto the fibre's hue axis, 7.1° for `0x1A0E0C`) —
+   `chromaInCodes` is unsigned and scores a violet flood as improvement.
+2. **`quiff01` scalp clearance** — `verify_glb` reads 770.3 mm² of bare cranium on the front view
+   against a 60 mm² ceiling. Same defect class as `crop01`'s clearance item; now two grooms carry it.
+3. `rim.irradiance` per preset (art constant, from REQ-063's rejection).
+4. `crop01` scalp clearance; the bob density fork's **silhouette** half (cost half is answered:
+   2.30× strands ≈ 2.2× cost, and the whole class is 3–7× cards).
+5. Declare the round fence in `docs/OPEN-REQUESTS.md` (long overdue; the ledger gate stays red until
+   someone adjudicates the 14 OPEN entries in the same edit).

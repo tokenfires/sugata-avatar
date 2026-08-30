@@ -1071,7 +1071,7 @@ function print(report) {
 
   if (calibration.passed === false) {
     console.log(`\n${'='.repeat(100)}`);
-    console.log('🔴 THE ROUND IS VOID. No costs printed — §6 of the v2 registration registered this');
+    console.log('🔴 THE ROUND IS VOID. No costs printed — §4 of the v3 registration registered this');
     console.log('   refusal in advance.');
     return;
   }
