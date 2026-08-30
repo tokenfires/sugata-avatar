@@ -82,6 +82,14 @@ tools/figure-pipeline/.cache/
 /captures/hair-r35-*/**/*.jpg
 /captures/hair-r35-*/**/*.jpeg
 
+# R36, the pedestal-depth plate round. Data and findings tracked; plates stay out (regenerable by
+# the tool's --masks/--arms/--match from a clean clone, and the owner views them locally).
+!/captures/hair-r36-*/
+!/captures/hair-r36-*/**
+/captures/hair-r36-*/**/*.png
+/captures/hair-r36-*/**/*.jpg
+/captures/hair-r36-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact

@@ -1828,3 +1828,28 @@ tested; its probe never had a per-light input to try.
 
 **Next: R36, the constants arm on plates** — defect arm, level-matched, blind-judged with a decoy
 axis. §5 of the findings carries the shape. The open list otherwise stands as §20 left it.
+
+
+---
+
+## §22 — R36: the plate refutes the chromatic pedestal, and the mud changes frame (2026-08-24)
+
+**Registration + Amendment 1:** `2026-08-24-r36-pedestal-lightdepth.md`. **Findings:**
+`captures/hair-r36-pedestal-depth/findings-2026-08-24.md`. Controls immaculate (drift 0.0000, level
+0.010%, skin 0.0000) and the gates said no: **G-EFFECT −48.2%** against a +10% floor, **G-DECOY
+fails** with 86% of the change being the form swap rather than per-light depth.
+
+🎯 **The teaching: slide 39's fake is not the mud — it is the main thing FIGHTING the mud.** Its
+isoluminant `(C/luma)^(1−Shadow)` factor pumps fibre-warm chroma at zero energy cost; any honest
+per-channel form strips it and the level-matched hair collapses 0.829 → 0.43 warm saturation
+(R/B 1.771 → 1.394). The rim is worth **+7%** at plate level (`rim0`: 0.887). R35's plate-level
+projection is withdrawn; its term-model results stand; the model's inversion has three named
+suspects (solid angle, key shadow map, sheet-UV correlation), UNRESOLVED.
+
+**Every chroma-pump route to "muddy" is now closed at plate level** — rim hue, rim shadow, TT,
+TRT-glint, chromatic pedestal. What survives: **achromatic dilution** — R (~35%, achromatic by
+construction) and the indirect composite (~10%, grey) pouring unsaturated light over a warm base.
+**Next: a delivery/dilution audit** — how much of a hair pixel is achromatic, per term, against the
+reference's implied split. Measuring round, cheap, operators exist (`unit-bsdf`, the lobe-share
+machinery). The blind panel did not run; the gates own that call. The level-matched A/B plates are
+in the capture directory for the owner's eyes.
