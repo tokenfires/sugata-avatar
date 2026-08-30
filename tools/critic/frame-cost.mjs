@@ -133,7 +133,19 @@ export const DRIFT_PERMUTATIONS = 2000;
 // quietly relying on it the whole time.
 // ================================================================================================
 
-/** The fraction of pairs whose two members share a clock state. Measured 95.4%; this is the floor. */
+/**
+ * The fraction of pairs whose two members share a clock state. REPORTED, NOT GATED — v3.
+ *
+ * 🔴 v2 GATED ON THIS AND THE GATE MEASURED THE EFFECT. Agreement falls monotonically as the real
+ * cost grows — 62.5% at +3.275 ms, 57.5% at +5.182, 45.5% at +7.513 — because a groom that costs
+ * enough pushes its own frame across the state-bin boundary, and the bin read that as a broken
+ * pair. ρ = −0.835 (p < 5×10⁻⁶) over 81 pairs, while identical-workload pairs hold 81-89%
+ * regardless of arm. So the bigger the effect, the more confidently the gate voided the run.
+ *
+ * What G1 was guarding is gated better by the nulls, adjudicated pooled AND per state: an
+ * end-to-end proof the paired channel reads zero on pairs that are zero, straddle contamination
+ * included. The constant survives only so the diagnostic printout can annotate low agreement.
+ */
 export const PAIR_INTEGRITY_MIN = 0.85;
 
 /**
@@ -970,16 +982,22 @@ export function adjudicate(byCondition, definitions, options) {
     .filter((entry) => entry.p !== null);
 
   const integrityFloor = Math.min(...costs.map((entry) => entry.integrity ?? 1), 1);
-  // G3: an impossible answer means the instrument is at fault. Negative-inside-the-noise is NOT
-  // RESOLVED rather than void — a point estimate inside the noise is not evidence either way.
-  const nonPhysical = costs.flatMap((entry) => ['fast', 'slow']
-    .filter((state) => entry.states[state].available
-      && entry.states[state].p50 < 0 && entry.states[state].spansZero === false)
-    .map((state) => `${entry.arm} · ${state}: ${entry.states[state].p50.toFixed(3)} ms with a CI excluding zero`));
+  // Physicality: an impossible answer means the instrument is at fault. v3 extends this to the
+  // POOLED cost as the registration states. Negative-inside-the-noise is NOT RESOLVED rather than
+  // void — a point estimate inside the noise is not evidence either way.
+  const nonPhysical = costs.flatMap((entry) => [
+    ...['fast', 'slow']
+      .filter((state) => entry.states[state].available
+        && entry.states[state].p50 < 0 && entry.states[state].spansZero === false)
+      .map((state) => `${entry.arm} · ${state}: ${entry.states[state].p50.toFixed(3)} ms with a CI excluding zero`),
+    ...(entry.pooled.p50 !== null && entry.pooled.p50 < 0 && entry.pooled.spansZero === false
+      ? [`${entry.arm} · pooled: ${entry.pooled.p50.toFixed(3)} ms with a CI excluding zero`] : []),
+  ]);
 
   const calibration = {
+    // 🎯 v3: THE NULLS DECIDE, PLUS PHYSICALITY AND THE FITTED BOUNDARY. Pair integrity is reported
+    // below but gates nothing — see PAIR_INTEGRITY_MIN for the measured reason.
     passed: nulls.every((entry) => entry.passedEverywhere)
-      && integrityFloor >= PAIR_INTEGRITY_MIN
       && nonPhysical.length === 0
       && boundary !== null,
     boundary,
@@ -995,7 +1013,7 @@ export function adjudicate(byCondition, definitions, options) {
 
   return {
     tool: 'tools/critic/frame-cost.mjs',
-    registration: 'docs/superpowers/specs/2026-08-24-frame-cost-v2-preregistration.md',
+    registration: 'docs/superpowers/specs/2026-08-24-frame-cost-v3-preregistration.md',
     generatedAt: new Date().toISOString(),
     headSha: options.headSha,
     viewport: VIEWPORT,
@@ -1025,7 +1043,7 @@ function print(report) {
 
   console.log('CALIBRATION — every null pooled AND inside each state (G0).\n');
   console.log(`registered: |p50| <= ${NULL_MAX_MS} ms   sign within ${NULL_SIGN_Z}σ   `
-    + `integrity >= ${PAIR_INTEGRITY_MIN}   a state needs ${STATE_MIN_PAIRS} pairs\n`);
+    + `a state needs ${STATE_MIN_PAIRS} pairs   (v3: nulls + physicality decide; integrity is reported)\n`);
   console.log('null                            state      n      p50    sign      z   census  verdict');
   console.log('-'.repeat(100));
   for (const entry of calibration.nulls) {
@@ -1043,10 +1061,11 @@ function print(report) {
     }
   }
 
-  console.log(`\npair integrity (G1): worst ${(calibration.integrityFloor * 100).toFixed(1)}% of pairs `
-    + `share a clock state, floor ${(PAIR_INTEGRITY_MIN * 100).toFixed(0)}%  `
-    + `${calibration.integrityFloor >= PAIR_INTEGRITY_MIN ? '✅' : '🔴 FAIL'}`);
-  for (const reason of calibration.nonPhysical) console.log(`🔴 NON-PHYSICAL (G3): ${reason}`);
+  console.log(`\npair integrity (REPORTED, not gated — v3 §1): worst ${(calibration.integrityFloor * 100).toFixed(1)}% `
+    + `of pairs share a clock state${calibration.integrityFloor < PAIR_INTEGRITY_MIN
+      ? ' — low: the machine is switching faster than the pair span, so per-STATE rows carry the clean reading'
+      : ''}`);
+  for (const reason of calibration.nonPhysical) console.log(`🔴 NON-PHYSICAL: ${reason}`);
   console.log('reference drift (REPORTED, not gated — v2 §2): '
     + calibration.drift.map((entry) => `${entry.key} p=${entry.p.toFixed(3)}`).join('  '));
 
@@ -1086,24 +1105,21 @@ function print(report) {
       + ` ${entry.stimulusOk ? '' : '🔴'}  ·  ${entry.straddled} of ${entry.considered} pairs dropped as straddling`);
   }
 
-  console.log('\nCOMPARABILITY — two costs may be differenced only if their reference frames agree.\n');
-  for (const state of ['fast', 'slow']) {
-    const usable = costs.filter((entry) => entry.states[state].available);
-    for (let i = 0; i < usable.length; i += 1) {
-      for (let j = i + 1; j < usable.length; j += 1) {
-        const a = usable[i].states[state];
-        const b = usable[j].states[state];
-        const check = comparable(a.reference, b.reference);
-        const delta = b.p50 - a.p50;
-        const spread = Math.abs(delta) / Math.min(Math.abs(a.p50), Math.abs(b.p50));
-        console.log(`  [${state}] ${usable[j].arm} vs ${usable[i].arm}: references `
-          + `${(check.gap * 100).toFixed(2)}% apart — `
-          + (check.ok
-            ? `COMPARABLE. Δ ${delta >= 0 ? '+' : ''}${delta.toFixed(3)} ms `
-              + `(${(spread * 100).toFixed(1)}% apart`
-              + `${spread <= REPLICATE_TOLERANCE ? ', ✅ inside the registered 10%' : ', 🔴 OUTSIDE the registered 10%'})`
-            : '🔴 NOT COMPARABLE — different clock states; no delta printed.'));
-      }
+  // 🎯 v3: WITHIN ONE RUN, CROSS-ARM DELTAS ARE LICENSED BY N2, NOT BY A POOLED-REFERENCE RULE.
+  // Two arms here share their clock context by construction — same ticks, interleaved, one machine —
+  // and N2 is the PAIRED test of exactly the question "are these two pages' hidden frames the
+  // same". The old rule compared pooled medians of a MIXTURE: across five identical pictures the
+  // pooled spread was 29.7% while the slow-state spread was 0.8%, and the ordering tracked fast
+  // share exactly. It refused what the paired null licenses. This block prints only when
+  // calibration passed, and calibration includes every N2 — so a failed N2 already silenced it.
+  console.log('\nCROSS-ARM DELTAS within this run — licensed by N2 passing (v3 §1); pooled paired costs:\n');
+  for (let i = 0; i < costs.length; i += 1) {
+    for (let j = i + 1; j < costs.length; j += 1) {
+      const a = costs[i];
+      const b = costs[j];
+      if (a.pooled.p50 === null || b.pooled.p50 === null) continue;
+      const delta = b.pooled.p50 - a.pooled.p50;
+      console.log(`  ${b.arm} − ${a.arm}: ${delta >= 0 ? '+' : ''}${delta.toFixed(3)} ms`);
     }
   }
 }
