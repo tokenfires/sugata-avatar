@@ -886,6 +886,12 @@ const UNGATED = {
     hairweightr: { readHere: true, why:
         'PUNCH-LIST 3.5, round 26. Scales the R lobe, composing with ?hairlobes rather than ' +
         'replacing it. Inert without ?hair.' },
+    hairjitter: { readHere: true, why:
+        'ROUND 38. The tangent field\'s per-texel decorrelation in radians SD — ' +
+        'HAIR_DEFAULTS.strandTangentJitter, whose shipped 0.2403 is a MEASURED correction for ' +
+        'sheet-filter loss. The param exists so R38 could PRICE that correction\'s smear ' +
+        'side-effect (13.8 deg SD against a 5 deg band); shipping a different value is not this ' +
+        'knob\'s business. Inert without ?hair.' },
     hairvis: { readHere: true, why:
         'PUNCH-LIST 3.5. Removes the card-scale side visibility — the plate that made the term ' +
         'necessary, where the rim transmits through the head and the groom renders blue. Inert ' +
