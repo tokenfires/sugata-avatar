@@ -1879,3 +1879,29 @@ spread), not its weight — and it is falsifiable on existing operators: narrow 
 dilution marginal and the dynamic-range gate must move together.
 
 Reference clause stood down (copyright plate not on this machine); the recorded 38% stays context.
+
+
+---
+
+## §24 — R38: tangent smear refuted; the shipped jitter is vindicated (2026-08-31)
+
+**Registration:** `2026-08-31-r38-tangent-smear.md` · **Findings:**
+`captures/hair-r38-band/findings-2026-08-31.md` · drift 0.0000, decoy exactly as registered.
+
+**P1 failed twice, symmetrically:** over the jitter sweep 0 → 0.36 rad, SAT (0.811→0.839) and BAND
+p95/p50 (1.719→1.941) are both perfectly monotone — INCREASING, the registered prediction's exact
+opposite. The whole lever moves saturation 3.4% against R's −0.495 dilution marginal: **tangent
+smear is not the R-wash**, and the shipped 0.2403 correction is near-free (mildly helpful, even).
+R37 §3's "one defect" synthesis is dead; the mud and the missing band decouple again.
+
+Candidate (unmeasured, labelled): the wash is GEOMETRIC — cards curve around the skull, so the band
+condition sweeps the groom regardless of decorrelation.
+
+🎯 **The highest-information next step is the other side of the comparison:** R37's stood-down
+reference clause. With the SHIFT UP plate on the machine, the registered operator decomposes THEIR
+saturation budget against ours — the only open question that matters is how reference hair stays
+saturated while carrying an achromatic highlight. Blocked on the owner supplying the reference
+directory; everything else is ready.
+
+Closed-by-measurement list for "muddy," current: rim hue, rim shadow, TT, TRT-glint, chromatic
+pedestal, tangent smear.

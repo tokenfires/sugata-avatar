@@ -97,6 +97,13 @@ tools/figure-pipeline/.cache/
 /captures/hair-r37-*/**/*.jpg
 /captures/hair-r37-*/**/*.jpeg
 
+# R38, the tangent-smear sweep. Same rule.
+!/captures/hair-r38-*/
+!/captures/hair-r38-*/**
+/captures/hair-r38-*/**/*.png
+/captures/hair-r38-*/**/*.jpg
+/captures/hair-r38-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact
