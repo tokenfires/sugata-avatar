@@ -90,6 +90,13 @@ tools/figure-pipeline/.cache/
 /captures/hair-r36-*/**/*.jpg
 /captures/hair-r36-*/**/*.jpeg
 
+# R37, the dilution audit. Same rule as R36.
+!/captures/hair-r37-*/
+!/captures/hair-r37-*/**
+/captures/hair-r37-*/**/*.png
+/captures/hair-r37-*/**/*.jpg
+/captures/hair-r37-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact

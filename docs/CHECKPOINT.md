@@ -1853,3 +1853,29 @@ construction) and the indirect composite (~10%, grey) pouring unsaturated light 
 reference's implied split. Measuring round, cheap, operators exist (`unit-bsdf`, the lobe-share
 machinery). The blind panel did not run; the gates own that call. The level-matched A/B plates are
 in the capture directory for the owner's eyes.
+
+
+---
+
+## §23 — R37: the dilution ledger — R is the mud (2026-08-31)
+
+**Registration:** `2026-08-31-r37-dilution-audit.md` · **Findings:**
+`captures/hair-r37-dilution/findings-2026-08-31.md` · gates clean (drift 0.0000, additivity 1.50%).
+
+The leave-one-out ledger, signed fibre-axis saturation on the hair mask:
+
+| term | own chroma | marginal Δsat |
+|---|---:|---:|
+| **R** | 0.058 (achromatic) | **−0.495 — removing it raises warm saturation 60%** |
+| indirect(+AO) | −0.092 | −0.033 |
+| TRT | 1.055 | +0.0002 — **~0% mass; nothing lights it (REQ-064)** |
+| scatter (the fake) | 1.408 | **+0.705 — the only warm source** |
+
+R carries ~45% of the pixel's light as an achromatic wash over the whole mask. 🎯 **Interpretation
+(labelled, next round's hypothesis): the muddiness and the missing band are ONE defect — R's energy
+is spread flat instead of peaked.** The declared-red dynamic-range gate (4.0:1, red for weeks) is
+the same symptom from the other side. The lever is R's SHAPE (longitudinal width/shift, tangent
+spread), not its weight — and it is falsifiable on existing operators: narrow the band and both the
+dilution marginal and the dynamic-range gate must move together.
+
+Reference clause stood down (copyright plate not on this machine); the recorded 38% stays context.
