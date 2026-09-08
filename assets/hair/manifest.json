@@ -17,7 +17,7 @@
     "The GLBs beside this file are shipping Git LFS assets. Produce original exports with:",
     "  blender --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \\",
     "      --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01",
-    "bob02/g050 additionally requires the calibrated hair_fall.mjs post-export step.",
+    "bob02/g050 additionally requires hair_fall.mjs then hair_hem.mjs after export.",
     "See tools/figure-pipeline/README.md; direct regeneration without that step restores the cheek-wrap defect."
   ],
   "grooms": [
@@ -63,7 +63,7 @@
     {
       "id": "bob02",
       "material": "hair_bob02",
-      "description": "Chin-length graduated bob: tapered nape, front longer than back, with released front curtains on g050. Run hair_fall.mjs after export; see tools/figure-pipeline/README.md.",
+      "description": "Chin-length graduated bob: tapered nape, released front curtains and a refined jaw-length hem on g050. Run hair_fall.mjs then hair_hem.mjs after export; see tools/figure-pipeline/README.md.",
       "alphaMode": "MASK",
       "alphaCutoff": 0.5,
       "doubleSided": true,

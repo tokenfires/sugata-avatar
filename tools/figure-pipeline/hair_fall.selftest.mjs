@@ -10,15 +10,20 @@ import { CALIBRATION, encodeGlb, geometryFingerprint, sha256, transformHairFall,
 import { measureHairSurface } from './hair_surface.mjs';
 
 const root = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '../..' );
-// An explicit original export exercises the transform even after the shipped asset is corrected.
-const input = path.resolve( process.argv[ 2 ] ?? path.join( root, 'assets/hair/bob02/g050.glb' ) );
+// The default suite always exercises the complete transform from the preserved original export.
+// Explicit input remains useful for checking a particular original or fall-stage output.
+const input = path.resolve( process.argv[ 2 ] ?? path.join( root, 'tools/figure-pipeline/fixtures/bob02-g050-original.glb' ) );
 const bodyFile = path.join( root, 'assets/figures/figure_g050.glb' );
 const directory = fs.mkdtempSync( path.join( os.tmpdir(), 'sugata-hair-fall-test-' ) );
 let groups = 0;
 function check( name, test ) { test(); groups ++; console.log( `ok ${ groups } - ${ name }` ); }
 function saveGlb( name, glb ) { const file = path.join( directory, name ); fs.writeFileSync( file, encodeGlb( glb ) ); return file; }
 try {
-    const beforeBytes = fs.readFileSync( input ), before = readGlb( input );
+    const beforeBytes = fs.readFileSync( input );
+    if ( process.argv[ 2 ] === undefined ) assert.equal( sha256( beforeBytes ),
+        '25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4',
+        'Original fixture hash mismatch; fetch its Git LFS content and do not replace it with a corrected asset.' );
+    const before = readGlb( input );
     const original = readPrimitive( before, 'hair_bob02' );
     const result = transformHairFall( input, bodyFile );
     const outputFile = path.join( directory, 'corrected.glb' );

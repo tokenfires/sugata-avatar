@@ -1119,9 +1119,13 @@ Run this **after the original Blender hair export** and before installing the ge
 node tools/figure-pipeline/hair_fall.mjs \
   --input /tmp/original-bob02-g050.glb --body assets/figures/figure_g050.glb \
   --output /tmp/corrected-bob02-g050.glb --report /tmp/hair-fall-report.json
+node tools/figure-pipeline/hair_hem.mjs \
+  --input /tmp/corrected-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/finished-bob02-g050.glb --report /tmp/hair-hem-report.json
 node tools/figure-pipeline/hair_surface.mjs \
-  --hair /tmp/corrected-bob02-g050.glb --body assets/figures/figure_g050.glb --gate face
-node tools/figure-pipeline/hair_fall.selftest.mjs /tmp/original-bob02-g050.glb
+  --hair /tmp/finished-bob02-g050.glb --body assets/figures/figure_g050.glb --gate face
+node tools/figure-pipeline/hair_fall.selftest.mjs
+node tools/figure-pipeline/hair_hem.selftest.mjs
 ```
 
 Calibration `bob02-g050-curtain-release-v1` is pinned to the original g050 hair and body geometry
@@ -1134,5 +1138,35 @@ is refused. Output must differ from input unless `--allow-in-place` is explicitl
 The sampled clearance used to choose offsets is not a collision certificate. Run the independent
 triangle-surface face gate and the viewer's motion probe when accepting an asset. The September 8
 candidate clears the tested face region; some scalp/temple contacts behind that region remain.
-The selftest also runs against the installed corrected asset without its optional input argument;
-passing the original export additionally exercises the full deformation and preservation checks.
+Both no-argument selftests use the original LFS fixture in `fixtures/bob02-g050-original.glb`;
+the hem test first produces a temporary fall-stage output. Thus a new clone can exercise the full
+transformations without Blender or ignored capture files. Optional file arguments remain supported.
+The historical fall stage deliberately refuses a later hem output; repeat the last stage for its
+idempotence check, or rebuild both stages from the original fixture/export.
+
+
+### Front hem refinement and motion evidence
+
+`hair_hem.mjs` is the second calibrated stage. On the fall-corrected g050 groom it lifts 510 lower
+vertices across 52 forward cards by at most 17.934 mm, bringing the longest ends near the jaw while
+retaining a small amount of height variation. Roots, positions above y=1.50 m, x/z coordinates,
+full ring width vectors, topology, UVs and skin data remain fixed. It recomputes changed normal and
+tangent frames and records its own stamp; the first stage's stamp remains historical evidence.
+Its independent triangle face gate must pass before output is written.
+
+For runtime acceptance, point the portrait probe at a running dev server and an unused output path:
+
+```bash
+node tools/critic/portrait-clearance.mjs --groom /tmp/finished-bob02-g050.glb \
+  --out captures/hem-motion-check --seconds 12 --stride 60
+node tools/critic/portrait-surface.mjs --input captures/hem-motion-check \
+  --out captures/hem-motion-surface.json
+```
+
+Add `--stimulus shake --seconds 8 --stride 30` to the first command for the controlled shake, using
+another output directory. That stimulus currently imports the dev server's motion modules; the
+normal portrait sequence also runs against a production URL. `portrait-surface.mjs` rejects missing
+or incomplete frame sets and tests all captured triangle surfaces in inverse-head coordinates.
+Exit 0 means every captured pose clears the selected face box, 1 means crossings, and 2 means
+invalid evidence. A finite capture does not certify every possible animation or positive clearance
+at every unsampled point. See `docs/evidence/hair-hem-2026-09-08.json` for the accepted measurements.

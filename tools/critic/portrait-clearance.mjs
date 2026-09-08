@@ -21,6 +21,7 @@ for(let i=2;i<process.argv.length;i+=2){
 }
 if(!options.out)throw new Error('--out is required; each candidate must have its own evidence directory.');
 for(const key of ['seconds','fps','stride'])if(!Number.isFinite(options[key])||options[key]<=0)throw new Error(`Invalid ${key}`);
+if(!Number.isInteger(options.stride))throw new Error('--stride must be an integer.');
 if(!['idle','shake'].includes(options.stimulus))throw new Error('--stimulus must be idle or shake.');
 options.out=path.resolve(options.out);
 if(fs.existsSync(options.out)&&fs.readdirSync(options.out).length)throw new Error('Evidence directory is not empty; use a new --out.');
@@ -47,6 +48,8 @@ function summary(values){
 try{
     const page=await browser.newPage({viewport:{width:1200,height:900},deviceScaleFactor:1});
     page.on('pageerror',e=>errors.push(e.message));
+    page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+    page.on('requestfailed',request=>errors.push(`${request.url()} ${request.failure()?.errorText}`));
     page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
     if(options.groom){
         const asset=fs.readFileSync(path.resolve(options.groom));

@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-08",
+  "scope": "bob02/g050 front-hem refinement after calibrated fall correction",
+  "baseCommit": "5218c24",
+  "assets": {
+    "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+    "tools/figure-pipeline/fixtures/bob02-g050-original.glb": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4",
+    "captures/hair-hem-2026-09-08/fall-control.glb": "5a9ef270a1caed23868510cc089d5b6d7732c49430abe8b896b1fc353fb399fd",
+    "captures/hair-hem-2026-09-08/scratch-candidate/g050.glb": "8e549dbbe041dd254fae64ec3388be3741bd66e0c18c94e9959f2296cbf28b31"
+  },
+  "change": {
+    "cards": 52,
+    "vertices": 510,
+    "maximumLiftMm": 17.934,
+    "invariants": {
+      "rootMaxMm": 0,
+      "crownAbove1500MaxMm": 0,
+      "xzMaxMm": 0,
+      "ringWidthDeltaMaxMm": 0,
+      "normalMin": 0.9999999215038455,
+      "normalMax": 1.0000001086937815
+    },
+    "preserved": [
+      "roots",
+      "positions above y=1.50 m",
+      "x/z coordinates",
+      "ring width vectors",
+      "topology",
+      "UV maps and textures",
+      "skin bindings"
+    ],
+    "geometryMatchesReviewedScratch": true
+  },
+  "motion": {
+    "hem-motion": {
+      "captureSha256": "d30e6a2c4047e12de1016977a2debe3f30746f9f65b573f929ba18a184957953",
+      "surfaceReportSha256": "d48da754e87dd430f25804b2b0f440ed993270cc2c79747362838e12e20eeb78",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+        "groom": "8e549dbbe041dd254fae64ec3388be3741bd66e0c18c94e9959f2296cbf28b31"
+      },
+      "instrumentSha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "replayInstrumentSha256": "d76e4a4c6f2f50846a776d83594fe918f0c5ae937e09f604526ee6637517deda",
+      "errors": [],
+      "poses": [
+        {
+          "time": 0,
+          "frameSha256": "05c97547841954664ce818be8d5e309d93312f4c185f3c230b65e652f279ac12",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "time": 1.0000000000000013,
+          "frameSha256": "584a93c115262bde946709635c22f1fa4b1941a45100ee9cb69a169b1c234e66",
+          "facePairs": 0,
+          "headPairs": 181
+        },
+        {
+          "time": 1.9999999999999978,
+          "frameSha256": "3814653f09673e6518a39be7af0a45ac6c8d27a74816e3cd0b3bc7d477d4deaf",
+          "facePairs": 0,
+          "headPairs": 180
+        },
+        {
+          "time": 2.9999999999999942,
+          "frameSha256": "308431e80a28b320bcc8c8429ae738f06355c9f5fcb352dc59f1eae46bbccb34",
+          "facePairs": 0,
+          "headPairs": 149
+        },
+        {
+          "time": 3.9999999999999907,
+          "frameSha256": "5ae5c53ec3d8081b0e2c23d2770e14a57a069a3e8c0dfe6d031e24da4c06cab9",
+          "facePairs": 0,
+          "headPairs": 180
+        },
+        {
+          "time": 4.999999999999988,
+          "frameSha256": "6d88ae11c027a2537ccbcd93637332d33ec6106fa0cbf43deb23823450b19511",
+          "facePairs": 0,
+          "headPairs": 177
+        },
+        {
+          "time": 5.999999999999984,
+          "frameSha256": "476a84f454200913ce9a9d923194caa98a0bedea42b15d9bd995afc122f0ee30",
+          "facePairs": 0,
+          "headPairs": 151
+        },
+        {
+          "time": 6.9999999999999805,
+          "frameSha256": "e631236ad0bcd9117519eb217cd8e6bb113b740eaec05c5db5a16331a0d1732b",
+          "facePairs": 0,
+          "headPairs": 161
+        },
+        {
+          "time": 7.999999999999977,
+          "frameSha256": "d9fea85b9f83ee3f3e1f59622d17250c237b3af0a14e838fa55fbfdf8e59ec55",
+          "facePairs": 0,
+          "headPairs": 158
+        },
+        {
+          "time": 9.000000000000027,
+          "frameSha256": "035e1ec24eb9c891cb21f60caf35e59bccb8ab88acb211e06226586ede9cab48",
+          "facePairs": 0,
+          "headPairs": 167
+        },
+        {
+          "time": 10.000000000000076,
+          "frameSha256": "6154053677031b5cf128923be5f5f12ee2e988d77e55a662c2229c1096512680",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "time": 11.000000000000126,
+          "frameSha256": "7909ee849c6c3e715b18fceb9fb33a57878573ad59ace233aded99a4bf4c979d",
+          "facePairs": 0,
+          "headPairs": 184
+        },
+        {
+          "time": 12.000000000000176,
+          "frameSha256": "d20340995acb3d63eca88cbd0b9f7b8ba40fdaf10c81546c87e52f0450dfb319",
+          "facePairs": 0,
+          "headPairs": 183
+        }
+      ],
+      "minimumFaceSampleMm": 2.197007746071098,
+      "peakMeanTipLagMm": 11.79311573628074,
+      "finalMeanTipLagMm": 0.9636643813515628,
+      "surfaceReportPath": "captures/hair-hem-2026-09-08/hem-motion-surface-verified.json"
+    },
+    "hem-shake": {
+      "captureSha256": "738523398bd00e2d2de25b373e41034bb92ca29bf0fbb7b9929d4d9b0d523587",
+      "surfaceReportSha256": "4e1441615413f68e813a53562446c54a44406e67fd9a2a2e658a6ed2db295256",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+        "groom": "8e549dbbe041dd254fae64ec3388be3741bd66e0c18c94e9959f2296cbf28b31"
+      },
+      "instrumentSha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "replayInstrumentSha256": "d76e4a4c6f2f50846a776d83594fe918f0c5ae937e09f604526ee6637517deda",
+      "errors": [],
+      "poses": [
+        {
+          "time": 0,
+          "frameSha256": "80f51c612d00fdc0a40f05788e3e5dcf0a9fab2faf20e6aa08fbaa60f7af6def",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "time": 0.49999999999999994,
+          "frameSha256": "c3c3ea0061637969f08176a9759149af40290654a47c613be3fdcd009cdac535",
+          "facePairs": 0,
+          "headPairs": 176
+        },
+        {
+          "time": 1.0000000000000013,
+          "frameSha256": "dd411175e35bcdf1f6d4e47e3bf1571dcb4cb228ad8a5fa97bbdc9f8fa7d3c13",
+          "facePairs": 0,
+          "headPairs": 167
+        },
+        {
+          "time": 1.4999999999999996,
+          "frameSha256": "965f7062210a54acc0d530c5d9d97d43d1b5d44b625ec9050b37a7f1e0274b4d",
+          "facePairs": 0,
+          "headPairs": 166
+        },
+        {
+          "time": 1.9999999999999978,
+          "frameSha256": "a5015511ba9e265cf74751f2329ab5c8240260831bea604b7de9e618635be2d1",
+          "facePairs": 0,
+          "headPairs": 173
+        },
+        {
+          "time": 2.499999999999996,
+          "frameSha256": "5b8723fbbf672e9d0254f060e1a34a5428deb578472050a54df5731a8244e0bf",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 2.9999999999999942,
+          "frameSha256": "c28de1d12441520db5de5b5cf7f01f3d874536b231a21dd2add3fe3af1e989b3",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 3.4999999999999925,
+          "frameSha256": "b212e946fdd9c6107f149939359960ef99efa64c5b2963acfa74bae9d85cab50",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 3.9999999999999907,
+          "frameSha256": "b2755e257643f358aee1fc5be1f0e7a348c6e1bd28930fda071c4658ebd5b351",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 4.499999999999989,
+          "frameSha256": "837fcba32515f95bc2e97a180bcdd9b385aca57644aea9d5c529e7f0f230ee40",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 4.999999999999988,
+          "frameSha256": "37183ebeaeab4c1e0acb8c4f61cfaae5dc0b39729c0da1d4192fa2fed193404b",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 5.499999999999986,
+          "frameSha256": "cec845a47675e147082a083c81800f5c885237a6e6232416565123c311002bcb",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 5.999999999999984,
+          "frameSha256": "3d96b5c2a068b290ff3c741651b104817bd3a7b53ab10612be514e6a3a31c1f6",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 6.499999999999982,
+          "frameSha256": "000e2fe53f20857dbd8d6037cb0958e6f7cea533575f98ad645cf49b3bac6759",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 6.9999999999999805,
+          "frameSha256": "7ae3e8d3c3178276c8ac84b5200d9b05d9506e0aa0339fe28313c0c7c1ec61be",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 7.499999999999979,
+          "frameSha256": "a5cc7db83fecaff179943dbb909d49ca8bc502a8af992334210e62d18b7b4d04",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "time": 7.999999999999977,
+          "frameSha256": "0a692d9ed4e717a02c2a324b0a775a7700f206872d6c6b360fa475cc66ca9328",
+          "facePairs": 0,
+          "headPairs": 178
+        }
+      ],
+      "minimumFaceSampleMm": 3.447398115153968,
+      "peakMeanTipLagMm": 3.0213305821921272,
+      "finalMeanTipLagMm": 0.00042198240269656636,
+      "surfaceReportPath": "captures/hair-hem-2026-09-08/hem-shake-surface-verified.json"
+    }
+  },
+  "production": {
+    "reportSha256": "1d9eabbad81c91d3222734292b560113165add6286def35703c865fce17fd9e5",
+    "sourceHashes": {
+      "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+      "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+      "tools/critic/portrait-clearance.mjs": "131826a703c62768283184b859be2d12a73eec0f46346e4db4c66b102fd454d7",
+      "groom": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7"
+    },
+    "errors": [],
+    "frames": 3,
+    "quality": {
+      "requested": "auto",
+      "tier": "balanced",
+      "backend": "webgpu",
+      "selectedBy": "adapter-capability",
+      "temporalResolve": 1,
+      "resolutionScale": 0.66,
+      "backendMismatch": false
+    },
+    "hair": {
+      "style": "bob02",
+      "loadedStyle": "bob02",
+      "bake": "figure_g050",
+      "unavailableReason": null,
+      "attached": true,
+      "meshes": 1,
+      "oit": "stochastic",
+      "stageReportsOit": "stochastic",
+      "solver": {
+        "chains": 496,
+        "particles": 8432,
+        "steps": 1
+      },
+      "velocityRepaired": true,
+      "frameBudgetWarning": null,
+      "undisposable": [
+        "HairDynamics: createHairDynamics returns no dispose() \u2014 5 compute pipelines and ~957 kB of instancedArray storage per attach, dropped by reference",
+        "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+      ]
+    }
+  },
+  "tests": {
+    "hairFallDefault": {
+      "groups": 9,
+      "pass": true,
+      "input": "resident original LFS fixture"
+    },
+    "hairHemDefault": {
+      "groups": 9,
+      "pass": true,
+      "input": "fall stage generated from original LFS fixture, full tangent integration"
+    },
+    "hairHemInstalled": {
+      "groups": 8,
+      "pass": true,
+      "input": "already stamped hem; idempotence and guards"
+    },
+    "evidenceGuards": {
+      "checks": 4,
+      "pass": true,
+      "cases": [
+        "incomplete cadence",
+        "missing files",
+        "renderer error",
+        "GPU topology mismatch"
+      ]
+    },
+    "productionBuild": {
+      "pages": 17,
+      "pass": true,
+      "warning": "existing chunk-size warning"
+    },
+    "poseReplayRegression": {
+      "pass": 7,
+      "total": 7,
+      "covers": [
+        "crossing versus clear triangles",
+        "matching coordinate translations",
+        "empty comparison from misplaced matrix",
+        "stopped clock",
+        "missing frame",
+        "render error"
+      ]
+    }
+  },
+  "browser": {
+    "Chrome": "actual user Chrome tab visibly rendered installed hem; expression and pause/resume controls respond; no captured console errors",
+    "inApp": "existing portrait tab refreshed"
+  },
+  "sources": {
+    "tools/figure-pipeline/hair_hem.mjs": "af2b67e97635673aa040e2074ea14cb9fa21070ad43112ad81f7e9910343c7ef",
+    "tools/figure-pipeline/hair_hem.selftest.mjs": "d2b43b4ca2249a182b673063f484f555c00b8f68baab2db9f38757f5a5f94159",
+    "tools/figure-pipeline/hair_fall.selftest.mjs": "3ca5d825b8c13c675106b9a654e54efa5fb9a2bc6fbeeb17b6aad86ae6492370",
+    "tools/critic/portrait-clearance.mjs": "131826a703c62768283184b859be2d12a73eec0f46346e4db4c66b102fd454d7",
+    "tools/critic/portrait-surface.mjs": "d76e4a4c6f2f50846a776d83594fe918f0c5ae937e09f604526ee6637517deda",
+    "tools/critic/portrait-surface.selftest.mjs": "40cf56928c94834efd3138c708ee9b4da864ca56fa14f35d66d7c364ac33893b"
+  },
+  "limits": [
+    "No full-suite all-green claim; focused tests ran on a dirty tree.",
+    "0 face crossings in 13 natural poses and 17 shake poses; finite sampling, not all possible poses.",
+    "Natural motion minimum sampled face clearance 2.197 mm; shake 3.447 mm; static clearance unchanged.",
+    "Rest still has165 head-region crossing pairs outside the face box; natural run reaches 184.",
+    "Springs/collision/material/atlas/lighting/defaultquality unchanged by the hem correction.",
+    "Raw local captures are ignored and do not arrive in a clone."
+  ]
+}
