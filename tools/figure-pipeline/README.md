@@ -1102,3 +1102,37 @@ Three orderings are load-bearing, and the first two fail *silently* if swapped:
 
 For the same reason the build does not use `ExportService.create_character_copy` — it only
 duplicates direct children, and would drop the face parts.
+
+## bob02/g050 fall correction after Blender export
+
+The original bob02/g050 export contains lower hair ribbons whose vertices clear the skin while
+connecting triangles cross the cheek. `hair_fall.mjs` releases those curtains below the temple
+into downward fall, with a measured outward offset where the ribbon needs space. It preserves
+all vertex heights, roots, scalp cap, upper silhouette, topology, UVs, skin binding and material
+maps; it recomputes the corrected cards' normals and any tangent channel. The largest guide
+length increase is bounded to 0.02 mm. Removing an inward detour can shorten a guide's arc while
+keeping its tip at exactly the same height.
+
+Run this **after the original Blender hair export** and before installing the generated asset:
+
+```bash
+node tools/figure-pipeline/hair_fall.mjs \
+  --input /tmp/original-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/corrected-bob02-g050.glb --report /tmp/hair-fall-report.json
+node tools/figure-pipeline/hair_surface.mjs \
+  --hair /tmp/corrected-bob02-g050.glb --body assets/figures/figure_g050.glb --gate face
+node tools/figure-pipeline/hair_fall.selftest.mjs /tmp/original-bob02-g050.glb
+```
+
+Calibration `bob02-g050-curtain-release-v1` is pinned to the original g050 hair and body geometry
+fingerprints. Other gender bakes and changed exports are refused: they require a new measured
+calibration. The tool does not change `hair_cards.py`; regenerating bob02 requires this explicit
+post-export step. Its GLB metadata records the calibration and geometry fingerprints. Repeating
+the same correction returns identical bytes; an unknown stamp or altered corrected geometry
+is refused. Output must differ from input unless `--allow-in-place` is explicitly supplied.
+
+The sampled clearance used to choose offsets is not a collision certificate. Run the independent
+triangle-surface face gate and the viewer's motion probe when accepting an asset. The September 8
+candidate clears the tested face region; some scalp/temple contacts behind that region remain.
+The selftest also runs against the installed corrected asset without its optional input argument;
+passing the original export additionally exercises the full deformation and preservation checks.

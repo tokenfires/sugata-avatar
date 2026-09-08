@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-08",
+  "scope": "bob02 on figure_g050; focused authored face-wrap correction",
+  "baseCommit": "735b734",
+  "calibration": "bob02-g050-curtain-release-v1",
+  "assets": {
+    "assets/hair/bob02/g050.glb": "5a9ef270a1caed23868510cc089d5b6d7732c49430abe8b896b1fc353fb399fd",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/hair-fall-2026-09-08/original-g050.glb": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4",
+    "captures/hair-fall-2026-09-08/candidate-v2/g050.glb": "659955f0daaa2c6f005c1480f8081510d09d5d185ec8bdecc011fb2974cc10bd"
+  },
+  "invariants": {
+    "attributes": {
+      "POSITION": {
+        "equal": false,
+        "count": 52548
+      },
+      "NORMAL": {
+        "equal": false,
+        "count": 52548
+      },
+      "TEXCOORD_0": {
+        "equal": true,
+        "count": 35032
+      },
+      "TEXCOORD_1": {
+        "equal": true,
+        "count": 35032
+      },
+      "JOINTS_0": {
+        "equal": true,
+        "count": 70064
+      },
+      "WEIGHTS_0": {
+        "equal": true,
+        "count": 70064
+      }
+    },
+    "maxY": 0,
+    "maxRoot": 0,
+    "maxTop": 0,
+    "changedVertices": 3746,
+    "normalLengths": {
+      "min": 0.9999999215038455,
+      "max": 1.0000001086937815,
+      "zero": 0
+    },
+    "indicesIdentical": true,
+    "materialsIdentical": true,
+    "skinsIdentical": true
+  },
+  "correction": {
+    "calibration": {
+      "id": "bob02-g050-curtain-release-v1",
+      "style": "bob02",
+      "bake": "figure_g050",
+      "sourceGeometry": "d31fe4417aaec4d385dad1cfc5cd5397bc797f7d76e4108548ecc9d8c5a1b1fb",
+      "bodyGeometry": "644d39473d8d46193914ef046079543730f1eb9e44add93605102aac7c9a8701",
+      "releaseY": 1.585,
+      "transition": 0.025,
+      "frontZ": 0.03,
+      "sideX": 0.035,
+      "faceZ": 0.04,
+      "inwardExcursion": 0.02,
+      "clearance": 0.0035,
+      "outwardStep": 0.002,
+      "outwardLimit": 0.04,
+      "headCentreZ": 0.03,
+      "rootCards": 78,
+      "fringeStart": 462,
+      "cardCount": 496,
+      "rings": 17,
+      "capVertices": 652
+    },
+    "alreadyApplied": false,
+    "inputSha256": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4",
+    "outputSha256": "5a9ef270a1caed23868510cc089d5b6d7732c49430abe8b896b1fc353fb399fd",
+    "outputGeometry": "6dfafa0abcd892d95864bff12f296d72c0f7d04f34df6e225c571cedef665924",
+    "correctedCards": 170,
+    "arcLengthChangeMm": {
+      "p50": -2.897880971431732,
+      "min": -129.81396913528442,
+      "max": 0.00947713851928711
+    },
+    "limits": "Body-clearance sampling guides the correction; it is not an exact triangle-intersection or runtime collision certificate. Validate the output with the geometric and runtime probes."
+  },
+  "rest": {
+    "original": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/original-rest.json",
+      "sha256": "fd3e5c28f798c39c6e5522e7611608b18c35578b1cd77e3fb41144af319c41f6",
+      "face": {
+        "pairs": 855,
+        "transversePairs": 855,
+        "coplanarPairs": 0,
+        "hairTriangles": 85,
+        "cards": [
+          111,
+          122,
+          128,
+          149,
+          216,
+          238,
+          264,
+          303,
+          307,
+          309,
+          336,
+          347,
+          352,
+          397,
+          422,
+          461
+        ],
+        "pairsWithNonzeroAlphaWitness": 616,
+        "pairsWithAlphaAtLeastHalfWitness": 536
+      },
+      "head": {
+        "pairs": 1171,
+        "transversePairs": 1171,
+        "coplanarPairs": 0,
+        "hairTriangles": 106,
+        "cards": [
+          68,
+          111,
+          122,
+          128,
+          149,
+          203,
+          216,
+          238,
+          243,
+          264,
+          303,
+          307,
+          309,
+          336,
+          347,
+          352,
+          397,
+          422,
+          461
+        ],
+        "pairsWithNonzeroAlphaWitness": 884,
+        "pairsWithAlphaAtLeastHalfWitness": 786
+      }
+    },
+    "v1": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/v1-rest.json",
+      "sha256": "b32b97cf19f59421e94f400441589ad980fa2df6de16de71bf9a57e3b723f07d",
+      "face": {
+        "pairs": 71,
+        "transversePairs": 71,
+        "coplanarPairs": 0,
+        "hairTriangles": 12,
+        "cards": [
+          264,
+          352,
+          422
+        ],
+        "pairsWithNonzeroAlphaWitness": 35,
+        "pairsWithAlphaAtLeastHalfWitness": 24
+      },
+      "head": {
+        "pairs": 275,
+        "transversePairs": 275,
+        "coplanarPairs": 0,
+        "hairTriangles": 33,
+        "cards": [
+          68,
+          203,
+          243,
+          264,
+          352,
+          422
+        ],
+        "pairsWithNonzeroAlphaWitness": 215,
+        "pairsWithAlphaAtLeastHalfWitness": 191
+      }
+    },
+    "v2": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/v2-rest.json",
+      "sha256": "8de6aa7b2db80e137f65c2317064a0124549c663bd43516700499fee9040ec63",
+      "face": {
+        "pairs": 0,
+        "transversePairs": 0,
+        "coplanarPairs": 0,
+        "hairTriangles": 0,
+        "cards": [],
+        "pairsWithNonzeroAlphaWitness": 0,
+        "pairsWithAlphaAtLeastHalfWitness": 0
+      },
+      "head": {
+        "pairs": 165,
+        "transversePairs": 165,
+        "coplanarPairs": 0,
+        "hairTriangles": 21,
+        "cards": [
+          68,
+          203,
+          243
+        ],
+        "pairsWithNonzeroAlphaWitness": 143,
+        "pairsWithAlphaAtLeastHalfWitness": 130
+      }
+    }
+  },
+  "motion": {
+    "baseline-motion": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/baseline-motion.json",
+      "sha256": "3b214c59b8dceb9a22e828d49a17cccffe25b990f36d616e69c438762a3d21b3",
+      "instrumentSha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "7b4482feeaeee7d039bfa65d01f5a34e84e7b45a889f1caaa51de328286108dd",
+        "groom": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4"
+      },
+      "poses": [
+        {
+          "file": "frame-0000.json",
+          "time": 0,
+          "frameSha256": "d811db1cc9e26419bc117bf3b9762ccc0e41f93eea44ff42c822e7280dd28127",
+          "facePairs": 867,
+          "headPairs": 1183
+        },
+        {
+          "file": "frame-0060.json",
+          "time": 1.0000000000000013,
+          "frameSha256": "64795aa833fbbbf1fa3042c15047e1e9c545f09caa71bcb87f4a3881b273abf6",
+          "facePairs": 859,
+          "headPairs": 1187
+        },
+        {
+          "file": "frame-0120.json",
+          "time": 1.9999999999999978,
+          "frameSha256": "910dbe372fbe425b129c2c8cd0bec8271a6d218df07b22ec1aee2db54492f9c6",
+          "facePairs": 859,
+          "headPairs": 1186
+        },
+        {
+          "file": "frame-0180.json",
+          "time": 2.9999999999999942,
+          "frameSha256": "1e278750462195e50c261047a8cf136abdcd2ce0c449ee4145c655edb489998b",
+          "facePairs": 863,
+          "headPairs": 1179
+        },
+        {
+          "file": "frame-0240.json",
+          "time": 3.9999999999999907,
+          "frameSha256": "af9b1217dc3a226e0c8b4fb5ff11e7730e969102b3310f28aba1199af1ee1e05",
+          "facePairs": 843,
+          "headPairs": 1186
+        },
+        {
+          "file": "frame-0300.json",
+          "time": 4.999999999999988,
+          "frameSha256": "4029d31e81c6c391a5bbc40558b18ee331eea2b93b41aa3897c39d15bf90ec61",
+          "facePairs": 846,
+          "headPairs": 1191
+        },
+        {
+          "file": "frame-0360.json",
+          "time": 5.999999999999984,
+          "frameSha256": "61ea46a255f4ddba9c3bc46f760049eab3e528cc39d6b3d6d3d0c7a3f2c8d333",
+          "facePairs": 848,
+          "headPairs": 1162
+        },
+        {
+          "file": "frame-0420.json",
+          "time": 6.9999999999999805,
+          "frameSha256": "4c5f416294f6f05daa0d0f784780982492538d888d16ffe08fce4235d6a85caa",
+          "facePairs": 841,
+          "headPairs": 1157
+        },
+        {
+          "file": "frame-0480.json",
+          "time": 7.999999999999977,
+          "frameSha256": "7d42396194512a8d2bce8eaa23b1ae12b47e4038470cda2ec4900379947bdb4b",
+          "facePairs": 855,
+          "headPairs": 1174
+        },
+        {
+          "file": "frame-0540.json",
+          "time": 9.000000000000027,
+          "frameSha256": "04e5b6ba44384a146d804da4bb1532ddd8e2e22c85c1893a37b214a56662438d",
+          "facePairs": 872,
+          "headPairs": 1189
+        },
+        {
+          "file": "frame-0600.json",
+          "time": 10.000000000000076,
+          "frameSha256": "890d3dcc1ab8775e254400bafa85fa6677bb1c8498a497002a1d3a701aeffb1b",
+          "facePairs": 865,
+          "headPairs": 1182
+        },
+        {
+          "file": "frame-0660.json",
+          "time": 11.000000000000126,
+          "frameSha256": "bbbb765d77a923438b61449a93ed6b4961be0e72d59fb1a92eba58f95f28c8be",
+          "facePairs": 852,
+          "headPairs": 1181
+        },
+        {
+          "file": "frame-0720.json",
+          "time": 12.000000000000176,
+          "frameSha256": "84a7704e50af0c18ed46545808364e4ea76c5a7b4b1ec5702e53e10dbe5c339f",
+          "facePairs": 863,
+          "headPairs": 1193
+        }
+      ]
+    },
+    "v2-motion": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/v2-motion.json",
+      "sha256": "2945593878c381a1bfe94c835bee9bad5f1dc1b27dc61fdca69a810633bb592d",
+      "instrumentSha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "7b4482feeaeee7d039bfa65d01f5a34e84e7b45a889f1caaa51de328286108dd",
+        "groom": "659955f0daaa2c6f005c1480f8081510d09d5d185ec8bdecc011fb2974cc10bd"
+      },
+      "poses": [
+        {
+          "file": "frame-0000.json",
+          "time": 0,
+          "frameSha256": "86706a4eb3872657bdd252aa077de694d7712c81a3cddd86deed70f1f7d8b4e9",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "file": "frame-0060.json",
+          "time": 1.0000000000000013,
+          "frameSha256": "ab62f41ffaa128158e6b77a49ee23c6439da20e6622cfa2f3816db8af7c655da",
+          "facePairs": 0,
+          "headPairs": 181
+        },
+        {
+          "file": "frame-0120.json",
+          "time": 1.9999999999999978,
+          "frameSha256": "6c9c84744a5f917741d30a0c8426d0d02871797a67718d83ef17ad7ae96ad8fd",
+          "facePairs": 0,
+          "headPairs": 180
+        },
+        {
+          "file": "frame-0180.json",
+          "time": 2.9999999999999942,
+          "frameSha256": "b327a6ec5de150b69cf65be63ff467d889020c779641c12f9062b6073b32029d",
+          "facePairs": 0,
+          "headPairs": 149
+        },
+        {
+          "file": "frame-0240.json",
+          "time": 3.9999999999999907,
+          "frameSha256": "e33fe2a5e4f890da2d4a01e22cd4aafbeab028c850cb624acbf3b24bae757f1f",
+          "facePairs": 0,
+          "headPairs": 180
+        },
+        {
+          "file": "frame-0300.json",
+          "time": 4.999999999999988,
+          "frameSha256": "bd754dc8922c184ee95e9bd3b8d91fa8fcc6d320676bce7e3a318d06c56e4335",
+          "facePairs": 0,
+          "headPairs": 177
+        },
+        {
+          "file": "frame-0360.json",
+          "time": 5.999999999999984,
+          "frameSha256": "9f86806b534361f5997a7d514e64610359ccaf8729663975a0f07d4dd9ad102b",
+          "facePairs": 0,
+          "headPairs": 151
+        },
+        {
+          "file": "frame-0420.json",
+          "time": 6.9999999999999805,
+          "frameSha256": "783ad6ad8a72bbd8e861ca8f654e9ca6a16ccfb63c26c0460f64cb052ac260ca",
+          "facePairs": 0,
+          "headPairs": 161
+        },
+        {
+          "file": "frame-0480.json",
+          "time": 7.999999999999977,
+          "frameSha256": "2d33db29bc1b3619a969cfcdf25181768b8bf6fa29f14b20b575dde9bb883939",
+          "facePairs": 0,
+          "headPairs": 158
+        },
+        {
+          "file": "frame-0540.json",
+          "time": 9.000000000000027,
+          "frameSha256": "c771663c3e3887017c6e15680632df47663d687a51a6db12b48a1d3c7f7bcce0",
+          "facePairs": 0,
+          "headPairs": 167
+        },
+        {
+          "file": "frame-0600.json",
+          "time": 10.000000000000076,
+          "frameSha256": "47f6c512b0a81e49af479478ea6160cc7e2c3b32a5534681fedddab26b2ae69e",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "file": "frame-0660.json",
+          "time": 11.000000000000126,
+          "frameSha256": "77d46c1a4915a15359a06697c3dd95bee0cdcd68025cf6411bbb1b2524e12851",
+          "facePairs": 0,
+          "headPairs": 184
+        },
+        {
+          "file": "frame-0720.json",
+          "time": 12.000000000000176,
+          "frameSha256": "908af4b8555a0590a28f7a9804f45b82bae691dea0506f4a17d778b12cd470b4",
+          "facePairs": 0,
+          "headPairs": 183
+        }
+      ]
+    },
+    "v2-shake": {
+      "path": "captures/hair-fall-2026-09-08/surface-proof/v2-shake.json",
+      "sha256": "28391144fda4c022c0bafab143aac09f00e14971aca79ed22c379f48bbaf59cf",
+      "instrumentSha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+        "groom": "659955f0daaa2c6f005c1480f8081510d09d5d185ec8bdecc011fb2974cc10bd"
+      },
+      "poses": [
+        {
+          "file": "frame-0000.json",
+          "time": 0,
+          "frameSha256": "aec86d9c5dfd4e5fe72cd0f696412cdeb0c7db23002b8bf6f0c30aa6257a39db",
+          "facePairs": 0,
+          "headPairs": 165
+        },
+        {
+          "file": "frame-0030.json",
+          "time": 0.49999999999999994,
+          "frameSha256": "7cb17dd11f7586fb948d43484eaf83eeaa9af60433c0425c45a592533a0403e1",
+          "facePairs": 0,
+          "headPairs": 176
+        },
+        {
+          "file": "frame-0060.json",
+          "time": 1.0000000000000013,
+          "frameSha256": "a78eb70f25c0922d22e7125ca7487f16ea6812919456828dabc4f9b11f054fdb",
+          "facePairs": 0,
+          "headPairs": 167
+        },
+        {
+          "file": "frame-0090.json",
+          "time": 1.4999999999999996,
+          "frameSha256": "b3f1fb448fa2f59e11e52369f4b87e2777a36032a89da85abe95edcec22c9446",
+          "facePairs": 0,
+          "headPairs": 166
+        },
+        {
+          "file": "frame-0120.json",
+          "time": 1.9999999999999978,
+          "frameSha256": "75f4142dcaef2ec49cdd1a942be13b0ffbce5a8d27bf8173cf07002f5c850cc0",
+          "facePairs": 0,
+          "headPairs": 173
+        },
+        {
+          "file": "frame-0150.json",
+          "time": 2.499999999999996,
+          "frameSha256": "7a992c95ca7d446d08cded3b0b2f8e17633b1c23bf038e863d334fe69c1c9a9e",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0180.json",
+          "time": 2.9999999999999942,
+          "frameSha256": "cb8d29aa449c5eaee055bc149cec33f6abd4e05a249a71a77de58e46a2930751",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0210.json",
+          "time": 3.4999999999999925,
+          "frameSha256": "293bf746cf746eba877065264edffa14789d1068514a401c305072b5e7e628b9",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0240.json",
+          "time": 3.9999999999999907,
+          "frameSha256": "f39cb27487d93f8d80b52fe590b0f1fb2acb3c06f8c2796762367c6da6bc7ada",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0270.json",
+          "time": 4.499999999999989,
+          "frameSha256": "abd451bdcdbc0804083dfea2e64c5e5264eee4e71f92dd4905b9519d98682fbc",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0300.json",
+          "time": 4.999999999999988,
+          "frameSha256": "9045e745353f6d337f0d6b53c2f4d13e0211f0f42a0a9e228018f94727fe8028",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0330.json",
+          "time": 5.499999999999986,
+          "frameSha256": "45219060c3d45bd8d054781474b30cd10596e1c0a83e3172b5230b1c844a88d0",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0360.json",
+          "time": 5.999999999999984,
+          "frameSha256": "0f78e2efe17edae3ba0658f94c9cf1a931fa906b851c264446901b1b68311062",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0390.json",
+          "time": 6.499999999999982,
+          "frameSha256": "669961e455cfd6d391b0bdedf686525762143af355ef93c5aa9f85d1635471fc",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0420.json",
+          "time": 6.9999999999999805,
+          "frameSha256": "9807c9f8e01c6ed52a57611d4335c38db8d4dfc9d055fb9e15f8ce403df4ae56",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0450.json",
+          "time": 7.499999999999979,
+          "frameSha256": "e543bbee1f1d8230dbfe9d7211f5ada39ede555a091384356ab9b8bff4f57210",
+          "facePairs": 0,
+          "headPairs": 178
+        },
+        {
+          "file": "frame-0480.json",
+          "time": 7.999999999999977,
+          "frameSha256": "9568befd5cd4aaf93e4395888fd3a21ed35a021ee0028589a9a1459b8f5979c1",
+          "facePairs": 0,
+          "headPairs": 178
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "baseline-final": {
+      "path": "captures/hair-fall-2026-09-08/baseline-final/report.json",
+      "sha256": "9c0acd14c295ac8ceec87815a25c4db96fb5454c5ff1ba9fa31da909b5d1098f",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "7b4482feeaeee7d039bfa65d01f5a34e84e7b45a889f1caaa51de328286108dd",
+        "groom": "25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4"
+      },
+      "errors": [],
+      "poses": 13,
+      "minimumFaceSampleMm": -21.6832786929321,
+      "peakMeanTipLagMm": 11.815226153696466,
+      "finalMeanTipLagMm": 0.9662020085228819,
+      "maxSegmentErrorMm": 7.785954127693256e-05,
+      "hair": {
+        "style": "bob02",
+        "loadedStyle": "bob02",
+        "bake": "figure_g050",
+        "unavailableReason": null,
+        "attached": true,
+        "meshes": 1,
+        "oit": "stochastic",
+        "stageReportsOit": "stochastic",
+        "solver": {
+          "chains": 496,
+          "particles": 8432,
+          "steps": 1
+        },
+        "velocityRepaired": true,
+        "frameBudgetWarning": null,
+        "undisposable": [
+          "HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ~957 kB of instancedArray storage per attach, dropped by reference",
+          "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+        ]
+      },
+      "quality": {
+        "requested": "auto",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "adapter-capability",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      }
+    },
+    "fall-v2-motion": {
+      "path": "captures/hair-fall-2026-09-08/fall-v2-motion/report.json",
+      "sha256": "71aae521f3c988789de7f86fd899bc5801ad399f9c6e9afe220d411bc6370f33",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "7b4482feeaeee7d039bfa65d01f5a34e84e7b45a889f1caaa51de328286108dd",
+        "groom": "659955f0daaa2c6f005c1480f8081510d09d5d185ec8bdecc011fb2974cc10bd"
+      },
+      "errors": [],
+      "poses": 13,
+      "minimumFaceSampleMm": 2.197007746071098,
+      "peakMeanTipLagMm": 11.825381690513689,
+      "finalMeanTipLagMm": 0.9682029953762219,
+      "maxSegmentErrorMm": 6.71852056904898e-05,
+      "hair": {
+        "style": "bob02",
+        "loadedStyle": "bob02",
+        "bake": "figure_g050",
+        "unavailableReason": null,
+        "attached": true,
+        "meshes": 1,
+        "oit": "stochastic",
+        "stageReportsOit": "stochastic",
+        "solver": {
+          "chains": 496,
+          "particles": 8432,
+          "steps": 1
+        },
+        "velocityRepaired": true,
+        "frameBudgetWarning": null,
+        "undisposable": [
+          "HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ~957 kB of instancedArray storage per attach, dropped by reference",
+          "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+        ]
+      },
+      "quality": {
+        "requested": "auto",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "adapter-capability",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      }
+    },
+    "fall-v2-shake": {
+      "path": "captures/hair-fall-2026-09-08/fall-v2-shake/report.json",
+      "sha256": "397223c470ffd7800318ec95d1794963b680021a8c6d9c761b0e89923994239b",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+        "groom": "659955f0daaa2c6f005c1480f8081510d09d5d185ec8bdecc011fb2974cc10bd"
+      },
+      "errors": [],
+      "poses": 17,
+      "minimumFaceSampleMm": 3.447398115153968,
+      "peakMeanTipLagMm": 3.024166731334791,
+      "finalMeanTipLagMm": 0.00044352092684325404,
+      "maxSegmentErrorMm": 6.465306295888595e-05,
+      "hair": {
+        "style": "bob02",
+        "loadedStyle": "bob02",
+        "bake": "figure_g050",
+        "unavailableReason": null,
+        "attached": true,
+        "meshes": 1,
+        "oit": "stochastic",
+        "stageReportsOit": "stochastic",
+        "solver": {
+          "chains": 496,
+          "particles": 8432,
+          "steps": 1
+        },
+        "velocityRepaired": true,
+        "frameBudgetWarning": null,
+        "undisposable": [
+          "HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ~957 kB of instancedArray storage per attach, dropped by reference",
+          "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+        ]
+      },
+      "quality": {
+        "requested": "auto",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "adapter-capability",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      }
+    },
+    "production-installed": {
+      "path": "captures/hair-fall-2026-09-08/production-installed/report.json",
+      "sha256": "b1fec6c78c0bc22d82421932ec6a5d77f4647d908a19264e1c002138b08f0add",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+        "groom": "5a9ef270a1caed23868510cc089d5b6d7732c49430abe8b896b1fc353fb399fd"
+      },
+      "errors": [],
+      "poses": 3,
+      "minimumFaceSampleMm": 3.1231369175706467,
+      "peakMeanTipLagMm": 1.913066186164301,
+      "finalMeanTipLagMm": 1.6268096716539577,
+      "maxSegmentErrorMm": 6.482591262402249e-05,
+      "hair": {
+        "style": "bob02",
+        "loadedStyle": "bob02",
+        "bake": "figure_g050",
+        "unavailableReason": null,
+        "attached": true,
+        "meshes": 1,
+        "oit": "stochastic",
+        "stageReportsOit": "stochastic",
+        "solver": {
+          "chains": 496,
+          "particles": 8432,
+          "steps": 1
+        },
+        "velocityRepaired": true,
+        "frameBudgetWarning": null,
+        "undisposable": [
+          "HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ~957 kB of instancedArray storage per attach, dropped by reference",
+          "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+        ]
+      },
+      "quality": {
+        "requested": "auto",
+        "tier": "balanced",
+        "backend": "webgpu",
+        "selectedBy": "adapter-capability",
+        "temporalResolve": 1,
+        "resolutionScale": 0.66,
+        "backendMismatch": false
+      }
+    }
+  },
+  "tests": {
+    "hairFall": {
+      "groups": 9,
+      "pass": true,
+      "input": "installed corrected groom; original export separately verified"
+    },
+    "hairSurface": {
+      "groups": 12,
+      "pass": true,
+      "randomPairs": 1000
+    },
+    "hairDynamics": {
+      "checks": 24,
+      "pass": true,
+      "mode": "--quick; rejection proofs omitted"
+    },
+    "productionBuild": {
+      "pass": true,
+      "pages": 17,
+      "warning": "existing chunk-size warning"
+    },
+    "fullGateSuite": "not rerun; prior red declarations remain"
+  },
+  "limits": [
+    "Floating-point triangle-shell intersection gate, numeric tolerance 1e-9 m; boundary contacts count.",
+    "Face box is head-rest x unbounded, y 1.43 to 1.565 m, z >= 0.06 m.",
+    "Zero crossings does not certify positive clearance everywhere or exclude wholly embedded triangles.",
+    "13 natural and 17 controlled shake poses are finite samples, not all possible poses.",
+    "165 head-region pairs / 21 hair triangles remain outside the face box at rest.",
+    "No shaders, texture atlases, springs, collision settings, lighting, or quality presets changed.",
+    "Early baseline-pilot, baseline-surface, and baseline-motion signed classifications used recomputed normals and are superseded.",
+    "Local captures are ignored; this compact summary and source/assets are tracked."
+  ],
+  "sources": {
+    "tools/critic/portrait-clearance.mjs": "5333a94a70330c0ef1cd5b40a8c41e5cda99faba2ef0781f7d302b16ad7bf118",
+    "tools/figure-pipeline/hair_surface.mjs": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794",
+    "tools/figure-pipeline/hair_fall.mjs": "ae6dcd35041256706796452be127d2463c6a5c4097bcca31b66cb28dbd9e9133",
+    "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7"
+  }
+}

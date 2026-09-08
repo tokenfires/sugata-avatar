@@ -1290,6 +1290,35 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
     }
 
+    /**
+     * The actual rebuilt card vertices, packed as world-space XYZ without the scalp caps.
+     * Pause/step the caller's frame loop before reading so positions and the captured transform
+     * describe the same frame. Like readCentrelines, this reads the attribute's live padded stride.
+     */
+    async function readVertices() {
+
+        const attribute = cardVertexBuffer.value;
+        const objectToWorld = uniforms.worldToObject.value.clone().invert();
+        const steps = stepsTaken;
+        const raw = new Float32Array( await renderer.getArrayBufferAsync( attribute ) );
+        const stride = attribute.itemSize;
+        const positions = new Float32Array( groom.cardVertexCount * 3 );
+        const point = new Vector3();
+
+        for ( let vertex = 0; vertex < groom.cardVertexCount; vertex ++ ) {
+
+            point.set( raw[ vertex * stride ], raw[ vertex * stride + 1 ], raw[ vertex * stride + 2 ] )
+                .applyMatrix4( objectToWorld );
+            positions[ vertex * 3 ] = point.x;
+            positions[ vertex * 3 + 1 ] = point.y;
+            positions[ vertex * 3 + 2 ] = point.z;
+
+        }
+
+        return { positions, vertexBase: cardVertexBase, space: 'world', stride, steps };
+
+    }
+
     return {
         groom,
         uniforms,
@@ -1308,6 +1337,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         update,
         reset,
         readCentrelines,
+        readVertices,
         get stepsTaken() { return stepsTaken; },
         get computeCallsLastFrame() { return computeCallsLastFrame; }
     };
