@@ -1,0 +1,148 @@
+{
+  "date": "2026-09-08",
+  "installed": false,
+  "method": "Change live emitted RGB to equal-channel Rec.709 luminance; all light geometry/intensities/exposure unchanged. Report placements remain authored metadata; these records are the live-colour authority.",
+  "matchedPosesAndCameras": true,
+  "poseTime": 0,
+  "viewsPerArm": 5,
+  "maximumEmittedLuminanceDelta": 1.1102230246251565e-16,
+  "liveNeutralLightRecords": [
+    {
+      "name": "key.area",
+      "before": [
+        1,
+        0.85499260812105,
+        0.7011018919268015
+      ],
+      "after": [
+        0.87471026992529,
+        0.87471026992529,
+        0.87471026992529
+      ],
+      "luminanceBefore": 0.87471026992529,
+      "luminanceAfter": 0.8747102699252899
+    },
+    {
+      "name": "key.shadow",
+      "before": [
+        1,
+        0.85499260812105,
+        0.7011018919268015
+      ],
+      "after": [
+        0.87471026992529,
+        0.87471026992529,
+        0.87471026992529
+      ],
+      "luminanceBefore": 0.87471026992529,
+      "luminanceAfter": 0.8747102699252899
+    },
+    {
+      "name": "fill.area",
+      "before": [
+        0.8879231178794776,
+        0.6444796819634361,
+        0.5647115056965487
+      ],
+      "after": [
+        0.6904764941127172,
+        0.6904764941127172,
+        0.6904764941127172
+      ],
+      "luminanceBefore": 0.6904764941127172,
+      "luminanceAfter": 0.6904764941127172
+    },
+    {
+      "name": "rim.area",
+      "before": [
+        0.004776953478513362,
+        0.02955683443236377,
+        1
+      ],
+      "after": [
+        0.0943546282955585,
+        0.0943546282955585,
+        0.0943546282955585
+      ],
+      "luminanceBefore": 0.0943546282955585,
+      "luminanceAfter": 0.09435462829555849
+    },
+    {
+      "name": "kicker.area",
+      "before": [
+        1,
+        0.6795424696265424,
+        0.43415363616478553
+      ],
+      "after": [
+        0.7299546668080007,
+        0.7299546668080007,
+        0.7299546668080007
+      ],
+      "luminanceBefore": 0.7299546668080007,
+      "luminanceAfter": 0.7299546668080006
+    },
+    {
+      "name": "ambient.sky",
+      "before": [
+        0.48514994004665124,
+        0.55201140150344,
+        0.8227857543924378
+      ],
+      "after": [
+        0.5573465630763124,
+        0.5573465630763124,
+        0.5573465630763124
+      ],
+      "luminanceBefore": 0.5573465630763124,
+      "luminanceAfter": 0.5573465630763124
+    },
+    {
+      "name": "ambient.ground",
+      "before": [
+        0.10224173307914941,
+        0.05126945836711539,
+        0.03954623527052923
+      ],
+      "after": [
+        0.061259747263320306,
+        0.061259747263320306,
+        0.061259747263320306
+      ],
+      "luminanceBefore": 0.061259747263320306,
+      "luminanceAfter": 0.0612597472633203
+    }
+  ],
+  "sourceHashes": {
+    "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+    "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+    "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+  },
+  "errors": {
+    "studio": [],
+    "neutral": []
+  },
+  "result": "Blue/violet cast disappears, broad hair patchwork remains, orange eye/cheek backlighting becomes conspicuous. Rejected as a shipping look; cause of glow under separate diagnosis.",
+  "limits": [
+    "Matching emitted luminance does not match reflected brightness for spectrally selective materials.",
+    "Authored report placement colours are not rewritten by this scratch live-light mutation.",
+    "No lighting or material changes are installed."
+  ],
+  "artifactHashes": {
+    "captures/neutral-light-2026-09-08/probe.cjs": "b2d04867713f6e7afaf9fc6b6f1af1f3a68f20b9a4daaa7ac503fc30f81192c2",
+    "captures/neutral-light-2026-09-08/studio-90.png": "8f2d01738235ab47647d959823b229d86ada258a59272fc8b5f3ab1c8eecfc22",
+    "captures/neutral-light-2026-09-08/studio-45.png": "37b32311ba24092f692b7c08c2d2568e431f2f9adf01ab5e14e46d660ee3e003",
+    "captures/neutral-light-2026-09-08/studio.json": "aa11fd9b423b99a981c74f2b31118053d05d9be6ff03236bf8e9f6b6ce243bc5",
+    "captures/neutral-light-2026-09-08/README.md": "417eceef5dea509526b2c9d6bd1587ff797dfc4591a2afaebe15d7b886c6dbe9",
+    "captures/neutral-light-2026-09-08/neutral--90.png": "00edb6df8f4a741e76c5462063a62edd7055c87e2741a497d0330ab17f12d5bf",
+    "captures/neutral-light-2026-09-08/neutral-0.png": "602da4ddffe47cee004987ad40e263becbf561afb153fa83e31254da96019b94",
+    "captures/neutral-light-2026-09-08/studio-0.png": "5d067453c40ef2b1913b5f7d9908a365c252ed324f52cbbc4cc7704e17fc225e",
+    "captures/neutral-light-2026-09-08/studio-180.png": "3991849ada4c712216af75e41522c9b975d12c6669bc0a15fc338482f1989500",
+    "captures/neutral-light-2026-09-08/neutral-90.png": "795f826603332e2d7417bcca5f6296499c703dd2732c66942391f30b0a9fd55c",
+    "captures/neutral-light-2026-09-08/neutral-45.png": "b10a623de5cc341c9db6f0bbeea33c5d487fd6f009ca1b0e891ad50e1416efc6",
+    "captures/neutral-light-2026-09-08/neutral.json": "99ebcfc3186c3f35cb3b28c12ffff570425de8188d0e54fc641b86ffef2e90b1",
+    "captures/neutral-light-2026-09-08/neutral-180.png": "a83987f15f85954931c9050c053cc725c9d88631400b427489df2f10f67a1186",
+    "captures/neutral-light-2026-09-08/studio--90.png": "2fbcd67de5e5639440546ee80f57e1ff368ff15d4f266ad669049e406fd7f0b1"
+  }
+}

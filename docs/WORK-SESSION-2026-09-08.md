@@ -5,7 +5,8 @@ Heartbeat `advance-sugata-avatar-visual-quality` runs every 15 minutes in this t
 stop new experiments, checkpoint results and pause that heartbeat. Its schedule expires shortly after.
 
 Working repository: `/Users/robault/GitHub/sugata-avatar`, branch `codex/local-restart`.
-Starting commit: `735b734`; first face-wrap milestone: `5218c24`.
+Starting commit: `735b734`; face-wrap milestone: `5218c24`; hem/evidence: `4b876e6`;
+GTAO orbit repair: `93de53a`.
 Read [restart context](RESTART-2026-09-08.md) for architecture and recovery boundaries. The old iCloud
 checkout remains untouched. R36/R38 shader hypotheses remain refuted; reconcile missing later
 shader/tool history before resuming that material research.
@@ -103,23 +104,27 @@ ledger](evidence/orbit-regression-2026-09-08.json) records source/asset/report h
 
 ## Current continuation point
 
-All accepted code is ready for local checkpoint commits: the two-stage bob, full default fixture
-tests, pose-evidence integrity guards, and GTAO orbit repair. The third geometry experiment is also
+All accepted code is committed locally: the two-stage bob, full default fixture tests,
+pose-evidence integrity guards, and GTAO orbit repair. The third geometry experiment is also
 closed: splitting 205 wide cards into three produced 906 chains, reducing direction-jump p90
 71.36°→20.17° with zero static face crossings. Ten matched static images remained broadly patchy;
 the visible improvement did not justify installing it. Motion and cost were never measured.
 All three rejected candidates and renders are preserved locally under `captures/hair-facets-2026-09-08/`;
 the [tracked experiment ledger](evidence/hair-facets-2026-09-08.json) records conclusions and hashes.
 
-There are no active agent edits or browser capture jobs. Do not repeat frame smoothing or width
-subdivision without a new prediction. A useful next visual probe is a fully neutral, balanced light
-rig to separate the strong coloured lighting from the remaining broad hair patches; the earlier
-single-rim edit was not that comparison. Keep this as a scratch comparison and review actual pixels
-before proposing a new look. Missing shader history still blocks a safe continuation of R35–R38.
+The fully neutral light comparison is now complete and rejected as a shipping look. All ten
+images have matching clock0 poses/cameras and no browser errors. Emitted linear Rec.709 luminance
+is preserved for every direct and hemisphere source; reflected material brightness need not be.
+The coloured cast disappears, while the broad hair patchwork remains and orange eye/cheek glow
+becomes conspicuous. See [neutral-light evidence](evidence/neutral-light-2026-09-08.json) and local
+`captures/neutral-light-2026-09-08/`. No further light variants have been run.
 
-Root owns integration and runtime acceptance. `continuity_audit` delivered fixtures/tests;
-`orbit_render_audit` delivered the GTAO fix and independent pose-checker review;
-`visual_next_step` completed the three geometry experiments. No Blender installation or history transplant.
+Active: `orbit_render_audit` is diagnosing that glow against SkinMaterial/thickness/occlusion
+code and existing ledgers, with at most one isolating control. It has no authorization to install
+an unproven material change. Root owns integration and evidence. The other two agents are idle;
+the three hair-geometry experiments are closed. Do not repeat them without a new prediction.
+Missing later HairMaterial history still blocks a safe continuation of R35–R38. No Blender
+installation or old iCloud reads. There are no active source edits or root browser capture jobs.
 
 Dev server: port5197, exec session26208. Production server: port5198, exec session71084,
 output `/tmp/sugata-hem-build`. Check ports before restarting. The dev server remains for the user.
