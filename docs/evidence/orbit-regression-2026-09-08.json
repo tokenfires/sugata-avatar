@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-08",
+  "cause": "A foreground pixel samples a cleared zero bent direction in the half-resolution AO target; normalizing it creates NaNs that bloom spreads across the canvas.",
+  "fix": "Use the current foreground surface normal before normalization when the sampled bent direction is degenerate. Valid AO/bent normals remain active.",
+  "hashes": {
+    "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1",
+    "packages/core/src/render/GTAO.orbit.selftest.mjs": "7cd31abf948af0c3edea6fea02be87cd498ebdbafbd0122bef040bf22cf00199",
+    "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+    "captures/orbit-regression-2026-09-08/report.json": "1a484dbf23a60d6cae9e912e6bfe23ddcc17d542a9df4a683ee51667950d2de7",
+    "captures/orbit-regression-2026-09-08/orbit-regression.log": "dba1f7c4de9f23d460e124d7d8ef8ffd3be79b14665af9cd083223a0c3513ce9",
+    "captures/orbit-regression-2026-09-08/gtao-selftest.log": "7d8fda47ca1ac24dd121bcba62fb206f13c41bd4c62cb5a1523747c19079e566"
+  },
+  "focusedOrbitChecks": 12,
+  "existingGTAOChecks": {
+    "pass": 27,
+    "total": 27
+  },
+  "arms": {
+    "corrected": {
+      "poses": [
+        {
+          "angle": 0,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 32743
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.4339129422718808
+        },
+        {
+          "angle": 45,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 33715
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 134250,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.42599627560521414
+        },
+        {
+          "angle": 90,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 84209,
+            "occludedPixels": 29471
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 134250,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.3526862197392924
+        },
+        {
+          "angle": 180,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 73300,
+            "occludedPixels": 27695
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.3483216945996276
+        },
+        {
+          "angle": -90,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 77244,
+            "occludedPixels": 37144
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.44405959031657355
+        }
+      ],
+      "errors": []
+    },
+    "old-normalize-zero": {
+      "poses": [
+        {
+          "angle": 0,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 32857
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 0,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0.4341596834264432
+        },
+        {
+          "angle": 90,
+          "settings": {
+            "quality": "low",
+            "samples": 8,
+            "radius": 0.035,
+            "resolutionScale": 0.5,
+            "strength": 1,
+            "bentNormal": true,
+            "specularOcclusion": true,
+            "ambientSpecular": true,
+            "specularF0": 0.04,
+            "defect": "none",
+            "view": "off",
+            "skyColour": "b9c4ea",
+            "groundColour": "5a4038",
+            "intensity": 0.5609999999999999
+          },
+          "occlusion": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 0,
+            "clearDirections": 84287,
+            "occludedPixels": 29445
+          },
+          "composite": {
+            "width": 716,
+            "height": 750,
+            "pixels": 537000,
+            "nonFinitePixels": 2520,
+            "clearDirections": 0,
+            "occludedPixels": 0
+          },
+          "bloom": {
+            "width": 358,
+            "height": 375,
+            "pixels": 134250,
+            "nonFinitePixels": 134250,
+            "clearDirections": 0,
+            "occludedPixels": 134250
+          },
+          "visibleFraction": 0
+        }
+      ],
+      "errors": []
+    }
+  },
+  "limits": [
+    "Focused tests ran on a dirty tree.",
+    "No change to transparent-background restrictions or blanket rendering-quality claim.",
+    "Raw PNGs and logs are ignored local evidence."
+  ]
+}
