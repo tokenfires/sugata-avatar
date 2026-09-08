@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sugata 姿 — portrait</title>
+    <link rel="icon" href="data:,">
+    <style>
+        :root { color-scheme: dark; --bg:#0b0b0d; --ink:#ece8df; --muted:#aaa69f; --line:#343332; --accent:#d6b895; }
+        * { box-sizing:border-box; }
+        body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+        button,select { font:inherit; }
+        button,a,select { -webkit-tap-highlight-color:transparent; }
+        button:focus-visible,a:focus-visible,select:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+        header { height:88px; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+        .brand { display:flex; align-items:center; gap:14px; color:var(--ink); text-decoration:none; font-size:19px; letter-spacing:.04em; }
+        .glyph { font:36px Georgia,serif; color:var(--accent); }
+        .header-link { color:var(--muted); font-size:13px; text-decoration:none; }
+        .header-link:hover { color:var(--ink); }
+        main { display:grid; grid-template-columns:minmax(0,1fr) 320px; max-width:1600px; margin:auto; padding:0 5vw; gap:44px; }
+        .portrait { min-width:0; height:calc(100svh - 150px); min-height:580px; position:relative; }
+        canvas { width:100%; height:100%; display:block; touch-action:none; cursor:grab; }
+        canvas:active { cursor:grabbing; }
+        .caption { position:absolute; left:12px; bottom:24px; pointer-events:none; color:var(--muted); font-size:12px; letter-spacing:.03em; padding:10px 14px; background:#0b0b0dcc; border:1px solid #343332; border-radius:3px; }
+        .caption strong { display:block; color:var(--ink); font-size:14px; font-weight:500; margin-bottom:4px; }
+        .loading { position:absolute; inset:0; display:grid; align-content:center; justify-items:center; gap:16px; background:var(--bg); color:var(--muted); text-align:center; padding:30px; }
+        .loading[hidden] { display:none; }
+        .spinner { width:22px; height:22px; border:1px solid var(--line); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        aside { padding:68px 0 32px; }
+        .eyebrow { color:var(--accent); font-size:11px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 20px; }
+        h1 { font:normal clamp(36px,3.3vw,53px)/1.05 Georgia,"Times New Roman",serif; letter-spacing:-.04em; margin:0 0 22px; }
+        .intro { color:var(--muted); margin:0 0 38px; max-width:28ch; }
+        fieldset { border:0; padding:0; margin:0 0 28px; min-width:0; }
+        legend,.label { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.13em; margin-bottom:13px; }
+        .choices { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+        .choice { padding:11px 8px; min-height:44px; border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:3px; cursor:pointer; transition:background .15s,color .15s; }
+        .choice:hover { border-color:var(--muted); color:var(--ink); }
+        .choice[aria-pressed="true"] { color:#171513; background:var(--accent); border-color:var(--accent); }
+        .choice:disabled { opacity:.45; cursor:wait; }
+        select { width:100%; min-height:46px; background:#151515; color:var(--ink); border:1px solid var(--line); border-radius:3px; padding:10px 12px; cursor:pointer; }
+        .note { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+        .actions { display:flex; flex-wrap:wrap; gap:20px; padding-top:24px; border-top:1px solid var(--line); }
+        .text-button { padding:0; min-height:44px; border:0; background:transparent; color:var(--ink); cursor:pointer; font-size:13px; }
+        .text-button:hover { color:var(--accent); }
+        .status { margin-top:30px; display:flex; align-items:center; gap:8px; font-size:11px; color:var(--muted); }
+        .dot { width:5px; height:5px; border-radius:50%; background:var(--accent); }
+        footer { max-width:1600px; padding:15px 5vw 22px; margin:auto; display:flex; justify-content:space-between; gap:20px; color:#77746f; font-size:11px; }
+        #error { position:absolute; left:5%; right:5%; top:35%; padding:24px; border:1px solid #885d50; background:#241c19; color:#f2d1bd; white-space:pre-wrap; font:13px/1.6 inherit; }
+        [hidden] { display:none !important; }
+        @media(max-width:900px) { header { height:72px; } main { grid-template-columns:minmax(0,1fr) 270px; gap:20px; } aside { padding-top:45px; } .portrait { min-height:550px; } }
+        @media(max-width:650px) { main { grid-template-columns:1fr; gap:0; padding:0 6vw; } .portrait { height:64svh; min-height:390px; order:1; } aside { order:2; padding:24px 0; } h1 { font-size:42px; } .intro { max-width:40ch; margin-bottom:26px; } .eyebrow { margin-bottom:14px; } footer { padding:16px 6vw 30px; } .caption { bottom:14px; } }
+        @media(prefers-reduced-motion:reduce) { .spinner { animation:none; } .choice { transition:none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="brand" href="../"><span class="glyph" aria-hidden="true">姿</span><span>SUGATA</span></a>
+        <a class="header-link" href="../">Explore the testbed ↗</a>
+    </header>
+    <main>
+        <section class="portrait" aria-label="Interactive avatar portrait">
+            <canvas id="stage" aria-label="Avatar portrait. Drag to rotate and scroll to zoom."></canvas>
+            <div class="loading" id="loading" role="status"><span class="spinner" aria-hidden="true"></span><span>Bringing the portrait to life…</span></div>
+            <div class="caption"><strong id="portrait-name">The chin-length bob</strong>Drag to turn · scroll to move closer</div>
+            <div id="error" role="alert" hidden></div>
+        </section>
+        <aside>
+            <p class="eyebrow">Portrait study / 01</p>
+            <h1>A body<br>for an AI.</h1>
+            <p class="intro">Expression, posture, and the small movements in between.</p>
+            <fieldset id="expressions" disabled>
+                <legend>Expression</legend>
+                <div class="choices">
+                    <button class="choice" data-expression="calm" aria-pressed="true">At ease</button>
+                    <button class="choice" data-expression="joy" aria-pressed="false">Warm</button>
+                    <button class="choice" data-expression="curious" aria-pressed="false">Curious</button>
+                    <button class="choice" data-expression="determined" aria-pressed="false">Determined</button>
+                </div>
+            </fieldset>
+            <fieldset id="hair-controls" disabled>
+                <label class="label" for="hair-style">Silhouette</label>
+                <select id="hair-style">
+                    <option value="bob02">Chin-length bob</option>
+                    <option value="bob01">Original long bob</option>
+                </select>
+                <p class="note">Two cuts, on the same figure and under the same light.</p>
+            </fieldset>
+            <fieldset id="light-controls" disabled>
+                <legend>Light</legend>
+                <div class="choices">
+                    <button class="choice" data-light="studio" aria-pressed="true">Studio</button>
+                    <button class="choice" data-light="warm" aria-pressed="false">Warm</button>
+                </div>
+            </fieldset>
+            <div class="actions">
+                <button class="text-button" id="pause" aria-pressed="false" disabled>Pause motion</button>
+                <button class="text-button" id="reset-view" disabled>Reset view ↗</button>
+            </div>
+            <div class="status"><span class="dot" aria-hidden="true"></span><span id="status" aria-live="polite">Preparing the portrait</span></div>
+        </aside>
+    </main>
+    <footer><span>Sugata 姿 · An embodied presence</span><span>A work in progress</span></footer>
+    <script type="module" src="./portrait.js"></script>
+</body>
+</html>

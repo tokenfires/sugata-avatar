@@ -110,7 +110,7 @@ const avatar = await Avatar.create( {
     lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
     background: 'studio',          // 'studio'|'void', a hex, or the object below
     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
-    hair: false                    // 'bob01' | false
+    hair: false                    // 'bob01' | 'bob02' (g050 only) | false
 } );
 ```
 
@@ -348,20 +348,33 @@ the real `LightingRig` constructor — every one of these is accepted *in silenc
 All seven are refused at `Avatar.create` with a `TypeError` naming the field *and* the accepted
 range, deny-by-default on both the light name and the field name.
 
-**Hair is `false` by default and that is not caution.** Three measured reasons: one groom exists;
-it adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
+**Hair is `false` by default.** Style is an explicit choice: `bob01` supports five figure bakes,
+while the chin-length `bob02` currently supports only `figure_g050` (`gender: 0.5` in the default
+nearest-bake mode). Both use their own texture maps. The original `bob01` adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
 two of its mechanisms have no undo — `createHairDynamics` returns no `dispose()`, and
 `installHairVelocity` patches `NodeMaterial.prototype.setupPosition` **process-wide**. Both are
 declared in `report().hair.undisposable` rather than hidden, because `disposal.leaked` is an
 own-property walk and structurally cannot see either.
 
-With `hair: 'bob01'`, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
+With either supported hair style, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
 decision (hair is on), not a frame budget. `quality: 'high'` still gets `high` and
 `report().hair.frameBudgetWarning` says what it costs. The `fallback` tier gets a **static** groom
 on the `cutout` arm: `configureHairMaterial` genuinely *throws* on `stochastic` + `alphaToCoverage`,
 a stochastic arm needs a temporal resolve to integrate it, and WebGL2's compute cannot run the
 solver's kernels. ⚠️ The third of those is a structural read of two sources and is **not**
 browser-verified.
+
+`report().hair.style` is the requested style; `loadedStyle` and `bake` identify the attached groom.
+An unsupported identity bake leaves hair detached and supplies `unavailableReason`, so bob02 never
+borrows another style's geometry or fits its g050 groom to a different skull. Switching back to
+an available bake restores it. `resolveHairAssets(style, bakeName, assetBaseUrl)` exposes the same
+availability and canonical external asset URLs without loading the groom. Bob02's frame cost is
+unmeasured; the bob01 timing table below does not certify it.
+
+Open `src/portrait.html` for a living bob02 portrait with expression, lighting, orbit, and pause
+controls, plus a comparison with bob01. Style selection navigates to a new document to isolate the
+renderer and its prototype state. This is a visual development preview, not a claim that the hair meets the final
+AAA appearance target.
 
 **What it actually costs, measured here rather than quoted.** In a GPU Chromium on 2026-08-17, tier
 `high`, 1280×1600 dpr 1, submit-to-GPU-idle, 400 samples after 120 warm-up, bald and haired
@@ -488,25 +501,17 @@ served anywhere else has no proxy, so an embedder needs their own same-origin pa
 CORS-enabled gateway, and `LMStudioClient` takes `endpoint` as a constructor option for exactly
 that reason. Nothing in `Avatar` calls it — the avatar is complete without a language model.
 
-**🚩 A bundled build breaks the skin, and the fix is one line of bundler config.** Measured at
-HEAD `741ae2b` on this page, three builds minutes apart with vite 8.2.1 / three 0.185.1 /
-node 24.13.1:
+**Hashed production assets work as of the 2026-09-08 restart.** Previously, `Avatar`
+parsed the selected GLB filename to identify its bake. Vite's hashed name then missed the skin-map
+lookup and requested `/assets/undefined`. The runtime now takes the bake from the selected identity
+plan's `gender`, preserves bundled asset URLs, and supplies curvature, cavity, and region maps
+explicitly. Region-map inference from a hashed curvature filename had also silently omitted that
+map. External hosting uses the canonical figure and map filenames under the supplied base URLs.
 
-- Default asset naming (hashed) — the bundler emits every GLB and all fifteen baked PNGs, and the
-  page still fails: the bake name is read off the GLB's *filename*, which is now
-  `figure_g050-4pzc9G3S`, so the generated lookup table for the maps misses and the page requests
-  `/assets/undefined`. `Avatar.create` rejects with *"SkinMaterial: could not load the baked map
-  at …/assets/undefined"*. ⚠️ **`bakedMapBaseUrl` does not rescue this** — the failing part is the
-  file's *name*, not its base.
-- The same build with `rollupOptions.output.assetFileNames: 'assets/[name][extname]'` — the page
-  boots, requests exactly `figure_g050.glb` and the three `figure_g050-*.png` maps, and reports
-  tier `high` with skin, both eye shells and both card materials on the figure.
-
-So: **turn asset hashing off for these files, or serve the figure and the maps as static files you
-control and point `assetBaseUrl` / `bakedMapBaseUrl` at them.** The dev server has neither problem
-because it rewrites nothing. `docs/LEARNINGS.md` records this hazard as handled — that line is
-correct about the *emission* and wrong about the *lookup*. The durable fix belongs in
-`material/SkinMaterial.js`: key the maps on the identity, not on a filename that a bundler owns.
+A default hashed `build:pages` was loaded in Chromium/WebGPU and the portrait rendered with both
+`skin.hasRegionMap` and `skin.hasCavityMap` true. Turning off asset hashing is no longer required
+for the `Avatar` path. This does not certify other pages that construct materials themselves.
+See [the restart checkpoint](RESTART-2026-09-08.md) for the evidence and verification limits.
 
 **Not wired into `Avatar` yet, and named so the absence is visible:** the wardrobe (Phase 9) and
 identity detail targets (Phase 10). Both exist and are gated; both are opt-in on `alive.html` for

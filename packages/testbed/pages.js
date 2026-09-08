@@ -50,6 +50,14 @@ export const ACCEPTANCE = [
  */
 export const BROWSERCHECKS = [
     {
+        path: 'src/portrait.html',
+        name: 'portrait',
+        phase: 'Runtime portrait · silhouette and expression',
+        blurb: 'The chin-length bob on a living avatar. Compare the original cut, change expression, ' +
+            'and explore the portrait under studio or warm light.',
+        gates: [ 'Avatar' ]
+    },
+    {
         path: 'src/stage.html',
         name: 'stage',
         phase: 'Phase 3.1 · G-buffer',

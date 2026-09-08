@@ -73,21 +73,30 @@ cd sugata-avatar && npm install && npm run dev
 
 ## Status
 
-Working today: skin, eyes and lighting; blink, gaze, breath, sway and idle motion; visemes and
-prosody; PAD affect with full-body posture; wardrobe with mix and match; identity sculpting; and the
-runtime API above.
+The runtime combines skin, eyes, lighting, blink, gaze, breath, sway, affect-driven posture,
+gestures, IK and supplied viseme timelines. Wardrobe and detailed identity controls exist in
+dedicated modules/testbed pages; they are not yet integrated into the public `Avatar` runtime.
+Real TTS and microphone input remain open. `say()` without a supplied timeline does not animate
+speech on its own.
 
-Open: hair is paused after eight rounds and is documented in `docs/CHECKPOINT.md`. Gesture and IK are
-next. `say()` drives the body from text, but real phoneme timing needs a TTS engine, so the mouth
-currently runs a synthetic viseme timeline and the page tells you so.
+The new **portrait study** puts expressions, lighting, camera control and two existing haircuts
+on one page. Run `npm run dev`, then open `/src/portrait.html`. The shorter `bob02` cut is available
+on the midpoint figure; the original `bob01` covers all five figure bakes. Hair appearance is still
+unfinished: card boundaries, mottled highlights and strong rim colour remain visible.
 
-Every claim in this repository is measured. `npm run selftests` runs the whole suite. Red gates are
-declared in `docs/RED-GATES.md` and the runner fails if one is red without a declaration.
+Read [the September 8 restart checkpoint](docs/RESTART-2026-09-08.md) before continuing the hair
+research. This clone predates several local experiments preserved separately from the old iCloud
+checkout. The older checkpoint must not be treated as the latest experimental recommendation.
+
+`npm run selftests` runs the full gate suite; declared failures live in
+[`docs/RED-GATES.md`](docs/RED-GATES.md). The restart checked the affected runtime and browser paths,
+not the entire suite, and does not claim a clean full-suite result.
 
 ## Documentation
 
 | | |
 |---|---|
+| [`docs/RESTART-2026-09-08.md`](docs/RESTART-2026-09-08.md) | Current checkout, recovery boundary, portrait verification and next work |
 | [`docs/API.md`](docs/API.md) | The full `Avatar` surface, options, and limits |
 | [`docs/BRIEF.md`](docs/BRIEF.md) | The original request, verbatim |
 | [`docs/PUNCHLIST.md`](docs/PUNCHLIST.md) | Every item and its acceptance gate |

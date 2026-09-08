@@ -65,12 +65,12 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { Scene, Vector3 } from 'three';
+import { BufferGeometry, Group, Matrix4, Mesh, MeshBasicMaterial, MeshStandardMaterial, Scene, Texture, Vector3 } from 'three';
 
 import {
     AVATAR_DEFAULTS, Avatar, BACKGROUND_PRESETS, BACKGROUND_PRESET_NAMES, FRAME_MODES, HAIR_STYLES,
     QUALITY_REQUESTS, QUALITY_TIERS, SCENE_LOOKS, SCENE_LOOK_NAMES, resolveAgainstBase,
-    resolveBackgroundOption, resolveHairOption, resolveLightingOption, resolveLook,
+    resolveBackgroundOption, resolveFigureAssets, resolveHairAssets, resolveHairOption, resolveLightingOption, resolveLook,
     shippedAmbientFractionOfKey
 } from './Avatar.js';
 
@@ -407,6 +407,234 @@ const FAKE_CANVAS = { getContext: () => null };
             === 'https://cdn.test/sugata/figure_g050.glb' );
 }
 
+// --- PRODUCTION FIGURE ASSETS --------------------------------------------------------------------
+
+{
+    for ( const [ gender, bakeName ] of [
+        [ 0, 'figure_g000' ], [ 0.25, 'figure_g025' ], [ 0.5, 'figure_g050' ],
+        [ 0.75, 'figure_g075' ], [ 1, 'figure_g100' ]
+    ] ) {
+
+        const emitted = `https://app.test/assets/${ bakeName }-AbC123.glb`;
+        const assets = resolveFigureAssets( { gender, url: emitted } );
+        check( `ASSETS  ${ bakeName } keeps its emitted URL but uses canonical identity for skin maps`,
+            assets.bakeName === bakeName && assets.figureUrl === emitted
+                && assets.curvatureMapUrl.endsWith( `${ bakeName }-curvature.png` )
+                && assets.cavityMapUrl.endsWith( `${ bakeName }-cavity.png` )
+                && assets.regionMapUrl.endsWith( `${ bakeName }-regions.png` ),
+            JSON.stringify( assets ) );
+
+    }
+
+    const selected = { gender: 0.5, url: 'https://app.test/assets/figure_g050-AbC123.glb' };
+    const external = resolveFigureAssets( selected, 'https://cdn.test/avatar', 'https://cdn.test/skin' );
+    check( 'ASSETS  external figure and all three skin maps use canonical filenames rather than build hashes',
+        external.figureUrl === 'https://cdn.test/avatar/figures/figure_g050.glb'
+            && external.curvatureMapUrl === 'https://cdn.test/skin/figure_g050-curvature.png'
+            && external.cavityMapUrl === 'https://cdn.test/skin/figure_g050-cavity.png'
+            && external.regionMapUrl === 'https://cdn.test/skin/figure_g050-regions.png' );
+    check( 'ASSETS  the canonical selected bake also resolves the bob02 groom',
+        resolveHairAssets( 'bob02', external.bakeName ).available === true );
+
+    const wrongEntry = refusalFrom( () => resolveFigureAssets( { gender: 0.63, url: selected.url } ) );
+    check( 'ASSETS  a requested gender cannot be mistaken for the selected baked gender',
+        wrongEntry !== null && wrongEntry.includes( 'baked gender' ) );
+}
+
+// --- HAIR STYLE ASSETS AND LIFETIMES ---------------------------------------------------------------
+
+{
+    check( 'HAIR  the public style list adds bob02 and keeps bob01 first for legacy boolean callers',
+        Object.isFrozen( HAIR_STYLES ) && HAIR_STYLES.join( ',' ) === 'bob01,bob02'
+            && resolveHairOption( 'bob02' ) === 'bob02' );
+
+    check( 'HAIR  disabling hair resolves no assets',
+        resolveHairAssets( false, 'figure_g050' ) === null );
+
+    for ( const bake of [ 'g000', 'g025', 'g050', 'g075', 'g100' ] ) {
+
+        const assets = resolveHairAssets( 'bob01', `figure_${ bake }` );
+        check( `HAIR  bob01 retains its own ${ bake } groom and both sidecars`,
+            assets.available && assets.groomUrl.endsWith( `/hair/bob01/${ bake }.glb` )
+                && assets.flowMapUrl.endsWith( '/hair/bob01/flow.png' )
+                && assets.depthMapUrl.endsWith( '/hair/bob01/depth.png' ) );
+
+    }
+
+    const bob = resolveHairAssets( 'bob02', 'figure_g050' );
+    check( 'HAIR  bob02 resolves its own geometry AND maps, never bob01 assets under a new label',
+        bob.available && bob.style === 'bob02' && bob.bakeName === 'figure_g050'
+            && bob.groomUrl.endsWith( '/hair/bob02/g050.glb' )
+            && bob.flowMapUrl.endsWith( '/hair/bob02/flow.png' )
+            && bob.depthMapUrl.endsWith( '/hair/bob02/depth.png' )
+            && Object.isFrozen( bob ) && Object.isFrozen( bob.availableBakes ) );
+
+    for ( const bake of [ 'figure_g000', 'figure_g025', 'figure_g075', 'figure_g100', 'toString' ] ) {
+
+        const absent = resolveHairAssets( 'bob02', bake );
+        check( `HAIR  bob02 ${ bake } has no fallback geometry or texture fetches`,
+            absent.available === false && absent.groomUrl === null && absent.flowMapUrl === null
+                && absent.depthMapUrl === null && absent.availableBakes.join( ',' ) === 'figure_g050' );
+
+    }
+
+    for ( const style of HAIR_STYLES ) {
+
+        const external = resolveHairAssets( style, 'figure_g050', 'https://cdn.test/sugata' );
+        const base = `https://cdn.test/sugata/hair/${ style }/`;
+        check( `HAIR  external ${ style } uses canonical filenames for the groom and both maps`,
+            external.groomUrl === `${ base }g050.glb` && external.flowMapUrl === `${ base }flow.png`
+                && external.depthMapUrl === `${ base }depth.png` );
+
+    }
+
+    const oldLocation = Object.getOwnPropertyDescriptor( globalThis, 'location' );
+    try {
+
+        Object.defineProperty( globalThis, 'location', {
+            configurable: true, value: { href: 'https://app.test/view/index.html' }
+        } );
+        const relative = resolveHairAssets( 'bob02', 'figure_g050', '/static/avatar' );
+        check( 'HAIR  root-relative external assets resolve against the host document',
+            relative.groomUrl === 'https://app.test/static/avatar/hair/bob02/g050.glb'
+                && relative.flowMapUrl === 'https://app.test/static/avatar/hair/bob02/flow.png'
+                && relative.depthMapUrl === 'https://app.test/static/avatar/hair/bob02/depth.png' );
+
+    } finally {
+
+        if ( oldLocation === undefined ) delete globalThis.location;
+        else Object.defineProperty( globalThis, 'location', oldLocation );
+
+    }
+
+    // Exercise the public factory and real constructor, replacing only the GPU build boundary.
+    // This verifies option wiring and report/disposal behavior; it makes no rendering claim.
+    const originalBuild = Avatar.prototype.build;
+    let avatar;
+    try {
+
+        Avatar.prototype.build = async function () {};
+        avatar = await Avatar.create( {
+            canvas: FAKE_CANVAS, hair: 'bob02', identity: { gender: 0.5 }, autoStart: false
+        } );
+
+    } finally {
+
+        Avatar.prototype.build = originalBuild;
+
+    }
+
+    check( 'HAIR  Avatar.create accepts bob02 and retains the requested identity',
+        avatar.hairStyle === 'bob02' && avatar.identity.gender === 0.5 );
+
+    const warnings = [];
+    const originalWarn = console.warn;
+    try {
+
+        console.warn = ( message ) => warnings.push( message );
+        await avatar.attachHair( null, 'figure_g100', avatar.loadToken );
+        check( 'HAIR  missing bob02 bake returns before touching the figure and reports why',
+            avatar.report().hair.attached === false && avatar.report().hair.loadedStyle === null
+                && avatar.report().hair.bake === null
+                && avatar.report().hair.unavailableReason.includes( 'figure_g100' )
+                && avatar.report().hair.unavailableReason.includes( 'figure_g050' )
+                && warnings.length === 1 );
+
+        const previousReason = avatar.hairUnavailableReason;
+        await avatar.attachHair( null, 'figure_g050', avatar.loadToken - 1 );
+        check( 'HAIR  an obsolete attach cannot clear a newer missing-bake report or start loading',
+            avatar.hairUnavailableReason === previousReason && warnings.length === 1 );
+
+        check( 'HAIR  true remains the bob01 alias after adding bob02', resolveHairOption( true ) === 'bob01' );
+
+    } finally {
+
+        console.warn = originalWarn;
+
+    }
+
+    // Resource disposal is observable under node as events, independently of GPU allocation.
+    const disposed = {};
+    const track = ( key, resource ) => {
+        resource.addEventListener( 'dispose', () => { disposed[ key ] = ( disposed[ key ] ?? 0 ) + 1; } );
+        return resource;
+    };
+    const geometry = track( 'geometry', new BufferGeometry() );
+    const source = track( 'source', new MeshStandardMaterial( {
+        map: track( 'albedo', new Texture() ), normalMap: track( 'normal', new Texture() )
+    } ) );
+    const material = track( 'material', new MeshBasicMaterial() );
+    material.hair = {
+        flowMap: { value: track( 'flow', new Texture() ) },
+        depthMap: { value: track( 'depth', new Texture() ) }
+    };
+    const root = new Group();
+    root.userData.groomStyle = 'bob02';
+    root.userData.groomBake = 'figure_g050';
+    root.add( new Mesh( geometry, material ) );
+    avatar.hairRoot = root;
+    avatar.hairMaterial = material;
+    avatar.hairSourceMaterials = [ source ];
+    avatar.hairDynamics = { groom: { chainCount: 496, particleCount: 8432 }, stepsTaken: 1 };
+    avatar.hairUpdate = () => {};
+    avatar.hairVelocityRepaired = true;
+    avatar.hairUnavailableReason = null;
+    avatar.hairStyle = 'bob01';
+
+    check( 'HAIR  the report reads loaded style/bake from the attached groom rather than the request',
+        avatar.report().hair.style === 'bob01' && avatar.report().hair.loadedStyle === 'bob02'
+            && avatar.report().hair.bake === 'figure_g050' && avatar.report().hair.attached );
+
+    avatar.disposeHair();
+    avatar.disposeHair();
+    check( 'HAIR  retiring a groom clears its solver, material, bake metadata and unavailable reason',
+        avatar.hairRoot === null && avatar.hairMaterial === null && avatar.hairDynamics === null
+            && avatar.hairUpdate === null && avatar.hairVelocityRepaired === null
+            && avatar.hairSourceMaterials.length === 0 && avatar.hairUnavailableReason === null
+            && avatar.report().hair.loadedStyle === null && avatar.report().hair.bake === null );
+    check( 'HAIR  repeated retirement disposes geometry, materials and all four textures exactly once',
+        [ 'geometry', 'source', 'material', 'albedo', 'normal', 'flow', 'depth' ]
+            .every( ( key ) => disposed[ key ] === 1 ), JSON.stringify( disposed ) );
+
+    // A late identity plan must not start a Figure.load after the user disposed the avatar.
+    // Returning null makes any accidental access to the plan throw before a network request.
+    let finishIdentity;
+    avatar.identity.resolve = () => new Promise( ( resolve ) => { finishIdentity = resolve; } );
+    const pendingSwap = avatar.swapFigure();
+    const tokenAtLoad = avatar.loadToken;
+    avatar.dispose();
+    finishIdentity( null );
+    let lateLoadStopped = false;
+    try { await pendingSwap; lateLoadStopped = true; } catch {}
+    check( 'HAIR  disposal invalidates an identity load before it can fetch or resurrect a groom',
+        lateLoadStopped && avatar.loadToken > tokenAtLoad && avatar.figure === null && avatar.hairRoot === null );
+}
+
+// --- PENDING HAIR DYNAMICS ------------------------------------------------------------------------
+
+{
+    const avatar = new Avatar( {
+        identity: { gender: 0.5 }, scene: { id: 'studio', kind: 'studio' }, hairStyle: 'bob02'
+    } );
+    avatar.stage = { renderer: {}, dispose() {} };
+    const material = {};
+    const mesh = {
+        skeleton: {
+            bones: [ { name: 'head', matrixWorld: new Matrix4() } ],
+            boneInverses: [ new Matrix4() ]
+        }
+        // No geometry: a stale load must return before it can inspect or allocate against it.
+    };
+    const pending = avatar.buildHairDynamics( { root: new Group() }, [ mesh ], material, avatar.loadToken );
+    avatar.dispose();
+    let result;
+    let failure = null;
+    try { result = await pending; } catch ( error ) { failure = error; }
+    check( 'HAIR  disposal during the solver import returns without reading a disposed stage or geometry',
+        failure === null && result === null && avatar.stage === null && material.positionNode === undefined,
+        failure?.message ?? '' );
+}
+
 // --- DEFAULTS ------------------------------------------------------------------------------------
 
 {
@@ -473,7 +701,7 @@ const FAKE_CANVAS = { getContext: () => null };
         `#${ studio.colour.toString( 16 ) } / #${ studio.backdrop.toString( 16 ) } / ground ${ studio.ground }` +
         ' — and Avatar.js imports them rather than keeping a second copy' );
 
-    check( '🎯 DEFAULTS  hair is OFF by default — one groom exists, and two mutations have no undo',
+    check( '🎯 DEFAULTS  hair is OFF by default — style is explicit, and two mutations have no undo',
         AVATAR_DEFAULTS.hair === false && resolveHairOption( AVATAR_DEFAULTS.hair ) === null,
         `HAIR_STYLES = [ ${ HAIR_STYLES.join( ', ' ) } ]` );
 
