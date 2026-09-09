@@ -1,0 +1,433 @@
+{
+  "status": "Targeted g050 nape geometry/opacity proof passes at22 captured poses; strict whole-body and general visual acceptance remain open",
+  "scope": {
+    "bake": "g050",
+    "groom": "bob01",
+    "poses": 22,
+    "chains": 496,
+    "changedGroup": [
+      188,
+      193,
+      198,
+      201,
+      202,
+      211,
+      217,
+      223,
+      272
+    ],
+    "originalDomainTriangles": 1872,
+    "napeDomainTriangles": 2076
+  },
+  "archives": {
+    "analysis": {
+      "path": "captures/bob01-g050-nape-acceptance-2026-09-09",
+      "manifestSha256": "4c268e815510ef45359e9ce958012c3f0fc7574b84ee0df463d1ecdae94ec8db",
+      "summarySha256": "ddd07b1865e4b750d43a0b67691d015b02b9a4ea0e090231017744bd314dff3a",
+      "verifiedFiles": 34
+    },
+    "motion": {
+      "path": "captures/bob01-g050-nape-motion-2026-09-09",
+      "manifestSha256": "fd7e218ce969f0837a9ea159dd601a43251053f7354b32f7c5c297b33cd9b30d",
+      "verifiedFiles": 431
+    }
+  },
+  "assetSha256": {
+    "groom": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "body": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "recipe": {
+    "natural": {
+      "seconds": 12,
+      "fps": 60,
+      "stride": 60,
+      "poses": 13
+    },
+    "nod": {
+      "seconds": 4,
+      "fps": 60,
+      "stride": 30,
+      "direction": 1,
+      "poses": 9
+    },
+    "normalQueriesPerSubstep": 16,
+    "resetQueries": 64,
+    "owner": "Two complete sequential domain batches; experimental, no shipping asset mutation"
+  },
+  "opacity": {
+    "evaluations": 20354620,
+    "negativeEvaluations": 0,
+    "negativeThresholdMm": -0.1,
+    "opacityThresholdExclusive": 0.5,
+    "minimumSignedDistanceMm": 1.0789043810713075,
+    "minimumPose": {
+      "motion": "nod",
+      "frame": 30
+    },
+    "priorWitnesses": {
+      "count": 74,
+      "negative": 0,
+      "minMm": 8.4926564111579,
+      "maxMm": 18.446539348964286,
+      "qualification": "Prior witness union includes legacy nearest-repeat-wrap tip observations; sourceKinds retained per witness. Full enumeration covers base and CPUbox mip1\u20133 texel centers."
+    },
+    "method": "Every opaque texel center in all nine card UV triangles at decoded base and CPU box mip1\u20133, mapped to actual same-frame GPU ribbons; full posed-body nearest-normal query. Counts include shared-diagonal and repeated-pose evaluations."
+  },
+  "surface": {
+    "addedRibbonPairInstances": 0,
+    "removedRibbonPairInstances": 136,
+    "facePairs": 0,
+    "originalPatchPairs": 0,
+    "napeSupersetPairs": 0,
+    "remainingNineChainOutsideDomainFamilies": [
+      {
+        "card": 217,
+        "span": 0,
+        "bodyTriangle": 10288,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": true
+      },
+      {
+        "card": 217,
+        "span": 0,
+        "bodyTriangle": 23735,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": true
+      },
+      {
+        "card": 272,
+        "span": 1,
+        "bodyTriangle": 1316,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": false
+      },
+      {
+        "card": 272,
+        "span": 2,
+        "bodyTriangle": 1316,
+        "poseInstances": 12,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": false
+      }
+    ],
+    "perPose": [
+      {
+        "motion": "natural",
+        "frame": 0,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "natural",
+        "frame": 60,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 105,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 105
+      },
+      {
+        "motion": "natural",
+        "frame": 120,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 94,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 94
+      },
+      {
+        "motion": "natural",
+        "frame": 180,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 72,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 72
+      },
+      {
+        "motion": "natural",
+        "frame": 240,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 134,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 134
+      },
+      {
+        "motion": "natural",
+        "frame": 300,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 151,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 151
+      },
+      {
+        "motion": "natural",
+        "frame": 360,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 94,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 94
+      },
+      {
+        "motion": "natural",
+        "frame": 420,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 117,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 117
+      },
+      {
+        "motion": "natural",
+        "frame": 480,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 78,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 78
+      },
+      {
+        "motion": "natural",
+        "frame": 540,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 80,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 80
+      },
+      {
+        "motion": "natural",
+        "frame": 600,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "natural",
+        "frame": 660,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 90,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 90
+      },
+      {
+        "motion": "natural",
+        "frame": 720,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 104,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 104
+      },
+      {
+        "motion": "nod",
+        "frame": 0,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "nod",
+        "frame": 30,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 110,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 135
+      },
+      {
+        "motion": "nod",
+        "frame": 60,
+        "counts": {
+          "caps": 30,
+          "rootLayer": 103,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 133
+      },
+      {
+        "motion": "nod",
+        "frame": 90,
+        "counts": {
+          "caps": 30,
+          "rootLayer": 185,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 215
+      },
+      {
+        "motion": "nod",
+        "frame": 120,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 108,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 133
+      },
+      {
+        "motion": "nod",
+        "frame": 150,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 96,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 121
+      },
+      {
+        "motion": "nod",
+        "frame": 180,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      },
+      {
+        "motion": "nod",
+        "frame": 210,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      },
+      {
+        "motion": "nod",
+        "frame": 240,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      }
+    ]
+  },
+  "preservation": {
+    "other487FullStateExact": true,
+    "matchedRecordedInputs": true,
+    "allNonCardCapsExact": true,
+    "maxRootErrorMm": 0.0001772289329034324,
+    "maxHalfwidthErrorMm": 5.960613242653873e-05,
+    "minFirstSpanNormMarginMm": 3.671616489879998,
+    "maxNapeLinkErrorMm": 0.01664860503158838,
+    "maxNapeLinkErrorIncreaseMm": 0.016602616917273452,
+    "maxWholeGroomLinkErrorMm": 0.3468127860337018,
+    "sourceCutIdentity": true
+  },
+  "checker": {
+    "focusedGroupsPassed": 18,
+    "proofVersion": 2,
+    "guardHardenedVersion": 3,
+    "guardSupplement": "pair-input-contract.json validates all44 full snapshot schemas, original baseline masks and exact caps; v3 adds those report/input guards without changing geometry/opacity arithmetic"
+  },
+  "forestFollowup": {
+    "status": "Separate final-state parity and frame-cost control passes; expanded forest motion coverage pending",
+    "ledger": "docs/evidence/hair-body-contact-forest-frame-cost-2026-09-09.json",
+    "archive": "captures/body-contact-forest-frame-cost-2026-09-09",
+    "manifestSha256": "f160b23624aa6c6ea0446594aaecc3a3717c48569ffff5e641b52b8bfc63e063",
+    "timedFrames": 720,
+    "finalAll496PhysicalStateExact": true,
+    "medianUpdateToGpuMs": {
+      "sequential": 22.0,
+      "forest": 15.1
+    },
+    "p95UpdateToGpuMs": {
+      "sequential": 23.3,
+      "forest": 16.7
+    },
+    "fullyAllocatedStorageBuffers": 35,
+    "fullyAllocatedStorageBytes": 7177952,
+    "storageAfterDispose": 0,
+    "qualification": "Serialized update-to-GPU completion excludes timestamp readback/rAF/compositor waits; final-state equality is not equality at every intermediate pose or an interactive FPS guarantee."
+  },
+  "limits": [
+    "This is finite actual captured-pose evidence, not a universal collision/appearance certificate.",
+    "Legacy matched baselines omit full caps and velocities; those comparisons remain unavailable rather than assumed equal.",
+    "Full cap positions use recorded renderer-equivalent CPU skin/morph while ribbon positions are actual GPU readback.",
+    "Per-chain link errors are reported in mm and percent (including a separately labeled>=1mm denominator subset); no unrequested length-error acceptance threshold is invented.",
+    "Authored cut identity does not constrain the Y position of dynamically moving tips.",
+    "Strict whole-body failures remain visible even when residual crossing fragments appear transparent.",
+    "Actual visual inspection, material LOD and measured frame cost remain separate acceptance requirements.",
+    "Opaque texel-center enumeration and conservative UV-footprint bounds do not establish continuous filtered visibility at an actual screen LOD.",
+    "All remaining pair identities are retained baseline contacts; that does not remove them from strict whole-body gates.",
+    "Partition correctness and targeted clearance do not accept the measured runtime cost or complete the rear hair appearance."
+  ]
+}
