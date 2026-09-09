@@ -1,8 +1,9 @@
 import { Avatar } from '../../core/src/Avatar.js';
+import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const params = new URLSearchParams( location.search );
-const hair = params.get( 'hair' ) === 'bob01' ? 'bob01' : 'bob02';
+const hair = params.get( 'hair' ) ?? 'bob02';
 const captured = params.has( 'capture' );
 const reducedMotion = matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 const canvas = document.getElementById( 'stage' );
@@ -44,10 +45,14 @@ function animate( time ) {
 document.addEventListener( 'visibilitychange', () => { previousTime = null; } );
 
 try {
+    const selection = portraitSelection( params );
+    if ( params.getAll( 'hair' ).length > 1 ) throw new Error( 'Duplicate URL hair selection.' );
+    validatePortraitHair( hair, selection.bake );
+    if ( selection.bake !== 'g050' ) document.querySelector( '#hair-style option[value="bob02"]' ).disabled = true;
     document.getElementById( 'hair-style' ).value = hair;
     document.getElementById( 'portrait-name' ).textContent = hair === 'bob02'
         ? 'The chin-length bob' : 'The original long bob';
-    avatar = await Avatar.create( { canvas, identity: { gender: 0.5 }, hair,
+    avatar = await Avatar.create( { canvas, identity: { gender: selection.gender }, hair,
         autoStart: false, frame: 'portrait', lighting: 'studio', seed: 20260807 } );
     controls = new OrbitControls( avatar.stage.camera, canvas );
     controls.target.copy( avatar.focus );

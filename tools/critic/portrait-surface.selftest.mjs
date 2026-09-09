@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { Matrix4 } from 'three';
+import { Matrix4, Vector3 } from 'three';
 import { measurePortraitSurface, CALIBRATED_BODY_SHA256 } from './portrait-surface.mjs';
+import { readGlb, readPrimitive } from '../lut-bake/glb.mjs';
+import { calibrationForBake, captureRegion, captureAnatomy } from './portrait-calibration.mjs';
+import { measureNeckShoulder, originalBob01Parts } from './portrait-surface.mjs';
 import { CAPTURE_REGION } from './portrait-clearance.mjs';
 
 // Tiny real triangle captures test evidence integrity without requiring ignored browser files.
@@ -45,6 +48,23 @@ function modernCapture( { style = 'bob01', clear = true } = {} ) {
         report.descriptor.report = runtime();
     } );
     for ( let frame = 0; frame < 2; frame ++ ) mutate( `frame-000${ frame }.json`, state => { state.report = runtime(); } );
+}
+const sourceBody=bake=>readPrimitive(readGlb(new URL(`../../assets/figures/figure_${bake}.glb`,import.meta.url)), 'base.001');
+function calibratedCapture(bake,{shoulderCrossing=false,shift=[0,0,0]}={}){
+    modernCapture();const c=calibrationForBake(bake),m=sourceBody(bake),gender=Number(bake.slice(1))/100;
+    // A small triangle in the head region ensures a nonempty face comparison even when clear.
+    let vertices=[-.6,c.proposed.face.min[1]+.02,c.proposed.face.min[2]+.03,-.59,c.proposed.face.min[1]+.02,c.proposed.face.min[2]+.03,-.6,c.proposed.face.min[1]+.03,c.proposed.face.min[2]+.03];
+    let indices=[0,1,2];
+    if(shoulderCrossing){
+        const t=c.neckPatchTriangleIds.find(t=>[0,1,2].every(k=>m.positions[m.indices[t*3+k]*3+1]<c.proposed.face.min[1]-.02));
+        const [a,b,d]=[0,1,2].map(k=>new Vector3().fromArray(m.positions,m.indices[t*3+k]*3));
+        const center=a.clone().add(b).add(d).multiplyScalar(1/3),normal=b.clone().sub(a).cross(d.clone().sub(a)).normalize();
+        const triangle=[center.clone().addScaledVector(normal,.001),center.clone().addScaledVector(normal,-.001),center.clone().lerp(a,.2)];
+        vertices.push(...triangle.flatMap(p=>p.toArray()));indices.push(3,4,5);
+    }
+    const runtime={identity:{gender,bake:`figure_${bake}`},hair:{style:'bob01',loadedStyle:'bob01',bake:`figure_${bake}`,attached:true,solver:{chains:1}}};
+    mutate('report.json',r=>{Object.assign(r.options,{bake,url:`http://localhost/?hair=bob01&bake=${bake}&gender=${gender}`});r.region={...captureRegion(bake),bodySha256:c.hashes.file};r.anatomy=captureAnatomy(bake);r.sourceHashes.body=c.hashes.file;r.loadedAssets[0].sha256=c.hashes.file;r.descriptor.report=runtime;r.descriptor.cardVertexCount=vertices.length/3;r.descriptor.cardIndices=indices;r.descriptor.bodyGeometryHashes=r.anatomy.geometryHashes;});
+    for(let frame=0;frame<2;frame++)mutate(`frame-000${frame}.json`,r=>{r.report=runtime;r.vertices=translate(vertices,shift);r.bodyPositions=translate(Array.from(m.positions),shift);r.bodyIndices=Array.from(m.indices);r.headMatrix=new Matrix4().makeTranslation(...shift).toArray();});
 }
 try {
     check( 'a complete intersecting capture rejects both measured poses', () => {
@@ -118,7 +138,7 @@ try {
         for ( const change of [ o => { o.url = 'http://localhost/?hair=bob02'; }, o => { o.hair = 'bob03'; },
             o => { o.bake = 'g100'; }, o => { o.url = 'http://localhost/?hair=bob01&gender=1'; } ] ) {
             modernCapture(); mutate( 'report.json', r => change( r.options ) );
-            assert.throws( () => measurePortraitSurface( directory ), /contradicts|selection|Only --bake/ );
+            assert.throws( () => measurePortraitSurface( directory ), /contradicts|selection|calibration/ );
         }
     } );
     check( 'partial new metadata cannot fall back to the historical unattested path', () => {
@@ -128,5 +148,50 @@ try {
             assert.throws( () => measurePortraitSurface( directory ), /region\/body calibration/ );
         }
     } );
-    console.log( `${ checks }/14 portrait surface integrity checks passed` );
+    check('all five attested correspondence captures replay with exact body topology and separate gates',()=>{
+        for(const bake of ['g000','g025','g050','g075','g100']){
+            calibratedCapture(bake);const r=measurePortraitSurface(directory);assert.equal(r.gate.pass,true);assert.equal(r.gate.neckShoulderPass,true);assert.equal(r.calibration.status,'attested-correspondence-v1');assert.equal(r.calibration.bake,bake);assert.equal(r.results[0].neckShoulder.selectedBodyTriangles,1872);
+        }
+    });
+    check('posed shoulder crossings reject a face-clear capture and follow body translation',()=>{
+        for(const shift of [[0,0,0],[2,3,-4]]){
+            calibratedCapture('g000',{shoulderCrossing:true,shift});const r=measurePortraitSurface(directory);assert.equal(r.gate.facePass,true);assert.equal(r.gate.neckShoulderPass,false);assert.equal(r.gate.pass,false);assert.ok(r.results[0].neckShoulder.pairs>0);
+        }
+        const r=read('frame-0000.json'),d=read('report.json').descriptor;
+        const before=measureNeckShoulder(r.vertices,d.cardIndices,r.bodyPositions,r.bodyIndices,'g000');
+        const moved=measureNeckShoulder(r.vertices,d.cardIndices,translate(r.bodyPositions,[0,-.5,0]),r.bodyIndices,'g000');
+        assert.ok(before.pairs>0);assert.equal(moved.pairs,0);
+    });
+    check('new anatomy reports cannot inherit mismatched bounds, source hashes or topology',()=>{
+        for(const change of [r=>{delete r.anatomy;},r=>{r.anatomy.headBounds.min[1]+=.01;},r=>{r.anatomy.neckShoulder.sourceTriangleIdsSha256='b'.repeat(64);},r=>{r.descriptor.bodyGeometryHashes.positionFloat32='b'.repeat(64);}]){
+            calibratedCapture('g100');mutate('report.json',change);assert.throws(()=>measurePortraitSurface(directory),/calibration|rest geometry/);
+        }
+        for(const change of [r=>{r.bodyIndices[0]=r.bodyIndices[1];},r=>{r.bodyIndices[0]+=.5;},r=>{r.bodyPositions.pop();},r=>{r.bodyPositions.push(0,0,0);}]){
+            calibratedCapture('g100');mutate('frame-0001.json',change);assert.throws(()=>measurePortraitSurface(directory),/topology|pose arrays/);
+        }
+    });
+    check('original bob01 ranges require observed contiguous ring layout; bob02 stays unclassified',()=>{
+        for(const bake of ['g000','g025','g050','g075','g100']){
+            const groom=readPrimitive(readGlb(new URL(`../../assets/hair/bob01/${bake}.glb`,import.meta.url)),'hair_bob01');
+            const descriptor={chainCount:496,pointsPerChain:17,cardVertexBase:652,cardVertexCount:16864,cardIndices:Array.from(groom.indices).filter((_,i)=>{const t=Math.floor(i/3)*3;return [0,1,2].every(k=>groom.indices[t+k]>=652);}).map(i=>i-652)};
+            const parts=originalBob01Parts(descriptor,'bob01');assert.deepEqual(parts.map(p=>p.indices.length/3),[78*32,384*32,34*32]);
+            assert.equal(originalBob01Parts(descriptor,'bob02'),null);assert.equal(originalBob01Parts({...descriptor,chainCount:495},'bob01'),null);
+            const wrong={...descriptor,cardIndices:[...descriptor.cardIndices]};wrong.cardIndices[0]=34;assert.equal(originalBob01Parts(wrong,'bob01'),null);
+        }
+        calibratedCapture('g050',{shoulderCrossing:true});const r=measurePortraitSurface(directory);assert.equal(r.results[0].layerBreakdown.status,'unclassified');assert.equal(r.gate.pass,false);
+    });
+    check('recognized root-layer crossings remain a strict gate failure when curtains and fringe are clear',()=>{
+        calibratedCapture('g050',{shoulderCrossing:true});const witness=read('frame-0000.json').vertices.slice(9),groom=readPrimitive(readGlb(new URL('../../assets/hair/bob01/g050.glb',import.meta.url)),'hair_bob01');
+        const vertices=Array.from(groom.positions.slice(652*3,(652+16864)*3));for(let i=0;i<16864;i++)vertices[i*3]+=5;
+        // Put only original-layout card 0 across a real neck triangle. This is a synthetic posed
+        // witness, not a claim that the authored root layer naturally reaches this neck patch.
+        const a=new Vector3().fromArray(witness,0),b=new Vector3().fromArray(witness,3),tangent=new Vector3().fromArray(witness,6).sub(a.clone().add(b).multiplyScalar(.5));
+        for(let ring=0;ring<17;ring++){a.clone().addScaledVector(tangent,ring/16).toArray(vertices,ring*6);b.clone().addScaledVector(tangent,ring/16).toArray(vertices,ring*6+3);}
+        const indices=[];for(let t=0;t<groom.indices.length;t+=3)if([0,1,2].every(k=>groom.indices[t+k]>=652))indices.push(...Array.from(groom.indices.slice(t,t+3)).map(i=>i-652));
+        mutate('report.json',r=>Object.assign(r.descriptor,{chainCount:496,pointsPerChain:17,cardVertexBase:652,cardVertexCount:16864,cardIndices:indices}));
+        for(let frame=0;frame<2;frame++)mutate(`frame-000${frame}.json`,r=>{r.vertices=vertices;r.vertexBase=652;});
+        const r=measurePortraitSurface(directory),groups=r.results[0].layerBreakdown.groups;assert.equal(r.results[0].layerBreakdown.status,'original-bob01-layout-ranges');
+        assert.ok(groups[0].neckShoulderPairs>0);assert.equal(groups[1].neckShoulderPairs,0);assert.equal(groups[2].neckShoulderPairs,0);assert.equal(r.gate.neckShoulderPass,false);assert.equal(r.gate.pass,false);
+    });
+    console.log( `${ checks }/${ checks } portrait surface integrity checks passed` );
 } finally { fs.rmSync( directory, { recursive: true, force: true } ); }

@@ -7,6 +7,8 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {parseCaptureOptions,captureTarget,captureAssetHashes,matchesGroomRequest,
     validateCaptureRuntime,validateLoadedAssets,CAPTURE_REGION} from './portrait-clearance.mjs';
+import { portraitSelection, PORTRAIT_BAKES } from '../../packages/testbed/src/portrait-selection.mjs';
+import { verifyCalibrationAssets, captureAnatomy, calibrationForBake, validateBodyTopology } from './portrait-calibration.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const parse=args=>parseCaptureOptions(['--out','/tmp/sugata-capture-selection-test',...args],{});
 let count=0;const check=(name,fn)=>{fn();console.log(`PASS ${++count} - ${name}`);};
@@ -27,11 +29,27 @@ check('URL/CLI disagreement and ambiguous or unsupported hair selections fail cl
     assert.throws(()=>parse(['--url','http://localhost/src/portrait.html?hair=bob01&hair=bob02']),/Duplicate URL/);
     assert.throws(()=>parse(['--hair','bob01','--hair','bob02']),/duplicate/);
 });
-check('uncalibrated body requests are refused before a browser or output is created',()=>{
-    for(const bake of ['g000','g025','g075','g100'])assert.throws(()=>parse(['--hair','bob01','--bake',bake]),/Only --bake g050/);
-    assert.throws(()=>parse(['--url','http://localhost/src/portrait.html?gender=0']),/Only --bake g050/);
-    assert.throws(()=>parse(['--url','http://localhost/src/portrait.html?bake=g100']),/Only --bake g050/);
-    assert.throws(()=>captureTarget({hair:'bob01',bake:'g100'}),/calibrated g050/);
+check('all five CLI and URL body selections resolve exact authored genders and asset paths',()=>{
+    for(const [bake,gender] of Object.entries(PORTRAIT_BAKES))for(const args of [['--bake',bake],['--url',`http://localhost/?bake=${bake}`],['--url',`http://localhost/?gender=${gender}`]]){
+        const o=parse(['--hair','bob01',...args]),t=captureTarget(o),u=new URL(o.url);assert.equal(o.bake,bake);assert.equal(t.gender,gender);
+        assert.equal(u.searchParams.get('bake'),bake);assert.equal(Number(u.searchParams.get('gender')),gender);
+        assert.ok(t.groomFile.endsWith(`/bob01/${bake}.glb`));assert.ok(t.bodyFile.endsWith(`/figure_${bake}.glb`));
+        assert.equal(captureAssetHashes(t).body,calibrationForBake(bake).hashes.file);
+        validateCaptureRuntime({identity:{gender,bake:t.figureBake},hair:{style:'bob01',loadedStyle:'bob01',bake:t.figureBake,attached:true,solver:{chains:1}}},t);
+    }
+});
+check('contradictory, ambiguous and uncalibrated body selections fail before browser creation',()=>{
+    for(const args of [['--bake','g999'],['--bake','g000','--url','http://localhost/?bake=g100'],['--bake','g000','--url','http://localhost/?gender=.5'],['--url','http://localhost/?bake=g100&gender=0'],['--url','http://localhost/?gender='],['--url','http://localhost/?gender=.6'],['--url','http://localhost/?gender=NaN'],['--url','http://localhost/?bake=g000&bake=g000']])assert.throws(()=>parse(args),/Unsupported|contradicts|authored value|Duplicate/);
+    assert.deepEqual(portraitSelection(new URLSearchParams()),{bake:'g050',gender:.5});
+    assert.throws(()=>captureTarget({hair:'bob01',bake:'g999'}),/Unsupported/);
+    assert.throws(()=>parse(['--bake','g000']),/bob02 is authored only/);
+});
+check('portable calibration reproduces exact source hashes, skin correspondence and mapped surface bounds',()=>{
+    const result=verifyCalibrationAssets();assert.equal(result.length,5);
+    for(const b of result){assert.equal(b.facePatchTriangles,5714);assert.equal(b.headPatchTriangles,7678);assert.equal(b.neckPatchTriangles,1872);assert.equal(b.neckPatchVertices,1069);assert.equal(captureAnatomy(b.bake).bodySha256,b.bodySha256);}
+});
+check('semantic triangle IDs require exact calibrated topology before any pose query',()=>{
+    const b=calibrationForBake('g000');assert.throws(()=>validateBodyTopology([0,1,2],b.vertexCount*3,'g000'),/topology/);
 });
 check('substitution predicate cannot replace another style, bake or similarly named resource',()=>{
     const t=captureTarget(parse(['--hair','bob01']));
@@ -67,4 +85,4 @@ check('cadence and option validation preserve controlled-motion inputs',()=>{
     assert.throws(()=>parse(['--direction','0']),/direction/);assert.throws(()=>parse(['--stride','1.5']),/integer/);
     assert.throws(()=>parse(['--fps','0']),/Invalid fps/);assert.throws(()=>parse(['--unknown','x']),/Unknown/);
 });
-console.log(`${count}/9 portrait capture selection/provenance groups passed`);
+console.log(`${count}/${count} portrait capture selection/provenance groups passed`);

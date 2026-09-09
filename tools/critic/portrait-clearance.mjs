@@ -9,17 +9,17 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Matrix4, Vector3 } from 'three';
 import { SurfaceGrid } from '../figure-pipeline/hair_geometry.mjs';
+import { portraitSelection, validatePortraitHair } from '../../packages/testbed/src/portrait-selection.mjs';
+import { calibrationForBake, captureRegion, captureAnatomy, bodyGeometryHashes, validateBodyGeometryHashes, validateBodyTopology } from './portrait-calibration.mjs';
 import { readGlb, readPrimitive } from '../lut-bake/glb.mjs';
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const sha=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
-// This box is calibrated to the figure, not the haircut. Both bobs share g050's body.
-// Other bakes move head/body landmarks; do not label their results with this box.
-export const CAPTURE_REGION = Object.freeze({bake:'g050',gender:0.5,
-    calibration:'figure-g050-head-rest-v1', minY:1.43,maxY:1.565,minZ:0.06});
+// Retained for callers and historical g050 report compatibility.
+export const CAPTURE_REGION = Object.freeze(captureRegion('g050'));
 export function parseCaptureOptions(args, env=process.env) {
-    const options={url:'http://127.0.0.1:5197/src/portrait.html?capture',out:null,hair:null,bake:'g050',
+    const options={url:'http://127.0.0.1:5197/src/portrait.html?capture',out:null,hair:null,bake:null,
         groom:null,stimulus:'idle',direction:1,seconds:12,fps:60,stride:60,playwright:env.PLAYWRIGHT_MODULE};
     const seen=new Set();
     for(let i=0;i<args.length;i+=2){
@@ -39,22 +39,25 @@ export function parseCaptureOptions(args, env=process.env) {
     if(options.hair!==null&&urlHair!==null&&options.hair!==urlHair)throw new Error('--hair contradicts the URL hair selection.');
     options.hair=options.hair??urlHair??'bob02';
     if(!['bob01','bob02'].includes(options.hair))throw new Error('--hair must be bob01 or bob02.');
-    if(options.bake!=='g050'||(url.searchParams.has('bake')&&url.searchParams.get('bake')!=='g050')||
-        (url.searchParams.has('gender')&&Number(url.searchParams.get('gender'))!==0.5))throw new Error('Only --bake g050 is calibrated for this capture face box; other bakes need measured body bounds and replay support.');
+    const selection=portraitSelection(url.searchParams,options.bake);options.bake=selection.bake;validatePortraitHair(options.hair,options.bake);
+    url.searchParams.set('bake',selection.bake);url.searchParams.set('gender',String(selection.gender));
     url.searchParams.set('hair',options.hair);url.searchParams.set('capture','');options.url=url.href;
     options.out=path.resolve(options.out);if(options.groom)options.groom=path.resolve(options.groom);
     return options;
 }
 export function captureTarget(options) {
-    if(!['bob01','bob02'].includes(options.hair)||options.bake!=='g050')throw new Error('Capture target requires bob01 or bob02 on calibrated g050.');
-    return {hair:options.hair,bake:options.bake,figureBake:`figure_${options.bake}`,
+    if(!['bob01','bob02'].includes(options.hair))throw new Error('Capture target requires bob01 or bob02.');
+    const region=captureRegion(options.bake);validatePortraitHair(options.hair,options.bake);
+    return {hair:options.hair,bake:options.bake,gender:region.gender,region,figureBake:`figure_${options.bake}`,
         groomFile:options.groom??path.join(root,`assets/hair/${options.hair}/${options.bake}.glb`),
         bodyFile:path.join(root,`assets/figures/figure_${options.bake}.glb`),
         groomRequestPath:`/assets/hair/${options.hair}/${options.bake}.glb`};
 }
 export function captureAssetHashes(target) {
     readPrimitive(readGlb(target.groomFile),`hair_${target.hair}`);
-    return {groom:sha(target.groomFile),body:sha(target.bodyFile)};
+    const body=sha(target.bodyFile);
+    if(body!==calibrationForBake(target.bake).hashes.file)throw new Error('Body asset hash does not match the calibrated source.');
+    return {groom:sha(target.groomFile),body};
 }
 export function matchesGroomRequest(url,target) {
     return decodeURIComponent(new URL(url).pathname).endsWith(target.groomRequestPath);
@@ -62,15 +65,15 @@ export function matchesGroomRequest(url,target) {
 export function validateCaptureRuntime(report,target) {
     const hair=report?.hair;
     if(hair?.attached!==true||hair.style!==target.hair||hair.loadedStyle!==target.hair||hair.bake!==target.figureBake||
-        report.identity?.bake!==target.figureBake||report.identity?.gender!==CAPTURE_REGION.gender||!Number.isInteger(hair.solver?.chains)||hair.solver.chains<=0)
-        throw new Error(`Capture requires an attached ${target.hair}/${target.bake} solver on the calibrated midpoint body; runtime selection disagrees.`);
+        report.identity?.bake!==target.figureBake||report.identity?.gender!==target.gender||!Number.isInteger(hair.solver?.chains)||hair.solver.chains<=0)
+        throw new Error(`Capture requires an attached ${target.hair}/${target.bake} solver on its calibrated body; runtime selection disagrees.`);
 }
 export function validateLoadedAssets(assets,sourceHashes) {
     for(const kind of ['groom','body'])if(assets.filter(asset=>asset.sha256===sourceHashes[kind]).length!==1)
         throw new Error(`Expected exactly one loaded ${kind} GLB matching its recorded source hash.`);
 }
 export async function runPortraitClearance(options) {
-const target=captureTarget(options);
+const target=captureTarget(options),region=target.region;
 // A routed groom must retain its selected mesh identity. Style labels alone cannot prove that.
 const assetHashes=captureAssetHashes(target);
 options.out=path.resolve(options.out);
@@ -85,7 +88,7 @@ const browser=await playwright.chromium.launch({channel:'chromium',headless:true
     args:['--enable-unsafe-webgpu','--ignore-gpu-blocklist','--hide-scrollbars']});
 const samples=[],errors=[],loadedAssets=[],assetReads=[];
 let replacedGroomRequests=0;
-const sourceHashes=Object.fromEntries(['packages/core/src/Avatar.js','packages/core/src/motion/HairDynamics.js','packages/core/src/material/HairMaterial.js','packages/testbed/src/portrait.js','tools/critic/portrait-clearance.mjs'].map(file=>[file,sha(path.join(root,file))]));
+const sourceHashes=Object.fromEntries(['packages/core/src/Avatar.js','packages/core/src/motion/HairDynamics.js','packages/core/src/material/HairMaterial.js','packages/testbed/src/portrait.js','tools/critic/portrait-clearance.mjs','tools/critic/portrait-calibration.mjs','packages/testbed/src/portrait-selection.mjs'].map(file=>[file,sha(path.join(root,file))]));
 Object.assign(sourceHashes,assetHashes);
 let descriptor;
 function summary(values){
@@ -143,9 +146,15 @@ try{
         let hairGeometry;avatar.hairRoot.traverse(o=>{if(o.isSkinnedMesh)hairGeometry=o.geometry;});
         const allIndices=Array.from(hairGeometry.index.array),cardIndices=[];
         for(let i=0;i<allIndices.length;i+=3)if(allIndices.slice(i,i+3).every(v=>v>=g.cardVertexBase&&v<g.cardVertexBase+g.cardVertexCount))cardIndices.push(...allIndices.slice(i,i+3).map(v=>v-g.cardVertexBase));
-        return {chainCount:g.chainCount,pointsPerChain:g.pointsPerChain,cardVertexBase:g.cardVertexBase,
-            cardVertexCount:g.cardVertexCount,cardIndices,restCentres:Array.from(g.restCentres),restLengths:Array.from(g.restLengths),report:avatar.report()};
+        const body=avatar.figure.body,attributes={};
+        for(const key of ['position','normal','uv','skinIndex','skinWeight'])attributes[key]=Array.from(body.geometry.getAttribute(key).array);
+        attributes.index=Array.from(body.geometry.index.array);
+        return {bodyAttributes:attributes,chainCount:g.chainCount,pointsPerChain:g.pointsPerChain,cardVertexBase:g.cardVertexBase,
+            cardVertexCount:g.cardVertexCount,cardIndices,restCentres:Array.from(g.restCentres),restLengths:Array.from(g.restLengths),
+            rig:avatar.figure.body.skeleton.bones.map((bone,i)=>({name:bone.name,parent:bone.parent?.name??null,inverseBind:avatar.figure.body.skeleton.boneInverses[i].toArray()})),report:avatar.report()};
     });
+    descriptor.bodyGeometryHashes=bodyGeometryHashes(descriptor.bodyAttributes);delete descriptor.bodyAttributes;
+    validateBodyGeometryHashes(descriptor.bodyGeometryHashes,target.bake);
     validateCaptureRuntime(descriptor.report,target);
     const steps=Math.round(options.seconds*options.fps);
     for(let frame=0;frame<=steps;frame++){
@@ -173,10 +182,14 @@ try{
             }
             const vertices=typeof d.readVertices==='function'?await d.readVertices():null;
             return {time:avatar.clockSeconds,centers:Array.from(centers.positions),headMatrix:centers.headMatrix,
-                skull:centers.skull,steps:centers.steps,vertices:vertices?Array.from(vertices.positions):null,verticesSpace:vertices?.space??null,vertexBase:vertices?.vertexBase??null,
+                skull:centers.skull,
+                rig: Object.fromEntries(body.skeleton.bones.map(bone=>[bone.name,bone.matrixWorld.toArray()])),
+                colliders:{capsuleA:d.uniforms.capsuleA.value.toArray(),capsuleB:d.uniforms.capsuleB.value.toArray(),capsuleRadius:d.uniforms.capsuleRadius.value},
+                steps:centers.steps,vertices:vertices?Array.from(vertices.positions):null,verticesSpace:vertices?.space??null,vertexBase:vertices?.vertexBase??null,
                 bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),bodyIndices:Array.from(body.geometry.index.array),report:avatar.report()};
         });
         validateCaptureRuntime(state.report,target);
+        validateBodyTopology(state.bodyIndices,state.bodyPositions.length,target.bake);
         if(Math.abs(state.time-frame/options.fps)>1e-8*Math.max(1,frame/options.fps))throw new Error('Capture clock reset or drifted; discard this run.');
         const grid=new SurfaceGrid(state.bodyPositions,state.bodyNormals,state.bodyIndices);
         const inverse=new Matrix4().fromArray(state.headMatrix).invert(),point=new Vector3(),restPoint=new Vector3();
@@ -188,7 +201,7 @@ try{
                 const p=positions.slice(i*3,i*3+3),hit=grid.nearest(p);if(!hit)continue;
                 all.push(hit.signed);point.fromArray(p).applyMatrix4(inverse);
                 // Explicit geometric selection, not a claim of semantic face segmentation.
-                if(point.y>=CAPTURE_REGION.minY&&point.y<=CAPTURE_REGION.maxY&&point.z>=CAPTURE_REGION.minZ){
+                if(point.y>=region.minY&&point.y<=region.maxY&&point.z>=region.minZ){
                     face.push(hit.signed);if(hit.signed<.002)worst.push({index:isVertices?i+state.vertexBase:i,clearanceMm:hit.signed*1000,world:p,headRest:point.toArray()});
                 }
             }
@@ -215,7 +228,7 @@ try{
                 for(const weights of [[.5,.5,0],[.5,0,.5],[0,.5,.5],[1/3,1/3,1/3]]){
                     const p=[0,1,2].map(k=>state.vertices[a+k]*weights[0]+state.vertices[b+k]*weights[1]+state.vertices[c+k]*weights[2]);
                     point.fromArray(p).applyMatrix4(inverse);
-                    if(point.y>=CAPTURE_REGION.minY&&point.y<=CAPTURE_REGION.maxY&&point.z>=CAPTURE_REGION.minZ)probes.push(...p);
+                    if(point.y>=region.minY&&point.y<=region.maxY&&point.z>=region.minZ)probes.push(...p);
                 }
             }
             surfaceSamples=measure(probes,false);
@@ -233,7 +246,7 @@ try{
     errors.push(error.message);throw error;
 }finally{
     await browser.close();
-    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,region:{...CAPTURE_REGION,bodySha256:sourceHashes.body},hmrSuppressed:true,sourceHashes,loadedAssets,replacedGroomRequests,descriptor,samples,errors,
+    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,region:{...region,bodySha256:sourceHashes.body},anatomy:captureAnatomy(target.bake),hmrSuppressed:true,sourceHashes,loadedAssets,replacedGroomRequests,descriptor,samples,errors,
         limits:['SurfaceGrid signed distance uses the renderer-equivalent morphed/skinned vertex normals of the same frame body; this differs at seams from recomputed geometric normals.','Face region is an explicit axis-aligned box in inverse head-matrix coordinates.','Centers do not certify ribbon edges unless vertex readback is present.','Surface samples are three edge midpoints and one centroid per face-region triangle, not an exhaustive intersection proof; alpha is not sampled.','Fixed-step capture does not measure frame budget.']},null,2));
 }
 if(errors.length)process.exitCode=1;
