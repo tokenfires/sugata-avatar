@@ -1222,3 +1222,69 @@ Its binary payload is identical to the motion-tested scratch candidate; only pro
 was added. The earlier eleven-card experiment was not installed and was rejected as final output
 because the mirrored nod still crossed on card 352. Local comparison evidence is preserved under
 `captures/hair-tail-release-2026-09-08/` and `captures/hair-tail-release-v2-2026-09-08/`.
+
+## Portable original long-bob rest correction (bob01/g050 only)
+
+`hair_long_fall.mjs` reproduces the reviewed v9 outward/rear-fall shape followed by the lower-only
+card101 connector. It does **not** install an asset or claim that bob01 is finished. The smaller
+rear tip flare and dynamic hair/shoulder collision failure remain pending. This tool is deliberately
+limited to the exact original bob01/g050 groom and figure_g050 body; changing a filename does not
+calibrate a different identity.
+
+```sh
+node tools/figure-pipeline/hair_long_fall.mjs \
+  --input tools/figure-pipeline/fixtures/bob01-g050-original.glb \
+  --body assets/figures/figure_g050.glb \
+  --output /tmp/bob01-long-fall/g050.glb \
+  --report /tmp/bob01-long-fall/report.json
+node tools/figure-pipeline/hair_long_fall.selftest.mjs
+```
+
+The tracked original Git LFS fixture is 3,326,956 bytes, SHA256
+`98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c`.
+Default tests use it rather than mutable installed hair or ignored captures. The exact body SHA256
+is `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`.
+The pinned JSON calibration records v9's measured per-card push/drape results and source evidence
+hashes. Runtime generation replays those results; it does not rerun an adaptive clearance search.
+
+The first stage translates paired ring edges together using the original v9 Float32 arithmetic.
+The second restores card101's source positions through ring11, then uses a same-height cubic
+Hermite XZ connector from ring11 to the v9 tip, with the source10→11 entry slope and zero terminal
+XZ slope. It retains the accepted normal rule: source normals through ring10, final computed
+normals on rings11–16, and v9 frames on the other cards. Selected v9 cards have their whole-card
+normals recomputed; unchanged root positions should not be confused with unchanged normals on
+those selected cards.
+
+Exactly 3,642 vertices move on 173 calibrated long-curtain cards. All vertex Y values, cut heights,
+root positions, vertices above the release plane, caps, root-layer/fringe geometry, topology, UVs,
+skin weights, material/image data and nongeometry payload remain fixed. Paired half-width vectors
+remain within 5e-9 metres of the originals after Float32 encoding. Guide arc lengths change,
+including a large reduction in an originally winding path; their resulting solver compliance
+reference is not unchanged. The generated report records every selected card's arc change.
+
+The produced position hash is
+`da98fa697db89a4b846a47b2a468759add228993b98711062f23aafa07ca569a`, and the normal hash is
+`e6b660203fc0c1935d108d2787ea0c217f5ab35737ae4e50ead87cf1a36b58cc`.
+These exactly reproduce candidate
+`110dfee561cd4ff627bb157986ff7001b69b75bb6e57a2e54f2b2d104523c876`, preserved in
+`captures/bob01-rear-v9-2026-09-09/connector101/g050.glb`.
+The portable output SHA256 is
+`ed77c71f4723ca0e77355b18e6fff93d59ef96571b69de84aff695cb68909ecf`.
+Its only difference from that candidate is provenance metadata: scratch tags are replaced with
+`sugataHairLongFall`. Removing the respective tags leaves identical complete GLB payloads.
+
+Whole-triangle static tests compare every hair triangle, including caps, against the body. The
+original has 667 face pairs and 923 movable-curtain body pairs (990 total). The candidate has zero
+face and movable-curtain pairs, with **67 remaining whole-body pairs on unchanged root-layer
+card68**. `strictAllBodyPass` remains false. The tool reproduces a reviewed intermediate rest
+shape; completing the command is not a whole-body clearance certificate. Sampled v9 search
+clearance is not a minimum-distance guarantee, and shell-crossing tests do not exclude containment,
+classify shader alpha visibility or certify later motion.
+
+Fresh generation and repeat application pin the original/body/geometry and full corrected payload,
+so altered skin data, added attributes, changed stamps and arbitrary metadata cannot silently
+inherit this calibration. Pure repeat application is byte-idempotent. The CLI requires separate,
+new output/report paths: no in-place or overwrite switch. Files are staged before publication,
+exclusive publication refuses existing paths, and partial publication is rolled back without
+deleting unrelated files. Review the generated asset and its strict failure report before any
+future explicit installation.

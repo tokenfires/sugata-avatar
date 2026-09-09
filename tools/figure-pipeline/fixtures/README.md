@@ -20,3 +20,26 @@ also accept explicit input arguments.
 
 Keep this fixture unchanged. Fetch its Git LFS content after cloning; a pointer file will fail
 the hash check. Later stages retain their own geometry calibration and idempotence checks.
+
+## Original bob01/g050 and long-fall calibration
+
+`bob01-g050-original.glb` is the immutable original long-bob export copied from
+`captures/long-bob-2026-09-08/originals/g050.glb`. It is separately tracked by Git LFS so replacing
+an installed groom cannot change the default regression input.
+
+- Size: 3,326,956 bytes.
+- SHA256: `98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c`.
+- Body: exact authored figure_g050, SHA256
+  `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`.
+
+`bob01-g050-long-fall-v1.json` freezes v9's measured 173-card release table, the card101 lower
+connector rule, source experiment hashes, and exact intermediate/final position, normal and
+complete-payload fingerprints. `hair_long_fall.mjs` pins this JSON's bytes. The portable test rebuilds
+from the original and proves exact candidate reproduction, protected geometry/attributes,
+whole-triangle original rejection, the remaining strict root-layer failure, deterministic/idempotent
+output, tamper rejection and atomic output ownership. No default test needs ignored captures.
+
+Keep both the original fixture and this reviewed calibration immutable. A different body bake,
+export, added attribute or new rest-shape correction needs a separate measured calibration.
+This rest candidate leaves tip-flare review and dynamic collision correction pending; it is not
+silently installed by the tool or its tests.
