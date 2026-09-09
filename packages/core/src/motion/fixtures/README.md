@@ -17,3 +17,7 @@ The JSON records the prior module SHA, source capture SHA values and the existin
 ## Triangle-bound predecessor parity
 
 `hair-triangle-bounds-adversarial.json` (SHA-256 `949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4`) preserves the exact original 18 adversarial records. They have 17 unique names/geometries because the zero-origin ULP record is repeated; the duplicate is not independent coverage. Combined with the existing 35 primitive inputs, four seed states and selected moving-panel alphas, they produce 732 additional direct-point/segment queries. The source-control helper removes exactly the two promoted guards from served production source to make a distinct predecessor. The portable gate fails when production guards are absent or only partly installed. See `docs/HAIR-SURFACE-BOUNDS.md` for reproduction and limits.
+
+## Exact query-input cache
+
+`hair-query-cache-v1.json.gz` is 630,216 bytes, SHA-256 `ed0114b9edf108e8af67a4e4e7f47575743ba823c7635b70d05efd2b2a379109`. It contains two fixed all496 stage inputs and independent pre-cache 16/64 output hashes, with original fixture/body/groom provenance. Binary descriptors preserve Float64 groom offsets before CPU radius derivation, and the consumed Float32/Uint32 GPU inputs. Both cache-off and cache-on must match the saved goldens; do not regenerate them automatically from the current implementation. The generated exact-bit/invalidation cases need no external assets. See `docs/HAIR-SURFACE-CACHE.md` for the public batch contract, reproduction and limits.

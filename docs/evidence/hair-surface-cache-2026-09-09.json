@@ -1,0 +1,557 @@
+{
+  "date": "2026-09-09T07:57:40.246Z",
+  "status": "Portable production cache and existing Avatar integration regressions passed before subsequent g025 registry activation.",
+  "portable": {
+    "groups": 8,
+    "cpuGroups": 4,
+    "fixtureSha256": "ed0114b9edf108e8af67a4e4e7f47575743ba823c7635b70d05efd2b2a379109",
+    "checks": [
+      "immutable two-fixture inputs preserve consumed precisions, provenance and independent16/64 output goldens",
+      "cache option rejects invalid types before groom and buffer allocation work",
+      "default-off contract and original metadata are retained while enabled mode uses six buffers and eight query bindings",
+      "uninitialized disposal remains idempotent and retired stages refuse new node lists or dt writes",
+      "actual GPU exact bits, point-B-only reuse, signed zero, body/alpha snapshot invalidation and default direct queries pass",
+      "cache-off and cache-on match every independent frozen channel hash at16/64 on both all496 fixtures",
+      "explicit reuse flags retain actual work counts and distinguish reused inactive records from root-bound rejection",
+      "production and test sources stay stable, served modules are attested and browser errors are empty"
+    ],
+    "sourceHashes": {
+      "HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+      "HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+      "HairSurfaceContact.js": "6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185",
+      "HairBodyContact.js": "fd0b528418dd11ef376b51922d47aadd7d3a2be6bbc684480628a8749dac73ce",
+      "HairSurface.cache.browser.mjs": "5a4311f8ae87eafa149b42d6348cb5d78b1f642f21f3e62077e610404765fd16",
+      "HairSurface.cache.selftest.mjs": "ee16eb5c24e9895e3226658993f14c1121969b5859706f69ddf0015aa7bce993",
+      "fixtures/hair-query-cache-v1.json.gz": "ed0114b9edf108e8af67a4e4e7f47575743ba823c7635b70d05efd2b2a379109"
+    },
+    "served": {
+      "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/HairSurface.cache.browser.mjs": "aa484a2982739ad4bc189799f999ed8010d6b1de9997ab8a0516bc97c51d38ed",
+      "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/HairSurfaceContact.js": "7586671a77d47aa667e3be35dc3a7f2d2aa37c04c65cb9b49d031ec16c6e361d",
+      "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/HairSurface.js": "034a588d927659f1a7413ef5b664fb3107e55508391496d2cc23b86a5167dfaa",
+      "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/HairSurfaceQuery.js": "472ffbb9be7c9f4a7307e4a14ece1ad51629721b91ce51a2943dc58fc4e60f7c"
+    },
+    "errors": []
+  },
+  "generatedGpuCases": [
+    "fresh-snapshot",
+    "same-inputs",
+    "A-only-change-point-B-still-reuses",
+    "one-ULP-B-change-misses",
+    "positive-zero-input",
+    "negative-zero-is-different-bits",
+    "new-body-pose-snapshot-invalidates",
+    "moving-body-alpha-zero",
+    "alpha-zero-repeat",
+    "alpha-one-snapshot-invalidates",
+    "alpha-one-repeat"
+  ],
+  "defaultOffDirectQueriesBeforeSnapshot": 8,
+  "invalidationResources": {
+    "before": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    },
+    "after": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    }
+  },
+  "frozen": {
+    "before": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    },
+    "after": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    },
+    "results": [
+      {
+        "label": "v6-0420",
+        "enabled": false,
+        "counts": {
+          "particleCount": 8432,
+          "activeChainCount": 496,
+          "contactCount": 15872,
+          "contactsPerChain": 32,
+          "queryStorageBindings": 8,
+          "projectionStorageBindings": 6,
+          "outerIterations": 64,
+          "lengthIterations": 1,
+          "queryInputReuse": {
+            "enabled": false,
+            "metadataRecords": 15872,
+            "validBlock": null,
+            "reusedBlock": null,
+            "snapshotInvalidates": false,
+            "traversalCountsExcludeReused": false
+          }
+        },
+        "rows": [
+          {
+            "iteration": 16,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "205e2af7f2fe831d48fd80c9a8b702b71ad9ebcf32d0b071395a8476c115bd72"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "5c36f3a02c59e0f4392e849a90573e67ab83e9dabf26b5bda0a245f7130b99d5"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "c8d20701403944eba9a4349598d47316c46e7906fa953f01b9f653edaa26600c"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "1718a54272520cb02c26b3ef2a0e890572873fea3373b0cb57d682b19c06f927"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "c05d18e0b8991686e34e0f4d93390da87ed85b629ed81a015b56670158ab62dc"
+              }
+            },
+            "reuse": {
+              "reused": 0,
+              "reusedActive": 0,
+              "actualTraversals": 5239,
+              "rootBoundsRejected": 10633,
+              "reusedWorkNonzero": 0
+            }
+          },
+          {
+            "iteration": 64,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "202e4c28e632bbd1336da7d52f1ef8aac73c455518c0e9a1b6a0dbfcd00d0398"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "444c8ca6e72361baa5b5048b19aa7a37436a3b9ad7cffdc8b97344d9c6f7e642"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "154dc6d4863e7d6e1d2b99b39608d911086079d8a6d4b583c1b19e9f138396ba"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "b33436ca07408f137781a8192111a5c94c9d956588a137accdf3a5bb13069d68"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "30ea413f5e29845780423ce8606e62491757a043ed79ac7785dba2c9d5fcc6ac"
+              }
+            },
+            "reuse": {
+              "reused": 0,
+              "reusedActive": 0,
+              "actualTraversals": 5236,
+              "rootBoundsRejected": 10636,
+              "reusedWorkNonzero": 0
+            }
+          }
+        ]
+      },
+      {
+        "label": "v6-0420",
+        "enabled": true,
+        "counts": {
+          "particleCount": 8432,
+          "activeChainCount": 496,
+          "contactCount": 15872,
+          "contactsPerChain": 32,
+          "queryStorageBindings": 8,
+          "projectionStorageBindings": 6,
+          "outerIterations": 64,
+          "lengthIterations": 1,
+          "queryInputReuse": {
+            "enabled": true,
+            "metadataRecords": 47616,
+            "validBlock": 15872,
+            "reusedBlock": 31744,
+            "snapshotInvalidates": true,
+            "traversalCountsExcludeReused": true
+          }
+        },
+        "rows": [
+          {
+            "iteration": 16,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "205e2af7f2fe831d48fd80c9a8b702b71ad9ebcf32d0b071395a8476c115bd72"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "5c36f3a02c59e0f4392e849a90573e67ab83e9dabf26b5bda0a245f7130b99d5"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "c8d20701403944eba9a4349598d47316c46e7906fa953f01b9f653edaa26600c"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "1718a54272520cb02c26b3ef2a0e890572873fea3373b0cb57d682b19c06f927"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "c05d18e0b8991686e34e0f4d93390da87ed85b629ed81a015b56670158ab62dc"
+              }
+            },
+            "reuse": {
+              "reused": 11252,
+              "reusedActive": 0,
+              "actualTraversals": 1709,
+              "rootBoundsRejected": 2911,
+              "reusedWorkNonzero": 0
+            }
+          },
+          {
+            "iteration": 64,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "202e4c28e632bbd1336da7d52f1ef8aac73c455518c0e9a1b6a0dbfcd00d0398"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "444c8ca6e72361baa5b5048b19aa7a37436a3b9ad7cffdc8b97344d9c6f7e642"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "154dc6d4863e7d6e1d2b99b39608d911086079d8a6d4b583c1b19e9f138396ba"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "b33436ca07408f137781a8192111a5c94c9d956588a137accdf3a5bb13069d68"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "30ea413f5e29845780423ce8606e62491757a043ed79ac7785dba2c9d5fcc6ac"
+              }
+            },
+            "reuse": {
+              "reused": 12737,
+              "reusedActive": 1,
+              "actualTraversals": 1291,
+              "rootBoundsRejected": 1844,
+              "reusedWorkNonzero": 0
+            }
+          }
+        ]
+      },
+      {
+        "label": "adaptive-live-0720",
+        "enabled": false,
+        "counts": {
+          "particleCount": 8432,
+          "activeChainCount": 496,
+          "contactCount": 15872,
+          "contactsPerChain": 32,
+          "queryStorageBindings": 8,
+          "projectionStorageBindings": 6,
+          "outerIterations": 64,
+          "lengthIterations": 1,
+          "queryInputReuse": {
+            "enabled": false,
+            "metadataRecords": 15872,
+            "validBlock": null,
+            "reusedBlock": null,
+            "snapshotInvalidates": false,
+            "traversalCountsExcludeReused": false
+          }
+        },
+        "rows": [
+          {
+            "iteration": 16,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "51eb941e4309ccd091822aa4b808afde6c93ecf31bdf3617d8420b91aa0ef2e8"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "5c36f3a02c59e0f4392e849a90573e67ab83e9dabf26b5bda0a245f7130b99d5"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "ed8f3592e4cee148e14257d348b31cbae4253504b6d9bdb29441eadf444f296d"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "932bbb5641bc386a63d829b20aa78528204229dbd34ea32ac484a04e292f624b"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "42a27e76455ccb0fa6b6052bdae8bc1a3116106af25603a21b8630908eba4c2f"
+              }
+            },
+            "reuse": {
+              "reused": 0,
+              "reusedActive": 0,
+              "actualTraversals": 4653,
+              "rootBoundsRejected": 11219,
+              "reusedWorkNonzero": 0
+            }
+          },
+          {
+            "iteration": 64,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "1d15c819d45b9dc35eed3cc7855e17052c118ee6c60c392769fec2f1cbddad83"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "86cee6e94a0c4dac441da9046fc86f22746a1907adbcfb3f19d2a571057b651d"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "56284d1a6193530897156c2c239f0fac58616906d23b1e5a7edd7fef41b3c824"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "bc57f48bfa2e77896a15f5fa4af16f5c2f7ef7cffd7acfd44e6b6f953930b5b8"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "e8248546549fb6552de03a3f767334ce674f289353d1f6d400bfa4b533320fab"
+              }
+            },
+            "reuse": {
+              "reused": 0,
+              "reusedActive": 0,
+              "actualTraversals": 4653,
+              "rootBoundsRejected": 11219,
+              "reusedWorkNonzero": 0
+            }
+          }
+        ]
+      },
+      {
+        "label": "adaptive-live-0720",
+        "enabled": true,
+        "counts": {
+          "particleCount": 8432,
+          "activeChainCount": 496,
+          "contactCount": 15872,
+          "contactsPerChain": 32,
+          "queryStorageBindings": 8,
+          "projectionStorageBindings": 6,
+          "outerIterations": 64,
+          "lengthIterations": 1,
+          "queryInputReuse": {
+            "enabled": true,
+            "metadataRecords": 47616,
+            "validBlock": 15872,
+            "reusedBlock": 31744,
+            "snapshotInvalidates": true,
+            "traversalCountsExcludeReused": true
+          }
+        },
+        "rows": [
+          {
+            "iteration": 16,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "51eb941e4309ccd091822aa4b808afde6c93ecf31bdf3617d8420b91aa0ef2e8"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "5c36f3a02c59e0f4392e849a90573e67ab83e9dabf26b5bda0a245f7130b99d5"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "ed8f3592e4cee148e14257d348b31cbae4253504b6d9bdb29441eadf444f296d"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "932bbb5641bc386a63d829b20aa78528204229dbd34ea32ac484a04e292f624b"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "42a27e76455ccb0fa6b6052bdae8bc1a3116106af25603a21b8630908eba4c2f"
+              }
+            },
+            "reuse": {
+              "reused": 10207,
+              "reusedActive": 6,
+              "actualTraversals": 1487,
+              "rootBoundsRejected": 4178,
+              "reusedWorkNonzero": 0
+            }
+          },
+          {
+            "iteration": 64,
+            "channels": {
+              "centers": {
+                "length": 25296,
+                "sha256": "1d15c819d45b9dc35eed3cc7855e17052c118ee6c60c392769fec2f1cbddad83"
+              },
+              "velocities": {
+                "length": 25296,
+                "sha256": "86cee6e94a0c4dac441da9046fc86f22746a1907adbcfb3f19d2a571057b651d"
+              },
+              "planes": {
+                "length": 63488,
+                "sha256": "56284d1a6193530897156c2c239f0fac58616906d23b1e5a7edd7fef41b3c824"
+              },
+              "parameters": {
+                "length": 15872,
+                "sha256": "bc57f48bfa2e77896a15f5fa4af16f5c2f7ef7cffd7acfd44e6b6f953930b5b8"
+              },
+              "cache": {
+                "length": 31744,
+                "sha256": "e8248546549fb6552de03a3f767334ce674f289353d1f6d400bfa4b533320fab"
+              }
+            },
+            "reuse": {
+              "reused": 12180,
+              "reusedActive": 12,
+              "actualTraversals": 1038,
+              "rootBoundsRejected": 2654,
+              "reusedWorkNonzero": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "avatar": {
+    "passed": true,
+    "groups": 8,
+    "checks": [
+      "canonical nod at0/.1seconds preserves every saved GPU center, ribbon vertex, body vertex and full head matrix bit-for-bit",
+      "all496 GPU roots and rebuilt midpoints follow native Three skinning with preserved widths under translation and rotation",
+      "unsupported scale refuses before submission and leaves a live unchanged solver that resumes on valid input",
+      "same-renderer contact/bob02/off and identity rebuilds own exactly35/8/0 storage buffers without accumulation",
+      "retired contact and default solver handles refuse future updates and reads",
+      "disposing during real browser geometry digests cannot publish a solver or submit GPU work afterward",
+      "all routed correctedg050 loads have the exact portable asset hash and browser errors remain empty",
+      "all production and test source hashes remain unchanged through the integration run"
+    ],
+    "sourceHashes": {
+      "Avatar.js": "a377e0d749bb048b65e8eae2f52a5fd23d69379016e885977e4e8f5ba3f6e5d5",
+      "Avatar.hair-contact.browser.mjs": "15e5be90a096445b5de4f5ccbf3f6abc69e2d907000d2ece0dd9b31a92fdc98a",
+      "Avatar.hair-contact.gpu.selftest.mjs": "b5e2bc2380689afa4c90dde17b7751fd1b6710a59a50b8edff81d97afdc88a3e",
+      "motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+      "motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+      "motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+      "motion/HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+      "motion/HairSurfaceContact.js": "6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185",
+      "motion/HairBodyContact.js": "fd0b528418dd11ef376b51922d47aadd7d3a2be6bbc684480628a8749dac73ce",
+      "motion/HairBodyContactCalibration.js": "8ff2630675e9eb9ceeae38830d3359101240fe3af201ff63e86323cd253b3f12",
+      "motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+    },
+    "resources": {
+      "storage": 35,
+      "bytes": 7008144,
+      "compute": 21
+    },
+    "sequence": [
+      {
+        "style": "bob01",
+        "contact": true,
+        "resources": {
+          "storage": 35,
+          "bytes": 7008144,
+          "compute": 17
+        }
+      },
+      {
+        "style": "bob02",
+        "contact": false,
+        "resources": {
+          "storage": 8,
+          "bytes": 980096,
+          "compute": 5
+        }
+      },
+      {
+        "style": null,
+        "contact": false,
+        "resources": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        }
+      },
+      {
+        "style": "bob01",
+        "contact": true,
+        "resources": {
+          "storage": 35,
+          "bytes": 7008144,
+          "compute": 17
+        }
+      },
+      {
+        "style": "bob01",
+        "contact": true,
+        "resources": {
+          "storage": 35,
+          "bytes": 7008144,
+          "compute": 17
+        }
+      },
+      {
+        "style": "bob01",
+        "contact": false,
+        "resources": {
+          "storage": 8,
+          "bytes": 980096,
+          "compute": 5
+        }
+      },
+      {
+        "style": "bob01",
+        "contact": true,
+        "resources": {
+          "storage": 35,
+          "bytes": 7008144,
+          "compute": 17
+        }
+      }
+    ],
+    "pendingDigest": {
+      "digestCalls": 14,
+      "atDigest": {
+        "storage": 0,
+        "bytes": 0,
+        "compute": 0
+      },
+      "disposed": true,
+      "hairNull": true,
+      "computeAfterRetirement": 0,
+      "memoryAfter": {
+        "storage": 0,
+        "bytes": 0
+      }
+    },
+    "errors": []
+  },
+  "fixtureBytes": 630216,
+  "limits": [
+    "Goldens bind two fixed all496 patches and16/64 stage outputs to the pre-cache implementation; they are not auto-regenerated by the current implementation.",
+    "Groom offsets retainFloat64 precision before existing CPU radius derivation; GPU buffer inputs retain their consumedFloat32/Uint32 values.",
+    "Cache reuse requires a snapshot at every batch boundary with stable surface/alpha and metadata inside the batch.",
+    "Traversal counts measure executed work: reused inactive records are distinct from root-bound rejections.",
+    "This test has no captures or scratch imports and makes no timing, whole-body clearance or appearance claim.",
+    "Stage goldens cover centers, velocities, planes, parameters and nearest-ID/active; actual ribbon rebuilding and Avatar ownership are exercised by Avatar.hair-contact.gpu.selftest.mjs.",
+    "The actual Avatar source/registry hashes are frozen at this run; subsequent g025 activation is not covered by this g050 proof."
+  ],
+  "raw": {
+    "directory": "captures/query-input-cache-portable-2026-09-09",
+    "entries": 21,
+    "manifestSha256": "7989e3bc142012a4646a662e9b17a92b2facb5a471257057ff6bc67d7bbeeb55",
+    "portableReportSha256": "530c40b0e9d1304fe03d41a2a91f28ee1ecac50a384b0f6cd94b2a097b3ee5dd",
+    "avatarReportSha256": "45b7593ec04833d4ac303595b4d97b4e2085f988d59e0feaa05cd4216fb68c56"
+  }
+}
