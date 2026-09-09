@@ -96,7 +96,7 @@ const avatar = await Avatar.create( {
 ```js
 const avatar = await Avatar.create( {
     canvas,                        // HTMLCanvasElement — REQUIRED, and sized by CSS
-    identity: { gender: 0.5 },     // 0 masculine … 1 feminine; snaps to the nearest of five bakes
+    identity: { gender: 0.5 },     // 0 feminine … 1 masculine; snaps to the nearest of five bakes
     quality: 'auto',               // 'auto' | 'high' | 'balanced' | 'fallback'
     frame: 'portrait',             // 'portrait' | 'body'
     seed: 20260807,                // same seed + same dt sequence = same motion trace
@@ -110,7 +110,8 @@ const avatar = await Avatar.create( {
     lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
     background: 'studio',          // 'studio'|'void', a hex, or the object below
     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
-    hair: false                    // 'bob01' | 'bob02' (g050 only) | false
+    hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
+    wardrobe: false                // opt in with { outfit: [...], foundation: { TORSO, HIPS } }; g050 only
 } );
 ```
 
@@ -448,6 +449,35 @@ So a transparent capture must be composited over `#08080a` before the critic run
 transparent plate and the studio plate are then compared on the same pixels. That rule is declared
 now, ahead of the option, so the two cannot arrive in different rounds.
 
+### Clothing on the current body
+
+Wardrobe is opt-in and supports only the resolved g050 body. The default identity resolves to
+g050; other body bakes and cross-faded identity previews are refused when clothing is enabled.
+
+```js
+const avatar = await Avatar.create({
+    canvas,
+    identity: { gender: 0.5 },
+    hair: 'bob01',
+    frame: 'body',
+    wardrobe: {
+        outfit: ['female_casualsuit01', 'shoes01'],
+        foundation: { TORSO: 'foundation_bra', HIPS: 'foundation_briefs' }
+    }
+});
+await avatar.dress(['female_elegantsuit01', 'shoes01']);
+```
+
+`dress()` replaces the outer outfit while retaining the configured foundation and the current
+Avatar, renderer and hair. `dress([])` returns to the foundation. Omitting foundation preferences
+selects vest and boxer brief. Clothing loads before attachment; failed changes keep the current
+outfit. Unsupported identity changes reject before retiring the clothed figure.
+
+`avatar.report().wardrobe` distinguishes the requested outfit from attached garments and records
+loaded URLs, pending work and errors. The current clothes are stand-ins with remaining fit and
+coverage limitations. See [the wardrobe contract](WARDROBE-AVATAR-2026-09-09.md) and
+[the lookbook](SHOWCASE-2026-09-09.md) for validation and actual image/settings export.
+
 ### The verbs
 
 | call | what it does |
@@ -458,6 +488,7 @@ now, ahead of the option, so the two cannot arrive in different rounds.
 | `await avatar.say( text, { timeline, at, prosody } )` | …and the mouth, from a TTS viseme timeline. |
 | `avatar.update( dt )` | One simulation frame plus one render. **Only under `autoStart: false`** — it throws otherwise rather than let the simulation advance twice per displayed frame. |
 | `await avatar.setIdentity( { gender: 1 } )` | Swap the bake live. Async because a new bake means a new motion target, and the layers keep their phase so nothing visibly restarts. |
+| `await avatar.dress( ['female_casualsuit01', 'shoes01'] )` | Replace the outer outfit on an Avatar created with wardrobe enabled. Retains its configured foundation. |
 | `avatar.setFraming( 'body' )` | Re-frame the camera and re-aim the rig between portrait and body, without touching the motion stack. Re-resolves the look against the new framing first. Chains. |
 | `avatar.setLighting( 'dramatic' )` | Change the look live. Partial-merges over what is current, so `{ exposure: 1.2 }` keeps the look. Re-aims the rig — `LightingRig.override()` solves and never aims, so the eye shader would otherwise keep pointing at where the key used to be. Chains. |
 | `avatar.setBackground( 0x101820 )` | Change the room live: clear colour, card level, card and ground removal. ⚠️ One-way for the card and the plane — it can remove them and cannot put them back, and asking is refused in words rather than ignored. Removing the card is refused on a tier carrying ground-truth occlusion, for the reason below. Chains. |
@@ -516,9 +547,9 @@ A default hashed `build:pages` was loaded in Chromium/WebGPU and the portrait re
 for the `Avatar` path. This does not certify other pages that construct materials themselves.
 See [the restart checkpoint](RESTART-2026-09-08.md) for the evidence and verification limits.
 
-**Not wired into `Avatar` yet, and named so the absence is visible:** the wardrobe (Phase 9) and
-identity detail targets (Phase 10). Both exist and are gated; both are opt-in on `alive.html` for
-reasons that still hold.
+**Detailed identity targets (Phase 10) remain outside `Avatar`.** The dedicated identity
+controls still live on their testbed pages. Wardrobe is now integrated through the opt-in g050
+contract above; this does not add clothing support to every identity bake.
 
 **What the node gate cannot see about the three scene options, said plainly.**
 `packages/core/src/Avatar.selftest.mjs` drives the real `LightingRig` and the real resolvers, and it

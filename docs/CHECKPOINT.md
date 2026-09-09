@@ -1,8 +1,8 @@
 # Checkpoint — the hair phase paused 2026-08-13, control run 2026-08-14
 
-> **2026-09-08 restart:** read [RESTART-2026-09-08.md](RESTART-2026-09-08.md) first. This
-> checkpoint predates later local experiments preserved outside this clone; its last proposed
-> hair experiment is not the current recommendation.
+> **Current work:** read [OVERNIGHT-2026-09-08.md](OVERNIGHT-2026-09-08.md) first, then
+> [RESTART-2026-09-08.md](RESTART-2026-09-08.md) for checkout and recovery context. This older
+> checkpoint is historical; its last proposed hair experiment is not the current recommendation.
 
 **Written so a successor with none of this conversation can resume without re-deriving it.**
 

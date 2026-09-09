@@ -1,0 +1,962 @@
+{
+  "date": "2026-09-09",
+  "status": "unshipped live renderer experiment; not visually accepted or production-integrated",
+  "assetSha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+  "archive": "captures/hair-live-followers-2026-09-09",
+  "manifestSha256": "b5035ab160b2e7035e73af087419d9ad8a9980a7a53bc596563d5b7f3763f7ea",
+  "files": 180,
+  "bytes": 372770085,
+  "sourceBytesByHash": {
+    "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff": "sources/59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff/HairDynamics.js",
+    "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1": "sources/144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1/HairMaterial.js",
+    "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58": "sources/b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58/HairRibbons.js",
+    "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98": "sources/f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98/HairOIT.js",
+    "6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231": "sources/6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231/HairVelocity.js",
+    "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b": "sources/db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b/g050.glb",
+    "fc64def0158b1aafbb42494f9faf59f483074c6d4379496831b4f97137630089": "sources/fc64def0158b1aafbb42494f9faf59f483074c6d4379496831b4f97137630089/HairDynamics.js",
+    "cedd8ca3002f33361c593f15c79659c9a77c07edc66149027ddf5214eacda15b": "sources/cedd8ca3002f33361c593f15c79659c9a77c07edc66149027ddf5214eacda15b/browser.mjs",
+    "fba34d37b3307d7e8429701b515d2f74ce191b87875a73e521287f4b4ae46a8a": "sources/fba34d37b3307d7e8429701b515d2f74ce191b87875a73e521287f4b4ae46a8a/density.mjs",
+    "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404": "sources/0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404/Avatar.js",
+    "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2": "sources/95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2/Stage.js",
+    "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14": "sources/b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14/figure_g050.glb",
+    "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3": "sources/867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3/HairVelocity.js"
+  },
+  "prototype": {
+    "browserSha256": "cedd8ca3002f33361c593f15c79659c9a77c07edc66149027ddf5214eacda15b",
+    "routedSolverSha256": "fc64def0158b1aafbb42494f9faf59f483074c6d4379496831b4f97137630089",
+    "originalSolverSha256": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "cpuGroups": 9,
+    "strands": 31050,
+    "triangles": 993600,
+    "vertices": 1055700,
+    "widthMetres": 0.0012,
+    "caps": 1128,
+    "method": "Read-only borrowed accessor to existing final card-edge GPU storage; six vertex-stage edge loads for current/before/after across-width positions; explicit tangent varying. No extra solver dispatch or per-frame readback. Original rest local coordinates retained for lock albedo; original loaded alpha/depth/root textures borrowed."
+  },
+  "gpuSamples": {
+    "smoke": {
+      "pass": true,
+      "count": 12400,
+      "limits": {
+        "center": 1e-06,
+        "rawTangent": 2e-06,
+        "tangent": 0.0005
+      },
+      "worst": {
+        "center": {
+          "error": 1.430920235634403e-07,
+          "card": 113,
+          "ring": 0,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": 1.542627000849592,
+          "actual": 1.5426268577575684
+        },
+        "rawTangent": {
+          "error": 1.158577607185407e-07,
+          "card": 62,
+          "ring": 15,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": -0.009822940827648452,
+          "actual": -0.009822824969887733
+        },
+        "tangent": {
+          "error": 6.758990386560026e-05,
+          "card": 52,
+          "ring": 0,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": -0.09058686522146628,
+          "actual": -0.09065445512533188
+        }
+      },
+      "method": "Compare actual diagnostic GPU shader gathers from the draw expression against CPU interpolation of the same actual source card edges, inverse-transformed to source local coordinates. All496cards x5rings including both endpoints x5width fractions. Finite required. Component tolerances: center1um,raw tangent2um,unit tangent0.0005."
+    },
+    "motion-natural-v2/candidate": {
+      "pass": true,
+      "count": 12400,
+      "limits": {
+        "center": 1e-06,
+        "rawTangent": 2e-06,
+        "tangent": 0.0005
+      },
+      "worst": {
+        "center": {
+          "error": 1.430920235634403e-07,
+          "card": 113,
+          "ring": 0,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": 1.542627000849592,
+          "actual": 1.5426268577575684
+        },
+        "rawTangent": {
+          "error": 1.158577607185407e-07,
+          "card": 62,
+          "ring": 15,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": -0.009822940827648452,
+          "actual": -0.009822824969887733
+        },
+        "tangent": {
+          "error": 6.758990386560026e-05,
+          "card": 52,
+          "ring": 0,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": -0.09058686522146628,
+          "actual": -0.09065445512533188
+        }
+      },
+      "method": "Compare actual diagnostic GPU shader gathers from the draw expression against CPU interpolation of the same actual source card edges, inverse-transformed to source local coordinates. All496cards x5rings including both endpoints x5width fractions. Finite required. Component tolerances: center1um,raw tangent2um,unit tangent0.0005."
+    },
+    "motion-nod-v2/candidate": {
+      "pass": true,
+      "count": 12400,
+      "limits": {
+        "center": 1e-06,
+        "rawTangent": 2e-06,
+        "tangent": 0.0005
+      },
+      "worst": {
+        "center": {
+          "error": 1.4307232198973452e-07,
+          "card": 335,
+          "ring": 1,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": 1.6442218065473586,
+          "actual": 1.6442216634750366
+        },
+        "rawTangent": {
+          "error": 1.1530535282133769e-07,
+          "card": 6,
+          "ring": 8,
+          "u": 0.10000000149011612,
+          "k": 1,
+          "expected": -0.007023882873523846,
+          "actual": -0.007023767568171024
+        },
+        "tangent": {
+          "error": 0.00013885478781661131,
+          "card": 467,
+          "ring": 16,
+          "u": 0.8999999761581421,
+          "k": 2,
+          "expected": -0.622749364183416,
+          "actual": -0.6226105093955994
+        }
+      },
+      "method": "Compare actual diagnostic GPU shader gathers from the draw expression against CPU interpolation of the same actual source card edges, inverse-transformed to source local coordinates. All496cards x5rings including both endpoints x5width fractions. Finite required. Component tolerances: center1um,raw tangent2um,unit tangent0.0005."
+    }
+  },
+  "motion": {
+    "stimuli": [
+      "natural4s",
+      "headNod4s amplitude0.5rad sin(2*pi*0.6*min(time,2))"
+    ],
+    "posesPerArmPerStimulus": 9,
+    "frames": [
+      0,
+      30,
+      60,
+      90,
+      120,
+      150,
+      180,
+      210,
+      240
+    ],
+    "totalSavedStates": 36,
+    "orientationViews": 16,
+    "allPhysicalNumericArraysBitExact": true,
+    "signedZeroPreservedByPreSerializationFloat64Hashes": true,
+    "runtimeReadbacks": 0,
+    "runtimeComputeSubmissionsIdentical": true,
+    "sourceHashesFrozen": true,
+    "browserErrors": [],
+    "temporalAA": "off in both arms, remaining settings equal",
+    "resetParity": true,
+    "removalRestoresOriginalDrawAndSourceData": true,
+    "directRetirementStorageBytes": 0
+  },
+  "cost": {
+    "method": "Actual whole Avatar update+draw, fresh control/candidate pages, temporal AA off in both,64 warm+360 measured fixed1/60 frames with exactly2 substeps each. Submit-to-GPU-complete wall time excludes rAF/compositor and timestamp readback. Render timestamp sums overlap, not total GPU duration. Live followers add shader gathers but no extra simulation dispatch or CPU readback. Not production-TAA FPS acceptance.",
+    "runs": [
+      {
+        "arm": "control",
+        "summary": {
+          "submitCpuMs": {
+            "count": 360,
+            "min": 2.8999999910593033,
+            "median": 3.1000000089406967,
+            "p95": 3.2999999970197678,
+            "max": 3.5
+          },
+          "submitToGpuCompleteMs": {
+            "count": 360,
+            "min": 14.399999991059303,
+            "median": 23.799999997019768,
+            "p95": 34.20000000298023,
+            "max": 46.3999999910593
+          },
+          "computeGpuMs": {
+            "count": 360,
+            "min": 9.337066,
+            "median": 13.656292,
+            "p95": 20.491438,
+            "max": 32.017262
+          },
+          "renderTimestampSumMs": {
+            "count": 360,
+            "min": 1.2632700000000001,
+            "median": 2.7397940000000007,
+            "p95": 4.959340999999999,
+            "max": 12.748097000000001
+          }
+        },
+        "resources": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 99,
+          "programsSize": 1276357,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 28,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 68,
+          "texturesSize": 313660483,
+          "uniformBuffers": 241,
+          "uniformBuffersSize": 290384,
+          "total": 322870492
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        }
+      },
+      {
+        "arm": "candidate",
+        "summary": {
+          "submitCpuMs": {
+            "count": 360,
+            "min": 3,
+            "median": 3.2000000029802322,
+            "p95": 3.4000000059604645,
+            "max": 3.7000000029802322
+          },
+          "submitToGpuCompleteMs": {
+            "count": 360,
+            "min": 17.399999991059303,
+            "median": 26.099999994039536,
+            "p95": 35.900000005960464,
+            "max": 45
+          },
+          "computeGpuMs": {
+            "count": 360,
+            "min": 9.512938,
+            "median": 13.856246,
+            "p95": 21.282717,
+            "max": 29.21768
+          },
+          "renderTimestampSumMs": {
+            "count": 360,
+            "min": 6.108446999999999,
+            "median": 12.394811999999998,
+            "p95": 16.902828000000003,
+            "max": 22.491235
+          }
+        },
+        "resources": {
+          "attributes": 62,
+          "attributesSize": 44909188,
+          "geometries": 16,
+          "indexAttributes": 15,
+          "indexAttributesSize": 12457152,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 103,
+          "programsSize": 1382805,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 28,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 68,
+          "texturesSize": 313660483,
+          "uniformBuffers": 244,
+          "uniformBuffersSize": 291696,
+          "total": 376938988
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        }
+      }
+    ],
+    "physicalStateBitExact": true,
+    "interpretation": "One matched whole-frame pair: control23.8ms median/34.2p95; candidate26.1/35.9. Shared-machine variation and temporal-off scope preclude production FPS or a precise standalone cost claim. Physics GPU medians13.656/13.856ms; summed render timestamps overlap. Geometry-related resource memory adds54068496bytes overall; storage/textures unchanged."
+  },
+  "failedInstrument": {
+    "path": "root/motion-natural/report.json",
+    "status": "failed; preserved, not counted as passing motion",
+    "reason": "First cross-arm comparison read baseline from JSON but compared it to live numbers. Camera numeric arrays serialized identically, yet strict equality failed because JSON normalizes negative zero. Retry records pre-serialization typed numeric-array hashes and compares them exactly. Eight initial draw-only warm frames were also added to ensure newly installed geometry was actually submitted before frame0 screenshot.",
+    "concurrentCommentEdit": "A one-line HairVelocity request-reference comment was corrected while the first attempt was active. It changed no executable bytes; the attempt stopped before its source-completion gate. The retry starts with and preserves the corrected source hash. No retrospective frozen-source claim for the failed attempt."
+  },
+  "limits": [
+    "All live views/cost intentionally use temporal AA off; held velocity omits deformation and billboard rotation. No production temporal result.",
+    "Appearance remains smoother through side/rear regions but crown/hem patchwork persists; root has not accepted a final look.",
+    "Bounded CPU follower-face checks pass all16 endpoint/camera combinations, while the selected-nine full-body scope has21 triangle pairs. Positive sampled base-opaque clearance is separate; mip3+ visibility and unsampled motion remain unresolved.",
+    "Copy counts come from the4s fixed-pose width census, not an adaptive moving coverage bound. Atlas opacity is resampled; original coverage is not guaranteed.",
+    "Normal/tangent fallback differs only at degeneracy; it has compiled but no exhaustive singularity sweep is claimed.",
+    "Rigid guard covers observed identity/ordinary Avatar TRS transforms; scratch guard omits explicit affine bottom-row rejection for manually projective matrices.",
+    "Shader sample errors are maximum components, not vector distances. Three sample captures contain two distinct4s poses; natural is repeated.",
+    "Direct solver retirement test detaches followers then retires Avatar hair before further rendering; it does not certify drawing the original source mesh after manually disposing its solver.",
+    "Production assets, HairDynamics and renderer remain unchanged. HairVelocity changed only its documented request reference."
+  ],
+  "pending": [
+    "Actual higher-mip/visible-fragment qualification for remaining follower-body crossings; no strict full-body or continuous-motion clearance acceptance",
+    "Separate future true render-history work; not implemented here"
+  ],
+  "contactQualification": {
+    "status": "bounded CPU face gate passes; strict nine-card body crossings and higher-mip visibility remain unresolved",
+    "archive": "captures/hair-live-followers-contact-2026-09-09",
+    "manifestSha256": "cb74c629b5d2cb5dadbf524dd7b284f082c3bc150705dd574ff9c355ec73104d",
+    "files": 32,
+    "bytes": 3327360,
+    "summary": "analysis/summary.json",
+    "sourceAndInputHashes": "qualification.json",
+    "coverage": {
+      "poses": 4,
+      "camerasPerPose": 4,
+      "napeCards": [
+        188,
+        193,
+        198,
+        201,
+        202,
+        211,
+        217,
+        223,
+        272
+      ],
+      "napeTrianglesPerView": 18656,
+      "napeTotalTriangleViews": 298496,
+      "napeSignedSamples": 2089472,
+      "faceCards": 496,
+      "faceTotalTriangleViews": 15897600,
+      "faceTrianglesAfterRegionPrefilter": 3029971,
+      "degenerateTriangles": 0
+    },
+    "all16PoseViewResults": {
+      "nape": [
+        {
+          "motion": "natural",
+          "frame": 0,
+          "time": 0,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 3,
+              "facePairs": 0,
+              "pairCards": [
+                272
+              ],
+              "minSignedMm": -0.0032276067245001223,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.350068923454362,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.03593038558419755,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.358623050920866,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.00988058234661402,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.379718071609959,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.13678971531901413,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.348104564832845,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            }
+          ]
+        },
+        {
+          "motion": "natural",
+          "frame": 240,
+          "time": 3.9999999999999907,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 1.5987853926209805,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.3335577525939866,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 1.5841028081638853,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.3964436169353673,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 1.7220942365472531,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.3523710858564018,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 1.944640915929517,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.3172538205150697,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            }
+          ]
+        },
+        {
+          "motion": "nod",
+          "frame": 0,
+          "time": 0,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.0056783472284569385,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.350068923454362,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.04497102154651808,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.358623050920866,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.01844290704243753,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.379718071609959,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.14585930735276004,
+              "minBaseAlphaAtLeastHalfSignedMm": 3.348104564832845,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            }
+          ]
+        },
+        {
+          "motion": "nod",
+          "frame": 240,
+          "time": 3.9999999999999907,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.1041839302306708,
+              "minBaseAlphaAtLeastHalfSignedMm": 1.7450715450658147,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 90,
+              "pairs": 8,
+              "facePairs": 0,
+              "pairCards": [
+                217,
+                272
+              ],
+              "minSignedMm": -0.3659911633463642,
+              "minBaseAlphaAtLeastHalfSignedMm": 1.5205071434681117,
+              "negativeSamplesBeyondPoint1Mm": 3,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": [],
+              "minSignedMm": 0.12111970480645368,
+              "minBaseAlphaAtLeastHalfSignedMm": 1.6578736911586778,
+              "negativeSamplesBeyondPoint1Mm": 0,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            },
+            {
+              "angle": -90,
+              "pairs": 10,
+              "facePairs": 0,
+              "pairCards": [
+                217,
+                272
+              ],
+              "minSignedMm": -0.3600550784668106,
+              "minBaseAlphaAtLeastHalfSignedMm": 1.591751166961102,
+              "negativeSamplesBeyondPoint1Mm": 3,
+              "negativeBaseAlphaAtLeastHalfSamplesBeyondPoint1Mm": 0
+            }
+          ]
+        }
+      ],
+      "face": [
+        {
+          "motion": "natural",
+          "frame": 0,
+          "time": 0,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            }
+          ]
+        },
+        {
+          "motion": "natural",
+          "frame": 240,
+          "time": 3.9999999999999907,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            }
+          ]
+        },
+        {
+          "motion": "nod",
+          "frame": 0,
+          "time": 0,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            }
+          ]
+        },
+        {
+          "motion": "nod",
+          "frame": 240,
+          "time": 3.9999999999999907,
+          "views": [
+            {
+              "angle": 0,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": 180,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            },
+            {
+              "angle": -90,
+              "pairs": 0,
+              "facePairs": 0,
+              "pairCards": []
+            }
+          ]
+        }
+      ],
+      "allFollowerFacePairs": 0,
+      "napeFullBodyPairs": 21,
+      "napeBaseAlphaAtLeastHalfCrossingWitnesses": 0,
+      "napeMinimumSignedMm": -0.3659911633463642,
+      "napeMinimumBaseAlphaAtLeastHalfSignedMm": 1.5205071434681117
+    },
+    "physicalStateParity": [
+      {
+        "motion": "natural",
+        "frame": 0,
+        "pass": true,
+        "files": [
+          {
+            "arm": "control",
+            "path": "/tmp/sugata-root-live-followers/motion-natural-v2/control/frame-0000.json",
+            "sha256": "086562e974639509c1d3fa8fd8b2be6b618f74feb3b5452481e11ad5a73b077a"
+          },
+          {
+            "arm": "candidate",
+            "path": "/tmp/sugata-root-live-followers/motion-natural-v2/candidate/frame-0000.json",
+            "sha256": "a17cee12c5854f3c7838704870b4f6e3fbc97edf7be74e2a84a2135a69f966a6"
+          }
+        ],
+        "fields": [
+          "binaryArrayHashes",
+          "time",
+          "centers",
+          "velocities",
+          "vertices",
+          "fullHairPositions",
+          "bodyPositions",
+          "bodyNormals",
+          "bodyIndices",
+          "headMatrix",
+          "camera"
+        ]
+      },
+      {
+        "motion": "natural",
+        "frame": 240,
+        "pass": true,
+        "files": [
+          {
+            "arm": "control",
+            "path": "/tmp/sugata-root-live-followers/motion-natural-v2/control/frame-0240.json",
+            "sha256": "2941f032b827761c0e937e27c306352538e86d3ef9abd738826b9d3e6196838f"
+          },
+          {
+            "arm": "candidate",
+            "path": "/tmp/sugata-root-live-followers/motion-natural-v2/candidate/frame-0240.json",
+            "sha256": "ebc9d227125def24d3fc38d6d391ed55b08a67f3dc6101a129dcf520362ca661"
+          }
+        ],
+        "fields": [
+          "binaryArrayHashes",
+          "time",
+          "centers",
+          "velocities",
+          "vertices",
+          "fullHairPositions",
+          "bodyPositions",
+          "bodyNormals",
+          "bodyIndices",
+          "headMatrix",
+          "camera"
+        ]
+      },
+      {
+        "motion": "nod",
+        "frame": 0,
+        "pass": true,
+        "files": [
+          {
+            "arm": "control",
+            "path": "/tmp/sugata-root-live-followers/motion-nod-v2/control/frame-0000.json",
+            "sha256": "cde4f2078287fd94f699074c264811f2cb07854c472538e99158082303683974"
+          },
+          {
+            "arm": "candidate",
+            "path": "/tmp/sugata-root-live-followers/motion-nod-v2/candidate/frame-0000.json",
+            "sha256": "443a04285f902041381f95e64119f810a6451ff246af02602dbc3b8616bbbd8a"
+          }
+        ],
+        "fields": [
+          "binaryArrayHashes",
+          "time",
+          "centers",
+          "velocities",
+          "vertices",
+          "fullHairPositions",
+          "bodyPositions",
+          "bodyNormals",
+          "bodyIndices",
+          "headMatrix",
+          "camera"
+        ]
+      },
+      {
+        "motion": "nod",
+        "frame": 240,
+        "pass": true,
+        "files": [
+          {
+            "arm": "control",
+            "path": "/tmp/sugata-root-live-followers/motion-nod-v2/control/frame-0240.json",
+            "sha256": "4e874ae9d7fd09c3498fbb38dda2d5c0bcb3fec2a06c10a4b1747935828c5da5"
+          },
+          {
+            "arm": "candidate",
+            "path": "/tmp/sugata-root-live-followers/motion-nod-v2/candidate/frame-0240.json",
+            "sha256": "075db732239fa6362c75f96026f72184c50424043fdc66c7959e1c8af7086d38"
+          }
+        ],
+        "fields": [
+          "binaryArrayHashes",
+          "time",
+          "centers",
+          "velocities",
+          "vertices",
+          "fullHairPositions",
+          "bodyPositions",
+          "bodyNormals",
+          "bodyIndices",
+          "headMatrix",
+          "camera"
+        ]
+      }
+    ],
+    "sourceCardReference": [
+      {
+        "motion": "natural",
+        "frame": 0,
+        "sourceCardTriangles": 288,
+        "bodyPairs": 0,
+        "pairs": []
+      },
+      {
+        "motion": "natural",
+        "frame": 240,
+        "sourceCardTriangles": 288,
+        "bodyPairs": 0,
+        "pairs": []
+      },
+      {
+        "motion": "nod",
+        "frame": 0,
+        "sourceCardTriangles": 288,
+        "bodyPairs": 0,
+        "pairs": []
+      },
+      {
+        "motion": "nod",
+        "frame": 240,
+        "sourceCardTriangles": 288,
+        "bodyPairs": 5,
+        "pairs": [
+          {
+            "card": 217,
+            "span": 0,
+            "half": 1,
+            "bodyTriangle": 10288,
+            "kind": "transverse",
+            "points": [
+              [
+                -0.030865959157090023,
+                1.5532449434858655,
+                0.0036884768492025048
+              ],
+              [
+                -0.030141313008414022,
+                1.5533304026562855,
+                0.0035243139519136484
+              ]
+            ]
+          },
+          {
+            "card": 217,
+            "span": 0,
+            "half": 1,
+            "bodyTriangle": 23735,
+            "kind": "transverse",
+            "points": [
+              [
+                -0.029567097693177648,
+                1.5535109373241265,
+                0.0036301274565201207
+              ],
+              [
+                -0.030141313008414022,
+                1.5533304026562855,
+                0.003524313951913648
+              ]
+            ]
+          },
+          {
+            "card": 272,
+            "span": 1,
+            "half": 1,
+            "bodyTriangle": 1316,
+            "kind": "transverse",
+            "points": [
+              [
+                -0.04368428892537021,
+                1.5564325985981,
+                0.0065733103554572354
+              ],
+              [
+                -0.04347342126976748,
+                1.556625940295091,
+                0.00650389916576417
+              ]
+            ]
+          },
+          {
+            "card": 272,
+            "span": 2,
+            "half": 0,
+            "bodyTriangle": 1316,
+            "kind": "transverse",
+            "points": [
+              [
+                -0.04368428892537021,
+                1.5564325985981,
+                0.0065733103554572354
+              ],
+              [
+                -0.043692184260039485,
+                1.5564279130975347,
+                0.006575706781410948
+              ]
+            ]
+          },
+          {
+            "card": 272,
+            "span": 2,
+            "half": 1,
+            "bodyTriangle": 1316,
+            "kind": "transverse",
+            "points": [
+              [
+                -0.043692184260039485,
+                1.5564279130975347,
+                0.006575706781410949
+              ],
+              [
+                -0.043753204274955826,
+                1.5563945914636337,
+                0.006593998626993792
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "alphaQualification": "All21 complete crossing regions have zero maximum atlas alpha within exact bilinear footprints at base and CPU box mip1\u20132. Natural0 remains zero with an extra texel halo through mip3. Nod4s can receive mip3 bleed; conservative halo bounds can include alpha at lower mips. Estimated screen LOD is1.23\u20131.81 for natural0,2.10\u20132.38 for nod272,3.47\u20133.87 for nod217. Therefore no rendered-transparency or visibility conclusion is claimed. Actual GPU mip/occlusion qualification remains open.",
+    "instrumentCorrection": "An initial original-card reference shortcut reused the follower diagonal. It was corrected to read exact GLB indices before final evidence; counts remained5 but half-triangle IDs/endpoints changed. Follower geometry always used the correct HairRibbons diagonal. Final attribution.mjs/json contain only the corrected reference.",
+    "limits": [
+      "CPU fround operations cannot reproduce backend fused operations exactly; prior actual12400sample GPU comparison bounds center component differences only, not expanded edge error at near camera/tangent alignment.",
+      "Four final camera positions are reapplied to each saved pose; only final-frame orientations were rendered/captured.",
+      "Signed nearest-body-normal samples at triangle vertices,edge midpoints,centroid do not certify continuous clearance or closed-body containment.",
+      "Alpha witnesses use analytic across-bundle coverage times original base-atlas bilinear sampling. They do not attest actual screen mip/anisotropic filtering or all-opacity geometry; zero finite witnesses never prove transparency.",
+      "Caps are excluded; root/fringe versus curtain families remain distinct. No inherited all-body motion claim.",
+      "CPU perspective-derivative LOD is an estimate, not actual raster quad derivatives or trilinear/anisotropic visibility.",
+      "All496 root/fringe/curtain cards are included in the face-only gate. Full-body checks cover only the nine named curtains. Original caps are excluded.",
+      "These four saved poses do not establish intermediate or longer-motion clearance."
+    ]
+  },
+  "compiledShadowReview": {
+    "status": "complete: actual emitted follower shadow alpha reviewed",
+    "archivePath": "analysis/shadow-wgsl-review.json",
+    "source": "/tmp/sugata-root-live-followers/cost/candidate/timing.json",
+    "sha256": "453949a9118f70d7c6e137419b00da436ffccdb3d778d5324a0a8bf56cfe628a",
+    "shadowFragmentIndex": 25,
+    "shadowFragmentSha256": "6d42e4d2fb1abb378b3787fa0680b4a52962a1a04fd22986d18373b3b0b6ae37",
+    "statement": "Compiled follower ShadowMaterial uses analytic across-width profile times the atlas alpha, thresholded before output, with zero fragment storage bindings. Beauty fragment also has zero storage bindings and receives the vertex tangent through a varying.",
+    "shadowFormula": "(1 - abs(2 * nodeVarying4.x - 1)) * textureSample(nodeUniform4,nodeUniform4_sampler,nodeVarying5).w",
+    "limit": "This validates emitted shadow masking code. It does not establish image quality, exact temporal motion vectors, or all-camera geometry clearance."
+  }
+}

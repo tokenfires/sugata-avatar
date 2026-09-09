@@ -55,8 +55,8 @@ correction settles instead of popping.
 
 `gender` is continuous from 0 to 1. Skin is pre-integrated subsurface scattering with a baked
 curvature map, dual-lobe specular and a tiled micro-normal. Eyes are two nested shells with real
-corneal refraction. The wardrobe layers, hides the body underneath, and keeps a decency floor in
-every reachable state.
+corneal refraction. The wardrobe layers garments, hides covered geometry, and retains the selected
+foundation when an outer outfit is removed. Current fit and coverage limits are recorded with each study.
 
 ## Requirements
 
@@ -74,22 +74,27 @@ cd sugata-avatar && npm install && npm run dev
 ## Status
 
 The runtime combines skin, eyes, lighting, blink, gaze, breath, sway, affect-driven posture,
-gestures, IK and supplied viseme timelines. Wardrobe and detailed identity controls exist in
-dedicated modules/testbed pages; they are not yet integrated into the public `Avatar` runtime.
-Real TTS and microphone input remain open. `say()` without a supplied timeline does not animate
+gestures, IK and supplied viseme timelines. Opt-in wardrobe and `avatar.dress()` now work through
+the public `Avatar` runtime on the midpoint g050 body. Detailed identity sculpting remains in
+dedicated modules/testbed pages. Real TTS and microphone input remain open. `say()` without a supplied timeline does not animate
 speech on its own.
 
-The new **portrait study** puts expressions, lighting, camera control and two existing haircuts
-on one page. Run `npm run dev`, then open `/src/portrait.html`. The shorter `bob02` cut is available
-on the midpoint figure; the original `bob01` covers all five figure bakes. The shorter cut now falls
-alongside the cheeks and clears 98 tested motion poses, with its shake preserved. Orbit blackout,
-excess area-light skin transmission, and hair GPU resource retention during rebuilds are repaired.
-Hair appearance remains unfinished: broad card patches and mottled highlights are still visible.
-See the [visual work checkpoint](docs/WORK-SESSION-2026-09-08.md) for matched evidence and limits.
+The **portrait study** puts expressions, lighting, camera control and two haircuts on one page.
+Run `npm run dev`, then open `/src/portrait.html`. The chin-length `bob02` falls alongside the
+cheeks with its shake preserved. The original long `bob01` now has a corrected g050 shape and
+nape contact path, verified across the recorded motion poses. Other bob01 bakes retain their
+existing shapes. Broad card patches, mottled highlights and some contacts outside the corrected
+regions remain; finer strand rendering is still an experiment.
 
-Read [the September 8 restart checkpoint](docs/RESTART-2026-09-08.md) before continuing the hair
-research. This clone predates several local experiments preserved separately from the old iCloud
-checkout. The older checkpoint must not be treated as the latest experimental recommendation.
+The **wardrobe lookbook** at `/src/showcase.html` offers two actual g050 starting looks, live
+outfit changes, orbit and framing controls, and PNG image or JSON settings downloads. It uses
+existing stand-in clothes, with remaining fit and styling work. See the [lookbook guide](docs/SHOWCASE-2026-09-09.md)
+and [wardrobe API](docs/WARDROBE-AVATAR-2026-09-09.md).
+
+For current work, start with the [overnight checkpoint](docs/OVERNIGHT-2026-09-08.md).
+The [September 8 restart](docs/RESTART-2026-09-08.md) records the active checkout and partial
+recovery from the old iCloud location. Older hair checkpoints are historical experiments,
+not the current recommendation.
 
 `npm run selftests` runs the full gate suite; declared failures live in
 [`docs/RED-GATES.md`](docs/RED-GATES.md). The restart checked the affected runtime and browser paths,
@@ -99,7 +104,9 @@ not the entire suite, and does not claim a clean full-suite result.
 
 | | |
 |---|---|
-| [`docs/RESTART-2026-09-08.md`](docs/RESTART-2026-09-08.md) | Current checkout, recovery boundary, portrait verification and next work |
+| [`docs/OVERNIGHT-2026-09-08.md`](docs/OVERNIGHT-2026-09-08.md) | Current progress, accepted changes, experiments and remaining work |
+| [`docs/RESTART-2026-09-08.md`](docs/RESTART-2026-09-08.md) | Active checkout, recovery boundary and initial portrait verification |
+| [`docs/SHOWCASE-2026-09-09.md`](docs/SHOWCASE-2026-09-09.md) | Actual clothing combinations, view controls and image/settings export |
 | [`docs/WORK-SESSION-2026-09-08.md`](docs/WORK-SESSION-2026-09-08.md) | Hair correction, renderer repairs, verified results and remaining visual work |
 | [`docs/API.md`](docs/API.md) | The full `Avatar` surface, options, and limits |
 | [`docs/BRIEF.md`](docs/BRIEF.md) | The original request, verbatim |

@@ -37,26 +37,22 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the 10:50UTC section below. **The corrected g050 long bob is shipped** in
+Latest checkpoint is the 11:50 UTC section below. **The corrected g050 long bob is shipped** in
 local commit `c871ed9`, with production forest contact. GLB SHA
 `db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`, calibration
 `bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and the correct actual owner.
 Other four bob01 bakes and all bob02 bytes are unchanged. No push.
 
-- Root: three fixed-pose follower previews and an ABBA rendering-cost run are complete and archived.
-  Corrected coverage smooths sides/rear but crown and hem remain patchy; no adoption. Now preparing
-  actual motion/parity/clearance/cost gates for a scratch direct-GPU follower prototype.
-- `continuity_audit`: 85-pose opacity acceptance completed and committed `e05144b`. Now owns a
-  scratch-only live follower module and a narrowly routed borrowed-edge accessor in a copy of
-  HairDynamics. Preserve the496-guide solver, original caps/material data and all production source.
-  Shader neighbor gathers replace per-frame CPU readback. Held velocity is explicitly provisional;
-  first moving observation must use temporal AA off. Lifetime and physical parity require proof.
-- `visual_next_step`: fixed outer-cloth fit candidate visibly clears chest/hip/calf patches but
-  increases collar self-contact and retains cuff crossings. Rejected/unpromoted; archived in
-  `929922d`. Now doing a CPU-only audit of authored foundation masks, without asset/mask edits.
-- `orbit_render_audit`: finished real wardrobe showcase plus minimal shared first-resize input
-  correction in `7ea6ea6`, then actual PNG export in `20569f5`. All focused gates/build pass.
-  Idle after releasing the GPU; no pending source edits. Lookbook URL `/src/showcase.html`.
+- Root: the long bob, real lookbook and PNG export are committed. Live follower motion, cost,
+  contact and compiled-shadow qualifications are complete as an unshipped experiment. Reviewing
+  the mask-only wardrobe candidate for possible promotion; no promotion is claimed yet.
+- `continuity_audit`: completed and archived the follower CPU contact/shadow follow-up, including
+  all 16 pose/view results and higher-mip visibility limits. No shipping renderer or solver edit.
+- `visual_next_step`: the mask-only candidate passes CPU checks and all 32 actual clothed states.
+  Eight foundation-only states retain existing groin exposure IDs 4787/4788. Root promotion review
+  is pending; the earlier outer-cloth fitting candidate remains rejected/unpromoted.
+- `orbit_render_audit`: scratch card render history passes 19 CPU and 10 GPU scheduling checks.
+  The per-pixel velocity oracle is pending. True moving temporal rendering is not yet established.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -742,3 +738,30 @@ is underway; no garment, mask or layer is removed to conceal the problem.
   needed. It must detach before solver storage disposal, preserve raw rest-albedo coordinates,
   avoid double skinning and qualify camera-facing expansion. Existing held velocity omits real
   deformation; temporal-off moving observation is only a prototype step, not final motion support.
+
+
+## Current checkpoint — about 11:50 UTC
+
+- The corrected g050 long bob is committed in `c871ed9`; the real wardrobe lookbook is in
+  `7ea6ea6`, and PNG export is in `20569f5`. Their scoped proofs and existing appearance/fit limits
+  remain in force. Other hair bakes and the default corrected card renderer remain unchanged.
+- The live GPU follower proof is complete and **unshipped**: natural/nod paired motion preserves
+  all saved physical values, adds no simulation dispatch or runtime readback, and passes the
+  removal/reset/retirement checks. Temporal AA stays off; cost and appearance do not establish a
+  production mode. [The follower record](HAIR-LIVE-FOLLOWERS-2026-09-09.md) and ledger retain the
+  180-file primary archive plus the separate 32-file contact/shadow qualification.
+- All 16 reconstructed follower face checks are clear. The nine-card full-body scope has 21
+  triangle pairs; maximum sampled negative depth is 0.36599 mm. Separately, sampled base-alpha
+  ≥ 0.5 clearance is at least 1.52051 mm. The original held-nod cards already have five pairs in
+  that family, verified with their actual GLB topology. Compiled shadow alpha is correct, but
+  mip 3+ visibility, other body regions and unsampled motion remain unresolved. Do not collapse
+  those different gates into an all-body or rendered-transparency pass.
+- The **mask-only wardrobe candidate** passes its CPU checks and all 32 actual clothed states.
+  Its eight foundation-only states retain the existing groin exposure IDs 4787/4788. This is
+  distinct from the rejected outer-cloth fitting experiment and does not repair those baseline
+  foundation exposures. Root promotion review is pending; no asset promotion is recorded here.
+- The scratch card-history prototype passes **19 CPU and 10 actual GPU scheduling checks**.
+  Its per-pixel velocity oracle is still pending, so scheduling/lifetime evidence does not yet
+  prove correct moving-pixel velocity or temporal quality. Keep it unshipped and separate from
+  the follower rendering proof; [the history contract](HAIR-RENDER-HISTORY-2026-09-09.md) records
+  the design boundary. No new GPU run or parameter variation was made for this checkpoint.
