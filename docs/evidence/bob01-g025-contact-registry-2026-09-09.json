@@ -1,7 +1,7 @@
 {
   "id": "bob01-g025-contact-registry-v1",
   "dateUTC": "2026-09-09T08:05:01.085549+00:00",
-  "status": "Exact calibrated g025 composition can activate the existing body-contact owner. Shipping GLBs are unchanged; actual composed GPU motion and appearance acceptance are pending.",
+  "status": "Exact calibrated g025 composition activates the real body-contact owner in a two-pose smoke. Shipping GLBs remain unchanged; strict geometric face smoke fails on transparent card44 margins, so longer captures are stopped pending visibility qualification.",
   "groomSha256": "556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716",
   "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
   "calibrationId": "bob01-g025-composed-neck-v1",
@@ -60,6 +60,48 @@
     "This registry change does not install the corrected groom or enable contact on a mismatched original asset.",
     "Root/first-span clearance does not certify later-link convergence, stress motion or performance.",
     "The contact domain excludes the 251 existing higher root-layer intersections.",
-    "Actual posed0 smoke must pass before natural and both held nod captures; new complete hair/velocity/body/camera evidence is prepared separately."
-  ]
+    "Actual posed0/0.1s smoke has a strict geometric face failure on zero-base-alpha card44 margins; longer motion and final filtered visibility remain unaccepted."
+  ],
+  "runtimeSmoke": {
+    "evidence": "captures/bob01-g025-avatar-smoke-2026-09-09/findings.json",
+    "findingsSha256": "e1596493cf73694d99346484980cef07fa78a192c6987b3ce2b2d6ea224c0d69",
+    "manifestSha256": "c34028f5fab3bf0912c2dfb8a1adad2b79e9e1e0d7888f0046b9f1d63f9ebddf",
+    "verifiedFiles": 120,
+    "integrationCommit": "32afd36",
+    "runtimeErrors": 0,
+    "sourceFreeze": true,
+    "poses": 2,
+    "timesSeconds": [
+      0,
+      0.1
+    ],
+    "orientationViews": 8,
+    "exactOrientationStateRestore": true,
+    "fullHairVertices": 17516,
+    "gpuCardVertices": 16864,
+    "capturedVelocityPoints": 8432,
+    "facePairs": [
+      0,
+      5
+    ],
+    "neckShoulderPairs": [
+      0,
+      0
+    ],
+    "movableCurtainPairs": [
+      0,
+      0
+    ],
+    "newFaceCard": 44,
+    "newFaceSpans": [
+      14,
+      15
+    ],
+    "zeroAlphaCrossingBoxesWithOneTexelHalo": true,
+    "rectangleTexelTestsIncludingOverlaps": 436,
+    "strictGeometricFacePass": false,
+    "finalFilteredVisibility": "unproven",
+    "fullMotionCapture": "stopped after smoke",
+    "nextHarness": "per-draw GPU and compositor barriers; CPU guards pass; live qualification pending"
+  }
 }

@@ -23,11 +23,37 @@ visibility. Full-ribbon/body replay, composed front/side/rear inspection, natura
 bidirectional motion, convergence and actual frame cost remain acceptance gates.
 
 CPU validation passes 16 calibration/owner groups, 137 Avatar checks and four actual deferred
-digest retirement cases covering both bakes. A capture harness is prepared to route only the exact
-groom GLB into the real Avatar path. It will retain actual GPU positions and velocities, skin/morph
-cap positions, full body positions/normals, rig/camera state and source-response provenance.
+digest retirement cases covering both bakes. The actual Avatar smoke routes only the exact groom GLB into the real path. It retains actual
+GPU positions and velocities, skin/morph cap positions, full body positions/normals, rig/camera
+state and source-response provenance.
 Orientation views use draw-only rendering, restore the camera exactly, and assert that simulation
 and body snapshots do not change. No renderer or solver method is replaced.
 
 See `docs/evidence/bob01-g025-contact-registry-2026-09-09.json` for exact source hashes and the
-archived calibration proof. Actual GPU capture status is recorded separately after the smoke gate.
+archived calibration proof and smoke provenance.
+
+The two-pose smoke at 0 and 0.1 seconds activates the expected calibration and exact-input cache
+with zero runtime errors. All eight orientation images are nonblank; full geometry, velocity,
+body, rig, clock and camera snapshots remain exact across the views. Complete-hair snapshots
+contain 17,516 vertices; only the 16,864 card vertices are GPU readbacks. The 652 non-card
+vertices use renderer-equivalent CPU skin/morph reconstruction.
+
+The strict geometric face gate changes from zero to five pairs on card 44's last two spans.
+Neck/shoulder and movable-curtain pairs stay zero. The centers remain 14.737 and 15.601 mm
+outside the body; intended width transport rotates the terminal frames by 7.48 and 10.42 degrees,
+consuming a small inward-edge margin. Rigid rest hair against the posed body has zero pairs,
+while actual hair against the rest body reproduces the five pairs. The attachment and upper
+prefix through ring 11 remain unchanged from the original root-support repair.
+
+Every crossing segment's entire UV bounding rectangle plus a one-texel halo is zero-alpha in
+the base atlas (436 rectangle-texel checks, including repeated-border neighbors). This establishes
+transparent nearest/bilinear mip-zero support at the crossings, not final mip-filtered visibility.
+The geometric face gate remains failed; full natural/nod captures are stopped and no new shape
+correction is justified from this count alone.
+
+The original smoke's eight synchronous draw calls share a renderer epoch and leave conspicuous
+stipple, so these plates are not converged appearance acceptance. Its exact harness is preserved.
+The next harness awaits GPU/compositor completion after each draw while retaining the exact
+snapshot assertions; that revision needs live validation. All smoke sources, the routed groom,
+measurements, ten images and original/next harnesses are archived under
+`captures/bob01-g025-avatar-smoke-2026-09-09` with a verified 120-file manifest.
