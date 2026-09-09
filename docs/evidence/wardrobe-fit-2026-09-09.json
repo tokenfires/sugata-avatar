@@ -1,0 +1,312 @@
+{
+  "schema": "sugata-wardrobe-fit-evidence-v1",
+  "date": "2026-09-09",
+  "status": "rejected-unpromoted",
+  "shippingChanges": false,
+  "conclusion": "One fixed outer-cloth fit removes visible front chest, hip and sock patches in matched Avatar views, but fails strict collar, cuff and remaining contact gates. No second variant or mask/foundation workaround was made.",
+  "mechanism": "Body-derived under-masks do not compensate for the retained foundation/sock shell thickness. Fit outer cloth to the actual retained inner surface envelope, with original mask semantics and foundation invariants unchanged.",
+  "archive": {
+    "path": "captures/wardrobe-fit-2026-09-09",
+    "manifestSha256": "fe8badc82d650f7c3b54c4c3de8b205103f347f171b13b54a56d8ef5a85b4822",
+    "files": 78,
+    "bytes": 147973264
+  },
+  "proofFiles": {
+    "original-audit/report.json": "104a34dc0c6bce211e097ac5d482308a93c88a7684904836d82895bdd8200482",
+    "fit-v1/build.mjs": "f72e90c1b7cb2985237b46aa8d8878e19912b9aee5386726f0e06fc2c7cf0c7f",
+    "fit-v1/report.json": "382a93e8cb60c19e75e2b368d092ed320e5ad9fcb66e9c9c5615d62343be3f3f",
+    "fit-v1/audit.mjs": "cdd3c47b455bbb23b05426e74ad8ae87aa0fe9bca44187e9a22c804db3cfa8ef",
+    "fit-v1/audit.json": "761bbd9faba1b4b9141e1de7fa3c2a285d732f0660c6ce7448c7f285eb009de0",
+    "fit-v1/residuals.json": "1ef0a51132f54deb3a354b87d01dd522c0050fcffb144e4a3ad5f124b4002f61",
+    "fit-v1/views.mjs": "b2cec1cd7b444d3a1144c614d71c62fd5a7bcfa55b881ba6b4679c58fc0e2313",
+    "fit-v1/views/report.json": "7a09eb72dc12e41d8ad29ed656e1fca78b161cf4faf27935d7b61b08dc825c2f",
+    "fit-v1/posed-audit.mjs": "7af51e688820a309b050c6fd8d4e6e028db1e630c7604e35d730aeddcdcb013d",
+    "fit-v1/posed-audit.json": "5df9a1c74741e469217f2f596d48b09aa1c8fbcfc83b94e8e219d3e4b2fe69b9",
+    "fit-v1/posed-residuals.json": "eaed60d15eb78c1efb900058c814027fa41bb49470d1419bcf2af40cfed52f50",
+    "fit-v1/findings.md": "60a7a0c984bc3c59c78e1728c1aa97b56f9f00bb6467f41cee29eeb0ff86023b",
+    "fit-v1/visual-findings.md": "73789982eca33503fd238cab16a27876e16e5883d9a62011bfaece1ebef54bd2"
+  },
+  "inputs": {
+    "body": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "foundation_bra": "69fb5b0ae4efd9e99650d31e3e28676cebc8bd881f2a4adea39ef050d31455a8",
+    "foundation_vest": "bdae90afc569b3e6a4e32e55fe15a99feb0815c8cbf139de46e0c68644979b1a",
+    "foundation_briefs": "b458f53ea5aa84af081b6a993c9a483374f5167a202a57ff225d5420b46d592a",
+    "foundation_boxer_brief": "b0f7d7231e69aa40c2adb1e3324ee8149dc88fcd1b1b22a534e2fe3d81bd3e36",
+    "shoes01": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4",
+    "female_elegantsuit01": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+    "female_casualsuit01": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+  },
+  "candidates": {
+    "female_elegantsuit01": {
+      "sha256": "313d71f94f942ce2490fd18d00f232f231ea2de1513c35d63a5bbd08e0b76132",
+      "boundMm": 4
+    },
+    "female_casualsuit01": {
+      "sha256": "69e481dd27e8e6a70e0fe1cea488e04da2a546b5875124ce024edf5203082b2c",
+      "boundMm": 6
+    }
+  },
+  "invariants": [
+    {
+      "attributesExact": {
+        "TEXCOORD_0": true,
+        "JOINTS_0": true,
+        "WEIGHTS_0": true
+      },
+      "indexExact": true,
+      "materialsImagesSkinExact": true,
+      "boundaryExact": true,
+      "seamDisplacementDifferenceMm": 0,
+      "unaffectedVerticesExact": 1816,
+      "movedVertices": 608,
+      "maximumDisplacementMm": 4.000050123150631,
+      "normalsFiniteUnit": true,
+      "outfit": "female_elegantsuit01"
+    },
+    {
+      "attributesExact": {
+        "TEXCOORD_0": true,
+        "JOINTS_0": true,
+        "WEIGHTS_0": true
+      },
+      "indexExact": true,
+      "materialsImagesSkinExact": true,
+      "boundaryExact": true,
+      "seamDisplacementDifferenceMm": 0,
+      "unaffectedVerticesExact": 2121,
+      "movedVertices": 256,
+      "maximumDisplacementMm": 6.000002649421295,
+      "normalsFiniteUnit": true,
+      "outfit": "female_casualsuit01"
+    }
+  ],
+  "authoredCoordinates": {
+    "warning": "Authored common GLB coordinates; do not mix with actual morphed/skinned Avatar snapshots.",
+    "contactCounts": [
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "control",
+        "foundation": {
+          "foundation_bra": 588,
+          "foundation_vest": 681,
+          "foundation_briefs": 185,
+          "foundation_boxer_brief": 145
+        },
+        "drawnBody": 105,
+        "shoes": 0,
+        "selfNonAdjacent": 53
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "candidate",
+        "foundation": {
+          "foundation_bra": 154,
+          "foundation_vest": 276,
+          "foundation_briefs": 0,
+          "foundation_boxer_brief": 0
+        },
+        "drawnBody": 65,
+        "shoes": 0,
+        "selfNonAdjacent": 80
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "control",
+        "foundation": {
+          "foundation_bra": 262,
+          "foundation_vest": 456,
+          "foundation_briefs": 0,
+          "foundation_boxer_brief": 0
+        },
+        "drawnBody": 232,
+        "shoes": 409,
+        "selfNonAdjacent": 2
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "candidate",
+        "foundation": {
+          "foundation_bra": 262,
+          "foundation_vest": 456,
+          "foundation_briefs": 0,
+          "foundation_boxer_brief": 0
+        },
+        "drawnBody": 232,
+        "shoes": 129,
+        "selfNonAdjacent": 2
+      }
+    ],
+    "decency": {
+      "checks": 20,
+      "foundationPairCount": 4,
+      "exposedChestGroinSeat": 0,
+      "method": "Existing decency ray primitive, reach30mm/lift0.1mm, rest only; includes16 outfit/arm/pair checks plus4 foundation-only checks."
+    }
+  },
+  "actualAvatar": {
+    "frames": [
+      0,
+      240
+    ],
+    "fps": 60,
+    "images": 24,
+    "states": 8,
+    "foundation": {
+      "TORSO": "foundation_bra",
+      "HIPS": "foundation_briefs"
+    },
+    "sourceFreeze": true,
+    "errors": [],
+    "routes": [
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "control",
+        "routes": 0
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "candidate",
+        "routes": 1
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "control",
+        "routes": 0
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "candidate",
+        "routes": 1
+      }
+    ],
+    "drawOnlyStateFreeze": true,
+    "matchedStateChecks": [
+      {
+        "outfit": "female_elegantsuit01",
+        "frame": 0,
+        "cameraBodyFoundationShoesHairRigClockExact": true
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "frame": 240,
+        "cameraBodyFoundationShoesHairRigClockExact": true
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "frame": 0,
+        "cameraBodyFoundationShoesHairRigClockExact": true
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "frame": 240,
+        "cameraBodyFoundationShoesHairRigClockExact": true
+      }
+    ],
+    "contactCounts": [
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "control",
+        "frame": 0,
+        "contacts": {
+          "body": 253,
+          "foundation_bra": 663,
+          "foundation_briefs": 185,
+          "shoes01": 0
+        },
+        "selfNonAdjacent": 140
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "candidate",
+        "frame": 0,
+        "contacts": {
+          "body": 219,
+          "foundation_bra": 163,
+          "foundation_briefs": 0,
+          "shoes01": 0
+        },
+        "selfNonAdjacent": 171
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "control",
+        "frame": 240,
+        "contacts": {
+          "body": 359,
+          "foundation_bra": 678,
+          "foundation_briefs": 185,
+          "shoes01": 0
+        },
+        "selfNonAdjacent": 139
+      },
+      {
+        "outfit": "female_elegantsuit01",
+        "arm": "candidate",
+        "frame": 240,
+        "contacts": {
+          "body": 322,
+          "foundation_bra": 145,
+          "foundation_briefs": 0,
+          "shoes01": 0
+        },
+        "selfNonAdjacent": 175
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "control",
+        "frame": 0,
+        "contacts": {
+          "body": 458,
+          "foundation_bra": 227,
+          "foundation_briefs": 0,
+          "shoes01": 406
+        },
+        "selfNonAdjacent": 95
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "candidate",
+        "frame": 0,
+        "contacts": {
+          "body": 458,
+          "foundation_bra": 227,
+          "foundation_briefs": 0,
+          "shoes01": 128
+        },
+        "selfNonAdjacent": 95
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "control",
+        "frame": 240,
+        "contacts": {
+          "body": 546,
+          "foundation_bra": 192,
+          "foundation_briefs": 0,
+          "shoes01": 410
+        },
+        "selfNonAdjacent": 102
+      },
+      {
+        "outfit": "female_casualsuit01",
+        "arm": "candidate",
+        "frame": 240,
+        "contacts": {
+          "body": 546,
+          "foundation_bra": 192,
+          "foundation_briefs": 0,
+          "shoes01": 132
+        },
+        "selfNonAdjacent": 102
+      }
+    ]
+  },
+  "remainingRedGates": [
+    "Every added elegant self-contact involves the independent collar leaf: authored32added/5removed; actual rest39added/8removed,4s42added/6removed.",
+    "Every remaining elegant bra crossing is aboveY1.36m in the two actual poses; small pale collar-tip defect remains visible.",
+    "Two sock contacts remain at rear-left cuff in authored and both actual poses; shoe-upper contacts also remain and slightly increase.",
+    "Body/inner contact identities change despite lower aggregate counts; no no-regression or whole-outfit clearance claim.",
+    "Two snapshots and front/oblique views do not establish a complete motion envelope, back/cuff visibility or live foundation transition safety."
+  ],
+  "nextDecision": "Independent root review before any narrowed regional acceptance or distinct collar/cuff mechanism. Increasing the same displacement bound is not supported."
+}
