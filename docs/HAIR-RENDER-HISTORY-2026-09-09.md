@@ -1,6 +1,10 @@
 # Hair render history — audit, 2026-09-09
 
-**Status: proposal only.** Six CPU witnesses pass; no GPU history test or implementation has run. Production `HairVelocity` still uses its documented `hold` approximation. The only source edit associated with this record corrects the header's stale **REQ-073** reference to **REQ-077** in `docs/OPEN-REQUESTS.md`; it changes no executable code.
+**Historical audit status: proposal only at the time of this record.** Six CPU witnesses pass; no GPU history test or implementation has run. Production `HairVelocity` still uses its documented `hold` approximation. The only source edit associated with this record corrects the header's stale **REQ-073** reference to **REQ-077** in `docs/OPEN-REQUESTS.md`; it changes no executable code.
+
+The later [exact-card qualification](HAIR-CARD-HISTORY-2026-09-09.md) records passing numerical,
+appearance and lifecycle gates, plus a real live-export blocker. It supersedes the no-GPU status
+above; the strict V3 prototype remains unshipped.
 
 Current `Avatar.update()` advances motion and then calls `Stage.draw()`; `step()` adds GPU/compositor waits. The stage's automatic loop reaches the same draw boundary. The lookbook's PNG action also calls `Stage.draw()` directly, without updating physics. HairDynamics may run zero to four fixed substeps, contacts after each, then one final ribbon rebuild; zero substeps skip rebuilding. These are distinct simulation and rendering boundaries.
 
