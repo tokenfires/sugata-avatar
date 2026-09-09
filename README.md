@@ -81,8 +81,11 @@ speech on its own.
 
 The new **portrait study** puts expressions, lighting, camera control and two existing haircuts
 on one page. Run `npm run dev`, then open `/src/portrait.html`. The shorter `bob02` cut is available
-on the midpoint figure; the original `bob01` covers all five figure bakes. Hair appearance is still
-unfinished: card boundaries, mottled highlights and strong rim colour remain visible.
+on the midpoint figure; the original `bob01` covers all five figure bakes. The shorter cut now falls
+alongside the cheeks and clears 98 tested motion poses, with its shake preserved. Orbit blackout,
+excess area-light skin transmission, and hair GPU resource retention during rebuilds are repaired.
+Hair appearance remains unfinished: broad card patches and mottled highlights are still visible.
+See the [visual work checkpoint](docs/WORK-SESSION-2026-09-08.md) for matched evidence and limits.
 
 Read [the September 8 restart checkpoint](docs/RESTART-2026-09-08.md) before continuing the hair
 research. This clone predates several local experiments preserved separately from the old iCloud
@@ -97,6 +100,7 @@ not the entire suite, and does not claim a clean full-suite result.
 | | |
 |---|---|
 | [`docs/RESTART-2026-09-08.md`](docs/RESTART-2026-09-08.md) | Current checkout, recovery boundary, portrait verification and next work |
+| [`docs/WORK-SESSION-2026-09-08.md`](docs/WORK-SESSION-2026-09-08.md) | Hair correction, renderer repairs, verified results and remaining visual work |
 | [`docs/API.md`](docs/API.md) | The full `Avatar` surface, options, and limits |
 | [`docs/BRIEF.md`](docs/BRIEF.md) | The original request, verbatim |
 | [`docs/PUNCHLIST.md`](docs/PUNCHLIST.md) | Every item and its acceptance gate |

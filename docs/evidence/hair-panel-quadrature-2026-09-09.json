@@ -1,0 +1,445 @@
+{
+  "date": "2026-09-09",
+  "installed": false,
+  "decision": "Reject as a standalone patchwork repair; retain numerical approximation evidence.",
+  "hypothesis": "The documented center-direction approximation for large area panels may exaggerate orientation-dependent hair highlights. This tests illumination integration, not the refuted R36/R38 color or jitter mechanisms.",
+  "cpu": {
+    "scope": "Current-checkout isolated fibre R/TT/TRT angular response, using resident exported CPU mirror. Documented center-direction approximation is being quantified, not newly classified as an undocumented bug.",
+    "selection": {
+      "bounds": {
+        "y": [
+          1.56,
+          1.7
+        ],
+        "zBelow": 0.02
+      },
+      "eligibleQuads": 950,
+      "selectedQuads": [
+        {
+          "card": 9,
+          "ring": 8,
+          "centre": {
+            "0": 0.00963563215918839,
+            "1": 1.5767674446105957,
+            "2": -0.05329497251659632
+          }
+        },
+        {
+          "card": 25,
+          "ring": 2,
+          "centre": {
+            "0": -0.03316046670079231,
+            "1": 1.6345427930355072,
+            "2": -0.02500935737043619
+          }
+        },
+        {
+          "card": 48,
+          "ring": 9,
+          "centre": {
+            "0": 0.06350834853947163,
+            "1": 1.5721620321273804,
+            "2": -0.018324807984754443
+          }
+        },
+        {
+          "card": 89,
+          "ring": 2,
+          "centre": {
+            "0": -0.02943581435829401,
+            "1": 1.5800500810146332,
+            "2": -0.056480768136680126
+          }
+        },
+        {
+          "card": 131,
+          "ring": 1,
+          "centre": {
+            "0": 0.021924926666542888,
+            "1": 1.5671652555465698,
+            "2": -0.05682150274515152
+          }
+        },
+        {
+          "card": 188,
+          "ring": 0,
+          "centre": {
+            "0": 0.0688821692019701,
+            "1": 1.592217355966568,
+            "2": -0.019349242094904184
+          }
+        },
+        {
+          "card": 228,
+          "ring": 2,
+          "centre": {
+            "0": -0.009989420650526881,
+            "1": 1.634715735912323,
+            "2": -0.03875427506864071
+          }
+        },
+        {
+          "card": 256,
+          "ring": 6,
+          "centre": {
+            "0": -0.03338440367951989,
+            "1": 1.5930094718933105,
+            "2": -0.056120119988918304
+          }
+        },
+        {
+          "card": 305,
+          "ring": 3,
+          "centre": {
+            "0": -0.052408017218112946,
+            "1": 1.590202510356903,
+            "2": -0.053086395375430584
+          }
+        },
+        {
+          "card": 350,
+          "ring": 0,
+          "centre": {
+            "0": 4.8634596168994904e-05,
+            "1": 1.6362382769584656,
+            "2": -0.05958053097128868
+          }
+        },
+        {
+          "card": 386,
+          "ring": 5,
+          "centre": {
+            "0": 0.06854575220495462,
+            "1": 1.5917250514030457,
+            "2": -0.03219959419220686
+          }
+        },
+        {
+          "card": 436,
+          "ring": 1,
+          "centre": {
+            "0": 0.01443496160209179,
+            "1": 1.6422697305679321,
+            "2": -0.04232449131086469
+          }
+        }
+      ],
+      "method": "12 uniformly spaced eligible quads in source card/ring order; both actual index-buffer triangles; normalized exact \u2202P/\u2202v"
+    },
+    "domain": {
+      "viewDirection": [
+        0,
+        0,
+        -1
+      ],
+      "panels": "Current key/fill width, height, distance ratios and authored angles; angular domain positioned at a common focus for every sample, not a replay of per-fragment posed lights.",
+      "unitRadiance": true,
+      "channels": [
+        "R achromatic scalar",
+        "TT luminance",
+        "TRT luminance",
+        "sum luminance"
+      ],
+      "settings": {
+        "shiftR": -0.26,
+        "roughnessR": 0.17453292519943295,
+        "shiftRatioTT": -0.5,
+        "shiftRatioTRT": -1.5,
+        "roughnessRatioTT": 0.5,
+        "roughnessRatioTRT": 2,
+        "weightR": 1,
+        "weightTRT": 1,
+        "weightTT": 0,
+        "scatter": 1,
+        "sideVisibility": 1,
+        "shadowDensity": 3,
+        "envelopeExtinction": 74.75,
+        "rootOcclusion": 0.135,
+        "rootOcclusionLength": 0.15,
+        "strandTangentJitter": 0.2403,
+        "strandPitch": 0.00315,
+        "strandFadeStart": 0.25,
+        "strandFadeEnd": 0.5,
+        "lockSpread": 1.26,
+        "lockCell": 0.03459678909765759,
+        "lockBlend": 0.5,
+        "lockTilt": 0.08649243491927217
+      },
+      "colour": [
+        0.010505784538312107,
+        0.004360574652180827,
+        0.0038367111648802705
+      ],
+      "placementClarification": "Nominal key/fill ratios and authored angles are rotated relative to the fixed back view at a common mathematical focus. These are not the actual frozen studio positions from the rendered rear orbit. Bare source tangents are not posed GPU tangents."
+    },
+    "math": {
+      "integral": "Integral over panel S(t,\u03c9i,\u03c9r) d\u03c9. Dense independent area-midpoint uses d\u03c9=(n_emitter\u00b7(-\u03c9i))/r\u00b2 dA=d/r\u00b3 dA for front-facing rectangle.",
+      "control": "S(center)*exactOmega",
+      "candidate": "sum over3x3 cells S(cell center)*exactOmega(cell)",
+      "reference": "128x128 independent area-Jacobian midpoint, convergence checked against64x64; no normalization to force energy matching."
+    },
+    "validation": [
+      {
+        "panel": "key",
+        "omega": 0.6840977007399105,
+        "omegaNine": 0.6840977007399107,
+        "omegaDense128": 0.6841034561941439,
+        "relativeConstantError128": 8.41320505418075e-06,
+        "angularExtentDegrees": [
+          42.07502205084363,
+          56.60151153201276
+        ],
+        "pointLimitRRelativeError": 6.360768850315623e-10
+      },
+      {
+        "panel": "fill",
+        "omega": 1.8878682349454543,
+        "omegaNine": 1.8878682349454543,
+        "omegaDense128": 1.8878959145923428,
+        "relativeConstantError128": 1.466185318244051e-05,
+        "angularExtentDegrees": [
+          84.79487559500039,
+          84.79487559500039
+        ],
+        "pointLimitRRelativeError": 3.9867793134837785e-05
+      }
+    ],
+    "metrics": [
+      {
+        "panel": "key",
+        "response": "R",
+        "sumReference": 0.06860672405614965,
+        "centerRelativeL1": 0.5726456613955174,
+        "nineRelativeL1": 0.015389150200365128,
+        "referenceConvergenceRelativeL1": 4.450608274236364e-05
+      },
+      {
+        "panel": "key",
+        "response": "TT",
+        "sumReference": 0,
+        "centerRelativeL1": 0,
+        "nineRelativeL1": 0,
+        "referenceConvergenceRelativeL1": 0
+      },
+      {
+        "panel": "key",
+        "response": "TRT",
+        "sumReference": 0.0006253653772066974,
+        "centerRelativeL1": 0.6112946189598819,
+        "nineRelativeL1": 0.04459792769521079,
+        "referenceConvergenceRelativeL1": 5.9293833632782416e-05
+      },
+      {
+        "panel": "key",
+        "response": "total",
+        "sumReference": 0.06923208943335633,
+        "centerRelativeL1": 0.5706086655196787,
+        "nineRelativeL1": 0.015387263074418917,
+        "referenceConvergenceRelativeL1": 4.403366943419524e-05
+      },
+      {
+        "panel": "fill",
+        "response": "R",
+        "sumReference": 0.2208000720250112,
+        "centerRelativeL1": 1.0312862395683924,
+        "nineRelativeL1": 0.06527792536477957,
+        "referenceConvergenceRelativeL1": 5.26159644602011e-05
+      },
+      {
+        "panel": "fill",
+        "response": "TT",
+        "sumReference": 0,
+        "centerRelativeL1": 0,
+        "nineRelativeL1": 0,
+        "referenceConvergenceRelativeL1": 0
+      },
+      {
+        "panel": "fill",
+        "response": "TRT",
+        "sumReference": 0.0037788238384860043,
+        "centerRelativeL1": 0.7120316998072409,
+        "nineRelativeL1": 0.041399334525116016,
+        "referenceConvergenceRelativeL1": 5.289182805877332e-05
+      },
+      {
+        "panel": "fill",
+        "response": "total",
+        "sumReference": 0.22457889586349775,
+        "centerRelativeL1": 1.0115466448080164,
+        "nineRelativeL1": 0.06362965343424036,
+        "referenceConvergenceRelativeL1": 5.2338434557287594e-05
+      }
+    ],
+    "pairMetrics": [
+      {
+        "panel": "key",
+        "response": "R",
+        "centerPairContrast": 0.4347690317367023,
+        "ninePairContrast": 0.4570102589458445,
+        "referencePairContrast": 0.4464364958744508
+      },
+      {
+        "panel": "key",
+        "response": "TT",
+        "centerPairContrast": 0,
+        "ninePairContrast": 0,
+        "referencePairContrast": 0
+      },
+      {
+        "panel": "key",
+        "response": "TRT",
+        "centerPairContrast": 1.6410526679555348,
+        "ninePairContrast": 1.194740843319921,
+        "referencePairContrast": 1.166933664844523
+      },
+      {
+        "panel": "key",
+        "response": "total",
+        "centerPairContrast": 0.4355610218570059,
+        "ninePairContrast": 0.45644257628165164,
+        "referencePairContrast": 0.44584501296451606
+      },
+      {
+        "panel": "fill",
+        "response": "R",
+        "centerPairContrast": 0.70853257441078,
+        "ninePairContrast": 0.47419431141549845,
+        "referencePairContrast": 0.49913603157983183
+      },
+      {
+        "panel": "fill",
+        "response": "TT",
+        "centerPairContrast": 0,
+        "ninePairContrast": 0,
+        "referencePairContrast": 0
+      },
+      {
+        "panel": "fill",
+        "response": "TRT",
+        "centerPairContrast": 0.9624046767334571,
+        "ninePairContrast": 0.22313377102632917,
+        "referencePairContrast": 0.25188305628396124
+      },
+      {
+        "panel": "fill",
+        "response": "total",
+        "centerPairContrast": 0.6964039575666138,
+        "ninePairContrast": 0.4669347562730437,
+        "referencePairContrast": 0.49084096545763106
+      }
+    ],
+    "sourceHashes": {
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/core/src/material/HairMaterial.selftest.mjs": "b847cf2bb8cee5b1e6c92c9cb687e4900d69991075770f179705fefa9726d33f",
+      "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+      "tools/lut-bake/glb.mjs": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "reportSha256": "8544769f6362ad8f6d8ff7a86b8a9bb5c3e0f85b43cbf5968d0853482663f44b",
+    "limits": [
+      "Existing HairMaterial selftest:58 CPU/static checks passed; rendered59th failed to launch Vite due sandbox EPERM. No new CPU-to-GPU parity claim.",
+      "No new scattering port: hairScatteringValue is the resident function. Unit normals and finite/nonnegative responses checked, but exported mirror remains subject to its established scope.",
+      "Actual bare triangle derivatives exclude flow-sheet rotation, strand jitter, lock tilt/albedo, skin/head transform, opacity, texture sampling and visibility.",
+      "Does not include multiple-scatter fake, root occlusion, sideVisibility, shadow maps, other lights, grading, OIT or temporal resolve; cannot predict final patchwork or colour improvement.",
+      "Later HairMaterial/alive/probe history remains missing. Diagnostic applies to the current checkout only."
+    ]
+  },
+  "rendered": {
+    "method": "Route only directRectArea accumulation: sum nine full scatter responses evaluated at 3×3 cell centers, each weighted by its exact cell solid angle. Same panel emitter guard, full current scatter, geometry, atlas and runtime settings.",
+    "angles": [
+      0,
+      45,
+      90,
+      180,
+      -90
+    ],
+    "matched": [
+      "Clock",
+      "Camera",
+      "Head transform",
+      "All panel positions,orientations,dimensions,radiance and color",
+      "Asset/source hashes",
+      "Runtime report except initialization framing.frameMs"
+    ],
+    "reportDifferences": [
+      {
+        "angle": 0,
+        "controlInitializationFrameMs": 1.2000000029802322,
+        "candidateInitializationFrameMs": 1.5
+      },
+      {
+        "angle": 45,
+        "controlInitializationFrameMs": 1.2000000029802322,
+        "candidateInitializationFrameMs": 1.5
+      },
+      {
+        "angle": 90,
+        "controlInitializationFrameMs": 1.2000000029802322,
+        "candidateInitializationFrameMs": 1.5
+      },
+      {
+        "angle": 180,
+        "controlInitializationFrameMs": 1.2000000029802322,
+        "candidateInitializationFrameMs": 1.5
+      },
+      {
+        "angle": -90,
+        "controlInitializationFrameMs": 1.2000000029802322,
+        "candidateInitializationFrameMs": 1.5
+      }
+    ],
+    "injections": {
+      "control": 0,
+      "candidate": 1
+    },
+    "errors": {
+      "control": [],
+      "candidate": []
+    },
+    "sourceHashes": {
+      "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461",
+      "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+      "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+    },
+    "controlReportSha256": "ebb0bceb3e23bcef77608d45382bac134def7873a06a14d9dc58f369ebb97cca",
+    "candidateReportSha256": "d4d2defa6d1f926d323f297438075606e9cf494460b5a1f11485abbc5dad187e",
+    "routeScriptSha256": "a2d90b1c078d186a3d79d8ad41cc5fb96d32ad71119c919e05b18afb3e5de08d",
+    "candidateSourceSha256": "fe4b840b4dff25776ac872c6485cf188015edb7fbf64d34d95facec09f4f2e3e",
+    "independentReview": "Nine exact-solid-angle weights correctly multiply nine full scattering evaluations; this is quadrature, not exact integration. Rear/crown facets remain essentially unchanged. Pale front/temple blocks soften but the front becomes flatter and strand overlaps remain segmented. Not an acceptance-worthy coherence improvement.",
+    "rootReview": "Matched180-degree and45-degree images agree with the independent assessment: broad rear facets persist, while the temple highlight darkens/softens. No shader was installed."
+  },
+  "evidence": {
+    "cpu": "captures/hair-panel-integration-2026-09-08/cpu",
+    "renders": "captures/hair-panel-quadrature-2026-09-09"
+  },
+  "limits": [
+    "CPU reference is isolated resident R/TT/TRT response at a common angular domain; it excludes atlas,jitter,fake scatter,visibility and compositing. It is not a per-pixel physical rendering proof.",
+    "The source mirror was reused, not newly ported. Initial existing selftest run passed 58 CPU/static checks but its rendered launch failed under the sandbox; the log is retained. A separate elevated retry completed 76/80 with the same 4 already-declared visual-target failures.",
+    "Lower integration error does not imply smoother adjacent triangles: the paired contrast prediction is mixed for key versus fill.",
+    "No accepted visual-quality improvement, motion validation, GPU cost benchmark, or full material acceptance from this experiment. Initialization frameMs is not an incremental performance measurement.",
+    "Later local material/tool history is still unrecovered. No R36/R38 experiment was reopened.",
+    "Raw scripts/reports/images are ignored local artifacts."
+  ],
+  "materialSelftestRetry": {
+    "command": "node packages/core/src/material/HairMaterial.selftest.mjs",
+    "passed": 76,
+    "checks": 80,
+    "exitCode": 1,
+    "failureTitles": [
+      "the specular-to-albedo contrast reaches the look spec's measured 9.08\u201311.35 : 1 ENCODED band",
+      "the BSDF is doing something the plain card cannot: it moves the top of the distribution",
+      "\ud83d\udd34 the hair's OWN dynamic range reaches 4.0 : 1 \u2014 the half of the contrast a floor cannot buy",
+      "hair puts the frame's clipped-highlight share into the reference's 0.017\u20130.036% band"
+    ],
+    "classification": "Same four existing declared visual-target failures in docs/RED-GATES.md; sandbox launch failure resolved. No thresholds changed.",
+    "logSha256": "357178767a2176810a355ca74917d4c44abbab5025b4b6fbac74e2347227e790",
+    "measuredSourceSha256": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "selftestSourceSha256": "b847cf2bb8cee5b1e6c92c9cb687e4900d69991075770f179705fefa9726d33f",
+    "limits": [
+      "This existing material gate exercises its alive/bob01 scene, not the final bob02 geometry gate.",
+      "Its hair-on/off timing reports a negative difference; no incremental performance claim follows from this ordering or the single-run totals.",
+      "No new per-sample CPU/GPU parity test for the isolated quadrature reference."
+    ]
+  }
+}

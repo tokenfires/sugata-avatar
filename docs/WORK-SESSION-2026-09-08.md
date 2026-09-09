@@ -2,185 +2,181 @@
 
 The user authorized autonomous visual progress through **01:46 UTC September 9 / 6:46 PM Pacific**.
 Heartbeat `advance-sugata-avatar-visual-quality` runs every 15 minutes in this task. At the deadline,
-stop new experiments, checkpoint results and pause that heartbeat. Its schedule expires shortly after.
+finish the checkpoint and pause it. Do not start further work beyond that window without new steering.
 
 Working repository: `/Users/robault/GitHub/sugata-avatar`, branch `codex/local-restart`.
-Starting commit: `735b734`; face-wrap milestone: `5218c24`; hem/evidence: `4b876e6`;
-GTAO orbit repair: `93de53a`.
-Read [restart context](RESTART-2026-09-08.md) for architecture and recovery boundaries. The old iCloud
-checkout remains untouched. R36/R38 shader hypotheses remain refuted; reconcile missing later
-shader/tool history before resuming that material research.
+Read [restart context](RESTART-2026-09-08.md) for architecture and recovery boundaries. The user's
+original ambition in [BRIEF.md](BRIEF.md) remains intact. The old iCloud checkout is untouched;
+its recovery archive is partial. Missing later shader/tool history must be reconciled before
+resuming R35–R38 material research. R36 and R38's proposed repairs remain refuted.
 
-## Installed haircut
+## Installed result
 
-`assets/hair/bob02/g050.glb` now combines two calibrated post-export stages:
+The bob now drops alongside the face and ends near the jaw. Its final SHA-256 is
+`d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461`.
+The portable output's entire binary payload exactly matches the motion-tested candidate;
+only provenance metadata differs. The original asset is a tracked Git LFS fixture, so the
+complete transformation is reproducible without Blender or ignored captures.
 
-1. `hair_fall.mjs` releases 170 long cards below the temple. The original groom's corners could
-   clear the skin while its connecting triangles sliced through the cheek; twelve guides crossed
-   the head midline. The first correction preserved every vertex height, root, cap and crown.
-2. `hair_hem.mjs` lifts 510 lower vertices across 52 forward cards by at most 17.934 mm. The front
-   ends now follow the jaw-length cut with a little height variation. Roots, positions above
-   y=1.50 m, x/z coordinates, ring widths, topology, UVs, textures and skin data stay fixed.
+The three calibrated post-export stages are:
 
-Both stages recompute the affected normal/tangent frames and enforce their own geometry/stamp
-calibration. The historical fall stage deliberately refuses a later hem output. Rebuild from the
-original export through both stages, or repeat only the last stage for its idempotence check.
-The original 3.2 MB GLB is a resident Git LFS fixture, so full default tests work in a new clone
-without Blender or ignored captures. See the [pipeline instructions](../tools/figure-pipeline/README.md).
+1. `hair_fall.mjs`: release 170 long front/side cards below the temple while preserving heights,
+   roots, caps and crown. The original had 855 face crossing pairs at rest across 16 cards;
+   twelve guides crossed the head midline. Clear corners did not imply clear triangle interiors.
+2. `hair_hem.mjs`: lift 510 lower vertices on 52 forward cards, at most 17.934 mm, into a varied
+   jaw-length hem. Upper positions, x/z, widths, topology and skin/material data stay fixed.
+3. `hair_tail_release.mjs`: move 96 terminal vertices on twelve observed cards, at most 3.5 mm
+   horizontally outward, through a smooth ramp on rings 13–16. This clears held head tilts and
+   upward nods without changing heights, roots, upper rings or the other 484 cards.
 
-Installed SHA-256: `dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7`.
-Its position/normal buffers exactly match the hem scratch candidate tested in motion.
-No spring, collision, atlas, hair material, lighting or default-quality change is part of this haircut.
+Build original→fall→hem→tail in that order. Earlier stages reject later deformed outputs.
+All three default tests derive their inputs from `tools/figure-pipeline/fixtures/bob02-g050-original.glb`.
+See [pipeline instructions](../tools/figure-pipeline/README.md) and tracked evidence for
+[fall](evidence/hair-fall-2026-09-08.json), [hem](evidence/hair-hem-2026-09-08.json), and
+[final tail release](evidence/hair-tail-release-2026-09-08.json).
 
-## Hair verification and limitations
+## Motion and clearance
 
-Tracked evidence: [fall correction](evidence/hair-fall-2026-09-08.json),
-[hem refinement](evidence/hair-hem-2026-09-08.json). Raw geometry, images and browser reports are in
-`captures/hair-fall-2026-09-08/` and `captures/hair-hem-2026-09-08/` locally; ignored captures do not
-arrive in a new clone. Original, fall-stage and candidate controls are preserved there.
+The final twelve-card release passes **98 full-triangle face checks** on actual WebGPU output:
 
-| Check | Original groom | Installed fall + hem |
-|---|---:|---:|
-| Rest face triangle crossing pairs | 855 across 16 cards | 0 |
-| 13 natural poses over 12 seconds | 841–872 in every pose | 0 in each pose |
-| 17 controlled shake poses over 8 seconds | Not captured with this stimulus | 0 in each pose |
-| Peak natural-motion mean tip lag | 11.815 mm | 11.793 mm |
+| Sequence | Poses | Face crossing pairs | Minimum sampled face vertex clearance |
+|---|---:|---:|---:|
+| Natural expressions over 12 seconds | 13 | 0 in every pose | 2.584 mm |
+| Yaw shake over 8 seconds | 17 | 0 in every pose | 3.622 mm |
+| Held nod | 17 | 0 in every pose | 2.409 mm |
+| Opposite held nod | 17 | 0 in every pose | 0.920 mm |
+| Held sideways tilt | 17 | 0 in every pose | 0.926 mm |
+| Opposite sideways tilt | 17 | 0 in every pose | 0.783 mm |
 
-The independent triangle-prism gate checks full triangle intersections with boundary contact
-included at a numeric tolerance of 1e-9 m. Zero crossings does not certify positive clearance
-at every point, wholly embedded triangles, or every possible animation. Signed GPU-surface samples
-and rendered views supplement it: minimum sampled face clearance is 2.197 mm in natural motion and
-3.447 mm during the controlled shake. There are still 165 head-region crossing pairs /21 triangles
-outside the face box at rest; the natural sequence reaches 184 pairs in that larger region.
+Both actual collider fits, spring settings and the whole-groom compliance reference are unchanged.
+Targeted arc lengths change by −0.492 to +1.379 mm; derived per-card compliance changes by less
+than 1.674%. Motion is therefore measured rather than called identical: peak mean tip lag is
+11.799 mm in natural motion (11.793 mm before) and 3.023 mm in yaw shake (3.021 mm before).
+All matched head transforms are exact. Ten matched static views retain the silhouette, hem,
+crown coverage and fringe without an observed new gap. The nine final portable test groups
+passed independently, including source/body stamps, real tangents, protected attributes,
+collider fits, idempotence and output-path guards.
 
-Validation on a **dirty working tree**: fall and hem default tests each pass nine groups from the
-original LFS fixture; installed-hem idempotence/guards pass eight groups; surface geometry tests
-pass 12 analytic groups including 1,000 seeded independent-reference triangle pairs; HairDynamics
-quick mode passes 24/24, omitting its rejection proofs. All 17 pages build. The installed production
-bob renders and moves on Chromium/WebGPU with no page, console or network errors during a
-2-second check. Actual Chrome now works after the user's TCC approval: the installed bob renders,
-expression and pause/resume controls respond, and captured console errors are empty. The existing
-in-app portrait tab was refreshed. The full gate suite was not rerun; existing red declarations remain.
+The full triangle-prism gate includes boundary contact at tolerance 1e-9 m and ignores alpha.
+It uses an explicit face box in inverse-head coordinates. Finite poses do not certify every
+animation, wholly embedded triangles, or positive clearance everywhere. There are still
+165 crossing pairs outside the face box in the larger head region at rest, and at most 231
+in these motions. Moved normal/tangent frames are recomputed while neighboring authored frames
+remain; this is not a full normal rebake. Calibration applies only to bob02/g050.
 
-`HairDynamics.readVertices()` is opt-in world-space GPU card readback, adding no per-frame work
-until called. `portrait-clearance.mjs` captures the same frame's rebuilt hair and morphed/skinned
-body. `portrait-surface.mjs` replays the full triangle gate and rejects incomplete file sets,
-clock/cadence mismatches, invalid metadata and empty calibrated comparisons. Its independent review
-caught two false-pass cases (stopped clock and misplaced head matrix); seven self-contained
-regression checks now cover those failures and real geometric crossing/clear controls.
+The first eleven-card tail experiment was not installed: upward nod exposed 18 pairs on card 352,
+which the previous hem also reproduced. Its corners cleared while a long triangle interior
+crossed the cheek. The final version adds only that card under the same 3.5 mm rule.
+Raw controls, geometry, scripts, reports and renders are preserved in
+`captures/hair-tail-release-2026-09-08/`, `captures/hair-tail-release-v2-2026-09-08/`, and
+`captures/hair-axes-2026-09-08/`.
 
-## Verified renderer repair
+`HairDynamics.readVertices()` is opt-in GPU readback with no per-frame cost until invoked.
+`portrait-clearance.mjs` captures same-frame rebuilt hair and renderer-equivalent morphed/skinned
+body data; it suppresses Vite HMR and fails on clock drift. `portrait-surface.mjs` refuses missing
+frames, bad cadence/metadata, singular transforms and empty comparisons. Its seven regression
+checks include two independently reproduced false passes. The underlying surface test passes
+12 analytic groups including 1,000 seeded independent-reference comparisons.
+The first nod capture was invalidated by a hot reload and is explicitly discarded. Earlier pilot
+signed-distance results with recomputed body normals are superseded by the renderer-normal controls.
 
-With the high preset, orbiting beyond the studio backdrop could black out the entire canvas.
-A full-resolution foreground pixel sampled a cleared zero bent direction in the lower-resolution
-GTAO target. Normalizing it produced NaNs, which bloom spread across the frame. GTAO now chooses
-the current surface normal before normalization when that sampled direction is degenerate.
-Valid bent normals and occlusion remain active.
+## Renderer repairs
 
-Five corrected angles have finite AO, composite and bloom targets and a visible figure. An isolated
-old-code arm reproduces 2,520 invalid composite pixels and all 134,250 bloom pixels invalid at 90°.
-The new orbit regression passes 12 checks; existing GTAO tests pass 27/27, including rendered AO,
-specular occlusion and rejection proofs. These runs were on a dirty tree. The [tracked renderer
-ledger](evidence/orbit-regression-2026-09-08.json) records source/asset/report hashes. Raw evidence:
-`captures/orbit-regression-2026-09-08/`. Existing transparent-background restrictions remain.
+**Orbit blackout:** cleared zero bent normals in the half-resolution GTAO target became NaNs,
+then bloom spread them across the canvas. The shader now selects the surface normal before
+normalizing a degenerate sample. Five corrected angles are finite and visible; an old-code
+control reproduces 2,520 invalid composite pixels and an entirely invalid bloom target.
+The new orbit regression passes 12 checks and existing GTAO tests 27/27. See the
+[orbit ledger](evidence/orbit-regression-2026-09-08.json), commit `93de53a`.
 
-## Visual experiments and rejected directions
+**Area-light skin transmission:** the old term treated panel radiance as a point light.
+At fixed focus irradiance, halving panel dimensions incorrectly multiplied transmitted light
+by 3.938. A backside identity-LTC integral now accounts for the panel's extent and cosine/1π once.
+Corrected ratios are 0.991–0.993, while transmission-off raw scene buffers are byte-identical.
+The actual-WebGPU regression passes 22/22; existing skin checks pass 14/14 in each rendering mode.
+Twenty matched images confirm the conspicuous orange/violet eye and mouth glow is gone.
+Punctual lighting, thickness, strength, cavity and studio parameters remain fixed. See
+[repair proof](evidence/skin-area-transmission-2026-09-08.json) and
+[matched views](evidence/skin-area-visual-2026-09-08.json), commit `9ae4cf1`.
+A GPU cost ABBA probe was inconclusive because same-configuration drift exceeded the difference;
+no incremental cost claim is justified. The legacy skin checks' sole resource error was an
+identified missing favicon; the focused regression and matched portraits have no browser errors.
 
-- First fall candidate missed three forward-swinging cards and retained 71 face crossing pairs;
-  the accepted second candidate includes them.
-- Early baseline-pilot, baseline-surface and baseline-motion recomputed body normals, producing
-  misleading seam signs. Their signed classifications are superseded by baseline-final, which
-  follows the renderer's morph/skin normal path. The triangle-intersection defect was independently valid.
-- The early high-preset experiment kept resolution scale at 0.66; it was not a full-resolution test.
-  Its 90°/180°/−90° screenshots were blank because of the now-fixed GTAO bug and are not visual
-  quality evidence. A later explicit scale1 comparison sharpened pixel detail but retained the
-  coarse hair patches. The neutral-rim trial made the face glow orange and was rejected.
-- Flipping only internal diagonals relocated the bright crown/back patches with matched poses and
-  unchanged shader/atlas bytes. This demonstrates triangulation sensitivity, but that geometry
-  was equally coarse and was not shipped. It does not isolate direction from UV/depth interpolation.
-- A restrained 2 mm ribbon-frame correction preserved centerlines, roots, widths and silhouette,
-  and reduced large direction jumps 586→400. Five matched views still looked coarse and patchy.
-  That candidate was rejected; no motion testing or hem composition was done for it.
+**Hair GPU lifetime:** repeated public `Avatar.setIdentity` rebuilds on one renderer retained
+8 storage buffers / 980,096 bytes and 5 compute pipelines per retired solver. The new idempotent
+cleanup holds that total constant across three rebuilds instead of growing to32 buffers / 3,920,384
+bytes / 20 pipelines. Active, unpublished losing and failed-setup solvers are retired. Pending reads
+reject disposal, including independently reproduced nested-await races; pre-init disposal and
+renderer shutdown are safe. The 21 focused checks, Avatar 137/137 and physics quick 24/24 pass
+on the final d20 asset. Matched readback vertices are bit-identical between cleanup/control arms.
+See [resource ledger](evidence/hair-disposal-2026-09-09.json) and local
+`captures/hair-disposal-2026-09-09/`. This depends on Three r185's private attribute manager and
+must be revalidated on upgrade. The process-wide HairVelocity prototype patch still has no uninstall.
 
-## Current continuation point
+## Closed visual experiments
 
-All accepted code is committed locally: the two-stage bob, full default fixture tests,
-pose-evidence integrity guards, and GTAO orbit repair. The third geometry experiment is also
-closed: splitting 205 wide cards into three produced 906 chains, reducing direction-jump p90
-71.36°→20.17° with zero static face crossings. Ten matched static images remained broadly patchy;
-the visible improvement did not justify installing it. Motion and cost were never measured.
-All three rejected candidates and renders are preserved locally under `captures/hair-facets-2026-09-08/`;
-the [tracked experiment ledger](evidence/hair-facets-2026-09-08.json) records conclusions and hashes.
+The broad crown/back patchwork remains visible. These controlled experiments did not produce
+an accepted improvement and should not be repeated without a distinct mechanism/prediction:
 
-The fully neutral light comparison is now complete and rejected as a shipping look. All ten
-images have matching clock0 poses/cameras and no browser errors. Emitted linear Rec.709 luminance
-is preserved for every direct and hemisphere source; reflected material brightness need not be.
-The coloured cast disappears, while the broad hair patchwork remains and orange eye/cheek glow
-becomes conspicuous. See [neutral-light evidence](evidence/neutral-light-2026-09-08.json) and local
-`captures/neutral-light-2026-09-08/`. No further light variants have been run.
+- Flip 3,609 internal diagonals: patches moved but remained coarse; this demonstrates triangulation
+  sensitivity, not a unique derivative/UV/depth cause or a reversal of R38.
+- Coherent ribbon frames within 2 mm: direction jumps fell 586→400; five matched views remained patchy.
+- Split 205 wide cards into three: 906 chains versus 496; p90 direction jump fell 71.36°→20.17°.
+  Ten views did not justify 410 extra chains. Motion and cost were not measured.
+- Constrained shell projection, max 8 mm: median realized layer spread 6.763→5.739mm without a
+  clear benefit in ten views. This does not refute a fully collapsed shell. R23 already refuted
+  simply halving the standoff ladder.
+- Fully neutral lights at fixed emitted linear luminance removed the colored cast but retained
+  patchwork and exposed the transmission bug. Neutralization itself was not installed.
 
-The isolated transmission toggle confirms that term supplies most of the orange glow at the
-matched neutral 45° pose: near-eye RGB falls 57.7/26.8/17.3 display codes, mouth 49.1/22.1/14.7,
-and neck control only 0.79/0.33/0.32. These are screenshot values including downstream effects,
-not linear radiance. Neutralizing the formerly blue rim increases its emitted red by 19.75× at
-constant luminance. This control identifies the source term without proving a defect; disabling
-transmission is not a proposed repair. See [transmission control](evidence/neutral-transmission-control-2026-09-08.json).
+See [facet experiments](evidence/hair-facets-2026-09-08.json),
+[envelope experiment](evidence/hair-envelope-2026-09-08.json),
+[neutral-light control](evidence/neutral-light-2026-09-08.json), and
+[transmission isolation](evidence/neutral-transmission-control-2026-09-08.json).
+The early high-preset comparison was scale 0.66, not full resolution. Later explicit scale 1
+sharpened detail but retained patches; pre-fix blank orbit views are not visual-quality evidence.
 
-## Area-light transmission repair
+## Final panel-integration diagnostic
 
-The separate invariant established a real bug: halving a rim panel's width/height while holding
-focus irradiance fixed increased transmitted skin light by 3.938×, following panel radiance.
-Ordinary transmitted-off skin stayed near 0.997×. The area path now uses a stable backside
-identity-LTC integral, including panel extent and cosine/1π normalization once. Punctual lighting,
-strength, thickness, cavity and studio parameters remain unchanged. It avoids a view-dependent
-normalization singularity and defines degenerate panel/normal cases as zero.
+The documented hair area-light approximation evaluates the fibre response only at panel center,
+then multiplies by exact solid angle. A distinct final experiment sampled nine cells instead.
+On 24 actual crown/back triangle directions, a converged independent area reference puts the
+isolated response's aggregate relative L1 error at key 57.06%→1.54%, fill 101.15%→6.36%.
+The nominal panels are rotated relative to a fixed back view at a common mathematical focus;
+they do not replay the frozen studio lights in the rear render. This CPU result excludes the
+full per-pixel atlas, visibility and compositing path. Its prediction
+for adjacent-triangle contrast is mixed: key contrast increases slightly, fill contrast decreases.
 
-The focused actual-WebGPU regression passes 22/22, including an old-code rejection arm,
-independent rectangle integral, distance, horizon, emitting side, rotation, finite output and
-positive thin-tissue response. Corrected fixed-irradiance ratios are 0.991–0.993. Transmission-off
-scene buffers are byte-identical. Existing skin browser checks pass 14/14 in both modes without
-retuning; their sole console resource failure is the separately identified missing favicon.
-Twenty matched portrait images (before/after × studio/neutral × five angles) have no browser
-errors. The conspicuous orange/violet eye glow disappears. All 17 pages build, and the bundled
-production portrait completes three poses over two seconds with no errors. These are dirty-tree
-runs, not a full-suite certification. A GPU cost ABBA probe was inconclusive: old-code p95 drifted
-1.146→3.256 ms while corrected runs read 2.495/2.645 ms. Do not claim incremental cost from it.
-See [repair proof](evidence/skin-area-transmission-2026-09-08.json) and
-[visual comparison](evidence/skin-area-visual-2026-09-08.json). Skin source SHA:
-`cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164`.
+Ten actual WebGPU images hold pose, lighting and assets fixed and route only the accumulation.
+They retain the broad crown/rear facets; pale temple highlights soften but the front also becomes
+flatter. Independent visual review rejects this as a standalone patchwork repair. The installed
+HairMaterial is unchanged. Exact cell weighting improves this numerical approximation but is not
+an exact integral or proof of better final appearance. Cost was not benchmarked. See the
+[tracked diagnostic](evidence/hair-panel-quadrature-2026-09-09.json) and local
+`captures/hair-panel-quadrature-2026-09-09/`, `captures/hair-panel-integration-2026-09-08/cpu/`.
+The initial existing HairMaterial test hit a sandbox launch failure after 58 CPU checks. An elevated
+retry completed **76/80**, reproducing the same four already-declared visual failures: specular to
+albedo contrast, improvement over a plain card, internal dynamic range and clipped-highlight share.
+The raw log is preserved with its red exit. This alive/bob01 gate does not certify bob02 geometry,
+and its negative hair-on/off timing difference supports no incremental performance claim.
+No threshold was changed and no new per-sample CPU/GPU mirror validation is claimed.
 
-## Current continuation: side-tilt clearance
+## Final integration and restart
 
-The new nod test passes all 17 full-triangle poses. Both 0.5-radian roll directions expose a
-remaining defect in the installed hem: maximum 23/24 face crossing pairs, worst sampled edge
-−2.249 mm. Eleven cards are involved across both directions: 6,14,15,22,29,42,45,53,69,75,196.
-Most are short root tails that the original fall/hem work never changed;196 is an underlayer card.
-Centers remain outside the body while their finite ribbon widths reach into it. Tangent transport
-is correct and generally helps. Skinning is not the primary cause; inflating the global skull
-sphere would disturb unrelated roots and miss most affected locations.
+All 17 pages build with the installed d20 asset and final cleanup sources. The production portrait
+renders three fixed-step poses over 2 seconds with no browser/network errors. This is a smoke check,
+not an FPS benchmark. Actual Chrome works after the user's TCC approval and its refreshed portrait
+has no console errors. Local evidence: `captures/final-production-2026-09-09/`.
+The broader gate suite was not rerun; existing red-gate declarations remain unchanged.
 
-The first nod run was invalidated by a concurrent Vite hot reload and is explicitly discarded.
-The existing replay cadence check rejected it. The capture now suppresses its local HMR socket,
-fails immediately on clock drift and supports nod/tilt plus a mirrored `--direction -1` sequence.
-See [motion diagnosis](evidence/hair-axes-2026-09-08.json) and local `captures/hair-axes-2026-09-08/`.
+Development: `http://127.0.0.1:5197/src/portrait.html?hair=bob02`, exec session 26208.
+Production: port 5198, exec session 23873, output `/tmp/sugata-final-build`.
+Check existing ports before restarting. Keep the development portrait available to the user.
+Raw captures are local ignored artifacts (about 1.8 GB), not part of a new clone. Tracked JSON
+ledgers retain findings, source/asset/report hashes and limitations. No work has been pushed.
 
-At 00:33 UTC a scratch tail release is in fresh bidirectional roll tests. It moves only88vertices
-on the observed11cards, smoothly below ring12, by at most3.5mm outward, preserving Y/widths and
-all upper spans. Both actual bind-pose collider fits remain exactly unchanged (skull76.304629mm,
-minimum65/ring8; capsule60mm, minimum60/ring16). Targeted arc changes are−0.492..+1.323mm;
-corresponding compliance-scale changes−1.673%..+0.645% are disclosed. The candidate is not installed.
-Root owns captures/replay; `visual_next_step` owns a paired static visual/collider check and will
-make a portable transform only after runtime acceptance. Candidate:
-`/tmp/sugata-hair-tail-release/g050.glb`, SHA
-`b348268ea60248dc2b83b4d7bfcb70517553a17046955867c8da7cbf567160ab`.
-Do not install without both roll directions, then natural/yaw/nod verification. Other agents idle.
-
-The constrained outer-shell experiment is closed and rejected. It realized about1mm median
-layer compression with no clear visual improvement in ten matched views, while geometric support
-stayed fixed. It does not refute a fully collapsed shell. Evidence:
-[envelope experiment](evidence/hair-envelope-2026-09-08.json). R23 already refuted halving the
-standoff ladder. Missing later HairMaterial history still blocks R35–R38; no Blender installation
-or old iCloud reads. Do not repeat the four rejected facet/envelope controls without a new prediction.
-
-Dev server: port5197, exec session26208. Production server: port5198, exec session53151,
-output `/tmp/sugata-area-build`. Check ports before restarting. The dev server remains for the user.
+Integration checkpoint: final geometry is committed as `aea660f`, GPU cleanup as `fd3fd92`.
+Both passed independent review. The [final production ledger](evidence/final-integration-2026-09-09.json)
+binds the exact installed asset to the 17-page build and three clear production poses.
+The end-of-window automation pause remains pending. Continue only within the
+stated deadline; do not reopen a rejected experiment just to fill the remaining window.

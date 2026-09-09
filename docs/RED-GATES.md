@@ -277,6 +277,10 @@ directions, which is the clause worth keeping when this check is next edited.
   them green is the work item rather than a repair to the gate. Owned by
   `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
   failure mode the whole gate exists to prevent.
+  September 8, 2026 restart recheck: **76/80**, the same four clauses, with no threshold changes.
+  The completed WebGPU run and hashes are preserved in
+  `docs/evidence/hair-panel-quadrature-2026-09-09.json`; the earlier sandbox-only launch failure
+  is superseded by that completed run. This is a focused check, not a full-suite revalidation.
   🎯 **R26 ADDED SIX CHECKS AND ALL SIX ARE GREEN** — the primary lobe width. The discriminating one
   re-derives Marschner Table 1's β_R band in Karis' variable and asserts that the value which
   shipped from R13 to R25 reads **7.4485° as β_M — inside the paper's 5–10°** — because R26's own
