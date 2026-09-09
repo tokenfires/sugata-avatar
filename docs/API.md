@@ -351,10 +351,13 @@ range, deny-by-default on both the light name and the field name.
 **Hair is `false` by default.** Style is an explicit choice: `bob01` supports five figure bakes,
 while the chin-length `bob02` currently supports only `figure_g050` (`gender: 0.5` in the default
 nearest-bake mode). Both use their own texture maps. The original `bob01` adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
-two of its mechanisms have no undo — `createHairDynamics` returns no `dispose()`, and
-`installHairVelocity` patches `NodeMaterial.prototype.setupPosition` **process-wide**. Both are
-declared in `report().hair.undisposable` rather than hidden, because `disposal.leaked` is an
-own-property walk and structurally cannot see either.
+`installHairVelocity` still patches `NodeMaterial.prototype.setupPosition` **process-wide**
+without an uninstall. That mutation is declared in `report().hair.undisposable`, because
+`disposal.leaked` is an own-property walk and cannot see a prototype patch. HairDynamics now
+explicitly disposes its five compute nodes and eight private storage attributes during retirement;
+same-renderer rebuilds keep one resource set. Disposal is idempotent, and retired solvers refuse
+updates and readback. The attribute cleanup depends on Three r185's private manager; revalidate it
+on upgrade. See [the GPU lifetime evidence](evidence/hair-disposal-2026-09-09.json).
 
 With either supported hair style, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
 decision (hair is on), not a frame budget. `quality: 'high'` still gets `high` and

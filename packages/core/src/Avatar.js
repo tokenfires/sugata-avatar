@@ -767,13 +767,10 @@ export const AVATAR_DEFAULTS = Object.freeze( {
      *      "p95 does not resolve — the spread between two runs of the SAME configuration is larger
      *      than the difference between configurations", and its own p95 column runs the wrong way
      *      (haired 18.8 against bald 29.6 on one repetition). p50 is the number that survived.
-     *   3. **Two process-wide mutations that a library must not make behind a caller's back.**
-     *      `createHairDynamics` returns NO `dispose` (957 kB plus five compute pipelines per swap),
-     *      and `installHairVelocity` MONKEY-PATCHES `NodeMaterial.prototype.setupPosition` globally
-     *      with no uninstall (`HairVelocity.js:162-183`). Both are benign on a testbed page and
-     *      both are process-wide in a library. `leakedHandles()` is an own-property walk and
-     *      **cannot see a prototype patch** — the same structural blindness the `setGrade` 🚩
-     *      already documents — so both are declared in `report().hair` instead of being hidden.
+     *   3. **A process-wide mutation a library must not make behind a caller's back.**
+     *      `installHairVelocity` patches `NodeMaterial.prototype.setupPosition` globally with no
+     *      uninstall. `leakedHandles()` cannot see a prototype patch, so `report().hair` declares
+     *      it. HairDynamics now owns deterministic cleanup of its per-groom GPU resources.
      */
     hair: false
 } );
@@ -1072,8 +1069,7 @@ export class Avatar {
         //
         // Four handles rather than one because they have four different readers and three different
         // lifetimes. `hairRoot` is the Group under `figure.root`; `hairMaterial` carries a `dispose`
-        // and is therefore VISIBLE to `leakedHandles()`; `hairDynamics` carries NONE and is
-        // therefore invisible to it, which is why it is declared in `report().hair` instead; and
+        // and is therefore VISIBLE to `leakedHandles()`; `hairDynamics` owns its compute resources;
         // `hairUpdate` is the per-frame closure `advanceFrame` calls.
         this.hairRoot = null;
         this.hairMaterial = null;
@@ -2511,11 +2507,9 @@ export class Avatar {
              *
              * 🚩 `undisposable` IS NOT DECORATION AND IS NOT A TODO. `dispose()`'s central claim is
              * "every handle this file acquires is released, and that is CHECKED rather than
-             * asserted" — by `leakedHandles()`, an own-property walk. Two things hair does are
-             * outside what such a walk can ever see, so they are published here instead: a solver
-             * with no `dispose` (dropped by reference; five compute pipelines and ~957 kB), and a
-             * process-wide patch of `NodeMaterial.prototype.setupPosition` with no uninstall. Both
-             * are the reason `hair` defaults to false.
+             * asserted" — by `leakedHandles()`, an own-property walk. The process-wide patch of
+             * `NodeMaterial.prototype.setupPosition` has no uninstall and is outside that walk,
+             * so it is published here. The solver's per-groom GPU resources are disposed.
              */
             hair: this.hairStyle === null ? null : {
                 style: this.hairStyle,
@@ -2555,8 +2549,6 @@ export class Avatar {
                     : null,
 
                 undisposable: Object.freeze( [
-                    'HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ' +
-                        '~957 kB of instancedArray storage per attach, dropped by reference',
                     'HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition ' +
                         'process-wide with no uninstall (HairVelocity.js:162-183)'
                 ] )
@@ -3273,8 +3265,10 @@ export class Avatar {
         }
 
         // Everything this attempt built, released together, so a losing load leaves nothing behind.
+        let solver = null;
         const abandon = () => {
 
+            solver?.dynamics.dispose();
             hairRoot.removeFromParent();
             disposeGroomScene( hairRoot );
             material.hair?.flowMap?.value?.dispose?.();
@@ -3303,7 +3297,6 @@ export class Avatar {
         // because the winner's `swapFigure` ran its `disposeHair()` and its own attach first — and
         // the loser's own token check afterwards would then null the winner's. Nothing is written
         // to `this` until every await is behind us.
-        let solver;
         try {
 
             solver = HAIR_BY_TIER[ this.tier ].solver === true
@@ -3412,68 +3405,77 @@ export class Avatar {
             geometry: mesh.geometry
         } );
 
-        // The first call captures the gravity rest frame permanently, which is reason 1 for this
-        // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
-        dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+        try {
 
-        const bones = new Map();
-        figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
-
-        const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
-        const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
-        const leftShoulder = new Vector3();
-        const rightShoulder = new Vector3();
-
-        dynamics.fitColliders( {
-            shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
-            shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
-        } );
-
-        // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
-        // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
-        // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
-        // 326-vertex scalp cap shells — which are head, not hair — keep their skinning.
-        material.positionNode = dynamics.positionNode;
-
-        // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT. Overwriting `positionLocal` without also
-        // assigning `positionPrevious` leaves the groom reporting its whole displacement from the
-        // skinned rest pose as this frame's motion — p90 259.9 px/frame against a 128 px ceiling.
-        installHairVelocity( material );
-
-        // Read back rather than assumed, and read back through the module's own predicate. See the
-        // 🚩 on `report().hair.velocityRepaired`.
-        const velocityRepaired = hasHairVelocity( material );
-
-        const update = ( deltaSeconds ) => {
-
-            // The bones moved in `advanceFrame` and the renderer will not refresh their world
-            // matrices until it draws, which is after this. Idempotent against the walk
-            // `advanceFrame` already did — and required, because that walk runs before the eye
-            // update and this closure runs after `ground.update()` has moved nothing.
-            figure.root.updateMatrixWorld( true );
-
+            // The first call captures the gravity rest frame permanently, which is reason 1 for this
+            // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
             dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
 
-            // The skull rides the head matrix above; the capsule does not, because it hangs off the
-            // clavicles and `Sway` moves the whole column.
-            if ( clavicleLeft !== null && clavicleRight !== null ) {
+            const bones = new Map();
+            figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
 
-                dynamics.setShoulders(
-                    clavicleLeft.getWorldPosition( leftShoulder ),
-                    clavicleRight.getWorldPosition( rightShoulder ) );
+            const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
+            const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
+            const leftShoulder = new Vector3();
+            const rightShoulder = new Vector3();
 
-            }
+            dynamics.fitColliders( {
+                shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
+                shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
+            } );
 
-            return dynamics.update( deltaSeconds );
+            // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
+            // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
+            // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
+            // 326-vertex scalp cap shells — which are head, not hair — keep their skinning.
+            material.positionNode = dynamics.positionNode;
 
-        };
+            // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT. Overwriting `positionLocal` without also
+            // assigning `positionPrevious` leaves the groom reporting its whole displacement from the
+            // skinned rest pose as this frame's motion — p90 259.9 px/frame against a 128 px ceiling.
+            installHairVelocity( material );
 
-        // `HairDynamics.js:1189` grants one step while `resetPending`, which is exactly what a fresh
-        // attach wants: the first frame runs from the rest pose rather than from whatever the
-        // buffers held.
-        dynamics.reset();
+            // Read back rather than assumed, and read back through the module's own predicate. See the
+            // 🚩 on `report().hair.velocityRepaired`.
+            const velocityRepaired = hasHairVelocity( material );
 
-        return { dynamics, update, velocityRepaired };
+            const update = ( deltaSeconds ) => {
+
+                // The bones moved in `advanceFrame` and the renderer will not refresh their world
+                // matrices until it draws, which is after this. Idempotent against the walk
+                // `advanceFrame` already did — and required, because that walk runs before the eye
+                // update and this closure runs after `ground.update()` has moved nothing.
+                figure.root.updateMatrixWorld( true );
+
+                dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+
+                // The skull rides the head matrix above; the capsule does not, because it hangs off the
+                // clavicles and `Sway` moves the whole column.
+                if ( clavicleLeft !== null && clavicleRight !== null ) {
+
+                    dynamics.setShoulders(
+                        clavicleLeft.getWorldPosition( leftShoulder ),
+                        clavicleRight.getWorldPosition( rightShoulder ) );
+
+                }
+
+                return dynamics.update( deltaSeconds );
+
+            };
+
+            // `HairDynamics.js:1189` grants one step while `resetPending`, which is exactly what a fresh
+            // attach wants: the first frame runs from the rest pose rather than from whatever the
+            // buffers held.
+            dynamics.reset();
+
+            return { dynamics, update, velocityRepaired };
+
+        } catch ( error ) {
+
+            dynamics.dispose();
+            throw error;
+
+        }
 
     }
 
@@ -3487,16 +3489,14 @@ export class Avatar {
      * decodes are another two. None of the three is reachable from `HairNodeMaterial.dispose()`,
      * which is not overridden, so all three are disposed by name here.
      *
-     * 🚩 **AND ONE THING THIS FUNCTION CANNOT UNDO, DECLARED RATHER THAN HIDDEN.**
-     * `createHairDynamics` returns no `dispose` — its five compute pipelines and ~957 kB of
-     * `instancedArray` storage are dropped by reference and freed only when three's own bookkeeping
-     * gets to them — and `installHairVelocity` patched `NodeMaterial.prototype.setupPosition`
-     * process-wide with no uninstall. `leakedHandles()` is an own-property walk and can see neither.
-     * `report().hair.undisposable` is where they are stated.
+     * HairDynamics disposes its compute nodes and private storage before the geometry is retired.
+     * `installHairVelocity` still patches `NodeMaterial.prototype.setupPosition` process-wide with
+     * no uninstall; `report().hair.undisposable` declares that separate lifetime.
      */
     disposeHair() {
 
         this.hairUpdate = null;
+        this.hairDynamics?.dispose?.();
         this.hairDynamics = null;
 
         // Cleared with the solver it describes. Left set, `report().hair.velocityRepaired` would

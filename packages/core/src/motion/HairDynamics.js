@@ -932,6 +932,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
     let accumulatorSeconds = 0;
     let stepsTaken = 0;
     let resetPending = true;
+    let disposed = false;
 
     // How many `renderer.compute()` CALLS the last frame made — 1 when the submission is the shape
     // research doc §0.3 requires, and counted here rather than read off `renderer.info` because
@@ -950,6 +951,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      * not appear; a caller who binds differently has to fold it in here.
      */
     function setHeadMatrix( meshMatrixWorld, headBoneMatrixWorld, headBoneInverse ) {
+
+        requireLive( 'setHeadMatrix' );
 
         headMatrix.copy( meshMatrixWorld ).multiply( headBoneMatrixWorld ).multiply( headBoneInverse );
         uniforms.headMatrix.value.copy( headMatrix );
@@ -1007,6 +1010,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     function setShoulders( shoulderLeft, shoulderRight ) {
 
+        requireLive( 'setShoulders' );
+
         uniforms.capsuleA.value.copy( shoulderLeft );
         uniforms.capsuleB.value.copy( shoulderRight );
 
@@ -1039,6 +1044,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     function fitColliders( { centre = null, shoulderLeft = null, shoulderRight = null,
         shoulderRadius = 0.06 } = {} ) {
+
+        requireLive( 'fitColliders' );
 
         const world = new Vector3();
         const restWorldOf = ( particle ) => world.set(
@@ -1170,6 +1177,10 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     function update( deltaSeconds ) {
 
+        requireLive( 'update' );
+        // Three otherwise defers compute through init(), allowing submission after our disposal.
+        if ( renderer._initialized === false ) throw new Error( 'HairDynamics.update: initialize the renderer before submitting.' );
+
         accumulatorSeconds += Math.max( deltaSeconds, 0 );
 
         let substeps = 0;
@@ -1237,6 +1248,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     function reset() {
 
+        requireLive( 'reset' );
+
         uniforms.resetPositions.value = 1;
         accumulatorSeconds = 0;
         stepsTaken = 0;
@@ -1257,10 +1270,14 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     async function readCentrelines() {
 
+        requireLive( 'readCentrelines' );
+
         const unpack = async ( buffer ) => {
 
+            requireLive( 'readCentrelines' );
             const attribute = buffer.value;
             const raw = new Float32Array( await renderer.getArrayBufferAsync( attribute ) );
+            requireLive( 'readCentrelines' );
             const stride = attribute.itemSize;
             const packed = new Float32Array( particleCount * 3 );
 
@@ -1278,6 +1295,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
         const positions = await unpack( positionBuffer );
         const velocities = await unpack( velocityBuffer );
+        requireLive( 'readCentrelines' );
 
         return {
             positions: positions.packed,
@@ -1297,10 +1315,13 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
      */
     async function readVertices() {
 
+        requireLive( 'readVertices' );
+
         const attribute = cardVertexBuffer.value;
         const objectToWorld = uniforms.worldToObject.value.clone().invert();
         const steps = stepsTaken;
         const raw = new Float32Array( await renderer.getArrayBufferAsync( attribute ) );
+        requireLive( 'readVertices' );
         const stride = attribute.itemSize;
         const positions = new Float32Array( groom.cardVertexCount * 3 );
         const point = new Vector3();
@@ -1319,6 +1340,37 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
     }
 
+    function requireLive( operation ) {
+
+        if ( disposed ) throw new Error( `HairDynamics.${ operation }: solver has been disposed.` );
+
+    }
+
+    /**
+     * Release only this solver's kernels and eight private storage attributes. In three r185,
+     * ComputeNode.dispose releases pipelines/bindings, but BufferAttribute.dispose has no renderer
+     * listener. The renderer's attribute manager is therefore required: it destroys the GPU buffer
+     * AND removes the strong info.memoryMap entry. Dropping these references alone retains both.
+     * Submitted readback copies may finish; their public reads reject after the await and cannot
+     * start another read or return data belonging to a retired groom.
+     */
+    function dispose() {
+
+        if ( disposed ) return;
+        disposed = true;
+        computeCallsLastFrame = 0;
+        for ( const node of [ ...solveNodes, rebuildNode ] ) node.dispose();
+        for ( const buffer of [ positionBuffer, velocityBuffer, restCentreBuffer, restOffsetBuffer,
+            restLengthBuffer, correctionBuffer, chainComplianceBuffer, cardVertexBuffer ] ) {
+
+            // No manager exists before renderer initialization, hence no GPU attribute exists.
+            // Do not swallow real deletion errors from an initialized manager.
+            renderer._attributes?.delete( buffer.value );
+
+        }
+
+    }
+
     return {
         groom,
         uniforms,
@@ -1329,7 +1381,10 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         /** The kernels, for a caller that owns a bigger compute pass. 🚩 They must go into ONE
          *  `renderer.compute( array )` — research doc §0.3 measures the alternative at ten times
          *  the cost of the simulation — and the solve nodes must precede the rebuild. */
-        computeNodesFor: ( substeps ) => [ ...solveNodes.slice( 0, substeps ), rebuildNode ],
+        computeNodesFor: ( substeps ) => {
+            requireLive( 'computeNodesFor' );
+            return [ ...solveNodes.slice( 0, substeps ), rebuildNode ];
+        },
 
         setHeadMatrix,
         setShoulders,
@@ -1338,6 +1393,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         reset,
         readCentrelines,
         readVertices,
+        dispose,
+        get disposed() { return disposed; },
         get stepsTaken() { return stepsTaken; },
         get computeCallsLastFrame() { return computeCallsLastFrame; }
     };
