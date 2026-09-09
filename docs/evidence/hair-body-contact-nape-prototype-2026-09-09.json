@@ -1,0 +1,304 @@
+{
+  "status": "Scratch; exact physical partition control passes but frame budget fails",
+  "archive": "captures/body-contact-two-domain-frame-cost-2026-09-09",
+  "manifestSha256": "3f6efd8e5af9df1e6e2959ff69c07df841382911756a2f9585543d97bd145699",
+  "entries": 44,
+  "sourceBefore": {
+    "packages/core/src/Avatar.js": "62afda21e8fead59a421fa45c369793e1210785cc84a42c0427d63df13257e3d",
+    "packages/core/src/render/Stage.js": "57ff7e9406be3ea8a78c88f5c89fae3630cd6269f07da5730198b0fc285ffaa8",
+    "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "packages/testbed/src/portrait.js": "2e370019a5950411f0dfd6f7382f35b7f831c1e1f8d3a79561884a2866820475",
+    "captures/bob01-necklace-2026-09-09/portable-g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/body-surface-2026-09-09/HairBodyContact-two-domain.mjs": "b1387c41dcb7e80388ffe6c8dc0e9272f3cdf2eafc52346cb6fd4328cfe0406f",
+    "captures/body-surface-2026-09-09/HairBodyContactCalibration-partition.data.mjs": "4b9b0e4121bb506cfe02fc3fd6041d313b8f815802dd35dd8315b13ca0e30f23",
+    "captures/body-surface-2026-09-09/HairBodyContactCalibration-nape.data.mjs": "ea4cce1a809076cc24843cef576b28f6b172eca5357340b5ade28cba8059dd5e",
+    "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "packages/core/src/motion/HairBodyContact.js": "b57fea9f9a3f2dccf23a4212d0223c3b4508e7cb691e0b34ad4dd098322beda0",
+    "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "packages/core/src/motion/HairSurfaceContact.js": "6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185",
+    "packages/core/src/motion/HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "packages/core/src/motion/HairBodyContactCalibration.js": "a2e43c5f3d1ff499f29a303aee22ccdffcd3605e9fcf9149e268419cf38b8dab",
+    "packages/core/src/motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942",
+    "packages/core/src/motion/HairBodyContactCalibration.g025.data.js": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024"
+  },
+  "sourceStable": true,
+  "partitionPhysicalParity": true,
+  "remaining487PhysicalParity": true,
+  "allRootsExact": true,
+  "results": [
+    {
+      "arm": "single",
+      "summary": {
+        "submitCpuMs": {
+          "count": 720,
+          "min": 1.699999988079071,
+          "median": 2.0999999940395355,
+          "p95": 2.2999999970197678,
+          "max": 3.0999999940395355,
+          "mean": 2.083472222648561
+        },
+        "submitToGpuCompleteMs": {
+          "count": 720,
+          "min": 10.900000005960464,
+          "median": 14.200000002980232,
+          "p95": 15.700000002980232,
+          "max": 16.5,
+          "mean": 14.073333333743115
+        },
+        "computeGpuMs": {
+          "count": 720,
+          "min": 8.042877,
+          "median": 11.556824,
+          "p95": 12.922595,
+          "max": 13.703916,
+          "mean": 11.32122496666667
+        },
+        "renderTimestampSumMs": {
+          "count": 720,
+          "min": 2.1023420000000006,
+          "median": 2.703667999999999,
+          "p95": 4.2717290000000006,
+          "max": 7.047103999999999,
+          "mean": 2.8835435402777785
+        }
+      },
+      "contact": {
+        "calibration": "bob01-g050-long-fall-neck-v1",
+        "frames": 753,
+        "activeChains": 496,
+        "patchVertices": 1069,
+        "patchTriangles": 1872,
+        "surfaceBuffers": 3,
+        "stages": 4,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "queryInputReuse": {
+          "enabled": true,
+          "metadataRecords": 47616,
+          "validBlock": 15872,
+          "reusedBlock": 31744,
+          "snapshotInvalidates": true,
+          "traversalCountsExcludeReused": true
+        },
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+      },
+      "canvas": {
+        "width": 716,
+        "height": 750
+      }
+    },
+    {
+      "arm": "partition",
+      "summary": {
+        "submitCpuMs": {
+          "count": 720,
+          "min": 2.6000000089406967,
+          "median": 3,
+          "p95": 3.9000000059604645,
+          "max": 4.799999997019768,
+          "mean": 3.0675000001986823
+        },
+        "submitToGpuCompleteMs": {
+          "count": 720,
+          "min": 15.400000005960464,
+          "median": 18.5,
+          "p95": 21,
+          "max": 21.700000002980232,
+          "mean": 18.581527778361405
+        },
+        "computeGpuMs": {
+          "count": 720,
+          "min": 11.883361,
+          "median": 14.192326,
+          "p95": 16.552164,
+          "max": 17.730022,
+          "mean": 14.278460016666672
+        },
+        "renderTimestampSumMs": {
+          "count": 720,
+          "min": 2.119135,
+          "median": 3.284618,
+          "p95": 6.734482,
+          "max": 8.897736,
+          "mean": 3.8930488500000013
+        }
+      },
+      "contact": {
+        "calibration": "bob01-g050-partition-control-scratch",
+        "frames": 753,
+        "activeChains": 496,
+        "patchVertices": 2138,
+        "patchTriangles": 3744,
+        "surfaceBuffers": 6,
+        "stages": 8,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "queryInputReuse": {
+          "enabled": true,
+          "snapshotInvalidates": true,
+          "traversalCountsExcludeReused": true,
+          "domainLayouts": [
+            {
+              "id": "neck-shoulders",
+              "enabled": true,
+              "metadataRecords": 46752,
+              "validBlock": 15584,
+              "reusedBlock": 31168,
+              "snapshotInvalidates": true,
+              "traversalCountsExcludeReused": true
+            },
+            {
+              "id": "inner-nape",
+              "enabled": true,
+              "metadataRecords": 864,
+              "validBlock": 288,
+              "reusedBlock": 576,
+              "snapshotInvalidates": true,
+              "traversalCountsExcludeReused": true
+            }
+          ]
+        },
+        "queryDispatchesPerSubstep": 32,
+        "resetQueryDispatches": 128,
+        "domains": [
+          {
+            "id": "neck-shoulders",
+            "activeChains": 487,
+            "patchVertices": 1069,
+            "patchTriangles": 1872
+          },
+          {
+            "id": "inner-nape",
+            "activeChains": 9,
+            "patchVertices": 1069,
+            "patchTriangles": 1872
+          }
+        ],
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open calibrated body patches; scalp, higher neck and garments need separate clearance checks."
+      },
+      "canvas": {
+        "width": 716,
+        "height": 750
+      }
+    },
+    {
+      "arm": "nape",
+      "summary": {
+        "submitCpuMs": {
+          "count": 720,
+          "min": 2.7000000029802322,
+          "median": 3,
+          "p95": 3.4000000059604645,
+          "max": 4.200000002980232,
+          "mean": 3.0612500005712113
+        },
+        "submitToGpuCompleteMs": {
+          "count": 720,
+          "min": 19.599999994039536,
+          "median": 22.099999994039536,
+          "p95": 23.299999997019768,
+          "max": 24.899999991059303,
+          "mean": 21.968472223087318
+        },
+        "computeGpuMs": {
+          "count": 720,
+          "min": 15.242018,
+          "median": 18.343845,
+          "p95": 19.505077,
+          "max": 20.186526,
+          "mean": 18.089042270833346
+        },
+        "renderTimestampSumMs": {
+          "count": 720,
+          "min": 2.1018860000000004,
+          "median": 2.7615419999999995,
+          "p95": 4.807677999999999,
+          "max": 8.299207,
+          "mean": 3.0024536777777735
+        }
+      },
+      "contact": {
+        "calibration": "bob01-g050-inner-nape-neck-v2-scratch",
+        "frames": 753,
+        "activeChains": 496,
+        "patchVertices": 2270,
+        "patchTriangles": 3948,
+        "surfaceBuffers": 6,
+        "stages": 8,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "queryInputReuse": {
+          "enabled": true,
+          "snapshotInvalidates": true,
+          "traversalCountsExcludeReused": true,
+          "domainLayouts": [
+            {
+              "id": "neck-shoulders",
+              "enabled": true,
+              "metadataRecords": 46752,
+              "validBlock": 15584,
+              "reusedBlock": 31168,
+              "snapshotInvalidates": true,
+              "traversalCountsExcludeReused": true
+            },
+            {
+              "id": "inner-nape",
+              "enabled": true,
+              "metadataRecords": 864,
+              "validBlock": 288,
+              "reusedBlock": 576,
+              "snapshotInvalidates": true,
+              "traversalCountsExcludeReused": true
+            }
+          ]
+        },
+        "queryDispatchesPerSubstep": 32,
+        "resetQueryDispatches": 128,
+        "domains": [
+          {
+            "id": "neck-shoulders",
+            "activeChains": 487,
+            "patchVertices": 1069,
+            "patchTriangles": 1872
+          },
+          {
+            "id": "inner-nape",
+            "activeChains": 9,
+            "patchVertices": 1201,
+            "patchTriangles": 2076
+          }
+        ],
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open calibrated body patches; scalp, higher neck and garments need separate clearance checks."
+      },
+      "canvas": {
+        "width": 716,
+        "height": 750
+      }
+    }
+  ],
+  "method": "Three fresh actual Avatar pages; same corrected g050/body,716x750 canvas,32 warm+720 fixed60 frames, exactly2 substeps each. Single domain is current production cache owner. Partition routes the experimental owner with both disjoint groups on original1872 triangles. Nape routes only the nine-group domain to the anatomical2076 superset. Real calibration hashes remain enforced. Timings are serialized update-to-GPU completion excluding timestamp/rAF/compositor waits; summed render timestamps overlap. Partition final physical state must be exactly equal; nape final remaining487 positions/velocities/vertices and all pinned roots must be exact. This is not whole-body clearance or general interactive FPS acceptance.",
+  "domainProof": "captures/nape-group-domain-2026-09-09",
+  "domainManifestSha256": "2d4688e9e7686efcf574c043b9438e77f0ac41cb7824190cebd64b3b0e4dd2b2",
+  "ownerReview": "captures/two-domain-owner-review-2026-09-09",
+  "ownerReviewManifestSha256": "0442a42d36609f10479cd700ab9d2a4c8dc4e094bf98473974a2b033937e59df"
+}

@@ -1,6 +1,6 @@
 # Calibrated long-bob body contact
 
-The core owner is integrated into Avatar for the exact corrected bob01/g050 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent face/selected-neck captures and live ownership/transform gates pass. Full-body residuals, interactive frame pacing and final visual acceptance remain open.
+The core owner is integrated into Avatar for exact corrected bob01/g050 and composed bob01/g025 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent g050 face/selected-neck captures and live ownership/transform gates pass. The g025 registration and initial smoke are documented separately in HAIR-BODY-CONTACT-G025.md; its conservative geometric face gate is not accepted. Full-body residuals, interactive frame pacing and final visual acceptance remain open.
 
 ## Selection and loading
 
@@ -47,7 +47,7 @@ node tools/critic/portrait-clearance.selftest.mjs
 node packages/core/src/Avatar.selftest.mjs
 ```
 
-The calibration/owner tests cover fifteen CPU groups, including actual TSL node construction, reset/normal ordering, canonical masked topology, altered assets, partial stage failure, reentrant retirement and cleanup errors. The two Avatar tests defer actual Web Crypto digests and retire the caller by disposal or a new identity token. These do not replace GPU motion, appearance, frame-time or renderer-memory acceptance. Twelve portable primitive groups now include actual core GPU queries/contact planes/bounds and both historical rejection controls; see docs/HAIR-SURFACE-PRIMITIVES.md.
+The calibration/owner tests cover sixteen CPU groups, including actual TSL node construction, reset/normal ordering, canonical masked topology, altered assets, partial stage failure, reentrant retirement and cleanup errors. Four Avatar cases across g050/g025 defer actual Web Crypto digests and retire the caller by disposal or a new identity token. These do not replace GPU motion, appearance, frame-time or renderer-memory acceptance. Twelve portable primitive groups now include actual core GPU queries/contact planes/bounds and both historical rejection controls; see docs/HAIR-SURFACE-PRIMITIVES.md.
 
 ## Full skin transform
 
@@ -90,3 +90,24 @@ step count exactly. Update-to-GPU wall median improves18.2→14.3ms (p9521.4→1
 median14.876898→11.665822ms (p9518.529468→12.896095). The same timing exclusions apply.
 This tested workload fits a16.7ms budget at median and p95, but interactive frame pacing and
 other poses/bakes/hardware remain separate. See `docs/evidence/hair-body-contact-input-cache-2026-09-09.json`.
+
+## Experimental inner-nape domain
+
+The remaining g050 inner-nape intersections sit above the current1872-triangle domain. A CPU
+check over22 saved natural/nod poses supports a separate anatomical2076-triangle superset for
+nine curtains, retaining all original neck/shoulder triangles. All198 roots and complete first
+spans clear their width bounds; the lowest margins are5.706mm and3.672mm respectively.
+All74 saved opaque negative witnesses are covered. This is a bounded domain-feasibility result,
+not arbitrary-pose clearance.
+
+An isolated owner partitions487 original-domain and9 expanded-domain chains into complete
+sequential batches. Its same-domain control preserves all496 positions, velocities and rebuilt
+vertices exactly after720 frames; the expanded arm preserves the other487 and every pinned root.
+However update-to-GPU wall median rises14.2→18.5ms for partition overhead and22.1ms for the
+expanded domain. This prototype is not promoted. Its3948 triangles/2270vertices are summed
+storage records; anatomical union is2076/1201. See
+`docs/evidence/hair-body-contact-nape-prototype-2026-09-09.json`.
+
+Matched natural/nod full-geometry and front/side/rear captures are underway. A CPU-only forest
+packing design preserves both BVHs and their separate boundary masks in three shared buffers
+to avoid doubling dispatches; no GPU or timing acceptance for that design exists yet.

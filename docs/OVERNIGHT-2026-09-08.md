@@ -37,18 +37,19 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the07:55UTC section below; earlier sections retain the experimental history.
+Latest checkpoint is the08:30UTC section below; earlier sections retain the experimental history.
 No shipping long-bob GLB has changed yet. The exact corrected g050 candidate activates real core
 contact; the normal preview still loads the original asset. All shipping bob02 bytes are preserved.
 
-- Root: exact-input cache promoted after actual720-frame parity/performance; core/docs checkpoints,
-  coordinating remaining visible g050 acceptance and g025 registry integration.
-- `continuity_audit`: fixed nape support family failed an explicit posed enclosure constraint on211;
-  assessing a calibrated upper-neck domain for the nine long inner-nape curtains, CPU only.
-- `orbit_render_audit`: owns GPU for portable cache invalidation/parity and promoted Avatar regression;
-  body contact, Avatar and calibration sources remain frozen during those checks.
-- `visual_next_step`: reproducible g025 composition committed; exact calibration/registry proposal
-  reviewed but unapplied. Preparing actual composed motion capture; no shipping asset edits.
+- Root: GPU owner for matched g050 baseline/nape natural12s andnod4s captures under
+  `/tmp/sugata-root-nape-motion`; current62-buffer prototype is physically isolated but too slow.
+- `continuity_audit`: post-capture exact full-triangle/opaque witness analysis; exhaustive nine-card
+  base/mip texel checks cost about75s per pose. Prioritize420/720/nod60 then finish remaining poses.
+- `orbit_render_audit`: isolated CPU forest shader/stage/owner prototype, preserving two independent
+  BVHs in three shared query buffers and one all496 stage. No GPU slot until geometry benefit.
+- `visual_next_step`: g025 registry and smoke committed. Transparent card44 margin crosses the
+  conservative face surface; CPU mip qualification underway, no new shape edit. Diagnostic
+  natural/nod±47-pose batch is prepared and queued after root GPU captures.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -455,3 +456,55 @@ No final clothing-quality or broader-body fitting claim is made.
   No second arbitrary tuning candidate. Next CPU check evaluates a calibrated upper-neck superset
   for the nine inner-nape curtains while keeping all original neck/shoulder coverage. Shipping
   bob01 and protected bob02 remain unchanged; four known HairMaterial failures remain.
+
+## Nape partition proof and measured cost — about08:30UTC
+
+- Cache integration66b6388 is followed by portable regression625323c:8 stage groups and8 actual
+  Avatar groups pass on promoted stage6fca962e/ownerfd0b5284. Self-contained gzip fixture
+  preserves Float64 authored offsets before CPU radius calculation; no regenerating goldens
+  from the implementation under test. Archive `query-input-cache-portable-2026-09-09`,
+  manifest7989e3bc142012a4646a662e9b17a92b2facb5a471257057ff6bc67d7bbeeb55.
+- g025 registry32afd36 preserves g050 export identity and cache behavior; CPU16 calibration/owner,
+  Avatar137 and4 actual-digest retirement cases pass. Actual g025 smoke has2 complete geometry/
+  velocity states and8 orientation views, enabled cache/contact, zero errors and exact source
+  freeze. At0.1s card44 spans14–15 have5 conservative face-crossing pairs, caused by transported
+  width rotation, while centerlines remain14.7–15.6mm clear. All crossing UV rectangles plus halo
+  are alpha0 at mip0. Later CPU minification estimate (LOD4.30–4.77) finds low nonzero coverage,
+  not an observed opaque collision; it is not GPU textureSample parity. Keep geometric red and
+  opacity classification separate; no new groom adjustment is justified yet. Focused record010d6e9.
+- Original fixed-direction nape rest support is infeasible for one211 opaque witness across
+  natural420/nod60. Instead, nine curtains188/193/198/201/202/211/217/223/272 can query the
+  original1872 triangles plus204 positive dominant-neck additions. Across22 actual saved poses:
+ 198 roots min+5.706052mm;198 COMPLETE first spans min+3.671646mm; all74 opaque negative
+  witnesses retain their true nearest triangle and all15 associated spans activate. No old
+  coverage removed. Domain archive manifest2d4688e9e7686efcf574c043b9438e77f0ac41cb7824190cebd64b3b0e4dd2b2.
+- Root's isolated owner uses complete sequential group batches so global snapshot/finalize does
+  not double velocity correction.16 adapted CPU groups pass both default fallback and two-domain
+  owner; orbit4 additional groups prove exact partition/order and second-skin failure retirement
+  of62 owned targets with0 submissions. Review archive manifest0442a42d36609f10479cd700ab9d2a4c8dc4e094bf98473974a2b033937e59df.
+- Actual three-arm720-frame comparison: partitioning onto two identical original domains keeps
+  ALL496 centers/velocities/vertices exact. Expanding only nine preserves other487 and allroots,
+  with finite arrays and no browser errors. Wall median/p95:single14.2/15.7ms, partition18.5/21,
+  nape22.1/23.3. Compute medians11.5568/14.1923/18.3438ms. The current two-stage-per-step
+  architecture fails the16.7ms target and is not promoted. Archive44 files under
+  `captures/body-contact-two-domain-frame-cost-2026-09-09`, manifest3f6efd8e5af9df1e6e2959ff69c07df841382911756a2f9585543d97bd145699.
+- Candidate owner `captures/body-surface-2026-09-09/HairBodyContact-two-domain.mjs` b1387c41…;
+  nape calibration dataea4cce1a…, partition-control data4b9b0e41…. Real geometry validation stays
+  active through data/owner response substitution. Core owner/calibration and allshipping GLBs
+  remain unchanged by this experiment.3948triangles/2270vertices are summed storage, not union.
+- Root copied visual's complete capture harness to `/tmp/sugata-root-nape-capture`. It supports
+  explicit single/partition/nape modes, exact candidate hashes, full calibration-domain arrays,
+  complete17516 hair vertices (GPU cards + renderer-equivalent CPU skinned caps), velocities,
+  body positions/normals/canonical indices and served source snapshots. Each orientation draw
+  now has its own GPU+double-rAF barrier. This corrects an earlier same-epoch screenshot
+  limitation; original g025 smoke images/harness remain preserved, not overwritten. Root's
+  g0500/.1s smoke passes2 states/8views with exact camera/simulation restoration andzeroerrors.
+- Four full captures are running sequentially:baseline-natural12s, nape-natural12s, baseline-nod4s,
+  nape-nod4s.13+13+9+9 samples, twelve orientation images each; exact geometry analysis follows.
+  Baseline-natural already retains face0 at all13 saved poses, max link error.346813mm.
+- Forest CPU packing retains each independent BVH's root/ranges/ordered IDs and boundary masks;
+ 54 shared triangles have DIFFERENT boundary flags, so recomputing one union mask is invalid.
+ 6 CPU groups pass6048 exact query comparisons and5400 root-tube decisions. Proposed shared
+  arrays317280B include496 range headers; projected total35 solver buffers/7177952B, not yet
+  observedGPU. Archive `body-surface-forest-cpu-2026-09-09`, manifest200b12a73beea867f7058ad13b522d6f55b5754279c236ba53c1dbc7ec2bfc3e.
+  Isolated shader/stage/owner implementation proceeds CPU-only while motion evidence is reviewed.
