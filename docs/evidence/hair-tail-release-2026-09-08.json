@@ -1,0 +1,491 @@
+{
+  "date": "2026-09-08",
+  "installed": true,
+  "calibration": "bob02-g050-tail-clearance-v1",
+  "installedSha256": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461",
+  "motionTestedScratchSha256": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc",
+  "entireBinaryPayloadMatchesMotionCandidate": true,
+  "sourceHemSha256": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+  "bodyGeometry": "644d39473d8d46193914ef046079543730f1eb9e44add93605102aac7c9a8701",
+  "sourceGeometry": "e7fba6a998fedbe1c3778c4be48b08100bf3899134dad8737c00d1829c85e482",
+  "outputGeometry": "390f9d1ded1098239ac88aacc7a1b3791edfc81a9ed99f5fc5954bde6d5d56ce",
+  "method": "For each observed card, derive horizontal outward direction from source tip center to closest source body point; translate both corners equally by3.5mm*smoothstep((ring−12)/4), preserving all Y, roots and rings0–12.",
+  "cards": [
+    6,
+    14,
+    15,
+    22,
+    29,
+    42,
+    45,
+    53,
+    69,
+    75,
+    196,
+    352
+  ],
+  "modifiedVertices": 96,
+  "maxDisplacementMm": 3.5000040767987897,
+  "protected": {
+    "rootsCapsUpperRingsYAndUnselectedPositionsExact": true,
+    "topology": {
+      "chains": 496,
+      "rings": 17,
+      "vertices": 17516
+    },
+    "maxWidthComponentErrorMm": 0.000001862645149230957,
+    "wholeGroomMedianArcExact": true,
+    "medianArcMm": 142.87498593330383,
+    "bindPoseColliderFit": {
+      "before": {
+        "skullCentre": [
+          -0.0009741044735339323,
+          1.5766648226219082,
+          0.037897749787624474
+        ],
+        "skullRadius": 0.07630462862094742,
+        "scalpRadius": 0.09920758587636347,
+        "capsuleRadius": 0.06,
+        "nearestSkull": {
+          "particle": 1113,
+          "card": 65,
+          "ring": 8,
+          "distance": 0.07630462862094742
+        },
+        "nearestCapsule": {
+          "particle": 1036,
+          "card": 60,
+          "ring": 16,
+          "distance": 0.09648585611221352
+        },
+        "shoulderLeft": [
+          0.022774459030632563,
+          1.3424876875371201,
+          0.022098851735053698
+        ],
+        "shoulderRight": [
+          -0.022774459030632563,
+          1.3424876875371201,
+          0.022098851735053698
+        ]
+      },
+      "after": {
+        "skullCentre": [
+          -0.0009741044735339323,
+          1.5766648226219082,
+          0.037897749787624474
+        ],
+        "skullRadius": 0.07630462862094742,
+        "scalpRadius": 0.09920758587636347,
+        "capsuleRadius": 0.06,
+        "nearestSkull": {
+          "particle": 1113,
+          "card": 65,
+          "ring": 8,
+          "distance": 0.07630462862094742
+        },
+        "nearestCapsule": {
+          "particle": 1036,
+          "card": 60,
+          "ring": 16,
+          "distance": 0.09648585611221352
+        },
+        "shoulderLeft": [
+          0.022774459030632563,
+          1.3424876875371201,
+          0.022098851735053698
+        ],
+        "shoulderRight": [
+          -0.022774459030632563,
+          1.3424876875371201,
+          0.022098851735053698
+        ]
+      },
+      "exact": true,
+      "limit": "Actual implementation exercised in identical bind-pose clavicle inputs. Browser must additionally verify initial posed uniform values."
+    },
+    "posedColliderUniforms": "All sphere/capsule values bit-identical in paired browser renders."
+  },
+  "targetedLengths": [
+    {
+      "card": 6,
+      "beforeMm": 82.95339345932007,
+      "afterMm": 82.57077634334564,
+      "deltaMm": -0.38261711597442627,
+      "complianceBefore": 1.7223525159747566,
+      "complianceAfter": 1.7303335666749862
+    },
+    {
+      "card": 14,
+      "beforeMm": 84.14943516254425,
+      "afterMm": 84.10926908254623,
+      "deltaMm": -0.04016607999801636,
+      "complianceBefore": 1.6978721919799518,
+      "complianceAfter": 1.6986830047599624
+    },
+    {
+      "card": 15,
+      "beforeMm": 88.2268026471138,
+      "afterMm": 88.46153318881989,
+      "deltaMm": 0.2347305417060852,
+      "complianceBefore": 1.6194056867817113,
+      "complianceAfter": 1.615108632905324
+    },
+    {
+      "card": 22,
+      "beforeMm": 76.6676813364029,
+      "afterMm": 76.17603987455368,
+      "deltaMm": -0.49164146184921265,
+      "complianceBefore": 1.8635621091290886,
+      "complianceAfter": 1.8755895707966657
+    },
+    {
+      "card": 29,
+      "beforeMm": 77.7299776673317,
+      "afterMm": 79.0528729557991,
+      "deltaMm": 1.3228952884674072,
+      "complianceBefore": 1.8380937473670629,
+      "complianceAfter": 1.8073345166492512
+    },
+    {
+      "card": 42,
+      "beforeMm": 84.74357426166534,
+      "afterMm": 85.07295697927475,
+      "deltaMm": 0.3293827176094055,
+      "complianceBefore": 1.6859683719752525,
+      "complianceAfter": 1.6794406942750404
+    },
+    {
+      "card": 45,
+      "beforeMm": 89.7187888622284,
+      "afterMm": 90.23692458868027,
+      "deltaMm": 0.5181357264518738,
+      "complianceBefore": 1.5924756424510116,
+      "complianceAfter": 1.583331730159903
+    },
+    {
+      "card": 53,
+      "beforeMm": 92.80358999967575,
+      "afterMm": 93.096062541008,
+      "deltaMm": 0.2924725413322449,
+      "complianceBefore": 1.539541583831003,
+      "complianceAfter": 1.5347049277231104
+    },
+    {
+      "card": 69,
+      "beforeMm": 80.65550029277802,
+      "afterMm": 80.22855222225189,
+      "deltaMm": -0.42694807052612305,
+      "complianceBefore": 1.7714227227488542,
+      "complianceAfter": 1.780849609968115
+    },
+    {
+      "card": 75,
+      "beforeMm": 89.42096680402756,
+      "afterMm": 89.69404548406601,
+      "deltaMm": 0.27307868003845215,
+      "complianceBefore": 1.5977794810295955,
+      "complianceAfter": 1.592914949506713
+    },
+    {
+      "card": 196,
+      "beforeMm": 263.2267475128174,
+      "afterMm": 263.33141326904297,
+      "deltaMm": 0.10466575622558594,
+      "complianceBefore": 0.5427829325222612,
+      "complianceAfter": 0.5425671937868269
+    },
+    {
+      "card": 352,
+      "beforeMm": 392.18732714653015,
+      "afterMm": 393.5666084289551,
+      "deltaMm": 1.3792812824249268,
+      "complianceBefore": 0.3643029135409122,
+      "complianceAfter": 0.3630261888924832
+    }
+  ],
+  "rest": {
+    "facePairs": 0,
+    "headPairs": 165,
+    "crownCoverage": {
+      "before": {
+        "samples": 131,
+        "covered": 131
+      },
+      "after": {
+        "samples": 131,
+        "covered": 131
+      }
+    }
+  },
+  "motion": [
+    {
+      "kind": "natural",
+      "poses": 13,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 184,
+      "minSampledFaceVertexMm": 2.5838568313219494,
+      "beforePeakMeanLagMm": 11.79311573628074,
+      "afterPeakMeanLagMm": 11.798950226082264,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.273163510313348,
+      "maxIndividualTargetLagDeltaMm": 1.4046226771812584,
+      "captureReportSha256": "03c3674b237b98e42759c820d5f01b56d470a4e20db96dd54f308b0c5d2cae4d",
+      "surfaceReportSha256": "1b7f218239cb0c2d39b12da018e8c84df3c05f812b654ae6fe9b122381148802",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    },
+    {
+      "kind": "shake",
+      "poses": 17,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 178,
+      "minSampledFaceVertexMm": 3.621586880567792,
+      "beforePeakMeanLagMm": 3.0213305821921272,
+      "afterPeakMeanLagMm": 3.0230734377657043,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.07946720294619632,
+      "maxIndividualTargetLagDeltaMm": 0.40017905435677825,
+      "captureReportSha256": "2d7b271279f7c2d5a3766cf53cac0c3c87d032967fb20aed18cdcf776e144ade",
+      "surfaceReportSha256": "ad4a2d919ba0809fb92b3e6636414be69b2e28ebff432d4104c784e3eb8646c5",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    },
+    {
+      "kind": "nod",
+      "poses": 17,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 206,
+      "minSampledFaceVertexMm": 2.4093073864280914,
+      "beforePeakMeanLagMm": 11.223655773562218,
+      "afterPeakMeanLagMm": 11.2235915248665,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.016595411649416764,
+      "maxIndividualTargetLagDeltaMm": 0.14030848477530355,
+      "captureReportSha256": "fa52cd6e1fb28ba44887cf9968e177608a92409f8311e8a39ed4c4c08787eef4",
+      "surfaceReportSha256": "27e0f82a6b7003d6261321a88777d7d23ead7b343484e12b2381512c92591450",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    },
+    {
+      "kind": "nod-reverse",
+      "poses": 17,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 187,
+      "minSampledFaceVertexMm": 0.9199174718702069,
+      "beforePeakMeanLagMm": 11.438042194872315,
+      "afterPeakMeanLagMm": 11.438664524470413,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.025722956721426254,
+      "maxIndividualTargetLagDeltaMm": 0.19743490972204825,
+      "captureReportSha256": "d510099ab499ef1d4631c2ddb35f0ee75f9883a13eed243b77c8134723d4c899",
+      "surfaceReportSha256": "36f9956ba0db80a81dc8ae1e3ac5376fa3a2fceec5956512c6f5b9e2e7b14748",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    },
+    {
+      "kind": "tilt",
+      "poses": 17,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 215,
+      "minSampledFaceVertexMm": 0.9263078186753758,
+      "beforePeakMeanLagMm": 11.185665584950709,
+      "afterPeakMeanLagMm": 11.186949493482112,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.08826111664262963,
+      "maxIndividualTargetLagDeltaMm": 1.1637326079389974,
+      "captureReportSha256": "4ed2cae45967c94a5a303173fc30df94343d835a65e4686b35c06b50daba75fc",
+      "surfaceReportSha256": "74930ea3802f4cc9eeda8fa202ac6b8a122fcfb61b4d9e66c916fc346ba603de",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    },
+    {
+      "kind": "tilt-reverse",
+      "poses": 17,
+      "facePairs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxHeadPairs": 231,
+      "minSampledFaceVertexMm": 0.7825855504205262,
+      "beforePeakMeanLagMm": 11.571720856046635,
+      "afterPeakMeanLagMm": 11.572561950107778,
+      "maxHeadDelta": 0,
+      "maxTargetMeanLagDeltaMm": 0.06088062747275439,
+      "maxIndividualTargetLagDeltaMm": 0.4425213163113604,
+      "captureReportSha256": "2dac173c0cee071305d52269f63bb54192ceb5124d864205156bbce3be486683",
+      "surfaceReportSha256": "e1e9bd6c27e46b2d2ef86efe726dc79070c9b095877ad525e516c602ef9d1be4",
+      "captureSourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "cb60b586d5fae5507b7ace0372b61c152c93151f06536c427792fdc5eb05affc"
+      },
+      "errors": []
+    }
+  ],
+  "totalPoseCount": 98,
+  "visualReview": "Ten matched static control/candidate views retain the haircut silhouette, hem, crown, fringe and coverage. Root checked matched45-degree images independently. Broad card patchwork remains.",
+  "tests": {
+    "defaultPortableGroups": 9,
+    "fixture": "tools/figure-pipeline/fixtures/bob02-g050-original.glb",
+    "pipeline": "original → hair_fall → hair_hem → hair_tail_release; no ignored captures required.",
+    "treeState": "DIRTY"
+  },
+  "rejectedV1": {
+    "scratchSha256": "b348268ea60248dc2b83b4d7bfcb70517553a17046955867c8da7cbf567160ab",
+    "reason": "Eleven-card release cleared bothrolls/natural/yaw/nod, but opposite held nod exposed unchanged card352:18fulltrianglepairs despiteclear corners. Baselinehem repeats the same18pairs. V2 adds only352 under the same3.5mm rule."
+  },
+  "limits": [
+    "Finite sampled motion and an explicit face box do not certify every pose, wholly embedded triangles or positive clearance at every unsampled triangle point.",
+    "Full triangle gate ignores alpha coverage. Residual head crossings outside the face box remain.",
+    "Only bob02/g050 is calibrated.",
+    "Springs,gravity,solver settings,collider fits and whole-groom compliance reference stay fixed; per-card lengths and derived compliance change as reported.",
+    "Moved normals/tangents follow the reviewed post-export convention; neighboring authored normals are retained, not fully rebaked.",
+    "Motion captures predate the separate resource-cleanup change, which does not change live solver arithmetic."
+  ],
+  "sourceHashes": {
+    "tools/figure-pipeline/hair_tail_release.mjs": "de8919f048a258e75dd1c1846136363762983dd90f473329316603a6278be822",
+    "tools/figure-pipeline/hair_tail_release.selftest.mjs": "d8058cd86fffcbc3f9f0b71c4b488707876fee4c8278a80af54b2fadf90fe255",
+    "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+    "tools/critic/portrait-surface.mjs": "d76e4a4c6f2f50846a776d83594fe918f0c5ae937e09f604526ee6637517deda"
+  }
+}

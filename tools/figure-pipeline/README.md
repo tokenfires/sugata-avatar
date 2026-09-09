@@ -1121,11 +1121,15 @@ node tools/figure-pipeline/hair_fall.mjs \
   --output /tmp/corrected-bob02-g050.glb --report /tmp/hair-fall-report.json
 node tools/figure-pipeline/hair_hem.mjs \
   --input /tmp/corrected-bob02-g050.glb --body assets/figures/figure_g050.glb \
-  --output /tmp/finished-bob02-g050.glb --report /tmp/hair-hem-report.json
+  --output /tmp/hem-bob02-g050.glb --report /tmp/hair-hem-report.json
+node tools/figure-pipeline/hair_tail_release.mjs \
+  --input /tmp/hem-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/finished-bob02-g050.glb --report /tmp/hair-tail-report.json
 node tools/figure-pipeline/hair_surface.mjs \
   --hair /tmp/finished-bob02-g050.glb --body assets/figures/figure_g050.glb --gate face
 node tools/figure-pipeline/hair_fall.selftest.mjs
 node tools/figure-pipeline/hair_hem.selftest.mjs
+node tools/figure-pipeline/hair_tail_release.selftest.mjs
 ```
 
 Calibration `bob02-g050-curtain-release-v1` is pinned to the original g050 hair and body geometry
@@ -1138,11 +1142,11 @@ is refused. Output must differ from input unless `--allow-in-place` is explicitl
 The sampled clearance used to choose offsets is not a collision certificate. Run the independent
 triangle-surface face gate and the viewer's motion probe when accepting an asset. The September 8
 candidate clears the tested face region; some scalp/temple contacts behind that region remain.
-Both no-argument selftests use the original LFS fixture in `fixtures/bob02-g050-original.glb`;
-the hem test first produces a temporary fall-stage output. Thus a new clone can exercise the full
-transformations without Blender or ignored capture files. Optional file arguments remain supported.
-The historical fall stage deliberately refuses a later hem output; repeat the last stage for its
-idempotence check, or rebuild both stages from the original fixture/export.
+All three no-argument selftests use the original LFS fixture in `fixtures/bob02-g050-original.glb`;
+the hem and tail tests generate their required earlier stages in a temporary directory. Thus a new
+clone can exercise the full transformations without Blender or ignored capture files. Fall and hem
+selftests also accept explicit file arguments. Historical stages deliberately refuse later deformed outputs; repeat
+the last stage for its idempotence check, or rebuild all three stages from the original fixture/export.
 
 
 ### Front hem refinement and motion evidence
@@ -1175,3 +1179,46 @@ or incomplete frame sets and tests all captured triangle surfaces in inverse-hea
 Exit 0 means every captured pose clears the selected face box, 1 means crossings, and 2 means
 invalid evidence. A finite capture does not certify every possible animation or positive clearance
 at every unsampled point. See `docs/evidence/hair-hem-2026-09-08.json` for the accepted measurements.
+
+
+### Tail clearance through held head motion
+
+`hair_tail_release.mjs` is the third calibrated stage, after fall and hem. Held roll in both
+directions exposed finite ribbon edges crossing the face while their centers stayed outside.
+A mirrored nod also exposed the interior of one long terminal triangle whose corners cleared
+skin. Calibration `bob02-g050-tail-clearance-v1` therefore uses the twelve-card union measured
+across those motions: 6, 14, 15, 22, 29, 42, 45, 53, 69, 75, 196 and 352 (zero based).
+Static edge clearance or a root-layer-only selection would miss some of these contacts.
+
+For each calibrated card, the stage derives a horizontal outward direction from its source tip
+to the closest body point. It translates both corners of rings 13–16 together, ramping from zero
+at ring 12 to 3.5 mm at ring 16 with smoothstep. Only 96 vertices move. All heights, roots, caps,
+upper rings, other 484 cards, ribbon widths, 496×17 solver topology, UVs, skin bindings and material
+maps remain fixed within Float32 rounding. Normal and optional tangent frames are regenerated on
+moved vertices; neighboring authored frames remain unchanged, following the previous stage's
+convention. This is not a complete normal-field rebake.
+
+The actual skull and shoulder collider fits remain identical in bind and tested posed transforms;
+there is no global collider inflation. The median arc used for compliance remains 142.875 mm.
+Targeted arcs change by −0.492 to +1.379 mm and their derived compliance scales by −1.674% to
++0.646%; spring tuning is unchanged. The report includes every targeted segment and arc, rather
+than claiming that the unchanged whole-groom median implies identical motion.
+
+The accepted twelve-card geometry clears all captured triangle face gates over 98 poses across
+natural motion, yaw shake, both held pitch directions and both held roll directions. The minimum
+sampled face-vertex clearance is +0.783 mm. Ten matched static views showed no new visible gap or
+style regression. These finite poses and samples do not certify every possible motion, positive
+clearance over every triangle interior, or the remaining scalp contacts outside the face box.
+The existing crown/back facets remain a separate visual limitation.
+
+The tail stage validates both earlier stamps and immutable geometry fingerprints before writing,
+adds its own stamp, and rejects modified source, body or corrected output. Its independent static
+face gate must pass. The nine default test groups rebuild original→fall→hem→tail from the tracked
+fixture, pin reviewed positions/normals, exercise real tangent data through all stages, verify
+collider and protected-attribute invariants, and test idempotence and safe output paths.
+The final stamped output SHA256 is
+`d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461`.
+Its binary payload is identical to the motion-tested scratch candidate; only provenance metadata
+was added. The earlier eleven-card experiment was not installed and was rejected as final output
+because the mirrored nod still crossed on card 352. Local comparison evidence is preserved under
+`captures/hair-tail-release-2026-09-08/` and `captures/hair-tail-release-v2-2026-09-08/`.
