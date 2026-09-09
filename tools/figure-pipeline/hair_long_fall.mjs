@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Reproduce the reviewed bob01/g050 v9 + lower card101 connector rest shape.
+/** Reproduce the reviewed bob01/g050 v9 + card101 connector + lower card80/423 side-fall rest shape.
  * This is a pinned post-export calibration, not a generic haircut or runtime collision solver.
  */
 import fs from 'node:fs';
@@ -13,8 +13,8 @@ import { measureHairSurface, DEFAULT_FACE_BOUNDS } from './hair_surface.mjs';
 import { deriveCardGroom } from '../../packages/core/src/motion/HairDynamics.js';
 
 const STAMP = 'sugataHairLongFall';
-export const LONG_FALL_DATA_SHA256 = '55491e37535e51f6d939259e84cb439ac9f405d5f08afbe520dfe8540d2b0a59';
-const data = fs.readFileSync( new URL( './fixtures/bob01-g050-long-fall-v1.json', import.meta.url ) );
+export const LONG_FALL_DATA_SHA256 = '5c05a9703bcd1d35d86fd8862461cf53ff15e3861b83cfb22033c06d42ef779e';
+const data = fs.readFileSync( new URL( './fixtures/bob01-g050-long-fall-v2.json', import.meta.url ) );
 if ( sha256( data ) !== LONG_FALL_DATA_SHA256 ) throw new Error( 'Long-fall calibration data changed; revalidate before generating an asset.' );
 const freeze = object => { if ( object && typeof object === 'object' ) { Object.values( object ).forEach( freeze ); Object.freeze( object ); } return object; };
 export const LONG_FALL_CALIBRATION = freeze( JSON.parse( data ) );
@@ -22,6 +22,7 @@ const floatHash = values => sha256( Buffer.from( new Float32Array( values ).buff
 const point = ( values, i ) => Array.from( values.slice( i * 3, i * 3 + 3 ) );
 const smooth = fraction => { const t = Math.max( 0, Math.min( 1, fraction ) ); return t * t * ( 3 - 2 * t ); };
 const c = LONG_FALL_CALIBRATION;
+const correctedCards = [ ...c.cards.map( entry => entry.card ), ...c.sideFall.cards ].sort( ( a,b ) => a-b );
 function attributesOf( glb ) { return glb.json.meshes.find( mesh => mesh.name === 'hair_bob01' ).primitives[ 0 ].attributes; }
 function geometryOf( primitive ) {
     const g = new BufferGeometry();
@@ -119,11 +120,28 @@ export function transformHairLongFall( inputFile, bodyFile ) {
         }
         geometry.deleteAttribute( 'normal' ); geometry.computeVertexNormals();
         for(let ring=0;ring<c.rings;ring++)for(let side=0;side<2;side++){const vi=c.capVertices+(card*c.rings+ring)*2+side;for(let k=0;k<3;k++)normals[vi*3+k]=ring<start?primitive.normals[vi*3+k]:geometry.attributes.normal.array[vi*3+k];}
+        if ( floatHash( positions ) !== c.connectorStage.positionsSha256 || floatHash( normals ) !== c.connectorStage.normalsSha256 ) throw new Error( 'Card101 connector stage no longer matches the reviewed intermediate.' );
+        // The two authored lower guides crossed the front of the throat while remaining outside
+        // the body. Keep their upper paths and cut heights, then end on their originating side.
+        for ( const card of c.sideFall.cards ) {
+            const start=c.sideFall.startRing, end=c.sideFall.endRing;
+            const center = ring => { const i=(c.capVertices+(card*c.rings+ring)*2)*3;return[0,1,2].map(k=>(primitive.positions[i+k]+primitive.positions[i+k+3])/2); };
+            const a=center(start), previous=center(start-1), tip=center(end), height=a[1]-tip[1];
+            const slope=[0,1,2].map(k=>(a[k]-previous[k])/(previous[1]-a[1])*height), targetTip=[a[0],tip[1],tip[2]];
+            for ( let ring=start+1;ring<=end;ring++ ) {
+                const old=center(ring), t=(a[1]-old[1])/height;
+                const h00=2*t**3-3*t*t+1,h10=t**3-2*t*t+t,h01=-2*t**3+3*t*t;
+                const target=[0,1,2].map(k=>k===1?old[k]:h00*a[k]+h10*slope[k]+h01*targetTip[k]);
+                for(let side=0;side<2;side++){const vi=c.capVertices+(card*c.rings+ring)*2+side;for(let k=0;k<3;k++)positions[vi*3+k]=primitive.positions[vi*3+k]+target[k]-old[k];}
+            }
+        }
+        geometry.computeVertexNormals();
+        for(const card of c.sideFall.cards)for(let ring=c.sideFall.startRing;ring<c.rings;ring++)for(let side=0;side<2;side++){const vi=c.capVertices+(card*c.rings+ring)*2+side;for(let k=0;k<3;k++)normals[vi*3+k]=geometry.attributes.normal.array[vi*3+k];}
         const attributes = attributesOf( glb ); writeAttribute( glb, attributes.POSITION, positions ); writeAttribute( glb, attributes.NORMAL, normals );
         // Empty extras is part of the canonical candidate payload after removing its scratch tag.
         glb.json.asset.extras = { ...glb.json.asset.extras };
         const corrected = readPrimitive( glb, 'hair_bob01' );
-        if ( floatHash( corrected.positions ) !== c.outputPositionsSha256 || floatHash( corrected.normals ) !== c.outputNormalsSha256 || geometryFingerprint( corrected ) !== c.outputGeometry || payloadHash( glb ) !== c.outputPayloadSha256 ) throw new Error( 'Long-fall result differs from the exact frozen connector candidate. No output written.' );
+        if ( floatHash( corrected.positions ) !== c.outputPositionsSha256 || floatHash( corrected.normals ) !== c.outputNormalsSha256 || geometryFingerprint( corrected ) !== c.outputGeometry || payloadHash( glb ) !== c.outputPayloadSha256 ) throw new Error( 'Long-fall result differs from the exact frozen side-fall candidate. No output written.' );
         const surface = validateFrozenSurface( measureLongFallSurface( corrected, body ) );
         glb.json.asset.extras[ STAMP ] = expectedStamp(); const bytes = encodeGlb( glb );
         const changed = deriveCardGroom( geometry );
@@ -131,9 +149,9 @@ export function transformHairLongFall( inputFile, bodyFile ) {
             inputSha256: sha256(sourceBytes), bodySha256: sha256(bodyBytes), outputSha256:sha256(bytes), outputGeometry:c.outputGeometry,
             outputPositionsSha256:c.outputPositionsSha256, outputNormalsSha256:c.outputNormalsSha256,
             reproducedCandidateSha256:c.targetCandidateSha256, metadataDifference:'Scratch-stage tags replaced by the portable provenance stamp; all other candidate payload bytes are identical after removing the stamp.',
-            correctedCards:c.cards.length, cards:c.cards.map(x=>x.card), surface,
-            arcLengthChangesMm:c.cards.map(({card})=>({card,before:groom.arcLengths[card]*1000,after:changed.arcLengths[card]*1000,delta:(changed.arcLengths[card]-groom.arcLengths[card])*1000})),
-            limits:['Preserves all vertex Y values/cut, ring width vectors within Float32 rounding, root positions, caps and root-layer/fringe geometry. Normals follow the accepted whole-card v9 recompute and the card101 connector rule.',
+            correctedCards:correctedCards.length, cards:correctedCards, surface,
+            arcLengthChangesMm:correctedCards.map(card=>({card,before:groom.arcLengths[card]*1000,after:changed.arcLengths[card]*1000,delta:(changed.arcLengths[card]-groom.arcLengths[card])*1000})),
+            limits:['Preserves all vertex Y values/cut, ring width vectors within Float32 rounding, root positions, caps and root-layer/fringe geometry. Normals follow the accepted whole-card v9 recompute and the card101 connector and card80/423 side-fall rules.',
                 'Static movable-curtain and face shell tests pass; 67 unchanged root-layer card68 body crossings remain and strictAllBodyPass is false.',
                 'Rest correction changes guide arc lengths and therefore the existing solver compliance reference. Tip flare and dynamic collision failure remain pending; no motion or frame-time claim.','Only this exact bob01/g050 source and body are calibrated. Other filenames and added attributes are refused.'] } };
     } finally { geometry.dispose(); }

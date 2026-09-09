@@ -1225,11 +1225,11 @@ because the mirrored nod still crossed on card 352. Local comparison evidence is
 
 ## Portable original long-bob rest correction (bob01/g050 only)
 
-`hair_long_fall.mjs` reproduces the reviewed v9 outward/rear-fall shape followed by the lower-only
-card101 connector. It does **not** install an asset or claim that bob01 is finished. The smaller
-rear tip flare and dynamic hair/shoulder collision failure remain pending. This tool is deliberately
-limited to the exact original bob01/g050 groom and figure_g050 body; changing a filename does not
-calibrate a different identity.
+`hair_long_fall.mjs` reproduces the reviewed v9 outward/rear-fall shape, the lower card101
+connector, and the card80/423 side-fall revision that removes two visible bands across the throat.
+It creates a separate candidate file. The rear tips on cards101/171/449, card68's static side-head
+crossings, posed root-layer neck contacts and dynamic acceptance remain pending. Calibration is
+limited to the exact original bob01/g050 groom and figure_g050 body.
 
 ```sh
 node tools/figure-pipeline/hair_long_fall.mjs \
@@ -1240,51 +1240,63 @@ node tools/figure-pipeline/hair_long_fall.mjs \
 node tools/figure-pipeline/hair_long_fall.selftest.mjs
 ```
 
-The tracked original Git LFS fixture is 3,326,956 bytes, SHA256
+The immutable original Git LFS fixture is 3,326,956 bytes, SHA256
 `98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c`.
-Default tests use it rather than mutable installed hair or ignored captures. The exact body SHA256
+Default tests use this fixture; replacing installed hair cannot change their input. The body SHA256
 is `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`.
-The pinned JSON calibration records v9's measured per-card push/drape results and source evidence
-hashes. Runtime generation replays those results; it does not rerun an adaptive clearance search.
+`fixtures/bob01-g050-long-fall-v2.json` pins the measured per-card results and each intermediate
+geometry fingerprint. Generation replays those results without repeating the calibration search.
+The previous v1 data remains an immutable record of the connector-only intermediate.
 
 The first stage translates paired ring edges together using the original v9 Float32 arithmetic.
 The second restores card101's source positions through ring11, then uses a same-height cubic
-Hermite XZ connector from ring11 to the v9 tip, with the source10→11 entry slope and zero terminal
-XZ slope. It retains the accepted normal rule: source normals through ring10, final computed
-normals on rings11–16, and v9 frames on the other cards. Selected v9 cards have their whole-card
-normals recomputed; unchanged root positions should not be confused with unchanged normals on
-those selected cards.
+Hermite XZ connector from ring11 to the v9 tip, preserving the source10→11 entry slope and zero
+terminal XZ slope. Its normals retain the accepted source-through10/recomputed-from11 rule.
+Selected v9 cards have their whole-card normals recomputed; fixed root positions do not imply
+unchanged normals on those selected cards.
 
-Exactly 3,642 vertices move on 173 calibrated long-curtain cards. All vertex Y values, cut heights,
-root positions, vertices above the release plane, caps, root-layer/fringe geometry, topology, UVs,
-skin weights, material/image data and nongeometry payload remain fixed. Paired half-width vectors
-remain within 5e-9 metres of the originals after Float32 encoding. Guide arc lengths change,
-including a large reduction in an originally winding path; their resulting solver compliance
-reference is not unchanged. The generated report records every selected card's arc change.
+The third stage corrects an authored style defect: cards80/423 already passed the body-shell test,
+but their lower guides swept across the front of the throat. Preserve each card's positions through
+ring10 and normals through ring9. Below ring10, a same-Y Hermite XZ connector preserves the
+source9→10 incoming slope and ends with zero XZ slope. The tip keeps its original Y/Z and takes
+its anchor's positive X, so it falls on the originating side. No additional outward push is needed.
+Only 24 position vertices and 28 normal vertices differ from the connector-only intermediate.
+Four matched camera pairs at clock0 confirm the throat bands disappear without an apparent new
+ledge. The 494 other cards have identical captured GPU positions. These are rest-view results;
+the revised guide lengths still require motion acceptance.
 
-The produced position hash is
-`da98fa697db89a4b846a47b2a468759add228993b98711062f23aafa07ca569a`, and the normal hash is
-`e6b660203fc0c1935d108d2787ea0c217f5ab35737ae4e50ead87cf1a36b58cc`.
-These exactly reproduce candidate
-`110dfee561cd4ff627bb157986ff7001b69b75bb6e57a2e54f2b2d104523c876`, preserved in
-`captures/bob01-rear-v9-2026-09-09/connector101/g050.glb`.
+Relative to the original, exactly 3,666 vertices move on 175 calibrated long-curtain cards. All
+vertex Y values and cut heights, root positions, vertices above the release plane, caps,
+root-layer/fringe geometry, topology, UVs, skin weights and all nongeometry binary bytes remain
+fixed. Paired half-width vectors remain within 5e-9 metres of the originals after Float32 encoding.
+Guide arc lengths change: the final side-fall stage takes card80 from 295.485 to 219.253 mm and
+card423 from 389.045 to 288.281 mm. The derived compliance reference therefore changes; every
+selected card's arc change appears in the report.
+
+The final position hash is
+`9eb545a3c3ea4c6449cd8c4744daa6f20d054f4919c714ce254cfbfe145654aa`, and the normal hash is
+`0712748bde9476f23d8465a668a81882f7b1b57850068a32805684527506824b`.
+These reproduce the complete geometry of the reviewed side-fall candidate
+`f415d1309317bf1727a619ea4c72867c4ba110aa2d6dd093051cdbc40924efc4`, preserved with its
+matched visual/ID evidence under `captures/bob01-necklace-2026-09-09/`.
 The portable output SHA256 is
-`ed77c71f4723ca0e77355b18e6fff93d59ef96571b69de84aff695cb68909ecf`.
-Its only difference from that candidate is provenance metadata: scratch tags are replaced with
-`sugataHairLongFall`. Removing the respective tags leaves identical complete GLB payloads.
+`db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`.
+Scratch tags are replaced by `sugataHairLongFall` provenance. Removing those respective tags
+leaves identical complete GLB payloads, SHA256
+`a3a96db50f1d57abd30be157e52a495020b87fabfede198aa585496288ea023a`.
 
 Whole-triangle static tests compare every hair triangle, including caps, against the body. The
 original has 667 face pairs and 923 movable-curtain body pairs (990 total). The candidate has zero
 face and movable-curtain pairs, with **67 remaining whole-body pairs on unchanged root-layer
-card68**. `strictAllBodyPass` remains false. The tool reproduces a reviewed intermediate rest
-shape; completing the command is not a whole-body clearance certificate. Sampled v9 search
-clearance is not a minimum-distance guarantee, and shell-crossing tests do not exclude containment,
-classify shader alpha visibility or certify later motion.
+card68**. `strictAllBodyPass` remains false. Card68's intersection is at side-head/ear height;
+separate posed neck contacts involve other root-layer cards. None are exempted from the gate.
+Shell-crossing tests do not exclude containment, classify shader visibility or certify later motion.
 
-Fresh generation and repeat application pin the original/body/geometry and full corrected payload,
-so altered skin data, added attributes, changed stamps and arbitrary metadata cannot silently
-inherit this calibration. Pure repeat application is byte-idempotent. The CLI requires separate,
-new output/report paths: no in-place or overwrite switch. Files are staged before publication,
-exclusive publication refuses existing paths, and partial publication is rolled back without
-deleting unrelated files. Review the generated asset and its strict failure report before any
-future explicit installation.
+The focused regression checks exact final and intermediate fingerprints, the old wrong-side-tip
+counterfactual, anchored prefixes, protected attributes, original shell rejection, strict residual
+failure, deterministic/idempotent output, tamper rejection and atomic output ownership. Added
+attributes, changed stamps or arbitrary metadata cannot inherit the calibration. Applying the
+current stamped output again is byte-idempotent; a prior calibration stamp is refused. The CLI
+requires separate new output/report paths, stages files before exclusive publication, and rolls
+back partial publication without deleting unrelated files. Review the candidate and its strict
+failure report before an explicit future installation.

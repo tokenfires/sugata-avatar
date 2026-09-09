@@ -23,7 +23,7 @@ try{
  check('tracked original reproduces exact frozen candidate positions, normals and complete payload',()=>{
   assert.equal(arrayHash(corrected.positions),C.outputPositionsSha256);assert.equal(arrayHash(corrected.normals),C.outputNormalsSha256);assert.equal(geometryFingerprint(corrected),C.outputGeometry);
   const clean=readGlb(output);delete clean.json.asset.extras.sugataHairLongFall;assert.equal(sha256(encodeGlb(clean)),C.outputPayloadSha256);
-  assert.equal(result.report.reproducedCandidateSha256,'110dfee561cd4ff627bb157986ff7001b69b75bb6e57a2e54f2b2d104523c876');assert.equal(result.report.correctedCards,173);
+  assert.equal(result.report.reproducedCandidateSha256,'f415d1309317bf1727a619ea4c72867c4ba110aa2d6dd093051cdbc40924efc4');assert.equal(result.report.correctedCards,175);
  });
  check('whole-triangle original rejection and corrected curtain pass retain the strict root failure',()=>{
   const originalSurface=measureLongFallSurface(original,readPrimitive(readGlb(bodyFile),'base.001'));
@@ -39,7 +39,7 @@ try{
    if(v<652||card<78||card>=462||ring===0||original.positions[v*3+1]>=C.releaseY)assert.deepEqual(delta,[0,0,0]);
    if(v<652||card<78||card>=462)for(let k=0;k<3;k++)assert.equal(corrected.normals[v*3+k],original.normals[v*3+k]);
   }
-  assert.equal(moved,3642);assert.deepEqual([...movedCards].sort((a,b)=>a-b),C.cards.map(x=>x.card));
+  assert.equal(moved,3666);assert.deepEqual([...movedCards].sort((a,b)=>a-b),[...C.cards.map(x=>x.card),...C.sideFall.cards].sort((a,b)=>a-b));
  });
  check('ring widths and card101 source connector boundary survive Float32 encoding',()=>{
   let maxHalfWidthError=0;
@@ -48,7 +48,25 @@ try{
    maxHalfWidthError=Math.max(maxHalfWidthError,Math.hypot(...d));
    if(card===101&&ring<=11)for(let side=0;side<2;side++)for(let k=0;k<3;k++)assert.equal(corrected.positions[(v+side)*3+k],original.positions[(v+side)*3+k]);
    if(card===101&&ring<11)for(let side=0;side<2;side++)for(let k=0;k<3;k++)assert.equal(corrected.normals[(v+side)*3+k],original.normals[(v+side)*3+k]);
-  }assert.ok(maxHalfWidthError<5e-9);assert.equal(result.report.arcLengthChangesMm.length,173);assert.ok(result.report.arcLengthChangesMm.some(x=>Math.abs(x.delta)>100),'Arc changes must not be misreported as preserved lengths.');
+  }assert.ok(maxHalfWidthError<5e-9);assert.equal(result.report.arcLengthChangesMm.length,175);assert.ok(result.report.arcLengthChangesMm.some(x=>Math.abs(x.delta)>100),'Arc changes must not be misreported as preserved lengths.');
+ });
+ check('side-fall removes the authored midline sweep and preserves both anchored prefixes',()=>{
+  const centre=(p,card,ring)=>{const i=(652+card*34+ring*2)*3;return[0,1,2].map(k=>(p[i+k]+p[i+k+3])/2);};
+  const undo=readGlb(output),attributes=attrs(undo);
+  for(const card of [80,423]){
+   const anchor=centre(original.positions,card,10),oldTip=centre(original.positions,card,16),tip=centre(corrected.positions,card,16);
+   assert.ok(anchor[0]>0&&oldTip[0]<0,'Old source must reproduce the wrong-side tip counterfactual.');
+   assert.ok(tip[0]>0);assert.ok(Math.abs(tip[0]-anchor[0])<5e-9);assert.equal(tip[1],oldTip[1]);assert.ok(Math.abs(tip[2]-oldTip[2])<5e-9);
+   for(let ring=0;ring<17;ring++)for(let side=0;side<2;side++){const vi=652+card*34+ring*2+side;
+    for(const [name,key,maxRing]of [['POSITION','positions',10],['NORMAL','normals',9]]){
+     if(ring<=maxRing)for(let k=0;k<3;k++)assert.equal(corrected[key][vi*3+k],original[key][vi*3+k]);
+     const a=undo.json.accessors[attributes[name]],v=undo.json.bufferViews[a.bufferView],base=(v.byteOffset??0)+(a.byteOffset??0)+vi*(v.byteStride??12);
+     for(let k=0;k<3;k++)undo.bin.writeFloatLE(original[key][vi*3+k],base+k*4);
+    }
+   }
+  }
+  const old=readPrimitive(undo,'hair_bob01');assert.equal(arrayHash(old.positions),C.connectorStage.positionsSha256);assert.equal(arrayHash(old.normals),C.connectorStage.normalsSha256);
+  assert.notEqual(arrayHash(old.positions),C.outputPositionsSha256,'Prior connector-only output must fail the new exact target.');
  });
  check('all UV, skin, topology, images/material and nongeometry bytes remain unchanged',()=>{
   const attributes=attrs(before);for(const name of ['TEXCOORD_0','TEXCOORD_1','JOINTS_0','WEIGHTS_0'])assert.deepEqual(readAccessor(after,attributes[name]).data,readAccessor(before,attributes[name]).data);
