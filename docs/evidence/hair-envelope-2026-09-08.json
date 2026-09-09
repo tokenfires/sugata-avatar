@@ -1,0 +1,172 @@
+{
+  "schema": "sugata.hair-envelope-experiment.v1",
+  "date": "2026-09-08",
+  "decision": "rejected-for-shipping",
+  "claim": "One constrained outward p85 shell compression did not visibly remove the broad crown/back plate patches in five matched view pairs.",
+  "history": {
+    "source": "tools/figure-pipeline/README.md:R23",
+    "standoffLadderAlreadyRefuted": true,
+    "distinctOperation": "Post-export radial ring translation toward a frozen source outer percentile; no layer-standoff or per-lock offset sweep."
+  },
+  "artifacts": "captures/hair-envelope-2026-09-08",
+  "control": {
+    "path": "captures/hair-envelope-2026-09-08/geometry/control.glb",
+    "sha256": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7"
+  },
+  "candidate": {
+    "path": "captures/hair-envelope-2026-09-08/geometry/g050.glb",
+    "sha256": "3d45315a08a9487c2e847a3d45ec7096e2a6d8092ae44f568a4563b35b730996"
+  },
+  "parameters": {
+    "shellDepthMm": 4,
+    "maxMoveMm": 8,
+    "regularization": 2,
+    "rootFixedRings": 2,
+    "rootFullRing": 5
+  },
+  "realization": {
+    "cards": 269,
+    "rings": 1864,
+    "movementMm": {
+      "n": 1864,
+      "min": 0.00014691330835819443,
+      "p50": 2.145901406275646,
+      "p90": 7.473836523370404,
+      "max": 7.999055862428519,
+      "mean": 3.0091745209289047
+    },
+    "wideAxisProtectedRings": 13,
+    "rearCrownBinnedGapMm": {
+      "before": 9.025473407011884,
+      "after": 8.200970772916532
+    },
+    "pairedExactHeightRays": 2899,
+    "exactHeightGapMm": {
+      "before": {
+        "n": 2899,
+        "min": 0.0149088741365766,
+        "p50": 6.76325710380625,
+        "p90": 12.149623928761761,
+        "max": 34.084646678301816,
+        "mean": 7.260471053318323
+      },
+      "after": {
+        "n": 2899,
+        "min": 0.039495049828142115,
+        "p50": 5.739240059071241,
+        "p90": 10.729284320494067,
+        "max": 34.08464667830183,
+        "mean": 6.335565147470717
+      }
+    },
+    "allBinnedGapMm": {
+      "before": 8.824889352359857,
+      "after": 8.26748117468157
+    }
+  },
+  "geometry": {
+    "chains": 496,
+    "rings": 17,
+    "vertices": 17516,
+    "protectedChanges": 0,
+    "yChanges": 0,
+    "maxFullWidthErrorMm": 0.00000804117386565828,
+    "minOutwardMm": 0.00013963722604592999,
+    "sourceFacePairs": 0,
+    "candidateFacePairs": 0,
+    "sourceHeadPairs": 165,
+    "candidateHeadPairs": 165,
+    "crownCoverage": {
+      "before": {
+        "samples": 131,
+        "covered": 131
+      },
+      "after": {
+        "samples": 131,
+        "covered": 131
+      }
+    },
+    "independentSupport": {
+      "definition": "720 azimuth directions at.25deg offset, 7 elevations−60..60deg; all geometry vertices",
+      "deltaMm": {
+        "n": 5040,
+        "min": 0,
+        "p50": 0,
+        "p90": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    "localOutermostRayDeltaMm": {
+      "n": 2899,
+      "min": -3.8478461671656583,
+      "p50": 0,
+      "p90": 5.551115123125783e-14,
+      "max": 8.296387516597449,
+      "mean": 0.06647687022569745
+    },
+    "attributeProof": {
+      "binLengths": [
+        3311112,
+        3311112
+      ],
+      "changedBytes": 55992,
+      "changedOutsidePositionNormal": 0,
+      "materialsExact": true,
+      "texturesExact": true,
+      "skinsExact": true,
+      "nodeHierarchyExact": true
+    }
+  },
+  "render": {
+    "angles": [
+      0,
+      45,
+      90,
+      180,
+      -90
+    ],
+    "screenshots": 10,
+    "allNonblank": true,
+    "errorCounts": [
+      {
+        "arm": "control",
+        "count": 0
+      },
+      {
+        "arm": "shell",
+        "count": 0
+      }
+    ],
+    "clock": 0,
+    "matchedHeadCameraProjection": true,
+    "quality": "balanced/auto",
+    "resolutionScale": 0.66,
+    "runtimeChains": [
+      {
+        "arm": "control",
+        "chains": 496,
+        "rings": 17
+      },
+      {
+        "arm": "shell",
+        "chains": 496,
+        "rings": 17
+      }
+    ],
+    "skinMaterialSha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "allTrackedSourceHashesStable": true
+  },
+  "observations": [
+    "Back and rear sides retain broad triangular and diagonal plate patterns; local patches change without convincing overall improvement.",
+    "Visible crown, hem, fringe and cheek silhouettes look broadly stable; no obvious new bald area."
+  ],
+  "limits": [
+    "Only one partial compression candidate was built. The realized exact-ray median gap fell about1.02mm; this does not test or refute a fully reconstructed uniform thin shell.",
+    "Binned gap contains within-band curvature; exact-height radial hits are geometric and not alpha-weighted visible layers.",
+    "Unchanged convex support does not prove unchanged nonconvex or alpha-weighted image silhouette; local radial outer hits change−3.85..+8.30mm.",
+    "Some quarter/side view regions are cropped. Thresholded PNG row contours have noisy faint-wisp outliers and are not a strict silhouette gate.",
+    "Static face crossing and131 crown-ray samples do not prove positive clearance, whole-triangle containment exclusion or exhaustive scalp coverage.",
+    "Animation and cost were not measured; no shipping source, asset, atlas, material or lighting was changed by this experiment."
+  ]
+}

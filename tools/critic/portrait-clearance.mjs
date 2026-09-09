@@ -13,16 +13,17 @@ import { SurfaceGrid } from '../figure-pipeline/hair_geometry.mjs';
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const options = { url:'http://127.0.0.1:5197/src/portrait.html?hair=bob02&capture', out:null,
-    groom:null, stimulus:'idle', seconds:12, fps:60, stride:60, playwright:process.env.PLAYWRIGHT_MODULE };
+    groom:null, stimulus:'idle', direction:1, seconds:12, fps:60, stride:60, playwright:process.env.PLAYWRIGHT_MODULE };
 for(let i=2;i<process.argv.length;i+=2){
     const key=process.argv[i].slice(2).replace(/-([a-z])/g,(_,s)=>s.toUpperCase());
     if(!(key in options) || process.argv[i+1]===undefined) throw new Error(`Unknown/missing option ${process.argv[i]}`);
-    options[key]=['seconds','fps','stride'].includes(key)?Number(process.argv[i+1]):process.argv[i+1];
+    options[key]=['seconds','fps','stride','direction'].includes(key)?Number(process.argv[i+1]):process.argv[i+1];
 }
 if(!options.out)throw new Error('--out is required; each candidate must have its own evidence directory.');
 for(const key of ['seconds','fps','stride'])if(!Number.isFinite(options[key])||options[key]<=0)throw new Error(`Invalid ${key}`);
 if(!Number.isInteger(options.stride))throw new Error('--stride must be an integer.');
-if(!['idle','shake'].includes(options.stimulus))throw new Error('--stimulus must be idle or shake.');
+if(![1,-1].includes(options.direction))throw new Error('--direction must be 1 or -1.');
+if(!['idle','shake','nod','tilt'].includes(options.stimulus))throw new Error('--stimulus must be idle, shake, nod or tilt.');
 options.out=path.resolve(options.out);
 if(fs.existsSync(options.out)&&fs.readdirSync(options.out).length)throw new Error('Evidence directory is not empty; use a new --out.');
 fs.mkdirSync(options.out,{recursive:true});
@@ -47,6 +48,9 @@ function summary(values){
 }
 try{
     const page=await browser.newPage({viewport:{width:1200,height:900},deviceScaleFactor:1});
+    // Keep Vite source edits in another probe from resetting this fixed-step capture.
+    // The portrait has no application WebSocket; local sockets here belong to Vite HMR.
+    await page.routeWebSocket(url=>url.host===new URL(options.url).host,()=>{});
     page.on('pageerror',e=>errors.push(e.message));
     page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
     page.on('requestfailed',request=>errors.push(`${request.url()} ${request.failure()?.errorText}`));
@@ -59,22 +63,24 @@ try{
     await page.waitForFunction(()=>!!window.portrait||!document.querySelector('#error').hidden,null,{timeout:90000});
     const failure=await page.locator('#error').textContent();if(failure)throw new Error(failure);
     if(options.groom&&replacedGroomRequests!==1)throw new Error(`Expected exactly one substituted groom request, got ${replacedGroomRequests}.`);
-    if(options.stimulus==='shake')await page.evaluate(async root=>{
+    if(options.stimulus!=='idle')await page.evaluate(async({root,stimulus,direction})=>{
         const base='/@fs'+root+'/packages/core/src/motion/';
         const [{Layer},{restRotationRelativeToRig,toBoneDeltaFrame}]=await Promise.all([import(base+'Layer.js'),import(base+'Breath.js')]);
         for(const layer of avatar.stack.layers)layer.enabled=false;
         await portrait.step(0);
         const head=avatar.figure.root.getObjectByName('head');
-        const rest=restRotationRelativeToRig(head,avatar.figure.root),q=head.quaternion.clone(),delta=q.clone(),axis=avatar.focus.clone().set(0,1,0);
+        const rest=restRotationRelativeToRig(head,avatar.figure.root),q=head.quaternion.clone(),delta=q.clone();
+        const axis=avatar.focus.clone().fromArray({shake:[0,1,0],nod:[1,0,0],tilt:[0,0,1]}[stimulus]);
+        const amplitude=(stimulus==='shake'?.85:.5)*direction;
         class Shake extends Layer{
             constructor(){super({name:'clearanceShake',order:500,boneChannels:['head']});}
             update(dt,context){
-                q.setFromAxisAngle(axis,.85*Math.sin(2*Math.PI*.6*Math.min(context.time,2)));
+                q.setFromAxisAngle(axis,amplitude*Math.sin(2*Math.PI*.6*Math.min(context.time,2)));
                 this.contribution.rotateBone('head',toBoneDeltaFrame(q,rest,delta));return this.contribution;
             }
         }
         avatar.stack.add(new Shake());avatar.hairDynamics.reset();await portrait.step(0);
-    },root);
+    },{root,stimulus:options.stimulus,direction:options.direction});
     // Warm the render/temporal history without advancing the animation clock.
     for(let warm=0;warm<8;warm++)await page.evaluate(()=>portrait.step(0));
     descriptor=await page.evaluate(()=>{
@@ -114,6 +120,7 @@ try{
                 skull:centers.skull,steps:centers.steps,vertices:vertices?Array.from(vertices.positions):null,verticesSpace:vertices?.space??null,vertexBase:vertices?.vertexBase??null,
                 bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),bodyIndices:Array.from(body.geometry.index.array),report:avatar.report()};
         });
+        if(Math.abs(state.time-frame/options.fps)>1e-8*Math.max(1,frame/options.fps))throw new Error('Capture clock reset or drifted; discard this run.');
         const grid=new SurfaceGrid(state.bodyPositions,state.bodyNormals,state.bodyIndices);
         const inverse=new Matrix4().fromArray(state.headMatrix).invert(),point=new Vector3(),restPoint=new Vector3();
         const measure=(positions,isVertices)=>{
@@ -167,7 +174,7 @@ try{
     await page.close();
 }finally{
     await browser.close();
-    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,sourceHashes,replacedGroomRequests,descriptor,samples,errors,
+    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,hmrSuppressed:true,sourceHashes,replacedGroomRequests,descriptor,samples,errors,
         limits:['SurfaceGrid signed distance uses the renderer-equivalent morphed/skinned vertex normals of the same frame body; this differs at seams from recomputed geometric normals.','Face region is an explicit axis-aligned box in inverse head-matrix coordinates.','Centers do not certify ribbon edges unless vertex readback is present.','Surface samples are three edge midpoints and one centroid per face-region triangle, not an exhaustive intersection proof; alpha is not sampled.','Fixed-step capture does not measure frame budget.']},null,2));
 }
 if(errors.length)process.exitCode=1;

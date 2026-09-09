@@ -126,17 +126,61 @@ not linear radiance. Neutralizing the formerly blue rim increases its emitted re
 constant luminance. This control identifies the source term without proving a defect; disabling
 transmission is not a proposed repair. See [transmission control](evidence/neutral-transmission-control-2026-09-08.json).
 
-Active at 00:06 UTC: `orbit_render_audit` is testing one area-light normalization invariant.
-LightingRig solves panel radiance from target irradiance, while SkinMaterial's transmitted area
-term uses raw radiance without a panel integral. The test varies panel size with a fixed delivered
-irradiance target and measures on-minus-off transmission in linear light. No shipping edits yet.
-`visual_next_step` is checking prior history before designing a direct outer-envelope projection.
-R23 in the pipeline README already refuted halving the standoff ladder: one layer alone carried
-similar scatter, and halving standoff span reduced scatter by just 0.12 mm. Do not repeat that
-experiment. A fitted geometric shell, if not already tried, must be judged by matched renders.
-Root owns integration/evidence; `continuity_audit` is idle. Missing later HairMaterial history
-still blocks R35–R38. No Blender installation or old iCloud reads. The three prior hair-geometry
-experiments are closed. There are no active shipping edits or root capture jobs.
+## Area-light transmission repair
 
-Dev server: port5197, exec session26208. Production server: port5198, exec session71084,
-output `/tmp/sugata-hem-build`. Check ports before restarting. The dev server remains for the user.
+The separate invariant established a real bug: halving a rim panel's width/height while holding
+focus irradiance fixed increased transmitted skin light by 3.938×, following panel radiance.
+Ordinary transmitted-off skin stayed near 0.997×. The area path now uses a stable backside
+identity-LTC integral, including panel extent and cosine/1π normalization once. Punctual lighting,
+strength, thickness, cavity and studio parameters remain unchanged. It avoids a view-dependent
+normalization singularity and defines degenerate panel/normal cases as zero.
+
+The focused actual-WebGPU regression passes 22/22, including an old-code rejection arm,
+independent rectangle integral, distance, horizon, emitting side, rotation, finite output and
+positive thin-tissue response. Corrected fixed-irradiance ratios are 0.991–0.993. Transmission-off
+scene buffers are byte-identical. Existing skin browser checks pass 14/14 in both modes without
+retuning; their sole console resource failure is the separately identified missing favicon.
+Twenty matched portrait images (before/after × studio/neutral × five angles) have no browser
+errors. The conspicuous orange/violet eye glow disappears. All 17 pages build, and the bundled
+production portrait completes three poses over two seconds with no errors. These are dirty-tree
+runs, not a full-suite certification. A GPU cost ABBA probe was inconclusive: old-code p95 drifted
+1.146→3.256 ms while corrected runs read 2.495/2.645 ms. Do not claim incremental cost from it.
+See [repair proof](evidence/skin-area-transmission-2026-09-08.json) and
+[visual comparison](evidence/skin-area-visual-2026-09-08.json). Skin source SHA:
+`cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164`.
+
+## Current continuation: side-tilt clearance
+
+The new nod test passes all 17 full-triangle poses. Both 0.5-radian roll directions expose a
+remaining defect in the installed hem: maximum 23/24 face crossing pairs, worst sampled edge
+−2.249 mm. Eleven cards are involved across both directions: 6,14,15,22,29,42,45,53,69,75,196.
+Most are short root tails that the original fall/hem work never changed;196 is an underlayer card.
+Centers remain outside the body while their finite ribbon widths reach into it. Tangent transport
+is correct and generally helps. Skinning is not the primary cause; inflating the global skull
+sphere would disturb unrelated roots and miss most affected locations.
+
+The first nod run was invalidated by a concurrent Vite hot reload and is explicitly discarded.
+The existing replay cadence check rejected it. The capture now suppresses its local HMR socket,
+fails immediately on clock drift and supports nod/tilt plus a mirrored `--direction -1` sequence.
+See [motion diagnosis](evidence/hair-axes-2026-09-08.json) and local `captures/hair-axes-2026-09-08/`.
+
+At 00:33 UTC a scratch tail release is in fresh bidirectional roll tests. It moves only88vertices
+on the observed11cards, smoothly below ring12, by at most3.5mm outward, preserving Y/widths and
+all upper spans. Both actual bind-pose collider fits remain exactly unchanged (skull76.304629mm,
+minimum65/ring8; capsule60mm, minimum60/ring16). Targeted arc changes are−0.492..+1.323mm;
+corresponding compliance-scale changes−1.673%..+0.645% are disclosed. The candidate is not installed.
+Root owns captures/replay; `visual_next_step` owns a paired static visual/collider check and will
+make a portable transform only after runtime acceptance. Candidate:
+`/tmp/sugata-hair-tail-release/g050.glb`, SHA
+`b348268ea60248dc2b83b4d7bfcb70517553a17046955867c8da7cbf567160ab`.
+Do not install without both roll directions, then natural/yaw/nod verification. Other agents idle.
+
+The constrained outer-shell experiment is closed and rejected. It realized about1mm median
+layer compression with no clear visual improvement in ten matched views, while geometric support
+stayed fixed. It does not refute a fully collapsed shell. Evidence:
+[envelope experiment](evidence/hair-envelope-2026-09-08.json). R23 already refuted halving the
+standoff ladder. Missing later HairMaterial history still blocks R35–R38; no Blender installation
+or old iCloud reads. Do not repeat the four rejected facet/envelope controls without a new prediction.
+
+Dev server: port5197, exec session26208. Production server: port5198, exec session53151,
+output `/tmp/sugata-area-build`. Check ports before restarting. The dev server remains for the user.

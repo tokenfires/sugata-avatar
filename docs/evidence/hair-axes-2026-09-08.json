@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-08",
+  "groomSha256": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+  "status": "Nod clear; both side tilts fail and require additional correction.",
+  "captures": [
+    {
+      "name": "nod-stable",
+      "options": {
+        "url": "http://127.0.0.1:5197/src/portrait.html?hair=bob02&capture",
+        "out": "/Users/robault/GitHub/sugata-avatar/captures/hair-axes-2026-09-08/nod-stable",
+        "groom": null,
+        "stimulus": "nod",
+        "seconds": 8,
+        "fps": 60,
+        "stride": 30
+      },
+      "hmrSuppressed": true,
+      "samples": 17,
+      "maxFacePairs": 0,
+      "maxHeadPairs": 206,
+      "faceCards": [],
+      "minFaceVertexMm": 2.2534170149417188,
+      "maxMeanTipLagMm": 11.223655773562218,
+      "errors": [],
+      "reportSha256": "34f424ba09d4fcdec72da826ca288d1e811d19c66636b40cecb2349d790e621e",
+      "surfaceReportSha256": "6f880610002c258e3318c28da21b3c63725d0bd2dff3a56b6ea5d3cdbc50bc14",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "94c951990e725f28b9cd1277d79b537e722d4bda383a9b3cc653982de5575754",
+        "groom": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7"
+      }
+    },
+    {
+      "name": "tilt",
+      "options": {
+        "url": "http://127.0.0.1:5197/src/portrait.html?hair=bob02&capture",
+        "out": "/Users/robault/GitHub/sugata-avatar/captures/hair-axes-2026-09-08/tilt",
+        "groom": null,
+        "stimulus": "tilt",
+        "seconds": 8,
+        "fps": 60,
+        "stride": 30
+      },
+      "hmrSuppressed": true,
+      "samples": 17,
+      "maxFacePairs": 23,
+      "maxHeadPairs": 232,
+      "faceCards": [
+        6,
+        14,
+        15,
+        29,
+        45
+      ],
+      "minFaceVertexMm": -1.2032123931527086,
+      "maxMeanTipLagMm": 11.185665584950709,
+      "errors": [],
+      "reportSha256": "899ca68d92c7a624b44cb28b0dfb60c3bef428be46b58c50e158d9c1aece19b6",
+      "surfaceReportSha256": "2675bf8af15ee22f624dcdb224a39398351e4b6c9b308bc582adb4ed1cc70e3f",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "94c951990e725f28b9cd1277d79b537e722d4bda383a9b3cc653982de5575754",
+        "groom": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7"
+      }
+    },
+    {
+      "name": "tilt-reverse",
+      "options": {
+        "url": "http://127.0.0.1:5197/src/portrait.html?hair=bob02&capture",
+        "out": "/Users/robault/GitHub/sugata-avatar/captures/hair-axes-2026-09-08/tilt-reverse",
+        "groom": null,
+        "stimulus": "tilt",
+        "direction": -1,
+        "seconds": 8,
+        "fps": 60,
+        "stride": 30
+      },
+      "hmrSuppressed": true,
+      "samples": 17,
+      "maxFacePairs": 24,
+      "maxHeadPairs": 255,
+      "faceCards": [
+        14,
+        22,
+        42,
+        53,
+        69,
+        75,
+        196
+      ],
+      "minFaceVertexMm": -2.2485632019691777,
+      "maxMeanTipLagMm": 11.571720856046635,
+      "errors": [],
+      "reportSha256": "a2085fc27a5492eb3333ebde9fdc023b1901fd49fb035223f59e975428713ed2",
+      "surfaceReportSha256": "7e56ea823b2a5d93a6bb5b4dd681c0a04be1acccd4aa9495437a81b98386579b",
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "08dc7368809ab59726f03cbd520226f38e0c34bcedce6e01b2b005463ba08644",
+        "packages/core/src/motion/HairDynamics.js": "3a06ddb09a26bf41d0675623406f2099bc52b95e07e617496f7d1665d50c3cb7",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+        "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+        "groom": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7"
+      }
+    }
+  ],
+  "diagnosis": "Centers remain outside the body while finite ribbon edges cross. Tangent transport matches GPU and generally improves edge clearance; skin deformation is not the main cause.11cards across both directions, including underlayer196. Global sphere inflation would alter unrelated rest particles and miss most contacts.",
+  "invalidRun": "nod/ was reset by Vite HMR; final frame480 reports1second. Independent cadence gate rejects it. It is excluded from claims. HMR is now suppressed and capture itself detects clock resets.",
+  "limits": [
+    "Finite sampled poses and a calibrated face box do not certify every pose or entirely embedded triangles.",
+    "Alpha coverage is not evaluated in this full triangle gate."
+  ],
+  "diagnosisHashes": {
+    "captures/hair-axes-2026-09-08/diagnosis/probe.mjs": "5269d2e6d668925bdabacce2809a54c02e90ae5a87d725d3f7b4c4d1fe1064e2",
+    "captures/hair-axes-2026-09-08/diagnosis/report.json": "73c3f606e2505323a2450bb90d18bdaf4277235c886838cb64cb1c5779917bdd",
+    "captures/hair-axes-2026-09-08/diagnosis/reverse-report.json": "d9aee7c66a0fb2c5e06a1feb1cb3caab509b5c7382ac9bc2c5aca6c1e421bc95",
+    "captures/hair-axes-2026-09-08/diagnosis/reverse-surface.json": "5b275fd8e03c4294a9ebaf22d2897e71ff4f15827000ac507ce4b4df790de120",
+    "captures/hair-axes-2026-09-08/diagnosis/reverse-probe.mjs": "c94b01fcfadad18a4824335c754a5f00b554847a848ee8b6261b6de96792e68d"
+  }
+}

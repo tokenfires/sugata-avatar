@@ -1163,9 +1163,14 @@ node tools/critic/portrait-surface.mjs --input captures/hem-motion-check \
   --out captures/hem-motion-surface.json
 ```
 
-Add `--stimulus shake --seconds 8 --stride 30` to the first command for the controlled shake, using
-another output directory. That stimulus currently imports the dev server's motion modules; the
-normal portrait sequence also runs against a production URL. `portrait-surface.mjs` rejects missing
+Add `--stimulus shake --seconds 8 --stride 30` to the first command for the controlled yaw shake,
+using another output directory. `--stimulus nod` and `--stimulus tilt` test pitch and roll. Each
+controlled stimulus runs a 0.6 Hz sine for two seconds, then holds its ending orientation; yaw
+amplitude is 0.85 radians, pitch/roll 0.5 radians. Use `--direction -1` for a mirrored sequence
+and opposite held tilt. Springs and collision settings stay unchanged.
+These stimuli import the dev server's motion modules; the normal portrait sequence also runs
+against a production URL. The capture suppresses the local Vite hot-reload socket and fails
+immediately if its simulation clock resets or drifts from the requested frame cadence. `portrait-surface.mjs` rejects missing
 or incomplete frame sets and tests all captured triangle surfaces in inverse-head coordinates.
 Exit 0 means every captured pose clears the selected face box, 1 means crossings, and 2 means
 invalid evidence. A finite capture does not certify every possible animation or positive clearance
