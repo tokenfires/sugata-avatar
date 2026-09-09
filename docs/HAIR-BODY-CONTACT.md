@@ -1,6 +1,6 @@
 # Calibrated long-bob body contact
 
-The core owner is integrated into Avatar for the exact corrected bob01/g050 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent face/selected-neck captures and live ownership/transform gates pass. Full-body residuals, the60FPS frame budget and final visual acceptance remain open.
+The core owner is integrated into Avatar for the exact corrected bob01/g050 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent face/selected-neck captures and live ownership/transform gates pass. Full-body residuals, interactive frame pacing and final visual acceptance remain open.
 
 ## Selection and loading
 
@@ -16,11 +16,17 @@ Wardrobe compacts the draw index. Contact receives `Wardrobe.fullIndex`, preserv
 
 For each submitted frame, the owner atomically skins/refits and advances previous/current body history once. It then uploads the shared surface and assigns substep interpolation fractions. No-step frames do not advance submitted history. The body surface interpolates vertices/normals, not intermediate skeletal poses, and uses bounds covering both endpoint poses. This is not continuous collision detection.
 
-Normal contact runs after each DFTL step and before the single final ribbon rebuild. The current default executes sixteen query/projection pairs, adding contact displacement divided by the supplied substep duration to velocity. Reset uses sixty-four full-query settling passes, collapses body history and omits velocity finalization. Both test schedules share this exact reset. The every-two-projection query control failed sustained nod compliance (2.1825mm/43.52% link error) and has been removed from the core owner. Its matched experiment is preserved in the source snapshots. The report gives actual regular/reset query counts.
+Normal contact runs after each DFTL step and before the single final ribbon rebuild. The current default executes sixteen query/projection pairs, adding contact displacement divided by the supplied substep duration to velocity. Reset uses sixty-four full-query settling passes, collapses body history and omits velocity finalization. Both test schedules share this exact reset. The every-two-projection query control failed sustained nod compliance (2.1825mm/43.52% link error) and has been removed from the core owner. Its matched experiment is preserved in the source snapshots. The report gives actual regular/reset query counts. Every pair still evaluates its contact inputs. An optional cache reuses collision results only when their Float32 input bits are identical within the current batch; it changes no scheduled solve passes.
 
 The query finds the closest witness over the entire span and conservatively uses the maximum endpoint half-width norm. Cross-product segment math avoids near-parallel Float32 cancellation. At numerically coincident contact, the stage uses the authored outward normal rather than normalizing tiny tangent residue. Root-AABB rejection is conservative; cached triangles seed a full bounded traversal. Dispatch order groups the same ring across chains while keeping projection/output records card-major. Each particle root has zero inverse mass.
 
 Disposal retires the owner first and attempts every stage, shared buffer and CPU patch even if another release throws. Partial construction releases earlier resources before the solver cleans its borrowed buffers. A submission or preparation failure retires the contact-enabled solver; partially advanced history cannot be reused as if it had been submitted. Contact's35 total storage attributes with the solver are released once (8solver +3surface +4×6stage); actual allocated-byte/GPU lifetime checks are separate from CPU ownership checks.
+
+## Exact input reuse
+
+The owner enables `cacheQueryInputs` on each contact stage. Direct stage callers default to false. Every normal and reset batch begins with `snapshotNode`, which invalidates all query records. Body positions/normals, interpolation alpha and contact metadata stay fixed inside that batch. Reuse is forbidden across snapshots, body updates or substeps. Standalone callers opting in must preserve this contract.
+
+Point queries compare the endpoint bits; spans compare both endpoints, including signed zero and one-ULP differences. A hit retains plane, segment parameter, nearest triangle and active state. Traversal counts become zero because no traversal ran; a separate metadata reuse flag distinguishes this from root-bound rejection. `contactReport().queryInputReuse` exposes the layout and contract. Two extra metadata blocks add2,031,616 bytes across four stages without adding a query storage binding or increasing the35-buffer count.
 
 ## Domain and evidence limits
 
@@ -68,7 +74,7 @@ policy or schedule.
 
 In the actual core Avatar portrait at716×750,720 rAF-paced fixed60 frames each submit two solver
 steps. Compute median improves18.239→14.836ms; update-to-GPU wall median21.1→18.0ms and
-p9522.7→21.4ms. This still exceeds the16.7ms60FPS target. Timestamp resolution and compositor
+p9522.7→21.4ms. That predecessor still exceeds the16.7ms60FPS target. Timestamp resolution and compositor
 waits are excluded; summed render timestamps overlap. This is not a measured interactive60FPS
 claim. See `docs/evidence/hair-body-contact-performance-2026-09-09.json`.
 
@@ -76,3 +82,11 @@ The actual Avatar transform/lifetime regression passes eight GPU groups, includi
 rotated common parents, bind transforms, pre-submit scale refusal/resume, style transitions and
 pending-digest disposal. Existing bob02 quick24/disposal21 still pass; see
 `docs/AVATAR-HAIR-CONTACT-REGRESSION.md`. Shipping bob01 assets remain unchanged at this checkpoint.
+
+The subsequent exact-input cache passes six496-chain fixtures at16/64, eleven actual GPU
+invalidation/input cases and nine actual Avatar lifecycle groups. A separate720-frame actual
+portrait comparison preserves final particle positions, velocities, rebuilt vertices, head and
+step count exactly. Update-to-GPU wall median improves18.2→14.3ms (p9521.4→15.7); compute
+median14.876898→11.665822ms (p9518.529468→12.896095). The same timing exclusions apply.
+This tested workload fits a16.7ms budget at median and p95, but interactive frame pacing and
+other poses/bakes/hardware remain separate. See `docs/evidence/hair-body-contact-input-cache-2026-09-09.json`.

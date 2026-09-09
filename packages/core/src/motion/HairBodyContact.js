@@ -55,8 +55,9 @@ export function createHairBodyContactFactory( { body, groomMesh, selection, oute
                     querySegment: ( a, b, seed ) => surface.querySegment( a, b, seed, alpha ),
                     mayOverlapSegment: ( a, b, radius ) => surface.mayOverlapSegment( a, b, radius )
                 };
+                // Each normal/reset batch starts with a snapshot; surface and alpha stay fixed within it.
                 const stage = createSurfaceContactStage( { ...context, surface: perStep,
-                    activeChains: calibration.activeChains, outerIterations, lengthIterations: 1 } );
+                    activeChains: calibration.activeChains, outerIterations, lengthIterations: 1, cacheQueryInputs: true } );
                 stages.push( stage ); stage.setDt( substepSeconds );
                 // More settling at attachment/reset, with no startup velocity impulse.
                 const nodes = [ stage.snapshotNode ];
@@ -90,6 +91,7 @@ export function createHairBodyContactFactory( { body, groomMesh, selection, oute
                     patchVertices: patch.sourceVertexIds.length, patchTriangles: patch.triangles.length / 4,
                     surfaceBuffers: surface.buffers.length, stages: stages.length, outerIterations, resetIterations, queryEvery: 1,
                     regularQueries: outerIterations, resetQueries: resetIterations,
+                    queryInputReuse: { ...stages[ 0 ].counts.queryInputReuse },
                     contactModel: 'whole-span maximum endpoint radius; coupled length and contact constraints',
                     temporalSurface: 'linear vertices/normals between submitted body poses; swept endpoint bounds',
                     velocityCorrection: 'contact displacement / substep; omitted on reset',

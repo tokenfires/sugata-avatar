@@ -37,17 +37,18 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the07:30UTC section below; earlier sections retain the experimental history.
+Latest checkpoint is the07:55UTC section below; earlier sections retain the experimental history.
 No shipping long-bob GLB has changed yet. The exact corrected g050 candidate activates real core
 contact; the normal preview still loads the original asset. All shipping bob02 bytes are preserved.
 
-- Root: core integration, six-fixture query parity, actual portrait frame cost and checkpoints.
-- `continuity_audit`: both cheaper schedules rejected and archived; now CPU diagnosis of remaining
-  full-query outside-patch curtain contacts and actual alpha/occlusion.
-- `orbit_render_audit`: live transform/lifetime and query primitives passed. Preparing portable
-  triangle-bound adversarial gates and one leafSize1 CPU work estimate, without a size sweep.
-- `visual_next_step`: neckline corrections complete for g025/g075. CPU-only g025 composition with
-  its separate131 connector and a reproducible original-to-candidate tool; no shipping asset edits.
+- Root: exact-input cache promoted after actual720-frame parity/performance; core/docs checkpoints,
+  coordinating remaining visible g050 acceptance and g025 registry integration.
+- `continuity_audit`: fixed nape support family failed an explicit posed enclosure constraint on211;
+  assessing a calibrated upper-neck domain for the nine long inner-nape curtains, CPU only.
+- `orbit_render_audit`: owns GPU for portable cache invalidation/parity and promoted Avatar regression;
+  body contact, Avatar and calibration sources remain frozen during those checks.
+- `visual_next_step`: reproducible g025 composition committed; exact calibration/registry proposal
+  reviewed but unapplied. Preparing actual composed motion capture; no shipping asset edits.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -421,3 +422,36 @@ No final clothing-quality or broader-body fitting claim is made.
   blending contribute. Some spans lie wholly inside, so triangle-crossing counts alone miss them.
   Continuity is assessing a bounded rest-support correction and outer-hair enclosure before any
   additional domain or solver changes. Shipping g050/bob01 still remains original.
+
+## Exact input reuse promoted — about07:55UTC
+
+- Frozen scratch contact93d538d passes six all496 input fixtures at16/64, eleven GPU invalidation
+  cases (new snapshot/body/alpha, second write range, one ULP, signed zero and point-vs-span inputs)
+  and nine actual Avatar transform/lifetime groups. Default-off parity is retained. Snapshot
+  invalidation and fixed surface/alpha within each batch are required; there is no cross-frame
+  reuse and no reduced solve/query schedule. Reused queries report zero actual traversal work
+  plus an explicit reuse flag.35 buffers remain; four metadata buffers add2,031,616 bytes.
+- Frozen whole-contact GPU medians improve8.098→4.794ms and8.021→4.575ms. Query-only repeated
+  identical-input timing is deliberately excluded from whole-frame claims. Archive
+  `captures/query-input-cache-2026-09-09`,63 entries, manifest3523b8b6f4da7c844e4d34f73204b6127aff70acf25a361083e16c387a291170.
+- Actual Avatar portrait,32 warm+720 fixed60 frames,716×750 canvas, two substeps/frame:
+  final positions, velocities, rebuilt vertices, head matrix and steps are exactly equal.
+  Update-to-GPU wall median18.2→14.3ms,p9521.4→15.7; compute median14.876898→11.665822ms,
+  p9518.529468→12.896095. Zero browser errors and exact body/groom response hashes. This is
+  serialized timing excluding timestamp readback/rAF/compositor waits, not a general60FPS claim.
+  Archive `captures/body-contact-input-cache-frame-cost-2026-09-09`,24 entries,
+  manifest004b4f93962e501d5cc5687c734fc1cacff55193289649bebf86d3270bc86fbc.
+- Promoted stage6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185 differs
+  from scratch only in its first comment. Ownerfd0b528418dd11ef376b51922d47aadd7d3a2be6bbc684480628a8749dac73ce
+  opts in with the validated snapshot ordering and reports a copied layout. CPU calibration/owner
+  and Avatar gates are rerun; portable cache and actual promoted regression are underway.
+- g025 portable compositione18dca3 reproduces full SHA556f67a7…. Separate exact calibration and
+  prospective registry patch pass8 identity and16 CPU owner/integration groups. All496 roots/
+  first spans clear its1872-triangle patch in authored and one actual posed0 configuration.
+  Proposal remains unapplied pending cache source freeze. No composed motion/appearance acceptance.
+- g050 nape support pilot changes only188/211/202, but fails posed enclosure on211. The same
+  opaque texel requires at least5.969331mm outward at natural420 and at most5.449375mm at nod60.
+  This disproves that fixed measured-direction support family, not every possible rest design.
+  No second arbitrary tuning candidate. Next CPU check evaluates a calibrated upper-neck superset
+  for the nine inner-nape curtains while keeping all original neck/shoulder coverage. Shipping
+  bob01 and protected bob02 remain unchanged; four known HairMaterial failures remain.
