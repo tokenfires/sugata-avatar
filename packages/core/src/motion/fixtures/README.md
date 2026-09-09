@@ -9,3 +9,7 @@ The JSON records the prior module SHA, source capture SHA values and the existin
 ## Core segment/contact primitives
 
 `hair-surface-primitives.json` (SHA-256 `681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129`) preserves 20 original and 15 near-parallel inputs, with source fixture/capture hashes. `hair-segment-oracle.mjs` is the independent CPU feature oracle from the frozen audit, with only its header updated; the selftest cross-checks it against 300 deterministic Three point/triangle convex minima. `hair-segment-v1-control.txt` retains only the historical segment-parameter function for an isolated browser rejection control. The normal rejection control changes only the old numerical threshold in the served test response. None is imported by production modules; no captures directory is needed to run the regression.
+
+## Avatar canonical contact golden
+
+`avatar-hair-contact-canonical.json` (SHA-256 `8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36`) retains exact array hashes for the original core nod smoke at0/.1seconds, before the bind-aware transform integration. It records the old capture/source/asset hashes. The Avatar WebGPU selftest reproduces its corrected groom from the tracked original LFS fixture and the portable long-fall tool; no ignored captures are loaded at runtime. Canonical GPU bit identity is deliberately stricter than the independent native-root geometric tolerance and must not be automatically rebaselined on a different engine or device.
