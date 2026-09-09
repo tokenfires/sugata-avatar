@@ -3508,9 +3508,10 @@ export class Avatar {
         const headBone = mesh.skeleton.bones[ boneIndex ];
         const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
 
-        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity } ] = await Promise.all( [
+        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform } ] = await Promise.all( [
             import( './motion/HairDynamics.js' ),
-            import( './render/HairVelocity.js' )
+            import( './render/HairVelocity.js' ),
+            import( './motion/HairSkinTransform.js' )
         ] );
 
         // Disposal or an identity swap can finish while the dynamic imports are pending.
@@ -3535,7 +3536,7 @@ export class Avatar {
 
                     const { createHairBodyContactFactory } = await import( './motion/HairBodyContact.js' );
                     if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
-                    contactFactory = createHairBodyContactFactory( { body: figure.body, selection } );
+                    contactFactory = createHairBodyContactFactory( { body: figure.body, groomMesh: mesh, selection } );
 
                 } else contactUnavailableReason = selection.reason;
 
@@ -3551,6 +3552,7 @@ export class Avatar {
 
         }
 
+        const skinTransform = createHairSkinTransform( mesh, headBone, headBoneInverse );
         const dynamics = createHairDynamics( {
             renderer: this.stage.renderer,
             geometry: mesh.geometry,
@@ -3561,7 +3563,8 @@ export class Avatar {
 
             // The first call captures the gravity rest frame permanently, which is reason 1 for this
             // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
-            dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+            const skin = skinTransform( { requireRigid: contactFactory !== undefined } );
+            dynamics.setHeadMatrix( skin.meshMatrixWorld, skin.headBoneMatrixWorld, skin.headBoneInverse );
 
             const bones = new Map();
             figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
@@ -3599,7 +3602,8 @@ export class Avatar {
                 // update and this closure runs after `ground.update()` has moved nothing.
                 figure.root.updateMatrixWorld( true );
 
-                dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+                const skin = skinTransform( { requireRigid: contactFactory !== undefined } );
+                dynamics.setHeadMatrix( skin.meshMatrixWorld, skin.headBoneMatrixWorld, skin.headBoneInverse );
 
                 // The skull rides the head matrix above; the capsule does not, because it hangs off the
                 // clavicles and `Sway` moves the whole column.

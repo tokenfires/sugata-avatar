@@ -12,11 +12,11 @@ Wardrobe compacts the draw index. Contact receives `Wardrobe.fullIndex`, preserv
 
 ## Solver ownership and submission
 
-`createHairBodyContactFactory({body, selection, outerIterations=16, resetIterations=64, queryEvery=1})` returns the synchronous private factory consumed by HairDynamics. It owns one CPU patch, one three-buffer GPU query and one six-buffer/four-kernel contact stage for each of four solver substeps. Renderer, body mesh/skeleton/geometry, groom and the solver's position/velocity/rest-length buffers are borrowed.
+`createHairBodyContactFactory({body, groomMesh, selection, outerIterations=16, resetIterations=64})` returns the synchronous private factory consumed by HairDynamics. It owns one CPU patch, one three-buffer GPU query and one six-buffer/four-kernel contact stage for each of four solver substeps. Renderer, body mesh/skeleton/geometry, groom and the solver's position/velocity/rest-length buffers are borrowed.
 
 For each submitted frame, the owner atomically skins/refits and advances previous/current body history once. It then uploads the shared surface and assigns substep interpolation fractions. No-step frames do not advance submitted history. The body surface interpolates vertices/normals, not intermediate skeletal poses, and uses bounds covering both endpoint poses. This is not continuous collision detection.
 
-Normal contact runs after each DFTL step and before the single final ribbon rebuild. The current default executes sixteen query/projection pairs, adding contact displacement divided by the supplied substep duration to velocity. Reset uses sixty-four full-query settling passes, collapses body history and omits velocity finalization. Both test schedules share this exact reset. Experimental `queryEvery:2` uses eight query/two-projection groups during normal frames only; it has not been accepted by the frozen tests alone. The report gives actual regular/reset query counts.
+Normal contact runs after each DFTL step and before the single final ribbon rebuild. The current default executes sixteen query/projection pairs, adding contact displacement divided by the supplied substep duration to velocity. Reset uses sixty-four full-query settling passes, collapses body history and omits velocity finalization. Both test schedules share this exact reset. The every-two-projection query control failed sustained nod compliance (2.1825mm/43.52% link error) and has been removed from the core owner. Its matched experiment is preserved in the source snapshots. The report gives actual regular/reset query counts.
 
 The query finds the closest witness over the entire span and conservatively uses the maximum endpoint half-width norm. Cross-product segment math avoids near-parallel Float32 cancellation. At numerically coincident contact, the stage uses the authored outward normal rather than normalizing tiny tangent residue. Root-AABB rejection is conservative; cached triangles seed a full bounded traversal. Dispatch order groups the same ring across chains while keeping projection/output records card-major. Each particle root has zero inverse mass.
 
@@ -41,4 +41,20 @@ node tools/critic/portrait-clearance.selftest.mjs
 node packages/core/src/Avatar.selftest.mjs
 ```
 
-The calibration/owner tests cover thirteen CPU groups, including actual TSL node construction, reset/normal ordering, canonical masked topology, altered assets, partial stage failure, reentrant retirement and cleanup errors. The two Avatar tests defer actual Web Crypto digests and retire the caller by disposal or a new identity token. These do not replace GPU shader, motion, appearance, frame-time or renderer-memory acceptance.
+The calibration/owner tests cover fifteen CPU groups, including actual TSL node construction, reset/normal ordering, canonical masked topology, altered assets, partial stage failure, reentrant retirement and cleanup errors. The two Avatar tests defer actual Web Crypto digests and retire the caller by disposal or a new identity token. These do not replace GPU motion, appearance, frame-time or renderer-memory acceptance. Twelve portable primitive groups now include actual core GPU queries/contact planes/bounds and both historical rejection controls; see docs/HAIR-SURFACE-PRIMITIVES.md.
+
+## Full skin transform
+
+Avatar now folds both bind matrices into the rigid head inputs: M=mesh.matrixWorld,
+A=bindMatrixInverse×headBone.matrixWorld, B=headInverseBind×bindMatrix. HairDynamics uses M×A×B
+for world particles and inverse(M) for object-space rebuilt vertices. Omitting the attached-mode
+inverse bind doubles common parent transforms; native Three witnesses reject the old path by
+374mm for one translation and80mm for one rotation. Identity binds retain exactly the old
+operand grouping. See docs/HAIR-SKIN-TRANSFORM.md.
+
+Calibration refuses nonfinite, nonaffine, scaled, sheared or reflected full skin transforms.
+Valid rigid translations/rotations and nonidentity binds remain supported. The owner checks
+again at construction and each preparation; a later direct solver call with nonrigid input
+retires contact without submitting. Avatar additionally refuses invalid input before feeding
+the solver, leaving the last submitted contact history intact. Body skinning itself supports
+nonuniform transforms; the restriction is the hair solver's fixed width/rest-length contract.

@@ -4,13 +4,13 @@ import { BufferGeometry, BufferAttribute, Matrix4, Group } from 'three';
 import { Avatar } from './Avatar.js';
 import { HAIR_BODY_CONTACT_CALIBRATION as C } from './motion/HairBodyContactCalibration.js';
 // Warm imports so the deliberately deferred Web Crypto operation is the boundary under test.
-await Promise.all( [ import( './motion/HairDynamics.js' ), import( './render/HairVelocity.js' ) ] );
+await Promise.all( [ import( './motion/HairDynamics.js' ), import( './render/HairVelocity.js' ), import( './motion/HairSkinTransform.js' ) ] );
 function mesh( record ) {
     const geometry = new BufferGeometry();
     for ( const [ key, size ] of [ [ 'position',3 ],[ 'normal',3 ],[ 'uv',2 ],[ 'skinIndex',4 ],[ 'skinWeight',4 ] ] )
         geometry.setAttribute( key, new BufferAttribute( new Float32Array( record.vertexCount * size ), size ) );
     geometry.setIndex( new BufferAttribute( new Uint32Array( record.indexCount ), 1 ) );
-    return { isSkinnedMesh: true, geometry, matrixWorld: new Matrix4(), skeleton: {
+    return { isSkinnedMesh: true, geometry, matrixWorld: new Matrix4(), bindMatrix: new Matrix4(), bindMatrixInverse: new Matrix4(), skeleton: {
         bones: record.boneNames.map( name => ( { name, matrixWorld: new Matrix4() } ) ),
         boneInverses: record.boneNames.map( () => new Matrix4() )
     } };

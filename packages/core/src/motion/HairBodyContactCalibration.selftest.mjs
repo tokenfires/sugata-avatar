@@ -104,6 +104,17 @@ try {
         }
         assert.equal( ( await select( { ...input, groom: {} } ) ).enabled, false );
     } );
+    await check( 'scale, shear, reflection and animated head scale cannot invalidate the world-width contract', async () => {
+        const saved = groom.matrixWorld.clone();
+        for ( const matrix of [ new Matrix4().makeScale( 2, 1, 1 ), new Matrix4().makeShear( .1, 0, 0, 0, 0, 0 ), new Matrix4().makeScale( -1, 1, 1 ) ] ) {
+            groom.matrixWorld.copy( matrix ); const result = await select( input ); assert.equal( result.enabled, false ); assert.match( result.reason, /rigid/ );
+        }
+        groom.matrixWorld.copy( saved );
+        const head = groom.skeleton.bones.find( bone => bone.name === 'head' ), before = head.matrixWorld.clone();
+        head.matrixWorld.makeScale( 1, 2, 1 );
+        try { const result = await select( input ); assert.equal( result.enabled, false ); assert.match( result.reason, /rigid/ ); }
+        finally { head.matrixWorld.copy( before ); }
+    } );
     await check( 'original collision-producing groom cannot activate the corrected-rest calibration', async () => {
         const original = meshFrom( path.join( root, 'tools/figure-pipeline/fixtures/bob01-g050-original.glb' ), 'hair_bob01' );
         const result = await select( { ...input, groom: original } ); assert.equal( result.enabled, false ); assert.match( result.reason, /Groom position/ );
@@ -115,7 +126,7 @@ try {
         compute( nodes ) { this.calls.push( nodes ); },
         _attributes: { delete: null } } );
     const rendererFor = () => { const r = spy(); r._attributes.delete = attribute => r.deleted.push( attribute ); return r; };
-    const make = ( renderer, contactFactory = createHairBodyContactFactory( { body, selection } ) ) =>
+    const make = ( renderer, contactFactory = createHairBodyContactFactory( { body, groomMesh: groom, selection } ) ) =>
         createHairDynamics( { renderer, geometry: groom.geometry, contactFactory } );
     await check( 'body owner submits64 reset projections without velocity and16 per normal substep', async () => {
         const renderer = rendererFor(), d = make( renderer );
@@ -134,7 +145,7 @@ try {
         assert.equal( renderer.deleted.length, 35 ); assert.equal( new Set( renderer.deleted ).size, 35 );
     } );
     await check( 'failure constructing stage2 releases the first stage, shared surface and solver exactly once', async () => {
-        const renderer = rendererFor(), build = createHairBodyContactFactory( { body, selection } ); let reads = 0;
+        const renderer = rendererFor(), build = createHairBodyContactFactory( { body, groomMesh: groom, selection } ); let reads = 0;
         assert.throws( () => make( renderer, context => build( { ...context, groom: new Proxy( context.groom, {
             get( target, key ) { if ( key === 'chainCount' && ++reads === 3 ) throw Error( 'stage2 construction failed' ); return Reflect.get( target, key ); }
         } ) } ) ), /stage2 construction failed/ );
@@ -155,6 +166,13 @@ try {
         assert.equal( renderer.deleted.length, 35 ); assert.equal( new Set( renderer.deleted ).size, 35 );
         assert.equal( body.geometry.getAttribute( 'position' ).count, C.body.vertexCount );
         assert.equal( groom.geometry.getAttribute( 'position' ).count, C.groom.vertexCount );
+    } );
+    await check( 'a later nonrigid head pose retires contact before GPU submission', async () => {
+        const renderer = rendererFor(), d = make( renderer ), head = groom.skeleton.bones.find( bone => bone.name === 'head' ), before = head.matrixWorld.clone();
+        head.matrixWorld.makeScale( 2, 1, 1 );
+        try { assert.throws( () => d.update( 0 ), /unit rigid/ ); }
+        finally { head.matrixWorld.copy( before ); d.dispose(); }
+        assert.equal( renderer.calls.length, 0 ); assert.equal( renderer.deleted.length, 35 );
     } );
     console.log( `${ groups } contact calibration/owner groups passed (CPU; actual motion acceptance separate)` );
 } finally { for ( const resource of resources ) resource.dispose(); fs.rmSync( temp, { recursive: true, force: true } ); }

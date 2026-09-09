@@ -2,6 +2,7 @@
  * Imported only for the long-bob calibration. It borrows all body/groom/solver resources.
  */
 import { uniform } from 'three/tsl';
+import { createHairSkinTransform } from './HairSkinTransform.js';
 import { createPatch, makeSkinnedUpdater, resetHistory, motionBuffers, disposePatch } from './HairSurface.js';
 import { createSurfaceQuery } from './HairSurfaceQuery.js';
 import { createSurfaceContactStage } from './HairSurfaceContact.js';
@@ -19,19 +20,21 @@ function cleanup( actions ) {
 }
 
 /** Call only after selectHairBodyContactCalibration and the caller's post-await token guard. */
-export function createHairBodyContactFactory( { body, selection, outerIterations = 16, resetIterations = 64, queryEvery = 1 } ) {
+export function createHairBodyContactFactory( { body, groomMesh, selection, outerIterations = 16, resetIterations = 64 } ) {
     if ( selection?.enabled !== true || selection.calibration !== HAIR_BODY_CONTACT_CALIBRATION ) throw Error( 'Validated body-contact calibration is required.' );
     integer( outerIterations, 'outerIterations', 1, 128 );
     integer( resetIterations, 'resetIterations', outerIterations, 128 );
-    if ( ![ 1, 2 ].includes( queryEvery ) || outerIterations % queryEvery ) throw Error( 'queryEvery must divide outerIterations and be1 or2.' );
     const { calibration, bodyIndices, bodyPositions, bodyNormals } = selection;
+    const head = groomMesh?.skeleton?.bones?.findIndex( bone => bone.name === 'head' );
+    if ( head === undefined || head < 0 ) throw Error( 'The calibrated skinned groom and its head bone are required.' );
+    const skinTransform = createHairSkinTransform( groomMesh, groomMesh.skeleton.bones[ head ], groomMesh.skeleton.boneInverses[ head ] );
     return context => {
         const { renderer, groom, substepSeconds, maxSubstepsPerFrame } = context;
         for ( const [ key, value ] of Object.entries( calibration.layout ) ) if ( groom?.[ key ] !== value ) throw Error( `Calibrated groom ${ key } changed.` );
         integer( maxSubstepsPerFrame, 'maxSubstepsPerFrame', 1, 16 );
         if ( !Number.isFinite( substepSeconds ) || substepSeconds <= 0 ) throw Error( 'A finite positive contact timestep is required.' );
         let patch = null, surface = null, updateSkin = null, disposed = false, frames = 0, resetFrame = false, preparedSubsteps = 0;
-        const stages = [], alphas = [], resetNodes = [], regularNodes = [];
+        const stages = [], alphas = [], resetNodes = [];
         const requireLive = () => { if ( disposed ) throw Error( 'Body contact has been disposed.' ); };
         const dispose = () => {
             if ( disposed ) return; disposed = true;
@@ -39,6 +42,7 @@ export function createHairBodyContactFactory( { body, selection, outerIterations
                 () => surface?.dispose( renderer ), () => { if ( patch ) disposePatch( patch ); } ] );
         };
         try {
+            skinTransform( { requireRigid: true } );
             patch = createPatch( { bodyIndices, sourceTriangleIds: calibration.sourceTriangleIds,
                 sourcePositions: bodyPositions, sourceNormals: bodyNormals } );
             updateSkin = makeSkinnedUpdater( body, patch, { sourceIndex: bodyIndices } );
@@ -58,12 +62,7 @@ export function createHairBodyContactFactory( { body, selection, outerIterations
                 const nodes = [ stage.snapshotNode ];
                 for ( let pass = 0; pass < resetIterations; pass ++ ) nodes.push( stage.queryNode, stage.projectionNode );
                 resetNodes.push( nodes );
-                const regular = [ stage.snapshotNode ];
-                for ( let pass = 0; pass < outerIterations; pass ++ ) {
-                    if ( pass % queryEvery === 0 ) regular.push( stage.queryNode );
-                    regular.push( stage.projectionNode );
-                }
-                regular.push( stage.finalizeNode ); regularNodes.push( regular );
+
             }
         } catch ( cause ) {
             try { dispose(); } catch ( cleanupError ) { throw new AggregateError( [ cause, cleanupError ], 'Body contact construction and cleanup failed.' ); }
@@ -72,6 +71,7 @@ export function createHairBodyContactFactory( { body, selection, outerIterations
         return {
             prepare( { substeps, reset } ) {
                 requireLive(); integer( substeps, 'submitted substeps', 1, stages.length );
+                skinTransform( { requireRigid: true } );
                 // Full staged skinning/refit/history commit; zero-step frames never call prepare.
                 updateSkin( { advanceHistory: true, reset: reset === true } );
                 requireLive(); surface.update();
@@ -81,15 +81,15 @@ export function createHairBodyContactFactory( { body, selection, outerIterations
             },
             nodesFor( substep ) {
                 requireLive(); integer( substep, 'prepared substep', 0, preparedSubsteps - 1 );
-                return resetFrame ? resetNodes[ substep ] : regularNodes[ substep ];
+                return resetFrame ? resetNodes[ substep ] : stages[ substep ].nodes;
             },
             dispose,
             report() {
                 requireLive();
                 return { calibration: calibration.id, frames, activeChains: calibration.activeChains.length,
                     patchVertices: patch.sourceVertexIds.length, patchTriangles: patch.triangles.length / 4,
-                    surfaceBuffers: surface.buffers.length, stages: stages.length, outerIterations, resetIterations, queryEvery,
-                    regularQueries: outerIterations / queryEvery, resetQueries: resetIterations,
+                    surfaceBuffers: surface.buffers.length, stages: stages.length, outerIterations, resetIterations, queryEvery: 1,
+                    regularQueries: outerIterations, resetQueries: resetIterations,
                     contactModel: 'whole-span maximum endpoint radius; coupled length and contact constraints',
                     temporalSurface: 'linear vertices/normals between submitted body poses; swept endpoint bounds',
                     velocityCorrection: 'contact displacement / substep; omitted on reset',

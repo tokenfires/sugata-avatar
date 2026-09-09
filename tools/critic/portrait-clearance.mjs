@@ -89,7 +89,7 @@ const browser=await playwright.chromium.launch({channel:'chromium',headless:true
 const samples=[],errors=[],loadedAssets=[],assetReads=[];
 let replacedGroomRequests=0;
 const sourceHashes=Object.fromEntries(['packages/core/src/Avatar.js','packages/core/src/motion/HairDynamics.js','packages/core/src/material/HairMaterial.js','packages/testbed/src/portrait.js','tools/critic/portrait-clearance.mjs','tools/critic/portrait-calibration.mjs','packages/testbed/src/portrait-selection.mjs'].map(file=>[file,sha(path.join(root,file))]));
-for(const module of ['HairSurface','HairSurfaceQuery','HairSurfaceContact','HairBodyContact','HairBodyContactCalibration','HairBodyContactCalibration.data']) { const file='packages/core/src/motion/'+module+'.js'; sourceHashes[file]=sha(path.join(root,file)); }
+for(const module of ['HairSkinTransform','HairSurface','HairSurfaceQuery','HairSurfaceContact','HairBodyContact','HairBodyContactCalibration','HairBodyContactCalibration.data']) { const file='packages/core/src/motion/'+module+'.js'; sourceHashes[file]=sha(path.join(root,file)); }
 Object.assign(sourceHashes,assetHashes);
 let descriptor,sourceHashesMatchAtCompletion=false;
 function summary(values){

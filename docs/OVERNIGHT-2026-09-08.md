@@ -322,3 +322,29 @@ No final clothing-quality or broader-body fitting claim is made.
 - Correction to the earlier numeric provenance sentence: all recorded files were rehashed, but
   the exact count was not13. Use each archive's explicit source map rather than that old count.
   No bob02 asset or MLX changes. Four known HairMaterial failures remain open.
+
+## Sustained schedule and transform findings — about06:40UTC
+
+- Core integration checkpoint53a8ccc preserves the new owner/calibration/Avatar path; no shipping
+  groom changed. Query/stage primitive tests281dc94 pass12 groups including35segment fixtures,
+  144generated BVH/pose/seed queries,8normal cases,12bounds cases, stale-cache clearing,
+  renderer resource return and both historical countercontrols. Max errors0.00006638mm primitive/
+  0.00010726mm BVH; zero browser errors. See docs/evidence/hair-surface-primitives-2026-09-09.json.
+- Paired actual core captures share exact64-pass full-query resets and exact body/head/rig/camera
+  poses. Both natural arms clear face/selected-neck in13poses, but queryEvery2 changes hidden nape
+  trajectories by55.83mm and produces different outside-patch intersections. Strong nod gives
+ 2.18250mm/43.519% link error versus0.33385mm/6.657% for full queries. The cheaper schedule is
+  unaccepted and removed from the production owner; no timing benchmark was used to excuse it.
+  Full-query motion still has outside-patch crossings and up to6.43% warm short-link error, so
+  it is not a global-clearance certificate either. Exact paired sources/fixtures are retained
+  under `captures/body-contact-core-2026-09-09/paired-query-refresh-evidence`.
+- HairSkinTransform helper ef42374 is now integrated: exact M×bindInverse×boneWorld×inverseBind×bind
+  rather than dropping the inverse bind. Proper unit-rigid full-H checks protect radius/length
+  assumptions at selection, construction and preparation. Five helperCPU +15calibration/owner
+  +2actual-pending-digest retirement +Avatar137 groups pass. Default identity-bind operands retain
+  their exact grouping. Actual GPU embedding/lifetime and bob02 regressions are queued next.
+- Next distinct performance hypothesis is one16-full-query contact stage after the final DFTL
+  substep of each rendered frame, with velocity delta divided by the actual contacted interval.
+  DFTL remains120Hz and common reset remains64full-query passes. This may avoid the live rAF
+  cost feedback where slower frames earn more expensive contact substeps; it is a planned bounded
+  experiment, not a new shipping schedule or accepted performance claim.

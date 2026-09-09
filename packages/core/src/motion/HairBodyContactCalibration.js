@@ -3,6 +3,7 @@
  * Callers must check their load token after this asynchronous validation returns.
  */
 import { HAIR_BODY_CONTACT_DATA } from './HairBodyContactCalibration.data.js';
+import { createHairSkinTransform } from './HairSkinTransform.js';
 
 function freeze( value ) {
     if ( value && typeof value === 'object' ) {
@@ -91,6 +92,9 @@ export async function selectHairBodyContactCalibration( { style, bake, body, gro
     if ( !globalThis.crypto?.subtle?.digest ) return mismatch( 'Body-contact geometry validation requires Web Crypto.' );
     let bodySnapshot, groomSnapshot;
     try {
+        const head = groom?.skeleton?.bones?.findIndex( bone => bone.name === 'head' );
+        if ( head === undefined || head < 0 ) throw Error( 'A driving head bone is required for hair contact.' );
+        createHairSkinTransform( groom, groom.skeleton.bones[ head ], groom.skeleton.boneInverses[ head ] )( { requireRigid: true } );
         // Snapshot all mutable attributes before the first asynchronous digest.
         bodySnapshot = snapshot( body, bodyIndices ); groomSnapshot = snapshot( groom );
     } catch ( error ) { return mismatch( error.message ); }
