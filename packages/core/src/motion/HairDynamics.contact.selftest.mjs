@@ -209,6 +209,17 @@ try {
             assert.equal( state.disposals, 1 ); assert.equal( renderer.deleted.length, 8 );
         }
     } );
+    check( 'retirement from a returned node getter cannot cross the final submission boundary', () => {
+        const renderer = spy(), node = Fn( () => {} )().compute( 1 ); let d, disposals = 0;
+        Object.defineProperty( node, 'isComputeNode', { get() { d.dispose(); return true; } } );
+        d = make( renderer, { contactFactory: () => ( {
+            prepare() {}, nodesFor() { return [ node ]; }, report() { return {}; },
+            dispose() { disposals++; node.dispose(); }
+        } ) } );
+        assert.throws( () => d.update( 0 ), /disposed/ );
+        assert.equal( renderer.calls.length, 0 ); assert.equal( renderer.deleted.length, 8 );
+        assert.equal( disposals, 1 ); assert.equal( d.stepsTaken, 0 );
+    } );
     check( 'failed submission retires advanced contact history and zero contact nodes remain valid', () => {
         const state = {}, renderer = spy(), f = factory( state );
         const d = make( renderer, { contactFactory: context => {

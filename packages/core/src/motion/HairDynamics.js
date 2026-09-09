@@ -1253,6 +1253,9 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
         }
 
+        // Returned arrays/nodes may have getters. Their validation can retire the solver after
+        // the callback guard above, so check again at the final submission boundary.
+        requireLive( 'update' );
         if ( submit === 'perkernel' ) {
 
             // 🚩 THE DEFECT, and it is one line. Research doc §0.3 measures a `renderer.compute()`
