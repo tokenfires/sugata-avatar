@@ -1,6 +1,6 @@
 # Calibrated long-bob body contact
 
-The core owner is integrated into Avatar for the exact corrected bob01/g050 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Final persistent-motion, frame-budget and visual acceptance remain pending.
+The core owner is integrated into Avatar for the exact corrected bob01/g050 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent face/selected-neck captures and live ownership/transform gates pass. Full-body residuals, the60FPS frame budget and final visual acceptance remain open.
 
 ## Selection and loading
 
@@ -26,7 +26,7 @@ Disposal retires the owner first and attempts every stage, shared buffer and CPU
 
 The calibrated patch contains1,872 neck/shoulder triangles and1,069 vertices, and current active chains include all496 cards. It is an open local surface, so signed nearest-normal distance is not global body containment. Higher neck/scalp and garments remain separate full-triangle gates. Broadening the patch produced infeasible fixed-root norm contacts and was not installed. The radius bound adds conservative stand-off and is not an exact tapered ribbon distance.
 
-All six frozen controls at sixteen/sixty-four passes clear face and selected neck triangles; outside-patch body intersections remain. A large pose jump can temporarily stretch a short link by10.74% at sixteen passes, reduced below0.571% after sixty-four. Those are convergence controls, not sustained-frame results. Query-every2 changes some outside-patch pair identities; persistent matched captures must establish its quality/performance tradeoff. The full test suite has four known HairMaterial failures and is not claimed green.
+All six frozen controls at sixteen/sixty-four passes clear face and selected neck triangles; outside-patch body intersections remain. A large pose jump can temporarily stretch a short link by10.74% at sixteen passes, reduced below0.571% after sixty-four. Those are convergence controls, not sustained-frame results. Both cheaper schedules have now failed sustained short-link compliance: queryEvery2 reaches43.52% on nod, once-per-frame reaches28.22%, versus6.66% for the unchanged substep control. Both are rejected. The full test suite has four known HairMaterial failures and is not claimed green.
 
 Core smoke evidence is in `captures/body-contact-core-2026-09-09/smoke-nod`: actual Avatar/corrected GLB, two nod poses, enabled contact report, stable sources/assets and zero browser errors. Exact face/neck replay passes. More complete results and the current source freeze are in `docs/OVERNIGHT-2026-09-08.md`.
 
@@ -58,3 +58,21 @@ again at construction and each preparation; a later direct solver call with nonr
 retires contact without submitting. Avatar additionally refuses invalid input before feeding
 the solver, leaving the last submitted contact history intact. Body skinning itself supports
 nonuniform transforms; the restriction is the hair solver's fixed width/rest-length contract.
+
+## Measured query optimization and frame budget
+
+The promoted triangle-AABB query preserves every field in primitive/adversarial GPU tests
+and six496-chain full-contact fixtures at16/64 passes. Its exact source hashes and portable predecessor comparison are in the overnight checkpoint,
+performance ledger and HAIR-SURFACE-BOUNDS.md. It changes no contact
+policy or schedule.
+
+In the actual core Avatar portrait at716×750,720 rAF-paced fixed60 frames each submit two solver
+steps. Compute median improves18.239→14.836ms; update-to-GPU wall median21.1→18.0ms and
+p9522.7→21.4ms. This still exceeds the16.7ms60FPS target. Timestamp resolution and compositor
+waits are excluded; summed render timestamps overlap. This is not a measured interactive60FPS
+claim. See `docs/evidence/hair-body-contact-performance-2026-09-09.json`.
+
+The actual Avatar transform/lifetime regression passes eight GPU groups, including moved and
+rotated common parents, bind transforms, pre-submit scale refusal/resume, style transitions and
+pending-digest disposal. Existing bob02 quick24/disposal21 still pass; see
+`docs/AVATAR-HAIR-CONTACT-REGRESSION.md`. Shipping bob01 assets remain unchanged at this checkpoint.

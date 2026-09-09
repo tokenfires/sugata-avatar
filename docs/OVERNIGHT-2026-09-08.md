@@ -37,17 +37,17 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the06:25UTC section below; earlier sections retain the experimental history.
-No shipping long-bob GLB has changed yet. Root's new core contact owner is active only when the
-exact corrected g050 candidate is supplied; the normal preview still loads the original asset.
+Latest checkpoint is the07:30UTC section below; earlier sections retain the experimental history.
+No shipping long-bob GLB has changed yet. The exact corrected g050 candidate activates real core
+contact; the normal preview still loads the original asset. All shipping bob02 bytes are preserved.
 
-- Root: core body-contact/calibration/Avatar integration, actual motion acceptance and checkpoints.
-- `continuity_audit`: matched persistent every1/every2-query controls with the same64-pass reset,
-  full-ribbon replay and conditional actual-frame timing. Owns ignored GPU probes/evidence.
-- `orbit_render_audit`: CPU surface extraction is committed; independent transform/lifetime review
-  and reproducible core query/contact primitive tests are underway. No shader edits during captures.
-- `visual_next_step`: measured non-g050 downward-fall/visible-necklace corrections, scratch only.
-  g025131 rear connector remains separate until composed with live body contact.
+- Root: core integration, six-fixture query parity, actual portrait frame cost and checkpoints.
+- `continuity_audit`: both cheaper schedules rejected and archived; now CPU diagnosis of remaining
+  full-query outside-patch curtain contacts and actual alpha/occlusion.
+- `orbit_render_audit`: live transform/lifetime and query primitives passed. Preparing portable
+  triangle-bound adversarial gates and one leafSize1 CPU work estimate, without a size sweep.
+- `visual_next_step`: neckline corrections complete for g025/g075. CPU-only g025 composition with
+  its separate131 connector and a reproducible original-to-candidate tool; no shipping asset edits.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -348,3 +348,76 @@ No final clothing-quality or broader-body fitting claim is made.
   DFTL remains120Hz and common reset remains64full-query passes. This may avoid the live rAF
   cost feedback where slower frames earn more expensive contact substeps; it is a planned bounded
   experiment, not a new shipping schedule or accepted performance claim.
+
+## Correctness, real frame cost and remaining geometry — about07:15UTC
+
+- Actual Avatar regression is committedf32a20e: eight GPU groups pass, canonical g050 nod0/.1
+  centers/ribbons/body/head inputs remain bit-identical, all496 transformed root centers and
+  width lengths agree with native skinning within0.000167mm. Unsupported scale refuses before
+  submission/history advance and resumes when restored. Same-renderer contact/bob02/off/identity
+  switching returns35/8/0 storage attributes correctly; deferred digest disposal cannot publish.
+  Existing bob02 quick24 and disposal21 pass. No new implementation defect was found.
+- Once-per-rendered-frame contact is rejected too: natural short-link error0.347→0.960mm;
+  nod0.334→1.415mm (6.66→28.22%). All44 retained arm poses clear face/selected-neck, but new
+  outside-patch contacts appear. Eight CPU schedule groups and actual1/2/4-step reset parity
+  pass. No timing or additional FPS sweep was used to excuse the motion regression. Archive
+  `captures/body-contact-core-2026-09-09/frame-cadence-evidence`:43 local+104 sibling files,
+  manifest66443624…. Production schedule remains contact after each120Hz substep.
+- A different, behavior-preserving optimization guards each expensive exact triangle query with
+  that triangle's interpolated AABB. Scratch SHAe3b680d… preserves strict ties, seeds, BVH and
+  visited telemetry. Independent GPU review retains every field in the existing core tests and
+  every Float32 bit across732 added point/segment queries; CPU3072 finite bounds cases pass.
+  All six all496 body controls at16/64 preserve centers, vertices, velocities, planes, parameters
+  and cache exactly. The8epsilon cushion is empirically checked, not a universal arithmetic proof.
+- Frozen384-chain whole-stage GPU medians9.456→8.312ms and9.542→8.270ms. The actual496-chain core
+  Avatar portrait over720 fixed60 natural frames improves compute median18.239→14.836ms and
+  update-to-GPU wall median21.1→18.0ms,p9522.7→21.4ms. Same716×750 canvas and corrected groom,
+  exactly two DFTL steps per frame. No-contact control wall median5.5ms. The60FPS target remains
+  unmet; these serialized timings exclude compositor/rAF/timestamp-read overhead and do not
+  certify interactive refresh rate. Summed render timestamps overlap and are not whole-frame time.
+  Query promotion awaits portable adversarial tests; no shipping groom changed.
+- Performance proof is archived as60 files/86,736,967 bytes under
+  `captures/body-contact-query-performance-2026-09-09`, manifest2b61e3bd…. Tracked ledgers:
+  `docs/evidence/hair-body-contact-performance-2026-09-09.json` and
+  `docs/evidence/hair-triangle-bounds-review-2026-09-09.json`. One shared/tmp script-name collision
+  caused a redundant primitive run; it was not counted as six-fixture proof. Root's uniquely named
+  six-fixture harness produced the actual12 full-contact parity rows. Use per-agent scratch names.
+- Visual's g075458 correction removes the last observed thin throat strand; both actual opaque
+  witness pixels clear and matched rear outline stays stable. No new posed0 pairs; all60 remaining
+  curtain pairs lie on nine other cards. g025 necklace similarly clears, but its separate131 rear
+  connector needs contact composition. g000/g100 combined styles remain rejected. Three visual
+  archives preserve130 files and per-bake status; all are scratch, not a shipped all-bake fix.
+- Full-query g050 face/selected-neck clearance is not whole-body clearance. CPU residual diagnosis
+  identifies upper-neck/nape curtains188/193/198/201/202/211/217/223/272. Some natural contacts
+  involve opaque fragments and millimetres of penetration; front views hide them. Alpha/occlusion
+  classification is still underway. Do not broaden the patch into infeasible fixed roots or declare
+  these contacts harmless from the front image alone. Four known HairMaterial failures remain.
+
+## Query optimization promoted — about07:30UTC
+
+- Core HairSurfaceQuery now uses the accepted triangle-AABB guard, SHA
+  `f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1`.
+  This differs from measured scratche3b680d only by trimming two whitespace-only lines.
+  Portable predecessor-vs-core tests66d40ee pass eight CPU/GPU groups, including3072 finite
+  bounds cases and every Float32 bit across732 additional queries. Missing/partial guards fail
+  explicitly. The additional fixture contains18 records with17 unique named families; one
+  zero-origin ULP control is repeated. Historical evidence has an appended clarification.
+- LeafSize1 traversal was stopped at CPU accounting: about79.44% more node visits for only25/24
+  fewer exact triangle evaluations. No GPU sweep. A single Morton centroid chain ordering had
+  promising CPU scheduling estimates and exact six-fixture physical/canonical-record parity,
+  but actual all496 whole-stage GPU medians increased7.891→8.314ms and8.034→8.449ms. It is
+  rejected; existing chain order stays. No whole-portrait benchmark was run for that variant.
+  Archive `captures/body-contact-morton-order-2026-09-09`, manifest49009821c95d644889ee993efbe3f178ef047b9bde2b6b7a0373369b85a4b061.
+- Next bounded performance opportunity probe measures exact repeated query inputs between
+  outer passes on two frozen fixtures. It does not yet add a cache or relax query frequency.
+  Body-contact source and schedule remain frozen; orbit owns that isolated GPU probe.
+- g025 original-to-composed rest replay now reproduces its full GLB exactly (SHA556f67a7…):
+  authored face0/movable curtain0, unchanged251 root-layer pairs; adding131 changes only that
+  card's arc by+22.781mm (+8.286%) and compliance by−7.652%. Portable tests/commit are being
+  finished; live composed appearance/contact are not accepted yet.
+- Root's remaining upper-neck diagnosis is real: natural420 inner-nape card201 tip is18.42mm
+  inside actual neck (12.37mm even versus rigid-head body); natural720 card188 tip is9.91mm
+  inside actual neck but3.03mm outside a rigid-head body. Both hair deflection and neck skin
+  blending contribute. Some spans lie wholly inside, so triangle-crossing counts alone miss them.
+  Continuity is assessing a bounded rest-support correction and outer-hair enclosure before any
+  additional domain or solver changes. Shipping g050/bob01 still remains original.

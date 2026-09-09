@@ -198,21 +198,28 @@ export function createSurfaceQuery( patch, motion ) {
                 const a = positionAt( triangle.x ).toVar();
                 const b = positionAt( triangle.y ).toVar();
                 const c = positionAt( triangle.z ).toVar();
-                const weights = triangleBarycentric( point, a, b, c ).toVar();
-                const candidate = a.mul( weights.x ).add( b.mul( weights.y ) ).add( c.mul( weights.z ) ).toVar();
-                const delta = point.sub( candidate ).toVar(), distanceSquared = dot( delta, delta ).toVar();
-                If( distanceSquared.lessThan( bestDistanceSquared ).or(
-                    distanceSquared.equal( bestDistanceSquared ).and( triangleId.lessThan( sourceTriangle ) ) ), () => {
-                    bestDistanceSquared.assign( distanceSquared );
-                    closest.assign( candidate );
-                    barycentric.assign( weights );
-                    sourceTriangle.assign( triangleId );
-                    orderedTriangle.assign( triangleIndex );
-                    bestMask.assign( triangle.w.bitAnd( uint( 255 ) ) );
-                    const interpolated = normalAt( triangle.x ).mul( weights.x )
-                        .add( normalAt( triangle.y ).mul( weights.y ) )
-                        .add( normalAt( triangle.z ).mul( weights.z ) ).toVar();
-                    normal.assign( interpolated.div( sqrt( max( dot( interpolated, interpolated ), 1e-30 ) ) ) );
+                const low = min( min( a, b ), c ).toVar(), high = max( max( a, b ), c ).toVar();
+                const magnitude = max( max( abs( point ), abs( point ) ), max( abs( low ), abs( high ) ) ).toVar();
+                const scale = max( max( magnitude.x, magnitude.y ), max( magnitude.z, 1 ) ).toVar();
+                const gap = max( max( low.sub( max( point, point ) ), min( point, point ).sub( high ) ).sub( scale.mul( 8 * 2 ** -23 ) ), vec3( 0 ) ).toVar();
+                If( dot( gap, gap ).lessThanEqual( bestDistanceSquared ), () => {
+                    const weights = triangleBarycentric( point, a, b, c ).toVar();
+                    const candidate = a.mul( weights.x ).add( b.mul( weights.y ) ).add( c.mul( weights.z ) ).toVar();
+                    const delta = point.sub( candidate ).toVar(), distanceSquared = dot( delta, delta ).toVar();
+                    If( distanceSquared.lessThan( bestDistanceSquared ).or(
+                        distanceSquared.equal( bestDistanceSquared ).and( triangleId.lessThan( sourceTriangle ) ) ), () => {
+                        bestDistanceSquared.assign( distanceSquared );
+                        closest.assign( candidate );
+                        barycentric.assign( weights );
+                        sourceTriangle.assign( triangleId );
+                        orderedTriangle.assign( triangleIndex );
+                        bestMask.assign( triangle.w.bitAnd( uint( 255 ) ) );
+                        const interpolated = normalAt( triangle.x ).mul( weights.x )
+                            .add( normalAt( triangle.y ).mul( weights.y ) )
+                            .add( normalAt( triangle.z ).mul( weights.z ) ).toVar();
+                        normal.assign( interpolated.div( sqrt( max( dot( interpolated, interpolated ), 1e-30 ) ) ) );
+                    } );
+
                 } );
             };
             // A cached nearest triangle is a distance upper bound, never an exclusive candidate.
@@ -263,24 +270,31 @@ export function createSurfaceQuery( patch, motion ) {
                 const a = positionAt( triangle.x ).toVar();
                 const b = positionAt( triangle.y ).toVar();
                 const c = positionAt( triangle.z ).toVar();
-                const coordinates = segmentTriangleCoordinates( segmentStart, segmentEnd, a, b, c ).toVar();
-                const weights = coordinates.xyz.toVar();
-                const onSegment = segmentStart.add( segmentEnd.sub( segmentStart ).mul( coordinates.w ) ).toVar();
-                const candidate = a.mul( weights.x ).add( b.mul( weights.y ) ).add( c.mul( weights.z ) ).toVar();
-                const delta = onSegment.sub( candidate ).toVar(), distanceSquared = dot( delta, delta ).toVar();
-                If( distanceSquared.lessThan( bestDistanceSquared ).or(
-                    distanceSquared.equal( bestDistanceSquared ).and( triangleId.lessThan( sourceTriangle ) ) ), () => {
-                    bestDistanceSquared.assign( distanceSquared );
-                    closest.assign( candidate );
-                    segmentPoint.assign( onSegment ); segmentT.assign( coordinates.w );
-                    barycentric.assign( weights );
-                    sourceTriangle.assign( triangleId );
-                    orderedTriangle.assign( triangleIndex );
-                    bestMask.assign( triangle.w.bitAnd( uint( 255 ) ) );
-                    const interpolated = normalAt( triangle.x ).mul( weights.x )
-                        .add( normalAt( triangle.y ).mul( weights.y ) )
-                        .add( normalAt( triangle.z ).mul( weights.z ) ).toVar();
-                    normal.assign( interpolated.div( sqrt( max( dot( interpolated, interpolated ), 1e-30 ) ) ) );
+                const low = min( min( a, b ), c ).toVar(), high = max( max( a, b ), c ).toVar();
+                const magnitude = max( max( abs( segmentStart ), abs( segmentEnd ) ), max( abs( low ), abs( high ) ) ).toVar();
+                const scale = max( max( magnitude.x, magnitude.y ), max( magnitude.z, 1 ) ).toVar();
+                const gap = max( max( low.sub( max( segmentStart, segmentEnd ) ), min( segmentStart, segmentEnd ).sub( high ) ).sub( scale.mul( 8 * 2 ** -23 ) ), vec3( 0 ) ).toVar();
+                If( dot( gap, gap ).lessThanEqual( bestDistanceSquared ), () => {
+                    const coordinates = segmentTriangleCoordinates( segmentStart, segmentEnd, a, b, c ).toVar();
+                    const weights = coordinates.xyz.toVar();
+                    const onSegment = segmentStart.add( segmentEnd.sub( segmentStart ).mul( coordinates.w ) ).toVar();
+                    const candidate = a.mul( weights.x ).add( b.mul( weights.y ) ).add( c.mul( weights.z ) ).toVar();
+                    const delta = onSegment.sub( candidate ).toVar(), distanceSquared = dot( delta, delta ).toVar();
+                    If( distanceSquared.lessThan( bestDistanceSquared ).or(
+                        distanceSquared.equal( bestDistanceSquared ).and( triangleId.lessThan( sourceTriangle ) ) ), () => {
+                        bestDistanceSquared.assign( distanceSquared );
+                        closest.assign( candidate );
+                        segmentPoint.assign( onSegment ); segmentT.assign( coordinates.w );
+                        barycentric.assign( weights );
+                        sourceTriangle.assign( triangleId );
+                        orderedTriangle.assign( triangleIndex );
+                        bestMask.assign( triangle.w.bitAnd( uint( 255 ) ) );
+                        const interpolated = normalAt( triangle.x ).mul( weights.x )
+                            .add( normalAt( triangle.y ).mul( weights.y ) )
+                            .add( normalAt( triangle.z ).mul( weights.z ) ).toVar();
+                        normal.assign( interpolated.div( sqrt( max( dot( interpolated, interpolated ), 1e-30 ) ) ) );
+                    } );
+
                 } );
             };
             // A cached nearest triangle is a distance upper bound, never an exclusive candidate.
