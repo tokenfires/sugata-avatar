@@ -89,7 +89,9 @@ zero network, page or console errors. Original controls have no asset substituti
 All 20 authored decency configurations pass. All **32 actual clothed states** pass CHEST, GROIN
 and SEAT ray checks. The **eight foundation-only states each retain two GROIN ray failures**, IDs
 4787 and 4788. These IDs are UV-seam twins at one geometric location, not two separate holes.
-They are existing posed normal-ray failures; current evidence does not establish a visible gap.
+They are existing posed normal-ray failures. The later
+[foundation skinning investigation](WARDROBE-FOUNDATION-SKINNING-2026-09-09.md) establishes a small
+visible sliver in one independently verified exterior view; the local weight-transfer pilot remains rejected.
 `floor-proof.json` proves full indices and actual body/foundation positions match the original,
 all foundation triangles remain drawn, and no `_UNDER` mask is active. This is an unchanged
 posed-ray failure, not an all-40-state pass. The capture report's `passed` field describes
@@ -204,3 +206,6 @@ claim the full repository suite is green.
 `captures/wardrobe-mask-promotion-2026-09-09/` preserves the final assets, 314-file comparison,
 build, browser reports, images, export downloads and exact instruments: **46 files / 15,915,257
 bytes**, manifest SHA256 `5f9cc1775aaf64e0bc5165362a2ef46c26158023d63f3759994c2777de600741`.
+
+The later [foundation and sock follow-up](WARDROBE-FOUNDATION-SKINNING-2026-09-09.md) also records
+the passing 50-assertion wardrobe and 25-assertion authored-pose transition regressions.

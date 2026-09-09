@@ -550,7 +550,7 @@
     "Eight foundation-only posed states retain the original GROIN ray failures with no active UNDER mask.",
     "Remaining inner/outer contacts, original outer/body or self contacts and shoe/sock defects remain.",
     "Other body bakes have no calibration here.",
-    "GROIN IDs 4787 and 4788 are UV-seam twins at one geometric location. The existing posed normal-ray failures are not proven visible exposures."
+    "GROIN IDs 4787 and 4788 are UV-seam twins at one location. A later independently verified exterior view proves a small 4 s skin sliver; see foundationFollowup. The mask correction does not repair it."
   ],
   "archive": {
     "path": "captures/wardrobe-under-masks-2026-09-09",
@@ -565,7 +565,7 @@
     "onlyExpectedFourAssetsChanged": true,
     "frozenFiles": 314,
     "builtPages": 18,
-    "browserQualification": "pending"
+    "browserQualification": "passed; see finalPromotion for exact per-suite scope"
   },
   "finalPromotion": {
     "archive": "captures/wardrobe-mask-promotion-2026-09-09",
@@ -615,5 +615,21 @@
       "Source geometry, hair and motion unchanged. Existing collar/sock contacts and foundation-only ray failure remain.",
       "Some interaction screenshots retain deliberately injected error UI from preceding negative cases; those are test evidence, not curated promotional images."
     ]
+  },
+  "foundationFollowup": {
+    "document": "docs/WARDROBE-FOUNDATION-SKINNING-2026-09-09.md",
+    "exteriorTargetPixels": 58,
+    "robustInteriorPixels": 56,
+    "targetTriangle": 12294,
+    "skinTransferPilot": "rejected: 4 s coverage and local orientation/area warnings",
+    "sockFitPilot": "rejected: seven new body and three cuff intersection identities",
+    "productionAssetsUnchanged": true
+  },
+  "laterRegressions": {
+    "wardrobeAssertions": 50,
+    "authoredPoseCoverageAssertions": 25,
+    "archive": "captures/wardrobe-mask-regressions-2026-09-09",
+    "manifestSha256": "610f64c9ad080fe28d39f1806e53555399495a48796092f6874c8fdd3ed2de81",
+    "scope": "existing authored-pose wardrobe and transition checks; not all motion"
   }
 }

@@ -789,3 +789,22 @@ The separate final promotion archive has 46 files / 15,915,257 bytes, manifest
 The next research work remains bounded: prove actual original-card pixel velocity, and qualify
 one existing foundation-only skinning gap on the GPU. Neither the live follower renderer nor the
 card-history prototype is shipped. No core, hair or outer-garment geometry change in this slice.
+
+
+## Follow-up qualification — about 12:45 UTC
+
+The g050 mask correction is committed locally as `82b3e63`. The later wardrobe and authored-pose
+coverage suites pass 50 and 25 assertions. A separate exterior camera proves one small
+foundation-only sliver at 4 s: 58 matching target pixels, 56 robust interiors. The first camera
+was inside the body and is explicitly disqualified as external-exposure evidence. A nearest-body
+weight-transfer pilot recovers 0 s rays but still fails at 4 s and distorts small triangles. A
+separate sock fit adds body/cuff contacts. Both are rejected and production assets remain exact.
+[The follow-up record](WARDROBE-FOUNDATION-SKINNING-2026-09-09.md) preserves all four archives and
+the independent rehashes.
+
+The exact original-card history prototype now passes its bounded stable-raster pixel oracle,
+resource teardown and matched uninstrumented natural/nod sequences. Root reviewed a clear
+reduction in moving-hair noise. ABBA timing shows no consistent added whole-frame cost within
+run variation, not a 60 FPS claim. It remains unshipped while actual showcase same-task PNG
+behavior and an explicit Stage-owned integration contract are checked. Live followers remain
+unshipped; no production hair rendering or physics changed in this checkpoint.
