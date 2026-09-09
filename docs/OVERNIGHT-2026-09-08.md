@@ -37,26 +37,31 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the09:30UTC shipping section below; earlier sections retain experimental history.
-**The corrected g050 long bob is now the real shipping asset**, with production forest contact.
-Its GLB SHA isdb3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b and calibration
-ID is`bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and correct actual owner.
-Other four bob01 bakes and allbob02 bytes are unchanged. Do not repeat the old “no shipping change” state.
+Latest checkpoint is the10:15UTC section below. **The corrected g050 long bob is shipped** in
+local commit`c871ed9`, with production forest contact. GLB SHA
+`db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`, calibration
+`bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and correct actual owner.
+Other four bob01 bakes and allbob02 bytes are unchanged. No push.
 
-- Root: finishing the local shipping commit/checkpoint. Live four-view/no-route verification and
-  all-page build pass. Keep current production physics fixed while appearance/showcase work proceeds.
-- `continuity_audit`:85-pose exhaustive nine-card opaque enumeration continues with two CPU workers,
-  about one hour total. First14 prioritized poses clear; fast geometry, matched reverse nod and
-  source-qualified smoke proof are complete. Its deriveCardGroom/surface/calibration CPU instruments
-  must remain frozen. No need repeat original22-pose20.35M evaluation proof.
-- `visual_next_step`: one g050 shared-height rear-lock candidate,60 outer surface/veil cards, at
-  `/tmp/visual-g050-shared-lock-v1/candidate.glb`. Protected roots/first segments/Y/cut/width/nape
-  geometry preserved; global derived compliance may still change slightly. Static gates running;
-  actual fixed-material multi-view comparison next. No shipping/core edits.
-- `orbit_render_audit`: portable25GPU groups committed7068a0e. Now implements a small real-Avatar
-  g050 casual+bob02/elegant+bob01 showcase in newtestbed files plus page/build registries. Currently
-  owns a short GPU slot for foundation/neckline/skirt/ankle comparison; return tovisual afterward.
-  Owns only one comment-only Avatar identity-axis correction outside those files.
+- Root: fixed-pose follower render preview and an explicitly separate density control; shipping
+  hair/physics frozen. The first11904-bundle preview smooths rear/side planes but under-covers the
+  fringe. One31050-bundle control is prepared, using at most0.6mm center spacing at each card's
+  widest ring, same1.2mm width and original atlas/depth/root/lock data. This is CPU-built rendering
+  from actual4s GPU ribbon readback, **not live follower physics**. No adoption or cost claim.
+- `continuity_audit`:85-pose exhaustive nine-card opaque enumeration nearly complete;76poses,
+  70,315,960 evaluations clear at the latest report. The original22-pose20.35M proof is complete.
+  Archive/focused acceptance update follows the remaining negative-yaw poses; no new solver work.
+- `visual_next_step`: shared-height rear-lock candidate rejected and archived. Now owns one
+  scratch-only outer-cloth fit candidate: elegant chest/hips at most4mm outward and casual calves
+  at most6mm, target0.5mm local separation from actual retained foundation/sock geometry. Preserve
+  all foundations/masks/topology/UV/weights and opening/hem boundaries. Four foundation pairs
+  checked; do not raise the bound if it fails. Actual GPU comparison follows CPU qualification.
+- `orbit_render_audit`: realg050 wardrobe showcase is implemented in newtestbed files, page/build
+  registries, and one Avatar JSDoc identity-axis correction.18dev/19production groups passed;
+  desktop/fresh-mobile views render. Investigating resize exposed transient temporal settling,
+  not proven permanent cache corruption. Two speculative page resets were rejected/reverted.
+  Now owns a minimal shared Stage first-frame input-sizing correction backed by an exact trace;
+  temporal-object identity must remain stable. Root waits for its GPU release before density views.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -650,3 +655,56 @@ No final clothing-quality or broader-body fitting claim is made.
 - Showcase remains a separate presentation slice using realimplementedg050 outfits. No public
   skin/iris/hair-colour/sculpt API is invented, and no other-bake clothingfit is claimed. Current
   source identity axis is0feminine→1masculine; Avatar JSDoc’s reversedlabel is being corrected.
+
+
+## 10:15UTC — showcase, rejected rear alignment, and distinct render preview
+
+The collision correction is committed as`c871ed9`. The optional shared-height outer rear-lock
+candidate is rejected: root and independent visual reviews see diagonal patches relocate without
+an acceptance-worthy improvement. The changed global median compliance input was small
+(−0.010495%) but protected geometry did not retain exact motion: settled root-layer pairs134→170
+(59added/23removed), while face/curtain/nape pairs stayed0 at its two saved poses. This does not
+prove those root contacts are visible or attribute every dynamic difference to one mechanism.
+Archive203files/80.1MB:`captures/hair-shared-lock-2026-09-09`, manifest
+`d7e0bbdb27f5d99f5ba6221eea0622810e5d82622a181466e4e49d033238aacb`;
+[tracked findings](evidence/hair-shared-lock-2026-09-09.json). No production groom/data change.
+
+A separate root prototype at`/tmp/sugata-root-follower-pilot` draws11904camera-facing bundles from
+24across-width samples of each actual4s solved card. Width1.2mm,380928triangles,404736vertices;
+all1128cap triangles retained. Original atlas alpha/depth/root and lock IDs are sampled at the
+corresponding original UV; geometric tangent replaces card-derivative shading. All four fixed
+views have32draws, GPU/paint barriers and exact physical/camera restoration; zero browser errors,
+zero production-source routes. This is an explicitly fixed-pose render-only preview. It softens
+broad rear/side planes but thins the fringe, retains a planar cap join and isolated low ends.
+The24×1.2mm triangular profiles integrate14.4mm per unprojected card width before overlaps;
+median posed card width is26.502mm, widest58.736mm. A single adaptive-density control is prepared
+at`/tmp/sugata-root-follower-density`, plus a clearly separate cap-off front diagnostic. Neither
+variant is shipped, and the control is not yet rendered at this checkpoint. No live follower,
+new-clearance, cost or AAA claim follows from the stills.
+
+The new wardrobe study uses actual`Avatar.create`/`dress` on g050: casual+bob02 and elegant+bob01,
+with bra/brief foundations, editable clothes/framing/lighting, orbit/pause and actual attached
+configuration export. No recoloring or unsupported body fitting is promised. Browser testing
+corrected the post-attachment error path: a render failure after successful dress no longer says
+the previous clothes were retained. Real foundation comparisons preserve known neckline/skirt/
+sock protrusions. The source is uncommitted while the resize qualification finishes.
+
+The apparent resize failure needs a precise scope. History clearing and temporal reconstruction
+were tried separately and rejected/reverted. An unchanged page settles by80post-resize frames;
+48still has residual streaking. Raw-G-buffer bypass followed by restored beauty had given extra
+settling frames, so it does not establish cache repair. A trace independently shows the first
+resized TAAU hook reading stale594×572scene dimensions after the canvas becomes343×625, forcing
+camera aspect1.03846instead of0.5488. Scene pre-sizing alone does not eliminate the transient
+streak. The authorized minimal Stage repair is to correct that first-frame ordering; validate
+with exact dimensions/aspect and equal80-frame captures. Reconstruction also exposes a separate
+matrix-identity hazard: compiled VelocityNode uniforms retain the old TAAU projection object.
+Do not ship either rejected reset or claim a generic temporal fix.
+
+A CPU wardrobe audit proves copied skin masks do not account for foundation thickness. Runtime
+mask counts match the assets: elegant retains5990bra and1025brief triangles; the corresponding
+foundations intersect cloth in588/185triangle pairs. At measured chest/hip examples, skin is inside
+cloth while its2.4–2.7mm foundation offset is outside. Zero-mask cases rule out solving this by
+changing the0.5mask threshold. Shoes01contains two252-triangle sock components without under-masks;
+FOOTWEAR600would not let BASE300occlude them under the current layer rule anyway. Measured calf
+protrusion reaches4.401mm while skin stays inside trousers. One bounded outer-garment fit control
+is underway; no garment, mask or layer is removed to conceal the problem.

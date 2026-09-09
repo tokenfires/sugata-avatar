@@ -1,0 +1,413 @@
+{
+  "id": "bob01-g050-shared-height-outer-rear-v1",
+  "status": "rejected",
+  "date": "2026-09-09",
+  "archive": "captures/hair-shared-lock-2026-09-09",
+  "archiveManifestSha256": "d7e0bbdb27f5d99f5ba6221eea0622810e5d82622a181466e4e49d033238aacb",
+  "archiveFiles": 203,
+  "findingsSha256": "ae9d2de38432e39bdef45e06fa49f3568c0f4c44c9bbf211fc21fed50c6e2bc6",
+  "source": {
+    "script": "bf346f38b8500e7413c29d1eec623546a214ae8bfe95ede7c623969d4ad3201b",
+    "control": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "candidate": "2b7a6e9bdc0865ad26244f9db02068dbe3d0d3622973ba3ba68841e8a9447ac3",
+    "reports": [
+      "dbdc23a15af07c7c6417fdd54d90e080284fa10ada07b3369330074029a0e404",
+      "4167d0664ed360a1ad3423a5882a075195d734ccb01c541e8a00416c2f599117"
+    ]
+  },
+  "candidateCalibration": {
+    "id": "bob01-g050-shared-lock-appearance-v1",
+    "dataSha256": "978778ae7bdfb8db188296cc0b55f06b7321de49b5caca9e97fffe60b6d74456",
+    "validation": {
+      "independentlyNormalizedBodyMatches": true,
+      "controlMatchesProduction": true,
+      "candidateRejectedByProduction": true,
+      "candidateMatchesScratchRegistryByIdentity": true,
+      "oldControlRejectedByCandidate": true,
+      "positionTamperRejected": true,
+      "onlyGroomPositionNormalHashesChanged": true,
+      "forestDomainsAndActiveChainsExact": true
+    }
+  },
+  "mechanism": "Shared physical-height azimuth spine across surface/veil cards grouped by authored lock and part-flow side; original per-ring radius/Y/width retained with a fixed 15 mm bounded group correction.",
+  "changedCards": [
+    297,
+    334,
+    383,
+    392,
+    395,
+    408,
+    416,
+    417,
+    420,
+    426,
+    429,
+    302,
+    304,
+    328,
+    342,
+    374,
+    377,
+    381,
+    419,
+    436,
+    446,
+    305,
+    321,
+    387,
+    410,
+    431,
+    450,
+    452,
+    453,
+    460,
+    307,
+    422,
+    308,
+    315,
+    319,
+    327,
+    343,
+    406,
+    412,
+    430,
+    447,
+    311,
+    330,
+    385,
+    394,
+    402,
+    432,
+    435,
+    313,
+    322,
+    340,
+    380,
+    396,
+    400,
+    407,
+    415,
+    458,
+    333,
+    386,
+    388
+  ],
+  "protectedNapeCards": [
+    188,
+    193,
+    198,
+    201,
+    202,
+    211,
+    217,
+    223,
+    272
+  ],
+  "invariants": {
+    "allYExact": true,
+    "allRootPositionsExact": true,
+    "capPositionsExact": true,
+    "fringePositionsExact": true,
+    "nineNapePositionsExact": true,
+    "unselectedPositionsExact": true,
+    "firstSegmentsExact": true,
+    "maximumHalfWidthVectorErrorMm": 3.725290298461914e-06,
+    "maximumCentreRadiusErrorMm": 9.680345525175937e-06,
+    "maximumMovedVertexMm": 15.000003271694696
+  },
+  "coherence": {
+    "method": "Angular deviation of each local centerline tangent from its group mean at the same33sample heights; equal sample/card weighting. This measures realized directional coherence, not aesthetic quality.",
+    "all": {
+      "before": {
+        "count": 1659,
+        "mean": 10.045811486830104,
+        "p50": 8.202320888269073,
+        "p90": 19.486839415375933,
+        "max": 62.15964203821382
+      },
+      "after": {
+        "count": 1659,
+        "mean": 9.603673298112314,
+        "p50": 7.628268590697314,
+        "p90": 18.931090374332076,
+        "max": 60.319371319872374
+      }
+    }
+  },
+  "globalMedian": {
+    "medianBeforeMm": 242.65149235725403,
+    "medianAfterMm": 242.62602627277374,
+    "medianRelativeChange": -0.00010494921845686452,
+    "maximumUnmovedAbsoluteChange": 0.0003147848784270657
+  },
+  "support": {
+    "maximumOutwardMm": 8.061140351580399,
+    "maximumInwardMm": -0.004241026631407463
+  },
+  "authoredPairs": [
+    {
+      "arm": "control",
+      "wholeBody": 67,
+      "face": 0,
+      "cards": [
+        68
+      ]
+    },
+    {
+      "arm": "candidate",
+      "wholeBody": 67,
+      "face": 0,
+      "cards": [
+        68
+      ]
+    }
+  ],
+  "runtime": {
+    "shippingControlNoRoute": true,
+    "candidateRoutes": [
+      "exact groom",
+      "exact calibration data"
+    ],
+    "ownerOrSolverRoutes": false,
+    "sourceAndCameraMatch": {
+      "sourceHashesExactExceptGroomAndCandidateData": true,
+      "servedSourcesDifferOnlyCalibrationData": [
+        "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/HairBodyContactCalibration.data.js"
+      ],
+      "camerasTimesStepsAndDrawOnlyStateExact": true,
+      "noRouteShippingControl": true,
+      "dataAndGroomOnlyCandidate": true,
+      "forestDomainsExact": true
+    },
+    "posesSeconds": [
+      0,
+      4
+    ],
+    "views": 16,
+    "primaryScreenshots": 4,
+    "errors": [
+      [],
+      []
+    ],
+    "sourceFreeze": [
+      true,
+      true
+    ],
+    "triangleGates": [
+      {
+        "frame": 0,
+        "arms": [
+          {
+            "arm": "control",
+            "frame": 0,
+            "time": 0,
+            "frameSha256": "6070ad4d7745ac76e765ef8720362ba558ffd035566dc75f6cf31a2c59c3ad7b",
+            "wholeBodyPairs": 67,
+            "facePairs": 0,
+            "byPart": {
+              "caps": 0,
+              "rootLayer": 67,
+              "curtains": 0,
+              "fringe": 0,
+              "moved": 0,
+              "nape": 0
+            }
+          },
+          {
+            "arm": "candidate",
+            "frame": 0,
+            "time": 0,
+            "frameSha256": "227e39528bcd7a792cc18152336aa3ea694310a83cca37e09d035361ddc7d5a9",
+            "wholeBodyPairs": 67,
+            "facePairs": 0,
+            "byPart": {
+              "caps": 0,
+              "rootLayer": 67,
+              "curtains": 0,
+              "fringe": 0,
+              "moved": 0,
+              "nape": 0
+            }
+          }
+        ],
+        "addedPairs": 0,
+        "removedPairs": 0,
+        "addedCards": [],
+        "dynamicDifference": {
+          "all": {
+            "positionsMeters": {
+              "maximum": 0.01500004717757427,
+              "worst": {
+                "card": 333,
+                "ring": 16
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 7.158151305565951e-05,
+              "worst": {
+                "card": 388,
+                "ring": 16
+              }
+            }
+          },
+          "moved": {
+            "positionsMeters": {
+              "maximum": 0.01500004717757427,
+              "worst": {
+                "card": 333,
+                "ring": 16
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 7.158151305565951e-05,
+              "worst": {
+                "card": 388,
+                "ring": 16
+              }
+            }
+          },
+          "unmoved": {
+            "positionsMeters": {
+              "maximum": 0,
+              "worst": null
+            },
+            "velocitiesMps": {
+              "maximum": 0,
+              "worst": null
+            }
+          },
+          "nape": {
+            "positionsMeters": {
+              "maximum": 0,
+              "worst": null
+            },
+            "velocitiesMps": {
+              "maximum": 0,
+              "worst": null
+            }
+          }
+        }
+      },
+      {
+        "frame": 240,
+        "arms": [
+          {
+            "arm": "control",
+            "frame": 240,
+            "time": 3.9999999999999907,
+            "frameSha256": "28208d7dc6433d9c55b09eda2898d18297f7c668befe282dd854f4d965791342",
+            "wholeBodyPairs": 134,
+            "facePairs": 0,
+            "byPart": {
+              "caps": 0,
+              "rootLayer": 134,
+              "curtains": 0,
+              "fringe": 0,
+              "moved": 0,
+              "nape": 0
+            }
+          },
+          {
+            "arm": "candidate",
+            "frame": 240,
+            "time": 3.9999999999999907,
+            "frameSha256": "4386f0cc91739bcbc04c565632be878eb73548c63142ba4459ca79afab8583bf",
+            "wholeBodyPairs": 170,
+            "facePairs": 0,
+            "byPart": {
+              "caps": 0,
+              "rootLayer": 170,
+              "curtains": 0,
+              "fringe": 0,
+              "moved": 0,
+              "nape": 0
+            }
+          }
+        ],
+        "addedPairs": 59,
+        "removedPairs": 23,
+        "addedCards": [
+          34,
+          40
+        ],
+        "dynamicDifference": {
+          "all": {
+            "positionsMeters": {
+              "maximum": 0.02134297162190374,
+              "worst": {
+                "card": 40,
+                "ring": 12
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 1.105250312348212,
+              "worst": {
+                "card": 56,
+                "ring": 16
+              }
+            }
+          },
+          "moved": {
+            "positionsMeters": {
+              "maximum": 0.017147084537972403,
+              "worst": {
+                "card": 394,
+                "ring": 16
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 0.06651474641208249,
+              "worst": {
+                "card": 453,
+                "ring": 10
+              }
+            }
+          },
+          "unmoved": {
+            "positionsMeters": {
+              "maximum": 0.02134297162190374,
+              "worst": {
+                "card": 40,
+                "ring": 12
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 1.105250312348212,
+              "worst": {
+                "card": 56,
+                "ring": 16
+              }
+            }
+          },
+          "nape": {
+            "positionsMeters": {
+              "maximum": 0.004680179102761576,
+              "worst": {
+                "card": 202,
+                "ring": 12
+              }
+            },
+            "velocitiesMps": {
+              "maximum": 0.049284240480374775,
+              "worst": {
+                "card": 202,
+                "ring": 13
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualVerdict": "No acceptance-worthy improvement: broad diagonal patches and fractured hanging ends remain; rear strip boundaries relocate. Front preserved, profiles remain separate planes.",
+  "stop": "Do not ship or iterate strength/lock grouping without a distinct prediction.",
+  "limitations": [
+    "Only two saved poses per arm; no universal motion acceptance.",
+    "All full authored triangles including caps are counted without alpha filtering; crossing absence cannot rule out containment.",
+    "Differences on protected geometry can arise through the changed global-median compliance input; no fixed-dynamics claim.",
+    "Partial constrained outer coat realization; does not refute a rebuilt coherent groom.",
+    "Strict geometric contacts are not qualified as visible by this experiment.",
+    "No new timing or frame-budget claim.",
+    "The calibration CPU report predates an Avatar JSDoc-only edit; actual capture source hashes and served bytes attest the frozen runtime used by both arms."
+  ]
+}
