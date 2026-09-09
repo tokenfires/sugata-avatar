@@ -97,7 +97,7 @@
  * ⚠️ **The exact repair is one buffer away and it is not in this file's ownership.** The solver
  * would have to keep last frame's card vertices — one more `instancedArray( particleCount, 'vec3' )`
  * and a copy at the top of the rebuild kernel — and expose them as a second node, at which point
- * `HAIR_VELOCITY_MODES` gains `exact` and this file assigns that instead. Filed as REQ-073 against
+ * `HAIR_VELOCITY_MODES` gains `exact` and this file assigns that instead. Filed as REQ-077 against
  * `packages/core/src/motion/HairDynamics.js`. `MorphVelocity.js` ships both arms for exactly this
  * reason and its `hold` arm is this arm; the difference is that the morph path could reach its own
  * previous state and this one cannot.
