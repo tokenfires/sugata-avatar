@@ -37,22 +37,23 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the 11:50 UTC section below. **The corrected g050 long bob is shipped** in
+Latest checkpoint is the 12:15 UTC section below. **The corrected g050 long bob is shipped** in
 local commit `c871ed9`, with production forest contact. GLB SHA
 `db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`, calibration
 `bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and the correct actual owner.
 Other four bob01 bakes and all bob02 bytes are unchanged. No push.
 
-- Root: the long bob, real lookbook and PNG export are committed. Live follower motion, cost,
-  contact and compiled-shadow qualifications are complete as an unshipped experiment. Reviewing
-  the mask-only wardrobe candidate for possible promotion; no promotion is claimed yet.
-- `continuity_audit`: completed and archived the follower CPU contact/shadow follow-up, including
-  all 16 pose/view results and higher-mip visibility limits. No shipping renderer or solver edit.
-- `visual_next_step`: the mask-only candidate passes CPU checks and all 32 actual clothed states.
-  Eight foundation-only states retain existing groin exposure IDs 4787/4788. Root promotion review
-  is pending; the earlier outer-cloth fitting candidate remains rejected/unpromoted.
+- Root: the long bob, real lookbook and PNG export are committed. The four g050 foundation
+  masks are now applied and pass final built-lookbook, PNG and production wardrobe gates.
+  Live follower motion/contact/shadow evidence is committed in `0d27454` and remains unshipped.
+- `continuity_audit`: investigating the existing foundation-only seam-twin ray failure at
+  vertices 4787/4788. CPU skinning attribution is complete; one targeted GPU visibility probe
+  is pending. No foundation geometry or skin-weight change is authorized by a ray gap alone.
+- `visual_next_step`: completed the mask calibration, portable tool, fixtures and 151-file study
+  archive. The earlier outer-cloth fitting candidate remains rejected/unpromoted.
 - `orbit_render_audit`: scratch card render history passes 19 CPU and 10 GPU scheduling checks.
-  The per-pixel velocity oracle is pending. True moving temporal rendering is not yet established.
+  The independent per-pixel oracle is running after correcting readback stride and measuring
+  half-float conversion independently. No production velocity/rendering replacement is accepted.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -765,3 +766,26 @@ is underway; no garment, mask or layer is removed to conceal the problem.
   prove correct moving-pixel velocity or temporal quality. Keep it unshipped and separate from
   the follower rendering proof; [the history contract](HAIR-RENDER-HISTORY-2026-09-09.md) records
   the design boundary. No new GPU run or parameter variation was made for this checkpoint.
+
+
+## Mask correction verified — 12:15 UTC
+
+The four original g050 foundations now carry the reviewed coverage-derived masks. Only their
+selected mask bytes changed; all 310 other frozen core/testbed/asset files remain exact. The
+portable tool reproduces the installed files from immutable original fixtures, with eight groups
+covering exact bytes, environment refusal, collateral triangle sets and output ownership.
+The measured local projection contract and two-pose limits remain in
+[the mask record](WARDROBE-MASKS-2026-09-09.md). All 32 clothed states pass the ray checks;
+two seam-duplicate normal rays at one foundation-only location remain an existing separate red.
+
+Final verification passes: 18-page build, 19 built-lookbook groups, 13 PNG-export groups and
+8 production default-wardrobe groups. All browser errors are empty. The emitted files have the
+four final hashes; bra/brief HTTP response bytes are also attested. Default vest/boxer production
+requests match their successful emitted URLs. Front/rear/portrait review retains the neckline
+and removes the conspicuous blouse/skirt foundation patches; sock and collar fit remains open.
+The separate final promotion archive has 46 files / 15,915,257 bytes, manifest
+`5f9cc1775aaf64e0bc5165362a2ef46c26158023d63f3759994c2777de600741`.
+
+The next research work remains bounded: prove actual original-card pixel velocity, and qualify
+one existing foundation-only skinning gap on the GPU. Neither the live follower renderer nor the
+card-history prototype is shipped. No core, hair or outer-garment geometry change in this slice.

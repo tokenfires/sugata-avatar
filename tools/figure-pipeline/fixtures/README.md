@@ -67,3 +67,30 @@ This is a rest candidate with zero authored face/movable-curtain intersections a
 root-layer pairs. Composed visual and motion acceptance, and g025 runtime body-contact calibration,
 remain pending. No tool or test installs an asset. Keep this fixture/calibration unchanged; another
 bake or source revision requires a separate measured calibration.
+
+
+## Original g050 foundations and coverage-derived mask calibration
+
+`wardrobe-g050-foundation-originals.json.gz` preserves the complete original GLB bytes of
+`foundation_bra`, `foundation_vest`, `foundation_briefs` and `foundation_boxer_brief` before the
+mask correction. This compressed JSON/base64 bundle is a tracked test input, independent of
+mutable shipping assets and ignored captures.
+
+- Size: 2,121,058 bytes.
+- SHA256: `5d8b79817599419a931edf3eff068da07854a1040b02c6a0629f7e702efc8e3c`.
+- Schema: `sugata-foundation-originals-v1`; only `g050`.
+
+`wardrobe-g050-under-masks-v1.json` records the exact per-field vertex selections and every
+additionally removed any-corner triangle, along with original/final/rendered GLB hashes and exact
+body/outer garment fingerprints. The tool pins its bytes with SHA256
+`13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02`.
+
+The final portable outputs preserve the original full GLB container and all bytes outside selected
+mask Float32 offsets. Their full BIN and parsed JSON equal the reviewed rendered candidates;
+the latter used 60-byte-shorter JSON packaging. No geometry or other bake is changed.
+
+Keep both fixtures immutable. Eight default portable test groups exercise exact reproduction,
+idempotence, source/body/outer/bake refusal, whole-container preservation, collateral removal and
+fixture path protection. The 1 mm expanded chart and two actual poses are a bounded occlusion
+contract; remaining contacts and the unchanged foundation-only GROIN rays stay explicit in
+[`docs/WARDROBE-MASKS-2026-09-09.md`](../../../docs/WARDROBE-MASKS-2026-09-09.md).

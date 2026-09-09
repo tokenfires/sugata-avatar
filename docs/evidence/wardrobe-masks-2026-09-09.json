@@ -1,0 +1,619 @@
+{
+  "schema": "sugata-wardrobe-mask-evidence-v1",
+  "date": "2026-09-09",
+  "status": "applied locally; final built-showcase, PNG and default-wardrobe browser gates pass",
+  "scope": "Only calibrated existing _UNDER fields in four g050 foundation GLBs; original outer cloth and production hair.",
+  "calibration": {
+    "id": "g050-foundation-coverage-v1",
+    "path": "tools/figure-pipeline/fixtures/wardrobe-g050-under-masks-v1.json",
+    "sha256": "13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02"
+  },
+  "sourceBodySha256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+  "outerGarmentSha256": {
+    "female_elegantsuit01": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+    "female_casualsuit01": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+  },
+  "originalFixture": {
+    "file": "wardrobe-g050-foundation-originals.json.gz",
+    "sha256": "5d8b79817599419a931edf3eff068da07854a1040b02c6a0629f7e702efc8e3c"
+  },
+  "outputs": [
+    {
+      "id": "foundation_bra",
+      "sourceSha256": "69fb5b0ae4efd9e99650d31e3e28676cebc8bd881f2a4adea39ef050d31455a8",
+      "renderedCandidateSha256": "30e6166e1c96aba60aac0e6b939ff72b855a6ed76be87186769b9830495d9021",
+      "portableOutputSha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+      "portableBytes": 921176,
+      "renderedBytes": 921116,
+      "parsedJsonExact": true,
+      "fullBinExact": true,
+      "originalContainerPrefixExact": true,
+      "binOffset": 15324
+    },
+    {
+      "id": "foundation_vest",
+      "sourceSha256": "bdae90afc569b3e6a4e32e55fe15a99feb0815c8cbf139de46e0c68644979b1a",
+      "renderedCandidateSha256": "8bc8432a556042ea8c03a66c0facb3061838c6526c138dfdce15a838288e3767",
+      "portableOutputSha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152",
+      "portableBytes": 1180828,
+      "renderedBytes": 1180768,
+      "parsedJsonExact": true,
+      "fullBinExact": true,
+      "originalContainerPrefixExact": true,
+      "binOffset": 15324
+    },
+    {
+      "id": "foundation_briefs",
+      "sourceSha256": "b458f53ea5aa84af081b6a993c9a483374f5167a202a57ff225d5420b46d592a",
+      "renderedCandidateSha256": "62f15253e1d6ed5299fa5ba0684d736af16afa9c468c9c69f0af7febf5c0dd9c",
+      "portableOutputSha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+      "portableBytes": 529028,
+      "renderedBytes": 528968,
+      "parsedJsonExact": true,
+      "fullBinExact": true,
+      "originalContainerPrefixExact": true,
+      "binOffset": 15320
+    },
+    {
+      "id": "foundation_boxer_brief",
+      "sourceSha256": "b0f7d7231e69aa40c2adb1e3324ee8149dc88fcd1b1b22a534e2fe3d81bd3e36",
+      "renderedCandidateSha256": "ae9a93a1f8b28a36bc602f703267329f0e4a314dd82b164cbaee1bf779327900",
+      "portableOutputSha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb",
+      "portableBytes": 529836,
+      "renderedBytes": 529776,
+      "parsedJsonExact": true,
+      "fullBinExact": true,
+      "originalContainerPrefixExact": true,
+      "binOffset": 15328
+    }
+  ],
+  "maskSelections": [
+    {
+      "garment": "foundation_bra",
+      "field": "_UNDER_FEMALE_ELEGANTSUIT01",
+      "addedVertices": 3222,
+      "additionallyHiddenTriangles": 5706
+    },
+    {
+      "garment": "foundation_bra",
+      "field": "_UNDER_FEMALE_CASUALSUIT01",
+      "addedVertices": 2074,
+      "additionallyHiddenTriangles": 3669
+    },
+    {
+      "garment": "foundation_vest",
+      "field": "_UNDER_FEMALE_ELEGANTSUIT01",
+      "addedVertices": 3477,
+      "additionallyHiddenTriangles": 6256
+    },
+    {
+      "garment": "foundation_vest",
+      "field": "_UNDER_FEMALE_CASUALSUIT01",
+      "addedVertices": 2204,
+      "additionallyHiddenTriangles": 4101
+    },
+    {
+      "garment": "foundation_briefs",
+      "field": "_UNDER_FEMALE_ELEGANTSUIT01",
+      "addedVertices": 442,
+      "additionallyHiddenTriangles": 785
+    },
+    {
+      "garment": "foundation_briefs",
+      "field": "_UNDER_FEMALE_CASUALSUIT01",
+      "addedVertices": 0,
+      "additionallyHiddenTriangles": 0
+    },
+    {
+      "garment": "foundation_boxer_brief",
+      "field": "_UNDER_FEMALE_ELEGANTSUIT01",
+      "addedVertices": 1472,
+      "additionallyHiddenTriangles": 2783
+    },
+    {
+      "garment": "foundation_boxer_brief",
+      "field": "_UNDER_FEMALE_CASUALSUIT01",
+      "addedVertices": 0,
+      "additionallyHiddenTriangles": 0
+    }
+  ],
+  "additionalTriangleRecords": 23300,
+  "actualFootprintChecks": 46600,
+  "checks": {
+    "analyticCoverageCases": 13,
+    "portableGroups": 8,
+    "authoredDecencyConfigurations": 20,
+    "authoredDecencyFailures": 0,
+    "actualConfigurations": 20,
+    "actualSavedStates": 40,
+    "actualViews": 48,
+    "actualClothedStates": 32,
+    "actualClothedDecencyFailures": 0,
+    "actualFoundationOnlyStates": 8,
+    "foundationOnlyGroinRayIds": [
+      4787,
+      4788
+    ],
+    "foundationOnlyRayFailuresPerState": 2,
+    "foundationOnlyFullIndicesAndPositionsExactToOriginal": true,
+    "matchedPosePairs": 16,
+    "drawOnlyStateRestores": 40,
+    "runtimeMaskIndexChecks": 40,
+    "sourceFreeze": true,
+    "runtimeErrors": 0,
+    "failedActualFootprints": 0,
+    "unqualifiedCollateralRemovals": 0
+  },
+  "authoredContacts": [
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "control",
+      "inner": "foundation_bra",
+      "drawnTriangles": 5990,
+      "pairs": 588
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "control",
+      "inner": "foundation_vest",
+      "drawnTriangles": 6519,
+      "pairs": 681
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "control",
+      "inner": "foundation_briefs",
+      "drawnTriangles": 1025,
+      "pairs": 185
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "control",
+      "inner": "foundation_boxer_brief",
+      "drawnTriangles": 5000,
+      "pairs": 145
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "candidate",
+      "inner": "foundation_bra",
+      "drawnTriangles": 284,
+      "pairs": 16
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "candidate",
+      "inner": "foundation_vest",
+      "drawnTriangles": 263,
+      "pairs": 14
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "candidate",
+      "inner": "foundation_briefs",
+      "drawnTriangles": 240,
+      "pairs": 0
+    },
+    {
+      "outfit": "female_elegantsuit01",
+      "arm": "candidate",
+      "inner": "foundation_boxer_brief",
+      "drawnTriangles": 2217,
+      "pairs": 1
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "control",
+      "inner": "foundation_bra",
+      "drawnTriangles": 3996,
+      "pairs": 262
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "control",
+      "inner": "foundation_vest",
+      "drawnTriangles": 5512,
+      "pairs": 456
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "control",
+      "inner": "foundation_briefs",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "control",
+      "inner": "foundation_boxer_brief",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "candidate",
+      "inner": "foundation_bra",
+      "drawnTriangles": 327,
+      "pairs": 18
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "candidate",
+      "inner": "foundation_vest",
+      "drawnTriangles": 1411,
+      "pairs": 76
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "candidate",
+      "inner": "foundation_briefs",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "outfit": "female_casualsuit01",
+      "arm": "candidate",
+      "inner": "foundation_boxer_brief",
+      "drawnTriangles": 0,
+      "pairs": 0
+    }
+  ],
+  "posedContacts": [
+    {
+      "inner": "foundation_bra",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 5990,
+      "pairs": 663
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 284,
+      "pairs": 20
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 5990,
+      "pairs": 678
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 284,
+      "pairs": 15
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 6519,
+      "pairs": 688
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 263,
+      "pairs": 20
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 6519,
+      "pairs": 632
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 263,
+      "pairs": 18
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 1025,
+      "pairs": 185
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 240,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 1025,
+      "pairs": 185
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 240,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 5000,
+      "pairs": 145
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_elegantsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 2217,
+      "pairs": 1
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 5000,
+      "pairs": 145
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_elegantsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 2217,
+      "pairs": 1
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 3996,
+      "pairs": 227
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 327,
+      "pairs": 26
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 3996,
+      "pairs": 192
+    },
+    {
+      "inner": "foundation_bra",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 327,
+      "pairs": 13
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 5512,
+      "pairs": 473
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 1411,
+      "pairs": 86
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 5512,
+      "pairs": 440
+    },
+    {
+      "inner": "foundation_vest",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 1411,
+      "pairs": 87
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_briefs",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "control",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_casualsuit01",
+      "frame": 0,
+      "arm": "candidate",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "control",
+      "drawnTriangles": 0,
+      "pairs": 0
+    },
+    {
+      "inner": "foundation_boxer_brief",
+      "outer": "female_casualsuit01",
+      "frame": 240,
+      "arm": "candidate",
+      "drawnTriangles": 0,
+      "pairs": 0
+    }
+  ],
+  "contract": {
+    "runtimeAnyCornerThreshold": 0.5,
+    "addedValue": 1,
+    "chart": "per-foundation-triangle constant nearest-body geometric normal; plane through foundation centroid",
+    "projectedOpeningMargin": "Minkowski sum with a 1 mm half-extent square, containing a 1 mm disk",
+    "outerDepthSlabMetres": [
+      -0.004,
+      0.03
+    ],
+    "outerDepthReference": "triangle centroid plane, not varying per-point foundation depth",
+    "outerFacing": "strictly positive projected orientation",
+    "qualification": "Union of projected outward-facing outer-cloth triangles covers the full expanded foundation triangle; uncovered area <= 1e-14 square metres",
+    "poseQualification": "Authored plus actual Avatar at 0 s and 4 s; all 23,300 additional triangle records were requalified on captured actual positions",
+    "vertexRule": "a new flag is allowed only when every currently drawn incident triangle qualifies; exact additional removal set is stored",
+    "limitations": [
+      "Local projection and two poses are not all-view or all-motion occlusion.",
+      "Source labels already set above 0.5 are retained; only additional qualified flags are applied.",
+      "Coarse-source zero-label gaps and subdivision/any-corner mismatch are distinct inputs to the coverage transfer.",
+      "Clothed actual 32 states have zero decency exposures. Eight foundation-only states retain the unchanged 4787/4788 GROIN ray red with no active outer mask.",
+      "Residual inner/outer contacts, original outer-cloth/body contacts and sock/showcase layering defects remain."
+    ]
+  },
+  "packaging": "Rendered scratch candidates use reserialized JSON containers 60 bytes shorter. Final portable outputs preserve original container bytes and differ only at calibrated mask Float32 offsets; full BIN and parsed JSON equal the rendered candidates. This is not a new geometry or visual variant.",
+  "visualObservation": "Elegant chest and hip foundation patches disappear in matched views; the V opening remains visible. Small collar remnants, casual sock exposure and residual garment intersections remain.",
+  "promotionPrerequisites": [
+    "Post-installation no-route Avatar/showcase checks attest final output response hashes."
+  ],
+  "limits": [
+    "Local-chart coverage is not pointwise depth or all-view/all-motion visibility.",
+    "Authored foundation depth within a chart reaches 1.193 mm; the slab is relative to its centroid plane.",
+    "Unqualified triangle IDs stay drawn; that is not an all-view opening certificate.",
+    "Eight foundation-only posed states retain the original GROIN ray failures with no active UNDER mask.",
+    "Remaining inner/outer contacts, original outer/body or self contacts and shoe/sock defects remain.",
+    "Other body bakes have no calibration here.",
+    "GROIN IDs 4787 and 4788 are UV-seam twins at one geometric location. The existing posed normal-ray failures are not proven visible exposures."
+  ],
+  "archive": {
+    "path": "captures/wardrobe-under-masks-2026-09-09",
+    "manifest": "manifest.json",
+    "manifestSha256": "2ad4e62733dd77d8783314887fa997dab238c2a1cb3f4acfb948c44e9513f986",
+    "fileCount": 151,
+    "totalBytes": 221751870
+  },
+  "localPromotion": {
+    "performedBy": "root",
+    "report": "/tmp/sugata-root-wardrobe-promotion/promotion.json",
+    "onlyExpectedFourAssetsChanged": true,
+    "frozenFiles": 314,
+    "builtPages": 18,
+    "browserQualification": "pending"
+  },
+  "finalPromotion": {
+    "archive": "captures/wardrobe-mask-promotion-2026-09-09",
+    "files": 46,
+    "bytes": 15915257,
+    "manifestSha256": "5f9cc1775aaf64e0bc5165362a2ef46c26158023d63f3759994c2777de600741",
+    "date": "2026-09-09T12:12:34.516217+00:00",
+    "installedAssets": [
+      {
+        "path": "assets/wardrobe/foundation_boxer_brief/g050.glb",
+        "oldSha256": "b0f7d7231e69aa40c2adb1e3324ee8149dc88fcd1b1b22a534e2fe3d81bd3e36",
+        "newSha256": "4f0a206012250e980ad0f3f4f27101d8af023ce4b52775c986d7a7ee485cdaeb"
+      },
+      {
+        "path": "assets/wardrobe/foundation_bra/g050.glb",
+        "oldSha256": "69fb5b0ae4efd9e99650d31e3e28676cebc8bd881f2a4adea39ef050d31455a8",
+        "newSha256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79"
+      },
+      {
+        "path": "assets/wardrobe/foundation_briefs/g050.glb",
+        "oldSha256": "b458f53ea5aa84af081b6a993c9a483374f5167a202a57ff225d5420b46d592a",
+        "newSha256": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747"
+      },
+      {
+        "path": "assets/wardrobe/foundation_vest/g050.glb",
+        "oldSha256": "bdae90afc569b3e6a4e32e55fe15a99feb0815c8cbf139de46e0c68644979b1a",
+        "newSha256": "4804bd9e11c7aafacc19ca9fa3ded25fbbd2c4d72c25a17d566087ee09ba6152"
+      }
+    ],
+    "unchangedSourceAndAssetFiles": 310,
+    "allPages": 18,
+    "showcaseProductionGroups": 19,
+    "pngDevelopmentGroups": 13,
+    "defaultWardrobeProductionGroups": 8,
+    "allBrowserErrors": [],
+    "showcaseBraBriefResponseHashesExact": true,
+    "defaultVestBoxerRequestedFinalEmittedUrls": true,
+    "rootReviewedImages": [
+      "png-dev/elegant-long-bob.png",
+      "showcase-production/elegant-rear.png",
+      "showcase-production/casual-desktop.png",
+      "showcase-production/mixed-portrait-warm.png"
+    ],
+    "limits": [
+      "Focused integration and export verification, not a full repository suite or all-view/motion clothing clearance.",
+      "Default vest/boxer production report records successful emitted URLs, not response-body hashes; matching emitted file bytes were separately verified.",
+      "Source geometry, hair and motion unchanged. Existing collar/sock contacts and foundation-only ray failure remain.",
+      "Some interaction screenshots retain deliberately injected error UI from preceding negative cases; those are test evidence, not curated promotional images."
+    ]
+  }
+}

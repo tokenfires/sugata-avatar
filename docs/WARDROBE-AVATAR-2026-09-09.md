@@ -1,5 +1,7 @@
 # Opt-in Avatar wardrobe — 2026-09-09
 
+> This records the original runtime integration. The later [g050 foundation mask correction](WARDROBE-MASKS-2026-09-09.md) changes the covered foundation regions; the original counts and fit observations below describe the pre-correction assets. The [lookbook](SHOWCASE-2026-09-09.md) documents the current demonstration.
+
 This is a runtime prerequisite for clothing demonstrations, **not visual acceptance of the current clothes**. Only the resolved **g050** body is supported. The existing manifest labels these CC0 clothes as plumbing stand-ins; g000/g100 files on disk do not establish declared or validated coverage. No garment assets, hair physics, foundation policy, portrait UI, or outfit gallery were changed.
 
 ## Public API

@@ -1342,3 +1342,35 @@ byte-idempotence, tamper rejection, capture-independent reads and atomic output 
 The CLI requires two new separate output/report paths; changed source, body or metadata is
 refused. The evidence and independent composition audit are archived under
 `captures/bob01-g025-composed-2026-09-09/`.
+
+
+## Coverage-derived foundation masks (g050 only)
+
+`wardrobe_under_masks.mjs` applies the reviewed `g050-foundation-coverage-v1` selection to the four
+original g050 foundations under the original elegant/casual clothes. It repairs the coarse-mask
+subdivision mismatch and independently missing original coverage labels. Only selected existing
+Float32 `_UNDER_*` values change; the runtime threshold, foundation floor and all geometry stay
+fixed. The original container bytes outside those exact offsets also remain unchanged.
+
+```sh
+node tools/figure-pipeline/wardrobe_under_masks.mjs \
+  --garment foundation_bra --bake g050 \
+  --output /tmp/foundation-mask-review/bra.glb \
+  --report /tmp/foundation-mask-review/bra.json
+node tools/figure-pipeline/wardrobe_under_masks.selftest.mjs
+```
+
+The other garment IDs are `foundation_vest`, `foundation_briefs` and `foundation_boxer_brief`.
+Default inputs come from the immutable tracked original bundle; optional `--input` accepts only
+the exact calibrated source or final output. The exact body and both outer cloth digests are
+required even for idempotence. Outputs must be new explicit paths. Fixture directories and
+symlink aliases are refused before any nested directory creation. The tool does not install assets.
+
+The selection qualifies every additional any-corner triangle in a 1 mm expanded local chart,
+with a centroid-relative −4 mm to +30 mm depth slab, at authored rest and actual Avatar 0/4 s.
+All 23,300 additional pair records pass both actual poses. This is not pointwise depth coverage
+or an all-view/all-motion guarantee. All 32 clothed states pass the decency rays; eight
+foundation-only states retain two unchanged GROIN ray failures with no active outer mask.
+Remaining cloth/collar/sock contacts are not waived. See
+[`docs/WARDROBE-MASKS-2026-09-09.md`](../../docs/WARDROBE-MASKS-2026-09-09.md)
+for the full evidence, output hashes and the rendered-versus-portable container distinction.
