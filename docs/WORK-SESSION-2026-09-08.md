@@ -119,12 +119,24 @@ The coloured cast disappears, while the broad hair patchwork remains and orange 
 becomes conspicuous. See [neutral-light evidence](evidence/neutral-light-2026-09-08.json) and local
 `captures/neutral-light-2026-09-08/`. No further light variants have been run.
 
-Active: `orbit_render_audit` is diagnosing that glow against SkinMaterial/thickness/occlusion
-code and existing ledgers, with at most one isolating control. It has no authorization to install
-an unproven material change. Root owns integration and evidence. The other two agents are idle;
-the three hair-geometry experiments are closed. Do not repeat them without a new prediction.
-Missing later HairMaterial history still blocks a safe continuation of R35–R38. No Blender
-installation or old iCloud reads. There are no active source edits or root browser capture jobs.
+The isolated transmission toggle confirms that term supplies most of the orange glow at the
+matched neutral 45° pose: near-eye RGB falls 57.7/26.8/17.3 display codes, mouth 49.1/22.1/14.7,
+and neck control only 0.79/0.33/0.32. These are screenshot values including downstream effects,
+not linear radiance. Neutralizing the formerly blue rim increases its emitted red by 19.75× at
+constant luminance. This control identifies the source term without proving a defect; disabling
+transmission is not a proposed repair. See [transmission control](evidence/neutral-transmission-control-2026-09-08.json).
+
+Active at 00:06 UTC: `orbit_render_audit` is testing one area-light normalization invariant.
+LightingRig solves panel radiance from target irradiance, while SkinMaterial's transmitted area
+term uses raw radiance without a panel integral. The test varies panel size with a fixed delivered
+irradiance target and measures on-minus-off transmission in linear light. No shipping edits yet.
+`visual_next_step` is checking prior history before designing a direct outer-envelope projection.
+R23 in the pipeline README already refuted halving the standoff ladder: one layer alone carried
+similar scatter, and halving standoff span reduced scatter by just 0.12 mm. Do not repeat that
+experiment. A fitted geometric shell, if not already tried, must be judged by matched renders.
+Root owns integration/evidence; `continuity_audit` is idle. Missing later HairMaterial history
+still blocks R35–R38. No Blender installation or old iCloud reads. The three prior hair-geometry
+experiments are closed. There are no active shipping edits or root capture jobs.
 
 Dev server: port5197, exec session26208. Production server: port5198, exec session71084,
 output `/tmp/sugata-hem-build`. Check ports before restarting. The dev server remains for the user.
