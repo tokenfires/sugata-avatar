@@ -85,10 +85,10 @@
  * between this file and `alive.js`. `hair: 'bob01'` is opt-in, it is off by default, and §THE GROOM
  * below carries the three measured reasons it stays off.
  *
- * Still deferred rather than dropped, and named so the omission is visible: **the wardrobe**
- * (Phase 9) and **identity detail targets** (Phase 10). Both are opt-in on `alive.js` for reasons
- * that still hold — the wardrobe has fragments for one bake only, and 10.7/10.9 are open so eyes and
- * skeleton do not follow the skin.
+ * Clothing is opt-in via `wardrobe: { outfit: [...], foundation: { TORSO, HIPS } }` and `dress(ids)`.
+ * Only the resolved g050 bake has validated manifest coverage; defaults remain unchanged. The
+ * existing clothes are plumbing stand-ins, not the final authored capsule. Identity detail targets
+ * remain deferred: 10.7/10.9 are open, so eyes and skeleton do not follow those skin edits.
  *
  * ⚠️ THIS FILE DOES NOT IMPORT FROM `packages/testbed`, EVER. `core` must not depend on the
  * testbed. Where a helper was needed it was READ and reimplemented here, and every constant lifted
@@ -726,6 +726,7 @@ export const AVATAR_DEFAULTS = Object.freeze( {
     pose: DEFAULT_REST_POSE,
     assetBaseUrl: null,
     bakedMapBaseUrl: null,
+    wardrobe: false,
 
     /**
      * 🎯 THE DEFAULTS ARE THE SHIPPED BEHAVIOUR, AND THAT IS AN ASSERTION RATHER THAN A COMMENT.
@@ -889,6 +890,8 @@ export class Avatar {
         const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
 
         const identity = new Identity( options.identity ?? AVATAR_DEFAULTS.identity );
+        const wardrobeRequest = resolveWardrobeOption( options.wardrobe ?? AVATAR_DEFAULTS.wardrobe );
+        if ( wardrobeRequest !== null ) validateWardrobePlan( await identity.resolve() );
 
         // 🚩 REFUSED RATHER THAN LEFT TO BE DISCOVERED. `Identity` in `LIVE_PREVIEW` mode resolves
         // to TWO bakes (`Identity.js:245-246`) and `swapFigure` takes `plan.figures[0].url` only, so
@@ -921,7 +924,8 @@ export class Avatar {
             scene,
             lighting,
             background,
-            hairStyle
+            hairStyle,
+            wardrobeRequest
         } );
 
         // 🚩 THE MOST LIKELY PRODUCTION FAILURE IS A MISSING GLB, AND WITHOUT THIS IT LEAKED A WHOLE
@@ -997,6 +1001,13 @@ export class Avatar {
         // The style id, or null. Named `hairStyle` rather than `hair` so the option and the live
         // groom handle below cannot be confused for one another in `report()` or in a leak walk.
         this.hairStyle = session.hairStyle;
+
+        this.wardrobeRequest = session.wardrobeRequest ?? null;
+        this.wardrobe = null;
+        this.wardrobeAssets = null;
+        this.pendingWardrobes = new Set();
+        this.wardrobeRequestVersion = 0;
+        this.lastWardrobeError = null;
 
         // --- resolved at build ---
         this.tier = null;
@@ -2350,11 +2361,59 @@ export class Avatar {
 
         this.requireLive( 'setIdentity' );
 
-        this.identity.set( partial );
+        if ( this.wardrobeRequest !== null ) {
 
+            // Refuse unsupported clothing fits before changing identity or retiring the visible
+            // figure. The resolved bake is authoritative, including nearest-mode rounding.
+            const candidate = new Identity( { ...this.identity.toJSON(), ...partial } );
+            validateWardrobePlan( await candidate.resolve() );
+            this.requireLive( 'setIdentity' );
+            this.identity.set( candidate.toJSON() );
+
+        } else {
+
+            this.identity.set( partial );
+
+        }
         await this.swapFigure();
 
         return this;
+
+    }
+
+    /** Wear an absolute outfit plus the configured foundation. Requires create({ wardrobe: {...} }). */
+    async dress( garmentIds ) {
+
+        this.requireLive( 'dress' );
+        if ( this.wardrobe === null ) throw new Error( 'Avatar.dress: create this avatar with wardrobe: { outfit: [...] } first.' );
+        this.wardrobe.validateOutfit( garmentIds );
+        this.wardrobeRequest = { ...this.wardrobeRequest, outfit: [ ...garmentIds ] };
+        const version = ++ this.wardrobeRequestVersion;
+        this.lastWardrobeError = null;
+        while ( true ) {
+
+            const wardrobe = this.wardrobe;
+            try {
+
+                await wardrobe.dress( garmentIds );
+                this.requireLive( 'dress' );
+
+            } catch ( error ) {
+
+                this.requireLive( 'dress' );
+                // A ready figure can replace the old wardrobe while this await is pending.
+                // Retry on the new owner only when this remains the latest accepted request.
+                if ( wardrobe === this.wardrobe ) {
+
+                    if ( version === this.wardrobeRequestVersion ) this.lastWardrobeError = error.message;
+                    throw error;
+
+                }
+
+            }
+            if ( version !== this.wardrobeRequestVersion || wardrobe === this.wardrobe ) return this;
+
+        }
 
     }
 
@@ -2395,6 +2454,24 @@ export class Avatar {
             },
 
             subsystems: this.censusOfShading(),
+            wardrobe: this.wardrobeRequest === null ? null : {
+                supportedBake: 'g050',
+                assetStatus: 'existing plumbing stand-ins',
+                requestedOutfit: [ ...this.wardrobeRequest.outfit ],
+                foundation: this.wardrobeAssets?.foundation.toJSON() ?? { ...this.wardrobeRequest.foundation },
+                floor: this.wardrobeAssets?.foundation.currentFloor() ?? [],
+                attached: this.wardrobe !== null && !this.wardrobe.disposed && this.wardrobe.body.visible &&
+                    this.wardrobe.body === this.figure?.body &&
+                    this.figure.root.parent === this.stage?.scene && this.wardrobe.worn.every( id =>
+                        this.wardrobe.wornMeshes.get( id )?.parent === this.figure.body.parent ),
+                bodyUrl: this.wardrobeAssets?.bodyUrl ?? null,
+                manifestUrl: this.wardrobeAssets?.manifestUrl ?? null,
+                fragmentUrls: this.wardrobe === null ? {} : Object.fromEntries( this.wardrobe.worn.map( id =>
+                    [ id, this.wardrobe.manifest.fragmentUrl( id, this.wardrobe.figureKey ) ] ) ),
+                pendingCandidates: this.pendingWardrobes.size,
+                state: this.wardrobe?.stats() ?? null,
+                lastError: this.lastWardrobeError
+            },
 
             /**
              * The room and the light, READ OFF THE SCENE GRAPH rather than off the options that
@@ -2674,6 +2751,9 @@ export class Avatar {
 
         this.disposed = true;
         ++ this.loadToken; // Invalidate figure and groom loads still awaiting assets.
+        ++ this.wardrobeRequestVersion;
+        for ( const wardrobe of this.pendingWardrobes ) wardrobe.dispose();
+        this.pendingWardrobes.clear();
 
         // First, so nothing draws into a half-torn-down scene on the frame that is already queued.
         this.unsubscribeFrame?.();
@@ -2695,6 +2775,7 @@ export class Avatar {
         // and `Figure.dispose()` is a traverse, so leaving it there would dispose geometry this file
         // owns and call `dispose()` on the hair material twice.
         this.disposeHair();
+        this.disposeWardrobe();
 
         if ( this.figure !== null ) {
 
@@ -2875,32 +2956,63 @@ export class Avatar {
         const token = ++ this.loadToken;
         const plan = await this.identity.resolve();
         if ( token !== this.loadToken ) return;
+        if ( this.wardrobeRequest !== null ) validateWardrobePlan( plan );
         const assets = resolveFigureAssets( plan.figures[ 0 ], this.assetBaseUrl, this.bakedMapBaseUrl );
         const { bakeName } = assets;
+        let wardrobeAssets = null;
+        if ( this.wardrobeRequest !== null ) {
 
-        const figure = await Figure.load( assets.figureUrl );
-
-        // A fast sequence of swaps starts several loads; only the newest may land. Checked after
-        // every await, and each check disposes what this attempt had already built.
-        if ( token !== this.loadToken ) {
-
-            figure.dispose();
-            return;
+            const { loadAvatarWardrobe } = await import( './wardrobe/AvatarWardrobe.js' );
+            if ( token !== this.loadToken ) return;
+            wardrobeAssets = await loadAvatarWardrobe( this.wardrobeRequest, this.assetBaseUrl );
+            if ( token !== this.loadToken ) return;
 
         }
+        const figure = await Figure.load( wardrobeAssets?.bodyUrl ?? assets.figureUrl );
+        if ( token !== this.loadToken ) { figure.dispose(); return; }
+        let skin = null;
+        let wardrobe = null;
+        try {
 
-        const skin = await createSkinMaterial( {
-            albedoMap: figure.body.material.map ?? null,
-            curvatureMapUrl: assets.curvatureMapUrl,
-            cavityMapUrl: assets.cavityMapUrl,
-            regionMapUrl: assets.regionMapUrl
-        } );
+            skin = await createSkinMaterial( {
+                albedoMap: figure.body.material.map ?? null,
+                curvatureMapUrl: assets.curvatureMapUrl,
+                cavityMapUrl: assets.cavityMapUrl,
+                regionMapUrl: assets.regionMapUrl
+            } );
+            if ( token !== this.loadToken ) { skin.dispose(); figure.dispose(); return; }
+            if ( wardrobeAssets !== null ) {
 
-        if ( token !== this.loadToken ) {
+                wardrobe = wardrobeAssets.create( figure );
+                this.pendingWardrobes.add( wardrobe );
+                let version;
+                do {
 
-            skin.dispose();
+                    version = this.wardrobeRequestVersion;
+                    await wardrobe.dress( this.wardrobeRequest.outfit );
+                    if ( token !== this.loadToken ) {
+
+                        wardrobe.dispose();
+                        this.pendingWardrobes.delete( wardrobe );
+                        skin.dispose();
+                        figure.dispose();
+                        return;
+
+                    }
+
+                } while ( version !== this.wardrobeRequestVersion );
+
+            }
+
+        } catch ( error ) {
+
+            wardrobe?.dispose();
+            this.pendingWardrobes.delete( wardrobe );
+            skin?.dispose();
             figure.dispose();
-            return;
+            if ( token !== this.loadToken ) return;
+            if ( this.wardrobeRequest !== null ) this.lastWardrobeError = error.message;
+            throw error;
 
         }
 
@@ -2918,6 +3030,7 @@ export class Avatar {
         // this file owns and calls `dispose()` on a `HairNodeMaterial` that `disposeHair` is about
         // to dispose again. Removing first makes the ownership match the disposal.
         this.disposeHair();
+        this.disposeWardrobe();
 
         if ( this.figure !== null ) {
 
@@ -2947,6 +3060,10 @@ export class Avatar {
         }
 
         this.figure = figure;
+        this.wardrobe = wardrobe;
+        this.wardrobeAssets = wardrobeAssets;
+        this.pendingWardrobes.delete( wardrobe );
+        this.lastWardrobeError = null;
         this.skeleton = skeleton;
         this.currentBakeName = bakeName;
 
@@ -3542,6 +3659,15 @@ export class Avatar {
             this.hairMaterial = null;
 
         }
+
+    }
+
+    /** Detach owned fragments before Figure.dispose() traverses its borrowed body and skeleton. */
+    disposeWardrobe() {
+
+        this.wardrobe?.dispose();
+        this.wardrobe = null;
+        this.wardrobeAssets = null;
 
     }
 
@@ -4362,6 +4488,45 @@ function nextPaint() {
         requestAnimationFrame( () => requestAnimationFrame( () => resolve() ) );
 
     } );
+
+}
+
+/** Opt-in clothing configuration; FoundationLayer validates the actual slot choices on load. */
+export function resolveWardrobeOption( value = false ) {
+
+    if ( value === false || value === null ) return null;
+    if ( typeof value !== 'object' || Array.isArray( value ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe must be false or { outfit: [...], foundation: { TORSO, HIPS } }.' );
+
+    }
+    const outfit = value.outfit ?? [];
+    const foundation = value.foundation ?? {};
+    if ( !Array.isArray( outfit ) || outfit.some( id => typeof id !== 'string' || id.length === 0 ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe.outfit must be an array of nonempty garment ids.' );
+
+    }
+    if ( typeof foundation !== 'object' || Array.isArray( foundation ) ||
+         Object.values( foundation ).some( id => typeof id !== 'string' || id.length === 0 ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe.foundation must map body slots to garment ids.' );
+
+    }
+    return { outfit: [ ...outfit ], foundation: { ...foundation } };
+
+}
+
+/** Use the selected bake, not the requested continuous gender or a bundler's hashed filename. */
+export function validateWardrobePlan( plan ) {
+
+    if ( plan?.figures?.length !== 1 || plan.figures[ 0 ].gender !== 0.5 ) {
+
+        throw new TypeError( 'Avatar wardrobe: only the resolved g050 bake is supported by the current clothing manifest. ' +
+            'Choose an identity resolving to g050; other bakes and cross-fades need their own validated clothing.' );
+
+    }
+    return 'g050';
 
 }
 

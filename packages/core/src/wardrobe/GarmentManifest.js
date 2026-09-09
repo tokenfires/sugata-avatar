@@ -104,8 +104,11 @@ export class GarmentManifest {
      * @param {?string} [baseUrl] - Where the manifest was loaded from. Fragment paths are stored
      *   relative to the manifest file, so this is what resolves them. Null leaves them as-is,
      *   which is what a caller reading from disk wants.
+     * @param {Object} [options]
+     * @param {Function} [options.resolveFragmentUrl] - Optional bundler mapping from a validated
+     *   manifest-relative path (plus id and figureKey) to its emitted URL.
      */
-    constructor( source, baseUrl = null ) {
+    constructor( source, baseUrl = null, options = {} ) {
 
         const problems = validateManifest( source );
 
@@ -118,6 +121,7 @@ export class GarmentManifest {
 
         this.version = source.version;
         this.baseUrl = baseUrl;
+        this.resolveFragmentUrl = options.resolveFragmentUrl ?? null;
         this.slots = [ ...source.slots ];
 
         // Layer name -> order. The total order every comparison below runs through.
@@ -131,7 +135,7 @@ export class GarmentManifest {
     }
 
     /** Loads and validates a manifest over the network. The browser path. */
-    static async load( url ) {
+    static async load( url, options = {} ) {
 
         const response = await fetch( url );
 
@@ -141,7 +145,7 @@ export class GarmentManifest {
 
         }
 
-        return new GarmentManifest( await response.json(), response.url );
+        return new GarmentManifest( await response.json(), response.url, options );
 
     }
 
@@ -164,6 +168,9 @@ export class GarmentManifest {
 
         }
 
+        // A bundled manifest keeps its authored relative paths while its GLBs receive hashed
+        // names. A loader may resolve those paths through a bundler-visible asset table.
+        if ( this.resolveFragmentUrl !== null ) return this.resolveFragmentUrl( relative, id, figureKey );
         return this.baseUrl === null ? relative : new URL( relative, this.baseUrl ).href;
 
     }
