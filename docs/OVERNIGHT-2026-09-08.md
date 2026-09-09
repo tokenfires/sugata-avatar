@@ -37,31 +37,26 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the10:15UTC section below. **The corrected g050 long bob is shipped** in
-local commit`c871ed9`, with production forest contact. GLB SHA
+Latest checkpoint is the 10:50UTC section below. **The corrected g050 long bob is shipped** in
+local commit `c871ed9`, with production forest contact. GLB SHA
 `db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`, calibration
-`bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and correct actual owner.
-Other four bob01 bakes and allbob02 bytes are unchanged. No push.
+`bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and the correct actual owner.
+Other four bob01 bakes and all bob02 bytes are unchanged. No push.
 
-- Root: fixed-pose follower render preview and an explicitly separate density control; shipping
-  hair/physics frozen. The first11904-bundle preview smooths rear/side planes but under-covers the
-  fringe. One31050-bundle control is prepared, using at most0.6mm center spacing at each card's
-  widest ring, same1.2mm width and original atlas/depth/root/lock data. This is CPU-built rendering
-  from actual4s GPU ribbon readback, **not live follower physics**. No adoption or cost claim.
-- `continuity_audit`:85-pose exhaustive nine-card opaque enumeration nearly complete;76poses,
-  70,315,960 evaluations clear at the latest report. The original22-pose20.35M proof is complete.
-  Archive/focused acceptance update follows the remaining negative-yaw poses; no new solver work.
-- `visual_next_step`: shared-height rear-lock candidate rejected and archived. Now owns one
-  scratch-only outer-cloth fit candidate: elegant chest/hips at most4mm outward and casual calves
-  at most6mm, target0.5mm local separation from actual retained foundation/sock geometry. Preserve
-  all foundations/masks/topology/UV/weights and opening/hem boundaries. Four foundation pairs
-  checked; do not raise the bound if it fails. Actual GPU comparison follows CPU qualification.
-- `orbit_render_audit`: realg050 wardrobe showcase is implemented in newtestbed files, page/build
-  registries, and one Avatar JSDoc identity-axis correction.18dev/19production groups passed;
-  desktop/fresh-mobile views render. Investigating resize exposed transient temporal settling,
-  not proven permanent cache corruption. Two speculative page resets were rejected/reverted.
-  Now owns a minimal shared Stage first-frame input-sizing correction backed by an exact trace;
-  temporal-object identity must remain stable. Root waits for its GPU release before density views.
+- Root: three fixed-pose follower previews and an ABBA rendering-cost run are complete and archived.
+  Corrected coverage smooths sides/rear but crown and hem remain patchy; no adoption. Now preparing
+  actual motion/parity/clearance/cost gates for a scratch direct-GPU follower prototype.
+- `continuity_audit`: 85-pose opacity acceptance completed and committed `e05144b`. Now owns a
+  scratch-only live follower module and a narrowly routed borrowed-edge accessor in a copy of
+  HairDynamics. Preserve the496-guide solver, original caps/material data and all production source.
+  Shader neighbor gathers replace per-frame CPU readback. Held velocity is explicitly provisional;
+  first moving observation must use temporal AA off. Lifetime and physical parity require proof.
+- `visual_next_step`: fixed outer-cloth fit candidate visibly clears chest/hip/calf patches but
+  increases collar self-contact and retains cuff crossings. Rejected/unpromoted; archived in
+  `929922d`. Now doing a CPU-only audit of authored foundation masks, without asset/mask edits.
+- `orbit_render_audit`: finished real wardrobe showcase plus minimal shared first-resize input
+  correction in `7ea6ea6`, then actual PNG export in `20569f5`. All focused gates/build pass.
+  Idle after releasing the GPU; no pending source edits. Lookbook URL `/src/showcase.html`.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -708,3 +703,42 @@ changing the0.5mask threshold. Shoes01contains two252-triangle sock components w
 FOOTWEAR600would not let BASE300occlude them under the current layer rule anyway. Measured calf
 protrusion reaches4.401mm while skin stays inside trousers. One bounded outer-garment fit control
 is underway; no garment, mask or layer is removed to conceal the problem.
+
+## Complete motion proof and showcase; finer rendering remains experimental — 10:50UTC
+
+- The additional85-pose proof is complete:78,642,850 opacity-sample evaluations on the corrected
+  nine-card nape group, zero negatives, minimum+2.428235mm. Original22-pose proof remains complete:
+  20,354,620 evaluations, minimum+1.078904mm. Full limits and broader root/cap/curtain contacts are
+  retained in [nape acceptance](HAIR-NAPE-ACCEPTANCE.md); this does not certify all-body clearance.
+- The real g050 lookbook is shipped locally in `7ea6ea6`: two actual outfits/hair presets,
+  camera/framing/light controls, truthful configuration export and fit-study labeling.
+  The shared Stage fix sizes its existing scene pass before the first resized temporal jitter.
+  Four CPU and six actual GPU groups pass. Temporal object identity stays stable; transient
+  resize settling is not claimed cured. The earlier automatic review rejection was resolved:
+  root supplied the exact patch, proof and user's broader overnight authorization; retry approved.
+- PNG export is shipped in `20569f5`:13 actual browser groups verify same-task pixels, real outfit
+  changes, body/portrait/side framing, exact camera/physical/clock preservation, motion restoration,
+  failure handling and URL cleanup. JSON is explicitly labeled settings. Final18-page build passes.
+  See [showcase](SHOWCASE-2026-09-09.md) and its image evidence. No core change in PNG commit.
+- One fixed outer-cloth fitting experiment clears obvious front chest/hip/calf patches in24 actual
+  images at rest and4s. It creates more collar-leaf self-intersections and leaves rear-cuff contacts,
+  so it remains unpromoted. All foundations/masks/UV/weights/topology/openings remain unchanged.
+  [Wardrobe fit evidence](WARDROBE-FIT-2026-09-09.md) in `929922d` keeps authored and posed counts
+  distinct. Do not blindly expand bounds or call the visible improvement a full geometry pass.
+- Three fixed-pose follower render comparisons are archived. The first11904-bundle pilot was too
+  sparse and changed the lock-albedo coordinate basis. The31050-bundle control restored that basis,
+  but both first variants put coverage only in opacityNode: the shadow override cast solid strips.
+  A separate corrected control puts coverage times atlas alpha in colorNode.a. Its sides and rear
+  still look smoother, but crown patchwork and disconnected hem strips remain. Temporarily removing
+  caps did not remove broad upper patches; do not blame the caps alone.
+- The corrected31050-bundle primitive costs more: two fixed-pose candidate draw medians7.7/7.1ms
+  versus controls4.7/2.2ms, each32 warm+180 measured serialized draws. Control variance prevents a
+  precise single delta; this excludes live motion, readback and compositor/rAF waits. All physical
+  state and camera values remain exact. [Follower evidence](HAIR-FOLLOWERS-2026-09-09.md) records
+  80 archived files, manifest `237f28e14a0440a45281cfb2d60a8ed7c9a0a0c47294ed9fe6ae13ef2ffd4386`.
+  No production render replacement or follower-edge collision guarantee is established.
+- The next bounded prototype borrows final GPU card edges, gathers neighboring interpolated edges
+  for position/tangent and keeps existing guide physics unchanged. No extra solver dispatch is
+  needed. It must detach before solver storage disposal, preserve raw rest-albedo coordinates,
+  avoid double skinning and qualify camera-facing expansion. Existing held velocity omits real
+  deformation; temporal-off moving observation is only a prototype step, not final motion support.

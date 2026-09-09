@@ -1,0 +1,318 @@
+{
+  "date": "2026-09-09",
+  "status": "unshipped experiment; corrected coverage preview promising but not visually accepted as final",
+  "assetSha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+  "archive": "captures/hair-followers-2026-09-09",
+  "manifestSha256": "237f28e14a0440a45281cfb2d60a8ed7c9a0a0c47294ed9fe6ae13ef2ffd4386",
+  "files": 80,
+  "bytes": 49235968,
+  "variants": {
+    "pilot": {
+      "report": "captures/hair-followers-2026-09-09/pilot/report.json",
+      "reportSha256": "d4cf20969eef82946e566c3ec132ecefaf6c5b93863501dba21eb607c559bc2a",
+      "strands": 11904,
+      "triangles": 380928,
+      "widthMetres": 0.0012,
+      "views": 8,
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+        "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/material/HairRibbons.js": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58",
+        "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+        "packages/core/src/render/HairVelocity.js": "6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231",
+        "packages/core/src/render/Stage.js": "57ff7e9406be3ea8a78c88f5c89fae3630cd6269f07da5730198b0fc285ffaa8",
+        "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+      }
+    },
+    "density": {
+      "report": "captures/hair-followers-2026-09-09/density/report.json",
+      "reportSha256": "0c37b9fcf64652398087b25d9f4edadae70f717663060f6efa414a0f4913a1f4",
+      "strands": 31050,
+      "triangles": 993600,
+      "widthMetres": 0.0012,
+      "views": 8,
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+        "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/material/HairRibbons.js": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58",
+        "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+        "packages/core/src/render/HairVelocity.js": "6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231",
+        "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+        "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+      }
+    },
+    "coverage": {
+      "report": "captures/hair-followers-2026-09-09/coverage/report.json",
+      "reportSha256": "e7f7618ab52444695df9446184a19a1b851fa252d230abea643c396be5ae8021",
+      "strands": 31050,
+      "triangles": 993600,
+      "widthMetres": 0.0012,
+      "views": 8,
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+        "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/material/HairRibbons.js": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58",
+        "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+        "packages/core/src/render/HairVelocity.js": "6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231",
+        "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+        "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+      }
+    },
+    "cost": {
+      "report": "captures/hair-followers-2026-09-09/cost/report.json",
+      "reportSha256": "00cbdc9ad7f661f8baf1522e645f59766a5dc5aae8d2af181399eaa0f51d6dc7",
+      "strands": 31050,
+      "triangles": 993600,
+      "widthMetres": 0.0012,
+      "views": 0,
+      "sourceHashes": {
+        "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+        "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/material/HairRibbons.js": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58",
+        "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+        "packages/core/src/render/HairVelocity.js": "6751eb82a974a31cf842fd4f08c08233993ca474cf226bf76d6728f945793231",
+        "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+        "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+        "captures/root-follower-coverage-2026-09-09/browser.mjs": "c1f0ecc5fd234409e03f029a44252757eeba40fd16a81b164b311964eb6602c1"
+      }
+    }
+  },
+  "poseParity": "Exact across all four runs for time, steps, centers, velocities, rebuilt GPU vertices, all full hair vertices, head matrix, full body positions, rig, contact frames and camera. Each draw-only A/B restored these values exactly.",
+  "method": "Actual production g050 Avatar at 4 s (481 solver steps), original 496 solved cards read back once, widths interpolated into camera-facing bundles. All 1128 cap triangles retained. Four views each for three variants; same full pose. No live follower simulation.",
+  "observations": [
+    "First 11904-strand constant-density pilot under-covered the wide fringe and changed the rest-local lock-albedo coordinate basis. It is rejected as final.",
+    "Density control uses 31050 bundles at at most 0.6 mm center spacing at each source card widest ring and correct rest-local lock albedo. This changed two things, so it is not an isolated density or albedo mechanism test.",
+    "Both early variants incorrectly placed coverage times atlas alpha only in opacityNode. Beauty saw it; HairOIT shadowCoverageMask and renderer shadow override ignored it and cast solid strips. This is a prototype bug, not a newly introduced production defect.",
+    "Corrected variant places the product in colorNode.a and leaves opacityNode null. It retains all other density geometry and shader choices. Sides and rear read more continuous; root/crown patchwork and awkward separated hem strips remain. No final look adoption.",
+    "Temporarily hiding all cap triangles in the density control did not remove the perceived broad upper patches. The patches cannot be attributed solely to the cap."
+  ],
+  "cost": {
+    "method": "Fixed actual 4 s solved pose; ABBA control/candidate/candidate/control, each 32 warm draws then 180 measured draws. Await GPU completion per draw. No physics updates or CPU readback inside timed loops. Submit-to-GPU wall time excludes rAF wait and timestamp readback; render timestamp sums overlap and are not total GPU duration. Static rendering cost only, not moving FPS.",
+    "runs": [
+      {
+        "arm": "control",
+        "i": 0,
+        "summary": {
+          "submitCpuMs": {
+            "count": 180,
+            "min": 0.5999999940395355,
+            "median": 0.800000011920929,
+            "p95": 1,
+            "max": 1.0999999940395355
+          },
+          "submitToGpuCompleteMs": {
+            "count": 180,
+            "min": 1.7999999970197678,
+            "median": 4.700000002980232,
+            "p95": 7.799999997019768,
+            "max": 12.199999988079071
+          },
+          "renderTimestampSumMs": {
+            "count": 180,
+            "min": 2.3696290000000007,
+            "median": 4.890928,
+            "p95": 8.537539,
+            "max": 10.257092
+          }
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        },
+        "memory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 14,
+          "indexAttributesSize": 724416,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 69,
+          "programsSize": 798157,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 59,
+          "texturesSize": 312812567,
+          "uniformBuffers": 135,
+          "uniformBuffersSize": 154672,
+          "total": 321408664
+        }
+      },
+      {
+        "arm": "candidate",
+        "i": 1,
+        "summary": {
+          "submitCpuMs": {
+            "count": 180,
+            "min": 0.7000000029802322,
+            "median": 0.9000000059604645,
+            "p95": 1.1000000089406967,
+            "max": 1.699999988079071
+          },
+          "submitToGpuCompleteMs": {
+            "count": 180,
+            "min": 4.299999997019768,
+            "median": 7.700000002980232,
+            "p95": 12.799999997019768,
+            "max": 20
+          },
+          "renderTimestampSumMs": {
+            "count": 180,
+            "min": 6.171112999999999,
+            "median": 14.376614,
+            "p95": 19.497120000000002,
+            "max": 22.457617999999997
+          }
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        },
+        "memory": {
+          "attributes": 63,
+          "attributesSize": 57577588,
+          "geometries": 16,
+          "indexAttributes": 16,
+          "indexAttributesSize": 12661152,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 900737,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 60,
+          "texturesSize": 318403574,
+          "uniformBuffers": 138,
+          "uniformBuffersSize": 156080,
+          "total": 393936795
+        }
+      },
+      {
+        "arm": "candidate",
+        "i": 2,
+        "summary": {
+          "submitCpuMs": {
+            "count": 180,
+            "min": 0.699999988079071,
+            "median": 0.8999999910593033,
+            "p95": 1,
+            "max": 1.1000000089406967
+          },
+          "submitToGpuCompleteMs": {
+            "count": 180,
+            "min": 4.200000002980232,
+            "median": 7.100000008940697,
+            "p95": 12.900000005960464,
+            "max": 14.5
+          },
+          "renderTimestampSumMs": {
+            "count": 180,
+            "min": 8.792367000000002,
+            "median": 13.911332000000002,
+            "p95": 20.125648,
+            "max": 25.583651000000003
+          }
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        },
+        "memory": {
+          "attributes": 63,
+          "attributesSize": 57577588,
+          "geometries": 16,
+          "indexAttributes": 16,
+          "indexAttributesSize": 12661152,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 73,
+          "programsSize": 900737,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 60,
+          "texturesSize": 318403574,
+          "uniformBuffers": 138,
+          "uniformBuffersSize": 156080,
+          "total": 393936795
+        }
+      },
+      {
+        "arm": "control",
+        "i": 3,
+        "summary": {
+          "submitCpuMs": {
+            "count": 180,
+            "min": 0.699999988079071,
+            "median": 0.9000000059604645,
+            "p95": 1.0999999940395355,
+            "max": 1.199999988079071
+          },
+          "submitToGpuCompleteMs": {
+            "count": 180,
+            "min": 1.7000000029802322,
+            "median": 2.2000000029802322,
+            "p95": 6.0999999940395355,
+            "max": 8.400000005960464
+          },
+          "renderTimestampSumMs": {
+            "count": 180,
+            "min": 2.2581739999999995,
+            "median": 2.763376,
+            "p95": 6.200405,
+            "max": 9.581893
+          }
+        },
+        "canvas": {
+          "width": 716,
+          "height": 750
+        },
+        "memory": {
+          "attributes": 58,
+          "attributesSize": 2681188,
+          "geometries": 15,
+          "indexAttributes": 15,
+          "indexAttributesSize": 737952,
+          "indirectStorageAttributes": 0,
+          "indirectStorageAttributesSize": 0,
+          "programs": 69,
+          "programsSize": 798157,
+          "readbackBuffers": 0,
+          "readbackBuffersSize": 0,
+          "renderTargets": 18,
+          "storageAttributes": 23,
+          "storageAttributesSize": 4237664,
+          "textures": 59,
+          "texturesSize": 312812567,
+          "uniformBuffers": 135,
+          "uniformBuffersSize": 154672,
+          "total": 321422200
+        }
+      }
+    ],
+    "statePreservedExactly": true,
+    "interpretation": "Candidate medians 7.7/7.1 ms versus control 4.7/2.2 ms; candidate adds material rendering cost, but control variability precludes a single precise delta. Fixed pose, no moving cost or FPS acceptance."
+  },
+  "limits": [
+    "Coverage is resampled from the authored atlas, not mathematically preserved; copied lock IDs are dormant under geometric:true.",
+    "Each 1.2 mm bundle extends beyond its source line, and inter-ring interpolated surfaces can differ from original triangles. Existing card collision guarantees do not transfer.",
+    "Static follower geometry uses held velocity. It does not prove live deformation or camera-facing temporal vectors.",
+    "All 496 cards are replaced in the render candidate, including protected roots, while production assets and solver state remain unchanged.",
+    "Pilot Stage source preceded the separate viewport-size fix; its exact bytes are archived. Density and corrected coverage share the newer Stage source.",
+    "Raw source and GLB hashes are frozen, but three visual runs did not save transformed served shader-module bytes. The cost run records its single timestamp-only Stage route.",
+    "This is a render-primitive/tangent/coverage experiment, not an isolated lighting proof or an AAA-quality result."
+  ],
+  "next": "A scratch shader-gather prototype may test moving followers from the existing final card-edge GPU buffer, with no new guide simulation. Requires borrowed-buffer lifetime, correct coordinate basis, finite tangents, temporal limits, physical parity, visible motion, boundary clearance and cost gates."
+}
