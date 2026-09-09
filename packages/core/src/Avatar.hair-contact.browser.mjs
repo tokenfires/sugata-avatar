@@ -17,7 +17,7 @@ export async function captureCanonicalContact() {
   if(frame)await portrait.step(1/60);if(frame!==0&&frame!==6)continue;
   const d=avatar.hairDynamics,c=await d.readCentrelines(),v=await d.readVertices(),body=avatar.figure.body,p=new Vector3(),positions=new Float32Array(body.geometry.attributes.position.count*3);body.skeleton.update();
   for(let i=0;i<body.geometry.attributes.position.count;i++)body.getVertexPosition(i,p).applyMatrix4(body.matrixWorld).toArray(positions,i*3);
-  frames.push({frame,time:avatar.clockSeconds,steps:c.steps,vertexBase:v.vertexBase,verticesSpace:v.space,centers:await pack(c.positions),vertices:await pack(v.positions),bodyPositions:await pack(positions),headMatrix:await pack(new Float64Array(c.headMatrix)),contact:d.contactReport()});
+  frames.push({frame,time:avatar.clockSeconds,steps:c.steps,vertexBase:v.vertexBase,verticesSpace:v.space,centers:await pack(c.positions),velocities:await pack(c.velocities),vertices:await pack(v.positions),bodyPositions:await pack(positions),headMatrix:await pack(new Float64Array(c.headMatrix)),contact:d.contactReport()});
  }
  return frames;
 }

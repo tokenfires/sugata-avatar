@@ -1,0 +1,102 @@
+{
+  "provenance": {
+    "description": "Independent complete two-domain owner at canonical nod0/.1seconds. Golden recorded before production forest promotion; forest matched every channel in the same controlled run.",
+    "calibrationId": "bob01-g050-long-fall-nape-v2",
+    "calibrationSemanticChange": "Production calibration differs from frozen independent control only in id/status.",
+    "reportSha256": "95375d353197ae8edf5a4c9865a7b093678a833cc30656e25c3798b186b1322a",
+    "instrumentSha256": "f090af334d617a66189baf05d3f6097fb41eef9ab953e0e4c1602391f0da80e2",
+    "groomSha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "independentOwner": {
+      "sourceSha256": "b1387c41dcb7e80388ffe6c8dc0e9272f3cdf2eafc52346cb6fd4328cfe0406f",
+      "servedSha256": "20a4a68db439f63f7a3ab9f4372cd4516d319333508167370ddf66eddc1e37cb",
+      "originalSha256": "905ec0f95c70755c51578c517fc4e19649ff4eb6e6164c15cf4a8bf393597ca3"
+    },
+    "controlCalibration": {
+      "sourceSha256": "ea4cce1a809076cc24843cef576b28f6b172eca5357340b5ade28cba8059dd5e",
+      "servedSha256": "fd622c81a4a0b512ffaf80fa81fa661071eaeeedee948eea92001414f526e4a4",
+      "originalSha256": "c67badd0ab9bd34f4408a8f533ff9a54da23e13020e4d4881497efc9d9305d33"
+    },
+    "browserInstrumentation": {
+      "originalSha256": "51fe8be8bf6f7498979ae9864aa35ef61f1af1d388c20b91b2f783955488ab9a",
+      "servedSha256": "f967375d371a56faf8d34b4955849b83d386b63bbc6592a3954111fa581803ec",
+      "change": "Add already-read canonical velocity digest only"
+    },
+    "sourceHashes": {
+      "../../testbed/src/portrait.js": "2e370019a5950411f0dfd6f7382f35b7f831c1e1f8d3a79561884a2866820475",
+      "Avatar.js": "62afda21e8fead59a421fa45c369793e1210785cc84a42c0427d63df13257e3d",
+      "Avatar.hair-contact.browser.mjs": "15e5be90a096445b5de4f5ccbf3f6abc69e2d907000d2ece0dd9b31a92fdc98a",
+      "Avatar.hair-contact.gpu.selftest.mjs": "b5e2bc2380689afa4c90dde17b7751fd1b6710a59a50b8edff81d97afdc88a3e",
+      "../../../captures/body-surface-2026-09-09/HairBodyContact-forest.mjs": "16f4ae6c7d2780ebeba502feb3a9e1fdd20ae78f8aac6bb5589b9573e4bfaedd",
+      "../../../captures/body-surface-2026-09-09/HairBodyContact-two-domain.mjs": "b1387c41dcb7e80388ffe6c8dc0e9272f3cdf2eafc52346cb6fd4328cfe0406f",
+      "../../../captures/body-surface-2026-09-09/HairSurfaceQuery-forest.mjs": "3f84ea4abe77b35823663dadc092cd85190bb783bcbe0860544e2072428f2f19",
+      "../../../captures/body-surface-2026-09-09/HairSurfaceContact-forest.mjs": "c29e6859c8e96f1ffb2720b16009322076ba34b47c93f0dc71ee4f67d200fb00",
+      "../../../captures/body-surface-2026-09-09/surface-forest-pack.mjs": "cd70967fc4f4c67b0c635e1945fcfae45463d9caca0341b9f74f154fb7179113",
+      "../../../captures/body-surface-2026-09-09/HairBodyContactCalibration-nape.data.mjs": "ea4cce1a809076cc24843cef576b28f6b172eca5357340b5ade28cba8059dd5e",
+      "motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+      "motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+      "motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+      "motion/HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+      "motion/HairSurfaceContact.js": "6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185",
+      "motion/HairBodyContact.js": "b57fea9f9a3f2dccf23a4212d0223c3b4508e7cb691e0b34ad4dd098322beda0",
+      "motion/HairBodyContactCalibration.js": "a2e43c5f3d1ff499f29a303aee22ccdffcd3605e9fcf9149e268419cf38b8dab",
+      "motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+    },
+    "legacyCanonicalFixtureSha256": "8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36"
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "time": 0,
+      "steps": 1,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "9303285a869eec44a5fb1fc9f18ceb9ca9767a0d829c5601dc617845c6758ce7"
+      },
+      "velocities": {
+        "length": 25296,
+        "sha256": "67ebe2f5b92a25b4ee33a644963ed8440e5c41c467da779a8c276140c2031790"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "2e396e0e03b031e5ebd168da67b32509ec7e121f315f5fa6b631587ed9789ba2"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "0d41e8b07c45a2d82863784e9d0728cf3692bb5a26ecfc7dc06faea7020d61f9"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "9c95265ae593cd3f1a37ef0f951290c9a252803e5f2350d52a06a44ad45d85d0"
+      }
+    },
+    {
+      "frame": 6,
+      "time": 0.09999999999999999,
+      "steps": 13,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "6f1e1ccf1ddab384798ea20ec35f2603a1af0065308f8c7603485346d2488d75"
+      },
+      "velocities": {
+        "length": 25296,
+        "sha256": "ab8529a9a635040223df52d7e95b9258f196b12aa8cf2f2eb84062c0ec11d672"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "08fc11719eea4c25a44e0d8d462119ce558764ec1d223101c2678cbb506a4fab"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "31f946265b0a0858968d3e3deb34ca67e91a826ad0458c8c8b1f49549a3c55ad"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "514ba37cd82831e2780bc4a216cba1af1ba85e06408ccf29ae4707ec4b75416a"
+      }
+    }
+  ]
+}
