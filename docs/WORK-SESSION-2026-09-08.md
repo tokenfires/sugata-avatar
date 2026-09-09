@@ -1,8 +1,10 @@
 # Visual work window — 2026-09-08
 
 The user authorized autonomous visual progress through **01:46 UTC September 9 / 6:46 PM Pacific**.
-Heartbeat `advance-sugata-avatar-visual-quality` runs every 15 minutes in this task. At the deadline,
-finish the checkpoint and pause it. Do not start further work beyond that window without new steering.
+This pass finished its bounded work and verification at **01:43 UTC**, after nearly three hours.
+Heartbeat `advance-sugata-avatar-visual-quality` is **PAUSED**, confirmed by the app at 01:43 UTC.
+All delegated work and test/render jobs are complete. Continue from this checkpoint when the user
+requests the next pass; do not restart the old heartbeat automatically.
 
 Working repository: `/Users/robault/GitHub/sugata-avatar`, branch `codex/local-restart`.
 Read [restart context](RESTART-2026-09-08.md) for architecture and recovery boundaries. The user's
@@ -178,5 +180,7 @@ ledgers retain findings, source/asset/report hashes and limitations. No work has
 Integration checkpoint: final geometry is committed as `aea660f`, GPU cleanup as `fd3fd92`.
 Both passed independent review. The [final production ledger](evidence/final-integration-2026-09-09.json)
 binds the exact installed asset to the 17-page build and three clear production poses.
-The end-of-window automation pause remains pending. Continue only within the
-stated deadline; do not reopen a rejected experiment just to fill the remaining window.
+The heartbeat pause is confirmed. The final independent review found no material inconsistency,
+broken new link, source/asset hash mismatch or unresolved lifecycle correctness issue.
+The next visual pass should begin with the remaining patchwork and the evidence above; do not
+repeat a rejected control without a distinct mechanism and prediction.
