@@ -3522,7 +3522,7 @@ export class Avatar {
         let contactUnavailableReason = null;
         if ( hairSelection?.hairStyle === 'bob01' ) {
 
-            if ( hairSelection.bakeName === 'figure_g050' ) {
+            if ( hairSelection.bakeName === 'figure_g050' || hairSelection.bakeName === 'figure_g025' ) {
 
                 const { selectHairBodyContactCalibration } = await import( './motion/HairBodyContactCalibration.js' );
                 if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;

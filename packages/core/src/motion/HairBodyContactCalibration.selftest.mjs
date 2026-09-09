@@ -8,6 +8,7 @@ import { BufferAttribute, BufferGeometry, Bone, Matrix4, Skeleton, SkinnedMesh,
     InterleavedBuffer, InterleavedBufferAttribute } from 'three';
 import { readGlb, readPrimitive, readAccessor } from '../../../../tools/lut-bake/glb.mjs';
 import { transformHairLongFall } from '../../../../tools/figure-pipeline/hair_long_fall.mjs';
+import { transformHairLongFallG025 } from '../../../../tools/figure-pipeline/hair_long_fall_g025.mjs';
 import { selectHairBodyContactCalibration as select, HAIR_BODY_CONTACT_CALIBRATION as C } from './HairBodyContactCalibration.js';
 const root = fileURLToPath( new URL( '../../../../', import.meta.url ) );
 const temp = fs.mkdtempSync( path.join( os.tmpdir(), 'sugata-contact-calibration-' ) );
@@ -46,9 +47,24 @@ try {
         assert.equal( C.sourceTriangleIds.length, 1872 ); assert.equal( C.body.hashes.skinWeight, a.hashes.runtimeWeightFloat32 );
         assert.equal( Object.isFrozen( C.sourceTriangleIds ), true ); assert.equal( Object.isFrozen( C.groom.hashes ), true );
     } );
+    await check( 'g025 portable composition selects its exact corresponding body without changing g050', async () => {
+        const file = path.join( temp, 'g025.glb' );
+        fs.writeFileSync( file, transformHairLongFallG025().bytes );
+        const body025 = meshFrom( path.join( root, 'assets/figures/figure_g025.glb' ), 'base.001' );
+        const groom025 = meshFrom( file, 'hair_bob01' );
+        const result = await select( { style: 'bob01', bake: 'figure_g025', body: body025, groom: groom025 } );
+        assert.equal( result.enabled, true, result.reason );
+        assert.equal( result.calibration.id, 'bob01-g025-composed-neck-v1' );
+        assert.equal( result.calibration.sourceTriangleIds.length, 1872 );
+        assert.equal( result.calibration.activeChains.length, 496 );
+        assert.notEqual( result.calibration.body.inverseBindSha256, C.body.inverseBindSha256 );
+        const original025 = meshFrom( path.join( root, 'tools/figure-pipeline/fixtures/bob01-g025-original.glb' ), 'hair_bob01' );
+        assert.equal( ( await select( { style: 'bob01', bake: 'figure_g025', body: body025, groom: original025 } ) ).enabled, false );
+        assert.equal( ( await select( input ) ).calibration, C );
+    } );
     await check( 'unsupported styles and bakes never touch geometry', async () => {
         const inaccessible = new Proxy( {}, { get() { throw Error( 'read forbidden' ); } } );
-        for ( const [ style, bake ] of [ [ 'bob02', 'figure_g050' ], [ 'bob01', 'figure_g025' ], [ 'bob01', 'g050' ], [ null, null ] ] ) {
+        for ( const [ style, bake ] of [ [ 'bob02', 'figure_g050' ], [ 'bob01', 'figure_g000' ], [ 'bob01', 'g050' ], [ null, null ] ] ) {
             const result = await select( { style, bake, body: inaccessible, groom: inaccessible } );
             assert.equal( result.enabled, false ); assert.match( result.reason, /No body-contact calibration/ );
         }

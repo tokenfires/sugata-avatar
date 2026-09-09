@@ -1,0 +1,65 @@
+{
+  "id": "bob01-g025-contact-registry-v1",
+  "dateUTC": "2026-09-09T08:05:01.085549+00:00",
+  "status": "Exact calibrated g025 composition can activate the existing body-contact owner. Shipping GLBs are unchanged; actual composed GPU motion and appearance acceptance are pending.",
+  "groomSha256": "556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716",
+  "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+  "calibrationId": "bob01-g025-composed-neck-v1",
+  "changes": [
+    "Register the exact g025 normalized geometry, UV, joints/weights, canonical indices, bone names and inverse binds.",
+    "Preserve the existing g050 exported calibration object and validate selected owner records by registry identity.",
+    "Extend only the bob01 Avatar g050/g025 bake gate, preserving post-import/post-digest load-token checks.",
+    "Preserve the promoted exact-input query cache and owner report without implementation changes."
+  ],
+  "cpuValidation": {
+    "calibrationOwnerGroups": 16,
+    "avatarPassed": 137,
+    "avatarFailed": 0,
+    "deferredDigestRetirementGroups": 4,
+    "bakes": [
+      "figure_g050",
+      "figure_g025"
+    ],
+    "allPassed": true
+  },
+  "domain": {
+    "sourceTriangles": 1872,
+    "sourceVertices": 1069,
+    "activeChains": 496,
+    "uniqueMeasuredConfigurations": 2,
+    "minimumRootClearanceMm": {
+      "authored": 27.71178067996501,
+      "posed0": 26.556481582356
+    },
+    "minimumFirstSpanClearanceMm": {
+      "authored": 20.633358239612843,
+      "posed0": 18.637834911594233
+    },
+    "marginMm": 0.1,
+    "remainingAuthoredRootPairs": 251,
+    "remainingRootCards": [
+      2,
+      3,
+      50,
+      66
+    ],
+    "remainingPairsInsidePatch": 0
+  },
+  "evidence": "captures/bob01-g025-contact-calibration-2026-09-09/findings.json",
+  "evidenceSha256": "8844fb69dc88f0184006b9120d1f90d9a368645076decb37f8e264c28645d35a",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "62afda21e8fead59a421fa45c369793e1210785cc84a42c0427d63df13257e3d",
+    "packages/core/src/Avatar.hair-contact.selftest.mjs": "c7bb6262b2c92155d9a2d515fb5f3398b9bb92a2bd22cf91cc6c2b8d4550b749",
+    "packages/core/src/motion/HairBodyContact.js": "b57fea9f9a3f2dccf23a4212d0223c3b4508e7cb691e0b34ad4dd098322beda0",
+    "packages/core/src/motion/HairBodyContactCalibration.js": "a2e43c5f3d1ff499f29a303aee22ccdffcd3605e9fcf9149e268419cf38b8dab",
+    "packages/core/src/motion/HairBodyContactCalibration.g025.data.js": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024",
+    "packages/core/src/motion/HairBodyContactCalibration.selftest.mjs": "03336d30b5408a96c95582a64876a000583fa73d68dac4432108db1ef636cc88"
+  },
+  "shippingGroomSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+  "limits": [
+    "This registry change does not install the corrected groom or enable contact on a mismatched original asset.",
+    "Root/first-span clearance does not certify later-link convergence, stress motion or performance.",
+    "The contact domain excludes the 251 existing higher root-layer intersections.",
+    "Actual posed0 smoke must pass before natural and both held nod captures; new complete hair/velocity/body/camera evidence is prepared separately."
+  ]
+}

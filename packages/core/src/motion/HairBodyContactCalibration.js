@@ -3,6 +3,7 @@
  * Callers must check their load token after this asynchronous validation returns.
  */
 import { HAIR_BODY_CONTACT_DATA } from './HairBodyContactCalibration.data.js';
+import { HAIR_BODY_CONTACT_DATA as G025_DATA } from './HairBodyContactCalibration.g025.data.js';
 import { createHairSkinTransform } from './HairSkinTransform.js';
 
 function freeze( value ) {
@@ -12,6 +13,10 @@ function freeze( value ) {
     return value;
 }
 export const HAIR_BODY_CONTACT_CALIBRATION = freeze( HAIR_BODY_CONTACT_DATA );
+// Preserve the existing g050 export identity; support requires an exact registered record.
+export const HAIR_BODY_CONTACT_CALIBRATIONS = Object.freeze( [
+    HAIR_BODY_CONTACT_CALIBRATION, freeze( G025_DATA )
+] );
 const attributes = { position: 3, normal: 3, uv: 2, skinIndex: 4, skinWeight: 4 };
 const mismatch = reason => ( { enabled: false, reason } );
 
@@ -87,8 +92,8 @@ async function check( actual, expected, name ) {
  * This selects calibration only. It does not certify dynamic appearance or activate contact.
  */
 export async function selectHairBodyContactCalibration( { style, bake, body, groom, bodyIndices } ) {
-    const calibration = HAIR_BODY_CONTACT_CALIBRATION;
-    if ( style !== calibration.style || bake !== calibration.bake ) return mismatch( `No body-contact calibration for ${ style } on ${ bake }.` );
+    const calibration = HAIR_BODY_CONTACT_CALIBRATIONS.find( item => item.style === style && item.bake === bake );
+    if ( !calibration ) return mismatch( `No body-contact calibration for ${ style } on ${ bake }.` );
     if ( !globalThis.crypto?.subtle?.digest ) return mismatch( 'Body-contact geometry validation requires Web Crypto.' );
     let bodySnapshot, groomSnapshot;
     try {
