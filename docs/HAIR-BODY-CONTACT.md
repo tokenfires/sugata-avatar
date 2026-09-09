@@ -1,6 +1,8 @@
 # Calibrated long-bob body contact
 
-The core owner is integrated into Avatar for exact corrected bob01/g050 and composed bob01/g025 geometry. The shipping original GLB is still unchanged at this checkpoint, so it reports an explicit calibration mismatch and keeps the existing solver. Routing the reproducible corrected groom exercises the actual runtime path; prototype renderer monkey-patches are no longer needed. Persistent g050 face/selected-neck captures and live ownership/transform gates pass. The g025 registration and initial smoke are documented separately in HAIR-BODY-CONTACT-G025.md; its conservative geometric face gate is not accepted. Full-body residuals, interactive frame pacing and final visual acceptance remain open.
+The corrected bob01/g050 is now the shipping asset. The live portrait loads it without test substitutions and activates `bob01-g050-long-fall-nape-v2`: the cheek-wrap rest correction plus separate neck protection for nine inner-nape cards. Bob02 and the other four bob01 bakes are unchanged. The composed g025 candidate remains unshipped; its complete motion failures are documented in [the g025 record](HAIR-BODY-CONTACT-G025.md).
+
+The measured g050 improvement is scoped: exact face and selected-nine full-triangle gates pass across22 original paired poses and85 additional directional poses. Original22-pose exhaustive opacity passes20,354,620 evaluations; further85-pose enumeration is still running. Other attachment, cap and curtain contacts remain under extreme poses. Rear layer organization and final appearance remain separate work; this is not whole-body zero-collision certification.
 
 ## Selection and loading
 
@@ -12,7 +14,7 @@ Wardrobe compacts the draw index. Contact receives `Wardrobe.fullIndex`, preserv
 
 ## Solver ownership and submission
 
-`createHairBodyContactFactory({body, groomMesh, selection, outerIterations=16, resetIterations=64})` returns the synchronous private factory consumed by HairDynamics. It owns one CPU patch, one three-buffer GPU query and one six-buffer/four-kernel contact stage for each of four solver substeps. Renderer, body mesh/skeleton/geometry, groom and the solver's position/velocity/rest-length buffers are borrowed.
+`createHairBodyContactFactory({body, groomMesh, selection, outerIterations=16, resetIterations=64})` returns the synchronous private factory consumed by HairDynamics. A validated calibration with explicit multiple domains selects `HairBodyContactForest`; the existing single-domain path remains unchanged for g025 and legacy controls. Both own three shared query buffers and one six-buffer/four-kernel contact stage per solver substep. The forest keeps two independent CPU patches/skin histories and packs them atomically after both updates succeed. Renderer, body mesh/skeleton/geometry, groom and the solver's position/velocity/rest-length buffers are borrowed.
 
 For each submitted frame, the owner atomically skins/refits and advances previous/current body history once. It then uploads the shared surface and assigns substep interpolation fractions. No-step frames do not advance submitted history. The body surface interpolates vertices/normals, not intermediate skeletal poses, and uses bounds covering both endpoint poses. This is not continuous collision detection.
 
@@ -30,7 +32,9 @@ Point queries compare the endpoint bits; spans compare both endpoints, including
 
 ## Domain and evidence limits
 
-The calibrated patch contains1,872 neck/shoulder triangles and1,069 vertices, and current active chains include all496 cards. It is an open local surface, so signed nearest-normal distance is not global body containment. Higher neck/scalp and garments remain separate full-triangle gates. Broadening the patch produced infeasible fixed-root norm contacts and was not installed. The radius bound adds conservative stand-off and is not an exact tapered ribbon distance.
+The original patch contains1,872 neck/shoulder triangles and1,069 vertices. Current g050 keeps487 cards on that patch and gives nine inner-nape cards a2,076-triangle/1,201-vertex superset, retaining all original coverage. Both trees keep separate boundary masks and histories inside three GPU buffers; their3,948 triangle records/2,270 vertices are summed storage, not anatomical union. A frozen chain-to-domain table shares the topology buffer, preserving eight query storage bindings. All496 cards retain16 full correction rounds per substep.
+
+These are open local surfaces, so signed nearest-normal distance is not global body containment. Broadening the domain for every card produced infeasible fixed-root constraints and remains rejected. The chosen nine-card subset has feasible roots/first spans in all107 sampled poses, with a tightest measured first-span margin+2.430mm in reverse nod. Other fixed-root overconstraints remain: complete reverse-nod comparison proves the other487 chains and caps are bit-exact with the original-domain control. The radius bound adds conservative stand-off and is not an exact tapered ribbon distance.
 
 All six frozen controls at sixteen/sixty-four passes clear face and selected neck triangles; outside-patch body intersections remain. A large pose jump can temporarily stretch a short link by10.74% at sixteen passes, reduced below0.571% after sixty-four. Those are convergence controls, not sustained-frame results. Both cheaper schedules have now failed sustained short-link compliance: queryEvery2 reaches43.52% on nod, once-per-frame reaches28.22%, versus6.66% for the unchanged substep control. Both are rejected. The full test suite has four known HairMaterial failures and is not claimed green.
 
@@ -81,7 +85,7 @@ claim. See `docs/evidence/hair-body-contact-performance-2026-09-09.json`.
 The actual Avatar transform/lifetime regression passes eight GPU groups, including moved and
 rotated common parents, bind transforms, pre-submit scale refusal/resume, style transitions and
 pending-digest disposal. Existing bob02 quick24/disposal21 still pass; see
-`docs/AVATAR-HAIR-CONTACT-REGRESSION.md`. Shipping bob01 assets remain unchanged at this checkpoint.
+`docs/AVATAR-HAIR-CONTACT-REGRESSION.md`. This older regression retains its immutable legacy calibration/golden; the shipping g050 change has a separate independent-golden forest regression.
 
 The subsequent exact-input cache passes six496-chain fixtures at16/64, eleven actual GPU
 invalidation/input cases and nine actual Avatar lifecycle groups. A separate720-frame actual
@@ -91,9 +95,9 @@ median14.876898→11.665822ms (p9518.529468→12.896095). The same timing exclus
 This tested workload fits a16.7ms budget at median and p95, but interactive frame pacing and
 other poses/bakes/hardware remain separate. See `docs/evidence/hair-body-contact-input-cache-2026-09-09.json`.
 
-## Experimental inner-nape domain
+## Inner-nape domain and forest execution
 
-The remaining g050 inner-nape intersections sit above the current1872-triangle domain. A CPU
+The original g050 inner-nape intersections sat above the original1872-triangle domain. A CPU
 check over22 saved natural/nod poses supports a separate anatomical2076-triangle superset for
 nine curtains, retaining all original neck/shoulder triangles. All198 roots and complete first
 spans clear their width bounds; the lowest margins are5.706mm and3.672mm respectively.
@@ -108,6 +112,8 @@ expanded domain. This prototype is not promoted. Its3948 triangles/2270vertices 
 storage records; anatomical union is2076/1201. See
 `docs/evidence/hair-body-contact-nape-prototype-2026-09-09.json`.
 
-Matched natural/nod full-geometry and front/side/rear captures are underway. A CPU-only forest
-packing design preserves both BVHs and their separate boundary masks in three shared buffers
-to avoid doubling dispatches; no GPU or timing acceptance for that design exists yet.
+The forest version is now integrated. It matches the independently sequenced two-domain result exactly while reducing actual portrait update-to-GPU median22.0→15.1ms andp9523.3→16.7ms. The matched720-frame test preserves all496 final positions, velocities, rebuilt vertices, head and steps. A separate untimed four-substep allocation observes35 buffers/7,177,952bytes/21 compute pipelines, all returning to0 after disposal. Timing excludes timestamp readback and compositor/rAF waits; it is not a general60FPS guarantee.
+
+Portable promoted-core gates pass25 groups:9 forest query/contact groups,8 legacy Avatar groups with an explicit immutable v1 calibration route, and8 production forest Avatar groups using canonical outputs from the independent two-domain owner. The legacy golden is unchanged. Actual transform, scale refusal/resume, same-renderer35→8→0 lifetime and pending-digest retirement pass. Existing CPU gates pass16 calibration/owner,137 Avatar and4 async retirement groups.
+
+See [forest implementation/evidence](HAIR-SURFACE-FOREST.md), [nape acceptance](HAIR-NAPE-ACCEPTANCE.md), and `docs/evidence/hair-body-contact-forest-frame-cost-2026-09-09.json`. The live5197 portrait verification uses zero routes, loads exact GLB SHA`db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`, reports the new nape calibration, and preserves full simulation/camera state across four views. Its evidence is `captures/bob01-g050-shipped-2026-09-09`.

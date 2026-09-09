@@ -7,6 +7,7 @@ import { createPatch, makeSkinnedUpdater, resetHistory, motionBuffers, disposePa
 import { createSurfaceQuery } from './HairSurfaceQuery.js';
 import { createSurfaceContactStage } from './HairSurfaceContact.js';
 import { HAIR_BODY_CONTACT_CALIBRATIONS } from './HairBodyContactCalibration.js';
+import { createHairBodyContactForestFactory } from './HairBodyContactForest.js';
 
 function integer( value, name, min, max ) {
     if ( !Number.isInteger( value ) || value < min || value > max ) throw Error( `Invalid ${ name }.` );
@@ -22,6 +23,10 @@ function cleanup( actions ) {
 /** Call only after selectHairBodyContactCalibration and the caller's post-await token guard. */
 export function createHairBodyContactFactory( { body, groomMesh, selection, outerIterations = 16, resetIterations = 64 } ) {
     if ( selection?.enabled !== true || !HAIR_BODY_CONTACT_CALIBRATIONS.includes( selection.calibration ) ) throw Error( 'Validated body-contact calibration is required.' );
+    // Explicit validated domain data is the opt-in; single-domain calibrations keep their existing path.
+    if ( Array.isArray( selection.calibration.contactDomains ) && selection.calibration.contactDomains.length > 1 ) {
+        return createHairBodyContactForestFactory( { body, groomMesh, selection, outerIterations, resetIterations } );
+    }
     integer( outerIterations, 'outerIterations', 1, 128 );
     integer( resetIterations, 'resetIterations', outerIterations, 128 );
     const { calibration, bodyIndices, bodyPositions, bodyNormals } = selection;

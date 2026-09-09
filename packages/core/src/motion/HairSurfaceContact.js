@@ -1,3 +1,4 @@
+// Optional per-chain surface routing shares query bindings; the single-domain path is unchanged.
 /** Exact query input reuse is optional and requires a snapshot before each batch with stable surface/alpha.
  * Reuse is reported in metadata extraB.w; zero traversal counts alone do not imply root-bound rejection.
  * Finite-width hair/body contact: whole-span nearest witness, conservative endpoint width,
@@ -29,6 +30,7 @@ export function createSurfaceContactStage( {
     activeChains, outerIterations = 16, lengthIterations = 1, cacheQueryInputs = false
 } ) {
     if ( !renderer || typeof surface?.query !== 'function' || typeof surface?.querySegment !== 'function' || typeof surface?.mayOverlapSegment !== 'function' ) throw new Error( 'Renderer, surface.query, surface.querySegment and surface.mayOverlapSegment are required.' );
+    if ( surface.forChain !== undefined && typeof surface.forChain !== 'function' ) throw Error( 'surface.forChain must be a function when supplied.' );
     if ( typeof cacheQueryInputs !== 'boolean' ) throw new Error( 'cacheQueryInputs must be a boolean.' );
     const chainCount = integer( groom?.chainCount, 'groom.chainCount', 1, 1000000 );
     const pointsPerChain = integer( groom?.pointsPerChain, 'groom.pointsPerChain', 2, 256 );
@@ -116,6 +118,9 @@ export function createSurfaceContactStage( {
         const margin = record.w.add( 0.0001 ).toVar();
         const seed = cache.element( contact ).x.toVar();
         const executeQuery = () => {
+            // Derive the authored chain from the immutable particle index; no ninth storage binding.
+            // Construct the scoped facade only on cache misses, inside the executing TSL branch.
+            const scopedSurface = surface.forChain ? surface.forChain( uint( record.y ).div( uint( pointsPerChain ) ) ) : surface;
             // Disjoint root-bound queries cannot touch a patch triangle. Clear previous planes and
             // telemetry, retain the nearest ID as a future traversal seed, and provide a valid t.
             // This deliberately no longer applies distant local-normal "inside" projections when
@@ -153,13 +158,13 @@ export function createSurfaceContactStage( {
             };
             // Build the segment traversal inside the runtime branch; endpoint invocations only query a point.
             If( record.z.greaterThan( 0 ), () => {
-                If( surface.mayOverlapSegment( b, b, margin ), () => {
-                    const hit = surface.query( b, seed );
+                If( scopedSurface.mayOverlapSegment( b, b, margin ), () => {
+                    const hit = scopedSurface.query( b, seed );
                     storeHit( hit, b, float( 1 ) );
                 } );
             } ).Else( () => {
-                If( surface.mayOverlapSegment( a, b, margin ), () => {
-                    const hit = surface.querySegment( a, b, seed );
+                If( scopedSurface.mayOverlapSegment( a, b, margin ), () => {
+                    const hit = scopedSurface.querySegment( a, b, seed );
                     storeHit( hit, hit.segmentPoint, hit.segmentT );
                 } );
             } );

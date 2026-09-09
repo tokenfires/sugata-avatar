@@ -37,18 +37,26 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the09:00UTC section below; earlier sections retain the experimental history.
-No shipping long-bob GLB has changed yet. The exact corrected g050 candidate activates real core
-contact; the normal preview still loads the original asset. All shipping bob02 bytes are preserved.
+Latest checkpoint is the09:30UTC shipping section below; earlier sections retain experimental history.
+**The corrected g050 long bob is now the real shipping asset**, with production forest contact.
+Its GLB SHA isdb3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b and calibration
+ID is`bob01-g050-long-fall-nape-v2`. Live5197 loads it with zero routes and correct actual owner.
+Other four bob01 bakes and allbob02 bytes are unchanged. Do not repeat the old “no shipping change” state.
 
-- Root: forest full-portrait720-frame cost/parity/resource proof passes. GPU owner for85 further
-  g050 poses across nod−/yaw±/tilt±;17 states per8s arm. Production source stays frozen meanwhile.
-- `continuity_audit`: finished original22-pose exhaustive nape acceptance and focused ledger/doc;
-  adapting explicit forest provenance for new directions. No matched baseline for those yet.
-- `orbit_render_audit`: portable forest fixture/tests and explicit multi-domain dispatch preparation,
-  in unique scratch only. Actual forest transform/lifetime GPU checks queue after root captures.
-- `visual_next_step`: complete g02547-pose aggregates include residual face/root/curtain contacts.
-  CPU diagnosis found infeasible fixed-root spans in nod−; opaque relevance under analysis.
+- Root: finishing the local shipping commit/checkpoint. Live four-view/no-route verification and
+  all-page build pass. Keep current production physics fixed while appearance/showcase work proceeds.
+- `continuity_audit`:85-pose exhaustive nine-card opaque enumeration continues with two CPU workers,
+  about one hour total. First14 prioritized poses clear; fast geometry, matched reverse nod and
+  source-qualified smoke proof are complete. Its deriveCardGroom/surface/calibration CPU instruments
+  must remain frozen. No need repeat original22-pose20.35M evaluation proof.
+- `visual_next_step`: one g050 shared-height rear-lock candidate,60 outer surface/veil cards, at
+  `/tmp/visual-g050-shared-lock-v1/candidate.glb`. Protected roots/first segments/Y/cut/width/nape
+  geometry preserved; global derived compliance may still change slightly. Static gates running;
+  actual fixed-material multi-view comparison next. No shipping/core edits.
+- `orbit_render_audit`: portable25GPU groups committed7068a0e. Now implements a small real-Avatar
+  g050 casual+bob02/elegant+bob01 showcase in newtestbed files plus page/build registries. Currently
+  owns a short GPU slot for foundation/neckline/skirt/ankle comparison; return tovisual afterward.
+  Owns only one comment-only Avatar identity-axis correction outside those files.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -584,3 +592,61 @@ No final clothing-quality or broader-body fitting claim is made.
   beta0 leave no free endpoint to project, so more iterations cannot resolve these contacts.
   Crossing UV boxes+halo are transparent at mip0; higher-mip/opaque and velocity attribution
   remain separate work. Activation here is exact saved-state reevaluation, not GPU telemetry.
+
+## Corrected g050 shipped and live verified — about09:30UTC
+
+- Reviewed production copies preserve forest query/projection/cache math, with import/name/comment
+  changes only. The primary owner delegates ONLY explicit validated multiple domains to the new
+  forest owner; removing that branch/import exactly reproduces the old single-domain owner.
+  g025 and legacy controls retain their old path. Data changes only add the measured487/9 domain
+  map and version the g050 calibration. Frozen proposal manifest records six core/data hashes.
+- Core CPU gates pass16 calibration/owner,137 Avatar and4 asynchronous digest retirement groups.
+  Portable promotedGPU gate passes9groups including43,200direct queries and20 historical physical
+  cases. Legacy Avatar passes8groups with immutable v1 data/golden; new productionforest Avatar
+  passes8groups against independently captured two-domain canonical states INCLUDING velocities.
+  At0/.1s the new nape hair differs from old single-domain hair; old body/head/time remains exact.
+  No self-generated candidate golden replaces the historical contract. Test-onlycommit7068a0e.
+- Actual forest transform/lifetime scratch probe passes10groups: four native-root/width transforms,
+  scale refusal/resume, same-renderer35/7,177,952→bob028/980,096→off0, identities and pending-digest
+  disposal. All owned buffers/bytes/compute pipelines return to0. Archive25entries,
+  `body-surface-forest-avatar-2026-09-09`, manifest7cb755e22da3b866a515169f5b8a6c1d5ee616ba9403b21e8a8944ec6b3eb698.
+- Additional85actual poses across nod−/yaw±/tilt±: exactface0, nine-card wholebody0, expanded-domain0,
+  feasible selectedroots/completefirstspans; tightest first-span margin+2.429528mm on217,nod−60.
+  Other curtains/caps/root layers still fail strict whole-body gates. Worst linksoutside nine:
+  nod−395/span1 .927860mm,tilt+214/span1 1.370024mm,tilt−31/span1 1.124225mm. Selected-nine
+  tilt errors stay.016303/.017352mm; nod−272 reaches.190363mm. Do not hide those different scopes.
+- Matched original-domain nod−17poses proves ALL487 other centers/velocities/vertices and fullcaps
+  bit-exact; outside-nine link metrics exactly equal. Forest removes392ribbon-pair instances and
+  adds0. Thus that nod− outside-group deformation is inherited from the prior domain control.
+  No matched tilt baseline claim. The separate0/.1source-qualified smoke snapshots allthree actual
+  transformed forest dependency responses, with0errors and exact camera/simulation restoration.
+- Combined motion archive has104states/80views/799entries (85new+17baseline+2smoke):
+  `bob01-g050-forest-motion-2026-09-09`, manifestc307fee871278e419f4825531379635186b72fb652fce2602bac88bdc1aada68.
+  Earlier85states retain raw-source+owner/data-response provenance; do not retroactively relabel
+  them with the later smoke’s additional dependency response evidence. Exhaustive85-pose opacity
+  is still running; first14prioritized states pass, including nod−360(+3.119mm) andtilt+450(+2.541mm).
+- The exact portableg050 GLB is copied toassets/hair/bob01/g050.glb. Otherbob01/bob02 hashes checked
+  unchanged. Real5197portrait loads newg050 with ZERO routes, reports newv2calibration/3surface
+  buffers/4stages/487+9domains, advances120frames, and restores fullsimulation/camera across4views.
+  Zero browsererrors. Livearchive `bob01-g050-shipped-2026-09-09`, manifest
+  aa9987e2031f32c9d7ad1388c738df2ba6fa46ac6d080358a63736b5adcc9d36. Promotionarchive manifest
+ 425a17d697ac526c9d0b82bb9c779baaabb547cf69bd5a9b100b568b1793de2d. Tracked ledger
+  `docs/evidence/bob01-g050-shipped-2026-09-09.json`. The app browser-open request is queued for
+  this task; the live URL was independently verified, not proof the user’s existing tab refreshed.
+- `npm run build:pages -- --outDir /tmp/sugata-forest-shipped-pages` compiles all17entries successfully,
+  including the actual portrait/Avatar/contact chunks; existinglarge-chunk warning only. Plain
+  `npm run build` covers onlyindex and is insufficient by itself. KnownHairMaterial failures persist.
+- Rear appearance is visibly unfinished. Source review identified separate per-layer lock guides
+  sampled by normalized ring index despite different lengths. One new bounded shared-height spine
+  candidate targets60posterior surface/veil cards and preserves radialdepth, Y/cut, roots/firstspan,
+  caps/fringe/flyaways/innernine. It tests guide organization, not rejectedframe/lighting/compression
+  variants. Maxmovement15mm, max targetedarc change3.34%; globalmedian/compliance change must be
+  measured. It remains unshipped; reject if patchwork relocates, coverage thins or a ledge appears.
+- g025complete47-pose motion/opacity/velocity evidence committed936ed16; unshipped and fails.
+  Archive391files `bob01-g025-avatar-motion-2026-09-09`, findings352d6c5e…. Root span281/383/396
+  original-domain crossing footprints are transparent throughmip2, lowalpha at3, but EXCLUDED
+  upperbody intersections on281/396 andnatural212 have realopaque witnesses acrossmips. Largest
+  nod−velocity4.427m/s occurs on8/ring15, alreadyclear andmovingoutward; no false causal attribution.
+- Showcase remains a separate presentation slice using realimplementedg050 outfits. No public
+  skin/iris/hair-colour/sculpt API is invented, and no other-bake clothingfit is claimed. Current
+  source identity axis is0feminine→1masculine; Avatar JSDoc’s reversedlabel is being corrected.
