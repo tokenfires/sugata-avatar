@@ -204,3 +204,47 @@ No final clothing-quality or broader-body fitting claim is made.
   explicit previous/current history; root owns `surface-query-motion.tsl.mjs`, integration and live
   portrait probe. `orbit_render_audit` is making the g050 rest correction a reproducible portable
   pipeline tool; broader-bake groom correction remains uncalibrated and must not be inferred.
+
+## Whole-span contact and live acceptance — about05:04UTC
+
+- Portable g050 rest correction committed28e5b92. Root independently reviewed the tool and reran
+  all11 preservation/reproducibility/path/tamper/rollback groups. The canonical geometry exactly
+  matches connector101; shipping GLBs remain unchanged. Other four bakes are now being calibrated
+  separately by visual_next_step, with measured body correspondence and no inferred g050 pushes.
+- Fixed endpoint+quarter contacts fail actual live full triangles despite every sampled constraint
+  being clear. Smoke nod frame6 has9 movable shoulder pairs; natural frame720 has6. Exact witnesses
+  fall between samples. The failed inputs, stages and diagnosis are archived under
+  `captures/body-surface-2026-09-09/contact-controls/` with62 hash-bound files. Protected-layer
+  whole-body contacts remain separate evidence; they are not exempted from a strict pass.
+- Adaptive contact queries the actual nearest point of the whole centerline span. Maximum endpoint
+  half-width norm conservatively contains the ribbon but introduces0.142–1.058mm extra stand-off
+  on the seven diagnosed spans. Coupled chain response can exceed this local amount; visual
+  acceptance and whole-frame cost remain required. This is not an exact tapered-radius minimizer.
+- GPU adaptive v1 clears all five frozen fixtures' movable neck/face pairs at16/64 iterations and
+  clears both live residual fixtures' whole-body movable pairs. The earlier v6 frame420 retains2
+  outside-patch pairs on card211/body14358/14363. Its domain remains an open local surface patch.
+- Root's actual persistent adaptive-v1 bridge uses connector101,16 outer iterations, exact live
+  body skinning, previous/current vertex interpolation and velocity correction (omitted on reset).
+  `captures/body-contact-adaptive-live-2026-09-09/smoke-nod-16` passes the strict face/neck gate
+  at frames0/6. Twelve-second natural capture completed13 poses with zero browser errors and
+  clear face vertices/samples; full-triangle natural replay is running. No performance claim yet.
+- The whole-span query passed20 primitive+576 interpolated-patch segment checks, then independent
+  review found a real near-parallel Float32 cancellation counterexample missed by that first set.
+  Actual v1 GPU error0.00725363mm is preserved. Separate query-v2 uses cross-product interior math
+  plus four endpoint candidates and passes original20+576 and all15 added counterexamples with
+  the original1-micrometre tolerance. Full-patch chosen-triangle distance excess is zero and
+  seeded/unseeded distance agrees. Archive `captures/body-segment-query-2026-09-09/`,30files,
+  manifest114e689331ca8f5562ad9584f5d49c5e359fd390a74dfa02573b00ce276c9a56.
+- Review also found that a29.8nm coplanar witness residue becomes an invalid tangent contact normal
+  under the old1e-20 squared-distance cutoff. Continuity_audit is making a separate v2 stage with
+  a Float32-scale authored-normal fallback and actual emitted-plane controls. V1 sources are frozen;
+  production HairDynamics/GLBs are still unchanged. Root owns v2 live integration/performance next.
+- Root front-view review shows horizontal hair-like stripes across the throat. Orbit_render_audit
+  is attributing them without assuming protected card68: authored68 is at side-head/ear height,
+  not the throat. The visible stripes and smaller rear tip flare still need art/geometry review.
+- The adaptive capture instrument now rechecks every recorded source, both actual assets and its
+  own source at completion. The older fixed-quarter capture had rechecked only prototype modules;
+  root manually rehashed all13 recorded files plus instrument after those two captures, with no drift.
+- No changes to bob02 or MLX. Known four HairMaterial failures remain open; the full suite is not
+  claimed green. Current work remains the long-bob geometry/runtime quality loop, with overnight
+  heartbeat and morning checkpoint deadline unchanged.
