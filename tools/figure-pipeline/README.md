@@ -1300,3 +1300,45 @@ current stamped output again is byte-idempotent; a prior calibration stamp is re
 requires separate new output/report paths, stages files before exclusive publication, and rolls
 back partial publication without deleting unrelated files. Review the candidate and its strict
 failure report before an explicit future installation.
+
+
+## Portable composed long-bob rest candidate (bob01/g025 only)
+
+`hair_long_fall_g025.mjs` reconstructs a separate g025 candidate from its immutable original
+Git LFS fixture and matching authored body. The seven pinned stages combine the calibrated
+curtain release, bounded contact repairs, root44 support, card80/423 and card113/173 neckline
+side-fall, and the independently measured lower card131 connector. The generator reads no
+ignored capture files. Five local contact repairs store their small calibrated Float32 position
+patches to retain the measured iterative result; the other stages replay their formulas.
+
+```sh
+node tools/figure-pipeline/hair_long_fall_g025.mjs \
+  /tmp/bob01-g025-composed/g025.glb \
+  /tmp/bob01-g025-composed/report.json
+node tools/figure-pipeline/hair_long_fall_g025.selftest.mjs
+```
+
+The exact output SHA256 is
+`556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716`;
+its complete BIN payload is
+`d22844bef558aef42c7cf69d3ffc2c6e3abe5cfb6898815e31c69b1c5b091194`.
+The separate card131 result is reproduced exactly. Relative to the latest neckline, its other
+495 cards, all UV/skin/material data and fitted colliders remain exact. Card131 restores its
+original positions through ring10 and uses a same-Y Hermite XZ connector below that point.
+Its arc increases from 274.920 to 297.701 mm, changing its derived compliance by −7.652%; the
+whole-groom median stays 243.748 mm. All original Y coordinates, caps, anchored ring0 positions,
+fringe geometry and ribbon widths are preserved within the documented Float32 bound.
+
+The authored original has 664 face intersection pairs. The composition has zero face and
+movable-curtain pairs, but **251 remaining root-layer pairs on cards 2, 3, 50 and 66**;
+`strictAllBodyPass` stays false. The combined candidate has no visual or motion acceptance.
+The separately viewed neckline and connector do not establish their composed posed behavior,
+and g025 body-contact runtime calibration is still pending. Shell intersection tests also do not
+exclude containment or establish shader visibility. Nothing installs this candidate.
+
+Ten focused test groups verify seven intermediate geometry fingerprints, complete output bytes,
+original-defect rejection, fixed attributes and upper prefixes, derived arc/fit changes,
+byte-idempotence, tamper rejection, capture-independent reads and atomic output ownership.
+The CLI requires two new separate output/report paths; changed source, body or metadata is
+refused. The evidence and independent composition audit are archived under
+`captures/bob01-g025-composed-2026-09-09/`.

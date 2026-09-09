@@ -45,3 +45,25 @@ Keep the original fixture and both reviewed calibration records immutable. Anoth
 export, added attribute or shape revision requires a separate measured calibration. The active
 candidate leaves rear-tip review, static card68 crossings and posed root-layer/motion acceptance
 pending. Neither the tool nor its tests installs an asset.
+
+
+## Original bob01/g025 and composed rest calibration
+
+`bob01-g025-original.glb` is the immutable original g025 export, copied byte for byte from the
+unchanged original asset before any g025 installation. Its separate Git LFS rule keeps later
+shipping-asset replacement from changing default test input.
+
+- Size: 3,327,560 bytes.
+- SHA256: `cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99`.
+- Matching body SHA256: `f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e`.
+
+`bob01-g025-composed-rest-v1.json` pins the measured release selections, five small iterative
+contact-repair position patches, root44 support, four neckline guides and lower card131 connector.
+It records exact POSITION/NORMAL fingerprints for seven intermediate stages and the complete
+final GLB/BIN hashes. `hair_long_fall_g025.mjs` checks the JSON bytes and each stage before returning
+an output; default tests read only the tracked original/body and local tool dependencies.
+
+This is a rest candidate with zero authored face/movable-curtain intersections and 251 remaining
+root-layer pairs. Composed visual and motion acceptance, and g025 runtime body-contact calibration,
+remain pending. No tool or test installs an asset. Keep this fixture/calibration unchanged; another
+bake or source revision requires a separate measured calibration.
