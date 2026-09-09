@@ -37,21 +37,22 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-- Root: bob01 correction integration, Three TSL surface-query prototype, browser review, motion
-  acceptance, checkpoints and scheduling. No groom or runtime physics change has shipped overnight.
-- `visual_next_step`: rest geometry/body diagnostics and actual card-ID render attribution of v9's
-  residual rear strips. Scratch artifacts only. The CPU surface/BVH v2 prototype is complete.
-- `continuity_audit`: coupled whole-chain collision feasibility, finite-width ribbon contact and
-  exact triangle gates. Scratch artifacts only; fixed-predecessor controls are rejected below.
-- `orbit_render_audit`: all-five-bake capture/replay calibration and portrait bake selection. Owns
-  portrait.js/selection helper and critic capture/replay/calibration files; preserves root's new
-  rig/inverseBind/collider capture metadata. Wardrobe integration is completed at6d36059.
+Latest checkpoint is the06:25UTC section below; earlier sections retain the experimental history.
+No shipping long-bob GLB has changed yet. Root's new core contact owner is active only when the
+exact corrected g050 candidate is supplied; the normal preview still loads the original asset.
+
+- Root: core body-contact/calibration/Avatar integration, actual motion acceptance and checkpoints.
+- `continuity_audit`: matched persistent every1/every2-query controls with the same64-pass reset,
+  full-ribbon replay and conditional actual-frame timing. Owns ignored GPU probes/evidence.
+- `orbit_render_audit`: CPU surface extraction is committed; independent transform/lifetime review
+  and reproducible core query/contact primitive tests are underway. No shader edits during captures.
+- `visual_next_step`: measured non-g050 downward-fall/visible-necklace corrections, scratch only.
+  g025131 rear connector remains separate until composed with live body contact.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
-hashes below. The visible page is `/src/portrait.html?hair=bob01`. Capture/replay integrity support
-for both bobs on g050 shipped at6fb3032; broader calibrated bake selection is now being implemented
-and is not yet an accepted capture result. bob01 has five authored bakes; bob02 has g050 only.
-Legacy evidence remains replayable with its actual provenance attestation level.
+hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
+Capture/calibrated replay tooling covers all bakes atbcd99fb; previous evidence retains its actual
+provenance level. Optional wardrobe integration is committed6d36059.
 
 ## Live services
 
@@ -248,3 +249,76 @@ No final clothing-quality or broader-body fitting claim is made.
 - No changes to bob02 or MLX. Known four HairMaterial failures remain open; the full suite is not
   claimed green. Current work remains the long-bob geometry/runtime quality loop, with overnight
   heartbeat and morning checkpoint deadline unchanged.
+
+## Core contact integration checkpoint — about06:25UTC
+
+- Rest tool5aa979f adds the measured80/423 lower side-fall to the prior101 connector. Root reran
+  all12 groups:175 changed cards/3,666 vertices, unchanged Y/width/skin/UV/topology and other
+  geometry, sourceface667→0/movable-body923→0, unchanged full-body67 on side-head card68.
+  Portable candidate `captures/bob01-necklace-2026-09-09/portable-g050.glb` SHA
+  `db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`.
+  The exact source correction is reproducible from the tracked original fixture; motion remains
+  a separate gate. The throat-band revision is visually accepted for continued motion testing.
+- Contact factoryea3856e adds synchronous owned prepare/nodes/dispose/report to HairDynamics.
+  Default math/allocation block remains exact;17CPU+4GPU groups, existing24motion/21disposal
+  checks pass. Review found a reentrant ComputeNode getter retirement gap;905eb84 adds the
+  final pre-submit liveness check and the18th CPU group, without a shader change.
+- HairSurface40a1558 extracts browser-safe CPU patch/skinning/history with canonical Wardrobe
+  fullIndex support and transactional pose/bounds/history updates.17CPU groups pass, including
+  all5 baked patches and real saved endpoints. See docs/HAIR-SURFACE.md.
+- Query-v2 cross-product and stage-v2 Float32-scale normal fixes are retained. V3 whole-span
+  root-AABB rejection preserves six fixtures bit-for-bit but reduces actual compute only about6%.
+  Actual prototype frame-cost evidence is archived at `captures/body-contact-frame-cost-2026-09-09/`:
+  v2-r3 contact compute median24.0693ms / complete wall27.90ms; v3 compute22.698946ms / wall25.80ms.
+  Summed render timestamps are not whole-frame duration. Failed/raw-import and unfair fast-loop
+  controls are retained; these timings do not describe the new core owner or latest groom.
+- Frozen phase profiling identifies nearest queries as about96–97% of the16-pass stage cost.
+  V4 ring-major invocation ordering preserves centers/vertices/velocities/planes/parameters/cache
+  exactly in all6fixtures at16/64, with about13% isolated-stage savings. Bounds/phase/v4 evidence
+  lives in `captures/body-surface-2026-09-09/contact-controls-v3` and `contact-controls-v4`.
+- All496 contact improves nape coverage: all12 frozen checkpoints face/selected-neck0, all pinned
+  roots exact, original384 chains unchanged. Full-body clearance still fails outside the patch,
+  including16 new720 pair identities despite lower totals. Sixteen passes can leave0.538mm/
+  10.74% error in one short link after a large pose change;64 reduce maxima below0.571%.
+  Full evidence and root feasibility are in `contact-controls-all496`. Larger full/dominant-neck
+  domains overcover fixed-root norm tubes and have not been installed. This is an open1872-triangle
+  neck/shoulder domain, not a global body SDF or continuous collision detector.
+- V5 refreshing queries every2 projections remains mixed/unaccepted: all face/selected-neck gates
+  stay0, but outside-patch pair identities change and16-pass large-jump length error rises to0.707mm.
+  At64 maximum relative error remains below0.612%. No timing claim or further interval sweep.
+  Archive `contact-controls-refresh2`. The next comparison uses common full-query64 resets and
+  actual persistent smooth motion before choosing the normal-frame schedule.
+- Root new core HairSurfaceQuery/HairSurfaceContact preserve the accepted query/v4 shader math,
+  with exception-safe cleanup. HairBodyContact owns one shared surface and4private substep stages,
+  exact body skinning/history,16normal/64reset projections, no reset velocity finalizer, and
+  explicit regular queryEvery1|2. Current default1. HairBodyContactCalibration hashes actual
+  normalized body/groom attributes, canonical indices, bone order and inverse binds. It accepts
+  only correctedbob01/figure_g050; unknown/original geometry gets an explicit disabled reason.
+  Avatar's new imports/digests each have post-await token/disposal guards. Wardrobe masks cannot
+  renumber the body domain. Existing shipping assets remain untouched, so preview behavior does
+  not yet switch to this candidate.
+- Root13 CPU calibration/owner groups pass, including masked-index refusal/acceptance, altered
+  geometry, stage2 construction failure, all35owned storage releases, reentrant body getter
+  retirement and delete-failure cleanup. Two additional tests execute actual pending Web Crypto
+  digests and prove disposal/new identity cannot allocate or publish a stale solver. Existing
+  Avatar137 and capture12 groups pass. Full suite is not claimed green.
+- First real core Avatar smoke (`captures/body-contact-core-2026-09-09/smoke-nod`) has2actual
+  nod poses, no errors, all recorded source/assets stable, explicit enabled496-chain contact and
+  face/neck full-triangle passes. Root inspected the front image: strands now fall beside the
+  face and the old lower80/423 throat sweep is removed. This is not full-motion/performance
+  acceptance. Paired natural12s and nod4s core captures are underway; optional mid-capture camera
+  detours changed head pose and were removed after their first integrity guard rejected the run.
+- Independent review also exposed a pre-existing embedding-transform error: Avatar omitted
+  attached-mode bindMatrixInverse when feeding HairDynamics, doubling common parent transforms.
+  An unused HairSkinTransform helper matches native Three skinning and validates proper unit
+  rigid full-head transforms. Integration waits until the current paired source freeze ends;
+  scale/shear must not silently invalidate the contact radius/rest-length assumptions.
+- Other bakes: all4 first rest candidates achieve authored face/movable0 but combined rear styles
+  are rejected after40 matched views. g025131 local connector removes its isolated45-degree flap
+  but adds4posed shoulder pairs, so is not shipped. Exact80/423 side-fall affects onlyg025/g075;
+  g000/g100 are measured no-ops. Remaining visible bands were actually attributed to other cards,
+  and a bounded local correction is underway. See bob01-all-bake-fall, bob01-g025-rear and
+  bob01-sidefall archives; do not reuse a card mask as if it encoded one visual defect on allbakes.
+- Correction to the earlier numeric provenance sentence: all recorded files were rehashed, but
+  the exact count was not13. Use each archive's explicit source map rather than that old count.
+  No bob02 asset or MLX changes. Four known HairMaterial failures remain open.

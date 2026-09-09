@@ -89,8 +89,9 @@ const browser=await playwright.chromium.launch({channel:'chromium',headless:true
 const samples=[],errors=[],loadedAssets=[],assetReads=[];
 let replacedGroomRequests=0;
 const sourceHashes=Object.fromEntries(['packages/core/src/Avatar.js','packages/core/src/motion/HairDynamics.js','packages/core/src/material/HairMaterial.js','packages/testbed/src/portrait.js','tools/critic/portrait-clearance.mjs','tools/critic/portrait-calibration.mjs','packages/testbed/src/portrait-selection.mjs'].map(file=>[file,sha(path.join(root,file))]));
+for(const module of ['HairSurface','HairSurfaceQuery','HairSurfaceContact','HairBodyContact','HairBodyContactCalibration','HairBodyContactCalibration.data']) { const file='packages/core/src/motion/'+module+'.js'; sourceHashes[file]=sha(path.join(root,file)); }
 Object.assign(sourceHashes,assetHashes);
-let descriptor;
+let descriptor,sourceHashesMatchAtCompletion=false;
 function summary(values){
     if(!values.length)return {count:0,minMm:null,p01Mm:null,medianMm:null,inside:0};
     values.sort((a,b)=>a-b);
@@ -148,7 +149,7 @@ try{
         for(let i=0;i<allIndices.length;i+=3)if(allIndices.slice(i,i+3).every(v=>v>=g.cardVertexBase&&v<g.cardVertexBase+g.cardVertexCount))cardIndices.push(...allIndices.slice(i,i+3).map(v=>v-g.cardVertexBase));
         const body=avatar.figure.body,attributes={};
         for(const key of ['position','normal','uv','skinIndex','skinWeight'])attributes[key]=Array.from(body.geometry.getAttribute(key).array);
-        attributes.index=Array.from(body.geometry.index.array);
+        attributes.index=Array.from(avatar.wardrobe?.fullIndex??body.geometry.index.array);
         return {bodyAttributes:attributes,chainCount:g.chainCount,pointsPerChain:g.pointsPerChain,cardVertexBase:g.cardVertexBase,
             cardVertexCount:g.cardVertexCount,cardIndices,restCentres:Array.from(g.restCentres),restLengths:Array.from(g.restLengths),
             rig:avatar.figure.body.skeleton.bones.map((bone,i)=>({name:bone.name,parent:bone.parent?.name??null,inverseBind:avatar.figure.body.skeleton.boneInverses[i].toArray()})),report:avatar.report()};
@@ -186,7 +187,7 @@ try{
                 rig: Object.fromEntries(body.skeleton.bones.map(bone=>[bone.name,bone.matrixWorld.toArray()])),
                 colliders:{capsuleA:d.uniforms.capsuleA.value.toArray(),capsuleB:d.uniforms.capsuleB.value.toArray(),capsuleRadius:d.uniforms.capsuleRadius.value},
                 steps:centers.steps,vertices:vertices?Array.from(vertices.positions):null,verticesSpace:vertices?.space??null,vertexBase:vertices?.vertexBase??null,
-                bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),bodyIndices:Array.from(body.geometry.index.array),report:avatar.report()};
+                bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),bodyIndices:Array.from(avatar.wardrobe?.fullIndex??body.geometry.index.array),report:avatar.report()};
         });
         validateCaptureRuntime(state.report,target);
         validateBodyTopology(state.bodyIndices,state.bodyPositions.length,target.bake);
@@ -246,7 +247,9 @@ try{
     errors.push(error.message);throw error;
 }finally{
     await browser.close();
-    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,region:{...region,bodySha256:sourceHashes.body},anatomy:captureAnatomy(target.bake),hmrSuppressed:true,sourceHashes,loadedAssets,replacedGroomRequests,descriptor,samples,errors,
+    sourceHashesMatchAtCompletion=Object.entries(sourceHashes).every(([file,hash])=>sha(file==='groom'?target.groomFile:file==='body'?target.bodyFile:path.join(root,file))===hash);
+    if(!sourceHashesMatchAtCompletion)errors.push('Source or asset changed during capture; result is not a frozen-source proof.');
+    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,region:{...region,bodySha256:sourceHashes.body},anatomy:captureAnatomy(target.bake),hmrSuppressed:true,sourceHashes,sourceHashesMatchAtCompletion,loadedAssets,replacedGroomRequests,descriptor,samples,errors,
         limits:['SurfaceGrid signed distance uses the renderer-equivalent morphed/skinned vertex normals of the same frame body; this differs at seams from recomputed geometric normals.','Face region is an explicit axis-aligned box in inverse head-matrix coordinates.','Centers do not certify ribbon edges unless vertex readback is present.','Surface samples are three edge midpoints and one centroid per face-region triangle, not an exhaustive intersection proof; alpha is not sampled.','Fixed-step capture does not measure frame budget.']},null,2));
 }
 if(errors.length)process.exitCode=1;

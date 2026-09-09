@@ -1088,6 +1088,7 @@ export class Avatar {
         this.hairUpdate = null;
         this.hairArm = 'off';
         this.hairVelocityRepaired = null;
+        this.hairContactUnavailableReason = null;
         this.hairUnavailableReason = null;
 
         // The GLB's OWN materials, kept only so their textures can be freed. `applyHairMaterial`
@@ -2609,6 +2610,8 @@ export class Avatar {
                 // which is what the prototype patch actually consults. Recorded at attach because
                 // `HairVelocity.js` is a dynamic import and `report()` is synchronous.
                 velocityRepaired: this.hairVelocityRepaired,
+                bodyContact: this.hairDynamics?.contactReport?.() ?? null,
+                bodyContactUnavailableReason: this.hairContactUnavailableReason,
 
                 // ⚠️ `high` fits with under a millisecond in hand — ~15.9 p95 against 16.6 — and
                 // that is a warning rather than a refusal, because the number was measured on one
@@ -2620,7 +2623,9 @@ export class Avatar {
                     // docs/API.md — "p95 does not resolve" — and this string quoted it anyway, to an
                     // embedder, as a runtime fact. A retracted measurement is not a smaller
                     // measurement.
-                    ? ( this.hairStyle === 'bob01'
+                    ? ( this.hairDynamics?.contactReport?.() !== null && this.hairDynamics?.contactReport?.() !== undefined
+                        ? 'Body-contact frame cost requires separate measurement; earlier hair-only timings exclude it'
+                        : this.hairStyle === 'bob01'
                         ? 'hair adds a measured +2.0 ms at p50; p95 did not resolve, see docs/API.md'
                         : 'bob02 frame cost has not been measured; bob01 timings do not certify this groom' )
                     : null,
@@ -3417,7 +3422,9 @@ export class Avatar {
         try {
 
             solver = HAIR_BY_TIER[ this.tier ].solver === true
-                ? await this.buildHairDynamics( figure, skinned, material, token, hairRoot )
+                ? await this.buildHairDynamics( figure, skinned, material, token, hairRoot, {
+                    hairStyle, bakeName, bodyIndices: this.wardrobe?.fullIndex ?? null
+                } )
                 : null;
 
         } catch ( error ) {
@@ -3448,6 +3455,7 @@ export class Avatar {
         this.hairDynamics = solver?.dynamics ?? null;
         this.hairUpdate = solver?.update ?? null;
         this.hairVelocityRepaired = solver?.velocityRepaired ?? null;
+        this.hairContactUnavailableReason = solver?.contactUnavailableReason ?? null;
 
         console.log( `Avatar: hair '${ hairStyle }' on ${ bakeName } — ${ applied.meshes } mesh(es), ` +
             `arm ${ this.hairArm }, solver ${ this.hairDynamics === null ? 'off' : 'on' }.` );
@@ -3469,7 +3477,7 @@ export class Avatar {
      * @returns {?{ dynamics, update: function, velocityRepaired: boolean }} null when the groom's
      *   shape refuses a solver. Returned rather than assigned — see the 🚩 at the call site.
      */
-    async buildHairDynamics( figure, meshes, material, token = this.loadToken, pendingRoot = null ) {
+    async buildHairDynamics( figure, meshes, material, token = this.loadToken, pendingRoot = null, hairSelection = null ) {
 
         if ( token !== this.loadToken || this.disposed === true ) return null;
 
@@ -3509,6 +3517,32 @@ export class Avatar {
         // Return to attachHair's token guard before touching the renderer or retired geometry.
         if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
 
+        let contactFactory;
+        let contactUnavailableReason = null;
+        if ( hairSelection?.hairStyle === 'bob01' ) {
+
+            if ( hairSelection.bakeName === 'figure_g050' ) {
+
+                const { selectHairBodyContactCalibration } = await import( './motion/HairBodyContactCalibration.js' );
+                if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+                const selection = await selectHairBodyContactCalibration( {
+                    style: hairSelection.hairStyle, bake: hairSelection.bakeName,
+                    body: figure.body, groom: mesh, bodyIndices: hairSelection.bodyIndices
+                } );
+                if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+
+                if ( selection.enabled ) {
+
+                    const { createHairBodyContactFactory } = await import( './motion/HairBodyContact.js' );
+                    if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+                    contactFactory = createHairBodyContactFactory( { body: figure.body, selection } );
+
+                } else contactUnavailableReason = selection.reason;
+
+            } else contactUnavailableReason = `No body-contact calibration for bob01 on ${ hairSelection.bakeName }.`;
+
+        }
+
         if ( pendingRoot !== null ) {
 
             figure.root.updateMatrixWorld( true );
@@ -3519,7 +3553,8 @@ export class Avatar {
 
         const dynamics = createHairDynamics( {
             renderer: this.stage.renderer,
-            geometry: mesh.geometry
+            geometry: mesh.geometry,
+            contactFactory
         } );
 
         try {
@@ -3585,7 +3620,7 @@ export class Avatar {
             // buffers held.
             dynamics.reset();
 
-            return { dynamics, update, velocityRepaired };
+            return { dynamics, update, velocityRepaired, contactUnavailableReason };
 
         } catch ( error ) {
 
@@ -3620,6 +3655,7 @@ export class Avatar {
         // answer for the PREVIOUS groom on a swap where this one failed to land — which is exactly
         // the shape of report this file's census rule exists to refuse.
         this.hairVelocityRepaired = null;
+        this.hairContactUnavailableReason = null;
         this.hairUnavailableReason = null;
 
         if ( this.hairRoot !== null ) {
