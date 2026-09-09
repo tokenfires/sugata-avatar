@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-08",
+  "method": "Twenty images: before/after x studio/neutral x five matched clock0 angles. Root checked all corrected neutral views and both frontal studio controls. All arms use installed hem groom.",
+  "comparisons": [
+    {
+      "light": "studio",
+      "matchedCameraHeadClock": true,
+      "matchedLights": true,
+      "viewsPerArm": 5,
+      "errors": [],
+      "beforeSourceHashes": {
+        "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+        "packages/core/src/material/SkinMaterial.js": "3ac773d4500fa00bde01f7f6702af4fb86697b73e07594226aee1324a7b592d0",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+        "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+      },
+      "afterSourceHashes": {
+        "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+        "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+        "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+      }
+    },
+    {
+      "light": "neutral",
+      "matchedCameraHeadClock": true,
+      "matchedLights": true,
+      "viewsPerArm": 5,
+      "errors": [],
+      "beforeSourceHashes": {
+        "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+        "packages/core/src/material/SkinMaterial.js": "3ac773d4500fa00bde01f7f6702af4fb86697b73e07594226aee1324a7b592d0",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+        "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+      },
+      "afterSourceHashes": {
+        "assets/hair/bob02/g050.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+        "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+        "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+        "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+        "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1"
+      }
+    }
+  ],
+  "visualConclusion": "Corrected panel transmission removes conspicuous orange eye/mouth glow in neutral and violet eye-edge glow in studio. Studio design remains intact. Broad hair patchwork remains. Candidate is visually suitable, subject to focused numerical regression.",
+  "limitations": [
+    "This is a look comparison, not a GPU cost benchmark or full visual-quality certification.",
+    "Geometric clearance proofs are separate from this material change."
+  ],
+  "artifactHashes": {
+    "captures/skin-area-visual-2026-09-08/probe.cjs": "0d4bb6d4337ebccf36c89e982d4f5838feb7203f9e22ca94ce5f14fe95a64b43",
+    "captures/skin-area-visual-2026-09-08/SkinMaterial-before.js": "3ac773d4500fa00bde01f7f6702af4fb86697b73e07594226aee1324a7b592d0",
+    "captures/skin-area-visual-2026-09-08/SkinMaterial-candidate.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "captures/skin-area-visual-2026-09-08/before/studio-90.png": "abeed1d28113fd19b077a1c1680b75f26a78825c9cd614daa6ef356ff8d979c8",
+    "captures/skin-area-visual-2026-09-08/before/studio-45.png": "3090d72daf270538b251193eca5a39fb63b21ba83aeefb1238aa06c759622d9f",
+    "captures/skin-area-visual-2026-09-08/before/studio.json": "ba8a348d35cccbf3de8ae76ba5b524a1aeeeab5227db500ba14dae575b622b79",
+    "captures/skin-area-visual-2026-09-08/before/neutral--90.png": "6e28f02f005442ec92490d6bb89fb9f83ad72375909be32d28a01bed9dcb8262",
+    "captures/skin-area-visual-2026-09-08/before/neutral-0.png": "602da4ddffe47cee004987ad40e263becbf561afb153fa83e31254da96019b94",
+    "captures/skin-area-visual-2026-09-08/before/studio-0.png": "ee7664147a741c408ff09f10c89f70ff9b7b2216c136ba5fd9da4f3f28c632fd",
+    "captures/skin-area-visual-2026-09-08/before/studio-180.png": "ae5f0db8b568c43197914e3f128501121b2191ec49c19783b9bd5e9ab05a0cb3",
+    "captures/skin-area-visual-2026-09-08/before/neutral-90.png": "033f333eef1371869d123e84da3af278e5e6085edf4a81fd68d2bdd6deb68ee4",
+    "captures/skin-area-visual-2026-09-08/before/neutral-45.png": "1b240668e6255750863e6600e6a9aa2ae2b6ca42141dd40c9e6eae78335b1839",
+    "captures/skin-area-visual-2026-09-08/before/neutral.json": "b8afdb17d48513910c8000fb6b80bf23930a9f5ebe1ac91263d01a82ed7f8b87",
+    "captures/skin-area-visual-2026-09-08/before/neutral-180.png": "b8801696d853281d97fa7d25c200568682a205ffabf4c1ecd35814f90b2f5e21",
+    "captures/skin-area-visual-2026-09-08/before/studio--90.png": "9412481a3be8d9a8ffaeca15dd9d8796e2493e4042232c96b2b0247974565eee",
+    "captures/skin-area-visual-2026-09-08/after/studio-90.png": "d97cc4353dbb844dad4e79158a39430e42791907ff4a5df845fe1be975416628",
+    "captures/skin-area-visual-2026-09-08/after/studio-45.png": "3d5efdf7fa8e123f0a13d4ca02c288ac34d35c82e2468e312bd5cf6755e164c8",
+    "captures/skin-area-visual-2026-09-08/after/studio.json": "8db5fabd4f5198b72f63c5be4a9ac3b58590bc817225e2ebe8bff27fde28092b",
+    "captures/skin-area-visual-2026-09-08/after/neutral--90.png": "d23b46f456e0dc42c1ecd5b63cf721e0a02ec544c555c205d612ffdeecab6bec",
+    "captures/skin-area-visual-2026-09-08/after/neutral-0.png": "b131c765e27de3eb39a4b40a6787c9ae6c2b4a1303a2bcbf650294cd7818b648",
+    "captures/skin-area-visual-2026-09-08/after/studio-0.png": "23dcedf40497a24ac59a81d6226e3eef80d85674c83875d169fdc941f404719b",
+    "captures/skin-area-visual-2026-09-08/after/studio-180.png": "db32f83005891d25edb9d1a94de10f46ec496ed60bb104312db8c457cf36c216",
+    "captures/skin-area-visual-2026-09-08/after/neutral-90.png": "f927ad4553b9f7f7d6fdcdbac990245109a4198e3ef538a89be76180e4229e14",
+    "captures/skin-area-visual-2026-09-08/after/neutral-45.png": "1e6ecb0f0ec410327fe66786489b8731cfc7ca98b65b6e09411d3ca34a271d90",
+    "captures/skin-area-visual-2026-09-08/after/neutral.json": "37cda61d32348a4117b71e31f778f003de21daba4dd917fd6f395a0506d2199e",
+    "captures/skin-area-visual-2026-09-08/after/neutral-180.png": "0e91b9ee23288d0f1be6915ae88dca7e73afce24c6249bb8f4a9d1f4d7fbe3cb",
+    "captures/skin-area-visual-2026-09-08/after/studio--90.png": "f83827f028810876151c8daa4f93c85a89d747ec6647f9c810b34c71ce74b242"
+  }
+}
