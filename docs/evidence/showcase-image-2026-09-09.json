@@ -1,0 +1,221 @@
+{
+  "date": "2026-09-09",
+  "status": "PNG action implemented; focused actual WebGPU gate passed.",
+  "sourceHashes": {
+    "packages/testbed/src/showcase.html": "77f6f27b9dc783f72b623731bd618b5afd6f39e9ccdfc06206a70c92cf28e102",
+    "packages/testbed/src/showcase.js": "24258bc4b09a7053c6b0b817a876e24ad47620b1b3e6d30e64ac3861a2123511",
+    "packages/testbed/src/showcase-presets.mjs": "d2fdf316126430105bd4bbacfc3f8f3c2f8d111001af1c3136ed3e149ef9e4b0",
+    "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+    "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "5fc8649ab17942b729332a7678d1ae2aa0488cbda73a3f902aa8a53338726d18",
+    "packages/core/src/wardrobe/Wardrobe.js": "9b938ce42f49cac21f8de3e4bee1d9427df40dbd029c983732c73b4b8ade6e0c",
+    "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "packages/core/src/motion/HairBodyContact.js": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba",
+    "packages/core/src/motion/HairBodyContactForest.js": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b",
+    "packages/core/src/motion/HairBodyContactCalibration.data.js": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df",
+    "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "testSourceSha256": "5a23cc98ef274e91860e775c548a8e920027777fd39a1a5ff184bbe3231bd01d",
+  "gpuGroups": 13,
+  "checks": [
+    "PNG action and JSON settings are visibly distinct",
+    "casual PNG is nonblank, current canvas pixels, and exactly preserves camera/centers/velocities/time/settings",
+    "same-owner dressing exports the attached new outfit rather than the prior image",
+    "portrait orbit/framing PNG uses current canvas size and leaves the camera and physical arrays exact",
+    "JSON settings remain valid and all completed PNG/JSON download URLs are revoked",
+    "null, thrown and wrong-type encoding failures restore controls without a false download",
+    "draw failure reports failure before encoding and restores controls",
+    "download dispatch failure removes its link, revokes its URL and reports failure",
+    "the long-bob starting look also exports its real current canvas with exact physical state",
+    "PNG temporarily holds the actual rAF clock, rejects overlapping work, then resumes the prior motion mode",
+    "saving an already-paused real view does not resume its simulation clock",
+    "retirement during encoding suppresses stale download and leaves no owned URL",
+    "core/page/asset source hashes remain stable and browser errors stay empty"
+  ],
+  "browserErrors": [],
+  "images": [
+    {
+      "name": "casual-body",
+      "filename": "sugata-bob02-casual-body.png",
+      "sha256": "94585826e7451bcdc3a4e18a94a479417647d6025f84199af465295438d9732a",
+      "width": 900,
+      "height": 868,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "stateSha256": "be66d04db1fa9d564cc19b83f8d073c3af873651cdafa664fb5ef761ee38e4af",
+      "sameTaskPixelsExact": true,
+      "physicalCameraClockExact": true
+    },
+    {
+      "name": "elegant-body",
+      "filename": "sugata-bob02-elegant-body.png",
+      "sha256": "36dfe5d1104f649fa65d942bc41f358a880015a52beafa4997305b0109e5245b",
+      "width": 900,
+      "height": 868,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "stateSha256": "7168d5a40a4be9dc4420959e6b6890bf0afd3ba28e94467bbff246581a75df86",
+      "sameTaskPixelsExact": true,
+      "physicalCameraClockExact": true
+    },
+    {
+      "name": "elegant-portrait-side",
+      "filename": "sugata-bob02-elegant-portrait.png",
+      "sha256": "95ef91ebc3917c078bce4b4b1e915fe3c019b5d3566a14ccd7fd8ec736987939",
+      "width": 900,
+      "height": 868,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "portrait",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "stateSha256": "a08ff344db390b31346122897060c85c39e10f63e41f15f090fec47ca368f531",
+      "sameTaskPixelsExact": true,
+      "physicalCameraClockExact": true
+    },
+    {
+      "name": "elegant-long-bob",
+      "filename": "sugata-bob01-elegant-body.png",
+      "sha256": "63f13d7c24d66711d5881f3cf2001ad7c57e3ad437a39888e64139a230cbf70c",
+      "width": 900,
+      "height": 868,
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob01",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "stateSha256": "bc2cc200de9838f97c619a3854565064805a9e0f08b516510fb7b62b425318dc",
+      "sameTaskPixelsExact": true,
+      "physicalCameraClockExact": true
+    }
+  ],
+  "liveHold": {
+    "clock": 0.10770000000000002,
+    "steps": 13,
+    "unchangedPositions": true,
+    "unchangedVelocities": true,
+    "pause": "Pause motion",
+    "unassistedPngNonblank": true
+  },
+  "encoderRefusal": {
+    "outcomes": [
+      {
+        "kind": "null",
+        "ok": false,
+        "status": "Image could not be saved. The canvas could not be encoded.",
+        "enabled": true,
+        "orbit": true
+      },
+      {
+        "kind": "throw",
+        "ok": false,
+        "status": "Image could not be saved. controlled encoder refusal",
+        "enabled": true,
+        "orbit": true
+      },
+      {
+        "kind": "wrong-type",
+        "ok": false,
+        "status": "Image could not be saved. The canvas did not produce a PNG image.",
+        "enabled": true,
+        "orbit": true
+      }
+    ],
+    "created": 0
+  },
+  "build": "build:pages passed; standard >500kB chunk warning",
+  "archive": {
+    "path": "captures/showcase-image-2026-09-09",
+    "manifest": "manifest.json",
+    "manifestSha256": "e566ea43435c8979d2f03e21b80e105ef2431f1e5c0b641930c05824a2e5f0a6",
+    "entries": 28
+  },
+  "limitations": [
+    "PNG captures the current canvas resolution and current temporal sample; no supersampling, motion advance, or AA settling is performed.",
+    "This gate checks rendered state and download ownership, not garment fit or aesthetic quality.",
+    "The actual PNG gate is a development-server browser run; the production page was rebuilt but no separate built-PNG browser run was needed for this page-only addition.",
+    "Existing clothing patches and hair/material appearance remain unchanged. No broad motion or full repository GPU rerun."
+  ]
+}

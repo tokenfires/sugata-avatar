@@ -52,7 +52,7 @@ try{
  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedSettings=text;}}}));await page.locator('#copy').click();await page.waitForFunction(()=>typeof window.copiedSettings==='string');
  assert.deepEqual(await page.evaluate(()=>JSON.parse(copiedSettings)),report.changedView);check('Copy settings serializes the actual attached mixed look',()=>{});
  const downloadPromise=page.waitForEvent('download');await page.locator('#save').click();const download=await downloadPromise;await download.saveAs(path.join(out,'saved-look.json'));assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'saved-look.json'))),report.changedView);
- check('Save this look downloads the same supported Avatar configuration',()=>{});
+ check('Save settings downloads the same supported Avatar configuration',()=>{});
  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('controlled clipboard refusal');}}}));await page.locator('#copy').click();await page.waitForFunction(()=>document.querySelector('#copy-dialog').open);assert.deepEqual(JSON.parse(await page.locator('#config-text').inputValue()),report.changedView);await page.locator('#dialog-close').click();
  check('clipboard refusal provides selectable JSON and a local save fallback',()=>{});
  // Starting-look navigation uses a fresh document to change hair, as the existing portrait does.

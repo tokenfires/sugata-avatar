@@ -8,9 +8,11 @@ const canvas = document.getElementById('stage'), status = document.getElementByI
 const dialog = document.getElementById('copy-dialog');
 let avatar = null, controls = null, selected = null, busy = true, failed = false;
 let paused = reducedMotion, frame = 0, previousTime = null;
+let savingImage = false;
+const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 function enableControls() {
-    for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save, #copy')) control.disabled = busy || failed;
+    for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy')) control.disabled = busy || savingImage || failed;
 }
 function showFailure(error) {
     failed = true; cancelAnimationFrame(frame); enableControls();
@@ -21,7 +23,7 @@ function showFailure(error) {
 addEventListener('error', event => showFailure(event.error ?? event.message));
 addEventListener('unhandledrejection', event => showFailure(event.reason));
 function animate(time) {
-    if (failed || !avatar || avatar.disposed) return;
+    if (failed || savingImage || !avatar || avatar.disposed) return;
     const delta = previousTime === null ? 0 : Math.min((time - previousTime) / 1000, .05); previousTime = time;
     try { controls.update(); avatar.update(paused ? 0 : delta); frame = requestAnimationFrame(animate); }
     catch (error) { showFailure(error); }
@@ -58,7 +60,7 @@ function frameView(mode) {
     controls.update(); controls.saveState();
 }
 async function changeOutfit(id) {
-    if (busy || failed) return false;
+    if (busy || savingImage || failed) return false;
     if (!Object.hasOwn(SHOWCASE_OUTFITS, id)) throw new Error('Unknown outfit.');
     busy = true; enableControls(); setStatus('Changing clothes…');
     let attached = false;
@@ -73,16 +75,52 @@ async function changeOutfit(id) {
     } finally { busy = false; if (!avatar.disposed && !failed) refresh(); }
 }
 function currentConfiguration() {
-    if (busy || failed || !avatar) throw new Error('Wait for the look to finish loading before saving it.');
+    if (busy || savingImage || failed || !avatar) throw new Error('Wait for the look to finish loading before saving it.');
     return configurationFromReport(avatar.report());
 }
 function configurationText() { return JSON.stringify(currentConfiguration(), null, 2) + '\n'; }
+function revokeDownload(url) { URL.revokeObjectURL(url); downloadUrls.delete(url); }
+function downloadBlob(blob, filename) {
+    const link = document.createElement('a'), url = URL.createObjectURL(blob); downloadUrls.add(url);
+    try {
+        link.href = url; link.download = filename; document.body.append(link); link.click();
+        setTimeout(() => revokeDownload(url), 1000);
+    } catch (error) { revokeDownload(url); throw error; }
+    finally { link.remove(); }
+}
 function saveLook() {
     try {
-        const text = configurationText(), url = URL.createObjectURL(new Blob([text], {type: 'application/json'}));
-        const link = document.createElement('a'); link.href = url; link.download = `sugata-${selected.preset}-${selected.outfit}.json`;
-        document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000); setStatus('Look saved as JSON');
+        const text = configurationText();
+        downloadBlob(new Blob([text], {type: 'application/json'}), `sugata-${selected.preset}-${selected.outfit}.json`);
+        setStatus('Settings downloaded as JSON');
     } catch (error) { setStatus(error.message); }
+}
+async function saveImage() {
+    if (savingImage) return false;
+    let held = false, orbitEnabled;
+    try {
+        const configuration = currentConfiguration();
+        if (avatar.disposed) throw new Error('This look is no longer available.');
+        // Hold the page clock while toBlob encodes. No update/step, orbit damping, or elapsed-time catch-up.
+        savingImage = held = true; cancelAnimationFrame(frame); previousTime = null;
+        orbitEnabled = controls.enabled; controls.enabled = false; enableControls(); setStatus('Preparing PNG…');
+        const blob = await new Promise((resolve, reject) => {
+            // Submit and snapshot in the same task: yielding before toBlob can lose a WebGPU canvas frame.
+            avatar.stage.draw();
+            canvas.toBlob(result => result ? resolve(result) : reject(new Error('The canvas could not be encoded.')), 'image/png');
+        });
+        if (avatar.disposed || failed) throw new Error('This look is no longer available.');
+        if (blob.type !== 'image/png' || blob.size === 0) throw new Error('The canvas did not produce a PNG image.');
+        downloadBlob(blob, `sugata-${configuration.hair}-${selected.outfit}-${configuration.frame}.png`);
+        setStatus('PNG image downloaded'); return true;
+    } catch (error) { if (!avatar?.disposed) setStatus(`Image could not be saved. ${error.message}`); return false; }
+    finally {
+        if (held) {
+            savingImage = false; previousTime = null; controls.enabled = orbitEnabled;
+            enableControls();
+            if (!captured && !failed && !avatar.disposed) frame = requestAnimationFrame(animate);
+        }
+    }
 }
 async function copyLook() {
     try {
@@ -111,13 +149,14 @@ try {
         avatar.stage.camera.lookAt(target); controls.update();
     });
     document.getElementById('pause').addEventListener('click', () => { paused = !paused; previousTime = null; refresh(); setStatus(paused ? 'Motion paused' : 'Live view'); });
+    document.getElementById('save-image').addEventListener('click', saveImage);
     document.getElementById('save').addEventListener('click', saveLook); document.getElementById('copy').addEventListener('click', copyLook);
     document.getElementById('dialog-save').addEventListener('click', saveLook); document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
-    window.showcase = { avatar, controls, configuration: currentConfiguration, changeOutfit,
-        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); controls.update(); await avatar.step(delta); } };
+    window.showcase = { avatar, controls, configuration: currentConfiguration, changeOutfit, saveImage,
+        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); controls.update(); await avatar.step(delta); } };
     if (!captured) frame = requestAnimationFrame(animate);
 } catch (error) { showFailure(error); }
 
 document.addEventListener('visibilitychange', () => { previousTime = null; });
-addEventListener('pagehide', event => { cancelAnimationFrame(frame); if (event.persisted) return; controls?.dispose(); avatar?.dispose(); });
-addEventListener('pageshow', event => { if (event.persisted && avatar && !failed && !captured) { previousTime = null; frame = requestAnimationFrame(animate); } });
+addEventListener('pagehide', event => { cancelAnimationFrame(frame); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; controls?.dispose(); avatar?.dispose(); });
+addEventListener('pageshow', event => { if (event.persisted && avatar && !failed && !captured && !savingImage) { previousTime = null; frame = requestAnimationFrame(animate); } });
