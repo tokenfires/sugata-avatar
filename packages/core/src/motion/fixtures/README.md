@@ -13,3 +13,7 @@ The JSON records the prior module SHA, source capture SHA values and the existin
 ## Avatar canonical contact golden
 
 `avatar-hair-contact-canonical.json` (SHA-256 `8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36`) retains exact array hashes for the original core nod smoke at0/.1seconds, before the bind-aware transform integration. It records the old capture/source/asset hashes. The Avatar WebGPU selftest reproduces its corrected groom from the tracked original LFS fixture and the portable long-fall tool; no ignored captures are loaded at runtime. Canonical GPU bit identity is deliberately stricter than the independent native-root geometric tolerance and must not be automatically rebaselined on a different engine or device.
+
+## Triangle-bound predecessor parity
+
+`hair-triangle-bounds-adversarial.json` (SHA-256 `949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4`) preserves the exact original 18 adversarial records. They have 17 unique names/geometries because the zero-origin ULP record is repeated; the duplicate is not independent coverage. Combined with the existing 35 primitive inputs, four seed states and selected moving-panel alphas, they produce 732 additional direct-point/segment queries. The source-control helper removes exactly the two promoted guards from served production source to make a distinct predecessor. The portable gate fails when production guards are absent or only partly installed. See `docs/HAIR-SURFACE-BOUNDS.md` for reproduction and limits.

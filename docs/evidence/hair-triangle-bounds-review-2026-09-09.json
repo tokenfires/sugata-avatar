@@ -1,0 +1,1460 @@
+{
+  "date": "2026-09-09T07:03:56.242Z",
+  "passed": true,
+  "groups": 4,
+  "candidateSha256": "e3b680d06f1713ab8092cf5736e478d0ed9d4ebfe8c5b468f9062e32dfd2720a",
+  "baselineSha256": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+  "servedQueryHashes": {
+    "baseline": "f57460e851b310f7418c6f5cd372306c49bf77b804b47ad2600aae17268541c9",
+    "triangleBounds": "c6a107e20f3c5bc5802556aed670e674d8a92e505f45db3951ab7d04f8bdc6b5"
+  },
+  "cpuBoundCheck": {
+    "checked": 3072,
+    "positiveBounds": 2330,
+    "maxBoundExcess": 0,
+    "claim": "Float32 bound arithmetic checked against independent double feature distances on3072 deterministic finite cases, not a universal Float32 closest-function error proof."
+  },
+  "existingCoreCases": {
+    "segment": 35,
+    "bvh": 144,
+    "normals": 8,
+    "bounds": 12,
+    "disjointClearing": 1
+  },
+  "addedQueries": {
+    "total": 732,
+    "point": 488,
+    "segment": 244,
+    "originalFixtureFamilies": 35,
+    "adversarialRecords": 18,
+    "uniqueNamedAdversarialFamilies": 17
+  },
+  "parity": "Every returned field is unchanged. Added cases also compare every Float32 bit, source and ordered triangle IDs, normals, boundary flags, and visited counts.",
+  "errors": {
+    "baseline": [],
+    "triangleBounds": []
+  },
+  "resources": {
+    "baseline": {
+      "core": {
+        "before": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        },
+        "after": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        }
+      },
+      "extra": {
+        "before": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        },
+        "after": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        }
+      }
+    },
+    "triangleBounds": {
+      "core": {
+        "before": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        },
+        "after": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        }
+      },
+      "extra": {
+        "before": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        },
+        "after": {
+          "storage": 0,
+          "bytes": 0,
+          "compute": 0
+        }
+      }
+    }
+  },
+  "limits": [
+    "Exact old/new GPU parity, not a proof for arbitrary finite coordinates or every ill-conditioned barycentric computation.",
+    "TrianglesTested remains visited count; this probe does not measure skipped expensive math or timing.",
+    "Only same-frame interpolated triangle bounds are added; existing BVH union bounds, seed/tie policy, contact schedule and shader math are unchanged.",
+    "The immutable18 adversarial records include a repeated zero-origin ULP control:17 unique named geometries, not18 independent families."
+  ],
+  "sourceHashes": {
+    "captures/body-surface-2026-09-09/HairSurfaceQuery-triangle-bounds.mjs": "e3b680d06f1713ab8092cf5736e478d0ed9d4ebfe8c5b468f9062e32dfd2720a",
+    "packages/core/src/motion/HairSurfaceQuery.js": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+    "captures/body-surface-2026-09-09/triangle-bounds-parity.browser.mjs": "c2c15e77fc300a200a7b121cde5d5b302b41e7aa599daabad0e7229e8022e56d",
+    "captures/body-surface-2026-09-09/triangle-bounds-adversarial.json": "949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4",
+    "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "packages/core/src/motion/HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+    "packages/core/src/motion/HairSurface.primitives.browser.mjs": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6"
+  },
+  "adversarialCases": [
+    {
+      "name": "equal-distance-opposite-panels",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            1,
+            -0.01
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0.01
+          ],
+          [
+            1,
+            0,
+            0.01
+          ],
+          [
+            0,
+            1,
+            0.01
+          ]
+        ]
+      ],
+      "start": [
+        0.25,
+        0.25,
+        0
+      ],
+      "end": [
+        0.25,
+        0.25,
+        0
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "zero-distance-duplicate-normal-tie",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        0.25,
+        0.25,
+        -1
+      ],
+      "end": [
+        0.25,
+        0.25,
+        1
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "zero-distance-shared-edge-tie",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        0.4,
+        0,
+        -0.01
+      ],
+      "end": [
+        0.4,
+        0,
+        0.01
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "endpoint-only-proximity",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        0.25,
+        0.25,
+        0.01
+      ],
+      "end": [
+        5,
+        0.25,
+        0.01
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "midspan-crosses-box-with-both-endpoints-outside",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0.3
+          ],
+          [
+            1,
+            0,
+            0.3
+          ],
+          [
+            0,
+            1,
+            0.3
+          ]
+        ]
+      ],
+      "start": [
+        -1,
+        0.25,
+        0
+      ],
+      "end": [
+        2,
+        0.25,
+        0
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "collapsed-triangle-tie",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        -1,
+        0.01,
+        0
+      ],
+      "end": [
+        1,
+        0.01,
+        0
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset0",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            1,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            0,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        -9.999999974752427e-07,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        -9.999999974752427e-07,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset0",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            1,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            0,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        -9.999999974752427e-07,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        -9.999999974752427e-07,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset-16",
+      "triangles": [
+        [
+          [
+            -16,
+            0,
+            0
+          ],
+          [
+            -15,
+            0,
+            0
+          ],
+          [
+            -16,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -16,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            -15,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            -16,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        -16.000001907348633,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        -16.000001907348633,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset16",
+      "triangles": [
+        [
+          [
+            16,
+            0,
+            0
+          ],
+          [
+            17,
+            0,
+            0
+          ],
+          [
+            16,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            16,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            17,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            16,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        15.999999046325684,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        15.999999046325684,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset-1024",
+      "triangles": [
+        [
+          [
+            -1024,
+            0,
+            0
+          ],
+          [
+            -1023,
+            0,
+            0
+          ],
+          [
+            -1024,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1024,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            -1023,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            -1024,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        -1024,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        -1024,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "ulp-boundary-offset1024",
+      "triangles": [
+        [
+          [
+            1024,
+            0,
+            0
+          ],
+          [
+            1025,
+            0,
+            0
+          ],
+          [
+            1024,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            1024,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            1025,
+            0,
+            9.999999747378752e-06
+          ],
+          [
+            1024,
+            1,
+            9.999999747378752e-06
+          ]
+        ]
+      ],
+      "start": [
+        1024,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "end": [
+        1024,
+        0.25,
+        4.999999873689376e-06
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "thin-near-area-fallback-0.0001",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0.0001,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0.01
+          ],
+          [
+            1,
+            0,
+            0.01
+          ],
+          [
+            0,
+            1,
+            0.01
+          ]
+        ]
+      ],
+      "start": [
+        0.5,
+        -1e-07,
+        -0.001
+      ],
+      "end": [
+        0.5,
+        -1e-07,
+        0.001
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "thin-near-area-fallback-1e-8",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1e-08,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0.01
+          ],
+          [
+            1,
+            0,
+            0.01
+          ],
+          [
+            0,
+            1,
+            0.01
+          ]
+        ]
+      ],
+      "start": [
+        0.5,
+        -1e-07,
+        -0.001
+      ],
+      "end": [
+        0.5,
+        -1e-07,
+        0.001
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "thin-near-area-fallback-1e-12",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1e-12,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0.01
+          ],
+          [
+            1,
+            0,
+            0.01
+          ],
+          [
+            0,
+            1,
+            0.01
+          ]
+        ]
+      ],
+      "start": [
+        0.5,
+        -1e-07,
+        -0.001
+      ],
+      "end": [
+        0.5,
+        -1e-07,
+        0.001
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "moving-midpoint-contact",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0.1
+          ],
+          [
+            1,
+            0,
+            0.1
+          ],
+          [
+            0,
+            1,
+            0.1
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        0.25,
+        0.25,
+        0
+      ],
+      "end": [
+        0.25,
+        0.25,
+        0
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "previousTriangles": [
+        [
+          [
+            0,
+            0,
+            -0.1
+          ],
+          [
+            1,
+            0,
+            -0.1
+          ],
+          [
+            0,
+            1,
+            -0.1
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "alphas": [
+        0,
+        0.4999999701976776,
+        0.5,
+        0.5000000596046448,
+        1
+      ]
+    },
+    {
+      "name": "moving-collapse-at-half",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "start": [
+        0.4,
+        0,
+        -0.01
+      ],
+      "end": [
+        0.4,
+        0,
+        0.01
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "previousTriangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "alphas": [
+        0,
+        0.4999999701976776,
+        0.5,
+        0.5000000596046448,
+        1
+      ]
+    },
+    {
+      "name": "exact-zero-tie-across-bvh-leaves",
+      "triangles": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "normals": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "start": [
+        0.25,
+        0.25,
+        -0.01
+      ],
+      "end": [
+        0.25,
+        0.25,
+        0.01
+      ]
+    }
+  ],
+  "originalFixture": "packages/core/src/motion/fixtures/hair-surface-primitives.json",
+  "originalFixtureSha256": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129",
+  "raw": {
+    "directory": "captures/body-surface-2026-09-09/triangle-bounds-review",
+    "manifestSha256": "64b9e3ee5a7b478d72e70cc3f55fbbb0b8c7f62256e8a991ae32a07f9ec0fbce",
+    "reportSha256": "c54678b036c4331fccf7560418be6381cb52e3c19b46a4c4ce2bdbe4e84995e3",
+    "entries": 16
+  },
+  "promotionGates": [
+    "Exact whole-stage output parity on representative moving/converged all496 fixtures.",
+    "Exclusive GPU phase and whole-stage timing must show a useful gain.",
+    "Preserve actual Avatar motion acceptance and migrate these small cases into the portable core test when promoting the candidate."
+  ],
+  "status": "Primitive parity passed; performance and production promotion remain pending."
+}
