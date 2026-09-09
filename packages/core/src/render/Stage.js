@@ -53,6 +53,7 @@ import {
     RenderPipeline,
     Scene,
     SRGBColorSpace,
+    Vector2,
     WebGPURenderer
 } from 'three/webgpu';
 
@@ -116,6 +117,7 @@ export class Stage {
         this.maxPixelRatio = MAX_PIXEL_RATIO;
         this.pixelRatio = 1;
         this.fixedSize = null;
+        this.drawingBufferSize = new Vector2();
         this.resizeObserver = null;
         this.pixelRatioWatcher = null;
 
@@ -932,6 +934,16 @@ export class Stage {
 
         this.renderer.setPixelRatio( this.pixelRatio );
         this.renderer.setSize( width, height, false );
+
+        // TAAU's pipeline hook reads scene dimensions before PassNode.updateBefore() runs.
+        // Resize the existing targets now so its first jitter/seed uses the new viewport.
+        // PassNode applies resolutionScale itself; these are full drawing-buffer pixels.
+        if ( this.scenePass !== null ) {
+
+            const size = this.renderer.getDrawingBufferSize( this.drawingBufferSize );
+            this.scenePass.setSize( size.width, size.height );
+
+        }
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();

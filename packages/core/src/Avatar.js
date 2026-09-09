@@ -787,7 +787,7 @@ export class Avatar {
      * @param {Object} options
      * @param {HTMLCanvasElement} options.canvas - REQUIRED. Sized by CSS; `Stage` follows it.
      * @param {Object} [options.identity] - Anything `figure/Identity.js` takes. `{ gender: 0.5 }`
-     *   by default; 0 masculine, 1 feminine, anything between snaps to the nearest of five bakes.
+     *   by default; 0 feminine, 1 masculine, anything between snaps to the nearest of five bakes.
      * @param {'auto'|'high'|'balanced'|'fallback'} [options.quality='auto'] - See `QUALITY_TIERS`,
      *   including what `auto` does and does not decide.
      * @param {'portrait'|'body'} [options.frame='portrait']

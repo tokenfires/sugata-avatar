@@ -1,0 +1,204 @@
+{
+  "date": "2026-09-09",
+  "status": "Implemented, reviewed, and focused gates passed; ready for scoped local commit.",
+  "presets": [
+    {
+      "id": "casual",
+      "bake": "g050",
+      "gender": 0.5,
+      "hair": "bob02",
+      "outfit": [
+        "female_casualsuit01",
+        "shoes01"
+      ]
+    },
+    {
+      "id": "elegant",
+      "bake": "g050",
+      "gender": 0.5,
+      "hair": "bob01",
+      "outfit": [
+        "female_elegantsuit01",
+        "shoes01"
+      ]
+    }
+  ],
+  "foundation": {
+    "TORSO": "foundation_bra",
+    "HIPS": "foundation_briefs"
+  },
+  "sourceHashes": {
+    "packages/testbed/src/showcase.html": "7e4523e9ec01985ed14114131a60b4af8190364e6fc04c3d87b6698541251f0c",
+    "packages/testbed/src/showcase.js": "d59f8d3d886f4d694bffb954ed3a3fa70b78a604f32cc4504c1934037efd33aa",
+    "packages/testbed/src/showcase-presets.mjs": "d2fdf316126430105bd4bbacfc3f8f3c2f8d111001af1c3136ed3e149ef9e4b0",
+    "packages/testbed/src/showcase-presets.selftest.mjs": "1588d127b5f10c20af3b89477e6adef30382daec414d46a7d536ff6117a1bd6c",
+    "packages/testbed/src/showcase.gpu.selftest.mjs": "da264339342cd6378a7c9b870dc109fde34ec7977a1cdd5d0bb65593c26c86d8",
+    "packages/testbed/pages.js": "5181515cfc03535259b0c2e7c367e5a781321155fc0c721b47c3d03863858227",
+    "vite.pages.config.js": "5afe43855c78f82298fcdb546b81b4078328d71f8dfa57e0d7429dd4e21ce1eb",
+    "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+    "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+    "packages/core/src/render/Stage.resize.selftest.mjs": "ac1cc2b349784ef8d1cdb4cc83b296d587466bbf20ac2f826d080700dd60eeb2",
+    "packages/core/src/render/Stage.resize.gpu.selftest.mjs": "548db5932d270c7b63a3555b9e04f449e7a86070a160bafff969fa136792f83f"
+  },
+  "tests": {
+    "presetsCpuGroups": 4,
+    "pageRegistryAssertions": 50,
+    "developmentGpuGroups": 18,
+    "productionGpuGroups": 19,
+    "productionBrowserErrors": [],
+    "build": "build:pages passed; standard >500kB chunk warning",
+    "motion": {
+      "seconds": 1.0000000000000013,
+      "finite": true,
+      "centerValues": 25296,
+      "vertexValues": 50592,
+      "steps": 121,
+      "wardrobeAttached": true
+    },
+    "sourceStable": true,
+    "sameOwnerDress": {
+      "configuration": {
+        "identity": {
+          "gender": 0.5,
+          "mode": "nearest"
+        },
+        "hair": "bob02",
+        "frame": "body",
+        "quality": "balanced",
+        "scene": "studio",
+        "lighting": "studio",
+        "seed": 20260807,
+        "pose": "relaxed-standing",
+        "wardrobe": {
+          "outfit": [
+            "female_elegantsuit01",
+            "shoes01"
+          ],
+          "foundation": {
+            "TORSO": "foundation_bra",
+            "HIPS": "foundation_briefs"
+          }
+        }
+      },
+      "sameAvatar": true,
+      "sameRenderer": true,
+      "sameHair": true
+    },
+    "postAttachFailure": {
+      "changed": false,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_elegantsuit01",
+        "shoes01"
+      ],
+      "error": "This look could not load.\ncontrolled render failure after attachment",
+      "saveDisabled": true
+    },
+    "stageCpuGroups": 4,
+    "stageGpuGroups": 6,
+    "productionGateQualification": "19-group production interaction run predates Stage patch; 6-group Stage GPU run uses final Stage and showcase source; all-page build rerun after patch."
+  },
+  "views": {
+    "foundationCount": 16,
+    "devCount": 5,
+    "productionCount": 6,
+    "productionAssetsObserved": 32,
+    "productionUniqueAssetHashes": 8
+  },
+  "reports": {
+    "foundations": {
+      "path": "captures/showcase-2026-09-09/foundations/report.json",
+      "sha256": "b3641f3eead157f437e814e6c9ce7dcfd33c4ecd7023a020102162409988debf"
+    },
+    "development": {
+      "path": "captures/showcase-2026-09-09/dev/report.json",
+      "sha256": "01267a5e3cc2dda6a45fa7d381c32558f273fd3482f4bf81cbef1a6bd4c5101c"
+    },
+    "production": {
+      "path": "captures/showcase-2026-09-09/production/report.json",
+      "sha256": "7fdfdb7cb14ed198d9748bc449fd43dabeda23df595c7cfeec57212fd544d82a"
+    },
+    "resizeTrace": {
+      "path": "captures/showcase-2026-09-09/resize-trace/report.json",
+      "sha256": "0003d793a51f6eeea46c0ea680792f9defb90493609d0784b271262f86e2e5fb"
+    },
+    "resizeContinuation": {
+      "path": "captures/showcase-2026-09-09/resize-continuation/report.json",
+      "sha256": "fdc7e8c004413d7fe6764da6ed54a6ea7209eae57aba3cb6c5e7244c81ec1475"
+    }
+  },
+  "resize": {
+    "settling": "Unchanged beauty becomes visibly clean by80 post-resize frames;16 and48 frame plates must not be called permanent cache corruption.",
+    "firstFrameWitness": {
+      "canvas": [
+        343,
+        625
+      ],
+      "staleJitterInput": [
+        594,
+        572
+      ],
+      "currentScaledScene": [
+        226,
+        412
+      ],
+      "correctCanvasAspect": 0.5488,
+      "staleAspect": 1.0384615384615385
+    },
+    "rejectedControls": [
+      "history reset",
+      "temporal resolve recreation",
+      "page pre-sizing as a claimed cure of16-frame streaking"
+    ],
+    "projectionBindingWitness": {
+      "retainedOriginalMatrixBuilderStates": 15,
+      "copyNewMatrixToRetainedReferences": "restored the recreated-resolve diagnostic image; does not explain baseline"
+    },
+    "stageProposal": {
+      "candidateSha256": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+      "cpuGroups": 4,
+      "gpuGroups": 6,
+      "oldSourceRejected": true,
+      "applied": true,
+      "approvalReview": "Initial shared-scope rejection preserved; root reviewed narrow patch and proof, and approval retry under repo-wide overnight authorization succeeded."
+    },
+    "settledPixelComparison": {
+      "predecessor-resized": {
+        "headUpperTorsoMeanAbsoluteError": 0.004612607215282811,
+        "pixelsAbovePoint1": 9,
+        "count": 45000
+      },
+      "current-resized": {
+        "headUpperTorsoMeanAbsoluteError": 0.004589135905141339,
+        "pixelsAbovePoint1": 12,
+        "count": 45000
+      }
+    },
+    "sourceQualifiedReport": {
+      "path": "captures/showcase-2026-09-09/stage-resize-approved/report.json",
+      "sha256": "aa69bd2960c5d3bc9e5f00a9b8655f34ea646bdab53b4fdb6b123fbef0c8f042"
+    },
+    "gpuChecks": [
+      "actual first resized temporal input uses current scaled dimensions and matching camera aspect",
+      "strict predecessor control fails that exact first-frame contract",
+      "resize preserves temporal/projection/scene-target identities and bounded texture ownership",
+      "old/current/fresh physical positions, velocities, ribbons, head, camera and time remain bit-identical",
+      "equally settled80-frame plates remain nonblank and close to fresh mobile without a warm-up speed claim",
+      "served source is attested, source files remain unchanged and browser errors are empty"
+    ],
+    "gpuErrors": []
+  },
+  "limits": [
+    "Existing stand-in garments have visible neckline/chest/skirt/sock patches; no whole-clothing geometric clearance or final-quality claim.",
+    "Only g050 clothes; no unsupported dye/sculpt/other-bake controls, hats or independently mixed top/bottom garments.",
+    "The short finite-motion gate is not a performance or all-motion stability guarantee.",
+    "Saved Avatar options exclude orbit and current motion time.",
+    "No shipping assets or physics kernels changed. Avatar change is the gender-axis JSDoc correction; Stage changes only the proven first-frame target-size synchronization."
+  ],
+  "archive": {
+    "path": "captures/showcase-2026-09-09",
+    "entries": 123,
+    "manifestSha256": "75eae238f3030be3dc8b3e1f88821d94e5a7096ab68a9d724669d94472fb9b8d"
+  }
+}

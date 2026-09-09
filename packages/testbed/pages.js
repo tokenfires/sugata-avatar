@@ -50,6 +50,13 @@ export const ACCEPTANCE = [
  */
 export const BROWSERCHECKS = [
     {
+        path: 'src/showcase.html',
+        name: 'showcase',
+        phase: 'Runtime lookbook · wardrobe studies',
+        blurb: 'Two clothed g050 starting looks on the real Avatar. Mix the supported outfits, turn the figure, and save its actual settings.',
+        gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu' ]
+    },
+    {
         path: 'src/portrait.html',
         name: 'portrait',
         phase: 'Runtime portrait · silhouette and expression',
