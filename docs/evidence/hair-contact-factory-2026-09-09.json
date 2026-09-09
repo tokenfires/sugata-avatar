@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-09-09",
+  "scope": "Optional synchronous HairDynamics contactFactory submission/lifetime boundary; no Avatar activation, body-contact implementation or asset change.",
+  "sourceHashes": {
+    "packages/core/src/motion/HairDynamics.js": "5b1b60e02f8040a0482d0905c03b3606c86745a41e1a271be557a22b811e827e",
+    "packages/core/src/motion/HairDynamics.contact.selftest.mjs": "fc748e21cff6fc018f78837bc2cbc669820750af0021b4b9ed5276b55c191b16",
+    "docs/HAIR-CONTACT-FACTORY.md": "1e5e934fa44fc836a3b3b9c60c573ddebb7db47edf1bc497c1aa72c6747c2dc7",
+    "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461"
+  },
+  "gpuTestedHairDynamicsSha256": "455bf45d90bd7fdf69336b93b2e2f7eb5af4caee66d918ed1f3e205f0a9480b8",
+  "finalSourceDifferenceAfterGpuChecks": "Only aggregate error formatting changed from error.message to String(error?.message ?? error), preserving thrown null/non-Error failures. The final 17-group CPU suite includes this case. No allocation, kernel, head, submission or cleanup behavior changed after the GPU checks.",
+  "unchangedAllocationKernelHeadStateBlockSha256": "1ec67e40d686cb7337036950eddef7ebfb88db3cb0e0f6d2c6659aee9a4eea0d",
+  "checks": {
+    "focusedCpu": {
+      "passed": 17,
+      "command": "node packages/core/src/motion/HairDynamics.contact.selftest.mjs"
+    },
+    "focusedGpu": {
+      "passedGpuGroups": 4,
+      "combinedRunAtTime": 20,
+      "cpuGroupsAtTime": 16,
+      "command": "node packages/core/src/motion/HairDynamics.contact.selftest.mjs --gpu",
+      "browserErrors": []
+    },
+    "existingHairQuick": {
+      "passed": 24,
+      "command": "node packages/core/src/motion/HairDynamics.selftest.mjs --quick",
+      "limitation": "Existing full motion rejection/performance blocks were not run."
+    },
+    "existingDisposal": {
+      "passed": 21,
+      "command": "node packages/core/src/motion/HairDynamics.disposal.selftest.mjs"
+    }
+  },
+  "gpuWitness": {
+    "restRoot": [
+      0.012016613967716694,
+      1.5082781314849854,
+      -0.03448118269443512
+    ],
+    "observedSubstepRoots": [
+      [
+        0.03201661258935928,
+        1.5082781314849854,
+        -0.03448118269443512
+      ],
+      [
+        0.05201661214232445,
+        1.5082781314849854,
+        -0.03448118269443512
+      ]
+    ],
+    "oneBatchCallsPerFrame": 1,
+    "finalRebuildRootCorrectionMeters": 0.001,
+    "observeOnlyEqualsDefault": {
+      "positionsHash": "36dfa5d55263284c982c7b58fa4d999ac2494c5fe87648d8014f0fdedacf1e72",
+      "velocitiesHash": "7a3c37329f02da019fabc1c3bc79c0fe5bc60d4e918c14d050f5dd8ebdf04d02",
+      "verticesHash": "8f558d1470524f44a8456a4c9a61ed7e73739efd22f0aec969bbdad91962d792"
+    },
+    "baseResources": {
+      "storage": 8,
+      "bytes": 980096,
+      "compute": 2
+    },
+    "afterEachOwnerResources": [
+      {
+        "storage": 8,
+        "bytes": 980096,
+        "compute": 2
+      },
+      {
+        "storage": 8,
+        "bytes": 980096,
+        "compute": 2
+      },
+      {
+        "storage": 8,
+        "bytes": 980096,
+        "compute": 2
+      }
+    ],
+    "additionalStorageAttributes": {
+      "default": 8,
+      "contact": 9
+    },
+    "contactDisposalsPerOwner": 1
+  },
+  "oldRetirementControl": {
+    "correctedStorageCounts": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "oldStorageCounts": [
+      8,
+      16,
+      24,
+      32
+    ],
+    "matchedVertexHashes": [
+      "c3b701e03fd9101fca4b21d1b047bb0a67891259360996230b7873bb646edd27",
+      "fa9ecee84d199f836654369f5064ad410a008e856fc1e483aa782e1fc7ecf26c",
+      "eef6639e25ed7fbe279d5566043070b42781406ebb14e771076c3775e70b5040",
+      "498618c516cbcb3cc8e84b0ac83bf561e10f5bd24428aebf0db1011037bd8887"
+    ]
+  },
+  "focusedRejectionControls": {
+    "previous-source": {
+      "exitCode": 1,
+      "sourceSha256": "07884764eb26a4bdeb0abd30221b47d24323f3d7fa598aad240453f7ab5b8e7d",
+      "lastPass": ""
+    },
+    "stale-raw-export": {
+      "exitCode": 1,
+      "sourceSha256": "bbd9303eb40db0c3c3dff298d2676fe83ed1b74c5c64f59b01a2d7f33ee58bce",
+      "lastPass": "PASS default raw node order, one-pass update, diagnostic path and report remain available"
+    },
+    "unchangedAllocationKernelHeadStateBlockSha256": "1ec67e40d686cb7337036950eddef7ebfb88db3cb0e0f6d2c6659aee9a4eea0d"
+  },
+  "ownership": [
+    "Private context borrows renderer, groom and three solver storage nodes. Factory disposes partial resources until it returns an owner.",
+    "Contact owner validation failure invokes available dispose before all five solver kernels and eight attributes.",
+    "Prepare only on submitted frames, reset passed explicitly; contact chooses to omit velocity finalizer.",
+    "Prepare, node-selection and submission failure retire solver to prevent retrying partially advanced body history.",
+    "Contact disposal precedes all borrowed buffer deletion; cleanup attempts every owned resource despite errors; repeat disposal no-ops.",
+    "Contact-enabled computeNodesFor refuses stale raw history; no-contact raw path unchanged.",
+    "All existing before-init, post-renderer-disposal and nested-await read ownership guards retained."
+  ],
+  "privateApiDependency": "Three r185 renderer._attributes?.delete(attribute), pre-existing dependency required to release owned GPU buffers and strong memory-map entries; real delete failures remain observable.",
+  "limitations": [
+    "Synthetic hook verifies orchestration, not a calibrated body-contact algorithm or real clothing/hair clearance.",
+    "No Avatar activation or supported-bake selection added. No shader equation, default setting, body collider or shipping GLB changed.",
+    "No whole-frame/contact performance claim; no full repository suite. Quick motion run omits historical rejection/performance blocks.",
+    "An invalid async extension owns resources it allocates after yielding; synchronous integration cannot cancel that work."
+  ],
+  "rawEvidence": {
+    "path": "captures/contact-factory-2026-09-09",
+    "manifestSha256": "1f138d2d39a11a72e2e5d5ebf3dc9341f2ada6e27893deb151ca467a0a4e062e",
+    "fileCountIncludingManifest": 14
+  }
+}

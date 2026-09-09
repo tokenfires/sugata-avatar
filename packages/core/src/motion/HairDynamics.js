@@ -462,10 +462,22 @@ function assertRingMajor( indices, cardVertexBase, cardCount, pointsPerChain ) {
  * @param {Object} options.geometry - the groom's `BufferGeometry`.
  * @param {Object} [options.settings] - overrides for `HAIR_DYNAMICS_DEFAULTS`.
  * @param {number} [options.colliderMargin=0.0] - metres subtracted from the fitted skull radius.
+ * @param {Function} [options.contactFactory] - synchronous, privately owned contact extension.
+ *   See docs/HAIR-CONTACT-FACTORY.md for borrowed buffers and submission/lifetime contracts.
  * @returns {Object} the running solver.
  */
 export function createHairDynamics( { renderer, geometry, settings = {}, colliderMargin = 0,
-    submit = 'onepass' } ) {
+    submit = 'onepass', contactFactory } ) {
+
+    // Reject invalid integration before deriving the groom or allocating any solver resources.
+    if ( contactFactory !== undefined ) {
+
+        if ( typeof contactFactory !== 'function' || contactFactory.constructor?.name === 'AsyncFunction' ) {
+            throw new TypeError( 'HairDynamics: contactFactory must be a synchronous function.' );
+        }
+        if ( submit === 'perkernel' ) throw new Error( 'HairDynamics: contactFactory requires one-pass submission.' );
+
+    }
 
     const groom = deriveCardGroom( geometry );
     const { chainCount, pointsPerChain, particleCount, cardVertexBase } = groom;
@@ -933,6 +945,8 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
     let stepsTaken = 0;
     let resetPending = true;
     let disposed = false;
+    let contactOwner = null;
+    let contactHooks = null;
 
     // How many `renderer.compute()` CALLS the last frame made — 1 when the submission is the shape
     // research doc §0.3 requires, and counted here rather than read off `renderer.info` because
@@ -1201,9 +1215,43 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
         if ( substeps === 0 ) return 0;
 
-        fillSubstepHeadMatrices( substeps );
+        let nodes;
+        if ( contactHooks !== null ) {
 
-        const nodes = [ ...solveNodes.slice( 0, substeps ), rebuildNode ];
+            try {
+
+                // The caller has updated the body pose already. Zero-step frames never advance
+                // its submitted history; reset is explicit so contact can omit velocity finalize.
+                synchronousResult( contactHooks.prepare( { substeps, reset: resetPending } ), 'prepare' );
+                requireLive( 'update' );
+                fillSubstepHeadMatrices( substeps );
+                nodes = [];
+                for ( let substep = 0; substep < substeps; substep ++ ) {
+
+                    const contactNodes = synchronousResult( contactHooks.nodesFor( substep ), 'nodesFor' );
+                    requireLive( 'update' );
+                    if ( ! Array.isArray( contactNodes ) || Array.from( contactNodes ).some( node => node?.isComputeNode !== true ) ) {
+                        throw new TypeError( 'HairDynamics.contact.nodesFor: expected an array of ComputeNodes.' );
+                    }
+                    nodes.push( solveNodes[ substep ], ...contactNodes );
+
+                }
+                nodes.push( rebuildNode );
+
+            } catch ( error ) {
+
+                // Preparation may have advanced private body history. Retire this owner instead
+                // of allowing the next update to submit against an uncommitted snapshot.
+                retireAfterFailure( error );
+
+            }
+
+        } else {
+
+            fillSubstepHeadMatrices( substeps );
+            nodes = [ ...solveNodes.slice( 0, substeps ), rebuildNode ];
+
+        }
 
         if ( submit === 'perkernel' ) {
 
@@ -1216,7 +1264,12 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
 
         } else {
 
-            renderer.compute( nodes );
+            if ( contactHooks !== null ) {
+                try { renderer.compute( nodes ); } catch ( error ) { retireAfterFailure( error ); }
+                requireLive( 'update' );
+            } else {
+                renderer.compute( nodes );
+            }
             computeCallsLastFrame = 1;
 
         }
@@ -1359,13 +1412,89 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         if ( disposed ) return;
         disposed = true;
         computeCallsLastFrame = 0;
-        for ( const node of [ ...solveNodes, rebuildNode ] ) node.dispose();
+        const errors = [];
+        const release = operation => {
+            try { operation(); } catch ( error ) { errors.push( error ); }
+        };
+        const owner = contactOwner;
+        const disposeContact = contactHooks?.dispose;
+        contactOwner = null;
+        contactHooks = null;
+        // Contact borrows solver attributes. Release its pipelines/storage first, even if a
+        // disposer fails; every remaining owned resource still receives its cleanup attempt.
+        if ( owner != null ) release( () => {
+            if ( disposeContact ) synchronousResult( disposeContact(), 'dispose' );
+            else if ( typeof owner.dispose === 'function' ) synchronousResult( owner.dispose(), 'dispose' );
+        } );
+        for ( const node of [ ...solveNodes, rebuildNode ] ) release( () => node.dispose() );
         for ( const buffer of [ positionBuffer, velocityBuffer, restCentreBuffer, restOffsetBuffer,
             restLengthBuffer, correctionBuffer, chainComplianceBuffer, cardVertexBuffer ] ) {
 
             // No manager exists before renderer initialization, hence no GPU attribute exists.
             // Do not swallow real deletion errors from an initialized manager.
-            renderer._attributes?.delete( buffer.value );
+            release( () => renderer._attributes?.delete( buffer.value ) );
+
+        }
+        if ( errors.length === 1 ) throw errors[ 0 ];
+        if ( errors.length > 1 ) throw new AggregateError( errors, 'HairDynamics.dispose: resource cleanup failed.' );
+
+    }
+
+    function synchronousResult( value, operation ) {
+
+        if ( value && typeof value.then === 'function' ) {
+            // A broken async extension must not also create an unhandled rejection. It still
+            // owns anything allocated after yielding: no synchronous caller can cancel that work.
+            Promise.resolve( value ).catch( () => {} );
+            throw new TypeError( `HairDynamics.contact.${ operation }: must be synchronous.` );
+        }
+        return value;
+
+    }
+
+    function retireAfterFailure( error ) {
+
+        try { dispose(); } catch ( cleanupError ) {
+            throw new AggregateError( [ error, cleanupError ],
+                `HairDynamics: ${ String( error?.message ?? error ) }; cleanup also failed.`, { cause: error } );
+        }
+        throw error;
+
+    }
+
+    function contactReport() {
+
+        requireLive( 'contactReport' );
+        const report = contactHooks === null ? null : synchronousResult( contactHooks.report(), 'report' );
+        requireLive( 'contactReport' );
+        return report;
+
+    }
+
+    if ( contactFactory !== undefined ) {
+
+        try {
+
+            contactOwner = contactFactory( Object.freeze( { renderer, groom, positionBuffer,
+                velocityBuffer, restLengthBuffer, substepSeconds: SUBSTEP_SECONDS,
+                maxSubstepsPerFrame: MAX_SUBSTEPS_PER_FRAME } ) );
+            synchronousResult( contactOwner, 'factory' );
+            if ( contactOwner === null || typeof contactOwner !== 'object' ) {
+                throw new TypeError( 'HairDynamics: contactFactory must return a contact owner.' );
+            }
+            const hooks = {};
+            for ( const name of [ 'prepare', 'nodesFor', 'dispose', 'report' ] ) {
+                const method = contactOwner[ name ];
+                if ( typeof method !== 'function' || method.constructor?.name === 'AsyncFunction' ) {
+                    throw new TypeError( `HairDynamics.contact.${ name }: expected a synchronous function.` );
+                }
+                hooks[ name ] = method.bind( contactOwner );
+            }
+            contactHooks = hooks;
+
+        } catch ( error ) {
+
+            retireAfterFailure( error );
 
         }
 
@@ -1383,6 +1512,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
          *  the cost of the simulation — and the solve nodes must precede the rebuild. */
         computeNodesFor: ( substeps ) => {
             requireLive( 'computeNodesFor' );
+            if ( contactHooks !== null ) throw new Error( 'HairDynamics.computeNodesFor: contact requires prepared body history; use update().' );
             return [ ...solveNodes.slice( 0, substeps ), rebuildNode ];
         },
 
@@ -1393,6 +1523,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         reset,
         readCentrelines,
         readVertices,
+        contactReport,
         dispose,
         get disposed() { return disposed; },
         get stepsTaken() { return stepsTaken; },
