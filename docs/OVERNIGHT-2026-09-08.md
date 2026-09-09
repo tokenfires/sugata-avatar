@@ -1,3 +1,5 @@
+> **Paused by Rob on September 9 at 06:30 PDT.** Read [the current pause checkpoint](PAUSED-2026-09-09.md) before resuming. The overnight automation is paused; pending rendering candidates are not installed. Next priority: cohesive, current testbed pages and accurate feature status.
+
 # Sugata overnight work — September 8–9, 2026
 
 The user explicitly resumed work after the afternoon pass. They confirmed that the chin-length
