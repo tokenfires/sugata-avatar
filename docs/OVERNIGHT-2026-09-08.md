@@ -37,19 +37,18 @@ and clothing combinations for human users. Keep MLX as a separate project.
 
 ## Current work and ownership
 
-Latest checkpoint is the08:30UTC section below; earlier sections retain the experimental history.
+Latest checkpoint is the09:00UTC section below; earlier sections retain the experimental history.
 No shipping long-bob GLB has changed yet. The exact corrected g050 candidate activates real core
 contact; the normal preview still loads the original asset. All shipping bob02 bytes are preserved.
 
-- Root: GPU owner for matched g050 baseline/nape natural12s andnod4s captures under
-  `/tmp/sugata-root-nape-motion`; current62-buffer prototype is physically isolated but too slow.
-- `continuity_audit`: post-capture exact full-triangle/opaque witness analysis; exhaustive nine-card
-  base/mip texel checks cost about75s per pose. Prioritize420/720/nod60 then finish remaining poses.
-- `orbit_render_audit`: isolated CPU forest shader/stage/owner prototype, preserving two independent
-  BVHs in three shared query buffers and one all496 stage. No GPU slot until geometry benefit.
-- `visual_next_step`: g025 registry and smoke committed. Transparent card44 margin crosses the
-  conservative face surface; CPU mip qualification underway, no new shape edit. Diagnostic
-  natural/nod±47-pose batch is prepared and queued after root GPU captures.
+- Root: forest full-portrait720-frame cost/parity/resource proof passes. GPU owner for85 further
+  g050 poses across nod−/yaw±/tilt±;17 states per8s arm. Production source stays frozen meanwhile.
+- `continuity_audit`: finished original22-pose exhaustive nape acceptance and focused ledger/doc;
+  adapting explicit forest provenance for new directions. No matched baseline for those yet.
+- `orbit_render_audit`: portable forest fixture/tests and explicit multi-domain dispatch preparation,
+  in unique scratch only. Actual forest transform/lifetime GPU checks queue after root captures.
+- `visual_next_step`: complete g02547-pose aggregates include residual face/root/curtain contacts.
+  CPU diagnosis found infeasible fixed-root spans in nod−; opaque relevance under analysis.
 
 The original long-bob assets are frozen under `captures/long-bob-2026-09-08/originals/`, with their
 hashes below. Visible page `/src/portrait.html?hair=bob01`; bob01 has five bakes, bob02 onlyg050.
@@ -469,9 +468,9 @@ No final clothing-quality or broader-body fitting claim is made.
   velocity states and8 orientation views, enabled cache/contact, zero errors and exact source
   freeze. At0.1s card44 spans14–15 have5 conservative face-crossing pairs, caused by transported
   width rotation, while centerlines remain14.7–15.6mm clear. All crossing UV rectangles plus halo
-  are alpha0 at mip0. Later CPU minification estimate (LOD4.30–4.77) finds low nonzero coverage,
-  not an observed opaque collision; it is not GPU textureSample parity. Keep geometric red and
-  opacity classification separate; no new groom adjustment is justified yet. Focused record010d6e9.
+  are alpha0 at mip0. The preliminary display-pixel LOD4.30–4.77 estimate is superseded by the
+  actual scene-resolution LOD4.89–5.37 qualification below. Keep geometric red and opacity
+  classification separate; no new groom adjustment is justified yet. Focused record010d6e9.
 - Original fixed-direction nape rest support is infeasible for one211 opaque witness across
   natural420/nod60. Instead, nine curtains188/193/198/201/202/211/217/223/272 can query the
   original1872 triangles plus204 positive dominant-neck additions. Across22 actual saved poses:
@@ -508,3 +507,80 @@ No final clothing-quality or broader-body fitting claim is made.
   arrays317280B include496 range headers; projected total35 solver buffers/7177952B, not yet
   observedGPU. Archive `body-surface-forest-cpu-2026-09-09`, manifest200b12a73beea867f7058ad13b522d6f55b5754279c236ba53c1dbc7ec2bfc3e.
   Isolated shader/stage/owner implementation proceeds CPU-only while motion evidence is reviewed.
+
+## Full g050 motion proof and forest correctness in progress — about08:50UTC
+
+- The complete four-arm capture has44 states/48 orientation views, zero errors, frozen sources
+  and exact draw-only camera/physics restoration. Each state includes full17516 hair vertices,
+  velocities, body/UV/topology and rig data. Sparse face samples/vertices are clear in all arms;
+  maximum link errors remain exactly.346813mm natural and.333849mm nod in both controls.
+  Archive `bob01-g050-nape-motion-2026-09-09`,431 entries, manifest
+  fd7e218ce969f0837a9ea159dd601a43251053f7354b32f7c5c297b33cd9b30d.
+- Independent full-triangle replay of22 widened poses finds face0, original-domain0 and nine-chain
+  nape-superset0; natural curtain pairs0. All487 unchanged cards retain bit-exact centers, velocities
+  and vertices; all non-card cap positions are also bit-exact. No new ribbon pair identities;
+ 136 old pair instances removed. All74 old negative opaque witnesses are now clear (+8.493 to
+  +18.447mm); previous211 negative family now at least+9.610mm. Root, width, cut and full-first-span
+  checks pass, global link-error maximum unchanged. Finished22-pose exhaustive opacity proof:
+ 20,354,620 evaluations clear, minimum+1.078904mm; acceptance archive manifest
+ 4c268e815510ef45359e9ce958012c3f0fc7574b84ee0df463d1ecdae94ec8db.
+- Nod keeps5 outside-domain upper-root pair identities on217/272 in six poses; mip0 AABBs+halo
+  are transparent, but272 higher-mip bounds contain nonzero alpha. Nod also retains20–30 cap
+  pairs. These are preserved baseline limitations; this is not a whole-body zero-collision claim.
+  Matched rear images show no obvious new broad ledge/silhouette change, but layered diagonal
+  cards and uneven inner ends remain visible. No finished rear-style or AAA claim.
+- Forest source review finds no issue: separate trees keep independent boundary masks/history;
+  source IDs remain canonical while ordered IDs relocate globally. Chain headers share topology
+  storage so query dispatch remains within8 bindings. Candidate files under body-surface-2026-09-09:
+  query3f84ea4a…, contactc29e6859…, owner16f4ae6c…, packercd70967f…. Six CPU packing groups,
+ 19 owner/lifecycle groups and3 source-reversal groups pass. Direct GPU correctness is now running;
+  actual Avatar cost/parity instrumentation is prepared but not launched. Do not promote yet.
+- g025 actual loaded alpha GPU texture:72 explicit-LOD queries, rgba8unorm-srgb/11mips/repeat/
+  linear/anisotropy1 verified; max CPU-vs-GPU alpha difference.002216. Four front clipped witnesses
+  have2.67–18.38% alpha at inferred scene-resolution LOD4.89–5.37. None is opaque at.5, but actual
+  raster derivatives/final stochastic compositing remain unverified; do not claim invisibility.
+  Archive `bob01-g025-alpha-footprint-2026-09-09`,14 entries; findings994c7760….
+- The new g02547-pose diagnostic capture has zero errors/frozen sources and36 restored orientation
+  views. An early progress summary overgeneralized a zero-count log tail; the SAVED instruments
+  consistently record nonzero face counts. Complete per-arm maxima (natural/nod+/nod−):
+  face7/7/13, original-neck0/0/4, caps0/26/80, curtains21/14/47. Natural has face pairs at4/5/6/7s
+  of5/5/7/5; moving curtain union212/224/422. Earlier natural all-clear claims are superseded.
+  A few velocities peak at2.188m/s at12s(card31/ring9), median.046m/s,p99.127m/s. No acceptance.
+
+## Forest performance passes; remaining directions underway — about09:00UTC
+
+- Independent forest GPU proof:43,200 exact point/whole-span comparisons across moving surfaces,
+  alpha0/.5/1 and cold/warm/cross-domain seeds;20 physical cases(two all496 fixtures×16regular/
+ 64reset×five arms) exact. Stock single-domain matches independent/forest identical-domain
+  partitions; widened independent/forest matches centers, velocities, rebuilt vertices, planes,
+  parameters, normalized cache IDs/counters and reuse flags. Actual8storage query bindings;
+  every arm returns owned buffers/pipelines to baseline. Zero errors, frozen source hashes.
+  Archive `body-surface-forest-gpu-2026-09-09`,25 entries, manifest
+ 6a2a3ca66dbd454057dfb74b0178e9dd2a23c752e411b23d225426741aeef21d.
+- Root's actual720-frame same-nape comparison now passes ALL496 final positions/velocities/
+  rebuilt vertices, head and steps exactly. Wall median22.0→15.1ms,p9523.3→16.7; compute median
+ 18.252638→11.344910ms,p9519.583368→12.580433. Same716x750 canvas and32 warm+720 fixed60
+  frames, two substeps. Timings exclude timestamp/rAF/compositor waits, not a general60FPS claim.
+  After saving final state AND screenshot, an untimed four-substep update allocates all slots:
+  independent62buffers/7,709,664B/37compute pipelines; forest35/7,177,952B/21. Both disposeHair
+  calls return buffers/bytes/compute pipelines to0. Archive37 entries,
+  `body-contact-forest-frame-cost-2026-09-09`, manifest
+  f160b23624aa6c6ea0446594aaecc3a3717c48569ffff5e641b52b8bfc63e063.
+- Five broader g050 captures now run under the frozen forest candidate: nod−,yaw±,tilt±,8s each,
+ 17 samples and12 orientation images perarm. They preserve exact raw dependency source bytes/
+  hashes and actual transformed owner/data responses. The response hook does not snapshot
+  transformed forest query/stage/pack dependency bytes; that is an explicit provenance limit.
+  A separate qualifying0/.1s smoke with an extended response hook is prepared, without mutating
+  the live capture. Do not relabel current captures as having that additional served-byte proof.
+- First nod− arm completes17states, zero errors/source drift, sparse face inside0. Max link error
+  .927860mm is larger than prior natural/nod+; new mode has no matched old-domain baseline yet,
+  so root has requested worst-chain/fixed-root analysis before attributing a regression.
+- Intended integration keeps the existing single-domain query/owner for g025/default paths;
+  only an exact validated calibration with explicit multiple contactDomains selects the forest.
+  No production edits or shipping assets yet; portable regression is being prepared in scratch.
+- g025 nod− four neck residuals are span0 of cards281/383/396, with exact closest segment t=0
+  at fixed roots. Norm-tube deficits1.079/1.928/5.984mm; firstspan max-radius deficits2.497/
+ 1.928/5.984mm. Both root corners100%head; no neck-weight wiring mismatch. Root mass0 and
+  beta0 leave no free endpoint to project, so more iterations cannot resolve these contacts.
+  Crossing UV boxes+halo are transparent at mip0; higher-mip/opaque and velocity attribution
+  remain separate work. Activation here is exact saved-state reevaluation, not GPU telemetry.
