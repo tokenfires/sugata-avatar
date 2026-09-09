@@ -9,17 +9,45 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Matrix4, Vector3 } from 'three';
-import { measureHairSurface } from '../figure-pipeline/hair_surface.mjs';
+import { measureHairSurface, DEFAULT_HEAD_BOUNDS, DEFAULT_FACE_BOUNDS } from '../figure-pipeline/hair_surface.mjs';
+import { CAPTURE_REGION, captureTarget, parseCaptureOptions, validateCaptureRuntime, validateLoadedAssets } from './portrait-clearance.mjs';
 
 const sha = bytes => createHash( 'sha256' ).update( bytes ).digest( 'hex' );
 const read = file => JSON.parse( fs.readFileSync( file, 'utf8' ) );
 const finite = values => Array.isArray( values ) && values.every( Number.isFinite );
+
+// The g050 box was measured against this exact body. A new body revision needs an
+// explicit calibration review; matching a new response hash alone cannot inherit it.
+export const CALIBRATED_BODY_SHA256 = 'b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14';
+function captureCalibration( capture, directory ) {
+    const { options, region, sourceHashes, loadedAssets } = capture;
+    const has = ( object, key ) => object != null && Object.hasOwn( object, key );
+    const modern = has( capture, 'region' ) || has( capture, 'loadedAssets' ) ||
+        has( options, 'hair' ) || has( options, 'bake' ) || has( sourceHashes, 'body' );
+    if ( ! modern ) return { target: null, faceBounds: DEFAULT_FACE_BOUNDS,
+        evidence: { status: 'legacy-unattested', bake: 'g050', calibration: CAPTURE_REGION.calibration,
+            limitation: 'Historical capture lacks body-response and selection attestation; fixed g050 bounds retained for compatibility.' } };
+    const expected = { ...CAPTURE_REGION, bodySha256: CALIBRATED_BODY_SHA256 };
+    if ( ! region || Object.keys( region ).length !== Object.keys( expected ).length ||
+        Object.entries( expected ).some( ( [ key, value ] ) => region[ key ] !== value ) ) throw new Error( 'Capture region/body calibration is missing, unsupported or changed.' );
+    if ( ! options || typeof options.url !== 'string' || ! [ 'bob01', 'bob02' ].includes( options.hair ) || options.bake !== 'g050' ) throw new Error( 'Capture lacks a supported explicit hair/body selection.' );
+    // Reuse the CLI contradiction checks without starting a browser or touching outputs.
+    parseCaptureOptions( [ '--out', directory, '--url', options.url, '--hair', options.hair, '--bake', options.bake ], {} );
+    if ( sourceHashes?.body !== CALIBRATED_BODY_SHA256 || ! /^[a-f0-9]{64}$/.test( sourceHashes?.groom ?? '' ) ) throw new Error( 'Capture source hashes disagree with the calibrated body or lack a groom hash.' );
+    if ( ! Array.isArray( loadedAssets ) || loadedAssets.some( asset => ! asset || typeof asset.url !== 'string' || ! /^[a-f0-9]{64}$/.test( asset.sha256 ?? '' ) ) ) throw new Error( 'Capture lacks valid loaded GLB response provenance.' );
+    validateLoadedAssets( loadedAssets, sourceHashes );
+    const target = captureTarget( options );
+    validateCaptureRuntime( capture.descriptor?.report, target );
+    return { target, faceBounds: { min: [ -Infinity, region.minY, region.minZ ], max: [ Infinity, region.maxY, Infinity ] },
+        evidence: { status: 'attested-g050', hair: options.hair, ...expected } };
+}
 
 export function measurePortraitSurface( directory, onPose = () => {} ) {
     const capturePath = path.join( directory, 'report.json' );
     const capture = read( capturePath );
     if ( ! Array.isArray( capture.errors ) || capture.errors.length ) throw new Error( 'Capture has errors or lacks its completion report.' );
     const { descriptor, samples, options } = capture;
+    const calibration = captureCalibration( capture, directory );
     if ( ! options || ! [ options.seconds, options.fps, options.stride ].every( value => Number.isFinite( value ) && value > 0 ) || ! Number.isInteger( options.stride ) ) throw new Error( 'Capture lacks valid duration/cadence.' );
     if ( ! descriptor || ! Array.isArray( descriptor.cardIndices ) || ! Array.isArray( samples ) || ! samples.length ) throw new Error( 'Capture has no measured poses/topology.' );
     if ( ! Number.isInteger( descriptor.cardVertexCount ) || descriptor.cardVertexCount <= 0 ) throw new Error( 'Invalid card vertex count.' );
@@ -37,6 +65,7 @@ export function measurePortraitSurface( directory, onPose = () => {} ) {
     if ( new Set( expectedFiles ).size !== samples.length || JSON.stringify( actualFiles ) !== JSON.stringify( [ ...expectedFiles ].sort() ) ) throw new Error( 'Capture frame files and completion report disagree.' );
     const results = samples.map( ( sample, index ) => {
         const file = expectedFiles[ index ], raw = fs.readFileSync( path.join( directory, file ) ), state = JSON.parse( raw );
+        if ( calibration.target ) validateCaptureRuntime( state.report, calibration.target );
         if ( state.time !== sample.time || state.verticesSpace !== 'world' || state.vertexBase !== descriptor.cardVertexBase ) throw new Error( `Pose metadata mismatch: ${ file }` );
         if ( ! finite( state.headMatrix ) || state.headMatrix.length !== 16 || ! finite( state.vertices ) || state.vertices.length !== descriptor.cardVertexCount * 3 || ! finite( state.bodyPositions ) || state.bodyPositions.length < 9 || state.bodyPositions.length % 3 || ! Array.isArray( state.bodyIndices ) || state.bodyIndices.length < 3 ) throw new Error( `Invalid pose arrays: ${ file }` );
         const matrix = new Matrix4().fromArray( state.headMatrix );
@@ -49,7 +78,8 @@ export function measurePortraitSurface( directory, onPose = () => {} ) {
         };
         const measurement = measureHairSurface(
             { positions: transform( state.vertices ), indices: descriptor.cardIndices },
-            { positions: transform( state.bodyPositions ), indices: state.bodyIndices } );
+            { positions: transform( state.bodyPositions ), indices: state.bodyIndices },
+            { headBounds: DEFAULT_HEAD_BOUNDS, faceBounds: calibration.faceBounds } );
         if ( measurement.selectedHairTriangles === 0 || measurement.selectedBodyTriangles === 0 ) throw new Error( `Empty calibrated comparison; check pose coordinate alignment: ${ file }` );
         const result = { file, time: state.time, frameSha256: sha( raw ), ...measurement };
         onPose( result );
@@ -57,7 +87,7 @@ export function measurePortraitSurface( directory, onPose = () => {} ) {
     } );
     return {
         version: 1, directory: path.resolve( directory ), captureReportSha256: sha( fs.readFileSync( capturePath ) ),
-        sourceHashes: capture.sourceHashes,
+        sourceHashes: capture.sourceHashes, calibration: calibration.evidence,
         instrumentSha256: sha( fs.readFileSync( new URL( '../figure-pipeline/hair_surface.mjs', import.meta.url ) ) ),
         replayInstrumentSha256: sha( fs.readFileSync( fileURLToPath( import.meta.url ) ) ),
         method: 'Both GPU card vertices and posed body transformed by inverse captured headMatrix; triangle-prism intersection; no alpha filtering.',

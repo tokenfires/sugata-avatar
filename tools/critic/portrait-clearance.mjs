@@ -9,21 +9,70 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { Matrix4, Vector3 } from 'three';
 import { SurfaceGrid } from '../figure-pipeline/hair_geometry.mjs';
+import { readGlb, readPrimitive } from '../lut-bake/glb.mjs';
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const options = { url:'http://127.0.0.1:5197/src/portrait.html?hair=bob02&capture', out:null,
-    groom:null, stimulus:'idle', direction:1, seconds:12, fps:60, stride:60, playwright:process.env.PLAYWRIGHT_MODULE };
-for(let i=2;i<process.argv.length;i+=2){
-    const key=process.argv[i].slice(2).replace(/-([a-z])/g,(_,s)=>s.toUpperCase());
-    if(!(key in options) || process.argv[i+1]===undefined) throw new Error(`Unknown/missing option ${process.argv[i]}`);
-    options[key]=['seconds','fps','stride','direction'].includes(key)?Number(process.argv[i+1]):process.argv[i+1];
+const sha=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+// This box is calibrated to the figure, not the haircut. Both bobs share g050's body.
+// Other bakes move head/body landmarks; do not label their results with this box.
+export const CAPTURE_REGION = Object.freeze({bake:'g050',gender:0.5,
+    calibration:'figure-g050-head-rest-v1', minY:1.43,maxY:1.565,minZ:0.06});
+export function parseCaptureOptions(args, env=process.env) {
+    const options={url:'http://127.0.0.1:5197/src/portrait.html?capture',out:null,hair:null,bake:'g050',
+        groom:null,stimulus:'idle',direction:1,seconds:12,fps:60,stride:60,playwright:env.PLAYWRIGHT_MODULE};
+    const seen=new Set();
+    for(let i=0;i<args.length;i+=2){
+        const flag=args[i],key=flag.slice(2).replace(/-([a-z])/g,(_,s)=>s.toUpperCase());
+        if(!flag.startsWith('--')||!Object.hasOwn(options,key)||args[i+1]===undefined||args[i+1].startsWith('--')||seen.has(key))throw new Error(`Unknown, duplicate or missing option ${flag}`);
+        seen.add(key);options[key]=['seconds','fps','stride','direction'].includes(key)?Number(args[i+1]):args[i+1];
+    }
+    if(!options.out)throw new Error('--out is required; each candidate must have its own evidence directory.');
+    for(const key of ['seconds','fps','stride'])if(!Number.isFinite(options[key])||options[key]<=0)throw new Error(`Invalid ${key}`);
+    if(!Number.isInteger(options.stride))throw new Error('--stride must be an integer.');
+    if(![1,-1].includes(options.direction))throw new Error('--direction must be 1 or -1.');
+    if(!['idle','shake','nod','tilt'].includes(options.stimulus))throw new Error('--stimulus must be idle, shake, nod or tilt.');
+    const url=new URL(options.url);
+    if(!['http:','https:'].includes(url.protocol))throw new Error('--url must be an HTTP(S) portrait URL.');
+    for(const key of ['hair','bake','gender'])if(url.searchParams.getAll(key).length>1)throw new Error(`Duplicate URL ${key} selection.`);
+    const urlHair=url.searchParams.get('hair');
+    if(options.hair!==null&&urlHair!==null&&options.hair!==urlHair)throw new Error('--hair contradicts the URL hair selection.');
+    options.hair=options.hair??urlHair??'bob02';
+    if(!['bob01','bob02'].includes(options.hair))throw new Error('--hair must be bob01 or bob02.');
+    if(options.bake!=='g050'||(url.searchParams.has('bake')&&url.searchParams.get('bake')!=='g050')||
+        (url.searchParams.has('gender')&&Number(url.searchParams.get('gender'))!==0.5))throw new Error('Only --bake g050 is calibrated for this capture face box; other bakes need measured body bounds and replay support.');
+    url.searchParams.set('hair',options.hair);url.searchParams.set('capture','');options.url=url.href;
+    options.out=path.resolve(options.out);if(options.groom)options.groom=path.resolve(options.groom);
+    return options;
 }
-if(!options.out)throw new Error('--out is required; each candidate must have its own evidence directory.');
-for(const key of ['seconds','fps','stride'])if(!Number.isFinite(options[key])||options[key]<=0)throw new Error(`Invalid ${key}`);
-if(!Number.isInteger(options.stride))throw new Error('--stride must be an integer.');
-if(![1,-1].includes(options.direction))throw new Error('--direction must be 1 or -1.');
-if(!['idle','shake','nod','tilt'].includes(options.stimulus))throw new Error('--stimulus must be idle, shake, nod or tilt.');
+export function captureTarget(options) {
+    if(!['bob01','bob02'].includes(options.hair)||options.bake!=='g050')throw new Error('Capture target requires bob01 or bob02 on calibrated g050.');
+    return {hair:options.hair,bake:options.bake,figureBake:`figure_${options.bake}`,
+        groomFile:options.groom??path.join(root,`assets/hair/${options.hair}/${options.bake}.glb`),
+        bodyFile:path.join(root,`assets/figures/figure_${options.bake}.glb`),
+        groomRequestPath:`/assets/hair/${options.hair}/${options.bake}.glb`};
+}
+export function captureAssetHashes(target) {
+    readPrimitive(readGlb(target.groomFile),`hair_${target.hair}`);
+    return {groom:sha(target.groomFile),body:sha(target.bodyFile)};
+}
+export function matchesGroomRequest(url,target) {
+    return decodeURIComponent(new URL(url).pathname).endsWith(target.groomRequestPath);
+}
+export function validateCaptureRuntime(report,target) {
+    const hair=report?.hair;
+    if(hair?.attached!==true||hair.style!==target.hair||hair.loadedStyle!==target.hair||hair.bake!==target.figureBake||
+        report.identity?.bake!==target.figureBake||report.identity?.gender!==CAPTURE_REGION.gender||!Number.isInteger(hair.solver?.chains)||hair.solver.chains<=0)
+        throw new Error(`Capture requires an attached ${target.hair}/${target.bake} solver on the calibrated midpoint body; runtime selection disagrees.`);
+}
+export function validateLoadedAssets(assets,sourceHashes) {
+    for(const kind of ['groom','body'])if(assets.filter(asset=>asset.sha256===sourceHashes[kind]).length!==1)
+        throw new Error(`Expected exactly one loaded ${kind} GLB matching its recorded source hash.`);
+}
+export async function runPortraitClearance(options) {
+const target=captureTarget(options);
+// A routed groom must retain its selected mesh identity. Style labels alone cannot prove that.
+const assetHashes=captureAssetHashes(target);
 options.out=path.resolve(options.out);
 if(fs.existsSync(options.out)&&fs.readdirSync(options.out).length)throw new Error('Evidence directory is not empty; use a new --out.');
 fs.mkdirSync(options.out,{recursive:true});
@@ -34,11 +83,10 @@ for(const candidate of candidates){try{playwright=require(candidate);break;}catc
 if(!playwright)throw new Error('Playwright not found; supply --playwright or PLAYWRIGHT_MODULE.');
 const browser=await playwright.chromium.launch({channel:'chromium',headless:true,
     args:['--enable-unsafe-webgpu','--ignore-gpu-blocklist','--hide-scrollbars']});
-const samples=[],errors=[];
+const samples=[],errors=[],loadedAssets=[],assetReads=[];
 let replacedGroomRequests=0;
-const sha=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const sourceHashes=Object.fromEntries(['packages/core/src/Avatar.js','packages/core/src/motion/HairDynamics.js','packages/core/src/material/HairMaterial.js','packages/testbed/src/portrait.js','tools/critic/portrait-clearance.mjs'].map(file=>[file,sha(path.join(root,file))]));
-sourceHashes.groom=sha(options.groom??path.join(root,'assets/hair/bob02/g050.glb'));
+Object.assign(sourceHashes,assetHashes);
 let descriptor;
 function summary(values){
     if(!values.length)return {count:0,minMm:null,p01Mm:null,medianMm:null,inside:0};
@@ -54,15 +102,22 @@ try{
     page.on('pageerror',e=>errors.push(e.message));
     page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
     page.on('requestfailed',request=>errors.push(`${request.url()} ${request.failure()?.errorText}`));
-    page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
+    page.on('response',r=>{
+        if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);
+        if(r.ok()&&new URL(r.url()).pathname.endsWith('.glb'))assetReads.push(r.body().then(bytes=>{
+            loadedAssets.push({url:r.url(),sha256:createHash('sha256').update(bytes).digest('hex')});
+        }).catch(error=>{errors.push(`GLB response read failed: ${error.message}`);}));
+    });
     if(options.groom){
         const asset=fs.readFileSync(path.resolve(options.groom));
-        await page.route('**/assets/hair/bob02/g050.glb*',route=>{replacedGroomRequests++;return route.fulfill({status:200,contentType:'model/gltf-binary',body:asset});});
+        await page.route(url=>url.origin===new URL(options.url).origin&&matchesGroomRequest(url,target),route=>{replacedGroomRequests++;return route.fulfill({status:200,contentType:'model/gltf-binary',body:asset});});
     }
     await page.goto(options.url,{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>!!window.portrait||!document.querySelector('#error').hidden,null,{timeout:90000});
     const failure=await page.locator('#error').textContent();if(failure)throw new Error(failure);
-    if(options.groom&&replacedGroomRequests!==1)throw new Error(`Expected exactly one substituted groom request, got ${replacedGroomRequests}.`);
+    if(options.groom&&replacedGroomRequests!==1)throw new Error(`Expected exactly one substituted ${target.hair}/${target.bake} groom request, got ${replacedGroomRequests}. Overrides require the canonical development asset URL.`);
+    validateCaptureRuntime(await page.evaluate(()=>avatar.report()),target);
+    await Promise.all(assetReads);validateLoadedAssets(loadedAssets,sourceHashes);
     if(options.stimulus!=='idle')await page.evaluate(async({root,stimulus,direction})=>{
         const base='/@fs'+root+'/packages/core/src/motion/';
         const [{Layer},{restRotationRelativeToRig,toBoneDeltaFrame}]=await Promise.all([import(base+'Layer.js'),import(base+'Breath.js')]);
@@ -91,6 +146,7 @@ try{
         return {chainCount:g.chainCount,pointsPerChain:g.pointsPerChain,cardVertexBase:g.cardVertexBase,
             cardVertexCount:g.cardVertexCount,cardIndices,restCentres:Array.from(g.restCentres),restLengths:Array.from(g.restLengths),report:avatar.report()};
     });
+    validateCaptureRuntime(descriptor.report,target);
     const steps=Math.round(options.seconds*options.fps);
     for(let frame=0;frame<=steps;frame++){
         if(options.stimulus==='idle'&&frame===Math.round(3*options.fps))await page.locator('[data-expression="joy"]').click();
@@ -120,6 +176,7 @@ try{
                 skull:centers.skull,steps:centers.steps,vertices:vertices?Array.from(vertices.positions):null,verticesSpace:vertices?.space??null,vertexBase:vertices?.vertexBase??null,
                 bodyPositions:Array.from(positions),bodyNormals:Array.from(normals),bodyIndices:Array.from(body.geometry.index.array),report:avatar.report()};
         });
+        validateCaptureRuntime(state.report,target);
         if(Math.abs(state.time-frame/options.fps)>1e-8*Math.max(1,frame/options.fps))throw new Error('Capture clock reset or drifted; discard this run.');
         const grid=new SurfaceGrid(state.bodyPositions,state.bodyNormals,state.bodyIndices);
         const inverse=new Matrix4().fromArray(state.headMatrix).invert(),point=new Vector3(),restPoint=new Vector3();
@@ -131,7 +188,7 @@ try{
                 const p=positions.slice(i*3,i*3+3),hit=grid.nearest(p);if(!hit)continue;
                 all.push(hit.signed);point.fromArray(p).applyMatrix4(inverse);
                 // Explicit geometric selection, not a claim of semantic face segmentation.
-                if(point.y>=1.43&&point.y<=1.565&&point.z>=.06){
+                if(point.y>=CAPTURE_REGION.minY&&point.y<=CAPTURE_REGION.maxY&&point.z>=CAPTURE_REGION.minZ){
                     face.push(hit.signed);if(hit.signed<.002)worst.push({index:isVertices?i+state.vertexBase:i,clearanceMm:hit.signed*1000,world:p,headRest:point.toArray()});
                 }
             }
@@ -158,7 +215,7 @@ try{
                 for(const weights of [[.5,.5,0],[.5,0,.5],[0,.5,.5],[1/3,1/3,1/3]]){
                     const p=[0,1,2].map(k=>state.vertices[a+k]*weights[0]+state.vertices[b+k]*weights[1]+state.vertices[c+k]*weights[2]);
                     point.fromArray(p).applyMatrix4(inverse);
-                    if(point.y>=1.43&&point.y<=1.565&&point.z>=.06)probes.push(...p);
+                    if(point.y>=CAPTURE_REGION.minY&&point.y<=CAPTURE_REGION.maxY&&point.z>=CAPTURE_REGION.minZ)probes.push(...p);
                 }
             }
             surfaceSamples=measure(probes,false);
@@ -172,9 +229,15 @@ try{
         console.log(JSON.stringify(sample));
     }
     await page.close();
+}catch(error){
+    errors.push(error.message);throw error;
 }finally{
     await browser.close();
-    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,hmrSuppressed:true,sourceHashes,replacedGroomRequests,descriptor,samples,errors,
+    fs.writeFileSync(path.join(options.out,'report.json'),JSON.stringify({options,region:{...CAPTURE_REGION,bodySha256:sourceHashes.body},hmrSuppressed:true,sourceHashes,loadedAssets,replacedGroomRequests,descriptor,samples,errors,
         limits:['SurfaceGrid signed distance uses the renderer-equivalent morphed/skinned vertex normals of the same frame body; this differs at seams from recomputed geometric normals.','Face region is an explicit axis-aligned box in inverse head-matrix coordinates.','Centers do not certify ribbon edges unless vertex readback is present.','Surface samples are three edge midpoints and one centroid per face-region triangle, not an exhaustive intersection proof; alpha is not sampled.','Fixed-step capture does not measure frame budget.']},null,2));
 }
 if(errors.length)process.exitCode=1;
+}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+    await runPortraitClearance(parseCaptureOptions(process.argv.slice(2)));
+}
