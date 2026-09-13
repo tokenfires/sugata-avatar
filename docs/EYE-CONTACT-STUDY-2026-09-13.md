@@ -1,5 +1,7 @@
 # Viewer eye contact study — September 13, 2026
 
+Follow-on: [bounded solver and native motion ownership prototype](EYE-AIM-OWNER-2026-09-13.md) now includes fresh eyelid-following comparisons. The diagnostic results below remain unchanged.
+
 The existing Portrait attention gesture turns toward the viewer. A measured per-eye correction gives a modest improvement in apparent direction in the reviewed stills. Full and gentle motion candidates are saved for comparison, with natural small eye movements and the action's onset/release. **Both remain experimental study code; Portrait still uses the accepted attention action.**
 
 Open the local [comparison gallery](../captures/eye-contact-study-2026-09-13/gallery/review.html). It has three synchronized recordings, exact-moment original PNG links, and natural/hair-hidden still comparisons from three cameras. Run the normal testbed preview to view it. [The existing action](ATTENTION-ACTION-2026-09-13.md) retains its separate runtime qualification.
