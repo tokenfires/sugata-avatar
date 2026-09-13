@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-13T15:25:26.815593+00:00",
+  "model": "qwen3-4b-instruct-2507-mlx",
+  "modelFormat": "mlx",
+  "lmStudioVersion": "0.4.24+1",
+  "load": {
+    "downloadedBeforeTest": true,
+    "contextLength": 8192,
+    "parallel": 1,
+    "idleTtlSeconds": 3600
+  },
+  "compatibility": {
+    "connected": true,
+    "turns": 6,
+    "replyAndTier2Succeeded": 6,
+    "actualResponses": 14,
+    "allResponsesHttp200AndStop": true,
+    "inferenceInterception": false,
+    "productionCodeChanged": false
+  },
+  "latencyMs": {
+    "lastReplyMs": {
+      "min": 2957.300000000745,
+      "median": 3020.600000000559,
+      "max": 3269.800000000745
+    },
+    "lastAppraisalMs": {
+      "min": 992.0999999996275,
+      "median": 1069.5999999996275,
+      "max": 1847.4000000003725
+    },
+    "lastTurnMs": {
+      "min": 3950.60000000149,
+      "median": 4080.5,
+      "max": 4931.5999999996275
+    }
+  },
+  "otherModels": [
+    {
+      "model": "qwen3.6-35b-a3b-mtp",
+      "result": "Both original schemas exhaust the token limit in reasoning. Per-request reasoning: off was also ineffective in the tested OpenAI-compatible endpoint. No global model configuration was changed."
+    },
+    {
+      "model": "qwen3.8-27b-mlx-mtplx",
+      "result": "Both schemas returned validated JSON in reasoning_content under diagnostic 30s deadlines. Reply3555ms; affect4145ms, exceeding the actual4s appraisal deadline. Not certified as working in the actual page."
+    }
+  ],
+  "limits": [
+    "Six synthetic turns prove this tested connection/request path, not general conversation reliability or human-level emotion quality.",
+    "Nervous presentation was labelled annoyed with negative arousal. Schema validity and expression correctness are separate.",
+    "Raw browser broad pass remains false for a generic404. Separate no-inference boot probe reproduces only favicon.ico404. All14 model API requests succeeded; no assertion was silently changed.",
+    "The initial browser harness stopped after its first turn due to a reporting textContent() typo; v2 corrected it. The initial error-only boot probe had a readiness guard typo, corrected before its saved result.",
+    "Cold first direct4B reply took13.14s; real Connect warm-up is required. No inference request deadlines were raised in the browser."
+  ],
+  "sourceHashes": {
+    "packages/testbed/src/converse.js": "62b282deb29c083e9471a663fdbd55f67e8004c3f72d0705980bf29c2e886436",
+    "packages/core/src/affect/LMStudioClient.js": "ea03f1f98aaa110ffeba7a60cc2798a9a039627abd124d904c21fdc81497693d"
+  },
+  "rawDirectory": "captures/converse-live-2026-09-13",
+  "manifest": {
+    "path": "docs/evidence/converse-live-2026-09-13.manifest.json",
+    "files": 19,
+    "bytes": 1087243,
+    "sha256": "2ca2af48f72b61c62ff0cd5002f4eb60953677886e370b9ac65f7cd80fd8a53e"
+  },
+  "critic": {
+    "replayGroups": 5,
+    "browserSampleIndependentlyVerified": true,
+    "review": "captures/converse-live-2026-09-13/critic/REVIEW.md"
+  }
+}
