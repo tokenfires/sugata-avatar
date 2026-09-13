@@ -42,7 +42,12 @@ export const PAGE_GROUPS = [
                 blurb: 'Explore two complete starting looks, change the light and framing, then save a PNG image or the avatar settings.',
                 boundary: 'Two starting outfits on one body study. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
-                source: 'packages/testbed/src/showcase.js', review: PREVIEW_REVIEW,
+                source: 'packages/testbed/src/showcase.js',
+                review: {
+                    kind: 'previously-verified', date: '2026-09-13',
+                    detail: 'The casual trousers now fall over the shoes without the prior sock patches in matched resting and moving-pose views. Upper fit, skirt layering and additional bodies remain in development. Outfit switching and image/settings export are verified.',
+                    evidence: 'docs/WARDROBE-TROUSER-FIT-2026-09-13.md'
+                },
                 gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
             }
         ]

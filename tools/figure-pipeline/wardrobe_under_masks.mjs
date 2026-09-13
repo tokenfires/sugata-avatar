@@ -38,12 +38,20 @@ export function originalWardrobeFoundation( garmentId, bake = 'g050' ) {
     return original;
 }
 
-/** Body and outer-cloth fingerprints are part of the calibration, not optional fit suggestions. */
+// This reviewed successor retains every cloth triangle supporting the frozen mask selections.
+// All 23,310 authored/historical-pose footprint checks pass using the unchanged subset alone.
+// See docs/WARDROBE-TROUSER-FIT-2026-09-13.md. The calibration payload and masks remain frozen.
+export const WARDROBE_MASK_ENVIRONMENT_SUCCESSORS = Object.freeze( {
+    female_casualsuit01: Object.freeze( [ '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783' ] )
+} );
+
+/** Exact original or explicitly reviewed successor fingerprints are mandatory. */
 export function validateWardrobeMaskEnvironment( environment = null ) {
     const expected = { body: WARDROBE_MASK_CALIBRATION.bodySha256, ...WARDROBE_MASK_CALIBRATION.outerGarments };
     for ( const [ id, digest ] of Object.entries( expected ) ) {
         const bytes = environment === null ? fs.readFileSync( path.join( wardrobeDirectory, id, 'g050.glb' ) ) : environment[ id ];
-        if ( ! bytes || sha256( bytes ) !== digest ) throw new Error( `Wardrobe mask environment digest mismatch: ${ id }` );
+        const allowed = [ digest, ...( WARDROBE_MASK_ENVIRONMENT_SUCCESSORS[ id ] ?? [] ) ];
+        if ( ! bytes || ! allowed.includes( sha256( bytes ) ) ) throw new Error( `Wardrobe mask environment digest mismatch: ${ id }` );
     }
 }
 
