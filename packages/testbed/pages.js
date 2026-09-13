@@ -14,8 +14,8 @@ const SOURCE_REVIEW = {
 const PREVIEW_REVIEW = {
     kind: 'previously-verified',
     date: '2026-09-13',
-    detail: 'Both bobs have matched WebGPU motion and settled-view checks; Wardrobe image export and resizing are verified. Broader outfit and expression quality remain in development.',
-    evidence: 'docs/HAIR-RENDER-HISTORY-2026-09-13.md'
+    detail: 'Both bobs have matched WebGPU motion checks. Softer brow and lash coverage is verified in still and blink samples; Wardrobe image export and resizing are verified. Broader outfit and expression quality remain in development.',
+    evidence: 'docs/FACE-CARD-COVERAGE-2026-09-13.md'
 };
 
 export const PAGE_GROUPS = [
@@ -55,7 +55,7 @@ export const PAGE_GROUPS = [
                 source: 'packages/testbed/src/converse.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Real WebGPU page and local model discovery; completion and recovery responses are controlled fixtures. Live reply quality is not validated.',
+                    detail: 'Real WebGPU page, recovery checks, and six live reply/appraisal turns with qwen3-4b-instruct-2507-mlx are verified. Open-ended reply and emotion quality remain experimental.',
                     evidence: 'docs/CONVERSE-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'LMStudioClient', 'converse-connection', 'converse.gpu' ]

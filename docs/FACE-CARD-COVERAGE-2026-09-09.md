@@ -1,5 +1,7 @@
 # Brow and lash coverage qualification — 2026-09-09
 
+Historical prototype record. The owned implementation was qualified and installed on September 13; see [current coverage status](FACE-CARD-COVERAGE-2026-09-13.md).
+
 The g050 material-only candidate makes the brows and lashes visibly softer while keeping their
 original texture color, face geometry and motion. Root and independent review find retained
 brows, a more natural eye line and no obvious new detached trail in the sampled natural/blink

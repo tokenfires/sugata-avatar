@@ -109,6 +109,8 @@ import {
 } from 'three/webgpu';
 import { max, texture, vec3, vec4 } from 'three/tsl';
 
+import { createFaceCardCoverage, FACE_CARD_COVERAGE_MODES } from './render/FaceCardCoverage.js';
+
 import { AffectState } from './affect/AffectState.js';
 import { ANCHOR_SETS } from './affect/ExpressionMap.js';
 import { ExpressionLayer } from './affect/ExpressionLayer.js';
@@ -774,7 +776,10 @@ export const AVATAR_DEFAULTS = Object.freeze( {
      *      it. HairDynamics now owns deterministic cleanup of its per-groom GPU resources.
      */
     hair: false,
-    hairHistory: 'auto'
+    hairHistory: 'auto',
+
+    // Fractional brow/lash coverage only inside a verified active temporal beauty pass.
+    faceCardCoverage: 'auto'
 } );
 
 export class Avatar {
@@ -822,6 +827,7 @@ export class Avatar {
      * @param {false|string} [options.hair=false] - `'bob01'`, `'bob02'` (g050 only), or `false`. See
      *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
      * @param {'auto'|'hold'} [options.hairHistory='auto'] - Owned TAAU card history, or explicit legacy hold.
+     * @param {'auto'|'binary'} [options.faceCardCoverage='auto'] - Temporal brow/lash coverage, or original binary alpha.
      * @returns {Promise<Avatar>}
      */
     static async create( options = {} ) {
@@ -843,6 +849,13 @@ export class Avatar {
         if ( ![ 'auto', 'hold' ].includes( hairHistory ) ) {
 
             throw new TypeError( 'Avatar.create: hairHistory must be auto or hold.' );
+
+        }
+
+        const faceCardCoverage = options.faceCardCoverage ?? AVATAR_DEFAULTS.faceCardCoverage;
+        if ( ! FACE_CARD_COVERAGE_MODES.includes( faceCardCoverage ) ) {
+
+            throw new TypeError( 'Avatar.create: faceCardCoverage must be auto or binary.' );
 
         }
 
@@ -935,6 +948,7 @@ export class Avatar {
             background,
             hairStyle,
             hairHistory,
+            faceCardCoverage,
             wardrobeRequest
         } );
 
@@ -1083,6 +1097,8 @@ export class Avatar {
         this.eyes = null;
         this.eyeOcclusion = null;
         this.cards = [];
+        this.faceCardCoverageMode = session.faceCardCoverage ?? AVATAR_DEFAULTS.faceCardCoverage;
+        this.faceCardCoverage = null;
         this.framedHeightMetres = PORTRAIT_HEIGHT_METRES;
 
         // Where the camera and the rig are currently pointed. Kept because `setLighting` has to
@@ -2471,6 +2487,8 @@ export class Avatar {
             },
 
             subsystems: this.censusOfShading(),
+            faceCardCoverage: this.faceCardCoverage?.report() ?? { requested: this.faceCardCoverageMode,
+                live: false, managedMaterials: 0, lastObservedMode: 'binary', reason: 'no card coverage owner' },
             wardrobe: this.wardrobeRequest === null ? null : {
                 supportedBake: 'g050',
                 assetStatus: 'existing plumbing stand-ins',
@@ -3178,6 +3196,8 @@ export class Avatar {
         this.skin = skin;
 
         this.cards = applyCardShading( this.figure, this.stage.multisampled );
+        this.faceCardCoverage = createFaceCardCoverage( { stage: this.stage, root: this.figure.root,
+            materials: this.cards, mode: this.faceCardCoverageMode } );
 
         this.applyEyeShading();
 
@@ -3756,16 +3776,23 @@ export class Avatar {
     /** Drops whatever the previous bake was wearing. Called before the figure itself is disposed. */
     disposeShading() {
 
-        this.eyeOcclusion?.dispose();
-        this.eyes?.dispose();
-        this.skin?.dispose();
+        // Detach the coverage graph/Stage lease before disposing its materials. Attempt every
+        // resource even if a disposal listener throws, including during an identity swap.
+        const errors = [];
+        const release = resource => { try { resource?.dispose(); } catch ( error ) { errors.push( error ); } };
+        release( this.faceCardCoverage );
+        release( this.eyeOcclusion );
+        release( this.eyes );
+        release( this.skin );
+        for ( const card of this.cards ) release( card );
 
-        for ( const card of this.cards ) card.dispose();
-
+        this.faceCardCoverage = null;
         this.eyeOcclusion = null;
         this.eyes = null;
         this.skin = null;
         this.cards = [];
+
+        if ( errors.length ) throw new AggregateError( errors, 'Shading disposal failed.' );
 
     }
 
