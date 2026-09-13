@@ -27,9 +27,14 @@ export const PAGE_GROUPS = [
             {
                 path: 'src/portrait.html', name: 'Portrait', label: 'Current preview',
                 blurb: 'Compare the chin-length and long bobs, choose an expression, and turn the avatar under studio or warm light.',
-                boundary: 'Hair and expression study. Final hair shading and broader identity coverage are still developing.',
+                boundary: 'Hair and broad mood controls. Nuanced actions such as coyness and teasing, broader identities, and final hair shape are still developing.',
                 requirements: 'No model service needed.',
-                source: 'packages/testbed/src/portrait.js', review: PREVIEW_REVIEW,
+                source: 'packages/testbed/src/portrait.js',
+                review: {
+                    kind: 'previously-verified', date: '2026-09-13',
+                    detail: 'Both bobs have verified moving-highlight and crown-root improvements. All four expression controls have matched timed browser samples; Curious and Determined need clearer intent. Neutral starts without a selected mood.',
+                    evidence: 'docs/EXPRESSION-INVENTORY-2026-09-13.md'
+                },
                 gates: [ 'Avatar' ]
             },
             {

@@ -13,7 +13,7 @@ Sugata is an embodiment system for AI agents: a compelling, customizable charact
 | Wardrobe and customization | Complete, attractive outfits with enough examples to understand customization. | Wardrobe has two starting outfits on one body study and verified image export. Garment fit, layering, style variety and wider-body coverage still need work. |
 | Agent outfit suggestions | The agent can suggest an outfit that fits today's mood or activity and preview an available combination. | Desired feature. It needs a usable wardrobe catalogue and checks that proposed combinations exist and fit. |
 | Representative builds | Curated handsome male, beautiful female and deliberate gender-neutral example builds, with starter templates that make onboarding easy. | Identity controls and a limited showcase exist. A neutral midpoint or a passing bake-load check is not yet a curated starter build. Each example needs full appearance, outfit, expression and motion review. |
-| Emotive gestures | Expressions and gestures convey intended nuance, including coyness and teasing, and produce the intended human reading. | Affect/gesture machinery exists; some pages remain source-reviewed diagnostics. Converse's connection and structured replies work with a tested installed model, but open-ended interpretation remains imperfect. Audit actual expression sequences, including the reported coy/teasing-to-sour mismatch, before choosing a correction. |
+| Emotive gestures | Expressions and gestures convey intended nuance, including coyness and teasing, and produce the intended human reading. | The current Portrait controls have a timed visual inventory: Warm is clear; Curious/Determined need better differentiation and an unobstructed comparison. No named coy/teasing action was found in the inspected controls; the reported sour reading remains unattributed. Converse connection/structured replies work with a tested installed model, while open-ended interpretation and complete expressive actions remain experimental. See EXPRESSION-INVENTORY-2026-09-13.md. |
 | Performance | Representative complete avatars run at a stated, measured interactive quality target. | Targeted renderer and ownership checks exist. A complete Phase 1 performance pass across representative avatars, outfits and gestures is outstanding. Establish explicit device, resolution, frame-time and memory budgets before claiming it passes. |
 
 Keep representation and customization present throughout Phase 1. Attractive examples are a design deliverable with visual review, not a side effect of exposing sliders.
@@ -30,8 +30,8 @@ Develop a simplified, approachable aesthetic with the same clear agent intent an
 
 ## Immediate work order
 
-1. Close the current dynamic hair-shading milestone and its bounded inner-hem shape review. Keep rejected geometry unshipped and preserve the accepted collision work.
-2. Build a visible expression/gesture inventory using the current runtime. Start with the reported coy/teasing ambiguity; reproduce the actual reading and select one useful correction with two critic alternatives.
+1. Preserve the accepted dynamic hair shading and collision work. The bounded inner-hem study is closed and its geometry remains unshipped.
+2. Extend the saved current-runtime expression inventory with an unobstructed comparison of Curious and Determined, then one useful authored intent sequence if needed. Resolve the reported coy/teasing ambiguity without guessing its source. Each actionable critique needs two alternatives and visual or behavioral evidence.
 3. Develop representative starter looks and complete outfits alongside that expression work. Show configurations that humans can compare, save and customize.
 4. Continue the remaining Phase 1 character-quality work, then run the full performance pass on the resulting representative builds. Move to the stylized phases against explicit acceptance evidence.
 
