@@ -2730,22 +2730,18 @@ verify:      tools/run-selftests.sh /hair_opacity/
 
 ```request
 id:          REQ-077
-status:      OPEN
-target:      packages/core/src/motion/HairDynamics.js
+status:      APPLIED
+target:      packages/core/src/render/CardRenderHistory.js
 filed-by:    the R22 hair-dither agent
 filed-round: R12
 filed-at:    b0c58a1
 first-filed: b0c58a1, 2026-08-13
-change:      Keep last frame's card vertices and expose them, so `render/HairVelocity.js` can assign
-             the REAL previous position instead of the current one. Concretely: a second
-             `instancedArray( groom.cardVertexCount, 'vec3' )` beside `cardVertexBuffer`, a copy of
-             the old value at the TOP of `skinKernel` before the two `assign`s at :863-864 (the
-             kernel already visits every card vertex, so this is a read and a write on a buffer that
-             is already resident, not a new dispatch), and a `positionPreviousNode` on the returned
-             object built with the same `select( vertexIndex.greaterThanEqual( … ) )` shape as
-             `positionNode` — falling through to `positionLocal` for the two scalp-cap shells, whose
-             skinning already assigns their own previous position correctly.
-             `HAIR_VELOCITY_MODES` then gains `exact` and the shipped default moves to it.
+pre-image:   absent — the render-owned CardRenderHistory module did not exist at filing.
+change:      Keep original-card positions and unjittered MVP from the last successful fresh beauty.
+             Avatar now defaults to an owned TAAU card-history buffer; explicit hold and unsupported
+             render paths retain the prior approximation. Snapshot after actual beauty submission,
+             before yielding, rather than at every solver rebuild. Cached export, resets, multiple
+             updates and failed images must not advance the wrong history. Preserve native caps.
 evidence:    Measured this session by reading the G-buffer's `velocity` attachment (RG16F, decoded
              from half-float bits) back on the CPU, `alive.html?bare&freeze&seed=1&grain=0&hair=1&
              capture` at 900x1200, 96 steps, the figure yawed 35 degrees so the solver has actually
@@ -2765,9 +2761,15 @@ evidence:    Measured this session by reading the G-buffer's `velocity` attachme
              reproject a swinging lock, because the previous position it assigns is the current one.
              This request is the difference between `MorphVelocity.js`'s `hold` arm and its `exact`
              one, and that file ships both for exactly this reason.
-anchor:      packages/core/src/motion/HairDynamics.js /const cardVertexBuffer = instancedArray\(/
-verify:      packages/core/src/motion/HairDynamics.js /positionPreviousNode/
+anchor:      packages/core/src/render/CardRenderHistory.js /export function createCardRenderHistory\(/
+verify:      packages/core/src/render/CardRenderHistory.js /previousMVP\.value\.copy\(currentMVP\.value\)/
 ```
+
+September13 resolution: the requested previous-rendered-position behavior is implemented through
+Stage-owned beauty receipts, rather than the original proposed copy at the top of every solver
+rebuild. The September9 audit proved why that proposed boundary fails for multiple updates and
+cached draws. The scope is original cards in TAAU, not exact scalp motion or every renderer path.
+See `docs/HAIR-RENDER-HISTORY-2026-09-13.md` and its numerical, visual and lifecycle evidence.
 
 ## REQ-078 — the violet outline is now MORE uniform, and with the kicker off the rim is doing all of it
 

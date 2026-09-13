@@ -13,9 +13,9 @@ const SOURCE_REVIEW = {
 
 const PREVIEW_REVIEW = {
     kind: 'previously-verified',
-    date: '2026-09-09',
-    detail: 'Browser checks are recorded in the September 9 checkpoint; this is not a fresh health check.',
-    evidence: 'docs/PAUSED-2026-09-09.md'
+    date: '2026-09-13',
+    detail: 'Both bobs have matched WebGPU motion and settled-view checks; Wardrobe image export and resizing are verified. Broader outfit and expression quality remain in development.',
+    evidence: 'docs/HAIR-RENDER-HISTORY-2026-09-13.md'
 };
 
 export const PAGE_GROUPS = [

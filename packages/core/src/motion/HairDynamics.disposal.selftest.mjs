@@ -68,7 +68,21 @@ try {
             page.on( 'requestfailed', request => errors.push( `${ request.url() } ${ request.failure()?.errorText }` ) );
             if ( arm === 'old-retirement' ) await page.route( '**/core/src/Avatar.js*', async route => {
                 const response = await route.fetch(), source = await response.text();
-                const body = source.replace( 'this.hairDynamics?.dispose?.();', '/* Previous retirement dropped the solver without disposing it. */' );
+                // The history owner is retired immediately before this boundary. Record the one
+                // solver set it leaves so the old-retirement arm predicts additive solver leaks,
+                // without incorrectly counting a newly introduced history buffer as leaked.
+                const needle = 'release( () => this.hairDynamics?.dispose?.() );';
+                assert.equal( source.split( needle ).length, 2, 'exactly one solver retirement boundary' );
+                const body = source.replace( needle, `{
+                    const r=this.stage.renderer;
+                    if (this.hairDynamics) this.__retainedSolverSet ??= {
+                        storage:r.info.memory.storageAttributes,
+                        storageBytes:r.info.memory.storageAttributesSize,
+                        compute:[...r._pipelines.caches.values()].filter(p=>p.isComputePipeline).length,
+                        programs:r._pipelines.programs.compute.size
+                    };
+                    /* Reproduce dropping this solver without disposing it. */
+                }` );
                 assert.notEqual( body, source, 'prior retirement injection matched' ); injections++;
                 await route.fulfill( { response, body } );
             } );
@@ -171,6 +185,7 @@ try {
                     avatar.buildHairDynamics = originalBuild;
                 } else {
                     result.retiredDisposed = retired.disposed;
+                    result.retainedSolverSet = avatar.__retainedSolverSet;
                     const active = avatar.hairDynamics;
                     avatar.dispose();
                     // The old-retirement arm leaves this allocated solver alive until after its
@@ -207,8 +222,10 @@ try {
                 check( 'exactly one old-retirement rejection injection', injections === 1 );
                 check( 'allocated solver cleanup remains idempotent after renderer disposal', result.disposedAfterRenderer );
                 check( 'old retirement retains an additional solver resource set after every rebuild', !result.retiredDisposed && result.sequence.every( ( sample, i ) =>
-                    sample.storage === first.storage * ( i + 1 ) && sample.storageBytes === first.storageBytes * ( i + 1 ) &&
-                    sample.compute === first.compute * ( i + 1 ) && sample.programs === first.programs * ( i + 1 ) ) );
+                    sample.storage === first.storage + result.retainedSolverSet.storage * i &&
+                    sample.storageBytes === first.storageBytes + result.retainedSolverSet.storageBytes * i &&
+                    sample.compute === first.compute + result.retainedSolverSet.compute * i &&
+                    sample.programs === first.programs + result.retainedSolverSet.programs * i ) );
             }
             console.log( JSON.stringify( { arm, sequence: result.sequence } ) );
         } finally { await browser.close(); }

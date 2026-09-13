@@ -1165,8 +1165,8 @@ const FAKE_CANVAS = { getContext: () => null };
         '🎯 REACH  C3  the hair path does NOT assign mesh.material directly — that is the defect that forced a second code path',
         AVATAR_SOURCE,
         ( text ) => /\.material\s*=\s*material\b/.test( text ) === false,
-        ( text ) => text.replace( 'const applied = applyHairMaterial( hairRoot, material );',
-            'for ( const mesh of skinned ) mesh.material = material;\n        const applied = { meshes: skinned.length };' ),
+        ( text ) => text.replace( 'applied = applyHairMaterial( hairRoot, material );',
+            'applied = { meshes: skinned.length }; for ( const mesh of skinned ) mesh.material = material;' ),
         'alive.js:2504 skips the vertex collection and installHairEnvelope, which is why every live ' +
         'plate came back envelope.fitted false and ensureHairEnvelope had to be written' );
 

@@ -1,5 +1,7 @@
 # Exact original-card history qualification — 2026-09-09
 
+**September 13 update:** the owned runtime integration is now implemented; see [current qualification and limits](HAIR-RENDER-HISTORY-2026-09-13.md). The prototype evidence below remains historical.
+
 The frozen V3 prototype substantially improves moving-hair clarity without changing the physical
 hair state. Its bounded pixel-velocity oracle, resource checks and paired appearance tests pass.
 **It cannot ship unchanged:** all three ordinary live lookbook PNG clicks fail its requirement

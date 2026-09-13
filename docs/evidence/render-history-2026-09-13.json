@@ -1,0 +1,382 @@
+{
+  "date": "2026-09-13",
+  "status": "implemented and locally qualified; AAA goal remains in progress",
+  "baselineCommit": "3946b3c",
+  "sources": {
+    "Avatar.js": "a3139052cf86f2ec525ee69a9fa31c8b768dae119d77a773513c7be587d62674",
+    "motion/HairDynamics.js": "657c9f8740411e750039c4f994955f53c1988dc51cf98ac74a892790063f2525",
+    "render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "render/CardRenderHistory.js": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f",
+    "render/RenderParticipants.js": "7db372d7ea813ffc2fd0154d42ef35afe1f68fbd707ac15d5c9f616ed5ac2829",
+    "render/StageScenePass.js": "ec583b415bb9b8f84e2bd5e51cd0b13af6e220888d52bc820c1ddea5739f5e55"
+  },
+  "archive": {
+    "path": "captures/render-history-2026-09-13",
+    "manifestSha256": "8ec4a0b0bdaf3f1cb982e6989ffa2d291cbc0a94080877a078b10a1d0e511a86",
+    "fileCount": 256,
+    "totalBytes": 116668764
+  },
+  "scope": "Original-card TAAU history; native caps/unsupported paths retain hold. One successful freshly observed beauty owns each snapshot. No solver kernels or assets changed.",
+  "numeric": {
+    "matchedStates": 7,
+    "matchedVisibleCardPixels": 327639,
+    "cardBitsMatch": true,
+    "nonGroomBitsMatch": true,
+    "wholeBufferBitsMatch": false,
+    "residual": "Native scalp only; signed zero or <=5.960464477539062e-7 NDC, <=0.0001278519630432129 pixel here, inside previously fixed2e-6 floor.",
+    "rows": [
+      {
+        "label": "draw-only",
+        "visibleCardPixels": 43389,
+        "visibleCapPixels": 114,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 19
+            },
+            "maxCapNdc": 0,
+            "maxCapPixels": 0.0
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 19
+            },
+            "maxCapNdc": 0,
+            "maxCapPixels": 0.0
+          }
+        }
+      },
+      {
+        "label": "deformation",
+        "visibleCardPixels": 43527,
+        "visibleCapPixels": 109,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 11
+            },
+            "maxCapNdc": 5.960464477539063e-08,
+            "maxCapPixels": 1.2785196304321289e-05
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 12
+            },
+            "maxCapNdc": 5.960464477539063e-08,
+            "maxCapPixels": 1.2785196304321289e-05
+          }
+        }
+      },
+      {
+        "label": "camera-only",
+        "visibleCardPixels": 42858,
+        "visibleCapPixels": 130,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {},
+            "maxCapNdc": 0,
+            "maxCapPixels": 0.0
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {},
+            "maxCapNdc": 0,
+            "maxCapPixels": 0.0
+          }
+        }
+      },
+      {
+        "label": "two-updates-before-beauty",
+        "visibleCardPixels": 42593,
+        "visibleCapPixels": 106,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 111
+            },
+            "maxCapNdc": 4.76837158203125e-07,
+            "maxCapPixels": 0.00010228157043457031
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 112
+            },
+            "maxCapNdc": 4.76837158203125e-07,
+            "maxCapPixels": 0.00010228157043457031
+          }
+        }
+      },
+      {
+        "label": "reset",
+        "visibleCardPixels": 42368,
+        "visibleCapPixels": 114,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 122
+            },
+            "maxCapNdc": 5.960464477539062e-07,
+            "maxCapPixels": 0.0001278519630432129
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 123
+            },
+            "maxCapNdc": 5.960464477539062e-07,
+            "maxCapPixels": 0.0001278519630432129
+          }
+        }
+      },
+      {
+        "label": "natural-60",
+        "visibleCardPixels": 53285,
+        "visibleCapPixels": 36,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 43
+            },
+            "maxCapNdc": 5.364418029785156e-07,
+            "maxCapPixels": 0.0001150667667388916
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 39
+            },
+            "maxCapNdc": 5.364418029785156e-07,
+            "maxCapPixels": 0.0001150667667388916
+          }
+        }
+      },
+      {
+        "label": "natural-120",
+        "visibleCardPixels": 59619,
+        "visibleCapPixels": 25,
+        "cardBitsMatch": true,
+        "otherBitsMatch": true,
+        "physicalAndPhaseMatch": true,
+        "stats": {
+          "tagged": {
+            "differentComponentsByRegion": {
+              "2": 30
+            },
+            "maxCapNdc": 4.172325134277344e-07,
+            "maxCapPixels": 8.949637413024902e-05
+          },
+          "uninstrumented": {
+            "differentComponentsByRegion": {
+              "2": 28
+            },
+            "maxCapNdc": 4.172325134277344e-07,
+            "maxCapPixels": 8.949637413024902e-05
+          }
+        }
+      }
+    ]
+  },
+  "appearance": {
+    "arms": 8,
+    "pairs": 22,
+    "pngs": 44,
+    "errors": [],
+    "physicalBonesMorphsAndPhaseMatch": true,
+    "review": "Root and independent critic observed reduced moving-hair grain/blur; broad strips, patchy overlap, crown gaps and face-card edges remain."
+  },
+  "cost": {
+    "scope": "ABBA installed default versus pre-change HEAD Avatar/Stage/TRAAPost/HairDynamics. Real GPU,932x930canvas, fixed60Hz natural simulation, native NodeFrame capture clock,48warm draws then240 timed frames. First60timed frames omitted only from summary, every sample retained. CPU submission and queue-completion latency, not a60FPS certification.",
+    "runs": [
+      {
+        "arm": "baseline",
+        "summary": {
+          "submitCpuMs": {
+            "n": 180,
+            "min": 2.699999999254942,
+            "median": 2.8999999994412065,
+            "p95": 3.099999999627471,
+            "max": 3.2000000001862645
+          },
+          "submitToGpuCompleteMs": {
+            "n": 180,
+            "min": 12.200000000186265,
+            "median": 14.700000000186265,
+            "p95": 15.399999999441206,
+            "max": 16.200000000186265
+          }
+        }
+      },
+      {
+        "arm": "owned",
+        "summary": {
+          "submitCpuMs": {
+            "n": 180,
+            "min": 2.699999999254942,
+            "median": 3,
+            "p95": 3.3999999994412065,
+            "max": 3.599999999627471
+          },
+          "submitToGpuCompleteMs": {
+            "n": 180,
+            "min": 12.200000000186265,
+            "median": 14.700000000186265,
+            "p95": 15.400000000372529,
+            "max": 16.5
+          }
+        }
+      },
+      {
+        "arm": "owned",
+        "summary": {
+          "submitCpuMs": {
+            "n": 180,
+            "min": 2.7000000001862645,
+            "median": 3,
+            "p95": 3.2999999998137355,
+            "max": 3.5
+          },
+          "submitToGpuCompleteMs": {
+            "n": 180,
+            "min": 12.600000000558794,
+            "median": 14.799999999813735,
+            "p95": 15.5,
+            "max": 16.09999999962747
+          }
+        }
+      },
+      {
+        "arm": "baseline",
+        "summary": {
+          "submitCpuMs": {
+            "n": 180,
+            "min": 2.599999999627471,
+            "median": 2.8999999994412065,
+            "p95": 3.1000000005587935,
+            "max": 3.2999999998137355
+          },
+          "submitToGpuCompleteMs": {
+            "n": 180,
+            "min": 12.599999999627471,
+            "median": 14.700000000186265,
+            "p95": 15.5,
+            "max": 16.09999999962747
+          }
+        }
+      }
+    ]
+  },
+  "checks": {
+    "cpuGroups": 22,
+    "nativeCallbackControls": 13,
+    "avatarAssertions": 137,
+    "disposalChecks": 21,
+    "serialGpu": [
+      {
+        "name": "lifecycle",
+        "command": [
+          "node",
+          "packages/core/src/render/CardRenderHistory.lifecycle.gpu.selftest.mjs",
+          "--out=/private/tmp/sugata-history-lifecycle-production-2026-09-13"
+        ],
+        "exit": 0,
+        "seconds": 3.19,
+        "log": "/private/tmp/sugata-history-serial-lifecycle.log"
+      },
+      {
+        "name": "image-export",
+        "command": [
+          "node",
+          "packages/testbed/src/showcase-image.gpu.selftest.mjs",
+          "--out=/private/tmp/sugata-history-image-production-2026-09-13"
+        ],
+        "exit": 0,
+        "seconds": 10.58,
+        "log": "/private/tmp/sugata-history-serial-image-export.log"
+      },
+      {
+        "name": "resize",
+        "command": [
+          "node",
+          "packages/core/src/render/Stage.resize.gpu.selftest.mjs",
+          "--out=/private/tmp/sugata-history-resize-production-2026-09-13"
+        ],
+        "exit": 0,
+        "seconds": 18.61,
+        "log": "/private/tmp/sugata-history-serial-resize.log"
+      },
+      {
+        "name": "history",
+        "command": [
+          "node",
+          "packages/core/src/render/CardRenderHistory.gpu.selftest.mjs",
+          "--out=/private/tmp/sugata-history-production-serial-2026-09-13"
+        ],
+        "exit": 0,
+        "seconds": 6.88,
+        "log": "/private/tmp/sugata-history-serial-history.log"
+      },
+      {
+        "name": "cost",
+        "command": [
+          "node",
+          "/private/tmp/orbit-card-history-owned/cost.mjs"
+        ],
+        "exit": 0,
+        "seconds": 21.21,
+        "log": "/private/tmp/sugata-history-serial-cost.log"
+      },
+      {
+        "name": "solver",
+        "command": [
+          "node",
+          "packages/core/src/motion/HairDynamics.selftest.mjs"
+        ],
+        "exit": 1,
+        "seconds": 29.66,
+        "log": "/private/tmp/sugata-history-serial-solver.log"
+      }
+    ],
+    "knownRed": {
+      "gate": "HairDynamics.selftest.mjs",
+      "clause": "S settling",
+      "current": "Serial34/35;3.1262mm versus0.5mm",
+      "baseline": "34/35;same3.1262mm",
+      "thresholdChanged": false
+    },
+    "catalogueAssertions": 92,
+    "allPageBuild": "18 entries passed",
+    "ledger": {
+      "result": "25/26",
+      "violations": [
+        "ROUNDS stale",
+        "REQ-088 anchor absent from both pre-change/current Avatar"
+      ],
+      "REQ-077": "APPLIED, no violation"
+    }
+  },
+  "limits": [
+    "Locked Three0.185.1 native failure-state recovery; upgrades require requalification.",
+    "g025 contact remains disabled for its unmodified shipping groom, as documented previously in HAIR-BODY-CONTACT-G025.md.",
+    "No whole-suite-green, exact-cap, all-camera, voice/emotion-quality or universal60FPS claim."
+  ],
+  "assets": {
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461"
+  }
+}

@@ -773,7 +773,8 @@ export const AVATAR_DEFAULTS = Object.freeze( {
      *      uninstall. `leakedHandles()` cannot see a prototype patch, so `report().hair` declares
      *      it. HairDynamics now owns deterministic cleanup of its per-groom GPU resources.
      */
-    hair: false
+    hair: false,
+    hairHistory: 'auto'
 } );
 
 export class Avatar {
@@ -820,6 +821,7 @@ export class Avatar {
      *   11.1, `render/Scene.js`.
      * @param {false|string} [options.hair=false] - `'bob01'`, `'bob02'` (g050 only), or `false`. See
      *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
+     * @param {'auto'|'hold'} [options.hairHistory='auto'] - Owned TAAU card history, or explicit legacy hold.
      * @returns {Promise<Avatar>}
      */
     static async create( options = {} ) {
@@ -834,6 +836,13 @@ export class Avatar {
             throw new TypeError(
                 'Avatar.create: `canvas` is required and must be an HTMLCanvasElement — ' +
                 'Avatar.create( { canvas: document.getElementById( "stage" ) } ).' );
+
+        }
+
+        const hairHistory = options.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
+        if ( ![ 'auto', 'hold' ].includes( hairHistory ) ) {
+
+            throw new TypeError( 'Avatar.create: hairHistory must be auto or hold.' );
 
         }
 
@@ -925,6 +934,7 @@ export class Avatar {
             lighting,
             background,
             hairStyle,
+            hairHistory,
             wardrobeRequest
         } );
 
@@ -957,7 +967,11 @@ export class Avatar {
 
         } catch ( error ) {
 
-            avatar.dispose();
+            try { avatar.dispose(); } catch ( cleanup ) {
+
+                throw new AggregateError( [ error, cleanup ], 'Avatar construction failed.', { cause: error } );
+
+            }
             throw error;
 
         }
@@ -1085,6 +1099,8 @@ export class Avatar {
         this.hairRoot = null;
         this.hairMaterial = null;
         this.hairDynamics = null;
+        this.hairHistoryMode = session.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
+        this.hairHistory = null;
         this.hairUpdate = null;
         this.hairArm = 'off';
         this.hairVelocityRepaired = null;
@@ -2610,6 +2626,8 @@ export class Avatar {
                 // which is what the prototype patch actually consults. Recorded at attach because
                 // `HairVelocity.js` is a dynamic import and `report()` is synchronous.
                 velocityRepaired: this.hairVelocityRepaired,
+                history: this.hairHistory?.report() ?? { requested: this.hairHistoryMode, mode: 'hold',
+                    reason: this.hairHistoryMode === 'hold' ? 'explicit hold' : 'no active card history owner', live: false },
                 bodyContact: this.hairDynamics?.contactReport?.() ?? null,
                 bodyContactUnavailableReason: this.hairContactUnavailableReason,
 
@@ -2754,38 +2772,40 @@ export class Avatar {
 
         if ( this.disposed === true ) return;
 
+        const errors = [];
+        const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
         this.disposed = true;
         ++ this.loadToken; // Invalidate figure and groom loads still awaiting assets.
         ++ this.wardrobeRequestVersion;
-        for ( const wardrobe of this.pendingWardrobes ) wardrobe.dispose();
+        for ( const wardrobe of this.pendingWardrobes ) release( () => wardrobe.dispose() );
         this.pendingWardrobes.clear();
 
         // First, so nothing draws into a half-torn-down scene on the frame that is already queued.
-        this.unsubscribeFrame?.();
+        release( () => this.unsubscribeFrame?.() );
         this.unsubscribeFrame = null;
 
         // Settled rather than dropped: a caller awaiting `say()` would otherwise wait forever.
-        this.settleUtterance( 'disposed' );
+        release( () => this.settleUtterance( 'disposed' ) );
 
         // `MotionStack.dispose()` disposes every layer and clears the channel maps. The layers are
         // NOT removed one by one first — `remove()` disposes as it goes (trap (e)) and doing both
         // would call `dispose()` twice on each layer.
-        this.stack?.dispose();
+        release( () => this.stack?.dispose() );
         this.stack = null;
         this.layers = {};
 
-        this.disposeShading();
+        release( () => this.disposeShading() );
 
         // Before the figure, for `swapFigure`'s reason: the groom is parented under `figure.root`
         // and `Figure.dispose()` is a traverse, so leaving it there would dispose geometry this file
         // owns and call `dispose()` on the hair material twice.
-        this.disposeHair();
-        this.disposeWardrobe();
+        release( () => this.disposeHair() );
+        release( () => this.disposeWardrobe() );
 
         if ( this.figure !== null ) {
 
-            this.stage?.scene.remove( this.figure.root );
-            this.figure.dispose();
+            release( () => this.stage?.scene.remove( this.figure.root ) );
+            release( () => this.figure.dispose() );
             this.figure = null;
 
         }
@@ -2796,39 +2816,39 @@ export class Avatar {
 
         if ( this.backdrop !== null ) {
 
-            this.backdrop.removeFromParent();
-            this.backdrop.geometry.dispose();
-            this.backdrop.material.dispose();
+            release( () => this.backdrop.removeFromParent() );
+            release( () => this.backdrop.geometry.dispose() );
+            release( () => this.backdrop.material.dispose() );
             this.backdrop = null;
 
         }
 
-        this.ground?.dispose();
+        release( () => this.ground?.dispose() );
         this.ground = null;
 
         // Before the stage, and it takes `stage.scene.environment` and `.background` back to null
         // itself rather than leaving them pointing at a disposed texture — `dispose()` is documented
         // as tolerant of a half-built avatar, so it can run on a scene that is still in use.
-        this.skyEnvironment?.dispose();
+        release( () => this.skyEnvironment?.dispose() );
         this.skyEnvironment = null;
 
         // Same argument, same reason: two `RenderTarget`s, a `PMREMGenerator` and the room's own
         // geometry and materials, none of which `Stage.dispose()` walks.
-        this.interiorEnvironment?.dispose();
+        release( () => this.interiorEnvironment?.dispose() );
         this.interiorEnvironment = null;
         this.environment = null;
 
-        this.lights?.dispose();
+        release( () => this.lights?.dispose() );
         this.lights = null;
 
         // Before the stage: `Stage.dispose()` sets `this.grade = null` WITHOUT disposing
         // it (`Stage.js:623`), so releasing after would drop the only reference first.
-        this.grade?.dispose();
+        release( () => this.grade?.dispose() );
         this.grade = null;
 
         // Last, and it takes the renderer, the pipeline, the temporal resolve, the ambient
         // occlusion and the rAF chain with it.
-        this.stage?.dispose();
+        release( () => this.stage?.dispose() );
         this.stage = null;
 
         this.expression = null;
@@ -2847,6 +2867,8 @@ export class Avatar {
                 'create/destroy cycle.' );
 
         }
+
+        if ( errors.length ) throw new AggregateError( errors, 'Avatar disposal failed.', { cause: errors[ 0 ] } );
 
     }
 
@@ -3386,18 +3408,13 @@ export class Avatar {
 
         }
 
-        // Everything this attempt built, released together, so a losing load leaves nothing behind.
+        // Preserve the GLB materials before applyHairMaterial replaces them. The pending
+        // cleanup owns both sets, with each texture/material/geometry released once.
+        const sourceMaterials = skinned
+            .flatMap( mesh => Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] )
+            .filter( entry => entry !== null && entry !== undefined );
         let solver = null;
-        const abandon = () => {
-
-            solver?.dynamics.dispose();
-            hairRoot.removeFromParent();
-            disposeGroomScene( hairRoot );
-            material.hair?.flowMap?.value?.dispose?.();
-            material.hair?.depthMap?.value?.dispose?.();
-            material.dispose();
-
-        };
+        const abandon = () => disposePendingGroom( hairRoot, solver?.dynamics, material, sourceMaterials );
 
         if ( token !== this.loadToken ) { abandon(); return; }
 
@@ -3429,7 +3446,11 @@ export class Avatar {
 
         } catch ( error ) {
 
-            abandon();
+            try { abandon(); } catch ( cleanup ) {
+
+                throw new AggregateError( [ error, cleanup ], 'Hair solver construction failed.', { cause: error } );
+
+            }
             throw error;
 
         }
@@ -3442,14 +3463,25 @@ export class Avatar {
         figure.root.add( hairRoot );
         figure.root.updateMatrixWorld( true );
 
-        // Captured before `applyHairMaterial` orphans them — see `hairSourceMaterials`.
-        this.hairSourceMaterials = skinned
-            .flatMap( ( mesh ) => ( Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] ) )
-            .filter( ( entry ) => entry !== null && entry !== undefined );
-
         // 🎯 THE APPLY PATH, NOT THE ASSIGNMENT LOOP. See the header.
-        const applied = applyHairMaterial( hairRoot, material );
+        let applied, history = null;
+        try {
 
+            applied = applyHairMaterial( hairRoot, material );
+            history = solver?.createHistory?.() ?? null;
+
+        } catch ( error ) {
+
+            const cleanup = [];
+            try { history?.dispose(); } catch ( e ) { cleanup.push( e ); }
+            try { abandon(); } catch ( e ) { cleanup.push( e ); }
+            if ( cleanup.length ) throw new AggregateError( [ error, ...cleanup ], 'Hair attachment failed.', { cause: error } );
+            throw error;
+
+        }
+
+        this.hairSourceMaterials = sourceMaterials;
+        this.hairHistory = history;
         this.hairRoot = hairRoot;
         this.hairMaterial = material;
         this.hairDynamics = solver?.dynamics ?? null;
@@ -3508,10 +3540,11 @@ export class Avatar {
         const headBone = mesh.skeleton.bones[ boneIndex ];
         const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
 
-        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform } ] = await Promise.all( [
+        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform }, historyModule ] = await Promise.all( [
             import( './motion/HairDynamics.js' ),
             import( './render/HairVelocity.js' ),
-            import( './motion/HairSkinTransform.js' )
+            import( './motion/HairSkinTransform.js' ),
+            this.hairHistoryMode === 'auto' ? import( './render/CardRenderHistory.js' ) : Promise.resolve( null )
         ] );
 
         // Disposal or an identity swap can finish while the dynamic imports are pending.
@@ -3624,7 +3657,10 @@ export class Avatar {
             // buffers held.
             dynamics.reset();
 
-            return { dynamics, update, velocityRepaired, contactUnavailableReason };
+            const createHistory = historyModule === null ? null : () => historyModule.createCardRenderHistory( {
+                stage: this.stage, dynamics, mesh, material
+            } );
+            return { dynamics, update, velocityRepaired, contactUnavailableReason, createHistory };
 
         } catch ( error ) {
 
@@ -3651,8 +3687,12 @@ export class Avatar {
      */
     disposeHair() {
 
+        const errors = [];
+        const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+        release( () => this.hairHistory?.dispose() );
+        this.hairHistory = null;
         this.hairUpdate = null;
-        this.hairDynamics?.dispose?.();
+        release( () => this.hairDynamics?.dispose?.() );
         this.hairDynamics = null;
 
         // Cleared with the solver it describes. Left set, `report().hair.velocityRepaired` would
@@ -3667,7 +3707,7 @@ export class Avatar {
             this.hairRoot.removeFromParent();
             this.hairRoot.traverse( ( object ) => {
 
-                if ( object.isMesh === true ) object.geometry.dispose();
+                if ( object.isMesh === true ) release( () => object.geometry.dispose() );
 
             } );
 
@@ -3680,9 +3720,9 @@ export class Avatar {
             // By name, because `Material.dispose()` frees none of them and the embedded pair is
             // 1024x1024 RGBA8 apiece. The base-colour map is ALSO the hair material's cutout, so it
             // is freed here exactly once rather than in both places.
-            source.map?.dispose?.();
-            source.normalMap?.dispose?.();
-            source.dispose?.();
+            release( () => source.map?.dispose?.() );
+            release( () => source.normalMap?.dispose?.() );
+            release( () => source.dispose?.() );
 
         }
 
@@ -3692,13 +3732,15 @@ export class Avatar {
 
             const nodes = this.hairMaterial.hair ?? {};
 
-            nodes.flowMap?.value?.dispose?.();
-            nodes.depthMap?.value?.dispose?.();
+            release( () => nodes.flowMap?.value?.dispose?.() );
+            release( () => nodes.depthMap?.value?.dispose?.() );
 
-            this.hairMaterial.dispose();
+            release( () => this.hairMaterial.dispose() );
             this.hairMaterial = null;
 
         }
+
+        if ( errors.length ) throw new AggregateError( errors, 'Hair disposal failed.' );
 
     }
 
@@ -4634,6 +4676,33 @@ function nearestAnchorTo( pad, points ) {
  * rig that has moved under it. ⚠️ `Material.dispose()` frees no textures, so the two embedded
  * 1024x1024 sheets are named rather than left to the material.
  */
+/** Pending ownership remains independent of the currently published Avatar groom. */
+function disposePendingGroom( root, dynamics, material, sourceMaterials ) {
+
+    const errors = [], resources = new Set(), materials = new Set( [ material, ...sourceMaterials ] );
+    const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+    release( () => dynamics?.dispose() );
+    release( () => root.removeFromParent() );
+    root.traverse( object => {
+
+        if ( !object.isMesh ) return;
+        resources.add( object.geometry );
+        for ( const entry of Array.isArray( object.material ) ? object.material : [ object.material ] ) materials.add( entry );
+
+    } );
+    for ( const entry of materials ) {
+
+        if ( !entry ) continue;
+        resources.add( entry.map ); resources.add( entry.normalMap );
+        resources.add( entry.hair?.flowMap?.value ); resources.add( entry.hair?.depthMap?.value );
+        resources.add( entry );
+
+    }
+    for ( const resource of resources ) release( () => resource?.dispose?.() );
+    if ( errors.length ) throw new AggregateError( errors, 'Pending groom cleanup failed.' );
+
+}
+
 function disposeGroomScene( root ) {
 
     root.traverse( ( object ) => {

@@ -1,5 +1,7 @@
 # Hair render history — audit, 2026-09-09
 
+**September 13 update:** the owned runtime integration is now implemented; see [current qualification and limits](HAIR-RENDER-HISTORY-2026-09-13.md). The prototype evidence below remains historical.
+
 **Historical audit status: proposal only at the time of this record.** Six CPU witnesses pass; no GPU history test or implementation has run. Production `HairVelocity` still uses its documented `hold` approximation. The only source edit associated with this record corrects the header's stale **REQ-073** reference to **REQ-077** in `docs/OPEN-REQUESTS.md`; it changes no executable code.
 
 The later [exact-card qualification](HAIR-CARD-HISTORY-2026-09-09.md) records passing numerical,

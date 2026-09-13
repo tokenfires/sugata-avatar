@@ -83,7 +83,7 @@
 
 import { Matrix3, Matrix4, Quaternion, Vector3, Vector4 } from 'three';
 import {
-    Fn, If, Loop, instancedArray, instanceIndex, uniform, positionLocal, vertexIndex,
+    Fn, If, Loop, instancedArray, storage, instanceIndex, uniform, positionLocal, vertexIndex,
     vec3, vec4, float, uint, cross, normalize, length, min, max, clamp, select, sqrt
 } from 'three/tsl';
 
@@ -945,6 +945,56 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
     let stepsTaken = 0;
     let resetPending = true;
     let disposed = false;
+    // SCRATCH LIVE FOLLOWERS: borrowed vertex-stage reads; no solver equation/submission changes.
+    // SCRATCH CARD HISTORY: submission metadata only; no shader or scheduling changes.
+    let cardWriteGeneration = 0;
+    let cardResetGeneration = 0;
+    let cardBuiltResetGeneration = -1;
+    let cardRawComputeUsed = false;
+    let cardSubmissionHealthy = false;
+    const cardEdgeReaders = new Set();
+    function borrowCardEdges( onRetire ) {
+        requireLive( 'borrowCardEdges' );
+        if ( typeof onRetire !== 'function' || onRetire.constructor?.name === 'AsyncFunction' ) {
+            throw new TypeError( 'HairDynamics.borrowCardEdges requires a synchronous retirement callback.' );
+        }
+        // Separate node over the same attribute: do not make the rebuild's writable node read-only.
+        const view = storage( cardVertexBuffer.value, 'vec3', groom.cardVertexCount ).toReadOnly();
+        let live = true;
+        const reader = {
+            space: 'mesh-local', chainCount, pointsPerChain, cardVertexBase,
+            state() {
+                requireLive( 'borrowCardEdges.state' );
+                if ( ! live ) throw new Error( 'HairDynamics borrowed card edges have been released.' );
+                return Object.freeze( { write: cardWriteGeneration, reset: cardResetGeneration,
+                    builtReset: cardBuiltResetGeneration, ready: ! resetPending && cardWriteGeneration > 0 && cardSubmissionHealthy,
+                    rawComputeUsed: cardRawComputeUsed } );
+            },
+            cardVertexCount: groom.cardVertexCount,
+            read( index ) {
+                requireLive( 'borrowCardEdges.read' );
+                if ( ! live ) throw new Error( 'HairDynamics borrowed card edges have been released.' );
+                if ( typeof index === 'number' && ( ! Number.isInteger( index ) || index < 0 || index >= groom.cardVertexCount ) ) {
+                    throw new RangeError( 'HairDynamics borrowed card edge index is out of range.' );
+                }
+                return view.element( index );
+            },
+            release() { live = false; cardEdgeReaders.delete( retire ); },
+            get live() { return live && ! disposed; }
+        };
+        const retire = () => {
+            if ( ! live ) return;
+            reader.release();
+            const result = onRetire();
+            if ( result && typeof result.then === 'function' ) {
+                Promise.resolve( result ).catch( () => {} );
+                throw new TypeError( 'HairDynamics borrowed card retirement must be synchronous.' );
+            }
+        };
+        cardEdgeReaders.add( retire );
+        return Object.freeze( reader );
+    }
+
     let contactOwner = null;
     let contactHooks = null;
 
@@ -1256,6 +1306,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         // Returned arrays/nodes may have getters. Their validation can retire the solver after
         // the callback guard above, so check again at the final submission boundary.
         requireLive( 'update' );
+        cardSubmissionHealthy = false;
         if ( submit === 'perkernel' ) {
 
             // 🚩 THE DEFECT, and it is one line. Research doc §0.3 measures a `renderer.compute()`
@@ -1288,6 +1339,9 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         }
 
         stepsTaken += substeps;
+        cardSubmissionHealthy = true;
+        cardWriteGeneration ++;
+        cardBuiltResetGeneration = cardResetGeneration;
 
         return substeps;
 
@@ -1305,6 +1359,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
     function reset() {
 
         requireLive( 'reset' );
+        cardResetGeneration ++;
 
         uniforms.resetPositions.value = 1;
         accumulatorSeconds = 0;
@@ -1419,6 +1474,9 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         const release = operation => {
             try { operation(); } catch ( error ) { errors.push( error ); }
         };
+        // Detach/dispose all borrowers before any borrowed storage can be deleted.
+        for ( const retire of [ ...cardEdgeReaders ] ) release( retire );
+        cardEdgeReaders.clear();
         const owner = contactOwner;
         const disposeContact = contactHooks?.dispose;
         contactOwner = null;
@@ -1507,6 +1565,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
         groom,
         uniforms,
         positionNode,
+        borrowCardEdges,
         substepSeconds: SUBSTEP_SECONDS,
         maxSubstepsPerFrame: MAX_SUBSTEPS_PER_FRAME,
 
@@ -1515,6 +1574,7 @@ export function createHairDynamics( { renderer, geometry, settings = {}, collide
          *  the cost of the simulation — and the solve nodes must precede the rebuild. */
         computeNodesFor: ( substeps ) => {
             requireLive( 'computeNodesFor' );
+            cardRawComputeUsed = true;
             if ( contactHooks !== null ) throw new Error( 'HairDynamics.computeNodesFor: contact requires prepared body history; use update().' );
             return [ ...solveNodes.slice( 0, substeps ), rebuildNode ];
         },
