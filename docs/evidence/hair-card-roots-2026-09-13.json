@@ -1,0 +1,65 @@
+{
+  "created": "2026-09-13T16:31:43.860823+00:00",
+  "baselineCommit": "d79b341",
+  "productionSources": {
+    "packages/core/src/Avatar.js": "e099e2ebc1eb3baeadc1a1438618541357f8d311406231fc8c70c262107c2660",
+    "packages/core/src/material/HairMaterial.js": "123b772a0f844805859f3013116ec4e8c019f99bdf84007ff0fdac52241380ab",
+    "packages/core/src/material/HairMaterial.card-roots.selftest.mjs": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07",
+    "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+    "packages/core/src/render/FaceCardCoverage.js": "729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "tools/figure-pipeline/hair_texture.py": "f1ee67d72d1ee9d2f203cab50045fe2850ea7ffa6a20ed2126bd3babf7e52188",
+    "packages/testbed/src/showcase-image.gpu.selftest.mjs": "5a23cc98ef274e91860e775c548a8e920027777fd39a1a5ff184bbe3231bd01d"
+  },
+  "changedBehavior": "Verified bob root-coordinate profile, cap-preserving root feather, and conservative neutral-flow fallback.",
+  "qualification": {
+    "isolationStillPngs": 50,
+    "integratedPngs": 54,
+    "exactPrototypeIntegratedPngPairs": 18,
+    "exactBaselineCandidatePhysicalPairs": 36,
+    "fallbackMsaaBobs": 2,
+    "imageExportGroups": 13,
+    "cardRootCpuGroups": 5,
+    "avatarAssertions": 137,
+    "catalogueAssertions": 92,
+    "allPageBuildPassed": true,
+    "browserErrors": [],
+    "newStorageOwnership": false
+  },
+  "remaining": [
+    "Broad card planes and noisy edges",
+    "Exposed shallow crown/part step",
+    "Sampled frames do not rule out intervening flicker",
+    "Existing solver settling and g025 contact gates unchanged",
+    "Converse truncation/timeout/server-error diagnostics pending"
+  ],
+  "criticReview": "critic/FINAL-REVIEW.md",
+  "criticMotionReview": "critic/motion-review/REVIEW.md",
+  "archive": {
+    "root": "captures/hair-card-roots-2026-09-13",
+    "files": 248,
+    "bytes": 79246619,
+    "manifestSha256": "169231952eb77846805e57c342b2075ea35dfdd5f421f6501c0e4b0d8bcc93e7"
+  },
+  "preview": {
+    "created": "2026-09-13T16:31:39.146778+00:00",
+    "base": "http://127.0.0.1:5197",
+    "responses": {
+      "portrait": {
+        "status": 200,
+        "sha256": "390940f73562e51a94eaa38c5b46ca39507fb79fe6ce69188f91dcaf1af90139"
+      },
+      "avatar": {
+        "status": 200,
+        "sha256": "cd8b3c5d38021f18bfed308a3dd89fcfdcaf5772ab847db4d700a2158905dea8"
+      },
+      "hair": {
+        "status": 200,
+        "sha256": "c2424c9cab78b83372e2e2a89852e1f285440d3ba472a656a844cf1589a5804d"
+      }
+    },
+    "currentProfileServed": true,
+    "neutralFlowGuardServed": true,
+    "note": "HTTP/module verification of the owned preview; actual rendering qualified separately."
+  }
+}

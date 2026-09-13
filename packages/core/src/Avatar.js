@@ -3418,7 +3418,10 @@ export class Avatar {
 
                 // The GLB owns the cutout; read it before applyHairMaterial replaces the material.
                 alphaMap: skinned[ 0 ].material?.map ?? null,
-                multisampled: this.stage.multisampled
+                multisampled: this.stage.multisampled,
+                // Both bob atlases reserve strip 0 for opaque caps; all card roots have v=0.
+                // Build the root feather before configureHairMaterial binds the shadow mask.
+                cardRoots: { capStripEnd: 1 / 8, fadeLength: 0.18 }
             } );
 
         } catch ( error ) {
