@@ -671,6 +671,7 @@ export class Gaze extends Layer {
      */
     setPartnerDirection( { yawDegrees = 0, pitchDegrees = 0 } = {} ) {
 
+        this.releaseTargetHold();
         this.partnerYawDegrees = yawDegrees;
         this.partnerPitchDegrees = pitchDegrees;
 
@@ -779,6 +780,7 @@ export class Gaze extends Layer {
      */
     setPolicyEnabled( enabled ) {
 
+        this.releaseTargetHold( false );
         this.policyEnabled = enabled !== false;
 
         return this;
@@ -790,6 +792,8 @@ export class Gaze extends Layer {
      * it tells the listener the floor is still held while the next clause is assembled.
      */
     markFilledPause( { durationSeconds = FILLED_PAUSE_AVERSION_SECONDS } = {} ) {
+
+        this.releaseTargetHold();
 
         this.forcedRegion = 'away';
         this.forcedRegionRemaining = durationSeconds;
@@ -809,6 +813,8 @@ export class Gaze extends Layer {
      * break IS the act of taking the floor, and it comes fractionally before the first word.
      */
     markTurnEnd() {
+
+        this.releaseTargetHold();
 
         const takingTheFloor = this.conversationState === 'listening';
 
@@ -836,6 +842,7 @@ export class Gaze extends Layer {
 
         const { yawDegrees, pitchDegrees } = toYawPitch( target, this.scratchVector );
 
+        this.releaseTargetHold();
         this.regionHoldRemaining = REGION_HOLD_MEAN_SECONDS;
         this.regionCentreYawDegrees = yawDegrees;
         this.regionCentrePitchDegrees = pitchDegrees;
@@ -843,6 +850,50 @@ export class Gaze extends Layer {
         this.scheduleGazeShift( yawDegrees, pitchDegrees, predicted );
 
         return this;
+
+    }
+
+    /**
+     * Experimental explicit target hold. One command pauses autonomous target selection while
+     * retaining saccades, microsaccades and the eye/head controller. A newer lookAt, policy
+     * setting, speech gaze cue, bind or reset supersedes it. An old handle cannot restore over
+     * the newer request. Direct internal field writes are not this ownership contract.
+     */
+    holdTarget( target, options = {} ) {
+
+        const angles = toYawPitch( target, this.scratchVector );
+        if ( !Number.isFinite( angles.yawDegrees ) || !Number.isFinite( angles.pitchDegrees )
+            || ( target.isVector3 === true && target.lengthSq() < 1e-12 ) ) {
+            throw new TypeError( 'Gaze.holdTarget needs a finite, nonzero direction.' );
+        }
+
+        this.lookAt( angles, options );
+        const hold = { previousPolicy: this.policyEnabled };
+        this.targetHold = hold;
+        this.policyEnabled = false;
+        const gaze = this;
+        return Object.freeze( {
+            get active() { return gaze.targetHold === hold; },
+            release() {
+                if ( gaze.targetHold !== hold ) return false;
+                gaze.releaseTargetHold();
+                return true;
+            }
+        } );
+
+    }
+
+    releaseTargetHold( restorePolicy = true ) {
+
+        const hold = this.targetHold;
+        this.targetHold = null;
+        if ( hold && restorePolicy ) this.policyEnabled = hold.previousPolicy;
+
+    }
+
+    dispose() {
+
+        this.releaseTargetHold();
 
     }
 
@@ -861,6 +912,7 @@ export class Gaze extends Layer {
 
     onBind( context ) {
 
+        this.releaseTargetHold();
         this.headBone = context.target.getBone?.( this.headBoneName ) ?? null;
         this.rigRoot = this.resolveRigRoot();
 
@@ -1974,6 +2026,7 @@ export class Gaze extends Layer {
      */
     resetState( options ) {
 
+        this.targetHold = null;
         this.conversationState = options.conversationState ?? 'idle';
 
         // 🚩 DEFAULT OFF, AND THE REASON IS NOT THAT IT IS WRONG. Turning it on fixes the head

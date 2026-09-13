@@ -139,6 +139,7 @@ export class IdleMotion extends Layer {
         this.bones = bones;
         this.amplitude = options.amplitude ?? 1;
         this.headEnabled = options.headEnabled ?? true;
+        this.headScales = new Map();
 
         // 'auto' until onBind() can see what else is in the stack. Read `armsEnabled` for the
         // resolved answer; this is the request.
@@ -181,6 +182,8 @@ export class IdleMotion extends Layer {
 
     onBind( context ) {
 
+        this.headScales.clear();
+
         // Deferred to the first frame rather than settled here, because 'auto' has to look at the
         // rest of the stack and `onBind()` runs as each layer is ADDED — so a stack that adds this
         // layer before BodyIdle would resolve it against a stack that does not have one yet.
@@ -216,6 +219,35 @@ export class IdleMotion extends Layer {
     reset() {
 
         this.elapsedSeconds = 0;
+        this.headScales.clear();
+
+    }
+
+    /** A temporary head-only multiplier. Base amplitude/weight and the arms remain owned by
+     * their existing controls. Independent multipliers compose; each handle releases only its
+     * own entry. Bind, reset and disposal invalidate all old handles. */
+    acquireHeadScale() {
+
+        const scales = this.headScales;
+        const key = {};
+        scales.set( key, 1 );
+        return Object.freeze( {
+            get active() { return scales.has( key ); },
+            set( value ) {
+                if ( !Number.isFinite( value ) || value < 0 || value > 1 )
+                    throw new RangeError( 'Head scale must be between zero and one.' );
+                if ( !scales.has( key ) ) return false;
+                scales.set( key, value );
+                return true;
+            },
+            release() { return scales.delete( key ); }
+        } );
+
+    }
+
+    dispose() {
+
+        this.headScales.clear();
 
     }
 
@@ -293,7 +325,8 @@ export class IdleMotion extends Layer {
 
         const joint = this.headJoint;
         const noiseTime = this.elapsedSeconds * joint.frequencyHz;
-        const scale = DEGREES_TO_RADIANS * this.amplitude;
+        let scale = DEGREES_TO_RADIANS * this.amplitude;
+        for ( const multiplier of this.headScales.values() ) scale *= multiplier;
 
         this.scratchRigRotation.setFromAxisAngle(
             SAGITTAL_AXIS, HEAD_NOD_DEGREES * scale * joint.noise[ 0 ].at( noiseTime ) );

@@ -78,6 +78,15 @@
                     <button class="choice" data-expression="determined" aria-pressed="false">Determined</button>
                 </div>
             </fieldset>
+            <fieldset id="attention-controls" disabled>
+                <legend>Attention · experimental</legend>
+                <div class="choices">
+                    <button class="choice" id="look-toward-me">Look toward me</button>
+                    <button class="choice" id="release-attention" disabled>Release</button>
+                </div>
+                <p class="note">A brief look toward your current view. Dragging releases it.</p>
+                <p class="note" id="attention-status" role="status">Preparing attention</p>
+            </fieldset>
             <fieldset id="hair-controls" disabled>
                 <label class="label" for="hair-style">Silhouette</label>
                 <select id="hair-style">

@@ -26,16 +26,16 @@ export const PAGE_GROUPS = [
         pages: [
             {
                 path: 'src/portrait.html', name: 'Portrait', label: 'Current preview',
-                blurb: 'Compare the chin-length and long bobs, choose an expression, and turn the avatar under studio or warm light.',
-                boundary: 'Hair and broad mood controls. Nuanced actions such as coyness and teasing, broader identities, and final hair shape are still developing.',
+                blurb: 'Compare both bobs, choose a mood, or invite a brief look toward your current view.',
+                boundary: 'Attention is experimental and works near the front view. Nuanced emotions, precise eye contact, broader identities, and final hair shape remain in development.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/portrait.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Both bobs have verified moving-highlight and crown-root improvements. All four expression controls have matched timed browser samples; Curious and Determined need clearer intent. Neutral starts without a selected mood.',
-                    evidence: 'docs/EXPRESSION-INVENTORY-2026-09-13.md'
+                    detail: 'Both bobs and the experimental attention controls have fresh browser checks, including release, repeat, pause and dragging. All four mood controls have timed samples; Curious and Determined still need clearer intent.',
+                    evidence: 'docs/ATTENTION-ACTION-2026-09-13.md'
                 },
-                gates: [ 'Avatar' ]
+                gates: [ 'Avatar', 'AttentionAction' ]
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',

@@ -1,5 +1,7 @@
 # Directed attention and resolve study — September 13, 2026
 
+> Follow-up: the motion-only direction is now integrated as an experimental Portrait control. See [the attention integration and its limits](ATTENTION-ACTION-2026-09-13.md). This document preserves the earlier unshipped study.
+
 **A coordinated look and small posture change communicate attention more clearly than the existing Determined control. The stronger facial variant reads as guarded or skeptical and is not selected as a resolve preset.** This is the primary agent's and independent critic's bounded visual reading, not a population recognition study. Both candidates remain unshipped; a distinct determination action and broader humanlike intent vocabulary remain open.
 
 This follows the [current expression inventory](EXPRESSION-INVENTORY-2026-09-13.md) and preserves the full [product direction](PRODUCT-ROADMAP.md). No production Avatar, affect mapping, asset, shader or live expression target changed in this study.

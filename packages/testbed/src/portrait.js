@@ -1,3 +1,4 @@
+import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
 import { Avatar } from '../../core/src/Avatar.js';
 import { portraitSelection, validatePortraitHair } from './portrait-selection.mjs';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -11,12 +12,15 @@ const status = document.getElementById( 'status' );
 const pauseButton = document.getElementById( 'pause' );
 let avatar = null;
 let controls = null;
+let attention = null;
+let attentionError = null;
 let paused = reducedMotion;
 let frame = 0;
 let previousTime = null;
 
 function showFailure( reason ) {
     cancelAnimationFrame( frame );
+    attention?.cancel( { immediate: true } );
     document.getElementById( 'loading' ).hidden = true;
     const error = document.getElementById( 'error' );
     error.textContent = `The portrait could not load.\n${ reason?.message ?? reason }`;
@@ -30,6 +34,18 @@ function updatePause() {
     pauseButton.textContent = paused ? 'Resume motion' : 'Pause motion';
     pauseButton.setAttribute( 'aria-pressed', String( paused ) );
     status.textContent = paused ? 'Motion paused · you can still explore' : 'Live portrait';
+    updateAttention();
+}
+
+function updateAttention() {
+    const phase = attention?.phase ?? 'idle';
+    document.getElementById( 'look-toward-me' ).disabled = paused || attention === null;
+    document.getElementById( 'release-attention' ).disabled = phase !== 'attending';
+    const message = paused ? 'Resume motion to try attention.' : attentionError ?? (
+        phase === 'attending' ? 'Looking toward this view' :
+        phase === 'releasing' ? 'Returning to idle' : 'Ready when you are' );
+    const label = document.getElementById( 'attention-status' );
+    if ( label.textContent !== message ) label.textContent = message;
 }
 
 // All rendering goes through Avatar.update/step, including paused frames. The runtime owns the
@@ -39,6 +55,7 @@ function animate( time ) {
     previousTime = time;
     controls.update();
     avatar.update( paused ? 0 : delta );
+    updateAttention();
     frame = requestAnimationFrame( animate );
 }
 
@@ -54,6 +71,7 @@ try {
         ? 'The chin-length bob' : 'The original long bob';
     avatar = await Avatar.create( { canvas, identity: { gender: selection.gender }, hair,
         autoStart: false, frame: 'portrait', lighting: 'studio', seed: 20260807 } );
+    attention = new AttentionAction( avatar );
     controls = new OrbitControls( avatar.stage.camera, canvas );
     controls.target.copy( avatar.focus );
     // Frame the top of the groom as well as the skin. This is a viewer composition offset;
@@ -97,8 +115,33 @@ try {
                 peer.setAttribute( 'aria-pressed', String( peer === button ) );
         } );
     }
-    pauseButton.addEventListener( 'click', () => { paused = !paused; updatePause(); } );
-    document.getElementById( 'reset-view' ).addEventListener( 'click', () => controls.reset() );
+    document.getElementById( 'look-toward-me' ).addEventListener( 'click', () => {
+        try {
+            attention.lookAtCamera( avatar.stage.camera );
+            attentionError = null;
+        } catch ( error ) { attentionError = error.message; }
+        updateAttention();
+    } );
+    document.getElementById( 'release-attention' ).addEventListener( 'click', () => {
+        attention.cancel();
+        updateAttention();
+    } );
+    controls.addEventListener( 'start', () => {
+        attention.cancel();
+        attentionError = null;
+        updateAttention();
+    } );
+    pauseButton.addEventListener( 'click', () => {
+        paused = !paused;
+        if ( paused ) attention.cancel( { immediate: true } );
+        updatePause();
+    } );
+    document.getElementById( 'reset-view' ).addEventListener( 'click', () => {
+        attention.cancel();
+        attentionError = null;
+        controls.reset();
+        updateAttention();
+    } );
     document.getElementById( 'hair-style' ).addEventListener( 'change', event => {
         // A fresh document isolates the renderer and its prototype state. Hair's current
         // patch has no uninstall, so this comparison does not claim a clean in-place style swap.
@@ -107,17 +150,20 @@ try {
         location.assign( url );
     } );
     window.avatar = avatar;
-    window.portrait = { avatar, controls, step: async delta => {
+    window.portrait = { avatar, controls, attention, step: async delta => {
         if ( !captured ) throw new Error( 'Manual stepping requires ?capture.' );
         controls.update();
-        await avatar.step( delta );
+        await avatar.step( paused ? 0 : delta );
+        updateAttention();
     } };
     if ( !captured ) frame = requestAnimationFrame( animate );
 } catch ( error ) { showFailure( error ); }
 
 addEventListener( 'pagehide', event => {
     cancelAnimationFrame( frame );
+    attention?.cancel( { immediate: true } );
     if ( event.persisted ) return;
+    attention?.dispose();
     controls?.dispose();
     avatar?.dispose();
 } );
