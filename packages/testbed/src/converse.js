@@ -1,4 +1,8 @@
 /**
+ * September 13: the browser now discovers models without inference and requires Connect before
+ * warm-up or turns. The notes below record the original August experiment, not current model
+ * availability or performance. The default view uses the accepted Everyday lookbook outfit.
+ *
  * converse — punch-list 7.3, "testbed wired to LM Studio for live conversation".
  *
  * Type a sentence. The avatar appraises it, feels it, answers it, and speaks the answer with a face
@@ -242,6 +246,8 @@
  */
 
 import { Avatar } from '../../core/src/Avatar.js';
+import { discoverModels, connectionHelp } from './converse-connection.mjs';
+import { optionsForShowcase } from './showcase-presets.mjs';
 
 import { AppraisalAffect } from '../../core/src/affect/AppraisalAffect.js';
 import { ANCHOR_SETS } from '../../core/src/affect/ExpressionMap.js';
@@ -767,32 +773,33 @@ async function boot() {
 
     const ownsClock = query.has( 'ownclock' );
 
-    // 🎯 THE ACCEPTANCE GATE FOR 7.1, UNWRAPPED. Everything this page shows — the rig, the deferred
-    // pipeline, the grade, the occlusion, ten motion layers, the rest pose, the expression and
-    // posture pair, the viseme layer — comes out of this one call. The five options are URL
-    // parameters and every one of them has a documented default; `autoStart` is the only one that
-    // is not, and it is true unless `?ownclock` says otherwise.
+    const gender = Number( query.get( 'gender' ) ?? 0.5 );
+    const everyday = gender === 0.5
+        ? optionsForShowcase( { preset: 'casual', outfit: 'casual', frame: 'portrait', light: 'studio' } )
+        : {};
     const avatar = await Avatar.create( {
+        ...everyday,
         canvas: document.getElementById( 'stage' ),
-        identity: { gender: Number( query.get( 'gender' ) ?? 0.5 ) },
-        quality: query.get( 'quality' ) ?? 'auto',
+        identity: { gender },
+        quality: query.get( 'quality' ) ?? everyday.quality ?? 'auto',
         frame: query.get( 'frame' ) ?? 'portrait',
         seed: Number( query.get( 'seed' ) ?? 20260807 ),
         autoStart: ownsClock === false
     } );
+    const stopOwnClock = ownsClock ? startOwnClock( avatar ) : () => {};
 
-    if ( ownsClock === true ) startOwnClock( avatar );
-
-    mark( 'lm studio' );
-
-    // ⚠️ `avatar.affectState` is the one handle tier 2 needs and the API contract does not name it.
-    // See the header; filed as a request rather than worked around, because the alternative — tier 2
-    // through `feel()` at confidence 1 — is the thing `AppraisalAffect` exists to prevent.
-    const conversation = createConversation( {
-        state: avatar.affectState,
-        model: query.get( 'model' ) ?? undefined,
-        mirror: query.get( 'mirror' ) === 'spoken' ? 'spoken' : 'heard'
+    // No constructor warm-up and no guessed model. Opening the page only reads /v1/models.
+    const endpoint = defaultEndpointFor();
+    const pageRequests = new AbortController();
+    const fetchForPage = ( url, options = {} ) => fetch( url, {
+        ...options,
+        signal: options.signal ? AbortSignal.any( [ options.signal, pageRequests.signal ] ) : pageRequests.signal
     } );
+    let conversation = null;
+    let connecting = false;
+    let discovering = false;
+    let disposed = false;
+    let modelIds = [];
 
     const session = {
         busy: false,
@@ -806,7 +813,7 @@ async function boot() {
         lastReplyMs: null,
         lastAppraisalMs: null,
         lastTurnMs: null,
-        warm: 'warming…',
+        warm: 'Choose a model and connect.',
 
         // Measured between HUD ticks — see `sampleFrameRate` for why not `Stage.fps`.
         fps: 0,
@@ -821,6 +828,92 @@ async function boot() {
     const sendButton = document.getElementById( 'send' );
     const releaseButton = document.getElementById( 'release' );
     const mouthToggle = document.getElementById( 'mouth' );
+    const modelSelect = document.getElementById( 'model' );
+    const connectButton = document.getElementById( 'connect' );
+    const refreshButton = document.getElementById( 'refresh' );
+    const connectionStatus = document.getElementById( 'connection-status' );
+    const lookNote = document.getElementById( 'look-note' );
+    lookNote.textContent = gender === 0.5 ? 'Everyday starting look · clothing fit remains a study.' : 'Custom figure study · open the lookbook for the supported complete outfits.';
+
+    function syncControls() {
+        const locked = session.busy || connecting || discovering || disposed;
+        modelSelect.disabled = locked || modelIds.length === 0;
+        refreshButton.disabled = locked;
+        connectButton.disabled = locked || !modelIds.includes( modelSelect.value );
+        connectButton.textContent = connecting ? 'Connecting…' : 'Connect';
+        input.disabled = locked || conversation === null;
+        sendButton.disabled = input.disabled;
+        releaseButton.disabled = locked;
+    }
+    function showConnection( message, state ) {
+        connectionStatus.textContent = message;
+        connectionStatus.dataset.state = state;
+        session.warm = message;
+    }
+    async function refreshModels() {
+        if ( session.busy || connecting || discovering || disposed ) return;
+        const preferred = modelSelect.value || query.get( 'model' );
+        discovering = true;
+        conversation = null;
+        showConnection( 'Looking for models in LM Studio…', 'checking' );
+        syncControls();
+        const result = await discoverModels( { endpoint, fetchImpl: fetchForPage } );
+        if ( disposed ) return;
+        discovering = false;
+        modelIds = result.ok ? result.models : [];
+        modelSelect.replaceChildren( new Option( 'Choose a chat model…', '' ), ...modelIds.map( id => new Option( id, id ) ) );
+        if ( preferred && modelIds.includes( preferred ) ) modelSelect.value = preferred;
+        if ( !result.ok ) {
+            showConnection( 'Cannot read the model list. Check LM Studio’s server on port 1234, then choose Refresh models. A hosted build also needs the LM Studio proxy.', 'unavailable' );
+        } else if ( modelIds.length === 0 ) {
+            showConnection( 'LM Studio is reachable but lists no models. Add a chat model in LM Studio, then refresh.', 'empty' );
+        } else if ( preferred && !modelIds.includes( preferred ) ) {
+            showConnection( `“${preferred}” is no longer listed. Choose an available chat model and connect.`, 'selection' );
+        } else {
+            showConnection( 'Model list received. Choose a chat model and connect; a listed model may still need to load.', 'selection' );
+        }
+        syncControls();
+    }
+    async function connectModel() {
+        if ( session.busy || connecting || discovering || disposed || !modelIds.includes( modelSelect.value ) ) return;
+        const model = modelSelect.value;
+        connecting = true;
+        conversation = null;
+        showConnection( `Preparing ${model}. This can load the selected model and may take a minute…`, 'connecting' );
+        syncControls();
+        try {
+            const candidate = createConversation( {
+                state: avatar.affectState, endpoint, model, fetchImpl: fetchForPage, warmOnConstruction: false,
+                mirror: query.get( 'mirror' ) === 'spoken' ? 'spoken' : 'heard'
+            } );
+            const warm = await candidate.warmBothSchemas();
+            if ( disposed ) return;
+            if ( warm.warmed ) {
+                conversation = candidate;
+                const url = new URL( location.href );
+                url.searchParams.set( 'model', model );
+                history.replaceState( null, '', url );
+                showConnection( `Connected to ${model}. Text replies are ready. Expression interpretation is experimental.`, 'ready' );
+                write( 'note', '·', `New conversation with ${model}. Expression follows what is ${candidate.mirror}.` );
+            } else {
+                showConnection( connectionHelp( warm.replyReason ?? warm.affectReason ), 'unavailable' );
+            }
+        } catch ( error ) {
+            showConnection( 'Connection could not finish. Refresh the model list and try again.', 'unavailable' );
+            console.error( 'converse: connection failed', error );
+        } finally {
+            connecting = false;
+            syncControls();
+        }
+    }
+    modelSelect.addEventListener( 'change', () => {
+        conversation = null;
+        showConnection( 'Connect to start a new conversation with this model.', 'selection' );
+        syncControls();
+    } );
+    connectButton.addEventListener( 'click', connectModel );
+    refreshButton.addEventListener( 'click', refreshModels );
+
 
     /** The one writer of the tier readout. Every push into the avatar is paired with a call here. */
     const recordTier = ( tier, detail ) => {
@@ -863,10 +956,10 @@ async function boot() {
      */
     const takeTurn = async ( heard ) => {
 
+        if ( session.busy || connecting || discovering || !conversation || disposed ) return;
         session.busy = true;
         session.turns += 1;
-        input.disabled = true;
-        sendButton.disabled = true;
+        syncControls();
 
         const started = nowMs();
 
@@ -890,18 +983,22 @@ async function boot() {
 
         // --- 2. the reply --------------------------------------------------------------------
         const reply = await conversation.requestReply( heard );
+        if ( disposed ) return;
 
         session.lastReplyMs = reply.latencyMs;
 
         if ( reply.ok === false ) {
 
-            write( 'failed', '·', `no reply: ${ reply.reason } — ${ reply.detail }` );
+            write( 'failed', '·', `No reply. ${ connectionHelp( reply.reason ) }` );
+            showConnection( 'The last reply failed. Retry your message, or refresh models and reconnect.', 'unavailable' );
 
             session.lastTurnMs = nowMs() - started;
             finishTurn();
             return;
 
         }
+
+        showConnection( `Connected to ${conversation.model}. Reply received; checking its expression.`, 'ready' );
 
         // --- 3. say it, WHICH PUSHES ITS OWN TIER-1 ESTIMATE OF THE REPLY -----------------------
         //
@@ -917,11 +1014,13 @@ async function boot() {
         // --- 4. tier 2, last ------------------------------------------------------------------
         const appraised = conversation.mirror === 'spoken' ? reply.reply : heard;
         const appraisal = await conversation.appraise( appraised, reflexResult.estimate );
+        if ( disposed ) return;
 
         session.lastAppraisalMs = appraisal.latencyMs ?? null;
 
         if ( appraisal.applied === true ) {
 
+            showConnection( `Connected to ${conversation.model}. Text and expression responded.`, 'ready' );
             const value = appraisal.value;
 
             recordTier( 2, `LM Studio · ${ value.primary } ${ value.intensity.toFixed( 2 ) } · ` +
@@ -930,6 +1029,8 @@ async function boot() {
                 `D ${ appraisal.weights.dominance.toFixed( 2 ) }` );
 
         } else if ( appraisal.ok === false ) {
+
+            showConnection( 'Reply received. Expression interpretation was unavailable; the avatar kept its local response.', 'degraded' );
 
             // research/lm-studio-integration.md, verbatim: "on any rejection, keep Tier 1's value
             // and log — never let a bad Tier 2 result snap the face." This is that log; the not
@@ -953,9 +1054,8 @@ async function boot() {
     function finishTurn() {
 
         session.busy = false;
-        input.disabled = false;
-        sendButton.disabled = false;
-        input.focus();
+        syncControls();
+        if ( !input.disabled ) input.focus();
 
     }
 
@@ -963,7 +1063,7 @@ async function boot() {
 
         const heard = input.value.trim();
 
-        if ( heard === '' || session.busy === true ) return;
+        if ( heard === '' || session.busy || !conversation || connecting || discovering || disposed ) return;
 
         input.value = '';
 
@@ -982,7 +1082,7 @@ async function boot() {
 
     if ( bare === true ) {
 
-        for ( const id of [ 'hud', 'transcript', 'composer' ] ) document.getElementById( id ).style.display = 'none';
+        document.body.classList.add( 'bare' );
 
     } else {
 
@@ -999,8 +1099,7 @@ async function boot() {
 
         } );
 
-        write( 'note', '·', `endpoint ${ conversation.endpoint } · model ${ conversation.model } · ` +
-            `appraising what is ${ conversation.mirror }` );
+        write( 'note', '·', 'Text conversation drives expression and posture. Voice and microphone are not connected.' );
 
         input.focus();
 
@@ -1009,22 +1108,16 @@ async function boot() {
     mark( 'ready' );
     overlay.remove();
 
-    // Fired and NOT awaited. The figure is already alive and there is no reason to hold a page that
-    // renders on a call that can take 22 s; the HUD reports which state the warm-up is in.
-    conversation.warmBothSchemas().then( ( warm ) => {
-
-        session.warm = warm.warmed === true
-            ? `warm in ${ ( warm.latencyMs / 1000 ).toFixed( 1 ) } s`
-            : `NOT WARM — affect ${ warm.affectReason ?? 'ok' }, reply ${ warm.replyReason ?? 'ok' }`;
-
-    } );
+    syncControls();
+    if ( !bare ) void refreshModels();
 
     // Deliberately NOT hung off the frame callback: `autoStart: true` means the avatar owns that
     // loop, and a HUD is not a reason to take it away. Ten times a second is plenty for a human and
     // cheap enough not to compete with the frame being drawn.
+    let hudTimer;
     if ( bare === false ) {
 
-        setInterval( () => {
+        hudTimer = setInterval( () => {
 
             sampleFrameRate( avatar, session );
             hud.textContent = describe( avatar, conversation, session, mouthToggle );
@@ -1034,7 +1127,16 @@ async function boot() {
     }
 
     // Everything a console or a harness needs, in one place, the way every other page here does it.
-    window.__SUGATA_CONVERSE__ = { avatar, conversation, session, takeTurn, ready: true };
+    window.__SUGATA_CONVERSE__ = { avatar, get conversation() { return conversation; }, session, takeTurn, ready: true };
+    window.addEventListener( 'pagehide', event => {
+        if ( event.persisted ) return;
+        disposed = true;
+        pageRequests.abort();
+        stopOwnClock();
+        clearInterval( hudTimer );
+        syncControls();
+        avatar.dispose();
+    } );
 
 }
 
@@ -1102,7 +1204,7 @@ function startOwnClock( avatar ) {
 
     setTimeout( () => {
 
-        if ( rafTicks >= 2 ) return;
+        if ( driver !== 'raf' || rafTicks >= 2 ) return;
 
         driver = 'task';
 
@@ -1120,6 +1222,7 @@ function startOwnClock( avatar ) {
 
             const taskLoop = () => {
 
+                if ( driver !== 'task' ) return;
                 step();
                 scheduleTask( taskLoop );
 
@@ -1130,6 +1233,8 @@ function startOwnClock( avatar ) {
         } );
 
     }, RAF_PROBE_MS );
+
+    return () => { driver = 'stopped'; };
 
 }
 
@@ -1169,7 +1274,7 @@ function sampleFrameRate( avatar, session ) {
 function describe( avatar, conversation, session, mouthToggle ) {
 
     const report = avatar.report();
-    const tier2 = conversation.tier2.report();
+    const tier2 = conversation?.tier2.report() ?? { applied: 0, appraisals: 0, superseded: 0, refusals: {} };
 
     const pad = report.affect === null ? { pleasure: 0, arousal: 0, dominance: 0 } : report.affect.pad;
     const activations = report.affect === null ? [] : report.affect.activations;
@@ -1184,7 +1289,7 @@ function describe( avatar, conversation, session, mouthToggle ) {
         `backend ${ report.quality.backend }  tier ${ report.quality.tier } (${ report.quality.selectedBy })  ` +
             `${ Math.round( session.fps ) } fps  ${ report.framing.mode }  ` +
             `${ avatar.autoStart ? 'avatar clock' : 'page clock (?ownclock)' }`,
-        `lm      ${ conversation.endpoint }  ${ conversation.model }`,
+        `lm      ${ conversation?.endpoint ?? defaultEndpointFor() }  ${ conversation?.model ?? 'not connected' }`,
         `        ${ session.warm }   ${ session.turns } turn(s)   ${ latency }`,
         '',
         `PAD     P ${ signed( pad.pleasure ) }   A ${ signed( pad.arousal ) }   D ${ signed( pad.dominance ) }`,
@@ -1197,9 +1302,7 @@ function describe( avatar, conversation, session, mouthToggle ) {
         '',
         `tier 2  ${ tier2.applied }/${ tier2.appraisals } applied, ${ tier2.superseded } superseded, ` +
             `refusals ${ JSON.stringify( tier2.refusals ) }`,
-        `tier 1  ${ conversation.reflex.lexiconProvenance.name }, ` +
-            `${ conversation.reflex.lexiconProvenance.entries } entries — ` +
-            `${ conversation.reflex.lexiconProvenance.licence }`,
+        `tier 1  ${ conversation?.reflex.lexiconProvenance.name ?? 'available after connection' }`,
         '',
         `speech  ${ report.speech.speaking ? 'SPEAKING' : 'silent' }   ` +
             `timeline ${ report.speech.timelineSupplied === null ? '—' : report.speech.timelineSupplied }`,

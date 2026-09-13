@@ -2,118 +2,105 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>姿 — converse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sugata — Converse</title>
 <style>
-    :root { color-scheme: dark; }
-
-    html, body {
-        margin: 0;
-        height: 100%;
-        background: #08080a;
-        color: #d8dae0;
-        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
-        overflow: hidden;
-    }
-
-    #stage { display: block; width: 100vw; height: 100vh; }
-
-    #hud, #transcript, #composer {
-        position: fixed;
-        padding: 10px 12px;
-        background: rgba( 8, 8, 12, 0.72 );
-        border: 1px solid rgba( 255, 255, 255, 0.10 );
-        border-radius: 6px;
-    }
-
-    #hud { top: 12px; left: 12px; max-width: 44vw; white-space: pre; }
-
-    /* The transcript is the page's record of the session and it has to survive a long one, so it
-       scrolls rather than growing the layout. Column-reverse would pin it to the bottom for free
-       but reverses selection order, so the newest line is scrolled to explicitly instead. */
-    #transcript {
-        top: 12px;
-        right: 12px;
-        width: 340px;
-        max-height: calc( 100vh - 120px );
-        overflow-y: auto;
-    }
-
-    #transcript .turn { margin: 0 0 10px; }
-    #transcript .who { opacity: 0.5; }
-    #transcript .you .said { color: #d8dae0; }
-    #transcript .avatar .said { color: #7fd4ff; }
-    #transcript .note { opacity: 0.55; }
-    #transcript .refused { color: #ffb37f; }
-    #transcript .failed { color: #ff8f8f; }
-
-    #composer {
-        left: 12px;
-        right: 376px;
-        bottom: 12px;
-        /* ?bare and a narrow window both letterbox the body into a centred grid, and
-           `place-items: center` reaches fixed boxes too — voice.html and affect.html both record
-           this. Opt back out explicitly. */
-        place-self: end stretch;
-    }
-
-    #composer .row { display: flex; gap: 6px; align-items: center; }
-
-    #say {
-        flex: 1;
-        font: inherit;
-        color: inherit;
-        background: rgba( 255, 255, 255, 0.06 );
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        border-radius: 4px;
-        padding: 6px 8px;
-    }
-
-    #composer button {
-        font: inherit;
-        color: inherit;
-        background: rgba( 255, 255, 255, 0.08 );
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        border-radius: 4px;
-        padding: 6px 12px;
-        cursor: pointer;
-    }
-    #composer button:hover { background: rgba( 255, 255, 255, 0.16 ); }
-    #composer button:disabled { opacity: 0.4; cursor: default; }
-
-    #composer .options { margin-top: 6px; opacity: 0.65; display: flex; gap: 14px; flex-wrap: wrap; }
-    #composer .options label { cursor: pointer; }
-
-    #boot {
-        position: fixed;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        font-size: 14px;
-        letter-spacing: 0.1em;
-    }
+:root { color-scheme: dark; font: 14px/1.5 system-ui, -apple-system, sans-serif; color: #e9edf0; background: #0d1014; }
+* { box-sizing: border-box; }
+body { margin: 0; height: 100dvh; display: flex; flex-direction: column; }
+a { color: #addbdb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 24px; border-bottom: 1px solid #ffffff18; }
+.brand { color: #f2f4ef; font-size: 18px; letter-spacing: .08em; }
+.topbar nav { display: flex; gap: 22px; font-size: 13px; }
+main { min-height: 0; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 390px; }
+.viewport { position: relative; min-width: 0; min-height: 0; background: #10151b; overflow: hidden; }
+#stage { display: block; width: 100%; height: 100%; }
+.preview-label { position: absolute; top: 22px; left: 24px; right: 24px; pointer-events: none; }
+.preview-label strong { display: block; font-size: 13px; font-weight: 500; }
+#look-note { color: #aebbc8; font-size: 12px; }
+.sidebar { min-height: 0; display: flex; flex-direction: column; background: #13191f; border-left: 1px solid #ffffff18; }
+.connection { padding: 24px 24px 18px; border-bottom: 1px solid #ffffff18; }
+.eyebrow { color: #9bb6b7; font-size: 11px; text-transform: uppercase; letter-spacing: .13em; margin: 0 0 6px; }
+h1 { font-size: 26px; font-weight: 500; margin: 0 0 8px; letter-spacing: -.035em; }
+.intro { color: #abb8c3; font-size: 13px; margin: 0 0 20px; }
+label { display: block; font-size: 12px; margin-bottom: 6px; color: #c3cdd5; }
+button, input, select { font: inherit; color: inherit; border: 1px solid #ffffff26; border-radius: 7px; background: #202b33; min-height: 40px; }
+button { padding: 8px 13px; cursor: pointer; }
+button:hover:enabled { background: #2b3a43; }
+button:disabled, select:disabled, input:disabled { opacity: .5; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #b4e9de; outline-offset: 3px; }
+select { width: 100%; padding: 8px; text-overflow: ellipsis; }
+.connection-actions { display: flex; gap: 8px; margin: 10px 0; }
+#connect, #send { background: #bddbd2; border-color: #bddbd2; color: #152720; font-weight: 600; }
+#connect:hover:enabled, #send:hover:enabled { background: #d1ebe3; }
+#connection-status { font-size: 12px; color: #b4c3ce; margin: 12px 0 6px; overflow-wrap: anywhere; }
+#connection-status[data-state="ready"] { color: #b9dfb7; }
+#connection-status[data-state="unavailable"], #connection-status[data-state="degraded"] { color: #f0c3a1; }
+.load-note { font-size: 11px; color: #8f9fae; margin: 0; }
+#transcript { flex: 1; min-height: 80px; overflow: auto; padding: 20px 24px; }
+.turn { margin: 0 0 18px; overflow-wrap: anywhere; }
+.who { display: block; color: #8e9fac; font-size: 11px; text-transform: uppercase; margin-bottom: 4px; }
+.avatar .said { color: #c9e8df; }
+.note { color: #96a7b5; font-size: 12px; }
+.note .who, .failed .who, .refused .who { display: none; }
+.failed, .refused { color: #efc0a0; font-size: 12px; }
+#composer { border-top: 1px solid #ffffff18; padding: 18px 24px; }
+.row { display: flex; gap: 8px; }
+#say { min-width: 0; flex: 1; padding: 10px; }
+.options { margin-top: 14px; }
+.options label { display: flex; align-items: center; gap: 8px; }
+#mouth { min-height: auto; accent-color: #c0dcd4; }
+.audio-note { color: #93a3b1; font-size: 11px; margin: 8px 0 0; }
+#release { margin-top: 10px; font-size: 12px; padding: 5px 9px; min-height: 32px; }
+.diagnostics { position: absolute; left: 20px; bottom: 20px; right: 20px; width: fit-content; max-width: calc(100% - 40px); border: 1px solid #ffffff20; border-radius: 8px; background: #0b1018d9; font-size: 12px; }
+.diagnostics summary { padding: 8px 12px; cursor: pointer; color: #b8c7d2; }
+#hud { white-space: pre-wrap; overflow-wrap: anywhere; overflow: auto; max-height: 45vh; margin: 0; padding: 12px; font: 11px/1.6 ui-monospace, monospace; color: #b6c7d5; }
+#boot { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; background: #0d1014d9; color: #bbd0d6; }
+.bare .topbar, .bare .sidebar, .bare .preview-label, .bare .diagnostics { display: none; }
+.bare main { display: block; }
+.bare .viewport { height: 100%; }
+@media (max-width: 800px) {
+ body { height: auto; min-height: 100dvh; }
+ .topbar { padding: 12px 16px; }
+ .topbar nav { gap: 14px; font-size: 12px; }
+ main { display: block; }
+ .viewport { height: 55dvh; min-height: 340px; }
+ .sidebar { border-left: 0; border-top: 1px solid #ffffff18; }
+ .connection { padding: 20px; }
+ #transcript { height: 230px; flex: none; }
+ #composer { padding: 18px 20px; }
+ .bare .viewport { height: 100dvh; }
+}
 </style>
 </head>
 <body>
-
-<canvas id="stage"></canvas>
-<div id="boot">booting…</div>
-
-<div id="hud"></div>
-
-<div id="transcript"></div>
-
-<div id="composer">
-    <div class="row">
-        <input id="say" type="text" autocomplete="off" spellcheck="false"
-            placeholder="say something — the avatar appraises it, feels it, and answers">
-        <button id="send">send</button>
-        <button id="release">release</button>
-    </div>
-    <div class="options">
-        <label><input id="mouth" type="checkbox" checked> mouth: synthetic viseme timeline (NOT this text's phonemes — 4.3 is open)</label>
-    </div>
-</div>
-
+<header class="topbar"><a class="brand" href="/">姿 SUGATA</a><nav aria-label="Testbed"><a href="/">Testbed</a><a href="./portrait.html">Portrait</a><a href="./showcase.html">Lookbook</a></nav></header>
+<main>
+ <section class="viewport" aria-label="Avatar preview">
+  <canvas id="stage" aria-label="Animated Sugata avatar"></canvas>
+  <div class="preview-label"><strong>Expression in conversation</strong><span id="look-note"></span></div>
+  <details class="diagnostics"><summary>Expression &amp; rendering details</summary><pre id="hud"></pre></details>
+  <div id="boot" role="status">Preparing the avatar…</div>
+ </section>
+ <section class="sidebar" aria-label="Conversation">
+  <div class="connection">
+   <p class="eyebrow">Connected preview · LM Studio</p><h1>Converse</h1>
+   <p class="intro">Talk through text. Watch the avatar respond through expression and posture.</p>
+   <label for="model">Chat model</label><select id="model" disabled><option value="">Looking for models…</option></select>
+   <div class="connection-actions"><button id="connect" disabled>Connect</button><button id="refresh" disabled>Refresh models</button></div>
+   <p id="connection-status" role="status" aria-live="polite">The model list will appear when the avatar is ready.</p>
+   <p class="load-note">Connect prepares the selected model in LM Studio. Opening this page does not load one.</p>
+  </div>
+  <div id="transcript" role="log" aria-label="Conversation transcript" aria-live="polite" aria-relevant="additions"></div>
+  <div id="composer">
+   <label for="say">Your message</label><div class="row"><input id="say" type="text" autocomplete="off" placeholder="Say something…" disabled><button id="send" disabled>Send</button></div>
+   <div class="options"><label><input id="mouth" type="checkbox">Preview mouth movement</label></div>
+   <p class="audio-note">Text only. Voice and microphone are not connected. Optional mouth movement is a sample animation, not lip sync for the reply.</p>
+   <button id="release" disabled>Return to neutral</button>
+  </div>
+ </section>
+</main>
 <script type="module" src="./converse.js"></script>
 </body>
 </html>

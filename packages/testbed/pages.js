@@ -1,235 +1,206 @@
 /**
- * Every page in the testbed, described once, in the order somebody new should meet them.
- *
- * ## Why this is a module and not a list typed into `index.html`
- *
- * A hand-maintained index is a claim about the repository, and this repository has been caught
- * four separate times by claims about itself that drifted — a gate roster where twelve of thirteen
- * counts had moved, a build config that did not know two pages existed, a comment citing a ledger
- * entry nobody had filed. An index page is exactly that shape: it is right the day it is written
- * and silently wrong the first time somebody adds a page.
- *
- * So the list lives here, `index.html` renders it, and `pages.selftest.mjs` closes it in BOTH
- * directions against two independent sources of truth:
- *
- *   - the filesystem — every `.html` under `packages/testbed/` appears below, and every entry
- *     below exists on disk;
- *   - `vite.pages.config.js` — the same set, because a page nobody builds is a page that can rot
- *     behind a green `npm run build:pages`, which is the defect that config exists to prevent.
- *
- * 🎯 **Adding a page therefore costs three edits and the gate names all three if you miss one.**
- * That is the intended price. The alternative is the index quietly becoming a museum of the pages
- * that existed in August.
- *
- * ## What `blurb` is for, and what it is not
- *
- * One sentence answering "why would I open this rather than one of the others". It is NOT a
- * summary of the page's source header — those are long, and they are already the right place for
- * detail. If a blurb needs a second sentence, the page probably needs splitting.
+ * The testbed catalogue is also its source-status inventory. Keep descriptions about what a
+ * page exposes separate from browser verification. The closure gate compares this list with
+ * both the filesystem and vite.pages.config.js; adding a page still requires all three entries.
  */
+export const CATALOGUE_REVIEWED = '2026-09-13';
 
-/**
- * The acceptance page. It is listed on its own because it is not a browsercheck: it is the page
- * the seven objective gates are measured on and the page a blind judge captures.
- */
-export const ACCEPTANCE = [
+const SOURCE_REVIEW = {
+    kind: 'source-reviewed',
+    date: CATALOGUE_REVIEWED,
+    detail: 'Source reviewed; browser behaviour has not been rechecked in this catalogue pass.'
+};
+
+const PREVIEW_REVIEW = {
+    kind: 'previously-verified',
+    date: '2026-09-09',
+    detail: 'Browser checks are recorded in the September 9 checkpoint; this is not a fresh health check.',
+    evidence: 'docs/PAUSED-2026-09-09.md'
+};
+
+export const PAGE_GROUPS = [
     {
-        path: 'alive.html',
-        name: 'alive',
-        phase: 'Phase 2 · the acceptance page',
-        blurb: 'Does the figure read as alive when it is silent? Every judge plate and every ' +
-            'objective gate is captured here — so a number taken anywhere else is compared ' +
-            'against this page, not the other way round.',
-        gates: [ 'alive-toggles', 'alive-capture-determinism', 'tools/critic/measure.mjs' ]
+        id: 'previews',
+        title: 'Explore the avatar',
+        note: 'The current appearance, with controls made for browsing.',
+        pages: [
+            {
+                path: 'src/portrait.html', name: 'Portrait', label: 'Current preview',
+                blurb: 'Compare the chin-length and long bobs, choose an expression, and turn the avatar under studio or warm light.',
+                boundary: 'Hair and expression study. Final hair shading and broader identity coverage are still developing.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/portrait.js', review: PREVIEW_REVIEW,
+                gates: [ 'Avatar' ]
+            },
+            {
+                path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
+                blurb: 'Explore two complete starting looks, change the light and framing, then save a PNG image or the avatar settings.',
+                boundary: 'Two starting outfits on one body study. Clothing fit and the larger wardrobe remain works in progress.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/showcase.js', review: PREVIEW_REVIEW,
+                gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
+            }
+        ]
+    },
+    {
+        id: 'connected',
+        title: 'Conversation',
+        note: 'The avatar responds to text through a local language model.',
+        pages: [
+            {
+                path: 'src/converse.html', name: 'Converse', label: 'Requires LM Studio',
+                blurb: 'Type to the avatar and explore how a reply, facial expression and posture work together.',
+                boundary: 'Text conversation and experimental affect. Mouth motion is a demonstration; spoken audio and microphone input are not connected.',
+                requirements: 'LM Studio must be running with a compatible model. Connection setup is shown on the page.',
+                source: 'packages/testbed/src/converse.js',
+                review: {
+                    kind: 'previously-verified', date: '2026-09-13',
+                    detail: 'Real WebGPU page and local model discovery; completion and recovery responses are controlled fixtures. Live reply quality is not validated.',
+                    evidence: 'docs/CONVERSE-2026-09-13.md'
+                },
+                gates: [ 'Avatar', 'LMStudioClient', 'converse-connection', 'converse.gpu' ]
+            }
+        ]
+    },
+    {
+        id: 'labs',
+        title: 'Focused labs',
+        note: 'These isolate individual systems. Lighting, rendering and controls can differ from the previews.',
+        pages: [
+            {
+                path: 'src/affect.html', name: 'Expression and posture', label: 'Diagnostic',
+                blurb: 'Adjust emotional dimensions and compare the facial shapes and body prescriptions they produce.',
+                boundary: 'Manually driven emotion study; it does not test open-ended conversation or prove human-level expression.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/affect.js', review: SOURCE_REVIEW, gates: [ 'affect' ]
+            },
+            {
+                path: 'src/voice.html', name: 'Mouth animation', label: 'Silent diagnostic',
+                blurb: 'Hold individual mouth shapes or play a short synthetic sequence to inspect timing and transitions.',
+                boundary: 'The audio-clock control provides timing only. This page does not generate spoken audio or match phonemes to your text.',
+                requirements: 'No model service needed; the audio clock starts after a click.',
+                source: 'packages/testbed/src/voice.js', review: SOURCE_REVIEW, gates: [ 'visemes', 'prosody' ]
+            },
+            {
+                path: 'src/wardrobe.html', name: 'Garment fitting', label: 'Diagnostic',
+                blurb: 'Inspect garment selection, layering, coverage, shadows and the avatar’s clothing preferences.',
+                boundary: 'Uses simple diagnostic lighting and rendering. Intentional defect controls are available; use Wardrobe studies to judge the current look.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/wardrobe.js', review: SOURCE_REVIEW,
+                gates: [ 'wardrobe', 'shadow', 'hem', 'decency', 'agency' ]
+            },
+            {
+                path: 'src/identity.html', name: 'Identity sculpting', label: 'Diagnostic',
+                blurb: 'Explore the face and body modelling sliders and inspect how identity choices change the geometry.',
+                boundary: 'Uses diagnostic lighting and rendering; this is not yet a polished character creator or a wardrobe fit guarantee.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/identity.js', review: SOURCE_REVIEW,
+                gates: [ 'identitytargets', 'identitycatalogue', 'identityassets' ]
+            },
+            {
+                path: 'src/hair.html', name: 'Hair construction', label: 'Diagnostic',
+                blurb: 'Inspect the authored groom from fixed viewpoints, including its crown, silhouette and texture atlas.',
+                boundary: 'An asset inspection view with its own rendering. Use Portrait for the current moving avatar and hair.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/hair.js', review: SOURCE_REVIEW, gates: [ 'verify_glb hair clause' ]
+            },
+            {
+                path: 'src/skin.html', name: 'Skin shading', label: 'Diagnostic',
+                blurb: 'Compare subsurface shading on and off and inspect the material settings under controlled lighting.',
+                boundary: 'Material measurements and diagnostic views; its light and camera settings differ from Portrait.',
+                requirements: 'WebGPU is needed for the default deferred view.',
+                source: 'packages/testbed/src/skin.js', review: SOURCE_REVIEW, gates: [ 'SkinOcclusion', 'SkinRegions' ]
+            },
+            {
+                path: 'src/eye.html', name: 'Eye optics', label: 'Diagnostic',
+                blurb: 'Inspect the iris, cornea and sclera while comparing the eye’s optical settings and camera angle.',
+                boundary: 'An isolated eye-material study rather than a complete avatar appearance preview.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/eye.js', review: SOURCE_REVIEW, gates: [ 'EyeMaterial', 'cornea_geometry', 'eye-optics-claims' ]
+            },
+            {
+                path: 'src/lighting.html', name: 'Lighting rig', label: 'Diagnostic',
+                blurb: 'Compare controlled lighting configurations on a still figure at portrait and full-body scales.',
+                boundary: 'The figure is deliberately still. Some options introduce known lighting defects for measurement.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/lighting.js', review: SOURCE_REVIEW, gates: [ 'LightingRig', 'GroundContact' ]
+            },
+            {
+                path: 'src/post.html', name: 'Antialiasing and colour', label: 'Diagnostic',
+                blurb: 'Compare edge smoothing, temporal rendering and colour grading with controlled motion and camera changes.',
+                boundary: 'Defaults to a different rendering configuration from Portrait. Each comparison must keep its chosen settings in view.',
+                requirements: 'Temporal modes require WebGPU; the page also exposes non-temporal comparisons.',
+                source: 'packages/testbed/src/post.js', review: SOURCE_REVIEW, gates: [ 'Grade', 'Toksvig', 'TRAAPost' ]
+            },
+            {
+                path: 'src/stage.html', name: 'Render buffers', label: 'Diagnostic',
+                blurb: 'Inspect the renderer’s colour, depth and motion outputs using controlled objects and dedicated probes.',
+                boundary: 'Coloured channels and synthetic objects are expected here; this is not an avatar appearance preview.',
+                requirements: 'WebGPU is needed for the deferred render-buffer probes.',
+                source: 'packages/testbed/src/stage.js', review: SOURCE_REVIEW, gates: [ 'TRAAPost', 'MorphVelocity' ]
+            }
+        ]
+    },
+    {
+        id: 'integration',
+        title: 'Integration checks',
+        note: 'Small examples for embedding the avatar or checking browser support.',
+        pages: [
+            {
+                path: 'src/embed-example.html', name: 'Minimal avatar', label: 'Integration example',
+                blurb: 'Open the smallest example that creates an animated avatar with the public runtime API.',
+                boundary: 'A minimal canvas without outfit, conversation or appearance controls.',
+                requirements: 'No model service needed; available rendering quality depends on the browser.',
+                source: 'packages/testbed/src/embed-example.html', review: SOURCE_REVIEW, gates: [ 'Avatar' ]
+            },
+            {
+                path: 'src/scaffold.html', name: 'Browser support', label: 'Backend check',
+                blurb: 'Render a lit sphere and inspect which graphics backend is available before loading the avatar.',
+                boundary: 'A sphere is the intended result. Passing this check does not verify the complete avatar pipeline.',
+                requirements: 'WebGPU or WebGL2.',
+                source: 'packages/testbed/src/main.js', review: SOURCE_REVIEW, gates: []
+            }
+        ]
+    },
+    {
+        id: 'reference',
+        title: 'Reference and experiments',
+        note: 'Preserved tools for reproducible comparisons and unfinished material research.',
+        pages: [
+            {
+                path: 'alive.html', name: 'Alive acceptance rig', label: 'Reference harness',
+                blurb: 'Revisit the instrumented avatar used for motion gates, controlled captures and historical visual comparisons.',
+                boundary: 'Preserves extensive experiment and defect switches. Its historical results do not certify every current preview.',
+                requirements: 'No model service needed for the default page.',
+                source: 'packages/testbed/src/alive.js', review: SOURCE_REVIEW,
+                gates: [ 'alive-toggles', 'alive-capture-determinism', 'tools/critic/measure.mjs' ]
+            },
+            {
+                path: 'src/fabric.html', name: 'Fabric weave', label: 'Material experiment',
+                blurb: 'Explore generated cloth maps and their highlights while varying weave and fabric parameters.',
+                boundary: 'A material experiment; its results are not a finished outfit or a wardrobe-wide upgrade.',
+                requirements: 'No model service needed.',
+                source: 'packages/testbed/src/fabric.js', review: SOURCE_REVIEW, gates: []
+            }
+        ]
     }
 ];
 
-/**
- * One page per thing that has to be LOOKED at. Each exists because its selftest proves the numbers
- * and cannot prove the picture — LEARNINGS §1.2, which is the most-cited entry in that file.
- */
-export const BROWSERCHECKS = [
-    {
-        path: 'src/showcase.html',
-        name: 'showcase',
-        phase: 'Runtime lookbook · wardrobe studies',
-        blurb: 'Two clothed g050 starting looks on the real Avatar. Mix the supported outfits, turn the figure, and save its actual settings.',
-        gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu' ]
-    },
-    {
-        path: 'src/portrait.html',
-        name: 'portrait',
-        phase: 'Runtime portrait · silhouette and expression',
-        blurb: 'The chin-length bob on a living avatar. Compare the original cut, change expression, ' +
-            'and explore the portrait under studio or warm light.',
-        gates: [ 'Avatar' ]
-    },
-    {
-        path: 'src/stage.html',
-        name: 'stage',
-        phase: 'Phase 3.1 · G-buffer',
-        blurb: 'A deferred pipeline that compiles is not a deferred pipeline that works. Every ' +
-            'MRT attachment is drawn here so you can see what is actually in it.',
-        gates: [ 'TRAAPost', 'MorphVelocity' ]
-    },
-    {
-        path: 'src/skin.html',
-        name: 'skin',
-        phase: 'Phase 3.2 · subsurface',
-        blurb: 'Is the subsurface term doing anything, and how much? A skin shader that renders ' +
-            'grey is the failure this page exists to catch.',
-        gates: [ 'SkinOcclusion', 'SkinRegions' ]
-    },
-    {
-        path: 'src/eye.html',
-        name: 'eye',
-        phase: 'Phase 3.3 / 3.4 · ocular optics',
-        blurb: 'The eye, A/B-able and measurable without touching alive.html, which the motion ' +
-            'work owns.',
-        gates: [ 'EyeMaterial', 'cornea_geometry', 'eye-optics-claims' ]
-    },
-    {
-        path: 'src/lighting.html',
-        name: 'lighting',
-        phase: 'Phase 3.8 · the rig',
-        blurb: 'Produces the frame G1 is measured on, at both framings, under conditions that do ' +
-            'not drift. Carries the plantable whole-state light defects.',
-        gates: [ 'LightingRig', 'GroundContact' ]
-    },
-    {
-        path: 'src/post.html',
-        name: 'post',
-        phase: 'Phase 3.11–3.13 · AA and grade',
-        blurb: 'Answers antialiasing and grade questions by A/B rather than by argument, on the ' +
-            'same figure, rig and framing constants alive.html uses.',
-        gates: [ 'Grade', 'Toksvig', 'TRAAPost' ]
-    },
-    {
-        path: 'src/voice.html',
-        name: 'voice',
-        phase: 'Phase 4.1 / 4.2 / 4.4 · speech',
-        blurb: 'The viseme schedule is proven in numbers elsewhere. This is where you find out ' +
-            'whether the mouth moves.',
-        gates: [ 'visemes', 'prosody' ]
-    },
-    {
-        path: 'src/affect.html',
-        name: 'affect',
-        phase: 'Phase 5 · PAD and the body',
-        blurb: 'Poses the demonstration PAD points. The selftest proves 114 things about the ' +
-            'numbers and none of them is whether a face is legible.',
-        gates: [ 'affect' ]
-    },
-    {
-        path: 'src/converse.html',
-        name: 'converse',
-        phase: 'Phase 7.1 / 7.3 · the runtime API, live',
-        blurb: 'Type at it and it answers, with a face and a body that moved before the words ' +
-            'did. The only page whose whole figure comes from one Avatar.create() call, and the ' +
-            'only one that needs LM Studio running.',
-        gates: [ 'Avatar', 'LMStudioClient' ]
-    },
-    {
-        path: 'src/embed-example.html',
-        name: 'embed-example',
-        phase: 'Phase 7.5 · the one-call claim, executable',
-        blurb: 'The smallest page that produces a living avatar — the README\'s headline claim in ' +
-            'runnable form. If this file ever needs a second call to work, the API regressed and ' +
-            'this page is where it shows.',
-        gates: [ 'Avatar' ]
-    },
-    {
-        path: 'src/wardrobe.html',
-        name: 'wardrobe',
-        phase: 'Phase 9 · garments',
-        blurb: 'Dress, undress, the decency floor and the agency modes — and the shadow and hem ' +
-            'probes, whose breakage toggles are how both gates reintroduce their defects.',
-        gates: [ 'wardrobe', 'shadow', 'hem', 'decency', 'agency' ]
-    },
-    {
-        path: 'src/fabric.html',
-        name: 'fabric',
-        phase: 'Phase 9.16 · procedural cloth',
-        blurb: 'The rendered half of the weave spike. The CPU gate proves a twill angle is ' +
-            'recoverable from a height field; it is structurally blind to whether it looks woven.',
-        gates: []
-    },
-    {
-        path: 'src/hair.html',
-        name: 'hair',
-        phase: 'Phase 3.6 · the groom',
-        blurb: 'The procedural hair cards, from five angles including the top-down one that ' +
-            'catches a bald crown. The gate proves 254 cards clear the skull and cannot tell ' +
-            'you whether they read as hair.',
-        gates: [ 'verify_glb hair clause' ]
-    },
-    {
-        path: 'src/identity.html',
-        name: 'identity',
-        phase: 'Phase 10.1 / 10.2 · sculpting',
-        blurb: 'Every modelling target, drawn. The selftest proves the CPU application reproduces ' +
-            'headless MPFB to 1.2e-4 mm and cannot tell you the result is a person.',
-        gates: [ 'identitytargets', 'identitycatalogue', 'identityassets' ]
-    }
-];
+export const ALL_PAGES = PAGE_GROUPS.flatMap( group => group.pages );
 
-/**
- * Kept, and kept last, because it is the oldest page here and the only one that is not about the
- * avatar. It answers one question — did the backend come up — and that question is worth being
- * able to ask in isolation on a machine you have never run this on.
- */
-export const SCAFFOLD = [
-    {
-        path: 'src/scaffold.html',
-        name: 'scaffold',
-        phase: 'Phase 0.1 · harness',
-        blurb: 'WebGPU or WebGL2 comes up, the canvas respects devicePixelRatio, and the HUD ' +
-            'says which backend actually won. Start here when nothing renders anywhere.',
-        gates: []
-    }
-];
-
-/**
- * The commands, because "which node do I run" is a fair question with a non-obvious answer: the
- * gates are plain node files with no test runner, the dev server is rooted at `packages/testbed`
- * rather than at the repo, and the spike pages need a DIFFERENT vite config because they live
- * outside that root.
- *
- * ⚠️ Every `run` string below must be a script in the root `package.json`, or a `node`/`bash`
- * invocation of a file that exists. `pages.selftest.mjs` checks both.
- */
+/** Developer commands are names checked against package.json by the catalogue gate. */
 export const COMMANDS = [
-    {
-        group: 'Look at it',
-        items: [
-            { run: 'npm run dev', does: 'Serves this hub at http://localhost:5173/ — every page ' +
-                'below is a link from there. Rooted at packages/testbed.' },
-            { run: 'npm run spikes', does: 'The spike pages under tools/spikes/, which live ' +
-                'outside the dev root and need their own config.' }
-        ]
-    },
-    {
-        group: 'Prove it',
-        items: [
-            { run: 'npm run selftests', does: 'EVERY gate in the repo, one line each, with the ' +
-                'tree state at both ends. Exit code is the number that failed. Takes a while — ' +
-                'the browser-driven gates are most of it.' },
-            { run: 'npm run critic', does: 'The seven objective image gates (G1–G7) over a ' +
-                'captured plate.' },
-            { run: 'npm run verify:glb', does: 'Structural verification of every shipped GLB.' }
-        ]
-    },
-    {
-        group: 'Build it',
-        items: [
-            { run: 'npm run build:pages', does: 'Builds ALL pages. Plain `npm run build` compiles ' +
-                'only index.html — vite\'s default single entry — so a broken import in any page ' +
-                'below passes it.' },
-            { run: 'npm run figure', does: 'Rebuilds the figure and wardrobe artefacts through ' +
-                'Blender. Slow, and it changes sha256-bearing gate inputs.' }
-        ]
-    }
+    { group: 'Preview', items: [
+        { run: 'npm run dev', does: 'Start the testbed. Use the local address printed by the server; the port may vary.' },
+        { run: 'npm run spikes', does: 'Serve the separate research pages under tools/spikes.' }
+    ] },
+    { group: 'Validate', items: [
+        { run: 'npm run selftests', does: 'Run the repository gate runner. Read its failures and coverage; a completed run does not imply every gate passed.' },
+        { run: 'npm run critic', does: 'Measure the objective image gates on a captured plate.' },
+        { run: 'npm run verify:glb', does: 'Check the structure of the shipped GLB assets.' }
+    ] },
+    { group: 'Build', items: [
+        { run: 'npm run build:pages', does: 'Compile every testbed page. This checks imports and build output, not live browser behaviour or external services.' },
+        { run: 'npm run figure', does: 'Rebuild figure and wardrobe assets through Blender; this changes the asset inputs.' }
+    ] }
 ];
-
-/** Everything, in render order. The gate closes over exactly this. */
-export const ALL_PAGES = [ ...ACCEPTANCE, ...BROWSERCHECKS, ...SCAFFOLD ];
