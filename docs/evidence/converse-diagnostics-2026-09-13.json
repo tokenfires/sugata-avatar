@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-13",
+  "status": "qualified locally",
+  "scope": "Converse failure diagnostics only; controlled model responses, actual WebGPU/UI. No new live inference or asset changes.",
+  "checks": {
+    "browserGroups": 32,
+    "diagnosticContractGroups": 11,
+    "LMStudioClientAssertions": 60,
+    "AppraisalAffectAssertions": 54,
+    "discoveryGroups": 5,
+    "catalogueAssertions": 92,
+    "allPageBuild": "pass; existing large-bundle warning",
+    "independentCriticCPUControls": 26
+  },
+  "fixed": [
+    "affect truncation metadata loss",
+    "generic setup/reply/appraisal guidance",
+    "discarded bounded HTTP error message",
+    "known HTTP status hidden by optional body timeout",
+    "invalid model field values in diagnostic text",
+    "malformed HTTP-200 JSON misclassified as unreachable server"
+  ],
+  "preserved": [
+    "schemas and token budgets",
+    "four-second turn deadlines and 30-second setup",
+    "content-first and whole JSON-in-reasoning fallback",
+    "local expression on refusal",
+    "explicit model selection"
+  ],
+  "browserEvidenceNote": "Initial passing candidate is superseded by final. Exact tested source is frozen separately; final-source/pages.js changes only catalogue prose and gate registration after browser testing, with 92 catalogue assertions and all-page build passing.",
+  "rawManifest": "docs/evidence/converse-diagnostics-2026-09-13-manifest.json",
+  "manifestSha256": "0eece66830977e37328318f929af01a9c81d0d89700fe67a5162c360e6565e3e",
+  "rawFiles": 67,
+  "rawBytes": 11295928
+}

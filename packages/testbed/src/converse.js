@@ -246,8 +246,9 @@
  */
 
 import { Avatar } from '../../core/src/Avatar.js';
-import { discoverModels, connectionHelp } from './converse-connection.mjs';
+import { discoverModels, connectionHelp, formatRequestDiagnostic } from './converse-connection.mjs';
 import { optionsForShowcase } from './showcase-presets.mjs';
+import { completionDiagnostic, httpErrorDetail, boundedDetail } from '../../core/src/affect/CompletionDiagnostics.js';
 
 import { AppraisalAffect } from '../../core/src/affect/AppraisalAffect.js';
 import { ANCHOR_SETS } from '../../core/src/affect/ExpressionMap.js';
@@ -359,12 +360,10 @@ export const HISTORY_MESSAGE_CAP = 12;
  *
  * `LMStudioClient`'s `REFUSAL` is spread in rather than copied, so a reply refusal and an appraisal
  * refusal share codes where they share causes and one session's refusals can be counted in one
- * table. The two new codes are the two failures only a reply can have: a generation that hit the
- * token ceiling, and one that parsed and validated to an empty string.
+ * table. Empty text is the additional reply-only refusal.
  */
 export const REPLY_REFUSAL = Object.freeze( {
     ...REFUSAL,
-    TRUNCATED: 'truncated',
     EMPTY: 'empty-reply'
 } );
 
@@ -455,10 +454,12 @@ export async function requestReply( request ) {
     const controller = new AbortController();
     const timer = setTimeout( () => controller.abort(), timeoutMs );
 
+    let diagnostic = { timeoutMs, tokenLimit: REPLY_MAX_TOKENS, httpStatus: null };
     const refuse = ( reason, detail ) => ( {
         ok: false,
         reason,
-        detail: String( detail ?? '' ),
+        detail: boundedDetail( detail ),
+        diagnostic,
         latencyMs: nowMs() - started
     } );
 
@@ -484,18 +485,26 @@ export async function requestReply( request ) {
             body: JSON.stringify( body )
         } );
 
-        if ( response.ok === false ) return refuse( REPLY_REFUSAL.HTTP, `HTTP ${ response.status }` );
+        diagnostic.httpStatus = response.status ?? null;
+        if ( response.ok === false ) return refuse( REPLY_REFUSAL.HTTP, await httpErrorDetail( response ) );
 
-        const payload = await response.json();
+        let payload;
+        try {
+            payload = await response.json();
+        } catch ( error ) {
+            if ( error?.name !== 'SyntaxError' || controller.signal.aborted ) throw error;
+            return refuse( REPLY_REFUSAL.INVALID_RESPONSE, 'The server response was not a JSON completion envelope.' );
+        }
         const choice = payload?.choices?.[ 0 ] ?? null;
+        diagnostic = { ...diagnostic, ...completionDiagnostic( payload ) };
 
         // Checked BEFORE parsing, because a truncated generation is often still parseable JSON with
-        // a clipped string, and "the model was cut off" is a different repair from "the model
-        // emitted rubbish" — one raises the ceiling, the other is a prompt problem.
+        // a clipped string. Output exhaustion is distinct from an unreadable response; this
+        // status alone does not establish the right model profile.
         if ( choice?.finish_reason === 'length' ) {
 
             return refuse( REPLY_REFUSAL.TRUNCATED,
-                `hit REPLY_MAX_TOKENS (${ REPLY_MAX_TOKENS }) — raise the ceiling` );
+                'The model reached the output-token limit before completing the reply.' );
 
         }
 
@@ -519,13 +528,13 @@ export async function requestReply( request ) {
 
         } catch ( error ) {
 
-            return refuse( REPLY_REFUSAL.UNPARSEABLE, channel.text.slice( 0, 120 ) );
+            return refuse( REPLY_REFUSAL.UNPARSEABLE, `The ${ channel.channel } channel did not contain a complete JSON object.` );
 
         }
 
         if ( typeof parsed?.reply !== 'string' ) {
 
-            return refuse( REPLY_REFUSAL.SCHEMA, `reply is ${ JSON.stringify( parsed?.reply ) }` );
+            return refuse( REPLY_REFUSAL.SCHEMA, 'The reply field must contain text.' );
 
         }
 
@@ -540,7 +549,8 @@ export async function requestReply( request ) {
             reply,
             latencyMs: nowMs() - started,
             channel: channel.channel,
-            tokens: payload?.usage?.completion_tokens ?? null
+            tokens: diagnostic.completionTokens,
+            diagnostic
         };
 
     } catch ( error ) {
@@ -697,8 +707,8 @@ export function createConversation( options = {} ) {
          * 196–584 ms for every one after it. Warming one schema and not the other just moves the
          * stall from the first sentence to the first sentence.
          *
-         * Both results are deliberately ignored beyond reporting: a warm-up that failed validation
-         * still warmed the model, which is the only thing it was for.
+         * Setup requires a complete valid reply and successful, non-truncated affect transport.
+         * Affect warm-up does not certify expression semantics; actual turns validate that result.
          */
         async warmBothSchemas() {
 
@@ -722,6 +732,8 @@ export function createConversation( options = {} ) {
                 warmed: affect.warmed === true && reply.ok === true,
                 affectReason: affect.reason ?? null,
                 replyReason: reply.ok === true ? null : reply.reason,
+                affectFailure: affect.warmed ? null : affect,
+                replyFailure: reply.ok ? null : reply,
                 latencyMs: nowMs() - started
             };
 
@@ -832,6 +844,8 @@ async function boot() {
     const connectButton = document.getElementById( 'connect' );
     const refreshButton = document.getElementById( 'refresh' );
     const connectionStatus = document.getElementById( 'connection-status' );
+    const requestDetails = document.getElementById( 'request-details' );
+    const requestDetailText = document.getElementById( 'request-detail-text' );
     const lookNote = document.getElementById( 'look-note' );
     lookNote.textContent = gender === 0.5 ? 'Everyday starting look · clothing fit remains a study.' : 'Custom figure study · open the lookbook for the supported complete outfits.';
 
@@ -845,7 +859,10 @@ async function boot() {
         sendButton.disabled = input.disabled;
         releaseButton.disabled = locked;
     }
-    function showConnection( message, state ) {
+    function showConnection( message, state, failure = null, requestName = '' ) {
+        requestDetails.hidden = failure === null;
+        if ( failure === null ) requestDetails.open = false;
+        requestDetailText.textContent = failure ? formatRequestDiagnostic( failure, requestName ) : '';
         connectionStatus.textContent = message;
         connectionStatus.dataset.state = state;
         session.warm = message;
@@ -896,7 +913,8 @@ async function boot() {
                 showConnection( `Connected to ${model}. Text replies are ready. Expression interpretation is experimental.`, 'ready' );
                 write( 'note', '·', `New conversation with ${model}. Expression follows what is ${candidate.mirror}.` );
             } else {
-                showConnection( connectionHelp( warm.replyReason ?? warm.affectReason ), 'unavailable' );
+                const failure = warm.replyFailure ?? warm.affectFailure;
+                showConnection( connectionHelp( failure ), 'unavailable', failure, warm.replyFailure ? 'Reply setup' : 'Expression setup' );
             }
         } catch ( error ) {
             showConnection( 'Connection could not finish. Refresh the model list and try again.', 'unavailable' );
@@ -989,8 +1007,8 @@ async function boot() {
 
         if ( reply.ok === false ) {
 
-            write( 'failed', '·', `No reply. ${ connectionHelp( reply.reason ) }` );
-            showConnection( 'The last reply failed. Retry your message, or refresh models and reconnect.', 'unavailable' );
+            write( 'failed', '·', `No reply. ${ connectionHelp( reply ) }` );
+            showConnection( `No reply. ${ connectionHelp( reply ) }`, 'unavailable', reply, 'Reply' );
 
             session.lastTurnMs = nowMs() - started;
             finishTurn();
@@ -1030,13 +1048,13 @@ async function boot() {
 
         } else if ( appraisal.ok === false ) {
 
-            showConnection( 'Reply received. Expression interpretation was unavailable; the avatar kept its local response.', 'degraded' );
+            showConnection( 'Reply received. Expression interpretation was unavailable; the avatar kept its local response. ' + connectionHelp( appraisal ), 'degraded', appraisal, 'Expression' );
 
             // research/lm-studio-integration.md, verbatim: "on any rejection, keep Tier 1's value
             // and log — never let a bad Tier 2 result snap the face." This is that log; the not
             // snapping is `AppraisalAffect`'s, on the one code path that writes.
             recordTier( session.tier, `tier 2 REFUSED ${ appraisal.reason } — tier 1 held` );
-            write( 'refused', '·', `tier 2 refused: ${ appraisal.reason } — ${ appraisal.detail }` );
+            write( 'refused', '·', `Expression kept its local response. ${ connectionHelp( appraisal ) }` );
 
         } else {
 

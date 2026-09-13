@@ -22,8 +22,17 @@ try{
  await page.route('**/v1/chat/completions',async route=>{
   const req=route.request().postDataJSON();report.requests.push({model:req.model,schema:req.response_format?.json_schema?.name,lastMessage:req.messages.at(-1)?.content});
   if(mode==='reply-failure')return route.fulfill({status:503,contentType:'application/json',body:'{"error":"controlled unavailability"}'});
+  const schema=req.response_format.json_schema.name;
+  if(mode==='invalid-response-'+schema)return route.fulfill({status:200,contentType:'text/plain',body:'PRIVATE SERVER BODY SENTINEL'});
+  if(mode==='invalid-value-'+schema)return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({choices:[{finish_reason:'stop',message:{reasoning_content:JSON.stringify(schema==='reply'?{reply:{analysis:'PRIVATE REASONING SENTINEL'}}:{pleasure:.8,arousal:.6,dominance:.3,primary:'PRIVATE REASONING SENTINEL',intensity:.8})}}]})});
+
+  if(mode==='timeout-'+schema){await new Promise(resolve=>setTimeout(resolve,4500));await route.abort().catch(()=>{});return;}
+  if(mode==='http-grammar'||mode==='http-model'||mode==='markup-error')return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{message:mode==='http-grammar'?'The selected model cannot use this JSON grammar.':mode==='http-model'?'Selected model is unavailable.':'<img src=x onerror="window.__DIAGNOSTIC_INJECTION__=true">'}})});
+  if(mode==='truncated-'+schema)return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({choices:[{finish_reason:'length',message:{content:JSON.stringify(schema==='reply'?{reply:'A valid but cutoff reply.'}:{pleasure:.8,arousal:.6,dominance:.3,primary:'joy',intensity:.8})}}],usage:{completion_tokens:req.max_tokens,completion_tokens_details:{reasoning_tokens:req.max_tokens}}})});
+  if(mode==='reasoning-prose'&&schema==='reply')return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({choices:[{finish_reason:'stop',message:{reasoning_content:'PRIVATE REASONING SENTINEL'}}]})});
+
   const value=req.response_format.json_schema.name==='reply'?{reply:'That sounds wonderful, and I am happy to hear it.'}:mode==='invalid-affect'?{unsupported:'not an affect vector'}:{pleasure:.8,arousal:.6,dominance:.3,primary:'joy',intensity:.8};
-  await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({choices:[{finish_reason:'stop',message:{content:JSON.stringify(value)}}],usage:{completion_tokens:20}})});
+  await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({choices:[{finish_reason:'stop',message:{[mode==='reasoning-json'?'reasoning_content':'content']:JSON.stringify(value)}}],usage:{completion_tokens:20}})});
  });
  if(!liveDiscovery)await page.route('**/v1/models',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({data:[{id:'fixture-chat-a'},{id:'fixture-chat-b'}]})}));
  await page.goto(server.baseUrl+'/src/converse.html?model=qwen%2Fqwen3.6-35b-a3b');
@@ -51,7 +60,7 @@ try{
  check('controlled reply reaches transcript and tier 2 follows the reply through the real avatar',()=>{assert.equal(report.turn.tier,2);assert.match(report.turn.transcript,/That sounds wonderful/);assert.equal(report.turn.history.length,2);assert.deepEqual(report.requests.slice(-2).map(r=>r.schema),['reply','affect']);});
  await shot('connected-desktop');
  mode='reply-failure';await page.locator('#say').fill('Can you hear me?');await page.locator('#send').click();await page.waitForFunction(()=>__SUGATA_CONVERSE__.session.turns===2&&!__SUGATA_CONVERSE__.session.busy);
- assert.match(await page.locator('#transcript').textContent(),/No reply\. Check/);assert.equal(await page.locator('#send').isEnabled(),true);
+ assert.match(await page.locator('#transcript').textContent(),/No reply\. LM Studio rejected/);assert.equal(await page.locator('#send').isEnabled(),true);
  check('failed reply provides retry guidance and releases the composer',()=>{});
  mode='normal';await page.locator('#say').fill('I am happy to try again.');await page.locator('#send').click();
  await page.waitForFunction(()=>__SUGATA_CONVERSE__.session.turns===3&&!__SUGATA_CONVERSE__.session.busy);
@@ -72,7 +81,40 @@ try{
  assert.match(await page.locator('#connection-status').textContent(),/kept its local response/);
  assert.equal(await page.evaluate(()=>__SUGATA_CONVERSE__.conversation.tier2.report().refusals.schema),1);
  check('HTTP-successful affect warm-up does not certify expression; invalid appraisal reports local-response fallback',()=>{});
- mode='normal';
+
+ const diagnosticState=()=>page.evaluate(()=>({status:document.querySelector('#connection-status').textContent,state:document.querySelector('#connection-status').dataset.state,detail:document.querySelector('#request-detail-text').textContent,hidden:document.querySelector('#request-details').hidden,transcript:document.querySelector('#transcript').textContent,sendEnabled:!document.querySelector('#send').disabled,history:__SUGATA_CONVERSE__.conversation?.history.length??null}));
+ const nextTurn=async text=>{const n=await page.evaluate(()=>__SUGATA_CONVERSE__.session.turns);await page.locator('#say').fill(text);await page.locator('#send').click();await page.waitForFunction(n=>__SUGATA_CONVERSE__.session.turns===n+1&&!__SUGATA_CONVERSE__.session.busy,n);return diagnosticState();};
+ report.diagnostics=[];
+ for(const test of [
+  ['truncated-reply',/output limit/,/Output tokens: 300/,'unavailable'],
+  ['invalid-response-reply',/response Converse could not read/,/Server status: HTTP 200/,'unavailable'],
+  ['invalid-value-reply',/did not meet Converse/,/reply field must contain text/,'unavailable'],
+  ['invalid-response-affect',/kept its local response/,/Server status: HTTP 200/,'degraded'],
+  ['invalid-value-affect',/kept its local response/,/unknown-primary/,'degraded'],
+  ['timeout-reply',/within 4 seconds/,/Request time limit: 4 seconds/,'unavailable'],
+  ['reasoning-prose',/format Converse could not read/,/reasoning_content channel/,'unavailable'],
+  ['truncated-affect',/kept its local response/,/Output tokens: 200/,'degraded'],
+  ['timeout-affect',/kept its local response/,/Request time limit: 4 seconds/,'degraded']
+ ]){
+  mode=test[0];const observed=await nextTurn('I am happy to try this.');report.diagnostics.push({mode,...observed});
+  check('request diagnostic reaches UI and preserves recovery: '+mode,()=>{assert.match(observed.status,test[1]);assert.match(observed.detail,test[2]);assert.equal(observed.state,test[3]);assert.equal(observed.hidden,false);assert.equal(observed.sendEnabled,true);assert.equal((observed.transcript+observed.detail).includes('PRIVATE REASONING SENTINEL'),false);assert.equal((observed.transcript+observed.detail).includes('PRIVATE SERVER BODY SENTINEL'),false);});
+ }
+ await page.locator('#request-details').evaluate(el=>el.open=true);await shot('expression-timeout-details');
+ for(const [next,detail] of [['http-grammar',/cannot use this JSON grammar/],['http-model',/Selected model is unavailable/],['truncated-affect',/Expression setup: truncated/]]){
+  mode=next;await page.locator('#connect').click();await page.waitForFunction(()=>!document.querySelector('#connect').disabled);const observed=await diagnosticState();report.diagnostics.push({mode,...observed});
+  check('Connect retains the actual failed schema and server detail: '+mode,()=>{assert.match(observed.detail,detail);assert.equal(observed.state,'unavailable');assert.equal(observed.sendEnabled,false);});
+ }
+ mode='markup-error';await page.locator('#connect').click();await page.waitForFunction(()=>!document.querySelector('#connect').disabled);
+ await page.locator('#request-details').evaluate(el=>el.open=true);
+ const escaped=await page.evaluate(()=>({text:document.querySelector('#request-detail-text').textContent,images:document.querySelector('#request-detail-text').querySelectorAll('img').length,injected:window.__DIAGNOSTIC_INJECTION__===true}));
+ check('server error markup is displayed as literal text and never executed',()=>{assert.match(escaped.text,/<img/);assert.equal(escaped.images,0);assert.equal(escaped.injected,false);});
+ mode='reasoning-json';await page.locator('#connect').click();await page.waitForFunction(()=>document.querySelector('#connection-status').dataset.state==='ready');
+ const recovered=await nextTurn('I am happy to reconnect.');
+ check('JSON in reasoning channel still connects and speaks; success clears stale failure details',()=>{assert.equal(recovered.state,'ready');assert.equal(recovered.hidden,true);assert.equal(recovered.detail,'');assert.equal(recovered.history,2);});
+ mode='truncated-reply';await nextTurn('Check the visible explanation.');await page.locator('#request-details').evaluate(el=>el.open=true);await shot('truncation-details-desktop');
+ await page.setViewportSize({width:390,height:844});await shot('truncation-details-mobile');
+ check('expanded failure details fit the mobile width',()=>{});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ mode='normal';await nextTurn('I feel happy after trying again.');
  await page.setViewportSize({width:390,height:844});await shot('connected-mobile');
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  check('mobile layout retains readable controls without horizontal overflow',()=>{});
@@ -85,7 +127,7 @@ try{
  const links=await page.locator('a').evaluateAll(as=>as.filter(a=>a.getAttribute('href')?.endsWith('.html')).map(a=>a.getAttribute('href')));
  check('hub contains all 17 distinct page destinations',()=>assert.equal(new Set(links).size,17));
  check('no unexpected JavaScript or GPU console errors',()=>assert.deepEqual(report.errors,[]));
- report.sourceHashes=Object.fromEntries(['packages/testbed/src/converse.js','packages/testbed/src/converse.html','packages/testbed/src/converse-connection.mjs','packages/testbed/index.html','packages/testbed/pages.js'].map(f=>[f,createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex')]));
+ report.sourceHashes=Object.fromEntries(['packages/testbed/src/converse.js','packages/testbed/src/converse.html','packages/testbed/src/converse-connection.mjs','packages/core/src/affect/CompletionDiagnostics.js','packages/core/src/affect/LMStudioClient.js','packages/core/src/affect/AppraisalAffect.js','packages/testbed/index.html','packages/testbed/pages.js'].map(f=>[f,createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex')]));
  report.passed=true;save();console.log('PASS '+report.checks.length+' browser groups; '+out);
 }catch(error){report.error=error.stack;await page?.screenshot({path:path.join(out,'failure.png'),fullPage:true}).catch(()=>{});save();throw error;}
 finally{await browser?.close();await server?.close();}

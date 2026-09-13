@@ -37,6 +37,9 @@ select { width: 100%; padding: 8px; text-overflow: ellipsis; }
 #connection-status { font-size: 12px; color: #b4c3ce; margin: 12px 0 6px; overflow-wrap: anywhere; }
 #connection-status[data-state="ready"] { color: #b9dfb7; }
 #connection-status[data-state="unavailable"], #connection-status[data-state="degraded"] { color: #f0c3a1; }
+#request-details { font-size: 11px; margin: 10px 0; color: #b4c3ce; }
+#request-details summary { cursor: pointer; }
+#request-detail-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 150px; overflow: auto; font: inherit; }
 .load-note { font-size: 11px; color: #8f9fae; margin: 0; }
 #transcript { flex: 1; min-height: 80px; overflow: auto; padding: 20px 24px; }
 .turn { margin: 0 0 18px; overflow-wrap: anywhere; }
@@ -90,6 +93,7 @@ select { width: 100%; padding: 8px; text-overflow: ellipsis; }
    <label for="model">Chat model</label><select id="model" disabled><option value="">Looking for models…</option></select>
    <div class="connection-actions"><button id="connect" disabled>Connect</button><button id="refresh" disabled>Refresh models</button></div>
    <p id="connection-status" role="status" aria-live="polite">The model list will appear when the avatar is ready.</p>
+   <details id="request-details" hidden><summary>Why this request failed</summary><pre id="request-detail-text"></pre></details>
    <p class="load-note">Connect prepares the selected model in LM Studio. Opening this page does not load one.</p>
   </div>
   <div id="transcript" role="log" aria-label="Conversation transcript" aria-live="polite" aria-relevant="additions"></div>

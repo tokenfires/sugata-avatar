@@ -55,10 +55,10 @@ export const PAGE_GROUPS = [
                 source: 'packages/testbed/src/converse.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Real WebGPU page, recovery checks, and six live reply/appraisal turns with qwen3-4b-instruct-2507-mlx are verified. Open-ended reply and emotion quality remain experimental.',
+                    detail: 'Real WebGPU page, specific failure/retry explanations, and six live reply/appraisal turns with qwen3-4b-instruct-2507-mlx are verified. Open-ended reply and emotion quality remain experimental.',
                     evidence: 'docs/CONVERSE-2026-09-13.md'
                 },
-                gates: [ 'Avatar', 'LMStudioClient', 'converse-connection', 'converse.gpu' ]
+                gates: [ 'Avatar', 'LMStudioClient', 'converse-connection', 'converse-diagnostics', 'converse.gpu' ]
             }
         ]
     },

@@ -416,7 +416,7 @@ export class AppraisalAffect {
 
             return {
                 ok: false, applied: false, outcome: result.reason, utterance,
-                reason: result.reason, detail: result.detail, latencyMs: result.latencyMs
+                reason: result.reason, detail: result.detail, latencyMs: result.latencyMs, diagnostic: result.diagnostic
             };
 
         }
@@ -465,7 +465,7 @@ export class AppraisalAffect {
         return {
             ok: true, applied: true, outcome: 'applied', utterance,
             value: this.lastValue, weights, tier1Confidence,
-            latencyMs: result.latencyMs, channel: result.channel
+            latencyMs: result.latencyMs, channel: result.channel, diagnostic: result.diagnostic
         };
 
     }
