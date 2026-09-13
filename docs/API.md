@@ -473,6 +473,12 @@ Avatar, renderer and hair. `dress([])` returns to the foundation. Omitting found
 selects vest and boxer brief. Clothing loads before attachment; failed changes keep the current
 outfit. Unsupported identity changes reject before retiring the clothed figure.
 
+Optional `wardrobe.style` selects `original` (the API default), `ecru` or `charcoal`. The style
+follows `dress()` and is fixed for that Avatar's wardrobe. The two authored palettes require the
+exact reviewed g050 garment assets, including when served through an external `assetBaseUrl`.
+Create a new Avatar to change the palette. See [coordinated colours](WARDROBE-COLOURWAYS-2026-09-13.md)
+for the recipes, ownership and current limits.
+
 `avatar.report().wardrobe` distinguishes the requested outfit from attached garments and records
 loaded URLs, pending work and errors. The current clothes are stand-ins with remaining fit and
 coverage limitations. See [the wardrobe contract](WARDROBE-AVATAR-2026-09-09.md) and

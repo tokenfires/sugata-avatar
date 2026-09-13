@@ -413,6 +413,9 @@ export class Wardrobe {
         this.figureKey = options.figureKey ?? 'g050';
         this.decencyFloor = options.decencyFloor ?? ( () => [] );
         this.loadFragment = options.loadFragment ?? defaultFragmentLoader;
+        // Fixed for this wardrobe lifetime: cached fragments are keyed by garment ID.
+        Object.defineProperty( this, 'materialStyle', { value: options.materialStyle ?? 'original', enumerable: true } );
+        this.createMaterial = options.createMaterial ?? null;
 
         this.body = figure.body;
 
@@ -569,6 +572,17 @@ export class Wardrobe {
         const removing = new Set( garmentIds );
         return this.dress( this.worn.filter( ( id ) => removing.has( id ) === false ) );
 
+    }
+
+    /** Observe the applied material identities; a requested style alone is not an attachment. */
+    appearance() {
+        return {
+            style: this.materialStyle,
+            attached: !this.disposed && this.worn.every( id => {
+                const fragment = this.fragments.get( id );
+                return !!fragment && fragment.mesh.material === fragment.appliedMaterial;
+            } )
+        };
     }
 
     /** What is worn, what it costs, and what the body currently draws. */
@@ -885,14 +899,14 @@ export class Wardrobe {
 
         const request = ( async () => {
 
-            const gltf = await this.loadFragment( this.manifest.fragmentUrl( id, this.figureKey ) );
+            const gltf = await this.loadFragment( this.manifest.fragmentUrl( id, this.figureKey ), id );
             // Capture ownership BEFORE adoption reparents the mesh and replaces its skeleton.
             // These resources came from this load, never from the body's borrowed skeleton.
             const resources = garmentResourcesOf( gltf.scene );
             try {
 
                 this.#requireLive();
-                const fragment = this.#adoptFragment( id, gltf );
+                const fragment = this.#adoptFragment( id, gltf, resources );
                 fragment.resources = resources;
                 this.fragments.set( id, fragment );
                 return fragment;
@@ -919,7 +933,7 @@ export class Wardrobe {
      * figure's skeleton, so a rig whose bone ORDER changed produces a loud error here rather than
      * a garment that follows the wrong limb.
      */
-    #adoptFragment( id, gltf ) {
+    #adoptFragment( id, gltf, resources ) {
 
         let garmentMesh = null;
         gltf.scene.traverse( ( object ) => {
@@ -932,6 +946,16 @@ export class Wardrobe {
 
             throw new Error( `Wardrobe: the fragment for '${ id }' contains no SkinnedMesh.` );
 
+        }
+
+        // Synchronous factory contract: null keeps the original; a returned Material transfers
+        // ownership here. A factory must retire its own allocations if it throws before return.
+        // Register before installing/adopting so later validation failures retire both materials.
+        const replacement = this.createMaterial?.( id, garmentMesh );
+        if ( replacement != null ) {
+            if ( !replacement.isMaterial ) throw new TypeError( 'Wardrobe: material factory must return a Material or null.' );
+            resources.materials.add( replacement );
+            garmentMesh.material = replacement;
         }
 
         const remap = this.#jointRemapFor( id, garmentMesh.skeleton );
@@ -963,6 +987,7 @@ export class Wardrobe {
 
         return {
             mesh: garmentMesh,
+            appliedMaterial: garmentMesh.material,
             jointRemapIsIdentity: identity,
             underMasks: maskAttributesOf( garmentMesh.geometry, UNDER_MASK_PREFIX ),
             fullIndex: garmentMesh.geometry.index.array.slice(),

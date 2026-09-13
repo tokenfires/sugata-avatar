@@ -97,6 +97,7 @@
  * and a gate on their agreement is what keeps the liability visible instead of latent.
  */
 
+import { resolveWardrobeStyle } from './wardrobe/WardrobeStyleOptions.js';
 import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
 import {
     Color,
@@ -2494,6 +2495,8 @@ export class Avatar {
                 supportedBake: 'g050',
                 assetStatus: 'existing plumbing stand-ins',
                 requestedOutfit: [ ...this.wardrobeRequest.outfit ],
+                requestedStyle: this.wardrobeRequest.style ?? 'original',
+                appearance: this.wardrobe?.appearance() ?? null,
                 foundation: this.wardrobeAssets?.foundation.toJSON() ?? { ...this.wardrobeRequest.foundation },
                 floor: this.wardrobeAssets?.foundation.currentFloor() ?? [],
                 attached: this.wardrobe !== null && !this.wardrobe.disposed && this.wardrobe.body.visible &&
@@ -4634,7 +4637,9 @@ export function resolveWardrobeOption( value = false ) {
         throw new TypeError( 'Avatar.create: wardrobe.foundation must map body slots to garment ids.' );
 
     }
-    return { outfit: [ ...outfit ], foundation: { ...foundation } };
+    const style = resolveWardrobeStyle( value.style );
+    return { outfit: [ ...outfit ], foundation: { ...foundation },
+        ...( style === 'original' ? {} : { style } ) };
 
 }
 

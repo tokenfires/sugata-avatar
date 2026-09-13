@@ -6,6 +6,7 @@
 import { GarmentManifest } from './GarmentManifest.js';
 import { FoundationLayer } from './FoundationLayer.js';
 import { Wardrobe } from './Wardrobe.js';
+import { resolveWardrobeStyle } from './WardrobeStyleOptions.js';
 
 const BODY_URL = new URL( '../../../../assets/wardrobe/body/g050.glb', import.meta.url ).href;
 const MANIFEST_URL = new URL( '../../../../assets/wardrobe/manifest.json', import.meta.url ).href;
@@ -48,6 +49,9 @@ export function wardrobeAssetUrls( assetBaseUrl = null ) {
 /** FoundationLayer is the policy authority for preferences and the minimum outfit. */
 export async function loadAvatarWardrobe( request, assetBaseUrl = null ) {
 
+    const style = resolveWardrobeStyle( request.style );
+    const styleOptions = style === 'original' ? {} :
+        ( await import( './WardrobeStyles.js' ) ).createWardrobeStyle( style );
     const urls = wardrobeAssetUrls( assetBaseUrl );
     const manifest = await GarmentManifest.load( urls.manifestUrl,
         urls.bundled ? { resolveFragmentUrl: bundledWardrobeFragmentUrl } : {} );
@@ -74,7 +78,7 @@ export async function loadAvatarWardrobe( request, assetBaseUrl = null ) {
     for ( const id of outfit ) manifest.fragmentUrl( id, 'g050' );
     return {
         ...urls, manifest, foundation,
-        create: figure => new Wardrobe( figure, manifest, { figureKey: 'g050', decencyFloor: foundation.floor } )
+        create: figure => new Wardrobe( figure, manifest, { figureKey: 'g050', decencyFloor: foundation.floor, ...styleOptions } )
     };
 
 }

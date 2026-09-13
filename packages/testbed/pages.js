@@ -39,14 +39,14 @@ export const PAGE_GROUPS = [
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Explore two complete starting looks, change the light and framing, then save a PNG image or the avatar settings.',
+                blurb: 'Explore two starting outfits in Ecru, Charcoal or Original, then save a PNG image or the avatar settings.',
                 boundary: 'Two starting outfits on one body study. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'The casual trousers now fall over the shoes without the prior sock patches in matched resting and moving-pose views. Upper fit, skirt layering and additional bodies remain in development. Outfit switching and image/settings export are verified.',
-                    evidence: 'docs/WARDROBE-TROUSER-FIT-2026-09-13.md'
+                    detail: 'Both outfits have coordinated colour choices that follow outfit changes and survive saved-settings reconstruction. The accepted denim fit is preserved. Upper fit, skirt layering, shoe/sock styling and additional bodies remain in development.',
+                    evidence: 'docs/WARDROBE-COLOURWAYS-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
             }

@@ -31,19 +31,20 @@ function animate(time) {
 function updateUrl() {
     const url = new URL(location.href), preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     url.searchParams.set('preset', selected.preset);
-    for (const [key, value, normal] of [['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio']])
+    for (const [key, value, normal] of [['style', selected.style, 'ecru'], ['outfit', selected.outfit, preset.outfit], ['frame', selected.frame, 'body'], ['light', selected.light, 'studio']])
         if (value === normal) url.searchParams.delete(key); else url.searchParams.set(key, value);
     history.replaceState(null, '', url);
     for (const link of document.querySelectorAll('[data-preset]')) {
         const next = new URL(location.href); next.search = ''; next.searchParams.set('preset', link.dataset.preset);
+        if (selected.style !== 'ecru') next.searchParams.set('style', selected.style);
         if (captured) next.searchParams.set('capture', ''); link.href = next.href;
     }
 }
 function refresh() {
-    const report = avatar.report(); selected.outfit = outfitFromReport(report);
+    const report = avatar.report(); selected.outfit = outfitFromReport(report); selected.style = report.wardrobe.appearance.style;
     const preset = SHOWCASE_PRESETS.find(p => p.id === selected.preset);
     for (const link of document.querySelectorAll('[data-preset]')) link.setAttribute('aria-current', String(link.dataset.preset === selected.preset));
-    for (const [key, value] of [['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light]])
+    for (const [key, value] of [['style', selected.style], ['outfit', selected.outfit], ['frame', selected.frame], ['light', selected.light]])
         for (const button of document.querySelectorAll(`[data-${key}]`)) button.setAttribute('aria-pressed', String(button.dataset[key] === value));
     document.getElementById('view-name').textContent = `${preset.number} / ${selected.outfit === preset.outfit ? preset.name : 'Your combination'}`;
     document.getElementById('cut-label').textContent = report.hair.loadedStyle === 'bob02' ? 'Chin-length bob' : 'Long bob';
@@ -91,7 +92,7 @@ function downloadBlob(blob, filename) {
 function saveLook() {
     try {
         const text = configurationText();
-        downloadBlob(new Blob([text], {type: 'application/json'}), `sugata-${selected.preset}-${selected.outfit}.json`);
+        downloadBlob(new Blob([text], {type: 'application/json'}), `sugata-${selected.preset}-${selected.outfit}-${selected.style}.json`);
         setStatus('Settings downloaded as JSON');
     } catch (error) { setStatus(error.message); }
 }
@@ -111,7 +112,7 @@ async function saveImage() {
         });
         if (avatar.disposed || failed) throw new Error('This look is no longer available.');
         if (blob.type !== 'image/png' || blob.size === 0) throw new Error('The canvas did not produce a PNG image.');
-        downloadBlob(blob, `sugata-${configuration.hair}-${selected.outfit}-${configuration.frame}.png`);
+        downloadBlob(blob, `sugata-${configuration.hair}-${selected.outfit}-${selected.style}-${configuration.frame}.png`);
         setStatus('PNG image downloaded'); return true;
     } catch (error) { if (!avatar?.disposed) setStatus(`Image could not be saved. ${error.message}`); return false; }
     finally {
@@ -141,6 +142,13 @@ try {
     configurationFromReport(avatar.report());
     busy = false; refresh(); document.getElementById('loading').hidden = true; setStatus(paused ? 'Motion paused' : 'Live view');
     for (const button of document.querySelectorAll('[data-outfit]')) button.addEventListener('click', () => changeOutfit(button.dataset.outfit));
+    // Like changing the starting haircut, a palette opens a fresh owned Avatar. Keep the current
+    // outfit/framing/light in the URL; no in-place mutation of the garment-ID fragment cache.
+    for (const button of document.querySelectorAll('[data-style]')) button.addEventListener('click', () => {
+        if (busy || savingImage || failed || button.dataset.style === selected.style) return;
+        const next = new URL(location.href); next.searchParams.set('style', button.dataset.style);
+        busy = true; enableControls(); setStatus('Preparing colours…'); location.assign(next.href);
+    });
     for (const button of document.querySelectorAll('[data-frame]')) button.addEventListener('click', () => { frameView(button.dataset.frame); refresh(); });
     for (const button of document.querySelectorAll('[data-light]')) button.addEventListener('click', () => { avatar.setLighting(button.dataset.light); selected.light = button.dataset.light; refresh(); });
     for (const button of document.querySelectorAll('[data-angle]')) button.addEventListener('click', () => {

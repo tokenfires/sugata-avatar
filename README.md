@@ -87,11 +87,13 @@ existing shapes. Broad card patches, mottled highlights and some contacts outsid
 regions remain; finer strand rendering is still an experiment.
 
 The **wardrobe lookbook** at `/src/showcase.html` offers two actual g050 starting looks, live
-outfit changes, orbit and framing controls, and PNG image or JSON settings downloads. It uses
+outfit changes, coordinated Ecru/Charcoal/Original palettes, orbit and framing controls, and PNG
+image or JSON settings downloads. [Colour choices](docs/WARDROBE-COLOURWAYS-2026-09-13.md) survive saved settings. It uses
 existing stand-in clothes, with remaining fit and styling work. See the [lookbook guide](docs/SHOWCASE-2026-09-09.md)
 and [wardrobe API](docs/WARDROBE-AVATAR-2026-09-09.md).
 
-For current work, start with the [overnight checkpoint](docs/OVERNIGHT-2026-09-08.md).
+For current work, start with the [Sunday checkpoint](docs/RESUMED-2026-09-13.md) and
+[product direction](docs/PRODUCT-ROADMAP.md).
 The [September 8 restart](docs/RESTART-2026-09-08.md) records the active checkout and partial
 recovery from the old iCloud location. Older hair checkpoints are historical experiments,
 not the current recommendation.

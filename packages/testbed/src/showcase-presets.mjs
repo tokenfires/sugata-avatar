@@ -1,7 +1,8 @@
-// Supported wardrobe studies. These presets choose existing assets; they do not sculpt or recolour them.
+// Supported g050 wardrobe studies with authored colourways on the existing fitted garments.
+import { WARDROBE_STYLES } from '../../core/src/wardrobe/WardrobeStyleOptions.js';
 export const SHOWCASE_PRESETS = Object.freeze([
     Object.freeze({ id: 'casual', number: '01', name: 'Everyday', hair: 'bob02', outfit: 'casual',
-        description: 'A blue tee, worn denim, and the chin-length bob.' }),
+        description: 'A tonal tee, dark denim, and the chin-length bob.' }),
     Object.freeze({ id: 'elegant', number: '02', name: 'After hours', hair: 'bob01', outfit: 'elegant',
         description: 'A striped blouse, a dark skirt, and the long bob.' })
 ]);
@@ -12,7 +13,7 @@ export const SHOWCASE_OUTFITS = Object.freeze({
 // Compared in actual fixed-pose studio renders before selection. Visible fit issues remain documented.
 export const SHOWCASE_FOUNDATION = Object.freeze({ TORSO: 'foundation_bra', HIPS: 'foundation_briefs' });
 export const SHOWCASE_SEED = 20260807;
-const choices = { preset: ['casual', 'elegant'], outfit: ['casual', 'elegant'], frame: ['body', 'portrait'], light: ['studio', 'warm'] };
+const choices = { style: WARDROBE_STYLES, preset: ['casual', 'elegant'], outfit: ['casual', 'elegant'], frame: ['body', 'portrait'], light: ['studio', 'warm'] };
 export function resolveShowcaseSelection(params) {
     for (const [key, values] of Object.entries(choices)) {
         if (params.getAll(key).length > 1) throw new Error(`Duplicate ${key} selection.`);
@@ -21,16 +22,16 @@ export function resolveShowcaseSelection(params) {
     for (const key of ['gender', 'bake', 'hair', 'foundation']) if (params.has(key))
         throw new Error('This lookbook supports its two authored g050 clothing studies only.');
     const preset = SHOWCASE_PRESETS.find(p => p.id === (params.get('preset') ?? 'casual'));
-    return { preset: preset.id, outfit: params.get('outfit') ?? preset.outfit,
+    return { preset: preset.id, style: params.get('style') ?? 'ecru', outfit: params.get('outfit') ?? preset.outfit,
         frame: params.get('frame') ?? 'body', light: params.get('light') ?? 'studio' };
 }
 export function optionsForShowcase(selection) {
     const preset = SHOWCASE_PRESETS.find(p => p.id === selection.preset);
-    if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light))
+    if (!preset || !SHOWCASE_OUTFITS[selection.outfit] || !choices.frame.includes(selection.frame) || !choices.light.includes(selection.light) || !choices.style.includes(selection.style))
         throw new Error('Unsupported showcase selection.');
     return { identity: { gender: .5, mode: 'nearest' }, hair: preset.hair, frame: selection.frame,
         quality: 'balanced', scene: 'studio', lighting: selection.light, seed: SHOWCASE_SEED,
-        pose: 'relaxed-standing', wardrobe: { outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
+        pose: 'relaxed-standing', wardrobe: { ...(selection.style === 'original' ? {} : {style: selection.style}), outfit: [...SHOWCASE_OUTFITS[selection.outfit].garments], foundation: { ...SHOWCASE_FOUNDATION } } };
 }
 export function outfitFromReport(report) {
     const worn = report.wardrobe?.state?.worn;
@@ -45,6 +46,9 @@ export function configurationFromReport(report) {
         !report.wardrobe?.attached || report.wardrobe.pendingCandidates !== 0 || !report.hair?.attached ||
         report.hair.loadedStyle !== report.hair.style || !['bob01', 'bob02'].includes(report.hair.style))
         throw new Error('Wait for the supported look to finish loading before saving it.');
+    const appearance = report.wardrobe.appearance;
+    if (!appearance?.attached || !choices.style.includes(appearance.style))
+        throw new Error('The selected clothing colours are not attached.');
     const outfit = outfitFromReport(report), foundation = report.wardrobe.foundation;
     if (!foundation || !['foundation_bra','foundation_vest'].includes(foundation.TORSO) ||
         !['foundation_briefs','foundation_boxer_brief'].includes(foundation.HIPS)) throw new Error('The attached foundation is incomplete.');
@@ -57,5 +61,5 @@ export function configurationFromReport(report) {
     return { identity: { gender: report.identity.gender, mode: 'nearest' }, hair: report.hair.style,
         frame: report.framing.mode, quality: report.quality.requested, scene: report.scene.id,
         lighting: report.scene.lighting.look, seed: report.motion.seed, pose: 'relaxed-standing',
-        wardrobe: { outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };
+        wardrobe: { ...(appearance.style === 'original' ? {} : {style: appearance.style}), outfit: [...SHOWCASE_OUTFITS[outfit].garments], foundation: { TORSO: foundation.TORSO, HIPS: foundation.HIPS } } };
 }

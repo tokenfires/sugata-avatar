@@ -1,0 +1,126 @@
+{
+  "schema": "sugata-wardrobe-colourway-evidence-v1",
+  "date": "2026-09-13",
+  "sourceHEAD": "77ed435",
+  "status": "integrated; built-page, image-export, material and independent ownership checks pass",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "7e254a254a73f8499be03dafce401ee838af0100bde7eba9a30609f48e8772a2",
+    "packages/core/src/wardrobe/Wardrobe.js": "3c52cc1ad588536a1a0a83a2ed857bb0029da2117771cac427cfa94cb8e7a7c5",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "3814a7533dbb801f0ec94f80a665f554d8aeb5b1d27cd7ecfb4d88447a3563c9",
+    "packages/core/src/wardrobe/WardrobeStyleOptions.js": "88ace8aea37370d3bb3e6fbf2a8e84872854a3ae453b48e931a5aae8a76afa1b",
+    "packages/core/src/wardrobe/WardrobeStyles.selftest.mjs": "ed461635af7928453554be056d8c430040c3379b1ddbd985ec8ccbbe4b812b99",
+    "packages/testbed/src/showcase.js": "aa5075bf068d165d1608a93488f5c27ea31056ef6fe548138570cad4cffb2661",
+    "packages/testbed/src/showcase.html": "61f373b584d34911a8e17da0a027940b45ac1da60e3a5a30e5940616b02a7af4",
+    "packages/testbed/src/showcase-presets.mjs": "35fd3effc672146b652fe82b3452c552ac4889df7f930b5ea80317ec6245745a",
+    "packages/testbed/src/showcase-presets.selftest.mjs": "520f995f638e3219781844439a352cf85acab1901ea9524d496f0a4bcfb50f29",
+    "packages/testbed/src/showcase.gpu.selftest.mjs": "f3817489fa19c2a67d30a599cb1bd026be4c90e463f02d295e2f17fa9a1d07de",
+    "packages/testbed/src/showcase-image.gpu.selftest.mjs": "ec90684c373c35a12d0013c32648cde6d91afc93c033a1993afda91c349b19cd",
+    "packages/testbed/pages.js": "5f944e8a14f93a63ae76185edadff5571d9602cbbcf40384c9e499c58d16e333",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/female_elegantsuit01/g050.glb": "0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+  },
+  "qualification": {
+    "materialCPUGroups": 6,
+    "independentIntegrationGroups": 3,
+    "avatarPublicAssertions": 137,
+    "wardrobeAssertions": 50,
+    "avatarWardrobeGroups": 13,
+    "showcasePresetGroups": 4,
+    "catalogueAssertions": 92,
+    "builtShowcaseGroups": 24,
+    "imageExportGroups": 13,
+    "allPagesBuild": "pass with existing large-chunk warning",
+    "matchedFinalViews": 30,
+    "exactPhysicalAndCameraStates": 6,
+    "noNewGeometryTextureOrAttributeCountsAndBytes": true,
+    "nativeMemoryAllZeroAtSixRetirements": true,
+    "originalControlPixelExactViews": 9,
+    "remainingOriginalViewDifference": "one of2640704channels by1/255",
+    "galleryLoadedComparisons": 10
+  },
+  "archive": {
+    "path": "captures/wardrobe-colourways-2026-09-13",
+    "files": 279,
+    "bytes": 149930832,
+    "manifestSHA256": "5fe505a34cb8da608d8848315b5f3f39029f5db081ac5897b7956096df0558d2",
+    "allFilesRereadAndVerified": true
+  },
+  "proofs": {
+    "integratedMaterials": "material-views-integrated-v1/report.json",
+    "sourceMemoryAndPixelAudit": "integration-audit.json",
+    "builtBrowser": "integrated-showcase-v2/report.json",
+    "imageExport": "integrated-image-export/report.json",
+    "independentIntegration": "independent-review/ownership/production-evidence.json",
+    "independentReviews": [
+      "contracts",
+      "casual-materials",
+      "ownership",
+      "elegant-materials"
+    ],
+    "gallery": "review-page-check.json",
+    "independentFinalReview": "independent-review/ownership/FINAL-REVIEW.md"
+  },
+  "limits": [
+    "Two existing combined g050 outfits, not independently wearable separates or new body fits.",
+    "Static matched material views at4s plus supported UI/motion/export tests are not unrestricted cloth-motion clearance.",
+    "Original material sources must match exact qualified hashes for authored palettes, including external asset bases.",
+    "Palette is fixed per Wardrobe lifetime; no public in-place style mutation API.",
+    "Arbitrary throwing disposal callbacks remain a pre-existing cleanup limitation.",
+    "Blouse fit, shoe/sock proportions, broader styling, hair/face quality, representative characters and AAA quality remain open.",
+    "No full repository suite, performance pass, push or reset."
+  ],
+  "preview": {
+    "created": "2026-09-13T21:09:57.851004+00:00",
+    "port": 5197,
+    "previewSession": 20794,
+    "appRestarted": false,
+    "checks": [
+      {
+        "path": "/src/showcase.html",
+        "status": 200,
+        "bytes": 11792,
+        "sha256": "703b89fa98b94d9ef4ab5edb086c1594d49a65945500ca00dc9144597d813650",
+        "expectedTokens": true
+      },
+      {
+        "path": "/src/showcase.js",
+        "status": 200,
+        "bytes": 61998,
+        "sha256": "4216349163e9c34c0fd9c93541ff27e0a73feb964b7b60f2a29ec9008314ed0a",
+        "expectedTokens": true
+      },
+      {
+        "path": "/pages.js",
+        "status": 200,
+        "bytes": 78721,
+        "sha256": "0d512307a9615c2870100d0dc48307e5af78c17cbd40bb97a1be0f29b0628861",
+        "expectedTokens": true
+      },
+      {
+        "path": "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+        "status": 200,
+        "bytes": 39900,
+        "sha256": "b8669baf06131f0919516a00104651971906954ea5e30d9bb58992a9f6a8a465",
+        "expectedTokens": true
+      }
+    ],
+    "archivedGalleryChecks": [
+      {
+        "url": "http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/wardrobe-colourways-2026-09-13/review.html",
+        "status": 200,
+        "sha256": "fd3cf06860e7f2355133df652030f1277a254d56914be87c5fc1ab5179135c0e",
+        "pngBytesExact": false
+      },
+      {
+        "url": "http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/wardrobe-colourways-2026-09-13/material-views-integrated-v1/casual-ecru-240-full-front.png",
+        "status": 200,
+        "sha256": "8f51bbdfdaf43538470f0e6de2139561b0c94c78e6dc86cb5391195661e4c9f0",
+        "pngBytesExact": true
+      }
+    ],
+    "galleryVerifiedAt": "2026-09-13T21:12:56.256187+00:00"
+  }
+}
