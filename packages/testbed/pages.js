@@ -32,8 +32,8 @@ export const PAGE_GROUPS = [
                 source: 'packages/testbed/src/portrait.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Both bobs and the experimental attention controls have fresh browser checks, including release, repeat, pause and dragging. All four mood controls have timed samples; Curious and Determined still need clearer intent.',
-                    evidence: 'docs/ATTENTION-ACTION-2026-09-13.md'
+                    detail: 'Both bobs and attention controls retain their browser checks. A recorded eye-focus study compares the current gesture with gentle and full candidates; calibrated eye contact and clear Curious/Determined intent remain in development.',
+                    evidence: 'docs/EYE-CONTACT-STUDY-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'AttentionAction' ]
             },

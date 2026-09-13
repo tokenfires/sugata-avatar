@@ -86,6 +86,10 @@ nape contact path, verified across the recorded motion poses. Other bob01 bakes 
 existing shapes. Broad card patches, mottled highlights and some contacts outside the corrected
 regions remain; finer strand rendering is still an experiment.
 
+A [viewer-attention study](docs/EYE-CONTACT-STUDY-2026-09-13.md) now compares the current
+gesture with gentle and full eye-focus candidates in synchronized recordings. They remain
+experimental; the live Portrait keeps its separately qualified attention action.
+
 The **wardrobe lookbook** at `/src/showcase.html` offers two actual g050 starting looks, live
 outfit changes, coordinated Ecru/Charcoal/Original palettes, orbit and framing controls, and PNG
 image or JSON settings downloads. [Colour choices](docs/WARDROBE-COLOURWAYS-2026-09-13.md) survive saved settings. It uses
