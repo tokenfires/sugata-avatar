@@ -137,6 +137,7 @@ import { BodyIdle } from './motion/BodyIdle.js';
 import { Breath } from './motion/Breath.js';
 import { FacialIdle } from './motion/FacialIdle.js';
 import { Gaze } from './motion/Gaze.js';
+import { calibrateEyeAim, EyeAimCalibrationError } from './motion/EyeAimCalibration.js';
 import { GestureLayer, syntheticSpeechPlan } from './motion/Gesture.js';
 import { HandIdle } from './motion/HandIdle.js';
 import { IdleMotion } from './motion/IdleMotion.js';
@@ -3122,6 +3123,15 @@ export class Avatar {
         this.target = createMotionTarget( figure.root );
 
         this.applyShading( skin );
+        this.eyeAimUnavailableReason = null;
+        try {
+            this.layers.gaze.setPointAimCalibration( this.target,
+                calibrateEyeAim( this.eyes.globeMesh, this.eyes.corneaMesh ) );
+        } catch ( error ) {
+            if ( !( error instanceof EyeAimCalibrationError ) ) throw error;
+            this.layers.gaze.setPointAimCalibration( null );
+            this.eyeAimUnavailableReason = error.message;
+        }
 
         // 🚩 TRAP (e)'s other half. `bind()` re-runs every layer's `onBind` and re-snapshots rest;
         // the layers are neither removed nor re-added, because `MotionStack.remove` disposes them.
@@ -3793,6 +3803,7 @@ export class Avatar {
 
         // Detach the coverage graph/Stage lease before disposing its materials. Attempt every
         // resource even if a disposal listener throws, including during an identity swap.
+        this.layers?.gaze?.setPointAimCalibration( null );
         const errors = [];
         const release = resource => { try { resource?.dispose(); } catch ( error ) { errors.push( error ); } };
         release( this.faceCardCoverage );

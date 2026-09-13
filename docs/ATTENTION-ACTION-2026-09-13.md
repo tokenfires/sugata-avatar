@@ -1,5 +1,7 @@
 # Experimental attention in Portrait — September 13, 2026
 
+**Historical qualification:** current runtime behavior is described in [the native eye-focus integration](POINT-AIM-INTEGRATION-2026-09-13.md). The earlier scope and evidence below are preserved as recorded.
+
 Portrait now offers **Look toward me** and **Release**. The action samples the current view, briefly settles the head and upper spine, and releases after 3.4 seconds of motion time. Repeating it blends from the current pose. Dragging, resetting the view or a newer explicit gaze command releases it; pausing removes its temporary pose immediately. The reduced-motion preference keeps invocation disabled until the user explicitly resumes motion.
 
 This integrates the motion-only direction from [the authored study](ATTENTION-STUDY-2026-09-13.md). It is deliberately labeled experimental. It is directed attention, not a calibrated eye-contact solution or completed determination/coyness/teasing. The stronger skeptical face remains unshipped. The [product roadmap](PRODUCT-ROADMAP.md), including representative starter characters and complete outfits, remains the governing ambition.

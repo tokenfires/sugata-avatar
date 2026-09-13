@@ -1,7 +1,8 @@
 /**
  * Experimental, user-invoked attention study. Samples the current camera once, using the head
- * origin and Gaze's resolved rig frame. This is directed attention, not calibrated binocular
- * eye contact, continuous camera tracking, an emotion, or a general action API.
+ * origin and Gaze's resolved rig frame. Supported eye geometry also aims each eye at that
+ * sampled world point. This is directed attention, not continuous camera tracking, an emotion
+ * or a general action API; geometric aim is not a perceptual eye-contact guarantee.
  *
  * Art choices: settle head noise over .5 s; incline head 2.6° and spine -1° over .25–.85 s;
  * release over 2.6–3.4 s. Face, speech and affect are owned by their existing layers.
@@ -126,11 +127,14 @@ export class AttentionAction {
         }
         // Acquire the fallible independent resource before superseding a valid gaze hold.
         // Failed starts preserve an existing action and cannot leave an invisible policy hold.
+        const pointOptions = this.gaze.pointAimSupport?.() === null
+            ? { pointWorld: camera.getWorldPosition( new Vector3() ), pointWeight: 0 } : {};
         const acquiredScale = !this.headScale?.active;
         const scale = acquiredScale ? this.idle.acquireHeadScale() : this.headScale;
         let hold;
-        try { hold = this.gaze.holdTarget( target, { predicted: true } ); }
+        try { hold = this.gaze.holdTarget( target, { predicted: true, ...pointOptions } ); }
         catch ( error ) { if ( acquiredScale ) scale.release(); throw error; }
+        hold.setPointWeight?.( this.poseWeight );
         this.gazeHold = hold;
         this.headScale = scale;
         this.pose.frames = frames;
@@ -145,8 +149,10 @@ export class AttentionAction {
     cancel( { immediate = false } = {} ) {
         if ( immediate ) { this.retire(); return this; }
         if ( this.phase === 'idle' || this.phase === 'releasing' ) return this;
-        this.gazeHold?.release();
-        this.gazeHold = null;
+        // Direction policy resumes now. Only Gaze owns the remaining eye-correction fade;
+        // every newer gaze/speech command invalidates it. Retain the inactive token solely
+        // so immediate cancellation or disposal can stop its own residual fade.
+        this.gazeHold?.release( { pointFadeSeconds: 0.3 } );
         this.phase = 'releasing';
         this.time = 0;
         this.startPose = this.poseWeight;
@@ -172,6 +178,7 @@ export class AttentionAction {
             this.settleWeight = ( this.startSettle + ( 1 - this.startSettle ) * smooth( this.time / 0.5 ) ) * release;
             if ( this.time >= 3.4 ) { this.retire(); return; }
         }
+        if ( this.gazeHold?.active ) this.gazeHold.setPointWeight?.( this.poseWeight );
         this.headScale?.set( 1 - 0.75 * this.settleWeight );
     }
 
@@ -188,7 +195,10 @@ export class AttentionAction {
         return { phase: this.phase, time: this.time, poseWeight: this.poseWeight,
             headNoiseScale: 1 - 0.75 * this.settleWeight,
             target: this.target ? { ...this.target } : null,
-            holdsGaze: this.gazeHold?.active === true };
+            holdsGaze: this.gazeHold?.active === true,
+            eyeFocus: this.gazeHold?.active || this.gazeHold?.pointFading
+                ? this.gazeHold.hasPointTarget ? this.gaze.pointAimOutput?.status ?? 'settling' : 'direction'
+                : 'inactive' };
     }
 
     dispose() {

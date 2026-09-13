@@ -1,5 +1,7 @@
 # Eye focus through native motion ownership
 
+**Historical qualification:** current runtime behavior is described in [the native eye-focus integration](POINT-AIM-INTEGRATION-2026-09-13.md). The earlier scope and evidence below are preserved as recorded.
+
 The point-aim candidate now runs through Gaze's declared contribution before the normal single motion commit. The existing eyelid and brow following receive the corrected authored eye direction. **This remains a scratch prototype; the live Portrait action and production sources are unchanged.**
 
 [Open the local comparison](http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/eye-aim-owner-2026-09-13/gallery/review.html). The original and candidate have twelve matched moments over four seconds. Earlier full/half diagnostic motion is in [the preceding study](EYE-CONTACT-STUDY-2026-09-13.md).
