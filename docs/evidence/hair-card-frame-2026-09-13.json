@@ -1,0 +1,90 @@
+{
+  "created": "2026-09-13T18:15:31.968507+00:00",
+  "baselineCommit": "aede7d3",
+  "productionSources": {
+    "packages/core/src/Avatar.js": "fe80f1306282b9af1ae88ae75f0537dda6b7d8dfbf2eb782b861fa409e59217f",
+    "packages/core/src/material/HairMaterial.js": "b012b4f864205910887d12ca500465dd01821f7f5e6f5b38024645f925639ddf",
+    "packages/core/src/material/HairMaterial.card-roots.selftest.mjs": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07",
+    "packages/core/src/render/HairCardFrame.js": "c2af67e5ff6ca002a52d84de2a02919be55b11f863abc920e48fb29a0981ec83",
+    "packages/core/src/render/HairCardFrame.selftest.mjs": "953a68f76abfaeeadf8c40363e7a8b6315c8bc6bc5ba3ba58f46cf83db6d0eb4",
+    "packages/core/src/render/CardRenderHistory.js": "3b67d5621c0a2f3084f5c23032bc73e1618e49efcc54dcc8f7ec96ac64869d2f",
+    "packages/core/src/motion/HairDynamics.js": "657c9f8740411e750039c4f994955f53c1988dc51cf98ac74a892790063f2525",
+    "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+    "packages/testbed/src/showcase-image.gpu.selftest.mjs": "5a23cc98ef274e91860e775c548a8e920027777fd39a1a5ff184bbe3231bd01d",
+    "packages/testbed/pages.js": "c0e1e56e5614e640e5e60f7c20b09277e29ebb3a555da88e25efca91e0080da2"
+  },
+  "changedBehavior": "Dynamic per-vertex card frame and metric smoothing for both bobs, with native derivative fallback and synchronous ownership retirement. Accepted assets and physical equations preserved.",
+  "qualification": {
+    "isolationPngs": 54,
+    "liveStaticPngs": 18,
+    "liveMotionPngs": 72,
+    "integratedStaticPngs": 18,
+    "integratedMotionPngs": 72,
+    "exactPrototypeIntegratedStillPairs": 6,
+    "exactPrototypeIntegratedMotionPairs": 36,
+    "integratedBaselinePhysicalMotionPairs": 36,
+    "runtimeLifecycleRows": 24,
+    "highTierBobs": 2,
+    "fallbackMsaaBobs": 2,
+    "finalCompatibilityBrowserLoads": 3,
+    "pngExportGroups": 13,
+    "frameOwnerCpuGroups": 12,
+    "criticInitialCpuGroups": 12,
+    "criticFinalCpuGroups": 16,
+    "avatarAssertions": 137,
+    "historyCpuGroups": 22,
+    "nativeCallbackGroups": 13,
+    "rootProfileGroups": 5,
+    "catalogueAssertions": 92,
+    "allPageBuildPassed": true
+  },
+  "qualifications": [
+    "IsolationPngs includes18layered curtain images plus24frame and12metric controls; partial guide study excluded from completed counts.",
+    "Integrated still/motion/lifecycle/high/export qualifications precede the typed unsupported-atlas fallback correction. The valid-layout shader graph and Avatar/HairMaterial remain unchanged; final compatibility browser and CPU controls qualify that correction.",
+    "All source hashes and raw reports retained, including mislabeled prototype motion scope and partial failures.",
+    "Sampled motion is three simulated seconds per run, not continuous-video or long-duration acceptance.",
+    "No frame-rate, new contact clearance, or AAA completion claim.",
+    "Prior solver settling and g025 contact limitations remain."
+  ],
+  "archive": {
+    "root": "captures/hair-card-frame-2026-09-13",
+    "files": 560,
+    "bytes": 205917089,
+    "manifestSha256": "aa5549b483b410b451948d6f62d2513ed3a14cf125a6caa3c44120ddedff324a",
+    "verifiedByReread": true
+  },
+  "preview": {
+    "created": "2026-09-13T18:09:55.212Z",
+    "base": "http://127.0.0.1:5197",
+    "session": 12166,
+    "responses": {
+      "portrait": {
+        "status": 200,
+        "sha256": "390940f73562e51a94eaa38c5b46ca39507fb79fe6ce69188f91dcaf1af90139"
+      },
+      "avatar": {
+        "status": 200,
+        "sha256": "b9dbebac6672e3ab88bd33a63524faa26316e8d0f1bdce005c3de5f1366ac91b"
+      },
+      "frame": {
+        "status": 200,
+        "sha256": "9b65b2e10a16143eb8894e820193874b28d91a677c76fb563120d92d29095263"
+      },
+      "material": {
+        "status": 200,
+        "sha256": "c6a4cab886592bcdee4fd78d350616273d69cee54e82145c40cedae33ddee5f6"
+      },
+      "pages": {
+        "status": 200,
+        "sha256": "1af5def4d6a727b4f8dcf4d9aec9e80a86a5f91a5616fbe2e6289de289b6a5cb"
+      }
+    },
+    "note": "HTTP/module verification only. Actual WebGPU images and lifecycle checked separately."
+  },
+  "remaining": [
+    "Broad side/back strip boundaries and exposed rear backing",
+    "Artificial panel/comb ends in rejected curtain alternatives",
+    "Expression semantics and open-ended conversational quality",
+    "Wardrobe fit and broader identity quality"
+  ]
+}

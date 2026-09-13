@@ -14,8 +14,8 @@ const SOURCE_REVIEW = {
 const PREVIEW_REVIEW = {
     kind: 'previously-verified',
     date: '2026-09-13',
-    detail: 'Both bobs have softer crown roots with matched WebGPU motion checks. Brow and lash edges, Wardrobe image export, and resizing are verified. Broad hair strips, outfit fit, and expression quality remain in development.',
-    evidence: 'docs/HAIR-CARD-ROOTS-2026-09-13.md'
+    detail: 'Both bobs have smoother moving highlights and softer crown roots, verified in matched WebGPU samples. Brow and lash edges, Wardrobe image export, and resizing are verified. Broad hair strips, rear coverage, outfit fit, and expression quality remain in development.',
+    evidence: 'docs/HAIR-CARD-FRAME-2026-09-13.md'
 };
 
 export const PAGE_GROUPS = [

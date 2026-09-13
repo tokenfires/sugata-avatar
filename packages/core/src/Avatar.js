@@ -1117,6 +1117,7 @@ export class Avatar {
         this.hairDynamics = null;
         this.hairHistoryMode = session.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
         this.hairHistory = null;
+        this.hairFrame = null;
         this.hairUpdate = null;
         this.hairArm = 'off';
         this.hairVelocityRepaired = null;
@@ -2646,6 +2647,7 @@ export class Avatar {
                 velocityRepaired: this.hairVelocityRepaired,
                 history: this.hairHistory?.report() ?? { requested: this.hairHistoryMode, mode: 'hold',
                     reason: this.hairHistoryMode === 'hold' ? 'explicit hold' : 'no active card history owner', live: false },
+                cardFrame: this.hairFrame?.report() ?? { mode: 'derivative', live: false, reason: 'no dynamic card frame' },
                 bodyContact: this.hairDynamics?.contactReport?.() ?? null,
                 bodyContactUnavailableReason: this.hairContactUnavailableReason,
 
@@ -3487,15 +3489,17 @@ export class Avatar {
         figure.root.updateMatrixWorld( true );
 
         // 🎯 THE APPLY PATH, NOT THE ASSIGNMENT LOOP. See the header.
-        let applied, history = null;
+        let applied, history = null, frame = null;
         try {
 
             applied = applyHairMaterial( hairRoot, material );
             history = solver?.createHistory?.() ?? null;
+            frame = solver?.createFrame?.() ?? null;
 
         } catch ( error ) {
 
             const cleanup = [];
+            try { frame?.dispose(); } catch ( e ) { cleanup.push( e ); }
             try { history?.dispose(); } catch ( e ) { cleanup.push( e ); }
             try { abandon(); } catch ( e ) { cleanup.push( e ); }
             if ( cleanup.length ) throw new AggregateError( [ error, ...cleanup ], 'Hair attachment failed.', { cause: error } );
@@ -3505,6 +3509,7 @@ export class Avatar {
 
         this.hairSourceMaterials = sourceMaterials;
         this.hairHistory = history;
+        this.hairFrame = frame;
         this.hairRoot = hairRoot;
         this.hairMaterial = material;
         this.hairDynamics = solver?.dynamics ?? null;
@@ -3563,11 +3568,12 @@ export class Avatar {
         const headBone = mesh.skeleton.bones[ boneIndex ];
         const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
 
-        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform }, historyModule ] = await Promise.all( [
+        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform }, historyModule, { createHairCardFrame } ] = await Promise.all( [
             import( './motion/HairDynamics.js' ),
             import( './render/HairVelocity.js' ),
             import( './motion/HairSkinTransform.js' ),
-            this.hairHistoryMode === 'auto' ? import( './render/CardRenderHistory.js' ) : Promise.resolve( null )
+            this.hairHistoryMode === 'auto' ? import( './render/CardRenderHistory.js' ) : Promise.resolve( null ),
+            import( './render/HairCardFrame.js' )
         ] );
 
         // Disposal or an identity swap can finish while the dynamic imports are pending.
@@ -3683,7 +3689,8 @@ export class Avatar {
             const createHistory = historyModule === null ? null : () => historyModule.createCardRenderHistory( {
                 stage: this.stage, dynamics, mesh, material
             } );
-            return { dynamics, update, velocityRepaired, contactUnavailableReason, createHistory };
+            const createFrame = () => createHairCardFrame( { dynamics, mesh, material } );
+            return { dynamics, update, velocityRepaired, contactUnavailableReason, createHistory, createFrame };
 
         } catch ( error ) {
 
@@ -3712,6 +3719,8 @@ export class Avatar {
 
         const errors = [];
         const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+        release( () => this.hairFrame?.dispose() );
+        this.hairFrame = null;
         release( () => this.hairHistory?.dispose() );
         this.hairHistory = null;
         this.hairUpdate = null;

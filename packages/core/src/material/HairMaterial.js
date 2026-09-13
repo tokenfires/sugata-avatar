@@ -3800,8 +3800,18 @@ function strandTangentNode( nodes ) {
     const safeDeterminant = determinant.lessThan( 0 ).select( magnitude.negate(), magnitude );
 
     // ∂P/∂v and ∂P/∂u, from [∂P/∂x ∂P/∂y] = [∂P/∂u ∂P/∂v] · J, inverted.
-    const alongStrand = positionDy.mul( uvDx.x ).sub( positionDx.mul( uvDy.x ) ).div( safeDeterminant );
-    const acrossStrand = positionDx.mul( uvDy.y ).sub( positionDy.mul( uvDx.y ) ).div( safeDeterminant );
+    const derivativeAlong = positionDy.mul( uvDx.x ).sub( positionDx.mul( uvDy.x ) ).div( safeDeterminant );
+    const derivativeAcross = positionDx.mul( uvDy.y ).sub( positionDy.mul( uvDx.y ) ).div( safeDeterminant );
+    // Interpolate unnormalised card-edge derivatives so lighting direction AND strand phase
+    // stay continuous across triangles. Caps, unavailable sources and collapsed frames retain
+    // the fragment derivative path. This same expression feeds lighting and the fake normal.
+    const frame = nodes.cardFrame;
+    const usableFrame = frame == null ? null : frame.enabled.greaterThan( 0.5 )
+        .and( frame.inCard.greaterThan( 0.5 ) )
+        .and( dot( frame.along, frame.along ).greaterThan( 1e-12 ) )
+        .and( dot( frame.across, frame.across ).greaterThan( 1e-12 ) );
+    const alongStrand = frame == null ? derivativeAlong : usableFrame.select( frame.along, derivativeAlong );
+    const acrossStrand = frame == null ? derivativeAcross : usableFrame.select( frame.across, derivativeAcross );
 
     const cardTangent = normalize( alongStrand );
     const across = normalize( acrossStrand );
@@ -4144,4 +4154,35 @@ function loadDataSheet( url ) {
 
     } );
 
+}
+
+
+const cardFrameOwners = new WeakMap();
+
+/** Install one borrowed view-space card frame without changing coverage or position hooks. */
+export function installHairCardFrame( material, frame ) {
+    if ( !material?.isHairNodeMaterial || !frame?.along?.isNode || !frame?.across?.isNode ||
+        !frame?.enabled?.isNode || !frame?.inCard?.isNode ) throw new TypeError( 'Hair card frame requires a hair material and four nodes.' );
+    if ( cardFrameOwners.has( material ) || material.hair.cardFrame != null ) throw new Error( 'Hair card frame is already installed.' );
+    const previousNormal = material.normalNode;
+    let normal;
+    const remove = () => {
+        if ( cardFrameOwners.get( material ) !== frame ) return;
+        cardFrameOwners.delete( material );
+        if ( material.hair.cardFrame === frame ) delete material.hair.cardFrame;
+        if ( material.normalNode === normal ) material.normalNode = previousNormal;
+        material.needsUpdate = true;
+    };
+    cardFrameOwners.set( material, frame );
+    try {
+        material.hair.cardFrame = frame;
+        const tangent = strandTangentNode( material.hair );
+        normal = normalize( positionViewDirection.sub( tangent.mul( tangent.dot( positionViewDirection ) ) ) );
+        material.normalNode = normal;
+        material.needsUpdate = true;
+        return remove;
+    } catch ( error ) {
+        remove();
+        throw error;
+    }
 }
