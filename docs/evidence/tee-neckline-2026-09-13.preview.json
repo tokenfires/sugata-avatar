@@ -1,0 +1,75 @@
+{
+  "checkedAt": "2026-09-14T02:54:31.626Z",
+  "previewPID": 84425,
+  "port": 5197,
+  "runtimeChanged": false,
+  "rows": [
+    {
+      "path": "packages/testbed/src/portrait.js",
+      "status": 200,
+      "sha256": "c6b120ce74d258bc4f51204c9a5e1b7be151f2a4523953f2ced69b2d41a27560",
+      "decodedRaw": true
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "status": 200,
+      "sha256": "5c262312118aa8a6b3f1d37987b23b719c6f1e879373e838f312bca77c5a590f",
+      "decodedRaw": true
+    },
+    {
+      "path": "packages/core/src/render/LightingRig.js",
+      "status": 200,
+      "sha256": "3bfc0de4b670118931760afed7e5ab3bd2f075f556be69b2fe8b4580364e1c7a",
+      "decodedRaw": true
+    },
+    {
+      "path": "packages/core/src/wardrobe/Wardrobe.js",
+      "status": 200,
+      "sha256": "3c52cc1ad588536a1a0a83a2ed857bb0029da2117771cac427cfa94cb8e7a7c5",
+      "decodedRaw": true
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyles.js",
+      "status": 200,
+      "sha256": "3814a7533dbb801f0ec94f80a665f554d8aeb5b1d27cd7ecfb4d88447a3563c9",
+      "decodedRaw": true
+    },
+    {
+      "path": "docs/TEE-NECKLINE-STUDY-2026-09-13.md",
+      "status": 200,
+      "sha256": "188d380e76462602e72482bb17ed058175b8f8cb5079ce8e8bb25096884def4f",
+      "decodedRaw": true
+    },
+    {
+      "path": "captures/tee-neckline-2026-09-13/gallery/review.html",
+      "status": 200,
+      "sha256": "2b39d06207f9b725dda279894ff010b40887477c8e2360adaacb02dca559cbab",
+      "decodedRaw": true
+    },
+    {
+      "path": "captures/tee-neckline-2026-09-13/NEXT-FIT.md",
+      "status": 200,
+      "sha256": "16bc093e1c43c89055bb505c8f30cb91056cf01262bb7f0f5abff33a84870178",
+      "decodedRaw": true
+    },
+    {
+      "path": "captures/tee-neckline-2026-09-13/motion/bob02-fit.mp4",
+      "status": 200,
+      "sha256": "2dab5c2dc3d547d47ee61a6a7f5ede83c64fe48192a5907017ffd2d61c405c8c",
+      "binaryExact": true
+    },
+    {
+      "path": "captures/tee-neckline-2026-09-13/qualification-v1/bob02-fit/sample-90.png",
+      "status": 200,
+      "sha256": "dbc0e13610810d466dbc21b2d8d45eda1b9e97e368426bff2fe585bcee851fee",
+      "binaryExact": true
+    }
+  ],
+  "ordinaryGallery": {
+    "url": "http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/tee-neckline-2026-09-13/gallery/review.html",
+    "status": 200,
+    "trialStatusVisibleInServedHTML": true,
+    "finalCaption": true
+  },
+  "passed": true
+}
