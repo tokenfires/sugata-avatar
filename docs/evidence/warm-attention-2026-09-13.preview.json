@@ -1,0 +1,153 @@
+{
+  "completed": true,
+  "checkedAt": "2026-09-14T00:42:05.443893+00:00",
+  "count": 29,
+  "resources": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "8184284a131d4ab77e4ce2b0c456eaabf11db389ab76fdf6521ac2ee6b6d64b7"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "mode": "Vite decoded raw source",
+      "sha256": "b266e0d9eb5fa4fe305ca70dc496d8ee86d8f2507551c44b684d6f58d03e1f6a"
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "mode": "Vite decoded raw source",
+      "sha256": "35fd3effc672146b652fe82b3452c552ac4889df7f930b5ea80317ec6245745a"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "dc99dababcef2441d0c4f4bc7aa66824b139178627a14089433d69f781914602"
+    },
+    {
+      "path": "packages/core/src/motion/Gaze.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c"
+    },
+    {
+      "path": "packages/core/src/motion/MotionStack.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9"
+    },
+    {
+      "path": "packages/core/src/motion/AttentionAction.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "5bcbd1185ec152d919fa2dcf4119ec8d332381b0088995c33efe0298596db8a2"
+    },
+    {
+      "path": "packages/core/src/motion/EyeAimCalibration.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe"
+    },
+    {
+      "path": "packages/core/src/motion/EyeAimSolver.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884"
+    },
+    {
+      "path": "packages/core/src/motion/FacialIdle.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07"
+    },
+    {
+      "path": "packages/core/src/motion/Layer.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "path": "packages/core/src/affect/ExpressionLayer.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478"
+    },
+    {
+      "path": "packages/core/src/figure/ExpressionBank.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "path": "packages/core/src/voice/VisemeLayer.js",
+      "mode": "Vite decoded raw source",
+      "sha256": "4d6f2fc18922e5572a2f6203263f43a397d379bb448bc97f85b8b860708d4b0b"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/gallery/review.html",
+      "mode": "exact HTTP bytes",
+      "sha256": "77b638711ebac4aa7ef9cac10d55215dfc3e65e619824e438adb0ce0a3b5ab42"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/gallery/check.json",
+      "mode": "exact HTTP bytes",
+      "sha256": "5cbe63d8fb5a8c6a3f5a2ff8a414131f41abe6620b007ba1da2be7fe2dfaff51"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/motion-v1/report.json",
+      "mode": "exact HTTP bytes",
+      "sha256": "d41bef6cc1bf9c56a7b0215fc2d811d2f46000bf99b6edc12b9439ebabbc46d2"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/motion-v1/comparison.json",
+      "mode": "exact HTTP bytes",
+      "sha256": "c5d7437a8745f5212d3b8b222e180806d320eb25994367960df37d6eac2317fb"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/budget-check.json",
+      "mode": "exact HTTP bytes",
+      "sha256": "131440a054134eb2e25a2604b252f82016f54b0e2de59852d9385370c364bf42"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/AttentionSmile.mjs",
+      "mode": "Vite decoded raw source",
+      "sha256": "a12e999a4ce60047a295b3172069496c15bf4ca52b1a0e7931841b58d6ba7335"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/NEXT-INTEGRATION.md",
+      "mode": "exact HTTP bytes",
+      "sha256": "4f8b8b6bc957a77939cf7be009dcb12d800635e2882a6bc9929e94fd89f59a22"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/critic/REVIEW.md",
+      "mode": "exact HTTP bytes",
+      "sha256": "643a4445f88d69f5d31a8d7bd2feede28c865c4e12fcef1f63fe38e3bcb28bd6"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/gallery/current.mp4",
+      "mode": "exact HTTP bytes",
+      "sha256": "8da9702d0683c01f5786e09a5655720a7623b05e1828d476f92e036aecc91add"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/motion-v1/current/frame-0030.png",
+      "mode": "exact HTTP bytes",
+      "sha256": "fd8acda725e28307ac652611731e8f3762334d34176d31cd6976224b01fabc67"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/gallery/corner.mp4",
+      "mode": "exact HTTP bytes",
+      "sha256": "a074f7df68f8f3f49375803441c3d296662756c1b54a7acf00827f21efaaac69"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/motion-v1/corner/frame-0030.png",
+      "mode": "exact HTTP bytes",
+      "sha256": "be852e86e80a4b003c64330afd7812c445cd866238705790a23f696278109ee3"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/gallery/early-release.mp4",
+      "mode": "exact HTTP bytes",
+      "sha256": "739e3e59e964c0c7b2dc92feba7ce24e64440939220dc915584d394ddb846f11"
+    },
+    {
+      "path": "captures/warm-attention-2026-09-13/motion-v1/early-release/frame-0030.png",
+      "mode": "exact HTTP bytes",
+      "sha256": "1f2e9118e371c4b7916ff992a46e47c45ff66cd0564eb7afa3de14fdd639c0de"
+    }
+  ],
+  "note": "Current preview stayed running. No production source changed for this study; recordings and prototype remain separate."
+}
