@@ -1,0 +1,51 @@
+{
+  "status": "integrated",
+  "baseCommit": "c510772",
+  "archive": "captures/shadow-softness-2026-09-13",
+  "count": 882,
+  "bytes": 393962773,
+  "manifestSha256": "6dd5f29d6ddfe3f3b222b0a13ecee2ed5424875801adff34a4f50de369f12833",
+  "criticManifestSha256": "b188e949dd5e6cedf11621045a4244c9fbbbe19ff09a2143c7a6de54db1fd2e5",
+  "runtimeSource": {
+    "packages/core/src/render/LightingRig.js": "3bfc0de4b670118931760afed7e5ab3bd2f075f556be69b2fe8b4580364e1c7a",
+    "packages/core/src/render/LightingRig.selftest.mjs": "a8d02ecb559c0a8dad4a25aef15be39973d9fb26c5f6cd8e4625070b62386be7"
+  },
+  "checks": {
+    "lighting": 145,
+    "groundContact": 78,
+    "allPagesBuild": "pass; existing chunk warning",
+    "isolationArms": 7,
+    "maskAndRadiusArms": 7,
+    "pairedFramingStates": 24,
+    "pairedMotionStates": 12,
+    "motionFrames": 544,
+    "pairedIntegrationStates": 24,
+    "cleanAvatarRetirements": 30,
+    "galleryPairs": 24,
+    "galleryMobileWidth": 390
+  },
+  "sourceReports": [
+    "isolation-v1/report.json",
+    "shadow-v1/report.json",
+    "softness-v2/report.json",
+    "motion-v1/report.json",
+    "integration-v1/report.json"
+  ],
+  "limits": [
+    "Fixed support at focus; no blocker-dependent penumbra.",
+    "Independent critic reviewed21 JPEG copies including short consecutive sequences, not every video instant.",
+    "Native integration and candidate differ by103pixels total across24images, maximum2/255; physical controls exact.",
+    "Performance was not benchmarked; source sample/pass count unchanged.",
+    "Tee neckline, hair strips and broader character quality remain open."
+  ],
+  "excludedProbes": [
+    "softness-v1 unsupported lookbook hair query, no Avatar created",
+    "initial bit-exact cross-job replay expectation failed on one1/255 pixel"
+  ],
+  "galleryStatusOnlyEdit": {
+    "interactionTestedHtml": "gallery/review-tested.html",
+    "currentHtml": "gallery/review.html",
+    "change": "Only integration status sentence; scripts, styles, controls and links unchanged."
+  },
+  "preview": "docs/evidence/shadow-softness-2026-09-13.preview.json"
+}

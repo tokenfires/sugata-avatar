@@ -86,6 +86,10 @@ nape contact path, verified across the recorded motion poses. Other bob01 bakes 
 existing shapes. Broad card patches, mottled highlights and some contacts outside the corrected
 regions remain; finer strand rendering is still an experiment.
 
+The studio shadow filter now softens the card-shaped neck/chest patches while retaining depth.
+The [shadow comparison](docs/SHADOW-SOFTNESS-2026-09-13.md) covers both bobs in motion and full outfits;
+tee neckline finish and broader character appearance remain open.
+
 Portrait and Wardrobe studies now offer **Look toward me**, **Look with a smile**, and **Release**.
 The experimental action uses native measured eye focus; the optional small smile blends smoothly
 and preserves the sampled speech shapes. The [integration guide](docs/SMILE-INTEGRATION-2026-09-13.md)

@@ -1209,6 +1209,15 @@ const AMBIENT = {
  */
 const SHADOW_NORMAL_BIAS_IN_TEXELS = 1.5;
 
+// A bounded softness approximation for the punctual half of the studio key.
+// Ten millimetres at the focus softens the groom's card-shaped neck shadows while
+// retaining their density. Expressing support in metres avoids a portrait-sized
+// texel radius growing into a broad blur when the rig frames a whole body.
+// This is fixed-support PCF, not blocker-dependent area-light penumbra.
+// Paired evidence and remaining limits: docs/SHADOW-SOFTNESS-2026-09-13.md.
+const SHADOW_FILTER_RADIUS_METRES = 0.010;
+
+
 // --- geometry --------------------------------------------------------------------------------
 
 const DEGREES = Math.PI / 180;
@@ -2696,8 +2705,9 @@ export class LightingRig {
         // What one texel covers at the subject's own depth. The shadow camera is a perspective one
         // whose field of view three derives from `light.angle`, so at `distance` its frustum spans
         // exactly `2 * halfExtent` — the same quantity the cone was just sized by.
-        shadowCaster.shadow.normalBias =
-            SHADOW_NORMAL_BIAS_IN_TEXELS * ( 2 * halfExtent ) / this.shadowMapSize;
+        const texelMetres = ( 2 * halfExtent ) / this.shadowMapSize;
+        shadowCaster.shadow.normalBias = SHADOW_NORMAL_BIAS_IN_TEXELS * texelMetres;
+        shadowCaster.shadow.radius = SHADOW_FILTER_RADIUS_METRES / texelMetres;
 
         const camera = shadowCaster.shadow.camera;
         // Bracketed on the SUBJECT's own depth, not on the cone's half-extent. The cone is now
