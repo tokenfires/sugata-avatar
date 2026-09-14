@@ -1,0 +1,63 @@
+{
+  "archive": "captures/showcase-attention-2026-09-13",
+  "fileCount": 695,
+  "totalBytes": 309972599,
+  "created": "2026-09-14T00:12:06.318486+00:00",
+  "sourceRevisionBeforeChange": "f9ccb36",
+  "scope": "Experimental native attention in the clothed Showcase; continuous recorded coverage and page/export integration checks.",
+  "manifestSha256": "30444d8446f030cc8b1d6c00c1df031723fe159113a1b775eec2c4439fd881cb",
+  "sourceHashes": {
+    "packages/testbed/src/showcase.js": "8184284a131d4ab77e4ce2b0c456eaabf11db389ab76fdf6521ac2ee6b6d64b7",
+    "packages/testbed/src/showcase.html": "b266e0d9eb5fa4fe305ca70dc496d8ee86d8f2507551c44b684d6f58d03e1f6a",
+    "packages/testbed/src/showcase-presets.mjs": "35fd3effc672146b652fe82b3452c552ac4889df7f930b5ea80317ec6245745a",
+    "packages/core/src/Avatar.js": "dc99dababcef2441d0c4f4bc7aa66824b139178627a14089433d69f781914602",
+    "packages/core/src/motion/Gaze.js": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c",
+    "packages/core/src/motion/MotionStack.js": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9",
+    "packages/core/src/motion/AttentionAction.js": "5bcbd1185ec152d919fa2dcf4119ec8d332381b0088995c33efe0298596db8a2",
+    "packages/core/src/motion/EyeAimCalibration.js": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe",
+    "packages/core/src/motion/EyeAimSolver.js": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884",
+    "packages/core/src/motion/FacialIdle.js": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07",
+    "packages/core/src/motion/Layer.js": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8",
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "3814a7533dbb801f0ec94f80a665f554d8aeb5b1d27cd7ecfb4d88447a3563c9",
+    "packages/core/src/wardrobe/WardrobeStyleOptions.js": "88ace8aea37370d3bb3e6fbf2a8e84872854a3ae453b48e931a5aae8a76afa1b",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437",
+    "packages/core/src/wardrobe/Wardrobe.js": "3c52cc1ad588536a1a0a83a2ed857bb0029da2117771cac427cfa94cb8e7a7c5",
+    "packages/core/src/motion/HairDynamics.js": "657c9f8740411e750039c4f994955f53c1988dc51cf98ac74a892790063f2525",
+    "packages/core/src/motion/HairBodyContact.js": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba",
+    "packages/core/src/motion/HairBodyContactForest.js": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b",
+    "packages/core/src/motion/HairBodyContactCalibration.data.js": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df",
+    "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "packages/core/src/material/HairMaterial.js": "b012b4f864205910887d12ca500465dd01821f7f5e6f5b38024645f925639ddf",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+  },
+  "checks": {
+    "motionRuns": 4,
+    "pngFrames": 544,
+    "savedStates": 52,
+    "correctedTraceFrames": 756,
+    "uiGroups": 14,
+    "uiRetirements": 3,
+    "motionRetirements": 4,
+    "imageExportGroups": 13,
+    "galleryVideos": 4,
+    "catalogueAssertions": 92,
+    "presetGroups": 4,
+    "buildPages": "passed; existing large-chunk warning"
+  },
+  "limits": [
+    "Sampled visual inspection with continuous recordings available, not general perceptual motion acceptance.",
+    "Existing g050 outfits and two grooms only; no new identity or asset-quality claims.",
+    "Clips contain helper-controlled capture timing/face-card coverage and page labels; not a live frame-rate benchmark or no-action A/B.",
+    "Close or oblique viewpoints may reach existing eye movement bounds.",
+    "Full AAA character finish, nuanced affect and representative performance remain open."
+  ],
+  "critic": [
+    "critic-source/REVIEW.md",
+    "critic-visual/VISUAL-REVIEW.md"
+  ]
+}

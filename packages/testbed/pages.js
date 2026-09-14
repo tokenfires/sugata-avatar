@@ -32,21 +32,21 @@ export const PAGE_GROUPS = [
                 source: 'packages/testbed/src/portrait.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Both bobs and attention controls retain their browser checks. A recorded eye-focus study compares the current gesture with gentle and full candidates; calibrated eye contact and clear Curious/Determined intent remain in development.',
-                    evidence: 'docs/EYE-CONTACT-STUDY-2026-09-13.md'
+                    detail: 'The attention action now uses native measured eye focus, with paired browser and interruption/release checks. Continuous clothed views cover both bobs. Precise contact from all views and clear Curious/Determined intent remain in development.',
+                    evidence: 'docs/POINT-AIM-INTEGRATION-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'AttentionAction' ]
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Explore two starting outfits in Ecru, Charcoal or Original, then save a PNG image or the avatar settings.',
-                boundary: 'Two starting outfits on one body study. Clothing fit and the larger wardrobe remain works in progress.',
+                blurb: 'Explore two starting outfits and three colour palettes, invite a brief look toward you, and save an image or settings.',
+                boundary: 'Two starting outfits on one body study, with experimental attention near the front view. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Both outfits have coordinated colour choices that follow outfit changes and survive saved-settings reconstruction. The accepted denim fit is preserved. Upper fit, skirt layering, shoe/sock styling and additional bodies remain in development.',
-                    evidence: 'docs/WARDROBE-COLOURWAYS-2026-09-13.md'
+                    detail: 'Attention has continuous body/portrait recordings for both starting looks, with control, reduced-motion and active-pose export checks. Colour choices and the accepted denim fit are retained. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain in development.',
+                    evidence: 'docs/SHOWCASE-ATTENTION-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
             }

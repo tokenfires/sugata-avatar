@@ -1,5 +1,7 @@
 # Eye focus integrated into the live attention action
 
+The follow-on [clothed attention milestone](SHOWCASE-ATTENTION-2026-09-13.md) adds Wardrobe controls and four continuous recordings covering both bobs at body and portrait scales. The measurements below remain this earlier integration study.
+
 Portrait’s experimental **Look toward me** action now aims the two eyes at the sampled camera point through the native gaze controller. It retains the existing head trajectory, natural small eye movements, and eyelid/brow following. Release eases the correction away; a newer gaze or speech command takes ownership immediately. This is a measured improvement to directed attention, not completed humanlike expression or AAA visual quality.
 
 [Try the long-bob portrait](http://127.0.0.1:5197/src/portrait.html?hair=bob01) or [compare twelve recorded moments](http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/point-aim-integration-2026-09-13/gallery/review.html). The preceding [prototype study](EYE-AIM-OWNER-2026-09-13.md) remains historical evidence.

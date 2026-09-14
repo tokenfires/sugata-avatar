@@ -1,3 +1,4 @@
+import { AttentionAction } from '../../core/src/motion/AttentionAction.js';
 import { Avatar } from '../../core/src/Avatar.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsForShowcase, outfitFromReport, configurationFromReport } from './showcase-presets.mjs';
@@ -8,13 +9,28 @@ const canvas = document.getElementById('stage'), status = document.getElementByI
 const dialog = document.getElementById('copy-dialog');
 let avatar = null, controls = null, selected = null, busy = true, failed = false;
 let paused = reducedMotion, frame = 0, previousTime = null;
-let savingImage = false;
+let savingImage = false, attention = null, attentionError = null;
 const downloadUrls = new Set();
 const setStatus = text => { status.textContent = text; };
 function enableControls() {
     for (const control of document.querySelectorAll('fieldset, [data-angle], #pause, #save-image, #save, #copy')) control.disabled = busy || savingImage || failed;
+    updateAttention();
+}
+function updateAttention() {
+    const phase = attention?.phase ?? 'idle', unavailable = busy || savingImage || failed || attention === null;
+    document.getElementById('look-toward-me').disabled = unavailable || paused;
+    document.getElementById('release-attention').disabled = unavailable || phase !== 'attending';
+    const message = failed ? 'Attention unavailable' : busy ? 'Preparing attention' :
+        savingImage ? 'Holding this view for your image' : paused ? 'Resume motion to try attention.' : attentionError ?? (
+            phase === 'attending' ? 'Looking toward this view' : phase === 'releasing' ? 'Returning to idle' : 'Ready when you are');
+    const label = document.getElementById('attention-status');
+    if (label.textContent !== message) label.textContent = message;
+}
+function releaseAttention({immediate = false} = {}) {
+    attention?.cancel({immediate}); attentionError = null; updateAttention();
 }
 function showFailure(error) {
+    attention?.cancel({immediate: true});
     failed = true; cancelAnimationFrame(frame); enableControls();
     document.getElementById('loading').hidden = true;
     document.getElementById('error').textContent = `This look could not load.\n${error?.message ?? error}`;
@@ -25,7 +41,7 @@ addEventListener('unhandledrejection', event => showFailure(event.reason));
 function animate(time) {
     if (failed || savingImage || !avatar || avatar.disposed) return;
     const delta = previousTime === null ? 0 : Math.min((time - previousTime) / 1000, .05); previousTime = time;
-    try { controls.update(); avatar.update(paused ? 0 : delta); frame = requestAnimationFrame(animate); }
+    try { controls.update(); avatar.update(paused ? 0 : delta); updateAttention(); frame = requestAnimationFrame(animate); }
     catch (error) { showFailure(error); }
 }
 function updateUrl() {
@@ -53,6 +69,7 @@ function refresh() {
     enableControls(); updateUrl();
 }
 function frameView(mode) {
+    releaseAttention({immediate: true});
     avatar.setFraming(mode); selected.frame = mode;
     controls.target.copy(avatar.focus);
     if (mode === 'portrait') { controls.target.y += .045; avatar.stage.camera.position.y += .045; }
@@ -63,6 +80,7 @@ function frameView(mode) {
 async function changeOutfit(id) {
     if (busy || savingImage || failed) return false;
     if (!Object.hasOwn(SHOWCASE_OUTFITS, id)) throw new Error('Unknown outfit.');
+    releaseAttention({immediate: true});
     busy = true; enableControls(); setStatus('Changing clothes…');
     let attached = false;
     try { await avatar.dress([...SHOWCASE_OUTFITS[id].garments]); if (avatar.disposed) return false;
@@ -134,6 +152,7 @@ async function copyLook() {
 try {
     selected = resolveShowcaseSelection(params);
     avatar = await Avatar.create({canvas, ...optionsForShowcase(selected), autoStart: false});
+    attention = new AttentionAction(avatar);
     controls = new OrbitControls(avatar.stage.camera, canvas); controls.enablePan = false;
     controls.enableDamping = !reducedMotion; controls.dampingFactor = .1;
     controls.minPolarAngle = Math.PI * .26; controls.maxPolarAngle = Math.PI * .70;
@@ -147,24 +166,34 @@ try {
     for (const button of document.querySelectorAll('[data-style]')) button.addEventListener('click', () => {
         if (busy || savingImage || failed || button.dataset.style === selected.style) return;
         const next = new URL(location.href); next.searchParams.set('style', button.dataset.style);
+        releaseAttention({immediate: true});
         busy = true; enableControls(); setStatus('Preparing colours…'); location.assign(next.href);
     });
     for (const button of document.querySelectorAll('[data-frame]')) button.addEventListener('click', () => { frameView(button.dataset.frame); refresh(); });
     for (const button of document.querySelectorAll('[data-light]')) button.addEventListener('click', () => { avatar.setLighting(button.dataset.light); selected.light = button.dataset.light; refresh(); });
     for (const button of document.querySelectorAll('[data-angle]')) button.addEventListener('click', () => {
+        releaseAttention({immediate: true});
         const target = controls.target, radius = avatar.stage.camera.position.distanceTo(target), angle = Number(button.dataset.angle) * Math.PI / 180;
         avatar.stage.camera.position.set(target.x + radius * Math.sin(angle), target.y, target.z + radius * Math.cos(angle));
         avatar.stage.camera.lookAt(target); controls.update();
     });
-    document.getElementById('pause').addEventListener('click', () => { paused = !paused; previousTime = null; refresh(); setStatus(paused ? 'Motion paused' : 'Live view'); });
+    controls.addEventListener('start', () => releaseAttention({immediate: true}));
+    document.getElementById('look-toward-me').addEventListener('click', () => {
+        if (busy || savingImage || failed || paused) return;
+        try { attention.lookAtCamera(avatar.stage.camera); attentionError = null; }
+        catch (error) { attentionError = error.message; }
+        updateAttention();
+    });
+    document.getElementById('release-attention').addEventListener('click', () => releaseAttention());
+    document.getElementById('pause').addEventListener('click', () => { paused = !paused; if (paused) releaseAttention({immediate: true}); previousTime = null; refresh(); setStatus(paused ? 'Motion paused' : 'Live view'); });
     document.getElementById('save-image').addEventListener('click', saveImage);
     document.getElementById('save').addEventListener('click', saveLook); document.getElementById('copy').addEventListener('click', copyLook);
     document.getElementById('dialog-save').addEventListener('click', saveLook); document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
-    window.showcase = { avatar, controls, configuration: currentConfiguration, changeOutfit, saveImage,
-        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); controls.update(); await avatar.step(delta); } };
+    window.showcase = { avatar, controls, attention, configuration: currentConfiguration, changeOutfit, saveImage,
+        step: async delta => { if (!captured) throw new Error('Manual stepping requires ?capture.'); if (savingImage) throw new Error('Wait for the image export before stepping.'); controls.update(); await avatar.step(paused ? 0 : delta); updateAttention(); } };
     if (!captured) frame = requestAnimationFrame(animate);
 } catch (error) { showFailure(error); }
 
 document.addEventListener('visibilitychange', () => { previousTime = null; });
-addEventListener('pagehide', event => { cancelAnimationFrame(frame); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; controls?.dispose(); avatar?.dispose(); });
+addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
 addEventListener('pageshow', event => { if (event.persisted && avatar && !failed && !captured && !savingImage) { previousTime = null; frame = requestAnimationFrame(animate); } });
