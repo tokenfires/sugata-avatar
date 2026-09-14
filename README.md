@@ -86,9 +86,11 @@ nape contact path, verified across the recorded motion poses. Other bob01 bakes 
 existing shapes. Broad card patches, mottled highlights and some contacts outside the corrected
 regions remain; finer strand rendering is still an experiment.
 
-A [viewer-attention study](docs/EYE-CONTACT-STUDY-2026-09-13.md) now compares the current
-gesture with gentle and full eye-focus candidates in synchronized recordings. They remain
-experimental; the live Portrait keeps its separately qualified attention action.
+Portrait and Wardrobe studies now offer **Look toward me**, **Look with a smile**, and **Release**.
+The experimental action uses native measured eye focus; the optional small smile blends smoothly
+and preserves the sampled speech shapes. The [integration guide](docs/SMILE-INTEGRATION-2026-09-13.md)
+contains paired visual evidence, ownership checks and the remaining limits. Continuous speech
+quality, nuanced intent and broad perceptual eye contact remain open.
 
 The **wardrobe lookbook** at `/src/showcase.html` offers two actual g050 starting looks, live
 outfit changes, coordinated Ecru/Charcoal/Original palettes, orbit and framing controls, and PNG

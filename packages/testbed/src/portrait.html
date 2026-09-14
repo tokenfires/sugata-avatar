@@ -37,6 +37,7 @@
         .choice { padding:11px 8px; min-height:44px; border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:3px; cursor:pointer; transition:background .15s,color .15s; }
         .choice:hover { border-color:var(--muted); color:var(--ink); }
         .choice[aria-pressed="true"] { color:#171513; background:var(--accent); border-color:var(--accent); }
+        #release-attention { grid-column:1/-1; }
         .choice:disabled { opacity:.45; cursor:wait; }
         select { width:100%; min-height:46px; background:#151515; color:var(--ink); border:1px solid var(--line); border-radius:3px; padding:10px 12px; cursor:pointer; }
         .note { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
@@ -82,9 +83,10 @@
                 <legend>Attention · experimental</legend>
                 <div class="choices">
                     <button class="choice" id="look-toward-me">Look toward me</button>
+                    <button class="choice" id="look-with-smile">Look with a smile</button>
                     <button class="choice" id="release-attention" disabled>Release</button>
                 </div>
-                <p class="note">A brief look toward your current view. Dragging releases it.</p>
+                <p class="note">Choose a simple look or add a small smile. Dragging releases it.</p>
                 <p class="note" id="attention-status" role="status">Preparing attention</p>
             </fieldset>
             <fieldset id="hair-controls" disabled>

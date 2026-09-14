@@ -18,11 +18,11 @@ function enableControls() {
 }
 function updateAttention() {
     const phase = attention?.phase ?? 'idle', unavailable = busy || savingImage || failed || attention === null;
-    document.getElementById('look-toward-me').disabled = unavailable || paused;
+    for (const id of ['look-toward-me', 'look-with-smile']) document.getElementById(id).disabled = unavailable || paused;
     document.getElementById('release-attention').disabled = unavailable || phase !== 'attending';
     const message = failed ? 'Attention unavailable' : busy ? 'Preparing attention' :
         savingImage ? 'Holding this view for your image' : paused ? 'Resume motion to try attention.' : attentionError ?? (
-            phase === 'attending' ? 'Looking toward this view' : phase === 'releasing' ? 'Returning to idle' : 'Ready when you are');
+            phase === 'attending' ? (attention.expression === 'soft-smile' ? 'Looking toward you with a small smile' : 'Looking toward this view') : phase === 'releasing' ? 'Returning to idle' : 'Ready when you are');
     const label = document.getElementById('attention-status');
     if (label.textContent !== message) label.textContent = message;
 }
@@ -178,12 +178,13 @@ try {
         avatar.stage.camera.lookAt(target); controls.update();
     });
     controls.addEventListener('start', () => releaseAttention({immediate: true}));
-    document.getElementById('look-toward-me').addEventListener('click', () => {
-        if (busy || savingImage || failed || paused) return;
-        try { attention.lookAtCamera(avatar.stage.camera); attentionError = null; }
-        catch (error) { attentionError = error.message; }
-        updateAttention();
-    });
+    for (const [id, expression] of [['look-toward-me', 'neutral'], ['look-with-smile', 'soft-smile']])
+        document.getElementById(id).addEventListener('click', () => {
+            if (busy || savingImage || failed || paused) return;
+            try { attention.lookAtCamera(avatar.stage.camera, {expression}); attentionError = null; }
+            catch (error) { attentionError = error.message; }
+            updateAttention();
+        });
     document.getElementById('release-attention').addEventListener('click', () => releaseAttention());
     document.getElementById('pause').addEventListener('click', () => { paused = !paused; if (paused) releaseAttention({immediate: true}); previousTime = null; refresh(); setStatus(paused ? 'Motion paused' : 'Live view'); });
     document.getElementById('save-image').addEventListener('click', saveImage);

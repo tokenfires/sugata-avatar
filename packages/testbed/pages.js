@@ -26,27 +26,27 @@ export const PAGE_GROUPS = [
         pages: [
             {
                 path: 'src/portrait.html', name: 'Portrait', label: 'Current preview',
-                blurb: 'Compare both bobs, choose a mood, or invite a brief look toward your current view.',
+                blurb: 'Compare both bobs, choose a mood, or invite a simple look or a small smile.',
                 boundary: 'Attention is experimental and works near the front view. Nuanced emotions, precise eye contact, broader identities, and final hair shape remain in development.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/portrait.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'The attention action now uses native measured eye focus, with paired browser and interruption/release checks. Continuous clothed views cover both bobs. Precise contact from all views and clear Curious/Determined intent remain in development.',
-                    evidence: 'docs/POINT-AIM-INTEGRATION-2026-09-13.md'
+                    detail: 'Native measured eye focus now has an optional small smile, with matched silent and speech-shape samples, independent critique, repeat/release and page checks. Both bobs retain their qualified attention. Continuous speech quality, precise contact from all views and nuanced intent remain open.',
+                    evidence: 'docs/SMILE-INTEGRATION-2026-09-13.md'
                 },
-                gates: [ 'Avatar', 'AttentionAction' ]
+                gates: [ 'Avatar', 'AttentionAction', 'AttentionSmile' ]
             },
             {
                 path: 'src/showcase.html', name: 'Wardrobe studies', label: 'Current preview',
-                blurb: 'Explore two starting outfits and three colour palettes, invite a brief look toward you, and save an image or settings.',
+                blurb: 'Explore two outfits and three palettes, invite a look with an optional smile, and save an image or settings.',
                 boundary: 'Two starting outfits on one body study, with experimental attention near the front view. Clothing fit and the larger wardrobe remain works in progress.',
                 requirements: 'No model service needed.',
                 source: 'packages/testbed/src/showcase.js',
                 review: {
                     kind: 'previously-verified', date: '2026-09-13',
-                    detail: 'Attention has continuous body/portrait recordings for both starting looks, with control, reduced-motion and active-pose export checks. Colour choices and the accepted denim fit are retained. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain in development.',
-                    evidence: 'docs/SHOWCASE-ATTENTION-2026-09-13.md'
+                    detail: 'The optional smile passes native ownership, sampled speech composition, real page controls and held-smile PNG export checks. Both starting looks retain continuous attention recordings and colour choices. Upper fit, skirt layering, shoe/sock styling, facial nuance and additional bodies remain open.',
+                    evidence: 'docs/SMILE-INTEGRATION-2026-09-13.md'
                 },
                 gates: [ 'Avatar', 'showcase-presets', 'showcase.gpu', 'showcase-image.gpu' ]
             }

@@ -5,10 +5,12 @@
  * or a general action API; geometric aim is not a perceptual eye-contact guarantee.
  *
  * Art choices: settle head noise over .5 s; incline head 2.6° and spine -1° over .25–.85 s;
- * release over 2.6–3.4 s. Face, speech and affect are owned by their existing layers.
+ * release over 2.6–3.4 s. An optional soft smile adds only a bounded corner cue; speech and
+ * affect retain their existing owners. This is an authored cue, not a new affect estimate.
  */
 import { Matrix4, Quaternion, Vector3 } from 'three';
 import { Layer } from './Layer.js';
+import { AttentionSmile } from './AttentionSmile.js';
 import { toBoneDeltaFrame } from './Breath.js';
 
 const AXIS = new Vector3( 1, 0, 0 );
@@ -46,6 +48,8 @@ export class AttentionAction {
         this.time = 0;
         this.poseWeight = 0;
         this.settleWeight = 0;
+        this.smileWeight = 0;
+        this.expression = 'neutral';
         this.gazeHold = null;
         this.headScale = null;
         this.target = null;
@@ -60,6 +64,7 @@ export class AttentionAction {
         class Control extends Layer {
             constructor() { super( { name: 'attentionControl', order: 50 } ); }
             update( dt ) { owner.advance( dt ); return null; }
+            onDisabledFrame() { owner.retire(); }
             onBind() { owner.retire(); }
             reset() { owner.retire(); }
             dispose() { owner.retire(); }
@@ -86,9 +91,11 @@ export class AttentionAction {
         }
         this.control = new Control();
         this.pose = new Pose();
+        this.smile = new AttentionSmile( this );
         try {
             this.stack.add( this.control );
             this.stack.add( this.pose );
+            this.stack.add( this.smile );
         } catch ( error ) {
             // add registers before onBind. Use the original instances even for a failed add.
             this.dispose();
@@ -100,8 +107,10 @@ export class AttentionAction {
         if ( this.disposed || !this.stack?.target || !this.gaze?.holdTarget || !this.idle?.acquireHeadScale
             || this.gaze.stack !== this.stack || this.gaze.head.stack !== this.stack || this.idle.stack !== this.stack )
             throw new Error( 'Attention needs an active Avatar motion stack.' );
-        if ( this.control && ( this.control.stack !== this.stack || this.pose.stack !== this.stack ) )
+        if ( this.control && ( this.control.stack !== this.stack || this.pose.stack !== this.stack || this.smile.stack !== this.stack ) )
             throw new Error( 'This attention control has been removed.' );
+        if ( this.control && !this.control.enabled )
+            throw new Error( 'Enable the attention control before using attention.' );
         if ( !this.gaze.enabled || !this.gaze.head.enabled )
             throw new Error( 'Enable gaze and head motion before using attention.' );
         if ( this.gaze.headBone !== this.stack.target.getBone( this.gaze.headBoneName ) )
@@ -109,8 +118,14 @@ export class AttentionAction {
     }
 
     /** A new invocation blends from the current envelope and supersedes the previous gaze hold. */
-    lookAtCamera( camera ) {
+    lookAtCamera( camera, { expression = 'neutral' } = {} ) {
+        if ( expression !== 'neutral' && expression !== 'soft-smile' )
+            throw new RangeError( 'Choose neutral or soft-smile attention.' );
         this.assertReady();
+        if ( expression === 'soft-smile' ) {
+            const unsupported = this.smile.support();
+            if ( unsupported ) throw new Error( `The soft smile is unavailable: ${ unsupported }.` );
+        }
         const target = attentionTargetFromCamera( camera, this.gaze.headBone, this.gaze.rigRoot );
         // Conservative art-study reach, within the native head limits. This action has no body
         // turn. Reject unsupported views before changing an existing valid action.
@@ -140,6 +155,8 @@ export class AttentionAction {
         this.pose.frames = frames;
         this.startPose = this.poseWeight;
         this.startSettle = this.settleWeight;
+        this.startSmile = this.smileWeight;
+        this.expression = expression;
         this.time = 0;
         this.phase = 'attending';
         this.target = target;
@@ -157,6 +174,7 @@ export class AttentionAction {
         this.time = 0;
         this.startPose = this.poseWeight;
         this.startSettle = this.settleWeight;
+        this.startSmile = this.smileWeight;
         return this;
     }
 
@@ -171,11 +189,14 @@ export class AttentionAction {
             const release = 1 - smooth( this.time / 0.3 );
             this.poseWeight = this.startPose * release;
             this.settleWeight = this.startSettle * release;
+            this.smileWeight = this.startSmile * release;
             if ( this.time >= 0.3 ) { this.retire(); return; }
         } else {
             const release = 1 - smooth( ( this.time - 2.6 ) / 0.8 );
             this.poseWeight = ( this.startPose + ( 1 - this.startPose ) * smooth( ( this.time - 0.25 ) / 0.6 ) ) * release;
             this.settleWeight = ( this.startSettle + ( 1 - this.startSettle ) * smooth( this.time / 0.5 ) ) * release;
+            const smileTarget = this.expression === 'soft-smile' ? 1 : 0;
+            this.smileWeight = ( this.startSmile + ( smileTarget - this.startSmile ) * smooth( ( this.time - 0.25 ) / 0.6 ) ) * release;
             if ( this.time >= 3.4 ) { this.retire(); return; }
         }
         if ( this.gazeHold?.active ) this.gazeHold.setPointWeight?.( this.poseWeight );
@@ -188,11 +209,15 @@ export class AttentionAction {
         this.headScale?.release();
         this.gazeHold = this.headScale = null;
         this.phase = 'idle';
-        this.time = this.poseWeight = this.settleWeight = 0;
+        this.time = this.poseWeight = this.settleWeight = this.smileWeight = 0;
+        this.expression = 'neutral';
+        this.smile?.clear();
     }
 
     report() {
         return { phase: this.phase, time: this.time, poseWeight: this.poseWeight,
+            expression: this.expression, smileWeight: this.smileWeight,
+            smile: { amount: this.smile.amount, status: this.smile.status },
             headNoiseScale: 1 - 0.75 * this.settleWeight,
             target: this.target ? { ...this.target } : null,
             holdsGaze: this.gazeHold?.active === true,
@@ -207,5 +232,6 @@ export class AttentionAction {
         this.retire();
         this.stack.remove( this.control );
         this.stack.remove( this.pose );
+        this.stack.remove( this.smile );
     }
 }

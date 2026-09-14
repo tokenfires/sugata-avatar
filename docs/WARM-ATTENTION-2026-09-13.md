@@ -1,5 +1,7 @@
 # A small smile during attention
 
+Current follow-through: the selected optional cue is integrated in the live pages; see [SMILE-INTEGRATION-2026-09-13.md](SMILE-INTEGRATION-2026-09-13.md). The study and prototype descriptions below remain the historical evidence at their capture time.
+
 The first warmer-attention study compares the current action with two narrow alternatives: an additive mouth-corner lift, and an earlier press of Release. The mouth-corner candidate looks more approachable in the primary reviewer's held comparison; the earlier release chiefly shortens the interaction. This is a bounded reading of one neutral, silent, clothed g050 character. Neither candidate is installed in the live preview yet.
 
 [Compare the three recordings](http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/warm-attention-2026-09-13/gallery/review.html). The [working clothed attention action](SHOWCASE-ATTENTION-2026-09-13.md) remains unchanged.

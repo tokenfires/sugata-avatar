@@ -1,0 +1,41 @@
+{
+  "created": "2026-09-14T01:18:44.365103+00:00",
+  "guide": "docs/SMILE-INTEGRATION-2026-09-13.md",
+  "archive": "/Users/robault/GitHub/sugata-avatar/captures/smile-integration-2026-09-13",
+  "count": 416,
+  "bytes": 102529385,
+  "manifestSha256": "7793da3c186f5841c9da67fb5f1c3af98a9da6d3f450a58e8a8edbb9174a5a4b",
+  "qualified": {
+    "rootAttentionGroups": 9,
+    "rootSmileGroups": 12,
+    "sourceCriticGroups": 11,
+    "matchedPriorStudyStates": 30,
+    "pairedSpeechStates": 30,
+    "verifiedSpeakingPeaks": 24,
+    "qualifiedAvatarRetirements": 8,
+    "uiGroups": 15,
+    "uiRetirements": 3,
+    "galleryPairedMoments": 45,
+    "catalogueAssertions": 92,
+    "presetGroups": 4,
+    "pageBuild": "pass; existing large-chunk warning"
+  },
+  "runtimeSource": {
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "packages/core/src/motion/AttentionSmile.js": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb",
+    "packages/core/src/motion/AttentionSmile.selftest.mjs": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c",
+    "packages/core/src/voice/VisemeLayer.js": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99",
+    "packages/testbed/src/portrait.js": "c6b120ce74d258bc4f51204c9a5e1b7be151f2a4523953f2ced69b2d41a27560",
+    "packages/testbed/src/portrait.html": "149f0a056992a4122c0a8c0c1b32852dfa5038de92c2e2cbfbc49831aef844e4",
+    "packages/testbed/src/showcase.js": "5c262312118aa8a6b3f1d37987b23b719c6f1e879373e838f312bca77c5a590f",
+    "packages/testbed/src/showcase.html": "935963b4e2ce5abc737c4e88a500d3a128c3301c772ec22cd775ff8b1ab92b49",
+    "packages/testbed/pages.js": "2eeb120f5d11ecd4f3d27c7455afb8cb74213965a09307a3afa1b3ea1c026855"
+  },
+  "limits": [
+    "Selected moments, not continuous/audio/perceptual qualification",
+    "Explicit smile may soften sad intent",
+    "Existing over-budget expression is not reduced",
+    "Authored smile targets also move brows/lashes; affected geometry excluded from equality",
+    "Other bodies, full wardrobes, AAA appearance and nuanced performance remain open"
+  ]
+}

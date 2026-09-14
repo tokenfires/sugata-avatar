@@ -39,10 +39,11 @@ function updatePause() {
 
 function updateAttention() {
     const phase = attention?.phase ?? 'idle';
-    document.getElementById( 'look-toward-me' ).disabled = paused || attention === null;
+    for ( const id of [ 'look-toward-me', 'look-with-smile' ] )
+        document.getElementById( id ).disabled = paused || attention === null;
     document.getElementById( 'release-attention' ).disabled = phase !== 'attending';
     const message = paused ? 'Resume motion to try attention.' : attentionError ?? (
-        phase === 'attending' ? 'Looking toward this view' :
+        phase === 'attending' ? ( attention.expression === 'soft-smile' ? 'Looking toward you with a small smile' : 'Looking toward this view' ) :
         phase === 'releasing' ? 'Returning to idle' : 'Ready when you are' );
     const label = document.getElementById( 'attention-status' );
     if ( label.textContent !== message ) label.textContent = message;
@@ -115,13 +116,15 @@ try {
                 peer.setAttribute( 'aria-pressed', String( peer === button ) );
         } );
     }
-    document.getElementById( 'look-toward-me' ).addEventListener( 'click', () => {
-        try {
-            attention.lookAtCamera( avatar.stage.camera );
-            attentionError = null;
-        } catch ( error ) { attentionError = error.message; }
-        updateAttention();
-    } );
+    for ( const [ id, expression ] of [ [ 'look-toward-me', 'neutral' ], [ 'look-with-smile', 'soft-smile' ] ] )
+        document.getElementById( id ).addEventListener( 'click', () => {
+            if ( paused ) return;
+            try {
+                attention.lookAtCamera( avatar.stage.camera, { expression } );
+                attentionError = null;
+            } catch ( error ) { attentionError = error.message; }
+            updateAttention();
+        } );
     document.getElementById( 'release-attention' ).addEventListener( 'click', () => {
         attention.cancel();
         updateAttention();
