@@ -1,5 +1,13 @@
 # Sugata 姿 — progress and resume state
 
+> **Current session, September 16, 2026:** Rob explicitly resumed development after the
+> September 13 pause. Start with [RESUME-2026-09-16.md](RESUME-2026-09-16.md): the exact
+> unpromoted collar candidate's dark openings are localized to culled cloth back faces;
+> a GPU two-sided control fills them. Accepted assets are unchanged. Solver, motion,
+> wardrobe and foundation-coverage qualification remain open. The older recurring
+> automation and its separate Goal were left untouched. The older progress record below
+> is historical context, not the current experiment queue.
+
 **Read on resume, in this order:**
 
 1. **[`BRIEF.md`](BRIEF.md) — the original request, verbatim.** Everything else is
