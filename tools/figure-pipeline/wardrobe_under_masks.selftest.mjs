@@ -5,6 +5,8 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { readGlb, readAccessor } from '../lut-bake/glb.mjs';
 import { WARDROBE_MASK_CALIBRATION as calibration, originalWardrobeFoundation, transformWardrobeUnderMasks, validateWardrobeMaskEnvironment, runWardrobeUnderMasks, sha256 } from './wardrobe_under_masks.mjs';
+import { transformCasualTrouserFit } from './casual_trouser_fit.mjs';
+import { transformCasualCollarFit } from './casual_collar_fit.mjs';
 
 const directory = fs.mkdtempSync( path.join( os.tmpdir(), 'sugata-wardrobe-mask-test-' ) );
 const fixtureDirectory = fileURLToPath( new URL( './fixtures/', import.meta.url ) );
@@ -87,6 +89,29 @@ try {
             assert.throws( () => validateWardrobeMaskEnvironment( bad ), /environment digest/ );
             assert.throws( () => transformWardrobeUnderMasks( outputs.get( 'foundation_bra' ), { garmentId: 'foundation_bra', environment: bad } ), /environment digest/ );
         }
+    } );
+    group( 'both exact reviewed successors preserve every frozen foundation; altered bytes and geometry-only collar fail', () => {
+        const environment = Object.fromEntries( [ 'body', ...Object.keys( calibration.outerGarments ) ].map( id =>
+            [ id, fs.readFileSync( new URL( `../../assets/wardrobe/${ id }/g050.glb`, import.meta.url ) ) ] ) );
+        const trousers = transformCasualTrouserFit(), collar = transformCasualCollarFit();
+        for ( const [ bytes, expected ] of [
+            [ trousers.bytes, '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783' ],
+            [ collar.bytes, 'd81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a' ]
+        ] ) {
+            assert.equal( sha256( bytes ), expected );
+            const reviewed = { ...environment, female_casualsuit01: bytes };
+            validateWardrobeMaskEnvironment( reviewed );
+            for ( const entry of calibration.garments ) {
+                const result = transformWardrobeUnderMasks( originalWardrobeFoundation( entry.id ), { garmentId: entry.id, environment: reviewed } );
+                assert.equal( sha256( result.bytes ), entry.outputSha256 );
+                assert.deepEqual( result.bytes, outputs.get( entry.id ) );
+            }
+            const altered = Buffer.from( bytes ); altered[ altered.length - 1 ] ^= 1;
+            assert.throws( () => validateWardrobeMaskEnvironment( { ...reviewed, female_casualsuit01: altered } ), /environment digest/ );
+        }
+        // Matching qualified positions is not authority to accept another unreviewed payload.
+        assert.equal( sha256( collar.geometryBytes ), 'ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e' );
+        assert.throws( () => validateWardrobeMaskEnvironment( { ...environment, female_casualsuit01: collar.geometryBytes } ), /environment digest/ );
     } );
     group( 'CLI runner defaults to immutable originals and publishes explicit new outputs only', () => {
         const output = path.join( directory, 'nested', 'bra.glb' ), report = path.join( directory, 'reports', 'bra.json' );

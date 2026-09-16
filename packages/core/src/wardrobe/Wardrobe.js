@@ -113,6 +113,7 @@
 
 import { DoubleSide } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createGarmentInterior } from './GarmentInterior.js';
 
 /**
  * How a hide-mask attribute name in the manifest is matched against one in the GLB.
@@ -597,9 +598,13 @@ export class Wardrobe {
             fullBodyTriangles: this.fullTriangleCount,
             hiddenTriangles: this.fullTriangleCount - this.body.geometry.drawRange.count / 3,
             garmentTriangles: this.worn.reduce(
-                ( total, id ) => total + this.fragments.get( id ).drawnTriangles, 0 ),
+                ( total, id ) => {
+                    const fragment = this.fragments.get( id );
+                    return total + fragment.drawnTriangles + ( fragment.interior?.drawnTriangles ?? 0 );
+                }, 0 ),
             occlusion: this.occlusionOf(),
-            drawCalls: 1 + this.wornMeshes.size,
+            drawCalls: 1 + this.wornMeshes.size + this.worn.reduce(
+                ( total, id ) => total + ( this.fragments.get( id ).interior?.drawCalls ?? 0 ), 0 ),
             residentFragments: this.fragments.size,
             insulation: this.manifest.insulationOf( this.worn ),
             lastDressMs: this.lastDressMs,
@@ -712,6 +717,7 @@ export class Wardrobe {
         const fragment = this.fragments.get( id );
         if ( fragment === undefined ) return false;
 
+        fragment.interior?.dispose();
         disposeGarmentResources( fragment.resources );
         this.fragments.delete( id );
 
@@ -734,7 +740,10 @@ export class Wardrobe {
         for ( const mesh of this.wornMeshes.values() ) mesh.removeFromParent();
         this.wornMeshes.clear();
         this.worn = [];
-        for ( const fragment of this.fragments.values() ) disposeGarmentResources( fragment.resources );
+        for ( const fragment of this.fragments.values() ) {
+            fragment.interior?.dispose();
+            disposeGarmentResources( fragment.resources );
+        }
         this.fragments.clear();
         this.#rebuildBodyIndex( [] );
 
@@ -861,6 +870,8 @@ export class Wardrobe {
                 geometry.attributes.position.count );
 
             const drawn = rebuildIndex( geometry, fragment.fullIndex, hidden );
+            // Interior faces must follow the same any-corner mask as their outer source triangles.
+            fragment.interior?.syncMask( hidden );
 
             fragment.drawnTriangles = drawn / 3;
             fragment.occludedBy = hidden === null ? [] : covering;
@@ -985,7 +996,7 @@ export class Wardrobe {
         // a page that forgets it produces a hat that floats over a lit forehead with no error.
         applyFragmentShading( garmentMesh );
 
-        return {
+        const fragment = {
             mesh: garmentMesh,
             appliedMaterial: garmentMesh.material,
             jointRemapIsIdentity: identity,
@@ -995,6 +1006,10 @@ export class Wardrobe {
             drawnTriangles: garmentMesh.geometry.index.count / 3,
             occludedBy: []
         };
+        // Install only after joint adoption, material selection and shading; the helper owns
+        // cloned geometry/material and borrows this body's skeleton and imported textures.
+        fragment.interior = createGarmentInterior( garmentMesh, { fullIndex: fragment.fullIndex, resources } );
+        return fragment;
 
     }
 

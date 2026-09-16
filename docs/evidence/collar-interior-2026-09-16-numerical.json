@@ -1,0 +1,393 @@
+{
+  "schema": "sugata-collar-interior-numerical-evidence-v1",
+  "recordedAt": "2026-09-16T18:31:03.879Z",
+  "scope": "Numerical qualification of the g050 casual collar patch and its coincident local interior. Promotion and visual acceptance are separate decisions.",
+  "identities": {
+    "acceptedTrouserSourceSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "frozenCollarGeometrySHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+    "metadataInteriorCandidateSHA256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+    "bodySHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "retainedBraAssetSHA256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "historicalOriginalCasualSHA256": "109dad33eb225ff7954501f6b1d0fcf9a17f4ea3d0271f7cef374dcbfa295160"
+  },
+  "authoritativeEvidence": {
+    "solverFinalExport": {
+      "path": "captures/collar-window-2026-09-16/solver-review/final-state-v5/report.json",
+      "sha256": "e1d5e9014e266840d3a3fd06793e1ccde405e0b6f8c922d26f73ad70cd6ed047"
+    },
+    "motionCapturedPoses": {
+      "path": "captures/collar-window-2026-09-16/solver-review/motion-v3/report.json",
+      "sha256": "e98e2a9eea41da6909db9d3119132ef5fa17c23713dbf374e7e95c25fda64ee8"
+    },
+    "metadataAudit": {
+      "path": "captures/collar-window-2026-09-16/solver-review/interior-metadata-audit.json",
+      "sha256": "6e2ed15e3fac2d55b11ebc4fc4734fadd9f3d30795ac012631f7c955406691d1"
+    },
+    "foundationReview": {
+      "path": "captures/collar-window-2026-09-16/foundation-review/portable-v2/review.json",
+      "sha256": "d51e2ba3be6785de4732a05056b865d1bbe7cfd03aded98d79c7c438f8719f92"
+    },
+    "foundationReplay": {
+      "path": "captures/collar-window-2026-09-16/foundation-review/portable-v2/report.json",
+      "sha256": "c95c478e11b357b7b57bbf882dbacfe2e78b2c6a37f93133eb19316151e1a767"
+    },
+    "foundationCalibration": {
+      "path": "tools/figure-pipeline/fixtures/wardrobe-g050-under-masks-v1.json",
+      "sha256": "13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02"
+    },
+    "motionCapture": {
+      "file": "captures/collar-window-2026-09-16/lining-motion-v2/report.json",
+      "sha256": "09c9e7e5eebdc0277bf434d0c163867f7cb5aab7645dc46e5da8caf6028772c1"
+    }
+  },
+  "geometricDomain": {
+    "changedRawVertices": 96,
+    "allChangedIncidentTriangles": 180,
+    "liningTriangles": 140,
+    "liningSubsetOfChangedPatch": true,
+    "sourceVertexCount": 2377,
+    "sourceTriangleCount": 4236,
+    "fullBodyTriangles": 26756,
+    "retainedBraTriangles": 327,
+    "liningOffsetMetres": 0,
+    "unchangedGarmentTrianglesExcluded": true
+  },
+  "minimumDefinition": {
+    "units": "metres",
+    "quantity": "Unsigned Euclidean surface-to-surface minimum over complete selected triangles, including edge interiors; not minimum vertex distance or local-normal signed distance.",
+    "algorithm": "Exhaustive AABB-pruned minimum over vertex-face and edge-edge features, with a separate triangle-intersection predicate (1e-10 m tolerance). Final exported Float32 coordinates or frozen CPU native replays.",
+    "intersectionToleranceMetres": 1e-10,
+    "arithmetic": "Floating point, not exact predicates or interval bounds.",
+    "denseChecks": "Order-16 barycentric lattices corroborate final static states; whole-triangle feature checks determine reported geometric minima."
+  },
+  "staticFinalExport": {
+    "states": [
+      {
+        "state": "authored",
+        "bodyMinimumMetres": 0.0005514198042250176,
+        "retainedBraMinimumMetres": 0.0005326279489107279,
+        "originalStencilMinimumMetres": 0.0014999840488990053,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0006618181554144764,
+        "denseSupportedStencilToleranceFailures": 115
+      },
+      {
+        "state": "bob02-native-0",
+        "bodyMinimumMetres": 0.0005609450538021,
+        "retainedBraMinimumMetres": 0.0026688648458230457,
+        "originalStencilMinimumMetres": 0.0014999981377238321,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007119834256186276,
+        "denseSupportedStencilToleranceFailures": 93
+      },
+      {
+        "state": "bob02-native-90",
+        "bodyMinimumMetres": 0.0005613193876115747,
+        "retainedBraMinimumMetres": 0.0025491374781428005,
+        "originalStencilMinimumMetres": 0.0014923857321086527,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007075446048390956,
+        "denseSupportedStencilToleranceFailures": 94
+      },
+      {
+        "state": "bob02-native-270",
+        "bodyMinimumMetres": 0.0005616608809088066,
+        "retainedBraMinimumMetres": 0.002480657247105388,
+        "originalStencilMinimumMetres": 0.0014900888744112063,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007051714888556011,
+        "denseSupportedStencilToleranceFailures": 96
+      },
+      {
+        "state": "bob01-native-0",
+        "bodyMinimumMetres": 0.0005609450538021,
+        "retainedBraMinimumMetres": 0.0026688648458230457,
+        "originalStencilMinimumMetres": 0.0014999981377238321,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007119834256186276,
+        "denseSupportedStencilToleranceFailures": 93
+      },
+      {
+        "state": "bob01-native-90",
+        "bodyMinimumMetres": 0.0005613193876115747,
+        "retainedBraMinimumMetres": 0.0025491374781428005,
+        "originalStencilMinimumMetres": 0.0014923857321086527,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007075446048390956,
+        "denseSupportedStencilToleranceFailures": 94
+      },
+      {
+        "state": "bob01-native-270",
+        "bodyMinimumMetres": 0.0005616608809088066,
+        "retainedBraMinimumMetres": 0.002480657247105388,
+        "originalStencilMinimumMetres": 0.0014900888744112063,
+        "originalStencilToleranceFailures": 0,
+        "denseSupportedStencilMinimumMetres": 0.0007051714888556011,
+        "denseSupportedStencilToleranceFailures": 96
+      }
+    ],
+    "minimumBody": {
+      "metres": 0.0005514198042250176,
+      "state": "authored",
+      "teeTriangle": 580,
+      "targetTriangle": 15667,
+      "feature": "edge-edge"
+    },
+    "minimumRetainedBra": {
+      "metres": 0.0005326279489107279,
+      "state": "authored",
+      "teeTriangle": 1328,
+      "targetTriangle": 59,
+      "feature": "edge-edge"
+    },
+    "originalStencil": {
+      "samplesPerState": 1424,
+      "targetMetres": 0.0015,
+      "toleranceMetres": 0.00002,
+      "allFinalStatesSatisfyToleratedSamples": true
+    },
+    "denseMovableSupport": {
+      "samplesPerState": 22976,
+      "minimumMetres": 0.0006618181554144764,
+      "continuousTargetSatisfied": false
+    },
+    "replay": {
+      "nativeSnapshots": 6,
+      "sourceAndPriorCaptureFilesHashVerified": 12,
+      "candidateFloat32CoordinateMismatches": 0,
+      "maximumSourceReplayErrorMetres": 1.0837150399289897e-7,
+      "maximumPriorReplayErrorMetres": 1.1504244645799133e-7,
+      "maximumCandidateReplayErrorMetres": 0
+    },
+    "solverCaveat": "Sequential projection and smoothing exhaust the 30-iteration cap without a final residual assertion. The independent final-export replay verifies this exact candidate; the iteration log alone certifies no future export."
+  },
+  "capturedMotionPoses": {
+    "scope": "CPU-skinned geometry snapshots captured during the actual GPU motion run; discrete 0.5 s intervals. No GPU vertex readback or continuous-motion claim.",
+    "verifiedSnapshotFiles": 40,
+    "hairStyles": [
+      "bob02",
+      "bob01"
+    ],
+    "savedHairPoseStates": 20,
+    "distinctGeometryStates": 10,
+    "exactRepeatedGeometryReused": true,
+    "intervalSeconds": 0.5,
+    "matchingCandidateAndLiningMeshRigState": true,
+    "allLiningCoordinatesAndSourceIndicesExactlyEqual": true,
+    "states": [
+      {
+        "timeSeconds": 0,
+        "bodyMinimumMetres": 0.0005609450538021,
+        "retainedBraMinimumMetres": 0.002668865790769123,
+        "liningBodyMinimumMetres": 0.001609215502905364,
+        "liningRetainedBraMinimumMetres": 0.002668865790769123
+      },
+      {
+        "timeSeconds": 0.5,
+        "bodyMinimumMetres": 0.0005609659809314445,
+        "retainedBraMinimumMetres": 0.0025828271248891006,
+        "liningBodyMinimumMetres": 0.0015194504883746386,
+        "liningRetainedBraMinimumMetres": 0.0025828271248891006
+      },
+      {
+        "timeSeconds": 1,
+        "bodyMinimumMetres": 0.0005611105168599894,
+        "retainedBraMinimumMetres": 0.002513903402580201,
+        "liningBodyMinimumMetres": 0.0015254635923705065,
+        "liningRetainedBraMinimumMetres": 0.002513903402580201
+      },
+      {
+        "timeSeconds": 1.5,
+        "bodyMinimumMetres": 0.0005613193876115747,
+        "retainedBraMinimumMetres": 0.0025491401779987547,
+        "liningBodyMinimumMetres": 0.0015160637807438422,
+        "liningRetainedBraMinimumMetres": 0.0025491401779987547
+      },
+      {
+        "timeSeconds": 2,
+        "bodyMinimumMetres": 0.0005611652450540052,
+        "retainedBraMinimumMetres": 0.002643566555835418,
+        "liningBodyMinimumMetres": 0.0014502539067056406,
+        "liningRetainedBraMinimumMetres": 0.002643566555835418
+      },
+      {
+        "timeSeconds": 2.5,
+        "bodyMinimumMetres": 0.0005607036874189325,
+        "retainedBraMinimumMetres": 0.002581078696566012,
+        "liningBodyMinimumMetres": 0.0014718071838879286,
+        "liningRetainedBraMinimumMetres": 0.002581078696566012
+      },
+      {
+        "timeSeconds": 3,
+        "bodyMinimumMetres": 0.0005606446160527005,
+        "retainedBraMinimumMetres": 0.0025273022703048245,
+        "liningBodyMinimumMetres": 0.0015042101793652275,
+        "liningRetainedBraMinimumMetres": 0.0025273022703048245
+      },
+      {
+        "timeSeconds": 3.5,
+        "bodyMinimumMetres": 0.0005619689596671571,
+        "retainedBraMinimumMetres": 0.0025273676674943944,
+        "liningBodyMinimumMetres": 0.0015510176284496838,
+        "liningRetainedBraMinimumMetres": 0.0025273676674943944
+      },
+      {
+        "timeSeconds": 4,
+        "bodyMinimumMetres": 0.000562161292784398,
+        "retainedBraMinimumMetres": 0.0024867725750217307,
+        "liningBodyMinimumMetres": 0.0015501243459309783,
+        "liningRetainedBraMinimumMetres": 0.0024867725750217307
+      },
+      {
+        "timeSeconds": 4.5,
+        "bodyMinimumMetres": 0.0005616608809088066,
+        "retainedBraMinimumMetres": 0.002480657338315685,
+        "liningBodyMinimumMetres": 0.0014031198447903095,
+        "liningRetainedBraMinimumMetres": 0.002480657338315685
+      }
+    ],
+    "minimumBody": {
+      "metres": 0.0005606446160527005,
+      "state": "bob02-native-180",
+      "teeTriangle": 580,
+      "targetTriangle": 15667,
+      "feature": "edge-edge"
+    },
+    "minimumRetainedBra": {
+      "metres": 0.002480657338315685,
+      "state": "bob02-native-270",
+      "teeTriangle": 1326,
+      "targetTriangle": 118,
+      "feature": "edge-edge"
+    },
+    "minimumLiningBody": {
+      "metres": 0.0014031198447903095,
+      "state": "bob02-native-270",
+      "teeTriangle": 1517,
+      "targetTriangle": 15587,
+      "feature": "edge-edge"
+    }
+  },
+  "containment": {
+    "bodyTopology": {
+      "weldTolerance": 1e-7,
+      "weldedVertices": 13380,
+      "edges": 40134,
+      "triangles": 26756,
+      "eulerCharacteristic": 2,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "orientationErrors": 0,
+      "components": 1,
+      "maxWeldSeparation": 0
+    },
+    "allReviewedBodyStatesHaveSameTopologyAndZeroWeldSeparation": true,
+    "method": "Whole selected triangles have positive body-surface separation. At each centroid, compensated solid-angle winding and five non-grazing ray directions classify exterior; disjointness extends the classification over each complete triangle.",
+    "maximumAbsoluteWinding": 3.3005135496069585e-16,
+    "staticRayTestsComputed": 6300,
+    "distinctMotionRayTestsComputed": 9000,
+    "motionClassificationsIncludingVerifiedIdenticalReuse": 18000,
+    "interiorClassifications": 0,
+    "ambiguousRayTests": 0,
+    "retainedBraTopology": {
+      "weldTolerance": 1e-7,
+      "weldedVertices": 224,
+      "edges": 549,
+      "triangles": 327,
+      "eulerCharacteristic": 2,
+      "boundaryEdges": 117,
+      "nonmanifoldEdges": 0,
+      "orientationErrors": 0,
+      "components": 2,
+      "maxWeldSeparation": 0
+    },
+    "retainedBraInterpretation": "Two open sheets, no canonical closed interior. Positive unsigned separation only; local-normal negative signs are not classified as penetration."
+  },
+  "foundationCoverage": {
+    "candidateGeometrySHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+    "metadataCandidateUsesIdenticalGeometricProof": true,
+    "selection": "Exact frozen additionally removed triangle IDs: bra 3669 and vest 4101. Originally authored mask deletions are outside the contract.",
+    "states": [
+      "authored",
+      "historical native 0 s",
+      "historical native 4 s"
+    ],
+    "projection": {
+      "direction": "outward normal",
+      "squareHalfMarginMetres": 0.001,
+      "centroidRelativeDepthSlabMetres": [
+        -0.004,
+        0.03
+      ],
+      "maximumAllowedUncoveredAreaSquareMetres": 1e-14
+    },
+    "candidateFootprints": 23310,
+    "candidateFailures": 0,
+    "originalControlFootprints": 23310,
+    "originalControlFailures": 0,
+    "maximumCandidateUncoveredAreaSquareMetres": 4.404571325722362e-20,
+    "sourceReplayMaximumErrorMetres": 1.1920928955078125e-7,
+    "allEvaluationsIncludingNegativeControls": 54390,
+    "negativeControl": {
+      "change": "Remove all 180 changed-incident collar triangles; retain only unchanged candidate triangles.",
+      "results": [
+        {
+          "foundation": "foundation_bra",
+          "count": 3669,
+          "failed": 3669
+        },
+        {
+          "foundation": "foundation_vest",
+          "count": 4101,
+          "failed": 3967
+        }
+      ],
+      "meaning": "Rejects the old unchanged-subset shortcut for this collar correction. Does not establish a body-mask explanation."
+    },
+    "fourFoundationsReproduceFrozenMaskAssetsExactly": true
+  },
+  "metadataLink": {
+    "binaryExactlyEqual": true,
+    "jsonEqualAfterRemovingSoleMeshExtras": true,
+    "descriptorMatchesMotionBand": true,
+    "regeneratedFromImmutableTrouserFixtureExactly": true
+  },
+  "numericalControls": {
+    "analyticGeometryCases": {
+      "casesPassed": 12,
+      "pass": true,
+      "cases": [
+        "parallel separation",
+        "transverse intersection",
+        "coplanar intersection",
+        "interior edge-edge nearest",
+        "disjoint segments",
+        "closed tetrahedron",
+        "inside winding",
+        "outside winding",
+        "inside ray parity",
+        "outside ray parity",
+        "grazing ray rejection",
+        "contained triangle without crossing"
+      ]
+    },
+    "negativeCase": "A triangle entirely inside a closed tetrahedron has positive surface distance and no crossings, yet winding and ray parity classify it inside. This guards against treating zero crossings as exterior proof.",
+    "grazingRaysAreAmbiguousRatherThanExterior": true
+  },
+  "limitations": [
+    "Only g050 and the declared changed/lining triangles are qualified; unchanged garment surfaces and other identities are excluded.",
+    "Complete triangle areas are tested at discrete times. The 0.5-second motion samples do not establish continuous-time clearance or unsampled gestures.",
+    "New motion snapshots are CPU-skinned readouts taken during GPU rendering, not GPU vertex-buffer readback.",
+    "Global body self-intersection is not audited; numerical classifications use the closed oriented body and stated floating-point methods.",
+    "The 1.5 mm solver target holds only on its original stencil within tolerance; continuous 1.5 mm clearance is false.",
+    "Foundation coverage is a frozen projected-footprint/depth-slab contract, not all-angle visual coverage, clearance, or original-mask deletion recertification.",
+    "Positive numerical results do not establish AAA appearance, cloth thickness, rounded seams, or promotion readiness."
+  ],
+  "reproduction": {
+    "solver": "node tools/figure-pipeline/collar_clearance_review.mjs FRESH_OUTPUT_DIRECTORY",
+    "motion": "node tools/figure-pipeline/collar_motion_review.mjs captures/collar-window-2026-09-16/lining-motion-v2 FRESH_OUTPUT_DIRECTORY",
+    "foundation": "node tools/figure-pipeline/collar_foundation_review.mjs FRESH_OUTPUT_DIRECTORY",
+    "acceptedSource": "Solver and motion reviewers reconstruct the immutable accepted trouser source; they do not depend on the installed casual asset remaining 44ebc3.",
+    "evidenceStorage": "Full reports and captures are preserved local ignored evidence; these hashes are tracked references, not an off-machine backup."
+  }
+}

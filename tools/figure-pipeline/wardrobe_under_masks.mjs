@@ -38,11 +38,19 @@ export function originalWardrobeFoundation( garmentId, bake = 'g050' ) {
     return original;
 }
 
-// This reviewed successor retains every cloth triangle supporting the frozen mask selections.
-// All 23,310 authored/historical-pose footprint checks pass using the unchanged subset alone.
-// See docs/WARDROBE-TROUSER-FIT-2026-09-13.md. The calibration payload and masks remain frozen.
+// Two distinct reviewed proofs; the calibration payload and foundation masks remain frozen.
+// 44eb: the trouser correction passes all 23,310 authored/historical-pose footprint checks
+// using unchanged cloth triangles alone. See docs/WARDROBE-TROUSER-FIT-2026-09-13.md.
+// d81a: the collar interior asset has exactly the ca6531 reviewed outward geometry, plus
+// interior-selection metadata. Its FULL geometry passes all 23,310 frozen footprint checks.
+// Removing its 180 changed-incident triangles fails 3,669 bra and 3,967 vest footprints;
+// the earlier unchanged-subset shortcut does not apply. This is coverage, not an all-motion
+// clearance certificate. See docs/evidence/collar-interior-2026-09-16-numerical.json.
 export const WARDROBE_MASK_ENVIRONMENT_SUCCESSORS = Object.freeze( {
-    female_casualsuit01: Object.freeze( [ '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783' ] )
+    female_casualsuit01: Object.freeze( [
+        '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783',
+        'd81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a'
+    ] )
 } );
 
 /** Exact original or explicitly reviewed successor fingerprints are mandatory. */

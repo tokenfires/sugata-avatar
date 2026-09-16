@@ -10,9 +10,14 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { resolveWardrobeStyle } from './WardrobeStyleOptions.js';
 
 const SOURCES = Object.freeze( {
-    female_casualsuit01: '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783',
-    female_elegantsuit01: '0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440',
-    shoes01: '28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4'
+    // The collar successor preserves every UV, vertex ordinal and colour region. Its
+    // authored interior clones full vertex arrays, so both qualified assets use this recipe.
+    female_casualsuit01: Object.freeze( [
+        '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783',
+        'd81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a'
+    ] ),
+    female_elegantsuit01: Object.freeze( [ '0acd22bbf9a847de6fa051bec0860157b72ba626f9504a26f8313713938f1440' ] ),
+    shoes01: Object.freeze( [ '28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4' ] )
 } );
 const PALETTES = Object.freeze( {
     ecru: Object.freeze( { top: '#dbd5c6', denim: '#26364c', skirt: '#303643', shoes: '#49342b', socks: '#34363b' } ),
@@ -27,7 +32,7 @@ export async function validateStyledFragmentBytes( id, bytes ) {
     if ( !hasRecipe( id ) ) return;
     const digest = await globalThis.crypto.subtle.digest( 'SHA-256', bytes );
     const actual = Array.from( new Uint8Array( digest ), n => n.toString( 16 ).padStart( 2, '0' ) ).join( '' );
-    if ( actual !== SOURCES[ id ] ) throw new Error(
+    if ( !SOURCES[ id ].includes( actual ) ) throw new Error(
         `Avatar wardrobe: '${ id }' differs from the qualified g050 colourway asset. Use style 'original' for an unqualified asset.` );
 }
 
