@@ -1,5 +1,11 @@
 # Casual collar interior — September 16, 2026
 
+> **Superseded installation status:** Later in this same session, stronger expressive motion
+> exposed retained-bra crossings and a 0.04685 mm rear body gap. The previous accepted asset
+> is restored as the default and this correction is experimental. Start with
+> [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md). The scoped evidence below remains
+> valid; its local-installation status and rounded-edge next-step priority are historical.
+
 This continues Rob's explicit September 16 resumption and bounded parallel work window.
 The original [brief](BRIEF.md) remains the target: AAA-quality, humanlike embodiment and
 an expressive, configurable wardrobe. This correction closes a localized rendering defect;

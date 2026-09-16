@@ -1,5 +1,11 @@
 # Sugata 姿 — punch list
 
+> **September 16 resumed work:** Start with [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md).
+> Original collar openings are diagnosed and the local interior correction is preserved.
+> Candidate promotion is withheld after expressive-motion bra contacts and a small rear
+> clearance. Next: one jointly constrained fit trial with its own numerical and GPU evidence.
+> The older items below remain historical context for the wider embodiment ambition.
+
 Every item is a fan-out unit with its own acceptance gate. `[ ]` open · `[~]` in progress ·
 `[x]` done and gate passed · `[!]` blocked.
 

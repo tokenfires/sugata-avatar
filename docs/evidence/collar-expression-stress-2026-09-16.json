@@ -1,0 +1,253 @@
+{
+  "schema": "sugata-collar-expressive-stress-v1",
+  "createdAt": "2026-09-16T19:27:45.314207+00:00",
+  "branch": "codex/local-restart",
+  "baselineCommit": "fc88678d435d0055fa0164e4b66cdbeb1f743bda",
+  "status": "Candidate promotion withdrawn after stronger-motion failures; previous accepted default restored. No new geometry trial.",
+  "currentDefaultSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+  "experimentalCandidateSHA256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+  "frozenGeometrySHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+  "supersedesInstallationStatusIn": {
+    "file": "docs/evidence/collar-interior-2026-09-16.json",
+    "bytes": 9906,
+    "sha256": "b99c39f79644f9fa83f2e242439fa2c93f58835c0b5f384a776bd90dafdcd709"
+  },
+  "preservedEarlierScope": "The local interior closes the original culled-back-face openings. Earlier natural motion, coverage and ownership evidence remains valid in its recorded range. It does not qualify stronger motion.",
+  "restoration": {
+    "file": "captures/collar-expression-stress-2026-09-16/default-restoration.json",
+    "bytes": 609,
+    "sha256": "3680de56e1020ce87972cee31601727be59f611330327dd6e7440b104d4a8b5f"
+  },
+  "preservation": {
+    "file": "captures/collar-expression-stress-2026-09-16/preservation-final.json",
+    "bytes": 3086,
+    "sha256": "a126bf07a4831b96c2d723a43018dba8c0ab642c464ac373c35e1898f67d0fee"
+  },
+  "currentSourceState": {
+    "file": "captures/collar-expression-stress-2026-09-16/final-source-state.json",
+    "bytes": 9413,
+    "sha256": "310ead5d8ad9aa2bb6a85515ae5f44eb35981ffc259e5365741f091681e7f379"
+  },
+  "numericalLedger": {
+    "file": "docs/evidence/collar-expression-stress-2026-09-16-numerical.json",
+    "bytes": 16579,
+    "sha256": "89f2bbe300ce0120305144528d398436041c78c8302ac6a60888861c2d8c6801"
+  },
+  "gpuCapture": {
+    "artifact": {
+      "file": "captures/collar-expression-stress-2026-09-16/gpu-v1/report.json",
+      "bytes": 47657931,
+      "sha256": "e8f968a6312f3cf7a60a9c04a717c7be56bb002ffa6c5f54fe3a5810a351db62"
+    },
+    "runs": 4,
+    "simulationHz": 60,
+    "secondsPerRun": 18,
+    "mainPngs": 1444,
+    "fullBodyPngs": 12,
+    "cpuSnapshots": 76,
+    "scope": "Two bobs times two exact garment identities; three supported affect phases with two synthetic-timed bilateral gestures per phase."
+  },
+  "cpuReview": {
+    "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/report.json",
+    "bytes": 47455574,
+    "sha256": "d27ee3be3b25c7603d79a84acc27d72aaf840c7ccf91f323707f60e8fd1d67aa"
+  },
+  "cpuIntegrity": {
+    "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/integrity-audit.json",
+    "bytes": 784,
+    "sha256": "a01f68d976388aa4c175d29f85a0594ca4a490b19b1f4683bf5867ce3bac1cc6"
+  },
+  "pixelAttribution": {
+    "file": "captures/collar-expression-stress-2026-09-16/attribution-v2/report.json",
+    "bytes": 379829,
+    "sha256": "c5d554a245195d43a7ea3a313bad73404aa4cdfaa2c59fef0cf6f002049c6eb8"
+  },
+  "exactFrame": {
+    "file": "captures/collar-expression-stress-2026-09-16/witness-v2/report.json",
+    "bytes": 99365,
+    "sha256": "6877d2dafc14b1e863853cdedc1c746e37947c60e94f86246756ac0676b771e7"
+  },
+  "portableRouteReplay": {
+    "witness": {
+      "file": "captures/collar-expression-stress-2026-09-16/witness-routed-v3/report.json",
+      "bytes": 100378,
+      "sha256": "e31eaaf0d63a2124d2ef8f3579e4a9dda6f144a885a0c4dfce1dbe2516a82b3e"
+    },
+    "analysis": {
+      "file": "captures/collar-expression-stress-2026-09-16/attribution-routed-v3/report.json",
+      "bytes": 379829,
+      "sha256": "7cf83151e51b3bdd4412c2cf1f90038c928553c81fdecf8a4b1ffb7aaccc6048"
+    },
+    "result": "All three PNGs and states exactly reproduce the installed-candidate controls while the previous accepted default remains installed.",
+    "limit": "The full 18-second trace has not been repeated after the replay-only asset-routing change."
+  },
+  "fitPlan": {
+    "plan": {
+      "file": "captures/collar-expression-stress-2026-09-16/fit-plan/PLAN.md",
+      "bytes": 8163,
+      "sha256": "e7fd813ab5b7b5298248c5b7f641905cb99c166baabf9591225e22e8b3f18ba0"
+    },
+    "inspection": {
+      "file": "captures/collar-expression-stress-2026-09-16/fit-plan/inspection.json",
+      "bytes": 21844,
+      "sha256": "34412f8ce814ef99fd875cb2c87bb0db169bf58db9afac9a60fce606ec793629"
+    },
+    "manifest": {
+      "file": "captures/collar-expression-stress-2026-09-16/fit-plan/manifest.json",
+      "bytes": 1197,
+      "sha256": "80c21956e6c961daa9096d948975dec8fdd91ec0eb05bb14cfb762eac8cf9f10"
+    },
+    "status": "Proposed only; no trial exported."
+  },
+  "viewingClips": [
+    {
+      "file": "captures/collar-expression-stress-2026-09-16/bob02-previous.mp4",
+      "bytes": 5450226,
+      "sha256": "4215336d4026eec866316136ee274f7fea2d5fa9802936a69a52a4d0b416477e"
+    },
+    {
+      "file": "captures/collar-expression-stress-2026-09-16/bob02-owned.mp4",
+      "bytes": 5451258,
+      "sha256": "9af15ae435524146d948cfa69409184c772f65c8efbb41aae77a24977541f0c3"
+    },
+    {
+      "file": "captures/collar-expression-stress-2026-09-16/bob01-previous.mp4",
+      "bytes": 7091250,
+      "sha256": "43a1fb87b8ef691f499eeda54377cd0188cd989ab0fdef3c2c42af58feb4eb06"
+    },
+    {
+      "file": "captures/collar-expression-stress-2026-09-16/bob01-owned.mp4",
+      "bytes": 7081118,
+      "sha256": "c4fcf4a160cd319fc0425e187e4c5935e781090d72f7ad3882c0c21bf065d364"
+    }
+  ],
+  "comparisonPage": {
+    "file": "captures/collar-expression-stress-2026-09-16/review.html",
+    "bytes": 12710,
+    "sha256": "3d30d2818ce8191d52b9c878badb34b154f3c8de4ac1d3dab16d5c393f3010e5"
+  },
+  "comparisonCheck": {
+    "file": "captures/collar-expression-stress-2026-09-16/review-check.json",
+    "bytes": 1436,
+    "sha256": "9b1b7b58d12a51ed98691d851ca679d47e858f6bef37b792f9d507788bf2e2b2"
+  },
+  "restoredDefaultValidation": {
+    "buildLog": {
+      "file": "captures/collar-expression-stress-2026-09-16/restored-build-pages.log",
+      "bytes": 14255,
+      "sha256": "59bad81202c5e8afa5f93e76197ffee20f13261e593299c9fa6438d57e2cbed3"
+    },
+    "builtCode": {
+      "file": "captures/collar-expression-stress-2026-09-16/restored-built-code-manifest.json",
+      "bytes": 17770,
+      "sha256": "605760020af126f2abb3b1d44e863c5d131d859282183d39b3e96227d4a59d30"
+    },
+    "htmlPages": 18,
+    "productionShowcase": {
+      "file": "captures/collar-expression-stress-2026-09-16/restored-production-showcase/report.json",
+      "bytes": 45788,
+      "sha256": "72872cabdf032fa170856ac6d2c39a9b77a074c78e12d68230fbc52630803110"
+    },
+    "browserGroups": 24,
+    "errors": 0,
+    "testLogs": [
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/restored-interior-test.log",
+        "bytes": 1034,
+        "sha256": "38e34a4c5da665f81b002ef56fc25d324313aee9d596ac519c34ab03548bd9a3"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/restored-wardrobe-test.log",
+        "bytes": 7762,
+        "sha256": "4538f659b13a3a46e4d701cec0128d9a67da96bbf6ce68921af65cc89de7db1f"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/restored-collar-test.log",
+        "bytes": 493,
+        "sha256": "87bd89428ae226d419be02d68dff0109f5db5e33635b7daee8390847b23eb787"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/restored-foundation-test.log",
+        "bytes": 823,
+        "sha256": "934bcc3c23dc4876092d09d2c8ba98f5949c85ce65f9a17ae7e0b952accb2644"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/restored-trouser-test.log",
+        "bytes": 600,
+        "sha256": "7a37d527e227c9c2c1028cd456303f7fe65e4fa12edf86fb67196ca3219a2ce3"
+      }
+    ],
+    "limits": "Selected change-specific checks only; existing large-chunk warning and separate historical red gates remain."
+  },
+  "keyFindings": {
+    "retainedBraCrossingSteps": [
+      98,
+      270
+    ],
+    "step98GarmentFaces": [
+      1327,
+      1328,
+      1329,
+      1331
+    ],
+    "step270GarmentFaces": [
+      544,
+      545,
+      1328,
+      1329,
+      1331
+    ],
+    "minimumBodyGapMm": 0.0468534245,
+    "minimumBodyPair": [
+      1515,
+      15580
+    ],
+    "minimumBodyStep": 720,
+    "exactPixelStep": 99,
+    "taggedPixelWitnesses": 110,
+    "taggedPixelsUnchangedByGlobalDoubleSide": 110
+  },
+  "limits": [
+    "Discrete floating-point checks of 180 changed faces; CPU-skinned snapshots are not GPU vertex readback.",
+    "The open retained bra has no globally valid signed volume; local normal sign and ray ordering are not penetration depth.",
+    "Global body self-intersection was not audited; no continuous-time or all-identity qualification.",
+    "The restored default also fails this stress test. Restoration preserves the accepted baseline, not a claim that it fixes the new defect.",
+    "Original PNGs, CPU inputs and failed attempts remain local ignored evidence, not an off-machine backup."
+  ],
+  "boundaries": {
+    "olderAutomation": "unchanged",
+    "separateGoal": "unchanged",
+    "push": false,
+    "publication": false,
+    "resetCredits": false,
+    "modelChanges": false
+  },
+  "archiveManifest": {
+    "file": "docs/evidence/collar-expression-stress-2026-09-16.manifest.json",
+    "bytes": 365873,
+    "sha256": "0865a0d0e116ce4a5055f0988eda2b7e1561181ddeaee2b0e3a3ee37e0e35504"
+  },
+  "archiveFiles": 1690,
+  "archiveBytes": 1099233194,
+  "allArchiveFilesRereadAndVerified": true,
+  "finalIntegrity": {
+    "file": "captures/collar-expression-stress-2026-09-16/final-integrity.json",
+    "bytes": 309,
+    "sha256": "17e9b7cf14db5fc0de465c79ed5abec48aa722ae8d75f43c9e41b92758c1194a"
+  },
+  "independentVisualReview": {
+    "verdict": {
+      "file": "captures/collar-expression-stress-2026-09-16/visual-review/FINAL-VERDICT.md",
+      "bytes": 2556,
+      "sha256": "d9c7b06522e942d54913d204a84978db5b7d79916ddecbedccbd8e9e2d799c7b"
+    },
+    "manifest": {
+      "file": "captures/collar-expression-stress-2026-09-16/visual-review/manifest.json",
+      "bytes": 1170,
+      "sha256": "2cc5e071e5545c8bdd8490a220b1326f3560616e6690c1a43ecc32f291d2d40e"
+    },
+    "directlyViewedImageFiles": 59,
+    "status": "Hold promotion; candidate remains experimental.",
+    "coverage": "44 selected close frames,12 full-body stills,3 exact-frame controls; not exhaustive motion viewing."
+  }
+}

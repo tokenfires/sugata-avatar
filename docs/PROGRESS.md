@@ -1,13 +1,14 @@
 # Sugata 姿 — progress and resume state
 
 > **Current session, September 16, 2026:** Rob explicitly resumed development after the
-> September 13 pause. Start with [COLLAR-INTERIOR-2026-09-16.md](COLLAR-INTERIOR-2026-09-16.md).
-> The exact frozen collar geometry is now qualified and locally installed with a small
-> interior that closes the culled-back-face openings. Independent clearance/containment,
-> frozen foundation coverage, actual GPU motion, elevated views and wardrobe lifecycle
-> checks support this bounded correction; the built app passes 24 browser groups.
-> Accepted hair, foundations and trouser/shoe fit are preserved. The thin/angular edge,
-> broader motion and full AAA embodiment remain unfinished. The older recurring automation
+> September 13 pause. Start with [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md).
+> The original openings are culled cloth back faces; a preserved local interior closes them.
+> Stronger supported motion then exposed bra intersections on both sides and only 0.04685 mm
+> rear body clearance. The collar candidate is experimental again; the previous accepted
+> asset is restored as the default. The next step is a capped, jointly constrained fit across
+> the saved poses, followed by fresh numerical and visual qualification. Accepted hair,
+> foundations and trouser/shoe fit remain preserved; full AAA embodiment is unfinished.
+> The older recurring automation
 > and its separate Goal were left untouched. The older record below is historical context.
 
 **Read on resume, in this order:**
