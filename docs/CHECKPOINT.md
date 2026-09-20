@@ -1768,3 +1768,144 @@ withdrawn. **Everything before R34 came through the cross-page channel item 1 re
    strands, comparable references). What remains is the silhouette judgement.
 6. **Declare the round.** The fence is past a ceiling of 14 by a wide margin; measure it at HEAD
    rather than quoting §18.
+
+
+---
+
+## §20 — R34 closes; the timing question is answered at the precision it earned (2026-08-24)
+
+**HEAD at writing: see this commit.** v3 (owner-approved) ran once and **voided on 1 of 24
+clauses — and the refusal found the mechanism.** `findings-2026-08-24.md` §9 has the full closure.
+
+- 🔴 **Frame-to-frame carry-over is worth 1–2 ms**: a frame's measured time depends on what the
+  previous frame drew. Reversal cannot balance it for an odd-length batch (the middle is a fixed
+  point), so `cards-` held the middle slot forever and the `-bis` null caught the bias. Fifth
+  appearance of the adjacency confound; first time a gate caught it before publication.
+- **The frame-cost instrument family is CLOSED per v3 §4 — no v4, no re-runs-until-pass.** Nothing
+  is blessed. Next instrument, if ever: cyclic rotation not reversal, CI-gated nulls, washout frames.
+- 🎯 **What stands: cards ≈ 1.0–1.2 ms** (three runs; a range by the registered rule, never one
+  number). **Ribbons +3 to +8 ms** by density. **Ribbons are roughly 3–7× cards — the parity clause
+  fails under any reading**, and the remaining question is look-dev budget, not timing.
+- ✅ The six hairstyle asset packs are committed — **by the owner himself**, `2087931`, LFS. New open
+  item below.
+
+### The open list
+
+1. **🎨 THE FIBRE AND PER-CHANNEL `T_f` — ACTIVE, owner-directed 2026-08-24** ("2 color"). The only
+   surviving route to "muddy" after REQ-063/064/078 all closed. `2026-08-22-hair-frame-design.md`
+   §5; `ā_f` derived and bounded ≤ 0.131. ⚠️ Lesson from REQ-063 §6 binds: the registration must use
+   a SIGNED colour statistic (R/B or projection onto the fibre's hue axis, 7.1° for `0x1A0E0C`) —
+   `chromaInCodes` is unsigned and scores a violet flood as improvement.
+2. **`quiff01` scalp clearance** — `verify_glb` reads 770.3 mm² of bare cranium on the front view
+   against a 60 mm² ceiling. Same defect class as `crop01`'s clearance item; now two grooms carry it.
+3. `rim.irradiance` per preset (art constant, from REQ-063's rejection).
+4. `crop01` scalp clearance; the bob density fork's **silhouette** half (cost half is answered:
+   2.30× strands ≈ 2.2× cost, and the whole class is 3–7× cards).
+5. Declare the round fence in `docs/OPEN-REQUESTS.md` (long overdue; the ledger gate stays red until
+   someone adjudicates the 14 OPEN entries in the same edit).
+
+
+---
+
+## §21 — R35: the muddiness has a mechanism (2026-08-24)
+
+**Tool:** `tools/critic/hair-tf-ceiling.mjs` on R28's ray-cast cache. **Findings:**
+`captures/hair-r35-tf-ceiling/findings-2026-08-24.md`. No shipped file changed; no plate rendered.
+
+🎯 **The muddiness is the light-blind pedestal.** The term carrying 65.4% of the groom's energy
+cannot tell a front light from a back one, so the blue rim pollutes it through 26 cards of hair.
+Measured on 7,913 samples with the TRUE per-light ray-cast depth through the already-existing
+chromatic form (`zinke-transmittance`):
+
+| arm | gain (signed, fibre-axis saturation) |
+|---|---:|
+| full per-(pixel,light) signal | **+109.2%** |
+| pixel-shuffled (light structure kept) | +112.2% — placement is worth NOTHING |
+| **per-light constants** `[key 0, fill 1, rim 26, kicker 11]` | **+76.8% — four numbers, 70% of the ceiling** |
+| the existing sheet (light-blind) | +1.5% — CONFIRMS R27 |
+
+The expensive per-pixel plumbing is not licensed because it is not needed. R27 stands for what it
+tested; its probe never had a per-light input to try.
+
+⚠️ Term arithmetic, not a plate: luma cost 0.68× on the term (≈ −21% groom) means the successor
+**must level-match before judging** — the two-variables trap is the recorded eight-round mistake.
+
+**Next: R36, the constants arm on plates** — defect arm, level-matched, blind-judged with a decoy
+axis. §5 of the findings carries the shape. The open list otherwise stands as §20 left it.
+
+
+---
+
+## §22 — R36: the plate refutes the chromatic pedestal, and the mud changes frame (2026-08-24)
+
+**Registration + Amendment 1:** `2026-08-24-r36-pedestal-lightdepth.md`. **Findings:**
+`captures/hair-r36-pedestal-depth/findings-2026-08-24.md`. Controls immaculate (drift 0.0000, level
+0.010%, skin 0.0000) and the gates said no: **G-EFFECT −48.2%** against a +10% floor, **G-DECOY
+fails** with 86% of the change being the form swap rather than per-light depth.
+
+🎯 **The teaching: slide 39's fake is not the mud — it is the main thing FIGHTING the mud.** Its
+isoluminant `(C/luma)^(1−Shadow)` factor pumps fibre-warm chroma at zero energy cost; any honest
+per-channel form strips it and the level-matched hair collapses 0.829 → 0.43 warm saturation
+(R/B 1.771 → 1.394). The rim is worth **+7%** at plate level (`rim0`: 0.887). R35's plate-level
+projection is withdrawn; its term-model results stand; the model's inversion has three named
+suspects (solid angle, key shadow map, sheet-UV correlation), UNRESOLVED.
+
+**Every chroma-pump route to "muddy" is now closed at plate level** — rim hue, rim shadow, TT,
+TRT-glint, chromatic pedestal. What survives: **achromatic dilution** — R (~35%, achromatic by
+construction) and the indirect composite (~10%, grey) pouring unsaturated light over a warm base.
+**Next: a delivery/dilution audit** — how much of a hair pixel is achromatic, per term, against the
+reference's implied split. Measuring round, cheap, operators exist (`unit-bsdf`, the lobe-share
+machinery). The blind panel did not run; the gates own that call. The level-matched A/B plates are
+in the capture directory for the owner's eyes.
+
+
+---
+
+## §23 — R37: the dilution ledger — R is the mud (2026-08-31)
+
+**Registration:** `2026-08-31-r37-dilution-audit.md` · **Findings:**
+`captures/hair-r37-dilution/findings-2026-08-31.md` · gates clean (drift 0.0000, additivity 1.50%).
+
+The leave-one-out ledger, signed fibre-axis saturation on the hair mask:
+
+| term | own chroma | marginal Δsat |
+|---|---:|---:|
+| **R** | 0.058 (achromatic) | **−0.495 — removing it raises warm saturation 60%** |
+| indirect(+AO) | −0.092 | −0.033 |
+| TRT | 1.055 | +0.0002 — **~0% mass; nothing lights it (REQ-064)** |
+| scatter (the fake) | 1.408 | **+0.705 — the only warm source** |
+
+R carries ~45% of the pixel's light as an achromatic wash over the whole mask. 🎯 **Interpretation
+(labelled, next round's hypothesis): the muddiness and the missing band are ONE defect — R's energy
+is spread flat instead of peaked.** The declared-red dynamic-range gate (4.0:1, red for weeks) is
+the same symptom from the other side. The lever is R's SHAPE (longitudinal width/shift, tangent
+spread), not its weight — and it is falsifiable on existing operators: narrow the band and both the
+dilution marginal and the dynamic-range gate must move together.
+
+Reference clause stood down (copyright plate not on this machine); the recorded 38% stays context.
+
+
+---
+
+## §24 — R38: tangent smear refuted; the shipped jitter is vindicated (2026-08-31)
+
+**Registration:** `2026-08-31-r38-tangent-smear.md` · **Findings:**
+`captures/hair-r38-band/findings-2026-08-31.md` · drift 0.0000, decoy exactly as registered.
+
+**P1 failed twice, symmetrically:** over the jitter sweep 0 → 0.36 rad, SAT (0.811→0.839) and BAND
+p95/p50 (1.719→1.941) are both perfectly monotone — INCREASING, the registered prediction's exact
+opposite. The whole lever moves saturation 3.4% against R's −0.495 dilution marginal: **tangent
+smear is not the R-wash**, and the shipped 0.2403 correction is near-free (mildly helpful, even).
+R37 §3's "one defect" synthesis is dead; the mud and the missing band decouple again.
+
+Candidate (unmeasured, labelled): the wash is GEOMETRIC — cards curve around the skull, so the band
+condition sweeps the groom regardless of decorrelation.
+
+🎯 **The highest-information next step is the other side of the comparison:** R37's stood-down
+reference clause. With the SHIFT UP plate on the machine, the registered operator decomposes THEIR
+saturation budget against ours — the only open question that matters is how reference hair stays
+saturated while carrying an achromatic highlight. Blocked on the owner supplying the reference
+directory; everything else is ready.
+
+Closed-by-measurement list for "muddy," current: rim hue, rim shadow, TT, TRT-glint, chromatic
+pedestal, tangent smear.

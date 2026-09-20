@@ -34,7 +34,7 @@
 
 import {
   NULL_MAX_MS, NULL_SIGN_Z, REFERENCE_TOLERANCE, REPLICATE_TOLERANCE,
-  quantile, mean, makeRandom, pairedByTick, signTest, bootstrapMedianCI, summarisePair,
+  quantile, mean, makeRandom, pairedByTick, signTest, bootstrapMedianCI, summarisePair, adjudicate,
   evaluateNull, comparable, tickSchedule,
   fitClockBoundary, pairedByTickAndState, PAIR_INTEGRITY_MIN, STATE_MIN_PAIRS, CLOCK_RATIO_MIN,
   kolmogorovSmirnov, driftByPermutation, DRIFT_ALPHA,
@@ -535,18 +535,53 @@ function testStateConditioningCannotManufactureASignal() {
     verdicts.map((verdict) => `${verdict.label} n=${verdict.n} p50 ${verdict.p50.toFixed(4)}`).join(', ')
     + ' — two draws from ONE distribution, conditioned, still read zero in both states');
 
-  // 🔴 AND THE DECOY FAILS G1, WHICH IS THE GATE WORKING RATHER THAN BREAKING.
-  //
-  // These two sides are drawn INDEPENDENTLY, so each lands fast or slow on its own: they agree only
-  // 0.3² + 0.7² ≈ 58% of the time. A real pair is two reads one frame apart on a machine whose state
-  // persists 2-4 ticks, and it agrees 95.4%. G1 is exactly the line between those two situations —
-  // when the state does not persist across a pair, pairing buys nothing and the run must not be
-  // reported. This is the shape that would arise if the sampling tick ever became slow relative to
-  // the machine's switching rate.
-  record('🔴 G1 FAILS on independent draws, which is what it is for',
+  // ⚠️ THE INTEGRITY DIAGNOSTIC reads low on independent draws (they agree only 0.3² + 0.7² ≈ 58%
+  // by construction, against a real run's 81-95%). v3 DEMOTED this from gate to diagnostic — as a
+  // gate it measured effect size, ρ = −0.835 over 81 real pairs — but the computation must stay
+  // honest, because the printout annotates low agreement with "read the per-STATE rows".
+  record('the integrity diagnostic reads low on independent draws',
     split.integrity < PAIR_INTEGRITY_MIN,
-    `integrity ${(split.integrity * 100).toFixed(1)}% against a ${PAIR_INTEGRITY_MIN * 100}% floor — `
-    + 'independent draws agree ~58% by construction, a real run 95.4%. The gate separates them.');
+    `integrity ${(split.integrity * 100).toFixed(1)}% — independent draws agree ~58% by `
+    + 'construction; the diagnostic sees it, and since v3 it decides nothing');
+}
+
+function testTheVerdictIgnoresIntegrityAndObeysTheNulls() {
+  // 🎯 v3'S REGISTERED VERDICT LOGIC, GATED END TO END ON SYNTHETIC RUNS. Two runs through the real
+  // `adjudicate`: identical except that both keep integrity LOW (independent draws). In the first,
+  // every null is clean; in the second, one null carries a +0.6 ms workload bias. v2 voided both on
+  // G1. v3 must pass the first — low integrity decides nothing — and void the second on the null.
+  const random = makeRandom(60601);
+  const draw = () => (random() < 0.3 ? 7.2 + random() * 0.4 : 13.0 + random() * 0.8);
+  const mkRows = (n, offset = 0) => Array.from({ length: n }, (_, tick) =>
+    ({ tick, ms: draw() + offset, draws: 43, triangles: 86_751 }));
+  const shownRows = (n) => Array.from({ length: n }, (_, tick) =>
+    ({ tick, ms: draw() + 2.0, draws: 45, triangles: 120_751 }));
+
+  const definitions = [
+    { key: 'bald', census: null, conditions: [
+      { key: 'bald', visible: null }, { key: 'bald-bis', visible: null }] },
+    { key: 'cards', census: null, conditions: [
+      { key: 'cards+', visible: true }, { key: 'cards-', visible: false }, { key: 'cards-bis', visible: false }] },
+  ];
+  const options = { ticks: 300, arms: 'cards', headSha: 'selftest' };
+
+  const clean = adjudicate(new Map([
+    ['bald', mkRows(300)], ['bald-bis', mkRows(300)],
+    ['cards+', shownRows(300)], ['cards-', mkRows(300)], ['cards-bis', mkRows(300)],
+  ]), definitions, options);
+  record('🎯 v3 PASSES a run with clean nulls and LOW integrity',
+    clean.calibration.passed === true && clean.calibration.integrityFloor < PAIR_INTEGRITY_MIN,
+    `passed=${clean.calibration.passed} at integrity ${(clean.calibration.integrityFloor * 100).toFixed(1)}% — `
+    + 'v2 voided exactly this shape on G1, seven runs running');
+
+  const biased = adjudicate(new Map([
+    ['bald', mkRows(300)], ['bald-bis', mkRows(300)],
+    ['cards+', shownRows(300)], ['cards-', mkRows(300, 0.6)], ['cards-bis', mkRows(300, 0.6)],
+  ]), definitions, options);
+  record('🔴 and still VOIDS on a real null failure',
+    biased.calibration.passed === false,
+    'the same shape with a +0.6 ms bias on one hidden condition — N1 catches it; deleting G1 '
+    + 'loosened nothing that decides');
 }
 
 // ================================================================================================
@@ -578,6 +613,7 @@ function run() {
 
   testStraddlingPairsAreDroppedNotTolerated();
   testStateConditioningCannotManufactureASignal();
+  testTheVerdictIgnoresIntegrityAndObeysTheNulls();
 
 
   const width = Math.max(...gates.map((gate) => gate.label.length));

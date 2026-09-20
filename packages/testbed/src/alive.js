@@ -2177,6 +2177,12 @@ function readHairRequest( query ) {
         roughnessR: number( 'hairbeta', undefined, 1e-3, 2 ),
         weightRScale: number( 'hairweightr', 1, 0, 16 ),
 
+        // R38's probe: the tangent field's per-texel decorrelation, in radians SD. The shipped
+        // 0.2403 is a MEASURED correction (see `HAIR_DEFAULTS.strandTangentJitter`); this param
+        // exists so a registered round can PRICE that correction's smear side-effect, and shipping
+        // a different value is explicitly not this knob's business.
+        strandTangentJitter: number( 'hairjitter', undefined, 0, 1 ),
+
         sideVisibility: query.get( 'hairvis' ) === '0' ? 0 : 1,
         rootOcclusion: query.get( 'hairrootao' ) === '0' ? 1 : undefined,
         defect
@@ -2637,7 +2643,8 @@ async function attachHair( session, figureUrl, stage ) {
             // `undefined` is the "not asked for" signal rather than a sentinel value: the spread
             // below is over `HAIR_DEFAULTS`, and writing `roughnessR: undefined` into it would
             // overwrite the default with undefined and take β_TT and β_TRT down with it.
-            ...( request.roughnessR === undefined ? {} : { roughnessR: request.roughnessR } )
+            ...( request.roughnessR === undefined ? {} : { roughnessR: request.roughnessR } ),
+            ...( request.strandTangentJitter === undefined ? {} : { strandTangentJitter: request.strandTangentJitter } )
         }
     } );
 

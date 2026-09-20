@@ -74,6 +74,36 @@ tools/figure-pipeline/.cache/
 /captures/hair-r34-*/**/*.jpg
 /captures/hair-r34-*/**/*.jpeg
 
+# R35, the tf-ceiling probe. Same rule as R34: no plates, just the findings and the JSON whose raw
+# per-arm numbers let a reader recompute the table instead of trusting it.
+!/captures/hair-r35-*/
+!/captures/hair-r35-*/**
+/captures/hair-r35-*/**/*.png
+/captures/hair-r35-*/**/*.jpg
+/captures/hair-r35-*/**/*.jpeg
+
+# R36, the pedestal-depth plate round. Data and findings tracked; plates stay out (regenerable by
+# the tool's --masks/--arms/--match from a clean clone, and the owner views them locally).
+!/captures/hair-r36-*/
+!/captures/hair-r36-*/**
+/captures/hair-r36-*/**/*.png
+/captures/hair-r36-*/**/*.jpg
+/captures/hair-r36-*/**/*.jpeg
+
+# R37, the dilution audit. Same rule as R36.
+!/captures/hair-r37-*/
+!/captures/hair-r37-*/**
+/captures/hair-r37-*/**/*.png
+/captures/hair-r37-*/**/*.jpg
+/captures/hair-r37-*/**/*.jpeg
+
+# R38, the tangent-smear sweep. Same rule.
+!/captures/hair-r38-*/
+!/captures/hair-r38-*/**
+/captures/hair-r38-*/**/*.png
+/captures/hair-r38-*/**/*.jpg
+/captures/hair-r38-*/**/*.jpeg
+
 # 🔴 AND NEVER THE ANSWER KEY TO A BLIND PANEL, WHICH THE RULE ABOVE ALMOST COMMITTED.
 # `captures/hair-r31-separation/blind-KEY.json` is the mapping for a three-arm blind that HAS NOT
 # BEEN RUN. Tracking it would put the key inside the tree every judge subagent can read — the exact
