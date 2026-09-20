@@ -19,7 +19,7 @@
  *      `AudioContext.currentTime` — the actual clock the audio would be on — not against a frame
  *      counter. ⚠️ A context created without a user gesture starts SUSPENDED and its
  *      `currentTime` does not advance, so the page boots on a `performance.now()` clock and swaps
- *      to the audio clock when "start audio clock" is pressed. The swap is one line, which is the
+ *      to the audio clock when "Enable animation clock" is pressed. The swap is one line, which is the
  *      point of injecting the clock rather than reaching for it.
  *
  *   3. **Is the mouth ahead of the audio?** The strip along the bottom plots the schedule's
@@ -488,12 +488,12 @@ function describe( { stage, speech, state, clockSource, leadSeconds, width, heig
         `backend ${ stage.backendName }   ${ Math.round( stage.fps ) } fps   ${ width }x${ height }`,
         `clock  ${ clockSource.name }`,
         `lead   ${ ( leadSeconds * 1000 ).toFixed( 0 ) } ms  (ITU-R BT.1359-1: mouth may be 125 ms early, 45 ms late)`,
-        `rate   ${ state.rate.toFixed( 2 ) }x   utterance ${ speech.schedule.durationSeconds.toFixed( 3 ) } s   ` +
+        `rate   ${ state.rate.toFixed( 2 ) }x   sequence ${ speech.schedule.durationSeconds.toFixed( 3 ) } s   ` +
             `t ${ elapsed.toFixed( 3 ) } s`,
         state.heldViseme !== undefined && typeof state.heldViseme === 'string'
             ? `HELD   ${ state.heldViseme } at ${ peakFor( state.heldViseme ) }`
-            : `speaking ${ speech.speaking ? 'yes' : 'no' }`,
-        `active ${ active.length > 0 ? active.join( '   ' ) : '(silent)' }`
+            : `animating ${ speech.speaking ? 'yes' : 'no' }`,
+        `active ${ active.length > 0 ? active.join( '   ' ) : '(none)' }`
     ].join( '\n' );
 
 }

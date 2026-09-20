@@ -109,6 +109,7 @@ import { Matrix4, Quaternion, Vector3 } from 'three';
 import { Layer } from './Layer.js';
 import { MOTION_ORDER } from './MotionStack.js';
 import { PoissonSchedule } from './Signals.js';
+import { EyeAimSolver } from './EyeAimSolver.js';
 
 // --- measured on the shipped figure -----------------------------------------------------------
 
@@ -657,6 +658,13 @@ export class Gaze extends Layer {
 
         // Kept so that reset() restores the configuration the layer was built with, not the
         // module defaults — a run that resets must be the same run.
+        this.pointAimBinding = null;
+        this.lastPublishedGaze = null;
+        this.pointAimHeadMatrix = new Matrix4();
+        this.pointAimRigMatrix = new Matrix4();
+        this.pointAimRigInverse = new Matrix4();
+        this.pointAimObjectToRig = new Matrix4();
+        this.pointAimPoint = new Vector3();
         this.initialOptions = options;
 
         this.resetState( options );
@@ -671,6 +679,7 @@ export class Gaze extends Layer {
      */
     setPartnerDirection( { yawDegrees = 0, pitchDegrees = 0 } = {} ) {
 
+        this.releaseTargetHold();
         this.partnerYawDegrees = yawDegrees;
         this.partnerPitchDegrees = pitchDegrees;
 
@@ -779,6 +788,7 @@ export class Gaze extends Layer {
      */
     setPolicyEnabled( enabled ) {
 
+        this.releaseTargetHold( false );
         this.policyEnabled = enabled !== false;
 
         return this;
@@ -790,6 +800,8 @@ export class Gaze extends Layer {
      * it tells the listener the floor is still held while the next clause is assembled.
      */
     markFilledPause( { durationSeconds = FILLED_PAUSE_AVERSION_SECONDS } = {} ) {
+
+        this.releaseTargetHold();
 
         this.forcedRegion = 'away';
         this.forcedRegionRemaining = durationSeconds;
@@ -809,6 +821,8 @@ export class Gaze extends Layer {
      * break IS the act of taking the floor, and it comes fractionally before the first word.
      */
     markTurnEnd() {
+
+        this.releaseTargetHold();
 
         const takingTheFloor = this.conversationState === 'listening';
 
@@ -836,6 +850,7 @@ export class Gaze extends Layer {
 
         const { yawDegrees, pitchDegrees } = toYawPitch( target, this.scratchVector );
 
+        this.releaseTargetHold();
         this.regionHoldRemaining = REGION_HOLD_MEAN_SECONDS;
         this.regionCentreYawDegrees = yawDegrees;
         this.regionCentrePitchDegrees = pitchDegrees;
@@ -846,13 +861,119 @@ export class Gaze extends Layer {
 
     }
 
+    /**
+     * Experimental explicit target hold. One command pauses autonomous target selection while
+     * retaining saccades, microsaccades and the eye/head controller. A newer lookAt, policy
+     * setting, speech gaze cue, bind or reset supersedes it. An old handle cannot restore over
+     * the newer request. Direct internal field writes are not this ownership contract.
+     *
+     * Optional `pointWorld: Vector3` adds measured per-eye refinement without replacing the
+     * target's native head/saccade trajectory. The point is copied and the current calibration
+     * is validated before taking ownership. `pointWeight` defaults to1; a caller can ease it
+     * with the returned handle's setPointWeight(0..1).
+     *
+     * release() is immediate. release({pointFadeSeconds:0..0.5}) restores the old policy now
+     * and leaves only a token-bound ocular fade. active is then false; pointFading identifies
+     * residual cleanup ownership. Every newer command clears the old fade. An inactive handle
+     * may stop its own fade with release(), but cannot restart it or affect a newer owner.
+     */
+    holdTarget( target, options = {} ) {
+
+        const angles = toYawPitch( target, this.scratchVector );
+        if ( !Number.isFinite( angles.yawDegrees ) || !Number.isFinite( angles.pitchDegrees )
+            || ( target.isVector3 === true && target.lengthSq() < 1e-12 ) ) {
+            throw new TypeError( 'Gaze.holdTarget needs a finite, nonzero direction.' );
+        }
+
+        let pointAim = null;
+        if ( options.pointWorld !== undefined ) {
+            assertPointAimWeight( options.pointWeight ?? 1 );
+            if ( !options.pointWorld?.isVector3 || !options.pointWorld.toArray().every( Number.isFinite ) )
+                throw new TypeError( 'Point aim needs a finite world point.' );
+            const reason = this.pointAimSupport();
+            if ( reason ) throw new RangeError( 'Point aim unavailable: ' + reason );
+            const binding = this.pointAimBinding, point = options.pointWorld.clone();
+            // Validate against the current committed pose before superseding a valid lease.
+            this.headBone.updateWorldMatrix( true, false );
+            this.rigRoot.updateWorldMatrix( true, false );
+            const inverse = this.pointAimRigInverse.copy( this.rigRoot.matrixWorld );
+            const determinant = inverse.determinant();
+            if ( !Number.isFinite( determinant ) || Math.abs( determinant ) < 1e-12 ) throw new RangeError( 'Invalid point aim rig transform.' );
+            inverse.invert();
+            this.pointAimObjectToRig.multiplyMatrices( inverse, this.headBone.matrixWorld ).multiply( binding.calibration.objectToHead );
+            const localPoint = this.pointAimPoint.copy( point ).applyMatrix4( inverse );
+            for ( const side of [ 'left', 'right' ] ) binding.solver.solve( side,
+                { point: localPoint, objectToRig: this.pointAimObjectToRig } );
+            pointAim = { point, weight: options.pointWeight ?? 1, binding };
+        }
+        this.lookAt( angles, options );
+        const hold = { previousPolicy: this.policyEnabled, pointAim };
+        this.targetHold = hold;
+        this.policyEnabled = false;
+        const gaze = this;
+        return Object.freeze( {
+            get active() { return gaze.targetHold === hold; },
+            get pointFading() { return gaze.pointAimRelease?.owner === hold; },
+            get hasPointTarget() { return hold.pointAim !== null; },
+            setPointWeight( value ) {
+                assertPointAimWeight( value );
+                if ( gaze.targetHold !== hold || !hold.pointAim ) return false;
+                hold.pointAim.weight = value;
+                return true;
+            },
+            release( { pointFadeSeconds = 0 } = {} ) {
+                if ( !Number.isFinite( pointFadeSeconds ) || pointFadeSeconds < 0 || pointFadeSeconds > 0.5 )
+                    throw new RangeError( 'Point release must be between zero and half a second.' );
+                if ( gaze.targetHold !== hold ) {
+                    // An inactive handle retains only the right to stop its own residual fade.
+                    if ( pointFadeSeconds === 0 && gaze.pointAimRelease?.owner === hold ) {
+                        gaze.pointAimRelease = null;
+                        gaze.clearPointAimOutput();
+                        return true;
+                    }
+                    return false;
+                }
+                gaze.releaseTargetHold( true, pointFadeSeconds );
+                return true;
+            }
+        } );
+
+    }
+
+    releaseTargetHold( restorePolicy = true, pointFadeSeconds = 0 ) {
+
+        const hold = this.targetHold;
+        this.targetHold = null;
+        // Every new explicit gaze/policy/speech intent invalidates any older residual fade.
+        this.pointAimRelease = null;
+        if ( hold && restorePolicy ) this.policyEnabled = hold.previousPolicy;
+        if ( hold?.pointAim?.weight > 0 && pointFadeSeconds > 0 && this.pointAimSupport() === null ) {
+            this.pointAimRelease = { owner: hold, aim: { ...hold.pointAim }, startWeight: hold.pointAim.weight,
+                elapsed: 0, duration: pointFadeSeconds };
+        } else this.clearPointAimOutput();
+
+    }
+
+    dispose() {
+
+        this.releaseTargetHold();
+        // Removal retires this layer's eye morphs at rest on the next stack commit. Later
+        // followers must see that same zero pose even though Gaze no longer publishes frames.
+        this.outputEyeYawDegrees = this.outputEyePitchDegrees = 0;
+        const published = this.stack?.context?.shared?.gaze ?? this.lastPublishedGaze;
+        if ( published ) published.eyeYawDegrees = published.eyePitchDegrees = 0;
+        this.pointAimBinding = null;
+        this.lastPublishedGaze = null;
+
+    }
+
     /** Where gaze is pointing right now, in rig space, degrees. Read-only. */
     get gazeYawDegrees() { return this.currentGazeYawDegrees; }
     get gazePitchDegrees() { return this.currentGazePitchDegrees; }
 
     /** Where the eyes are pointing within the head, degrees. This is what the morphs encode. */
-    get eyeYawDegrees() { return this.currentEyeYawDegrees; }
-    get eyePitchDegrees() { return this.currentEyePitchDegrees; }
+    get eyeYawDegrees() { return this.outputEyeYawDegrees ?? this.currentEyeYawDegrees; }
+    get eyePitchDegrees() { return this.outputEyePitchDegrees ?? this.currentEyePitchDegrees; }
 
     /** True while the policy is deliberately not looking at the partner. */
     get isAverting() { return this.region === 'away'; }
@@ -861,6 +982,8 @@ export class Gaze extends Layer {
 
     onBind( context ) {
 
+        this.releaseTargetHold();
+        if ( this.pointAimBinding?.target !== context.target ) this.pointAimBinding = null;
         this.headBone = context.target.getBone?.( this.headBoneName ) ?? null;
         this.rigRoot = this.resolveRigRoot();
 
@@ -886,12 +1009,24 @@ export class Gaze extends Layer {
         // Idempotent per frame: `GazeHead` runs first and calls this too, so that the head bone
         // it writes carries THIS frame's decisions rather than last frame's. See the method.
         this.advanceOcularState( deltaSeconds, context );
+        this.advancePointAimRelease( deltaSeconds );
 
         this.writeEyeMorphs();
 
         this.publishSharedState( context );
 
         return this.contribution;
+
+    }
+
+    onDisabledFrame() {
+
+        if ( this.targetHold?.pointAim || this.pointAimRelease || this.pointAimOutput ) {
+            this.releaseTargetHold();
+            this.outputEyeYawDegrees = this.outputEyePitchDegrees = 0;
+            const published = this.stack?.context?.shared?.gaze ?? this.lastPublishedGaze;
+            if ( published ) published.eyeYawDegrees = published.eyePitchDegrees = 0;
+        }
 
     }
 
@@ -1874,6 +2009,140 @@ export class Gaze extends Layer {
 
     // --- output ------------------------------------------------------------------------------
 
+    /** Bind measured geometry to a particular motion target. This does not enable point aim. */
+    setPointAimCalibration( target, calibration = null ) {
+
+        let binding = null;
+        if ( target !== null ) {
+            if ( !calibration?.head?.isObject3D || !calibration.objectToHead?.isMatrix4
+                || typeof calibration.isCurrent !== 'function' || !calibration.isCurrent() )
+                throw new TypeError( 'Gaze needs a current eye calibration.' );
+            const span = this.eyeExcursionDegrees;
+            const horizontal = EYE_COMFORT_FRACTION * Math.min( span.in, span.out );
+            binding = { target, calibration, excursions: { ...span }, solver: new EyeAimSolver( calibration.profile, {
+                maxWeight: EYE_COMFORT_FRACTION, weightLimits: {
+                    In: Math.min( EYE_COMFORT_FRACTION, horizontal / span.in ),
+                    Out: Math.min( EYE_COMFORT_FRACTION, horizontal / span.out ),
+                    Up: EYE_COMFORT_FRACTION, Down: EYE_COMFORT_FRACTION
+                }
+            } ) };
+        }
+        if ( this.targetHold?.pointAim || this.pointAimRelease ) this.releaseTargetHold();
+        this.pointAimBinding = binding;
+        this.clearPointAimOutput();
+        return this;
+
+    }
+
+    /** Null means supported. A reason leaves the default directional controller available. */
+    pointAimSupport() {
+
+        const b = this.pointAimBinding, stack = this.stack;
+        if ( !b ) return 'no-eye-calibration';
+        if ( !stack || stack.target !== b.target || this.headBone !== b.calibration.head ) return 'different-motion-target';
+        if ( !this.enabled || this.weight !== 1 || !this.head.enabled || this.head.stack !== stack ) return 'inactive-or-weighted-gaze';
+        if ( !b.calibration.isCurrent() ) return 'changed-eye-geometry';
+        for ( const key of [ 'in', 'out', 'up', 'down' ] )
+            if ( this.eyeExcursionDegrees[ key ] !== b.excursions[ key ] ) return 'changed-eye-excursion';
+        for ( const layer of stack.layers ) if ( layer !== this && layer.enabled )
+            for ( const name of this.morphChannels ) if ( layer.morphChannels.includes( name ) ) return 'another-eye-contributor';
+        for ( const object of [ this.headBone, this.rigRoot ] ) {
+            const reason = stack.posePredictionSupport( object, this );
+            if ( reason ) return reason;
+        }
+        return null;
+
+    }
+
+    clearPointAimOutput() {
+
+        this.outputEyeYawDegrees = this.outputEyePitchDegrees = null;
+        this.pointAimOutput = null;
+        const published = this.stack?.context?.shared?.gaze ?? this.lastPublishedGaze;
+        if ( published?.binocular ) {
+            published.binocular = { status: 'inactive', blend: 0 };
+            published.eyeYawDegrees = this.currentEyeYawDegrees;
+            published.eyePitchDegrees = this.currentEyePitchDegrees;
+        }
+
+    }
+
+    /** A separate output clock: GazeHead's earlier ocular-state advance must not age it. */
+    advancePointAimRelease( dt ) {
+
+        const release = this.pointAimRelease;
+        if ( !release ) return;
+        release.elapsed += dt;
+        const u = Math.min( 1, release.elapsed / release.duration );
+        release.aim.weight = release.startWeight * ( 1 - u ** 3 * ( u * ( u * 6 - 15 ) + 10 ) );
+        if ( u >= 1 ) this.pointAimRelease = null;
+
+    }
+
+    /** Refine this layer's declared contribution; MotionStack remains the only figure writer. */
+    writePointAim() {
+
+        this.outputEyeYawDegrees = this.outputEyePitchDegrees = null;
+        this.pointAimOutput = null;
+        const aim = this.targetHold?.pointAim ?? this.pointAimRelease?.aim;
+        if ( !aim || aim.weight <= 0 ) return;
+        const reason = this.pointAimSupport();
+        if ( reason || aim.binding !== this.pointAimBinding ) {
+            this.pointAimRelease = null;
+            this.pointAimOutput = { status: 'fallback', reason: reason ?? 'changed-eye-calibration', blend: 0 };
+            return;
+        }
+        const b = aim.binding, stack = this.stack;
+        if ( !stack.predictWorldMatrix( this.headBone, this, this.pointAimHeadMatrix )
+            || !stack.predictWorldMatrix( this.rigRoot, this, this.pointAimRigMatrix ) ) {
+            this.pointAimOutput = { status: 'fallback', reason: 'unavailable-pose', blend: 0 };
+            return;
+        }
+        const inverse = this.pointAimRigInverse.copy( this.pointAimRigMatrix );
+        const determinant = inverse.determinant();
+        if ( !Number.isFinite( determinant ) || Math.abs( determinant ) < 1e-12 ) {
+            this.pointAimOutput = { status: 'fallback', reason: 'invalid-rig-transform', blend: 0 };
+            return;
+        }
+        inverse.invert();
+        this.pointAimObjectToRig.multiplyMatrices( inverse, this.pointAimHeadMatrix ).multiply( b.calibration.objectToHead );
+        const point = this.pointAimPoint.copy( aim.point ).applyMatrix4( inverse );
+        let left, right;
+        try {
+            const options = { point, objectToRig: this.pointAimObjectToRig,
+                microYawDegrees: this.microsaccadeYawDegrees, microPitchDegrees: this.microsaccadePitchDegrees };
+            left = b.solver.solve( 'left', options );
+            right = b.solver.solve( 'right', options );
+        } catch ( error ) {
+            if ( !( error instanceof RangeError ) ) throw error;
+            this.pointAimOutput = { status: 'fallback', reason: 'unsupported-eye-target-or-transform', blend: 0 };
+            return;
+        }
+        const weights = {}, angles = {}, span = this.eyeExcursionDegrees;
+        for ( const [ side, result ] of [ [ 'left', left ], [ 'right', right ] ] ) {
+            const suffix = side === 'left' ? 'Left' : 'Right';
+            for ( const [ name, value ] of Object.entries( result.weights ) ) {
+                const original = this.contribution.morphs.get( name ) ?? 0;
+                const blended = original + aim.weight * ( value - original );
+                this.contribution.setMorph( name, blended );
+                // Respect the stack's declared epsilon/clamp when reporting final output.
+                weights[ name ] = stack.committedMorphValue( blended );
+            }
+            angles[ side ] = {
+                yawDegrees: ( side === 'left' ? 1 : -1 ) * ( weights[ 'eyeLookOut' + suffix ] * span.out - weights[ 'eyeLookIn' + suffix ] * span.in ),
+                pitchDegrees: weights[ 'eyeLookUp' + suffix ] * span.up - weights[ 'eyeLookDown' + suffix ] * span.down
+            };
+        }
+        this.outputEyeYawDegrees = ( angles.left.yawDegrees + angles.right.yawDegrees ) / 2;
+        this.outputEyePitchDegrees = ( angles.left.pitchDegrees + angles.right.pitchDegrees ) / 2;
+        this.pointAimOutput = { status: this.pointAimRelease ? 'releasing' : aim.weight < 1 ? 'aiming'
+            : left.status === 'aimed' && right.status === 'aimed' ? 'aimed' : 'limited',
+            solverStatus: { left: left.status, right: right.status },
+            blend: aim.weight, releasing: this.pointAimRelease !== null, weights, angles,
+            modelResidualDegrees: { left: left.errorDegrees, right: right.errorDegrees } };
+
+    }
+
     /**
      * Eye angle to the eight ARKit morphs. Each axis picks one of an opposing pair and divides by
      * that morph's measured excursion, so a weight of 1.0 means exactly the rotation the morph
@@ -1910,6 +2179,8 @@ export class Gaze extends Layer {
 
         }
 
+        this.writePointAim();
+
     }
 
     /**
@@ -1930,14 +2201,16 @@ export class Gaze extends Layer {
 
         published.yawDegrees = this.currentGazeYawDegrees;
         published.pitchDegrees = this.currentGazePitchDegrees;
-        published.eyeYawDegrees = this.currentEyeYawDegrees;
-        published.eyePitchDegrees = this.currentEyePitchDegrees;
+        published.eyeYawDegrees = this.eyeYawDegrees;
+        published.eyePitchDegrees = this.eyePitchDegrees;
         published.headYawDegrees = this.headYawDegrees;
         published.headPitchDegrees = this.headPitchDegrees;
         published.region = this.region;
         published.isAverting = this.region === 'away';
         published.isSaccading = this.saccade !== null;
         published.lastSaccadeAmplitudeDegrees = this.lastSaccadeAmplitudeDegrees;
+        if ( this.pointAimOutput || published.binocular ) published.binocular = this.pointAimOutput ?? { status: 'inactive', blend: 0 };
+        this.lastPublishedGaze = published;
 
     }
 
@@ -1974,6 +2247,9 @@ export class Gaze extends Layer {
      */
     resetState( options ) {
 
+        this.targetHold = null;
+        this.pointAimRelease = null;
+        this.clearPointAimOutput();
         this.conversationState = options.conversationState ?? 'idle';
 
         // 🚩 DEFAULT OFF, AND THE REASON IS NOT THAT IT IS WRONG. Turning it on fixes the head
@@ -2059,6 +2335,7 @@ export class Gaze extends Layer {
         this.worstStepsInAFrame = 0;
 
         this.head?.resetState();
+        this.clearPointAimOutput();
 
     }
 
@@ -2512,4 +2789,8 @@ function largerMagnitude( first, second ) {
 
     return Math.abs( first ) >= Math.abs( second ) ? first : second;
 
+}
+
+function assertPointAimWeight( value ) {
+    if ( !Number.isFinite( value ) || value < 0 || value > 1 ) throw new RangeError( 'Point aim weight must be between zero and one.' );
 }

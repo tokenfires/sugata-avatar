@@ -2175,7 +2175,7 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 // when the framing, the coverage or the map moves — which is the whole reason the
                 // bias stopped being a constant. `SHADOW BIAS` below is where the 1.5 is checked.
                 'shadow.normalBias': 1.5 * ( 2 * coverage ) / rig.shadowMapSize,
-                'shadow.radius': 1,
+                'shadow.radius': 0.010 * rig.shadowMapSize / ( 2 * coverage ),
                 'shadow.blurSamples': 8,
                 'shadow.mapSize': [ rig.shadowMapSize, rig.shadowMapSize ],
                 'shadow.mapType': UnsignedByteType,

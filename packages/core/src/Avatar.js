@@ -85,10 +85,10 @@
  * between this file and `alive.js`. `hair: 'bob01'` is opt-in, it is off by default, and §THE GROOM
  * below carries the three measured reasons it stays off.
  *
- * Still deferred rather than dropped, and named so the omission is visible: **the wardrobe**
- * (Phase 9) and **identity detail targets** (Phase 10). Both are opt-in on `alive.js` for reasons
- * that still hold — the wardrobe has fragments for one bake only, and 10.7/10.9 are open so eyes and
- * skeleton do not follow the skin.
+ * Clothing is opt-in via `wardrobe: { outfit: [...], foundation: { TORSO, HIPS } }` and `dress(ids)`.
+ * Only the resolved g050 bake has validated manifest coverage; defaults remain unchanged. The
+ * existing clothes are plumbing stand-ins, not the final authored capsule. Identity detail targets
+ * remain deferred: 10.7/10.9 are open, so eyes and skeleton do not follow those skin edits.
  *
  * ⚠️ THIS FILE DOES NOT IMPORT FROM `packages/testbed`, EVER. `core` must not depend on the
  * testbed. Where a helper was needed it was READ and reimplemented here, and every constant lifted
@@ -97,6 +97,7 @@
  * and a gate on their agreement is what keeps the liability visible instead of latent.
  */
 
+import { resolveWardrobeStyle } from './wardrobe/WardrobeStyleOptions.js';
 import { Box3, Matrix4, SRGBColorSpace, Skeleton as SkinSkeleton } from 'three';
 import {
     Color,
@@ -108,6 +109,8 @@ import {
     Vector3
 } from 'three/webgpu';
 import { max, texture, vec3, vec4 } from 'three/tsl';
+
+import { createFaceCardCoverage, FACE_CARD_COVERAGE_MODES } from './render/FaceCardCoverage.js';
 
 import { AffectState } from './affect/AffectState.js';
 import { ANCHOR_SETS } from './affect/ExpressionMap.js';
@@ -125,7 +128,8 @@ import {
     applySkinMaterial,
     cavityMapUrlFor,
     createSkinMaterial,
-    curvatureMapUrlFor
+    curvatureMapUrlFor,
+    regionMapUrlFor
 } from './material/SkinMaterial.js';
 
 import { Blink } from './motion/Blink.js';
@@ -133,6 +137,7 @@ import { BodyIdle } from './motion/BodyIdle.js';
 import { Breath } from './motion/Breath.js';
 import { FacialIdle } from './motion/FacialIdle.js';
 import { Gaze } from './motion/Gaze.js';
+import { calibrateEyeAim, EyeAimCalibrationError } from './motion/EyeAimCalibration.js';
 import { GestureLayer, syntheticSpeechPlan } from './motion/Gesture.js';
 import { HandIdle } from './motion/HandIdle.js';
 import { IdleMotion } from './motion/IdleMotion.js';
@@ -520,51 +525,69 @@ export const BACKGROUND_PRESET_NAMES = Object.freeze( Object.keys( BACKGROUND_PR
 
 // --- the groom -----------------------------------------------------------------------------------
 
-/** The one groom that exists. `assets/hair/manifest.json` declares exactly this id. */
-const HAIR_GROOM_ID = 'bob01';
-
-/** The style names `hair` accepts, beside `false`. One entry, and it is a list on purpose. */
-export const HAIR_STYLES = Object.freeze( [ HAIR_GROOM_ID ] );
-
 /**
- * The groom's five bakes, keyed on the FIGURE bake they belong to.
+ * Runtime-ready groom assets, keyed by style and the figure bake they actually fit.
+ * The manifest also contains experimental styles; only these two are supported by Avatar.
  *
- * 🚩 **THESE MUST STAY STATIC LITERALS INSIDE `new URL( …, import.meta.url )`, AND THAT IS WHY THIS
- * TABLE EXISTS AT ALL RATHER THAN A DIRECTORY AND A JOIN.** vite's asset rewrite fires only on a
- * static literal, so a URL assembled from a directory 404s in dev AND emits no asset in a build —
- * arriving as `SyntaxError: Unexpected token '<'` out of `GLTFLoader.parse`, which is `index.html`
- * being parsed as glTF and names neither the file nor the asset. `HairMaterial.js:3329-3332` carries
- * the same rule against its own `groomDirectoryUrl` convenience, and `resolveAgainstBase` carries it
- * for the figures. `figure/Identity.js:72-77` is the shape this copies.
- *
- * ⚠️ ONE GROOM PER IDENTITY BAKE, AND THE NAMES MUST MATCH. The groom is generated per figure bake
- * because a bob is cut to a skull and the five skulls differ by centimetres. A bake with no groom is
- * a MISS in this map rather than a 404 discovered at fetch time, so `attachHair` can refuse in words
- * before it requests anything.
- *
- * Measured 2026-08-17, all five bakes: **53 groom joints, 0 absent from the figure rig**, `head` /
- * `clavicle_l` / `clavicle_r` present on every one; material `hair_bob01`, `alphaMode: MASK`, cutoff
- * default 0.5, doubleSided, 17,516 vertices, 2 embedded images, exactly one skinned mesh. So the
- * rebind cannot fail on the shipped asset set — it is still checked BY NAME and refused in words,
- * because the failure it guards is a rig rename in the figure pipeline.
+ * Keep each default URL a static literal so Vite emits the asset in production builds.
+ * A missing bake is explicit: bob02 currently fits g050 only, and must never borrow bob01's
+ * geometry or put a g050 groom on another skull.
  */
-const HAIR_BAKES = new Map( [
-    [ 'figure_g000', new URL( '../../../assets/hair/bob01/g000.glb', import.meta.url ).href ],
-    [ 'figure_g025', new URL( '../../../assets/hair/bob01/g025.glb', import.meta.url ).href ],
-    [ 'figure_g050', new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href ],
-    [ 'figure_g075', new URL( '../../../assets/hair/bob01/g075.glb', import.meta.url ).href ],
-    [ 'figure_g100', new URL( '../../../assets/hair/bob01/g100.glb', import.meta.url ).href ]
-] );
-
-/**
- * The two SIDECAR sheets. `albedo.png` and `normal.png` are embedded in every groom bake and are
- * taken off the mesh's own material instead, so the material and the groom can never disagree about
- * which bake they are. Same static-literal rule as `HAIR_BAKES`.
- */
-const HAIR_SHEET_URLS = Object.freeze( {
-    flow: new URL( '../../../assets/hair/bob01/flow.png', import.meta.url ).href,
-    depth: new URL( '../../../assets/hair/bob01/depth.png', import.meta.url ).href
+const HAIR_GROOMS = Object.freeze( {
+    bob01: Object.freeze( {
+        bakes: Object.freeze( {
+            figure_g000: new URL( '../../../assets/hair/bob01/g000.glb', import.meta.url ).href,
+            figure_g025: new URL( '../../../assets/hair/bob01/g025.glb', import.meta.url ).href,
+            figure_g050: new URL( '../../../assets/hair/bob01/g050.glb', import.meta.url ).href,
+            figure_g075: new URL( '../../../assets/hair/bob01/g075.glb', import.meta.url ).href,
+            figure_g100: new URL( '../../../assets/hair/bob01/g100.glb', import.meta.url ).href
+        } ),
+        flow: new URL( '../../../assets/hair/bob01/flow.png', import.meta.url ).href,
+        depth: new URL( '../../../assets/hair/bob01/depth.png', import.meta.url ).href
+    } ),
+    bob02: Object.freeze( {
+        bakes: Object.freeze( {
+            figure_g050: new URL( '../../../assets/hair/bob02/g050.glb', import.meta.url ).href
+        } ),
+        flow: new URL( '../../../assets/hair/bob02/flow.png', import.meta.url ).href,
+        depth: new URL( '../../../assets/hair/bob02/depth.png', import.meta.url ).href
+    } )
 } );
+
+/** The style names `hair` accepts, beside `false`. */
+export const HAIR_STYLES = Object.freeze( Object.keys( HAIR_GROOMS ) );
+
+/**
+ * Resolves one style's geometry and sidecar sheets together. An unsupported figure bake returns
+ * `available: false` and null URLs before anything can be fetched. The embedded albedo/normal
+ * sheets still come from the loaded GLB itself.
+ *
+ * External hosting uses canonical filenames, not Vite's rewritten (possibly hashed) filenames.
+ * Without an override the bundler-visible URLs above are returned unchanged.
+ */
+export function resolveHairAssets( request, bakeName, assetBaseUrl = null ) {
+
+    const style = resolveHairOption( request );
+    if ( style === null ) return null;
+
+    const groom = HAIR_GROOMS[ style ];
+    const availableBakes = Object.freeze( Object.keys( groom.bakes ) );
+    const available = Object.hasOwn( groom.bakes, bakeName );
+    const assetUrl = ( bundled, filename ) => assetBaseUrl == null
+        ? bundled
+        : resolveAgainstBase( filename, assetBaseUrl, `hair/${ style }` );
+
+    return Object.freeze( {
+        style,
+        bakeName,
+        available,
+        availableBakes,
+        groomUrl: available ? assetUrl( groom.bakes[ bakeName ], `${ bakeName.slice( 7 ) }.glb` ) : null,
+        flowMapUrl: available ? assetUrl( groom.flow, 'flow.png' ) : null,
+        depthMapUrl: available ? assetUrl( groom.depth, 'depth.png' ) : null
+    } );
+
+}
 
 /**
  * Which order-independent-transparency arm each tier gets, and whether the DFTL solver runs.
@@ -707,6 +730,7 @@ export const AVATAR_DEFAULTS = Object.freeze( {
     pose: DEFAULT_REST_POSE,
     assetBaseUrl: null,
     bakedMapBaseUrl: null,
+    wardrobe: false,
 
     /**
      * 🎯 THE DEFAULTS ARE THE SHIPPED BEHAVIOUR, AND THAT IS AN ASSERTION RATHER THAN A COMMENT.
@@ -739,24 +763,25 @@ export const AVATAR_DEFAULTS = Object.freeze( {
     /**
      * 🚩 OFF, AND THE THREE REASONS ARE MEASURED RATHER THAN CAUTIOUS.
      *
-     *   1. **One groom exists.** `assets/hair/manifest.json` declares one (`bob01`) and
-     *      `assets/hair/` holds one directory. A default that names the only entry in a list of one
-     *      is a default that has to be renamed the day a second lands.
+     *   1. **Style is an explicit choice.** bob01 supports five figure bakes; the corrected
+     *      chin-length bob02 supports g050 only. Enabling hair must not silently choose an
+     *      appearance or attach a groom that was cut for a different skull.
      *   2. **Cost.** The groom is 19,202,726 B (18.313 MiB) of assets on top of the 11.5 MB bake,
      *      of which 3,327,232 B is a third `await` inside `swapFigure`; and it adds a measured
      *      **+2.0 ms at p50**. 🚩 NOT p95: the round that measured this states in docs/API.md that
      *      "p95 does not resolve — the spread between two runs of the SAME configuration is larger
      *      than the difference between configurations", and its own p95 column runs the wrong way
      *      (haired 18.8 against bald 29.6 on one repetition). p50 is the number that survived.
-     *   3. **Two process-wide mutations that a library must not make behind a caller's back.**
-     *      `createHairDynamics` returns NO `dispose` (957 kB plus five compute pipelines per swap),
-     *      and `installHairVelocity` MONKEY-PATCHES `NodeMaterial.prototype.setupPosition` globally
-     *      with no uninstall (`HairVelocity.js:162-183`). Both are benign on a testbed page and
-     *      both are process-wide in a library. `leakedHandles()` is an own-property walk and
-     *      **cannot see a prototype patch** — the same structural blindness the `setGrade` 🚩
-     *      already documents — so both are declared in `report().hair` instead of being hidden.
+     *   3. **A process-wide mutation a library must not make behind a caller's back.**
+     *      `installHairVelocity` patches `NodeMaterial.prototype.setupPosition` globally with no
+     *      uninstall. `leakedHandles()` cannot see a prototype patch, so `report().hair` declares
+     *      it. HairDynamics now owns deterministic cleanup of its per-groom GPU resources.
      */
-    hair: false
+    hair: false,
+    hairHistory: 'auto',
+
+    // Fractional brow/lash coverage only inside a verified active temporal beauty pass.
+    faceCardCoverage: 'auto'
 } );
 
 export class Avatar {
@@ -770,7 +795,7 @@ export class Avatar {
      * @param {Object} options
      * @param {HTMLCanvasElement} options.canvas - REQUIRED. Sized by CSS; `Stage` follows it.
      * @param {Object} [options.identity] - Anything `figure/Identity.js` takes. `{ gender: 0.5 }`
-     *   by default; 0 masculine, 1 feminine, anything between snaps to the nearest of five bakes.
+     *   by default; 0 feminine, 1 masculine, anything between snaps to the nearest of five bakes.
      * @param {'auto'|'high'|'balanced'|'fallback'} [options.quality='auto'] - See `QUALITY_TIERS`,
      *   including what `auto` does and does not decide.
      * @param {'portrait'|'body'} [options.frame='portrait']
@@ -801,8 +826,10 @@ export class Avatar {
      *   exposure — where `background` describes only what is behind the figure. ⚠️ An explicit
      *   `background` or `lighting` WINS over the scene's; see `AVATAR_DEFAULTS.scene`. Punch-list
      *   11.1, `render/Scene.js`.
-     * @param {false|string} [options.hair=false] - `'bob01'`, or `false` for no groom. See
+     * @param {false|string} [options.hair=false] - `'bob01'`, `'bob02'` (g050 only), or `false`. See
      *   `AVATAR_DEFAULTS.hair` for the three measured reasons it is off by default.
+     * @param {'auto'|'hold'} [options.hairHistory='auto'] - Owned TAAU card history, or explicit legacy hold.
+     * @param {'auto'|'binary'} [options.faceCardCoverage='auto'] - Temporal brow/lash coverage, or original binary alpha.
      * @returns {Promise<Avatar>}
      */
     static async create( options = {} ) {
@@ -817,6 +844,20 @@ export class Avatar {
             throw new TypeError(
                 'Avatar.create: `canvas` is required and must be an HTMLCanvasElement — ' +
                 'Avatar.create( { canvas: document.getElementById( "stage" ) } ).' );
+
+        }
+
+        const hairHistory = options.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
+        if ( ![ 'auto', 'hold' ].includes( hairHistory ) ) {
+
+            throw new TypeError( 'Avatar.create: hairHistory must be auto or hold.' );
+
+        }
+
+        const faceCardCoverage = options.faceCardCoverage ?? AVATAR_DEFAULTS.faceCardCoverage;
+        if ( ! FACE_CARD_COVERAGE_MODES.includes( faceCardCoverage ) ) {
+
+            throw new TypeError( 'Avatar.create: faceCardCoverage must be auto or binary.' );
 
         }
 
@@ -873,6 +914,8 @@ export class Avatar {
         const hairStyle = resolveHairOption( options.hair ?? AVATAR_DEFAULTS.hair );
 
         const identity = new Identity( options.identity ?? AVATAR_DEFAULTS.identity );
+        const wardrobeRequest = resolveWardrobeOption( options.wardrobe ?? AVATAR_DEFAULTS.wardrobe );
+        if ( wardrobeRequest !== null ) validateWardrobePlan( await identity.resolve() );
 
         // 🚩 REFUSED RATHER THAN LEFT TO BE DISCOVERED. `Identity` in `LIVE_PREVIEW` mode resolves
         // to TWO bakes (`Identity.js:245-246`) and `swapFigure` takes `plan.figures[0].url` only, so
@@ -905,7 +948,10 @@ export class Avatar {
             scene,
             lighting,
             background,
-            hairStyle
+            hairStyle,
+            hairHistory,
+            faceCardCoverage,
+            wardrobeRequest
         } );
 
         // 🚩 THE MOST LIKELY PRODUCTION FAILURE IS A MISSING GLB, AND WITHOUT THIS IT LEAKED A WHOLE
@@ -937,7 +983,11 @@ export class Avatar {
 
         } catch ( error ) {
 
-            avatar.dispose();
+            try { avatar.dispose(); } catch ( cleanup ) {
+
+                throw new AggregateError( [ error, cleanup ], 'Avatar construction failed.', { cause: error } );
+
+            }
             throw error;
 
         }
@@ -981,6 +1031,13 @@ export class Avatar {
         // The style id, or null. Named `hairStyle` rather than `hair` so the option and the live
         // groom handle below cannot be confused for one another in `report()` or in a leak walk.
         this.hairStyle = session.hairStyle;
+
+        this.wardrobeRequest = session.wardrobeRequest ?? null;
+        this.wardrobe = null;
+        this.wardrobeAssets = null;
+        this.pendingWardrobes = new Set();
+        this.wardrobeRequestVersion = 0;
+        this.lastWardrobeError = null;
 
         // --- resolved at build ---
         this.tier = null;
@@ -1042,6 +1099,8 @@ export class Avatar {
         this.eyes = null;
         this.eyeOcclusion = null;
         this.cards = [];
+        this.faceCardCoverageMode = session.faceCardCoverage ?? AVATAR_DEFAULTS.faceCardCoverage;
+        this.faceCardCoverage = null;
         this.framedHeightMetres = PORTRAIT_HEIGHT_METRES;
 
         // Where the camera and the rig are currently pointed. Kept because `setLighting` has to
@@ -1053,15 +1112,19 @@ export class Avatar {
         //
         // Four handles rather than one because they have four different readers and three different
         // lifetimes. `hairRoot` is the Group under `figure.root`; `hairMaterial` carries a `dispose`
-        // and is therefore VISIBLE to `leakedHandles()`; `hairDynamics` carries NONE and is
-        // therefore invisible to it, which is why it is declared in `report().hair` instead; and
+        // and is therefore VISIBLE to `leakedHandles()`; `hairDynamics` owns its compute resources;
         // `hairUpdate` is the per-frame closure `advanceFrame` calls.
         this.hairRoot = null;
         this.hairMaterial = null;
         this.hairDynamics = null;
+        this.hairHistoryMode = session.hairHistory ?? AVATAR_DEFAULTS.hairHistory;
+        this.hairHistory = null;
+        this.hairFrame = null;
         this.hairUpdate = null;
         this.hairArm = 'off';
         this.hairVelocityRepaired = null;
+        this.hairContactUnavailableReason = null;
+        this.hairUnavailableReason = null;
 
         // The GLB's OWN materials, kept only so their textures can be freed. `applyHairMaterial`
         // replaces `object.material`, which orphans them — and three's `Material.dispose()` frees no
@@ -2334,11 +2397,59 @@ export class Avatar {
 
         this.requireLive( 'setIdentity' );
 
-        this.identity.set( partial );
+        if ( this.wardrobeRequest !== null ) {
 
+            // Refuse unsupported clothing fits before changing identity or retiring the visible
+            // figure. The resolved bake is authoritative, including nearest-mode rounding.
+            const candidate = new Identity( { ...this.identity.toJSON(), ...partial } );
+            validateWardrobePlan( await candidate.resolve() );
+            this.requireLive( 'setIdentity' );
+            this.identity.set( candidate.toJSON() );
+
+        } else {
+
+            this.identity.set( partial );
+
+        }
         await this.swapFigure();
 
         return this;
+
+    }
+
+    /** Wear an absolute outfit plus the configured foundation. Requires create({ wardrobe: {...} }). */
+    async dress( garmentIds ) {
+
+        this.requireLive( 'dress' );
+        if ( this.wardrobe === null ) throw new Error( 'Avatar.dress: create this avatar with wardrobe: { outfit: [...] } first.' );
+        this.wardrobe.validateOutfit( garmentIds );
+        this.wardrobeRequest = { ...this.wardrobeRequest, outfit: [ ...garmentIds ] };
+        const version = ++ this.wardrobeRequestVersion;
+        this.lastWardrobeError = null;
+        while ( true ) {
+
+            const wardrobe = this.wardrobe;
+            try {
+
+                await wardrobe.dress( garmentIds );
+                this.requireLive( 'dress' );
+
+            } catch ( error ) {
+
+                this.requireLive( 'dress' );
+                // A ready figure can replace the old wardrobe while this await is pending.
+                // Retry on the new owner only when this remains the latest accepted request.
+                if ( wardrobe === this.wardrobe ) {
+
+                    if ( version === this.wardrobeRequestVersion ) this.lastWardrobeError = error.message;
+                    throw error;
+
+                }
+
+            }
+            if ( version !== this.wardrobeRequestVersion || wardrobe === this.wardrobe ) return this;
+
+        }
 
     }
 
@@ -2379,6 +2490,28 @@ export class Avatar {
             },
 
             subsystems: this.censusOfShading(),
+            faceCardCoverage: this.faceCardCoverage?.report() ?? { requested: this.faceCardCoverageMode,
+                live: false, managedMaterials: 0, lastObservedMode: 'binary', reason: 'no card coverage owner' },
+            wardrobe: this.wardrobeRequest === null ? null : {
+                supportedBake: 'g050',
+                assetStatus: 'existing plumbing stand-ins',
+                requestedOutfit: [ ...this.wardrobeRequest.outfit ],
+                requestedStyle: this.wardrobeRequest.style ?? 'original',
+                appearance: this.wardrobe?.appearance() ?? null,
+                foundation: this.wardrobeAssets?.foundation.toJSON() ?? { ...this.wardrobeRequest.foundation },
+                floor: this.wardrobeAssets?.foundation.currentFloor() ?? [],
+                attached: this.wardrobe !== null && !this.wardrobe.disposed && this.wardrobe.body.visible &&
+                    this.wardrobe.body === this.figure?.body &&
+                    this.figure.root.parent === this.stage?.scene && this.wardrobe.worn.every( id =>
+                        this.wardrobe.wornMeshes.get( id )?.parent === this.figure.body.parent ),
+                bodyUrl: this.wardrobeAssets?.bodyUrl ?? null,
+                manifestUrl: this.wardrobeAssets?.manifestUrl ?? null,
+                fragmentUrls: this.wardrobe === null ? {} : Object.fromEntries( this.wardrobe.worn.map( id =>
+                    [ id, this.wardrobe.manifest.fragmentUrl( id, this.wardrobe.figureKey ) ] ) ),
+                pendingCandidates: this.pendingWardrobes.size,
+                state: this.wardrobe?.stats() ?? null,
+                lastError: this.lastWardrobeError
+            },
 
             /**
              * The room and the light, READ OFF THE SCENE GRAPH rather than off the options that
@@ -2491,14 +2624,15 @@ export class Avatar {
              *
              * 🚩 `undisposable` IS NOT DECORATION AND IS NOT A TODO. `dispose()`'s central claim is
              * "every handle this file acquires is released, and that is CHECKED rather than
-             * asserted" — by `leakedHandles()`, an own-property walk. Two things hair does are
-             * outside what such a walk can ever see, so they are published here instead: a solver
-             * with no `dispose` (dropped by reference; five compute pipelines and ~957 kB), and a
-             * process-wide patch of `NodeMaterial.prototype.setupPosition` with no uninstall. Both
-             * are the reason `hair` defaults to false.
+             * asserted" — by `leakedHandles()`, an own-property walk. The process-wide patch of
+             * `NodeMaterial.prototype.setupPosition` has no uninstall and is outside that walk,
+             * so it is published here. The solver's per-groom GPU resources are disposed.
              */
             hair: this.hairStyle === null ? null : {
                 style: this.hairStyle,
+                loadedStyle: this.hairRoot?.userData.groomStyle ?? null,
+                bake: this.hairRoot?.userData.groomBake ?? null,
+                unavailableReason: this.hairUnavailableReason,
                 attached: this.hairRoot !== null,
                 meshes: this.hairRoot === null
                     ? 0
@@ -2515,6 +2649,11 @@ export class Avatar {
                 // which is what the prototype patch actually consults. Recorded at attach because
                 // `HairVelocity.js` is a dynamic import and `report()` is synchronous.
                 velocityRepaired: this.hairVelocityRepaired,
+                history: this.hairHistory?.report() ?? { requested: this.hairHistoryMode, mode: 'hold',
+                    reason: this.hairHistoryMode === 'hold' ? 'explicit hold' : 'no active card history owner', live: false },
+                cardFrame: this.hairFrame?.report() ?? { mode: 'derivative', live: false, reason: 'no dynamic card frame' },
+                bodyContact: this.hairDynamics?.contactReport?.() ?? null,
+                bodyContactUnavailableReason: this.hairContactUnavailableReason,
 
                 // ⚠️ `high` fits with under a millisecond in hand — ~15.9 p95 against 16.6 — and
                 // that is a warning rather than a refusal, because the number was measured on one
@@ -2526,12 +2665,14 @@ export class Avatar {
                     // docs/API.md — "p95 does not resolve" — and this string quoted it anyway, to an
                     // embedder, as a runtime fact. A retracted measurement is not a smaller
                     // measurement.
-                    ? 'hair adds a measured +2.0 ms at p50; p95 did not resolve, see docs/API.md'
+                    ? ( this.hairDynamics?.contactReport?.() !== null && this.hairDynamics?.contactReport?.() !== undefined
+                        ? 'Body-contact frame cost requires separate measurement; earlier hair-only timings exclude it'
+                        : this.hairStyle === 'bob01'
+                        ? 'hair adds a measured +2.0 ms at p50; p95 did not resolve, see docs/API.md'
+                        : 'bob02 frame cost has not been measured; bob01 timings do not certify this groom' )
                     : null,
 
                 undisposable: Object.freeze( [
-                    'HairDynamics: createHairDynamics returns no dispose() — 5 compute pipelines and ' +
-                        '~957 kB of instancedArray storage per attach, dropped by reference',
                     'HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition ' +
                         'process-wide with no uninstall (HairVelocity.js:162-183)'
                 ] )
@@ -2655,33 +2796,40 @@ export class Avatar {
 
         if ( this.disposed === true ) return;
 
+        const errors = [];
+        const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
         this.disposed = true;
+        ++ this.loadToken; // Invalidate figure and groom loads still awaiting assets.
+        ++ this.wardrobeRequestVersion;
+        for ( const wardrobe of this.pendingWardrobes ) release( () => wardrobe.dispose() );
+        this.pendingWardrobes.clear();
 
         // First, so nothing draws into a half-torn-down scene on the frame that is already queued.
-        this.unsubscribeFrame?.();
+        release( () => this.unsubscribeFrame?.() );
         this.unsubscribeFrame = null;
 
         // Settled rather than dropped: a caller awaiting `say()` would otherwise wait forever.
-        this.settleUtterance( 'disposed' );
+        release( () => this.settleUtterance( 'disposed' ) );
 
         // `MotionStack.dispose()` disposes every layer and clears the channel maps. The layers are
         // NOT removed one by one first — `remove()` disposes as it goes (trap (e)) and doing both
         // would call `dispose()` twice on each layer.
-        this.stack?.dispose();
+        release( () => this.stack?.dispose() );
         this.stack = null;
         this.layers = {};
 
-        this.disposeShading();
+        release( () => this.disposeShading() );
 
         // Before the figure, for `swapFigure`'s reason: the groom is parented under `figure.root`
         // and `Figure.dispose()` is a traverse, so leaving it there would dispose geometry this file
         // owns and call `dispose()` on the hair material twice.
-        this.disposeHair();
+        release( () => this.disposeHair() );
+        release( () => this.disposeWardrobe() );
 
         if ( this.figure !== null ) {
 
-            this.stage?.scene.remove( this.figure.root );
-            this.figure.dispose();
+            release( () => this.stage?.scene.remove( this.figure.root ) );
+            release( () => this.figure.dispose() );
             this.figure = null;
 
         }
@@ -2692,39 +2840,39 @@ export class Avatar {
 
         if ( this.backdrop !== null ) {
 
-            this.backdrop.removeFromParent();
-            this.backdrop.geometry.dispose();
-            this.backdrop.material.dispose();
+            release( () => this.backdrop.removeFromParent() );
+            release( () => this.backdrop.geometry.dispose() );
+            release( () => this.backdrop.material.dispose() );
             this.backdrop = null;
 
         }
 
-        this.ground?.dispose();
+        release( () => this.ground?.dispose() );
         this.ground = null;
 
         // Before the stage, and it takes `stage.scene.environment` and `.background` back to null
         // itself rather than leaving them pointing at a disposed texture — `dispose()` is documented
         // as tolerant of a half-built avatar, so it can run on a scene that is still in use.
-        this.skyEnvironment?.dispose();
+        release( () => this.skyEnvironment?.dispose() );
         this.skyEnvironment = null;
 
         // Same argument, same reason: two `RenderTarget`s, a `PMREMGenerator` and the room's own
         // geometry and materials, none of which `Stage.dispose()` walks.
-        this.interiorEnvironment?.dispose();
+        release( () => this.interiorEnvironment?.dispose() );
         this.interiorEnvironment = null;
         this.environment = null;
 
-        this.lights?.dispose();
+        release( () => this.lights?.dispose() );
         this.lights = null;
 
         // Before the stage: `Stage.dispose()` sets `this.grade = null` WITHOUT disposing
         // it (`Stage.js:623`), so releasing after would drop the only reference first.
-        this.grade?.dispose();
+        release( () => this.grade?.dispose() );
         this.grade = null;
 
         // Last, and it takes the renderer, the pipeline, the temporal resolve, the ambient
         // occlusion and the rAF chain with it.
-        this.stage?.dispose();
+        release( () => this.stage?.dispose() );
         this.stage = null;
 
         this.expression = null;
@@ -2743,6 +2891,8 @@ export class Avatar {
                 'create/destroy cycle.' );
 
         }
+
+        if ( errors.length ) throw new AggregateError( errors, 'Avatar disposal failed.', { cause: errors[ 0 ] } );
 
     }
 
@@ -2853,34 +3003,67 @@ export class Avatar {
      */
     async swapFigure() {
 
-        const plan = await this.identity.resolve();
+        if ( this.disposed === true ) return;
         const token = ++ this.loadToken;
-        const figureUrl = resolveAgainstBase( plan.figures[ 0 ].url, this.assetBaseUrl, 'figures' );
+        const plan = await this.identity.resolve();
+        if ( token !== this.loadToken ) return;
+        if ( this.wardrobeRequest !== null ) validateWardrobePlan( plan );
+        const assets = resolveFigureAssets( plan.figures[ 0 ], this.assetBaseUrl, this.bakedMapBaseUrl );
+        const { bakeName } = assets;
+        let wardrobeAssets = null;
+        if ( this.wardrobeRequest !== null ) {
 
-        const figure = await Figure.load( figureUrl );
-
-        // A fast sequence of swaps starts several loads; only the newest may land. Checked after
-        // every await, and each check disposes what this attempt had already built.
-        if ( token !== this.loadToken ) {
-
-            figure.dispose();
-            return;
+            const { loadAvatarWardrobe } = await import( './wardrobe/AvatarWardrobe.js' );
+            if ( token !== this.loadToken ) return;
+            wardrobeAssets = await loadAvatarWardrobe( this.wardrobeRequest, this.assetBaseUrl );
+            if ( token !== this.loadToken ) return;
 
         }
+        const figure = await Figure.load( wardrobeAssets?.bodyUrl ?? assets.figureUrl );
+        if ( token !== this.loadToken ) { figure.dispose(); return; }
+        let skin = null;
+        let wardrobe = null;
+        try {
 
-        const bakeName = bakeNameFrom( plan.figures[ 0 ].url );
+            skin = await createSkinMaterial( {
+                albedoMap: figure.body.material.map ?? null,
+                curvatureMapUrl: assets.curvatureMapUrl,
+                cavityMapUrl: assets.cavityMapUrl,
+                regionMapUrl: assets.regionMapUrl
+            } );
+            if ( token !== this.loadToken ) { skin.dispose(); figure.dispose(); return; }
+            if ( wardrobeAssets !== null ) {
 
-        const skin = await createSkinMaterial( {
-            albedoMap: figure.body.material.map ?? null,
-            curvatureMapUrl: resolveAgainstBase( curvatureMapUrlFor( bakeName ), this.bakedMapBaseUrl, '' ),
-            cavityMapUrl: resolveAgainstBase( cavityMapUrlFor( bakeName ), this.bakedMapBaseUrl, '' )
-        } );
+                wardrobe = wardrobeAssets.create( figure );
+                this.pendingWardrobes.add( wardrobe );
+                let version;
+                do {
 
-        if ( token !== this.loadToken ) {
+                    version = this.wardrobeRequestVersion;
+                    await wardrobe.dress( this.wardrobeRequest.outfit );
+                    if ( token !== this.loadToken ) {
 
-            skin.dispose();
+                        wardrobe.dispose();
+                        this.pendingWardrobes.delete( wardrobe );
+                        skin.dispose();
+                        figure.dispose();
+                        return;
+
+                    }
+
+                } while ( version !== this.wardrobeRequestVersion );
+
+            }
+
+        } catch ( error ) {
+
+            wardrobe?.dispose();
+            this.pendingWardrobes.delete( wardrobe );
+            skin?.dispose();
             figure.dispose();
-            return;
+            if ( token !== this.loadToken ) return;
+            if ( this.wardrobeRequest !== null ) this.lastWardrobeError = error.message;
+            throw error;
 
         }
 
@@ -2898,6 +3081,7 @@ export class Avatar {
         // this file owns and calls `dispose()` on a `HairNodeMaterial` that `disposeHair` is about
         // to dispose again. Removing first makes the ownership match the disposal.
         this.disposeHair();
+        this.disposeWardrobe();
 
         if ( this.figure !== null ) {
 
@@ -2927,6 +3111,10 @@ export class Avatar {
         }
 
         this.figure = figure;
+        this.wardrobe = wardrobe;
+        this.wardrobeAssets = wardrobeAssets;
+        this.pendingWardrobes.delete( wardrobe );
+        this.lastWardrobeError = null;
         this.skeleton = skeleton;
         this.currentBakeName = bakeName;
 
@@ -2935,6 +3123,15 @@ export class Avatar {
         this.target = createMotionTarget( figure.root );
 
         this.applyShading( skin );
+        this.eyeAimUnavailableReason = null;
+        try {
+            this.layers.gaze.setPointAimCalibration( this.target,
+                calibrateEyeAim( this.eyes.globeMesh, this.eyes.corneaMesh ) );
+        } catch ( error ) {
+            if ( !( error instanceof EyeAimCalibrationError ) ) throw error;
+            this.layers.gaze.setPointAimCalibration( null );
+            this.eyeAimUnavailableReason = error.message;
+        }
 
         // 🚩 TRAP (e)'s other half. `bind()` re-runs every layer's `onBind` and re-snapshots rest;
         // the layers are neither removed nor re-added, because `MotionStack.remove` disposes them.
@@ -3014,6 +3211,8 @@ export class Avatar {
         this.skin = skin;
 
         this.cards = applyCardShading( this.figure, this.stage.multisampled );
+        this.faceCardCoverage = createFaceCardCoverage( { stage: this.stage, root: this.figure.root,
+            materials: this.cards, mode: this.faceCardCoverageMode } );
 
         this.applyEyeShading();
 
@@ -3099,13 +3298,18 @@ export class Avatar {
      */
     async attachHair( figure, bakeName, token ) {
 
-        if ( this.hairStyle === null ) return;
+        if ( token !== this.loadToken || this.disposed === true || this.hairStyle === null ) return;
+
+        const hairStyle = this.hairStyle;
+        const assets = resolveHairAssets( hairStyle, bakeName, this.assetBaseUrl );
+        this.hairUnavailableReason = null;
 
         // `setIdentity({ mode })` can reach a cross-fade after `create()` refused one. Refused in
         // words and skipped rather than thrown, because a throw here rejects `setIdentity` and
         // takes the whole swap with it — and the body half of the swap has already succeeded.
         if ( this.identity.mode === LIVE_PREVIEW ) {
 
+            this.hairUnavailableReason = `Hair '${ hairStyle }' is unavailable in identity mode '${ LIVE_PREVIEW }'.`;
             console.warn( `Avatar: hair is off while identity mode is '${ LIVE_PREVIEW }' — the groom ` +
                 'is baked per figure and a cross-fade resolves to two bakes, so it would sit on a ' +
                 'head it was not cut for.' );
@@ -3114,17 +3318,16 @@ export class Avatar {
 
         }
 
-        const groomUrl = HAIR_BAKES.get( bakeName );
+        if ( assets.available === false ) {
 
-        if ( groomUrl === undefined ) {
-
-            console.warn( `Avatar: hair '${ this.hairStyle }' is ignored on ${ bakeName } — the groom ` +
-                `is baked per identity and only ${ [ ...HAIR_BAKES.keys() ].join( ', ' ) } have one. ` +
-                'Run tools/figure-pipeline/build_figure.py --hair for this bake.' );
-
+            this.hairUnavailableReason = `Hair '${ hairStyle }' has no bake for ${ bakeName }. ` +
+                `Available figure bakes: ${ assets.availableBakes.join( ', ' ) }.`;
+            console.warn( `Avatar: ${ this.hairUnavailableReason }` );
             return;
 
         }
+
+        const groomUrl = assets.groomUrl;
 
         // Dynamic, and it is not a style choice: `material/HairMaterial.js` is four thousand lines
         // and `render/HairOIT.js`, `render/HairVelocity.js` and `motion/HairDynamics.js` are behind
@@ -3138,8 +3341,8 @@ export class Avatar {
                 import( './render/HairOIT.js' )
             ] );
 
-        const groom = await new GLTFLoader().loadAsync(
-            resolveAgainstBase( groomUrl, this.assetBaseUrl, `hair/${ this.hairStyle }` ) );
+        if ( token !== this.loadToken ) return;
+        const groom = await new GLTFLoader().loadAsync( groomUrl );
 
         // ⚠️ A THIRD `await` ON A 3,327,232 B FILE INSIDE `swapFigure`, SO THE TOKEN GUARD HAS TO
         // COVER IT. A fast gender-slider drag races this otherwise, and the loser would add its
@@ -3208,37 +3411,48 @@ export class Avatar {
         // gone before it runs. Identity transform, so `mesh.matrixWorld` — which is the solver's
         // entire input — is what it would have been parented directly.
         const hairRoot = new Group();
-        hairRoot.name = `hair.${ this.hairStyle }`;
+        hairRoot.name = `hair.${ hairStyle }`;
+        hairRoot.userData.groomStyle = hairStyle;
+        hairRoot.userData.groomBake = bakeName;
         for ( const mesh of skinned ) hairRoot.add( mesh );
-        figure.root.add( hairRoot );
+
+        // Keep pending resources outside Figure.dispose's traversal until every await is done.
+        // Its temporary local matrix stands in for the eventual parent's world transform.
+        hairRoot.matrixAutoUpdate = false;
         figure.root.updateMatrixWorld( true );
+        hairRoot.matrix.copy( figure.root.matrixWorld );
+        hairRoot.updateMatrixWorld( true );
 
-        // Rebased alongside the groom, not beside it: the two sidecar sheets live in the same
-        // directory as the five GLBs, so `assetBaseUrl` has to move all seven together or a
-        // self-hosted groom loads with a constant-1 shadow and no flow rotation — which is a
-        // DIFFERENT PICTURE and not an error.
-        const groomFolder = `hair/${ this.hairStyle }`;
+        // Geometry and sidecars come from one resolved style/bake, including external hosting.
+        let material;
+        try {
 
-        const material = await createHairMaterial( {
-            flowMapUrl: resolveAgainstBase( HAIR_SHEET_URLS.flow, this.assetBaseUrl, groomFolder ),
-            depthMapUrl: resolveAgainstBase( HAIR_SHEET_URLS.depth, this.assetBaseUrl, groomFolder ),
+            material = await createHairMaterial( {
+                flowMapUrl: assets.flowMapUrl,
+                depthMapUrl: assets.depthMapUrl,
 
-            // Read HERE, before `applyHairMaterial` would have collected it, because
-            // `createHairMaterial` needs the cutout at construction. See the ⚠️ in the header.
-            alphaMap: skinned[ 0 ].material?.map ?? null,
-            multisampled: this.stage.multisampled
-        } );
+                // The GLB owns the cutout; read it before applyHairMaterial replaces the material.
+                alphaMap: skinned[ 0 ].material?.map ?? null,
+                multisampled: this.stage.multisampled,
+                // Both bob atlases reserve strip 0 for opaque caps; all card roots have v=0.
+                // Build the root feather before configureHairMaterial binds the shadow mask.
+                cardRoots: { capStripEnd: 1 / 8, fadeLength: 0.18 }
+            } );
 
-        // Everything this attempt built, released together, so a losing load leaves nothing behind.
-        const abandon = () => {
+        } catch ( error ) {
 
-            hairRoot.removeFromParent();
             disposeGroomScene( hairRoot );
-            material.hair?.flowMap?.value?.dispose?.();
-            material.hair?.depthMap?.value?.dispose?.();
-            material.dispose();
+            throw error;
 
-        };
+        }
+
+        // Preserve the GLB materials before applyHairMaterial replaces them. The pending
+        // cleanup owns both sets, with each texture/material/geometry released once.
+        const sourceMaterials = skinned
+            .flatMap( mesh => Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] )
+            .filter( entry => entry !== null && entry !== undefined );
+        let solver = null;
+        const abandon = () => disposePendingGroom( hairRoot, solver?.dynamics, material, sourceMaterials );
 
         if ( token !== this.loadToken ) { abandon(); return; }
 
@@ -3260,27 +3474,63 @@ export class Avatar {
         // because the winner's `swapFigure` ran its `disposeHair()` and its own attach first — and
         // the loser's own token check afterwards would then null the winner's. Nothing is written
         // to `this` until every await is behind us.
-        const solver = HAIR_BY_TIER[ this.tier ].solver === true
-            ? await this.buildHairDynamics( figure, skinned, material )
-            : null;
+        try {
+
+            solver = HAIR_BY_TIER[ this.tier ].solver === true
+                ? await this.buildHairDynamics( figure, skinned, material, token, hairRoot, {
+                    hairStyle, bakeName, bodyIndices: this.wardrobe?.fullIndex ?? null
+                } )
+                : null;
+
+        } catch ( error ) {
+
+            try { abandon(); } catch ( cleanup ) {
+
+                throw new AggregateError( [ error, cleanup ], 'Hair solver construction failed.', { cause: error } );
+
+            }
+            throw error;
+
+        }
 
         if ( token !== this.loadToken ) { abandon(); return; }
 
-        // Captured before `applyHairMaterial` orphans them — see `hairSourceMaterials`.
-        this.hairSourceMaterials = skinned
-            .flatMap( ( mesh ) => ( Array.isArray( mesh.material ) ? mesh.material : [ mesh.material ] ) )
-            .filter( ( entry ) => entry !== null && entry !== undefined );
+        // Transfer ownership only now; the world transform remains the one the solver saw.
+        hairRoot.matrix.identity();
+        hairRoot.matrixAutoUpdate = true;
+        figure.root.add( hairRoot );
+        figure.root.updateMatrixWorld( true );
 
         // 🎯 THE APPLY PATH, NOT THE ASSIGNMENT LOOP. See the header.
-        const applied = applyHairMaterial( hairRoot, material );
+        let applied, history = null, frame = null;
+        try {
 
+            applied = applyHairMaterial( hairRoot, material );
+            history = solver?.createHistory?.() ?? null;
+            frame = solver?.createFrame?.() ?? null;
+
+        } catch ( error ) {
+
+            const cleanup = [];
+            try { frame?.dispose(); } catch ( e ) { cleanup.push( e ); }
+            try { history?.dispose(); } catch ( e ) { cleanup.push( e ); }
+            try { abandon(); } catch ( e ) { cleanup.push( e ); }
+            if ( cleanup.length ) throw new AggregateError( [ error, ...cleanup ], 'Hair attachment failed.', { cause: error } );
+            throw error;
+
+        }
+
+        this.hairSourceMaterials = sourceMaterials;
+        this.hairHistory = history;
+        this.hairFrame = frame;
         this.hairRoot = hairRoot;
         this.hairMaterial = material;
         this.hairDynamics = solver?.dynamics ?? null;
         this.hairUpdate = solver?.update ?? null;
         this.hairVelocityRepaired = solver?.velocityRepaired ?? null;
+        this.hairContactUnavailableReason = solver?.contactUnavailableReason ?? null;
 
-        console.log( `Avatar: hair '${ this.hairStyle }' on ${ bakeName } — ${ applied.meshes } mesh(es), ` +
+        console.log( `Avatar: hair '${ hairStyle }' on ${ bakeName } — ${ applied.meshes } mesh(es), ` +
             `arm ${ this.hairArm }, solver ${ this.hairDynamics === null ? 'off' : 'on' }.` );
 
     }
@@ -3300,7 +3550,9 @@ export class Avatar {
      * @returns {?{ dynamics, update: function, velocityRepaired: boolean }} null when the groom's
      *   shape refuses a solver. Returned rather than assigned — see the 🚩 at the call site.
      */
-    async buildHairDynamics( figure, meshes, material ) {
+    async buildHairDynamics( figure, meshes, material, token = this.loadToken, pendingRoot = null, hairSelection = null ) {
+
+        if ( token !== this.loadToken || this.disposed === true ) return null;
 
         // `deriveCardGroom` reads ONE geometry, and a two-mesh groom would need one solver each with
         // a shared collider fit. The shipped bakes are one mesh; a refusal in words is the honest
@@ -3329,78 +3581,136 @@ export class Avatar {
         const headBone = mesh.skeleton.bones[ boneIndex ];
         const headBoneInverse = mesh.skeleton.boneInverses[ boneIndex ].clone();
 
-        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity } ] = await Promise.all( [
+        const [ { createHairDynamics }, { hasHairVelocity, installHairVelocity }, { createHairSkinTransform }, historyModule, { createHairCardFrame } ] = await Promise.all( [
             import( './motion/HairDynamics.js' ),
-            import( './render/HairVelocity.js' )
+            import( './render/HairVelocity.js' ),
+            import( './motion/HairSkinTransform.js' ),
+            this.hairHistoryMode === 'auto' ? import( './render/CardRenderHistory.js' ) : Promise.resolve( null ),
+            import( './render/HairCardFrame.js' )
         ] );
 
+        // Disposal or an identity swap can finish while the dynamic imports are pending.
+        // Return to attachHair's token guard before touching the renderer or retired geometry.
+        if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+
+        let contactFactory;
+        let contactUnavailableReason = null;
+        if ( hairSelection?.hairStyle === 'bob01' ) {
+
+            if ( hairSelection.bakeName === 'figure_g050' || hairSelection.bakeName === 'figure_g025' ) {
+
+                const { selectHairBodyContactCalibration } = await import( './motion/HairBodyContactCalibration.js' );
+                if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+                const selection = await selectHairBodyContactCalibration( {
+                    style: hairSelection.hairStyle, bake: hairSelection.bakeName,
+                    body: figure.body, groom: mesh, bodyIndices: hairSelection.bodyIndices
+                } );
+                if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+
+                if ( selection.enabled ) {
+
+                    const { createHairBodyContactFactory } = await import( './motion/HairBodyContact.js' );
+                    if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
+                    contactFactory = createHairBodyContactFactory( { body: figure.body, groomMesh: mesh, selection } );
+
+                } else contactUnavailableReason = selection.reason;
+
+            } else contactUnavailableReason = `No body-contact calibration for bob01 on ${ hairSelection.bakeName }.`;
+
+        }
+
+        if ( pendingRoot !== null ) {
+
+            figure.root.updateMatrixWorld( true );
+            pendingRoot.matrix.copy( figure.root.matrixWorld );
+            pendingRoot.updateMatrixWorld( true );
+
+        }
+
+        const skinTransform = createHairSkinTransform( mesh, headBone, headBoneInverse );
         const dynamics = createHairDynamics( {
             renderer: this.stage.renderer,
-            geometry: mesh.geometry
+            geometry: mesh.geometry,
+            contactFactory
         } );
 
-        // The first call captures the gravity rest frame permanently, which is reason 1 for this
-        // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
-        dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+        try {
 
-        const bones = new Map();
-        figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
+            // The first call captures the gravity rest frame permanently, which is reason 1 for this
+            // whole subsystem running at the END of `swapFigure` — the head has to be posed by now.
+            const skin = skinTransform( { requireRigid: contactFactory !== undefined } );
+            dynamics.setHeadMatrix( skin.meshMatrixWorld, skin.headBoneMatrixWorld, skin.headBoneInverse );
 
-        const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
-        const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
-        const leftShoulder = new Vector3();
-        const rightShoulder = new Vector3();
+            const bones = new Map();
+            figure.root.traverse( ( object ) => { if ( object.isBone === true ) bones.set( object.name, object ); } );
 
-        dynamics.fitColliders( {
-            shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
-            shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
-        } );
+            const clavicleLeft = bones.get( 'clavicle_l' ) ?? null;
+            const clavicleRight = bones.get( 'clavicle_r' ) ?? null;
+            const leftShoulder = new Vector3();
+            const rightShoulder = new Vector3();
 
-        // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
-        // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
-        // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
-        // 326-vertex scalp cap shells — which are head, not hair — keep their skinning.
-        material.positionNode = dynamics.positionNode;
+            dynamics.fitColliders( {
+                shoulderLeft: clavicleLeft === null ? null : clavicleLeft.getWorldPosition( leftShoulder ),
+                shoulderRight: clavicleRight === null ? null : clavicleRight.getWorldPosition( rightShoulder )
+            } );
 
-        // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT. Overwriting `positionLocal` without also
-        // assigning `positionPrevious` leaves the groom reporting its whole displacement from the
-        // skinned rest pose as this frame's motion — p90 259.9 px/frame against a 128 px ceiling.
-        installHairVelocity( material );
+            // 🎯 THE ONE LINE THE WHOLE SUBSYSTEM ARRIVES THROUGH. `NodeMaterial.setupPosition` runs
+            // `skinning( object )` and THEN overwrites `positionLocal` with `positionNode` (r185,
+            // `NodeMaterial.js:774` and `:802`), so a card vertex takes the solver's answer and the two
+            // 326-vertex scalp cap shells — which are head, not hair — keep their skinning.
+            material.positionNode = dynamics.positionNode;
 
-        // Read back rather than assumed, and read back through the module's own predicate. See the
-        // 🚩 on `report().hair.velocityRepaired`.
-        const velocityRepaired = hasHairVelocity( material );
+            // 🎯 AND THE LINE THAT HAS TO ACCOMPANY IT. Overwriting `positionLocal` without also
+            // assigning `positionPrevious` leaves the groom reporting its whole displacement from the
+            // skinned rest pose as this frame's motion — p90 259.9 px/frame against a 128 px ceiling.
+            installHairVelocity( material );
 
-        const update = ( deltaSeconds ) => {
+            // Read back rather than assumed, and read back through the module's own predicate. See the
+            // 🚩 on `report().hair.velocityRepaired`.
+            const velocityRepaired = hasHairVelocity( material );
 
-            // The bones moved in `advanceFrame` and the renderer will not refresh their world
-            // matrices until it draws, which is after this. Idempotent against the walk
-            // `advanceFrame` already did — and required, because that walk runs before the eye
-            // update and this closure runs after `ground.update()` has moved nothing.
-            figure.root.updateMatrixWorld( true );
+            const update = ( deltaSeconds ) => {
 
-            dynamics.setHeadMatrix( mesh.matrixWorld, headBone.matrixWorld, headBoneInverse );
+                // The bones moved in `advanceFrame` and the renderer will not refresh their world
+                // matrices until it draws, which is after this. Idempotent against the walk
+                // `advanceFrame` already did — and required, because that walk runs before the eye
+                // update and this closure runs after `ground.update()` has moved nothing.
+                figure.root.updateMatrixWorld( true );
 
-            // The skull rides the head matrix above; the capsule does not, because it hangs off the
-            // clavicles and `Sway` moves the whole column.
-            if ( clavicleLeft !== null && clavicleRight !== null ) {
+                const skin = skinTransform( { requireRigid: contactFactory !== undefined } );
+                dynamics.setHeadMatrix( skin.meshMatrixWorld, skin.headBoneMatrixWorld, skin.headBoneInverse );
 
-                dynamics.setShoulders(
-                    clavicleLeft.getWorldPosition( leftShoulder ),
-                    clavicleRight.getWorldPosition( rightShoulder ) );
+                // The skull rides the head matrix above; the capsule does not, because it hangs off the
+                // clavicles and `Sway` moves the whole column.
+                if ( clavicleLeft !== null && clavicleRight !== null ) {
 
-            }
+                    dynamics.setShoulders(
+                        clavicleLeft.getWorldPosition( leftShoulder ),
+                        clavicleRight.getWorldPosition( rightShoulder ) );
 
-            return dynamics.update( deltaSeconds );
+                }
 
-        };
+                return dynamics.update( deltaSeconds );
 
-        // `HairDynamics.js:1189` grants one step while `resetPending`, which is exactly what a fresh
-        // attach wants: the first frame runs from the rest pose rather than from whatever the
-        // buffers held.
-        dynamics.reset();
+            };
 
-        return { dynamics, update, velocityRepaired };
+            // `HairDynamics.js:1189` grants one step while `resetPending`, which is exactly what a fresh
+            // attach wants: the first frame runs from the rest pose rather than from whatever the
+            // buffers held.
+            dynamics.reset();
+
+            const createHistory = historyModule === null ? null : () => historyModule.createCardRenderHistory( {
+                stage: this.stage, dynamics, mesh, material
+            } );
+            const createFrame = () => createHairCardFrame( { dynamics, mesh, material } );
+            return { dynamics, update, velocityRepaired, contactUnavailableReason, createHistory, createFrame };
+
+        } catch ( error ) {
+
+            dynamics.dispose();
+            throw error;
+
+        }
 
     }
 
@@ -3414,29 +3724,35 @@ export class Avatar {
      * decodes are another two. None of the three is reachable from `HairNodeMaterial.dispose()`,
      * which is not overridden, so all three are disposed by name here.
      *
-     * 🚩 **AND ONE THING THIS FUNCTION CANNOT UNDO, DECLARED RATHER THAN HIDDEN.**
-     * `createHairDynamics` returns no `dispose` — its five compute pipelines and ~957 kB of
-     * `instancedArray` storage are dropped by reference and freed only when three's own bookkeeping
-     * gets to them — and `installHairVelocity` patched `NodeMaterial.prototype.setupPosition`
-     * process-wide with no uninstall. `leakedHandles()` is an own-property walk and can see neither.
-     * `report().hair.undisposable` is where they are stated.
+     * HairDynamics disposes its compute nodes and private storage before the geometry is retired.
+     * `installHairVelocity` still patches `NodeMaterial.prototype.setupPosition` process-wide with
+     * no uninstall; `report().hair.undisposable` declares that separate lifetime.
      */
     disposeHair() {
 
+        const errors = [];
+        const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+        release( () => this.hairFrame?.dispose() );
+        this.hairFrame = null;
+        release( () => this.hairHistory?.dispose() );
+        this.hairHistory = null;
         this.hairUpdate = null;
+        release( () => this.hairDynamics?.dispose?.() );
         this.hairDynamics = null;
 
         // Cleared with the solver it describes. Left set, `report().hair.velocityRepaired` would
         // answer for the PREVIOUS groom on a swap where this one failed to land — which is exactly
         // the shape of report this file's census rule exists to refuse.
         this.hairVelocityRepaired = null;
+        this.hairContactUnavailableReason = null;
+        this.hairUnavailableReason = null;
 
         if ( this.hairRoot !== null ) {
 
             this.hairRoot.removeFromParent();
             this.hairRoot.traverse( ( object ) => {
 
-                if ( object.isMesh === true ) object.geometry.dispose();
+                if ( object.isMesh === true ) release( () => object.geometry.dispose() );
 
             } );
 
@@ -3449,9 +3765,9 @@ export class Avatar {
             // By name, because `Material.dispose()` frees none of them and the embedded pair is
             // 1024x1024 RGBA8 apiece. The base-colour map is ALSO the hair material's cutout, so it
             // is freed here exactly once rather than in both places.
-            source.map?.dispose?.();
-            source.normalMap?.dispose?.();
-            source.dispose?.();
+            release( () => source.map?.dispose?.() );
+            release( () => source.normalMap?.dispose?.() );
+            release( () => source.dispose?.() );
 
         }
 
@@ -3461,29 +3777,48 @@ export class Avatar {
 
             const nodes = this.hairMaterial.hair ?? {};
 
-            nodes.flowMap?.value?.dispose?.();
-            nodes.depthMap?.value?.dispose?.();
+            release( () => nodes.flowMap?.value?.dispose?.() );
+            release( () => nodes.depthMap?.value?.dispose?.() );
 
-            this.hairMaterial.dispose();
+            release( () => this.hairMaterial.dispose() );
             this.hairMaterial = null;
 
         }
+
+        if ( errors.length ) throw new AggregateError( errors, 'Hair disposal failed.' );
+
+    }
+
+    /** Detach owned fragments before Figure.dispose() traverses its borrowed body and skeleton. */
+    disposeWardrobe() {
+
+        this.wardrobe?.dispose();
+        this.wardrobe = null;
+        this.wardrobeAssets = null;
 
     }
 
     /** Drops whatever the previous bake was wearing. Called before the figure itself is disposed. */
     disposeShading() {
 
-        this.eyeOcclusion?.dispose();
-        this.eyes?.dispose();
-        this.skin?.dispose();
+        // Detach the coverage graph/Stage lease before disposing its materials. Attempt every
+        // resource even if a disposal listener throws, including during an identity swap.
+        this.layers?.gaze?.setPointAimCalibration( null );
+        const errors = [];
+        const release = resource => { try { resource?.dispose(); } catch ( error ) { errors.push( error ); } };
+        release( this.faceCardCoverage );
+        release( this.eyeOcclusion );
+        release( this.eyes );
+        release( this.skin );
+        for ( const card of this.cards ) release( card );
 
-        for ( const card of this.cards ) card.dispose();
-
+        this.faceCardCoverage = null;
         this.eyeOcclusion = null;
         this.eyes = null;
         this.skin = null;
         this.cards = [];
+
+        if ( errors.length ) throw new AggregateError( errors, 'Shading disposal failed.' );
 
     }
 
@@ -4176,8 +4511,8 @@ export function resolveBackgroundOption( request ) {
  * `hair`, from any accepted shorthand into a style id or null.
  *
  * ⚠️ `true` IS ACCEPTED AND WARNS RATHER THAN BEING THE PRIMARY FORM. A boolean cannot name a style
- * and there will be a second groom; a caller who wrote `hair: true` today would be a caller whose
- * avatar silently changed its hairstyle on the day one lands.
+ * and now there are two runtime grooms. The alias stays bob01 so an existing caller's
+ * avatar does not silently change its hairstyle when another is added.
  */
 export function resolveHairOption( request ) {
 
@@ -4291,10 +4626,75 @@ function nextPaint() {
 
 }
 
-/** The bake's own name — `figure_g050` — which is what the baked maps are keyed on. */
-function bakeNameFrom( url ) {
+/** Opt-in clothing configuration; FoundationLayer validates the actual slot choices on load. */
+export function resolveWardrobeOption( value = false ) {
 
-    return url.slice( url.lastIndexOf( '/' ) + 1 ).replace( '.glb', '' );
+    if ( value === false || value === null ) return null;
+    if ( typeof value !== 'object' || Array.isArray( value ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe must be false or { outfit: [...], foundation: { TORSO, HIPS } }.' );
+
+    }
+    const outfit = value.outfit ?? [];
+    const foundation = value.foundation ?? {};
+    if ( !Array.isArray( outfit ) || outfit.some( id => typeof id !== 'string' || id.length === 0 ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe.outfit must be an array of nonempty garment ids.' );
+
+    }
+    if ( typeof foundation !== 'object' || Array.isArray( foundation ) ||
+         Object.values( foundation ).some( id => typeof id !== 'string' || id.length === 0 ) ) {
+
+        throw new TypeError( 'Avatar.create: wardrobe.foundation must map body slots to garment ids.' );
+
+    }
+    const style = resolveWardrobeStyle( value.style );
+    return { outfit: [ ...outfit ], foundation: { ...foundation },
+        ...( style === 'original' ? {} : { style } ) };
+
+}
+
+/** Use the selected bake, not the requested continuous gender or a bundler's hashed filename. */
+export function validateWardrobePlan( plan ) {
+
+    if ( plan?.figures?.length !== 1 || plan.figures[ 0 ].gender !== 0.5 ) {
+
+        throw new TypeError( 'Avatar wardrobe: only the resolved g050 bake is supported by the current clothing manifest. ' +
+            'Choose an identity resolving to g050; other bakes and cross-fades need their own validated clothing.' );
+
+    }
+    return 'g050';
+
+}
+
+/**
+ * Resolves the selected Identity plan entry, whose gender names the actual baked figure.
+ * A production URL contains a bundler hash, so its filename is never an identity key.
+ * Supply all three skin maps explicitly: a hashed curvature URL cannot identify its siblings.
+ */
+export function resolveFigureAssets( selected, assetBaseUrl = null, bakedMapBaseUrl = null ) {
+
+    const gender = selected?.gender;
+    if ( typeof gender !== 'number' || gender < 0 || gender > 1 || Number.isInteger( gender * 4 ) === false ) {
+
+        throw new TypeError( 'Avatar: the selected figure must name a baked gender (0, 0.25, 0.5, 0.75 or 1).' );
+
+    }
+
+    const bakeName = `figure_g${ Math.round( gender * 100 ).toString().padStart( 3, '0' ) }`;
+    const bakedMap = ( bundled, suffix ) => bakedMapBaseUrl == null
+        ? bundled
+        : resolveAgainstBase( `${ bakeName }-${ suffix }.png`, bakedMapBaseUrl, '' );
+
+    return Object.freeze( {
+        bakeName,
+        figureUrl: assetBaseUrl == null
+            ? selected.url
+            : resolveAgainstBase( `${ bakeName }.glb`, assetBaseUrl, 'figures' ),
+        curvatureMapUrl: bakedMap( curvatureMapUrlFor( bakeName ), 'curvature' ),
+        cavityMapUrl: bakedMap( cavityMapUrlFor( bakeName ), 'cavity' ),
+        regionMapUrl: bakedMap( regionMapUrlFor( bakeName ), 'regions' )
+    } );
 
 }
 
@@ -4331,6 +4731,33 @@ function nearestAnchorTo( pad, points ) {
  * rig that has moved under it. ⚠️ `Material.dispose()` frees no textures, so the two embedded
  * 1024x1024 sheets are named rather than left to the material.
  */
+/** Pending ownership remains independent of the currently published Avatar groom. */
+function disposePendingGroom( root, dynamics, material, sourceMaterials ) {
+
+    const errors = [], resources = new Set(), materials = new Set( [ material, ...sourceMaterials ] );
+    const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+    release( () => dynamics?.dispose() );
+    release( () => root.removeFromParent() );
+    root.traverse( object => {
+
+        if ( !object.isMesh ) return;
+        resources.add( object.geometry );
+        for ( const entry of Array.isArray( object.material ) ? object.material : [ object.material ] ) materials.add( entry );
+
+    } );
+    for ( const entry of materials ) {
+
+        if ( !entry ) continue;
+        resources.add( entry.map ); resources.add( entry.normalMap );
+        resources.add( entry.hair?.flowMap?.value ); resources.add( entry.hair?.depthMap?.value );
+        resources.add( entry );
+
+    }
+    for ( const resource of resources ) release( () => resource?.dispose?.() );
+    if ( errors.length ) throw new AggregateError( errors, 'Pending groom cleanup failed.' );
+
+}
+
 function disposeGroomScene( root ) {
 
     root.traverse( ( object ) => {

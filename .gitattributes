@@ -2,3 +2,7 @@ assets/hair/*/*.png filter=lfs diff=lfs merge=lfs -text
 assets/wardrobe/*/*.glb filter=lfs diff=lfs merge=lfs -text
 assets/figures/*.glb filter=lfs diff=lfs merge=lfs -text
 assets/hair/*/*.glb filter=lfs diff=lfs merge=lfs -text
+tools/figure-pipeline/fixtures/bob02-g050-original.glb filter=lfs diff=lfs merge=lfs -text
+tools/figure-pipeline/fixtures/bob01-g050-original.glb filter=lfs diff=lfs merge=lfs -text
+tools/figure-pipeline/fixtures/bob01-g025-original.glb filter=lfs diff=lfs merge=lfs -text
+tools/figure-pipeline/fixtures/casual-g050-original.glb filter=lfs diff=lfs merge=lfs -text

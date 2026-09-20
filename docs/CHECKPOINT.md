@@ -1,5 +1,9 @@
 # Checkpoint — the hair phase paused 2026-08-13, control run 2026-08-14
 
+> **Current work:** read [OVERNIGHT-2026-09-08.md](OVERNIGHT-2026-09-08.md) first, then
+> [RESTART-2026-09-08.md](RESTART-2026-09-08.md) for checkout and recovery context. This older
+> checkpoint is historical; its last proposed hair experiment is not the current recommendation.
+
 **Written so a successor with none of this conversation can resume without re-deriving it.**
 
 HEAD at writing: `a9a121c`, tree clean, nothing pushed (see *The remote* below).

@@ -53,6 +53,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
 
 // three's GLTFLoader assumes a browser when it decodes embedded textures: it reads `self.URL` and
 // hands the resulting blob URL to createImageBitmap. Nothing here inspects pixels, so the two
@@ -72,6 +73,18 @@ const MANIFEST_PATH = path.join( repoRoot, 'assets', 'wardrobe', 'manifest.json'
 const BODY_PATH = path.join( repoRoot, 'assets', 'wardrobe', 'body', 'g050.glb' );
 const BAKED_SUIT_SHOES_PATH = path.join( repoRoot, 'assets', 'wardrobe', 'baked', 'suit_shoes_g050.glb' );
 const BAKED_SUIT_PATH = path.join( repoRoot, 'assets', 'wardrobe', 'baked', 'suit_g050.glb' );
+const CASUAL_PATH = path.join( repoRoot, 'assets', 'wardrobe', 'female_casualsuit01', 'g050.glb' );
+
+// An explicit test-only loader override exercises a qualified successor without installing it.
+// Expectations come from independently reviewed asset identities, never from runtime statistics.
+const casualTestPath = process.env.SUGATA_CASUAL_TEST_ASSET ?
+    path.resolve( process.env.SUGATA_CASUAL_TEST_ASSET ) : CASUAL_PATH;
+const casualDigest = createHash( 'sha256' ).update( fs.readFileSync( casualTestPath ) ).digest( 'hex' );
+const casualExpectations = {
+    '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783': { interiorTriangles: 0, dressedDrawCalls: 4 },
+    'd81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a': { interiorTriangles: 140, dressedDrawCalls: 5 }
+}[ casualDigest ];
+if ( !casualExpectations ) throw new Error( 'Wardrobe selftest: unqualified casual fixture digest.' );
 
 // The measured reference, from docs/research/wardrobe-system.md §2.4 and reproduced by this repo's
 // own builds. Quoted, not re-derived — and every one of them is also read back off a baked GLB
@@ -142,7 +155,8 @@ async function loadGltf( filePath ) {
  */
 function loadFragmentFromDisk( url ) {
 
-    return loadGltf( fileURLToPath( url ) );
+    const file = fileURLToPath( url );
+    return loadGltf( file === CASUAL_PATH ? casualTestPath : file );
 
 }
 
@@ -989,8 +1003,17 @@ async function checkDressCycle( wardrobe ) {
     record( redressed.worn.join( ',' ) === 'female_casualsuit01,shoes01,fedora01',
         'garments are worn innermost-first', redressed.worn.join( ' -> ' ) );
 
-    record( redressed.drawCalls === 4, 'one draw call per garment, plus the body',
-        `${ redressed.drawCalls }` );
+    const casualInterior = wardrobe.fragments.get( 'female_casualsuit01' ).interior;
+    const expectedInterior = casualExpectations.interiorTriangles;
+    record( expectedInterior === 0 ? casualInterior === null :
+        casualInterior?.fullTriangles === 140 && casualInterior.drawnTriangles === 140 &&
+        casualInterior.sourceTriangles.length === 140 && new Set( casualInterior.sourceTriangles ).size === 140,
+        'the qualified casual asset has its exact expected interior owner',
+        `${ casualDigest.slice( 0, 12 ) }: ${ casualInterior?.drawnTriangles ?? 0 } interior triangles, expected ${ expectedInterior }` );
+
+    record( redressed.drawCalls === casualExpectations.dressedDrawCalls,
+        'draw cost includes the body, each garment, and the qualified interior when present',
+        `${ redressed.drawCalls }, expected ${ casualExpectations.dressedDrawCalls }` );
 
     // 🎯 A fully dressed figure has FEWER triangles than a nude one — research §1.1, 35,784
     // against 36,924, measured on the whole figure. Here, on the body plus garments alone.

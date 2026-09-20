@@ -1,0 +1,33 @@
+# A small smile during attention
+
+Current follow-through: the selected optional cue is integrated in the live pages; see [SMILE-INTEGRATION-2026-09-13.md](SMILE-INTEGRATION-2026-09-13.md). The study and prototype descriptions below remain the historical evidence at their capture time.
+
+The first warmer-attention study compares the current action with two narrow alternatives: an additive mouth-corner lift, and an earlier press of Release. The mouth-corner candidate looks more approachable in the primary reviewer's held comparison; the earlier release chiefly shortens the interaction. This is a bounded reading of one neutral, silent, clothed g050 character. Neither candidate is installed in the live preview yet.
+
+[Compare the three recordings](http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/warm-attention-2026-09-13/gallery/review.html). The [working clothed attention action](SHOWCASE-ATTENTION-2026-09-13.md) remains unchanged.
+
+## What changed in the experiment
+
+All three fresh Showcase instances use the same Everyday outfit, chin-length bob, portrait framing, seed, camera and natural motion. Each carries the same declared study layer. The current and earlier-release controls give that layer a zero peak. The smile arm adds 0.18 to each mouthSmile corner at full attention, following the existing attention envelope. It writes no brow, eye, jaw or speech channel and does not change affect. This is one bilateral corner cue, not a new full-face emotion.
+
+The earlier-release arm presses the existing Release button at1.65 seconds. It uses that button's0.3-second return instead of the natural action's later0.8-second return. The comparison therefore changes release timing and duration together; it does not isolate held duration alone. The intervention is the existing public action, with no method override or modified gaze controller.
+
+Each run advances270 steps at60Hz through4.5 seconds and saves91 original PNGs at20Hz plus fifteen states. All three finish idle with their starting configuration, no browser errors, zero native memory counters and no leaked handles. The MP4s encode all91 frames and run4.55 seconds, including both sampled endpoints. The gallery's shared hold, play, seek, live links and390-pixel layout pass. Its shared seek compares selected times; simultaneous playback is not a frame-lock claim or a browser performance measurement.
+
+The root comparison verifies340 source/helper/artifact hashes. Across all fifteen current/smile state pairs, the full bones, gaze/point output, hair, camera, clock, affect and every non-corner body morph match exactly. The two corner differences equal the authored cue. Recorded native morph and physical/card state returns are exact at0,3.4,3.417,4 and4.5 seconds. The earlier-release control remains exact through1.65 seconds before the intervention. Per-frame eye ownership is asserted by the capture driver; sampled comparisons do not establish causal equality in unrecorded states.
+
+The primary reviewer views both1.5-second holds, the current2-second hold, early-release1.7/2-second samples and the smile at3 seconds. The smile offers a small polite softening without the previously rejected sustained squint/brow profile. This does not establish joy, genuine emotion, human recognition accuracy, speech legibility or general eye contact. Hair strips, facial finish and the neckline remain visible limitations.
+
+The independent critic also favors the corner direction after eight sampled images viewed through original-resolution JPEG copies of the saved PNGs. It sees a mild polite/approachable lift at the hold, a smaller onset difference and a reduced residual at release, without obvious new overacting in those samples. Earlier Release removes engagement sooner but supplies no separate warmer facial cue. This is sampled reviewer agreement, not continuous-motion or population validation.
+
+## Composition before promotion
+
+The existing corner cap applies per caller, not to the accumulated mouth. The independent critic demonstrates that expression0.35 plus a measured idle-corner stand-in0.032615 plus the new0.18 gives0.562615, while the OVR speech shape remains numerically separate. Running a prefix limit before FacialIdle also misses that layer's later corner addition. These are CPU sum/order observations, not rendered speech-quality claims.
+
+The proposed final morph-only layer runs after FacialIdle and limits its own symmetric addition by the remaining0.35 corner budget. It leaves an existing over-budget expression unchanged and adds zero; it does not impose a global cap on other owners. A later declared corner writer, missing morphs or altered own layer weight declines the cue. A scratch implementation using the existing frame accumulators passes seven focused MotionStack groups: qualified neutral amplitude, accumulated budget, preserved over-budget prefix, later-writer refusal, current weighted prefix/missing support, lifecycle cleanup and finite envelope bounds. The critic independently imports the actual prototype with real ExpressionLayer, VisemeLayer and MotionStack: with a0.6 viseme and0.04 idle stand-in, expression0/0.20/0.35 yields cue0.18/0.11/0 and final smile0.22/0.35/0.39. This preserves existing over-budget output and leaves the viseme unchanged numerically. It is not installed or browser-qualified.
+
+The alternative is carrying the social corner intent through ExpressionLayer. That centralizes the expression source but needs an explicit timing design: the current ExpressionLayer runs before Viseme and does not actually inspect shared.speaking despite comments elsewhere saying it does. Neither route justifies changing global PAD or promising arbitrary mixed-emotion behavior.
+
+The next bounded implementation should make the small smile an explicit optional action, preserve the existing default and test interpolation, repeated requests, speech, cancellation, reset/rebind and physical return. Preserve the pure corner comparison as the appearance reference. Review additional expressions/views after composition is qualified, rather than inferring their quality from the neutral study. AAA appearance, broader representative identities, nuanced agent intent and complete performance remain open in the [product roadmap](PRODUCT-ROADMAP.md).
+
+The local archive, source snapshots, executed drivers and critic evidence are indexed by the tracked [manifest](evidence/warm-attention-2026-09-13.manifest.json) and [ledger](evidence/warm-attention-2026-09-13.json). Ignored capture files are local evidence, not an off-machine backup. Scratch drivers retain original absolute paths and no-overwrite guards; use fresh destinations and serialize GPU replay.

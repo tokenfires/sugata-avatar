@@ -3,7 +3,7 @@
     "Punch-list 3.6. The authority on what a hair groom IS, read by the build, by the asset gate",
     "Every groom below is one entry in hair_cards.py's HAIR_STYLES table — `--hair <id>` selects a",
     "SHAPE, not just an output directory. bob01 is the byte-identical control (sha256 98ca6c23...)",
-    "that the style refactor is verified against and the groom every committed measurement was taken",
+    "that the style refactor was verified against and the original material measurements were taken",
     "on; it is DELIBERATELY not the corrected bob. bob02 is. See docs/research/hairstyle-targets.md.",
     "",
     "and by the runtime — the same arrangement assets/wardrobe/manifest.json has, and for the same",
@@ -14,9 +14,11 @@
     "formality and cannot be taken off, so resolving it through the garment clause would make that",
     "clause the authority on a thing with none of the fields it reads.",
     "",
-    "The GLBs beside this file are BUILD OUTPUT and are gitignored. Rebuild with:",
+    "The GLBs beside this file are shipping Git LFS assets. Produce original exports with:",
     "  blender --background --python tools/figure-pipeline/build_figure.py --python-exit-code 1 -- \\",
-    "      --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01"
+    "      --gender 0.5 --output assets/figures/figure_g050.glb --hair bob01",
+    "bob02/g050 requires hair_fall.mjs, hair_hem.mjs, then hair_tail_release.mjs after export.",
+    "See tools/figure-pipeline/README.md; direct regeneration without all three stages restores cheek-wrap and motion-clearance defects."
   ],
   "grooms": [
     {
@@ -61,7 +63,7 @@
     {
       "id": "bob02",
       "material": "hair_bob02",
-      "description": "Chin-length graduated bob: tapered nape, occipital volume, front longer than back. The corrected bob — see docs/research/hairstyle-targets.md.",
+      "description": "Chin-length graduated bob: tapered nape, released front curtains and a refined jaw-length hem on g050. Run hair_fall.mjs, hair_hem.mjs, then hair_tail_release.mjs after export; see tools/figure-pipeline/README.md.",
       "alphaMode": "MASK",
       "alphaCutoff": 0.5,
       "doubleSided": true,

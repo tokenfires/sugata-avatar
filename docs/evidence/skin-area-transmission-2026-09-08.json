@@ -1,0 +1,166 @@
+{
+  "date": "2026-09-08",
+  "repair": "Integrate area-light transmission over the back-facing hemisphere using the basis-free identity-LTC form factor. Punctual transmission, thickness, strength, cavity and lighting parameters remain unchanged.",
+  "sourceHashes": {
+    "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "packages/core/src/material/SkinTransmission.selftest.mjs": "09fcd34e1f9a7ac06bac59b78c5a05010de1036d2e54fb8f42f1b6782fc721de"
+  },
+  "focusedRegression": {
+    "passed": 22,
+    "checks": [
+      "GPU factor is finite and bounded in every regular and degenerate case",
+      "GPU integral matches the independent coaxial rectangle integral at five sizes and another distance",
+      "nonemitting/front-only panels and declared degenerate cases contribute exactly zero",
+      "a panel crossing the receiver horizon contributes even with center cosine zero",
+      "horizon response is continuous on both sides",
+      "distance changes the factor by the independent solid-angle ratio",
+      "rigidly rotating the scene preserves the back-hemisphere integral",
+      "corrected: all scene-buffer components are finite",
+      "corrected: pose, camera and animation clock remain fixed",
+      "corrected: supplied irradiance remains constant",
+      "corrected: zero browser errors",
+      "actual eye, mouth and ear retain positive transmission",
+      "thick cheek transmits less than the thin ear",
+      "actual thin-tissue transmission is invariant to panel size within finite-panel variation",
+      "old-radiance-only: all scene-buffer components are finite",
+      "old-radiance-only: pose, camera and animation clock remain fixed",
+      "old-radiance-only: supplied irradiance remains constant",
+      "old-radiance-only: zero browser errors",
+      "exactly one prior-code rejection injection",
+      "prior code fails invariance with the predicted inverse-solid-angle growth",
+      "transmission-off scene output at scale 1 is byte-identical to the original",
+      "transmission-off scene output at scale 0.5 is byte-identical to the original"
+    ],
+    "report": "captures/skin-transmission-regression-2026-09-09/report.json",
+    "reportSha256": "47c6a617f99826c80a13a87d6468c1d3ddba20a8d57620c4582060bbc410cce6"
+  },
+  "measuredSizeRatios": {
+    "nearEye": [
+      0.991195389720438,
+      0.9912319458305342,
+      0.9911764033749506
+    ],
+    "mouth": [
+      0.9918973411445428,
+      0.9919956746888093,
+      0.9920161007526869
+    ],
+    "ear": [
+      0.9929095267831562,
+      0.9926702460177852,
+      0.9927020481635215
+    ]
+  },
+  "oldCodePredictedGrowthRatio": 3.937632495995225,
+  "existingSkinChecks": [
+    {
+      "name": "corrected-deferred",
+      "passed": 14,
+      "total": 14,
+      "errors": [
+        {
+          "type": "console",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "location": {
+            "url": "http://localhost:5205/favicon.ico",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "corrected-forward",
+      "passed": 14,
+      "total": 14,
+      "errors": [
+        {
+          "type": "console",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "location": {
+            "url": "http://localhost:5205/favicon.ico",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        }
+      ]
+    }
+  ],
+  "browserCheckNotes": "Existing skin modes retain a missing favicon console entry; the verified report identifies localhost:5205/favicon.ico. No page, shader or requested asset failures. Focused regression and portrait A/B have no browser errors.",
+  "production": "All17pages build. Three production WebGPU poses over2seconds complete with no browser errors. Existing chunk-size warning remains.",
+  "cost": {
+    "status": "Inconclusive: prior-code p95 drifts1.146\u21923.256ms across the ABBA sequence; corrected2.495/2.645ms lies within that drift. No incremental cost claim is supported.",
+    "runs": [
+      {
+        "arm": "old",
+        "perf": {
+          "available": true,
+          "samples": 200,
+          "p95": 1.1455899999999999,
+          "median": 0.463987,
+          "min": 0.08104,
+          "max": 3.1571949999999998,
+          "quantumMs": 1.000000000001e-06
+        },
+        "errors": []
+      },
+      {
+        "arm": "corrected",
+        "perf": {
+          "available": true,
+          "samples": 200,
+          "p95": 2.494636,
+          "median": 0.6154390000000001,
+          "min": 0.080998,
+          "max": 4.064750999999999,
+          "quantumMs": 2.000000000002e-06
+        },
+        "errors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        ]
+      },
+      {
+        "arm": "corrected",
+        "perf": {
+          "available": true,
+          "samples": 200,
+          "p95": 2.644793,
+          "median": 0.6592720000000001,
+          "min": 0.077705,
+          "max": 4.156248,
+          "quantumMs": 2.000000000002e-06
+        },
+        "errors": []
+      },
+      {
+        "arm": "old",
+        "perf": {
+          "available": true,
+          "samples": 200,
+          "p95": 3.2563180000000003,
+          "median": 0.635481,
+          "min": 0.077499,
+          "max": 3.708095,
+          "quantumMs": 1.000000000001e-06
+        },
+        "errors": []
+      }
+    ],
+    "reportSha256": "a81a95895268f1c7d87b496946f92d6096a19048e9ac5f53a922e64c3dcdbcf7"
+  },
+  "limits": [
+    "The helper expects a unit normal and uses Three r185 clipped-sphere horizon approximation.",
+    "External transmission occlusion is unchanged.",
+    "Focused tests and visual review are not a full gate-suite or AAA-art certification.",
+    "Measurements taken on a dirty working tree."
+  ],
+  "artifactManifests": {
+    "captures/skin-transmission-regression-2026-09-09/hashes.json": "a36ef13df3109139027138219835743d2e686353ad3afc36da3b57ea573a512b",
+    "captures/area-transmission-fixed-2026-09-09/hashes.json": "adc7b58ae8786674aedc4be8711985505052f8d646d92b2254ac7c6ef137a4e9",
+    "captures/skin-browser-checks-verified-2026-09-09/hashes.json": "ba886a3ec2d366baabac6d5e76c2143994998d4c5dce264ee2517d6573b0a8fe"
+  }
+}

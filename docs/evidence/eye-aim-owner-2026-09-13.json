@@ -1,0 +1,41 @@
+{
+  "status": "bounded solver and native-contribution prototype; no production runtime integration",
+  "sourceRevision": "0679770c9eedf15fc9c79c6e623bfe1d40cd1474",
+  "created": "2026-09-13T22:45:59.071680+00:00",
+  "archive": "captures/eye-aim-owner-2026-09-13",
+  "fileCount": 198,
+  "totalBytes": 52905164,
+  "manifestSHA256": "68b5d1cb4289ef7bf74622b5959226920d8f52d206e9d8c50ac853b232115919",
+  "criticManifestSHA256": "274636b43425f1a9acdce079c6bbf1358951ec4cfe17a28064de219003092675",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "7e254a254a73f8499be03dafce401ee838af0100bde7eba9a30609f48e8772a2",
+    "packages/core/src/motion/Gaze.js": "1e056b278429097cdd9be6160b4d0bdecd8af1d215544e9dc50bc80070fa5c8d",
+    "packages/core/src/motion/MotionStack.js": "e449757472e3d7ed9ded89984b3317fde7b9fa3ee1339798ccc550ee837153bc",
+    "packages/core/src/motion/FacialIdle.js": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07",
+    "packages/core/src/motion/AttentionAction.js": "ddbe98b6325cf89f646a9281b2945cf63841de3f8f83692d59ab6e0995de7b24",
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+  },
+  "checks": {
+    "cpu": "report-v2.json",
+    "finalBrowser": "browser-v4/report.json",
+    "gallery": "gallery/check.json",
+    "critic": "critic/REVIEW.md",
+    "criticBrowser": "critic/BROWSER-V4-ADDENDUM.md"
+  },
+  "limits": [
+    "V1 halted on an exact comparison of negative zero in a live view matrix against JSON-normalized positive zero. V2 canonicalizes the physical record through JSON before comparing saved records; no tolerance is added.",
+    "V3 rejected an Out cap computed as .8500000000000001 by floating-point roundoff before candidate installation. V4 caps the policy-derived ratio at .85; the solver input validator is unchanged.",
+    "V4 preserves native Gaze horizontal comfort exactly with separate In/Out bounds. The v2 unblended solver exceeded that nominal In cap at three onset frames; this is a policy correction, not evidence of discomfort.",
+    "Scratch Gaze method hooks write declared contributions before the native single commit. No production source changed.",
+    "Single sampled camera action, current g050 long bob, 240 steps over four seconds. Twelve representative frames per arm; continuous playback not captured.",
+    "Corrected mean authored eye pitch reaches FacialIdle and legitimately changes eyelid widening and brow follow. Other face/motion streams continue naturally.",
+    "Later enabled ancestor writers reject. This prototype has no production profile rebinding API, full interruption qualification or allocation/performance acceptance."
+  ],
+  "failedAttempts": {
+    "browser-v1": "Signed-zero serialization comparison; original completed and candidate stopped at step0. Both retirements recorded.",
+    "browser-v3": "Derived Out limit rounded to .8500000000000001; rejected before candidate installation. Both retirements recorded."
+  },
+  "intermediate": "browser-v2 passed under a uniform .85 channel limit. It is superseded by v4 preserving native horizontal comfort."
+}

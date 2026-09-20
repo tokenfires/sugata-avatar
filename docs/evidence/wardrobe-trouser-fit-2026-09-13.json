@@ -1,0 +1,94 @@
+{
+  "schema": "sugata-wardrobe-trouser-fit-evidence-v1",
+  "date": "2026-09-13",
+  "sourceHEAD": "62bef74",
+  "status": "installed; final built-page and image-export gates pass",
+  "sourceHashes": {
+    ".gitattributes": "9a1808dfcaad255d99678089d83f2ff8e45e14c0d79d5324edcc2b41424bb185",
+    "tools/figure-pipeline/casual_trouser_fit.mjs": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f",
+    "tools/figure-pipeline/casual_trouser_cuff.mjs": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992",
+    "tools/figure-pipeline/casual_trouser_fit.selftest.mjs": "e0768ae93b2e5e88c81349475b3fba18e660d2464116385e2e0df77c91473908",
+    "tools/figure-pipeline/wardrobe_under_masks.mjs": "bf2a79667bb26210d5efb2f1bd74fb4bbd13021cbd43802c4a23ef5a61f522f4",
+    "tools/figure-pipeline/fixtures/wardrobe-g050-under-masks-v1.json": "13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "packages/testbed/pages.js": "aa73b205dea6349000ccf23bc562d541f83506cee341608943f73d6ccddceb9b",
+    "packages/testbed/src/showcase.html": "33a08210caf5cc911bd4aea73224d4ea69a5f166121ac1cd3a45dee47c6ea2f7",
+    "packages/testbed/src/showcase.gpu.selftest.mjs": "b2efe47ded34c62691f5821caa36e3f8b5ccec690a0338f0b55f85dcfc057eac",
+    "packages/testbed/src/showcase.js": "24258bc4b09a7053c6b0b817a876e24ad47620b1b3e6d30e64ac3861a2123511",
+    "packages/core/src/Avatar.js": "fe80f1306282b9af1ae88ae75f0537dda6b7d8dfbf2eb782b861fa409e59217f",
+    "packages/core/src/wardrobe/Wardrobe.js": "9b938ce42f49cac21f8de3e4bee1d9427df40dbd029c983732c73b4b8ade6e0c",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "5fc8649ab17942b729332a7678d1ae2aa0488cbda73a3f902aa8a53338726d18"
+  },
+  "candidateSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+  "qualification": {
+    "fitCPUGroups": 7,
+    "independentPortableGroups": 6,
+    "foundationMaskGroups": 8,
+    "wardrobeAssertions": 50,
+    "avatarWardrobeGroups": 13,
+    "showcasePresetGroups": 4,
+    "catalogueAssertions": 92,
+    "builtShowcaseGroups": 19,
+    "imageExportGroups": 13,
+    "allPagesBuild": "pass with existing large-chunk warnings",
+    "matchedFinalViews": 8,
+    "pairedPoses": 2,
+    "maskSuccessorFootprintChecks": 23310
+  },
+  "archive": {
+    "path": "captures/wardrobe-trouser-fit-2026-09-13",
+    "files": 184,
+    "bytes": 172092489,
+    "manifestSHA256": "f39cb9b1066f69789482da38192a4ad6fb0ddf2f36d1f6d734ee0fb4b28c6126",
+    "allFilesRereadAndVerified": true
+  },
+  "proofs": {
+    "posedGeometry": "posed-cuff-audit.json",
+    "restGeometry": "straight-leg-cuff.json",
+    "independent": "independent-review/REVIEW.md",
+    "maskCompatibility": "independent-review/mask-successor-evidence.json",
+    "portable": "independent-review/portable-integration-evidence.json",
+    "builtBrowser": "installed-showcase/report.json",
+    "imageExport": "installed-image-export/report.json"
+  },
+  "limits": [
+    "Only g050 casual clothing with existing shoes.",
+    "Rest and four-second natural motion snapshots do not certify every pose.",
+    "2mm projected vertical clearance is not2mm nearest-surface clearance.",
+    "Body/neckline and existing self contacts remain, with exact matched pair identities.",
+    "The frozen mask calibration and its historical scope are unchanged.",
+    "New outfits, broader body fits, agent outfit suggestions and AAA appearance remain open."
+  ],
+  "preview": {
+    "verifiedAt": "2026-09-13T20:08:55.034552+00:00",
+    "sessionId": 47539,
+    "watch": false,
+    "http": [
+      {
+        "url": "http://127.0.0.1:5197/src/showcase.html",
+        "status": 200,
+        "sha256": "7303c643badad5412e4b66cdb487bf5a82d2f0582e7242ea3c5d2d6d5486722c",
+        "fileExact": false
+      },
+      {
+        "url": "http://127.0.0.1:5197/pages.js",
+        "status": 200,
+        "sha256": "ea223ac40750568d39647130f3e3e794a6f764d5a11acd7f5b292e3b9f167f6b",
+        "fileExact": false
+      },
+      {
+        "url": "http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+        "status": 200,
+        "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+        "fileExact": true
+      },
+      {
+        "url": "http://127.0.0.1:5197/@fs/Users/robault/GitHub/sugata-avatar/captures/wardrobe-trouser-fit-2026-09-13/review.html",
+        "status": 200,
+        "sha256": "8715e2c3925ebe99e67331dc31c6b039df8d195ece9a5bf9c9749b39439c61a3",
+        "fileExact": true
+      }
+    ],
+    "comparisonImagePathsValid": 16
+  }
+}

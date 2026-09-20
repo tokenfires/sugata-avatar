@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-08",
+  "installed": false,
+  "control": {
+    "sameCameraHeadAndClock": true,
+    "sameNeutralLights": true,
+    "control": "Only skinUniforms.transmissionStrength changes from 1 to 0. No shipping files changed.",
+    "limitation": "One transmission toggle identifies the source term. It does not separate per-light contributions, directional thickness, light visibility, or area-light energy normalization. Screenshot deltas include downstream bloom and temporal rendering."
+  },
+  "findings": {
+    "neutralRimRedEmissionRatio": 19.752050908589265,
+    "nearEyeDisplayDeltaRGB": [
+      57.71848670145883,
+      26.7516866857205,
+      17.253171626416233
+    ],
+    "mouthDisplayDeltaRGB": [
+      49.09486954025209,
+      22.058653373521963,
+      14.746153654709758
+    ],
+    "neckControlDisplayDeltaRGB": [
+      0.7857142388820648,
+      0.3308097235343439,
+      0.3245556093580717
+    ]
+  },
+  "conclusion": "Transmission accounts for most conspicuous orange glow in this neutral-light pose. This toggle alone does not establish a material defect. Area-light energy normalization is under a separate controlled test.",
+  "sourceHashes": {
+    "packages/core/src/material/SkinMaterial.js": "3ac773d4500fa00bde01f7f6702af4fb86697b73e07594226aee1324a7b592d0",
+    "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336"
+  },
+  "artifactHashes": {
+    "captures/neutral-transmission-control-2026-09-08/transmission-off-0.png": "a44092d69e70039118b0563e9bf2baf2eaf23ebc9fba8c070d8586d2a0467eab",
+    "captures/neutral-transmission-control-2026-09-08/probe.cjs": "967ca29fbe80f349e90140656e73208e78ebbc189eab299a112c3d382dc93f98",
+    "captures/neutral-transmission-control-2026-09-08/transmission-off.json": "f4c5cc0e5e3b3ee9e449f4b09f39b601dddf408137bce5c345bafc459cf030fe",
+    "captures/neutral-transmission-control-2026-09-08/neutral-0.png": "15756bf1736b6f9e76c4fdac4dac3bfc96b87630ac5936191cdb7b21df477e5d",
+    "captures/neutral-transmission-control-2026-09-08/transmission-off-45.png": "26d7172b490cc5ba6a008dd583f7bcb510e198780d2b51f10c857e2618a0c3a9",
+    "captures/neutral-transmission-control-2026-09-08/pixels.json": "8c66e38dc4f28e14bb48715d5a0aee015b719a3800835aaccd4555ae2fcfa875",
+    "captures/neutral-transmission-control-2026-09-08/neutral-45.png": "1189fd31d55d4048690c40ed6dbd4c5af2b4b5b7d0cb7b7c989c587ead5a0f0f",
+    "captures/neutral-transmission-control-2026-09-08/neutral.json": "e22d7e836ed1232942a18445e09f2f98b1f7cc856e0f61eaaa67284a0a91e301",
+    "captures/neutral-transmission-control-2026-09-08/pixels.mjs": "8a9f050848fb3d40a614ada187b5e924cb839e77feab127c2160804300138c99",
+    "captures/neutral-transmission-control-2026-09-08/control-proof.json": "cbe972e85dd9c5e1445998cb966dc73546ab5b2962e9770bd52377909eb140ed"
+  }
+}

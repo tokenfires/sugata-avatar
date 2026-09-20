@@ -1,0 +1,3627 @@
+{
+  "id": "bob01-g025-composed-rest-v1",
+  "originalSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+  "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+  "anatomySha256": "afbc1707c868c6286f84be12ae09cf40902ac4ea3c6710191966f04155e017ea",
+  "stamp": {
+    "id": "bob01-g025-composed-rest-v1",
+    "originalSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+    "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+    "necklineSha256": "f5a9b157ef877df66ed3a874f813c70148cb720d62c9eeaaf5522acf0bcd89e1",
+    "connectorSha256": "c9b8daf78ae270ae94a29d021786f57d911a24b6a8f8ba07c3ee9845cd8c7432",
+    "status": "scratch rest composition; visual and motion acceptance pending"
+  },
+  "stages": {
+    "fall": {
+      "fileSha256": "9a9280a4e80d5b3b64cadd35eeb59ee2ebe06d531c27cce70b994d50bf6e3737",
+      "positionSha256": "49803634b39f7078047f73f13973383c5ee89e0eb33a75926827412cfdccb806",
+      "normalSha256": "0b75f421ed95e9c3f5bbde27eb0f84ea42d0c72f070b7c3dbe62fa67fee06add"
+    },
+    "contacts": {
+      "fileSha256": "5b49fbb24f664255fe86721ad1b5d12096152582224b7fa29dd3151e78c740aa",
+      "positionSha256": "1f075f13e83290e22185a10e439830f415dcd8959363a52e41cb669372915aa9",
+      "normalSha256": "860b76af2d2b61e4c873966c4b33587fba07e8a3dc5bcfaef8fdb0236ac3d4f9"
+    },
+    "rootReversal": {
+      "fileSha256": "38f311ae8256b2b6edd2c7329648153946b265d0eaeb6e4cd7cd50a52ce5e10d",
+      "positionSha256": "b5745390b5893a511e12018fdc3aaedc72968873c4f8fc83e8cd4dbdee5b9182",
+      "normalSha256": "aaa60d687ac23193416d3c4bf20d05c3ca67fbd6b54113362980dad83612aa2a"
+    },
+    "rootSupport": {
+      "fileSha256": "a986d9e761f52ad15e0e5f8b911152e93051f488015de90da6b7174ab83e2267",
+      "positionSha256": "1a15ccf70991b4bd7cf0de3cdc6018f31f9d85ffbc3e23817c09c3575b562ee0",
+      "normalSha256": "9ec331b225332252a7005bcf292ba70acb5db554daedeca7e03a6680892954e0"
+    },
+    "sideFall": {
+      "fileSha256": "af69a89e930a7d77b282f1a1124177b001fd4da8d22bbf24a491212910851992",
+      "positionSha256": "e151a815abfda4db453161f2ae916026e5b7f69cc541a74b0a3ccddc0485375e",
+      "normalSha256": "98cada46dad8c01ed40f16a2ada5beea58cd66816d9290dde471354eeaf61c8d"
+    },
+    "actualBands": {
+      "fileSha256": "f5a9b157ef877df66ed3a874f813c70148cb720d62c9eeaaf5522acf0bcd89e1",
+      "positionSha256": "3caa9e32bf5515d941976e39b622f26de53173405cb055475063f91cb32ad3ee",
+      "normalSha256": "eec3ff4dc283d8728ea0cff5399f655b64aa27cc2525a767fa9dbe8103932caf"
+    },
+    "composition": {
+      "fileSha256": "556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716",
+      "positionSha256": "e338a19fdc689d577f49cae39ba544d5352ff5299f8812d26800684326c2b804",
+      "normalSha256": "7a5b904332d3a21a63815ddeb1be97786e68ba3ec80d3df1c59f1e4c0a722f28"
+    }
+  },
+  "outputSha256": "556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716",
+  "outputBinSha256": "d22844bef558aef42c7cf69d3ffc2c6e3abe5cfb6898815e31c69b1c5b091194",
+  "fall": {
+    "parameters": {
+      "bake": "g025",
+      "sourceSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+      "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+      "anatomySha256": "afbc1707c868c6286f84be12ae09cf40902ac4ea3c6710191966f04155e017ea",
+      "scale": {
+        "x": 0.9854925316385303,
+        "y": 0.9673074363096035,
+        "z": 0.9806921587656717,
+        "cheekVertex": 5891
+      },
+      "releaseY": 1.5527573234471501,
+      "transition": 0.024182685907740087,
+      "frontZ": 0.028654778368613874,
+      "rearSplitZ": -0.0007659863943562731,
+      "sideX": 0.03449223860734857,
+      "faceZ": 0.03846169995627059,
+      "inwardExcursion": 0.019709850632770608,
+      "headCentreZ": 0.028654778368613874,
+      "abruptNeckY": 1.4699873822387366,
+      "abruptLength": 0.07738459490476828,
+      "drapeY": 1.4506412335125445,
+      "drapeHeight": 0.1160768923571524,
+      "clearance": 0.002,
+      "outwardStep": 0.002,
+      "outwardLimit": 0.04,
+      "faceBounds": {
+        "min": [
+          null,
+          1.4012449760878487,
+          0.057497814059186234
+        ],
+        "max": [
+          null,
+          1.5329378881428255,
+          null
+        ]
+      },
+      "method": "Region from pinned corresponding-body envelope. Y map uses chin/brow; Z map head-bind/nose; X uses corresponding lateral-face vertex. These are classification and transition parameters only. Every displacement is searched against this actual body; none are copied from g050."
+    },
+    "originalBodyContactCards": [
+      98,
+      101,
+      111,
+      115,
+      123,
+      125,
+      128,
+      131,
+      171,
+      189,
+      203,
+      205,
+      217,
+      218,
+      226,
+      241,
+      242,
+      247,
+      264,
+      266,
+      290,
+      303,
+      307,
+      309,
+      352,
+      386,
+      388,
+      395,
+      398,
+      447,
+      461
+    ],
+    "failedCards": [
+      98,
+      101,
+      266
+    ],
+    "selections": [
+      {
+        "card": 78,
+        "anchor": [
+          0.08340461090477326,
+          1.5527573234471501,
+          0.03241982299875491
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.293218086121691,
+        "maxMoveMm": 12.069928499778296,
+        "outwardSteps": 0
+      },
+      {
+        "card": 81,
+        "anchor": [
+          0.07061326930331478,
+          1.5527573234471501,
+          0.10361567566421671
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.319637249603738,
+        "maxMoveMm": 4.559401963226891,
+        "outwardSteps": 0
+      },
+      {
+        "card": 83,
+        "anchor": [
+          0.07206159501339733,
+          1.5527573234471501,
+          0.10013554798640216
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.937296767446869,
+        "maxMoveMm": 1.98374359871685,
+        "outwardSteps": 0
+      },
+      {
+        "card": 85,
+        "anchor": [
+          -0.07268689045077682,
+          1.5527573234471501,
+          0.09698175614751521
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.875345304288195,
+        "maxMoveMm": 10.246342358649976,
+        "outwardSteps": 0
+      },
+      {
+        "card": 86,
+        "anchor": [
+          -0.06955498059686743,
+          1.5527573234471501,
+          0.10704324269785143
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.656701644813488,
+        "maxMoveMm": 8.895914754238953,
+        "outwardSteps": 0
+      },
+      {
+        "card": 87,
+        "anchor": [
+          0.08332180046567121,
+          1.5527573234471501,
+          0.04231456269091514
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.596663166910888,
+        "maxMoveMm": 7.681874568549782,
+        "outwardSteps": 0
+      },
+      {
+        "card": 90,
+        "anchor": [
+          0.08216086359428706,
+          1.5527573234471501,
+          0.0491667203242252
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.962059105000283,
+        "maxMoveMm": 6.630394176715043,
+        "outwardSteps": 0
+      },
+      {
+        "card": 91,
+        "anchor": [
+          0.08121907334392402,
+          1.5527573234471501,
+          0.06776077442245504
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.246774175585055,
+        "maxMoveMm": 13.670768547705144,
+        "outwardSteps": 0
+      },
+      {
+        "card": 93,
+        "anchor": [
+          -0.083070498430591,
+          1.5527573234471501,
+          0.051236232958437544
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.3994317037643444,
+        "maxMoveMm": 3.5356399653962978,
+        "outwardSteps": 0
+      },
+      {
+        "card": 99,
+        "anchor": [
+          -0.0699028608801144,
+          1.5527573234471501,
+          0.10763005025913233
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.728826086928645,
+        "maxMoveMm": 10.619030654646714,
+        "outwardSteps": 0
+      },
+      {
+        "card": 106,
+        "anchor": [
+          -0.08265954172575637,
+          1.5527573234471501,
+          0.05347193144680204
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.851632185762409,
+        "maxMoveMm": 8.941932677866665,
+        "outwardSteps": 0
+      },
+      {
+        "card": 108,
+        "anchor": [
+          0.08019600289340544,
+          1.5527573234471501,
+          0.0650809628483584
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.5073285714949805,
+        "maxMoveMm": 11.697570257144449,
+        "outwardSteps": 0
+      },
+      {
+        "card": 109,
+        "anchor": [
+          -0.0710884229421065,
+          1.5527573234471501,
+          0.10384898687120839
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.5003321372254845,
+        "maxMoveMm": 11.881296443884152,
+        "outwardSteps": 0
+      },
+      {
+        "card": 110,
+        "anchor": [
+          -0.0577790307645419,
+          1.5527573234471501,
+          0.12792025391889314
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.900101179191758,
+        "maxMoveMm": 0.2847153408596925,
+        "outwardSteps": 0
+      },
+      {
+        "card": 111,
+        "anchor": [
+          -0.06054724704535658,
+          1.5527573234471501,
+          0.12238663467825743
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 2,
+        "minimumSampledMm": 3.5546432394726253,
+        "maxMoveMm": 71.088718874152,
+        "outwardSteps": 1
+      },
+      {
+        "card": 116,
+        "anchor": [
+          -0.06556735240131836,
+          1.5527573234471501,
+          0.11526933897529022
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.3027970998989185,
+        "maxMoveMm": 5.80313854128342,
+        "outwardSteps": 0
+      },
+      {
+        "card": 117,
+        "anchor": [
+          0.07017518090471697,
+          1.5527573234471501,
+          0.10531481799571168
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.587570853792421,
+        "maxMoveMm": 0.9328916379655605,
+        "outwardSteps": 0
+      },
+      {
+        "card": 119,
+        "anchor": [
+          -0.06391413163437365,
+          1.5527573234471501,
+          0.11838132347277192
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.14042440958458,
+        "maxMoveMm": 2.1660107006025164,
+        "outwardSteps": 0
+      },
+      {
+        "card": 122,
+        "anchor": [
+          -0.07599422197365634,
+          1.5527573234471501,
+          0.08490759925942788
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.932395328992019,
+        "maxMoveMm": 5.036307978867213,
+        "outwardSteps": 0
+      },
+      {
+        "card": 123,
+        "anchor": [
+          -0.05855517036645426,
+          1.5527573234471501,
+          0.12478434207290268
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 2.290762526644236,
+        "maxMoveMm": 69.62303292567191,
+        "outwardSteps": 0
+      },
+      {
+        "card": 128,
+        "anchor": [
+          -0.05391334915276048,
+          1.5527573234471501,
+          0.13127271202389693
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 2,
+        "minimumSampledMm": 2.292448577432475,
+        "maxMoveMm": 77.89634131295497,
+        "outwardSteps": 1
+      },
+      {
+        "card": 131,
+        "anchor": [
+          0.05696295666107522,
+          1.5527573234471501,
+          -0.036248981521456836
+        ],
+        "posterior": true,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "rear-fall",
+        "outwardPushMm": 34.000000000000014,
+        "minimumSampledMm": 2.9131181009843914,
+        "maxMoveMm": 206.19124112172764,
+        "outwardSteps": 17
+      },
+      {
+        "card": 132,
+        "anchor": [
+          -0.06548871584057885,
+          1.5527573234471501,
+          0.11594244509558457
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.971955126558475,
+        "maxMoveMm": 5.151455475092701,
+        "outwardSteps": 0
+      },
+      {
+        "card": 135,
+        "anchor": [
+          -0.06629584168197916,
+          1.5527573234471501,
+          0.11415223197003647
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.48356386661792,
+        "maxMoveMm": 1.4245975494603935,
+        "outwardSteps": 0
+      },
+      {
+        "card": 138,
+        "anchor": [
+          -0.06152140947561304,
+          1.5527573234471501,
+          0.12206412505118894
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.730894841145129,
+        "maxMoveMm": 4.1116461394314,
+        "outwardSteps": 0
+      },
+      {
+        "card": 140,
+        "anchor": [
+          -0.08131108129244638,
+          1.5527573234471501,
+          0.06966158617463881
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.069057929193711,
+        "maxMoveMm": 12.518589141186004,
+        "outwardSteps": 0
+      },
+      {
+        "card": 141,
+        "anchor": [
+          0.0824646903361748,
+          1.5527573234471501,
+          0.05267497571707453
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.649404257775213,
+        "maxMoveMm": 11.844853886551695,
+        "outwardSteps": 0
+      },
+      {
+        "card": 142,
+        "anchor": [
+          -0.06829719500605169,
+          1.5527573234471501,
+          0.10906596025952213
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.594587212636624,
+        "maxMoveMm": 11.169316936174067,
+        "outwardSteps": 0
+      },
+      {
+        "card": 143,
+        "anchor": [
+          0.0784975693715555,
+          1.5527573234471501,
+          0.07284345441623073
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.591368233217982,
+        "maxMoveMm": 11.175806928966692,
+        "outwardSteps": 0
+      },
+      {
+        "card": 146,
+        "anchor": [
+          0.07892580330371857,
+          1.5329474210739136,
+          0.07154136151075363
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.630388234766541,
+        "maxMoveMm": 11.050380766391754,
+        "outwardSteps": 0
+      },
+      {
+        "card": 148,
+        "anchor": [
+          -0.054911012392547955,
+          1.5527573234471501,
+          0.1316075024387432
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.592842535501722,
+        "maxMoveMm": 0.4978326341701367,
+        "outwardSteps": 0
+      },
+      {
+        "card": 149,
+        "anchor": [
+          -0.06670333171675574,
+          1.5527573234471501,
+          0.11316990305412153
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.818215070911483,
+        "maxMoveMm": 20.687420912484043,
+        "outwardSteps": 0
+      },
+      {
+        "card": 150,
+        "anchor": [
+          -0.05339370181257415,
+          1.5527573234471501,
+          0.1312201047604973
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.818718543678546,
+        "maxMoveMm": 63.185457184617185,
+        "outwardSteps": 0
+      },
+      {
+        "card": 151,
+        "anchor": [
+          -0.07113118658422476,
+          1.5527573234471501,
+          0.10135118040917979
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.044193042232517,
+        "maxMoveMm": 7.819356421222751,
+        "outwardSteps": 0
+      },
+      {
+        "card": 153,
+        "anchor": [
+          -0.08082643183071382,
+          1.5527573234471501,
+          0.07169667067368471
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.902655424776893,
+        "maxMoveMm": 13.357341607401443,
+        "outwardSteps": 0
+      },
+      {
+        "card": 154,
+        "anchor": [
+          -0.07586597136252352,
+          1.5527573234471501,
+          0.08610603218945095
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.3663967848543725,
+        "maxMoveMm": 5.951079046658952,
+        "outwardSteps": 0
+      },
+      {
+        "card": 157,
+        "anchor": [
+          0.08466437391318367,
+          1.5527573234471501,
+          0.03633508557904088
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.193743802313118,
+        "maxMoveMm": 21.053566851988297,
+        "outwardSteps": 0
+      },
+      {
+        "card": 159,
+        "anchor": [
+          -0.07831322928603346,
+          1.5527573234471501,
+          0.07603910231258582
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.0772716547152275,
+        "maxMoveMm": 7.125673496085949,
+        "outwardSteps": 0
+      },
+      {
+        "card": 160,
+        "anchor": [
+          0.08080451935529709,
+          1.5209832191467285,
+          0.07207691669464111
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.10957683643838,
+        "maxMoveMm": 12.22178339958191,
+        "outwardSteps": 0
+      },
+      {
+        "card": 161,
+        "anchor": [
+          -0.08178809724701247,
+          1.5527573234471501,
+          0.05976443948240507
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.6555553721637155,
+        "maxMoveMm": 10.691304429896686,
+        "outwardSteps": 0
+      },
+      {
+        "card": 164,
+        "anchor": [
+          -0.07781689338232356,
+          1.5527573234471501,
+          0.08361095200294143
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.31028099465643,
+        "maxMoveMm": 7.574711961997327,
+        "outwardSteps": 0
+      },
+      {
+        "card": 165,
+        "anchor": [
+          0.081440496532784,
+          1.5527573234471501,
+          0.06103055107492272
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.286531856454723,
+        "maxMoveMm": 9.800392477379335,
+        "outwardSteps": 0
+      },
+      {
+        "card": 167,
+        "anchor": [
+          0.08348746217774124,
+          1.5527573234471501,
+          0.039989477702392195
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.9811788339785545,
+        "maxMoveMm": 7.110383286940761,
+        "outwardSteps": 0
+      },
+      {
+        "card": 168,
+        "anchor": [
+          -0.08313637618549923,
+          1.5527573234471501,
+          0.047309791438855546
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.594135007472761,
+        "maxMoveMm": 8.105840725980793,
+        "outwardSteps": 0
+      },
+      {
+        "card": 170,
+        "anchor": [
+          -0.07169761026639127,
+          1.5527573234471501,
+          0.09991724163935609
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.440189062744042,
+        "maxMoveMm": 6.780165083590973,
+        "outwardSteps": 0
+      },
+      {
+        "card": 171,
+        "anchor": [
+          0.030211444944143295,
+          1.4744850397109985,
+          -0.030195143073797226
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": true,
+        "mode": "rear-fall",
+        "outwardPushMm": 16,
+        "minimumSampledMm": 2.5137095808367724,
+        "maxMoveMm": 115.15472623996594,
+        "outwardSteps": 8
+      },
+      {
+        "card": 172,
+        "anchor": [
+          -0.07309772051132993,
+          1.5527573234471501,
+          0.09846980586435651
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.31241597214664,
+        "maxMoveMm": 7.154948778522768,
+        "outwardSteps": 0
+      },
+      {
+        "card": 174,
+        "anchor": [
+          0.07690136496417457,
+          1.5527573234471501,
+          0.08181092751530468
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.519841768278924,
+        "maxMoveMm": 6.331253689455335,
+        "outwardSteps": 0
+      },
+      {
+        "card": 175,
+        "anchor": [
+          -0.06773638211428835,
+          1.5527573234471501,
+          0.11065083343489707
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.0693251966490775,
+        "maxMoveMm": 5.832517969009424,
+        "outwardSteps": 0
+      },
+      {
+        "card": 176,
+        "anchor": [
+          -0.06219100946560237,
+          1.5527573234471501,
+          0.12210160152108723
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.52183189102578,
+        "maxMoveMm": 2.4819339910274185,
+        "outwardSteps": 0
+      },
+      {
+        "card": 177,
+        "anchor": [
+          -0.0805821641153864,
+          1.5527573234471501,
+          0.06534166210725595
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 6.440653712056277,
+        "maxMoveMm": 9.338237232642571,
+        "outwardSteps": 0
+      },
+      {
+        "card": 178,
+        "anchor": [
+          0.08113763613827643,
+          1.5527573234471501,
+          0.054856901005078715
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.18077466037221,
+        "maxMoveMm": 9.563804997281405,
+        "outwardSteps": 0
+      },
+      {
+        "card": 179,
+        "anchor": [
+          0.07969803152364432,
+          1.5527573234471501,
+          0.06404779080744964
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.244625272754291,
+        "maxMoveMm": 10.95511553567588,
+        "outwardSteps": 0
+      },
+      {
+        "card": 180,
+        "anchor": [
+          -0.08095859033025388,
+          1.5527573234471501,
+          0.0669456830351514
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.993839580879595,
+        "maxMoveMm": 11.31710451997403,
+        "outwardSteps": 0
+      },
+      {
+        "card": 186,
+        "anchor": [
+          -0.08364568650722504,
+          1.532753825187683,
+          0.05581144988536835
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.249384762305654,
+        "maxMoveMm": 6.925828754901886,
+        "outwardSteps": 0
+      },
+      {
+        "card": 187,
+        "anchor": [
+          -0.07959778589534049,
+          1.5527573234471501,
+          0.07133897643244426
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.116922657930234,
+        "maxMoveMm": 12.776225631706758,
+        "outwardSteps": 0
+      },
+      {
+        "card": 189,
+        "anchor": [
+          -0.07924231141805649,
+          1.529575228691101,
+          0.018941499292850494
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 4,
+        "minimumSampledMm": 2.2244384645511546,
+        "maxMoveMm": 3.999999999999999,
+        "outwardSteps": 2
+      },
+      {
+        "card": 194,
+        "anchor": [
+          0.08122577754033039,
+          1.5527573234471501,
+          0.047093717267415056
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.088273705214042,
+        "maxMoveMm": 13.07390120995472,
+        "outwardSteps": 0
+      },
+      {
+        "card": 196,
+        "anchor": [
+          -0.07584091751662134,
+          1.5527573234471501,
+          0.08990399308726359
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.243495151120498,
+        "maxMoveMm": 7.102054644497619,
+        "outwardSteps": 0
+      },
+      {
+        "card": 200,
+        "anchor": [
+          0.07792479667970452,
+          1.5527573234471501,
+          0.07121965452179442
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.032265272806022,
+        "maxMoveMm": 9.455220142095419,
+        "outwardSteps": 0
+      },
+      {
+        "card": 203,
+        "anchor": [
+          0.08029705286026001,
+          1.5504626035690308,
+          0.013296505436301231
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 4,
+        "minimumSampledMm": 3.2100571233615467,
+        "maxMoveMm": 4.000000000000007,
+        "outwardSteps": 2
+      },
+      {
+        "card": 204,
+        "anchor": [
+          -0.07956879585981369,
+          1.532982349395752,
+          0.07455310970544815
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.167680911211694,
+        "maxMoveMm": 13.084769248962402,
+        "outwardSteps": 0
+      },
+      {
+        "card": 205,
+        "anchor": [
+          -0.07960596680641174,
+          1.5431709289550781,
+          0.004208652302622795
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 8,
+        "minimumSampledMm": 3.5684151526710983,
+        "maxMoveMm": 8.000000000000004,
+        "outwardSteps": 4
+      },
+      {
+        "card": 207,
+        "anchor": [
+          0.07288750303451161,
+          1.5527573234471501,
+          0.09245359149561085
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.066531115194775,
+        "maxMoveMm": 6.698131985107464,
+        "outwardSteps": 0
+      },
+      {
+        "card": 208,
+        "anchor": [
+          0.07047437457190149,
+          1.5527573234471501,
+          0.09435572684711067
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.065530206870013,
+        "maxMoveMm": 2.9063182865201735,
+        "outwardSteps": 0
+      },
+      {
+        "card": 209,
+        "anchor": [
+          -0.06508486644651112,
+          1.5527573234471501,
+          0.11014401594398919
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.590176084509247,
+        "maxMoveMm": 0.8623220148247235,
+        "outwardSteps": 0
+      },
+      {
+        "card": 210,
+        "anchor": [
+          0.08079156236628107,
+          1.5527573234471501,
+          0.053906413798824146
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.076212326368404,
+        "maxMoveMm": 12.510023581777135,
+        "outwardSteps": 0
+      },
+      {
+        "card": 213,
+        "anchor": [
+          -0.08197448458031958,
+          1.5527573234471501,
+          0.041370689449723864
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.0292885600245105,
+        "maxMoveMm": 11.147492187779607,
+        "outwardSteps": 0
+      },
+      {
+        "card": 217,
+        "anchor": [
+          -0.04583863350422286,
+          1.5527573234471501,
+          0.12087986848824189
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 16,
+        "minimumSampledMm": 2.228121571823671,
+        "maxMoveMm": 60.04392000167199,
+        "outwardSteps": 8
+      },
+      {
+        "card": 218,
+        "anchor": [
+          -0.03622658643290485,
+          1.5527573234471501,
+          0.14192758839130545
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.919253806434682,
+        "maxMoveMm": 35.93869200704399,
+        "outwardSteps": 0
+      },
+      {
+        "card": 221,
+        "anchor": [
+          -0.06576160835703729,
+          1.5527573234471501,
+          0.1134743631732164
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.119142559235532,
+        "maxMoveMm": 15.923542255963069,
+        "outwardSteps": 0
+      },
+      {
+        "card": 222,
+        "anchor": [
+          -0.06246819189194075,
+          1.5527573234471501,
+          0.11490833197826471
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.0011887876555585,
+        "maxMoveMm": 5.555512666734375,
+        "outwardSteps": 0
+      },
+      {
+        "card": 225,
+        "anchor": [
+          -0.06187309556773694,
+          1.5527573234471501,
+          0.11580770401928897
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.667167799152075,
+        "maxMoveMm": 4.066193933997465,
+        "outwardSteps": 0
+      },
+      {
+        "card": 226,
+        "anchor": [
+          -0.07824533752578783,
+          1.5527573234471501,
+          0.012333674766823628
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 6,
+        "minimumSampledMm": 3.754725875971889,
+        "maxMoveMm": 6.000000000000005,
+        "outwardSteps": 3
+      },
+      {
+        "card": 228,
+        "anchor": [
+          -0.08054602146148682,
+          1.5493850708007812,
+          0.05558624863624573
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.171034866673877,
+        "maxMoveMm": 12.448325753211975,
+        "outwardSteps": 0
+      },
+      {
+        "card": 230,
+        "anchor": [
+          -0.061389078873649756,
+          1.5527573234471501,
+          0.11702635152294269
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.1411269649723055,
+        "maxMoveMm": 0.6751395049249334,
+        "outwardSteps": 0
+      },
+      {
+        "card": 237,
+        "anchor": [
+          0.07611246949371965,
+          1.5527573234471501,
+          0.082470983965035
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.9767857286932395,
+        "maxMoveMm": 9.163817226263596,
+        "outwardSteps": 0
+      },
+      {
+        "card": 239,
+        "anchor": [
+          0.08023093640804291,
+          1.5313369035720825,
+          0.06340253353118896
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.248351791294276,
+        "maxMoveMm": 8.48531723022461,
+        "outwardSteps": 0
+      },
+      {
+        "card": 241,
+        "anchor": [
+          0.08180428684073958,
+          1.5527573234471501,
+          0.048864756045439973
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.973652028247512,
+        "maxMoveMm": 74.64599857422981,
+        "outwardSteps": 0
+      },
+      {
+        "card": 242,
+        "anchor": [
+          -0.04803220808274923,
+          1.5527573234471501,
+          0.13363654184807175
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.994933929252202,
+        "maxMoveMm": 40.19476220956284,
+        "outwardSteps": 0
+      },
+      {
+        "card": 243,
+        "anchor": [
+          -0.07321284755957778,
+          1.5527573234471501,
+          0.08993493505681978
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.104554766536711,
+        "maxMoveMm": 4.604690222865901,
+        "outwardSteps": 0
+      },
+      {
+        "card": 247,
+        "anchor": [
+          0.08090253915963792,
+          1.5527573234471501,
+          0.00938726695764551
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 4,
+        "minimumSampledMm": 2.830739694065763,
+        "maxMoveMm": 3.9999999999999973,
+        "outwardSteps": 2
+      },
+      {
+        "card": 249,
+        "anchor": [
+          0.07160988367961658,
+          1.5527573234471501,
+          0.10910566028345021
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.736627433521386,
+        "maxMoveMm": 3.2785377638222117,
+        "outwardSteps": 0
+      },
+      {
+        "card": 250,
+        "anchor": [
+          -0.07980356823786794,
+          1.5527573234471501,
+          0.08171709963909433
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.714155333560594,
+        "maxMoveMm": 4.411962741461384,
+        "outwardSteps": 0
+      },
+      {
+        "card": 254,
+        "anchor": [
+          -0.06018043186988906,
+          1.5527573234471501,
+          0.12923945250822746
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.28131398241672,
+        "maxMoveMm": 3.8027441771193713,
+        "outwardSteps": 0
+      },
+      {
+        "card": 255,
+        "anchor": [
+          -0.08480626336809004,
+          1.5527573234471501,
+          0.057357098614545896
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.524607823197455,
+        "maxMoveMm": 5.125835459192637,
+        "outwardSteps": 0
+      },
+      {
+        "card": 262,
+        "anchor": [
+          0.08418678845637835,
+          1.5527573234471501,
+          0.05944920910487845
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.284645904485263,
+        "maxMoveMm": 11.321950511870751,
+        "outwardSteps": 0
+      },
+      {
+        "card": 264,
+        "anchor": [
+          0.08530127281446959,
+          1.5527573234471501,
+          0.03073897510828036
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.0217224829263545,
+        "maxMoveMm": 96.23992094893957,
+        "outwardSteps": 0
+      },
+      {
+        "card": 269,
+        "anchor": [
+          0.07998996014211888,
+          1.5527573234471501,
+          0.0806657449035325
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.533746392367016,
+        "maxMoveMm": 3.840310224039509,
+        "outwardSteps": 0
+      },
+      {
+        "card": 270,
+        "anchor": [
+          -0.07436119061101407,
+          1.5527573234471501,
+          0.101052934710819
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.647865895029398,
+        "maxMoveMm": 12.455575579294859,
+        "outwardSteps": 0
+      },
+      {
+        "card": 273,
+        "anchor": [
+          -0.0856561080498393,
+          1.5527573234471501,
+          0.041697532295986016
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 7.8188090970046815,
+        "maxMoveMm": 12.559303729027068,
+        "outwardSteps": 0
+      },
+      {
+        "card": 278,
+        "anchor": [
+          -0.07621086389969091,
+          1.5527573234471501,
+          0.09471241263326244
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.553579856564499,
+        "maxMoveMm": 7.945507776243491,
+        "outwardSteps": 0
+      },
+      {
+        "card": 284,
+        "anchor": [
+          -0.0584885675671647,
+          1.5527573234471501,
+          0.1311455829713327
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.539997168082555,
+        "maxMoveMm": 8.20790717631082,
+        "outwardSteps": 0
+      },
+      {
+        "card": 285,
+        "anchor": [
+          -0.06395784413269553,
+          1.5527573234471501,
+          0.12395811811615835
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.109424742351594,
+        "maxMoveMm": 1.2500325386861355,
+        "outwardSteps": 0
+      },
+      {
+        "card": 287,
+        "anchor": [
+          0.072616739392734,
+          1.5527573234471501,
+          0.10604837341151192
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.273717569355536,
+        "maxMoveMm": 2.98872423217339,
+        "outwardSteps": 0
+      },
+      {
+        "card": 289,
+        "anchor": [
+          0.08276601880788803,
+          1.5495507717132568,
+          0.06689918786287308
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 4.155291069849841,
+        "maxMoveMm": 11.076942086219788,
+        "outwardSteps": 0
+      },
+      {
+        "card": 290,
+        "anchor": [
+          0.0795663371682167,
+          1.546736240386963,
+          -0.0025884583592414856
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "preserve-path",
+        "outwardPushMm": 4,
+        "minimumSampledMm": 3.672414030162455,
+        "maxMoveMm": 3.9999999999999973,
+        "outwardSteps": 2
+      },
+      {
+        "card": 291,
+        "anchor": [
+          -0.08475002401677907,
+          1.5527573234471501,
+          0.054401305007813455
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.26565117148304,
+        "maxMoveMm": 10.807988580148823,
+        "outwardSteps": 0
+      },
+      {
+        "card": 295,
+        "anchor": [
+          -0.06114839713260185,
+          1.5527573234471501,
+          0.12799872091202652
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 13.940908671813972,
+        "maxMoveMm": 2.521402641978379,
+        "outwardSteps": 0
+      },
+      {
+        "card": 298,
+        "anchor": [
+          -0.08660322443721846,
+          1.5527573234471501,
+          0.0795874829155929
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.201799294173613,
+        "maxMoveMm": 8.789375584107194,
+        "outwardSteps": 0
+      },
+      {
+        "card": 300,
+        "anchor": [
+          -0.08959572714398241,
+          1.5527573234471501,
+          0.061980225047150894
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 13.448262089500071,
+        "maxMoveMm": 11.694140253761768,
+        "outwardSteps": 0
+      },
+      {
+        "card": 301,
+        "anchor": [
+          0.07787940215490262,
+          1.5527573234471501,
+          0.110282419885048
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.47434957129028,
+        "maxMoveMm": 5.353334659556549,
+        "outwardSteps": 0
+      },
+      {
+        "card": 303,
+        "anchor": [
+          -0.05477308508438759,
+          1.5527573234471501,
+          0.1434975358557415
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.90590282551584,
+        "maxMoveMm": 89.34208568045247,
+        "outwardSteps": 0
+      },
+      {
+        "card": 306,
+        "anchor": [
+          0.0820874091684143,
+          1.5527573234471501,
+          0.09706924058013924
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.960210857141366,
+        "maxMoveMm": 8.676063686541738,
+        "outwardSteps": 0
+      },
+      {
+        "card": 307,
+        "anchor": [
+          0.09155578712295329,
+          1.5527573234471501,
+          0.0343062236528755
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.604906208016224,
+        "maxMoveMm": 139.04708797405993,
+        "outwardSteps": 0
+      },
+      {
+        "card": 309,
+        "anchor": [
+          -0.059175359650841294,
+          1.5527573234471501,
+          0.13908183524054843
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.869877451522099,
+        "maxMoveMm": 92.72237396025791,
+        "outwardSteps": 0
+      },
+      {
+        "card": 310,
+        "anchor": [
+          0.08063906199809133,
+          1.5527573234471501,
+          0.10149806727600923
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.532117793494162,
+        "maxMoveMm": 9.691861938200583,
+        "outwardSteps": 0
+      },
+      {
+        "card": 314,
+        "anchor": [
+          -0.08044848420582247,
+          1.5527573234471501,
+          0.10131077275029898
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.247228606503674,
+        "maxMoveMm": 3.813555621723655,
+        "outwardSteps": 0
+      },
+      {
+        "card": 317,
+        "anchor": [
+          -0.06839364561171488,
+          1.5527573234471501,
+          0.12821162231844724
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 17.847651546770063,
+        "maxMoveMm": 12.050157216500795,
+        "outwardSteps": 0
+      },
+      {
+        "card": 318,
+        "anchor": [
+          -0.09184922466678216,
+          1.5527573234471501,
+          0.04745435877885858
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.36076552579144,
+        "maxMoveMm": 13.07874361676767,
+        "outwardSteps": 0
+      },
+      {
+        "card": 320,
+        "anchor": [
+          0.08157163489405497,
+          1.5527573234471501,
+          0.09828169590500689
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.877011931837362,
+        "maxMoveMm": 7.627990132015788,
+        "outwardSteps": 0
+      },
+      {
+        "card": 323,
+        "anchor": [
+          -0.0679657796836192,
+          1.5527573234471501,
+          0.12950471178997272
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 18.537733914650474,
+        "maxMoveMm": 5.46899573314899,
+        "outwardSteps": 0
+      },
+      {
+        "card": 327,
+        "anchor": [
+          0.08719509990240933,
+          1.5527573234471501,
+          0.07638622863125846
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.19518198496201,
+        "maxMoveMm": 4.736186576145898,
+        "outwardSteps": 0
+      },
+      {
+        "card": 329,
+        "anchor": [
+          0.08935860752789121,
+          1.5527573234471501,
+          0.06571714537134334
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.832312210016713,
+        "maxMoveMm": 14.038527605215123,
+        "outwardSteps": 0
+      },
+      {
+        "card": 333,
+        "anchor": [
+          -0.07376228206854842,
+          1.5527573234471501,
+          0.11878632641669794
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.535499318141678,
+        "maxMoveMm": 17.83581011992476,
+        "outwardSteps": 0
+      },
+      {
+        "card": 335,
+        "anchor": [
+          -0.0933493933092751,
+          1.5527573234471501,
+          0.04358090574940303
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 17.742397065705397,
+        "maxMoveMm": 3.1127220403351226,
+        "outwardSteps": 0
+      },
+      {
+        "card": 336,
+        "anchor": [
+          -0.08902483837452987,
+          1.5527573234471501,
+          0.06841533467177191
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.206419904879189,
+        "maxMoveMm": 10.311726795111692,
+        "outwardSteps": 0
+      },
+      {
+        "card": 337,
+        "anchor": [
+          -0.06477110778478333,
+          1.5527573234471501,
+          0.13359868986364365
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.516933931880493,
+        "maxMoveMm": 16.125246337925876,
+        "outwardSteps": 0
+      },
+      {
+        "card": 339,
+        "anchor": [
+          -0.08956629114191343,
+          1.5527573234471501,
+          0.06635138689164158
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.179955918939914,
+        "maxMoveMm": 2.9466532353620707,
+        "outwardSteps": 0
+      },
+      {
+        "card": 347,
+        "anchor": [
+          0.09614697544642599,
+          1.5527573234471501,
+          0.0590487728430306
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 24.27360135382749,
+        "maxMoveMm": 115.21041466661603,
+        "outwardSteps": 0
+      },
+      {
+        "card": 348,
+        "anchor": [
+          -0.10699518024921417,
+          1.5261791944503784,
+          0.05055708810687065
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 24.681898183391596,
+        "maxMoveMm": 33.135876059532166,
+        "outwardSteps": 0
+      },
+      {
+        "card": 352,
+        "anchor": [
+          -0.03428189775018382,
+          1.5527573234471501,
+          0.1578641063444237
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": true,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 18.422980408038214,
+        "maxMoveMm": 91.0112026860323,
+        "outwardSteps": 0
+      },
+      {
+        "card": 358,
+        "anchor": [
+          -0.07793286219038274,
+          1.5527573234471501,
+          0.12427639399059172
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 24.643411346841447,
+        "maxMoveMm": 13.936606792586112,
+        "outwardSteps": 0
+      },
+      {
+        "card": 359,
+        "anchor": [
+          -0.07980400292537757,
+          1.5527573234471501,
+          0.12113537821145308
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 24.053727488689365,
+        "maxMoveMm": 11.166080519180971,
+        "outwardSteps": 0
+      },
+      {
+        "card": 362,
+        "anchor": [
+          -0.06296068806136736,
+          1.5527573234471501,
+          0.14480877867067427
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 26.482093121540373,
+        "maxMoveMm": 2.6814585002717384,
+        "outwardSteps": 0
+      },
+      {
+        "card": 368,
+        "anchor": [
+          -0.0850950177610215,
+          1.5527573234471501,
+          0.10585754301166503
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 24.814082192883443,
+        "maxMoveMm": 4.714451342850576,
+        "outwardSteps": 0
+      },
+      {
+        "card": 371,
+        "anchor": [
+          0.09623691337755391,
+          1.5527573234471501,
+          0.059473742476227796
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 21.86136949839774,
+        "maxMoveMm": 13.557224447042437,
+        "outwardSteps": 0
+      },
+      {
+        "card": 372,
+        "anchor": [
+          -0.08845897573677093,
+          1.5527573234471501,
+          0.0582884028573697
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.529429509075538,
+        "maxMoveMm": 10.368755046997371,
+        "outwardSteps": 0
+      },
+      {
+        "card": 373,
+        "anchor": [
+          0.08974193781614304,
+          1.5424251556396484,
+          0.044772833585739136
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.782055526982692,
+        "maxMoveMm": 21.272577345371246,
+        "outwardSteps": 0
+      },
+      {
+        "card": 375,
+        "anchor": [
+          -0.07081971536085989,
+          1.5527573234471501,
+          0.11975295478003299
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 13.835471654911691,
+        "maxMoveMm": 11.06789181635763,
+        "outwardSteps": 0
+      },
+      {
+        "card": 376,
+        "anchor": [
+          -0.08606130419435083,
+          1.5527573234471501,
+          0.06982287101678632
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.344525005161188,
+        "maxMoveMm": 11.94176612557947,
+        "outwardSteps": 0
+      },
+      {
+        "card": 378,
+        "anchor": [
+          0.08942960947751999,
+          1.542150616645813,
+          0.0297599658370018
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.514530356479495,
+        "maxMoveMm": 10.12393832206726,
+        "outwardSteps": 0
+      },
+      {
+        "card": 379,
+        "anchor": [
+          -0.07767362425342941,
+          1.5527573234471501,
+          0.10219955004199505
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.719641545886452,
+        "maxMoveMm": 12.840311026729584,
+        "outwardSteps": 0
+      },
+      {
+        "card": 380,
+        "anchor": [
+          0.08482007261433948,
+          1.5527573234471501,
+          0.0745375792730675
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 9.2752711282629,
+        "maxMoveMm": 10.913546644834168,
+        "outwardSteps": 0
+      },
+      {
+        "card": 386,
+        "anchor": [
+          0.0721048463832896,
+          1.5527573234471501,
+          -0.026595576461672047
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": true,
+        "mode": "rear-fall",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 5.440625039585741,
+        "maxMoveMm": 175.04929718238859,
+        "outwardSteps": 0
+      },
+      {
+        "card": 388,
+        "anchor": [
+          0.07204326863610633,
+          1.5527573234471501,
+          -0.027270028353523483
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": true,
+        "mode": "rear-fall",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.011421845509663,
+        "maxMoveMm": 174.1414536226973,
+        "outwardSteps": 0
+      },
+      {
+        "card": 389,
+        "anchor": [
+          -0.08543536812067032,
+          1.5353367328643799,
+          0.07204240560531616
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.775234036259818,
+        "maxMoveMm": 10.622955858707428,
+        "outwardSteps": 0
+      },
+      {
+        "card": 390,
+        "anchor": [
+          -0.07264173046837957,
+          1.5527573234471501,
+          0.11660194568879778
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.48749080992267,
+        "maxMoveMm": 8.382342915641383,
+        "outwardSteps": 0
+      },
+      {
+        "card": 391,
+        "anchor": [
+          -0.0890209823846817,
+          1.5411391258239746,
+          0.053334031254053116
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.291719455592602,
+        "maxMoveMm": 18.26513558626175,
+        "outwardSteps": 0
+      },
+      {
+        "card": 392,
+        "anchor": [
+          -0.0589726531875358,
+          1.5527573234471501,
+          0.13684396680250008
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 19.224533261951237,
+        "maxMoveMm": 4.708158334635088,
+        "outwardSteps": 0
+      },
+      {
+        "card": 395,
+        "anchor": [
+          0.059017529182766926,
+          1.5527573234471501,
+          -0.0434189620660521
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": true,
+        "mode": "rear-fall",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.6241451013892,
+        "maxMoveMm": 164.50111937968973,
+        "outwardSteps": 0
+      },
+      {
+        "card": 398,
+        "anchor": [
+          -0.049457542906033526,
+          1.5527573234471501,
+          0.14468255841833294
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.500964817619368,
+        "maxMoveMm": 74.80640668777856,
+        "outwardSteps": 0
+      },
+      {
+        "card": 404,
+        "anchor": [
+          0.08859377451039388,
+          1.5527573234471501,
+          0.052649937634598645
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.535447431984881,
+        "maxMoveMm": 11.7197046408756,
+        "outwardSteps": 0
+      },
+      {
+        "card": 405,
+        "anchor": [
+          -0.08811039692764829,
+          1.5527573234471501,
+          0.05908343805208255
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.10748805400581,
+        "maxMoveMm": 13.248967295938233,
+        "outwardSteps": 0
+      },
+      {
+        "card": 408,
+        "anchor": [
+          -0.037810495040528254,
+          1.5527573234471501,
+          0.1516581790197239
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 17.892109208279145,
+        "maxMoveMm": 63.09647622062542,
+        "outwardSteps": 0
+      },
+      {
+        "card": 411,
+        "anchor": [
+          -0.07056210776319581,
+          1.5527573234471501,
+          0.11981047282076668
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.837230273400206,
+        "maxMoveMm": 19.04494901647645,
+        "outwardSteps": 0
+      },
+      {
+        "card": 413,
+        "anchor": [
+          -0.08969974538404521,
+          1.5527573234471501,
+          0.04669899412615098
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.123470166474638,
+        "maxMoveMm": 7.8238623412328625,
+        "outwardSteps": 0
+      },
+      {
+        "card": 414,
+        "anchor": [
+          0.07794156964121778,
+          1.5527573234471501,
+          0.10176498688696975
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.382726842593,
+        "maxMoveMm": 6.081226423368044,
+        "outwardSteps": 0
+      },
+      {
+        "card": 418,
+        "anchor": [
+          -0.07830632850787306,
+          1.5527573234471501,
+          0.10134825226647655
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.248710939035737,
+        "maxMoveMm": 5.669068547698497,
+        "outwardSteps": 0
+      },
+      {
+        "card": 422,
+        "anchor": [
+          0.08619576945139001,
+          1.5527573234471501,
+          0.0081332353812886
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.5146400385086234,
+        "maxMoveMm": 104.0202516241176,
+        "outwardSteps": 0
+      },
+      {
+        "card": 424,
+        "anchor": [
+          0.10246486961841583,
+          1.5137715339660645,
+          0.031244896352291107
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.726654922302693,
+        "maxMoveMm": 2.3264002259288237,
+        "outwardSteps": 0
+      },
+      {
+        "card": 425,
+        "anchor": [
+          0.08686898372367809,
+          1.5527573234471501,
+          0.06658117468801093
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.527694916383755,
+        "maxMoveMm": 12.486127235450242,
+        "outwardSteps": 0
+      },
+      {
+        "card": 427,
+        "anchor": [
+          -0.08884603759777733,
+          1.5527573234471501,
+          0.04553881240868681
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.989427959881253,
+        "maxMoveMm": 10.143625052096331,
+        "outwardSteps": 0
+      },
+      {
+        "card": 428,
+        "anchor": [
+          -0.07230115715289698,
+          1.5527573234471501,
+          0.11689064555980024
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.655459500225435,
+        "maxMoveMm": 11.375680899864292,
+        "outwardSteps": 0
+      },
+      {
+        "card": 434,
+        "anchor": [
+          -0.08001353066617096,
+          1.5527573234471501,
+          0.09796903608210235
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.53129554457163,
+        "maxMoveMm": 2.9439501112088067,
+        "outwardSteps": 0
+      },
+      {
+        "card": 437,
+        "anchor": [
+          -0.06944287168534564,
+          1.5527573234471501,
+          0.12184313939502918
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.070228412338727,
+        "maxMoveMm": 9.805276717265125,
+        "outwardSteps": 0
+      },
+      {
+        "card": 438,
+        "anchor": [
+          0.08988358435351465,
+          1.5527573234471501,
+          0.042516930226052574
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.25176830840515,
+        "maxMoveMm": 5.1258837910375386,
+        "outwardSteps": 0
+      },
+      {
+        "card": 439,
+        "anchor": [
+          -0.060331437892731016,
+          1.5527573234471501,
+          0.13491121972677814
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 16.171314602835785,
+        "maxMoveMm": 3.9124341378768133,
+        "outwardSteps": 0
+      },
+      {
+        "card": 440,
+        "anchor": [
+          -0.06181941064153246,
+          1.5527573234471501,
+          0.1332519494684087
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.40854057316976,
+        "maxMoveMm": 9.005552847724474,
+        "outwardSteps": 0
+      },
+      {
+        "card": 441,
+        "anchor": [
+          0.08895470947027206,
+          1.5463452339172363,
+          0.05181830748915672
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 11.047184320033148,
+        "maxMoveMm": 15.557222068309784,
+        "outwardSteps": 0
+      },
+      {
+        "card": 442,
+        "anchor": [
+          0.0863094844662898,
+          1.5527573234471501,
+          0.06973847041401095
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.679067864392602,
+        "maxMoveMm": 6.346158012127207,
+        "outwardSteps": 0
+      },
+      {
+        "card": 443,
+        "anchor": [
+          -0.08953375556172115,
+          1.5527573234471501,
+          0.038584781920957184
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 8.944610228260597,
+        "maxMoveMm": 14.997461816680255,
+        "outwardSteps": 0
+      },
+      {
+        "card": 446,
+        "anchor": [
+          -0.0833379091097314,
+          1.5527573234471501,
+          0.08276431213976665
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.655636384557624,
+        "maxMoveMm": 5.129999048848838,
+        "outwardSteps": 0
+      },
+      {
+        "card": 447,
+        "anchor": [
+          0.03228817507624626,
+          1.471413016319275,
+          -0.0334029495716095
+        ],
+        "posterior": true,
+        "reenters": false,
+        "abrupt": true,
+        "mode": "rear-fall",
+        "outwardPushMm": 10,
+        "minimumSampledMm": 2.6097504429267797,
+        "maxMoveMm": 106.41702227295711,
+        "outwardSteps": 5
+      },
+      {
+        "card": 450,
+        "anchor": [
+          -0.06976238461764403,
+          1.5527573234471501,
+          0.1209913525050529
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 12.816807108771771,
+        "maxMoveMm": 13.92446654470511,
+        "outwardSteps": 0
+      },
+      {
+        "card": 451,
+        "anchor": [
+          -0.06911698750013436,
+          1.5527573234471501,
+          0.12190617239288874
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 13.966125588660407,
+        "maxMoveMm": 4.014492247048265,
+        "outwardSteps": 0
+      },
+      {
+        "card": 456,
+        "anchor": [
+          -0.06618140655608974,
+          1.5527573234471501,
+          0.12698101831262176
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 13.029046408655374,
+        "maxMoveMm": 14.108102946003301,
+        "outwardSteps": 0
+      },
+      {
+        "card": 457,
+        "anchor": [
+          -0.08934061974287033,
+          1.5493576526641846,
+          0.03457903861999512
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 3.7129257619397493,
+        "maxMoveMm": 21.297596395015717,
+        "outwardSteps": 0
+      },
+      {
+        "card": 458,
+        "anchor": [
+          0.09028887132827434,
+          1.5527573234471501,
+          0.0434494750724516
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 15.987295058435915,
+        "maxMoveMm": 2.0080072683492656,
+        "outwardSteps": 0
+      },
+      {
+        "card": 459,
+        "anchor": [
+          -0.08180641542818357,
+          1.5527573234471501,
+          0.08785404793773276
+        ],
+        "posterior": false,
+        "reenters": false,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 14.654336450851853,
+        "maxMoveMm": 3.2519937648992636,
+        "outwardSteps": 0
+      },
+      {
+        "card": 461,
+        "anchor": [
+          -0.0631951109016102,
+          1.5527573234471501,
+          0.13033539302523567
+        ],
+        "posterior": false,
+        "reenters": true,
+        "abrupt": false,
+        "mode": "front-outward",
+        "outwardPushMm": 0,
+        "minimumSampledMm": 10.493147816112788,
+        "maxMoveMm": 101.34347679255816,
+        "outwardSteps": 0
+      }
+    ]
+  },
+  "contacts": {
+    "rearConnector": {
+      "card": 101,
+      "method": "same-Y cubic Hermite posterior connector",
+      "startRing": 10,
+      "sourceSlope": [
+        0.008578883910690595,
+        -0.08754396438598633,
+        -0.010816129275932592
+      ],
+      "endpoint": [
+        0.05330241471529007,
+        1.3383150100708008,
+        -0.05577474985644225
+      ],
+      "retreatMm": 56.000000000000036,
+      "beforePairs": 12,
+      "afterPairs": 0,
+      "attempts": [
+        {
+          "retreatMm": 0,
+          "minimumMm": -41.815071817443
+        },
+        {
+          "retreatMm": 2,
+          "minimumMm": -41.55183737782202
+        },
+        {
+          "retreatMm": 4,
+          "minimumMm": -40.907343602525
+        },
+        {
+          "retreatMm": 6,
+          "minimumMm": -40.14895816608497
+        },
+        {
+          "retreatMm": 8,
+          "minimumMm": -39.38643351805668
+        },
+        {
+          "retreatMm": 10,
+          "minimumMm": -39.02112718879982
+        },
+        {
+          "retreatMm": 12,
+          "minimumMm": -37.28012052132025
+        },
+        {
+          "retreatMm": 14,
+          "minimumMm": -35.53911344848101
+        },
+        {
+          "retreatMm": 16,
+          "minimumMm": -33.79810637564169
+        },
+        {
+          "retreatMm": 18.000000000000004,
+          "minimumMm": -32.05710011352187
+        },
+        {
+          "retreatMm": 20.000000000000004,
+          "minimumMm": -30.316093040682635
+        },
+        {
+          "retreatMm": 22.000000000000007,
+          "minimumMm": -28.575085967843307
+        },
+        {
+          "retreatMm": 24.000000000000007,
+          "minimumMm": -26.834078895004076
+        },
+        {
+          "retreatMm": 26.00000000000001,
+          "minimumMm": -25.093073443603775
+        },
+        {
+          "retreatMm": 28.00000000000001,
+          "minimumMm": -23.352066370764554
+        },
+        {
+          "retreatMm": 30.000000000000014,
+          "minimumMm": -21.608970151558623
+        },
+        {
+          "retreatMm": 32.000000000000014,
+          "minimumMm": -19.82786867812236
+        },
+        {
+          "retreatMm": 34.000000000000014,
+          "minimumMm": -18.04676720468591
+        },
+        {
+          "retreatMm": 36.00000000000002,
+          "minimumMm": -16.26613482110354
+        },
+        {
+          "retreatMm": 38.00000000000002,
+          "minimumMm": -14.49374864466006
+        },
+        {
+          "retreatMm": 40.00000000000002,
+          "minimumMm": -12.721394125293031
+        },
+        {
+          "retreatMm": 42.00000000000002,
+          "minimumMm": -10.949039605926108
+        },
+        {
+          "retreatMm": 44.00000000000003,
+          "minimumMm": -9.17668508655918
+        },
+        {
+          "retreatMm": 46.00000000000003,
+          "minimumMm": -7.404330567192348
+        },
+        {
+          "retreatMm": 48.00000000000003,
+          "minimumMm": -5.631976047825427
+        },
+        {
+          "retreatMm": 50.00000000000003,
+          "minimumMm": -3.859621528458498
+        },
+        {
+          "retreatMm": 52.000000000000036,
+          "minimumMm": -2.0872670090914744
+        },
+        {
+          "retreatMm": 54.000000000000036,
+          "minimumMm": -0.31491579099161204
+        },
+        {
+          "retreatMm": 56.000000000000036,
+          "minimumMm": 1.4574387283753107,
+          "pairs": 0
+        }
+      ],
+      "dense": {
+        "minimumMm": 1.4574387283753107,
+        "worst": {
+          "point": [
+            0.05429530888795853,
+            1.3394993543624878,
+            -0.05182023346424103
+          ],
+          "bodyTriangle": 15722,
+          "cardTriangle": 30,
+          "bary": [
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    "localPatches": [
+      {
+        "card": 44,
+        "inputPositionSha256": "136cb690ac5bdcf1e5229b6a589f9e9f788f91879d2906b089d0a9af365e06fc",
+        "positions": [
+          0.08446472138166428,
+          1.5935094356536865,
+          0.05810592696070671,
+          0.039325911551713943,
+          1.611788034439087,
+          0.08675171434879303,
+          0.08541537821292877,
+          1.58908212184906,
+          0.0634089782834053,
+          0.04146985337138176,
+          1.6076115369796753,
+          0.09131498634815216,
+          0.08552132546901703,
+          1.585354208946228,
+          0.067380890250206,
+          0.045446671545505524,
+          1.6013836860656738,
+          0.09604141116142273,
+          0.08637554198503494,
+          1.5809242725372314,
+          0.07165743410587311,
+          0.04761449992656708,
+          1.5973340272903442,
+          0.09757471829652786,
+          0.08648678660392761,
+          1.5768362283706665,
+          0.07756199687719345,
+          0.04863801971077919,
+          1.5940284729003906,
+          0.09949510544538498,
+          0.08566491305828094,
+          1.573150396347046,
+          0.07921699434518814,
+          0.04982099309563637,
+          1.5862549543380737,
+          0.10563720762729645,
+          0.08659280091524124,
+          1.5673872232437134,
+          0.08495146036148071,
+          0.051677726209163666,
+          1.5824875831604004,
+          0.10616493970155716,
+          0.0858728364109993,
+          1.5635675191879272,
+          0.09154359251260757,
+          0.05235416814684868,
+          1.5808346271514893,
+          0.10657738149166107,
+          0.08481477200984955,
+          1.560198426246643,
+          0.09258347749710083,
+          0.05382101237773895,
+          1.5716074705123901,
+          0.10957212746143341,
+          0.08378851413726807,
+          1.5561017990112305,
+          0.09470487385988235,
+          0.053111594170331955,
+          1.5656150579452515,
+          0.11276500672101974,
+          0.08266998082399368,
+          1.55246102809906,
+          0.09533394128084183,
+          0.05237409844994545,
+          1.5603866577148438,
+          0.1159730851650238,
+          0.08216151595115662,
+          1.5478824377059937,
+          0.09657856822013855,
+          0.05264679715037346,
+          1.5535905361175537,
+          0.11876064538955688,
+          0.08185724169015884,
+          1.5437774658203125,
+          0.09838223457336426,
+          0.05400391295552254,
+          1.5487340688705444,
+          0.11898630857467651,
+          0.08193464577198029,
+          1.5387357473373413,
+          0.1005079448223114,
+          0.05521950498223305,
+          1.5422813892364502,
+          0.12154588103294373,
+          0.0800347626209259,
+          1.5340023040771484,
+          0.10325078666210175,
+          0.05512741580605507,
+          1.5362542867660522,
+          0.12280938029289246,
+          0.07766526192426682,
+          1.5281466245651245,
+          0.10687699913978577,
+          0.03378722071647644,
+          1.5247920751571655,
+          0.11725658178329468,
+          0.07687117904424667,
+          1.5224294662475586,
+          0.10827967524528503,
+          0.034713052213191986,
+          1.522680640220642,
+          0.11613006889820099
+        ]
+      },
+      {
+        "card": 98,
+        "inputPositionSha256": "f587acb42ee3617aee7f0f4c97a08c4533e9a3c102e2dbbeaa58a4746f3b22ce",
+        "positions": [
+          0.08319513499736786,
+          1.49332857131958,
+          -0.008169300854206085,
+          0.0735364556312561,
+          1.5132132768630981,
+          0.027516048401594162,
+          0.09518800675868988,
+          1.4863168001174927,
+          -0.007199500687420368,
+          0.08627615123987198,
+          1.5052896738052368,
+          0.02929036132991314,
+          0.09177881479263306,
+          1.4754995107650757,
+          0.003446978982537985,
+          0.08210484683513641,
+          1.4934881925582886,
+          0.038098108023405075,
+          0.09409823268651962,
+          1.4657530784606934,
+          0.013604127801954746,
+          0.08475980907678604,
+          1.4841375350952148,
+          0.04572860896587372,
+          0.0966823548078537,
+          1.4566593170166016,
+          0.020692642778158188,
+          0.08878909051418304,
+          1.4737768173217773,
+          0.051507528871297836,
+          0.09904664009809494,
+          1.4474542140960693,
+          0.02745971828699112,
+          0.0925234779715538,
+          1.463097333908081,
+          0.05701836943626404,
+          0.10112114250659943,
+          1.438064694404602,
+          0.03387737274169922,
+          0.09583869576454163,
+          1.4520634412765503,
+          0.06219015270471573,
+          0.10286405682563782,
+          1.4284313917160034,
+          0.03989719599485397,
+          0.09866166114807129,
+          1.4406534433364868,
+          0.06694083660840988,
+          0.10424157232046127,
+          1.418500304222107,
+          0.04547647386789322,
+          0.10093698650598526,
+          1.4288803339004517,
+          0.07118724286556244,
+          0.10522816330194473,
+          1.4082322120666504,
+          0.050581373274326324,
+          0.10263589769601822,
+          1.4167916774749756,
+          0.07485993951559067,
+          0.10580828785896301,
+          1.397610068321228,
+          0.055190712213516235,
+          0.10376009345054626,
+          1.404457688331604,
+          0.07791677117347717,
+          0.10597874969244003,
+          1.386639952659607,
+          0.05930031090974808,
+          0.10433956235647202,
+          1.391957402229309,
+          0.08035080879926682,
+          0.10575049370527267,
+          1.375348687171936,
+          0.0629260241985321,
+          0.10442540794610977,
+          1.3793643712997437,
+          0.08219097554683685,
+          0.10514849424362183,
+          1.363776683807373,
+          0.06610406935214996,
+          0.10408014059066772,
+          1.366734504699707,
+          0.08349569141864777,
+          0.10420943796634674,
+          1.3519691228866577,
+          0.06888777762651443,
+          0.10336840152740479,
+          1.3541017770767212,
+          0.08434241265058517,
+          0.1027265265583992,
+          1.3395776748657227,
+          0.07139001786708832,
+          0.10260073095560074,
+          1.3418731689453125,
+          0.08476772904396057,
+          0.10144565254449844,
+          1.3274677991867065,
+          0.07514838874340057,
+          0.10193955153226852,
+          1.329945683479309,
+          0.08639191091060638
+        ]
+      },
+      {
+        "card": 115,
+        "inputPositionSha256": "6476a944df156640da00aca8ad6e5fcbcf387d5fea8d817ed70c939f14e2fbf4",
+        "positions": [
+          -0.0782892107963562,
+          1.5493801832199097,
+          0.03312232717871666,
+          -0.08138997852802277,
+          1.5388370752334595,
+          -0.015201215632259846,
+          -0.08093386888504028,
+          1.5317920446395874,
+          0.03584403544664383,
+          -0.08187706768512726,
+          1.523389220237732,
+          -0.01065885554999113,
+          -0.0838993713259697,
+          1.5139355659484863,
+          0.039288654923439026,
+          -0.08105973154306412,
+          1.5093023777008057,
+          -0.0076439268887043,
+          -0.08743037283420563,
+          1.4993586540222168,
+          0.03932958468794823,
+          -0.08866150677204132,
+          1.4920644760131836,
+          -0.002705802908167243,
+          -0.08140233904123306,
+          1.4802074432373047,
+          0.0387706495821476,
+          -0.07602358609437943,
+          1.4774354696273804,
+          0.0001747447095112875,
+          -0.07570471614599228,
+          1.467049241065979,
+          0.04151112586259842,
+          -0.07680366188287735,
+          1.4609757661819458,
+          0.00391714833676815,
+          -0.07532704621553421,
+          1.4511637687683105,
+          0.04297404736280441,
+          -0.0769021138548851,
+          1.4451353549957275,
+          0.007715111598372459,
+          -0.07496979832649231,
+          1.4354674816131592,
+          0.04455113410949707,
+          -0.07689076662063599,
+          1.4295201301574707,
+          0.0116258654743433,
+          -0.07461068779230118,
+          1.4199777841567993,
+          0.046233195811510086,
+          -0.07675551623106003,
+          1.414167046546936,
+          0.015632595866918564,
+          -0.0742238387465477,
+          1.4047144651412964,
+          0.04800056293606758,
+          -0.07649119943380356,
+          1.3991042375564575,
+          0.019711364060640335,
+          -0.07411115616559982,
+          1.39060378074646,
+          0.04963450878858566,
+          -0.07577117532491684,
+          1.3834538459777832,
+          0.02402869611978531,
+          -0.07626932859420776,
+          1.3789103031158447,
+          0.0525946319103241,
+          -0.07533106207847595,
+          1.3671369552612305,
+          0.03130634129047394,
+          -0.0797710120677948,
+          1.3687841892242432,
+          0.05907323583960533,
+          -0.0771821141242981,
+          1.3548972606658936,
+          0.042138490825891495,
+          -0.08168086409568787,
+          1.35775625705719,
+          0.0664096474647522,
+          -0.07875308394432068,
+          1.3444920778274536,
+          0.052057329565286636,
+          -0.0833946242928505,
+          1.347353458404541,
+          0.0750061646103859,
+          -0.08053477853536606,
+          1.335148572921753,
+          0.06283960491418839,
+          -0.08373706042766571,
+          1.3360916376113892,
+          0.08430952578783035,
+          -0.08260412514209747,
+          1.3261784315109253,
+          0.07287337630987167,
+          -0.08334667235612869,
+          1.3242127895355225,
+          0.09206610172986984,
+          -0.08336862176656723,
+          1.3163440227508545,
+          0.08186294883489609
+        ]
+      },
+      {
+        "card": 125,
+        "inputPositionSha256": "595cab4f8be991eaa3ca787c4f213eb1ab621534b2760efcaedb79c00b40021e",
+        "positions": [
+          0.08646697551012039,
+          1.534868836402893,
+          -0.01609024405479431,
+          0.07335192710161209,
+          1.553295612335205,
+          0.022522609680891037,
+          0.08562774956226349,
+          1.5241641998291016,
+          -0.010045952163636684,
+          0.07523851096630096,
+          1.5390808582305908,
+          0.029789289459586143,
+          0.07884824275970459,
+          1.5144861936569214,
+          -0.006796334870159626,
+          0.08731796592473984,
+          1.5194227695465088,
+          0.03469172120094299,
+          0.07795251905918121,
+          1.5012123584747314,
+          -0.006338369566947222,
+          0.08347715437412262,
+          1.5081554651260376,
+          0.03555712103843689,
+          0.08375076949596405,
+          1.4821187257766724,
+          0.001626797253265977,
+          0.08317844569683075,
+          1.4911917448043823,
+          0.03792238235473633,
+          0.08234601467847824,
+          1.4722137451171875,
+          0.0036727527622133493,
+          0.0864628478884697,
+          1.4761908054351807,
+          0.038498926907777786,
+          0.08513638377189636,
+          1.4573445320129395,
+          0.0061950720846652985,
+          0.08904282748699188,
+          1.4617547988891602,
+          0.038837771862745285,
+          0.08775529265403748,
+          1.4425411224365234,
+          0.009202715009450912,
+          0.09132584929466248,
+          1.4476282596588135,
+          0.0396210253238678,
+          0.08996908366680145,
+          1.427980899810791,
+          0.01270466297864914,
+          0.09336160123348236,
+          1.4336023330688477,
+          0.040872976183891296,
+          0.09176281094551086,
+          1.413676381111145,
+          0.01665908843278885,
+          0.09510888159275055,
+          1.4196275472640991,
+          0.042574942111968994,
+          0.09314827620983124,
+          1.3996286392211914,
+          0.020998813211917877,
+          0.09652581810951233,
+          1.4056825637817383,
+          0.04468175768852234,
+          0.0940454825758934,
+          1.3853280544281006,
+          0.025817323476076126,
+          0.09768898040056229,
+          1.3922829627990723,
+          0.04695991799235344,
+          0.095058873295784,
+          1.369752287864685,
+          0.03329082578420639,
+          0.10050599277019501,
+          1.381341576576233,
+          0.04920947551727295,
+          0.09893441200256348,
+          1.3596352338790894,
+          0.045306310057640076,
+          0.10546737909317017,
+          1.3731752634048462,
+          0.05575264245271683,
+          0.1030285656452179,
+          1.3518571853637695,
+          0.05456637591123581,
+          0.10832348465919495,
+          1.3629512786865234,
+          0.0650918185710907,
+          0.1061464324593544,
+          1.3433330059051514,
+          0.062309134751558304,
+          0.10941383987665176,
+          1.3511641025543213,
+          0.07351987063884735,
+          0.10751015692949295,
+          1.33270263671875,
+          0.06911192089319229,
+          0.10968097299337387,
+          1.338404655456543,
+          0.07937147468328476
+        ]
+      },
+      {
+        "card": 266,
+        "inputPositionSha256": "46723b5606cb31a1f557e0ae979a224bf62e2c1f895a42018f8c4766ac25fee3",
+        "positions": [
+          -0.07202744483947754,
+          1.515989065170288,
+          0.024162858724594116,
+          -0.08520309627056122,
+          1.4936342239379883,
+          -0.013795249164104462,
+          -0.07297065109014511,
+          1.5049611330032349,
+          0.024673113599419594,
+          -0.0842510238289833,
+          1.4838842153549194,
+          -0.01031157560646534,
+          -0.08579236268997192,
+          1.49565589427948,
+          0.03148763254284859,
+          -0.08857864886522293,
+          1.4762767553329468,
+          -0.00466187996789813,
+          -0.08379819244146347,
+          1.489137887954712,
+          0.03913852572441101,
+          -0.09194747358560562,
+          1.4682610034942627,
+          0.002787866862490773,
+          -0.08758755028247833,
+          1.4808012247085571,
+          0.045163508504629135,
+          -0.09458407759666443,
+          1.4604123830795288,
+          0.009570050984621048,
+          -0.09175930172204971,
+          1.4717442989349365,
+          0.05033646523952484,
+          -0.09715648740530014,
+          1.4527003765106201,
+          0.014980314299464226,
+          -0.09537963569164276,
+          1.462123155593872,
+          0.05515599250793457,
+          -0.09917348623275757,
+          1.4448826313018799,
+          0.01990087889134884,
+          -0.09829362481832504,
+          1.451968789100647,
+          0.0594816580414772,
+          -0.1006036326289177,
+          1.4368873834609985,
+          0.02431281842291355,
+          -0.10040368884801865,
+          1.4413487911224365,
+          0.06319975852966309,
+          -0.10142277926206589,
+          1.4286787509918213,
+          0.028192218393087387,
+          -0.10165723413228989,
+          1.430388331413269,
+          0.06622815877199173,
+          -0.10162537544965744,
+          1.4202338457107544,
+          0.031531818211078644,
+          -0.10205485671758652,
+          1.4192451238632202,
+          0.06853359937667847,
+          -0.10122191160917282,
+          1.4115508794784546,
+          0.03433871641755104,
+          -0.10164709389209747,
+          1.4080787897109985,
+          0.07013581693172455,
+          -0.10023735463619232,
+          1.402652621269226,
+          0.03663398325443268,
+          -0.10052114725112915,
+          1.3970249891281128,
+          0.07109829038381577,
+          -0.09870994091033936,
+          1.3935829401016235,
+          0.03845349699258804,
+          -0.09878279268741608,
+          1.3861819505691528,
+          0.07151162624359131,
+          -0.09668847918510437,
+          1.3844012022018433,
+          0.03984707593917847,
+          -0.09653917700052261,
+          1.3756103515625,
+          0.07147623598575592,
+          -0.09422837942838669,
+          1.3751726150512695,
+          0.04087486118078232,
+          -0.09431017190217972,
+          1.3662058115005493,
+          0.07103974372148514,
+          -0.09096311777830124,
+          1.3650954961776733,
+          0.041650958359241486,
+          -0.09202232211828232,
+          1.3574345111846924,
+          0.0715668797492981,
+          -0.08753672987222672,
+          1.3552300930023193,
+          0.04350085183978081
+        ]
+      }
+    ],
+    "normalCards": [
+      44,
+      98,
+      101,
+      115,
+      125,
+      266
+    ],
+    "provenance": {
+      "inputSha256": "9a9280a4e80d5b3b64cadd35eeb59ee2ebe06d531c27cce70b994d50bf6e3737",
+      "outputSha256": "5b49fbb24f664255fe86721ad1b5d12096152582224b7fa29dd3151e78c740aa",
+      "method": "Pinned Float32 output of the bounded exact-contact projection on five cards. These 102 position components per card preserve iteration-rounding history. Normals are regenerated; source attributes are preserved. Root card44 is explicitly restored and repaired by later stages.",
+      "scriptSha256": "f356d6fa09edd3cb1bf4dff5633a72a7f05272e47ef54afe9c117001cba2922a"
+    }
+  },
+  "root": {
+    "card": 44,
+    "reversalStart": 14,
+    "supportWitness": {
+      "bodyTriangle": 14460,
+      "hairTriangle": 2564,
+      "point": [
+        0.046276435256004333,
+        1.5247920751571655,
+        0.11324115842580795,
+        0.8960000000000001
+      ],
+      "bodyZ": 0.12263640146886229,
+      "marginMm": 0.5,
+      "requiredAmplitudeMm": 11.043798039123141
+    },
+    "supportAmplitudeMm": 11.043798039123141
+  },
+  "sideFall": {
+    "80": 10,
+    "423": 10
+  },
+  "actualBands": {
+    "113": 9,
+    "173": 10
+  },
+  "connector131": {
+    "card": 131,
+    "start": 10,
+    "endpoint": [
+      0.07939048111438751,
+      1.3399337530136108,
+      -0.06180296838283539
+    ],
+    "sourceSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+    "independentConnectorSha256": "c9b8daf78ae270ae94a29d021786f57d911a24b6a8f8ba07c3ee9845cd8c7432"
+  },
+  "limits": [
+    "Pinned original-to-composed rest replay only; no captures are read by the portable entrypoint.",
+    "The complete style and all motion remain unaccepted. There are 251 authored root-layer intersection pairs on cards 2, 3, 50 and 66.",
+    "Every vertex Y and cut height is preserved; individual guide arcs and compliance change. Non-g050 body-contact selection is not created.",
+    "Normals are regenerated on each calibrated stage's selected vertices, preserving the reviewed neighboring-normal convention. No tangent channel is present in this pinned source.",
+    "Zero surface intersections do not exclude containment, certify positive clearance, classify shader visibility or establish motion acceptance."
+  ]
+}

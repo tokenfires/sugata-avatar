@@ -1,0 +1,277 @@
+{
+  "schema": "sugata-card-history-qualification-v1",
+  "date": "2026-09-09T12:46:14.605Z",
+  "status": "Do not adopt frozen V3 unchanged: actual live showcase PNG flow is incompatible",
+  "productionChanged": false,
+  "historySha256": "2c71da25ea4446f7ec9063e662e27531e7c39a192ddb880b9ec14efb3a466cf8",
+  "sourcesCheckedBeforeAfter": {
+    "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "packages/core/src/render/HairVelocity.js": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3",
+    "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+    "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+    "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+  },
+  "raster": {
+    "states": 9,
+    "passedCandidatePixels": 380263,
+    "failedCandidatePixels": 0,
+    "heldDeformationRedControlPixels": [
+      48192,
+      47047,
+      39369
+    ],
+    "bound": "1.01 half ULP + 2e-6 NDC per axis",
+    "scope": "geometrically eligible stable-raster interior original-card pixels only",
+    "archive": "captures/orbit-card-history-2026-09-09/raster-evidence-v4",
+    "manifestSha256": "9fe8d2884ea7f5b74bfde63c498bbd10a85db52fc70fbe4d9a96b09c824f6ff7"
+  },
+  "appearance": {
+    "passed": true,
+    "errors": [],
+    "motions": [
+      "4s natural",
+      "4s prescribed head nod"
+    ],
+    "framesPerMotion": 240,
+    "fixedDeltaSeconds": 0.016666666666666666,
+    "matchedMovingStates": 18,
+    "matchedSettledViews": 6,
+    "totalImages": 48,
+    "initialZeroTimeBeautyDraws": 48,
+    "settledZeroTimeDrawsPerView": 80,
+    "viewDegrees": [
+      12,
+      90,
+      180
+    ],
+    "physicalAndObservedCameraMatrices": "exact typed-array hash/bit equality in every saved matching pair",
+    "originalMaterials": "Original production material/MRT; only card velocity override from frozen V3. Native cap path source-preserved, no numerical cap guarantee.",
+    "review": "Natural frame120 and nod frame90 show clearly less noisy temporal smearing around moving curtain locks; crisp card silhouettes improve. Skin/eye temporal artifacts and existing rear/crown geometry remain. This is qualitative inspection, not a universal temporal metric.",
+    "ownerCommits": [
+      {
+        "key": "natural-candidate",
+        "commits": 529,
+        "rejections": 0
+      },
+      {
+        "key": "nod-candidate",
+        "commits": 529,
+        "rejections": 0
+      }
+    ]
+  },
+  "lifetime": {
+    "checks": 8,
+    "addedStorageBytes": 269824,
+    "addedComputePipelines": 1,
+    "removalCycles": 3,
+    "countedResourcesReturnToBaseline": true,
+    "limits": "Three builder/program/uniform counts return to baseline; internal weak bind-group objects are not directly enumerated. Retired owner.report retains historical ownedHistoryBuffers field; actual renderer storage is zero."
+  },
+  "performance": {
+    "method": "Fresh pages, TAAUon,48zero-time setup draws,64warm+240measured fixed60 natural frames/run, ABBA. Real per-pass timestamp queries and update-to-GPU-queue-complete wall time. Timestamp resolution/rAF excluded; render timestamps overlap and are not full GPU duration.",
+    "interpretation": "No consistent whole-frame penalty or benefit resolved above variance. Hold medians24.6/22.7ms; candidate22.3/23.6ms. No60FPS claim, no negative cost claim. Both arms exceed16.7ms in this measured workload. Machine-wide GPU idleness is not guaranteed: user-visible apps were left open; coordinated agents did not run overlapping GPU/heavyCPU work.",
+    "runs": [
+      {
+        "arm": "hold",
+        "summary": {
+          "submitCpuMs": {
+            "count": 240,
+            "min": 2.899999976158142,
+            "median": 3.199999988079071,
+            "p95": 3.4000000059604645,
+            "max": 5.9000000059604645
+          },
+          "submitToGpuCompleteMs": {
+            "count": 240,
+            "min": 13.5,
+            "median": 24.599999994039536,
+            "p95": 38.60000002384186,
+            "max": 48
+          },
+          "computeGpuMs": {
+            "count": 240,
+            "min": 9.707769,
+            "median": 13.706666,
+            "p95": 21.416506,
+            "max": 26.246892
+          },
+          "renderTimestampSumMs": {
+            "count": 240,
+            "min": 1.2720639999999999,
+            "median": 3.9154010000000006,
+            "p95": 6.247242,
+            "max": 8.169042000000001
+          }
+        }
+      },
+      {
+        "arm": "candidate",
+        "summary": {
+          "submitCpuMs": {
+            "count": 240,
+            "min": 2.9000000059604645,
+            "median": 3.2999999821186066,
+            "p95": 3.5,
+            "max": 6.4000000059604645
+          },
+          "submitToGpuCompleteMs": {
+            "count": 240,
+            "min": 14,
+            "median": 22.30000001192093,
+            "p95": 32.69999998807907,
+            "max": 39.900000005960464
+          },
+          "computeGpuMs": {
+            "count": 240,
+            "min": 9.533063,
+            "median": 13.188798,
+            "p95": 21.122218,
+            "max": 25.982438000000002
+          },
+          "renderTimestampSumMs": {
+            "count": 240,
+            "min": 1.519978,
+            "median": 3.846652999999999,
+            "p95": 6.501402000000002,
+            "max": 11.077168000000002
+          }
+        }
+      },
+      {
+        "arm": "candidate",
+        "summary": {
+          "submitCpuMs": {
+            "count": 240,
+            "min": 3,
+            "median": 3.300000011920929,
+            "p95": 3.699999988079071,
+            "max": 4.4000000059604645
+          },
+          "submitToGpuCompleteMs": {
+            "count": 240,
+            "min": 15.5,
+            "median": 23.599999994039536,
+            "p95": 33.80000001192093,
+            "max": 38.29999998211861
+          },
+          "computeGpuMs": {
+            "count": 240,
+            "min": 10.012889,
+            "median": 13.218591,
+            "p95": 20.541979,
+            "max": 26.852466
+          },
+          "renderTimestampSumMs": {
+            "count": 240,
+            "min": 1.4185210000000006,
+            "median": 3.7724,
+            "p95": 6.8376030000000005,
+            "max": 11.961026
+          }
+        }
+      },
+      {
+        "arm": "hold",
+        "summary": {
+          "submitCpuMs": {
+            "count": 240,
+            "min": 2.9000000059604645,
+            "median": 3.199999988079071,
+            "p95": 3.5,
+            "max": 4
+          },
+          "submitToGpuCompleteMs": {
+            "count": 240,
+            "min": 15.5,
+            "median": 22.69999998807907,
+            "p95": 34.099999994039536,
+            "max": 43.29999998211861
+          },
+          "computeGpuMs": {
+            "count": 240,
+            "min": 9.795559,
+            "median": 13.517877,
+            "p95": 22.305952,
+            "max": 33.195243
+          },
+          "renderTimestampSumMs": {
+            "count": 240,
+            "min": 1.2521499999999999,
+            "median": 3.776115,
+            "p95": 6.785560999999999,
+            "max": 12.559433999999996
+          }
+        }
+      }
+    ]
+  },
+  "showcase": {
+    "completed": true,
+    "errors": [],
+    "additionalSourceHashes": {
+      "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+      "packages/core/src/render/HairVelocity.js": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3",
+      "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+      "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+      "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+      "packages/testbed/src/showcase.js": "24258bc4b09a7053c6b0b817a876e24ad47620b1b3e6d30e64ac3861a2123511",
+      "packages/testbed/src/showcase.html": "77f6f27b9dc783f72b623731bd618b5afd6f39e9ccdfc06206a70c92cf28e102",
+      "packages/testbed/src/showcase-presets.mjs": "d2fdf316126430105bd4bbacfc3f8f3c2f8d111001af1c3136ed3e149ef9e4b0"
+    },
+    "freshFrame": {
+      "saved": true,
+      "image": {
+        "file": "captured-0.png",
+        "bytes": 820176,
+        "width": 681,
+        "height": 768,
+        "min": 0,
+        "max": 0.9725490212440491,
+        "nonblank": true
+      },
+      "stateExact": true
+    },
+    "sameTask": {
+      "saved": false,
+      "status": "Image could not be saved. Card history refused: cached scene or groom not freshly rendered",
+      "commitsBefore": 2,
+      "commitsAfter": 2,
+      "encoderCalls": 0,
+      "stateExact": true
+    },
+    "liveClicks": [
+      {
+        "status": "Image could not be saved. Card history refused: cached scene or groom not freshly rendered",
+        "encoderCalls": 0
+      },
+      {
+        "status": "Image could not be saved. Card history refused: cached scene or groom not freshly rendered",
+        "encoderCalls": 0
+      },
+      {
+        "status": "Image could not be saved. Card history refused: cached scene or groom not freshly rendered",
+        "encoderCalls": 0
+      }
+    ],
+    "liveDownloads": 0,
+    "conclusion": "All3ordinary live UIclicks refuse because the beauty scene is cached for that frame. Existing UI catches and reports the failure; no pageerror. Frozen V3 must not ship unchanged. No refusal weakened."
+  },
+  "limits": [
+    "Original cards only; nativecaps/follower facing history remain separate.",
+    "Lifetime no-growth statement covers counted storage/pipelines/builders/programs/uniforms across3cycles, not enumeration of weak bind-groupJS objects.",
+    "owner.report().ownedHistoryBuffers remains a historical1 after disposal; actual renderer counts are0.",
+    "Source inventory is the seven explicitly hashed hair/history-critical files/assets; other runtime dependencies relied on the coordinated source freeze, not a complete transitive before/after hash inventory.",
+    "Screenshots are canvas bounding rectangles and include the unchanged overlaid portrait caption; exported PNG is actual canvas only."
+  ],
+  "archive": {
+    "path": "captures/orbit-card-history-2026-09-09/qualification-v5",
+    "files": 75,
+    "bytes": 44477371,
+    "manifestSha256": "5fe290953950104e85245be9e0962563fd6352c5b147ebea75469a693e41e075"
+  }
+}

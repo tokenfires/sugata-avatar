@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-09-09",
+  "scope": "CPU HairSurface extraction with canonical topology and transactional submitted-pose history; no GPU/contact/Avatar changes.",
+  "sourceHashes": {
+    "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "packages/core/src/motion/HairSurface.selftest.mjs": "71ad9848938813a23f51cacf4e784c807bdd3edb91c88972d91b35a137f34d07",
+    "packages/core/src/motion/fixtures/hair-surface-v1.json.gz": "59065083b8a547d6f0e93bd9eec2020087e1389e08eb5511e16ca5da7d3dd578",
+    "docs/HAIR-SURFACE.md": "73b82f978b6f65eec9c3cf100b7cd8a4ba6d8ffed45dfe8cc27eb04a8fc163fe"
+  },
+  "priorRuntimeSha256": "7396668293f390fde6e54fcd82afd903563f7fe02ecde2243a309bd4049731f5",
+  "checks": {
+    "cpuGroups": 17,
+    "testNames": [
+      "self-contained closest math preserves frozen v2 interior, edge, vertex, degenerate and fan ties",
+      "construction, malformed queries and packed hydration fail closed; stale bounds are rebuilt",
+      "current segment crossings and miss/maximum-distance results preserve frozen v2",
+      "explicit snapshots preserve stable buffers and interpolate a moving triangle at the midpoint",
+      "union BVH covers every intermediate triangle and matches brute nearest across topology motion",
+      "reset collapses history, serialization discards it, and invalid alpha fails closed",
+      "failed captured updates preserve all valid current/history/bounds data",
+      "live updater preserves renderer-equivalent four-weight skinning, morphs and normal transforms",
+      "getter/nonfinite live failures are atomic; deferred refit blocks queries and can recover",
+      "direct invalid refit fails closed; disposal is final and idempotent",
+      "relative and absolute morphs preserve four unequal weights and nonidentity bind/world transforms",
+      "canonical full topology survives compacted/replaced render indices without ordinal drift",
+      "submitted pose, refit and history advance together; failed live/captured updates keep the entire old interval",
+      "disposal during a body getter cannot publish staged positions or recreate usable history",
+      "invalid selected skin attributes reject without changing pose or history",
+      "all five calibrated patches match frozen packed topology and exact static queries",
+      "captured pose endpoints and animated midpoint preserve independently frozen results"
+    ],
+    "browserLibraryBuild": "Passed; only external import is three. No GPU device initialized.",
+    "oldRuntimeRejection": "The prior scratch module fails canonical topology refusal: it silently accepts a compacted render index instead of validating source triangle ordinals."
+  },
+  "metrics": {
+    "bakes": [
+      {
+        "bake": "g000",
+        "bodySha256": "26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d",
+        "vertices": 1069,
+        "triangles": 1872,
+        "nodes": 1023,
+        "packedBytes": 125028,
+        "historyBytes": 66944
+      },
+      {
+        "bake": "g025",
+        "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+        "vertices": 1069,
+        "triangles": 1872,
+        "nodes": 1023,
+        "packedBytes": 125028,
+        "historyBytes": 66944
+      },
+      {
+        "bake": "g050",
+        "bodySha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+        "vertices": 1069,
+        "triangles": 1872,
+        "nodes": 1023,
+        "packedBytes": 125028,
+        "historyBytes": 66944
+      },
+      {
+        "bake": "g075",
+        "bodySha256": "dbfc23ac6987c2f4b33bcf366f09c2f8f43c8518610ebd3697714b78b34f21ec",
+        "vertices": 1069,
+        "triangles": 1872,
+        "nodes": 1023,
+        "packedBytes": 125028,
+        "historyBytes": 66944
+      },
+      {
+        "bake": "g100",
+        "bodySha256": "c2a21d403636a81aff77969c0089c91379172c8764aabb14d1cb7de47c685811",
+        "vertices": 1069,
+        "triangles": 1872,
+        "nodes": 1023,
+        "packedBytes": 125028,
+        "historyBytes": 66944
+      }
+    ],
+    "capturedInterval": {
+      "frames": [
+        "0000",
+        "0420"
+      ],
+      "queries": 128,
+      "maxMidpointDistanceError": 5.958054380417188e-08,
+      "maxMidpointClosestError": 1.031178462330037e-06,
+      "limitation": "Materialized midpoint rounds to Float32; nearestAt interpolates endpoint Float32 values in JS double."
+    }
+  },
+  "memoryBytes": {
+    "packed": 125028,
+    "history": 66944,
+    "stagingWithoutUnion": 66944,
+    "stagingWithUnion": 99680,
+    "priorPositionNormalOnlyStaging": 34208
+  },
+  "canonicalTopology": "Explicit sourceIndex validates each oriented patch source ordinal once. Wardrobe.fullIndex remains canonical while body.geometry.index may be compacted/replaced. The body geometry/skeleton must retain identity during an updater lifetime.",
+  "atomicity": "Stage all sampled positions/normals and current/union bounds first; advanceHistory/reset publish only after validation and final live check. Failed late getters and disposal leave the previous public state unchanged.",
+  "limitations": [
+    "CPU correctness/lifecycle; no GPU execution or timing claim.",
+    "Union bounds cover linear vertex interpolation, not nonlinear skeletal motion or continuous collision detection.",
+    "Open-patch normal sign is not a closed-body inside test.",
+    "No performance claim, GPU query execution, calibration activation, full contact/visual acceptance or full repository suite.",
+    "Frozen captures keep v2 boundary-bit upgrade and current-only serialization; fixture provenance identifies original raw arrays."
+  ],
+  "rawEvidence": {
+    "path": "captures/hair-surface-production-2026-09-09",
+    "manifestSha256": "16847283d9fdc87baf16b1d35241bcc077307dd06b3c62b9c8c0cffefdc8ffe1",
+    "fileCountIncludingManifest": 7
+  }
+}

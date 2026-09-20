@@ -118,6 +118,9 @@ export class Layer {
 
     }
 
+    /** Optional cleanup while disabled. May release leases/shared state, never write the pose. */
+    onDisabledFrame( context ) {} // eslint-disable-line no-unused-vars
+
     /**
      * Replaces the declared channels at runtime and rebuilds the contribution's storage. Only
      * needed by layers whose channel set genuinely varies — a gesture layer that switches between

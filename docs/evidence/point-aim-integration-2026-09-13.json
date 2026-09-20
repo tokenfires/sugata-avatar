@@ -1,0 +1,50 @@
+{
+  "created": "2026-09-13T23:41:35.233994+00:00",
+  "scope": "Native optional point target in Gaze and experimental Portrait attention; qualified paired action plus separate lifecycle checks. The original AAA and humanlike embodiment goal remains incomplete.",
+  "sourceRevisionBeforeIntegration": "a6439e8",
+  "archive": "captures/point-aim-integration-2026-09-13",
+  "fileCount": 184,
+  "totalBytes": 35221505,
+  "manifestSha256": "caa39b7b2f2cf42b9f4725156f7717f2a26ae6930cecca014de9ccde0f9b3982",
+  "qualification": "captures/point-aim-integration-2026-09-13/qualification.json",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "dc99dababcef2441d0c4f4bc7aa66824b139178627a14089433d69f781914602",
+    "packages/core/src/motion/Gaze.js": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c",
+    "packages/core/src/motion/MotionStack.js": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9",
+    "packages/core/src/motion/Layer.js": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8",
+    "packages/core/src/motion/EyeAimCalibration.js": "be5f8889c3ccbbb6e06b28b99baebc10aa2905c561b0a5fe6fc83f76fdf12bbe",
+    "packages/core/src/motion/EyeAimSolver.js": "c2a18d1e7a92c1057dfe09c193af399063fe52778ff1d8e343a82c9e6730b884",
+    "packages/core/src/motion/FacialIdle.js": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07",
+    "packages/core/src/motion/AttentionAction.js": "5bcbd1185ec152d919fa2dcf4119ec8d332381b0088995c33efe0298596db8a2",
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+  },
+  "checks": {
+    "pointAimCPU": 14,
+    "motionStack": 47,
+    "gaze": 114,
+    "facialIdle": 27,
+    "attentionActionCPU": 9,
+    "defaultReplayExactFrames": 5400,
+    "figureCalibrationCPU": 5,
+    "pairedBrowserSamples": 12,
+    "pointTraceFrames": 189,
+    "browserLifecycleRecords": 9,
+    "successfulAvatarRetirements": 3,
+    "galleryMoments": 12,
+    "galleryMobileWidth": 390,
+    "buildPages": "passed; existing chunk size warning"
+  },
+  "limits": [
+    "Corneal-axis fit is a geometry proxy, not calibrated perceptual eye contact.",
+    "GPU action comparison uses g050 long bob; g075 identity switch exercises ownership and renewed calibration without an appearance comparison.",
+    "All five figure calibrations pass CPU-only checks.",
+    "No whole-frame browser performance or allocation acceptance; broad transform, clipping, wardrobe and expression coverage remains open."
+  ],
+  "critic": [
+    "critic-lifecycle/candidate/REVIEW.md",
+    "critic-upload/UPLOAD-ADDENDUM.md",
+    "critic-visual/VISUAL-ADDENDUM.md"
+  ]
+}

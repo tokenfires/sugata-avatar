@@ -1102,3 +1102,275 @@ Three orderings are load-bearing, and the first two fail *silently* if swapped:
 
 For the same reason the build does not use `ExportService.create_character_copy` — it only
 duplicates direct children, and would drop the face parts.
+
+## bob02/g050 fall correction after Blender export
+
+The original bob02/g050 export contains lower hair ribbons whose vertices clear the skin while
+connecting triangles cross the cheek. `hair_fall.mjs` releases those curtains below the temple
+into downward fall, with a measured outward offset where the ribbon needs space. It preserves
+all vertex heights, roots, scalp cap, upper silhouette, topology, UVs, skin binding and material
+maps; it recomputes the corrected cards' normals and any tangent channel. The largest guide
+length increase is bounded to 0.02 mm. Removing an inward detour can shorten a guide's arc while
+keeping its tip at exactly the same height.
+
+Run this **after the original Blender hair export** and before installing the generated asset:
+
+```bash
+node tools/figure-pipeline/hair_fall.mjs \
+  --input /tmp/original-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/corrected-bob02-g050.glb --report /tmp/hair-fall-report.json
+node tools/figure-pipeline/hair_hem.mjs \
+  --input /tmp/corrected-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/hem-bob02-g050.glb --report /tmp/hair-hem-report.json
+node tools/figure-pipeline/hair_tail_release.mjs \
+  --input /tmp/hem-bob02-g050.glb --body assets/figures/figure_g050.glb \
+  --output /tmp/finished-bob02-g050.glb --report /tmp/hair-tail-report.json
+node tools/figure-pipeline/hair_surface.mjs \
+  --hair /tmp/finished-bob02-g050.glb --body assets/figures/figure_g050.glb --gate face
+node tools/figure-pipeline/hair_fall.selftest.mjs
+node tools/figure-pipeline/hair_hem.selftest.mjs
+node tools/figure-pipeline/hair_tail_release.selftest.mjs
+```
+
+Calibration `bob02-g050-curtain-release-v1` is pinned to the original g050 hair and body geometry
+fingerprints. Other gender bakes and changed exports are refused: they require a new measured
+calibration. The tool does not change `hair_cards.py`; regenerating bob02 requires this explicit
+post-export step. Its GLB metadata records the calibration and geometry fingerprints. Repeating
+the same correction returns identical bytes; an unknown stamp or altered corrected geometry
+is refused. Output must differ from input unless `--allow-in-place` is explicitly supplied.
+
+The sampled clearance used to choose offsets is not a collision certificate. Run the independent
+triangle-surface face gate and the viewer's motion probe when accepting an asset. The September 8
+candidate clears the tested face region; some scalp/temple contacts behind that region remain.
+All three no-argument selftests use the original LFS fixture in `fixtures/bob02-g050-original.glb`;
+the hem and tail tests generate their required earlier stages in a temporary directory. Thus a new
+clone can exercise the full transformations without Blender or ignored capture files. Fall and hem
+selftests also accept explicit file arguments. Historical stages deliberately refuse later deformed outputs; repeat
+the last stage for its idempotence check, or rebuild all three stages from the original fixture/export.
+
+
+### Front hem refinement and motion evidence
+
+`hair_hem.mjs` is the second calibrated stage. On the fall-corrected g050 groom it lifts 510 lower
+vertices across 52 forward cards by at most 17.934 mm, bringing the longest ends near the jaw while
+retaining a small amount of height variation. Roots, positions above y=1.50 m, x/z coordinates,
+full ring width vectors, topology, UVs and skin data remain fixed. It recomputes changed normal and
+tangent frames and records its own stamp; the first stage's stamp remains historical evidence.
+Its independent triangle face gate must pass before output is written.
+
+For runtime acceptance, point the portrait probe at a running dev server and an unused output path:
+
+```bash
+node tools/critic/portrait-clearance.mjs --groom /tmp/finished-bob02-g050.glb \
+  --out captures/hem-motion-check --seconds 12 --stride 60
+node tools/critic/portrait-surface.mjs --input captures/hem-motion-check \
+  --out captures/hem-motion-surface.json
+```
+
+Add `--stimulus shake --seconds 8 --stride 30` to the first command for the controlled yaw shake,
+using another output directory. `--stimulus nod` and `--stimulus tilt` test pitch and roll. Each
+controlled stimulus runs a 0.6 Hz sine for two seconds, then holds its ending orientation; yaw
+amplitude is 0.85 radians, pitch/roll 0.5 radians. Use `--direction -1` for a mirrored sequence
+and opposite held tilt. Springs and collision settings stay unchanged.
+These stimuli import the dev server's motion modules; the normal portrait sequence also runs
+against a production URL. The capture suppresses the local Vite hot-reload socket and fails
+immediately if its simulation clock resets or drifts from the requested frame cadence. `portrait-surface.mjs` rejects missing
+or incomplete frame sets and tests all captured triangle surfaces in inverse-head coordinates.
+Exit 0 means every captured pose clears the selected face box, 1 means crossings, and 2 means
+invalid evidence. A finite capture does not certify every possible animation or positive clearance
+at every unsampled point. See `docs/evidence/hair-hem-2026-09-08.json` for the accepted measurements.
+
+
+### Tail clearance through held head motion
+
+`hair_tail_release.mjs` is the third calibrated stage, after fall and hem. Held roll in both
+directions exposed finite ribbon edges crossing the face while their centers stayed outside.
+A mirrored nod also exposed the interior of one long terminal triangle whose corners cleared
+skin. Calibration `bob02-g050-tail-clearance-v1` therefore uses the twelve-card union measured
+across those motions: 6, 14, 15, 22, 29, 42, 45, 53, 69, 75, 196 and 352 (zero based).
+Static edge clearance or a root-layer-only selection would miss some of these contacts.
+
+For each calibrated card, the stage derives a horizontal outward direction from its source tip
+to the closest body point. It translates both corners of rings 13–16 together, ramping from zero
+at ring 12 to 3.5 mm at ring 16 with smoothstep. Only 96 vertices move. All heights, roots, caps,
+upper rings, other 484 cards, ribbon widths, 496×17 solver topology, UVs, skin bindings and material
+maps remain fixed within Float32 rounding. Normal and optional tangent frames are regenerated on
+moved vertices; neighboring authored frames remain unchanged, following the previous stage's
+convention. This is not a complete normal-field rebake.
+
+The actual skull and shoulder collider fits remain identical in bind and tested posed transforms;
+there is no global collider inflation. The median arc used for compliance remains 142.875 mm.
+Targeted arcs change by −0.492 to +1.379 mm and their derived compliance scales by −1.674% to
++0.646%; spring tuning is unchanged. The report includes every targeted segment and arc, rather
+than claiming that the unchanged whole-groom median implies identical motion.
+
+The accepted twelve-card geometry clears all captured triangle face gates over 98 poses across
+natural motion, yaw shake, both held pitch directions and both held roll directions. The minimum
+sampled face-vertex clearance is +0.783 mm. Ten matched static views showed no new visible gap or
+style regression. These finite poses and samples do not certify every possible motion, positive
+clearance over every triangle interior, or the remaining scalp contacts outside the face box.
+The existing crown/back facets remain a separate visual limitation.
+
+The tail stage validates both earlier stamps and immutable geometry fingerprints before writing,
+adds its own stamp, and rejects modified source, body or corrected output. Its independent static
+face gate must pass. The nine default test groups rebuild original→fall→hem→tail from the tracked
+fixture, pin reviewed positions/normals, exercise real tangent data through all stages, verify
+collider and protected-attribute invariants, and test idempotence and safe output paths.
+The final stamped output SHA256 is
+`d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461`.
+Its binary payload is identical to the motion-tested scratch candidate; only provenance metadata
+was added. The earlier eleven-card experiment was not installed and was rejected as final output
+because the mirrored nod still crossed on card 352. Local comparison evidence is preserved under
+`captures/hair-tail-release-2026-09-08/` and `captures/hair-tail-release-v2-2026-09-08/`.
+
+## Portable original long-bob rest correction (bob01/g050 only)
+
+`hair_long_fall.mjs` reproduces the reviewed v9 outward/rear-fall shape, the lower card101
+connector, and the card80/423 side-fall revision that removes two visible bands across the throat.
+It creates a separate candidate file. The rear tips on cards101/171/449, card68's static side-head
+crossings, posed root-layer neck contacts and dynamic acceptance remain pending. Calibration is
+limited to the exact original bob01/g050 groom and figure_g050 body.
+
+```sh
+node tools/figure-pipeline/hair_long_fall.mjs \
+  --input tools/figure-pipeline/fixtures/bob01-g050-original.glb \
+  --body assets/figures/figure_g050.glb \
+  --output /tmp/bob01-long-fall/g050.glb \
+  --report /tmp/bob01-long-fall/report.json
+node tools/figure-pipeline/hair_long_fall.selftest.mjs
+```
+
+The immutable original Git LFS fixture is 3,326,956 bytes, SHA256
+`98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c`.
+Default tests use this fixture; replacing installed hair cannot change their input. The body SHA256
+is `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`.
+`fixtures/bob01-g050-long-fall-v2.json` pins the measured per-card results and each intermediate
+geometry fingerprint. Generation replays those results without repeating the calibration search.
+The previous v1 data remains an immutable record of the connector-only intermediate.
+
+The first stage translates paired ring edges together using the original v9 Float32 arithmetic.
+The second restores card101's source positions through ring11, then uses a same-height cubic
+Hermite XZ connector from ring11 to the v9 tip, preserving the source10→11 entry slope and zero
+terminal XZ slope. Its normals retain the accepted source-through10/recomputed-from11 rule.
+Selected v9 cards have their whole-card normals recomputed; fixed root positions do not imply
+unchanged normals on those selected cards.
+
+The third stage corrects an authored style defect: cards80/423 already passed the body-shell test,
+but their lower guides swept across the front of the throat. Preserve each card's positions through
+ring10 and normals through ring9. Below ring10, a same-Y Hermite XZ connector preserves the
+source9→10 incoming slope and ends with zero XZ slope. The tip keeps its original Y/Z and takes
+its anchor's positive X, so it falls on the originating side. No additional outward push is needed.
+Only 24 position vertices and 28 normal vertices differ from the connector-only intermediate.
+Four matched camera pairs at clock0 confirm the throat bands disappear without an apparent new
+ledge. The 494 other cards have identical captured GPU positions. These are rest-view results;
+the revised guide lengths still require motion acceptance.
+
+Relative to the original, exactly 3,666 vertices move on 175 calibrated long-curtain cards. All
+vertex Y values and cut heights, root positions, vertices above the release plane, caps,
+root-layer/fringe geometry, topology, UVs, skin weights and all nongeometry binary bytes remain
+fixed. Paired half-width vectors remain within 5e-9 metres of the originals after Float32 encoding.
+Guide arc lengths change: the final side-fall stage takes card80 from 295.485 to 219.253 mm and
+card423 from 389.045 to 288.281 mm. The derived compliance reference therefore changes; every
+selected card's arc change appears in the report.
+
+The final position hash is
+`9eb545a3c3ea4c6449cd8c4744daa6f20d054f4919c714ce254cfbfe145654aa`, and the normal hash is
+`0712748bde9476f23d8465a668a81882f7b1b57850068a32805684527506824b`.
+These reproduce the complete geometry of the reviewed side-fall candidate
+`f415d1309317bf1727a619ea4c72867c4ba110aa2d6dd093051cdbc40924efc4`, preserved with its
+matched visual/ID evidence under `captures/bob01-necklace-2026-09-09/`.
+The portable output SHA256 is
+`db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b`.
+Scratch tags are replaced by `sugataHairLongFall` provenance. Removing those respective tags
+leaves identical complete GLB payloads, SHA256
+`a3a96db50f1d57abd30be157e52a495020b87fabfede198aa585496288ea023a`.
+
+Whole-triangle static tests compare every hair triangle, including caps, against the body. The
+original has 667 face pairs and 923 movable-curtain body pairs (990 total). The candidate has zero
+face and movable-curtain pairs, with **67 remaining whole-body pairs on unchanged root-layer
+card68**. `strictAllBodyPass` remains false. Card68's intersection is at side-head/ear height;
+separate posed neck contacts involve other root-layer cards. None are exempted from the gate.
+Shell-crossing tests do not exclude containment, classify shader visibility or certify later motion.
+
+The focused regression checks exact final and intermediate fingerprints, the old wrong-side-tip
+counterfactual, anchored prefixes, protected attributes, original shell rejection, strict residual
+failure, deterministic/idempotent output, tamper rejection and atomic output ownership. Added
+attributes, changed stamps or arbitrary metadata cannot inherit the calibration. Applying the
+current stamped output again is byte-idempotent; a prior calibration stamp is refused. The CLI
+requires separate new output/report paths, stages files before exclusive publication, and rolls
+back partial publication without deleting unrelated files. Review the candidate and its strict
+failure report before an explicit future installation.
+
+
+## Portable composed long-bob rest candidate (bob01/g025 only)
+
+`hair_long_fall_g025.mjs` reconstructs a separate g025 candidate from its immutable original
+Git LFS fixture and matching authored body. The seven pinned stages combine the calibrated
+curtain release, bounded contact repairs, root44 support, card80/423 and card113/173 neckline
+side-fall, and the independently measured lower card131 connector. The generator reads no
+ignored capture files. Five local contact repairs store their small calibrated Float32 position
+patches to retain the measured iterative result; the other stages replay their formulas.
+
+```sh
+node tools/figure-pipeline/hair_long_fall_g025.mjs \
+  /tmp/bob01-g025-composed/g025.glb \
+  /tmp/bob01-g025-composed/report.json
+node tools/figure-pipeline/hair_long_fall_g025.selftest.mjs
+```
+
+The exact output SHA256 is
+`556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716`;
+its complete BIN payload is
+`d22844bef558aef42c7cf69d3ffc2c6e3abe5cfb6898815e31c69b1c5b091194`.
+The separate card131 result is reproduced exactly. Relative to the latest neckline, its other
+495 cards, all UV/skin/material data and fitted colliders remain exact. Card131 restores its
+original positions through ring10 and uses a same-Y Hermite XZ connector below that point.
+Its arc increases from 274.920 to 297.701 mm, changing its derived compliance by −7.652%; the
+whole-groom median stays 243.748 mm. All original Y coordinates, caps, anchored ring0 positions,
+fringe geometry and ribbon widths are preserved within the documented Float32 bound.
+
+The authored original has 664 face intersection pairs. The composition has zero face and
+movable-curtain pairs, but **251 remaining root-layer pairs on cards 2, 3, 50 and 66**;
+`strictAllBodyPass` stays false. The combined candidate has no visual or motion acceptance.
+The separately viewed neckline and connector do not establish their composed posed behavior,
+and g025 body-contact runtime calibration is still pending. Shell intersection tests also do not
+exclude containment or establish shader visibility. Nothing installs this candidate.
+
+Ten focused test groups verify seven intermediate geometry fingerprints, complete output bytes,
+original-defect rejection, fixed attributes and upper prefixes, derived arc/fit changes,
+byte-idempotence, tamper rejection, capture-independent reads and atomic output ownership.
+The CLI requires two new separate output/report paths; changed source, body or metadata is
+refused. The evidence and independent composition audit are archived under
+`captures/bob01-g025-composed-2026-09-09/`.
+
+
+## Coverage-derived foundation masks (g050 only)
+
+`wardrobe_under_masks.mjs` applies the reviewed `g050-foundation-coverage-v1` selection to the four
+original g050 foundations under the original elegant/casual clothes. It repairs the coarse-mask
+subdivision mismatch and independently missing original coverage labels. Only selected existing
+Float32 `_UNDER_*` values change; the runtime threshold, foundation floor and all geometry stay
+fixed. The original container bytes outside those exact offsets also remain unchanged.
+
+```sh
+node tools/figure-pipeline/wardrobe_under_masks.mjs \
+  --garment foundation_bra --bake g050 \
+  --output /tmp/foundation-mask-review/bra.glb \
+  --report /tmp/foundation-mask-review/bra.json
+node tools/figure-pipeline/wardrobe_under_masks.selftest.mjs
+```
+
+The other garment IDs are `foundation_vest`, `foundation_briefs` and `foundation_boxer_brief`.
+Default inputs come from the immutable tracked original bundle; optional `--input` accepts only
+the exact calibrated source or final output. The exact body and both outer cloth digests are
+required even for idempotence. Outputs must be new explicit paths. Fixture directories and
+symlink aliases are refused before any nested directory creation. The tool does not install assets.
+
+The selection qualifies every additional any-corner triangle in a 1 mm expanded local chart,
+with a centroid-relative −4 mm to +30 mm depth slab, at authored rest and actual Avatar 0/4 s.
+All 23,300 additional pair records pass both actual poses. This is not pointwise depth coverage
+or an all-view/all-motion guarantee. All 32 clothed states pass the decency rays; eight
+foundation-only states retain two unchanged GROIN ray failures with no active outer mask.
+Remaining cloth/collar/sock contacts are not waived. See
+[`docs/WARDROBE-MASKS-2026-09-09.md`](../../docs/WARDROBE-MASKS-2026-09-09.md)
+for the full evidence, output hashes and the rendered-versus-portable container distinction.

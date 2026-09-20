@@ -208,7 +208,13 @@ export function createTemporalResolve( { mode, gbuffer, camera, sharpness, beaut
     // Handing that out instead of the node is the whole fix.
     const node = ( sharpenNode ?? resolved ).getTextureNode();
 
+    let resetEpoch = 0;
+
     return {
+
+        // Stable owned reference. Consumers may read but must never mutate it.
+        getUnjitteredProjection() { return resolved._originalProjectionMatrix; },
+        get resetEpoch() { return resetEpoch; },
 
         node,
         mode,
@@ -248,6 +254,7 @@ export function createTemporalResolve( { mode, gbuffer, camera, sharpness, beaut
          */
         resetFrameEpoch() {
 
+            resetEpoch++;
             resolved._jitterIndex = 0;
             resolved._historyRenderTarget?.setSize( 1, 1 );
 

@@ -1,0 +1,1248 @@
+{
+  "created": "2026-09-13T16:31:43.860823+00:00",
+  "root": "captures/hair-card-roots-2026-09-13",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1266,
+      "sha256": "bcf38dcd529fda259ae0bd795e3cec9064277fd4958e9c2f6ec938650c5f0621"
+    },
+    {
+      "path": "baseline-d79b341/packages/core/src/Avatar.js",
+      "bytes": 248587,
+      "sha256": "e8ee3f0f770c71e950711052b670fdcb1c25b9a42c9d2e681bcad6010debb504"
+    },
+    {
+      "path": "baseline-d79b341/packages/core/src/material/HairMaterial.js",
+      "bytes": 233699,
+      "sha256": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1"
+    },
+    {
+      "path": "critic/Avatar.reviewed-original.js",
+      "bytes": 248844,
+      "sha256": "e099e2ebc1eb3baeadc1a1438618541357f8d311406231fc8c70c262107c2660"
+    },
+    {
+      "path": "critic/FINAL-REVIEW.md",
+      "bytes": 4676,
+      "sha256": "b73b10234629681a771712595a6d7a5d4a7dd87660e5b36921c7970774e9ecfe"
+    },
+    {
+      "path": "critic/HairMaterial.reviewed-explicit.mjs",
+      "bytes": 235507,
+      "sha256": "3015c6e4b87bec9255b2d9614d0e9b07f32ab01af873d0bc3fd159895e000202"
+    },
+    {
+      "path": "critic/HairMaterial.reviewed-original.js",
+      "bytes": 235365,
+      "sha256": "123b772a0f844805859f3013116ec4e8c019f99bdf84007ff0fdac52241380ab"
+    },
+    {
+      "path": "critic/ISSUES.md",
+      "bytes": 2711,
+      "sha256": "c4af99981e7f2ca4292cf0c338b78880966fefaf7c07e72ae0134f06443236b0"
+    },
+    {
+      "path": "critic/REVIEW.md",
+      "bytes": 11343,
+      "sha256": "49f85ecddfc0446bf59f69bb551d8d48772497a4085055171e7fc0545bc6bd95"
+    },
+    {
+      "path": "critic/asset-probe.mjs",
+      "bytes": 7060,
+      "sha256": "93153947653efaf7fd990b1227acbf04cfb72220074436f9805dad9b8c79472d"
+    },
+    {
+      "path": "critic/asset-probe.stdout.json",
+      "bytes": 16764,
+      "sha256": "f3ddcebdb96fd324361ae79b48a10ccf46d3fbcbe35b988be28878b2dd6a4983"
+    },
+    {
+      "path": "critic/asset-report.json",
+      "bytes": 730069,
+      "sha256": "b0b4a6c8547f4ef2fb6411f2c492bf82b7fd83887dbfce138e7502b6ce5ee835"
+    },
+    {
+      "path": "critic/bob01-baseline-45.jpg",
+      "bytes": 138355,
+      "sha256": "060f1f27b799c2f86f3bb072adfeaf752a6e81afb7073e6052c42b8db0fd110a"
+    },
+    {
+      "path": "critic/bob01-flat-alpha-45.jpg",
+      "bytes": 111137,
+      "sha256": "5212a3646df81112f1cddf49572f099ee0fbb74a8bb3e97211761f0470d6dd3d"
+    },
+    {
+      "path": "critic/bob01-flat-opaque-45.jpg",
+      "bytes": 127842,
+      "sha256": "253a2914fd07d5c64c938d1b865c648f87aff9eae374c15a99aafb5bfd1403c2"
+    },
+    {
+      "path": "critic/bob01-no-root-45.jpg",
+      "bytes": 136968,
+      "sha256": "d759a559729617e4a1ace6000af0645af1be5774b0d855f3db9d27b3243325d1"
+    },
+    {
+      "path": "critic/final-bob01-baseline-12.jpg",
+      "bytes": 144952,
+      "sha256": "da2d9d2a83d545bea4e49455f899ba7a8b34a5d8bfa4be2b3ec278b87daadf70"
+    },
+    {
+      "path": "critic/final-bob01-baseline-45.jpg",
+      "bytes": 138355,
+      "sha256": "060f1f27b799c2f86f3bb072adfeaf752a6e81afb7073e6052c42b8db0fd110a"
+    },
+    {
+      "path": "critic/final-bob01-flow-guard-45.jpg",
+      "bytes": 138381,
+      "sha256": "e5cf161631cc7511a53dfe8b3f86e6493fc5e634fe9283a53d3658340ef87a39"
+    },
+    {
+      "path": "critic/final-bob01-uv-root-flow-guard-45.jpg",
+      "bytes": 136949,
+      "sha256": "c03ccb9eed0b162f61037e35f30152ad93062fec59477cf422f8fcde1222f69e"
+    },
+    {
+      "path": "critic/final-bob01-uv-root-flow-guard-root-taper-0.18-12.jpg",
+      "bytes": 143201,
+      "sha256": "8df06e6559539fbf492036a81ec32e309fc7d7bb9ed814cbbe5f7735c9019891"
+    },
+    {
+      "path": "critic/final-bob01-uv-root-flow-guard-root-taper-0.18-45.jpg",
+      "bytes": 135236,
+      "sha256": "373cd4d5b71cb95fcd9dc42347ed9b0a74abf07ff7023b131b97a0fa4fd12637"
+    },
+    {
+      "path": "critic/final-bob02-baseline-12.jpg",
+      "bytes": 130885,
+      "sha256": "1efe2accc0bb6f24ccdec035415e2f2390e14a7468ac57aece1c8f886c66a91d"
+    },
+    {
+      "path": "critic/final-bob02-baseline-45.jpg",
+      "bytes": 121654,
+      "sha256": "c67d08ecf81d92804e2fee5bd35056d35f3197063da034f3cdc2c25dff4acec2"
+    },
+    {
+      "path": "critic/final-bob02-uv-root-flow-guard-root-taper-0.18-12.jpg",
+      "bytes": 130693,
+      "sha256": "9e0218cdc1cd41c73506846258e46a2f69f79560b11ac28fe512889f33cda895"
+    },
+    {
+      "path": "critic/final-bob02-uv-root-flow-guard-root-taper-0.18-45.jpg",
+      "bytes": 119540,
+      "sha256": "6a3ff98bd2fe26550c1718f91397a51b66ed889f57990f938b4d8831728885a2"
+    },
+    {
+      "path": "critic/flow-direction-probe.mjs",
+      "bytes": 2326,
+      "sha256": "afd60e72572ed2c42f59440e46a489231a2827cee08839985b4fcb148b22d9d7"
+    },
+    {
+      "path": "critic/flow-direction-report.json",
+      "bytes": 9665,
+      "sha256": "19793686dd6c6bab127858f9998971794bf489850feaaf045b7f43b6dcc8c432"
+    },
+    {
+      "path": "critic/flow-guard-evidence-report.json",
+      "bytes": 2182,
+      "sha256": "c2df3f86077bfb65d9115382bf04a14607f3d70491c343bc86c6fdbac6bd2807"
+    },
+    {
+      "path": "critic/flow-probe.mjs",
+      "bytes": 2230,
+      "sha256": "85e43035e26b0d1be5e0079ac7d1f3ed3d0769f0aa00347642a04d1fdb2d2bb9"
+    },
+    {
+      "path": "critic/flow-probe.stdout.json",
+      "bytes": 23296,
+      "sha256": "f9827b43006b7da1974f8f6f3083b603ff319e56cae4b10e8c385ac290f5ff59"
+    },
+    {
+      "path": "critic/flow-report.json",
+      "bytes": 23296,
+      "sha256": "f9827b43006b7da1974f8f6f3083b603ff319e56cae4b10e8c385ac290f5ff59"
+    },
+    {
+      "path": "critic/flow-threshold-probe.mjs",
+      "bytes": 2905,
+      "sha256": "aea88634edaeb4ed28cc3691ad1457dbb94e808360230644ba8875610bc4b3ff"
+    },
+    {
+      "path": "critic/flow-threshold-report.json",
+      "bytes": 2711,
+      "sha256": "c1111c2e88cc9437d33cd5234d2ee2304f5bb53aee65ff915d5443e5f55dc461"
+    },
+    {
+      "path": "critic/integration-probe.mjs",
+      "bytes": 3804,
+      "sha256": "445fcdd0d0dbc8fd2485d01a6f77df1416a36b2d8b652b98cf245f4225804555"
+    },
+    {
+      "path": "critic/integration-report.json",
+      "bytes": 898,
+      "sha256": "bb37ec30bb52b632ae6b12c2fcc5d3791a26dfa98f0b138f4fe4c3de430d65ef"
+    },
+    {
+      "path": "critic/isolation-evidence-report.json",
+      "bytes": 1460,
+      "sha256": "5e893b6b823cf2f413409db35c652793ae2a7c2df6569e50cf3d94f10662a10b"
+    },
+    {
+      "path": "critic/manifest.json",
+      "bytes": 5325,
+      "sha256": "c0a9fb57fa43f453c4d6a2cad7b59cf2391c6481bd74645333304b52867b11b6"
+    },
+    {
+      "path": "critic/motion-review/REVIEW.md",
+      "bytes": 3448,
+      "sha256": "1cf4231acfb9b2e066aed80670782ceb5ba446cc97200100a976bb3a1562952e"
+    },
+    {
+      "path": "critic/motion-review/SHA256SUMS",
+      "bytes": 1405,
+      "sha256": "cfc768355b2f43fad1768a0f49e84ffd2626608bf0b4886a2568b07cd105a682"
+    },
+    {
+      "path": "critic/motion-review/bob01-baseline-motion-120.jpg",
+      "bytes": 124304,
+      "sha256": "dad2cc84878b4713ba73609d639b089003d66b06f4e65a40c682bfe2c8439566"
+    },
+    {
+      "path": "critic/motion-review/bob01-baseline-motion-60.jpg",
+      "bytes": 117007,
+      "sha256": "f94b132f97a3f31d5187aedc04a026034935ae8cbf99a4f655aa212d763c65d8"
+    },
+    {
+      "path": "critic/motion-review/bob01-integrated-motion-120.jpg",
+      "bytes": 123016,
+      "sha256": "459ac467be57e4d1b8ce4af675d2a351f909cbc1185a5b40bbfa9b9695e63f2c"
+    },
+    {
+      "path": "critic/motion-review/bob01-integrated-motion-60.jpg",
+      "bytes": 115934,
+      "sha256": "73682a0fc12232d8b3b41572f6783f49b09055eb43b1a48f4c655703798354c4"
+    },
+    {
+      "path": "critic/motion-review/bob01-prototype-motion-120.jpg",
+      "bytes": 123016,
+      "sha256": "459ac467be57e4d1b8ce4af675d2a351f909cbc1185a5b40bbfa9b9695e63f2c"
+    },
+    {
+      "path": "critic/motion-review/bob01-prototype-motion-60.jpg",
+      "bytes": 115934,
+      "sha256": "73682a0fc12232d8b3b41572f6783f49b09055eb43b1a48f4c655703798354c4"
+    },
+    {
+      "path": "critic/motion-review/bob02-baseline-motion-120.jpg",
+      "bytes": 110008,
+      "sha256": "44eceffab6836a0a6ebbbeffbd4500aba6ad15ce53613927b31d2c2c80446b52"
+    },
+    {
+      "path": "critic/motion-review/bob02-baseline-motion-60.jpg",
+      "bytes": 104069,
+      "sha256": "8eca0caae3e8f493ffb065d3e9b447e14358664ad4643ad4c0c5fd7802a41187"
+    },
+    {
+      "path": "critic/motion-review/bob02-integrated-motion-120.jpg",
+      "bytes": 109612,
+      "sha256": "eb210f352d716d0fe321d117aa73d792ebf9b51707a05197c61c4acabb5d0f3f"
+    },
+    {
+      "path": "critic/motion-review/bob02-integrated-motion-60.jpg",
+      "bytes": 104000,
+      "sha256": "11bc75c2f0597ce451e84d51137504f089d8eed9ce5d79ee236162d4374d339c"
+    },
+    {
+      "path": "critic/motion-review/bob02-prototype-motion-120.jpg",
+      "bytes": 109612,
+      "sha256": "eb210f352d716d0fe321d117aa73d792ebf9b51707a05197c61c4acabb5d0f3f"
+    },
+    {
+      "path": "critic/motion-review/bob02-prototype-motion-60.jpg",
+      "bytes": 104000,
+      "sha256": "11bc75c2f0597ce451e84d51137504f089d8eed9ce5d79ee236162d4374d339c"
+    },
+    {
+      "path": "critic/motion-review/evidence-report.json",
+      "bytes": 6895,
+      "sha256": "ff82970bbe556fb28f95ae21b9bab0d1b5af6034250bb4eb43b5311adb8425a3"
+    },
+    {
+      "path": "critic/motion-review/verify-motion.mjs",
+      "bytes": 2952,
+      "sha256": "2c7b387af94e5aa93790eeb38e467bed5ac2bf808f8445b56a22844c8535e29e"
+    },
+    {
+      "path": "critic/owned-natural-12-0120.jpg",
+      "bytes": 124359,
+      "sha256": "30fb6d1f3575d20e68c235989f37fd2f44d207fe6f5e2aee133c323af638c4ae"
+    },
+    {
+      "path": "critic/owned-still-12-0000.jpg",
+      "bytes": 142073,
+      "sha256": "b8ffb83e4ac3c3cac47fb908bc89658a275ae70e7e55d8c7fea8c5214880f5b1"
+    },
+    {
+      "path": "critic/owned-still-45-0000.jpg",
+      "bytes": 136748,
+      "sha256": "5754d99de7d28f5e6c00c0e16ea1c6c9aeed4d57816d446d5d83eac89bf5c0a4"
+    },
+    {
+      "path": "critic/parameter-bob01-baseline-45.jpg",
+      "bytes": 138355,
+      "sha256": "060f1f27b799c2f86f3bb072adfeaf752a6e81afb7073e6052c42b8db0fd110a"
+    },
+    {
+      "path": "critic/parameter-bob01-uv-root-45.jpg",
+      "bytes": 137170,
+      "sha256": "54ada8c893c56f85ead6f8fa0ef535a29873897a5db4d641df1d15e7352e3b5f"
+    },
+    {
+      "path": "critic/parameter-bob01-uv-root-taper-0.18-45.jpg",
+      "bytes": 135408,
+      "sha256": "a6ba5b1be148a6cdb0363219ed8f66cbf48744409978409be9405f004922df5d"
+    },
+    {
+      "path": "critic/parameter-bob02-baseline-12.jpg",
+      "bytes": 130885,
+      "sha256": "1efe2accc0bb6f24ccdec035415e2f2390e14a7468ac57aece1c8f886c66a91d"
+    },
+    {
+      "path": "critic/parameter-bob02-uv-root-12.jpg",
+      "bytes": 131685,
+      "sha256": "41e82c14bc7d15956195d11f0e4e83e23132df69c13e3f9fc16a048bbbb63c23"
+    },
+    {
+      "path": "critic/parameter-bob02-uv-root-taper-0.18-12.jpg",
+      "bytes": 130509,
+      "sha256": "798ae7e95679a6de95133c8d56b2ac156a5e767c592c0e4a7dc4686180596550"
+    },
+    {
+      "path": "critic/profile-contract-probe.mjs",
+      "bytes": 2470,
+      "sha256": "631dd8df275d66e263834d066b84c271b247897ac010beba2d7cbb2ff8ab5389"
+    },
+    {
+      "path": "critic/profile-contract-report.json",
+      "bytes": 3574,
+      "sha256": "edb130122e633375e0713690d30422eb6d1b785c224a33a031c70a883e0853a0"
+    },
+    {
+      "path": "critic/root-parameter-evidence-report.json",
+      "bytes": 1681,
+      "sha256": "3f42f4968ecf8b15b423c331eb7d81abbcdec1244568558524cc6c655e38679a"
+    },
+    {
+      "path": "critic/root-taper-evidence-report.json",
+      "bytes": 1697,
+      "sha256": "016a19a61b53612dab9885a4851c6de407c7e492a7568495abbd669ac4bc64a9"
+    },
+    {
+      "path": "critic/uv-cap-report.json",
+      "bytes": 1073,
+      "sha256": "849cee068a5891e970e8a06768dc53b9538e1c844ab6b34afdca15af14345332"
+    },
+    {
+      "path": "critic/verify-isolation.mjs",
+      "bytes": 1477,
+      "sha256": "b64d6501ca2604fafacaeb4453fb42e3c4cedeb9ae98b4e65fb4262f5efe0ef9"
+    },
+    {
+      "path": "critic/verify-variants.mjs",
+      "bytes": 1593,
+      "sha256": "a86cbbd2020f641f407542368e24aefaa6fea2e5207ea303e7ca4c08ca77c17c"
+    },
+    {
+      "path": "fallback-v1/bob01-fallback.png",
+      "bytes": 796521,
+      "sha256": "ddf74c41b3e69bfa74d0ba3c0a660ce8b98e3ad84bd9d6ad489fbce6b4fd7e14"
+    },
+    {
+      "path": "fallback-v1/bob02-fallback.png",
+      "bytes": 724260,
+      "sha256": "c7261a67b72ca2609d94a985160ee12ffc23edf1c2ba5ac417f89c6e75223ab3"
+    },
+    {
+      "path": "fallback-v1/fallback.gpu.mjs",
+      "bytes": 3269,
+      "sha256": "13db70ccf65fcc5a4c8a979a9277a4afc68e1b478aad47d117b2c2e041944e4d"
+    },
+    {
+      "path": "fallback-v1/report.json",
+      "bytes": 1605,
+      "sha256": "7d569a9f83f56bf93fe8a9cbe25a9c8b14ffae87913ee64d102328f5ab763a38"
+    },
+    {
+      "path": "flow-guard-v1/HairMaterial.flow-guard.js",
+      "bytes": 233810,
+      "sha256": "5a9cec7f3923a2c86bbb278175e173224261a39d87bf46fa5ce95ac56ec0222a"
+    },
+    {
+      "path": "flow-guard-v1/controls.mjs",
+      "bytes": 186,
+      "sha256": "d5054d099e89a7124648026e92ad88e3624cb48162b133f1224c36519d62cef4"
+    },
+    {
+      "path": "flow-guard-v1/probe.mjs",
+      "bytes": 5623,
+      "sha256": "bdcaa1e5f041a5e12a0c07f97ea49fd8815acec7239f967fc95f0e388e6777e5"
+    },
+    {
+      "path": "flow-guard-v1/report.json",
+      "bytes": 1702,
+      "sha256": "e3bccd878f806c26da4a048cacda502ea049e372d2154aaa580b2d36839ec3a6"
+    },
+    {
+      "path": "flow-guard-v2/HairMaterial.flow-guard.js",
+      "bytes": 233810,
+      "sha256": "5a9cec7f3923a2c86bbb278175e173224261a39d87bf46fa5ce95ac56ec0222a"
+    },
+    {
+      "path": "flow-guard-v2/bob01-baseline-12.png",
+      "bytes": 609764,
+      "sha256": "b0acc3ea681d93ae7bb58d897220495af36a8415804721099569897d1a0c2bf4"
+    },
+    {
+      "path": "flow-guard-v2/bob01-baseline-45.png",
+      "bytes": 585591,
+      "sha256": "e6bf56dd63f28ac523504a1067811ac881f44ad50fc2d68523be530e03054eae"
+    },
+    {
+      "path": "flow-guard-v2/bob01-flow-guard-12.png",
+      "bytes": 609640,
+      "sha256": "2aba6032e5432bdb22842d179c242b7d53bf78d908c9d02c2abc9f6511114f02"
+    },
+    {
+      "path": "flow-guard-v2/bob01-flow-guard-45.png",
+      "bytes": 585656,
+      "sha256": "00c3a1146dad363c102b0d17db997afb3e1102639baa17cea8a5f507c56d9a54"
+    },
+    {
+      "path": "flow-guard-v2/bob01-uv-root-flow-guard-12.png",
+      "bytes": 609514,
+      "sha256": "9ca6c84ec26099f774c13a3e0d8ddbf73ec32bc14459dd28c73377940a6a48aa"
+    },
+    {
+      "path": "flow-guard-v2/bob01-uv-root-flow-guard-45.png",
+      "bytes": 583990,
+      "sha256": "b192deeab646c11a2b4307bd1be7cf565443820a96eafff3bdeb01a09c8f9331"
+    },
+    {
+      "path": "flow-guard-v2/bob01-uv-root-flow-guard-root-taper-0.18-12.png",
+      "bytes": 606274,
+      "sha256": "22169559e1e2b545e0cf2de238446667b5bdb7029e6d747bad8ffe9ca52bfd3a"
+    },
+    {
+      "path": "flow-guard-v2/bob01-uv-root-flow-guard-root-taper-0.18-45.png",
+      "bytes": 580928,
+      "sha256": "d753c2b7c3153796ccabffd42c6b2e28ef42133ab70b0ec6c058075fbc2cc66d"
+    },
+    {
+      "path": "flow-guard-v2/bob02-baseline-12.png",
+      "bytes": 557916,
+      "sha256": "b16c5e2f64a0bce9c18b00722c5ff0165cba25f2742d330f20759204f4c5a6b1"
+    },
+    {
+      "path": "flow-guard-v2/bob02-baseline-45.png",
+      "bytes": 533200,
+      "sha256": "bdd4cc307506fdd3ca48f25f0cdb9a97b1e67857afc196c27688054492d2b95f"
+    },
+    {
+      "path": "flow-guard-v2/bob02-flow-guard-12.png",
+      "bytes": 558040,
+      "sha256": "9358de8a239774d43c997397c03897afcb238353e630350f6f16bdef33e080b5"
+    },
+    {
+      "path": "flow-guard-v2/bob02-flow-guard-45.png",
+      "bytes": 533107,
+      "sha256": "711121e8f29970c5b17060ee98a2da506a57bf5d0757a321f1a578b7cbc26141"
+    },
+    {
+      "path": "flow-guard-v2/bob02-uv-root-flow-guard-12.png",
+      "bytes": 560753,
+      "sha256": "4446ddac4e530c140cca57ff7679b8a8f3c25ca9788eb6d746ae053b8cc6ad71"
+    },
+    {
+      "path": "flow-guard-v2/bob02-uv-root-flow-guard-45.png",
+      "bytes": 533472,
+      "sha256": "c199f61e58420816a39a15d827a2fb5b8825a944211750fd6a887bf292f1c7f6"
+    },
+    {
+      "path": "flow-guard-v2/bob02-uv-root-flow-guard-root-taper-0.18-12.png",
+      "bytes": 558781,
+      "sha256": "8c4f06ed64342dac98902780ad6d2a32dd48a3780e0a71e2086dcb5db8ad20aa"
+    },
+    {
+      "path": "flow-guard-v2/bob02-uv-root-flow-guard-root-taper-0.18-45.png",
+      "bytes": 530411,
+      "sha256": "fd7b9286240ba783a044e279d23ea343da0056e0ec7d74c54b3b9837cf00b489"
+    },
+    {
+      "path": "flow-guard-v2/controls.mjs",
+      "bytes": 186,
+      "sha256": "d5054d099e89a7124648026e92ad88e3624cb48162b133f1224c36519d62cef4"
+    },
+    {
+      "path": "flow-guard-v2/probe.mjs",
+      "bytes": 5858,
+      "sha256": "d2cad3ea094d850cf111f58fefdcd520df6c5fe48acc7f9681f1c45378d0822a"
+    },
+    {
+      "path": "flow-guard-v2/report.json",
+      "bytes": 131060,
+      "sha256": "689d7ec6ff3cf7db9d87eda230dc2045bee461d55bebe20a8360eb0bd7945e4e"
+    },
+    {
+      "path": "helper/browser.mjs",
+      "bytes": 9390,
+      "sha256": "fe69e5b12ad0f7f505af6d2cd283f44828a3bf742764ed5fa7031c7f5c1b33a2"
+    },
+    {
+      "path": "image-export-v1/casual-body.png",
+      "bytes": 855128,
+      "sha256": "59c42b82eb537c618273c6d1be87ba98254478797528af0279d0bb91c510316d"
+    },
+    {
+      "path": "image-export-v1/elegant-body.png",
+      "bytes": 860516,
+      "sha256": "7287835ee7430c895dfc254a1be8e00d82f45728aa35c70e58d9301cc933384f"
+    },
+    {
+      "path": "image-export-v1/elegant-long-bob.png",
+      "bytes": 849288,
+      "sha256": "1b2377c8f1fd50881d30843f49284e4fd84a52b7f11a0d5f857ae06e72f4fa02"
+    },
+    {
+      "path": "image-export-v1/elegant-portrait-side.png",
+      "bytes": 689679,
+      "sha256": "8e4a08ec8b8deac2fb78ed449ff09ae652d1487d82a72fa37bbb44aaa6e57b21"
+    },
+    {
+      "path": "image-export-v1/live-motion.png",
+      "bytes": 851703,
+      "sha256": "e34a4cc0411bdf84d72f36ec8bdf25f113e8d2216e8947b36e07dc2feae66d34"
+    },
+    {
+      "path": "image-export-v1/lookbook-png-action.png",
+      "bytes": 648288,
+      "sha256": "26bdd69a2c1d625be05278353feaf6a791db79a96df11583d1ae535e3377216d"
+    },
+    {
+      "path": "image-export-v1/paused-motion.png",
+      "bytes": 849843,
+      "sha256": "8f93e864b90ad887dbbcb7939c509460cc8bb1ccb30c1812ee0788c1d217fbc8"
+    },
+    {
+      "path": "image-export-v1/report.json",
+      "bytes": 8145,
+      "sha256": "cb7a7bdafc0dfe6bf0fe82fe85305619e9e763871e255d261461b53f782e1d5d"
+    },
+    {
+      "path": "image-export-v1/settings.json",
+      "bytes": 410,
+      "sha256": "929dec457627b871f6b08fe818d407a80b42e41230f5289088df45a22cf23ce0"
+    },
+    {
+      "path": "integrated-motion-v1/HairMaterial.flow-guard.js",
+      "bytes": 233810,
+      "sha256": "5a9cec7f3923a2c86bbb278175e173224261a39d87bf46fa5ce95ac56ec0222a"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-12.png",
+      "bytes": 610028,
+      "sha256": "e72c1d837234ee781585973aa2d0859c3d77ddb37e9e070b303e31fdb01b80ee"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-45.png",
+      "bytes": 585779,
+      "sha256": "83771df91cb8933796093f773f75389cb3e0b36766a1749dedaa11a9905f2d93"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-0.png",
+      "bytes": 609526,
+      "sha256": "e24f256a5346f4641f7a3c7e151829883745f47588f7707792cbe638cae8e5da"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-120.png",
+      "bytes": 557144,
+      "sha256": "d162081a38acb7f566ff7ffc9eab173a6d77ecc62837519e70dd40b3957a8350"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-150.png",
+      "bytes": 538125,
+      "sha256": "21d383be6a949135751f240bf8c615baa04f8e1b870610a550d02643b767b7cc"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-180.png",
+      "bytes": 590482,
+      "sha256": "450608a3f77f86980ba24f242f71a67557b0980832e27379ff4626d207ecd2c0"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-30.png",
+      "bytes": 555322,
+      "sha256": "8b71e50c475c1d7dcb4192443c7db5ee0ecca3fccce42e03c89b0f23bfb7b41a"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-60.png",
+      "bytes": 524205,
+      "sha256": "80a111b0718229330a490a732393fce0a4d1ddbec845219e44154f451ab489d5"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-motion-90.png",
+      "bytes": 534514,
+      "sha256": "2b2d018af193093cb0c5424670f58a222b34abd98507bb5cdd1602bd3694c1fb"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-baseline-programs.json",
+      "bytes": 849909,
+      "sha256": "81da199b13d3d8ad913848ebd1ad5e3e3f59cd0cad23767ae140aadb91786035"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-12.png",
+      "bytes": 605959,
+      "sha256": "965c8775e2a385188319d8598724c2308b26ae67fb0fdfd3db3a92adf602e694"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-45.png",
+      "bytes": 581313,
+      "sha256": "8b69df38904024b99dbd838c1dc463eef04dfd1446d16c080596d84e7b1f1c18"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-0.png",
+      "bytes": 605722,
+      "sha256": "895970d3438470a65b5476822a5a9ba022bc3e28ad5155d014f4498d7abc24fd"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-120.png",
+      "bytes": 554781,
+      "sha256": "1680ff5863d14a3fcae75b7e8335129e9b8f7ea91b4a61efe8aac8df60de6961"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-150.png",
+      "bytes": 534414,
+      "sha256": "a6d9a876a02e2c5e86ede535e1d880c8dac04f4595e6603f7d4b4519a8e73a6f"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-180.png",
+      "bytes": 586804,
+      "sha256": "bda7488f9c1b2befad8f79e13bbbd919164a1548070689ccedf443e1a15333c7"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-30.png",
+      "bytes": 551386,
+      "sha256": "84b0eaacef5562584942ae5f3076598d66ca0b997c7a4727bc9eeb26179de938"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-60.png",
+      "bytes": 521282,
+      "sha256": "dee911a34555d317ca524dba0dc279a65a67017d44f0cec3bf59793c6d8f1ff0"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-motion-90.png",
+      "bytes": 531911,
+      "sha256": "fd1e6baae3f17e52dae0c147798d6db6e49f8a681a94011819ee1fee86107c86"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-integrated-programs.json",
+      "bytes": 851110,
+      "sha256": "4852d25cba445fc7a2009d70f39f33094118794193ee1ca30bb059d5d5ed7edb"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-12.png",
+      "bytes": 605959,
+      "sha256": "965c8775e2a385188319d8598724c2308b26ae67fb0fdfd3db3a92adf602e694"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-45.png",
+      "bytes": 581313,
+      "sha256": "8b69df38904024b99dbd838c1dc463eef04dfd1446d16c080596d84e7b1f1c18"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-0.png",
+      "bytes": 605722,
+      "sha256": "895970d3438470a65b5476822a5a9ba022bc3e28ad5155d014f4498d7abc24fd"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-120.png",
+      "bytes": 554781,
+      "sha256": "1680ff5863d14a3fcae75b7e8335129e9b8f7ea91b4a61efe8aac8df60de6961"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-150.png",
+      "bytes": 534414,
+      "sha256": "a6d9a876a02e2c5e86ede535e1d880c8dac04f4595e6603f7d4b4519a8e73a6f"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-180.png",
+      "bytes": 586804,
+      "sha256": "bda7488f9c1b2befad8f79e13bbbd919164a1548070689ccedf443e1a15333c7"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-30.png",
+      "bytes": 551386,
+      "sha256": "84b0eaacef5562584942ae5f3076598d66ca0b997c7a4727bc9eeb26179de938"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-60.png",
+      "bytes": 521282,
+      "sha256": "dee911a34555d317ca524dba0dc279a65a67017d44f0cec3bf59793c6d8f1ff0"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-motion-90.png",
+      "bytes": 531911,
+      "sha256": "fd1e6baae3f17e52dae0c147798d6db6e49f8a681a94011819ee1fee86107c86"
+    },
+    {
+      "path": "integrated-motion-v1/bob01-prototype-programs.json",
+      "bytes": 851218,
+      "sha256": "7acca240091536ece0554a43d4dd1b6b9b5e8242fae27c3e30d42debac4c6dda"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-12.png",
+      "bytes": 557904,
+      "sha256": "2f0c49d0d0ed32405d810bf5e302bd4739c71bcc22c442741f64bd9b3cb8ef95"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-45.png",
+      "bytes": 533644,
+      "sha256": "347f7eba7640383ced50ec374456500c8e67f409704084861f7e72bbfc4579a2"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-0.png",
+      "bytes": 557337,
+      "sha256": "349341c4437283e095d3929c916168d210b0d39f1aaa5ae5b1a30f935a7b8017"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-120.png",
+      "bytes": 501762,
+      "sha256": "9ab60f0ab9df0a88a1bcb6842fbaa37b8145d561148bb56116a88a18100eeb75"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-150.png",
+      "bytes": 489018,
+      "sha256": "6fa843817b34ba65c0b7fd9002b5cd02c8785281b67238337abd1895456f66d5"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-180.png",
+      "bytes": 517360,
+      "sha256": "c4cc6ebb65c95f60148d39b2271bad20fcbbe22846387c3979794738a010c958"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-30.png",
+      "bytes": 503748,
+      "sha256": "c59632043d6680ee8bb7d430bf456af77c3c3c01068c00377905ffb194d7e01a"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-60.png",
+      "bytes": 476988,
+      "sha256": "7b336f34bcb4819038521ee4da7fc28affd8df79d2486e6725bf2979f4181307"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-motion-90.png",
+      "bytes": 493316,
+      "sha256": "0cf34a9a201a3de0c04251f9d78041317356f526496ca380d0ab1a452cc81788"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-baseline-programs.json",
+      "bytes": 734293,
+      "sha256": "0632f8f5043fd7f1a7b25609a70c7ff53e0caf4d4b081af9e98c5bbf90912950"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-12.png",
+      "bytes": 558679,
+      "sha256": "19229806f348155f524b20c588677f4c8286e1031fea5cde77d6d4bca7887759"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-45.png",
+      "bytes": 530639,
+      "sha256": "a6b8fcba10072e2d4ad60341789231f07eafd03bc09e3febfabffa6f74628a48"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-0.png",
+      "bytes": 557943,
+      "sha256": "b99b8851180b40cf6d8d3548c7fab93b474927d70d8c9185766aca9963db6baa"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-120.png",
+      "bytes": 501415,
+      "sha256": "82c6894302662ee772111e99f9e95714dc17f3ef26b29743af597cd5efd760fd"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-150.png",
+      "bytes": 488428,
+      "sha256": "81ce7db785d9d38ff8ff9d9fe8ea30efe7b87dc1184b6871860af7361754dfb7"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-180.png",
+      "bytes": 518442,
+      "sha256": "6e71ceefbb89d777e6746ea7f04ab07e6424a915940f03b9b2ce0660d4832a8a"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-30.png",
+      "bytes": 503447,
+      "sha256": "cfee7936b113f6bc584a0f01fd4d393266137cf67dc0b0501c16f75ec46640f6"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-60.png",
+      "bytes": 477489,
+      "sha256": "ccc1a1b98072ee5b5c5aab1a0cee051cc5e9187f15d5c7d1fcb4e9d63fd2a166"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-motion-90.png",
+      "bytes": 493163,
+      "sha256": "9eeb000bda2f2ebd02de8af2c04dd1765e0cc235976f255a6eb736d912591054"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-integrated-programs.json",
+      "bytes": 735494,
+      "sha256": "918cc4ac24fad0935bb0f68899829539cd6904c6faf9301f951c475af3af2d1b"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-12.png",
+      "bytes": 558679,
+      "sha256": "19229806f348155f524b20c588677f4c8286e1031fea5cde77d6d4bca7887759"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-45.png",
+      "bytes": 530639,
+      "sha256": "a6b8fcba10072e2d4ad60341789231f07eafd03bc09e3febfabffa6f74628a48"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-0.png",
+      "bytes": 557943,
+      "sha256": "b99b8851180b40cf6d8d3548c7fab93b474927d70d8c9185766aca9963db6baa"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-120.png",
+      "bytes": 501415,
+      "sha256": "82c6894302662ee772111e99f9e95714dc17f3ef26b29743af597cd5efd760fd"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-150.png",
+      "bytes": 488428,
+      "sha256": "81ce7db785d9d38ff8ff9d9fe8ea30efe7b87dc1184b6871860af7361754dfb7"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-180.png",
+      "bytes": 518442,
+      "sha256": "6e71ceefbb89d777e6746ea7f04ab07e6424a915940f03b9b2ce0660d4832a8a"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-30.png",
+      "bytes": 503447,
+      "sha256": "cfee7936b113f6bc584a0f01fd4d393266137cf67dc0b0501c16f75ec46640f6"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-60.png",
+      "bytes": 477489,
+      "sha256": "ccc1a1b98072ee5b5c5aab1a0cee051cc5e9187f15d5c7d1fcb4e9d63fd2a166"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-motion-90.png",
+      "bytes": 493163,
+      "sha256": "9eeb000bda2f2ebd02de8af2c04dd1765e0cc235976f255a6eb736d912591054"
+    },
+    {
+      "path": "integrated-motion-v1/bob02-prototype-programs.json",
+      "bytes": 735602,
+      "sha256": "39e573beaed2cc47a1bdaf583eb2c96e552e4e778ac85e114c305d05c1d44e45"
+    },
+    {
+      "path": "integrated-motion-v1/controls.mjs",
+      "bytes": 186,
+      "sha256": "d5054d099e89a7124648026e92ad88e3624cb48162b133f1224c36519d62cef4"
+    },
+    {
+      "path": "integrated-motion-v1/integrated/Avatar.js",
+      "bytes": 248844,
+      "sha256": "e099e2ebc1eb3baeadc1a1438618541357f8d311406231fc8c70c262107c2660"
+    },
+    {
+      "path": "integrated-motion-v1/integrated/HairMaterial.js",
+      "bytes": 235365,
+      "sha256": "123b772a0f844805859f3013116ec4e8c019f99bdf84007ff0fdac52241380ab"
+    },
+    {
+      "path": "integrated-motion-v1/integration-comparison.json",
+      "bytes": 3140,
+      "sha256": "e349d7e872d4dee96045bb4aeacdfa550c263b7eb6a19d459dea232bb820c092"
+    },
+    {
+      "path": "integrated-motion-v1/probe.mjs",
+      "bytes": 5858,
+      "sha256": "d2cad3ea094d850cf111f58fefdcd520df6c5fe48acc7f9681f1c45378d0822a"
+    },
+    {
+      "path": "integrated-motion-v1/qualification.mjs",
+      "bytes": 7612,
+      "sha256": "4d95383e4a8f9f9c0f208357a189d639a48e1284ebbd08ce269e4b4fe40610c5"
+    },
+    {
+      "path": "integrated-motion-v1/report.json",
+      "bytes": 311782,
+      "sha256": "51e1e1599689d185606aa0aa537ae0552290002fe98ad6d3915c1aef1d7b462b"
+    },
+    {
+      "path": "isolation-v1/probe.mjs",
+      "bytes": 4651,
+      "sha256": "1bee87ad9a0dcdb6cad5b106bc14a7e4adba74fcf84ce64b5118ceca71bee48c"
+    },
+    {
+      "path": "isolation-v1/report.json",
+      "bytes": 1261,
+      "sha256": "76708ca73c7f92e420246f4600e7512ee95ed1ebaf1d5e454d99af01fab1bbb3"
+    },
+    {
+      "path": "isolation-v2/bob01-baseline-12.png",
+      "bytes": 609764,
+      "sha256": "b0acc3ea681d93ae7bb58d897220495af36a8415804721099569897d1a0c2bf4"
+    },
+    {
+      "path": "isolation-v2/bob01-baseline-45.png",
+      "bytes": 585591,
+      "sha256": "e6bf56dd63f28ac523504a1067811ac881f44ad50fc2d68523be530e03054eae"
+    },
+    {
+      "path": "isolation-v2/bob01-flat-alpha-12.png",
+      "bytes": 518595,
+      "sha256": "7aad6d3cd1c98ba5c9c54e9f58f1b6262b77d877cdf21be212c370a0d782bda0"
+    },
+    {
+      "path": "isolation-v2/bob01-flat-alpha-45.png",
+      "bytes": 451373,
+      "sha256": "c4e000cd663e5ba38a8b70e09412c63e626fedaba09e7e016df723012f95347e"
+    },
+    {
+      "path": "isolation-v2/bob01-flat-opaque-12.png",
+      "bytes": 467886,
+      "sha256": "f4a136d7d27150c81f9768518c563412290e34d66b3dba0efca1731aa3b8ade0"
+    },
+    {
+      "path": "isolation-v2/bob01-flat-opaque-45.png",
+      "bytes": 417575,
+      "sha256": "fbe6b889caefc06fc0e5c5fcd381f6d82d30d5e1ca1d770c8001d9165bb51b5f"
+    },
+    {
+      "path": "isolation-v2/bob01-no-root-12.png",
+      "bytes": 611104,
+      "sha256": "f6700030cf618ab428ac55673e517ba17c60d593ec8fc88815d66ffb68450ea1"
+    },
+    {
+      "path": "isolation-v2/bob01-no-root-45.png",
+      "bytes": 586751,
+      "sha256": "568f098ebaa8f7f325b021e90b3e1db9697c83ee6ec2800da221cc2a7be6e2ca"
+    },
+    {
+      "path": "isolation-v2/bob01-opaque-12.png",
+      "bytes": 572759,
+      "sha256": "d60351adf3f04b49402abdb44d2464e024b4fc753756d8ee0ba2ce6df95601f0"
+    },
+    {
+      "path": "isolation-v2/bob01-opaque-45.png",
+      "bytes": 577042,
+      "sha256": "8a7b5595762efe57fd0462d8f3f914caa3e629499fbbdafb01812d4d67f83bcd"
+    },
+    {
+      "path": "isolation-v2/controls.mjs",
+      "bytes": 58,
+      "sha256": "96c25ecda324268a4d1bc6b70b6ce9deebdfef9cf72431f3af44ddc3f2e79fad"
+    },
+    {
+      "path": "isolation-v2/probe.mjs",
+      "bytes": 4695,
+      "sha256": "86febbd97de2c16925230619b5d1d3b2c154afa835e4b1e5701832e7c516af18"
+    },
+    {
+      "path": "isolation-v2/report.json",
+      "bytes": 81239,
+      "sha256": "4ff892886a0141b2eb7f006fcd2430d5328a9e668b387fc9bed31287f5242a77"
+    },
+    {
+      "path": "preparation/HAIR-CARD-ROOTS-2026-09-13.md",
+      "bytes": 7203,
+      "sha256": "e393e56086a0a4cfa03ffb652b10b21ced4bd8ed5577b5675b36568ff359f9f8"
+    },
+    {
+      "path": "preparation/HairMaterial.card-roots.selftest.mjs",
+      "bytes": 3313,
+      "sha256": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07"
+    },
+    {
+      "path": "preparation/HairMaterial.flow-guard.js",
+      "bytes": 233810,
+      "sha256": "5a9cec7f3923a2c86bbb278175e173224261a39d87bf46fa5ce95ac56ec0222a"
+    },
+    {
+      "path": "preparation/avatar-cpu.log",
+      "bytes": 26374,
+      "sha256": "763493d9cf69bcbc6698760530f25323259654201cee2caf0900985a6e1631ae"
+    },
+    {
+      "path": "preparation/build-pages.log",
+      "bytes": 13891,
+      "sha256": "c33fd7519a03cc1fa93dfe49a1ef371e711101d21e3f22b55bb58ef5a5dcd217"
+    },
+    {
+      "path": "preparation/catalogue.log",
+      "bytes": 13237,
+      "sha256": "fc13977e9127684a0232d4bccaf9ee98f7f8aab96fbe5fa6a622521e3bbb7332"
+    },
+    {
+      "path": "preparation/controls.mjs",
+      "bytes": 186,
+      "sha256": "d5054d099e89a7124648026e92ad88e3624cb48162b133f1224c36519d62cef4"
+    },
+    {
+      "path": "preparation/fallback.gpu.mjs",
+      "bytes": 3269,
+      "sha256": "13db70ccf65fcc5a4c8a979a9277a4afc68e1b478aad47d117b2c2e041944e4d"
+    },
+    {
+      "path": "preparation/image.gpu.mjs",
+      "bytes": 18617,
+      "sha256": "c2750e6070655f4ddd878af0b4005d45c6d3ec54a21b816dea1ad5229d21a47e"
+    },
+    {
+      "path": "preparation/integrated/Avatar.js",
+      "bytes": 248844,
+      "sha256": "e099e2ebc1eb3baeadc1a1438618541357f8d311406231fc8c70c262107c2660"
+    },
+    {
+      "path": "preparation/integrated/HairMaterial.js",
+      "bytes": 235365,
+      "sha256": "123b772a0f844805859f3013116ec4e8c019f99bdf84007ff0fdac52241380ab"
+    },
+    {
+      "path": "preparation/integrated/integration.json",
+      "bytes": 361,
+      "sha256": "fd7fb16ab3d7923153c0f4cd3993827c2b72111e4579ca55a92957df03258a0d"
+    },
+    {
+      "path": "preparation/integrated/integration.patch",
+      "bytes": 5515,
+      "sha256": "19540c0ce644f0acb589b5ef4cde7cf7a5f87d9e8f01c299ff568bb436ec3717"
+    },
+    {
+      "path": "preparation/prepare-flow-guard.py",
+      "bytes": 1565,
+      "sha256": "787617d8fa1289b0aaeefe7f12a62b6b1db410cfbc9c5ab02d2319824f8d2725"
+    },
+    {
+      "path": "preparation/prepare-integrated.py",
+      "bytes": 4977,
+      "sha256": "ce8f9d1ba58ffb0095e100a6966abab8baf95b8f4147f315e55000840e781dcc"
+    },
+    {
+      "path": "preparation/prepare-qualification.py",
+      "bytes": 3247,
+      "sha256": "6aa05e92e638ce7db2f5c8c88fb546540bcb4232495170d10ddc5a2b8a0807d4"
+    },
+    {
+      "path": "preparation/preview-verification.json",
+      "bytes": 654,
+      "sha256": "025962a04b15e065467751c883c834dfdeabcf2662dc7fa80aeb21fb3ff1fbb5"
+    },
+    {
+      "path": "preparation/probe.mjs",
+      "bytes": 5858,
+      "sha256": "d2cad3ea094d850cf111f58fefdcd520df6c5fe48acc7f9681f1c45378d0822a"
+    },
+    {
+      "path": "preparation/qualification.mjs",
+      "bytes": 7612,
+      "sha256": "4d95383e4a8f9f9c0f208357a189d639a48e1284ebbd08ce269e4b4fe40610c5"
+    },
+    {
+      "path": "production/packages/core/src/Avatar.js",
+      "bytes": 248844,
+      "sha256": "e099e2ebc1eb3baeadc1a1438618541357f8d311406231fc8c70c262107c2660"
+    },
+    {
+      "path": "production/packages/core/src/material/HairMaterial.card-roots.selftest.mjs",
+      "bytes": 3313,
+      "sha256": "f892d109978d4e8b9f00861d30729648587db23ac5d9b2203ca44965408b6c07"
+    },
+    {
+      "path": "production/packages/core/src/material/HairMaterial.js",
+      "bytes": 235365,
+      "sha256": "123b772a0f844805859f3013116ec4e8c019f99bdf84007ff0fdac52241380ab"
+    },
+    {
+      "path": "production/packages/core/src/render/FaceCardCoverage.js",
+      "bytes": 10127,
+      "sha256": "729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da"
+    },
+    {
+      "path": "production/packages/core/src/render/HairOIT.js",
+      "bytes": 78363,
+      "sha256": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98"
+    },
+    {
+      "path": "production/packages/core/src/render/MotionProbe.mjs",
+      "bytes": 16460,
+      "sha256": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87"
+    },
+    {
+      "path": "production/packages/testbed/src/showcase-image.gpu.selftest.mjs",
+      "bytes": 18211,
+      "sha256": "5a23cc98ef274e91860e775c548a8e920027777fd39a1a5ff184bbe3231bd01d"
+    },
+    {
+      "path": "production/tools/figure-pipeline/hair_texture.py",
+      "bytes": 61634,
+      "sha256": "f1ee67d72d1ee9d2f203cab50045fe2850ea7ffa6a20ed2126bd3babf7e52188"
+    },
+    {
+      "path": "root-parameter-v1/bob01-baseline-12.png",
+      "bytes": 609762,
+      "sha256": "f5d0784b1159fd18bc347fbdf5452e9c8de7485b1f2bef10b1358241703f9b77"
+    },
+    {
+      "path": "root-parameter-v1/bob01-baseline-45.png",
+      "bytes": 585591,
+      "sha256": "e6bf56dd63f28ac523504a1067811ac881f44ad50fc2d68523be530e03054eae"
+    },
+    {
+      "path": "root-parameter-v1/bob01-uv-root-12.png",
+      "bytes": 610007,
+      "sha256": "8c6c5eaa835fc08666be0fb2c358fe79658a0c98cc7753d01d8a8500bdfbbd06"
+    },
+    {
+      "path": "root-parameter-v1/bob01-uv-root-45.png",
+      "bytes": 584416,
+      "sha256": "0d1e16214faec2e21e6daf93465189d91a352ff5cb8c6a29f4900a9379180a7e"
+    },
+    {
+      "path": "root-parameter-v1/bob01-uv-root-taper-0.18-12.png",
+      "bytes": 606926,
+      "sha256": "8788ecbb730a980c7c8868f846056eb9549279faf597e11d966a9467cb3171a4"
+    },
+    {
+      "path": "root-parameter-v1/bob01-uv-root-taper-0.18-45.png",
+      "bytes": 581441,
+      "sha256": "4191ae452e7eeb776aeedd52da37cbe603408f5f0118cab6bbd25f13ee9d9aaf"
+    },
+    {
+      "path": "root-parameter-v1/bob02-baseline-12.png",
+      "bytes": 557916,
+      "sha256": "b16c5e2f64a0bce9c18b00722c5ff0165cba25f2742d330f20759204f4c5a6b1"
+    },
+    {
+      "path": "root-parameter-v1/bob02-baseline-45.png",
+      "bytes": 533200,
+      "sha256": "bdd4cc307506fdd3ca48f25f0cdb9a97b1e67857afc196c27688054492d2b95f"
+    },
+    {
+      "path": "root-parameter-v1/bob02-uv-root-12.png",
+      "bytes": 560415,
+      "sha256": "194be9da7936879a1a0924d45626d6630336a09fe1e9dd90d12d36c35b62e8a6"
+    },
+    {
+      "path": "root-parameter-v1/bob02-uv-root-45.png",
+      "bytes": 533340,
+      "sha256": "cb48c613f09b28c08a2a319b199fd6eff9c4b740331ba84113d93892ae79c6e2"
+    },
+    {
+      "path": "root-parameter-v1/bob02-uv-root-taper-0.18-12.png",
+      "bytes": 558490,
+      "sha256": "1af56cb7d14ea270f73f4721f9391ee9003d6d7e77a355aa24a5217402a65dd5"
+    },
+    {
+      "path": "root-parameter-v1/bob02-uv-root-taper-0.18-45.png",
+      "bytes": 530332,
+      "sha256": "9db3195f7cb3e5407500fbe72b2122a5c83c144af66fe38d32b0b40dc716d04e"
+    },
+    {
+      "path": "root-parameter-v1/controls.mjs",
+      "bytes": 186,
+      "sha256": "d5054d099e89a7124648026e92ad88e3624cb48162b133f1224c36519d62cef4"
+    },
+    {
+      "path": "root-parameter-v1/probe.mjs",
+      "bytes": 5219,
+      "sha256": "c8f82cf8728334662395a74a27dd9f9b3fcff7c56a3011d7c831df3411aaa779"
+    },
+    {
+      "path": "root-parameter-v1/report.json",
+      "bytes": 97601,
+      "sha256": "b134aa8f590d71005d03c0223b494ceddb3b842cb0486526b63f00e911fcd265"
+    },
+    {
+      "path": "root-taper-v1/bob01-baseline-12.png",
+      "bytes": 609764,
+      "sha256": "b0acc3ea681d93ae7bb58d897220495af36a8415804721099569897d1a0c2bf4"
+    },
+    {
+      "path": "root-taper-v1/bob01-baseline-45.png",
+      "bytes": 585591,
+      "sha256": "e6bf56dd63f28ac523504a1067811ac881f44ad50fc2d68523be530e03054eae"
+    },
+    {
+      "path": "root-taper-v1/bob01-root-taper-0.08-12.png",
+      "bytes": 608385,
+      "sha256": "8c8bb7943d6c97e2363f6abc0ddd47a14f4efdd1fe40f3b9faa56632cca7fe55"
+    },
+    {
+      "path": "root-taper-v1/bob01-root-taper-0.08-45.png",
+      "bytes": 584410,
+      "sha256": "4aa0ed91fe3a93d6033bdde845ecef0067f388a85fd4e84a5cbf1bfae689993c"
+    },
+    {
+      "path": "root-taper-v1/bob01-root-taper-0.18-12.png",
+      "bytes": 606871,
+      "sha256": "2314df06c57027b94fa30b3a7e3f15c2ac79936746c7eb38949b2957633642cd"
+    },
+    {
+      "path": "root-taper-v1/bob01-root-taper-0.18-45.png",
+      "bytes": 582318,
+      "sha256": "1d216051fa10dc26c5d8fefb57c226f4f7ad2996f2ecb61470f7fef18d97cc43"
+    },
+    {
+      "path": "root-taper-v1/bob02-baseline-12.png",
+      "bytes": 557916,
+      "sha256": "b16c5e2f64a0bce9c18b00722c5ff0165cba25f2742d330f20759204f4c5a6b1"
+    },
+    {
+      "path": "root-taper-v1/bob02-baseline-45.png",
+      "bytes": 533200,
+      "sha256": "bdd4cc307506fdd3ca48f25f0cdb9a97b1e67857afc196c27688054492d2b95f"
+    },
+    {
+      "path": "root-taper-v1/bob02-root-taper-0.08-12.png",
+      "bytes": 556534,
+      "sha256": "4bdd0887904acf60ec30063933a168fcc0e62bdc0430307ce7e870999005aba6"
+    },
+    {
+      "path": "root-taper-v1/bob02-root-taper-0.08-45.png",
+      "bytes": 531870,
+      "sha256": "693da08851da2c80e1aa4a9a8fc92c1e3146bf7817ded811d645a934e2ec650c"
+    },
+    {
+      "path": "root-taper-v1/bob02-root-taper-0.18-12.png",
+      "bytes": 555570,
+      "sha256": "e4a5cc2de641ad79447c021352e7cea0572132853151b2ec51c1b0ab51328b34"
+    },
+    {
+      "path": "root-taper-v1/bob02-root-taper-0.18-45.png",
+      "bytes": 530309,
+      "sha256": "75d1304fd4f74ca7423628d65fc864e682a4f113003f0eaa160c9f9d4a136dfa"
+    },
+    {
+      "path": "root-taper-v1/controls.mjs",
+      "bytes": 58,
+      "sha256": "96c25ecda324268a4d1bc6b70b6ce9deebdfef9cf72431f3af44ddc3f2e79fad"
+    },
+    {
+      "path": "root-taper-v1/probe.mjs",
+      "bytes": 4763,
+      "sha256": "d182e39eb499dd3b8d3aeb92dced30fb55d7d7500dc1141f2dae7620d7b05257"
+    },
+    {
+      "path": "root-taper-v1/report.json",
+      "bytes": 97377,
+      "sha256": "a79dfdf4c24c2c83ae66d04e823840a9ae0b9f1f83297a57b6e73a5e8a0b7bc5"
+    }
+  ],
+  "totalFiles": 248,
+  "totalBytes": 79246619
+}

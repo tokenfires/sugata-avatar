@@ -1,0 +1,1988 @@
+{
+  "id": "bob01-g050-long-fall-sidefall-v2",
+  "style": "bob01",
+  "bake": "figure_g050",
+  "sourceSha256": "98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c",
+  "bodySha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+  "sourceGeometry": "b956a4de3b9b6d5a5bf3585d688d191fcd17a75124b920e26ebc4a1a0482cc06",
+  "bodyGeometry": "644d39473d8d46193914ef046079543730f1eb9e44add93605102aac7c9a8701",
+  "targetCandidateSha256": "f415d1309317bf1727a619ea4c72867c4ba110aa2d6dd093051cdbc40924efc4",
+  "outputGeometry": "18720c2cc0b235b45a0d6bccd1085a29e2709106ee0c0babaf1eeba31a9ee609",
+  "outputPositionsSha256": "9eb545a3c3ea4c6449cd8c4744daa6f20d054f4919c714ce254cfbfe145654aa",
+  "outputNormalsSha256": "0712748bde9476f23d8465a668a81882f7b1b57850068a32805684527506824b",
+  "outputPayloadSha256": "a3a96db50f1d57abd30be157e52a495020b87fabfede198aa585496288ea023a",
+  "v9": {
+    "candidateSha256": "3e742b5af408527f4002f111c3e6b3f84024399f556afcce4b02b4b92ed3123f",
+    "geometry": "7b15e5da4b4257ccab14f46b3dc4a0c0ffbac9f228ae31163cc9eb36cf0cde71",
+    "positionsSha256": "56fc903d720d6d8257f01e24dadcf64ab143c456984e285dac2595cdba53eccc",
+    "normalsSha256": "0b32f12ea8824df77a8a623360e85c9915a591b5cc47ced3084305b903a17fe5",
+    "scriptSha256": "cb37cf79b1e501673022d7ce9dd3d900473b5102b102416eba192562dc7a5650",
+    "reportSha256": "a37df6ff265acedaafd31c398dfa97974caf274b920737a6447876c8b1437d33",
+    "sampling": "Frozen per-card results from 2 mm outward / 4 mm rear-drape search against posed-independent authored g050 body SurfaceGrid. Sampled 2 mm target guided the proposal; full triangles adjudicate the final rest shape separately."
+  },
+  "releaseY": 1.585,
+  "transition": 0.025,
+  "headCentreZ": 0.03,
+  "rootCards": 78,
+  "fringeStart": 462,
+  "cardCount": 496,
+  "rings": 17,
+  "capVertices": 652,
+  "connector": {
+    "card": 101,
+    "startRing": 11,
+    "endRing": 16,
+    "entrySlopeRings": [
+      10,
+      11
+    ],
+    "terminalSlopeXZ": 0,
+    "positionRule": "Original source rings 0–11; same-Y cubic Hermite XZ connector to v9 tip at ring16.",
+    "normalRule": "Original normals for rings0–10; recomputed final card normals for rings11–16; other cards retain v9 frames.",
+    "scriptSha256": "06f6e9840ece0b256a7c90bb7b7b7d70e463c1e0d79b253822dc50763582a5f5",
+    "encoderSha256": "04f1278ea85fb7d1764fe1480c9845aa73aba418d9d5c7bee988ed8f5c53c11f"
+  },
+  "cards": [
+    {
+      "card": 81,
+      "anchor": [
+        0.07117901825605069,
+        1.585,
+        0.10761231610389049
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 83,
+      "anchor": [
+        0.07197652406425484,
+        1.585,
+        0.10593253148239562
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 85,
+      "anchor": [
+        -0.0733744730160846,
+        1.585,
+        0.10099152236753109
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 86,
+      "anchor": [
+        -0.06988493002789813,
+        1.585,
+        0.11193821442186033
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 87,
+      "anchor": [
+        0.08407731458989637,
+        1.585,
+        0.04541250125295129
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 90,
+      "anchor": [
+        0.08414068646782946,
+        1.585,
+        0.05176366858798678
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 91,
+      "anchor": [
+        0.07962752497984049,
+        1.585,
+        0.07023051816681808
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 93,
+      "anchor": [
+        -0.0833517966336577,
+        1.585,
+        0.05460028038192938
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 95,
+      "anchor": [
+        -0.08353979665558617,
+        1.585,
+        0.05049533357248513
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 98,
+      "anchor": [
+        0.07855738699436188,
+        1.5365746021270752,
+        0.009083786979317665
+      ],
+      "push": 0.014,
+      "drape": 0,
+      "mode": "preserve-path"
+    },
+    {
+      "card": 99,
+      "anchor": [
+        -0.06986827595190265,
+        1.585,
+        0.11123470238904477
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 101,
+      "anchor": [
+        0.06761566948997814,
+        1.585,
+        -0.022719853877908917
+      ],
+      "push": 0.03800000000000002,
+      "drape": 0,
+      "mode": "rear-drape"
+    },
+    {
+      "card": 106,
+      "anchor": [
+        -0.08326883338507297,
+        1.585,
+        0.05512627030285271
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 108,
+      "anchor": [
+        0.08058655016099794,
+        1.585,
+        0.06761308997370354
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 109,
+      "anchor": [
+        -0.07202147351984728,
+        1.585,
+        0.1064029336308609
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 110,
+      "anchor": [
+        -0.05918118879493009,
+        1.585,
+        0.13110629653126438
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 111,
+      "anchor": [
+        -0.061951872106829876,
+        1.5849999999999997,
+        0.12551895491725948
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 114,
+      "anchor": [
+        -0.0664611768659139,
+        1.585,
+        0.11901017008786993
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 116,
+      "anchor": [
+        -0.06699789827637188,
+        1.585,
+        0.11773854217152721
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 117,
+      "anchor": [
+        0.07074126343422515,
+        1.585,
+        0.10965761939901861
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 119,
+      "anchor": [
+        -0.06514227350640503,
+        1.585,
+        0.12173315575927751
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 121,
+      "anchor": [
+        -0.07663367199749009,
+        1.585,
+        0.08675621102387406
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 122,
+      "anchor": [
+        -0.0643792237590716,
+        1.585,
+        0.12117059581127221
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 128,
+      "anchor": [
+        -0.05557412575202578,
+        1.585,
+        0.13468294576386458
+      ],
+      "push": 0.002,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 134,
+      "anchor": [
+        -0.06571268615567978,
+        1.585,
+        0.12070150785793254
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 136,
+      "anchor": [
+        -0.06197131615409657,
+        1.585,
+        0.12690894656510054
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 138,
+      "anchor": [
+        -0.08139892823881076,
+        1.585,
+        0.0732695012744021
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 139,
+      "anchor": [
+        0.0830983381032269,
+        1.585,
+        0.05411682945243372
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 141,
+      "anchor": [
+        -0.06914151880877012,
+        1.5849999999999997,
+        0.1126030486686781
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 142,
+      "anchor": [
+        0.08027685447882785,
+        1.585,
+        0.07609731238843505
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 145,
+      "anchor": [
+        0.07955227792263031,
+        1.5660929679870605,
+        0.07334233820438385
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 147,
+      "anchor": [
+        -0.05906619022937875,
+        1.585,
+        0.1317832133328217
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 148,
+      "anchor": [
+        -0.06768420065975038,
+        1.585,
+        0.11678887243541985
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 149,
+      "anchor": [
+        -0.0525795520677282,
+        1.585,
+        0.13759339369290968
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 150,
+      "anchor": [
+        -0.07256687803885142,
+        1.585,
+        0.10283136693389681
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 152,
+      "anchor": [
+        -0.08205696381302854,
+        1.585,
+        0.07448724445770213
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 156,
+      "anchor": [
+        0.08505933746012352,
+        1.585,
+        0.038696310525515726
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 157,
+      "anchor": [
+        -0.05789596606907637,
+        1.585,
+        0.13331904531345312
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 158,
+      "anchor": [
+        -0.0783845050609271,
+        1.585,
+        0.07964071490231875
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 159,
+      "anchor": [
+        0.07997680455446243,
+        1.5539072751998901,
+        0.07327873259782791
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 160,
+      "anchor": [
+        -0.0820906576846162,
+        1.585,
+        0.0630818580503812
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 163,
+      "anchor": [
+        -0.07652609737475882,
+        1.5849999999999997,
+        0.08836189948882785
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 164,
+      "anchor": [
+        0.08202926797783164,
+        1.585,
+        0.06295292218418393
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 166,
+      "anchor": [
+        0.08431023103852736,
+        1.585,
+        0.04240936485245474
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 167,
+      "anchor": [
+        -0.08382860421766142,
+        1.585,
+        0.05043876144722127
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 168,
+      "anchor": [
+        0.0832878711405838,
+        1.585,
+        0.04249897831772493
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 170,
+      "anchor": [
+        -0.07125917559514353,
+        1.585,
+        0.107233980412793
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 171,
+      "anchor": [
+        0.031116008758544922,
+        1.508413553237915,
+        -0.034998685121536255
+      ],
+      "push": 0.014,
+      "drape": 0,
+      "mode": "rear-drape"
+    },
+    {
+      "card": 174,
+      "anchor": [
+        -0.07286138508932535,
+        1.585,
+        0.10487585017134608
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 175,
+      "anchor": [
+        0.08216398006682539,
+        1.585,
+        0.06182849466590374
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 176,
+      "anchor": [
+        -0.06263552709649033,
+        1.585,
+        0.1270394942734905
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 178,
+      "anchor": [
+        0.08170250024792491,
+        1.585,
+        0.05758841688335719
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 179,
+      "anchor": [
+        0.07985485787159852,
+        1.585,
+        0.06722687758921098
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 180,
+      "anchor": [
+        -0.07964799371604894,
+        1.585,
+        0.0689961289044266
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 186,
+      "anchor": [
+        -0.08473369479179382,
+        1.5660839080810547,
+        0.05729062855243683
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 187,
+      "anchor": [
+        -0.07945192104754657,
+        1.585,
+        0.07419978348160636
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 194,
+      "anchor": [
+        0.08258319471748277,
+        1.585,
+        0.049023773834436
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 196,
+      "anchor": [
+        -0.07283012406981111,
+        1.5850000000000002,
+        0.09854511418953207
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 200,
+      "anchor": [
+        0.07794280973389436,
+        1.585,
+        0.0740485248653264
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 203,
+      "anchor": [
+        0.08204284310340881,
+        1.5847718715667725,
+        0.013515379279851913
+      ],
+      "push": 0.01,
+      "drape": 0,
+      "mode": "preserve-path"
+    },
+    {
+      "card": 204,
+      "anchor": [
+        -0.08020977675914764,
+        1.565922737121582,
+        0.07649186253547668
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 206,
+      "anchor": [
+        0.07396924608171193,
+        1.585,
+        0.09545035892428558
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 207,
+      "anchor": [
+        0.07257011424334689,
+        1.585,
+        0.09795629730788924
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 208,
+      "anchor": [
+        -0.06441441998068385,
+        1.585,
+        0.1168077463054627
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 209,
+      "anchor": [
+        0.08210109266611063,
+        1.585,
+        0.05601624309041416
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 212,
+      "anchor": [
+        -0.08086593389304285,
+        1.585,
+        0.042792332133874005
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 213,
+      "anchor": [
+        -0.08183958209600074,
+        1.585,
+        0.033255017227365125
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 216,
+      "anchor": [
+        -0.04385068726545983,
+        1.585,
+        0.1332298400791242
+      ],
+      "push": 0.018000000000000002,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 220,
+      "anchor": [
+        -0.06758837720418051,
+        1.585,
+        0.11683018986810563
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 221,
+      "anchor": [
+        -0.06353698181847738,
+        1.585,
+        0.11828027839661198
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 224,
+      "anchor": [
+        -0.06243955220433438,
+        1.585,
+        0.12041043667662417
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 225,
+      "anchor": [
+        -0.07910035278906681,
+        1.585,
+        0.013097017940481556
+      ],
+      "push": 0.006,
+      "drape": 0,
+      "mode": "preserve-path"
+    },
+    {
+      "card": 227,
+      "anchor": [
+        -0.08164027333259583,
+        1.5826531648635864,
+        0.057724371552467346
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 234,
+      "anchor": [
+        0.07708123789621685,
+        1.585,
+        0.08617527315846336
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 236,
+      "anchor": [
+        0.08056789636611938,
+        1.575838565826416,
+        0.06724677979946136
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 237,
+      "anchor": [
+        0.08255841178468516,
+        1.585,
+        0.03732601970536967
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 238,
+      "anchor": [
+        -0.05227090011070372,
+        1.5849999999999997,
+        0.13457201358064377
+      ],
+      "push": 0.002,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 239,
+      "anchor": [
+        -0.07244172687489148,
+        1.585,
+        0.09830246193693476
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 240,
+      "anchor": [
+        -0.06368910500504564,
+        1.585,
+        0.11795150386530517
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 241,
+      "anchor": [
+        -0.08196306541842012,
+        1.585,
+        0.03123552589978676
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 243,
+      "anchor": [
+        0.08164839994193004,
+        1.585,
+        0.01296430228049434
+      ],
+      "push": 0.006,
+      "drape": 0,
+      "mode": "preserve-path"
+    },
+    {
+      "card": 245,
+      "anchor": [
+        0.06663280104539852,
+        1.585,
+        0.11130591291135643
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 246,
+      "anchor": [
+        0.0767305544872075,
+        1.585,
+        0.08272902588535776
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 249,
+      "anchor": [
+        0.07074864005013251,
+        1.585,
+        0.11668502413531155
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 250,
+      "anchor": [
+        -0.07989355612423887,
+        1.585,
+        0.08499245850476803
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 254,
+      "anchor": [
+        -0.060192975797536505,
+        1.585,
+        0.13489226874524188
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 255,
+      "anchor": [
+        -0.08476662024531917,
+        1.5850000000000002,
+        0.061239922829849254
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 262,
+      "anchor": [
+        0.08467588596466363,
+        1.585,
+        0.061696511852972216
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 264,
+      "anchor": [
+        0.08594945447655333,
+        1.585,
+        0.02785758441059455
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 269,
+      "anchor": [
+        0.08040824316484314,
+        1.585,
+        0.08306934568311583
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 270,
+      "anchor": [
+        -0.07447282475621118,
+        1.585,
+        0.10631283858262378
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 273,
+      "anchor": [
+        -0.08637787387530713,
+        1.585,
+        0.043781253253502385
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 278,
+      "anchor": [
+        -0.07625796810824101,
+        1.585,
+        0.09954188614164583
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 283,
+      "anchor": [
+        -0.06329976512083774,
+        1.585,
+        0.13064674323552863
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 286,
+      "anchor": [
+        0.07324599918021546,
+        1.585,
+        0.1099560255080119
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 290,
+      "anchor": [
+        0.08258688208812953,
+        1.5850000000000002,
+        0.07140870530030391
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 291,
+      "anchor": [
+        -0.08518594628732273,
+        1.585,
+        0.05697929012088055
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 294,
+      "anchor": [
+        -0.061996224362131785,
+        1.585,
+        0.13231205226657033
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 295,
+      "anchor": [
+        -0.086317285188693,
+        1.585,
+        0.04345687556187118
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 296,
+      "anchor": [
+        -0.07060056200011011,
+        1.585,
+        0.12947817802532607
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 298,
+      "anchor": [
+        -0.08685256236406105,
+        1.585,
+        0.08264991957528492
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 300,
+      "anchor": [
+        -0.08995123517375632,
+        1.5849999999999997,
+        0.06472712753199358
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 301,
+      "anchor": [
+        0.07831114811832508,
+        1.585,
+        0.11487210126041483
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 303,
+      "anchor": [
+        -0.054784683894618144,
+        1.585,
+        0.1486696830786799
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 306,
+      "anchor": [
+        0.08163648045283485,
+        1.585,
+        0.103840697841382
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 307,
+      "anchor": [
+        0.09228485179596961,
+        1.585,
+        0.03316133511965895
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 309,
+      "anchor": [
+        -0.05131380777391628,
+        1.585,
+        0.15151012429088576
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 310,
+      "anchor": [
+        0.09396557340951545,
+        1.585,
+        0.040252937079761124
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 314,
+      "anchor": [
+        -0.08186183558877275,
+        1.585,
+        0.10246104742978879
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 317,
+      "anchor": [
+        -0.06780179840492133,
+        1.585,
+        0.13499899452657654
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 318,
+      "anchor": [
+        -0.09257914951515862,
+        1.585,
+        0.04948055181508616
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 320,
+      "anchor": [
+        0.08145635820847892,
+        1.585,
+        0.10392274911307733
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 323,
+      "anchor": [
+        0.08714565000176924,
+        1.585,
+        0.07946237193809565
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 324,
+      "anchor": [
+        0.08466264056348302,
+        1.585,
+        0.09153600016514239
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 325,
+      "anchor": [
+        -0.07158519479056247,
+        1.585,
+        0.12919637213930785
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 329,
+      "anchor": [
+        0.08792317567566965,
+        1.5850000000000002,
+        0.07782520377089122
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 331,
+      "anchor": [
+        0.09217133678684787,
+        1.585,
+        0.03108206373314993
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 332,
+      "anchor": [
+        0.089839285755104,
+        1.585,
+        0.06764044039207548
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 335,
+      "anchor": [
+        -0.07638080187853365,
+        1.585,
+        0.11931798744650475
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 336,
+      "anchor": [
+        -0.07070294865610494,
+        1.585,
+        0.12882380167234614
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 337,
+      "anchor": [
+        -0.09066328495982731,
+        1.585,
+        0.06411520738659378
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 338,
+      "anchor": [
+        -0.08884041976292627,
+        1.585,
+        0.0735823536211401
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 339,
+      "anchor": [
+        -0.0655906996172546,
+        1.585,
+        0.1380061001455612
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 341,
+      "anchor": [
+        -0.08867519431794026,
+        1.585,
+        0.0753167387192734
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 347,
+      "anchor": [
+        0.09810359461832663,
+        1.585,
+        0.04955502677658213
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 348,
+      "anchor": [
+        -0.10749609768390656,
+        1.5610259771347046,
+        0.052712492644786835
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 349,
+      "anchor": [
+        -0.07265409329609662,
+        1.585,
+        0.13882038256905427
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 351,
+      "anchor": [
+        -0.09828189584701955,
+        1.585,
+        0.03029852008288853
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 352,
+      "anchor": [
+        -0.03427290405766587,
+        1.5849999999999997,
+        0.1635317025904528
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 357,
+      "anchor": [
+        -0.08126808426098941,
+        1.585,
+        0.12278518076551971
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 361,
+      "anchor": [
+        -0.062465841876477836,
+        1.585,
+        0.15072678927700592
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 366,
+      "anchor": [
+        -0.08584062862960139,
+        1.585,
+        0.1093294396602202
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 369,
+      "anchor": [
+        0.09657152069441603,
+        1.585,
+        0.06267250669047146
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 372,
+      "anchor": [
+        -0.0887430626053358,
+        1.585,
+        0.06209259175258856
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 373,
+      "anchor": [
+        0.09035707265138626,
+        1.5758249759674072,
+        0.047826483845710754
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 375,
+      "anchor": [
+        -0.07235504222280578,
+        1.585,
+        0.1224761155273993
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 376,
+      "anchor": [
+        -0.08628843482538834,
+        1.585,
+        0.07272822638833949
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 378,
+      "anchor": [
+        0.0902276337146759,
+        1.575778603553772,
+        0.030814552679657936
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 379,
+      "anchor": [
+        -0.07798923382562052,
+        1.585,
+        0.10658280929189218
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 386,
+      "anchor": [
+        0.07350383650608783,
+        1.585,
+        -0.025336649474825588
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "rear-drape"
+    },
+    {
+      "card": 388,
+      "anchor": [
+        0.07320576286976477,
+        1.585,
+        -0.02607999877232402
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "rear-drape"
+    },
+    {
+      "card": 389,
+      "anchor": [
+        -0.08480246365070343,
+        1.582007646560669,
+        0.07789919525384903
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 390,
+      "anchor": [
+        -0.07366619940086137,
+        1.585,
+        0.12001233986373236
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 391,
+      "anchor": [
+        -0.08971875160932541,
+        1.5748040676116943,
+        0.05495801568031311
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 397,
+      "anchor": [
+        -0.047675349248704674,
+        1.585,
+        0.1506424144175879
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 403,
+      "anchor": [
+        0.089284109984414,
+        1.585,
+        0.05429279542016696
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 404,
+      "anchor": [
+        -0.08856751687720166,
+        1.585,
+        0.061647961654938875
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 405,
+      "anchor": [
+        0.08634503050459078,
+        1.585,
+        0.0712098275926535
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 411,
+      "anchor": [
+        -0.06368641309927821,
+        1.585,
+        0.13672656648689352
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 413,
+      "anchor": [
+        -0.09044306094403068,
+        1.585,
+        0.05082124327315547
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 414,
+      "anchor": [
+        0.0785358741748757,
+        1.585,
+        0.10538131642095964
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 418,
+      "anchor": [
+        -0.07908526725129261,
+        1.585,
+        0.10454778065355275
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 421,
+      "anchor": [
+        -0.08016066781795944,
+        1.585,
+        0.09973668629614503
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 422,
+      "anchor": [
+        0.08778690506121459,
+        1.585,
+        0.011948045700029965
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 424,
+      "anchor": [
+        0.10346200317144394,
+        1.5483263731002808,
+        0.03166956081986427
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 425,
+      "anchor": [
+        0.08719094185654239,
+        1.585,
+        0.06955433263891857
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 427,
+      "anchor": [
+        -0.08948513502484573,
+        1.585,
+        0.04816312887989289
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 428,
+      "anchor": [
+        -0.07205197099911927,
+        1.585,
+        0.12328075351786819
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 434,
+      "anchor": [
+        -0.0781101356778263,
+        1.585,
+        0.10879652585318814
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 437,
+      "anchor": [
+        -0.0706103360647744,
+        1.585,
+        0.12536087011331698
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 438,
+      "anchor": [
+        0.09054164394772438,
+        1.585,
+        0.044361680448500834
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 440,
+      "anchor": [
+        -0.0572294759619603,
+        1.585,
+        0.14342763174092846
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 442,
+      "anchor": [
+        0.08957706391811371,
+        1.5797418355941772,
+        0.05359809100627899
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 444,
+      "anchor": [
+        0.08685374477246291,
+        1.585,
+        0.07179250949470811
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 445,
+      "anchor": [
+        -0.09072037612859907,
+        1.585,
+        0.03936314880832876
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 448,
+      "anchor": [
+        -0.08297286681438648,
+        1.585,
+        0.08862186657016287
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 449,
+      "anchor": [
+        0.03306247293949127,
+        1.5063374042510986,
+        -0.0372367799282074
+      ],
+      "push": 0.01,
+      "drape": 0,
+      "mode": "rear-drape"
+    },
+    {
+      "card": 451,
+      "anchor": [
+        -0.07207246585909582,
+        1.585,
+        0.12247260535304656
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 455,
+      "anchor": [
+        -0.06753990409198839,
+        1.585,
+        0.13046444088090925
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 456,
+      "anchor": [
+        -0.09029693901538849,
+        1.5771397352218628,
+        0.04704614728689194
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 457,
+      "anchor": [
+        0.09092360071321035,
+        1.585,
+        0.04556371016761379
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 459,
+      "anchor": [
+        -0.0824694261554553,
+        1.585,
+        0.08988378630179136
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    },
+    {
+      "card": 461,
+      "anchor": [
+        -0.06437312463613228,
+        1.585,
+        0.13371134155355002
+      ],
+      "push": 0,
+      "drape": 0,
+      "mode": "outward-fall"
+    }
+  ],
+  "connectorStage": {
+    "candidateSha256": "110dfee561cd4ff627bb157986ff7001b69b75bb6e57a2e54f2b2d104523c876",
+    "geometry": "6e7ee726bf066030bd2f94182b48444886719439d82796e643cd42a83c52dc31",
+    "positionsSha256": "da98fa697db89a4b846a47b2a468759add228993b98711062f23aafa07ca569a",
+    "normalsSha256": "e6b660203fc0c1935d108d2787ea0c217f5ab35737ae4e50ead87cf1a36b58cc",
+    "payloadSha256": "5fdfd0433aad97a3c80b77b8f3d3ecea6fc80c25edb062d0d4c3d603b78e7a73"
+  },
+  "sideFall": {
+    "cards": [
+      80,
+      423
+    ],
+    "startRing": 10,
+    "endRing": 16,
+    "entrySlopeRings": [
+      9,
+      10
+    ],
+    "tipX": "source anchor X",
+    "tipZ": "source tip Z",
+    "terminalSlopeXZ": 0,
+    "positionRule": "Source positions through ring10; same-Y cubic Hermite XZ to same-side tip, preserving incoming9->10 derivative and zero terminal derivative. No additional outward push.",
+    "normalRule": "Source normals through ring 9; recomputed final card normals on rings 10–16 only.",
+    "scriptSha256": "1c983fc7b8ff39e8c2143ec82f21c02139a62c0e7e54200d63aa366b12fa10dd",
+    "minimumSampledTriangleSignedMm": [
+      {
+        "card": 80,
+        "value": 4.80962176828951
+      },
+      {
+        "card": 423,
+        "value": 13.236001654929181
+      }
+    ],
+    "sampleResolution": 12,
+    "visualEvidence": "captures/bob01-necklace-2026-09-09/paired-capture-report.json",
+    "visualStatus": "Four matched camera pairs: eight rest views and sixteen shaded/card-ID images at clock 0; front-neck bands removed. Motion acceptance pending."
+  }
+}

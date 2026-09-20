@@ -1,0 +1,74 @@
+{
+  "provenance": {
+    "reportSha256": "b7a7fcf424b774456b4ecbf02868c7bc19e889b0e9a9a9bac6c28f03086f9981",
+    "sourceHashes": {
+      "packages/core/src/Avatar.js": "99972403cc747cd1bbe78c19b5e596d2dfbc6765b53c7762b1197555b561505e",
+      "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/testbed/src/portrait.js": "2e370019a5950411f0dfd6f7382f35b7f831c1e1f8d3a79561884a2866820475",
+      "tools/critic/portrait-clearance.mjs": "e08b974c925448521d4d514ce1c07bf828d2c414bee6bf193a20bf1c4b493fb5",
+      "tools/critic/portrait-calibration.mjs": "b2438ba869a83748b998e0a5ea5d5681d0fff38c68e947fc1b26d2d3f28de42b",
+      "packages/testbed/src/portrait-selection.mjs": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769",
+      "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+      "packages/core/src/motion/HairSurfaceQuery.js": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+      "packages/core/src/motion/HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+      "packages/core/src/motion/HairBodyContact.js": "49d6bbd2558dcf39fca6d0cdbcc5d775a28de6c5f3f763d1f319cb618c956d19",
+      "packages/core/src/motion/HairBodyContactCalibration.js": "01842ada5e5b015fb1a55bfccd8f54eebd4561cab9420c923f73e68d52447c7b",
+      "packages/core/src/motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942",
+      "groom": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+      "body": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    "groomSha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "description": "Canonical core nod at 0/.1 seconds before bind-aware helper integration; exact captured GPU arrays, fixed6steps at60Hz."
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "fileSha256": "5e9259470d84ceca097d497427ac0b1e837c3316e383182975902f4b36d74cde",
+      "time": 0,
+      "steps": 1,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "345f0efc986c59177ec7d73f3ee1848fc6b9777d03c4c6999e2910ac0f21f542"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "0ac28e6ce8f8a4762d58e342dfd9648c7f4f457e15053d173bb0b383f6b295ef"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "0d41e8b07c45a2d82863784e9d0728cf3692bb5a26ecfc7dc06faea7020d61f9"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "9c95265ae593cd3f1a37ef0f951290c9a252803e5f2350d52a06a44ad45d85d0"
+      }
+    },
+    {
+      "frame": 6,
+      "fileSha256": "5a8e31dc3c1078fe8b8e94c6375832805c1d8001f9d55021e183a0fb95283d02",
+      "time": 0.09999999999999999,
+      "steps": 13,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "87348d1e789070feb4b72c700a5dd6f719e0180a40c604ce0f7aa4e490fc1bf4"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "cd698eba042e4549ca8295f9cc2ffa6e53616c716c0b19c422f39eb4ad8ee363"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "31f946265b0a0858968d3e3deb34ca67e91a826ad0458c8c8b1f49549a3c55ad"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "514ba37cd82831e2780bc4a216cba1af1ba85e06408ccf29ae4707ec4b75416a"
+      }
+    }
+  ]
+}

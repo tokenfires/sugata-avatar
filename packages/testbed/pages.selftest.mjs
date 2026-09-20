@@ -47,7 +47,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const TESTBED = path.dirname( fileURLToPath( import.meta.url ) );
 const REPOSITORY_ROOT = path.resolve( TESTBED, '..', '..' );
 
-const { ALL_PAGES, COMMANDS } = await import( pathToFileURL( path.join( TESTBED, 'pages.js' ) ).href );
+const { ALL_PAGES, PAGE_GROUPS, CATALOGUE_REVIEWED, COMMANDS } = await import( pathToFileURL( path.join( TESTBED, 'pages.js' ) ).href );
 
 let checks = 0;
 let failures = 0;
@@ -120,6 +120,17 @@ const INDEX_PAGE = 'index.html';
 
 const listed = new Set( ALL_PAGES.map( ( page ) => page.path ) );
 console.log( `        pages.js   ${ listed.size } cards` );
+report( listed.size === ALL_PAGES.length, 'every destination appears exactly once',
+    `${ ALL_PAGES.length } cards, ${ listed.size } unique paths` );
+const groupIds = PAGE_GROUPS.map( group => group.id );
+report( new Set( groupIds ).size === groupIds.length && groupIds.every( id => /^[a-z][a-z-]*$/.test( id ) ),
+    'section links have unique stable fragment identifiers', groupIds.join( ', ' ) );
+report( /^\d{4}-\d{2}-\d{2}$/.test( CATALOGUE_REVIEWED ), 'the catalogue carries an explicit review date', CATALOGUE_REVIEWED );
+for ( const group of PAGE_GROUPS ) {
+    report( typeof group.title === 'string' && group.title.length > 0
+        && typeof group.note === 'string' && group.note.length > 20 && group.pages.length > 0,
+        `${ group.id } — the section explains its purpose and contains pages` );
+}
 
 const pagesConfig = fs.readFileSync( path.join( REPOSITORY_ROOT, 'vite.pages.config.js' ), 'utf8' );
 const configBlock = pagesConfig.match( /const PAGES = \[([\s\S]*?)\];/ );
@@ -164,12 +175,26 @@ console.log( '\n--- the cards --------------------------------------------------
 for ( const page of ALL_PAGES ) {
 
     const complete = typeof page.name === 'string' && page.name !== ''
-        && typeof page.phase === 'string' && page.phase !== ''
+        && typeof page.label === 'string' && page.label !== ''
+        && typeof page.boundary === 'string' && page.boundary.length >= 40
+        && typeof page.requirements === 'string' && page.requirements.length >= 10
         && typeof page.blurb === 'string' && page.blurb.length >= 40
         && Array.isArray( page.gates );
 
-    report( complete, `${ page.path } — the card carries a name, a phase, a real blurb and a gate list`,
+    report( complete, `${ page.path } — the card names its purpose, limitations, requirements and related checks`,
         complete ? `“${ page.blurb.slice( 0, 58 ) }…”` : JSON.stringify( page ) );
+
+    const sourceExists = typeof page.source === 'string'
+        && fs.existsSync( path.join( REPOSITORY_ROOT, page.source ) );
+    report( sourceExists, `${ page.path } — the reviewed source exists`, page.source );
+    const review = page.review;
+    const dated = /^\d{4}-\d{2}-\d{2}$/.test( review?.date ?? '' ) && review.date <= CATALOGUE_REVIEWED;
+    const validReview = dated && [ 'source-reviewed', 'previously-verified' ].includes( review?.kind )
+        && typeof review.detail === 'string' && review.detail.length >= 40
+        && ( review.kind !== 'previously-verified' || ( typeof review.evidence === 'string'
+            && fs.existsSync( path.join( REPOSITORY_ROOT, review.evidence ) ) ) );
+    report( validReview, `${ page.path } — verification has a dated basis; browser claims cite saved evidence`,
+        JSON.stringify( review ) );
 
     const resolves = fs.existsSync( path.join( TESTBED, page.path ) );
     report( resolves, `${ page.path } — the link resolves to a file on disk`,

@@ -1,0 +1,583 @@
+{
+  "date": "2026-09-09T07:12:42.724Z",
+  "decision": "Triangle-AABB query pruning accepted as a measured, behavior-preserving optimization for tested finite inputs; full contact still exceeds the60FPS target. Shipping groom remains unchanged.",
+  "coreSource": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+  "candidateSource": "e3b680d06f1713ab8092cf5736e478d0ed9d4ebfe8c5b468f9062e32dfd2720a",
+  "primitiveReview": "hair-triangle-bounds-review-2026-09-09.json",
+  "sixFixture": {
+    "cases": 6,
+    "states": 12,
+    "activeChains": 496,
+    "iterations": [
+      16,
+      64
+    ],
+    "exactChannels": [
+      "centers",
+      "velocities",
+      "vertices",
+      "planes",
+      "parameters",
+      "cache"
+    ],
+    "mismatches": 0
+  },
+  "cpuWork": {
+    "hypothesis": "Reject individual leaf triangles by a conservatively guarded point/segment AABB lower bound before exact closest math; same seed and BVH traversal, no contact policy or schedule changes.",
+    "source": {
+      "fixture": "624717601e88c1f060ee47c077741f5b0f3240f9af6dc4f461851781987099a9",
+      "gpu": "1aabe4e8842f57317ed84f4bd1c9b2656bbc904c77373ed23facf5f30a180e09",
+      "instrument": "41d153ed1a13dc8a0a2bdc76bd9e8533818a48cd875ff94cb988b62f9c47e909"
+    },
+    "results": [
+      {
+        "iteration": 16,
+        "disjoint": 7831,
+        "stats": {
+          "point": {
+            "queries": 2173,
+            "visited": 83285,
+            "full": 38460,
+            "rejected": 44825,
+            "nodes": 130073
+          },
+          "segment": {
+            "queries": 2284,
+            "visited": 105349,
+            "full": 55187,
+            "rejected": 50162,
+            "nodes": 149518
+          }
+        },
+        "mismatches": []
+      },
+      {
+        "iteration": 64,
+        "disjoint": 7831,
+        "stats": {
+          "point": {
+            "queries": 2173,
+            "visited": 83285,
+            "full": 38461,
+            "rejected": 44824,
+            "nodes": 130071
+          },
+          "segment": {
+            "queries": 2284,
+            "visited": 105345,
+            "full": 55188,
+            "rejected": 50157,
+            "nodes": 149518
+          }
+        },
+        "mismatches": []
+      }
+    ],
+    "limitations": [
+      "Double precision work estimate on the frozen converged fixture, not Float32 GPU parity or timing.",
+      "Visited counts retain original telemetry; rejected counts only estimate expensive triangle math avoided."
+    ]
+  },
+  "phase": {
+    "activeChains": 384,
+    "fixtureSha": "624717601e88c1f060ee47c077741f5b0f3240f9af6dc4f461851781987099a9",
+    "rows": [
+      {
+        "arm": "baseline",
+        "initialConvergence": 16,
+        "phase": "whole-contact-batch",
+        "gpuMs": {
+          "count": 32,
+          "min": 8.502949,
+          "median": 9.456211,
+          "p95": 9.721411,
+          "max": 9.811575,
+          "mean": 9.354969125
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 16,
+        "phase": "query-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 8.141626,
+          "median": 8.977363,
+          "p95": 9.478565,
+          "max": 9.558812,
+          "mean": 8.986830249999999
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 16,
+        "phase": "projection-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.157832,
+          "median": 0.43441,
+          "p95": 0.953318,
+          "max": 1.24519,
+          "mean": 0.4819496875
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 16,
+        "phase": "snapshot-finalize",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.049834,
+          "median": 0.069124,
+          "p95": 1.123316,
+          "max": 1.272021,
+          "mean": 0.32470106249999997
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 64,
+        "phase": "whole-contact-batch",
+        "gpuMs": {
+          "count": 32,
+          "min": 7.963128,
+          "median": 9.541771,
+          "p95": 9.79206,
+          "max": 9.932848,
+          "mean": 9.379856906249998
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 64,
+        "phase": "query-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 8.586369,
+          "median": 9.063861,
+          "p95": 9.627771,
+          "max": 9.704477,
+          "mean": 9.095004250000002
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 64,
+        "phase": "projection-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.141372,
+          "median": 0.160206,
+          "p95": 0.435494,
+          "max": 0.552284,
+          "mean": 0.2402215
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "baseline",
+        "initialConvergence": 64,
+        "phase": "snapshot-finalize",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.048874,
+          "median": 0.058207,
+          "p95": 0.67374,
+          "max": 0.808738,
+          "mean": 0.17853112499999998
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 16,
+        "phase": "whole-contact-batch",
+        "gpuMs": {
+          "count": 32,
+          "min": 7.354843,
+          "median": 8.312246,
+          "p95": 9.078695,
+          "max": 9.159721,
+          "mean": 8.37500625
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 16,
+        "phase": "query-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 7.074017,
+          "median": 7.60055,
+          "p95": 8.495953,
+          "max": 8.962364,
+          "mean": 7.735439218750001
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 16,
+        "phase": "projection-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.150914,
+          "median": 0.169873,
+          "p95": 0.476409,
+          "max": 0.617323,
+          "mean": 0.24291546875
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 16,
+        "phase": "snapshot-finalize",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.049457,
+          "median": 0.051624,
+          "p95": 0.688532,
+          "max": 0.741531,
+          "mean": 0.1966101875
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 64,
+        "phase": "whole-contact-batch",
+        "gpuMs": {
+          "count": 32,
+          "min": 7.705217,
+          "median": 8.269874,
+          "p95": 8.887823,
+          "max": 9.274942,
+          "mean": 8.287415312499999
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 64,
+        "phase": "query-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 7.283055,
+          "median": 8.095502,
+          "p95": 8.714534,
+          "max": 9.108153,
+          "mean": 8.139578968750001
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 64,
+        "phase": "projection-only",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.14079,
+          "median": 0.162622,
+          "p95": 0.823987,
+          "max": 0.974236,
+          "mean": 0.299039625
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      },
+      {
+        "arm": "candidate",
+        "initialConvergence": 64,
+        "phase": "snapshot-finalize",
+        "gpuMs": {
+          "count": 32,
+          "min": 0.050542,
+          "median": 0.08229,
+          "p95": 0.684949,
+          "max": 0.78653,
+          "mean": 0.25167203125
+        },
+        "warmSamples": 8,
+        "timedSamples": 32
+      }
+    ]
+  },
+  "portrait": {
+    "activeChains": 496,
+    "canvas": {
+      "width": 716,
+      "height": 750
+    },
+    "warmFrames": 32,
+    "timedFrames": 720,
+    "fixedSubstepsPerFrame": 2,
+    "rows": [
+      {
+        "arm": "no-contact",
+        "summary": {
+          "submitCpuMs": {
+            "count": 720,
+            "min": 0.8999999910593033,
+            "median": 1.2999999970197678,
+            "p95": 1.5,
+            "max": 1.8999999910593033,
+            "mean": 1.2838888886902067
+          },
+          "submitToGpuCompleteMs": {
+            "count": 720,
+            "min": 2.4000000059604645,
+            "median": 5.5,
+            "p95": 6.4000000059604645,
+            "max": 7.200000002980232,
+            "mean": 5.384861111164921
+          },
+          "computeGpuMs": {
+            "count": 720,
+            "min": 0.028,
+            "median": 0.085958,
+            "p95": 0.115957,
+            "max": 0.61149,
+            "mean": 0.08402687638888894
+          },
+          "renderTimestampSumMs": {
+            "count": 720,
+            "min": 3.01279,
+            "median": 9.284440000000002,
+            "p95": 13.155923000000001,
+            "max": 18.691711000000005,
+            "mean": 9.432377665277787
+          }
+        }
+      },
+      {
+        "arm": "core-contact",
+        "summary": {
+          "submitCpuMs": {
+            "count": 720,
+            "min": 1.7999999970197678,
+            "median": 2.0999999940395355,
+            "p95": 2.2999999970197678,
+            "max": 2.5,
+            "mean": 2.0758333330973984
+          },
+          "submitToGpuCompleteMs": {
+            "count": 720,
+            "min": 18.5,
+            "median": 21.099999994039536,
+            "p95": 22.700000002980232,
+            "max": 23.5,
+            "mean": 21.108611110763416
+          },
+          "computeGpuMs": {
+            "count": 720,
+            "min": 15.429973,
+            "median": 18.238638,
+            "p95": 20.008277,
+            "max": 20.61531,
+            "mean": 18.08229689861113
+          },
+          "renderTimestampSumMs": {
+            "count": 720,
+            "min": 2.195425,
+            "median": 3.0409960000000003,
+            "p95": 5.835075999999998,
+            "max": 8.218295000000001,
+            "mean": 3.4793301194444437
+          }
+        }
+      },
+      {
+        "arm": "triangle-bounds",
+        "summary": {
+          "submitCpuMs": {
+            "count": 720,
+            "min": 1.7999999970197678,
+            "median": 2.199999988079071,
+            "p95": 2.9000000059604645,
+            "max": 4.300000011920929,
+            "mean": 2.270416667105423
+          },
+          "submitToGpuCompleteMs": {
+            "count": 720,
+            "min": 15.700000002980232,
+            "median": 18,
+            "p95": 21.399999991059303,
+            "max": 22,
+            "mean": 18.611944444581038
+          },
+          "computeGpuMs": {
+            "count": 720,
+            "min": 12.801555,
+            "median": 14.836024,
+            "p95": 18.371053,
+            "max": 19.028709,
+            "mean": 15.404788545833346
+          },
+          "renderTimestampSumMs": {
+            "count": 720,
+            "min": 2.1070960000000003,
+            "median": 2.961451,
+            "p95": 6.154114000000001,
+            "max": 8.449825,
+            "mean": 3.516285784722222
+          }
+        }
+      }
+    ],
+    "sourceGroom": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+  },
+  "limits": [
+    "Exact parity is measured on stated fixtures and adversarial families;8epsilon coordinate cushion is not a universal proof for ill-conditioned closest-point arithmetic.",
+    "Phase profile uses384 chains and a frozen restored body/hair state; full portrait uses496 chains and actual Avatar integration.",
+    "CPU triangle work avoided is not elapsed GPU time.",
+    "Portrait wall timing excludes rAF/compositor wait and timestamp resolution. Summed render timestamps overlap and are not whole-frame time. Fixed60 simulation is not proof of actual60FPS refresh.",
+    "Face/selected-neck gates pass prior full-query captures, but upper-neck/scalp intersections and known HairMaterial failures remain.",
+    "One attempted six-fixture launch reran the agent primitive script after a shared/tmp filename collision. Root renamed its six-fixture harness; duplicate primitive run was not counted as six-fixture evidence."
+  ],
+  "archive": "captures/body-contact-query-performance-2026-09-09",
+  "promotedSource": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+  "promotionDifference": "Only two whitespace-only lines trimmed from measured candidate; portable core/predecessor GPU gate passed8 groups at66d40ee.",
+  "mortonOrderControl": {
+    "decision": "Stop; all physical outputs and canonical contact records match, but measured GPU phase cost is higher. No production chain reordering or full portrait benchmark.",
+    "sixFixtureStates": 12,
+    "canonicalRecordComparison": true,
+    "phase": [
+      {
+        "arm": "baseline",
+        "rows": [
+          {
+            "initial": 16,
+            "phase": "whole-contact-batch",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.138573,
+              "median": 7.890685,
+              "p95": 8.43911,
+              "max": 8.509615,
+              "mean": 7.935421062499998
+            }
+          },
+          {
+            "initial": 16,
+            "phase": "query-only",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.236264,
+              "median": 8.112709,
+              "p95": 8.433288,
+              "max": 8.783533,
+              "mean": 8.004564031249998
+            }
+          },
+          {
+            "initial": 64,
+            "phase": "whole-contact-batch",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.453386,
+              "median": 8.033918,
+              "p95": 9.169152,
+              "max": 9.456814,
+              "mean": 8.132675281249998
+            }
+          },
+          {
+            "initial": 64,
+            "phase": "query-only",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.221932,
+              "median": 7.794089,
+              "p95": 8.198584,
+              "max": 8.724076,
+              "mean": 7.769726406249999
+            }
+          }
+        ]
+      },
+      {
+        "arm": "candidate",
+        "rows": [
+          {
+            "initial": 16,
+            "phase": "whole-contact-batch",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.916676,
+              "median": 8.314201,
+              "p95": 8.838023,
+              "max": 9.043724,
+              "mean": 8.37959334375
+            }
+          },
+          {
+            "initial": 16,
+            "phase": "query-only",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.637509,
+              "median": 8.237333,
+              "p95": 9.079736,
+              "max": 9.322398,
+              "mean": 8.25886215625
+            }
+          },
+          {
+            "initial": 64,
+            "phase": "whole-contact-batch",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.846673,
+              "median": 8.449371,
+              "p95": 8.918031,
+              "max": 10.096721,
+              "mean": 8.46984340625
+            }
+          },
+          {
+            "initial": 64,
+            "phase": "query-only",
+            "gpuMs": {
+              "count": 32,
+              "min": 7.373805,
+              "median": 8.074501,
+              "p95": 8.858656,
+              "max": 9.107861,
+              "mean": 8.136436937500001
+            }
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "CPU warp32 node-slot model is not measured hardware scheduling or subgroup width.",
+      "One frozen all496 state at16/64; phase medians do not explain why the proposed locality improvement failed.",
+      "Node visit totals and physical math are unchanged; contact records are permuted by chain order and compared after explicit inverse mapping.",
+      "No extra ordering variants were tested."
+    ],
+    "archive": "captures/body-contact-morton-order-2026-09-09",
+    "manifestSha": "49009821c95d644889ee993efbe3f178ef047b9bde2b6b7a0373369b85a4b061"
+  }
+}

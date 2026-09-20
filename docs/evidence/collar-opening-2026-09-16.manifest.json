@@ -1,0 +1,159 @@
+{
+  "status": "diagnostic-complete-candidate-unpromoted",
+  "archive": "captures/collar-opening-2026-09-16",
+  "baseCommit": "6e88b870d7be7b7a8cf768a943a645122c2c9a52",
+  "count": 30,
+  "bytes": 9481196,
+  "files": [
+    {
+      "path": "CHECKPOINT.md",
+      "bytes": 8600,
+      "sha256": "5d57507c2f7ac9a91e28bc48f954d1337c9473b82cb434b54f430b8d5d37a1af"
+    },
+    {
+      "path": "asset-audit.json",
+      "bytes": 909,
+      "sha256": "6cfa02b61f2e3b0bbcfc60a9af5183946f0c74cf3721563422ed5b70809e3cbc"
+    },
+    {
+      "path": "gpu-v1/ordinary-native.png",
+      "bytes": 560713,
+      "sha256": "455548c7411ba9848ca0d62ca43dd911d82ebb98d1f1e344fa1835ef776b6079"
+    },
+    {
+      "path": "gpu-v1/report.json",
+      "bytes": 35885,
+      "sha256": "f2e86141f96e78df1a9e5fccb96eee0068c7636dbacd5e6e1e89f39f43e5989d"
+    },
+    {
+      "path": "gpu-v1/state.json",
+      "bytes": 15656,
+      "sha256": "29ba5c327badde14061fcb265a25350ffa2cd6aeb2481093776dd454fd06fea9"
+    },
+    {
+      "path": "gpu-v1.log",
+      "bytes": 891,
+      "sha256": "0bcbfbac96bced0792dea953f1abd7c142b38d0988bbef822fa937da5278cbd1"
+    },
+    {
+      "path": "gpu-v2/ordinary-native.png",
+      "bytes": 560744,
+      "sha256": "79abd684c84c707d3b79ac36a0d3ebc0fb536ec9b9663688c19a8a2de1ff3a41"
+    },
+    {
+      "path": "gpu-v2/report.json",
+      "bytes": 35930,
+      "sha256": "fed8048721755b67ba46abb46094d465cb61496e8090e2eaf167db92430a4f1d"
+    },
+    {
+      "path": "gpu-v2/state.json",
+      "bytes": 15656,
+      "sha256": "29ba5c327badde14061fcb265a25350ffa2cd6aeb2481093776dd454fd06fea9"
+    },
+    {
+      "path": "gpu-v2.log",
+      "bytes": 936,
+      "sha256": "887f5ea0237dfc68fb5132d366484252de9e8d16ed168e2e0d6ae5093f7103fb"
+    },
+    {
+      "path": "gpu-v3/analysis.json",
+      "bytes": 231341,
+      "sha256": "f6a48831e929b1e40a554ebb17dc2690e4286df2e787558207a93989b5a02eac"
+    },
+    {
+      "path": "gpu-v3/double-sided.png",
+      "bytes": 608470,
+      "sha256": "5dbda7b24e2be35daf6b5cfefeae74d9a7eb7dafc61635c6225a7d3be57c505c"
+    },
+    {
+      "path": "gpu-v3/foundation-tag.png",
+      "bytes": 610078,
+      "sha256": "642b09896dac35ad31faeb7e11e5b8d6bf4241d6fa59b37dfc04a49402548fb1"
+    },
+    {
+      "path": "gpu-v3/ordinary-converged.png",
+      "bytes": 607979,
+      "sha256": "f7bb0b1565a9cd8179ce23c79c74a088469325f88f1c7c836046dd97396c201e"
+    },
+    {
+      "path": "gpu-v3/ordinary-native.png",
+      "bytes": 560747,
+      "sha256": "37ee73b71caf255bb032f1b53e4e51cbef4649a420956ac86c1feaf7187877d6"
+    },
+    {
+      "path": "gpu-v3/ordinary-restored.png",
+      "bytes": 609813,
+      "sha256": "c3f0c87f2032ef05f30018d0cca92abd9e1e8c7a5af87e81017561caff98cae2"
+    },
+    {
+      "path": "gpu-v3/ordinary-yaw--45.png",
+      "bytes": 633496,
+      "sha256": "aba16fb6db215931756a75250bdb58d4fd898bd323167263e43999db8decddbb"
+    },
+    {
+      "path": "gpu-v3/ordinary-yaw-135.png",
+      "bytes": 533687,
+      "sha256": "66fbbe6b828417104878b7c2fc3e44396f4c92c0fdaccc15b00a5cd8c7e9c6e9"
+    },
+    {
+      "path": "gpu-v3/ordinary-yaw-180.png",
+      "bytes": 509192,
+      "sha256": "7fa7d80ac596258ae40ef174c42e716358ae3e5a95ab31a5dc83b87fcd7a9021"
+    },
+    {
+      "path": "gpu-v3/ordinary-yaw-45.png",
+      "bytes": 585121,
+      "sha256": "77ba0f79f286182f0b47478e552de9384985426977ba725095c3464bf26534d4"
+    },
+    {
+      "path": "gpu-v3/rays.json",
+      "bytes": 2452480,
+      "sha256": "da1e630dd17f415c554e8d01568056153a6efde935062d3f8eedda2c4f8cbc4b"
+    },
+    {
+      "path": "gpu-v3/report.json",
+      "bytes": 263227,
+      "sha256": "20df066dbcaedf4660e30bdb2d97bd51ffbd643f0de3536fb47657386fc0c7c2"
+    },
+    {
+      "path": "gpu-v3/state.json",
+      "bytes": 15656,
+      "sha256": "29ba5c327badde14061fcb265a25350ffa2cd6aeb2481093776dd454fd06fea9"
+    },
+    {
+      "path": "gpu-v3.log",
+      "bytes": 662,
+      "sha256": "3eeda2195c2d2ec8d3173604b7f4b53943feb1dcb346deb624b55e4c722348a1"
+    },
+    {
+      "path": "report.json",
+      "bytes": 3640,
+      "sha256": "ed73f46610a3174a240938158cad3f51ca2cd9b3525b8ec322d3e2e11dc68179"
+    },
+    {
+      "path": "sandbox.log",
+      "bytes": 309,
+      "sha256": "9828161e631e60c718707ebb6b706c1dc17e04103fa8c7d186d59c5338931966"
+    },
+    {
+      "path": "tools/collar_candidate_audit.mjs",
+      "bytes": 5205,
+      "sha256": "4e8d82218e6a6c4c9e560ef2d1cc84b644526d5a5475aa30b8cde50a1f2a56ef"
+    },
+    {
+      "path": "tools/collar_opening_analyze.mjs",
+      "bytes": 3677,
+      "sha256": "b1244d1c8ff9db87d0082c4f856653dcdcdf0d930f5c417c679733982e158cb8"
+    },
+    {
+      "path": "tools/collar_opening_browser.mjs",
+      "bytes": 2535,
+      "sha256": "9d71c8cc5096d4e61fdcc529db1d566ccbd263af3851fc8d6b5116247eb99c97"
+    },
+    {
+      "path": "tools/collar_opening_probe.mjs",
+      "bytes": 7961,
+      "sha256": "f295afb69a8f44e0dadd16f6decaca14185ffcab6f550ee8294886fddb747ba9"
+    }
+  ]
+}

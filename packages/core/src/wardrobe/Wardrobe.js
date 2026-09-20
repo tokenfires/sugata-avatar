@@ -113,6 +113,7 @@
 
 import { DoubleSide } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createGarmentInterior } from './GarmentInterior.js';
 
 /**
  * How a hide-mask attribute name in the manifest is matched against one in the GLB.
@@ -402,12 +403,20 @@ export class Wardrobe {
      */
     constructor( figure, manifest, options = {} ) {
 
+        this.disposed = false;
+        this.dressToken = 0;
+        this.loadingOutfit = null;
+        this.pendingFragments = new Map();
+
         this.figure = figure;
         this.manifest = manifest;
 
         this.figureKey = options.figureKey ?? 'g050';
         this.decencyFloor = options.decencyFloor ?? ( () => [] );
         this.loadFragment = options.loadFragment ?? defaultFragmentLoader;
+        // Fixed for this wardrobe lifetime: cached fragments are keyed by garment ID.
+        Object.defineProperty( this, 'materialStyle', { value: options.materialStyle ?? 'original', enumerable: true } );
+        this.createMaterial = options.createMaterial ?? null;
 
         this.body = figure.body;
 
@@ -497,25 +506,47 @@ export class Wardrobe {
      */
     async dress( garmentIds ) {
 
-        const outfit = this.#resolveOutfit( garmentIds );
+        const outfit = this.validateOutfit( garmentIds );
+        const token = ++ this.dressToken;
+        this.loadingOutfit = outfit;
+        try {
 
-        const conflicts = this.manifest.conflicts( outfit );
+            // A newer valid request wins even if an older load finishes last. Nothing changes on
+            // screen until every required fragment has arrived; failures preserve the old outfit.
+            for ( const id of outfit ) {
 
-        if ( conflicts.length > 0 ) {
+                await this.#fragmentFor( id );
+                this.#requireLive();
+                if ( token !== this.dressToken ) return this.stats();
 
-            throw new Error( `Wardrobe: this outfit cannot be worn:\n  ${ conflicts.join( '\n  ' ) }` );
+            }
+            const startedAt = now();
+            this.#applyOutfit( outfit );
+            this.lastDressMs = now() - startedAt;
+            return this.stats();
+
+        } finally {
+
+            if ( token === this.dressToken ) this.loadingOutfit = null;
 
         }
 
-        // Fetch first, mutate second. Nothing on screen changes until every fragment is in hand,
-        // so there is no frame in which the body is unmasked and the garment is not yet there.
-        for ( const id of outfit ) await this.#fragmentFor( id );
+    }
 
-        const startedAt = now();
-        this.#applyOutfit( outfit );
-        this.lastDressMs = now() - startedAt;
+    /** Validate through the same policy as dress(), without starting a load or changing an outfit. */
+    validateOutfit( garmentIds ) {
 
-        return this.stats();
+        this.#requireLive();
+        if ( !Array.isArray( garmentIds ) || garmentIds.some( id => typeof id !== 'string' || id.length === 0 ) ) {
+
+            throw new TypeError( 'Wardrobe: outfit must be an array of nonempty garment ids.' );
+
+        }
+        const outfit = this.#resolveOutfit( garmentIds );
+        const conflicts = this.manifest.conflicts( outfit );
+        if ( conflicts.length > 0 ) throw new Error( `Wardrobe: this outfit cannot be worn:\n  ${ conflicts.join( '\n  ' ) }` );
+        for ( const id of outfit ) this.manifest.fragmentUrl( id, this.figureKey );
+        return outfit;
 
     }
 
@@ -544,19 +575,36 @@ export class Wardrobe {
 
     }
 
+    /** Observe the applied material identities; a requested style alone is not an attachment. */
+    appearance() {
+        return {
+            style: this.materialStyle,
+            attached: !this.disposed && this.worn.every( id => {
+                const fragment = this.fragments.get( id );
+                return !!fragment && fragment.mesh.material === fragment.appliedMaterial;
+            } )
+        };
+    }
+
     /** What is worn, what it costs, and what the body currently draws. */
     stats() {
 
         return {
+            disposed: this.disposed,
+            pendingFragments: this.pendingFragments.size,
             worn: [ ...this.worn ],
             bodyVisible: this.body.visible,
             bodyTriangles: this.body.geometry.drawRange.count / 3,
             fullBodyTriangles: this.fullTriangleCount,
             hiddenTriangles: this.fullTriangleCount - this.body.geometry.drawRange.count / 3,
             garmentTriangles: this.worn.reduce(
-                ( total, id ) => total + this.fragments.get( id ).drawnTriangles, 0 ),
+                ( total, id ) => {
+                    const fragment = this.fragments.get( id );
+                    return total + fragment.drawnTriangles + ( fragment.interior?.drawnTriangles ?? 0 );
+                }, 0 ),
             occlusion: this.occlusionOf(),
-            drawCalls: 1 + this.wornMeshes.size,
+            drawCalls: 1 + this.wornMeshes.size + this.worn.reduce(
+                ( total, id ) => total + ( this.fragments.get( id ).interior?.drawCalls ?? 0 ), 0 ),
             residentFragments: this.fragments.size,
             insulation: this.manifest.insulationOf( this.worn ),
             lastDressMs: this.lastDressMs,
@@ -653,6 +701,13 @@ export class Wardrobe {
      */
     release( id ) {
 
+        this.#requireLive();
+        if ( this.pendingFragments.has( id ) || this.loadingOutfit?.includes( id ) ) {
+
+            throw new Error( `Wardrobe: '${ id }' is required by an outfit still loading.` );
+
+        }
+
         if ( this.wornMeshes.has( id ) ) {
 
             throw new Error( `Wardrobe: '${ id }' is being worn. Take it off before releasing it.` );
@@ -662,18 +717,41 @@ export class Wardrobe {
         const fragment = this.fragments.get( id );
         if ( fragment === undefined ) return false;
 
-        fragment.mesh.geometry.dispose();
-
-        for ( const value of Object.values( fragment.mesh.material ) ) {
-
-            if ( value !== null && value?.isTexture === true ) value.dispose();
-
-        }
-
-        fragment.mesh.material.dispose();
+        fragment.interior?.dispose();
+        disposeGarmentResources( fragment.resources );
         this.fragments.delete( id );
 
         return true;
+
+    }
+
+    /**
+     * Retire this wardrobe's fragments, including cached unworn garments. The body and its shared
+     * skeleton belong to the caller. Pending loads dispose their resources when they arrive and
+     * cannot reattach. With a foundation floor, hide the borrowed body before removing its cover.
+     */
+    dispose() {
+
+        if ( this.disposed ) return;
+        this.disposed = true;
+        ++ this.dressToken;
+        this.loadingOutfit = null;
+        if ( this.#hasFloor() ) this.body.visible = false;
+        for ( const mesh of this.wornMeshes.values() ) mesh.removeFromParent();
+        this.wornMeshes.clear();
+        this.worn = [];
+        for ( const fragment of this.fragments.values() ) {
+            fragment.interior?.dispose();
+            disposeGarmentResources( fragment.resources );
+        }
+        this.fragments.clear();
+        this.#rebuildBodyIndex( [] );
+
+    }
+
+    #requireLive() {
+
+        if ( this.disposed ) throw new Error( 'Wardrobe: this wardrobe has been disposed.' );
 
     }
 
@@ -792,6 +870,8 @@ export class Wardrobe {
                 geometry.attributes.position.count );
 
             const drawn = rebuildIndex( geometry, fragment.fullIndex, hidden );
+            // Interior faces must follow the same any-corner mask as their outer source triangles.
+            fragment.interior?.syncMask( hidden );
 
             fragment.drawnTriangles = drawn / 3;
             fragment.occludedBy = hidden === null ? [] : covering;
@@ -822,15 +902,37 @@ export class Wardrobe {
     /** Loads one garment fragment, rebinds it to the figure's skeleton, and caches it. */
     async #fragmentFor( id ) {
 
+        this.#requireLive();
         const cached = this.fragments.get( id );
         if ( cached !== undefined ) return cached;
+        const pending = this.pendingFragments.get( id );
+        if ( pending !== undefined ) return pending;
 
-        const gltf = await this.loadFragment( this.manifest.fragmentUrl( id, this.figureKey ) );
-        const fragment = this.#adoptFragment( id, gltf );
+        const request = ( async () => {
 
-        this.fragments.set( id, fragment );
+            const gltf = await this.loadFragment( this.manifest.fragmentUrl( id, this.figureKey ), id );
+            // Capture ownership BEFORE adoption reparents the mesh and replaces its skeleton.
+            // These resources came from this load, never from the body's borrowed skeleton.
+            const resources = garmentResourcesOf( gltf.scene );
+            try {
 
-        return fragment;
+                this.#requireLive();
+                const fragment = this.#adoptFragment( id, gltf, resources );
+                fragment.resources = resources;
+                this.fragments.set( id, fragment );
+                return fragment;
+
+            } catch ( error ) {
+
+                disposeGarmentResources( resources );
+                throw error;
+
+            }
+
+        } )();
+        this.pendingFragments.set( id, request );
+        try { return await request; }
+        finally { if ( this.pendingFragments.get( id ) === request ) this.pendingFragments.delete( id ); }
 
     }
 
@@ -842,7 +944,7 @@ export class Wardrobe {
      * figure's skeleton, so a rig whose bone ORDER changed produces a loud error here rather than
      * a garment that follows the wrong limb.
      */
-    #adoptFragment( id, gltf ) {
+    #adoptFragment( id, gltf, resources ) {
 
         let garmentMesh = null;
         gltf.scene.traverse( ( object ) => {
@@ -855,6 +957,16 @@ export class Wardrobe {
 
             throw new Error( `Wardrobe: the fragment for '${ id }' contains no SkinnedMesh.` );
 
+        }
+
+        // Synchronous factory contract: null keeps the original; a returned Material transfers
+        // ownership here. A factory must retire its own allocations if it throws before return.
+        // Register before installing/adopting so later validation failures retire both materials.
+        const replacement = this.createMaterial?.( id, garmentMesh );
+        if ( replacement != null ) {
+            if ( !replacement.isMaterial ) throw new TypeError( 'Wardrobe: material factory must return a Material or null.' );
+            resources.materials.add( replacement );
+            garmentMesh.material = replacement;
         }
 
         const remap = this.#jointRemapFor( id, garmentMesh.skeleton );
@@ -884,8 +996,9 @@ export class Wardrobe {
         // a page that forgets it produces a hat that floats over a lit forehead with no error.
         applyFragmentShading( garmentMesh );
 
-        return {
+        const fragment = {
             mesh: garmentMesh,
+            appliedMaterial: garmentMesh.material,
             jointRemapIsIdentity: identity,
             underMasks: maskAttributesOf( garmentMesh.geometry, UNDER_MASK_PREFIX ),
             fullIndex: garmentMesh.geometry.index.array.slice(),
@@ -893,6 +1006,10 @@ export class Wardrobe {
             drawnTriangles: garmentMesh.geometry.index.count / 3,
             occludedBy: []
         };
+        // Install only after joint adoption, material selection and shading; the helper owns
+        // cloned geometry/material and borrows this body's skeleton and imported textures.
+        fragment.interior = createGarmentInterior( garmentMesh, { fullIndex: fragment.fullIndex, resources } );
+        return fragment;
 
     }
 
@@ -950,5 +1067,38 @@ async function defaultFragmentLoader( url ) {
 function now() {
 
     return typeof performance !== 'undefined' ? performance.now() : Date.now();
+
+}
+
+/** The GLB load transfers these resources to the wardrobe, including any unused fragment meshes. */
+function garmentResourcesOf( root ) {
+
+    const resources = { geometries: new Set(), materials: new Set(), textures: new Set(), skeletons: new Set() };
+    root.traverse( object => {
+
+        if ( !object.isMesh ) return;
+        resources.geometries.add( object.geometry );
+        if ( object.skeleton ) resources.skeletons.add( object.skeleton );
+        for ( const material of materialsOf( object ) ) {
+
+            if ( !material ) continue;
+            resources.materials.add( material );
+            for ( const value of Object.values( material ) ) if ( value?.isTexture ) resources.textures.add( value );
+
+        }
+
+    } );
+    return resources;
+
+}
+
+function disposeGarmentResources( resources ) {
+
+    for ( const collection of Object.values( resources ) ) {
+
+        for ( const resource of collection ) resource.dispose();
+        collection.clear();
+
+    }
 
 }

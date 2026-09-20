@@ -456,6 +456,59 @@ async function step( page, frames, deltaSeconds = STEP_SECONDS ) {
 
 const measure = ( page ) => page.evaluate( () => globalThis.__HAIR_MEASURE__() );
 
+/** Cross-check the rebuilt GPU vertices against the independently stored centerlines. */
+const measureRebuiltVertices = ( page ) => page.evaluate( async () => {
+
+    const dynamics = globalThis.__HAIR__.dynamics;
+    const read = await dynamics.readVertices();
+    const centres = await dynamics.readCentrelines();
+    const { groom } = dynamics;
+    const head = centres.headMatrix;
+    let midpointErrorMm = 0;
+    let widthErrorMm = 0;
+    let nonFinite = 0;
+
+    for ( let particle = 0; particle < groom.particleCount; particle ++ ) {
+
+        const left = particle * 6;
+        const right = left + 3;
+        const at = particle * 3;
+        const x = groom.restOffsets[ at ];
+        const y = groom.restOffsets[ at + 1 ];
+        const z = groom.restOffsets[ at + 2 ];
+        const expectedWidth = 2 * Math.hypot(
+            head[ 0 ] * x + head[ 4 ] * y + head[ 8 ] * z,
+            head[ 1 ] * x + head[ 5 ] * y + head[ 9 ] * z,
+            head[ 2 ] * x + head[ 6 ] * y + head[ 10 ] * z );
+        const width = Math.hypot(
+            read.positions[ right ] - read.positions[ left ],
+            read.positions[ right + 1 ] - read.positions[ left + 1 ],
+            read.positions[ right + 2 ] - read.positions[ left + 2 ] );
+        widthErrorMm = Math.max( widthErrorMm, Math.abs( width - expectedWidth ) * 1000 );
+        midpointErrorMm = Math.max( midpointErrorMm, Math.hypot(
+            ( read.positions[ left ] + read.positions[ right ] ) / 2 - centres.positions[ at ],
+            ( read.positions[ left + 1 ] + read.positions[ right + 1 ] ) / 2 - centres.positions[ at + 1 ],
+            ( read.positions[ left + 2 ] + read.positions[ right + 2 ] ) / 2 - centres.positions[ at + 2 ] ) * 1000 );
+
+    }
+
+    for ( const value of read.positions ) if ( Number.isFinite( value ) === false ) nonFinite ++;
+
+    return {
+        vertexCount: read.positions.length / 3,
+        expectedVertexCount: groom.cardVertexCount,
+        vertexBase: read.vertexBase,
+        expectedVertexBase: groom.cardVertexBase,
+        space: read.space,
+        stride: read.stride,
+        stepsAgree: read.steps === centres.steps,
+        midpointErrorMm,
+        widthErrorMm,
+        nonFinite
+    };
+
+} );
+
 /**
  * The whole impulse run, in one page: shake, peak statistics, settle, quiescence.
  *
@@ -494,6 +547,7 @@ async function runImpulse( browser, baseUrl, query ) {
             peaks,
             settled,
             quiescenceMm: worstTipTravelMm( settled.tips, after.tips ),
+            rebuilt: query === 'hairdefect=none' ? await measureRebuiltVertices( opened.page ) : null,
             errors: [ ...opened.pageErrors, ...opened.consoleErrors ]
         };
 
@@ -612,6 +666,17 @@ try {
     console.log( '--- the forward run --------------------------------------------------------\n' );
 
     const green = await runImpulse( browser, server.baseUrl, 'hairdefect=none' );
+
+    report( 'V  edge readback contains finite world-space card vertices, without the scalp caps',
+        green.rebuilt.space === 'world' && green.rebuilt.nonFinite === 0
+            && green.rebuilt.vertexCount === green.rebuilt.expectedVertexCount
+            && green.rebuilt.vertexBase === green.rebuilt.expectedVertexBase
+            && green.rebuilt.stepsAgree,
+        JSON.stringify( green.rebuilt ) );
+    report( 'V  rebuilt edge midpoints agree with simulated centerlines (correct buffer/stride/space)',
+        green.rebuilt.midpointErrorMm < 0.01, `${ green.rebuilt.midpointErrorMm.toFixed( 6 ) } mm` );
+    report( 'V  rebuilt card widths preserve the authored ring widths during motion',
+        green.rebuilt.widthErrorMm < 0.01, `${ green.rebuilt.widthErrorMm.toFixed( 6 ) } mm` );
 
     if ( green.errors.length > 0 ) {
 

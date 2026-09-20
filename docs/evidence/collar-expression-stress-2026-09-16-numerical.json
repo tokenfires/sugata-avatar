@@ -1,0 +1,384 @@
+{
+  "version": 1,
+  "date": "2026-09-16",
+  "status": "Expanded motion qualification failed; recoverable diagnostic evidence. No corrective geometry trial performed.",
+  "conclusion": "The exact d81 candidate retains bra/cloth intersections at two strong happy gesture samples. An exact-frame GPU colour control identifies the visible island as retained bra in front of cloth. This is distinct from the original missing collar interior.",
+  "identities": {
+    "previousAcceptedSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "testedCandidateSHA256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+    "testedCandidateOuterGeometrySHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+    "bodySHA256": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "retainedBraSourceSHA256": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "candidateArchive": "captures/collar-window-2026-09-16/casual-collar-interior-v1.glb",
+    "note": "Identities describe the captured inputs, not the current default installed asset."
+  },
+  "authoritativeArtifacts": {
+    "gpuCapture": {
+      "file": "captures/collar-expression-stress-2026-09-16/gpu-v1/report.json",
+      "sha256": "e8f968a6312f3cf7a60a9c04a717c7be56bb002ffa6c5f54fe3a5810a351db62"
+    },
+    "cpuReview": {
+      "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/report.json",
+      "sha256": "d27ee3be3b25c7603d79a84acc27d72aaf840c7ccf91f323707f60e8fd1d67aa"
+    },
+    "cpuIntegrityAudit": {
+      "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/integrity-audit.json",
+      "sha256": "a01f68d976388aa4c175d29f85a0594ca4a490b19b1f4683bf5867ce3bac1cc6"
+    },
+    "cpuArchiveManifest": {
+      "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/manifest.json",
+      "sha256": "732ad3cb6c184d979888f91c4273ad4b774f0bd3d5b17100514f838598d9de1f"
+    },
+    "exactFrameWitness": {
+      "file": "captures/collar-expression-stress-2026-09-16/witness-v2/report.json",
+      "sha256": "6877d2dafc14b1e863853cdedc1c746e37947c60e94f86246756ac0676b771e7"
+    },
+    "pixelAttribution": {
+      "file": "captures/collar-expression-stress-2026-09-16/attribution-v2/report.json",
+      "sha256": "c5d554a245195d43a7ea3a313bad73404aa4cdfaa2c59fef0cf6f002049c6eb8"
+    },
+    "localSignedDiagnostic": {
+      "file": "captures/collar-expression-stress-2026-09-16/fit-plan/inspection.json",
+      "sha256": "34412f8ce814ef99fd875cb2c87bb0db169bf58db9afac9a60fce606ec793629"
+    }
+  },
+  "instrumentProvenance": {
+    "historicalCapture": {
+      "file": "captures/collar-expression-stress-2026-09-16/gpu-v1/collar_stress_capture.mjs",
+      "sha256": "d120ee4b2356eff10ae395e9a76f5c6c0157d07d55544c7d92d93257a8d5e988"
+    },
+    "historicalWitness": {
+      "file": "captures/collar-expression-stress-2026-09-16/witness-v2/collar_stress_witness.mjs",
+      "sha256": "06f9096a772d659b6b50a280b6f187d5f951c5ecd155f257d25249c7d6730307"
+    },
+    "attribution": {
+      "file": "captures/collar-expression-stress-2026-09-16/attribution-v2/collar_stress_analyze.mjs",
+      "sha256": "603ca598f033d4106115984024563fb90fd96fddc1591eda111a036d53d2db91"
+    },
+    "cpu": [
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/instruments/tools/figure-pipeline/collar_stress_review.mjs",
+        "sha256": "7a726fee9a1e41bb0bb0240d028a4244107ee5787c2ec38a5f2dae7e508b9cfe"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/instruments/tools/figure-pipeline/collar_clearance_review.mjs",
+        "sha256": "60c7e549e63ec02b53460b7f842e8ea7369672a5766d14dc0c38eda96bc3533c"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/instruments/tools/figure-pipeline/hair_geometry.mjs",
+        "sha256": "13627d419044af6a024dc7040647c59d3a9c0873d1ef3302aefa7e5f85fb1baa"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/instruments/tools/figure-pipeline/hair_surface.mjs",
+        "sha256": "9afeedd9d9c120d1d6abb8c0dcaf98bc940269227b9c1451e461a39414a85794"
+      },
+      {
+        "file": "captures/collar-expression-stress-2026-09-16/cpu-v1/instruments/tools/lut-bake/glb.mjs",
+        "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+      }
+    ],
+    "localSignedDiagnostic": {
+      "file": "captures/collar-expression-stress-2026-09-16/fit-plan/inspect.mjs",
+      "sha256": "a7902a6d4d97871bb162e40cae679d678e4185783b3f346eacf45f2a299c7195"
+    },
+    "portableReplayPaths": [
+      "tools/figure-pipeline/collar_stress_capture.mjs",
+      "tools/figure-pipeline/collar_stress_witness.mjs",
+      "tools/figure-pipeline/collar_stress_review.mjs",
+      "tools/figure-pipeline/collar_stress_analyze.mjs"
+    ],
+    "note": "Frozen instrument copies bind these historical reports. Current portable capture/witness tools may route the same archived d81 through the real loader after restoring the earlier default; those later versions are not substituted for historical instrument hashes."
+  },
+  "capture": {
+    "seed": 20260807,
+    "stepSeconds": 0.016666666666666666,
+    "simulationSeconds": 18,
+    "simulationStepsPerRun": 1080,
+    "hairs": [
+      "bob02",
+      "bob01"
+    ],
+    "arms": [
+      "previous",
+      "owned"
+    ],
+    "phases": [
+      {
+        "label": "happy",
+        "pad": {
+          "pleasure": 0.8,
+          "arousal": 0.8,
+          "dominance": 1
+        }
+      },
+      {
+        "label": "angry",
+        "pad": {
+          "pleasure": -0.8,
+          "arousal": 0.8,
+          "dominance": 1
+        }
+      },
+      {
+        "label": "fearful",
+        "pad": {
+          "pleasure": -0.8,
+          "arousal": 0.8,
+          "dominance": -1
+        }
+      }
+    ],
+    "gesture": "Supported Avatar.say with explicit synthetic SpeechPlan: stressed contrast words at 1.5 and 4.5 seconds of each phase, both hands, native amplitude and clamps. Explicit PAD restored after local text reflex.",
+    "snapshotsPerRun": 19,
+    "snapshotSteps": [
+      0,
+      36,
+      98,
+      156,
+      270,
+      330,
+      360,
+      396,
+      455,
+      516,
+      637,
+      690,
+      720,
+      756,
+      816,
+      876,
+      997,
+      1050,
+      1080
+    ],
+    "totalSnapshots": 76,
+    "totalReviewedStates": 76,
+    "distinctGeometryStates": 38,
+    "portraitFrames": 1444,
+    "additionalBodyImages": 12,
+    "positions": "CPU-skinned arrays saved during actual GPU rendering; not GPU vertex readback.",
+    "inputBinding": "Every gzip snapshot has its own SHA256 in the authoritative GPU/CPU reports; every detailed numerical state is bound by the CPU report. Integrity audit rehashes all 76 of each."
+  },
+  "scope": {
+    "changedRawVertices": 96,
+    "changedIncidentTriangles": 180,
+    "coincidentInteriorTriangles": 140,
+    "fullBodyTriangles": 26756,
+    "retainedBraTriangles": 327,
+    "triangleAreaCoverage": "Minimum distance evaluates entire source/target triangles at each sampled time; it is not only a vertex or barycentric-sample minimum.",
+    "timeCoverage": "Discrete snapshots only; no continuous-time clearance bound."
+  },
+  "candidateResults": {
+    "sampledStatesIncludingHairReuse": 38,
+    "distinctGeometryStates": 19,
+    "body": {
+      "minimumMillimetres": 0.04685342446242559,
+      "minimum": {
+        "id": "bob02-owned-0720",
+        "step": 720,
+        "time": 12.000000000000176,
+        "teeTriangle": 1515,
+        "a": [
+          0.0010665599778281985,
+          1.3919874508810532,
+          0.12706451022868168
+        ],
+        "b": [
+          0.001068121983073256,
+          1.3919524949599424,
+          0.12709566929000846
+        ],
+        "distance": 0.00004685342446242559,
+        "s": 0.5155476418228299,
+        "t": 0.4244756376666115,
+        "kind": "edge-edge",
+        "targetTriangle": 15580
+      },
+      "minimumPhase": "Final angry geometry at step720. The fearful command was issued there, but no following simulation step had yet changed the pose.",
+      "crossingStates": 0,
+      "windingInsideStates": 0,
+      "parityInsideStates": 0,
+      "parityAmbiguousStates": 0,
+      "exteriorRayClassificationsComputed": 17100,
+      "exteriorRayClassificationsIncludingExactReuse": 34200,
+      "topology": {
+        "weldTolerance": 1e-7,
+        "weldedVertices": 13380,
+        "edges": 40134,
+        "triangles": 26756,
+        "eulerCharacteristic": 2,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "orientationErrors": 0,
+        "components": 1,
+        "maxWeldSeparation": 0
+      }
+    },
+    "retainedBra": {
+      "minimumMillimetres": 0,
+      "crossingStatesIncludingHairReuse": 4,
+      "failures": [
+        {
+          "step": 98,
+          "seconds": 1.6333333333333324,
+          "garmentTriangleIds": [
+            1327,
+            1328,
+            1329,
+            1331
+          ],
+          "reproducedHairs": [
+            "bob02",
+            "bob01"
+          ],
+          "allWithinInteriorBand": true
+        },
+        {
+          "step": 270,
+          "seconds": 4.499999999999989,
+          "garmentTriangleIds": [
+            544,
+            545,
+            1328,
+            1329,
+            1331
+          ],
+          "reproducedHairs": [
+            "bob02",
+            "bob01"
+          ],
+          "allWithinInteriorBand": true
+        }
+      ],
+      "otherSampledStates": "No retained-bra intersections at the other 17 distinct candidate poses; their positive minimums remain bounded to those poses."
+    },
+    "interior": "All real-owner positions and indices exactly match the corresponding outer band. Coincident interior inherits the same contacts and minimum body gap."
+  },
+  "previousControl": {
+    "same180SourceTriangles": true,
+    "states": 38,
+    "bodyCrossingStates": 38,
+    "braCrossingStates": 38,
+    "windingInsideStates": 38,
+    "interpretation": "The previous accepted asset also fails this expanded stress. A baseline failure does not qualify the candidate."
+  },
+  "exactFrameAttribution": {
+    "frameStep": 99,
+    "seconds": 1.65,
+    "hair": "bob02",
+    "candidateSHA256": "d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a",
+    "checks": {
+      "exactSavedStateReproduced": true,
+      "ordinaryPngExactlyMatchesMotionFrame": true,
+      "matchingStatesAcrossThreeControls": true,
+      "zeroErrorsAndRetirementResources": true,
+      "rays": 598,
+      "taggedWitnesses": 110,
+      "allFirstHitsRetainedBra": true,
+      "allTaggedPixelsUnchangedByGlobalDoubleSide": true
+    },
+    "selection": "Within x172..194/y550..575, pixel centres whose GPU tag RGB has R-G>80 and B-G>80. This is a localization set, not an image-quality threshold.",
+    "firstClothTriangleIds": [
+      1328,
+      1331
+    ],
+    "alongRayBraBeforeClothMillimetres": {
+      "minimum": 0.18331861620568546,
+      "maximum": 1.7340752614012356,
+      "meaning": "View-dependent depth order, not surface penetration depth."
+    },
+    "images": {
+      "motionFrame": {
+        "file": "captures/collar-expression-stress-2026-09-16/gpu-v1/bob02-owned/frame-0099.png",
+        "sha256": "66a3e540658b7ed11e8662b76dcb1d7f7b9e424ba84aa37f9b402f1df140f4a5"
+      },
+      "ordinary": {
+        "file": "captures/collar-expression-stress-2026-09-16/witness-v2/ordinary.png",
+        "sha256": "66a3e540658b7ed11e8662b76dcb1d7f7b9e424ba84aa37f9b402f1df140f4a5"
+      },
+      "braTag": {
+        "file": "captures/collar-expression-stress-2026-09-16/witness-v2/bra-magenta.png",
+        "sha256": "15bedd91378ab9b418dcd0cd63e19c4f792efa266136dc416290e71185b5063e"
+      },
+      "globalDoubleSide": {
+        "file": "captures/collar-expression-stress-2026-09-16/witness-v2/cloth-double.png",
+        "sha256": "850b701352541cc43fda448e8e9c231abca98773c8a3373662e020acd5d1ab5f"
+      }
+    },
+    "rays": {
+      "file": "captures/collar-expression-stress-2026-09-16/witness-v2/rays.json",
+      "sha256": "358bc42090557ddbb219052a2d4ffad5d53a035ee6aa58c270d71324f54e383c"
+    },
+    "stateComparison": "Both states use JSON number semantics because the reference was saved as JSON; signed zero is normalized to zero. No numeric tolerance is applied.",
+    "note": "Numerical intersections at step98 and visual/pixel attribution at step99 are adjacent, separately identified observations. The ordinary witness PNG is byte-identical to the original step99 motion PNG. Along-ray separation is view-dependent depth order, not surface penetration depth."
+  },
+  "localSignedDiagnostic": {
+    "pose": {
+      "hair": "bob02",
+      "arm": "owned",
+      "step": 98,
+      "time": 1.6333333333333324
+    },
+    "sourceTriangleIds": [
+      1327,
+      1328,
+      1329,
+      1331
+    ],
+    "retainedBraTriangles": 327,
+    "order": 16,
+    "samplesIncludingSharedEdgeDuplicates": 612,
+    "negativeLocalNormalSamples": 105,
+    "minimumLocalNormalSignedMetres": -0.0009104407676751497,
+    "minimumLocalNormalSignedMillimetres": -0.9104407676751497,
+    "minimumTriangle": 1328,
+    "definition": "Nearest retained-sheet Euclidean distance with sign determined by the interpolated, recomputed area-weighted target vertex normal. Minimum over this 612-point lattice only.",
+    "interpretation": "This is a local signed diagnostic, not a global inside/outside test, exact volumetric penetration depth, continuous-area extremum, or required correction displacement.",
+    "independentlyRecomputedIdentically": true
+  },
+  "integrity": {
+    "pairedRigBodyBraAndTelemetryExact": true,
+    "realLoaderAssetHashesChecked": true,
+    "realInteriorCoincidenceChecked": true,
+    "unchangedTeeGeometry": {
+      "pairs": 38,
+      "verticesPerPair": 2281,
+      "coordinateValuesEqual": 260034
+    },
+    "analyticControls": {
+      "casesPassed": 12,
+      "pass": true,
+      "cases": [
+        "parallel separation",
+        "transverse intersection",
+        "coplanar intersection",
+        "interior edge-edge nearest",
+        "disjoint segments",
+        "closed tetrahedron",
+        "inside winding",
+        "outside winding",
+        "inside ray parity",
+        "outside ray parity",
+        "grazing ray rejection",
+        "contained triangle without crossing"
+      ]
+    },
+    "canonicalization": "Failed witness-v1 was retired because deep comparison distinguished -0 from JSON 0. Authoritative witness-v2 uses JSON numeric semantics with no tolerance; independent image equality also establishes exact visual reproduction."
+  },
+  "limits": [
+    "Sampled times, one deterministic trace per hair: no continuous-time or arbitrary gesture/identity qualification.",
+    "Snapshot positions are CPU-skinned during the GPU run, not GPU vertex readback.",
+    "Only the changed-incident 180 faces and contained 140-face interior are reviewed; unchanged garment surfaces are not certified.",
+    "The retained bra is open and has no canonical enclosed volume; unsigned separation only.",
+    "Floating-point geometric predicates, not interval bounds. Global body self-intersections are not audited.",
+    "Visual quality, appearance in motion, and foundation coverage require the separate captured images and review.",
+    "CPU rays exclude GPU hair and the owned interior child; the double-sided pass includes both sides of every outer cloth triangle.",
+    "The bra colour tag is the direct GPU ownership control. Cloth-double removes the local child and changes the entire cloth side mode; it is an alternative rendering configuration.",
+    "The full-body ray pass restores complete body triangles for picking only. No mask or geometry is changed in the rendered controls.",
+    "Discrete pixel centres and one motion frame do not certify the rest of the animation or all cameras.",
+    "17,100 independently computed candidate exterior rays are 34,200 only after exact geometry reuse across hairs.",
+    "Neither the sampled local-normal signed value nor the view-dependent along-ray depth is an exact physical penetration-depth measurement.",
+    "Original mild-motion and foundation-coverage reports retain their original bounds; this expanded failure does not revive the refuted body-mask explanation."
+  ],
+  "nextStep": "A future bounded cloth-only trial must jointly consider both happy-contact regions and protect the small body margin near garment 1515 across all 19 saved poses, then receive its own actual-GPU visual and numerical evidence. No geometry or mask correction was executed in this stress window."
+}

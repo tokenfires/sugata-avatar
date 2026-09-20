@@ -1,0 +1,192 @@
+{
+  "date": "2026-09-09",
+  "issue": "Same-renderer Avatar identity/groom rebuilds retained each retired HairDynamics solver in Three resource bookkeeping.",
+  "scope": "Three consecutive public Avatar.setIdentity({gender:0.5}) calls on one WebGPU renderer, bob02/g050, with a 1/30-second fixed step after each rebuild. The portrait hairstyle selector navigates to a fresh document; full Avatar disposal destroys its owned GPU device, so this result does not claim an accumulating document-navigation leak.",
+  "repair": "HairDynamics disposes its five compute nodes and eight private storage attributes. Avatar retires active and unpublished losing solvers and cleans up synchronous solver-setup errors. Disposed solvers refuse updates, kernel retrieval, and reads. No simulation arithmetic, geometry, or uniform values changed.",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "c3811ef89d046c0ebc49d0697f355b584a1005031df4a4f1aaeef456b3b0b055",
+    "packages/core/src/motion/HairDynamics.js": "07884764eb26a4bdeb0abd30221b47d24323f3d7fa598aad240453f7ab5b8e7d",
+    "packages/core/src/motion/HairDynamics.disposal.selftest.mjs": "9607e672f5b90cd4d6d5f29d793b5041057a1441bce796d76e0fb01ac1cae299",
+    "assets/hair/bob02/g050.glb": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461",
+    "assets/hair/manifest.json": "02fb1bb35d345fb5765fd5b72403764d254aa8f115ec9a014e13d0cfd62c73ba"
+  },
+  "backend": {
+    "renderer": "WebGPU",
+    "threeVersion": "0.185.1",
+    "threeRevision": "r185",
+    "privateApi": "renderer._attributes?.delete(attribute)",
+    "reason": "In installed r185, ComputeNode.dispose() releases pipelines and bindings, but BufferAttribute.dispose() has no renderer listener. The attribute manager destroys the GPU buffer and removes the strong info.memoryMap entry. An absent manager before initialization implies no allocated attributes; actual deletion errors are not swallowed.",
+    "retainedOwnership": "info.memoryMap strongly keys storage attributes; pipeline/program caches are strong Maps. Weak backend DataMaps cannot collect buffers while those keys remain reachable.",
+    "compatibility": "This private API and its ownership behavior must be revalidated when Three is upgraded. update() refuses an explicitly uninitialized renderer to prevent deferred computeAsync submission after disposal."
+  },
+  "measuredResources": {
+    "corrected": [
+      {
+        "rebuilds": 0,
+        "storageBuffers": 8,
+        "storageBytes": 980096,
+        "computePipelines": 5,
+        "computePrograms": 5,
+        "uniformBuffers": 129
+      },
+      {
+        "rebuilds": 1,
+        "storageBuffers": 8,
+        "storageBytes": 980096,
+        "computePipelines": 5,
+        "computePrograms": 5,
+        "uniformBuffers": 129
+      },
+      {
+        "rebuilds": 2,
+        "storageBuffers": 8,
+        "storageBytes": 980096,
+        "computePipelines": 5,
+        "computePrograms": 5,
+        "uniformBuffers": 129
+      },
+      {
+        "rebuilds": 3,
+        "storageBuffers": 8,
+        "storageBytes": 980096,
+        "computePipelines": 5,
+        "computePrograms": 5,
+        "uniformBuffers": 129
+      }
+    ],
+    "priorRetirement": [
+      {
+        "rebuilds": 0,
+        "storageBuffers": 8,
+        "storageBytes": 980096,
+        "computePipelines": 5,
+        "computePrograms": 5,
+        "uniformBuffers": 129
+      },
+      {
+        "rebuilds": 1,
+        "storageBuffers": 16,
+        "storageBytes": 1960192,
+        "computePipelines": 10,
+        "computePrograms": 10,
+        "uniformBuffers": 134
+      },
+      {
+        "rebuilds": 2,
+        "storageBuffers": 24,
+        "storageBytes": 2940288,
+        "computePipelines": 15,
+        "computePrograms": 15,
+        "uniformBuffers": 139
+      },
+      {
+        "rebuilds": 3,
+        "storageBuffers": 32,
+        "storageBytes": 3920384,
+        "computePipelines": 20,
+        "computePrograms": 20,
+        "uniformBuffers": 144
+      }
+    ],
+    "correctedAfterHairRetirement": {
+      "storageBuffers": 0,
+      "storageBytes": 0,
+      "computePipelines": 0,
+      "computePrograms": 0,
+      "uniformBuffers": 117
+    },
+    "oldCodeRejection": {
+      "injections": 1,
+      "method": "Route one copy of Avatar.js with the new hairDynamics.dispose call removed, reproducing the previous drop-without-dispose retirement. The remaining source and rendered sequence are the same.",
+      "result": "The prior retirement adds exactly 8 storage buffers, 980096 bytes, 5 compute pipelines/programs and 5 uniform buffers per rebuild; the corrected path remains at one solver set."
+    },
+    "afterFullAvatarDisposal": {
+      "correctedTrackedEntries": 0,
+      "oldTrackedEntries": 0,
+      "correctedPipelineCaches": 0,
+      "oldPipelineCaches": 0,
+      "correctedDeviceLostReason": "destroyed",
+      "oldDeviceLostReason": "destroyed"
+    }
+  },
+  "vertexEquivalence": {
+    "bitIdenticalAtEveryMatchedRebuild": true,
+    "allVerticesFinite": true,
+    "samples": [
+      {
+        "rebuilds": 0,
+        "clockSeconds": 0.03333333333333333,
+        "vertexSha256": "c3b701e03fd9101fca4b21d1b047bb0a67891259360996230b7873bb646edd27"
+      },
+      {
+        "rebuilds": 1,
+        "clockSeconds": 0.06666666666666667,
+        "vertexSha256": "fa9ecee84d199f836654369f5064ad410a008e856fc1e483aa782e1fc7ecf26c"
+      },
+      {
+        "rebuilds": 2,
+        "clockSeconds": 0.1,
+        "vertexSha256": "eef6639e25ed7fbe279d5566043070b42781406ebb14e771076c3775e70b5040"
+      },
+      {
+        "rebuilds": 3,
+        "clockSeconds": 0.13333333333333333,
+        "vertexSha256": "498618c516cbcb3cc8e84b0ac83bf561e10f5bd24428aebf0db1011037bd8887"
+      }
+    ]
+  },
+  "readAndLoadLifecycle": {
+    "retiredHandleRejectsUpdateKernelExportAndBothReads": true,
+    "activeAndUnusedDisposalIdempotent": true,
+    "noManagerBeforeRendererInitialization": true,
+    "preInitializationUpdateSubmissions": 0,
+    "firstNestedAwaitGapReadCalls": 1,
+    "finalNestedAwaitGapRejectsRetiredData": true,
+    "pendingVertexAndCentrelineReadsReject": true,
+    "pendingReadCalls": 2,
+    "lateLosingSolverDisposedAndWinnerPreserved": true,
+    "lateSolverAfterAvatarDisposalCannotResurrectHair": true,
+    "allocatedSolverDisposesIdempotentlyAfterRendererShutdown": true,
+    "independentReview": "The continuity reviewer reran the two nested-await gap controls and pre-initialization disposal/update controls against HairDynamics 07884764; all expected outcomes passed. No remaining actionable correctness issue found in the final implementation or 21-check test."
+  },
+  "tests": [
+    {
+      "command": "node packages/core/src/motion/HairDynamics.disposal.selftest.mjs",
+      "passed": 21,
+      "failed": 0,
+      "correctedBrowserErrors": [],
+      "oldControlBrowserErrors": []
+    },
+    {
+      "command": "node packages/core/src/Avatar.selftest.mjs",
+      "passed": 137,
+      "failed": 0,
+      "scope": "CPU contract/source checks; does not certify GPU disposal alone."
+    },
+    {
+      "command": "node packages/core/src/motion/HairDynamics.selftest.mjs --quick",
+      "passed": 24,
+      "failed": 0,
+      "scope": "Existing forward physics and alive-page checks; the full suite rejection experiments did not run."
+    }
+  ],
+  "evidence": {
+    "localBundle": "captures/hair-disposal-2026-09-09",
+    "hashManifest": "captures/hair-disposal-2026-09-09/hashes.json",
+    "finalRegressionSha256": "3cd129d8e5223abbb6f42adf155a204849b218aa5f25565a2214fc47f69579a3",
+    "preservedDiagnosis": [
+      "diagnosis.mjs",
+      "diagnosis.json",
+      "diagnosis.log"
+    ],
+    "preservedIndependentReview": "independent-review-repro.mjs",
+    "provenance": "The initial diagnosis predates the final tail-release asset and is retained as mechanism evidence. Final regression, source hashes and vertex-equivalence samples above use d20d6545. Raw captures are local ignored artifacts; this tracked record preserves their conclusions and hashes."
+  },
+  "limitations": [
+    "The full HairDynamics rejection suite and the entire repository test suite were not run for this cleanup; the dedicated old-retirement rejection and listed focused lifecycle checks did run.",
+    "No matched before/after GPU-time benchmark or OS-level VRAM residency measurement was performed. Byte totals describe actual registered storage-buffer sizes; immediate physical-memory reclamation is not claimed.",
+    "Vertex equivalence covers this matched bob02/g050 rebuild sequence. It is not a general visual-quality or every-hairstyle certification.",
+    "The process-wide HairVelocity prototype patch still has no uninstall; this repair only owns per-solver resources.",
+    "Callers that retain previously exported raw compute nodes or position nodes must stop using them when they dispose their solver; direct external renderer submissions bypass solver API guards."
+  ]
+}

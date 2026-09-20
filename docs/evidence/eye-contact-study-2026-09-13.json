@@ -1,0 +1,90 @@
+{
+  "status": "experimental study; no runtime eye correction integrated",
+  "date": "2026-09-13T15:02:10.856291-07:00",
+  "sourceRevision": "085d27ceecd332049800f177f91f5dcfa8db7e7c",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "7e254a254a73f8499be03dafce401ee838af0100bde7eba9a30609f48e8772a2",
+    "packages/core/src/motion/Gaze.js": "1e056b278429097cdd9be6160b4d0bdecd8af1d215544e9dc50bc80070fa5c8d",
+    "packages/core/src/motion/AttentionAction.js": "ddbe98b6325cf89f646a9281b2945cf63841de3f8f83692d59ab6e0995de7b24",
+    "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+    "packages/testbed/src/portrait.js": "0fb43a2de97670568d49d10acc7b6235c36c7bdfd3aa841231e566d6ad22398f",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+  },
+  "archive": {
+    "path": "captures/eye-contact-study-2026-09-13",
+    "manifest": "docs/evidence/eye-contact-study-2026-09-13.manifest.json",
+    "manifestSHA256": "ba9baa2afd2c78735467935cacd438f7f763d67ff67fa655900ef1b72d786e70",
+    "files": 760,
+    "bytes": 369742194
+  },
+  "runs": {
+    "attention-views-v1": {
+      "completed": true,
+      "reportSHA256": "49a02267b9f0bec0622b52759c80441790a7d1e575b10271657a7ec385f3b4fd",
+      "failure": null,
+      "arms": 3
+    },
+    "open-eye-compare-v2": {
+      "completed": true,
+      "reportSHA256": "b24f361cce19830ed398f30e372f5f76d5632a9f23c09135aee4b5c3cf5fcc07",
+      "failure": null,
+      "arms": 3
+    },
+    "motion-compare-v3": {
+      "completed": false,
+      "reportSHA256": "36e222972b013a1c1365f54875342b9a25bb7e4c5ac7ae0635f33ae78d2ca299",
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    eyeLookDownLeft: 0,\n    eyeLookDownRight: 0,\n+   eyeLookInLeft: 1.2759977853167788e-17,\n+   eyeLookInRight: 0.3148798472679209,\n+   eyeLookOutLeft: 0.32591277814626385,\n-   eyeLookInLeft: 0,\n-   eyeLookInRight: 0.3148798472679207,\n-   eyeLookOutLeft: 0.32591277814626407,\n    eyeLookOutRight: 0,\n+   eyeLookUpLeft: 0.08470586432770225,\n+   eyeLookUpRight: 0.08470586432770225\n-   eyeLookUpLeft: 0.08470586432770201,\n-   eyeLookUpRight: 0.08470586432770201\n  }\n\n    at file:///private/tmp/sugata-eye-contact-study-2026-09-13/motion-compare-v3.mjs:41:37",
+      "arms": 2
+    },
+    "motion-compare-v4": {
+      "completed": true,
+      "reportSHA256": "d10b5afc59f42f4560333103d63c2a7456754bb6754e14e1bfa9392156a4b367",
+      "failure": null,
+      "arms": 3
+    }
+  },
+  "cpuModel": {
+    "path": "aim-model/report.json",
+    "comparisons": 66,
+    "maxAxisErrorDegrees": 0.07634505572951632,
+    "maxCentreErrorMillimetres": 0.03796770566631869,
+    "status": "CPU-only g050 model probe; not a runtime or performance qualification"
+  },
+  "critics": {
+    "stills": {
+      "path": "critic",
+      "manifestSHA256": "80e3d3344f787f47f54a051e6942b2801945afbc163662df7e8aa75054dce953"
+    },
+    "motion": {
+      "path": "critic-motion",
+      "manifestSHA256": "7678c3c75a37e1a1e0e2dfc5111152fa7354b4145cf7a3dd0cc35ef5f8971b37"
+    }
+  },
+  "gallery": {
+    "path": "captures/eye-contact-study-2026-09-13/gallery/review.html",
+    "qualification": "gallery-check.json",
+    "copyNote": "Paused-status wording and the final motion-review text/link were updated after the recorded controls/layout check; final served bytes and links are checked separately."
+  },
+  "usage": {
+    "weeklyUsedPercent": 27,
+    "weeklyRemainingPercent": 73,
+    "minimumReservePercent": 20,
+    "sampleDate": "2026-09-13",
+    "creditsRedeemed": false
+  },
+  "limits": [
+    "One g050 long bob; three still camera positions and one home-view four-second motion comparison.",
+    "Eye axes are geometric proxies; reuse production fitting math. Source audit and pixel/visual reads are separately described.",
+    "Eight eyeLook channels also move authored eyelid/eyebrow/lash shapes. Non-eyeLook weights preserved does not mean face geometry preserved.",
+    "Motion uses a declared post-commit diagnostic writer. Gaze scheduling and downstream shared state are not replaced by a qualified runtime point controller.",
+    "Human continuous-video assessment, more identities/distances, interruption, speech and performance remain open.",
+    "V3 boundary assertion failure and first critic native-return labeling error are preserved as probe/report issues, not production defects."
+  ],
+  "finalChecks": {
+    "catalogueAssertions": 92,
+    "diffCheckPassed": true,
+    "previewReport": "docs/evidence/eye-contact-study-2026-09-13.preview.json",
+    "previewReportSHA256": "269f3f5f80af644320691837bfbb6155ce15004cf3e08ea1f87680f82079d15c"
+  }
+}

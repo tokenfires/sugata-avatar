@@ -1,0 +1,22 @@
+const segmentParameters = Fn( ( [ a, b, c, d ] ) => {
+    const u = b.sub( a ).toVar(), v = d.sub( c ).toVar(), r = a.sub( c ).toVar();
+    const aa = dot( u, u ).toVar(), ee = dot( v, v ).toVar();
+    const bb = dot( u, v ).toVar(), cc = dot( u, r ).toVar(), ff = dot( v, r ).toVar();
+    const s = float( 0 ).toVar(), t = float( 0 ).toVar();
+    If( aa.lessThanEqual( 1e-24 ), () => {
+        If( ee.greaterThan( 1e-24 ), () => { t.assign( clamp( ff.div( ee ), 0, 1 ) ); } );
+    } ).Else( () => {
+        If( ee.lessThanEqual( 1e-24 ), () => { s.assign( clamp( cc.negate().div( aa ), 0, 1 ) ); } ).Else( () => {
+            const denominator = aa.mul( ee ).sub( bb.mul( bb ) ).toVar();
+            If( denominator.greaterThan( 1e-24 ), () => {
+                s.assign( clamp( bb.mul( ff ).sub( cc.mul( ee ) ).div( denominator ), 0, 1 ) );
+            } );
+            t.assign( bb.mul( s ).add( ff ).div( ee ) );
+            If( t.lessThan( 0 ), () => { t.assign( 0 ); s.assign( clamp( cc.negate().div( aa ), 0, 1 ) ); } )
+                .ElseIf( t.greaterThan( 1 ), () => { t.assign( 1 ); s.assign( clamp( bb.sub( cc ).div( aa ), 0, 1 ) ); } );
+        } );
+    } );
+    return vec2( s, t );
+} ).setLayout( { name: 'hairSurfaceSegmentParameters', type: 'vec2', inputs:
+    [ 'a', 'b', 'c', 'd' ].map( name => ( { name, type: 'vec3' } ) ) } );
+

@@ -1,0 +1,928 @@
+{
+  "schema": "sugata-local-capture-manifest-v1",
+  "created": "2026-09-13T20:07:56.464034+00:00",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1692,
+      "sha256": "1b355c15db571711de917f97160d1c19fca4a848ff12f450b902d512628d28b4"
+    },
+    {
+      "path": "archive.py",
+      "bytes": 5784,
+      "sha256": "7dd36d56fc4a91964d8e7aa6f52760bef0348237bd299a2c845c34f54b31e844"
+    },
+    {
+      "path": "baseline.json",
+      "bytes": 80787,
+      "sha256": "e104f6f976380f7bdb9cf0ade660f66eb4246f2ae4818c507ad701e7b9074095"
+    },
+    {
+      "path": "baseline.log",
+      "bytes": 95,
+      "sha256": "46d4b7bdb4526bd57a63d077fada2c55b46a18c2ffa9987daebba193fb379c0c"
+    },
+    {
+      "path": "baseline.mjs",
+      "bytes": 3853,
+      "sha256": "05823a5ee97f6ee6324fd5f70b11abeb46bea4fcbd10952d92b7cd95f10462a0"
+    },
+    {
+      "path": "build-pages.log",
+      "bytes": 13982,
+      "sha256": "2c4ff13472d27d5c674b16b61dc8291a86430a472461e1c695ec54c428ff41b7"
+    },
+    {
+      "path": "casual-body-0.png",
+      "bytes": 597312,
+      "sha256": "7ffaf6997229771629da676165e9387a0db2be95cc8cf1586225f26cbf79706e"
+    },
+    {
+      "path": "casual-body-180.png",
+      "bytes": 509844,
+      "sha256": "382950dd7b75c5f23f7489e7b3e2777f0e157d9cb726fa0d41299aa9e6eaf07e"
+    },
+    {
+      "path": "casual-body-45.png",
+      "bytes": 605345,
+      "sha256": "98f4ae13b020cb8b92d3ce288a2388ce8aa2d3541387c9c694dd063870678b8a"
+    },
+    {
+      "path": "casual-portrait-0.png",
+      "bytes": 712057,
+      "sha256": "30f8d195540b37bf06be55103c37f27c847942cef7b1983073cf12df74697046"
+    },
+    {
+      "path": "casual-portrait-45.png",
+      "bytes": 706783,
+      "sha256": "d6e2264320ade2d63b46c93b8f3617df5a38deda531566be80800f70583cdee2"
+    },
+    {
+      "path": "casual-straight-leg-cuff-v1.glb",
+      "bytes": 11084628,
+      "sha256": "ce7cea2c9d746db3522e0c32a310259598437e19bec03573c8f09963a90eedcd"
+    },
+    {
+      "path": "casual-straight-leg-cuff.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "casual-straight-leg-length.glb",
+      "bytes": 11084628,
+      "sha256": "a40736d69980753d76eb46bf31edf8645f1bd9cbb23f9b86482934685770fa85"
+    },
+    {
+      "path": "casual-straight-leg-v2.glb",
+      "bytes": 11084628,
+      "sha256": "969bd353ea93f01659fdb052bd8cd63baff5f9319ece586255ded86d4997ae7d"
+    },
+    {
+      "path": "casual-straight-leg.glb",
+      "bytes": 11084628,
+      "sha256": "8dc92da5577ba47ded918dadf6db677f9098a861e1ee924c686db80b80c5cf4c"
+    },
+    {
+      "path": "casual_trouser_cuff.mjs",
+      "bytes": 8497,
+      "sha256": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992"
+    },
+    {
+      "path": "casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "casual_trouser_fit.selftest.mjs",
+      "bytes": 6966,
+      "sha256": "e0768ae93b2e5e88c81349475b3fba18e660d2464116385e2e0df77c91473908"
+    },
+    {
+      "path": "cuff-height-v1.mjs",
+      "bytes": 4200,
+      "sha256": "1a1ca4277c2f85e087972d8d1a60886f75b2e0246b14b5307f5854f9d42492c7"
+    },
+    {
+      "path": "cuff-height.mjs",
+      "bytes": 5267,
+      "sha256": "90e26dccbd2b45e83ffe856e465a9c21471198cb9af18a1d42e842824471c62d"
+    },
+    {
+      "path": "dependencies/browser.mjs",
+      "bytes": 9390,
+      "sha256": "fe69e5b12ad0f7f505af6d2cd283f44828a3bf742764ed5fa7031c7f5c1b33a2"
+    },
+    {
+      "path": "dependencies/coverage.mjs",
+      "bytes": 3148,
+      "sha256": "70113d9993b251a97bd34b391ac3f48acfd4077efe198237e7703ee88d4db93a"
+    },
+    {
+      "path": "elegant-body-0.png",
+      "bytes": 594284,
+      "sha256": "73acf0c16b933d997f05afa7ff85a8c2e757f78b3ded94f4f3e940a82d4cf5b6"
+    },
+    {
+      "path": "elegant-body-180.png",
+      "bytes": 507018,
+      "sha256": "d58359430654d1e007bafacfcf1a45dcd3dd803bec50b891597ec95a3754d9d8"
+    },
+    {
+      "path": "elegant-body-45.png",
+      "bytes": 606804,
+      "sha256": "a67932d935ef36db197d04cf249096c0f8e24b88fd872fc665be97f4c61d58da"
+    },
+    {
+      "path": "elegant-portrait-0.png",
+      "bytes": 784871,
+      "sha256": "0687a706713b4ef11effcfc41e5b98f8bd34c1ecdaeda3a10a716d1c0896a3e4"
+    },
+    {
+      "path": "elegant-portrait-45.png",
+      "bytes": 784193,
+      "sha256": "bdf4ff619cb99ee2b052fdff8cee2ae79bdc86dc88b1c3d67edb928ccd185aa9"
+    },
+    {
+      "path": "fit-views/candidate-0-full-front.png",
+      "bytes": 492430,
+      "sha256": "fc80419e7a9e141b84d4e2c066d2920ed0b6d6b0c2a3eac7be66aa453f7130f2"
+    },
+    {
+      "path": "fit-views/candidate-0-lower-front.png",
+      "bytes": 622033,
+      "sha256": "4737db9f34a6a09d9377cbb1b1da16dff2d83aaf47cfaacca2a62343d9e8d3dd"
+    },
+    {
+      "path": "fit-views/candidate-0-lower-oblique.png",
+      "bytes": 656038,
+      "sha256": "db3d4313125805278c2c4b59d13c2ab6a38bd7622f33bbff37f59c8f22987f59"
+    },
+    {
+      "path": "fit-views/candidate-0-lower-rear.png",
+      "bytes": 546762,
+      "sha256": "f89fe7447d196d8403928c00c6966cbff139fa3931a82e0d9d82dc5bf1ba302d"
+    },
+    {
+      "path": "fit-views/candidate-0.json",
+      "bytes": 2636319,
+      "sha256": "2a75bcff397deaed7ca38b6e0eb74a11d32ce76c2551c61fbfb40acd70cadac2"
+    },
+    {
+      "path": "fit-views/candidate-240-full-front.png",
+      "bytes": 492338,
+      "sha256": "1aa478fd464846da91679d3c693df15f5c1999c7947d9719db5b8924a5bb569b"
+    },
+    {
+      "path": "fit-views/candidate-240-lower-front.png",
+      "bytes": 623305,
+      "sha256": "f99fe714cbb8a20c32f5844874f4a2de91cf3d7eade811a981a12ec78f6b2aba"
+    },
+    {
+      "path": "fit-views/candidate-240-lower-oblique.png",
+      "bytes": 656378,
+      "sha256": "56bac83230d8e53ac80aadee16b73bf441b2f83cf81af8b3518969e179d9807c"
+    },
+    {
+      "path": "fit-views/candidate-240-lower-rear.png",
+      "bytes": 546772,
+      "sha256": "8bbf6dd1c3475289cb752a5820ab9829c362afb47195d7520799464e7ffda5a2"
+    },
+    {
+      "path": "fit-views/candidate-240.json",
+      "bytes": 2635991,
+      "sha256": "e8fd3cebe1594e2bd648f20dc5bdd66f036c7c941acec9937d3df61eda6303bd"
+    },
+    {
+      "path": "fit-views/control-0-full-front.png",
+      "bytes": 493089,
+      "sha256": "0226a9104c126add2111abda17219fc60201eb764eafd4f0496867cfc8bd41c4"
+    },
+    {
+      "path": "fit-views/control-0-lower-front.png",
+      "bytes": 620997,
+      "sha256": "b6640f5fe1600545edd67391118106621127b010df16f6af7c75a02ce1203ea8"
+    },
+    {
+      "path": "fit-views/control-0-lower-oblique.png",
+      "bytes": 654984,
+      "sha256": "38c99888f3b6be29b413f2fb26f1a686581ec109062ff2c89be79d764b478dda"
+    },
+    {
+      "path": "fit-views/control-0-lower-rear.png",
+      "bytes": 550810,
+      "sha256": "ed82408659409862de4cefe76d11a21a15450293209ce4e01851b9e4a037d8fe"
+    },
+    {
+      "path": "fit-views/control-0.json",
+      "bytes": 2636331,
+      "sha256": "04a8dff537c2aeadf98923050378361bc574c0471398c320906e276847f177be"
+    },
+    {
+      "path": "fit-views/control-240-full-front.png",
+      "bytes": 492911,
+      "sha256": "3213768a7b52210dcf464c450972dd7990ef04049ab85768af676fb93a91cc5b"
+    },
+    {
+      "path": "fit-views/control-240-lower-front.png",
+      "bytes": 621914,
+      "sha256": "483d691bbf01fe3c4dab6570b5692bf5ea08fe9deb64602271136ec8056d787f"
+    },
+    {
+      "path": "fit-views/control-240-lower-oblique.png",
+      "bytes": 655229,
+      "sha256": "832d07c683445bf1ead5a962e62bff0a4764b370e01b8187a09c380274619f07"
+    },
+    {
+      "path": "fit-views/control-240-lower-rear.png",
+      "bytes": 550751,
+      "sha256": "28eeb8f4172d1ae17554f6d89c8184cb4eb157c4e42fac2ee0299b0ff103c5b8"
+    },
+    {
+      "path": "fit-views/control-240.json",
+      "bytes": 2636002,
+      "sha256": "de812a9aecdef98669e3c1f186eb0dcc4cfc8c5a71e1bb48739416193f61d0e5"
+    },
+    {
+      "path": "fit-views/report.json",
+      "bytes": 28256,
+      "sha256": "3515c9edee1f8bc40e770dd5e55c88a43b6342d05480967f7cf795e15ac26a1b"
+    },
+    {
+      "path": "fit-views-cuff/candidate-0-full-front.png",
+      "bytes": 492030,
+      "sha256": "3abdde233c152d4d2083d5f6e5c92784ce8862958c368926051e3ba8505a6279"
+    },
+    {
+      "path": "fit-views-cuff/candidate-0-lower-front.png",
+      "bytes": 621637,
+      "sha256": "a3041916edcd59e7e27fccdecbffb0630e4edb307e0c87fd48204ddbe314f589"
+    },
+    {
+      "path": "fit-views-cuff/candidate-0-lower-oblique.png",
+      "bytes": 653694,
+      "sha256": "495c74736e66582ffb4e70b0b53318ad47dcd2045054862cdc9946e0513fd538"
+    },
+    {
+      "path": "fit-views-cuff/candidate-0-lower-rear.png",
+      "bytes": 541370,
+      "sha256": "5c894c6902e7902f1e95cd17d2eeb3c317cff4cd6932b0f55261d997be4843f0"
+    },
+    {
+      "path": "fit-views-cuff/candidate-0.json",
+      "bytes": 2636320,
+      "sha256": "b3b80c525b9bdfd53659ba771da968ac3633481cc1d6c46aa021fde83bdd4586"
+    },
+    {
+      "path": "fit-views-cuff/candidate-240-full-front.png",
+      "bytes": 491987,
+      "sha256": "8fa72e869c0093d8fc398ee8c2d59e98ac7775a6e81c46857baa3730c6c2f273"
+    },
+    {
+      "path": "fit-views-cuff/candidate-240-lower-front.png",
+      "bytes": 623069,
+      "sha256": "c982837408698dc4abdf92b4a9fe9921f1ad24cc18994a935ed27855b9952b47"
+    },
+    {
+      "path": "fit-views-cuff/candidate-240-lower-oblique.png",
+      "bytes": 654732,
+      "sha256": "5548b5a2a1db7cd84e47d9af6797d4529005ce369e59364cd005b66ac8640454"
+    },
+    {
+      "path": "fit-views-cuff/candidate-240-lower-rear.png",
+      "bytes": 541525,
+      "sha256": "07665cdda7fd2ef6391f5979a553ebb16b4c3b3dafaef4d1c25482b84a44448b"
+    },
+    {
+      "path": "fit-views-cuff/candidate-240.json",
+      "bytes": 2635986,
+      "sha256": "b8030235aea6ddcca1b531f710ca523a7dd92f890d87830874c41507680c0a66"
+    },
+    {
+      "path": "fit-views-cuff/report.json",
+      "bytes": 14776,
+      "sha256": "327e63de158f457378d0275084fc0ecb435bb14179a5d15299dcc37ec7e652a3"
+    },
+    {
+      "path": "fit-views-cuff.log",
+      "bytes": 56,
+      "sha256": "5ffd623f640fa72835b1dfa141c40cd20eaef3162e0d2971e12e9f80c1da3c46"
+    },
+    {
+      "path": "fit-views-cuff.mjs",
+      "bytes": 5954,
+      "sha256": "42c6fd34f55773e2f63c348c7ef792329450a660cfbb346ab555d86e0d7e6271"
+    },
+    {
+      "path": "fit-views-v2/candidate-0-full-front.png",
+      "bytes": 492392,
+      "sha256": "da5e31051368f61506846ea84c33aeebbe30926e5bfeecb3a3958c96a3b274c2"
+    },
+    {
+      "path": "fit-views-v2/candidate-0-lower-front.png",
+      "bytes": 621947,
+      "sha256": "537c7359752fcbf15c38181ded16e8a12c8abbe2e96c99df3ab0c4f18f5b8199"
+    },
+    {
+      "path": "fit-views-v2/candidate-0-lower-oblique.png",
+      "bytes": 656002,
+      "sha256": "9e47f674e06398537b175cb4a3e298c981edacff3040b0cac8e8c39f073cff33"
+    },
+    {
+      "path": "fit-views-v2/candidate-0-lower-rear.png",
+      "bytes": 546760,
+      "sha256": "2996df93539c02d603a35d9846ff9e49ef96da9aed8d517536a1bc2242ab6200"
+    },
+    {
+      "path": "fit-views-v2/candidate-0.json",
+      "bytes": 2636319,
+      "sha256": "2a75bcff397deaed7ca38b6e0eb74a11d32ce76c2551c61fbfb40acd70cadac2"
+    },
+    {
+      "path": "fit-views-v2/candidate-240-full-front.png",
+      "bytes": 492300,
+      "sha256": "5cfea1aca988a7f5f8e91d995ac92fb629d0851fa0c841730d914190b6a2a1b1"
+    },
+    {
+      "path": "fit-views-v2/candidate-240-lower-front.png",
+      "bytes": 623180,
+      "sha256": "3c5cb87fdded0c45097bca5eff39145f3b4afeb794e43fde622bbad68f722bc7"
+    },
+    {
+      "path": "fit-views-v2/candidate-240-lower-oblique.png",
+      "bytes": 656342,
+      "sha256": "905ed52e232067ace4ec15b7b1469ebeb9c31ecdc1de6f7ef9b1665d6d5cd103"
+    },
+    {
+      "path": "fit-views-v2/candidate-240-lower-rear.png",
+      "bytes": 546766,
+      "sha256": "8e41b40e2296c7a30df7b38e1b97b5167bcdab989e14e256c90845fe12b13d08"
+    },
+    {
+      "path": "fit-views-v2/candidate-240.json",
+      "bytes": 2635991,
+      "sha256": "e8fd3cebe1594e2bd648f20dc5bdd66f036c7c941acec9937d3df61eda6303bd"
+    },
+    {
+      "path": "fit-views-v2/report.json",
+      "bytes": 14776,
+      "sha256": "56dca806e7fa74d5e31cddeacab4e9ba1f285535984a35bbe001a9fe1b0f8e1c"
+    },
+    {
+      "path": "fit-views-v2.log",
+      "bytes": 56,
+      "sha256": "5ffd623f640fa72835b1dfa141c40cd20eaef3162e0d2971e12e9f80c1da3c46"
+    },
+    {
+      "path": "fit-views-v2.mjs",
+      "bytes": 5948,
+      "sha256": "358561d0c2abe4b9513b8466407fb9b4ce76d30266f976f8ef98217ea8941c15"
+    },
+    {
+      "path": "fit-views.log",
+      "bytes": 89,
+      "sha256": "86b6e6132f7dbf97057a603c5e346c68ee5ba18dd66700502a1746a8c2a07570"
+    },
+    {
+      "path": "fit-views.mjs",
+      "bytes": 5949,
+      "sha256": "833828504a3087f41743a63ca8896a5507c54448a45601addb43644169a5f9e6"
+    },
+    {
+      "path": "independent-review/REVIEW.md",
+      "bytes": 25436,
+      "sha256": "61191a31208b37800558339c1add2d7d4bdff4f82baeeda09e698011936ca19a"
+    },
+    {
+      "path": "independent-review/asset-audit.py",
+      "bytes": 3297,
+      "sha256": "83113c81cfc94524a553aafef4fb1e7269fb94872dc207f018bd0d132c0222b0"
+    },
+    {
+      "path": "independent-review/asset-evidence.json",
+      "bytes": 9939,
+      "sha256": "bddc6a3cb3c88ea1a7056f313edb0240f32d5dd9ae03833aac1e9ea9c6391e6e"
+    },
+    {
+      "path": "independent-review/baseline.snapshot.json",
+      "bytes": 80787,
+      "sha256": "e104f6f976380f7bdb9cf0ade660f66eb4246f2ae4818c507ad701e7b9074095"
+    },
+    {
+      "path": "independent-review/contracts-evidence.json",
+      "bytes": 5053,
+      "sha256": "cda945b5c8efa2f67f1a28a44e043987fab23330f9badc14e4a03ff26da28a4e"
+    },
+    {
+      "path": "independent-review/contracts.mjs",
+      "bytes": 2026,
+      "sha256": "7fb899a6d20e0f5ec88b1b69a38d1f0eb12165a8eefb05c6ca023d0616527444"
+    },
+    {
+      "path": "independent-review/cuff-constraints-evidence.json",
+      "bytes": 5002,
+      "sha256": "339c8b4d194cbb1e88ff6e2ac4abbb5e7faa85cceb3acba449fc34f797fcd547"
+    },
+    {
+      "path": "independent-review/cuff-constraints-typed-array-mismatch.mjs",
+      "bytes": 5406,
+      "sha256": "f747c2076873df10047cc85953a1fa1513bfd35f75ee1886318477cc1fcbd70d"
+    },
+    {
+      "path": "independent-review/cuff-constraints.mjs",
+      "bytes": 5430,
+      "sha256": "eab1174074cee2249dea6dda1e22c8b01ff3952fc4eb5d655d968fab880ef82f"
+    },
+    {
+      "path": "independent-review/cuff-face-evidence.json",
+      "bytes": 464,
+      "sha256": "ae6e68608710ee697bec8c2eb047aa0783dc15b5fd3b1181968561da49762927"
+    },
+    {
+      "path": "independent-review/cuff-faces.mjs",
+      "bytes": 1468,
+      "sha256": "029309a7839343096fd0849c918f235571fc20bc4c3338efed8f215043a83b35"
+    },
+    {
+      "path": "independent-review/cuff-view-evidence.json",
+      "bytes": 4947,
+      "sha256": "d8264bdd74c799d40107a2d5e9ee1a600387a5d894b8cf049b3a50716ca477ac"
+    },
+    {
+      "path": "independent-review/cuff-views-report.snapshot.json",
+      "bytes": 14776,
+      "sha256": "327e63de158f457378d0275084fc0ecb435bb14179a5d15299dcc37ec7e652a3"
+    },
+    {
+      "path": "independent-review/fit-evidence.json",
+      "bytes": 3976,
+      "sha256": "e323ee5358a0a2af2d1744ee8655c9ef5c8bffc649ed8228899c9f1d6a1f33c3"
+    },
+    {
+      "path": "independent-review/manifest.json",
+      "bytes": 7345,
+      "sha256": "a08f048db5f5fc419d012b6cd63b4f17450285bb00bca581334cd3b200564c8f"
+    },
+    {
+      "path": "independent-review/mask-successor-evidence.json",
+      "bytes": 4681,
+      "sha256": "85dff6e475d288b03b039f4bdfb0c34699b3849e60379866f47cdaf3514149ef"
+    },
+    {
+      "path": "independent-review/mask-successor-proof.mjs",
+      "bytes": 7289,
+      "sha256": "621fdcb4d770de4d5a5503b3be1564cad772fefaf0313e4f763664e801a7a64b"
+    },
+    {
+      "path": "independent-review/portable-integration-evidence.json",
+      "bytes": 1709,
+      "sha256": "2f7fd5ff61dc31572bd42adea40b42f4519e29a411d28ec548c7de4a8a85a052"
+    },
+    {
+      "path": "independent-review/portable-integration-no-movable-refusal-assumption.mjs",
+      "bytes": 5509,
+      "sha256": "408c8ee95c65cd59b7fd107672a8bd85d9c07773828963106a2a488d460d3320"
+    },
+    {
+      "path": "independent-review/portable-integration.mjs",
+      "bytes": 5942,
+      "sha256": "2cb5b65226b3e0ac3e61191b1437ec55c94eeb6aff2eed07c169c21adeedcc66"
+    },
+    {
+      "path": "independent-review/source-manifest.json",
+      "bytes": 1276,
+      "sha256": "7ee130d43f74a7415cf3c419aff05a62ccaea919c1e0ee5949428248ecef926c"
+    },
+    {
+      "path": "independent-review/sources/AvatarWardrobe.js",
+      "bytes": 4332,
+      "sha256": "5fc8649ab17942b729332a7678d1ae2aa0488cbda73a3f902aa8a53338726d18"
+    },
+    {
+      "path": "independent-review/sources/GarmentManifest.js",
+      "bytes": 17424,
+      "sha256": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd"
+    },
+    {
+      "path": "independent-review/sources/WARDROBE-FIT-2026-09-09.md",
+      "bytes": 4754,
+      "sha256": "5c35382c67213cdc63d8afba0a80146ecaf1eb810ff8f8f35972fe272460857f"
+    },
+    {
+      "path": "independent-review/sources/Wardrobe.js",
+      "bytes": 46459,
+      "sha256": "9b938ce42f49cac21f8de3e4bee1d9427df40dbd029c983732c73b4b8ade6e0c"
+    },
+    {
+      "path": "independent-review/sources/build_figure.py",
+      "bytes": 130427,
+      "sha256": "8470ba8b949058d7127cdb22458ed83d1c611042e2f366f1371da698056559f2"
+    },
+    {
+      "path": "independent-review/sources/casual-straight-leg-cuff.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "independent-review/sources/casual-straight-leg-v2.glb",
+      "bytes": 11084628,
+      "sha256": "969bd353ea93f01659fdb052bd8cd63baff5f9319ece586255ded86d4997ae7d"
+    },
+    {
+      "path": "independent-review/sources/casual-straight-leg.glb",
+      "bytes": 11084628,
+      "sha256": "8dc92da5577ba47ded918dadf6db677f9098a861e1ee924c686db80b80c5cf4c"
+    },
+    {
+      "path": "independent-review/sources/cuff-height.mjs",
+      "bytes": 5267,
+      "sha256": "90e26dccbd2b45e83ffe856e465a9c21471198cb9af18a1d42e842824471c62d"
+    },
+    {
+      "path": "independent-review/sources/frozen-mask-coverage.mjs",
+      "bytes": 4353,
+      "sha256": "d6eaa2d94f46d61fc9d3c763a5ebc33236abedfca3f4287370554c2d3c6b5431"
+    },
+    {
+      "path": "independent-review/sources/frozen-wardrobe-mask-calibration.json",
+      "bytes": 678451,
+      "sha256": "13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02"
+    },
+    {
+      "path": "independent-review/sources/manifest.json",
+      "bytes": 10151,
+      "sha256": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688"
+    },
+    {
+      "path": "independent-review/sources/portable/.gitattributes",
+      "bytes": 594,
+      "sha256": "9a1808dfcaad255d99678089d83f2ff8e45e14c0d79d5324edcc2b41424bb185"
+    },
+    {
+      "path": "independent-review/sources/portable/casual_trouser_cuff.mjs",
+      "bytes": 8497,
+      "sha256": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992"
+    },
+    {
+      "path": "independent-review/sources/portable/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "independent-review/sources/portable/casual_trouser_fit.selftest.mjs",
+      "bytes": 6966,
+      "sha256": "e0768ae93b2e5e88c81349475b3fba18e660d2464116385e2e0df77c91473908"
+    },
+    {
+      "path": "independent-review/sources/portable/wardrobe_under_masks.mjs",
+      "bytes": 11466,
+      "sha256": "bf2a79667bb26210d5efb2f1bd74fb4bbd13021cbd43802c4a23ef5a61f522f4"
+    },
+    {
+      "path": "independent-review/sources/showcase-presets.mjs",
+      "bytes": 4989,
+      "sha256": "d2fdf316126430105bd4bbacfc3f8f3c2f8d111001af1c3136ed3e149ef9e4b0"
+    },
+    {
+      "path": "independent-review/sources/straight-leg-cuff.mjs",
+      "bytes": 8848,
+      "sha256": "e184fe7fab8ae2979903f59375b7f792f7aa0449067cd8844332bd43c28e80f3"
+    },
+    {
+      "path": "independent-review/sources/straight-leg-v2.mjs",
+      "bytes": 7619,
+      "sha256": "854fd961931aec07c02090d361e295d14cb4787a30212ec235cd7bb7c0ed252f"
+    },
+    {
+      "path": "independent-review/sources/straight-leg.mjs",
+      "bytes": 6492,
+      "sha256": "9dae9fb83c3bd9ecaf4ef713b8d2c40f93fe56c7b110ee1a909e375880d7560b"
+    },
+    {
+      "path": "independent-review/straight-leg-audit.mjs",
+      "bytes": 4049,
+      "sha256": "f3bc154e73ffc9b79cd99fd7cfd741a94d35418e4250cd117eac9c600e0f1165"
+    },
+    {
+      "path": "independent-review/straight-leg-cuff-audit.mjs",
+      "bytes": 4032,
+      "sha256": "e5b291632bb178b696b68d6fdca7dbea7b873d0a4abf9efce4d3df53b49a9e2f"
+    },
+    {
+      "path": "independent-review/straight-leg-cuff-evidence.json",
+      "bytes": 1018,
+      "sha256": "4f6a4628f028b006815e50c4a39494c278cfe923222e1ab2d507b8494ed5fc2a"
+    },
+    {
+      "path": "independent-review/straight-leg-evidence.json",
+      "bytes": 8712,
+      "sha256": "f7bac2d8a6578105e58d718e6a48eb56e727caebc72fc4dd052e9f1801dd3d5c"
+    },
+    {
+      "path": "independent-review/straight-leg-v2-audit.mjs",
+      "bytes": 4061,
+      "sha256": "63f3af3cf12c6957228c1e0e6481d4483fce1c7ce8a7c317fb8c9c14b386ecd6"
+    },
+    {
+      "path": "independent-review/straight-leg-v2-evidence.json",
+      "bytes": 1033,
+      "sha256": "628d1a486492d384f5f59f4e20d9daa7d647daa1abeef70b5fb68b2238e86f27"
+    },
+    {
+      "path": "independent-review/verify-cuff-views.mjs",
+      "bytes": 2665,
+      "sha256": "58a005d69aa7d537da7e48c555f07daa48c72fe14d31c87a40c6da381d306eb8"
+    },
+    {
+      "path": "independent-review/verify-fit-evidence.mjs",
+      "bytes": 2053,
+      "sha256": "7562f8d0017688d579224b2b1016696d30d047cb38e75073eecece534edb9d66"
+    },
+    {
+      "path": "install-fit-tool.py",
+      "bytes": 1356,
+      "sha256": "f8966f5072ec35503e3aa18378c1b7bc84ec679eae5686ad8d3363b513a16380"
+    },
+    {
+      "path": "install-reviewed-asset.py",
+      "bytes": 2420,
+      "sha256": "befa20d6d7018c3b0141acc4d07d7d064d28267367321a57ae729bf7e851e5b9"
+    },
+    {
+      "path": "installed-avatar-wardrobe-tests.log",
+      "bytes": 4593,
+      "sha256": "ba8906e0cc3a597a949420655cc14f2eefbbfe61301068926d66ac70685f5905"
+    },
+    {
+      "path": "installed-fit-tests.log",
+      "bytes": 600,
+      "sha256": "7a37d527e227c9c2c1028cd456303f7fe65e4fa12edf86fb67196ca3219a2ce3"
+    },
+    {
+      "path": "installed-image-export/casual-body.png",
+      "bytes": 853986,
+      "sha256": "041a469f9183964ebd79dc6d7a1bd09bcb68f0a45f1b562d2ec4952a875a7d8f"
+    },
+    {
+      "path": "installed-image-export/elegant-body.png",
+      "bytes": 861240,
+      "sha256": "39ced3029b4065057b035dc1faf472ce799530d0d232c8fb60b3469068a792e1"
+    },
+    {
+      "path": "installed-image-export/elegant-long-bob.png",
+      "bytes": 850163,
+      "sha256": "574378b69d55db2ae05bab1be3d90d67e6c83a56d8d73959dfabd4043e9bba60"
+    },
+    {
+      "path": "installed-image-export/elegant-portrait-side.png",
+      "bytes": 683819,
+      "sha256": "4146f8ffb55efca67f818f8628146a6d4a1fff7c0f48ba077ea4441634d150fc"
+    },
+    {
+      "path": "installed-image-export/live-motion.png",
+      "bytes": 850299,
+      "sha256": "471b242a8d9ae7a689eb8f3bb6bd13539e596b9bf0b8ed41777f544827ce5508"
+    },
+    {
+      "path": "installed-image-export/lookbook-png-action.png",
+      "bytes": 648849,
+      "sha256": "c66f0f74f1583e0f4bb432c34c6d4f288b12e88f018238e9f3aad23634d6f26d"
+    },
+    {
+      "path": "installed-image-export/paused-motion.png",
+      "bytes": 848627,
+      "sha256": "874d28aafc946b83be027a8f6aa0f8e4e31baaf4893cafa81a9d3990c840300e"
+    },
+    {
+      "path": "installed-image-export/report.json",
+      "bytes": 8017,
+      "sha256": "b2ec31ddbb4375ceb19ad11793a9aac939f624b4990252377c14de00ff3dcbd7"
+    },
+    {
+      "path": "installed-image-export/settings.json",
+      "bytes": 410,
+      "sha256": "929dec457627b871f6b08fe818d407a80b42e41230f5289088df45a22cf23ce0"
+    },
+    {
+      "path": "installed-image-export.log",
+      "bytes": 1235,
+      "sha256": "ff327bdb4c59e5e8602f3ce5191bc2e24685fd3d46556715c7a4f8f866e98c53"
+    },
+    {
+      "path": "installed-mask-tests.log",
+      "bytes": 709,
+      "sha256": "912e95007ce8a3d550980f87a96104bbd047c5fc87056d53743e83ba2e96a86d"
+    },
+    {
+      "path": "installed-pages-tests.log",
+      "bytes": 13291,
+      "sha256": "8d71ca42c916042b4d7f1ce73fbcf90ccc182f69003c7407011bd16787c8ec0d"
+    },
+    {
+      "path": "installed-presets-tests.log",
+      "bytes": 428,
+      "sha256": "d02bd1752f7527b8fb9bb911f43400de461791c28c8951c4d8a35cdc313895c0"
+    },
+    {
+      "path": "installed-showcase/casual-desktop.png",
+      "bytes": 647432,
+      "sha256": "ecd29ed67ae39ea06d7d92049f7ff74c311307654c6dd59483576d0457bfbf3a"
+    },
+    {
+      "path": "installed-showcase/elegant-desktop.png",
+      "bytes": 646190,
+      "sha256": "295603fabf3196b5eedf8d2c9c63cde4a7c1933ede6c5c0415e2f1610e343208"
+    },
+    {
+      "path": "installed-showcase/elegant-mobile-fresh-motion.png",
+      "bytes": 243881,
+      "sha256": "103cf09a495e2b660f9fde39f325cb78c457bf56a076fb24903202da17000009"
+    },
+    {
+      "path": "installed-showcase/elegant-mobile.png",
+      "bytes": 250532,
+      "sha256": "5ed69da02da1e4cc4ed5f8e483efcecaa680ffb62ffeec18422cb09772e89514"
+    },
+    {
+      "path": "installed-showcase/elegant-rear.png",
+      "bytes": 561383,
+      "sha256": "b102cd09e3c59538bb0cadce8790de2439392157570fc8ffcb75b055c460f4ed"
+    },
+    {
+      "path": "installed-showcase/mixed-portrait-warm.png",
+      "bytes": 841954,
+      "sha256": "b576300bccaed994cfdaf85cdf36fb6210efa2bff15779d8b8c194eabc66fc77"
+    },
+    {
+      "path": "installed-showcase/report.json",
+      "bytes": 38286,
+      "sha256": "91505a2ecbeff8516cb1fc6c78011ddada2ab20f5d93672bc122f0784a45ae43"
+    },
+    {
+      "path": "installed-showcase/saved-look.json",
+      "bytes": 408,
+      "sha256": "1ab9ef48ea93c040c092d6965621d196f36ca252b1ba6dd291ff644aa3b4f7d0"
+    },
+    {
+      "path": "installed-showcase.log",
+      "bytes": 1668,
+      "sha256": "b5cb75442430410748ac25deb54dd911a1fcabe58d56a750600a3b2dc78e9e99"
+    },
+    {
+      "path": "installed-sources/.gitattributes",
+      "bytes": 594,
+      "sha256": "9a1808dfcaad255d99678089d83f2ff8e45e14c0d79d5324edcc2b41424bb185"
+    },
+    {
+      "path": "installed-sources/assets/wardrobe/female_casualsuit01/g050.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "installed-sources/packages/core/src/Avatar.js",
+      "bytes": 249435,
+      "sha256": "fe80f1306282b9af1ae88ae75f0537dda6b7d8dfbf2eb782b861fa409e59217f"
+    },
+    {
+      "path": "installed-sources/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4332,
+      "sha256": "5fc8649ab17942b729332a7678d1ae2aa0488cbda73a3f902aa8a53338726d18"
+    },
+    {
+      "path": "installed-sources/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 46459,
+      "sha256": "9b938ce42f49cac21f8de3e4bee1d9427df40dbd029c983732c73b4b8ade6e0c"
+    },
+    {
+      "path": "installed-sources/packages/testbed/pages.js",
+      "bytes": 14301,
+      "sha256": "aa73b205dea6349000ccf23bc562d541f83506cee341608943f73d6ccddceb9b"
+    },
+    {
+      "path": "installed-sources/packages/testbed/src/showcase.gpu.selftest.mjs",
+      "bytes": 16245,
+      "sha256": "b2efe47ded34c62691f5821caa36e3f8b5ccec690a0338f0b55f85dcfc057eac"
+    },
+    {
+      "path": "installed-sources/packages/testbed/src/showcase.html",
+      "bytes": 11420,
+      "sha256": "33a08210caf5cc911bd4aea73224d4ea69a5f166121ac1cd3a45dee47c6ea2f7"
+    },
+    {
+      "path": "installed-sources/packages/testbed/src/showcase.js",
+      "bytes": 11321,
+      "sha256": "24258bc4b09a7053c6b0b817a876e24ad47620b1b3e6d30e64ac3861a2123511"
+    },
+    {
+      "path": "installed-sources/tools/figure-pipeline/casual_trouser_cuff.mjs",
+      "bytes": 8497,
+      "sha256": "4b90f14806ac94c9408baf3ec70b8d175baf3df83f749c59991d8985c2f20992"
+    },
+    {
+      "path": "installed-sources/tools/figure-pipeline/casual_trouser_fit.mjs",
+      "bytes": 9184,
+      "sha256": "375f1709bc3b7f4e083b7daecfb9efd657eea2ba77accc50ecb58b80f928407f"
+    },
+    {
+      "path": "installed-sources/tools/figure-pipeline/casual_trouser_fit.selftest.mjs",
+      "bytes": 6966,
+      "sha256": "e0768ae93b2e5e88c81349475b3fba18e660d2464116385e2e0df77c91473908"
+    },
+    {
+      "path": "installed-sources/tools/figure-pipeline/fixtures/wardrobe-g050-under-masks-v1.json",
+      "bytes": 678451,
+      "sha256": "13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02"
+    },
+    {
+      "path": "installed-sources/tools/figure-pipeline/wardrobe_under_masks.mjs",
+      "bytes": 11466,
+      "sha256": "bf2a79667bb26210d5efb2f1bd74fb4bbd13021cbd43802c4a23ef5a61f522f4"
+    },
+    {
+      "path": "installed-wardrobe-tests.log",
+      "bytes": 7585,
+      "sha256": "d8950cda93b80ea13fbde021a4a98d744d64e5d9991dc8f3910ef481a2724c35"
+    },
+    {
+      "path": "portable-casual.glb",
+      "bytes": 11084628,
+      "sha256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783"
+    },
+    {
+      "path": "portable-casual.json",
+      "bytes": 1159,
+      "sha256": "02bc6f2852dc512105824775d4f1e1059cb0021f6a205a5d4a2e106814a5702f"
+    },
+    {
+      "path": "portable-tests.log",
+      "bytes": 600,
+      "sha256": "7a37d527e227c9c2c1028cd456303f7fe65e4fa12edf86fb67196ca3219a2ce3"
+    },
+    {
+      "path": "posed-cuff-audit.json",
+      "bytes": 1649861,
+      "sha256": "f173358fc94957a2f3509d4948022560f7104965da86d8dcbd6aa2978584cce6"
+    },
+    {
+      "path": "posed-cuff-audit.mjs",
+      "bytes": 4062,
+      "sha256": "235fe7d774c2ba143a4f65ee75fcb44b3a4a672061589a730dbbb27d375d1ac6"
+    },
+    {
+      "path": "review.html",
+      "bytes": 3018,
+      "sha256": "8715e2c3925ebe99e67331dc31c6b039df8d195ece9a5bf9c9749b39439c61a3"
+    },
+    {
+      "path": "straight-leg-cuff-failed-sock-selection.mjs",
+      "bytes": 7937,
+      "sha256": "28b0ac8a8e07df951a62b7150a4a258b9d49e87ad3c78d527d2c96c2f25a0326"
+    },
+    {
+      "path": "straight-leg-cuff-v1.json",
+      "bytes": 421867,
+      "sha256": "e2713a97b0a813aec4aee02728ab89f0cc54e4ebd8f0f724b8fcf7503d159fcd"
+    },
+    {
+      "path": "straight-leg-cuff.json",
+      "bytes": 421653,
+      "sha256": "f9d6a81ac9c8aa95f30bfc0b346a0cc69e9a6430371ec4defab3895c2230b89f"
+    },
+    {
+      "path": "straight-leg-cuff.mjs",
+      "bytes": 8848,
+      "sha256": "e184fe7fab8ae2979903f59375b7f792f7aa0449067cd8844332bd43c28e80f3"
+    },
+    {
+      "path": "straight-leg-length.json",
+      "bytes": 471196,
+      "sha256": "be6c8e6d2c4302a4599751db6fc7d1b651dfd943aed897e93aedd7f4e128959b"
+    },
+    {
+      "path": "straight-leg-length.mjs",
+      "bytes": 7624,
+      "sha256": "3d1152c3be4eac3040be20cf8a9ee1eccb224b3c5f1d8f8346a04328e8e462db"
+    },
+    {
+      "path": "straight-leg-v2.json",
+      "bytes": 420819,
+      "sha256": "9981753d12027de4362e64500518452cdd7133f9fa2e4a3d1391e8f5364fb05a"
+    },
+    {
+      "path": "straight-leg-v2.mjs",
+      "bytes": 7619,
+      "sha256": "854fd961931aec07c02090d361e295d14cb4787a30212ec235cd7bb7c0ed252f"
+    },
+    {
+      "path": "straight-leg.json",
+      "bytes": 420819,
+      "sha256": "88866446c2a1f3f55c7dea50bdc583360906a7cd68f758b2b6985efcda6339fc"
+    },
+    {
+      "path": "straight-leg.mjs",
+      "bytes": 6492,
+      "sha256": "9dae9fb83c3bd9ecaf4ef713b8d2c40f93fe56c7b110ee1a909e375880d7560b"
+    }
+  ],
+  "fileCount": 184,
+  "totalBytes": 172092489
+}

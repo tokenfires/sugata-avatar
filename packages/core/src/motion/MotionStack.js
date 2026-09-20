@@ -42,7 +42,7 @@
  *     console.log( stack.describeConflicts() );
  */
 
-import { Quaternion, Vector3 } from 'three';
+import { Matrix4, Quaternion, Vector3 } from 'three';
 
 import { MotionRandom } from './Signals.js';
 
@@ -120,6 +120,11 @@ export class MotionStack {
         };
 
         this.scratchQuaternion = new Quaternion();
+        this.evaluatingLayer = null;
+        this.poseQueryAncestors = [];
+        this.poseQueryLocal = new Matrix4();
+        this.poseQueryPosition = new Vector3();
+        this.poseQueryRotation = new Quaternion();
 
     }
 
@@ -150,6 +155,12 @@ export class MotionStack {
 
         assertIsMotionTarget( target );
 
+        // A retiring channel belongs to the old target only. Rebinding relinquishes that
+        // target; do not zero an unrelated channel on the replacement figure.
+        if ( this.target !== target ) {
+            for ( const [ name, channel ] of this.morphChannels ) if ( channel.retiring ) this.morphChannels.delete( name );
+            for ( const [ name, channel ] of this.boneChannels ) if ( channel.retiring ) this.boneChannels.delete( name );
+        }
         this.target = target;
         this.context.target = target;
 
@@ -257,11 +268,17 @@ export class MotionStack {
 
         for ( const layer of this.layers ) {
 
-            if ( layer.enabled === false ) continue;
+            if ( layer.enabled === false ) {
+                layer.onDisabledFrame?.( this.context );
+                continue;
+            }
 
             layer.contribution.clear();
 
-            const contribution = layer.update( dt, this.context );
+            let contribution;
+            this.evaluatingLayer = layer;
+            try { contribution = layer.update( dt, this.context ); }
+            finally { this.evaluatingLayer = null; }
             if ( contribution === null || contribution === undefined ) continue;
 
             this.accumulate( layer, contribution );
@@ -318,6 +335,8 @@ export class MotionStack {
         this.boneChannels.clear();
         this.target = null;
         this.context.target = null;
+        this.poseQueryAncestors.length = 0;
+        this.evaluatingLayer = null;
 
     }
 
@@ -580,18 +599,16 @@ export class MotionStack {
 
         }
 
-        // Records are kept across a rebuild so lifetime statistics survive; only channels that
-        // nobody declares any more are dropped.
-        for ( const name of [ ...this.morphChannels.keys() ] ) {
-
-            if ( declaredMorphs.has( name ) === false ) this.morphChannels.delete( name );
-
+        // Keep the last owner's channels through one rest commit. Dropping them here would
+        // freeze the figure at the previous value. Re-adding a writer before that commit
+        // cancels retirement and preserves the original bone rest snapshot.
+        for ( const [ name, channel ] of this.morphChannels ) {
+            channel.retiring = !declaredMorphs.has( name );
+            if ( channel.retiring ) channel.beginFrame();
         }
-
-        for ( const name of [ ...this.boneChannels.keys() ] ) {
-
-            if ( declaredBones.has( name ) === false ) this.boneChannels.delete( name );
-
+        for ( const [ name, channel ] of this.boneChannels ) {
+            channel.retiring = !declaredBones.has( name );
+            if ( channel.retiring ) channel.beginFrame();
         }
 
         for ( const [ name, layerNames ] of declaredMorphs ) {
@@ -664,6 +681,7 @@ export class MotionStack {
      */
     accumulate( layer, contribution ) {
 
+        if ( layer.stack !== this ) return; // a layer may have removed itself during update
         const morphWeight = layer.weight;
         const boneWeight = Math.min( Math.max( layer.weight, 0 ), 1 );
 
@@ -672,7 +690,7 @@ export class MotionStack {
             if ( Math.abs( value ) < MORPH_EPSILON ) continue;
 
             const channel = this.morphChannels.get( name );
-            if ( channel === undefined ) continue; // declaration changed mid-frame
+            if ( channel === undefined || channel.retiring ) continue; // declaration changed mid-frame
 
             channel.addContribution( layer.name, value * morphWeight );
 
@@ -683,7 +701,7 @@ export class MotionStack {
             if ( isIdentityQuaternion( delta ) ) continue;
 
             const channel = this.boneChannels.get( name );
-            if ( channel === undefined ) continue;
+            if ( channel === undefined || channel.retiring ) continue;
 
             // Post-multiplying composes in the bone's local space, in layer order. Rotations do
             // not commute, so this is where MOTION_ORDER earns its keep.
@@ -697,12 +715,84 @@ export class MotionStack {
             if ( offset.x === 0 && offset.y === 0 && offset.z === 0 ) continue;
 
             const channel = this.boneChannels.get( name );
-            if ( channel === undefined ) continue;
+            if ( channel === undefined || channel.retiring ) continue;
 
             channel.addOffset( layer.name, offset, boneWeight );
 
         }
 
+    }
+
+    /**
+     * Whether this layer's accumulator prefix is the final pose of an object. Used by point
+     * gaze before taking a lease and again while it is active. A later ancestor writer would
+     * make this prefix stale, even if that layer happens to contribute zero on this frame.
+     */
+    posePredictionSupport( object, requestingLayer ) {
+
+        if ( !this.target || !object?.isObject3D ) return 'missing-pose-target';
+        if ( this.channelsDirty ) return 'changing-motion-channels';
+        const index = this.layers.indexOf( requestingLayer );
+        if ( index < 0 || !requestingLayer.enabled ) return 'inactive-requesting-layer';
+        for ( let node = object; node; node = node.parent ) {
+            if ( node.matrixWorldAutoUpdate === false ) return 'frozen-world-matrix';
+            let owned = null;
+            for ( const channel of this.boneChannels.values() ) if ( channel.bone === node ) {
+                if ( owned ) return 'ambiguous-bone-channels';
+                owned = channel;
+            }
+            if ( owned && !node.matrixAutoUpdate ) return 'frozen-bone-matrix';
+            for ( let i = index; i < this.layers.length; i++ ) {
+                const later = this.layers[ i ];
+                if ( !later.enabled ) continue;
+                for ( const name of later.boneChannels ) if ( this.target.getBone( name ) === node ) return i === index ? 'requesting-ancestor-writer' : 'later-ancestor-writer';
+            }
+        }
+        return null;
+
+    }
+
+    /**
+     * Read-only world pose during the requesting layer's update. The figure remains untouched
+     * until commit(). Returns false for unsupported order/transforms. The caller supplies its
+     * own output matrix; aliasing a live scene matrix is rejected before changing anything.
+     */
+    predictWorldMatrix( object, requestingLayer, out ) {
+
+        if ( this.evaluatingLayer !== requestingLayer ) throw new Error( 'Pose prediction is only available during the requesting layer update.' );
+        if ( !out?.isMatrix4 ) throw new TypeError( 'Pose prediction needs an output Matrix4.' );
+        if ( this.posePredictionSupport( object, requestingLayer ) !== null ) return false;
+        const chain = this.poseQueryAncestors;
+        chain.length = 0;
+        for ( let node = object; node; node = node.parent ) {
+            if ( out === node.matrix || out === node.matrixWorld ) {
+                chain.length = 0;
+                throw new Error( 'Pose prediction cannot write a scene matrix.' );
+            }
+            chain.push( node );
+        }
+        out.identity();
+        for ( let i = chain.length - 1; i >= 0; i-- ) {
+            const node = chain[ i ];
+            let owned = null;
+            for ( const channel of this.boneChannels.values() ) if ( channel.bone === node ) { owned = channel; break; }
+            if ( owned ) {
+                this.poseQueryPosition.copy( owned.restPosition ).add( owned.offset );
+                this.poseQueryRotation.multiplyQuaternions( owned.restQuaternion, owned.deltaRotation );
+                this.poseQueryLocal.compose( this.poseQueryPosition, this.poseQueryRotation, node.scale );
+            } else if ( node.matrixAutoUpdate ) this.poseQueryLocal.compose( node.position, node.quaternion, node.scale );
+            else this.poseQueryLocal.copy( node.matrix );
+            out.multiply( this.poseQueryLocal );
+        }
+        chain.length = 0;
+        return out.elements.every( Number.isFinite );
+
+    }
+
+
+    /** Expected committed value for one exclusive contributor of weight one. */
+    committedMorphValue( value ) {
+        return Math.abs( value ) < MORPH_EPSILON ? 0 : Math.min( 1, Math.max( 0, value ) );
     }
 
     /** One write per channel, per frame. The only place this module touches the figure. */
@@ -715,6 +805,7 @@ export class MotionStack {
             channel.recordCommit( value );
 
             if ( channel.present ) this.target.setMorph( channel.name, value );
+            if ( channel.retiring ) this.morphChannels.delete( channel.name );
 
         }
 
@@ -722,10 +813,11 @@ export class MotionStack {
 
             channel.recordCommit();
 
-            if ( channel.bone === null ) continue;
-
-            channel.bone.quaternion.multiplyQuaternions( channel.restQuaternion, channel.deltaRotation );
-            channel.bone.position.copy( channel.restPosition ).add( channel.offset );
+            if ( channel.bone !== null ) {
+                channel.bone.quaternion.multiplyQuaternions( channel.restQuaternion, channel.deltaRotation );
+                channel.bone.position.copy( channel.restPosition ).add( channel.offset );
+            }
+            if ( channel.retiring ) this.boneChannels.delete( channel.name );
 
         }
 
@@ -833,6 +925,7 @@ class MorphChannelState {
 
         this.name = name;
         this.kind = 'morph';
+        this.retiring = false;
         this.present = false;
 
         this.sum = 0;
@@ -925,6 +1018,7 @@ class BoneChannelState {
 
         this.name = name;
         this.kind = 'bone';
+        this.retiring = false;
         this.bone = null;
 
         this.restQuaternion = new Quaternion();

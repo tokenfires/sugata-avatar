@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-13",
+  "sourceHead": "5e1b1cb",
+  "productionChange": false,
+  "decision": "All shape candidates remain unshipped. Rear coverage hypothesis supported, natural appearance not achieved. No motion qualification earned.",
+  "studies": [
+    {
+      "study": "followers-static",
+      "runs": 6,
+      "images": 18,
+      "completed": true,
+      "errors": []
+    },
+    {
+      "study": "layer-id-v2",
+      "runs": 2,
+      "images": 6,
+      "completed": true,
+      "errors": []
+    },
+    {
+      "study": "curtain-static",
+      "runs": 4,
+      "images": 12,
+      "completed": true,
+      "errors": []
+    },
+    {
+      "study": "curtain-locks-static",
+      "runs": 6,
+      "images": 18,
+      "completed": true,
+      "errors": []
+    }
+  ],
+  "failedHarness": "layer-id-failed-v1: signed-zero camera comparison in the test harness, fixed in v2; not a product failure.",
+  "physicalScope": "Original solver state, vertices, face inputs, and frozen clock preserved. New curtain vertices are rigid head-skinned; no dynamics/contact/temporal-history qualification.",
+  "nextAlternatives": [
+    "Keep inner coverage continuous and group only outer locks.",
+    "Vary per-lock bend and release height to break common straight panels."
+  ],
+  "rawManifest": "docs/evidence/hair-shape-studies-2026-09-13-manifest.json",
+  "manifestSha256": "2e02622e1bb58ac2f5bb026a04c0b21894bb6ef7cacc6ca5d0325dc52af4cd0e",
+  "rawFiles": 178,
+  "rawBytes": 55730071
+}

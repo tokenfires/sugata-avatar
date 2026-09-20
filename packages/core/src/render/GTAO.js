@@ -920,8 +920,14 @@ export function createGroundTruthOcclusion( {
             const occlusionTexel = occlusionTexture.sample( at ).toVar();
             const visibility = occlusionTexel.a.saturate().toVar();
 
+            // The half-resolution AO texel can be clear sky while this full-resolution texel
+            // is foreground. Its cleared direction is zero, even though visibility is correctly
+            // one. Select the current surface normal BEFORE normalizing: normalize(0) produces
+            // NaNs that bloom spreads across the whole frame when an orbit leaves the backdrop.
+            // Valid bent directions retain the existing normalization and occlusion path.
             const bentView = bentNormal === true
-                ? occlusionTexel.rgb.normalize().toVar()
+                ? occlusionTexel.rgb.length().greaterThan( 1e-5 )
+                    .select( occlusionTexel.rgb, viewNormal ).normalize().toVar()
                 : viewNormal.toVar();
 
             // --- ambient diffuse, gathered from where the surface can actually see -------------

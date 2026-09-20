@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-08",
+  "acceptedShippingChanges": false,
+  "experiments": [
+    {
+      "name": "internal diagonal flip",
+      "mechanism": "triangulation sensitivity",
+      "result": "patches visibly relocate; equally coarse; rejected"
+    },
+    {
+      "name": "restrained coherent width frames",
+      "mechanism": "reduce frame roll at fixed centerlines and widths",
+      "result": "large jumps586to400; no clear presentation-level improvement; rejected",
+      "maximumVertexMoveMm": 2
+    },
+    {
+      "name": "three-way width subdivision",
+      "mechanism": "reduce within-quad direction discontinuity",
+      "result": "p9071.36to20.17deg;906chains instead of496; broad patchwork remains; rejected",
+      "measuredRuntimeChains": [
+        496,
+        906
+      ],
+      "pointsPerChain": 17,
+      "measuredMotionOrCost": false
+    }
+  ],
+  "captureControls": "Each experiment has ten nonblank images with matched poses/cameras and zero page/console/network errors. Materials and atlases unchanged within each pair.",
+  "limits": [
+    "Changes in triangulation also affect UV/depth interpolation; no exclusive tangent or atlas-cause claim.",
+    "No material algorithm changes, restored shader history, density sweeps or animation/cost claims.",
+    "All candidates remain diagnostic; installed groom stays496chains.",
+    "Raw captures are ignored local evidence; hashes alone cannot recreate their pixels."
+  ],
+  "artifactHashes": {
+    "captures/hair-facets-2026-09-08/diagonal-candidate/g050.glb": "7a62feb130a6ae4dd489a8e83e780937c0689a0cd62a464134bca4b9c7ed2d11",
+    "captures/hair-facets-2026-09-08/diagonal-candidate/report.json": "2f2fa151ffd1f8d7cabb61540b5e6213dbd37478287f4b2f064cf78f447fe908",
+    "captures/hair-facets-2026-09-08/diagonal-render/control--90.png": "910441616c8ef3e50480ffe382c8fedf0aa51c67ffd260ca74a523a67997832e",
+    "captures/hair-facets-2026-09-08/diagonal-render/control-0.png": "3b0cde7c1e9a15aed6bf7510a98111bc7ab45275cd5bc3ad5052f21d4c6ee63d",
+    "captures/hair-facets-2026-09-08/diagonal-render/control-180.png": "ac0c7ce754ab7fdf0f3e356809b70e019b5e4e53066d45c7195a27274bb2ce6a",
+    "captures/hair-facets-2026-09-08/diagonal-render/control-45.png": "502ff10670749550295c0c1da7877d4b2f2710ddbe39c278b335c1d2a0cac246",
+    "captures/hair-facets-2026-09-08/diagonal-render/control-90.png": "ed42a57e01e32ca3e0fcab4490b730a8ea787adc36a15f49a589e7d8ed4d08fa",
+    "captures/hair-facets-2026-09-08/diagonal-render/findings.md": "2ac35a2f648e6cbf4c17f299368a31e87559b154ccff4eb886396676d34983d3",
+    "captures/hair-facets-2026-09-08/diagonal-render/flip--90.png": "538ca8ee9b6978a73f79067ea11f5b14af08ef1e1cc03e73037c6820916211a3",
+    "captures/hair-facets-2026-09-08/diagonal-render/flip-0.png": "3daa104d487f47bc24e4874d438b82d57102ae5a2ee8d960b40eea84346ef57a",
+    "captures/hair-facets-2026-09-08/diagonal-render/flip-180.png": "d49322d007f80f7774ebd9ae0813bdfdc592f749d9cc30594875e26075447d00",
+    "captures/hair-facets-2026-09-08/diagonal-render/flip-45.png": "6191519b5f84decdda616fc97181e3df863c42dfb2e36ce8b9633e40c2413a69",
+    "captures/hair-facets-2026-09-08/diagonal-render/flip-90.png": "9d0d2ac17fa89f8c3ebe1f89bcb6f3a7ee298c08739782aa639ff60d1d4e4a5f",
+    "captures/hair-facets-2026-09-08/diagonal-render/pixel-deltas.json": "cf74fe47e7f000658546ce1fb625d02519d497a2c11083e5d656496893ce104b",
+    "captures/hair-facets-2026-09-08/diagonal-render/report.json": "be69f8619ccee546c477b420fda562ef11e3fbde75adccdfd6b2ec87b9979dd9",
+    "captures/hair-facets-2026-09-08/frame-candidate/control.glb": "5a9ef270a1caed23868510cc089d5b6d7732c49430abe8b896b1fc353fb399fd",
+    "captures/hair-facets-2026-09-08/frame-candidate/crossings.json": "55b02c3a3417dd77483c7ff9c99ab837aaedb65ff07334613dbac2e045952d9d",
+    "captures/hair-facets-2026-09-08/frame-candidate/g050.glb": "d6b513e5511197dd2d72f9a4d0906b55c4d955270fb2eb14aa7f31ed382288ec",
+    "captures/hair-facets-2026-09-08/frame-candidate/report.json": "311da37ad00a19bf460b3606bb74661b5df376207909f3007486b2d5f7d8bed5",
+    "captures/hair-facets-2026-09-08/frame-render/control--90.png": "1490d1c5c736b8a6a966b9a108901c8fe1e5d4bc4459b2a7fe2067fa398a4e0f",
+    "captures/hair-facets-2026-09-08/frame-render/control-0.png": "81558c4b7dd626af5efb6500a1f3ae2bc3c9dad5911cbb2e8f8bd96fdb7aec36",
+    "captures/hair-facets-2026-09-08/frame-render/control-180.png": "878f9e392972d6a52555be118893bd12b965a06c32aa9ed508e4c6467172daae",
+    "captures/hair-facets-2026-09-08/frame-render/control-45.png": "01c111c47e044d97e16c55af4cadb7e702279822b2fb463d8b8efb69f16d5900",
+    "captures/hair-facets-2026-09-08/frame-render/control-90.png": "6f9b843780e52c014e53889efba9b170ac08ce894a83606d33cbe410a2a8d61b",
+    "captures/hair-facets-2026-09-08/frame-render/findings.md": "654b7f0ec34d6d716598fa4017e060f85ee97064cb3c828c9941c8c3b48c6c66",
+    "captures/hair-facets-2026-09-08/frame-render/frames--90.png": "40c45d1a666624c8368481f72a048cdac4f367bf6784dbf3a316b61af2be53f9",
+    "captures/hair-facets-2026-09-08/frame-render/frames-0.png": "665a797baa21fa35dd2be9fe2e7af2fa9368cb7bd3aad24469a04998fc01a730",
+    "captures/hair-facets-2026-09-08/frame-render/frames-180.png": "a95f90c6c7830bbeb9e9510ee00c544b284e43c33107f1083e5b088f5e67babd",
+    "captures/hair-facets-2026-09-08/frame-render/frames-45.png": "8c195bd19c31ebad4abacb952f676dd59de053ef4ae3223151cf3e69c437a082",
+    "captures/hair-facets-2026-09-08/frame-render/frames-90.png": "9e20c7057f8edcf7273c0edea61904112ba95a38af87275ef9455cd14eb58481",
+    "captures/hair-facets-2026-09-08/frame-render/report.json": "1b85269df99058cc33b68fe6a725214d38ae6153589b4ee0f1ae9d84dc5549bc",
+    "captures/hair-facets-2026-09-08/split-candidate/actual-jumps.json": "b8a45af94c47bd867562056292a7b6c24a54d2968b35553287cb3f54ce5b6819",
+    "captures/hair-facets-2026-09-08/split-candidate/control.glb": "dd00a39d8aaa02f71e0f91a43a4f4b07b51fd334e506117d25833735d686cae7",
+    "captures/hair-facets-2026-09-08/split-candidate/g050.glb": "de6ac9451e9a988e90fb157d7e363a5419eda240b82fb7596a4d107b028baf0e",
+    "captures/hair-facets-2026-09-08/split-candidate/prediction.json": "1e342dd184dea89588aaf8fbbf077aee958398c92570207306752f86085e4165",
+    "captures/hair-facets-2026-09-08/split-candidate/report.json": "cb55c412b2a507733a509d531f7a863190f51d95bdc566419b03a0f3b4985972",
+    "captures/hair-facets-2026-09-08/split-candidate/surface.json": "c02097e51f8ea72ce89e9ea6ad69ebc8aeb073556f772a0a2e7abf39c3a269d3",
+    "captures/hair-facets-2026-09-08/split-render/control--90.png": "771bf25fa1aaf82c4ebdaba2f040a7798fb3d18f052f14257f45b26760703009",
+    "captures/hair-facets-2026-09-08/split-render/control-0.png": "03a8f016194a071666ec2470136818254d3310af930b795391f7b2babb5db4ad",
+    "captures/hair-facets-2026-09-08/split-render/control-180.png": "f309ddf83d62d435688d2aafda996fe84ad64ad499ed87f68cd6aa74cbc5727b",
+    "captures/hair-facets-2026-09-08/split-render/control-45.png": "2b7008524255a3159c6a68cf2a8672cbe2c30f7cb4f7e0bb186a0bbe5433f2a5",
+    "captures/hair-facets-2026-09-08/split-render/control-90.png": "cf6764085fe7ca5a9d7be088def002bd0ed36f2e8b675cbd0827cc885a69384e",
+    "captures/hair-facets-2026-09-08/split-render/findings.md": "9c13585b96f55b07f3786b07b0b07e99b9280bec43f813633ea341b14c54dbab",
+    "captures/hair-facets-2026-09-08/split-render/report.json": "5ed1ffc719be8bb618a85008a2c6bb2fb7f064014551d686e3deeddcb5f23749",
+    "captures/hair-facets-2026-09-08/split-render/split--90.png": "9bf7540e724add90d651dd82a748dcda6b6c15d86178964f0f14f4a8014a09be",
+    "captures/hair-facets-2026-09-08/split-render/split-0.png": "ab6459a1da6c53111c3cdecd396619c1d73a3b7538a7658fdb7d71d0dbb2e315",
+    "captures/hair-facets-2026-09-08/split-render/split-180.png": "158dcddf85fe2f5c79f443ab58f3d1283260dc6d69eec0f4109548e87e2772e0",
+    "captures/hair-facets-2026-09-08/split-render/split-45.png": "e00c325f4269ff7392c351f0fbc5773323a7695f6ea40622085e7ccdf18cf225",
+    "captures/hair-facets-2026-09-08/split-render/split-90.png": "48377bef64eac8860e4481003bc1b4251315172a78e0aa421628853e242e68c4",
+    "captures/hair-facets-2026-09-08/sugata-hair-coherent-frames.mjs": "aba27dea917e0ef72f0573484a488916904f6f251d2df648412fb8382940908d",
+    "captures/hair-facets-2026-09-08/sugata-hair-flip-diagonals.mjs": "22ffecb77d5074368fc343ba5951c8727d1295a3e2575884555da4948e30e833",
+    "captures/hair-facets-2026-09-08/sugata-hair-frame-mechanism.json": "0df7dfdc7c53ee2038d71cc00612b474dfc017085c132268aedb467f68cb0d65",
+    "captures/hair-facets-2026-09-08/sugata-hair-split-generate.mjs": "d4bc99f09c7ab0e4c27abd0b8ced032dd3f8a8c1a62301d2a42d04d71a53ce68",
+    "captures/hair-facets-2026-09-08/sugata-hair-split-prediction.mjs": "5f22900844e861f065da6e118ea05c0e9074b1bb96ff2cefd6a92fa28c268fc4",
+    "captures/hair-facets-2026-09-08/sugata-hair-subribbon-render.cjs": "57e22b9bcc43bca572eb7bb1cb705853fd7b07b45976a0ff7fadcf15383301b0"
+  }
+}

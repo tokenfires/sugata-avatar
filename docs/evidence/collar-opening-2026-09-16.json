@@ -1,0 +1,154 @@
+{
+  "status": "diagnostic-complete-candidate-unpromoted",
+  "baseCommit": "6e88b870d7be7b7a8cf768a943a645122c2c9a52",
+  "archive": "captures/collar-opening-2026-09-16",
+  "count": 30,
+  "bytes": 9481196,
+  "manifestSha256": "b42c629b2fe136794ea0bcb87916d789a8227181f54a8a19da211ab838076b18",
+  "candidateSHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+  "finding": "Dark slit witnesses see culled tee back faces. Two-sided GPU control fills them; full-body CPU rays still miss. No body-mask repair is justified.",
+  "sourceHashes": {
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "packages/core/src/motion/AttentionSmile.js": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb",
+    "packages/core/src/motion/AttentionSmile.selftest.mjs": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c",
+    "packages/core/src/voice/VisemeLayer.js": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99",
+    "packages/testbed/src/portrait.js": "c6b120ce74d258bc4f51204c9a5e1b7be151f2a4523953f2ced69b2d41a27560",
+    "packages/testbed/src/portrait.html": "149f0a056992a4122c0a8c0c1b32852dfa5038de92c2e2cbfbc49831aef844e4",
+    "packages/testbed/src/showcase.js": "5c262312118aa8a6b3f1d37987b23b719c6f1e879373e838f312bca77c5a590f",
+    "packages/testbed/src/showcase.html": "935963b4e2ce5abc737c4e88a500d3a128c3301c772ec22cd775ff8b1ab92b49",
+    "packages/testbed/pages.js": "2eeb120f5d11ecd4f3d27c7455afb8cb74213965a09307a3afa1b3ea1c026855",
+    "packages/core/src/Avatar.js": "dc99dababcef2441d0c4f4bc7aa66824b139178627a14089433d69f781914602",
+    "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "packages/core/src/material/SkinOcclusion.js": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa",
+    "packages/core/src/material/SkinRegions.js": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d",
+    "packages/core/src/material/SkinCurvature.js": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54",
+    "packages/core/src/render/LightingRig.js": "3bfc0de4b670118931760afed7e5ab3bd2f075f556be69b2fe8b4580364e1c7a",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "packages/core/src/wardrobe/Wardrobe.js": "3c52cc1ad588536a1a0a83a2ed857bb0029da2117771cac427cfa94cb8e7a7c5",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "3814a7533dbb801f0ec94f80a665f554d8aeb5b1d27cd7ecfb4d88447a3563c9",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+  },
+  "toolHashes": {
+    "tools/figure-pipeline/collar_candidate_audit.mjs": "4e8d82218e6a6c4c9e560ef2d1cc84b644526d5a5475aa30b8cde50a1f2a56ef",
+    "tools/figure-pipeline/collar_opening_analyze.mjs": "b1244d1c8ff9db87d0082c4f856653dcdcdf0d930f5c417c679733982e158cb8",
+    "tools/figure-pipeline/collar_opening_browser.mjs": "9d71c8cc5096d4e61fdcc529db1d566ccbd263af3851fc8d6b5116247eb99c97",
+    "tools/figure-pipeline/collar_opening_probe.mjs": "f295afb69a8f44e0dadd16f6decaca14185ffcab6f550ee8294886fddb747ba9"
+  },
+  "assetAudit": {
+    "sourceSHA256": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "candidateSHA256": "ca65319add5a41147df9d894aebe6441a9ab6f5131ee639dd49c3bef74861e5e",
+    "changedBytes": 1995,
+    "movedVertices": 96,
+    "changedNormals": 126,
+    "maxMoveMillimetres": 18.402915815713143,
+    "lowestChangedOriginalY": 1.327515959739685,
+    "incidentTriangles": 180,
+    "minNormalDot": 0.6125666976098921,
+    "minAreaRatio": 0.673248187003682,
+    "seamDisagreements": 0,
+    "onlyPositionNormalAndTheirBoundsChanged": true,
+    "matchesFrozenRecipe": true,
+    "unchanged": [
+      "topology",
+      "UVs",
+      "skin weights and joints",
+      "materials and textures",
+      "mask attributes",
+      "skeleton",
+      "lower trouser geometry"
+    ],
+    "limitations": [
+      "Shape ratios do not certify curvature or aesthetic quality.",
+      "No clearance, containment, motion or foundation-coverage qualification is implied."
+    ]
+  },
+  "checks": {
+    "preservedPauseFilesRehashed": 47,
+    "raysPerControl": 1634,
+    "newGpuImages": 9,
+    "fixedPoseAcrossFiveFrontControls": true,
+    "fallbackGpuAdapter": false,
+    "pageErrors": [],
+    "disposal": {
+      "memory": {
+        "attributes": 0,
+        "attributesSize": 0,
+        "geometries": 0,
+        "indexAttributes": 0,
+        "indexAttributesSize": 0,
+        "indirectStorageAttributes": 0,
+        "indirectStorageAttributesSize": 0,
+        "programs": 0,
+        "programsSize": 0,
+        "readbackBuffers": 0,
+        "readbackBuffersSize": 0,
+        "renderTargets": 0,
+        "storageAttributes": 0,
+        "storageAttributesSize": 0,
+        "textures": 0,
+        "texturesSize": 0,
+        "uniformBuffers": 0,
+        "uniformBuffersSize": 0,
+        "total": 0
+      },
+      "leaks": []
+    }
+  },
+  "localization": [
+    {
+      "label": "left",
+      "count": 30,
+      "currentHitIds": [
+        "none"
+      ],
+      "fullBodyHitIds": [
+        "none"
+      ],
+      "backFacingTriangles": [
+        1432
+      ],
+      "maxFoundationTagDelta": 15,
+      "maxRestorationDelta": 19,
+      "minDoubleSidedChannelIncrease": 140
+    },
+    {
+      "label": "right",
+      "count": 132,
+      "currentHitIds": [
+        "none"
+      ],
+      "fullBodyHitIds": [
+        "none"
+      ],
+      "backFacingTriangles": [
+        597,
+        598,
+        599
+      ],
+      "maxFoundationTagDelta": 25,
+      "maxRestorationDelta": 28,
+      "minDoubleSidedChannelIncrease": 111
+    }
+  ],
+  "capturedYaws": [
+    12,
+    -45,
+    45,
+    135,
+    180
+  ],
+  "limits": [
+    "Runtime material control only; exact candidate remains unchanged and unpromoted.",
+    "Serial capture phases introduce up to 28/255 restoration variation in selected pixels.",
+    "No new motion sequence, independent solver completion, positive clearance/containment certificate or frozen foundation-coverage replay.",
+    "Four localized triangles are witnesses, not a complete lining authoring region."
+  ],
+  "next": "docs/RESUME-2026-09-16.md"
+}

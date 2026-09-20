@@ -3153,7 +3153,8 @@ export class HairLightingModel extends LightingModel {
 
         if ( nodes.flowMap === null ) return float( 1 );
 
-        const rootToTip = nodes.flowMap.sample( uv() ).b;
+        const rootToTip = nodes.cardRoots == null ? nodes.flowMap.sample( uv() ).b
+            : uv().x.lessThan( nodes.cardRoots.capStripEnd ).select( nodes.flowMap.sample( uv() ).b, uv().y );
         const ramp = smoothstep( float( 0 ), nodes.rootOcclusionLength, rootToTip );
 
         return mix( nodes.rootOcclusion, float( 1 ), ramp );
@@ -3565,11 +3566,23 @@ export class HairNodeMaterial extends MeshPhysicalNodeMaterial {
  * @param {number} [options.baseColourHex] - linear base colour, as an sRGB hex.
  * @param {boolean} [options.multisampled=false] - whether the stage has an MSAA target.
  * @param {string} [options.defect='none'] - one of `HAIR_DEFECTS`.
+ * @param {?{capStripEnd:number,fadeLength:number}} [options.cardRoots=null] - Verified card atlas
+ *   layout: keep the cap, derive card root position from v, and feather card starts before both
+ *   beauty and shadow coverage are configured. The default preserves arbitrary flow-map layouts.
  * @param {Object} [options.settings] - overrides over `HAIR_DEFAULTS`.
  * @returns {Promise<HairNodeMaterial>} resolves once the sidecar sheets have decoded, so a capture
  *   never sees a half-loaded material.
  */
 export async function createHairMaterial( options = {} ) {
+
+
+    // Only callers with a verified root-v=0/tip-v=1 card atlas opt in. Arbitrary external
+    // flow layouts retain the original blue-channel convention and coverage by default.
+    const cardRoots = options.cardRoots == null ? null : Object.freeze( { ...options.cardRoots } );
+    if ( cardRoots !== null && ( !Number.isFinite( cardRoots.capStripEnd ) || cardRoots.capStripEnd <= 0 ||
+        cardRoots.capStripEnd >= 1 || !Number.isFinite( cardRoots.fadeLength ) || cardRoots.fadeLength < 0 || cardRoots.fadeLength > 1 ) ) {
+        throw new TypeError( 'HairMaterial: cardRoots requires capStripEnd in (0,1) and fadeLength in [0,1].' );
+    }
 
     const requested = { ...HAIR_DEFAULTS, ...( options.settings ?? {} ) };
     const defect = options.defect ?? 'none';
@@ -3608,6 +3621,7 @@ export async function createHairMaterial( options = {} ) {
 
     const nodes = {
         defect,
+        cardRoots,
         flowMap: flowMap === null ? null : texture( flowMap ),
         depthMap: depthMap === null ? null : texture( depthMap ),
         baseColour: uniform( new Vector3( colour.r, colour.g, colour.b ) ),
@@ -3708,7 +3722,11 @@ export async function createHairMaterial( options = {} ) {
     // `applyCardShading` records the same trap. The alpha is carried across explicitly.
     if ( options.alphaMap != null ) {
 
-        material.colorNode = vec4( nodes.baseColour, texture( options.alphaMap ).a );
+        const alpha = texture( options.alphaMap ).a;
+        const rootCoverage = cardRoots !== null && cardRoots.fadeLength > 0
+            ? uv().x.lessThan( cardRoots.capStripEnd ).select( float( 1 ), smoothstep( 0, cardRoots.fadeLength, uv().y ) )
+            : float( 1 );
+        material.colorNode = vec4( nodes.baseColour, alpha.mul( rootCoverage ) );
 
     }
 
@@ -3730,6 +3748,7 @@ export async function createHairMaterial( options = {} ) {
 
     material.describe = () => ( {
         defect,
+        cardRoots,
         lobes: {
             r: nodes.weightR.value,
             tt: nodes.weightTT.value,
@@ -3897,8 +3916,18 @@ function strandTangentNode( nodes ) {
     const safeDeterminant = determinant.lessThan( 0 ).select( magnitude.negate(), magnitude );
 
     // ∂P/∂v and ∂P/∂u, from [∂P/∂x ∂P/∂y] = [∂P/∂u ∂P/∂v] · J, inverted.
-    const alongStrand = positionDy.mul( uvDx.x ).sub( positionDx.mul( uvDy.x ) ).div( safeDeterminant );
-    const acrossStrand = positionDx.mul( uvDy.y ).sub( positionDy.mul( uvDx.y ) ).div( safeDeterminant );
+    const derivativeAlong = positionDy.mul( uvDx.x ).sub( positionDx.mul( uvDy.x ) ).div( safeDeterminant );
+    const derivativeAcross = positionDx.mul( uvDy.y ).sub( positionDy.mul( uvDx.y ) ).div( safeDeterminant );
+    // Interpolate unnormalised card-edge derivatives so lighting direction AND strand phase
+    // stay continuous across triangles. Caps, unavailable sources and collapsed frames retain
+    // the fragment derivative path. This same expression feeds lighting and the fake normal.
+    const frame = nodes.cardFrame;
+    const usableFrame = frame == null ? null : frame.enabled.greaterThan( 0.5 )
+        .and( frame.inCard.greaterThan( 0.5 ) )
+        .and( dot( frame.along, frame.along ).greaterThan( 1e-12 ) )
+        .and( dot( frame.across, frame.across ).greaterThan( 1e-12 ) );
+    const alongStrand = frame == null ? derivativeAlong : usableFrame.select( frame.along, derivativeAlong );
+    const acrossStrand = frame == null ? derivativeAcross : usableFrame.select( frame.across, derivativeAcross );
 
     const cardTangent = normalize( alongStrand );
     const across = normalize( acrossStrand );
@@ -3914,7 +3943,11 @@ function strandTangentNode( nodes ) {
     // with no groom at all. Reassigning the JavaScript binding builds the same expression tree
     // without asking the node graph for a mutable variable.
     const sheeted = nodes.flowMap !== null && nodes.defect !== 'no-flow';
-    const flow = sheeted ? nodes.flowMap.sample( uv() ).rg.mul( 2 ).sub( 1 ) : vec2( 0, 1 );
+    const rawFlow = sheeted ? nodes.flowMap.sample( uv() ).rg.mul( 2 ).sub( 1 ) : vec2( 0, 1 );
+    // UNORM8 cannot encode exact 0.5: an unwritten (128,128) becomes a small diagonal,
+    // not zero. Restore the documented card-axis fallback before jitter and lock tilt.
+    // The bound is one decoded 8-bit step; valid authored directions remain unchanged.
+    const flow = dot( rawFlow, rawFlow ).lessThanEqual( ( 2 / 255 ) ** 2 ).select( vec2( 0, 1 ), rawFlow );
     let alongWeight = flow.g;
     let acrossWeight = flow.r;
 
@@ -3953,9 +3986,8 @@ function strandTangentNode( nodes ) {
 
     }
 
-    // The ε keeps a flow texel of exactly (0.5, 0.5) — an unwritten one — from normalising a zero
-    // vector, and it is added along the card's own axis so the fallback is the card rather than a
-    // NaN that would propagate into the G-buffer normal and out into GTAO.
+    // The quantized-neutral fallback above handles absent directions. Keep epsilon as an
+    // additional guard on the assembled vector, including unusual interpolated inputs.
     const inPlane = normalize( cardTangent.mul( alongWeight ).add( across.mul( acrossWeight ) )
         .add( cardTangent.mul( EPSILON ) ) );
 
@@ -4238,4 +4270,35 @@ function loadDataSheet( url ) {
 
     } );
 
+}
+
+
+const cardFrameOwners = new WeakMap();
+
+/** Install one borrowed view-space card frame without changing coverage or position hooks. */
+export function installHairCardFrame( material, frame ) {
+    if ( !material?.isHairNodeMaterial || !frame?.along?.isNode || !frame?.across?.isNode ||
+        !frame?.enabled?.isNode || !frame?.inCard?.isNode ) throw new TypeError( 'Hair card frame requires a hair material and four nodes.' );
+    if ( cardFrameOwners.has( material ) || material.hair.cardFrame != null ) throw new Error( 'Hair card frame is already installed.' );
+    const previousNormal = material.normalNode;
+    let normal;
+    const remove = () => {
+        if ( cardFrameOwners.get( material ) !== frame ) return;
+        cardFrameOwners.delete( material );
+        if ( material.hair.cardFrame === frame ) delete material.hair.cardFrame;
+        if ( material.normalNode === normal ) material.normalNode = previousNormal;
+        material.needsUpdate = true;
+    };
+    cardFrameOwners.set( material, frame );
+    try {
+        material.hair.cardFrame = frame;
+        const tangent = strandTangentNode( material.hair );
+        normal = normalize( positionViewDirection.sub( tangent.mul( tangent.dot( positionViewDirection ) ) ) );
+        material.normalNode = normal;
+        material.needsUpdate = true;
+        return remove;
+    } catch ( error ) {
+        remove();
+        throw error;
+    }
 }

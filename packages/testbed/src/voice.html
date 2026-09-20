@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>姿 — voice</title>
+<title>Sugata 姿 — mouth animation</title>
 <style>
     :root { color-scheme: dark; }
 
@@ -77,10 +77,11 @@
 <div id="hud"></div>
 
 <div id="controls">
+    <p>Silent mouth-animation preview. The sample sequence is not matched to spoken words; enabling its clock does not produce sound.</p>
     <div class="row">
-        <button id="play">speak</button>
-        <button id="stop">stop</button>
-        <button id="audio">start audio clock</button>
+        <button id="play">Preview mouth animation</button>
+        <button id="stop">Stop animation</button>
+        <button id="audio">Enable animation clock</button>
     </div>
 
     <label>rate <span id="rateValue">1.00</span>x</label>
@@ -89,7 +90,7 @@
     <label>lead <span id="leadValue">40</span> ms</label>
     <input id="lead" type="range" min="0" max="125" step="5" value="40">
 
-    <label>hold one viseme</label>
+    <label>Hold one mouth shape</label>
     <div class="row" id="poses"></div>
 </div>
 

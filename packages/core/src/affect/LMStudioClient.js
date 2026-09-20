@@ -1,3 +1,5 @@
+import { completionDiagnostic, httpErrorDetail, boundedDetail } from './CompletionDiagnostics.js';
+
 /**
  * LMStudioClient — the transport half of tier 2. Punch-list 5.3.
  *
@@ -244,6 +246,8 @@ export function buildAffectSchema( primaryValues ) {
 
 /** Every reason a call can fail, as a closed set so a log line can be counted rather than grepped. */
 export const REFUSAL = Object.freeze( {
+    INVALID_RESPONSE: 'invalid-response',  // server envelope is not JSON
+    TRUNCATED: 'truncated',                 // generation ended at its output-token limit
     TRANSPORT: 'transport',                 // the fetch itself failed or the host is not there
     TIMEOUT: 'timeout',                     // exceeded TIMEOUT_MS
     HTTP: 'http',                           // a non-2xx, which finding 3 says json_object mode gives
@@ -495,7 +499,8 @@ export class LMStudioClient {
      *
      * Sends the same shape as a real inference so the load is of the same grammar and the same
      * context, and deliberately ignores the RESULT — a warm-up that failed validation still warmed
-     * the model, which is the only thing it was for.
+     * the model. HTTP failures and truncated generations still fail setup; successful setup does
+     * not certify the semantic expression result.
      *
      * @returns {Promise<{warmed: boolean, latencyMs: number, reason: string|null}>}
      */
@@ -510,7 +515,9 @@ export class LMStudioClient {
         return {
             warmed: outcome.ok === true,
             latencyMs,
-            reason: outcome.ok === true ? null : outcome.reason
+            reason: outcome.ok === true ? null : outcome.reason,
+            detail: outcome.detail ?? '',
+            diagnostic: outcome.diagnostic
         };
 
     }
@@ -550,13 +557,13 @@ export class LMStudioClient {
         this.calls += 1;
         this.lastLatencyMs = latencyMs;
 
-        if ( posted.ok === false ) return this.#refuse( posted.reason, posted.detail, latencyMs );
+        if ( posted.ok === false ) return this.#refuse( posted.reason, posted.detail, latencyMs, posted.diagnostic );
 
         const channel = readCompletionChannel( posted.message );
 
         if ( channel === null ) {
 
-            return this.#refuse( REFUSAL.NO_CHANNEL, 'content and reasoning_content both empty', latencyMs );
+            return this.#refuse( REFUSAL.NO_CHANNEL, 'content and reasoning_content both empty', latencyMs, posted.diagnostic );
 
         }
 
@@ -568,7 +575,7 @@ export class LMStudioClient {
 
         } catch ( error ) {
 
-            return this.#refuse( REFUSAL.UNPARSEABLE, channel.text.slice( 0, 120 ), latencyMs );
+            return this.#refuse( REFUSAL.UNPARSEABLE, `The ${ channel.channel } channel did not contain a complete JSON object.`, latencyMs, posted.diagnostic );
 
         }
 
@@ -576,13 +583,18 @@ export class LMStudioClient {
 
         if ( validated.ok === false ) {
 
-            return this.#refuse( validated.reason, validated.detail, latencyMs );
+            // Validation may describe rejected model values. Return only the field/category, not that text.
+            const field = /^(pleasure|arousal|dominance|intensity|primary)\b/.exec( validated.detail ?? '' )?.[ 1 ];
+            const detail = validated.reason === REFUSAL.SCHEMA
+                ? ( field ? `The ${ field } field must contain the required value type.` : 'The response must be an expression object with all required fields.' )
+                : `The expression response failed validation: ${ validated.reason }.`;
+            return this.#refuse( validated.reason, detail, latencyMs, posted.diagnostic );
 
         }
 
         this.lastChannel = channel.channel;
 
-        return { ok: true, value: validated.value, latencyMs, channel: channel.channel };
+        return { ok: true, value: validated.value, latencyMs, channel: channel.channel, diagnostic: posted.diagnostic };
 
     }
 
@@ -600,10 +612,10 @@ export class LMStudioClient {
 
     }
 
-    #refuse( reason, detail, latencyMs ) {
+    #refuse( reason, detail, latencyMs, diagnostic ) {
 
         this.refusals.set( reason, ( this.refusals.get( reason ) ?? 0 ) + 1 );
-        return { ok: false, reason, detail: String( detail ?? '' ), latencyMs };
+        return { ok: false, reason, detail: boundedDetail( detail ), latencyMs, diagnostic };
 
     }
 
@@ -615,6 +627,7 @@ export class LMStudioClient {
 
         const controller = new AbortController();
         const timer = setTimeout( () => controller.abort(), timeoutMs );
+        let diagnostic = { timeoutMs, tokenLimit: 200, httpStatus: null };
 
         try {
 
@@ -637,24 +650,35 @@ export class LMStudioClient {
                 } )
             } );
 
+            diagnostic.httpStatus = response.status ?? null;
             if ( response.ok === false ) {
 
-                return { ok: false, reason: REFUSAL.HTTP, detail: `HTTP ${ response.status }` };
+                return { ok: false, reason: REFUSAL.HTTP, detail: await httpErrorDetail( response ), diagnostic };
 
             }
 
-            const body = await response.json();
+            let body;
+            try {
+                body = await response.json();
+            } catch ( error ) {
+                if ( error?.name !== 'SyntaxError' || controller.signal.aborted ) throw error;
+                return { ok: false, reason: REFUSAL.INVALID_RESPONSE, detail: 'The server response was not a JSON completion envelope.', diagnostic };
+            }
+            diagnostic = { ...diagnostic, ...completionDiagnostic( body ) };
+            if ( diagnostic.finishReason === 'length' ) {
+                return { ok: false, reason: REFUSAL.TRUNCATED, detail: 'The model reached the output-token limit before completing the expression response.', diagnostic };
+            }
             const message = body?.choices?.[ 0 ]?.message ?? null;
 
-            return { ok: true, message };
+            return { ok: true, message, diagnostic };
 
         } catch ( error ) {
 
             const aborted = error?.name === 'AbortError' || controller.signal.aborted === true;
 
             return aborted
-                ? { ok: false, reason: REFUSAL.TIMEOUT, detail: `${ timeoutMs } ms` }
-                : { ok: false, reason: REFUSAL.TRANSPORT, detail: String( error?.message ?? error ) };
+                ? { ok: false, reason: REFUSAL.TIMEOUT, detail: `${ timeoutMs } ms`, diagnostic }
+                : { ok: false, reason: REFUSAL.TRANSPORT, detail: boundedDetail( error?.message ?? error ), diagnostic };
 
         } finally {
 

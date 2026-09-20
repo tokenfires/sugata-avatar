@@ -1,0 +1,607 @@
+{
+  "status": "Promoted exact-input cache; shipping groom unchanged",
+  "archive": "captures/body-contact-input-cache-frame-cost-2026-09-09",
+  "manifestSha256": "004b4f93962e501d5cc5687c734fc1cacff55193289649bebf86d3270bc86fbc",
+  "entries": 24,
+  "sourceBefore": {
+    "packages/core/src/Avatar.js": "a377e0d749bb048b65e8eae2f52a5fd23d69379016e885977e4e8f5ba3f6e5d5",
+    "packages/core/src/render/Stage.js": "57ff7e9406be3ea8a78c88f5c89fae3630cd6269f07da5730198b0fc285ffaa8",
+    "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+    "packages/testbed/src/portrait.js": "2e370019a5950411f0dfd6f7382f35b7f831c1e1f8d3a79561884a2866820475",
+    "captures/bob01-necklace-2026-09-09/portable-g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "captures/body-surface-2026-09-09/HairSurfaceContact-input-cache.mjs": "93d538d7a3cd4f01520fcb39a2723d2504b9e57091d35b10bb01e645898acaa2",
+    "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "packages/core/src/motion/HairBodyContact.js": "dfdb54442c64f863d240b716b2307172fe139f4a115474ceb1ebfdac66442ddb",
+    "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "packages/core/src/motion/HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+    "packages/core/src/motion/HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+    "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "packages/core/src/motion/HairBodyContactCalibration.js": "8ff2630675e9eb9ceeae38830d3359101240fe3af201ff63e86323cd253b3f12",
+    "packages/core/src/motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+  },
+  "promotedStageSha256": "6fca962eeea50e1b93a678a150a0ee3c895fea20af7536a85bd506404dc97185",
+  "promotedOwnerSha256": "fd0b528418dd11ef376b51922d47aadd7d3a2be6bbc684480628a8749dac73ce",
+  "physicalStateParity": true,
+  "results": [
+    {
+      "arm": "core-contact",
+      "summary": {
+        "submitCpuMs": {
+          "count": 720,
+          "min": 1.7999999970197678,
+          "median": 2.199999988079071,
+          "p95": 2.9000000059604645,
+          "max": 3.7000000029802322,
+          "mean": 2.2827777778522838
+        },
+        "submitToGpuCompleteMs": {
+          "count": 720,
+          "min": 15.699999988079071,
+          "median": 18.200000002980232,
+          "p95": 21.400000005960464,
+          "max": 22.399999991059303,
+          "mean": 18.73611111080067
+        },
+        "computeGpuMs": {
+          "count": 720,
+          "min": 12.654807,
+          "median": 14.876898,
+          "p95": 18.529468,
+          "max": 19.246874,
+          "mean": 15.468529184722223
+        },
+        "renderTimestampSumMs": {
+          "count": 720,
+          "min": 2.114094999999999,
+          "median": 3.0208300000000006,
+          "p95": 6.333032000000001,
+          "max": 9.176359,
+          "mean": 3.608321261111107
+        }
+      },
+      "contact": {
+        "calibration": "bob01-g050-long-fall-neck-v1",
+        "frames": 753,
+        "activeChains": 496,
+        "patchVertices": 1069,
+        "patchTriangles": 1872,
+        "surfaceBuffers": 3,
+        "stages": 4,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+      },
+      "report": {
+        "quality": {
+          "requested": "auto",
+          "tier": "balanced",
+          "backend": "webgpu",
+          "selectedBy": "adapter-capability",
+          "temporalResolve": 1,
+          "resolutionScale": 0.66,
+          "backendMismatch": false
+        },
+        "subsystems": {
+          "skinMaterial": 1,
+          "eyeMaterial": 2,
+          "eyeOcclusion": 4,
+          "cardShading": 2,
+          "hairMaterial": 1,
+          "shadowCastingLights": 1,
+          "temporalResolve": 1,
+          "grade": 1,
+          "ambientOcclusion": null
+        },
+        "wardrobe": null,
+        "scene": {
+          "id": "studio",
+          "kind": "studio",
+          "background": "#08080a",
+          "backdrop": "#070a0e",
+          "ground": true,
+          "environment": null,
+          "groundMaterial": {
+            "albedo": "#968c34",
+            "roughness": 0.9
+          },
+          "lighting": {
+            "look": "studio",
+            "exposure": 0.85,
+            "ambientFractionOfKey": 0.22,
+            "calibrated": true,
+            "designedKeyToFill": 1.3636363636363635,
+            "ambientAttached": true,
+            "shadowsEnabled": true,
+            "placements": [
+              {
+                "name": "key",
+                "azimuthDegrees": 42,
+                "elevationDegrees": 18,
+                "irradiance": 3,
+                "colour": "#ffeeda"
+              },
+              {
+                "name": "fill",
+                "azimuthDegrees": -52,
+                "elevationDegrees": 2,
+                "irradiance": 2.2,
+                "colour": "#f2d2c6"
+              },
+              {
+                "name": "rim",
+                "azimuthDegrees": -168,
+                "elevationDegrees": 26,
+                "irradiance": 16,
+                "colour": "#0f30ff"
+              },
+              {
+                "name": "kicker",
+                "azimuthDegrees": 166,
+                "elevationDegrees": -6,
+                "irradiance": 0.07,
+                "colour": "#ffd7b0"
+              }
+            ]
+          }
+        },
+        "hair": {
+          "style": "bob01",
+          "loadedStyle": "bob01",
+          "bake": "figure_g050",
+          "unavailableReason": null,
+          "attached": true,
+          "meshes": 1,
+          "oit": "stochastic",
+          "stageReportsOit": "stochastic",
+          "solver": {
+            "chains": 496,
+            "particles": 8432,
+            "steps": 1505
+          },
+          "velocityRepaired": true,
+          "bodyContact": {
+            "calibration": "bob01-g050-long-fall-neck-v1",
+            "frames": 753,
+            "activeChains": 496,
+            "patchVertices": 1069,
+            "patchTriangles": 1872,
+            "surfaceBuffers": 3,
+            "stages": 4,
+            "outerIterations": 16,
+            "resetIterations": 64,
+            "queryEvery": 1,
+            "regularQueries": 16,
+            "resetQueries": 64,
+            "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+            "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+            "velocityCorrection": "contact displacement / substep; omitted on reset",
+            "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+          },
+          "bodyContactUnavailableReason": null,
+          "frameBudgetWarning": null,
+          "undisposable": [
+            "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+          ]
+        },
+        "motion": {
+          "seed": 20260807,
+          "frame": 753,
+          "timeSeconds": 12.533333333333536,
+          "layers": [
+            "affectPosture",
+            "breath",
+            "sway",
+            "idle",
+            "bodyIdle",
+            "handIdle",
+            "gesture",
+            "gazeHead",
+            "gaze",
+            "pupil",
+            "expression",
+            "viseme",
+            "blink",
+            "facialIdle"
+          ],
+          "clampingConflicts": 0,
+          "pupilScale": 0.9770255069407126,
+          "fingerClaim": {
+            "claimsFrom": "bodyIdle",
+            "resolved": true,
+            "yieldedTo": "bodyIdle"
+          }
+        },
+        "affect": {
+          "pad": {
+            "pleasure": 0,
+            "arousal": 0,
+            "dominance": 0
+          },
+          "moodOctant": "neutral",
+          "activations": [],
+          "postureDegrees": {
+            "approach": 0,
+            "armSpread": 0,
+            "armSpreadLeft": 0,
+            "armSpreadRight": 0,
+            "headTiltUp": 0,
+            "kneeAdded": 0,
+            "kneeLeft": 0,
+            "kneeRight": 0,
+            "pelvisDropMillimetres": 0
+          },
+          "clockOwner": "expression"
+        },
+        "speech": {
+          "speaking": false,
+          "timelineSupplied": null,
+          "utteranceEndsAt": null,
+          "clockSeconds": 12.533333333333536,
+          "gesture": {
+            "speaking": false,
+            "utteranceTime": 0,
+            "spatialExtent": 0,
+            "dominanceDrivesAmplitude": true,
+            "appliedSpatialExtent": 0,
+            "temporalExtent": 0,
+            "strokeSeconds": 0.38,
+            "yieldToPosture": true,
+            "sagittalShare": 0.75,
+            "armSidesMeasured": true,
+            "armSides": {
+              "left": 1,
+              "right": -1
+            },
+            "applied": {
+              "activation": 0,
+              "phase": "end",
+              "hand": null,
+              "yield": 1,
+              "spatialExtent": 0,
+              "shoulderDegrees": 0,
+              "elbowDegrees": 0
+            },
+            "schedule": null
+          }
+        },
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "framing": {
+          "mode": "portrait",
+          "heightMetres": 0.42,
+          "fps": 0,
+          "frameMs": 1.2000000029802322,
+          "drawCalls": 40,
+          "triangles": 86748
+        },
+        "disposal": {
+          "disposed": false,
+          "leaked": []
+        }
+      },
+      "canvas": {
+        "width": 716,
+        "height": 750
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+      "loadedAssets": [
+        {
+          "url": "http://localhost:5266/@fs/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g050.glb",
+          "sha": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+        },
+        {
+          "url": "http://localhost:5266/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g050.glb",
+          "sha": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+        }
+      ]
+    },
+    {
+      "arm": "input-cache",
+      "summary": {
+        "submitCpuMs": {
+          "count": 720,
+          "min": 1.7999999970197678,
+          "median": 2.0999999940395355,
+          "p95": 2.699999988079071,
+          "max": 3,
+          "mean": 2.143888888652954
+        },
+        "submitToGpuCompleteMs": {
+          "count": 720,
+          "min": 11.700000002980232,
+          "median": 14.300000011920929,
+          "p95": 15.700000002980232,
+          "max": 16.899999991059303,
+          "mean": 14.237499999875824
+        },
+        "computeGpuMs": {
+          "count": 720,
+          "min": 8.008711,
+          "median": 11.665822,
+          "p95": 12.896095,
+          "max": 13.941745,
+          "mean": 11.442182823611112
+        },
+        "renderTimestampSumMs": {
+          "count": 720,
+          "min": 1.6308900000000004,
+          "median": 2.7037899999999997,
+          "p95": 4.165141,
+          "max": 8.278462999999999,
+          "mean": 2.876286158333332
+        }
+      },
+      "contact": {
+        "calibration": "bob01-g050-long-fall-neck-v1",
+        "frames": 753,
+        "activeChains": 496,
+        "patchVertices": 1069,
+        "patchTriangles": 1872,
+        "surfaceBuffers": 3,
+        "stages": 4,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "queryInputReuse": {
+          "enabled": true,
+          "metadataRecords": 47616,
+          "validBlock": 15872,
+          "reusedBlock": 31744,
+          "snapshotInvalidates": true,
+          "traversalCountsExcludeReused": true
+        },
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+      },
+      "report": {
+        "quality": {
+          "requested": "auto",
+          "tier": "balanced",
+          "backend": "webgpu",
+          "selectedBy": "adapter-capability",
+          "temporalResolve": 1,
+          "resolutionScale": 0.66,
+          "backendMismatch": false
+        },
+        "subsystems": {
+          "skinMaterial": 1,
+          "eyeMaterial": 2,
+          "eyeOcclusion": 4,
+          "cardShading": 2,
+          "hairMaterial": 1,
+          "shadowCastingLights": 1,
+          "temporalResolve": 1,
+          "grade": 1,
+          "ambientOcclusion": null
+        },
+        "wardrobe": null,
+        "scene": {
+          "id": "studio",
+          "kind": "studio",
+          "background": "#08080a",
+          "backdrop": "#070a0e",
+          "ground": true,
+          "environment": null,
+          "groundMaterial": {
+            "albedo": "#968c34",
+            "roughness": 0.9
+          },
+          "lighting": {
+            "look": "studio",
+            "exposure": 0.85,
+            "ambientFractionOfKey": 0.22,
+            "calibrated": true,
+            "designedKeyToFill": 1.3636363636363635,
+            "ambientAttached": true,
+            "shadowsEnabled": true,
+            "placements": [
+              {
+                "name": "key",
+                "azimuthDegrees": 42,
+                "elevationDegrees": 18,
+                "irradiance": 3,
+                "colour": "#ffeeda"
+              },
+              {
+                "name": "fill",
+                "azimuthDegrees": -52,
+                "elevationDegrees": 2,
+                "irradiance": 2.2,
+                "colour": "#f2d2c6"
+              },
+              {
+                "name": "rim",
+                "azimuthDegrees": -168,
+                "elevationDegrees": 26,
+                "irradiance": 16,
+                "colour": "#0f30ff"
+              },
+              {
+                "name": "kicker",
+                "azimuthDegrees": 166,
+                "elevationDegrees": -6,
+                "irradiance": 0.07,
+                "colour": "#ffd7b0"
+              }
+            ]
+          }
+        },
+        "hair": {
+          "style": "bob01",
+          "loadedStyle": "bob01",
+          "bake": "figure_g050",
+          "unavailableReason": null,
+          "attached": true,
+          "meshes": 1,
+          "oit": "stochastic",
+          "stageReportsOit": "stochastic",
+          "solver": {
+            "chains": 496,
+            "particles": 8432,
+            "steps": 1505
+          },
+          "velocityRepaired": true,
+          "bodyContact": {
+            "calibration": "bob01-g050-long-fall-neck-v1",
+            "frames": 753,
+            "activeChains": 496,
+            "patchVertices": 1069,
+            "patchTriangles": 1872,
+            "surfaceBuffers": 3,
+            "stages": 4,
+            "outerIterations": 16,
+            "resetIterations": 64,
+            "queryEvery": 1,
+            "regularQueries": 16,
+            "resetQueries": 64,
+            "queryInputReuse": {
+              "enabled": true,
+              "metadataRecords": 47616,
+              "validBlock": 15872,
+              "reusedBlock": 31744,
+              "snapshotInvalidates": true,
+              "traversalCountsExcludeReused": true
+            },
+            "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+            "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+            "velocityCorrection": "contact displacement / substep; omitted on reset",
+            "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+          },
+          "bodyContactUnavailableReason": null,
+          "frameBudgetWarning": null,
+          "undisposable": [
+            "HairVelocity: installHairVelocity patches NodeMaterial.prototype.setupPosition process-wide with no uninstall (HairVelocity.js:162-183)"
+          ]
+        },
+        "motion": {
+          "seed": 20260807,
+          "frame": 753,
+          "timeSeconds": 12.533333333333536,
+          "layers": [
+            "affectPosture",
+            "breath",
+            "sway",
+            "idle",
+            "bodyIdle",
+            "handIdle",
+            "gesture",
+            "gazeHead",
+            "gaze",
+            "pupil",
+            "expression",
+            "viseme",
+            "blink",
+            "facialIdle"
+          ],
+          "clampingConflicts": 0,
+          "pupilScale": 0.9770255069407126,
+          "fingerClaim": {
+            "claimsFrom": "bodyIdle",
+            "resolved": true,
+            "yieldedTo": "bodyIdle"
+          }
+        },
+        "affect": {
+          "pad": {
+            "pleasure": 0,
+            "arousal": 0,
+            "dominance": 0
+          },
+          "moodOctant": "neutral",
+          "activations": [],
+          "postureDegrees": {
+            "approach": 0,
+            "armSpread": 0,
+            "armSpreadLeft": 0,
+            "armSpreadRight": 0,
+            "headTiltUp": 0,
+            "kneeAdded": 0,
+            "kneeLeft": 0,
+            "kneeRight": 0,
+            "pelvisDropMillimetres": 0
+          },
+          "clockOwner": "expression"
+        },
+        "speech": {
+          "speaking": false,
+          "timelineSupplied": null,
+          "utteranceEndsAt": null,
+          "clockSeconds": 12.533333333333536,
+          "gesture": {
+            "speaking": false,
+            "utteranceTime": 0,
+            "spatialExtent": 0,
+            "dominanceDrivesAmplitude": true,
+            "appliedSpatialExtent": 0,
+            "temporalExtent": 0,
+            "strokeSeconds": 0.38,
+            "yieldToPosture": true,
+            "sagittalShare": 0.75,
+            "armSidesMeasured": true,
+            "armSides": {
+              "left": 1,
+              "right": -1
+            },
+            "applied": {
+              "activation": 0,
+              "phase": "end",
+              "hand": null,
+              "yield": 1,
+              "spatialExtent": 0,
+              "shoulderDegrees": 0,
+              "elbowDegrees": 0
+            },
+            "schedule": null
+          }
+        },
+        "identity": {
+          "gender": 0.5,
+          "bake": "figure_g050"
+        },
+        "framing": {
+          "mode": "portrait",
+          "heightMetres": 0.42,
+          "fps": 0,
+          "frameMs": 1.2999999970197678,
+          "drawCalls": 40,
+          "triangles": 86748
+        },
+        "disposal": {
+          "disposed": false,
+          "leaked": []
+        }
+      },
+      "canvas": {
+        "width": 716,
+        "height": 750
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+      "loadedAssets": [
+        {
+          "url": "http://localhost:5266/@fs/Users/robault/GitHub/sugata-avatar/assets/figures/figure_g050.glb",
+          "sha": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+        },
+        {
+          "url": "http://localhost:5266/@fs/Users/robault/GitHub/sugata-avatar/assets/hair/bob01/g050.glb",
+          "sha": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+        }
+      ]
+    }
+  ],
+  "method": "Each fresh page uses the same corrected groom and 716x750 portrait canvas in1200x900 viewport.32 rAF-paced warm frames then720 natural frames, exactly2 DFTL steps each. Actual Avatar.update to GPU queue completion excludes timestamp resolution and rAF/compositor waits. One timestamp UID per actual pass is checked. Render timestamps overlap and their sum is not a whole-frame duration. Fixed60 simulation does not establish actual interactive60FPS or power behavior. Both arms use actual owned Avatar contact; candidate routes only the reviewed stage and owner opt-in/report. Actual final center, velocity, rebuilt-vertex, head and step arrays are compared exactly after720 fixed60 frames.",
+  "independentCorrectnessArchive": "captures/query-input-cache-2026-09-09",
+  "extraStorageBytes": 2031616
+}

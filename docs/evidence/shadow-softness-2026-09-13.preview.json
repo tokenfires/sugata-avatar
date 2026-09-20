@@ -1,0 +1,99 @@
+{
+  "verifiedAt": "2026-09-14T02:02:12.593174+00:00",
+  "pid": 84425,
+  "session": 96484,
+  "port": 5197,
+  "watch": false,
+  "hmr": false,
+  "resources": [
+    {
+      "file": "packages/core/src/render/LightingRig.js",
+      "sha256": "3bfc0de4b670118931760afed7e5ab3bd2f075f556be69b2fe8b4580364e1c7a",
+      "bytes": 166056
+    },
+    {
+      "file": "packages/core/src/render/LightingRig.selftest.mjs",
+      "sha256": "a8d02ecb559c0a8dad4a25aef15be39973d9fb26c5f6cd8e4625070b62386be7",
+      "bytes": 202597
+    },
+    {
+      "file": "packages/testbed/src/portrait.js",
+      "sha256": "c6b120ce74d258bc4f51204c9a5e1b7be151f2a4523953f2ced69b2d41a27560",
+      "bytes": 8258
+    },
+    {
+      "file": "packages/testbed/src/showcase.js",
+      "sha256": "5c262312118aa8a6b3f1d37987b23b719c6f1e879373e838f312bca77c5a590f",
+      "bytes": 14418
+    },
+    {
+      "file": "packages/testbed/src/portrait.html",
+      "sha256": "149f0a056992a4122c0a8c0c1b32852dfa5038de92c2e2cbfbc49831aef844e4",
+      "bytes": 9014
+    },
+    {
+      "file": "packages/testbed/src/showcase.html",
+      "sha256": "935963b4e2ce5abc737c4e88a500d3a128c3301c772ec22cd775ff8b1ab92b49",
+      "bytes": 12334
+    },
+    {
+      "file": "packages/testbed/pages.js",
+      "sha256": "2eeb120f5d11ecd4f3d27c7455afb8cb74213965a09307a3afa1b3ea1c026855",
+      "bytes": 14485
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/gallery/review.html",
+      "sha256": "6395866be8d0a7283474af339fdf879b609b45acae79f5e34090065f08a77ce7",
+      "bytes": 4116,
+      "rawQuery": "raw&import&checkpoint=shadow-softness-final",
+      "normalHtmlCurrent": true
+    },
+    {
+      "file": "docs/SHADOW-SOFTNESS-2026-09-13.md",
+      "sha256": "55292f8cb16edba0c1f00f16f826eaa3d0c18f7f80e13ef81e6120215447ddfd",
+      "bytes": 5549
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/softness-v2/report.json",
+      "sha256": "f60e1e71664815d86b4f8abb4a69516182cb3ff21fad8ba6ff35aa925b6ddd7f",
+      "bytes": 84576
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/softness-v2/verified.json",
+      "sha256": "4072da6874ddfc2b4a5121f5975832e257a3a511f5992a9705729a319829625c",
+      "bytes": 4212
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/integration-v1/verified.json",
+      "sha256": "39a5f1e9d32b0f8ee802a83a6af033c7b5a4a5c7ad03c2ad307e90857d64e9d2",
+      "bytes": 4337
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/motion-v1/verified.json",
+      "sha256": "9251458011ef9b882ad4f71c2aceccc239973ae1c3021240bfcf8298b4f148cb",
+      "bytes": 2240
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/softness-v2/bob02-portrait-soft10mm/frame-0090.png",
+      "sha256": "590c4d3ad6f61cdccdf5ff90f5b55f7cc42d98b1cbfa572f9e5da9e3e91ef6d0",
+      "bytes": 560431
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/softness-v2/bob01-portrait-soft10mm/frame-0090.png",
+      "sha256": "19907bd729d026f01715abc34d4fac03456cc282f49519772ac6cbe642c3ee71",
+      "bytes": 610371
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/motion-v1/bob02-portrait-soft10mm/motion.mp4",
+      "sha256": "729bc98de2c491e15e94de2b591b0af0074f4f7a8f0927b43b84aeacad4aabc4",
+      "bytes": 786115
+    },
+    {
+      "file": "captures/shadow-softness-2026-09-13/motion-v1/bob01-portrait-soft10mm/motion.mp4",
+      "sha256": "e3a389d27b72b097131d443c33b2365434c443cf7b42b0d07ca8b9db1b34d7d7",
+      "bytes": 1067669
+    }
+  ],
+  "galleryStatusUpdatedAt": "2026-09-14T02:06:33.793679+00:00",
+  "galleryStatusOnlyChange": "Only integration status text changed after interaction tests. Exact tested HTML retained in gallery/review-tested.html. Vite retained the previously requested raw-module variant with watching off, so final raw-source verification uses a fresh query; the normal HTML route was separately confirmed current."
+}

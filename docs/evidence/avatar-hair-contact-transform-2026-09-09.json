@@ -1,0 +1,320 @@
+{
+  "date": "2026-09-09T06:47:35.076Z",
+  "passed": true,
+  "groups": 8,
+  "command": "node packages/core/src/Avatar.hair-contact.gpu.selftest.mjs --report=/tmp/avatar-contact.json",
+  "sourceHashes": {
+    "Avatar.js": "a377e0d749bb048b65e8eae2f52a5fd23d69379016e885977e4e8f5ba3f6e5d5",
+    "Avatar.hair-contact.browser.mjs": "15e5be90a096445b5de4f5ccbf3f6abc69e2d907000d2ece0dd9b31a92fdc98a",
+    "Avatar.hair-contact.gpu.selftest.mjs": "b5e2bc2380689afa4c90dde17b7751fd1b6710a59a50b8edff81d97afdc88a3e",
+    "motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+    "motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+    "motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "motion/HairSurfaceQuery.js": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+    "motion/HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+    "motion/HairBodyContact.js": "dfdb54442c64f863d240b716b2307172fe139f4a115474ceb1ebfdac66442ddb",
+    "motion/HairBodyContactCalibration.js": "8ff2630675e9eb9ceeae38830d3359101240fe3af201ff63e86323cd253b3f12",
+    "motion/HairBodyContactCalibration.data.js": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942"
+  },
+  "candidateSha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+  "goldenSha256": "8855a92fbf452b279b1f7fade2aecb39da63ca7a750044814572ec44348e2e36",
+  "canonical": [
+    {
+      "frame": 0,
+      "time": 0,
+      "steps": 1,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "345f0efc986c59177ec7d73f3ee1848fc6b9777d03c4c6999e2910ac0f21f542"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "0ac28e6ce8f8a4762d58e342dfd9648c7f4f457e15053d173bb0b383f6b295ef"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "0d41e8b07c45a2d82863784e9d0728cf3692bb5a26ecfc7dc06faea7020d61f9"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "9c95265ae593cd3f1a37ef0f951290c9a252803e5f2350d52a06a44ad45d85d0"
+      },
+      "contact": {
+        "calibration": "bob01-g050-long-fall-neck-v1",
+        "frames": 2,
+        "activeChains": 496,
+        "patchVertices": 1069,
+        "patchTriangles": 1872,
+        "surfaceBuffers": 3,
+        "stages": 4,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+      }
+    },
+    {
+      "frame": 6,
+      "time": 0.09999999999999999,
+      "steps": 13,
+      "vertexBase": 652,
+      "verticesSpace": "world",
+      "centers": {
+        "length": 25296,
+        "sha256": "87348d1e789070feb4b72c700a5dd6f719e0180a40c604ce0f7aa4e490fc1bf4"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "cd698eba042e4549ca8295f9cc2ffa6e53616c716c0b19c422f39eb4ad8ee363"
+      },
+      "bodyPositions": {
+        "length": 43551,
+        "sha256": "31f946265b0a0858968d3e3deb34ca67e91a826ad0458c8c8b1f49549a3c55ad"
+      },
+      "headMatrix": {
+        "length": 16,
+        "sha256": "514ba37cd82831e2780bc4a216cba1af1ba85e06408ccf29ae4707ec4b75416a"
+      },
+      "contact": {
+        "calibration": "bob01-g050-long-fall-neck-v1",
+        "frames": 8,
+        "activeChains": 496,
+        "patchVertices": 1069,
+        "patchTriangles": 1872,
+        "surfaceBuffers": 3,
+        "stages": 4,
+        "outerIterations": 16,
+        "resetIterations": 64,
+        "queryEvery": 1,
+        "regularQueries": 16,
+        "resetQueries": 64,
+        "contactModel": "whole-span maximum endpoint radius; coupled length and contact constraints",
+        "temporalSurface": "linear vertices/normals between submitted body poses; swept endpoint bounds",
+        "velocityCorrection": "contact displacement / substep; omitted on reset",
+        "limitation": "Open neck/shoulder patch; scalp, higher neck and garments need separate clearance checks."
+      }
+    }
+  ],
+  "transformCases": [
+    {
+      "mode": "identity",
+      "maxCenterErrorMm": 0.0001511779812527628,
+      "maxRootVertexErrorMmDiagnostic": 0.4381918286033211,
+      "maxRootMidpointErrorMm": 0.0001511467586635214,
+      "maxRootWidthErrorMm": 8.704686906002568e-05,
+      "finite": true,
+      "roots": 496
+    },
+    {
+      "mode": "translation",
+      "maxCenterErrorMm": 0.00016616602233635895,
+      "maxRootVertexErrorMmDiagnostic": 0.4392381394402328,
+      "maxRootMidpointErrorMm": 0.00016627055693616173,
+      "maxRootWidthErrorMm": 9.56632895433851e-05,
+      "finite": true,
+      "roots": 496
+    },
+    {
+      "mode": "rotation",
+      "maxCenterErrorMm": 0.00015133138380447823,
+      "maxRootVertexErrorMmDiagnostic": 0.4386791064870375,
+      "maxRootMidpointErrorMm": 0.0001514185950601089,
+      "maxRootWidthErrorMm": 8.276374152682564e-05,
+      "finite": true,
+      "roots": 496
+    },
+    {
+      "mode": "translation-and-rotation",
+      "maxCenterErrorMm": 0.00016563774928359228,
+      "maxRootVertexErrorMmDiagnostic": 0.4383759337089215,
+      "maxRootMidpointErrorMm": 0.00016559908820349342,
+      "maxRootWidthErrorMm": 0.00011112092024312403,
+      "finite": true,
+      "roots": 496
+    }
+  ],
+  "scale": {
+    "message": "Hair contact requires a unit rigid full skin transform; scale and shear are unsupported.",
+    "submissions": 0,
+    "before": {
+      "centers": {
+        "length": 25296,
+        "sha256": "5239e804ea17def85c479b6e80d8e62fa3edf2a3775f4b8ce930b179a06f77c8"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "7924dc153fe2af0869ba6e57582b0ceee68ee74156680d41196dca4df3f079f4"
+      },
+      "steps": 5,
+      "frames": 16,
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 21
+      }
+    },
+    "after": {
+      "centers": {
+        "length": 25296,
+        "sha256": "5239e804ea17def85c479b6e80d8e62fa3edf2a3775f4b8ce930b179a06f77c8"
+      },
+      "vertices": {
+        "length": 50592,
+        "sha256": "7924dc153fe2af0869ba6e57582b0ceee68ee74156680d41196dca4df3f079f4"
+      },
+      "steps": 5,
+      "frames": 16,
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 21
+      }
+    },
+    "disposed": false,
+    "resumed": true
+  },
+  "resourceSequence": [
+    {
+      "style": "bob01",
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 17
+      },
+      "attached": true,
+      "contact": true
+    },
+    {
+      "style": "bob02",
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 8,
+        "bytes": 980096,
+        "compute": 5
+      },
+      "attached": true,
+      "contact": false
+    },
+    {
+      "style": null,
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 0,
+        "bytes": 0,
+        "compute": 0
+      },
+      "attached": false,
+      "contact": false
+    },
+    {
+      "style": "bob01",
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 17
+      },
+      "attached": true,
+      "contact": true
+    },
+    {
+      "style": "bob01",
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 17
+      },
+      "attached": true,
+      "contact": true
+    },
+    {
+      "style": "bob01",
+      "identity": "figure_g000",
+      "resources": {
+        "storage": 8,
+        "bytes": 980096,
+        "compute": 5
+      },
+      "attached": true,
+      "contact": false
+    },
+    {
+      "style": "bob01",
+      "identity": "figure_g050",
+      "resources": {
+        "storage": 35,
+        "bytes": 4976528,
+        "compute": 17
+      },
+      "attached": true,
+      "contact": true
+    }
+  ],
+  "baseline": {
+    "storage": 0,
+    "bytes": 0,
+    "compute": 0
+  },
+  "retiredSolverCount": 6,
+  "retiredCallsRejectedPerSolver": 3,
+  "pendingDigest": {
+    "digestCalls": 14,
+    "atDigest": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    },
+    "disposed": true,
+    "hairNull": true,
+    "computeAfterRetirement": 0,
+    "memoryAfter": {
+      "storage": 0,
+      "bytes": 0
+    }
+  },
+  "browserErrors": [],
+  "routedCorrectedG050Requests": 6,
+  "priorSuites": {
+    "bob02Quick": {
+      "checks": 24,
+      "passed": 24,
+      "seconds": 24,
+      "limitation": "--quick excludes the broader expensive rejection proofs."
+    },
+    "bob02Disposal": {
+      "checks": 21,
+      "passed": 21,
+      "oldRetirementStorageSequence": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "correctedStorage": 8,
+      "vertexEquivalence": "bit-identical"
+    }
+  },
+  "testReferenceCorrection": "The initial extra assertion compared rebuilt edge vertices with static skinning and failed by0.438mm even at identity. Existing ribbon transport rotates widths with the changed first-span tangent. The final gate checks native root centres, rebuilt root midpoints and preserved width lengths at0.002mm tolerance; static-edge differences remain recorded as diagnostics. No production implementation changed for this correction.",
+  "raw": {
+    "directory": "captures/avatar-contact-transform-2026-09-09",
+    "reportSha256": "ee3fb5cfdb0dc9071d83d1550ea62e54cf42d9698c851faa4d2acd110487e7ad",
+    "manifestSha256": "154db11f5aa9839adfea1131d8e3baca0363dddcd528881b27622092e2285d18",
+    "entries": 21
+  },
+  "limits": [
+    "The portrait UI still reloads when switching hairstyles; this probes the runtime attachment boundary on one renderer, not a material-prototype uninstall.",
+    "Canonical equality covers the saved nod at0 and0.1seconds only. Root/native checks cover root centres, rebuilt midpoints and widths; transported edge positions can differ from static skinning. No dynamic whole-hair rigid equivariance or contact convergence claim.",
+    "Open neck/shoulder contact is not all-body, scalp, or garment clearance; no performance claim.",
+    "Same-device canonical bit identity is tied to the recorded source/asset hashes and captured engine path. Do not regenerate goldens automatically after a backend or algorithm change.",
+    "The existing quick/disposal runners do not embed their own complete before/after source manifests; they ran sequentially during the shared source freeze, before this independently hash-attested integration run."
+  ]
+}

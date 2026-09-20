@@ -96,7 +96,7 @@ const avatar = await Avatar.create( {
 ```js
 const avatar = await Avatar.create( {
     canvas,                        // HTMLCanvasElement — REQUIRED, and sized by CSS
-    identity: { gender: 0.5 },     // 0 masculine … 1 feminine; snaps to the nearest of five bakes
+    identity: { gender: 0.5 },     // 0 feminine … 1 masculine; snaps to the nearest of five bakes
     quality: 'auto',               // 'auto' | 'high' | 'balanced' | 'fallback'
     frame: 'portrait',             // 'portrait' | 'body'
     seed: 20260807,                // same seed + same dt sequence = same motion trace
@@ -110,7 +110,8 @@ const avatar = await Avatar.create( {
     lighting: 'studio',            // 'studio'|'warm'|'cool'|'soft'|'dramatic', or the object below
     background: 'studio',          // 'studio'|'void', a hex, or the object below
     scene: 'studio',               // 'studio'|'void', or a scene description — the WIDER form
-    hair: false                    // 'bob01' | false
+    hair: false,                   // 'bob01' | 'bob02' (g050 only) | false
+    wardrobe: false                // opt in with { outfit: [...], foundation: { TORSO, HIPS } }; g050 only
 } );
 ```
 
@@ -348,20 +349,36 @@ the real `LightingRig` constructor — every one of these is accepted *in silenc
 All seven are refused at `Avatar.create` with a `TypeError` naming the field *and* the accepted
 range, deny-by-default on both the light name and the field name.
 
-**Hair is `false` by default and that is not caution.** Three measured reasons: one groom exists;
-it adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
-two of its mechanisms have no undo — `createHairDynamics` returns no `dispose()`, and
-`installHairVelocity` patches `NodeMaterial.prototype.setupPosition` **process-wide**. Both are
-declared in `report().hair.undisposable` rather than hidden, because `disposal.leaked` is an
-own-property walk and structurally cannot see either.
+**Hair is `false` by default.** Style is an explicit choice: `bob01` supports five figure bakes,
+while the chin-length `bob02` currently supports only `figure_g050` (`gender: 0.5` in the default
+nearest-bake mode). Both use their own texture maps. The original `bob01` adds ~18.3 MiB of assets and a measured **+2.0 ms at p50** (🚩 not p95 — see the table below, where p95 does not resolve); and
+`installHairVelocity` still patches `NodeMaterial.prototype.setupPosition` **process-wide**
+without an uninstall. That mutation is declared in `report().hair.undisposable`, because
+`disposal.leaked` is an own-property walk and cannot see a prototype patch. HairDynamics now
+explicitly disposes its five compute nodes and eight private storage attributes during retirement;
+same-renderer rebuilds keep one resource set. Disposal is idempotent, and retired solvers refuse
+updates and readback. The attribute cleanup depends on Three r185's private manager; revalidate it
+on upgrade. See [the GPU lifetime evidence](evidence/hair-disposal-2026-09-09.json).
 
-With `hair: 'bob01'`, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
+With either supported hair style, `quality: 'auto'` resolves to `balanced` rather than `high` — a *structural*
 decision (hair is on), not a frame budget. `quality: 'high'` still gets `high` and
 `report().hair.frameBudgetWarning` says what it costs. The `fallback` tier gets a **static** groom
 on the `cutout` arm: `configureHairMaterial` genuinely *throws* on `stochastic` + `alphaToCoverage`,
 a stochastic arm needs a temporal resolve to integrate it, and WebGL2's compute cannot run the
 solver's kernels. ⚠️ The third of those is a structural read of two sources and is **not**
 browser-verified.
+
+`report().hair.style` is the requested style; `loadedStyle` and `bake` identify the attached groom.
+An unsupported identity bake leaves hair detached and supplies `unavailableReason`, so bob02 never
+borrows another style's geometry or fits its g050 groom to a different skull. Switching back to
+an available bake restores it. `resolveHairAssets(style, bakeName, assetBaseUrl)` exposes the same
+availability and canonical external asset URLs without loading the groom. Bob02's frame cost is
+unmeasured; the bob01 timing table below does not certify it.
+
+Open `src/portrait.html` for a living bob02 portrait with expression, lighting, orbit, and pause
+controls, plus a comparison with bob01. Style selection navigates to a new document to isolate the
+renderer and its prototype state. This is a visual development preview, not a claim that the hair meets the final
+AAA appearance target.
 
 **What it actually costs, measured here rather than quoted.** In a GPU Chromium on 2026-08-17, tier
 `high`, 1280×1600 dpr 1, submit-to-GPU-idle, 400 samples after 120 warm-up, bald and haired
@@ -432,6 +449,41 @@ So a transparent capture must be composited over `#08080a` before the critic run
 transparent plate and the studio plate are then compared on the same pixels. That rule is declared
 now, ahead of the option, so the two cannot arrive in different rounds.
 
+### Clothing on the current body
+
+Wardrobe is opt-in and supports only the resolved g050 body. The default identity resolves to
+g050; other body bakes and cross-faded identity previews are refused when clothing is enabled.
+
+```js
+const avatar = await Avatar.create({
+    canvas,
+    identity: { gender: 0.5 },
+    hair: 'bob01',
+    frame: 'body',
+    wardrobe: {
+        outfit: ['female_casualsuit01', 'shoes01'],
+        foundation: { TORSO: 'foundation_bra', HIPS: 'foundation_briefs' }
+    }
+});
+await avatar.dress(['female_elegantsuit01', 'shoes01']);
+```
+
+`dress()` replaces the outer outfit while retaining the configured foundation and the current
+Avatar, renderer and hair. `dress([])` returns to the foundation. Omitting foundation preferences
+selects vest and boxer brief. Clothing loads before attachment; failed changes keep the current
+outfit. Unsupported identity changes reject before retiring the clothed figure.
+
+Optional `wardrobe.style` selects `original` (the API default), `ecru` or `charcoal`. The style
+follows `dress()` and is fixed for that Avatar's wardrobe. The two authored palettes require the
+exact reviewed g050 garment assets, including when served through an external `assetBaseUrl`.
+Create a new Avatar to change the palette. See [coordinated colours](WARDROBE-COLOURWAYS-2026-09-13.md)
+for the recipes, ownership and current limits.
+
+`avatar.report().wardrobe` distinguishes the requested outfit from attached garments and records
+loaded URLs, pending work and errors. The current clothes are stand-ins with remaining fit and
+coverage limitations. See [the wardrobe contract](WARDROBE-AVATAR-2026-09-09.md) and
+[the lookbook](SHOWCASE-2026-09-09.md) for validation and actual image/settings export.
+
 ### The verbs
 
 | call | what it does |
@@ -442,6 +494,7 @@ now, ahead of the option, so the two cannot arrive in different rounds.
 | `await avatar.say( text, { timeline, at, prosody } )` | …and the mouth, from a TTS viseme timeline. |
 | `avatar.update( dt )` | One simulation frame plus one render. **Only under `autoStart: false`** — it throws otherwise rather than let the simulation advance twice per displayed frame. |
 | `await avatar.setIdentity( { gender: 1 } )` | Swap the bake live. Async because a new bake means a new motion target, and the layers keep their phase so nothing visibly restarts. |
+| `await avatar.dress( ['female_casualsuit01', 'shoes01'] )` | Replace the outer outfit on an Avatar created with wardrobe enabled. Retains its configured foundation. |
 | `avatar.setFraming( 'body' )` | Re-frame the camera and re-aim the rig between portrait and body, without touching the motion stack. Re-resolves the look against the new framing first. Chains. |
 | `avatar.setLighting( 'dramatic' )` | Change the look live. Partial-merges over what is current, so `{ exposure: 1.2 }` keeps the look. Re-aims the rig — `LightingRig.override()` solves and never aims, so the eye shader would otherwise keep pointing at where the key used to be. Chains. |
 | `avatar.setBackground( 0x101820 )` | Change the room live: clear colour, card level, card and ground removal. ⚠️ One-way for the card and the plane — it can remove them and cannot put them back, and asking is refused in words rather than ignored. Removing the card is refused on a tier carrying ground-truth occlusion, for the reason below. Chains. |
@@ -488,29 +541,21 @@ served anywhere else has no proxy, so an embedder needs their own same-origin pa
 CORS-enabled gateway, and `LMStudioClient` takes `endpoint` as a constructor option for exactly
 that reason. Nothing in `Avatar` calls it — the avatar is complete without a language model.
 
-**🚩 A bundled build breaks the skin, and the fix is one line of bundler config.** Measured at
-HEAD `741ae2b` on this page, three builds minutes apart with vite 8.2.1 / three 0.185.1 /
-node 24.13.1:
+**Hashed production assets work as of the 2026-09-08 restart.** Previously, `Avatar`
+parsed the selected GLB filename to identify its bake. Vite's hashed name then missed the skin-map
+lookup and requested `/assets/undefined`. The runtime now takes the bake from the selected identity
+plan's `gender`, preserves bundled asset URLs, and supplies curvature, cavity, and region maps
+explicitly. Region-map inference from a hashed curvature filename had also silently omitted that
+map. External hosting uses the canonical figure and map filenames under the supplied base URLs.
 
-- Default asset naming (hashed) — the bundler emits every GLB and all fifteen baked PNGs, and the
-  page still fails: the bake name is read off the GLB's *filename*, which is now
-  `figure_g050-4pzc9G3S`, so the generated lookup table for the maps misses and the page requests
-  `/assets/undefined`. `Avatar.create` rejects with *"SkinMaterial: could not load the baked map
-  at …/assets/undefined"*. ⚠️ **`bakedMapBaseUrl` does not rescue this** — the failing part is the
-  file's *name*, not its base.
-- The same build with `rollupOptions.output.assetFileNames: 'assets/[name][extname]'` — the page
-  boots, requests exactly `figure_g050.glb` and the three `figure_g050-*.png` maps, and reports
-  tier `high` with skin, both eye shells and both card materials on the figure.
+A default hashed `build:pages` was loaded in Chromium/WebGPU and the portrait rendered with both
+`skin.hasRegionMap` and `skin.hasCavityMap` true. Turning off asset hashing is no longer required
+for the `Avatar` path. This does not certify other pages that construct materials themselves.
+See [the restart checkpoint](RESTART-2026-09-08.md) for the evidence and verification limits.
 
-So: **turn asset hashing off for these files, or serve the figure and the maps as static files you
-control and point `assetBaseUrl` / `bakedMapBaseUrl` at them.** The dev server has neither problem
-because it rewrites nothing. `docs/LEARNINGS.md` records this hazard as handled — that line is
-correct about the *emission* and wrong about the *lookup*. The durable fix belongs in
-`material/SkinMaterial.js`: key the maps on the identity, not on a filename that a bundler owns.
-
-**Not wired into `Avatar` yet, and named so the absence is visible:** the wardrobe (Phase 9) and
-identity detail targets (Phase 10). Both exist and are gated; both are opt-in on `alive.html` for
-reasons that still hold.
+**Detailed identity targets (Phase 10) remain outside `Avatar`.** The dedicated identity
+controls still live on their testbed pages. Wardrobe is now integrated through the opt-in g050
+contract above; this does not add clothing support to every identity bake.
 
 **What the node gate cannot see about the three scene options, said plainly.**
 `packages/core/src/Avatar.selftest.mjs` drives the real `LightingRig` and the real resolvers, and it

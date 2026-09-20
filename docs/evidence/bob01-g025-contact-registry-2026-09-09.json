@@ -1,0 +1,566 @@
+{
+  "id": "bob01-g025-contact-registry-v1",
+  "dateUTC": "2026-09-09T09:11:21.703887+00:00",
+  "status": "Exact composed g025 groom activates the real single-domain owner. The complete47-pose diagnostic retains geometric/opaque upper-contact failures and unresolved velocity stability. Shipping GLBs remain unchanged; groom is unpromoted.",
+  "groomSha256": "556f67a72189082a1b19c5d3fa9f4f3c8860a660cb4ba085e9c990b651389716",
+  "bodySha256": "f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e",
+  "calibrationId": "bob01-g025-composed-neck-v1",
+  "changes": [
+    "Register the exact g025 normalized geometry, UV, joints/weights, canonical indices, bone names and inverse binds.",
+    "Preserve the existing g050 exported calibration object and validate selected owner records by registry identity.",
+    "Extend only the bob01 Avatar g050/g025 bake gate, preserving post-import/post-digest load-token checks.",
+    "Preserve the promoted exact-input query cache and owner report without implementation changes."
+  ],
+  "cpuValidation": {
+    "calibrationOwnerGroups": 16,
+    "avatarPassed": 137,
+    "avatarFailed": 0,
+    "deferredDigestRetirementGroups": 4,
+    "bakes": [
+      "figure_g050",
+      "figure_g025"
+    ],
+    "allPassed": true
+  },
+  "domain": {
+    "sourceTriangles": 1872,
+    "sourceVertices": 1069,
+    "activeChains": 496,
+    "uniqueMeasuredConfigurations": 2,
+    "minimumRootClearanceMm": {
+      "authored": 27.71178067996501,
+      "posed0": 26.556481582356
+    },
+    "minimumFirstSpanClearanceMm": {
+      "authored": 20.633358239612843,
+      "posed0": 18.637834911594233
+    },
+    "marginMm": 0.1,
+    "remainingAuthoredRootPairs": 251,
+    "remainingRootCards": [
+      2,
+      3,
+      50,
+      66
+    ],
+    "remainingPairsInsidePatch": 0
+  },
+  "evidence": "captures/bob01-g025-contact-calibration-2026-09-09/findings.json",
+  "evidenceSha256": "8844fb69dc88f0184006b9120d1f90d9a368645076decb37f8e264c28645d35a",
+  "sourceHashes": {
+    "packages/core/src/Avatar.js": "62afda21e8fead59a421fa45c369793e1210785cc84a42c0427d63df13257e3d",
+    "packages/core/src/Avatar.hair-contact.selftest.mjs": "c7bb6262b2c92155d9a2d515fb5f3398b9bb92a2bd22cf91cc6c2b8d4550b749",
+    "packages/core/src/motion/HairBodyContact.js": "b57fea9f9a3f2dccf23a4212d0223c3b4508e7cb691e0b34ad4dd098322beda0",
+    "packages/core/src/motion/HairBodyContactCalibration.js": "a2e43c5f3d1ff499f29a303aee22ccdffcd3605e9fcf9149e268419cf38b8dab",
+    "packages/core/src/motion/HairBodyContactCalibration.g025.data.js": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024",
+    "packages/core/src/motion/HairBodyContactCalibration.selftest.mjs": "03336d30b5408a96c95582a64876a000583fa73d68dac4432108db1ef636cc88"
+  },
+  "shippingGroomSha256": "cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99",
+  "limits": [
+    "This registry change does not install the corrected groom or enable contact on a mismatched original asset.",
+    "Authored/posed0 root clearance did not predict all held-pitch root norm-tube infeasibility. More iterations cannot resolve a zero-mass root witness at segment fraction0.",
+    "All complete geometry failures remain explicit, including caps, roots, calibrated neck and excluded upper-body contacts.",
+    "CPU mip1\u20133 bounds and nearest opaque witnesses qualify atlas support, not final stochastic/TAAU appearance or camera occlusion.",
+    "Saved-state velocity and contact reevaluation do not capture intermediate dispatch impulses; stability and actual g025 frame cost remain unaccepted.",
+    "Captured single-domain source predates later g050 forest work; exact canonical and served source bytes are archived."
+  ],
+  "runtimeSmoke": {
+    "evidence": "captures/bob01-g025-avatar-smoke-2026-09-09/findings.json",
+    "findingsSha256": "e1596493cf73694d99346484980cef07fa78a192c6987b3ce2b2d6ea224c0d69",
+    "manifestSha256": "c34028f5fab3bf0912c2dfb8a1adad2b79e9e1e0d7888f0046b9f1d63f9ebddf",
+    "verifiedFiles": 120,
+    "integrationCommit": "32afd36",
+    "runtimeErrors": 0,
+    "sourceFreeze": true,
+    "poses": 2,
+    "timesSeconds": [
+      0,
+      0.1
+    ],
+    "orientationViews": 8,
+    "exactOrientationStateRestore": true,
+    "fullHairVertices": 17516,
+    "gpuCardVertices": 16864,
+    "capturedVelocityPoints": 8432,
+    "facePairs": [
+      0,
+      5
+    ],
+    "neckShoulderPairs": [
+      0,
+      0
+    ],
+    "movableCurtainPairs": [
+      0,
+      0
+    ],
+    "newFaceCard": 44,
+    "newFaceSpans": [
+      14,
+      15
+    ],
+    "zeroAlphaCrossingBoxesWithOneTexelHalo": true,
+    "rectangleTexelTestsIncludingOverlaps": 436,
+    "strictGeometricFacePass": false,
+    "finalFilteredVisibility": "unproven",
+    "fullMotionCapture": "Initially stopped; visibility-qualified diagnostic observation subsequently completed47poses. No acceptance.",
+    "nextHarness": "Per-draw GPU/compositor barriers live-validated on47g025poses/36views with exact complete snapshot and camera assertions."
+  },
+  "actualTextureQualification": {
+    "evidence": "captures/bob01-g025-alpha-footprint-2026-09-09/findings.json",
+    "findingsSha256": "994c77601d0ff1cb5b881475a99fae36fc14b5870cf96cde4b9bd590564f205c",
+    "verifiedFiles": 14,
+    "actualGpuExplicitLodQueries": 72,
+    "maximumCpuGpuAlphaDifference": 0.0022159765,
+    "actualRasterDerivativeParity": false,
+    "finalFilteredVisibilityAccepted": false,
+    "supersededAndFailedControlsPreserved": true
+  },
+  "motionDiagnostic": {
+    "evidence": "captures/bob01-g025-avatar-motion-2026-09-09/findings.json",
+    "findingsSha256": "352d6c5e3db5d2089ecb50803c1497f1274f91c497a229931100ce281515dbf4",
+    "manifestSha256": "72208b44b21413cda7ca69dfcaf59a899f2b216931e325bfb56efe4dbae4cee9",
+    "verifiedFiles": 391,
+    "poses": 47,
+    "orientationViews": 36,
+    "images": 83,
+    "runtimeErrors": 0,
+    "sourceFreeze": true,
+    "exactDrawOnlySnapshotAndCameraAssertionsPassed": true,
+    "fullHairVertices": 17516,
+    "gpuCardVertices": 16864,
+    "cpuSkinMorphNonCardVertices": 652,
+    "velocityPoints": 8432,
+    "noRendererSolverOverrides": true,
+    "onlyExactGroomResponseReplaced": true,
+    "frameCostMeasured": false,
+    "runs": [
+      {
+        "run": "natural",
+        "poses": 13,
+        "seconds": 12,
+        "runtimeErrors": 0,
+        "sourceFreeze": true,
+        "orientationViews": 12,
+        "frames": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300,
+          360,
+          420,
+          480,
+          540,
+          600,
+          660,
+          720
+        ],
+        "facePairs": [
+          0,
+          0,
+          0,
+          0,
+          5,
+          5,
+          7,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "neckShoulderPairs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "maximumFacePairs": 7,
+        "maximumNeckShoulderPairs": 0,
+        "minimumSampledFaceVertexMm": -1.2631310248865044,
+        "maximumSegmentErrorMm": 0.5589738883181108,
+        "maximumVelocity": {
+          "card": 65,
+          "maxMps": 2.6550270234836395,
+          "ring": 9,
+          "frame": 420
+        },
+        "maximumResidualRootCardVelocityMps": 1.0679872858255552,
+        "wholeBodyLayerMaxima": {
+          "caps": 0,
+          "rootLayer": 349,
+          "longCurtains": 21,
+          "fringe": 0
+        },
+        "curtainCards": [
+          212,
+          224,
+          422
+        ]
+      },
+      {
+        "run": "nod",
+        "poses": 17,
+        "seconds": 8,
+        "runtimeErrors": 0,
+        "sourceFreeze": true,
+        "orientationViews": 12,
+        "frames": [
+          0,
+          30,
+          60,
+          90,
+          120,
+          150,
+          180,
+          210,
+          240,
+          270,
+          300,
+          330,
+          360,
+          390,
+          420,
+          450,
+          480
+        ],
+        "facePairs": [
+          0,
+          0,
+          7,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "neckShoulderPairs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "maximumFacePairs": 7,
+        "maximumNeckShoulderPairs": 0,
+        "minimumSampledFaceVertexMm": -1.4105216945231838,
+        "maximumSegmentErrorMm": 0.2192205824874914,
+        "maximumVelocity": {
+          "card": 52,
+          "maxMps": 1.7891149996757467,
+          "ring": 15,
+          "frame": 60
+        },
+        "maximumResidualRootCardVelocityMps": 0.3305028140669933,
+        "wholeBodyLayerMaxima": {
+          "caps": 26,
+          "rootLayer": 329,
+          "longCurtains": 14,
+          "fringe": 0
+        },
+        "curtainCards": [
+          212,
+          240,
+          266,
+          422,
+          447
+        ]
+      },
+      {
+        "run": "nod-reverse",
+        "poses": 17,
+        "seconds": 8,
+        "runtimeErrors": 0,
+        "sourceFreeze": true,
+        "orientationViews": 12,
+        "frames": [
+          0,
+          30,
+          60,
+          90,
+          120,
+          150,
+          180,
+          210,
+          240,
+          270,
+          300,
+          330,
+          360,
+          390,
+          420,
+          450,
+          480
+        ],
+        "facePairs": [
+          0,
+          13,
+          0,
+          0,
+          10,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        "neckShoulderPairs": [
+          0,
+          2,
+          0,
+          0,
+          4,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "maximumFacePairs": 13,
+        "maximumNeckShoulderPairs": 4,
+        "minimumSampledFaceVertexMm": -2.7334846109613524,
+        "maximumSegmentErrorMm": 0.799260519416315,
+        "maximumVelocity": {
+          "card": 8,
+          "maxMps": 4.426865612356062,
+          "ring": 15,
+          "frame": 210
+        },
+        "maximumResidualRootCardVelocityMps": 1.467586798596244,
+        "wholeBodyLayerMaxima": {
+          "caps": 80,
+          "rootLayer": 481,
+          "longCurtains": 47,
+          "fringe": 0
+        },
+        "curtainCards": [
+          147,
+          212,
+          224,
+          240,
+          266,
+          281,
+          383,
+          396,
+          422
+        ]
+      }
+    ],
+    "summaryCorrection": "An earlier progress message incorrectly generalized clear final natural samples to the whole run. Complete saved reports already contained the middle-run failures; direct replay agrees. The earlier natural all-clear statement is withdrawn. These tables parse every saved result. No instrument or capture bytes were changed.",
+    "rootNeckMechanism": {
+      "cards": [
+        281,
+        383,
+        396
+      ],
+      "span": 0,
+      "allRootCornersHeadWeight": 1,
+      "closestSpanFraction": 0,
+      "heldFirstSpanNormDeficitMm": [
+        2.49711,
+        1.92797,
+        5.98427
+      ],
+      "savedStateConstraintActive": true,
+      "fixedRootInfeasible": true,
+      "iterationsIncreased": false,
+      "insideDomainMaximumCrossingFootprintAlphaByMip": [
+        0,
+        0,
+        0,
+        0.016237745061516762
+      ],
+      "interpretation": "Norm-width root contacts cannot be resolved by moving the free endpoint when closest t=0 and the root mass is zero. Actual crossing segments inside this patch have transparent base/mip1/mip2 support and only faint mip3 support. Different upper excluded-body intersections on these same spans reach opaque alpha."
+    },
+    "opaqueOutsideDomainBaseWitnessGroups": [
+      {
+        "run": "natural",
+        "card": 212,
+        "span": 12,
+        "frames": [
+          420
+        ],
+        "bodyTriangles": [
+          14339,
+          14348
+        ],
+        "pairs": 2
+      },
+      {
+        "run": "natural",
+        "card": 212,
+        "span": 13,
+        "frames": [
+          420
+        ],
+        "bodyTriangles": [
+          14338,
+          14339,
+          14348
+        ],
+        "pairs": 5
+      },
+      {
+        "run": "natural",
+        "card": 212,
+        "span": 14,
+        "frames": [
+          420
+        ],
+        "bodyTriangles": [
+          14338,
+          14343
+        ],
+        "pairs": 2
+      },
+      {
+        "run": "nod-reverse",
+        "card": 281,
+        "span": 0,
+        "frames": [
+          30,
+          120,
+          210
+        ],
+        "bodyTriangles": [
+          1141,
+          1440,
+          1441
+        ],
+        "pairs": 6
+      },
+      {
+        "run": "nod-reverse",
+        "card": 396,
+        "span": 0,
+        "frames": [
+          30,
+          120,
+          150,
+          180,
+          210,
+          240,
+          270,
+          300,
+          330,
+          360,
+          390,
+          420,
+          450,
+          480
+        ],
+        "bodyTriangles": [
+          1140,
+          1141,
+          1440,
+          1441,
+          1550
+        ],
+        "pairs": 45
+      },
+      {
+        "run": "nod-reverse",
+        "card": 396,
+        "span": 1,
+        "frames": [
+          30
+        ],
+        "bodyTriangles": [
+          1550
+        ],
+        "pairs": 1
+      },
+      {
+        "run": "nod-reverse",
+        "card": 281,
+        "span": 1,
+        "frames": [
+          120,
+          210
+        ],
+        "bodyTriangles": [
+          1441,
+          1550,
+          1557
+        ],
+        "pairs": 5
+      },
+      {
+        "run": "nod-reverse",
+        "card": 281,
+        "span": 2,
+        "frames": [
+          210
+        ],
+        "bodyTriangles": [
+          1120,
+          1130,
+          1131
+        ],
+        "pairs": 4
+      },
+      {
+        "run": "nod-reverse",
+        "card": 281,
+        "span": 3,
+        "frames": [
+          210
+        ],
+        "bodyTriangles": [
+          1120,
+          1121
+        ],
+        "pairs": 2
+      }
+    ],
+    "velocityInterpretation": "Peak saved speeds occur on other root-layer cards8/38/65, with fixed-root speeds0 and near-to-outward-clear adjacent neck spans. Card8 peak lies11.57\u201316.04mm outside the norm envelope and moves outward. The three infeasible-root cards have smaller downstream spikes and local length errors. This saved-state correlation does not identify actual per-substep impulses.",
+    "accepted": false
+  }
+}

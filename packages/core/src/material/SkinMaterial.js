@@ -245,10 +245,13 @@ import {
 } from 'three/webgpu';
 
 import {
+    Fn,
+    If,
     exp,
     float,
     fwidth,
     length,
+    max,
     mix,
     normalize,
     normalMap,
@@ -713,15 +716,76 @@ export class SkinLightingModel extends PhysicalLightingModel {
 
         input.reflectedLight.directDiffuse.addAssign( this.occluded( scratch.directDiffuse.mul( gain ) ) );
 
-        // Same approximation as the gain above and for the same reason: an area light has no
-        // single direction, so the panel's centre stands in for one. Past the terminator the LTC
-        // integral has already clipped to zero, and this term is precisely what lives out there.
-        const transmitted = this.transmitted( input.lightColor, toLight );
-        if ( transmitted !== null ) input.reflectedLight.directDiffuse.addAssign( transmitted );
+        // Area-light colour is radiance. Integrate it over the panel's back-facing hemisphere;
+        // the punctual centre-cosine term omitted this solid-angle factor and made transmission
+        // grow with panel radiance when a smaller panel delivered the SAME irradiance. This
+        // normalized cosine integral already contains both the cosine and 1/pi.
+        if ( this.transmittance !== null ) {
+
+            const formFactor = rectangularBackTransmissionFormFactor( {
+                normal: normalView, position: positionView,
+                lightPosition: input.lightPosition,
+                halfWidth: input.halfWidth, halfHeight: input.halfHeight
+            } );
+            input.reflectedLight.directDiffuse.addAssign( input.lightColor
+                .mul( formFactor ).mul( this.transmittance )
+                .mul( DIFFUSE_CONTRIBUTION ).mul( this.nodes.transmissionStrength ) );
+
+        }
 
     }
 
 }
+
+/**
+ * Identity-LTC diffuse form factor over the BACK hemisphere, including 1/pi.
+ *
+ * Uses the same edge polynomial and clipped-sphere approximation as three r185's
+ * `nodes/functions/BSDF/LTC.js`, expressed directly in view space through public TSL. No
+ * private-module import or second node graph, and no camera-dependent tangent basis: when V
+ * is parallel to N the integral is still well-defined. Three's reflected LTC basis has
+ * determinant -1, so its front-facing f.z is -dot(N,F); the back hemisphere uses +dot(N,F).
+ *
+ * A panel contributes only from its emitting side. A zero panel, zero normal, or a receiver
+ * exactly on the emitter plane is defined to return zero; those degenerate cases must remain
+ * finite. Valid corner directions keep the native edge integral and horizon approximation.
+ */
+export const rectangularBackTransmissionFormFactor = /*@__PURE__*/ Fn( ( {
+    normal, position, lightPosition, halfWidth, halfHeight
+} ) => {
+
+    const result = float( 0 ).toVar();
+    const towardPanel = lightPosition.sub( position );
+    const emittingSide = halfWidth.cross( halfHeight ).dot( towardPanel );
+
+    If( emittingSide.greaterThan( 0 ).and( normal.dot( normal ).greaterThan( 1e-12 ) ), () => {
+
+        const direction = delta => delta.mul( max( delta.dot( delta ), 1e-12 ).inverseSqrt() );
+        const q0 = direction( towardPanel.add( halfWidth ).sub( halfHeight ) ).toVar();
+        const q1 = direction( towardPanel.sub( halfWidth ).sub( halfHeight ) ).toVar();
+        const q2 = direction( towardPanel.sub( halfWidth ).add( halfHeight ) ).toVar();
+        const q3 = direction( towardPanel.add( halfWidth ).add( halfHeight ) ).toVar();
+        const edge = ( a, b ) => {
+            const x = a.dot( b ).clamp( -1, 1 ).toVar();
+            const y = x.abs();
+            const numerator = y.mul( 0.0145206 ).add( 0.4965155 ).mul( y ).add( 0.8543985 );
+            const denominator = y.add( 4.1616724 ).mul( y ).add( 3.4175940 );
+            const v = numerator.div( denominator );
+            const weight = x.greaterThan( 0 ).select( v,
+                max( x.mul( x ).oneMinus(), 1e-7 ).inverseSqrt().mul( 0.5 ).sub( v ) );
+            return a.cross( b ).mul( weight );
+        };
+        const integral = edge( q0, q1 ).add( edge( q1, q2 ) )
+            .add( edge( q2, q3 ) ).add( edge( q3, q0 ) ).toVar();
+        const magnitude = integral.length().toVar();
+        result.assign( magnitude.mul( magnitude ).add( normal.dot( integral ) )
+            .div( magnitude.add( 1 ) ).saturate() );
+
+    } );
+
+    return result;
+
+} );
 
 /**
  * `exp( −thickness / distance )` per channel, from the baked map.

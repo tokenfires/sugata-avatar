@@ -1,0 +1,350 @@
+{
+  "status": "scratch visible improvement; not installed",
+  "candidate": "original atlas alpha as beauty coverage above existing0.1 cutoff",
+  "v3": {
+    "passed": true,
+    "errors": [],
+    "sourceCount": 103,
+    "arms": 8,
+    "images": 152,
+    "actualCardDraws": 3264,
+    "submittedFrames": 1632,
+    "pairedPhysicalAndActualDrawSequenceExact": true,
+    "frameEpoch": 1000000,
+    "actualBootRange": [
+      71,
+      76
+    ]
+  },
+  "shaderQualification": {
+    "pairs": [
+      {
+        "pair": "natural-12",
+        "shadow_vertex": {
+          "count": [
+            8,
+            8
+          ],
+          "rawExact": false,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "shadow_fragment": {
+          "count": [
+            6,
+            6
+          ],
+          "rawExact": true,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "sugata.card.Human.eyelashes01": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        },
+        "sugata.card.Human.eyebrow001": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        }
+      },
+      {
+        "pair": "blink-12",
+        "shadow_vertex": {
+          "count": [
+            8,
+            8
+          ],
+          "rawExact": false,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "shadow_fragment": {
+          "count": [
+            6,
+            6
+          ],
+          "rawExact": true,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "sugata.card.Human.eyelashes01": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        },
+        "sugata.card.Human.eyebrow001": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        }
+      },
+      {
+        "pair": "still-12",
+        "shadow_vertex": {
+          "count": [
+            8,
+            8
+          ],
+          "rawExact": false,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "shadow_fragment": {
+          "count": [
+            6,
+            6
+          ],
+          "rawExact": true,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "sugata.card.Human.eyelashes01": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        },
+        "sugata.card.Human.eyebrow001": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        }
+      },
+      {
+        "pair": "still-45",
+        "shadow_vertex": {
+          "count": [
+            8,
+            8
+          ],
+          "rawExact": false,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "shadow_fragment": {
+          "count": [
+            6,
+            6
+          ],
+          "rawExact": true,
+          "generatedBufferNamesCanonicalExact": true
+        },
+        "sugata.card.Human.eyelashes01": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        },
+        "sugata.card.Human.eyebrow001": {
+          "vertexFlowExact": true,
+          "previousPositions": [
+            7,
+            7
+          ],
+          "morphLoops": [
+            2,
+            2
+          ]
+        }
+      }
+    ],
+    "normalization": "Only generated NodeBuffer_<integer> identifiers consistently renamed by first declaration; no arithmetic/branch/binding edits.",
+    "limits": [
+      "Source equality establishes preserved compiled expressions, not standalone numeric velocity readback.",
+      "Shadow fragment alpha path is unchanged; this does not prove every shadow texel identical."
+    ]
+  },
+  "limitations": [
+    "No independent numeric velocity or shadow texel readback.",
+    "No adoption until dynamic temporal-off/debug/custom bypass behavior is implemented and checked.",
+    "Still and sampled sequence review does not certify all temporal flicker or all avatar configurations."
+  ],
+  "cpu": {
+    "groups": 6,
+    "maxProbabilityError": 0.00048828125,
+    "atlas": [
+      {
+        "mesh": "eyebrow001",
+        "textureSha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+        "morphTargets": 49,
+        "width": 512,
+        "height": 512,
+        "aboveCutoffTexels": 25190,
+        "softAboveCutoffTexels": 25188,
+        "atlasCoverageEquivalentTexels": 10221.106157809496,
+        "coverageToBinaryArea": 0.4057604667649661
+      },
+      {
+        "mesh": "eyelashes01",
+        "textureSha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35",
+        "morphTargets": 27,
+        "width": 512,
+        "height": 512,
+        "aboveCutoffTexels": 36728,
+        "softAboveCutoffTexels": 25998,
+        "atlasCoverageEquivalentTexels": 25208.7453481704,
+        "coverageToBinaryArea": 0.6863631384276411
+      }
+    ],
+    "sources": {
+      "packages/core/src/Avatar.js": "0a9fe251752adc7fcc9c8a570fa10f6037c225a93195def838453076b640d404",
+      "packages/core/src/render/Stage.js": "95cceebdb3a56bfdcd4a936157b84202079a2ac255d5e8c25bba599e7d58ede2",
+      "packages/core/src/render/HairOIT.js": "f35793e8b62928e48d6e1889a1abde4ca800d07d6549ed7136bb5a60c00fca98",
+      "packages/core/src/motion/HairDynamics.js": "59d114358b7730d93a13493d1d37c7cc6b57de75e7cfd912f79c6f1460c52fff",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "node_modules/three/src/materials/nodes/NodeMaterial.js": "dbef1e6d16b4291afd41e98d06e865f912ea317de3b3298ff0fc057aa3ce24c6",
+      "node_modules/three/src/nodes/accessors/Morph.js": "7d5a2e6f20801269dbfeeb5308874d7dd78732c0728f77edbc66037b071b108d",
+      "node_modules/three/src/nodes/accessors/Skinning.js": "ccf42177f6bf11d11e99b6224241965d67723deed43999c70bb18dc84533a67e",
+      "node_modules/three/src/renderers/common/Renderer.js": "71a69fd29482ea2287b52cbf1fe7e7734fcb0488030842e3cfac6ab8001b0d8b",
+      "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+      "assets/hair/bob01/g050.glb": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+      "packages/core/src/render/MorphVelocity.js": "06b4fd0d529f2d0a855aec98bc7150a76a1a73c5b679a2c3e296cba0d80be2de",
+      "packages/core/src/AvatarQuality.js": "deba798e81bb4c9383f17cb047e376c34d18e102ce32191d0b5ffcf214c2428c",
+      "packages/core/src/wardrobe/Wardrobe.js": "9b938ce42f49cac21f8de3e4bee1d9427df40dbd029c983732c73b4b8ade6e0c",
+      "packages/core/src/wardrobe/AvatarWardrobe.js": "5fc8649ab17942b729332a7678d1ae2aa0488cbda73a3f902aa8a53338726d18",
+      "packages/core/src/wardrobe/FoundationLayer.js": "bb302e598fb0c9468235425c9cef5c6fa0f947918a859de011229354f8618646",
+      "packages/core/src/wardrobe/WardrobeAgency.js": "f3e3becc86df139b71cbf76f86ab1cb659c4c04cfed0334fe1a4fc1e2a2e6069",
+      "packages/core/src/wardrobe/HemGeometry.js": "383edcf135a278feeefc3d0789ea4a1ef551ba5515125575fa06613e4de13306",
+      "packages/core/src/wardrobe/GarmentManifest.js": "f39d9112e7ed002ec1a02b2c4dbb170bbfc9243be71fb49446eda4693fb3b9cd",
+      "packages/core/src/figure/IdentityTargets.js": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d",
+      "packages/core/src/figure/Skeleton.js": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+      "packages/core/src/figure/ExpressionBank.js": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e",
+      "packages/core/src/figure/Figure.js": "5884d1ef68bb904271bcb2029bc1e50938381eded5ddfc187b431bcaf18cd3da",
+      "packages/core/src/figure/RestPose.js": "c8e7892717d33e9f273fbb4f85d765f80b5a3efe09f09f6a4abc0ba5368bceb3",
+      "packages/core/src/figure/Identity.js": "302836c5bef94c83c39360619821af25abeec83f270087f107752ad7ccd9acff",
+      "packages/core/src/figure/IdentityCatalogue.js": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae",
+      "packages/core/src/figure/BodyMass.js": "c20eb94dc1bd3bad06ee89be4f815f2ad322870a619960e9b69b3c3b1efb0d22",
+      "packages/core/src/render/InteriorEnvironment.js": "bbdd57e56f5ad1bd0bd0edbc6db83da40aa4f28ef6ba0e8858895b745e026c8d",
+      "packages/core/src/render/GBuffer.js": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774",
+      "packages/core/src/render/Scene.js": "1792a2fed0d535c916cd215b9dd0758972856fbe4d6795ade8f83258e6cc6a0f",
+      "packages/core/src/render/LightingRig.js": "b97df58d27162d46afa1f94044690a55e4f32305bf187096aa5a3e91e93bf336",
+      "packages/core/src/render/TRAAPost.js": "4af30af6b080c5a4d224e832a7ea7e1ad791527bd5fa44d0119fb8846c0b3383",
+      "packages/core/src/render/GTAO.js": "1cd8a20241188ab3adbd46bffc3b43a1216e6c4c172a626d4aa23134193690b1",
+      "packages/core/src/render/Grade.js": "c8941b362f38db026bbc1f1406cc5ea1714b0ec01cf81a8dfce19e05c012fcec",
+      "packages/core/src/render/GroundContact.js": "c7c31b735cec572330914b98109b9e033aa0e0bd3ea4c0bdf9601301cbe27b63",
+      "packages/core/src/render/StateClosure.js": "7db6582661b887e8bcf76c74874598857a6033264279ca06652074cf6094aafd",
+      "packages/core/src/render/Toksvig.js": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0",
+      "packages/core/src/render/HairVelocity.js": "867d2cbec525d130c4542b6cf9b7fbc25c2a71b035af02a9e0645318d7372bd3",
+      "packages/core/src/render/SkyEnvironment.js": "3e1cd75ae80b4c9102233c1479d87c0d971b032d25831d858a8e63970c455c30",
+      "packages/core/src/motion/HairBodyContactForest.js": "3470f5816c34f08c5374f712eb55efca179974413769cc117d96f2a4cd4f441b",
+      "packages/core/src/motion/HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+      "packages/core/src/motion/Gaze.js": "41c7c51a5a374e6edfadaf9462ed984d481472f810f85aad4fede9885b1b3fe7",
+      "packages/core/src/motion/HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+      "packages/core/src/motion/HairBodyContactCalibration.g025.data.js": "6536881c7e6de35b6cbd7e81154a3a1aa4d76360ffbba8f617b871aa402a3024",
+      "packages/core/src/motion/Blink.js": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1",
+      "packages/core/src/motion/HairSkinTransform.js": "8bb7137ac68b88c8a2fe213f34757d44f5b6addf0b63141f29f98ab3ac4adf7e",
+      "packages/core/src/motion/MotionStack.js": "e449757472e3d7ed9ded89984b3317fde7b9fa3ee1339798ccc550ee837153bc",
+      "packages/core/src/motion/Signals.js": "46c539caa8995c3c426bef03dbbab95d421972829e9b01a449959a76cc07722b",
+      "packages/core/src/motion/HairBodyContactCalibration.js": "a2e43c5f3d1ff499f29a303aee22ccdffcd3605e9fcf9149e268419cf38b8dab",
+      "packages/core/src/motion/FacialIdle.js": "6005a9e412f8fbd10cdb417f5b6c54f648da5389d39caafcead3d12883003b07",
+      "packages/core/src/motion/HairBodyContactCalibration.data.js": "fa3850d8630b2555d46e3b2dd3c45b3a9e65aaecb64e739ba5e20edc5cbcf5df",
+      "packages/core/src/motion/HairBodyContact.js": "0a569e763576cfa301e7d9d78bc8184d9e621e3e931f0048a0df33a418db63ba",
+      "packages/core/src/motion/Gesture.js": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea",
+      "packages/core/src/motion/HairSurfaceForestQuery.js": "506bd08cc26ffee2821075b79adc11ac9d10b877ef5e268856116cd787e83110",
+      "packages/core/src/motion/Pupil.js": "41ffb2723b5137307540ffa562b5d4933e28abe4bfdf2cb65524481c90951b7a",
+      "packages/core/src/motion/Sway.js": "101770c258a4e0c6cc6392f491a4627cf16612a59693c303defaae85d8b4f7bf",
+      "packages/core/src/motion/IdleMotion.js": "9a7f17ae2f8c549109fce176e68470cca37443a03a3c6ac2be913049db499349",
+      "packages/core/src/motion/HairSurfaceContact.js": "53d16ea55e10fe8ad72b7eee7d51b2d5b95d4a55f20a42c890ed71a657cbd30e",
+      "packages/core/src/motion/IKSolver.js": "7f822a5fa7457a8e8c185549eba8b325ce612b769fdc14386c237134bceede0c",
+      "packages/core/src/motion/Breath.js": "74b1ba926f9a07448556b936da936e16e8c361156f0506f745939fccc5c5a9c0",
+      "packages/core/src/motion/Layer.js": "4e26f0287b4fe22ad940940085296840f0093143712bac6c085ff0dfafe83e26",
+      "packages/core/src/motion/BodyIdle.js": "d1afefff100c64fddf929c90c1eac8c08742d12a07986ec41a35111f544c8ebd",
+      "packages/core/src/motion/HandIdle.js": "3d34c24f2fbfefdfe24b95f4b8141d5dffc0c880a37f3f201466beac247ffd73",
+      "packages/core/src/motion/HairSurfaceForest.js": "3a7dabb53363060ec66f78522bf41e1422ddd9d3d75d7d123a188228829f7c05",
+      "packages/core/src/voice/Coarticulation.js": "652b3594abe6165403b6dbb92789a51dfd45edc1268c4fab14da9acd5dbadba6",
+      "packages/core/src/voice/VisemeLayer.js": "4d6f2fc18922e5572a2f6203263f43a397d379bb448bc97f85b8b860708d4b0b",
+      "packages/core/src/voice/Prosody.js": "b922627a7c492ba1a02392aaeeed34e445c4aa74cb0ba71b6a9a6fa5af416f8a",
+      "packages/core/src/voice/Pitch.js": "fde78a4c3dd83f543d8ba1c349db1a06b8b697a12255e4490bbbd5a82a3fd167",
+      "packages/core/src/voice/prosody-worklet.js": "60ed8986fdade1f68c3eeaea84584bff919faa7c00dbdb77a7747a87cf230002",
+      "packages/core/src/voice/Visemes.js": "31b75bc0a6e2932bf799719d7e61dc8537c94703a9c4e3d5a4ad5d2800c49955",
+      "packages/core/src/voice/VisemeSchedule.js": "695e0d8314d8cc64d748c8e5c4e9f2ba3021bdc9c2a76d443a7373aacc209eac",
+      "packages/core/src/physics/SpringBones.js": "5e222ad8647dd7c2b5a604f0b6f521359b53396443939ff1780252b1edb2cab5",
+      "packages/core/src/material/HairRibbons.js": "b72b278c7dae539ef957d1d83effcd37af19eee03ef7ec85c077da6bbb350d58",
+      "packages/core/src/material/EyeOcclusion.js": "6edd0523001fec7394cd7343ec56dc6e992bff841727ad67209fd7701e2f083c",
+      "packages/core/src/material/EyeMaterial.js": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+      "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+      "packages/core/src/material/PreintegratedSkinLut.js": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4",
+      "packages/core/src/material/SkinRegions.js": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d",
+      "packages/core/src/material/EyeCatchlight.js": "00ea06778cbd313bb80eca73ad5cf04b4b20ac36ee87e8e7a0d1d854759d1849",
+      "packages/core/src/material/SkinMicroNormal.js": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685",
+      "packages/core/src/material/SkinOcclusion.js": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa",
+      "packages/core/src/material/SkinCurvature.js": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54",
+      "packages/core/src/affect/SeedLexicon.js": "415a8ac5ca0c1d8b69f41014cd0a40def9054fd4c3151a8b1f6a7f36db15d65e",
+      "packages/core/src/affect/AffectState.js": "df254e1fda2263ac2a40f3cbcd4bff6492addb65e11fae697e45633b231c95ba",
+      "packages/core/src/affect/ExpressionMap.js": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d",
+      "packages/core/src/affect/ReflexAffect.js": "d4cb9be30c1dda5aaa25610677e7ab646c8b4a49295e0d70dd5635d834d26abe",
+      "packages/core/src/affect/LMStudioClient.js": "ea03f1f98aaa110ffeba7a60cc2798a9a039627abd124d904c21fdc81497693d",
+      "packages/core/src/affect/ExpressionLayer.js": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478",
+      "packages/core/src/affect/AppraisalAffect.js": "fe8b55978d830c107566a54fd195e7b8e92e42cf2dd1958ae1b4f4ee4514aad1",
+      "packages/core/src/affect/PostureLayer.js": "9f72fb58dfdb1646934b61e75c6187fe4bfc7c1c642198842c9eb57dbe31470c",
+      "packages/core/src/Avatar.hair-contact.browser.mjs": "eac001dddd61cec4ccbf93cc39f9ac8753366e48987235879610dd96eb545e76",
+      "packages/core/src/render/SourcePatchProbe.mjs": "399c77f51c89b71301edfe6295a4df32053f19440c8e53bb856a222fe6104886",
+      "packages/core/src/render/MotionProbe.mjs": "5b16dec710acb0396b0b2cfe1bd2bad65cf10d1d453ed019e62764465f886e87",
+      "packages/core/src/motion/HairSurface.bounds.browser.mjs": "b0cc712c99e7d19be9bc8ba27e96dae92b7b18e151b538c903b05ccd9c83bb5f",
+      "packages/core/src/motion/HairSurface.primitives.browser.mjs": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6",
+      "packages/core/src/motion/HairSurface.forest.browser.mjs": "81b3c894f7df06ca5c3e04309a9fade2ba4dff712dacf7eefa2d906c8720fa1f",
+      "packages/core/src/motion/HairSurface.cache.browser.mjs": "5a4311f8ae87eafa149b42d6348cb5d78b1f642f21f3e62077e610404765fd16",
+      "packages/core/src/motion/fixtures/hair-triangle-bounds-control.mjs": "73e0c088fa57e840a98c184037eb0fa599619450c48e97855168b9b4846d775e",
+      "packages/core/src/motion/fixtures/hair-segment-oracle.mjs": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239",
+      "packages/core/src/motion/fixtures/hair-body-contact-g050-legacy-v1.data.mjs": "2340a128b0d4a82e2265e91fbd80d211ee900b57c4e6d4fbc907f5bdcbebe942",
+      "packages/testbed/src/portrait.html": "8c1098077f6722201694c498018ecae05b7e0d60749e2dda9e9b41d5fa4a1ed5",
+      "packages/testbed/src/portrait.js": "2e370019a5950411f0dfd6f7382f35b7f831c1e1f8d3a79561884a2866820475",
+      "packages/testbed/src/portrait-selection.mjs": "3b7dc0923eb153daf27afcddf2ac4d0ea20a77d42a14d98795de535a29ae3769"
+    },
+    "limits": [
+      "Atlas area is a texel-domain prediction, not projected coverage or beauty validation.",
+      "No GPU compilation, native previous-path proof, or shadow image equality yet.",
+      "Current Stage exact MorphVelocity repair is preserved; unpatched Three Morph.js is not the live path."
+    ]
+  },
+  "archive": {
+    "path": "captures/card-coverage-2026-09-09",
+    "manifest": "archive-manifest.json",
+    "files": 208,
+    "bytes": 139298696,
+    "manifestSha256": "1a3b05b279b31f68689edf17f3571117af147f2d24626595f9b2ae7b7be9beb5",
+    "rootRehashedAllFiles": true
+  },
+  "rootReviewed": [
+    "smoke-v1/still-12-binary-0000.png",
+    "smoke-v1/still-12-coverage-0000.png",
+    "qualified-v3/blink-12-binary-0028.png",
+    "qualified-v3/blink-12-coverage-0028.png",
+    "qualified-v3/blink-12-coverage-0038.png"
+  ]
+}

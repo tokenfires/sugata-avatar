@@ -1,0 +1,62 @@
+{
+  "status": "study-unpromoted",
+  "baseCommit": "6c33af5",
+  "archive": "captures/tee-neckline-2026-09-13",
+  "count": 806,
+  "bytes": 390650139,
+  "manifestSha256": "cc3603e31469ce5eeebec913704893988caf90de0312c57eb2d32cdbc9ffcb8c",
+  "criticManifests": {
+    "independent-isolation": "d05d75206d327573c9ddd0046af079ecfae689ac646c17c524fdaa4dd1a9bbed",
+    "independent-rays": "a332473dcfe40f50fad692a5eee4e4dc1714b451b2fc07c7d1a2cd3fbca214d4",
+    "independent-fit": "87e1417b1426e7c60baf02f6f8938c74db8a94e67c62e161ce8333ab3849fd6d",
+    "independent-calibration": "bd060047b40ec1f57b7e1f008f081da1087e0241426cc001caac3f9cf81546c7"
+  },
+  "runtimeSource": {
+    "packages/core/src/motion/AttentionAction.js": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34",
+    "packages/core/src/motion/AttentionSmile.js": "113c3a6807b62b003e902b75df37130953507d9c5b411b7e73866924b8cabbfb",
+    "packages/core/src/motion/AttentionSmile.selftest.mjs": "950564fb78bffd1e60a47e08f36dc0d5b949067c66748d087e2f54bdd2d4270c",
+    "packages/core/src/voice/VisemeLayer.js": "9055707cb00c72601c9db754b05effaabfb07cc9ddcee3beed91161291672c99",
+    "packages/testbed/src/portrait.js": "c6b120ce74d258bc4f51204c9a5e1b7be151f2a4523953f2ced69b2d41a27560",
+    "packages/testbed/src/portrait.html": "149f0a056992a4122c0a8c0c1b32852dfa5038de92c2e2cbfbc49831aef844e4",
+    "packages/testbed/src/showcase.js": "5c262312118aa8a6b3f1d37987b23b719c6f1e879373e838f312bca77c5a590f",
+    "packages/testbed/src/showcase.html": "935963b4e2ce5abc737c4e88a500d3a128c3301c772ec22cd775ff8b1ab92b49",
+    "packages/testbed/pages.js": "2eeb120f5d11ecd4f3d27c7455afb8cb74213965a09307a3afa1b3ea1c026855",
+    "packages/core/src/Avatar.js": "dc99dababcef2441d0c4f4bc7aa66824b139178627a14089433d69f781914602",
+    "packages/core/src/material/SkinMaterial.js": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "packages/core/src/material/SkinOcclusion.js": "099683b239ab06dd526d15139d7ebb59cc6fb4d5cf5c0d0470867fd7648b68aa",
+    "packages/core/src/material/SkinRegions.js": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d",
+    "packages/core/src/material/SkinCurvature.js": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54",
+    "packages/core/src/render/LightingRig.js": "3bfc0de4b670118931760afed7e5ab3bd2f075f556be69b2fe8b4580364e1c7a",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "assets/figures/figure_g050.glb": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14",
+    "packages/core/src/wardrobe/Wardrobe.js": "3c52cc1ad588536a1a0a83a2ed857bb0029da2117771cac427cfa94cb8e7a7c5",
+    "packages/core/src/wardrobe/AvatarWardrobe.js": "696d0602055b4890e487ded4dd087d8d8466fb629f3247588bcfc74353a61437",
+    "packages/core/src/wardrobe/WardrobeStyles.js": "3814a7533dbb801f0ec94f80a665f554d8aeb5b1d27cd7ecfb4d88447a3563c9",
+    "assets/wardrobe/manifest.json": "c537f9d376942dc886c1aad3b3d4327a45cd61cfbe7d45d2194fd54bddee7688",
+    "assets/wardrobe/body/g050.glb": "fc4445c95ed3f423734ff272ee78ebb44d762a8f16edb94b26039de7a8a96b3a",
+    "assets/wardrobe/female_casualsuit01/g050.glb": "44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783",
+    "assets/wardrobe/foundation_bra/g050.glb": "4a3366377087bbfb2d5779ba4d6f5de09735e1810ae4ea9b6a22e11d3aee0d79",
+    "assets/wardrobe/foundation_briefs/g050.glb": "53f81630df24817f89bd7f8b59d58977b180855adc54d7f439f54a23f2757747",
+    "assets/wardrobe/shoes01/g050.glb": "28e15257130da9eabf790b5dda55e96c985b3504e5905fa9b230195b2f27fde4"
+  },
+  "candidateSHA256": "fd93e0d90a4b723ad84827ffd2a947b74f0d7b9bf4a4606b94299433a38cacac",
+  "checks": {
+    "validAvatarRetirements": 11,
+    "failedHarnessAvatarRetirements": 1,
+    "cameraRays": 18,
+    "pairedNativeStates": 18,
+    "nativeFrames": 544,
+    "qualificationHashes": 659,
+    "frozenCoverageChecks": 23310,
+    "independentlyConfirmedNewSkinPairs": 28,
+    "galleryPairs": 12,
+    "galleryMobileWidth": 390
+  },
+  "limits": [
+    "Candidate not installed: new drawn-skin intersections remain.",
+    "Raw authored bra contacts and actual native contacts differ; spaces are reported separately.",
+    "Coverage calibration is not positive clearance.",
+    "No exhaustive video perception or AAA acceptance."
+  ],
+  "next": "captures/tee-neckline-2026-09-13/NEXT-FIT.md"
+}

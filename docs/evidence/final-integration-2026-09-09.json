@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-09",
+  "treeState": "DIRTY",
+  "build": {
+    "pages": 17,
+    "output": "/tmp/sugata-final-build",
+    "matchedGroomFiles": [
+      "/tmp/sugata-final-build/assets/g050-iMaJ_j5m.glb"
+    ],
+    "logSha256": "a7ace6b6087cc05ada862f4c5e8cf2ab86420475081dde5c56d9fbe872c37b27",
+    "warnings": [
+      "Existing chunks above 500 kB warning."
+    ]
+  },
+  "production": {
+    "url": "http://127.0.0.1:5198/src/portrait.html?hair=bob02&capture",
+    "poses": 3,
+    "seconds": 2,
+    "facePairs": [
+      0,
+      0,
+      0
+    ],
+    "errors": [],
+    "captureReportSha256": "33c91924732958e70501e059e083a0b8be1f5862fe98d30f0ccdb17f07f2c8cc",
+    "surfaceReportSha256": "71c3f101fc91ae6e2d0718a618f47aa043f8c06dff866e4845e49540e53841df",
+    "sourceHashes": {
+      "packages/core/src/Avatar.js": "c3811ef89d046c0ebc49d0697f355b584a1005031df4a4f1aaeef456b3b0b055",
+      "packages/core/src/motion/HairDynamics.js": "07884764eb26a4bdeb0abd30221b47d24323f3d7fa598aad240453f7ab5b8e7d",
+      "packages/core/src/material/HairMaterial.js": "144dfb3e49da054bbaade8dac6f23509aa3438d90940ba1be2bd5183c2f8d0e1",
+      "packages/testbed/src/portrait.js": "c134268eb1501abae249e01627ef911c69844209ab809cae257f013e083d3af2",
+      "tools/critic/portrait-clearance.mjs": "84d3ac9b70a758d291fca01d931a5d4a8c06475dbefd49b2dff3e02acca659bd",
+      "groom": "d20d65452ae2761a78a3598f7d7bbbb7541bc047f9d63c6b422948ebd686d461"
+    }
+  },
+  "actualChrome": {
+    "url": "http://127.0.0.1:5197/src/portrait.html?hair=bob02",
+    "observed": "Reloaded after final installation; live portrait rendered, no console errors. TCC approval resolved browser access."
+  },
+  "limits": [
+    "Production sequence is a three-pose integration smoke check, not a repeat of the 98-pose motion experiment or a frame-budget benchmark.",
+    "Whole repository gate suite was not rerun; declared red gates remain.",
+    "Local raw capture artifacts are ignored by Git."
+  ]
+}

@@ -1,0 +1,96 @@
+# Original bob02/g050 regression fixture
+
+`bob02-g050-original.glb` is the unmodified original Blender-exported bob02/g050 groom.
+It was preserved from `captures/hair-fall-2026-09-08/original-g050.glb` before the fall, hem and
+tail corrections. The capture directory is local evidence; this Git LFS fixture makes the
+same original input available across clones.
+
+- Size: 3,326,952 bytes.
+- SHA256: `25376e139cd498bf2bdb36dfdc6df80cb8f5f4ec026ca033ca2dd1cae23913d4`.
+- Exact LFS tracking rule: repository `.gitattributes`.
+
+The default `hair_fall.selftest.mjs` transforms this original. The default
+`hair_hem.selftest.mjs` first generates a temporary fall-stage output from it, then runs the
+complete hem tests, including real tangent-channel transport. The default
+`hair_tail_release.selftest.mjs` generates both fall and hem outputs before testing the calibrated
+twelve-card tail clearance stage, including a real tangent channel through all three transforms.
+Temporary outputs are removed when tests finish. No default test reads the mutable shipped hair
+asset or ignored motion captures, and all three verify the fixture hash. The fall and hem selftests
+also accept explicit input arguments.
+
+Keep this fixture unchanged. Fetch its Git LFS content after cloning; a pointer file will fail
+the hash check. Later stages retain their own geometry calibration and idempotence checks.
+
+## Original bob01/g050 and long-fall calibration
+
+`bob01-g050-original.glb` is the immutable original long-bob export copied from
+`captures/long-bob-2026-09-08/originals/g050.glb`. It is separately tracked by Git LFS so replacing
+an installed groom cannot change the default regression input.
+
+- Size: 3,326,956 bytes.
+- SHA256: `98ca6c23b9e0431b36437f386a39b961f1d4e296d58a5cab7cb519044caaea9c`.
+- Body: exact authored figure_g050, SHA256
+  `b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14`.
+
+`bob01-g050-long-fall-v1.json` preserves the previous v9 plus card101 connector calibration.
+The active `bob01-g050-long-fall-v2.json` extends it with the measured card80/423 side-fall revision:
+their authored lower paths crossed the front of the throat despite clearing the body shell.
+It records source experiment hashes and exact intermediate/final geometry and payload fingerprints.
+`hair_long_fall.mjs` pins the active JSON's bytes. Default tests rebuild from the original fixture,
+check the wrong-side-tip counterfactual and anchored prefixes, and verify exact payload reproduction,
+protected attributes, shell rejection, the remaining strict root-layer failure, deterministic and
+idempotent output, tamper rejection and atomic ownership. They do not need ignored captures.
+
+Keep the original fixture and both reviewed calibration records immutable. Another body bake,
+export, added attribute or shape revision requires a separate measured calibration. The active
+candidate leaves rear-tip review, static card68 crossings and posed root-layer/motion acceptance
+pending. Neither the tool nor its tests installs an asset.
+
+
+## Original bob01/g025 and composed rest calibration
+
+`bob01-g025-original.glb` is the immutable original g025 export, copied byte for byte from the
+unchanged original asset before any g025 installation. Its separate Git LFS rule keeps later
+shipping-asset replacement from changing default test input.
+
+- Size: 3,327,560 bytes.
+- SHA256: `cb9f1f61ca0d48c4cc367a460c6df61c4ecc7a4420c33380c5c4bdb9b61d5c99`.
+- Matching body SHA256: `f047fb0311116a740ff17f20a0952429e6c1c758833aeac021375333d7a8121e`.
+
+`bob01-g025-composed-rest-v1.json` pins the measured release selections, five small iterative
+contact-repair position patches, root44 support, four neckline guides and lower card131 connector.
+It records exact POSITION/NORMAL fingerprints for seven intermediate stages and the complete
+final GLB/BIN hashes. `hair_long_fall_g025.mjs` checks the JSON bytes and each stage before returning
+an output; default tests read only the tracked original/body and local tool dependencies.
+
+This is a rest candidate with zero authored face/movable-curtain intersections and 251 remaining
+root-layer pairs. Composed visual and motion acceptance, and g025 runtime body-contact calibration,
+remain pending. No tool or test installs an asset. Keep this fixture/calibration unchanged; another
+bake or source revision requires a separate measured calibration.
+
+
+## Original g050 foundations and coverage-derived mask calibration
+
+`wardrobe-g050-foundation-originals.json.gz` preserves the complete original GLB bytes of
+`foundation_bra`, `foundation_vest`, `foundation_briefs` and `foundation_boxer_brief` before the
+mask correction. This compressed JSON/base64 bundle is a tracked test input, independent of
+mutable shipping assets and ignored captures.
+
+- Size: 2,121,058 bytes.
+- SHA256: `5d8b79817599419a931edf3eff068da07854a1040b02c6a0629f7e702efc8e3c`.
+- Schema: `sugata-foundation-originals-v1`; only `g050`.
+
+`wardrobe-g050-under-masks-v1.json` records the exact per-field vertex selections and every
+additionally removed any-corner triangle, along with original/final/rendered GLB hashes and exact
+body/outer garment fingerprints. The tool pins its bytes with SHA256
+`13170c7dc4d3561c02b84d9ef38c10260e3e5c3a21670872b9986d44ea523c02`.
+
+The final portable outputs preserve the original full GLB container and all bytes outside selected
+mask Float32 offsets. Their full BIN and parsed JSON equal the reviewed rendered candidates;
+the latter used 60-byte-shorter JSON packaging. No geometry or other bake is changed.
+
+Keep both fixtures immutable. Eight default portable test groups exercise exact reproduction,
+idempotence, source/body/outer/bake refusal, whole-container preservation, collateral removal and
+fixture path protection. The 1 mm expanded chart and two actual poses are a bounded occlusion
+contract; remaining contacts and the unchanged foundation-only GROIN rays stay explicit in
+[`docs/WARDROBE-MASKS-2026-09-09.md`](../../../docs/WARDROBE-MASKS-2026-09-09.md).

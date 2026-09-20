@@ -1,0 +1,815 @@
+{
+  "status": "Targeted g050 nape proof completed: original 22 paired poses plus 85 broader forest poses; strict whole-body and continuous filtered visibility remain open",
+  "scope": {
+    "bake": "g050",
+    "groom": "bob01",
+    "poses": 22,
+    "chains": 496,
+    "changedGroup": [
+      188,
+      193,
+      198,
+      201,
+      202,
+      211,
+      217,
+      223,
+      272
+    ],
+    "originalDomainTriangles": 1872,
+    "napeDomainTriangles": 2076,
+    "posesMeaning": "Original sequential-domain 22-pose proof below. Additional 85-pose forest proof is separate in forestBroadProof; counts include repeated reset samples."
+  },
+  "archives": {
+    "analysis": {
+      "path": "captures/bob01-g050-nape-acceptance-2026-09-09",
+      "manifestSha256": "4c268e815510ef45359e9ce958012c3f0fc7574b84ee0df463d1ecdae94ec8db",
+      "summarySha256": "ddd07b1865e4b750d43a0b67691d015b02b9a4ea0e090231017744bd314dff3a",
+      "verifiedFiles": 34
+    },
+    "motion": {
+      "path": "captures/bob01-g050-nape-motion-2026-09-09",
+      "manifestSha256": "fd7e218ce969f0837a9ea159dd601a43251053f7354b32f7c5c297b33cd9b30d",
+      "verifiedFiles": 431
+    }
+  },
+  "assetSha256": {
+    "groom": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b",
+    "body": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+  },
+  "recipe": {
+    "natural": {
+      "seconds": 12,
+      "fps": 60,
+      "stride": 60,
+      "poses": 13
+    },
+    "nod": {
+      "seconds": 4,
+      "fps": 60,
+      "stride": 30,
+      "direction": 1,
+      "poses": 9
+    },
+    "normalQueriesPerSubstep": 16,
+    "resetQueries": 64,
+    "owner": "Two complete sequential domain batches; experimental, no shipping asset mutation"
+  },
+  "opacity": {
+    "evaluations": 20354620,
+    "negativeEvaluations": 0,
+    "negativeThresholdMm": -0.1,
+    "opacityThresholdExclusive": 0.5,
+    "minimumSignedDistanceMm": 1.0789043810713075,
+    "minimumPose": {
+      "motion": "nod",
+      "frame": 30
+    },
+    "priorWitnesses": {
+      "count": 74,
+      "negative": 0,
+      "minMm": 8.4926564111579,
+      "maxMm": 18.446539348964286,
+      "qualification": "Prior witness union includes legacy nearest-repeat-wrap tip observations; sourceKinds retained per witness. Full enumeration covers base and CPUbox mip1\u20133 texel centers."
+    },
+    "method": "Every opaque texel center in all nine card UV triangles at decoded base and CPU box mip1\u20133, mapped to actual same-frame GPU ribbons; full posed-body nearest-normal query. Counts include shared-diagonal and repeated-pose evaluations."
+  },
+  "surface": {
+    "addedRibbonPairInstances": 0,
+    "removedRibbonPairInstances": 136,
+    "facePairs": 0,
+    "originalPatchPairs": 0,
+    "napeSupersetPairs": 0,
+    "remainingNineChainOutsideDomainFamilies": [
+      {
+        "card": 217,
+        "span": 0,
+        "bodyTriangle": 10288,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": true
+      },
+      {
+        "card": 217,
+        "span": 0,
+        "bodyTriangle": 23735,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": true
+      },
+      {
+        "card": 272,
+        "span": 1,
+        "bodyTriangle": 1316,
+        "poseInstances": 6,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": false
+      },
+      {
+        "card": 272,
+        "span": 2,
+        "bodyTriangle": 1316,
+        "poseInstances": 12,
+        "allBaseFootprintsZero": true,
+        "allMipFootprintsZero": false
+      }
+    ],
+    "perPose": [
+      {
+        "motion": "natural",
+        "frame": 0,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "natural",
+        "frame": 60,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 105,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 105
+      },
+      {
+        "motion": "natural",
+        "frame": 120,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 94,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 94
+      },
+      {
+        "motion": "natural",
+        "frame": 180,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 72,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 72
+      },
+      {
+        "motion": "natural",
+        "frame": 240,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 134,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 134
+      },
+      {
+        "motion": "natural",
+        "frame": 300,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 151,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 151
+      },
+      {
+        "motion": "natural",
+        "frame": 360,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 94,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 94
+      },
+      {
+        "motion": "natural",
+        "frame": 420,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 117,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 117
+      },
+      {
+        "motion": "natural",
+        "frame": 480,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 78,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 78
+      },
+      {
+        "motion": "natural",
+        "frame": 540,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 80,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 80
+      },
+      {
+        "motion": "natural",
+        "frame": 600,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "natural",
+        "frame": 660,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 90,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 90
+      },
+      {
+        "motion": "natural",
+        "frame": 720,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 104,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 104
+      },
+      {
+        "motion": "nod",
+        "frame": 0,
+        "counts": {
+          "caps": 0,
+          "rootLayer": 67,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 67
+      },
+      {
+        "motion": "nod",
+        "frame": 30,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 110,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 135
+      },
+      {
+        "motion": "nod",
+        "frame": 60,
+        "counts": {
+          "caps": 30,
+          "rootLayer": 103,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 133
+      },
+      {
+        "motion": "nod",
+        "frame": 90,
+        "counts": {
+          "caps": 30,
+          "rootLayer": 185,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 215
+      },
+      {
+        "motion": "nod",
+        "frame": 120,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 108,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 133
+      },
+      {
+        "motion": "nod",
+        "frame": 150,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 96,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 121
+      },
+      {
+        "motion": "nod",
+        "frame": 180,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      },
+      {
+        "motion": "nod",
+        "frame": 210,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      },
+      {
+        "motion": "nod",
+        "frame": 240,
+        "counts": {
+          "caps": 20,
+          "rootLayer": 99,
+          "nape": 5,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "bodyPairs": 124
+      }
+    ]
+  },
+  "preservation": {
+    "other487FullStateExact": true,
+    "matchedRecordedInputs": true,
+    "allNonCardCapsExact": true,
+    "maxRootErrorMm": 0.0001772289329034324,
+    "maxHalfwidthErrorMm": 5.960613242653873e-05,
+    "minFirstSpanNormMarginMm": 3.671616489879998,
+    "maxNapeLinkErrorMm": 0.01664860503158838,
+    "maxNapeLinkErrorIncreaseMm": 0.016602616917273452,
+    "maxWholeGroomLinkErrorMm": 0.3468127860337018,
+    "sourceCutIdentity": true
+  },
+  "checker": {
+    "focusedGroupsPassed": 18,
+    "proofVersion": 2,
+    "guardHardenedVersion": 3,
+    "guardSupplement": "pair-input-contract.json validates all44 full snapshot schemas, original baseline masks and exact caps; v3 adds those report/input guards without changing geometry/opacity arithmetic"
+  },
+  "forestFollowup": {
+    "status": "Separate final-state parity and frame-cost control passes; expanded forest motion coverage pending",
+    "ledger": "docs/evidence/hair-body-contact-forest-frame-cost-2026-09-09.json",
+    "archive": "captures/body-contact-forest-frame-cost-2026-09-09",
+    "manifestSha256": "f160b23624aa6c6ea0446594aaecc3a3717c48569ffff5e641b52b8bfc63e063",
+    "timedFrames": 720,
+    "finalAll496PhysicalStateExact": true,
+    "medianUpdateToGpuMs": {
+      "sequential": 22.0,
+      "forest": 15.1
+    },
+    "p95UpdateToGpuMs": {
+      "sequential": 23.3,
+      "forest": 16.7
+    },
+    "fullyAllocatedStorageBuffers": 35,
+    "fullyAllocatedStorageBytes": 7177952,
+    "storageAfterDispose": 0,
+    "qualification": "Serialized update-to-GPU completion excludes timestamp readback/rAF/compositor waits; final-state equality is not equality at every intermediate pose or an interactive FPS guarantee."
+  },
+  "limits": [
+    "This is finite actual captured-pose evidence, not a universal collision/appearance certificate.",
+    "Legacy matched baselines omit full caps and velocities; those comparisons remain unavailable rather than assumed equal.",
+    "Full cap positions use recorded renderer-equivalent CPU skin/morph while ribbon positions are actual GPU readback.",
+    "Per-chain link errors are reported in mm and percent (including a separately labeled>=1mm denominator subset); no unrequested length-error acceptance threshold is invented.",
+    "Authored cut identity does not constrain the Y position of dynamically moving tips.",
+    "Strict whole-body failures remain visible even when residual crossing fragments appear transparent.",
+    "Actual visual inspection, material LOD and measured frame cost remain separate acceptance requirements.",
+    "Opaque texel-center enumeration and conservative UV-footprint bounds do not establish continuous filtered visibility at an actual screen LOD.",
+    "All remaining pair identities are retained baseline contacts; that does not remove them from strict whole-body gates.",
+    "Partition correctness and targeted clearance do not accept the measured runtime cost or complete the rear hair appearance."
+  ],
+  "forestBroadProof": {
+    "version": 1,
+    "status": "Targeted g050 nine-curtain finite clearance passes at all 85 broader poses; strict whole-body/continuous-visibility limits remain",
+    "arms": [
+      {
+        "arm": "nod-negative",
+        "poses": 17,
+        "fastProof": {
+          "file": "nod-negative-fast.json",
+          "sha256": "22a248045f27785547c1c2e9256edb1cf04639fb62a9a42bc367a838d615721c"
+        },
+        "opaqueProof": {
+          "file": "nod-negative-opaque.json",
+          "sha256": "889a889b958415a21fa39c62a57481d6ca4fcfe98e216ab881d2f1be67673e26"
+        },
+        "evaluations": 15728570,
+        "negativeBeyondPoint1Mm": 0,
+        "minimum": {
+          "level": 0,
+          "frame": 90,
+          "card": 217,
+          "fullHairTriangle": 8073,
+          "bary": [
+            0.3046874999999999,
+            0.05952380952380953,
+            0.6357886904761906
+          ],
+          "uv": [
+            0.25830078125,
+            0.04345703125000001
+          ],
+          "alpha": 0.5607843399047852,
+          "point": [
+            -0.03023087844138943,
+            1.5405197429603765,
+            -0.003964802252691395
+          ],
+          "signedDistanceMm": 2.4282347531545923,
+          "bodyTriangle": 10288
+        },
+        "selectedNineWholeBodyClear": true,
+        "selectedNineSupersetClear": true,
+        "faceClear": true,
+        "selectedRootsFirstSpansFeasible": true,
+        "wholeBodyMax": {
+          "caps": 90,
+          "rootLayer": 328,
+          "nape": 0,
+          "otherCurtains": 61,
+          "fringe": 0
+        },
+        "originalNeckMax": 4,
+        "minFirstSpanNormMarginMm": 2.42952770791234,
+        "maxRootErrorMm": 0.00014182792445388665,
+        "maxHalfwidthErrorMm": 6.11448579164453e-05,
+        "maxLinkErrorMm": 0.9278603827185921,
+        "maxNineLinkErrorMm": 0.1903628322681688
+      },
+      {
+        "arm": "yaw-positive",
+        "poses": 17,
+        "fastProof": {
+          "file": "yaw-positive-fast.json",
+          "sha256": "8c4219a1cb7584a42ec9210997ab2ef2e995ec68597b4b05724190d00ec0d6c6"
+        },
+        "opaqueProof": {
+          "file": "yaw-positive-opaque.json",
+          "sha256": "7fbe99182d2bbd9085c944f40601f4c2c7f4fce1041386f7131cbb404b437c6f"
+        },
+        "evaluations": 15728570,
+        "negativeBeyondPoint1Mm": 0,
+        "minimum": {
+          "level": 2,
+          "frame": 0,
+          "card": 193,
+          "fullHairTriangle": 7313,
+          "bary": [
+            0.53125,
+            0.42906746031746035,
+            0.03968253968253965
+          ],
+          "uv": [
+            0.36914062500000006,
+            0.27929687500000006
+          ],
+          "alpha": 0.5441176295280457,
+          "point": [
+            0.052745794180765866,
+            1.5493786593987828,
+            0.05505133891803404
+          ],
+          "signedDistanceMm": 3.0999641868115653,
+          "bodyTriangle": 23530
+        },
+        "selectedNineWholeBodyClear": true,
+        "selectedNineSupersetClear": true,
+        "faceClear": true,
+        "selectedRootsFirstSpansFeasible": true,
+        "wholeBodyMax": {
+          "caps": 0,
+          "rootLayer": 95,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "originalNeckMax": 0,
+        "minFirstSpanNormMarginMm": 3.6716277176977794,
+        "maxRootErrorMm": 0.00012532854670164626,
+        "maxHalfwidthErrorMm": 5.964026646501641e-05,
+        "maxLinkErrorMm": 0.06222730860075236,
+        "maxNineLinkErrorMm": 0.0036375991248616124
+      },
+      {
+        "arm": "yaw-negative",
+        "poses": 17,
+        "fastProof": {
+          "file": "yaw-negative-fast.json",
+          "sha256": "fb9d894c6a399e388bd0e693773439d90fd45b54b02c10b92f7ed1e4d7ef374e"
+        },
+        "opaqueProof": {
+          "file": "yaw-negative-opaque.json",
+          "sha256": "ef56cee181ed4d14616a3c3c02c2fa633f9c742442981752ccee60b886c2c74e"
+        },
+        "evaluations": 15728570,
+        "negativeBeyondPoint1Mm": 0,
+        "minimum": {
+          "level": 2,
+          "frame": 30,
+          "card": 193,
+          "fullHairTriangle": 7313,
+          "bary": [
+            0.46875,
+            0.49156746031746035,
+            0.03968253968253965
+          ],
+          "uv": [
+            0.36914062500000006,
+            0.28320312500000006
+          ],
+          "alpha": 0.5333333015441895,
+          "point": [
+            0.037344539209106374,
+            1.5483174808914697,
+            0.11899906428649075
+          ],
+          "signedDistanceMm": 3.0388013842252013,
+          "bodyTriangle": 23530
+        },
+        "selectedNineWholeBodyClear": true,
+        "selectedNineSupersetClear": true,
+        "faceClear": true,
+        "selectedRootsFirstSpansFeasible": true,
+        "wholeBodyMax": {
+          "caps": 0,
+          "rootLayer": 76,
+          "nape": 0,
+          "otherCurtains": 0,
+          "fringe": 0
+        },
+        "originalNeckMax": 0,
+        "minFirstSpanNormMarginMm": 3.6716277176977794,
+        "maxRootErrorMm": 0.0001279909516312805,
+        "maxHalfwidthErrorMm": 5.9692004420949796e-05,
+        "maxLinkErrorMm": 0.06470205418369207,
+        "maxNineLinkErrorMm": 0.0023796911148322997
+      },
+      {
+        "arm": "tilt-positive",
+        "poses": 17,
+        "fastProof": {
+          "file": "tilt-positive-fast.json",
+          "sha256": "ffe5bfc232dd3a0424b44ce0b3af34735539a1dd98aaa8241c193d1c628a27a3"
+        },
+        "opaqueProof": {
+          "file": "tilt-positive-opaque.json",
+          "sha256": "9dfc64c1121cbda3fb4ea5d539687a768baa36ee4c5c50ca79cbeb3926d3e2b8"
+        },
+        "evaluations": 15728570,
+        "negativeBeyondPoint1Mm": 0,
+        "minimum": {
+          "level": 2,
+          "frame": 120,
+          "card": 193,
+          "fullHairTriangle": 7313,
+          "bary": [
+            0.53125,
+            0.42906746031746035,
+            0.03968253968253965
+          ],
+          "uv": [
+            0.36914062500000006,
+            0.27929687500000006
+          ],
+          "alpha": 0.5441176295280457,
+          "point": [
+            0.026022282788448686,
+            1.5826432911294792,
+            0.05514465145848041
+          ],
+          "signedDistanceMm": 2.5343542740664007,
+          "bodyTriangle": 23530
+        },
+        "selectedNineWholeBodyClear": true,
+        "selectedNineSupersetClear": true,
+        "faceClear": true,
+        "selectedRootsFirstSpansFeasible": true,
+        "wholeBodyMax": {
+          "caps": 7,
+          "rootLayer": 181,
+          "nape": 0,
+          "otherCurtains": 135,
+          "fringe": 0
+        },
+        "originalNeckMax": 0,
+        "minFirstSpanNormMarginMm": 3.462844365071958,
+        "maxRootErrorMm": 0.0001740831618883516,
+        "maxHalfwidthErrorMm": 6.0847881830361494e-05,
+        "maxLinkErrorMm": 1.3700243619404628,
+        "maxNineLinkErrorMm": 0.016302993340624322
+      },
+      {
+        "arm": "tilt-negative",
+        "poses": 17,
+        "fastProof": {
+          "file": "tilt-negative-fast.json",
+          "sha256": "89a1df4cb4c5f63924eed40cb923018d26e352a42448f245230177b48f9a36ef"
+        },
+        "opaqueProof": {
+          "file": "tilt-negative-opaque.json",
+          "sha256": "5a33e1d431268e96cff29bcc711306b21c564e0988d117d6d7dd5f32644554e9"
+        },
+        "evaluations": 15728570,
+        "negativeBeyondPoint1Mm": 0,
+        "minimum": {
+          "level": 2,
+          "frame": 60,
+          "card": 193,
+          "fullHairTriangle": 7313,
+          "bary": [
+            0.53125,
+            0.42906746031746035,
+            0.03968253968253965
+          ],
+          "uv": [
+            0.36914062500000006,
+            0.27929687500000006
+          ],
+          "alpha": 0.5441176295280457,
+          "point": [
+            0.038100536639196055,
+            1.5714885680566706,
+            0.0550855053440919
+          ],
+          "signedDistanceMm": 2.7454731892058075,
+          "bodyTriangle": 23530
+        },
+        "selectedNineWholeBodyClear": true,
+        "selectedNineSupersetClear": true,
+        "faceClear": true,
+        "selectedRootsFirstSpansFeasible": true,
+        "wholeBodyMax": {
+          "caps": 8,
+          "rootLayer": 180,
+          "nape": 0,
+          "otherCurtains": 26,
+          "fringe": 0
+        },
+        "originalNeckMax": 0,
+        "minFirstSpanNormMarginMm": 3.548144765838232,
+        "maxRootErrorMm": 0.00018247815302158235,
+        "maxHalfwidthErrorMm": 6.0784305078859235e-05,
+        "maxLinkErrorMm": 1.1242252779836235,
+        "maxNineLinkErrorMm": 0.017352261601582403
+      }
+    ],
+    "totalPoses": 85,
+    "opacityEvaluations": 78642850,
+    "negativeOpaqueEvaluations": 0,
+    "minimumOpaqueSample": {
+      "arm": "nod-negative",
+      "level": 0,
+      "frame": 90,
+      "card": 217,
+      "fullHairTriangle": 8073,
+      "bary": [
+        0.3046874999999999,
+        0.05952380952380953,
+        0.6357886904761906
+      ],
+      "uv": [
+        0.25830078125,
+        0.04345703125000001
+      ],
+      "alpha": 0.5607843399047852,
+      "point": [
+        -0.03023087844138943,
+        1.5405197429603765,
+        -0.003964802252691395
+      ],
+      "signedDistanceMm": 2.4282347531545923,
+      "bodyTriangle": 10288
+    },
+    "reverseNodBaseline": {
+      "file": "nod-negative-matched-baseline.json",
+      "sha256": "774d6683b757b5228da26129bbe5a80d354e6c0b91e4ed087ae5427fc85eb9e7",
+      "gates": {
+        "matchedInputs": true,
+        "other487FullStateExact": true,
+        "fullCapsExact": true,
+        "outsideNineLinkMetricsExact": true,
+        "noAddedRibbonPairs": true
+      },
+      "poses": 17,
+      "addedRibbonPairInstances": 0,
+      "removedRibbonPairInstances": 392
+    },
+    "qualifiedSmoke": {
+      "file": "qualified-forest-smoke-fast.json",
+      "sha256": "039c88ef5e83ef5f9e871c169f1eeb5501029ee1648392f5573f4c780b432767",
+      "poses": 2,
+      "actualServedDependenciesCaptured": true
+    },
+    "captureArchive": {
+      "path": "captures/bob01-g050-forest-motion-2026-09-09",
+      "manifestSha256": "c307fee871278e419f4825531379635186b72fb652fce2602bac88bdc1aada68",
+      "files": 799
+    },
+    "limits": [
+      "The 85 earlier captures pin raw candidate start/end hashes and actual transformed owner/data bytes. The two-state qualified follow-up additionally captures all three served dependencies; it does not rewrite historical provenance.",
+      "Reverse nod has a matched original-domain baseline: all other 487 chains/full caps/link metrics are exactly unchanged. The tilt/yaw directions have no matched baseline in this batch; inheritance is not measured there.",
+      "Finite alpha>.5 texel centers at base and CPU box mip1\u20133 are not a continuous surface/filtered-alpha or actual screen-LOD certificate. Nearest-normal sign remains a local body-surface diagnostic.",
+      "Strict whole-body failures on root, cap, and other-curtain contacts remain explicit. The selected nine body-clearance result does not mean every card or render is clear.",
+      "Authored cut is pinned; animated tip heights are free to move. No new link-error tolerance is invented.",
+      "Previous22-pose texture proof was not rerun. Shared reset poses in this new batch are counted once per captured arm, so this is an evaluation count, not a unique-world-position count."
+    ],
+    "reverseNodNineLinkComparison": {
+      "file": "nod-negative-nine-link-comparison.json",
+      "sha256": "90d60ffbc6e1c33f9a5bb04a239efbafad748f8a69d742fc1f574b26acad1738",
+      "baselineMax": {
+        "frame": 30,
+        "card": 223,
+        "baselineMaxLinkErrorMm": 0.23107756413512456,
+        "candidateMaxLinkErrorMm": 0.033335671501832226,
+        "maxErrorIncreaseMm": -0.19774189263329234
+      },
+      "candidateMax": {
+        "frame": 120,
+        "card": 272,
+        "baselineMaxLinkErrorMm": 0.18663379010848066,
+        "candidateMaxLinkErrorMm": 0.1903628322681688,
+        "maxErrorIncreaseMm": 0.0037290421596881396
+      },
+      "largestIncrease": {
+        "frame": 30,
+        "card": 217,
+        "baselineMaxLinkErrorMm": 0.00012381870909648762,
+        "candidateMaxLinkErrorMm": 0.0782465082239843,
+        "maxErrorIncreaseMm": 0.07812268951488781
+      },
+      "scope": "Nine-card per-chain maxima at matched reverse-nod poses. Increase compares each chain max to its own baseline max, not necessarily the same span."
+    },
+    "targetedFiniteClearancePass": true,
+    "analysisArchive": {
+      "path": "captures/bob01-g050-forest-acceptance-2026-09-09",
+      "manifestSha256": "3f9ecdf6cd443e6bbedfd8e86d125718d92ad4a223d4d6a5b11150508e89b30b",
+      "summarySha256": "8037382367a4baeba025785c86aa8be355cd3d9acadb9e4225771edd2d0532ab",
+      "files": 230
+    }
+  },
+  "installedAssetVerification": {
+    "groom": {
+      "path": "assets/hair/bob01/g050.glb",
+      "sha256": "db3565bb7272dcc82a2892ce042886f23c1a09aed66ea563a9e33cfa7ee1b72b"
+    },
+    "body": {
+      "path": "assets/figures/figure_g050.glb",
+      "sha256": "b56115d0cb52edb72af7e725bf479d81253b660c298bd95ff9e89456d671ec14"
+    },
+    "integrationCommit": "c871ed9",
+    "scope": "Installed groom/body bytes match measured capture assets; broader runtime integration checks are recorded by the integration checkpoint."
+  }
+}

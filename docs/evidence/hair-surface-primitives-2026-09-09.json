@@ -1,0 +1,132 @@
+{
+  "date": "2026-09-09T06:35:28.812Z",
+  "status": "passed",
+  "groups": 12,
+  "commands": [
+    "node packages/core/src/motion/HairSurface.primitives.selftest.mjs --gpu --report=/tmp/sugata-core-primitives-gpu.json"
+  ],
+  "sourceHashes": {
+    "HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "HairSurfaceQuery.js": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+    "HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+    "HairSurface.primitives.browser.mjs": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6",
+    "HairSurface.primitives.selftest.mjs": "91361535f255c4b37ad5d42f93f28dddb9c26682cdc66a975413eac093c74d96",
+    "fixtures/hair-segment-oracle.mjs": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239",
+    "fixtures/hair-segment-v1-control.txt": "ae2c46f3382773b15ba3e4cae1ba612c5942e87a2c7395d7b08b87bc2272b2b6",
+    "fixtures/hair-surface-primitives.json": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129"
+  },
+  "cpu": {
+    "groups": 4,
+    "randomCases": 300,
+    "maxOracleError": 4.2198476133333047e-16
+  },
+  "webgpu": {
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+      "backend": "WebGPU",
+      "adapter": {}
+    },
+    "errors": [],
+    "primitiveCases": 35,
+    "originalCases": 20,
+    "nearParallelCases": 15,
+    "maxDistanceErrorMm": 6.637876124888226e-05,
+    "maxUniqueClosestErrorMm": 6.79701419961694e-05,
+    "maxUniqueSegmentErrorMm": 4.5984502750911566e-05,
+    "bvhCases": 144,
+    "bvhTriangles": 9,
+    "bvhAlphas": [
+      0,
+      0.5,
+      1
+    ],
+    "bvhSeeds": [
+      4294967295,
+      0,
+      8,
+      4294967294
+    ],
+    "maxBvhDistanceErrorMm": 0.00010725483060025631,
+    "maxSeedDistanceDeltaMm": 0,
+    "normalCases": 8,
+    "actualSeparatedGradientError": 9.120790269793058e-10,
+    "actualSeparatedIdealAxisErrorDiagnostic": 0.005960385238491818,
+    "boundsCases": 12,
+    "disjointRecordClearing": {
+      "cache": [
+        17,
+        0,
+        0,
+        0,
+        23,
+        0,
+        0,
+        0
+      ],
+      "planes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameters": [
+        1,
+        0
+      ],
+      "passed": true
+    },
+    "resourceBefore": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    },
+    "resourceAfter": {
+      "storage": 0,
+      "bytes": 0,
+      "compute": 0
+    }
+  },
+  "historicalControls": {
+    "mechanism": "Isolated Playwright routes replace only the historical segment-parameter function or normal-direction threshold; all other core source is current. Shipping files remain untouched.",
+    "segment": {
+      "rejectedCases": 13,
+      "totalCases": 15,
+      "firstDistanceErrorMm": 0.007253628460546224,
+      "firstSegmentT": 0.49264705181121826,
+      "expectedT": 0.5,
+      "errors": []
+    },
+    "normal": {
+      "expected": [
+        0,
+        0,
+        1
+      ],
+      "historicalPlane": [
+        1,
+        0,
+        0,
+        0.010099999606609344
+      ],
+      "normalError": 1.4142135623730951,
+      "errors": []
+    }
+  },
+  "raw": {
+    "directory": "captures/hair-surface-primitives-2026-09-09",
+    "reportSha256": "bce459f363a71613b236bf44f310c8169008ef6f8c3ec819dc231218b8a6b143",
+    "manifestSha256": "eedb2bec7ffaf95886b6f9224b5442a8f525f3253df2c256524bb24904ca3788",
+    "entries": 13
+  },
+  "limits": [
+    "Primitive correctness and small generated BVH fixtures; no contact-convergence, all-bake clearance, appearance or performance claim.",
+    "Local smooth-normal sign on an open patch does not determine whole-body inside/outside.",
+    "Float32 metre-scale gate is 0.001 mm on distance and reconstructed witnesses; tied minima do not require equal t or barycentrics.",
+    "Hardware adapter identity was not serialized by this browser; WebGPU backend and Chromium version were confirmed. No timing result is reported.",
+    "Full Avatar motion, whole-body/cap/garment clearance, reset convergence and all five bakes require separate acceptance."
+  ]
+}

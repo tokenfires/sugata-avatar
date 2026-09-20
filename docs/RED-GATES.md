@@ -70,6 +70,13 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `packages/core/src/motion/HairDynamics.selftest.mjs` — September 13 scope: clause S reports
+  3.1262 mm worst tip movement in the final quarter-second after the held-head settling interval,
+  above its unchanged 0.5 mm limit. The isolated pre-history solver from `3946b3c` reproduces
+  exactly 3.1262 mm and 34/35 checks; the renderer-history change does not resolve this solver
+  settling defect. See `docs/HAIR-RENDER-HISTORY-2026-09-13.md` for both runs. This is separate
+  from the older timing clause recorded in the historical section below.
+
 - `tools/quoted-numbers.selftest.mjs` — RED ON A CLEAN CLONE BY CONSTRUCTION, four claims, all in
   `tools/critic/hair-reference.mjs` (lines 76, 77, 78 and 383). Their verifying clauses —
   `hair-reference.selftest.mjs` C1, C2 and C3 — **stand down when `--reference <dir>` is absent**,
@@ -221,7 +228,9 @@ directions, which is the clause worth keeping when this check is next edited.
   already uses it. Bound pinned by mutation this session, file restored byte-identically after each
   edit: green at floor 1.85 and 1.89, RED at 1.90, 1.91 and 1.95. Owned by `tools/figure-pipeline/**`.
 
-- `tools/request-ledger.selftest.mjs` — 25 of 26, and the failing clause is the ROUNDS clause rather
+- `tools/request-ledger.selftest.mjs` — September 13 remains 25/26: ROUNDS is stale and the
+  pre-existing REQ-088 HAIR_BAKES anchor is absent from both pre-change and current Avatar.
+  REQ-077 now adjudicates as applied. Historical declaration: the failing clause was ROUNDS rather
   than any entry: *"R12 — HEAD is 15 commits past the newest declared round, ceiling is 14. Declare
   the new round — which is what expires the OPEN entries below."* It went red AT THE MOMENT R20's own
   commit landed, because that commit is the fifteenth, so the round that caused it could not have
@@ -277,6 +286,10 @@ directions, which is the clause worth keeping when this check is next edited.
   them green is the work item rather than a repair to the gate. Owned by
   `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
   failure mode the whole gate exists to prevent.
+  September 8, 2026 restart recheck: **76/80**, the same four clauses, with no threshold changes.
+  The completed WebGPU run and hashes are preserved in
+  `docs/evidence/hair-panel-quadrature-2026-09-09.json`; the earlier sandbox-only launch failure
+  is superseded by that completed run. This is a focused check, not a full-suite revalidation.
   🎯 **R26 ADDED SIX CHECKS AND ALL SIX ARE GREEN** — the primary lobe width. The discriminating one
   re-derives Marschner Table 1's β_R band in Karis' variable and asserts that the value which
   shipped from R13 to R25 reads **7.4485° as β_M — inside the paper's 5–10°** — because R26's own

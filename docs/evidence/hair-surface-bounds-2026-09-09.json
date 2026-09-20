@@ -1,0 +1,145 @@
+{
+  "date": "2026-09-09T07:23:03.791Z",
+  "passed": true,
+  "groups": 8,
+  "mode": "guarded-production",
+  "productionGuardCount": 2,
+  "rawQueryHashes": {
+    "baseline": "9a074a430bdab72bc3844fef0f0077a480a06fe31dd145ebcd6ca9ee39039455",
+    "guarded": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1"
+  },
+  "sourceHashes": {
+    "HairSurfaceQuery.js": "f19425b8208dcb15d22a8e1c5b348d008d478ba9eb31b00e48426850ab9770c1",
+    "HairSurface.js": "cf4844caa2120af6adc4c59cac3415f34dce8021e5a4107d82d0d2dfdf0384ad",
+    "HairSurfaceContact.js": "5dbdfd59e152cc4a149221bfca48646f4d958931c221279190a4f3f368c89039",
+    "HairSurface.primitives.browser.mjs": "f3d3319437a2307b2bc1a5deff8a4b6f3750f17725e6e58bb5a205f8caef4df6",
+    "HairSurface.bounds.browser.mjs": "b0cc712c99e7d19be9bc8ba27e96dae92b7b18e151b538c903b05ccd9c83bb5f",
+    "HairSurface.bounds.selftest.mjs": "33c43b855bcb12d49dc2e221cc03c0e44ac94e90fb03b39ba64742b3861531d0",
+    "fixtures/hair-triangle-bounds-control.mjs": "73e0c088fa57e840a98c184037eb0fa599619450c48e97855168b9b4846d775e",
+    "fixtures/hair-triangle-bounds-adversarial.json": "949c1681e282a1e70f36062989822fa8557ed0c2b236fe091786e94648bc80c4",
+    "fixtures/hair-segment-oracle.mjs": "1867cc36f34af8dc074b5230ba160774caaee187d515b5fd48cd17552f171239",
+    "fixtures/hair-surface-primitives.json": "681ec9e452ed7fc2515615e0eafecfefbd164033a7d1ace80f773a4b2b18c129"
+  },
+  "cpu": {
+    "groups": 4,
+    "checked": 3072,
+    "positiveBounds": 2330,
+    "maxBoundExcess": 0
+  },
+  "additionalQueries": 732,
+  "limits": [
+    "The frozen18 adversarial records have17 unique names: the zero-origin ULP control is repeated and is not an independent geometric case.",
+    "CPU finite arithmetic checks and GPU parity are not a universal error bound for every ill-conditioned closest-feature calculation.",
+    "No runtime captures or candidate file is loaded. Both guards must exist in production; the route-only predecessor removes exactly those guards.",
+    "TrianglesTested remains visited count; this does not measure skipped math or GPU time.",
+    "Canonical contact/motion/appearance acceptance remains a separate gate."
+  ],
+  "cases": {
+    "adversarialRecords": 18,
+    "uniqueNamedAdversarialFamilies": 17,
+    "originalFixtureCases": 35,
+    "queryBatches": 244,
+    "pointQueries": 488,
+    "segmentQueries": 244,
+    "existingCore": {
+      "primitives": 35,
+      "bvh": 144,
+      "normals": 8,
+      "bounds": 12,
+      "recordClearing": 1
+    }
+  },
+  "arms": {
+    "baseline": {
+      "servedQuerySha256": "2be05a88ffd822dfb4810c594a63128120bdccdc6e6a53c6bb636bd1b8dbcaf2",
+      "replacements": 1,
+      "errors": [],
+      "resources": {
+        "core": {
+          "before": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          },
+          "after": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          }
+        },
+        "extra": {
+          "before": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          },
+          "after": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          }
+        }
+      }
+    },
+    "guarded": {
+      "servedQuerySha256": "472ffbb9be7c9f4a7307e4a14ece1ad51629721b91ce51a2943dc58fc4e60f7c",
+      "replacements": 1,
+      "errors": [],
+      "resources": {
+        "core": {
+          "before": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          },
+          "after": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          }
+        },
+        "extra": {
+          "before": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          },
+          "after": {
+            "storage": 0,
+            "bytes": 0,
+            "compute": 0
+          }
+        }
+      }
+    }
+  },
+  "raw": {
+    "directory": "captures/hair-surface-bounds-2026-09-09",
+    "manifestSha256": "a1de380692eb208a940a61f6de815aaf7dc3293e0046cd315c0ae4a357ae2a00",
+    "reportSha256": "805396e24d3b217cb9dc801a332ef310087377872d27f200d0ca3eef66da3bb3",
+    "entries": 17
+  },
+  "parity": "Every returned field matches the predecessor. Additional queries compare exact Float32 bits, source/ordered triangle IDs, normals, boundary flags and visited telemetry.",
+  "sourcePromotion": "Production f19425b8 preserves e3b680d shader arithmetic; only two whitespace-only lines were trimmed.",
+  "leaf1Stop": {
+    "cpuOnly": true,
+    "activeChains": 384,
+    "canonicalLeaf4PackedArraysReproduced": true,
+    "allMinimaAndSourceIdsEqual": true,
+    "leaf4Nodes": 1023,
+    "leaf1Nodes": 3743,
+    "iteration16": {
+      "leaf4GuardedNodeVisits": 279591,
+      "leaf1NodeVisits": 501689,
+      "leaf4GuardedExactTriangles": 93647,
+      "leaf1ExactTriangles": 93622
+    },
+    "iteration64": {
+      "leaf4GuardedNodeVisits": 279589,
+      "leaf1NodeVisits": 501685,
+      "leaf4GuardedExactTriangles": 93649,
+      "leaf1ExactTriangles": 93625
+    },
+    "conclusion": "No GPU probe: exact feature work essentially unchanged; node visits increase79.44%. Counts are not a GPU timing prediction."
+  }
+}

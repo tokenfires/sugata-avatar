@@ -1,0 +1,68 @@
+{
+  "created": "2026-09-13T19:29:32.059Z",
+  "status": "experimental integration, not completed eye contact or emotion vocabulary",
+  "archive": "captures/attention-action-2026-09-13",
+  "files": 234,
+  "bytes": 79693199,
+  "manifestSHA256": "a2893f54c89fb6e2fe84ef7a039df7afeca4ac8e4d0fb68bd2d7c9f8a8d439a8",
+  "sourceHashes": {
+    "packages/core/src/motion/AttentionAction.js": "ddbe98b6325cf89f646a9281b2945cf63841de3f8f83692d59ab6e0995de7b24",
+    "packages/core/src/motion/Gaze.js": "1e056b278429097cdd9be6160b4d0bdecd8af1d215544e9dc50bc80070fa5c8d",
+    "packages/core/src/motion/IdleMotion.js": "1d69470f828c879cadfff5aa155e37b0f96e8870383e5e7f4be3537a0ac86989",
+    "packages/core/src/motion/Layer.js": "4e26f0287b4fe22ad940940085296840f0093143712bac6c085ff0dfafe83e26",
+    "packages/core/src/motion/MotionStack.js": "e449757472e3d7ed9ded89984b3317fde7b9fa3ee1339798ccc550ee837153bc",
+    "packages/core/src/motion/Breath.js": "74b1ba926f9a07448556b936da936e16e8c361156f0506f745939fccc5c5a9c0",
+    "packages/core/src/Avatar.js": "fe80f1306282b9af1ae88ae75f0537dda6b7d8dfbf2eb782b861fa409e59217f",
+    "packages/testbed/src/portrait.js": "0fb43a2de97670568d49d10acc7b6235c36c7bdfd3aa841231e566d6ad22398f",
+    "packages/testbed/src/portrait.html": "600ef7ecb401b510fd258f679347e79b0195fc1002632602cc4046d84a4719d6"
+  },
+  "cpu": {
+    "attentionGroups": 9,
+    "gaze": 114,
+    "motionStack": 47,
+    "independentGroups": 8,
+    "independentRecoveredDefects": 2,
+    "catalogueAssertions": 92
+  },
+  "browser": {
+    "completed": true,
+    "runs": 2,
+    "sampledPNGs": 138,
+    "interactionGroups": 12,
+    "pageErrors": []
+  },
+  "live": {
+    "completed": true,
+    "groups": 5,
+    "pageErrors": []
+  },
+  "scopeLimits": [
+    "No calibrated pupil contact",
+    "No full-body or additional identity qualification",
+    "No live speech/audio or inference",
+    "No performance budget or AAA completion claim"
+  ],
+  "preview": {
+    "checked": "2026-09-13T19:31:24.182Z",
+    "session": 62784,
+    "port": 5197,
+    "checks": [
+      {
+        "url": "/src/portrait.html?hair=bob02",
+        "status": 200,
+        "contains": "Look toward me"
+      },
+      {
+        "url": "/src/portrait.js",
+        "status": 200,
+        "contains": "new AttentionAction"
+      },
+      {
+        "url": "/@fs/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/AttentionAction.js",
+        "status": 200,
+        "contains": "acquiredScale"
+      }
+    ],
+    "sourceHashesStillMatch": true
+  }
+}

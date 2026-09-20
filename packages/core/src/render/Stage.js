@@ -53,15 +53,19 @@ import {
     RenderPipeline,
     Scene,
     SRGBColorSpace,
+    Vector2,
     WebGPURenderer
 } from 'three/webgpu';
 
-import { pass, renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
+import { renderOutput, screenUV, uniform, vec4 } from 'three/tsl';
 
 import { channelDisplayNode, channelGridNode, GBuffer } from './GBuffer.js';
 import { createHairOIT, HAIR_OIT_MINIMUM_ATTACHMENT_BYTES, HAIR_OIT_MODES } from './HairOIT.js';
 import { installMorphVelocity, MORPH_VELOCITY_MODES, setMorphVelocityMode } from './MorphVelocity.js';
 import { createTemporalResolve, TAAU_RESOLUTION_SCALE, TEMPORAL_AA_MODES } from './TRAAPost.js';
+
+import { RenderParticipants } from './RenderParticipants.js';
+import { StageScenePass } from './StageScenePass.js';
 
 const MAX_PIXEL_RATIO = 2;
 const FPS_SAMPLE_WINDOW_MS = 500;
@@ -81,6 +85,7 @@ export class Stage {
         this.canvas = null;
 
         this.frameCallbacks = [];
+        this.renderParticipants = new RenderParticipants( this );
 
         // Deferred path. All null on the forward path.
         this.renderPipeline = null;
@@ -116,6 +121,7 @@ export class Stage {
         this.maxPixelRatio = MAX_PIXEL_RATIO;
         this.pixelRatio = 1;
         this.fixedSize = null;
+        this.drawingBufferSize = new Vector2();
         this.resizeObserver = null;
         this.pixelRatioWatcher = null;
 
@@ -398,6 +404,7 @@ export class Stage {
 
         this.requirePipeline( 'setViewMode' );
 
+        if ( this.viewMode !== view ) this.renderParticipants.invalidate( 'view mode changed' );
         this.viewMode = view;
         this.refreshOutputNode();
 
@@ -416,6 +423,7 @@ export class Stage {
 
         this.requirePipeline( 'setComposeOutput' );
 
+        this.renderParticipants.invalidate( 'beauty composition changed' );
         this.composeOutput = compose;
         this.refreshOutputNode();
 
@@ -434,6 +442,7 @@ export class Stage {
 
         this.requirePipeline( 'setResolutionScale' );
 
+        if ( this.resolutionScale !== scale ) this.renderParticipants.invalidate( 'resolution scale changed' );
         this.resolutionScale = scale;
         this.scenePass.setResolutionScale( scale );
 
@@ -470,6 +479,8 @@ export class Stage {
             throw new Error( 'Stage: cannot enable temporal AA on a renderer built with MSAA.' );
 
         }
+
+        this.renderParticipants.invalidate( 'temporal mode changed' );
 
         if ( this.temporal !== null ) {
 
@@ -596,26 +607,29 @@ export class Stage {
      */
     dispose() {
 
+        const errors = [];
+        const release = fn => { try { fn(); } catch ( error ) { errors.push( error ); } };
+        release( () => this.renderParticipants.dispose() );
         this.unwatchViewport();
         this.frameCallbacks.length = 0;
 
         if ( this.temporal !== null ) {
 
-            this.temporal.dispose();
+            release( () => this.temporal.dispose() );
             this.temporal = null;
 
         }
 
         if ( this.ambientOcclusion !== null ) {
 
-            this.ambientOcclusion.dispose();
+            release( () => this.ambientOcclusion.dispose() );
             this.ambientOcclusion = null;
 
         }
 
         if ( this.hairOIT !== null ) {
 
-            this.hairOIT.dispose();
+            release( () => this.hairOIT.dispose() );
             this.hairOIT = null;
 
         }
@@ -628,12 +642,13 @@ export class Stage {
         // Renderer.dispose() stops its own animation loop, so we do not stop it twice.
         if ( this.renderer !== null ) {
 
-            this.renderer.dispose();
+            release( () => this.renderer.dispose() );
             this.renderer = null;
 
         }
 
         this.backendName = 'disposed';
+        if ( errors.length ) throw new AggregateError( errors, 'Stage disposal failed.' );
 
     }
 
@@ -649,7 +664,7 @@ export class Stage {
      */
     buildPipeline( resolutionScale ) {
 
-        this.scenePass = pass( this.scene, this.camera );
+        this.scenePass = new StageScenePass( this );
         this.gbuffer = new GBuffer( this.scenePass, {
             hairOIT: this.hairOITMode === 'wboit',
             hairOITDefect: this.hairOITDefect
@@ -769,17 +784,20 @@ export class Stage {
      * One image. On the deferred path this must go through `RenderPipeline.render()` rather
      * than `renderer.render()` — the pipeline is what binds the MRT and runs the composite.
      */
+    registerRenderParticipant( participant ) {
+
+        return this.renderParticipants.register( participant );
+
+    }
+
     draw() {
 
-        if ( this.renderPipeline !== null ) {
+        return this.renderParticipants.draw( () => {
 
-            this.renderPipeline.render();
+            if ( this.renderPipeline !== null ) return this.renderPipeline.render();
+            return this.renderer.render( this.scene, this.camera );
 
-        } else {
-
-            this.renderer.render( this.scene, this.camera );
-
-        }
+        } );
 
     }
 
@@ -928,10 +946,24 @@ export class Stage {
         const width = this.fixedSize !== null ? this.fixedSize.width : ( this.canvas.clientWidth || 1 );
         const height = this.fixedSize !== null ? this.fixedSize.height : ( this.canvas.clientHeight || 1 );
 
-        this.pixelRatio = Math.min( window.devicePixelRatio || 1, this.maxPixelRatio );
+        const ratio = Math.min( window.devicePixelRatio || 1, this.maxPixelRatio );
+        const viewportKey = `${ width }:${ height }:${ ratio }`;
+        if ( this.renderViewportKey !== viewportKey ) this.renderParticipants.invalidate( 'viewport changed' );
+        this.renderViewportKey = viewportKey;
+        this.pixelRatio = ratio;
 
         this.renderer.setPixelRatio( this.pixelRatio );
         this.renderer.setSize( width, height, false );
+
+        // TAAU's pipeline hook reads scene dimensions before PassNode.updateBefore() runs.
+        // Resize the existing targets now so its first jitter/seed uses the new viewport.
+        // PassNode applies resolutionScale itself; these are full drawing-buffer pixels.
+        if ( this.scenePass !== null ) {
+
+            const size = this.renderer.getDrawingBufferSize( this.drawingBufferSize );
+            this.scenePass.setSize( size.width, size.height );
+
+        }
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
