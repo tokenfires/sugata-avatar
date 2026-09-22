@@ -1,0 +1,411 @@
+
+> sugata@0.1.0 selftests
+> bash tools/run-selftests.sh
+
+HEAD: afad2fb
+tree: clean   at 23:00:49Z
+
+exit=0  ./docs/eye-optics-claims.selftest.mjs                      PASS — 43 checks.
+exit=0  ./docs/measured-claims.selftest.mjs                        PASS — 60 checks.
+exit=1  ./packages/core/src/Avatar.hair-contact.gpu.selftest.mjs   Node.js v24.13.1
+         | node:internal/modules/run_main:107
+         |     triggerUncaughtException(
+         |     ^
+         | 
+         | AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+         | 
+         | 36 !== 35
+         | 
+         |     at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-contact.gpu.selftest.mjs:41:474
+         |     at check (file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-contact.gpu.selftest.mjs:24:25)
+         |     at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-contact.gpu.selftest.mjs:41:2 {
+         |   generatedMessage: true,
+         |   code: 'ERR_ASSERTION',
+         |   actual: 36,
+         |   expected: 35,
+         |   operator: 'strictEqual',
+         |   diff: 'simple'
+         | }
+         | 
+         | Node.js v24.13.1
+exit=0  ./packages/core/src/Avatar.hair-contact.selftest.mjs       4 asynchronous contact retirement groups passed
+exit=1  ./packages/core/src/Avatar.hair-forest.gpu.selftest.mjs    Node.js v24.13.1
+         | node:internal/modules/run_main:107
+         |     triggerUncaughtException(
+         |     ^
+         | 
+         | AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+         | 
+         | 36 !== 35
+         | 
+         |     at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:39:474
+         |     at check (file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:23:25)
+         |     at file:///Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.hair-forest.gpu.selftest.mjs:39:2 {
+         |   generatedMessage: true,
+         |   code: 'ERR_ASSERTION',
+         |   actual: 36,
+         |   expected: 35,
+         |   operator: 'strictEqual',
+         |   diff: 'simple'
+         | }
+         | 
+         | Node.js v24.13.1
+exit=0  ./packages/core/src/Avatar.selftest.mjs                    137 passed, 0 failed
+exit=0  ./packages/core/src/AvatarQuality.selftest.mjs             68 passed, 0 failed
+exit=0  ./packages/core/src/affect/AppraisalAffect.selftest.mjs    54 passed, 0 failed
+exit=0  ./packages/core/src/affect/LMStudioClient.selftest.mjs     61 passed, 0 failed
+exit=0  ./packages/core/src/affect/affect.selftest.mjs             134 passed, 0 failed
+exit=0  ./packages/core/src/figure/bodymass.selftest.mjs           15/15 gates passed
+exit=0  ./packages/core/src/figure/figure.selftest.mjs             PASS — 44 checks.
+exit=0  ./packages/core/src/figure/identitycatalogue.selftest.mjs  72/72 gates passed
+exit=0  ./packages/core/src/figure/identitytargets.selftest.mjs    47/47 gates passed
+exit=0  ./packages/core/src/figure/restpose.selftest.mjs           All RestPose checks passed.
+exit=0  ./packages/core/src/material/EyeMaterial.selftest.mjs      132/132 gates passed
+exit=0  ./packages/core/src/material/HairEnvelope.selftest.mjs       HairEnvelope: 29/29 clauses green
+exit=0  ./packages/core/src/material/HairMaterial.card-roots.selftest.mjs 5 card-root CPU groups passed; no GPU appearance claim.
+exit=1  ./packages/core/src/material/HairMaterial.selftest.mjs     RED — 75/80 checks passed
+         |       Σ(L·Ω) of order 4 to 6 sr·nits to the groom, so the product lands one to two stops below the tone
+         |       curve's shoulder. What this rules out: "the scene has no hair" is no longer the explanation, and
+         |       neither is a dim BSDF relative to its own model — the anti-fudge check above measures the shader
+         |       just under the closed form's own ceiling. What it leaves open: a specular lobe on a WET or oiled
+         |       surface, the eye catchlight cubemap (3.4), and Phase 9's metal trim — all three of which are
+         |       small, bright and NOT governed by a fibre's absorption.
+         |       ⚠️ AND THE TARGET BAND ITSELF DOES NOT REPRODUCE. docs/research/hair.md §0.2 re-measured the look
+         |       spec's 0.017% on overview_character.jpg and read 0.0137% (810 px of 5,891,200) under encodedLuma,
+         |       with four other plausible luma definitions giving 0.0040%, 0.0088% and 0.0719%. The reference
+         |       images are deliberately not in the repository, so this round could not re-measure them and the
+         |       0.017–0.036% band is left standing rather than quietly widened to whichever number passes.
+         | 
+         | --- cost, at 1080p, against a 16.6 ms budget -------------------------------------
+         | 
+         |       bald  180 valid samples: p50 11.202 ms, p95 14.360 ms
+         |       hair  180 valid samples: p50 12.027 ms, p95 14.333 ms
+         | PASS  the groom plus its BSDF fits inside the 16.6 ms budget at 1080p
+         |       hair adds 0.825 ms p50 and -0.028 ms p95; p95 lands at 14.333 ms, 2.267 ms under budget. One draw call, 7,224 triangles, no extra pass — the whole cost is the fragment shader and the shadow-map draw the groom now also makes.
+         | 
+         | RED — 75/80 checks passed
+exit=0  ./packages/core/src/material/SkinOcclusion.selftest.mjs    13 passed, 0 failed  (32 rays at 35 mm as shipped)
+exit=0  ./packages/core/src/material/SkinRegions.selftest.mjs      29 passed, 0 failed
+exit=0  ./packages/core/src/material/SkinTransmission.selftest.mjs PASS 22 skin transmission regression checks
+exit=0  ./packages/core/src/motion/AttentionAction.selftest.mjs    9 attention/ownership groups passed (CPU; visual readability is separate).
+exit=0  ./packages/core/src/motion/AttentionSmile.selftest.mjs     12 optional smile groups passed (CPU; rendered composition is separate).
+exit=0  ./packages/core/src/motion/BodyIdle.selftest.mjs           41/41 gates passed
+exit=0  ./packages/core/src/motion/FacialIdle.selftest.mjs         27/27 gates passed
+exit=0  ./packages/core/src/motion/Gaze.selftest.mjs               114 passed, 0 failed
+exit=0  ./packages/core/src/motion/Gesture.selftest.mjs            96/96 gates passed
+exit=0  ./packages/core/src/motion/HairBodyContactCalibration.selftest.mjs 16 contact calibration/owner groups passed (CPU; actual motion acceptance separate)
+exit=0  ./packages/core/src/motion/HairDynamics.contact.selftest.mjs PASS 18 contact factory contract checks (CPU orchestration; no GPU geometry/performance claim)
+exit=0  ./packages/core/src/motion/HairDynamics.disposal.selftest.mjs PASS 21 hair disposal regression checks
+exit=1  ./packages/core/src/motion/HairDynamics.selftest.mjs       34/35 checks green in 31s
+         | PASS    X2 hairsubmit=perkernel opens three passes a frame, and the count sees it
+         |         3 renderer.compute() calls a frame against 1 one-pass — two solve substeps and the rebuild, each in its own call.
+         |       (the same pair by TIME, not a check: p50 0.02929 / p95 0.04066 ms per-kernel against 0.02387 / 0.03567 one-pass, and amortised 0.01789 against 0.01788. Research doc §0.3 puts the pass opening at 30.8–54.1 µs, and the two arms here differed by 4.7x on one run of this file and by 1.2x on another — same tree, same machine, minutes apart. The direction is always right and the magnitude is weather, which is why the COUNT above is the check and this line is printed rather than asserted.)
+         | 
+         | --- A: the ACCEPTANCE PAGE, which is the only page a judge captures ---------
+         | 
+         | PASS  A1 the solver is ON alive.html — the page a judge captures runs punch-list 6.6
+         |         496 chains x 17 rings = 8432 particles, 1 renderer.compute() call a frame, oit 'stochastic'
+         | PASS  A2 ...and the groom MOVES behind the shipped idle stack — mean tip lag over 1 mm
+         |         2.9878 mm peak mean / 10.8663 mm peak worst tip over 496 chains, measured against where the head transform ALONE would have put each tip — so head idle, gaze and sway are subtracted out and what is left is the simulation. Nothing on this page drives the head on purpose: it is `MotionStack` doing what it does on every plate. ⚠️ geometry.attributes.position.version reads 0 throughout, and always will — see this block's header.
+         | PASS  A3 ...and the same instrument reads under 0.1 mm on a ?freeze plate, so A2 is measuring the head and not the meter
+         |         0.003134 mm worst against 10.8663 mm moving, a factor of 3467. The solver ran on both — same substeps, same dispatch — and the head is the only difference between them.
+         | PASS  A4 the capture epoch reaches the solver: 60 steps at 1/60 leave it at exactly 120 substeps, on two loads that booted at different rAF epochs
+         |         hairSteps 120 and 120 against an oracle of 120 (1/60 − 1/120 − 1/120 is exactly zero in binary), from boot epochs 15 and 108. The two loads booted at different epochs, so `reset()` at the takeover is what makes the counts equal rather than luck.
+         | PASS  A5 ...and they reach the same pose, tip for tip
+         |         0.00000000 mm worst tip difference over 496 tips, on a run carrying 1.365 mm of mean tip lag — so the pair is reproducible AND was simulating, which is the pairing §1.3 asks for.
+         | PASS  A6 ?hairmotion is a CONTROL: on a still plate it moves under 0.50% of samples
+         |         2807 of 1080000 samples (0.2599%) differ, worst 48/255, on a groom whose particles sit 0.003134 mm from the rigid pose. NOT zero: the coverage test is a step function and the two paths reach the same vertex by different arithmetic. Two loads of the ON plate are byte-identical, so this is the toggle and not the weather.
+         | 
+         | 34/35 checks green in 31s
+exit=0  ./packages/core/src/motion/HairSkinTransform.selftest.mjs  5 head skin transform CPU groups passed
+exit=0  ./packages/core/src/motion/HairSurface.bounds.selftest.mjs PASS 4 triangle bounds groups (guarded-production, CPU only)
+exit=0  ./packages/core/src/motion/HairSurface.cache.selftest.mjs  PASS 4 exact query-cache groups (CPU only)
+exit=0  ./packages/core/src/motion/HairSurface.forest.selftest.mjs PASS 5 forest groups (CPU only)
+exit=0  ./packages/core/src/motion/HairSurface.primitives.selftest.mjs PASS 4 hair surface primitive groups (CPU only; add --gpu for shader checks)
+exit=0  ./packages/core/src/motion/HairSurface.selftest.mjs        }
+exit=0  ./packages/core/src/motion/IKSolver.selftest.mjs           106/106 gates passed, 17 measurements reported
+exit=0  ./packages/core/src/motion/MotionStack.selftest.mjs        47 passed, 0 failed
+exit=0  ./packages/core/src/motion/PointAim.selftest.mjs           14 point aim CPU groups passed; renderer, continuous appearance and frame cost remain separate.
+exit=0  ./packages/core/src/motion/idle-motion.selftest.mjs        106/106 gates passed
+exit=0  ./packages/core/src/motion/ocular.selftest.mjs             64 passed, 0 failed
+exit=1  ./packages/core/src/motion/sway.selftest.mjs                 - every emotion stays inside the SKINNED footprint (mm)
+         |   ....  g075 fear  deepest rear CoM (mm)                -48.141   rear edge -59.83 raw / -63.54 skinned  ->  margin 11.685 / 15.397
+         |   ....  g100 neutral  deepest rear CoM (mm)             -37.592   rear edge -65.37 raw / -69.58 skinned  ->  margin 27.780 / 31.991
+         |   ....  g100 fear  deepest rear CoM (mm)                -46.896   rear edge -65.37 raw / -69.58 skinned  ->  margin 18.476 / 22.687
+         |   ....  g000 neutral  skinned margin by window (mm)  60s 13.973   120s 13.585   300s 13.585   900s 7.431   
+         |   ....  g000 fear  skinned margin by window (mm)     60s 4.584   120s 4.197   300s 4.197   900s -1.963   
+         |   ....  g025 neutral  skinned margin by window (mm)  60s 18.897   120s 18.512   300s 18.512   900s 12.358   
+         |   ....  g025 fear  skinned margin by window (mm)     60s 9.541   120s 9.157   300s 9.157   900s 2.996   
+         |   ....  g050 neutral  skinned margin by window (mm)  60s 24.646   120s 24.262   300s 24.262   900s 18.108   
+         |   ....  g050 fear  skinned margin by window (mm)     60s 15.312   120s 14.930   300s 14.930   900s 8.769   
+         |   ....  g075 neutral  skinned margin by window (mm)  60s 31.250   120s 30.869   300s 30.869   900s 24.714   
+         |   ....  g075 fear  skinned margin by window (mm)     60s 21.938   120s 21.559   300s 21.559   900s 15.397   
+         |   ....  g100 neutral  skinned margin by window (mm)  60s 38.525   120s 38.146   300s 38.146   900s 31.991   
+         |   ....  g100 fear  skinned margin by window (mm)     60s 29.226   120s 28.849   300s 28.849   900s 22.687   
+         |   PASS  a 60 s window over-reports headroom against 900 s (mm)      6.547   target 1.000 .. 100.000   worst row: g000 fear. Duarte's A/P drift lattice turns over every 319 s, so a window under that samples one phase of it. This is measured off the same trace the red clause below reads, so the two cannot disagree
+         |   PASS  the footprint bakes were actually present and measured      5.000   target = 5.000            5 of 5. Without this, a partial LFS checkout passes the red clause below at Infinity rather than failing it
+         |   FAIL  every emotion stays inside the SKINNED footprint (mm)     -1.963   target >= 0               tightest: g000 / fear. ⚠️ PRE-EXISTING — measured on the shipped tree with the affect full scale at 0. Declared in docs/RED-GATES.md; see this section's header for why the two green gates either side of it cannot see this
+         | 
+         | 284/285 gates passed
+         | FAILED:
+         |   - every emotion stays inside the SKINNED footprint (mm)
+exit=0  ./packages/core/src/physics/SpringBones.selftest.mjs       86/86 gates passed
+exit=0  ./packages/core/src/render/CardRenderHistory.gpu.selftest.mjs }
+exit=0  ./packages/core/src/render/CardRenderHistory.lifecycle.gpu.selftest.mjs {"completed":true,"errors":[],"result":[{"name":"bob02 auto","storage":9,"bytes":1249920,"compute":6,"clients":2},{"name":"bob02 disposed","storage":0,"bytes":0,"compute":0,"clients":1},{"name":"bob01 auto","storage":36,"bytes":7447776,"compute":18,"clients":2},{"name":"hold 0","storage":35,"bytes":7177952,"compute":21,"clients":1},{"name":"reinstalled 0","storage":36,"bytes":7447776,"compute":22,"clients":2},{"name":"hold 1","storage":35,"bytes":7177952,"compute":21,"clients":1},{"name":"reinstalled 1","storage":36,"bytes":7447776,"compute":22,"clients":2},{"name":"g025 auto","storage":9,"bytes":1249920,"compute":6,"clients":2},{"name":"g025 hold","storage":8,"bytes":980096,"compute":5,"clients":1},{"name":"avatar disposed","storage":0,"bytes":0,"compute":0,"clients":0}]}
+exit=0  ./packages/core/src/render/CardRenderHistory.native.selftest.mjs PASS 13 native callback/MRT controls (including the empty-output failure mechanism).
+exit=0  ./packages/core/src/render/CardRenderHistory.selftest.mjs  {"finalGroups":22}
+exit=0  ./packages/core/src/render/FaceCardCoverage.cleanup.selftest.mjs {"groups":12,"passed":true,"sourceSha256":"729ed498df7fc0a20d6da09771d74ddddf8fe59b2fb4c626d70feba2a20ed1da","temporaryModulesRemoved":true,"scope":"CPU cleanup boundaries using actual TSL nodes; injected configuration failures do not claim ordinary setName throws or actual GPU allocation failure."}
+exit=0  ./packages/core/src/render/FaceCardCoverage.gpu.selftest.mjs {"completed":true,"errors":[],"result":[{"name":"initial","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"exact","reason":null,"live":true,"valid":true,"commits":8,"cachedDraws":1,"invalidations":0,"lastDraw":{"mode":"exact","currentMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"previousMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":86},{"name":"debug","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"binary","reason":"original binary for unsupported active pass","shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"hold","reason":"fresh beauty was not a stable observed groom; reseed required","live":true,"valid":false,"commits":8,"cachedDraws":1,"invalidations":9,"lastDraw":{"mode":"exact","currentMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"previousMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[0,0],"frame":113},{"name":"beauty","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"exact","reason":null,"live":true,"valid":true,"commits":10,"cachedDraws":1,"invalidations":10,"lastDraw":{"mode":"exact","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":115},{"name":"off","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"binary","reason":"original binary for unsupported active pass","shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"hold","reason":"fresh beauty was not a stable observed groom; reseed required","live":true,"valid":false,"commits":10,"cachedDraws":1,"invalidations":20,"lastDraw":{"mode":"exact","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[0,0],"frame":120},{"name":"taau","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"seeding","reason":null,"live":true,"valid":true,"commits":11,"cachedDraws":1,"invalidations":24,"lastDraw":{"mode":"seeding","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":123},{"name":"traa","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"hold","reason":"fresh beauty was not a stable observed groom; reseed required","live":true,"valid":false,"commits":11,"cachedDraws":1,"invalidations":34,"lastDraw":{"mode":"seeding","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":153},{"name":"taau-again","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"seeding","reason":null,"live":true,"valid":true,"commits":12,"cachedDraws":1,"invalidations":38,"lastDraw":{"mode":"seeding","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":156},{"name":"direct-primary","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"binary","reason":"original binary for unsupported active pass","shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"hold","reason":"hold fallback: groom rendered outside owned beauty","live":true,"valid":false,"commits":12,"cachedDraws":1,"invalidations":39,"lastDraw":{"mode":"seeding","currentMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[0,0],"frame":168},{"name":"recovered","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"seeding","reason":null,"live":true,"valid":true,"commits":13,"cachedDraws":1,"invalidations":39,"lastDraw":{"mode":"seeding","currentMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":170},{"name":"direct-alternate","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"binary","reason":"original binary for unsupported active pass","shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"hold","reason":"hold fallback: groom rendered outside owned beauty","live":true,"valid":false,"commits":13,"cachedDraws":1,"invalidations":40,"lastDraw":{"mode":"seeding","currentMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"previousMVP":[5.035494910945779,-0.00012353635818048028,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0714104724958176,-0.0005811928703112027,-0.978343269387683,-0.9781476007338055,0.000963569844914714,-6.59534032995397,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[0,0],"frame":172},{"name":"recovered","coverage":{"requested":"auto","live":true,"managedMaterials":2,"registered":true,"lastObservedMode":"coverage","reason":null,"shadowAlphaTest":0.1,"ownedStorageBuffers":0},"hair":{"requested":"auto","mode":"seeding","reason":null,"live":true,"valid":true,"commits":14,"cachedDraws":1,"invalidations":40,"lastDraw":{"mode":"seeding","currentMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"previousMVP":[5.0357151563809674,0,-0.207953281474054,-0.2079116908177592,0,4.3314758742841555,0,0,-1.0703742991899556,0,-0.978343269387683,-0.9781476007338055,-1.4289169926588358e-16,-6.595880799314398,0.899789891577988,0.9096099335996726],"source":{"write":1,"reset":1,"builtReset":1,"ready":true,"rawComputeUsed":false}},"cardVertexBase":652,"cardVertexCount":16864,"ownedHistoryBuffers":1,"paddedHistoryBytes":269824,"caps":"native hold; exact cards only"},"enabled":[1,1],"frame":174},{"name":"coverage-disposed","coverage":{"requested":"auto","live":false,"managedMaterials":0,"registered":false,"lastObservedMode":"disposed","reason":"disposed","shadowAlphaTest":0.1,"ownedStorageBuffers":0},"clients":1,"storageBefore":18,"storageAfter":18}],"disposal":{"storage":0,"leaked":[]}}
+exit=0  ./packages/core/src/render/FaceCardCoverage.selftest.mjs   {"groups":16}
+exit=0  ./packages/core/src/render/GTAO.orbit.selftest.mjs         PASS 12 orbit regression checks
+exit=0  ./packages/core/src/render/GTAO.selftest.mjs               PASS: 27/27 checks green
+exit=0  ./packages/core/src/render/Grade.selftest.mjs              PASS: 68/68 checks green
+exit=0  ./packages/core/src/render/GroundContact.selftest.mjs      PASS: 78/78 checks green
+exit=0  ./packages/core/src/render/HairCardFrame.selftest.mjs      {"groups":12}
+exit=1  ./packages/core/src/render/HairOIT.selftest.mjs            FAIL: 31/32 checks green
+         | PASS  B2 the cutout arm is the LEAST stable, which is the silhouette crawling
+         |       cutout 19.9586 against hash 18.5860 and wboit 6.4613 — 3.09x the accumulation arm. A binary alpha test is the one decision a temporal filter cannot soften.
+         | PASS  B3 no arm pops: the worst frame-to-frame step is within 2x of the median one
+         |       worst is wboit at 1.37x — blend 1.27x, cutout 1.25x, hash 1.24x, stochastic 1.25x, wboit 1.37x. The camera moves at a constant rate, so a constant step is the honest answer and a spike would be a card changing places.
+         | 
+         | --- 3.21, the coverage decision: does the picture depend on the seed? -----------
+         | 
+         |       mask 613517 px of 1080000 (56.81%), every pixel the groom moves against the same page with no groom
+         | 
+         |       shipped        seed RMS   3.0378 cv   worst   93.7    18.24% over 2 cv
+         |       white-dither   seed RMS   4.1770 cv   worst  104.3    25.48% over 2 cv
+         |       frozen-dither  seed RMS  11.6380 cv   worst  133.2    38.89% over 2 cv
+         | PASS  C1 the shipped dither integrates: two disjoint stretches of the sequence agree
+         |       phases 0 and 977, 128 converged frames apiece, 3.0378 cv RMS over the groom with 18.24% of it over 2 cv. ⚠️ THIS CLAUSE IS NOT SUFFICIENT ON ITS OWN and C2 is its liveness control — measured, by deleting `.add( offset )` from hairDitherThresholdNode: C1 then reads 0.0003 cv and goes GREEN, because a seed nothing reads makes both observers agree exactly. LEARNINGS §1.25g.
+         | PASS  C2 RED PROOF: with the offset frozen the picture is the seed, not the coverage
+         |       frozen-dither takes the same plate from 3.0378 cv RMS to 11.6380 — 3.83x — with 38.89% of the groom over 2 cv against 18.24%. Same arm, same frames, same everything but whether the threshold advances.
+         | PASS  C3 the golden step beats white noise at the same frame count, which is why it is not a hash
+         |       white-dither 4.1770 cv against the golden step's 3.0378 — 1.38x — after the same 128 frames. Both move every frame; only one is stratified.
+         | 
+         | FAIL: 31/32 checks green
+exit=1  ./packages/core/src/render/HairShadow.selftest.mjs         FAIL — 8 of 9
+         |   zero               6.8040    135886 px (42.09%)    -0.0011 at 640,1160
+         |   nomask             6.8040    135886 px (42.09%)    -0.0011 at 640,1160
+         |   opaqueOnly         2.8915     72764 px (22.54%)     0.0280 at 280,680
+         |   noCast             0.3125         0 px ( 0.00%)     0.0428 at 280,680
+         | 
+         | --- clauses ---
+         | 
+         |   ok   CONTACT — the groom darkens the skin beside it — 5.9263 of 255 against a floor of 2 (the nothing-casts arm reads 0.3125, the opaque mass alone 2.8915)
+         |   ok   ALPHA RESPONSE — that shadow comes through the card alpha — 3.0348 of 255 against a floor of 1.5
+         |   FAIL NO QUAD SHADOW — the groom shadows far less skin than its untested quads would — 0.8856 against a ceiling of 0.8 (120343 px against 135886)
+         |   ok   DIRECTION — no cell of visible skin is brighter with the groom on — worst -0.0011 of 255 at 640,1160, ceiling 0.5
+         | 
+         | --- red proofs ---
+         | 
+         |   ok   RED PROOF 1 — the two breaks are one defect: nulling the mask node and zeroing the cutoff render the same picture, to within what one build differs from itself by — 0 px apart of 135886, against an instrument floor of 0 px measured off the shipped arm captured twice (contact 6.8040 against 6.8040; the repeat reads 5.9263 against the shipped 5.9263)
+         |   ok   RED PROOF 2 — the area statistic is not saturated: it has a measured floor at nothing and a measured ceiling at the quads, and the shipped build is strictly between them — floor 0.0000 (0 px), ceiling 1.0000 (135886 px by construction), shipped 0.8856 (120343 px) — bounds 0.02 and 0.1
+         |   ok   RED PROOF 3 — the contact floor is not vacuous: casting nothing at all fails it — 0.3125 of 255 against a floor of 2
+         |   ok   RED PROOF 4 — the direction ceiling is not vacuous: the same statistic crosses it on two plates this gate already renders — read against the quads arm instead of bald, the shipped build's worst cell is +10.7029 of 255 at 400,1120, past the 0.5 ceiling — against the -0.0011 every arm reads against bald
+         | 
+         | FAIL — 8 of 9
+exit=0  ./packages/core/src/render/HairVelocity.selftest.mjs       PASS: 5/5 checks green
+exit=0  ./packages/core/src/render/LightingRig.selftest.mjs        PASS: 145/145 checks green
+exit=0  ./packages/core/src/render/MorphVelocity.selftest.mjs      PASS: 16/16 checks green
+exit=0  ./packages/core/src/render/Scene.selftest.mjs              PASS: 83/83 checks green
+exit=0  ./packages/core/src/render/Stage.resize.gpu.selftest.mjs   PASS 6 actual Stage resize groups; /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-stage-resize-MIlFNj
+exit=0  ./packages/core/src/render/Stage.resize.selftest.mjs       PASS 4 Stage resize groups
+exit=0  ./packages/core/src/render/TRAAPost.selftest.mjs           PASS: 15/15 checks green
+exit=0  ./packages/core/src/render/Toksvig.selftest.mjs            PASS: 9/9 checks green
+exit=0  ./packages/core/src/voice/prosody.selftest.mjs             26 passed, 0 failed
+exit=0  ./packages/core/src/voice/visemes.selftest.mjs             59 passed, 0 failed
+exit=0  ./packages/core/src/wardrobe/AvatarWardrobe.browser.selftest.mjs 7 checks passed. Evidence: /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-wardrobe-dev-2ayDn9
+exit=0  ./packages/core/src/wardrobe/AvatarWardrobe.selftest.mjs   }
+exit=0  ./packages/core/src/wardrobe/GarmentInterior.selftest.mjs  12 garment interior groups passed. CPU only; no appearance claim.
+exit=0  ./packages/core/src/wardrobe/WardrobeStyles.selftest.mjs   }
+exit=0  ./packages/core/src/wardrobe/agency.selftest.mjs           PASS — 28 assertions.
+exit=0  ./packages/core/src/wardrobe/decency.selftest.mjs          PASS — 25 assertions.
+exit=0  ./packages/core/src/wardrobe/hem.selftest.mjs              PASS — 39 assertions.
+exit=1  ./packages/core/src/wardrobe/shadow.selftest.mjs           FAIL — 1 of 23.
+         |   ok   the eye did not move between the four readings, so nothing here is a parallax — 0.2362, 0.6092, 0.5452
+         |   ok   the box does not move between readings — 156,795,127,127  vs  156,795,127,127  vs  156,795,127,127  vs  156,795,127,127
+         |   ok   the box is on lit thigh, and the decode did not go to zero — floor only 0.4641, no-cast 0.4641, floor 0.15
+         |   ok   the box is pure skin: taking the skirt off and stopping it casting read the same — 0.00% apart
+         |   ok   THE HEADLINE — a TUBE casts: the thigh is darker under the skirt hem than without it — 13.21% against a 4% floor
+         |   ok   RED PROOF 1 — clearing castShadow on the fragments removes the darkening — 13.21% of the reading is the skirt's shadow
+         |   ok   RED PROOF 2 — clearing receiveShadow on the BODY removes the same darkening — 13.21%
+         | 
+         | --- the shipped LightingRig, on alive.html: contact gained against acne paid ---
+         |        900x1600, contact band 26747 px, garment surface 264481 px
+         |        the rig produced 2.9435 mm of normal bias for this framing, unprompted
+         |        contact 255ths  rig 3.5218   at 20 mm 2.8877   at 0 3.7252
+         |        acne 255ths     rig 0.4907   at 20 mm 0.0065   at 0 0.6570
+         |   ok   RIG CONTACT: the probe is on lit skin beside real cloth — 26747 px of contact band and 264481 px of garment surface; the reference arm reads 2.8877 of 255 darkening, which is a shadow and not a decode that has gone to zero
+         |   ok   RIG CONTACT — the shipped bias finds more contact shadow than the 20 mm constant it replaced — 1.220x against a 1.12x floor (3.5218 of 255 against 2.8877). A revert to a 20 mm constant reads 1.000
+         |   FAIL RIG ACNE — and pays no more than 8x the reference arm's high-frequency energy for it — 75.97x against a 8x ceiling (0.4907 of 255 against 0.0065)
+         |   ok   RED PROOF 3 — the acne ceiling is not vacuous: zero bias blows through it — 101.7x against the same 8x ceiling (0.6570 of 255), while its contact reading 3.7252 is the HIGHEST of the three — which is exactly why the contact clause alone would have shipped it
+         | 
+         | ==============================================================================
+         | FAIL — 1 of 23.
+exit=0  ./packages/core/src/wardrobe/wardrobe.selftest.mjs         PASS — 51 assertions.
+exit=0  ./packages/testbed/pages.selftest.mjs                      PASS — 92 assertions.
+exit=0  ./packages/testbed/src/alive-capture-determinism.selftest.mjs 61/61 checks green in 84s
+exit=1  ./packages/testbed/src/alive-toggles.selftest.mjs          FAIL: 196/197 checks green
+         | 
+         | PASS  W1 ?webgl builds a figure and exposes the capture hook, on ?bare with no other flags
+         |         window.sugata.session.figure and window.__SUGATA_STEP__ both present
+         | PASS  W2 …and it really is the WebGL2 backend, not WebGPU ignoring the flag
+         |         backend.isWebGLBackend = true
+         | PASS  W3 …with ?aa downgraded to msaa rather than left on a resolve WebGL2 cannot feed
+         |         renderer.samples 4 (4 = the forward MSAA target), stage.temporal absent
+         | PASS  W4 …onto a canvas the page actually sized, not the untouched 300x150 default
+         |         4320000 drawing-buffer pixels; 45000 would be the 300x150 default
+         | 
+         | --- ?gputime=1 buys a GPU timestamp, and the default plate pays nothing ------
+         | 
+         | PASS  T1 the shipped plate does NOT pay for a timestamp — no feature requested, nothing to resolve
+         |         backend.trackTimestamp false, resolveTimestampsAsync undefined, info.render.timestamp 0
+         | PASS  T2 …and ?gputime=1 asks the ADAPTER for it, which is the half that cannot be done later
+         |         backend.trackTimestamp false -> true on WebGPUBackend. This is the one property the flag moves, and instrument 5 cannot see it: `backend` holds objects, so the walk records it by constructor name
+         | PASS  T3 …and a render timestamp actually RESOLVES, so the 3.10 quality table is a table of measurements
+         |         resolveTimestampsAsync('render') = 7.152852000000001 ms, and info.render.timestamp agrees
+         | 
+         | FAIL: 196/197 checks green
+exit=0  ./packages/testbed/src/converse-connection.selftest.mjs    PASS 5 connection behavior groups
+exit=0  ./packages/testbed/src/converse-diagnostics.selftest.mjs   PASS 11 diagnostic contract groups
+exit=1  ./packages/testbed/src/converse.gpu.selftest.mjs           Node.js v24.13.1
+         | 4:24:47 PM [vite] (client) [console.error] converse: boot failed after [avatar] Error: Unsupported showcase selection.
+         |     at optionsForShowcase (http://localhost:5291/src/showcase-presets.mjs:31:15)
+         |     at boot (http://localhost:5291/src/converse.js:790:11)
+         |     at http://localhost:5291/src/converse.js:754:5
+         | node:internal/modules/run_main:107
+         |     triggerUncaughtException(
+         |     ^
+         | 
+         | page.waitForFunction: Timeout 120000ms exceeded.
+         |     at /Users/robault/GitHub/sugata-avatar/packages/testbed/src/converse.gpu.selftest.mjs:39:13 {
+         |   log: [],
+         |   name: 'TimeoutError'
+         | }
+         | 
+         | Node.js v24.13.1
+exit=0  ./packages/testbed/src/showcase-image.gpu.selftest.mjs     PASS 13 image export groups; /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-showcase-image-3Lrh5N
+exit=0  ./packages/testbed/src/showcase-presets.selftest.mjs       PASS 4 showcase preset groups
+exit=0  ./packages/testbed/src/showcase.gpu.selftest.mjs           PASS 24 actual showcase groups; evidence /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-showcase-M1uHQa
+exit=0  ./tools/critic/band-power.selftest.mjs                     10 passed, 0 failed
+exit=0  ./tools/critic/frame-cost.selftest.mjs                     57/57 gates passed.
+exit=0  ./tools/critic/hair-af.selftest.mjs                        14 of 14 clauses passed.
+exit=0  ./tools/critic/hair-pedestal.selftest.mjs                    26/26 clauses green, 0 red
+exit=0  ./tools/critic/hair-reference.selftest.mjs                     that did not run is the shape of a gate that cannot go red.
+exit=0  ./tools/critic/hair-tf-ceiling.selftest.mjs                12/12 gates passed.
+exit=0  ./tools/critic/hair-transmittance.selftest.mjs             ✅ hair-transmittance 29/29 clauses green, 0 red
+exit=0  ./tools/critic/heatmap.selftest.mjs                        Test clips left in /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-heatmap-selftest-Uk929H
+exit=0  ./tools/critic/lock-coherence.selftest.mjs                 16 passed, 0 failed
+exit=0  ./tools/critic/portrait-clearance.selftest.mjs             12/12 portrait capture selection/provenance groups passed
+exit=0  ./tools/critic/portrait-surface.selftest.mjs               19/19 portrait surface integrity checks passed
+exit=0  ./tools/critic/scene-gates.selftest.mjs                    all clauses green
+exit=0  ./tools/critic/travel.selftest.mjs                         Test clips left in /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-travel-selftest-ZvH7CQ
+exit=0  ./tools/critic/violet.selftest.mjs                           VALIDATION PASS: 25/25
+exit=0  ./tools/figure-pipeline/casual_collar_fit.selftest.mjs     PASS 6/6 collar asset groups
+exit=0  ./tools/figure-pipeline/casual_trouser_fit.selftest.mjs    7 casual trouser groups passed. Shipping assets were not changed.
+exit=0  ./tools/figure-pipeline/cornea_geometry.selftest.mjs       PASS — 40 checks.
+exit=1  ./tools/figure-pipeline/hair_alpha.selftest.mjs            FAIL — 36 of 43.
+         |   strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+         |   cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+         |   s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+         |   s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+         |   s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+         |   s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+         |   s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+         |   s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+         |   s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+         | 
+         | FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+         |         strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+         | PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+         |         worst strip 1 at 16.95% open
+         | PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+         |         widest strip 1 at 5.97 texels per run
+         | PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+         |         cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+         | 
+         | FAIL — 36 of 43.
+exit=0  ./tools/figure-pipeline/hair_fall.selftest.mjs             9 hair-fall test groups passed (original export).
+exit=0  ./tools/figure-pipeline/hair_geometry.selftest.mjs         PASS — 30 assertions.
+exit=0  ./tools/figure-pipeline/hair_hem.selftest.mjs              9 hair-hem test groups passed (fall-stage input including full tangent integration).
+exit=0  ./tools/figure-pipeline/hair_lockid.selftest.mjs           PASS — 36/36 assertions
+exit=0  ./tools/figure-pipeline/hair_locks.selftest.mjs            PASS — 45 assertions.
+exit=0  ./tools/figure-pipeline/hair_long_fall.selftest.mjs        12/12 portable bob01/g050 long-fall groups passed
+exit=0  ./tools/figure-pipeline/hair_long_fall_g025.selftest.mjs   10/10 portable bob01/g025 composition groups passed
+exit=0  ./tools/figure-pipeline/hair_surface.selftest.mjs          12/12 analytic groups passed.
+exit=0  ./tools/figure-pipeline/hair_tail_release.selftest.mjs     PASS 9 tail-release groups (default source: tracked original→fall→hem).
+exit=0  ./tools/figure-pipeline/wardrobe_under_masks.selftest.mjs  9 wardrobe mask groups passed. No shipping asset was written.
+exit=0  ./tools/identity-pipeline/identityassets.selftest.mjs      28/28 gates passed
+exit=0  ./tools/lut-bake/lut-bake.selftest.mjs                     PASS: 32 passed, 0 failed
+exit=1  ./tools/quoted-numbers.selftest.mjs                        24 passed, 1 failed
+         |         · packages/core/src/physics/SpringBones.js:95  1.92 == 1.9186
+         |         · packages/core/src/physics/SpringBones.js:96  6.42 == 6.4154
+         |         · packages/core/src/physics/SpringBones.js:1378  58.3 == 58.3
+         |         · tools/critic/band-power.mjs:90  0.0049 == 0.004851
+         |         · tools/critic/band-power.mjs:91  0.0125 == 0.012517
+         |         · tools/critic/band-power.mjs:92  0.0980 == 0.097971
+         |         ✗ tools/critic/hair-reference.mjs:76  60 vs —
+         |         ✗ tools/critic/hair-reference.mjs:77  710 vs —
+         |         ✗ tools/critic/hair-reference.mjs:78  616 vs —
+         |         ✗ tools/critic/hair-reference.mjs:383  0.2854 vs —
+         |         · tools/critic/lock-coherence.mjs:173  0.1715 == 0.1723
+         |         · tools/critic/lock-coherence.mjs:124  0.830304 == 0.830304
+         |         · tools/critic/lock-coherence.mjs:125  0.119454 == 0.119454
+         |         · tools/critic/lock-coherence.mjs:126  6.9508 == 6.95
+         |         · tools/critic/lock-coherence.mjs:127  0.014152 == 0.014152
+         |         · tools/critic/lock-coherence.mjs:128  54.6314 == 54.63
+         |   FAIL  §Z 🎯 every tagged claim in the tree verifies against the command it names
+         |         tools/critic/hair-reference.mjs:76 selector "fringe top-5% below y=570" matched no output line | tools/critic/hair-reference.mjs:77 selector "fringe top-5% at or above y=570" matched no output line | tools/critic/hair-reference.mjs:78 selector "fringe top-5% in x 1520-1560" matched no output line | tools/critic/hair-reference.mjs:383 selector "filter 3, scatter-0 p95" matched no output line
+         | 
+         | 24 passed, 1 failed
+exit=1  ./tools/request-ledger.selftest.mjs                        FAIL: 25/26 checks green
+         | ok    RED: "APPLIED at a filed-at naming no object, with a vacuous verify" is caught by FILED-AT   REQ-002: deadbee does not resolve to a commit in this repository. This is the commit the anti-rubber-stam
+         | ok    RED: "APPLIED at a filed-at that is a real object of the wrong type" is caught by FILED-AT   REQ-002: 8082404e3e6b1cc44d105f7ead5e8ace7524065c does not resolve to a commit in this repository. This i
+         | ok    RED: "APPLIED at a real commit this history does not descend from" is caught by FILED-AT   REQ-002: b40aec08e3a3c74432ad9d6cc13c96e140ea3959 is a commit, but HEAD does not descend from it, so its 
+         | ok    RED: "filed-at is a moving reference rather than an immutable sha" is caught by FILED-AT   REQ-061: "HEAD" is not a 7-to-40 character hex sha. This is the commit the anti-rubber-stamp clause reads
+         | ok    RED: "APPLIED whose target did not exist at filed-at, taking the free pass silently" is caught by PRE-IMAGE   REQ-003: tools/run-selftests.sh does not exist at filed-at 2ec7db9, so the anti-rubber-stamp clause passe
+         | ok    RED: "pre-image declared absent on an entry whose file was right there" is caught by PRE-IMAGE   REQ-001: declares pre-image absent, but packages/testbed/src/alive.js is present at filed-at 82260d4 — th
+         | ok    RED: "two entries carrying the same id" is caught by SCHEMA   REQ-001: duplicate id
+         | ok    RED: "verify points at a file that does not exist at HEAD" is caught by TARGET   REQ-001: packages/testbed/src/this-file-does-not-exist.js does not exist at HEAD
+         | ok    RED: "an OPEN entry anchored to code that is no longer there" is caught by ANCHOR   REQ-061: anchor does not match docs/PUNCHLIST.md at HEAD — the request points at code that has moved or g
+         | ok    RED: "REJECTED, but the change is in the file" is caught by REJECTED-STALE   REQ-020: status is REJECTED, but verify MATCHES tools/critic/regions.lighting-portrait.json at HEAD — the
+         | ok    the clause vocabulary read from this file is fully expanded — exactly one clause is built at runtime, and it is the STALE pair   1 runtime-built form(s): ${ status }-STALE
+         | ok    every clause a red proof declares actually exists in the adjudicator, so the scan cannot pass by under-reading the source   17 proofs, every clause found in source
+         | ok    every clause the adjudicator can emit has a red proof behind it, so no clause is decorative   17 proofs cover all 13 clauses
+         | ok    FILED-AT is proved red four DIFFERENT ways — not a pin, no object, wrong object type, and right object off this history   4 mechanisms
+         | ok    PRE-IMAGE is proved red BOTH ways and tells them apart — an undeclared absence and a declared absence that is not one ask for opposite edits   undeclared: absence, false-declaration: presence
+         | ok    FILED-AT tells the four mechanisms APART — one shape failure, two resolution failures and one ancestry failure, not one verdict wearing four hats   not-a-pin: shape, no-object: resolution, wrong-type: resolution, off-history: ancestry
+         | 
+         | --- 3. summary ----------------------------------------------------------------------------------
+         | 
+         | FAIL: 25/26 checks green
+exit=0  tools/critic/selftest.mjs                                  Test images left in /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/sugata-critic-selftest-7B4eD5
+exit=1  tools/figure-pipeline/verify_glb.mjs                       FAIL — 20 problem(s) across 43 file(s).
+         |   ok   edge distance     388 of 388 in [0,1]; p10/p50/p90 0.045/0.234/0.552 at 50.7 mm a unit
+         |   ok   re-derived index  372 of 388 cards (95.88%) put their exported root nearest the centre they claim (floor 90%)
+         |   ok   re-derived edge   p90 |emitted − re-derived| = 0.089 (ceiling 0.15) — this is the clause that catches an edge channel written upside down
+         |   ok   card borders      5 card strip(s), 0 opaque texel(s) in their outermost 2 column(s) — a card's own quad edge
+         |   ok   border is hair    worst strip 7 boundary sd 4.298 px over 879 rows (floor 3 px)
+         |   ok   material          MASK, cutoff 0.5, double sided
+         | 
+         | --- assertions on skinning ---
+         |   ok   Human.hair_quiff01       JOINTS_0 + WEIGHTS_0, skin 0
+         |   ok   skin weights      bones {head}, worst weight sum 1.000000 (manifest bone 'head')
+         |   ok   groom on the head 388 card roots sit 16.5 mm from the nearest of 257 cranium vertices at p50 and 33.9 mm at p90, against a cranium radius of 95.3 mm
+         |   ok   clearance         nearest signed approach 3.508 mm, 0 vertices inside the body (floor 3 mm)
+         |   ok   scalp coverage    98.87% of 5324 cranium surface samples at 4 mm hidden, through the CUTOUT (floor 97%)
+         |   ok   no bald patch     largest connected exposed patch 44.3 mm² at (0.038, 1.628, 0.106) over 9 sample(s) (ceiling 50 mm²)
+         |   FAIL no skin on show   worst of 5 judge views is 'front' at 770.3 mm² of bare cranium at (0.001, 1.631, 0.106) (ceiling 60 mm², within 400 mm of the sample)
+         |   ok   cards deep        deepest of 5 judge views is 'back' at p50 11 cards crossed per ray (p90 19, over 1682 rays, ceiling 18) — every crossing is a shaded fragment and a card the atlas's own cutout cannot see past
+         |   --   roster            22 of 22 clauses ran, 0 stood down with a reason
+         | 
+         | ==============================================================================
+         | FAIL — 20 problem(s) across 43 file(s).
+
+tree: DIRTY   at 23:30:34Z
+FAILING GATES: 14
+
+UNDECLARED RED   packages/core/src/Avatar.hair-contact.gpu.selftest.mjs
+UNDECLARED RED   packages/core/src/Avatar.hair-forest.gpu.selftest.mjs
+UNDECLARED RED   packages/testbed/src/converse.gpu.selftest.mjs
+UNDECLARED RED: 3   STALE DECLARATIONS: 0

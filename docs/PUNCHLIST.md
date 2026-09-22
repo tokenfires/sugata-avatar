@@ -1,6 +1,11 @@
 # Sugata 姿 — punch list
 
-> **September 16 resumed work:** Start with [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md).
+> **September 22 resumed work:** Start with [RECOVERY-2026-09-22.md](RECOVERY-2026-09-22.md).
+> Collar capture/review no longer depends on the missing historical archive. The fit plan and
+> exact support are recovered, and the frozen candidate's critical image reproduces identically.
+> The next geometry task remains one jointly constrained fit trial with fresh qualification.
+
+> **September 16 record:** See [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md).
 > Original collar openings are diagnosed and the local interior correction is preserved.
 > Candidate promotion is withheld after expressive-motion bra contacts and a small rear
 > clearance. Next: one jointly constrained fit trial with its own numerical and GPU evidence.

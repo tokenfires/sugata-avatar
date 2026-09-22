@@ -1,0 +1,24 @@
+exit=7  ./nested/failure                                           later output 30
+         | later output 11
+         | later output 12
+         | later output 13
+         | later output 14
+         | later output 15
+         | later output 16
+         | later output 17
+         | later output 18
+         | later output 19
+         | later output 20
+         | later output 21
+         | later output 22
+         | later output 23
+         | later output 24
+         | later output 25
+         | later output 26
+         | later output 27
+         | later output 28
+         | later output 29
+         | later output 30
+         | full output: /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T//sugata-runner-control.zlQZdc/nested/failure.log
+exit=0  nested/pass                                                PASS witness
+PASS complete stdout/stderr logs retained for both outcomes, with original failure accounting

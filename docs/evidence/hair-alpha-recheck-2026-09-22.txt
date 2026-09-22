@@ -1,0 +1,179 @@
+PASS  a filled rectangle crosses exactly one run per row
+        expected 1.000000 ± 0, measured 1.000000
+PASS  and that run is the whole rectangle, 128 less its 3-texel borders
+        expected 122.000000 ± 0, measured 122.000000
+PASS  and its interior, inside the border inset, is nowhere open
+        expected 0.000000 ± 0, measured 0.000000
+PASS  its mean alpha is the share of it that is filled
+        expected 0.953125 ± 1e-12, measured 0.953125
+PASS  a hard-edged shape has no mid band at all — which is why the mid band alone cannot find this defect
+        expected 0.000000 ± 0, measured 0.000000
+PASS  a period-8 fence crosses 128/8 runs per row
+        expected 16.000000 ± 0, measured 16.000000
+PASS  and each run is its bar width
+        expected 4.000000 ± 0, measured 4.000000
+PASS  and half its interior is open
+        expected 0.500000 ± 1e-12, measured 0.500000
+PASS  the mid band at the sampled lod falls monotonically as a bar widens
+        100.0% > 88.2% > 64.7% > 50.0% > 44.1% > 29.4% > 20.6% > 11.8%
+PASS  a bar 0.53 texels wide at the sampled lod arrives as a wash
+        100.0% mid band, from 0.0% at mip 0 where it is a hard-edged fence
+PASS  and a bar 4.21 texels wide arrives with its edges
+        11.8% mid band
+PASS  a period-24 fence clears clause A after minification
+        6.000 runs per row at lod 1.925, floor 3
+PASS  the resample conserves the mean exactly at an integer scale — a box mip chain, by another name
+        expected 0.500000 ± 1e-12, measured 0.500000
+PASS  and to within a hundredth at the fractional scale the camera samples at
+        expected 0.500000 ± 0.01, measured 0.499635
+PASS  there is a strand atlas to measure
+        assets/hair/bob01/albedo.png, assets/hair/bob02/albedo.png, assets/hair/crop01/albedo.png, assets/hair/lob01/albedo.png, assets/hair/long01/albedo.png, assets/hair/pixie01/albedo.png, assets/hair/quiff01/albedo.png
+
+--- assets/hair/bob01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/bob02/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/crop01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/lob01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/long01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/pixie01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+--- assets/hair/quiff01/albedo.png — 1024x1024, 8 strips, sampled at lod 1.925 (÷3.80) ---
+
+  strip   mean   mid@0   mid@lod   runs@0  runs@lod  strandTx@lod  gap(interior)
+  cap   0.9970    0.42%    0.49%     1.01     1.00        34.00        0.10%
+  s1    0.6198    7.72%   21.62%     5.63     3.58         5.97       16.95%
+  s2    0.5564   17.50%   43.97%    12.80     3.84         5.20       26.92%
+  s3    0.5157   15.31%   39.47%    11.33     3.36         5.52       30.22%
+  s4    0.4442   17.37%   48.58%    14.50     4.42         3.60       37.52%
+  s5    0.3749   17.58%   52.10%    15.44     5.47         2.40       48.04%
+  s6    0.1802   11.16%   39.40%    11.74     3.53         1.25       72.12%
+  s7    0.1165    7.44%   28.39%     8.32     1.90         1.12       83.35%
+
+FAIL  A — every card strip is many strands at the lod the camera samples (floor 3)
+        strip 7 crosses 1.90 runs per row at lod 1.925 — a card carrying it is a board, not a bundle
+PASS  B — every card strip is genuinely open in its interior (floor 12%, inside 20 texels of each edge)
+        worst strip 1 at 16.95% open
+PASS  C — no card strip is one run (ceiling 20 texels at the sampled lod)
+        widest strip 1 at 5.97 texels per run
+PASS  L — the instrument still finds a board when there is one: the cap strip fails A and C
+        cap crosses 1.00 runs per row (floor 3) in runs of 34.00 texels (ceiling 20) — it is edge-to-edge opaque on purpose and no card carries it
+
+FAIL — 36 of 43.

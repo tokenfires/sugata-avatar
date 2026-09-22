@@ -70,6 +70,27 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `packages/testbed/src/alive-toggles.selftest.mjs` — September 22 recheck: **196/197**.
+  The subject-closure check finds two Stage members absent from its classification:
+  `drawingBufferSize` and `renderParticipants`. The current instrument must account for
+  their state/ownership before its attribution coverage is considered closed. This is an
+  existing coverage gap on unchanged runtime code, not evidence that a URL toggle is broken;
+  no blanket exclusion was added merely to turn the gate green.
+
+- `packages/core/src/wardrobe/shadow.selftest.mjs` — September 22 full-suite recheck:
+  one failing clause out of 23, RIG ACNE. The shipped bias measures **75.97×** the
+  reference arm's high-frequency energy against an unchanged **8×** ceiling (0.4907 versus
+  0.0065 in 255ths); the contact and negative-control checks pass. This is an existing
+  rendering failure observed on unchanged runtime/assets, outside the collar recovery and
+  lifetime-test repair. No bias, shadow filter or acceptance limit was changed to clear it.
+
+- `packages/core/src/render/HairShadow.selftest.mjs` — September 22 full-suite recheck:
+  **8/9**, failing NO QUAD SHADOW at **0.8856** against the unchanged **0.8** ceiling
+  (120,343 shadowed pixels versus 135,886 for the untested-quads control). Contact,
+  alpha response, direction and all four negative controls pass. This was present before
+  the recovery changes; no shading or asset change was made in this session. The older
+  resolved entry below describes an earlier measurement, not this current result.
+
 - `packages/core/src/motion/HairDynamics.selftest.mjs` — September 13 scope: clause S reports
   3.1262 mm worst tip movement in the final quarter-second after the held-head settling interval,
   above its unchanged 0.5 mm limit. The isolated pre-history solver from `3946b3c` reproduces
@@ -152,7 +173,11 @@ directions, which is the clause worth keeping when this check is next edited.
   restate this clause against the raw protocol to make g025 the only failure; the skinned read is
   the geometry a viewer sees. Owned by whoever next owns `motion/Sway.js`.
 
-- `tools/figure-pipeline/verify_glb.mjs` — RED FOR THE THIRD ROUND, `locks not a shell`, on **all
+- `tools/figure-pipeline/verify_glb.mjs` — September 22 full-suite and focused rechecks:
+  **20 problems across 43 files**, covering lock relief, clearance, card-tip gathering,
+  bald patches and exposed scalp. See [the complete current output](evidence/glb-recheck-2026-09-22.txt).
+  The five-bake / all-other-clauses-green description that follows is historical and no longer
+  describes the full current corpus. Earlier record: RED FOR THE THIRD ROUND, `locks not a shell`, on **all
   five bakes at 3.27, 3.10, 3.25, 3.74 and 4.71 mm of coherent lock relief against per-bake floors
   of 4.78, 4.99, 5.22, 4.99 and 5.82 mm.** Every other clause in the file is green on all five.
   ⚠️ **THE FLOOR STOPPED BEING 5.0 mm IN R31 AND THE VERDICT DID NOT MOVE.** 5.0 was the clause's
@@ -208,7 +233,10 @@ directions, which is the clause worth keeping when this check is next edited.
   envelope for this clause: finding 2 above says the arithmetic will not pay you. Owned by
   `tools/figure-pipeline/**`.
 
-- `tools/figure-pipeline/hair_alpha.selftest.mjs` — RED BY CORRECTION, 18 of 19, and the sheet did
+- `tools/figure-pipeline/hair_alpha.selftest.mjs` — September 22 full-suite and focused rechecks:
+  **36/43**, with the many-strands-at-camera-LOD clause failing for seven atlas cases.
+  See [the complete current output](evidence/hair-alpha-recheck-2026-09-22.txt).
+  The smaller count that follows describes the earlier corpus. Earlier record: RED BY CORRECTION, 18 of 19, and the sheet did
   not move. `hair_alpha.SAMPLED_LOD` was 1.492 for two rounds, taken from a Jacobian `hair_lod.mjs`
   measured in **CSS pixels** while the page ships TAAU at `resolutionScale` 0.66 — so the gate was
   reading the atlas `log2(1/0.66)` = 0.599 of a mip FINER than the hardware does, which flatters the
@@ -287,6 +315,10 @@ directions, which is the clause worth keeping when this check is next edited.
   `packages/core/src/material/**`. Do not re-derive these thresholds to clear them — that is the
   failure mode the whole gate exists to prevent.
   September 8, 2026 restart recheck: **76/80**, the same four clauses, with no threshold changes.
+  September 22, 2026 full-suite and focused rechecks: **75/80**. In addition to those four
+  appearance clauses, the secondary-band attribution clause fails. The raw focused output
+  is retained with the recovery evidence; the thresholds and rendering implementation are
+  unchanged. The old four-clause description is historical, not the current failure count.
   The completed WebGPU run and hashes are preserved in
   `docs/evidence/hair-panel-quadrature-2026-09-09.json`; the earlier sandbox-only launch failure
   is superseded by that completed run. This is a focused check, not a full-suite revalidation.

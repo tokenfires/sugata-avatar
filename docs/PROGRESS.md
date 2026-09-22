@@ -1,6 +1,17 @@
 # Sugata 姿 — progress and resume state
 
-> **Current session, September 16, 2026:** Rob explicitly resumed development after the
+> **Current session, September 22, 2026:** Start with
+> [RECOVERY-2026-09-22.md](RECOVERY-2026-09-22.md). The missing collar capture dependencies
+> are now tracked and the exact frozen inputs reconstruct from recipes. A fresh four-run GPU
+> stress capture completed, and its critical frame matches the September 16 witness byte for
+> byte. The original fit plan and its 34-group support are recovered. The experimental collar
+> remains unpromoted; the next fit still needs joint body/bra constraints and all qualification
+> gates. Two stale hair buffer-count tests now attribute and retire the render-history owner.
+> Converse startup is repaired through complete wardrobe defaults and passes 32 browser groups.
+> The full suite ran 121 gates; three of its 14 failures were repaired, with 11 remaining declared.
+> Full-suite results and current evidence are in the recovery checkpoint.
+
+> **Previous session, September 16, 2026:** Rob explicitly resumed development after the
 > September 13 pause. Start with [COLLAR-STRESS-2026-09-16.md](COLLAR-STRESS-2026-09-16.md).
 > The original openings are culled cloth back faces; a preserved local interior closes them.
 > Stronger supported motion then exposed bra intersections on both sides and only 0.04685 mm
