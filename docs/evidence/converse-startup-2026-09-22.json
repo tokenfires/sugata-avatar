@@ -1,0 +1,184 @@
+{
+  "date": "2026-09-22T23:30:10.004Z",
+  "passed": true,
+  "checks": [
+    "page boot renders the accepted clothed g050 avatar and sends no inference",
+    "missing requested model stays unselected with an actionable explanation",
+    "model-list recovery: offline",
+    "model-list recovery: empty",
+    "model-list recovery: malformed",
+    "model-list recovery: models",
+    "only explicit Connect warms both schemas with the selected exact model",
+    "controlled reply reaches transcript and tier 2 follows the reply through the real avatar",
+    "failed reply provides retry guidance and releases the composer",
+    "successful retry clears the prior failure status without reconnecting",
+    "failed connection does not enable turns or substitute another model",
+    "retry connects the newly selected model as an explicit new conversation",
+    "HTTP-successful affect warm-up does not certify expression; invalid appraisal reports local-response fallback",
+    "request diagnostic reaches UI and preserves recovery: truncated-reply",
+    "request diagnostic reaches UI and preserves recovery: invalid-response-reply",
+    "request diagnostic reaches UI and preserves recovery: invalid-value-reply",
+    "request diagnostic reaches UI and preserves recovery: invalid-response-affect",
+    "request diagnostic reaches UI and preserves recovery: invalid-value-affect",
+    "request diagnostic reaches UI and preserves recovery: timeout-reply",
+    "request diagnostic reaches UI and preserves recovery: reasoning-prose",
+    "request diagnostic reaches UI and preserves recovery: truncated-affect",
+    "request diagnostic reaches UI and preserves recovery: timeout-affect",
+    "Connect retains the actual failed schema and server detail: http-grammar",
+    "Connect retains the actual failed schema and server detail: http-model",
+    "Connect retains the actual failed schema and server detail: truncated-affect",
+    "server error markup is displayed as literal text and never executed",
+    "JSON in reasoning channel still connects and speaks; success clears stale failure details",
+    "expanded failure details fit the mobile width",
+    "mobile layout retains readable controls without horizontal overflow",
+    "leaving an own-clock preview retires its avatar and stops subsequent frame work",
+    "hub contains all 17 distinct page destinations",
+    "no unexpected JavaScript or GPU console errors"
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "packages/testbed/src/converse.js": "22dbc465cd23dcea62376ba8985ea326145b7683540310d47bd17fe945a906af",
+    "packages/testbed/src/converse.html": "80288ac2af65b8227631b918e72c8cc7ac9e208c82d887559facf61829a0d484",
+    "packages/testbed/src/converse-connection.mjs": "92d38462c7c1fd964ee150c1c8aad0f68f6c404f86d4e98b8b4c8e50dc760a29",
+    "packages/core/src/affect/CompletionDiagnostics.js": "af274066126fe0398f37de7aa3825d72f84d0562df5e1a146ee2ce2077c52539",
+    "packages/core/src/affect/LMStudioClient.js": "8b9a4026365e0e7784740ec2f5f589a24f509382c80a92bb3eb168a52f40fe49",
+    "packages/core/src/affect/AppraisalAffect.js": "a161264442fff2ad84ef3c1824fcf5c10814b2e1de87e57cfa65c1f9559bbb29",
+    "packages/testbed/index.html": "cbff641e978074d090468ab3af0a329f7d23bfbc88e5528b1efee462f368d149",
+    "packages/testbed/pages.js": "2eeb120f5d11ecd4f3d27c7455afb8cb74213965a09307a3afa1b3ea1c026855"
+  },
+  "limits": [
+    "Real Avatar and WebGPU rendering; all completion responses are controlled fixtures, not evidence of live model quality or latency.",
+    "All model discovery and completion responses use controlled local fixtures; no LM Studio service is needed.",
+    "No real speech audio, microphone or lip-sync alignment is implemented."
+  ],
+  "liveDiscovery": false,
+  "previousError": "Converse default startup called optionsForShowcase without style and threw Unsupported showcase selection.",
+  "initialWardrobe": {
+    "supportedBake": "g050",
+    "assetStatus": "existing plumbing stand-ins",
+    "requestedOutfit": [
+      "female_casualsuit01",
+      "shoes01"
+    ],
+    "requestedStyle": "ecru",
+    "appearance": {
+      "style": "ecru",
+      "attached": true
+    },
+    "foundation": {
+      "TORSO": "foundation_bra",
+      "HIPS": "foundation_briefs"
+    },
+    "floor": [
+      "foundation_bra",
+      "foundation_briefs"
+    ],
+    "attached": true,
+    "bodyUrl": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/body/g050.glb",
+    "manifestUrl": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/manifest.json",
+    "fragmentUrls": {
+      "foundation_bra": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_bra/g050.glb",
+      "foundation_briefs": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/foundation_briefs/g050.glb",
+      "female_casualsuit01": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/female_casualsuit01/g050.glb",
+      "shoes01": "http://localhost:5291/@fs/Users/robault/GitHub/sugata-avatar/assets/wardrobe/shoes01/g050.glb"
+    },
+    "pendingCandidates": 0,
+    "state": {
+      "disposed": false,
+      "pendingFragments": 0,
+      "worn": [
+        "foundation_bra",
+        "foundation_briefs",
+        "female_casualsuit01",
+        "shoes01"
+      ],
+      "bodyVisible": true,
+      "bodyTriangles": 17012,
+      "fullBodyTriangles": 26756,
+      "hiddenTriangles": 9744,
+      "garmentTriangles": 7883,
+      "occlusion": [
+        {
+          "id": "foundation_bra",
+          "drawnTriangles": 327,
+          "fullTriangles": 22090,
+          "occludedBy": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "carriesUnderMasks": true
+        },
+        {
+          "id": "foundation_briefs",
+          "drawnTriangles": 0,
+          "fullTriangles": 12498,
+          "occludedBy": [
+            "female_casualsuit01",
+            "shoes01"
+          ],
+          "carriesUnderMasks": true
+        },
+        {
+          "id": "female_casualsuit01",
+          "drawnTriangles": 4236,
+          "fullTriangles": 4236,
+          "occludedBy": [],
+          "carriesUnderMasks": false
+        },
+        {
+          "id": "shoes01",
+          "drawnTriangles": 3320,
+          "fullTriangles": 3320,
+          "occludedBy": [],
+          "carriesUnderMasks": false
+        }
+      ],
+      "drawCalls": 5,
+      "residentFragments": 4,
+      "insulation": {
+        "clo": 0.46,
+        "unrated": []
+      },
+      "lastDressMs": 1.2000000029802322,
+      "lastRebuildMs": 1.2000000029802322,
+      "jointRemapIsIdentity": true
+    },
+    "lastError": null
+  },
+  "fullReport": "captures/converse-2026-09-22/fixed/browser-report.json",
+  "fullReportSHA256": "a00298b8805c01f9ced771101e63a9a26e32e3c098dab83646e098c24e4a8202",
+  "images": [
+    {
+      "file": "captures/converse-2026-09-22/fixed/discovered-desktop.png",
+      "sha256": "efae67a2c3debc8e321f6bc4b81659f7e967548ff7e1da2acf9ad2daf9cf601d"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/connected-desktop.png",
+      "sha256": "461463cccbfe0aae7e5c427c479bf6a442e87e82848dbacd05b5796407e4f258"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/expression-timeout-details.png",
+      "sha256": "2cc1f7518ef82191c44066c98bc679d83849fb01f19152d1826c368ed953ac09"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/truncation-details-desktop.png",
+      "sha256": "8f216ded80352c6509b4443855ea05dacaf3a55f1c55e9af7e49a5508b318d42"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/truncation-details-mobile.png",
+      "sha256": "7c419fcaf99fb93b62a5d80cd00860f61287d732338f7a80c0d0c8c8784943ec"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/connected-mobile.png",
+      "sha256": "06eaf17b16f3b333c9bde63003e3459500defc3f9175940cf7f4b9dce4528ce9"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/hub-mobile.png",
+      "sha256": "884967d88cdfc2ab5a8cdcd34264943615a0b9502b1d521bf3196351240c883a"
+    },
+    {
+      "file": "captures/converse-2026-09-22/fixed/hub-desktop.png",
+      "sha256": "d8c6a70e66974f2735ac077e40d294fab7bff0afeb9d814d67ec2017cf543b66"
+    }
+  ]
+}
