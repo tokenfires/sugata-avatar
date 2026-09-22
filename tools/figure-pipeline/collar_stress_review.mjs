@@ -8,9 +8,9 @@ import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { readGlb, readPrimitive, readAccessor } from '../lut-bake/glb.mjs';
 import { compare, topology, selftest, reconstructAcceptedSource } from './collar_clearance_review.mjs';
+import { readStressAsset } from './collar_stress_inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const ARCHIVE = path.join(ROOT, 'captures/collar-expression-stress-2026-09-16');
 const ID = 'female_casualsuit01';
 const PREVIOUS = '44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783';
 const CANDIDATE = 'd81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a';
@@ -56,10 +56,11 @@ function validateMesh(mesh, primitive) {
     assert.ok(mesh.drawnIndices.every(i => Number.isInteger(i) && i >= 0 && i < primitive.vertexCount));
 }
 
-function verifyCaptureInstrument(captureDir, file, expected) {
+export function verifyCaptureInstrument(captureDir, file, expected, version = 1) {
     // Shared helpers already live in immutable earlier archives; the new capture
     // may bind those in place rather than copying them into its own directory.
-    const candidates = [path.join(captureDir, file), path.join(captureDir, path.basename(file)), path.join(ROOT, file)];
+    const candidates = version === 2 ? [path.join(captureDir, file)]
+        : [path.join(captureDir, file), path.join(captureDir, path.basename(file)), path.join(ROOT, file)];
     const frozen = candidates.find(candidate => fs.existsSync(candidate));
     assert.ok(frozen, `Frozen capture instrument missing: ${file}`);
     assert.equal(sha(frozen), expected, `Frozen capture instrument changed: ${file}`);
@@ -83,10 +84,10 @@ function combinedSummary(states, arm) {
 
 export function runStressReview(captureDir, outDir) {
     captureDir = path.resolve(captureDir); outDir = path.resolve(outDir);
-    assert.ok(outDir.startsWith(ARCHIVE + path.sep), 'Keep stress outputs in their separate archive');
     assert.equal(fs.existsSync(outDir), false, 'Use a fresh output directory; historical evidence is immutable');
     const captureFile = path.join(captureDir, 'report.json');
     const capture = JSON.parse(fs.readFileSync(captureFile));
+    assert.ok(capture.version === undefined || [1, 2].includes(capture.version), 'Unsupported capture version');
     assert.equal(capture.completed, true, 'Wait for the complete GPU capture report');
     assert.equal(capture.candidateSHA256, CANDIDATE);
     assert.equal(capture.previousSHA256, PREVIOUS);
@@ -96,8 +97,13 @@ export function runStressReview(captureDir, outDir) {
     const sourceReconstruction = reconstructAcceptedSource(outDir);
     const sourceFile = sourceReconstruction.file;
     assert.equal(sha(sourceFile), PREVIOUS);
-    const candidateFile = path.join(ROOT, 'captures/collar-window-2026-09-16/casual-collar-interior-v1.glb');
-    const geometryFile = path.join(ROOT, 'captures/collar-clearance-paused-2026-09-13/casual-collar-v2.glb');
+    if (capture.version === 2) readStressAsset(captureDir, capture.assets?.previous, PREVIOUS);
+    const candidateFile = capture.version === 2
+        ? readStressAsset(captureDir, capture.assets?.candidate, CANDIDATE)
+        : path.join(ROOT, 'captures/collar-window-2026-09-16/casual-collar-interior-v1.glb');
+    const geometryFile = capture.version === 2
+        ? readStressAsset(captureDir, capture.assets?.geometry, GEOMETRY)
+        : path.join(ROOT, 'captures/collar-clearance-paused-2026-09-13/casual-collar-v2.glb');
     assert.equal(sha(candidateFile), CANDIDATE); assert.equal(sha(geometryFile), GEOMETRY);
     const source = readPrimitive(readGlb(sourceFile), ID);
     const glb = readGlb(candidateFile), candidate = readPrimitive(glb, ID);
@@ -144,9 +150,10 @@ export function runStressReview(captureDir, outDir) {
         previousSHA256: PREVIOUS, candidateSHA256: CANDIDATE, candidateGeometrySHA256: GEOMETRY,
         changedVertexCount: moved.size, changedTriangles: selected, interior: descriptor,
         retainedBraOriginalTriangleIds: retainedOriginalTriangleIds,
-        captureInstruments: Object.entries(capture.toolHashes ?? {}).map(([file, expected]) => verifyCaptureInstrument(captureDir, file, expected)),
+        captureInstruments: Object.entries(capture.toolHashes ?? {}).map(([file, expected]) => verifyCaptureInstrument(captureDir, file, expected, capture.version)),
         reviewInstruments: ['tools/figure-pipeline/collar_stress_review.mjs', 'tools/figure-pipeline/collar_clearance_review.mjs',
-            'tools/figure-pipeline/hair_geometry.mjs', 'tools/figure-pipeline/hair_surface.mjs', 'tools/lut-bake/glb.mjs']
+            'tools/figure-pipeline/hair_geometry.mjs', 'tools/figure-pipeline/hair_surface.mjs', 'tools/lut-bake/glb.mjs',
+            'tools/figure-pipeline/collar_stress_inputs.mjs']
             .map(file => ({ file, sha256: sha(path.join(ROOT, file)) })),
         analyticControls: selftest(), pairedRuns: [], inputs: [], states: [],
         method: {

@@ -7,14 +7,15 @@ import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
 import {createServer} from 'vite';
 import {launchProbeBrowser} from '../../packages/core/src/render/MotionProbe.mjs';
+import {prepareStressAssets} from './collar_stress_inputs.mjs';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+if(process.argv.length!==3)throw Error('Usage: node collar_stress_capture.mjs FRESH_OUTPUT_DIRECTORY');
 const OUT=path.resolve(process.argv[2]);assert.equal(fs.existsSync(OUT),false);fs.mkdirSync(OUT,{recursive:true});
-const WINDOW=ROOT+'/captures/collar-window-2026-09-16';
-const ARCHIVE=ROOT+'/captures/collar-clearance-paused-2026-09-13';
+const assets=prepareStressAssets(OUT);
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex'),hashFile=file=>sha(fs.readFileSync(file));
-const previousBytes=fs.readFileSync(WINDOW+'/accepted-before-install.glb');
-const candidatePath=WINDOW+'/casual-collar-interior-v1.glb',candidateBytes=fs.readFileSync(candidatePath);
+const previousBytes=fs.readFileSync(path.join(OUT,assets.previous.file));
+const candidatePath=path.join(OUT,assets.candidate.file),candidateBytes=fs.readFileSync(candidatePath);
 const previousSHA256=sha(previousBytes),candidateSHA256=sha(candidateBytes);
 assert.equal(previousSHA256,'44ebc3eb3a09408a3563d369ae74be15a5bc4beb8040bc43c2c5446d6e65c783');
 assert.equal(candidateSHA256,'d81a6730bde9d8fee4641e18d6f9f0e3922af420bb68eea3f44b661896aeec3a');
@@ -23,21 +24,22 @@ const phases=[
     {label:'angry',pad:{pleasure:-.8,arousal:.8,dominance:1}},
     {label:'fearful',pad:{pleasure:-.8,arousal:.8,dominance:-1}}
 ];
-const paths=[...new Set([
-    ...Object.keys(JSON.parse(fs.readFileSync(WINDOW+'/owned-motion-v1/report.json')).sourceHashes),
-    ...JSON.parse(fs.readFileSync(WINDOW+'/accepted-preservation-after.json')).files.map(f=>f.file),
-    'packages/core/src/affect/AffectState.js','packages/core/src/affect/PostureLayer.js',
-    'packages/core/src/affect/ExpressionLayer.js','packages/core/src/motion/Gesture.js',
-    'tools/figure-pipeline/collar_stress_capture.mjs'
-])];
-const sources=()=>Object.fromEntries(paths.map(p=>[p,hashFile(ROOT+'/'+p)]));
 const tools=['tools/figure-pipeline/collar_stress_capture.mjs',
-    'captures/collar-clearance-paused-2026-09-13/browser.mjs',
-    'captures/tee-neckline-2026-09-13/mesh-snapshot.mjs'];
-const report={completed:false,mode:'expressive-stress',previousSHA256,candidateSHA256,candidatePath,assetLoading:'Both frozen assets routed into the real loader; installed default is unchanged.',phases,sourceHashes:sources(),
+    'tools/figure-pipeline/collar_capture_browser.mjs','tools/figure-pipeline/collar_stress_inputs.mjs',
+    'tools/figure-pipeline/casual_collar_fit.mjs','tools/figure-pipeline/casual_trouser_fit.mjs',
+    'tools/figure-pipeline/collar_lining_topology.mjs','tools/figure-pipeline/hair_fall.mjs',
+    'tools/lut-bake/glb.mjs','tools/figure-pipeline/fixtures/casual-collar-v2-patch.json'];
+const paths=[...new Set([...tools,...['packages/core/src','packages/testbed/src','assets'].flatMap(base=>
+    fs.readdirSync(ROOT+'/'+base,{recursive:true,withFileTypes:true})
+        .filter(entry=>entry.isFile()&&!entry.parentPath.includes('/vendor/')&&!entry.parentPath.includes('/node_modules/'))
+        .map(entry=>path.relative(ROOT,path.join(entry.parentPath,entry.name)))
+        .filter(file=>/\.(?:js|mjs|html|css|json|glb|png|jpg|hdr|bin)$/.test(file))
+)])].sort();
+const sources=()=>Object.fromEntries(paths.map(p=>[p,hashFile(ROOT+'/'+p)]));
+const report={version:2,createdAt:new Date().toISOString(),completed:false,mode:'expressive-stress',assets,previousSHA256,candidateSHA256,candidatePath,assetLoading:'Both frozen assets reconstructed from tracked recipes and routed into the real loader; installed default is unchanged.',phases,sourceHashes:sources(),
     toolHashes:Object.fromEntries(tools.map(p=>[p,hashFile(ROOT+'/'+p)])),runs:[],
     scope:'Supported feel/say APIs, native layers/clamps, synthetic gesture timing with no audio or model. Discrete CPU snapshots during real GPU rendering; no continuous collision proof.'};
-fs.copyFileSync(fileURLToPath(import.meta.url),OUT+'/collar_stress_capture.mjs');
+for(const file of tools){const target=path.join(OUT,file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(ROOT+'/'+file,target,fs.constants.COPYFILE_EXCL);}
 const save=()=>fs.writeFileSync(OUT+'/report.json',JSON.stringify(report,null,2));
 const server=await createServer({configFile:ROOT+'/vite.config.js',server:{host:'127.0.0.1',port:5357,strictPort:true,hmr:false,watch:{ignored:['**']},fs:{allow:[ROOT]}},logLevel:'error'});
 let browser;
@@ -63,7 +65,7 @@ try{
         };
         const snapshot=async step=>{
             const geometry=await page.evaluate(async ROOT=>{
-                const {snapshot}=await import('/@fs'+ROOT+'/captures/tee-neckline-2026-09-13/mesh-snapshot.mjs');const result=snapshot(avatar);
+                const {snapshot}=await import('/@fs'+ROOT+'/tools/figure-pipeline/collar_capture_browser.mjs');const result=snapshot(avatar);
                 const inner=avatar.wardrobe.fragments.get('female_casualsuit01').interior?.mesh;
                 if(inner){inner.updateMatrixWorld(true);const v=avatar.focus.clone(),positions=new Float32Array(inner.geometry.attributes.position.count*3);
                     for(let i=0;i<positions.length/3;i++)inner.getVertexPosition(i,v).applyMatrix4(inner.matrixWorld).toArray(positions,i*3);
@@ -76,8 +78,8 @@ try{
             await page.goto('http://127.0.0.1:5357/src/showcase.html?preset='+(hair==='bob02'?'casual':'elegant')+'&outfit=casual&style=ecru&frame=portrait&capture=');
             await page.waitForFunction(()=>window.showcase,null,{timeout:120000});await Promise.all(reads);
             assert.equal(rec.loadedAssets.length,1);assert.equal(rec.loadedAssets[0].sha256,rec.assetSHA256);
-            rec.setup=await page.evaluate(async({ARCHIVE,hair,arm})=>{
-                window.avatar=showcase.avatar;window.helper=await import('/@fs'+ARCHIVE+'/browser.mjs');
+            rec.setup=await page.evaluate(async({ROOT,hair,arm})=>{
+                window.avatar=showcase.avatar;window.helper=await import('/@fs'+ROOT+'/tools/figure-pipeline/collar_capture_browser.mjs');
                 const a=avatar,inner=a.wardrobe.fragments.get('female_casualsuit01').interior;
                 if(a.report().hair.loadedStyle!==hair)throw Error('Wrong hair');
                 if(arm==='owned'?!inner||inner.fullTriangles!==140:inner!==null)throw Error('Unexpected interior owner');
@@ -90,7 +92,7 @@ try{
                 for(let i=0;i<128;i++)await helper.draw(a);
                 if(a.report().motion.seed!==20260807)throw Error('Unexpected motion seed');
                 return{seed:a.report().motion.seed,configuration:showcase.configuration(),interiorTriangles:inner?.fullTriangles??0,capture:probe.setupReport};
-            },{ARCHIVE,hair,arm});
+            },{ROOT,hair,arm});
             const snapshotSteps=new Set([1080]),bodySteps=new Set();
             for(let step=0;step<=1080;step++){
                 if(step)await page.evaluate(()=>helper.step(avatar,1/60));

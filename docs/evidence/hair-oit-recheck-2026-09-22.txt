@@ -1,0 +1,117 @@
+
+--- equation (11) and the sign convention that decides it ---------------------
+
+PASS  d(near) = 0 and d(far) = 1 exactly, which is what catches the sign trap in (11)
+      d(0.05) = 0.00e+0, d(20) = 1.000000000000. With positive near/far the same call returns 2.005 at the near plane.
+PASS  the depth is monotone and inside 0..1 across the whole frustum
+      0.0000 -> 0.5013 -> 0.8354 -> 0.9357 -> 0.9774 -> 0.9962 -> 1.0000
+
+--- equation (10) over a groom, which is why the weight is re-fitted ------------
+
+      near 0.05  far 20   front   2.08869  back   0.54007  ratio 3.867
+      near 0.05  far 100  front   2.22029  back   0.59608  ratio 3.725
+      near 0.1   far 12   front  16.06234  back   4.01835  ratio 3.997
+      near 0.01  far 100  front   0.01774  back   0.01000  ratio 1.774   back AT THE CLAMP FLOOR
+PASS  the published equation (10) separates the front and back of a groom by under 5x
+      best of four frustums is 3.997x, against the 64x the slab fit is authored at. A groom stacks 10-50 cards.
+PASS  and equation (10) is a property of the frustum, not of the groom — the whole case for the re-fit
+      the same fragment at 0.55 m is worth 0.01774 to 16.06234 across four frustums — 905x — and near 0.01 pins the back of the groom at the 0.01 floor.
+
+--- the slab weight -------------------------------------------------------------
+
+PASS  the slab weight spans exactly `range` at the front to 1 at the back
+      w(t=0) = 64.000000, w(t=1) = 1.000000
+PASS  it is monotone in depth and clamped outside the slab in both directions
+      t = -0.5 gives 64.0000 (same as t = 0), t = 1.5 gives 1.0000 (same as t = 1)
+PASS  alpha is a linear factor of the weight, as equations (7)-(10) write it
+      w(0.3, 0.25) = 5.652250 = 0.25 x 22.609000
+PASS  the paper's clamps bound the depth curve, and alpha passes through them untouched
+      range 1e9 at the front saturates to 3000, and an alpha of 1e-9 at the back gives 1.00e-9 — alpha times the curve's own minimum of 1, not lifted to the 0.01 floor.
+
+--- Listing 4, factor by factor -------------------------------------------------
+
+PASS  the accumulation blend is Listing 4 exactly: ONE/ONE for rgb, ZERO/ONE_MINUS_SRC_ALPHA for a
+      src/dst 201/201, srcA/dstA 200/205. The alpha half is what turns three's fixed (0,0,0,1) clear into the revealage product, and it is the reason Listing 4 is buildable here and Listing 3 is not.
+PASS  the weight blend is pure additive, and carries no separate alpha to get wrong
+      src/dst 201/201, srcA/dstA null/null
+PASS  each call returns a fresh BlendMode, because the MRT node stores it by reference
+      two calls, two objects
+PASS  the alpha recurrence dst.a <- dst.a x (1 - src.a) from a clear of 1 is the revealage product
+      five cards of coverage 0.42, 0.18, 0.65, 0.07, 0.31 leave 0.106817 of the background showing, so the composite mixes 89.3% hair over 10.7% face.
+
+--- the dither sequence, which is 3.21 in arithmetic -----------------------------
+
+PASS  D1 the offset is a unit fraction and 4096 frames give 4096 distinct values
+      4096 distinct of 4096, all in [0,1). A rational step of p/q would give exactly q, and the estimate would stop converging there.
+        16 frames   golden largest gap 0.09017   against phi/N = 0.10113   white 0.18994   ratio 2.11x
+        64 frames   golden largest gap 0.02129   against phi/N = 0.02528   white 0.05820   ratio 2.73x
+       256 frames   golden largest gap 0.00502   against phi/N = 0.00632   white 0.01987   ratio 3.95x
+PASS  D2 the golden step meets the three-distance bound phi/N at every N, and white noise does not
+      largest gap after 256 frames: golden 0.00502, white 0.01987. 🚩 THIS IS THE CHECK ?white-dither EXISTS FOR — white noise moves every frame too, so a gate that only asserted movement is green on it.
+PASS  D3 frozen-dither does not advance with the frame, and DOES answer the phase
+      32 frames give one value (0.000000) and phase 977 gives 0.819207; 16 phases give 16 distinct fields whose largest gap is 0.09017 against phi/16 = 0.10113. Without the second half the red proof below would compare a plate against itself and go green on the defect — and a defect that answered the phase with a near-constant would pass a distance test while still giving two observers nearly the same picture.
+PASS  D3b the shipped arm is the stochastic one and the step is the golden-ratio conjugate
+      default 'stochastic', step 0.6180339887498949 — and phi^-2 + phi^-1 = 1 holds to 0.0e+0, which is the defining equation and catches a mistyped digit.
+
+--- the slab, in view space -----------------------------------------------------
+
+PASS  the view-space slab is exact dead-on and widens by sqrt(2) at 45 degrees
+      dead-on 0.9000..1.1000 (depth 0.2000), at 45 degrees depth 0.2828 against sqrt(2) x 0.2 = 0.2828. A world-space z extent would report 0.2 at both.
+
+--- draw-order dependence, which is the defect itself ---------------------------
+
+      blend    rms   28.6615 cv   worst pixel  254.8 cv    196623 px differ at all    39.296% of pixels move by more than 2 cv   same-url floor    13 px
+      cutout   rms    0.0366 cv   worst pixel    5.0 cv       590 px differ at all     0.007% of pixels move by more than 2 cv   same-url floor     0 px
+      hash     rms    0.0226 cv   worst pixel    2.0 cv       708 px differ at all     0.000% of pixels move by more than 2 cv   same-url floor     0 px
+      stochastic rms    0.0367 cv   worst pixel   10.2 cv       739 px differ at all     0.003% of pixels move by more than 2 cv   same-url floor    18 px
+      wboit    rms    0.1655 cv   worst pixel   35.8 cv     19807 px differ at all     0.040% of pixels move by more than 2 cv   same-url floor     1 px
+      defect   rms   36.8755 cv   worst pixel  249.9 cv    211920 px differ at all    38.109% of pixels move by more than 2 cv   same-url floor   n/a px
+PASS  A1 naive alpha blending IS order dependent on this groom, which is the whole of 3.6
+      reversing the triangle order moves the frame by 28.6615 code values RMS, up to 254.8 on the worst pixel, with 39.296% of the frame moving by more than 2. Same geometry, same camera, same lights — only the sequence.
+PASS  A2 the cutout arm is order INDEPENDENT — under 1 code value RMS
+      0.0366 cv RMS against blend's 28.6615 — a 783x reduction — with 0.007% of pixels over 2 cv.
+PASS  A2 the hash arm is order INDEPENDENT — under 1 code value RMS
+      0.0226 cv RMS against blend's 28.6615 — a 1270x reduction — with 0.000% of pixels over 2 cv.
+PASS  A2 the stochastic arm is order INDEPENDENT — under 1 code value RMS
+      0.0367 cv RMS against blend's 28.6615 — a 781x reduction — with 0.003% of pixels over 2 cv.
+PASS  A2 the wboit arm is order INDEPENDENT — under 1 code value RMS
+      0.1655 cv RMS against blend's 28.6615 — a 173x reduction — with 0.040% of pixels over 2 cv.
+FAIL  A3 the instrument has an exact zero — the same arm loaded twice is the same frame, pixel for pixel
+      forward against forward, two page loads apiece: blend 13, cutout 0, hash 0, stochastic 18, wboit 1 px differ of 392000. Every pixel A3b counts is therefore an order effect and not the renderer, down to the last one — this is why the residue can be read as a COUNT rather than through a visibility threshold that has to be argued about.
+PASS  A3b the residues are ordered by how demanding their coincidence is: depth tie < fp16 rounding < any overlap
+      worst depth-resolved arm is stochastic at 739 px of 392000; wboit 19807 px (27x); blend 196623 px (10x). cutout 590, hash 708, stochastic 739. 🚩 Under the source break — `material.depthWrite = false` in configureHairMaterial's cutout branch — the cutout arm crosses wboit and this clause goes red; the readings are in the block above `HAIR_BAND`.
+PASS  A3c the fp16 arm's residue is visible somewhere and is nowhere an area
+      wboit's worst pixel moves 35.8 cv — above the 2 cv a plate can resolve — while only 0.040% of the frame moves that far, against blend's 39.296%. Reassociation of a half-float sum, not a sorting artefact.
+PASS  A4 RED PROOF: with the blend modes on material.mrtNode the wboit arm is order dependent again
+      ?oitdefect=material-blend takes the wboit arm from 0.1655 cv RMS to 36.8755 — 223x — with 38.109% of the frame moving. WebGPUPipelineUtils reads renderObject.context.mrt, which is the PASS's; the material's table is never consulted and the attachments get no blending at all.
+
+--- under motion, because a still frame cannot show popping ----------------------
+
+      blend    per-pixel sigma  15.3038 cv   frame-to-frame rms median 10.7585 max 13.6132   spike 1.27x
+      cutout   per-pixel sigma  19.9586 cv   frame-to-frame rms median 14.9095 max 18.6074   spike 1.25x
+      hash     per-pixel sigma  18.5860 cv   frame-to-frame rms median 14.3459 max 17.8521   spike 1.24x
+      stochastic per-pixel sigma  18.2877 cv   frame-to-frame rms median 13.6841 max 17.0816   spike 1.25x
+      wboit    per-pixel sigma   6.4613 cv   frame-to-frame rms median 4.0364 max 5.5449   spike 1.37x
+PASS  B1 wboit is the most temporally stable arm under a 0.25 deg/frame orbit
+      per-pixel sigma over the hair band, 20 converged frames: wboit 6.4613, blend 15.3038, hash 18.5860, cutout 19.9586 code values.
+PASS  B2 the cutout arm is the LEAST stable, which is the silhouette crawling
+      cutout 19.9586 against hash 18.5860 and wboit 6.4613 — 3.09x the accumulation arm. A binary alpha test is the one decision a temporal filter cannot soften.
+PASS  B3 no arm pops: the worst frame-to-frame step is within 2x of the median one
+      worst is wboit at 1.37x — blend 1.27x, cutout 1.25x, hash 1.24x, stochastic 1.25x, wboit 1.37x. The camera moves at a constant rate, so a constant step is the honest answer and a spike would be a card changing places.
+
+--- 3.21, the coverage decision: does the picture depend on the seed? -----------
+
+      mask 613517 px of 1080000 (56.81%), every pixel the groom moves against the same page with no groom
+
+      shipped        seed RMS   3.0379 cv   worst   93.7    18.24% over 2 cv
+      white-dither   seed RMS   4.1769 cv   worst  104.3    25.48% over 2 cv
+      frozen-dither  seed RMS  11.6373 cv   worst  133.2    38.89% over 2 cv
+PASS  C1 the shipped dither integrates: two disjoint stretches of the sequence agree
+      phases 0 and 977, 128 converged frames apiece, 3.0379 cv RMS over the groom with 18.24% of it over 2 cv. ⚠️ THIS CLAUSE IS NOT SUFFICIENT ON ITS OWN and C2 is its liveness control — measured, by deleting `.add( offset )` from hairDitherThresholdNode: C1 then reads 0.0003 cv and goes GREEN, because a seed nothing reads makes both observers agree exactly. LEARNINGS §1.25g.
+PASS  C2 RED PROOF: with the offset frozen the picture is the seed, not the coverage
+      frozen-dither takes the same plate from 3.0379 cv RMS to 11.6373 — 3.83x — with 38.89% of the groom over 2 cv against 18.24%. Same arm, same frames, same everything but whether the threshold advances.
+PASS  C3 the golden step beats white noise at the same frame count, which is why it is not a hash
+      white-dither 4.1769 cv against the golden step's 3.0379 — 1.37x — after the same 128 frames. Both move every frame; only one is stratified.
+
+FAIL: 31/32 checks green
+

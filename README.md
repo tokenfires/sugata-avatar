@@ -102,7 +102,7 @@ image or JSON settings downloads. [Colour choices](docs/WARDROBE-COLOURWAYS-2026
 existing stand-in clothes, with remaining fit and styling work. See the [lookbook guide](docs/SHOWCASE-2026-09-09.md)
 and [wardrobe API](docs/WARDROBE-AVATAR-2026-09-09.md).
 
-For current work, start with the [Sunday checkpoint](docs/RESUMED-2026-09-13.md) and
+For current work, start with the [September 22 recovery checkpoint](docs/RECOVERY-2026-09-22.md) and
 [product direction](docs/PRODUCT-ROADMAP.md).
 The [September 8 restart](docs/RESTART-2026-09-08.md) records the active checkout and partial
 recovery from the old iCloud location. Older hair checkpoints are historical experiments,

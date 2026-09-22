@@ -247,7 +247,7 @@
 
 import { Avatar } from '../../core/src/Avatar.js';
 import { discoverModels, connectionHelp, formatRequestDiagnostic } from './converse-connection.mjs';
-import { optionsForShowcase } from './showcase-presets.mjs';
+import { optionsForShowcase, resolveShowcaseSelection } from './showcase-presets.mjs';
 import { completionDiagnostic, httpErrorDetail, boundedDetail } from '../../core/src/affect/CompletionDiagnostics.js';
 
 import { AppraisalAffect } from '../../core/src/affect/AppraisalAffect.js';
@@ -787,7 +787,7 @@ async function boot() {
 
     const gender = Number( query.get( 'gender' ) ?? 0.5 );
     const everyday = gender === 0.5
-        ? optionsForShowcase( { preset: 'casual', outfit: 'casual', frame: 'portrait', light: 'studio' } )
+        ? optionsForShowcase( resolveShowcaseSelection( new URLSearchParams( { preset: 'casual', frame: 'portrait' } ) ) )
         : {};
     const avatar = await Avatar.create( {
         ...everyday,

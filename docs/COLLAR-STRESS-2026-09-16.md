@@ -1,6 +1,11 @@
 # Sugata — expressive collar checkpoint, September 16, 2026
 
-This is the current restart document. It supersedes the installation status and next-step
+**September 22 update:** Start with [the recovery checkpoint](RECOVERY-2026-09-22.md).
+The ignored archives referenced below were lost. The capture/review path now reconstructs its
+inputs from tracked recipes; the exact [fit plan](COLLAR-FIT-PLAN-2026-09-16.md) is preserved
+in this directory. The dated findings and historical archive paths below remain as recorded.
+
+This checkpoint supersedes the installation status and next-step
 priority in [COLLAR-INTERIOR-2026-09-16.md](COLLAR-INTERIOR-2026-09-16.md), while preserving
 that document's bounded natural-motion evidence. Rob authorized this resumed session and
 its parallel work window. The [full brief](BRIEF.md) remains the target.

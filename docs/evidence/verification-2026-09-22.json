@@ -1,0 +1,101 @@
+{
+  "fullRun": {
+    "gates": 121,
+    "passed": 107,
+    "failed": 14,
+    "exit": 17,
+    "startedAtCommit": "afad2fb",
+    "startedClean": true,
+    "endedDirty": true,
+    "log": "docs/evidence/selftests-2026-09-22.txt",
+    "sha256": "827a0f0cb6a3b19bed3a9c093d7151758634690566f88af6497470e289ea0476",
+    "limits": "Run spans local repairs; not a clean final-tree full-suite result."
+  },
+  "focusedRepairs": [
+    {
+      "gate": "packages/core/src/Avatar.hair-contact.gpu.selftest.mjs",
+      "passedGroups": 9
+    },
+    {
+      "gate": "packages/core/src/Avatar.hair-forest.gpu.selftest.mjs",
+      "passedGroups": 9
+    },
+    {
+      "gate": "packages/testbed/src/converse.gpu.selftest.mjs",
+      "passedGroups": 32
+    }
+  ],
+  "remainingFailures": [
+    {
+      "exit": 1,
+      "gate": "packages/core/src/material/HairMaterial.selftest.mjs",
+      "summary": "RED \u2014 75/80 checks passed"
+    },
+    {
+      "exit": 1,
+      "gate": "packages/core/src/motion/HairDynamics.selftest.mjs",
+      "summary": "34/35 checks green in 31s"
+    },
+    {
+      "exit": 1,
+      "gate": "packages/core/src/motion/sway.selftest.mjs",
+      "summary": "- every emotion stays inside the SKINNED footprint (mm)"
+    },
+    {
+      "exit": 1,
+      "gate": "packages/core/src/render/HairOIT.selftest.mjs",
+      "summary": "FAIL: 31/32 checks green"
+    },
+    {
+      "exit": 1,
+      "gate": "packages/core/src/render/HairShadow.selftest.mjs",
+      "summary": "FAIL \u2014 8 of 9"
+    },
+    {
+      "exit": 1,
+      "gate": "packages/core/src/wardrobe/shadow.selftest.mjs",
+      "summary": "FAIL \u2014 1 of 23."
+    },
+    {
+      "exit": 1,
+      "gate": "packages/testbed/src/alive-toggles.selftest.mjs",
+      "summary": "FAIL: 196/197 checks green"
+    },
+    {
+      "exit": 1,
+      "gate": "tools/figure-pipeline/hair_alpha.selftest.mjs",
+      "summary": "FAIL \u2014 36 of 43."
+    },
+    {
+      "exit": 1,
+      "gate": "tools/quoted-numbers.selftest.mjs",
+      "summary": "24 passed, 1 failed"
+    },
+    {
+      "exit": 1,
+      "gate": "tools/request-ledger.selftest.mjs",
+      "summary": "FAIL: 25/26 checks green"
+    },
+    {
+      "exit": 1,
+      "gate": "tools/figure-pipeline/verify_glb.mjs",
+      "summary": "FAIL \u2014 20 problem(s) across 43 file(s)."
+    }
+  ],
+  "activeDeclarationsMatchRemainingExactly": true,
+  "newGatesPassed": [
+    "tools/figure-pipeline/collar_stress_inputs.selftest.mjs",
+    "tools/figure-pipeline/collar_fit_support.selftest.mjs"
+  ],
+  "build": {
+    "command": "npm run build:pages",
+    "passed": true,
+    "htmlPages": 18,
+    "existingWarning": "Chunks over 500 kB"
+  },
+  "runnerControl": {
+    "passed": true,
+    "log": "docs/evidence/selftest-log-control-2026-09-22.txt",
+    "scope": "Actual run_gate shell function, stdout/stderr and pass/fail storage, early failure beyond 20-line tail, unchanged exit accounting; bash syntax check."
+  }
+}

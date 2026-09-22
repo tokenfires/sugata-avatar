@@ -40,7 +40,7 @@ try{
  await page.waitForFunction(()=>!document.querySelector('#refresh').disabled);
  const initial=await page.evaluate(()=>({status:document.querySelector('#connection-status').textContent,selected:document.querySelector('#model').value,models:[...document.querySelector('#model').options].map(o=>o.value).filter(Boolean),mouth:document.querySelector('#mouth').checked,sendDisabled:document.querySelector('#send').disabled,avatar:__SUGATA_CONVERSE__.avatar.report()}));
  report.initial=initial;
- check('page boot renders the accepted clothed g050 avatar and sends no inference',()=>{assert.equal(report.requests.length,0);assert.equal(initial.avatar.identity.bake,'figure_g050');assert.equal(initial.avatar.hair.loadedStyle,'bob02');assert.equal(initial.avatar.wardrobe.attached,true);assert.equal(initial.sendDisabled,true);assert.equal(initial.mouth,false);});
+ check('page boot renders the accepted clothed g050 avatar and sends no inference',()=>{assert.equal(report.requests.length,0);assert.equal(initial.avatar.identity.bake,'figure_g050');assert.equal(initial.avatar.hair.loadedStyle,'bob02');assert.equal(initial.avatar.wardrobe.attached,true);assert.equal(initial.avatar.wardrobe.appearance.attached,true);assert.equal(initial.avatar.wardrobe.appearance.style,'ecru');assert.equal(initial.sendDisabled,true);assert.equal(initial.mouth,false);});
  check('missing requested model stays unselected with an actionable explanation',()=>{assert.equal(initial.selected,'');assert.match(initial.status,/no longer listed/);assert.ok(initial.models.length>0);});
  const shot=async name=>{await page.screenshot({path:path.join(out,name+'.png'),fullPage:true});report.views.push(name+'.png');save();};
  await shot('discovered-desktop');
