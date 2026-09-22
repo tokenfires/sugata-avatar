@@ -53,11 +53,15 @@
 cd "$( dirname "$0" )/.." || exit 1
 
 DECLARATIONS="docs/RED-GATES.md"
+# Keep the complete output: a late summary can push the actual failed assertion
+# out of the 20-line tail, forcing an expensive browser gate to be run again.
+log_root=$(mktemp -d "${TMPDIR:-/tmp}/sugata-selftests.XXXXXX") || exit 1
 
 tree_state() { if [ -z "$( git status --porcelain )" ]; then echo clean; else echo DIRTY; fi; }
 
 echo "HEAD: $( git rev-parse --short HEAD )"
 echo "tree: $( tree_state )   at $( date -u +%H:%M:%SZ )"
+echo "logs: $log_root"
 echo
 
 failures=0
@@ -66,16 +70,22 @@ red_gates=()
 run_gate() {
 
     local label="$1"; shift
-    local out code
+    local out code log_file
 
     out=$( "$@" 2>&1 ); code=$?
+    log_file="$log_root/${label#./}.log"
+    mkdir -p "$( dirname "$log_file" )" || exit 1
+    printf '%s\n' "$out" > "$log_file" || exit 1
 
     if [ "$code" -ne 0 ]; then failures=$(( failures + 1 )); red_gates+=( "$label" ); fi
 
     printf 'exit=%d  %-58s %s\n' "$code" "$label" "${out##*$'\n'}"
 
     # A failing gate is the whole reason to run this, so it gets its tail rather than one line.
-    if [ "$code" -ne 0 ]; then echo "$out" | tail -20 | sed 's/^/         | /'; fi
+    if [ "$code" -ne 0 ]; then
+        echo "$out" | tail -20 | sed 's/^/         | /'
+        echo "         | full output: $log_file"
+    fi
 
 }
 
