@@ -53,6 +53,12 @@ export async function runAvatarContactLifecycle() {
  finally{renderer.compute=originalCompute;}
  const after={centers:await pack((await d.readCentrelines()).positions),vertices:await pack((await d.readVertices()).positions),steps:d.stepsTaken,frames:d.contactReport().frames,resources:resources()};
  report.scale={message,submissions,before,after,disposed:d.disposed};resetTransform();d.reset();avatar.hairUpdate(0);report.scale.resumed=d.contactReport().frames>before.frames;
+ // Initial beauty draws allocate one render-history buffer in addition to the solver.
+ // Attribute the difference by retiring that owner alone, while the solver remains live.
+ const history=avatar.hairHistory,historyDefinition=history.report(),historyBefore=resources();
+ history.dispose();avatar.hairHistory=null;
+ report.historyRetirement={definition:historyDefinition,before:historyBefore,after:resources(),
+  disposed:history.disposed,solverDisposed:d.disposed};
  const retired=[];
  const retire=()=>{if(avatar.hairDynamics)retired.push(avatar.hairDynamics);avatar.disposeHair();};
  retire();report.baseline=resources();
