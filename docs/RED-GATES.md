@@ -78,13 +78,18 @@ directions, which is the clause worth keeping when this check is next edited.
 - `tools/figure-pipeline/verify_glb.mjs` — accepted groom geometry still fails lock coherence,
   bob01/g050 clearance, and the recorded short-style gathering/coverage clauses. Numerical
   deformation candidates were visually rejected. Only embedded atlas images changed; no candidate
-  geometry was promoted. The original run reports 20 problems across 43 files.
+  geometry was promoted. The integrated run confirms 20 problems across 43 files.
 
 - `tools/figure-pipeline/hair_opacity.mjs` — newly included by the suite runner for REQ-076.
-  Its side-curtain transmission exceeds the unchanged 0.35 ceiling. This is additional visibility
+  Its side-curtain transmission is 0.5439, above the unchanged 0.35 ceiling. This is additional visibility
   into the existing hair appearance work, not a passing acceptance result. The outside-footprint
   liveness check now compares the actual numerator with its denominator, and its shifted-mask
   negative control fails as intended.
+
+- `tools/figure-pipeline/hair_tips.mjs` — newly included for REQ-076. The focused September 22
+  run reports tip speckle **7.12%** and cheek/curtain speckle **19.23%**, both above the unchanged
+  **3%** ceiling. These coverage artefacts remain part of the hair appearance work. See the
+  `hair-tips-final.txt` evidence; no detector threshold was changed.
 
 ## September 22 pre-repair snapshot
 

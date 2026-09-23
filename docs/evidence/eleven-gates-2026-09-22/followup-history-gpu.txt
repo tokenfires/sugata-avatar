@@ -1,0 +1,1153 @@
+{
+  "completed": true,
+  "errors": [],
+  "cases": [
+    "fresh→unrendered solver/camera advance→same-task PNG",
+    "next fresh after cached source advance",
+    "direct temporal reset→cached→fresh",
+    "debug and temporal off/on recovery",
+    "primary-camera direct render",
+    "alternate-camera direct render",
+    "native body callback throw",
+    "next-fresh recovery"
+  ],
+  "image": {
+    "width": 682,
+    "height": 768,
+    "redRange": 0.9882352943532169
+  },
+  "disposal": {
+    "error": null,
+    "owner": {
+      "requested": "auto",
+      "mode": "disposed",
+      "reason": "disposed",
+      "live": false,
+      "valid": false,
+      "commits": 12,
+      "cachedDraws": 4,
+      "invalidations": 23,
+      "lastDraw": {
+        "mode": "seeding",
+        "currentMVP": [
+          4.774682190285321,
+          0,
+          -0.20795328147405404,
+          -0.20791169081775923,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          -1.0148900294341376,
+          0,
+          -0.9783432693876832,
+          -0.9781476007338057,
+          -0.009549364380570807,
+          -6.5958807993144,
+          0.9002057981409364,
+          0.9100257569813083
+        ],
+        "previousMVP": [
+          4.774682190285321,
+          0,
+          -0.20795328147405404,
+          -0.20791169081775923,
+          0,
+          4.3314758742841555,
+          0,
+          0,
+          -1.0148900294341376,
+          0,
+          -0.9783432693876832,
+          -0.9781476007338057,
+          -0.009549364380570807,
+          -6.5958807993144,
+          0.9002057981409364,
+          0.9100257569813083
+        ],
+        "source": {
+          "write": 2,
+          "reset": 1,
+          "builtReset": 1,
+          "ready": true,
+          "rawComputeUsed": false
+        }
+      },
+      "cardVertexBase": 652,
+      "cardVertexCount": 16864,
+      "ownedHistoryBuffers": 0,
+      "paddedHistoryBytes": 0,
+      "caps": "native hold; exact cards only"
+    },
+    "stage": null,
+    "disposed": true,
+    "partial": {
+      "rows": [
+        {
+          "case": "fresh→unrendered solver/camera advance→same-task PNG",
+          "saved": true,
+          "before": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 3,
+            "cachedDraws": 1,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -1.354847187414675e-16,
+                -6.5958807993144,
+                0.8997898915779883,
+                0.9096099335996728
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -1.354847187414675e-16,
+                -6.5958807993144,
+                0.8997898915779883,
+                0.9096099335996728
+              ],
+              "source": {
+                "write": 1,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "after": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 3,
+            "cachedDraws": 2,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -1.354847187414675e-16,
+                -6.5958807993144,
+                0.8997898915779883,
+                0.9096099335996728
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -1.354847187414675e-16,
+                -6.5958807993144,
+                0.8997898915779883,
+                0.9096099335996728
+              ],
+              "source": {
+                "write": 1,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "steps": 1,
+          "afterSteps": 3,
+          "snapshotComponentsEqual": 50592,
+          "status": "PNG image downloaded"
+        },
+        {
+          "case": "next fresh after cached source advance",
+          "history": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 4,
+            "cachedDraws": 2,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -1.354847187414675e-16,
+                -6.5958807993144,
+                0.8997898915779883,
+                0.9096099335996728
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          }
+        },
+        {
+          "case": "direct temporal reset→cached→fresh",
+          "resetBefore": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 5,
+            "cachedDraws": 2,
+            "invalidations": 0,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "resetCache": {
+            "requested": "auto",
+            "mode": "hold",
+            "reason": "temporal epoch changed",
+            "live": true,
+            "valid": false,
+            "commits": 5,
+            "cachedDraws": 3,
+            "invalidations": 1,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "resetFresh": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 6,
+            "cachedDraws": 3,
+            "invalidations": 1,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          }
+        },
+        {
+          "case": "debug and temporal off/on recovery",
+          "history": {
+            "requested": "auto",
+            "mode": "exact",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 9,
+            "cachedDraws": 3,
+            "invalidations": 17,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774450662789978,
+                -0.0001369642232001062,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.015979280659899,
+                -0.0006443660083885475,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.008535972669010416,
+                -6.595281309355914,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          }
+        },
+        {
+          "case": "primary-camera direct render",
+          "direct": {
+            "requested": "auto",
+            "mode": "hold",
+            "reason": "hold fallback: groom rendered outside owned beauty",
+            "live": true,
+            "valid": false,
+            "commits": 9,
+            "cachedDraws": 3,
+            "invalidations": 18,
+            "lastDraw": {
+              "mode": "exact",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774450662789978,
+                -0.0001369642232001062,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.015979280659899,
+                -0.0006443660083885475,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.008535972669010416,
+                -6.595281309355914,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "after": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 10,
+            "cachedDraws": 3,
+            "invalidations": 18,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          }
+        },
+        {
+          "case": "alternate-camera direct render",
+          "direct": {
+            "requested": "auto",
+            "mode": "hold",
+            "reason": "hold fallback: groom rendered outside owned beauty",
+            "live": true,
+            "valid": false,
+            "commits": 10,
+            "cachedDraws": 3,
+            "invalidations": 19,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "after": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 11,
+            "cachedDraws": 3,
+            "invalidations": 19,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          }
+        },
+        {
+          "case": "native body callback throw",
+          "bodyCallbacks": 1,
+          "thrown": "continuity injected body draw failure",
+          "differences": [],
+          "beforeFailure": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 11,
+            "cachedDraws": 3,
+            "invalidations": 19,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "failed": {
+            "requested": "auto",
+            "mode": "hold",
+            "reason": "continuity injected body draw failure",
+            "live": true,
+            "valid": false,
+            "commits": 11,
+            "cachedDraws": 3,
+            "invalidations": 20,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "cachedFailure": "Stage.draw requires a fresh scene after a failed image; cached output is unavailable.",
+          "lightingDepth": 0
+        },
+        {
+          "case": "next-fresh recovery",
+          "history": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 12,
+            "cachedDraws": 3,
+            "invalidations": 23,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "recoveryReport": {
+            "requested": "auto",
+            "mode": "seeding",
+            "reason": null,
+            "live": true,
+            "valid": true,
+            "commits": 12,
+            "cachedDraws": 4,
+            "invalidations": 23,
+            "lastDraw": {
+              "mode": "seeding",
+              "currentMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "previousMVP": [
+                4.774682190285321,
+                0,
+                -0.20795328147405404,
+                -0.20791169081775923,
+                0,
+                4.3314758742841555,
+                0,
+                0,
+                -1.0148900294341376,
+                0,
+                -0.9783432693876832,
+                -0.9781476007338057,
+                -0.009549364380570807,
+                -6.5958807993144,
+                0.9002057981409364,
+                0.9100257569813083
+              ],
+              "source": {
+                "write": 2,
+                "reset": 1,
+                "builtReset": 1,
+                "ready": true,
+                "rawComputeUsed": false
+              }
+            },
+            "cardVertexBase": 652,
+            "cardVertexCount": 16864,
+            "ownedHistoryBuffers": 1,
+            "paddedHistoryBytes": 269824,
+            "caps": "native hold; exact cards only"
+          },
+          "finiteComponents": 50592
+        }
+      ],
+      "frameWaits": [
+        {
+          "start": 83,
+          "seen": [
+            84
+          ]
+        },
+        {
+          "start": 84,
+          "seen": [
+            85
+          ]
+        },
+        {
+          "start": 91,
+          "seen": [
+            92
+          ]
+        },
+        {
+          "start": 93,
+          "seen": [
+            94
+          ]
+        },
+        {
+          "start": 94,
+          "seen": [
+            95
+          ]
+        },
+        {
+          "start": 95,
+          "seen": [
+            96
+          ]
+        },
+        {
+          "start": 96,
+          "seen": [
+            97
+          ]
+        },
+        {
+          "start": 97,
+          "seen": [
+            98
+          ]
+        },
+        {
+          "start": 98,
+          "seen": [
+            99
+          ]
+        },
+        {
+          "start": 99,
+          "seen": [
+            100
+          ]
+        },
+        {
+          "start": 111,
+          "seen": [
+            112
+          ]
+        },
+        {
+          "start": 113,
+          "seen": [
+            114
+          ]
+        },
+        {
+          "start": 115,
+          "seen": [
+            116
+          ]
+        }
+      ],
+      "failureState": {
+        "bodyCallbackInfo": [
+          {
+            "primaryCamera": false,
+            "cameraType": "PerspectiveCamera",
+            "sceneOverride": "NodeMaterial",
+            "target": "ShadowMap"
+          }
+        ],
+        "differences": [],
+        "before": {
+          "publicRenderFunction": null,
+          "shadowType": null,
+          "clearColor": [
+            0,
+            0,
+            0
+          ],
+          "clearAlpha": 0,
+          "background": null
+        },
+        "after": {
+          "publicRenderFunction": null,
+          "shadowType": null,
+          "useVelocity": null,
+          "clearColor": [
+            0,
+            0,
+            0
+          ],
+          "clearAlpha": 0,
+          "background": null
+        }
+      }
+    }
+  }
+}

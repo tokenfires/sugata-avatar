@@ -3,7 +3,7 @@
 This work starts at `d54a6ce` (PR #2) on `codex/resolve-eleven-gates`.
 Robert requested a stopping point before switching to Koselig. The work is therefore saved
 as a partial repair, with the remaining appearance and groom work explicit. No geometry
-candidate or collar fit has been promoted. Final suite evidence is recorded below when complete.
+candidate or collar fit has been promoted. Final suite and follow-up evidence is recorded below.
 
 ## Repairs and their focused evidence
 
@@ -14,7 +14,7 @@ committed tree. The later whole-suite run is the integration check.
 | Original failing gate | Change | Focused result |
 | --- | --- | --- |
 | HairDynamics | Increase damping to settle held-head motion; unchanged settling ceiling | 35/35; 3.1262 mm becomes 0.0258 mm |
-| Sway | Derive rear travel from the skinned heel footprint; retain it through reset | 285/285 before the additional optional affect-rail repair; final integration run verifies both |
+| Sway | Derive rear travel from the skinned heel footprint; retain it through reset | 285/285 in the complete suite, including the optional affect-rail repair |
 | HairOIT | Measure reload noise against the smallest order signal and require separated uncertainty intervals | 33/33, including boundary controls |
 | HairShadow | Reject low-alpha atlas texels in the shadow pass at cutoff 0.35 | 9/9; contact and negative controls remain enforced |
 | Wardrobe shadow | Scale normal bias to four shadow texels for the current filter | 23/23; contact 1.128x and acne 4.323x against unchanged 1.12x/8x limits |
@@ -23,7 +23,7 @@ committed tree. The later whole-suite run is the integration check.
 | Quoted numbers | Withdraw four unsupported live historical claims to an explicitly unverified archive | 25/25; missing reference images remain missing |
 | Request ledger | Adjudicate 22 old requests, advance the round, and make negative controls support an empty OPEN backlog | 27/27; 77 APPLIED, 14 REJECTED, zero OPEN |
 | HairMaterial | Correct the camera-relative headlamp arm and the gain comparison | 76/80; four appearance failures remain |
-| GLB verification | No groom geometry change accepted | Original 20 geometry problems remain to be rechecked by integration |
+| GLB verification | No groom geometry change accepted | 20 problems across 43 files confirmed by integration |
 
 The request ledger repair includes real implementation work: hair startup capture determinism,
 selected-mesh material assignment, capture subsystem reports, shadow ablation composition,
@@ -67,7 +67,9 @@ from the cache on resumption. Temporary paths are conveniences, not durable evid
 2. Accepted groom geometry still needs coherent locks, the bob01 clearance repair, and the
    recorded short-style gathering/coverage fixes. Author continuous guide curves and qualify
    their exact output against clearance, coverage, motion and oblique visual checks before promotion.
-3. The newly registered opacity diagnostic exposes excessive side-curtain transmission. Its
+3. The newly registered opacity and tip diagnostics expose excessive side-curtain transmission
+   (0.5439 versus the 0.35 ceiling), tip speckle (7.12%) and cheek speckle (19.23%), the latter
+   two against a 3% ceiling. The opacity instrument's
    corrected outside-footprint liveness control now rejects the shifted-mask defect. Other
    historical liveness operators still need review; this checkpoint does not claim full opacity
    instrument independence.
@@ -81,5 +83,36 @@ It is not a measured pixel value.
 
 ## Integration validation
 
-Pending the final suite and build on the checkpoint implementation commit. This section will
-be updated with the observed result; the declared-red file does not suppress failures.
+The full `npm run selftests` run on **1dd2acc** began and ended with a clean tree:
+126 gates, **121 passing and 5 failing**, in 26 minutes 56 seconds. The failure list was
+HairMaterial, GLB verification, opacity, and two Avatar contact-canonical comparisons. The
+runner exited 7: five failing gates plus two undeclared contact regressions. The raw output is
+`selftests-final.txt`; those regressions are preserved separately as before-fix evidence.
+
+**bc5fcce** fixes the two contact regressions by carrying the previously calibrated `drag: 1.2`
+through successful contact selection into Avatar's solver construction. The free-hair default
+remains 6.0. Existing canonical fixture bytes and expectations are unchanged. Contact settling
+was not requalified at 6.0; the calibration retains its original measured dynamics deliberately.
+Both canonical GPU tests then passed all nine groups, along with calibration CPU checks (16),
+Avatar checks (138), face-coverage and render-history GPU checks, request-ledger checks (27),
+quoted-number checks (25), and both production and Pages builds. These were focused follow-ups
+on a clean implementation tree, **not a second full-suite run**; see `followups-final.txt` and
+its individual logs.
+
+The same follow-up corrects REQ-076's explicit runner registration from the non-gating
+`hair_screen.mjs` diagnostic to the requested `hair_tips.mjs` gate. The ledger predicate now
+requires both opacity and tips. `hair_tips.mjs` was separately executed and has the two red
+speckle clauses recorded above. Therefore the final carried failure set is **four gates**:
+HairMaterial and GLB verification from the original eleven, plus opacity and tips, which the
+old runner omitted. Nine of the original eleven are green. The declaration list is checked
+against these combined results; it does not turn the remaining failures into passes.
+
+`asset-preservation.txt` compares all eleven installed GLBs against the pre-repair LFS objects
+and confirms every non-image buffer byte and scene/skin/accessor/material definition is unchanged.
+`before-8.png` and `atlas-8.png` retain the still comparison: alive page, bare/frozen, seed 1,
+hair enabled, MSAA, grade disabled, 900x1200, eight zero-time steps. This is a limited still
+inspection, not all-motion appearance acceptance.
+
+Blender's temporary read-only mount has been ejected. The unrelated detached worktree was not
+changed. No recurring work or background continuation was created. The branch and draft PR #3
+preserve the checkpoint; the remaining appearance and groom work is intentionally unfinished.
