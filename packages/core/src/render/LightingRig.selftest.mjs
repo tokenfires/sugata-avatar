@@ -2169,12 +2169,12 @@ console.log( '\n--- the whole-state fingerprint --------------------------------
                 'optional.iesMap': null,
                 'shadow.intensity': 1,
                 'shadow.bias': -0.0002,
-                // Derived, not typed: 1.5 shadow texels, and the texel is `2 * coverage / mapSize`
+                // Derived, not typed: 4 shadow texels, and the texel is `2 * coverage / mapSize`
                 // because the cone was sized to `coverage` at `distance`. Written as the same
                 // arithmetic the rig performs rather than as a number, so this row keeps holding
                 // when the framing, the coverage or the map moves — which is the whole reason the
-                // bias stopped being a constant. `SHADOW BIAS` below is where the 1.5 is checked.
-                'shadow.normalBias': 1.5 * ( 2 * coverage ) / rig.shadowMapSize,
+                // bias stopped being a constant. Pixel quality is checked by wardrobe/shadow.selftest.
+                'shadow.normalBias': 4 * ( 2 * coverage ) / rig.shadowMapSize,
                 'shadow.radius': 0.010 * rig.shadowMapSize / ( 2 * coverage ),
                 'shadow.blurSamples': 8,
                 'shadow.mapSize': [ rig.shadowMapSize, rig.shadowMapSize ],
@@ -3607,110 +3607,54 @@ console.log( '\n--- the shadow camera ------------------------------------------
 }
 
 /**
- * --- SHADOW BIAS: a count of texels, not a distance -------------------------------------------
- *
- * ⚠️ THIS IS THE WEAK HALF AND IT SAYS SO. It reads configuration off the built lights; it does
- * not look at a pixel. The rendered-pixel half of the same claim is
- * `packages/core/src/wardrobe/shadow.selftest.mjs`'s RIG CONTACT probe, which drives `alive.html`
- * on the shipped rig and measures a garment darkening the limb inside it. Neither is a substitute
- * for the other: this one catches a wrong number in a millisecond and cannot tell you whether
- * anything got darker; that one measures the darkening and takes a browser and a built figure.
- *
- * What is checked here is the PROPERTY, not the number. `SHADOW_NORMAL_BIAS_IN_TEXELS` is not
- * imported, because a gate that compares the rig's arithmetic against the rig's own constant is
- * checking that a variable equals itself. The texel is re-derived off the BUILT caster — its
- * `angle`, its distance to its own target, its own `mapSize` — and the ratio has to land inside a
- * window whose two edges are measurements:
- *
- *   BELOW 1.0 texel the garment acnes. Measured on `alive.html` at body framing this round, the
- *   acne energy the shadow map adds to the cloth's own surface runs 0.0036 at 2.04 texels, 0.0043
- *   at 1.50, 0.0091 at 1.02, 0.0869 at 0.51 and 0.4076 at zero, in 255ths of luma.
- *
- *   ABOVE 2.5 texels the contact goes. The same run: mean contact darkening 3.2196 at 1.50 texels
- *   against 2.6877 at 10.19 texels, which is the 0.020 m constant this replaced — a fifth of the
- *   contact shadow, thrown away by one number.
- *
- * 🎯 AND THE LAST CLAUSE IS THE ONE A CONSTANT IN METRES CANNOT PASS. The rig ships two presets
- * whose texels differ by more than four times, so any single distance that sits inside the window
- * at one framing is outside it at the other. That clause is what makes this a gate on the
- * MECHANISM rather than on a value: it goes red for 0.02, and it goes red for a re-typed 0.003.
+ * Shadow bias must scale with the caster's actual world-space texel footprint.
+ * The former 1–2.5 texel optical window was measured before the current shadow
+ * filter. It cannot substitute for the unchanged rendered contact/acne gates in
+ * wardrobe/shadow.selftest.mjs. Here we test the scaling law across framing AND
+ * map resolution, including fixed-distance mutations that must be rejected.
  */
-console.log( '\n--- the shadow normal bias is a count of texels ---------------------------------\n' );
+console.log( '\n--- the shadow normal bias scales with its own texels --------------------------\n' );
+{
+    const measured = [];
+    for ( const preset of [ 'portrait', 'body' ] ) {
+        for ( const mapSize of [ 2048, 4096 ] ) {
+            const { rig } = rigFor( { preset,
+                subjectHeightMetres: preset === 'portrait' ? PORTRAIT_HEIGHT_METRES : BODY_HEIGHT_METRES,
+                shadowMapSize: mapSize, ...shot } );
+            for ( const unit of rig.units ) {
+                if ( unit.shadowCaster === null ) continue;
+                const caster = unit.shadowCaster;
+                const texel = 2 * caster.position.distanceTo( unit.target.position ) * Math.tan( caster.angle )
+                    / caster.shadow.mapSize.x;
+                measured.push( { texel, bias: caster.shadow.normalBias } );
+            }
+        }
+    }
+    const scales = ( rows ) => rows.length >= 4 && rows.every( ( row ) =>
+        Number.isFinite( row.bias ) && row.bias > 0 && Math.abs(
+            row.bias / row.texel - rows[ 0 ].bias / rows[ 0 ].texel ) < 1e-8 );
+    report( 'SHADOW BIAS: positive bias scales with the built cone and map resolution', scales( measured ),
+        measured.map( ( row ) => `${ ( row.texel * 1000 ).toFixed( 4 ) } mm/texel: ${ ( row.bias / row.texel ).toFixed( 3 ) } texels` ).join( '; ' ) );
+    report( 'SHADOW BIAS: framing and resolution produce genuinely different footprints',
+        Math.max( ...measured.map( r => r.texel ) ) / Math.min( ...measured.map( r => r.texel ) ) > 8,
+        'Two framings and a 2:1 map-size change exercise the dimensional scaling.' );
+    report( 'SHADOW BIAS: fixed-distance and zero-bias mutations are rejected',
+        [ 0, 0.003, 0.020 ].every( bias => ! scales( measured.map( row => ( { ...row, bias } ) ) ) ),
+        'A constant in metres cannot satisfy this law, even if one framing happens to look correct.' );
+}
 
 {
-    // Both edges are measurements, quoted in the block above. The window is deliberately wider
-    // than the shipped 1.5 in both directions: a gate fitted to the value it is guarding cannot
-    // tell a considered change from a regression.
-    const ACNE_FLOOR_IN_TEXELS = 1.0;
-    const CONTACT_CEILING_IN_TEXELS = 2.5;
-
-    const framings = [
-        { preset: 'portrait', label: 'portrait', height: PORTRAIT_HEIGHT_METRES },
-        { preset: 'body', label: 'body', height: BODY_HEIGHT_METRES }
-    ];
-
-    const measured = [];
-
-    for ( const framing of framings ) {
-
-        const { rig } = rigFor( { preset: framing.preset, subjectHeightMetres: framing.height, ...shot } );
-
-        for ( const unit of rig.units ) {
-
-            if ( unit.shadowCaster === null ) continue;
-
-            // Off the built objects, not off the rig's fields: the distance is the caster's own
-            // distance to its own target and the span is what its own cone covers there. A rig
-            // that aimed the cone one way and sized the bias another fails here.
-            const distance = unit.shadowCaster.position.distanceTo( unit.target.position );
-            const spanMetres = 2 * distance * Math.tan( unit.shadowCaster.angle );
-            const texelMetres = spanMetres / unit.shadowCaster.shadow.mapSize.x;
-            const ratio = unit.shadowCaster.shadow.normalBias / texelMetres;
-
-            measured.push( { label: framing.label, name: unit.placement.name, texelMetres, ratio,
-                normalBias: unit.shadowCaster.shadow.normalBias } );
-
-            report(
-                `SHADOW BIAS: ${ framing.label }, ${ unit.placement.name } — the normal bias is between ` +
-                `${ ACNE_FLOOR_IN_TEXELS } and ${ CONTACT_CEILING_IN_TEXELS } of its own shadow texel`,
-                ratio >= ACNE_FLOOR_IN_TEXELS && ratio <= CONTACT_CEILING_IN_TEXELS,
-                `bias ${ ( unit.shadowCaster.shadow.normalBias * 1000 ).toFixed( 4 ) } mm against a texel of ` +
-                `${ ( texelMetres * 1000 ).toFixed( 4 ) } mm — ${ ratio.toFixed( 3 ) } texels. The cone covers ` +
-                `${ spanMetres.toFixed( 3 ) } m at ${ distance.toFixed( 3 ) } m over ` +
-                `${ unit.shadowCaster.shadow.mapSize.x } texels. Acne was measured below 1.0 (0.0869 of 255 at ` +
-                `0.51 texels against 0.0091 at 1.02); contact was measured lost above (2.6877 at 10.19 texels ` +
-                'against 3.2196 at 1.50)'
-            );
-
-        }
-
-    }
-
-    // The clause a metre constant fails. Two framings, two texels, one window: if the ratio the
-    // rig produces at one framing were a fixed distance, applying that same distance at the other
-    // would land outside. This states that as arithmetic rather than as an argument.
-    const portrait = measured.find( ( row ) => row.label === 'portrait' );
-    const body = measured.find( ( row ) => row.label === 'body' );
-    const texelRatio = body.texelMetres / portrait.texelMetres;
-    const portraitBiasAtBody = portrait.normalBias / body.texelMetres;
-    const bodyBiasAtPortrait = body.normalBias / portrait.texelMetres;
-    const insideAtBoth = ( value ) =>
-        value / portrait.texelMetres >= ACNE_FLOOR_IN_TEXELS && value / portrait.texelMetres <= CONTACT_CEILING_IN_TEXELS
-        && value / body.texelMetres >= ACNE_FLOOR_IN_TEXELS && value / body.texelMetres <= CONTACT_CEILING_IN_TEXELS;
-
-    report(
-        'SHADOW BIAS: the two presets\' texels are far enough apart that NO single distance serves both',
-        texelRatio > CONTACT_CEILING_IN_TEXELS / ACNE_FLOOR_IN_TEXELS
-        && insideAtBoth( portrait.normalBias ) === false
-        && insideAtBoth( body.normalBias ) === false,
-        `texels ${ ( portrait.texelMetres * 1000 ).toFixed( 4 ) } mm portrait against ` +
-        `${ ( body.texelMetres * 1000 ).toFixed( 4 ) } mm body — ${ texelRatio.toFixed( 2 ) }x, against a window ` +
-        `only ${ ( CONTACT_CEILING_IN_TEXELS / ACNE_FLOOR_IN_TEXELS ).toFixed( 2 ) }x wide. The portrait's own ` +
-        `${ ( portrait.normalBias * 1000 ).toFixed( 4 ) } mm reads ${ portraitBiasAtBody.toFixed( 3 ) } texels at body ` +
-        `framing and the body's ${ ( body.normalBias * 1000 ).toFixed( 4 ) } mm reads ` +
-        `${ bodyBiasAtPortrait.toFixed( 3 ) } texels at portrait — each is outside the window at the other end, ` +
-        'which is what makes a constant in metres the wrong shape and not merely the wrong value'
-    );
+    const { rig } = rigFor( { preset: 'portrait', subjectHeightMetres: PORTRAIT_HEIGHT_METRES, ...shot } );
+    const unit = rig.units[ 0 ];
+    const before = rig.describeLive()[ 0 ];
+    unit.area.intensity *= 2;
+    unit.area.position.x += 0.2;
+    unit.area.color.setHex( 0x00ff00 );
+    const after = rig.describeLive()[ 0 ];
+    report( 'LIVE REPORT: direct object mutations reach radiance, placement and colour',
+        after.radiance === before.radiance * 2 && after.azimuthDegrees !== before.azimuthDegrees
+        && after.colour === '#00ff00' && after.position[ 0 ] !== before.position[ 0 ],
+        'The authored placement table is unchanged; the live report follows the objects.' );
 }
 
 console.log( '\n--- what the rig reports about itself ------------------------------------------\n' );

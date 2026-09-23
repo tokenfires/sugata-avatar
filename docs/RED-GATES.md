@@ -70,6 +70,27 @@ directions, which is the clause worth keeping when this check is next edited.
 
 ## Declared red at HEAD
 
+- `packages/core/src/material/HairMaterial.selftest.mjs` — the focused September 22 repair run is
+  **76/80**. Camera-relative headlamp attribution is repaired; four appearance clauses remain:
+  contrast against albedo, separation from a plain card, radiance p95/p50, and clipped highlights.
+  Their thresholds remain unchanged. See `REPAIR-CHECKPOINT-2026-09-22.md`.
+
+- `tools/figure-pipeline/verify_glb.mjs` — accepted groom geometry still fails lock coherence,
+  bob01/g050 clearance, and the recorded short-style gathering/coverage clauses. Numerical
+  deformation candidates were visually rejected. Only embedded atlas images changed; no candidate
+  geometry was promoted. The original run reports 20 problems across 43 files.
+
+- `tools/figure-pipeline/hair_opacity.mjs` — newly included by the suite runner for REQ-076.
+  Its side-curtain transmission exceeds the unchanged 0.35 ceiling. This is additional visibility
+  into the existing hair appearance work, not a passing acceptance result. The outside-footprint
+  liveness check now compares the actual numerator with its denominator, and its shifted-mask
+  negative control fails as intended.
+
+## September 22 pre-repair snapshot
+
+The eleven declarations below describe the input to this repair round. They are historical;
+current failures are listed above and focused evidence is linked from the repair checkpoint.
+
 - `packages/testbed/src/alive-toggles.selftest.mjs` — September 22 recheck: **196/197**.
   The subject-closure check finds two Stage members absent from its classification:
   `drawingBufferSize` and `renderParticipants`. The current instrument must account for

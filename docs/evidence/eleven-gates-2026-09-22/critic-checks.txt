@@ -1,0 +1,113 @@
+
+=== SCENE 'studio' — 900x1200 portrait, 1 step at 60 fps, seed 1, frozen
+    matte      644524 px subject (59.68% of frame), NaN px discarded outside the largest of 1 components
+    geometry   IPD 195.4 px, eye midpoint 245.6,367.3, axis 0.9997,-0.0254; eyeball meshes [Humancornea, Humanhigh-poly]
+    face mask  44169 px inside the ellipse and the matte eroded by 10 px (3322 px of the ellipse fell outside it and were dropped)
+    eye matte  3409 px where the eyeballs are drawn, in 40 components; the two largest are the apertures
+    🎯 KEY SIDE — from the FRAME: RIGHT.  Declared by the rig: RIGHT (key azimuth 42°).  ✅ the two independent derivations AGREE
+    ✅ L1 face sits inside the frame's own range     0.9093  band >= 0.2
+    ✅ L2 cheek:cheek inside a legibility band       1.1478  band 1.0847..4
+    ✅ L3 silhouette separates on every side         0.9529  band >= 0.05
+    ✅ L4 subject clipping under G5's share          0.0000  band 0..0.005
+    ✅ L5 a catchlight in every eye                  4.0398  band >= 1.5
+       L3 per side  left p10 0.9564 (n=665)   right p10 0.9529 (n=717)   top p10 0.9587 (n=825)   bottom p10 0.9324 (n=50)
+       ⚠️ L3 WHOLE-OUTLINE MEAN 0.9579 — this is what a statistic without the per-side split would have reported
+       ⚠️ L4 whole-frame clipped fraction 0.000000 against the subject's 0.000000 — G5's denominator against this one's
+       L5 per eye  left 4.040 (n=1804)   right 4.709 (n=1527)
+       L1 detail    face median 0.7529, frame p0.5 0.0081, frame p99.5 0.8272
+       L2 detail    image-right median 0.7967, image-left median 0.6941
+       🔴 L5 NULL CONTROL  the same operator on 1809 px of FOREHEAD SKIN reads 1.031 — red, as skin must be
+    overlay -> /tmp/sugata-eleven/geometry-mask/studio-overlay.png
+    VERDICT ✅ ALL MEASURABLE CLAUSES GREEN
+
+=== SCENE 'desk' — 900x1200 portrait, 1 step at 60 fps, seed 1, frozen
+    matte      644524 px subject (59.68% of frame), NaN px discarded outside the largest of 1 components
+    geometry   IPD 195.4 px, eye midpoint 245.6,367.3, axis 0.9997,-0.0254; eyeball meshes [Humancornea, Humanhigh-poly]
+    face mask  44169 px inside the ellipse and the matte eroded by 10 px (3322 px of the ellipse fell outside it and were dropped)
+    eye matte  3307 px where the eyeballs are drawn, in 6 components; the two largest are the apertures
+    🎯 KEY SIDE — from the FRAME: LEFT.  Declared by the rig: LEFT (key azimuth -72°).  ✅ the two independent derivations AGREE
+    ✅ L1 face sits inside the frame's own range     0.7677  band >= 0.2
+    ✅ L2 cheek:cheek inside a legibility band       1.2584  band 1.0847..4
+    ✅ L3 silhouette separates on every side         0.2896  band >= 0.05
+    ✅ L4 subject clipping under G5's share          0.0000  band 0..0.005
+    ✅ L5 a catchlight in every eye                  1.9187  band >= 1.5
+       L3 per side  left p10 0.2896 (n=665)   right p10 0.3636 (n=717)   top p10 0.4683 (n=825)   bottom p10 0.4976 (n=50)
+       ⚠️ L3 WHOLE-OUTLINE MEAN 0.4896 — this is what a statistic without the per-side split would have reported
+       ⚠️ L4 whole-frame clipped fraction 0.000000 against the subject's 0.000000 — G5's denominator against this one's
+       L5 per eye  left 2.878 (n=1757)   right 1.919 (n=1546)
+       L1 detail    face median 0.7368, frame p0.5 0.1244, frame p99.5 0.9221
+       L2 detail    image-right median 0.7189, image-left median 0.9047
+       🔴 L5 NULL CONTROL  the same operator on 1756 px of FOREHEAD SKIN reads 1.035 — red, as skin must be
+    overlay -> /tmp/sugata-eleven/geometry-mask/desk-overlay.png
+    VERDICT ✅ ALL MEASURABLE CLAUSES GREEN
+
+=== SCENE 'kitchen' — 900x1200 portrait, 1 step at 60 fps, seed 1, frozen
+    matte      644524 px subject (59.68% of frame), NaN px discarded outside the largest of 1 components
+    geometry   IPD 195.4 px, eye midpoint 245.6,367.3, axis 0.9997,-0.0254; eyeball meshes [Humancornea, Humanhigh-poly]
+    face mask  44169 px inside the ellipse and the matte eroded by 10 px (3322 px of the ellipse fell outside it and were dropped)
+    eye matte  3484 px where the eyeballs are drawn, in 25 components; the two largest are the apertures
+    🎯 KEY SIDE — from the FRAME: LEFT.  Declared by the rig: LEFT (key azimuth -67°).  ✅ the two independent derivations AGREE
+    ✅ L1 face sits inside the frame's own range     0.6459  band >= 0.2
+    ✅ L2 cheek:cheek inside a legibility band       1.5700  band 1.0847..4
+    🔴 L3 silhouette separates on every side         0.0081  band >= 0.05
+    ✅ L4 subject clipping under G5's share          0.0000  band 0..0.005
+    ✅ L5 a catchlight in every eye                  1.7775  band >= 1.5
+       L3 per side  left p10 0.2516 (n=665)   right p10 0.0081 (n=717)   top p10 0.2370 (n=825)   bottom p10 0.0308 (n=50)
+       ⚠️ L3 WHOLE-OUTLINE MEAN 0.2725 — this is what a statistic without the per-side split would have reported
+       ⚠️ L4 whole-frame clipped fraction 0.000000 against the subject's 0.000000 — G5's denominator against this one's
+       L5 per eye  left 3.215 (n=1870)   right 1.777 (n=1590)
+       L1 detail    face median 0.6556, frame p0.5 0.1573, frame p99.5 0.9288
+       L2 detail    image-right median 0.5853, image-left median 0.9189
+       🔴 L5 NULL CONTROL  the same operator on 1868 px of FOREHEAD SKIN reads 1.054 — red, as skin must be
+    overlay -> /tmp/sugata-eleven/geometry-mask/kitchen-overlay.png
+    VERDICT 🔴 L3 RED
+
+=== SUMMARY
+| scene | L1 face-in-frame | L2 key:fill | L3 worst side | L4 subject clip | L5 catchlight | key side |
+|---|---:|---:|---:|---:|---:|---|
+| `studio` | 0.9093 ✅ | 1.1478 ✅ | 0.9529 ✅ (right) | 0.0000 ✅ | 4.0398 ✅ | right (rig 42°) |
+| `desk` | 0.7677 ✅ | 1.2584 ✅ | 0.2896 ✅ (left) | 0.0000 ✅ | 1.9187 ✅ | left (rig -72°) |
+| `kitchen` | 0.6459 ✅ | 1.5700 ✅ | 0.0081 ❌ (right) | 0.0000 ✅ | 1.7775 ✅ | left (rig -67°) |
+EXIT tools/critic/scene-gates.mjs 0
+
+=== IBL SHARE — scene 'beach', 900x1200, 1 step, seed 1
+    environment: 0.12383602614764909 intensity, cube 256, 1 bakes; noenv arm reports environment.attached=false
+    jaw-underside  rect 232,750,108,44  4752/4752 usable (0 clipped)
+      total 2.5046e-1   without env 1.5296e-1   IBL share 38.93%
+    forehead       rect 250,196,120,46  5520/5520 usable (0 clipped)
+      total 5.9964e-1   without env 4.4425e-1   IBL share 25.91%
+    🔴 RED PROOF (frame): 3.7084e-1 → 3.0399e-1, 18.03% — removing the PMREM changes the frame
+
+=== GROUND BOUNCE — scene 'beach', jaw-underside rect 232,750,108,44
+    4752/4752 usable pixels (0 clipped in at least one arm)
+
+    ground albedo          linear Y   jaw (env has ground)   jaw (NULL: no ground in bake)   whole frame
+    0x1a1a18 near-black basalt    0.0102   1.9845e-1              4.0514e-1                  3.5472e-1
+    0x6b6459 wet sand             0.1296   2.1669e-1              4.0514e-1                  3.6037e-1
+    0xa89f8d dry sand (shipped)   0.3504   2.5046e-1              4.0514e-1                  3.7084e-1
+    0xe4dccb white sand           0.7199   3.0687e-1              4.0514e-1                  3.8840e-1
+
+    MONOTONE in albedo: YES   jaw span 1.5463x over a 70.28x albedo range
+    🔴 NULL CONTROL (ground out of the bake, plane kept): span 1.0000x — the same sweep with no path from the albedo to the jaw
+    ⚠️ WHOLE-FRAME MEAN over the same sweep: 1.0949x — this is what a statistic without the mask would have reported
+<!-- scene-probe:generated:start -->
+Scene: beach. Tree: d54a6ceda509b8f14f5d0793adfd6d4b6917c8f5 (working tree modified).
+Recipe: 900x1200, portrait, frozen, seed 1, one step; http://localhost:5265/@fs/Users/robault/GitHub/sugata-avatar/tools/critic/avatar-plate.html.
+
+### IBL
+
+| probe | rect | pixels | total radiance | without environment | IBL fraction |
+| --- | --- | --- | --- | --- | --- |
+| jaw-underside | 232,750,108,44 | 4752 | 0.25045943 | 0.15295981 | 0.38928309 |
+| forehead | 250,196,120,46 | 5520 | 0.59963983 | 0.44425318 | 0.2591333 |
+### Ground bounce
+
+| albedo | label | linear Y | jaw | jaw without ground | whole frame |
+| --- | --- | --- | --- | --- | --- |
+| 0x1a1a18 | near-black basalt | 0.010243489 | 0.19845217 | 0.40513531 | 0.3547239 |
+| 0x6b6459 | wet sand | 0.12961411 | 0.21669073 | 0.40513531 | 0.36036798 |
+| 0xa89f8d | dry sand (shipped) | 0.35044192 | 0.25045943 | 0.40513531 | 0.37083692 |
+| 0xe4dccb | white sand | 0.71992176 | 0.30687117 | 0.40513531 | 0.38839502 |
+<!-- scene-probe:generated:end -->
+
+EXIT tools/critic/scene-probe.mjs 0

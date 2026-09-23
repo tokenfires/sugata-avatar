@@ -1,0 +1,169 @@
+
+alive.html capture epoch — http://localhost:5196/alive.html?bare&freeze&seed=1&capture
+24 steps at 1/60, 900x1200 dpr 1, fresh browser context per plate
+
+--- R: two independent page loads, same URL, same step count ----------------
+
+PASS  P  default (taau + grade) — the two loads really did boot at different epochs
+        boot epoch 12 undelayed vs 53 with the GLB held back 400 ms
+PASS  R  default (taau + grade) — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  default (taau + grade) — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+PASS  H  default (taau + grade) — the resolve's history was discarded before the first step
+        history render target 1px wide at the moment the capture took the loop over; 1 means it will be refilled from this capture's own first frame rather than from the boot's
+PASS  R2 default (taau + grade) — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 12 vs 53
+PASS  O2 default (taau + grade) — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter 2 of 31 — all derived from 2 steps at 1/60
+PASS  P  aa=msaa (forward + grade) — the two loads really did boot at different epochs
+        boot epoch 12 undelayed vs 54 with the GLB held back 400 ms
+PASS  R  aa=msaa (forward + grade) — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  aa=msaa (forward + grade) — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter null of 31 — all derived from 24 steps at 1/60
+PASS  R2 aa=msaa (forward + grade) — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 12 vs 54
+PASS  O2 aa=msaa (forward + grade) — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter null of 31 — all derived from 2 steps at 1/60
+PASS  P  aa=traa — the two loads really did boot at different epochs
+        boot epoch 12 undelayed vs 52 with the GLB held back 400 ms
+PASS  R  aa=traa — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  aa=traa — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+PASS  H  aa=traa — the resolve's history was discarded before the first step
+        history render target 1px wide at the moment the capture took the loop over; 1 means it will be refilled from this capture's own first frame rather than from the boot's
+PASS  R2 aa=traa — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 11 vs 52
+PASS  O2 aa=traa — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter 2 of 31 — all derived from 2 steps at 1/60
+PASS  P  aa=msaa&grade=0 (no grain, no resolve) — the two loads really did boot at different epochs
+        boot epoch 10 undelayed vs 55 with the GLB held back 400 ms
+PASS  R  aa=msaa&grade=0 (no grain, no resolve) — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  aa=msaa&grade=0 (no grain, no resolve) — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter null of 31 — all derived from 24 steps at 1/60
+PASS  R2 aa=msaa&grade=0 (no grain, no resolve) — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 11 vs 56
+PASS  O2 aa=msaa&grade=0 (no grain, no resolve) — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter null of 31 — all derived from 2 steps at 1/60
+PASS  P  hair=1 (groom) — the two loads really did boot at different epochs
+        boot epoch 16 undelayed vs 109 with the GLB held back 400 ms
+PASS  R  hair=1 (groom) — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  hair=1 (groom) — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+PASS  H  hair=1 (groom) — the resolve's history was discarded before the first step
+        history render target 1px wide at the moment the capture took the loop over; 1 means it will be refilled from this capture's own first frame rather than from the boot's
+PASS  R2 hair=1 (groom) — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 16 vs 107
+PASS  O2 hair=1 (groom) — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter 2 of 31 — all derived from 2 steps at 1/60
+PASS  P  wear=female_casualsuit01,shoes01 (dressed) — the two loads really did boot at different epochs
+        boot epoch 26 undelayed vs 168 with the GLB held back 400 ms
+PASS  R  wear=female_casualsuit01,shoes01 (dressed) — the two plates are byte-identical anyway
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255
+PASS  O  wear=female_casualsuit01,shoes01 (dressed) — the counters read what 24 steps say they must
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+PASS  H  wear=female_casualsuit01,shoes01 (dressed) — the resolve's history was discarded before the first step
+        history render target 1px wide at the moment the capture took the loop over; 1 means it will be refilled from this capture's own first frame rather than from the boot's
+PASS  R2 wear=female_casualsuit01,shoes01 (dressed) — identical at 2 steps too, before the resolve converges
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — boot epochs 27 vs 166
+PASS  O2 wear=female_casualsuit01,shoes01 (dressed) — the counters read what 2 steps say they must
+        frameId 2, time 0.033333333, jitter 2 of 31 — all derived from 2 steps at 1/60
+PASS  B  the plates are not all the same image, so R is comparing something
+        default vs aa=msaa: 1503848 of 4320000 samples differ (34.8113%), worst 242.0/255
+
+--- L: the pinned counter still ADVANCES, and its control -------------------
+
+PASS  L  aa=msaa — the plate at 25 steps differs from the plate at 24
+        1590935 of 4320000 samples differ (36.8272%), worst 6.0/255 — forward path, frozen figure, grade on: the grain is the only thing in the frame that can have moved
+PASS  L2 aa=msaa — that difference covers the frame rather than an edge
+        36.83% of samples moved, floor 20% — see GRAIN_COVERAGE_FLOOR
+PASS  C  aa=msaa&grade=0 — 24 and 25 steps are IDENTICAL, so L is reading the grain
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — same recipe minus the grade. An extra step of a frozen figure must change nothing here; a difference means ?freeze stopped freezing and L is measuring motion rather than grain.
+
+--- rejection proofs: six named ways the epoch can be wrong -----------------
+
+?clockdefect=drifting-epoch — the shipped defect: no counter is reset
+PASS    R  drifting-epoch is NOT reproducible
+        1611220 of 4320000 samples differ (37.2968%), worst 120.0/255 — expected a difference
+PASS    R  drifting-epoch + aa=msaa is NOT reproducible
+        1589851 of 4320000 samples differ (36.8021%), worst 6.0/255 — expected a difference
+PASS    O  drifting-epoch is caught by the counter oracle
+        frameId 36 want 24; jitterIndex 4 want 24
+PASS    H  drifting-epoch is caught by the history check
+        history render target 900px at takeover — expected the boot's buffer, i.e. not 1
+
+?clockdefect=random-epoch — the shipped defect with the machine taken out of it, so a two-run pixel check has a rejection proof that does not depend on how fast a GLB loaded
+PASS    R  random-epoch is NOT reproducible
+        1594632 of 4320000 samples differ (36.9128%), worst 6.0/255 — expected a difference
+PASS    R  random-epoch + aa=msaa is NOT reproducible
+        1591872 of 4320000 samples differ (36.8489%), worst 6.0/255 — expected a difference
+PASS    O  random-epoch is caught by the counter oracle
+        frameId 2387 want 24
+PASS    H  random-epoch leaves the history check
+        history render target 1px at takeover — expected 1
+
+?clockdefect=unpinned-resolve — a DIFFERENT mechanism in the same class — the node clock is pinned and the resolve is not
+PASS    R  unpinned-resolve is NOT reproducible
+        345777 of 4320000 samples differ (8.0041%), worst 121.0/255 — expected a difference
+PASS    R  unpinned-resolve + aa=msaa is still reproducible
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — expected identical
+PASS    O  unpinned-resolve is caught by the counter oracle
+        jitterIndex 3 want 24
+PASS    H  unpinned-resolve is caught by the history check
+        history render target 900px at takeover — expected the boot's buffer, i.e. not 1
+
+?clockdefect=frozen-frame — reproducible AND wrong — the shape check R is structurally blind to
+PASS    R  frozen-frame is still reproducible
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — expected identical
+PASS    O  frozen-frame is caught by the counter oracle
+        frameId 0 want 24
+PASS    H  frozen-frame leaves the history check
+        history render target 1px at takeover — expected 1
+PASS    L  frozen-frame freezes the grain
+        aa=msaa, 24 vs 25 steps: 0 of 4320000 samples differ (0.0000%), worst 0.0/255 — expected nothing to move
+
+?clockdefect=offset-epoch — reproducible, animating, and still not the plate any other capture of this recipe takes
+PASS    R  offset-epoch is still reproducible
+        0 of 4320000 samples differ (0.0000%), worst 0.0/255 — expected identical
+PASS    O  offset-epoch is caught by the counter oracle
+        frameId 1024 want 24
+PASS    H  offset-epoch leaves the history check
+        history render target 1px at takeover — expected 1
+PASS    L  offset-epoch leaves the grain advancing
+        aa=msaa, 24 vs 25 steps: 1590816 of 4320000 samples differ (36.8244%), worst 6.0/255 — expected the frame to reseed
+
+?clockdefect=wall-clock-time — the frame index is right and the node clock is wall time — only the oracle sees it
+PASS    O  wall-clock-time is caught by the counter oracle
+        time 0.9824000000059605 want ~0.4
+PASS    H  wall-clock-time leaves the history check
+        history render target 1px at takeover — expected 1
+
+--- X: the boot epoch is the CAUSE, not a correlate ------------------------
+
+PASS  X  drifting-epoch + aa=msaa — two loads that booted differently but were FORCED to the same frame index render the same plate
+        boot epochs 11 vs 55, both then pinned to 777: 0 of 4320000 samples differ (0.0000%), worst 0.0/255. Together with the R rejection above — same recipe, epochs left alone, plates differ — this says the epoch is why.
+
+--- W: the dressing race, reintroduced from the page ------------------------
+
+PASS    P  ?wearrace=unheld — the two loads booted at different epochs
+        boot epoch 25 undelayed vs 164 delayed. Without this the R rejection below could be a defect that did nothing.
+PASS    R2 ?wearrace=unheld is NOT reproducible before the resolve converges
+        370 of 4320000 samples differ (0.0086%), worst 18.0/255 — expected a difference, against a floor of 20 samples AND 8/255 (the clean dressed recipe reads exactly 0 and 0.0 here — see RACE_REJECTION_SAMPLES). Green here would mean the dressed recipe cannot see a figure being drawn mid-dress, which is the only thing it was added to see.
+      (R at 24 steps, NOT a check: 116 of 4320000 samples differ (0.0027%), worst 3.0/255, inside the tolerance. The resolve has converged by here and this statistic straddles RESIDUE_SAMPLE_SHARE run to run — R2 above is the check that catches this defect.)
+PASS    O  ?wearrace=unheld leaves the counter oracle green, so R2 is what catches it
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+
+PASS    P  ?wearrace=released-early — the two loads booted at different epochs
+        boot epoch 28 undelayed vs 153 delayed. Without this the R rejection below could be a defect that did nothing.
+PASS    R2 ?wearrace=released-early is NOT reproducible before the resolve converges
+        514 of 4320000 samples differ (0.0119%), worst 16.0/255 — expected a difference, against a floor of 20 samples AND 8/255 (the clean dressed recipe reads exactly 0 and 0.0 here — see RACE_REJECTION_SAMPLES). Green here would mean the dressed recipe cannot see a figure being drawn mid-dress, which is the only thing it was added to see.
+      (R at 24 steps, NOT a check: 91 of 4320000 samples differ (0.0021%), worst 7.0/255, inside the tolerance. The resolve has converged by here and this statistic straddles RESIDUE_SAMPLE_SHARE run to run — R2 above is the check that catches this defect.)
+PASS    O  ?wearrace=released-early leaves the counter oracle green, so R2 is what catches it
+        frameId 24, time 0.400000000, jitter 24 of 31 — all derived from 24 steps at 1/60
+
+
+67/67 checks green in 88s

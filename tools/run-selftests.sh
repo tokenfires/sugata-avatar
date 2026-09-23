@@ -98,6 +98,8 @@ while read -r f; do run_gate "$f" node "$f"; done < <(
 # project. Named explicitly, because a runner that misses a gate is worse than no runner.
 run_gate "tools/critic/selftest.mjs" node tools/critic/selftest.mjs
 run_gate "tools/figure-pipeline/verify_glb.mjs" node tools/figure-pipeline/verify_glb.mjs
+run_gate "tools/figure-pipeline/hair_opacity.mjs" node tools/figure-pipeline/hair_opacity.mjs --out "$log_root/hair-opacity"
+run_gate "tools/figure-pipeline/hair_screen.mjs" node tools/figure-pipeline/hair_screen.mjs --out "$log_root/hair-screen"
 
 echo
 echo "tree: $( tree_state )   at $( date -u +%H:%M:%SZ )"

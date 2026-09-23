@@ -2608,13 +2608,8 @@ export class Avatar {
                     // to see that no light in the scene is delivering it.
                     ambientAttached: this.lights.describeAmbient().attached,
                     shadowsEnabled: this.lights.shadowsEnabled,
-                    placements: this.lights.placements.map( ( placement ) => ( {
-                        name: placement.name,
-                        azimuthDegrees: placement.azimuthDegrees,
-                        elevationDegrees: placement.elevationDegrees,
-                        irradiance: placement.irradiance,
-                        colour: `#${ new Color( placement.colour ).getHexString( SRGBColorSpace ) }`
-                    } ) )
+                    // Geometry and radiometry are read off the LIGHTS, after any live mutation.
+                    placements: this.lights.describeLive()
                 }
             },
 
@@ -4083,9 +4078,9 @@ function authoredPlacements( preset ) {
  * @param {'portrait'|'body'} preset
  * @returns {Object} `{ [lightName]: { field: value } }`, ready for `LightingRig`'s `overrides`.
  */
-export function resolveLook( look, preset ) {
+export function resolveLook( look, preset, catalogue = SCENE_LOOKS ) {
 
-    const entry = SCENE_LOOKS[ look ];
+    const entry = catalogue[ look ];
 
     if ( entry === undefined ) {
 

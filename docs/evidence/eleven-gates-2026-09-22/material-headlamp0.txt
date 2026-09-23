@@ -1,0 +1,434 @@
+
+--- the optical constants, derived rather than typed --------------------------
+
+PASS  F0 is derived from η rather than typed
+      η 1.55, F0 0.046521 (= ((1−η)/(1+η))² = 0.046521)
+PASS  Schlick runs from F0 at normal incidence to 1 at grazing
+      F(1) = 0.046521, F(0.5) = 0.0763, F(0) = 1.000000
+
+--- η′, against the exact expression it approximates ---------------------------
+
+PASS  the slide-27 fit holds its published 0.68% over θd 0–60°
+      max 0.6751% at θd 45°  —  0° 0.000%, 15° 0.154%, 30° 0.487%, 45° 0.675%, 60° 0.428%
+
+--- M_p, and the variable it is a function of ----------------------------------
+
+PASS  sinθi + sinθr = 2 cosθd sinθh exactly, which is what converts Marschner's α and β
+      worst |Karis − Marschner| over a 29 x 29 grid of ±70° = 2.22e-16
+PASS  M_p peaks exactly where sinθi + sinθr equals its shift
+      worst |argmax − α| over five shifts = 0.00000 (sweep step 0.001)
+PASS  the normalisation makes a tighter lobe brighter, which is where the band contrast comes from
+      β 0.13 peaks at 3.0688, β 0.52 at 0.7672 — exactly 4x, the β ratio
+
+--- THE DUAL BAND, on the mirror ------------------------------------------------
+
+      lobe   peak at    value        sinθi+sinθr
+      R         -15°  2.658e-2   -0.2588
+      TT        -89°  0.000e+0   -0.9998
+      TRT        21°  1.140e-3   0.3584
+PASS  THE TWO BANDS ARE SEPARATE, and their separation tracks Marschner's α ratio
+      R peaks at -15°, TRT at 21° — 36.0° apart, 0.6172 in Karis' variable against α_TRT − α_R = 0.6500 (-5.0%; the azimuthal terms pull each product's maximum off its Gaussian's centre)
+PASS  the two lobes do NOT resolve into two maxima on dark hair, and the secondary is still separable
+      TRT's share of R+TRT is 0.777% at the primary's inclination and 95.8% at its own — 123x.
+      The SUM has no dip between them (trough/dimmer-peak = 1.004x, i.e. above 1.0), because R's tail at TRT's inclination
+      exceeds TRT's own peak on a fibre this dark. The secondary is a SHOULDER, which is exactly why 3.5 has to be gated on two
+      plates rather than on one.
+PASS  the secondary band is measurably BROADER than the primary, from β_TRT = 2 β_R
+      full width at half maximum: R 24.3°, TRT 49.3° (2.03x). The look spec's eyeballed 0.45/0.25 = 1.8x against Marschner's 2x is the only part of §5's lobe table that survives.
+
+--- the colour split, which is what makes the two bands DIFFERENT colours -------
+
+PASS  N_R is ACHROMATIC to floating point, so the primary band takes the light's colour
+      three channels of N_R: 0.01041152, 0.01041152, 0.01041152
+PASS  N_TRT is CHROMATIC, so the secondary band takes the hair's colour
+      three channels of N_TRT: 1.874e-6, 8.578e-7, 7.656e-7 — 59.2% channel spread
+PASS  the secondary band's channel ORDER is the base colour's, so it reads as this hair
+      base colour order 210, N_TRT order 210 (0 = R, 1 = G, 2 = B; the shipped colour is warm, so B is darkest and R brightest)
+
+--- the warm/cool axis, and the operator that reads it ---------------------------
+
+PASS  a neutral grey has EXACTLY no chroma, so the operator invents none
+      #808080 reads C* 1.26e-8 at L* 53.389
+PASS  sRGB red lands on CIELAB's published 40.0° / L* 53.24, so the transform is the standard one
+      #FF0000 reads hue 40.000°, L* 53.237, C* 104.55
+PASS  🚩 a colour and its exact Lab opposite average to NO hue, not to a third one
+      hue 45° at C* 28.3 and hue 225° at C* 28.3 average to C* 0.0000 (a mean of the two ANGLES would answer 135°, which is green, and neither sample is)
+PASS  the cool SHARE sees a split the mean flatters — two warm samples and one violet
+      mean b* 6.67 says warm; cool share 33.3% says a third of it is not. Both are asserted on the plate for this reason.
+
+--- the base colour, derived from the pigment rather than typed ------------------
+
+PASS  HAIR_BASE_COLOUR_HEX is the derivation's own 8-bit rounding, not a literal beside it
+      derivation gives #1A0E0C, the constant carries #1A0E0C. Eumelanin at concentration 9.2174 lands on the spec's luma and puts the hue at 26.489°.
+PASS  🎯 the base colour is R > G > B, which is the only ordering melanin can produce
+      shipped 1.051e-2 4.361e-3 3.837e-3 — ordered. Pheomelanin's rotation #1A0E0D at hue 21.27° is ordered too, so the claim does not rest on one pigment.
+      The five-round #150F17 is 7.499e-3 4.777e-3 8.568e-3 — B above R, and no melanin mixture reaches it.
+PASS  the rotation spends NO luma — the spec's own measured 0.067 survives it
+      linear luma 5.62922e-3 against #150F17's 5.62939e-3, 0.0030% apart. Encoded Rec.709 luma 16.41/255 = 0.0643, against the spec's 0.067.
+PASS  the change is a HUE ROTATION and nothing else — L* and C* are #150F17's own
+      L* 5.0851 and C* 5.6464 both unchanged; the hue moved 70.2°, from 316.3° to 26.5°.
+
+--- the TT offset and its azimuthal behaviour -----------------------------------
+
+PASS  the slide-26 h_TT approximation stays inside the fibre over the whole azimuth
+      max h_TT over cosφ ∈ [−1,1] x four θd = 0.9947 (the fibre wall is 1.0)
+PASS  TT is a BACK-LIGHT lobe — orders of magnitude brighter in forward scattering
+      cosφ = −1 (light behind) 3.741e-2, cosφ = +1 (light at the camera) 3.677e-5 — 1.0e+3x
+
+--- the two transfer domains, and the misreading that costs six to nine times ----
+
+PASS  the published #150F17 luma is re-derived here and matches what the file carries
+      #150F17: encoded 0.0661 (spec says 0.067 — the third decimal differs), linear 0.005629
+PASS  the "~10:1" figure is an ENCODED ratio and the file's band reproduces it
+      encoded band 0.6 / 0.675 / 0.75 over 0.0661 = 9.08 : 10.21 : 11.35
+PASS  the SAME band in LINEAR light is six to nine times larger, so the domain has to be stated
+      linear 56.6 : 73.4 : 92.8 against encoded 9.08 : 10.21 : 11.35 — a shader that multiplies by 10 lands 7.3x too dim
+PASS  the shipped root occlusion lands inside the published 0.35–0.50 ENCODED band
+      linear 0.135 → encoded 0.4341; the naive linear 0.40 → encoded 0.6826, outside the band. Reference bound: ponytail under the tie is 0.368 encoded / 0.188 linear against mid-shaft.
+PASS  the root ramp is monotone, starts at the authored multiplier and reaches 1
+      root 0.1350, 5% 0.3593, 10% 0.7757, 15% 1.0000, tip 1.0000
+
+--- the rect-area path's solid angle -------------------------------------------
+
+PASS  an infinite plane subtends exactly 2π
+      6.283129 against 2π = 6.283185
+PASS  a small square subtends its area over its distance squared
+      0.1 x 0.1 at d = 1: 0.009975 sr against the small-angle 0.010000 (-0.249% — the exact answer is smaller, as it must be)
+PASS  the solid angle is invariant under rotation of the whole configuration
+      rotated 40° about x: 0.00997507 against 0.00997507
+
+--- the card-scale occlusion, and the property that keeps it honest -------------
+
+PASS  slide 47's occlusion is an ATTENUATOR: never above 1, never below 0, exactly 1 on the viewer's side
+      over ωi·ωr ∈ [−1, 1] at 0.001: 0 samples above 1, 0 below 0, 0 of the ωi·ωr ≥ 0 half not exactly 1.
+      Endpoints: F(−1) = 0.0000 (exact backlight, fully occluded), F(−0.98) = 0.0200 (the rim at −168°),
+      F(0) = 1.0000 (a light across the view), F(0.74) = 1.0000 (the key at +42°).
+
+--- anisotropy, on the mirror: the highlight follows the TANGENT ----------------
+
+PASS  the response depends STRONGLY on the strand direction — this is the anisotropy
+      over 90 tangent orientations at one fixed light and camera: brightest 2.621e-2 at 154°, dimmest 6.072e-4 at 72° — 43.2x. An isotropic lobe would read 1.0x here.
+PASS  both ACES matrices are transcribed rather than remembered — every row sums to one
+      six rows of two 3x3s from three/src/nodes/display/ToneMappingFunctions.js:110-121, worst |row sum - 1| = 1.00e-5.
+      They map sRGB to AP1 and back, so grey must survive the pair; a mistyped digit breaks this and breaks NEITHER of the two
+      checks that follow, which was measured rather than assumed — see the comment above.
+PASS  the ACES inverse is an inverse — round trip exact between the two clamps
+      three r185's ACESFilmic mirrored from nodes/display/ToneMappingFunctions.js and inverted analytically; 8 radiance levels from 0.005 to 0.8,
+      worst relative round-trip error 9.71e-16. This is what licenses reading the plates below as RADIANCE rather than as sRGB-decoded
+      framebuffer, and the two are 21% apart on the arm subtraction this file's effective-BSDF section is built on.
+PASS  the strand field is normalised by a DERIVATION and not by a fitted constant
+      STRAND_NOISE_SD = 2√(26/420) = 0.497613, from E[s] = 1/2 and E[s²] = 13/35 over the smoothstep interpolant.
+      Sampled over 200,000 points the field reads sd 1.00107, mean -0.05378. The sd is the load-bearing one — it is what makes
+      HAIR_DEFAULTS.strandTangentJitter = 0.2403 READ AS RADIANS, which is the unit the 13.8° measured off flow.png is in.
+PASS  the hash DECORRELATES, which is the half of it that a uniform histogram does not prove
+      Hoskins hash11 in emulated f32 over 200,000 integer cells: mean 0.50484 against 0.5, sd 0.28793 against 1/√12 = 0.28868,
+      lag-1 correlation -0.02300 against a bound of 0.10. Strip the two mixing lines — one edit — and the first two numbers are UNCHANGED
+      at 0.49955 and 0.28868 while this one goes to **+0.44519**: a per-strand decorrelation that is perfectly ordered, which is a sawtooth wearing a
+      noise's histogram. The bound sits 4.3x above the shipped reading and 4.5x below the broken one rather than between two nearly equal numbers.
+PASS  🎯 the strand field is REMOVED at Nyquist, which is the difference between detail and crawl
+      fade over cycles-per-render-target-pixel: 0→1.000  0.1→1.000  0.2→1.000  0.25→1.000  0.3→0.896  0.375→0.500  0.45→0.104  0.5→0.000  0.7→0.000  1.5→0.000.
+      Open to 0.25, shut at 0.5 = Nyquist, monotone between. A field that survived past 0.5 would not be finer hair,
+      it would be a pattern the temporal resolve cannot hold still, which is the failure mode this clause exists to refuse.
+PASS  the shipped pitch is the finest one the scene pass carries WHOLE, not the finest one nameable
+      3.15 mm on a 28.7 mm card is 9.12 locks a card; over 36.5 scene-pass pixels that is 0.2499 cycles a pixel,
+      against a fade that opens at 0.25. Finer than this and the field pays the fade rather than buying detail: swept on the shipped arm the delivered
+      per-pixel difference read sd 4.80 / 7.02 / 8.05 / 9.43 code values at 1.2 / 2.05 / 3.0 / 4.0 mm, and 1.2 mm is DOWN because its own band limit ate it.
+      ⚠️ The clause has a LOWER bound as well, and that is the half that would catch someone "fixing" a soft picture by coarsening: at 6 mm this reads 0.13 cycles
+      a pixel — inside the fade with room to spare, and a 4x crop of it is fat ribbons rather than locks.
+PASS  the lock hashes are uniform AND decorrelated — the second half is what a histogram cannot prove
+      Hoskins hash12 in emulated f32 over 40,000 cells: mean 0.49825 against 0.5, sd 0.28845 against 1/√12 = 0.28868,
+      lag-1 correlation 0.00591 against a bound of 0.10. hash22's 10,000 site jitters all land inside their own cell, which is what keeps the
+      Voronoi a Voronoi rather than a square grid with rounded corners.
+PASS  🎯 THE LOCK FIELD IS SPATIALLY COHERENT, and a per-card random value with the same histogram is not
+      autocorrelation of the lock seed against displacement, in CELL units: 0.1 → 0.9601, 0.5 → 0.5911, 2.5 → 0.0050.
+      The control — the same seed rehashed, identical histogram, no spatial structure — reads -0.0039 at 0.1 cells.
+      That gap IS the difference between a lock and "filament noise at a coarser scale", and it is the property the round brief refuses a
+      per-card value for. One cell is 34.6 mm, so 0.1 cells is 3.5 mm — nearer than two neighbouring cards, which is exactly the distance a
+      per-card draw decorrelates over.
+PASS  the lock cell is the groom's OWN lock spacing, divided rather than chosen
+      2π × 88.1 mm / 16 = 34.60 mm — the azimuthal spacing of hair_cards.py's own LOCK_COUNT centres at the radius
+      the mass sits at, measured off g050.glb. The independent footprint derivation, √(28,684 mm² / 16), lands at 42.34 mm;
+      the two bracket the answer within 1.22x. ⚠️ At the shipped 720x900 framing one card is 44 px and 0.652 mm/px, so a lock is 53 px — COARSER than a
+      card and coarser than the 10–40 px the round nominated as the lock band. That is a fact about the groom, not a number to tune.
+PASS  the lock albedo is a MULTIPLIER centred on 1, inside the physical bound, and never negative
+      spread 1.26 → multiplier 0.3700 … 1.6288, mean 0.99399 over 20,000 points.
+      HAIR_LOCK_SPREAD_MAX is 2 — the point at which a lock's albedo would go negative — so the shipped value is 63% of the arithmetic
+      ceiling. A mean off 1 would be a tint on the whole groom wearing a lock's name, which no A/B against ?hairdefect=no-lock-albedo could
+      distinguish from the term working.
+PASS  🚩 the LOCK band and the FILAMENT band are independent — two frequency bands, not one term twice
+      strandJitterValue over lockSpread 0 / 0.5 / 2: -0.16779606 -0.16779606 -0.16779606.
+      lockAlbedoValue over strandTangentJitter 0 / 0.2403 / 1.0: 1.43687490 1.43687490 1.43687490.
+      false-earth's clumpSeed01 is multiplied in SEPARATELY from its per-blade seed and that separation is the mechanism; a shared uniform,
+      a shared hash or a shared phase would collapse the two bands into one and the round's A/B would be measuring itself.
+PASS  the F2−F1 blend removes the cell boundary, which is what makes this a BAND and not a step
+      51 of 20,000 sampled points sit within 1e-3 cells of a boundary; the worst of them reads centerFactor 1.16e-5 — i.e. the two
+      neighbours' seeds meet at 50/50 to five decimal places, so the field is continuous across the boundary. 3,408 points sit at a cell CORE (centerFactor > 0.99),
+      so the blend has not dissolved the cells either. HAIR_LOCK_BLEND_FRACTION = 0.5 is the largest value that leaves a core: the transition then spans half a
+      cell either side of every boundary and the field carries no spatial content above its own cell frequency. At 0 it would be a Voronoi with hard edges,
+      and a step is broadband — see tools/critic/band-power.selftest.mjs §6, which measures exactly that.
+PASS  both round-24 arms are reachable from the page, and the A side removes ONE multiply
+      ?hairdefect=no-lock-albedo is the A side and ?hairdefect=lock-albedo-max is the bound. alive.js validates ?hairdefect against this table, so
+      both arms are reachable with no change to that file. 🎯 RED PROOF, measured this round: the no-lock-albedo plate is BYTE-IDENTICAL to the pre-change
+      capture on both views — sha256 93eadc8eb7fd3508… portrait and 2dec2415cf5aba82… three-quarter — so the term is provably the only render change
+      the round makes, and switching it off returns the plate exactly rather than approximately.
+PASS  🎯 the tilt spread is MARSCHNER TABLE 1's own α_R band, divided by the tilt-to-α factor of two
+      Marschner Table 1 p8 measures α_R over −10°…−5°. This file's own conversion α_K = 2 sin α_M puts that band at
+      −0.3473…−0.1743, i.e. 0.17298 rad wide. A tangent tilt of δ shifts M_p's argument by at most 2δ (|ωi + ωr| ≤ 2,
+      with equality in the aligned limit), so spanning that band takes a tilt spread of 0.086492 rad — and the shipped constant is
+      0.086492 rad = 4.956°. 🎯 The two factors of two cancel, which is why the answer is Marschner's own 5° back again.
+      Against the lobe it is shifting: the peak-to-peak α excursion is 0.9911 of one β_R,
+      so neighbouring locks' primary bands sit very nearly one full width apart.
+      🚩 R26 MOVED THAT RATIO FROM 0.6653 WITHOUT TOUCHING THE TILT: the spread is derived from the α band alone,
+      and narrowing β_R from the mid-band 0.26 to Marschner's tight end shrank the DENOMINATOR. Arithmetic, not authoring.
+PASS  the bound is ONE LOBE WIDTH and is welded to β_R rather than typed beside it
+      HAIR_LOCK_TILT_MAX = 0.17453292519943295 and HAIR_DEFAULTS.roughnessR = 0.17453292519943295. The α excursion is 2 × spread and one lobe width is β_R,
+      so the bound is the spread at which two neighbouring locks' primary bands are exactly disjoint — a mass with no continuous highlight
+      anywhere, which is not a bob. The shipped spread is 49.6% of it — 33.3% through R25.
+      🎯 R26 RETUNED β_R AND THIS CLAUSE DID NOT GO RED, WHICH IS THE POINT OF THE REPAIR IT MADE. Through R25 the
+      bound was the LITERAL 0.26 typed beside a default of 0.26 and the clause was the only thing holding them
+      together; it is now the same exported constant, HAIR_BETA_R, so the two cannot drift and the assertion is a
+      statement about the derivation rather than a tripwire on a duplicate.
+PASS  the lock index survives the GLB's f32 exactly, at every index and at both ends of the range
+      16 of 16 indices round-trip through (i + 0.5)/n → Float32Array → floor(u·n). Every emitted value is an odd
+      multiple of 1/32, a binary fraction, so f32 stores it with no error at all. 🚩 The clamp at u = 1 is not padding: the scalp CAP
+      writes this channel per VERTEX (a per-face value would shatter the cap and take the card-count gate with it), so the cap's
+      identity interpolates and can land on exactly 1.0 at a shared corner, where floor(1.0 · 16) is one past the last lock.
+PASS  the tilt is a SPREAD and not an offset — sixteen distinct values, centred on zero, inside ±spread/2
+      16 distinct tilts over 16 locks, range 0.07709 rad (89.1% of the authored spread — a hash of
+      sixteen draws does not reach its own extremes), mean 1.66e-3 rad = 0.095°. 🚩 The mean is what makes this a
+      break in the band rather than a move of it: a term that shifted every lock the same way would be a change to shiftR wearing a lock's name.
+      HAIR_LOCK_HASH_OFFSET = 1 is why lock 0 is not pinned to an extreme — strandHashValue(0) is exactly 0.
+PASS  🎯 THE TILT IS A LABEL: identical inside a lock, different across every lock boundary
+      1,257 of 1,257 same-lock pairs take the IDENTICAL tilt (bitwise, not to a tolerance) and
+      18,743 of 18,743 cross-lock pairs take a different one. 🚩 That is the property R24 could not get from a spatial
+      field and is the whole reason the channel was plumbed: the judges' complaint — *"per-pixel noise standing in for structure"* — is
+      about COHERENCE, not power, and the lock band was measured FULL of incoherent power at 13.69% of the plate mean.
+      Coherence inside the lock is what makes a break at its boundary readable as an edge of something.
+PASS  both round-25 arms are reachable from the page, and the A side removes ONE rotation
+      ?hairdefect=no-lock-tilt is the A side and ?hairdefect=lock-tilt-max is the bound. alive.js validates ?hairdefect against this
+      table, so both arms are reachable with no change to that file. ⚠️ effectiveLockTilt is what the CENSUS reports, and it exists because
+      both arms BYPASS the uniform — the A side returns before the rotation and the bound substitutes a constant — so a manifest printing
+      nodes.lockTilt.value would describe the wrong picture on exactly the two plates whose purpose is to be a different one.
+PASS  the three lock-scale terms share no uniform, no coordinate and no expression
+      strandTangentJitter 0.2403 rad rotates the tangent IN the card's plane, per FRAGMENT, at filament frequency,
+      driven by across-strand arc length. lockSpread 1.26 multiplies the base COLOUR, per spatial cell, driven by positionGeometry.xz.
+      lockTilt 0.086492 rad rotates the tangent OUT of that plane, per LOCK ID, driven by uv(1).x. 🚩 The separation is
+      false-earth's own — its clumpSeed01 is kept apart from its per-blade seed for exactly this reason — and it is why two bands read as two.
+PASS  🎯 β is stated in KARIS' variable and the band converts by the factor of two the header derives
+      Marschner Table 1 p8 measures β_R over 5°…10° in HIS half-angle variable. M_p's argument here is sinθi + sinθr,
+      not θh, so β_K = 2 β_M and the band this material stores is 0.174533…0.349066.
+PASS  🚩 the value that shipped through R25 was MID-BAND, not 50% wider than the paper's widest
+      The R26 diagnosis read the shipped 0.26 as if it were β_M and reported "0.26 rad = 14.8969° against Marschner's 5-10°",
+      which is a defect that does not exist. As β_K it is β_M = 7.4485° — the middle of the band, which is what
+      HAIR_DEFAULTS' own docstring said two lines from the value. A number in prose is a claim and this is the gate on it.
+PASS  🎯 the shipped β_R is the NARROW END of the band, chosen from a sweep rather than by default
+      roughnessR = 0.174533 = β_M 5.0000°. R25 shipped 0.261799 (β_M 7.5000°), the midpoint, which was
+      a default rather than a measurement. tools/critic/hair-lobe-sweep.mjs measured six widths on 216,745 gated hair pixels of the
+      judged URL: R's 99th percentile against the mass mean rendered at the SAME width goes 0.814 → 1.026 → 1.256 → 1.390 → 1.789 → 2.243
+      across β_K 0.349066 / 0.26 / 0.20 / 0.174533 / 0.12 / 0.08. Only the first four are inside the band. M_p normalises by 1/(β√2π),
+      so a tighter lobe is a brighter one: the peak rises 1.5000x against the R25 midpoint.
+PASS  ⚠️ narrowing β moves the SHAPE and not the LEVEL — the property a floor cannot fake
+      Measured in the same run, same pixels: R's p99 rises 41.3% (6.785e-2 → 9.585e-2) while R's own MEAN rises 10.6%
+      (2.757e-2 → 3.050e-2) and the mass mean rises 4.3% (6.612e-2 → 6.896e-2). The other two knobs the diagnosis named both
+      move the level: ?hairscatter=0.25 reads a better ratio purely by darkening the groom 40.9%, with R's own p99 BYTE-IDENTICAL
+      across the three arms, and ?hairweightr=4 reads 1.932 by making R 74.1% of the mass. docs/research/hair.md §9.4 is the discriminator:
+      a multiplier moves the level and not the range, a floor moves them in opposite directions, and only a term that is bright where
+      the lobe fires moves the level while holding the range.
+PASS  ⚠️ AND NARROWING THE LOBE IS NOT THE WHOLE GAP — stated as a limit, not glossed
+      Not one pixel in 216,745 exceeds 4x R's own mean at ANY width inside Marschner's band — 0.0000% at 0.349066, 0.26, 0.20 and
+      0.174533 alike. The first arm where a shape statistic sees a band at all is β_K 0.12 (0.8978%), which is β_M 3.438°, narrower
+      than any fibre in Table 1. So the shipped change buys the largest primary-lobe contrast the SOURCE permits and the remaining
+      gap belongs somewhere else — the groom's own tangent spread inside a pixel is the standing candidate, since R26 measured
+      removing the strand jitter, the flow sheet or the lock tilt as worth ≤0.02x of peak/mass-mean each.
+PASS  the round-26 arm is reachable from the page and overrides the sweep key rather than composing
+      ?hairdefect=wide-lobe is the A side. 🎯 effectiveRoughnessR runs BEFORE the uniforms are created, so β_TT, β_TRT and
+      material.roughness all follow it and describe() reports the picture that was drawn with no special case — the better shape of
+      R25's effectiveLockTilt repair. The defect WINS over an explicit ?hairbeta=, because a control an unrelated key can quietly
+      cancel is not a control.
+
+--- the rendered gate ------------------------------------------------------------
+
+PASS  the hair mask is a MEASUREMENT — the pixels two BSDFs on identical geometry disagree about
+      383,032 px, 35.47% of frame. Built from ?hairdefect=unit-bsdf against a zero BSDF: same groom, same alpha coverage, same shadow casting, so a pixel that moves can only be a hair texel. A diff against the BALD plate was tried first and was mostly shadowed SKIN.
+PASS  🚩 the CONTRAST mask excludes part-covered card texels, which is where the old number came from
+      375,030 of 383,032 masked px are solid hair (97.9%).
+      On the zero-BSDF plate — no lobes, no scatter, no BSDF of any kind — the FULL mask reads p95 0.0123 encoded,
+      0.19 : 1 against #150F17 with the hair shader switched off, and the solid mask reads 0.0120 — 0.18 : 1.
+      ⚠️ AND ON THIS BUILD THOSE TWO NUMBERS ARE NEARLY EQUAL, WHICH IS NOT WHAT THIS CHECK WAS WRITTEN AGAINST. When
+      the filter landed, the full mask read 3.9 : 1 on the zero plate and the solid one 0.23 : 1 — the contaminated
+      94% this text used to be about. The filter is discarding little today; the shadow and OIT work two rounds
+      running has made the backdrop behind the fringe dark enough to pass the floor on its own. The check is kept and
+      the sentence is corrected rather than the other way round: what has to hold is that the mask is dark with the
+      BSDF off, and it does. A filter that is not currently binding is not a filter that was never needed.
+PASS  🎯 the strand field ARRIVES — the shading carries structure the alpha channel could not
+      over 375,030 solid hair px the strand field moves the plate by sd 12.682 code values,
+      against an instrument zero of 0.0000 cv measured this run by capturing one url twice. The floor is two code values —
+      twice the buffer's own quantisation step — because a structure delivered below the quantum is not delivered.
+      ⚠️ AND THIS IS NOT THE ROUND'S HEADLINE NUMBER. hair_screen.mjs's runs-per-card is, and it moved 0.813 → 0.818.
+      Calibrated by injecting a sinusoid of known amplitude into the shipped plate at the shipped lock frequency, that
+      statistic needs 25 code values before it moves at all and 36 before it reaches the atlas's 3.637 — it is a COVERAGE
+      statistic with a 25 cv dead zone, and no shading change inside the hair's own dynamic range can move it. See §10.5 of docs/research/hair.md.
+PASS  🚩 and it OBEYS ITS OWN BAND LIMIT — the field collapses when authored past Nyquist
+      the same subtraction with HAIR_STRAND_PITCH source-patched from 3.15 mm to 0.80 mm — 36 locks on a 28.7 mm card, 0.6 cycles per pixel, past Nyquist —
+      reads 3.884 cv against the shipped 12.682, a ratio of 0.306. A shader that ignored strandFadeEnd would read ABOVE the shipped
+      arm here rather than below it, because a finer field is a bigger per-pixel difference until something removes it. That is what this clause separates.
+      ⚠️ It does not go to zero and must not be expected to: |∂P/∂u| spans 0.120–0.347 across the groom, so the narrowest cards are still inside the limit at 0.80 mm.
+PASS  🎯 the rendered hair mass is on the WARM side of neutral, in both CIELAB chromatic axes
+      over 375,030 solid hair px: a* 17.98, b* 8.66, hue 25.7°, C* 19.96, L* 26.41.
+      The lit decile reads hue 31.3° at C* 17.54 — reported, not asserted, because on the shipped transfer path
+      that decile is contaminated by warm skin read through the fringe and would pass on a violet groom too.
+      ⚠️ THE SIGN IS THE CLAUSE AND THE MAGNITUDE IS NOT, deliberately. b* > 0 is the definition of the warm half of CIELAB,
+      not a number anybody chose; the reference's own recorded hair reads b* +36.7 on the ponytail band and −1.2 on the
+      unlit fringe (docs/research/hair.md §0.3, §2.1, re-derived into CIELAB this round), so a magnitude taken from it would
+      be a magnitude taken from two very different pixels.
+PASS  🚩 and it is not a warm MEAN over a violet mass — the cool-side share is a minority
+      5.4% of hair pixels sit at b* < 0. The mean above cannot see a split and this can:
+      a groom half at hue 40° and half at hue 280° averages to something plausible and reads as two-tone. 50% is "most of it",
+      which is the whole of what the clause claims, and the build clears it by 9.2x rather than by a percent — while the reversed-pigment arm below reads 98.8%.
+PASS  🚩 THE REJECTION PROOF: reverse the pigment and this clause GOES RED, on the same groom
+      with HAIR_MELANIN_ABSORPTION.eumelanin source-patched from [0.419, 0.697, 1.37] to [1.37, 0.697, 0.419] — blue
+      the least-absorbed channel, a fibre no head grows — the derivation rotates the albedo back into the violet and the
+      mass reads a* 8.53, b* -9.28, hue 312.6°, C* 12.61, cool share 98.8%.
+      The luma is untouched by the mutation — L* 25.12 against the shipped 26.41 — which is what says this
+      clause is reading a hue and not a brightness, and is why the mutation is a ROTATION rather than a darker or lighter colour.
+PASS  the rotation costs the contrast NOTHING — p95 and p95/p50 are unmoved by it
+      shipped p50 0.2257 p95 0.3792 ratio 1.680; reversed-pigment p50 0.2244 p95 0.3770 ratio 1.680.
+      Both contrast clauses further down are unaffected by round 23 and stay red for round 16's reason: the floor, not the hue.
+PASS  the PRIMARY band is a real, locatable feature on the plate
+      down 240 x 640 px of side hair mass, 114,968 masked px: R peaks at row 758, +0.1985 luma over a zero BSDF (50.6 code values)
+PASS  🚩 RED PROOF — a CONSTANT tangent puts the band on DIFFERENT PIXELS, not merely dimmer ones
+      ?hairdefect=constant-tangent, over 114,968 hair pixels of the strand band: the brightest tenth of the two lobe images
+      overlaps by a Jaccard index of 0.1436 — the highlight is on different hair.
+      Amplitude, for scale: peak +0.1054 at row 759 against the card tangent's +0.1985 at row 758 — 1.88x dimmer, 1 px away.
+      The defect plate stays entirely plausible: dark hair, visible groom, a band on it, nothing a thumbnail could reject.
+      That is what makes this a proof of the ANISOTROPY and not of the plumbing — a fixed tangent still makes A highlight, just not
+      one that belongs to the strand it is sitting on.
+PASS  🚩 THE RECT-AREA PATH CARRIES THE BAND ON ITS OWN, with every punctual light removed
+      ?ov=key.shadowFraction:0 leaves NO punctual light in the scene, so all of this comes through directRectArea:
+      the R band peaks at +0.2230 (56.9 code values) at row 759, mean rise +0.119232 over the band.
+      This check exists because the first directRectArea masked every panel off through an inverted front-face test and measured EXACTLY
+      0.000000 here while the shipped plate still looked like dark hair. See the comment on `inFront`.
+PASS  the secondary band is missing from the shipped rig because TRT is RETROREFLECTIVE, not because the lobe is dead
+      shipped rig: TRT peaks at row 313, +0.00123 luma (0.31 code values), 161x under the primary.
+      key on the camera axis: the SAME lobe reaches +0.00923 (2.4 code values), 7.5x more, off a light MOVE and not a parameter change.
+      Consequence for the look, and it belongs to the lighting rig rather than to this file: the reference's dual band needs a practical beside the lens.
+PASS  THE DUAL BAND, MEASURED SEPARATELY AND IN PIXELS, with a light the secondary lobe can fire in
+      key moved to the camera axis (?ov=key.azimuthDegrees:0 — the camera stands 12° off the facing axis), everything else unchanged:
+      R peaks at row 707, +0.1662 (42.4 code values); TRT at row 153, +0.0092 (2.4 code values) — 554 px apart down the strand.
+      Measured on two plates that differ in ONE lobe weight, so neither number contains any part of the other.
+      arm                       p50      p90      p95      p99      max      (solid hair only)
+      shipped BSDF             0.2241   0.3510   0.3827   0.5161   0.7905
+      ?hairbsdf=0 (GLB card)   0.1643   0.3199   0.3954   0.5122   0.8207
+      unit BSDF probe          0.6987   0.7269   0.7309   0.7339   0.7370
+      zero BSDF                0.0011   0.0084   0.0120   0.0160   0.0760
+FAIL  the specular-to-albedo contrast reaches the look spec's measured 9.08–11.35 : 1 ENCODED band
+      SOLID hair p95 0.3827 encoded over #150F17's 0.0661 = 5.79 : 1, against 9.08–11.35 : 1.
+      🔴 DIAGNOSIS. The unit-BSDF probe puts Σ(L·Ω) = 5.375 sr·nits on a hair pixel at that rank, so the
+      reference band's 0.675 encoded — radiance 0.3326 through our own ACES — needs 0.0619 sr⁻¹.
+      The shipped combination — R + TRT + slide 39's fake under slide 47's occlusion — peaks over the whole
+      sphere at 0.0569 sr⁻¹ (θi -15°, φ 0°, θr 0°, Shadow 0, channel 0; R 0.0266 + fake 0.0299),
+      a factor of 1.09 short before the rig is even consulted.
+      🎯 AND THE ALBEDO IS NOT THE CONSTRAINT, WHICH IS NEW AND IS A SWEEP RATHER THAN AN OPINION. Re-running the
+      sphere search on lighter fibres — #150F17, #2E2230, #5A4460, #9F8FA5 — the LOBES' own ceiling goes
+      0.01883 / 0.01954 / 0.02325 / 0.03765 sr⁻¹, and R's own peak FALLS across that range (0.01860 →
+      0.01578) because R never enters the fibre and is pure Fresnel. Even at a near-grey #9F8FA5 the lobes
+      stay 1.64x under what the band needs. Lightening the hair cannot buy this; it only grows the fake.
+      What this rules out: a misread transfer domain, an exposure, and the base colour.
+      What it leaves: the rig. R's real peak lives at near-backlight grazing, which slide 47's occlusion
+      deliberately discards because the rim has no shadow map (REQ-063), and TRT needs a light near the
+      view axis that the four panels do not supply (REQ-064).
+FAIL  the BSDF is doing something the plain card cannot: it moves the top of the distribution
+      p50 0.2241 against the GLB card's 0.1643 — nearly equal; p95 0.3827 against 0.3954, and p90 0.3510 against 0.3199.
+      ?hairbsdf=0 is the A side: a MeshPhysical lobe about the card's PLANE NORMAL, which is brighter and is wrong in the way `applyCardShading` spent a round documenting.
+      arm                       p05        p50        p95        max        p95/p50   (RADIANCE, solid hair)
+      indirect only (S = 0)   1.952e-3  2.335e-3  5.596e-3  2.005e-2  2.396
+      R + TRT, no fake        2.335e-3  2.300e-2  7.878e-2  1.097e-1  3.425
+      slide 39 fake alone     2.571e-2  4.115e-2  5.401e-2  6.600e-2  1.313
+      shipped S               2.930e-2  6.247e-2  1.194e-1  1.581e-1  1.911
+      shipped S x 2 (patched) 5.574e-2  1.206e-1  2.356e-1  3.154e-1  1.954
+PASS  🎯 the plates ADD UP once ACES is inverted, and do not before — the licence for every arm subtraction here
+      three renders differing only in which terms of S are live, summed over 375,030 solid hair px:
+      (R+TRT − zero) + (fake − zero) = 1.0036 x (shipped − zero) in recovered RADIANCE, and 0.7781 x sRGB-decoded.
+      A wrong inverse cannot reassemble three independent renders into their own sum, so this is the evidence — not the code reading.
+      The 22.2% that used to go missing was three's ACESFilmic, which `?grade=0` does not remove: Stage.js sets it on the
+      renderer and the no-grade branch still finishes with renderOutput().
+PASS  the brightest hair in the frame is made of LOBES and not of slide 39's fake, which is the weaker half of that claim
+      of the groom's whole rise above its indirect floor, in radiance: the fake carries 58.6% and R+TRT 41.7%.
+      Over the brightest 5% of solid hair — where a highlight would be — the fake is still 33.5% of it.
+      Karis' own words on that section of the deck are "a giant artistic hack and not physically based in the slightest… derived by
+      looking at photos", and it is dominating a frame whose brief is a dual band.
+PASS  🚩 RED PROOF — a pure GAIN on S moves the level and leaves the RANGE alone; removing the floor does the opposite
+      S x 2 patched into the served module: the median rise above indirect goes 1.966x — a gain, measured — while
+      p95/p50 moves 1.9105 → 1.9542, 2.28%. The same statistic under ?hairscatter=0 goes 1.9105 → 3.4255.
+      So the pair (absolute level, dynamic range) cannot both be bought by any scalar: a multiplier moves the first and not the
+      second, a floor moves them in opposite directions, and only a term that is bright where the lobe fires and dark
+      elsewhere moves the first while holding the second. That is the property a highlight has and a hack does not.
+      ⚠️ IT ALSO BOUNDS THE TRANSFER, AND IT COMES WITH ITS OWN NOISE FLOOR, WHICH IS THE PART THAT MAKES IT READABLE.
+      Loading the UNCHANGED probe url a second time returns 1.00000x of itself: within one browser session the arms of
+      every comparison in this file are registered pixel for pixel, hashed alpha and all. Against that floor —
+        S x 2 in the SHADER          → 1.966x  (want 2, off by 1.7%, at the radiance the groom lives at)
+        probe constant halved        → 0.501x  (want 0.5, off by 0.1%, at radiance 0.377, 4x higher)
+      Both are real departures rather than noise, both are small, and both go the same way: the pipeline is mildly
+      SUB-LINEAR and more so the brighter the pixel. So every Σ(L·Ω) in this file is a LOWER bound and every shortfall
+      it diagnoses is understated. Excluded this session: clipping (brightest channel 0.9765 of 1 on the probe's plate,
+      no pixel at the clamp) and the mask (the sweep moves in the fourth decimal over a 7x coverage-floor sweep). The
+      operator is in render/** and was not found; carried to the integrator as a diff request rather than given a REQ
+      number this file cannot verify — the ledger's ids are gated against the round fence and REQ-066 is taken.
+      🔴 AND ONE NUMBER IS WITHDRAWN. A scratch capture earlier this session, on a separate browser launch, ran the probe
+      constant at 0.25 / 0.5 / 1 / 2 and read 0.328 / 0.599 / 1.000 / 1.487 — a 20-26% compression, five times what this
+      run measures. Nothing in the source changed between them. Cross-session plates are NOT comparable on this build
+      and that is the finding; the in-run pair above is what stands.
+FAIL  🔴 the hair's OWN dynamic range reaches 4.0 : 1 — the half of the contrast a floor cannot buy
+      shipped plate, solid hair, RADIANCE p95/p50 = 1.911 : 1 against a floor of 4.0; R+TRT alone reach 3.425.
+      On the graded path in encoded luma the same ratio is 1.708, and with slide 39 removed it is 2.939 — the term costs
+      42% of the picture's contrast to buy 28% of its brightness.
+      🔴 THIS IS THE ROUND'S ANSWER TO "PEAK-LIMITED OR FLOOR-LIMITED". It is floor-limited, and the floor is in the
+      NUMERATOR: the statistic above this one divides by an assumed albedo, so raising the bandless term walks it
+      toward green while walking this one toward 1. Both are measured on the same pixels of the same plate and
+      they cannot both be satisfied by a scalar. Neither is green; the pair is the instrument, the red is the result.
+      quantity                  p50      p90      p95      p99      max
+      Σ(L·Ω) sr·nits          4.710    5.244    5.348    5.391    5.412
+      S_eff sr⁻¹              0.01375  0.02439  0.02705  0.03163  0.04323
+PASS  🎯 the RENDERED scattering function stays under the closed form's own ceiling — the anti-fudge gate
+      over 374,771 solid hair pixels the shader's measured S peaks at 0.04323 sr⁻¹
+      against the CPU mirror's 0.05693 sr⁻¹ over the whole sphere — 75.9% of it. A shader carrying a tuning
+      multiplier lands ABOVE 100% by exactly the multiplier, which is what this check is for; the 5% slack is 8-bit quantisation.
+      ⚠️ Both sides of that comparison moved this round and in opposite directions, which is why the gate passes now and
+      would not have. Reading the plates in RADIANCE raised the measured S — the same pixels give p50 0.00883 sRGB-decoded
+      and 0.01375 in radiance, a factor of 1.56. And sweeping `Shadow` in the ceiling search raised the ceiling, because slide 39's
+      tint `(C/Luma(C))^(1−Shadow)` reaches 1.42 in blue on #150F17 and the search used to pin Shadow at 1 — pinned, the same
+      rendered S measures 113% of the ceiling and this gate reads as a fudge that is not there.
+      🔴 AND THE GAP AT p95 IS THE RIG, NOT THE MODEL: S peaks at 0.04323 but reads 0.02705 at p95, because the four
+      panels sit at +42°, −52°, −168° and +166° and the closed form's peak needs a light near the view axis. Moving the key there
+      (?ov=key.azimuthDegrees:0) is measured in the DUAL BAND section above and it is a rig change, filed as REQ-064.
+      arm                          >0.90 luma            >0.99 luma (bloom)
+      bald (the shipped plate)         4 px  0.00037%         0 px  0.00000%
+      hair, Karis BSDF                 3 px  0.00028%         0 px  0.00000%
+      hair, GLB card material          3 px  0.00028%         0 px  0.00000%
+FAIL  hair puts the frame's clipped-highlight share into the reference's 0.017–0.036% band
+      bald 0.00000% of frame over 0.99 luma, with hair 0.00000%. Reference plates: 0.017–0.036%.
+      🔴 THE HONEST MISS, WITH ITS DIAGNOSIS. REQ-061 recorded that this scene has nothing small and
+      bright enough to clip and named hair specular as the largest of the three candidates. Hair is now
+      in the frame and it does not clip either, for the reason the sections above measure: the shipped
+      combination peaks at 0.0569 sr⁻¹ over the whole sphere on a #150F17 fibre and the rig delivers
+      Σ(L·Ω) of order 4 to 6 sr·nits to the groom, so the product lands one to two stops below the tone
+      curve's shoulder. What this rules out: "the scene has no hair" is no longer the explanation, and
+      neither is a dim BSDF relative to its own model — the anti-fudge check above measures the shader
+      just under the closed form's own ceiling. What it leaves open: a specular lobe on a WET or oiled
+      surface, the eye catchlight cubemap (3.4), and Phase 9's metal trim — all three of which are
+      small, bright and NOT governed by a fibre's absorption.
+      ⚠️ AND THE TARGET BAND ITSELF DOES NOT REPRODUCE. docs/research/hair.md §0.2 re-measured the look
+      spec's 0.017% on overview_character.jpg and read 0.0137% (810 px of 5,891,200) under encodedLuma,
+      with four other plausible luma definitions giving 0.0040%, 0.0088% and 0.0719%. The reference
+      images are deliberately not in the repository, so this round could not re-measure them and the
+      0.017–0.036% band is left standing rather than quietly widened to whichever number passes.
+
+--- cost, at 1080p, against a 16.6 ms budget -------------------------------------
+
+      bald  180 valid samples: p50 11.107 ms, p95 15.402 ms
+      hair  180 valid samples: p50 9.682 ms, p95 11.669 ms
+PASS  the groom plus its BSDF fits inside the 16.6 ms budget at 1080p
+      hair adds -1.425 ms p50 and -3.733 ms p95; p95 lands at 11.669 ms, 4.931 ms under budget. One draw call, 7,224 triangles, no extra pass — the whole cost is the fragment shader and the shadow-map draw the groom now also makes.
+
+RED — 76/80 checks passed
+

@@ -99,6 +99,8 @@
          */
 
         import { Avatar, SCENES } from '../../packages/core/src/Avatar.js';
+        import { drawGeometryMask } from './GeometryMask.js';
+        globalThis.__SUGATA_GEOMETRY_MASK__ = () => drawGeometryMask(globalThis.avatar);
 
         addEventListener( 'unhandledrejection', ( event ) => showFailure( event.reason ) );
         addEventListener( 'error', ( event ) => showFailure( event.error ?? event.message ) );

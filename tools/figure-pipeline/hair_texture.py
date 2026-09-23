@@ -381,7 +381,8 @@ STRIP_RECIPES = [
     (49, 0.754, 16.0, 0.68, 20.0),
     (40, 0.530, 18.0, 0.72, 20.0),
     (17, 0.189, 24.0, 0.84, 20.0),
-    (11, 0.126, 28.0, 0.90, 20.0),
+    # Keep separate wisps above the cutout at the shipped TAAU sampling LOD.
+    (11, 0.220, 28.0, 0.90, 20.0),
 ]
 
 # Coverage above which a strand owns a texel outright in the non-blendable channels — and, not by

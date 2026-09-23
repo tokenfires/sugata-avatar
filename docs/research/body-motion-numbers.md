@@ -407,3 +407,12 @@ statistics of the motion, not the mechanism.**
   never printed.
 - **EMOTE emotion→Effort numeric table** — does not exist in the paper; the emotion linkage was
   left to PARSYS/OCC/personality mappings.
+
+## Standing knee flexion: unresolved amplitude (REQ-079)
+
+The source material transcribed here does not establish a standing emotion-to-knee-angle
+amplitude. Coulson's six posture columns omit the knee; Wallbott's quality scales do not
+provide degrees. This is a limit of the sources reviewed, not a claim that no such study
+exists. Keep `KNEE_FULL_SCALE_DEGREES` at zero until an applicable measurement is available.
+The IK solver's visible-error interval measures rendering error and cannot supply a human
+posture amplitude. A future nonzero channel also needs a composed foot-plant test after sway.

@@ -789,23 +789,29 @@ const FAKE_CANVAS = { getContext: () => null };
     // RED PROOF. `resolvePlacements` DROPS an unknown light name in silence — measured through the
     // real class: `{ fifth: {…} }` leaves 4 placements and throws nothing. So a look naming one has
     // to die here or nowhere.
+    // This drives the LIVE setter path using real scene lights, without a GPU.
+    const live = Object.create( Avatar.prototype );
+    live.lighting = resolveLightingOption( 'studio' );
+    live.frameMode = 'portrait';
+    live.skyEnvironment = live.interiorEnvironment = live.environment = live.eyes = null;
+    live.tierSettings = { shadows: true };
+    live.focus = new Vector3( 0, 1.6, 0 );
+    live.framedHeightMetres = 0.42;
+    live.stage = { camera: { position: new Vector3( 0.2, 1.6, 1 ) } };
+    live.lights = new LightingRig( { preset: 'portrait' } );
+    live.lights.attachTo( new Scene(), null );
+    live.setLighting( 'studio' );
+    const oldKey = live.lights.describeLive().find( row => row.name === 'key' );
+    live.setLighting( 'dramatic' );
+    const newKey = live.lights.describeLive().find( row => row.name === 'key' );
+    check( 'LIVE SETTER changes the built light position',
+        Math.abs( newKey.azimuthDegrees - oldKey.azimuthDegrees ) > 1,
+        `${ oldKey.azimuthDegrees } -> ${ newKey.azimuthDegrees } degrees` );
+    live.lights.dispose();
+
     const phantom = refusalFrom( () => resolveLook( 'phantom', 'portrait' ) );
     const injected = { ...SCENE_LOOKS, phantom: { fields: { fifth: { irradiance: 1 } }, scales: {} } };
-    const injectedRefusal = refusalFrom( () => {
-
-        // Driven through the same resolver, with the same shape a real look would have.
-        const entry = injected.phantom;
-        for ( const light of Object.keys( entry.fields ) ) {
-
-            if ( [ 'key', 'fill', 'rim', 'kicker' ].includes( light ) === false ) {
-
-                throw new Error( `phantom names '${ light }'` );
-
-            }
-
-        }
-
-    } );
+    const injectedRefusal = refusalFrom( () => resolveLook( 'phantom', 'portrait', injected ) );
 
     check( '🎯 LOOKS  A1 RED PROOF  an unknown look, and an unknown light inside one, are both refused',
         phantom !== null && phantom.includes( 'phantom' ) && injectedRefusal !== null,
@@ -894,20 +900,9 @@ const FAKE_CANVAS = { getContext: () => null };
     // RED PROOF: a look entry carrying `ambientScale` must be refused by the resolver itself.
     // Driven by monkey-patching the frozen table's prototype is impossible, so the defect is applied
     // where a real one would be — an extra top-level key on a look-shaped object.
-    const ambientCarrying = refusalFrom( () => {
-
-        const entry = { fields: {}, scales: {}, ambientScale: 1.35 };
-        for ( const key of Object.keys( entry ) ) {
-
-            if ( [ 'fields', 'scales' ].includes( key ) === false ) {
-
-                throw new Error( `Avatar: look declares '${ key }', and a look may only declare fields and scales.` );
-
-            }
-
-        }
-
-    } );
+    const ambientCarrying = refusalFrom( () => resolveLook( 'invalid', 'portrait', {
+        invalid: { fields: {}, scales: {}, ambientScale: 1.35 }
+    } ) );
 
     check( '🎯 LOOKS  A4 RED PROOF  a look carrying ambientScale is refused by the deny-by-default walk',
         ambientCarrying !== null && ambientCarrying.includes( 'ambientScale' ),

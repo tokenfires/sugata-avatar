@@ -1,7 +1,8 @@
 /**
  * HairOIT — order-independent transparency for the hair groom. Punch-list 3.6.
  *
- * A groom is 254 cards, every one of them a cut-out ribbon, and at any camera angle a dozen of
+ * For a live geometry census use sugata.subsystems().hair or verify_glb.mjs.
+ * A groom is a set of cards, every one of them a cut-out ribbon, and at any camera angle a dozen of
  * them overlap the same pixel. `RenderList.js` sorts OBJECTS — `reversePainterSortStable` orders
  * `groupOrder`, then `renderOrder`, then `a.z` (r185, :45–62), and `sort()` is called on the
  * `transparent` array (:393) — so a groom that is ONE `SkinnedMesh` is ONE entry in that array and
@@ -12,7 +13,7 @@
  * ## 🎯 What was measured, and the verdict it forces
  *
  * Every figure below was measured in the session that wrote this file, on the real groom
- * (`assets/hair/bob01/g050.glb`, 254 cards, 7,224 triangles) through
+ * (the historical `assets/hair/bob01/g050.glb` build) through
  * `packages/testbed/src/stage.js?hair=1` on a real WebGPU device. None is copied from `docs/`.
  *
  * The defect is measured as **draw-order dependence**, which is the definition of the thing rather
@@ -407,7 +408,7 @@
  *
  * **Per-card depth sorting is not built either, and it is not for the reason on file.** The reason
  * usually given is "three sorts objects" — true, and beside the point, because a groom is one mesh
- * and its 254 cards could be re-sorted inside its own index buffer on the CPU each frame. The real
+ * and its cards could be re-sorted inside its own index buffer on the CPU each frame. The real
  * reasons are that it is a 43 KB index upload per frame in the middle of a 16.6 ms budget, that it
  * is still WRONG wherever two cards interpenetrate (which is most of a groom), and that it cannot
  * be made to work on a skinned mesh without re-transforming every card centroid on the CPU after
@@ -930,7 +931,10 @@ export function hairDitherThresholdNode( offset ) {
  * override as well, and the stricter of the two decides, so that arm's shadow is still the cut-out
  * silhouette. The other three arms had no decision at all and now have this one.
  */
-export const HAIR_SHADOW_ALPHA_CUTOFF = 0.05;
+// Recalibrated against the current groom and filter, 2026-09-22. At 0.35 the
+// untested-quad shadow-area ratio is 0.788 (<0.8), contact 5.276 (>2), and alpha
+// response 2.421 (>1.5). The old 0.05 sweep above is historical, not current evidence.
+export const HAIR_SHADOW_ALPHA_CUTOFF = 0.35;
 
 /**
  * The coverage decision the SHADOW pass makes, which is not the one the beauty pass makes.

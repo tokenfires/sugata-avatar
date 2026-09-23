@@ -3569,6 +3569,7 @@ export class HairNodeMaterial extends MeshPhysicalNodeMaterial {
  * @param {?{capStripEnd:number,fadeLength:number}} [options.cardRoots=null] - Verified card atlas
  *   layout: keep the cap, derive card root position from v, and feather card starts before both
  *   beauty and shadow coverage are configured. The default preserves arbitrary flow-map layouts.
+ * @param {Node} [options.positionNode] - optional deformation node, installed before first compile.
  * @param {Object} [options.settings] - overrides over `HAIR_DEFAULTS`.
  * @returns {Promise<HairNodeMaterial>} resolves once the sidecar sheets have decoded, so a capture
  *   never sees a half-loaded material.
@@ -3680,6 +3681,7 @@ export async function createHairMaterial( options = {} ) {
     };
 
     const material = new HairNodeMaterial( nodes );
+    if ( options.positionNode != null ) material.positionNode = options.positionNode;
 
     material.name = 'sugata.hair';
     material.metalness = 0;
@@ -4027,14 +4029,17 @@ function strandTangentNode( nodes ) {
  * regenerated groom carries its own envelope with no constant to update, which is the same
  * discipline `hair_cards.py` applies by cutting the cap from the scalp region itself.
  *
- * ⚠️ THIS IS NOT THE ONLY PATH ONTO A GROOM AND IT IS NOT THE ONE THE PAGE TAKES. `alive.js:2513`
- * assigns the material to its meshes directly, so the fit ALSO runs from the node graph — see
- * `ensureHairEnvelope`, which is where that cost this round a smoke run.
+ * The alive page passes the whole figure root plus its selected hair meshes, so the
+ * fit can find the head bone without assigning hair material to body or wardrobe meshes.
+ * The node graph also retains its lazy fallback for direct material assignments.
+ * @param {Object} [options] Optional `meshes` iterable limiting assignment and the envelope fit.
  *
  * @returns {{ meshes:number, alphaMap:?Object, envelope:?Object }} `envelope` is null on the
  *   shipped arm, which does not evaluate one.
  */
-export function applyHairMaterial( root, material ) {
+export function applyHairMaterial( root, material, { meshes: selectedMeshes = null } = {} ) {
+
+    const selected = selectedMeshes === null ? null : new Set( selectedMeshes );
 
     let meshes = 0;
     let alphaMap = null;
@@ -4044,7 +4049,7 @@ export function applyHairMaterial( root, material ) {
 
     root.traverse( ( object ) => {
 
-        if ( object.isMesh !== true ) return;
+        if ( object.isMesh !== true || ( selected !== null && ! selected.has( object ) ) ) return;
 
         if ( alphaMap === null && object.material?.map != null ) alphaMap = object.material.map;
 

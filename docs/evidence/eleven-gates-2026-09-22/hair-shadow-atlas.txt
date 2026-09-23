@@ -1,0 +1,44 @@
+
+--- what the page had on it ---
+
+  bald           grooms 0   cutoff null   maskShadowNode false
+  baldNoShadow   grooms 0   cutoff null   maskShadowNode false
+  hairNoShadow   grooms 1   cutoff 0.35   maskShadowNode true
+  shipped        grooms 1   cutoff 0.35   maskShadowNode true
+  shippedRepeat  grooms 1   cutoff 0.35   maskShadowNode true
+  zero           grooms 1   cutoff 0   maskShadowNode true
+  nomask         grooms 1   cutoff 0.35   maskShadowNode false
+  opaqueOnly     grooms 1   cutoff 1   maskShadowNode true
+  noCast         grooms 1   cutoff 1.5   maskShadowNode true
+
+--- the masks, measured off the plates ---
+
+  visible skin 322772 px   contact band 82979 px   pure 40 px cells 139
+  ok   the masks are large enough to mean anything — 322772 px skin, 82979 px band, 139 cells
+
+--- the groom against the same frame with no groom ---
+
+  arm             contact 255   skin shadowed        worst cell brighter
+  shipped            5.2637    106292 px (32.93%)    -0.0011 at 640,1160
+  shippedRepeat      5.2637    106292 px (32.93%)    -0.0011 at 640,1160
+  zero               6.7509    134889 px (41.79%)    -0.0011 at 640,1160
+  nomask             6.7509    134889 px (41.79%)    -0.0011 at 640,1160
+  opaqueOnly         2.8487     72134 px (22.35%)     0.0338 at 280,680
+  noCast             0.3128         0 px ( 0.00%)     0.0432 at 280,680
+
+--- clauses ---
+
+  ok   CONTACT — the groom darkens the skin beside it — 5.2637 of 255 against a floor of 2 (the nothing-casts arm reads 0.3128, the opaque mass alone 2.8487)
+  ok   ALPHA RESPONSE — that shadow comes through the card alpha — 2.4150 of 255 against a floor of 1.5
+  ok   NO QUAD SHADOW — the groom shadows far less skin than its untested quads would — 0.7880 against a ceiling of 0.8 (106292 px against 134889)
+  ok   DIRECTION — no cell of visible skin is brighter with the groom on — worst -0.0011 of 255 at 640,1160, ceiling 0.5
+
+--- red proofs ---
+
+  ok   RED PROOF 1 — the two breaks are one defect: nulling the mask node and zeroing the cutoff render the same picture, to within what one build differs from itself by — 0 px apart of 134889, against an instrument floor of 0 px measured off the shipped arm captured twice (contact 6.7509 against 6.7509; the repeat reads 5.2637 against the shipped 5.2637)
+  ok   RED PROOF 2 — the area statistic is not saturated: it has a measured floor at nothing and a measured ceiling at the quads, and the shipped build is strictly between them — floor 0.0000 (0 px), ceiling 1.0000 (134889 px by construction), shipped 0.7880 (106292 px) — bounds 0.02 and 0.1
+  ok   RED PROOF 3 — the contact floor is not vacuous: casting nothing at all fails it — 0.3128 of 255 against a floor of 2
+  ok   RED PROOF 4 — the direction ceiling is not vacuous: the same statistic crosses it on two plates this gate already renders — read against the quads arm instead of bald, the shipped build's worst cell is +15.4933 of 255 at 400,1080, past the 0.5 ceiling — against the -0.0011 every arm reads against bald
+
+PASS — 9 of 9
+

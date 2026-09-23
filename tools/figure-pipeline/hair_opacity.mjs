@@ -279,7 +279,7 @@ const MINIMUM_MASK_PIXELS = 20000;
  * cannot fail; this one is kept in the header rather than deleted, because the next person to
  * reach for `alphaTest` here will reach for it for the same reason.
  */
-const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'stripshift'];
+const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'maskshift', 'stripshift'];
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
@@ -382,9 +382,12 @@ async function measureView(page, view, options) {
   const footprint = new Uint8Array(pixels);
   const outside = new Uint8Array(pixels);
   for (let index = 0; index < pixels; index += 1) {
-    const covered = options.defect === 'maskall' ? 1 : (inFront[index] > 0 ? 1 : 0);
+    // Move both masks; translating only the numerator's mask cannot exercise outside liveness.
+    const source = options.defect === 'maskshift'
+      ? (index % width >= 20 ? index - 20 : -1) : index;
+    const covered = options.defect === 'maskall' ? 1 : (source >= 0 && inFront[source] > 0 ? 1 : 0);
     footprint[index] = covered && carriesStep[index] ? 1 : 0;
-    outside[index] = total[index] === 0 && carriesStep[index] ? 1 : 0;
+    outside[index] = (source < 0 || total[source] === 0) && carriesStep[index] ? 1 : 0;
   }
 
   // L2's mask is the footprint with the groom hidden, which is the SAME pixels measured against a
@@ -443,7 +446,7 @@ async function measureView(page, view, options) {
     noInteriorByCrossing: byCrossing(noInterior, inFront, numerator, denominator),
     faceBottom,
     teethBottom: raster.teethBottom,
-    outside: summarise(outside, denominator, denominator),
+    outside: summarise(outside, numerator, denominator),
     hidden: summarise(footprint, hidden, new Float64Array(pixels).fill(1)),
     byCrossing: byCrossing(footprint, inFront, numerator, denominator)
   };

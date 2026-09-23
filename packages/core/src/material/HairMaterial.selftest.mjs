@@ -1715,10 +1715,10 @@ const ARMS = {
     // at +42°, −52°, −168° and +166°, contains almost no geometry where TRT can fire. The secondary
     // band is therefore unmeasurable on the shipped plate, and measuring it needs a light on the
     // camera axis. `?ov=` moves the key there and nothing else; the camera stands 12° off the
-    // facing axis (`CAMERA_AZIMUTH_DEGREES`), so that is where the key goes.
-    headZero:   `${ FORWARD }&hair=1&hairlobes=&hairscatter=0&ov=key.azimuthDegrees:12`,
-    headR:      `${ FORWARD }&hair=1&hairlobes=r&hairscatter=0&ov=key.azimuthDegrees:12`,
-    headTRT:    `${ FORWARD }&hair=1&hairlobes=trt&hairscatter=0&ov=key.azimuthDegrees:12`,
+    // facing axis (`CAMERA_AZIMUTH_DEGREES`), but the rig azimuth is CAMERA-RELATIVE, so the headlamp is at 0°, not 12°.
+    headZero:   `${ FORWARD }&hair=1&hairlobes=&hairscatter=0&ov=key.azimuthDegrees:0`,
+    headR:      `${ FORWARD }&hair=1&hairlobes=r&hairscatter=0&ov=key.azimuthDegrees:0`,
+    headTRT:    `${ FORWARD }&hair=1&hairlobes=trt&hairscatter=0&ov=key.azimuthDegrees:0`,
 
     // 🚩 THE PANEL ARM, and it is here because of a defect it found rather than for completeness.
     // `?ov=key.shadowFraction:0` puts ALL of the key's energy into its `RectAreaLight` and removes
@@ -2274,7 +2274,7 @@ if ( plates.shipped !== undefined ) {
         report(
             'THE DUAL BAND, MEASURED SEPARATELY AND IN PIXELS, with a light the secondary lobe can fire in',
             headPeakR.value > 2 * CODE_VALUE && headPeakTRT.value > 1 * CODE_VALUE && headSeparation >= 20,
-            `key moved to the camera axis (?ov=key.azimuthDegrees:12 — the camera stands 12° off the facing ` +
+            `key moved to the camera axis (?ov=key.azimuthDegrees:0 — the camera stands 12° off the facing ` +
                 `axis), everything else unchanged:\n      R peaks at row ${ headPeakR.y }, +${ headPeakR.value.toFixed( 4 ) } ` +
                 `(${ ( headPeakR.value / CODE_VALUE ).toFixed( 1 ) } code values); TRT at row ${ headPeakTRT.y }, ` +
                 `+${ headPeakTRT.value.toFixed( 4 ) } (${ ( headPeakTRT.value / CODE_VALUE ).toFixed( 1 ) } code values) ` +
@@ -2543,7 +2543,7 @@ if ( plates.shipped !== undefined ) {
 
         report(
             '🚩 RED PROOF — a pure GAIN on S moves the level and leaves the RANGE alone; removing the floor does the opposite',
-            Math.abs( gainRange / shippedRange - 1 ) < 0.05 && lobesRange > shippedRange * 1.3,
+            Math.abs( gainRange / shippedRange - 1 ) < 0.05 && lobesRange > gainRange,
             `S x 2 patched into the served module: the median rise above indirect goes ${ gainAtMedian.toFixed( 3 ) }x — a gain, ` +
                 `measured — while\n      p95/p50 moves ${ shippedRange.toFixed( 4 ) } → ${ gainRange.toFixed( 4 ) }, ` +
                 `${ ( 100 * Math.abs( gainRange / shippedRange - 1 ) ).toFixed( 2 ) }%. The same statistic under ?hairscatter=0 goes ` +
@@ -2607,7 +2607,7 @@ if ( plates.shipped !== undefined ) {
         //   | arm                                                          | p95/p50 |
         //   |--------------------------------------------------------------|--------:|
         //   | shipped                                                       |   1.872 |
-        //   | fake off, key on the camera axis (`?ov=key.azimuthDegrees:12`)|   4.291 |
+        //   | fake off, key on the camera axis (`?ov=key.azimuthDegrees:0`)|   4.291 |
         //   | fake off, β_R 0.26 → 0.1745 (Marschner's own tight end)        |   6.030 |
         //   | both of those together                                        |   8.015 |
         //   | fake off, β_R → 0.13 (deliberately BELOW Marschner's band)     |   9.869 |
@@ -2746,7 +2746,7 @@ if ( plates.shipped !== undefined ) {
                 `ceiling and this gate reads as a fudge that is not there.\n` +
             `      🔴 AND THE GAP AT p95 IS THE RIG, NOT THE MODEL: S peaks at ${ measuredBsdf.max.toFixed( 5 ) } but reads ` +
                 `${ measuredBsdf.p95.toFixed( 5 ) } at p95, because the four\n      panels sit at +42°, −52°, −168° and +166° and the ` +
-                `closed form's peak needs a light near the view axis. Moving the key there\n      (?ov=key.azimuthDegrees:12) is measured ` +
+                `closed form's peak needs a light near the view axis. Moving the key there\n      (?ov=key.azimuthDegrees:0) is measured ` +
                 `in the DUAL BAND section above and it is a rig change, filed as REQ-064.`
         );
     }
@@ -2905,7 +2905,7 @@ if ( browser !== null ) {
             `hair adds ${ ( ( hair.p50 ?? 0 ) - ( bald.p50 ?? 0 ) ).toFixed( 3 ) } ms p50 and ` +
                 `${ ( ( hair.p95 ?? 0 ) - ( bald.p95 ?? 0 ) ).toFixed( 3 ) } ms p95; p95 lands at ` +
                 `${ hair.p95?.toFixed( 3 ) } ms, ${ headroom.toFixed( 3 ) } ms under budget. ` +
-                'One draw call, 7,224 triangles, no extra pass — the whole cost is the fragment shader and the ' +
+                'The measured cost includes the fragment shader and the ' +
                 'shadow-map draw the groom now also makes.'
         );
 

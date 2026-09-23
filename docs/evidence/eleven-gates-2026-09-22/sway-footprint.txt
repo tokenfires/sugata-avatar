@@ -1,0 +1,826 @@
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+Figure: this rig has no jaw, eyeLeft, eyeRight bone(s) (53 bones found). Motion layers that need them must fall back — jaw to the jawOpen morph, gaze to the eyeLook* morphs.
+
+figure: assets/figures/figure_g050.glb
+stature: 1.6594 m, posed into relaxed-standing
+sampling: 60 Hz, 12 seeds x 900 s
+footprint bakes: g000, g025, g050, g075, g100
+
+
+RIG — the levers the whole file is derived from
+-----------------------------------------------
+  ....  pivot height (m)                                 0.0692   between the sole and the ankle joint; see PIVOT_HEIGHT_FRACTION_OF_ANKLE
+  ....  COM lever ML / AP (m)                        0.5869 / 0.7612   centre-of-mass travel per radian — what the lean is SOLVED against
+  ....  head lever ML / AP (m)                       0.5869 / 1.2743   head travel per radian — reported, never solved against
+  ....  ankle pendulum share                               0.85   the rest is shared down the spine
+  ....  posture clamp ML / AP (mm)                   44.0 / 34.0   two of Duarte's mean shifts, capped laterally by the half-stance
+  ....  contrapposto COM response (mm)               26.06 / -26.40   per unit blend, left / right — what the stance blend is SOLVED against
+  ....  contrapposto head response (mm)              26.06 / -26.40   per unit blend, left / right — reported only
+  ....  whole-body COM (m)                               0.9451   0.5695 of stature 1.6594 m
+  ....  raw geometry ratio                               1.6487   head 1.513 m over COM 0.945 m, both above the pivot
+  PASS  head per unit COM / raw ratio                     1.015   target 0.940 .. 1.060     measured 1.6740; the deleted POSTURE_HEAD_TRANSFER guessed 0.20
+  PASS  head per unit COM, absolute                       1.674   target 1.000 .. 3.000     the head is further from the ankle than the centre of mass is, so this is always > 1
+  PASS  COM as fraction of stature                        0.570   target 0.523 .. 0.583     Winter 0.553 — an INDEPENDENT figure, not one derived from the segment table
+  PASS  trunk span as fraction of stature                 0.268   target 0.192 .. 0.384     Winter: shoulder 0.818 less hip 0.530 = 0.288; this is what catches a mis-resolved trunk
+  PASS  mass accounted for                                1.000   target 1.000 .. 1.000     a shortfall means a segment landmark did not resolve on this rig
+  PASS  posture clamp ML (mm)                            44.000   target 20.000 .. 90.000   2 x Duarte ML 22 mm; the half-stance ceiling would allow 77.7 and does not bind
+  PASS  posture clamp AP (mm)                            34.000   target 10.000 .. 60.000   2 x Duarte AP 17 mm, and it reads NO rig geometry — see COMPOSITE FOOTPRINT for what the sum of the three antero-posterior terms actually does to the base of support
+
+BALANCE BAND — `new Sway()` as constructed, centre-of-pressure mm vs Quijoux
+----------------------------------------------------------------------------
+  window       seed   ML_RMS  AP_RMS  ratio
+     60s          1     2.84    4.39   1.55
+     60s          7     3.29    4.72   1.44
+     60s         42     2.83    4.31   1.52
+     60s        101     2.93    4.72   1.61
+     60s        777     2.83    4.21   1.48
+     60s       1234     3.03    4.44   1.47
+     60s       4242     3.36    5.43   1.62
+     60s       9999     3.43    5.09   1.49
+     60s      31337     3.21    4.45   1.39
+     60s      65537     3.11    5.24   1.69
+     60s   20260807     2.90    4.81   1.66
+     60s   99999989     3.29    5.26   1.60
+    300s          1     3.12    5.03   1.61
+    300s          7     3.05    5.14   1.69
+    300s         42     3.02    4.90   1.63
+    300s        101     3.11    4.71   1.51
+    300s        777     2.91    4.53   1.56
+    300s       1234     3.08    4.57   1.49
+    300s       4242     3.01    4.79   1.59
+    300s       9999     3.05    4.96   1.62
+    300s      31337     3.03    4.83   1.59
+    300s      65537     3.21    5.12   1.59
+    300s   20260807     3.09    4.70   1.52
+    300s   99999989     3.10    4.99   1.61
+    900s          1     2.96    4.98   1.68
+    900s          7     3.02    4.96   1.65
+    900s         42     3.00    4.72   1.57
+    900s        101     3.03    4.71   1.55
+    900s        777     3.01    4.82   1.60
+    900s       1234     3.11    4.77   1.53
+    900s       4242     3.04    4.88   1.61
+    900s       9999     3.05    4.93   1.62
+    900s      31337     3.12    4.85   1.55
+    900s      65537     3.12    5.05   1.62
+    900s   20260807     3.05    4.77   1.56
+    900s   99999989     3.15    4.89   1.55
+
+  PASS  [60s] ML RMS lowest (mm)                          2.832   target 1.570 .. 4.430     plate ML 3.0 mm, +/- 3 sigma of an RMS estimate over 60 s
+  PASS  [60s] ML RMS highest (mm)                         3.427   target 1.570 .. 4.430     
+  PASS  [60s] ML RMS median (mm)                          3.069   target 2.523 .. 3.477     the median must sit ON the column, not at the edge of its scatter
+  PASS  [60s] AP RMS lowest (mm)                          4.205   target 2.317 .. 7.483     plate AP 4.9 mm, +/- 3 sigma over 60 s
+  PASS  [60s] AP RMS highest (mm)                         5.430   target 2.317 .. 7.483     
+  PASS  [60s] AP RMS median (mm)                          4.722   target 4.039 .. 5.761     
+  PASS  [60s] AP/ML ratio median                          1.535   target 1.500 .. 2.000     AP is 1.5-2x ML and must never be isotropic; design 1.633
+  ....  [60s] AP/ML ratio spread                      1.39-1.69   a ratio of two noisy estimates; the per-seed extremes are gated at the longest window only
+  PASS  [300s] ML RMS lowest (mm)                         2.911   target 2.360 .. 3.640     plate ML 3.0 mm, +/- 3 sigma of an RMS estimate over 300 s
+  PASS  [300s] ML RMS highest (mm)                        3.214   target 2.360 .. 3.640     
+  PASS  [300s] ML RMS median (mm)                         3.066   target 2.787 .. 3.213     the median must sit ON the column, not at the edge of its scatter
+  PASS  [300s] AP RMS lowest (mm)                         4.533   target 3.745 .. 6.055     plate AP 4.9 mm, +/- 3 sigma over 300 s
+  PASS  [300s] AP RMS highest (mm)                        5.141   target 3.745 .. 6.055     
+  PASS  [300s] AP RMS median (mm)                         4.866   target 4.515 .. 5.285     
+  PASS  [300s] AP/ML ratio median                         1.592   target 1.500 .. 2.000     AP is 1.5-2x ML and must never be isotropic; design 1.633
+  ....  [300s] AP/ML ratio spread                     1.49-1.69   a ratio of two noisy estimates; the per-seed extremes are gated at the longest window only
+  PASS  [900s] ML RMS lowest (mm)                         2.957   target 2.631 .. 3.369     plate ML 3.0 mm, +/- 3 sigma of an RMS estimate over 900 s
+  PASS  [900s] ML RMS highest (mm)                        3.155   target 2.631 .. 3.369     
+  PASS  [900s] ML RMS median (mm)                         3.046   target 2.877 .. 3.123     the median must sit ON the column, not at the edge of its scatter
+  PASS  [900s] AP RMS lowest (mm)                         4.706   target 4.233 .. 5.567     plate AP 4.9 mm, +/- 3 sigma over 900 s
+  PASS  [900s] AP RMS highest (mm)                        5.052   target 4.233 .. 5.567     
+  PASS  [900s] AP RMS median (mm)                         4.865   target 4.678 .. 5.122     
+  PASS  [900s] AP/ML ratio median                         1.587   target 1.500 .. 2.000     AP is 1.5-2x ML and must never be isotropic; design 1.633
+  ....  [900s] AP/ML ratio spread                     1.53-1.68   a ratio of two noisy estimates; the per-seed extremes are gated at the longest window only
+  PASS  [900s] AP/ML ratio lowest                         1.532   target 1.334 .. 1.933     design 1.633, +/- 3 sigma of a ratio of two RMS estimates
+  PASS  [900s] AP/ML ratio highest                        1.683   target 1.334 .. 1.933     
+
+LOOP CLOSURE — the body actually goes where the layer said it would
+-------------------------------------------------------------------
+        seed   commanded ML   realised ML   commanded AP   realised AP   worst frame (mm)
+           1          9.184         9.082         11.071        11.074             0.568
+           7         12.996        13.153          7.078         7.070             0.573
+          42         17.804        17.810          8.959         8.915             0.566
+         101         12.288        12.392          7.271         7.256             0.563
+         777          4.953         4.968          6.823         6.826             0.559
+        1234         10.890        10.832          9.019         9.007             0.572
+        4242         11.584        11.710         12.127        12.161             0.561
+        9999          9.759         9.875          5.814         5.810             0.565
+       31337         15.934        15.884         11.814        11.813             0.568
+       65537          9.513         9.409          8.539         8.537             0.560
+    20260807          6.964         6.997          8.209         8.218             0.551
+    99999989          9.379         9.430         15.138        15.115             0.567
+
+  PASS  realised / commanded, lowest                      0.989   target 0.980 .. 1.020     both axes, every seed; the residue is the linearised lever and blend
+  PASS  realised / commanded, highest                     1.012   target 0.980 .. 1.020     
+  PASS  worst single frame (mm)                           0.573   target 0 .. 1.500         the largest instantaneous gap between where the body was asked to be and where it is
+
+COMPOSITE — balance + posture over 900 s, vs Bates et al. 2021
+--------------------------------------------------------------
+        seed   ML_SD   AP_SD   ratio
+           1    9.18   11.07    1.21
+           7   13.00    7.08    0.54
+          42   17.80    8.96    0.50
+         101   12.29    7.27    0.59
+         777    4.95    6.82    1.38
+        1234   10.89    9.02    0.83
+        4242   11.58   12.13    1.05
+        9999    9.76    5.81    0.60
+       31337   15.93   11.81    0.74
+       65537    9.51    8.54    0.90
+    20260807    6.96    8.21    1.18
+    99999989    9.38   15.14    1.61
+
+  ....  ML median / range (mm)                       10.32  4.95-17.80   Bates ML 16.87 mm, IQR 9.58-66.5
+  ....  AP median / range (mm)                       8.75  5.81-15.14   Bates AP 16.32 mm, IQR 10.34-28.75
+  ....  AP/ML ratio, median / range                  0.86  0.50-1.61   Bates 1.03 — NOT gated: unconstrained anisotropy inverts, and that is correct
+  PASS  ML SD median (mm)                                10.325   target 9.580 .. 66.500    inside Bates' lateral interquartile range
+  PASS  ML SD highest (mm)                               17.804   target 0 .. 66.500        no seed may exceed his upper quartile — that is what the posture clamp is for
+  PASS  AP SD highest (mm)                               15.138   target 0 .. 28.750        no seed may exceed his fore-and-aft upper quartile
+  ....  AP shortfall vs Bates Q1 (mm)                      1.59   DOCUMENTED KNOWN STATE, not a pass: see the comment above and Sway.js DRIFT_AMPLITUDE_*
+  PASS  AP median is BELOW Bates Q1                       1.000   target = 1.000            recorded, not tolerated: 1 means the known shortfall is still there and this note is current
+
+HEAD EXCURSION — an OUTPUT of the rig geometry, reported, with no literature to gate it
+---------------------------------------------------------------------------------------
+  ....  head ML RMS median / range (mm)              10.34  4.96-17.85   over 900 s; NO published head amplitude exists to compare this against
+  ....  head AP RMS median / range (mm)              14.82  9.85-25.50   
+  PASS  head ML RMS lowest (mm)                           4.957   target 1.000 .. 100.000   sanity envelope ONLY: not zero, not absurd
+  PASS  head ML RMS highest (mm)                         17.847   target 1.000 .. 100.000   
+  PASS  head AP RMS lowest (mm)                           9.845   target 1.000 .. 100.000   
+  PASS  head AP RMS highest (mm)                         25.497   target 1.000 .. 100.000   
+
+HEAD PARKED — ratios and a correlation, which is what no gate here measured
+---------------------------------------------------------------------------
+  PASS  contrapposto head / COM, left                     1.000   target 0.990 .. 1.010     the lumbar counter-bend is solved per side; a single averaged angle left this at 1.095
+  PASS  contrapposto head / COM, right                    1.000   target 0.990 .. 1.010     the lumbar counter-bend is solved per side; a single averaged angle left this at 1.095
+  PASS  pendulum lateral head / COM                       1.000   target 0.990 .. 1.010     a rigid rotation would give 1.674 — the pendulum carries 16-29% of frames when the pose saturates
+  ....  lumbar righting, pendulum (deg per deg of lean)      1.352   solved by secant against the ratio above, not set as a fraction of the overshoot
+  ....  lumbar righting, contrapposto (deg at blend 1) 12.83 / 14.27   left / right; the pose files are asymmetric on purpose so these differ
+
+        seed   head/pelvis RMS   head/pelvis p2p   r(head-on-neck, neck)   neck gain   head/COM RMS
+           1            0.7040            0.7217                  0.8290      0.0284         1.0123
+           7            0.6810            0.7212                 -0.9529     -0.0369         0.9916
+          42            0.6947            0.7321                 -0.2792     -0.0067         1.0021
+         101            0.6818            0.7357                 -0.8196     -0.0276         0.9942
+         777            0.6915            0.7129                 -0.5328     -0.0194         0.9978
+        1234            0.6932            0.7356                  0.4114      0.0093         1.0055
+        4242            0.6803            0.7429                 -0.9248     -0.0338         0.9923
+        9999            0.6688            0.7172                 -0.9324     -0.0298         0.9911
+       31337            0.7027            0.7218                  0.0481      0.0010         1.0055
+       65537            0.7080            0.7348                  0.7247      0.0262         1.0127
+    20260807            0.6828            0.7337                 -0.7298     -0.0203         0.9960
+    99999989            0.6801            0.7160                 -0.6409     -0.0200         0.9956
+
+  PASS  head / COM lateral RMS, lowest seed               0.991   target 0.950 .. 1.050     a head parked in space scores 0.18-0.25 here; a rigid pendulum scores 1.674
+  PASS  head / COM lateral RMS, highest seed              1.013   target 0.950 .. 1.050     
+  PASS  slope of head on COM, lowest seed                 0.991   target 0.950 .. 1.050     the head must move WITH the centre of mass, not merely as far
+  PASS  slope of head on COM, highest seed                1.013   target 0.950 .. 1.050     
+  PASS  head / pelvis lateral RMS, worst seed             0.708   target 0.500 .. 1.000     pelvis-leads. The judge measured 1.34 on screen; this layer alone measured 1.02 before the fix
+  PASS  head / pelvis lateral RMS, lowest seed            0.669   target 0.500 .. 1.000     the floor half: a head that has stopped moving is not a head that leads less
+  PASS  head / pelvis lateral peak-to-peak, worst seed      0.743   target 0.500 .. 1.000     the peaks are where the pendulum fallback lived, and the peaks are what a viewer sees
+  PASS  head / pelvis lateral peak-to-peak, lowest seed      0.713   target 0.500 .. 1.000     
+  ....  composite r(head-on-neck, neck) over 12 seeds -0.953 to 0.829   gain -0.0369 to 0.0284 — RECORDED, not gated: the contrapposto parks the head by translating it, so on that path the residue has no required sign. See this function's header
+  PASS  head-on-neck vs neck, PENDULUM regime, worst correlation     -1.000   target -1.000 .. 0        negative on EVERY seed: the head-on-neck rotation must oppose the trunk, not add to it. Measured -1.0000 to -1.0000 over 300 s per seed
+  PASS  head-on-neck gain, PENDULUM regime, weakest seed     -0.097   target -0.500 .. -0.010   slope, not sign: 0 is no righting at all and -1 is a head held still in space
+  PASS  head-on-neck gain, PENDULUM regime, strongest seed     -0.098   target -0.500 .. -0.010   
+  ....  head / COM range                             0.9911 to 1.0127   the target is 1.0 exactly — LATERAL_HEAD_PER_CENTRE_OF_MASS — realised by the frame loop
+
+LEGIBILITY — not whether an event fired, but whether it could be seen
+---------------------------------------------------------------------
+  ....  balance-band pelvis RMS (mm)                       4.39   the background, measured on { weightShiftsEnabled: false } rather than assumed
+  ....  relayed events                               127 over 90 min   1.411/min
+  ....  peak pelvis excursion (mm)                   p25 13.1  median 19.2  p75 35.5  p90 56.1   per relayed event, over its own duration
+  ....  rate past the judge's own threshold (/min)        0.511   5.5x background is where the count matches the 3 events it read in 7 minutes
+  PASS  median event / background                         4.362   target >= 3.000           the typical event must be several times the sway it is supposed to stand out from
+  PASS  legible events per minute                         1.056   target >= 0.750           a postural event a viewer cannot see does not count as one
+  PASS  fraction of the timeline mid-fidget (%)           3.525   target >= 3.000           an event that is not on screen when a viewer looks cannot be seen at any amplitude
+
+TOES — the one articulation below the ankle this rig has
+--------------------------------------------------------
+  PASS  peak toe lift (deg)                               2.500   target 0.500 .. 2.510     extension at full unload; the constant is a tuning number and this is the realised angle
+  ....  toe lift on the LOADED foot (deg)                 1.330   NOT zero any more, and correctly so: the fore-and-aft coupling unloads both forefeet together when the body leans back. The two gates below are what is left of the old claim
+  PASS  the loaded foot never lifts MORE than the free one (deg)          0   target -1000000000.000 .. 1.0e-9 a foot carrying the load has its toes pressed flatter than the one that is not
+  PASS  the LATERAL mechanism alone lifts no loaded toe (deg)          0   target = 0                measured with `toeCopLiftEnabled: false`, which is the claim this gate always made
+  ....  measured at blend                                 0.961   weight on the left leg, so the right foot unloads
+  PASS  unloaded toe geometry rises (mm)                  1.484   target >= 1.000           measured on skinned vertices forward of the metatarsal head, not on the joint
+  ....  the same rise, in pixels                           0.98   against the 3 px articulation floor — the toe lift alone does not reach it, and the gate above cannot see that
+  PASS  loaded toe geometry does not move (mm)            0.003   target 0 .. 0.050         the same tolerance the planting section uses, with `toeCopLiftEnabled: false`
+  PASS  nothing is driven below the floor (mm)           -3.182   target >= -3.229          extension only: the toes can leave the floor and can never enter it. The allowance is the planting section's own 0.05 mm, because the loaded foot still rides the lean
+
+FREE FOOT — silhouette travel in pixels at full-body framing
+------------------------------------------------------------
+  ....  full-body framing (mm / px per mm)           1825 / 0.6574   measured stature x 1.1 margin over a 1200 px capture, camera 12 degrees off axis; alive.js and LEARNINGS Part 3
+        foot   released yaw(deg)   free toe(px)   loaded toe(px)
+        left             2.43          5.331           0.186
+       right             2.32          4.916           0.506
+
+  ....  outer-to-outer extent (px)                   196.0 at rest, range 2.869   the verifier measured this at sd 0.00 px over 4200 frames and called the feet welded
+  PASS  free-foot toe travel (px, worse foot)             4.916   target 3.000 .. 40.000    BOTH feet: the toe lift alone scores 1.89 px and, in the 420 s the judge watched, only ever fired on one of them
+  PASS  loaded-foot toe travel (px, worse foot)           0.506   target 0 .. 0.986         the foot carrying the body stays put — the planting limit, in the same pixels
+  PASS  the two feet articulate alike (ratio)             0.922   target 0.500 .. 1.000     the poses are deliberately asymmetric, not asymmetric by a factor: an unmirrored hips yaw in weight-right.json scored 0.16 here
+  PASS  outer-to-outer extent range (px)                  2.869   target 1.600 .. 40.000    the statistic the verifier measured; a silhouette whose width never changes reads as one object
+
+FOOT BAND — the median travel inside a 15 s window, in pixels
+-------------------------------------------------------------
+
+  band -46 to 54 mm about the floor, 210 vertices at stride 11, 406 windows
+
+        statistic                  15 s median   worst window   whole clip
+        worst vertex, resultant          1.566          5.511        5.521
+        worst vertex, horizontal         1.329          5.132        5.143
+
+  ....  range / median, resultant                           3.5   the spike ratio. 25.2 on the lateral mechanism alone; 1 would be a foot that never stops
+  PASS  foot band, 15 s median HORIZONTAL travel (px)      1.329   target 0.750 .. 40.000    per vertex, the statistic travel.mjs measures. The yaw release is the only mechanism that can move a foot in it
+  PASS  foot band, 15 s median resultant travel (px)      1.566   target 1.200 .. 40.000    horizontal plus the toe lift's vertical; no capture instrument in this repo reports it
+  PASS  shortfall against the legible end of the bracket (x)      7.975   target 1.000 .. 14.000    recorded, not tolerated: 1.329 px horizontal against the 10.6 px a judge COUNTED. A planted foot pivoting about its own ankle cannot reach that — closing it needs a foot that is REPOSITIONED, not one that turns
+  PASS  and it clears the invisible end (x)               2.769   target 1.000 .. 30.000    1.329 px against the 0.48 px a judge reported as "the hands never move". This is the weaker of the two claims and the only one the evidence supports
+
+        configuration                     horizontal   vertical   resultant   range / median
+        as shipped                               1.329      0.876       1.566              3.5
+        proportional release (last round)        0.376      0.876       0.945              5.8
+        lateral toe mechanism alone              1.328      0.550       1.448              3.8
+        no toe articulation at all               1.330      0.375       1.330              3.8
+        welded — no yaw release either           0.314      0.375       0.462              3.4
+
+  PASS  the breakaway is what moved the horizontal (x)      3.538   target 2.500 .. 20.000    1.329 px with it against 0.376 with the release proportional to the load
+  PASS  the horizontal gate REJECTS the proportional release      1.000   target = 1.000            the state that shipped last round, whose articulation was the SQUARE of the load transfer
+  PASS  the RESULTANT would barely have shown it (x)      1.658   target 1.000 .. 2.000     recorded, not tolerated: 1.566 against 0.945 on the resultant, where the horizontal moves 3.54x
+  PASS  the fore-and-aft toe coupling is what moved the VERTICAL (x)      1.592   target 1.150 .. 20.000    0.876 px with it against 0.550 without. On the RESULTANT the same toggle is now 1.081x
+  PASS  the VERTICAL gate REJECTS a foot with no toe articulation      1.000   target = 1.000            0.375 px vertical against a 0.57 floor and the shipped 0.876
+  PASS  seeds where the RESULTANT floor would still catch a foot with no toes          0   target = 0                recorded, not tolerated: 1.330 px against a 1.2 floor — a foot with no toe articulation at all now clears the resultant floor on the horizontal channel alone
+  PASS  and REJECTS a welded foot on both channels        1.000   target = 1.000            0.314 horizontal, 0.462 resultant
+  ....  the band cannot go below (px)                     0.462   a welded foot still rides the lean; the planting correction pins the ankle joint, not the geometry around it
+  PASS  shipped out-travels a welded foot (x)             3.390   target 2.000 .. 1000000000.000 the band's whole dynamic range, and it is narrow — see the note above
+  PASS  a whole-clip RANGE would NOT have caught it (px)      5.522   target 3.000 .. 1000.000  recorded, not tolerated: the same trace whose 15 s median is 1.448 px has a whole-clip range of 5.52 px, over the 3 px range floor
+
+GLANCE LEGIBILITY — per-band travel in a 15 s window, in pixels
+---------------------------------------------------------------
+  ....  full-body framing (mm / px per mm)           1825 / 0.6574   stature x 1.1 over 1200 px, camera 12 degrees off axis
+
+        band   height above floor (mm)   centroid   verts   15 s travel, 12 seeds   worst q10   x the floor
+        head                 1377-1596     1505.6     971            9.84 - 13.03        7.41          6.15
+    shoulder                 1158-1377     1253.9     106             7.65 - 9.92        5.79          4.78
+         hip                   793-976      864.1      89             6.35 - 8.22        4.69          3.97
+        knee                   428-611      516.4      31            8.67 - 10.23        6.87          5.42
+       ankle                    63-246      116.5      29             0.42 - 1.79        0.17          0.27
+        foot                    -46-54       15.4     210             0.66 - 0.82        0.35          0.41
+
+  PASS  smallest band population (vertices)              29.000   target 25.000 .. 1000000.000 stride 11 over the skinned meshes; the ankle band is the thin one
+  PASS  head band, 15 s travel, worst seed (px)           9.841   target 1.600 .. 40.000    a judgement, not a measured visibility floor — see JUDGE_REPORTED_INVISIBLE_PIXELS
+  PASS  head band, 15 s travel, liveliest seed (px)      13.025   target 1.600 .. 40.000    the ceiling half: over-animating an idle is as bad as having none
+  PASS  shoulder band, 15 s travel, worst seed (px)       7.649   target 1.600 .. 40.000    a judgement, not a measured visibility floor — see JUDGE_REPORTED_INVISIBLE_PIXELS
+  PASS  shoulder band, 15 s travel, liveliest seed (px)      9.921   target 1.600 .. 40.000    the ceiling half: over-animating an idle is as bad as having none
+  PASS  hip band, 15 s travel, worst seed (px)            6.354   target 1.600 .. 40.000    a judgement, not a measured visibility floor — see JUDGE_REPORTED_INVISIBLE_PIXELS
+  PASS  hip band, 15 s travel, liveliest seed (px)        8.215   target 1.600 .. 40.000    the ceiling half: over-animating an idle is as bad as having none
+  PASS  knee band, 15 s travel, worst seed (px)           8.672   target 1.600 .. 40.000    a judgement, not a measured visibility floor — see JUDGE_REPORTED_INVISIBLE_PIXELS
+  PASS  knee band, 15 s travel, liveliest seed (px)      10.230   target 1.600 .. 40.000    the ceiling half: over-animating an idle is as bad as having none
+  ....  ankle band (lower shank), 15 s travel over 12 seeds (px) 0.42 - 1.79, quiet tenth 0.17 - 1.17   MARGINAL and geometrically bounded — see the section header. Not gated at 1.6; gated below against a dead one.
+  PASS  seeds whose quiet tenth is under a fifth of a pixel      1.000   target 0 .. 6.000         recorded, not tolerated: 0.89 0.68 0.78 0.17 0.90 0.22 0.22 0.47 0.88 1.05 0.21 1.17
+  ....  shank lever bracket, pivot at the ankle joint / at the floor 0.109 .. 0.226   ankle band centroid 116.5 mm, knee band 516.4 mm, ankle joint 67.3 mm
+  PASS  shank on knee, slope, flattest seed               0.145   target 0.109 .. 0.226     the lean alone; the bracket above is geometry, not a fitted range
+  PASS  shank on knee, slope, steepest seed               0.151   target 0.109 .. 0.226     
+  PASS  shank on knee, correlation, weakest seed          0.870   target 0.500 .. 1.000     a shank that has come off the leg stops tracking before it stops moving
+  PASS  the 15 s RATIO spans too far to gate, x across seeds      4.190   target 3.000 .. 1000.000  recorded, not tolerated: 0.042 .. 0.175 against 0.145 .. 0.151 for the slope on the lean
+  PASS  seeds where AXIAL travel falls monotonically from the hip down     12.000   target = 12.000           hip > knee > ankle on every seed; worst margins 13.93 hip against 10.05 knee
+  PASS  seeds where the ARM-INCLUSIVE reading would order hip above knee          0   target = 0                recorded, not tolerated: on the statistic this file used until now the knee out-travels the "hip" on every seed, because that band is 56/89 arm and the arms ride the thorax
+
+        THE STATISTIC: median over 15 s windows of the peak-to-peak travel of a band's SILHOUETTE CENTRE, in pixels, over its AXIAL vertices.
+
+        seed        axial 15 s   axial clip   arm-inclusive 15 s   arm-inclusive clip   vertex 15 s
+           1         0.7190       0.6623               3.0286               2.4302        1.6134
+           7         0.7400       0.7568               2.9289               2.4516        1.5922
+          42         0.7985       0.7370               2.8756               2.0787        1.4976
+         101         0.7086       0.6626               2.8618               4.1350        1.5593
+         777         0.7268       0.7241               3.1695               1.9348        1.6410
+        1234         0.6703       0.6847               3.0333               2.5342        1.5410
+        4242         0.7614       0.6907               2.5470               1.8152        1.4880
+        9999         0.7906       0.7141               3.1478               1.8193        1.6113
+       31337         0.7041       0.7033               3.1683               1.9615        1.5917
+       65537         0.7368       0.7459               2.9977               1.7040        1.5518
+    20260807         0.6988       0.7012               2.8572               2.1521        1.5371
+    99999989         0.7668       0.7428               3.5104               2.0033        1.6624
+
+  PASS  head/hip, 15 s median, AXIAL silhouette, worst seed      0.799   target 0.480 .. 1.080     THE gate. NOT the bone-marker claim, not a whole-clip range, and NOT the arm-inclusive column beside it — see the constant. An unrighted lumbar scores 1.47-1.54 here
+  PASS  head/hip, 15 s median, AXIAL silhouette, lowest seed      0.670   target 0.480 .. 1.080     
+  PASS  whole-clip p2p reads LOWER than the glance median (x)      1.055   target 1.000 .. 1.600     recorded, not tolerated: worst seed 0.7985 on the glance against 0.7568 whole-clip. A judge reported 1.0596 and 0.894 for the same clip and the gate had never said which one it meant
+  PASS  arm-inclusive head/hip over the axial one, worst seed (x)      4.396   target 2.000 .. 8.000     recorded, not tolerated: the reading a judge's travel.mjs takes is 2.547-3.510 against 0.670-0.799 here. Its denominator is 56/89 arm and correlates with an arm-only reading at r = 1.000
+
+        band     verts axial/arm   r(silhouette, arm-only)   r(silhouette, axial)
+        head          970/1                    1.0000                 1.0000
+    shoulder          67/39                    1.0000                 0.9956
+         hip          33/56                    1.0000                 0.6622
+        knee           31/0                      none                 1.0000
+       ankle           29/0                      none                 1.0000
+        foot          210/0                      none                 1.0000
+
+  PASS  smallest AXIAL band population (vertices)        29.000   target 20.000 .. 1000000.000 an axial statistic computed over three vertices would be very quiet and very green
+  PASS  hip band vertices that are ARM, of its total      0.629   target 0.400 .. 0.800     recorded, not tolerated: 56 arm against 33 pelvis and thigh, and BOTH silhouette edges are arm — the hands hang wider than the hips
+  PASS  hip band silhouette against an ARM-ONLY reading of the same rows (r)      1.000   target 0.990 .. 1.000     the attribution: the arm-inclusive hip band IS an arm-span midpoint. Against its own axial reading the same trace correlates at 0.6622
+  PASS  AXIAL vertex centroid over AXIAL silhouette centre, head band, worst seed      1.031   target 0.700 .. 1.200     they agree HERE because Sway translates the head rather than rotating it. With gaze.head in the stack the same pair parts company by a factor of three — see FULL STACK
+  PASS  AXIAL vertex centroid over AXIAL silhouette centre, head band, lowest seed      0.942   target 0.700 .. 1.200     
+  ....  spine-bend model, knee / ankle travel over 12 seeds (px) 0.0000 / 0.0000 at their worst   against 8.67 / 0.42 as constructed
+  PASS  seeds where the knee floor CATCHES the spine-bend model     12.000   target = 12.000           this configuration is the historical 0.0000 mm lower body, on every seed
+  PASS  seeds where the tracking gate CATCHES it too     12.000   target = 12.000           a shank not tracking a knee that is not moving: slope -0.159, correlation -1.000 at their most favourable
+  ....  unrighted lumbar, head band / hip band over 12 seeds 1.473 - 1.539 axial   arm-inclusive the same twelve read 1.697 - 1.914, against a rigid-lever prediction of 1.805 from the band centroids — the two statistics agree HERE because a rigid body carries its arms with it
+  PASS  seeds where the head-band ceiling CATCHES an unrighted lumbar     12.000   target = 12.000           every seed, by at least 1.36x
+  PASS  seeds where the head-band FLOOR catches a parked head     12.000   target = 12.000           a head moving 30% of the centre of mass scores 0.244-0.346 against a 0.48 floor
+  ....  the same parked head, arm-inclusive          0.699 - 0.853   against 0.24-0.35 axial: one clip, two readings, and only one of them says mannequin
+  PASS  seeds a 1.00 ceiling would have FAILED on the shipped layer     12.000   target 1.000 .. 12.000    recorded, not tolerated: 3.029 2.929 2.876 2.862 3.170 3.033 2.547 3.148 3.168 2.998 2.857 3.510 — which is why a judge measuring 1.0596 on a render scored it against the WRONG gate. 1.00 is the BONE-MARKER ceiling from HEAD PARKED and does not describe a band ratio
+  PASS  seeds where a raw SD would clear the floor            0   target = 0                recorded, not tolerated: raw SD 0.203-1.559 px against a peak-to-peak floor of 1.6
+  PASS  ankle band travel, worst seed (px)                0.425   target 0.100 .. 40.000    against the spine-bend model's 0.0000 px on its liveliest seed
+
+TRUNK ARTICULATION — does the shift reach the torso, or only move it?
+---------------------------------------------------------------------
+  ....  shoulder line the pose draws (deg, left / right) -2.91 / 3.11   weight-left.json declares -3.0 against a hip line of +5.5; measured here at unit blend against 6.11 / -4.92
+  ....  shoulder line the layer realises (deg, left / right) -2.90 / 3.10   the pose, plus whatever the lateral righting spends on the same three joints
+  PASS  realised shoulder line / authored, left           0.996   target 0.900 .. 1.100     an EQUALITY, because the righting spread sums to zero and therefore cannot rotate the shoulder girdle at all. A torso that translates rigidly scores 1.000 on every other lateral gate in this file and is caught here only by the head-over-hip band
+  PASS  realised shoulder line / authored, right          0.996   target 0.900 .. 1.100     an EQUALITY, because the righting spread sums to zero and therefore cannot rotate the shoulder girdle at all. A torso that translates rigidly scores 1.000 on every other lateral gate in this file and is caught here only by the head-over-hip band
+
+        shoulder band minus hip band, silhouette centres, per seed
+        seed     axial SD (px)   axial 15 s (px)   arm-inclusive 15 s   as a fraction of the hip band SD
+             1          1.694             5.587                4.919                             1.2464
+             7          1.257             5.458                4.772                             1.1434
+            42          4.451             5.396                4.838                             1.3142
+           101          1.853             6.095                4.823                             1.4296
+           777          1.794             5.606                4.565                             0.9470
+          1234          2.570             6.207                4.608                             1.0800
+          4242          4.058             6.191                4.721                             0.8410
+          9999          4.659             5.841                5.082                             1.3840
+         31337          2.139             5.561                4.725                             1.3424
+         65537          3.860             5.978                5.292                             1.7651
+      20260807          2.718             6.704                5.006                             1.1793
+      99999989          2.875             6.443                5.359                             0.7846
+
+  PASS  shoulder-minus-hip, AXIAL, 15 s travel, worst seed (px)      5.396   target 3.600 .. 40.000    the differential a judge measured at 0.756 px of SD; the floor is stated on the same 15 s median peak-to-peak every other band claim in this file uses
+  ....  the same differential arm-inclusive, over 12 seeds (px) 4.565 - 5.359   against the axial 5.396 - 6.704 — the arms ride the thorax, so an arm-inclusive hip band cancels most of the very thing this section measures
+  ....  the tilt this replaced, shoulder line / authored 0.082 / 0.044   against the shipped 0.996 / 0.996
+  ....  the whole righting at the top joint, shoulder line / authored -0.064 / -0.107   NEGATIVE is the point: the shoulder line has been tipped the SAME way as the hip line
+  ....  last round's 80% give-back, shoulder line / authored 0.350 / 0.324   a spread that does not sum to zero scales the artist's tilt by a balance constant
+  PASS  sides where the shoulder-line band CATCHES the tilt      2.000   target = 2.000            by 11.0x on its more favourable side
+  PASS  sides where it CATCHES a give-back at the top joint too      2.000   target = 2.000            a different mechanism in the same class: the head is parked just as well and the S is inverted rather than merely lost
+  PASS  sides where it CATCHES last round's 80% give-back      2.000   target = 2.000            by 2.57x on its more favourable side — the near-miss is the one worth catching
+  PASS  seeds where head/hip catches the inverted shoulder line (partial, by design)      5.000   target 0 .. 11.000        recorded, not tolerated: 1.017-1.153 against a 0.48-1.08 band, 5 of 12 caught — a ratio of two travels cannot see a shape, and the shoulder-line band above is what does
+  PASS  seeds where the AXIAL differential floor catches the tilt     12.000   target = 12.000           2.134 - 2.465 px against a 3.6 floor and the shipped 5.396 - 6.704
+  PASS  both differentials separate shipped from the tilt, and the ARM-INCLUSIVE one separates further (x)      0.761   target 0.500 .. 1.000     recorded, not tolerated: axial 2.189x against arm-inclusive 2.878x on the same twelve clips. The axial form is gated because of what it MEASURES, not because it discriminates better — see the comment
+
+CLIP CONTENT — is there a weight transfer in the clip the judge is handed?
+--------------------------------------------------------------------------
+  ....  hold definition                              >= 5 px for >= 15 s   7.6 mm of pelvis travel, 2.46x the measured ML balance RMS
+
+        seed   holds in clip   held (%)   first hold (s)   peak (px)   side
+           1               0        0.0           482.80           -   -
+           7               0        0.0           501.90           -   -
+          42               1       29.4           296.70       35.72   right
+         101               2       33.3           190.60      -12.15   left
+         777               0        0.0           968.37           -   -
+        1234               1       16.5           349.90      -13.58   left
+        4242               2       95.0            18.77      -40.02   left
+        9999               1       21.0           331.97      -34.99   left
+       31337               0        0.0           411.03           -   -
+       65537               1       14.9           357.40       29.70   right
+    20260807               2       44.1           231.97      -21.90   left
+    99999989               2       10.3           233.03        9.18   right
+
+  ....  seeds containing a transfer in 420 s            8 of 12   Duarte's ML shift runs at 0.30/min, so this is the draw behaving, not the layer failing
+  ....  wait for the first transfer (s)              median 341, worst 968   an UNPINNED clip needs 968 s to contain one on every seed — pin instead
+  PASS  nominated seeds                                   3.000   target >= 3.000           one draw is what produced this defect; a judgement wants a set
+  PASS  nominated seeds containing a transfer             3.000   target = 3.000            every seed capture.mjs hands a judge must hold one, measured over 420 s at 30 Hz
+  PASS  declared onset vs measured, worst (s)             0.003   target 0 .. 0.100         the trace is deterministic; the table is written to one decimal, so this is agreement to the printed precision
+  PASS  declared peak vs measured, worst (px)             0.004   target 0 .. 0.100         ditto — capture.mjs prints these at the judge before the clip is taken
+  PASS  latest first transfer, as a fraction of the clip      0.706   target 0 .. 0.750         the judge has to see the TRANSITION, not only a body already leaning
+  PASS  directions represented in the nominated set       2.000   target = 2.000            three clips that all load the same leg would be reported as a body that always stands left
+  PASS  declared direction vs measured                    3.000   target = 3.000            the manifest names the side; it has to be the side
+  PASS  declared-empty seeds with no transfer in the clip      4.000   target = 4.000            capture.mjs refuses these by name; the names have to be right
+  PASS  declared first transfer vs measured, worst (s)      0.003   target 0 .. 0.100         traced to 1200 s so the latest of them is reached rather than assumed
+  ....  nominating the measured-empty seeds instead  1 declared @ 482.80 s, measured @ 482.80 s; 7 declared @ 501.90 s, measured @ 501.90 s; 777 declared @ 968.37 s, measured @ 968.37 s; 31337 declared @ 411.03 s, measured @ 411.03 s   each one is a seed somebody could reasonably have pinned
+  PASS  the nomination gate REJECTS every empty seed      4.000   target = 4.000            the COUNT of seeds caught, not a single verdict — one seed of luck is not a proof
+  ....  seed 1 inside the clip: blend depth, longest hold -1.000, 0.0 s   a full transfer is REACHED and never HELD — the frame-rate section gates the first and not the second
+  PASS  a full-transfer DEPTH check does NOT catch it          0   target = 0                recorded, not tolerated: seed 1 reaches -1.000 and would pass a depth gate
+  PASS  the GLANCE gate does NOT catch it either              0   target = 0                recorded, not tolerated: the hip band scores 6.74 px on this very clip, against a 1.6 px floor
+
+FULL STACK — head over hip on the ten layers alive.js builds
+------------------------------------------------------------
+
+        seed   stack             head ax   hip ax   head/hip ax   head/hip arm-incl   head/hip vertex
+        4242   as alive.js builds  12.739   17.036        0.7478              1.6909             5.0665
+        4242   gazeHead removed    12.760   17.036        0.7490              1.6889             1.3020
+          42   as alive.js builds  11.406   14.366        0.7939              1.5744             6.3263
+          42   gazeHead removed    11.402   14.366        0.7937              1.5522             1.4086
+
+  PASS  full stack head/hip, 15 s median, AXIAL, worst seed      0.794   target 0.480 .. 1.080     the same statistic and the same band GLANCE LEGIBILITY uses, on ten layers instead of one
+  ....  the same stack, arm-inclusive head/hip       1.5744 - 1.6909   against 0.7478 - 0.7939 axial. A judge's rendered clips scored 1.0596 and 1.2045 on the arm-inclusive form, before this round moved the trunk
+  PASS  gaze.head's effect on the silhouette ratio (absolute)      0.001   target 0 .. 0.050         recorded, not tolerated: 0.0012 0.0003. The brief for this round named gaze.head amplitude as the residue; on the statistic the judge measured it is worth a fortieth of the gap to the ceiling
+  PASS  the VERTEX statistic says gaze.head triples it (x)      3.891   target 3.000 .. 10.000    recorded, not tolerated: 3.89 4.49x on a vertex mean against 0.0012 of absolute change on the silhouette
+
+AMPLITUDE DISTRIBUTION — the lognormal draw, and the folded gaussian it replaced
+--------------------------------------------------------------------------------
+  PASS  ML drawn mean (mm)                               21.914   target 21.560 .. 22.440   Duarte 22 mm; 200000 draws, +/- 3 standard errors
+  PASS  ML drawn SD (mm)                                 36.770   target 34.200 .. 41.800   Duarte 38 mm — the second moment, which a mean-only fit would miss
+  PASS  ML drawn minimum (mm)                             0.076   target >= 0               a lognormal cannot reach zero, so no floor is needed and none is applied
+  PASS  AP drawn mean (mm)                               17.051   target 16.660 .. 17.340   Duarte 17 mm; 200000 draws, +/- 3 standard errors
+  PASS  AP drawn SD (mm)                                 15.140   target 13.500 .. 16.500   Duarte 15 mm — the second moment, which a mean-only fit would miss
+  PASS  AP drawn minimum (mm)                             0.368   target >= 0               a lognormal cannot reach zero, so no floor is needed and none is applied
+  ....  folded |N(22,38)| mean, closed form (mm)          35.26   sigma*sqrt(2/pi)*exp(-mu^2/2sigma^2) + mu*(1-2*Phi(-mu/sigma))
+  PASS  folded gaussian oracle, measured (mm)            35.156   target 34.911 .. 35.616   the oracle checks itself: the draw must reproduce the closed form
+  PASS  the draw is NOT the folded gaussian (mm)         13.194   target >= 6.632           the fixed defect: 35.3 mm drawn where Duarte says 22
+  PASS  folded gaussian would OVERSHOOT Duarte by         1.603   target 1.500 .. 1.700     recorded, not tolerated: this is the 60% the layer used to be wrong by
+
+LOWER BODY — segment excursion against the pendulum prediction, 900 s
+---------------------------------------------------------------------
+        seed   segment      ML_RMS  AP_RMS   ratio  predicted   path(mm)
+           1   head         9.194  18.247  1.0000     0.9601    26343.7
+           1   pelvis      13.060   9.905  0.8022     0.5370    18817.8
+           1   kneeLeft     7.664   7.481  0.5242     0.2725    11065.2
+           1   ankleLeft    0.011   0.031  0.0016    -0.0013      121.2
+           7   head        13.043  12.021  1.0000     0.9595    24418.6
+           7   pelvis      19.153   6.398  1.1385     0.5369    17927.8
+           7   kneeLeft    12.073   4.982  0.7364     0.2657    10492.1
+           7   ankleLeft    0.015   0.025  0.0016    -0.0013      166.5
+          42   head        17.847  15.511  1.0000     0.9588    24249.7
+          42   pelvis      25.691   8.105  1.1393     0.5358    17876.4
+          42   kneeLeft    15.542   5.918  0.7033     0.2736    10678.0
+          42   ankleLeft    0.015   0.025  0.0012    -0.0013      124.5
+         101   head        12.320  12.504  1.0000     0.9622    24945.7
+         101   pelvis      18.070   6.611  1.0961     0.5384    18385.3
+         101   kneeLeft    11.293   3.924  0.6811     0.2689    10913.3
+         101   ankleLeft    0.013   0.027  0.0017    -0.0013      171.6
+         777   head         4.957  11.431  1.0000     0.9631    24907.7
+         777   pelvis       7.169   6.161  0.7586     0.5389    18385.0
+         777   kneeLeft     4.381   3.384  0.4443     0.2702    10912.2
+         777   ankleLeft    0.013   0.027  0.0024    -0.0013      145.3
+        1234   head        10.891  15.233  1.0000     0.9618    24871.7
+        1234   pelvis      15.712   8.132  0.9447     0.5373    18487.5
+        1234   kneeLeft     9.400   5.301  0.5763     0.2722    10938.9
+        1234   ankleLeft    0.011   0.029  0.0017    -0.0013      153.2
+        4242   head        11.620  19.734  1.0000     0.9634    25379.9
+        4242   pelvis      17.081  10.877  0.8843     0.5387    18767.7
+        4242   kneeLeft    10.730   7.643  0.5752     0.2704    11134.7
+        4242   ankleLeft    0.014   0.036  0.0017    -0.0013      181.4
+        9999   head         9.788   9.845  1.0000     0.9632    25393.3
+        9999   pelvis      14.634   5.253  1.1199     0.5387    18677.6
+        9999   kneeLeft     9.285   3.981  0.7277     0.2700    11052.8
+        9999   ankleLeft    0.013   0.024  0.0020    -0.0013      184.7
+       31337   head        15.971  19.810  1.0000     0.9623    24882.5
+       31337   pelvis      22.727  10.673  0.9867     0.5386    18443.7
+       31337   kneeLeft    13.459   7.393  0.6034     0.2693    10946.3
+       31337   ankleLeft    0.015   0.038  0.0016    -0.0013      176.9
+       65537   head         9.528  14.410  1.0000     0.9623    25493.0
+       65537   pelvis      13.458   7.726  0.8982     0.5376    18466.2
+       65537   kneeLeft     7.861   5.753  0.5639     0.2717    10858.3
+       65537   ankleLeft    0.010   0.027  0.0017    -0.0013       99.9
+    20260807   head         6.969  13.580  1.0000     0.9630    25483.5
+    20260807   pelvis      10.206   7.392  0.8256     0.5389    18944.1
+    20260807   kneeLeft     6.229   4.453  0.5017     0.2701    11250.9
+    20260807   ankleLeft    0.013   0.028  0.0020    -0.0013      183.2
+    99999989   head         9.389  25.497  1.0000     0.9617    25614.4
+    99999989   pelvis      13.804  13.653  0.7146     0.5374    18961.4
+    99999989   kneeLeft     8.537   7.184  0.4106     0.2672    11381.1
+    99999989   ankleLeft    0.012   0.033  0.0013    -0.0013      153.6
+
+  PASS  path-length ordering breaks                           0   target = 0                head > pelvis > knee > ankle in total travel, on every seed — a body, not a plank on a hinge
+  PASS  ML head / pelvis RMS, worst seed                  0.708   target 0.500 .. 1.000     pelvis-leads: the hip mechanism moves the pelvis furthest and parks the head
+  PASS  ML head / pelvis RMS, lowest seed                 0.669   target 0.500 .. 1.000     the head is parked over the base of support, not nailed to the world
+  ....  ML head / pelvis RMS, range                  0.669-0.708   over 12 seeds x 900 s; the judge measured 1.34 on screen before the head was parked
+  PASS  pelvis path over 900 s, lowest (mm)           17876.446   target >= 1.000           the previous model measured 0.0000 mm here
+  ....  pelvis ratio / predicted, default layer       1.33-2.13   the contrapposto's signature; the pendulum prediction is gated on the pendulum below
+  PASS  kneeLeft path over 900 s, lowest (mm)         10492.144   target >= 1.000           the previous model measured 0.0000 mm here
+  ....  kneeLeft ratio / predicted, default layer     1.54-2.77   the contrapposto's signature; the pendulum prediction is gated on the pendulum below
+  PASS  ankleLeft path over 900 s, lowest (mm)           99.947   target >= 1.000           the previous model measured 0.0000 mm here
+  ....  ankleLeft ratio / predicted, default layer   -1.88--0.98   the contrapposto's signature; the pendulum prediction is gated on the pendulum below
+  ....  peak contrapposto blend                           1.000   solved from the shift amplitude; STANCE_BLEND_LIMIT is 1.0 and the posture clamp normally binds first
+
+PENDULUM GEOMETRY — segment excursion vs the rigid prediction, contrapposto disabled
+------------------------------------------------------------------------------------
+        seed   segment      ML_RMS  AP_RMS   ratio  predicted  ratio/pred
+           1   head         3.979  13.637  1.0000     0.9634      1.0380
+           1   pelvis       4.655   7.346  0.5387     0.5387      0.9999
+           1   kneeLeft     2.340   3.686  0.2703     0.2704      0.9995
+           1   ankleLeft    0.009   0.017  0.0013    -0.0013     -1.0079
+          42   head         3.520  12.175  1.0000     0.9630      1.0384
+          42   pelvis       4.119   6.565  0.5392     0.5392      1.0000
+          42   kneeLeft     2.065   3.290  0.2703     0.2688      1.0053
+          42   ankleLeft    0.010   0.016  0.0013    -0.0013     -1.0157
+         777   head         5.928  12.463  1.0000     0.9627      1.0387
+         777   pelvis       6.937   6.717  0.5390     0.5389      1.0001
+         777   kneeLeft     3.492   3.368  0.2703     0.2702      1.0002
+         777   ankleLeft    0.012   0.016  0.0013    -0.0013     -1.0308
+    20260807   head         7.823  17.241  1.0000     0.9618      1.0398
+    20260807   pelvis       9.156   9.293  0.5390     0.5385      1.0009
+    20260807   kneeLeft     4.605   4.664  0.2705     0.2711      0.9980
+    20260807   ankleLeft    0.013   0.023  0.0013    -0.0013     -1.0349
+
+  PASS  AP height ordering breaks                             0   target = 0                head > pelvis > knee > ankle fore and aft, every seed — the inverted pendulum's signature, asserted where the pendulum runs alone
+  PASS  pelvis ratio / predicted, lowest                  1.000   target 0.960 .. 1.040     measured excursion over the rigid-rotation prediction for its height above the pivot
+  PASS  pelvis ratio / predicted, highest                 1.001   target 0.960 .. 1.040     
+  PASS  kneeLeft ratio / predicted, lowest                0.998   target 0.960 .. 1.040     measured excursion over the rigid-rotation prediction for its height above the pivot
+  PASS  kneeLeft ratio / predicted, highest               1.005   target 0.960 .. 1.040     
+  ....  ankleLeft ratio / predicted                  -1.03--1.01   a ratio on a cancelled quantity; the gate below is the same claim in millimetres
+  PASS  ankleLeft deviation from prediction (mm)          0.044   target 0 .. 0.200         the ankle arc is 0.3 mm and PIVOT_HEIGHT_FRACTION_OF_ANKLE says so; PLANTED FEET owns the rest
+
+PLANTED FEET — no foot IK, so this is the whole safety net
+----------------------------------------------------------
+        seed   marker       horiz(mm)  vert(mm)
+           1   ankleLeft      0.1192    0.0171
+           1   ankleRight     0.1633    0.0140
+           1   toeLeft        4.9576    0.0171
+           1   toeRight       4.6760    0.0140
+           7   ankleLeft      0.1186    0.0173
+           7   ankleRight     0.0994    0.0124
+           7   toeLeft        5.0151    0.0173
+           7   toeRight       4.6496    0.0124
+          42   ankleLeft      0.1296    0.0172
+          42   ankleRight     0.1297    0.0125
+          42   toeLeft        4.9339    0.0172
+          42   toeRight       4.6651    0.0125
+         101   ankleLeft      0.1189    0.0173
+         101   ankleRight     0.1027    0.0120
+         101   toeLeft        4.9051    0.0174
+         101   toeRight       4.6441    0.0121
+         777   ankleLeft      0.1021    0.0170
+         777   ankleRight     0.1168    0.0127
+         777   toeLeft        4.8721    0.0170
+         777   toeRight       2.3840    0.0127
+        1234   ankleLeft      0.1604    0.0180
+        1234   ankleRight     0.1612    0.0137
+        1234   toeLeft        4.9872    0.0180
+        1234   toeRight       4.7718    0.0137
+        4242   ankleLeft      0.1623    0.0171
+        4242   ankleRight     0.1624    0.0128
+        4242   toeLeft        4.8882    0.0171
+        4242   toeRight       4.6857    0.0129
+        9999   ankleLeft      0.1324    0.0173
+        9999   ankleRight     0.0982    0.0123
+        9999   toeLeft        4.9386    0.0173
+        9999   toeRight       4.1071    0.0123
+       31337   ankleLeft      0.1293    0.0175
+       31337   ankleRight     0.1403    0.0137
+       31337   toeLeft        4.9655    0.0176
+       31337   toeRight       4.8404    0.0137
+       65537   ankleLeft      0.1042    0.0169
+       65537   ankleRight     0.1468    0.0135
+       65537   toeLeft        4.8787    0.0170
+       65537   toeRight       4.7512    0.0135
+    20260807   ankleLeft      0.1143    0.0169
+    20260807   ankleRight     0.1084    0.0127
+    20260807   toeLeft        4.7679    0.0169
+    20260807   toeRight       4.6376    0.0127
+    99999989   ankleLeft      0.1320    0.0173
+    99999989   ankleRight     0.1281    0.0131
+    99999989   toeLeft        4.9473    0.0174
+    99999989   toeRight       4.0731    0.0131
+
+  PASS  worst ankle slide (mm)                            0.163   target 0 .. 1.500         both ankles, every seed, every frame — the free foot pivots ABOUT this point, so it moves no more than the loaded one does
+  PASS  worst foot lift (mm)                              0.018   target 0 .. 0.050         ankle and toe: cancelled exactly at the ankle, and a turn about the vertical cannot lift the toe by construction
+  PASS  worst sole tilt (deg)                             0.006   target 0 .. 0.020         the angle of the SOLE'S NORMAL from rest. A yaw is not a tilt; see traceSway
+  ....  toe arc about the ankle (mm, worst)               5.006   how far the released turn-out actually carries the metatarsal head
+  PASS  toe travel unexplained by the released yaw (mm)      0.013   target 0 .. 0.050         the toe minus where a rigid turn about the vertical through its own ankle puts it — a foot that slid, stretched or tilted leaves a residue here and a foot that pivoted leaves none
+
+POSTURAL BAND — centre-of-pressure spectrum of `new Sway()`, median over seeds
+------------------------------------------------------------------------------
+  12 seeds x 300 s, 0.0293 Hz FFT bins, statistics taken over the postural band above 0.15 Hz
+  PASS  ML mode, median (Hz)                              0.322   target 0.250 .. 0.360     plate ML 0.33
+  ....  ML mode, per-seed spread (Hz)                0.264-0.439   a max-bin estimate; this spread is why the gate is on the median
+  PASS  ML band centroid, median (Hz)                     0.475   target 0.350 .. 0.600     power-weighted centroid, the robust twin of the mode; plate centroidal 0.61-0.66
+  PASS  AP mode, median (Hz)                              0.322   target 0.220 .. 0.360     plate AP 0.27
+  ....  AP mode, per-seed spread (Hz)                0.234-0.381   a max-bin estimate; this spread is why the gate is on the median
+  PASS  AP band centroid, median (Hz)                     0.500   target 0.350 .. 0.600     power-weighted centroid, the robust twin of the mode; plate centroidal 0.61-0.66
+  PASS  ML f50, median (Hz)                               0.396   target 0.340 .. 0.460     plate ML 0.43
+  PASS  AP f50, median (Hz)                               0.381   target 0.340 .. 0.460     plate AP 0.42
+  PASS  ML f95, median (Hz)                               1.084   target 0.950 .. 1.300     plate ML 1.09
+  PASS  AP f95, median (Hz)                               1.333   target 1.050 .. 1.500     plate AP 1.23
+  PASS  ML power > 2 Hz, worst (%)                        0.110   target 0 .. 2.000         essentially nothing above 2 Hz — faster reads as tremor
+  PASS  AP power > 2 Hz, worst (%)                        0.242   target 0 .. 2.000         essentially nothing above 2 Hz — faster reads as tremor
+  ....  mean resultant velocity (mm/s)                    18.22   plate 11.0, board 19.7 mm/s eyes open — REPORTED at the board end; see the note in source
+
+POSTURAL VELOCITY — centre-of-pressure speed, 12 seeds x 420 s
+--------------------------------------------------------------
+  ....  the layer's own event shapes predict (mm/s)        97.1   a mean-amplitude fidget on each axis at once: pi*A/(2*rise). REPORTED, not the ceiling
+  ....  literature ceiling (mm/s)                         100.0   pi*f95*A on both axes at once: Quijoux 1.09/1.23 Hz with Duarte 22/17 mm — reads nothing from Sway.js
+
+        mean resultant speed (mm/s)   18.74 median, 17.97-19.78 across seeds
+        peak 0.5 s speed (mm/s)       69.3 median, 47.3-91.3 across seeds
+
+  PASS  mean resultant speed, median (mm/s)              18.742   target 11.000 .. 20.000   Quijoux eyes-open 11-20 mm/s, on the COMPOSITE; the balance band alone reads 18.22
+  PASS  peak 0.5 s speed, worst seed (mm/s)              91.263   target 0 .. 99.953        the LITERATURE ceiling, which does not move when the layer does — see its constant
+  PASS  the event shapes fit under the literature ceiling (x)      1.030   target 1.000 .. 3.000     97.1 mm/s of shape against a 100.0 mm/s bound. The ceiling on THIS one is not decoration either: shapes far under the bound would be a layer that had stopped producing legible events
+  ....  peak / mean                                         4.9   recorded so a change to either statistic is visible. NOT a gate: a rare-event process is quiet most of the time and its mean is below any transient by construction
+  ....  fixed-duration events, peak 0.5 s speed (mm/s) 47.3-124.4   the layer as it shipped: a lognormal amplitude divided by a constant duration
+  PASS  seeds where the peak gate CATCHES a fixed duration      3.000   target 3.000 .. 12.000    against a 100 mm/s ceiling. Not all twelve, and that is the point: the defect is in the TAIL, so a seed whose largest draw happens to be modest passes honestly
+  PASS  a MEAN speed gate would NOT have caught it (mm/s)     18.750   target 11.000 .. 20.000   recorded, not tolerated: the fixed-duration layer's composite mean is 18.75 mm/s — inside the literature band, and 0.1 mm/s from the shipped layer's — while its peak reaches 124. Stretching the tail changes a path length hardly at all, which is why no existing gate could see this
+  ....  halved fidget duration, peak 0.5 s speed (mm/s) 47.3-107.3   same amplitudes, same rate, every event twice as brief
+  PASS  the OLD self-referential ceiling would have stayed green          0   target = 0                it doubles to 194 mm/s with the layer, so none of the twelve seeds crosses it. This is the proof that the old gate could not fail
+  PASS  the SHAPE gate catches a halved duration deterministically (x)      0.515   target 0 .. 1.000         194 mm/s of shape against a 100 mm/s bound — no seed involved
+  PASS  seeds where the LITERATURE ceiling catches a halved duration      3.000   target 3.000 .. 12.000    against a fixed 100 mm/s: 3 of 12, measured 47.3-107.3. Asserted as a COUNT per §1.1a, and the count is LOW on purpose — a peak lives in the tail, so a seed whose largest draw is modest passes honestly even at twice the speed. The deterministic shape gate above is what carries this known-bad; this one only shows that the stochastic half is not blind to it
+
+EVENT RATES — Duarte's processes and the relay, 3 seeds x 7200 s
+----------------------------------------------------------------
+  PASS  fidgets per minute (both axes)                    2.133   target 1.965 .. 2.435     Duarte ML 1.2/min + AP 1.0/min
+  PASS  shifts per minute (both axes)                     0.508   target 0.379 .. 0.601     Duarte ML 0.30/min + AP 0.19/min
+  PASS  relays per minute                                 1.481   target 1.306 .. 1.694     design 1.50/min; Cassell 1.4-1.6; punch-list 2.9 asks 1-1.5
+  ....  relay design rate (per min)                        1.50   ML fidget 1.2 + ML shift 0.30; the top of punch-list 2.9 and the middle of Cassell
+  PASS  relays carrying a known pattern                 533.000   target = 533.000          every relay says whether the body came back or stayed
+  PASS  relays carrying a magnitude                     533.000   target = 533.000          the drawn amplitude over Duarte's 22 mm mean, signed by direction
+  PASS  relays carrying the lateral axis                533.000   target = 533.000          a fore-and-aft shift must never relay
+  PASS  fidget relays per minute                          1.161   target 1.027 .. 1.373     Duarte ML fidget 1.2/min
+  PASS  shift relays per minute                           0.319   target 0.213 .. 0.387     Duarte ML shift 0.30/min
+  PASS  fidget direction, fraction toward left            0.505   target 0.427 .. 0.573     211 of 418; every fidget used to push the same way; that is what this gate exists for
+  PASS  shift direction, fraction toward left             0.565   target 0.360 .. 0.640     65 of 115
+  PASS  relayed |magnitude| mean                          0.942   target 0.776 .. 1.224     fidgets at 1.00 of a shift mixed with shifts: 1.00 expected
+  ....  relayed |magnitude| range                    0.01-26.30   lognormal: most shifts are small and a few are large
+
+DISCOURSE COUPLING — Cassell et al. 2001
+----------------------------------------
+  PASS  shift probability at speaker change               0.256   target 0.245 .. 0.275     a shift accompanies 26% of these
+  PASS  relays at speaker change                       5122.000   target = 5122.000         a discourse shift is a lateral shift, so it relays exactly once
+  PASS  shift probability at plain turn boundary          0.081   target 0.070 .. 0.092     only 8% of these
+  PASS  relays at plain turn boundary                  1611.000   target = 1611.000         a discourse shift is a lateral shift, so it relays exactly once
+
+THE OTHER WAY — known-bad layers, which the gates above must REJECT
+-------------------------------------------------------------------
+  ....  pre-fix balance ML / AP (mm)                 1.87 / 2.84   against the 300 s band 2.36-3.64 / 3.75-6.05
+  PASS  balance band REJECTS the pre-fix ML amplitude      1.000   target = 1.000            1 means the gate caught it; 0 means the gate is decorative
+  PASS  balance band REJECTS the pre-fix AP amplitude      1.000   target = 1.000            
+  ....  doubled lever, realised / commanded          ML 0.911  AP 0.502   AP has no contrapposto, so a doubled lever halves it exactly
+  PASS  band gate alone does NOT catch a wrong lever          0   target = 0                recorded, not tolerated: the commanded signal is unchanged, so the band cannot see it
+  PASS  loop closure REJECTS a wrong lever                1.000   target = 1.000            1 means the realised centre of mass caught it
+  PASS  and by a real margin (x the tolerance)           24.915   target >= 5.000           the error must be large enough that the tolerance is not what decided it
+  ....  balance band alone, composite ML (mm)              3.05   against Bates' lateral IQR 9.58-66.5
+  PASS  composite gate REJECTS a layer with no weight shifts      1.000   target = 1.000            fifteen unconstrained minutes are not fifteen quiet ones
+  ....  unrighted head / pelvis, range over 12 seeds RMS 1.520-1.556, p2p 1.529-1.556   against a ceiling of 1
+  PASS  ratio gate REJECTS the unrighted RMS, on every seed     12.000   target = 12.000           the count of seeds caught; anything short of all twelve and the rejection is a draw of the dice
+  PASS  ratio gate REJECTS the unrighted peak-to-peak, on every seed     12.000   target = 12.000           
+  ....  unrighted r(head-on-neck, neck), COMPOSITE, range over 12 seeds 0.345 to 0.963   reported only — the sign gate lives in the PENDULUM regime now, and so does its rejection
+  PASS  the correlation SIGN gate REJECTS it, on every seed     12.000   target = 12.000           pendulum regime, righting off: 1.000 to 1.000 against the shipped -1.0000. At medioLateralAnkleShare = 0 this caught only 6 of 12 — see the comment
+  PASS  the solve residual gate REJECTS it too, on every seed     12.000   target = 12.000           unrighted pendulum lateral head/COM 1.674
+  ....  parked head: head/COM, head/pelvis (RMS, p2p) 0.453, 0.162, 0.128   against 1.00, 0.82 and 0.83 as shipped
+  PASS  head/COM gate REJECTS a parked head               1.000   target = 1.000            1 means the gate caught it; this is the gate the 0.30 experiment needed
+  PASS  and by a real margin (x the tolerance)           10.942   target >= 5.000           the error must be large enough that the tolerance is not what decided it
+  PASS  the pelvis-leads FLOOR REJECTS a parked head      1.000   target = 1.000            the half of the band that did not exist until a verifier walked through the gap
+  PASS  the pelvis-leads floor REJECTS its peak-to-peak too      1.000   target = 1.000            
+  ....  parked head: r(head-on-neck, neck), gain     -1.0000, -2.0652   against -0.997 and -0.10 as shipped; note the correlation IMPROVES
+  PASS  the head-on-neck GAIN gate REJECTS a parked head      1.000   target = 1.000            the slope carries the amount; the correlation beside it carries only the sign
+  PASS  the ceiling ALONE does not catch a parked head (RMS)          0   target = 0                recorded, not tolerated: a ratio has two failure directions and this end was declared free
+  PASS  the ceiling ALONE does not catch a parked head (p2p)          0   target = 0                
+  PASS  the correlation SIGN alone does not catch a parked head          0   target = 0                recorded, not tolerated: a perfectly parked head scores r = -1, the best mark available
+  PASS  the SOLVE residual gate does NOT catch it either          0   target = 0                the solve closed correctly and the frame loop then ignored it — the whole reason for a trace gate
+  ....  pre-fix median event / background, duty (%)  3.41, 2.75   against 4.36 and 3.52 as shipped, same seeds
+  PASS  legibility REJECTS the pre-fix duty cycle         1.000   target = 1.000            1 means the gate caught it; a symmetric 1.4 s fidget is on screen for one frame in forty
+  PASS  the median gate alone does NOT catch the pre-fix profile          0   target = 0                recorded, not tolerated: duration and amplitude are two defects and need two gates
+  PASS  the legible-RATE gate alone does NOT catch it either          0   target = 0                recorded, not tolerated: pre-fix 0.867/min against a 0.75 floor
+  ....  fidgets that do not move the body, legible rate (/min)      0.511   Duarte's shift process alone is 0.30/min; this is the state that read as three events in seven minutes
+  PASS  legibility REJECTS a layer where only shifts are visible      1.000   target = 1.000            1 means the rate gate caught it; 0 means the rate gate has no known-bad at all
+  ....  welded foot, unloaded toe rise (mm)             -0.0099   against 1.489 with the toes driven
+  PASS  the toe gate REJECTS a welded foot                1.000   target = 1.000            1 means the gate caught it; 0 means a foot that never deforms would pass
+  ....  toe lift alone, free toe travel (px)         1.967 / 1.933   the layer as the verifier measured it: 2.5 degrees of toe extension and nothing else
+  PASS  the pixel gate REJECTS the toe lift alone         1.000   target = 1.000            1 means the gate caught it; 0 means a foot the judge called welded would pass
+  ....  rejection margin, toe lift alone (floor / measured)       1.55   the marginal known-bad; a real motion authored below the floor
+  PASS  the extent gate REJECTS it too                    1.000   target = 1.000            outer-to-outer range 0.062 px against a 1.6 px floor
+  PASS  rejection margin, welded foot (floor / measured)      6.906   target 3.000 .. 1000000000.000 the fully welded foot, which must fail by a wide margin rather than by a whisker
+  PASS  the sole-tilt gate still REJECTS a tilted sole      1.000   target = 1.000            the tilt measurement was rewritten this round to ignore yaw; it must still see a real tilt
+
+  FREE-LIMB SWIVEL — where the patella POINTS, in world degrees. Positive is
+  toward +X, the character's LEFT. Measured on the mesh, so no frame convention
+  can invert it — which the Euler version this replaced did, for a whole round.
+
+        state                 left knee   right knee
+        rest                       5.74       -10.46
+        LEFT leg free             -6.14        -9.14
+        RIGHT leg free             4.26         0.77
+
+  FOR THE JUDGE — look at the FREE KNEECAP at full transfer against the same frame
+  at rest. The direction is settled and the pose files own it: the free knee drifts
+  IN, toward the stance leg. Does twelve degrees of that read as a relaxed leg, or
+  as knock-kneed? Only eyes decide that half.
+
+  PASS  the FREE knee turns MEDIALLY (deg, both sides)     11.237   target 5.000 .. 20.000    weight-right.json: the swivel "moves the knee 14.3 mm toward the midline". A NEGATIVE number here is the direction this file asserted, wrongly, for a round
+  PASS  the LOADED knee does not swivel (deg)             1.484   target 0 .. 3.000         the free knee turns 10-12 degrees; the leg carrying the body must not follow it
+  ....  not provable in both directions              head excursion, AP composite   no published head amplitude exists; the AP composite is a recorded shortfall, not a gate
+
+FRAME-RATE INVARIANCE — the same seed at 30, 60 and 120 Hz
+----------------------------------------------------------
+
+          rate   fidgets   shifts   blend min   blend max   first blend <= -0.95   worst bone vs 60 Hz (mm)
+         30 Hz        30        8     -1.0000      1.0000                211.5 s                   0.001783
+         60 Hz        30        8     -1.0000      1.0000                211.5 s                   0.000000
+        120 Hz        30        8     -1.0000      1.0000                211.5 s                   0.000895
+
+  PASS  worst bone divergence across 30/60/120 Hz (mm)      0.002   target 0 .. 0.025         every driven marker, every common sample instant, over 900 s
+  PASS  fidget count is identical at every frame rate      1.000   target = 1.000            30 / 30 / 30 — the layer as shipped before this fix scored 30 / 35 / 31
+  PASS  shift count is identical at every frame rate      1.000   target = 1.000            8 / 8 / 8 — the layer as shipped before this fix scored 8 / 7 / 5
+  PASS  a full transfer happens at every frame rate       3.000   target = 3.000            the layer as shipped reached it at 434.3 s at 60 Hz and NEVER at 30 Hz — the free-foot section's whole premise
+  PASS  and at the same instant (s, spread)               0.025   target 0 .. 0.067         211.50 / 211.48 / 211.47; two frames of the slowest rate is the observation quantum
+  ....  frame-coupled arrivals, worst divergence (mm)     97.667   blend minima -0.790 / -1.000 / -1.000
+  ....  frame-coupled arrivals, full transfer at     never / 101.1 s / 50.9 s   30 / 60 / 120 Hz — the re-verifier measured never / 434.3 s on the shipped layer
+  PASS  the divergence gate REJECTS frame-coupled arrivals      1.000   target = 1.000            1 means the gate caught it; the coupled layer diverges by 97.7 mm
+  PASS  and by a real margin (x the tolerance)         3906.661   target >= 100.000         the error has to be large enough that the tolerance is not what decided it
+  PASS  the event-count gate REJECTS it too               1.000   target = 1.000            fidget counts 26 / 28 / 29
+  PASS  a RATE gate would NOT have caught it                  0   target = 0                recorded, not tolerated: the coupled layer's 30 vs 120 Hz event counts differ by 11%, inside Poisson sampling error
+  ....  shipped reference, for comparison            30 fidgets, 8 shifts   900 s at seed 1
+
+VARIABLE FRAME TIME — a jittering 30-120 fps loop, plus one stall
+-----------------------------------------------------------------
+  PASS  ML RMS under jitter (mm)                          3.089   target 2.360 .. 3.640     the same band as the fixed-step run; frame rate must not change the amplitude
+  PASS  AP RMS under jitter (mm)                          4.691   target 3.745 .. 6.055     
+  PASS  ankle travel under jitter (mm)                    0.115   target 0 .. 1.500         a dropped frame must not let the foot skate
+
+DETERMINISM — the same seed must give the same trace
+----------------------------------------------------
+  PASS  max divergence between runs (mm)                      0   target = 0                two stacks, same seed, same dt sequence
+
+AFFECT → BALANCE — punch-list 6.9, the CoP bias, TRUNK FROZEN
+-------------------------------------------------------------
+  ....  shipped full scale (mm)                        0.000000   PostureLayer.CENTRE_OF_PRESSURE_FULL_SCALE_METRES — authored 0, two measured reasons
+  ....  UNSOURCED amplitude this gate supplies (mm)          20   🚩 arbitrary. Nothing here says how far an angry person's centre of pressure moves
+  ....  seeds x window                                 6 x 60 s   seeds 1, 7, 42, 101, 777, 1234
+  PASS  FORWARD is +Z — read off this rig's own toes (mm)    113.610   target >= 50.000          ball joints minus ankle joints, mean of both feet. NOT assumed: paid-for failure #4
+  PASS  SHIPPED  the bias is EXACTLY zero on every preset (mm)          0   target = 0                not "small": CENTRE_OF_PRESSURE_FULL_SCALE_METRES is 0, so the product is 0. Both the window mean AND the last frame, so this cannot pass by averaging a sign change away
+  PASS  SHIPPED  and the commanded displacement is bit-identical to neutral (mm)          0   target = 0                paired anger/fear/disgust minus neutral, same seeds, `sway.displacement.z`
+  PASS  SHIPPED  the trace is bit-identical with the mechanism switched off (mm)          0   target = 0                `affectBiasEnabled: false` — every trace in this file predates 6.9 and must still
+  ....  prescription  anger  (frame 1)                +0.946860   intensity 0.7500   chest bend 14.2029°   bias 14.2029 mm   Coulson weight column: Forwards
+  ....  prescription  fear  (frame 1)                 -0.705314   intensity 0.2500   chest bend -3.5266°   bias -3.5266 mm   Coulson weight column: Backwards/Neutral
+  ....  prescription  disgust  (frame 1)              +0.321015   intensity 0.7500   chest bend 4.8152°   bias 4.8152 mm   Coulson weight column: Backwards
+  ....  prescription  neutral  (frame 1)              +0.000000   intensity 0.0000   chest bend 0.0000°   bias 0.0000 mm   Coulson weight column: —
+  PASS  🚩 RED  affectBiasNotComposed reaches the pendulum with NOTHING (mm)          0   target = 0                the tree before 6.9: the bias is reported and composed into nothing. Paid-for failure #5
+  PASS  🚩 RED  …and it still REPORTS the full bias, which is why reporting is not reaching (mm)     14.203   target 14.000 .. 20.000   anger's prescription x intensity x the supplied amplitude — a field a HUD would show
+  PASS  the CHEST BEND alone moves the centre of mass this far (mm)     35.587   target 20.000 .. 60.000   with NO 6.9 at all. A gate without the freeze would score this and call it success
+  PASS  the weight freeze releases every bone — separation at full scale 0 (mm)          0   target = 0                exactly zero, or the freeze is not a freeze and every number below is the trunk
+  PASS  the bones freeze releases every bone — separation at full scale 0 (mm)          0   target = 0                exactly zero, or the freeze is not a freeze and every number below is the trunk
+  ....  freeze=weight  realised CoM (mm)             14.1989 / -3.5264   anger / fear, SD across seeds 0.0037 / 0.0006; disgust 4.0960
+  PASS  freeze=weight  anger carries the weight FORWARD (mm)     14.199   target >= 1.000           BAP approach +1.96; Coulson's weight column says Forwards. SIGNED, never a magnitude
+  PASS  freeze=weight  fear carries the weight BACK (mm)     -3.526   target -Infinity .. -0.100 BAP approach -1.46; Coulson's weight column says Backwards, Neutral
+  PASS  freeze=weight  the SIGNED anger-minus-fear separation (mm)     17.725   target >= 1.000           the ordered triple anger > 0 > fear, stated as one number a reader can check
+  PASS  freeze=weight  realised / commanded, anger        1.000   target 0.995 .. 1.005     the bias is a CoP command, so BodyMass must find the mass where it was commanded
+  ....  freeze=bones  realised CoM (mm)              14.1989 / -3.5264   anger / fear, SD across seeds 0.0037 / 0.0006; disgust 4.0960
+  PASS  freeze=bones  anger carries the weight FORWARD (mm)     14.199   target >= 1.000           BAP approach +1.96; Coulson's weight column says Forwards. SIGNED, never a magnitude
+  PASS  freeze=bones  fear carries the weight BACK (mm)     -3.526   target -Infinity .. -0.100 BAP approach -1.46; Coulson's weight column says Backwards, Neutral
+  PASS  freeze=bones  the SIGNED anger-minus-fear separation (mm)     17.725   target >= 1.000           the ordered triple anger > 0 > fear, stated as one number a reader can check
+  PASS  freeze=bones  realised / commanded, anger         1.000   target 0.995 .. 1.005     the bias is a CoP command, so BodyMass must find the mass where it was commanded
+  PASS  the two freezes agree to four decimal places (mm)          0   target 0 .. 0.000         they fail differently, so agreement is evidence the reading is neither bone
+  PASS  🚩 disgust goes FORWARD, against Coulson, for a cited reason (mm)      4.096   target >= 0.100           BAP_PRESCRIPTIONS.disliking is an explicit empty row (Coulson: no disgust posture reached 50%), so the disgust preset is carried by its co-active annoyed row
+  PASS  …and smaller than anger's, which is the arithmetic that says why (ratio)      0.288   target 0.050 .. 0.600     anger's own loading, diluted by disliking's zero in the normaliser
+  ....  disgust decays — frame 1 vs 60 s mean (mm)   4.8152 -> 4.0964   the only preset with a trigger, so its activation is not stationary
+  PASS  the bias is LINEAR in the supplied full scale (ratio)      2.000   target 2.000 .. 2.000     40 mm over 20 mm must be exactly 2 — the clause that separates the channel from a joint angle
+  PASS  🚩 RED  affectBiasFromChestBend is INDISTINGUISHABLE at one amplitude (mm)    1.8e-15   target = 0                recorded, not tolerated: 20° of Coulson and 20 mm of floor are the same number
+  PASS  🚩 RED  …and the linearity clause is what catches it (ratio)      1.000   target 0.999 .. 1.001     pinned at 1: a chest-bend read cannot follow centreOfPressureFullScaleMetres
+  ....  posture disabled mid-run, final prescription   0.946860   and appliedDegrees 14.2029° — BOTH STALE, the layer never ran again
+  PASS  a DISABLED posture layer commands nothing (mm)          0   target = 0                the frame stamp, which is the guard `enabled` alone cannot be
+  PASS  🚩 RED  affectBiasIgnoresFrameStamp keeps commanding it for ever (mm)     14.203   target >= 1.000           a layer the stack skipped, still steering the balance model
+  PASS  🚩 RED  affectBiasOnLeanNotDisplacement moves the body the SAME way (mm)          0   target 0 .. 0.050         recorded, not tolerated: the centre-of-mass trace cannot discriminate the seam, so both land at 14.199 mm
+  PASS  🚩 RED  …and the LOOP CLOSURE rejects it — commanded / realised          0   target -1.0e-6 .. 1.0e-6  commanded 0.000000 mm against realised 14.199 mm: the pendulum went somewhere nothing asked it to go
+  PASS  🚩 RED  an inverted axis convention leaves the MAGNITUDE where it was (mm)      0.000   target 0 .. 0.010         recorded, not tolerated: |bias| cannot see it, and neither can an RMS or a sway area. Residue 0.000238 mm against a 3.526 mm effect
+  PASS  🚩 RED  …and it is the SIGNED clause that rejects it (mm)      3.526   target >= 0.100           fear now leans FORWARD, so the "fear carries the weight BACK" clause above goes red. That clause requires < -0.1 and this is the value it would have been handed
+  PASS  the clamp is 2.0 mean AP weight shifts (mm)      34.000   target 33.999 .. 34.001   POSTURE_OFFSET_MEAN_SHIFTS x SHIFT_AMPLITUDE_ANTERO_POSTERIOR_METRES — Duarte, same rule and same scale as the weight-shift clamp beside it, on a separate signal
+  PASS  and it BINDS at an absurd amplitude (mm)         34.000   target 33.999 .. 34.001   driven at 200 mm; clamped flag true
+  PASS  🚩 RED  affectBiasUnclamped walks the figure off its own feet, REARWARD (mm)   -141.063   target -Infinity .. -100.000 no rail at all, and the rear footprint on this bake is -54.4 mm. Negative is rearward, which is the only side where the rail matters: this base of support is over three times deeper forward than back
+  PASS  the "at the clamp" column really does reach the clamp (mm)     34.000   target 33.999 .. 34.001   full scale 197 mm derived from a measured 0.176329 mm of bias per mm of scale, clamped flag true. A full scale is not a bias
+  ....  both-feet toe lift, fear, mean (deg)         0.0566 / 0.1352 / 1.4776   at 0 / 20 / 34 mm of affect full scale — the last is the clamp. A REARWARD bias holds the forefoot lighter on BOTH feet at once
+  PASS  a rearward bias RAISES the fore-and-aft toe signal (ratio at the clamp)     26.096   target >= 2.000           the consequence TOE_COP_REFERENCE_EXCURSION_METRES's docstring now states, re-measured here so it cannot go stale
+  PASS  the SHIPPED configuration does not park the toes (deg)          0   target = 0                affect full scale 0: the toes touch down on every seed, as they must with no bias at all
+  ....  rearward bias at which the toes PARK (mm)         12.62   against a rail of 34.0 mm and Duarte's 17 mm shift amplitude — past this the balance band can no longer carry the centre of pressure forward of neutral
+  PASS  and the rail sits BEYOND that cliff, which is why it is too permissive rearward (mm)     21.383   target >= 0.001           REQ-086: a symmetric rail on a base of support 3.3x to 3.7x deeper forward than back. Recorded rather than repaired — narrowing the rear rail is a design change and the shipped full scale is 0, so nothing is broken today
+  PASS  REACHABILITY  Avatar.js publishes the posture      1.000   target = 1.000            "this.stack.context.shared.posture = this.posture"
+  PASS  REACHABILITY  alive.js publishes the posture      1.000   target = 1.000            "stack.context.shared.posture = posture"
+  PASS  REACHABILITY  PostureLayer.js states the claim      1.000   target = 1.000            "this.centreOfPressureBiasMetres ="
+  PASS  REACHABILITY  PostureLayer.js stamps the frame      1.000   target = 1.000            "this.centreOfPressureFrame = context?.frame"
+  PASS  REACHABILITY  Sway.js reads it off the context      1.000   target = 1.000            "affectCentreOfPressureBiasOf( context, this.defects )"
+  PASS  REACHABILITY  Sway.js composes it into the sum      1.000   target = 1.000            ".add( this.affectDisplacement )"
+  PASS  REACHABILITY  an UNPUBLISHED posture layer commands exactly nothing (mm)          0   target = 0                the configuration alive.js shipped before 6.9 — layer added, bag not written
+  PASS  REACHABILITY  a stack with NO affect at all reads "no claim" (mm)          0   target = 0                `hair.js` builds a bare `new Sway()`; 0 must be the correct reading, not an accident
+  ....  ⚠️ cannot see 1                              no amplitude   the shipped full scale is 0; the 20 mm above is supplied by this file and has NO SOURCE
+  ....  ⚠️ cannot see 2                              direction contested   BAP gives anger +1.96 / fear -1.46 and Coulson's table agrees; Coulson's own PROSE says "forward or backward" for anger and "backward or forward" for fear
+  ....  ⚠️ cannot see 3                              disgust is wrong   FORWARD, against Coulson's Backwards, for the cited reason gated above
+  ....  ⚠️ cannot see 4                              no force plate   nothing here is validated against a plate reading an actor; the record holds no emotion -> centre-of-pressure amplitude at all
+  ....  ⚠️ cannot see 5                              A/P-is-ankle is conditional   Winter's tandem row swaps both axes' owners. This figure stands at 18.6° included foot angle so the intermediate row applies; a re-posed figure invalidates the routing
+  ....  ⚠️ cannot see 6                              the CoP leads the CoM   BodyMass is a CoM instrument and a SUSTAINED CoP offset is a CoM offset (Sway.js header). During a transient they separate by a few mm, zero-mean, so a paired mean is safe and a single frame is not
+  ....  ⚠️ cannot see 7                              one bake, one window   figure_g050.glb at 60 s. The footprint section below is the one that varies both, and it is where this axis's real limit lives
+
+COMPOSITE FOOTPRINT — ⚠️ RED, and older than 6.9: CoM vs the base of support, Sway LIVE
+---------------------------------------------------------------------------------------
+  ....  window x seeds                               900 s x 12   Duarte's AP drift lattice turns over every 319 s, so a short window over-reports headroom
+  ....  g000 neutral  deepest rear CoM (mm)             -38.257   rear edge -44.60 raw / -49.00 skinned  ->  margin 6.344 / 10.738
+  ....  g000 fear  deepest rear CoM (mm)                -47.647   rear edge -44.60 raw / -49.00 skinned  ->  margin -3.045 / 1.349
+  ....  g025 neutral  deepest rear CoM (mm)             -38.675   rear edge -49.34 raw / -53.15 skinned  ->  margin 10.660 / 14.474
+  ....  g025 fear  deepest rear CoM (mm)                -48.033   rear edge -49.34 raw / -53.15 skinned  ->  margin 1.302 / 5.116
+  ....  g050 neutral  deepest rear CoM (mm)             -38.690   rear edge -54.43 raw / -57.92 skinned  ->  margin 15.742 / 19.226
+  ....  g050 fear  deepest rear CoM (mm)                -48.027   rear edge -54.43 raw / -57.92 skinned  ->  margin 6.404 / 9.888
+  ....  g075 neutral  deepest rear CoM (mm)             -38.824   rear edge -59.83 raw / -63.54 skinned  ->  margin 21.002 / 24.714
+  ....  g075 fear  deepest rear CoM (mm)                -48.141   rear edge -59.83 raw / -63.54 skinned  ->  margin 11.685 / 15.397
+  ....  g100 neutral  deepest rear CoM (mm)             -37.592   rear edge -65.37 raw / -69.58 skinned  ->  margin 27.780 / 31.991
+  ....  g100 fear  deepest rear CoM (mm)                -46.896   rear edge -65.37 raw / -69.58 skinned  ->  margin 18.476 / 22.687
+  ....  g000 neutral  skinned margin by window (mm)  60s 23.471   120s 17.700   300s 17.700   900s 10.738   
+  ....  g000 fear  skinned margin by window (mm)     60s 14.096   120s 8.316   300s 8.316   900s 1.349   
+  ....  g025 neutral  skinned margin by window (mm)  60s 26.320   120s 22.626   300s 22.626   900s 14.474   
+  ....  g025 fear  skinned margin by window (mm)     60s 16.975   120s 13.276   300s 13.276   900s 5.116   
+  ....  g050 neutral  skinned margin by window (mm)  60s 29.687   120s 26.766   300s 26.511   900s 19.226   
+  ....  g050 fear  skinned margin by window (mm)     60s 20.360   120s 17.437   300s 17.181   900s 9.888   
+  ....  g075 neutral  skinned margin by window (mm)  60s 33.480   120s 30.869   300s 30.869   900s 24.714   
+  ....  g075 fear  skinned margin by window (mm)     60s 24.172   120s 21.559   300s 21.559   900s 15.397   
+  ....  g100 neutral  skinned margin by window (mm)  60s 38.525   120s 38.146   300s 38.146   900s 31.991   
+  ....  g100 fear  skinned margin by window (mm)     60s 29.226   120s 28.849   300s 28.849   900s 22.687   
+  PASS  a 60 s window over-reports headroom against 900 s (mm)     12.747   target 1.000 .. 100.000   worst row: g000 fear. Duarte's A/P drift lattice turns over every 319 s, so a window under that samples one phase of it. This is measured off the same trace the red clause below reads, so the two cannot disagree
+  PASS  the footprint bakes were actually present and measured      5.000   target = 5.000            5 of 5. Without this, a partial LFS checkout passes the red clause below at Infinity rather than failing it
+  PASS  every emotion stays inside the SKINNED footprint (mm)      1.349   target >= 0               tightest: g000 / fear. ⚠️ PRE-EXISTING — measured on the shipped tree with the affect full scale at 0. Declared in docs/RED-GATES.md; see this section's header for why the two green gates either side of it cannot see this
+
+285/285 gates passed
+
