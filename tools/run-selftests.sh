@@ -99,7 +99,7 @@ while read -r f; do run_gate "$f" node "$f"; done < <(
 run_gate "tools/critic/selftest.mjs" node tools/critic/selftest.mjs
 run_gate "tools/figure-pipeline/verify_glb.mjs" node tools/figure-pipeline/verify_glb.mjs
 run_gate "tools/figure-pipeline/hair_opacity.mjs" node tools/figure-pipeline/hair_opacity.mjs --out "$log_root/hair-opacity"
-run_gate "tools/figure-pipeline/hair_screen.mjs" node tools/figure-pipeline/hair_screen.mjs --out "$log_root/hair-screen"
+run_gate "tools/figure-pipeline/hair_tips.mjs" node tools/figure-pipeline/hair_tips.mjs --out "$log_root/hair-tips"
 
 echo
 echo "tree: $( tree_state )   at $( date -u +%H:%M:%SZ )"

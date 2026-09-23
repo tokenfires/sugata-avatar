@@ -2729,7 +2729,7 @@ evidence:    `tools/run-selftests.sh` collects `find . -name "*.selftest.mjs"` a
              Filed rather than done: this agent owns `packages/core/src/render/HairOIT.selftest.mjs`,
              `packages/core/src/render/HairShadow.selftest.mjs` and `docs/LEARNINGS.md`.
 anchor:      tools/run-selftests.sh /run_gate "tools\/figure-pipeline\/verify_glb.mjs"/
-verify:      tools/run-selftests.sh /hair_opacity/
+verify:      tools/run-selftests.sh /hair_opacity[\s\S]*hair_tips/
 ```
 
 ## REQ-077 — the groom can say where it IS and not where it WAS, so its motion vector is a pose error

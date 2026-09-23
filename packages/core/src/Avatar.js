@@ -3589,6 +3589,7 @@ export class Avatar {
         if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
 
         let contactFactory;
+        let contactDynamicsSettings;
         let contactUnavailableReason = null;
         if ( hairSelection?.hairStyle === 'bob01' ) {
 
@@ -3607,6 +3608,7 @@ export class Avatar {
                     const { createHairBodyContactFactory } = await import( './motion/HairBodyContact.js' );
                     if ( token !== this.loadToken || this.disposed === true || this.stage === null ) return null;
                     contactFactory = createHairBodyContactFactory( { body: figure.body, groomMesh: mesh, selection } );
+                    contactDynamicsSettings = selection.dynamicsSettings;
 
                 } else contactUnavailableReason = selection.reason;
 
@@ -3626,6 +3628,7 @@ export class Avatar {
         const dynamics = createHairDynamics( {
             renderer: this.stage.renderer,
             geometry: mesh.geometry,
+            settings: contactDynamicsSettings,
             contactFactory
         } );
 

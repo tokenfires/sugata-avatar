@@ -2607,7 +2607,7 @@ if ( plates.shipped !== undefined ) {
         //   | arm                                                          | p95/p50 |
         //   |--------------------------------------------------------------|--------:|
         //   | shipped                                                       |   1.872 |
-        //   | fake off, key on the camera axis (`?ov=key.azimuthDegrees:0`)|   4.291 |
+        //   | fake off, historical key at +12° (not the camera axis)       |   4.291 |
         //   | fake off, β_R 0.26 → 0.1745 (Marschner's own tight end)        |   6.030 |
         //   | both of those together                                        |   8.015 |
         //   | fake off, β_R → 0.13 (deliberately BELOW Marschner's band)     |   9.869 |

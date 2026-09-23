@@ -17,6 +17,10 @@ export const HAIR_BODY_CONTACT_CALIBRATION = freeze( HAIR_BODY_CONTACT_DATA );
 export const HAIR_BODY_CONTACT_CALIBRATIONS = Object.freeze( [
     HAIR_BODY_CONTACT_CALIBRATION, freeze( G025_DATA )
 ] );
+// These contact records were measured with the original damping. Changing the
+// default free-hair solver must not silently retune their accepted trajectories.
+// Requalify contact dynamics before changing this calibration-specific setting.
+const CONTACT_DYNAMICS_SETTINGS = Object.freeze( { drag: 1.2 } );
 const attributes = { position: 3, normal: 3, uv: 2, skinIndex: 4, skinWeight: 4 };
 const mismatch = reason => ( { enabled: false, reason } );
 
@@ -106,6 +110,7 @@ export async function selectHairBodyContactCalibration( { style, bake, body, gro
     const errors = await Promise.all( [ check( bodySnapshot, calibration.body, 'Body' ), check( groomSnapshot, calibration.groom, 'Groom' ) ] );
     const reason = errors.find( value => value !== null );
     if ( reason ) return mismatch( reason );
-    return { enabled: true, calibration, bodyIndices: bodySnapshot.arrays.index,
+    return { enabled: true, calibration, dynamicsSettings: CONTACT_DYNAMICS_SETTINGS,
+        bodyIndices: bodySnapshot.arrays.index,
         bodyPositions: bodySnapshot.arrays.position, bodyNormals: bodySnapshot.arrays.normal };
 }
