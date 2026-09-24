@@ -59,9 +59,10 @@
 // A clause on the first pair would have failed the fix and passed the defect; the per-crossing
 // table is still printed, because it is the diagnosis, and it is not gated.
 //   L1  T outside the footprint must be 1.0. If it is not, the probe is not measuring a step.
-//   L2  T over the footprint with the GROOM HIDDEN must be 1.0. If it is not, the mask is not
-//       where the hair is.
-//   L3  L2 again over C4's own mask, because that mask is built from a different tag.
+//   L2  a fresh step with the groom DETACHED must agree with the hidden-groom reference over the
+//       footprint. Independent scene removal checks the visibility toggle and capture sequence.
+//   L3  that same comparison over C4's curtain mask. Neither L2 nor L3 proves mask alignment:
+//       agreement is also expected on bare background. L1 and its maskshift control test drift.
 //   L5  the face tag must reach BELOW the teeth's own lowest pixel. C4's mask is "hair over the
 //       head", and the head is taken off the rig — the `head` bone's own vertices on the body mesh,
 //       plus the facial parts, which are separate meshes. If that selection ever collapses to the
@@ -69,14 +70,14 @@
 //       jaw the curtain actually crosses, and every clause stays green. The teeth are inside the
 //       mouth, so the chin is necessarily below them and the anchor needs no chosen number.
 //
-// 🚩 L1 and L2 are the answer to §1.25g. C1–C3 are all ratios against the same denominator, so a
-// probe that silently stopped stepping anything would make numerator and denominator agree at 0/0
-// and could be read as any number at all; L1 and L2 are computed from the same two plates and go
-// red the moment the step stops being a step. They are asserted rather than reported.
+// C1–C4 require a live reference step. Empty step masks fail L0; L1 tests actual transmission
+// outside the groom, and L2/L3 compare separately captured detached and hidden step pairs. The
+// old L2/L3 divided the denominator by itself and could not detect a failed capture. The
+// hiddenstuck and hidebroken controls now exercise both directions of the comparison.
 //
 //   node tools/figure-pipeline/hair_opacity.mjs
 //   node tools/figure-pipeline/hair_opacity.mjs --out captures/hair-opacity --steps 24
-//   node tools/figure-pipeline/hair_opacity.mjs --defect glass    # the red proof, see DEFECTS
+//   node tools/figure-pipeline/hair_opacity.mjs --defect hiddenstuck  # detached-control red proof
 //
 // Exits non-zero on any red clause.
 
@@ -261,6 +262,9 @@ const MINIMUM_MASK_PIXELS = 20000;
  *             one property of the hair draw that is raster state rather than shader.
  *   `nostep`  the emissive step is not applied. Nothing is being measured. C1–C3 read whatever
  *             0/0 happens to give and L1/L2 are what must catch it.
+ *   `hiddenstuck` leaves visible hair in the detached-control captures; L2/L3 must fall below one.
+ *   `hidebroken` ignores requests to hide the groom in the reference captures; the genuinely
+ *             detached control must then exceed one. Together these exercise both bounds.
  *   `maskall` the footprint mask is every pixel in the frame rather than the groom's own. The
  *             statistic is then mostly backdrop, which transmits perfectly — the standing-rule-4
  *             failure, planted.
@@ -279,7 +283,7 @@ const MINIMUM_MASK_PIXELS = 20000;
  * cannot fail; this one is kept in the header rather than deleted, because the next person to
  * reach for `alphaTest` here will reach for it for the same reason.
  */
-const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'maskshift', 'stripshift'];
+const DEFECTS = ['none', 'oneside', 'nostep', 'maskall', 'maskshift', 'stripshift', 'hiddenstuck', 'hidebroken'];
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
@@ -365,6 +369,19 @@ async function measureView(page, view, options) {
         linearLuma(await screenshot(page, null));
     }
   }
+  // A separate pair obtained by removing the mesh from the scene, rather than reusing the
+  // visibility toggle that produced the reference. Keep all four primary captures above intact.
+  const detached = {};
+  await page.evaluate(() => globalThis.__hairOpacity.beginHiddenControl());
+  try {
+    for (const step of [STEP_LOW, STEP_HIGH]) {
+      await page.evaluate((value) => globalThis.__hairOpacity.setStep(value), step);
+      await converge(page, options.steps);
+      detached[step === STEP_LOW ? 'low' : 'high'] = linearLuma(await screenshot(page, null));
+    }
+  } finally {
+    await page.evaluate(() => globalThis.__hairOpacity.endHiddenControl());
+  }
   await page.evaluate(() => globalThis.__hairOpacity.restore());
 
   const numerator = new Float64Array(pixels);
@@ -390,12 +407,11 @@ async function measureView(page, view, options) {
     outside[index] = (source < 0 || total[source] === 0) && carriesStep[index] ? 1 : 0;
   }
 
-  // L2's mask is the footprint with the groom hidden, which is the SAME pixels measured against a
-  // frame the hair never reached: numerator and denominator are then the same plate pair and the
-  // ratio is 1 by construction unless the mask has drifted off the hair.
+  // Compare independent detached-groom and hidden-groom step captures. Do not replace the
+  // numerator with the reference denominator: that makes every selected pixel pass identically.
   const hidden = new Float64Array(pixels);
   for (let index = 0; index < pixels; index += 1) {
-    hidden[index] = denominator[index] === 0 ? 0 : denominator[index] / denominator[index];
+    hidden[index] = detached.high[index] - detached.low[index];
   }
 
   const mass = new Uint8Array(pixels);
@@ -438,7 +454,7 @@ async function measureView(page, view, options) {
     mass: summarise(mass, numerator, denominator),
     overFace: summarise(overFace, numerator, denominator),
     curtain: summarise(curtain, numerator, denominator),
-    curtainHidden: summarise(curtain, hidden, new Float64Array(pixels).fill(1)),
+    curtainHidden: summarise(curtain, hidden, denominator),
     curtainByCrossing: byCrossing(overFace, inFront, numerator, denominator),
     curtainByStrip: byStrip(curtain, stripMask, numerator, denominator),
     curtainNoInterior: summarise(noInterior, numerator, denominator),
@@ -447,7 +463,7 @@ async function measureView(page, view, options) {
     faceBottom,
     teethBottom: raster.teethBottom,
     outside: summarise(outside, numerator, denominator),
-    hidden: summarise(footprint, hidden, new Float64Array(pixels).fill(1)),
+    hidden: summarise(footprint, hidden, denominator),
     byCrossing: byCrossing(footprint, inFront, numerator, denominator)
   };
 }
@@ -620,22 +636,25 @@ function report(view, measured) {
       `${measured.outside.mean.toFixed(4)} of itself, so C1–C3 are ratios against nothing`);
   }
 
-  const l2 = measured.hidden.mean >= LIVENESS_FLOOR;
-  clause(l2, `L2 mask is on the hair T ${measured.hidden.mean.toFixed(4)} over the footprint with ` +
-    `the groom hidden (floor ${LIVENESS_FLOOR}) — the mask must contain pixels the step reaches`);
+  // The existing 3% tolerance is symmetric: a failed hide can make the reference too small,
+  // producing a ratio ABOVE one. A lower bound alone would accept that defect.
+  const upper = 2 - LIVENESS_FLOOR;
+  const l2 = measured.hidden.mean >= LIVENESS_FLOOR && measured.hidden.mean <= upper;
+  clause(l2, `L2 detached/hidden    T ${measured.hidden.mean.toFixed(4)} over the footprint ` +
+    `(range ${LIVENESS_FLOOR}–${upper}) — independently captured step pairs must agree`);
   if (l2 === false) {
-    failures.push(`${view.name} liveness L2: with the groom hidden the footprint only reads ` +
-      `${measured.hidden.mean.toFixed(4)}, so the mask is not where the hair is`);
+    failures.push(`${view.name} liveness L2: detached/hidden step ratio ` +
+      `${measured.hidden.mean.toFixed(4)} over the footprint is outside ${LIVENESS_FLOOR}–${upper}`);
   }
 
-  const l3 = measured.curtainHidden.mean >= LIVENESS_FLOOR;
+  const l3 = measured.curtainHidden.mean >= LIVENESS_FLOOR && measured.curtainHidden.mean <= upper;
   if (view.curtain) {
-    clause(l3, `L3 curtain is on hair T ${measured.curtainHidden.mean.toFixed(4)} over the ` +
-      `curtain with the groom hidden (floor ${LIVENESS_FLOOR}) — L2 one mask in`);
+    clause(l3, `L3 detached/hidden    T ${measured.curtainHidden.mean.toFixed(4)} over the ` +
+      `curtain (range ${LIVENESS_FLOOR}–${upper}) — the same independent check inside C4`);
   }
   if (view.curtain && l3 === false) {
-    failures.push(`${view.name} liveness L3: with the groom hidden the curtain mask only reads ` +
-      `${measured.curtainHidden.mean.toFixed(4)}, so C4 is a ratio against nothing`);
+    failures.push(`${view.name} liveness L3: detached/hidden step ratio ` +
+      `${measured.curtainHidden.mean.toFixed(4)} over the curtain is outside ${LIVENESS_FLOOR}–${upper}`);
   }
 
   // L5's number is the teeth's own lowest pixel and not a chosen one — see the raster.
@@ -657,11 +676,10 @@ function report(view, measured) {
 /**
  * Everything the probe needs, installed on the live page and reading `window.sugata`.
  *
- * ⚠️ **NOTHING HERE EDITS `alive.js`, AND THAT IS A CONSTRAINT RATHER THAN A STYLE.** That file
- * belongs to another agent. What this does is read the scene graph the page already publishes and
- * set two things on it that are restored before the next plate: `visible` on the hair mesh, and
- * `emissive` on everything else. Both are read back to `restore()`'s saved copy at the end of every
- * view, so the plates written to disk are of the groom and not of the instrument.
+ * Reads the published scene graph without editing alive.js. The primary probe changes hair
+ * visibility and the other meshes' emissive values. The independent control temporarily detaches
+ * the hair and restores its parent, child order and visibility in a finally block. Beauty plates
+ * restore the emissive values before capture; probe state never becomes a shipped scene change.
  */
 async function installProbe(page, defect) {
   await page.evaluate((plantedDefect) => {
@@ -706,12 +724,31 @@ async function installProbe(page, defect) {
       uv.needsUpdate = true;
     }
 
+    let hiddenControl = null;
     globalThis.__hairOpacity = {
       setYaw: (degrees) => {
         globalThis.sugata.session.figure.root.rotation.y = degrees * Math.PI / 180;
         globalThis.sugata.session.figure.root.updateMatrixWorld(true);
       },
-      setHairVisible: (on) => { hair.visible = on; },
+      setHairVisible: (on) => { hair.visible = plantedDefect === 'hidebroken' ? true : on; },
+      beginHiddenControl: () => {
+        if (hiddenControl !== null || hair.parent === null) throw new Error('Invalid hidden-control scene state.');
+        hiddenControl = {parent: hair.parent, index: hair.parent.children.indexOf(hair), visible: hair.visible};
+        hair.visible = true;
+        // hiddenstuck deliberately leaves a visible groom in the supposedly detached capture.
+        if (plantedDefect !== 'hiddenstuck') hair.removeFromParent();
+      },
+      endHiddenControl: () => {
+        if (hiddenControl === null) throw new Error('No hidden control to restore.');
+        const {parent, index, visible} = hiddenControl;
+        if (hair.parent !== parent) {
+          parent.add(hair);
+          parent.children.splice(parent.children.indexOf(hair), 1);
+          parent.children.splice(index, 0, hair);
+        }
+        hair.visible = visible;
+        hiddenControl = null;
+      },
       setStep: (value) => {
         if (plantedDefect === 'nostep') return;
         for (const mesh of behind) {

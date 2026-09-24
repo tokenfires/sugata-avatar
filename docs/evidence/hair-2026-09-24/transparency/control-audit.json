@@ -1,0 +1,90 @@
+{
+  "independent-control": [
+    {
+      "status": "ok",
+      "clause": "L2",
+      "ratio": 0.9951
+    },
+    {
+      "status": "ok",
+      "clause": "L3",
+      "ratio": 0.9923
+    },
+    {
+      "status": "ok",
+      "clause": "L2",
+      "ratio": 0.9913
+    }
+  ],
+  "hidden-stuck": [
+    {
+      "status": "FAIL",
+      "clause": "L2",
+      "ratio": 0.1662
+    },
+    {
+      "status": "FAIL",
+      "clause": "L3",
+      "ratio": 0.5392
+    },
+    {
+      "status": "FAIL",
+      "clause": "L2",
+      "ratio": 0.0876
+    }
+  ],
+  "hide-broken": [
+    {
+      "status": "FAIL",
+      "clause": "L2",
+      "ratio": 6.7515
+    },
+    {
+      "status": "FAIL",
+      "clause": "L3",
+      "ratio": 2.3254
+    },
+    {
+      "status": "FAIL",
+      "clause": "L2",
+      "ratio": 9.3445
+    }
+  ],
+  "shifted-mask": [
+    {
+      "status": "ok",
+      "clause": "L2",
+      "ratio": 0.9953
+    },
+    {
+      "status": "ok",
+      "clause": "L3",
+      "ratio": 0.9948
+    },
+    {
+      "status": "ok",
+      "clause": "L2",
+      "ratio": 0.9911
+    }
+  ],
+  "baseline-opacity": {
+    "curtainTransmittance": 0.5439
+  },
+  "rest-phase-opacity": {
+    "curtainTransmittance": 0.5842
+  },
+  "evidenceSha256": {
+    "baseline-opacity.txt": "e50851f35a40b8c72e8c48a58ca871097e4e7fb6df607f8c6159ae2e2181a5bd",
+    "baseline-portrait.png": "0373a9a6b579202f91c76cd1d6ce71276af8fc081bbe2659ee841ce4a7a62f75",
+    "hidden-stuck.txt": "79c6f2c65b104e2dcf9d83dbce854917fbb8805aa2dad60cb20f36920356b1d2",
+    "hide-broken.txt": "270e4f24d6f97d604e8f7ea850a16300bc0685f9f02ba8374e8d711d7fc3023a",
+    "independent-control.txt": "25e2152c191feb8d61922bbfea2550f1f494a0eec94de0a61fc5cfafcada026c",
+    "quoted-numbers.txt": "014478a0580f64dffea952eaa1cb9b2ba430e6ce0c0bb8485f9d226f018b8151",
+    "rejected-rest-phase-portrait.png": "b5f1ec75396f26d02b8dc31fa65e72dec7c3dcab8c82de117440c4ccc8ceceb2",
+    "rejected-rest-phase.json": "9d097b7268ac3428cea040bd48b8e97d43faff328f113751367770b3d44fb7d1",
+    "request-ledger.txt": "5271f259fb5e2625dfbe4ee03b65db0fd38af11c4e659206f8c1fa9368912199",
+    "rest-phase-opacity.txt": "8fddaa1dd8b2c46b5b37454cb0024a812761bac556fbeb93e98a13073d486115",
+    "shifted-mask.txt": "b738b801b84384a33d7ea5102fa85758d3a7cf1d0a2dc376f9d224af8bece91c"
+  },
+  "logFormatting": "Trailing whitespace normalized in request-ledger.txt; report content unchanged."
+}

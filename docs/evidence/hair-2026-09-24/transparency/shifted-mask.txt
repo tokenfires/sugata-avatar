@@ -1,0 +1,47 @@
+🚩 DEFECT PLANTED — --defect maskshift. This run is a red proof and its numbers are not the groom's.
+http://localhost:56359/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0
+
+--- portrait (figure yawed 0°) ---
+  --   footprint         463,189 px of hair in front of a surface that carries the step
+  ok   L0 masks hold pixels  smallest of footprint/mass/outside/curtain is 30,463 px (floor 20,000)
+  ok   C1 mean transmittance 0.2221 (median 0.0035, p90 1.0014, ceiling 0.28)
+  ok   C2 share over T>0.5   21.44% of the footprint (ceiling 28%) — where a viewer reads what is behind
+  ok   C3 the mass proper    T 0.0596 where the groom is 3+ cards deep, over 362,798 px (ceiling 0.1)
+  FAIL C4 the curtain        T 0.7162 where the groom is 1-2 cards deep OVER THE FACE, over 30,463 px (ceiling 0.35)
+  --   over the face      T 0.1735 at every depth, over 152,214 px
+  --   curtain, no interior strip   T 1.0068 over 13,392 px — the half of the curtain `root` and `mass` never reach
+  --   curtain strip 1    reaches 56.0% of the curtain (17,071 px), T 0.4883 there
+  --   curtain strip 2    reaches 14.0% of the curtain (4,258 px), T 0.4744 there  |  of the no-interior half 10.8%, T 0.8802
+  --   curtain strip 6    reaches 13.2% of the curtain (4,009 px), T 0.7885 there  |  of the no-interior half 13.3%, T 0.9630
+  --   no-interior, 1 crossing(s)   T 0.9193 over 2,400 px
+  --   no-interior, 2 crossing(s)   T 0.9440 over 806 px
+  --   1 crossing(s)      T 0.7507 over 34,548 px, implied card alpha 0.2493  |  over the face T 0.7021 over 10,359 px, implied 0.2979
+  --   2 crossing(s)      T 0.4894 over 21,961 px, implied card alpha 0.3004  |  over the face T 0.4063 over 9,918 px, implied 0.3626
+  --   3 crossing(s)      T 0.2759 over 22,405 px, implied card alpha 0.3490  |  over the face T 0.1563 over 13,365 px, implied 0.4613
+  --   4 crossing(s)      T 0.1682 over 21,708 px, implied card alpha 0.3596  |  over the face T 0.0937 over 12,687 px, implied 0.4468
+  FAIL L1 step is live       T 0.9643 outside the footprint over 488,352 px (floor 0.97) — a pixel with no hair in front of it must pass the whole step
+  ok   L2 detached/hidden    T 0.9953 over the footprint (range 0.97–1.03) — independently captured step pairs must agree
+  ok   L3 detached/hidden    T 0.9948 over the curtain (range 0.97–1.03) — the same independent check inside C4
+  ok   L5 the tag reaches the jaw  face tag ends at y 736, below the teeth's own lowest pixel at y 675 — the curtain crosses the jaw, so a tag that stopped at the eyes would gate the wrong band
+
+--- rear34 (figure yawed 145°) ---
+  --   footprint         421,381 px of hair in front of a surface that carries the step
+  ok   L0 masks hold pixels  smallest of footprint/mass/outside is 383,358 px (floor 20,000)
+  ok   C1 mean transmittance 0.0863 (median -0.0008, p90 0.1638, ceiling 0.28)
+  ok   C2 share over T>0.5   8.65% of the footprint (ceiling 28%) — where a viewer reads what is behind
+  ok   C3 the mass proper    T 0.0133 where the groom is 3+ cards deep, over 383,358 px (ceiling 0.1)
+  --   C4 the curtain        T NaN where the groom is 1-2 cards deep OVER THE FACE, over 0 px (ceiling 0.35) — NOT GATED on this view, see VIEWS
+  --   over the face      T -0.0095 at every depth, over 190,936 px
+  --   curtain, no interior strip   T NaN over 0 px — the half of the curtain `root` and `mass` never reach
+  --   1 crossing(s)      T 0.8215 over 11,942 px, implied card alpha 0.1785
+  --   2 crossing(s)      T 0.5833 over 11,743 px, implied card alpha 0.2363
+  --   3 crossing(s)      T 0.4244 over 9,111 px, implied card alpha 0.2485  |  over the face T -0.0097 over 64 px, implied 0.9900
+  --   4 crossing(s)      T 0.1972 over 8,644 px, implied card alpha 0.3336  |  over the face T 0.0023 over 972 px, implied 0.7799
+  ok   L1 step is live       T 0.9854 outside the footprint over 619,583 px (floor 0.97) — a pixel with no hair in front of it must pass the whole step
+  ok   L2 detached/hidden    T 0.9911 over the footprint (range 0.97–1.03) — independently captured step pairs must agree
+  ok   L5 the tag reaches the jaw  face tag ends at y 708, below the teeth's own lowest pixel at y 665 — the curtain crosses the jaw, so a tag that stopped at the eyes would gate the wrong band
+
+FAIL portrait transmits 0.7162 through the side curtain — hair 1-2 cards deep over the face — past the 0.35 ceiling, which is a viewer reading the eyebrow through it
+FAIL portrait liveness L1: outside the hair the step only reads 0.9643 of itself, so C1–C3 are ratios against nothing
+
+FAIL — 2 clause(s) red.

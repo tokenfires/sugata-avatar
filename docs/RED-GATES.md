@@ -86,7 +86,9 @@ directions, which is the clause worth keeping when this check is next edited.
   Its side-curtain transmission is 0.5439, above the unchanged 0.35 ceiling. This is additional visibility
   into the existing hair appearance work, not a passing acceptance result. The outside-footprint
   liveness check now compares the actual numerator with its denominator, and its shifted-mask
-  negative control fails as intended.
+  negative control fails as intended. September 24 also replaces the tautological L2/L3 ratios
+  with independent detached-groom captures; healthy captures agree and both planted visibility
+  failures are rejected. C4 still reads 0.5439. See `PROGRESS-2026-09-24.md`.
 
 - `tools/figure-pipeline/hair_tips.mjs` — newly included for REQ-076. The focused September 22
   run reports tip speckle **7.12%** and cheek/curtain speckle **19.23%**, both above the unchanged
