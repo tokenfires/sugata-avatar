@@ -1,0 +1,103 @@
+Negative control: remove body occlusion from the tested operator.
+--- the card counter, against a soup whose components are known ---
+PASS  three separate strips read as three components
+        measured 3
+PASS  every quad strip classifies as a ribbon
+        13/13/7 rings -> 13/13/7
+PASS  a weld fuses two cards into one component
+        measured 2
+PASS  and the fused component no longer classifies as a ribbon
+        1 of 2 are ribbons
+PASS  a 2-manifold patch is not a ribbon
+
+--- the UV clause, against a card written a strip too wide ---
+PASS  a card inside one strip reports one strip
+        u 0.130 – 0.150
+PASS  a card across a boundary reports two
+        u 0.245 – 0.265
+PASS  a quad strip sits on exactly two u columns
+        2 and 2
+PASS  one skewed corner is caught by the column count
+        3 columns, and the strip test still says 1
+
+--- signed distance, where the answer is |p − centre| − r ---
+PASS  a point 30 mm outside a 100 mm sphere
+        expected 0.030000 ± 0.00042116151420947814, measured 0.030126
+PASS  a point 6 mm outside a 100 mm sphere
+        expected 0.006000 ± 0.00042116151420947814, measured 0.006134
+PASS  a point -6 mm inside a 100 mm sphere
+        expected -0.006000 ± 0.00042116151420947814, measured -0.005862
+PASS  a point -30 mm inside a 100 mm sphere
+        expected -0.030000 ± 0.00042116151420947814, measured -0.029855
+PASS  inside and outside are distinguished, which an unsigned distance cannot do
+        inside -29.98 mm, outside 30.00 mm
+
+--- the two primitives, on cases with pencil-and-paper answers ---
+PASS  a point over the interior projects onto it
+        expected 0.000000 ± 1e-9, measured 0.000000
+PASS  a point beyond a corner clamps to that corner
+        expected 0.000000 ± 1e-9, measured 0.000000
+PASS  a ray fired at a triangle 2 m away reports 2 m
+        expected 2.000000 ± 1e-9, measured 2.000000
+PASS  and from the back face too, because a card has no front
+PASS  a ray that misses reports a miss
+
+--- transmittance through a stack of cards of known alpha ---
+PASS  three cards at alpha 0.5 transmit 0.5³
+        expected 0.125000 ± 1e-9, measured 0.125000
+PASS  a sampler off by 255 reports a covered scalp as bare, which is the shape of the bug
+        transmittance 0.9941 against the correct 0.125
+PASS  cards beyond the reach do not count as coverage
+        expected 1.000000 ± 1e-9, measured 1.000000
+
+--- visible scalp excludes the body that stands in front of it ---
+PASS  bare scalp with an open sightline stays visible
+        [true,true]
+PASS  the sampled body surface does not occlude itself
+        [true,true]
+PASS  Float32 surface roundoff does not hide bare scalp
+        [true,true]
+FAIL  an ear-like body surface hides only the sample behind it
+        [true,true]
+FAIL  a separate surface only 0.1 mm away still occludes
+        [true,true]
+FAIL  body occlusion is independent of triangle winding
+        [true,true]
+PASS  body behind the sample does not hide it
+        [true,true]
+PASS  body beyond the view reach does not hide it
+        [true,true]
+PASS  opaque hair still covers the scalp
+        [false,false]
+PASS  transparent hair leaves skin visible
+        [true,true]
+FAIL  body occlusion still applies through transparent hair
+        [true,true]
+PASS  samples facing away from the view remain excluded
+        [false,true]
+FAIL  rotating the view and meshes preserves the visible sample set
+        [true,true]
+
+--- cards gather, against shapes whose tip and root spacing is set by hand ---
+PASS  the root ring is the one at v = 0, not v = 1
+        expected 0.000000 ± 1e-9, measured 0.000000
+PASS  the tip ring is the one at v = 1
+        expected -1.000000 ± 1e-9, measured -1.000000
+PASS  the tip centroid is where the card leans to
+        expected 0.050000 ± 1e-9, measured 0.050000
+PASS  a fan's roots are 10 mm apart
+        expected 0.010000 ± 1e-9, measured 0.010000
+PASS  a fan's tips are 20 mm apart
+        expected 0.020000 ± 1e-9, measured 0.020000
+PASS  a fan measures a ratio of 2 — twice as far apart at the tip
+        expected 2.000000 ± 1e-9, measured 2.000000
+PASS  a lock measures a ratio of 0.4 — gathered by the tip
+        expected 0.400000 ± 1e-9, measured 0.400000
+PASS  tips on one level are a cut line, step 0 mm
+        expected 0.000000 ± 1e-9, measured 0.000000
+
+====================================================================================
+FAIL — 5 of 43 assertions.
+
+
+CONTROL PASS: the test rejects the missing body-occlusion implementation.

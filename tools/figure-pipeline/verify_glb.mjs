@@ -43,7 +43,7 @@ const { measureHemRoll, percentile } = await import(
 // here with the rest of the gate.
 const {
   SurfaceGrid, cardGathering, connectedComponents, isRibbon, rayTriangle, ribbonEnds,
-  scalpTransmittance, uvExtentsPerComponent,
+  scalpTransmittance, skinVisibleFrom, uvExtentsPerComponent,
 } = await import("./hair_geometry.mjs");
 
 // The lock-structure operator, validated against a cylinder, an oval, a lobed shell and a lobed
@@ -2130,38 +2130,6 @@ function cardsDeepFrom(samples, hair, opaqueAt, direction, reach) {
   return deep;
 }
 
-/**
- * Which cranium samples show bare skin to a camera in `direction`. A sample counts when it faces
- * that camera at all and no card with an opaque texel stands between it and the camera.
- */
-function skinVisibleFrom(samples, hair, opaqueAt, direction, reach) {
-  const count = samples.areas.length;
-  const visible = new Array(count).fill(false);
-
-  for (let sample = 0; sample < count; sample += 1) {
-    const normal = [samples.normals[sample * 3], samples.normals[sample * 3 + 1],
-                    samples.normals[sample * 3 + 2]];
-    const facing = normal[0] * direction[0] + normal[1] * direction[1] + normal[2] * direction[2];
-    if (facing < SCALP_VIEW_FACING) continue;
-
-    const origin = [samples.points[sample * 3], samples.points[sample * 3 + 1],
-                    samples.points[sample * 3 + 2]];
-
-    let blocked = false;
-    for (let triangle = 0; triangle < hair.indices.length && !blocked; triangle += 3) {
-      const hit = rayTriangle(origin, direction, hair.positions, hair.indices, triangle);
-      if (hit === null || hit.distance > reach) continue;
-
-      const uv = interpolateHairUv(hair.uvs, hair.indices, triangle, hit.bary);
-      if (opaqueAt(uv[0], uv[1]) > 0) blocked = true;
-    }
-
-    visible[sample] = !blocked;
-  }
-
-  return visible;
-}
-
 /** Barycentric UV at a hit. The same three-corner blend `hair_geometry.scalpTransmittance` uses. */
 function interpolateHairUv(uvs, indices, triangle, bary) {
   let u = 0;
@@ -2802,7 +2770,7 @@ function reportHairAgainstFigure(ledger, groom, glb, mesh, glbPath, figuresDir) 
   let deepestView = { name: "none", p50: 0, p90: 0, rays: 0 };
   for (const angle of SCALP_VIEW_ANGLES) {
     const direction = viewDirection(angle);
-    const visible = skinVisibleFrom(samples, mesh, opaqueAt, direction, reach);
+    const visible = skinVisibleFrom(samples, mesh, body, opaqueAt, direction, reach, SCALP_VIEW_FACING);
     const seen = largestExposedPatch(samples, visible, SCALP_PATCH_LINK_M);
     if (seen.area > worstView.area) {
       worstView = { name: angle.name, ...seen };
@@ -2837,7 +2805,7 @@ function reportHairAgainstFigure(ledger, groom, glb, mesh, glbPath, figuresDir) 
                `${worstView.area.toFixed(1)} mm² of bare cranium` +
                (worstView.centre === null ? "" :
                  ` at (${worstView.centre.map((value) => value.toFixed(3)).join(", ")})`) +
-               ` (ceiling ${MAX_VISIBLE_SKIN_MM2} mm², within ` +
+               ` (body occlusion excluded, ceiling ${MAX_VISIBLE_SKIN_MM2} mm², within ` +
                `${(reach * 1000).toFixed(0)} mm of the sample)`);
   }
   ledger.say("cards deep", depthOk,

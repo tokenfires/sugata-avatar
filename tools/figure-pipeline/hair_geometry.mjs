@@ -420,6 +420,55 @@ export function scalpTransmittance( scalp, hair, alphaAt, reachMetres ) {
 
 }
 
+/**
+ * Bare scalp visible from a judge's direction. A facing normal alone is insufficient: the ear
+ * can stand between the camera and a scalp sample. Test both the groom's cutout and the body's
+ * opaque triangles. This is view visibility only; it does not count body occlusion as hair
+ * coverage in scalpTransmittance.
+ *
+ * direction must be a unit vector; geometry and reachMetres are in metres. Advance the body ray
+ * by 10 micrometres to avoid hitting the sample's own Float32 surface. That is well below the
+ * asset gate's 3 mm hair clearance and does not hide a separate surface 0.1 mm away.
+ */
+export function skinVisibleFrom( samples, hair, body, opaqueAt, direction, reachMetres, minimumFacing ) {
+
+    const visible = new Array( samples.points.length / 3 ).fill( false );
+
+    for ( let sample = 0; sample < visible.length; sample ++ ) {
+
+        const base = sample * 3;
+        const facing = samples.normals[ base ] * direction[ 0 ] +
+            samples.normals[ base + 1 ] * direction[ 1 ] + samples.normals[ base + 2 ] * direction[ 2 ];
+        if ( facing < minimumFacing ) continue;
+
+        const origin = [ samples.points[ base ], samples.points[ base + 1 ], samples.points[ base + 2 ] ];
+        let blocked = false;
+        for ( let triangle = 0; triangle < hair.indices.length && ! blocked; triangle += 3 ) {
+
+            const hit = rayTriangle( origin, direction, hair.positions, hair.indices, triangle );
+            if ( hit === null || hit.distance > reachMetres ) continue;
+            const uv = interpolateUv( hair.uvs, hair.indices, triangle, hit.bary );
+            blocked = opaqueAt( uv[ 0 ], uv[ 1 ] ) > 0;
+
+        }
+
+        const bodyRayOffset = 0.00001;
+        const bodyOrigin = origin.map( ( value, axis ) => value + direction[ axis ] * bodyRayOffset );
+        for ( let triangle = 0; triangle < body.indices.length && ! blocked; triangle += 3 ) {
+
+            const hit = rayTriangle( bodyOrigin, direction, body.positions, body.indices, triangle );
+            blocked = hit !== null && hit.distance <= reachMetres - bodyRayOffset;
+
+        }
+
+        visible[ sample ] = ! blocked;
+
+    }
+
+    return visible;
+
+}
+
 /** Möller–Trumbore, double sided — a hair card occludes from either face. */
 export function rayTriangle( origin, direction, positions, indices, triangle ) {
 

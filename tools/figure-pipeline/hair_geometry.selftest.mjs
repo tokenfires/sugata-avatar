@@ -24,7 +24,7 @@
 
 import {
     SurfaceGrid, cardGathering, closestPointOnTriangle, connectedComponents, isRibbon,
-    rayTriangle, ribbonEnds, scalpTransmittance, uvExtentsPerComponent
+    rayTriangle, ribbonEnds, scalpTransmittance, skinVisibleFrom, uvExtentsPerComponent
 } from './hair_geometry.mjs';
 
 let checks = 0;
@@ -308,6 +308,46 @@ console.log( '--- transmittance through a stack of cards of known alpha ---' );
     // And the reach: a card beyond it is not covering anything.
     const far = scalpTransmittance( scalp, stack, () => 0.5, 0.005 );
     near( far[ 0 ], 1, 1e-9, 'cards beyond the reach do not count as coverage' );
+}
+
+console.log( '' );
+console.log( '--- visible scalp excludes the body that stands in front of it ---' );
+{
+    const samples = { points: [ 0.3, 0, 0.1, 0.7, 0, 0.1 ], normals: [ 0, 1, 0, 0, 1, 0 ] };
+    const empty = { positions: [], indices: [], uvs: [] };
+    const plane = ( height, right = 1 ) => ( {
+        positions: [ 0, height, - 1, right, height, - 1, right, height, 1, 0, height, 1 ],
+        indices: [ 0, 1, 2, 0, 2, 3 ], uvs: [ 0, 0, 1, 0, 1, 1, 0, 1 ]
+    } );
+    const visible = ( body, hair = empty, alphaAt = () => 1, surface = samples ) =>
+        skinVisibleFrom( surface, hair, body, alphaAt, [ 0, 1, 0 ], 0.4, 0.15 );
+    const same = ( actual, expected, label ) => report( JSON.stringify( actual ) === JSON.stringify( expected ),
+        label, JSON.stringify( actual ) );
+
+    same( visible( empty ), [ true, true ], 'bare scalp with an open sightline stays visible' );
+    same( visible( plane( 0 ) ), [ true, true ], 'the sampled body surface does not occlude itself' );
+    same( visible( plane( 0.0000001 ) ), [ true, true ], 'Float32 surface roundoff does not hide bare scalp' );
+    same( visible( plane( 0.01, 0.5 ) ), [ false, true ],
+        'an ear-like body surface hides only the sample behind it' );
+    same( visible( plane( 0.0001 ) ), [ false, false ], 'a separate surface only 0.1 mm away still occludes' );
+    same( visible( { ...plane( 0.01 ), indices: [ 2, 1, 0, 3, 2, 0 ] } ), [ false, false ],
+        'body occlusion is independent of triangle winding' );
+    same( visible( plane( - 0.01 ) ), [ true, true ], 'body behind the sample does not hide it' );
+    same( visible( plane( 0.401 ) ), [ true, true ], 'body beyond the view reach does not hide it' );
+    same( visible( empty, plane( 0.01 ) ), [ false, false ], 'opaque hair still covers the scalp' );
+    same( visible( empty, plane( 0.01 ), () => 0 ), [ true, true ], 'transparent hair leaves skin visible' );
+    same( visible( plane( 0.01, 0.5 ), plane( 0.02 ), () => 0 ), [ false, true ],
+        'body occlusion still applies through transparent hair' );
+    same( visible( empty, empty, () => 1, { ...samples, normals: [ 0, - 1, 0, 0, 1, 0 ] } ),
+        [ false, true ], 'samples facing away from the view remain excluded' );
+
+    // Rotate the whole construction so the answer cannot depend on choosing the vertical axis.
+    const rotate = values => values.flatMap( ( _, i ) => i % 3 === 0
+        ? [ values[ i + 1 ], values[ i + 2 ], values[ i ] ] : [] );
+    const blocker = plane( 0.01, 0.5 );
+    same( skinVisibleFrom( { points: rotate( samples.points ), normals: rotate( samples.normals ) },
+        empty, { ...blocker, positions: rotate( blocker.positions ) }, () => 1, [ 1, 0, 0 ], 0.4, 0.15 ),
+    [ false, true ], 'rotating the view and meshes preserves the visible sample set' );
 }
 
 // --- 5. the gathering measurement, against a fan and a lock whose ratios are arithmetic ---------

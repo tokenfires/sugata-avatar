@@ -1,0 +1,27 @@
+
+--- lip seal: the gate against known-bad input ---
+  ok   sealed   aperture 0.020 mm (pass, expected pass), margin 1.300 mm (pass, expected pass)
+  ok   parted   aperture 2.000 mm (REJECT, expected REJECT), margin 1.300 mm (pass, expected pass)
+  ok   flush    aperture 0.020 mm (pass, expected pass), margin 0.000 mm (REJECT, expected REJECT)
+
+--- garment clause: the gate against known-bad manifests ---
+  ok   unlisted garment     garment=none cutout=false solid=false cutoff=0.5 — no manifest entry and no name pattern — must be reported as unrecognised
+  ok   near-miss id         garment=none cutout=false solid=false cutoff=0.5 — resolution is by exact id, so a lookalike name must NOT borrow the entry
+  ok   manifest OPAQUE      garment=foundation_bra cutout=false solid=true cutoff=0.5 — the shipped entry — a MASK material on it would be a failure
+  ok   manifest MASK        garment=foundation_bra cutout=true solid=false cutoff=0.1 — a cutout garment must expect MASK and its OWN cutoff, not glTF's default 0.5
+  ok   three.js spelling    garment=foundation_bra cutout=false solid=true cutoff=0.5 — GLTFLoader strips the dot; both spellings must resolve to the same entry
+
+--- gather index: the operator against shapes whose answer is arithmetic ---
+  ok   identity                  1.0000 (expected 1.0000 ±1e-12)
+  ok   dilation x1.5             1.2247 (expected 1.2247 ±1e-9)
+  ok   dilation x2               1.4142 (expected 1.4142 ±1e-9)
+  ok   dilation x4               2.0000 (expected 2.0000 ±1e-9)
+  ok   one-axis stretch x2       1.1322 (expected 1.1247 ±0.04)
+  ok   one-axis stretch x4       1.1830 (expected 1.1713 ±0.04)
+  ok   locks pulled 0.3          0.7334 (under 1.0000, and under 1)
+  ok   locks pulled 0.6          0.4236 (under 0.7334, and under 1)
+  ok   locks pulled 0.85         0.1594 (under 0.4236, and under 1)
+  ok   jitter 0.02               0.9912 (expected 1.0000 ±0.03)
+  ok   jitter 0.05               0.9957 (expected 1.0000 ±0.03)
+
+PASS — the lip-seal, garment and gather-index gates reject known-bad input and accept good input.

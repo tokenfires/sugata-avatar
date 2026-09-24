@@ -78,7 +78,9 @@ directions, which is the clause worth keeping when this check is next edited.
 - `tools/figure-pipeline/verify_glb.mjs` — accepted groom geometry still fails lock coherence,
   bob01/g050 clearance, and the recorded short-style gathering/coverage clauses. Numerical
   deformation candidates were visually rejected. Only embedded atlas images changed; no candidate
-  geometry was promoted. The integrated run confirms 20 problems across 43 files.
+  geometry was promoted. The September 24 asset run still confirms 20 problems across 43 files
+  after correcting visible-scalp measurement to exclude the body's own occlusion. Crop and
+  pixie visible patches remain above the unchanged ceiling. See `PROGRESS-2026-09-24.md`.
 
 - `tools/figure-pipeline/hair_opacity.mjs` — newly included by the suite runner for REQ-076.
   Its side-curtain transmission is 0.5439, above the unchanged 0.35 ceiling. This is additional visibility
