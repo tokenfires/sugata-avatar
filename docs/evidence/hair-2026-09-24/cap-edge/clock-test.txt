@@ -1,0 +1,8 @@
+ok fast and delayed captures give identical images at three moving poses
+ok each captured draw advances the renderer clock and the body bone upload
+ok different simulation poses produce different images
+ok reset rewinds time while keeping renderer frame IDs monotonic
+ok removing renderer ticks leaves stale body bone uploads and is rejected
+ok leaving the internal animation loop running is rejected by the clock oracle
+ok all GPU runs finish without browser or asset errors
+PASS 7 hair capture clock groups
