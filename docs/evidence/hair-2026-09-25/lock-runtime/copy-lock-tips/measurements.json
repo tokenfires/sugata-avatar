@@ -1,0 +1,180 @@
+[
+  {
+    "arm": "stochastic",
+    "path": {
+      "stageHairOITMode": "stochastic",
+      "weightedOITPass": "false",
+      "temporalAA": "taau",
+      "resolutionScale": "0.66",
+      "multisampled": "false",
+      "rendererSamples": "0",
+      "materialAlphaToCoverage": "false",
+      "materialAlphaTest": "0",
+      "materialAlphaHash": "false",
+      "materialTransparent": "false",
+      "materialDepthWrite": "true",
+      "hasAlphaTestNode": "true",
+      "hasColorNode": "true"
+    },
+    "width": 900,
+    "height": 1200,
+    "summary": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.07599358066647786,
+        "rms": 4.287606947767648,
+        "grid": {
+          "score": 0.12226091217920293,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.19175586854460094,
+        "rms": 7.455576737595904,
+        "grid": {
+          "score": 0.06442577639825875,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.10833220908873922,
+        "rms": 5.7548326346116525,
+        "grid": {
+          "score": 0.08920760755626395,
+          "lag": 5,
+          "axis": "y"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.006897160176035871,
+        "rms": 1.6506876429399908,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.003113830824217481,
+        "rms": 1.4022232265524228,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "worst": [
+      {
+        "x": 480,
+        "y": 992,
+        "rms": 11.583042565149729,
+        "grid": {
+          "score": 0.6032559498640649,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.9875393449552945,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 992,
+        "rms": 10.188132149200497,
+        "grid": {
+          "score": 0.6124280817651453,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 6.239498228904667,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 0,
+        "y": 992,
+        "rms": 10.718685605478917,
+        "grid": {
+          "score": 0.534218405433783,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 5.72611913250499,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 992,
+        "rms": 8.677237871252881,
+        "grid": {
+          "score": 0.47413831068564566,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 4.11421090569335,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 64,
+        "y": 992,
+        "rms": 7.542566805881189,
+        "grid": {
+          "score": 0.5164369264996187,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.8952600191473277,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 960,
+        "rms": 10.603352081116096,
+        "grid": {
+          "score": 0.34355046983875287,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 3.642786589333153,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 128,
+        "y": 256,
+        "rms": 11.236498805592806,
+        "grid": {
+          "score": 0.3178451331807659,
+          "lag": 5,
+          "axis": "y"
+        },
+        "score": 3.5714664593491623,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 544,
+        "y": 992,
+        "rms": 7.605455958534726,
+        "grid": {
+          "score": 0.45236001199388887,
+          "lag": 3,
+          "axis": "x"
+        },
+        "score": 3.4404041486217625,
+        "hairShare": 1,
+        "figureShare": 1
+      }
+    ]
+  }
+]

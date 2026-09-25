@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {unpackHalfReadback,auditHalf} from './half-audit.mjs';
+const width=3,height=2,row=width*4,stride=128;
+const input=new Uint16Array(stride+row).fill(0x7e01);
+input.fill(0x3c00,0,row);input.fill(0x3800,stride,stride+row);
+const packed=unpackHalfReadback(input,width,height);
+assert.equal(packed.strideBytes,256);assert.equal(packed.paddingBytes,232);
+const a=auditHalf(packed.data,width,height,{x0:0,x1:width,y0:0,y1:height});
+assert.equal(a.whole.nan,0);assert.equal(a.whole.redMean,.75);
+input[stride+4]=0x7e01;
+assert.equal(auditHalf(unpackHalfReadback(input,width,height).data,width,height,{x0:0,x1:width,y0:0,y1:height}).whole.nan,1);
+const aligned=new Uint16Array(32*2*4);
+assert.equal(unpackHalfReadback(aligned,32,2).data,aligned);
+assert.throws(()=>unpackHalfReadback(input.subarray(1),width,height));
+console.log('PASS: aligned/padded binary16 rows, NaN padding excluded, actual pixel NaN retained, invalid length rejected.');

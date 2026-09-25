@@ -466,30 +466,68 @@ All GPU jobs have exited. No dependency, renderer source, asset, calibration or 
 changed; no full suite, real-groom geometry, motion, build or cost qualification is claimed.
 The four existing red gates remain open. The read-only Blender mount remains available.
 
+## Tenth experiment: lock-copy runtime checks — rejected for promotion
+
+Starting from clean `9851db1`, exact identity and `copy-lock` served responses were tested on
+shipping bob01/g050 with shared coverage and default TAAU scale 0.66. **Do not promote the
+correction.** Its lock history is delivered correctly, but tip speckle worsens from 7.12% to
+7.60%. Cheek speckle changes from 19.23% to 19.18%; portrait curtain transmission decreases from
+0.543930 to 0.532372. All three existing T1/T2/C4 clauses remain red. Independent detached/hidden
+opacity controls pass; rear C4 still has zero eligible pixels and is not a pass.
+
+The four final WebGPU runs repeat all 26 pilot PNGs, six measurement files and every native
+buffer/copy record exactly. Identity reproduces the shipping baseline's 13 images and three
+measurement files. Geometry rasters and all final mask membership match bit-for-bit between
+arms in tips and both opacity views. Native capture-point audits verify actual TAAU ownership,
+exact routes, fixed frame clocks, finite RGBA16F data and bit-identical color/lock history copies.
+Candidate lock means are positive; identity lock history remains zero. These are 38 capture
+snapshots per pass, not a claim about every convergence draw.
+
+The first instrumentation attempt caught 224 bytes of readback padding per 900-wide RGBA16F row.
+A tested unpacker now excludes padding while retaining planted pixel NaNs. That failed attempt
+is archived as an instrument error, not a quality result. No production code changed.
+
+Ordinary front/rear hair and bald plates and worst-hair crops retain slabs, crown openings,
+layered edges and tip stipple. No clear visual improvement offsets the T1 regression. Changes
+also reach the body and boundaries: portrait hair differs at 77,671 pixels (RGB RMS 0.934256,
+maximum channel difference 103), including 1,892 stable-skin pixels; the excluded stability
+boundary changes at 2,112 pixels. Portrait/rear bald images change too. Image differences are
+not temporal-noise or motion measurements. The confirmed delivery defect remains unresolved;
+this rejected promotion does not imply its history should intentionally stay broken.
+
+The [runtime evidence](evidence/hair-2026-09-25/lock-runtime/) preserves exact served code,
+26 plates, compressed geometry/masks, native records, repeats, hashes and replay instructions.
+All GPU jobs have exited. Accepted assets, materials, calibration, renderer source, installed
+dependencies and thresholds remain unchanged. No full suite, build, new geometry, motion or cost
+qualification was warranted or claimed. All four existing red gates remain open; the read-only
+Blender mount remains available until the morning checkpoint.
+
 ## Remaining work and next bounded step
 
-Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
-rejected double-density crop, rest-position phase, scene-scale-one or inner-phase experiments.
-Fixed phases, distinct temporal rates alone, and swapped spatial fields (with either temporal
-choice) are now rejected in the controlled fixture. Do not rerun these candidates on the groom.
+Preserve accepted geometry, shipping TAAU scale and all appearance thresholds. Do not repeat the
+rejected double-density crop, rest-position phase, scene-scale-one, inner-phase, distinct-rate
+or swapped-field candidates. Native finiteness and missing lock delivery have been audited;
+do not repeat these as open hypotheses or add a speculative denominator guard. The lock-copy
+runtime comparison is now complete and rejects promotion on static appearance. Do not spend the
+next bite on its motion qualification or stack it into another candidate.
 
-Native-state finiteness and lock delivery are now audited; do not repeat them as open hypotheses
-or insert a speculative denominator guard. Next **qualify the isolated lock-copy correction on
-the shipping runtime groom**, using the archived `lock-wiring/route.mjs` with exact identity and
-`copy-lock` responses. This advances the confirmed delivery correction, not the rejected sampler.
-Keep accepted bob01/g050 geometry, shipping coverage rule, materials, calibration, clock and
-default TAAU scale 0.66 fixed. Do not stack swapped spatial fields or distinct card rates into it.
+Next isolate a **counter-based per-card coverage sampler in the constant-alpha fixture**. This
+is a new mechanism control for the confirmed shared-threshold correlation, not a groom change.
+Use an explicit stable card ID attribute (constant across a card's vertices), pixel coordinates
+and renderer frame counter as integer-hash inputs. Avoid deriving identity from deformed or rest
+positions, triangle order, material draw order or a constant offset to the old golden sequence.
+Prove the assigned IDs survive separate/merged geometry and reversed order in the fixture.
+No production sampler or shipped geometry should change yet.
 
-Start with serial tip and independent opacity probes plus ordinary plates. Verify the served
-route, live two-attachment resolve and lock-history delivery on the real runtime, and reproduce
-the identity baseline. Compare complete images, including body and boundaries, as well as the
-existing masks and detached/hidden controls. Explicitly retain any failures. Keep dependencies
-and renderer sources unchanged until this exact output has relevant qualification; the fixture's
-delivery proof does not establish motion quality, performance or general image quality.
+Begin with a bounded raw-versus-shipping-TAAU pilot, original shared-field controls, two phases,
+absent/zero/opaque/depth controls and independent sorted-blend references. Keep the original
+TAAU module, scale 0.66, fixed geometry mask and zero-second frame clock. Check spatial and
+per-pixel temporal means, noise and ordinary whole-frame plates; a correct global average alone
+is not independence or quality. Only extend to the existing 512-frame comparison if the pilot
+is valid and the remaining window permits. Record negative results; do not tune thresholds to
+fit the candidate. Any groom use still requires a stable topology/solver identity design and
+its own geometry, real GPU and visual qualification. Preserve the broader HairMaterial and
+clearance/coverage/coherence backlog; do not revisit rejected depth/disocclusion changes.
 
-If real-groom results warrant proceeding, the correction still needs relevant temporal-AA and
-HairOIT phase/order/motion checks before promotion. Preserve the broader four-gate backlog. Any
-future independent per-card sampler also needs a stable topology/solver identifier, without
-rest-position inference or shipped geometry changes, and its own fixture success before a groom
-candidate. Do not revisit rejected depth/disocclusion changes. Check the 08:00 Pacific deadline
-and final-wake rule before each substantial step; pause at the morning checkpoint.
+Check the 08:00 Pacific deadline and final-wake rule before each substantial step. At the morning
+checkpoint, collect jobs, detach the isolated Blender mount and pause the automation.

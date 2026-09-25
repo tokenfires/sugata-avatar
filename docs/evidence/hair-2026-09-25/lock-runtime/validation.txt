@@ -1,0 +1,132 @@
+PASS: source hashes, exact routes, native finite/copy delivery, 24-step clocks, all pilot results, shipping baselines and geometry/mask membership verified.
+{
+  "repeatedFiles": 32,
+  "baselineFiles": 16,
+  "maskComparisons": [
+    {
+      "probe": "tips",
+      "view": "stochastic",
+      "rasterSHA256": "49023e40ea38aacf436f9f0d689c05544d996b7c4324ac7454b02f8e54c7d50e",
+      "regionSHA256": "a2ab51ac823ff00604e8475a31307f5b2df369e5e2c57da0f74404053162117a",
+      "exactMembership": true
+    },
+    {
+      "probe": "opacity",
+      "view": "portrait",
+      "rasterSHA256": "44e5bcc69d6cc6b762247cc7c8c2ebb8b0afcb74e558ba96cfff9d685966ca5a",
+      "regionSHA256": "8e9a5c64aa63c546f5832f6aa867a4dea7244291bd39edf4513810fe5e220abf",
+      "exactMembership": true
+    },
+    {
+      "probe": "opacity",
+      "view": "rear34",
+      "rasterSHA256": "44cd4a3d609493881df6fad9a6b6c98edfd999f9e6c0cd184b6e001155809f06",
+      "regionSHA256": "34fe8f06f2cdbd9e4e58423ee15d87f84e91595f408214ecba668de6f8c4b858",
+      "exactMembership": true
+    }
+  ],
+  "imageComparisons": [
+    {
+      "probe": "tips",
+      "file": "stochastic.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 77671,
+          "rmsCodeValues": 0.934255827178661,
+          "maxCodeValues": 103
+        },
+        "tips": {
+          "pixels": 10593,
+          "changedPixels": 1522,
+          "rmsCodeValues": 0.700949893368275,
+          "maxCodeValues": 15
+        },
+        "curtain": {
+          "pixels": 53250,
+          "changedPixels": 6735,
+          "rmsCodeValues": 1.7450955195796487,
+          "maxCodeValues": 65
+        },
+        "mass": {
+          "pixels": 192722,
+          "changedPixels": 36216,
+          "rmsCodeValues": 1.8682336321641546,
+          "maxCodeValues": 77
+        },
+        "skin": {
+          "pixels": 385376,
+          "changedPixels": 1892,
+          "rmsCodeValues": 0.30740135358121706,
+          "maxCodeValues": 103
+        },
+        "backdrop": {
+          "pixels": 221592,
+          "changedPixels": 0,
+          "rmsCodeValues": 0,
+          "maxCodeValues": 0
+        },
+        "stable": {
+          "pixels": 1057543,
+          "changedPixels": 75559,
+          "rmsCodeValues": 0.9367123587493181,
+          "maxCodeValues": 103
+        },
+        "boundary": {
+          "pixels": 22457,
+          "changedPixels": 2112,
+          "rmsCodeValues": 0.8101821923936795,
+          "maxCodeValues": 47
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "portrait-hair.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 77671,
+          "rmsCodeValues": 0.934255827178661,
+          "maxCodeValues": 103
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "portrait-bald.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 16302,
+          "rmsCodeValues": 0.27888667551135854,
+          "maxCodeValues": 58
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "rear34-hair.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 81763,
+          "rmsCodeValues": 0.5601460347506831,
+          "maxCodeValues": 54
+        }
+      }
+    },
+    {
+      "probe": "opacity",
+      "file": "rear34-bald.png",
+      "regions": {
+        "whole": {
+          "pixels": 1080000,
+          "changedPixels": 36267,
+          "rmsCodeValues": 0.1793988590189022,
+          "maxCodeValues": 37
+        }
+      }
+    }
+  ]
+}

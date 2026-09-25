@@ -1,0 +1,46 @@
+--- tools/figure-pipeline/hair_tips.mjs
++++ tmp/hair-sep25/lock-runtime/tips.mjs
+@@ -1,0 +2 @@
++import { install, saveMasks } from './candidate.mjs';
+@@ -109 +110 @@
+-const REPO_ROOT = path.resolve(HERE, '..', '..');
++const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
+@@ -267,0 +269 @@
++  fs.writeFileSync(path.join(options.out, 'measurements.json'), JSON.stringify(measured,null,2)+'\n');
+@@ -321,0 +324 @@
++  saveMasks(options.out, arm, raster, { ...regions, stable });
+@@ -842 +845,4 @@
+-
++  page.on('console', message => { if (message.type()==='error' && !message.text().startsWith('Failed to load resource')) problems.push(message.text()); });
++  page.on('response', response => { if (response.status()>=400 && !response.url().endsWith('/favicon.ico')) problems.push(response.status()+' '+response.url()); });
++
++  const check = await install(page, parseArguments(process.argv.slice(2)).out);
+@@ -851,0 +858,2 @@
++  await check();
++  page.__lockProblems = problems;
+@@ -862,0 +871,2 @@
++  await page.__auditLock(file);
++  if (page.__lockProblems?.length) throw Error(page.__lockProblems.join('\n'));
+--- tools/figure-pipeline/hair_opacity.mjs
++++ tmp/hair-sep25/lock-runtime/opacity.mjs
+@@ -1,0 +2 @@
++import { install, saveMasks } from './candidate.mjs';
+@@ -93 +94 @@
+-const REPO_ROOT = path.resolve(HERE, '..', '..');
++const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
+@@ -318,0 +320 @@
++      fs.writeFileSync(path.join(options.out, view.name+'-measurements.json'), JSON.stringify(measured,null,2)+'\n');
+@@ -450,0 +453 @@
++  saveMasks(options.out, view.name, raster, { footprint, outside, mass, overFace, curtain, noInterior, carriesStep });
+@@ -974 +977,4 @@
+-
++  page.on('console', message => { if (message.type()==='error' && !message.text().startsWith('Failed to load resource')) problems.push(message.text()); });
++  page.on('response', response => { if (response.status()>=400 && !response.url().endsWith('/favicon.ico')) problems.push(response.status()+' '+response.url()); });
++
++  const check = await install(page, parseArguments(process.argv.slice(2)).out);
+@@ -983,0 +990,2 @@
++  await check();
++  page.__lockProblems = problems;
+@@ -999,0 +1008,2 @@
++  await page.__auditLock(file);
++  if (page.__lockProblems?.length) throw Error(page.__lockProblems.join('\n'));
