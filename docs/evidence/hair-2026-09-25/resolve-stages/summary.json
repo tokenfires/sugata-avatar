@@ -1,0 +1,891 @@
+{
+  "baseCommit": "1d680b5f240e3b3f4346c154081d69b4df96652d",
+  "sourceSHA256": {
+    "packages/core/src/render/HairOIT.js": "b0b9634e1da7aa5c33225dfb42063702435aaa9af22150f0e95f5d3c2c387a15",
+    "packages/core/src/render/Stage.js": "75408b157fe12286c04d9d327bf7e313bfe65f9c349780506da3f48096386295",
+    "packages/core/src/render/GBuffer.js": "24c8bca4c6764879bac3b8d339cf2688b492927494624edb6ed8b55d1f0d4774",
+    "packages/core/src/render/TRAAPost.js": "b4617390f68eea9f76f21cebebb040f81af69bca710c7e71aebab1c572b4ac54",
+    "assets/hair/bob01/g050.glb": "d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7",
+    "node_modules/three/examples/jsm/tsl/display/TAAUNode.js": "ddc9d1eaa318dd45629799c48af6f7388b31edd9ad5e6648a4004fdead48d250",
+    "node_modules/three/src/nodes/math/Hash.js": "4e7b7268a22ed74b5dcb9a53dc8b0e6580bd3fd350d8e12e1a7b957e375f6a6d",
+    "tmp/hair-sep25/resolve-stages/route.mjs": "3878a001b0a93df95721240e19c2f729dc2e5b136140385669e28b53389f54c7",
+    "tmp/hair-sep25/resolve-stages/sampler.js": "d3408e5380e49514bb353ce3808940f213f39c727191472f953506e1305f4733",
+    "tmp/hair-sep25/resolve-stages/half-audit.mjs": "99a11bc48efb43d6a40dfa32f9c0662f50ad3a572a15f51cebe32aae0e9c6bd4",
+    "tmp/hair-sep25/resolve-stages/fixture.js": "0b93b29d0879ef479c3ee38a2b6fe357f97bd8298580a19f745e199cc89e8b4c",
+    "tmp/hair-sep25/resolve-stages/capture.mjs": "e53da7eca93beebb89acc40b68cdb8d70317af80b50459d42e4bad1ad2804c14"
+  },
+  "cases": 48,
+  "framesPerCase": 512,
+  "pilotCases": 48,
+  "instrumentEquivalences": [
+    {
+      "case": "current-taau-shared-half-p0",
+      "identity": "identity-taau-shared-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-counter-half-p0",
+      "identity": "identity-taau-counter-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-counter-half-p977",
+      "identity": "identity-taau-counter-half-p977",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-counter-quarter-p0",
+      "identity": "identity-taau-counter-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-empty-p0",
+      "identity": "identity-taau-empty-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-opaque-pair-p0",
+      "identity": "identity-taau-opaque-pair-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-blend-half-p0",
+      "identity": "identity-taau-blend-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "current-taau-blend-quarter-p0",
+      "identity": "identity-taau-blend-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-shared-half-p0",
+      "identity": "identity-taau-shared-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-counter-half-p0",
+      "identity": "identity-taau-counter-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-counter-half-p977",
+      "identity": "identity-taau-counter-half-p977",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-counter-quarter-p0",
+      "identity": "identity-taau-counter-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-empty-p0",
+      "identity": "identity-taau-empty-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-opaque-pair-p0",
+      "identity": "identity-taau-opaque-pair-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-blend-half-p0",
+      "identity": "identity-taau-blend-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "mean-taau-blend-quarter-p0",
+      "identity": "identity-taau-blend-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-shared-half-p0",
+      "identity": "identity-taau-shared-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-counter-half-p0",
+      "identity": "identity-taau-counter-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-counter-half-p977",
+      "identity": "identity-taau-counter-half-p977",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-counter-quarter-p0",
+      "identity": "identity-taau-counter-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-empty-p0",
+      "identity": "identity-taau-empty-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-opaque-pair-p0",
+      "identity": "identity-taau-opaque-pair-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-blend-half-p0",
+      "identity": "identity-taau-blend-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "history-taau-blend-quarter-p0",
+      "identity": "identity-taau-blend-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-shared-half-p0",
+      "identity": "identity-taau-shared-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-counter-half-p0",
+      "identity": "identity-taau-counter-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-counter-half-p977",
+      "identity": "identity-taau-counter-half-p977",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-counter-quarter-p0",
+      "identity": "identity-taau-counter-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-empty-p0",
+      "identity": "identity-taau-empty-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-opaque-pair-p0",
+      "identity": "identity-taau-opaque-pair-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-blend-half-p0",
+      "identity": "identity-taau-blend-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "clipped-taau-blend-quarter-p0",
+      "identity": "identity-taau-blend-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-shared-half-p0",
+      "identity": "identity-taau-shared-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-counter-half-p0",
+      "identity": "identity-taau-counter-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-counter-half-p977",
+      "identity": "identity-taau-counter-half-p977",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-counter-quarter-p0",
+      "identity": "identity-taau-counter-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-empty-p0",
+      "identity": "identity-taau-empty-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-opaque-pair-p0",
+      "identity": "identity-taau-opaque-pair-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-blend-half-p0",
+      "identity": "identity-taau-blend-half-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    },
+    {
+      "case": "locked-taau-blend-quarter-p0",
+      "identity": "identity-taau-blend-quarter-p0",
+      "frames": 512,
+      "nativeRGBAHashesEqual": true,
+      "pixelMeansAndImagesEqual": true
+    }
+  ],
+  "priorIdentity": [
+    {
+      "case": "identity-taau-shared-half-p0",
+      "priorCase": "taau-shared-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-counter-half-p0",
+      "priorCase": "taau-counter-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-counter-half-p977",
+      "priorCase": "taau-counter-half-p977",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-counter-quarter-p0",
+      "priorCase": "taau-counter-quarter-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-empty-p0",
+      "priorCase": "taau-empty-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-opaque-pair-p0",
+      "priorCase": "taau-opaque-pair-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-blend-half-p0",
+      "priorCase": "taau-blend-half-p0",
+      "frames": 512,
+      "exact": true
+    },
+    {
+      "case": "identity-taau-blend-quarter-p0",
+      "priorCase": "taau-blend-quarter-p0",
+      "frames": 512,
+      "exact": true
+    }
+  ],
+  "rows": [
+    {
+      "case": "shared-half-p0",
+      "independentReference": 0.25,
+      "tailMeans": {
+        "current": 0.4998141179735564,
+        "mean": 0.4997545167499659,
+        "history": 0.48122111175741467,
+        "clipped": 0.48122111175741467,
+        "locked": 0.48122111175741467,
+        "output": 0.4812187774448979
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0,
+        "lockedMinusClipped": 0.0,
+        "outputMinusLocked": -2.3343125168133125e-06,
+        "lockedMinusHistory": 0.0,
+        "historyMinusPreviousOutput": 2.966243393564931e-06
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.49928489023325395,
+          "mean": 0.49918163066007654,
+          "history": 0.49956500773527185,
+          "clipped": 0.49955502821474657,
+          "locked": 0.49956500773527185,
+          "output": 0.49931938307625906
+        },
+        {
+          "frameId": 2,
+          "current": 0.49998126224595674,
+          "mean": 0.4999418647921815,
+          "history": 0.4993839458543427,
+          "clipped": 0.49938337170347874,
+          "locked": 0.49938337170347874,
+          "output": 0.49850358281816753
+        },
+        {
+          "frameId": 24,
+          "current": 0.5006580936665438,
+          "mean": 0.5004546107078085,
+          "history": 0.48954626978660115,
+          "clipped": 0.48954626978660115,
+          "locked": 0.48954626978660115,
+          "output": 0.4892824523302974
+        },
+        {
+          "frameId": 128,
+          "current": 0.4993602061758236,
+          "mean": 0.4992523971869021,
+          "history": 0.48157707525759325,
+          "clipped": 0.48157707525759325,
+          "locked": 0.48157707525759325,
+          "output": 0.48155370050547075
+        },
+        {
+          "frameId": 512,
+          "current": 0.5008652307549302,
+          "mean": 0.500755348984076,
+          "history": 0.48117067375961614,
+          "clipped": 0.48117067375961614,
+          "locked": 0.48117067375961614,
+          "output": 0.4812076529678033
+        }
+      ]
+    },
+    {
+      "case": "counter-half-p0",
+      "independentReference": 0.25,
+      "tailMeans": {
+        "current": 0.25010285313001823,
+        "mean": 0.2501641566656074,
+        "history": 0.06044127600019849,
+        "clipped": 0.05803500723480711,
+        "locked": 0.05619779845051664,
+        "output": 0.06038659449323136
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": -0.0024062687653913966,
+        "lockedMinusClipped": -0.0018372087842904795,
+        "outputMinusLocked": 0.004188796042714728,
+        "lockedMinusHistory": -0.004243477549681875,
+        "historyMinusPreviousOutput": 3.014885471796223e-06
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.24988036348997633,
+          "mean": 0.24875199064916495,
+          "history": 0.25008993732685947,
+          "clipped": 0.23900822230747767,
+          "locked": 0.25008993732685947,
+          "output": 0.24992898819797046
+        },
+        {
+          "frameId": 2,
+          "current": 0.24226582854301953,
+          "mean": 0.2407286313115334,
+          "history": 0.24963174849672584,
+          "clipped": 0.21616143873436566,
+          "locked": 0.21616143873436566,
+          "output": 0.215583939014991
+        },
+        {
+          "frameId": 24,
+          "current": 0.22989716045368386,
+          "mean": 0.22893615644805285,
+          "history": 0.07535966041935038,
+          "clipped": 0.06843181284220547,
+          "locked": 0.06742777552797782,
+          "output": 0.07096900901643141
+        },
+        {
+          "frameId": 128,
+          "current": 0.24223632971300002,
+          "mean": 0.24268599918910436,
+          "history": 0.06159712273000302,
+          "clipped": 0.058863376671144246,
+          "locked": 0.05694103613495827,
+          "output": 0.060933288932796946
+        },
+        {
+          "frameId": 512,
+          "current": 0.24327369391614076,
+          "mean": 0.24386454601677096,
+          "history": 0.05898821343458733,
+          "clipped": 0.055368511628701676,
+          "locked": 0.053917650907889615,
+          "output": 0.058116396618246725
+        }
+      ]
+    },
+    {
+      "case": "counter-half-p977",
+      "independentReference": 0.25,
+      "tailMeans": {
+        "current": 0.24952855143337915,
+        "mean": 0.24964989204795998,
+        "history": 0.060025481499089456,
+        "clipped": 0.057635332302995765,
+        "locked": 0.0558548365723774,
+        "output": 0.06003966223148865
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": -0.0023901491960937066,
+        "lockedMinusClipped": -0.001780495730618358,
+        "outputMinusLocked": 0.004184825659111233,
+        "lockedMinusHistory": -0.004170644926712062,
+        "historyMinusPreviousOutput": 2.1530959573428385e-06
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.25145542290898004,
+          "mean": 0.2520625445307518,
+          "history": 0.2511438642229353,
+          "clipped": 0.2415948181736226,
+          "locked": 0.2511438642229353,
+          "output": 0.2509972090044116
+        },
+        {
+          "frameId": 2,
+          "current": 0.25588739500856217,
+          "mean": 0.25545470568598533,
+          "history": 0.2512725285225909,
+          "clipped": 0.2214215284745608,
+          "locked": 0.2214215284745608,
+          "output": 0.22097232815695508
+        },
+        {
+          "frameId": 24,
+          "current": 0.2488330551708231,
+          "mean": 0.24802429822026467,
+          "history": 0.08059825579996924,
+          "clipped": 0.0769038746009904,
+          "locked": 0.07484381274339191,
+          "output": 0.07863071687728623
+        },
+        {
+          "frameId": 128,
+          "current": 0.2510576657808329,
+          "mean": 0.25116830942582113,
+          "history": 0.058096170453924914,
+          "clipped": 0.05602181694774451,
+          "locked": 0.05454993940775796,
+          "output": 0.05879754313666906
+        },
+        {
+          "frameId": 512,
+          "current": 0.2631876773286459,
+          "mean": 0.2631574163631517,
+          "history": 0.061618823063920955,
+          "clipped": 0.0600444687844007,
+          "locked": 0.05775974942751381,
+          "output": 0.06232391151941705
+        }
+      ]
+    },
+    {
+      "case": "counter-quarter-p0",
+      "independentReference": 0.5625,
+      "tailMeans": {
+        "current": 0.5622736336247596,
+        "mean": 0.5620242339007708,
+        "history": 0.5940281965029461,
+        "clipped": 0.5947622468284326,
+        "locked": 0.596070355108502,
+        "output": 0.5939233651565422
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0007340503254862577,
+        "lockedMinusClipped": 0.0013081082800695532,
+        "outputMinusLocked": -0.0021469899519597317,
+        "lockedMinusHistory": 0.002042158605555811,
+        "historyMinusPreviousOutput": 3.96432206259921e-06
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.557978635539814,
+          "mean": 0.5565611391651387,
+          "history": 0.5583440430310308,
+          "clipped": 0.561535932579819,
+          "locked": 0.5583440430310308,
+          "output": 0.5580861793156258
+        },
+        {
+          "frameId": 2,
+          "current": 0.5538553259934166,
+          "mean": 0.5526635500849509,
+          "history": 0.5579360978706379,
+          "clipped": 0.5643335403351836,
+          "locked": 0.5643335403351836,
+          "output": 0.5625740558013548
+        },
+        {
+          "frameId": 24,
+          "current": 0.5501539400417585,
+          "mean": 0.549006715112803,
+          "history": 0.5859399036485322,
+          "clipped": 0.5855501623140001,
+          "locked": 0.5873002519983114,
+          "output": 0.5849837186955371
+        },
+        {
+          "frameId": 128,
+          "current": 0.5616422257082042,
+          "mean": 0.5630745595815231,
+          "history": 0.588475378192201,
+          "clipped": 0.5896993413453504,
+          "locked": 0.5909107948026183,
+          "output": 0.5889099374299451
+        },
+        {
+          "frameId": 512,
+          "current": 0.5566372782590666,
+          "mean": 0.5562549902468311,
+          "history": 0.592897711972687,
+          "clipped": 0.5928267070700471,
+          "locked": 0.594432368617961,
+          "output": 0.5920783695384708
+        }
+      ]
+    },
+    {
+      "case": "empty-p0",
+      "independentReference": 1,
+      "tailMeans": {
+        "current": 0.999983962093081,
+        "mean": 1.0,
+        "history": 0.9999998807907103,
+        "clipped": 0.9999998807907103,
+        "locked": 0.9999998807907103,
+        "output": 0.9999995474912681
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0,
+        "lockedMinusClipped": 0.0,
+        "outputMinusLocked": -3.3329944221574537e-07,
+        "lockedMinusHistory": 0.0,
+        "historyMinusPreviousOutput": 3.3329944221574537e-07
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.9999858700499242,
+          "mean": 1,
+          "history": 1,
+          "clipped": 1,
+          "locked": 1,
+          "output": 1
+        },
+        {
+          "frameId": 2,
+          "current": 0.9999832231171277,
+          "mean": 1,
+          "history": 1,
+          "clipped": 1,
+          "locked": 1,
+          "output": 1
+        },
+        {
+          "frameId": 24,
+          "current": 0.9999857532734774,
+          "mean": 1,
+          "history": 1,
+          "clipped": 1,
+          "locked": 1,
+          "output": 1
+        },
+        {
+          "frameId": 128,
+          "current": 0.9999906968097297,
+          "mean": 1,
+          "history": 1,
+          "clipped": 1,
+          "locked": 1,
+          "output": 0.9999954067930883
+        },
+        {
+          "frameId": 512,
+          "current": 0.9999845855090083,
+          "mean": 1,
+          "history": 1,
+          "clipped": 1,
+          "locked": 1,
+          "output": 1
+        }
+      ]
+    },
+    {
+      "case": "opaque-pair-p0",
+      "independentReference": 0,
+      "tailMeans": {
+        "current": 0.0,
+        "mean": 0.0,
+        "history": 0.0,
+        "clipped": 0.0,
+        "locked": 0.0,
+        "output": 0.0
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0,
+        "lockedMinusClipped": 0.0,
+        "outputMinusLocked": 0.0,
+        "lockedMinusHistory": 0.0,
+        "historyMinusPreviousOutput": 0.0
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0,
+          "mean": 0,
+          "history": 0,
+          "clipped": 0,
+          "locked": 0,
+          "output": 0
+        },
+        {
+          "frameId": 2,
+          "current": 0,
+          "mean": 0,
+          "history": 0,
+          "clipped": 0,
+          "locked": 0,
+          "output": 0
+        },
+        {
+          "frameId": 24,
+          "current": 0,
+          "mean": 0,
+          "history": 0,
+          "clipped": 0,
+          "locked": 0,
+          "output": 0
+        },
+        {
+          "frameId": 128,
+          "current": 0,
+          "mean": 0,
+          "history": 0,
+          "clipped": 0,
+          "locked": 0,
+          "output": 0
+        },
+        {
+          "frameId": 512,
+          "current": 0,
+          "mean": 0,
+          "history": 0,
+          "clipped": 0,
+          "locked": 0,
+          "output": 0
+        }
+      ]
+    },
+    {
+      "case": "blend-half-p0",
+      "independentReference": 0.25,
+      "tailMeans": {
+        "current": 0.24999599052327026,
+        "mean": 0.25,
+        "history": 0.24999997445515224,
+        "clipped": 0.24999997445515224,
+        "locked": 0.24999997445515224,
+        "output": 0.24999988565639572
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0,
+        "lockedMinusClipped": 0.0,
+        "outputMinusLocked": -8.879875650243119e-08,
+        "lockedMinusHistory": 0.0,
+        "historyMinusPreviousOutput": 8.879875650243119e-08
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.24999646751248106,
+          "mean": 0.25,
+          "history": 0.25,
+          "clipped": 0.25,
+          "locked": 0.25,
+          "output": 0.25
+        },
+        {
+          "frameId": 2,
+          "current": 0.24999580577928193,
+          "mean": 0.25,
+          "history": 0.25,
+          "clipped": 0.25,
+          "locked": 0.25,
+          "output": 0.25
+        },
+        {
+          "frameId": 24,
+          "current": 0.24999643831836935,
+          "mean": 0.25,
+          "history": 0.25,
+          "clipped": 0.25,
+          "locked": 0.25,
+          "output": 0.25
+        },
+        {
+          "frameId": 128,
+          "current": 0.24999767420243243,
+          "mean": 0.25,
+          "history": 0.25,
+          "clipped": 0.25,
+          "locked": 0.25,
+          "output": 0.2499988419669015
+        },
+        {
+          "frameId": 512,
+          "current": 0.24999614637725207,
+          "mean": 0.25,
+          "history": 0.25,
+          "clipped": 0.25,
+          "locked": 0.25,
+          "output": 0.25
+        }
+      ]
+    },
+    {
+      "case": "blend-quarter-p0",
+      "independentReference": 0.5625,
+      "tailMeans": {
+        "current": 0.562378441192666,
+        "mean": 0.5625,
+        "history": 0.56201171875,
+        "clipped": 0.56201171875,
+        "locked": 0.56201171875,
+        "output": 0.56201171875
+      },
+      "tailTransitions": {
+        "clippedMinusHistory": 0.0,
+        "lockedMinusClipped": 0.0,
+        "outputMinusLocked": 0.0,
+        "lockedMinusHistory": 0.0,
+        "historyMinusPreviousOutput": 0.0
+      },
+      "stageCheckpoints": [
+        {
+          "frameId": 1,
+          "current": 0.5623820947141064,
+          "mean": 0.5625,
+          "history": 0.5625,
+          "clipped": 0.5625,
+          "locked": 0.5625,
+          "output": 0.56201171875
+        },
+        {
+          "frameId": 2,
+          "current": 0.5623851698272082,
+          "mean": 0.5625,
+          "history": 0.56201171875,
+          "clipped": 0.56201171875,
+          "locked": 0.56201171875,
+          "output": 0.56201171875
+        },
+        {
+          "frameId": 24,
+          "current": 0.5623713512809909,
+          "mean": 0.5625,
+          "history": 0.56201171875,
+          "clipped": 0.56201171875,
+          "locked": 0.56201171875,
+          "output": 0.56201171875
+        },
+        {
+          "frameId": 128,
+          "current": 0.5623743096176459,
+          "mean": 0.5625,
+          "history": 0.56201171875,
+          "clipped": 0.56201171875,
+          "locked": 0.56201171875,
+          "output": 0.56201171875
+        },
+        {
+          "frameId": 512,
+          "current": 0.5623709231006856,
+          "mean": 0.5625,
+          "history": 0.56201171875,
+          "clipped": 0.56201171875,
+          "locked": 0.56201171875,
+          "output": 0.56201171875
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Observations preserve full native RGBA resolve bytes at every frame; no candidate repair.",
+    "Only diagnostic RGB is observed; auxiliary alpha is fixed at one to avoid the rejected vec4-observation alpha perturbation.",
+    "Per-frame full-component native finiteness and native color hashes; history-copy/format topology checks at 24/128/512.",
+    "Frame one is seeded with the beauty sample for all diagnostic fields and is excluded from last-64 analysis.",
+    "Static constant-alpha fixture on shipping TAAU scale .66; original shared field or rejected counter sampler, no groom or motion acceptance.",
+    "Stage mean changes locate observed adjustments, not a counterfactual proof that disabling an operation will repair quality.",
+    "Diagnostic color image conversion clips to [0,1] and quantizes; native values are the authority."
+  ]
+}

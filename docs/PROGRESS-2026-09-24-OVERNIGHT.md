@@ -544,6 +544,40 @@ replay checks. All GPU jobs exited serially; no full suite, build, real-groom, m
 acceptance was warranted or claimed. The four production gates stay red. The read-only Blender
 mount remains available until the morning checkpoint.
 
+## Twelfth experiment: observe native accumulation without changing feedback
+
+Starting from clean `1d680b5`, six isolated served-source arms observe existing current color,
+neighborhood mean, sampled history, clipped history and locked history against unchanged source.
+An extra RGBA16F attachment carries diagnostic RGB; original color feedback and missing lock
+delivery remain unchanged. **The instrument qualifies; this is attribution, not a shipping fix.**
+
+The first full-vec4 instrument changed 386 native alpha components in its shared-half frame-24
+audit despite identical ordinary RGB. That observation was rejected. Fixed auxiliary alpha
+removes the measured perturbation: all 40 final observer cases exactly match identity's full
+native RGBA resolve hashes every frame, ordinary measurements, per-pixel temporal means and
+checkpoint images. All 48 cases complete 512 frames on Apple WebGPU; all 48 corrected pilots and
+eight preceding identity controls repeat exactly. Endpoint/blend, source-route, native finiteness
+and color-history copy checks pass. Original lock history remains zero.
+
+For the phase-zero counter half pair, reconstructed current and neighborhood means are 0.250103
+and 0.250164, near the independent 0.25 reference. Sampled history is already 0.060441; clipping
+reduces it to 0.058035 and lock selection to 0.056198 before new-sample blending yields 0.060387.
+The second phase repeats the direction. Quarter pairs retain current/mean near 0.5625 but those
+same stages push sampled history 0.594028 to 0.594762 and 0.596070 before output 0.593923.
+Sampled-history means differ from preceding-output means by only 0.000002–0.000004 here.
+
+These measurements locate net adjustments that oppose the incoming correct average. They do
+not establish that bypassing either stage will qualify quality; weights vary by pixel and the
+history is recursive. Ordinary output remains exactly unchanged, including dark half-pair
+mottling and bright quarter-pair specks. No source, dependency, accepted groom, calibration,
+material or threshold changes. All four quality gates remain open.
+
+The [resolve-stage archive](evidence/hair-2026-09-25/resolve-stages/) retains 264 final PNGs,
+complete frame/native records, exact modules, rejected instrument evidence, binary16 audits,
+hashes and replay checks. All GPU jobs have exited and their results are collected. No full
+suite, build, real-groom, motion or cost qualification is claimed. Robert checked in during
+this bite; the morning checkpoint and existing 08:00 stop remain in force.
+
 ## Remaining work and next bounded step
 
 Preserve accepted geometry, shipping TAAU scale and all appearance thresholds. Do not repeat the
@@ -552,23 +586,20 @@ swapped-field or runtime lock-copy candidates. Native finiteness and missing loc
 already audited. The counter sampler has now passed its raw mechanism controls and failed after
 shipping TAAU; do not rerun it on the groom or promote it based on raw statistics.
 
-Next **attribute the resolved bias to an internal accumulation stage**, using the now-verified
-constant-alpha counter fixture and exact original shared-field controls. Keep original TAAU
-arithmetic, depth/disocclusion rules, missing lock copy, scale 0.66 and all coverage inputs fixed.
-A bounded diagnostic route can add a third RGBA16F resolve attachment carrying one existing
-intermediate at a time: reconstructed current color, neighborhood mean, clipped history or
-locked history. Keep normal color and lock output in their original slots and continue copying
-only original color into history. This is observation, not a candidate renderer repair.
+Next **test clipping and lock selection separately with bounded causal ablations** in the
+verified constant-alpha fixture: original source, bypass clipping only, bypass lock selection
+only. Preserve sampler, card IDs, geometry, scale 0.66, masks, clocks, depth/disocclusion,
+current-frame and flicker weights, and original missing lock copy. Keep shared-field, endpoint
+and independent blend controls alongside both half-pair phases and the quarter pair. Do not
+combine factors or move to the real groom yet. Observed stage adjustments do not already prove
+that either bypass repairs quality.
 
-First require instrumented color traces and whole images to reproduce uninstrumented controls
-exactly; otherwise the diagnostic has changed the system and needs correction. With that control
-valid, compare intermediate spatial/temporal means and ordinary resolved output on half and
-quarter pairs plus original shared/endpoint/blend controls. Audit finite native values and
-readback formats, preserve fixed masks and phase clocks, and run serially. Begin with a short
-pilot; extend only if it answers where the bias first appears and the window permits. A source
-hypothesis about clipping or flicker weighting is not yet an established cause. Do not stack
-speculative guards, lock repair or altered resolve weights, and do not reopen rejected depth or
-disocclusion changes.
+Begin with a short serial GPU pilot and verify exact served routes, native finiteness, actual
+history copies, unchanged identity controls and whole images. Extend only if the experiment is
+informative and the morning window permits. Retain temporal noise and per-pixel distributions,
+not just global averages. Do not relax thresholds, stack speculative guards or repair lock
+delivery in the same experiment. The all-black-neighborhood clipping hypothesis remains a
+hypothesis; rejected depth/disocclusion changes need not be reopened.
 
 Keep the broader HairMaterial and clearance/coverage/coherence backlog explicit. Any future groom
 sampler still needs a stable topology/solver identity design and its own geometry, real GPU,
