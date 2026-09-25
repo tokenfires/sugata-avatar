@@ -1,0 +1,177 @@
+[
+  {
+    "arm": "stochastic",
+    "path": {
+      "hairOITMode": "(no hairOIT on the stage)",
+      "multisampled": "false",
+      "rendererSamples": "0",
+      "materialAlphaToCoverage": "false",
+      "materialAlphaTest": "0",
+      "materialAlphaHash": "false",
+      "materialTransparent": "false",
+      "materialDepthWrite": "true",
+      "hasAlphaTestNode": "true",
+      "hasColorNode": "true"
+    },
+    "width": 900,
+    "height": 1200,
+    "summary": {
+      "tips": {
+        "pixels": 10593,
+        "speckle": 0.25611252714056454,
+        "rms": 8.487906628918743,
+        "grid": {
+          "score": 0.4200946154637151,
+          "lag": 9,
+          "axis": "x"
+        }
+      },
+      "curtain": {
+        "pixels": 53250,
+        "speckle": 0.28499530516431926,
+        "rms": 12.70038284830437,
+        "grid": {
+          "score": 0.4650102843774015,
+          "lag": 3,
+          "axis": "y"
+        }
+      },
+      "mass": {
+        "pixels": 192722,
+        "speckle": 0.179730388850261,
+        "rms": 9.396936204493292,
+        "grid": {
+          "score": 0.5770734118374796,
+          "lag": 9,
+          "axis": "x"
+        }
+      },
+      "skin": {
+        "pixels": 385376,
+        "speckle": 0.00913393672672922,
+        "rms": 2.7881293781650545,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      },
+      "backdrop": {
+        "pixels": 221592,
+        "speckle": 0.002667063792916712,
+        "rms": 0.5160364175629396,
+        "grid": {
+          "score": 0,
+          "lag": 0,
+          "axis": "none"
+        }
+      }
+    },
+    "worst": [
+      {
+        "x": 480,
+        "y": 992,
+        "rms": 24.3355653370732,
+        "grid": {
+          "score": 1.459789736569138,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 35.52480851266713,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 992,
+        "rms": 21.194304460610862,
+        "grid": {
+          "score": 1.3535269308294766,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 28.687061867636107,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 0,
+        "y": 992,
+        "rms": 21.633269226283243,
+        "grid": {
+          "score": 1.2648123138272354,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 27.362025305742833,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 992,
+        "rms": 17.721070938194607,
+        "grid": {
+          "score": 1.4013376501039003,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 24.833203905854152,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 128,
+        "y": 256,
+        "rms": 21.690723920646956,
+        "grid": {
+          "score": 1.046994779249918,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 22.710074703068674,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 256,
+        "y": 288,
+        "rms": 20.774748629866572,
+        "grid": {
+          "score": 0.9563902877882491,
+          "lag": 3,
+          "axis": "y"
+        },
+        "score": 19.868767820846625,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 512,
+        "y": 960,
+        "rms": 16.934865063556988,
+        "grid": {
+          "score": 1.1563976097477509,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 19.58343748089799,
+        "hairShare": 1,
+        "figureShare": 1
+      },
+      {
+        "x": 32,
+        "y": 960,
+        "rms": 17.351587253154506,
+        "grid": {
+          "score": 1.082420137746967,
+          "lag": 9,
+          "axis": "x"
+        },
+        "score": 18.78170746468802,
+        "hairShare": 1,
+        "figureShare": 1
+      }
+    ]
+  }
+]

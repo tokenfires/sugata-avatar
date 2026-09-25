@@ -1,0 +1,40 @@
+http://localhost:61597/alive.html?bare&freeze&capture&seed=1&grain=0&hair=1&shadows=0&grade=0&hairoit=stochastic
+ACTUAL PIPELINE {"scale":1,"aa":"taau","backend":true,"report":{"backend":"webgpu","deferred":true,"msaa":false,"temporalAA":"taau","ambientOcclusion":"low","hairOIT":"stochastic","morphVelocity":"exact","graded":false,"resolutionScale":1,"fps":0,"frameMs":0.30000000447034836,"dpr":1,"drawCalls":5,"triangles":7}}
+
+=== ?hairoit=stochastic ===
+  coverage path as the page built it:
+    hairOITMode            (no hairOIT on the stage)
+    multisampled           false
+    rendererSamples        0
+    materialAlphaToCoverage false
+    materialAlphaTest      0
+    materialAlphaHash      false
+    materialTransparent    false
+    materialDepthWrite     true
+    hasAlphaTestNode       true
+    hasColorNode           true
+  region                 px      speckle    rms cv    grid (lag, axis)
+    tips           10593     25.61%     8.488    0.4201 (9, x)
+    curtain        53250     28.50%    12.700    0.4650 (3, y)
+    mass          192722     17.97%     9.397    0.5771 (9, x)
+    skin          385376      0.91%     2.788    0.0000 (0, none)
+    backdrop      221592      0.27%     0.516    0.0000 (0, none)
+  worst 32 px tiles by rms x grid — regular AND visible:
+    ( 480, 992)  score  35.52  rms  24.336  hair 100%  figure 100%  grid 1.4598 (9, x)
+    ( 512, 992)  score  28.69  rms  21.194  hair 100%  figure 100%  grid 1.3535 (9, x)
+    (   0, 992)  score  27.36  rms  21.633  hair 100%  figure 100%  grid 1.2648 (9, x)
+    (  32, 992)  score  24.83  rms  17.721  hair 100%  figure 100%  grid 1.4013 (9, x)
+    ( 128, 256)  score  22.71  rms  21.691  hair 100%  figure 100%  grid 1.0470 (9, x)
+    ( 256, 288)  score  19.87  rms  20.775  hair 100%  figure 100%  grid 0.9564 (3, y)
+    ( 512, 960)  score  19.58  rms  16.935  hair 100%  figure 100%  grid 1.1564 (9, x)
+    (  32, 960)  score  18.78  rms  17.352  hair 100%  figure 100%  grid 1.0824 (9, x)
+  ok   L1 above the floor  tips rms 8.488 against the empty backdrop's 0.516 (needs 1.5x)
+  FAIL T1 the tips        speckle 25.61% over 10,593 px (ceiling 3.00%)
+  FAIL T2 the cheek       speckle 28.50% where the groom is 1-2 cards deep over the figure, over 53,250 px (ceiling 3.00%)
+
+  --   T1 is satisfiable: NO ARM IN THIS RUN clears the ceiling — re-run with --arms including blend before trusting it
+
+FAIL stochastic leaves 25.61% of the tip fringe disagreeing with its own neighbourhood by more than 8 cv, past the 3.00% ceiling — that is the confetti a critic named
+FAIL stochastic leaves 28.50% of the hair-over-skin curtain as pixels disagreeing with their neighbourhood — the circuit-board mottle on the cheek
+
+FAIL — 2 clause(s) red.

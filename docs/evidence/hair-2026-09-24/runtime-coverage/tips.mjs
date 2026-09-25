@@ -106,7 +106,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 // 🚩 fileURLToPath, never string surgery on `import.meta.url`: this repository's own path carries a
 // space and a non-ASCII character. `hair_shots.mjs` records the same trap.
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(HERE, '..', '..');
+const REPO_ROOT = path.resolve(HERE, '..', '..', '..');
 
 const { decodePng, encodePng } = await import(
   pathToFileURL(path.join(REPO_ROOT, 'tools', 'critic', 'png.mjs')).href);
@@ -265,6 +265,7 @@ async function main() {
     if (server !== null) server.stop();
   }
 
+  fs.writeFileSync(path.join(options.out,'measurements.json'),JSON.stringify(measured,null,2)+'\n');
   const failures = report(measured, options);
 
   console.log('');
@@ -715,12 +716,7 @@ async function installProbe(page, defect) {
       coveragePath: () => {
         const renderer = stage.renderer;
         return {
-          // Only weighted OIT owns stage.hairOIT. Its absence does not mean the stochastic,
-          // hash or cutout path is absent; those run through the material and depth buffer.
-          stageHairOITMode: stage.hairOITMode ?? '(unavailable)',
-          weightedOITPass: String(stage.hairOIT !== null && stage.hairOIT !== undefined),
-          temporalAA: stage.stats.temporalAA,
-          resolutionScale: String(stage.resolutionScale),
+          hairOITMode: stage.hairOIT?.mode ?? '(no hairOIT on the stage)',
           multisampled: String(globalThis.sugata.session?.multisampled),
           rendererSamples: String(renderer.samples ?? '(unset)'),
           materialAlphaToCoverage: String(hair.material.alphaToCoverage),
@@ -839,8 +835,11 @@ async function openPage(browser, url) {
   const page = await context.newPage();
   const problems = [];
   page.on('pageerror', (error) => problems.push(error.message));
+  page.on('console', message => {if(message.type()==='error' && !message.text().startsWith('Failed to load resource')) problems.push(message.text());});
+  page.on('response', response => {if(response.status()>=400&&!response.url().endsWith('/favicon.ico')) problems.push(response.status()+' '+response.url());});
 
   console.log(url);
+  if(process.env.COVERAGE_SCALE) url += '&scale=' + encodeURIComponent(process.env.COVERAGE_SCALE);
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => typeof globalThis.__SUGATA_STEP__ === 'function', null,
     { timeout: 120000, polling: 200 }).catch(() => {
@@ -849,6 +848,11 @@ async function openPage(browser, url) {
   });
   await page.evaluate(() => globalThis.__SUGATA_STEP__(0));
 
+  const actual = await page.evaluate(() => ({scale:sugata.stage.resolutionScale,aa:sugata.stage.stats.temporalAA,backend:sugata.stage.renderer.backend?.isWebGPUBackend,report:sugata.stage.stats}));
+  if(process.env.COVERAGE_SCALE && actual.scale !== Number(process.env.COVERAGE_SCALE)) throw Error('Resolution scale did not apply');
+  if(!actual.backend || actual.aa !== 'taau') throw Error('Expected real WebGPU TAAU');
+  console.log('ACTUAL PIPELINE ' + JSON.stringify(actual));
+  page.__coverageProblems = problems;
   return page;
 }
 
@@ -860,6 +864,7 @@ async function converge(page, count) {
 }
 
 async function screenshot(page, file) {
+  if(page.__coverageProblems?.length) throw Error(page.__coverageProblems.join('\n'));
   const png = await page.screenshot({ timeout: 60000 });
   if (file !== null) fs.writeFileSync(file, png);
   return decodePng(png);

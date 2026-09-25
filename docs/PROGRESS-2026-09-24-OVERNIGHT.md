@@ -140,15 +140,81 @@ syntax and the actual GPU instrument's controls pass; no runtime suite, geometry
 motion or performance test was repeated because no implementation or geometry changed. Both
 GPU capture jobs have finished. The read-only Blender mount remains available overnight.
 
-## Next bounded step
+## Third experiment: runtime coverage and scene resolution
 
-Return the next appearance/coverage comparison to **supported bob01/g050 and the real runtime
-HairMaterial**. The existing `alive.html` switches already expose `hairbsdf=0/1` and
-`hairoit=stochastic/cutout/blend`. Inspect those paths and use identical camera/light/pose and
-converged frames to separate material appearance from coverage noise. The existing
-`hair_tips.mjs --arms stochastic,cutout,blend --steps 24` provides a bounded starting comparison;
-retain all original tip/cheek thresholds and pair any proposed change with the independent
-opacity controls so reduced speckle cannot be bought with a more transparent curtain. The
-sorted-blend arm is a diagnostic floor, not an approved transparency implementation. Preserve
-the calibrated bob geometry and do not promote a change based only on these crop PBR plates.
-Check the morning deadline before starting another substantial step.
+Starting from clean `c70c8c7`, the comparison returns to **supported bob01/g050 and the real
+runtime HairMaterial**, with unchanged GLB SHA-256
+`d425444f3d478c63e4842f7a789aa89ac1968c7d13b5aac87ca6717700df56e7`. All captures use the existing
+static 24-step protocol at 900×1200, seed 1, WebGPU and TAAU. This is a fixed capture protocol,
+not proof that every temporal quantity has fully converged.
+
+| Runtime coverage / scene scale | Tip speckle T1 | Cheek speckle T2 | Mass speckle |
+| --- | --- | --- | --- |
+| Stochastic / 0.66 | 7.12% | 19.23% | 10.70% |
+| Cutout / 0.66 | 6.21% | 15.10% | 4.59% |
+| Sorted blend / 0.66 | 2.41% | 7.22% | 1.37% |
+| Stochastic / 1 | 25.61% | 28.50% | 17.97% |
+
+The T1/T2 ceilings remain 3%. Blend supplies a useful comparison but still exceeds the cheek
+ceiling and retains its known draw-order dependence; it is not an accepted implementation.
+The stock tool gates only stochastic. Native images show the default stipple, cutout's hard
+card tips and blend's smoother but still distinct layers. None qualifies the groom's appearance.
+
+The isolated `scale=1` query makes fine stipple and the nape's regular pattern stronger. Both
+tip and cheek measurements worsen despite identical CPU mask counts. **Rejected; retain the
+default 0.66 scale.** This query changes the whole scene, so skin and backdrop pixels also
+change; this is not a hair-only ablation or a performance comparison.
+
+| Opacity, portrait | Default scale 0.66 | Scale 1 | Existing requirement |
+| --- | --- | --- | --- |
+| C3 mass transmission | 0.0650 | 0.0602 | ≤0.10 |
+| C4 curtain transmission | 0.5439 | 0.5468 | ≤0.35 |
+| L2 independent detached/hidden ratio | 0.9951 | 0.9949 | 0.97–1.03 |
+| L3 independent curtain ratio | 0.9923 | 0.9916 | 0.97–1.03 |
+
+Both opacity runs exit 1 solely for portrait C4. Outside-step controls and the rear view's
+applicable clauses pass. The rear view has no eligible C4 pixels and is not counted as a C4
+pass. The opacity data prevents treating a softer tip image alone as a coverage improvement.
+
+One **reporting repair is qualified**: `hair_tips.mjs` previously read only the weighted-OIT
+pass object and wrongly reported no hair OIT for all three runtime arms. Its output now
+separates stage mode, weighted-pass presence, actual AA and scene scale while retaining all
+live material flags. The stage mode is configuration, not sufficient proof of a material path
+on its own. All 11 native before/after images are byte-identical; every non-metadata report
+line, including numerical results, masks and verdicts, matches. Runtime shaders, thresholds,
+groom bytes and calibrations are unchanged.
+
+The first scale-one tip capture omitted AA metadata because it read nonexistent properties.
+After correcting that isolated reporting code, a serial rerun confirms live WebGPU/TAAU at
+scale 1 and reproduces all three images and the exact measurement JSON. The corresponding
+opacity captures already asserted those live fields. The augmented probes found no browser,
+HTTP or shader errors. The copied instruments' diffs preserve the native measurement logic.
+
+The [runtime-coverage evidence](evidence/hair-2026-09-24/runtime-coverage/) includes source and
+image hashes, complete reports, ordinary plates, machine-readable opacity results and replay
+instructions. Syntax checks, the image/report comparisons, request ledger 27/27 and quoted
+numbers 25/25 pass. The existing tip and opacity failures are explicitly retained. No full
+suite, geometry, motion, build or cost qualification was repeated for this diagnostic repair.
+All GPU jobs have exited; the isolated read-only Blender mount remains available overnight.
+
+## Remaining work and next bounded step
+
+All four existing red gates remain: HairMaterial, GLB verification, opacity and tips. Preserve
+the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the rejected
+double-density crop, rest-position dither phase, or scene-scale-one experiments.
+
+The next bounded hypothesis is whether changing the **spatial pattern over time**, rather than
+only adding a common temporal offset to a fixed screen pattern, reduces the runtime stipple.
+Inspect `HairOIT.js`'s `hairDitherThresholdNode`, its uniform update and existing selftests first.
+Keep supported bob01/g050, real HairMaterial, default scale 0.66 and all other controls fixed.
+An isolated candidate may add an independently advancing phase inside the inner `fract` of
+Three's screen-space interleaved-gradient expression, while retaining the current outer
+golden-step phase. This is an untested hypothesis, not a diagnosed cause or promised remedy.
+
+Require a zero-inner-phase identity control, finite and distribution/convergence checks, the
+existing phase and frozen-dither controls, then serial actual GPU tips and independent opacity
+captures. Reject a tip gain that worsens the curtain or appearance. Any promising result must
+also pass the relevant runtime HairOIT tests and moving-image checks before promotion. Do not
+replace the real HairMaterial with `hairbsdf=0` as an equivalent coverage control: that path
+ignores these coverage options and cannot carry the simulated position node. Check the morning
+deadline before beginning; it remains 08:00 Pacific, with the final-wake rule above.

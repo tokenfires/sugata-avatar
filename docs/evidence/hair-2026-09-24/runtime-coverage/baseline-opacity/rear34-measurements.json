@@ -1,0 +1,104 @@
+{
+  "footprintPixels": 437708,
+  "all": {
+    "pixels": 437708,
+    "mean": 0.09021387140292415,
+    "median": -0.0003747121347447684,
+    "p90": 0.31861178300474413,
+    "overHalf": 0.0904507114331929
+  },
+  "mass": {
+    "pixels": 390543,
+    "mean": 0.01668634775870814,
+    "median": -0.0013688913579666612,
+    "p90": 0.012338700732266087,
+    "overHalf": 0.017693314180512773
+  },
+  "overFace": {
+    "pixels": 190936,
+    "mean": -0.009485311231163293,
+    "median": -0.005794476870456364,
+    "p90": 0.0007152758750776011,
+    "overHalf": 0.00001571207106046005
+  },
+  "curtain": {
+    "pixels": 0,
+    "mean": null,
+    "median": null,
+    "p90": null,
+    "overHalf": null
+  },
+  "curtainHidden": {
+    "pixels": 0,
+    "mean": null,
+    "median": null,
+    "p90": null,
+    "overHalf": null
+  },
+  "curtainByCrossing": [
+    {
+      "crossings": 3,
+      "pixels": 64,
+      "mean": -0.0096779921238335,
+      "impliedAlpha": 0.99
+    },
+    {
+      "crossings": 4,
+      "pixels": 972,
+      "mean": 0.0023469749170514976,
+      "impliedAlpha": 0.7798964171615721
+    }
+  ],
+  "curtainByStrip": [],
+  "curtainNoInterior": {
+    "pixels": 0,
+    "mean": null,
+    "median": null,
+    "p90": null,
+    "overHalf": null
+  },
+  "noInteriorByStrip": [],
+  "noInteriorByCrossing": [],
+  "faceBottom": 708,
+  "teethBottom": 665.184814453125,
+  "outside": {
+    "pixels": 602168,
+    "mean": 1.0030460589365697,
+    "median": 1,
+    "p90": 1.0153072439883237,
+    "overHalf": 1
+  },
+  "hidden": {
+    "pixels": 437708,
+    "mean": 0.9913319079281279,
+    "median": 0.9998389061785486,
+    "p90": 1,
+    "overHalf": 0.9997852449578257
+  },
+  "byCrossing": [
+    {
+      "crossings": 1,
+      "pixels": 27294,
+      "mean": 0.7901867568611493,
+      "impliedAlpha": 0.20981324313885075
+    },
+    {
+      "crossings": 2,
+      "pixels": 19871,
+      "mean": 0.5738633973898549,
+      "impliedAlpha": 0.24246227988973712
+    },
+    {
+      "crossings": 3,
+      "pixels": 11580,
+      "mean": 0.40909829378864576,
+      "impliedAlpha": 0.2576491284690249
+    },
+    {
+      "crossings": 4,
+      "pixels": 10582,
+      "mean": 0.19755835935100485,
+      "impliedAlpha": 0.3333101355084307
+    }
+  ]
+}
