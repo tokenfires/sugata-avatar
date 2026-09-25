@@ -1,0 +1,23 @@
+PASS: 64 actual Apple/Metal WebGPU cases x 512 frames; live rates/fields, clocks, mask, source and 192 image hashes.
+PASS: endpoints, opaque-body depth and four independent blend references in both paths.
+PASS: eight equivalences cover shared/single/merged controls and draw-order reversal for both spatial candidates.
+PASS: eighteen pilot cases reproduce all first 128 frame traces and both checkpoint images exactly.
+PASS: twenty-eight prior controls reproduce all 512 frame measurements and all three images exactly.
+off-shared-half-p0 {'temporalMean': 0.49999922149035386, 'tailMean': 0.5000199298469388, 'tailTemporalRMS': 0.8740349902663612} patch SD 0.00035384163526352676 pixel mean SD 0.0017005108001775925
+off-shared-half-p977 {'temporalMean': 0.50000186842315, 'tailMean': 0.49997757892219374, 'tailTemporalRMS': 0.8740307074343214} patch SD 0.00034908747544712285 pixel mean SD 0.0017070248345347422
+off-temporal-half-p0 {'temporalMean': 0.24974013348014978, 'tailMean': 0.24866719148596939, 'tailTemporalRMS': 0.658731948655603} patch SD 0.14413725146742726 pixel mean SD 0.004062970641050444
+off-temporal-half-p977 {'temporalMean': 0.24964359828404, 'tailMean': 0.24845170001594385, 'tailTemporalRMS': 0.6568222370969472} patch SD 0.14441999304169123 pixel mean SD 0.004088056051707242
+off-swapped-shared-half-p0 {'temporalMean': 0.2500554298867983, 'tailMean': 0.2500635263871174, 'tailTemporalRMS': 0.6868045956284367} patch SD 0.0004935966285138711 pixel mean SD 0.14478385121188306
+off-swapped-shared-half-p977 {'temporalMean': 0.2500608794543209, 'tailMean': 0.25005107023278067, 'tailTemporalRMS': 0.6867057674618257} patch SD 0.0004814255056995326 pixel mean SD 0.1447941333114382
+off-swapped-distinct-half-p0 {'temporalMean': 0.2500054495675224, 'tailMean': 0.250014947385204, 'tailTemporalRMS': 0.6926639891767677} patch SD 0.000383659379602251 pixel mean SD 0.004084170880942555
+off-swapped-distinct-half-p977 {'temporalMean': 0.24999999999999994, 'tailMean': 0.24997757892219383, 'tailTemporalRMS': 0.692572307213665} patch SD 0.00036416308024995434 pixel mean SD 0.00412053501522954
+taau-shared-half-p0 {'temporalMean': 0.48234311119467305, 'tailMean': 0.48126948533319597, 'tailTemporalRMS': 0.00798661505477123} patch SD 0.0028502642130488454 pixel mean SD 0.002227864430669506
+taau-shared-half-p977 {'temporalMean': 0.48241619401666974, 'tailMean': 0.48127487323054213, 'tailTemporalRMS': 0.00799021827312296} patch SD 0.003053796633300863 pixel mean SD 0.00222314295165314
+taau-temporal-half-p0 {'temporalMean': 0.03506689296812473, 'tailMean': 0.029850929629664364, 'tailTemporalRMS': 0.015664208462296363} patch SD 0.026100458021828303 pixel mean SD 0.002425115508134727
+taau-temporal-half-p977 {'temporalMean': 0.03377837218871923, 'tailMean': 0.03179575052677321, 'tailTemporalRMS': 0.016816489261225087} patch SD 0.01730246673097458 pixel mean SD 0.0017317640297690399
+taau-swapped-shared-half-p0 {'temporalMean': 0.1302161898695026, 'tailMean': 0.12568442904505553, 'tailTemporalRMS': 0.024480835835270907} patch SD 0.015052784965172988 pixel mean SD 0.04044446027290005
+taau-swapped-shared-half-p977 {'temporalMean': 0.13049063436409722, 'tailMean': 0.12554728922819128, 'tailTemporalRMS': 0.024519770699469364} patch SD 0.01590717835695755 pixel mean SD 0.04021564981764176
+taau-swapped-distinct-half-p0 {'temporalMean': 0.12399602663330961, 'tailMean': 0.11874926728503901, 'tailTemporalRMS': 0.026708394009081426} patch SD 0.019030767949138924 pixel mean SD 0.007265434470480746
+taau-swapped-distinct-half-p977 {'temporalMean': 0.12425225583397417, 'tailMean': 0.11896197443821277, 'tailTemporalRMS': 0.026685362684009353} patch SD 0.019475106325108908 pixel mean SD 0.007184223256901436
+REJECT: spatial swaps remove coherent patch swings, but shared rates leave per-pixel temporal bias and both swapped arms remain too dark and noisier after TAAU.
+PASS: capture/fixture JavaScript syntax and Python compilation; README and checkpoint tables match JSON.

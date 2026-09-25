@@ -342,22 +342,70 @@ The [temporal-sequence evidence](evidence/hair-2026-09-25/temporal-sequences/) r
 126 native plates, repeat proof, source hashes, verifier and replay instructions. The read-only
 Blender mount remains available; the four existing red gates remain unchanged.
 
+## Seventh experiment: separate spatial fields — rejected after resolve
+
+Starting from clean `b60ed01`, an isolated fixture swaps the second separate material's spatial
+noise inputs from screen `xy` to `yx`, with either shared golden temporal rates or the preceding
+distinct rates. The identity arm reconstructs the original expression. Raw mean coverage
+improves, but both candidates remain too dark and visibly patterned after TAAU. **Rejected;
+no production shader, groom, calibration, scale or threshold changes.**
+
+| Phase-zero half-pair arm | Raw 512-frame mean | Raw frame-mean SD | Spatial SD of raw per-pixel means | TAAU last-64 mean | TAAU last-64 pixel RMS |
+| --- | --- | --- | --- | --- | --- |
+| Original field, shared rates | 0.499999 | 0.000354 | 0.001701 | 0.481269 | 0.007987 |
+| Original field, distinct rates | 0.249740 | 0.144137 | 0.004063 | 0.029851 | 0.015664 |
+| Swapped field, shared rates | 0.250055 | 0.000494 | 0.144784 | 0.125684 | 0.024481 |
+| Swapped field, distinct rates | 0.250005 | 0.000384 | 0.004084 | 0.118749 | 0.026708 |
+
+The independent half-pair reference is 0.25; sorted blend stays at 0.250980. A spatial swap
+suppresses the whole-patch swings, but shared temporal rates leave a broad distribution of
+per-pixel temporal averages because each pixel keeps its own fixed relative card phase. Distinct
+rates reduce that sampled spread. Neither result establishes a general independent sampler.
+TAAU still over-darkens both spatial arms and roughly triples their static temporal noise versus
+the shipping shared-field control. Native plates show dark diagonal bands/stipple rather than
+uniform gray. Phase 977 and the quarter, three-quarter and mixed pairs also remain biased after
+resolve. This is a static two-material diagnostic, not a real-groom or motion qualification.
+
+All 64 actual Apple/Metal WebGPU cases complete 512 draws with native plates at 24, 128 and 512.
+The fixed 12,544-pixel mask, live rates/fields, source hashes and capture clocks verify. Endpoint,
+opaque-body depth and all four independent blend references pass. Eight exact equivalences cover
+shared single/separate/merged controls and both candidates' reversed order. The 18-case pilot
+reproduces every first-128 trace and both checkpoint images. Twenty-eight preceding-fixture
+controls reproduce all 512 frame measurements and three images. Browser/console/HTTP checks and
+script syntax pass. These checks validate the instrument, not the rejected appearance.
+
+The [spatial-field evidence](evidence/hair-2026-09-25/spatial-fields/) preserves all traces,
+192 native plates, per-pixel mean distributions, repeats and source hashes. All GPU jobs have
+exited; no full suite, geometry, motion, build or cost qualification was repeated. Accepted
+assets and the four red gates are unchanged. The read-only Blender mount remains available.
+
+A read-only source audit identifies a new, unproven numerical hypothesis: installed
+`TAAUNode.js` computes `thinFeature` by dividing by `meanLuma` without a zero guard. The black
+fixture makes zero-luminance neighborhoods relevant, but no native floating-point buffer has
+yet been inspected for nonfinite values. The existing RGBA8 plates cannot establish finiteness.
+Default sharpening is null, so there is no downstream sharpening pass in this fixture.
+
 ## Remaining work and next bounded step
 
 Preserve the accepted bob, default TAAU scale and all appearance thresholds. Do not repeat the
 rejected double-density crop, rest-position phase, scene-scale-one or inner-phase experiments.
-Do not mistake a fixed per-card phase or distinct temporal rates alone for independent sampling:
-both are now rejected in the controlled fixture. Do not rerun those candidates on the groom.
+Fixed phases, distinct temporal rates alone, and swapped spatial fields (with either temporal
+choice) are now rejected in the controlled fixture. Do not rerun these candidates on the groom.
 
-Next test **different spatial fields for the two cards in this isolated fixture**. A bounded
-control can swap the second card's screen x/y inputs to the existing spatial expression, first
-with the shared golden temporal rate and then with the distinct rates from the rejected arm.
-Do not assume a coordinate swap establishes independence; measure it. Retain an exact identity
-arm, all four alpha pairs, phases 0/977, samples 24/128/512, endpoints, body depth, reversed order
-and independent blend references. Measure per-frame patch swings, raw temporal means, TAAU bias
-and static temporal noise separately, then inspect native plates. Reject biased or unstable
-resolved output. Keep this entirely in the fixture; do not modify TAAU internals to accommodate
-a failing sampler or reapply previous rejected depth/disocclusion theories without new evidence.
+Next **audit native floating-point TAAU state for nonfinite values** in the existing fixture.
+Use bounded shared-half, temporal-only half, swapped/distinct half, opaque and blend controls,
+including phases 0/977 where relevant. Read the resolve/history/lock buffers before conversion
+to RGBA8, decode their actual texture format, and record whole-frame and fixed-ROI finite counts
+with the live clock. Verify that the added readback preserves ordinary images exactly. Source
+access is available through the texture node's owner (`stage.temporal.node.passNode`); verify
+that object's actual identity and attachment formats instead of assuming them.
+
+The source-level zero denominator is a hypothesis, not a demonstrated runtime defect. Only if
+nonfinite state is reproduced should an isolated, identity-controlled denominator guard be
+tested for causality. If native buffers are finite, record that result and do not promote a
+speculative guard or claim it explains the bias. Preserve resolve settings and avoid repeating
+rejected depth/disocclusion changes. A useful subsequent control would compare a sampler with
+known joint coverage against the unchanged resolve, but do not stack it into the finiteness audit.
 
 Only a successful fixture result should lead to a groom candidate. First inspect existing
 card-topology/solver attributes for a stable per-card identifier; do not infer one from rest
