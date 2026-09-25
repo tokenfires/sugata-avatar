@@ -1,5 +1,10 @@
 # Sugata — September 24–25 overnight continuation
 
+**Current state: paused at Robert's request after the thirteenth round, September 25 at
+07:12 Pacific (14:12 UTC).** All GPU jobs finished and were collected. The overnight automation
+is `PAUSED`, and the isolated Blender mount has been detached. No more scheduled work is
+authorized until Robert resumes it. The earlier overnight timing below is historical context.
+
 At the 22:00 Pacific deadline, Robert reported a MacBook crash and explicitly authorized
 continuing Sugata overnight, with a morning sync. This supersedes the earlier 22:00 stop.
 The existing `advance-sugata-avatar-visual-quality` heartbeat remains in this task at its
@@ -578,6 +583,43 @@ hashes and replay checks. All GPU jobs have exited and their results are collect
 suite, build, real-groom, motion or cost qualification is claimed. Robert checked in during
 this bite; the morning checkpoint and existing 08:00 stop remain in force.
 
+## Thirteenth experiment: separate clipping and lock selection — both rejected
+
+Starting from clean `8b5e613`, two isolated single-expression ablations retain original geometry,
+samplers, phase clocks, scale, depth/disocclusion, frame/flicker weights and missing lock copy.
+One bypasses history clipping; the other bypasses lock selection and uses clipped history.
+**Clipping makes a causal contribution to the fixture bias, but neither bypass qualifies.**
+
+| Case | Native last-64 identity | No clipping | No lock selection | Identity pixel RMS | No clipping RMS | No lock RMS |
+| --- | --- | --- | --- | --- | --- | --- |
+| Counter half, phase 0 | 0.060387 | 0.218435 | 0.076360 | 0.026456 | 0.009063 | 0.038347 |
+| Counter half, phase 977 | 0.060040 | 0.218007 | 0.075849 | 0.025892 | 0.009036 | 0.037364 |
+| Counter quarter, phase 0 | 0.593923 | 0.523585 | 0.575862 | 0.046724 | 0.011654 | 0.051540 |
+
+The independent references remain 0.25 and 0.5625. No-clipping reduces half-pair dark bias and
+noise but still under-transmits; quarter pairs become too dark and their absolute error grows.
+Ordinary plates are smoother with softer boundaries. No-lock leaves dark mottling and increases
+noise despite some mean improvement. The shared sampler remains incorrectly near 0.48.
+
+The longer run also catches a new rejection control: no-clipping leaks nonzero pixels through
+the fully opaque pair in 436 of 512 frames, first at frame 72. The run's peak ROI pixel is 2/255;
+last-64 native mean is 0.000200206. Identity/no-lock opaque controls stay exactly black. White
+endpoints and blend references pass, but no-clipping blend output drifts slightly and is not
+identical to identity. Its opaque failure is retained: the complete verifier returns exit 1,
+collecting all violations without changing the exact endpoint criterion. No bypass is promoted.
+
+All 24 final WebGPU cases complete 512 frames. The 24 short pilots and eight prior identity
+traces/images repeat exactly. Source routing, geometry/material/mask/clock invariance, native
+finiteness and color-history copies pass; original lock history stays zero. A serial repeat of
+both no-clipping half-pair phases and its opaque control reproduces every native hash, frame,
+per-pixel mean and all nine images exactly, including the failure. All GPU jobs have exited.
+
+The [ablation evidence](evidence/hair-2026-09-25/resolve-ablations/) preserves 72 final plates,
+nine replay plates, complete frame/native records, per-pixel temporal arrays/distributions,
+source hashes and rejected results. No production source, dependency, accepted asset, material,
+calibration or threshold changes. No full suite, build, real-groom, motion or cost qualification
+is claimed. All four existing production gates remain open.
+
 ## Remaining work and next bounded step
 
 Preserve accepted geometry, shipping TAAU scale and all appearance thresholds. Do not repeat the
@@ -586,23 +628,28 @@ swapped-field or runtime lock-copy candidates. Native finiteness and missing loc
 already audited. The counter sampler has now passed its raw mechanism controls and failed after
 shipping TAAU; do not rerun it on the groom or promote it based on raw statistics.
 
-Next **test clipping and lock selection separately with bounded causal ablations** in the
-verified constant-alpha fixture: original source, bypass clipping only, bypass lock selection
-only. Preserve sampler, card IDs, geometry, scale 0.66, masks, clocks, depth/disocclusion,
-current-frame and flicker weights, and original missing lock copy. Keep shared-field, endpoint
-and independent blend controls alongside both half-pair phases and the quarter pair. Do not
-combine factors or move to the real groom yet. Observed stage adjustments do not already prove
-that either bypass repairs quality.
+**Paused after this round at Robert's explicit request.** The automation reports `PAUSED`, all
+GPU/test jobs have exited, and the read-only Blender mount was detached at 14:12 UTC. The cached
+DMG and isolated profile remain available for a future authorized resumption. The scheduled
+14:47 wake will not run. Preserve the accepted assets and unrelated detached worktree; this
+checkpoint's future experiment is a handoff, not standing permission to resume.
 
-Begin with a short serial GPU pilot and verify exact served routes, native finiteness, actual
-history copies, unchanged identity controls and whole images. Extend only if the experiment is
-informative and the morning window permits. Retain temporal noise and per-pixel distributions,
-not just global averages. Do not relax thresholds, stack speculative guards or repair lock
-delivery in the same experiment. The all-black-neighborhood clipping hypothesis remains a
-hypothesis; rejected depth/disocclusion changes need not be reopened.
+For a future authorized continuation, test **luminance-dependent new/history weighting alone**
+in the verified constant-alpha fixture, with clipping and lock selection retained. Compare the
+original weighting against a plain current/history weighted average using the same existing
+current-frame weight, leaving motion and disocclusion behavior unchanged. This tests the separate
+residual-bias hypothesis; it is not a groom candidate. Preserve sampler, IDs, geometry, scale,
+clock, masks and missing lock copy. Include both half-pair phases, quarter pairs, shared-field,
+exact opaque/white endpoints and independent blend controls. Do not silently combine factors
+with the rejected no-clipping arm; decide whether an interaction experiment is justified only
+after the single-factor result. The source of no-clipping endpoint leakage is not established.
+
+Use a short serial pilot followed by the necessary longer control checks: the opaque failure
+appeared only after frame 24. Verify exact served routes, native finiteness/history copies,
+identity repeats and whole images, and retain temporal noise plus per-pixel distributions.
+Preserve every threshold and keep the broader real-groom and motion acceptance requirements.
 
 Keep the broader HairMaterial and clearance/coverage/coherence backlog explicit. Any future groom
 sampler still needs a stable topology/solver identity design and its own geometry, real GPU,
-visual and temporal qualification. Check the 08:00 Pacific deadline and final-wake rule before
-each substantial step. At the morning checkpoint, collect jobs, detach the isolated Blender
-mount and pause the automation.
+visual and temporal qualification. Obtain a new work window from Robert on resumption; the
+September 24–25 overnight window is closed by his explicit pause.
