@@ -1,0 +1,1804 @@
+{
+  "asset": "assets/hair/crop01/g050.glb",
+  "assetSha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+  "sourceSha256": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd",
+  "scope": "Fixed shipping crop01/g050 rest-pose PBR material attribution; diagnostic arms, not promotion or public HairMaterial qualification",
+  "loads": [
+    "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a"
+  ],
+  "views": {
+    "front": {
+      "baseline": {
+        "material": {
+          "type": "MeshStandardMaterial",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+          "alphaMap": null,
+          "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+          "normalScale": [
+            1,
+            -1
+          ],
+          "roughness": 0.3799999952316284,
+          "metalness": 0,
+          "side": 2,
+          "alphaTest": 0.5,
+          "opacity": 1,
+          "transparent": false,
+          "depthWrite": true,
+          "depthTest": true,
+          "alphaHash": false,
+          "alphaToCoverage": false,
+          "toneMapped": true
+        },
+        "geometry": {
+          "normal": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "58234ba8314891b8abe2f16c9375b6c2788dab7cf9ce3b789bea1f18051d2db4"
+          },
+          "position": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "a5d6dd37f1ff308ad73e234ac5c99fa3342089489178bac54ebd3451d49615fd"
+          },
+          "skinIndex": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "831e04501c773a94616a4ac8e80469ac6516841272ffd458f86ceff624c337ea"
+          },
+          "skinWeight": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "d52b337e750a3adad1a8df48d5b20d5163d5faa4c1a87c27edc0fa0d29ebd62a"
+          },
+          "uv": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "15f226a572330730e4cb0bcd335036b6fa4ace5cafc78e016310464337edcdca"
+          },
+          "uv1": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "087dba497954b71396176e15709b96eed1652aeb8bdd54a76c789e9e313517e0"
+          },
+          "indices": "089097d726d47d461b4d940a3400517e9d4cc3bbb8f520c9495614af1b93fa16"
+        },
+        "centre": [
+          -0.0031315460801124573,
+          1.5624079582534804,
+          0.04218100285498279
+        ],
+        "camera": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9984307687566525,
+          -0.05599999999999991,
+          0,
+          0,
+          0.05599999999999991,
+          0.9984307687566525,
+          0,
+          -0.0031315460801124573,
+          1.6060879582534804,
+          0.8209570024851718,
+          1
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9989003222914973,
+          -0.0468818228071185,
+          0,
+          0,
+          0.04688178079930616,
+          0.9989003645769189,
+          0,
+          0,
+          1.5145777779363472,
+          0.04400548424229105,
+          1
+        ],
+        "lights": [
+          {
+            "type": "DirectionalLight",
+            "color": [
+              1,
+              0.8879231178794776,
+              0.775822218312646
+            ],
+            "intensity": 2.6,
+            "position": [
+              0.49686845391988754,
+              2.2060879582534803,
+              1.0209570024851717
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "DirectionalLight",
+            "color": [
+              0.623960391667596,
+              0.7454042095350284,
+              1
+            ],
+            "intensity": 3.4,
+            "position": [
+              -0.0031315460801124573,
+              2.4064079582534807,
+              -0.9562497659016695
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "AmbientLight",
+            "color": [
+              0.13286832154414627,
+              0.16202937562896222,
+              0.21223075740342198
+            ],
+            "intensity": 0.55,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "target": null
+          }
+        ],
+        "clock": {
+          "draws": 3,
+          "frameId": 3,
+          "time": 0,
+          "deltaTime": 0
+        }
+      },
+      "baselineSha256": "bbb607e74c9126e57ca6ad04c9754f80cb35dad2c6d4dd661608e989f43bbd4e",
+      "bodySha256": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+      "maskSha256": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+      "arms": {
+        "baseline": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "bbb607e74c9126e57ca6ad04c9754f80cb35dad2c6d4dd661608e989f43bbd4e",
+          "changedHairPixels": 0,
+          "maskPixels": 35700,
+          "lumaP50": 0.16234823998063802,
+          "lumaP95": 0.9292792199015618,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "no-normal": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "08f9af1a759885958732fbf424da39bb3c72be128d03181f2677d293c07598bd",
+          "changedHairPixels": 27641,
+          "maskPixels": 35700,
+          "lumaP50": 0.16208078955411911,
+          "lumaP95": 0.955885492825508,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0.01660148167982769,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "rough-one": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 1,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "b0fb05cabae0625a72108aa49dd3166ed5b40e0a6f42fd912324bcae3ca06c60",
+          "changedHairPixels": 34606,
+          "maskPixels": 35700,
+          "lumaP50": 0.17382980846166612,
+          "lumaP95": 0.29941883548498155,
+          "lumaP99": 0.3308431473374367,
+          "meanAbsoluteLumaDifference": 0.09693071869336264,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "6f43d08b4e4fdd2fae6f4c68cfac7fb8b561dec096d414d8bbe9d552d19148cd",
+          "changedHairPixels": 34806,
+          "maskPixels": 35700,
+          "lumaP50": 0.12368313891738653,
+          "lumaP95": 0.17013961206525566,
+          "lumaP99": 0.19113177138268947,
+          "meanAbsoluteLumaDifference": 0.12569117552329706,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert-no-normal": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "0fa988b45e098159b6721f6a29ce5516078217c0785dbd458ef959e3df5603b8",
+          "changedHairPixels": 34836,
+          "maskPixels": 35700,
+          "lumaP50": 0.12368313891738653,
+          "lumaP95": 0.17013961206525566,
+          "lumaP99": 0.19113177138268947,
+          "meanAbsoluteLumaDifference": 0.12590608684839596,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        }
+      },
+      "badCutoffChangedPixels": 9247,
+      "restoredChangedPixels": 0
+    },
+    "three-quarter": {
+      "baseline": {
+        "material": {
+          "type": "MeshStandardMaterial",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+          "alphaMap": null,
+          "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+          "normalScale": [
+            1,
+            -1
+          ],
+          "roughness": 0.3799999952316284,
+          "metalness": 0,
+          "side": 2,
+          "alphaTest": 0.5,
+          "opacity": 1,
+          "transparent": false,
+          "depthWrite": true,
+          "depthTest": true,
+          "alphaHash": false,
+          "alphaToCoverage": false,
+          "toneMapped": true
+        },
+        "geometry": {
+          "normal": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "58234ba8314891b8abe2f16c9375b6c2788dab7cf9ce3b789bea1f18051d2db4"
+          },
+          "position": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "a5d6dd37f1ff308ad73e234ac5c99fa3342089489178bac54ebd3451d49615fd"
+          },
+          "skinIndex": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "831e04501c773a94616a4ac8e80469ac6516841272ffd458f86ceff624c337ea"
+          },
+          "skinWeight": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "d52b337e750a3adad1a8df48d5b20d5163d5faa4c1a87c27edc0fa0d29ebd62a"
+          },
+          "uv": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "15f226a572330730e4cb0bcd335036b6fa4ace5cafc78e016310464337edcdca"
+          },
+          "uv1": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "087dba497954b71396176e15709b96eed1652aeb8bdd54a76c789e9e313517e0"
+          },
+          "indices": "089097d726d47d461b4d940a3400517e9d4cc3bbb8f520c9495614af1b93fa16"
+        },
+        "centre": [
+          -0.0031315460801124573,
+          1.5624079582534804,
+          0.04218100285498279
+        ],
+        "camera": [
+          0.766044443118978,
+          0,
+          -0.6427876096865395,
+          0,
+          -0.0449951326780578,
+          0.9975469913743412,
+          -0.05362311101832851,
+          0,
+          0.6412108461355117,
+          0.07000000000000006,
+          0.7641653294923691,
+          0,
+          0.5098371308282968,
+          1.6184079582534805,
+          0.6535132664488782,
+          1
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9989003222914973,
+          -0.0468818228071185,
+          0,
+          0,
+          0.04688178079930616,
+          0.9989003645769189,
+          0,
+          0,
+          1.5145777779363472,
+          0.04400548424229105,
+          1
+        ],
+        "lights": [
+          {
+            "type": "DirectionalLight",
+            "color": [
+              1,
+              0.8879231178794776,
+              0.775822218312646
+            ],
+            "intensity": 2.6,
+            "position": [
+              1.0098371308282967,
+              2.2184079582534806,
+              0.8535132664488783
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "DirectionalLight",
+            "color": [
+              0.623960391667596,
+              0.7454042095350284,
+              1
+            ],
+            "intensity": 3.4,
+            "position": [
+              -0.6443423922156241,
+              2.3924079582534805,
+              -0.7219843266373863
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "AmbientLight",
+            "color": [
+              0.13286832154414627,
+              0.16202937562896222,
+              0.21223075740342198
+            ],
+            "intensity": 0.55,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "target": null
+          }
+        ],
+        "clock": {
+          "draws": 24,
+          "frameId": 24,
+          "time": 0,
+          "deltaTime": 0
+        }
+      },
+      "baselineSha256": "bd0c5fb3a8ef8dc87d9fa8b9e6ba13e74a14542cfbd698aeda3f485fb129f918",
+      "bodySha256": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+      "maskSha256": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+      "arms": {
+        "baseline": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "bd0c5fb3a8ef8dc87d9fa8b9e6ba13e74a14542cfbd698aeda3f485fb129f918",
+          "changedHairPixels": 0,
+          "maskPixels": 44750,
+          "lumaP50": 0.15533882863372564,
+          "lumaP95": 0.7556039361357688,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "no-normal": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "4dfe90eff47d83fef05479147754a6b836d46b88f735ee4f3548c232e54b4e61",
+          "changedHairPixels": 34168,
+          "maskPixels": 44750,
+          "lumaP50": 0.15367137775272133,
+          "lumaP95": 0.7340455060482025,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0.012099214430635162,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "rough-one": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 1,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "9f4b0d3beb9a57dd0cac09cc0c3f7c4a29c769975049b95e1bb5a1ef122c98b1",
+          "changedHairPixels": 43662,
+          "maskPixels": 44750,
+          "lumaP50": 0.170741965508461,
+          "lumaP95": 0.29599609059095383,
+          "lumaP99": 0.3347647157311439,
+          "meanAbsoluteLumaDifference": 0.08806866874733156,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "5314fe003c888cb7a0a6b2d4e1fd142b048d7ba75fb7799105c34ccc8d9b611c",
+          "changedHairPixels": 43934,
+          "maskPixels": 44750,
+          "lumaP50": 0.11921098232120274,
+          "lumaP95": 0.16257961251586675,
+          "lumaP99": 0.18357177129536867,
+          "meanAbsoluteLumaDifference": 0.11143185285647887,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert-no-normal": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "aa35d29cf4d5dec34449e06454a63aef8da7100ace8b2bee0ac9936e3cc9dbc5",
+          "changedHairPixels": 43905,
+          "maskPixels": 44750,
+          "lumaP50": 0.11922666859477757,
+          "lumaP95": 0.16257961251586675,
+          "lumaP99": 0.183288634057343,
+          "meanAbsoluteLumaDifference": 0.11158566495255472,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        }
+      },
+      "badCutoffChangedPixels": 9119,
+      "restoredChangedPixels": 0
+    },
+    "side": {
+      "baseline": {
+        "material": {
+          "type": "MeshStandardMaterial",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+          "alphaMap": null,
+          "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+          "normalScale": [
+            1,
+            -1
+          ],
+          "roughness": 0.3799999952316284,
+          "metalness": 0,
+          "side": 2,
+          "alphaTest": 0.5,
+          "opacity": 1,
+          "transparent": false,
+          "depthWrite": true,
+          "depthTest": true,
+          "alphaHash": false,
+          "alphaToCoverage": false,
+          "toneMapped": true
+        },
+        "geometry": {
+          "normal": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "58234ba8314891b8abe2f16c9375b6c2788dab7cf9ce3b789bea1f18051d2db4"
+          },
+          "position": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "a5d6dd37f1ff308ad73e234ac5c99fa3342089489178bac54ebd3451d49615fd"
+          },
+          "skinIndex": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "831e04501c773a94616a4ac8e80469ac6516841272ffd458f86ceff624c337ea"
+          },
+          "skinWeight": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "d52b337e750a3adad1a8df48d5b20d5163d5faa4c1a87c27edc0fa0d29ebd62a"
+          },
+          "uv": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "15f226a572330730e4cb0bcd335036b6fa4ace5cafc78e016310464337edcdca"
+          },
+          "uv1": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "087dba497954b71396176e15709b96eed1652aeb8bdd54a76c789e9e313517e0"
+          },
+          "indices": "089097d726d47d461b4d940a3400517e9d4cc3bbb8f520c9495614af1b93fa16"
+        },
+        "centre": [
+          -0.0031315460801124573,
+          1.5624079582534804,
+          0.04218100285498279
+        ],
+        "camera": [
+          3.3306690738754696e-16,
+          6.938893903907228e-18,
+          -1,
+          0,
+          -0.042000000000000086,
+          0.9991176106945568,
+          -6.938893903907228e-18,
+          0,
+          0.9991176106945567,
+          0.042000000000000086,
+          3.3306690738754696e-16,
+          0,
+          0.7961625424755331,
+          1.5960079582534805,
+          0.04218100285498284,
+          1
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9989003222914973,
+          -0.0468818228071185,
+          0,
+          0,
+          0.04688178079930616,
+          0.9989003645769189,
+          0,
+          0,
+          1.5145777779363472,
+          0.04400548424229105,
+          1
+        ],
+        "lights": [
+          {
+            "type": "DirectionalLight",
+            "color": [
+              1,
+              0.8879231178794776,
+              0.775822218312646
+            ],
+            "intensity": 2.6,
+            "position": [
+              1.2961625424755332,
+              2.1960079582534804,
+              0.24218100285498284
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "DirectionalLight",
+            "color": [
+              0.623960391667596,
+              0.7454042095350284,
+              1
+            ],
+            "intensity": 3.4,
+            "position": [
+              -1.0022491567746694,
+              2.4204079582534805,
+              0.042181002854982726
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "AmbientLight",
+            "color": [
+              0.13286832154414627,
+              0.16202937562896222,
+              0.21223075740342198
+            ],
+            "intensity": 0.55,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "target": null
+          }
+        ],
+        "clock": {
+          "draws": 45,
+          "frameId": 45,
+          "time": 0,
+          "deltaTime": 0
+        }
+      },
+      "baselineSha256": "c9572b17b717d343ebee877276c82eaa38d4297d07f5b02216ee7cf80d040283",
+      "bodySha256": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+      "maskSha256": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+      "arms": {
+        "baseline": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "c9572b17b717d343ebee877276c82eaa38d4297d07f5b02216ee7cf80d040283",
+          "changedHairPixels": 0,
+          "maskPixels": 67346,
+          "lumaP50": 0.1525702013477683,
+          "lumaP95": 0.557062771499157,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "no-normal": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "aa8dcfb67e2ae3e8b87130305b31a32799d786adaf2867053e10d0742cffe328",
+          "changedHairPixels": 48992,
+          "maskPixels": 67346,
+          "lumaP50": 0.15173647590726613,
+          "lumaP95": 0.5525545364737511,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0.011376993647129711,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "rough-one": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 1,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "ed7564df6b2367ca40f451f4beaccc4f6f2115907a3ed6f4a7b89e3583117dc3",
+          "changedHairPixels": 64296,
+          "maskPixels": 67346,
+          "lumaP50": 0.16151451454013585,
+          "lumaP95": 0.28658903232812877,
+          "lumaP99": 0.32913961802721026,
+          "meanAbsoluteLumaDifference": 0.0814651582224507,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "5cc8daa80587440b830ccb343ba5b2b3a50957baa79b9b51e0a516bcbf6169f1",
+          "changedHairPixels": 64889,
+          "maskPixels": 67346,
+          "lumaP50": 0.11108470829576253,
+          "lumaP95": 0.1614627498373389,
+          "lumaP99": 0.18218745502233505,
+          "meanAbsoluteLumaDifference": 0.09915396434063208,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert-no-normal": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "e420cad75bdad13d233941e6117bb875e32c4366551fcaae737a67a445e6765d",
+          "changedHairPixels": 64886,
+          "maskPixels": 67346,
+          "lumaP50": 0.11108470829576253,
+          "lumaP95": 0.1614627498373389,
+          "lumaP99": 0.18245490861684083,
+          "meanAbsoluteLumaDifference": 0.09949877489224082,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        }
+      },
+      "badCutoffChangedPixels": 7619,
+      "restoredChangedPixels": 0
+    },
+    "back": {
+      "baseline": {
+        "material": {
+          "type": "MeshStandardMaterial",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+          "alphaMap": null,
+          "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+          "normalScale": [
+            1,
+            -1
+          ],
+          "roughness": 0.3799999952316284,
+          "metalness": 0,
+          "side": 2,
+          "alphaTest": 0.5,
+          "opacity": 1,
+          "transparent": false,
+          "depthWrite": true,
+          "depthTest": true,
+          "alphaHash": false,
+          "alphaToCoverage": false,
+          "toneMapped": true
+        },
+        "geometry": {
+          "normal": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "58234ba8314891b8abe2f16c9375b6c2788dab7cf9ce3b789bea1f18051d2db4"
+          },
+          "position": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "a5d6dd37f1ff308ad73e234ac5c99fa3342089489178bac54ebd3451d49615fd"
+          },
+          "skinIndex": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "831e04501c773a94616a4ac8e80469ac6516841272ffd458f86ceff624c337ea"
+          },
+          "skinWeight": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "d52b337e750a3adad1a8df48d5b20d5163d5faa4c1a87c27edc0fa0d29ebd62a"
+          },
+          "uv": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "15f226a572330730e4cb0bcd335036b6fa4ace5cafc78e016310464337edcdca"
+          },
+          "uv1": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "087dba497954b71396176e15709b96eed1652aeb8bdd54a76c789e9e313517e0"
+          },
+          "indices": "089097d726d47d461b4d940a3400517e9d4cc3bbb8f520c9495614af1b93fa16"
+        },
+        "centre": [
+          -0.0031315460801124573,
+          1.5624079582534804,
+          0.04218100285498279
+        ],
+        "camera": [
+          -1,
+          7.703719777548943e-34,
+          -1.2227268034418595e-16,
+          0,
+          -8.559087624093024e-18,
+          0.9975469913743412,
+          0.07000000000000006,
+          0,
+          1.2197274440461925e-16,
+          0.07000000000000006,
+          -0.9975469913743411,
+          0,
+          -0.0031315460801123597,
+          1.6184079582534805,
+          -0.7558565902444901,
+          1
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9989003222914973,
+          -0.0468818228071185,
+          0,
+          0,
+          0.04688178079930616,
+          0.9989003645769189,
+          0,
+          0,
+          1.5145777779363472,
+          0.04400548424229105,
+          1
+        ],
+        "lights": [
+          {
+            "type": "DirectionalLight",
+            "color": [
+              1,
+              0.8879231178794776,
+              0.775822218312646
+            ],
+            "intensity": 2.6,
+            "position": [
+              0.49686845391988765,
+              2.2184079582534806,
+              -0.5558565902444901
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "DirectionalLight",
+            "color": [
+              0.623960391667596,
+              0.7454042095350284,
+              1
+            ],
+            "intensity": 3.4,
+            "position": [
+              -0.003131546080112579,
+              2.3924079582534805,
+              1.039727994229324
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "AmbientLight",
+            "color": [
+              0.13286832154414627,
+              0.16202937562896222,
+              0.21223075740342198
+            ],
+            "intensity": 0.55,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "target": null
+          }
+        ],
+        "clock": {
+          "draws": 66,
+          "frameId": 66,
+          "time": 0,
+          "deltaTime": 0
+        }
+      },
+      "baselineSha256": "a8405863dd7df0eec3ca0310f75fea8f2e7d427a8e4ccca944295b4e7e6b659c",
+      "bodySha256": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+      "maskSha256": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+      "arms": {
+        "baseline": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "a8405863dd7df0eec3ca0310f75fea8f2e7d427a8e4ccca944295b4e7e6b659c",
+          "changedHairPixels": 0,
+          "maskPixels": 86122,
+          "lumaP50": 0.11053412009328603,
+          "lumaP95": 0.44630353476405143,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "no-normal": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "bbdb78c4fd52aaaf7dd8c3595bfef2a465a685ff72d8ff686b4ffdac40e78273",
+          "changedHairPixels": 54852,
+          "maskPixels": 86122,
+          "lumaP50": 0.10946902211755513,
+          "lumaP95": 0.43872784678936,
+          "lumaP99": 1,
+          "meanAbsoluteLumaDifference": 0.013344794836967221,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "rough-one": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 1,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "dd458b818c280181f9f8fa954262e0440f02aaaeb1c76fb188f28d9080a2b426",
+          "changedHairPixels": 72967,
+          "maskPixels": 86122,
+          "lumaP50": 0.1337960848197341,
+          "lumaP95": 0.2784266798734665,
+          "lumaP99": 0.31907844215631487,
+          "meanAbsoluteLumaDifference": 0.059766220004377736,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "f5674efc2ebe14e430fa50aa4efa0f52fe13a4bfd3765bbd220e0dbe8fbf41b0",
+          "changedHairPixels": 73236,
+          "maskPixels": 86122,
+          "lumaP50": 0.07777725744768978,
+          "lumaP95": 0.145509025298059,
+          "lumaP99": 0.16820471021980046,
+          "meanAbsoluteLumaDifference": 0.06942029266982047,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert-no-normal": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "d1877f31ff0e32348f0469de0a172dcc23fa1af8d5dacc5f456656c720257a67",
+          "changedHairPixels": 73762,
+          "maskPixels": 86122,
+          "lumaP50": 0.07777725744768978,
+          "lumaP95": 0.145509025298059,
+          "lumaP99": 0.16705176911205052,
+          "meanAbsoluteLumaDifference": 0.07042874121267735,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        }
+      },
+      "badCutoffChangedPixels": 5271,
+      "restoredChangedPixels": 0
+    },
+    "top": {
+      "baseline": {
+        "material": {
+          "type": "MeshStandardMaterial",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+          "alphaMap": null,
+          "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+          "normalScale": [
+            1,
+            -1
+          ],
+          "roughness": 0.3799999952316284,
+          "metalness": 0,
+          "side": 2,
+          "alphaTest": 0.5,
+          "opacity": 1,
+          "transparent": false,
+          "depthWrite": true,
+          "depthTest": true,
+          "alphaHash": false,
+          "alphaToCoverage": false,
+          "toneMapped": true
+        },
+        "geometry": {
+          "normal": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "58234ba8314891b8abe2f16c9375b6c2788dab7cf9ce3b789bea1f18051d2db4"
+          },
+          "position": {
+            "count": 13708,
+            "itemSize": 3,
+            "hash": "a5d6dd37f1ff308ad73e234ac5c99fa3342089489178bac54ebd3451d49615fd"
+          },
+          "skinIndex": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "831e04501c773a94616a4ac8e80469ac6516841272ffd458f86ceff624c337ea"
+          },
+          "skinWeight": {
+            "count": 13708,
+            "itemSize": 4,
+            "hash": "d52b337e750a3adad1a8df48d5b20d5163d5faa4c1a87c27edc0fa0d29ebd62a"
+          },
+          "uv": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "15f226a572330730e4cb0bcd335036b6fa4ace5cafc78e016310464337edcdca"
+          },
+          "uv1": {
+            "count": 13708,
+            "itemSize": 2,
+            "hash": "087dba497954b71396176e15709b96eed1652aeb8bdd54a76c789e9e313517e0"
+          },
+          "indices": "089097d726d47d461b4d940a3400517e9d4cc3bbb8f520c9495614af1b93fa16"
+        },
+        "centre": [
+          -0.0031315460801124573,
+          1.5624079582534804,
+          0.04218100285498279
+        ],
+        "camera": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.4965641952456903,
+          -0.8679999999999999,
+          0,
+          0,
+          0.8679999999999999,
+          0.4965641952456903,
+          0,
+          -0.0031315460801124573,
+          2.1005679582534804,
+          0.3500508039073107,
+          1
+        ],
+        "head": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9989003222914973,
+          -0.0468818228071185,
+          0,
+          0,
+          0.04688178079930616,
+          0.9989003645769189,
+          0,
+          0,
+          1.5145777779363472,
+          0.04400548424229105,
+          1
+        ],
+        "lights": [
+          {
+            "type": "DirectionalLight",
+            "color": [
+              1,
+              0.8879231178794776,
+              0.775822218312646
+            ],
+            "intensity": 2.6,
+            "position": [
+              0.49686845391988754,
+              2.7005679582534805,
+              0.5500508039073106
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "DirectionalLight",
+            "color": [
+              0.623960391667596,
+              0.7454042095350284,
+              1
+            ],
+            "intensity": 3.4,
+            "position": [
+              -0.0031315460801124573,
+              1.5944079582534805,
+              -0.45438319239070746
+            ],
+            "target": [
+              -0.0031315460801124573,
+              1.5624079582534804,
+              0.04218100285498279
+            ]
+          },
+          {
+            "type": "AmbientLight",
+            "color": [
+              0.13286832154414627,
+              0.16202937562896222,
+              0.21223075740342198
+            ],
+            "intensity": 0.55,
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "target": null
+          }
+        ],
+        "clock": {
+          "draws": 87,
+          "frameId": 87,
+          "time": 0,
+          "deltaTime": 0
+        }
+      },
+      "baselineSha256": "aafe59747fb9afc8f7ebde6756e5326ea16338cfd7e1b830e588f7a5b772f181",
+      "bodySha256": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+      "maskSha256": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+      "arms": {
+        "baseline": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "aafe59747fb9afc8f7ebde6756e5326ea16338cfd7e1b830e588f7a5b772f181",
+          "changedHairPixels": 0,
+          "maskPixels": 138906,
+          "lumaP50": 0.14527765276283025,
+          "lumaP95": 0.4004470647573471,
+          "lumaP99": 0.596774925994873,
+          "meanAbsoluteLumaDifference": 0,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "no-normal": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 0.3799999952316284,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "a3d73bb4c5c605fe3ae0f015d063a5b3ee9bea3f74204db46baaa577d2ba537e",
+          "changedHairPixels": 120891,
+          "maskPixels": 138906,
+          "lumaP50": 0.1469811820730567,
+          "lumaP95": 0.38382588927745814,
+          "lumaP99": 0.5197121791541576,
+          "meanAbsoluteLumaDifference": 0.02681200330222427,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "rough-one": {
+          "material": {
+            "type": "MeshStandardMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": 1,
+            "metalness": 0,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "4c525d5e761342e1e4fe9f2241b010962fb9cdc3312bb6e53c0dce3536c9224d",
+          "changedHairPixels": 135065,
+          "maskPixels": 138906,
+          "lumaP50": 0.15704235794395208,
+          "lumaP95": 0.209474512219429,
+          "lumaP99": 0.2451035307794809,
+          "meanAbsoluteLumaDifference": 0.05358730602103895,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": "e470973a-8810-40f1-a0d6-e26509dab46e",
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "2391604babed56d3ab2127f33f13dc01ac8819aef629c09ad6a878069172711f",
+          "changedHairPixels": 136420,
+          "maskPixels": 138906,
+          "lumaP50": 0.10998353189080953,
+          "lumaP95": 0.16174588707536458,
+          "lumaP99": 0.18245490861684083,
+          "meanAbsoluteLumaDifference": 0.06543488963291834,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        },
+        "lambert-no-normal": {
+          "material": {
+            "type": "MeshLambertNodeMaterial",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "map": "eb216cb2-fffd-4853-b514-a923f5eb06ce",
+            "alphaMap": null,
+            "normalMap": null,
+            "normalScale": [
+              1,
+              -1
+            ],
+            "roughness": null,
+            "metalness": null,
+            "side": 2,
+            "alphaTest": 0.5,
+            "opacity": 1,
+            "transparent": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "alphaHash": false,
+            "alphaToCoverage": false,
+            "toneMapped": true
+          },
+          "imageSha256": "d22894c3ab394f81fd411875737ba6704abe136a27abbf3faa610b26d08e44a7",
+          "changedHairPixels": 136402,
+          "maskPixels": 138906,
+          "lumaP50": 0.11108470829576253,
+          "lumaP95": 0.16174588707536458,
+          "lumaP99": 0.18245490861684083,
+          "meanAbsoluteLumaDifference": 0.0658428157975143,
+          "bodyChangedPixels": 0,
+          "maskChangedPixels": 0
+        }
+      },
+      "badCutoffChangedPixels": 12346,
+      "restoredChangedPixels": 0
+    }
+  },
+  "errors": [],
+  "hud": "Renderer            : WebGPU\nGroom               : crop01 g050 — Men's short back-and-sides with length on top, faded through the cut field.\nFigure              : figure_g050.glb\n\ngeometry            : 13,708 verts, 13,416 triangles\nmaterial            : MASK, cutoff 0.5, double sided\nskinned to          : head\natlas               : 1024², 8 strips, cap strip 0\n\n!! THIS IS NOT THE HAIR SHADER. Punch-list 3.5 owns the\nanisotropic strand model and runs after this. What is drawn here is a plain\nPrincipled material with the generated albedo + normal sheets, so that the\nGEOMETRY can be judged without a shader in front of it.\n\nWhat to look for, in the order it goes wrong:\n  3/4    does a STRAIGHT line cross the brow, the lid or the cheekbone? That is a\n         card's own quad edge.\n  side   is the silhouette hair, or a helmet with ribbon edges? And does the mass\n         separate into LOCKS, or is every card going its own way? A fan reads as a mop.\n  top    does the scalp show between the cards? That is what the cap is for.\n  front  is the parting readable, and is hair across the EYES? A groom may cross the\n         temple and must not cross an eye — this page is a face.\n  front  and where the SIDE CURTAIN crosses the cheek, can you still read the eyebrow\n         arc, the lid crease, the nostril wing or the jawline THROUGH it? A curtain one\n         to two cards deep over skin is a window; hair_opacity.mjs C4 is that number.\n  front  and zoom the cheek where a card lies over skin: do the strand stripes read as\n         STRIPES, or as an axis-aligned dot pattern? That is the coverage decision, not\n         the atlas — hair_tips.mjs measures it and REQ-073 owns the fix.\n  back   do the ends land on a CUT LINE, or scatter over a hand's width? Scattered ends\n         are what three separate observers called \"messy\", \"stringy\" and \"unwashed\".\n\nThe numbers are gated elsewhere and none of them can answer any of the above:\n  node tools/figure-pipeline/verify_glb.mjs assets/hair/bob01/g050.glb\n",
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "description": ""
+  },
+  "controlsPassed": true
+}

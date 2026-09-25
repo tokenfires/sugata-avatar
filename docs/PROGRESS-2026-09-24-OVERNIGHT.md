@@ -87,13 +87,68 @@ The four existing red gates remain HairMaterial, GLB verification, opacity and t
 geometry was promoted during the afternoon/evening work. The runtime suite's earlier full run
 remains historical; use the focused evidence recorded for each accepted repair.
 
+## Second experiment: material attribution on fixed geometry
+
+Starting from clean `a0f8ede`, a five-arm, five-view actual Apple/Metal WebGPU comparison keeps
+the shipping crop01/g050 bytes fixed:
+`de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a`.
+The arms are its embedded Principled/PBR material (roughness 0.38), that material without the
+normal map, roughness 1 with the normal map retained, diffuse-only Lambert with the normal map,
+and Lambert without it. All five are **diagnostics, not proposed shipping materials**.
+
+Removing the normal map leaves the broad white highlights and flat plates. Roughness 1 greatly
+reduces the white highlights but leaves gray, overlapping plates. Lambert removes the foil-like
+shine while preserving visibly broad, angular layers and the disconnected fringe/nape. The
+normal map supplies local strand detail; it is not the main cause of the large white patches in
+this fixture. A matte material does not repair the groom's geometry or qualify its appearance.
+
+| View | Baseline p95 | No normal map p95 | Roughness 1 p95 | Lambert p95 |
+| --- | --- | --- | --- | --- |
+| Front | 0.929 | 0.956 | 0.299 | 0.170 |
+| Three-quarter | 0.756 | 0.734 | 0.296 | 0.163 |
+| Side | 0.557 | 0.553 | 0.287 | 0.161 |
+| Back | 0.446 | 0.439 | 0.278 | 0.146 |
+| Top | 0.400 | 0.384 | 0.209 | 0.162 |
+
+These are weighted **sRGB code values** over fully covered visible-hair mask pixels, not linear
+radiance, reference-quality scores or new acceptance thresholds. The Lambert arm changes the
+lighting model, including its diffuse energy allocation; subtracting it from PBR is not an exact
+measurement of PBR's specular term. Local Three source explicitly selects a non-specular Lambert
+lighting model for this arm. Its normal-map-free companion leaves the same broad geometric
+defects and changes only small details.
+
+The fixture checks all geometry attribute/index hashes, camera/head matrices, light parameters,
+albedo/color and cutout settings. Across 25 arm/view combinations, independently rendered
+body-only images and white hair masks are pixel-identical. Each view's original PBR image is
+reproduced exactly after restoring materials. A zero-cutoff defect changes 9,247 / 9,119 / 7,619 /
+5,271 / 12,346 mask pixels across the five views; removing the hair leaves an entirely black
+mask. All four ablations actually change rendered hair. No browser or shader errors occurred.
+Adding explicit parameter assertions prompted one serial repeat: all **100 captured images**
+match exactly, and the five baseline plates also match the preceding checkpoint byte-for-byte.
+
+This confirms an important scope boundary already stated in `HairMaterial.js`: the isotropic
+PBR preview is useful for geometry inspection but cannot establish runtime hair appearance.
+The runtime shader derives its lighting from fibre directions and substitutes a view-facing
+normal; it does not use this generic normal-map/GGX response. `Avatar` currently supports bob01
+and bob02, while crop01 remains an experimental manifest style. The present comparison therefore
+does **not** clear any of the four red gates or validate public Avatar appearance.
+
+The [material-attribution evidence](evidence/hair-2026-09-24/material-attribution/) contains
+the isolated route patch, reports, replay instructions, source hashes and all 25 ordinary plates.
+Production code, shipped assets, accepted calibrations and thresholds remain unchanged. Script
+syntax and the actual GPU instrument's controls pass; no runtime suite, geometry verifier,
+motion or performance test was repeated because no implementation or geometry changed. Both
+GPU capture jobs have finished. The read-only Blender mount remains available overnight.
+
 ## Next bounded step
 
-Hold the shipping geometry fixed and separate the broad-card shape from its normal-map and
-specular appearance before another geometry recipe. On identical crop01/g050 rest views, compare
-the shipped PBR material with isolated no-normal-map, high-roughness and diffuse-only diagnostic
-arms. Preserve alpha/cutout, camera, body and lighting; require restoration to reproduce the
-baseline and an independent body-only control. These arms are attribution controls, not proposed
-shipping materials. Use the result to choose one targeted generator or material experiment;
-continue to require geometry, actual GPU and visual qualification before promotion. Check the
-morning deadline before starting each substantial step.
+Return the next appearance/coverage comparison to **supported bob01/g050 and the real runtime
+HairMaterial**. The existing `alive.html` switches already expose `hairbsdf=0/1` and
+`hairoit=stochastic/cutout/blend`. Inspect those paths and use identical camera/light/pose and
+converged frames to separate material appearance from coverage noise. The existing
+`hair_tips.mjs --arms stochastic,cutout,blend --steps 24` provides a bounded starting comparison;
+retain all original tip/cheek thresholds and pair any proposed change with the independent
+opacity controls so reduced speckle cannot be bought with a more transparent curtain. The
+sorted-blend arm is a diagnostic floor, not an approved transparency implementation. Preserve
+the calibrated bob geometry and do not promote a change based only on these crop PBR plates.
+Check the morning deadline before starting another substantial step.

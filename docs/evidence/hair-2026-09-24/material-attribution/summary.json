@@ -1,0 +1,293 @@
+{
+  "assetSha256": "de179aea72c55dfc1e0c8a5ced18134277583253fa29ae068f6654972aebe24a",
+  "allRepeatedImagesMatch": 100,
+  "previousShippingViewsMatch": 5,
+  "metric": "Weighted sRGB-encoded channel values (0.2126R+0.7152G+0.0722B), full-white visible-hair mask pixels; diagnostic, not linear radiance or an acceptance threshold",
+  "rows": [
+    {
+      "view": "front",
+      "arm": "baseline",
+      "pixels": 35700,
+      "p95CodeValue": 236.96620107489827,
+      "meanAbsoluteDifferenceCodeValue": 0
+    },
+    {
+      "view": "front",
+      "arm": "no-normal",
+      "pixels": 35700,
+      "p95CodeValue": 243.75080067050456,
+      "meanAbsoluteDifferenceCodeValue": 4.23337782835606
+    },
+    {
+      "view": "front",
+      "arm": "rough-one",
+      "pixels": 35700,
+      "p95CodeValue": 76.35180304867029,
+      "meanAbsoluteDifferenceCodeValue": 24.717333266807476
+    },
+    {
+      "view": "front",
+      "arm": "lambert",
+      "pixels": 35700,
+      "p95CodeValue": 43.38560107664019,
+      "meanAbsoluteDifferenceCodeValue": 32.05124975844075
+    },
+    {
+      "view": "front",
+      "arm": "lambert-no-normal",
+      "pixels": 35700,
+      "p95CodeValue": 43.38560107664019,
+      "meanAbsoluteDifferenceCodeValue": 32.10605214634097
+    },
+    {
+      "view": "three-quarter",
+      "arm": "baseline",
+      "pixels": 44750,
+      "p95CodeValue": 192.67900371462105,
+      "meanAbsoluteDifferenceCodeValue": 0
+    },
+    {
+      "view": "three-quarter",
+      "arm": "no-normal",
+      "pixels": 44750,
+      "p95CodeValue": 187.18160404229164,
+      "meanAbsoluteDifferenceCodeValue": 3.0852996798119663
+    },
+    {
+      "view": "three-quarter",
+      "arm": "rough-one",
+      "pixels": 44750,
+      "p95CodeValue": 75.47900310069323,
+      "meanAbsoluteDifferenceCodeValue": 22.457510530569547
+    },
+    {
+      "view": "three-quarter",
+      "arm": "lambert",
+      "pixels": 44750,
+      "p95CodeValue": 41.45780119154602,
+      "meanAbsoluteDifferenceCodeValue": 28.41512247840211
+    },
+    {
+      "view": "three-quarter",
+      "arm": "lambert-no-normal",
+      "pixels": 44750,
+      "p95CodeValue": 41.45780119154602,
+      "meanAbsoluteDifferenceCodeValue": 28.454344562901454
+    },
+    {
+      "view": "side",
+      "arm": "baseline",
+      "pixels": 67346,
+      "p95CodeValue": 142.05100673228503,
+      "meanAbsoluteDifferenceCodeValue": 0
+    },
+    {
+      "view": "side",
+      "arm": "no-normal",
+      "pixels": 67346,
+      "p95CodeValue": 140.9014068008065,
+      "meanAbsoluteDifferenceCodeValue": 2.9011333800180763
+    },
+    {
+      "view": "side",
+      "arm": "rough-one",
+      "pixels": 67346,
+      "p95CodeValue": 73.08020324367284,
+      "meanAbsoluteDifferenceCodeValue": 20.77361534672493
+    },
+    {
+      "view": "side",
+      "arm": "lambert",
+      "pixels": 67346,
+      "p95CodeValue": 41.17300120852142,
+      "meanAbsoluteDifferenceCodeValue": 25.284260906861178
+    },
+    {
+      "view": "side",
+      "arm": "lambert-no-normal",
+      "pixels": 67346,
+      "p95CodeValue": 41.17300120852142,
+      "meanAbsoluteDifferenceCodeValue": 25.37218759752141
+    },
+    {
+      "view": "back",
+      "arm": "baseline",
+      "pixels": 86122,
+      "p95CodeValue": 113.80740136483311,
+      "meanAbsoluteDifferenceCodeValue": 0
+    },
+    {
+      "view": "back",
+      "arm": "no-normal",
+      "pixels": 86122,
+      "p95CodeValue": 111.8756009312868,
+      "meanAbsoluteDifferenceCodeValue": 3.4029226834266413
+    },
+    {
+      "view": "back",
+      "arm": "rough-one",
+      "pixels": 86122,
+      "p95CodeValue": 70.99880336773396,
+      "meanAbsoluteDifferenceCodeValue": 15.240386101116323
+    },
+    {
+      "view": "back",
+      "arm": "lambert",
+      "pixels": 86122,
+      "p95CodeValue": 37.104801451005045,
+      "meanAbsoluteDifferenceCodeValue": 17.70217463080422
+    },
+    {
+      "view": "back",
+      "arm": "lambert-no-normal",
+      "pixels": 86122,
+      "p95CodeValue": 37.104801451005045,
+      "meanAbsoluteDifferenceCodeValue": 17.959329009232725
+    },
+    {
+      "view": "top",
+      "arm": "baseline",
+      "pixels": 138906,
+      "p95CodeValue": 102.11400151312351,
+      "meanAbsoluteDifferenceCodeValue": 0
+    },
+    {
+      "view": "top",
+      "arm": "no-normal",
+      "pixels": 138906,
+      "p95CodeValue": 97.87560176575182,
+      "meanAbsoluteDifferenceCodeValue": 6.8370608420671894
+    },
+    {
+      "view": "top",
+      "arm": "rough-one",
+      "pixels": 138906,
+      "p95CodeValue": 53.416000615954395,
+      "meanAbsoluteDifferenceCodeValue": 13.664763035364933
+    },
+    {
+      "view": "top",
+      "arm": "lambert",
+      "pixels": 138906,
+      "p95CodeValue": 41.24520120421797,
+      "meanAbsoluteDifferenceCodeValue": 16.685896856394177
+    },
+    {
+      "view": "top",
+      "arm": "lambert-no-normal",
+      "pixels": 138906,
+      "p95CodeValue": 41.24520120421797,
+      "meanAbsoluteDifferenceCodeValue": 16.78991802836615
+    }
+  ],
+  "images": {
+    "back-bad-cutoff.png": "3c1391f215e11b5391aba9f6725a021eda30763473570482c645e0c834d08306",
+    "back-baseline-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-baseline-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-baseline.png": "a8405863dd7df0eec3ca0310f75fea8f2e7d427a8e4ccca944295b4e7e6b659c",
+    "back-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-empty.png": "730f1c335df79fec4edf5465d31fa71b297c04d69de08219274da7f7413a2db1",
+    "back-lambert-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-lambert-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-lambert-no-normal-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-lambert-no-normal-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-lambert-no-normal.png": "d1877f31ff0e32348f0469de0a172dcc23fa1af8d5dacc5f456656c720257a67",
+    "back-lambert.png": "f5674efc2ebe14e430fa50aa4efa0f52fe13a4bfd3765bbd220e0dbe8fbf41b0",
+    "back-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-no-normal-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-no-normal-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-no-normal.png": "bbdb78c4fd52aaaf7dd8c3595bfef2a465a685ff72d8ff686b4ffdac40e78273",
+    "back-restored.png": "a8405863dd7df0eec3ca0310f75fea8f2e7d427a8e4ccca944295b4e7e6b659c",
+    "back-rough-one-body.png": "ff4e36dc7f5c8cad8b3bda5c6c936214050ec73a448a46bc6ab1a379b19bd4e1",
+    "back-rough-one-mask.png": "c2f823eeac3ea1cf17ef61a7fc01617073ee45a9487985e338a08b098bebafb4",
+    "back-rough-one.png": "dd458b818c280181f9f8fa954262e0440f02aaaeb1c76fb188f28d9080a2b426",
+    "front-bad-cutoff.png": "da25fabbdb41daa48863bbd4467a7869bf17d102f6d078c1f3e0f572c174a3ef",
+    "front-baseline-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-baseline-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-baseline.png": "bbb607e74c9126e57ca6ad04c9754f80cb35dad2c6d4dd661608e989f43bbd4e",
+    "front-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-empty.png": "730f1c335df79fec4edf5465d31fa71b297c04d69de08219274da7f7413a2db1",
+    "front-lambert-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-lambert-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-lambert-no-normal-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-lambert-no-normal-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-lambert-no-normal.png": "0fa988b45e098159b6721f6a29ce5516078217c0785dbd458ef959e3df5603b8",
+    "front-lambert.png": "6f43d08b4e4fdd2fae6f4c68cfac7fb8b561dec096d414d8bbe9d552d19148cd",
+    "front-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-no-normal-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-no-normal-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-no-normal.png": "08f9af1a759885958732fbf424da39bb3c72be128d03181f2677d293c07598bd",
+    "front-restored.png": "bbb607e74c9126e57ca6ad04c9754f80cb35dad2c6d4dd661608e989f43bbd4e",
+    "front-rough-one-body.png": "6bd9800c4526122fd09144149e76b87d0645970a7e04bb7c211a080c02f84abb",
+    "front-rough-one-mask.png": "cdaca80e82a32e10e98f3fa7265a9b86bd48801ed37be2386ac289a70aacc747",
+    "front-rough-one.png": "b0fb05cabae0625a72108aa49dd3166ed5b40e0a6f42fd912324bcae3ca06c60",
+    "side-bad-cutoff.png": "6211c9657653d78f7f4af82378d80c03d4357acfe24fb98de072386d2d15873d",
+    "side-baseline-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-baseline-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-baseline.png": "c9572b17b717d343ebee877276c82eaa38d4297d07f5b02216ee7cf80d040283",
+    "side-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-empty.png": "730f1c335df79fec4edf5465d31fa71b297c04d69de08219274da7f7413a2db1",
+    "side-lambert-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-lambert-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-lambert-no-normal-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-lambert-no-normal-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-lambert-no-normal.png": "e420cad75bdad13d233941e6117bb875e32c4366551fcaae737a67a445e6765d",
+    "side-lambert.png": "5cc8daa80587440b830ccb343ba5b2b3a50957baa79b9b51e0a516bcbf6169f1",
+    "side-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-no-normal-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-no-normal-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-no-normal.png": "aa8dcfb67e2ae3e8b87130305b31a32799d786adaf2867053e10d0742cffe328",
+    "side-restored.png": "c9572b17b717d343ebee877276c82eaa38d4297d07f5b02216ee7cf80d040283",
+    "side-rough-one-body.png": "04c6abe28cc28a8e20032cef32b7c2cb0f6daf9d5bcbfa21ef9b4844db6c0f8b",
+    "side-rough-one-mask.png": "e74dcf2291548e8b5071f8db9b56eca44bf75712bb7cb4b2bf127505a1f77553",
+    "side-rough-one.png": "ed7564df6b2367ca40f451f4beaccc4f6f2115907a3ed6f4a7b89e3583117dc3",
+    "three-quarter-bad-cutoff.png": "ecd10b98bb16fa959c6f9184bf284b297e4003cddfcc5e4a84fcd4db95f17f55",
+    "three-quarter-baseline-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-baseline-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-baseline.png": "bd0c5fb3a8ef8dc87d9fa8b9e6ba13e74a14542cfbd698aeda3f485fb129f918",
+    "three-quarter-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-empty.png": "730f1c335df79fec4edf5465d31fa71b297c04d69de08219274da7f7413a2db1",
+    "three-quarter-lambert-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-lambert-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-lambert-no-normal-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-lambert-no-normal-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-lambert-no-normal.png": "aa35d29cf4d5dec34449e06454a63aef8da7100ace8b2bee0ac9936e3cc9dbc5",
+    "three-quarter-lambert.png": "5314fe003c888cb7a0a6b2d4e1fd142b048d7ba75fb7799105c34ccc8d9b611c",
+    "three-quarter-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-no-normal-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-no-normal-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-no-normal.png": "4dfe90eff47d83fef05479147754a6b836d46b88f735ee4f3548c232e54b4e61",
+    "three-quarter-restored.png": "bd0c5fb3a8ef8dc87d9fa8b9e6ba13e74a14542cfbd698aeda3f485fb129f918",
+    "three-quarter-rough-one-body.png": "1361c3c5c611c51681928f3ad9008149b7d98b4db10b1768d87dace09887f5fd",
+    "three-quarter-rough-one-mask.png": "04d73245c93237ff1e672397284f80b4dd43065ede5ead579968b08b05650b16",
+    "three-quarter-rough-one.png": "9f4b0d3beb9a57dd0cac09cc0c3f7c4a29c769975049b95e1bb5a1ef122c98b1",
+    "top-bad-cutoff.png": "032f725c568031ece20cadaefc3b61469eb0bf731cea029232a8abf2ecf9c7b8",
+    "top-baseline-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-baseline-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-baseline.png": "aafe59747fb9afc8f7ebde6756e5326ea16338cfd7e1b830e588f7a5b772f181",
+    "top-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-empty.png": "730f1c335df79fec4edf5465d31fa71b297c04d69de08219274da7f7413a2db1",
+    "top-lambert-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-lambert-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-lambert-no-normal-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-lambert-no-normal-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-lambert-no-normal.png": "d22894c3ab394f81fd411875737ba6704abe136a27abbf3faa610b26d08e44a7",
+    "top-lambert.png": "2391604babed56d3ab2127f33f13dc01ac8819aef629c09ad6a878069172711f",
+    "top-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-no-normal-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-no-normal-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-no-normal.png": "a3d73bb4c5c605fe3ae0f015d063a5b3ee9bea3f74204db46baaa577d2ba537e",
+    "top-restored.png": "aafe59747fb9afc8f7ebde6756e5326ea16338cfd7e1b830e588f7a5b772f181",
+    "top-rough-one-body.png": "254715fdcb1b0aef4450fce21a664d37f4f9e0f735dcfed33ecccaf6a4be57b3",
+    "top-rough-one-mask.png": "a0290fd9edb3989f3ef86142969588ae3b499b722b3fad2601822be06f09c995",
+    "top-rough-one.png": "4c525d5e761342e1e4fe9f2241b010962fb9cdc3312bb6e53c0dce3536c9224d"
+  },
+  "sources": {
+    "packages/testbed/src/hair.js": "fd9dffa7fe03baf59979236e5eac9050af68b6b09491c0639c1d85fcbbbed6dd",
+    "packages/core/src/material/HairMaterial.js": "54578c457c3445631b54db3e84699c26ebfb473a9fb2f7608573166330e39f91",
+    "packages/core/src/Avatar.js": "9e44e981d48a835b57b0badf4b2e675f2b10fc64da8bbfcd316e3201e586407c",
+    "node_modules/three/src/materials/nodes/MeshLambertNodeMaterial.js": "9c73fda2f2129581b7f3198f60ebe4c7919e64b36cd9ae0d5366a9571bed8263",
+    "node_modules/three/src/nodes/functions/PhongLightingModel.js": "0ee1088014a42a67ea78f45e0305434748a27795785f58b6ea4bfc3f9d3b236e",
+    "node_modules/three/src/nodes/functions/PhysicalLightingModel.js": "54d0110e6433551a4c5dda746c2ff665fba1c260c98c04bfeb044736a01154f8"
+  }
+}
